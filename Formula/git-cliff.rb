@@ -9,6 +9,7 @@ class GitCliff < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "520d602d1ebe507fd6af954eea3fce839da952ca62efa173eb8d03a254b9cffa"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a42d519e73b38680943ac5ad8a857ca1bb528f548f3acd0f72a0a96e079cce52"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8fcc0775ca9c464e3911ed5c5e37f3556c855a76f89e0df25644f6b3d92b327a"
+    sha256 cellar: :any_skip_relocation, ventura:        "f9e8b8b1244bc2f30e75d893c5a50206bbbb1b025981d2c9a8dc87dd421c79e7"
     sha256 cellar: :any_skip_relocation, monterey:       "4c3609864b7adb01b483c23a5a299048f72b9635b21dc4b593ce80e0720e435c"
     sha256 cellar: :any_skip_relocation, big_sur:        "c39b13006dac7ad2ecb330165c8c9230c117495455202467559d47cf2e3007cf"
     sha256 cellar: :any_skip_relocation, catalina:       "c60405d0c481be31f6291c9831aca690fc90f1baf61532fb9e894299b358c36d"
