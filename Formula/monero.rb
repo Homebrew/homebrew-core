@@ -15,6 +15,7 @@ class Monero < Formula
     sha256 cellar: :any,                 arm64_ventura:  "3c0c8c71557e292cb8d7b28c136b9c0ae032d10cb1fc8c4d4a148a759c394635"
     sha256 cellar: :any,                 arm64_monterey: "763a62099afbbd84d9eaf1961287478e4dc6b08a2e4da5f9eca30013af99ab60"
     sha256 cellar: :any,                 arm64_big_sur:  "a0f5d0ae695f459b68df4c70638b2f374882390f14942cca3f34e4e46b99ca82"
+    sha256 cellar: :any,                 ventura:        "28d7924beed98b4129b897e5531b6b2c493c0254f4c88b12884b5441c8798f8e"
     sha256 cellar: :any,                 monterey:       "ae67c3ef1c44be10478a91af4e0b1968750ce89a0a6e3d55f7feb067e3d7754f"
     sha256 cellar: :any,                 big_sur:        "261faa3cc969eb569b20f497b6d4ee65048c1d955b28e7482167807f01c4f5be"
     sha256 cellar: :any,                 catalina:       "1d69e5d5fca688f9128257d57e4209b0a97b017445aad56343fe2103f781103c"
