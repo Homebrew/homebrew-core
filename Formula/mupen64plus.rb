@@ -12,6 +12,7 @@ class Mupen64plus < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 ventura:      "b8ea3824da04307420df3869d8d11d7658335f4c9543d06472fc764dc779568c"
     sha256 cellar: :any,                 monterey:     "2eb73488a405767005c7bfa38827477a3af3750f6a0b89ecdf83426c0c5569bf"
     sha256 cellar: :any,                 big_sur:      "609e68da8f0f86b81330a41b2fd8e8b38b3c1ac6e3523137ebf7b8b2036bdc70"
     sha256 cellar: :any,                 catalina:     "f12ab0580cb949f04b44fb14d9607b1fd6dfe707b1eeec67e7c6429a49f48115"
