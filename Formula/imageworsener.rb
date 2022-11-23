@@ -2,11 +2,10 @@ class Imageworsener < Formula
   desc "Utility and library for image scaling and processing"
   homepage "https://entropymine.com/imageworsener/"
   license "MIT"
-  revision 1
 
   stable do
-    url "https://entropymine.com/imageworsener/imageworsener-1.3.4.tar.gz"
-    sha256 "bae0b2bb35e565133dd804a6f4af303992527f53068cd67b03e5d9961d8512b6"
+    url "https://entropymine.com/imageworsener/imageworsener-1.3.5.tar.gz"
+    sha256 "a7fbb65c5ade67d9ebc32e52c58988a4f986bacc008c9021fe36b598466d5c8d"
 
     # Fix -flat_namespace being used on Big Sur and later.
     patch do
