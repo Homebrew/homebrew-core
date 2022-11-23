@@ -9,6 +9,7 @@ class DhallYaml < Formula
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8103d97ef51d7a331d4c15b9073e3847e7f9bd3e57a093b6476ebca10b550a99"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f85fdec06f8fe38a8b6da9453651f9c07f49889ecaa9c30a31e64598e33774f8"
+    sha256 cellar: :any_skip_relocation, ventura:        "d7874a05f1a88499aa8377c693343ea922df26965f6e18b923fb2d5dc363ff20"
     sha256 cellar: :any_skip_relocation, monterey:       "4e970a26b036b0b0f34412c1aa49b5e31e6b5c46e30465dac5ca9c7e332d13ff"
     sha256 cellar: :any_skip_relocation, big_sur:        "cebe8b981ee53551733d158dffd23f483b0dcd108fec9f6078b6add6eb082600"
     sha256 cellar: :any_skip_relocation, catalina:       "1995b281bf300de48db36c0ad04e4f69cf10ea184d4001e8fa1e07ec76a5fa80"
