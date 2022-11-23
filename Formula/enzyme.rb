@@ -10,6 +10,7 @@ class Enzyme < Formula
     sha256 cellar: :any,                 arm64_ventura:  "61f3720aadbdcbea258e6f64bc124f75962e83f47fc59822859b13306e491bed"
     sha256 cellar: :any,                 arm64_monterey: "81bdf2d213f5797c805f60426b1ca7dde22e45d5fbb3c57486ada1134d79a07d"
     sha256 cellar: :any,                 arm64_big_sur:  "f525a56085cb681cf3d8136f6209ac7027f435c7a0f4cdbbba921a9248b97685"
+    sha256 cellar: :any,                 ventura:        "3f17c117e49e263e00b829d76a07b6b38129079820ce85f38fbce51623a42e1e"
     sha256 cellar: :any,                 monterey:       "2bf4060f9fb792a81124c93c82ed18e99deb3f5def937cd24cad926dbf35ebd2"
     sha256 cellar: :any,                 big_sur:        "2bc027795b081dfb8187ab23abdcd94b579e95539a31789d3e368567e20aa695"
     sha256 cellar: :any,                 catalina:       "1124dc9ed328298b794fe526ba8ec76a770c71dfc45da69e044a03cf589e49fa"
