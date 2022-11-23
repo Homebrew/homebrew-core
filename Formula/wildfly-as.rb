@@ -14,6 +14,7 @@ class WildflyAs < Formula
     sha256 cellar: :any, arm64_ventura:  "1e375cfa3d0aecebb52e4e8b955b31842add60b5392b6fcdbeb5d83f7f14a589"
     sha256 cellar: :any, arm64_monterey: "1e375cfa3d0aecebb52e4e8b955b31842add60b5392b6fcdbeb5d83f7f14a589"
     sha256 cellar: :any, arm64_big_sur:  "1e375cfa3d0aecebb52e4e8b955b31842add60b5392b6fcdbeb5d83f7f14a589"
+    sha256 cellar: :any, ventura:        "4c3d16d85d5b54cb8eb1f4b5864da9655b379af6dbb65257fe435b78dff35022"
     sha256 cellar: :any, monterey:       "4c3d16d85d5b54cb8eb1f4b5864da9655b379af6dbb65257fe435b78dff35022"
     sha256 cellar: :any, big_sur:        "4c3d16d85d5b54cb8eb1f4b5864da9655b379af6dbb65257fe435b78dff35022"
     sha256 cellar: :any, catalina:       "4c3d16d85d5b54cb8eb1f4b5864da9655b379af6dbb65257fe435b78dff35022"
