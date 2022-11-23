@@ -9,14 +9,14 @@ class Mitmproxy < Formula
   head "https://github.com/mitmproxy/mitmproxy.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "b0c074212d152e98d9f89724b6797721dcc1359f7f37147ee82953c0a3837d82"
-    sha256 cellar: :any,                 arm64_monterey: "c45bdc993ba38119396a5d35aba17cb367371c869e3eefb16d94651cd1111aab"
-    sha256 cellar: :any,                 arm64_big_sur:  "f41edfb745c049a82a805586cf95d8a9281adf25a8059f2f3d3710eb629513fd"
-    sha256 cellar: :any,                 ventura:        "19a18d9932f81c1c938643451ea94881987c7e374631d6a64f60b020009b1387"
-    sha256 cellar: :any,                 monterey:       "e735158361a098f037e0c3c7da9d30f7c37ce1220f546c2e346f0c056d5076fe"
-    sha256 cellar: :any,                 big_sur:        "e881ce9f1faed790bbe5150ffebd1148ae02d7ab93415b7b80fdf8818734abfb"
-    sha256 cellar: :any,                 catalina:       "c04eef96f1e2bb1a57e7fc536b51af61a642779535b78778dd93a125e06f25e2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aa23a62240421a5e002e613f94acaa53dc8e1b1e4fcf0bb4e4ad70873cceabad"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "98d9f541706eda4c06ed24f0854c27575dc7f55caa1fcabc460bb02fc96b1252"
+    sha256 cellar: :any,                 arm64_monterey: "6bab66d66035f6779694d6ad0f9cb271fee7f87dc8b802484e2b582251f18c0f"
+    sha256 cellar: :any,                 arm64_big_sur:  "3eb503970b3a17bb3ccdcc4fbd618534061be99cabfc90039d08be4ec0c31501"
+    sha256 cellar: :any,                 monterey:       "f158e6ca720aed4936b6487c95d2ba4fb3ecd5d6107005e3b2deee9d4039c1b9"
+    sha256 cellar: :any,                 big_sur:        "cd450032bd1ee71af40a837cb0a81f2fba08c241106c99269b0503b79bb6ba88"
+    sha256 cellar: :any,                 catalina:       "b2919d57ba80c0198d92de70e6e2d42f6a668a8e29db58bbef7d309addc18318"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a2465de264be58a8d000209158ad22e69d7e69228a3800a836143c6fcc4e6262"
   end
 
   depends_on "rust" => :build # for cryptography
