@@ -19,6 +19,7 @@ class Restund < Formula
     sha256 arm64_ventura:  "8be5a6ff13e1c9810bf9bdccbaf64fe091ef9ca98164f615656536d1d83b2f5f"
     sha256 arm64_monterey: "8ba54062036994ee059c7c97f812d2b9e2c5dd371c55f4395e99d74871cae634"
     sha256 arm64_big_sur:  "59ab561a73c563a5c316779e7ba1caa849c2d7f65ac9c19af0ff6f38d299b5ff"
+    sha256 ventura:        "1a27045ea0984a66dcb509c450d5515e9a42cf028f4425d9b75c2abec753d4e3"
     sha256 monterey:       "dc77aebcdfa08f395f6e359bbf8d06419172ae9aa60ae4946a5e11a63d2e407f"
     sha256 big_sur:        "27099608a5892cd0915dc19e2df7ebb663a9f16e4c84143f8b76fff9e463c2a4"
     sha256 catalina:       "1fcff615a8988cf26177e67f111d41b5b3a69e1814cfe5dd4bbfa06bb1de4977"
