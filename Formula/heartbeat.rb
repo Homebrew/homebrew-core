@@ -11,6 +11,7 @@ class Heartbeat < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c7c2813e08476efe1a30b1f197f57fb34ac42ca89f63a29621f965891aa55597"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0ef0ef548710f10ae94e944e4dc6ab73540cf438b01d792d874b1d4b3302d746"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6e995c0ac1ad8bdd50c38641aa26b2bf2a94ad3ac8f467b5cfaff4fb73a19ba8"
+    sha256 cellar: :any_skip_relocation, ventura:        "7cb64c42313282e7f4d6662b42b912f77c2c0dab4cd9df8032485e5fc5405df4"
     sha256 cellar: :any_skip_relocation, monterey:       "82130c68ee3eaa973205e665404c7fc21b78e3c6fd0413fa03630ffba3eef670"
     sha256 cellar: :any_skip_relocation, big_sur:        "60b9b4ee6861391013533127b228232b191ba5b7af95f60af0ba26d9f3b81a24"
     sha256 cellar: :any_skip_relocation, catalina:       "229a78e622640a6406ad05cf10faf0f9531d417f7420167b439d1aa47d0cacda"
