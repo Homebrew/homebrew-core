@@ -11,6 +11,7 @@ class Manticoresearch < Formula
     sha256 arm64_ventura:  "575748eaa4348edd17c1dd190e22920f3ea9667a1188e7e74265f1635af0028b"
     sha256 arm64_monterey: "c65ef528860f95e99def3e27916209eaf395ebe8e33b1a3d91795efe2eaf2a46"
     sha256 arm64_big_sur:  "e887e81f3b3fa6899be543d98c1d4812d2a2f1e7c2318b977a9d287e40e25381"
+    sha256 ventura:        "889816f150009cb9b0346f0b7005f383b6a68ea809248669b0e4d3bc08c4753c"
     sha256 monterey:       "3f6fee4d64aa86474fbba738c46c227bcd217d9e11d4219811445756dcab6e33"
     sha256 big_sur:        "caa74f1c482f7ef4da9b88787bda384a8cc04e89a6ec11e0a97ecebff0a88510"
     sha256 catalina:       "09befd5ca1cd25be42b1937f91f74a2a1086545630911c7bd6e8aa24eb067f7c"
