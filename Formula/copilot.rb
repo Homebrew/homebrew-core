@@ -18,6 +18,7 @@ class Copilot < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "95793797239c248bb3600acb68043c00fd489866f7dae65f3bc2d2c8790fc1bc"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e359efd61fe5870cb7d7b8108c8017faafd141bef4be9061ce49fdeee06e547b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7bfc3afaded8f651d4a61efd16a3effa9fbdd712bc5e1428b0d742d74328f6b7"
+    sha256 cellar: :any_skip_relocation, ventura:        "5ea5ec34ab3b84ed0f6673ca9acc6bd398f501113bb0bcc435975cf0d6a5ffd8"
     sha256 cellar: :any_skip_relocation, monterey:       "ae392d178e3df5b404c72cd2ad180acd905a8ef3dcfca22beeec65c244279b80"
     sha256 cellar: :any_skip_relocation, big_sur:        "bcceffddcafbdfbdcfb25e0343e199343b528196d82a2f9305a8344d137943a6"
     sha256 cellar: :any_skip_relocation, catalina:       "941dcb8cc0562c834a4c3d64a4371810432cd5e1f900605f4b287b932bfafe75"
