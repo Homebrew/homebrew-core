@@ -9,6 +9,7 @@ class Btparse < Formula
     sha256 cellar: :any,                 arm64_ventura:  "d58ac5298bb8bfc1859e5333d541ea89ce1dba5a629c1360b48857eb307f6350"
     sha256 cellar: :any,                 arm64_monterey: "32ee64dd04210dd27edb63ba2d3a635995f379e54d60b9e797e52a913201b546"
     sha256 cellar: :any,                 arm64_big_sur:  "d69e49048e5366097bd7fe06b5ab9e40e3e97602896c613706559ab2c7aa4295"
+    sha256 cellar: :any,                 ventura:        "79122577ccff4c437a09ca3d3a7f0fcb5270ff5b1b90be60442f420c3e1ee830"
     sha256 cellar: :any,                 monterey:       "3330e9fe95565967827105cbe3009bf533b1363f8b4454c3fa34a7bca72f9502"
     sha256 cellar: :any,                 big_sur:        "6080f2a4c252d49a4b265807ce77c290bd881b5339b7b2c19c5efc8a7f40b871"
     sha256 cellar: :any,                 catalina:       "6ce6b4e17c2559540007f3e15e38ee5f4eff1cc5dd6782e87089abf824a94e90"
