@@ -10,6 +10,7 @@ class Zinit < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "46aaecb6e6e6cc8248ad822c841b6dcae5cabc1f0639ef173164c42d51e65269"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "46aaecb6e6e6cc8248ad822c841b6dcae5cabc1f0639ef173164c42d51e65269"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "46aaecb6e6e6cc8248ad822c841b6dcae5cabc1f0639ef173164c42d51e65269"
+    sha256 cellar: :any_skip_relocation, ventura:        "635551814b09b495f9d96f7f0bd7f5fa1615308843c70a1e5984e6e83557ff20"
     sha256 cellar: :any_skip_relocation, monterey:       "635551814b09b495f9d96f7f0bd7f5fa1615308843c70a1e5984e6e83557ff20"
     sha256 cellar: :any_skip_relocation, big_sur:        "635551814b09b495f9d96f7f0bd7f5fa1615308843c70a1e5984e6e83557ff20"
     sha256 cellar: :any_skip_relocation, catalina:       "635551814b09b495f9d96f7f0bd7f5fa1615308843c70a1e5984e6e83557ff20"
