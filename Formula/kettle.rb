@@ -14,6 +14,7 @@ class Kettle < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "16ad24ced055df02d5e8966613d3454cddccfd96fc0b3f71de1f9c6c4bcccedb"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ba4505bc117fbad7cec2d0e9421062f018b2f749256c478e8aad75e79bba065c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ba4505bc117fbad7cec2d0e9421062f018b2f749256c478e8aad75e79bba065c"
+    sha256 cellar: :any_skip_relocation, ventura:        "7a10323362d55ad5a514ac21f50894da0c0970eef157dfa403895a3df22cceda"
     sha256 cellar: :any_skip_relocation, monterey:       "c4ad0f19a4e41e7d86694e6835fbd6072879419e34c4bfab1ab55ee664ffeced"
     sha256 cellar: :any_skip_relocation, big_sur:        "c4ad0f19a4e41e7d86694e6835fbd6072879419e34c4bfab1ab55ee664ffeced"
     sha256 cellar: :any_skip_relocation, catalina:       "c4ad0f19a4e41e7d86694e6835fbd6072879419e34c4bfab1ab55ee664ffeced"
