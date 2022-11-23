@@ -11,13 +11,13 @@ class CargoDepgraph < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "33e209e756b59302bc36f92202ec077d812f9abdec5c610d9bfbd91b678cc387"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ccfb5ab1e99e85d17858b691c665ba94f81758d5e9fa3cc3695b21e201091f02"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ee7f12184065ff5755a97ed5c1e453cf0c53838b1c443060bc37f331c3b81051"
-    sha256 cellar: :any_skip_relocation, monterey:       "2230b3d2052e8b96b3d555173b35a3857b521f2427d25d732760aace182f78f8"
-    sha256 cellar: :any_skip_relocation, big_sur:        "cffdec29ce038804a317feec80526f53b0fa5fc594b3cc3c3ece57762e033623"
-    sha256 cellar: :any_skip_relocation, catalina:       "d05be720b3bd9af933abb84c78f8625fb4822e6428557e36a19a6a1861b3dbb6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3518a7af0012d9955fda4d3a7f79ffbbbb8a75a0f05c73962d3502551de6ddc6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cbbb2ee6d64ccb54daaeee22d72abe7c80718bbadf12413cadc6e5bf2ac19266"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ae25390e1c611870f71d9589bc42ebf4291255f92945a60f83a26dd57b0b7399"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8b1d4deaf4e1aecba7d62979378c047d7858fcb086585e0efd210c04bdd0cfd1"
+    sha256 cellar: :any_skip_relocation, monterey:       "02488af08391c6c57695a2b44ec7d878c2641b1d13f7e601f8e1687a5598a445"
+    sha256 cellar: :any_skip_relocation, big_sur:        "85e7faf97f187ae2dfe07cbbb70131c00553a3240ae6fb63813269e06a0ae0ea"
+    sha256 cellar: :any_skip_relocation, catalina:       "838d8909e653cab5582b38e9ce2b5d599d8c175047cf3835b09bf766f18ad1fb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "39819247ae48a1dcb3adc95890d683915c89166d8b305bd122adfbe6ed0c0934"
   end
 
   depends_on "rust" => [:build, :test]
