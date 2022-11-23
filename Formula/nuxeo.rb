@@ -21,7 +21,6 @@ class Nuxeo < Formula
   depends_on "libwpd"
   depends_on "openjdk"
   depends_on "poppler"
-  depends_on "ufraw"
 
   def install
     libexec.install Dir["#{buildpath}/*"]
