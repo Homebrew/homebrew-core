@@ -11,6 +11,7 @@ class Pacvim < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "49f67bf7c8bd084178d6574b3871ba35f9f2b960382af02317c28ecf203a9210"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "802d9f2831e1cc5fc3e4eede8440f63596b642aead5ceffabbc612495555261f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b690b089d153174f596700e750e133228e05949b3c4d01c993d93b862b102dc0"
+    sha256 cellar: :any_skip_relocation, ventura:        "42dfa466a32d36eee64a2e949b7a8aa2d5b6316b7cb4e369511e0763d21f8934"
     sha256 cellar: :any_skip_relocation, monterey:       "a9a92c82a3202ee0d64140220bcbe511ec5a0a462b1bf75b84bba05b26214844"
     sha256 cellar: :any_skip_relocation, big_sur:        "52a18b2f8a5a6e9ab6f2c31c08432c44c3f00183e18c80154a5c6f8daa069160"
     sha256 cellar: :any_skip_relocation, catalina:       "85bd0087ecc54716772881e46ce00553ee037eb2ea200d34d5db28709092369f"
