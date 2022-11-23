@@ -34,14 +34,14 @@ class Mapserver < Formula
   depends_on "libpq"
   depends_on "proj"
   depends_on "protobuf-c"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   uses_from_macos "curl"
 
   fails_with gcc: "5"
 
   def python3
-    "python3.10"
+    "python3.11"
   end
 
   def install
