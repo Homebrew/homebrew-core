@@ -16,6 +16,7 @@ class Mysqlxx < Formula
     sha256 cellar: :any,                 arm64_ventura:  "683d70555153779df51d77592cfb9e216caebff08ce0f46914f6c0a92e376eed"
     sha256 cellar: :any,                 arm64_monterey: "d2e0c2dc9d6e377683bceba98294b05cf37b7e27f09fa16bc5e1a008d5e56546"
     sha256 cellar: :any,                 arm64_big_sur:  "986394ee4f18b46c60d1322cedb944cf55f3bc6c260cb48f5cb403e706370cdc"
+    sha256 cellar: :any,                 ventura:        "0879c16b25edce02246f09bffc4dcd94fb21fafc9e4a445accf9c1827548a880"
     sha256 cellar: :any,                 monterey:       "75aba44deb5c3759891533ca3b1d9c1a4a04bca27a9ad218f4ffa7c5fdced92b"
     sha256 cellar: :any,                 big_sur:        "73d8bcba51380239e981d14636a1ac225ac3e4c7b42b67610441ce080f956429"
     sha256 cellar: :any,                 catalina:       "37f643c40b54098cdcc42a0dd19747e153f9e11ef8fb02d697e6b8ef360f998e"
