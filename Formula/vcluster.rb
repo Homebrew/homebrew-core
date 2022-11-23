@@ -11,6 +11,7 @@ class Vcluster < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7b66ddb35fbfbd3748bc579a6e7bcc150a46191561250ef618a88ed794b87b84"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "80d8611bed2c1ca5794bcee585d2af2d585215c52508a6238db48a6ea9d86160"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "38251ee9876db32b10d763dcdd86f24bbe15ba21ca3f27222bae74de7082f422"
+    sha256 cellar: :any_skip_relocation, ventura:        "803a68f9afc5cbf0dc81c02e6d0dbfa2f45669877f505ed4438ab2d91eb94d39"
     sha256 cellar: :any_skip_relocation, monterey:       "5641eb19d7854cb75d3aff26603e51721f920e3811ea97e1cebbe48d0e5afea7"
     sha256 cellar: :any_skip_relocation, big_sur:        "c02f8ea6b39e314844a0c2d643725fc666ecd43b553f6fb0aa8a6291f1e9aa51"
     sha256 cellar: :any_skip_relocation, catalina:       "6939a5da214b63d733649678a4d4c208c8d2be0bca82bda16b6918a8c57a3a92"
