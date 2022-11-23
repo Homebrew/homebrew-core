@@ -12,6 +12,7 @@ class TarsnapGui < Formula
     sha256 cellar: :any,                 arm64_ventura:  "4fd9934a3a064497bfcb361b154dccb74c1cf6343d1b0c40080f1b10f7c061ee"
     sha256 cellar: :any,                 arm64_monterey: "80bebc64d5dad7087f331f5c5e1ebecda9d0ca787903bdb9c233220b53400a5d"
     sha256 cellar: :any,                 arm64_big_sur:  "5143f6dbbb9fadc47420f18716d62135b3e70c4de32e3cef4338c977f0a2d375"
+    sha256 cellar: :any,                 ventura:        "b16373c9282a6fc51a9d7e901a082fd287939ce043b19075f09a4f8b67568823"
     sha256 cellar: :any,                 monterey:       "d46639aead1bc9920510f83bb88ca30f6fc58c82235dc4f04037b460582139d6"
     sha256 cellar: :any,                 big_sur:        "5b913f4a300a6694e27a950a473da438dfa2846461466ae0aabc0bee09d2d431"
     sha256 cellar: :any,                 catalina:       "f36b378d5ebee2accc759ec58bd8e554389d606ac7c8b7cf9042ae830b96bc01"
