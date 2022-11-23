@@ -15,6 +15,7 @@ class Dwdiff < Formula
     sha256 arm64_ventura:  "b05292e9449f534cfacb5e702d27b3abd0c141ead2315861e6f38009b74ddac4"
     sha256 arm64_monterey: "8aa1396ab3b78bace6d6ff64c8cfcd593156460e86ea256e1105bda2e93165f9"
     sha256 arm64_big_sur:  "ca849606872add6c7df910772860a608e893c1c14ef2fb303c57b8ce20b78c29"
+    sha256 ventura:        "094a8a22813c2e1909ebec0e8c83bdc11b617abb6a42978ec431a30997a6b05b"
     sha256 monterey:       "8abac55ea99ea01f90957249680f274c4c45186cd3ca9b77eae35b1964201f88"
     sha256 big_sur:        "bb50e9bad7e0d652734d7e42faf7f32df8fdde7c41d7961a3937449c1a630ad1"
     sha256 catalina:       "469e6223c42f3ac5bea6ccb85ccfadecbc2b38d6cad3fefc37ee74cdb0390d41"
