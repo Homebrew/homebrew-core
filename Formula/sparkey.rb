@@ -10,6 +10,7 @@ class Sparkey < Formula
     sha256 cellar: :any,                 arm64_ventura:  "b5b1dd6314393471c6d94f5cd9417add5c2fb18cae43a8aadb55bc27782ff521"
     sha256 cellar: :any,                 arm64_monterey: "17187c82468ffb126744c6ac8f4bc318a11234923dd70759ed0b2204d949516f"
     sha256 cellar: :any,                 arm64_big_sur:  "1b2b1cc05fd4af9994aa34e57bc8767bdb567455e27458e1a9ac38e340603c68"
+    sha256 cellar: :any,                 ventura:        "9f5be963c7067cdad5e22789cde8ca2eb21e9d587b538e57c228ab9b9bc90e1e"
     sha256 cellar: :any,                 monterey:       "8df24a5323536f451f373746c1a1643ce31967502c3d8cb99807ffca49e53413"
     sha256 cellar: :any,                 big_sur:        "6f469c28584124f46a7fa9835dee3311ef02d5a48f2d8fb8c8eb29f2c6688986"
     sha256 cellar: :any,                 catalina:       "b7e64101995d257df010edb67bafcd60745f09c7b0ebb9650c817eb7343f1899"
