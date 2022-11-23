@@ -10,6 +10,7 @@ class Libopusenc < Formula
     sha256 cellar: :any,                 arm64_ventura:  "2d9e6657c2d76d193da5cd687e5c95e4c13702cd9f5c08945b7a316b63786112"
     sha256 cellar: :any,                 arm64_monterey: "5b28442f84fbd88cfd6cacf35ad6df119cc1dcfb89851c7b81bd77f07402a70c"
     sha256 cellar: :any,                 arm64_big_sur:  "f8d28846ea6d21358ef7768f94241a0f94327d4edcdd5223be2da96c2f0d6841"
+    sha256 cellar: :any,                 ventura:        "5b2a64d3c64ec7e14f7a9f2adbe46dddf4f3ad51876dea2c28010e6f4e4e55f1"
     sha256 cellar: :any,                 monterey:       "636d36637bb7e7cc098dfe6ba078fb4fb1fbc5fce4bd93ea6a7c08ad4c49d2f4"
     sha256 cellar: :any,                 big_sur:        "48157970f8bebbd7ad54d099531397cb3d81797e7715ed5523865d7d1b19df8b"
     sha256 cellar: :any,                 catalina:       "593106e48c86436fd1908c79f1ef54f206bb37f0983ccb3901190cebe6e78cea"
