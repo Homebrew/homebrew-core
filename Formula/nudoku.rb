@@ -10,6 +10,7 @@ class Nudoku < Formula
     sha256 arm64_ventura:  "2235a839fa91c8f417abad05439f67f70d6beb71458e84fe26fbfeefd0dabccf"
     sha256 arm64_monterey: "71845f6de82d5ac9465279ae7f0dc65b580899f321d43e8bd8b2d59b194ebf24"
     sha256 arm64_big_sur:  "daa1278f79f9fdf5cd8780ba68d3bf89982728c1ddf636f89475e89b14bd9c64"
+    sha256 ventura:        "ecfe15bec230427b33ea50f132610048b1f9933e4fed347fcc1e51b24bf46c80"
     sha256 monterey:       "a4bc1536b1182fbd0fcd17e64382fe3598bd2ea418a85f76ea809867922faed6"
     sha256 big_sur:        "ec43523a92bb16fadd4ab7fe3f9189cb13849fc3919bf4525b9074a471453745"
     sha256 catalina:       "e6aa92aabc32164b2cc69d55d4a243f6aafdd6d6a109a40339d6546548153174"
