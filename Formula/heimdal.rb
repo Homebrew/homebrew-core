@@ -16,6 +16,7 @@ class Heimdal < Formula
     sha256 arm64_ventura:  "589dd90ba100e7d4167a0973aa779e1f00d11482aa8d65188fa71a8b50bdb878"
     sha256 arm64_monterey: "5bf1331cbf18fbacee694aebd48cf61bcebcd170fbbbe9e9c8a2bdf9ee90fcf6"
     sha256 arm64_big_sur:  "5c45da30c4f837fd11fa4d656ff9f92c0a7cfd1d6c7e3442d925cd4c6406b766"
+    sha256 ventura:        "9f45c3bfa2a0e53d52ca57d84720f543c19c39a04f4c0262c04d358aede86289"
     sha256 monterey:       "f91432a5c773478e95f79aed4381d8659980e7c19358cd109d9502eeaf5d6c6f"
     sha256 big_sur:        "b0f45237bb7226ab0c6b06ce4c2a6ce143eded7335232e1cb85133863ad96f60"
     sha256 catalina:       "1da6cca0420efc5ccd5075b8c3076435a9e2b077261d9ad91e0e3d4e644d38d0"
