@@ -11,6 +11,7 @@ class Dtrx < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "79d57f98e77e7db091fca4366b4ba5b802dd6701f8f6cdd2319e33b97bce6e99"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ee4717644293fb60d28aa52cba2e97377942553a935fe244298630e8186673c1"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d7b411cf09d028d15d21385f5ecf776ab2dcf0d0266d8645fba5e89bd0ae68a6"
+    sha256 cellar: :any_skip_relocation, ventura:        "04ec6cffb870d361258a407cd9c3902b4958e648884a4e73b24b0f8f7b797e3d"
     sha256 cellar: :any_skip_relocation, monterey:       "2f5c95bff48c1abf26d3f9f50af103b6637bd83fd99c55e27e1a0c96e30011ab"
     sha256 cellar: :any_skip_relocation, big_sur:        "c2a9e723f04f09663bc8f46c90932dd5d75a7c4f1ab9ed78b62f5cb6a9910656"
     sha256 cellar: :any_skip_relocation, catalina:       "3043ce0dcaacd4f746682a7c2c31b914e2942adebed523409087579c6e1b7707"
