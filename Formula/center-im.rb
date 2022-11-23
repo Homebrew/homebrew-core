@@ -18,6 +18,7 @@ class CenterIm < Formula
     sha256 arm64_ventura:  "0fbbf6b91eaf4783884988fdef23ba0536e7ad137fc8b76d3e16ba963278204b"
     sha256 arm64_monterey: "d91b8376deaa1aaaca8720dd9a45dbbd9dd2ea22035b308c5e798eb5cca62c8e"
     sha256 arm64_big_sur:  "182513b7096a23e8888d0d76858ad1c1d2ef92648f8f3d4140e291c41224ccbb"
+    sha256 ventura:        "3c8834167cae2d254301add133969e70547e6b2420b9f8d995ed796eff057b77"
     sha256 monterey:       "1a230141b53d9e46c63f7619e353ab00e8eeb7c42d106a0af646361d2fb1b246"
     sha256 big_sur:        "2b44902a2be528a4d9cae18e3b402691dc54a4c2241e72827a74bafe422d85cf"
     sha256 catalina:       "11a339b812d7fa164fce8e873e837d1ab07256e73ce0c4e483eeb60327ef6fa6"
