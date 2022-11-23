@@ -12,7 +12,9 @@ class OpensearchAT1 < Formula
 
   # Backport of https://github.com/opensearch-project/OpenSearch/pull/1668
   # TODO: Remove when available in release
-  patch :DATA if Hardware::CPU.arm?
+  on_arm do
+    patch :DATA
+  end
 
   def install
     platform = OS.kernel_name.downcase
