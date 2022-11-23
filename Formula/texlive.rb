@@ -34,15 +34,14 @@ class Texlive < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 arm64_ventura:  "7f48fcbd7afbfc58486b65ffe441f4e55b27a57c4977c00fa48726d222817a1e"
-    sha256 arm64_monterey: "f62ce2a3658ff02cee024b78e5517b9afd098590becf93319b90c106f619e55f"
-    sha256 arm64_big_sur:  "2e25e5a7e189187d77541b56e9f9a5980b57441abfe9b3f1e219dde4719efbf6"
-    sha256 ventura:        "5c00e6fe59592d208cb95174986f07916e57ebe4902bf93c8cde327820497ba3"
-    sha256 monterey:       "aec4cc0ac69e1fbc2dd00d6ba75dacd4bbb4d4719fa30ce5205e32d330efe7ea"
-    sha256 big_sur:        "fb9e9208fd8182259cadfeabbb2813bd1d14e82b92b13735e5ccf473746817df"
-    sha256 catalina:       "612a950c2a0f1cc0b1630ba0a2d546e97b7cc483d02006b4b972715b7e3cc6b0"
-    sha256 x86_64_linux:   "236e365e2c032606bfdf77ce604223236ab6e92fca244de153048164cba80fdb"
+    rebuild 3
+    sha256 arm64_ventura:  "09129b9914fd386e7a25365369bda149d639859674b7ceaf215722c58d59fc20"
+    sha256 arm64_monterey: "1e998f152614b4b21f4c8cdce0325cd64579bd22d2a201ea44be37f49e1d1d12"
+    sha256 arm64_big_sur:  "9423fd98a2d79873a6f89fef27d2555f95d9f3020aa432f0fd567fd49c19cef6"
+    sha256 monterey:       "7fd4ec2e1ebfc231c6b4a2b0b38ef720dd1c7ab943de1f8d07829bb0c428ee86"
+    sha256 big_sur:        "bad097cc26ea1a8fcc9969596266f1ec6ed1c9ddadb1063a4b582158d52253b8"
+    sha256 catalina:       "6f6ed35a1ed40069cae4299a4d939c3dbd6378276578da4fab36e63889ff0ead"
+    sha256 x86_64_linux:   "4917ec16ad9c4ae5966f20f9182df8c23d38831481e43b56d067aebb5635ffea"
   end
 
   depends_on "cairo"
