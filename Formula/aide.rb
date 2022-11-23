@@ -9,6 +9,7 @@ class Aide < Formula
     sha256 cellar: :any,                 arm64_ventura:  "da63a166bd78f49ae0459e96f2f98ceda43ae418c9e5430e3641d3cf37499a6d"
     sha256 cellar: :any,                 arm64_monterey: "b0c84efe8e1900637012961de81510d4b161add9251fc83614141cc149e0c575"
     sha256 cellar: :any,                 arm64_big_sur:  "7d5c7b012260f55372992d7e692f53c72d14e8b265db4869af5641f0b44f8435"
+    sha256 cellar: :any,                 ventura:        "81772e8128742974468566cf527a3335495bc5b6c4c8189ad88c80fe33bf200a"
     sha256 cellar: :any,                 monterey:       "f19c632ec5e607e4fa4687cc3b49f644d678a957e93ab5e74df37c51df97203a"
     sha256 cellar: :any,                 big_sur:        "c619712d6930437e597f599e5e62f0047fd9ce985aae1ed964d1cc5a03fdf5ef"
     sha256 cellar: :any,                 catalina:       "aa1ae5486d07a19d0729947adcc180518ad1b6a46fc29c0b450e95868b80a05a"
