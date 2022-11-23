@@ -16,6 +16,7 @@ class Sdl2Sound < Formula
     sha256 cellar: :any,                 arm64_ventura:  "e0af8ec626664ff96880901346e333d02f299329481d02b48f7f859106bd8223"
     sha256 cellar: :any,                 arm64_monterey: "9f7361925cc4e541a3293a00110b3c83516794fe075ac98c49880d86acc5484d"
     sha256 cellar: :any,                 arm64_big_sur:  "8fa2ec4cb066676973921f8dab5ffb1e5bc2acc4e0d37faffc83978e512c2688"
+    sha256 cellar: :any,                 ventura:        "929916d87f9459ea27931c3c565f8df463b395e2865730f059770cb30ce0a045"
     sha256 cellar: :any,                 monterey:       "8dff25f947a0c5ba5e6d2a78070f4aa7433385221df4c327deece950db99c2e3"
     sha256 cellar: :any,                 big_sur:        "792d335d07a8b6352f8a6b3099ca32f7a706e1a1217cbf12f5f961bb638d7338"
     sha256 cellar: :any,                 catalina:       "1bf080610b4296c73f127d02bfa3cc6f5582be84f7499e282f015bc17fc042f4"
