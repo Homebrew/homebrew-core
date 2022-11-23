@@ -24,7 +24,7 @@ class DartSdk < Formula
 
   resource "depot-tools" do
     url "https://chromium.googlesource.com/chromium/tools/depot_tools.git",
-        revision: "bd0cea6acd9ed0476b6634b08da740093715a654"
+        revision: "6fde0fbe9226ae3fc9f5c709adb93249924e5c49"
   end
 
   def install
