@@ -17,6 +17,7 @@ class Mavsdk < Formula
     sha256 cellar: :any,                 arm64_ventura:  "1ccb069c88077d6e1edbdbae92a5ff6569f5cd3d36c35f80a8b99ef764ee13d7"
     sha256 cellar: :any,                 arm64_monterey: "27b21d89f15297c5aed68e73c8df9afdf4462375e29dc380d155f1847f5e7e1f"
     sha256 cellar: :any,                 arm64_big_sur:  "c5203b1adcf979b66607683217d6856f734f3fe731323f80ec6ef42e29f36052"
+    sha256 cellar: :any,                 ventura:        "d38e58dec85c2c70a7f1d21fb55eee8243a5b75c70cf74e4a35d316e93f359b6"
     sha256 cellar: :any,                 monterey:       "2051e7a88dcfa2f68c575b6b0de4b71e415351ac096114c2bec8a403214268de"
     sha256 cellar: :any,                 big_sur:        "5571ed0cb081b76a86846b96720224f64105ba57b26deae0f91632820db74666"
     sha256 cellar: :any,                 catalina:       "83fd6d2768e26a322af789673ac82a2da2d8cd01096233174e930dd21033936b"
