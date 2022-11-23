@@ -13,6 +13,7 @@ class Khal < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "41010c69b75e8e649c349fdace2f2e345f9fa7f9cb25460efa04fc57c819c19a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b4f8f8a8a400d24cb5702fbaf7076fe383ba03b7ee1ea718606dc149a9fba221"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c8a6f533b2b2692ce73028a34d1951a1032ac921b898178331680c44f36f9b32"
+    sha256 cellar: :any_skip_relocation, ventura:        "270cfbed9cc45ba8db1aa0594eacddeed49a6b9474d9f9fbf7d576bbd9c76321"
     sha256 cellar: :any_skip_relocation, monterey:       "0709137f58479a579f3518ab7a3429ead4a1efac8b693dedde5ebb10a34c9e27"
     sha256 cellar: :any_skip_relocation, big_sur:        "a6e7510ca67ad147afd0c3e1bb9fb58ff25b0c2c0cdbe15291b47c5681e2596c"
     sha256 cellar: :any_skip_relocation, catalina:       "a7e5046f31842243aba85c1ec6a82af21d0e90e885e5b8876f67249b8adee64a"
