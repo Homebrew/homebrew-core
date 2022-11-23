@@ -11,6 +11,7 @@ class Webalizer < Formula
     sha256 arm64_ventura:  "f26eca3adbd5012374dcf7fba0940ba0fad5522292a5add43ce5e8ae9cfd1bb1"
     sha256 arm64_monterey: "0eec79580ef41a980a2c3fd9161bee665d87eee2d0bed14a89eee1e285b91313"
     sha256 arm64_big_sur:  "e6cc3224691d03aa7a7c2c90b53372ba3bcd4a50d15ce849a4403457690bdbc7"
+    sha256 ventura:        "91e8871f5afbd71654822b90b3202062a74604c89653a00b76e769ce3e9b20c8"
     sha256 monterey:       "d74f9239455491a88840a46ca4a58395186467530de79e41bfde176d8e9171ec"
     sha256 big_sur:        "e58bbbdad2e72611dd20dd334178066182298531041f0d48c5d31f9ff8583812"
     sha256 catalina:       "19cff82d601ab1b2ae54f16706dd0e81f1c85c4facc752afe8afa9a9a20b86ae"
