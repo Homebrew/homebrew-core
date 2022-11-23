@@ -11,6 +11,7 @@ class GameMusicEmu < Formula
     sha256 cellar: :any,                 arm64_ventura:  "c33d21ce67a78b16cfe0e2e68372c62df99bec7d7c73ee20e9acece876ae2e0b"
     sha256 cellar: :any,                 arm64_monterey: "1346614b5a9561f7eaace297b5493eeb99ec4c3e561acc65669ca6dbb0cd6793"
     sha256 cellar: :any,                 arm64_big_sur:  "e83fbee26086cc93f7d2eed7d3b93f00a0a0c9eb9d59abf3aba91216fe89d3d8"
+    sha256 cellar: :any,                 ventura:        "7b686c42bec0fd89a976842ca616e41b8c40883d461faf49da21409e96585cb6"
     sha256 cellar: :any,                 monterey:       "7b1e5a6934c8ff16fff726c1963e465abd11458f5773f26b38ce8771da3289a1"
     sha256 cellar: :any,                 big_sur:        "a0abdc4c5ae05ea22ad3627a1a717ed8a1a137065188b995858c0f301dfda640"
     sha256 cellar: :any,                 catalina:       "ee658e16c3d9d0061b0b930ca387a1cb2fa6b6b50d23c9f6f4ae7799ddb6f46d"
