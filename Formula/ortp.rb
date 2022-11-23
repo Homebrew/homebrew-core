@@ -10,6 +10,7 @@ class Ortp < Formula
     sha256 cellar: :any,                 arm64_ventura:  "d9103c16168a4a01b23bd0cec321dc710c530c21e98727b2a8e7e783e43d3156"
     sha256 cellar: :any,                 arm64_monterey: "e84a377eed46dd52659c0589e1e047267cf5e7275c43f556bd20dcc490a09baa"
     sha256 cellar: :any,                 arm64_big_sur:  "04aeeb151143004112806488b133107ef9d5f3dc5a8f70d96ac95108b8f14945"
+    sha256 cellar: :any,                 ventura:        "cc757a7b8310a0412257823e8a7e574afb28221a844d89d9b34dda9b32cbece9"
     sha256 cellar: :any,                 monterey:       "37349fbacc100f866d8ace9dc799c234fa2a05297968cf99b75ec7f108d7ec88"
     sha256 cellar: :any,                 big_sur:        "5b9e877571b365593edbecf2627ba7723aa99d54dad124c5a821361138897eb0"
     sha256 cellar: :any,                 catalina:       "0018ba0cda83ead7db31059c6c517819edca280d8aed6c6c4543e118e9a45b03"
