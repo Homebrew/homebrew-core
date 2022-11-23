@@ -11,6 +11,7 @@ class Mdv < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7689a64f112b66c3ea5d283ed59d44b9d482d360c4dd8c41b60a5cbeca8d328c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a6794a4864eeae9e1e805700605fa80610da626f48e586744535ce00d8b88f21"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "81ef8f08570dbd4af753403e58d266fa2e4b440db92fb9b4506a92e9bd6de100"
+    sha256 cellar: :any_skip_relocation, ventura:        "9fc8fb8224a73aab80444013474c9e0057147452ac60c87054f39c3104d7a691"
     sha256 cellar: :any_skip_relocation, monterey:       "68cc02cf881189ed510e2a5beff7de61217ce316c8aba28819cdb25d6da3838f"
     sha256 cellar: :any_skip_relocation, big_sur:        "04e3e87af387732342c4674feeb11b493090eb6504d4c6797b57f41bbf9a90a8"
     sha256 cellar: :any_skip_relocation, catalina:       "ba336eac38af86dd98d74dbba06226d13b0bc8af719e1e40a863f9f394da4de8"
