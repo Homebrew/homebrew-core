@@ -8,6 +8,7 @@ class Htmlcxx < Formula
     sha256 arm64_ventura:  "a89f6f97c7cdaa4ad3734786c0a15c2bbbfd6ba703127c9239bff75e89ace62a"
     sha256 arm64_monterey: "f0b1e84a587e9c944b7e6d1952b1feea22e223897a12adf51e28f51ec9bf4e9d"
     sha256 arm64_big_sur:  "076a461f50d225b8f6d7b1d1541b0fcdb2fba0af77e28d2524815e5d912b623e"
+    sha256 ventura:        "61b23db961d207a125bb6443e2d76d9e2a4d8d89443165c385962be172ed8c09"
     sha256 monterey:       "2f62b3bfd180f22804cf7df3161f018769be76311e4d740cc619f3fb2766a1aa"
     sha256 big_sur:        "5afe59e8f11f3ee3d04448c1e885b433cdcb356c6aaa80bc1e8ed0f6b0c0ec95"
     sha256 catalina:       "8414d919ae850983832803af525e8b98d3e5aa106c47b05f420d77020c7c99ca"
