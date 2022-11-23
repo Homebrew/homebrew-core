@@ -9,6 +9,7 @@ class Cdrdao < Formula
     sha256 arm64_ventura:  "be033aee75694dcc9feb66deac2b9e0058041f18979bf9b5228c1e9a0f9cd572"
     sha256 arm64_monterey: "e5c979c90b6e103d80dcb19129cd5f1506ee3c72278641038c3c05c290646ad8"
     sha256 arm64_big_sur:  "29b520f278e11f6742704d93aa391c44dc5cb386f04610fefb07a787fbcf0595"
+    sha256 ventura:        "9637d2ce7278309b853b12efad41de7aaa98617aa917db3b4b935c4aad8bf2d3"
     sha256 monterey:       "8bec2c3c92a145a9a50336e64e8aec69841013467d6be22d8ed16fa98e4df4a1"
     sha256 big_sur:        "1a2440998c344f7b1df9d01d6e3079f86fbc79e8827c440883fda7f8e12aa2fd"
     sha256 catalina:       "81acc38e0a51134c0eeebf20e76dcee4e80eabfac72f0ec890e448271a96792c"
