@@ -9,6 +9,7 @@ class Easyengine < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "dda5e7277b126dbc34fddfe679511226210ed5a440b91013f926c0d4769a7ad1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "dda5e7277b126dbc34fddfe679511226210ed5a440b91013f926c0d4769a7ad1"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "dda5e7277b126dbc34fddfe679511226210ed5a440b91013f926c0d4769a7ad1"
+    sha256 cellar: :any_skip_relocation, ventura:        "a3a8ad0370ecadbca439a614dd115f0febdb57ba6422de537a503a2f9424a42e"
     sha256 cellar: :any_skip_relocation, monterey:       "a3a8ad0370ecadbca439a614dd115f0febdb57ba6422de537a503a2f9424a42e"
     sha256 cellar: :any_skip_relocation, big_sur:        "a3a8ad0370ecadbca439a614dd115f0febdb57ba6422de537a503a2f9424a42e"
     sha256 cellar: :any_skip_relocation, catalina:       "a3a8ad0370ecadbca439a614dd115f0febdb57ba6422de537a503a2f9424a42e"
