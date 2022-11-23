@@ -10,6 +10,7 @@ class Mfterm < Formula
     sha256 cellar: :any,                 arm64_ventura:  "ee1ad361ba6eea6cfa57fa1aefa01c81978dd1e24e2abddb7513cf177494732f"
     sha256 cellar: :any,                 arm64_monterey: "7c66e15be8f86726fe114bb9c0be3684386f62819af22e7892876634b22b4d8d"
     sha256 cellar: :any,                 arm64_big_sur:  "e7dffabd037eaff9a07ef2adb7c5731bd6270f04e5f3590280293fc25d478ddb"
+    sha256 cellar: :any,                 ventura:        "24e08b523879e081c905ff1bff99640f2959c917a575dfd538302559a36d4d90"
     sha256 cellar: :any,                 monterey:       "375cd87233c4faea0360d7b840ff7ebd7769a455429f70c8b60305bef1b32299"
     sha256 cellar: :any,                 big_sur:        "18cc9c42960d0accd760293232f236ad1d35e0fc1e7e8f44061b72db2c2acf64"
     sha256 cellar: :any,                 catalina:       "1c9230a17ab7102f4b171e37a972ade6c7e2d5708102a17ea5494be0b1d1a42e"
