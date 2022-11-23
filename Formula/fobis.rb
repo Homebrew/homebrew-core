@@ -13,6 +13,7 @@ class Fobis < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7363945213c145a1fccd7ceb02d78df2b605d311fd5c1e392dc799b7aed2f500"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "774c135cce4ef5e397309b159d5c3b5b2e21952a3cfcba8bb3f5dd6f034bc3c1"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "854eb9629c3ca906bb2d6de13e076eb6a2bd188139020ac3fc5a2cd49d7dd451"
+    sha256 cellar: :any_skip_relocation, ventura:        "250b4c62f860222591fcf450c6a02d5cb6e9aa808a59f3ddcfd6fb234a3528ff"
     sha256 cellar: :any_skip_relocation, monterey:       "731d4ce8d491658b88bb87f2766c75dec55b159cdac441bcf5457ed7d79b99b1"
     sha256 cellar: :any_skip_relocation, big_sur:        "9033858010025b95f32fb53879df00590f01cde953818426b6cbf38b90b944a6"
     sha256 cellar: :any_skip_relocation, catalina:       "e1640f90d8c6f8e550fec00ca990576c16a2c53ec8bf01ef46d40aff3b32c09f"
