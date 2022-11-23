@@ -11,6 +11,7 @@ class Luvit < Formula
     sha256 cellar: :any,                 arm64_ventura:  "8c740c010179ed241543f88bbaa0351b791c743f0f13aa939235294e58b8fa6c"
     sha256 cellar: :any,                 arm64_monterey: "870e32250c1e502f4af201dd534178853870ac4e744f6cdbe95786df342ef7a5"
     sha256 cellar: :any,                 arm64_big_sur:  "9cab1d21104df8d528f3676ecc7532bd7fa80ccc3c4f22f8bfd4163a7af631af"
+    sha256 cellar: :any,                 ventura:        "21414207c42a1ceb1b237a19273be8781932d9e3f5a188a500e2eab27ccb0f34"
     sha256 cellar: :any,                 monterey:       "0ae11cba548d16601d56fffb8c5842f4d3a483175fc834724f725fdebf7503e8"
     sha256 cellar: :any,                 big_sur:        "f524e2547b180fa05f30a04b95814038bf8f8542e07df0b4f7e4270dad35772a"
     sha256 cellar: :any,                 catalina:       "1dc7d1b8eccc46e0de469047016b3cb2af260e7539b8d07197392c39053a8261"
