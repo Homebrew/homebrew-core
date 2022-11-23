@@ -9,8 +9,7 @@ class Pycodestyle < Formula
   head "https://github.com/PyCQA/pycodestyle.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "7037e2f6395dba322bb564be00f225b68a3eee6ed439ad16244fbb22e9cb6c04"
+    sha256 cellar: :any_skip_relocation, all: "2c7fc7f468096461c73a2659dc705ac6ec26031e028d633f6ef6b6f58f44c18b"
   end
 
   depends_on "python@3.11"
