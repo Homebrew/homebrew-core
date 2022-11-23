@@ -13,6 +13,7 @@ class Ngspice < Formula
     sha256 arm64_ventura:  "9afdd51fb80afff3464c0ff2d948572e24dd05d2689b43abcc574511465883ca"
     sha256 arm64_monterey: "0d89f5e8f521a30c746b79a5a4f57a411494fd47675bb51c6e329a2b2ee8bc98"
     sha256 arm64_big_sur:  "33242e4c484ac677776491f8c2c99c11398c06df9af897fe929125ead3c39d6a"
+    sha256 ventura:        "6449cdb3ae635bbf199e543721f9b8293a6d2a3d118b3e356c7b51c092bd1e05"
     sha256 monterey:       "d6d0d6a6594814949a254e880f4ef225556c14405d886e02bbf2c1d91fea5676"
     sha256 big_sur:        "568d6aaff7cd1ce017a5db965ad8a7021d47abcd8fd714e0b60e35cfe1fc9572"
     sha256 catalina:       "eb46b27dbfacc9d9f3dd1324a2485f1ef35a9ab7eb2ae17d513bee9eae5ee0c5"
