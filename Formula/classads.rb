@@ -14,6 +14,7 @@ class Classads < Formula
     sha256 cellar: :any,                 arm64_ventura:  "0eab6257d1140e45a9de7be3672d4d78e62a639348cc30b00fab1f68048b5e84"
     sha256 cellar: :any,                 arm64_monterey: "7f4e50e3dc7c4c163e872815a050edb28feca33f5a56998023a187f11da1fcae"
     sha256 cellar: :any,                 arm64_big_sur:  "86c8c701a789392ad203154ec4dc6a7cd41401bdd0e667ce2c830c171f94bfd5"
+    sha256 cellar: :any,                 ventura:        "ea9ce2a0d341634d85367e39140f3e3aa7921e94830cdfe9c9f748acb35d857b"
     sha256 cellar: :any,                 monterey:       "3543be5b0a443e9600bab626a336244bdee95bf7a79856def626e740e6d0a0f8"
     sha256 cellar: :any,                 big_sur:        "738e16888e4030668b0bf2b7fe190b559b4c1d92dfcd09f95f190cef8deddcfb"
     sha256 cellar: :any,                 catalina:       "6217077882b497726e1b05407038fcff6ae512cabe8580f35731c5c3a3523538"
