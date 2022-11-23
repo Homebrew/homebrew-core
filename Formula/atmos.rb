@@ -9,6 +9,7 @@ class Atmos < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "49fa248409f37539e10709d1d89babbe1f59e911ab92b19ae8fc43a0c70cf9d9"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "906e3e46d7aed451b7f01ff9a6a48563460c02dcd24c76451abd2bed44c42099"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "27daa3419a45b32c6444501d1fda74e7e7bc3cc14aeee4e70c12a07a3095ea28"
+    sha256 cellar: :any_skip_relocation, ventura:        "b86665eca52d88f8119d55406d943945ee73e3f731435de8753393a067fa2176"
     sha256 cellar: :any_skip_relocation, monterey:       "d22320b5ad479f19a746d03d0643845f4e74a5af798ee76fdebed1d24834e506"
     sha256 cellar: :any_skip_relocation, big_sur:        "1da49e0428dc87bdfef2ff1c1e07efa2ad8bc3df252c8440d085e839089136a7"
     sha256 cellar: :any_skip_relocation, catalina:       "f92a9c8bcdacf7d376e47e921534d02e877b2fe89eb2334401284ef4225accfa"
