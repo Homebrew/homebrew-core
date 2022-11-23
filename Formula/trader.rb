@@ -14,6 +14,7 @@ class Trader < Formula
     sha256 arm64_ventura:  "ab997415eaf9d18690f7b83c02f2a8567a450cbdc0eb39ec00fe2a2450eaf555"
     sha256 arm64_monterey: "05137ae01aad4d3949ccc903bc282242ef680133326b93705c9eed49c3c31f3c"
     sha256 arm64_big_sur:  "c7a264790db14499a985beecad69fb0bdc60ebfdcd7bc37ae89a1e93e7a66991"
+    sha256 ventura:        "2b5f6d568082f6ac113b347a89fbfafd3bce16108743a9f869d6bc0bd2e81744"
     sha256 monterey:       "3d7d661e7693997d2dc3bbd201052336877a711f1e1591353e9460ab9e33f689"
     sha256 big_sur:        "e33e7a915a9feb528b009426a38b23b7248af58638bc34c19401b637987d561c"
     sha256 catalina:       "bf1590052d948213cb0c7e5fd9ba2b7a328ce09058709cc164dbc3643be6e1e2"
