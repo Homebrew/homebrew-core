@@ -5,6 +5,7 @@ class Dronedb < Formula
        tag:      "v1.0.11",
        revision: "f9f7d50c1f2b49072e4046cb2bd2d9fd67066252"
   license "MPL-2.0"
+  revision 1
   head "https://github.com/DroneDB/DroneDB.git", branch: "master"
 
   bottle do
@@ -24,9 +25,11 @@ class Dronedb < Formula
   depends_on "pdal"
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    # Avoid installing conflicting vendored libraries into Homebrew's prefix.
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args(install_prefix: libexec)
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
+    bin.install_symlink libexec/"bin/ddb"
   end
 
   test do
