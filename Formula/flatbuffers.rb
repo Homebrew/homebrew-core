@@ -15,6 +15,7 @@ class Flatbuffers < Formula
     sha256 cellar: :any,                 arm64_ventura:  "654f90ef1ab088671a99ff087d02f2868b61a7c86124c13aa8ef7cb5b1e7a43d"
     sha256 cellar: :any,                 arm64_monterey: "f3ec4830b2f4d7002875f37436ca6f53dd825c5192291e2200d70f74df8986e7"
     sha256 cellar: :any,                 arm64_big_sur:  "5c3fb9580f9bbe2c625a42f16382db2a6120ad018f51909a28f33375aed1351a"
+    sha256 cellar: :any,                 ventura:        "6e75b1d92d558f3080de9846cefd0d1f35fd0ec89d586c1c528a2ca34218a966"
     sha256 cellar: :any,                 monterey:       "33a571e7706c8f0c96de148f1d3ab2b60a9e03275a968b52dcb6e588e9001306"
     sha256 cellar: :any,                 big_sur:        "40c2f46ed6b787aa0f5f6cb0ca0103a740ff0fe0f6be21d87ca140ce40380c16"
     sha256 cellar: :any,                 catalina:       "928301e3508e349cf611020591810818c7083af68bf423631d17a61c5be7bc30"
