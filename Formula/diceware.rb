@@ -12,6 +12,7 @@ class Diceware < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5b3dea6379d779fcb283ba0bd71a8955ca4e3dd1ba3a3b007ff88543d0a76d3c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5b3dea6379d779fcb283ba0bd71a8955ca4e3dd1ba3a3b007ff88543d0a76d3c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5b3dea6379d779fcb283ba0bd71a8955ca4e3dd1ba3a3b007ff88543d0a76d3c"
+    sha256 cellar: :any_skip_relocation, ventura:        "72b062456e3ff046ed6cb143ed36aa89d762f245d6f8a4278fc404a14d2d5979"
     sha256 cellar: :any_skip_relocation, monterey:       "72b062456e3ff046ed6cb143ed36aa89d762f245d6f8a4278fc404a14d2d5979"
     sha256 cellar: :any_skip_relocation, big_sur:        "72b062456e3ff046ed6cb143ed36aa89d762f245d6f8a4278fc404a14d2d5979"
     sha256 cellar: :any_skip_relocation, catalina:       "72b062456e3ff046ed6cb143ed36aa89d762f245d6f8a4278fc404a14d2d5979"
