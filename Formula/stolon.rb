@@ -11,6 +11,7 @@ class Stolon < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e2ff141e91b71942f67871741dabcd110310a06c72d68ce361391e2a1ce233ee"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "17af62bc7751903d4f85e447907825f3bf4df255263487c47b44e299a9b196be"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "767212e3c8d9dc59a030aa96083a48f42be86fa4c43b1df2158c6d3d9fa50f54"
+    sha256 cellar: :any_skip_relocation, ventura:        "ca9b4d2758cdb30d4d68573285228d3ee30f007b0a10f2b1981fca2b5f3ed300"
     sha256 cellar: :any_skip_relocation, monterey:       "6e82da7f0cd74193592f16415ba7386c7483bf9006814177df8086cc96e7b57a"
     sha256 cellar: :any_skip_relocation, big_sur:        "2955ce82d16c3601d928d8f7125bda27dde894fd9e8b8c8e2025a178c38cb640"
     sha256 cellar: :any_skip_relocation, catalina:       "6f8469a79e442788d8a8c774c7097ee45d1deeebb17968c79e4efbd37965e69f"
