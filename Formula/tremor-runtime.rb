@@ -11,6 +11,7 @@ class TremorRuntime < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "96864c51d8cade85a5f41fa383e58b2536291ccd548e30f429dd331744c8c6b1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b0d58f90918cf00d4adca64e53935ba29e5c0fb0ff08d6f2a6ce8ebc8bc6df12"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6f8c977361698fecc8d63b749f54ebdd482c82af98ca72b3678e365e74c5a54a"
+    sha256 cellar: :any_skip_relocation, ventura:        "56253e033b958ad4d7d0e8e3ae4f38e02379c4e8c073ce83700a282b9c6d504e"
     sha256 cellar: :any_skip_relocation, monterey:       "53fdb05b8cd063bc63223cde126aa0ec5452c69fcd7b94ccd1afac215912e396"
     sha256 cellar: :any_skip_relocation, big_sur:        "7383fe3a97615a0723f4726f66c3d399ee62dbd5d48e63fe49fa4a8a3734a344"
     sha256 cellar: :any_skip_relocation, catalina:       "049f89157dadffbe38688c1b60a422f1befccd6ab1625cc7bb5a9a9345ed330c"
