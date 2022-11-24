@@ -16,6 +16,8 @@ class Ufraw < Formula
     sha256 x86_64_linux:   "fedbe59fcadb6931850380ffe98103295ca6a70d567f715c0f6333b953e89867"
   end
 
+  deprecate! date: "2022-11-22", because: :unmaintained
+
   depends_on "pkg-config" => :build
   depends_on "dcraw"
   depends_on "gettext"
