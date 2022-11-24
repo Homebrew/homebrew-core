@@ -11,6 +11,7 @@ class OscCli < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "51fb8b48198ed88fbfb632630991cb1cc6f55e1ecd172e6333c88f76d91e712f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8f4aa38a384a42a6f67e45e867f17b7798505b4c42accd99a06a04bf14189a78"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d4f67aa3d1db55152bd09d455198cea002b6d0713898649ea43792aba90e2422"
+    sha256 cellar: :any_skip_relocation, ventura:        "ad0c875d8dc42bec3468e9fe27ff8027b018c3c2b52917abb2bc6261e4e0a93f"
     sha256 cellar: :any_skip_relocation, monterey:       "aac7921084a5a48453e7107436d1a1a95b314b0cc6280c26c3bccdbd7507ce67"
     sha256 cellar: :any_skip_relocation, big_sur:        "26c675002c79f590c4321c4211acda199edb487f73b0218d7828e8a4637587d2"
     sha256 cellar: :any_skip_relocation, catalina:       "2877569347709416e213796e5193717e4464d195383c8ff9e12f732f1a419d7a"
