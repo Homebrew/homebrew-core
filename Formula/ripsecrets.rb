@@ -11,6 +11,7 @@ class Ripsecrets < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "875a7077129c2c6e616546710c84ce9d0600bea2d5175968df4979ec0bb0353b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8b5f6de692f2b9894e71c816eb109a14941c34ada55bac9ccc4b9091e05138b1"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bc03d9085c82a004ee252cd92ad9ab2a334538b7dc9a28532e275f38a8d9c462"
+    sha256 cellar: :any_skip_relocation, ventura:        "dd27d00c1e0fe8c14388b4a45b112c22e15ef21cc0755698ce24da4392122f58"
     sha256 cellar: :any_skip_relocation, monterey:       "ba619b6c9b0dddc4a985118e52e68606e38d1f26d59bd6a31c3a352345fa89cb"
     sha256 cellar: :any_skip_relocation, big_sur:        "d80f09f4d00ba3b12b3c7c1219f9249ea2d10c5641bec3eb3cbc96971ec4b019"
     sha256 cellar: :any_skip_relocation, catalina:       "e82297cfa8311cd174c61ef61250db3dd5de6f4d5bd7098f7af2440fd7dffc13"
