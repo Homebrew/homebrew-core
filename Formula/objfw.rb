@@ -14,6 +14,7 @@ class Objfw < Formula
     sha256 arm64_ventura:  "0fd7eba37d5517c35a6088c4320513fbe96de81f592a19a7f2d54ff617317b22"
     sha256 arm64_monterey: "83b505efb37df36fe0dba40337409835856293328b2977f28d0ef8868e1d250e"
     sha256 arm64_big_sur:  "59dd4798a6017b6062614f70004c87feb3bbf7aecb9ac2165b5b6f92353c6361"
+    sha256 ventura:        "e1acd1fa4297e992242864af7d3406bb7ef7b66e1035fbcf3ba66f1bc031f8e8"
     sha256 monterey:       "af63eb9a8b2ba6a183ef1bafc61cc7a527ee1d4088e073095d625051f7ca4c79"
     sha256 big_sur:        "d0ef5bb1b837ab3ebebc3737361bd65f739d9592f8e0b139a7786a19df8108c9"
     sha256 catalina:       "07ede29c16dec01d6eb8dd2dca6f79ec993f99298b38a78276f6257ebfb71c6a"
