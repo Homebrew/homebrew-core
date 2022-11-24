@@ -8,6 +8,7 @@ class Unarj < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b1ad20924840919b6dbbc86e4803e6a9ddf5d3b6379cdb0012307485a9849dbb"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2de1efe29a501d00894c72615a3e8a81de02f3322965378a7c1fcff715968541"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ba5ca05683704cf902159fbba1c6f81fcb45e3b97d2af79b393d2fa9147a4449"
+    sha256 cellar: :any_skip_relocation, ventura:        "641c46ec2238ce0cbff45addb67e104128df86217c471b0b697d0cb0a305c12f"
     sha256 cellar: :any_skip_relocation, monterey:       "75571ca079bf2794aa886c1e3623e241b48219eaa0778394b791673ceb06eb17"
     sha256 cellar: :any_skip_relocation, big_sur:        "e2cdb9fae2941778b986c52e8d6e5f11654a4e741ce785e093780adcb6f8031d"
     sha256 cellar: :any_skip_relocation, catalina:       "ec9937cacc782782b33064f5a0ea90b95fed66cb9ba86fad405c8e5f0056c53e"
