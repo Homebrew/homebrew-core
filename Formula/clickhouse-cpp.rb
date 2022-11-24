@@ -7,14 +7,13 @@ class ClickhouseCpp < Formula
   head "https://github.com/ClickHouse/clickhouse-cpp.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "5c65acfac0a5aa7d5b1efb3e8ed34479c80a4afd718c54a2d1f2fb661f9c7949"
-    sha256 cellar: :any,                 arm64_monterey: "26e39ddc384145868d46d4ce393da2743e2835ea5bfc9d8ea0b7eb9820200336"
-    sha256 cellar: :any,                 arm64_big_sur:  "36ae89dde556bb4f92e180735c505a7f07ee42e9ee6398a7ec3cedf6aa2d19f6"
-    sha256 cellar: :any,                 ventura:        "ca1718bf6713eed39c3fb9f1c8537b92b5ee08a4a462b7822642b68984300e1e"
-    sha256 cellar: :any,                 monterey:       "525f287703a698aeef5daaeeeaf9bf3da115a3bb0019ccd3949edff1ed1c5326"
-    sha256 cellar: :any,                 big_sur:        "c4bbc0a458466f26d915f0d88f08aa18146283dd3a70394b4bc2664e4548476b"
-    sha256 cellar: :any,                 catalina:       "a682490a810ab9b36f1ff3206ebad0e8c232eccd5e878994bd9644dbd487e0d1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b1751f82002ec0dcc111aa9ce87a38c2b0db23ff14c545563e5558d86839ea79"
+    sha256 cellar: :any,                 arm64_ventura:  "d416b409e0b3ea994d1862f98423903676b157bcb394b17b3ebbbd955f720620"
+    sha256 cellar: :any,                 arm64_monterey: "ad860cfc340915f420ac3a0f9f43a4ededae2af88f1f9d82d325ee78b59b7a81"
+    sha256 cellar: :any,                 arm64_big_sur:  "c1c3be5c26eba1691038d78ae71872f9b05674bde112b59f8f829045a82808a4"
+    sha256 cellar: :any,                 monterey:       "1c76150b5684c38b6cafc40fdf26a4eec68f664fab64b5cf672d9bd3623e50b0"
+    sha256 cellar: :any,                 big_sur:        "55b7fde1c2ac15a34defc526a4ccb12107c757263f5202ac7fc72d81d91ef572"
+    sha256 cellar: :any,                 catalina:       "b1a57158ed078088f38ce5da4207b4c10544e9268c35a17dd867e5788807ae7b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "59b4a9754fd3934831f20c2efe2398c4a56b4e7fb0de43aff7a50642e80b4bf6"
   end
 
   depends_on "cmake" => [:build, :test]
