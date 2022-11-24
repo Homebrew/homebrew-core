@@ -6,14 +6,14 @@ class Nuxeo < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e3c4a5916ae6ddbd2f1294d1445429febf7f4ee4b674a72239a39f2183d9703c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e3c4a5916ae6ddbd2f1294d1445429febf7f4ee4b674a72239a39f2183d9703c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "af8bae41aea48c4ab4475b64db647cf40a060790cc5b6b4c699c7e2578afdf9d"
-    sha256 cellar: :any_skip_relocation, monterey:       "0e48e72151f61aab63503e16443c02acafb2411edff0e6380db3ed654c0f3ad5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5322ea1c6ff309613ecd84d788bf56b0590c83cd9e1d5f1d8f3ef99c1610baa6"
-    sha256 cellar: :any_skip_relocation, catalina:       "5322ea1c6ff309613ecd84d788bf56b0590c83cd9e1d5f1d8f3ef99c1610baa6"
-    sha256 cellar: :any_skip_relocation, mojave:         "5322ea1c6ff309613ecd84d788bf56b0590c83cd9e1d5f1d8f3ef99c1610baa6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e3c4a5916ae6ddbd2f1294d1445429febf7f4ee4b674a72239a39f2183d9703c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9934a6e927552abb69fded251e937080ea9982e343870b8ce0eebde144ac5b52"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9934a6e927552abb69fded251e937080ea9982e343870b8ce0eebde144ac5b52"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9934a6e927552abb69fded251e937080ea9982e343870b8ce0eebde144ac5b52"
+    sha256 cellar: :any_skip_relocation, monterey:       "0510b9e5e54d325058dd57c1f6246f551b32fd34f7282480c4c03a85cba10ce7"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0510b9e5e54d325058dd57c1f6246f551b32fd34f7282480c4c03a85cba10ce7"
+    sha256 cellar: :any_skip_relocation, catalina:       "0510b9e5e54d325058dd57c1f6246f551b32fd34f7282480c4c03a85cba10ce7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9934a6e927552abb69fded251e937080ea9982e343870b8ce0eebde144ac5b52"
   end
 
   depends_on "exiftool"
