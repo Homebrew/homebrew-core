@@ -8,6 +8,7 @@ class SwigAT3 < Formula
     sha256 arm64_ventura:  "9749ef0bbccfff848f95c309c44fc1b631e725f464cf2bdcc53d1b603d874f3f"
     sha256 arm64_monterey: "f80bcd7727b999a42e672f9424b304cc5e6d801201baeddb6a6b9d4a4a7d4fe1"
     sha256 arm64_big_sur:  "233ac5b77d2e887d5d63f965897d0375101ef2ab16fd87e631e67030f553be06"
+    sha256 ventura:        "101fa82e79e21d2ecc67e03754d941a583effd069477c94b4fb54be64d1f268e"
     sha256 monterey:       "5546732b5a67d9cc7e71adde37ab80a84e98a357afe9ee21fd978927dddbe911"
     sha256 big_sur:        "d0d9561bf105072f30a93f3914d05d58422f13c578de51f760e3822405dd5c36"
     sha256 catalina:       "f50becfc883397db62530bab927dcf4b5a4db5f0bcbb2839d5ac795fb924c586"
