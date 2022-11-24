@@ -11,7 +11,7 @@ class Apktool < Formula
 
   depends_on "openjdk"
 
-  resource "sample.apk" do
+  resource "homebrew-sample.apk" do
     url "https://github.com/downloads/stephanenicolas/RoboDemo/robodemo-sample-1.0.1.apk"
     sha256 "bf3ec04631339538c8edb97ebbd5262c3962c5873a2df9022385156c775eb81f"
   end
@@ -22,7 +22,7 @@ class Apktool < Formula
   end
 
   test do
-    resource("sample.apk").stage do
+    resource("homebrew-sample.apk").stage do
       system bin/"apktool", "d", "robodemo-sample-1.0.1.apk"
       system bin/"apktool", "b", "robodemo-sample-1.0.1"
     end
