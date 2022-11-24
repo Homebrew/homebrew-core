@@ -15,6 +15,7 @@ class Unyaffs < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "928a43f3c85d35b25a782cca819a91de0f0836745093784bac2ac71217c55ede"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6bcb9d49cf20172488361e571f7411b6db6e42e9052cf005c4035c6a223d5c0d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b70c51c64fb6a69a0b26295d8b1d444c9a1a3b69f0283449657039537074fc64"
+    sha256 cellar: :any_skip_relocation, ventura:        "641a7e133d326fcaa9d6c280e721c5a265694f086acd7a07ccebd850fe7ed652"
     sha256 cellar: :any_skip_relocation, monterey:       "1ff1b1841d784d1fccc11d986113a60bad0d61d3faf21ce8f456d8b47d00ae1b"
     sha256 cellar: :any_skip_relocation, big_sur:        "961d0e37689b4e339382d8354c452640a52df505b2466e49e99775a6870f654b"
     sha256 cellar: :any_skip_relocation, catalina:       "936d36f9cbe3df837dff0759f65c46e6083c922c1a8e7e504a6ac3b734fd3805"
