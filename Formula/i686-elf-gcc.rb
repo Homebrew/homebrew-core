@@ -14,6 +14,7 @@ class I686ElfGcc < Formula
     sha256 arm64_ventura:  "3b676a0e106e44c69919a566ac452c37ddad742ebdb111f66dd2a33e82c6573f"
     sha256 arm64_monterey: "af79fdb341aec9f90a57cea06ef77872b4eb2431d640e6c1bf08dd0c2eeccb34"
     sha256 arm64_big_sur:  "8674a0c791e3698d896723332e75c5ea4beebd613d6aa08e2d96ebd2255c81ad"
+    sha256 ventura:        "34cec00f3c016498e89682144e95ceaa7b14703c9b53cee1e59d8c20fb13deae"
     sha256 monterey:       "968383d1b50f229e2368bec33e47fe9cf6a5dd79394d1537799b5d29d096ed7d"
     sha256 big_sur:        "5fc40784f70e7b4cbc58b9f31e5f647cccf0bd0ca0352cae05fdc2a1493ccc5d"
     sha256 catalina:       "c404ebea1c52031768c228d3927fc9966d79d6c0c672e594c04a76191212065b"
