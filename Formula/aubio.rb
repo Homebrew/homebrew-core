@@ -15,6 +15,7 @@ class Aubio < Formula
     sha256 cellar: :any,                 arm64_ventura:  "fc1d3b1aa92672e0c3e35b09bf6d85b7dba1b050ad2487b4b2b0e09c21c10043"
     sha256 cellar: :any,                 arm64_monterey: "e14563110ed6dec852f555c029950424f4be1df4528185c9157f472bce458134"
     sha256 cellar: :any,                 arm64_big_sur:  "4698b86e472c8dd33c2f3e89bfed39dff49b6da6d7bf507a920f0a9a0ddf89a9"
+    sha256 cellar: :any,                 ventura:        "50b70b2039563f25e2db9d31537da6e1ea8fd43a31aa75a90faeccb8c939ce2f"
     sha256 cellar: :any,                 monterey:       "40cb324664af9b380697f41e56cd65d00d8d8b95a3fcc37fada0816716fba180"
     sha256 cellar: :any,                 big_sur:        "6e0ca22b336d5a080bf1507e9bf33e4ad6e92256cab6ea3d4c160f91fb2548d3"
     sha256 cellar: :any,                 catalina:       "4f0fb8e363ba83e36c1186a58f15f9b780d72d090915ceb0cf9a99756b209d86"
