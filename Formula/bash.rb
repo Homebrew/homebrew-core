@@ -76,6 +76,7 @@ class Bash < Formula
     sha256 arm64_ventura:  "3a5dd0289fe6acf9153a358c6ca77b1ca7e447fa91f09d76fc9d6f971dc31200"
     sha256 arm64_monterey: "7d73afad09c38eed297ccbdae885fc6c01de1e7f7b00d39fb88532193f582038"
     sha256 arm64_big_sur:  "b84fcc00de20c957408222103c060a7eb6f6ef7cbe4cd6ead95f368289aebda0"
+    sha256 ventura:        "fc4818d6a55c5861a7f7aa15f276f542d5f20495198849088a9a81c22666292b"
     sha256 monterey:       "d0cb4298c7ed6f9d634e3687a74c61dd3f955c169f36ef6ce53bd816842f899e"
     sha256 big_sur:        "7ca197c70c3d5986389be319db6afb1530715e89dcd2c1d94329a1bbaf0f5b43"
     sha256 catalina:       "80f0ae13cca14bc3b75ce28f06a59debd5b782b2f2f1af8145bee1ecd3328878"
