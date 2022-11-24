@@ -6,8 +6,7 @@ class Dislocker < Formula
   license "GPL-2.0-only"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "961f02363415f3d3080c328184ad61d12511440e2572e90842a93f4a6c62000e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "39d819d5a39665f1de591aa76cda6ac58e334807dc246d6476169964e35998b9"
   end
 
   depends_on "cmake" => :build
