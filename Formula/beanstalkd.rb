@@ -9,6 +9,7 @@ class Beanstalkd < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f65fe8707dbd3fcbab4ef77c89ead60889a1b543159f1cc6d5fe4b69707caea0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "eeea48d399e95e86921751ed92aab3b378d065f99ba5d488dc2fffb0f44296a1"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7a3ff3ad7d79b13d3df7b8048134f8e7321d2daf4fa61c80e57041dff7a3d5ec"
+    sha256 cellar: :any_skip_relocation, ventura:        "66c231b751e394fb9279996c5f7fc2cace2caed16b9637e75b2ca96c0610b526"
     sha256 cellar: :any_skip_relocation, monterey:       "bb7641f1326a43f92d8fd585b9678a52a02e88f6f1519001f431c565e0feb023"
     sha256 cellar: :any_skip_relocation, big_sur:        "8d2a2ae37dc5914fc8f9a81973e056d5d310a12e87ab089a97f47d0fa8a6168b"
     sha256 cellar: :any_skip_relocation, catalina:       "eb308ce225c6f335a5a27518b63f8ce70caa263e94afbb7d9c2bb9000c12d974"
