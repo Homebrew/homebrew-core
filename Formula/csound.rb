@@ -2,8 +2,8 @@ class Csound < Formula
   desc "Sound and music computing system"
   homepage "https://csound.com"
   url "https://github.com/csound/csound.git",
-      tag:      "6.18.0",
-      revision: "f0bea4d87b49da2be7e9f1fc77826a7327cbc391"
+      tag:      "6.18.1",
+      revision: "a1580f9cdf331c35dceb486f4231871ce0b00266"
   license "LGPL-2.1-or-later"
   head "https://github.com/csound/csound.git", branch: "master"
 
@@ -42,7 +42,7 @@ class Csound < Formula
   depends_on "openjdk"
   depends_on "portaudio"
   depends_on "portmidi"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "stk"
 
   uses_from_macos "bison" => :build
