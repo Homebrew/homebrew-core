@@ -9,6 +9,7 @@ class Garmintools < Formula
     sha256 cellar: :any,                 arm64_ventura:  "6c16db8a8f76d0b5dfdae1ae49cf31ebe12ea2bf6ee35b791849fa66fb2fc6ee"
     sha256 cellar: :any,                 arm64_monterey: "9b16bdc132c970434babd5033664d00b697deeb0fd3796c8986b1a95b7941582"
     sha256 cellar: :any,                 arm64_big_sur:  "97d99c30f0c47262b295405d79c9a0dc7bbd5b38bc67f6d7fb3e96789e0cad97"
+    sha256 cellar: :any,                 ventura:        "1fba9cf9c8ce7383afbde00c72aa5082b0a2a87fdae51ced08dee7dc00e9575a"
     sha256 cellar: :any,                 monterey:       "b49cda53d64a80e61cd1de700036714c6470d5b77fad8f6320d164cb1e50db15"
     sha256 cellar: :any,                 big_sur:        "eac3d937b3281a2a172185e01a53f86fda15247168ddf7cb4dedb2a8f81b9220"
     sha256 cellar: :any,                 catalina:       "91c193c86b431bc3541b18ad33cf6793b001fc70293c50289d8fe6d978d50ca5"
