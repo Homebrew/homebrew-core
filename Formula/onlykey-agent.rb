@@ -12,6 +12,7 @@ class OnlykeyAgent < Formula
     sha256 cellar: :any,                 arm64_ventura:  "c00e43816d08e4a35c6b368b7596e8e0a482012fe561adf6be6dc1249fbb364f"
     sha256 cellar: :any,                 arm64_monterey: "f825dab0b498f6b2007308cfcff34d8de453926d0da7b8c514ec41afed5a7882"
     sha256 cellar: :any,                 arm64_big_sur:  "32edc9902ffd6e1c674238ccd5a3d0038ae6c50a52c2ed31efebf99499836acc"
+    sha256 cellar: :any,                 ventura:        "45ac000acfc61c035025eead380496138ce0e1d7df54984d12cd8b8e654c2920"
     sha256 cellar: :any,                 monterey:       "477402044416c31d1da81bc16a00714f85e590aaa266d283a7d8860f163ee69a"
     sha256 cellar: :any,                 big_sur:        "eda9b51eded3e267f202fbe63b1d6e1bcb0d6ef83bf9c37193a95e9562d86c9e"
     sha256 cellar: :any,                 catalina:       "fcd8858098a7eb886eb736ebe769366c2901dba9e7ffce25a0f140a14ef1c00a"
