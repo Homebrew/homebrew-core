@@ -10,6 +10,7 @@ class CollectorSidecar < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0a28de64fe617d9abf6137139e9ce8dbd666e9c3539e885efda0b3f39cbda351"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8013d5b34e9f52b7d951883398eec860fe67731f3997f88109a9950d0bc9813b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6e7f81a1b6652d4174fe522b23862d39c8a6afaa55916462df45dafc5d96326d"
+    sha256 cellar: :any_skip_relocation, ventura:        "beb7f6c580eaa0b9126a2950eb03b5773d4a46e377e631d0a5182ce240fd122b"
     sha256 cellar: :any_skip_relocation, monterey:       "a7516dcac003058d57f8264775ee352f4ef860584107f92221ab0a35b0149130"
     sha256 cellar: :any_skip_relocation, big_sur:        "a39e57f9749ee91a6ef524b6ab087616b8fcf22a35564da5b8318b6788fe787a"
     sha256 cellar: :any_skip_relocation, catalina:       "6d66fcf6c6a71ffeda378600d44ee8934674b1ba9df2c5ec0d7c90dd4dee09a9"
