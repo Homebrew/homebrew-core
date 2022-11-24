@@ -73,14 +73,13 @@ class Bash < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "8e71fa1eb06c6ab9bc3f8b71a32e83feb1e72e4e02e5fb57d60a8a6da0468f9a"
-    sha256 arm64_monterey: "feb4dde0024d3423c10f33c7c87682e1b3a4a4b4316f4371b2e52f365c0045a1"
-    sha256 arm64_big_sur:  "fadc8ed86018f69624c1e1b77f61a4d2186eec02181472fcd8c9dbb79a4ba0a6"
-    sha256 ventura:        "0b5819be5588e2ef43bb4d5c0f2bff6ea5fce97b0caf12c6661542ce293212dd"
-    sha256 monterey:       "c5ac1316a7f3db992d6ac4fc63c1c7a565141d688ae1ae5c81ec5f134edba02b"
-    sha256 big_sur:        "f988f8092b7cd6a069d818d4632d70cb3805800747820b6ab84d0e7f75445ae7"
-    sha256 catalina:       "7b1efacb1ac6516ae17c5182c8f461040ca0bfc2a8364c2b8593710a9ddb333f"
-    sha256 x86_64_linux:   "4c433c846b57128117f6814e1ecc2a4bc7febc14bcb84935ce3f40ea51e80fb9"
+    sha256 arm64_ventura:  "3a5dd0289fe6acf9153a358c6ca77b1ca7e447fa91f09d76fc9d6f971dc31200"
+    sha256 arm64_monterey: "7d73afad09c38eed297ccbdae885fc6c01de1e7f7b00d39fb88532193f582038"
+    sha256 arm64_big_sur:  "b84fcc00de20c957408222103c060a7eb6f6ef7cbe4cd6ead95f368289aebda0"
+    sha256 monterey:       "d0cb4298c7ed6f9d634e3687a74c61dd3f955c169f36ef6ce53bd816842f899e"
+    sha256 big_sur:        "7ca197c70c3d5986389be319db6afb1530715e89dcd2c1d94329a1bbaf0f5b43"
+    sha256 catalina:       "80f0ae13cca14bc3b75ce28f06a59debd5b782b2f2f1af8145bee1ecd3328878"
+    sha256 x86_64_linux:   "76e31c1e2aff9068e25736f111d8bf56a5f5ccb07b3591c00cebe8476c239788"
   end
 
   def install
