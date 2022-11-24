@@ -12,6 +12,7 @@ class Sqlparse < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d9aa28042ec77d514fd799d5935f3d2f0ba5bb5298778c04b9268d5b3695fa58"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d9aa28042ec77d514fd799d5935f3d2f0ba5bb5298778c04b9268d5b3695fa58"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d9aa28042ec77d514fd799d5935f3d2f0ba5bb5298778c04b9268d5b3695fa58"
+    sha256 cellar: :any_skip_relocation, ventura:        "5302c45462c979acba7f30f72c6226d9c34f95d040fe056836cc027a81b2838b"
     sha256 cellar: :any_skip_relocation, monterey:       "5302c45462c979acba7f30f72c6226d9c34f95d040fe056836cc027a81b2838b"
     sha256 cellar: :any_skip_relocation, big_sur:        "5302c45462c979acba7f30f72c6226d9c34f95d040fe056836cc027a81b2838b"
     sha256 cellar: :any_skip_relocation, catalina:       "5302c45462c979acba7f30f72c6226d9c34f95d040fe056836cc027a81b2838b"
