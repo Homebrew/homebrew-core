@@ -7,12 +7,12 @@ class Ouch < Formula
   head "https://github.com/ouch-org/ouch.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d89341a930dfa88ea4c93114c042a1f615e813810c37fcc43ed73f7b4f4ba0cd"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a50b6a78f0c51e0c7980e8512f59656857427e7e3dc2a0eeae78e8d1493d72b5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "814910019e9fbd5c6b2546ac4b053040900b261d263aee06af152a8da4f82585"
-    sha256 cellar: :any_skip_relocation, monterey:       "a56fbc35f35b3cb277a67815ed627f5c70339b53c7b9c9806935844f3fd3eac3"
-    sha256 cellar: :any_skip_relocation, big_sur:        "492fc5a573d4769b38779937283bcb6f95cd2be9e64b162d379c3fec74532424"
-    sha256 cellar: :any_skip_relocation, catalina:       "fccc2c5f957ab41a45e0b0e8e18476c1e34f4554db994d070838626b316fe5a3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ca9889e3d434284b5fad2bc60e755334d069091e6816cf68142a7684c43ed7ea"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cdd6e0a7dac20d0c1a121ba87998cd0feb7f2c135f69653b8168f4930f6b23ff"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "60b8a7787461098f0a32fdac9a306031324d6721d1d132be42d08027f30958e4"
+    sha256 cellar: :any_skip_relocation, monterey:       "0cb9d7ebc47575dfb1212e2709417490bfec5ebec96a9fe8330a5729fa784e97"
+    sha256 cellar: :any_skip_relocation, big_sur:        "058c3cef527b86604e0b062600df742be5806d27a2c8570bf0cf5fdead3caeb6"
+    sha256 cellar: :any_skip_relocation, catalina:       "dae85287b8bbc9a1d0cfa0b7ca76fb9c7030cd8302e221f337de9d5f37b34fdf"
   end
 
   depends_on "rust" => :build
