@@ -13,6 +13,7 @@ class S3cmd < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5d3197b26ede962687b3f7e44063b70c51b58eafa800578f01c0a716770833ed"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b8ebf2e5482148ab05fb5566a0daf181701b4a8019bd1fba40d1a8854a926c0b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "62239bfac256904c14d9aa9deccdc54d27f8b97dcf47fbb593386c07ec362c5c"
+    sha256 cellar: :any_skip_relocation, ventura:        "98a569dab7f76373fc587e335f8d705fd46b0a60f773dc8e35477cdae7cae35a"
     sha256 cellar: :any_skip_relocation, monterey:       "42221c8da5a493e2fdb7e1752603f2de8fd7308f2d8790c7bbdf5bd1b96efef3"
     sha256 cellar: :any_skip_relocation, big_sur:        "1a6157f2ba122b52f4f8d4f312bf981f621afb4339266c086e24ced420bf43f2"
     sha256 cellar: :any_skip_relocation, catalina:       "2168e52f58b88cded9291ff6fce6ae6fe5c271d9e4f19aa4b35fc286b7281b5d"
