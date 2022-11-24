@@ -34,9 +34,9 @@ class Ouch < Formula
       system bin/"ouch", "compress", "file1", "file2", "archive.#{format}"
       assert_predicate testpath/"archive.#{format}", :exist?
 
-      system bin/"ouch", "decompress", "archive.#{format}", "--dir", testpath/format
-      assert_equal "Hello", (testpath/format/"file1").read
-      assert_equal "World!", (testpath/format/"file2").read
+      system bin/"ouch", "decompress", "-y", "archive.#{format}", "--dir", testpath/format
+      assert_equal "Hello", (testpath/format/"archive/file1").read
+      assert_equal "World!", (testpath/format/"archive/file2").read
     end
   end
 end
