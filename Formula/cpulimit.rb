@@ -10,6 +10,7 @@ class Cpulimit < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e94ecdb44d2b8f104510da469aaa27a879cbf41518c88315f346116203b9c944"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "993f9fe777c7feb2f2da49486e0b7febf6a6d822e64ff4f40f578ddc0f21d7f4"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f09919436a14d7b1598720ca832435b2500aebe0839f5055a253f52c59642a5d"
+    sha256 cellar: :any_skip_relocation, ventura:        "e26ef5c56d8a24d533ebbe33a65dda99defac0f32504edff34358992b39fa1cb"
     sha256 cellar: :any_skip_relocation, monterey:       "71ef4e07ccd817edc04f0b60f0bdb2a4a2efa7acdb1fdbdf31216871cfe6b61c"
     sha256 cellar: :any_skip_relocation, big_sur:        "f3f394e17febb7af49a1cb35c46e33856263dc58016d959aad2d2a250aae1d7d"
     sha256 cellar: :any_skip_relocation, catalina:       "7330907348c0a181c75b069dba7ee628e8c524c9bb9510487dbfd43730173db5"
