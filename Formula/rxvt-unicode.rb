@@ -15,6 +15,7 @@ class RxvtUnicode < Formula
     sha256 arm64_ventura:  "0305a3f5ddc47f75893766fab81ec57e2149c103210e2a79b28925a07d458859"
     sha256 arm64_monterey: "8838a2087d57f7a58d7c4f02d325b4b20fc0ff784550b20e6e692bfef8bafd28"
     sha256 arm64_big_sur:  "5050ae72d24db51f608ec3d9230117726c3abb53e6466a169604a0fd1ce9311f"
+    sha256 ventura:        "686eedde51ba53d6632664378fccdf1de069c55a7fff363ec9f516d26699feb0"
     sha256 monterey:       "63507e9c56529a990a2b913beb8abc96bcb3f6e83962ae10489f44f05a874d9f"
     sha256 big_sur:        "e97e6531e7ac474d68456590f6f8b08648c6ffbabf81769ea676f3497297c4a8"
     sha256 catalina:       "aa6a7ad56f33a20912520adf56cfa511b461f2f2b8f9dfa9f4c48230e2a12cc9"
