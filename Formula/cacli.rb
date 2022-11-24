@@ -9,6 +9,7 @@ class Cacli < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d26455eae5d440a4a6d03562a3932e2828dcc78c4ff27d4b7127c54102513d6d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7c6cf80205658f45979413a2c281e981988c5bab3384f4eb52517b854d024801"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ea0076fb8a8b30ee1809d70d1864a8cb2475f06bfb330d42968dc1775cd34c21"
+    sha256 cellar: :any_skip_relocation, ventura:        "655f75c3ccdbb1e2f4adf035a9860ca6097202dca10ceab2d3de99c8619e11f3"
     sha256 cellar: :any_skip_relocation, monterey:       "2d8eacac537081a0cb5b0f7edbb1f9711535c79b5fbc2d05e117027ccfef607b"
     sha256 cellar: :any_skip_relocation, big_sur:        "81a34b1917063bd7833e975de95940b5adff4d7b98e08d18f3f53afa61d14f6e"
     sha256 cellar: :any_skip_relocation, catalina:       "63f761d1b56137cdb4a2d94e5894c7a43ac28f8d9f7f36c2011da7ea21445c9e"
