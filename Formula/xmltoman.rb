@@ -60,7 +60,7 @@ class Xmltoman < Formula
     bin.env_script_all_files(libexec/"bin", PERL5LIB: ENV["PERL5LIB"]) if OS.linux?
   end
 
-  def test_do
+  test do
     assert_match "You need to specify a file to parse", shell_output("xmltoman")
   end
 end
