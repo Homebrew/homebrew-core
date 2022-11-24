@@ -6,7 +6,7 @@ class Flake8 < Formula
   url "https://files.pythonhosted.org/packages/66/53/3ad4a3b74d609b3b9008a10075c40e7c8909eae60af53623c3888f7a529a/flake8-6.0.0.tar.gz"
   sha256 "c61007e76655af75e6785a931f452915b371dc48f56efd765247c8fe68f2b181"
   license "MIT"
-  head "https://gitlab.com/PyCQA/flake8.git", branch: "master"
+  head "https://github.com/PyCQA/flake8.git", branch: "main"
 
   bottle do
     rebuild 1
