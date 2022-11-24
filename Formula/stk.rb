@@ -14,6 +14,7 @@ class Stk < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2ca7a7e90edb7b136d1cd229632e33c31fe108eabd0351a3332b57a04db938ca"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cfb08e28312687b79737423cf59db64cd30aa2d7b5527a9e65ff6d2a3d4a437c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d42d3b5288a6f8b595eb45c2f870f0494cc63e902d28a358656a4b6d3ae6b795"
+    sha256 cellar: :any_skip_relocation, ventura:        "e663a628ee25dc71a782badbd50598852678eb32b249ca77424f4eae9f00187f"
     sha256 cellar: :any_skip_relocation, monterey:       "cb80d6ce6f9266932079b1edeb9acc6224335193889a873ed413a0659f8c29ce"
     sha256 cellar: :any_skip_relocation, big_sur:        "9dd7c364744901db0a21e8dfc95c02545ab6bf5ef47bb9dd8a6a2866f382f5c1"
     sha256 cellar: :any_skip_relocation, catalina:       "c5857693fa1111471c746d769db8bac3486db28d7eafb3c3e61d8a680ddbce4b"
