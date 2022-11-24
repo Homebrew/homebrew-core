@@ -14,6 +14,7 @@ class Gzrt < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d6dfe52fd268de29704f3367daa802012d68b7162d957716d96d9da41bef80e6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "46794bf9bc734a2a73e7f7b8f9bb16825249bed562bd516a97aa8b2b3349b264"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b1bc6db3fef40f0c48ceac080ee84108364cf4ff1d94bb1423c1be5b2f14bc96"
+    sha256 cellar: :any_skip_relocation, ventura:        "cfb47aeeccbaacbeefddc130b44f5c36e7660067dce5c903ebceac40199db8bf"
     sha256 cellar: :any_skip_relocation, monterey:       "003e9f13cb64da84793030b3b224e9dc2083b97b7bae69527857bb359f856331"
     sha256 cellar: :any_skip_relocation, big_sur:        "6f9f146178364bb1306a145076a4c79f01f1ba08726b2e90a022597fe34b63f9"
     sha256 cellar: :any_skip_relocation, catalina:       "d1d5378de11679a973ce6a5893984b0431f7ad62f369215814927cdb5fbf6678"
