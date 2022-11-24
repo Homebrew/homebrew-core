@@ -106,6 +106,9 @@ class Gcc < Formula
       # Fix Linux error: gnu/stubs-32.h: No such file or directory.
       args << "--disable-multilib"
 
+      # Enable to PIE by default to match what the host GCC uses
+      args << "--enable-default-pie"
+
       # Change the default directory name for 64-bit libraries to `lib`
       # https://stackoverflow.com/a/54038769
       inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64="
