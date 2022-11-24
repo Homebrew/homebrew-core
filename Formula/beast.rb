@@ -15,6 +15,7 @@ class Beast < Formula
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0cd65d3171bde73b59cc5d5489eb2ab07c284225e3b30c2c160de61ec29df98a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5f9d2180a3cecd5c8b361318f792a34496e958081b1d9fc731dbd933673498a5"
+    sha256 cellar: :any_skip_relocation, ventura:        "60b399b07572609d7661317b1e54c99cbb704d229ea78df4afdcf4adc74db659"
     sha256 cellar: :any_skip_relocation, monterey:       "ec4938ae3249e4f6d1a312c14550ec4da837a7b572bbd0d4b7238fb5ca7f0728"
     sha256 cellar: :any_skip_relocation, big_sur:        "90bc7bcf414bfc4d9a68e7dbade089260bb12483939a78a136cdb9b2ea1a3bcb"
     sha256 cellar: :any_skip_relocation, catalina:       "5f4b312595410d83df9099dc15657241dc4cb758d58a5836565127275a6fb912"
