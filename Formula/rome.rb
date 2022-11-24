@@ -8,6 +8,7 @@ class Rome < Formula
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c9c0cf36af6dfeb99b33b910bf3afbbed3d6dda0ac362be1b8e39dcc690207a1"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "67c36d2034fc1266cb59bf8b853a12dca76166f0366b7b7dbc0d8021922a727c"
+    sha256 cellar: :any_skip_relocation, ventura:        "fa13bccb05a85ef64ba51045f2667774ef972a0f5b91f560cc141ed84a4015d0"
     sha256 cellar: :any_skip_relocation, monterey:       "da6813f56ae217251785dedcdb0683b9ce29d4fd124ec9eb43ec1f296f56e663"
     sha256 cellar: :any_skip_relocation, big_sur:        "46ad491ba6f8cd906a93890a4389628ef8b774bd3e4a6174c40d324ba25e72dc"
     sha256 cellar: :any_skip_relocation, catalina:       "135212529c003247ae4ac695a19e5658ae704ee1c1c0dc8131d6b776fa163233"
