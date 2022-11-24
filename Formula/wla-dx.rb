@@ -15,6 +15,7 @@ class WlaDx < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b9e6a35fd2e2d41857ec5bd63f4f2066ab2a454311d279a11568359462c8d653"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bb9cfd12fe7a6235a880b05a72458a294029b84b6b5d6ff75f900ee8eff058fe"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3a9bf5846a782156e6bc56288943a75cfc720298f202a74d84e3559d76bfb65c"
+    sha256 cellar: :any_skip_relocation, ventura:        "622212512e803c1127b21cdbd73a0fef33fbcb3c5bb0e4a29d93b4d1b0d28409"
     sha256 cellar: :any_skip_relocation, monterey:       "2a4df07050385b6531f279147d6932795789f926e749272a4e5936baffbf2a18"
     sha256 cellar: :any_skip_relocation, big_sur:        "ed6b08b3ded0c5a6bfe641d859a76d155fffb29d2c4c7af323ba85361b67cdce"
     sha256 cellar: :any_skip_relocation, catalina:       "29622f09c7ffb595b98f5ff093bbd54723e07c1de84b69b1c84a67c9b54a576b"
