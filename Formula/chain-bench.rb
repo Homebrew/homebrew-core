@@ -26,7 +26,8 @@ class ChainBench < Formula
   end
 
   test do
-    assert_match("Fetch Starting", shell_output("#{bin}/chain-bench scan", 1))
+    repo_url = "https://github.com/Homebrew/homebrew-core"
+    assert_match "Fetch Starting", shell_output("#{bin}/chain-bench scan --repository-url #{repo_url}")
 
     assert_match version.to_s, shell_output("#{bin}/chain-bench --version")
   end
