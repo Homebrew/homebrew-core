@@ -15,6 +15,7 @@ class Coredns < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "789ca382bc7bc114051d251bbe1f52ab0b1a34f97dad41a4e8f075c9b99987e4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7297b2db0b0b9605d83284b1003a11a3bda68369136cc71e25efcde8c6ec49a6"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b3ad40a9e6831dd84070f672b08fc8bdb9e0e3b343cac3bc705acbd21a4f4715"
+    sha256 cellar: :any_skip_relocation, ventura:        "3a912425aa5f7678bee06470dffad475ace691467e4cf61ff1d9b2180caf3da0"
     sha256 cellar: :any_skip_relocation, monterey:       "7e7bd62f170026084a26fe235a190fdc33d1f29d3514f4aa4e523f768edd2e08"
     sha256 cellar: :any_skip_relocation, big_sur:        "7517447ac64977764985ac74d1027e1a67b1e22798683e22551a80c5965ea441"
     sha256 cellar: :any_skip_relocation, catalina:       "85d0734f54404298d40a7fc80af544b7549c5e875c525cd03b2725061a671bdf"
