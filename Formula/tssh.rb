@@ -9,6 +9,7 @@ class Tssh < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "87acf131626f3af8ebc78fe390c43b3950c3c491a90e2fdd4d4bf9b975053146"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5f45fc530482f76d31be04fc447ad9ddf1db45542f845346d035738fe12bca04"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "222ab84f9c686b2606c5424d5ba3183517ab606851d7d6f9131f8122b3f4047b"
+    sha256 cellar: :any_skip_relocation, ventura:        "1e6f996043a33d66922f08034d2d23394cf01b16ca91fd2dd80b1ac3a4f63abc"
     sha256 cellar: :any_skip_relocation, monterey:       "48d5b1f6af2a47e38deb9aae9d969607b250a574458b1825ca664b4ce689e2e3"
     sha256 cellar: :any_skip_relocation, big_sur:        "d19409fa804d5d474ac267f4bacc1a808a48c04a0d6f441a7e26b2e1c3c48f3b"
     sha256 cellar: :any_skip_relocation, catalina:       "ebf00c55633da328741f17335406fd7572ea8b1509182131b7d46878e9451ea8"
