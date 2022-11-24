@@ -9,6 +9,7 @@ class Viennacl < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "cc8761095e89fe0ba92453ec1697ee2a6cbcf661d203d9ccd71f88b7c0ae7b08"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "09a95ad5ebf44a0b14c98a7b464ca6a3f83c47b8b9d6609b508051faf1ce3a41"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a59335b82a9f92448236ec0278d156f2425995d48fddcef730b906ca63aea6f9"
+    sha256 cellar: :any_skip_relocation, ventura:        "a9a82d01da982124364d829362836bfcba075981bde2cf4be39fb036fd2f0341"
     sha256 cellar: :any_skip_relocation, monterey:       "c15b7b7033a93664765ef18222701e12adc7f0ef3ca797891aee90e826d87a96"
     sha256 cellar: :any_skip_relocation, big_sur:        "696235e232844f8af5d062bc9197ab87fcacb012da49304b7cce059b145255cf"
     sha256 cellar: :any_skip_relocation, catalina:       "6fa1cf4450123da7e4af2910f6a9c41e7005d5591e05d035c06adddff44f25e0"
