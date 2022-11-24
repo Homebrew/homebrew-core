@@ -10,6 +10,7 @@ class Jxrlib < Formula
     sha256 cellar: :any,                 arm64_ventura:  "6dd0a252b9af046d657a6fe9e9e65092d4c756295202b74ac9ae41d896850014"
     sha256 cellar: :any,                 arm64_monterey: "5689b2bb17ccb49efc307704c0f1eb677c66cd1727605b04db013f519f90a51c"
     sha256 cellar: :any,                 arm64_big_sur:  "5fed25d3e908ae5f825c8ef875363e5f191c8ba5e932ee4675747874c33f570a"
+    sha256 cellar: :any,                 ventura:        "abd82d9714ef6fae49062ca6487ccb78bc1541addd590b097206252e6cc2a17b"
     sha256 cellar: :any,                 monterey:       "a328991bf15d73c7536d31ce474cadb36a18df601ca3872115e8d8ec46bdc14e"
     sha256 cellar: :any,                 big_sur:        "a2bd992f147e427f8021e0f12a1f228887a890b23cbab7cd734c3d016fb90dae"
     sha256 cellar: :any,                 catalina:       "33134735fa04107eabadae73a3dffc8cabb8bcadf60dabe68321461366877c01"
