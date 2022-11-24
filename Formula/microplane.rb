@@ -7,15 +7,14 @@ class Microplane < Formula
   head "https://github.com/Clever/microplane.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4a01017eab3eee84e622e7eb9d39235af14aa90af2033392022307131298f853"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9683ab03d43b65a9b9f2800126aa5ebe96fa9c639dbe9d5bdd86d53334fac010"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fb8cd7544c9c9801ea665666d9a0abf44fbc9a38c15e4749d2137ab62a4f33ff"
-    sha256 cellar: :any_skip_relocation, ventura:        "b9b933136c05b211848c70e2f9840306bba3e880a0314b65262e0dcaf174ea6e"
-    sha256 cellar: :any_skip_relocation, monterey:       "08f86bc537d804034c176ab2445e7caeae118a7815500655456a30a57fdab75d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ad84fa0e4efc89cd232632aec23c676ebfc23f787037f0da5a8356dc0b765028"
-    sha256 cellar: :any_skip_relocation, catalina:       "f9e918678833d61cedb4decb86652ccc356665aed0febcc48b30d950bc8c9b71"
-    sha256 cellar: :any_skip_relocation, mojave:         "5105e70832a0200105c87bf33d04e4852d7a01d8eb05ac9d7f7d3816d3f8748a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2439149f7ad75feb2d3bc41479fb626f8916b1e0796eeef71b69ea630b8afc27"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bce2fccdf3bad8a263e334f78998abfa7e25153c3bd1c66fff8e538981bd481b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "895647aa25e00a690a137ab0fae64e72f075d6bedd3d0f9f9105acc7e3c5c90a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "77690629610337917ade2bca586af39148e89df15ce4b1887018c1fdec12fc7d"
+    sha256 cellar: :any_skip_relocation, monterey:       "a0e54ff13e444e476d6eea2798aa1966937488b4e8f2472be9cf024933b74604"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9b4d8f8734017c00dfb4c94d77b0eba42bc0daf01ab637a1d6b239d40b939daa"
+    sha256 cellar: :any_skip_relocation, catalina:       "bf2395a35907393bb6603b764e1dd748752ca4cd4e93b64033a6c1942e4aa5b7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4ca59189a783f9dc449507d44a21773beff53a90ace19c25181a6cce6ea77121"
   end
 
   depends_on "go" => :build
