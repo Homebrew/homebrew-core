@@ -19,6 +19,7 @@ class CmuSphinxbase < Formula
     sha256 cellar: :any,                 arm64_ventura:  "933f1d75ffea23077cd4c3ba98f58c768c80c868694bc7b1167131c93d84db95"
     sha256 cellar: :any,                 arm64_monterey: "10c702ad300d51ffac6ed0251cf3b64952d549ad0a67792b80fe055a182014f2"
     sha256 cellar: :any,                 arm64_big_sur:  "d8ca2666d2ee6c5ff4a5a88ad086cfcf3e0cf744e6614ea31b451dfd86196c17"
+    sha256 cellar: :any,                 ventura:        "f1df00fa88b69a58eb87a942014a00e14f941e7380b07cd1aea69cc256f31603"
     sha256 cellar: :any,                 monterey:       "36b168f91bef9ea210c0fcbe6ace6a24d14aa50d11fd464a742e543ede25a6fe"
     sha256 cellar: :any,                 big_sur:        "774670d79572ac633b5acf646a15ca54055e140044476bfeac7bc1d377a1dbe4"
     sha256 cellar: :any,                 catalina:       "0cea9513b180773ff3c45d24453e962ef4ad5d1f923c4c22716437f3580b195f"
