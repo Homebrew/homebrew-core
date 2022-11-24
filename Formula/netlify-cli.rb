@@ -12,6 +12,7 @@ class NetlifyCli < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "effdc880be48ec328fc58fa82123ea679a2bbad9622eb6b655bfbd77b7d63eea"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "effdc880be48ec328fc58fa82123ea679a2bbad9622eb6b655bfbd77b7d63eea"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "effdc880be48ec328fc58fa82123ea679a2bbad9622eb6b655bfbd77b7d63eea"
+    sha256 cellar: :any_skip_relocation, ventura:        "4b6007af65e4017bcd2992a27582e67c7423161d2a37069f11b527d30a6ea032"
     sha256 cellar: :any_skip_relocation, monterey:       "4b6007af65e4017bcd2992a27582e67c7423161d2a37069f11b527d30a6ea032"
     sha256 cellar: :any_skip_relocation, big_sur:        "4b6007af65e4017bcd2992a27582e67c7423161d2a37069f11b527d30a6ea032"
     sha256 cellar: :any_skip_relocation, catalina:       "4b6007af65e4017bcd2992a27582e67c7423161d2a37069f11b527d30a6ea032"
