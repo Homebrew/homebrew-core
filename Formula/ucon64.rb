@@ -15,6 +15,7 @@ class Ucon64 < Formula
     sha256 arm64_ventura:  "228557d22fcc52015a45e5e22d4e8b9d6a9997600e5ad4127afd39d2bdbd7dd0"
     sha256 arm64_monterey: "516c8d6bcfbc9101c237e9ec08d13b11f9e0347d1fa5841f670cb8945a93b665"
     sha256 arm64_big_sur:  "ca76694128cae76b0f5f177d3ab2106a7e955caf7480be607368e8507cf0ab75"
+    sha256 ventura:        "9e2d7117710cb6f8084dcbc36ecf0c607c1de1d31923df54224cf6f21f8b86ba"
     sha256 monterey:       "1ffac20e4aafeabe33ab750f2f40589bb894caf7ee372380a065abeb7e06655c"
     sha256 big_sur:        "1638a10fb2622983abc00934ba023cb03a1d7b332e45d9024b717f74a0d3fee7"
     sha256 catalina:       "3672dbe3c97e6d71f22a6666adec1cca709ffc3dea9c76baf16fbeb8f63a4782"
