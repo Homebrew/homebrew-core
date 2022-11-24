@@ -22,6 +22,7 @@ class Tcsh < Formula
     sha256 x86_64_linux:   "4d2662db222e8b7d6c6e66f748564a1eb4a854cc7b71bed0d0968d82991f6336"
   end
 
+  uses_from_macos "libxcrypt"
   uses_from_macos "ncurses"
 
   def install
