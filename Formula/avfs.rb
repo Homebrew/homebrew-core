@@ -4,6 +4,11 @@ class Avfs < Formula
   url "https://downloads.sourceforge.net/project/avf/avfs/1.1.4/avfs-1.1.4.tar.bz2"
   sha256 "3a7981af8557f864ae10d4b204c29969588fdb526e117456e8efd54bf8faa12b"
 
+  livecheck do
+    url "https://sourceforge.net/projects/avf/rss"
+    regex(%r{url=.*?/avfs[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     sha256 x86_64_linux: "6e490770e6562a092085e1a0855e7d6c988a6d8ce9d5cafdcbde082baea8679b"
   end
