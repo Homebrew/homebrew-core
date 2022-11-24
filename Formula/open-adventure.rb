@@ -16,6 +16,7 @@ class OpenAdventure < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0e12500870339890aa4e38adb46743e8cd2459645749f98b985c126a039c26a9"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e626a51cb92c97db9628a4dd4f3220b4aaa5fca24b044e9d84b1a27986597e47"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b775593afe027000123bb388f84553f5c2213a566cce24eff46be74e96f000c9"
+    sha256 cellar: :any_skip_relocation, ventura:        "45c2c8b7f32981e7c6be6b4be03c6f076c8fedb0c754f985cac236ceeefa5a04"
     sha256 cellar: :any_skip_relocation, monterey:       "207d746678eb8bc2d241af54fcd33785cc25066037d4211669321304a6d9dfab"
     sha256 cellar: :any_skip_relocation, big_sur:        "bf645264db48637a2a60113fd80945feb3048e1b17d6e77bf1c6970bb6f621ba"
     sha256 cellar: :any_skip_relocation, catalina:       "c49210129ed491e094473e663171f5f6a554b41c3ba319cafc4fdc7d25289c8f"
