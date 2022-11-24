@@ -5,7 +5,7 @@ class Avfs < Formula
   sha256 "3a7981af8557f864ae10d4b204c29969588fdb526e117456e8efd54bf8faa12b"
 
   livecheck do
-    url "https://sourceforge.net/projects/avf/rss"
+    url :stable
     regex(%r{url=.*?/avfs[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
