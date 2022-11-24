@@ -16,6 +16,7 @@ class Ldapvi < Formula
     sha256 cellar: :any,                 arm64_ventura:  "b62ea0b0de6085ea21a9415ff7983d2d78c5406f8d17296d306279e1a926a33c"
     sha256 cellar: :any,                 arm64_monterey: "36ca8c1e3ed87aebd980c3b188104f74120756d6719eec55ec6376cc622717c4"
     sha256 cellar: :any,                 arm64_big_sur:  "321c4e8a2ca63fd24cd5a5f719e989296df2be64df6afd65ab6c995af77681ca"
+    sha256 cellar: :any,                 ventura:        "bf09e4a29ad53d7b734b8cfd6c2ef1a094e1cc6188cf1a1335171af193eedc8a"
     sha256 cellar: :any,                 monterey:       "63c5ade32f9583ee28609efbcb7109a37c4e39ab4a28ab970644f6b619800bdc"
     sha256 cellar: :any,                 big_sur:        "be1aaa9c7dcef2c7f65552c6668c4837cbe645503bf75c552dafc11eb1daf8ed"
     sha256 cellar: :any,                 catalina:       "39eb0b3f2a5438046de3f5722a65fcf8f386f317c051afe944a61dea359600e5"
