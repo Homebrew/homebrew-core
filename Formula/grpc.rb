@@ -2,8 +2,8 @@ class Grpc < Formula
   desc "Next generation open source RPC library and framework"
   homepage "https://grpc.io/"
   url "https://github.com/grpc/grpc.git",
-      tag:      "v1.50.1",
-      revision: "90ccf24d22b6fc909a1021ebd89fd8c838467d26"
+      tag:      "v1.51.0",
+      revision: "fb01bb12456d015d9e4b7b8ebf2e8a7c803e96ad"
   license "Apache-2.0"
   head "https://github.com/grpc/grpc.git", branch: "master"
 
