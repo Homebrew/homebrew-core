@@ -10,6 +10,7 @@ class Grafana < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "838e178655455223b3570c24004a4e1cfed3d2a64f585d304dc7b0a6016dbc6e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "107dbcf36d60d62a3df793451c556c9fe35c75378af0f058b14f60e5ad47242e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3f09a58138ae3424e532d1bec1643b6c60cf9faa278b9b3f6ac1759f94f69a6a"
+    sha256 cellar: :any_skip_relocation, ventura:        "6c60b73d48938e45d2622ff88ea53453a616ae3ce2e5c70521540856e32c5170"
     sha256 cellar: :any_skip_relocation, monterey:       "ecf56e1baa5665a4c95bd88c735b296a9a6d2a398349bd9de2300d8d53dc71f0"
     sha256 cellar: :any_skip_relocation, big_sur:        "2f84d15069efe906786725ec857aadb989174b9f706e640707f6d150691402b2"
     sha256 cellar: :any_skip_relocation, catalina:       "55c36b4eee2d61d4110a23b051a908e21c983845638e039fd447b4c60eefb7ac"
