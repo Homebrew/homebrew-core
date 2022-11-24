@@ -9,6 +9,7 @@ class Advancecomp < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d6cdc0557059ffac0375d3871cd6b7b2ef42011e4673e56d8dfd65cd5906bcb1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a486fc6020f1bf64e1475da126ba96ef25076ea7ebcf3814180ec02ea0bbabf6"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9bd1c6206332feed781e01cfbe38c664e8da1dca5574b372ec77534122c5be1e"
+    sha256 cellar: :any_skip_relocation, ventura:        "7177142972a37c5e1c98ae2615a8f85b459151ddd8f68c6389c4a63a67787750"
     sha256 cellar: :any_skip_relocation, monterey:       "5a4b0b19ef83ce323382f329ee05eea2921ffcf0d76b8b92eb57addf765d14df"
     sha256 cellar: :any_skip_relocation, big_sur:        "cb543f503c1cda8dd04e317abed3c0403e06a82cff10ee3779da3dd06fd17d06"
     sha256 cellar: :any_skip_relocation, catalina:       "05ae73592833536fc37e4334e69b4ea3e28bbb9278ef6639cdcf44bb38c3d694"
