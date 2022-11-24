@@ -11,6 +11,7 @@ class Sz81 < Formula
     sha256 arm64_ventura:  "b69dac8446f5aa0d3939925eac7dc0b8ef904ee5b437b86600ac697a15bd80c2"
     sha256 arm64_monterey: "388474d15ee05fa83bb0517e807838b65b84ae022b7854ccd52cf5a8b8497926"
     sha256 arm64_big_sur:  "a0e1bf1c53a8d7412894cc05ea871514c3e2078bf1698551c78c74a9f02c66be"
+    sha256 ventura:        "aa2af256cfba3c34e59449c8f80c452c11955abff1eacac534eb2db09beac044"
     sha256 monterey:       "2e4b260f47d8079aeda161b05533219e1074ed4e9ec8f8dbff8a495170d4e70a"
     sha256 big_sur:        "3fab5d79a3994f71580732051ab9cb927927388850d1323245720c638642e2e0"
     sha256 catalina:       "d5cf814d1ad80e3487bec11a5a1d79adef5dae89dc099c7ee2abef7ffe11e4db"
