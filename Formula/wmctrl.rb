@@ -15,6 +15,7 @@ class Wmctrl < Formula
     sha256 cellar: :any,                 arm64_ventura:  "388c8eb49eeca6f9ced7eb9d3c7418e7b2f6a5f4cc4a77263e4ddb92ae135b8b"
     sha256 cellar: :any,                 arm64_monterey: "fb8c3a7dcd11a32b075ba4181f5825bfd9b55a8ee1453f4ad8454c7dd56cf6cf"
     sha256 cellar: :any,                 arm64_big_sur:  "83b97edb3df52830587f710abc9bbfc53c0a7b3567a18f94c2161be6b988980a"
+    sha256 cellar: :any,                 ventura:        "f4b9bdf79af82a76f5cec5db96d01bb48d2c321d96c7b09e8794a1937243ba56"
     sha256 cellar: :any,                 monterey:       "a5d76fe085cc3ca15ab736376b8250c82fde97e364117bbc7f7050e599dda640"
     sha256 cellar: :any,                 big_sur:        "90c60692d669660d4d8037d2c6fa94cc13f14b6bb85e6909d0707f30644edde5"
     sha256 cellar: :any,                 catalina:       "d585a38070e3343da1be66819f7d3f840140acee8dde1d3912542d682466ee48"
