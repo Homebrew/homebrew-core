@@ -5,7 +5,7 @@ class TclTk < Formula
   mirror "https://fossies.org/linux/misc/tcl8.6.12-src.tar.gz"
   sha256 "26c995dd0f167e48b11961d891ee555f680c175f7173ff8cb829f4ebcde4c1a6"
   license "TCL"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -70,6 +70,7 @@ class TclTk < Formula
       --enable-64bit
     ]
 
+    ENV["TCL_PACKAGE_PATH"] = "#{HOMEBREW_PREFIX}/lib"
     cd "unix" do
       system "./configure", *args
       system "make"
@@ -141,6 +142,7 @@ class TclTk < Formula
   end
 
   test do
+    assert_match "#{HOMEBREW_PREFIX}/lib", pipe_output("#{bin}/tclsh", "puts $auto_path\n")
     assert_equal "honk", pipe_output("#{bin}/tclsh", "puts honk\n").chomp
 
     # Fails with: no display name and no $DISPLAY environment variable
