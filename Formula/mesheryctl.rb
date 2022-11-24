@@ -11,6 +11,7 @@ class Mesheryctl < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a27470ac95466bfe861a90e686b38535a7c7f3034c6381d409d49dfe7b72ac27"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a27470ac95466bfe861a90e686b38535a7c7f3034c6381d409d49dfe7b72ac27"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a27470ac95466bfe861a90e686b38535a7c7f3034c6381d409d49dfe7b72ac27"
+    sha256 cellar: :any_skip_relocation, ventura:        "6091383eb3e1ca8f53eea5674ad0ab814251f73e53de77816b2ff57bafec6861"
     sha256 cellar: :any_skip_relocation, monterey:       "6091383eb3e1ca8f53eea5674ad0ab814251f73e53de77816b2ff57bafec6861"
     sha256 cellar: :any_skip_relocation, big_sur:        "6091383eb3e1ca8f53eea5674ad0ab814251f73e53de77816b2ff57bafec6861"
     sha256 cellar: :any_skip_relocation, catalina:       "6091383eb3e1ca8f53eea5674ad0ab814251f73e53de77816b2ff57bafec6861"
