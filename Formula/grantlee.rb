@@ -13,12 +13,7 @@ class Grantlee < Formula
   depends_on "qt@5"
 
   def install
-    args = %w[
-      -S .
-      -B build
-    ]
-
-    system "cmake", *std_cmake_args, *args
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
     system "cmake", "--build", "build", "--target", "docs"
