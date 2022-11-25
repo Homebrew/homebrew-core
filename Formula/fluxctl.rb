@@ -6,11 +6,6 @@ class Fluxctl < Formula
       revision: "95493343346f2000299996bab0fc49caf31201dd"
   license "Apache-2.0"
 
-  livecheck do
-    url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
-  end
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "532a97ba265b178ac52c7cfc91128c6640e70902a3caa48f424aeacd0649dffc"
@@ -22,6 +17,8 @@ class Fluxctl < Formula
     sha256 cellar: :any_skip_relocation, catalina:       "fce44e9caff89a9bd2b110ed3d7ee5aad3281b6e15d17fd472c41c4831b5868f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "fb1422ea17a36f149248bf4952d19d72a7d56907efe589072dbeef12eeaa77ec"
   end
+
+  deprecate! date: "2022-11-08", because: :repo_archived
 
   depends_on "go" => :build
 
