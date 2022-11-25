@@ -1,10 +1,9 @@
 class PerconaServer < Formula
   desc "Drop-in MySQL replacement"
   homepage "https://www.percona.com"
-  url "https://downloads.percona.com/downloads/Percona-Server-8.0/Percona-Server-8.0.29-21/source/tarball/percona-server-8.0.29-21.tar.gz"
-  sha256 "a54c45b23719d4f6ba1e409bb2916c59dc0c9aaae98e24299ff26f150ad4f735"
+  url "https://downloads.percona.com/downloads/Percona-Server-8.0/Percona-Server-8.0.30-22/source/tarball/percona-server-8.0.30-22.tar.gz"
+  sha256 "e536d7f797ac4d86ae3ce37d55f8a6a0ee7398b431cd67c38332566d5fa74114"
   license "BSD-3-Clause"
-  revision 2
 
   livecheck do
     url "https://www.percona.com/downloads/Percona-Server-LATEST/"
