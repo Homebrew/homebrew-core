@@ -1,8 +1,8 @@
 class Mbt < Formula
   desc "Multi-Target Application (MTA) build tool for Cloud Applications"
   homepage "https://sap.github.io/cloud-mta-build-tool"
-  url "https://github.com/SAP/cloud-mta-build-tool/archive/v1.2.19.tar.gz"
-  sha256 "8c856b8832ab5b4afb5c03f3d9073401eed8e7ee43fbe0cfb343dd15ba1e21be"
+  url "https://github.com/SAP/cloud-mta-build-tool/archive/v1.2.20.tar.gz"
+  sha256 "fb25d7a2a3a8407573efbe497f251d97b3cfd8f4671fdec7768859fca9948b79"
   license "Apache-2.0"
   head "https://github.com/SAP/cloud-mta-build-tool.git", branch: "master"
 
