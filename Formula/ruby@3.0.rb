@@ -1,10 +1,9 @@
 class RubyAT30 < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  url "https://cache.ruby-lang.org/pub/ruby/3.0/ruby-3.0.4.tar.xz"
-  sha256 "8e22fc7304520435522253210ed0aa9a50545f8f13c959fe01a05aea06bef2f0"
+  url "https://cache.ruby-lang.org/pub/ruby/3.0/ruby-3.0.5.tar.xz"
+  sha256 "cf7cb5ba2030fe36596a40980cdecfd79a0337d35860876dc2b10a38675bddde"
   license "Ruby"
-  revision 1
 
   livecheck do
     url "https://www.ruby-lang.org/en/downloads/"
@@ -36,8 +35,8 @@ class RubyAT30 < Formula
   # The exception is Rubygem security fixes, which mandate updating this
   # formula & the versioned equivalents and bumping the revisions.
   resource "rubygems" do
-    url "https://rubygems.org/rubygems/rubygems-3.2.22.tgz"
-    sha256 "368979ef8103b550a98fc6479543831f0d55c3567d5ee4622d5aa569ee17418b"
+    url "https://rubygems.org/rubygems/rubygems-3.3.26.tgz"
+    sha256 "9b17a53a000a599926cf1ef19e9d2a35f87b436ae6500225eebe55db320dc68c"
   end
 
   def api_version
@@ -95,16 +94,21 @@ class RubyAT30 < Formula
 
       system "#{bin}/ruby", "setup.rb", "--prefix=#{buildpath}/vendor_gem"
       rg_in = lib/"ruby/#{api_version}"
+      rg_gems_in = lib/"ruby/gems/#{api_version}"
 
       # Remove bundled Rubygem and Bundler
-      rm_rf rg_in/"bundler"
-      rm_rf rg_in/"rubygems"
-      rm_f rg_in/"rubygems.rb"
-      rm_f rg_in/"ubygems.rb"
-      rm_f bin/"gem"
+      rm_r rg_in/"bundler"
+      rm rg_in/"bundler.rb"
+      rm_r Dir[rg_gems_in/"gems/bundler-*"]
+      rm Dir[rg_gems_in/"specifications/default/bundler-*.gemspec"]
+      rm_r rg_in/"rubygems"
+      rm rg_in/"rubygems.rb"
+      rm bin/"gem"
 
       # Drop in the new version.
       rg_in.install Dir[buildpath/"vendor_gem/lib/*"]
+      (rg_gems_in/"gems").install Dir[buildpath/"vendor_gem/gems/*"]
+      (rg_gems_in/"specifications/default").install Dir[buildpath/"vendor_gem/specifications/default/*"]
       bin.install buildpath/"vendor_gem/bin/gem" => "gem"
       (libexec/"gembin").install buildpath/"vendor_gem/bin/bundle" => "bundle"
       (libexec/"gembin").install_symlink "bundle" => "bundler"
@@ -226,10 +230,10 @@ class RubyAT30 < Formula
 
     (testpath/"Gemfile").write <<~EOS
       source 'https://rubygems.org'
-      gem 'gemoji'
+      gem 'github-markup'
     EOS
     system bin/"bundle", "exec", "ls" # https://github.com/Homebrew/homebrew-core/issues/53247
     system bin/"bundle", "install", "--binstubs=#{testpath}/bin"
-    assert_predicate testpath/"bin/gemoji", :exist?, "gemoji is not installed in #{testpath}/bin"
+    assert_predicate testpath/"bin/github-markup", :exist?, "github-markup is not installed in #{testpath}/bin"
   end
 end
