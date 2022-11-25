@@ -37,8 +37,17 @@ class Ufraw < Formula
   # Fix compilation with Xcode 9 and later,
   # see https://sourceforge.net/p/ufraw/bugs/419/
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/d5bf686c740d9ee0fdf0384ef8dfb293c5483dd2/ufraw/high_sierra.patch"
-    sha256 "60c67978cc84b5a118855bcaa552d5c5c3772b407046f1b9db9b74076a938f6e"
+    on_macos do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/d5bf686c740d9ee0fdf0384ef8dfb293c5483dd2/ufraw/high_sierra.patch"
+      sha256 "60c67978cc84b5a118855bcaa552d5c5c3772b407046f1b9db9b74076a938f6e"
+    end
+  end
+
+  patch do
+    on_linux do
+      url "https://github.com/sergiomb2/ufraw/commit/c56f8be3caf1cf3d9a5c80597bdbaf1325faacc0.patch?full_index=1"
+      sha256 "fdbc9fb438afc9fb4a646fcc83deae2f6c8521bc746b329df5f63e4faa86b0e0"
+    end
   end
 
   def install
