@@ -3,10 +3,9 @@ class Ptpython < Formula
 
   desc "Advanced Python REPL"
   homepage "https://github.com/prompt-toolkit/ptpython"
-  url "https://files.pythonhosted.org/packages/00/df/223017f2565336078c872f700ebe1c893a051e4d7b472fd0b68289ab3acb/ptpython-3.0.20.tar.gz"
-  sha256 "eafd4ced27ca5dc370881d4358d1ab5041b32d88d31af8e3c24167fe4af64ed6"
+  url "https://files.pythonhosted.org/packages/d5/95/1acee8aec7a8a683c03ced796217713aa649e370b621308f9c5e164124e3/ptpython-3.0.21.tar.gz"
+  sha256 "a57b9952eac4a12540a4dfb4ccd4a243403eceb27b0d13245b5e4144c8731d32"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/prompt-toolkit/ptpython.git", branch: "master"
 
   bottle do
@@ -28,8 +27,8 @@ class Ptpython < Formula
   end
 
   resource "jedi" do
-    url "https://files.pythonhosted.org/packages/c2/25/273288df952e07e3190446efbbb30b0e4871a0d63b4246475f3019d4f55e/jedi-0.18.1.tar.gz"
-    sha256 "74137626a64a99c8eb6ae5832d99b3bdd7d29a3850fe2aa80a4126b2a7d949ab"
+    url "https://files.pythonhosted.org/packages/15/02/afd43c5066de05f6b3188f3aa74136a3289e6c30e7a45f351546cab0928c/jedi-0.18.2.tar.gz"
+    sha256 "bae794c30d07f6d910d32a7048af09b5a39ed740918da923c6b780790ebac612"
   end
 
   resource "parso" do
@@ -38,8 +37,8 @@ class Ptpython < Formula
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/e2/d9/1009dbb3811fee624af34df9f460f92b51edac528af316eb5770f9fbd2e1/prompt_toolkit-3.0.32.tar.gz"
-    sha256 "e7f2129cba4ff3b3656bbdda0e74ee00d2f874a8bcdb9dd16f5fec7b3e173cae"
+    url "https://files.pythonhosted.org/packages/c4/6e/6ff7938f47981305a801a4c5b8d8ed282b58a28c01c394d43c1fbcfc810b/prompt_toolkit-3.0.33.tar.gz"
+    sha256 "535c29c31216c77302877d5120aef6c94ff573748a5b5ca5b1b1f76f5e700c73"
   end
 
   resource "Pygments" do
