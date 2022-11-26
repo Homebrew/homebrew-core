@@ -12,9 +12,9 @@ class Graphqxl < Formula
   end
 
   test do
-    File.write("test.graphqxl", "type MyType { foo: String! }")
-    shell_output("#{bin}/graphqxl test.graphqxl")
-    output = File.read("test.graphql")
-    assert_equal output, "type MyType {\n  foo: String!\n}\n\n\n"
+    test_file = testpath/"test.graphqxl"
+    test_file.write "type MyType { foo: String! }"
+    system bin/"graphqxl", test_file
+    assert_equal "type MyType {\n  foo: String!\n}\n\n\n", (testpath/"test.graphql").read
   end
 end
