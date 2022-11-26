@@ -6,6 +6,7 @@ class Gnuradio < Formula
   url "https://github.com/gnuradio/gnuradio/archive/refs/tags/v3.10.4.0.tar.gz"
   sha256 "c6b9f59447a842559b00b3a67b4ca1186e9adb8db742b25400507fedc747f2bd"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/gnuradio/gnuradio.git", branch: "main"
 
   livecheck do
@@ -254,11 +255,11 @@ index 9d4e0f2..f6b8bc6 100644
 +++ b/gr-blocks/include/gnuradio/blocks/blockinterleaving.h
 @@ -12,7 +12,8 @@
  #define INCLUDED_GR_BLOCKS_BLOCKINTERLEAVING_H
- 
+
  #include <gnuradio/blocks/api.h>
 -
 +#include <cstddef>
 +#include <vector>
- 
+
  namespace gr {
  namespace blocks {
