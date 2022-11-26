@@ -7,8 +7,8 @@ class Coturn < Formula
   revision 1
 
   livecheck do
-    url "http://turnserver.open-sys.org/downloads/"
-    regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["' >]}i)
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
