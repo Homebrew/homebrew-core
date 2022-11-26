@@ -41,9 +41,6 @@ class PerconaServer < Formula
     depends_on "patchelf" => :build
     depends_on "libtirpc"
     depends_on "readline"
-
-    # Fix build with OpenLDAP 2.5+, which merged libldap_r into libldap
-    patch :DATA
   end
 
   conflicts_with "mariadb", "mysql", because: "percona, mariadb, and mysql install the same binaries"
@@ -217,16 +214,3 @@ class PerconaServer < Formula
     system "#{bin}/mysqladmin", "--port=#{port}", "--user=root", "--password=", "shutdown"
   end
 end
-
-__END__
---- a/plugin/auth_ldap/CMakeLists.txt
-+++ b/plugin/auth_ldap/CMakeLists.txt
-@@ -36,7 +36,7 @@ IF(WITH_LDAP)
-
-   # libler?
-   MYSQL_ADD_PLUGIN(authentication_ldap_simple ${ALP_SOURCES_SIMPLE}
--    LINK_LIBRARIES ldap_r MODULE_ONLY MODULE_OUTPUT_NAME "authentication_ldap_simple")
-+    LINK_LIBRARIES ldap MODULE_ONLY MODULE_OUTPUT_NAME "authentication_ldap_simple")
-
-   IF(UNIX)
-     IF(INSTALL_MYSQLTESTDIR)
