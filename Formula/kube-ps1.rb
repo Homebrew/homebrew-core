@@ -28,7 +28,7 @@ class KubePs1 < Formula
 
   test do
     ENV["LC_CTYPE"] = "en_CA.UTF-8"
-    assert_equal "bash", shell_output("bash -c '. #{opt_share}/kube-ps1.sh && echo $KUBE_PS1_SHELL'").chomp
-    assert_match "zsh", shell_output("zsh -c '. #{opt_share}/kube-ps1.sh && echo $KUBE_PS1_SHELL'").chomp
+    assert_equal "bash", shell_output("bash -c '. #{opt_share}/kube-ps1.sh && echo $(_kube_ps1_shell_type)'").chomp
+    assert_match "zsh", shell_output("zsh -c '. #{opt_share}/kube-ps1.sh && echo $(_kube_ps1_shell_type)'").chomp
   end
 end
