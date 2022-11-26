@@ -4,6 +4,7 @@ class Graphqxl < Formula
   url "https://github.com/gabotechs/graphqxl/archive/refs/tags/v0.38.1.tar.gz"
   sha256 "10093f0050f1034a147d06313aafef1e9efcfd158d157cfc27aa79d12e5b3291"
   license "MIT"
+  head "https://github.com/gabotechs/graphqxl.git", branch: "main"
 
   depends_on "rust" => :build
 
