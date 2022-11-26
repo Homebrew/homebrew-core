@@ -1,10 +1,9 @@
 class PostgresqlAT10 < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v10.22/postgresql-10.22.tar.bz2"
-  sha256 "955977555c69df1a64f44b81d4a1987eb74abbd1870579f5ad9d946133dd8e4d"
+  url "https://ftp.postgresql.org/pub/source/v10.23/postgresql-10.23.tar.bz2"
+  sha256 "94a4b2528372458e5662c18d406629266667c437198160a18cdfd2c4a4d6eee9"
   license "PostgreSQL"
-  revision 3
 
   livecheck do
     url "https://ftp.postgresql.org/pub/source/"
