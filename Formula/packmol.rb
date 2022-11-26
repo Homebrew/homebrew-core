@@ -25,6 +25,7 @@ class Packmol < Formula
   end
 
   def install
+    # upstream PR ref, https://github.com/m3g/packmol/pull/39
     inreplace "Makefile", ": strlength.f90", ": strlength.f90  $(modules)"
 
     system "./configure"
