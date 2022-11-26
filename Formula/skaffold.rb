@@ -3,7 +3,7 @@ class Skaffold < Formula
   homepage "https://skaffold.dev/"
   url "https://github.com/GoogleContainerTools/skaffold.git",
       tag:      "v2.0.2",
-      revision: "e5fb135484f00616268865c0b9f3a52663fd6891"
+      revision: "d45fee5c7f7441d551aeed9c90750a1ff4fe1cbc"
   license "Apache-2.0"
   head "https://github.com/GoogleContainerTools/skaffold.git", branch: "main"
 
