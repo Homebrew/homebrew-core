@@ -27,11 +27,6 @@ class Biosig < Formula
   depends_on "suite-sparse"
   depends_on "tinyxml"
 
-  resource "homebrew-test" do
-    url "https://pub.ist.ac.at/~schloegl/download/TEST_44x86_e1.GDF"
-    sha256 "75df4a79b8d3d785942cbfd125ce45de49c3e7fa2cd19adb70caf8c4e30e13f0"
-  end
-
   def install
     system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make"
@@ -43,8 +38,5 @@ class Biosig < Formula
     assert_match "mV\t4274\t0x10b2\t0.001\tV", shell_output("#{bin}/physicalunits mV").strip
     assert_match "biosig_fhir provides fhir binary template for biosignal data",
                  shell_output("#{bin}/biosig_fhir 2>&1").strip
-    testpath.install resource("homebrew-test")
-    assert_match "NumberOfChannels", shell_output("#{bin}/save2gdf -json TEST_44x86_e1.GDF").strip
-    assert_match "NumberOfChannels", shell_output("#{bin}/biosig_fhir TEST_44x86_e1.GDF").strip
   end
 end
