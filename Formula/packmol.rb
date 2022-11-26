@@ -1,10 +1,9 @@
 class Packmol < Formula
   desc "Packing optimization for molecular dynamics simulations"
   homepage "https://www.ime.unicamp.br/~martinez/packmol/"
-  url "https://github.com/m3g/packmol/archive/20.010.tar.gz"
-  sha256 "23285f2a9e2bef0e8253250d7eae2d4026a9535ddcc2b9b383f5ad45b19e123d"
+  url "https://github.com/m3g/packmol/archive/v20.11.0.tar.gz"
+  sha256 "0ca999875487cd15ea575c82a590333c7ff63b2d2b42448645acd650e6821398"
   license "MIT"
-  revision 3
   head "https://github.com/m3g/packmol.git", branch: "master"
 
   bottle do
@@ -26,6 +25,8 @@ class Packmol < Formula
   end
 
   def install
+    inreplace "Makefile", ": strlength.f90", ": strlength.f90  $(modules)"
+
     system "./configure"
     system "make"
     bin.install("packmol")
