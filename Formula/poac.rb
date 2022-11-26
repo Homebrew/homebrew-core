@@ -1,11 +1,10 @@
 class Poac < Formula
   desc "Package manager for C++"
   homepage "https://github.com/poacpm/poac"
-  # TODO: Remove `ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib` at rebuild.
   url "https://github.com/poacpm/poac/archive/refs/tags/0.4.1.tar.gz"
   sha256 "3717a873120a7125fcdcc99227f5c7d42c4e170f7572feee19ab458d657f9451"
   license "Apache-2.0"
-  revision 3
+  revision 4
   head "https://github.com/poacpm/poac.git", branch: "main"
 
   bottle do
@@ -40,7 +39,6 @@ class Poac < Formula
   fails_with gcc: "5" # C++20
 
   def install
-    ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
     ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1200)
 
     system "cmake", "-B", "build", "-DCPM_USE_LOCAL_PACKAGES=ON", *std_cmake_args
