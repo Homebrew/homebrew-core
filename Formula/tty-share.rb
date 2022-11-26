@@ -1,8 +1,8 @@
 class TtyShare < Formula
   desc "Terminal sharing over the Internet"
   homepage "https://tty-share.com/"
-  url "https://github.com/elisescu/tty-share/archive/v2.3.0.tar.gz"
-  sha256 "e9c5c2132e04ef2a753fecc18b6166f78eec0979587fe180ba292bea9d98f104"
+  url "https://github.com/elisescu/tty-share/archive/v2.4.0.tar.gz"
+  sha256 "90e566cd4c064a1c0b31a418c149a1766f158dd01b3563e7501c98dafd8c244f"
   license "MIT"
 
   bottle do
@@ -16,8 +16,7 @@ class TtyShare < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f842dadd8abe2579b51fe7bb2a459b2aec305b3fa58c31bfc20e1bb4fd721430"
   end
 
-  # Bump to 1.18 on the next release, if possible.
-  depends_on "go@1.17" => :build
+  depends_on "go" => :build
 
   def install
     ldflags = "-s -w -X main.version=#{version}"
