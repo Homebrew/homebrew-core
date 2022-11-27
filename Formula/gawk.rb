@@ -27,10 +27,19 @@ class Gawk < Formula
 
   def install
     system "./bootstrap.sh" if build.head?
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--without-libsigsegv-prefix"
+
+    args = %W[
+      --disable-debug
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --without-libsigsegv-prefix
+    ]
+    # Persistent memory allocator (PMA) is enabled by default. At the time of
+    # writing, that would force an x86_64 executable on macOS arm64, because a
+    # native ARM binary with such feature would not work. See:
+    # https://git.savannah.gnu.org/cgit/gawk.git/tree/README_d/README.macosx?h=gawk-5.2.1#n1
+    args << "--disable-pma" if OS.mac? && Hardware::CPU.arm?
+    system "./configure", *args
 
     system "make"
     if which "cmp"
