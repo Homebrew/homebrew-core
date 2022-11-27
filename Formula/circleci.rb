@@ -20,11 +20,8 @@ class Circleci < Formula
   end
 
   depends_on "go" => :build
-  depends_on "packr" => :build
 
   def install
-    system "packr2", "--ignore-imports", "-v"
-
     ldflags = %W[
       -s -w
       -X github.com/CircleCI-Public/circleci-cli/version.packageManager=homebrew
