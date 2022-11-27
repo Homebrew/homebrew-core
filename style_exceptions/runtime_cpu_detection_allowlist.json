@@ -8,5 +8,6 @@
   "luajit",
   "openblas",
   "opencv",
-  "open-mpi"
+  "open-mpi",
+  "vc"
 ]
