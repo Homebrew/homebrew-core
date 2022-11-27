@@ -45,6 +45,8 @@ class Gtkx3 < Formula
     depends_on "libxkbcommon"
     depends_on "wayland-protocols"
     depends_on "xorgproto"
+
+    patch :DATA
   end
 
   def install
@@ -146,3 +148,23 @@ class Gtkx3 < Formula
     assert_match version.to_s, shell_output("cat #{lib}/pkgconfig/gtk+-3.0.pc").strip
   end
 end
+
+__END__
+diff --git a/gdk/wayland/cursor/meson.build b/gdk/wayland/cursor/meson.build
+new file mode 100644
+index 0000000000000000000000000000000000000000..02d5f2bed8d926ee26bcf4c4081d18fc9d53fd5b
+--- /dev/null
++++ b/gdk/wayland/cursor/meson.build
+@@ -0,0 +1,12 @@
++wayland_cursor_sources = files([
++  'wayland-cursor.c',
++  'xcursor.c',
++  'os-compatibility.c'
++])
++
++libwayland_cursor = static_library('wayland+cursor',
++  sources: wayland_cursor_sources,
++  include_directories: [ confinc, ],
++  dependencies: [ glib_dep, wlclientdep, ],
++  c_args: common_cflags,
++)
