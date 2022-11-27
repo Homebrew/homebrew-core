@@ -1,11 +1,10 @@
 class Octave < Formula
   desc "High-level interpreted language for numerical computing"
   homepage "https://www.gnu.org/software/octave/index.html"
-  url "https://ftp.gnu.org/gnu/octave/octave-7.2.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/octave/octave-7.2.0.tar.xz"
-  sha256 "4aef78c3c9d49f75d64ccd55267df40b3020e6414f69ea8757a1939628b30171"
+  url "https://ftp.gnu.org/gnu/octave/octave-7.3.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/octave/octave-7.3.0.tar.xz"
+  sha256 "a508ee6aebccfa68967c9e7e0a08793c4ca8e4ddace723aabdb8f71ad34d57f1"
   license "GPL-3.0-or-later"
-  revision 1
 
   bottle do
     sha256 arm64_ventura:  "98ddea50159a6056c6fe5c4f94a98634d8eeea846e305a16ba7fbe2f7ca3ae18"
