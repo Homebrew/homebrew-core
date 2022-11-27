@@ -13,7 +13,6 @@ class Tut < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/tut --version")
-    assert_match "TUI for Mastodon", shell_output("#{bin}/tut --help")
     assert_match "Instance:", pipe_output("#{bin}/tut --new-user 2> /dev/null")
   end
 end
