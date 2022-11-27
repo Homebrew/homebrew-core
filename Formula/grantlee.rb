@@ -23,6 +23,7 @@ class Grantlee < Formula
   end
 
   test do
+    # Test fails when qt (6) is installed
     args = %W[
       -D Qt5_DIR=#{Formula["qt@5"].opt_lib}/cmake/Qt5
       -D Qt5Gui_DIR=#{Formula["qt@5"].opt_lib}/cmake/Qt5Gui
