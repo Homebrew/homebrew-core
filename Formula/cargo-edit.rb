@@ -16,9 +16,9 @@ class CargoEdit < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5d1e4e975d3a1273eb137d6ff1d33d74478ee2df9c189864738b596311facbc6"
   end
 
+  depends_on "rust" => :build
   depends_on "libgit2"
   depends_on "openssl@1.1"
-  depends_on "rust" # uses `cargo` at runtime
 
   def install
     system "cargo", "install", *std_cargo_args
