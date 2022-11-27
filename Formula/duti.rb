@@ -43,6 +43,16 @@ class Duti < Formula
     sha256 "dec21aeea7f31c1a2122a01b44c13539af48840b181a80cecb4653591a9b0f9d"
   end
 
+  # Fix compilation on Ventura
+  patch do
+    url "https://github.com/moretension/duti/commit/54a1539b23ac764b32679bcada5659fbad483ecc.patch?full_index=1"
+    sha256 "055023ce50903ffe9378c68d630a105d317b7efe778c029e3fe23521be89176f"
+  end
+  patch do
+    url "https://github.com/moretension/duti/commit/8d31a2f75fefb61381dc7731cf7ecac9237ee64d.patch?full_index=1"
+    sha256 "5987230901e63e619bba85c026201dd00ca3f06016a87516e031eebb6cf0e582"
+  end
+
   def install
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", "--prefix=#{prefix}"
