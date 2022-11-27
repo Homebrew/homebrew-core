@@ -28,6 +28,7 @@ class Fastnetmon < Formula
   uses_from_macos "ncurses"
 
   on_linux do
+    depends_on "libbpf"
     depends_on "libelf"
     depends_on "libpcap"
   end
