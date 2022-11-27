@@ -17,7 +17,7 @@ class CargoLlvmLines < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "fe0b2e7f11ccfd619808b957cd65f29bf4c589a136fda3d91f60f58b821d5fde"
   end
 
-  depends_on "rust"
+  depends_on "rust" => [:build, :test]
 
   def install
     system "cargo", "install", *std_cargo_args
