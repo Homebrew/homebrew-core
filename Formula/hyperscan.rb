@@ -16,6 +16,7 @@ class Hyperscan < Formula
   depends_on "boost" => :build
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "python@3.11" => :build
   depends_on "ragel" => :build
   # Only supports x86 instructions and will fail to build on ARM.
   # See https://github.com/intel/hyperscan/issues/197
