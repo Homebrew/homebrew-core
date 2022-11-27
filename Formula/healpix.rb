@@ -5,6 +5,7 @@ class Healpix < Formula
   version "3.82"
   sha256 "47629f057a2daf06fca3305db1c6950edb9e61bbe2d7ed4d98ff05809da2a127"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "3e9e1fccdb358503b5a6574c55fe4e9b6443f5e546fc71d800706577d88eacb8"
