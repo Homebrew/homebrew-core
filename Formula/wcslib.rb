@@ -4,6 +4,7 @@ class Wcslib < Formula
   url "https://www.atnf.csiro.au/pub/software/wcslib/wcslib-7.12.tar.bz2"
   sha256 "9cf8de50e109a97fa04511d4111e8d14bd0a44077132acf73e6cf0029fe96bd4"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url :homepage
