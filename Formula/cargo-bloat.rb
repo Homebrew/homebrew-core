@@ -18,7 +18,7 @@ class CargoBloat < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5bf7b9ad04fb48b20b2c5e000b812bd6910d65d3dd6cc567436f5e9b156a6ca8"
   end
 
-  depends_on "rust"
+  depends_on "rust" => [:build, :test]
 
   def install
     system "cargo", "install", *std_cargo_args
