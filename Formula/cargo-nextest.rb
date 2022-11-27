@@ -20,7 +20,7 @@ class CargoNextest < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b7d61ea207363c6a9e246ba9bcfeeab85141b255ed40ffc32d6f0800339f72b2"
   end
 
-  depends_on "rust" # uses `cargo` at runtime
+  depends_on "rust" => [:build, :test]
 
   def install
     # Fix a performance regression. This can be removed once Rust 1.64 is stable.
