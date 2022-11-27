@@ -3,6 +3,7 @@ class Ccfits < Formula
   homepage "https://heasarc.gsfc.nasa.gov/fitsio/CCfits/"
   url "https://heasarc.gsfc.nasa.gov/fitsio/CCfits/CCfits-2.6.tar.gz"
   sha256 "2bb439db67e537d0671166ad4d522290859e8e56c2f495c76faa97bc91b28612"
+  revision 1
 
   livecheck do
     url :homepage
