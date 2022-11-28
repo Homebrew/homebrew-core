@@ -1,8 +1,8 @@
 class Ncnn < Formula
   desc "High-performance neural network inference framework"
   homepage "https://github.com/Tencent/ncnn"
-  url "https://github.com/Tencent/ncnn/archive/refs/tags/20220729.tar.gz"
-  sha256 "fa337dce2db3aea82749633322c3572490a86d6f2e144e53aba03480f651991f"
+  url "https://github.com/Tencent/ncnn/archive/refs/tags/20221128.tar.gz"
+  sha256 "d383d7640a6ce63181794fd3411acc0888daf0d13eabb9ea621b24ca5c810eb8"
   license "BSD-3-Clause"
   head "https://github.com/Tencent/ncnn.git", branch: "master"
 
