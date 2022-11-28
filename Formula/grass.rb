@@ -9,15 +9,15 @@ class Grass < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "gcc" => :build
+  depends_on "libomp" => :build
   depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "cairo"
-  depends_on "ffmpeg"
   depends_on "fftw"
   depends_on "freetype"
   depends_on "gdal"
   depends_on "geos"
+
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "mesa"
@@ -72,8 +72,7 @@ class Grass < Formula
       "--enable-largefile",
       "--with-nls",
       "--with-includes=#{HOMEBREW_PREFIX}/include",
-      "--with-libs=#{HOMEBREW_PREFIX}/LIB",
-      "--with-tcltk",
+      "--with-libs=#{HOMEBREW_PREFIX}/lib",
       "--with-netcdf=#{Formula["netcdf"].opt_bin}/nc-config",
       "--with-zstd",
       "--with-zstd-includes=#{Formula["zstd"].opt_include}",
@@ -85,8 +84,6 @@ class Grass < Formula
       "--with-blas-includes=#{Formula["openblas"].opt_include}",
       "--with-blas-libs=#{Formula["openblas"].opt_lib}",
       "--with-geos=#{Formula["geos"].opt_bin}/geos-config",
-      "--with-geos-includes=#{Formula["geos"].opt_include}",
-      "--with-geos-libs=#{Formula["geos"].opt_lib}",
       "--with-odbc",
       "--with-odbc-includes=#{Formula["unixodbc"].opt_include}",
       "--with-odbc-libs=#{Formula["unixodbc"].opt_lib}",
@@ -104,6 +101,9 @@ class Grass < Formula
       "--with-proj-includes=#{Formula["proj"].opt_include}",
       "--with-proj-libs=#{Formula["proj"].opt_lib}",
       "--with-proj-share=#{Formula["proj"].opt_share}/proj",
+      "--with-pthread",
+      "--with-pthread-includes=#{Formula["boost"].opt_include}/boost/thread",
+      "--with-pthread-libs=#{Formula["boost"].opt_lib}",
       "--with-tiff",
       "--with-pdal=#{Formula["pdal"].opt_bin}/pdal-config",
       "--with-tiff-includes=#{Formula["libtiff"].opt_include}",
@@ -127,14 +127,10 @@ class Grass < Formula
       "--with-opengl=macosx",
       "--with-opencl",
       "--with-openmp",
-      "--with-openmp-includes=#{Formula["gcc"].opt_include}",
-      "--with-openmp-libs=#{Formula["gcc"].opt_lib}/gcc/current",
+      "--with-openmp-includes=#{HOMEBREW_PREFIX}/opt/libomp/include",
+      "--with-openmp-libs=#{HOMEBREW_PREFIX}/opt/libomp/lib",
       "--enable-macosx-app",
     ]
-
-    flags << "--with-pthread"
-    flags << "--with-pthread-includes=#{Formula["boost"].opt_include}/boost/thread"
-    flags << "--with-pthread-libs=#{Formula["boost"].opt_lib}"
 
     sdk_frameworkspath = "#{MacOS.sdk_path}/System/Library/Frameworks"
 
@@ -144,6 +140,7 @@ class Grass < Formula
     flags << "--with-opencl-includes=#{sdk_frameworkspath}/OpenCL.framework/Versions/Current/Headers"
     flags << "--with-opencl-libs=#{sdk_frameworkspath}/OpenCL.framework/Versions/Current/Headers"
 
+    inreplace "configure", "-lgomp", "-lomp"
     system "./configure", "--prefix=#{prefix}", *flags
     inreplace "macosx/Makefile", "/Library", "~/Library"
     system "make"
