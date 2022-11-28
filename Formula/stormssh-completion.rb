@@ -9,6 +9,8 @@ class StormsshCompletion < Formula
     sha256 cellar: :any_skip_relocation, all: "23295d6470ff83ce4b42bfa96681254398d672bf15cb9c78baa4c6979659fc7d"
   end
 
+  deprecate! date: "2022-11-28", because: "stormssh is deprecated"
+
   def install
     bash_completion.install "stormssh"
   end
