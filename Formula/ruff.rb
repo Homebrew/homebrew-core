@@ -1,8 +1,8 @@
 class Ruff < Formula
   desc "Extremely fast Python linter, written in Rust"
   homepage "https://github.com/charliermarsh/ruff"
-  url "https://github.com/charliermarsh/ruff/archive/refs/tags/v0.0.141.tar.gz"
-  sha256 "5238f4f27d03e7352a6322abc3e207ac41f2b591df3a3307993c1ab9d851c316"
+  url "https://github.com/charliermarsh/ruff/archive/refs/tags/v0.0.142.tar.gz"
+  sha256 "ba1fe34e26402764eddb3742b4289a29f3b3af150f366524ebb90023976ba901"
   license "MIT"
   head "https://github.com/charliermarsh/ruff.git", branch: "main"
 
@@ -22,6 +22,7 @@ class Ruff < Formula
   def install
     system "cargo", "install", "--no-default-features", *std_cargo_args
     bin.install "target/release/ruff" => "ruff"
+    generate_completions_from_executable(bin/"ruff", ".", shell_parameter_format: "--generate-shell-completion=")
   end
 
   test do
