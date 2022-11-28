@@ -9,7 +9,7 @@ class Grass < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "libomp" => :build
+  depends_on "llvm" => :build
   depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "cairo"
@@ -18,6 +18,7 @@ class Grass < Formula
   depends_on "gdal"
   depends_on "geos"
 
+  depends_on "libomp"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "mesa"
