@@ -15,11 +15,14 @@ class Tbb < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "145cf62f2cb65d54cd4d5747aa3c640ead388fb68501e7013437da85999e294e"
   end
 
-  # If adding `hwloc` for TBBBind, you *must* add a test for its functionality.
-  # https://github.com/oneapi-src/oneTBB/blob/690aaf497a78a75ff72cddb084579427ab0a8ffc/CMakeLists.txt#L226-L228
   depends_on "cmake" => :build
   depends_on "python@3.11" => [:build, :test]
   depends_on "swig" => :build
+
+  on_linux do
+    depends_on "pkg-config" => :build
+    depends_on "hwloc"
+  end
 
   # Fix installation of Python components
   # See https://github.com/oneapi-src/oneTBB/issues/343
@@ -79,6 +82,28 @@ class Tbb < Formula
     # so let's check their existence.
     assert_path_exists lib/"libtbb.a"
     assert_path_exists lib/"libtbbmalloc.a"
+
+    # on macOS core types are not distinguished, because libhwloc does not support it for now
+    # see https://github.com/oneapi-src/oneTBB/blob/690aaf497a78a75ff72cddb084579427ab0a8ffc/CMakeLists.txt#L226-L228
+    (testpath/"cores-types.cpp").write <<~EOS
+      #include <cstdlib>
+      #include <tbb/task_arena.h>
+
+      int main() {
+          const auto numa_nodes = tbb::info::numa_nodes();
+          const auto size = numa_nodes.size();
+          const auto type = numa_nodes.front();
+      #ifdef __APPLE__
+          return size == 1 && type == tbb::task_arena::automatic ? EXIT_SUCCESS : EXIT_FAILURE;
+      #else
+          return size != 1 || type != tbb::task_arena::automatic ? EXIT_SUCCESS : EXIT_FAILURE;
+      #endif
+      }
+    EOS
+
+    system ENV.cxx, "cores-types.cpp", "--std=c++14", "-DTBB_PREVIEW_TASK_ARENA_CONSTRAINTS_EXTENSION=1",
+                                      "-L#{lib}", "-ltbb", "-o", "core-types"
+    system "./core-types"
 
     (testpath/"sum1-100.cpp").write <<~EOS
       #include <iostream>
