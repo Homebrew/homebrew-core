@@ -15,6 +15,7 @@ class Onednn < Formula
     sha256 cellar: :any,                 arm64_ventura:  "06751e5f9f731c1666b492ba0315c1e114fa46c956bd49d385cfc946d1c133ac"
     sha256 cellar: :any,                 arm64_monterey: "2abf234ae50a74b3211a04e375e2161e8a44ca9270edede30e46b421a4920936"
     sha256 cellar: :any,                 arm64_big_sur:  "c5b1f108d4ca00febbb2960217184038810ce780726256ecdce07244897599bf"
+    sha256 cellar: :any,                 ventura:        "9c039066a3d24fd2e6306a9ebc40dc98a793f790a28928ad2d70884d779424fd"
     sha256 cellar: :any,                 monterey:       "f70e2551405e647af6cd026c6754a9d1705ecb0779695a185f3055f6982c9b83"
     sha256 cellar: :any,                 big_sur:        "1259c142da276f9be4f33bd2e6c2fe2412216c23f421488de15ebf3e4d5ac98d"
     sha256 cellar: :any,                 catalina:       "d1e2b34ad1a2db81e53e288083e3271f9146a21006573fb888ad314eb17a3dce"
