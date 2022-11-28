@@ -7,6 +7,8 @@ class Pbzx < Formula
   head "https://github.com/NiklasRosenstein/pbzx.git", branch: "master"
 
   depends_on "xz"
+  # pbzx is a format employed OSX disk images
+  depends_on :macos
 
   def install
     system ENV.cc, "-llzma", "-lxar", "pbzx.c", "-o", "pbzx"
