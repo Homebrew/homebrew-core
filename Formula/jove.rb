@@ -9,6 +9,7 @@ class Jove < Formula
     sha256 arm64_ventura:  "b201d1acdef17d2d3a74b4c6aa7d6e59e4c9d74ee208ef508b56017441ac719c"
     sha256 arm64_monterey: "7a4e8fb6e7fb7fbe40fe89e458fa7e1fbd991ebaa1d1ba68c112bc0734603375"
     sha256 arm64_big_sur:  "410dc581e7eae19afab271eea74bd002fc7e48d4cfded7e4e8de33a277dc38b7"
+    sha256 ventura:        "cb3c2c213e96ac706693f3c736a0fde618508226e13dea8080a73dacc974a9e8"
     sha256 monterey:       "8cc9a947664f8284103b39ff1a2969f43c176a85e2d408add27d7575a8da855b"
     sha256 big_sur:        "d1e6814d17f0e79e20c2a0aea2791fb2d045621c89d84d9eba29358dfe284717"
     sha256 catalina:       "c232b6742b25b3ca53a7c5da2c2577d4bed34e244b2cf90a61e5a5a8ade20e7a"
