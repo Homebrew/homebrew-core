@@ -10,6 +10,7 @@ class DejaGnu < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "aae2cc17f126ef380eadd7d9a4909320f38d3b62c5722a2f9a777090cfe61720"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "aae2cc17f126ef380eadd7d9a4909320f38d3b62c5722a2f9a777090cfe61720"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "aae2cc17f126ef380eadd7d9a4909320f38d3b62c5722a2f9a777090cfe61720"
+    sha256 cellar: :any_skip_relocation, ventura:        "0369e312459148a10582a3d6f100167b44a80cfec0f03223099ecdaab7097551"
     sha256 cellar: :any_skip_relocation, monterey:       "0369e312459148a10582a3d6f100167b44a80cfec0f03223099ecdaab7097551"
     sha256 cellar: :any_skip_relocation, big_sur:        "0369e312459148a10582a3d6f100167b44a80cfec0f03223099ecdaab7097551"
     sha256 cellar: :any_skip_relocation, catalina:       "0369e312459148a10582a3d6f100167b44a80cfec0f03223099ecdaab7097551"
