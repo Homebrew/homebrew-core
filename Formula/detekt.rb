@@ -18,6 +18,7 @@ class Detekt < Formula
 
   def install
     libexec.install "detekt-cli-#{version}-all.jar"
+    # remove after https://github.com/detekt/detekt/issues/5576
     bin.write_jar_script libexec/"detekt-cli-#{version}-all.jar", "detekt", "--add-opens java.base/java.lang=ALL-UNNAMED", java_version: "17"
   end
 
