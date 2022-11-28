@@ -96,7 +96,6 @@ class Octave < Formula
     args = ["--prefix=#{prefix}",
             "--disable-dependency-tracking",
             "--disable-silent-rules",
-            "--enable-link-all-dependencies",
             "--enable-shared",
             "--disable-static",
             "--with-hdf5-includedir=#{Formula["hdf5"].opt_include}",
