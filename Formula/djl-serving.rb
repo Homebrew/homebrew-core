@@ -5,6 +5,13 @@ class DjlServing < Formula
   sha256 "f87189733657e80c5f3ad94a11eb73f3bb7a3433f2fbd5441662a94e0d887f9c"
   license "Apache-2.0"
 
+  # `djl-serving` versions aren't considered released until a corresponding
+  # release is created in the main `deepjavalibrary/djl` repository.
+  livecheck do
+    url "https://github.com/deepjavalibrary/djl"
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "cf1c865204bb3d4ab5625cd686b76598e1d69a57fe1bf2c6ab0b57a992b5cdd4"
   end
