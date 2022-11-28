@@ -127,9 +127,9 @@ class Grass < Formula
       "--with-postgres-libs=#{Formula["postgresql"].opt_lib}",
       "--with-opengl=macosx",
       "--with-opencl",
-      "--with-openmp",
-      "--with-openmp-includes=#{HOMEBREW_PREFIX}/opt/libomp/include",
-      "--with-openmp-libs=#{HOMEBREW_PREFIX}/opt/libomp/lib",
+      # "--with-openmp",
+      # "--with-openmp-includes=#{HOMEBREW_PREFIX}/opt/libomp/include",
+      # "--with-openmp-libs=#{HOMEBREW_PREFIX}/opt/libomp/lib",
       "--enable-macosx-app",
     ]
 
