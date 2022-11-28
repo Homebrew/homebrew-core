@@ -41,5 +41,6 @@ class ElixirLs < Formula
 
     output = pipe_output("#{bin}/elixir-ls", input, 0)
     assert_match "Content-Length", output
+    assert_match "ElixirLS built with elixir \\\"1.14.2\\\"", output
   end
 end
