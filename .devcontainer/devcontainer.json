@@ -1,0 +1,9 @@
+{
+  "name": "homebrew/ubuntu22.04",
+  "image": "ghcr.io/homebrew/ubuntu22.04:latest",
+  "workspaceFolder": "/home/linuxbrew/.linuxbrew/Homebrew",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/home/linuxbrew/.linuxbrew/Homebrew,type=bind,consistency=cached",
+  "remoteEnv": {
+    "HOMEBREW_GITHUB_API_TOKEN": "${localEnv:GITHUB_TOKEN}"
+  }
+}
