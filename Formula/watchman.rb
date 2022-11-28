@@ -38,6 +38,13 @@ class Watchman < Formula
 
   fails_with gcc: "5"
 
+  # Fix build with CMake 3.25.0. Remove when patch is merged and released.
+  # https://github.com/facebook/watchman/pull/1076
+  patch do
+    url "https://github.com/facebook/watchman/commit/903c5a5a7c328ebd6e528cf79d7b61152ff9a456.patch?full_index=1"
+    sha256 "afec5e417ae24c35317db5d7fc178048dbe2bf11be9477a105ef390d0884bef7"
+  end
+
   def install
     # Fix build failure on Linux. Borrowed from Fedora:
     # https://src.fedoraproject.org/rpms/watchman/blob/rawhide/f/watchman.spec#_70
