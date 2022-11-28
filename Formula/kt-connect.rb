@@ -1,8 +1,8 @@
 class KtConnect < Formula
   desc "Toolkit for integrating with kubernetes dev environment more efficiently"
   homepage "https://alibaba.github.io/kt-connect"
-  url "https://github.com/alibaba/kt-connect/archive/refs/tags/v0.3.6.tar.gz"
-  sha256 "c29d4d9a18defdd8485adfe3a75b2887b42544fedd404073844629666bb28c9f"
+  url "https://github.com/alibaba/kt-connect/archive/refs/tags/v0.3.7.tar.gz"
+  sha256 "f32a9eebb65bd6c43caaf7219a0424dcf9e70389c9a471dad7dc6c64260f3194"
   license "GPL-3.0-or-later"
   head "https://github.com/alibaba/kt-connect.git", branch: "master"
 
