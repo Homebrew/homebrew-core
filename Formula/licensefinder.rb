@@ -2,8 +2,8 @@ class Licensefinder < Formula
   desc "Find licenses for your project's dependencies"
   homepage "https://github.com/pivotal/LicenseFinder"
   url "https://github.com/pivotal/LicenseFinder.git",
-      tag:      "v7.0.1",
-      revision: "b938cbfb33e8ec4eb9f2a4abcfb6e3462d226621"
+      tag:      "v7.1.0",
+      revision: "81092404aeaf1cb39dbf2551f50f007ed049c26c"
   license "MIT"
 
   bottle do
@@ -18,7 +18,7 @@ class Licensefinder < Formula
   end
 
   on_system :linux, macos: :mojave_or_older do
-    depends_on "ruby@2.7"
+    depends_on "ruby"
   end
 
   def install
@@ -32,7 +32,7 @@ class Licensefinder < Formula
   test do
     gem_home = testpath/"gem_home"
     ENV["GEM_HOME"] = gem_home
-    gem_command = (MacOS.version <= :mojave) ? Formula["ruby@2.7"].bin/"gem" : "gem"
+    gem_command = (MacOS.version <= :mojave) ? Formula["ruby"].bin/"gem" : "gem"
     system gem_command, "install", "bundler"
 
     mkdir "test"
