@@ -1,11 +1,10 @@
 class Clamav < Formula
   desc "Anti-virus software"
   homepage "https://www.clamav.net/"
-  url "https://www.clamav.net/downloads/production/clamav-0.105.1.tar.gz"
-  mirror "https://fossies.org/linux/misc/clamav-0.105.1.tar.gz"
-  sha256 "d2bc16374db889a6e5a6ac40f8c6e700254a039acaa536885a09eeea4b8529f6"
+  url "https://www.clamav.net/downloads/production/clamav-1.0.0.tar.gz"
+  mirror "https://fossies.org/linux/misc/clamav-1.0.0.tar.gz"
+  sha256 "bda39bb856902e6dd6077ea313a3eb8beccd487e0082a95917877f2b299cd86e"
   license "GPL-2.0-or-later"
-  revision 1
   head "https://github.com/Cisco-Talos/clamav-devel.git", branch: "main"
 
   livecheck do
