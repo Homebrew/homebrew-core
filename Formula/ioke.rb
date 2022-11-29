@@ -9,7 +9,7 @@ class Ioke < Formula
     sha256 cellar: :any_skip_relocation, all: "952a64519aebf02d5c58f64414703741267651dde48243f8a77629434a77e702"
   end
 
-  deprecate! date: "2021-11-24", because: :unmaintained
+  disable! date: "2022-11-29", because: :unmaintained
 
   depends_on "openjdk"
 
