@@ -16,7 +16,7 @@ class Libgnomecanvas < Formula
     sha256 cellar: :any, mojave:         "bedab86245aa4185fc9c009496ec2d0fc0d1ea53074493db08afc81bdf424a60"
   end
 
-  deprecate! date: "2021-11-03", because: :repo_archived
+  disable! date: "2022-11-29", because: :repo_archived
 
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
