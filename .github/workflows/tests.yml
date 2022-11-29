@@ -195,11 +195,11 @@ jobs:
       matrix:
         include:
           - runner: "13-arm64-${{github.run_id}}-${{github.run_attempt}}"
+          - runner: "13-${{github.run_id}}-${{github.run_attempt}}"
           - runner: "12-arm64"
           - runner: "12-${{github.run_id}}-${{github.run_attempt}}"
           - runner: "11-arm64"
           - runner: "11-${{github.run_id}}-${{github.run_attempt}}"
-          - runner: "10.15-${{github.run_id}}-${{github.run_attempt}}"
           - runner: ${{needs.setup_tests.outputs.linux-runner}}
             container:
               image: ghcr.io/homebrew/ubuntu22.04:master
