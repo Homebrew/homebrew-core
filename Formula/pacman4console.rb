@@ -21,7 +21,7 @@ class Pacman4console < Formula
   end
 
   # The Google Sites website is no longer available.
-  deprecate! date: "2021-10-23", because: :unmaintained
+  disable! date: "2022-11-29", because: :unmaintained
 
   uses_from_macos "ncurses"
 
