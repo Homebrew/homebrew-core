@@ -1,8 +1,8 @@
 class Eget < Formula
   desc "Easily install prebuilt binaries from GitHub"
   homepage "https://github.com/zyedidia/eget"
-  url "https://github.com/zyedidia/eget/archive/refs/tags/v1.3.0.tar.gz"
-  sha256 "6d609cdf6e227dfb443877ec82cc7654caaa0b7dc9ad3c58c1fcf0fa1f2e70a2"
+  url "https://github.com/zyedidia/eget/archive/refs/tags/v1.3.1.tar.gz"
+  sha256 "50a54b10a2643b4086588ea06e9f6be210581c7bbad8aa4eca0e513212aaa7a0"
   license "MIT"
   head "https://github.com/zyedidia/eget.git", branch: "master"
 
