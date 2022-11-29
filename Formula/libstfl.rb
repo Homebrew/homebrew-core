@@ -14,7 +14,7 @@ class Libstfl < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "877cdb8227cbb5322b392b55cce951a46f6f5af2f8545998e72fb9daaf7b2117"
   end
 
-  deprecate! date: "2021-11-26", because: :repo_removed
+  disable! date: "2022-11-29", because: :repo_removed
 
   depends_on "python@3.9" => [:build, :test]
   depends_on "swig" => :build
