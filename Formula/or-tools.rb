@@ -40,6 +40,9 @@ class OrTools < Formula
 
   fails_with gcc: "5"
 
+  # Add missing <errno.h> include to numbers.cc
+  patch :DATA
+
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
                     "-DUSE_SCIP=OFF",
@@ -72,3 +75,17 @@ class OrTools < Formula
     system "./simple_sat_program"
   end
 end
+
+__END__
+diff --git a/ortools/base/numbers.cc b/ortools/base/numbers.cc
+index e9f5a57..e49182c 100644
+--- a/ortools/base/numbers.cc
++++ b/ortools/base/numbers.cc
+@@ -16,6 +16,7 @@
+ 
+ #include "ortools/base/numbers.h"
+ 
++#include <errno.h>
+ #include <cfloat>
+ #include <cstdint>
+ #include <cstdlib>
