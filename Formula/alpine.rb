@@ -34,6 +34,8 @@ class Alpine < Formula
     depends_on "linux-pam"
   end
 
+  conflicts_with "macpine", because: "both install `alpine` binaries"
+
   # patch for macOS obtained from developer; see git commit
   # https://repo.or.cz/alpine.git/commitdiff/701aebc00aff0585ce6c96653714e4ba94834c9c
   patch :DATA
