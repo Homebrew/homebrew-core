@@ -32,8 +32,8 @@ class Glslviewer < Formula
   end
 
   test do
-    cp_r "#{pkgshare}/examples/2D/01_buffers/.", testpath
-    pid = fork { exec "#{bin}/glslViewer", "00_ripples.frag", "-l" }
+    cp_r "#{pkgshare}/examples/io/.", testpath
+    pid = fork { exec "#{bin}/glslViewer", "orca.frag", "-l" }
   ensure
     Process.kill("HUP", pid)
   end
