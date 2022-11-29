@@ -10,7 +10,7 @@ class SpringRoo < Formula
     sha256 cellar: :any_skip_relocation, all: "d239f3051323b948718b57a807b27953636aa764d96e4ca8ec94b0e6e83d1514"
   end
 
-  deprecate! date: "2021-11-18", because: :repo_archived
+  disable! date: "2022-11-29", because: :repo_archived
 
   def install
     rm Dir["bin/*.bat"]
