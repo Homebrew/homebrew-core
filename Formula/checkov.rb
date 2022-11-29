@@ -4,10 +4,9 @@ class Checkov < Formula
   desc "Prevent cloud misconfigurations during build-time for IaC tools"
   homepage "https://www.checkov.io/"
   # checkov should only be updated every 15 releases on multiples of 15
-  url "https://files.pythonhosted.org/packages/f4/e0/eadb8ee105c84b42d209ebc67644c5841ad8409d355f68d6dde2dbc91973/checkov-2.2.90.tar.gz"
-  sha256 "ead8efef95de5e27f7292978107d8a2f20e4a4b6032d5e5959f330331e710282"
+  url "https://files.pythonhosted.org/packages/9c/b3/6c2e966ee29ed93be86bd42322da03a07c4af24f2b191cf2678658c20493/checkov-2.2.105.tar.gz"
+  sha256 "f009fab8f74dc7e6ae12c1fd521b4cd9cc8b6015ae445ab46bf4b1ca929338db"
   license "Apache-2.0"
-  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e42b4d09ac67475fcb47ca21315c08ecd4ae8995fc9b3d6d5bf1fc513718868c"
@@ -77,13 +76,13 @@ class Checkov < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/ad/6d/51d9cd7ce066aab16424c01e8e36d181c8a2354ae36c1142323ffbab3ed2/boto3-1.26.16.tar.gz"
-    sha256 "31c0adf71e4bd19a5428580bb229d7ea3b5795eecaa0847a85385df00c026116"
+    url "https://files.pythonhosted.org/packages/43/26/69fa1b8ddc04a3bbe9d447cbe2cb2b15f2ad29af9c61d851dae28fd9fc1c/boto3-1.26.18.tar.gz"
+    sha256 "3c7315da16eb0b41823965e5ce55f99cb07e94680e0ed7830c581f505fb5bd15"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/18/ea/e6c68fe2773ce0fb056f75e7558c87b4ec4aaf9eb9d6aa2b11b547cc6b96/botocore-1.29.16.tar.gz"
-    sha256 "8cfcc10f2f1751608c3cec694f2d6b5e16ebcd50d0a104f9914d5616227c62e9"
+    url "https://files.pythonhosted.org/packages/2e/f8/35dff3051d2bbdfddf9a5ca4990bef838f5d5f0d6fcba7e41f0554bd4126/botocore-1.29.18.tar.gz"
+    sha256 "26e86fce95049f6cc18b5611901549943c4c22522fa8a3b6b265404f673977b2"
   end
 
   resource "cached-property" do
@@ -142,8 +141,8 @@ class Checkov < Formula
   end
 
   resource "cyclonedx-python-lib" do
-    url "https://files.pythonhosted.org/packages/50/10/61d16c3957fc81b863f6888d0ecc8467cb1ac17fb090494f094c089891be/cyclonedx-python-lib-3.1.0.tar.gz"
-    sha256 "39e9d36347d4dc736474ab4f3a7cd7bc91050c9315df698f83a6d8bbcb290744"
+    url "https://files.pythonhosted.org/packages/b5/17/8045ae6daa35e301ca52d6a179f30f8fb4ae0545b6a0a3ea3a4ab8376444/cyclonedx_python_lib-3.1.1.tar.gz"
+    sha256 "48ae942a892e8385f4e0193d2e295a338df9ab864652081406c26f58085d2b35"
   end
 
   resource "decorator" do
@@ -387,8 +386,8 @@ class Checkov < Formula
   end
 
   resource "zipp" do
-    url "https://files.pythonhosted.org/packages/8d/d7/1bd1e0a5bc95a27a6f5c4ee8066ddfc5b69a9ec8d39ab11a41a804ec8f0d/zipp-3.10.0.tar.gz"
-    sha256 "7a7262fd930bd3e36c50b9a64897aec3fafff3dfdeec9623ae22b40e93f99bb8"
+    url "https://files.pythonhosted.org/packages/8e/b3/8b16a007184714f71157b1a71bbe632c5d66dd43bc8152b3c799b13881e1/zipp-3.11.0.tar.gz"
+    sha256 "a7a22e05929290a67401440b39690ae6563279bced5f314609d9d03798f56766"
   end
 
   def install
