@@ -6,9 +6,9 @@ class Pbzx < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/NiklasRosenstein/pbzx.git", branch: "master"
 
-  depends_on "xz"
   # pbzx is a format employed OSX disk images
   depends_on :macos
+  depends_on "xz"
 
   def install
     system ENV.cc, "-llzma", "-lxar", "pbzx.c", "-o", "pbzx"
