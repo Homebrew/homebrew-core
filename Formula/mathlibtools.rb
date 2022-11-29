@@ -3,8 +3,8 @@ class Mathlibtools < Formula
 
   desc "Lean prover mathlib supporting tools"
   homepage "https://pypi.org/project/mathlibtools"
-  url "https://files.pythonhosted.org/packages/72/42/9631b9379c7fe5b6c6fb5c45d11910d58bfe28b5c7cfbe9e9e62de5546b0/mathlibtools-1.3.0.tar.gz"
-  sha256 "88161287963c318ab38de36def479446be344922a1d31e35a657a679a68e7f2f"
+  url "https://files.pythonhosted.org/packages/29/e4/3b36dc61c23a72d52d9f406a9891c50acd8dec68c22ccc084ece6d5998a5/mathlibtools-1.3.1.tar.gz"
+  sha256 "1f0b66ac31889c22391e5faa865fbb84e049dd4c7483c223a0055ae2201c725f"
   license "Apache-2.0"
 
   bottle do
@@ -54,8 +54,8 @@ class Mathlibtools < Formula
   end
 
   resource "gitdb" do
-    url "https://files.pythonhosted.org/packages/fc/44/64e02ef96f20b347385f0e9c03098659cb5a1285d36c3d17c56e534d80cf/gitdb-4.0.9.tar.gz"
-    sha256 "bac2fd45c0a1c9cf619e63a90d62bdc63892ef92387424b855792a6cabe789aa"
+    url "https://files.pythonhosted.org/packages/4b/47/dc98f3d5d48aa815770e31490893b92c5f1cd6c6cf28dd3a8ae0efffac14/gitdb-4.0.10.tar.gz"
+    sha256 "6eb990b69df4e15bad899ea868dc46572c3f75339735663b81de79b06f17eb9a"
   end
 
   resource "GitPython" do
@@ -124,8 +124,8 @@ class Mathlibtools < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/b2/56/d87d6d3c4121c0bcec116919350ca05dc3afd2eeb7dc88d07e8083f8ea94/urllib3-1.26.12.tar.gz"
-    sha256 "3fa96cf423e6987997fc326ae8df396db2a8b7c667747d47ddd8ecba91f4a74e"
+    url "https://files.pythonhosted.org/packages/c2/51/32da03cf19d17d46cce5c731967bf58de9bd71db3a379932f53b094deda4/urllib3-1.26.13.tar.gz"
+    sha256 "c083dd0dce68dbfbe1129d5271cb90f9447dea7d52097c6e0126120c521ddea8"
   end
 
   resource "wrapt" do
