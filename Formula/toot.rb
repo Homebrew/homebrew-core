@@ -3,8 +3,8 @@ class Toot < Formula
 
   desc "Mastodon CLI & TUI"
   homepage "https://toot.readthedocs.io/en/latest/index.html"
-  url "https://files.pythonhosted.org/packages/96/eb/a70a78887567c74ef7fb958a978d540d37c03a2ddcb05ec1a14c7f5c03b3/toot-0.29.0.tar.gz"
-  sha256 "7c908ebc61c7c818cc662de638c7c6213f768b3b61071b43ef839e56e7b29df0"
+  url "https://files.pythonhosted.org/packages/ea/d2/120f99c22010d2bd3e52db449a0b2eeb5fd43a009f8999420f4a40046d40/toot-0.30.0.tar.gz"
+  sha256 "8cf8ca28299076a480e5fed6bdb6fdf5326a16bc3cf775f58f962f6ac4dd65e1"
   license "GPL-3.0-only"
   head "https://github.com/ihabunek/toot.git", branch: "master"
 
@@ -52,8 +52,8 @@ class Toot < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/b2/56/d87d6d3c4121c0bcec116919350ca05dc3afd2eeb7dc88d07e8083f8ea94/urllib3-1.26.12.tar.gz"
-    sha256 "3fa96cf423e6987997fc326ae8df396db2a8b7c667747d47ddd8ecba91f4a74e"
+    url "https://files.pythonhosted.org/packages/c2/51/32da03cf19d17d46cce5c731967bf58de9bd71db3a379932f53b094deda4/urllib3-1.26.13.tar.gz"
+    sha256 "c083dd0dce68dbfbe1129d5271cb90f9447dea7d52097c6e0126120c521ddea8"
   end
 
   resource "urwid" do
