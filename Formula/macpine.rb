@@ -18,6 +18,7 @@ class Macpine < Formula
   end
 
   depends_on "go" => :build
+  depends_on "qemu"
 
   conflicts_with "alpine", because: "both install `alpine` binaries"
 
