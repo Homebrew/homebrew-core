@@ -31,8 +31,7 @@ class Ldns < Formula
 
   def install
     python3 = "python3.11"
-    args = %W[
-      --prefix=#{prefix}
+    args = *std_configure_args + %W[
       --with-drill
       --with-examples
       --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
