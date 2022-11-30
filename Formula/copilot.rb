@@ -50,7 +50,7 @@ class Copilot < Formula
       Process.kill 9, wait_thr.pid
     end
 
-    assert_match "could not find an application attached to this workspace, please run `app init` first",
+    assert_match ""Run `copilot app init` to create an application",
       shell_output("AWS_REGION=eu-west-1 #{bin}/copilot pipeline init 2>&1", 1)
   end
 end
