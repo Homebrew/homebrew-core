@@ -1,8 +1,8 @@
 class GtkVnc < Formula
   desc "VNC viewer widget for GTK"
   homepage "https://wiki.gnome.org/Projects/gtk-vnc"
-  url "https://download.gnome.org/sources/gtk-vnc/1.2/gtk-vnc-1.2.0.tar.xz"
-  sha256 "7aaf80040d47134a963742fb6c94e970fcb6bf52dc975d7ae542b2ef5f34b94a"
+  url "https://download.gnome.org/sources/gtk-vnc/1.3/gtk-vnc-1.3.1.tar.xz"
+  sha256 "512763ac4e0559d0158b6682ca5dd1a3bd633f082f5e4349d7158e6b5f80f1ce"
   license "LGPL-2.1-or-later"
 
   bottle do
@@ -24,18 +24,6 @@ class GtkVnc < Formula
   depends_on "gtk+3"
   depends_on "libgcrypt"
 
-  # Fix configuration failure with -Dwith-vala=disabled
-  # Remove in the next release.
-  patch do
-    url "https://gitlab.gnome.org/GNOME/gtk-vnc/-/commit/bdab05584bab5c2ecdd508df49b03e80aedd19fc.diff"
-    sha256 "1b260157be888d9d8e6053e6cfd7ae92a666c306f04f4f23a0a1ed68a06c777d"
-  end
-
-  # Fix compile failure in src/vncdisplaykeymap.c
-  # error: implicit declaration of function 'GDK_IS_QUARTZ_DISPLAY' is invalid in C99
-  # https://gitlab.gnome.org/GNOME/gtk-vnc/-/issues/16
-  patch :DATA
-
   def install
     mkdir "build" do
       system "meson", *std_meson_args, "-Dwith-vala=disabled", ".."
@@ -48,18 +36,3 @@ class GtkVnc < Formula
     system "#{bin}/gvnccapture", "--help"
   end
 end
-
-__END__
-diff --git a/src/vncdisplaykeymap.c b/src/vncdisplaykeymap.c
-index 9c029af..8d3ec20 100644
---- a/src/vncdisplaykeymap.c
-+++ b/src/vncdisplaykeymap.c
-@@ -69,6 +69,8 @@
- #endif
- 
- #ifdef GDK_WINDOWING_QUARTZ
-+#include <gdk/gdkquartz.h>
-+
- /* OS-X native keycodes */
- #include "vncdisplaykeymap_osx2qnum.h"
- #endif

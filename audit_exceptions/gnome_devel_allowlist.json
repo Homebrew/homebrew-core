@@ -2,6 +2,7 @@
   "gcab": "1.5",
   "gtk-doc": "1.33",
   "gtk-mac-integration": "2.1",
+  "gtk-vnc": "1.3",
   "libadwaita": "1.1",
   "libart": "2.3",
   "libepoxy": "1.5",
