@@ -3,8 +3,8 @@ class Aws2Wrap < Formula
 
   desc "Script to export current AWS SSO credentials or run a sub-process with them"
   homepage "https://github.com/linaro-its/aws2-wrap"
-  url "https://files.pythonhosted.org/packages/a6/12/0a174f329c980b62cf2873ccd2c9d8bacb9c51737cbf6c3481e2968860da/aws2-wrap-1.3.0.tar.gz"
-  sha256 "8a24605c6fb073e4ffceb63000fa8acda8a1a4860807b16c9279bc64cf37baff"
+  url "https://files.pythonhosted.org/packages/db/07/db4c98b4d44ee824ad21563910d198f0da2561a6c7cfeaef1b954979c5c6/aws2-wrap-1.3.1.tar.gz"
+  sha256 "cfaee18e42f538208537c259a020263a856923520d06097e66f0e41ef404cae7"
   license "GPL-3.0-only"
 
   bottle do
@@ -22,8 +22,8 @@ class Aws2Wrap < Formula
   depends_on "python@3.11"
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/de/eb/1c01a34c86ee3b058c556e407ce5b07cb7d186ebe47b3e69d6f152ca5cc5/psutil-5.9.3.tar.gz"
-    sha256 "7ccfcdfea4fc4b0a02ca2c31de7fcd186beb9cff8207800e14ab66f79c773af6"
+    url "https://files.pythonhosted.org/packages/3d/7d/d05864a69e452f003c0d77e728e155a89a2a26b09e64860ddd70ad64fb26/psutil-5.9.4.tar.gz"
+    sha256 "3d7f9739eb435d4b1338944abe23f49584bde5395f27487d2ee25ad9a8774a62"
   end
 
   def install
