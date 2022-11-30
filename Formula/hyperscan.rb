@@ -22,7 +22,7 @@ class Hyperscan < Formula
   # See https://github.com/intel/hyperscan/issues/197
   depends_on arch: :x86_64
   depends_on "pcre"
-  
+
   # fixes glibc 2.34 issue https://github.com/intel/hyperscan/issues/359
   # remove in version > 5.4.0
   patch do
