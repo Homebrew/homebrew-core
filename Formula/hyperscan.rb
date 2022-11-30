@@ -26,8 +26,8 @@ class Hyperscan < Formula
   # fixes glibc 2.34 issue https://github.com/intel/hyperscan/issues/359
   # remove in version > 5.4.0
   patch do
-    url "https://github.com/intel/hyperscan/commit/564ed6f65a1058e4e0adab69bdd17ba9138c8a0c.patch"
-    sha256 "0e0a08d5b730dc5f7a8c1e41aa313adadd56083c7928a9f468cd9a828c0c3238"
+    url "https://github.com/intel/hyperscan/commit/564ed6f65a1058e4e0adab69bdd17ba9138c8a0c.patch?full_index=1"
+    sha256 "21a22ac92c8f61c3b06f72919d356d594fc89d090eb1f238ce11e89d55e22bfb"
   end
 
   def install
