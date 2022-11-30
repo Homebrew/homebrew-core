@@ -43,10 +43,19 @@ class Ufraw < Formula
     end
   end
 
+  # Fix compilation with glib 2.68
   patch do
     on_linux do
       url "https://github.com/sergiomb2/ufraw/commit/c56f8be3caf1cf3d9a5c80597bdbaf1325faacc0.patch?full_index=1"
       sha256 "fdbc9fb438afc9fb4a646fcc83deae2f6c8521bc746b329df5f63e4faa86b0e0"
+    end
+  end
+
+  # Fix usage of abs instead of fabs
+  patch do
+    on_linux do
+      url "https://github.com/sergiomb2/ufraw/commit/97b0bf59fc67d98fb510d686d276f46df2752504.patch?full_index=1"
+      sha256 "578a504ea3b302a1b905325c290646d76e0ec3944ebc53a64cd0190e14c3bfd9"
     end
   end
 
