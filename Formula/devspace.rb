@@ -2,8 +2,8 @@ class Devspace < Formula
   desc "CLI helps develop/deploy/debug apps with Docker and k8s"
   homepage "https://devspace.sh/"
   url "https://github.com/loft-sh/devspace.git",
-      tag:      "v6.2.0",
-      revision: "e1d27b9eaac1594f5347cfebbea28ec22751b05e"
+      tag:      "v6.2.1",
+      revision: "796ab32c275d37158de003e21c018a6a53215aba"
   license "Apache-2.0"
   head "https://github.com/loft-sh/devspace.git", branch: "master"
 
