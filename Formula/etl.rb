@@ -8,7 +8,7 @@ class Etl < Formula
 
   livecheck do
     url :stable
-    regex(%r{url=.*?/releases/.+?/ETL[._-]v?(\d+(?:\.\d+)+)\.t}i)
+    regex(%r{url=.*?/ETL[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
   bottle do
