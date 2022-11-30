@@ -51,6 +51,15 @@ class R < Formula
     cause "Unknown. FIXME."
   end
 
+  # Patch to fix build on macOS Ventura, remove in next release
+  # https://bugs.r-project.org/show_bug.cgi?id=18426
+  patch do
+    on_ventura :or_newer do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/d647f4e1d61c8dba5f15edf7a0fc567f681641fb/r/ventura.diff"
+      sha256 "0b3c230432ef6a9231eaf48f39fd22155d3e1c7cd4f2a497e96ff4bdc7d91b84"
+    end
+  end
+
   def install
     # BLAS detection fails with Xcode 12 due to missing prototype
     # https://bugs.r-project.org/bugzilla/show_bug.cgi?id=18024
