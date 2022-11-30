@@ -22,6 +22,13 @@ class Hyperscan < Formula
   # See https://github.com/intel/hyperscan/issues/197
   depends_on arch: :x86_64
   depends_on "pcre"
+  
+  # fixes glibc 2.34 issue https://github.com/intel/hyperscan/issues/359
+  # remove in version > 5.4.0
+  patch do
+    url "https://github.com/intel/hyperscan/commit/564ed6f65a1058e4e0adab69bdd17ba9138c8a0c.patch"
+    sha256 "0e0a08d5b730dc5f7a8c1e41aa313adadd56083c7928a9f468cd9a828c0c3238"
+  end
 
   def install
     cmake_args = std_cmake_args + ["-DBUILD_STATIC_AND_SHARED=ON"]
