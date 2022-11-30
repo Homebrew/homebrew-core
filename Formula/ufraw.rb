@@ -13,7 +13,6 @@ class Ufraw < Formula
     sha256 monterey:       "57daa4e9573a66030817ba412cf5989555cf569a6e156e4128598e6eabc2c419"
     sha256 big_sur:        "8daab4a6aff60fba25cb522f217f4aee722b018825506de0b8a3b1127372109c"
     sha256 catalina:       "c908174e4789deed5e024420d7b65dcaf53fd82293d52015a32d10ee1b3a0660"
-    sha256 x86_64_linux:   "fedbe59fcadb6931850380ffe98103295ca6a70d567f715c0f6333b953e89867"
   end
 
   deprecate! date: "2022-11-22", because: :unmaintained
@@ -40,22 +39,6 @@ class Ufraw < Formula
     on_macos do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/d5bf686c740d9ee0fdf0384ef8dfb293c5483dd2/ufraw/high_sierra.patch"
       sha256 "60c67978cc84b5a118855bcaa552d5c5c3772b407046f1b9db9b74076a938f6e"
-    end
-  end
-
-  # Fix compilation with glib 2.68
-  patch do
-    on_linux do
-      url "https://github.com/sergiomb2/ufraw/commit/c56f8be3caf1cf3d9a5c80597bdbaf1325faacc0.patch?full_index=1"
-      sha256 "fdbc9fb438afc9fb4a646fcc83deae2f6c8521bc746b329df5f63e4faa86b0e0"
-    end
-  end
-
-  # Fix usage of abs instead of fabs
-  patch do
-    on_linux do
-      url "https://github.com/sergiomb2/ufraw/commit/97b0bf59fc67d98fb510d686d276f46df2752504.patch?full_index=1"
-      sha256 "578a504ea3b302a1b905325c290646d76e0ec3944ebc53a64cd0190e14c3bfd9"
     end
   end
 
