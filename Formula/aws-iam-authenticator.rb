@@ -3,7 +3,7 @@ class AwsIamAuthenticator < Formula
   homepage "https://github.com/kubernetes-sigs/aws-iam-authenticator"
   url "https://github.com/kubernetes-sigs/aws-iam-authenticator.git",
       tag:      "v0.5.11",
-      revision: "918bfc9fb357618410d0a6d31b53c757840bd69e"
+      revision: "8e851c244de20424354d0f911150acac498e6b35"
   license "Apache-2.0"
   head "https://github.com/kubernetes-sigs/aws-iam-authenticator.git", branch: "master"
 
