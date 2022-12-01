@@ -102,6 +102,15 @@ class Mono < Formula
     sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
   end
 
+  # Fix Ventura build issue reported at https://github.com/mono/mono/issues/21567
+  # Patch lifted from dotnet https://github.com/dotnet/runtime/pull/76433
+  patch do
+    on_ventura :or_newer do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/dce4e25f7eacac188478ea9fbf61ce162f20811d/mono/ventura.diff"
+      sha256 "d534e564b936f8929e50551f42edfc1fdf13a643cf0ee65955668b7fe52d3ce7"
+    end
+  end
+
   def install
     # Replace hardcoded /usr/share directory. Paths like /usr/share/.mono,
     # /usr/share/.isolatedstorage, and /usr/share/template are referenced in code.
