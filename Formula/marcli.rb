@@ -1,8 +1,8 @@
 class Marcli < Formula
   desc "Parse MARC (ISO 2709) files"
   homepage "https://github.com/hectorcorrea/marcli"
-  url "https://github.com/hectorcorrea/marcli/archive/refs/tags/1.0.1.tar.gz"
-  sha256 "abea9ae6a7cd2d6874ac71d0aa429b9eab367daa4f301161a0671f85608216cf"
+  url "https://github.com/hectorcorrea/marcli/archive/refs/tags/v1.1.0.tar.gz"
+  sha256 "9278cc6b36974cbf0ddea2869b577ae41ad03e1753e596d50e221ccf0db700ff"
   license "MIT"
   head "https://github.com/hectorcorrea/marcli.git", branch: "main"
 
