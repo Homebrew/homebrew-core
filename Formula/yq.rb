@@ -1,5 +1,5 @@
 class Yq < Formula
-  desc "Process YAML documents from the CLI"
+  desc "Process YAML, JSON, XML, CSV and properties documents from the CLI"
   homepage "https://github.com/mikefarah/yq"
   url "https://github.com/mikefarah/yq/archive/v4.30.5.tar.gz"
   sha256 "54706926e44ca8f28c74c0165c4746f372daafd4db885b709fdaf5e8f2e4502c"
