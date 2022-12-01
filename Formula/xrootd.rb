@@ -1,8 +1,8 @@
 class Xrootd < Formula
   desc "High performance, scalable, fault-tolerant access to data"
   homepage "https://xrootd.slac.stanford.edu/"
-  url "https://xrootd.slac.stanford.edu/download/v5.5.1/xrootd-5.5.1.tar.gz"
-  sha256 "3556d5afcae20ed9a12c89229d515492f6c6f94f829a3d537f5880fcd2fa77e4"
+  url "https://xrootd.slac.stanford.edu/download/v5.5.2/xrootd-5.5.2.tar.gz"
+  sha256 "ec4e0490b8ee6a3254a4ea4449342aa364bc95b78dc9a8669151be30353863c6"
   license "LGPL-3.0-or-later"
   head "https://github.com/xrootd/xrootd.git", branch: "master"
 
@@ -23,6 +23,10 @@ class Xrootd < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "libcython" => :build
+  depends_on "python@3.11" => [:build, :test]
+  depends_on "davix"
+  depends_on "krb5"
   depends_on "openssl@1.1"
   depends_on "readline"
 
@@ -36,15 +40,37 @@ class Xrootd < Formula
   end
 
   def install
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args,
-                            "-DENABLE_PYTHON=OFF",
-                            "-DCMAKE_INSTALL_RPATH=#{rpath}"
-      system "make", "install"
-    end
+    args = std_cmake_args + %W[
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DFORCE_ENABLED=ON
+      -DENABLE_CRYPTO=ON
+      -DENABLE_FUSE=OFF
+      -DENABLE_HTTP=ON
+      -DENABLE_KRB5=ON
+      -DENABLE_MACAROONS=OFF
+      -DENABLE_PYTHON=ON
+      -DPYTHON_EXECUTABLE=#{which("python3.11")}
+      -DENABLE_READLINE=ON
+      -DENABLE_SCITOKENS=OFF
+      -DENABLE_TESTS=OFF
+      -DENABLE_VOMS=OFF
+      -DENABLE_XRDCL=ON
+      -DENABLE_XRDCLHTTP=ON
+      -DENABLE_XRDEC=OFF
+      -DXRDCL_LIB_ONLY=OFF
+      -DXRDCL_ONLY=OFF
+    ]
+
+    system "cmake", "-S", ".", "-B", "build", *args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
     system "#{bin}/xrootd", "-H"
+    system "python3.11", "-c", <<~EOS
+      import XRootD
+      from XRootD import client
+    EOS
   end
 end
