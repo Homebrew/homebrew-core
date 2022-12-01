@@ -206,6 +206,8 @@ class Emscripten < Formula
   test do
     # We're targetting WASM, so we don't want to use the macOS SDK here.
     ENV.remove_macosxsdk if OS.mac?
+    # Avoid errors on Linux when other formulae like `sdl12-compat` are installed
+    ENV.delete "CPATH"
 
     ENV["NODE_OPTIONS"] = "--no-experimental-fetch"
 
