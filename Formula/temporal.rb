@@ -4,6 +4,7 @@ class Temporal < Formula
   url "https://github.com/temporalio/cli/archive/v0.2.0.tar.gz"
   sha256 "b8f83e07f47994482b73e3288083f38635aaeb77de673920041307254363f5be"
   license "MIT"
+  head "https://github.com/temporalio/cli.git", branch: "main"
 
 
   depends_on "go" => :build
