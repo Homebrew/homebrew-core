@@ -4,6 +4,7 @@ class Xrootd < Formula
   url "https://xrootd.slac.stanford.edu/download/v5.5.1/xrootd-5.5.1.tar.gz"
   sha256 "3556d5afcae20ed9a12c89229d515492f6c6f94f829a3d537f5880fcd2fa77e4"
   license "LGPL-3.0-or-later"
+  revision 1
   head "https://github.com/xrootd/xrootd.git", branch: "master"
 
   livecheck do
@@ -23,6 +24,10 @@ class Xrootd < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "libcython" => :build
+  depends_on "python@3.10" => [:build, :test]
+  depends_on "davix"
+  depends_on "krb5"
   depends_on "openssl@1.1"
   depends_on "readline"
 
@@ -38,7 +43,22 @@ class Xrootd < Formula
   def install
     mkdir "build" do
       system "cmake", "..", *std_cmake_args,
-                            "-DENABLE_PYTHON=OFF",
+                            "-DFORCE_ENABLED=ON",
+                            "-DENABLE_CRYPTO=ON",
+                            "-DENABLE_FUSE=OFF",
+                            "-DENABLE_HTTP=ON",
+                            "-DENABLE_KRB5=ON",
+                            "-DENABLE_MACAROONS=OFF",
+                            "-DENABLE_PYTHON=ON",
+                            "-DENABLE_READLINE=ON",
+                            "-DENABLE_SCITOKENS=OFF",
+                            "-DENABLE_TESTS=OFF",
+                            "-DENABLE_VOMS=OFF",
+                            "-DENABLE_XRDCL=ON",
+                            "-DENABLE_XRDCLHTTP=ON",
+                            "-DENABLE_XRDEC=OFF",
+                            "-DXRDCL_LIB_ONLY=OFF",
+                            "-DXRDCL_ONLY=OFF",
                             "-DCMAKE_INSTALL_RPATH=#{rpath}"
       system "make", "install"
     end
@@ -46,5 +66,9 @@ class Xrootd < Formula
 
   test do
     system "#{bin}/xrootd", "-H"
+    system "python3.10", "-c", <<~EOS
+      import XRootD
+      from XRootD import client
+    EOS
   end
 end
