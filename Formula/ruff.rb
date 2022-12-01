@@ -30,7 +30,7 @@ class Ruff < Formula
       import os
     EOS
     expected = <<~EOS
-      test.py:1:1: F401 `os` imported but unused
+      test.py:1:8: F401 `os` imported but unused
     EOS
     assert_equal expected, shell_output("#{bin}/ruff --exit-zero --quiet #{testpath}/test.py")
   end
