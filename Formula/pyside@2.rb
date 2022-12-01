@@ -14,7 +14,6 @@ class PysideAT2 < Formula
     sha256 cellar: :any,                 monterey:       "ab98e21f4ad696786804474dbca16cf4f4868ada27d26306885111a3060d7e6b"
     sha256 cellar: :any,                 big_sur:        "6f7cb05f3476f4b8f3c0d414d65ae72592ef5ea363219d196fac461fe3e9b13b"
     sha256 cellar: :any,                 catalina:       "41cda4203982c1700e69a91dd5e5fcc8d56ec2016f53c71f0658a6b4b59a9e85"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4dd1ba23da24fc618eaf31f8aaf42b677c5bd600730088021e8531c6d7e547d0"
   end
 
   keg_only :versioned_formula
