@@ -3,8 +3,8 @@ class Locust < Formula
 
   desc "Scalable user load testing tool written in Python"
   homepage "https://locust.io/"
-  url "https://files.pythonhosted.org/packages/8c/c6/2cf4835c1f8838773b0019c4926eceebd88e96e04b520ceb3ea0705dcb0b/locust-2.13.0.tar.gz"
-  sha256 "f603752ab9d4f7d6034c5896c71e6069be49060a5868d6eb4d6c7d32b1c031ae"
+  url "https://files.pythonhosted.org/packages/23/e2/091862cbd961d8b2b10e6b163d465d9c187c68e0f69618f5bdcbe9179dbc/locust-2.13.1.tar.gz"
+  sha256 "875bb048b9845ba2592a65a9583a22a56d7910101cbd831fc4214548c8b54b18"
   license "MIT"
 
   bottle do
@@ -124,8 +124,8 @@ class Locust < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/b2/56/d87d6d3c4121c0bcec116919350ca05dc3afd2eeb7dc88d07e8083f8ea94/urllib3-1.26.12.tar.gz"
-    sha256 "3fa96cf423e6987997fc326ae8df396db2a8b7c667747d47ddd8ecba91f4a74e"
+    url "https://files.pythonhosted.org/packages/c2/51/32da03cf19d17d46cce5c731967bf58de9bd71db3a379932f53b094deda4/urllib3-1.26.13.tar.gz"
+    sha256 "c083dd0dce68dbfbe1129d5271cb90f9447dea7d52097c6e0126120c521ddea8"
   end
 
   resource "Werkzeug" do
@@ -139,8 +139,8 @@ class Locust < Formula
   end
 
   resource "zope.interface" do
-    url "https://files.pythonhosted.org/packages/c5/ec/3e116b5c3c54f1fb7296a686c110c14d1242bbea17286c487892075d9858/zope.interface-5.5.1.tar.gz"
-    sha256 "6d678475fdeb11394dc9aaa5c564213a1567cc663082e0ee85d52f78d1fbaab2"
+    url "https://files.pythonhosted.org/packages/38/6f/fbfb7dde38be7e5644bb342c4c7cdc444cd5e2ffbd70d091263b3858a8cb/zope.interface-5.5.2.tar.gz"
+    sha256 "bfee1f3ff62143819499e348f5b8a7f3aa0259f9aca5e0ddae7391d059dce671"
   end
 
   def install
