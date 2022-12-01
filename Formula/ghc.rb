@@ -65,6 +65,13 @@ class Ghc < Formula
     end
   end
 
+  # Fix for macOS Ventura on ARM
+  # https://gitlab.haskell.org/ghc/ghc/-/issues/21964
+  patch do
+    url "https://gitlab.haskell.org/ghc/ghc/-/commit/74ca6191fa0dbbe8cee3dc53741b8d59fbf16b09.diff"
+    sha256 "ddf2e75f64d4e577653e16f57e86662d047a557b8c89736ea86e6125cc6873d1"
+  end
+
   def install
     ENV["CC"] = ENV.cc
     ENV["LD"] = "ld"
