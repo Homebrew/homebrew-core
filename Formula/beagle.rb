@@ -22,7 +22,7 @@ class Beagle < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "openjdk" => [:build, :test]
+  depends_on "openjdk@11" => [:build, :test]
 
   # Reinstate versioning for libhmsbeagle. Remove in the next release
   patch do
@@ -51,7 +51,7 @@ class Beagle < Formula
     system ENV.cxx, "-I#{include}/libhmsbeagle-1",
            testpath/"test.cpp", "-o", "test"
     system "./test"
-    system "#{Formula["openjdk"].bin}/javac", "T.java"
-    system "#{Formula["openjdk"].bin}/java", "-Djava.library.path=#{lib}", "T"
+    system "#{Formula["openjdk@11"].bin}/javac", "T.java"
+    system "#{Formula["openjdk@11"].bin}/java", "-Djava.library.path=#{lib}", "T"
   end
 end
