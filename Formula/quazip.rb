@@ -24,9 +24,9 @@ class Quazip < Formula
   fails_with gcc: "5" # C++17
 
   def install
-    system "cmake", ".", "-DCMAKE_PREFIX_PATH=#{Formula["qt"].opt_lib}", *std_cmake_args
-    system "make"
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_PREFIX_PATH=#{Formula["qt"].opt_lib}", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
     cd include do
       include.install_symlink "QuaZip-Qt#{Formula["qt"].version.major}-#{version}/quazip" => "quazip"
@@ -36,14 +36,15 @@ class Quazip < Formula
   test do
     ENV.delete "CPATH"
     (testpath/"test.pro").write <<~EOS
-      TEMPLATE     = app
-      CONFIG      += console
-      CONFIG      -= app_bundle
-      TARGET       = test
-      SOURCES     += test.cpp
-      INCLUDEPATH += #{include}
-      LIBPATH     += #{lib}
-      LIBS        += -lquazip#{version.major}-qt#{Formula["qt"].version.major}
+      TEMPLATE        = app
+      CONFIG         += console
+      CONFIG         -= app_bundle
+      TARGET          = test
+      SOURCES        += test.cpp
+      INCLUDEPATH    += #{include}
+      LIBPATH        += #{lib}
+      LIBS           += -lquazip#{version.major}-qt#{Formula["qt"].version.major}
+      QMAKE_RPATHDIR += #{lib}
     EOS
 
     (testpath/"test.cpp").write <<~EOS
@@ -54,7 +55,7 @@ class Quazip < Formula
       }
     EOS
 
-    system "#{Formula["qt"].bin}/qmake", "test.pro"
+    system Formula["qt"].bin/"qmake", "test.pro"
     system "make"
     assert_predicate testpath/"test", :exist?, "test output file does not exist!"
     system "./test"
