@@ -3,8 +3,8 @@ class PipTools < Formula
 
   desc "Locking and sync for Pip requirements files"
   homepage "https://pip-tools.readthedocs.io"
-  url "https://files.pythonhosted.org/packages/62/f6/97bcd8a0c3c673ead0cbecfd7d0f98d856d94d4d791616f5989afcc17a9c/pip-tools-6.10.0.tar.gz"
-  sha256 "7f9f7356052db6942b5aaabc8eba29983591ca0ad75affbf2f0a25d9361be624"
+  url "https://files.pythonhosted.org/packages/a5/4b/3b2cc29962f306210ee7bbc1b4305af81dd5289f3d163204f43a6df9f26f/pip-tools-6.11.0.tar.gz"
+  sha256 "90c5dc150e3856e4463b81ccc99307ccf9554e5db8393eb273705cb0b8f71c60"
   license "BSD-3-Clause"
 
   bottle do
