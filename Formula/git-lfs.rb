@@ -16,6 +16,7 @@ class GitLfs < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "43e16ee02644936dbf6d2d504b8c66cd3e0c3dd1313436e9bd253c4c051e437c"
   end
 
+  depends_on "asciidoctor" => :build
   depends_on "go" => :build
   depends_on "ronn" => :build
   depends_on "ruby" => :build
@@ -24,17 +25,14 @@ class GitLfs < Formula
     ENV["GIT_LFS_SHA"] = ""
     ENV["VERSION"] = version
 
-    (buildpath/"src/github.com/git-lfs/git-lfs").install buildpath.children
-    cd "src/github.com/git-lfs/git-lfs" do
-      system "make", "vendor"
-      system "make"
-      system "make", "man", "RONN=#{Formula["ronn"].bin}/ronn"
+    system "make"
+    system "make", "man", "RONN=#{Formula["ronn"].bin}/ronn"
 
-      bin.install "bin/git-lfs"
-      man1.install Dir["man/*.1"]
-      man5.install Dir["man/*.5"]
-      doc.install Dir["man/*.html"]
-    end
+    bin.install "bin/git-lfs"
+    man1.install Dir["man/man1/*.1"]
+    man5.install Dir["man/man5/*.5"]
+    man7.install Dir["man/man7/*.7"]
+    doc.install Dir["man/html/*.html"]
   end
 
   def caveats
