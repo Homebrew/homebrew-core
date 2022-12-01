@@ -1,8 +1,8 @@
 class Hledger < Formula
   desc "Easy plain text accounting with command-line, terminal and web UIs"
   homepage "https://hledger.org/"
-  url "https://github.com/simonmichael/hledger/archive/refs/tags/1.27.1.tar.gz"
-  sha256 "218f6005b7b30308cc43523dc7b61c818bb649abc217a6c8803e8f82b408d239"
+  url "https://github.com/simonmichael/hledger/archive/refs/tags/1.28.tar.gz"
+  sha256 "e2736f732d9f5cade993877b4524f06fbb3488142843c62653a0849180d2a34a"
   license "GPL-3.0-or-later"
   head "https://github.com/simonmichael/hledger.git", branch: "master"
 
