@@ -1,8 +1,8 @@
 class Gxml < Formula
   desc "GObject-based XML DOM API"
   homepage "https://wiki.gnome.org/GXml"
-  url "https://download.gnome.org/sources/gxml/0.20/gxml-0.20.0.tar.xz"
-  sha256 "0a0fc4f305ba9ea2f1f76aadfd660fd50febdc7a5e151f9559c81b2bd362d87b"
+  url "https://gitlab.gnome.org/GNOME/gxml/-/archive/0.20.3/gxml-0.20.3.tar.bz2"
+  sha256 "22d8ed0f9f6bc895c94c74bfcd6f89f64aa96415c19e1b648277df70b4ed20f7"
   license "LGPL-2.1-or-later"
 
   bottle do
@@ -28,11 +28,9 @@ class Gxml < Formula
   depends_on "libxml2"
 
   def install
-    mkdir "build" do
-      system "meson", *std_meson_args, "-Dintrospection=true", "-Ddocs=false", ".."
-      system "ninja", "-v"
-      system "ninja", "install", "-v"
-    end
+    system "meson", "setup", "build", *std_meson_args, "-Dintrospection=true", "-Ddocs=false"
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do
