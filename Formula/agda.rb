@@ -2,15 +2,31 @@ class Agda < Formula
   desc "Dependently typed functional programming language"
   homepage "https://wiki.portal.chalmers.se/agda/"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   stable do
     url "https://hackage.haskell.org/package/Agda-2.6.2.2/Agda-2.6.2.2.tar.gz"
     sha256 "e5be3761717b144f64e760d8589ec6fdc0dda60d40125c49cdd48f54185c527a"
 
+    # Use Hackage metadata revision to support GHC 9.4.
+    # TODO: Remove this resource on next release along with corresponding install logic
+    resource "Agda.cabal" do
+      url "https://hackage.haskell.org/package/Agda-2.6.2.2/revision/2.cabal"
+      sha256 "b69c2f317db2886cb387134af00a3e42a06fab6422686938797924d034255a55"
+    end
+
     resource "stdlib" do
       url "https://github.com/agda/agda-stdlib/archive/v1.7.1.tar.gz"
       sha256 "6f92ae14664e5d1217e8366c647eb23ca88bc3724278f22dc6b80c23cace01df"
+
+      # Backport upstream commits to support GHC 9.4.
+      # TODO: Remove patches when updating resource to 1.7.2 or later
+      # Ref: https://github.com/agda/agda-stdlib/commit/43c36399a8ca35e0bb2d99bf6359c931e5838990
+      patch :DATA
+      patch do
+        url "https://github.com/agda/agda-stdlib/commit/81a924e41d24669a8935cc1b7168a96f0087ac21.patch?full_index=1"
+        sha256 "8b84d751119a55db06bb88284a8e29a96cccea343cb5104e8eb38a1c22deac05"
+      end
     end
   end
 
@@ -40,6 +56,8 @@ class Agda < Formula
   uses_from_macos "zlib"
 
   def install
+    resource("Agda.cabal").stage { buildpath.install "2.cabal" => "Agda.cabal" } unless build.head?
+
     system "cabal", "v2-update"
     system "cabal", "--store-dir=#{libexec}", "v2-install", *std_cabal_v2_args
 
@@ -133,3 +151,36 @@ class Agda < Formula
     assert_equal "", shell_output(testpath/"IOTest")
   end
 end
+
+__END__
+diff --git a/agda-stdlib-utils.cabal b/agda-stdlib-utils.cabal
+index ceaabafdb..502bb3eb9 100644
+--- a/agda-stdlib-utils.cabal
++++ b/agda-stdlib-utils.cabal
+@@ -9,8 +9,9 @@ tested-with:     GHC == 8.0.2
+                  GHC == 8.4.4
+                  GHC == 8.6.5
+                  GHC == 8.8.4
+-                 GHC == 8.10.5
+-                 GHC == 9.0.1
++                 GHC == 8.10.7
++                 GHC == 9.0.2
++                 GHC == 9.2.1
+
+ executable GenerateEverything
+   hs-source-dirs:   .
+@@ -21,7 +22,7 @@ executable GenerateEverything
+                     , directory >= 1.0.0.0 && < 1.4
+                     , filemanip >= 0.3.6.2 && < 0.4
+                     , filepath  >= 1.4.1.0 && < 1.5
+-                    , mtl       >= 2.2.2   && < 2.3
++                    , mtl       >= 2.2.2   && < 2.4
+
+ executable AllNonAsciiChars
+   hs-source-dirs:   .
+@@ -29,4 +30,4 @@ executable AllNonAsciiChars
+   default-language: Haskell2010
+   build-depends:      base      >= 4.9.0.0 && < 4.17
+                     , filemanip >= 0.3.6.2 && < 0.4
+-                    , text      >= 1.2.3.0 && < 1.3
++                    , text      >= 1.2.3.0 && < 2.1
