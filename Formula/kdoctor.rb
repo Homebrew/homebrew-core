@@ -18,6 +18,7 @@ class Kdoctor < Formula
   depends_on "gradle" => :build
   depends_on "openjdk" => :build
   depends_on xcode: ["12.5", :build]
+  depends_on "curl"
   depends_on :macos
 
   def install
