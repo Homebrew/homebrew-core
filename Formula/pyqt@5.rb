@@ -98,7 +98,7 @@ class PyqtAT5 < Formula
     end
 
     # Replace hardcoded reference to Python version used with sip/pyqt-builder with generic python3.
-    bin.children.each { |script| inreplace script, Formula["python@3.10"].opt_bin/"python3.10", "python3" }
+    bin.children.each { |script| inreplace script, Formula["python@3.11"].opt_bin/"python3.11", "python3" }
   end
 
   test do
