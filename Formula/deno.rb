@@ -58,8 +58,11 @@ class Deno < Formula
         revision: "bf4e17dc67b2a2007475415e3f9e1d1cf32f6e35"
   end
 
-  # textwrap 0.15.1 was yanked, update to use 0.15.2
-  patch :DATA
+  # patch textwrap, remove in next release
+  patch do
+    url "https://github.com/denoland/deno/commit/c3b75c692c6392dd59ba7203f4f94d702eb20e27.patch?full_index=1"
+    sha256 "1a4ef4cd1f4e8b959c20518f8f00994ef577e74e05824b2d1b241b1c3c1f84eb"
+  end
 
   def install
     # Work around files missing from crate
@@ -115,22 +118,3 @@ class Deno < Formula
                    "#{testpath}/hello.ts")
   end
 end
-
-
-__END__
-diff --git a/Cargo.lock b/Cargo.lock
-index 5b9a49f5e..e5b4e2676 100644
---- a/Cargo.lock
-+++ b/Cargo.lock
-@@ -4803,9 +4803,9 @@ dependencies = [
-
- [[package]]
- name = "textwrap"
--version = "0.15.1"
-+version = "0.15.2"
- source = "registry+https://github.com/rust-lang/crates.io-index"
--checksum = "949517c0cf1bf4ee812e2e07e08ab448e3ae0d23472aee8a06c985f0c8815b16"
-+checksum = "b7b3e525a49ec206798b40326a44121291b530c963cfb01018f63e135bac543d"
-
- [[package]]
- name = "thiserror"
