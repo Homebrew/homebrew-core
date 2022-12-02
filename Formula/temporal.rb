@@ -13,8 +13,8 @@ class Temporal < Formula
   end
 
   test do
-    run_output = shell_output("#{bin}/temporal --version 2>&1")
-    assert_match "temporal version", run_output
+    run_output = shell_output("#{bin}/temporal --version")
+    assert_match "temporal version #{version}", run_output
 
     run_output = shell_output("#{bin}/temporal workflow list --address 192.0.2.0:1234 2>&1", 1)
     assert_match "failed reaching server", run_output
