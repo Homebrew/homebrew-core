@@ -1,8 +1,8 @@
 class Kdoctor < Formula
   desc "Environment diagnostics for Kotlin Multiplatform Mobile app development"
   homepage "https://github.com/kotlin/kdoctor"
-  url "https://github.com/Kotlin/kdoctor/archive/refs/tags/v0.0.4.tar.gz"
-  sha256 "cc972dfee89417c760eb845a0928cd99d3d7e4edf7d16ac5e43b5ea8425e1301"
+  url "https://github.com/Kotlin/kdoctor/archive/refs/tags/v0.0.5.tar.gz"
+  sha256 "02e57543fe9eab2aa5a8f776026391ffc0af58be858fa39762a29078be8d180f"
   license "Apache-2.0"
   head "https://github.com/Kotlin/kdoctor.git", branch: "master"
 
