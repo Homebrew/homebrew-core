@@ -37,6 +37,8 @@ class ImagemagickAT6 < Formula
   depends_on "webp"
   depends_on "xz"
 
+  uses_from_macos "libxml2"
+
   skip_clean :la
 
   def install
