@@ -1,13 +1,13 @@
 class Mimalloc < Formula
   desc "Compact general purpose allocator"
   homepage "https://github.com/microsoft/mimalloc"
-  url "https://github.com/microsoft/mimalloc/archive/refs/tags/v2.0.6.tar.gz"
-  sha256 "9f05c94cc2b017ed13698834ac2a3567b6339a8bde27640df5a1581d49d05ce5"
+  url "https://github.com/microsoft/mimalloc/archive/refs/tags/v2.0.7.tar.gz"
+  sha256 "f23aac6c73594e417af50cb38f1efed88ef1dc14a490f0eff07c7f7b079810a4"
   license "MIT"
 
   livecheck do
     url :stable
-    regex(/^v?(1(?:\.\d+)+)$/i)
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
