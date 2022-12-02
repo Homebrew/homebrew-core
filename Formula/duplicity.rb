@@ -3,8 +3,8 @@ class Duplicity < Formula
 
   desc "Bandwidth-efficient encrypted backup"
   homepage "https://gitlab.com/duplicity/duplicity"
-  url "https://files.pythonhosted.org/packages/80/78/2cfa6b9f19f2f22ac799b5125d3acf551000ccd214fb7d2f5c5997bbbe03/duplicity-1.2.0.tar.gz"
-  sha256 "e020c162ad6e8833ea4cae76176f0f10dfcc1fc64b81cb069f780380ccadccb4"
+  url "https://files.pythonhosted.org/packages/fe/36/0bcb50f8888d1f2384e556ede3bd209cd3993108dcf54ef09cd7ff512999/duplicity-1.2.1.tar.gz"
+  sha256 "15d768fb0ab86a30d734011e6e6371b3c6752e13ab239057c22d291324932099"
   license "GPL-2.0-or-later"
 
   bottle do
@@ -70,13 +70,13 @@ class Duplicity < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/07/76/f06912e38fac6dded06e22cf200295a33fe3d452e10f9877dd65be3dd262/boto3-1.26.20.tar.gz"
-    sha256 "0d61243999adaddee22855ada1fdf7fe3d89cc95821e82f3b3a9dbe56c1589ba"
+    url "https://files.pythonhosted.org/packages/bf/05/c256c7936520cc265f7561b5180920e986321916d341e7399fc5de5bea6b/boto3-1.26.22.tar.gz"
+    sha256 "f16c3aef1432c5083a9e1c36ac08b70b9072e87205e970f8d7520b10b964858f"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/4a/2e/98977bb2ed68d0b8fb8fccadc5f7e7b30c3147f49d55465d2cdd1fc7a976/botocore-1.29.20.tar.gz"
-    sha256 "806dab6358b0b44d7b283f133aadd26846f31fab12c97d348a1849b3b5a36c74"
+    url "https://files.pythonhosted.org/packages/9f/4b/3fa75a66e5b21cf49793fd96b9fd5d91b5e1758258849bbd0800ef872f39/botocore-1.29.22.tar.gz"
+    sha256 "ce637e3537388200775d80c5a3170df4810ddf7afbd7883db5673279b2584f68"
   end
 
   resource "boxsdk" do
@@ -100,8 +100,8 @@ class Duplicity < Formula
   end
 
   resource "chardet" do
-    url "https://files.pythonhosted.org/packages/31/a2/12c090713b3d0e141f367236d3a8bdc3e5fca0d83ff3647af4892c16c205/chardet-5.0.0.tar.gz"
-    sha256 "0368df2bfd78b5fc20572bb4e9bb7fb53e2c094f60ae9993339e8671d0afb8aa"
+    url "https://files.pythonhosted.org/packages/41/32/cdc91dcf83849c7385bf8e2a5693d87376536ed000807fa07f5eab33430d/chardet-5.1.0.tar.gz"
+    sha256 "0d62712b956bc154f85fb0a266e2a3c5913c2967e00348701b32411d6def31e5"
   end
 
   resource "charset-normalizer" do
@@ -160,8 +160,8 @@ class Duplicity < Formula
   end
 
   resource "google-auth" do
-    url "https://files.pythonhosted.org/packages/89/e3/b9002efddfc812af8afd59577ed04432cd3bfcc9c46e0210f3a1b56dfe4c/google-auth-2.14.1.tar.gz"
-    sha256 "ccaa901f31ad5cbb562615eb8b664b3dd0bf5404a67618e642307f00613eda4d"
+    url "https://files.pythonhosted.org/packages/52/a6/72c80f4a0b37c2c32d35636b2373bdf07c1dad81b109f9361742d3aa1cbe/google-auth-2.15.0.tar.gz"
+    sha256 "72f12a6cfc968d754d7bdab369c5c5c16032106e52d32c6dfd8484e4c01a6d1f"
   end
 
   resource "google-auth-httplib2" do
