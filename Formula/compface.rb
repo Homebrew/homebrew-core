@@ -17,6 +17,8 @@ class Compface < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "757cabab0597a55c8429031e4349fea9acd4c2d2ad576640aba11d80a1652bff"
   end
 
+  deprecate! date: "2022-12-02", because: :unmaintained
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
