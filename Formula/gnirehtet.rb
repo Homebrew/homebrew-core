@@ -1,6 +1,7 @@
 class Gnirehtet < Formula
   desc "Reverse tethering tool for Android"
   homepage "https://github.com/Genymobile/gnirehtet"
+  # Try to switch `rustup-init` to `rust` on the next release
   url "https://github.com/Genymobile/gnirehtet/archive/v2.5.tar.gz"
   sha256 "2b55b56e1b21d1b609a0899fe85d1f311120bb12b04761ec586187338daf6ec5"
   license "Apache-2.0"
@@ -18,7 +19,7 @@ class Gnirehtet < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "94166648cf3a8a072b85eed7436af2bddbcf5c2dfab939cd79590d4ff2b9a9c3"
   end
 
-  depends_on "rust" => :build
+  depends_on "rustup-init" => :build
   depends_on "socat" => :test
 
   resource "java_bundle" do
@@ -28,6 +29,12 @@ class Gnirehtet < Formula
 
   def install
     resource("java_bundle").stage { libexec.install "gnirehtet.apk" }
+
+    # Building the binary with rust 1.64.0 or later results in an error when running `gnirehtet relay`.
+    # ERROR Main: Execution error: IO error: Address family not supported by protocol family (os error 47)
+    # Issue ref: https://github.com/Genymobile/gnirehtet/issues/475
+    system "rustup-init", "-qy", "--no-modify-path", "--default-toolchain", "1.63.0"
+    ENV.prepend_path "PATH", HOMEBREW_CACHE/"cargo_cache/bin"
 
     system "cargo", "install", *std_cargo_args(root: libexec, path: "relay-rust")
     mv "#{libexec}/bin/gnirehtet", "#{libexec}/gnirehtet"
