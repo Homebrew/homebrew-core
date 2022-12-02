@@ -38,6 +38,8 @@ class Mplayer < Formula
   depends_on "jpeg-turbo"
   depends_on "libcaca"
 
+  uses_from_macos "libxml2"
+
   def install
     # we disable cdparanoia because homebrew's version is hacked to work on macOS
     # and mplayer doesn't expect the hacks we apply. So it chokes. Only relevant
