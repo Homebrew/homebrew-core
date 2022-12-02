@@ -27,7 +27,7 @@ class Dasel < Formula
   end
 
   test do
-    json = "[{\"name\": \"Tom\"}, {\"name\": \"Jim\"}]"
-    assert_equal "Tom\nJim", pipe_output("#{bin}/dasel --plain -p json -m '.[*].name'", json).chomp
+    assert_equal "\"Tom\"", shell_output("echo '{\"name\": \"Tom\"}' | #{bin}/dasel -r json 'name'").chomp
+    assert_match version.to_s, shell_output("#{bin}/dasel --version")
   end
 end
