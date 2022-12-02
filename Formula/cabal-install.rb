@@ -1,10 +1,20 @@
 class CabalInstall < Formula
   desc "Command-line interface for Cabal and Hackage"
   homepage "https://www.haskell.org/cabal/"
-  url "https://hackage.haskell.org/package/cabal-install-3.8.1.0/cabal-install-3.8.1.0.tar.gz"
-  sha256 "61ce436f2e14e12bf07ea1c81402362f46275014cd841a76566f0766d0ea67e6"
   license "BSD-3-Clause"
   head "https://github.com/haskell/cabal.git", branch: "3.8"
+
+  stable do
+    url "https://hackage.haskell.org/package/cabal-install-3.8.1.0/cabal-install-3.8.1.0.tar.gz"
+    sha256 "61ce436f2e14e12bf07ea1c81402362f46275014cd841a76566f0766d0ea67e6"
+
+    # Use Hackage metadata revision to support GHC 9.4.
+    # TODO: Remove this resource on next release along with corresponding install logic
+    resource "cabal-install.cabal" do
+      url "https://hackage.haskell.org/package/cabal-install-3.8.1.0/revision/2.cabal"
+      sha256 "e29a58254bb8aaf950bf541e0fe9cf63f9ae99b8ae1f7f47b62b863c25dd54d0"
+    end
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1cf0bd1fa1bc4afb62e7fad74b92ae6f28798d63814d195fa5741b3c3821aa43"
@@ -21,14 +31,13 @@ class CabalInstall < Formula
 
   resource "bootstrap" do
     on_macos do
+      on_arm do
+        url "https://downloads.haskell.org/~cabal/cabal-install-3.6.2.0/cabal-install-3.6.2.0-aarch64-darwin.tar.xz"
+        sha256 "859c526cde4498879a935e38422d3a0b70ae012dff034913331be8dd429a4a74"
+      end
       on_intel do
         url "https://downloads.haskell.org/~cabal/cabal-install-3.2.0.0/cabal-install-3.2.0.0-x86_64-apple-darwin17.7.0.tar.xz"
         sha256 "9197c17d2ece0f934f5b33e323cfcaf486e4681952687bc3d249488ce3cbe0e9"
-      end
-      on_arm do
-        # https://github.com/haskell/cabal/issues/7433#issuecomment-858590474
-        url "https://downloads.haskell.org/~ghcup/unofficial-bindists/cabal/3.6.0.0/cabal-install-3.6.0.0-aarch64-darwin-big-sur.tar.xz"
-        sha256 "7acf740946d996ede835edf68887e6b2f1e16d1b95e94054d266463f38d136d9"
       end
     end
     on_linux do
@@ -38,6 +47,7 @@ class CabalInstall < Formula
   end
 
   def install
+    resource("cabal-install.cabal").stage { buildpath.install "2.cabal" => "cabal-install.cabal" } unless build.head?
     resource("bootstrap").stage buildpath
     cabal = buildpath/"cabal"
     cd "cabal-install" if build.head?
