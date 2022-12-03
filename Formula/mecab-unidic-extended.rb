@@ -4,6 +4,7 @@ class MecabUnidicExtended < Formula
   # Canonical: https://osdn.net/dl/unidic/unidic-mecab_kana-accent-2.1.2_src.zip
   url "https://dotsrc.dl.osdn.net/osdn/unidic/58338/unidic-mecab_kana-accent-2.1.2_src.zip"
   sha256 "70793cacda81b403eda71736cc180f3144303623755a612b13e1dffeb6554591"
+  license any_of: ["BSD-3-Clause", "GPL-2.0-only", "LGPL-2.1-only"]
 
   # The OSDN releases page asynchronously fetches separate HTML for each
   # release, so we can't easily check the related archive file names.
