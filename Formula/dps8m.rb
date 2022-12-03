@@ -3,6 +3,7 @@ class Dps8m < Formula
   homepage "https://ringzero.wikidot.com/"
   url "https://gitlab.com/dps8m/dps8m/-/archive/R3.0.0/dps8m-R3.0.0.tar.gz"
   sha256 "cee3cc0942ceb929d267c4989551526ff50e777706f62bfc449e16d1428a1d2e"
+  license "ICU"
   head "https://gitlab.com/dps8m/dps8m.git", branch: "master"
 
   livecheck do
