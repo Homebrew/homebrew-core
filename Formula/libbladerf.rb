@@ -2,8 +2,8 @@ class Libbladerf < Formula
   desc "USB 3.0 Superspeed Software Defined Radio Source"
   homepage "https://nuand.com/"
   url "https://github.com/Nuand/bladeRF.git",
-      tag:      "2021.10",
-      revision: "d1c382779f00c30bac90ca4f993d5d74f899b937"
+      tag:      "2022.11",
+      revision: "11ba36daa3dd9dcd304436e45fd797fe51326faf"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later", "MIT"]
   head "https://github.com/Nuand/bladeRF.git", branch: "master"
 
