@@ -3,6 +3,7 @@ class Icbirc < Formula
   homepage "https://www.benzedrine.ch/icbirc.html"
   url "https://www.benzedrine.ch/icbirc-2.1.tar.gz"
   sha256 "6839344d93c004da97ec6bb5d805a1db7e0a79efc3870445788043627162bbb1"
+  license "BSD-2-Clause"
 
   livecheck do
     url :homepage
