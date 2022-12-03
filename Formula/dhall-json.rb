@@ -1,6 +1,8 @@
 class DhallJson < Formula
   desc "Dhall to JSON compiler and a Dhall to YAML compiler"
   homepage "https://github.com/dhall-lang/dhall-haskell/tree/master/dhall-json"
+  # TODO: Switch `ghc@9.2` to `ghc` once cborg has a new release that supports
+  # ghc-prim 0.9.0. PR ref: https://github.com/well-typed/cborg/pull/304
   url "https://hackage.haskell.org/package/dhall-json-1.7.11/dhall-json-1.7.11.tar.gz"
   sha256 "26c2acf33bfc597f4d2ac333a431180c9929d7a9b4ef7cf70c4bd45eba65ef28"
   license "BSD-3-Clause"
@@ -17,7 +19,7 @@ class DhallJson < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  depends_on "ghc@9.2" => :build
 
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
