@@ -3,6 +3,7 @@ class Vfuse < Formula
   homepage "https://github.com/chilcote/vfuse"
   url "https://github.com/chilcote/vfuse/archive/2.2.6.tar.gz"
   sha256 "fbf5f8a1c664b03c7513a70aa05c3fc501a7ebdb53f128f1f05c24395871a314"
+  license "Apache-2.0"
 
   livecheck do
     url :stable
