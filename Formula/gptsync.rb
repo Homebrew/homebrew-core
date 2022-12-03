@@ -3,6 +3,7 @@ class Gptsync < Formula
   homepage "https://refit.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/refit/rEFIt/0.14/refit-src-0.14.tar.gz"
   sha256 "c4b0803683c9f8a1de0b9f65d2b5a25a69100dcc608d58dca1611a8134cde081"
+  license "BSD-3-Clause"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "81ad272478d34de44777be2688ad93d6bc82990ca97876a4ce7c4a9dee9be2fa"
