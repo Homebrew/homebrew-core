@@ -1,6 +1,7 @@
 class Cryptol < Formula
   desc "Domain-specific language for specifying cryptographic algorithms"
   homepage "https://www.cryptol.net/"
+  # TODO: Try to switch `ghc@9.2` to `ghc` when cryptol.cabal allows ghc-bignum>=1.3
   url "https://hackage.haskell.org/package/cryptol-2.13.0/cryptol-2.13.0.tar.gz"
   sha256 "5c5b7ad0b290c506836dbbad886ae43ce7d690dd86e2f2a9124564c2f5602b83"
   license "BSD-3-Clause"
@@ -17,7 +18,7 @@ class Cryptol < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  depends_on "ghc@9.2" => :build
   depends_on "z3"
 
   uses_from_macos "ncurses"
