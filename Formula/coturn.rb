@@ -1,10 +1,9 @@
 class Coturn < Formula
   desc "Free open source implementation of TURN and STUN Server"
   homepage "https://github.com/coturn/coturn"
-  url "https://github.com/coturn/coturn/archive/refs/tags/4.6.0.tar.gz"
-  sha256 "42206be7696014920dbe0ce309c602283ba71275eff51062e5456370fbacb863"
+  url "https://github.com/coturn/coturn/archive/refs/tags/4.6.1.tar.gz"
+  sha256 "8fba86e593ed74adc46e002e925cccff2819745371814f42465fbe717483f1d8"
   license "BSD-3-Clause"
-  revision 1
 
   livecheck do
     url :stable
@@ -26,7 +25,7 @@ class Coturn < Formula
   depends_on "hiredis"
   depends_on "libevent"
   depends_on "libpq"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "./configure", "--disable-debug",
