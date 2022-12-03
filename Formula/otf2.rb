@@ -1,8 +1,8 @@
 class Otf2 < Formula
   desc "Open Trace Format 2 file handling library"
   homepage "https://www.vi-hps.org/projects/score-p/"
-  url "https://perftools.pages.jsc.fz-juelich.de/cicd/otf2/tags/otf2-3.0/otf2-3.0.tar.gz", using: :homebrew_curl
-  sha256 "6fff0728761556e805b140fd464402ced394a3c622ededdb618025e6cdaa6d8c"
+  url "https://perftools.pages.jsc.fz-juelich.de/cicd/otf2/tags/otf2-3.0.2/otf2-3.0.2.tar.gz", using: :homebrew_curl
+  sha256 "ae3a7ad83055d8f873738fee5031470652d31b9bcbf223dd556aea41f5f62303"
   license "BSD-3-Clause"
 
   livecheck do
@@ -24,7 +24,7 @@ class Otf2 < Formula
   depends_on "sphinx-doc" => :build
   depends_on "gcc" # for gfortran
   depends_on "open-mpi"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "six"
 
   # Fix -flat_namespace being used on Big Sur and later.
@@ -40,7 +40,7 @@ class Otf2 < Formula
   end
 
   def install
-    ENV["PYTHON"] = which("python3.10")
+    ENV["PYTHON"] = which("python3.11")
     ENV["SPHINX"] = Formula["sphinx-doc"].opt_bin/"sphinx-build"
 
     system "./configure", *std_configure_args, "--disable-silent-rules"
