@@ -13,6 +13,7 @@ class CondaZshCompletion < Formula
   end
 
   test do
-    system "false"
+    assert_match /^_conda \(\) {/,
+      shell_output("zsh -c 'fpath=(#{zsh_completion} $fpath); autoload _conda; which _conda'")
   end
 end
