@@ -26,7 +26,7 @@ class Rswift < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/rswift --version")
-    expected_output="[R.swift] Missing value for `PROJECT_FILE_PATH`"
-    assert_match expected_output, shell_output("#{bin}/rswift generate #{testpath} 2>1&")
+    expected_output="Error: Missing argument PROJECT_FILE_PATH"
+    assert_match expected_output, shell_output("#{bin}/rswift generate #{testpath} 2>&1", 64)
   end
 end
