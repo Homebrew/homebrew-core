@@ -3,6 +3,7 @@ class Bookloupe < Formula
   homepage "http://www.juiblex.co.uk/pgdp/bookloupe/"
   url "http://www.juiblex.co.uk/pgdp/bookloupe/bookloupe-2.0.tar.gz"
   sha256 "15b1f5a0fa01e7c0a0752c282f8a354d3dc9edbefc677e6e42044771d5abe3c9"
+  license "GPL-2.0-only"
   revision 1
 
   livecheck do
