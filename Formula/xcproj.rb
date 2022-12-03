@@ -19,6 +19,10 @@ class Xcproj < Formula
     sha256 cellar: :any_skip_relocation, el_capitan:     "c7a6b18a500b28fbd9cba8939423b7a9c480be98e09883ef90e4b605023b451f"
   end
 
+  # no license for the project
+  # https://github.com/0xced/xcproj/issues/6
+  deprecate! date: "2022-12-03", because: "no license for the project"
+
   depends_on :macos
   depends_on :xcode
 
