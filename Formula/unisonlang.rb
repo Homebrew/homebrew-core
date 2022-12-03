@@ -17,7 +17,7 @@ class Unisonlang < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "8e01b2d90970cb66721cf5f5e5135a7867112fe6239250ea2b0cc5eeebb4f33e"
   end
 
-  depends_on "ghc" => :build
+  depends_on "ghc@8.10" => :build
   depends_on "haskell-stack" => :build
   depends_on "node" => :build
 
