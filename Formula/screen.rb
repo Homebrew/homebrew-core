@@ -2,6 +2,7 @@ class Screen < Formula
   desc "Terminal multiplexer with VT100/ANSI terminal emulation"
   homepage "https://www.gnu.org/software/screen"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://git.savannah.gnu.org/git/screen.git", branch: "master"
 
   stable do
@@ -30,6 +31,8 @@ class Screen < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+
+  uses_from_macos "libxcrypt"
   uses_from_macos "ncurses"
 
   def install
