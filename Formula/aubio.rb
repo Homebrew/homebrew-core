@@ -3,6 +3,7 @@ class Aubio < Formula
   homepage "https://github.com/aubio/aubio"
   url "http://sources.buildroot.net/aubio/aubio-0.4.9.tar.bz2"
   sha256 "d48282ae4dab83b3dc94c16cf011bcb63835c1c02b515490e1883049c3d1f3da"
+  license "GPL-3.0-or-later"
   revision 3
 
   livecheck do
