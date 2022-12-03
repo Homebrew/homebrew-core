@@ -17,7 +17,7 @@ class Rswift < Formula
   end
 
   depends_on :macos # needs CoreGraphics, a macOS-only library
-  depends_on xcode: "10.2"
+  depends_on xcode: "13.3"
 
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release"
