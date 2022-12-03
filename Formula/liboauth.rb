@@ -3,6 +3,9 @@ class Liboauth < Formula
   homepage "https://liboauth.sourceforge.io"
   url "https://downloads.sourceforge.net/project/liboauth/liboauth-1.0.3.tar.gz"
   sha256 "0df60157b052f0e774ade8a8bac59d6e8d4b464058cc55f9208d72e41156811f"
+  # if configured with '--enable-gpl' see COPYING.GPL and LICENSE.OpenSSL
+  # otherwise read COPYING.MIT
+  license "MIT"
   revision 2
 
   bottle do
