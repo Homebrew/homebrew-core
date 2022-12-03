@@ -63,6 +63,9 @@
     "exclude_packages": ["six"]
   },
   "black": "black[d]",
+  "borgmatic": {
+    "extra_packages": ["ruamel.yaml.clib"]
+  },
   "bpython": {
     "exclude_packages": ["six", "Pygments"]
   },
