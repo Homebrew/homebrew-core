@@ -3,6 +3,7 @@ class FabricCompletion < Formula
   homepage "https://github.com/n0740/fabric-completion"
   url "https://github.com/n0740/fabric-completion.git",
       revision: "5b5910492046e6335af0e88550176d2583d9a510"
+  license "MIT"
   version "1"
   head "https://github.com/n0740/fabric-completion.git", branch: "master"
 
