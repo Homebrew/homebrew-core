@@ -23,6 +23,13 @@ class Ipmitool < Formula
     depends_on "readline"
   end
 
+  # Patch to fix build on ARM
+  # https://github.com/ipmitool/ipmitool/issues/332
+  patch do
+    url "https://github.com/ipmitool/ipmitool/commit/a45da6b4dde21a19e85fd87abbffe31ce9a8cbe6.patch?full_index=1"
+    sha256 "98787263c33fe11141a6b576d52f73127b223394c3d2c7b1640d4adc075f14d5"
+  end
+
   def install
     system "./bootstrap"
     system "./configure", *std_configure_args,
