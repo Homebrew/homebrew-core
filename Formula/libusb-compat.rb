@@ -3,6 +3,10 @@ class LibusbCompat < Formula
   homepage "https://libusb.info/"
   url "https://downloads.sourceforge.net/project/libusb/libusb-compat-0.1/libusb-compat-0.1.5/libusb-compat-0.1.5.tar.bz2"
   sha256 "404ef4b6b324be79ac1bfb3d839eac860fbc929e6acb1ef88793a6ea328bc55a"
+  license all_of: [
+    "LGPL-2.1-or-later",
+    any_of: ["LGPL-2.1-or-later", "BSD-3-Clause"], # libusb/usb.h
+  ]
   revision 1
 
   livecheck do
