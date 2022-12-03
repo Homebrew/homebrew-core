@@ -4,6 +4,7 @@ class HaskellLanguageServer < Formula
   url "https://github.com/haskell/haskell-language-server/archive/1.8.0.0.tar.gz"
   sha256 "e1081ac581d21547d835beb8561e815573944aa0babe752a971479da3a207235"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/haskell/haskell-language-server.git", branch: "master"
 
   # we need :github_latest here because otherwise
@@ -25,14 +26,10 @@ class HaskellLanguageServer < Formula
   depends_on "cabal-install" => [:build, :test]
   depends_on "ghc" => [:build, :test]
   depends_on "ghc@8.10" => [:build, :test]
+  depends_on "ghc@9.2" => [:build, :test]
 
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
-
-  on_intel do
-    depends_on "ghc@8.6" => [:build, :test]
-    depends_on "ghc@8.8" => [:build, :test]
-  end
 
   def ghcs
     deps.map(&:to_formula)
