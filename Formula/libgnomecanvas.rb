@@ -3,6 +3,10 @@ class Libgnomecanvas < Formula
   homepage "https://gitlab.gnome.org/Archive/libgnomecanvas"
   url "https://download.gnome.org/sources/libgnomecanvas/2.30/libgnomecanvas-2.30.3.tar.bz2"
   sha256 "859b78e08489fce4d5c15c676fec1cd79782f115f516e8ad8bed6abcb8dedd40"
+  license all_of: [
+    "LGPL-2.0-or-later", # glide and libgnomecanvas files
+    "LGPL-2.1-or-later", # gail project
+  ]
   revision 5
 
   bottle do
