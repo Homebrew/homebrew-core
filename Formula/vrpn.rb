@@ -3,6 +3,7 @@ class Vrpn < Formula
   homepage "https://github.com/vrpn/vrpn/wiki"
   url "https://github.com/vrpn/vrpn/releases/download/version_07.35/vrpn_07.35.zip"
   sha256 "06b74a40b0fb215d4238148517705d0075235823c0941154d14dd660ba25af19"
+  license "BSL-1.0"
   head "https://github.com/vrpn/vrpn.git", branch: "master"
 
   bottle do
