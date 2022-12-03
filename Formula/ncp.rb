@@ -19,6 +19,8 @@ class Ncp < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5d98c3fe0c92f5a8713caa0edb66dc409712bc8d0b8b08ebdda19ee22f9bcd68"
   end
 
+  deprecate! date: "2022-12-03", because: "no license for the project"
+
   depends_on "libowfat"
 
   # fixes man and libowfat paths and "strip" command in Makefile
