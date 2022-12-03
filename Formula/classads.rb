@@ -3,6 +3,7 @@ class Classads < Formula
   homepage "https://research.cs.wisc.edu/htcondor/classad/"
   url "https://ftp.cs.wisc.edu/condor/classad/c++/classads-1.0.10.tar.gz"
   sha256 "cde2fe23962abb6bc99d8fc5a5cbf88f87e449b63c6bca991d783afb4691efb3"
+  license "Apache-2.0"
 
   livecheck do
     url :homepage
