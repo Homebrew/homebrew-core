@@ -20,6 +20,10 @@ class KnownHosts < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "aa99a0432ff512031370fbb6b6bde95bd55c6180d07b099a5a3ee721576b6763"
   end
 
+  # upstream issue tracker for license
+  # https://github.com/markmcconachie/known_hosts/issues/7
+  deprecate! date: "2022-12-03", because: "no license for the project"
+
   depends_on "cmake" => :build
 
   def install
