@@ -1,6 +1,7 @@
 class Taskell < Formula
   desc "Command-line Kanban board/task manager with support for Trello"
   homepage "https://taskell.app"
+  # TODO: Try to switch `ghc@9.2` to `ghc` when a release supports brick>=1
   url "https://github.com/smallhadroncollider/taskell/archive/1.11.4.tar.gz"
   sha256 "0d4f3f54fb0b975f969d7ef8a810bbc7a78e0b46aec28cc4cb337ee36e8abdfc"
   license "BSD-3-Clause"
@@ -17,7 +18,7 @@ class Taskell < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  depends_on "ghc@9.2" => :build
   depends_on "hpack" => :build
 
   uses_from_macos "ncurses"
