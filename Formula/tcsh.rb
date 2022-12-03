@@ -1,9 +1,9 @@
 class Tcsh < Formula
   desc "Enhanced, fully compatible version of the Berkeley C shell"
   homepage "https://www.tcsh.org/"
-  url "https://astron.com/pub/tcsh/tcsh-6.24.02.tar.gz"
-  mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/tcsh/tcsh-6.24.02.tar.gz"
-  sha256 "6691e15af0719575cad91ce9212c77a754f6c89f0a1f70454625e5e21ba0bdad"
+  url "https://astron.com/pub/tcsh/tcsh-6.24.03.tar.gz"
+  mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/tcsh/tcsh-6.24.03.tar.gz"
+  sha256 "7368bfdfa6d0c8b0040d47c00b3dfc17b501e3bc032d05ce816019aa825798f5"
   license "BSD-3-Clause"
 
   livecheck do
