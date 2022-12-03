@@ -1,13 +1,12 @@
 class LibusbCompat < Formula
   desc "Library for USB device access"
   homepage "https://libusb.info/"
-  url "https://downloads.sourceforge.net/project/libusb/libusb-compat-0.1/libusb-compat-0.1.5/libusb-compat-0.1.5.tar.bz2"
-  sha256 "404ef4b6b324be79ac1bfb3d839eac860fbc929e6acb1ef88793a6ea328bc55a"
+  url "https://downloads.sourceforge.net/project/libusb/libusb-compat-0.1/libusb-compat-0.1.8/libusb-compat-0.1.8.tar.bz2"
+  sha256 "698c76484f3dec1e0175067cbd1556c3021e94e7f2313ae3ea6a66d900e00827"
   license all_of: [
     "LGPL-2.1-or-later",
     any_of: ["LGPL-2.1-or-later", "BSD-3-Clause"], # libusb/usb.h
   ]
-  revision 1
 
   livecheck do
     url :stable
@@ -29,16 +28,14 @@ class LibusbCompat < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f696d9eaabea3d1a6facc6b259157df62f5c0dae3b523d93c5010bfbe4ba7d81"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "libusb"
 
-  # Fix -flat_namespace being used on Big Sur and later.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
-    sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
-  end
-
   def install
+    system "./autogen.sh"
     system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking"
     system "make", "install"
   end
