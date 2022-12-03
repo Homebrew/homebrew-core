@@ -25,7 +25,7 @@ class Coturn < Formula
   depends_on "hiredis"
   depends_on "libevent"
   depends_on "libpq"
-  depends_on "openssl@3"
+  depends_on "openssl@1.1"
 
   def install
     system "./configure", "--disable-debug",
