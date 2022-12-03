@@ -26,7 +26,13 @@ class ContainerStructureTest < Formula
   end
 
   def install
-    system "go", "build", *std_go_args, "./cmd/container-structure-test"
+    project = "github.com/GoogleContainerTools/container-structure-test"
+    ldflags = %W[
+      -s -w
+      -X #{project}/pkg/version.version=#{version}
+      -X #{project}/pkg/version.buildDate=#{time.iso8601}
+    ]
+    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/container-structure-test"
   end
 
   test do
