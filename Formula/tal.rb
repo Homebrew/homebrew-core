@@ -5,6 +5,7 @@ class Tal < Formula
   url "https://www.mirrorservice.org/sites/download.salixos.org/x86_64/extra-14.2/source/misc/tal/tal-1.9.tar.gz"
   mirror "https://web.archive.org/web/20160406172703/https://thomasjensen.com/software/tal/tal-1.9.tar.gz"
   sha256 "5d450cee7162c6939811bca945eb475e771efe5bd6a08b520661d91a6165bb4c"
+  license :public_domain
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "717e28a9ea9f325fd72962d66372a1e4edc3b27e81ea54a861f8c54dceea0a56"
