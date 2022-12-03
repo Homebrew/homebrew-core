@@ -1,6 +1,8 @@
 class DhallLspServer < Formula
   desc "Language Server Protocol (LSP) server for Dhall"
   homepage "https://github.com/dhall-lang/dhall-haskell/tree/master/dhall-lsp-server"
+  # TODO: Switch `ghc@9.2` to `ghc` once cborg has a new release that supports
+  # ghc-prim 0.9.0. PR ref: https://github.com/well-typed/cborg/pull/304
   url "https://hackage.haskell.org/package/dhall-lsp-server-1.1.2/dhall-lsp-server-1.1.2.tar.gz"
   sha256 "f013992d7dfd8f40d149737d04a8772308014ccc5d52c27d72dc1c1185882bf3"
   license "BSD-3-Clause"
@@ -17,7 +19,7 @@ class DhallLspServer < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  depends_on "ghc@9.2" => :build
 
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
