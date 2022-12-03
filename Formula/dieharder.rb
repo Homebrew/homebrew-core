@@ -3,6 +3,10 @@ class Dieharder < Formula
   homepage "https://webhome.phy.duke.edu/~rgb/General/dieharder.php"
   url "https://webhome.phy.duke.edu/~rgb/General/dieharder/dieharder-3.31.1.tgz"
   sha256 "6cff0ff8394c553549ac7433359ccfc955fb26794260314620dfa5e4cd4b727f"
+  # This is the "standard Gnu General Public License version 2 or
+  # any later version", with the one minor (humorous) "Beverage"
+  # modification.
+  license "GPL-2.0-or-later"
   revision 3
 
   livecheck do
