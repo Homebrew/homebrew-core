@@ -23,7 +23,7 @@ class Hledger < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "960e2d8af466b27ac35cfa712bc65aee6d53791ef138838a30b20d6c19ce3982"
   end
 
-  depends_on "ghc" => :build
+  depends_on "ghc@9.2" => :build
   depends_on "haskell-stack" => :build
 
   uses_from_macos "ncurses"
