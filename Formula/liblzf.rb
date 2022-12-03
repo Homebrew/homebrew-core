@@ -4,6 +4,10 @@ class Liblzf < Formula
   url "http://dist.schmorp.de/liblzf/liblzf-3.6.tar.gz"
   mirror "https://deb.debian.org/debian/pool/main/libl/liblzf/liblzf_3.6.orig.tar.gz"
   sha256 "9c5de01f7b9ccae40c3f619d26a7abec9986c06c36d260c179cedd04b89fb46a"
+  license all_of: [
+    "BSD-2-Clause",
+    any_of: ["BSD-2-Clause", "GPL-2.0-or-later"], # lzf.c lzf.h lzfP.h lzf_c.c lzf_d.c
+  ]
 
   livecheck do
     url "http://dist.schmorp.de/liblzf/"
