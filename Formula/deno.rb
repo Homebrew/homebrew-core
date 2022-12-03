@@ -61,7 +61,7 @@ class Deno < Formula
   # patch textwrap, remove in next release
   patch do
     url "https://github.com/denoland/deno/commit/c3b75c692c6392dd59ba7203f4f94d702eb20e27.patch?full_index=1"
-    sha256 "1a4ef4cd1f4e8b959c20518f8f00994ef577e74e05824b2d1b241b1c3c1f84eb"
+    sha256 "d64096893d41c13ba358f43d4300f7438371dca2918e96f92fa41acf2c1eb425"
   end
 
   def install
