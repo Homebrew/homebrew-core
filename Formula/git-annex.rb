@@ -27,12 +27,8 @@ class GitAnnex < Formula
     # with GHC 9.2+, we add workarounds to successfully build.
     #
     # Ref: https://github.com/Homebrew/homebrew-core/pull/99021
-    depends_on "ghc" => :build
-
-    resource "aws" do
-      url "https://hackage.haskell.org/package/aws-0.22.1/aws-0.22.1.tar.gz"
-      sha256 "c49a23513a113a2fa08bdb44c400182ae874171fbcbb4ee85da7e94c4870e87f"
-    end
+    # TODO: Try to switch to `ghc` when feed has a release that allows base>=4.17
+    depends_on "ghc@9.2" => :build
 
     resource "bloomfilter" do
       url "https://hackage.haskell.org/package/bloomfilter-2.0.1.0/bloomfilter-2.0.1.0.tar.gz"
@@ -53,15 +49,9 @@ class GitAnnex < Formula
   def install
     # Add workarounds to build with GHC 9.2
     if Hardware::CPU.arm?
-      (buildpath/"homebrew/aws").install resource("aws")
       (buildpath/"homebrew/bloomfilter").install resource("bloomfilter")
-
-      # aws constraint bytestring<0.11 is not compatible with GHC 9.2
-      inreplace buildpath/"homebrew/aws/aws.cabal", /( bytestring .*<) 0\.11,/, "\\1 0.12,"
-
       (buildpath/"cabal.project.local").write <<~EOS
-        packages: .
-                  homebrew/aws/
+        packages: ./*.cabal
                   homebrew/bloomfilter/
       EOS
     end
