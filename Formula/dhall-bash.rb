@@ -1,6 +1,8 @@
 class DhallBash < Formula
   desc "Compile Dhall to Bash"
   homepage "https://github.com/dhall-lang/dhall-haskell/tree/master/dhall-bash"
+  # TODO: Switch `ghc@9.2` to `ghc` once cborg has a new release that supports
+  # ghc-prim 0.9.0. PR ref: https://github.com/well-typed/cborg/pull/304
   url "https://hackage.haskell.org/package/dhall-bash-1.0.40/dhall-bash-1.0.40.tar.gz"
   sha256 "a9d1feba3c9ceeecdd24fb4a4d8f6450a50ca31ede30aa4d7a8e9d8489cc7f3a"
   license "BSD-3-Clause"
@@ -17,7 +19,7 @@ class DhallBash < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  depends_on "ghc@9.2" => :build
 
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
