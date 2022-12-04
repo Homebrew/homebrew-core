@@ -40,11 +40,11 @@ class Ns3 < Formula
   fails_with gcc: "6"
   fails_with gcc: "7"
 
-  def install
-    python = "python3.11"
-    site_packages = prefix/Language::Python.site_packages(python)
-    site_packages.mkpath
+  def python3
+    "python3.11"
+  end
 
+  def install
     # Fix binding's rpath
     linker_flags = ["-Wl,-rpath,#{loader_path}"]
     linker_flags << "-Wl,-undefined,dynamic_lookup" if OS.mac?
@@ -52,7 +52,7 @@ class Ns3 < Formula
     system "cmake", "-S", ".", "-B", "build",
                     "-DNS3_GTK3=OFF",
                     "-DNS3_PYTHON_BINDINGS=ON",
-                    "-DNS3_BINDINGS_INSTALL_DIR=#{site_packages}",
+                    "-DNS3_BINDINGS_INSTALL_DIR=#{prefix/Language::Python.site_packages(python3)}",
                     "-DNS3_MPI=ON",
                     "-DCMAKE_SHARED_LINKER_FLAGS=#{linker_flags.join(" ")}",
                     *std_cmake_args
