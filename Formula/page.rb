@@ -1,8 +1,8 @@
 class Page < Formula
   desc "Use Neovim as pager"
   homepage "https://github.com/I60R/page"
-  url "https://github.com/I60R/page/archive/v3.1.2.tar.gz"
-  sha256 "18089dd86dbbf3b02d8b85412e76f9881a8e2cd957e7201dbbb2b8d71dd5074a"
+  url "https://github.com/I60R/page/archive/v4.2.0.tar.gz"
+  sha256 "aa254f7052fe7141b018bff5b786e23855bd0549c9181828143ef8328a526298"
   license "MIT"
   head "https://github.com/I60R/page.git", branch: "master"
 
