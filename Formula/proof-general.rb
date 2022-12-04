@@ -38,7 +38,7 @@ class ProofGeneral < Formula
     end
     man1.install "doc/proofgeneral.1"
     info.install "doc/ProofGeneral.info", "doc/PG-adapting.info"
-    doc.install "doc/ProofGeneral", "doc/PG-adapting"
+    doc.install "doc/ProofGeneral_html", "doc/PG-adapting_html"
   end
 
   def caveats
