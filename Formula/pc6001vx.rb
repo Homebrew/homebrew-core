@@ -17,18 +17,14 @@ class Pc6001vx < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "ffmpeg@4"
-  depends_on "qt@5"
+  depends_on "ffmpeg"
+  depends_on "qt"
 
   fails_with gcc: "5" # ffmpeg is compiled with GCC
 
   def install
-    # Need to explicitly set up include directories
-    ENV.append_to_cflags "-I#{Formula["ffmpeg@4"].opt_include}"
-
     mkdir "build" do
-      qt5 = Formula["qt@5"].opt_prefix
-      system "#{qt5}/bin/qmake", "PREFIX=#{prefix}",
+      system "qmake", "PREFIX=#{prefix}",
                                  "QMAKE_CXXFLAGS=#{ENV.cxxflags}",
                                  "CONFIG+=no_include_pwd",
                                  ".."
