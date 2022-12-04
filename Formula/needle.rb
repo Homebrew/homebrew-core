@@ -1,8 +1,8 @@
 class Needle < Formula
   desc "Compile-time safe Swift dependency injection framework with real code"
   homepage "https://github.com/uber/needle"
-  url "https://github.com/uber/needle/archive/v0.20.0.tar.gz"
-  sha256 "0df06e1f39a9ccf67acb10bbab0294403bd2c5b581e724d9dbd875879096c7b4"
+  url "https://github.com/uber/needle/archive/v0.21.0.tar.gz"
+  sha256 "e214b471319b0b3acc62a7105e06fc74b116a546ac5cce8cd4d3c18f0e6ff6a2"
   license "Apache-2.0"
 
   bottle do
@@ -16,9 +16,6 @@ class Needle < Formula
 
   depends_on xcode: ["13.0", :build] # Swift 5.5+
   depends_on :macos
-
-  # Support Swift 5.7+
-  patch :DATA
 
   def install
     # Avoid building a universal binary.
@@ -49,20 +46,3 @@ class Needle < Formula
     assert_match version.to_s, shell_output("#{bin}/needle version")
   end
 end
-
-__END__
-diff --git a/Generator/Package.swift b/Generator/Package.swift
-index 915889b..485be3d 100644
---- a/Generator/Package.swift
-+++ b/Generator/Package.swift
-@@ -2,7 +2,9 @@
- import PackageDescription
-
- // Based on https://github.com/apple/swift-syntax#readme
--#if swift(>=5.6) && swift(<5.8)
-+#if swift(>=5.7) && swift(<5.8)
-+let swiftSyntaxVersion: Version = "0.50700.0"
-+#elseif swift(>=5.6)
- let swiftSyntaxVersion: Version = "0.50600.1"
- #elseif swift(>=5.5)
- let swiftSyntaxVersion: Version = "0.50500.0"
