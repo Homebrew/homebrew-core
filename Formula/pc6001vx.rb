@@ -1,8 +1,8 @@
 class Pc6001vx < Formula
   desc "PC-6001 emulator"
   homepage "https://eighttails.seesaa.net/"
-  url "https://eighttails.up.seesaa.net/bin/PC6001VX_3.9.0_src.tar.gz"
-  sha256 "b5ad5c7191a786fb0b904701ea43319500e51f845428baceeabc6d8919e2f6be"
+  url "https://eighttails.up.seesaa.net/bin/PC6001VX_4.0.0_src.tar.gz"
+  sha256 "ebf3d3afd589d771ed624070c4a79963d90eb7a974848b9f1c15cb2ef29363c2"
   license "LGPL-2.1-or-later"
   head "https://github.com/eighttails/PC6001VX.git", branch: "master"
 
