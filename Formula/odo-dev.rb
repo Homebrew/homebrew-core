@@ -42,6 +42,6 @@ class OdoDev < Formula
     assert_predicate testpath/"devfile.yaml", :exist?
 
     dev_output = shell_output("#{bin}/odo dev 2>&1", 1).strip
-    assert_match "invalid configuration", dev_output
+    assert_match "no connection to cluster defined", dev_output
   end
 end
