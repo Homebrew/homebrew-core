@@ -5,8 +5,8 @@ class Vault < Formula
   desc "Secures, stores, and tightly controls access to secrets"
   homepage "https://vaultproject.io/"
   url "https://github.com/hashicorp/vault.git",
-      tag:      "v1.12.1",
-      revision: "e34f8a14fb7a88af4640b09f3ddbb5646b946d9c"
+      tag:      "v1.12.2",
+      revision: "415e1fe3118eebd5df6cb60d13defdc01aa17b03"
   license "MPL-2.0"
   head "https://github.com/hashicorp/vault.git", branch: "main"
 
@@ -27,14 +27,14 @@ class Vault < Formula
 
   depends_on "go" => :build
   depends_on "gox" => :build
-  depends_on "node" => :build
-  depends_on "python@3.10" => :build
+  depends_on "node@18" => :build
+  depends_on "python@3.11" => :build
   depends_on "yarn" => :build
 
   def install
     # Needs both `npm` and `python` in PATH
-    ENV.prepend_path "PATH", Formula["node"].opt_libexec/"bin"
-    ENV.prepend_path "PATH", Formula["python@3.10"].opt_libexec/"bin" if OS.mac?
+    ENV.prepend_path "PATH", Formula["node@18"].opt_libexec/"bin"
+    ENV.prepend_path "PATH", Formula["python@3.11"].opt_libexec/"bin" if OS.mac?
     ENV.prepend_path "PATH", "#{ENV["GOPATH"]}/bin"
     system "make", "bootstrap", "static-dist", "dev-ui"
     bin.install "bin/vault"
