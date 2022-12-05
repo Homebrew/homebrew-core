@@ -1,8 +1,8 @@
 class Dopewars < Formula
   desc 'Free rewrite of a game originally based on "Drug Wars"'
   homepage "https://dopewars.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/dopewars/dopewars/1.6.1/dopewars-1.6.1.tar.gz"
-  sha256 "83127903a61d81cda251a022f9df150d11e27bdd040e858c09c57927cc0edea6"
+  url "https://downloads.sourceforge.net/project/dopewars/dopewars/1.6.2/dopewars-1.6.2.tar.gz"
+  sha256 "623b9d1d4d576f8b1155150975308861c4ec23a78f9cc2b24913b022764eaae1"
   license "GPL-2.0-or-later"
 
   bottle do
