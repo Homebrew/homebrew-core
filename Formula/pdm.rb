@@ -3,8 +3,8 @@ class Pdm < Formula
 
   desc "Modern Python package manager with PEP 582 support"
   homepage "https://pdm.fming.dev"
-  url "https://files.pythonhosted.org/packages/f4/6e/8dc22978d68490f7799137d60221f5c76d8f8069b2f3089cb27df19158fb/pdm-2.3.0.tar.gz"
-  sha256 "15a105a8a2e2ccbcd281ae42444658c03a25be5d9df6e256871c80958f11ff58"
+  url "https://files.pythonhosted.org/packages/ce/a9/7bf9c0dc1d0dee04deba3cdb12267cf807188fde17ffa957b8576af6106e/pdm-2.3.1.tar.gz"
+  sha256 "68be6c9ee7f0afb1a324f65926f618521cbe899d3d557011d579d4ce2bfb47fd"
   license "MIT"
   head "https://github.com/pdm-project/pdm.git", branch: "main"
 
@@ -53,8 +53,8 @@ class Pdm < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/95/55/b897882bffb8213456363e646bf9e9fa704ffda5a7d140edf935a9e02c7b/filelock-3.8.0.tar.gz"
-    sha256 "55447caa666f2198c5b6b13a26d2084d26fa5b115c00d065664b2124680c4edc"
+    url "https://files.pythonhosted.org/packages/a1/28/917f6ed652156272f81f7fee4fec0a59b7a9b72777a075d084058163d11b/filelock-3.8.1.tar.gz"
+    sha256 "9255d3cd8de8fcb2a441444f7a4f1949ae826da36cd070dc3e0c883614b4bbad"
   end
 
   resource "findpython" do
