@@ -1,8 +1,8 @@
 class Libxxf86dga < Formula
   desc "X.Org: XFree86-DGA X extension"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/lib/libXxf86dga-1.1.6.tar.gz"
-  sha256 "87c7482b1e29b4eeb415815641c4f69c00545a8138e1b73ff1f361f7d9c22ac4"
+  url "https://www.x.org/archive/individual/lib/libXxf86dga-1.1.6.tar.xz"
+  sha256 "be44427579808fe3a217d59f51cae756a26913eb6e4c8738ccab65ff56d7980f"
   license "MIT"
 
   bottle do
