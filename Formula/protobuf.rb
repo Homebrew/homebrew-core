@@ -2,11 +2,10 @@ class Protobuf < Formula
   desc "Protocol buffers (Google's data interchange format)"
   homepage "https://github.com/protocolbuffers/protobuf/"
   license "BSD-3-Clause"
-  revision 1
 
   stable do
-    url "https://github.com/protocolbuffers/protobuf/releases/download/v21.9/protobuf-all-21.9.tar.gz"
-    sha256 "c00f05e19e89b04ea72e92a3c204eedda91f871cd29b0bbe5188550d783c73c7"
+    url "https://github.com/protocolbuffers/protobuf/releases/download/v21.11/protobuf-all-21.11.tar.gz"
+    sha256 "f045f136e61e367a9436571b6676b94e5e16631a06c864146688c3aaf7df794b"
 
     # Fix build with Python 3.11. Remove in the next release.
     patch do
