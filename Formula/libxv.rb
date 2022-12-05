@@ -1,8 +1,8 @@
 class Libxv < Formula
   desc "X.Org: X Video (Xv) extension"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/lib/libXv-1.0.12.tar.gz"
-  sha256 "ce706619a970a580a0e35e9b5c98bdd2af243ac6494c65f44608a89a86100126"
+  url "https://www.x.org/archive/individual/lib/libXv-1.0.12.tar.xz"
+  sha256 "aaf7fa09f689f7a2000fe493c0d64d1487a1210db154053e9e2336b860c63848"
   license "MIT"
 
   bottle do
