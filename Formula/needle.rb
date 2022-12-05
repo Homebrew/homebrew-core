@@ -14,7 +14,7 @@ class Needle < Formula
     sha256 cellar: :any, big_sur:        "21e3fc48210529852cf33cae4fe2c5a2937920321e7d03b76b93d775d35c0e9a"
   end
 
-  depends_on xcode: ["13.0", :build] # Swift 5.5+
+  depends_on xcode: ["14.0", :build]
   depends_on :macos
 
   def install
