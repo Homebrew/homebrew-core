@@ -84,20 +84,24 @@ class Bazarr < Formula
   end
 
   test do
+    require "open3"
+    require "timeout"
+
     system "#{bin}/bazarr", "--help"
 
     port = free_port
 
-    pid = fork do
-      exec "#{bin}/bazarr", "--config", testpath, "-p", port.to_s
-    end
-    sleep 20
-
-    begin
-      assert_match "<title>Bazarr</title>", shell_output("curl --silent http://localhost:#{port}")
+    Open3.popen3("#{bin}/bazarr", "--config", testpath, "-p", port.to_s) do |_, _, stderr, wait_thr|
+      Timeout.timeout(30) do
+        stderr.each do |line|
+          refute_match "ERROR", line
+          break if line.include? "BAZARR is started and waiting for request on http://0.0.0.0:#{port}"
+        end
+        assert_match "<title>Bazarr</title>", shell_output("curl --silent http://localhost:#{port}")
+      end
     ensure
-      Process.kill "TERM", pid
-      Process.wait pid
+      Process.kill "TERM", wait_thr.pid
+      Process.wait wait_thr.pid
     end
   end
 end
