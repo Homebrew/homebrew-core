@@ -27,7 +27,7 @@ class Dopewars < Formula
     inreplace "src/Makefile.in", "chmod", "true"
     inreplace "auxbuild/ltmain.sh", "need_relink=yes", "need_relink=no"
     inreplace "src/plugins/Makefile.in", "LIBADD =", "LIBADD = -module -avoid-version"
-    system "./configure", std_configure_args,
+    system "./configure", *std_configure_args,
                           "--disable-gui-client",
                           "--disable-gui-server",
                           "--enable-plugins",
