@@ -24,16 +24,15 @@ class Dopewars < Formula
 
   def install
     inreplace "src/Makefile.in", "$(dopewars_DEPENDENCIES)", ""
+    inreplace "src/Makefile.in", "chmod", "true"
     inreplace "auxbuild/ltmain.sh", "need_relink=yes", "need_relink=no"
     inreplace "src/plugins/Makefile.in", "LIBADD =", "LIBADD = -module -avoid-version"
-    system "./configure", "--disable-gui-client",
+    system "./configure", std_configure_args,
+                          "--disable-gui-client",
                           "--disable-gui-server",
                           "--enable-plugins",
                           "--enable-networking",
-                          "--prefix=#{prefix}",
-                          "--mandir=#{man}",
-                          "--disable-debug",
-                          "--disable-dependency-tracking"
+                          "--mandir=#{man}"
     system "make", "install", "chgrp=true"
   end
 
