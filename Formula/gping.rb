@@ -1,8 +1,8 @@
 class Gping < Formula
   desc "Ping, but with a graph"
   homepage "https://github.com/orf/gping"
-  url "https://github.com/orf/gping/archive/gping-v1.4.0.tar.gz"
-  sha256 "f68735ee9f6f3fde6881b727c518550d9c486a4259c0a2a2d261971715b77970"
+  url "https://github.com/orf/gping/archive/gping-v1.5.0.tar.gz"
+  sha256 "b244272573eaaa15e55a63c3695bfedfa1df65950851aaf84c0295498b24f20a"
   license "MIT"
   head "https://github.com/orf/gping.git", branch: "master"
 
