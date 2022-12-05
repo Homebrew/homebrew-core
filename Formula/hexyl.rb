@@ -1,10 +1,9 @@
 class Hexyl < Formula
   desc "Command-line hex viewer"
   homepage "https://github.com/sharkdp/hexyl"
-  url "https://github.com/sharkdp/hexyl/archive/v0.10.0.tar.gz"
-  sha256 "5821c0aa5fdda9e84399a5f92dbab53be2dbbcd9a7d4c81166c0b224a38624f8"
+  url "https://github.com/sharkdp/hexyl/archive/v0.11.0.tar.gz"
+  sha256 "ffab2a52f6d95afd4d83ef87b694ec749837a1fb6ea8099b700bd6323a9b622e"
   license any_of: ["Apache-2.0", "MIT"]
-  revision 1
   head "https://github.com/sharkdp/hexyl.git", branch: "master"
 
   bottle do
