@@ -1,8 +1,8 @@
 class Ibazel < Formula
   desc "Tools for building Bazel targets when source files change"
   homepage "https://github.com/bazelbuild/bazel-watcher"
-  url "https://github.com/bazelbuild/bazel-watcher/archive/refs/tags/v0.20.0.tar.gz"
-  sha256 "7b0f98006b32d2ad5eee38eb9b363005968abf88d235e31fc6dd2a8c4336f33d"
+  url "https://github.com/bazelbuild/bazel-watcher/archive/refs/tags/v0.21.0.tar.gz"
+  sha256 "c6413d3298c51d968bbbe8a01f481b83947e55eae6af78c0b8268a91e02d7989"
   license "Apache-2.0"
 
   depends_on "bazel" => [:build, :test]
@@ -10,10 +10,6 @@ class Ibazel < Formula
   depends_on :macos
 
   def install
-    # upstream patch PR, https://github.com/bazelbuild/bazel-watcher/pull/556
-    # remove in next release
-    inreplace ".bazelversion", "5.3.1", "5.3.2"
-
     system "bazel", "build", "--config=release", "--workspace_status_command", "echo STABLE_GIT_VERSION #{version}", "//cmd/ibazel:ibazel"
     bin.install "bazel-bin/cmd/ibazel/ibazel_/ibazel"
   end
