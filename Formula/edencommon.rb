@@ -25,7 +25,8 @@ class Edencommon < Formula
 
   def install
     system "cmake", "-S", ".", "-B", "_build", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
-    system "cmake", "--build", "_build"
+    # Workaround for `Process terminated due to timeout`
+    ENV.deparallelize { system "cmake", "--build", "_build" }
     system "cmake", "--install", "_build"
   end
 
