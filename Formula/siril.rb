@@ -40,6 +40,7 @@ class Siril < Formula
   depends_on "netpbm"
   depends_on "opencv"
   depends_on "openjpeg"
+  depends_on "wcslib"
 
   uses_from_macos "perl" => :build
 
