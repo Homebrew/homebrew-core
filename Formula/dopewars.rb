@@ -34,7 +34,7 @@ class Dopewars < Formula
                           "--mandir=#{man}",
                           "--disable-debug",
                           "--disable-dependency-tracking"
-    system "make", "install"
+    system "make", "install", "chgrp=true"
   end
 
   test do
