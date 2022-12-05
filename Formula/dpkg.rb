@@ -37,6 +37,8 @@ class Dpkg < Formula
 
   on_linux do
     keg_only "not linked to prevent conflicts with system dpkg"
+    
+    depends_on "libmd"
   end
 
   patch :DATA
