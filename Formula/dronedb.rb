@@ -2,10 +2,9 @@ class Dronedb < Formula
   desc "Free and open source software for aerial data storage"
   homepage "https://github.com/DroneDB/DroneDB"
   url "https://github.com/DroneDB/DroneDB.git",
-       tag:      "v1.0.11",
-       revision: "f9f7d50c1f2b49072e4046cb2bd2d9fd67066252"
+       tag:      "v1.0.12",
+       revision: "849e92fa94dc7cf65eb756ecf3824f0fe9dbb797"
   license "MPL-2.0"
-  revision 2
   head "https://github.com/DroneDB/DroneDB.git", branch: "master"
 
   bottle do
@@ -24,11 +23,9 @@ class Dronedb < Formula
   depends_on "pdal"
 
   def install
-    # Avoid installing conflicting vendored libraries into Homebrew's prefix.
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args(install_prefix: libexec)
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
-    bin.install_symlink libexec/"bin/ddb"
   end
 
   test do
