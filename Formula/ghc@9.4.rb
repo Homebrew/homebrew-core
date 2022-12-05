@@ -113,7 +113,7 @@ class GhcAT94 < Formula
       cpu = Hardware::CPU.arm? ? "aarch64" : Hardware::CPU.arch.to_s
       extra_rpath = rpath(source: lib/"ghc-#{version}/bin",
                           target: lib/"ghc-#{version}/lib/#{cpu}-#{os}-ghc-#{version}")
-      hadrian_args << "*.iserv.ghc.link.opts += -optl-Wl,-rpath,'#{extra_rpath}'"
+      hadrian_args << "*.iserv.ghc.link.opts += -optl-Wl,-rpath,#{extra_rpath}"
     end
     # Let hadrian handle its own parallelization
     ENV.deparallelize { system "hadrian/build", "install", *hadrian_args }
