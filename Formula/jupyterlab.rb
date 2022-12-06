@@ -142,6 +142,11 @@ class Jupyterlab < Formula
     sha256 "109a3c33b62a9cf65aa8325850a0999a795fac155d9de4f7555aef5f310ee35a"
   end
 
+  resource "jupyter-console" do
+    url "https://files.pythonhosted.org/packages/1b/2f/acb5851aa3ed730f8cde5ec9eb0c0d9681681123f32c3b82d1536df1e937/jupyter_console-6.4.4.tar.gz"
+    sha256 "172f5335e31d600df61613a97b7f0352f2c8250bbd1092ef2d658f77249f89fb"
+  end
+
   resource "jupyter-core" do
     url "https://files.pythonhosted.org/packages/99/db/4de1aaa121fcfa9db093554d6539a31c6b382480daac3172c6206a19367f/jupyter_core-5.1.0.tar.gz"
     sha256 "a5ae7c09c55c0b26f692ec69323ba2b62e8d7295354d20f6cd57b749de4a05bf"
