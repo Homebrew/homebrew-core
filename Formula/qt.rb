@@ -3,10 +3,15 @@ class Qt < Formula
 
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.4/6.4.0/single/qt-everywhere-src-6.4.0.tar.xz"
-  sha256 "8936b0354d95fa26e87be65cc9c840495360ad93fd09b069bc780cbcab4a2ca1"
-  license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
-  revision 1
+  url "https://download.qt.io/official_releases/qt/6.4/6.4.1/single/qt-everywhere-src-6.4.1.tar.xz"
+  sha256 "e20b850b6134098a7f2e7701cfddfb213c6cf394b9e848e6fbc5b0e89dcfcc09"
+  license all_of: [
+    "BSD-3-Clause",
+    "GFDL-1.3-no-invariants-only",
+    "GPL-2.0-only",
+    { "GPL-3.0-only" => { with: "Qt-GPL-exception-1.0" } },
+    "LGPL-3.0-only",
+  ]
   head "https://code.qt.io/qt/qt5.git", branch: "dev"
 
   # The first-party website doesn't make version information readily available,
@@ -31,7 +36,10 @@ class Qt < Formula
   depends_on "pkg-config" => :build
   depends_on "python@3.10" => :build
   depends_on "six" => :build
+  depends_on "vulkan-headers" => [:build, :test]
   depends_on xcode: :build
+
+  depends_on "vulkan-loader" => :test
 
   depends_on "assimp"
   depends_on "brotli"
@@ -64,6 +72,10 @@ class Qt < Formula
   uses_from_macos "krb5"
   uses_from_macos "libxslt"
   uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "molten-vk" => [:build, :test]
+  end
 
   on_linux do
     depends_on "alsa-lib"
@@ -122,12 +134,12 @@ class Qt < Formula
     directory "qtbase"
   end
 
-  # Fix build with LLVM 15 (QTBUG-107074).
-  # Remove with 6.4.1.
+  # Fix Linux build with CMake versions >= 3.25
+  # remove in next release
   patch do
-    url "https://github.com/qt/qttools/commit/01cae372619369d1a5a04f4d0f87817011029b78.patch?full_index=1"
-    sha256 "2ec45719fcc5b12c97040b4f30fdbb5d4c1dc1dded15f02f271ac7c668f5a2a0"
-    directory "qttools"
+    url "https://github.com/qt/qtwebengine/commit/240e71877865ed07e4c8d5bd4553aa0772c2adf4.patch?full_index=1"
+    sha256 "8fb13bfc7aac50084e1c533955564a1819bbb25b544ebccd05b99e24527c7b80"
+    directory "qtwebengine"
   end
 
   def install
@@ -263,7 +275,7 @@ class Qt < Formula
       set(CMAKE_AUTORCC ON)
       set(CMAKE_AUTOUIC ON)
 
-      find_package(Qt6 COMPONENTS Core Widgets Sql Concurrent
+      find_package(Qt6 COMPONENTS Core Gui Widgets Sql Concurrent
         3DCore Svg Quick3D Network NetworkAuth REQUIRED)
 
       add_executable(test
@@ -272,23 +284,24 @@ class Qt < Formula
 
       target_link_libraries(test PRIVATE Qt6::Core Qt6::Widgets
         Qt6::Sql Qt6::Concurrent Qt6::3DCore Qt6::Svg Qt6::Quick3D
-        Qt6::Network Qt6::NetworkAuth
+        Qt6::Network Qt6::NetworkAuth Qt6::Gui
       )
     EOS
 
     (testpath/"test.pro").write <<~EOS
       QT       += core svg 3dcore network networkauth quick3d \
-        sql
+        sql gui widgets
       TARGET = test
       CONFIG   += console
       CONFIG   -= app_bundle
       TEMPLATE = app
       SOURCES += main.cpp
+      INCLUDEPATH += #{Formula["vulkan-headers"].opt_include}
     EOS
 
     (testpath/"main.cpp").write <<~EOS
       #undef QT_NO_DEBUG
-      #include <QCoreApplication>
+      #include <QGuiApplication>
       #include <Qt3DCore>
       #include <QtQuick3D>
       #include <QImageReader>
@@ -296,11 +309,12 @@ class Qt < Formula
       #include <QtSql>
       #include <QtSvg>
       #include <QDebug>
+      #include <QVulkanInstance>
       #include <iostream>
 
       int main(int argc, char *argv[])
       {
-        QCoreApplication a(argc, argv);
+        QGuiApplication app(argc, argv);
         QSvgGenerator generator;
         auto *handler = new QOAuthHttpServerReplyHandler();
         delete handler; handler = nullptr;
@@ -308,6 +322,10 @@ class Qt < Formula
         delete root; root = nullptr;
         Q_ASSERT(QSqlDatabase::isDriverAvailable("QSQLITE"));
         const auto &list = QImageReader::supportedImageFormats();
+        QVulkanInstance inst;
+        // See https://github.com/actions/runner-images/issues/1779
+        // if (!inst.create())
+        //   qFatal("Failed to create Vulkan instance: %d", inst.errorCode());
         for(const char* fmt:{"bmp", "cur", "gif",
           #ifdef __APPLE__
             "heic", "heif",
@@ -320,6 +338,8 @@ class Qt < Formula
         return 0;
       }
     EOS
+
+    ENV["QT_VULKAN_LIB"] = Formula["vulkan-loader"].opt_lib/(shared_library "libvulkan")
 
     system "cmake", testpath
     system "make"
