@@ -51,8 +51,13 @@ class StellarCore < Formula
   end
 
   test do
+    test_categories = %w[
+      accountsubentriescount
+      bucketlistconsistent
+      topology
+      upgrades
+    ]
     system "#{bin}/stellar-core", "test",
-      "'[herder],[upgrades],[accountsubentriescount]," \
-      "[bucketlistconsistent],[topology]'"
+      test_categories.map { |category| "[#{category}]" }.join(",")
   end
 end
