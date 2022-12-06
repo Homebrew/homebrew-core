@@ -47,7 +47,7 @@ class Monika < Formula
       $stdout.reopen(monika_stdout)
       exec bin/"monika", "-r", "1", "-c", testpath/"config.yml"
     end
-    sleep 5
+    sleep 10
 
     assert_match "Starting Monika. Probes: 1. Notifications: 1", monika_stdout.read
   end
