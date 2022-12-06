@@ -20,7 +20,7 @@ class Zurl < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.10" => :test
+  depends_on "python@3.11" => :test
   depends_on "qt@5"
   depends_on "zeromq"
 
@@ -46,7 +46,7 @@ class Zurl < Formula
     ipcfile = testpath/"zurl-req"
     runfile = testpath/"test.py"
 
-    venv = virtualenv_create(testpath/"vendor", Formula["python@3.10"].opt_bin/python3)
+    venv = virtualenv_create(testpath/"vendor", Formula["python@3.11"].opt_bin/python3)
     venv.pip_install resource("pyzmq")
 
     conffile.write(<<~EOS,
