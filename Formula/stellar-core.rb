@@ -23,7 +23,6 @@ class StellarCore < Formula
   depends_on "libtool" => :build
   depends_on "pandoc" => :build
   depends_on "pkg-config" => :build
-  depends_on "parallel" => :test
   depends_on "libpq"
   depends_on "libpqxx"
   depends_on "libsodium"
