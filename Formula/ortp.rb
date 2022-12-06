@@ -47,6 +47,7 @@ class Ortp < Formula
       -DCMAKE_C_FLAGS=#{cflags.join(" ")}
       -DCMAKE_CXX_FLAGS=-I#{libexec}/include
       -DENABLE_DOC=NO
+      -DENABLE_UNIT_TESTS=NO
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
