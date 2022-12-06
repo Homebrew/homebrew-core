@@ -24,7 +24,9 @@ class Octant < Formula
   end
 
   depends_on "go" => :build
-  depends_on "node" => :build
+  depends_on "node@14" => :build
+
+  uses_from_macos "python" => :build
 
   on_linux do
     depends_on "pkg-config" => :build
@@ -34,6 +36,18 @@ class Octant < Formula
     ENV["GOFLAGS"] = "-mod=vendor"
 
     Language::Node.setup_npm_environment
+
+    # Work around build error: "npm ERR! Invalid Version: ^3.0.8"
+    # Issue is due to `npm-force-resolutions` not working with
+    # npm>=8.6, which is used in node>=16 formulae.
+    #
+    # PR ref: https://github.com/vmware-tanzu/octant/pull/3311
+    # Issue ref: https://github.com/vmware-tanzu/octant/issues/3329
+    # Issue ref: https://github.com/rogeriochaves/npm-force-resolutions/issues/56
+    ENV.prepend_path "PATH", Formula["node@14"].opt_bin
+    cd "web" do
+      system "npm", "install", *Language::Node.local_npm_install_args
+    end
 
     system "go", "run", "build.go", "go-install"
     system "go", "run", "build.go", "web-build"
