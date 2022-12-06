@@ -1,8 +1,8 @@
 class Yosys < Formula
   desc "Framework for Verilog RTL synthesis"
   homepage "https://yosyshq.net/yosys/"
-  url "https://github.com/YosysHQ/yosys/archive/yosys-0.23.tar.gz"
-  sha256 "ec982a9393b3217deecfbd3cf9a64109b85310a949e46a51cf2e07fba1071aeb"
+  url "https://github.com/YosysHQ/yosys/archive/yosys-0.24.tar.gz"
+  sha256 "6a00b60e2d6bc8df0db1e66aa27af42a0694121cfcd6a3cf6f39c9329ed91263"
   license "ISC"
   head "https://github.com/YosysHQ/yosys.git", branch: "master"
 
@@ -19,7 +19,7 @@ class Yosys < Formula
 
   depends_on "bison" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "readline"
 
   uses_from_macos "flex"
