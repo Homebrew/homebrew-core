@@ -29,6 +29,7 @@ class Vcluster < Formula
       -X main.buildDate=#{time.iso8601}
       -X main.version=#{version}
     ]
+    system "go", "generate", "./..."
     system "go", "build", "-mod", "vendor", *std_go_args(ldflags: ldflags), "./cmd/vclusterctl/main.go"
     generate_completions_from_executable(bin/"vcluster", "completion")
   end
