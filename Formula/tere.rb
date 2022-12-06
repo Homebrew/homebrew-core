@@ -1,8 +1,8 @@
 class Tere < Formula
   desc "Terminal file explorer"
   homepage "https://github.com/mgunyho/tere"
-  url "https://github.com/mgunyho/tere/archive/refs/tags/v1.3.0.tar.gz"
-  sha256 "000d597c731f7c69175c6c50ccb20a3f508122e678b46d9fd89736ff7f0ea60e"
+  url "https://github.com/mgunyho/tere/archive/refs/tags/v1.3.1.tar.gz"
+  sha256 "121d7db5eeb2624b6473cf5d3067650d64d0d68ab6908fc4122e5b7a47f0a5f4"
   license "EUPL-1.2"
   head "https://github.com/mgunyho/tere.git", branch: "master"
 
