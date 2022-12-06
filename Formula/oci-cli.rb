@@ -3,8 +3,8 @@ class OciCli < Formula
 
   desc "Oracle Cloud Infrastructure CLI"
   homepage "https://docs.cloud.oracle.com/iaas/Content/API/Concepts/cliconcepts.htm"
-  url "https://files.pythonhosted.org/packages/9a/32/221ed1d3749425d39e50028c959bbe8f33c06e6114b0982d8761c52c597c/oci-cli-3.20.3.tar.gz"
-  sha256 "bcfb4586f64b41f3c2005e5b02f8626001c832f2c413b4d70c6e3b211513d54a"
+  url "https://files.pythonhosted.org/packages/eb/ce/9605b62e480c90a1c59bc078cb96f9649f37537428b8dff9f19ebc8e28cb/oci-cli-3.21.0.tar.gz"
+  sha256 "e2f1c200cadafb53c1d9a480130e2cc6e9be3aaf934b53b8cfdd624c7edffb2c"
   license any_of: ["UPL-1.0", "Apache-2.0"]
   head "https://github.com/oracle/oci-cli.git", branch: "master"
 
@@ -49,8 +49,8 @@ class OciCli < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/13/dd/a9608b7aebe5d2dc0c98a4b2090a6b815628efa46cc1c046b89d8cd25f4c/cryptography-38.0.3.tar.gz"
-    sha256 "bfbe6ee19615b07a98b1d2287d6a6073f734735b49ee45b11324d85efc4d5cbd"
+    url "https://files.pythonhosted.org/packages/e3/3f/41186b1f2fd86a542d399175f6b8e43f82cd4dfa51235a0b030a042b811a/cryptography-38.0.4.tar.gz"
+    sha256 "175c1a818b87c9ac80bb7377f5520b7f31b3ef2a0004e2420319beadedb67290"
   end
 
   resource "jmespath" do
@@ -59,8 +59,8 @@ class OciCli < Formula
   end
 
   resource "oci" do
-    url "https://files.pythonhosted.org/packages/10/d3/63953966d2030af720e819182edc00933a029ad4670c194f4563ad6a6203/oci-2.88.2.tar.gz"
-    sha256 "71c4ed8ace6e041ae05234a57f144fb156f004c32e32a08cd28ab15fb7906c2d"
+    url "https://files.pythonhosted.org/packages/9c/34/28f8da7dd4da36ab603796b48e7c0ea3ad1395d932a5e9b17ff5bd80693e/oci-2.89.0.tar.gz"
+    sha256 "83e8f88aca2c6dc03432b935314b1b95e5234ee2401ce02747aa6545731d0e42"
   end
 
   resource "prompt-toolkit" do
@@ -74,8 +74,8 @@ class OciCli < Formula
   end
 
   resource "pyOpenSSL" do
-    url "https://files.pythonhosted.org/packages/35/d3/d6a9610f19d943e198df502ae660c6b5acf84cc3bc421a2aa3c0fb6b21d1/pyOpenSSL-22.0.0.tar.gz"
-    sha256 "660b1b1425aac4a1bea1d94168a85d99f0b3144c869dd4390d27629d0087f1bf"
+    url "https://files.pythonhosted.org/packages/e7/2f/c6d89edac75482f11e231b644e365d31d5479b7b727734e6a8f3d00decd5/pyOpenSSL-22.1.0.tar.gz"
+    sha256 "7a83b7b272dd595222d672f5ce29aa030f1fb837630ef229f62e72e395ce8968"
   end
 
   resource "python-dateutil" do
