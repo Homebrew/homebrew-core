@@ -2,9 +2,9 @@ class CollectorSidecar < Formula
   desc "Manage log collectors through Graylog"
   homepage "https://www.graylog.org/"
   url "https://github.com/Graylog2/collector-sidecar.git",
-      tag:      "1.2.0",
-      revision: "99c07ca667f2f3eeb9fc23afc1bf7f3152b002cb"
-  license "GPL-3.0"
+      tag:      "1.3.0",
+      revision: "e08ab9b1ca4a0403765c3e67003f495e5842f93a"
+  license "SSPL-1.0"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0a28de64fe617d9abf6137139e9ce8dbd666e9c3539e885efda0b3f39cbda351"
