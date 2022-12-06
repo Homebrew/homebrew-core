@@ -9,6 +9,7 @@ class Souffle < Formula
   depends_on "cmake" => :build
   depends_on "mcpp" => :build
   depends_on "pkg-config" => :build
+  uses_from_macos "flex" => :build
   uses_from_macos "libffi"
   uses_from_macos "ncurses"
   uses_from_macos "sqlite"
