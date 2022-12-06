@@ -22,6 +22,11 @@ class Jhipster < Formula
   depends_on "openjdk"
 
   def install
+    # Bump dependent package yeoman-environment to 3.11.0 to work around
+    # `ERR_PACKAGE_PATH_NOT_EXPORTED` error. Remove on next release.
+    inreplace "package.json",
+      '"yeoman-environment": "3.10.0"',
+      '"yeoman-environment": "3.11.0"'
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install Dir["#{libexec}/bin/*"]
     bin.env_script_all_files libexec/"bin", Language::Java.overridable_java_home_env
