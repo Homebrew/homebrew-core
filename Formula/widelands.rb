@@ -3,6 +3,7 @@ class Widelands < Formula
   homepage "https://www.widelands.org/"
   url "https://github.com/widelands/widelands/archive/v1.0.tar.gz"
   sha256 "1dab0c4062873cc72c5e0558f9e9620b0ef185f1a78923a77c4ce5b9ed76031a"
+  license "GPL-2.0-or-later"
   revision 2
   version_scheme 1
 
