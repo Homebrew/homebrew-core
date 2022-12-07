@@ -3,6 +3,7 @@ class Mdf2iso < Formula
   homepage "https://packages.debian.org/sid/mdf2iso"
   url "https://deb.debian.org/debian/pool/main/m/mdf2iso/mdf2iso_0.3.1.orig.tar.gz"
   sha256 "906f0583cb3d36c4d862da23837eebaaaa74033c6b0b6961f2475b946a71feb7"
+  license "GPL-2.0-or-later"
 
   livecheck do
     skip "No longer developed or maintained"
