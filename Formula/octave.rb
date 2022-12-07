@@ -55,6 +55,7 @@ class Octave < Formula
   depends_on "qrupdate"
   depends_on "qscintilla2"
   depends_on "qt@5"
+  depends_on "rapidjson"
   depends_on "readline"
   depends_on "suite-sparse"
   depends_on "sundials"
