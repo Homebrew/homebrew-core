@@ -1,9 +1,11 @@
 class Gitversion < Formula
   desc "Easy semantic versioning for projects using Git"
   homepage "https://gitversion.net"
+  # TODO: Switch `dotnet@6` to `dotnet` with v6 release
   url "https://github.com/GitTools/GitVersion/archive/5.11.1.tar.gz"
   sha256 "98ed28bfb22fadde72da412634f309d81030a76997ca998e1b34edc39beff489"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "8d1dde8fde0eb649ccf639b0469090b6f7cf7daec5af586162be49b8ee3fbf9a"
@@ -16,15 +18,16 @@ class Gitversion < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b0a956ddf7ca501724e8a6335f54dcf47e931ec4d2585d71f483beb3f1609382"
   end
 
-  depends_on "dotnet"
+  depends_on "dotnet@6"
 
   def install
+    dotnet = Formula["dotnet@6"]
     os = OS.mac? ? "osx" : OS.kernel_name.downcase
     arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
 
     args = %W[
       --configuration Release
-      --framework net#{Formula["dotnet"].version.major_minor}
+      --framework net#{dotnet.version.major_minor}
       --output #{libexec}
       --runtime #{os}-#{arch}
       --no-self-contained
@@ -34,7 +37,7 @@ class Gitversion < Formula
     args << "-p:OsxArm64=true" if OS.mac? && Hardware::CPU.arm?
 
     system "dotnet", "publish", "src/GitVersion.App/GitVersion.App.csproj", *args
-    env = { DOTNET_ROOT: "${DOTNET_ROOT:-#{Formula["dotnet"].opt_libexec}}" }
+    env = { DOTNET_ROOT: "${DOTNET_ROOT:-#{dotnet.opt_libexec}}" }
     (bin/"gitversion").write_env_script libexec/"gitversion", env
   end
 
