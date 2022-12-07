@@ -1,8 +1,8 @@
 class PythonAT38 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.8.15/Python-3.8.15.tar.xz"
-  sha256 "5114fc7918a2a5e20eb5aac696b30c36f412c6ef24b13f5c9eb9e056982d9550"
+  url "https://www.python.org/ftp/python/3.8.16/Python-3.8.16.tar.xz"
+  sha256 "d85dbb3774132473d8081dcb158f34a10ccad7a90b96c7e50ea4bb61f5ce4562"
   license "Python-2.0"
 
   livecheck do
