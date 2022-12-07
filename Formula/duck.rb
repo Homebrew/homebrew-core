@@ -38,8 +38,6 @@ class Duck < Formula
     depends_on "libxi"
     depends_on "libxrender"
     depends_on "libxtst"
-
-    ignore_missing_libraries "libjvm.so"
   end
 
   resource "jna" do
