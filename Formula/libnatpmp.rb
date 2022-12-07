@@ -3,6 +3,7 @@ class Libnatpmp < Formula
   homepage "http://miniupnp.free.fr/libnatpmp.html"
   url "http://miniupnp.free.fr/files/download.php?file=libnatpmp-20150609.tar.gz"
   sha256 "e1aa9c4c4219bc06943d6b2130f664daee213fb262fcb94dd355815b8f4536b0"
+  license "BSD-3-Clause"
 
   livecheck do
     url "http://miniupnp.free.fr/files/"
