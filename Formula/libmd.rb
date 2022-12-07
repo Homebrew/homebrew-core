@@ -14,7 +14,11 @@ class Libmd < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "1c8f94c04ca398bca1dd9d27512ae308e110f6dbf0c8a86761720c3e288c8a01"
   end
 
-  depends_on :linux
+  # build patch, https://github.com/macports/macports-ports/blob/master/devel/libmd/files/patch-symbol-alias.diff
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/62ea945/libmd/patch-symbol-alias.diff"
+    sha256 "a9bb67cbc2243d12fe81b6c9f998dddbe2f58f11570749f98ee23b07d9a02d53"
+  end
 
   def install
     system "./configure", "--disable-dependency-tracking",
