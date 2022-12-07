@@ -6,7 +6,7 @@ class Ffmpeg < Formula
   # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
 
   livecheck do
@@ -26,6 +26,7 @@ class Ffmpeg < Formula
 
   depends_on "pkg-config" => :build
   depends_on "aom"
+  depends_on "aribb24"
   depends_on "dav1d"
   depends_on "fontconfig"
   depends_on "freetype"
@@ -87,6 +88,7 @@ class Ffmpeg < Formula
       --enable-gnutls
       --enable-gpl
       --enable-libaom
+      --enable-libaribb24
       --enable-libbluray
       --enable-libdav1d
       --enable-libmp3lame
