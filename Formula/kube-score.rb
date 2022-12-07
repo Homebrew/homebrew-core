@@ -2,8 +2,8 @@ class KubeScore < Formula
   desc "Kubernetes object analysis recommendations for improved reliability and security"
   homepage "https://kube-score.com"
   url "https://github.com/zegl/kube-score.git",
-      tag:      "v1.14.0",
-      revision: "3d6392471f65c47a1c617d78d9f84a53457c5f5d"
+      tag:      "v1.15.0",
+      revision: "23510f90198ffe85a750d55e18cdd0bd75400dab"
   license "MIT"
   head "https://github.com/zegl/kube-score.git", branch: "master"
 
