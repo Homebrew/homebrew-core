@@ -4,6 +4,7 @@ class Convertlit < Formula
   url "http://www.convertlit.com/clit18src.zip"
   version "1.8"
   sha256 "d70a85f5b945104340d56f48ec17bcf544e3bb3c35b1b3d58d230be699e557ba"
+  license "GPL-2.0-or-later"
 
   # The archive filenames don't use periods in the version, so we have to match
   # the version from the link text.
