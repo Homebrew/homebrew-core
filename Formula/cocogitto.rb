@@ -9,7 +9,7 @@ class Cocogitto < Formula
   uses_from_macos "zlib"
 
   def install
-    system "cargo", "install", "--locked", *std_cargo_args
+    system "cargo", "install", *std_cargo_args
     generate_completions_from_executable(bin/"cog", "generate-completions", base_name: "cog")
   end
 
