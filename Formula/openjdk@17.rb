@@ -24,26 +24,29 @@ class OpenjdkAT17 < Formula
   keg_only :versioned_formula
 
   depends_on "autoconf" => :build
+  depends_on "pkg-config" => :build
   depends_on xcode: :build
+  depends_on "giflib"
+  depends_on "harfbuzz"
+  depends_on "jpeg-turbo"
+  depends_on "libpng"
+  depends_on "little-cms2"
+
+  uses_from_macos "cups"
+  uses_from_macos "unzip"
+  uses_from_macos "zip"
+  uses_from_macos "zlib"
 
   on_linux do
-    depends_on "pkg-config" => :build
     depends_on "alsa-lib"
-    depends_on "cups"
     depends_on "fontconfig"
+    depends_on "freetype"
     depends_on "libx11"
     depends_on "libxext"
     depends_on "libxrandr"
     depends_on "libxrender"
     depends_on "libxt"
     depends_on "libxtst"
-    depends_on "unzip"
-    depends_on "zip"
-
-    # FIXME: This should not be needed because of the `-rpath` flag
-    #        we set in `--with-extra-ldflags`, but this configuration
-    #        does not appear to have made it to the linker.
-    ignore_missing_libraries "libjvm.so"
   end
 
   fails_with gcc: "5"
@@ -61,13 +64,19 @@ class OpenjdkAT17 < Formula
       end
     end
     on_linux do
-      url "https://download.java.net/java/GA/jdk16.0.2/d4a915d82b4c4fbb9bde534da945d746/7/GPL/openjdk-16.0.2_linux-x64_bin.tar.gz"
-      sha256 "6c714ded7d881ca54970ec949e283f43d673a142fda1de79b646ddd619da9c0c"
+      on_arm do
+        url "https://download.java.net/java/GA/jdk16.0.2/d4a915d82b4c4fbb9bde534da945d746/7/GPL/openjdk-16.0.2_linux-aarch64_bin.tar.gz"
+        sha256 "1ffb9c7748334945d9056b3324de3f797d906fce4dad86beea955153aa1e28fe"
+      end
+      on_intel do
+        url "https://download.java.net/java/GA/jdk16.0.2/d4a915d82b4c4fbb9bde534da945d746/7/GPL/openjdk-16.0.2_linux-x64_bin.tar.gz"
+        sha256 "6c714ded7d881ca54970ec949e283f43d673a142fda1de79b646ddd619da9c0c"
+      end
     end
   end
 
   def install
-    boot_jdk = Pathname.pwd/"boot-jdk"
+    boot_jdk = buildpath/"boot-jdk"
     resource("boot-jdk").stage boot_jdk
     boot_jdk /= "Contents/Home" if OS.mac?
     java_options = ENV.delete("_JAVA_OPTIONS")
@@ -87,9 +96,15 @@ class OpenjdkAT17 < Formula
       --with-version-build=#{revision}
       --without-version-opt
       --without-version-pre
+      --with-giflib=system
+      --with-harfbuzz=system
+      --with-lcms=system
+      --with-libjpeg=system
+      --with-libpng=system
+      --with-zlib=system
     ]
 
-    ldflags = ["-Wl,-rpath,#{loader_path}/server"]
+    ldflags = ["-Wl,-rpath,#{loader_path.gsub("$", "\\$$")}/server"]
     args += if OS.mac?
       ldflags << "-headerpad_max_install_names"
 
@@ -102,30 +117,29 @@ class OpenjdkAT17 < Formula
         --with-x=#{HOMEBREW_PREFIX}
         --with-cups=#{HOMEBREW_PREFIX}
         --with-fontconfig=#{HOMEBREW_PREFIX}
+        --with-freetype=system
+        --with-stdc++lib=dynamic
       ]
     end
     args << "--with-extra-ldflags=#{ldflags.join(" ")}"
 
-    chmod 0755, "configure"
-    system "./configure", *args
+    system "bash", "configure", *args
 
     ENV["MAKEFLAGS"] = "JOBS=#{ENV.make_jobs}"
     system "make", "images"
 
+    jdk = libexec
     if OS.mac?
-      jdk = Dir["build/*/images/jdk-bundle/*"].first
-      libexec.install jdk => "openjdk.jdk"
-      bin.install_symlink Dir[libexec/"openjdk.jdk/Contents/Home/bin/*"]
-      include.install_symlink Dir[libexec/"openjdk.jdk/Contents/Home/include/*.h"]
-      include.install_symlink Dir[libexec/"openjdk.jdk/Contents/Home/include/darwin/*.h"]
-      man1.install_symlink Dir[libexec/"openjdk.jdk/Contents/Home/man/man1/*"]
+      libexec.install Dir["build/*/images/jdk-bundle/*"].first => "openjdk.jdk"
+      jdk /= "openjdk.jdk/Contents/Home"
     else
-      libexec.install Dir["build/linux-x86_64-server-release/images/jdk/*"]
-      bin.install_symlink Dir[libexec/"bin/*"]
-      include.install_symlink Dir[libexec/"include/*.h"]
-      include.install_symlink Dir[libexec/"include/linux/*.h"]
-      man1.install_symlink Dir[libexec/"man/man1/*"]
+      libexec.install Dir["build/linux-*-server-release/images/jdk/*"]
     end
+
+    bin.install_symlink Dir[jdk/"bin/*"]
+    include.install_symlink Dir[jdk/"include/*.h"]
+    include.install_symlink Dir[jdk/"include"/OS.kernel_name.downcase/"*.h"]
+    man1.install_symlink Dir[jdk/"man/man1/*"]
   end
 
   def caveats
