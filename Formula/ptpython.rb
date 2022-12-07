@@ -3,8 +3,8 @@ class Ptpython < Formula
 
   desc "Advanced Python REPL"
   homepage "https://github.com/prompt-toolkit/ptpython"
-  url "https://files.pythonhosted.org/packages/d5/95/1acee8aec7a8a683c03ced796217713aa649e370b621308f9c5e164124e3/ptpython-3.0.21.tar.gz"
-  sha256 "a57b9952eac4a12540a4dfb4ccd4a243403eceb27b0d13245b5e4144c8731d32"
+  url "https://files.pythonhosted.org/packages/a7/83/bf0a0bc0d0028ec41917c59f81661b66d86e0d0fb329a1aea0acd849e568/ptpython-3.0.22.tar.gz"
+  sha256 "c097b324406014a005c6b09f493bbbdde571e412360af2ba1551873a10c36cf8"
   license "BSD-3-Clause"
   head "https://github.com/prompt-toolkit/ptpython.git", branch: "master"
 
@@ -37,8 +37,8 @@ class Ptpython < Formula
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/c4/6e/6ff7938f47981305a801a4c5b8d8ed282b58a28c01c394d43c1fbcfc810b/prompt_toolkit-3.0.33.tar.gz"
-    sha256 "535c29c31216c77302877d5120aef6c94ff573748a5b5ca5b1b1f76f5e700c73"
+    url "https://files.pythonhosted.org/packages/fb/93/180be2342f89f16543ec4eb3f25083b5b84eba5378f68efff05409fb39a9/prompt_toolkit-3.0.36.tar.gz"
+    sha256 "3e163f254bef5a03b146397d7c1963bd3e2812f0964bb9a24e6ec761fd28db63"
   end
 
   resource "Pygments" do
