@@ -4,6 +4,7 @@ class Lpc21isp < Formula
   url "https://downloads.sourceforge.net/project/lpc21isp/lpc21isp/1.97/lpc21isp_197.tar.gz"
   version "1.97"
   sha256 "9f7d80382e4b70bfa4200233466f29f73a36fea7dc604e32f05b9aa69ef591dc"
+  license "LGPL-3.0-or-later"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4ab5cc792a65bd498458aa93dc79e77e921c2cff17e1f17629915332b4e4134b"
