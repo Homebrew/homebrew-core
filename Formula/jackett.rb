@@ -1,8 +1,8 @@
 class Jackett < Formula
   desc "API Support for your favorite torrent trackers"
   homepage "https://github.com/Jackett/Jackett"
-  url "https://github.com/Jackett/Jackett/archive/refs/tags/v0.20.2285.tar.gz"
-  sha256 "67d14b55eb0b3df44ed46f9be1d15ab4dd007b4daf7c9c9dd8d44a96bc1d75f0"
+  url "https://github.com/Jackett/Jackett/archive/refs/tags/v0.20.2352.tar.gz"
+  sha256 "7a7d8152abdc274ceae8a55e88d6b923fa91ef8b8fdf07a46bb2eadf12cdfe12"
   license "GPL-2.0-only"
   head "https://github.com/Jackett/Jackett.git", branch: "master"
 
@@ -17,30 +17,33 @@ class Jackett < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d94d20f0783e5514db8ea01ff1016f7c42de02067c75a99aefc301230b4eee47"
   end
 
-  depends_on "dotnet"
+  depends_on "dotnet@6"
 
   def install
-    cd "src" do
-      os = OS.mac? ? "osx" : OS.kernel_name.downcase
-      arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
+    dotnet = Formula["dotnet@6"]
+    os = OS.mac? ? "osx" : OS.kernel_name.downcase
+    arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
 
-      args = %W[
-        --configuration Release
-        --framework net#{Formula["dotnet"].version.major_minor}
-        --output #{libexec}
-        --runtime #{os}-#{arch}
-        --no-self-contained
+    args = %W[
+      --configuration Release
+      --framework net#{dotnet.version.major_minor}
+      --output #{libexec}
+      --runtime #{os}-#{arch}
+      --no-self-contained
+    ]
+    if build.stable?
+      args += %W[
         /p:AssemblyVersion=#{version}
         /p:FileVersion=#{version}
         /p:InformationalVersion=#{version}
         /p:Version=#{version}
       ]
-
-      system "dotnet", "publish", "Jackett.Server", *args
     end
 
+    system "dotnet", "publish", "src/Jackett.Server", *args
+
     (bin/"jackett").write_env_script libexec/"jackett", "--NoUpdates",
-      DOTNET_ROOT: "${DOTNET_ROOT:-#{Formula["dotnet"].opt_libexec}}"
+      DOTNET_ROOT: "${DOTNET_ROOT:-#{dotnet.opt_libexec}}"
   end
 
   service do
@@ -59,9 +62,9 @@ class Jackett < Formula
     pid = fork do
       exec "#{bin}/jackett", "-d", testpath, "-p", port.to_s
     end
-    sleep 10
 
     begin
+      sleep 10
       assert_match "<title>Jackett</title>", shell_output("curl -b cookiefile -c cookiefile -L --silent http://localhost:#{port}")
     ensure
       Process.kill "TERM", pid
