@@ -20,7 +20,7 @@ class D2 < Formula
 
   def install
     ldflags = "-s -w -X oss.terrastruct.com/d2/lib/version.Version=#{version}"
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/d2"
+    system "go", "build", *std_go_args(ldflags: ldflags)
   end
 
   test do
