@@ -3,6 +3,7 @@ class Libb64 < Formula
   homepage "https://libb64.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/libb64/libb64/libb64/libb64-1.2.1.zip"
   sha256 "20106f0ba95cfd9c35a13c71206643e3fb3e46512df3e2efb2fdbf87116314b2"
+  license "CC-PDDC"
   revision 1
 
   bottle do
