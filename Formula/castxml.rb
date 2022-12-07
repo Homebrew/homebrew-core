@@ -24,7 +24,6 @@ class Castxml < Formula
 
   depends_on "cmake" => :build
   depends_on "llvm"
-  uses_from_macos "llvm" => :test # Our test uses `clang++`.
 
   fails_with gcc: "5"
 
