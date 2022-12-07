@@ -7,12 +7,6 @@ class Clusterawsadm < Formula
   license "Apache-2.0"
   head "https://github.com/kubernetes-sigs/cluster-api-provider-aws.git", branch: "main"
 
-  livecheck do
-    url "https://github.com/kubernetes-sigs/cluster-api-provider-aws/releases"
-    regex(%r{href=["']?[^"' >]*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
-    strategy :page_match
-  end
-
   depends_on "go" => :build
 
   def install
