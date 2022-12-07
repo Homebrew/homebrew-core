@@ -3,8 +3,8 @@ class Certbot < Formula
 
   desc "Tool to obtain certs from Let's Encrypt and autoenable HTTPS"
   homepage "https://certbot.eff.org/"
-  url "https://files.pythonhosted.org/packages/09/df/955c86b860b5da2a63a34e27326958a8864e68be141bac9136ae2822b93e/certbot-2.0.0.tar.gz"
-  sha256 "05a63c25d4a622dfb63b8d346cb97cba86d38ca6e7d71d2bbbc9223995731c13"
+  url "https://files.pythonhosted.org/packages/25/92/9c48e2e9ad7f31d29c71b5b087cd97bfbaf1891f1ae2a88f8e99a930a40c/certbot-2.1.0.tar.gz"
+  sha256 "1f4409739f8454956963b4c78fc1c959db2bef85ea6fc6f08951d7275ec2595d"
   license "Apache-2.0"
   head "https://github.com/certbot/certbot.git", branch: "master"
 
@@ -33,18 +33,18 @@ class Certbot < Formula
   end
 
   resource "acme" do
-    url "https://files.pythonhosted.org/packages/2b/c5/e32a7d9be0cf1c98daa28088cb9c5ef1637571bf9cbf82b37fbf8b0701dc/acme-2.0.0.tar.gz"
-    sha256 "7106d0bd04fab062eb657d7cf77f76d6c9babca9813603a7435be4382ea6dad8"
+    url "https://files.pythonhosted.org/packages/50/80/ab64902eb633e9c63c256e105707f602c37725e25633ebdd0756a1e124ee/acme-2.1.0.tar.gz"
+    sha256 "04cd54d46ee6611b540f79dc550a86c6de39c6c9648b856e952dcf3817ce99dd"
   end
 
   resource "certbot-apache" do
-    url "https://files.pythonhosted.org/packages/79/a3/a3e081480a6057a46f6b630fa21697be4f3eed98d0ceefa249e8752dc79a/certbot-apache-2.0.0.tar.gz"
-    sha256 "52e01c92e976820951bc6c5100b851383bc544443a672d449ec1d2d5633c6171"
+    url "https://files.pythonhosted.org/packages/5c/20/b0a3ae51e2a826b98217c87d99db2e03d08311f21f1e0b72d1b84a9d4e88/certbot-apache-2.1.0.tar.gz"
+    sha256 "f5baa523a4bf9a848d11ae953cf7054a42b98cbe0ceedaf1746ed5528035241b"
   end
 
   resource "certbot-nginx" do
-    url "https://files.pythonhosted.org/packages/dc/7e/3b8af653712c12a75a9bb584cd328bc4f5d6c063ecb33ab727ddc96153d1/certbot-nginx-2.0.0.tar.gz"
-    sha256 "f854f63246ca396bdbc054f47d57aa406524f538607d0aa3c8dad82e6fd32bf5"
+    url "https://files.pythonhosted.org/packages/88/8e/5fc85a80d51a661bbae37e9f0fc5da7e4cefefa931741bcc2c89d812b890/certbot-nginx-2.1.0.tar.gz"
+    sha256 "9f88b92227e72463a57de28ef82a5c2a4eb18d1d7ec811f33ddbf9fbef92a4aa"
   end
 
   resource "certifi" do
@@ -73,8 +73,8 @@ class Certbot < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/13/dd/a9608b7aebe5d2dc0c98a4b2090a6b815628efa46cc1c046b89d8cd25f4c/cryptography-38.0.3.tar.gz"
-    sha256 "bfbe6ee19615b07a98b1d2287d6a6073f734735b49ee45b11324d85efc4d5cbd"
+    url "https://files.pythonhosted.org/packages/e3/3f/41186b1f2fd86a542d399175f6b8e43f82cd4dfa51235a0b030a042b811a/cryptography-38.0.4.tar.gz"
+    sha256 "175c1a818b87c9ac80bb7377f5520b7f31b3ef2a0004e2420319beadedb67290"
   end
 
   resource "distro" do
@@ -133,8 +133,8 @@ class Certbot < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/b2/56/d87d6d3c4121c0bcec116919350ca05dc3afd2eeb7dc88d07e8083f8ea94/urllib3-1.26.12.tar.gz"
-    sha256 "3fa96cf423e6987997fc326ae8df396db2a8b7c667747d47ddd8ecba91f4a74e"
+    url "https://files.pythonhosted.org/packages/c2/51/32da03cf19d17d46cce5c731967bf58de9bd71db3a379932f53b094deda4/urllib3-1.26.13.tar.gz"
+    sha256 "c083dd0dce68dbfbe1129d5271cb90f9447dea7d52097c6e0126120c521ddea8"
   end
 
   def install
