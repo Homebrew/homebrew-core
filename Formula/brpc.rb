@@ -16,6 +16,8 @@ class Brpc < Formula
     args = %w[
       -DBUILD_SHARED_LIBS=ON
       -DBUILD_UNIT_TESTS=OFF
+      -DDOWNLOAD_GTEST=OFF
+      -DWITH_DEBUG_SYMBOLS=OFF
     ]
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
