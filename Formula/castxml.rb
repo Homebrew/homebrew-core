@@ -1,8 +1,8 @@
 class Castxml < Formula
   desc "C-family Abstract Syntax Tree XML Output"
   homepage "https://github.com/CastXML/CastXML"
-  url "https://github.com/CastXML/CastXML/archive/v0.4.8.tar.gz"
-  sha256 "c8cb5edba35f76b0391a5be96a0a1efacc73ffdbe7ca4e62b4484ddfdbab15f5"
+  url "https://github.com/CastXML/CastXML/archive/v0.5.0.tar.gz"
+  sha256 "005d5c6b95d046fcc36703004ca83f4418d94308e039cdb573aa9cdf3a29b643"
   license "Apache-2.0"
   head "https://github.com/CastXML/castxml.git", branch: "master"
 
@@ -23,7 +23,7 @@ class Castxml < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "llvm@14"
+  depends_on "llvm"
   uses_from_macos "llvm" => :test # Our test uses `clang++`.
 
   fails_with gcc: "5"
