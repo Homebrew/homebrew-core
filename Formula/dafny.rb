@@ -4,6 +4,7 @@ class Dafny < Formula
   url "https://github.com/dafny-lang/dafny/archive/refs/tags/v3.9.1.tar.gz"
   sha256 "77272ca990c4555bde5a31335227b2ba7811c29c5bc8a4381bf7cfd1294a2f20"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -21,10 +22,13 @@ class Dafny < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "25d87dc6b3a2041668a3e4100d3e44c61bee2a772a8405fdc8fc63d1ac35a200"
   end
 
-  depends_on "gradle" => :build
-  depends_on "python@3.10" => :build # for z3
-  depends_on "dotnet"
-  depends_on "openjdk@11"
+  depends_on "dotnet@6"
+  # We use the latest Java version that is compatible with gradlew version in `dafny`.
+  # https://github.com/dafny-lang/dafny/blob/v#{version}/Source/DafnyRuntime/DafnyRuntimeJava/gradle/wrapper/gradle-wrapper.properties
+  # https://docs.gradle.org/current/userguide/compatibility.html
+  depends_on "openjdk@17"
+
+  uses_from_macos "python" => :build, since: :catalina # for z3
 
   # Use the following along with the z3 build below, as long as dafny
   # cannot build with latest z3 (https://github.com/dafny-lang/dafny/issues/810)
@@ -35,22 +39,18 @@ class Dafny < Formula
 
   def install
     system "make", "exe"
-
     libexec.install Dir["Binaries/*", "Scripts/quicktest.sh"]
 
-    dst_z3_bin = libexec/"z3/bin"
-    dst_z3_bin.mkpath
-
     resource("z3").stage do
-      ENV["PYTHON"] = which("python3.10")
+      ENV["PYTHON"] = which("python3")
       system "./configure"
       system "make", "-C", "build"
-      mv("build/z3", dst_z3_bin/"z3")
+      (libexec/"z3/bin").install "build/z3"
     end
 
     (bin/"dafny").write <<~EOS
       #!/bin/bash
-      dotnet #{libexec}/Dafny.dll "$@"
+      exec "#{Formula["dotnet@6"].opt_bin}/dotnet" "#{libexec}/Dafny.dll" "$@"
     EOS
   end
 
