@@ -1,6 +1,6 @@
 class Luacheck < Formula
   desc "Package manager for the Lua programming language"
-  homepage "https://github.com/lunarmodules/luacheck"
+  homepage "https://luacheck.readthedocs.io/"
   url "https://github.com/lunarmodules/luacheck/archive/refs/tags/v1.0.0.tar.gz"
   sha256 "360586c7b51aa1f368e6f14c9697a576cf902d55d44ef0bd0cd4b082b10700a8"
   license "MIT"
