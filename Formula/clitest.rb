@@ -12,10 +12,13 @@ class Clitest < Formula
 
   test do
     (testpath/"test.txt").write <<~EOS
-      $ echo "Hello World"
-      Hello World
+      $ echo "Hello World"   #=> Hello World
+      $ cd /tmp
+      $ pwd                  #=> /tmp
+      $ cd "$OLDPWD"
+      $
     EOS
-    assert_match "OK: 1 of 1 test passed",
+    assert_match "OK: 4 of 4 tests passed",
       shell_output("#{bin}/clitest #{testpath}/test.txt")
   end
 end
