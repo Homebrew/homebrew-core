@@ -45,7 +45,12 @@ class Unisonlang < Formula
     # Build and install the web interface
     resource("local-ui").stage do
       system "npm", "install", *Language::Node.local_npm_install_args
-      system "npm", "run", "ui-core:install"
+      # HACK: Flaky command occasionally stalls build indefinitely so we force fail
+      # if that occurs. Problem seems to happening while running `elm-json install`.
+      # Issue ref: https://github.com/zwilias/elm-json/issues/50
+      Timeout.timeout(300) do
+        system "npm", "run", "ui-core:install"
+      end
       system "npm", "run", "build"
 
       prefix.install "dist/unisonLocal" => "ui"
