@@ -49,7 +49,7 @@ class Cortex < Formula
     end
 
     fork { exec bin/"cortex", "-config.file=cortex.yaml", "-server.grpc-listen-port=#{free_port}" }
-    sleep 3
+    sleep 10
 
     output = shell_output("curl -s localhost:#{port}/services")
     assert_match "Running", output
