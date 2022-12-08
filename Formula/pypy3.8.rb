@@ -1,8 +1,8 @@
 class Pypy38 < Formula
   desc "Implementation of Python 3 in Python"
   homepage "https://pypy.org/"
-  url "https://downloads.python.org/pypy/pypy3.8-v7.3.8-src.tar.bz2"
-  sha256 "f1a378b264cdbfb0e03d77dfc4d105d02f91d542bd7c9c957d1f8083a9808f1f"
+  url "https://downloads.python.org/pypy/pypy3.8-v7.3.10-src.tar.bz2"
+  sha256 "218a1e062f17aba89f61bc398e8498f13c048b9fcf294343f5d9d56c3ac9b882"
   license "MIT"
   head "https://foss.heptapod.net/pypy/pypy", using: :hg, branch: "py3.8"
 
