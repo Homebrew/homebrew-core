@@ -5,8 +5,8 @@ class IosDeploy < Formula
   head "https://github.com/ios-control/ios-deploy.git", branch: "master"
 
   stable do
-    url "https://github.com/ios-control/ios-deploy/archive/refs/tags/1.12.0.tar.gz"
-    sha256 "49f4835e365f6c5c986af3f4bd5c1858c1a1d110aa7f9cf45649c3617911c508"
+    url "https://github.com/ios-control/ios-deploy/archive/1.12.1.tar.gz"
+    sha256 "635cc36b027ec36cd9f5ebd4136f0e1274caa60049c1f6e4fd15d45d7bef5bc3"
 
     # fix build failure, remove in next release
     patch do
