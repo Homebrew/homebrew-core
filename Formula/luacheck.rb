@@ -9,6 +9,8 @@ class Luacheck < Formula
   depends_on "luarocks" => :build
   depends_on "lua"
 
+  uses_from_macos "unzip" => :build
+
   def install
     system "luarocks", "make", "--tree=#{libexec}", "--global", "--lua-dir=#{Formula["lua"].opt_prefix}"
     bin.install_symlink Dir["#{libexec}/bin/*"]
