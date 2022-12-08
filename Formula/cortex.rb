@@ -40,6 +40,9 @@ class Cortex < Formula
   end
 
   test do
+    require "open3"
+    require "timeout"
+
     port = free_port
 
     # A minimal working config modified from
@@ -59,10 +62,23 @@ class Cortex < Formula
           dir: #{testpath}/data/tsdb
     EOS
 
-    fork { exec bin/"cortex", "-config.file=cortex.yaml", "-server.grpc-listen-port=#{free_port}" }
-    sleep 5
-
-    output = shell_output("curl -s localhost:#{port}/services")
-    assert_match "Running", output
+    Open3.popen3(
+      bin/"cortex", "-config.file=cortex.yaml",
+                    "-server.grpc-listen-port=#{free_port}"
+    ) do |_, _, stderr, wait_thr|
+      Timeout.timeout(5) do
+        stderr.each do |line|
+          refute line.start_with? "level=error"
+          # It is important to wait for this line. Finishing the test too early
+          # may shadow errors that only occur when modules are fully loaded.
+          break if line.include? "Cortex started"
+        end
+        output = shell_output("curl -s http://localhost:#{port}/services")
+        assert_match "Running", output
+      end
+    ensure
+      Process.kill "TERM", wait_thr.pid
+      Process.wait wait_thr.pid
+    end
   end
 end
