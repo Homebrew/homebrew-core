@@ -10,9 +10,6 @@ class Willgit < Formula
     sha256 cellar: :any_skip_relocation, all: "471907584cfb2691323566ad760ea0686de7aac0e2f20edc2ad0575146caee83"
   end
 
-  conflicts_with "git-utils",
-    because: "both install a `git-rank-contributors` script"
-
   def install
     prefix.install "bin"
   end
