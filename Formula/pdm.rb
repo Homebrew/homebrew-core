@@ -3,8 +3,8 @@ class Pdm < Formula
 
   desc "Modern Python package manager with PEP 582 support"
   homepage "https://pdm.fming.dev"
-  url "https://files.pythonhosted.org/packages/ce/a9/7bf9c0dc1d0dee04deba3cdb12267cf807188fde17ffa957b8576af6106e/pdm-2.3.1.tar.gz"
-  sha256 "68be6c9ee7f0afb1a324f65926f618521cbe899d3d557011d579d4ce2bfb47fd"
+  url "https://files.pythonhosted.org/packages/a0/22/dab6e1b1e46bd97707cea0e80d0ff5f4a02a21955a20887e54249d872b3c/pdm-2.3.2.tar.gz"
+  sha256 "9bce2dd97012129b3ff2907648311edbac085fa8b9d6964a7e5c23845c785fbe"
   license "MIT"
   head "https://github.com/pdm-project/pdm.git", branch: "main"
 
@@ -33,8 +33,8 @@ class Pdm < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/cb/a4/7de7cd59e429bd0ee6521ba58a75adaec136d32f91a761b28a11d8088d44/certifi-2022.9.24.tar.gz"
-    sha256 "0d9c601124e5a6ba9712dbc60d9c53c21e34f5f641fe83002317394311bdce14"
+    url "https://files.pythonhosted.org/packages/37/f7/2b1b0ec44fdc30a3d31dfebe52226be9ddc40cd6c0f34ffc8923ba423b69/certifi-2022.12.7.tar.gz"
+    sha256 "35824b4c3a97115964b408844d64aa14db1cc518f6562e8d7261699d1350a9e3"
   end
 
   resource "charset-normalizer" do
@@ -53,8 +53,8 @@ class Pdm < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/a1/28/917f6ed652156272f81f7fee4fec0a59b7a9b72777a075d084058163d11b/filelock-3.8.1.tar.gz"
-    sha256 "9255d3cd8de8fcb2a441444f7a4f1949ae826da36cd070dc3e0c883614b4bbad"
+    url "https://files.pythonhosted.org/packages/d8/73/292d9ea2370840a163e6dd2d2816a571244e9335e2f6ad957bf0527c492f/filelock-3.8.2.tar.gz"
+    sha256 "7565f628ea56bfcd8e54e42bdc55da899c85c1abfe1b5bcfd147e9188cebb3b2"
   end
 
   resource "findpython" do
@@ -68,8 +68,8 @@ class Pdm < Formula
   end
 
   resource "installer" do
-    url "https://files.pythonhosted.org/packages/74/b7/9187323cd732840f1cddd6a9f05961406636b50c799eef37c920b63110c0/installer-0.5.1.tar.gz"
-    sha256 "f970995ec2bb815e2fdaf7977b26b2091e1e386f0f42eafd5ac811953dc5d445"
+    url "https://files.pythonhosted.org/packages/c9/ab/a9141dc175ec7b620fffe7e0295251a7b6a0ffb4325d64aeb128dff8c698/installer-0.6.0.tar.gz"
+    sha256 "f3bd36cd261b440a88a1190b1becca0578fee90b4b62decc796932fdd5ae8839"
   end
 
   resource "msgpack" do
@@ -78,18 +78,13 @@ class Pdm < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/df/9e/d1a7217f69310c1db8fdf8ab396229f55a699ce34a203691794c5d1cad0c/packaging-21.3.tar.gz"
-    sha256 "dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb"
+    url "https://files.pythonhosted.org/packages/6b/f7/c240d7654ddd2d2f3f328d8468d4f1f876865f6b9038b146bec0a6737c65/packaging-22.0.tar.gz"
+    sha256 "2198ec20bd4c017b8f9717e00f0c8714076fc2fd93816750ab48e2c41de2cfd3"
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/cb/5f/dda8451435f17ed8043eab5ffe04e47d703debe8fe845eb074f42260e50a/platformdirs-2.5.4.tar.gz"
-    sha256 "1006647646d80f16130f052404c6b901e80ee4ed6bef6792e1f238a8969106f7"
-  end
-
-  resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/71/22/207523d16464c40a0310d2d4d8926daffa00ac1f5b1576170a32db749636/pyparsing-3.0.9.tar.gz"
-    sha256 "2b020ecf7d21b687f219b71ecad3631f644a47f01403fa1d1036b0c6416d70fb"
+    url "https://files.pythonhosted.org/packages/ec/4c/9af851448e55c57b30a13a72580306e628c3b431d97fdae9e0b8d4fa3685/platformdirs-2.6.0.tar.gz"
+    sha256 "b46ffafa316e6b83b47489d240ce17173f123a9b9c83282141c3daf26ad9ac2e"
   end
 
   resource "pyproject_hooks" do
@@ -133,8 +128,8 @@ class Pdm < Formula
   end
 
   resource "unearth" do
-    url "https://files.pythonhosted.org/packages/b4/5b/2751a23560b6148f3dfe8072f03e0a18102df7b2a531d495596912d20c5e/unearth-0.6.2.tar.gz"
-    sha256 "130d0c59159795ae66986c1dcbe5d2ddd1da19841972d8d73510d5204b3817ea"
+    url "https://files.pythonhosted.org/packages/c5/06/4eeb23ba770f73cb403ed9655e08592700b5601bed1016783773d928dd61/unearth-0.6.3.tar.gz"
+    sha256 "3b7e494b0b13a8bd15d54c7c85870d2c051d912846263d16da671ff7bd8eef4f"
   end
 
   resource "urllib3" do
@@ -143,8 +138,8 @@ class Pdm < Formula
   end
 
   resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/ac/c0/a0a0fb1433e4c3d8d9e2d6c990812e328913c64adcfbcfcae1974af0521c/virtualenv-20.17.0.tar.gz"
-    sha256 "7d6a8d55b2f73b617f684ee40fd85740f062e1f2e379412cb1879c7136f05902"
+    url "https://files.pythonhosted.org/packages/7b/19/65f13cff26c8cc11fdfcb0499cd8f13388dd7b35a79a376755f152b42d86/virtualenv-20.17.1.tar.gz"
+    sha256 "f8b927684efc6f1cc206c9db297a570ab9ad0e51c16fa9e45487d36d1905c058"
   end
 
   resource "wheel" do
