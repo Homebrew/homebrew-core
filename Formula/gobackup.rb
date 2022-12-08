@@ -15,7 +15,7 @@ class Gobackup < Formula
   end
 
   test do
-    assert_match revision.to_s, shell_output("#{bin}/gobackup -v")
+    assert_match version.to_s, shell_output("#{bin}/gobackup -v")
 
     config_file = testpath/"gobackup.yml"
 
