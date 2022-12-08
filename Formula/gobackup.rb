@@ -4,6 +4,7 @@ class Gobackup < Formula
   url "https://github.com/gobackup/gobackup/archive/refs/tags/v1.3.0.tar.gz"
   sha256 "739e0c8beb1a9ab453722e1edccc70197dbd55a8617bdc5086de1ff6414a7e08"
   license "MIT"
+  head "https://github.com/gobackup/gobackup.git", branch: "main"
 
   depends_on "go" => :build
 
