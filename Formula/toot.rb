@@ -3,8 +3,8 @@ class Toot < Formula
 
   desc "Mastodon CLI & TUI"
   homepage "https://toot.readthedocs.io/en/latest/index.html"
-  url "https://files.pythonhosted.org/packages/88/c8/5690de8955f4e0f0768cfa9add0b3630e77eab55db8537f5ab65e9f3cf01/toot-0.30.1.tar.gz"
-  sha256 "bfabdfcbd8a78e9597f5f01e6dae171b2478553503d2c4cc66b33b4eb3132e65"
+  url "https://files.pythonhosted.org/packages/cf/57/56a7c847bd4ca3735eabcd48bc6367f875a125012f9949f2a43d8a889136/toot-0.31.0.tar.gz"
+  sha256 "a4730080c9902428dc1e2664a4fb2144a6377e0358ec265f90f6350058123b2e"
   license "GPL-3.0-only"
   head "https://github.com/ihabunek/toot.git", branch: "master"
 
@@ -26,8 +26,8 @@ class Toot < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/cb/a4/7de7cd59e429bd0ee6521ba58a75adaec136d32f91a761b28a11d8088d44/certifi-2022.9.24.tar.gz"
-    sha256 "0d9c601124e5a6ba9712dbc60d9c53c21e34f5f641fe83002317394311bdce14"
+    url "https://files.pythonhosted.org/packages/37/f7/2b1b0ec44fdc30a3d31dfebe52226be9ddc40cd6c0f34ffc8923ba423b69/certifi-2022.12.7.tar.gz"
+    sha256 "35824b4c3a97115964b408844d64aa14db1cc518f6562e8d7261699d1350a9e3"
   end
 
   resource "charset-normalizer" do
