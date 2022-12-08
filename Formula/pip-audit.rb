@@ -3,8 +3,8 @@ class PipAudit < Formula
 
   desc "Audits Python environments and dependency trees for known vulnerabilities"
   homepage "https://pypi.org/project/pip-audit/"
-  url "https://files.pythonhosted.org/packages/8d/10/f78fdb7944b421fe33341e47e6c1375cd5b75245f58c9e44e8f178af133a/pip_audit-2.4.7.tar.gz"
-  sha256 "f87b37b6db5317a3f5ecebc202b5d4401958b5e4bd05b39d7b230bdc6f63c34b"
+  url "https://files.pythonhosted.org/packages/a1/13/7e75d4dfc367ead0085ff31238576019306b73d70a415be3c5ab2f78809d/pip_audit-2.4.8.tar.gz"
+  sha256 "a45540ab0c5a9311315ca42c78fa8f72cf3598d5968a67d883d2d6194eda598c"
   license "Apache-2.0"
 
   bottle do
@@ -28,8 +28,8 @@ class PipAudit < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/cb/a4/7de7cd59e429bd0ee6521ba58a75adaec136d32f91a761b28a11d8088d44/certifi-2022.9.24.tar.gz"
-    sha256 "0d9c601124e5a6ba9712dbc60d9c53c21e34f5f641fe83002317394311bdce14"
+    url "https://files.pythonhosted.org/packages/37/f7/2b1b0ec44fdc30a3d31dfebe52226be9ddc40cd6c0f34ffc8923ba423b69/certifi-2022.12.7.tar.gz"
+    sha256 "35824b4c3a97115964b408844d64aa14db1cc518f6562e8d7261699d1350a9e3"
   end
 
   resource "charset-normalizer" do
@@ -48,8 +48,8 @@ class PipAudit < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/95/55/b897882bffb8213456363e646bf9e9fa704ffda5a7d140edf935a9e02c7b/filelock-3.8.0.tar.gz"
-    sha256 "55447caa666f2198c5b6b13a26d2084d26fa5b115c00d065664b2124680c4edc"
+    url "https://files.pythonhosted.org/packages/d8/73/292d9ea2370840a163e6dd2d2816a571244e9335e2f6ad957bf0527c492f/filelock-3.8.2.tar.gz"
+    sha256 "7565f628ea56bfcd8e54e42bdc55da899c85c1abfe1b5bcfd147e9188cebb3b2"
   end
 
   resource "html5lib" do
@@ -83,8 +83,8 @@ class PipAudit < Formula
   end
 
   resource "pip-requirements-parser" do
-    url "https://files.pythonhosted.org/packages/fc/aa/4fbc8040db7afae616eda6329ddc8ef73afc8bcb611bf9126937970bca83/pip-requirements-parser-31.2.0.tar.gz"
-    sha256 "8c2a6f8e091ac2693824a5ef4e3b250226e34f74a20a91a87b9ab0714b47788f"
+    url "https://files.pythonhosted.org/packages/b9/23/521b47a48e8d0a66e9cb15d25279381efbda8e2e474d04018d577e677c7b/pip-requirements-parser-32.0.0.tar.gz"
+    sha256 "5159b8a9485a5a0d0254a29c9bd8b8ce66db2eb9a1a0244c64dfce43f7f2ac90"
   end
 
   resource "pyparsing" do
