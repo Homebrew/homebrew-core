@@ -7,12 +7,6 @@ class IosDeploy < Formula
   stable do
     url "https://github.com/ios-control/ios-deploy/archive/1.12.1.tar.gz"
     sha256 "635cc36b027ec36cd9f5ebd4136f0e1274caa60049c1f6e4fd15d45d7bef5bc3"
-
-    # fix build failure, remove in next release
-    patch do
-      url "https://github.com/ios-control/ios-deploy/commit/24c9efbd43f2acd25c0f3e85137e29ec3c1654cf.patch?full_index=1"
-      sha256 "efc223ca219fb64c06155b1675a8a81d57ee42c18ff210c070d8d6f37c893b07"
-    end
   end
 
   bottle do
