@@ -1,10 +1,23 @@
 class StylishHaskell < Formula
   desc "Haskell code prettifier"
   homepage "https://github.com/haskell/stylish-haskell"
-  url "https://github.com/haskell/stylish-haskell/archive/v0.14.3.0.tar.gz"
-  sha256 "27f8b372e5ff18608f1db22598c99bb3d535083a65b02ebc40af5fc0b3b4ed38"
   license "BSD-3-Clause"
   head "https://github.com/haskell/stylish-haskell.git", branch: "main"
+
+  stable do
+    url "https://github.com/haskell/stylish-haskell/archive/v0.14.3.0.tar.gz"
+    sha256 "27f8b372e5ff18608f1db22598c99bb3d535083a65b02ebc40af5fc0b3b4ed38"
+
+    # Add support for GHC 9.4. Remove in the next release
+    patch do
+      url "https://github.com/haskell/stylish-haskell/commit/256e85c3df06c4458940cc31b56cfd8558571617.patch?full_index=1"
+      sha256 "3515df4af730e897504f170f0846d75a7f8e5eb6bd5a8401a96e291f66e08414"
+    end
+    patch do
+      url "https://github.com/haskell/stylish-haskell/commit/05cc9e18f39ee7d465746d8493832e4012d6674b.patch?full_index=1"
+      sha256 "e908ae961b57a7645e89a07d322219a7d832db75f5e135fbe286ebf07252fbc6"
+    end
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "51d558bc19d94bf7ce019e4be28fe016e8ca51f80b7f8853b3287f5705f14760"
@@ -22,9 +35,9 @@ class StylishHaskell < Formula
   def install
     system "cabal", "v2-update"
     # Work around build failure by enabling `ghc-lib` flag
-    # lib/Language/Haskell/Stylish/GHC.hs:71:32: error:
-    #     • Couldn't match expected type 'GHC.Settings'
-    #                   with actual type 'ghc-lib-parser-9.2.4.20220729:GHC.Settings.Settings'
+    # lib/Language/Haskell/Stylish/GHC.hs:71:51: error:
+    #     • Couldn't match expected type 'GHC.LlvmConfig'
+    #                   with actual type 'ghc-lib-parser-9.4.3.20221104:GHC.Driver.Session.LlvmConfig'
     # Issue ref: https://github.com/haskell/stylish-haskell/issues/405
     system "cabal", "v2-install", *std_cabal_v2_args, "--flags=+ghc-lib"
   end
