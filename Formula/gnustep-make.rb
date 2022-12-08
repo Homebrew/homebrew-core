@@ -7,7 +7,10 @@ class GnustepMake < Formula
 
   livecheck do
     url :stable
-    strategy :github_latest
+    regex(%r{href=["']?[^"' >]*?/tag/make[._-]v?(\d+(?:[._]\d+)+)["' >]}i)
+    strategy :github_latest do |page, regex|
+      page.scan(regex).map { |match| match[0].tr("_", ".") }
+    end
   end
 
   bottle do
