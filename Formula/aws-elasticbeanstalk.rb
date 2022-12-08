@@ -6,7 +6,7 @@ class AwsElasticbeanstalk < Formula
   url "https://files.pythonhosted.org/packages/5b/38/f594de4db661cead3dbf433b07eba3f726d4b759f31fd364140b9b923761/awsebcli-3.20.3.tar.gz"
   sha256 "5b79d45cf017a2270340d5e2824b51d7e6fff56eaabe2f747ee8eb5c07a4c535"
   license "Apache-2.0"
-  revision 2
+  revision 1
 
   bottle do
     rebuild 1
