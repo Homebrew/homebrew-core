@@ -570,6 +570,11 @@
   "shallow-backup": {
     "exclude_packages": ["six"]
   },
+  "snakefmt": {
+    "exclude_packages": [
+      "pathspec", "black", "click", "mypy-extensions", "platformdirs"
+    ]
+  },
   "snakemake": {
     "exclude_packages": ["tabulate", "PyYAML", "jsonschema", "attrs", "pyrsistent", "docutils"]
   },
