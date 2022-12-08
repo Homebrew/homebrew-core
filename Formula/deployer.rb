@@ -1,15 +1,17 @@
 class Deployer < Formula
   desc "Deployment tool written in PHP with support for popular frameworks"
   homepage "https://deployer.org/"
+  # Bump to php 8.2 on the next release, if possible.
   url "https://github.com/deployphp/deployer/releases/download/v7.0.2/deployer.phar"
   sha256 "0dd3d3a4aac4b27338359843fc9f4f974b06276c2854b41b6fd54b0786473936"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "626958a7bd2b8e670951094c2e5d137a9bc8058927f0e5083f05ac4036f598f3"
   end
 
-  depends_on "php"
+  depends_on "php@8.1"
 
   conflicts_with "dep", because: "both install `dep` binaries"
 
