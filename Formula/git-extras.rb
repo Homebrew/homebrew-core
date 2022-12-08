@@ -14,9 +14,6 @@ class GitExtras < Formula
     depends_on "util-linux" # for `column`
   end
 
-  conflicts_with "git-utils",
-    because: "both install a `git-pull-request` script"
-
   conflicts_with "git-sync",
     because: "both install a `git-sync` binary"
 
