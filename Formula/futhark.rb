@@ -1,10 +1,19 @@
 class Futhark < Formula
   desc "Data-parallel functional programming language"
   homepage "https://futhark-lang.org/"
-  url "https://github.com/diku-dk/futhark/archive/v0.22.4.tar.gz"
-  sha256 "5edf79ed2076192ead64efb8a4d30d05b56b2c1ec5bdd0905c33d6099d312850"
   license "ISC"
   head "https://github.com/diku-dk/futhark.git", branch: "master"
+
+  stable do
+    url "https://github.com/diku-dk/futhark/archive/v0.22.4.tar.gz"
+    sha256 "5edf79ed2076192ead64efb8a4d30d05b56b2c1ec5bdd0905c33d6099d312850"
+
+    # Use newer hackage snapshot to support GHC 9.4. Remove on the next release
+    patch do
+      url "https://github.com/diku-dk/futhark/commit/4b1eb18ca1ba6f8f8e9a15deed632eee5e5e5b5d.patch?full_index=1"
+      sha256 "255487e20952f19ef8bdc812b9775220f8526c5823c630c13af7c7667bee9690"
+    end
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cde37b2d259338ddea47ffa9891ca146eb05c93fc0c17979b2387ae5b40ad35a"
