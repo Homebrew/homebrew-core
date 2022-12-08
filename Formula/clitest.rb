@@ -1,18 +1,21 @@
 class Clitest < Formula
-  desc "Command Line Tester"
+  desc "Command-Line Tester"
   homepage "https://github.com/aureliojargas/clitest"
   url "https://github.com/aureliojargas/clitest/archive/refs/tags/0.4.0.tar.gz"
-  head "https://github.com/aureliojargas/clitest.git", branch: "main"
   sha256 "e889fb1fdaae44f0911461cc74849ffefb1fef9b200584e1749b355e4f9a3997"
   license "MIT"
-
-  uses_from_macos "sh" => :test
+  head "https://github.com/aureliojargas/clitest.git", branch: "main"
 
   def install
     bin.install "clitest"
   end
 
   test do
-    system "false"
+    (testpath/"test.txt").write <<~EOS
+      $ echo "Hello World"
+      Hello World
+    EOS
+    assert_match "OK: 1 of 1 test passed",
+      shell_output("#{bin}/clitest #{testpath}/test.txt")
   end
 end
