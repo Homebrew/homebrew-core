@@ -11,6 +11,11 @@ class Snakefmt < Formula
   depends_on "black"
   depends_on "python@3.11"
 
+  on_linux do
+    depends_on "pkg-config" => :build
+    depends_on "rust" => :build
+  end
+
   resource "importlib-metadata" do
     url "https://files.pythonhosted.org/packages/e2/ae/0b037584024c1557e537d25482c306cf6327b5a09b6c4b893579292c1c38/importlib_metadata-1.7.0.tar.gz"
     sha256 "90bb658cdbbf6d1735b6341ce708fc7024a3e14e99ffdc5783edea9f9b077f83"
