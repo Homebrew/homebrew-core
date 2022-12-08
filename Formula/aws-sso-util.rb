@@ -6,7 +6,6 @@ class AwsSsoUtil < Formula
   url "https://files.pythonhosted.org/packages/6b/ea/2241ca0f8f3b2033a283ef06b9a03164559388d7cc1af9d20048d50cd578/aws-sso-util-4.30.0.tar.gz"
   sha256 "cfdca8877e7ab0a2dd9e360af45e9cb11420f7f8c31cec2c3b12f41d0a4f7f3a"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/benkehoe/aws-sso-util.git", branch: "master"
 
   bottle do
