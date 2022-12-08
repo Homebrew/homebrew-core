@@ -10,8 +10,7 @@ class Gobackup < Formula
   def install
     revision = build.head? ? version.commit : version
 
-    system "go", "build", "-o", bin/"gobackup", "-ldflags",
-      "-s -w -X main.version=#{revision}"
+    system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{revision}")
   end
 
   test do
