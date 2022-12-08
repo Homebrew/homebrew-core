@@ -42,14 +42,25 @@ class Cortex < Formula
   test do
     port = free_port
 
-    cp etc/"cortex.yaml", testpath
-    inreplace "cortex.yaml" do |s|
-      s.gsub! "9009", port.to_s
-      s.gsub! var, testpath
-    end
+    # A minimal working config modified from
+    # https://github.com/cortexproject/cortex/blob/master/docs/configuration/single-process-config-blocks.yaml
+    (testpath/"cortex.yaml").write <<~EOS
+      server:
+        http_listen_port: #{port}
+      ingester:
+        lifecycler:
+          ring:
+            kvstore:
+              store: inmemory
+            replication_factor: 1
+      blocks_storage:
+        backend: filesystem
+        filesystem:
+          dir: #{testpath}/data/tsdb
+    EOS
 
     fork { exec bin/"cortex", "-config.file=cortex.yaml", "-server.grpc-listen-port=#{free_port}" }
-    sleep 10
+    sleep 5
 
     output = shell_output("curl -s localhost:#{port}/services")
     assert_match "Running", output
