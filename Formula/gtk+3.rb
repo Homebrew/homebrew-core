@@ -45,6 +45,9 @@ class Gtkx3 < Formula
     depends_on "wayland-protocols"
     depends_on "xorgproto"
 
+    # fix ERROR: Non-existent build file 'gdk/wayland/cursor/meson.build'
+    # upstream commit reference, https://gitlab.gnome.org/GNOME/gtk/-/commit/66a19980
+    # remove in next release
     patch :DATA
   end
 
