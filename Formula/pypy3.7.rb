@@ -24,14 +24,15 @@ class Pypy37 < Formula
   depends_on arch: :x86_64
   depends_on "gdbm"
   depends_on "openssl@1.1"
-  depends_on "sqlite"
-  depends_on "tcl-tk"
+
   depends_on "xz"
 
   uses_from_macos "bzip2"
   uses_from_macos "expat"
   uses_from_macos "libffi"
   uses_from_macos "ncurses"
+  uses_from_macos "sqlite"
+  uses_from_macos "tcl-tk"
   uses_from_macos "unzip"
   uses_from_macos "zlib"
 
