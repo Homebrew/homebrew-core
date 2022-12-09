@@ -14,7 +14,12 @@ class Oauth2c < Formula
   end
 
   test do
-    assert_match "User-friendly command-line for OAuth2",
-      shell_output("#{bin}/oauth2c -h")
+    assert_match "Authorization completed",
+      shell_output("#{bin}/oauth2c https://oauth2c.us.authz.cloudentity.io/oauth2c/demo \
+      --client-id cauktionbud6q8ftlqq0 \
+      --client-secret HCwQ5uuUWBRHd04ivjX5Kl0Rz8zxMOekeLtqzki0GPc \
+      --grant-type client_credentials \
+      --auth-method client_secret_basic \
+      --scopes introspect_tokens,revoke_tokens")
   end
 end
