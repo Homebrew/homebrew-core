@@ -9,8 +9,6 @@ class Oauth2c < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GO111MODULE"] = "on"
-
     system "go", "build", "-o", "oauth2c"
     bin.install "oauth2c"
   end
