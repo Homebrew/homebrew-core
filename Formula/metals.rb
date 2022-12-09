@@ -22,14 +22,14 @@ class Metals < Formula
     end
 
     ["metals", "mtags", "mtags-interfaces"].each do |pkg|
-      (libexec/"lib").install buildpath.glob("#{pkg}/**/#{pkg}*-#{version}.jar")
+      (libexec/"lib").install buildpath.glob("#{pkg}/target/**/#{pkg}*.jar")
     end
 
     (bin/"metals").write <<~EOS
       #!/bin/bash
 
       export JAVA_HOME="#{Language::Java.overridable_java_home_env[:JAVA_HOME]}"
-      exec "${JAVA_HOME}/bin/java" -cp "$(brew --prefix metals)/libexec/lib/*" "scala.meta.metals.Main" "$@"
+      exec "${JAVA_HOME}/bin/java" -cp "#{libexec/"lib"}/*" "scala.meta.metals.Main" "$@"
     EOS
   end
 
