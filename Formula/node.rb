@@ -4,6 +4,7 @@ class Node < Formula
   url "https://nodejs.org/dist/v19.4.0/node-v19.4.0.tar.xz"
   sha256 "020541d670f528bd03ba0b92a1d0c46d6850982175a72f2aa557aefeda31b261"
   license "MIT"
+  revision 1
   head "https://github.com/nodejs/node.git", branch: "main"
 
   livecheck do
