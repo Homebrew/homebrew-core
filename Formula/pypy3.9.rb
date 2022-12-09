@@ -36,14 +36,6 @@ class Pypy39 < Formula
     sha256 "65fd48317359f3af8e593943e6ae1506b66325085ea64b706a998c6e83eeaf38"
   end
 
-  # Build fixes:
-  # - Disable Linux tcl-tk detection since the build script only searches system paths.
-  #   When tcl-tk is not found, it uses unversioned `-ltcl -ltk`, which breaks build.
-  # - Disable building cffi imports with `--embed-dependencies`, which compiles and
-  #   statically links a specific OpenSSL version.
-  # Upstream issue ref: https://foss.heptapod.net/pypy/pypy/-/issues/3538
-  patch :DATA
-
   def install
     # The `tcl-tk` library paths are hardcoded and need to be modified for non-/usr/local prefix
     inreplace "lib_pypy/_tkinter/tklib_build.py", "/usr/local/opt/tcl-tk/", Formula["tcl-tk"].opt_prefix/""
