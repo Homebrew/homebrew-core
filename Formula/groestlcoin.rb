@@ -1,13 +1,12 @@
 class Groestlcoin < Formula
   desc "Decentralized, peer to peer payment network"
   homepage "https://groestlcoin.org/groestlcoin-core-wallet/"
-  url "https://github.com/Groestlcoin/groestlcoin/releases/download/v23.0/groestlcoin-23.0.tar.gz"
-  sha256 "ea647fec40568ccb8d574f98cf5642fd0afcfb61af72cd5e83fd167e810885b3"
+  url "https://github.com/Groestlcoin/groestlcoin/releases/download/v24.0.1/groestlcoin-24.0.1.tar.gz"
+  sha256 "ff4db6305018a90973ed4686ede54b2886615d22ce7969fec41a3e861ec7d4b4"
   license "MIT"
   head "https://github.com/groestlcoin/groestlcoin.git", branch: "master"
 
   bottle do
-    rebuild 1
     sha256 cellar: :any,                 arm64_ventura:  "7f169f6c1b836a53ecd547562af19e7127ad922584092919967bb4b03c122723"
     sha256 cellar: :any,                 arm64_monterey: "e271b0f7cffcc522b9b280e4f96d79aaac5aa5a89706a57575a159e67fda5215"
     sha256 cellar: :any,                 arm64_big_sur:  "0bc45052b5f441bd2cd56a3b2205066c3eb6e5c20187f06e13740def6416b210"
@@ -22,11 +21,13 @@ class Groestlcoin < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+  depends_on "berkeley-db@5"
   depends_on "boost"
   depends_on "libevent"
   depends_on macos: :catalina # groestlcoin requires std::filesystem, which is only supported from Catalina onwards.
   depends_on "miniupnpc"
   depends_on "zeromq"
+
   uses_from_macos "sqlite"
 
   on_linux do
@@ -38,9 +39,7 @@ class Groestlcoin < Formula
   def install
     system "./autogen.sh"
     system "./configure", *std_configure_args,
-           "--disable-dependency-tracking",
            "--disable-silent-rules",
-           "--without-bdb",
            "--with-boost-libdir=#{Formula["boost"].opt_lib}"
     system "make", "install"
     pkgshare.install "share/rpcauth"
