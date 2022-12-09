@@ -25,11 +25,6 @@ class Nethacked < Formula
   sha256 "4e3065a7b652d5fc21577e0b7ac3a60513cd30f4ee81c7f11431a71185b609aa"
   license "NGPL"
 
-  livecheck do
-    url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
-  end
-
   bottle do
     sha256 arm64_monterey: "e217165d22093bd7bd597ce198cba5de91a6e72fdee085ab9b4a1db3ce195c93"
     sha256 arm64_big_sur:  "6e72ef5f73856fce288298607152d9ffbd322d592b4d5f451739482e5d632aae"
@@ -42,6 +37,8 @@ class Nethacked < Formula
     sha256 el_capitan:     "dcbe9a404fb0215e35dc9d08e73595ba8dadad55e6ca898078a66ce04c9dc11b"
     sha256 x86_64_linux:   "8575daddbf850b21652bef36c24a920f9c1ea9c72e7d92b9e6fdfa461c2f0c6e"
   end
+
+  disable! date: "2022-12-08", because: :repo_removed
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
