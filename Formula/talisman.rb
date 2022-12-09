@@ -1,8 +1,8 @@
 class Talisman < Formula
   desc "Tool to detect and prevent secrets from getting checked in"
   homepage "https://thoughtworks.github.io/talisman/"
-  url "https://github.com/thoughtworks/talisman/archive/v1.29.3.tar.gz"
-  sha256 "ab9722f71f5b79c4a23dc838d99fbd5b8ba55a3de5410971fb3a95aa79c27d8e"
+  url "https://github.com/thoughtworks/talisman/archive/v1.29.4.tar.gz"
+  sha256 "e0b3326cbad011914870ddee69b550707cc89c2d49a77f311b138040a59f5728"
   license "MIT"
   version_scheme 1
   head "https://github.com/thoughtworks/talisman.git", branch: "master"
