@@ -180,33 +180,3 @@ class Pypy39 < Formula
     system scripts_folder/"pip", "list"
   end
 end
-
-__END__
---- a/lib_pypy/_tkinter/tklib_build.py
-+++ b/lib_pypy/_tkinter/tklib_build.py
-@@ -17,12 +17,12 @@ elif sys.platform == 'win32':
-     incdirs = []
-     linklibs = ['tcl86t', 'tk86t']
-     libdirs = []
--elif sys.platform == 'darwin':
-+else:
-     # homebrew
-     incdirs = ['/usr/local/opt/tcl-tk/include']
-     linklibs = ['tcl8.6', 'tk8.6']
-     libdirs = ['/usr/local/opt/tcl-tk/lib']
--else:
-+if False: # disable Linux system tcl-tk detection
-     # On some Linux distributions, the tcl and tk libraries are
-     # stored in /usr/include, so we must check this case also
-     libdirs = []
---- a/pypy/goal/targetpypystandalone.py
-+++ b/pypy/goal/targetpypystandalone.py
-@@ -382,7 +382,7 @@ class PyPyTarget(object):
-             ''' Use cffi to compile cffi interfaces to modules'''
-             filename = join(pypydir, '..', 'lib_pypy', 'pypy_tools',
-                                    'build_cffi_imports.py')
--            if sys.platform in ('darwin', 'linux', 'linux2'):
-+            if False: # disable building static openssl
-                 argv = [filename, '--embed-dependencies']
-             else:
-                 argv = [filename,]
