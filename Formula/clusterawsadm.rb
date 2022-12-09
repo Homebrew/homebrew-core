@@ -22,5 +22,7 @@ class Clusterawsadm < Formula
   test do
     output = shell_output("KUBECONFIG=/homebrew.config #{bin}/clusterawsadm resource list --region=us-east-1 2>&1", 1)
     assert_match "Error: required flag(s) \"cluster-name\" not set", output
+
+    assert_match version.to_s, shell_output("#{bin}/clusterawsadm version")
   end
 end
