@@ -22,9 +22,9 @@ class Metals < Formula
       (libexec/"lib").install jar
     end
 
-    ["metals", "mtags", "mtags-interfaces"].each do |pkg|
-      (libexec/"lib").install buildpath.glob("#{pkg}/target/**/#{pkg}*-#{version}.jar")
-    end
+    (libexec/"lib").install buildpath.glob("metals/target/scala-*/metals_*-#{version}.jar")
+    (libexec/"lib").install buildpath.glob("mtags/target/scala-*/mtags_*-#{version}.jar")
+    (libexec/"lib").install "mtags-interfaces/target/mtags-interfaces-#{version}.jar"
 
     (bin/"metals").write <<~EOS
       #!/bin/bash
