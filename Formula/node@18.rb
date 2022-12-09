@@ -4,6 +4,7 @@ class NodeAT18 < Formula
   url "https://nodejs.org/dist/v18.13.0/node-v18.13.0.tar.xz"
   sha256 "fd4ac562e01d172896e3a959bd59552dbf647331c90d726f8d3471683dd3da68"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://nodejs.org/dist/"
