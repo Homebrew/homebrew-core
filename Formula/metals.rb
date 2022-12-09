@@ -28,11 +28,8 @@ class Metals < Formula
     (bin/"metals").write <<~EOS
       #!/bin/bash
 
-      BIN="$(readlink -f ${BASH_SOURCE[0]})"
-      LIB="$(dirname $BIN)/../libexec/lib"
-      LIB="$(readlink -f $LIB)"
       export JAVA_HOME="#{Language::Java.overridable_java_home_env[:JAVA_HOME]}"
-      exec "${JAVA_HOME}/bin/java" -cp "$LIB/*" "scala.meta.metals.Main" "$@"
+      exec "${JAVA_HOME}/bin/java" -cp "$(brew --prefix metals)/libexec/lib/*" "scala.meta.metals.Main" "$@"
     EOS
   end
 
