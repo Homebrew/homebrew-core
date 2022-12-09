@@ -27,6 +27,7 @@ class Unisonlang < Formula
   depends_on "ghc@8.10" => :build
   depends_on "haskell-stack" => :build
   depends_on "node@18" => :build
+  depends_on "rust" => :build
 
   uses_from_macos "python" => :build
   uses_from_macos "xz" => :build
@@ -38,28 +39,56 @@ class Unisonlang < Formula
     version "M4e"
   end
 
+  resource "elm-git-install" do
+    url "https://registry.npmjs.org/elm-git-install/-/elm-git-install-0.1.4.tgz"
+    sha256 "f963ad9f8cc0d87c249cf8e63a62f648e3a3dd53ef658915c0062b2c27a11eeb"
+  end
+
+  resource "elm-json" do
+    url "https://github.com/zwilias/elm-json/archive/refs/tags/v0.2.13.tar.gz"
+    sha256 "8a6737e85e0a08ec3cc7de9efde3cf525fe0f0c3e7e5bb23796864edb09f31bc"
+  end
+
   def install
-    jobs = ENV.make_jobs
-    ENV.deparallelize
+    ENV["RUST_BACKTRACE"] = "1"
+    resource("elm-git-install").stage do
+      system "npm", "install", *Language::Node.std_npm_install_args(buildpath/"homebrew")
+    end
+    resource("elm-json").stage do
+      system "cargo", "install", *std_cargo_args(root: buildpath/"homebrew"), "--debug"
+    end
+    ENV.prepend_path "PATH", buildpath/"homebrew/bin"
 
     # Build and install the web interface
     resource("local-ui").stage do
       system "npm", "install", *Language::Node.local_npm_install_args
-      system "npm", "run", "ui-core:install"
-      system "npm", "run", "build"
 
+      # Manually run commands from `npm run ui-core:install`
+      Timeout.timeout(60) do
+        system "elm-git-install"
+      end
+      uicore = JSON.parse(File.read("elm-stuff/gitdeps/github.com/unisonweb/ui-core/elm.json"))
+      uicore["dependencies"].each do |name, version_range|
+        Timeout.timeout(60) do
+          system "elm-json", "-v", "-v", "-v", "install", "--yes", "#{name}@#{version_range.split(".")[0]}"
+        end
+      end
+
+      system "npm", "run", "build"
       prefix.install "dist/unisonLocal" => "ui"
     end
 
-    stack_args = [
-      "-v",
-      "--system-ghc",
-      "--no-install-ghc",
-      "--skip-ghc-check",
-      "--copy-bins",
-      "--local-bin-path=#{buildpath}",
-    ]
+    jobs = ENV.make_jobs
+    ENV.deparallelize
 
+    stack_args = %W[
+      -v
+      --system-ghc
+      --no-install-ghc
+      --skip-ghc-check
+      --copy-bins
+      --local-bin-path=#{buildpath}
+    ]
     system "stack", "-j#{jobs}", "build", "--flag", "unison-parser-typechecker:optimized", *stack_args
 
     prefix.install "unison" => "ucm"
