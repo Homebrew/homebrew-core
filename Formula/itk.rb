@@ -36,8 +36,6 @@ class Itk < Formula
   on_linux do
     depends_on "alsa-lib"
     depends_on "unixodbc"
-
-    ignore_missing_libraries "libjvm.so"
   end
 
   fails_with gcc: "5"
@@ -87,6 +85,9 @@ class Itk < Formula
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args, *args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
+
+    # Remove the bundled JRE installed by SCIFIO ImageIO plugin
+    (lib/"jre").rmtree if OS.linux? || Hardware::CPU.intel?
   end
 
   test do
