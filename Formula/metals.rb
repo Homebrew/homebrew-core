@@ -25,12 +25,10 @@ class Metals < Formula
       (libexec/"lib").install buildpath.glob("#{pkg}/**/#{pkg}*-#{version}.jar")
     end
 
-    runtime_cp = (libexec/"lib").children.join(":")
-
     (bin/"metals").write <<~EOS
       #!/bin/bash
       export JAVA_HOME="#{Language::Java.overridable_java_home_env[:JAVA_HOME]}"
-      exec "${JAVA_HOME}/bin/java" -cp '#{runtime_cp}' 'scala.meta.metals.Main' "$@"
+      exec "${JAVA_HOME}/bin/java" -cp "#{libexec/"lib"}/*" "scala.meta.metals.Main" "$@"
     EOS
   end
 
