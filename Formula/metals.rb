@@ -9,13 +9,14 @@ class Metals < Formula
   depends_on "openjdk"
 
   def install
+    ENV["CI"] = "TRUE"
     inreplace "build.sbt", /version ~=.+?,/m, "version := \"#{version}\","
 
     system "sbt", "package"
 
     # Following Arch AUR to get the dependencies.
     dep_pattern = /^.+?Attributed\((.+?\.jar)\).*$/
-    sbt_deps_output = `sbt 'show metals/dependencyClasspath' 2>/dev/null`
+    sbt_deps_output = Utils.safe_popen_read("sbt 'show metals/dependencyClasspath' 2>/dev/null")
     deps_jars = sbt_deps_output.lines.grep(dep_pattern) { |it| it.strip.gsub(dep_pattern, '\1') }
     deps_jars.each do |jar|
       (libexec/"lib").install jar
@@ -28,21 +29,29 @@ class Metals < Formula
     (bin/"metals").write <<~EOS
       #!/bin/bash
 
-      export JAVA_HOME="#{Language::Java.overridable_java_home_env[:JAVA_HOME]}"
+      export JAVA_HOME="#{Language::Java.java_home}"
       exec "${JAVA_HOME}/bin/java" -cp "#{libexec/"lib"}/*" "scala.meta.metals.Main" "$@"
     EOS
   end
 
   test do
-    input =
-      "Content-Length: 152\r\n" \
-      "\r\n" \
-      "{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialize\",\"params\":{\"" \
-      "processId\":88075,\"rootUri\":null,\"capabilities\":{},\"trace\":\"ver" \
-      "bose\",\"workspaceFolders\":null}}\r\n"
-
-    output = pipe_output("#{bin}/metals", input, 0)
-
-    assert_match(/^Content-Length: \d+/i, output)
+    require "open3"
+    json = <<~JSON
+      {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "initialize",
+        "params":#{" "}
+          "rootUri": null,
+          "capabilities": {}
+        }
+      }
+    JSON
+    Open3.popen3("#{bin}/metals") do |stdin, stdout, _e, w|
+      stdin.write "Content-Length: #{json.size}\r\n\r\n#{json}"
+      sleep 3
+      assert_match(/^Content-Length: \d+/i, stdout.readline)
+      Process.kill("KILL", w.pid)
+    end
   end
 end
