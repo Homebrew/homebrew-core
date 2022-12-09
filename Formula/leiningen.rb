@@ -13,8 +13,8 @@ class Leiningen < Formula
   depends_on "openjdk"
 
   resource "jar" do
-    url "https://github.com/technomancy/leiningen/releases/download/2.9.10/leiningen-2.9.10-standalone.jar"
-    sha256 "a228530f00b50753acfddc3de38a0d737b6f5c1aec49af202e70a0ad28c249c9"
+    url "https://github.com/technomancy/leiningen/releases/download/2.10.0/leiningen-2.10.0-standalone.jar"
+    sha256 "d27299bad34075ac2864d0bd0559f835c6e2c476c0b0a283bcbdb574fdadbb34"
   end
 
   def install
