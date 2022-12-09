@@ -1,8 +1,8 @@
 class Prr < Formula
   desc "Mailing list style code reviews for github"
   homepage "https://github.com/danobi/prr"
-  url "https://github.com/danobi/prr/archive/refs/tags/v0.7.0.tar.gz"
-  sha256 "2b0353977e1dbf1ca89e550954cb04d269cfab5e888a8d9ec7366583cb32fa1d"
+  url "https://github.com/danobi/prr/archive/refs/tags/v0.8.0.tar.gz"
+  sha256 "15fc841f50c3313ca8646240e937fb76b87d5270cd3db64042e48e819745e5af"
   license "GPL-2.0-only"
   head "https://github.com/danobi/prr.git", branch: "master"
 
