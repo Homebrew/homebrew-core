@@ -11,16 +11,8 @@ class Pypy39 < Formula
     regex(/href=.*?pypy3(?:\.\d+)*[._-]v?(\d+(?:\.\d+)+)-src\.t/i)
   end
 
-  bottle do
-    sha256 cellar: :any,                 monterey:     "b72341e1a96c616296a8afc53fa1405340f1f925cd2a6b0cea3ff13bf7efe39b"
-    sha256 cellar: :any,                 big_sur:      "8c8ded93dfabde0b4fff50983443c8302d16b9dfcd8ee292a30a84e1a047c361"
-    sha256 cellar: :any,                 catalina:     "8db527712191e77911d2bbf70a23d514d99a30ce3a0aeb31267c34c1257bde6a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "7d2eafd1103122fdadc952db92e2d7b334aa2e7bfd6e9104cb16f9045bc69147"
-  end
-
   depends_on "pkg-config" => :build
   depends_on "pypy" => :build
-  depends_on arch: :x86_64
   depends_on "gdbm"
   depends_on "openssl@1.1"
   depends_on "sqlite"
