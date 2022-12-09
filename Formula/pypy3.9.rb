@@ -15,14 +15,14 @@ class Pypy39 < Formula
   depends_on "pypy" => :build
   depends_on "gdbm"
   depends_on "openssl@1.1"
-  depends_on "sqlite"
-  depends_on "tcl-tk"
   depends_on "xz"
 
   uses_from_macos "bzip2"
   uses_from_macos "expat"
   uses_from_macos "libffi"
   uses_from_macos "ncurses"
+  uses_from_macos "sqlite"
+  uses_from_macos "tcl-tk"
   uses_from_macos "unzip"
   uses_from_macos "zlib"
 
