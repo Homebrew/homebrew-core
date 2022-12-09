@@ -1,8 +1,8 @@
 class Libxkbfile < Formula
   desc "X.Org: XKB file handling routines"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/lib/libxkbfile-1.1.2.tar.gz"
-  sha256 "d1a7e659bc7ae1aa1fc1ecced261c734df5ad5d86af1ef7a946be0e2d841e51d"
+  url "https://www.x.org/archive/individual/lib/libxkbfile-1.1.2.tar.xz"
+  sha256 "b8a3784fac420b201718047cfb6c2d5ee7e8b9481564c2667b4215f6616644b1"
   license "MIT"
 
   bottle do
