@@ -4,7 +4,7 @@ class BoostAT176 < Formula
   url "https://boostorg.jfrog.io/artifactory/main/release/1.76.0/source/boost_1_76_0.tar.bz2"
   sha256 "f0397ba6e982c4450f27bf32a2a83292aba035b827a5623a14636ea583318c41"
   license "BSL-1.0"
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "75e4cf932fd41e7be65c1dccd1b776e3d9ad1bff7db7ca0a51ce062c9c5d0380"
