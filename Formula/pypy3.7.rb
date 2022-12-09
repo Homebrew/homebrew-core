@@ -11,14 +11,6 @@ class Pypy37 < Formula
     regex(/href=.*?pypy3(?:\.\d+)*[._-]v?(\d+(?:\.\d+)+)-src\.t/i)
   end
 
-  bottle do
-    sha256 cellar: :any,                 ventura:      "8166d5fba4c9c575b6622c85f3ccf630ce9511a261c312d5d3605c72aef49830"
-    sha256 cellar: :any,                 monterey:     "f74380e1d4d5b14922bf29f6bfa665b0429a646e57fb1e852b101df3bf2dfd3a"
-    sha256 cellar: :any,                 big_sur:      "a3d09f1aa40e583d77b868358a372edc500062e349b31f4bd83490ed64a487e9"
-    sha256 cellar: :any,                 catalina:     "bcffe5403e66a1a56d58284690d9d3c0930cac6de0f661708bf4a1cab32c2d28"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "d1954346420c8afcbe23af810ee8f52be9db616ad0f63a3f8eaec0781ad29f22"
-  end
-
   depends_on "pkg-config" => :build
   depends_on "pypy" => :build
   depends_on arch: :x86_64
@@ -47,14 +39,6 @@ class Pypy37 < Formula
     url "https://files.pythonhosted.org/packages/a3/50/c4d2727b99052780aad92c7297465af5fe6eec2dbae490aa9763273ffdc1/pip-22.3.1.tar.gz"
     sha256 "65fd48317359f3af8e593943e6ae1506b66325085ea64b706a998c6e83eeaf38"
   end
-
-  # Build fixes:
-  # - Disable Linux tcl-tk detection since the build script only searches system paths.
-  #   When tcl-tk is not found, it uses unversioned `-ltcl -ltk`, which breaks build.
-  # - Disable building cffi imports with `--embed-dependencies`, which compiles and
-  #   statically links a specific OpenSSL version.
-  # Upstream issue ref: https://foss.heptapod.net/pypy/pypy/-/issues/3538
-  patch :DATA
 
   def install
     # The `tcl-tk` library paths are hardcoded and need to be modified for non-/usr/local prefix
@@ -191,33 +175,3 @@ class Pypy37 < Formula
     system scripts_folder/"pip", "list"
   end
 end
-
-__END__
---- a/lib_pypy/_tkinter/tklib_build.py
-+++ b/lib_pypy/_tkinter/tklib_build.py
-@@ -17,12 +17,12 @@ elif sys.platform == 'win32':
-     incdirs = []
-     linklibs = ['tcl86t', 'tk86t']
-     libdirs = []
--elif sys.platform == 'darwin':
-+else:
-     # homebrew
-     incdirs = ['/usr/local/opt/tcl-tk/include']
-     linklibs = ['tcl8.6', 'tk8.6']
-     libdirs = ['/usr/local/opt/tcl-tk/lib']
--else:
-+if False: # disable Linux system tcl-tk detection
-     # On some Linux distributions, the tcl and tk libraries are
-     # stored in /usr/include, so we must check this case also
-     libdirs = []
---- a/pypy/goal/targetpypystandalone.py
-+++ b/pypy/goal/targetpypystandalone.py
-@@ -382,7 +382,7 @@ class PyPyTarget(object):
-             ''' Use cffi to compile cffi interfaces to modules'''
-             filename = join(pypydir, '..', 'lib_pypy', 'pypy_tools',
-                                    'build_cffi_imports.py')
--            if sys.platform in ('darwin', 'linux', 'linux2'):
-+            if False: # disable building static openssl
-                 argv = [filename, '--embed-dependencies']
-             else:
-                 argv = [filename,]
