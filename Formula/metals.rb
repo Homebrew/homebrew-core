@@ -9,7 +9,7 @@ class Metals < Formula
   depends_on "openjdk"
 
   def install
-    inreplace "build.sbt", /def localSnapshotVersion = ".+?"/, "def localSnapshotVersion = \"#{version}\""
+    inreplace "build.sbt", /version ~=.+?,/m, "version := \"#{version}\","
 
     system "sbt", "package"
 
@@ -22,7 +22,7 @@ class Metals < Formula
     end
 
     ["metals", "mtags", "mtags-interfaces"].each do |pkg|
-      (libexec/"lib").install buildpath.glob("#{pkg}/target/**/#{pkg}*.jar")
+      (libexec/"lib").install buildpath.glob("#{pkg}/target/**/#{pkg}*-#{version}.jar")
     end
 
     (bin/"metals").write <<~EOS
