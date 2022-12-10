@@ -39,7 +39,7 @@ class Ola < Formula
     args = %W[
       --disable-fatal-warnings
       --disable-silent-rules
-      --disable-unittests
+      # --disable-unittests
       --enable-python-libs
       --enable-rdm-tests
       --with-python_prefix=#{prefix}
