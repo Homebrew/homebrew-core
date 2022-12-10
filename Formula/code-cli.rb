@@ -5,6 +5,10 @@ class CodeCli < Formula
   sha256 "171435a9e2736d323af78591593f8a59eac52d26e98ba817daa37261e835aa1f"
   license "MIT"
   head "https://github.com/microsoft/vscode.git", branch: "main"
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
 
   depends_on "rust" => :build
 
