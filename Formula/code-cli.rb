@@ -17,6 +17,7 @@ class CodeCli < Formula
   end
 
   test do
-    system "false"
+    assert_match "Successfully removed all unused servers",
+      shell_output("#{bin}/code tunnel prune")
   end
 end
