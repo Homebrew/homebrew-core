@@ -53,6 +53,7 @@ class Ola < Formula
   end
 
   test do
+    system bin/"olad", "-h"
     system bin/"olad", "--help"
     system bin/"ola_plugin_state", "-h"
     system python3, "-c", "from ola.ClientWrapper import ClientWrapper"
