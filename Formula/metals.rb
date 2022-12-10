@@ -41,7 +41,7 @@ class Metals < Formula
         "jsonrpc": "2.0",
         "id": 1,
         "method": "initialize",
-        "params":#{" "}
+        "params": {
           "rootUri": null,
           "capabilities": {}
         }
