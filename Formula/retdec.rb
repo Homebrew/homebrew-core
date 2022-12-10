@@ -11,7 +11,7 @@ class Retdec < Formula
   depends_on "cmake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@1.1"
   depends_on "python@3.11"
 
   on_macos do
