@@ -27,5 +27,7 @@ class CodeCli < Formula
   test do
     assert_match "Successfully removed all unused servers",
       shell_output("#{bin}/code tunnel prune")
+    assert_match version.to_s, shell_output("#{bin}/code --version")
+
   end
 end
