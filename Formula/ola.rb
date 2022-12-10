@@ -50,7 +50,7 @@ class Ola < Formula
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", *std_configure_args, *args
     system "make", "install"
-    system "make", "check"
+    system "make", "check", "VERBOSE=1"
   end
 
   test do
