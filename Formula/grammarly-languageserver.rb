@@ -29,9 +29,13 @@ class GrammarlyLanguageserver < Formula
     dep = dest/"grammarly-languageserver/node_modules"
     rm dep/"grammarly-richtext-encoder"
     dep.install "packages/grammarly-richtext-encoder"
-    (bin/"grammarly-languageserver").write_env_script \
-      "#{dest}/grammarly-languageserver/bin/server.js", \
-      { NODE_PATH: dest }
+    (bin/"grammarly-languageserver").write <<~EOS
+      #!/bin/bash
+
+      export NODE_PATH="#{dest}"
+      exec "#{Formula["node@16"].bin}/node" "#{dest}/grammarly-languageserver/bin/server.js" "$@"
+    EOS
+    chmod "+x", bin/"grammarly-languageserver"
   end
 
   test do
@@ -49,7 +53,7 @@ class GrammarlyLanguageserver < Formula
     JSON
     Open3.popen3("#{bin}/grammarly-languageserver --stdio") do |stdin, stdout, _e, w|
       stdin.write "Content-Length: #{json.size}\r\n\r\n#{json}"
-      sleep 1
+      sleep 3
       assert_match(/^Content-Length: \d+/i, stdout.readline)
       Process.kill("KILL", w.pid)
     end
