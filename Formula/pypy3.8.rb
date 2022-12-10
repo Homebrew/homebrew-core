@@ -45,6 +45,7 @@ class Pypy38 < Formula
     # See https://github.com/Homebrew/homebrew/issues/24364
     ENV["PYTHONPATH"] = ""
     ENV["PYPY_USESSION_DIR"] = buildpath
+    ENV["PYPY_PACKAGE_WITHOUTTK"] = "1"
 
     python = Formula["pypy"].opt_bin/"pypy"
     cd "pypy/goal" do
