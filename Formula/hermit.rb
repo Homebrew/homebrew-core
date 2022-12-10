@@ -25,5 +25,7 @@ class Hermit < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/hermit version")
+    system "hermit", "init"
+    assert_predicate testpath/"bin/hermit.hcl", :exist?
   end
 end
