@@ -6,7 +6,6 @@ class GrammarlyLanguageserver < Formula
   license "MIT"
 
   depends_on "pnpm" => :build
-  depends_on "rsync" => :build
   depends_on "node@16"
 
   def install
@@ -24,15 +23,15 @@ class GrammarlyLanguageserver < Formula
     # remove depDependencies
     system "pnpm", "install", "--prod", "--reporter", "append-only"
 
-    (libexec/"lib/node_modules").mkpath
-    # Ruby's built-in copy function does not support recursive copying directories with
-    # symlink dereferenced.
-    system "rsync", "-aqL", "#{buildpath}/packages/grammarly-languageserver", "#{libexec}/lib/node_modules"
-    (libexec/"bin/grammarly-languageserver").write_env_script \
-      "#{libexec}/lib/node_modules/grammarly-languageserver/bin/server.js", \
-      { NODE_PATH: "#{libexec}/lib/node_modules" }
-    chmod("+x", "#{libexec}/bin/grammarly-languageserver")
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    dest = (libexec/"lib/node_modules")
+    dest.mkpath
+    dest.install "packages/grammarly-languageserver"
+    dep = dest/"grammarly-languageserver/node_modules"
+    rm dep/"grammarly-richtext-encoder"
+    dep.install "packages/grammarly-richtext-encoder"
+    (bin/"grammarly-languageserver").write_env_script \
+      "#{dest}/grammarly-languageserver/bin/server.js", \
+      { NODE_PATH: dest }
   end
 
   test do
