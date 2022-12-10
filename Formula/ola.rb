@@ -36,10 +36,10 @@ class Ola < Formula
     # https://github.com/protocolbuffers/protobuf/issues/9947
     ENV.append_to_cflags "-DNDEBUG"
 
+    # --disable-unittests
     args = %W[
       --disable-fatal-warnings
       --disable-silent-rules
-      # --disable-unittests
       --enable-python-libs
       --enable-rdm-tests
       --with-python_prefix=#{prefix}
