@@ -29,6 +29,7 @@ class Dpkg < Formula
   depends_on "gettext"
   depends_on "gnu-tar"
   depends_on "gpatch"
+  depends_on "libmd" # for md5.h
   depends_on "perl"
   depends_on "xz" # For LZMA
 
@@ -37,8 +38,6 @@ class Dpkg < Formula
 
   on_linux do
     keg_only "not linked to prevent conflicts with system dpkg"
-
-    depends_on "libmd"
   end
 
   patch :DATA
