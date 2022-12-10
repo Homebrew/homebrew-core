@@ -31,7 +31,11 @@ class Beagle < Formula
   end
 
   def install
-    ENV["JAVA_HOME"] = Language::Java.java_home
+    # Avoid building Linux bottle with `-march=native`. Need to enable SSE4.1 for _mm_dp_pd
+    # Issue ref: https://github.com/beagle-dev/beagle-lib/issues/189
+    inreplace "CMakeLists.txt", "-march=native", "-msse4.1" if OS.linux? && build.bottle?
+
+    ENV["JAVA_HOME"] = Language::Java.java_home("11")
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
@@ -48,10 +52,9 @@ class Beagle < Formula
         public static void main(String[] args) {}
       }
     EOS
-    system ENV.cxx, "-I#{include}/libhmsbeagle-1",
-           testpath/"test.cpp", "-o", "test"
+    system ENV.cxx, "-I#{include}/libhmsbeagle-1", testpath/"test.cpp", "-o", "test"
     system "./test"
-    system "#{Formula["openjdk@11"].bin}/javac", "T.java"
-    system "#{Formula["openjdk@11"].bin}/java", "-Djava.library.path=#{lib}", "T"
+    system Formula["openjdk@11"].bin/"javac", "T.java"
+    system Formula["openjdk@11"].bin/"java", "-Djava.library.path=#{lib}", "T"
   end
 end
