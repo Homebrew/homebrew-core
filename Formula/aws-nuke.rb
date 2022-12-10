@@ -2,8 +2,8 @@ class AwsNuke < Formula
   desc "Nuke a whole AWS account and delete all its resources"
   homepage "https://github.com/rebuy-de/aws-nuke"
   url "https://github.com/rebuy-de/aws-nuke.git",
-      tag:      "v2.21.1",
-      revision: "46e314b5e47c7e7cdccb03e101b4c6d615d9526f"
+      tag:      "v2.21.2",
+      revision: "e76d21c263477ebd6648fae19f9e539049ad2b51"
   license "MIT"
   head "https://github.com/rebuy-de/aws-nuke.git", branch: "main"
 
