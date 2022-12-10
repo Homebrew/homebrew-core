@@ -17,7 +17,7 @@ class PhpCsFixer < Formula
     libexec.install "php-cs-fixer.phar"
 
     (bin/"php-cs-fixer").write <<~EOS
-      #!#{Formula["php"].opt_bin}/php
+      #!#{Formula["php@8.1"].opt_bin}/php
       <?php require '#{libexec}/php-cs-fixer.phar';
     EOS
   end
