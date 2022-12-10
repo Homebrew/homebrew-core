@@ -11,6 +11,7 @@ class Ola < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+  depends_on "cppunit" => :build
   depends_on "liblo"
   depends_on "libmicrohttpd"
   depends_on "libusb"
@@ -49,7 +50,9 @@ class Ola < Formula
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", *std_configure_args, *args
     system "make", "install"
-    system "make", "check"
+    #system "make", "check"
+    system "make", "common/base/FlagsTester"
+    system "common/base/FlagsTester"
   end
 
   test do
