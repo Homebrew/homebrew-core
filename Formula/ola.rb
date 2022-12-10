@@ -50,9 +50,7 @@ class Ola < Formula
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", *std_configure_args, *args
     system "make", "install"
-    # system "make", "check"
-    system "make", "common/base/FlagsTester"
-    system "common/base/FlagsTester"
+    system "make", "check"
   end
 
   test do
