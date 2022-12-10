@@ -35,8 +35,8 @@ class Datalad < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/cb/a4/7de7cd59e429bd0ee6521ba58a75adaec136d32f91a761b28a11d8088d44/certifi-2022.9.24.tar.gz"
-    sha256 "0d9c601124e5a6ba9712dbc60d9c53c21e34f5f641fe83002317394311bdce14"
+    url "https://files.pythonhosted.org/packages/37/f7/2b1b0ec44fdc30a3d31dfebe52226be9ddc40cd6c0f34ffc8923ba423b69/certifi-2022.12.7.tar.gz"
+    sha256 "35824b4c3a97115964b408844d64aa14db1cc518f6562e8d7261699d1350a9e3"
   end
 
   resource "chardet" do
@@ -70,8 +70,8 @@ class Datalad < Formula
   end
 
   resource "importlib-metadata" do
-    url "https://files.pythonhosted.org/packages/7e/ec/97f2ce958b62961fddd7258e0ceede844953606ad09b672fa03b86c453d3/importlib_metadata-5.0.0.tar.gz"
-    sha256 "da31db32b304314d044d3c12c79bd59e307889b287ad12ff387b3500835fc2ab"
+    url "https://files.pythonhosted.org/packages/32/5a/e0d75c8010295ae6746f379f5324bc726076dfc426548bfa6f0763fce870/importlib_metadata-5.1.0.tar.gz"
+    sha256 "d5059f9f1e8e41f80e9c56c2ee58811450c31984dfa625329ffd7c0dad88a73b"
   end
 
   resource "iso8601" do
@@ -105,8 +105,8 @@ class Datalad < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/df/9e/d1a7217f69310c1db8fdf8ab396229f55a699ce34a203691794c5d1cad0c/packaging-21.3.tar.gz"
-    sha256 "dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb"
+    url "https://files.pythonhosted.org/packages/6b/f7/c240d7654ddd2d2f3f328d8468d4f1f876865f6b9038b146bec0a6737c65/packaging-22.0.tar.gz"
+    sha256 "2198ec20bd4c017b8f9717e00f0c8714076fc2fd93816750ab48e2c41de2cfd3"
   end
 
   resource "patool" do
@@ -115,18 +115,13 @@ class Datalad < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/32/3d/711a708e9b69b263e5cf190a030a77fd79a05613820f6ce0c7ea6f92f99f/platformdirs-2.5.3.tar.gz"
-    sha256 "6e52c21afff35cb659c6e52d8b4d61b9bd544557180440538f255d9382c8cbe0"
-  end
-
-  resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/71/22/207523d16464c40a0310d2d4d8926daffa00ac1f5b1576170a32db749636/pyparsing-3.0.9.tar.gz"
-    sha256 "2b020ecf7d21b687f219b71ecad3631f644a47f01403fa1d1036b0c6416d70fb"
+    url "https://files.pythonhosted.org/packages/ec/4c/9af851448e55c57b30a13a72580306e628c3b431d97fdae9e0b8d4fa3685/platformdirs-2.6.0.tar.gz"
+    sha256 "b46ffafa316e6b83b47489d240ce17173f123a9b9c83282141c3daf26ad9ac2e"
   end
 
   resource "python-gitlab" do
-    url "https://files.pythonhosted.org/packages/3c/c2/7c985eb385dcfa975b1bc37d62e4959242621e5bbb8156d2954fa015eaea/python-gitlab-3.11.0.tar.gz"
-    sha256 "db9472b6ae4fba968b409dc32faee20dd65089065daa93e08d21b796a65d6578"
+    url "https://files.pythonhosted.org/packages/39/f9/08c24358fee83255d27dafda04993da9462bf562c615938b7aac08dd2fd5/python-gitlab-3.12.0.tar.gz"
+    sha256 "567390c2b93690dae62ed9738bf9f221fa45c01378fdf896089dbf7c8a134fbd"
   end
 
   resource "requests" do
@@ -140,8 +135,8 @@ class Datalad < Formula
   end
 
   resource "simplejson" do
-    url "https://files.pythonhosted.org/packages/7a/47/c7cc3d4ed15f09917838a2fb4e1759eafb6d2f37ebf7043af984d8b36cf7/simplejson-3.17.6.tar.gz"
-    sha256 "cf98038d2abf63a1ada5730e91e84c642ba6c225b0198c3684151b1f80c5f8a6"
+    url "https://files.pythonhosted.org/packages/17/3d/b8bfe1f40558f6a16f70c349adf97480dc71a7d11b2b1a5dc0824a87faa0/simplejson-3.18.0.tar.gz"
+    sha256 "58a429d2c2fa80834115b923ff689622de8f214cf0dc4afa9f59e824b444ab31"
   end
 
   resource "tqdm" do
@@ -150,8 +145,8 @@ class Datalad < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/b2/56/d87d6d3c4121c0bcec116919350ca05dc3afd2eeb7dc88d07e8083f8ea94/urllib3-1.26.12.tar.gz"
-    sha256 "3fa96cf423e6987997fc326ae8df396db2a8b7c667747d47ddd8ecba91f4a74e"
+    url "https://files.pythonhosted.org/packages/c2/51/32da03cf19d17d46cce5c731967bf58de9bd71db3a379932f53b094deda4/urllib3-1.26.13.tar.gz"
+    sha256 "c083dd0dce68dbfbe1129d5271cb90f9447dea7d52097c6e0126120c521ddea8"
   end
 
   resource "Whoosh" do
@@ -160,8 +155,8 @@ class Datalad < Formula
   end
 
   resource "zipp" do
-    url "https://files.pythonhosted.org/packages/8d/d7/1bd1e0a5bc95a27a6f5c4ee8066ddfc5b69a9ec8d39ab11a41a804ec8f0d/zipp-3.10.0.tar.gz"
-    sha256 "7a7262fd930bd3e36c50b9a64897aec3fafff3dfdeec9623ae22b40e93f99bb8"
+    url "https://files.pythonhosted.org/packages/8e/b3/8b16a007184714f71157b1a71bbe632c5d66dd43bc8152b3c799b13881e1/zipp-3.11.0.tar.gz"
+    sha256 "a7a22e05929290a67401440b39690ae6563279bced5f314609d9d03798f56766"
   end
 
   def install
