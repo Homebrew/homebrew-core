@@ -1,0 +1,22 @@
+class CodeCli < Formula
+  desc "Command-line interface built-in Visual Studio Code"
+  homepage "https://github.com/microsoft/vscode"
+  url "https://github.com/microsoft/vscode/archive/refs/tags/1.74.0.tar.gz"
+  sha256 "171435a9e2736d323af78591593f8a59eac52d26e98ba817daa37261e835aa1f"
+  license "MIT"
+  head "https://github.com/microsoft/vscode.git", branch: "main"
+
+  depends_on "rust" => :build
+
+  conflicts_with cask: "visual-studio-code"
+
+  def install
+    cd "cli" do
+      system "cargo", "install", *std_cargo_args
+    end
+  end
+
+  test do
+    system "false"
+  end
+end
