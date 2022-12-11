@@ -25,10 +25,10 @@ class Go < Formula
   # Don't update this unless this version cannot bootstrap the new version.
   resource "gobootstrap" do
     checksums = {
-      "darwin-arm64" => "4dac57c00168d30bbd02d95131d5de9ca88e04f2c5a29a404576f30ae9b54810",
-      "darwin-amd64" => "6000a9522975d116bf76044967d7e69e04e982e9625330d9a539a8b45395f9a8",
-      "linux-arm64"  => "3770f7eb22d05e25fbee8fb53c2a4e897da043eb83c69b9a14f8d98562cd8098",
-      "linux-amd64"  => "013a489ebb3e24ef3d915abe5b94c3286c070dfe0818d5bca8108f1d6e8440d2",
+      "darwin-arm64" => "bb3bc5d7655b9637cfe2b5e90055dee93b0ead50e2ffd091df320d1af1ca853f",
+      "darwin-amd64" => "44894862d996eec96ef2a39878e4e1fce4d05423fc18bdc1cbba745ebfa41253",
+      "linux-arm64"  => "9df122d6baf6f2275270306b92af3b09d7973fb1259257e284dba33c0db14f1b",
+      "linux-amd64"  => "c9c08f783325c4cf840a94333159cc937f05f75d36a8b307951d5bd959cf2ab8",
     }
 
     arch = "arm64"
@@ -42,7 +42,7 @@ class Go < Formula
       platform = "linux"
     end
 
-    boot_version = "1.16"
+    boot_version = "1.19.4"
 
     url "https://storage.googleapis.com/golang/go#{boot_version}.#{platform}-#{arch}.tar.gz"
     version boot_version
