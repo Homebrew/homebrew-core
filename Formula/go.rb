@@ -58,7 +58,6 @@ class Go < Formula
       system "./make.bash", "--no-clean"
     end
 
-    (buildpath/"pkg/obj").rmtree
     rm_rf "gobootstrap" # Bootstrap not required beyond compile.
     libexec.install Dir["*"]
     bin.install_symlink Dir[libexec/"bin/go*"]
