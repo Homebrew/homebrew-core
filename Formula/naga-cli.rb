@@ -18,6 +18,8 @@ class NagaCli < Formula
 
   depends_on "rust" => :build
 
+  conflicts_with "naga", because: "both install `naga` binary"
+
   def install
     system "cargo", "install", *std_cargo_args(path: "cli")
   end
