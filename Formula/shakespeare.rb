@@ -1,14 +1,9 @@
 class Shakespeare < Formula
   desc "Write programs in Shakespearean English"
-  homepage "https://shakespearelang.sourceforge.io/"
-  url "https://shakespearelang.sourceforge.io/download/spl-1.2.1.tar.gz"
+  homepage "https://web.archive.org/web/20211106102807/https://sourceforge.net/projects/shakespearelang/"
+  url "https://www.mirrorservice.org/sites/distfiles.macports.org/shakespeare/spl-1.2.1.tar.gz"
   sha256 "1206ef0a2c853b8b40ca0c682bc9d9e0a157cc91a7bf4e28f19ccd003674b7d3"
   license "GPL-2.0-or-later"
-
-  livecheck do
-    url :homepage
-    regex(/href=.*?spl[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
 
   bottle do
     rebuild 1
