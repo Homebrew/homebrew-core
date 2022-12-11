@@ -129,7 +129,10 @@ class Dynare < Formula
 
     cp lib/"dynare/examples/bkk.mod", testpath
 
+    # Replace `makeinfo` with dummy command `true` to prevent generating docs
+    # that are not useful to the test.
     (testpath/"dyn_test.m").write <<~EOS
+      makeinfo_program true
       pkg prefix #{testpath}/octave
       pkg install io-#{io.version}.tar.gz
       pkg install statistics-#{statistics.version}.tar.gz
