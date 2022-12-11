@@ -55,7 +55,7 @@ class Go < Formula
 
     cd "src" do
       ENV["GOROOT_FINAL"] = libexec
-      system "./make.bash", "--no-clean"
+      system "./make.bash"
     end
 
     rm_rf "gobootstrap" # Bootstrap not required beyond compile.
