@@ -1,10 +1,15 @@
 class Retdec < Formula
   desc "Retargetable machine-code decompiler based on LLVM"
   homepage "https://github.com/avast/retdec"
-  url "https://github.com/avast/retdec/archive/refs/tags/v5.0.tar.gz"
-  sha256 "216dc62fd54ff06277497492dbf44bc7a91e39249d8aefdee2e4f10fc903ce85"
   license all_of: ["MIT", "Zlib"]
   head "https://github.com/avast/retdec.git", branch: "master"
+
+  stable do
+    url "https://github.com/avast/retdec.git",
+      branch:   "master",
+      revision: "53e55b4b26e9b843787f0e06d867441e32b1604e"
+    version "5.0"
+  end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
