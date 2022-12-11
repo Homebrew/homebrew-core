@@ -32,7 +32,7 @@ class Global < Formula
 
   depends_on "libtool"
   depends_on "ncurses"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "sqlite"
   depends_on "universal-ctags"
 
@@ -46,7 +46,7 @@ class Global < Formula
   def install
     system "sh", "reconf.sh" if build.head?
 
-    python3 = "python3.10"
+    python3 = "python3.11"
     ENV.prepend_create_path "PYTHONPATH", libexec/Language::Python.site_packages(python3)
 
     resource("Pygments").stage do
