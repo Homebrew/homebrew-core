@@ -9,8 +9,7 @@ class Oauth2c < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-o", "oauth2c"
-    bin.install "oauth2c"
+    system "go", "build", *std_go_args(ldflags: "-s -w")
   end
 
   test do
