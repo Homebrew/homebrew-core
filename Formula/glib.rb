@@ -3,8 +3,8 @@ class Glib < Formula
 
   desc "Core application library for C"
   homepage "https://developer.gnome.org/glib/"
-  url "https://download.gnome.org/sources/glib/2.74/glib-2.74.3.tar.xz"
-  sha256 "e9bc41ecd9690d9bc6a970cc7380119b828e5b6a4b16c393c638b3dc2b87cbcb"
+  url "https://download.gnome.org/sources/glib/2.74/glib-2.74.4.tar.xz"
+  sha256 "0e82da5ea129b4444227c7e4a9e598f7288d1994bf63f129c44b90cfd2432172"
   license "LGPL-2.1-or-later"
 
   bottle do
@@ -17,14 +17,18 @@ class Glib < Formula
     sha256 x86_64_linux:   "d896a5a0f3b720819fd86a85a95c7385b50212918ef9d7db8adb5750e2c2ed99"
   end
 
+  depends_on "gettext" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "gettext"
   depends_on "pcre2"
 
   uses_from_macos "libffi", since: :catalina
   uses_from_macos "python", since: :catalina
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   on_linux do
     depends_on "util-linux"
@@ -34,7 +38,6 @@ class Glib < Formula
   link_overwrite "bin/gdbus-codegen", "bin/glib-genmarshal", "bin/glib-mkenums", "bin/gtester-report"
   link_overwrite "share/glib-2.0/codegen", "share/glib-2.0/gdb"
 
-  # Sync this with `glib-utils.rb`
   # replace several hardcoded paths with homebrew counterparts
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/43467fd8dfc0e8954892ecc08fab131242dca025/glib/hardcoded-paths.diff"
