@@ -1,10 +1,9 @@
 class Xkbcomp < Formula
   desc "XKB keyboard description compiler"
   homepage "https://www.x.org"
-  url "https://www.x.org/releases/individual/app/xkbcomp-1.4.5.tar.bz2"
-  sha256 "6851086c4244b6fd0cc562880d8ff193fb2bbf1e141c73632e10731b31d4b05e"
+  url "https://www.x.org/releases/individual/app/xkbcomp-1.4.6.tar.xz"
+  sha256 "fa50d611ef41e034487af7bd8d8c718df53dd18002f591cca16b0384afc58e98"
   license all_of: ["HPND", "MIT-open-group"]
-  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "4a84896fed45058f5898811b2a9e0741abed6da8d13d43f251dd6a6820f17c67"
