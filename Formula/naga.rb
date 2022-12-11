@@ -22,6 +22,8 @@ class Naga < Formula
 
   uses_from_macos "ncurses"
 
+  conflicts_with "naga-cli", because: "both install `naga` binary"
+
   def install
     bin.mkpath
     system "make", "install", "INSTALL_PATH=#{bin}/naga"
