@@ -8,11 +8,6 @@ class Buf < Formula
 
   depends_on "go" => :build
 
-  resource "homebrew-invalidFileName.proto" do
-    url "https://raw.githubusercontent.com/yoheimuta/protolint/master/_example/proto/invalidFileName.proto"
-    sha256 "89fdb576434ba7d5af0109ae98106b954e718cfe5838879827b7d22445d058cd"
-  end
-
   def install
     %w[buf protoc-gen-buf-breaking protoc-gen-buf-lint].each do |name|
       system "go", "build", *std_go_args(ldflags: "-s -w", output: bin/name), "./cmd/#{name}"
@@ -24,7 +19,10 @@ class Buf < Formula
   end
 
   test do
-    testpath.install resource("homebrew-invalidFileName.proto")
+    (testpath/"invalidFileName.proto").write <<~EOS
+      syntax = "proto3";
+      package examplepb;
+    EOS
 
     (testpath/"buf.yaml").write <<~EOS
       version: v1
