@@ -3,7 +3,7 @@ class Erigon < Formula
   homepage "https://github.com/ledgerwatch/erigon"
   url "https://github.com/ledgerwatch/erigon/archive/refs/tags/v2.31.0.tar.gz"
   sha256 "eaed8d4e24d813991a53de0b8e89161ed5090168ddae8487e20be89dd861782d"
-  license "LGPL-3.0-or-later"
+  license all_of: ["GPL-3.0-or-later", "LGPL-3.0-or-later"]
   head "https://github.com/ledgerwatch/erigon.git", branch: "devel"
 
   depends_on "gcc" => :build
