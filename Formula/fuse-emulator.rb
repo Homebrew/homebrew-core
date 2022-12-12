@@ -32,6 +32,8 @@ class FuseEmulator < Formula
   depends_on "libspectrum"
   depends_on "sdl12-compat"
 
+  uses_from_macos "libxml2"
+
   def install
     system "./autogen.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
