@@ -37,6 +37,13 @@ class GccAT10 < Formula
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
 
+  # Fix for build against macOS 13 SDK
+  # https://github.com/iains/gcc-10-branch/issues/8
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/d52cefd45a18ea9df3e3cd8cac5dcf6755f94edd/gcc/gcc-10.3-ventura.diff"
+    sha256 "26f45ae2ad69d9ba16f3ac2e9384a5a2e56f2a18722c91759f871d53fba43cce"
+  end
+
   def version_suffix
     version.major.to_s
   end
