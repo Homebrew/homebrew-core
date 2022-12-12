@@ -60,7 +60,7 @@ class Pcl < Formula
     end
 
     # The AppleClang versions shipped on current MacOS versions do not support the -march=native flag on arm
-    args << "-DPCL_ENABLE_MARCHNATIVE:BOOL=OFF" if OS.mac? && (MacOS.version <= :ventura) && Hardware::CPU.arm?
+    args << "-DPCL_ENABLE_MARCHNATIVE:BOOL=OFF" if build.bottle?
 
     mkdir "build" do
       system "cmake", "..", *args
