@@ -1,9 +1,8 @@
 class PandocCrossref < Formula
   desc "Pandoc filter for numbering and cross-referencing"
   homepage "https://github.com/lierdakil/pandoc-crossref"
-  # TODO: Remove pandoc-crossref.cabal resource on next release along with corresponding install logic
-  url "https://hackage.haskell.org/package/pandoc-crossref-0.3.13.0/pandoc-crossref-0.3.13.0.tar.gz"
-  sha256 "3d001c7e656fba84b3053ce4531766512505c9db1e8cb6c99939f40075eec53a"
+  url "https://hackage.haskell.org/package/pandoc-crossref-0.3.14.0/pandoc-crossref-0.3.14.0.tar.gz"
+  sha256 "06d163e2cec3f285919295c41a0580f203bb157d05eb06a494dbc093cbefa5b8"
   license "GPL-2.0-or-later"
 
   bottle do
@@ -24,15 +23,7 @@ class PandocCrossref < Formula
   uses_from_macos "unzip" => :build
   uses_from_macos "zlib"
 
-  # Use Hackage metadata revision to support GHC 9.4.
-  resource "pandoc-crossref.cabal" do
-    url "https://hackage.haskell.org/package/pandoc-crossref-0.3.13.0/revision/1.cabal"
-    sha256 "b10df4e403805e2796c1ee39d68d906788b0b85b75516c6bf84c26509d705227"
-  end
-
   def install
-    resource("pandoc-crossref.cabal").stage { buildpath.install "1.cabal" => "pandoc-crossref.cabal" }
-
     system "cabal", "v2-update"
     system "cabal", "v2-install", *std_cabal_v2_args
   end
