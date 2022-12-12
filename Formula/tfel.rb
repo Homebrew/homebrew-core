@@ -1,19 +1,10 @@
 class Tfel < Formula
   desc "Code generation tool dedicated to material knowledge for numerical mechanics"
   homepage "https://thelfer.github.io/tfel/web/index.html"
+  url "https://github.com/thelfer/tfel/archive/refs/tags/TFEL-4.1.0.tar.gz"
+  sha256 "7505c41da9df5fb3c281651ff29b58a18fd4d91b92f839322f0267269c5f1375"
   license "GPL-1.0-or-later"
   head "https://github.com/thelfer/tfel.git", using: :git, branch: "master"
-
-  stable do
-    url "https://github.com/thelfer/tfel/archive/refs/tags/TFEL-4.0.tar.gz"
-    sha256 "ed3fb2f59c6b8c9896606ef92276f81942433dd5f60d8130ba07c3af80b039e2"
-
-    # Fix CMake link Flags for bython bindings
-    patch do
-      url "https://github.com/thelfer/tfel/raw/fca68680750847fd56315664ecad19089bf9f0b7/patches/homebrew/tfel-4.0.0.patch"
-      sha256 "ef0b78b1c59d066afe67ee7d3054828008fe364020e5a9204f19a315fdc87e48"
-    end
-  end
 
   bottle do
     rebuild 1
