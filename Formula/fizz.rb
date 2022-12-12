@@ -3,7 +3,7 @@ class Fizz < Formula
   homepage "https://github.com/facebookincubator/fizz"
   url "https://github.com/facebookincubator/fizz/releases/download/v2022.12.12.00/fizz-v2022.12.12.00.tar.gz"
   sha256 "80e5002072d01bd94eecf68d13e2ad9dc008773d9abc0f328f08fc9a4a0067db"
-  license "BSD-2-Clause"
+  license "BSD-3-Clause"
   head "https://github.com/facebookincubator/fizz.git", branch: "main"
 
   bottle do
