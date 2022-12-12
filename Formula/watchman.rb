@@ -39,6 +39,11 @@ class Watchman < Formula
   fails_with gcc: "5"
 
   def install
+    # Fix "Process terminated due to timeout" by allowing a longer timeout.
+    inreplace "CMakeLists.txt",
+              /gtest_discover_tests\((.*)\)/,
+              "gtest_discover_tests(\\1 DISCOVERY_TIMEOUT 30)"
+
     # NOTE: Setting `BUILD_SHARED_LIBS=ON` will generate DSOs for Eden libraries.
     #       These libraries are not part of any install targets and have the wrong
     #       RPATHs configured, so will need to be installed and relocated manually
@@ -50,9 +55,7 @@ class Watchman < Formula
                     "-DWATCHMAN_BUILDINFO_OVERRIDE=#{tap.user}",
                     "-DWATCHMAN_STATE_DIR=#{var}/run/watchman",
                     *std_cmake_args
-
-    # Workaround for `Process terminated due to timeout`
-    ENV.deparallelize { system "cmake", "--build", "build" }
+    system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
     path = Pathname.new(File.join(prefix, HOMEBREW_PREFIX))
