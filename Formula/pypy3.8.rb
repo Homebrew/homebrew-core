@@ -14,7 +14,7 @@ class Pypy38 < Formula
   depends_on "pkg-config" => :build
   depends_on "pypy" => :build
   depends_on "gdbm"
-  depends_on "openssl@1.1"
+  depends_on "openssl"
   depends_on "xz"
 
   uses_from_macos "bzip2"
@@ -22,7 +22,6 @@ class Pypy38 < Formula
   uses_from_macos "libffi"
   uses_from_macos "ncurses"
   uses_from_macos "sqlite"
-  uses_from_macos "tcl-tk"
   uses_from_macos "unzip"
   uses_from_macos "zlib"
 
@@ -37,9 +36,6 @@ class Pypy38 < Formula
   end
 
   def install
-    # The `tcl-tk` library paths are hardcoded and need to be modified for non-/usr/local prefix
-    inreplace "lib_pypy/_tkinter/tklib_build.py", "/usr/local/opt/tcl-tk/", Formula["tcl-tk"].opt_prefix/""
-
     # Having PYTHONPATH set can cause the build to fail if another
     # Python is present, e.g. a Homebrew-provided Python 2.x
     # See https://github.com/Homebrew/homebrew/issues/24364
@@ -91,7 +87,7 @@ class Pypy38 < Formula
   def post_install
     # Precompile cffi extensions in lib_pypy
     # list from create_cffi_import_libraries in pypy/tool/release/package.py
-    %w[_sqlite3 _curses syslog gdbm _tkinter].each do |module_name|
+    %w[_sqlite3 _curses syslog gdbm].each do |module_name|
       quiet_system bin/"pypy3.8", "-c", "import #{module_name}"
     end
 
