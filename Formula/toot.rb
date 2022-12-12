@@ -3,8 +3,8 @@ class Toot < Formula
 
   desc "Mastodon CLI & TUI"
   homepage "https://toot.readthedocs.io/en/latest/index.html"
-  url "https://files.pythonhosted.org/packages/cf/57/56a7c847bd4ca3735eabcd48bc6367f875a125012f9949f2a43d8a889136/toot-0.31.0.tar.gz"
-  sha256 "a4730080c9902428dc1e2664a4fb2144a6377e0358ec265f90f6350058123b2e"
+  url "https://files.pythonhosted.org/packages/f8/79/617bad300c5a81260972a62d097abd6b3c1172498b0b567d270fd8ede013/toot-0.32.1.tar.gz"
+  sha256 "cfd0fa7682f012740f0efb5e2401270c7ca78343aa356d26a172da8af79b3a36"
   license "GPL-3.0-only"
   head "https://github.com/ihabunek/toot.git", branch: "master"
 
