@@ -13,8 +13,8 @@ class Portablegl < Formula
   def install
     include.install "portablegl.h"
     include.install "portablegl_unsafe.h"
-    (pkgshare/"tests").install Dir["glcommon"]
-    (pkgshare/"tests").install Dir["testing"]
+    (pkgshare/"tests").install "glcommon"
+    (pkgshare/"tests").install "testing"
   end
 
   test do
