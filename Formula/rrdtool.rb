@@ -24,7 +24,7 @@ class Rrdtool < Formula
   end
 
   head do
-    url "https://github.com/oetiker/rrdtool-1.x.git"
+    url "https://github.com/oetiker/rrdtool-1.x.git", branch: "master"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
@@ -33,6 +33,8 @@ class Rrdtool < Formula
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "pango"
+
+  uses_from_macos "libxml2"
 
   on_system :linux, macos: :ventura_or_newer do
     depends_on "groff" => :build
@@ -50,6 +52,7 @@ class Rrdtool < Formula
       --disable-perl-site-install
       --disable-ruby-site-install
     ]
+    args << "--disable-perl" if OS.linux?
 
     inreplace "configure", /^sleep 1$/, "#sleep 1"
 
