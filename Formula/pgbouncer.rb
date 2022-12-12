@@ -21,11 +21,21 @@ class Pgbouncer < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1da1373bd7fa36da801193159f10bc9128b82a60a03d9da5b0bcbe35b75f04cd"
   end
 
+  head do
+    url "https://github.com/pgbouncer/pgbouncer.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+    depends_on "pandoc" => :build
+  end
+
   depends_on "pkg-config" => :build
   depends_on "libevent"
   depends_on "openssl@1.1"
 
   def install
+    system "./autogen.sh" if build.head?
     system "./configure", "--disable-debug",
                           "--prefix=#{prefix}"
     system "make", "install"
