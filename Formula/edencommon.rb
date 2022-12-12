@@ -23,9 +23,13 @@ class Edencommon < Formula
   depends_on "glog"
 
   def install
+    # Fix "Process terminated due to timeout" by allowing a longer timeout.
+    inreplace "eden/common/utils/test/CMakeLists.txt",
+              /gtest_discover_tests\((.*)\)/,
+              "gtest_discover_tests(\\1 DISCOVERY_TIMEOUT 30)"
+
     system "cmake", "-S", ".", "-B", "_build", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
-    # Workaround for `Process terminated due to timeout`
-    ENV.deparallelize { system "cmake", "--build", "_build" }
+    system "cmake", "--build", "_build"
     system "cmake", "--install", "_build"
   end
 
