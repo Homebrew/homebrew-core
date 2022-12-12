@@ -4,8 +4,8 @@ class Checkov < Formula
   desc "Prevent cloud misconfigurations during build-time for IaC tools"
   homepage "https://www.checkov.io/"
   # checkov should only be updated every 15 releases on multiples of 15
-  url "https://files.pythonhosted.org/packages/9c/b3/6c2e966ee29ed93be86bd42322da03a07c4af24f2b191cf2678658c20493/checkov-2.2.105.tar.gz"
-  sha256 "f009fab8f74dc7e6ae12c1fd521b4cd9cc8b6015ae445ab46bf4b1ca929338db"
+  url "https://files.pythonhosted.org/packages/0d/0b/5f6433f812391ee7d32b7ab0167361a3f716aa5cce6b2ec24d5f000c43d4/checkov-2.2.135.tar.gz"
+  sha256 "42814a6d4d01721e1674d825332d3e0b544771042fd5eb42e3b4e21e2891b493"
   license "Apache-2.0"
 
   bottle do
@@ -61,8 +61,8 @@ class Checkov < Formula
   end
 
   resource "bc-detect-secrets" do
-    url "https://files.pythonhosted.org/packages/67/a7/8adabe8f3cc0059e7fb841e76dc804c95af9d5cdd8fa4e74b3c4f2fd3e7b/bc-detect-secrets-1.3.14.tar.gz"
-    sha256 "cabe8a69358f8cd85e84232c81a6557934d72c9538cef566e7a886f397021e35"
+    url "https://files.pythonhosted.org/packages/1c/1f/68884e94fb28dfbac89c22cfcb45426215c53126c3af661a2fd25d4529e4/bc-detect-secrets-1.4.5.tar.gz"
+    sha256 "8243aeb2bf79ee547cf54355b19ec951410c5fc2cab5353dff1b56190bf5973c"
   end
 
   resource "bc-python-hcl2" do
@@ -276,8 +276,8 @@ class Checkov < Formula
   end
 
   resource "pycares" do
-    url "https://files.pythonhosted.org/packages/ac/a3/21594384c2398420dd7f6e8656aeb5a2c15128ddf2b85ef5f4403342e18d/pycares-4.2.2.tar.gz"
-    sha256 "e1f57a8004370080694bd6fb969a1ffc9171a59c6824d54f791c1b2e4d298385"
+    url "https://files.pythonhosted.org/packages/01/50/e3015e6e03a3cf64113f509e8b86b71af37169b59ccedfcb182f3d031329/pycares-4.3.0.tar.gz"
+    sha256 "c542696f6dac978e9d99192384745a65f80a7d9450501151e4a7563e06010d45"
   end
 
   resource "pycep-parser" do
