@@ -39,10 +39,6 @@ class Watchman < Formula
   fails_with gcc: "5"
 
   def install
-    # Fix build failure on Linux. Borrowed from Fedora:
-    # https://src.fedoraproject.org/rpms/watchman/blob/rawhide/f/watchman.spec#_70
-    inreplace "CMakeLists.txt", /^t_test/, "#t_test" if OS.linux?
-
     # NOTE: Setting `BUILD_SHARED_LIBS=ON` will generate DSOs for Eden libraries.
     #       These libraries are not part of any install targets and have the wrong
     #       RPATHs configured, so will need to be installed and relocated manually
