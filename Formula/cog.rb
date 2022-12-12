@@ -24,6 +24,6 @@ class Cog < Formula
 
   test do
     assert_match "cog version #{version}", shell_output("#{bin}/cog --version")
-    assert_match "cog.yaml not found", shell_output("#{bin}/cog build", 1)
+    assert_match "cog.yaml not found", shell_output("#{bin}/cog build 2>&1", 1)
   end
 end
