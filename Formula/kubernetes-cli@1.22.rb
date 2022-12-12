@@ -24,8 +24,7 @@ class KubernetesCliAT122 < Formula
   keg_only :versioned_formula
 
   # https://kubernetes.io/releases/patch-releases/#1-22
-  deprecate! date: "2022-08-28", because: :deprecated_upstream
-  # disable! date: "2022-10-28", because: :deprecated_upstream
+  disable! date: "2022-10-28", because: :deprecated_upstream
 
   depends_on "bash" => :build
   depends_on "coreutils" => :build
