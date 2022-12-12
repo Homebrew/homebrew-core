@@ -4,6 +4,7 @@ class Gnuplot < Formula
   url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/5.4.5/gnuplot-5.4.5.tar.gz"
   sha256 "66f679115dd30559e110498fc94d926949d4d370b4999a042e724b8e910ee478"
   license "gnuplot"
+  revision 1
 
   bottle do
     sha256 arm64_ventura:  "c246651856ca531f7d8363b9ad595860c7c4d8147921b7b7c4331c52b6e603fb"
@@ -29,15 +30,12 @@ class Gnuplot < Formula
   depends_on "libcerf"
   depends_on "lua"
   depends_on "pango"
-  depends_on "qt@5"
+  depends_on "qt"
   depends_on "readline"
 
   fails_with gcc: "5"
 
   def install
-    # Qt5 requires c++11 (and the other backends do not care)
-    ENV.cxx11
-
     args = %W[
       --disable-dependency-tracking
       --disable-silent-rules
