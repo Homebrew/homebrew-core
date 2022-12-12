@@ -1,9 +1,8 @@
 class Cog < Formula
   desc "Containers for machine learning"
   homepage "https://github.com/replicate/cog"
-  url "https://github.com/replicate/cog.git",
-      tag:      "v0.5.1",
-      revision: "b58bd63e3cd9b7db0a3410ef47c61c1b11255809"
+  url "https://github.com/replicate/cog/archive/refs/tags/v0.5.1.tar.gz"
+  sha256 "53118376c1ddb19d9c4ce866d2b2ebc4bd3899a803268fac0c1e534c23b75843"
   license "Apache-2.0"
   head "https://github.com/replicate/cog.git", branch: "main"
 
