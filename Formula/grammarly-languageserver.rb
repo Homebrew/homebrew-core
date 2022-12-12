@@ -1,7 +1,7 @@
 require "language/node"
 
 class GrammarlyLanguageserver < Formula
-  desc "This is a language server implementation of Grammarly"
+  desc "Language Server for Grammarly"
   homepage "https://github.com/znck/grammarly"
   url "https://registry.npmjs.org/grammarly-languageserver/-/grammarly-languageserver-0.0.4.tgz"
   sha256 "0d50b88059b5a63c66e3973e94d4f368366087ef59427003106a99bb46c46728"
