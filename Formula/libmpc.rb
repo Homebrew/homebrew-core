@@ -4,9 +4,9 @@ class Libmpc < Formula
   license "LGPL-3.0-or-later"
 
   stable do
-    url "https://ftp.gnu.org/gnu/mpc/mpc-1.2.1.tar.gz"
-    mirror "https://ftpmirror.gnu.org/mpc/mpc-1.2.1.tar.gz"
-    sha256 "17503d2c395dfcf106b622dc142683c1199431d095367c6aacba6eec30340459"
+    url "https://ftp.gnu.org/gnu/mpc/mpc-1.3.0.tar.gz"
+    mirror "https://ftpmirror.gnu.org/mpc/mpc-1.3.0.tar.gz"
+    sha256 "0e3b12181d37207230f5a7a7ddcfc22abfc5fc9c05825e1a65401a489a432a2a"
 
     # Fix -flat_namespace being used on Big Sur and later.
     patch do
