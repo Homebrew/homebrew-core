@@ -59,7 +59,9 @@ class Pcl < Formula
       "-DBUILD_apps_modeler:BOOL=OFF"
     end
 
-    args << "-DPCL_ENABLE_MARCHNATIVE:BOOL=OFF" if OS.mac? && (MacOS.version == :monterey) && Hardware::CPU.arm?
+    if OS.mac? && ((MacOS.version == :monterey) || (MacOS.version == :ventura)) && Hardware::CPU.arm?
+      args << "-DPCL_ENABLE_MARCHNATIVE:BOOL=OFF"
+    end
 
     mkdir "build" do
       system "cmake", "..", *args
