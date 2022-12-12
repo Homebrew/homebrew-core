@@ -6,9 +6,8 @@ class Retdec < Formula
 
   stable do
     url "https://github.com/avast/retdec.git",
-      branch:   "master",
+      tag:      "v5.0",
       revision: "53e55b4b26e9b843787f0e06d867441e32b1604e"
-    version "5.0"
   end
 
   depends_on "autoconf" => :build
