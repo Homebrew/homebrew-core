@@ -36,8 +36,7 @@ class Pgbouncer < Formula
 
   def install
     system "./autogen.sh" if build.head?
-    system "./configure", "--disable-debug",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
     bin.install "etc/mkauth.py"
     inreplace "etc/pgbouncer.ini" do |s|
