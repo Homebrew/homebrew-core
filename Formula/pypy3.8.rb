@@ -52,10 +52,6 @@ class Pypy38 < Formula
       system python, buildpath/"rpython/bin/rpython",
              "-Ojit", "--shared", "--cc", ENV.cc,
              "--make-jobs", ENV.make_jobs, "targetpypystandalone.py"
-
-      with_env(PYTHONPATH: buildpath) do
-        system "./pypy3-c", buildpath/"lib_pypy/pypy_tools/build_cffi_imports.py"
-      end
     end
 
     libexec.mkpath
