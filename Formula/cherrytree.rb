@@ -1,10 +1,9 @@
 class Cherrytree < Formula
   desc "Hierarchical note taking application featuring rich text and syntax highlighting"
   homepage "https://www.giuspen.com/cherrytree/"
-  url "https://www.giuspen.com/software/cherrytree_0.99.52.tar.xz"
-  sha256 "3a0ef5b2e821e2b5635888f063e47bfb1263e46b571371037daf473771d4ab5b"
+  url "https://www.giuspen.com/software/cherrytree_0.99.53.tar.xz"
+  sha256 "317fbac7627b6556c7113433b360376d332bd10b6529b43734a8640cef5de24e"
   license "GPL-3.0-or-later"
-  revision 1
 
   livecheck do
     url :homepage
