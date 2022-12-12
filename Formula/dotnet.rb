@@ -88,9 +88,6 @@ class Dotnet < Formula
       ENV.append_path "LD_LIBRARY_PATH", Formula["icu4c"].opt_lib
       ENV.append_to_cflags "-I#{Formula["krb5"].opt_include}"
     end
-    ENV["EXTRA_CFLAGS"] = ENV.delete("CFLAGS")
-    ENV["EXTRA_CXXFLAGS"] = ENV.delete("CXXFLAGS")
-    ENV["EXTRA_LDFLAGS"] = ENV.delete("LDFLAGS")
 
     # The source directory needs to be outside the installer directory
     (buildpath/"installer").install buildpath.children
@@ -112,11 +109,18 @@ class Dotnet < Formula
       # Work around build script getting stuck when running shutdown command on Linux
       # TODO: Try removing in the next release
       # Ref: https://github.com/dotnet/source-build/discussions/3105#discussioncomment-4373142
-      inreplace "build.sh", "$CLI_ROOT/dotnet build-server shutdown", "" if OS.linux?
+      inreplace "build.sh", "$CLI_ROOT/dotnet build-server shutdown",
+                            "\\0 --msbuild\n\\0 --vscscompiler\n\\0 --razor"
 
       prep_args = (OS.linux? && Hardware::CPU.intel?) ? [] : ["--bootstrap"]
       system "./prep.sh", *prep_args
-      system "./build.sh", "--clean-while-building"
+      Timeout.timeout(1000) do
+        system "bash", "-x", "build.sh", "--clean-while-building",
+                                         "--",
+                                         "/v:n",
+                                         "/p:LogVerbosity=n",
+                                         "/p:MinimalConsoleLogOutput=false"
+      end
 
       libexec.mkpath
       tarball = Dir["artifacts/*/Release/dotnet-sdk-#{version}-*.tar.gz"].first
