@@ -25,6 +25,7 @@ class ErlangAT24 < Formula
   keg_only :versioned_formula
 
   depends_on "openssl@3"
+  depends_on "unixodbc"
   depends_on "wxwidgets" # for GUI apps like observer
 
   resource "html" do
@@ -50,6 +51,7 @@ class ErlangAT24 < Formula
       --enable-smp-support
       --enable-threads
       --enable-wx
+      --with-odbc=#{Formula["unixodbc"].opt_prefix}
       --with-ssl=#{Formula["openssl@3"].opt_prefix}
       --without-javac
     ]
@@ -65,7 +67,7 @@ class ErlangAT24 < Formula
     system "make", "install"
 
     # Build the doc chunks (manpages are also built by default)
-    system "make", "docs", "DOC_TARGETS=chunks"
+    ENV.deparallelize { system "make", "docs", "DOC_TARGETS=chunks" }
     ENV.deparallelize { system "make", "install-docs" }
 
     doc.install resource("html")

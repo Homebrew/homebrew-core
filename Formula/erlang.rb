@@ -30,6 +30,7 @@ class Erlang < Formula
   end
 
   depends_on "openssl@1.1"
+  depends_on "unixodbc"
   depends_on "wxwidgets" # for GUI apps like observer
 
   resource "html" do
@@ -56,6 +57,7 @@ class Erlang < Formula
       --enable-smp-support
       --enable-threads
       --enable-wx
+      --with-odbc=#{Formula["unixodbc"].opt_prefix}
       --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
       --without-javac
     ]
@@ -71,7 +73,7 @@ class Erlang < Formula
     system "make", "install"
 
     # Build the doc chunks (manpages are also built by default)
-    system "make", "docs", "DOC_TARGETS=chunks"
+    ENV.deparallelize { system "make", "docs", "DOC_TARGETS=chunks" }
     ENV.deparallelize { system "make", "install-docs" }
 
     doc.install resource("html")
