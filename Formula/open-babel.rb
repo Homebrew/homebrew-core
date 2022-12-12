@@ -25,18 +25,26 @@ class OpenBabel < Formula
   depends_on "swig" => :build
   depends_on "cairo"
   depends_on "eigen"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
+
+  uses_from_macos "libxml2"
+
+  def python3
+    "python3.11"
+  end
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
+    system "cmake", "-S", ".", "-B", "build",
                     "-DRUN_SWIG=ON",
                     "-DPYTHON_BINDINGS=ON",
-                    "-DPYTHON_EXECUTABLE=#{which("python3.10")}"
+                    "-DPYTHON_EXECUTABLE=#{which(python3)}",
+                    *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
 
   test do
     system bin/"obabel", "-:'C1=CC=CC=C1Br'", "-omol"
+    system python3, "-c", "from openbabel import openbabel"
   end
 end
