@@ -20,7 +20,7 @@ class Libmpc < Formula
   end
 
   head do
-    url "https://gitlab.inria.fr/mpc/mpc.git"
+    url "https://gitlab.inria.fr/mpc/mpc.git", branch: "master"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
