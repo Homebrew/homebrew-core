@@ -31,7 +31,7 @@ class ZlibNg < Formula
     # Test uses an example of code for zlib and overwrites its API with zlib-ng API
     testpath.install resource("homebrew-test_artifact")
     inreplace "zpipe.c", "#include \"zlib.h\"", <<~EOS
-      #include \"zlib-ng.h\"
+      #include "zlib-ng.h"
       #define inflate     zng_inflate
       #define inflateInit zng_inflateInit
       #define inflateEnd  zng_inflateEnd
