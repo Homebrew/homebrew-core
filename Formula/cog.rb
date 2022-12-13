@@ -7,7 +7,7 @@ class Cog < Formula
   head "https://github.com/replicate/cog.git", branch: "main"
 
   depends_on "go" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
   depends_on "redis"
 
   def install
