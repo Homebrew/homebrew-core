@@ -1,19 +1,10 @@
 class Augeas < Formula
   desc "Configuration editing tool and API"
   homepage "https://augeas.net/"
+  url "https://github.com/hercules-team/augeas/releases/download/release-1.14.0/augeas-1.14.0.tar.gz"
+  sha256 "8c101759ca3d504bd1d805e70e2f615fa686af189dd7cf0529f71d855c087df1"
   license "LGPL-2.1-or-later"
   head "https://github.com/hercules-team/augeas.git", branch: "master"
-
-  stable do
-    url "https://github.com/hercules-team/augeas/releases/download/release-1.14.0/augeas-1.14.0.tar.gz"
-    sha256 "8c101759ca3d504bd1d805e70e2f615fa686af189dd7cf0529f71d855c087df1"
-
-    # Replace deprecated 'security_context_t' with 'char *'. Remove in the next release.
-    patch do
-      url "https://github.com/hercules-team/augeas/commit/f38398a2d07028b892eac59449a35e1a3d645fac.patch?full_index=1"
-      sha256 "1697379e0676edf94346a3377a75c871d1d0d033e3a37a29d69ae66f6e57553a"
-    end
-  end
 
   livecheck do
     url :stable
