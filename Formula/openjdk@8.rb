@@ -1,10 +1,18 @@
 class OpenjdkAT8 < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.java.net/"
-  url "https://github.com/openjdk/jdk8u/archive/refs/tags/jdk8u352-b07.tar.gz"
+  url "https://github.com/openjdk/jdk8u/archive/refs/tags/jdk8u352-ga.tar.gz"
   version "1.8.0+352"
-  sha256 "6d4553325795bea1cea6d28bef886ad6f9ca2bd44442c6d36a6b5d736945f8b8"
+  sha256 "141dcb6b321cc78e993f1f126dde9f6c0a7af5d11bfe390f5cf5b1513fabdc1c"
   license "GPL-2.0-only"
+
+  livecheck do
+    url :stable
+    regex(/^jdk(8u\d+)-ga$/i)
+    strategy :git do |tags, regex|
+      tags.map { |tag| tag[regex, 1]&.gsub("8u", "1.8.0+") }.compact
+    end
+  end
 
   bottle do
     sha256 cellar: :any,                 ventura:      "90907fd77191ae5c5e4352f299a3a8216af684b0913352c4ce38a181cf4c43dd"
@@ -20,6 +28,11 @@ class OpenjdkAT8 < Formula
   depends_on "pkg-config" => :build
   depends_on arch: :x86_64
   depends_on "freetype"
+  depends_on "giflib"
+
+  uses_from_macos "cups"
+  uses_from_macos "unzip"
+  uses_from_macos "zip"
 
   on_monterey :or_newer do
     depends_on "gawk" => :build
@@ -27,7 +40,6 @@ class OpenjdkAT8 < Formula
 
   on_linux do
     depends_on "alsa-lib"
-    depends_on "cups"
     depends_on "fontconfig"
     depends_on "libx11"
     depends_on "libxext"
@@ -35,10 +47,6 @@ class OpenjdkAT8 < Formula
     depends_on "libxrender"
     depends_on "libxt"
     depends_on "libxtst"
-    depends_on "unzip"
-    depends_on "zip"
-
-    ignore_missing_libraries %w[libjvm.so libawt_xawt.so]
   end
 
   # Oracle doesn't serve JDK 7 downloads anymore, so use Zulu JDK 7 for bootstrapping.
@@ -55,10 +63,9 @@ class OpenjdkAT8 < Formula
 
   def install
     _, _, update = version.to_s.rpartition("+")
-    java_options = ENV.delete("_JAVA_OPTIONS")
-
     boot_jdk = buildpath/"boot-jdk"
-    resource("boot-jdk").stage(boot_jdk)
+    resource("boot-jdk").stage boot_jdk
+    java_options = ENV.delete("_JAVA_OPTIONS")
 
     # Work around clashing -I/usr/include and -isystem headers,
     # as superenv already handles this detail for us.
@@ -81,9 +88,7 @@ class OpenjdkAT8 < Formula
       inreplace "common/autoconf/toolchain.m4",
                 "if test \"${XC_VERSION_PARTS[[0]]}\" != \"6\"",
                 "if test \"${XC_VERSION_PARTS[[0]]}\" != \"#{MacOS::Xcode.version.major}\""
-    end
-
-    if OS.linux?
+    else
       # Fix linker errors on brewed GCC
       inreplace "common/autoconf/flags.m4", "-Xlinker -O1", ""
       inreplace "hotspot/make/linux/makefiles/gcc.make", "-Xlinker -O1", ""
@@ -102,32 +107,43 @@ class OpenjdkAT8 < Formula
       --with-vendor-name=#{tap.user}
       --with-vendor-url=#{tap.issues_url}
       --with-vendor-vm-bug-url=#{tap.issues_url}
+      --with-giflib=system
     ]
 
+    ldflags = ["-Wl,-rpath,#{loader_path.gsub("$", "\\$$$$")}/server"]
     if OS.mac?
-      args << "--with-toolchain-type=clang"
+      args += %w[
+        --with-toolchain-type=clang
+        --with-zlib=system
+      ]
 
       # Work around SDK issues with JavaVM framework.
       if MacOS.version <= :catalina
         sdk_path = MacOS::CLT.sdk_path(MacOS.version)
         ENV["SDKPATH"] = ENV["SDKROOT"] = sdk_path
         javavm_framework_path = sdk_path/"System/Library/Frameworks/JavaVM.framework/Frameworks"
-        args += %W[--with-extra-cflags=-F#{javavm_framework_path}
-                   --with-extra-cxxflags=-F#{javavm_framework_path}
-                   --with-extra-ldflags=-F#{javavm_framework_path}]
+        args += %W[
+          --with-extra-cflags=-F#{javavm_framework_path}
+          --with-extra-cxxflags=-F#{javavm_framework_path}
+        ]
+        ldflags << "-F#{javavm_framework_path}"
       end
     else
-      args += %W[--with-toolchain-type=gcc
-                 --x-includes=#{HOMEBREW_PREFIX}/include
-                 --x-libraries=#{HOMEBREW_PREFIX}/lib
-                 --with-cups=#{HOMEBREW_PREFIX}
-                 --with-fontconfig=#{HOMEBREW_PREFIX}]
+      args += %W[
+        --with-toolchain-type=gcc
+        --x-includes=#{HOMEBREW_PREFIX}/include
+        --x-libraries=#{HOMEBREW_PREFIX}/lib
+        --with-cups=#{HOMEBREW_PREFIX}
+        --with-fontconfig=#{HOMEBREW_PREFIX}
+        --with-stdc++lib=dynamic
+      ]
+      extra_rpath = rpath(source: libexec/"lib/amd64", target: libexec/"jre/lib/amd64")
+      ldflags << "-Wl,-rpath,#{extra_rpath.gsub("$", "\\$$$$")}"
     end
+    args << "--with-extra-ldflags=#{ldflags.join(" ")}"
 
-    chmod 0755, %w[configure common/autoconf/autogen.sh]
-
-    system "common/autoconf/autogen.sh"
-    system "./configure", *args
+    system "bash", "common/autoconf/autogen.sh"
+    system "bash", "configure", *args
 
     ENV["MAKEFLAGS"] = "JOBS=#{ENV.make_jobs}"
     system "make", "bootcycle-images", "CONF=release"
