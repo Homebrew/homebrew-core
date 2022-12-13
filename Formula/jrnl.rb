@@ -196,7 +196,7 @@ class Jrnl < Formula
       }
 
       expect {
-        -exact "Do you want to store the password in your keychain? \[Y/n\] " { send -- "n\r" }
+        -exact "Do you want to store the password in your keychain? [Y/n] " { send -- "n\r" }
         timeout { exit 1 }
       }
 
