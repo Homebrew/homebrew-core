@@ -143,7 +143,7 @@ class Rpm < Formula
 
     (testpath/".rpmmacros").write <<~EOS
       %_topdir		#{testpath}/rpmbuild
-      %_tmppath		%\{_topdir}/tmp
+      %_tmppath		%<_topdir>s/tmp
     EOS
 
     system "#{bin}/rpm", "-vv", "-qa", "--dbpath=#{testpath}/var/lib/rpm"
