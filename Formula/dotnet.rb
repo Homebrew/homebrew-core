@@ -110,7 +110,7 @@ class Dotnet < Formula
       # TODO: Try removing in the next release
       # Ref: https://github.com/dotnet/source-build/discussions/3105#discussioncomment-4373142
       inreplace "build.sh", "$CLI_ROOT/dotnet build-server shutdown",
-                            "\\0 --vbcscompiler" # \n\\0 --razor"
+                            "\\0 --msbuild\n\\0 --razor" # "\\0 --vbcscompiler"
 
       prep_args = (OS.linux? && Hardware::CPU.intel?) ? [] : ["--bootstrap"]
       system "./prep.sh", *prep_args
