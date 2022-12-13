@@ -3,6 +3,7 @@ class Libspnav < Formula
   homepage "https://spacenav.sourceforge.net/"
   url "https://github.com/FreeSpacenav/libspnav/releases/download/v1.1/libspnav-1.1.tar.gz"
   sha256 "04b297f68a10db4fa40edf68d7f823ba7b9d0442f2b665181889abe2cea42759"
+  license "BSD-3-Clause"
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "18dd7205e07c4380822fdf507f70aa5a460b942fb7aa2c6bdf064a0040426273"
