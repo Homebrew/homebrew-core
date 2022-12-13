@@ -48,7 +48,7 @@ class Libgosu < Formula
           MyWindow()
           :   Gosu::Window(640, 480)
           {
-              set_caption(\"Hello World!\");
+              set_caption("Hello World!");
           }
 
           void update()
