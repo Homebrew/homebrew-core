@@ -28,6 +28,7 @@ class PythonAT311 < Formula
   depends_on "pkg-config" => :build
   depends_on "mpdecimal"
   depends_on "openssl@1.1"
+  depends_on "readline"
   depends_on "sqlite"
   depends_on "xz"
 
@@ -133,7 +134,6 @@ class PythonAT311 < Formula
       --with-system-expat
       --with-system-ffi
       --with-system-libmpdec
-      --with-readline=editline
     ]
 
     if OS.mac?
@@ -174,11 +174,9 @@ class PythonAT311 < Formula
 
     # We want our readline! This is just to outsmart the detection code,
     # superenv makes cc always find includes/libs!
-    if OS.linux?
-      inreplace "setup.py",
-        /do_readline = self.compiler.find_library_file\(self.lib_dirs,\s*readline_lib\)/,
-        "do_readline = '#{Formula["libedit"].opt_lib/shared_library("libedit")}'"
-    end
+    inreplace "setup.py",
+      /do_readline = self.compiler.find_library_file\(self.lib_dirs,\s*readline_lib\)/,
+      "do_readline = '#{Formula["readline"].opt_lib/shared_library("libhistory")}'"
 
     if OS.linux?
       # Python's configure adds the system ncurses include entry to CPPFLAGS
