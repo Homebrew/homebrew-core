@@ -19,7 +19,7 @@ class Tfel < Formula
   depends_on "cmake" => :build
   depends_on "gcc" => :build
   depends_on "boost-python3"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   fails_with gcc: "5"
 
   def install
