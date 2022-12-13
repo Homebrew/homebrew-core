@@ -18,10 +18,10 @@ class Chapel < Formula
     sha256 x86_64_linux:   "44e78c563407371437e9cb150ffd1b1f02dfd6f2643ec82d88322ad5665346a1"
   end
 
+  depends_on "cmake"
   depends_on "gmp"
   depends_on "llvm@14"
   depends_on "python@3.10"
-  depends_on "cmake"
 
   # LLVM is built with gcc11 and we will fail on linux with gcc version 5.xx
   fails_with gcc: "5"
