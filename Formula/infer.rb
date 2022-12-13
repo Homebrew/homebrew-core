@@ -142,18 +142,18 @@ class Infer < Formula
     failing_c_output = <<~EOS
 
       FailingTest.c:5: error: Null Dereference
-      \  pointer `s` last assigned on line 4 could be null and is dereferenced at line 5, column 3.
-      \  3. int main() {
-      \  4.   int *s = NULL;
-      \  5.   *s = 42;
-      \       ^
-      \  6.   return 0;
-      \  7. }
+        pointer `s` last assigned on line 4 could be null and is dereferenced at line 5, column 3.
+        3. int main() {
+        4.   int *s = NULL;
+        5.   *s = 42;
+             ^
+        6.   return 0;
+        7. }
 
 
       Found 1 issue
-      \          Issue Type(ISSUED_TYPE_ID): #
-      \  Null Dereference(NULL_DEREFERENCE): 1
+                Issue Type(ISSUED_TYPE_ID): #
+        Null Dereference(NULL_DEREFERENCE): 1
     EOS
 
     assert_equal failing_c_output.to_s,
@@ -199,17 +199,17 @@ class Infer < Formula
     failing_java_output = <<~EOS
 
       FailingTest.java:12: error: Null Dereference
-      \  object `s` last assigned on line 11 could be null and is dereferenced at line 12.
-      \  10.     int mayCauseNPE() {
-      \  11.       String s = mayReturnNull(0);
-      \  12. >     return s.length();
-      \  13.     }
-      \  14.   }
+        object `s` last assigned on line 11 could be null and is dereferenced at line 12.
+        10.     int mayCauseNPE() {
+        11.       String s = mayReturnNull(0);
+        12. >     return s.length();
+        13.     }
+        14.   }
 
 
       Found 1 issue
-      \          Issue Type(ISSUED_TYPE_ID): #
-      \  Null Dereference(NULL_DEREFERENCE): 1
+                Issue Type(ISSUED_TYPE_ID): #
+        Null Dereference(NULL_DEREFERENCE): 1
     EOS
 
     assert_equal failing_java_output.to_s,
