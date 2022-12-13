@@ -16,8 +16,8 @@ class AdrTools < Formula
     config.unlink
     config.write <<~EOS
       #!/bin/bash
-      echo 'adr_bin_dir=\"#{bin}\"'
-      echo 'adr_template_dir=\"#{prefix}\"'
+      echo 'adr_bin_dir="#{bin}"'
+      echo 'adr_template_dir="#{prefix}"'
     EOS
 
     prefix.install Dir["src/*.md"]
