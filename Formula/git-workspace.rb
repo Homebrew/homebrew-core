@@ -29,6 +29,6 @@ class GitWorkspace < Formula
     system "#{bin}/git-workspace", "add", "github", "foo"
     assert_match "provider = \"github\"", File.read("workspace.toml")
     output = shell_output("#{bin}/git-workspace update 2>&1", 1)
-    assert_match "Error fetching repositories from Github user\/org foo", output
+    assert_match "Error fetching repositories from Github user/org foo", output
   end
 end
