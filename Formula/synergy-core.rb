@@ -116,9 +116,9 @@ class SynergyCore < Formula
     return if head?
 
     version_string = Regexp.quote(version.major_minor_patch)
-    assert_match(/synergys #{version_string}[\-.0-9a-z]*, protocol version/,
+    assert_match(/synergys #{version_string}[-.0-9a-z]*, protocol version/,
                  shell_output("#{opt_bin}/synergys --version", 3).lines.first)
-    assert_match(/synergyc #{version_string}[\-.0-9a-z]*, protocol version/,
+    assert_match(/synergyc #{version_string}[-.0-9a-z]*, protocol version/,
                  shell_output("#{opt_bin}/synergyc --version", 3).lines.first)
   end
 end
