@@ -7,15 +7,21 @@ class GrammarlyLanguageserver < Formula
   sha256 "0d50b88059b5a63c66e3973e94d4f368366087ef59427003106a99bb46c46728"
   license "MIT"
 
+  revision 1
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "9f728288cb46659e57ec3e8577561d2c590fe45ae673be3cac69a41da4c32537"
   end
 
-  depends_on "node"
+  depends_on "node@16"
 
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    (bin/"grammarly-languageserver").write <<~EOS
+      #! /usr/bin/env sh
+
+      #{Formula["node@16"].bin}/node #{libexec}/bin/grammarly-languageserver "$@"
+    EOS
   end
 
   test do
