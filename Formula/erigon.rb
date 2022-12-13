@@ -6,6 +6,11 @@ class Erigon < Formula
   license all_of: ["GPL-3.0-or-later", "LGPL-3.0-or-later"]
   head "https://github.com/ledgerwatch/erigon.git", branch: "devel"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6c625da298616bd5a7993e1ea7104fd8308089d373d503a0372dc2749b742c7d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "21da5b03ae59058be8a1bd3750f6a3ab2b6a6b04a891fc267600e33600a24b68"
