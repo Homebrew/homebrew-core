@@ -69,8 +69,8 @@ class CassandraAT22 < Formula
     inreplace "conf/cassandra.yaml", "/var/lib/cassandra", "#{var}/lib/cassandra"
     inreplace "conf/cassandra-env.sh", "/lib/", "/"
 
-    inreplace "bin/cassandra", "-Dcassandra.logdir\=$CASSANDRA_HOME/logs",
-                               "-Dcassandra.logdir\=#{var}/log/cassandra"
+    inreplace "bin/cassandra", "-Dcassandra.logdir=$CASSANDRA_HOME/logs",
+                               "-Dcassandra.logdir=#{var}/log/cassandra"
     inreplace "bin/cassandra.in.sh" do |s|
       s.gsub! "CASSANDRA_HOME=\"`dirname \"$0\"`/..\"",
               "CASSANDRA_HOME=\"#{libexec}\""
@@ -84,8 +84,8 @@ class CassandraAT22 < Formula
       s.gsub! "JAVA_AGENT=\"$JAVA_AGENT -javaagent:$CASSANDRA_HOME/lib/jamm-",
               "JAVA_AGENT=\"$JAVA_AGENT -javaagent:$CASSANDRA_HOME/jamm-"
       # Storage path
-      s.gsub! "cassandra_storagedir\=\"$CASSANDRA_HOME/data\"",
-              "cassandra_storagedir\=\"#{var}/lib/cassandra\""
+      s.gsub! "cassandra_storagedir=\"$CASSANDRA_HOME/data\"",
+              "cassandra_storagedir=\"#{var}/lib/cassandra\""
 
       s.gsub! "#JAVA_HOME=/usr/local/jdk6",
               "JAVA_HOME=#{Language::Java.overridable_java_home_env("1.8")[:JAVA_HOME]}"
