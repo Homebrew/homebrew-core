@@ -20,6 +20,23 @@ class Mimirtool < Formula
   end
 
   test do
+    # Check that the version number was correctly embedded in the binary
     assert_match version.to_s, shell_output("#{bin}/mimirtool version")
+    
+    # Check that the binary runs as expected by testing the 'rules check' command
+    test_rule = <<~EOF
+    namespace: my_namespace
+    groups:
+      - name: example
+        interval: 5m
+        rules:
+          - record: job_http_inprogress_requests_sum
+            expr: sum by (job) (http_inprogress_requests)
+    EOF
+    
+    (testpath/"rule.yaml").write(test_rule)
+
+    check_output = shell_output("#{bin}/mimirtool rules check #{testpath / "rule.yaml"} 2>&1", result = 1)
+    assert_match "recording rule name does not match level:metric:operation format, must contain at least one colon", check_output
   end
 end
