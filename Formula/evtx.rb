@@ -10,10 +10,15 @@ class Evtx < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
+
+    pkgshare.install "samples"
   end
 
   test do
-    assert_match "error: The following required arguments were not provided",
-      shell_output("#{bin}/evtx_dump 2>&1", 2)
+    cp pkgshare/"samples/issue_201.evtx", testpath
+    assert_match "Remote-ManagementShell-Unknown",
+      shell_output("#{bin}/evtx_dump #{pkgshare}/samples/issue_201.evtx")
+
+    assert_match "EVTX Parser #{version}", shell_output("#{bin}/evtx_dump --version")
   end
 end
