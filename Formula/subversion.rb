@@ -84,8 +84,8 @@ class Subversion < Formula
     resource("serf").stage do
       if OS.linux?
         inreplace "SConstruct" do |s|
-          s.gsub! "env.Append(LIBPATH=['$OPENSSL\/lib'])",
-          "\\1\nenv.Append(CPPPATH=['$ZLIB\/include'])\nenv.Append(LIBPATH=['$ZLIB/lib'])"
+          s.gsub! "env.Append(LIBPATH=['$OPENSSL/lib'])",
+          "\\1\nenv.Append(CPPPATH=['$ZLIB/include'])\nenv.Append(LIBPATH=['$ZLIB/lib'])"
         end
       end
 
