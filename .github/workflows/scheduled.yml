@@ -1,0 +1,30 @@
+name: Scheduled online check
+on:
+  push:
+    paths:
+      - .github/workflows/scheduled.yml
+  schedule:
+    # Once every day
+    - cron: "0 1 * * *"
+
+concurrency:
+  group: scheduled
+  cancel-in-progress: true
+
+jobs:
+  audit_online:
+    if: startsWith( github.repository, 'Homebrew/' )
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-22.04]
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@main
+
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - name: Check all formulae for missing upstreams etc
+        run: brew audit --online --tap homebrew/core --skip-style --only github_repository_archived,gitlab_repository_archived,homepage
