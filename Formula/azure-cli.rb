@@ -769,7 +769,7 @@ class AzureCli < Formula
 
     (bin/"az").write <<~EOS
       #!/usr/bin/env bash
-      AZ_INSTALLER=HOMEBREW #{libexec}/bin/python -m azure.cli \"$@\"
+      AZ_INSTALLER=HOMEBREW #{libexec}/bin/python -m azure.cli "$@"
     EOS
 
     bash_completion.install "az.completion" => "az"
