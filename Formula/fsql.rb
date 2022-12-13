@@ -30,7 +30,7 @@ class Fsql < Formula
     assert_match %r{^foo\s+foo/baz.txt$}, shell_output(cmd)
     cmd = "#{bin}/fsql SELECT name FROM . WHERE name = bar.txt"
     assert_equal "bar.txt", shell_output(cmd).chomp
-    cmd = "#{bin}/fsql SELECT name FROM . WHERE FORMAT\\(size\, GB\\) \\> 500"
+    cmd = "#{bin}/fsql SELECT name FROM . WHERE FORMAT\\(size, GB\\) \\> 500"
     assert_equal "", shell_output(cmd)
   end
 end
