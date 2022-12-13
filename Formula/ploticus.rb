@@ -54,7 +54,7 @@ class Ploticus < Formula
         Africa
         Americas
         Asia
-        Europe,\\nAustralia,\\n\& Pacific
+        Europe,\\nAustralia,\\n& Pacific
     EOS
     system "#{bin}/ploticus", "-f", "test.in", "-png", "-o", "test.png"
     assert_match "PNG image data", shell_output("file test.png")
