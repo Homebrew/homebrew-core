@@ -49,6 +49,6 @@ class Kettle < Formula
   end
 
   test do
-    system "#{bin}/pdipan", "-file=#{libexec}/samples/transformations/Encrypt\ Password.ktr", "-level=RowLevel"
+    system "#{bin}/pdipan", "-file=#{libexec}/samples/transformations/Encrypt Password.ktr", "-level=RowLevel"
   end
 end
