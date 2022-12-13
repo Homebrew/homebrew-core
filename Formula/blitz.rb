@@ -42,7 +42,7 @@ class Blitz < Formula
     EOS
     system ENV.cxx, "testfile.cpp", "-o", "testfile"
     output = shell_output("./testfile")
-    var = "/A\ =\ \(0,2\)\ x\ \(0,0\)\n\[\ 17\ \n\ \ 2\ \n\ \ 97\ \]\n\n/"
+    var = "/A = (0,2) x (0,0)\n[ 17 \n  2 \n  97 ]\n\n/"
     assert_match output, var
   end
 end
