@@ -26,7 +26,7 @@ class Librealsense < Formula
   depends_on "pkg-config" => :build
   depends_on "glfw"
   depends_on "libusb"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   # Build on Apple Silicon fails when generating Unix Makefiles.
   # Ref: https://github.com/IntelRealSense/librealsense/issues/8090
   on_arm do
@@ -34,7 +34,7 @@ class Librealsense < Formula
   end
 
   def install
-    ENV["OPENSSL_ROOT_DIR"] = Formula["openssl@1.1"].prefix
+    ENV["OPENSSL_ROOT_DIR"] = Formula["openssl@3"].prefix
 
     args = %W[
       -DENABLE_CCACHE=OFF
