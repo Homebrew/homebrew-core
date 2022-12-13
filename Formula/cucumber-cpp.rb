@@ -73,13 +73,13 @@ class CucumberCpp < Formula
       expected = <<~EOS
         Feature: Test
 
-          Scenario: Just for test   # features\/test.feature:2
+          Scenario: Just for test   # features/test.feature:2
             Given A given statement # test.cpp:2
             When A when statement   # test.cpp:4
             Then A then statement   # test.cpp:6
 
-        1 scenario \(1 passed\)
-        3 steps \(3 passed\)
+        1 scenario (1 passed)
+        3 steps (3 passed)
       EOS
       assert_match expected, shell_output("#{testpath}/bin/cucumber --publish-quiet")
     ensure
