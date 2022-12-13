@@ -35,7 +35,7 @@ class Pioneer < Formula
     ENV.cxx11
 
     # Set PROJECT_VERSION to be the date of release, not the build date
-    inreplace "CMakeLists.txt", "string(TIMESTAMP PROJECT_VERSION \"\%Y\%m\%d\")", "set(PROJECT_VERSION #{version})"
+    inreplace "CMakeLists.txt", "string(TIMESTAMP PROJECT_VERSION \"%Y%m%d\")", "set(PROJECT_VERSION #{version})"
     system "cmake", ".", *std_cmake_args
     system "make", "install"
   end
