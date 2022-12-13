@@ -26,6 +26,7 @@ class Cdo < Formula
   depends_on "libaec"
   depends_on "netcdf"
   depends_on "proj"
+  uses_from_macos "python" => :build
 
   def install
     args = %W[
