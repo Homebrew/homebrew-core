@@ -121,32 +121,32 @@ class Sdl2Sound < Formula
     if OS.mac?
       expected += <<~EOS
 
-        \ * Decode audio through Core Audio through
-           File extension "aif"
-           File extension "aiff"
-           File extension "aifc"
-           File extension "wav"
-           File extension "wave"
-           File extension "mp3"
-           File extension "mp4"
-           File extension "m4a"
-           File extension "aac"
-           File extension "caf"
-           File extension "Sd2f"
-           File extension "Sd2"
-           File extension "au"
-           File extension "next"
-           File extension "mp2"
-           File extension "mp1"
-           File extension "ac3"
-           File extension "3gpp"
-           File extension "3gp2"
-           File extension "amrf"
-           File extension "amr"
-           File extension "ima4"
-           File extension "ima"
-           Written by Eric Wing <ewing . public @ playcontrol.net>.
-           https://playcontrol.net
+        * Decode audio through Core Audio through
+          File extension "aif"
+          File extension "aiff"
+          File extension "aifc"
+          File extension "wav"
+          File extension "wave"
+          File extension "mp3"
+          File extension "mp4"
+          File extension "m4a"
+          File extension "aac"
+          File extension "caf"
+          File extension "Sd2f"
+          File extension "Sd2"
+          File extension "au"
+          File extension "next"
+          File extension "mp2"
+          File extension "mp1"
+          File extension "ac3"
+          File extension "3gpp"
+          File extension "3gp2"
+          File extension "amrf"
+          File extension "amr"
+          File extension "ima4"
+          File extension "ima"
+          Written by Eric Wing <ewing . public @ playcontrol.net>.
+          https://playcontrol.net
       EOS
     end
     assert_equal expected.strip, shell_output("#{bin}/playsound --decoders").strip
