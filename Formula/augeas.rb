@@ -5,8 +5,8 @@ class Augeas < Formula
   head "https://github.com/hercules-team/augeas.git", branch: "master"
 
   stable do
-    url "https://github.com/hercules-team/augeas/releases/download/release-1.13.0/augeas-1.13.0.tar.gz"
-    sha256 "5002f33f42365ab78be974609a0f3b76a4c277fc404ec79f516305cab5ce5de1"
+    url "https://github.com/hercules-team/augeas/releases/download/release-1.14.0/augeas-1.14.0.tar.gz"
+    sha256 "8c101759ca3d504bd1d805e70e2f615fa686af189dd7cf0529f71d855c087df1"
 
     # Replace deprecated 'security_context_t' with 'char *'. Remove in the next release.
     patch do
