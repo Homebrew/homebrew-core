@@ -93,7 +93,7 @@ class Nbdime < Formula
          "metadata": {},
          "outputs": [],
          "source": [
-          "print(\\\"Hello World!\\\")"
+          "print(\\"Hello World!\\")"
          ]
         }
        ],
@@ -137,7 +137,7 @@ class Nbdime < Formula
           }
          ],
          "source": [
-          "print(\\\"Hello World!\\\")"
+          "print(\\"Hello World!\\")"
          ]
         }
        ],
