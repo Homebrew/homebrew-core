@@ -29,7 +29,7 @@ class Ps2eps < Formula
     (libexec/"bin").install "bin/ps2eps"
     (bin/"ps2eps").write <<~EOS
       #!/bin/sh
-      perl -S #{libexec}/bin/ps2eps \"$@\"
+      perl -S #{libexec}/bin/ps2eps "$@"
     EOS
     share.install "doc/man"
     doc.install "doc/pdf", "doc/html"
