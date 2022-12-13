@@ -27,12 +27,10 @@ class DuaCli < Formula
     (testpath/"empty.txt").write("")
     (testpath/"file.txt").write("01")
 
-    # The "-EOS" is needed instead of "~EOS" in order to keep
-    # the expected indentation at the start of each line.
-    expected = <<-EOS
-      0  B #{testpath}/empty.txt
-      2  B #{testpath}/file.txt
-      2  B total
+    expected = <<~EOS
+      \e[32m      0  B\e[39m #{testpath}/empty.txt
+      \e[32m      2  B\e[39m #{testpath}/file.txt
+      \e[32m      2  B\e[39m total
     EOS
 
     assert_equal expected, shell_output("#{bin}/dua -A #{testpath}/*.txt")
