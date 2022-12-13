@@ -3,8 +3,8 @@ class Dxpy < Formula
 
   desc "DNAnexus toolkit utilities and platform API bindings for Python"
   homepage "https://github.com/dnanexus/dx-toolkit"
-  url "https://files.pythonhosted.org/packages/3d/40/4685d18be76f842af4c051d3b592f274f13695133a80b6ebc464167cef12/dxpy-0.334.0.tar.gz"
-  sha256 "d603c89e32800f38adc0695efd32a83b4764bc68e7d666af52762e8685db6c1a"
+  url "https://files.pythonhosted.org/packages/a6/83/256cbce837690e5e125deae143c36e2d5f024617ee8c49b5c371d7ec95f2/dxpy-0.335.0.tar.gz"
+  sha256 "1873aef00d460532ee0764b037c9df2897e6ed722d18448bd26311cfcb9b3b42"
   license "Apache-2.0"
 
   bottle do
@@ -37,8 +37,8 @@ class Dxpy < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/cb/a4/7de7cd59e429bd0ee6521ba58a75adaec136d32f91a761b28a11d8088d44/certifi-2022.9.24.tar.gz"
-    sha256 "0d9c601124e5a6ba9712dbc60d9c53c21e34f5f641fe83002317394311bdce14"
+    url "https://files.pythonhosted.org/packages/37/f7/2b1b0ec44fdc30a3d31dfebe52226be9ddc40cd6c0f34ffc8923ba423b69/certifi-2022.12.7.tar.gz"
+    sha256 "35824b4c3a97115964b408844d64aa14db1cc518f6562e8d7261699d1350a9e3"
   end
 
   resource "cffi" do
