@@ -36,7 +36,7 @@ class Hqx < Formula
 
   test do
     system bin/"hqx", test_fixtures("test.jpg"), "out.jpg"
-    output = pipe_output("php -r \"print_r(getimagesize(\'file://#{testpath}/out.jpg\'));\"")
+    output = pipe_output("php -r \"print_r(getimagesize('file://#{testpath}/out.jpg'));\"")
     assert_equal <<~EOS, output
       Array
       (
