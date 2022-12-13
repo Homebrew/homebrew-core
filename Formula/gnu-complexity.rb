@@ -1,9 +1,9 @@
 class GnuComplexity < Formula
   desc "Measures complexity of C source"
   homepage "https://www.gnu.org/software/complexity"
-  url "https://ftp.gnu.org/gnu/complexity/complexity-1.10.tar.xz"
-  mirror "https://ftpmirror.gnu.org/complexity/complexity-1.10.tar.xz"
-  sha256 "6d378a3ef9d68938ada2610ce32f63292677d3b5c427983e8d72702167a22053"
+  url "https://ftp.gnu.org/gnu/complexity/complexity-1.13.tar.xz"
+  mirror "https://ftpmirror.gnu.org/complexity/complexity-1.13.tar.xz"
+  sha256 "80a625a87ee7c17fed02fb39482a7946fc757f10d8a4ffddc5372b4c4b739e67"
   license "GPL-3.0"
 
   bottle do
