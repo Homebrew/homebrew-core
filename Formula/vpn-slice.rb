@@ -39,7 +39,7 @@ class VpnSlice < Formula
   test do
     # vpn-slice needs root/sudo credentials
     output = `#{bin}/vpn-slice 192.168.0.0/24 2>&1`
-    assert_match "Cannot read\/write \/etc\/hosts", output
+    assert_match "Cannot read/write /etc/hosts", output
     assert_equal 1, $CHILD_STATUS.exitstatus
   end
 end
