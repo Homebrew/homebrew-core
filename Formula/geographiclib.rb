@@ -1,8 +1,8 @@
 class Geographiclib < Formula
   desc "C++ geography library"
   homepage "https://geographiclib.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/geographiclib/distrib-C++/GeographicLib-2.1.1.tar.gz"
-  sha256 "28080fc48e1c76560eb2f8c306404de80c13d35687f676ff47a51695506e4a0a"
+  url "https://downloads.sourceforge.net/project/geographiclib/distrib-C++/GeographicLib-2.1.2.tar.gz"
+  sha256 "b062b472dae3d371b3005f4ea2fc59af687b8ea76eb23df732ec11c500fba959"
   license "MIT"
 
   bottle do
