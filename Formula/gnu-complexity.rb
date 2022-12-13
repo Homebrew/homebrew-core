@@ -4,7 +4,7 @@ class GnuComplexity < Formula
   url "https://ftp.gnu.org/gnu/complexity/complexity-1.13.tar.xz"
   mirror "https://ftpmirror.gnu.org/complexity/complexity-1.13.tar.xz"
   sha256 "80a625a87ee7c17fed02fb39482a7946fc757f10d8a4ffddc5372b4c4b739e67"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "069c43183f32681bc060d6cd22a38c2aed732c7e3ca80eb5eaa952e70b73b151"
