@@ -77,6 +77,6 @@ class Cayley < Formula
     end
     sleep 3
     response = shell_output("curl -s -i 127.0.0.1:#{http_port}")
-    assert_match "HTTP\/1.1 200 OK", response
+    assert_match "HTTP/1.1 200 OK", response
   end
 end
