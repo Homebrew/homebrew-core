@@ -1,20 +1,19 @@
 class Pomsky < Formula
   desc "Regular expression language"
   homepage "https://pomsky-lang.org/"
-  url "https://github.com/rulex-rs/pomsky/archive/refs/tags/v0.7.tar.gz"
-  sha256 "0704abbafa93a42fccba65b9aa77caecd477fa0df4e28a33a453aafe1a763ee0"
+  url "https://github.com/rulex-rs/pomsky/archive/refs/tags/v0.8.tar.gz"
+  sha256 "c9d1e34e37b2f09e576f819fabd63c99953c49e050a67112d1c988ab6ed480d9"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/rulex-rs/pomsky.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "874c802e55f459ae4c6343e8f72f2873032953924b8dc8bce7cb7517177ed3aa"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cb4ff5df9ecf07b72d8f6b99f15e12cd99c3cee6c352d39e2750698e1377da9c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "04841aa677c4ad464befbaeab4c3136c3374cacafa9825a6cca0c680182fac1b"
-    sha256 cellar: :any_skip_relocation, ventura:        "695b9f147638d075bf7385284d5acdda56e8f15b3e170120ccb5288cfc1ecdcf"
-    sha256 cellar: :any_skip_relocation, monterey:       "a8c2fa8298c4e081553c2e66da3c2ddb3621586669923c308dda9e9cd523b51a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9e99f7cc4df80c9762337508c74d9fdb480a32f5b0244c3334c83576cefabfaa"
-    sha256 cellar: :any_skip_relocation, catalina:       "52e5ee16780c3bd439b4eb04e7b78f32156b3a84318ee0a4fa15c0bc966896ca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b77a26530535fd9963ab702b52d328928c28b8ecb0753c7206c6981b0ebdd6ca"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a2ad385fcc566b4350f9997bdead5f424bd69b20197790b9eb7173fbf276a3e5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d4714400d4aa1dcbc25f615307a14261f2c9ba9b8ab784ee57c3fbeb41b48ab0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "68875a5e6f05fbbbb9266c37bcec86c57bf6114f05d592922acfc86faf0aa6bf"
+    sha256 cellar: :any_skip_relocation, ventura:        "c279770f8cd5acc209b1c377f44c84372e4e08053d15271743b31bd790369fd6"
+    sha256 cellar: :any_skip_relocation, monterey:       "63fd4ffdf988addb5f86b3264834224860466817beebac49519df73bc8beb447"
+    sha256 cellar: :any_skip_relocation, big_sur:        "54ba3679a2457afe15dd419bdf257d5e7b37bf02e14b0fa85ebca9b9c2c0ea5a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fa903b95850e748107dda93da237315f1ea8a09c3c2c92779cf7dc8b18ddce9a"
   end
 
   depends_on "rust" => :build

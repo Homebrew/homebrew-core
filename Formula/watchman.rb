@@ -1,19 +1,19 @@
 class Watchman < Formula
   desc "Watch files and take action when they change"
   homepage "https://github.com/facebook/watchman"
-  url "https://github.com/facebook/watchman/archive/v2022.12.05.00.tar.gz"
-  sha256 "e56c7433b186190b56d1ed86987a1f64c15486bf0f37dd7d38c826fac07e34f3"
+  url "https://github.com/facebook/watchman/archive/v2022.12.12.00.tar.gz"
+  sha256 "5641efb409bf62d63086bae586610931d90b430b8986e9f1e4871cb159fcf8f5"
   license "MIT"
   head "https://github.com/facebook/watchman.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "40a999e19abb0881132905dd187274ccac0ef38e1c98011c8962637c4d3a05ce"
-    sha256 cellar: :any,                 arm64_monterey: "6f1cfaa8404756a991d001d1d5abd564aef30873b0ef635f8497a11cc7f06f9e"
-    sha256 cellar: :any,                 arm64_big_sur:  "b356696a63ce06a92e1be16e90b2c82ce311f827bfcf8bb30ae948b48dd69266"
-    sha256 cellar: :any,                 ventura:        "06e3ed54cb851478c008dfa4d5f20ce498374971dc0254ed2c67297b5913c375"
-    sha256 cellar: :any,                 monterey:       "f9186346de58cd86cbf9a0441ba32a80cad058cc13fef6d758f53b820c76ee40"
-    sha256 cellar: :any,                 big_sur:        "25536ed68d2ea54640d5becf464ce72a283b1076bb817f3462e24e1d48b9e0b8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d5914c3e392ebc05eaef29b069ed1e7aab8e56ac968d2ec0fa6aef8dff442e2c"
+    sha256 cellar: :any,                 arm64_ventura:  "bfcb4130c5f1d871e71f2911bd73b2e0c22e591222ecf533a31b86edce9b1209"
+    sha256 cellar: :any,                 arm64_monterey: "410a8e8f8eb82cf7540bd344e6cd363a76e34d44f6c4d3f3610aad1619f39417"
+    sha256 cellar: :any,                 arm64_big_sur:  "8194e511a34c25e500d860bf20e16d8dcaebc92a8768dca087f7e2423cc3c755"
+    sha256 cellar: :any,                 ventura:        "2bff59e839c454fd4a5410e2aef50cfca5dda9a21e1755422d21bb79877cee15"
+    sha256 cellar: :any,                 monterey:       "acf2579897c6cf3bfeba013e8eacf660cf70c4911b872003a09b64dbd8a7498f"
+    sha256 cellar: :any,                 big_sur:        "088df05c6501239c62aa39e57b7ac09314fc27ef412106c5867e319d2866755a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4cf3cd389613a54c8e1846a8f77ff90ac93ee7d646c9adc8f8d2433f4b786cc4"
   end
 
   # https://github.com/facebook/watchman/issues/963
@@ -39,9 +39,10 @@ class Watchman < Formula
   fails_with gcc: "5"
 
   def install
-    # Fix build failure on Linux. Borrowed from Fedora:
-    # https://src.fedoraproject.org/rpms/watchman/blob/rawhide/f/watchman.spec#_70
-    inreplace "CMakeLists.txt", /^t_test/, "#t_test" if OS.linux?
+    # Fix "Process terminated due to timeout" by allowing a longer timeout.
+    inreplace "CMakeLists.txt",
+              /gtest_discover_tests\((.*)\)/,
+              "gtest_discover_tests(\\1 DISCOVERY_TIMEOUT 30)"
 
     # NOTE: Setting `BUILD_SHARED_LIBS=ON` will generate DSOs for Eden libraries.
     #       These libraries are not part of any install targets and have the wrong
@@ -54,9 +55,7 @@ class Watchman < Formula
                     "-DWATCHMAN_BUILDINFO_OVERRIDE=#{tap.user}",
                     "-DWATCHMAN_STATE_DIR=#{var}/run/watchman",
                     *std_cmake_args
-
-    # Workaround for `Process terminated due to timeout`
-    ENV.deparallelize { system "cmake", "--build", "build" }
+    system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
     path = Pathname.new(File.join(prefix, HOMEBREW_PREFIX))
