@@ -10,7 +10,7 @@ class Minio < Formula
 
   livecheck do
     url :stable
-    regex(%r{href=.*?/tag/(?:RELEASE[._-]?)?([\d-TZ]+)["' >]}i)
+    regex(%r{href=.*?/tag/(?:RELEASE[._-]?)?([\dTZ-]+)["' >]}i)
     strategy :github_latest do |page, regex|
       page.scan(regex).map { |match| match&.first&.gsub(/\D/, "") }
     end
