@@ -50,7 +50,7 @@ class Blastem < Formula
 
     # Use imagemagick to convert XCF files instead of xcftools, which is unmaintained and broken.
     # Fix was sent to upstream developer.
-    inreplace "Makefile", "xcf2png \$< > \$@", "convert $< $@"
+    inreplace "Makefile", "xcf2png $< > $@", "convert $< $@"
 
     system "make", "all", "menu.bin", "HOST_ZLIB=1"
     libexec.install %w[blastem default.cfg menu.bin rom.db shaders]
