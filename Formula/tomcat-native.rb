@@ -47,7 +47,7 @@ class TomcatNative < Formula
       need to add it to java.library.path. This can be done by adding this line
       to $CATALINA_HOME/bin/setenv.sh
 
-        CATALINA_OPTS=\"$CATALINA_OPTS -Djava.library.path=#{opt_lib}\"
+        CATALINA_OPTS="$CATALINA_OPTS -Djava.library.path=#{opt_lib}"
 
       If $CATALINA_HOME/bin/setenv.sh doesn't exist, create it and make it executable.
     EOS
