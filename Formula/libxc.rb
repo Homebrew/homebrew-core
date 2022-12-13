@@ -38,7 +38,7 @@ class Libxc < Formula
       {
         int major, minor, micro;
         xc_version(&major, &minor, &micro);
-        printf(\"%d.%d.%d\", major, minor, micro);
+        printf("%d.%d.%d", major, minor, micro);
       }
     EOS
     system ENV.cc, "test.c", "-L#{lib}", "-I#{include}", "-lxc", "-o", "ctest", "-lm"
