@@ -42,7 +42,7 @@ class Mosh < Formula
 
     # teach mosh to locate mosh-client without referring
     # PATH to support launching outside shell e.g. via launcher
-    inreplace "scripts/mosh.pl", "'mosh-client", "\'#{bin}/mosh-client"
+    inreplace "scripts/mosh.pl", "'mosh-client", "'#{bin}/mosh-client"
 
     system "./autogen.sh" if build.head?
     system "./configure", "--prefix=#{prefix}", "--enable-completion"
