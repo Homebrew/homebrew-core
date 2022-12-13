@@ -79,7 +79,7 @@ class Bochs < Formula
 
     expected = <<~EOS
       Bochs is exiting with the following message:
-      \[BIOS  \] No bootable device\.
+      [BIOS  ] No bootable device.
     EOS
 
     command = "#{bin}/bochs -qf bochsrc.txt"
