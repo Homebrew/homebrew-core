@@ -34,7 +34,7 @@ class Halibut < Formula
     (testpath/"sample.but").write("Hello, world!")
     system "#{bin}/halibut", "--html=sample.html", "sample.but"
 
-    assert_match("<p>\nHello, world!\n<\/p>",
+    assert_match("<p>\nHello, world!\n</p>",
                  (testpath/"sample.html").read)
   end
 end
