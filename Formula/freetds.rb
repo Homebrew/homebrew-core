@@ -4,8 +4,8 @@ class Freetds < Formula
   license "GPL-2.0-or-later"
 
   stable do
-    url "https://www.freetds.org/files/stable/freetds-1.3.15.tar.bz2", using: :homebrew_curl
-    sha256 "ffb323a25450f45700f3fe9d3e3fea688678f0235bd213139519f33375dfcf24"
+    url "https://www.freetds.org/files/stable/freetds-1.3.16.tar.bz2", using: :homebrew_curl
+    sha256 "9e26c5994473dcc008440bd73f89980c56fccbcb28a1eec7765be6e567393481"
 
     # Fix -flat_namespace being used on Big Sur and later.
     patch do
