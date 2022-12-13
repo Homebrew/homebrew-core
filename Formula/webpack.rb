@@ -62,6 +62,6 @@ class Webpack < Formula
     EOS
 
     system bin/"webpack", "bundle", "--mode", "production", "--entry", testpath/"index.js"
-    assert_match "const e=document\.createElement(\"div\");", File.read(testpath/"dist/main.js")
+    assert_match "const e=document.createElement(\"div\");", File.read(testpath/"dist/main.js")
   end
 end
