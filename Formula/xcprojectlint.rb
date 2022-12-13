@@ -44,7 +44,7 @@ class Xcprojectlint < Formula
       }
     EOS
     output = shell_output("#{bin}/xcprojectlint --project Bad.xcodeproj --report error --validations all 2>&1", 70)
-    assert_match "error: Xcode folder \“/B4A1B4A825CF28FA00DF4293\” has no children.", output
+    assert_match "error: Xcode folder “/B4A1B4A825CF28FA00DF4293” has no children.", output
 
     # Good Xcode project
     (testpath/"Good.xcodeproj/project.pbxproj").write <<~EOS
