@@ -54,7 +54,7 @@ class Fortls < Formula
       from fortls.__init__ import main
 
       if __name__ == '__main__':
-          sys.argv[0] = re.sub(r'(-script\.pyw?|\.exe)?$', '', sys.argv[0])
+          sys.argv[0] = re.sub(r'(-script.pyw?|.exe)?$', '', sys.argv[0])
           sys.argv.append('--disable_autoupdate')
           sys.exit(main())
     EOS
