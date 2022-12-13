@@ -30,7 +30,7 @@ class Sonarqube < Formula
 
     inreplace buildpath/"bin"/platform/"sonar.sh",
       %r{^PIDFILE="\./\$APP_NAME\.pid"$},
-      "PIDFILE=#{var}/run/\$APP_NAME.pid"
+      "PIDFILE=#{var}/run/$APP_NAME.pid"
 
     inreplace "conf/sonar.properties" do |s|
       # Write log/data/temp files outside of installation directory
