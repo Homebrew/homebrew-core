@@ -53,9 +53,9 @@ class Mmseqs2 < Formula
 
     if OS.mac?
       libomp = Formula["libomp"]
-      args << "-DOpenMP_C_FLAGS=-Xpreprocessor\ -fopenmp\ -I#{libomp.opt_include}"
+      args << "-DOpenMP_C_FLAGS=-Xpreprocessor -fopenmp -I#{libomp.opt_include}"
       args << "-DOpenMP_C_LIB_NAMES=omp"
-      args << "-DOpenMP_CXX_FLAGS=-Xpreprocessor\ -fopenmp\ -I#{libomp.opt_include}"
+      args << "-DOpenMP_CXX_FLAGS=-Xpreprocessor -fopenmp -I#{libomp.opt_include}"
       args << "-DOpenMP_CXX_LIB_NAMES=omp"
       args << "-DOpenMP_omp_LIBRARY=#{libomp.opt_lib}/libomp.a"
     end
