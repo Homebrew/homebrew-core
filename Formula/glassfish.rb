@@ -15,7 +15,7 @@ class Glassfish < Formula
     sha256 cellar: :any_skip_relocation, all: "8e79d7413fc0c911734fce58f093b1e0aae94a73665a5585359b465486c9270b"
   end
 
-  depends_on "openjdk@11"
+  depends_on "openjdk@17"
 
   conflicts_with "payara", because: "both install the same scripts"
 
@@ -26,7 +26,7 @@ class Glassfish < Formula
     libexec.install Dir["*"]
     bin.install Dir["#{libexec}/bin/*"]
 
-    env = Language::Java.overridable_java_home_env("11")
+    env = Language::Java.overridable_java_home_env("17")
     env["GLASSFISH_HOME"] = libexec
     bin.env_script_all_files libexec/"bin", env
 
