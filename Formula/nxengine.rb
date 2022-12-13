@@ -28,7 +28,7 @@ class Nxengine < Formula
 
   def install
     # Remove unused linux header
-    inreplace "platform/Linux/vbesync.c", "#include <libdrm\/drm\.h>", ""
+    inreplace "platform/Linux/vbesync.c", "#include <libdrm/drm.h>", ""
     # Replacement of htole16 for OS X
     inreplace ["sound/org.cpp", "sound/pxt.cpp"] do |s|
       s.gsub! "endian.h", "libkern/OSByteOrder.h"
