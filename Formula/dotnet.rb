@@ -109,16 +109,15 @@ class Dotnet < Formula
       # Work around build script getting stuck when running shutdown command on Linux
       # TODO: Try removing in the next release
       # Ref: https://github.com/dotnet/source-build/discussions/3105#discussioncomment-4373142
-      inreplace "build.sh", "$CLI_ROOT/dotnet build-server shutdown",
-                            "\\0 --msbuild\n\\0 --razor" # "\\0 --vbcscompiler"
+      inreplace "build.sh", "$CLI_ROOT/dotnet build-server shutdown", "\\0 --vbcscompiler"
 
       prep_args = (OS.linux? && Hardware::CPU.intel?) ? [] : ["--bootstrap"]
       system "./prep.sh", *prep_args
-      Timeout.timeout(900) do
+      Timeout.timeout(1800) do
         system "bash", "-x", "build.sh", "--clean-while-building",
                                          "--",
-                                         "/v:n",
-                                         "/p:LogVerbosity=n",
+                                         "/v:diag",
+                                         "/p:LogVerbosity=diag",
                                          "/p:MinimalConsoleLogOutput=false"
       end
 
