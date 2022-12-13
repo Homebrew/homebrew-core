@@ -35,7 +35,7 @@ class Nuclei < Formula
         description: Check DNS functionality
 
       dns:
-        - name: \"{{FQDN}}\"
+        - name: "{{FQDN}}"
           type: A
           class: inet
           recursion: true
@@ -43,7 +43,7 @@ class Nuclei < Formula
           matchers:
             - type: word
               words:
-                - \"IN\tA\"
+                - "IN\tA"
     EOS
     system "nuclei", "-target", "google.com", "-t", "test.yaml"
   end
