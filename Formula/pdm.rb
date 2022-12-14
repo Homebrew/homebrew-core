@@ -1,7 +1,7 @@
 class Pdm < Formula
   include Language::Python::Virtualenv
 
-  desc "Modern Python package manager with PEP 582 support"
+  desc "Modern Python package and dependency manager supporting the latest PEP standards"
   homepage "https://pdm.fming.dev"
   url "https://files.pythonhosted.org/packages/a0/22/dab6e1b1e46bd97707cea0e80d0ff5f4a02a21955a20887e54249d872b3c/pdm-2.3.2.tar.gz"
   sha256 "9bce2dd97012129b3ff2907648311edbac085fa8b9d6964a7e5c23845c785fbe"
@@ -20,7 +20,6 @@ class Pdm < Formula
 
   depends_on "pygments"
   depends_on "python@3.11"
-  depends_on "six"
 
   resource "blinker" do
     url "https://files.pythonhosted.org/packages/2b/12/82786486cefb68685bb1c151730f510b0f4e5d621d77f245bc0daf9a6c64/blinker-1.5.tar.gz"
