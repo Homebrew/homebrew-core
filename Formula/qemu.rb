@@ -1,8 +1,8 @@
 class Qemu < Formula
   desc "Emulator for x86 and PowerPC"
   homepage "https://www.qemu.org/"
-  url "https://download.qemu.org/qemu-7.1.0.tar.xz"
-  sha256 "a0634e536bded57cf38ec8a751adb124b89c776fe0846f21ab6c6728f1cbbbe6"
+  url "https://download.qemu.org/qemu-7.2.0.tar.xz"
+  sha256 "5b49ce2687744dad494ae90a898c52204a3406e84d072482a1e1be854eeb2157"
   license "GPL-2.0-only"
   head "https://git.qemu.org/git/qemu.git", branch: "master"
 
@@ -62,6 +62,7 @@ class Qemu < Formula
       --host-cc=#{ENV.cc}
       --disable-bsd-user
       --disable-guest-agent
+      --enable-slirp
       --enable-capstone
       --enable-curses
       --enable-libssh
@@ -84,10 +85,6 @@ class Qemu < Formula
     else
       ["--enable-gtk"]
     end
-
-    # The --enable-slirp flag (not the feature itself) was removed in the head:
-    # https://gitlab.com/qemu-project/qemu/-/commit/5890258aeeba303704ec1adca415e46067800777
-    args << "--enable-slirp=system" if build.stable?
 
     system "./configure", *args
     system "make", "V=1", "install"
