@@ -2,7 +2,6 @@ class Homebank < Formula
   desc "Manage your personal accounts at home"
   homepage "http://homebank.free.fr"
   # A mirror is used as primary URL because the official one is unstable.
-  # http://homebank.free.fr/public/homebank-5.6.tar.gz
   url "https://ftp.openbsd.org/pub/OpenBSD/distfiles/homebank-5.6.tar.gz"
   mirror "http://homebank.free.fr/public/homebank-5.6.tar.gz"
   sha256 "41157cd5fd2b3ee9106df07accddb54611782a2ecbaf3dbe8ed4f8c54703e0c5"
