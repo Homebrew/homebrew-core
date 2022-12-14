@@ -23,6 +23,7 @@ class Pypy38 < Formula
   uses_from_macos "libffi"
   uses_from_macos "ncurses"
   uses_from_macos "sqlite"
+  uses_from_macos "tcl-tk"
   uses_from_macos "unzip"
   uses_from_macos "zlib"
 
@@ -42,7 +43,6 @@ class Pypy38 < Formula
     # See https://github.com/Homebrew/homebrew/issues/24364
     ENV["PYTHONPATH"] = ""
     ENV["PYPY_USESSION_DIR"] = buildpath
-    ENV["PYPY_PACKAGE_WITHOUTTK"] = "1"
 
     python = Formula["pypy"].opt_bin/"pypy"
     cd "pypy/goal" do
