@@ -20,35 +20,26 @@ class Grantlee < Formula
   depends_on "doxygen" => :build
   depends_on "graphviz" => :build
 
-  depends_on "qt@5"
+  depends_on "qt"
+
+  patch do
+    url "https://github.com/steveire/grantlee/commit/1efeb1cb61947e69b8c99ddbfc5b75cd27013a87.patch?full_index=1"
+    sha256 "6c5fa321c5df2b970ec2873df610ec43dd2d50977cb0a104d0d7c4ecb90621c2"
+  end
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", "-DGRANTLEE_BUILD_WITH_QT6=TRUE", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
-    system "cmake", "--build", "build", "--target", "docs"
 
+    system "cmake", "--build", "build", "--target", "docs"
     (pkgshare/"doc").install Dir["build/apidox/*"]
+
     pkgshare.install "examples"
   end
 
   test do
-    # Test fails when qt (6) is installed
-    args = %W[
-      -D Qt5_DIR=#{Formula["qt@5"].opt_lib}/cmake/Qt5
-      -D Qt5Gui_DIR=#{Formula["qt@5"].opt_lib}/cmake/Qt5Gui
-      -D Qt5Sql_DIR=#{Formula["qt@5"].opt_lib}/cmake/Qt5Sql
-      -D Qt5Widgets_DIR=#{Formula["qt@5"].opt_lib}/cmake/Qt5Widgets
-    ]
-
-    # Other examples require qt-webkit. We doesn't test execution because they're GUI-only apps.
-    %w[books
-       codegen
-       textedit].each do |test_name|
-      mkdir test_name.to_s do
-        system "cmake", (pkgshare/"examples/#{test_name}"), *std_cmake_args, *args
-        system "cmake", "--build", "."
-      end
-    end
+    system "cmake", (pkgshare/"examples/codegen"), "-DGRANTLEE_BUILD_WITH_QT6=TRUE", *std_cmake_args
+    system "cmake", "--build", "."
   end
 end
