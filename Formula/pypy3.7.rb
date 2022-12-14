@@ -15,8 +15,8 @@ class Pypy37 < Formula
   depends_on "pypy" => :build
   depends_on arch: :x86_64
   depends_on "gdbm"
+  depends_on "libx11"
   depends_on "openssl@3"
-
   depends_on "xz"
 
   uses_from_macos "bzip2"

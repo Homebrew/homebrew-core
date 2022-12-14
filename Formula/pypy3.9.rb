@@ -14,6 +14,7 @@ class Pypy39 < Formula
   depends_on "pkg-config" => :build
   depends_on "pypy" => :build
   depends_on "gdbm"
+  depends_on "libx11"
   depends_on "openssl@3"
   depends_on "xz"
 
