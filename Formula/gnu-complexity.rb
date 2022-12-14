@@ -21,12 +21,26 @@ class GnuComplexity < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6bc40505bf964f2ac7ef30d2f65c8180832e709c49cf6872b8651caf6a84b1a1"
   end
 
+  # Drop `autoconf` and `automake` when the patch is removed.
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "autogen"
 
+  # Fix build problem in doc. Borrowed from Debian.
+  patch do
+    url "https://salsa.debian.org/debian/complexity/-/raw/69a7b9d27eb5c2ba8aa43966518971df74d55657/debian/patches/01_fix_autobuild.patch"
+    sha256 "3c2403be83ae819bbdfe7d1b0f14e2637d504387d1237f15b24e149cd66f56b1"
+  end
+
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    # Fix errors in opts.h. Borrowed from Debian:
+    # https://salsa.debian.org/debian/complexity/-/blob/master/debian/rules
+    cd "src" do
+      system "autogen", "opts.def"
+    end
+
+    system "./configure", *std_configure_args
+    system "make"
     system "make", "install"
   end
 
