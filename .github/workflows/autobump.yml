@@ -494,6 +494,7 @@ env:
     micro
     micronaut
     mill
+    mimirtool
     minetest
     minikube
     miniserve
