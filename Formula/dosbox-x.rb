@@ -8,8 +8,9 @@ class DosboxX < Formula
   head "https://github.com/joncampbell123/dosbox-x.git", branch: "master"
 
   livecheck do
-    url :stable
-    strategy :github_latest
+    url "https://github.com/joncampbell123/dosbox-x/releases?q=prerelease%3Afalse"
+    regex(%r{href=["']?[^"' >]*?/tag/dosbox-x[._-]v?(\d+(?:\.\d+)+)["' >]}i)
+    strategy :page_match
   end
 
   bottle do
