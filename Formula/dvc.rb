@@ -3,8 +3,8 @@ class Dvc < Formula
 
   desc "Git for data science projects"
   homepage "https://dvc.org"
-  url "https://files.pythonhosted.org/packages/a3/cf/fb50dd9eea1d15508d94fedad6a63cfe21c3fca7c29a58207ecceacf37bb/dvc-2.37.0.tar.gz"
-  sha256 "8c3a4c0539c66b53455b840a398f05e4d7494b7246a09706c296da40307585a2"
+  url "https://files.pythonhosted.org/packages/cd/19/a0036b862eb15841b8a667e1aa4bde44a6c5d69c6f42b83bad3c33bbf03e/dvc-2.38.1.tar.gz"
+  sha256 "88dffe61d4d376d28d5dbd2cb1193782ad640d610fae5169871927b54d828af5"
   license "Apache-2.0"
 
   bottle do
@@ -256,8 +256,8 @@ class Dvc < Formula
   end
 
   resource "dpath" do
-    url "https://files.pythonhosted.org/packages/6e/8d/3b25817282cb4084f22e787b017d65012c2daf7cce5e2c0d9a7a3b0cbdb6/dpath-2.1.2.tar.gz"
-    sha256 "20824820a640a977d7264e9d6124fb590c638795b9a0599a8345a217a4f10bf5"
+    url "https://files.pythonhosted.org/packages/1f/2c/a4213cdbbc43b8fdf34b6e2afb415fd5d46e171d32a4bb92e7924548aa9f/dpath-2.1.3.tar.gz"
+    sha256 "d1a7a0e6427d0a4156c792c82caf1f0109603f68ace792e36ca4596fd2cb8d9d"
   end
 
   resource "dulwich" do
@@ -321,8 +321,8 @@ class Dvc < Formula
   end
 
   resource "dvc-task" do
-    url "https://files.pythonhosted.org/packages/9f/db/4f1639dcb745af90a281aa049f8985f190886fa920a7ffeeec927635b9e0/dvc-task-0.1.6.tar.gz"
-    sha256 "2013637c1b0c4504a7082da0f7779f8f4650b2532c4dbba9b1a666a6c28a17f5"
+    url "https://files.pythonhosted.org/packages/a0/ea/947e146d68b25726c3b8790b127d25a554030543064f366877f303f53ba7/dvc-task-0.1.8.tar.gz"
+    sha256 "98906a1bb54995798f5b997e8bf90f4bb525cb893045fdc0fc79f27e5d737dc5"
   end
 
   resource "dvc-webdav" do
@@ -336,8 +336,8 @@ class Dvc < Formula
   end
 
   resource "dvclive" do
-    url "https://files.pythonhosted.org/packages/75/4b/5d278a38e84d7cade52f6f02d765c5b34d92bebfa65fb363bb6748583bd5/dvclive-1.1.1.tar.gz"
-    sha256 "fe40a04320cffd0c42f8060b37e8ddeb46a974176e69e0fc2254078724208b7f"
+    url "https://files.pythonhosted.org/packages/76/02/5f6ba86de02d49c659b941d788cd49dbfe31086b25070a9ab5e430db1ae5/dvclive-1.2.2.tar.gz"
+    sha256 "231eaec3a1b79dbfb0a45274913ce2e17eb45b19606054e92d7d9e69e0bd1911"
   end
 
   resource "filelock" do
@@ -396,8 +396,8 @@ class Dvc < Formula
   end
 
   resource "google-api-python-client" do
-    url "https://files.pythonhosted.org/packages/7e/36/82d6ee50e68c82b27512d7e813fc9705eab4abf89e0efe1e5316e636b50c/google-api-python-client-2.69.0.tar.gz"
-    sha256 "03624a28b5ba94f3c3d44761081f5dbf8cabaa20c5c3a96c046457c5713efb9b"
+    url "https://files.pythonhosted.org/packages/a8/fe/71091bf1a9f2fa50c06a6caa94b579da7d354d83ac01a4c34b139808d332/google-api-python-client-2.70.0.tar.gz"
+    sha256 "262de094d5a30d337f59e66581019fed45b698c078397ac48dd323c0968236e7"
   end
 
   resource "google-auth" do
@@ -411,8 +411,8 @@ class Dvc < Formula
   end
 
   resource "google-auth-oauthlib" do
-    url "https://files.pythonhosted.org/packages/fb/d1/afcdd1611dc768ed3757a021a6e9410275ae27c6b26b84623bc0f9f706dc/google-auth-oauthlib-0.7.1.tar.gz"
-    sha256 "9940f543f77d1447432a93781d7c931fb53e418023351ad4bf9e92837a1154ec"
+    url "https://files.pythonhosted.org/packages/06/98/52a79d64ca8fd2e37eff8da6c78c26b2209f19d8ace8cafd1634453c4393/google-auth-oauthlib-0.8.0.tar.gz"
+    sha256 "81056a310fb1c4a3e5a7e1a443e1eb96593c6bbc55b26c0261e4d3295d3e6593"
   end
 
   resource "google-cloud-core" do
