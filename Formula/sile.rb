@@ -1,8 +1,8 @@
 class Sile < Formula
   desc "Modern typesetting system inspired by TeX"
   homepage "https://sile-typesetter.org"
-  url "https://github.com/sile-typesetter/sile/releases/download/v0.14.5/sile-0.14.5.tar.xz"
-  sha256 "2f0d6bb49efdf38a44f322ccc7cdb5bb9c2207fdbb44f67aa362ea0963068e07"
+  url "https://github.com/sile-typesetter/sile/releases/download/v0.14.6/sile-0.14.6.tar.xz"
+  sha256 "74167a1a0a52e6ed33dca2cd119c4da82843fc662e6f3da93f0da7988b385dd5"
   license "MIT"
   revision 1
 
@@ -36,11 +36,6 @@ class Sile < Formula
   uses_from_macos "unzip" => :build
   uses_from_macos "expat"
   uses_from_macos "zlib"
-
-  resource "bit32" do
-    url "https://luarocks.org/manifests/siffiejoe/bit32-5.3.5.1-1.src.rock"
-    sha256 "0e273427f2b877270f9cec5642ebe2670242926ba9638d4e6df7e4e1263ca12c"
-  end
 
   resource "linenoise" do
     url "https://luarocks.org/manifests/hoelzro/linenoise-0.9-1.rockspec"
