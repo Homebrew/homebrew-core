@@ -47,10 +47,6 @@ class Weechat < Formula
       -DENABLE_PHP=OFF
     ]
 
-    # Fix error: '__declspec' attributes are not enabled
-    # See https://github.com/weechat/weechat/issues/1605
-    args << "-DCMAKE_C_FLAGS=-fdeclspec" if ENV.compiler == :clang
-
     # Fix system gem on Mojave
     ENV["SDKROOT"] = ENV["HOMEBREW_SDKROOT"]
 
