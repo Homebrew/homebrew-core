@@ -33,6 +33,7 @@ class Lc0 < Formula
 
   fails_with gcc: "5" # for C++17
 
+  # Leelenstein 15.0 from https://lczero.org/play/networks/bestnets/
   resource "network" do
     url "https://training.lczero.org/get_network?sha=00af53b081e80147172e6f281c01daf5ca19ada173321438914c730370aa4267", using: :nounzip
     sha256 "12df03a12919e6392f3efbe6f461fc0ff5451b4105f755503da151adc7ab6d67"
