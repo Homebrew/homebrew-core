@@ -59,7 +59,7 @@ class Lilypond < Formula
 
     system "./configure", "--datadir=#{share}",
                           "--disable-documentation",
-                          "--prefix=#{prefix}",
+                          *std_configure_args,
                           "--with-flexlexer-dir=#{Formula["flex"].include}",
                           "GUILE_FLAVOR=guile-3.0"
 
