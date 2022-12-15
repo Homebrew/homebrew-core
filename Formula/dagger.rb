@@ -22,11 +22,9 @@ class Dagger < Formula
   depends_on "docker" => :test
 
   def install
-    ENV["CGO_ENABLED"] = "0"
     ldflags = %W[
       -s -w
-      -X go.dagger.io/dagger/version.Revision=#{Utils.git_head(length: 8)}
-      -X go.dagger.io/dagger/version.Version=v#{version}
+      -X main.version=#{version}
     ]
     system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/dagger"
 
@@ -34,13 +32,20 @@ class Dagger < Formula
   end
 
   test do
-    assert_match "v#{version}", shell_output("#{bin}/dagger version")
+    assert_match version.to_s, shell_output("#{bin}/dagger version")
 
-    system bin/"dagger", "project", "init", "--template=hello"
-    system bin/"dagger", "project", "update"
-    assert_predicate testpath/"cue.mod/module.cue", :exist?
+    query = <<~EOS
+      {
+        container {
+          from(address:"alpine:latest") {
+            withExec(args:["uname", "-nrio"]) {
+              stdout
+            }
+          }
+        }
+      }
+    EOS
 
-    output = shell_output("#{bin}/dagger do hello 2>&1", 1)
-    assert_match(/(denied while trying to|Cannot) connect to the Docker daemon/, output)
+    assert_match "buildkitsandbox", pipe_output("#{bin}/dagger query", query)
   end
 end
