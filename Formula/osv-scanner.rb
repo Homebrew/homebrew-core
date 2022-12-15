@@ -22,7 +22,7 @@ class OsvScanner < Formula
       )
     EOS
 
-    scan_output = shell_output("#{bin}/osv-scanner --lockfile #{testpath}/go.mod")
-    assert_match "found 1 packages", scan_output
+    scan_output = shell_output("#{bin}/osv-scanner --lockfile #{testpath}/go.mod").strip
+    assert_equal "Scanned #{testpath}/go.mod file and found 1 packages", scan_output
   end
 end
