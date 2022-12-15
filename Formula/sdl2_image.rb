@@ -34,6 +34,8 @@ class Sdl2Image < Formula
 
   depends_on "pkg-config" => :build
   depends_on "jpeg-turbo"
+  depends_on "jpeg-xl"
+  depends_on "libavif"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "sdl2"
@@ -46,7 +48,9 @@ class Sdl2Image < Formula
 
     system "./configure", *std_configure_args,
                           "--disable-imageio",
+                          "--disable-avif-shared",
                           "--disable-jpg-shared",
+                          "--disable-jxl-shared",
                           "--disable-png-shared",
                           "--disable-stb-image",
                           "--disable-tif-shared",
