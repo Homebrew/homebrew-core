@@ -64,9 +64,10 @@ class Sdl2Image < Formula
 
       int main()
       {
-          int success = IMG_Init(0);
+          int INIT_FLAGS = IMG_INIT_JPG | IMG_INIT_PNG | IMG_INIT_TIF | IMG_INIT_WEBP | IMG_INIT_JXL | IMG_INIT_AVIF;
+          int result = IMG_Init(INIT_FLAGS);
           IMG_Quit();
-          return success;
+          return result == INIT_FLAGS ? EXIT_SUCCESS : EXIT_FAILURE;
       }
     EOS
     system ENV.cc, "test.c", "-I#{Formula["sdl2"].opt_include}/SDL2", "-L#{lib}", "-lSDL2_image", "-o", "test"
