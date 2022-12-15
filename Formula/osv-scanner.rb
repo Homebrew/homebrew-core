@@ -7,7 +7,7 @@ class OsvScanner < Formula
   license "Apache-2.0"
   head "https://github.com/google/osv-scanner.git", branch: "main"
 
-  depends_on "go" => [:build]
+  depends_on "go" => :build
 
   def install
     system "go", "build", *std_go_args, "./cmd/osv-scanner/"
