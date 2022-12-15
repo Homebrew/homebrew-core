@@ -153,7 +153,7 @@ jobs:
               content: system "swift", "build"
 
             - label: long build
-              path: Formula/(agda|arangodb|boost|deno|dotnet|emscripten|gcc|ghc|llvm|node|pango|ponyc|rust|suite-sparse|swift|texlive|qt|v8)(@[0-9]+)?.rb
+              path: Formula/(agda|arangodb|boost|deno|dotnet|emscripten|envoy|gcc|ghc|libtensorflow|llvm|node|pango|ponyc|rust|suite-sparse|swift|texlive|qt|v8)(@[0-9]+)?.rb
               keep_if_no_match: true
 
             - label: CI-build-dependents-from-source
