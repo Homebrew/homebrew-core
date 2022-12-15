@@ -15,6 +15,8 @@ jobs:
   create_matrix:
     if: startsWith( github.repository, 'Homebrew/' )
     runs-on: ubuntu-22.04
+    outputs:
+      json: ${{ steps.matrix.outputs.json }}
     steps:
       - name: Set up Homebrew
         id: set-up-homebrew
@@ -28,10 +30,17 @@ jobs:
   audit_online:
     if: startsWith( github.repository, 'Homebrew/' )
     runs-on: ubuntu-22.04
+    needs: create_matrix
+    strategy:
+      matrix:
+        formula: ${{ needs.create_matrix.outputs.json }}
     steps:
       - name: Set up Homebrew
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
 
-      - name: Check all formulae for missing upstreams etc.
-        run: brew audit --online --tap homebrew/core --skip-style --only github_repository_archived,gitlab_repository_archived,homepage
+      - name: Check formula for missing upstreams etc.
+        run: brew audit --online --skip-style --only github_repository_archived,gitlab_repository_archived,homepage ${{ matrix.formula }}
+        
+      - name: Check formula for missing sources.
+        run: brew fetch -s ${{ matrix.formula }}
