@@ -12,7 +12,6 @@ class GoPassboltCli < Formula
   end
 
   test do
-    system "#{bin}/go-passbolt-cli", "help"
     system "#{bin}/go-passbolt-cli", "configure", "--config", "./test.yaml", "--serverAddress", "https://cloud.passbolt.com/"
     message="Error: userPrivateKey is not defined"
     assert_match message, shell_output("#{bin}/go-passbolt-cli --config ./test.yaml list users 2>&1", 1)
