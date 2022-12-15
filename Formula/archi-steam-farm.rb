@@ -43,7 +43,7 @@ class ArchiSteamFarm < Formula
 
   def caveats
     <<~EOS
-      Config: #{etc}/asf/
+      ASF config files should be placed under #{etc}/asf/.
     EOS
   end
 
