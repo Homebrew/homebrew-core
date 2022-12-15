@@ -3,8 +3,8 @@ class Volatility < Formula
 
   desc "Advanced memory forensics framework"
   homepage "https://github.com/volatilityfoundation/volatility3"
-  url "https://files.pythonhosted.org/packages/7a/2a/4bbd676f58d9b4b4846b0c6eecaa2603fcb5b6d4aa35cef2df3df9d757af/volatility3-2.0.1.tar.gz"
-  sha256 "e4f3f3a26b2e34e744a2d475b278556b53be769a3c897bfc4bdcbd4feb9089eb"
+  url "https://files.pythonhosted.org/packages/5f/81/72ad1b892e6c71d6f868af90f2df9505c29c393eb822c175f30f4ed5a18c/volatility3-2.4.0.tar.gz"
+  sha256 "61cd695d0aa826e9b655c1abe88b46356088e367b0eadf33cc08075c1203f244"
   license :cannot_represent
   version_scheme 1
   head "https://github.com/volatilityfoundation/volatility3.git", branch: "develop"
@@ -41,18 +41,18 @@ class Volatility < Formula
   end
 
   resource "jsonschema" do
-    url "https://files.pythonhosted.org/packages/65/9a/1951e3ed40115622dedc8b28949d636ee1ec69e210a52547a126cd4724e6/jsonschema-4.17.1.tar.gz"
-    sha256 "05b2d22c83640cde0b7e0aa329ca7754fbd98ea66ad8ae24aa61328dfe057fa3"
+    url "https://files.pythonhosted.org/packages/36/3d/ca032d5ac064dff543aa13c984737795ac81abc9fb130cd2fcff17cfabc7/jsonschema-4.17.3.tar.gz"
+    sha256 "0f864437ab8b6076ba6707453ef8f98a6a0d512a80e93f8abdb676f737ecb60d"
   end
 
   resource "pefile" do
-    url "https://files.pythonhosted.org/packages/ee/e1/a7bd302cf5f74547431b4e9b206dbef782d112df6b531f193bb4a29fb1b9/pefile-2021.9.3.tar.gz"
-    sha256 "344a49e40a94e10849f0fe34dddc80f773a12b40675bf2f7be4b8be578bdd94a"
+    url "https://files.pythonhosted.org/packages/48/30/4559d06bad5bb627733dac1ef28c34f5e35f1461247ba63e5f6366901277/pefile-2022.5.30.tar.gz"
+    sha256 "a5488a3dd1fd021ce33f969780b88fe0f7eebb76eb20996d7318f307612a045b"
   end
 
   resource "pycryptodome" do
-    url "https://files.pythonhosted.org/packages/32/09/41ea2633fea5b973dac9829de871b417ff3ce2963d07fd92e3f2d2a9ee9b/pycryptodome-3.14.1.tar.gz"
-    sha256 "e04e40a7f8c1669195536a37979dd87da2c32dbdc73d6fe35f0077b0c17c803b"
+    url "https://files.pythonhosted.org/packages/0d/66/5e4a14e91ffeac819e6888037771286bc1b86869f25d74d60bc4a61d2c1e/pycryptodome-3.16.0.tar.gz"
+    sha256 "0e45d2d852a66ecfb904f090c3f87dc0dfb89a499570abad8590f10d9cffb350"
   end
 
   resource "pyrsistent" do
@@ -61,8 +61,8 @@ class Volatility < Formula
   end
 
   resource "yara-python" do
-    url "https://files.pythonhosted.org/packages/c9/d9/f0e15174adae818a8dd9bb5989a8343abc3a1df29757c5b1f00aecdd1276/yara-python-4.2.0.tar.gz"
-    sha256 "d02f239f429c6c94e60b500246d376595fbed8d9124209d332b6f8e7cfb5ec6e"
+    url "https://files.pythonhosted.org/packages/a4/2b/d36b6399027bb888faed23e3393f4efc3568996a5c386233b364d9e701d5/yara-python-4.2.3.tar.gz"
+    sha256 "31f6f6f2fdca4c5ddfeed7cc6d29afad6af7dc259dde284df2d7ea5ae15ee69a"
   end
 
   def install
