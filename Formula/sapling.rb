@@ -1,8 +1,8 @@
 class Sapling < Formula
   desc "Source control client"
   homepage "https://sapling-scm.com"
-  url "https://github.com/facebook/sapling/archive/refs/tags/0.1.20221201-095354-r360873f1.tar.gz"
-  sha256 "667149b8f705d87a24a80e7704a60cd0aa7cbfd0c63ae5363bb3717159be40ac"
+  url "https://github.com/facebook/sapling/archive/refs/tags/0.1.20221213-150011-h9b0acf12.tar.gz"
+  sha256 "1513f34ced2583cfdf202d6b8fb77beeda0d7298bd4d3f55a32d3e54796d1710"
   license "GPL-2.0-or-later"
   head "https://github.com/facebook/sapling.git", branch: "main"
 
@@ -22,13 +22,13 @@ class Sapling < Formula
   depends_on "gh"
   depends_on "node"
   depends_on "openssl@1.1"
-  depends_on "python@3.8"
+  depends_on "python@3.10"
 
   def install
     ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
-    ENV["PYTHON_SYS_EXECUTABLE"] = Formula["python@3.8"].opt_prefix/"bin/python3.8"
-    ENV["PYTHON"] = Formula["python@3.8"].opt_prefix/"bin/python3.8"
-    ENV["PYTHON3"] = Formula["python@3.8"].opt_prefix/"bin/python3.8"
+    ENV["PYTHON_SYS_EXECUTABLE"] = Formula["python@3.10"].opt_prefix/"bin/python3.10"
+    ENV["PYTHON"] = Formula["python@3.10"].opt_prefix/"bin/python3.10"
+    ENV["PYTHON3"] = Formula["python@3.10"].opt_prefix/"bin/python3.10"
     ENV["SAPLING_VERSION"] = version.to_s
 
     cd "eden/scm" do
