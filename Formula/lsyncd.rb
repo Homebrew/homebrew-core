@@ -69,6 +69,10 @@ class Lsyncd < Formula
       "12.1"    => ["xnu-8019.61.5.tar.gz",       "1e035fcf9a2b86dfadcccbbaf963f98b878772ae29c5058f1dc0e5852f70650e"],
       "12.2"    => ["xnu-8019.80.24.tar.gz",      "2fbfe90ec8c93d93f0dd69f09610011d26a722f98266202de6a7c2af764712b4"],
       "12.3"    => ["xnu-8020.101.4.tar.gz",      "df715e7b2bd5db0ba212b5b0613fbbc85c3cbc4e61f6ee355a8b6cf9a87d3374"],
+      "12.4"    => ["xnu-8020.121.3.tar.gz",      "8c765111cf971749a30f7426759d0a93cf3fac7c03a31055920f292335279125"],
+      "12.5"    => ["xnu-8020.140.41.tar.gz",     "b11e05d6529806aa6ec046ae462d997dfb36a26df6c0eb0452d7a67cc08ad9e7"],
+      "13.0"    => ["xnu-8792.41.9.tar.gz",       "ccd87512d2c525e081983fece12cf5f911465d4371449661dbcdff764238286f"],
+      "13.1"    => ["xnu-8792.61.2.tar.gz",       "61c5758d4423ede45e3cbe70b4316d982af59dc91fc482cd9afc145b2ad2226a"],
     }
 
     macos_version = MacOS.full_version.major_minor # Ignore bugfix/security updates
