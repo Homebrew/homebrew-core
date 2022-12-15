@@ -24,7 +24,7 @@ jobs:
       - id: matrix
         run: |
           formula=$(find  $(brew --repo homebrew/core)/Formula |  shuf -n10 | xargs -I{} basename {} .rb)
-          json=$(brew info --json=v2 $formula | jq [.formulae[].name])
+          json=$(brew info --json=v2 $formula | jq --compact-output '[.formulae[].name]')
           echo "json=${json}" >> $GITHUB_OUTPUT
           echo "json=${json}"
   audit_online:
@@ -33,7 +33,7 @@ jobs:
     needs: create_matrix
     strategy:
       matrix:
-        formula: ${{ needs.create_matrix.outputs.json }}
+        formula: ${{ fromJson(needs.create_matrix.outputs.json) }}
     steps:
       - name: Set up Homebrew
         id: set-up-homebrew
