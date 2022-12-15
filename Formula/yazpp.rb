@@ -1,10 +1,9 @@
 class Yazpp < Formula
   desc "C++ API for the Yaz toolkit"
   homepage "https://www.indexdata.com/resources/software/yazpp/"
-  url "https://ftp.indexdata.com/pub/yazpp/yazpp-1.8.0.tar.gz"
-  sha256 "e6c32c90fa83241e44e506a720aff70460dfbd0a73252324b90b9489eaeb050d"
+  url "https://ftp.indexdata.com/pub/yazpp/yazpp-1.8.1.tar.gz"
+  sha256 "13b7e61b2f20a57d0925bf6925c1d82e40a11092a8d1ab1d9d49dfd1863dbb05"
   license "BSD-3-Clause"
-  revision 1
 
   livecheck do
     url "https://ftp.indexdata.com/pub/yazpp/"
