@@ -12,6 +12,19 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  create_matrix:
+    if: startsWith( github.repository, 'Homebrew/' )
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+      - id: matrix
+        run: |
+          formula=$(find  $(brew --repo homebrew/core)/Formula |  shuf -n10 | xargs -I{} basename {} .rb)
+          json=$(brew info --json=v2 $formula | jq [.formulae[].name])
+          echo "json=${json}" >> $GITHUB_OUTPUT
+          echo "json=${json}"
   audit_online:
     if: startsWith( github.repository, 'Homebrew/' )
     runs-on: ubuntu-22.04
