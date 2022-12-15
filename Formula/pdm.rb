@@ -3,8 +3,8 @@ class Pdm < Formula
 
   desc "Modern Python package and dependency manager supporting the latest PEP standards"
   homepage "https://pdm.fming.dev"
-  url "https://files.pythonhosted.org/packages/a0/22/dab6e1b1e46bd97707cea0e80d0ff5f4a02a21955a20887e54249d872b3c/pdm-2.3.2.tar.gz"
-  sha256 "9bce2dd97012129b3ff2907648311edbac085fa8b9d6964a7e5c23845c785fbe"
+  url "https://files.pythonhosted.org/packages/eb/3c/09bf761352cf10c927a91f84b84e978155e21ad97ee8564299d1718f6405/pdm-2.3.3.tar.gz"
+  sha256 "2897996453bbc834841ab0160f9d90d47744f8c585ee814fa2ee91d3c7840921"
   license "MIT"
   head "https://github.com/pdm-project/pdm.git", branch: "main"
 
@@ -78,13 +78,18 @@ class Pdm < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/6b/f7/c240d7654ddd2d2f3f328d8468d4f1f876865f6b9038b146bec0a6737c65/packaging-22.0.tar.gz"
-    sha256 "2198ec20bd4c017b8f9717e00f0c8714076fc2fd93816750ab48e2c41de2cfd3"
+    url "https://files.pythonhosted.org/packages/df/9e/d1a7217f69310c1db8fdf8ab396229f55a699ce34a203691794c5d1cad0c/packaging-21.3.tar.gz"
+    sha256 "dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb"
   end
 
   resource "platformdirs" do
     url "https://files.pythonhosted.org/packages/ec/4c/9af851448e55c57b30a13a72580306e628c3b431d97fdae9e0b8d4fa3685/platformdirs-2.6.0.tar.gz"
     sha256 "b46ffafa316e6b83b47489d240ce17173f123a9b9c83282141c3daf26ad9ac2e"
+  end
+
+  resource "pyparsing" do
+    url "https://files.pythonhosted.org/packages/71/22/207523d16464c40a0310d2d4d8926daffa00ac1f5b1576170a32db749636/pyparsing-3.0.9.tar.gz"
+    sha256 "2b020ecf7d21b687f219b71ecad3631f644a47f01403fa1d1036b0c6416d70fb"
   end
 
   resource "pyproject_hooks" do
@@ -128,8 +133,8 @@ class Pdm < Formula
   end
 
   resource "unearth" do
-    url "https://files.pythonhosted.org/packages/c5/06/4eeb23ba770f73cb403ed9655e08592700b5601bed1016783773d928dd61/unearth-0.6.3.tar.gz"
-    sha256 "3b7e494b0b13a8bd15d54c7c85870d2c051d912846263d16da671ff7bd8eef4f"
+    url "https://files.pythonhosted.org/packages/f9/8d/e072c0b76ecc9fb38dde79d0037fbc806deebb5207af24515f44f209bf79/unearth-0.7.0.tar.gz"
+    sha256 "cf54411b37b7a941f3cdfdf29aeee2bf18164a8afca35c467b97feab626e671e"
   end
 
   resource "urllib3" do
