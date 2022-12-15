@@ -23,6 +23,12 @@ class SqlxCli < Formula
     depends_on "openssl@3"
   end
 
+  # fixes https://github.com/launchbadge/sqlx/issues/2198 for rust >= 1.65
+  patch do
+    url "https://github.com/launchbadge/sqlx/commit/2fdf85b212332647dc4ac47e087df946151feedf.patch?full_index=1"
+    sha256 "8f72bff76a88e5311aa4b83744a509ba0ac4effa9d6335ba3986ebedfee6051a"
+  end
+
   def install
     system "cargo", "install", *std_cargo_args(path: "sqlx-cli")
   end
