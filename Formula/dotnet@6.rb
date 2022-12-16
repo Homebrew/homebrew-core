@@ -1,9 +1,10 @@
 class DotnetAT6 < Formula
   desc ".NET Core"
   homepage "https://dotnet.microsoft.com/"
+  # Source-build tag announced at https://github.com/dotnet/source-build/discussions
   url "https://github.com/dotnet/installer.git",
-      tag:      "v6.0.111",
-      revision: "b3bb659a9d244d5abf8a796ac33b42922074fc38"
+      tag:      "v6.0.112",
+      revision: "d311a58ee178e4084d570ae5203e22c1e5e174b7"
   license "MIT"
 
   # https://github.com/dotnet/source-build/#support
@@ -126,7 +127,8 @@ class DotnetAT6 < Formula
       rename_patch = "0001-Rename-NuGet.Config-to-NuGet.config-to-account-for-a.patch"
       (Pathname("src/nuget-client/eng/source-build-patches")/rename_patch).unlink if OS.mac?
 
-      system "./prep.sh", "--bootstrap"
+      prep_args = (OS.linux? && Hardware::CPU.intel?) ? [] : ["--bootstrap"]
+      system "./prep.sh", *prep_args
       system "./build.sh", "--clean-while-building"
 
       libexec.mkpath
