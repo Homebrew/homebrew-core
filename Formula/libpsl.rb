@@ -4,6 +4,7 @@ class Libpsl < Formula
   url "https://github.com/rockdaboot/libpsl/releases/download/0.21.2/libpsl-0.21.2.tar.gz"
   sha256 "e35991b6e17001afa2c0ca3b10c357650602b92596209b7492802f3768a6285f"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "d807358832a47838ecacf3d1ee98f79919b43e949340ec829de9ed78281969a1"
