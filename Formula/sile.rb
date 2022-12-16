@@ -175,6 +175,17 @@ class Sile < Formula
       end
     end
 
+    # Avoid checking for fonts at build time, user is expected to supply these because Homebrew can't
+    File.write(buildpath/"build-aux/ax_font.m4", <<~EOS
+      AC_DEFUN([AX_FONT], [
+          pushdef([FONT],$1)
+          AC_MSG_CHECKING(whether font family FONT is available)
+          AC_MSG_RESULT(yes)
+          popdef([FONT])
+      ])dnl
+    EOS
+    )
+
     system "./bootstrap.sh" if build.head?
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
