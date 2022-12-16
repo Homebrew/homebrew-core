@@ -229,6 +229,7 @@ env:
     embulk
     emscripten
     envconsul
+    envd
     envoy
     esbuild
     eslint
