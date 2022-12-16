@@ -4,7 +4,7 @@ class Byobu < Formula
   url "https://launchpad.net/byobu/trunk/5.133/+download/byobu_5.133.orig.tar.gz"
   sha256 "4d8ea48f8c059e56f7174df89b04a08c32286bae5a21562c5c6f61be6dab7563"
   license "GPL-3.0-only"
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "567ec86facce7f9acf776836e49fc4742cd22a34f38a3869e1c2c8356290cc71"
@@ -32,13 +32,13 @@ class Byobu < Formula
       cp "./debian/changelog", "./ChangeLog"
       system "autoreconf", "--force", "--install", "--verbose"
     end
-    system "./configure", "--prefix=#{prefix}", "--disable-silent-rules"
+    system "./configure", *std_configure_args
     system "make", "install"
 
     byobu_python = Formula["newt"].deps
                                   .find { |d| d.name.match?(/^python@\d\.\d+$/) }
                                   .to_formula
-                                  .opt_bin/"python3"
+                                  .libexec/"bin/python"
 
     lib.glob("byobu/include/*.py").each do |script|
       byobu_script = "byobu-#{script.basename(".py")}"
@@ -50,5 +50,6 @@ class Byobu < Formula
 
   test do
     system bin/"byobu-status"
+    assert_match "open terminal failed", shell_output("#{bin}/byobu-select-session 2>&1", 1)
   end
 end
