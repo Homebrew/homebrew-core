@@ -4,7 +4,7 @@ class Libxml2 < Formula
   url "https://download.gnome.org/sources/libxml2/2.10/libxml2-2.10.3.tar.xz"
   sha256 "5d2cc3d78bec3dbe212a9d7fa629ada25a7da928af432c93060ff5c17ee28a9c"
   license "MIT"
-  revision 1
+  revision 2
 
   # We use a common regex because libxml2 doesn't use GNOME's "even-numbered
   # minor is stable" version scheme.
