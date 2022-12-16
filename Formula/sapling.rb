@@ -22,13 +22,13 @@ class Sapling < Formula
   depends_on "gh"
   depends_on "node"
   depends_on "openssl@1.1"
-  depends_on "python@3.10"
+  depends_on "python@3.9"
 
   def install
     ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
-    ENV["PYTHON_SYS_EXECUTABLE"] = Formula["python@3.10"].opt_prefix/"bin/python3.10"
-    ENV["PYTHON"] = Formula["python@3.10"].opt_prefix/"bin/python3.10"
-    ENV["PYTHON3"] = Formula["python@3.10"].opt_prefix/"bin/python3.10"
+    ENV["PYTHON_SYS_EXECUTABLE"] = Formula["python@3.9"].opt_prefix/"bin/python3.9"
+    ENV["PYTHON"] = Formula["python@3.9"].opt_prefix/"bin/python3.9"
+    ENV["PYTHON3"] = Formula["python@3.9"].opt_prefix/"bin/python3.9"
     ENV["SAPLING_VERSION"] = version.to_s
 
     cd "eden/scm" do
