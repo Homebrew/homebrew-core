@@ -2,8 +2,8 @@ class SourceToImage < Formula
   desc "Tool for building source and injecting into docker images"
   homepage "https://github.com/openshift/source-to-image"
   url "https://github.com/openshift/source-to-image.git",
-      tag:      "v1.3.1",
-      revision: "a5a771479f73be6be4207aadc730351e515aedfb"
+      tag:      "v1.3.2",
+      revision: "78363eee76a5c52f23df3bbffb4e2e8393b4a043"
   license "Apache-2.0"
   head "https://github.com/openshift/source-to-image.git", branch: "master"
 
@@ -19,8 +19,7 @@ class SourceToImage < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f840fd861731a8d2f078f2da755a771e58e2f31712ade195ff10c29a4037deaa"
   end
 
-  # Bump to 1.18 on the next release, if possible.
-  depends_on "go@1.17" => :build
+  depends_on "go" => :build
 
   def install
     system "hack/build-go.sh"
