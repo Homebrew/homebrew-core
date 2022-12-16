@@ -2,8 +2,8 @@ class Yorkie < Formula
   desc "Document store for collaborative applications"
   homepage "https://yorkie.dev/"
   url "https://github.com/yorkie-team/yorkie.git",
-    tag:      "v0.2.17",
-    revision: "109ed36d485c92f123186e5e704a3946ca6c7db6"
+    tag:      "v0.2.19",
+    revision: "eb8f1fd204fbdf7a950345578cba1186242267ca"
   license "Apache-2.0"
   head "https://github.com/yorkie-team/yorkie.git", branch: "main"
 
@@ -19,9 +19,7 @@ class Yorkie < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "fc5f1e94138547d446c4e4b545ad4cbe494def6dce4634f7986646f3f7e8cb41"
   end
 
-  # Doesn't build with latest go
-  # See https://github.com/yorkie-team/yorkie/issues/378
-  depends_on "go@1.18" => :build
+  depends_on "go" => :build
 
   def install
     system "make", "build"
@@ -46,7 +44,7 @@ class Yorkie < Formula
     system bin/"yorkie", "login", "-u", "admin", "-p", "admin"
 
     test_project = "test"
-    output = shell_output("#{bin}/yorkie project create #{test_project}")
+    output = shell_output("#{bin}/yorkie project create #{test_project} 2>&1")
     project_info = JSON.parse(output)
     assert_equal test_project, project_info.fetch("name")
   ensure
