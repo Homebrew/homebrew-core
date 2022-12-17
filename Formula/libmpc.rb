@@ -1,19 +1,10 @@
 class Libmpc < Formula
   desc "C library for the arithmetic of high precision complex numbers"
   homepage "http://www.multiprecision.org/mpc/"
+  url "https://ftp.gnu.org/gnu/mpc/mpc-1.3.1.tar.gz"
+  mirror "https://ftpmirror.gnu.org/mpc/mpc-1.3.1.tar.gz"
+  sha256 "ab642492f5cf882b74aa0cb730cd410a81edcdbec895183ce930e706c1c759b8"
   license "LGPL-3.0-or-later"
-
-  stable do
-    url "https://ftp.gnu.org/gnu/mpc/mpc-1.2.1.tar.gz"
-    mirror "https://ftpmirror.gnu.org/mpc/mpc-1.2.1.tar.gz"
-    sha256 "17503d2c395dfcf106b622dc142683c1199431d095367c6aacba6eec30340459"
-
-    # Fix -flat_namespace being used on Big Sur and later.
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
-      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
-    end
-  end
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "f7c2965d722a96d7d23030d76867247f46635cd605df0d5188eef38303b56f40"
@@ -29,7 +20,7 @@ class Libmpc < Formula
   end
 
   head do
-    url "https://gitlab.inria.fr/mpc/mpc.git"
+    url "https://gitlab.inria.fr/mpc/mpc.git", branch: "master"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
@@ -39,15 +30,10 @@ class Libmpc < Formula
   depends_on "mpfr"
 
   def install
-    args = %W[
-      --prefix=#{prefix}
-      --disable-dependency-tracking
-      --with-gmp=#{Formula["gmp"].opt_prefix}
-      --with-mpfr=#{Formula["mpfr"].opt_prefix}
-    ]
-
-    system "autoreconf", "-fiv" if build.head?
-    system "./configure", *args
+    system "autoreconf", "--force", "--install", "--verbose" if build.head?
+    system "./configure", *std_configure_args,
+                          "--with-gmp=#{Formula["gmp"].opt_prefix}",
+                          "--with-mpfr=#{Formula["mpfr"].opt_prefix}"
     system "make"
     system "make", "check"
     system "make", "install"
