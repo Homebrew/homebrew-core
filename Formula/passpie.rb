@@ -22,6 +22,11 @@ class Passpie < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7d712ec9f284461db0ef012f2d03f77fcc6e641c125be56c8989a4a9d30a69ab"
   end
 
+  # Last release on 2018-04-24.
+  # Also, PyYAML version has CVEs and we inreplace an update (3.11 -> 3.13) to support Python 3.8.
+  # Open dependabot PR to update since 2021-03-25: https://github.com/marcwebbie/passpie/pull/124
+  deprecate! date: "2022-12-31", because: :unmaintained
+
   depends_on "gnupg"
   depends_on "libyaml"
   depends_on "python@3.8"
