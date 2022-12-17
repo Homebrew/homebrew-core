@@ -1,8 +1,8 @@
 class PgPartman < Formula
   desc "Partition management extension for PostgreSQL"
   homepage "https://github.com/pgpartman/pg_partman"
-  url "https://github.com/pgpartman/pg_partman/archive/refs/tags/v4.7.1.tar.gz"
-  sha256 "185821d4fbe2d966b6558203748c3479dcf51e9e19670ba5886844be11a3dc00"
+  url "https://github.com/pgpartman/pg_partman/archive/refs/tags/v4.7.2.tar.gz"
+  sha256 "8ca9cf2a56bde591b0d0526cf5db54a2c9691fcfa514eebb419f8c394eb9d17a"
   license "PostgreSQL"
 
   bottle do
@@ -16,10 +16,10 @@ class PgPartman < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "20b7eec0a9714179f60df5db36048b8551f42a1c9b2f7b9289b5c3a55342c59d"
   end
 
-  depends_on "postgresql@14"
+  depends_on "postgresql@15"
 
   def postgresql
-    Formula["postgresql@14"]
+    Formula["postgresql@15"]
   end
 
   def install
