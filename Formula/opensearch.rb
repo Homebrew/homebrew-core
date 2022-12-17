@@ -19,6 +19,10 @@ class Opensearch < Formula
   depends_on "gradle" => :build
   depends_on "openjdk"
 
+  # Compatibility with Gradle 7.6
+  # Based on https://github.com/opensearch-project/OpenSearch/commit/ab85c67bb002e2fb440be659cf156b3f5c06e0f1
+  patch :DATA
+
   def install
     platform = OS.kernel_name.downcase
     platform += "-arm64" if Hardware::CPU.arm?
@@ -106,3 +110,64 @@ class Opensearch < Formula
     system "#{bin}/opensearch-plugin", "list"
   end
 end
+
+__END__
+--- a/buildSrc/src/main/java/org/opensearch/gradle/info/GlobalBuildInfoPlugin.java
++++ b/buildSrc/src/main/java/org/opensearch/gradle/info/GlobalBuildInfoPlugin.java
+@@ -45,6 +45,7 @@ import org.gradle.api.provider.ProviderFactory;
+ import org.gradle.internal.jvm.Jvm;
+ import org.gradle.internal.jvm.inspection.JvmInstallationMetadata;
+ import org.gradle.internal.jvm.inspection.JvmMetadataDetector;
++import org.gradle.jvm.toolchain.internal.InstallationLocation;
+ import org.gradle.util.GradleVersion;
+
+ import javax.inject.Inject;
+@@ -52,6 +53,8 @@ import java.io.File;
+ import java.io.FileInputStream;
+ import java.io.IOException;
+ import java.io.UncheckedIOException;
++import java.lang.invoke.MethodHandles;
++import java.lang.invoke.MethodType;
+ import java.nio.charset.StandardCharsets;
+ import java.nio.file.Files;
+ import java.nio.file.Path;
+@@ -196,7 +199,29 @@ public class GlobalBuildInfoPlugin implements Plugin<Project> {
+     }
+
+     private JvmInstallationMetadata getJavaInstallation(File javaHome) {
+-        return jvmMetadataDetector.getMetadata(javaHome);
++        final InstallationLocation location = new InstallationLocation(javaHome, "Java home");
++
++        try {
++            try {
++                // The getMetadata(File) is used by Gradle pre-7.6
++                return (JvmInstallationMetadata) MethodHandles.publicLookup()
++                    .findVirtual(JvmMetadataDetector.class, "getMetadata", MethodType.methodType(JvmInstallationMetadata.class, File.class))
++                    .bindTo(jvmMetadataDetector)
++                    .invokeExact(location.getLocation());
++            } catch (NoSuchMethodException | IllegalAccessException ex) {
++                // The getMetadata(InstallationLocation) is used by Gradle post-7.6
++                return (JvmInstallationMetadata) MethodHandles.publicLookup()
++                    .findVirtual(
++                        JvmMetadataDetector.class,
++                        "getMetadata",
++                        MethodType.methodType(JvmInstallationMetadata.class, InstallationLocation.class)
++                    )
++                    .bindTo(jvmMetadataDetector)
++                    .invokeExact(location);
++            }
++        } catch (Throwable ex) {
++            throw new IllegalStateException("Unable to find suitable JvmMetadataDetector::getMetadata", ex);
++        }
+     }
+
+     private List<JavaHome> getAvailableJavaVersions(JavaVersion minimumCompilerVersion) {
+@@ -206,7 +231,7 @@ public class GlobalBuildInfoPlugin implements Plugin<Project> {
+             String javaHomeEnvVarName = getJavaHomeEnvVarName(Integer.toString(version));
+             if (System.getenv(javaHomeEnvVarName) != null) {
+                 File javaHomeDirectory = new File(findJavaHome(Integer.toString(version)));
+-                JvmInstallationMetadata javaInstallation = jvmMetadataDetector.getMetadata(javaHomeDirectory);
++                JvmInstallationMetadata javaInstallation = getJavaInstallation(javaHomeDirectory);
+                 JavaHome javaHome = JavaHome.of(version, providers.provider(() -> {
+                     int actualVersion = Integer.parseInt(javaInstallation.getLanguageVersion().getMajorVersion());
+                     if (actualVersion != version) {
