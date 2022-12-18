@@ -25,10 +25,15 @@ class Ghex < Formula
   depends_on "hicolor-icon-theme"
 
   def install
+    args = std_meson_args + %W[
+      -Dmmap-buffer-backend=#{OS.linux?}
+      -Ddirect-buffer-backend=#{OS.linux?}
+    ]
+
     # ensure that we don't run the meson post install script
     ENV["DESTDIR"] = "/"
 
-    system "meson", *std_meson_args, "build", "-Dmmap-buffer-backend=#{OS.linux?}"
+    system "meson", *args, "build"
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
   end
