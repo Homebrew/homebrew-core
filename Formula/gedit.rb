@@ -16,6 +16,8 @@ class Gedit < Formula
     sha256 x86_64_linux:   "a88a052db3e1337e2f5264f192a284ab29b0332f9235beae9aefc02244ec18eb"
   end
 
+  depends_on "docbook-xsl" => :build
+  depends_on "gtk-doc" => :build
   depends_on "itstool" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
