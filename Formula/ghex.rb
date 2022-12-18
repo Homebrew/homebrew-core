@@ -1,8 +1,8 @@
 class Ghex < Formula
   desc "GNOME hex editor"
   homepage "https://wiki.gnome.org/Apps/Ghex"
-  url "https://download.gnome.org/sources/ghex/42/ghex-42.3.tar.xz"
-  sha256 "add40f8ab24921db30d27be58f00273201977d87fdc8d79eceadfa8b0e354def"
+  url "https://download.gnome.org/sources/ghex/43/ghex-43.0.tar.xz"
+  sha256 "866c0622c66fdb5ad2a475e9cfcccb219a1c6431f009acb2291d43f2140b147e"
 
   bottle do
     sha256 arm64_ventura:  "d53e8c59361907d9b0348de0278366f8ab32629e02b0c08514f29038772ab12f"
