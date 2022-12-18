@@ -23,6 +23,7 @@ class Ghex < Formula
   depends_on "pkg-config" => :build
   depends_on "gtk4"
   depends_on "hicolor-icon-theme"
+  depends_on "libadwaita"
 
   def install
     args = std_meson_args + %W[
