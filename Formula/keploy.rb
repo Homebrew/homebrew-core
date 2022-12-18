@@ -1,8 +1,8 @@
 class Keploy < Formula
   desc "Testing Toolkit creates test-cases and data mocks from API calls, DB queries"
   homepage "https://keploy.io"
-  url "https://github.com/keploy/keploy/archive/refs/tags/v0.6.5.tar.gz"
-  sha256 "2132d17037206119807f7d9274df839131a52fc950013d07477710ba00297933"
+  url "https://github.com/keploy/keploy/archive/refs/tags/v0.7.6.tar.gz"
+  sha256 "69b586f6a2ac8e28966d534e93108d493ca21e88454bf1f1e53a09295dc14eb3"
   license "Apache-2.0"
 
   depends_on "gatsby-cli" => :build
