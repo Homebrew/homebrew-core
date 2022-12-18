@@ -22,6 +22,7 @@ class Gedit < Formula
   depends_on "pkg-config" => [:build, :test]
   depends_on "vala" => :build
   depends_on "adwaita-icon-theme"
+  depends_on "amtk"
   depends_on "atk"
   depends_on "cairo"
   depends_on "gdk-pixbuf"
