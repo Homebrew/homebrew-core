@@ -23,15 +23,24 @@ class Keploy < Formula
     cp_r "public", "web", remove_destination: true
     system "go", "build", *std_go_args, "./cmd/server"
   end
+
   test do
+    require "pty"
+
     port = free_port
-    pid = fork do
-      assert_match("👍 connect to http://localhost:#{port}/ for GraphQL playground",
-                   shell_output("export PORT=#{port} && #{bin}/keploy"))
+    env = { "PORT" => port.to_s }
+    executable = bin/"keploy"
+
+    output = ""
+    PTY.spawn(env, executable) do |r, _w, pid|
+      sleep 1
+      Process.kill("TERM", pid)
+      begin
+        r.each_line { |line| output += line }
+      rescue Errno::EIO
+        # GNU/Linux raises EIO when read is done on closed pty
+      end
     end
-    sleep 6
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+    assert_match("keploy started at port #{port}", output)
   end
 end
