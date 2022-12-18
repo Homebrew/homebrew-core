@@ -1,9 +1,14 @@
 class GstPluginsRs < Formula
   desc "GStreamer plugins written in Rust"
   homepage "https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs"
-  url "https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/0.9.1/gst-plugins-rs-0.9.1.tar.bz2"
-  sha256 "8d812ecc4124196b77b93f4922cf1e1409a44632dacc69e28b9d189dfaf34874"
+  url "https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/0.9.3/gst-plugins-rs-0.9.3.tar.bz2"
+  sha256 "2d3fb004f8004f347f86adbef7a3aa870a5b1bd300c5410f53685daefb8d1e8c"
   license "MIT"
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "919fe1d643d32b727d5f074f64be8fead7c8938bda439b4195438e442eb56633"
@@ -28,7 +33,41 @@ class GstPluginsRs < Formula
   depends_on "gtk4"
   depends_on "pango" # for closedcaption
 
+  # Fix building `libwebp-sys2` crate on Intel macOS (SSE4.1 support).
+  # The resource version matches version picked by Cargo dependency resolution.
+  # We use git URL rather than generated source tarball to get submodule.
+  # The crate could also be used, but it requires manual extraction as brew
+  # cannot handle .crate extension and this means we cannot use patch DSL.
+  # TODO: Remove when upstream PR is approved and available in release.
+  on_macos do
+    on_intel do
+      resource "libwebp-sys2" do
+        url "https://github.com/qnighy/libwebp-sys2-rs.git",
+            tag:      "v0.1.4",
+            revision: "3ecdb2e4898820d46436a76e1cfee75ec14a881a"
+
+        # PR ref: https://github.com/qnighy/libwebp-sys2-rs/pull/13
+        patch do
+          url "https://github.com/qnighy/libwebp-sys2-rs/commit/eddb6e2d1ef88b1b1a68d7709733e7dff81f6659.patch?full_index=1"
+          sha256 "0bee66cf8e29880719c64d54be0e8199da91c8d4aa9fce13e26b0cc024371e4d"
+        end
+      end
+    end
+  end
+
+  on_linux do
+    depends_on "pkg-config" => :build
+    # TODO: Use `webp` dependency on macOS when supported.
+    # Issue ref: https://github.com/qnighy/libwebp-sys2-rs/issues/4
+    depends_on "webp"
+  end
+
   def install
+    if OS.mac? && Hardware::CPU.intel?
+      (buildpath/"libwebp-sys2").install resource("libwebp-sys2")
+      inreplace "video/webp/Cargo.toml", "libwebp-sys2 = {", "\\0 path = \"#{buildpath}/libwebp-sys2\","
+    end
+
     # Fixes an issue where the wrong Python is picked up in the Linux build
     ENV.prepend_path "PATH", Formula["python@3.11"].libexec/"bin"
 
