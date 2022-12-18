@@ -37,6 +37,7 @@ class Gedit < Formula
   depends_on "libsoup"
   depends_on "libxml2"
   depends_on "pango"
+  depends_on "tepl"
 
   def install
     ENV["DESTDIR"] = "/"
