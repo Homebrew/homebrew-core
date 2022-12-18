@@ -19,10 +19,14 @@ class Docutils < Formula
 
   depends_on "python@3.10" => [:build, :test]
   depends_on "python@3.11" => [:build, :test]
+  on_linux do
+    depends_on "python@3.11"
+  end
 
   def pythons
     deps.map(&:to_formula)
         .select { |f| f.name.match?(/^python@3\.\d+$/) }
+        .uniq
   end
 
   def install
