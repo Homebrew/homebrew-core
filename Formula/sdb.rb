@@ -22,6 +22,13 @@ class Sdb < Formula
   depends_on "vala" => :build
   depends_on "glib"
 
+  # patch build to fix version.h not found
+  # remove in next release
+  patch do
+    url "https://github.com/radareorg/sdb/commit/3bc55289a73bddbd63a11d993c949f57e8a7f7cc.patch?full_index=1"
+    sha256 "d272212a0308a4e8f45f1413c67fb027409d885f3e97166e1a896c7d6b772c4b"
+  end
+
   def install
     system "meson", *std_meson_args, "build"
     system "meson", "compile", "-C", "build", "-v"
