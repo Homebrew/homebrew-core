@@ -16,7 +16,7 @@ class Autocorrect < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2950e5f933d69568b4b5257d1039f364a4b86e7e9b6169e8d339f0b5d4b05c2c"
   end
 
-  depends_on "rust"
+  depends_on "rust" => :build
 
   def install
     system "cargo", "install", *std_cargo_args(path: "autocorrect-cli")
