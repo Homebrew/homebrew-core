@@ -19,7 +19,7 @@ class Bartycrouch < Formula
 
   def install
     system "make", "install", "prefix=#{prefix}"
-  
+
     # lib_InternalSwiftSyntaxParser is taken from Xcode, so it's a universal binary.
     deuniversalize_machos(libexec/"lib_InternalSwiftSyntaxParser.dylib")
   end
