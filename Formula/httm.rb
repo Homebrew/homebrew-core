@@ -1,16 +1,10 @@
 class Httm < Formula
   desc "Interactive, file-level Time Machine-like tool for ZFS/btrfs"
   homepage "https://github.com/kimono-koans/httm"
-  url "https://github.com/kimono-koans/httm/archive/refs/tags/0.16.7.tar.gz"
-  sha256 "813fe0988d4e1ba391d356e05abfe202eee99495e64cd928fbfc0e15a2093301"
+  url "https://github.com/kimono-koans/httm/archive/refs/tags/0.18.3.tar.gz"
+  sha256 "d4bc17da2f041c02e6fd72a815cf8478efb8e99053313c81bece9b33f31c80b5"
   license "MPL-2.0"
-
   head "https://github.com/kimono-koans/httm.git", branch: "master"
-
-  livecheck do
-    url :stable
-    strategy :github_latest
-  end
 
   depends_on "rust" => :build
 
@@ -20,6 +14,9 @@ class Httm < Formula
   end
 
   test do
-    system "#{bin}/httm", "--version"
+    touch testpath/"foo"
+    assert_equal "Error: httm could not find any valid datasets on the system.",
+      shell_output("#{bin}/httm #{testpath}/foo 2>&1", 1).strip
+    assert_equal "httm #{version}", shell_output("#{bin}/httm --version").strip
   end
 end
