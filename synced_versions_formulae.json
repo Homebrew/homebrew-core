@@ -25,7 +25,10 @@
   ["gdb", "i386-elf-gdb", "x86_64-elf-gdb"],
   ["ghz", "ghz-web"],
   ["git", "git-credential-libsecret", "git-gui", "git-svn"],
-  ["gst-devtools", "gst-editing-services", "gst-python", "gst-rtsp-server"],
+  [
+    "gst-devtools", "gst-editing-services", "gst-libav", "gst-plugins-bad", "gst-plugins-base", 
+    "gst-plugins-good", "gst-plugins-rs", "gst-plugins-ugly", "gst-python", "gst-rtsp-server"
+  ],
   ["hdf5", "hdf5-mpi"],
   ["ilmbase", "openexr@2"],
   ["libnetworkit", "networkit"],
