@@ -3,6 +3,7 @@ class Ghex < Formula
   homepage "https://wiki.gnome.org/Apps/Ghex"
   url "https://download.gnome.org/sources/ghex/43/ghex-43.0.tar.xz"
   sha256 "866c0622c66fdb5ad2a475e9cfcccb219a1c6431f009acb2291d43f2140b147e"
+  license "GPL-2.0-or-later"
 
   bottle do
     sha256 arm64_ventura:  "d53e8c59361907d9b0348de0278366f8ab32629e02b0c08514f29038772ab12f"
