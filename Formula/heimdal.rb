@@ -34,6 +34,11 @@ class Heimdal < Formula
   uses_from_macos "libxcrypt"
   uses_from_macos "perl"
 
+  on_linux do
+    depends_on "pkg-config" => :build
+    depends_on "python@3.11" => :build
+  end
+
   resource "JSON" do
     url "https://cpan.metacpan.org/authors/id/I/IS/ISHIGAKI/JSON-4.10.tar.gz"
     sha256 "df8b5143d9a7de99c47b55f1a170bd1f69f711935c186a6dc0ab56dd05758e35"
