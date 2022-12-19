@@ -17,6 +17,11 @@ class Openmodelica < Formula
     sha256 cellar: :any, catalina:       "f6a44593ad46bf8607112c3925dd18541f72089f64bafa1ca21387c1b30e3462"
   end
 
+  # https://openmodelica.org/download/download-mac
+  # The Mac builds of OpenModelica were discontinued after version 1.16.
+  # Depends on legacy qt@5
+  deprecate! date: "2022-12-19", because: :unsupported
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "cmake" => :build
