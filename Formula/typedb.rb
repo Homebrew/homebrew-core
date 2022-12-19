@@ -18,8 +18,8 @@ class Typedb < Formula
     inreplace libexec/"server/conf/config.yml", "server/data", var/"typedb/data"
     mkdir_p var/"log/typedb"
     inreplace libexec/"server/conf/config.yml", "server/logs", var/"typedb/logs"
-    bin.install libexec / "typedb"
-    bin.env_script_all_files(libexec, Language::Java.java_home_env("1.11"))
+    bin.install libexec/"typedb"
+    bin.env_script_all_files(libexec, Language::Java.java_home_env("11"))
   end
 
   test do
