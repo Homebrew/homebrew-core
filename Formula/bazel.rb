@@ -1,8 +1,8 @@
 class Bazel < Formula
   desc "Google's own build tool"
   homepage "https://bazel.build/"
-  url "https://github.com/bazelbuild/bazel/releases/download/5.4.0/bazel-5.4.0-dist.zip"
-  sha256 "a1c62d9bcb4e03106ddf0b7bd96196ba246e1c9b7a935daf8d9beda8bbdcb8a1"
+  url "https://github.com/bazelbuild/bazel/releases/download/6.0.0/bazel-6.0.0-dist.zip"
+  sha256 "7bc0c5145c19a56d82a08fce6908c5e1a0e75e4fbfb3b6f12b4deae7f4b38cbc"
   license "Apache-2.0"
 
   livecheck do
@@ -19,7 +19,7 @@ class Bazel < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "28df3089111654b0e8a243ceb29ed222af77ae9550a425989c8b2db214a5225b"
   end
 
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
   depends_on "openjdk@11"
 
   uses_from_macos "unzip"
@@ -35,7 +35,7 @@ class Bazel < Formula
     ENV["EXTRA_BAZEL_ARGS"] = "--host_javabase=@local_jdk//:jdk"
     ENV["JAVA_HOME"] = Language::Java.java_home("11")
     # Force Bazel to use Homebrew python
-    ENV.prepend_path "PATH", Formula["python@3.10"].opt_libexec/"bin"
+    ENV.prepend_path "PATH", Formula["python@3.11"].opt_libexec/"bin"
 
     # Bazel clears environment variables other than PATH during build, which
     # breaks Homebrew shim scripts. We don't see this issue on macOS since
