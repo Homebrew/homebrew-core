@@ -1,10 +1,9 @@
 class RdiffBackup < Formula
   desc "Reverse differential backup tool, over a network or locally"
   homepage "https://rdiff-backup.net/"
-  url "https://github.com/rdiff-backup/rdiff-backup/releases/download/v2.0.5/rdiff-backup-2.0.5.tar.gz"
-  sha256 "2bb7837b4a9712b6efaebfa7da8ed6348ffcb02fcecff0e19d8fff732e933b87"
+  url "https://files.pythonhosted.org/packages/cd/04/f0b845259e91da83a24d32656974616ac0001d57ed6039e720babb6c5faa/rdiff-backup-2.2.2.tar.gz"
+  sha256 "4ce1ddd8ab15f4faed8cf547397b77ef10405c084bd61cb2a999f0ed1f78c1b9"
   license "GPL-2.0-or-later"
-  revision 2
 
   livecheck do
     url :stable
@@ -24,15 +23,12 @@ class RdiffBackup < Formula
   end
 
   depends_on "librsync"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
+  depends_on "pyyaml"
 
   def install
-    os = OS.mac? ? "macosx" : "linux-x86_64"
-    system "python3.10", "setup.py", "build", "--librsync-dir=#{prefix}"
-    libexec.install Dir["build/lib.#{os}*/rdiff_backup"]
-    libexec.install Dir["build/scripts-*/*"]
-    man1.install Dir["docs/*.1"]
-    bin.install_symlink Dir["#{libexec}/rdiff-backup*"]
+    python3 = "python3.11"
+    system python3, *Language::Python.setup_install_args(prefix, python3), "--install-data=#{prefix}"
   end
 
   test do

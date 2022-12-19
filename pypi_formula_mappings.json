@@ -503,6 +503,9 @@
   "rbtools": {
     "exclude_packages": ["six", "typing-extensions"]
   },
+  "rdiff-backup": {
+    "exclude_packages": ["PyYAML"]
+  },
   "regipy": {
     "package_name": "regipy[cli]",
     "exclude_packages": ["tabulate"]
