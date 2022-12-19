@@ -22,7 +22,7 @@ class Xapian < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0aed1e2c661ca97ad06db18f16972f7453f20df1f4ed0f775ee0bf317f80c12d"
   end
 
-  depends_on "python@3.10" => [:build, :test]
+  depends_on "python@3.11" => [:build, :test]
   depends_on "sphinx-doc" => :build
 
   uses_from_macos "zlib"
@@ -45,36 +45,30 @@ class Xapian < Formula
   end
 
   def python3
-    "python3.10"
+    "python3.11"
   end
 
   def install
-    python = Formula["python@3.10"].opt_bin/python3
-    ENV["PYTHON"] = python
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    ENV["PYTHON"] = which(python3)
+    system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make", "install"
 
     resource("bindings").stage do
       ENV["XAPIAN_CONFIG"] = bin/"xapian-config"
 
-      xy = Language::Python.major_minor_version python
-      ENV.prepend_create_path "PYTHON3_LIB", lib/"python#{xy}/site-packages"
+      site_packages = Language::Python.site_packages(python3)
+      ENV.prepend_create_path "PYTHON3_LIB", prefix/site_packages
 
-      ENV.append_path "PYTHONPATH", Formula["sphinx-doc"].opt_libexec/"lib/python#{xy}/site-packages"
-      ENV.append_path "PYTHONPATH", Formula["sphinx-doc"].opt_libexec/"vendor/lib/python#{xy}/site-packages"
+      ENV.append_path "PYTHONPATH", Formula["sphinx-doc"].opt_libexec/site_packages
+      ENV.append_path "PYTHONPATH", Formula["sphinx-doc"].opt_libexec/"vendor"/site_packages
 
-      system "./configure", "--disable-dependency-tracking",
-                            "--prefix=#{prefix}",
-                            "--with-python3"
-
+      system "./configure", *std_configure_args, "--disable-silent-rules", "--with-python3"
       system "make", "install"
     end
   end
 
   test do
     system bin/"xapian-config", "--libs"
-    system Formula["python@3.10"].opt_bin/python3, "-c", "import xapian"
+    system python3, "-c", "import xapian"
   end
 end
