@@ -6,6 +6,7 @@ class Snakemake < Formula
   url "https://files.pythonhosted.org/packages/92/11/db720239549ce18bcef241a4dd3868ad56e8c475a8b457fc3edbb5dc4f20/snakemake-7.19.1.tar.gz"
   sha256 "390ad5e2d5106e84700b7219c0eddf41d61be2205787d77a815fa91e4d624f33"
   license "MIT"
+  revision 1
   head "https://github.com/snakemake/snakemake.git", branch: "main"
 
   bottle do
@@ -20,14 +21,18 @@ class Snakemake < Formula
 
   depends_on "cbc"
   depends_on "docutils"
-  depends_on "jsonschema"
   depends_on "python-tabulate"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "pyyaml"
 
   resource "appdirs" do
     url "https://files.pythonhosted.org/packages/d7/d8/05696357e0311f5b5c316d7b95f46c669dd9c15aaeecbb48c7d0aeb88c40/appdirs-1.4.4.tar.gz"
     sha256 "7d5d0167b2b1ba821647616af46a749d1c653740dd0d2415100fe26e27afdf41"
+  end
+
+  resource "attrs" do
+    url "https://files.pythonhosted.org/packages/1a/cb/c4ffeb41e7137b23755a45e1bfec9cbb76ecf51874c6f1d113984ecaa32c/attrs-22.1.0.tar.gz"
+    sha256 "29adc2665447e5191d0e7c568fde78b21f9672d344281d0c6e1ab085429b22b6"
   end
 
   resource "certifi" do
@@ -85,6 +90,11 @@ class Snakemake < Formula
     sha256 "31351a702a408a9e7595a8fc6150fc3f43bb6bf7e319770cbc0db9df9437e852"
   end
 
+  resource "jsonschema" do
+    url "https://files.pythonhosted.org/packages/36/3d/ca032d5ac064dff543aa13c984737795ac81abc9fb130cd2fcff17cfabc7/jsonschema-4.17.3.tar.gz"
+    sha256 "0f864437ab8b6076ba6707453ef8f98a6a0d512a80e93f8abdb676f737ecb60d"
+  end
+
   resource "jupyter-core" do
     url "https://files.pythonhosted.org/packages/99/db/4de1aaa121fcfa9db093554d6539a31c6b382480daac3172c6206a19367f/jupyter_core-5.1.0.tar.gz"
     sha256 "a5ae7c09c55c0b26f692ec69323ba2b62e8d7295354d20f6cd57b749de4a05bf"
@@ -120,14 +130,19 @@ class Snakemake < Formula
     sha256 "e73ee6b32d639c9b8cf4b4aded334ba158be5f8313544e056f796ace0a10ae63"
   end
 
+  resource "pyrsistent" do
+    url "https://files.pythonhosted.org/packages/b8/ef/325da441a385a8a931b3eeb70db23cb52da42799691988d8d943c5237f10/pyrsistent-0.19.2.tar.gz"
+    sha256 "bfa0351be89c9fcbcb8c9879b826f4353be10f58f8a677efab0c017bf7137ec2"
+  end
+
   resource "requests" do
     url "https://files.pythonhosted.org/packages/a5/61/a867851fd5ab77277495a8709ddda0861b28163c4613b011bc00228cc724/requests-2.28.1.tar.gz"
     sha256 "7c5599b102feddaa661c826c56ab4fee28bfd17f5abca1ebbe3e7f19d7c97983"
   end
 
   resource "reretry" do
-    url "https://files.pythonhosted.org/packages/d3/75/4e53865926a372de99299c2fb1f00d508c33e00d9a32e9dacaf8a4001861/reretry-0.11.1.tar.gz"
-    sha256 "4ae1840ae9e443822bb70543c485bb9c45d1d009e32bd6809f2a9f2839149f5d"
+    url "https://files.pythonhosted.org/packages/40/1d/25d562a62b7471616bccd7c15a7533062eb383927e68667bf331db990415/reretry-0.11.8.tar.gz"
+    sha256 "f2791fcebe512ea2f1d153a2874778523a8064860b591cd90afc21a8bed432e3"
   end
 
   resource "smart-open" do
@@ -177,11 +192,6 @@ class Snakemake < Formula
 
   def install
     virtualenv_install_with_resources
-
-    # we depend on jsonschema, but that's a separate formula, so install a `.pth` file to link them
-    site_packages = Language::Python.site_packages("python3.10")
-    jsonschema = Formula["jsonschema"].opt_libexec
-    (libexec/site_packages/"homebrew-jsonschema.pth").write jsonschema/site_packages
   end
 
   test do
