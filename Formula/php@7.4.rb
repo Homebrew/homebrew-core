@@ -7,11 +7,6 @@ class PhpAT74 < Formula
   sha256 "924846abf93bc613815c55dd3f5809377813ac62a9ec4eb3778675b82a27b927"
   license "PHP-3.01"
 
-  livecheck do
-    url "https://www.php.net/downloads"
-    regex(/href=.*?php[._-]v?(#{Regexp.escape(version.major_minor)}(?:\.\d+)*)\.t/i)
-  end
-
   bottle do
     sha256 arm64_ventura:  "1091e8f56900b00831b83fd306b5cf65c81010934291bfc1236c278dcd6196e7"
     sha256 arm64_monterey: "f2363aa4ff85610faeffa3aa434d4fd5cbea5bd58df96062f3d34a0bf56f7437"
