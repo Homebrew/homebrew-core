@@ -20,7 +20,7 @@ class Zurl < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.10" => :test
+  depends_on "python@3.11" => :test
   depends_on "qt@5"
   depends_on "zeromq"
 
@@ -29,8 +29,8 @@ class Zurl < Formula
   fails_with gcc: "5"
 
   resource "pyzmq" do
-    url "https://files.pythonhosted.org/packages/6c/95/d37e7db364d7f569e71068882b1848800f221c58026670e93a4c6d50efe7/pyzmq-22.3.0.tar.gz"
-    sha256 "8eddc033e716f8c91c6a2112f0a8ebc5e00532b4a6ae1eb0ccc48e027f9c671c"
+    url "https://files.pythonhosted.org/packages/46/0d/b06cf99a64d4187632f4ac9ddf6be99cd35de06fe72d75140496a8e0eef5/pyzmq-24.0.1.tar.gz"
+    sha256 "216f5d7dbb67166759e59b0479bca82b8acf9bed6015b526b8eb10143fb08e77"
   end
 
   def install
@@ -40,13 +40,13 @@ class Zurl < Formula
   end
 
   test do
-    python3 = "python3.10"
+    python3 = "python3.11"
 
     conffile = testpath/"zurl.conf"
     ipcfile = testpath/"zurl-req"
     runfile = testpath/"test.py"
 
-    venv = virtualenv_create(testpath/"vendor", Formula["python@3.10"].opt_bin/python3)
+    venv = virtualenv_create(testpath/"vendor", python3)
     venv.pip_install resource("pyzmq")
 
     conffile.write(<<~EOS,
