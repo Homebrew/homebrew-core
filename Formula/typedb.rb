@@ -9,7 +9,7 @@ class Typedb < Formula
     sha256 cellar: :any_skip_relocation, all: "9d2db455c9a587a9eb74879be312ccb44aa30d4a9334c3ba1cc5d647b7557d69"
   end
 
-  depends_on "openjdk@11"
+  depends_on "openjdk"
 
   def install
     libexec.install Dir["*"]
@@ -18,7 +18,7 @@ class Typedb < Formula
     mkdir_p var/"log/typedb"
     inreplace libexec/"server/conf/config.yml", "server/logs", var/"typedb/logs"
     bin.install libexec/"typedb"
-    bin.env_script_all_files(libexec, Language::Java.java_home_env("11"))
+    bin.env_script_all_files(libexec, Language::Java.java_home_env)
   end
 
   test do
