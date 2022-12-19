@@ -253,7 +253,7 @@
     "exclude_packages": ["Pygments", "virtualenv"]
   },
   "homeassistant-cli": {
-    "exclude_packages": ["tabulate"]
+    "exclude_packages": ["six", "tabulate"]
   },
   "howdoi": {
     "exclude_packages": ["six", "Pygments"]
