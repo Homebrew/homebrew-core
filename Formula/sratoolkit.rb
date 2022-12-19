@@ -51,13 +51,6 @@ class Sratoolkit < Formula
     # Issue ref: https://github.com/ncbi/ncbi-vdb/issues/65
     ln_s "../gcc/arm64", buildpath/"ncbi-vdb-source/interfaces/cc/clang/aarch64" if Hardware::CPU.arm?
 
-    # Workaround to remove hardcoded bitmagic SSE4.2 optimization if needed
-    if !Hardware::CPU.intel? || !Hardware::CPU.sse4_2? || (build.bottle? && !MacOS.version.requires_sse42?)
-      bitmagic_opt = Hardware::CPU.arm? ? "-DDBMNEONOPT" : "-DBMSSE2OPT"
-      inreplace "tools/sharq/CMakeLists.txt", "add_definitions(-msse4.2 -DBMSSE42OPT)",
-                                              "add_definitions(#{bitmagic_opt})"
-    end
-
     # Need to use HDF 1.10 API: error: too few arguments to function call, expected 5, have 4
     # herr_t h5e = H5Oget_info_by_name( self->hdf5_handle, buffer, &obj_info, H5P_DEFAULT );
     ENV.append_to_cflags "-DH5_USE_110_API"
