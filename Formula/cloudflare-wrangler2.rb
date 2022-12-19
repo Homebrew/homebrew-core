@@ -19,6 +19,9 @@ class CloudflareWrangler2 < Formula
 
   test do
     system "#{bin}/wrangler2", "init", "--yes"
-    system "#{bin}/wrangler2", "publish", "--dry-run"
+    assert_predicate testpath/"wrangler.toml", :exist?
+    assert_match "wrangler", (testpath/"package.json").read
+
+    assert_match "dry-run: exiting now.", shell_output("#{bin}/wrangler2 publish --dry-run")
   end
 end
