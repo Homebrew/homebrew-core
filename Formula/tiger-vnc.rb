@@ -1,8 +1,8 @@
 class TigerVnc < Formula
   desc "High-performance, platform-neutral implementation of VNC"
   homepage "https://tigervnc.org/"
-  url "https://github.com/TigerVNC/tigervnc/archive/v1.12.0.tar.gz"
-  sha256 "9ff3f3948f2a4e8cc06ee598ee4b1096beb62094c13e0b1462bff78587bed789"
+  url "https://github.com/TigerVNC/tigervnc/archive/v1.12.90.tar.gz"
+  sha256 "eac28ab565a66d33aeb766e80029a64846de92e3aa718e3b8f177096520be4c3"
   license "GPL-2.0-or-later"
 
   bottle do
