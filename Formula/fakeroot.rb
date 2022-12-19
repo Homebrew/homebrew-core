@@ -1,8 +1,8 @@
 class Fakeroot < Formula
   desc "Provide a fake root environment"
   homepage "https://tracker.debian.org/pkg/fakeroot"
-  url "https://deb.debian.org/debian/pool/main/f/fakeroot/fakeroot_1.29.orig.tar.gz"
-  sha256 "8fbbafb780c9173e3ace4a04afbc1d900f337f3216883939f5c7db3431be7c20"
+  url "https://deb.debian.org/debian/pool/main/f/fakeroot/fakeroot_1.30.1.orig.tar.gz"
+  sha256 "32ebb1f421aca0db7141c32a8c104eb95d2b45c393058b9435fbf903dd2b6a75"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -23,12 +23,6 @@ class Fakeroot < Formula
 
   on_linux do
     depends_on "libcap" => :build
-  end
-
-  # https://salsa.debian.org/clint/fakeroot/-/merge_requests/16
-  patch do
-    url "https://salsa.debian.org/clint/fakeroot/-/commit/e1a7af793e58bddd4bbd04cfb4d26687fbaa9bcf.diff"
-    sha256 "60cfd8bbc416527981151237b7c403fba88975e97907a0ed5c31566d0cda078d"
   end
 
   # https://salsa.debian.org/clint/fakeroot/-/merge_requests/17
