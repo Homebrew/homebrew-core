@@ -19,6 +19,6 @@ class CloudflareWrangler2 < Formula
 
   test do
     system "#{bin}/wrangler2", "init", "--yes"
-    assert !(testpath/"wrangler.toml").zero?
+    system "#{bin}/wrangler2", "publish", "--dry-run"
   end
 end
