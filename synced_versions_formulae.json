@@ -27,7 +27,7 @@
   ["git", "git-credential-libsecret", "git-gui", "git-svn"],
   [
     "gst-devtools", "gst-editing-services", "gst-libav", "gst-plugins-bad", "gst-plugins-base", 
-    "gst-plugins-good", "gst-plugins-rs", "gst-plugins-ugly", "gst-python", "gst-rtsp-server"
+    "gst-plugins-good", "gst-plugins-ugly", "gst-python", "gst-rtsp-server"
   ],
   ["hdf5", "hdf5-mpi"],
   ["ilmbase", "openexr@2"],
