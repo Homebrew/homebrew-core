@@ -36,7 +36,7 @@ class Subversion < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => [:build, :test]
   depends_on "scons" => :build # For Serf
   depends_on "swig" => :build
   depends_on "apr"
@@ -74,6 +74,10 @@ class Subversion < Formula
     url "https://www.apache.org/dyn/closer.lua?path=serf/serf-1.3.9.tar.bz2"
     mirror "https://archive.apache.org/dist/serf/serf-1.3.9.tar.bz2"
     sha256 "549c2d21c577a8a9c0450facb5cca809f26591f048e466552240947bdf7a87cc"
+  end
+
+  def python3
+    "python3.11"
   end
 
   def install
@@ -146,7 +150,6 @@ class Subversion < Formula
 
     perl = DevelopmentTools.locate("perl")
     ruby = DevelopmentTools.locate("ruby")
-    python3 = "python3.10"
 
     args = %W[
       --prefix=#{prefix}
@@ -168,7 +171,7 @@ class Subversion < Formula
       --without-gpg-agent
       --without-jikes
       PERL=#{perl}
-      PYTHON=#{python3}
+      PYTHON=#{which(python3)}
       RUBY=#{ruby}
     ]
 
@@ -253,6 +256,8 @@ class Subversion < Formula
     perl_version = Utils.safe_popen_read(perl.to_s, "--version")[/v(\d+\.\d+(?:\.\d+)?)/, 1]
     ENV["PERL5LIB"] = "#{lib}/perl5/site_perl/#{perl_version}/#{platform}"
     system perl, "-e", "use SVN::Client; new SVN::Client()"
+
+    system python3, "-c", "import svn.client, svn.repos"
   end
 end
 
