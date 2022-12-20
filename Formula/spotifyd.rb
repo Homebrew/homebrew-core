@@ -1,8 +1,8 @@
 class Spotifyd < Formula
   desc "Spotify daemon"
   homepage "https://github.com/Spotifyd/spotifyd"
-  url "https://github.com/Spotifyd/spotifyd/archive/v0.3.2.tar.gz"
-  sha256 "d1d5442e6639cde7fbd390a65335489611eec62a1cfcba99a4aba8e8977a9d9c"
+  url "https://github.com/Spotifyd/spotifyd/archive/v0.3.4.tar.gz"
+  sha256 "c14df2499fa192cae5b6ade16c5cea70d29a5e977928dab283fa1fc12a3184df"
   license "GPL-3.0-only"
   head "https://github.com/Spotifyd/spotifyd.git", branch: "master"
 
