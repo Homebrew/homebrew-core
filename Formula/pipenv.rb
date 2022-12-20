@@ -67,15 +67,10 @@ class Pipenv < Formula
     # install symlinks for those scripts in `#{libexec}/tools` and create a
     # wrapper script for `pipenv` which adds `#{libexec}/tools` to PATH.
     (libexec/"tools").install_symlink libexec/"bin/pip", libexec/"bin/virtualenv"
-    env = {
-      PATH: "#{libexec}/tools:$PATH",
-    }
-    (bin/"pipenv").write_env_script(libexec/"bin/pipenv", env)
+    (bin/"pipenv").write_env_script libexec/"bin/pipenv", PATH: "#{libexec}/tools:${PATH}"
 
-    (zsh_completion/"_pipenv").write Utils.safe_popen_read({ "_PIPENV_COMPLETE" => "zsh_source" },
-                                                           libexec/"bin/pipenv", { err: :err })
-    (fish_completion/"pipenv.fish").write Utils.safe_popen_read({ "_PIPENV_COMPLETE" => "fish_source" },
-                                                                libexec/"bin/pipenv", { err: :err })
+    generate_completions_from_executable(libexec/"bin/pipenv", shells:                 [:fish, :zsh],
+                                                               shell_parameter_format: :click)
   end
 
   # Avoid relative paths
