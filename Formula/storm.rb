@@ -12,7 +12,7 @@ class Storm < Formula
   end
 
   depends_on "openjdk"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   conflicts_with "stormssh", because: "both install 'storm' binary"
 
