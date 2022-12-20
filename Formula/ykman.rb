@@ -95,8 +95,7 @@ class Ykman < Formula
     man1.install "man/ykman.1"
 
     # Click doesn't support generating completions for Bash versions older than 4.4
-    (fish_completion/"ykman.fish").write Utils.safe_popen_read({ "_YKMAN_COMPLETE" => "fish_source" }, bin/"ykman")
-    (zsh_completion/"_ykman").write Utils.safe_popen_read({ "_YKMAN_COMPLETE" => "zsh_source" }, bin/"ykman")
+    generate_completions_from_executable(bin/"ykman", shells: [:fish, :zsh], shell_parameter_format: :click)
   end
 
   test do
