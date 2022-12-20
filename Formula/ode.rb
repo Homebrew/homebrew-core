@@ -3,8 +3,7 @@ class Ode < Formula
   homepage "https://www.ode.org/"
   url "https://bitbucket.org/odedevs/ode/downloads/ode-0.16.3.tar.gz"
   sha256 "c741dbf49bfc468ce2964824e5bc3f906ea956b1ae3594c50d351c383f03c413"
-  # Second license option: https://bitbucket.org/odedevs/ode/src/master/LICENSE-BSD.TXT
-  license any_of: ["LGPL-2.1-or-later", :cannot_represent]
+  license any_of: ["LGPL-2.1-or-later", "BSD-3-Clause"]
   head "https://bitbucket.org/odedevs/ode.git", branch: "master"
 
   bottle do
