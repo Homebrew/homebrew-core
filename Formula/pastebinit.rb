@@ -11,7 +11,7 @@ class Pastebinit < Formula
   end
 
   depends_on "docbook2x" => :build
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   # Remove for next release
   patch do
@@ -21,7 +21,7 @@ class Pastebinit < Formula
 
   def install
     inreplace "pastebinit" do |s|
-      s.gsub! "/usr/bin/python3", which("python3.10")
+      s.gsub! "/usr/bin/python3", which("python3.11")
       s.gsub! "/usr/local/etc/pastebin.d", etc/"pastebin.d"
     end
 
