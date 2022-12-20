@@ -21,14 +21,14 @@ class Lensfun < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "0773deec541d4f869fb2948ada76ebd8e24cddbb7bbb236c7c5aedf2ded83c28"
-    sha256 arm64_monterey: "9486d22108299332ec92369f4e7338111a744f214c52ebb384db654ff7379699"
-    sha256 arm64_big_sur:  "98cfcaef6655bb8a9a67b1a9feaca1eba526f3b8ce46e35f40449f43902844cc"
-    sha256 ventura:        "8a81443e0bca1394f29fb73347ddd86d4de6019710d3a27d84983d3051df75fa"
-    sha256 monterey:       "1545b2a59105bb4906394498c6e21c2b4d1398d2a3301c6fc58c3106ccb37bae"
-    sha256 big_sur:        "07e1c1cca921506244057b958860353249aa676fd36d7bfc66d20da2d3281851"
-    sha256 catalina:       "1130d39462b5b1957109a78b93c31e3f1618860f37270c71e51213173193d2b8"
-    sha256 x86_64_linux:   "35c9b93d5196c8cd249b00ab7a7ad8347cb72ad57326fd4753f8fce01aaa55f2"
+    rebuild 1
+    sha256 arm64_ventura:  "ef9f653d3d28f3b9f10eef3973094cde751b78a8815bcae285ba271b349f3ef1"
+    sha256 arm64_monterey: "ed49275ba955ff9fee5394f999c649a4eb6d68be49c848ad204d07431a57e48d"
+    sha256 arm64_big_sur:  "8737bff57e3e28d7b751707c157742489dec1d10d964b31c79482412da592319"
+    sha256 ventura:        "71abae1ecebfe1ec29396443f1dae852aa04cacab8c60b4ddc8cc72ca50c23ce"
+    sha256 monterey:       "2436c8ab001cad2d2a3bd48bb6ad714bf04ac0662060d1daa0d3f4916c1f743e"
+    sha256 big_sur:        "b5c275b1cc161df5256c79b0b9e51d1be1d7d4d9fef5ebe050453471b16c6852"
+    sha256 x86_64_linux:   "3f439e1ad1542f7ee9332679d956e6a64599e65105d21f25f88dfbd1fb9769a9"
   end
 
   depends_on "cmake" => :build
