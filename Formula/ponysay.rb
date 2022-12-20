@@ -30,7 +30,7 @@ class Ponysay < Formula
 
   depends_on "gzip" => :build
   depends_on "coreutils"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   on_system :linux, macos: :ventura_or_newer do
     depends_on "texinfo" => :build
@@ -42,7 +42,7 @@ class Ponysay < Formula
            "--prefix=#{prefix}",
            "--cache-dir=#{prefix}/var/cache",
            "--sysconf-dir=#{prefix}/etc",
-           "--with-custom-env-python=#{Formula["python@3.10"].opt_bin}/python3.10",
+           "--with-custom-env-python=#{Formula["python@3.11"].opt_bin}/python3.11",
            "install"
   end
 
