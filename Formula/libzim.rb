@@ -14,6 +14,8 @@ class Libzim < Formula
   depends_on "xz"
   depends_on "zstd"
 
+  uses_from_macos "python" => :build
+
   def install
     mkdir "build" do
       system "meson", *std_meson_args, ".."
