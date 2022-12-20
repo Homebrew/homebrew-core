@@ -52,10 +52,11 @@ class Mvtools < Formula
       import vapoursynth as vs
       vs.core.std.LoadPlugin(path="#{lib/shared_library("libmvtools")}")
     EOS
-    python = Formula["vapoursynth"].deps
-                                   .find { |d| d.name.match?(/^python@\d\.\d+$/) }
-                                   .to_formula
-                                   .opt_bin/"python3"
+    python_formula = Formula["vapoursynth"].deps
+                                           .find { |d| d.name.match?(/^python@\d\.\d+$/) }
+                                           .to_formula
+    python_version = python_formula.name.split("@")[1] # e.g. "3.11"
+    python = python_formula.opt_bin/"python#{python_version}"
     system python, "-c", script
   end
 end
