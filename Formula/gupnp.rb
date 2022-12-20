@@ -30,7 +30,7 @@ class Gupnp < Formula
   depends_on "gssdp"
   depends_on "libsoup@2"
   depends_on "libxml2"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def install
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["libsoup@2"].opt_lib/"pkgconfig"
