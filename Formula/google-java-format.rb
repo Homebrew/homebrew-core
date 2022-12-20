@@ -12,7 +12,7 @@ class GoogleJavaFormat < Formula
   end
 
   depends_on "openjdk"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   resource "google-java-format-diff" do
     url "https://raw.githubusercontent.com/google/google-java-format/v1.15.0/scripts/google-java-format-diff.py"
