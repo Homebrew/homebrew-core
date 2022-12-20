@@ -12,6 +12,7 @@ class Qt < Formula
     { "GPL-3.0-only" => { with: "Qt-GPL-exception-1.0" } },
     "LGPL-3.0-only",
   ]
+  revision 1
   head "https://code.qt.io/qt/qt5.git", branch: "dev"
 
   # The first-party website doesn't make version information readily available,
@@ -47,6 +48,7 @@ class Qt < Formula
   depends_on "double-conversion"
   depends_on "freetype"
   depends_on "glib"
+  depends_on "harfbuzz"
   depends_on "hunspell"
   depends_on "icu4c"
   depends_on "jasper"
@@ -81,11 +83,10 @@ class Qt < Formula
     depends_on "alsa-lib"
     depends_on "at-spi2-core"
     # TODO: depends_on "bluez"
-    # TODO: depends_on "ffmpeg"
+    depends_on "ffmpeg"
     depends_on "fontconfig"
     depends_on "gstreamer"
     # TODO: depends_on "gypsy"
-    depends_on "harfbuzz"
     depends_on "libdrm"
     depends_on "libevent"
     depends_on "libice"
@@ -182,6 +183,7 @@ class Qt < Formula
       -testsdir share/qt/tests
 
       -no-feature-relocatable
+      -system-harfbuzz
       -system-sqlite
 
       -no-sql-mysql
@@ -211,16 +213,13 @@ class Qt < Formula
       # that cmake does not think $HOMEBREW_PREFIX/lib is the install prefix.
       cmake_args << "-DQT_BUILD_INTERNALS_RELOCATABLE_INSTALL_PREFIX=#{prefix}"
 
-      # Currently we have to use vendored ffmpeg because the chromium copy adds a symbol not
-      # provided by the brewed version.
-      # See here for an explanation of why upstream ffmpeg does not want to add this:
-      # https://www.mail-archive.com/ffmpeg-devel@ffmpeg.org/msg124998.html
       # The vendored copy of libjpeg is also used instead of the brewed copy, because the build
       # fails due to a missing symbol otherwise.
       # On macOS chromium will always use bundled copies and the QT_FEATURE_webengine_system_*
       # arguments are ignored.
       cmake_args += %w[
         -DQT_FEATURE_webengine_system_alsa=ON
+        -DQT_FEATURE_webengine_system_ffmpeg=ON
         -DQT_FEATURE_webengine_system_icu=ON
         -DQT_FEATURE_webengine_system_libevent=ON
         -DQT_FEATURE_webengine_system_libpng=ON
@@ -301,7 +300,7 @@ class Qt < Formula
 
     (testpath/"main.cpp").write <<~EOS
       #undef QT_NO_DEBUG
-      #include <QGuiApplication>
+      #include <QCoreApplication>
       #include <Qt3DCore>
       #include <QtQuick3D>
       #include <QImageReader>
@@ -314,7 +313,7 @@ class Qt < Formula
 
       int main(int argc, char *argv[])
       {
-        QGuiApplication app(argc, argv);
+        QCoreApplication app(argc, argv);
         QSvgGenerator generator;
         auto *handler = new QOAuthHttpServerReplyHandler();
         delete handler; handler = nullptr;
