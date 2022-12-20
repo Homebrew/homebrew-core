@@ -4,7 +4,7 @@ class Glslang < Formula
   url "https://github.com/KhronosGroup/glslang/archive/11.13.0.tar.gz"
   sha256 "592c98aeb03b3e81597ddaf83633c4e63068d14b18a766fd11033bad73127162"
   license all_of: ["BSD-3-Clause", "GPL-3.0-or-later", "MIT", "Apache-2.0"]
-  head "https://github.com/KhronosGroup/glslang.git"
+  head "https://github.com/KhronosGroup/glslang.git", branch: "master"
 
   livecheck do
     url :stable
@@ -22,17 +22,12 @@ class Glslang < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
 
   def install
-    args = %w[
-      -DBUILD_EXTERNAL=OFF
-      -DENABLE_CTEST=OFF
-    ]
-
-    system "cmake", ".", *std_cmake_args, *args
-    system "make"
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", "-DBUILD_EXTERNAL=OFF", "-DENABLE_CTEST=OFF", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
