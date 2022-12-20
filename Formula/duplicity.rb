@@ -482,13 +482,10 @@ class Duplicity < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, "python3.11")
     venv.pip_install resource("pytz") # `pytz` should be installed before `pbr`
     venv.pip_install resources
-
-    man1_before = Dir[libexec/"share/man/man1/*"].to_set
-    venv.pip_install_and_link buildpath
-    man1.install_symlink (Dir[libexec/"share/man/man1/*"].to_set - man1_before).to_a
+    venv.pip_install_and_link(buildpath, link_manpages: true)
   end
 
   test do
