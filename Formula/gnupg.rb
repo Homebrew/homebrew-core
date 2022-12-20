@@ -1,8 +1,8 @@
 class Gnupg < Formula
   desc "GNU Pretty Good Privacy (PGP) package"
   homepage "https://gnupg.org/"
-  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.3.8.tar.bz2"
-  sha256 "540b7a40e57da261fb10ef521a282e0021532a80fd023e75fb71757e8a4969ed"
+  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.4.0.tar.bz2"
+  sha256 "1d79158dd01d992431dd2e3facb89fdac97127f89784ea2cb610c600fb0c1483"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -38,21 +38,20 @@ class Gnupg < Formula
     depends_on "libidn"
   end
 
-  # Fixes a build failure without ldap.
+  # Fixes in-source-tree builds
   # Committed upstream, will be in the next release.
-  # https://dev.gnupg.org/T6239
+  # https://dev.gnupg.org/T6313
   patch do
-    url "https://dev.gnupg.org/rG7011286ce6e1fb56c2989fdafbd11b931c489faa?diff=1"
-    sha256 "407011d4ae9799f50008b431df60cd5b781dca0f572e956fd46245aa209af7e8"
+    url "https://git.gnupg.org/cgi-bin/gitweb.cgi?p=gnupg.git;a=patch;h=e89d57a2cb10bd04d266165015f159be2ab48984"
+    sha256 "3316f59ba64e698187832471585ecfcb1756460954fcc69b336e1e9860872713"
   end
 
   def install
     libusb = Formula["libusb"]
     ENV.append "CPPFLAGS", "-I#{libusb.opt_include}/libusb-#{libusb.version.major_minor}"
 
-    system "./configure", "--disable-dependency-tracking",
+    system "./configure", *std_configure_args,
                           "--disable-silent-rules",
-                          "--prefix=#{prefix}",
                           "--sbindir=#{bin}",
                           "--sysconfdir=#{etc}",
                           "--enable-all-tests",
