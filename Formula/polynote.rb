@@ -20,7 +20,7 @@ class Polynote < Formula
 
   depends_on "numpy" # used by `jep` for Java primitive arrays
   depends_on "openjdk"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   resource "jep" do
     url "https://files.pythonhosted.org/packages/19/6e/745f9805f5cec38e03e7fed70b8c66d4c4ec3997cd7de824d54df1dfb597/jep-4.0.0.tar.gz"
@@ -28,7 +28,7 @@ class Polynote < Formula
   end
 
   def install
-    python3 = "python3.10"
+    python3 = "python3.11"
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor"/Language::Python.site_packages(python3)
 
     with_env(JAVA_HOME: Language::Java.java_home) do
