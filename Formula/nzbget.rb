@@ -6,11 +6,6 @@ class Nzbget < Formula
   license "GPL-2.0-or-later"
   head "https://github.com/nzbget/nzbget.git", branch: "develop"
 
-  livecheck do
-    url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
-  end
-
   bottle do
     rebuild 2
     sha256 cellar: :any,                 arm64_ventura:  "458da39e32a96030249c365b62769481f25689f74ee883ee51f75f258a686663"
