@@ -29,7 +29,7 @@ class Mftrace < Formula
 
   depends_on "fontforge"
   depends_on "potrace"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "t1utils"
 
   # Fixed in https://github.com/hanwen/mftrace/pull/14
