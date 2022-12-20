@@ -31,7 +31,7 @@ class GstDevtools < Formula
   depends_on "gst-plugins-base"
   depends_on "gstreamer"
   depends_on "json-glib"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def install
     args = %w[
