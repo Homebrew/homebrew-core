@@ -36,7 +36,7 @@ class Lensfun < Formula
   depends_on "gettext"
   depends_on "glib"
   depends_on "libpng"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def install
     # setuptools>=60 prefers its own bundled distutils, which breaks the installation
@@ -44,7 +44,7 @@ class Lensfun < Formula
 
     # Work around Homebrew's "prefix scheme" patch which causes non-pip installs
     # to incorrectly try to write into HOMEBREW_PREFIX/lib since Python 3.10.
-    site_packages = prefix/Language::Python.site_packages("python3.10")
+    site_packages = prefix/Language::Python.site_packages("python3.11")
     inreplace "apps/CMakeLists.txt", "${SETUP_PY} install ", "\\0 --install-lib=#{site_packages} "
 
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
