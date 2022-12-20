@@ -49,9 +49,7 @@ class Dnsviz < Formula
 
   def install
     ENV["SWIG_FEATURES"] = "-I#{Formula["openssl@1.1"].opt_include}"
-
-    virtualenv_install_with_resources
-    man1.install_symlink libexec.glob("share/man/man1/dnsviz*.1")
+    virtualenv_install_with_resources(link_manpages: true)
   end
 
   test do
