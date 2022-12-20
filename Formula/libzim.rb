@@ -36,6 +36,6 @@ class Libzim < Formula
     system ENV.cxx, "test.cpp", "-L#{lib}", "-lzim", "-o", "test", "-std=c++11"
 
     # Assert the first line of output contains "libzim <version>"
-    assert_equal "libzim #{version}", shell_output("./test")[/.*/]
+    assert_match "libzim #{version}", shell_output("./test")
   end
 end
