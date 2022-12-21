@@ -1,8 +1,8 @@
 class Gdal < Formula
   desc "Geospatial Data Abstraction Library"
   homepage "https://www.gdal.org/"
-  url "http://download.osgeo.org/gdal/3.6.0/gdal-3.6.0.tar.xz"
-  sha256 "f7afa4aa8d32d0799e011a9f573c6a67e9471f78e70d3d0d0b45b45c8c0c1a94"
+  url "http://download.osgeo.org/gdal/3.6.1/gdal-3.6.1.tar.xz"
+  sha256 "68f1c03547ff7152289789db7f67ee634167c9b7bfec4872b88406b236f9c230"
   license "MIT"
 
   livecheck do
@@ -53,7 +53,7 @@ class Gdal < Formula
   depends_on "pcre2"
   depends_on "poppler"
   depends_on "proj"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "sqlite"
   depends_on "unixodbc"
   depends_on "webp"
@@ -73,35 +73,24 @@ class Gdal < Formula
   fails_with gcc: "5"
 
   def python3
-    "python3.10"
+    "python3.11"
   end
 
   def install
-    args = [
-      "-DENABLE_PAM=ON",
-      "-DCMAKE_INSTALL_RPATH=#{lib}",
-    ]
-    args.concat(std_cmake_args)
-    args_no_python = args.dup << "-DBUILD_PYTHON_BINDINGS=OFF"
+    # Work around Homebrew's "prefix scheme" patch which causes non-pip installs
+    # to incorrectly try to write into HOMEBREW_PREFIX/lib since Python 3.10.
+    inreplace "swig/python/CMakeLists.txt",
+              /(set\(INSTALL_ARGS "--single-version-externally-managed --record=record.txt")\)/,
+              "\\1 --install-lib=#{prefix/Language::Python.site_packages(python3)})"
 
-    mkdir "build" do
-      # First, build without Python to avoid a Linux issue where the
-      # Python bindings are installed in the wrong path
-      # See https://github.com/Homebrew/homebrew-core/pull/116073#issuecomment-1320875424
-      system "cmake", "..", *args_no_python
-      system "make"
-      system "make", "install"
-
-      # Next, reconfigure with Python and manually run the python build
-      args_with_python = args.dup << "-DBUILD_PYTHON_BINDINGS=ON"
-      system "cmake", "..", *args_with_python
-      system "make"
-
-      # Build Python bindings
-      cd "swig/python" do
-        system python3, *Language::Python.setup_install_args(prefix, python3)
-      end
-    end
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DBUILD_PYTHON_BINDINGS=ON",
+                    "-DPython_EXECUTABLE=#{which(python3)}",
+                    "-DENABLE_PAM=ON",
+                    "-DCMAKE_INSTALL_RPATH=#{lib}",
+                    *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
