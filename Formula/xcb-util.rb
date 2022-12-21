@@ -1,8 +1,8 @@
 class XcbUtil < Formula
   desc "Additional extensions to the XCB library"
   homepage "https://xcb.freedesktop.org"
-  url "https://xcb.freedesktop.org/dist/xcb-util-0.4.0.tar.bz2"
-  sha256 "46e49469cb3b594af1d33176cd7565def2be3fa8be4371d62271fabb5eae50e9"
+  url "https://xcb.freedesktop.org/dist/xcb-util-0.4.1.tar.xz"
+  sha256 "5abe3bbbd8e54f0fa3ec945291b7e8fa8cfd3cccc43718f8758430f94126e512"
   license "MIT"
 
   bottle do
