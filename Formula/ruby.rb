@@ -34,6 +34,8 @@ class Ruby < Formula
   head do
     url "https://github.com/ruby/ruby.git", branch: "master"
     depends_on "autoconf" => :build
+    depends_on "bison" => :build
+    depends_on "rust" => :build
   end
 
   keg_only :provided_by_macos
