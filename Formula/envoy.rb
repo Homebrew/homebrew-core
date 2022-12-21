@@ -24,7 +24,6 @@ class Envoy < Formula
   depends_on "automake" => :build
   depends_on "bazelisk" => :build
   depends_on "cmake" => :build
-  depends_on "coreutils" => :build
   depends_on "libtool" => :build
   depends_on "ninja" => :build
   # Starting with 1.21, envoy requires a full Xcode installation, not just
@@ -32,9 +31,10 @@ class Envoy < Formula
   depends_on xcode: :build
   depends_on macos: :catalina
 
-  on_linux do
-    depends_on "gcc@9" => [:build, :test] # Use host/Homebrew GCC runtime libraries.
-    depends_on "python@3.10" => :build
+  uses_from_macos "python" => :build
+
+  on_macos do
+    depends_on "coreutils" => :build
   end
 
   # https://github.com/envoyproxy/envoy/tree/main/bazel#supported-compiler-versions
@@ -42,21 +42,17 @@ class Envoy < Formula
     version "8"
     cause "C++17 support and tcmalloc requirement"
   end
-  # GCC 10 build fails at external/com_google_absl/absl/container/internal/inlined_vector.h:448:5:
-  # error: '<anonymous>.absl::inlined_vector_internal::Storage<char, 128, std::allocator<char> >::data_'
-  # is used uninitialized in this function [-Werror=uninitialized]
-  fails_with gcc: "10"
-  # GCC 11 build fails at external/org_brotli/c/dec/decode.c:2036:41:
-  # error: argument 2 of type 'const uint8_t *' declared as a pointer [-Werror=vla-parameter]
-  # Brotli upstream ref: https://github.com/google/brotli/pull/893
-  fails_with gcc: "11"
+
+  # Fix build with GCC 11 by updating brotli. Remove in the next release with commit
+  patch do
+    on_linux do
+      url "https://github.com/envoyproxy/envoy/commit/b58fb72476fac20f213c4a4a09a97d709f736442.patch?full_index=1"
+      sha256 "7ec3ae77702c7e373eb4050e2947499708f5c8cb0df065479e204290902810c6"
+    end
+  end
 
   def install
-    env_path = if OS.mac?
-      "#{HOMEBREW_PREFIX}/bin:/usr/bin:/bin"
-    else
-      "#{Formula["python@3.10"].opt_bin}:#{HOMEBREW_PREFIX}/bin:/usr/bin:/bin"
-    end
+    env_path = "#{HOMEBREW_PREFIX}/bin:/usr/bin:/bin"
     args = %W[
       --compilation_mode=opt
       --curses=no
@@ -66,9 +62,12 @@ class Envoy < Formula
     ]
 
     if OS.linux?
-      # Disable extension `tcp_stats` which requires Linux headers >= 4.6
-      # It's a directive with absolute path `#include </usr/include/linux/tcp.h>`
-      args << "--//source/extensions/transport_sockets/tcp_stats:enabled=false"
+      # Build fails with GCC 10+ at external/com_google_absl/absl/container/internal/inlined_vector.h:448:5:
+      # error: '<anonymous>.absl::inlined_vector_internal::Storage<char, 128, std::allocator<char> >::data_'
+      # is used uninitialized in this function [-Werror=uninitialized]
+      # Try to remove in a release that uses a newer abseil
+      args << "--cxxopt=-Wno-uninitialized"
+      args << "--host_cxxopt=-Wno-uninitialized"
     else
       # The clang available on macOS catalina has a warning that isn't clean on v8 code.
       # The warning doesn't show up with more recent clangs, so disable it for now.
@@ -85,8 +84,7 @@ class Envoy < Formula
     end
 
     # Write the current version SOURCE_VERSION.
-    system "python3", "tools/github/write_current_source_version.py",
-                      "--skip_error_in_git"
+    system "python3", "tools/github/write_current_source_version.py", "--skip_error_in_git"
 
     system Formula["bazelisk"].opt_bin/"bazelisk", "build", *args, "//source/exe:envoy-static.stripped"
     bin.install "bazel-bin/source/exe/envoy-static.stripped" => "envoy"
