@@ -64,6 +64,30 @@ class Augeas < Formula
   end
 
   test do
-    system bin/"augtool", "print", etc
+    assert_match version.to_s, shell_output("#{bin}/augtool --version 2>&1")
+
+    (testpath/"etc/hosts").write <<~EOS
+      192.168.0.1 brew.sh test
+    EOS
+
+    expected_augtool_output = <<~EOS
+      /files/etc/hosts/1
+      /files/etc/hosts/1/ipaddr = "192.168.0.1"
+      /files/etc/hosts/1/canonical = "brew.sh"
+      /files/etc/hosts/1/alias = "test"
+    EOS
+    assert_equal expected_augtool_output,
+                 shell_output("#{bin}/augtool --root #{testpath} 'print /files/etc/hosts/1'")
+
+    expected_augprint_output = <<~EOS
+      setm /augeas/load/*[incl='/etc/hosts' and label() != 'hosts']/excl '/etc/hosts'
+      transform hosts incl /etc/hosts
+      load-file /etc/hosts
+      set /files/etc/hosts/seq::*[ipaddr='192.168.0.1']/ipaddr '192.168.0.1'
+      set /files/etc/hosts/seq::*[ipaddr='192.168.0.1']/canonical 'brew.sh'
+      set /files/etc/hosts/seq::*[ipaddr='192.168.0.1']/alias 'test'
+    EOS
+    assert_equal expected_augprint_output,
+                 shell_output("#{bin}/augprint --lens=hosts --target=/etc/hosts #{testpath}/etc/hosts")
   end
 end
