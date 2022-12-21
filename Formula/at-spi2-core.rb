@@ -10,11 +10,10 @@ class AtSpi2Core < Formula
   end
 
   depends_on "gobject-introspection" => :build
-  depends_on "intltool" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
   depends_on "dbus"
   depends_on "gettext"
   depends_on "glib"
@@ -24,13 +23,9 @@ class AtSpi2Core < Formula
   depends_on "xorgproto"
 
   def install
-    ENV.refurbish_args
-
-    mkdir "build" do
-      system "meson", "--prefix=#{prefix}", "--libdir=#{lib}", ".."
-      system "ninja"
-      system "ninja", "install"
-    end
+    system "meson", "setup", "build", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do
