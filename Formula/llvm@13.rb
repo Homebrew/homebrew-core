@@ -27,7 +27,7 @@ class LlvmAT13 < Formula
   # We intentionally use Make instead of Ninja.
   # See: Homebrew/homebrew-core/issues/35513
   depends_on "cmake" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
 
   uses_from_macos "python" => :test
   uses_from_macos "libedit"
@@ -41,11 +41,12 @@ class LlvmAT13 < Formula
     depends_on "elfutils" # openmp requires <gelf.h>
   end
 
-  def python3
-    "python3.10"
-  end
+  # Fails at building LLDB
+  fails_with gcc: "5"
 
   def install
+    python3 = "python3.11"
+
     # The clang bindings need a little help finding our libclang.
     inreplace "clang/bindings/python/clang/cindex.py",
               /^(\s*library_path\s*=\s*)None$/,
@@ -55,6 +56,7 @@ class LlvmAT13 < Formula
       clang
       clang-tools-extra
       lld
+      lldb
       mlir
       polly
     ]
@@ -100,6 +102,10 @@ class LlvmAT13 < Formula
       -DLLVM_ENABLE_Z3_SOLVER=OFF
       -DLLVM_OPTIMIZED_TABLEGEN=ON
       -DLLVM_TARGETS_TO_BUILD=all
+      -DLLDB_USE_SYSTEM_DEBUGSERVER=ON
+      -DLLDB_ENABLE_PYTHON=OFF
+      -DLLDB_ENABLE_LUA=OFF
+      -DLLDB_ENABLE_LZMA=OFF
       -DLIBOMP_INSTALL_ALIASES=OFF
       -DCLANG_PYTHON_BINDINGS_VERSIONS=#{python_versions.join(";")}
       -DLLVM_CREATE_XCODE_TOOLCHAIN=OFF
