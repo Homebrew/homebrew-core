@@ -1,10 +1,9 @@
 class Pocl < Formula
   desc "Portable Computing Language"
   homepage "http://portablecl.org"
-  url "http://portablecl.org/downloads/pocl-3.0.tar.gz"
-  sha256 "a3fd3889ef7854b90b8e4c7899c5de48b7494bf770e39fba5ad268a5cbcc719d"
+  url "http://portablecl.org/downloads/pocl-3.1.tar.gz"
+  sha256 "82314362552e050aff417318dd623b18cf0f1d0f84f92d10a7e3750dd12d3a9a"
   license "MIT"
-  revision 1
   head "https://github.com/pocl/pocl.git", branch: "master"
 
   bottle do
@@ -22,12 +21,21 @@ class Pocl < Formula
   depends_on "opencl-headers" => :build
   depends_on "pkg-config" => :build
   depends_on "hwloc"
-  depends_on "llvm@14"
+  depends_on "llvm"
   depends_on "ocl-icd"
+
+  fails_with :clang do
+    cause <<-EOS
+      .../pocl-3.1/lib/CL/devices/builtin_kernels.cc:24:10: error: expected expression
+               {BIArg("char*", "input", READ_BUF),
+               ^
+    EOS
+  end
 
   fails_with gcc: "5" # LLVM is built with GCC
 
   def install
+    ENV.llvm_clang if OS.mac?
     llvm = deps.map(&:to_formula).find { |f| f.name.match?(/^llvm(@\d+(\.\d+)*)?$/) }
 
     # Install the ICD into #{prefix}/etc rather than #{etc} as it contains the realpath
