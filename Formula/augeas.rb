@@ -2,6 +2,7 @@ class Augeas < Formula
   desc "Configuration editing tool and API"
   homepage "https://augeas.net/"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://github.com/hercules-team/augeas.git", branch: "master"
 
   # Remove stable block when patch is no longer needed.
@@ -9,11 +10,11 @@ class Augeas < Formula
     url "https://github.com/hercules-team/augeas/releases/download/release-1.14.0/augeas-1.14.0.tar.gz"
     sha256 "8c101759ca3d504bd1d805e70e2f615fa686af189dd7cf0529f71d855c087df1"
 
-    # Fix "fatal error: 'malloc.h' file not found".
-    # Remove when https://github.com/hercules-team/augeas/pull/792 is merged.
+    # Remove `#include <malloc.h>`, add `#include <libgen.h>`.
+    # Remove on next release.
     patch do
-      url "https://github.com/hercules-team/augeas/commit/6cc785a46f2c651a299549eab25c6476c39f3080.patch?full_index=1"
-      sha256 "754beea4f75e6ada6a6093a41f8071d18e067f9d60137b135a4188a6e3a80227"
+      url "https://github.com/hercules-team/augeas/commit/7b26cbb74ed634d886ed842e3d5495361d8fd9b1.patch?full_index=1"
+      sha256 "4f5c383bea873dd401b865d4c63c2660647f45c042bcd92d48ae2e8dee78c842"
     end
   end
 
