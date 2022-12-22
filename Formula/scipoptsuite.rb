@@ -17,7 +17,7 @@ class Scipoptsuite < Formula
   depends_on "zlib"
 
   def install
-    cmake_args = std_cmake_args + %w[
+    cmake_args = std_cmake_args + %W[
       -DPARASCIP=ON
       -DPAPILO=ON
       -DSOPLEX=ON
