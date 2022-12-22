@@ -23,7 +23,7 @@ class Blastem < Formula
   depends_on "imagemagick" => :build
   depends_on "pillow" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
   depends_on arch: :x86_64
   depends_on "glew"
   depends_on "sdl2"
@@ -39,6 +39,14 @@ class Blastem < Formula
   patch do
     url "https://www.retrodev.com/repos/blastem/raw-rev/dbbf0100f249"
     sha256 "e332764bfa08e08e0f9cbbebefe73b88adb99a1e96a77a16a0aeeae827ac72ff"
+  end
+
+  # Fix build with -fno-common which is default in GCC 10+. Remove with next release.
+  patch do
+    on_linux do
+      url "https://www.retrodev.com/repos/blastem/raw-rev/e45a317802bd"
+      sha256 "8f869909df6eb66375eea09dde806422aa007aee073d557b774666f51c2e40dd"
+    end
   end
 
   def install
