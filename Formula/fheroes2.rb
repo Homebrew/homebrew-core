@@ -43,6 +43,9 @@ class Fheroes2 < Formula
   end
 
   test do
-    assert_match "help", shell_output("#{bin}/fheroes2 -h 2>&1")
+    io = IO.popen("#{bin}/fheroes2 2>&1")
+    io.any? do |line|
+      /fheroes2 engine, version:/.match?(line)
+    end
   end
 end
