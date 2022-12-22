@@ -27,7 +27,7 @@ class Scipoptsuite < Formula
       -DGMP=ON
       -DQUADMATH=ON
       -DIPOPT=ON
-      -DIPOPT_DIR="${PREFIX}"
+      -DIPOPT_DIR="#{prefix}"
       -DZLIB=ON
       -DREADLINE=OFF
       -DSYM=bliss
