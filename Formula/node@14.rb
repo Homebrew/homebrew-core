@@ -26,6 +26,9 @@ class NodeAT14 < Formula
   # disable! date: "2023-04-30", because: :unsupported
 
   depends_on "pkg-config" => :build
+  # Build support for Python 3.11 was not backported.
+  # Ref: https://github.com/nodejs/node/pull/45231
+  depends_on "python@3.10" => :build
   depends_on "brotli"
   depends_on "c-ares"
   depends_on "icu4c"
@@ -33,21 +36,22 @@ class NodeAT14 < Formula
   depends_on "libuv"
   depends_on "openssl@1.1"
 
-  uses_from_macos "python"
   uses_from_macos "zlib"
 
   on_macos do
-    depends_on "python@3.10" => [:build, :test]
     depends_on "macos-term-size"
   end
 
-  def python3
-    Formula["python@3.10"]
+  on_system :linux, macos: :monterey_or_newer do
+    # npm with node-gyp>=8.0.0 is needed for Python 3.11 support
+    # Ref: https://github.com/nodejs/node-gyp/issues/2219
+    # Ref: https://github.com/nodejs/node-gyp/commit/9e1397c52e429eb96a9013622cffffda56c78632
+    depends_on "python@3.10"
   end
 
   def install
     # make sure subprocesses spawned by make are using our Python 3
-    ENV["PYTHON"] = python = python3.opt_bin/"python3.10"
+    ENV["PYTHON"] = python = which("python3.10")
 
     args = %W[
       --prefix=#{prefix}
@@ -72,6 +76,10 @@ class NodeAT14 < Formula
     ]
     system python, "configure.py", *args
     system "make", "install"
+
+    if OS.linux? || MacOS.version >= :monterey
+      bin.env_script_all_files libexec, PATH: "#{Formula["python@3.10"].opt_libexec}/bin:${PATH}"
+    end
 
     term_size_vendor_dir = lib/"node_modules/npm/node_modules/term-size/vendor"
     term_size_vendor_dir.rmtree # remove pre-built binaries
@@ -100,9 +108,8 @@ class NodeAT14 < Formula
     output = shell_output("#{bin}/node -e 'console.log(new Intl.NumberFormat(\"de-DE\").format(1234.56))'").strip
     assert_equal "1.234,56", output
 
-    # make sure npm can find node and python
+    # make sure npm can find node
     ENV.prepend_path "PATH", opt_bin
-    ENV.prepend_path "PATH", python3.opt_libexec/"bin" if OS.mac?
     ENV.delete "NVM_NODEJS_ORG_MIRROR"
     assert_equal which("node"), opt_bin/"node"
     assert_predicate bin/"npm", :exist?, "npm must exist"
