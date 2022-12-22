@@ -6,15 +6,15 @@ class Scipoptsuite < Formula
   license all_of: ["Apache 2.0", "ZIB-Academic", "LGPL-3.0-or-later"]
 
   depends_on "cmake" => :build
-  depends_on "ipopt"
-  depends_on "cppad"
   depends_on "boost"
-  depends_on "gmp"
   depends_on "bison"
   depends_on "flex"
+  depends_on "gmp"
+  depends_on "cppad"
   depends_on "gnuplot"
-  depends_on "zlib"
+  depends_on "ipopt"
   depends_on "tbb"
+  depends_on "zlib"
 
   def install
     cmake_args = std_cmake_args + %w[
