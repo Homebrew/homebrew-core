@@ -1,7 +1,4 @@
-# Documentation: https://docs.brew.sh/Formula-Cookbook
-#                https://rubydoc.brew.sh/Formula
-# PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
-class scipoptsuite < Formula
+class Scipoptsuite < Formula
   desc "Mixed Integer Programming (MIP) solver and Branch-and-Cut-and-Price Framework"
   homepage "https://scipopt.org/"
   url "https://www.scipopt.org/download/release/scipoptsuite-8.0.3.tgz"
@@ -21,7 +18,6 @@ class scipoptsuite < Formula
 
   def install
     cmake_args = std_cmake_args + %w[
-      -DCMAKE_BUILD_TYPE=Release
       -DPARASCIP=ON
       -DPAPILO=ON
       -DSOPLEX=ON
@@ -39,7 +35,7 @@ class scipoptsuite < Formula
       -DCLIQUER=OFF
     ]
 
-    system "cmake", "-B", "scipoptsuite-build", "-S", "${SRC_DIR}/scipoptsuite", *cmake_args
+    system "cmake", "-B", "scipoptsuite-build", "-S", ".", *cmake_args
     system "cmake", "--build", "scipoptsuite-build", "--parallel" "${CPU_COUNT}"
     system "cmake", "--install", "scipoptsuite-build", "--prefix", "${PREFIX}"
   end
@@ -52,10 +48,15 @@ class scipoptsuite < Formula
     system "scip", "--version"
 
     # Verifies that dependencies are properly linked
-    system "scip", "--version", "|", "grep", "-iE", "'CppAD\s+[0-9]+'"
-    system "scip", "--version", "|", "grep", "-iE", "'ZLIB\s+[0-9]+\.[0-9]+\.[0-9]+'"
-    system "scip", "--version", "|", "grep", "-iE", "'GMP\s+[0-9]+\.[0-9]+\.[0-9]+'"
-    system "scip", "--version", "|", "grep", "-iE", "'bliss\s+[0-9]+\.[0-9]+'"
-    system "scip", "--version", "|", "grep", "-iE", "'Ipopt\s+[0-9]+\.[0-9]+\.[0-9]+'"
+    output = shell_output("scip --version")
+    assert_match /CppAD\s+[0-9]+/, output
+    output = shell_output("scip --version")
+    assert_match /ZLIB\s+[0-9]+\.[0-9]+\.[0-9]+/, output
+    output = shell_output("scip --version")
+    assert_match /GMP\s+[0-9]+\.[0-9]+\.[0-9]+/, output
+    output = shell_output("scip --version")
+    assert_match /bliss\s+[0-9]+\.[0-9]+/, output
+    output = shell_output("scip --version")
+    assert_match /Ipopt\s+[0-9]+\.[0-9]+\.[0-9]+/, output
   end
 end
