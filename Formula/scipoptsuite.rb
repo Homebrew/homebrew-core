@@ -7,7 +7,6 @@ class Scipoptsuite < Formula
 
   depends_on "cmake" => :build
   depends_on "tbb"
-  depends_on "zlib"
   depends_on "ipopt"
   depends_on "cppad"
   depends_on "boost"
@@ -15,6 +14,7 @@ class Scipoptsuite < Formula
   depends_on "bison"
   depends_on "flex"
   depends_on "gnuplot"
+  depends_on "zlib"
 
   def install
     cmake_args = std_cmake_args + %w[
@@ -36,7 +36,7 @@ class Scipoptsuite < Formula
     ]
 
     system "cmake", "-B", "scipoptsuite-build", "-S", ".", *cmake_args
-    system "cmake", "--build", "scipoptsuite-build", "--parallel" "${CPU_COUNT}"
+    system "cmake", "--build", "scipoptsuite-build"
     system "cmake", "--install", "scipoptsuite-build", "--prefix", "${PREFIX}"
   end
 
