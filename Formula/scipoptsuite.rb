@@ -1,20 +1,21 @@
 class Scipoptsuite < Formula
   desc "Mixed Integer Programming (MIP) solver and Branch-and-Cut-and-Price Framework"
-  homepage "https://scipopt.org/"
+  homepage "https://www.scipopt.org/"
   url "https://www.scipopt.org/download/release/scipoptsuite-8.0.3.tgz"
   sha256 "5ad50eb42254c825d96f5747d8f3568dcbff0284dfbd1a727910c5a7c2899091"
   license all_of: ["Apache-2.0", "LGPL-3.0-or-later"]
 
   depends_on "cmake" => :build
-  depends_on "bison"
   depends_on "boost"
   depends_on "cppad"
-  depends_on "flex"
   depends_on "gmp"
   depends_on "gnuplot"
   depends_on "ipopt"
   depends_on "tbb"
-  depends_on "zlib"
+  
+  uses_from_macos "bison"
+  uses_from_macos "flex"
+  uses_from_macos "zlib"
 
   def install
     cmake_args = std_cmake_args + %W[
