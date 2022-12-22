@@ -44,7 +44,7 @@ class Scipoptsuite < Formula
   end
 
   test do
-    system "cmake", "-B", "build", "-S" "./Queens"
+    system "cmake", "-B", "build", "-S", "./Queens"
     system "cmake", "--build", "build"
     system "./build/queens", "5"
   end
