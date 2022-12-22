@@ -2,10 +2,9 @@ class Gitversion < Formula
   desc "Easy semantic versioning for projects using Git"
   homepage "https://gitversion.net"
   # TODO: Switch `dotnet@6` to `dotnet` with v6 release
-  url "https://github.com/GitTools/GitVersion/archive/5.11.1.tar.gz"
-  sha256 "98ed28bfb22fadde72da412634f309d81030a76997ca998e1b34edc39beff489"
+  url "https://github.com/GitTools/GitVersion/archive/6.0.0-alpha.1.tar.gz"
+  sha256 "1f90f897bd43b7b0d5d457092f9729e735dc5d1f7af946cff49fd7fd3ef62ee8"
   license "MIT"
-  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "dab9486fded11ba18ab033fdca31afca9ff5aad0456ee48c40a65d87fc2dbadf"
