@@ -6,6 +6,7 @@ class Scipoptsuite < Formula
   license all_of: ["Apache-2.0", "LGPL-3.0-or-later"]
 
   depends_on "cmake" => :build
+  depends_on "bison@2.7"
   depends_on "boost"
   depends_on "cppad"
   depends_on "gmp"
@@ -13,7 +14,6 @@ class Scipoptsuite < Formula
   depends_on "ipopt"
   depends_on "tbb"
 
-  uses_from_macos "bison"
   uses_from_macos "flex"
   uses_from_macos "zlib"
 
@@ -39,9 +39,13 @@ class Scipoptsuite < Formula
     system "cmake", "-B", "scipoptsuite-build", "-S", ".", *cmake_args
     system "cmake", "--build", "scipoptsuite-build"
     system "cmake", "--install", "scipoptsuite-build"
+
+    prefix.install Dir["./scip/examples/Queens/*"]
   end
 
   test do
-    system "ctest", "-N"
+    system "cmake", "-B", "build", "-S" "./Queens"
+    system "cmake", "--build", "build"
+    system "./build/queens", "5"
   end
 end
