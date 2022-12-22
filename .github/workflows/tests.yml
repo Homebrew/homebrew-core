@@ -231,6 +231,17 @@ jobs:
 
       - run: brew test-bot --only-setup
 
+      # Trace https://github.com/lima-vm/lima/blob/v0.14.1/Makefile#L17-L23
+      - name: "[DNM] Print debugging information for https://github.com/abiosoft/colima/issues/524"
+        run: |
+          set -euxo pipefail
+          xcrun --show-sdk-version
+          xcrun --show-sdk-version | cut -d . -f 1
+          git clone https://github.com/lima-vm/lima
+          cd lima
+          git checkout v0.14.1
+          make
+
       - name: Run brew test-bot ${{ needs.setup_tests.outputs.test-bot-formulae-args }}
         id: brew-test-bot-formulae
         run: |
