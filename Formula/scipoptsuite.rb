@@ -40,7 +40,8 @@ class Scipoptsuite < Formula
     system "cmake", "--build", "scipoptsuite-build"
     system "cmake", "--install", "scipoptsuite-build"
 
-    prefix.install "scip/check/instances/MIP/enigma.mps", "scip/examples/MIPSolver", "scip/check/instances/MIP/p0548.mps"
+    prefix.install "scip/check/instances/MIP/enigma.mps", "scip/examples/MIPSolver"
+    prefix.install "scip/check/instances/MIP/p0548.mps"
   end
 
   test do
