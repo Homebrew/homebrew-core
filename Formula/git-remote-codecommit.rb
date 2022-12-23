@@ -24,8 +24,8 @@ class GitRemoteCodecommit < Formula
   depends_on "six"
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/61/d0/864d19810c779c8f2cc4e64030414c2056178863c6a61d2f831ab031cc35/botocore-1.29.3.tar.gz"
-    sha256 "ac7986fefe1b9c6323d381c4fdee3845c67fa53eb6c9cf586a8e8a07270dbcfe"
+    url "https://files.pythonhosted.org/packages/1c/4f/c2755bd8a1636f17c470dc4c57ddd390b2c5f6505041c70133f7fa151815/botocore-1.29.36.tar.gz"
+    sha256 "5cb1fb381c427fe12274eb866f2ff739169e0e1f33c2481a474ba2ff8ca43f75"
   end
 
   resource "jmespath" do
@@ -39,8 +39,8 @@ class GitRemoteCodecommit < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/b2/56/d87d6d3c4121c0bcec116919350ca05dc3afd2eeb7dc88d07e8083f8ea94/urllib3-1.26.12.tar.gz"
-    sha256 "3fa96cf423e6987997fc326ae8df396db2a8b7c667747d47ddd8ecba91f4a74e"
+    url "https://files.pythonhosted.org/packages/c2/51/32da03cf19d17d46cce5c731967bf58de9bd71db3a379932f53b094deda4/urllib3-1.26.13.tar.gz"
+    sha256 "c083dd0dce68dbfbe1129d5271cb90f9447dea7d52097c6e0126120c521ddea8"
   end
 
   def install
