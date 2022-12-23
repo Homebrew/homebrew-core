@@ -6,7 +6,7 @@ class VirtManager < Formula
   url "https://virt-manager.org/download/sources/virt-manager/virt-manager-4.1.0.tar.gz"
   sha256 "950681d7b32dc61669278ad94ef31da33109bf6fcf0426ed82dfd7379aa590a2"
   license "GPL-2.0-or-later"
-  revision 3
+  revision 4
   head "https://github.com/virt-manager/virt-manager.git", branch: "main"
 
   bottle do
@@ -41,13 +41,13 @@ class VirtManager < Formula
   # Resources are for Python `libvirt-python` and `requests` packages
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/cb/a4/7de7cd59e429bd0ee6521ba58a75adaec136d32f91a761b28a11d8088d44/certifi-2022.9.24.tar.gz"
-    sha256 "0d9c601124e5a6ba9712dbc60d9c53c21e34f5f641fe83002317394311bdce14"
+    url "https://files.pythonhosted.org/packages/37/f7/2b1b0ec44fdc30a3d31dfebe52226be9ddc40cd6c0f34ffc8923ba423b69/certifi-2022.12.7.tar.gz"
+    sha256 "35824b4c3a97115964b408844d64aa14db1cc518f6562e8d7261699d1350a9e3"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/fe/77/6d5d367b7cfee812a88573e80bbe25cea2d015ed2c3490e4464951ff3232/charset-normalizer-3.0.0.tar.gz"
-    sha256 "b27d10ad15740b45fd55f76e6901a4391e6dca3917ef48ecdcf17edf6e00d770"
+    url "https://files.pythonhosted.org/packages/96/d7/1675d9089a1f4677df5eb29c3f8b064aa1e70c1251a0a8a127803158942d/charset-normalizer-3.0.1.tar.gz"
+    sha256 "ebea339af930f8ca5d7a699b921106c6e29c617fe9606fa7baa043c1cdae326f"
   end
 
   resource "idna" do
@@ -56,8 +56,8 @@ class VirtManager < Formula
   end
 
   resource "libvirt-python" do
-    url "https://files.pythonhosted.org/packages/0e/b2/abf88509a6763050462b14811d47e912eece981c21e3c6103b7b303645d9/libvirt-python-8.9.0.tar.gz"
-    sha256 "2e1cfc3b9bd288b3cac400a6b03593633814236dbd1ecf5a900057bb90181c65"
+    url "https://files.pythonhosted.org/packages/ce/2a/2a41b4818f28fc4e8fca8e33f14ca52db5e35aae295e439ac03ceb6b4765/libvirt-python-8.10.0.tar.gz"
+    sha256 "fc30f136abe0b8228029a90814c8f44ac2947433c12f211363051c57df2d5401"
   end
 
   resource "requests" do
@@ -66,8 +66,8 @@ class VirtManager < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/b2/56/d87d6d3c4121c0bcec116919350ca05dc3afd2eeb7dc88d07e8083f8ea94/urllib3-1.26.12.tar.gz"
-    sha256 "3fa96cf423e6987997fc326ae8df396db2a8b7c667747d47ddd8ecba91f4a74e"
+    url "https://files.pythonhosted.org/packages/c2/51/32da03cf19d17d46cce5c731967bf58de9bd71db3a379932f53b094deda4/urllib3-1.26.13.tar.gz"
+    sha256 "c083dd0dce68dbfbe1129d5271cb90f9447dea7d52097c6e0126120c521ddea8"
   end
 
   def install
