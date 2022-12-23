@@ -47,6 +47,7 @@ class Vineyard < Formula
                     "-DUSE_EXTERNAL_TBB_LIBS=ON",
                     "-DUSE_EXTERNAL_NLOHMANN_JSON_LIBS=ON",
                     "-DBUILD_VINEYARD_TESTS=OFF",
+                    "-DUSE_LIBUNWIND=OFF",
                     "-DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}",
                     *std_cmake_args
     system "cmake", "--build", "build"
