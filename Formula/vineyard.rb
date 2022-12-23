@@ -3,8 +3,8 @@ class Vineyard < Formula
 
   desc "In-memory immutable data manager. (Project under CNCF)"
   homepage "https://v6d.io"
-  url "https://github.com/v6d-io/v6d/releases/download/v0.11.2/v6d-0.11.2.tar.gz"
-  sha256 "59d17e31563cf5c161bd5385389baf5a924061f144dcd1743a5c4fd78b8c6ff4"
+  url "https://github.com/v6d-io/v6d/releases/download/v0.11.3/v6d-0.11.3.tar.gz"
+  sha256 "18befb052270d5cfd1280db571b9dbdeb876d988d308d7cee1deb5ddde0121a0"
   license "Apache-2.0"
 
   bottle do
@@ -18,6 +18,7 @@ class Vineyard < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "llvm" => :build
   depends_on "python@3.10" => :build
   depends_on "apache-arrow"
   depends_on "boost"
@@ -26,7 +27,6 @@ class Vineyard < Formula
   depends_on "gflags"
   depends_on "glog"
   depends_on "libgrape-lite"
-  depends_on "llvm"
   depends_on "nlohmann-json"
   depends_on "open-mpi"
   depends_on "openssl@1.1"
