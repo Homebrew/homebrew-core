@@ -1,8 +1,8 @@
 class Sapling < Formula
   desc "Source control client"
   homepage "https://sapling-scm.com"
-  url "https://github.com/facebook/sapling/archive/refs/tags/0.1.20221213-150011-h9b0acf12.tar.gz"
-  sha256 "1513f34ced2583cfdf202d6b8fb77beeda0d7298bd4d3f55a32d3e54796d1710"
+  url "https://github.com/facebook/sapling/archive/refs/tags/0.2.20221222-152408-ha6a66d09.tar.gz"
+  sha256 "9fb65d42c3c96769f01cedbc45d99b9aec833009283da2fd8438e18e92178588"
   license "GPL-2.0-or-later"
   head "https://github.com/facebook/sapling.git", branch: "main"
 
