@@ -1,7 +1,7 @@
 class Memtester < Formula
   desc "Utility for testing the memory subsystem"
   homepage "https://pyropus.ca/software/memtester/"
-  url "https://pyropus.ca/software/memtester/old-versions/memtester-4.6.0.tar.gz"
+  url "https://pyropus.ca/software/memtester/old-versions/memtester-4.6.0.tar.gz", using: :homebrew_curl
   sha256 "c9fe4eb7e80c8cef5202f9065c4c0682f5616647c0455e916a5700f98e3dbb2e"
   license "GPL-2.0-only"
 
