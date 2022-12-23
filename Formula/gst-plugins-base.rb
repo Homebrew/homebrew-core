@@ -1,8 +1,8 @@
 class GstPluginsBase < Formula
   desc "GStreamer plugins (well-supported, basic set)"
   homepage "https://gstreamer.freedesktop.org/"
-  url "https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.20.4.tar.xz"
-  sha256 "8d181b7abe4caf23ee9f9ec5b4d3e232640452464e39495bfffb6d776fc97225"
+  url "https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.20.5.tar.xz"
+  sha256 "11f911ef65f3095d7cf698a1ad1fc5242ac3ad6c9270465fb5c9e7f4f9c19b35"
   license "LGPL-2.0-or-later"
   head "https://gitlab.freedesktop.org/gstreamer/gst-plugins-base.git", branch: "master"
 
