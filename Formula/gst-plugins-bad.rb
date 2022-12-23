@@ -1,8 +1,8 @@
 class GstPluginsBad < Formula
   desc "GStreamer plugins less supported, not fully tested"
   homepage "https://gstreamer.freedesktop.org/"
-  url "https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.20.4.tar.xz"
-  sha256 "a1a3f53b3604d9a04fdd0bf9a1a616c3d2dab5320489e9ecee1178e81e33a16a"
+  url "https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.20.5.tar.xz"
+  sha256 "f431214b0754d7037adcde93c3195106196588973e5b32dcb24938805f866363"
   license "LGPL-2.0-or-later"
   head "https://gitlab.freedesktop.org/gstreamer/gst-plugins-bad.git", branch: "master"
 
