@@ -40,17 +40,11 @@ class Scipoptsuite < Formula
     system "cmake", "--build", "scipoptsuite-build"
     system "cmake", "--install", "scipoptsuite-build"
 
-    prefix.install "scip/check/instances/MIP/enigma.mps", "scip/examples/MIPSolver"
-    prefix.install "scip/check/instances/MIP/p0548.mps"
+    prefix.install "scip/check/instances/MIP/enigma.mps"
   end
 
   test do
     output = shell_output("#{bin}/scip -c \"r #{prefix}/enigma.mps opt q\"")
-    assert_match "optimal solution found", output
-
-    system "cmake", "-B", "build", "-S", "#{prefix}/MIPSolver"
-    system "cmake", "--build", "build"
-    output = shell_output("#{prefix}/build/bin/scipmip", "-c \"r #{prefix}/p0548.mps opt q\"")
     assert_match "optimal solution found", output
   end
 end
