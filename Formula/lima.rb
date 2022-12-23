@@ -1,8 +1,8 @@
 class Lima < Formula
   desc "Linux virtual machines"
   homepage "https://github.com/lima-vm/lima"
-  url "https://github.com/lima-vm/lima/archive/v0.14.1.tar.gz"
-  sha256 "9fac8e00325f6bbb94115850349e49ec8db9b69e4316c60fd2c1c96bde1ae0fb"
+  url "https://github.com/lima-vm/lima/archive/v0.14.2.tar.gz"
+  sha256 "8d6cd72dd1670c6ade1f92ede6dc01ab64cbeec38fbaba617d9aa93f59ca1ae1"
   license "Apache-2.0"
   head "https://github.com/lima-vm/lima.git", branch: "master"
 
@@ -30,6 +30,12 @@ class Lima < Formula
   end
 
   test do
-    assert_match "Pruning", shell_output("#{bin}/limactl prune 2>&1")
+    info = JSON.parse shell_output("#{bin}/limactl info")
+    # Verify that the VM drivers are compiled in
+    assert_includes info["vmTypes"], "qemu"
+    assert_includes info["vmTypes"], "vz" if MacOS.version >= :ventura
+    # Verify that the template files are installed
+    template_names = info["templates"].map { |x| x["name"] }
+    assert_includes template_names, "default"
   end
 end
