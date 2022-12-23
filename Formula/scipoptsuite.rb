@@ -44,7 +44,7 @@ class Scipoptsuite < Formula
   end
 
   test do
-    output = shell_output("#{bin}/scip -c "r #{prefix}/enigma.mps" opt")
+    output = shell_output("#{bin}/scip -c \"r #{prefix}/enigma.mps opt\"")
     assert_match "optimal solution found", output
     system "cmake", "-B", "build", "-S", "#{prefix}/Queens"
     system "cmake", "--build", "build"
