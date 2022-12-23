@@ -40,11 +40,13 @@ class Scipoptsuite < Formula
     system "cmake", "--build", "scipoptsuite-build"
     system "cmake", "--install", "scipoptsuite-build"
 
-    prefix.install Dir["./scip/examples/Queens/*"]
+    prefix.install "scip/check/instances/MIP/enigma.mps", "scip/examples/Queens"
   end
 
   test do
-    system "cmake", "-B", "build", "-S", "./Queens"
+    output = shell_output("#{bin}/scip -c "r #{prefix}/enigma.mps" opt")
+    assert_match "optimal solution found", output
+    system "cmake", "-B", "build", "-S", "#{prefix}/Queens"
     system "cmake", "--build", "build"
     system "./build/queens", "5"
   end
