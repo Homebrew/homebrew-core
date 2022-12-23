@@ -1,8 +1,8 @@
 class Colordiff < Formula
   desc "Color-highlighted diff(1) output"
   homepage "https://www.colordiff.org/"
-  url "https://www.colordiff.org/colordiff-1.0.20.tar.gz"
-  sha256 "e3b2017beeb9f619ebc3b15392f22810c882d1b657aab189623cffef351d7bcd"
+  url "https://www.colordiff.org/colordiff-1.0.21.tar.gz"
+  sha256 "9b30f4257ef0f0806dea5a27c9ad8edc3f7999f05ddaff6f0627064dc927e615"
   license "GPL-2.0-or-later"
 
   livecheck do
