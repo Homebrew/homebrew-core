@@ -29,6 +29,15 @@ class Libmspub < Formula
   depends_on "librevenge"
   depends_on "libwpd"
 
+  # Fix for missing include needed to build with recent GCC. Remove in the next release.
+  # Commit ref: https://git.libreoffice.org/libmspub/+/698bed839c9129fa7a90ca1b5a33bf777bc028d1%5E%21
+  patch do
+    on_linux do
+      url "https://gerrit.libreoffice.org/changes/libmspub~73814/revisions/2/patch?zip"
+      sha256 "4c50ba6cc609b64d6769449f3296c26082f470d4011d35ec53599c336387fa38"
+    end
+  end
+
   def install
     system "./configure", "--without-docs",
                           "--disable-dependency-tracking",
