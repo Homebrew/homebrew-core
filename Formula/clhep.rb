@@ -25,7 +25,7 @@ class Clhep < Formula
 
   def install
     (buildpath/"CLHEP").install buildpath.children if build.head?
-    system "cmake", "-S", "CLHEP", "-B", "build", *std_cmake_args
+    system "cmake", "-S", "CLHEP", "-B", "build", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
