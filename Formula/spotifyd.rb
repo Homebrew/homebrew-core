@@ -42,6 +42,6 @@ class Spotifyd < Formula
   test do
     cmd = "#{bin}/spotifyd --username homebrew_fake_user_for_testing \
       --password homebrew --no-daemon --backend portaudio"
-    assert_match "Authentication failed", shell_output(cmd, 101)
+    assert_match "Bad credentials", shell_output(cmd)
   end
 end
