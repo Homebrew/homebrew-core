@@ -1,26 +1,10 @@
 class DsdaDoom < Formula
   desc "Fork of prboom+ with a focus on speedrunning"
   homepage "https://github.com/kraflab/dsda-doom"
+  url "https://github.com/kraflab/dsda-doom/archive/refs/tags/v0.25.0.tar.gz"
+  sha256 "caad205a35a6339f3a73019b17818c214de4f3b7822fcc2350e7cae63a044b8b"
   license "GPL-2.0-only"
-  revision 1
   head "https://github.com/kraflab/dsda-doom.git", branch: "master"
-
-  stable do
-    url "https://github.com/kraflab/dsda-doom/archive/refs/tags/v0.24.3.tar.gz"
-    sha256 "d4cfc82eea029068329d6b6a2dcbe0b316b31a60af12e6dc5ad3e1d2c359d913"
-
-    # Patch for Linux builds
-    patch do
-      url "https://github.com/kraflab/dsda-doom/commit/1af0987c190f183d870b6b44aaab670d777df7fe.patch?full_index=1"
-      sha256 "800eca74126d991a7490b37e403778a6b2ea764abd7ed4648d48db2d2ccf42da"
-    end
-
-    # Patch allowing to set a custom location for dsda-doom.wad
-    patch do
-      url "https://github.com/kraflab/dsda-doom/commit/40e29a41b39341a579767b5a88030cdf90f31429.patch?full_index=1"
-      sha256 "21bc7241ff81db9138f4c7a7cfdfd80f1de6fa4789a501f215f3c876463de256"
-    end
-  end
 
   livecheck do
     url :stable
