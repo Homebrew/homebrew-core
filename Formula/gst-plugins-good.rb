@@ -1,8 +1,8 @@
 class GstPluginsGood < Formula
   desc "GStreamer plugins (well-supported, under the LGPL)"
   homepage "https://gstreamer.freedesktop.org/"
-  url "https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.20.4.tar.xz"
-  sha256 "b16130fbe632fa8547c2147a0ef575b0140fb521065c5cb121c72ddbd23b64da"
+  url "https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.20.5.tar.xz"
+  sha256 "e83ab4d12ca24959489bbb0ec4fac9b90e32f741d49cda357cb554b2cb8b97f9"
   license "LGPL-2.0-or-later"
   head "https://gitlab.freedesktop.org/gstreamer/gst-plugins-good.git", branch: "master"
 
