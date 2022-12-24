@@ -24,7 +24,7 @@ class Asio < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     ENV.cxx11
