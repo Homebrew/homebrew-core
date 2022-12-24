@@ -5,11 +5,6 @@ class TraefikAT1 < Formula
   sha256 "0f068c2720dadd66ce303863a80d2386a4d13b5475d4219ba3e65b8445c653f2"
   license "MIT"
 
-  livecheck do
-    url "https://github.com/traefik/traefik.git"
-    regex(/^v?(1(?:\.\d+)+)$/i)
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1e31f7d05eef29c95084bfca1f7dae694b56a6926e4810e1d151d7a483c1a93a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6e8060b579d2b50e927526da6c8ced95ee5b297a15085e2358651dff21aa41d7"
