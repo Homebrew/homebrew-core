@@ -6,7 +6,7 @@ class VirtManager < Formula
   url "https://virt-manager.org/download/sources/virt-manager/virt-manager-4.1.0.tar.gz"
   sha256 "950681d7b32dc61669278ad94ef31da33109bf6fcf0426ed82dfd7379aa590a2"
   license "GPL-2.0-or-later"
-  revision 4
+  revision 3
   head "https://github.com/virt-manager/virt-manager.git", branch: "main"
 
   bottle do
