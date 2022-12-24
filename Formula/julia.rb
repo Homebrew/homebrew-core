@@ -5,10 +5,9 @@ class Julia < Formula
   #
   # TODO: Use system `suite-sparse` when `julia` supports v6.
   # Issue ref: https://github.com/JuliaLang/julia/issues/47884
-  url "https://github.com/JuliaLang/julia/releases/download/v1.8.3/julia-1.8.3-full.tar.gz"
-  sha256 "52b6895a9d4ad2fe36db261ee8c4c8cc9212b837a12f93002faaf537a2151f50"
+  url "https://github.com/JuliaLang/julia/releases/download/v1.8.4/julia-1.8.4-full.tar.gz"
+  sha256 "1cd032262c5c42048a7819bccd684e843bbb8f66cf9ff56c315881ea431f0033"
   license all_of: ["MIT", "BSD-3-Clause", "Apache-2.0", "BSL-1.0"]
-  revision 1
   head "https://github.com/JuliaLang/julia.git", branch: "master"
 
   bottle do
@@ -49,13 +48,6 @@ class Julia < Formula
   conflicts_with "juliaup", because: "both install `julia` binaries"
 
   fails_with gcc: "5"
-
-  # Link against libgcc_s.1.1.dylib, not libgcc_s.1.dylib
-  # https://github.com/JuliaLang/julia/pull/46240
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/dd7279eea22d92688d2a821c245d92c4f8406fcf/julia/libgcc_s.diff"
-    sha256 "f12c11db53390145b4a9b1ea3b412019eee89c0d197eef6c78b0565bf7fd7aaf"
-  end
 
   def install
     # Build documentation available at
