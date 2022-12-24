@@ -34,11 +34,6 @@ class Qtads < Formula
   fails_with gcc: "5"
 
   def install
-    sdl_sound_include = Formula["sdl_sound"].opt_include
-    inreplace "qtads.pro",
-      "$$T3DIR \\",
-      "$$T3DIR #{sdl_sound_include}/SDL \\"
-
     args = ["DEFINES+=NO_STATIC_TEXTCODEC_PLUGINS"]
     args << "PREFIX=#{prefix}" unless OS.mac?
 
