@@ -1,8 +1,8 @@
 class Codequery < Formula
   desc "Code-understanding, code-browsing or code-search tool"
   homepage "https://github.com/ruben2020/codequery"
-  url "https://github.com/ruben2020/codequery/archive/refs/tags/v0.25.0.tar.gz"
-  sha256 "200bed981e89fe02770a7a76516714d6d6345021d6ae89e68341b6af39728407"
+  url "https://github.com/ruben2020/codequery/archive/refs/tags/v0.26.0.tar.gz"
+  sha256 "5972a5778159835e37f5c9114a90f1be4756f27487d9074d2fb3464625a0ced2"
   license "MPL-2.0"
 
   bottle do
