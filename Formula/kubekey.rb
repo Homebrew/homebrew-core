@@ -28,14 +28,15 @@ class Kubekey < Formula
 
   def install
     tags = "exclude_graphdriver_devicemapper exclude_graphdriver_btrfs containers_image_openpgp"
+    project = "github.com/kubesphere/kubekey/v3"
     ldflags = %W[
       -s -w
-      -X github.com/kubesphere/kubekey/v3/version.gitMajor=#{version.major}
-      -X github.com/kubesphere/kubekey/v3/version.gitMinor=#{version.minor}
-      -X github.com/kubesphere/kubekey/v3/version.gitVersion=v#{version}
-      -X github.com/kubesphere/kubekey/v3/version.gitCommit=#{Utils.git_head}
-      -X github.com/kubesphere/kubekey/v3/version.gitTreeState=clean
-      -X github.com/kubesphere/kubekey/v3/version.buildDate=#{time.iso8601}
+      -X #{project}/version.gitMajor=#{version.major}
+      -X #{project}/version.gitMinor=#{version.minor}
+      -X #{project}/version.gitVersion=v#{version}
+      -X #{project}/version.gitCommit=#{Utils.git_head}
+      -X #{project}/version.gitTreeState=clean
+      -X #{project}/version.buildDate=#{time.iso8601}
     ]
     system "go", "build", *std_go_args(ldflags: ldflags, output: bin/"kk"), "-tags", tags, "./cmd/kk"
 
