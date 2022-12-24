@@ -20,12 +20,12 @@ class Xmake < Formula
   on_linux do
     depends_on "readline"
   end
-  
+
   patch do
     url "https://github.com/xmake-io/xmake/releases/download/v2.7.4/configure.diff"
     sha256 "fa46107403b2ed062631c83009852130b5641eaf703589230c6daea428a13bf5"
   end
-  
+
   def install
     ENV["XMAKE_ROOT"] = "y" if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
 
