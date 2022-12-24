@@ -4,6 +4,7 @@ class Pocl < Formula
   url "http://portablecl.org/downloads/pocl-3.1.tar.gz"
   sha256 "82314362552e050aff417318dd623b18cf0f1d0f84f92d10a7e3750dd12d3a9a"
   license "MIT"
+  revision 1
   head "https://github.com/pocl/pocl.git", branch: "master"
 
   bottle do
@@ -21,7 +22,7 @@ class Pocl < Formula
   depends_on "pkg-config" => :build
   depends_on "hwloc"
   depends_on "llvm"
-  depends_on "ocl-icd"
+  depends_on "opencl-icd-loader"
 
   fails_with :clang do
     cause <<-EOS
@@ -59,7 +60,7 @@ class Pocl < Formula
   end
 
   test do
-    ENV["OCL_ICD_VENDORS"] = "pocl.icd" # Ignore any other ICD that may be installed
+    ENV["OCL_ICD_VENDORS"] = "#{opt_prefix}/etc/OpenCL/vendors" # Ignore any other ICD that may be installed
     cp pkgshare/"examples/poclcc/poclcc.cl", testpath
     system bin/"poclcc", "-o", "poclcc.cl.pocl", "poclcc.cl"
     assert_predicate testpath/"poclcc.cl.pocl", :exist?
