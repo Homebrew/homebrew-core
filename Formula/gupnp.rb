@@ -3,10 +3,9 @@ class Gupnp < Formula
 
   desc "Framework for creating UPnP devices and control points"
   homepage "https://wiki.gnome.org/Projects/GUPnP"
-  url "https://download.gnome.org/sources/gupnp/1.4/gupnp-1.4.3.tar.xz"
-  sha256 "14eda777934da2df743d072489933bd9811332b7b5bf41626b8032efb28b33ba"
+  url "https://download.gnome.org/sources/gupnp/1.6/gupnp-1.6.3.tar.xz"
+  sha256 "4f4f418b07b81164df1f7ab612e28e4c016c2d085b8a4f39f97945f8b15ee248"
   license "LGPL-2.0-or-later"
-  revision 1
 
   bottle do
     rebuild 1
@@ -28,13 +27,11 @@ class Gupnp < Formula
   depends_on "gettext"
   depends_on "glib"
   depends_on "gssdp"
-  depends_on "libsoup@2"
+  depends_on "libsoup"
   depends_on "libxml2"
   depends_on "python@3.11"
 
   def install
-    ENV.prepend_path "PKG_CONFIG_PATH", Formula["libsoup@2"].opt_lib/"pkgconfig"
-    ENV.prepend_path "XDG_DATA_DIRS", Formula["libsoup@2"].opt_share
     ENV.prepend_path "XDG_DATA_DIRS", HOMEBREW_PREFIX/"share"
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
 
@@ -45,7 +42,10 @@ class Gupnp < Formula
   end
 
   test do
-    system bin/"gupnp-binding-tool-1.2", "--help"
+    gnupnp_version = version.major_minor.to_s
+    gssdp_version = Formula["gssdp"].version.major_minor.to_s
+
+    system bin/"gupnp-binding-tool-#{gnupnp_version}", "--help"
     (testpath/"test.c").write <<~EOS
       #include <libgupnp/gupnp-control-point.h>
 
@@ -75,14 +75,17 @@ class Gupnp < Formula
       "-I#{Formula["libxml2"].include}/libxml2"
     end
 
-    system ENV.cc, testpath/"test.c", "-I#{include}/gupnp-1.2", "-L#{lib}", "-lgupnp-1.2",
-           "-I#{Formula["gssdp"].opt_include}/gssdp-1.2",
-           "-L#{Formula["gssdp"].opt_lib}", "-lgssdp-1.2",
+    system ENV.cc, testpath/"test.c",
+           "-I#{include}/gupnp-#{gnupnp_version}",
+           "-L#{lib}",
+           "-lgupnp-#{gnupnp_version}",
+           "-I#{Formula["gssdp"].opt_include}/gssdp-#{gssdp_version}",
+           "-L#{Formula["gssdp"].opt_lib}", "-lgssdp-#{gssdp_version}",
            "-I#{Formula["glib"].opt_include}/glib-2.0",
            "-I#{Formula["glib"].opt_lib}/glib-2.0/include",
            "-L#{Formula["glib"].opt_lib}",
            "-lglib-2.0", "-lgobject-2.0",
-           "-I#{Formula["libsoup@2"].opt_include}/libsoup-2.4",
+           "-I#{Formula["libsoup"].opt_include}/libsoup-3.0",
            libxml2, "-o", testpath/"test"
     system "./test"
   end
