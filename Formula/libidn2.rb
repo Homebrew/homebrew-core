@@ -29,22 +29,31 @@ class Libidn2 < Formula
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "gengetopt" => :build
+    depends_on "gettext" => :build
+    depends_on "help2man" => :build
     depends_on "libtool" => :build
     depends_on "ronn" => :build
+
+    uses_from_macos "gperf" => :build
+
+    on_system :linux, macos: :ventura_or_newer do
+      depends_on "texinfo" => :build
+    end
   end
 
   depends_on "pkg-config" => :build
-  depends_on "gettext"
   depends_on "libunistring"
 
-  def install
-    system "./bootstrap" if build.head?
+  on_macos do
+    depends_on "gettext"
+  end
 
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--with-libintl-prefix=#{Formula["gettext"].opt_prefix}",
-                          "--with-packager=Homebrew"
+  def install
+    args = ["--disable-silent-rules", "--with-packager=Homebrew"]
+    args << "--with-libintl-prefix=#{Formula["gettext"].opt_prefix}" if OS.mac?
+
+    system "./bootstrap", "--skip-po" if build.head?
+    system "./configure", *std_configure_args, *args
     system "make", "install"
   end
 
