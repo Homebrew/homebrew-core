@@ -18,8 +18,6 @@ class Theharvester < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3385bbe5ef27952aee1aaf312d83fd5b0795da775979b74ae9fe6e9294f5f5b1"
   end
 
-  depends_on "maturin" => :build
-  depends_on "rust" => :build
   depends_on "python-typing-extensions"
   depends_on "python@3.11"
   depends_on "pyyaml"
