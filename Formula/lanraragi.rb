@@ -37,8 +37,8 @@ class Lanraragi < Formula
 
   resource "libarchive-headers" do
     on_macos do
-      url "https://github.com/apple-oss-distributions/libarchive/archive/refs/tags/libarchive-83.100.2.tar.gz"
-      sha256 "a0228f75792f881bc927196f8b794d0263a019aab741765e54550f75271258aa"
+      url "https://github.com/apple-oss-distributions/libarchive/archive/refs/tags/libarchive-113.tar.gz"
+      sha256 "b422c37cc5f9ec876d927768745423ac3aae2d2a85686bc627b97e22d686930f"
     end
   end
 
