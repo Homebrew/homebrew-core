@@ -1,8 +1,8 @@
 class Ghc < Formula
   desc "Glorious Glasgow Haskell Compilation System"
   homepage "https://haskell.org/ghc/"
-  url "https://downloads.haskell.org/~ghc/9.4.3/ghc-9.4.3-src.tar.xz"
-  sha256 "eaf63949536ede50ee39179f2299d5094eb9152d87cc6fb2175006bc98e8905a"
+  url "https://downloads.haskell.org/~ghc/9.4.4/ghc-9.4.4-src.tar.xz"
+  sha256 "e8cef25a6ded1531cda7a90488d0cfb6d780657d16636daa59430be030cd67e2"
   # We build bundled copies of libffi and GMP so GHC inherits the licenses
   license all_of: [
     "BSD-3-Clause",
