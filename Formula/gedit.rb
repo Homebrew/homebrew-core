@@ -57,8 +57,7 @@ class Gedit < Formula
   end
 
   test do
-    # Remove when `jpeg-turbo` is no longer keg-only.
-    ENV.prepend_path "PKG_CONFIG_PATH", Formula["jpeg-turbo"].opt_lib/"pkgconfig"
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["icu4c"].opt_lib/"pkgconfig" if OS.mac?
 
     # main executable test
     system bin/"gedit", "--version"
