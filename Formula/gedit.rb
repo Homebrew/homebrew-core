@@ -43,6 +43,7 @@ class Gedit < Formula
 
   def install
     ENV["DESTDIR"] = "/"
+    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
     ENV.append "LDFLAGS", "-Wl,-rpath,#{lib}/gedit" if OS.linux?
 
     system "meson", "setup", "build", *std_meson_args
