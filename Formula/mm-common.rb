@@ -11,7 +11,7 @@ class MmCommon < Formula
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def install
     mkdir "build" do
