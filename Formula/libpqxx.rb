@@ -18,7 +18,7 @@ class Libpqxx < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
   depends_on "xmlto" => :build
   depends_on "libpq"
   depends_on macos: :catalina # requires std::filesystem
@@ -27,7 +27,7 @@ class Libpqxx < Formula
 
   def install
     ENV.append "CXXFLAGS", "-std=c++17"
-    ENV.prepend_path "PATH", Formula["python@3.10"].opt_libexec/"bin"
+    ENV.prepend_path "PATH", Formula["python@3.11"].opt_libexec/"bin"
     ENV["PG_CONFIG"] = Formula["libpq"].opt_bin/"pg_config"
 
     system "./configure", "--prefix=#{prefix}", "--enable-shared"
