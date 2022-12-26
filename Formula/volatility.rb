@@ -19,7 +19,7 @@ class Volatility < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "587cba2f3949b88aac7f2866370acfd57513d204c4a455654ee5d2b023064a05"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "yara"
 
   # Extra resources are from `requirements.txt`: https://github.com/volatilityfoundation/volatility3#requirements
