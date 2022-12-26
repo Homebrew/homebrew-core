@@ -23,7 +23,7 @@ class Cherrytree < Formula
   depends_on "cmake" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
   depends_on "adwaita-icon-theme"
   depends_on "fmt"
   depends_on "gspell"
