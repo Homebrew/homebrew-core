@@ -42,7 +42,7 @@ class Root < Formula
   depends_on "openblas"
   depends_on "openssl@1.1"
   depends_on "pcre"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "sqlite"
   depends_on "tbb"
   depends_on :xcode
@@ -64,7 +64,7 @@ class Root < Formula
   fails_with gcc: "5"
 
   def install
-    python = Formula["python@3.10"].opt_bin/"python3.10"
+    python = Formula["python@3.11"].opt_bin/"python3.11"
 
     ENV.append "LDFLAGS", "-Wl,-rpath,#{lib}/root"
 
@@ -164,6 +164,6 @@ class Root < Formula
     assert_equal "Hello, world!\n", shell_output("./a.out")
 
     # Test Python module
-    system Formula["python@3.10"].opt_bin/"python3.10", "-c", "import ROOT; ROOT.gSystem.LoadAllLibraries()"
+    system Formula["python@3.11"].opt_bin/"python3.11", "-c", "import ROOT; ROOT.gSystem.LoadAllLibraries()"
   end
 end
