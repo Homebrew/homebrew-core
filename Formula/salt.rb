@@ -26,7 +26,7 @@ class Salt < Formula
   depends_on "libgit2"
   depends_on "libyaml"
   depends_on "openssl@1.1"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "six"
   depends_on "zeromq"
 
@@ -285,7 +285,7 @@ class Salt < Formula
   test do
     output = shell_output("#{bin}/salt --config-dir=#{testpath} --log-file=/dev/null --versions")
     assert_match "Salt: #{version}", output
-    assert_match "Python: #{Formula["python@3.10"].version}", output
+    assert_match "Python: #{Formula["python@3.11"].version}", output
     assert_match "libgit2: #{Formula["libgit2"].version}", output
     assert_match "M2Crypto: Not Installed", output
   end
