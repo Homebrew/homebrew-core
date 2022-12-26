@@ -51,6 +51,8 @@ class Zeek < Formula
 
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
                       "-DBROKER_DISABLE_TESTS=on",
+                      "-DZEEK_ENABLE_FUZZERS=off",
+                      "-DENABLE_ZEEK_UNIT_TESTS=off",
                       "-DBUILD_SHARED_LIBS=on",
                       "-DINSTALL_AUX_TOOLS=on",
                       "-DINSTALL_ZEEKCTL=on",
