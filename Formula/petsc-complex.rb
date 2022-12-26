@@ -25,7 +25,7 @@ class PetscComplex < Formula
   depends_on "netcdf"
   depends_on "open-mpi"
   depends_on "openblas"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "scalapack"
   depends_on "suite-sparse"
 
