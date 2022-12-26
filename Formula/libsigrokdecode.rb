@@ -30,12 +30,12 @@ class Libsigrokdecode < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => [:build, :test]
   depends_on "glib"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def install
     # While this doesn't appear much better than hardcoding `3.10`, this allows
     # `brew audit` to catch mismatches between this line and the dependencies.
-    python = "python3.10"
+    python = "python3.11"
     py_version = Language::Python.major_minor_version(python)
 
     inreplace "configure.ac" do |s|
@@ -73,8 +73,8 @@ class Libsigrokdecode < Formula
         return 0;
       }
     EOS
-    # Needed since `python@3.10` is keg-only.
-    ENV.prepend_path "PKG_CONFIG_PATH", Formula["python@3.10"].opt_lib/"pkgconfig"
+    # Needed since `python@3.11` is keg-only.
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["python@3.11"].opt_lib/"pkgconfig"
     flags = shell_output("#{Formula["pkg-config"].opt_bin}/pkg-config --cflags --libs libsigrokdecode").strip.split
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
