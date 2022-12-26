@@ -16,7 +16,7 @@ class PythonTabulate < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "83dbafc2f1d09361907a7746347f6dfe0c3a0add8dc66710ea50ff39abe3725b"
   end
 
-  depends_on "python@3.10" => [:build, :test]
+  depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.9" => [:build, :test]
 
