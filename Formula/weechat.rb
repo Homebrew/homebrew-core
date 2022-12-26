@@ -27,7 +27,7 @@ class Weechat < Formula
   depends_on "lua"
   depends_on "ncurses"
   depends_on "perl"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "ruby"
   depends_on "zstd"
 
