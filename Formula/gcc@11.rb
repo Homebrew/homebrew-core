@@ -55,6 +55,10 @@ class GccAT11 < Formula
     sha256 "70499af2e5745c91ef4e886c0083cd70d7e94b7b45ba7b1276449bbb102df93b"
   end
 
+  def version_suffix
+    version.major.to_s
+  end
+
   def install
     # GCC will suffer build errors if forced to use a particular linker.
     ENV.delete "LD"
