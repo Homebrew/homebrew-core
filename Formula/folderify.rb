@@ -22,7 +22,7 @@ class Folderify < Formula
   depends_on xcode: :build
   depends_on "imagemagick"
   depends_on :macos
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   resource "osxiconutils" do
     url "https://github.com/sveinbjornt/osxiconutils.git",
@@ -30,7 +30,7 @@ class Folderify < Formula
   end
 
   def python3
-    "python3.10"
+    "python3.11"
   end
 
   def install
