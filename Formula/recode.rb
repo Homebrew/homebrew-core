@@ -17,7 +17,7 @@ class Recode < Formula
   end
 
   depends_on "libtool" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
   depends_on "gettext"
 
   # Fix -flat_namespace being used on Big Sur and later.
