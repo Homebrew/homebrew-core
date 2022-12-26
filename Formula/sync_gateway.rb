@@ -23,7 +23,7 @@ class SyncGateway < Formula
   depends_on "gnupg" => :build
   depends_on "go" => :build
   depends_on "repo" => :build
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def install
     # Cache the vendored Go dependencies gathered by depot_tools' `repo` command
