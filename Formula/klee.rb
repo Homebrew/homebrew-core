@@ -41,7 +41,7 @@ class Klee < Formula
   # LLVM 14 support in progress at https://github.com/klee/klee/pull/1477
   depends_on "llvm@13"
   depends_on "python-tabulate"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "sqlite"
   depends_on "stp"
   depends_on "wllvm"
