@@ -20,7 +20,7 @@ class EasyTag < Formula
   depends_on "intltool" => :build
   depends_on "itstool" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
   depends_on "adwaita-icon-theme"
   depends_on "flac"
   depends_on "gtk+3"
