@@ -26,7 +26,7 @@ class ConjureUp < Formula
   depends_on "juju-wait"
   depends_on "libyaml"
   depends_on "pwgen"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "redis"
 
   uses_from_macos "libffi"
@@ -274,7 +274,7 @@ class ConjureUp < Formula
     inreplace "conjureup/juju.py", "os.environ['JUJU']", "\"#{Formula["juju"].opt_bin}/juju\""
     inreplace "conjureup/juju.py", "os.environ['JUJU_WAIT']", "\"#{Formula["juju-wait"].opt_bin}/juju-wait\""
 
-    venv = virtualenv_create(libexec, "python3.10")
+    venv = virtualenv_create(libexec, "python3.11")
     venv.pip_install resource("cffi") # needs to be installed prior to bcrypt
     res = resources.map(&:name).to_set - ["cffi"]
 
