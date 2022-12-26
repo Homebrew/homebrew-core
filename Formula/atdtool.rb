@@ -20,7 +20,7 @@ class Atdtool < Formula
 
   disable! date: "2022-07-31", because: :repo_archived
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def install
     virtualenv_install_with_resources
