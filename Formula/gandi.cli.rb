@@ -23,7 +23,7 @@ class GandiCli < Formula
   # https://github.com/Gandi/gandi.cli#gandi-cli
   deprecate! date: "2022-11-05", because: :deprecated_upstream
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/6d/78/f8db8d57f520a54f0b8a438319c342c61c22759d8f9a1cd2e2180b5e5ea9/certifi-2021.5.30.tar.gz"
