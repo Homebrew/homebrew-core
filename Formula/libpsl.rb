@@ -1,10 +1,9 @@
 class Libpsl < Formula
   desc "C library for the Public Suffix List"
   homepage "https://rockdaboot.github.io/libpsl"
-  url "https://github.com/rockdaboot/libpsl/releases/download/0.21.1/libpsl-0.21.1.tar.gz"
-  sha256 "ac6ce1e1fbd4d0254c4ddb9d37f1fa99dec83619c1253328155206b896210d4c"
+  url "https://github.com/rockdaboot/libpsl/releases/download/0.21.2/libpsl-0.21.2.tar.gz"
+  sha256 "e35991b6e17001afa2c0ca3b10c357650602b92596209b7492802f3768a6285f"
   license "MIT"
-  revision 5
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "33e8c735f9e1bcbf1965f4fdb61ccf73afaacba62623f9bd708edd2e20c31974"
@@ -20,7 +19,7 @@ class Libpsl < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
   depends_on "icu4c"
 
   def install
