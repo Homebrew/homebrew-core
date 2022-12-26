@@ -26,7 +26,7 @@ class Mavsdk < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
   depends_on "six" => :build
   depends_on "abseil"
   depends_on "c-ares"
@@ -80,7 +80,7 @@ class Mavsdk < Formula
 
     # Install protoc-gen-mavsdk deps
     venv_dir = buildpath/"bootstrap"
-    venv = virtualenv_create(venv_dir, "python3.10")
+    venv = virtualenv_create(venv_dir, "python3.11")
     venv.pip_install resources
 
     # Install protoc-gen-mavsdk
