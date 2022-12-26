@@ -26,7 +26,7 @@ class AzureCli < Formula
 
   depends_on "rust" => :build # for cryptography
   depends_on "openssl@1.1"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   uses_from_macos "libffi"
 
@@ -750,7 +750,7 @@ class AzureCli < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3.10", system_site_packages: false)
+    venv = virtualenv_create(libexec, "python3.11", system_site_packages: false)
     venv.pip_install resources
 
     # Get the CLI components we'll install
