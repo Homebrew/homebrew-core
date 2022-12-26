@@ -30,18 +30,18 @@ class Stp < Formula
   depends_on "boost"
   depends_on "cryptominisat"
   depends_on "minisat"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   uses_from_macos "perl"
 
   def install
-    python = "python3.10"
+    python = "python3.11"
     site_packages = prefix/Language::Python.site_packages(python)
     site_packages.mkpath
     inreplace "lib/Util/GitSHA1.cpp.in", "@CMAKE_CXX_COMPILER@", ENV.cxx
 
     system "cmake", "-S", ".", "-B", "build",
-                    "-DPYTHON_EXECUTABLE=#{Formula["python@3.10"].opt_bin}/#{python}",
+                    "-DPYTHON_EXECUTABLE=#{Formula["python@3.11"].opt_bin}/#{python}",
                     "-DPYTHON_LIB_INSTALL_DIR=#{site_packages}",
                     *std_cmake_args
     system "cmake", "--build", "build"
