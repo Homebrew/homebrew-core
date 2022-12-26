@@ -27,7 +27,7 @@ class Ocrmypdf < Formula
   depends_on "pillow"
   depends_on "pngquant"
   depends_on "pybind11"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "qpdf"
   depends_on "tesseract"
   depends_on "unpaper"
@@ -119,7 +119,7 @@ class Ocrmypdf < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3.10")
+    venv = virtualenv_create(libexec, "python3.11")
     resource("reportlab").stage do
       (Pathname.pwd/"local-setup.cfg").write <<~EOS
         [FREETYPE_PATHS]
