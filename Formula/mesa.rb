@@ -31,7 +31,7 @@ class Mesa < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "pygments" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
   depends_on "xorgproto" => :build
 
   depends_on "expat"
@@ -87,7 +87,7 @@ class Mesa < Formula
 
   def install
     venv_root = buildpath/"venv"
-    venv = virtualenv_create(venv_root, "python3.10")
+    venv = virtualenv_create(venv_root, "python3.11")
 
     %w[Mako MarkupSafe].each do |res|
       venv.pip_install resource(res)
