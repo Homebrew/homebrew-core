@@ -21,7 +21,7 @@ class Resty < Formula
   uses_from_macos "perl"
 
   on_linux do
-    depends_on "python@3.10"
+    depends_on "python@3.11"
   end
 
   conflicts_with "nss", because: "both install `pp` binaries"
