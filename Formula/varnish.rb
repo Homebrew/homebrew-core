@@ -24,7 +24,7 @@ class Varnish < Formula
   depends_on "docutils" => :build
   depends_on "graphviz" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
   depends_on "sphinx-doc" => :build
   depends_on "pcre2"
 
@@ -32,7 +32,7 @@ class Varnish < Formula
   uses_from_macos "ncurses"
 
   def install
-    ENV["PYTHON"] = Formula["python@3.10"].opt_bin/"python3.10"
+    ENV["PYTHON"] = Formula["python@3.11"].opt_bin/"python3.11"
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
