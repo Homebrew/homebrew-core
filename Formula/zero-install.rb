@@ -27,7 +27,7 @@ class ZeroInstall < Formula
   depends_on "ocamlbuild" => :build
   depends_on "opam" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
   depends_on "gnupg"
 
   uses_from_macos "unzip" => :build
