@@ -104,6 +104,7 @@ class Libgccjit < Formula
 
     # Provide a `lib/gcc/xy` directory to align with the versioned GCC formulae.
     (lib/"gcc"/version.major).install_symlink (lib/"gcc/current").children
+    (lib).install_symlink  (lib/"gcc/current").children
   end
 
   test do
