@@ -6,6 +6,10 @@ class Bossa < Formula
   license "BSD-3-Clause"
   head "https://github.com/shumatech/BOSSA.git", branch: "master"
 
+  on_linux do
+    depends_on "readline"
+  end
+
   def install
     system "make", "bin/bossac", "bin/bossash"
     bin.install "bin/bossac"
