@@ -18,7 +18,7 @@ class CryticCompile < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "636660a2cbc68a7052b2291156b827c57b4e8ee629124691d1d3ba882931b942"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "solc-select"
 
   resource "pysha3" do
