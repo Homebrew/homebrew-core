@@ -20,7 +20,7 @@ class Genometools < Formula
   depends_on "pkg-config" => :build
   depends_on "cairo"
   depends_on "pango"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   on_linux do
     depends_on "libpthread-stubs" => :build
@@ -29,7 +29,7 @@ class Genometools < Formula
   conflicts_with "libslax", because: "both install `bin/gt`"
 
   def python3
-    "python3.10"
+    "python3.11"
   end
 
   def install
