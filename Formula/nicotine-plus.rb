@@ -22,7 +22,7 @@ class NicotinePlus < Formula
   depends_on "gtk+3"
   depends_on "py3cairo"
   depends_on "pygobject3"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def install
     virtualenv_install_with_resources
