@@ -24,11 +24,11 @@ class RdiffBackup < Formula
   end
 
   depends_on "librsync"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def install
     os = OS.mac? ? "macosx" : "linux-x86_64"
-    system "python3.10", "setup.py", "build", "--librsync-dir=#{prefix}"
+    system "python3.11", "setup.py", "build", "--librsync-dir=#{prefix}"
     libexec.install Dir["build/lib.#{os}*/rdiff_backup"]
     libexec.install Dir["build/scripts-*/*"]
     man1.install Dir["docs/*.1"]
