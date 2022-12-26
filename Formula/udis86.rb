@@ -22,7 +22,7 @@ class Udis86 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a8a15d4f3b8bad23184fdace5ddc482e4d1b5d7f98030791ecf91983ec909d5a"
   end
 
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
@@ -33,7 +33,7 @@ class Udis86 < Formula
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--enable-shared",
-                          "--with-python=#{which("python3.10")}"
+                          "--with-python=#{which("python3.11")}"
     system "make"
     system "make", "install"
   end
