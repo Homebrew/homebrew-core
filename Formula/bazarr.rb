@@ -25,7 +25,7 @@ class Bazarr < Formula
   depends_on "gcc"
   depends_on "numpy"
   depends_on "pillow"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "unar"
 
   uses_from_macos "libxml2"
@@ -43,8 +43,8 @@ class Bazarr < Formula
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/Language::Python.site_packages("python3.10")
-    venv = virtualenv_create(libexec, "python3.10")
+    ENV.prepend_create_path "PYTHONPATH", libexec/Language::Python.site_packages("python3.11")
+    venv = virtualenv_create(libexec, "python3.11")
 
     venv.pip_install resources
 
