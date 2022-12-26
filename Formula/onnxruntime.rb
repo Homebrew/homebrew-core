@@ -23,7 +23,7 @@ class Onnxruntime < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
 
   fails_with gcc: "5" # GCC version < 7 is no longer supported
 
@@ -31,7 +31,7 @@ class Onnxruntime < Formula
     cmake_args = %W[
       -Donnxruntime_RUN_ONNX_TESTS=OFF
       -Donnxruntime_GENERATE_TEST_REPORTS=OFF
-      -DPYTHON_EXECUTABLE=#{which("python3.10")}
+      -DPYTHON_EXECUTABLE=#{which("python3.11")}
       -Donnxruntime_BUILD_SHARED_LIB=ON
       -Donnxruntime_BUILD_UNIT_TESTS=OFF
     ]
