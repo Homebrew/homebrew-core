@@ -18,7 +18,7 @@ class SimpleTiles < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
   depends_on "cairo"
   depends_on "gdal"
   depends_on "pango"
@@ -35,7 +35,7 @@ class SimpleTiles < Formula
   end
 
   def install
-    ENV.prepend_path "PATH", Formula["python@3.10"].libexec/"bin"
+    ENV.prepend_path "PATH", Formula["python@3.11"].libexec/"bin"
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end
