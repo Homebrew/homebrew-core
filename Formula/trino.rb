@@ -18,7 +18,7 @@ class Trino < Formula
 
   depends_on "gnu-tar" => :build
   depends_on "openjdk"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   resource "trino-src" do
     url "https://github.com/trinodb/trino/archive/refs/tags/403.tar.gz", using: :nounzip
