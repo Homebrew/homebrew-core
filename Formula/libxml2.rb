@@ -35,7 +35,7 @@ class Libxml2 < Formula
 
   keg_only :provided_by_macos
 
-  depends_on "python@3.10" => [:build, :test]
+  depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.9" => [:build, :test]
   depends_on "pkg-config" => :test
