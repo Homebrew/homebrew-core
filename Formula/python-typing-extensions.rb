@@ -18,7 +18,7 @@ class PythonTypingExtensions < Formula
   end
 
   depends_on "flit" => :build
-  depends_on "python@3.10" => [:build, :test]
+  depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.11" => [:build, :test]
   depends_on "mypy" => :test
 
