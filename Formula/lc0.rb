@@ -21,7 +21,7 @@ class Lc0 < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.10" => :build # required to compile .pb files
+  depends_on "python@3.11" => :build # required to compile .pb files
   depends_on "eigen"
 
   uses_from_macos "zlib"
