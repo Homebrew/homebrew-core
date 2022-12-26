@@ -34,7 +34,7 @@ class Vtk < Formula
   depends_on "netcdf"
   depends_on "pugixml"
   depends_on "pyqt@5"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "qt@5"
   depends_on "sqlite"
   depends_on "theora"
@@ -100,7 +100,7 @@ class Vtk < Formula
       -DVTK_MODULE_USE_EXTERNAL_VTK_tiff:BOOL=ON
       -DVTK_MODULE_USE_EXTERNAL_VTK_utf8:BOOL=ON
       -DVTK_MODULE_USE_EXTERNAL_VTK_zlib:BOOL=ON
-      -DPython3_EXECUTABLE:FILEPATH=#{which("python3.10")}
+      -DPython3_EXECUTABLE:FILEPATH=#{which("python3.11")}
       -DVTK_GROUP_ENABLE_Qt:STRING=YES
       -DVTK_QT_VERSION:STRING=5
     ]
