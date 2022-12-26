@@ -3,7 +3,7 @@ class Kcov < Formula
   homepage "https://simonkagstrom.github.io/kcov/"
   url "https://github.com/SimonKagstrom/kcov/archive/v40.tar.gz"
   sha256 "6b1c11b066d57426d61375a31c3816f1fcd2610b447050c86d9920e22d5200b3"
-  license "GPL-3.0-or-later"
+  license "GPL-2.0-or-later"
   head "https://github.com/SimonKagstrom/kcov.git", branch: "master"
 
   # We check the Git tags because, as of writing, the "latest" release on GitHub
@@ -26,7 +26,7 @@ class Kcov < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
   depends_on "openssl@3"
 
   uses_from_macos "curl"
