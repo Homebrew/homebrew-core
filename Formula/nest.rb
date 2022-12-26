@@ -21,7 +21,7 @@ class Nest < Formula
   depends_on "gsl"
   depends_on "libtool"
   depends_on "numpy"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "readline"
 
   uses_from_macos "ncurses"
@@ -49,7 +49,7 @@ class Nest < Formula
       The PyNEST bindings and its dependencies are installed with the python@3.9 formula.
       If you want to use PyNEST, use the Python interpreter from this path:
 
-          #{Formula["python@3.10"].bin}
+          #{Formula["python@3.11"].bin}
 
       You may want to add this to your PATH.
     EOS
@@ -60,6 +60,6 @@ class Nest < Formula
     system bin/"nest", "--version"
 
     # check whether NEST is importable form python
-    system Formula["python@3.10"].bin/"python3.10", "-c", "'import nest'"
+    system Formula["python@3.11"].bin/"python3.11", "-c", "'import nest'"
   end
 end
