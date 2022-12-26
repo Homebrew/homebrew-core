@@ -19,7 +19,7 @@ class Serialosc < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a80b151ced619522b991261dfb4a40a18acd6b47a02c82a2748fe13b29636813"
   end
 
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
   depends_on "confuse"
   depends_on "liblo"
   depends_on "libmonome"
@@ -31,7 +31,7 @@ class Serialosc < Formula
   end
 
   def install
-    python3 = "python3.10"
+    python3 = "python3.11"
     system python3, "./waf", "configure", "--enable-system-libuv", "--prefix=#{prefix}"
     system python3, "./waf", "build"
     system python3, "./waf", "install"
