@@ -19,7 +19,7 @@ class Vineyard < Formula
 
   depends_on "cmake" => :build
   depends_on "llvm" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
   depends_on "apache-arrow"
   depends_on "boost"
   depends_on "etcd"
@@ -35,7 +35,7 @@ class Vineyard < Formula
   fails_with gcc: "5"
 
   def install
-    python = "python3.10"
+    python = "python3.11"
     # LLVM is keg-only.
     ENV.prepend_path "PYTHONPATH", Formula["llvm"].opt_prefix/Language::Python.site_packages(python)
 
