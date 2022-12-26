@@ -24,7 +24,7 @@ class Libvoikko < Formula
 
   depends_on "foma" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
   depends_on "hfstospell"
 
   resource "voikko-fi" do
