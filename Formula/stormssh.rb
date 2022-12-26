@@ -24,7 +24,7 @@ class Stormssh < Formula
   deprecate! date: "2022-11-28", because: :unmaintained
 
   depends_on "rust" => :build
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "six"
 
   uses_from_macos "libffi"
