@@ -25,7 +25,7 @@ class Amp < Formula
   uses_from_macos "zlib"
 
   on_linux do
-    depends_on "python@3.10" => :build
+    depends_on "python@3.11" => :build
     depends_on "libxcb"
   end
 
