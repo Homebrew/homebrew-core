@@ -21,7 +21,7 @@ class HaruhiDl < Formula
 
   deprecate! date: "2022-01-15", because: :deprecated_upstream
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def install
     virtualenv_install_with_resources
