@@ -18,7 +18,7 @@ class Libtensorflow < Formula
 
   depends_on "bazelisk" => :build
   depends_on "numpy" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
 
   resource "homebrew-test-model" do
     url "https://github.com/tensorflow/models/raw/v1.13.0/samples/languages/java/training/model/graph.pb"
@@ -34,7 +34,7 @@ class Libtensorflow < Formula
       "-march=native"
     end
     ENV["CC_OPT_FLAGS"] = optflag
-    ENV["PYTHON_BIN_PATH"] = which("python3.10")
+    ENV["PYTHON_BIN_PATH"] = which("python3.11")
     ENV["TF_IGNORE_MAX_BAZEL_VERSION"] = "1"
     ENV["TF_NEED_JEMALLOC"] = "1"
     ENV["TF_NEED_GCP"] = "0"
