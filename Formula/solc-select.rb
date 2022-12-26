@@ -18,7 +18,7 @@ class SolcSelect < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0ae84608d9ae072e478662e7dd672d14ea8ef9b688feb33814b642346dfb774e"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   resource "packaging" do
     url "https://files.pythonhosted.org/packages/df/9e/d1a7217f69310c1db8fdf8ab396229f55a699ce34a203691794c5d1cad0c/packaging-21.3.tar.gz"
