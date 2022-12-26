@@ -24,7 +24,7 @@ class Distcc < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   resource "libiberty" do
     url "https://ftp.debian.org/debian/pool/main/libi/libiberty/libiberty_20210106.orig.tar.xz"
