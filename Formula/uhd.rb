@@ -30,7 +30,7 @@ class Uhd < Formula
   depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "libusb"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   fails_with gcc: "5"
 
@@ -45,7 +45,7 @@ class Uhd < Formula
   end
 
   def install
-    python = "python3.10"
+    python = "python3.11"
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor"/Language::Python.site_packages(python)
 
     resources.each do |r|
