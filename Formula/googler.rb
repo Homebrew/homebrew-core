@@ -15,7 +15,7 @@ class Googler < Formula
 
   deprecate! date: "2022-01-24", because: :repo_archived
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   # Upstream PROTOCOL_TLS patch, review for removal on next release (if any)
   # https://github.com/jarun/googler/pull/426
