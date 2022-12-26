@@ -22,7 +22,7 @@ class Mono < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   uses_from_macos "unzip" => :build
   uses_from_macos "krb5"
