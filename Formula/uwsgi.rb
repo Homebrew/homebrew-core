@@ -20,7 +20,7 @@ class Uwsgi < Formula
   depends_on "pkg-config" => :build
   depends_on "openssl@1.1"
   depends_on "pcre"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "yajl"
 
   uses_from_macos "curl"
@@ -49,7 +49,7 @@ class Uwsgi < Formula
       embedded_plugins = null
     EOS
 
-    python3 = "python3.10"
+    python3 = "python3.11"
     system python3, "uwsgiconfig.py", "--verbose", "--build", "brew"
 
     plugins = %w[airbrake alarm_curl asyncio cache
