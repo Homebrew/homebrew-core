@@ -19,7 +19,7 @@ class SlitherAnalyzer < Formula
   end
 
   depends_on "crytic-compile"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "solc-select"
 
   resource "prettytable" do
@@ -34,7 +34,7 @@ class SlitherAnalyzer < Formula
 
   def install
     virtualenv_install_with_resources
-    site_packages = Language::Python.site_packages("python3.10")
+    site_packages = Language::Python.site_packages("python3.11")
     crytic_compile = Formula["crytic-compile"].opt_libexec
     (libexec/site_packages/"homebrew-crytic-compile.pth").write crytic_compile/site_packages
   end
