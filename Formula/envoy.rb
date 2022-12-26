@@ -34,7 +34,7 @@ class Envoy < Formula
 
   on_linux do
     depends_on "gcc@9" => [:build, :test] # Use host/Homebrew GCC runtime libraries.
-    depends_on "python@3.10" => :build
+    depends_on "python@3.11" => :build
   end
 
   # https://github.com/envoyproxy/envoy/tree/main/bazel#supported-compiler-versions
@@ -55,7 +55,7 @@ class Envoy < Formula
     env_path = if OS.mac?
       "#{HOMEBREW_PREFIX}/bin:/usr/bin:/bin"
     else
-      "#{Formula["python@3.10"].opt_bin}:#{HOMEBREW_PREFIX}/bin:/usr/bin:/bin"
+      "#{Formula["python@3.11"].opt_bin}:#{HOMEBREW_PREFIX}/bin:/usr/bin:/bin"
     end
     args = %W[
       --compilation_mode=opt
