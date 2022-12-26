@@ -17,7 +17,7 @@ class Py3cairo < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.10" => [:build, :test]
+  depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.11" => [:build, :test]
   depends_on "cairo"
 
