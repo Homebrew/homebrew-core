@@ -1,8 +1,8 @@
 class Sse2neon < Formula
   desc "Translator from Intel SSE intrinsics to Arm/Aarch64 NEON implementation"
   homepage "https://github.com/DLTcollab/sse2neon"
-  url "https://github.com/DLTcollab/sse2neon/archive/v1.5.1.tar.gz"
-  sha256 "4001e2dfb14fcf3831211581ed83bcc83cf6a3a69f638dcbaa899044a351bb2a"
+  url "https://github.com/DLTcollab/sse2neon/archive/v1.6.0.tar.gz"
+  sha256 "06f4693219deccb91b457135d836fc514a1c0a57e9fa66b143982901d2d19677"
   license "MIT"
   head "https://github.com/DLTcollab/sse2neon.git", branch: "master"
 
