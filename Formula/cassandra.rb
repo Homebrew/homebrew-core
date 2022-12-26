@@ -21,7 +21,7 @@ class Cassandra < Formula
 
   depends_on "libcython" => :build
   depends_on "openjdk@11"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "six"
 
   resource "thrift" do
@@ -53,7 +53,7 @@ class Cassandra < Formula
     (var/"lib/cassandra").mkpath
     (var/"log/cassandra").mkpath
 
-    python3 = "python3.10"
+    python3 = "python3.11"
     venv = virtualenv_create(libexec/"vendor", python3)
     venv.pip_install resources
 
