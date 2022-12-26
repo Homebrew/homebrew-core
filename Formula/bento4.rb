@@ -24,7 +24,7 @@ class Bento4 < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   conflicts_with "gpac", because: "both install `mp42ts` binaries"
   conflicts_with "mp4v2", because: "both install `mp4extract` and `mp4info` binaries"
