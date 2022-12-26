@@ -24,7 +24,7 @@ class Suil < Formula
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
   depends_on "gtk+3"
   depends_on "lv2"
   depends_on "qt@5"
