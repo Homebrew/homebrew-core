@@ -18,15 +18,15 @@ class LtexLs < Formula
   end
 
   depends_on "maven" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
   depends_on "openjdk"
 
   def install
-    ENV.prepend_path "PATH", Formula["python@3.10"].opt_libexec/"bin"
+    ENV.prepend_path "PATH", Formula["python@3.11"].opt_libexec/"bin"
     ENV["JAVA_HOME"] = Formula["openjdk"].opt_prefix
     ENV["TMPDIR"] = buildpath
 
-    system "python3.10", "-u", "tools/createCompletionLists.py"
+    system "python3.11", "-u", "tools/createCompletionLists.py"
 
     system "mvn", "-B", "-e", "-DskipTests", "package"
 
