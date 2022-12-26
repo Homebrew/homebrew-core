@@ -23,7 +23,7 @@ class Ns3 < Formula
 
   depends_on "gsl"
   depends_on "open-mpi"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   uses_from_macos "libxml2"
   uses_from_macos "sqlite"
@@ -64,7 +64,7 @@ class Ns3 < Formula
 
     # Starting 3.36, bindings are no longer installed
     # https://gitlab.com/nsnam/ns-3-dev/-/merge_requests/1060
-    site_packages = Language::Python.site_packages("python3.10")
+    site_packages = Language::Python.site_packages("python3.11")
     (prefix/site_packages).install (buildpath/"build/bindings/python").children
 
     pkgshare.install "examples/tutorial/first.cc", "examples/tutorial/first.py"
@@ -77,7 +77,7 @@ class Ns3 < Formula
            "-std=c++17", "-o", "test"
     system "./test"
 
-    system Formula["python@3.10"].opt_bin/"python3.10", pkgshare/"first.py"
+    system Formula["python@3.11"].opt_bin/"python3.11", pkgshare/"first.py"
   end
 end
 
