@@ -30,7 +30,7 @@ class SpiceGtk < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
   depends_on "six" => :build
   depends_on "vala" => :build
 
@@ -63,7 +63,7 @@ class SpiceGtk < Formula
   end
 
   def install
-    venv = virtualenv_create(buildpath/"venv", "python3.10")
+    venv = virtualenv_create(buildpath/"venv", "python3.11")
     venv.pip_install resources
     ENV.prepend_path "PATH", buildpath/"venv/bin"
 
