@@ -13,7 +13,7 @@ class Pygments < Formula
     sha256 cellar: :any_skip_relocation, all: "4c44f5496e7479ed4e0e020185e2601c4a4d8c16b3e2b88c2a6352c89cd79bb2"
   end
 
-  depends_on "python@3.10" => [:build, :test]
+  depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.11" => [:build, :test]
 
   def pythons
