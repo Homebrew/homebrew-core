@@ -22,7 +22,7 @@ class OrganizeTool < Formula
   depends_on "freetype"
   depends_on "openjpeg"
   depends_on "pygments"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "six"
 
@@ -87,7 +87,7 @@ class OrganizeTool < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3.10")
+    venv = virtualenv_create(libexec, "python3.11")
     dependencies = resources.map(&:name).to_set
     if OS.linux?
       # `macos-tags` and its dependencies are only needed on macOS
