@@ -32,7 +32,7 @@ class GtkDoc < Formula
   depends_on "docbook"
   depends_on "docbook-xsl"
   depends_on "libxml2"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   uses_from_macos "libxslt"
 
@@ -55,7 +55,7 @@ class GtkDoc < Formula
     # To avoid recording pkg-config shims path
     ENV.prepend_path "PATH", Formula["pkg-config"].bin
 
-    venv = virtualenv_create(libexec, "python3.10")
+    venv = virtualenv_create(libexec, "python3.11")
     venv.pip_install resources
     ENV.prepend_path "PATH", libexec/"bin"
 
