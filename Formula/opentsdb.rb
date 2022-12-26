@@ -19,7 +19,7 @@ class Opentsdb < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "openjdk@8" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
   depends_on "gnuplot"
   depends_on "hbase"
   depends_on "lzo"
@@ -27,7 +27,7 @@ class Opentsdb < Formula
 
   def install
     with_env(JAVA_HOME: Language::Java.java_home("1.8")) do
-      ENV.prepend_path "PATH", Formula["python@3.10"].opt_libexec/"bin"
+      ENV.prepend_path "PATH", Formula["python@3.11"].opt_libexec/"bin"
       system "autoreconf", "--force", "--install", "--verbose"
       system "./configure", "--disable-silent-rules",
                             "--prefix=#{prefix}",
