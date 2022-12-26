@@ -26,12 +26,12 @@ class Nwchem < Formula
   depends_on "gcc" # for gfortran
   depends_on "open-mpi"
   depends_on "openblas"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "scalapack"
 
   uses_from_macos "libxcrypt"
 
-  # patches for compatibility with python@3.10
+  # patches for compatibility with python@3.11
   # https://github.com/nwchemgit/nwchem/issues/271
   patch do
     url "https://github.com/nwchemgit/nwchem/commit/638401361c6f294164a4f820ff867a62ac836fd5.patch?full_index=1"
@@ -70,7 +70,7 @@ class Nwchem < Formula
       inreplace "util/util_nwchemrc.F", "/etc/nwchemrc", "#{etc}/nwchemrc"
 
       # needed to use python 3.X to skip using default python2
-      ENV["PYTHONVERSION"] = Language::Python.major_minor_version "python3.10"
+      ENV["PYTHONVERSION"] = Language::Python.major_minor_version "python3.11"
       ENV["BLASOPT"] = "-L#{Formula["openblas"].opt_lib} -lopenblas"
       ENV["LAPACK_LIB"] = "-L#{Formula["openblas"].opt_lib} -lopenblas"
       ENV["BLAS_SIZE"] = "4"
