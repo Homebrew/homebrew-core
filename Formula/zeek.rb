@@ -59,6 +59,8 @@ class Zeek < Formula
                       "-DUSE_GEOIP=on",
                       "-DCAF_ROOT=#{Formula["caf"].opt_prefix}",
                       "-DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}",
+                      "-DZEEK_ROOT_DIR=#{prefix}",
+                      "-DZEEK_LIBDIR_PATH=#{lib}",
                       "-DZEEK_ETC_INSTALL_DIR=#{etc}",
                       "-DZEEK_LOCAL_STATE_DIR=#{var}"
     system "cmake", "--build", "build"
