@@ -3,6 +3,7 @@ class Star < Formula
   homepage "https://cdrtools.sourceforge.io/private/star.html"
   url "https://downloads.sourceforge.net/project/s-tar/star-1.5.3.tar.bz2"
   sha256 "070342833ea83104169bf956aa880bcd088e7af7f5b1f8e3d29853b49b1a4f5b"
+  license "CDDL-1.0"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2ff2215c3e9ccb9d58eedaa95e868df3e7f04c2ee76dd56390eb1f6db327e276"
