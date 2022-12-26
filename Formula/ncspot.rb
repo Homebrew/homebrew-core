@@ -16,7 +16,7 @@ class Ncspot < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d432f52dfc912a31948b811a026eb0dd2dc757d1cbb224a99d417ea13497a0c2"
   end
 
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
   depends_on "rust" => :build
   depends_on "portaudio"
 
