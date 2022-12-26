@@ -22,7 +22,7 @@ class Clblas < Formula
 
   depends_on "boost" => :build
   depends_on "cmake" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
 
   on_linux do
     depends_on "opencl-headers" => [:build, :test]
