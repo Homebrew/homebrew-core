@@ -24,7 +24,7 @@ class Libpeas < Formula
   depends_on "gobject-introspection"
   depends_on "gtk+3"
   depends_on "pygobject3"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def install
     args = %w[
