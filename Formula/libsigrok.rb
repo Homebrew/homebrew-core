@@ -65,7 +65,7 @@ class Libsigrok < Formula
   depends_on "nettle"
   depends_on "numpy"
   depends_on "pygobject3"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   resource "fw-fx2lafw" do
     url "https://sigrok.org/download/binary/sigrok-firmware-fx2lafw/sigrok-firmware-fx2lafw-bin-0.1.7.tar.gz"
@@ -73,7 +73,7 @@ class Libsigrok < Formula
   end
 
   def install
-    python = "python3.10"
+    python = "python3.11"
 
     resource("fw-fx2lafw").stage do
       if build.head?
@@ -151,7 +151,7 @@ class Libsigrok < Formula
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
 
-    system Formula["python@3.10"].opt_bin/"python3.10", "-c", <<~EOS
+    system Formula["python@3.11"].opt_bin/"python3.11", "-c", <<~EOS
       import sigrok.core as sr
       sr.Context_create()
     EOS
