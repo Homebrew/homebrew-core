@@ -18,7 +18,7 @@ class Nanomsgxx < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
   depends_on "nanomsg"
 
   # Add python3 support
@@ -53,7 +53,7 @@ class Nanomsgxx < Formula
       --prefix=#{prefix}
     ]
 
-    python3 = "python3.10"
+    python3 = "python3.11"
     system python3, "./waf", "configure", *args
     system python3, "./waf", "build"
     system python3, "./waf", "install"
