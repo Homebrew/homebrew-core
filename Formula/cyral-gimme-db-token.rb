@@ -125,6 +125,9 @@ class CyralGimmeDbToken < Formula
     sha256 "3fa96cf423e6987997fc326ae8df396db2a8b7c667747d47ddd8ecba91f4a74e"
   end
 
+  # patch to use latest poetry_core to fix build
+  patch :DATA
+
   def install
     virtualenv_install_with_resources
   end
@@ -137,3 +140,18 @@ class CyralGimmeDbToken < Formula
     assert_match "Error: Invalid value", shell_output("#{bin}/gimme_db_token unsupported 2>&1", 2)
   end
 end
+
+__END__
+diff --git a/pyproject.toml b/pyproject.toml
+index f88b284..e8b5fbd 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -28,6 +28,5 @@ flake8 = "^3.8.4"
+ [tool.poetry.scripts]
+ gimme_db_token = "gimme_db_token.__main__:run"
+ [build-system]
+-requires = ["poetry>=0.12"]
+-build-backend = "poetry.masonry.api"
+-
++requires = ["poetry_core>=1.0.0"]
++build-backend = "poetry.core.masonry.api"
