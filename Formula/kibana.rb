@@ -17,7 +17,7 @@ class Kibana < Formula
   # https://www.elastic.co/blog/licensing-change
   disable! date: "2022-07-31", because: "is switching to an incompatible license"
 
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
   depends_on "yarn" => :build
   depends_on "node@10"
 
