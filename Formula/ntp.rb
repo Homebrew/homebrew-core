@@ -4,6 +4,7 @@ class Ntp < Formula
   url "https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/ntp-4.2.8p15.tar.gz"
   version "4.2.8p15"
   sha256 "f65840deab68614d5d7ceb2d0bb9304ff70dcdedd09abb79754a87536b849c19"
+  license all_of: ["BSD-2-Clause", "NTP"]
 
   livecheck do
     url "https://www.ntp.org/downloads.html"
