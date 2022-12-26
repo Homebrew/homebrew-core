@@ -25,7 +25,7 @@ class CdogsSdl < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "protobuf" => :build
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "sdl2"
   depends_on "sdl2_image"
   depends_on "sdl2_mixer"
