@@ -42,7 +42,7 @@ class Gnuradio < Formula
   depends_on "pygments"
   depends_on "pygobject3"
   depends_on "pyqt@5"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "qt@5"
   depends_on "qwt-qt5"
@@ -92,7 +92,7 @@ class Gnuradio < Formula
   end
 
   def install
-    python = "python3.10"
+    python = "python3.11"
     ENV.cxx11
 
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
@@ -230,6 +230,6 @@ class Gnuradio < Formula
 
       main()
     EOS
-    system Formula["python@3.10"].opt_bin/"python3.10", testpath/"test.py"
+    system Formula["python@3.11"].opt_bin/"python3.11", testpath/"test.py"
   end
 end
