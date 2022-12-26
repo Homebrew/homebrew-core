@@ -59,6 +59,9 @@ class Traildb < Formula
     ENV["PREFIX"] = prefix
     ENV.append "CFLAGS", "-I#{judyprefix}/include"
     ENV.append "LDFLAGS", "-L#{judyprefix}/lib"
+
+    # fix `libarchive` not found issue
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["libarchive"].opt_lib/"pkgconfig"
     system "python3.11", "./waf", "configure", "install"
   end
 
