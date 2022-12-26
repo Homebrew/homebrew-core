@@ -10,7 +10,7 @@ class Six < Formula
     sha256 cellar: :any_skip_relocation, all: "0dee50367c6facbfc8f65e8a82bcd3e08d43da262b1adff6ccf943ef5bfaf313"
   end
 
-  depends_on "python@3.10" => [:build, :test]
+  depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.9" => [:build, :test]
 
