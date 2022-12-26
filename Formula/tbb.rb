@@ -19,7 +19,7 @@ class Tbb < Formula
   # If adding `hwloc` for TBBBind, you *must* add a test for its functionality.
   # https://github.com/oneapi-src/oneTBB/blob/690aaf497a78a75ff72cddb084579427ab0a8ffc/CMakeLists.txt#L226-L228
   depends_on "cmake" => :build
-  depends_on "python@3.10" => [:build, :test]
+  depends_on "python@3.11" => [:build, :test]
   depends_on "swig" => :build
 
   # Fix installation of Python components
@@ -36,8 +36,8 @@ class Tbb < Formula
 
   def install
     # Prevent `setup.py` from installing tbb4py directly into HOMEBREW_PREFIX.
-    # We need this due to our `python@3.10` patch.
-    python = Formula["python@3.10"].opt_bin/"python3.10"
+    # We need this due to our `python@3.11` patch.
+    python = Formula["python@3.11"].opt_bin/"python3.11"
     site_packages = Language::Python.site_packages(python)
     inreplace "python/CMakeLists.txt", "@@SITE_PACKAGES@@", site_packages
 
@@ -109,7 +109,7 @@ class Tbb < Formula
     system ENV.cxx, "sum1-100.cpp", "--std=c++14", "-L#{lib}", "-ltbb", "-o", "sum1-100"
     assert_equal "5050", shell_output("./sum1-100").chomp
 
-    system Formula["python@3.10"].opt_bin/"python3.10", "-c", "import tbb"
+    system Formula["python@3.11"].opt_bin/"python3.11", "-c", "import tbb"
   end
 end
 
