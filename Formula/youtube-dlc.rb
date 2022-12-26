@@ -21,11 +21,11 @@ class YoutubeDlc < Formula
   deprecate! date: "2022-03-21", because: :unmaintained
 
   depends_on "pandoc" => :build
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   uses_from_macos "zip" => :build
 
   def install
-    system "make", "PYTHON=#{which("python3.10")}"
+    system "make", "PYTHON=#{which("python3.11")}"
     bin.install "youtube-dlc"
     bash_completion.install "youtube-dlc.bash-completion"
     zsh_completion.install "youtube-dlc.zsh"
