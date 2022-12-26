@@ -22,7 +22,7 @@ class Textract < Formula
   depends_on "flac"
   depends_on "pillow"
   depends_on "poppler"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "six"
   depends_on "swig"
   depends_on "tesseract"
@@ -138,7 +138,7 @@ class Textract < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3.10")
+    venv = virtualenv_create(libexec, "python3.11")
 
     # ebcdic is special
     venv.pip_install resources.reject { |r| r.name == "ebcdic" }
@@ -147,7 +147,7 @@ class Textract < Formula
     end
     # delete the flac binaries that SpeechRecognition installed;
     # the `flac` formula already provides them
-    rm libexec.glob("lib/python3.10/site-packages/speech_recognition/flac*")
+    rm libexec.glob("lib/python3.11/site-packages/speech_recognition/flac*")
 
     venv.pip_install_and_link buildpath
   end
