@@ -19,7 +19,7 @@ class Libmonome < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6ca287c1aaf218fefae314b503f2ae1b4cd112c37dd317c4fda95106f2284354"
   end
 
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
   depends_on "liblo"
 
   def install
