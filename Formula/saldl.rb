@@ -21,7 +21,7 @@ class Saldl < Formula
   depends_on "asciidoc" => :build
   depends_on "docbook-xsl" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
   depends_on "curl" # curl >= 7.55 is required
   depends_on "libevent"
 
@@ -38,7 +38,7 @@ class Saldl < Formula
     # head uses git describe to acquire a version
     args << "--saldl-version=v#{version}" unless build.head?
 
-    python3 = "python3.10"
+    python3 = "python3.11"
     system python3, "./waf", "configure", *args
     system python3, "./waf", "build"
     system python3, "./waf", "install"
