@@ -24,7 +24,7 @@ class Ciphey < Formula
   depends_on "poetry" => :build
   depends_on "swig" => :build
   depends_on "libyaml"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "six"
 
   on_linux do
@@ -169,7 +169,7 @@ class Ciphey < Formula
   end
 
   def python3
-    "python3.10"
+    "python3.11"
   end
 
   def install
