@@ -22,7 +22,7 @@ class Rtv < Formula
   # Deprecation added 2020-06-15 / deprecated since 2019-06-02
   disable! date: "2022-06-08", because: :repo_archived
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "six"
 
   resource "beautifulsoup4" do
