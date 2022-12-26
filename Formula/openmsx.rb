@@ -24,7 +24,7 @@ class Openmsx < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f8cd4e2d13c394406ad516d6a19d4613ef09b7f684ae43f44161e13f91740508"
   end
 
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
   depends_on "freetype"
   depends_on "glew"
   depends_on "libogg"
