@@ -22,13 +22,13 @@ class Gexiv2 < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "pygobject3" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
   depends_on "vala" => :build
   depends_on "exiv2"
   depends_on "glib"
 
   def install
-    site_packages = prefix/Language::Python.site_packages("python3.10")
+    site_packages = prefix/Language::Python.site_packages("python3.11")
 
     system "meson", *std_meson_args, "build", "-Dpython3_girdir=#{site_packages}/gi/overrides"
     system "meson", "compile", "-C", "build", "-v"
