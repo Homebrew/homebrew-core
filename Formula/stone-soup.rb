@@ -22,7 +22,7 @@ class StoneSoup < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
   depends_on "pyyaml" => :build
   depends_on "lua@5.1"
   depends_on "pcre"
