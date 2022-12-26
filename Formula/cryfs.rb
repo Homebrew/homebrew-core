@@ -23,7 +23,7 @@ class Cryfs < Formula
   depends_on "libfuse@2"
   depends_on :linux # on macOS, requires closed-source macFUSE
   depends_on "openssl@1.1"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "range-v3"
   depends_on "spdlog"
 
@@ -35,7 +35,7 @@ class Cryfs < Formula
   end
 
   def install
-    python = "python3.10"
+    python = "python3.11"
     venv_root = buildpath/"venv"
 
     venv = virtualenv_create(venv_root, python)
