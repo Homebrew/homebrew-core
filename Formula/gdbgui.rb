@@ -18,7 +18,7 @@ class Gdbgui < Formula
 
   depends_on arch: :x86_64 # gdb is not supported on macOS ARM
   depends_on "gdb"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   resource "bidict" do
     url "https://files.pythonhosted.org/packages/bd/7c/83fbbc8568be511bc48704b97ef58f67ff2ab85ec4fcd1dad12cd2323c32/bidict-0.21.2.tar.gz"
