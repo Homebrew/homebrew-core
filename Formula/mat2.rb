@@ -17,7 +17,7 @@ class Mat2 < Formula
   depends_on "poppler"
   depends_on "py3cairo"
   depends_on "pygobject3"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   resource "mutagen" do
     url "https://files.pythonhosted.org/packages/f3/d9/2232a4cb9a98e2d2501f7e58d193bc49c956ef23756d7423ba1bd87e386d/mutagen-1.45.1.tar.gz"
@@ -25,7 +25,7 @@ class Mat2 < Formula
   end
 
   def install
-    python = "python3.10"
+    python = "python3.11"
 
     ENV.append_path "PYTHONPATH", prefix/Language::Python.site_packages(python)
     ENV.append_path "PYTHONPATH", Formula["pygobject3"].opt_prefix/Language::Python.site_packages(python)
