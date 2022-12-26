@@ -22,7 +22,7 @@ class Wxpython < Formula
   depends_on "sip" => :build
   depends_on "numpy"
   depends_on "pillow"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "six"
   depends_on "wxwidgets"
 
@@ -41,7 +41,7 @@ class Wxpython < Formula
 
   def install
     ENV["DOXYGEN"] = Formula["doxygen"].opt_bin/"doxygen"
-    python = "python3.10"
+    python = "python3.11"
     system python, "-u", "build.py", "dox", "touch", "etg", "sip", "build_py",
                    "--release",
                    "--use_syswx",
@@ -55,7 +55,7 @@ class Wxpython < Formula
   end
 
   test do
-    python = Formula["python@3.10"].opt_bin/"python3.10"
+    python = Formula["python@3.11"].opt_bin/"python3.11"
     output = shell_output("#{python} -c 'import wx ; print(wx.__version__)'")
     assert_match version.to_s, output
   end
