@@ -22,7 +22,7 @@ class Prestodb < Formula
   # https://github.com/prestodb/presto/issues/17146
   depends_on arch: :x86_64
   depends_on "openjdk@11"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   resource "presto-cli" do
     url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-cli/0.278.1/presto-cli-0.278.1-executable.jar"
