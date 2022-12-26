@@ -23,7 +23,7 @@ class Gpsd < Formula
   end
 
   depends_on "asciidoctor" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
   depends_on "scons" => :build
 
   uses_from_macos "ncurses"
