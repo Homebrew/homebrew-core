@@ -18,10 +18,10 @@ class FbiServefiles < Formula
 
   disable! date: "2022-07-31", because: :repo_archived
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def install
-    venv = virtualenv_create(libexec, "python3.10")
+    venv = virtualenv_create(libexec, "python3.11")
     venv.pip_install_and_link buildpath/"servefiles"
   end
 
