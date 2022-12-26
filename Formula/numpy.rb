@@ -18,7 +18,7 @@ class Numpy < Formula
 
   depends_on "gcc" => :build # for gfortran
   depends_on "libcython" => :build
-  depends_on "python@3.10" => [:build, :test]
+  depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.11" => [:build, :test]
   depends_on "openblas"
 
@@ -27,7 +27,7 @@ class Numpy < Formula
   def pythons
     deps.map(&:to_formula)
         .select { |f| f.name.match?(/^python@\d\.\d+$/) }
-        .sort_by(&:version) # so that `bin/f2py` and `bin/f2py3` use python3.10
+        .sort_by(&:version) # so that `bin/f2py` and `bin/f2py3` use python3.11
         .map { |f| f.opt_libexec/"bin/python" }
   end
 
