@@ -19,7 +19,7 @@ class Ispc < Formula
   depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "flex" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
   depends_on "llvm@14"
 
   fails_with gcc: "5"
