@@ -19,7 +19,7 @@ class Uftrace < Formula
   depends_on :linux
   depends_on "luajit"
   depends_on "ncurses"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def install
     # Obsolete with git master, to be removed when updating to next release
