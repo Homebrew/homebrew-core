@@ -26,7 +26,7 @@ class OnlykeyAgent < Formula
   depends_on "libcython"
   depends_on "libusb"
   depends_on "openssl@1.1" # for cryptography
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "six"
 
   resource "aenum" do
@@ -195,7 +195,7 @@ class OnlykeyAgent < Formula
   end
 
   def install
-    python3 = "python3.10"
+    python3 = "python3.11"
     # prevent "fatal error: libusb.h: No such file or directory" when building hidapi on linux
     ENV.append_to_cflags "-I#{Formula["libusb"].include}/libusb-1.0"
     # replacement for virtualenv_install_with_resources per https://docs.brew.sh/Python-for-Formula-Authors
