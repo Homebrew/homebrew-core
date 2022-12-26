@@ -28,13 +28,13 @@ class Vault < Formula
   depends_on "go" => :build
   depends_on "gox" => :build
   depends_on "node@18" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
   depends_on "yarn" => :build
 
   def install
     # Needs both `npm` and `python` in PATH
     ENV.prepend_path "PATH", Formula["node@18"].opt_libexec/"bin"
-    ENV.prepend_path "PATH", Formula["python@3.10"].opt_libexec/"bin" if OS.mac?
+    ENV.prepend_path "PATH", Formula["python@3.11"].opt_libexec/"bin" if OS.mac?
     ENV.prepend_path "PATH", "#{ENV["GOPATH"]}/bin"
     system "make", "bootstrap", "static-dist", "dev-ui"
     bin.install "bin/vault"
