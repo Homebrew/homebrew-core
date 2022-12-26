@@ -20,11 +20,12 @@ class Gflags < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "abf5d21a3d9ebed989bc047eec0c14b0b22a53ca0f1140149e158a89cd06a31f"
   end
 
-  depends_on "cmake" => :build
+  depends_on "cmake" => [:build, :test]
 
   def install
     mkdir "buildroot" do
-      system "cmake", "..", *std_cmake_args, "-DBUILD_SHARED_LIBS=ON"
+      system "cmake", "..", *std_cmake_args, "-DBUILD_SHARED_LIBS=ON", "-DBUILD_STATIC_LIBS=ON",
+                                             "-DCMAKE_POSITION_INDEPENDENT_CODE=ON"
       system "make", "install"
     end
   end
@@ -57,5 +58,16 @@ class Gflags < Formula
     system ENV.cxx, "test.cpp", "-L#{lib}", "-lgflags", "-o", "test"
     assert_match "Hello world!", shell_output("./test")
     assert_match "Foo bar!", shell_output("./test --message='Foo bar!'")
+
+    (testpath/"CMakeLists.txt").write <<~EOS
+      cmake_minimum_required(VERSION 2.8)
+      project(cmake_test)
+      add_executable(${PROJECT_NAME} test.cpp)
+      find_package(gflags REQUIRED COMPONENTS static)
+      target_link_libraries(${PROJECT_NAME} PRIVATE ${GFLAGS_LIBRARIES})
+    EOS
+    system "cmake", testpath.to_s
+    system "cmake", "--build", testpath.to_s
+    assert_match "Hello world!", shell_output("./cmake_test")
   end
 end
