@@ -37,7 +37,7 @@ class Opencv < Formula
   depends_on "openexr"
   depends_on "openjpeg"
   depends_on "protobuf"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "tbb"
   depends_on "vtk"
   depends_on "webp"
@@ -67,7 +67,7 @@ class Opencv < Formula
   end
 
   def python3
-    "python3.10"
+    "python3.11"
   end
 
   def install
