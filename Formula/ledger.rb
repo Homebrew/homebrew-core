@@ -27,7 +27,7 @@ class Ledger < Formula
   depends_on "boost"
   depends_on "gmp"
   depends_on "mpfr"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   uses_from_macos "libedit"
 
@@ -45,7 +45,7 @@ class Ledger < Formula
 
   def install
     ENV.cxx11
-    ENV.prepend_path "PATH", Formula["python@3.10"].opt_libexec/"bin"
+    ENV.prepend_path "PATH", Formula["python@3.11"].opt_libexec/"bin"
 
     args = %W[
       --jobs=#{ENV.make_jobs}
