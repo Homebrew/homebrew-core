@@ -22,6 +22,11 @@ class Inform6 < Formula
   end
 
   def install
+    if OS.mac?
+      inreplace "Makefile", "-DUNIX", "-DMACOS"
+    else
+      inreplace "Makefile", "-DUNIX", "-DLINUX"
+    end
     # Parallel install fails because of: https://gitlab.com/DavidGriffith/inform6unix/-/issues/26
     ENV.deparallelize
     system "make", "PREFIX=#{prefix}", "MAN_PREFIX=#{man}", "MANDIR=#{man1}", "install"
