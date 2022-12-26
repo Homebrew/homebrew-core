@@ -23,7 +23,7 @@ class V8 < Formula
   end
 
   depends_on "ninja" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
 
   on_macos do
     depends_on "llvm" => :build
@@ -92,7 +92,7 @@ class V8 < Formula
     # Build gn from source and add it to the PATH
     (buildpath/"gn").install resource("gn")
     cd "gn" do
-      system "python3.10", "build/gen.py"
+      system "python3.11", "build/gen.py"
       system "ninja", "-C", "out/", "gn"
     end
     ENV.prepend_path "PATH", buildpath/"gn/out"
