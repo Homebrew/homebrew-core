@@ -24,7 +24,7 @@ class GstPython < Formula
   depends_on "ninja" => :build
   depends_on "gst-plugins-base"
   depends_on "pygobject3"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   # See https://gitlab.freedesktop.org/gstreamer/gst-python/-/merge_requests/41
   patch do
@@ -33,7 +33,7 @@ class GstPython < Formula
   end
 
   def python3
-    which("python3.10")
+    which("python3.11")
   end
 
   def install
