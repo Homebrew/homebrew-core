@@ -62,12 +62,6 @@ class Mold < Formula
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
-    inreplace buildpath.glob("test/macho/*.sh"), "./ld64", bin/"ld64.mold", false
-    inreplace buildpath.glob("test/elf/*.sh") do |s|
-      s.gsub!(%r{(\./|`pwd`/)?mold-wrapper}, lib/"mold/mold-wrapper", false)
-      s.gsub!(%r{(\.|`pwd`)/mold}, bin/"mold", false)
-      s.gsub!(/-B(\.|`pwd`)/, "-B#{libexec}/mold", false)
-    end
     pkgshare.install "test"
   end
 
@@ -82,32 +76,33 @@ class Mold < Formula
     else odie "unexpected compiler"
     end
 
-    system ENV.cc, linker_flag, "test.c"
-    system "./a.out"
-    # Tests use `--ld-path`, which is not supported on old versions of Apple Clang.
-    return if OS.mac? && MacOS.version < :big_sur
+    extra_flags = []
+    extra_flags += %w[--target=x86_64-unknown-linux-gnu -nostdlib] unless OS.linux?
+
+    system ENV.cc, linker_flag, *extra_flags, "test.c"
+    if OS.linux?
+      system "./a.out"
+    else
+      assert_match "ELF 64-bit LSB executable, x86-64", shell_output("file a.out")
+    end
+
+    return unless OS.linux?
 
     cp_r pkgshare/"test", testpath
-    if OS.mac?
-      # Delete failing test. Reported upstream at
-      # https://github.com/rui314/mold/issues/735
-      if (MacOS.version >= :monterey) && Hardware::CPU.arm?
-        untested = %w[libunwind objc-selector]
-        testpath.glob("test/macho/{#{untested.join(",")}}.sh").map(&:unlink)
-      end
-      testpath.glob("test/macho/*.sh").each { |t| system t }
-    else
-      # The substitution rules in the install method do not work well on this
-      # test. To avoid adding too much complexity to the regex rules, it is
-      # manually tested below instead.
-      (testpath/"test/elf/mold-wrapper2.sh").unlink
-      assert_match "mold-wrapper.so",
-        shell_output("#{bin}/mold -run bash -c 'echo $LD_PRELOAD'")
-      # This test file does not have permission to execute, so we skip it.
-      # Remove on next release as this is already fixed upstream.
-      (testpath/"test/elf/section-order.sh").unlink
-      # Run the remaining tests.
-      testpath.glob("test/elf/*.sh").each { |t| system t }
+    inreplace testpath.glob("test/elf/*.sh") do |s|
+      s.gsub!(%r{(\./|`pwd`/)?mold-wrapper}, lib/"mold/mold-wrapper", false)
+      s.gsub!(%r{(\.|`pwd`)/mold}, bin/"mold", false)
+      s.gsub!(/-B(\.|`pwd`)/, "-B#{libexec}/mold", false)
     end
+
+    # The `inreplace` rules above do not work well on this test. To avoid adding
+    # too much complexity to the regex rules, it is manually tested below
+    # instead.
+    (testpath/"test/elf/mold-wrapper2.sh").unlink
+    assert_match "mold-wrapper.so",
+      shell_output("#{bin}/mold -run bash -c 'echo $LD_PRELOAD'")
+
+    # Run the remaining tests.
+    testpath.glob("test/elf/*.sh").each { |t| system "bash", t }
   end
 end
