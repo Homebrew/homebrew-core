@@ -66,7 +66,9 @@ class Itk < Formula
       -DModule_ITKVtkGlue=ON
       -DModule_SCIFIO=ON
     ]
-    args << "-DITK_USE_GPU=ON" if OS.mac?
+    # Cannot compile on macOS with this arg
+    # Upstream issue: https://github.com/InsightSoftwareConsortium/ITK/issues/3821
+    # args << "-DITK_USE_GPU=ON" if OS.mac?
 
     # Avoid references to the Homebrew shims directory
     inreplace "Modules/Core/Common/src/CMakeLists.txt" do |s|
