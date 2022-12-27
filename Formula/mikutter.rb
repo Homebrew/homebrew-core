@@ -24,6 +24,9 @@ class Mikutter < Formula
   depends_on "gtk+3"
   depends_on "ruby@2.7"
 
+  uses_from_macos "libxml2" # for nokogiri
+  uses_from_macos "libxslt" # for nokogiri
+
   on_macos do
     depends_on "terminal-notifier"
   end
