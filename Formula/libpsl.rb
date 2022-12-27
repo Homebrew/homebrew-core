@@ -17,17 +17,14 @@ class Libpsl < Formula
   end
 
   depends_on "meson" => :build
-  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "python@3.11" => :build
   depends_on "icu4c"
 
   def install
-    mkdir "build" do
-      system "meson", *std_meson_args, "-Druntime=libicu", "-Dbuiltin=false", ".."
-      system "ninja", "-v"
-      system "ninja", "install", "-v"
-    end
+    system "meson", "setup", *std_meson_args, "build", "-Druntime=libicu", "-Dbuiltin=false"
+    system "meson", "compile", "-C", "build"
+    system "meson", "install", "-C", "build"
   end
 
   test do
