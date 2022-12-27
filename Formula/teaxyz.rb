@@ -28,7 +28,7 @@ class Teaxyz < Formula
   end
 
   def caveats
-    "Most commands will fail until you run `tea --sync` at least once."
+    'Most commands will fail until you run `tea --sync` at least once.'
   end
 
   test do
