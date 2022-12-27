@@ -42,7 +42,7 @@ class BareosClient < Formula
     # Work around Linux build failure by disabling warnings:
     # lmdb/mdb.c:2282:13: error: variable 'rc' set but not used [-Werror=unused-but-set-variable]
     # fastlzlib.c:512:63: error: unused parameter ‘output_length’ [-Werror=unused-parameter]
-    # TODO: Try to remove in the next release which has various compiler warning changes
+    # Upstream issue: https://bugs.bareos.org/view.php?id=1504
     if OS.linux?
       ENV.append_to_cflags "-Wno-unused-but-set-variable"
       ENV.append_to_cflags "-Wno-unused-parameter"
