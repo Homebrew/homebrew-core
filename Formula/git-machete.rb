@@ -30,7 +30,7 @@ class GitMachete < Formula
 
   test do
     system "git", "init"
-    system "git", "config", "user.email", "you@example.com"
+    system "git", "config", "user.email", "you@example.org"
     system "git", "config", "user.name", "Your Name"
     (testpath/"test").write "foo"
     system "git", "add", "test"
