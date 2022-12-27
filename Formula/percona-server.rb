@@ -124,11 +124,11 @@ class PerconaServer < Formula
 
     # Percona MyRocks does not compile on macOS
     # https://bugs.launchpad.net/percona-server/+bug/1741639
-    args.concat %w[-DWITHOUT_ROCKSDB=1]
+    args << "-DWITHOUT_ROCKSDB=1"
 
     # TokuDB does not compile on macOS
     # https://bugs.launchpad.net/percona-server/+bug/1531446
-    args.concat %w[-DWITHOUT_TOKUDB=1]
+    args << "-DWITHOUT_TOKUDB=1"
 
     system "cmake", ".", *std_cmake_args, *args
     system "make"
