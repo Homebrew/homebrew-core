@@ -21,12 +21,14 @@ class Inform6 < Formula
     sha256 "3961388ff00b5dfd1ccc1bb0d2a5c01a44af99bdcf763868979fa43ba3393ae7"
   end
 
+  # patch Makefile to make it portable
+  # upstream PR ref, https://gitlab.com/DavidGriffith/inform6unix/-/merge_requests/24
+  patch do
+    url "https://gitlab.com/DavidGriffith/inform6unix/-/commit/ba179ca1.diff"
+    sha256 "05b6027009d4f936c503ef25397c3f106d16c7dad3585e926f277dbbda54e893"
+  end
+
   def install
-    if OS.mac?
-      inreplace "Makefile", "-DUNIX", "-DMACOS"
-    else
-      inreplace "Makefile", "-DUNIX", "-DLINUX"
-    end
     # Parallel install fails because of: https://gitlab.com/DavidGriffith/inform6unix/-/issues/26
     ENV.deparallelize
     system "make", "PREFIX=#{prefix}", "MAN_PREFIX=#{man}", "MANDIR=#{man1}", "install"
