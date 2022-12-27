@@ -39,10 +39,14 @@ class BareosClient < Formula
   conflicts_with "bacula-fd", because: "both install a `bconsole` executable"
 
   def install
-    # Work around Linux build failure by disabling warning:
+    # Work around Linux build failure by disabling warnings:
     # lmdb/mdb.c:2282:13: error: variable 'rc' set but not used [-Werror=unused-but-set-variable]
+    # fastlzlib.c:512:63: error: unused parameter ‘output_length’ [-Werror=unused-parameter]
     # TODO: Try to remove in the next release which has various compiler warning changes
-    ENV.append_to_cflags "-Wno-unused-but-set-variable" if OS.linux?
+    if OS.linux?
+      ENV.append_to_cflags "-Wno-unused-but-set-variable"
+      ENV.append_to_cflags "-Wno-unused-parameter"
+    end
 
     # Work around hardcoded paths to /usr/local Homebrew installation,
     # forced static linkage on macOS, and openssl formula alias usage.
