@@ -43,6 +43,6 @@ class Gitbucket < Formula
       exec "#{java} -jar #{libexec}/gitbucket.war --port=#{free_port}"
     end
     sleep 12
-    File.read("output") !~ /Exception/
+    File.read("output").exclude?("Exception")
   end
 end
