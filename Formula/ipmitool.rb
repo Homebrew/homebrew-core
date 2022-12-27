@@ -50,6 +50,10 @@ class Ipmitool < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/ipmitool -V")
-    assert_match "No hostname specified!", shell_output("#{bin}/ipmitool 2>&1", 1)
+    if OS.mac?
+      assert_match "No hostname specified!", shell_output("#{bin}/ipmitool 2>&1", 1)
+    else # Linux
+      assert_match "Could not open device", shell_output("#{bin}/ipmitool 2>&1", 1)
+    end
   end
 end
