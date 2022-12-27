@@ -53,7 +53,7 @@ class GmtAT5 < Formula
     (buildpath/"gshhg").install resource("gshhg")
     (buildpath/"dcw").install resource("dcw")
 
-    args = std_cmake_args.concat %W[
+    args = std_cmake_args + %W[
       -DCMAKE_INSTALL_PREFIX=#{prefix}
       -DGMT_DOCDIR=#{share}/doc/gmt
       -DGMT_MANDIR=#{man}
