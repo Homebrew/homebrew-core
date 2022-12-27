@@ -4,6 +4,7 @@ class Ipmitool < Formula
   url "https://github.com/ipmitool/ipmitool/archive/refs/tags/IPMITOOL_1_8_19.tar.gz"
   sha256 "48b010e7bcdf93e4e4b6e43c53c7f60aa6873d574cbd45a8d86fa7aaeebaff9c"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     rebuild 1
@@ -25,6 +26,13 @@ class Ipmitool < Formula
     depends_on "readline"
   end
 
+  # fix enterprise-number URL due to IANA URL scheme change
+  # remove in next release
+  patch do
+    url "https://github.com/ipmitool/ipmitool/commit/1edb0e27e44196d1ebe449aba0b9be22d376bcb6.patch?full_index=1"
+    sha256 "c7df82eeb6abf76439ca9012afdcef2e9e5ab5b44d4a80c58c7c5f2d8337bc83"
+  end
+
   # Patch to fix build on ARM
   # https://github.com/ipmitool/ipmitool/issues/332
   patch do
@@ -37,12 +45,11 @@ class Ipmitool < Formula
     system "./configure", *std_configure_args,
                           "--mandir=#{man}",
                           "--disable-intf-usb"
-    system "make", "check"
     system "make", "install"
   end
 
   test do
-    # Test version print out
-    system bin/"ipmitool", "-V"
+    assert_match version.to_s, shell_output("#{bin}/ipmitool -V")
+    assert_match "No hostname specified!", shell_output("#{bin}/ipmitool 2>&1", 1)
   end
 end
