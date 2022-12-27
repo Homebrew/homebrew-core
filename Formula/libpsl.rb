@@ -24,7 +24,7 @@ class Libpsl < Formula
 
   def install
     mkdir "build" do
-      system "meson", *std_meson_args, "-Druntime=libicu", "-Dbuiltin=libicu", ".."
+      system "meson", *std_meson_args, "-Druntime=libicu", "-Dbuiltin=false", ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
     end
