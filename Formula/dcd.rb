@@ -29,6 +29,7 @@ class Dcd < Formula
 
   def install
     target = OS.mac? ? "ldc" : "dmd"
+    ENV.append "DFLAGS", "-fPIC" if OS.linux?
     system "make", target
     bin.install "bin/dcd-client", "bin/dcd-server"
   end
