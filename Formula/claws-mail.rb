@@ -24,7 +24,7 @@ class ClawsMail < Formula
   depends_on "cairo"
   depends_on "glib"
   depends_on "gnutls"
-  depends_on "gtk+"
+  depends_on "gtk+3"
   depends_on "libetpan"
   depends_on "nettle"
 
