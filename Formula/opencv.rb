@@ -46,23 +46,8 @@ class Opencv < Formula
   fails_with gcc: "5" # ffmpeg is compiled with GCC
 
   resource "contrib" do
-    url "https://github.com/opencv/opencv_contrib/archive/refs/tags/4.6.0.tar.gz"
-    sha256 "1777d5fd2b59029cf537e5fd6f8aa68d707075822f90bde683fcde086f85f7a7"
-
-    # Fix build error: cannot initialize a parameter of type 'ceres::LocalParameterization *'
-    # Remove in the next release.
-    patch do
-      url "https://github.com/opencv/opencv_contrib/commit/4c93cc9925ece6c4a38cf8b869c8217d15104fe5.patch?full_index=1"
-      sha256 "9761c48d1c6f19fa0a2bf5a55cf7a0501a1e85fe595006ec5bd1929d9602f702"
-    end
-  end
-
-  # Fix build error: use of undeclared identifier 'CODEC_ID_H264'; did you mean 'AV_CODEC_ID_H264'
-  # Using commit from related PR for 3.4 branch: https://github.com/opencv/opencv/pull/22357
-  # Remove when fix is in 4.x branch and available in a release.
-  patch do
-    url "https://github.com/opencv/opencv/commit/496eed950f6d0e7fd92619d47e3cec8f06e96ace.patch?full_index=1"
-    sha256 "f9a5dac14d54b699383328a2d28b2d86f7274db8a603974ca5e9076d77490d49"
+    url "https://github.com/opencv/opencv_contrib/archive/refs/tags/4.7.0.tar.gz"
+    sha256 "42df840cf9055e59d0e22c249cfb19f04743e1bdad113d31b1573d3934d62584"
   end
 
   def python3
