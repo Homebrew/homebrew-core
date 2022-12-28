@@ -47,7 +47,16 @@ class Vtk < Formula
   uses_from_macos "zlib"
 
   on_macos do
-    depends_on "llvm" => :build if DevelopmentTools.clang_build_version == 1316 && Hardware::CPU.arm?
+    on_arm do
+      if DevelopmentTools.clang_build_version == 1316
+        depends_on "llvm" => :build
+
+        # clang: error: unable to execute command: Segmentation fault: 11
+        # clang: error: clang frontend command failed due to signal (use -v to see invocation)
+        # Apple clang version 13.1.6 (clang-1316.0.21.2)
+        fails_with :clang
+      end
+    end
   end
 
   on_linux do
@@ -56,11 +65,6 @@ class Vtk < Formula
   end
 
   fails_with gcc: "5"
-
-  # clang: error: unable to execute command: Segmentation fault: 11
-  # clang: error: clang frontend command failed due to signal (use -v to see invocation)
-  # Apple clang version 13.1.6 (clang-1316.0.21.2)
-  fails_with :clang if DevelopmentTools.clang_build_version == 1316 && Hardware::CPU.arm?
 
   def install
     ENV.llvm_clang if DevelopmentTools.clang_build_version == 1316 && Hardware::CPU.arm?
