@@ -61,22 +61,21 @@ class Crystal < Formula
   #
   # See: https://github.com/Homebrew/homebrew-core/pull/81318
   resource "boot" do
-    platform = case OS.kernel_name
-    when "Darwin" then "darwin-universal"
-    else "#{OS.kernel_name.downcase}-#{Hardware::CPU.arch}"
+    boot_version = Version.new("1.5.1-1")
+    version boot_version
+
+    on_macos do
+      url "https://github.com/crystal-lang/crystal/releases/download/#{boot_version.major_minor_patch}/crystal-#{boot_version}-darwin-universal.tar.gz"
+      # version boot_version
+      sha256 "432c2fc992247f666db7e55fb15509441510831a72beba34affa2d76b6f2e092"
     end
 
-    checksums = {
-      "darwin-universal" => "432c2fc992247f666db7e55fb15509441510831a72beba34affa2d76b6f2e092",
-      "linux-x86_64"     => "a475c3d99dbe0f2d5a72d471fa25e03c124b599e47336eed746973b4b4d787bc",
-    }
-
-    if checksums.include? platform
-      boot_version = Version.new("1.5.1-1")
-
-      url "https://github.com/crystal-lang/crystal/releases/download/#{boot_version.major_minor_patch}/crystal-#{boot_version}-#{platform}.tar.gz"
-      version boot_version
-      sha256 checksums[platform]
+    on_linux do
+      on_intel do
+        url "https://github.com/crystal-lang/crystal/releases/download/#{boot_version.major_minor_patch}/crystal-#{boot_version}-linux-x86_64.tar.gz"
+        # version boot_version
+        sha256 "a475c3d99dbe0f2d5a72d471fa25e03c124b599e47336eed746973b4b4d787bc"
+      end
     end
   end
 
