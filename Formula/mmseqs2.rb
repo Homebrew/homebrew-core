@@ -69,7 +69,9 @@ class Mmseqs2 < Formula
   end
 
   def caveats
-    "MMseqs2 requires at least SSE4.1 CPU instruction support." if !Hardware::CPU.sse4? && !Hardware::CPU.arm?
+    on_intel do
+      "MMseqs2 requires at least SSE4.1 CPU instruction support." unless Hardware::CPU.sse4?
+    end
   end
 
   test do
