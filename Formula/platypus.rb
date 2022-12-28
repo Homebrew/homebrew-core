@@ -15,6 +15,8 @@ class Platypus < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "d46dd428161d8ed7febf5ea4109f9bcddfa65c75d4e67619781745587c6b6f55"
   end
 
+  deprecate! date: "2022-12-28", because: :unmaintained
+
   depends_on xcode: ["8.0", :build]
   depends_on :macos
 
