@@ -49,6 +49,7 @@ class Webkitgtk < Formula
   uses_from_macos "perl" => :build
   uses_from_macos "ruby" => :build
   uses_from_macos "libxml2"
+  uses_from_macos "libxslt"
   uses_from_macos "sqlite"
   uses_from_macos "zlib"
 
