@@ -13,7 +13,7 @@ concurrency:
 
 jobs:
   create_matrix:
-    # if: startsWith( github.repository, 'Homebrew/' )
+    if: startsWith( github.repository, 'Homebrew/' )
     runs-on: ubuntu-22.04
     outputs:
       json: ${{ steps.matrix.outputs.json }}
@@ -30,7 +30,7 @@ jobs:
           json=$(brew info --json=v2 $formula | jq --compact-output '[.formulae[].name]')
           echo "json=${json}" >> $GITHUB_OUTPUT
   audit_online:
-    # if: startsWith( github.repository, 'Homebrew/' )
+    if: startsWith( github.repository, 'Homebrew/' )
     runs-on: ubuntu-22.04
     needs: create_matrix
     name: "Online check: ${{ matrix.formula }}"
