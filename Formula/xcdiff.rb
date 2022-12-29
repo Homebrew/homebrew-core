@@ -6,6 +6,7 @@ class Xcdiff < Formula
     revision: "0e6a933af7cada626fb3aac2fe44c5dc8fb745c6"
   license "Apache-2.0"
   head "https://github.com/bloomberg/xcdiff.git", branch: "main"
+  depends_on :macos
 
   resource "homebrew-testdata" do
     url "https://github.com/bloomberg/xcdiff/archive/refs/tags/0.9.0.tar.gz"
