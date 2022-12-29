@@ -1,8 +1,8 @@
 class Ncspot < Formula
   desc "Cross-platform ncurses Spotify client written in Rust"
   homepage "https://github.com/hrkfdn/ncspot"
-  url "https://github.com/hrkfdn/ncspot/archive/v0.11.2.tar.gz"
-  sha256 "0fd9696e13912b906605e9972bf3b2a8a68688cce17478353713550801c94fab"
+  url "https://github.com/hrkfdn/ncspot/archive/v0.12.0.tar.gz"
+  sha256 "9623bc4cf9be4340a7b4de809889a515553da82d3d6b98b13e0646c60c124a44"
   license "BSD-2-Clause"
 
   bottle do
@@ -27,7 +27,7 @@ class Ncspot < Formula
     depends_on "alsa-lib"
     depends_on "dbus"
     depends_on "libxcb"
-    depends_on "openssl@1.1" # Uses Secure Transport on macOS
+    depends_on "openssl@3" # Uses Secure Transport on macOS
   end
 
   def install
