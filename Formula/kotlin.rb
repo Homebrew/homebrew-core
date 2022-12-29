@@ -33,7 +33,6 @@ class Kotlin < Formula
       }
     EOS
     system bin/"kotlinc", "test.kt", "-include-runtime", "-d", "test.jar"
-    system bin/"kotlinc-js", "test.kt", "-output", "test.js"
     system bin/"kotlinc-jvm", "test.kt", "-include-runtime", "-d", "test.jar"
   end
 end
