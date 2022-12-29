@@ -3,8 +3,8 @@ class PipAudit < Formula
 
   desc "Audits Python environments and dependency trees for known vulnerabilities"
   homepage "https://pypi.org/project/pip-audit/"
-  url "https://files.pythonhosted.org/packages/5c/af/fe405683296ed25d2a71c474594e6da8bc8685c269525c61c78128327439/pip_audit-2.4.11.tar.gz"
-  sha256 "d871c0ef9e8c4c5b76a8c399b45db9654d8727d856fe4ac9d31101c70e310a2a"
+  url "https://files.pythonhosted.org/packages/88/a1/df74cb445b0c46d2fc97caf0c40a27d047f49ff9390e49f81bd55c5406e2/pip_audit-2.4.12.tar.gz"
+  sha256 "eab6aab5a649e93f17309bf8d57bb369a63fa9ef60e96b585bba22acdbb54b97"
   license "Apache-2.0"
 
   bottle do
