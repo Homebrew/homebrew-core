@@ -20,6 +20,8 @@ class Darglint < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "cf75b7da4e5b6fa72299af2179bcc3bf50cde731a7f7ac4463a819ea0884da79"
   end
 
+  deprecate! date: "2022-12-16", because: :repo_archived
+
   depends_on "python@3.11"
 
   # Switch build-system to poetry-core to avoid rust dependency on Linux.
