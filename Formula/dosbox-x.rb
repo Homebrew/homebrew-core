@@ -41,6 +41,17 @@ class DosboxX < Formula
 
   fails_with gcc: "5"
 
+  # upstream PR ref, https://github.com/joncampbell123/dosbox-x/pull/3907
+  # remove in next release
+  patch do
+    url "https://github.com/joncampbell123/dosbox-x/commit/b9ba6fba0dd0dc7fbeaa083de9d338564e8a6407.patch?full_index=1"
+    sha256 "f8173ce0560d6a5d36f00c3c1fbef03c22b6006c76d70fb311f3af54edc3de85"
+  end
+  patch do
+    url "https://github.com/joncampbell123/dosbox-x/commit/2dbbfff7407cb87d618ac341567e3c0ab1c03c6e.patch?full_index=1"
+    sha256 "573b6cfc9fe2f9a297c11c6c272b1b2296bab183ff3037455c76bcba077d589a"
+  end
+
   def install
     ENV.cxx11
 
