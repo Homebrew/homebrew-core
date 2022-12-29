@@ -1,8 +1,8 @@
 class Fastfetch < Formula
   desc "Like neofetch, but much faster because written in C"
   homepage "https://github.com/LinusDierheimer/fastfetch"
-  url "https://github.com/LinusDierheimer/fastfetch/archive/refs/tags/1.7.5.tar.gz"
-  sha256 "e9807568c2c5a10240c635e1e9ad5dbe63326eb730ca3aac005e19d91d2cd1c5"
+  url "https://github.com/LinusDierheimer/fastfetch/archive/refs/tags/1.8.0.tar.gz"
+  sha256 "63f1b10755f18bbcf7d8300ee3bb05cf9b16a8f8b8ffa304c92162eed747467d"
   license "MIT"
   head "https://github.com/LinusDierheimer/fastfetch.git", branch: "dev"
 
@@ -17,9 +17,14 @@ class Fastfetch < Formula
     sha256 x86_64_linux:   "8757d24b5daa28af495feec81f4be8fa5952c23df8f24185d8a0c69b5dc9269e"
   end
 
+  depends_on "chafa" => :build
   depends_on "cmake" => :build
+  depends_on "glib" => :build
+  depends_on "imagemagick" => :build
   depends_on "pkg-config" => :build
   depends_on "vulkan-loader" => :build
+
+  uses_from_macos "zlib" => :build
 
   def install
     system "cmake", "-S", ".", "-B", "build", "-DCMAKE_INSTALL_SYSCONFDIR=#{etc}", *std_cmake_args
