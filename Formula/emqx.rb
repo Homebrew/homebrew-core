@@ -23,7 +23,7 @@ class Emqx < Formula
   depends_on "erlang"    => :build
   depends_on "freetds"   => :build
   depends_on "libtool"   => :build
-  depends_on "openssl@3"
+  depends_on "openssl@1.1"
 
   uses_from_macos "curl"    => :build
   uses_from_macos "unzip"   => :build
