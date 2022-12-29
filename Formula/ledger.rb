@@ -28,6 +28,7 @@ class Ledger < Formula
   depends_on "gmp"
   depends_on "mpfr"
   depends_on "python@3.10"
+  depends_on "texinfo"
 
   uses_from_macos "libedit"
 
