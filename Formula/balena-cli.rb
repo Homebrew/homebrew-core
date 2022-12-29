@@ -23,7 +23,7 @@ class BalenaCli < Formula
   end
 
   # Node looks for an unversioned `python` at build-time.
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
   depends_on "node@14"
 
   on_macos do
@@ -32,7 +32,7 @@ class BalenaCli < Formula
 
   def install
     ENV.deparallelize
-    ENV.prepend_path "PATH", Formula["python@3.10"].opt_libexec/"bin"
+    ENV.prepend_path "PATH", Formula["python@3.11"].opt_libexec/"bin"
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     (bin/"balena").write_env_script libexec/"bin/balena", PATH: "#{Formula["node@14"].opt_bin}:$PATH"
 
