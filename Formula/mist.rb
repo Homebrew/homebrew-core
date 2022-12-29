@@ -15,8 +15,8 @@ class Mist < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "cc83e0f359cadc97a5c48cbc7e6c57634187d4a7d16a675c4158339ed196df96"
   end
 
-  # Mist requires Swift 5.5
-  depends_on xcode: ["13.1", :build]
+  # Mist requires Swift 5.7
+  depends_on xcode: ["14.0", :build]
   depends_on :macos
   uses_from_macos "swift"
 
