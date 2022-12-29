@@ -1,8 +1,8 @@
 class Emqx < Formula
   desc "MQTT broker for IoT"
   homepage "https://www.emqx.io/"
-  url "https://github.com/emqx/emqx/archive/refs/tags/v5.0.12.tar.gz"
-  sha256 "dde5c374f6701e46e26e5835bcc0a74ba312d8a349ad89d2e48498cbaa83ce1b"
+  url "https://github.com/emqx/emqx/archive/refs/tags/v5.0.13.tar.gz"
+  sha256 "e6645725f77ca75826cbf3249c09e4f569875dac15cfd51cf1260dad173f9de3"
   license "Apache-2.0"
   head "https://github.com/emqx/emqx.git", branch: "master"
 
@@ -20,9 +20,7 @@ class Emqx < Formula
   depends_on "automake"  => :build
   depends_on "cmake"     => :build
   depends_on "coreutils" => :build
-  # emqx cannot be built with Erlang/OTP 25 as of v5.0.11,
-  # but the support is in the works and is coming soon
-  depends_on "erlang@24" => :build
+  depends_on "erlang"    => :build
   depends_on "freetds"   => :build
   depends_on "libtool"   => :build
   depends_on "openssl@3"
