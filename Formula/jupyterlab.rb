@@ -10,6 +10,7 @@ class Jupyterlab < Formula
     "BSD-3-Clause",
     "MIT", # semver.py
   ]
+  revision 1
 
   bottle do
     rebuild 3
@@ -29,7 +30,7 @@ class Jupyterlab < Formula
   depends_on "node"
   depends_on "pandoc"
   depends_on "pygments"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "six"
   depends_on "zeromq"
 
@@ -318,7 +319,7 @@ class Jupyterlab < Formula
   end
 
   def python3
-    "python3.10"
+    "python3.11"
   end
 
   def install
