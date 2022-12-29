@@ -54,7 +54,7 @@ class Curl < Formula
       --disable-dependency-tracking
       --disable-silent-rules
       --prefix=#{prefix}
-      --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
+      --with-ssl=#{Formula["openssl"].opt_prefix}
       --without-ca-bundle
       --without-ca-path
       --with-ca-fallback
