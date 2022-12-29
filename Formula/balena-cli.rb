@@ -24,7 +24,7 @@ class BalenaCli < Formula
 
   # Node looks for an unversioned `python` at build-time.
   depends_on "python@3.11" => :build
-  depends_on "node@14"
+  depends_on "node@16"
 
   on_macos do
     depends_on "macos-term-size"
