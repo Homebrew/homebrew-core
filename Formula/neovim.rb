@@ -5,8 +5,8 @@ class Neovim < Formula
   head "https://github.com/neovim/neovim.git", branch: "master"
 
   stable do
-    url "https://github.com/neovim/neovim/archive/v0.8.1.tar.gz"
-    sha256 "b4484e130aa962457189f3dee34b8481943c1e395d2d684c6f8b91598494d9ec"
+    url "https://github.com/neovim/neovim/archive/v0.8.2.tar.gz"
+    sha256 "c516c8db73e1b12917a6b2e991b344d0914c057cef8266bce61a2100a28ffcc9"
 
     # TODO: Consider shipping these as separate formulae instead. See discussion at
     #       https://github.com/orgs/Homebrew/discussions/3611
@@ -26,8 +26,8 @@ class Neovim < Formula
     end
 
     resource "tree-sitter-help" do
-      url "https://github.com/neovim/tree-sitter-vimdoc/archive/v1.1.0.tar.gz"
-      sha256 "4c0ef80c6dc09acab362478950ec6be58a4ab1cbf2d95754b8fbb566e4c647a1"
+      url "https://github.com/neovim/tree-sitter-vimdoc/archive/ce20f13c3f12506185754888feaae3f2ad54c287.tar.gz"
+      sha256 "2b8b166438cce66064aab56a744430b1f44871f43e47f70b51246d14bb826609"
     end
   end
 
