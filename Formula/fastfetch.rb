@@ -26,6 +26,8 @@ class Fastfetch < Formula
 
   uses_from_macos "zlib" => :build
 
+  patch :DATA
+
   def install
     system "cmake", "-S", ".", "-B", "build", "-DCMAKE_INSTALL_SYSCONFDIR=#{etc}", *std_cmake_args
     system "cmake", "--build", "build"
@@ -37,3 +39,17 @@ class Fastfetch < Formula
     assert_match "OS", shell_output("#{bin}/fastfetch --structure OS --logo none --hide-cursor false")
   end
 end
+__END__
+diff --git a/src/detection/wifi/wifi_apple.m b/src/detection/wifi/wifi_apple.m
+index 8d96778..4f09ae1 100644
+--- a/src/detection/wifi/wifi_apple.m
++++ b/src/detection/wifi/wifi_apple.m
+@@ -60,7 +60,7 @@ const char* ffDetectWifi(const FFinstance* instance, FFlist* result)
+             case kCWPHYMode11ac:
+                 ffStrbufAppendS(&item->conn.phyType, "802.11ac (Wi-Fi 5)");
+                 break;
+-            case kCWPHYMode11ax:
++            case 6 /*kCWPHYMode11ax*/:
+                 ffStrbufAppendS(&item->conn.phyType, "802.11ax (Wi-Fi 6)");
+                 break;
+             case 7 /*kCWPHYMode11be?*/:
