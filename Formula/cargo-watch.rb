@@ -1,8 +1,8 @@
 class CargoWatch < Formula
   desc "Watches over your Cargo project's source"
   homepage "https://watchexec.github.io/#cargo-watch"
-  url "https://github.com/watchexec/cargo-watch/archive/v8.1.2.tar.gz"
-  sha256 "6fe6a45c9acddeb2e8baab84f93fc8bdb04e141639859c52715cba7e57665e97"
+  url "https://github.com/watchexec/cargo-watch/archive/v8.2.0.tar.gz"
+  sha256 "5fb4ca920aef1da4bb1d0ed0a7a2d7a29f0fd7a82225c2c0cc2c597f52d8bb9d"
   license "CC0-1.0"
   head "https://github.com/watchexec/cargo-watch.git", branch: "main"
 
