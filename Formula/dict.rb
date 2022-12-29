@@ -1,6 +1,6 @@
 class Dict < Formula
   desc "Dictionary Server Protocol (RFC2229) client"
-  homepage "http://www.dict.org/"
+  homepage "https://www.dict.org/"
   url "https://downloads.sourceforge.net/project/dict/dictd/dictd-1.13.1/dictd-1.13.1.tar.gz"
   sha256 "e4f1a67d16894d8494569d7dc9442c15cc38c011f2b9631c7f1cc62276652a1b"
   license "GPL-2.0"
@@ -25,7 +25,8 @@ class Dict < Formula
 
   def install
     ENV["LIBTOOL"] = "glibtool"
-    system "./configure", "--prefix=#{prefix}", "--sysconfdir=#{etc}",
+    system "./configure", *std_configure_args,
+                          "--sysconfdir=#{etc}",
                           "--mandir=#{man}"
     system "make"
     system "make", "install"
@@ -33,5 +34,9 @@ class Dict < Formula
       server localhost
       server dict.org
     EOS
+  end
+
+  test do
+    assert_match "brewing or making beer.", shell_output("#{bin}/dict brew")
   end
 end
