@@ -39,7 +39,7 @@ class Curl < Formula
   depends_on "libnghttp2"
   depends_on "libssh2"
   depends_on "openldap"
-  depends_on "openssl@1.1"
+  depends_on "openssl"
   depends_on "rtmpdump"
   depends_on "zstd"
 
