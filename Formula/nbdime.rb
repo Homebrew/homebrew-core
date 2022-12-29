@@ -6,6 +6,7 @@ class Nbdime < Formula
   url "https://files.pythonhosted.org/packages/e1/36/28232d030c1b4a25116799f1aa3cd26208964f302daa324c314fd576820a/nbdime-3.1.1.tar.gz"
   sha256 "67767320e971374f701a175aa59abd3a554723039d39fae908e72d16330d648b"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     rebuild 1
@@ -20,39 +21,28 @@ class Nbdime < Formula
   end
 
   depends_on "ipython"
-  depends_on "jsonschema"
   depends_on "jupyterlab"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "six"
 
   resource "colorama" do
-    url "https://files.pythonhosted.org/packages/1f/bb/5d3246097ab77fa083a61bd8d3d527b7ae063c7d8e8671b1cf8c4ec10cbe/colorama-0.4.4.tar.gz"
-    sha256 "5941b2b48a20143d2267e95b1c2a7603ce057ee39fd88e7329b0c292aa16869b"
+    url "https://files.pythonhosted.org/packages/d8/53/6f443c9a4a8358a93a6792e2acffb9d9d5cb0a5cfd8802644b7b1c9a02e4/colorama-0.4.6.tar.gz"
+    sha256 "08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44"
   end
 
   resource "gitdb" do
-    url "https://files.pythonhosted.org/packages/fc/44/64e02ef96f20b347385f0e9c03098659cb5a1285d36c3d17c56e534d80cf/gitdb-4.0.9.tar.gz"
-    sha256 "bac2fd45c0a1c9cf619e63a90d62bdc63892ef92387424b855792a6cabe789aa"
+    url "https://files.pythonhosted.org/packages/4b/47/dc98f3d5d48aa815770e31490893b92c5f1cd6c6cf28dd3a8ae0efffac14/gitdb-4.0.10.tar.gz"
+    sha256 "6eb990b69df4e15bad899ea868dc46572c3f75339735663b81de79b06f17eb9a"
   end
 
   resource "GitPython" do
-    url "https://files.pythonhosted.org/packages/34/cc/aaa7a0d066ac9e94fbffa5fcf0738f5742dd7095bdde950bd582fca01f5a/GitPython-3.1.24.tar.gz"
-    sha256 "df83fdf5e684fef7c6ee2c02fc68a5ceb7e7e759d08b694088d0cacb4eba59e5"
+    url "https://files.pythonhosted.org/packages/ef/8d/50658d134d89e080bb33eb8e2f75d17563b5a9dfb75383ea1a78e1df6fff/GitPython-3.1.30.tar.gz"
+    sha256 "769c2d83e13f5d938b7688479da374c4e3d49f71549aaf462b646db9602ea6f8"
   end
 
   resource "jupyter-server-mathjax" do
-    url "https://files.pythonhosted.org/packages/f1/6f/aaa531dfcfd5b2179184beccf246401db7fe6d860a77993daf471fc14594/jupyter_server_mathjax-0.2.3.tar.gz"
-    sha256 "564e8d1272019c6771208f577b5f9f2b3afb02b9e2bff3b34c042cef8ed84451"
-  end
-
-  resource "ptyprocess" do
-    url "https://files.pythonhosted.org/packages/20/e5/16ff212c1e452235a90aeb09066144d0c5a6a8c0834397e03f5224495c4e/ptyprocess-0.7.0.tar.gz"
-    sha256 "5c5d0a3b48ceee0b48485e0c26037c0acd7d29765ca3fbb5cb3831d347423220"
-  end
-
-  resource "requests-unixsocket" do
-    url "https://files.pythonhosted.org/packages/4d/ce/78b651fe0adbd4227578fa432d1bde03b4f4945a70c81e252a2b6a2d895f/requests-unixsocket-0.2.0.tar.gz"
-    sha256 "9e5c1a20afc3cf786197ae59c79bcdb0e7565f218f27df5f891307ee8817c1ea"
+    url "https://files.pythonhosted.org/packages/9c/40/9a1b8c2a2e44e8e2392174cd8e52e0c976335f004301f61b66addea3243e/jupyter_server_mathjax-0.2.6.tar.gz"
+    sha256 "bb1e6b6dc0686c1fe386a22b5886163db548893a99c2810c36399e9c4ca23943"
   end
 
   resource "smmap" do
@@ -60,13 +50,13 @@ class Nbdime < Formula
     sha256 "c840e62059cd3be204b0c9c9f74be2c09d5648eddd4580d9314c3ecde0b30936"
   end
 
-  resource "testpath" do
-    url "https://files.pythonhosted.org/packages/dd/bf/245f32010f761aaeff132278e91e0d0ae1c360d6f3708a11790fdc1410d2/testpath-0.5.0.tar.gz"
-    sha256 "1acf7a0bcd3004ae8357409fc33751e16d37ccc650921da1094a86581ad1e417"
-  end
+  # Backport fix to build with Python 3.11. Upstream commit doesn't apply due
+  # to CRLF line terminators used in PyPI tarball. Remove in the next release.
+  # Ref: https://github.com/jupyter/nbdime/commit/f50376344db8ba01f1aff0b65f39ead7a3ed2405
+  patch :DATA
 
   def python3
-    "python3.10"
+    "python3.11"
   end
 
   def install
@@ -77,7 +67,7 @@ class Nbdime < Formula
     virtualenv_install_with_resources
 
     site_packages = Language::Python.site_packages(python3)
-    %w[jupyterlab ipython jsonschema].each do |package_name|
+    %w[jupyterlab ipython].each do |package_name|
       package = Formula[package_name].opt_libexec
       (libexec/site_packages/"homebrew-#{package_name}.pth").write package/site_packages
     end
@@ -171,3 +161,18 @@ class Nbdime < Formula
     assert_match(/\+\+\+ new.ipynb  \d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}.\d{6}/, diff_output)
   end
 end
+
+__END__
+diff --git a/setupbase.py b/setupbase.py
+index 6a63572..aebfd41 100644
+--- a/setupbase.py
++++ b/setupbase.py
+@@ -661,7 +661,7 @@ def _translate_glob(pat):
+         translated_parts.append(_translate_glob_part(part))
+     os_sep_class = '[%s]' % re.escape(SEPARATORS)
+     res = _join_translated(translated_parts, os_sep_class)
+-    return '{res}\\Z(?ms)'.format(res=res)
++    return '(?ms){res}\\Z'.format(res=res)
+ 
+ 
+ def _join_translated(translated_parts, os_sep_class):
