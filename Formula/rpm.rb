@@ -1,11 +1,9 @@
 class Rpm < Formula
   desc "Standard unix software packaging tool"
   homepage "https://rpm.org/"
-  url "http://ftp.rpm.org/releases/rpm-4.17.x/rpm-4.17.0.tar.bz2"
-  mirror "https://ftp.osuosl.org/pub/rpm/releases/rpm-4.17.x/rpm-4.17.0.tar.bz2"
-  sha256 "2e0d220b24749b17810ed181ac1ed005a56bbb6bc8ac429c21f314068dc65e6a"
+  url "https://ftp.osuosl.org/pub/rpm/releases/rpm-4.18.x/rpm-4.18.0.tar.bz2"
+  sha256 "2a17152d7187ab30edf2c2fb586463bdf6388de7b5837480955659e5e9054554"
   license "GPL-2.0-only"
-  revision 1
   version_scheme 1
 
   livecheck do
@@ -24,14 +22,11 @@ class Rpm < Formula
     sha256 x86_64_linux:   "f2fbe2fec1f2d1212c2122560728929445e499f25df89cf8d623f04b993d5903"
   end
 
-  # We need autotools for the Lua patch below. Remove when the patch is no longer needed.
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
   depends_on "gettext"
   depends_on "libarchive"
   depends_on "libmagic"
   depends_on "lua"
+  depends_on macos: :ventura
   depends_on "openssl@1.1"
   depends_on "pkg-config"
   depends_on "popt"
@@ -46,25 +41,13 @@ class Rpm < Formula
     depends_on "libomp"
   end
 
-  # Fix `fstat64` detection for Apple Silicon.
-  # https://github.com/rpm-software-management/rpm/pull/1775
-  # https://github.com/rpm-software-management/rpm/pull/1897
+  # Fix -flat_namespace being used on Big Sur and later.
   patch do
-    on_arm do
-      url "https://github.com/rpm-software-management/rpm/commit/ad87ced3990c7e14b6b593fa411505e99412e248.patch?full_index=1"
-      sha256 "a129345c6ba026b337fe647763874bedfcaf853e1994cf65b1b761bc2c7531ad"
-    end
-  end
-
-  # Remove defunct Lua rex extension, which causes linking errors with Homebrew's Lua.
-  # https://github.com/rpm-software-management/rpm/pull/1797/files
-  patch do
-    url "https://github.com/rpm-software-management/rpm/commit/83d781c442158ce61286ac68cc350d10c2d3837e.patch?full_index=1"
-    sha256 "5dc9fb093ad46657575e5782d257d9b47d3c8119914283794464a84a7aef50b0"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
   end
 
   def install
-    ENV.append "CPPFLAGS", "-I#{Formula["lua"].opt_include}/lua"
     ENV.append "LDFLAGS", "-lomp" if OS.mac?
 
     # only rpm should go into HOMEBREW_CELLAR, not rpms built
@@ -74,12 +57,8 @@ class Rpm < Formula
     inreplace "scripts/pkgconfigdeps.sh",
               "/usr/bin/pkg-config", Formula["pkg-config"].opt_bin/"pkg-config"
 
-    # Regenerate the `configure` script, since the lua patch touches luaext/Makefile.am.
-    # This also fixes the "-flat-namespace" bug. Remove `autoreconf` when the Lua patch is no longer needed.
-    system "autoreconf", "--force", "--install", "--verbose"
-    system "./configure", "--disable-dependency-tracking",
+    system "./configure", *std_configure_args,
                           "--disable-silent-rules",
-                          "--prefix=#{prefix}",
                           "--localstatedir=#{var}",
                           "--sharedstatedir=#{var}/lib",
                           "--sysconfdir=#{etc}",
@@ -101,14 +80,31 @@ class Rpm < Formula
 
     # NOTE: We need the trailing `/` to avoid leaving it behind.
     inreplace lib/"rpm/macros", "#{Superenv.shims_path}/", ""
+    inreplace lib/"rpm/brp-remove-la-files", "--null", "-0"
   end
 
   def post_install
     (var/"lib/rpm").mkpath
+    safe_system bin/"rpmdb", "--initdb" unless (var/"lib/rpm/rpmdb.sqlite").exist?
   end
 
-  def test_spec
-    <<~EOS
+  test do
+    ENV["HOST"] = "test"
+    (testpath/".rpmmacros").write <<~EOS
+      %_topdir  %(echo $HOME)/rpmbuild
+      %_tmppath	%_topdir/tmp
+    EOS
+
+    system bin/"rpmdb", "--initdb", "--root=#{testpath}"
+    system bin/"rpm", "-vv", "-qa", "--root=#{testpath}"
+    assert_predicate testpath/var/"lib/rpm/rpmdb.sqlite", :exist?,
+                     "Failed to create 'rpmdb.sqlite' file"
+
+    %w[SPECS BUILD BUILDROOT].each do |dir|
+      (testpath/"rpmbuild/#{dir}").mkpath
+    end
+    specfile = testpath/"rpmbuild/SPECS/test.spec"
+    specfile.write <<~EOS
       Summary:   Test package
       Name:      test
       Version:   1.0
@@ -122,40 +118,33 @@ class Rpm < Formula
 
       %prep
       %build
+      echo "hello brew" > test
+
       %install
-      mkdir -p $RPM_BUILD_ROOT/tmp
-      touch $RPM_BUILD_ROOT/tmp/test
+      install -d $RPM_BUILD_ROOT/%_docdir
+      cp test $RPM_BUILD_ROOT/%_docdir/test
 
       %files
-      /tmp/test
+      %_docdir/test
 
       %changelog
 
     EOS
-  end
+    system bin/"rpmbuild", "-ba", specfile
+    assert_predicate testpath/"rpmbuild/SRPMS/test-1.0-1.src.rpm", :exist?
+    assert_predicate testpath/"rpmbuild/RPMS/noarch/test-1.0-1.noarch.rpm", :exist?
 
-  def rpmdir(macro)
-    Pathname.new(`#{bin}/rpm --eval #{macro}`.chomp)
-  end
+    info = shell_output(bin/"rpm --query --package -i #{testpath}/rpmbuild/RPMS/noarch/test-1.0-1.noarch.rpm")
+    assert_match "Name        : test", info
+    assert_match "Version     : 1.0", info
+    assert_match "Release     : 1", info
+    assert_match "Architecture: noarch", info
+    assert_match "Group       : Development/Tools", info
+    assert_match "License     : Public Domain", info
+    assert_match "Source RPM  : test-1.0-1.src.rpm", info
+    assert_match "Trivial test package", info
 
-  test do
-    (testpath/"rpmbuild").mkpath
-
-    (testpath/".rpmmacros").write <<~EOS
-      %_topdir		#{testpath}/rpmbuild
-      %_tmppath		%<_topdir>s/tmp
-    EOS
-
-    system "#{bin}/rpm", "-vv", "-qa", "--dbpath=#{testpath}/var/lib/rpm"
-    assert_predicate testpath/"var/lib/rpm/rpmdb.sqlite", :exist?,
-                     "Failed to create 'rpmdb.sqlite' file"
-    rpmdir("%_builddir").mkpath
-    specfile = rpmdir("%_specdir")+"test.spec"
-    specfile.write(test_spec)
-    system "#{bin}/rpmbuild", "-ba", specfile
-    assert_predicate rpmdir("%_srcrpmdir")/"test-1.0-1.src.rpm", :exist?
-    assert_predicate rpmdir("%_rpmdir")/"noarch/test-1.0-1.noarch.rpm", :exist?
-    system "#{bin}/rpm", "-qpi", "--dbpath=#{testpath}/var/lib/rpm",
-                         rpmdir("%_rpmdir")/"noarch/test-1.0-1.noarch.rpm"
+    files = shell_output(bin/"rpm --query --list --package #{testpath}/rpmbuild/RPMS/noarch/test-1.0-1.noarch.rpm")
+    assert_match (HOMEBREW_PREFIX/"share/doc/test").to_s, files
   end
 end
