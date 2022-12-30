@@ -20,7 +20,9 @@ class Awk < Formula
 
   uses_from_macos "bison"
 
-  conflicts_with "gawk", because: "both install an `awk` executable"
+  on_linux do
+    conflicts_with "gawk", because: "both install an `awk` executable"
+  end
 
   def install
     system "make", "CC=#{ENV.cc}", "CFLAGS=#{ENV.cflags}"
