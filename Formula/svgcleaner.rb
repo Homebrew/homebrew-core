@@ -18,7 +18,7 @@ class Svgcleaner < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8ad0a9020b3aa287c3d3ad908c7cbc625aceef02a0cfc559d817a6b1f2acc064"
   end
 
-  deprecate! date: "2021-12-11", because: :repo_archived
+  disable! date: "2022-12-30", because: :repo_archived
 
   depends_on "rust" => :build
 
