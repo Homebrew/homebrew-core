@@ -20,7 +20,7 @@ class Chgems < Formula
     sha256 cellar: :any_skip_relocation, el_capitan:     "395b45c3493721bccfc7fdefa2d81ec61b7f07f8cfd799eac5f1e96011a618f3"
   end
 
-  deprecate! date: "2021-12-09", because: :repo_archived
+  disable! date: "2022-12-30", because: :repo_archived
 
   def install
     system "make", "install", "PREFIX=#{prefix}"
