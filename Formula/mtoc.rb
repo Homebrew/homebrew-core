@@ -16,6 +16,8 @@ class Mtoc < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:    "62587e723f38c2a51d3a951dca42df10b9aa1ac67c88d8e286b27e6957edd985"
   end
 
+  deprecate! date: "2022-12-30", because: :unmaintained
+
   depends_on "llvm" => :build
   depends_on :macos
 
