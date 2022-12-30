@@ -22,6 +22,8 @@ class Caffe < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1a0e6899388068cf5a2697a562ed367a4d7c466df4b2a261a61c6032df0fe7d8"
   end
 
+  deprecate! date: "2022-12-30", because: :deprecated_upstream
+
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "gflags"
