@@ -20,13 +20,14 @@ class TemplateGlib < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
+  depends_on "vala" => :build
   depends_on "glib"
   depends_on "gobject-introspection"
 
   uses_from_macos "flex"
 
   def install
-    system "meson", "setup", "build", "-Dvapi=false", "-Dintrospection=enabled", *std_meson_args
+    system "meson", "setup", "build", "-Dvapi=true", "-Dintrospection=enabled", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
   end
