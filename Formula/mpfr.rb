@@ -9,12 +9,6 @@ class Mpfr < Formula
     sha256 "ffd195bd567dbaffc3b98b23fd00aad0537680c9896171e44fe3ff79e28ac33d"
     version "4.1.1-p01"
 
-    # Fix -flat_namespace being used on Big Sur and later.
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
-      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
-    end
-
     # Upstream patches, list at https://www.mpfr.org/mpfr-current/#fixed
     %w[
       01 80a3c2709be21acaac12a9cc99888d63a00fa77fb75576f205fe8ba1984ff44a
