@@ -20,7 +20,7 @@ class ZshNavigationTools < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8b5a0cee362c74dd8466a9551c20bdcdcef893f0c7a461ba7ac6b69f7e2b1b9f"
   end
 
-  deprecate! date: "2021-12-11", because: :repo_removed
+  disable! date: "2022-12-30", because: :repo_removed
 
   uses_from_macos "zsh"
 
