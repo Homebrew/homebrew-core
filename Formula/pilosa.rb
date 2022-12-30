@@ -15,7 +15,7 @@ class Pilosa < Formula
   end
 
   # https://github.com/pilosa/pilosa/issues/2149#issuecomment-993029527
-  deprecate! date: "2021-12-14", because: :unmaintained
+  disable! date: "2022-12-30", because: :unmaintained
 
   depends_on "go" => :build
 
