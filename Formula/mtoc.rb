@@ -3,6 +3,7 @@ class Mtoc < Formula
   homepage "https://opensource.apple.com/"
   url "https://github.com/apple-oss-distributions/cctools/archive/refs/tags/cctools-949.0.1.tar.gz"
   sha256 "8b2d8dc371a57e42852fa6102efaf324ef004adf86072bf9957e2ac9005326c1"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "04d75f24e8a8dbf876aa37fddd44139c5177b08348210ef3acacedb5ba8e1dc7"
@@ -22,6 +23,11 @@ class Mtoc < Formula
   patch do
     url "https://raw.githubusercontent.com/acidanthera/ocbuild/d3e57820ce85bc2ed4ce20cc25819e763c17c114/patches/mtoc-permissions.patch"
     sha256 "0d20ee119368e30913936dfee51055a1055b96dde835f277099cb7bcd4a34daf"
+  end
+
+  patch do
+    url "https://raw.githubusercontent.com/acidanthera/ocbuild/8107959e2a54122516d2f1fe5797e6f906a4fddc/patches/mtoc-add-missing-efi-subsystems.patch"
+    sha256 "463764cfd2027cbaba7001e7d5d28e06917aedb866a1c2da664a6f3dcff21636"
   end
 
   def install
