@@ -8,6 +8,12 @@ class Zstd < Formula
   license "BSD-3-Clause"
   head "https://github.com/facebook/zstd.git", branch: "dev"
 
+  livecheck do
+    url "https://github.com/facebook/zstd/"
+    regex(%r{href=["']?[^"' >]*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    strategy :page_match
+  end
+
   bottle do
     rebuild 3
     sha256 cellar: :any,                 arm64_ventura:  "92f953ed8a8c77b9e282d7cb6a6288d77e6f40bb1b3eec78e2fbbae29c12b220"
