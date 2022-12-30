@@ -28,6 +28,10 @@ class NestopiaUe < Formula
 
   uses_from_macos "zlib"
 
+  on_macos do
+    depends_on "libiconv"
+  end
+
   def install
     system "autoreconf", "-fiv"
     system "./configure", "--disable-debug",
