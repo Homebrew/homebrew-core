@@ -4,10 +4,10 @@ class Mpfr < Formula
   license "LGPL-3.0-or-later"
 
   stable do
-    url "https://ftp.gnu.org/gnu/mpfr/mpfr-4.1.0.tar.xz"
-    mirror "https://ftpmirror.gnu.org/mpfr/mpfr-4.1.0.tar.xz"
-    sha256 "0c98a3f1732ff6ca4ea690552079da9c597872d30e96ec28414ee23c95558a7f"
-    version "4.1.0-p13"
+    url "https://ftp.gnu.org/gnu/mpfr/mpfr-4.1.1.tar.xz"
+    mirror "https://ftpmirror.gnu.org/mpfr/mpfr-4.1.1.tar.xz"
+    sha256 "ffd195bd567dbaffc3b98b23fd00aad0537680c9896171e44fe3ff79e28ac33d"
+    version "4.1.1-p01"
 
     # Fix -flat_namespace being used on Big Sur and later.
     patch do
@@ -17,22 +17,10 @@ class Mpfr < Formula
 
     # Upstream patches, list at https://www.mpfr.org/mpfr-current/#fixed
     %w[
-      01 a2d9bc87c5642be805eaec5f03f30235f3dd5985bb4edb6917f110b849fa0c40
-      02 20e0ec276d2a091a1154ed000ea19855f26c7190ed01bde745cc84284ae929db
-      03 f07903f25dd92ee086f214177870517487f00cb3f2e130db66d252552335b655
-      04 86d0a884a34d94f1ce3537b548f6ca1e027d466914f65165a359b84fe6630926
-      05 bc4860ad2a822c2fc08913255882b117a2e9668df9fd21c3ca07633d4ab3a50b
-      06 6dfa09a25a0f7cc553cbfd9cb18de95936ee1234c90f5db7437b8dc4dd5aae24
-      07 e65d93a434048f80fa30e2230b47896764abff5757fc4575262270b05bbc457a
-      08 b9991564eb2cbdcb419254c2a03729ee5c44dae45ee08f09a6ae5193df6b1f78
-      09 e5642c27d91166371da83b05ae4c9d5e8b7f48fff064d16b150d94810b32bc0b
-      10 31a12fe331c779120da5bb3036d57fd86c2a16b6fc66b8a7cae3c5db007d8cae
-      11 37efcec4cfcff50eec27b30a22be7921b6ebc0c3dedc41137d69aba3c1630ea6
-      12 839e7240f30c731a63122c98c1a1a359642fb3fa3dbb07e50f8bb2e1d36c3d29
-      13 4d04d39954df48b2dd6ecbf875c8c143cae3b3362303b5bdb40b643fead2e79b
+      01 80a3c2709be21acaac12a9cc99888d63a00fa77fb75576f205fe8ba1984ff44a
     ].each_slice(2) do |p, checksum|
       patch do
-        url "https://www.mpfr.org/mpfr-4.1.0/patch#{p}"
+        url "https://www.mpfr.org/mpfr-4.1.1/patch#{p}"
         sha256 checksum
       end
     end
