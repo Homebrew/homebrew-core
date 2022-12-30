@@ -1,8 +1,8 @@
 class Sile < Formula
   desc "Modern typesetting system inspired by TeX"
   homepage "https://sile-typesetter.org"
-  url "https://github.com/sile-typesetter/sile/releases/download/v0.14.6/sile-0.14.6.tar.xz"
-  sha256 "74167a1a0a52e6ed33dca2cd119c4da82843fc662e6f3da93f0da7988b385dd5"
+  url "https://github.com/sile-typesetter/sile/releases/download/v0.14.7/sile-0.14.7.tar.xz"
+  sha256 "32f5db8d76e3334c56bc1b42c271604f16fff48450b59f503a44f385cc205d07"
   license "MIT"
   revision 1
 
@@ -175,19 +175,9 @@ class Sile < Formula
       end
     end
 
-    # Avoid checking for fonts at build time, user is expected to supply these because Homebrew can't
-    File.write(buildpath/"build-aux/ax_font.m4", <<~EOS
-      AC_DEFUN([AX_FONT], [
-          pushdef([FONT],$1)
-          AC_MSG_CHECKING(whether font family FONT is available)
-          AC_MSG_RESULT(yes)
-          popdef([FONT])
-      ])dnl
-    EOS
-    )
-
     system "./bootstrap.sh" if build.head?
-    system "./configure", "--disable-debug",
+    system "./configure", "FCMATCH=true",
+                          "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--with-system-luarocks",
