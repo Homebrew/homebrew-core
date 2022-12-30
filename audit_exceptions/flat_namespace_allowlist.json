@@ -12,7 +12,6 @@
   "omniorb",
   "open-mpi",
   "pypy",
-  "pypy3.7",
   "pypy3.8",
   "pypy3.9",
   "scalapack",

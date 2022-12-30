@@ -1,8 +1,8 @@
 class Pypy39 < Formula
   desc "Implementation of Python 3 in Python"
   homepage "https://pypy.org/"
-  url "https://downloads.python.org/pypy/pypy3.9-v7.3.10-src.tar.bz2"
-  sha256 "3738d32575ed2513e3e66878e4e4c6c208caed267570f3f9f814748830002967"
+  url "https://downloads.python.org/pypy/pypy3.9-v7.3.11-src.tar.bz2"
+  sha256 "b0f3166fb2a5aadfd5ceb9db5cdd5f7929a0eccca02b4a26c0dae0492f7ca8ea"
   license "MIT"
   head "https://foss.heptapod.net/pypy/pypy", using: :hg, branch: "py3.9"
 
@@ -20,7 +20,7 @@ class Pypy39 < Formula
 
   uses_from_macos "bzip2"
   uses_from_macos "expat"
-  uses_from_macos "libffi"
+  uses_from_macos "libffi" => since: :catalina
   uses_from_macos "ncurses"
   uses_from_macos "sqlite"
   uses_from_macos "tcl-tk"
