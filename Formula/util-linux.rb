@@ -58,7 +58,7 @@ class UtilLinux < Formula
     # Temporary work around for patches. Remove in the next release.
     system "autoreconf", "--force", "--install", "--verbose" if OS.mac?
 
-    args = %w[--disable-silent-rules]
+    args = %w[--disable-silent-rules --disable-asciidoc]
 
     if OS.mac?
       args << "--disable-ipcs" # does not build on macOS
