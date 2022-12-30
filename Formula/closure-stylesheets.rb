@@ -10,7 +10,7 @@ class ClosureStylesheets < Formula
     sha256 cellar: :any_skip_relocation, all: "7e1f8c96098f6c2fd2cba714bce4da004aa5687ca5a4a1d745460f53f337b982"
   end
 
-  deprecate! date: "2021-12-09", because: :repo_archived
+  disable! date: "2022-12-30", because: :repo_archived
 
   depends_on "openjdk"
 
