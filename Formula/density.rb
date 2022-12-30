@@ -20,6 +20,8 @@ class Density < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5d9f255bfbb15a12094a5b19036358a207019e041fe0a6f5a13365debffdeb9a"
   end
 
+  deprecate! date: "2022-12-07", because: :repo_archived
+
   resource "cputime" do
     url "https://github.com/k0dai/cputime.git",
         revision: "d435d91b872a4824fb507a02d0d1814ed3e791b0"
