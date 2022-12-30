@@ -37,17 +37,17 @@ class Pypy < Formula
   resource "bootstrap" do
     on_macos do
       on_arm do
-        url "https://downloads.python.org/pypy/pypy2.7-v7.3.10-macos_arm64.tar.bz2"
-        sha256 "14b178f005603e3df6db7574b77b9c65ae79feda1a629214cafcb4eee7da679d"
+        url "https://downloads.python.org/pypy/pypy2.7-v7.3.11-macos_arm64.tar.bz2"
+        sha256 "cc5696ab4f93cd3481c1e4990b5dedd7ba60ac0602fa1890d368889a6c5bf771"
       end
       on_intel do
-        url "https://downloads.python.org/pypy/pypy2.7-v7.3.4-osx64.tar.bz2"
-        sha256 "ee7bf42ce843596521e02c763408a5164d18f23c9617f1b8e032ce0675686582"
+        url "https://downloads.python.org/pypy/pypy2.7-v7.3.11-macos_x86_64.tar.bz2"
+        sha256 "56deee9c22640f5686c35b9d64fdb1ce3abd044583e4078f0b171ca2fd2a198e"
       end
     end
     on_linux do
-      url "https://downloads.python.org/pypy/pypy2.7-v7.3.4-linux64.tar.bz2"
-      sha256 "d3f7b0625e770d9be62201765d7d2316febc463372fba9c93a12969d26ae03dd"
+      url "https://downloads.python.org/pypy/pypy2.7-v7.3.11-linux64.tar.bz2"
+      sha256 "ba8ed958a905c0735a4cfff2875c25089954dc020e087d982b0ffa5b9da316cd"
     end
   end
 
