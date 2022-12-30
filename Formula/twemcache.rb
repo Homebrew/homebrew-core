@@ -21,7 +21,7 @@ class Twemcache < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ebed07a9f27fb7c462c9e313dc51dcfb326804fd7715119a32151ee48b4e815d"
   end
 
-  deprecate! date: "2021-12-11", because: :repo_archived
+  disable! date: "2022-12-30", because: :repo_archived
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
