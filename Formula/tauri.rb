@@ -15,12 +15,12 @@ class Tauri < Formula
   end
 
   def install
-    system "cargo", "install", "--path", "tooling/cli", "--root", prefix
+    system "cargo", "install", "--path", "tooling/cli", "--debug", "--root", prefix
     mv bin/"cargo-tauri", bin/"tauri"
   end
 
   test do
-    ohai testpath
+    # ohai testpath
     # test that versioning works
     assert_equal "tauri-cli #{version}", shell_output("#{bin}/tauri --version").strip
 
@@ -36,6 +36,6 @@ testpath/"dist", "--dev-path", testpath/"dist", "--before-dev-command", "", "--b
     system "sed", "-i", "", "s/com.tauri.dev/com.tauri.test/", testpath/"src-tauri/tauri.conf.json"
     system "sed", "-i", "", "s/\"targets\": \"all\"/\"targets\": \"app\"/", testpath/"src-tauri/tauri.conf.json"
 
-    system "#{bin}/tauri", "build", "--debug"
+    system "#{bin}/tauri", "build", "--debug", "--verbose"
   end
 end
