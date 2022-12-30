@@ -9,9 +9,8 @@ class Zstd < Formula
   head "https://github.com/facebook/zstd.git", branch: "dev"
 
   livecheck do
-    url "https://github.com/facebook/zstd/"
-    regex(%r{href=["']?[^"' >]*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
-    strategy :page_match
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
