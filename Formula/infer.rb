@@ -38,7 +38,7 @@ class Infer < Formula
 
   # https://github.com/Homebrew/homebrew-core/pull/87904
   # https://github.com/facebook/infer/issues/1568
-  deprecate! date: "2021-12-20", because: :does_not_build
+  disable! date: "2022-12-30", because: :does_not_build
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
