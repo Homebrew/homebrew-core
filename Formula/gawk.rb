@@ -5,6 +5,7 @@ class Gawk < Formula
   mirror "https://ftpmirror.gnu.org/gawk/gawk-5.2.1.tar.xz"
   sha256 "673553b91f9e18cc5792ed51075df8d510c9040f550a6f74e09c9add243a7e4f"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://git.savannah.gnu.org/git/gawk.git", branch: "master"
 
   bottle do
@@ -22,8 +23,9 @@ class Gawk < Formula
   depends_on "mpfr"
   depends_on "readline"
 
-  conflicts_with "awk",
-    because: "both install an `awk` executable"
+  on_linux do
+    conflicts_with "awk", because: "both install an `awk` executable"
+  end
 
   def install
     system "./bootstrap.sh" if build.head?
@@ -49,9 +51,22 @@ class Gawk < Formula
     end
     system "make", "install"
 
+    (bin/"awk").unlink if OS.mac?
     (libexec/"gnubin").install_symlink bin/"gawk" => "awk"
     (libexec/"gnuman/man1").install_symlink man1/"gawk.1" => "awk.1"
     libexec.install_symlink "gnuman" => "man"
+  end
+
+  def caveats
+    on_macos do
+      <<~EOS
+        GNU "awk" has been installed as "gawk".
+        If you need to use it as "awk", you can add a "gnubin" directory
+        to your PATH from your ~/.bashrc and/or ~/.zshrc like:
+
+            PATH="#{opt_libexec}/gnubin:$PATH"
+      EOS
+    end
   end
 
   test do
