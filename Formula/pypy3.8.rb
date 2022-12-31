@@ -20,7 +20,7 @@ class Pypy38 < Formula
 
   uses_from_macos "bzip2"
   uses_from_macos "expat"
-  uses_from_macos "libffi" => since: :catalina
+  uses_from_macos "libffi", since: :catalina
   uses_from_macos "ncurses"
   uses_from_macos "sqlite"
   uses_from_macos "tcl-tk"
