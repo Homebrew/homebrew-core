@@ -3,18 +3,29 @@ class Creduce < Formula
   homepage "https://embed.cs.utah.edu/creduce/"
   license "BSD-3-Clause"
   revision 3
+  head "https://github.com/csmith-project/creduce.git", branch: "master"
 
   # Remove when `head` and `stable` use the same LLVM version.
   stable do
     url "https://embed.cs.utah.edu/creduce/creduce-2.10.0.tar.gz"
     sha256 "db1c0f123967f24d620b040cebd53001bf3dcf03e400f78556a2ff2e11fea063"
-    depends_on "llvm@9"
 
     # Use shared libraries.
     # Remove with the next release.
     patch do
       url "https://github.com/csmith-project/creduce/commit/e9bb8686c5ef83a961f63744671c5e70066cba4e.patch?full_index=1"
       sha256 "d5878a2c8fb6ebc5a43ad25943a513ff5226e42b842bb84f466cdd07d7bd626a"
+    end
+
+    # Port to LLVM 15.0.
+    # Remove with the next release.
+    patch do
+      url "https://github.com/csmith-project/creduce/commit/e507cca4ccb32585c5692d49b8d907c1051c826c.patch?full_index=1"
+      sha256 "71d772bf7d48a46019a07e38c04559c0d517bf06a07a26d8e8101273e1fabd8f"
+    end
+    patch do
+      url "https://github.com/csmith-project/creduce/commit/8d56bee3e1d2577fc8afd2ecc03b1323d6873404.patch?full_index=1"
+      sha256 "d846e2a04c211f2da9a87194181e3644324c933ec48a7327a940e4f4b692cbae"
     end
   end
 
@@ -30,12 +41,8 @@ class Creduce < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "05609defa2c67b6cc907d1c30f7f4080e03211ce918fa5d6b79c256b608805a8"
   end
 
-  head do
-    url "https://github.com/csmith-project/creduce.git", branch: "master"
-    depends_on "llvm"
-  end
-
   depends_on "astyle"
+  depends_on "llvm"
 
   uses_from_macos "perl"
 
@@ -90,8 +97,8 @@ class Creduce < Formula
       ENV["CXX"] = llvm.opt_bin/"clang++"
     end
 
-    system "./configure", "--prefix=#{prefix}",
-                          "--disable-dependency-tracking",
+    system "./configure", *std_configure_args,
+                          "--disable-silent-rules",
                           "--bindir=#{libexec}"
     system "make"
     system "make", "install"
