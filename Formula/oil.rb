@@ -25,6 +25,7 @@ class Oil < Formula
 
   def install
     system "./configure", "--prefix=#{prefix}",
+                          "--datarootdir=#{share}",
                           "--with-readline=#{Formula["readline"].opt_prefix}"
     system "make"
     system "./install"
