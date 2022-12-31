@@ -3,8 +3,8 @@ require "language/node"
 class BalenaCli < Formula
   desc "Command-line tool for interacting with the balenaCloud and balena API"
   homepage "https://www.balena.io/docs/reference/cli/"
-  url "https://registry.npmjs.org/balena-cli/-/balena-cli-14.5.15.tgz"
-  sha256 "59c29204a4a2db53205b28591e9949b26b8adce82f6e600cfb16badc0c7957ef"
+  url "https://registry.npmjs.org/balena-cli/-/balena-cli-14.5.18.tgz"
+  sha256 "716f65c337f001f42bc8b3eff40dabc67a528c90581264116f128d8b02b3a8ff"
   license "Apache-2.0"
 
   livecheck do
@@ -22,8 +22,6 @@ class BalenaCli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c2e6b54f260a8a8051ac73478f8f2d149552ddb41a0987978b0ac27e2038574e"
   end
 
-  # Node looks for an unversioned `python` at build-time.
-  depends_on "python@3.10" => :build
   depends_on "node@14"
 
   on_macos do
@@ -32,9 +30,8 @@ class BalenaCli < Formula
 
   def install
     ENV.deparallelize
-    ENV.prepend_path "PATH", Formula["python@3.10"].opt_libexec/"bin"
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
-    (bin/"balena").write_env_script libexec/"bin/balena", PATH: "#{Formula["node@14"].opt_bin}:$PATH"
+    system Formula["node@14"].opt_bin/"npm", "install", *Language::Node.std_npm_install_args(libexec)
+    (bin/"balena").write_env_script libexec/"bin/balena", PATH: "#{Formula["node@14"].opt_bin}:${PATH}"
 
     # Remove incompatible pre-built binaries
     os = OS.kernel_name.downcase
