@@ -12,7 +12,7 @@ class Discount < Formula
   # like a reliable source for the latest version information, unfortunately.
   livecheck do
     url :head
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    regex(/^v?(\d+(?:\.\d+)+[a-z]?)$/i)
   end
 
   bottle do
