@@ -11,6 +11,7 @@ class Lilypond < Formula
     :public_domain,
     "MIT",
   ]
+  revision 1
 
   livecheck do
     url "https://lilypond.org/source.html"
@@ -52,14 +53,20 @@ class Lilypond < Formula
   uses_from_macos "flex" => :build
   uses_from_macos "perl" => :build
 
+  resource "font-urw-base35" do
+    url "https://github.com/ArtifexSoftware/urw-base35-fonts/archive/refs/tags/20200910.tar.gz"
+    sha256 "e0d9b7f11885fdfdc4987f06b2aa0565ad2a4af52b22e5ebf79e1a98abd0ae2f"
+  end
+
   def install
     system "./autogen.sh", "--noconfigure" if build.head?
 
     system "./configure", "--datadir=#{share}",
                           "--disable-documentation",
-                          *std_configure_args,
                           "--with-flexlexer-dir=#{Formula["flex"].include}",
-                          "GUILE_FLAVOR=guile-3.0"
+                          "GUILE_FLAVOR=guile-3.0",
+                          "PKG_CONFIG_PATH=#{HOMEBREW_PREFIX}/lib/pkgconfig:#{HOMEBREW_PREFIX}/share/pkgconfig",
+                          *std_configure_args
 
     system "make"
     system "make", "install"
@@ -68,11 +75,21 @@ class Lilypond < Formula
     system "make", "install-bytecode"
 
     elisp.install share.glob("emacs/site-lisp/*.el")
+
+    resource("font-urw-base35").stage pkgshare/version/"fonts/otf/urw-base35"
   end
 
   test do
-    (testpath/"test.ly").write "\\relative { c' d e f g a b c }"
-    system bin/"lilypond", "--loglevel=ERROR", "test.ly"
+    (testpath/"test.ly").write <<~EOS
+      #(define-markup-command (debug layout props arg) (markup?)
+        (let ((stencil (interpret-markup layout props arg)))
+          (pretty-print (ly:stencil-expr stencil))
+          (flush-all-ports)
+          stencil))
+      \\markup \\debug "abc"
+      \\relative { c' d e f g a b c }
+    EOS
+    assert_match(/^\s*"C059-Roman"\s*$/, shell_output("#{bin}/lilypond --loglevel=ERROR test.ly").strip)
     assert_predicate testpath/"test.pdf", :exist?
   end
 end
