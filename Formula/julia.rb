@@ -49,6 +49,11 @@ class Julia < Formula
 
   fails_with gcc: "5"
 
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/c0a411ea7f5848d7b46fd360d0bb8783f75d2fb3/julia/libgcc_s-1.8.4.diff"
+    sha256 "3df69f34e19da1c825a539774cbd17a619dfcaa6e43329b0156f571dc9d696f7"
+  end
+
   def install
     # Build documentation available at
     # https://github.com/JuliaLang/julia/blob/v#{version}/doc/build/build.md
