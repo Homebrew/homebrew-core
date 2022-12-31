@@ -1,7 +1,8 @@
 class Mxnet < Formula
   desc "Flexible and efficient library for deep learning"
   homepage "https://mxnet.apache.org"
-  url "https://dlcdn.apache.org/incubator/mxnet/1.9.1/apache-mxnet-src-1.9.1-incubating.tar.gz"
+  url "https://www.apache.org/dyn/closer.lua?path=mxnet/1.9.1/apache-mxnet-src-1.9.1-incubating.tar.gz"
+  mirror "https://archive.apache.org/dist/incubator/mxnet/1.9.1/apache-mxnet-src-1.9.1-incubating.tar.gz"
   sha256 "11ea61328174d8c29b96f341977e03deb0bf4b0c37ace658f93e38d9eb8c9322"
   license "Apache-2.0"
 
