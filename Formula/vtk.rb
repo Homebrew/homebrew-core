@@ -4,6 +4,7 @@ class Vtk < Formula
   url "https://www.vtk.org/files/release/9.2/VTK-9.2.5.tar.gz"
   sha256 "128d601baa980e98ee034207974b33fb38d2c98ab9cf4a5756efdb09ed6c0949"
   license "BSD-3-Clause"
+  revision 1
   head "https://gitlab.kitware.com/vtk/vtk.git", branch: "master"
 
   bottle do
