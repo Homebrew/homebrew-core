@@ -22,13 +22,14 @@ class Dropbear < Formula
   end
 
   head do
-    url "https://github.com/mkj/dropbear.git"
+    url "https://github.com/mkj/dropbear.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end
 
   uses_from_macos "libxcrypt"
+  uses_from_macos "zlib"
 
   on_linux do
     depends_on "linux-pam"
