@@ -5,8 +5,8 @@ class Julia < Formula
   #
   # TODO: Use system `suite-sparse` when `julia` supports v6.
   # Issue ref: https://github.com/JuliaLang/julia/issues/47884
-  url "https://github.com/JuliaLang/julia/releases/download/v1.8.5/julia-1.8.5-full.tar.gz"
-  sha256 "35554080a4b4d3ce52ef220254306bd42ac0d88eff9eb85592a57d0663db5df2"
+  url "https://github.com/JuliaLang/julia/releases/download/v1.9.0-beta2/julia-1.9.0-beta2-full.tar.gz"
+  sha256 "2d3429e6f04c3929704e1629488bff50d27d78853e58877f5d6185c6cad0133b"
   license all_of: ["MIT", "BSD-3-Clause", "Apache-2.0", "BSL-1.0"]
   head "https://github.com/JuliaLang/julia.git", branch: "master"
 
