@@ -10,6 +10,7 @@ class Lilypond < Formula
     "GFDL-1.3-no-invariants-or-later",
     :public_domain,
     "MIT",
+    "AGPL-3.0-only",
   ]
   revision 1
 
