@@ -3,7 +3,7 @@ class Fuego < Formula
   homepage "https://fuego.sourceforge.io/"
   url "https://svn.code.sf.net/p/fuego/code/trunk", revision: "1981"
   version "1.1.SVN"
-  revision 5
+  revision 6
   head "https://svn.code.sf.net/p/fuego/code/trunk"
 
   bottle do
