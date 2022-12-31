@@ -1,8 +1,10 @@
 class Ns3 < Formula
+  include Language::Python::Virtualenv
+
   desc "Discrete-event network simulator"
   homepage "https://www.nsnam.org/"
-  url "https://gitlab.com/nsnam/ns-3-dev/-/archive/ns-3.36.1/ns-3-dev-ns-3.36.1.tar.bz2"
-  sha256 "8826dbb35290412df9885d8a936ab0c3fe380dec4dd48c57889148c0a2c1a856"
+  url "https://gitlab.com/nsnam/ns-3-dev/-/archive/ns-3.37/ns-3-dev-ns-3.37.tar.gz"
+  sha256 "70f4dca7ff59eabedcdf97c75d1d8d593c726f0d75a6b9470f29871629a341f3"
   license "GPL-2.0-only"
 
   bottle do
@@ -19,8 +21,6 @@ class Ns3 < Formula
 
   depends_on "boost" => :build
   depends_on "cmake" => :build
-  depends_on xcode: [:build, "11"]
-
   depends_on "gsl"
   depends_on "open-mpi"
   depends_on "python@3.11"
@@ -28,26 +28,15 @@ class Ns3 < Formula
   uses_from_macos "libxml2"
   uses_from_macos "sqlite"
 
-  # Clears the Python3_LIBRARIES variable. Removing `PRIVATE ${Python3_LIBRARIES}`
-  # in ns3-module-macros is not sufficient as it doesn't apply to visualizer.so.
-  # Should be no longer needed when 3.37 rolls out.
-  on_macos do
-    patch :DATA
-  end
-
-  # Needs GCC 8 or above
-  fails_with gcc: "5"
-  fails_with gcc: "6"
-  fails_with gcc: "7"
-
-  resource "pybindgen" do
-    url "https://files.pythonhosted.org/packages/e0/8e/de441f26282eb869ac987c9a291af7e3773d93ffdb8e4add664b392ea439/PyBindGen-0.22.1.tar.gz"
-    sha256 "8c7f22391a49a84518f5a2ad06e3a5b1e839d10e34da7631519c8a28fcba3764"
+  resource "cppyy" do
+    url "https://files.pythonhosted.org/packages/64/c2/3f0afc6158ff3e4e764861f3106ae3e72e2ecdd04c707776f4d5adb0bb86/cppyy-2.4.1.tar.gz"
+    sha256 "24be84c676f020c800c803abfc3a15268bd80f1b898fda41d3169b236c16b235"
   end
 
   def install
-    resource("pybindgen").stage buildpath.parent/"pybindgen"
-    ENV.append "PYTHONPATH", buildpath.parent/"pybindgen"
+    venv = virtualenv_create(libexec, "python3.11", system_site_packages: false)
+    venv.pip_install resources
+    ENV.prepend_create_path "PYTHONPATH", libexec/Language::Python.site_packages("python3.11")
 
     # Fix binding's rpath
     linker_flags = ["-Wl,-rpath,#{loader_path}"]
@@ -62,11 +51,6 @@ class Ns3 < Formula
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
-    # Starting 3.36, bindings are no longer installed
-    # https://gitlab.com/nsnam/ns-3-dev/-/merge_requests/1060
-    site_packages = Language::Python.site_packages("python3.11")
-    (prefix/site_packages).install (buildpath/"build/bindings/python").children
-
     pkgshare.install "examples/tutorial/first.cc", "examples/tutorial/first.py"
   end
 
@@ -80,19 +64,3 @@ class Ns3 < Formula
     system Formula["python@3.11"].opt_bin/"python3.11", pkgshare/"first.py"
   end
 end
-
-__END__
-diff --git a/build-support/macros-and-definitions.cmake b/build-support/macros-and-definitions.cmake
-index 304ccdde7..64ae322c5 100644
---- a/build-support/macros-and-definitions.cmake
-+++ b/build-support/macros-and-definitions.cmake
-@@ -723,7 +723,8 @@ macro(process_options)
-   if(${Python3_Interpreter_FOUND})
-     if(${Python3_Development_FOUND})
-       set(Python3_FOUND TRUE)
--      if(APPLE)
-+      set(Python3_LIBRARIES "")
-+      if(FALSE)
-         # Apple is very weird and there could be a lot of conflicting python
-         # versions which can generate conflicting rpaths preventing the python
-         # bindings from working
