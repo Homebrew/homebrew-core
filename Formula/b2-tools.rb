@@ -18,6 +18,7 @@ class B2Tools < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3957993c5640198f01b2e252bb9258fda4c4ab01c061f73fc7c0ece7affac076"
   end
 
+  # Does not work with Python 3.11, see https://github.com/Backblaze/B2_Command_Line_Tool/issues/834
   depends_on "python@3.10"
   depends_on "six"
 
