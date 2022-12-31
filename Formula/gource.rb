@@ -4,7 +4,7 @@ class Gource < Formula
   url "https://github.com/acaudwell/Gource/releases/download/gource-0.53/gource-0.53.tar.gz"
   sha256 "3d5f64c1c6812f644c320cbc9a9858df97bc6036fc1e5f603ca46b15b8dd7237"
   license "GPL-3.0-or-later"
-  revision 2
+  revision 3
 
   bottle do
     sha256 arm64_ventura:  "557adabdc455f36a53771b2dfdc4d105011de331d4592fc73225a5f0c34890bb"
