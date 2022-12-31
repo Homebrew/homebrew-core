@@ -1,8 +1,8 @@
 class Discount < Formula
   desc "C implementation of Markdown"
   homepage "https://www.pell.portland.or.us/~orc/Code/discount/"
-  url "https://www.pell.portland.or.us/~orc/Code/discount/discount-2.2.7.tar.bz2"
-  sha256 "b1262be5d7b04f3c4e2cee3a0937369b12786af18f65f599f334eefbc0ee9508"
+  url "https://www.pell.portland.or.us/~orc/Code/discount/discount-2.2.7b.tar.bz2"
+  sha256 "b9368cc2063831635f9e790d0c4c338c2b4b72658cdc244323241bfcddf6ffd5"
   license "BSD-3-Clause"
   head "https://github.com/Orc/discount.git", branch: "main"
 
@@ -31,6 +31,10 @@ class Discount < Formula
   conflicts_with "multimarkdown", because: "both install `markdown` binaries"
 
   def install
+    # Shared libraries are currently not built because they require
+    # root access to build without patching.
+    # Issue reported upstream here: https://github.com/Orc/discount/issues/266.
+    # Add --shared to args when this is resolved.
     args = %W[
       --prefix=#{prefix}
       --mandir=#{man}
@@ -38,6 +42,7 @@ class Discount < Formula
       --enable-dl-tag
       --enable-pandoc-header
       --enable-superscript
+      --pkg-config
     ]
     system "./configure.sh", *args
     bin.mkpath
