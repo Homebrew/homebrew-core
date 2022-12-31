@@ -3,6 +3,9 @@ class Mdv < Formula
 
   desc "Styled terminal markdown viewer"
   homepage "https://github.com/axiros/terminal_markdown_viewer"
+  # TODO: Remove `depends_on "python-tabulate"` on the next release
+  # TODO: Remove "Markdown==2.6.11" and "tabulate" from pypi_formula_mappings.json on the next release
+  # Ref: https://github.com/axiros/terminal_markdown_viewer/commit/d2e8d26f39590fdc9c0b9ec0b80b578c7e260c6c
   url "https://files.pythonhosted.org/packages/70/6d/831e188f8079c9793eac4f62ae55d04a93d90979fd2d8271113687605380/mdv-1.7.4.tar.gz"
   sha256 "1534f477c85d580352c82141436f6fdba79d329af8a5ee7e329fea14424a660d"
   license "BSD-3-Clause"
@@ -20,31 +23,31 @@ class Mdv < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a0bdd4c19f2486841a91bbf3a13eb69d46b6b77d729abd870a05430c19d8be6b"
   end
 
-  depends_on "python@3.8"
-
-  resource "docopt" do
-    url "https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz"
-    sha256 "49b3a825280bd66b3aa83585ef59c4a8c82f2c8a522dbe754a8bc8d08c85c491"
-  end
+  depends_on "pygments"
+  depends_on "python-tabulate"
+  depends_on "python@3.11"
+  depends_on "pyyaml"
 
   resource "Markdown" do
-    url "https://files.pythonhosted.org/packages/d4/32/642bd580c577af37b00a1eb59b0eaa996f2d11dfe394f3dd0c7a8a2de81a/Markdown-2.6.7.tar.gz"
-    sha256 "daebf24846efa7ff269cfde8c41a48bb2303920c7b2c7c5e04fa82e6282d05c0"
+    url "https://files.pythonhosted.org/packages/b3/73/fc5c850f44af5889192dff783b7b0d8f3fe8d30b65c8e3f78f8f0265fecf/Markdown-2.6.11.tar.gz"
+    sha256 "a856869c7ff079ad84a3e19cd87a64998350c2b94e9e08e44270faef33400f81"
   end
 
-  resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/b8/67/ab177979be1c81bc99c8d0592ef22d547e70bb4c6815c383286ed5dec504/Pygments-2.1.3.tar.gz"
-    sha256 "88e4c8a91b2af5962bfa5ea2447ec6dd357018e86e94c7d14bd8cacbc5b55d81"
+  # Upstream fix for code blocks not being indexed like expected.
+  # Patching this in allows directly applying Python 3.9 fix in subsequent patch.
+  # Issue ref: https://github.com/axiros/terminal_markdown_viewer/issues/66
+  # TODO: Remove in the next release
+  patch do
+    url "https://github.com/axiros/terminal_markdown_viewer/commit/80f333ba51dc2f1dfa854e203d3374a112aecbd3.patch?full_index=1"
+    sha256 "81e487a8e6ab5c72298186a8097da3a962549b6b8112241cccbeb1666ce54cf2"
   end
 
-  resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/9e/a3/1d13970c3f36777c583f136c136f804d70f500168edc1edea6daa7200769/PyYAML-3.13.tar.gz"
-    sha256 "3ef3092145e9b70e3ddd2c7ad59bdd0252a94dfe3949721633e41344de00a6bf"
-  end
-
-  resource "tabulate" do
-    url "https://files.pythonhosted.org/packages/57/6f/213d075ad03c84991d44e63b6516dd7d185091df5e1d02a660874f8f7e1e/tabulate-0.8.7.tar.gz"
-    sha256 "db2723a20d04bcda8522165c73eea7c300eda74e0ce852d9022e0159d7895007"
+  # Upstream fix for Python 3.9 support.
+  # Issue ref: https://github.com/axiros/terminal_markdown_viewer/issues/86
+  # TODO: Remove in the next release
+  patch do
+    url "https://github.com/axiros/terminal_markdown_viewer/commit/aa6f377d568a0d3188b624bf5218af002373ad87.patch?full_index=1"
+    sha256 "500ddecd02c093cff32edc704628612c8f82e1298452a278cd00767daa073fbe"
   end
 
   def install
