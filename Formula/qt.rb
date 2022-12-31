@@ -144,6 +144,9 @@ class Qt < Formula
     directory "qtwebengine"
   end
 
+  # Fix build in Python 3.11 (invalid mode: 'rU')
+  patch :DATA
+
   def install
     python = "python3.11"
     # Install python dependencies for QtWebEngine
@@ -352,3 +355,28 @@ class Qt < Formula
     system "./test"
   end
 end
+
+__END__
+--- a/PRESUBMIT_test_mocks.py
++++ b/PRESUBMIT_test_mocks.py
+@@ -129,7 +129,7 @@
+   def PresubmitLocalPath(self):
+     return self.presubmit_local_path
+
+-  def ReadFile(self, filename, mode='rU'):
++  def ReadFile(self, filename, mode='r'):
+     if hasattr(filename, 'AbsoluteLocalPath'):
+        filename = filename.AbsoluteLocalPath()
+     for file_ in self.files:
+
+--- a/tools/grit/grit/util.py
++++ b/tools/grit/grit/util.py
+@@ -209,7 +209,7 @@
+     mode = 'rb'
+     encoding = None
+   else:
+-    mode = 'rU'
++    mode = 'r'
+
+   with io.open(filename, mode, encoding=encoding) as f:
+     return f.read()
