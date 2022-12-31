@@ -5,6 +5,7 @@ class Monero < Formula
       tag:      "v0.18.1.2",
       revision: "66184f30859796f3c7c22f9497e41b15b5a4a7c9"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -27,6 +28,7 @@ class Monero < Formula
   depends_on "boost"
   depends_on "hidapi"
   depends_on "libsodium"
+  depends_on "libusb"
   depends_on "openssl@1.1"
   depends_on "protobuf"
   depends_on "readline"
@@ -35,9 +37,17 @@ class Monero < Formula
 
   conflicts_with "wownero", because: "both install a wallet2_api.h header"
 
+  # patch build issue (missing includes)
+  # remove in next release
+  patch do
+    url "https://github.com/monero-project/monero/commit/96677fffcd436c5c108718b85419c5dbf5da9df2.patch?full_index=1"
+    sha256 "e39914d425b974bcd548a3aeefae954ab2f39d832927ffb97a1fbd7ea03316e0"
+  end
+
   def install
-    system "cmake", ".", *std_cmake_args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   service do
