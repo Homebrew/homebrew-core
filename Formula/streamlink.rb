@@ -85,14 +85,15 @@ class Streamlink < Formula
   end
 
   def install
-    virtualenv_install_with_resources
-    man1.install_symlink libexec/"share/man/man1/streamlink.1"
+    virtualenv_install_with_resources(link_manpages: true)
   end
 
   test do
-    system "#{bin}/streamlink", "https://vimeo.com/189776460", "360p", "-o", "video.mp4"
+    system "#{bin}/streamlink", "https://youtu.be/he2a4xK8ctk", "360p", "-o", "video.mp4"
     assert_match "video.mp4: ISO Media, MP4 v2", shell_output("file video.mp4")
-    output = shell_output("#{bin}/streamlink -l debug 'https://ok.ru/video/3388934659879'")
+
+    url = OS.mac? ? "https://ok.ru/video/3388934659879" : "https://www.youtube.com/watch?v=pOtd1cbOP7k"
+    output = shell_output("#{bin}/streamlink -l debug '#{url}'")
     assert_match "Available streams:", output
     refute_match "error", output
     refute_match "Could not find metadata", output
