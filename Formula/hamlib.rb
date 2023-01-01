@@ -1,8 +1,8 @@
 class Hamlib < Formula
   desc "Ham radio control libraries"
   homepage "http://www.hamlib.org/"
-  url "https://github.com/Hamlib/Hamlib/releases/download/4.5.2/hamlib-4.5.2.tar.gz"
-  sha256 "5a0f9e932ffe2d3971e07b544aa62bec3e494e73ff1ce3ca33fa0d88e199b061"
+  url "https://github.com/Hamlib/Hamlib/releases/download/4.5.3/hamlib-4.5.3.tar.gz"
+  sha256 "e1818e9df0e59023d2dff320c41c5c622b02a0afd3e50c3155694e1a9014f260"
   license "LGPL-2.1-or-later"
   head "https://github.com/hamlib/hamlib.git", branch: "master"
 
