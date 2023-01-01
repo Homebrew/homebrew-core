@@ -1,8 +1,8 @@
 class Llama < Formula
   desc "Terminal file manager"
   homepage "https://github.com/antonmedv/llama"
-  url "https://github.com/antonmedv/llama/archive/refs/tags/v1.3.0.tar.gz"
-  sha256 "82cd41382a900c1b1e9d4c9fae4964ddf88eab90b1644f3723d0c50d7df73837"
+  url "https://github.com/antonmedv/llama/archive/refs/tags/v1.4.0.tar.gz"
+  sha256 "301f5dff2b8f27595a08a12626125d28313b5a92e97ccdaf4d0cb89111ebab9a"
   license "MIT"
 
   bottle do
