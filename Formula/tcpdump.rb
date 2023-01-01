@@ -41,7 +41,7 @@ class Tcpdump < Formula
       "tcpdump: (cannot open BPF device) /dev/bpf0: Operation not permitted"
     else
       <<~EOS
-        tcpdump: eth0: You don't have permission to capture on that device
+        tcpdump: eth0: You don't have permission to perform this capture on that device
         (socket: Operation not permitted)
       EOS
     end
