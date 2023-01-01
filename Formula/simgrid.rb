@@ -6,6 +6,7 @@ class Simgrid < Formula
   url "https://framagit.org/simgrid/simgrid/uploads/c45f7fd6872b3b0d26b9ba2e607d6e3a/simgrid-3.32.tar.gz"
   sha256 "837764eb81562f04e49dd20fbd8518d9eb1f94df00a4e4555e7ec7fa8aa341f0"
   license "LGPL-2.1-only"
+  revision 1
 
   livecheck do
     url :homepage
