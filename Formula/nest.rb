@@ -47,7 +47,7 @@ class Nest < Formula
 
   def caveats
     <<~EOS
-      The PyNEST bindings and its dependencies are installed with the python@3.9 formula.
+      The PyNEST bindings and its dependencies are installed with the python@3.11 formula.
       If you want to use PyNEST, use the Python interpreter from this path:
 
           #{Formula["python@3.11"].bin}
