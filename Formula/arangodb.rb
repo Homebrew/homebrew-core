@@ -32,6 +32,10 @@ class Arangodb < Formula
     depends_on "llvm" => :build
   end
 
+  on_linux do
+    depends_on "gcc@10" => :build
+  end
+
   fails_with :clang do
     cause <<-EOS
       .../arangod/IResearch/AqlHelper.h:563:40: error: no matching constructor
@@ -39,6 +43,13 @@ class Arangodb < Formula
               std::forward<Visitor>(visitor)(std::string_view{prev, begin});
                                              ^               ~~~~~~~~~~~~~
     EOS
+  end
+
+  # https://github.com/arangodb/arangodb/issues/17454
+  # https://github.com/arangodb/arangodb/issues/17454
+  fails_with :gcc do
+    version "11"
+    cause "fails to compile with gcc 11"
   end
 
   # https://www.arangodb.com/docs/stable/installation-compiling-debian.html
