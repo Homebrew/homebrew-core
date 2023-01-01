@@ -24,6 +24,8 @@ class Jbig2enc < Formula
   depends_on "leptonica"
 
   def install
+    ENV.cxx11
+
     system "./autogen.sh"
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
