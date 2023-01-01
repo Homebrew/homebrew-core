@@ -2,7 +2,7 @@ class Mapnik < Formula
   desc "Toolkit for developing mapping applications"
   homepage "https://mapnik.org/"
   license "LGPL-2.1-or-later"
-  revision 15
+  revision 16
   head "https://github.com/mapnik/mapnik.git", branch: "master"
 
   stable do
@@ -92,6 +92,9 @@ class Mapnik < Formula
       WEBP_INCLUDES=#{webp}/include
       WEBP_LIBS=#{webp}/lib
     ]
+    # upstream issue, see https://github.com/boostorg/phoenix/issues/115
+    # workaround to avoid the inclusion of `boost/phoenix/stl/tuple.hpp`
+    args << "CUSTOM_CXXFLAGS=-DBOOST_PHOENIX_STL_TUPLE_H_"
 
     system "./configure", *args
     system "make"
