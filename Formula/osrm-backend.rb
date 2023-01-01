@@ -1,10 +1,18 @@
 class OsrmBackend < Formula
   desc "High performance routing engine"
   homepage "http://project-osrm.org/"
-  url "https://github.com/Project-OSRM/osrm-backend/archive/v5.27.1.tar.gz"
-  sha256 "52391580e0f92663dd7b21cbcc7b9064d6704470e2601bf3ec5c5170b471629a"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/Project-OSRM/osrm-backend.git", branch: "master"
+
+  stable do
+    url "https://github.com/Project-OSRM/osrm-backend/archive/v5.27.1.tar.gz"
+    sha256 "52391580e0f92663dd7b21cbcc7b9064d6704470e2601bf3ec5c5170b471629a"
+
+    # Backport fix for missing include. Remove in the next release.
+    # Ref: https://github.com/Project-OSRM/osrm-backend/commit/565959b3896945a0eb437cc799b697be023121ef
+    patch :DATA
+  end
 
   livecheck do
     url :stable
@@ -35,6 +43,9 @@ class OsrmBackend < Formula
   conflicts_with "flatbuffers", because: "both install flatbuffers headers"
 
   def install
+    # Work around build failure: duplicate symbol 'boost::phoenix::placeholders::uarg9'
+    # Issue ref: https://github.com/boostorg/phoenix/issues/111
+    ENV.append_to_cflags "-DBOOST_PHOENIX_STL_TUPLE_H_"
     # Work around build failure on Linux:
     # /tmp/osrm-backend-20221105-7617-1itecwd/osrm-backend-5.27.1/src/osrm/osrm.cpp:83:1:
     # /usr/include/c++/11/ext/new_allocator.h:145:26: error: 'void operator delete(void*, std::size_t)'
@@ -85,3 +96,17 @@ class OsrmBackend < Formula
     assert_predicate testpath/"test.osrm.names", :exist?, "osrm-extract generated no output!"
   end
 end
+
+__END__
+diff --git a/include/extractor/suffix_table.hpp b/include/extractor/suffix_table.hpp
+index 5d16fe6..2c378bf 100644
+--- a/include/extractor/suffix_table.hpp
++++ b/include/extractor/suffix_table.hpp
+@@ -3,6 +3,7 @@
+
+ #include <string>
+ #include <unordered_set>
++#include <vector>
+
+ #include "util/string_view.hpp"
+
