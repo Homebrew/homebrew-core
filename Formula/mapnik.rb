@@ -32,7 +32,7 @@ class Mapnik < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.9" => :build
+  depends_on "python@3.11" => :build
   depends_on "boost"
   depends_on "cairo"
   depends_on "freetype"
@@ -48,7 +48,7 @@ class Mapnik < Formula
 
   def install
     ENV.cxx11
-    ENV["PYTHON"] = "python3.9"
+    ENV["PYTHON"] = "python3.11"
 
     # Work around "error: no member named 'signbit' in the global namespace"
     # encountered when trying to detect boost regex in configure
