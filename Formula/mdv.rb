@@ -20,7 +20,7 @@ class Mdv < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a0bdd4c19f2486841a91bbf3a13eb69d46b6b77d729abd870a05430c19d8be6b"
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.11"
 
   resource "docopt" do
     url "https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz"
