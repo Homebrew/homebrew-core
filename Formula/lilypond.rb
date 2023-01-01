@@ -101,7 +101,7 @@ class Lilypond < Formula
       \\markup \\debug "abc"
       \\relative { c' d e f g a b c }
     EOS
-    assert_match(/^\s*"C059-Roman"\s*$/, shell_output("#{bin}/lilypond --loglevel=ERROR test.ly").strip)
+    assert_match(/^\s*"C059-Roman"\s*$/, shell_output("#{bin}/lilypond --loglevel=ERROR test.ly"))
     assert_predicate testpath/"test.pdf", :exist?
   end
 end
