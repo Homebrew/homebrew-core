@@ -5,8 +5,8 @@ class Dmd < Formula
 
   stable do
     # make sure resources also use the same version
-    url "https://github.com/dlang/dmd/archive/v2.101.1.tar.gz"
-    sha256 "e369396dbbe4eec9311122fa24c975688b209a000bf2062a9f86b49ab2e4a7b0"
+    url "https://github.com/dlang/dmd/archive/v2.101.2.tar.gz"
+    sha256 "536ff1ec29be612c16db84cc10fdbf5c669d7f3c22eda66e53c0618505059576"
 
     resource "phobos" do
       url "https://github.com/dlang/phobos/archive/v2.101.1.tar.gz"
