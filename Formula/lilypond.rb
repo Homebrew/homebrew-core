@@ -11,6 +11,7 @@ class Lilypond < Formula
     :public_domain,
     "MIT",
     "AGPL-3.0-only",
+    "LPPL-1.3c",
   ]
   revision 1
 
@@ -40,6 +41,7 @@ class Lilypond < Formula
   depends_on "bison" => :build # bison >= 2.4.1 is required
   depends_on "fontforge" => :build
   depends_on "gettext" => :build
+  depends_on "libpthread-stubs" => :build
   depends_on "pkg-config" => :build
   depends_on "t1utils" => :build
   depends_on "texinfo" => :build # makeinfo >= 6.1 is required
@@ -66,7 +68,6 @@ class Lilypond < Formula
                           "--disable-documentation",
                           "--with-flexlexer-dir=#{Formula["flex"].include}",
                           "GUILE_FLAVOR=guile-3.0",
-                          "PKG_CONFIG_PATH=#{HOMEBREW_PREFIX}/lib/pkgconfig:#{HOMEBREW_PREFIX}/share/pkgconfig",
                           *std_configure_args
 
     system "make"
@@ -77,7 +78,17 @@ class Lilypond < Formula
 
     elisp.install share.glob("emacs/site-lisp/*.el")
 
-    resource("font-urw-base35").stage pkgshare/version/"fonts/otf/urw-base35"
+    fonts = pkgshare/version/"fonts/otf"
+
+    resource("font-urw-base35").stage do
+      ["C059", "NimbusMonoPS", "NimbusSans"].each do |name|
+        Dir["fonts/#{name}-*.otf"].each do |font|
+          fonts.install font
+        end
+      end
+    end
+
+    cp Dir["#{Formula["texlive"].share}/texmf-dist/fonts/opentype/public/tex-gyre/*.otf"], fonts
   end
 
   test do
