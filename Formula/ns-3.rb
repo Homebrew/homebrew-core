@@ -23,45 +23,24 @@ class Ns3 < Formula
   depends_on "cmake" => :build
   depends_on "gsl"
   depends_on "open-mpi"
-  depends_on "python@3.11"
 
   uses_from_macos "libxml2"
   uses_from_macos "sqlite"
 
-  resource "cppyy" do
-    url "https://files.pythonhosted.org/packages/64/c2/3f0afc6158ff3e4e764861f3106ae3e72e2ecdd04c707776f4d5adb0bb86/cppyy-2.4.1.tar.gz"
-    sha256 "24be84c676f020c800c803abfc3a15268bd80f1b898fda41d3169b236c16b235"
-  end
-
-  resource "cppyy-backend" do
-    url "https://files.pythonhosted.org/packages/a4/cf/7aeae7a78bf09638c8d03c50a57deb925105db3cd06114dc85511e4d44f7/cppyy-backend-1.14.9.tar.gz"
-    sha256 "a7871eaf5cb081387c46d1bbec75c7b9c764a6cfaf95f6e4707f9be9c02a9221"
-  end
-
-  resource "cppyy-cling" do
-    url "https://files.pythonhosted.org/packages/cc/1b/f4d842e710a5ae02c033a5aea83f53a8ff8152c6c341fd6ba7595bf08718/cppyy-cling-6.27.0.tar.gz"
-    sha256 "9c077c2b31e002cae7c9f48b4b5863611e7f392353cc7c66317d2ff6503a392d"
-  end
-
   def install
-    venv = virtualenv_create(libexec, "python3.11", system_site_packages: false)
-    venv.pip_install resources
-    ENV.prepend_create_path "PYTHONPATH", libexec/Language::Python.site_packages("python3.11")
-
     # Fix binding's rpath
     linker_flags = ["-Wl,-rpath,#{loader_path}"]
-    linker_flags << "-Wl,-undefined,dynamic_lookup" if OS.mac?
 
     system "cmake", "-S", ".", "-B", "build",
                     "-DNS3_GTK3=OFF",
-                    "-DNS3_PYTHON_BINDINGS=ON",
+                    "-DNS3_PYTHON_BINDINGS=OFF",
                     "-DNS3_MPI=ON",
                     "-DCMAKE_SHARED_LINKER_FLAGS=#{linker_flags.join(" ")}",
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
-    pkgshare.install "examples/tutorial/first.cc", "examples/tutorial/first.py"
+    pkgshare.install "examples/tutorial/first.cc"
   end
 
   test do
@@ -70,7 +49,5 @@ class Ns3 < Formula
            "-lns#{version}-point-to-point", "-lns#{version}-applications",
            "-std=c++17", "-o", "test"
     system "./test"
-
-    system Formula["python@3.11"].opt_bin/"python3.11", pkgshare/"first.py"
   end
 end
