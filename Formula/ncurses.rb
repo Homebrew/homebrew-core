@@ -97,8 +97,6 @@ class Ncurses < Formula
                                     "--with-curses-dir=#{prefix}"
     system "make", "install"
 
-    system testpath/"test/bin/keynames"
-    system testpath/"test/bin/test_arrays"
-    system testpath/"test/bin/test_vidputs"
+    system testpath/"test/bin/ncurses-examples"
   end
 end
