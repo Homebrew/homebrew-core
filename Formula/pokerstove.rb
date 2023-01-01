@@ -4,7 +4,7 @@ class Pokerstove < Formula
   url "https://github.com/andrewprock/pokerstove/archive/v1.0.tar.gz"
   sha256 "68503e7fc5a5b2bac451c0591309eacecba738d787874d5421c81f59fde2bc74"
   license "BSD-3-Clause"
-  revision 3
+  revision 4
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "312fc979078e0c61ac8736219da32b523c58448362a1cf104b0bb7aa3ce5481c"
@@ -51,7 +51,7 @@ __END__
 --- pokerstove-1.0/CMakeLists.txt.ORIG	2021-02-14 19:26:14.000000000 +0000
 +++ pokerstove-1.0/CMakeLists.txt	2021-02-14 19:26:29.000000000 +0000
 @@ -14,8 +14,8 @@
- 
+
  # Set up gtest. This must be set up before any subdirectories are
  # added which will use gtest.
 -add_subdirectory(src/ext/googletest)
