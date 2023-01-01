@@ -3,8 +3,8 @@ require "language/node"
 class Json5 < Formula
   desc "JSON enhanced with usability features"
   homepage "https://json5.org/"
-  url "https://github.com/json5/json5/archive/v2.2.2.tar.gz"
-  sha256 "c7543250ba84832c37e94b658f66621ac0eacd5befe7bf043b4a547dbddebcc0"
+  url "https://github.com/json5/json5/archive/v2.2.3.tar.gz"
+  sha256 "a98d1dd7c6b101fd99ae692102dc05a65f072b3e6f8077d3658819440bf76637"
   license "MIT"
 
   bottle do
