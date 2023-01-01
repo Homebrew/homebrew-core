@@ -34,6 +34,10 @@ class Leptonica < Formula
                           "--with-libwebp",
                           "--with-libopenjpeg"
     system "make", "install"
+
+    # provide backward compatibility leptonica 1.82.0
+    lib.install_symlink lib/shared_library("libleptonica") => shared_library("liblept")
+    lib.install_symlink lib/"libleptonica.a" => "liblept.a"
   end
 
   test do
