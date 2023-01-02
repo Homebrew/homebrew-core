@@ -23,7 +23,7 @@ class Php < Formula
   end
 
   head do
-    url "https://github.com/php/php-src.git"
+    url "https://github.com/php/php-src.git", branch: "master"
 
     depends_on "bison" => :build # bison >= 3.0.0 required to generate parsers
     depends_on "re2c" => :build # required to generate PHP lexers
