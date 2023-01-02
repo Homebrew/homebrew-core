@@ -29,13 +29,15 @@ class Dcmtk < Formula
   uses_from_macos "libxml2"
 
   def install
-    system "cmake", "-S", ".", "-B", "build/shared", *std_cmake_args,
+    args = std_cmake_args + ["-DDCMTK_WITH_ICU=OFF"]
+
+    system "cmake", "-S", ".", "-B", "build/shared", *args,
                     "-DBUILD_SHARED_LIBS=ON",
                     "-DCMAKE_INSTALL_RPATH=#{rpath}"
     system "cmake", "--build", "build/shared"
     system "cmake", "--install", "build/shared"
 
-    system "cmake", "-S", ".", "-B", "build/static", *std_cmake_args,
+    system "cmake", "-S", ".", "-B", "build/static", *args,
                     "-DBUILD_SHARED_LIBS=OFF"
     system "cmake", "--build", "build/static"
     lib.install Dir["build/static/lib/*.a"]
