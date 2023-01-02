@@ -22,7 +22,7 @@ class Libp11 < Formula
   end
 
   head do
-    url "https://github.com/OpenSC/libp11.git"
+    url "https://github.com/OpenSC/libp11.git", branch: "master"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end
