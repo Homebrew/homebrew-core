@@ -31,7 +31,7 @@ class Lha < Formula
   end
 
   head do
-    url "https://github.com/jca02266/lha.git"
+    url "https://github.com/jca02266/lha.git", branch: "master"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end
