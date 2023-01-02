@@ -2,10 +2,9 @@ class GnomeLatex < Formula
   desc "LaTeX editor for the GNOME desktop"
   homepage "https://gitlab.gnome.org/swilmet/gnome-latex"
   url "https://gitlab.gnome.org/swilmet/gnome-latex.git",
-      tag:      "3.42.0",
-      revision: "5041d5c3dcef3116a05bca58239503664ffbcdf2"
+      tag:      "3.44.0",
+      revision: "8083f0476247feb29afac2682ee640dd18b8a6cf"
   license "GPL-3.0-or-later"
-  revision 1
 
   bottle do
     sha256 arm64_ventura:  "2ce74461c6544307ce6ef78ca8ee4a041955401dadb131f95cf28df1d11a9ac4"
