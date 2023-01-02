@@ -26,7 +26,7 @@ class Ascii < Formula
   end
 
   head do
-    url "https://gitlab.com/esr/ascii.git"
+    url "https://gitlab.com/esr/ascii.git", branch: "master"
     depends_on "xmlto" => :build
   end
 
