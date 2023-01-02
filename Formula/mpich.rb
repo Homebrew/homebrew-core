@@ -23,7 +23,7 @@ class Mpich < Formula
   end
 
   head do
-    url "https://github.com/pmodels/mpich.git"
+    url "https://github.com/pmodels/mpich.git", branch: "main"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
