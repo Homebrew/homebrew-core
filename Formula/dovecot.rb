@@ -60,6 +60,7 @@ class Dovecot < Formula
       --with-sqlite
       --with-ssl=openssl
       --with-zlib
+      --without-icu
     ]
 
     system "./configure", *args
