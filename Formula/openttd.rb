@@ -29,10 +29,13 @@ class Openttd < Formula
   depends_on macos: :high_sierra # needs C++17
   depends_on "xz"
 
+  uses_from_macos "zlib"
+
   on_linux do
     depends_on "fluid-synth"
     depends_on "fontconfig"
     depends_on "freetype"
+    depends_on "icu4c"
     depends_on "mesa"
     depends_on "mesa-glu"
     depends_on "sdl2"
