@@ -30,6 +30,13 @@ class Werf < Formula
     depends_on "pkg-config" => :build
     depends_on "btrfs-progs"
     depends_on "device-mapper"
+
+    # patch for btrfs-progs 6.1 field name change
+    # remove in next release
+    patch do
+      url "https://github.com/werf/werf/commit/f861f6cab7aa59d39756b5e928cc622a7470cbf3.patch?full_index=1"
+      sha256 "2e5d6fb76c99adf023dee290c11edfeb03c5201d24b83d366d80594e26584571"
+    end
   end
 
   def install
