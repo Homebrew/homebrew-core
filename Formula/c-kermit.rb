@@ -29,6 +29,7 @@ class CKermit < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "982c8eb9c1956b669d4f769cb1c70a0cc7f32848674aba10e5aa906de57bdd1d"
   end
 
+  uses_from_macos "libxcrypt"
   uses_from_macos "ncurses"
 
   def install
