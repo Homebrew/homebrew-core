@@ -21,7 +21,7 @@ class Freeciv < Formula
   end
 
   head do
-    url "https://github.com/freeciv/freeciv.git"
+    url "https://github.com/freeciv/freeciv.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
