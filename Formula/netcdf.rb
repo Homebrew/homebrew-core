@@ -26,6 +26,7 @@ class Netcdf < Formula
   depends_on "hdf5"
 
   uses_from_macos "curl"
+  uses_from_macos "libxml2"
 
   # Patch for JSON collision. Remove in 4.9.1
   patch do
