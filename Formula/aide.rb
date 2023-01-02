@@ -17,7 +17,7 @@ class Aide < Formula
   end
 
   head do
-    url "https://github.com/aide/aide.git"
+    url "https://github.com/aide/aide.git", branch: "master"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end
