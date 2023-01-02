@@ -24,7 +24,7 @@ class Bibtex2html < Formula
   end
 
   head do
-    url "https://github.com/backtracking/bibtex2html.git"
+    url "https://github.com/backtracking/bibtex2html.git", branch: "master"
     depends_on "autoconf" => :build
   end
 
