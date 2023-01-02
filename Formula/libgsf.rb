@@ -17,7 +17,7 @@ class Libgsf < Formula
   end
 
   head do
-    url "https://github.com/GNOME/libgsf.git"
+    url "https://github.com/GNOME/libgsf.git", branch: "master"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "gtk-doc" => :build
