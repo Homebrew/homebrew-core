@@ -19,7 +19,7 @@ class Pdfgrep < Formula
   end
 
   head do
-    url "https://gitlab.com/pdfgrep/pdfgrep.git"
+    url "https://gitlab.com/pdfgrep/pdfgrep.git", branch: "master"
     depends_on "asciidoc" => :build
     depends_on "autoconf" => :build
     depends_on "automake" => :build
