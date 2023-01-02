@@ -17,7 +17,7 @@ class Tig < Formula
   end
 
   head do
-    url "https://github.com/jonas/tig.git"
+    url "https://github.com/jonas/tig.git", branch: "master"
 
     depends_on "asciidoc" => :build
     depends_on "autoconf" => :build
