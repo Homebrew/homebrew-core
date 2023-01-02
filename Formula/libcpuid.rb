@@ -18,11 +18,13 @@ class Libcpuid < Formula
   depends_on "libtool" => :build
   depends_on arch: :x86_64
 
-  # Fix build for macOS
-  # Remove in the next release
-  patch do
-    url "https://github.com/anrieff/libcpuid/commit/3b0a1f7e5b10efb978cea4c5cb5b727ba1ef3655.patch?full_index=1"
-    sha256 "d4dcc843e78fe5872aba483b0fb5adb0b8e702f6343a383db566dae81eec0d9d"
+  stable do
+    # Fix build for macOS
+    # Remove in the next release
+    patch do
+      url "https://github.com/anrieff/libcpuid/commit/3b0a1f7e5b10efb978cea4c5cb5b727ba1ef3655.patch?full_index=1"
+      sha256 "d4dcc843e78fe5872aba483b0fb5adb0b8e702f6343a383db566dae81eec0d9d"
+    end
   end
 
   def install
