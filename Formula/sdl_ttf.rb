@@ -1,6 +1,6 @@
 class SdlTtf < Formula
   desc "Library for using TrueType fonts in SDL applications"
-  homepage "https://www.libsdl.org/projects/SDL_ttf/release-1.2.html"
+  homepage "https://github.com/libsdl-org/SDL_ttf"
   revision 2
 
   stable do
@@ -27,7 +27,7 @@ class SdlTtf < Formula
   end
 
   head do
-    url "https://github.com/libsdl-org/SDL_ttf.git", branch: "SDL-1.2"
+    url "https://github.com/libsdl-org/SDL_ttf.git", branch: "main"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
