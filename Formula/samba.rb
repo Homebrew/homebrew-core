@@ -23,12 +23,19 @@ class Samba < Formula
     sha256 x86_64_linux:   "f97c1ddf6a5dde556437655a11003015aec5acaa74a55bf702e68732d625454f"
   end
 
+  depends_on "cmocka" => :build
+  depends_on "pkg-config" => :build
   # configure requires python3 binary to be present, even when --disable-python is set.
   depends_on "python@3.11" => :build
   depends_on "gnutls"
+  # icu4c can get linked if detected by pkg-config and there isn't a way to force disable
+  # without disabling spotlight support. So we just enable the feature for all systems.
+  depends_on "icu4c"
   depends_on "krb5"
   depends_on "libtasn1"
+  depends_on "popt"
   depends_on "readline"
+  depends_on "talloc"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
@@ -62,6 +69,7 @@ class Samba < Formula
     end
     ENV.append "LDFLAGS", "-Wl,-rpath,#{lib}/private" if OS.linux?
     system "./configure",
+           "--bundled-libraries=NONE,ldb,tdb,tevent",
            "--disable-cephfs",
            "--disable-cups",
            "--disable-iprint",
