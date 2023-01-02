@@ -17,7 +17,7 @@ class Jo < Formula
   end
 
   head do
-    url "https://github.com/jpmens/jo.git"
+    url "https://github.com/jpmens/jo.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
