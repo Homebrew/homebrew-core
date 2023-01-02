@@ -18,7 +18,7 @@ class Gource < Formula
   end
 
   head do
-    url "https://github.com/acaudwell/Gource.git"
+    url "https://github.com/acaudwell/Gource.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
