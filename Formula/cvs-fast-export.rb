@@ -23,7 +23,7 @@ class CvsFastExport < Formula
   end
 
   head do
-    url "https://gitlab.com/esr/cvs-fast-export.git"
+    url "https://gitlab.com/esr/cvs-fast-export.git", branch: "master"
     depends_on "bison" => :build
   end
 
