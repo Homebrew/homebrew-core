@@ -22,6 +22,8 @@ class Libvnc < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0a38e3225e47344136ae3e0e51c0f1875d25ad7f7b49f319c87383262f842938"
   end
 
+  disable! date: "2023-01-02", because: "use libvncserver instead"
+
   depends_on "cmake" => :build
   depends_on "jpeg-turbo"
   depends_on "libpng"
