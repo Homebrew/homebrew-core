@@ -37,9 +37,10 @@ class Wireshark < Formula
   uses_from_macos "flex" => :build
   uses_from_macos "python" => :build
   uses_from_macos "libpcap"
+  uses_from_macos "libxml2"
 
   def install
-    args = std_cmake_args + %W[
+    args = %W[
       -DENABLE_CARES=ON
       -DENABLE_GNUTLS=ON
       -DENABLE_MAXMINDDB=ON
@@ -62,8 +63,9 @@ class Wireshark < Formula
       -DCMAKE_INSTALL_NAME_DIR:STRING=#{lib}
     ]
 
-    system "cmake", *args, "."
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
     # Install headers
     (include/"wireshark").install Dir["*.h"]
