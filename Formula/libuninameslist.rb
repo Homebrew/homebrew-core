@@ -23,7 +23,7 @@ class Libuninameslist < Formula
   end
 
   head do
-    url "https://github.com/fontforge/libuninameslist.git"
+    url "https://github.com/fontforge/libuninameslist.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
