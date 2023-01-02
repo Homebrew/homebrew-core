@@ -30,7 +30,7 @@ class Libdap < Formula
   end
 
   head do
-    url "https://github.com/OPENDAP/libdap4.git"
+    url "https://github.com/OPENDAP/libdap4.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
