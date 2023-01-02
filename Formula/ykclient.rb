@@ -28,8 +28,10 @@ class Ykclient < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8e55e5726173eadd3061b52f6eb3d731076dc3c2056a5b43e55b0db7c816744e"
   end
 
+  deprecate! date: "2023-01-01", because: :repo_archived
+
   head do
-    url "https://github.com/Yubico/yubico-c-client.git"
+    url "https://github.com/Yubico/yubico-c-client.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
