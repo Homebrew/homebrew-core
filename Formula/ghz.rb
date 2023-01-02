@@ -1,8 +1,8 @@
 class Ghz < Formula
   desc "Simple gRPC benchmarking and load testing tool"
   homepage "https://ghz.sh"
-  url "https://github.com/bojand/ghz/archive/v0.111.0.tar.gz"
-  sha256 "155a818636d5927bc3975c36a5cfa5ca3e15d6e077986e2a520337e0dd3bb79b"
+  url "https://github.com/bojand/ghz/archive/v0.112.0-pre.1.tar.gz"
+  sha256 "8e80275bc834ac2b68b0c8c736845eb8ea7f6481dde2a493bd1e421cbed51bb8"
   license "Apache-2.0"
 
   livecheck do
