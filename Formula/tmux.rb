@@ -24,7 +24,7 @@ class Tmux < Formula
   end
 
   head do
-    url "https://github.com/tmux/tmux.git"
+    url "https://github.com/tmux/tmux.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
