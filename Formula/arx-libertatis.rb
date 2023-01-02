@@ -22,10 +22,10 @@ class ArxLibertatis < Formula
   end
 
   head do
-    url "https://github.com/arx/ArxLibertatis.git"
+    url "https://github.com/arx/ArxLibertatis.git", branch: "master"
 
     resource "arx-libertatis-data" do
-      url "https://github.com/arx/ArxLibertatisData.git"
+      url "https://github.com/arx/ArxLibertatisData.git", branch: "master"
     end
   end
 
