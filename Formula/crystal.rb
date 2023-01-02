@@ -31,10 +31,10 @@ class Crystal < Formula
   end
 
   head do
-    url "https://github.com/crystal-lang/crystal.git"
+    url "https://github.com/crystal-lang/crystal.git", branch: "master"
 
     resource "shards" do
-      url "https://github.com/crystal-lang/shards.git"
+      url "https://github.com/crystal-lang/shards.git", branch: "master"
     end
 
     uses_from_macos "libffi" # for the interpreter
