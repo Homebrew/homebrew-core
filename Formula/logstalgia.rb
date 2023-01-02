@@ -17,7 +17,7 @@ class Logstalgia < Formula
   end
 
   head do
-    url "https://github.com/acaudwell/Logstalgia.git"
+    url "https://github.com/acaudwell/Logstalgia.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
