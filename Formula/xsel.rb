@@ -63,7 +63,7 @@ class Xsel < Formula
   end
 
   head do
-    url "https://github.com/kfish/xsel.git"
+    url "https://github.com/kfish/xsel.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
