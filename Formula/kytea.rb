@@ -35,7 +35,7 @@ class Kytea < Formula
   end
 
   head do
-    url "https://github.com/neubig/kytea.git"
+    url "https://github.com/neubig/kytea.git", branch: "master"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
