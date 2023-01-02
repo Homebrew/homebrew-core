@@ -27,11 +27,9 @@ class Cppad < Formula
   def install
     ENV.cxx11
 
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args,
-                      "-Dcppad_prefix=#{prefix}"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", "-Dcppad_prefix=#{prefix}", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
     pkgshare.install "example"
   end
@@ -39,6 +37,7 @@ class Cppad < Formula
   test do
     (testpath/"test.cpp").write <<~EOS
       #include <cassert>
+      #include <cppad/local/temp_file.hpp>
       #include <cppad/utility/thread_alloc.hpp>
 
       int main(void) {
@@ -50,6 +49,7 @@ class Cppad < Formula
     EOS
 
     system ENV.cxx, "#{pkgshare}/example/general/acos.cpp", "-std=c++11", "-I#{include}",
+                    "-L#{lib}", "-lcppad_lib",
                     "test.cpp", "-o", "test"
     system "./test"
   end
