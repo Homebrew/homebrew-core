@@ -18,7 +18,7 @@ class ShadowsocksLibev < Formula
   end
 
   head do
-    url "https://github.com/shadowsocks/shadowsocks-libev.git"
+    url "https://github.com/shadowsocks/shadowsocks-libev.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
