@@ -24,7 +24,7 @@ class Libressl < Formula
   end
 
   head do
-    url "https://github.com/libressl-portable/portable.git"
+    url "https://github.com/libressl-portable/portable.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
