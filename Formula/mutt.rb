@@ -26,7 +26,7 @@ class Mutt < Formula
   end
 
   head do
-    url "https://gitlab.com/muttmua/mutt.git"
+    url "https://gitlab.com/muttmua/mutt.git", branch: "master"
 
     resource "html" do
       url "https://muttmua.gitlab.io/mutt/manual-dev.html"
