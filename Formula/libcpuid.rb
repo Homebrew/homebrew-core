@@ -1,8 +1,6 @@
 class Libcpuid < Formula
   desc "Small C library for x86 CPU detection and feature extraction"
   homepage "https://github.com/anrieff/libcpuid"
-  url "https://github.com/anrieff/libcpuid/archive/v0.6.2.tar.gz"
-  sha256 "3e7f2fc243a6a68d6c909b701cfa0db6422ec33fccf91ea5ab7beda3eb798672"
   license "BSD-2-Clause"
   head "https://github.com/anrieff/libcpuid.git", branch: "master"
 
@@ -19,6 +17,9 @@ class Libcpuid < Formula
   depends_on arch: :x86_64
 
   stable do
+    url "https://github.com/anrieff/libcpuid/archive/v0.6.2.tar.gz"
+    sha256 "3e7f2fc243a6a68d6c909b701cfa0db6422ec33fccf91ea5ab7beda3eb798672"
+
     # Fix build for macOS
     # Remove in the next release
     patch do
