@@ -15,7 +15,7 @@ class Jenkins < Formula
   end
 
   head do
-    url "https://github.com/jenkinsci/jenkins.git"
+    url "https://github.com/jenkinsci/jenkins.git", branch: "master"
     depends_on "maven" => :build
   end
 
