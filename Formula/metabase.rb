@@ -15,7 +15,7 @@ class Metabase < Formula
   end
 
   head do
-    url "https://github.com/metabase/metabase.git"
+    url "https://github.com/metabase/metabase.git", branch: "master"
 
     depends_on "leiningen" => :build
     depends_on "node" => :build
