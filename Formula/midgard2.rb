@@ -30,7 +30,7 @@ class Midgard2 < Formula
   end
 
   head do
-    url "https://github.com/midgardproject/midgard-core.git", branch: "ratatoskr"
+    url "https://github.com/midgardproject/midgard-core.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
