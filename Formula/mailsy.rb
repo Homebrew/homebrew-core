@@ -3,8 +3,8 @@ require "language/node"
 class Mailsy < Formula
   desc "Quickly generate a temporary email address"
   homepage "https://github.com/BalliAsghar/Mailsy"
-  url "https://registry.npmjs.org/mailsy/-/mailsy-3.0.8.tgz"
-  sha256 "7de521c277029e4ad0b373b2a89310caff08afcb2cd861e50f2c8dfaa292e13c"
+  url "https://registry.npmjs.org/mailsy/-/mailsy-4.0.0.tgz"
+  sha256 "55b55e5e631005b451c320cb2a689e5b1c2347422b8696ea847f691cdef0a500"
   license "MIT"
 
   bottle do
