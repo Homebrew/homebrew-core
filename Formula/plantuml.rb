@@ -1,8 +1,8 @@
 class Plantuml < Formula
   desc "Draw UML diagrams"
   homepage "https://plantuml.com/"
-  url "https://github.com/plantuml/plantuml/releases/download/v1.2022.14/plantuml-1.2022.14.jar"
-  sha256 "159ca2021f2efa5481b56417e2abd0a301348b018fe3c34b106f41023596dd43"
+  url "https://registry.npmjs.org/mailsy/-/mailsy-3.0.9.tgz"
+  sha256 "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   license "GPL-3.0-or-later"
   version_scheme 1
 
