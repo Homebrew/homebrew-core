@@ -88,7 +88,9 @@ class Lilypond < Formula
       end
     end
 
-    cp Dir["#{Formula["texlive"].share}/texmf-dist/fonts/opentype/public/tex-gyre/*.otf"], fonts
+    ["cursor", "heros", "schola"].each do |name|
+      cp Dir[Formula["texlive"].share/"texmf-dist/fonts/opentype/public/tex-gyre/texgyre#{name}-*.otf"], fonts
+    end
   end
 
   test do
