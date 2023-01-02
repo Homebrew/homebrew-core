@@ -16,7 +16,7 @@ class Zyre < Formula
   end
 
   head do
-    url "https://github.com/zeromq/zyre.git"
+    url "https://github.com/zeromq/zyre.git", branch: "master"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
