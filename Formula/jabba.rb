@@ -1,5 +1,6 @@
 class Jabba < Formula
   desc "Cross-platform Java Version Manager"
+  # fork blessed by previous maintener https://github.com/shyiko/jabba/issues/833#issuecomment-1338648294
   homepage "https://github.com/Jabba-Team/jabba"
   url "https://github.com/Jabba-Team/jabba/archive/0.12.0.tar.gz"
   sha256 "15a142239869733d7f0fe8c0cc0cd99f619e5bc8121ebabc9c28c382333b89c0"
