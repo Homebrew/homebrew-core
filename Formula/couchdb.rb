@@ -31,7 +31,7 @@ class Couchdb < Formula
   #   please re-compile this module with an Erlang/OTP 25 compiler
   # escript: exception error: undefined function rebar:main/1
   # Ref: https://github.com/Homebrew/homebrew-core/pull/105876
-  depends_on "erlang@24" => :build
+  depends_on "erlang" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "icu4c"
