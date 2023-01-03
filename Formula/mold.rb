@@ -65,6 +65,13 @@ class Mold < Formula
     pkgshare.install "test"
   end
 
+  def caveats
+    <<~EOS
+      Support for Mach-O targets has been removed.
+      See https://github.com/bluewhalesystems/sold for macOS/iOS support.
+    EOS
+  end
+
   test do
     (testpath/"test.c").write <<~EOS
       int main(void) { return 0; }
