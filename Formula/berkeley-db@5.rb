@@ -19,6 +19,20 @@ class BerkeleyDbAT5 < Formula
 
   keg_only :versioned_formula
 
+  # We use a resource to avoid potential build dependency loop in future. Right now this
+  # doesn't happen because `perl` depends on `berkeley-db`, but the dependency may change
+  # to `berkeley-db@5`. In this case, `automake -> autoconf -> perl` will create a loop.
+  # Ref: https://github.com/Homebrew/homebrew-core/issues/100796
+  resource "automake" do
+    on_linux do
+      on_arm do
+        url "https://ftp.gnu.org/gnu/automake/automake-1.16.5.tar.xz"
+        mirror "https://ftpmirror.gnu.org/automake/automake-1.16.5.tar.xz"
+        sha256 "f01d58cd6d9d77fbdca9eb4bbd5ead1988228fdb73d6f7a201f5f8d6b118b469"
+      end
+    end
+  end
+
   # Fix build with recent clang
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/4c55b1/berkeley-db%404/clang.diff"
@@ -44,6 +58,13 @@ class BerkeleyDbAT5 < Formula
     ENV.deparallelize
     # Work around issues ./configure has with Xcode 12
     ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
+    # Work around ancient config files not recognizing aarch64 linux
+    # configure: error: cannot guess build type; you must specify one
+    if OS.linux? && Hardware::CPU.arm?
+      resource("automake").stage do
+        (buildpath/"dist").install "lib/config.guess", "lib/config.sub"
+      end
+    end
 
     args = %W[
       --disable-static
