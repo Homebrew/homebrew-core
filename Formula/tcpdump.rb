@@ -1,8 +1,8 @@
 class Tcpdump < Formula
   desc "Command-line packet analyzer"
   homepage "https://www.tcpdump.org/"
-  url "https://www.tcpdump.org/release/tcpdump-4.99.1.tar.gz"
-  sha256 "79b36985fb2703146618d87c4acde3e068b91c553fb93f021a337f175fd10ebe"
+  url "https://www.tcpdump.org/release/tcpdump-4.99.2.tar.gz"
+  sha256 "f4304357d34b79d46f4e17e654f1f91f9ce4e3d5608a1badbd53295a26fb44d5"
   license "BSD-3-Clause"
   head "https://github.com/the-tcpdump-group/tcpdump.git", branch: "master"
 
@@ -13,14 +13,13 @@ class Tcpdump < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "46e34484eae8d19ecb7a043fadaf97d57ff129ca13de047110279b9a5651964e"
-    sha256 cellar: :any,                 arm64_monterey: "d71d0cc113fd1118d055762736255d98758c41c62b5fbafa85168cbf878dcf61"
-    sha256 cellar: :any,                 arm64_big_sur:  "a59443b03462d0e8551309f149374a359ad004c296a10fbdfeccc63917a8145c"
-    sha256 cellar: :any,                 ventura:        "2629960e8aea5d02dd71fd2bf1002d2357ddb26776901c5fb36bbae5dee0ab6c"
-    sha256 cellar: :any,                 monterey:       "89c4882162fbe7d4ca38f84541ecf209a7fa4c000a9222180f42dc9058ba134d"
-    sha256 cellar: :any,                 big_sur:        "a19c2e85b694e3d96d39a63641c86c5bac9dafc4b54066e5daa446ff25aa8cdc"
-    sha256 cellar: :any,                 catalina:       "309850763dc7ffe8410fb5ef889bf9587f56312b3f210f0274cf3322084b8b9f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ef086e7e00f74fbaa800b4ab34d3eda6fca98f54e22e951892d6a8c9abfe615b"
+    sha256 cellar: :any,                 arm64_ventura:  "a23bc85b24fa8c354c34d421ba3a5a3a66813da733a3f92531951d50ee687247"
+    sha256 cellar: :any,                 arm64_monterey: "c2d1c25d3bc51ab32b32ffa538b967ad5cd6c915de4cc027c561c4cbde945904"
+    sha256 cellar: :any,                 arm64_big_sur:  "80ef73cbc460fdacb8615d7848579cf098c442fffdbc0b159a48e19e186be49d"
+    sha256 cellar: :any,                 ventura:        "55d49386b8ec20e1653794f6086453280c51d7b0eff70b8a8daafef4c4852208"
+    sha256 cellar: :any,                 monterey:       "50435f4a6d6ffeced288f07dfb03d2fcd2b28e7a9d86a17c3ab6956da977e014"
+    sha256 cellar: :any,                 big_sur:        "202e53843212c66f95abf38b23bdd9ec5bef6061246d140736fcc28d7c25cce2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d32f09a5e2f527168bbd33235719aa0a605ce0c9e298335ef63c33097ac90a57"
   end
 
   depends_on "libpcap"
@@ -43,7 +42,7 @@ class Tcpdump < Formula
       "tcpdump: (cannot open BPF device) /dev/bpf0: Operation not permitted"
     else
       <<~EOS
-        tcpdump: eth0: You don't have permission to capture on that device
+        tcpdump: eth0: You don't have permission to perform this capture on that device
         (socket: Operation not permitted)
       EOS
     end

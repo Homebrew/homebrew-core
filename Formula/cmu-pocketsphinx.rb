@@ -35,7 +35,7 @@ class CmuPocketsphinx < Formula
   end
 
   head do
-    url "https://github.com/cmusphinx/pocketsphinx.git"
+    url "https://github.com/cmusphinx/pocketsphinx.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

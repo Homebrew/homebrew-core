@@ -1,8 +1,8 @@
 class Rcm < Formula
   desc "RC file (dotfile) management"
   homepage "https://thoughtbot.github.io/rcm/rcm.7.html"
-  url "https://thoughtbot.github.io/rcm/dist/rcm-1.3.5.tar.gz"
-  sha256 "24741e7f26f16a049324baa86af700443c4281e2cde099729d74c4d4b29ebe2d"
+  url "https://thoughtbot.github.io/rcm/dist/rcm-1.3.6.tar.gz"
+  sha256 "f4fdfbc451d1fb5764531290a202a0a871f6b81ba3c01a6b76c49435c85080a5"
   license "BSD-3-Clause"
 
   # The first-party website doesn't appear to provide links to archive files, so
@@ -13,14 +13,13 @@ class Rcm < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6b4023f9e2b482466d619cd2597001e167da9abd8d8a4306f79d7de32494f08a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6b4023f9e2b482466d619cd2597001e167da9abd8d8a4306f79d7de32494f08a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6b4023f9e2b482466d619cd2597001e167da9abd8d8a4306f79d7de32494f08a"
-    sha256 cellar: :any_skip_relocation, ventura:        "6b4023f9e2b482466d619cd2597001e167da9abd8d8a4306f79d7de32494f08a"
-    sha256 cellar: :any_skip_relocation, monterey:       "6b4023f9e2b482466d619cd2597001e167da9abd8d8a4306f79d7de32494f08a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6b4023f9e2b482466d619cd2597001e167da9abd8d8a4306f79d7de32494f08a"
-    sha256 cellar: :any_skip_relocation, catalina:       "6b4023f9e2b482466d619cd2597001e167da9abd8d8a4306f79d7de32494f08a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0ee4e4a747f2ae336116500cecfe49d507ae96ae2aa80bedc1a8574b52556ead"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "71cd9064bce03baa3db0f2cf099d4e103d910508ef14306a32b0f75877a5c2b0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "71cd9064bce03baa3db0f2cf099d4e103d910508ef14306a32b0f75877a5c2b0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "71cd9064bce03baa3db0f2cf099d4e103d910508ef14306a32b0f75877a5c2b0"
+    sha256 cellar: :any_skip_relocation, ventura:        "71cd9064bce03baa3db0f2cf099d4e103d910508ef14306a32b0f75877a5c2b0"
+    sha256 cellar: :any_skip_relocation, monterey:       "71cd9064bce03baa3db0f2cf099d4e103d910508ef14306a32b0f75877a5c2b0"
+    sha256 cellar: :any_skip_relocation, big_sur:        "71cd9064bce03baa3db0f2cf099d4e103d910508ef14306a32b0f75877a5c2b0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "005d4a522f959bc42ac42573cce793a33a6cf5742f34405efd1c7025370f347e"
   end
 
   def install

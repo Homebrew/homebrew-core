@@ -25,7 +25,7 @@ class Ganglia < Formula
   end
 
   head do
-    url "https://github.com/ganglia/monitor-core.git"
+    url "https://github.com/ganglia/monitor-core.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

@@ -28,6 +28,8 @@ class NodeAT18 < Formula
   deprecate! date: "2023-10-18", because: :unsupported
 
   depends_on "pkg-config" => :build
+  # Bump to python@3.11 with node v18.13
+  # https://github.com/nodejs/node/commit/fee62ea05d6f958f5209a44df087efd25f356262
   depends_on "python@3.10" => :build
   depends_on "brotli"
   depends_on "c-ares"

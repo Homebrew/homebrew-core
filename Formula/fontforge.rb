@@ -1,20 +1,18 @@
 class Fontforge < Formula
   desc "Command-line outline and bitmap font editor/converter"
   homepage "https://fontforge.github.io"
-  url "https://github.com/fontforge/fontforge/releases/download/20220308/fontforge-20220308.tar.xz"
-  sha256 "01e4017f7a0ccecf436c74b8e1f6b374fc04a5283c1d68967996782e15618e59"
+  url "https://github.com/fontforge/fontforge/releases/download/20230101/fontforge-20230101.tar.xz"
+  sha256 "ca82ec4c060c4dda70ace5478a41b5e7b95eb035fe1c4cf85c48f996d35c60f8"
   license "GPL-3.0-or-later"
-  revision 1
 
   bottle do
-    rebuild 2
-    sha256 arm64_ventura:  "072fc4af1b9c6b1fbcf32dbee28b8eb62f06dfd7153a25bfa9c1fe7042264d5d"
-    sha256 arm64_monterey: "a7031eb564d235e82213d442196924b91c11476e4a647db9c45d51d0726b0954"
-    sha256 arm64_big_sur:  "beb4d356444abd866b702f45fe89f29968afe1ccf95813472fd9c5ad9fa335fd"
-    sha256 ventura:        "706492e1dbe79ec3f96f9d0230f07a4edb76961116be298536ab038a70b35c38"
-    sha256 monterey:       "06a77e255751a88fd8d7e0f48b6f19c5689aae22ad6570c0f6a9501f3ea2dcbe"
-    sha256 big_sur:        "c81153b469fb6a7e5d55caa349702c7c80230e6f4dcd18867e36cbec9fc4332b"
-    sha256 x86_64_linux:   "06fc685890e7c42b7150e1e20b314db18dac38270d7f8b9d5e54e9bdb0147769"
+    sha256 arm64_ventura:  "e4e49fa2cc9c3ea67878e771264b3fc98b23f3e2b5046ab28c644a7fead33143"
+    sha256 arm64_monterey: "daba676ad4d1ba5a160d883bffa73bfc189c68b571b1799275d8d65da4b34d24"
+    sha256 arm64_big_sur:  "24f77f4cea3d1d100c744e60abe044fd82a5e87846b206f1e4e34232ebc7a5d6"
+    sha256 ventura:        "e41f49422bd52bdaa48ef9d22f8e9c9de11ee1718b01929362da322ec0b82905"
+    sha256 monterey:       "c4681106deccb919618b65408cc0ca1f6cd5caf7a59cad0f136268e20979e254"
+    sha256 big_sur:        "e74714a52891d601fb1e053516a1ccd165c5146f52d8e84a658dc8cbe463ed77"
+    sha256 x86_64_linux:   "53ab801d9f1841f30771b4bddefd465733bb87ce3cbf67cefaf52efc9eaf0eab"
   end
 
   depends_on "cmake" => :build
@@ -43,10 +41,6 @@ class Fontforge < Formula
     url "https://raw.githubusercontent.com/fontforge/fontforge/1346ce6e4c004c312589fdb67e31d4b2c32a1656/tests/fonts/Ambrosia.sfd"
     sha256 "6a22acf6be4ab9e5c5a3373dc878030b4b8dc4652323395388abe43679ceba81"
   end
-
-  # Fix for rpath on ARM
-  # https://github.com/fontforge/fontforge/issues/4658
-  patch :DATA
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
@@ -87,15 +81,3 @@ class Fontforge < Formula
     assert_match "Web Open Font Format (Version 2)", fileres
   end
 end
-
-__END__
-diff --git a/contrib/fonttools/CMakeLists.txt b/contrib/fonttools/CMakeLists.txt
-index 0d3f464bc..b9f210cde 100644
---- a/contrib/fonttools/CMakeLists.txt
-+++ b/contrib/fonttools/CMakeLists.txt
-@@ -18,3 +18,5 @@ target_link_libraries(dewoff PRIVATE ZLIB::ZLIB)
- target_link_libraries(pcl2ttf PRIVATE MathLib::MathLib)
- target_link_libraries(ttf2eps PRIVATE fontforge)
- target_link_libraries(woff PRIVATE ZLIB::ZLIB)
-+
-+install(TARGETS acorn2sfd dewoff findtable pcl2ttf pfadecrypt rmligamarks showttf stripttc ttf2eps woff RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})

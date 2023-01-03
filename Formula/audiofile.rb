@@ -35,7 +35,7 @@ class Audiofile < Formula
   end
 
   head do
-    url "https://github.com/mpruett/audiofile.git"
+    url "https://github.com/mpruett/audiofile.git", branch: "master"
     depends_on "asciidoc" => :build
     depends_on "autoconf" => :build
     depends_on "automake" => :build

@@ -1,7 +1,7 @@
 class Getmail < Formula
   desc "Extensible mail retrieval system with POP3, IMAP4, SSL support"
   homepage "https://pyropus.ca/software/getmail/"
-  url "https://pyropus.ca/software/getmail/old-versions/getmail-5.15.tar.gz"
+  url "https://pyropus.ca/software/getmail/old-versions/getmail-5.15.tar.gz", using: :homebrew_curl
   sha256 "d453805ffc3f8fe2586ee705733bd666777e53693125fdb149494d22bd14162a"
   license "GPL-2.0-only"
 
@@ -18,6 +18,8 @@ class Getmail < Formula
     sha256 cellar: :any_skip_relocation, catalina:       "a69c9ebda4863ac97ea2259b007d15a4024b7af75912fca0ef9f39cbe972ba8f"
     sha256 cellar: :any_skip_relocation, mojave:         "c729f338af43aebe206c4b0cbddebd1d1619d94a8277e4f1dc43908fba631b8b"
   end
+
+  disable! date: "2023-04-16", because: "depends on Python 2"
 
   def install
     libexec.install %w[getmail getmail_fetch getmail_maildir getmail_mbox]

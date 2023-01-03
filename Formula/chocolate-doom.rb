@@ -24,7 +24,7 @@ class ChocolateDoom < Formula
   end
 
   head do
-    url "https://github.com/chocolate-doom/chocolate-doom.git"
+    url "https://github.com/chocolate-doom/chocolate-doom.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

@@ -18,7 +18,7 @@ class Asn1c < Formula
   end
 
   head do
-    url "https://github.com/vlm/asn1c.git"
+    url "https://github.com/vlm/asn1c.git", branch: "master"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build

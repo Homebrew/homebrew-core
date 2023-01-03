@@ -29,8 +29,6 @@ class Lilypond < Formula
 
   head do
     url "https://gitlab.com/lilypond/lilypond.git", branch: "master"
-    mirror "https://github.com/lilypond/lilypond.git"
-    mirror "https://git.savannah.gnu.org/git/lilypond.git"
 
     depends_on "autoconf" => :build
   end

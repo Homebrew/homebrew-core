@@ -1,19 +1,19 @@
 class AgePluginYubikey < Formula
   desc "Plugin for encrypting files with age and PIV tokens such as YubiKeys"
   homepage "https://github.com/str4d/age-plugin-yubikey"
-  url "https://github.com/str4d/age-plugin-yubikey/archive/v0.3.1.tar.gz"
-  sha256 "b5237da9cb7fd65a545b005a467d200650a00a49b32cd8ab30d2bc0c1c65550e"
+  url "https://github.com/str4d/age-plugin-yubikey/archive/v0.3.2.tar.gz"
+  sha256 "1c160403ff982e172207eb5975803b00acfaf30dd89b902f0b1eed53d8400f6c"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/str4d/age-plugin-yubikey.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ddd73e1a67973bd9ab1e7abb535a1c905a32f4ef0cb3f783b3d27ec60888f89c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e3f0ea31c694a2854dfe102b85d09dec920bc22bcb5db49b55c8e94e9c15c67d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fcbed4def954e7860791ae98ad64fb38d9403cde71594ad1f17eac84156e1811"
-    sha256 cellar: :any_skip_relocation, ventura:        "ed3b8a3549c8f9b2843850ced673283ca367c8bf95f031bfcdcf0c004197eb75"
-    sha256 cellar: :any_skip_relocation, monterey:       "d269f4d3c7178b244ca4eeb9caba2317d1197a8235be3fdedb504f7e37e994f8"
-    sha256 cellar: :any_skip_relocation, big_sur:        "74be2352f7838031a6e92dc4aa7f3c100c009de05aad6c9a44716fd035f14b10"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3266d7111f2085cad6016373f0235bd353bd4a1aebd6fe84955e01edd16c3472"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "70f87f329d04dbaa0252e4825921ecf03ca98b815ee63aa69116e912d2b55fdd"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "508ce9f9f823ffcc2eede9553a9dd3661257b2f61a5b033b47bb4eb144c7c0aa"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e48fa7e5605c902c5e8c7f1f9a5acc337c46c5855916b9a7ccd127b2eadeb682"
+    sha256 cellar: :any_skip_relocation, ventura:        "e0de01e6bcad316cd4d09a2a03ac091727e5f9365327b12a6dda20888e14d53e"
+    sha256 cellar: :any_skip_relocation, monterey:       "ac36a7f0a2a9fed1792a0c7751437b16b502a8b0a04b53dd11f8bfa8f5fe2fd0"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f83393a4bb69e2928e28a03e624693b90dad48eb62e522e3a7bb77907ea17ed1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ae4e17b6d4ae007d94ffc17600ccab3d311712001d91cb82d8fc2eea3b9c99f9"
   end
 
   depends_on "rust" => :build

@@ -6,27 +6,28 @@ class TemplateGlib < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "a628c43a450581b900844970e893e39ad08a9767b16f5a88df93858c5b93c8ff"
-    sha256 cellar: :any, arm64_monterey: "975a75a08cb72d71009a1d07f399f6847134af9b06492d746f4d86c9204b4c72"
-    sha256 cellar: :any, arm64_big_sur:  "505dfa99643c6f897cf481ca1af19aba67af9bb7c5c020d375f51cf93eed1b9f"
-    sha256 cellar: :any, ventura:        "8ef983234e3de51baedbc3e4d00dde51266b1c0f863800d23b950145131c8036"
-    sha256 cellar: :any, monterey:       "0abef023dfcaebcb376cac80a907ccdf7ad200955bba1fbdd64c11dcbb12b48e"
-    sha256 cellar: :any, big_sur:        "cc7bb0842a23032fd361459b61b49fe7bce110dd027e658e30cb905a0a09a338"
-    sha256 cellar: :any, catalina:       "73a0b311cedc2ae831aceb252b1c9215194ef4f75274bd5b8fc9e2dad8af79f1"
-    sha256               x86_64_linux:   "dab5fe31f0bcd02ccc610f8aa9544a9d8cb813903250ecb87cc35e7e4ada1917"
+    rebuild 1
+    sha256 cellar: :any, arm64_ventura:  "7000f81cbd5236aa9e0bf70da2c98ef863b3149b8df04a02b13fbbf4ddd5d44b"
+    sha256 cellar: :any, arm64_monterey: "d8f59e2becba0ca4f4a8cfe84e4a267dbfc84a2264f36c45fbb99bd97fe93553"
+    sha256 cellar: :any, arm64_big_sur:  "d6a2fb29f7d64b8d4e7972eb0f65396cff0fb7522011fac4bedff013efbcd0fe"
+    sha256 cellar: :any, ventura:        "7428702cc2136dc1d4d3c5bcb53a327d1331a1aead0d45a02d50029fb27bacbf"
+    sha256 cellar: :any, monterey:       "4af0e6fe31c9292a6e0bcfb52fe0bf5ef643f4c6fb5905873fc25bffbd2cb9f2"
+    sha256 cellar: :any, big_sur:        "51e0f8bd19c26f7175482d581f60985fa8bccf7090e01929e92b28858d6f8cb6"
+    sha256               x86_64_linux:   "0ee3bc0d18e77f69efbf558af857a3360a3729cbf1563b8c66423c435b5e918c"
   end
 
   depends_on "bison" => :build # does not appear to work with system bison
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
+  depends_on "vala" => :build
   depends_on "glib"
   depends_on "gobject-introspection"
 
   uses_from_macos "flex"
 
   def install
-    system "meson", "setup", "build", "-Dvapi=false", "-Dintrospection=enabled", *std_meson_args
+    system "meson", "setup", "build", "-Dvapi=true", "-Dintrospection=enabled", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
   end

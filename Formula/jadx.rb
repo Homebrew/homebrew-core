@@ -10,7 +10,7 @@ class Jadx < Formula
   end
 
   head do
-    url "https://github.com/skylot/jadx.git"
+    url "https://github.com/skylot/jadx.git", branch: "master"
     depends_on "gradle" => :build
   end
 

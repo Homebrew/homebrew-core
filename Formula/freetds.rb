@@ -30,7 +30,7 @@ class Freetds < Formula
   end
 
   head do
-    url "https://github.com/FreeTDS/freetds.git"
+    url "https://github.com/FreeTDS/freetds.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

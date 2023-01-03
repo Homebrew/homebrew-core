@@ -1,26 +1,25 @@
 class Harfbuzz < Formula
   desc "OpenType text shaping engine"
   homepage "https://github.com/harfbuzz/harfbuzz"
-  url "https://github.com/harfbuzz/harfbuzz/archive/5.3.1.tar.gz"
-  sha256 "77c8c903f4539b050a6d3a5be79705c7ccf7b1cb66d68152a651486e261edbd2"
+  url "https://github.com/harfbuzz/harfbuzz/archive/6.0.0.tar.gz"
+  sha256 "6d753948587db3c7c3ba8cc4f8e6bf83f5c448d2591a9f7ec306467f3a4fe4fa"
   license "MIT"
   head "https://github.com/harfbuzz/harfbuzz.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_ventura:  "d4e91ccdbfeb4b1ff203ecf5576e6b1378e5583c8df63482856fb302b3bcbe1c"
-    sha256 cellar: :any, arm64_monterey: "469ab0b63c782e98514493a4f70ac6202298af815abe6f7fa9f8facf44247550"
-    sha256 cellar: :any, arm64_big_sur:  "e6ec119055a076145cdf6c6a440cd5d57a8d81a7f91b988e7bd020993a267332"
-    sha256 cellar: :any, ventura:        "8c545e7d68fa90b70c7004521b81f3e15005f2021919fd3ead6d61b934ec762a"
-    sha256 cellar: :any, monterey:       "38b0743c9e1b989ef9e5b724c3a99ec25c34bd56c8c43ec51e803e81d93f50ce"
-    sha256 cellar: :any, big_sur:        "faf83eb7fdd6f2ea498274676ac7152656cacab6af7217a9b09875e7127a8de8"
-    sha256 cellar: :any, catalina:       "385447700d9f6f09f5042eabafecfafdffb56a09d14cde9ce895c6dce569afb5"
-    sha256               x86_64_linux:   "497155424dc4d4cf0b801efe0ee85f0af6fb5a603d309f7db88bc4b2e47c0570"
+    sha256 cellar: :any, arm64_ventura:  "a0e742e4c20dc525b326a9595bf2346d61bba4a2d3c9f2a61d607e991fd2162f"
+    sha256 cellar: :any, arm64_monterey: "9282efd9f5fb91d8d231a5add83c09899af2c544315f18e93c8cd5a82739ae58"
+    sha256 cellar: :any, arm64_big_sur:  "72fd458735546d02509350ef807a6e33de5b12847af5c3e5040352b599da3b7c"
+    sha256 cellar: :any, ventura:        "fa378e854c92d38870e5ab477b6eaefaa8271069da33e9a5ea43e80f1c84c850"
+    sha256 cellar: :any, monterey:       "7859dfbb8543c23bbaa01363d4dcf56a859a543e4d780c06e3dd95d2bfe1e69e"
+    sha256 cellar: :any, big_sur:        "695417c9be07d062ce28c05cafa2ca2a3c20038d029b028791ff75d16a079c43"
+    sha256               x86_64_linux:   "c32bdcb5fea06cd010b4edbcc340392d69db613de0ff51e22ca62b735da5155f"
   end
 
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
+  depends_on "pkg-config" => :build
   depends_on "python@3.11" => [:build, :test]
   depends_on "pygobject3" => :test
   depends_on "cairo"

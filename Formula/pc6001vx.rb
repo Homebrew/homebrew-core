@@ -1,18 +1,19 @@
 class Pc6001vx < Formula
   desc "PC-6001 emulator"
   homepage "http://eighttails.seesaa.net/"
-  url "https://eighttails.up.seesaa.net/bin/PC6001VX_4.0.0_src.tar.gz"
-  sha256 "ebf3d3afd589d771ed624070c4a79963d90eb7a974848b9f1c15cb2ef29363c2"
+  url "https://eighttails.up.seesaa.net/bin/PC6001VX_4.1.0_src.tar.gz"
+  sha256 "e37eb6653916b585bd58dea005f56861a613140798d0ed6cb27fe3abd260c4f5"
   license "LGPL-2.1-or-later"
   head "https://github.com/eighttails/PC6001VX.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "eb4e76f3a66ee8f7e61a30d080ab9465d7ef7da64560581b5f991e10f9eda103"
-    sha256 cellar: :any,                 arm64_monterey: "4ab04ce023eb482822e6c66db96cc5149156d6a2edf6a890c8a5c8c1d03a526f"
-    sha256 cellar: :any,                 arm64_big_sur:  "2e3a57aaa5ac49500f455608f2bf73996925ce835f6682fa20b160a9ca2b2f3b"
-    sha256 cellar: :any,                 monterey:       "7885acf47a20f61c4b8fd811558fec5a29770fcc2216f07c836a30e9b2580ab9"
-    sha256 cellar: :any,                 big_sur:        "f7834f80f6d6c2a85e733ecceb0f7fc87aa7395aea1f693ed46f545e96a95bca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eeb6a02eb6fdd22131c28b16962102049f1136cb45a2aa218d3cbba90a06c949"
+    sha256 cellar: :any,                 arm64_ventura:  "24155252dc8d0f4b00371c05666b9fa76de2e229032ec04302ed0b5192b6aee7"
+    sha256 cellar: :any,                 arm64_monterey: "c0cbac6f2cd0c3063674306c424450f65c7a36478455e7fcea4aa2e44d6f1ece"
+    sha256 cellar: :any,                 arm64_big_sur:  "17a69e4daafd969882c6ef315642bdee8da00b2268dfb5f10160860b19f9df93"
+    sha256 cellar: :any,                 ventura:        "510b615d4892a2075614824946e3a9621b4c58ee62d69984cc175cba407fee75"
+    sha256 cellar: :any,                 monterey:       "8b4a43990882fa596522f1599c3997775ceaf5eb1b7f6e99abb7a68744287f77"
+    sha256 cellar: :any,                 big_sur:        "bb6041257e554a20254f85fe53860c67bada971a50dc9410f33679a83081c141"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "12d8823e7cb59f3c87511de642a5902a0b825b129f2b7fe5adc08f7f9a80e8f5"
   end
 
   depends_on "pkg-config" => :build

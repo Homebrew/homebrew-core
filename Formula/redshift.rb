@@ -20,7 +20,7 @@ class Redshift < Formula
   end
 
   head do
-    url "https://github.com/jonls/redshift.git"
+    url "https://github.com/jonls/redshift.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

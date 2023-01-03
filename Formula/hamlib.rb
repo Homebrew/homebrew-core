@@ -1,19 +1,19 @@
 class Hamlib < Formula
   desc "Ham radio control libraries"
   homepage "http://www.hamlib.org/"
-  url "https://github.com/Hamlib/Hamlib/releases/download/4.5.2/hamlib-4.5.2.tar.gz"
-  sha256 "5a0f9e932ffe2d3971e07b544aa62bec3e494e73ff1ce3ca33fa0d88e199b061"
+  url "https://github.com/Hamlib/Hamlib/releases/download/4.5.3/hamlib-4.5.3.tar.gz"
+  sha256 "e1818e9df0e59023d2dff320c41c5c622b02a0afd3e50c3155694e1a9014f260"
   license "LGPL-2.1-or-later"
   head "https://github.com/hamlib/hamlib.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "898247044f605bd067db75f94b958d2b427b75165cc47f03f998e2e143a608e8"
-    sha256 cellar: :any,                 arm64_monterey: "0a2a815e744bc96d5932f24c83c94fa9bbfbfa915ed54db9c18a4bdaac1e78f9"
-    sha256 cellar: :any,                 arm64_big_sur:  "8d294c22837637322fa55aa394cd3ea43e7c483e660d9208cb60bf20f0035757"
-    sha256 cellar: :any,                 ventura:        "5566547001aecd26c37f785839b0300557ac0ea2fce52d4c04b197ed49267555"
-    sha256 cellar: :any,                 monterey:       "48fc9a9e12b4ec7d1dcf2028a86538cba135ff1f7e1a14c42e26fd49a14be83f"
-    sha256 cellar: :any,                 big_sur:        "4b5fc6469dbeccbac18b268b4df5a09a190412ded7fb5979b9596c27ab337e38"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e7fdd8a3f9e716814841f841e3bf1097920b36bcd93172cefc03cd0de8565d4b"
+    sha256 cellar: :any,                 arm64_ventura:  "ce49e9a017fe64c39ed86f61db0234f2bc89345146a41dc9b14245cfda5af0e8"
+    sha256 cellar: :any,                 arm64_monterey: "3fae4a80d1f5d033c62c97109bc567e4f661cce902af5874be8ad68941e67887"
+    sha256 cellar: :any,                 arm64_big_sur:  "19f042a1dc22e66638ac1d084f99825dc224b2b3eb9a92cf394b073b617e24ca"
+    sha256 cellar: :any,                 ventura:        "f32308be5a47856a168f443660163cbecfdf1f18693f440ec2620b206c41d084"
+    sha256 cellar: :any,                 monterey:       "792c4b803ea71ffaa98c56696ece8f0047f7f0647075d6b91a1f4f0bdcb80a5a"
+    sha256 cellar: :any,                 big_sur:        "257e3dc1591f84eec57f3f9bbd07f1b66bfe2e2cbecf1563bdaf244a6ac04f61"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ea19a46040dd9ffcd51cfb75ed273cd1f0117c2cb9d4f6ffcc0507f72f59d069"
   end
 
   depends_on "autoconf" => :build

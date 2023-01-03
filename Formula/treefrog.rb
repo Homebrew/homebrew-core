@@ -1,8 +1,8 @@
 class Treefrog < Formula
   desc "High-speed C++ MVC Framework for Web Application"
   homepage "https://www.treefrogframework.org/"
-  url "https://github.com/treefrogframework/treefrog-framework/archive/v2.4.0.tar.gz"
-  sha256 "d7fc8459013097c0798f2b57ac1ff684077c8417c48fb536913edd94dda31738"
+  url "https://github.com/treefrogframework/treefrog-framework/archive/v2.6.0.tar.gz"
+  sha256 "edddf0a59713767d7dff12064b502576492827f8eef72dc1ddb82eabd4be7349"
   license "BSD-3-Clause"
   head "https://github.com/treefrogframework/treefrog-framework.git", branch: "master"
 
@@ -12,18 +12,20 @@ class Treefrog < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_ventura:  "7f8a656ccc4652e2f3bb6f0a4bd9efec456987d00aeaa248b12d61eca5bd6457"
-    sha256 arm64_monterey: "50a95c4bfbbdb9b917d2fa7d48c4088d8562ab7bc0fee4577b77233beb5110ee"
-    sha256 arm64_big_sur:  "6f9ab601a283b8d09ed126ea56c211a20c6402e3a1f435bb3414106404cdf206"
-    sha256 ventura:        "c0216f4e6e281846c5364d137e4232d0aa6586c878995725bee5fa8d4b647830"
-    sha256 monterey:       "1f978cde3384620e8949fe82bf351d0c9a41cbfd305d3fb4003045ef3319a4e4"
-    sha256 big_sur:        "4cac5c40a0e13a60b65924c31fda01accdc64d4a941c70f216937abf7efd5e07"
-    sha256 catalina:       "51beca49fe3504df480e5dda142d4feefbeb4007fcdf35158cafdd71820e29fb"
-    sha256 x86_64_linux:   "c779dc8dde4b68594fc501e53a49f17b193a0c507335e608663479bde6022b35"
+    sha256 arm64_ventura:  "4e16576c624b6c2329823cdca1f849ec002249d9be4c2d25d2efdb3e36200264"
+    sha256 arm64_monterey: "ee24340f99979f8f1ed158a7adc41d764df600cbaab093009e646189f35f8b82"
+    sha256 arm64_big_sur:  "298b39bb3671a9bd6e895bcd542fcb797a70626416f7f4138aa55718a23f5a8e"
+    sha256 ventura:        "c99b7514da2f7b8a2189d3d8bd44f9cfcc48ec35b52e287495f047acbfb76b99"
+    sha256 monterey:       "ab0ca5b1d83ea07f70ff2abe0d3822da9db92ac4683c9fb51c401ac4fe8b2b23"
+    sha256 big_sur:        "c6110d26d893fff436def3015e4be54c798ee424aefd11d1f35a182fb3b6abee"
+    sha256 x86_64_linux:   "be8d40a0bb91e8b2b1f6debe34bf14e37058a3e7a4c2ba0cfebee2ccf3ddc8c8"
   end
 
+  depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
   depends_on xcode: :build
+  depends_on "gflags"
+  depends_on "glog"
   depends_on "mongo-c-driver"
   depends_on "qt"
 
@@ -37,7 +39,7 @@ class Treefrog < Formula
       inreplace "src/corelib.pro", "/usr/include", HOMEBREW_PREFIX/"include"
     end
 
-    system "./configure", "--prefix=#{prefix}", "--enable-shared-mongoc"
+    system "./configure", "--prefix=#{prefix}", "--enable-shared-mongoc", "--enable-shared-glog"
 
     cd "src" do
       system "make"

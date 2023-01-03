@@ -1,10 +1,9 @@
 class RxvtUnicode < Formula
   desc "Rxvt fork with Unicode support"
   homepage "http://software.schmorp.de/pkg/rxvt-unicode.html"
-  url "http://dist.schmorp.de/rxvt-unicode/rxvt-unicode-9.30.tar.bz2"
-  sha256 "fe1c93d12f385876457a989fc3ae05c0915d2692efc59289d0f70fabe5b44d2d"
+  url "http://dist.schmorp.de/rxvt-unicode/rxvt-unicode-9.31.tar.bz2"
+  sha256 "aaa13fcbc149fe0f3f391f933279580f74a96fd312d6ed06b8ff03c2d46672e8"
   license "GPL-3.0-only"
-  revision 2
 
   livecheck do
     url "http://dist.schmorp.de/rxvt-unicode/"
@@ -12,14 +11,13 @@ class RxvtUnicode < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "0305a3f5ddc47f75893766fab81ec57e2149c103210e2a79b28925a07d458859"
-    sha256 arm64_monterey: "8838a2087d57f7a58d7c4f02d325b4b20fc0ff784550b20e6e692bfef8bafd28"
-    sha256 arm64_big_sur:  "5050ae72d24db51f608ec3d9230117726c3abb53e6466a169604a0fd1ce9311f"
-    sha256 ventura:        "686eedde51ba53d6632664378fccdf1de069c55a7fff363ec9f516d26699feb0"
-    sha256 monterey:       "63507e9c56529a990a2b913beb8abc96bcb3f6e83962ae10489f44f05a874d9f"
-    sha256 big_sur:        "e97e6531e7ac474d68456590f6f8b08648c6ffbabf81769ea676f3497297c4a8"
-    sha256 catalina:       "aa6a7ad56f33a20912520adf56cfa511b461f2f2b8f9dfa9f4c48230e2a12cc9"
-    sha256 x86_64_linux:   "441494f9ac8df2e5e718459fd08905004f294198a6396585112b3d66ebda06f1"
+    sha256 arm64_ventura:  "7dcc677369d1baab6f16df81f8b8eb55ec58e7250c63823105a4b41dfc076012"
+    sha256 arm64_monterey: "d7d065eaa8a9edb656446536bc45466062f0c8fd5aba80583bae20c2813b72f2"
+    sha256 arm64_big_sur:  "3770fbf0ca91a3f894862c40d27699aa2d602bd5a7420cb3c760c16d98c79f94"
+    sha256 ventura:        "de7ffce5e796bac2174392eff67aebcfc19a841e3c10c8e1eb43cf9afb319957"
+    sha256 monterey:       "54b0be5c3682b2d6974696b708935ad239ec26117a6028c201f5ca99a701dc90"
+    sha256 big_sur:        "ca8c7a88bdb67f56ea721039077450a4f4ceac8f5ea83518bca596f8daedecd5"
+    sha256 x86_64_linux:   "69f31db1144e72a56e1453390170053d38fdfcba1d359e6a34c88ff1842cf749"
   end
 
   depends_on "cmake" => :build

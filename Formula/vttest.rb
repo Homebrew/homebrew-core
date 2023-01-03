@@ -1,8 +1,8 @@
 class Vttest < Formula
   desc "Test compatibility of VT100-compatible terminals"
   homepage "https://invisible-island.net/vttest/"
-  url "https://invisible-mirror.net/archives/vttest/vttest-20221111.tgz", using: :homebrew_curl
-  sha256 "6ac0bf66a58073780fdeb7463114f51d80b1cc9e8ef1d8c7363053fcdc3181a7"
+  url "https://invisible-mirror.net/archives/vttest/vttest-20221229.tgz", using: :homebrew_curl
+  sha256 "6b6a109acaf0569cf7660d20dcd153b83e328e9b93dae4e73b985bbcc6b18bf8"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,14 +11,13 @@ class Vttest < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9d2dd94a17f085ba96fbaeecd627e176ec2f729325b9cf55f480dbf33fdc6fc4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cc8312b8bf5099264a66c4a5fc3c56e0e2f94acb965907daea3fa491af8ba2a8"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ca4a1f438087be63169b30aa6b5e8109ac4e3ac697a4f60b7e313d0c1cadca24"
-    sha256 cellar: :any_skip_relocation, ventura:        "79b80372c767f77bfd8ea54da2d8dec00936b4723c7acde1c52328998bdcadbf"
-    sha256 cellar: :any_skip_relocation, monterey:       "71dc9060748ed385f86878085a945d13b052206c6b2c3792735e6f8c9601c852"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3eb45fe6c233bda2eae0f3759f845f550e44352ccb5a42f33c3e29dbd2897234"
-    sha256 cellar: :any_skip_relocation, catalina:       "67a0537ebed546a7abacf0beb25e3bbb4b35a6032bcc69522b47de19445adb74"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "97b4639eaeffc12b6ebf276ec03fde495a150ff5a03754386d65f135a633b8ae"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9683bce2127f3bea130725dee58feec7ee5656063a700db7a1a3b85f89be253c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "01082a64059912712edaabc53614a416f4f15a8b93bfd7f1516c95c5307b5cc8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "17c55267b9cadf6a5e966566d3d68956fd5eac851d755a3f198cd5b52d55420b"
+    sha256 cellar: :any_skip_relocation, ventura:        "3769cd03caa60b6aaf7266e8384bd2e9c4f5ef766ddac40fff3d7e1ecec7ccac"
+    sha256 cellar: :any_skip_relocation, monterey:       "f78bfb8dc24550a769c7c7ac48e3d6518f915660552905693d38dc9b79387cc1"
+    sha256 cellar: :any_skip_relocation, big_sur:        "fdcd6a9a887b69b444c2dcc43f573e5fc337b8b667add0e3b49ae1557e882d18"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "294646076af62801faaf1ed33541956b9f9c5ba92958775918a682b21262f465"
   end
 
   def install

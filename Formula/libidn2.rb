@@ -24,7 +24,7 @@ class Libidn2 < Formula
   end
 
   head do
-    url "https://gitlab.com/libidn/libidn2.git"
+    url "https://gitlab.com/libidn/libidn2.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

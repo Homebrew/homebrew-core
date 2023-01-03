@@ -14,13 +14,14 @@ class Gnuradio < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "7533aed37c6ae5339e59b2386a949a3f32c5f93b6b656ec4ed0376d614d74a35"
-    sha256 cellar: :any,                 arm64_monterey: "ebf7cfb2f6cc5f314f5dc5ec5d66dd6157ba437592304902ede402cf4d408427"
-    sha256 cellar: :any,                 arm64_big_sur:  "a68d2312730d889f1564ed82b513db8dc2c39d5fc9dd00e72b7268c458e4b6f8"
-    sha256 cellar: :any,                 ventura:        "3318fe9687763ac1d0ae95b4d08008a6b57f62edc7e9ddcc5a7b90067ed4d8c5"
-    sha256 cellar: :any,                 monterey:       "c324c450bc869f8ff6116093a1fd5050bcf5588c3178a9c65f12fb666a49dd87"
-    sha256 cellar: :any,                 big_sur:        "93d1e7d6a9296885f39254a4568b2a047498d1c0fac69ce89609891121f0c7ee"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "82d55ee18cdeaf5d88c18870acf3a99f2d9d9426488ecf516cd2f44ec8de25ac"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "2f540a7bc8971b8dce9d98e443503f4814084a4c7b022100ea232d8dbe90381f"
+    sha256 cellar: :any,                 arm64_monterey: "5856c310c7994184c6e6109c5e3c5b8c44bd1e89394f113b60191ba52ebedb61"
+    sha256 cellar: :any,                 arm64_big_sur:  "10d730b3cdc60105a0afa23dd8d1ea9d1e38eaac36d85844c3c34e4a3040d5bd"
+    sha256 cellar: :any,                 ventura:        "4d4c847a7110c5ef7a22d054ba7b00801615d1bb0d46d99829df4fc115672400"
+    sha256 cellar: :any,                 monterey:       "33505038905d41694fcb6de4a386729a7a11c95195bb0bfcc06b26e94455442f"
+    sha256 cellar: :any,                 big_sur:        "f27ed4aa584c18e42975eca7e51f78cb341de08d8ca6659145746fb83721ddc4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0d78432fe9d281aa3a84e97d254d3df9c01a50837b55cb23bfc2101f3175961c"
   end
 
   depends_on "cmake" => :build
@@ -42,7 +43,7 @@ class Gnuradio < Formula
   depends_on "pygments"
   depends_on "pygobject3"
   depends_on "pyqt@5"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "qt@5"
   depends_on "qwt-qt5"
@@ -92,7 +93,7 @@ class Gnuradio < Formula
   end
 
   def install
-    python = "python3.10"
+    python = "python3.11"
     ENV.cxx11
 
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
@@ -230,6 +231,6 @@ class Gnuradio < Formula
 
       main()
     EOS
-    system Formula["python@3.10"].opt_bin/"python3.10", testpath/"test.py"
+    system Formula["python@3.11"].opt_bin/"python3.11", testpath/"test.py"
   end
 end

@@ -346,6 +346,11 @@
   "mathlibtools": {
     "exclude_packages": ["PyYAML"]
   },
+  "mdv": {
+    "package_name": "mdv[yaml]",
+    "exclude_packages": ["tabulate", "PyYAML", "Pygments"],
+    "extra_packages": ["Markdown==2.6.11"]
+  },
   "mkdocs": {
     "exclude_packages": ["six", "PyYAML"]
   },

@@ -1,8 +1,8 @@
 class Libxkbcommon < Formula
   desc "Keyboard handling library"
   homepage "https://xkbcommon.org/"
-  url "https://xkbcommon.org/download/libxkbcommon-1.4.1.tar.xz"
-  sha256 "943c07a1e2198026d8102b17270a1f406e4d3d6bbc4ae105b9e1b82d7d136b39"
+  url "https://xkbcommon.org/download/libxkbcommon-1.5.0.tar.xz"
+  sha256 "560f11c4bbbca10f495f3ef7d3a6aa4ca62b4f8fb0b52e7d459d18a26e46e017"
   license "MIT"
   head "https://github.com/xkbcommon/libxkbcommon.git", branch: "master"
 
@@ -12,14 +12,13 @@ class Libxkbcommon < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "b6191d46b43611e07b70881a1655421d274cc9e685936034dc52ae7886e4cc8f"
-    sha256 arm64_monterey: "8f11c9d436064406b0c4cc5e8bc273561993433ebb64761bd9dea036b0ffd159"
-    sha256 arm64_big_sur:  "e6a0c1aee452be0f17cd42f440daa9a5fa81cca5e1f07136de35480202755770"
-    sha256 ventura:        "c7e002f3f0d6eb2fb8e16ed2797484d145f735ac94d009ee124c7de1ce356557"
-    sha256 monterey:       "d3f1e8583b9a4519c4e0a166f7da02f768362059e1baa6ea4921028d40b1a2b0"
-    sha256 big_sur:        "d085ec9717e7916089651d269602858839f15a7a284d59f880a3b116db2aa491"
-    sha256 catalina:       "bfb9c00bd0398afa355e9c5b22799e9bf19f08f51b4f739b008067c660c9212c"
-    sha256 x86_64_linux:   "11a40e4268f7366aaf314e3a1aead9860331a4ebd50667f40b442ea159071849"
+    sha256 arm64_ventura:  "8c6dc851dd48dd2df4a196a3dbc202451413ba45f5da1fa0e05bf5268e345209"
+    sha256 arm64_monterey: "ae52bafef77ecad4edaaf4759fb8218af53468e9dc83ee65b43757d6aca14cef"
+    sha256 arm64_big_sur:  "c1f908bc8515a3d84766bba989987ab29137e9d4b1d8d5854d6838dc9d41ec23"
+    sha256 ventura:        "043e964946f9f65d27e06628c9a7c61358211b98873c17930eaa36fb92e0fa70"
+    sha256 monterey:       "2751b4fb16b67d57e71f8ec4b966306be8a856a3f786466057cb37cfdf03804c"
+    sha256 big_sur:        "98e602696ef7cf0b7c42615f8424341ced5d265478a1c3ee7dbda237e83dcb1c"
+    sha256 x86_64_linux:   "d7acfa362e20a3bc5123b5b8631c92ef84b84663d5fdf8f2edd04d330f5f384e"
   end
 
   depends_on "bison" => :build
@@ -39,10 +38,9 @@ class Libxkbcommon < Formula
       -Dxkb-config-root=#{HOMEBREW_PREFIX}/share/X11/xkb
       -Dx-locale-root=#{HOMEBREW_PREFIX}/share/X11/locale
     ]
-    mkdir "build" do
-      system "meson", *std_meson_args, *args, ".."
-      system "ninja", "install", "-v"
-    end
+    system "meson", *std_meson_args, "build", *args
+    system "meson", "compile", "-C", "build", "-v"
+    system "meson", "install", "-C", "build"
   end
 
   test do

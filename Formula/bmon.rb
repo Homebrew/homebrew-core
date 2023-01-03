@@ -20,7 +20,7 @@ class Bmon < Formula
   end
 
   head do
-    url "https://github.com/tgraf/bmon.git"
+    url "https://github.com/tgraf/bmon.git", branch: "master"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end

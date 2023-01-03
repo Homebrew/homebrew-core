@@ -1,19 +1,19 @@
 class Openvi < Formula
   desc "Portable OpenBSD vi for UNIX systems"
   homepage "https://github.com/johnsonjh/OpenVi#readme"
-  url "https://github.com/johnsonjh/OpenVi/archive/refs/tags/7.2.19.tar.gz"
-  sha256 "a49089a3e246a28137e61defa7b09e6c6dae7b1914855de67d573e5c860a7b68"
+  url "https://github.com/johnsonjh/OpenVi/archive/refs/tags/7.2.20.tar.gz"
+  sha256 "9bb7538f7381fd2d2bdc574f98bb154052b302200b1976203714086b007bf511"
   license "BSD-3-Clause"
   head "https://github.com/johnsonjh/OpenVi.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "818fc76b3a70aa89390df6e4414b995e62df8b30e4a6735a5e94e6e90b86646d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f77826d22e53f6ba8e692828ff4679c920f5404a07705878848855d1c39d97a5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "04c37a69480a7b73b6ca0e8b66a36fa3a83863b69d898bd8012abfc5a5a085c1"
-    sha256 cellar: :any_skip_relocation, ventura:        "bd6be64438dd5f5f75dda82b06c922d94d712d6bea550ac82fcae4732f515471"
-    sha256 cellar: :any_skip_relocation, monterey:       "c641d7bd5557eed1d51e011e2c6f8bc7d88313c7ce567c5877a8e577d9e1507c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b5b2ed2abf35c097cbc825a684aa5b49759d0f53748e58f1a2c8337bfb9abbc9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f1f682b542e09c747dc252509731ecef02d8599f0aa68d503fb25a9da906b20e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2e8a32ef6ed2b1e67143ce802e2152190f80be6591975e34d40323b8cae4c59a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e3e177336337f5ea2b06512b5f7a71c2fefa18054f5f6cac8d649eaf436bac05"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "01764787b55f544f29951dbf49c6e829d8373f18ea4d972e8e7296efe1253743"
+    sha256 cellar: :any_skip_relocation, ventura:        "2c88aabb9af3580bdb5facc97865ae3ba1fd5507991fda6004bf32ea0ba6284b"
+    sha256 cellar: :any_skip_relocation, monterey:       "4de9abcd76e3672517ac2d45d5ec1295721aff25d56dded5dd6c4283f89d9347"
+    sha256 cellar: :any_skip_relocation, big_sur:        "187305db2e429b8c6ff5e2dbf9b4c782f8e9bdfa1b5194f9136ebe14847629f0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cbdd557e331a8e147b55c118c74ab0b658e2963a328265c4ed7856dc65b67b8a"
   end
 
   uses_from_macos "ncurses"

@@ -17,7 +17,7 @@ class Roll < Formula
   end
 
   head do
-    url "https://github.com/matteocorti/roll.git"
+    url "https://github.com/matteocorti/roll.git", branch: "master"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end

@@ -11,13 +11,14 @@ class Dovecot < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "7151ef7284fca75a23eea4ab0c2a3700290636e8086c3494d64d90115aa1a466"
-    sha256 arm64_monterey: "3513089f8545a1711e9e081ea1cf08b348d1ef0bfdaaf0b547d4c430baddbb01"
-    sha256 arm64_big_sur:  "6abfc253e93bdec5dec1c16a0dfeed652dcca7dd76e3df24ed6ee87c422f6669"
-    sha256 ventura:        "79ae6da26f29ff828a9d263af79ee897f0bdebed173853fd38e7829c69494761"
-    sha256 monterey:       "65dfcf3875ad30e9c2db39e1a73bc80e29bac029e23eb257f303d432791a48e0"
-    sha256 big_sur:        "37e9981cca504a07add3782b8c4f6b3ba56cc6cf196fddaae041e32a4512eef2"
-    sha256 x86_64_linux:   "faa27190c25ee0f2e8e7bcd2793fd4679cb6e9706430925ca9cb2682eb3b4d72"
+    rebuild 1
+    sha256 arm64_ventura:  "c9e2fc781d0b0a896294e5619d85d19c0d01d0d4e5a833e6b380ba792dc2fa2c"
+    sha256 arm64_monterey: "b911df521e2e6961d5db4553b92e009aa9cce6f84d3fb7a5d5fda0115e3c8355"
+    sha256 arm64_big_sur:  "4c0cacdc42c3170b298fc0a88f5085a51a51ee052b04956fe2d1067b630a0819"
+    sha256 ventura:        "81a94d994329d3a3c8b2ff8f1774a280ae54330174bd1dfad2826fec54287a7b"
+    sha256 monterey:       "b323934b7d27693e28a8d0047576dff6f8029d721e0d6d5d97d6b1afeca30a4a"
+    sha256 big_sur:        "0c9fbdb439b3e781d23ecc4a4f65c81f11ad6a3d238d217eae5918916658bf61"
+    sha256 x86_64_linux:   "8a23a5a515f5f09cc8bbfc9302cc4e0d9cb23ed3368a5eb0241edaded1882759"
   end
 
   depends_on "openssl@3"
@@ -60,6 +61,7 @@ class Dovecot < Formula
       --with-sqlite
       --with-ssl=openssl
       --with-zlib
+      --without-icu
     ]
 
     system "./configure", *args

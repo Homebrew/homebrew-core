@@ -18,7 +18,7 @@ class OsmGpsMap < Formula
   end
 
   head do
-    url "https://github.com/nzjrs/osm-gps-map.git"
+    url "https://github.com/nzjrs/osm-gps-map.git", branch: "master"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "gnome-common" => :build

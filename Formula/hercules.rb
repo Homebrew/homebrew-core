@@ -4,6 +4,7 @@ class Hercules < Formula
   url "http://downloads.hercules-390.eu/hercules-3.13.tar.gz"
   sha256 "890c57c558d58708e55828ae299245bd2763318acf53e456a48aac883ecfe67d"
   license "QPL-1.0"
+  head "https://github.com/hercules-390/hyperion.git", branch: "master"
 
   livecheck do
     url :homepage
@@ -21,10 +22,6 @@ class Hercules < Formula
     sha256 catalina:       "aae09d5616cf146c74bf3bfae69c1490cf920404d75d43c7d8c28ac1aab176b8"
     sha256 mojave:         "3c7535fa1d1e9385c9f2525e40445b931c3768ab611db4e6a2019c7910538c41"
     sha256 x86_64_linux:   "253d9c36ec65a956796d413a957999b99bc22b10fc3baa436f2d3fb7ef7dcd25"
-  end
-
-  head do
-    url "https://github.com/hercules-390/hyperion.git"
   end
 
   depends_on "autoconf" => :build

@@ -7,14 +7,14 @@ class Vtk < Formula
   head "https://gitlab.kitware.com/vtk/vtk.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "55507cdffa7dd541f060a7c6d0fafdb97d8ec1afd893bec446eb431cdc310c15"
-    sha256 cellar: :any,                 arm64_monterey: "fd8b5266a33f0cf2d967df1ef522ed2c56aec78ce371669496343c98ed1f65f0"
-    sha256 cellar: :any,                 arm64_big_sur:  "ce4d4f25b956014b0b45a96da8361ae053931ae9548b7da83056c9d27c5f7669"
-    sha256 cellar: :any,                 ventura:        "3a80991286e9c383fd765e027be84b0728663d9f4535a29c5788922fec047b0b"
-    sha256 cellar: :any,                 monterey:       "8183b6b8fc6b8df5639e47027f62cab729aa7ff79e2aac19d2b15ccd44e8ec68"
-    sha256 cellar: :any,                 big_sur:        "b447d02c13ee4127382316c24e10d2551c5e2faa6234db005c73c5342477b66e"
-    sha256 cellar: :any,                 catalina:       "e370593ac5ec40f462bd8212db0cd940b5add11061aba88fe82f65d79f58027c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2aa435ad572edb96b633065c2174b319c44c0f3d145f0b707d2d4847c9816db9"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "abb8aad044b8eea390b26cd177ca7c8b36a5caca5fc0c53d548b2139ed7c7fbb"
+    sha256 cellar: :any,                 arm64_monterey: "87f295a765e70a10f8f3a19d4fe4bcac50715480cae4b0a0bb87e4ee4f700dfe"
+    sha256 cellar: :any,                 arm64_big_sur:  "0395bb7ea37c8570388c8f3a41b77d5f00c11fe0e23257f353cc626dd87398b5"
+    sha256 cellar: :any,                 ventura:        "d8d5c75ce1b1ac5f78559ba33d776c00018d38afeec30605db8313ca5a872534"
+    sha256 cellar: :any,                 monterey:       "5e23111ea04ac0edf25ede66975b2c072a557c70cbb2cbbc410e48dcc1fb12a3"
+    sha256 cellar: :any,                 big_sur:        "2345d0eb9580b5f0b62175f911a2e9d36d5a2eae451a5cb8dbb69fc5cfdf2883"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "474f15dcdcd507d2c8056188e992cf16ac9d67c10eadd3707311de8a9919a8b2"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -34,7 +34,7 @@ class Vtk < Formula
   depends_on "netcdf"
   depends_on "pugixml"
   depends_on "pyqt@5"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "qt@5"
   depends_on "sqlite"
   depends_on "theora"
@@ -100,7 +100,7 @@ class Vtk < Formula
       -DVTK_MODULE_USE_EXTERNAL_VTK_tiff:BOOL=ON
       -DVTK_MODULE_USE_EXTERNAL_VTK_utf8:BOOL=ON
       -DVTK_MODULE_USE_EXTERNAL_VTK_zlib:BOOL=ON
-      -DPython3_EXECUTABLE:FILEPATH=#{which("python3.10")}
+      -DPython3_EXECUTABLE:FILEPATH=#{which("python3.11")}
       -DVTK_GROUP_ENABLE_Qt:STRING=YES
       -DVTK_QT_VERSION:STRING=5
     ]

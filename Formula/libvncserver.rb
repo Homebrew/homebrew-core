@@ -1,9 +1,10 @@
 class Libvncserver < Formula
   desc "VNC server and client libraries"
   homepage "https://libvnc.github.io"
-  url "https://github.com/LibVNC/libvncserver/archive/LibVNCServer-0.9.13.tar.gz"
-  sha256 "0ae5bb9175dc0a602fe85c1cf591ac47ee5247b87f2bf164c16b05f87cbfa81a"
+  url "https://github.com/LibVNC/libvncserver/archive/LibVNCServer-0.9.14.tar.gz"
+  sha256 "83104e4f7e28b02f8bf6b010d69b626fae591f887e949816305daebae527c9a5"
   license "GPL-2.0-or-later"
+  head "https://github.com/LibVNC/libvncserver.git", branch: "master"
 
   livecheck do
     url :stable
@@ -11,16 +12,13 @@ class Libvncserver < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "87e7fe46721162bf960736153eb09f6c02233c6aed8559a75575cf449d14b836"
-    sha256 cellar: :any,                 arm64_monterey: "819203d759df0243fafbe98a4af39ceb66df276ec292d774b79e1292a1b565af"
-    sha256 cellar: :any,                 arm64_big_sur:  "2bc993923fe1854ab86f96e2644f1ae865b538b09092cafabe7bf4baadde2940"
-    sha256 cellar: :any,                 ventura:        "f60d76ab695a809578b36c57d452499f8d0be189a6e4977ece11d060cd55e986"
-    sha256 cellar: :any,                 monterey:       "9b4871a1a52f0f44d58bc57736490a44774738133cfe0b2ff92a6a86380d79f2"
-    sha256 cellar: :any,                 big_sur:        "a28d45216831ec31a87e0756fd13fd226b9341b2bfa798acc865be3f34a530ac"
-    sha256 cellar: :any,                 catalina:       "c667ff09ee40d2ab0e8db25a51697ae62edd14496c1075f07015bf0ed372695e"
-    sha256 cellar: :any,                 mojave:         "7e5799814cd2077d39c8d4c95806fa23c408d8a26c92140ba64f852b6a53567f"
-    sha256 cellar: :any,                 high_sierra:    "f331a9fc3ba043f0febe78df7551630a5a28f9adb362a58384901192476dff89"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d354f5da00e9fb92f82c6766245eca86b4a21be88c26ceed615e871618e5a51e"
+    sha256 cellar: :any,                 arm64_ventura:  "7b8596d4664583e7c23ad5af6cabe5cf3189c557c166768589c7c77322d4a70a"
+    sha256 cellar: :any,                 arm64_monterey: "2b2d24c9d3528ba81f7de80eb91448460108878488a04660ec296c36cbfa4edd"
+    sha256 cellar: :any,                 arm64_big_sur:  "4d9c99dc705a710eaf23fc72a85193200dc08df28f2ea90b8020db76e73166e5"
+    sha256 cellar: :any,                 ventura:        "e3c938ad6344e2af6bba985c177e2359323676d435419530d6e3a098cb7e9e6e"
+    sha256 cellar: :any,                 monterey:       "30cd6e09106cb0fe56c9d31aee78ddd5f46568cb0e8de1be57a5642fe6aa3ff0"
+    sha256 cellar: :any,                 big_sur:        "9a040c3f4ca5923040a2f27813fd176bfdb1a4c60c3ecb003b8bda0210e90e24"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6b3653eb3e793c0380213276fc06020ce4ce6778fbfbd10eee36aba880bc36f0"
   end
 
   depends_on "cmake" => :build

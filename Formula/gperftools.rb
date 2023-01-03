@@ -26,7 +26,7 @@ class Gperftools < Formula
   end
 
   head do
-    url "https://github.com/gperftools/gperftools.git"
+    url "https://github.com/gperftools/gperftools.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

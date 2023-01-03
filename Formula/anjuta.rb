@@ -1,6 +1,6 @@
 class Anjuta < Formula
   desc "GNOME Integrated Development Environment"
-  homepage "http://anjuta.org"
+  homepage "https://gitlab.gnome.org/Archive/anjuta"
   url "https://download.gnome.org/sources/anjuta/3.34/anjuta-3.34.0.tar.xz"
   sha256 "42a93130ed3ee02d064a7094e94e1ffae2032b3f35a87bf441e37fc3bb3a148f"
   license "GPL-2.0-or-later"
@@ -19,7 +19,8 @@ class Anjuta < Formula
   end
 
   # Repo has been archived: https://gitlab.gnome.org/Archive/anjuta.git
-  deprecate! date: "2022-09-21", because: :unmaintained
+  # Original deprecation date: 2022-09-21
+  disable! date: "2022-12-31", because: :unmaintained
 
   depends_on "intltool" => :build
   depends_on "itstool" => :build

@@ -11,18 +11,14 @@ class Glkterm < Formula
   end
 
   bottle do
+    rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a16c7170ae9eecce9419bbcb844b97ffd38cf62eba26c92f2d8bd4f1e5b1e88c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3c6a484e614b2100efbb81a9724035e7dd974a0e4c15cba7b846cf11ee543e09"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "dfa6c028a6b6c70b258e19faa4f274c5c993ee55d8fa21e7574aa1df32e6cd2c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ce4ee770d5cb1136fae90036ffc18d14e8a910b61b5d17fa72e42c46df4a0333"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cf37e7f7186d632c124831695e9563f8ae5c9112541816456077f66ec4391d22"
     sha256 cellar: :any_skip_relocation, ventura:        "634360102e7a03bf06bd75c090d336ffdbcd07a3f0abbc177585b92bfe519dff"
-    sha256 cellar: :any_skip_relocation, monterey:       "e47a9f144d3113fc05b42020d4ebf5d49afd666c73ee7b0cee980083e577f8c4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a82e9471f88cd16b842beb87305959fcdec9fbc083cb7e4b6b213cb7f7c9f701"
-    sha256 cellar: :any_skip_relocation, catalina:       "c337df9d5b7c6343fe21abf1f17143d51d4e61e747b1c6da7d31ad557653a7a0"
-    sha256 cellar: :any_skip_relocation, mojave:         "34bba71e2063d751f179adf09caa65b6815b94b0f5c64436f20f3117e038e128"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "1e7d75d921b11cd91354b2f8acf8a63416709b7875146d095bcf1ce02cc6fdad"
-    sha256 cellar: :any_skip_relocation, sierra:         "b4c65e282b8cf6fce1e32e4e168aef241d6c38f2090448c68ad3ca7157e1d473"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "b9db7677c23716a7f8a57ce45d309487a36cc41c1388e2c7990b49c17e2f0bb7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1917d0219e55c0ae96f1cdae3a6bc156f9d1969032ecdc04e254e1c2554485fa"
+    sha256 cellar: :any_skip_relocation, monterey:       "d21e3c42268a40f68edfc13989a47b007a1a60b5b87652eb9752b047924d9283"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9a7b4d3779676cef021e21d226260a2dca07c04e350ce1a8c0efa85e6b52f97d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f57f1075e4afed829d717f987b4511626a5871e3532a98698862da6ee42989dc"
   end
 
   keg_only "conflicts with other Glk libraries"

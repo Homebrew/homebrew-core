@@ -33,6 +33,8 @@ class Gnutls < Formula
   depends_on "p11-kit"
   depends_on "unbound"
 
+  uses_from_macos "zlib"
+
   def install
     args = %W[
       --disable-dependency-tracking

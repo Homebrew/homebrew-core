@@ -30,7 +30,7 @@ class UnittestCpp < Formula
   end
 
   head do
-    url "https://github.com/unittest-cpp/unittest-cpp.git"
+    url "https://github.com/unittest-cpp/unittest-cpp.git", branch: "master"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build

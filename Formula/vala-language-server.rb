@@ -30,7 +30,7 @@ class ValaLanguageServer < Formula
   end
 
   test do
-    length = (151 + testpath.to_s.length)
+    length = (testpath.to_s.length + 151)
     input =
       "Content-Length: #{length}\r\n" \
       "\r\n" \

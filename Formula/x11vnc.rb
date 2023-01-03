@@ -6,17 +6,14 @@ class X11vnc < Formula
   license "GPL-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "0d2772adc547684b666b6edfa52bdbf8fb9a9fa8d75e45f34d942b91138c8958"
-    sha256 cellar: :any,                 arm64_monterey: "056f5811d473464e1642e707b0e9f970ab8a4d21a39643e417e65795a36cbc5f"
-    sha256 cellar: :any,                 arm64_big_sur:  "f066915a77e9635f0f1394566b2b825bcb0a02207e6393e3c0c5a62b7f8a03ae"
-    sha256 cellar: :any,                 ventura:        "910d4f2e08afcdf5b7eeefb5d5e949131a1b22171b03308b5ad56e41fa5f520a"
-    sha256 cellar: :any,                 monterey:       "8e50851314ec0ed46b747c489a54b56d2ec2af9e74be8458022612f0a7e236b1"
-    sha256 cellar: :any,                 big_sur:        "50270ae1fd7681db301b3449748f46108d5eb93df535be7085ef6498f936555d"
-    sha256 cellar: :any,                 catalina:       "66ddb190e2e2a183ba662d4c7ac2de508b6ebe3c3c827078a5eec5b550477e5e"
-    sha256 cellar: :any,                 mojave:         "cd3d5d0047a8fb2e7b66ac94baf08c2da16aa8e135b8180acacce2d1bf366e58"
-    sha256 cellar: :any,                 high_sierra:    "2660aa48f9545eef71c5a42f9985720629d0391eaef37155264ec4c71cf13b29"
-    sha256 cellar: :any,                 sierra:         "4e974a6cbc6bd9c03e90ed2f991a40c4589489ccbd01bd20552bf0a66773f924"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "36d3452462763535cb378ae0034b45aea20cfc186aa883c84a5a15bbe7b736fc"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "38324f98f26ae2449c4a6ff17618419edaff6d4bbf9121a72b8148259f86969f"
+    sha256 cellar: :any,                 arm64_monterey: "0524eee07eea63fba0608c0b883833d1eaef6968fadeff0a8e9484ecd876b310"
+    sha256 cellar: :any,                 arm64_big_sur:  "2a31e43f659772fbeb91cc08be809a70999aaab08855fac54cc62f4620704532"
+    sha256 cellar: :any,                 ventura:        "46c01ed3a37614e6c672c704c47d678295b85aedad46a469ac7bd3ec89426efc"
+    sha256 cellar: :any,                 monterey:       "5daffa352af06684f3667150491916bf42ed671e0ded33d4b94db65eaf324781"
+    sha256 cellar: :any,                 big_sur:        "e657f9d340736e450eebf51336c42f180464e91b179e3ca289eedd5131cf62fd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d44a30e51f3ae1de8c80e9b4c3ab492fe22242db0b99e1cc7b5f578839accec4"
   end
 
   depends_on "autoconf" => :build
@@ -25,7 +22,13 @@ class X11vnc < Formula
   depends_on "libvncserver"
   depends_on "openssl@1.1"
 
+  uses_from_macos "libxcrypt"
+
   def install
+    # Work around failure from GCC 10+ using default of `-fno-common`
+    # /usr/bin/ld: x11vnc-xwrappers.o:(.bss+0x440): multiple definition of `pointerMutex|inputMutex|clientMutex`
+    ENV.append_to_cflags "-fcommon" if OS.linux?
+
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["openssl@1.1"].opt_lib/"pkgconfig"
 
     args = %W[

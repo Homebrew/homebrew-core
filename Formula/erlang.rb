@@ -23,7 +23,7 @@ class Erlang < Formula
   end
 
   head do
-    url "https://github.com/erlang/otp.git"
+    url "https://github.com/erlang/otp.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

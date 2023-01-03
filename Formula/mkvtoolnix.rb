@@ -1,9 +1,9 @@
 class Mkvtoolnix < Formula
   desc "Matroska media files manipulation tools"
   homepage "https://mkvtoolnix.download/"
-  url "https://mkvtoolnix.download/sources/mkvtoolnix-72.0.0.tar.xz"
-  mirror "https://fossies.org/linux/misc/mkvtoolnix-72.0.0.tar.xz"
-  sha256 "3bd1005baf397f1d70619c2f2c52af9de8ce75995830e790e429c0943fd08000"
+  url "https://mkvtoolnix.download/sources/mkvtoolnix-73.0.0.tar.xz"
+  mirror "https://fossies.org/linux/misc/mkvtoolnix-73.0.0.tar.xz"
+  sha256 "f31a129723571b46a974bc5d57d73733c1245ee429afd6ddaf274038e94e2280"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -12,14 +12,13 @@ class Mkvtoolnix < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "2e4e2ba1a9ee49a0866d2283f3441068fbb7c7001a4ed4b9a5fcf89c1e1c6607"
-    sha256 cellar: :any, arm64_monterey: "de67e46dd78d99bd2374d7286f9067b0c3c78640b142ec66641278c9a639d5ae"
-    sha256 cellar: :any, arm64_big_sur:  "ee7d259784e6fc283c64e4654b90f6b784965ddbafbef2145d60962183634dcb"
-    sha256 cellar: :any, ventura:        "fce390953f64e9b4735778207960b0e622f96a400c48700a22aa4dec52f5eb51"
-    sha256 cellar: :any, monterey:       "dc828e07eee476d6cd1e9d7c0685ea1ffb6212f3fb85a6cba4ad3530dc67e464"
-    sha256 cellar: :any, big_sur:        "2535797cbe4f034f9a96577a7b84002a873de65f7bbe0cc4cbe6a465c249945a"
-    sha256 cellar: :any, catalina:       "b292698f1e6b839442aefc9c2fd62cde2c1f22ed8b6f9848469f853433f54e0a"
-    sha256               x86_64_linux:   "5be9db1f36fa183f8c27ccd9f2913c75e6a0019aed74a7b492dcb640da3c5b0f"
+    sha256 cellar: :any, arm64_ventura:  "f0cea86ffb92a59f4be256e96438d6f5cb1b262de693d27e81c4ef249b2008cf"
+    sha256 cellar: :any, arm64_monterey: "aa8c5e72674872b19d967798ba1559415014e8dad6b08ffcdb9909350ce0a9d5"
+    sha256 cellar: :any, arm64_big_sur:  "e1bb6caa58dbc6efb3ab5d2562e8108415066a73b6ab1c041eeaa3691693a864"
+    sha256 cellar: :any, ventura:        "cff4cde7d2c1ccd6dc1a2b1f597e1ea9cdec419ef040510e0aa867a6767d9eae"
+    sha256 cellar: :any, monterey:       "3209705fba2491f8b88eecd773f7791c5f40cb163a20ab0615884ef92d8aefed"
+    sha256 cellar: :any, big_sur:        "85d97db0d53531dae442e4c676e265a86a78123ec6bc35ddce571edd4162542c"
+    sha256               x86_64_linux:   "e57fa5e5ad6088a5b84866e2afa1c7b0d176f2769fec9818420ca4acb320564e"
   end
 
   head do

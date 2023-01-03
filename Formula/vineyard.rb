@@ -3,19 +3,18 @@ class Vineyard < Formula
 
   desc "In-memory immutable data manager. (Project under CNCF)"
   homepage "https://v6d.io"
-  url "https://github.com/v6d-io/v6d/releases/download/v0.11.3/v6d-0.11.3.tar.gz"
-  sha256 "18befb052270d5cfd1280db571b9dbdeb876d988d308d7cee1deb5ddde0121a0"
+  url "https://github.com/v6d-io/v6d/releases/download/v0.11.4/v6d-0.11.4.tar.gz"
+  sha256 "cc807b991e5e35847783ee679ab14e75e23bbf04b309f2dd56ca37e3b6bc7ca8"
   license "Apache-2.0"
-  revision 1
 
   bottle do
-    sha256 arm64_ventura:  "418b82028a5d3369b8bfea1118b1203e1a698282a62dbb4c70a4ddfaba330f7e"
-    sha256 arm64_monterey: "bbd17052c24f28493da7f544cebae96bd12b3df938d88ed9b6ee657d1c82effc"
-    sha256 arm64_big_sur:  "fac1ee318bb72b55b9d13190e1903c59df9b1ab546813f0794dc96549f754956"
-    sha256 ventura:        "c404d8d305026696c0182a2851835245107327a006fa986d8bfb5796739b3567"
-    sha256 monterey:       "cd55294f558ce58ac9bdcfc89723c56ff65b94cb97fb6376a7141f7c06795567"
-    sha256 big_sur:        "6e70c0a4b658ed4eabaeb15a1b1e4105526f465771e5c6c6de035ff59b3929b7"
-    sha256 x86_64_linux:   "75a3047157b6360901c3ddde7d130525738225bc967036b94b36f55be5dcb9f8"
+    sha256 arm64_ventura:  "55fc7bd17b65b1f9f698f9e7a4bb74cf6ee3c72997703e244ba4db0b3af31980"
+    sha256 arm64_monterey: "2ae7a4d3b7cb82344f62327002faedb847adde24f64fada28ea08ac8cae09744"
+    sha256 arm64_big_sur:  "d145a60e491a46a01bdf405cc0b994eb39c86d382527a1e772fb87133296a045"
+    sha256 ventura:        "7d6f21fe8e08cea320ba04236d687a0f11252dfd89d0588469d794c61ff1a8e4"
+    sha256 monterey:       "48201513e14240d508fc3b9778bfb534026b05363b6e36c799d912e2309364cb"
+    sha256 big_sur:        "ad9b4c24a62985b13d054d6c2944812f400bef1519d7dc5f0175cae059c6a786"
+    sha256 x86_64_linux:   "38704fd432ba69c2a2a582498025757a48a334e02238d46bcd18e464668861f4"
   end
 
   depends_on "cmake" => :build

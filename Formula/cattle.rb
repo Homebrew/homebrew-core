@@ -33,7 +33,7 @@ class Cattle < Formula
   end
 
   head do
-    url "https://github.com/andreabolognani/cattle.git"
+    url "https://github.com/andreabolognani/cattle.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

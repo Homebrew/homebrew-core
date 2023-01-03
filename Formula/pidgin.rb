@@ -1,10 +1,9 @@
 class Pidgin < Formula
   desc "Multi-protocol chat client"
   homepage "https://pidgin.im/"
-  url "https://downloads.sourceforge.net/project/pidgin/Pidgin/2.14.10/pidgin-2.14.10.tar.bz2"
-  sha256 "454b1b928bc6bcbb183353af30fbfde5595f2245a3423a1a46e6c97a2df22810"
+  url "https://downloads.sourceforge.net/project/pidgin/Pidgin/2.14.12/pidgin-2.14.12.tar.bz2"
+  sha256 "2b05246be208605edbb93ae9edc079583d449e2a9710db6d348d17f59020a4b7"
   license "GPL-2.0-or-later"
-  revision 2
 
   livecheck do
     url "https://sourceforge.net/projects/pidgin/files/Pidgin/"
@@ -13,14 +12,13 @@ class Pidgin < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "a2263a4ab8eb9b8d65dd48985b1eccc239f9591b8a3d2a3e155562d2bb28c586"
-    sha256 arm64_monterey: "bea177eb299f90f5e261abb69e4a8068602f98ea475f8bee4704e889e6df77db"
-    sha256 arm64_big_sur:  "1f51d85beea0f47d69240edaa693caf35ae7b6f1778c9bd014be7a25feeb2b21"
-    sha256 ventura:        "00e18191a3fb44ac6bfc2e1fd7587a0a08cdc8bd1f58db6820efb5ca2d7d36cb"
-    sha256 monterey:       "d1fb24527eefead0eb6e53f7b1619c9b9aa7a5de8085d686a6636cfaa323238b"
-    sha256 big_sur:        "71b9d4efb1179d93a86af5d2b0d831760371e5208b718dc5edb0f1819200dd3d"
-    sha256 catalina:       "c5d93e454550f509bf52e16c37ebda6b178dbc3e732397f5ff8bb41ca9688148"
-    sha256 x86_64_linux:   "9a8a17e74dba53df0e11abee49fd7ec2f0ab4912506a8c10a32581497a2479a8"
+    sha256 arm64_ventura:  "a04309e2217e0983459955016b4460954c613eac84da8283afc8e2f4eb650d9e"
+    sha256 arm64_monterey: "0167e1a59e189d616d909688dadfda1d9648ab7d3f84fbb8db34fb30e259b415"
+    sha256 arm64_big_sur:  "cec31339d3e2a83f61fac179cd72bc2b00e63611a5a2561018db865f659983f5"
+    sha256 ventura:        "4aa98090185eb17a74b68ec64bdf1551382d0778d01e00691395b488a0e3d027"
+    sha256 monterey:       "d6407e69aad79bcf6ad08625510306e10a45e594af1ec225249647e180462b1b"
+    sha256 big_sur:        "e70d0f821cb46ccd6d1e78855125db8c55e2bd4afeae7b20f933ec37de13d9ce"
+    sha256 x86_64_linux:   "e45ab075f267eaa4dee89536c9a4561f3e5676221337274857c268fde1c8ed81"
   end
 
   depends_on "intltool" => :build

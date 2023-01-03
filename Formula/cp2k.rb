@@ -17,7 +17,7 @@ class Cp2k < Formula
     sha256               x86_64_linux:   "5473c1cb1fd3041e69e80bdff319c5955b9aac6759ccacfa082b10ea199f417f"
   end
 
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
   depends_on "fftw"
   depends_on "gcc" # for gfortran
   depends_on "libxc"

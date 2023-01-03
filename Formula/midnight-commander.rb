@@ -23,7 +23,7 @@ class MidnightCommander < Formula
   end
 
   head do
-    url "https://github.com/MidnightCommander/mc.git"
+    url "https://github.com/MidnightCommander/mc.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

@@ -26,7 +26,7 @@ class Libcaca < Formula
   end
 
   head do
-    url "https://github.com/cacalabs/libcaca.git"
+    url "https://github.com/cacalabs/libcaca.git", branch: "main"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

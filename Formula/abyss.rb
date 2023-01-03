@@ -21,7 +21,7 @@ class Abyss < Formula
   end
 
   head do
-    url "https://github.com/bcgsc/abyss.git"
+    url "https://github.com/bcgsc/abyss.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

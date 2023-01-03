@@ -11,7 +11,7 @@ class Mdds < Formula
   end
 
   head do
-    url "https://gitlab.com/mdds/mdds.git"
+    url "https://gitlab.com/mdds/mdds.git", branch: "master"
 
     depends_on "automake" => :build
   end

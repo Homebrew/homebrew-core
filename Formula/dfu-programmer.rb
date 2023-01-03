@@ -26,7 +26,7 @@ class DfuProgrammer < Formula
   end
 
   head do
-    url "https://github.com/dfu-programmer/dfu-programmer.git"
+    url "https://github.com/dfu-programmer/dfu-programmer.git", branch: "master"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end

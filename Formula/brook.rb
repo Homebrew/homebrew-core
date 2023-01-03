@@ -1,19 +1,18 @@
 class Brook < Formula
   desc "Cross-platform strong encryption and not detectable proxy. Zero-Configuration"
   homepage "https://txthinking.github.io/brook/"
-  url "https://github.com/txthinking/brook/archive/refs/tags/v20221212.tar.gz"
-  sha256 "bc0bf33d65a31fd85a2eb50ea9dcfffa0fb66f0213e5d6eb94a69fcdd8a6007d"
+  url "https://github.com/txthinking/brook/archive/refs/tags/v20230101.tar.gz"
+  sha256 "d131b408102ef6865c64a7cf9d7417308ef3109c79dc627e01bfd665cf80e47c"
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "785162e87c02d99a4badfadca1de0ecd235f7864d2c8887166b12d3b95daa69e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6408ffb549f9adc493ce3364dbdece1439f7a0b62d58f959f6f279fe7a3cdbf4"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8dc14ee60421131a30b3de7a8e0f79dc2a8942e5ef251b95b53b39a3be2509f2"
-    sha256 cellar: :any_skip_relocation, ventura:        "8a100ea09c5160d9ae4b3e71501c914b103334a21214b07f3c55a6bb9a832375"
-    sha256 cellar: :any_skip_relocation, monterey:       "e560e4f41415f2b20f8d2e773465c47eaf26472478a2cbf89c948f57c2e3904d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5928388c4c9fdee31ffb58db5aed486484735c2f0991e15b2af765407b2c6c53"
-    sha256 cellar: :any_skip_relocation, catalina:       "39194d775f5bb9ae40fe4571c99202d7b729668e27dfa2dafeadcbfbc5b91444"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6262104353f3ce66f85e8820e306b0f5d45791f500b0523418d14acad0ff12f2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0a250432cbac3da912e153d6fcc93378a586119fdadbcc1375d3ce8dd77081e3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "fdc139a88d377c360a1e2883ad2635aaa1b30d9755f815ad1b99f1f29764c55f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "89d9637de109834be2bd604230e4ce8646f407d73c0f167d08d046c0d094e8ba"
+    sha256 cellar: :any_skip_relocation, ventura:        "b1919a5ee1233a2f00f703c33caa48c7828bcf4e081e2f64d078dc9be6604c80"
+    sha256 cellar: :any_skip_relocation, monterey:       "a8c6e3409c8ba543ac314a21a52c1eee44eb366b8c093505aea0ddf9a89a8598"
+    sha256 cellar: :any_skip_relocation, big_sur:        "16c7fc735a528ff2b2713912dc38b20a95f814ee0359df2b343062b335985a44"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "393adc94dc610c229c4b77077e7d7de05813beb56af4f7bff40927b2d298f082"
   end
 
   depends_on "go" => :build

@@ -24,6 +24,8 @@ class Cfengine < Formula
   depends_on "openssl@3"
   depends_on "pcre"
 
+  uses_from_macos "libxml2"
+
   on_linux do
     depends_on "linux-pam"
   end

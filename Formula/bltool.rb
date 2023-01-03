@@ -11,7 +11,7 @@ class Bltool < Formula
   end
 
   head do
-    url "https://github.com/ToxicFrog/bltool.git"
+    url "https://github.com/ToxicFrog/bltool.git", branch: "master"
     depends_on "leiningen" => :build
   end
 

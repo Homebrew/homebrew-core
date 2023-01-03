@@ -17,7 +17,7 @@ class Libmaxminddb < Formula
   end
 
   head do
-    url "https://github.com/maxmind/libmaxminddb.git"
+    url "https://github.com/maxmind/libmaxminddb.git", branch: "main"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
