@@ -26,7 +26,7 @@ class Fastfetch < Formula
   uses_from_macos "zlib" => :build
 
   def install
-    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_INSTALL_SYSCONFDIR=#{etc}", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", "-DTARGET_DIR_ETC=#{etc}", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
