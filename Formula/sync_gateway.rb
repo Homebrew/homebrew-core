@@ -1,12 +1,21 @@
 class SyncGateway < Formula
   desc "Make Couchbase Server a replication endpoint for Couchbase Lite"
   homepage "https://docs.couchbase.com/sync-gateway/current/index.html"
-  # NOTE: Do not update to v3 or later due to incompatible license
-  url "https://github.com/couchbase/sync_gateway.git",
-      tag:      "2.8.3",
-      revision: "e54a62741bb28f3e54a6599c21c739df9a9dad76"
   license "Apache-2.0"
   head "https://github.com/couchbase/sync_gateway.git", branch: "master"
+
+  # NOTE: Do not update to v3 or later due to incompatible license
+  stable do
+    url "https://github.com/couchbase/sync_gateway.git",
+        tag:      "2.8.3",
+        revision: "e54a62741bb28f3e54a6599c21c739df9a9dad76"
+
+    # Backport fix to build with Python 3
+    patch do
+      url "https://github.com/couchbase/sync_gateway/commit/97279d5ff172c1535bd4df764fbc51029d003b53.patch?full_index=1"
+      sha256 "ffae5adc94868e9512173ea596a0018cc436767687b097dfd8c5ba85a9fae097"
+    end
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "dc30a79633112d1c6a18e6632f4b1ed95fd78495aba2d8ecfd8fb0f36722dad3"
@@ -22,8 +31,10 @@ class SyncGateway < Formula
 
   depends_on "gnupg" => :build
   depends_on "go" => :build
+  depends_on "python@3.11" => :build
   depends_on "repo" => :build
-  depends_on "python@3.11"
+
+  uses_from_macos "netcat" => :test
 
   def install
     # Cache the vendored Go dependencies gathered by depot_tools' `repo` command
@@ -34,7 +45,7 @@ class SyncGateway < Formula
     cp Dir["*.sh"], "build"
 
     manifest = buildpath/"new-manifest.xml"
-    manifest.write Utils.safe_popen_read "python", "rewrite-manifest.sh",
+    manifest.write Utils.safe_popen_read "python3.11", "rewrite-manifest.sh",
                                          "--manifest-url",
                                          "file://#{buildpath}/manifest/default.xml",
                                          "--project-name", "sync_gateway",
