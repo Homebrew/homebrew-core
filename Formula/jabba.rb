@@ -30,7 +30,6 @@ class Jabba < Formula
     cd dir do
       ldflags = "-X main.version=#{version}"
       system "go", "build", *std_go_args(ldflags: ldflags)
-      prefix.install_metafiles
     end
   end
 
