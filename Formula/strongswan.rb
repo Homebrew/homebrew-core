@@ -30,7 +30,7 @@ class Strongswan < Formula
   end
 
   head do
-    url "https://git.strongswan.org/strongswan.git"
+    url "https://github.com/strongswan/strongswan.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
