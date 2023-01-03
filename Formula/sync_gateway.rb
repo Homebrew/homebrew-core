@@ -1,16 +1,12 @@
 class SyncGateway < Formula
   desc "Make Couchbase Server a replication endpoint for Couchbase Lite"
   homepage "https://docs.couchbase.com/sync-gateway/current/index.html"
+  # NOTE: Do not update to v3 or later due to incompatible license
   url "https://github.com/couchbase/sync_gateway.git",
       tag:      "2.8.3",
       revision: "e54a62741bb28f3e54a6599c21c739df9a9dad76"
   license "Apache-2.0"
   head "https://github.com/couchbase/sync_gateway.git", branch: "master"
-
-  livecheck do
-    url :stable
-    strategy :github_latest
-  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "dc30a79633112d1c6a18e6632f4b1ed95fd78495aba2d8ecfd8fb0f36722dad3"
@@ -19,6 +15,10 @@ class SyncGateway < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "2bd988cfdd72c00a76eae19e4c347ae79b0c597e34a551add01318fa71645b9b"
     sha256 cellar: :any_skip_relocation, catalina:       "ad754927fbbec6adc9b31cb726a0457f62719bdfa546260eb768b402b9257bda"
   end
+
+  # v3 switched to Business Source License 1.1
+  # Ref: https://github.com/couchbase/sync_gateway/blob/3.0.0/LICENSE
+  deprecate! date: "2023-01-03", because: "is switching to an incompatible license"
 
   depends_on "gnupg" => :build
   depends_on "go" => :build
