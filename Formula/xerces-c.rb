@@ -22,18 +22,21 @@ class XercesC < Formula
   uses_from_macos "curl"
 
   def install
-    ENV.cxx11
+    # Prevent opportunistic linkage to `icu4c`
+    args = std_cmake_args + %W[
+      -DCMAKE_DISABLE_FIND_PACKAGE_ICU=ON
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+    ]
 
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
-      system "make"
-      system "ctest", "-V"
-      system "make", "install"
-      system "make", "clean"
-      system "cmake", "..", "-DBUILD_SHARED_LIBS=OFF", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
-      system "make"
-      lib.install Dir["src/*.a"]
-    end
+    system "cmake", "-S", ".", "-B", "build_shared", "-DBUILD_SHARED_LIBS=ON", *args
+    system "cmake", "--build", "build_shared"
+    system "ctest", "--test-dir", "build_shared", "--verbose"
+    system "cmake", "--install", "build_shared"
+
+    system "cmake", "-S", ".", "-B", "build_static", "-DBUILD_SHARED_LIBS=OFF", *args
+    system "cmake", "--build", "build_static"
+    lib.install Dir["build_static/src/*.a"]
+
     # Remove a sample program that conflicts with libmemcached
     # on case-insensitive file systems
     (bin/"MemParse").unlink
