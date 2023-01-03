@@ -39,6 +39,7 @@ class Fheroes2 < Formula
     system "cmake", "--install", "build"
 
     bin.install "script/demo/download_demo_version.sh" => "fheroes2-install-demo"
+    bin.install "script/homm2/extract_homm2_resources.sh" => "fheroes2-extract-resources"
   end
 
   test do
