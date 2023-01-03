@@ -22,10 +22,11 @@ class Babl < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "81a74b8ead443e96eaea886db4d376261d15d43eaa2da1b1c099a3badaabf6c3"
   end
 
-  depends_on "glib" => :build # for gobject-introspection
-  depends_on "gobject-introspection" => :build
+  depends_on "glib" => :build # to add to PKG_CONFIG_PATH for gobject-introspection
+  depends_on "gobject-introspection" => [:build, :test]
   depends_on "meson" => :build
   depends_on "ninja" => :build
+  depends_on "pcre2" => :build # to add to PKG_CONFIG_PATH for glib
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
   depends_on "little-cms2"
@@ -50,5 +51,7 @@ class Babl < Formula
     EOS
     system ENV.cc, "-I#{include}/babl-0.1", testpath/"test.c", "-L#{lib}", "-lbabl-0.1", "-o", "test"
     system testpath/"test"
+
+    system Formula["gobject-introspection"].opt_bin/"g-ir-inspect", "--print-typelibs", "--print-shlibs", "Babl"
   end
 end
