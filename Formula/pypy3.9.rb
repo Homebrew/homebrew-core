@@ -16,6 +16,7 @@ class Pypy39 < Formula
   depends_on "gdbm"
   depends_on "libx11"
   depends_on "openssl@3"
+  depends_on "tcl-tk"
   depends_on "xz"
 
   uses_from_macos "bzip2"
