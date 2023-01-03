@@ -4,7 +4,7 @@ class Ddclient < Formula
   url "https://github.com/ddclient/ddclient/archive/v3.10.0.tar.gz"
   sha256 "34b6d9a946290af0927e27460a965ad018a7c525625063b0f380cbddffc01c1b"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/ddclient/ddclient.git", branch: "master"
 
   livecheck do
@@ -109,7 +109,6 @@ class Ddclient < Formula
     run_type :interval
     interval 300
     require_root true
-    working_dir etc/"ddclient"
   end
 
   test do
