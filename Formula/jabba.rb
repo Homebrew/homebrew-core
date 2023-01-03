@@ -35,8 +35,8 @@ class Jabba < Formula
   end
 
   test do
-    jdk_version = "zulu@16.0-0"
-    version_check ='openjdk version "16'
+    jdk_version = "zulu@17"
+    version_check ='openjdk version "17'
 
     ENV["JABBA_HOME"] = testpath/"jabba_home"
 
