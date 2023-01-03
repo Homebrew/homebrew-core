@@ -1,8 +1,8 @@
 class Lfe < Formula
   desc "Concurrent Lisp for the Erlang VM"
   homepage "https://lfe.io/"
-  url "https://github.com/lfe/lfe/archive/v2.0.1.tar.gz"
-  sha256 "d64a5c0b626411afe67f146b56094337801c596d9b0cdfeabaf61223c479985f"
+  url "https://github.com/lfe/lfe/archive/v2.1.0.tar.gz"
+  sha256 "5554f9fec066963a6d79c8cd5f6b6eff0d1f0397425331fd88dcae9907756b66"
   license "Apache-2.0"
   head "https://github.com/lfe/lfe.git", branch: "develop"
 
