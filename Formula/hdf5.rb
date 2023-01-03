@@ -55,6 +55,7 @@ class Hdf5 < Formula
       --enable-fortran
       --enable-cxx
       --prefix=#{prefix}
+      --with-default-plugindir=#{prefix}/lib/plugin
       --with-szlib=#{Formula["libaec"].opt_prefix}
     ]
     args << "--with-zlib=#{Formula["zlib"].opt_prefix}" if OS.linux?
