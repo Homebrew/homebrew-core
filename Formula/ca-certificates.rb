@@ -90,14 +90,14 @@ class CaCertificates < Formula
     end
 
     # Get SHA256 fingerprints for all trusted certs
-    fingerprints = trusted_certs.map do |cert|
+    fingerprints = trusted_certs.to_set do |cert|
       Utils.safe_popen_write("/usr/bin/openssl", "x509", "-inform", "pem",
                                                          "-fingerprint",
                                                          "-sha256",
                                                          "-noout") do |openssl_io|
         openssl_io.write(cert)
       end
-    end.to_set
+    end
 
     # Now process Mozilla certs we downloaded.
     pem_certs_list = File.read(pkgshare/"cacert.pem")
