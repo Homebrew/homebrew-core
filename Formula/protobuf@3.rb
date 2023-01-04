@@ -19,9 +19,15 @@ class ProtobufAT3 < Formula
   keg_only :versioned_formula
 
   depends_on "python@3.10" => [:build, :test]
-  depends_on "python@3.9" => [:build, :test]
+  depends_on "python@3.11" => [:build, :test]
 
   uses_from_macos "zlib"
+
+  # Backport support for Python 3.11
+  patch do
+    url "https://github.com/protocolbuffers/protobuf/commit/da973aff2adab60a9e516d3202c111dbdde1a50f.patch?full_index=1"
+    sha256 "911925e427a396fa5e54354db8324c0178f5c602b3f819f7d471bb569cc34f53"
+  end
 
   def pythons
     deps.map(&:to_formula)
