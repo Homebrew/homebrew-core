@@ -121,7 +121,7 @@ class Pypy39 < Formula
     bin.install_symlink scripts_folder/"pip" => "pip_pypy3.9"
 
     # post_install happens after linking
-    %w[easy_install_pypy3 pip_pypy3].each { |e| (HOMEBREW_PREFIX/"bin").install_symlink bin/e }
+    %w[easy_install_pypy3.9 pip_pypy3.9].each { |e| (HOMEBREW_PREFIX/"bin").install_symlink bin/e }
   end
 
   def caveats
@@ -163,6 +163,6 @@ class Pypy39 < Formula
   test do
     system bin/"pypy3.9", "-c", "print('Hello, world!')"
     system bin/"pypy3.9", "-c", "import time; time.process_time()"
-    system bin/"pip_pypy3.9", "-vv", "list"
+    system scripts_folder/"pip_pypy3.9", "-vv", "list"
   end
 end
