@@ -3,8 +3,8 @@ class Tox < Formula
 
   desc "Generic Python virtualenv management and test command-line tool"
   homepage "https://tox.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/56/1e/67eff7f2cba6432e99f6ef9292927a2f9cfdd1e0c3d5c7c99f02be52923d/tox-4.1.3.tar.gz"
-  sha256 "9976b41def48a5a2dce477de2c90c8231a5166829aaca916d0952ec4d7429f43"
+  url "https://files.pythonhosted.org/packages/75/8d/27f667f02c257a11389d80068832c1efc3ce2a3385a36a798f5c8614fbd8/tox-4.2.0.tar.gz"
+  sha256 "ac1d997a73ae6a17e7dfe931ec2b5f534677535c857a7e821987083e122a4d33"
   license "MIT"
 
   bottle do
@@ -61,8 +61,8 @@ class Tox < Formula
   end
 
   resource "pyproject-api" do
-    url "https://files.pythonhosted.org/packages/b8/ec/6f414433d8b924a000ff57e70ea3348182c93f36db77972753f6729b67ef/pyproject_api-1.2.1.tar.gz"
-    sha256 "093c047d192ceadcab7afd6b501276bf2ce44adf41cb9c313234518cddd20818"
+    url "https://files.pythonhosted.org/packages/5a/3a/02dfa3cfcd4bfc36d9118f9f9a76594928f51bbcbcea7ee544026ac8465d/pyproject_api-1.3.0.tar.gz"
+    sha256 "6da9b5fcad6f6bdcf88ee0dbc6cc41783e377ceb6767b5004881ecb50ae6d6e7"
   end
 
   resource "virtualenv" do
