@@ -49,7 +49,7 @@ class Unisonlang < Formula
       # if that occurs. Problem seems to happening while running `elm-json install`.
       # Issue ref: https://github.com/zwilias/elm-json/issues/50
       Timeout.timeout(300) do
-        system "npm", "run", "ui-core:install"
+        system "npm", "run", "ui-core-install"
       end
       system "npm", "run", "build"
 
