@@ -13,12 +13,16 @@ class Gitfs < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "1ac6487bbdd1000763469c43e998a72f9bc64c7e0704b99067aad84d003d32d1"
   end
 
+  # Last release on 2019-10-20 and upstream has locked pygit2==0.28.2, which we
+  # have been ignoring and manually updating to support recent `libgit2` versions.
+  deprecate! date: "2023-01-03", because: :unmaintained
+
   depends_on "pkg-config" => :build
   depends_on "libffi"
   depends_on "libfuse"
   depends_on "libgit2"
   depends_on :linux # on macOS, requires closed-source macFUSE
-  depends_on "python@3.9"
+  depends_on "python@3.9" # Python 3.10+ PR: https://github.com/presslabs/gitfs/pull/382
 
   resource "atomiclong" do
     url "https://files.pythonhosted.org/packages/86/8c/70aea8215c6ab990f2d91e7ec171787a41b7fbc83df32a067ba5d7f3324f/atomiclong-0.1.1.tar.gz"
