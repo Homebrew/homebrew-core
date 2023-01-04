@@ -1,8 +1,8 @@
 class Seal < Formula
   desc "Easy-to-use homomorphic encryption library"
   homepage "https://github.com/microsoft/SEAL"
-  url "https://github.com/microsoft/SEAL/archive/v4.0.0.tar.gz"
-  sha256 "616653498ba8f3e0cd23abef1d451c6e161a63bd88922f43de4b3595348b5c7e"
+  url "https://github.com/microsoft/SEAL/archive/refs/tags/v4.1.1.tar.gz"
+  sha256 "cb2d608656c09877e3c9dd260a9887094e4cfa8a9fe4127dac2ade0a4c172122"
   license "MIT"
 
   bottle do
@@ -26,8 +26,8 @@ class Seal < Formula
   fails_with gcc: "5"
 
   resource "hexl" do
-    url "https://github.com/intel/hexl/archive/v1.2.3.tar.gz"
-    sha256 "f2cf33ee2035d12996d10b69d2f41a586b9954a29b99c70a852495cf5758878c"
+    url "https://github.com/intel/hexl/archive/refs/tags/v1.2.5.tar.gz"
+    sha256 "3692e6e6183dbc49253e51e86c3e52e7affcac925f57db0949dbb4d34b558a9a"
   end
 
   def install
