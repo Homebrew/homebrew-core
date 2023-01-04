@@ -32,6 +32,12 @@ class Distcc < Formula
   end
 
   def install
+    ENV["PYTHON"] = python3 = which("python3.11")
+    site_packages = prefix/Language::Python.site_packages(python3)
+    # Use Python stdlib's distutils to work around install issue:
+    # /opt/homebrew/Cellar/distcc/3.4_1/lib/python3.11/site-packages/ does NOT support .pth files
+    ENV["SETUPTOOLS_USE_DISTUTILS"] = "stdlib"
+
     # While libiberty recommends that packages vendor libiberty into their own source,
     # distcc wants to have a package manager-installed version.
     # Rather than make a package for a floating package like this, let's just
@@ -46,7 +52,7 @@ class Distcc < Formula
 
     # Make sure python stuff is put into the Cellar.
     # --root triggers a bug and installs into HOMEBREW_PREFIX/lib/python2.7/site-packages instead of the Cellar.
-    inreplace "Makefile.in", '--root="$$DESTDIR"', ""
+    inreplace "Makefile.in", '--root="$$DESTDIR"', "--install-lib=\"#{site_packages}\""
     system "./autogen.sh"
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
@@ -60,5 +66,13 @@ class Distcc < Formula
 
   test do
     system "#{bin}/distcc", "--version"
+
+    (testpath/"Makefile").write <<~EOS
+      default:
+      \t@echo Homebrew
+    EOS
+    assert_match "distcc hosts list does not contain any hosts", shell_output("#{bin}/pump make 2>&1", 1)
+    ENV["DISTCC_POTENTIAL_HOSTS"] = "localhost"
+    assert_match "Homebrew\n", shell_output("#{bin}/pump make")
   end
 end
