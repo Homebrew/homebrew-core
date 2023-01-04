@@ -34,12 +34,13 @@ class Weechat < Formula
   uses_from_macos "curl"
   uses_from_macos "tcl-tk"
 
-  on_macos do
-    depends_on "libiconv"
-  end
-
   def install
-    args = std_cmake_args + %W[
+    python3 = "python3.11"
+    pyver = Language::Python.major_minor_version python3
+    # Help pkg-config find python as we only provide `python3-embed` for aliased python formula
+    inreplace "cmake/FindPython.cmake", " python3-embed ", " python-#{pyver}-embed "
+
+    args = %W[
       -DENABLE_MAN=ON
       -DENABLE_GUILE=OFF
       -DCA_FILE=#{Formula["gnutls"].pkgetc}/cert.pem
@@ -50,10 +51,9 @@ class Weechat < Formula
     # Fix system gem on Mojave
     ENV["SDKROOT"] = ENV["HOMEBREW_SDKROOT"]
 
-    mkdir "build" do
-      system "cmake", "..", *args
-      system "make", "install", "VERBOSE=1"
-    end
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
