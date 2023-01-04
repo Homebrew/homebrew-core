@@ -3,10 +3,20 @@ class Pyinvoke < Formula
 
   desc "Pythonic task management & command execution"
   homepage "https://www.pyinvoke.org/"
-  url "https://files.pythonhosted.org/packages/2b/8d/9aec496bbd200589397b4cd6d546576c296465c1bdeb28c1ea1019e75a1f/invoke-1.7.3.tar.gz"
-  sha256 "41b428342d466a82135d5ab37119685a989713742be46e42a3a399d685579314"
   license "BSD-2-Clause"
-  head "https://github.com/pyinvoke/invoke.git", branch: "master"
+  revision 1
+  head "https://github.com/pyinvoke/invoke.git", branch: "main"
+
+  stable do
+    url "https://files.pythonhosted.org/packages/2b/8d/9aec496bbd200589397b4cd6d546576c296465c1bdeb28c1ea1019e75a1f/invoke-1.7.3.tar.gz"
+    sha256 "41b428342d466a82135d5ab37119685a989713742be46e42a3a399d685579314"
+
+    # Backport support for Python 3.11. Remove in the next release.
+    patch do
+      url "https://github.com/pyinvoke/invoke/commit/406a45e854f6e8df4aa0de01e3b731fea2b1f1ec.patch?full_index=1"
+      sha256 "f052fb5c0a79fa2e7508b37e3e1d866ae0a86d81d20699871510f903b0838c15"
+    end
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "029a95b94fb67fc2cd1dbac8d5d1d5a4fa4e4f2f73bdfae884bc307f7d1df70b"
@@ -19,7 +29,7 @@ class Pyinvoke < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "92637a30e8c01405910a515b2fc8480c30438cef6a20e9bac366f93529f8dbb8"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def install
     virtualenv_install_with_resources
