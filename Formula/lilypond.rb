@@ -94,16 +94,24 @@ class Lilypond < Formula
   end
 
   test do
-    (testpath/"test.ly").write <<~EOS
-      #(define-markup-command (debug layout props arg) (markup?)
-        (let ((stencil (interpret-markup layout props arg)))
-          (pretty-print (ly:stencil-expr stencil))
-          (flush-all-ports)
-          stencil))
-      \\markup \\debug "abc"
-      \\relative { c' d e f g a b c }
-    EOS
-    assert_match(/^\s*"C059-Roman"\s*$/, shell_output("#{bin}/lilypond --loglevel=ERROR test.ly"))
+    (testpath/"test.ly").write "\\relative { c' d e f g a b c }"
+    system bin/"lilypond", "--loglevel=ERROR", "test.ly"
     assert_predicate testpath/"test.pdf", :exist?
+
+    output = shell_output("#{bin}/lilypond --define-default=show-available-fonts 2>&1")
+    output = output.encode("UTF-8", invalid: :replace, replace: "")
+    fonts = {
+      "C059"            => ["Roman", "Bold", "Italic", "Bold Italic"],
+      "Nimbus Mono PS"  => ["Regular", "Bold", "Italic", "Bold Italic"],
+      "Nimbus Sans"     => ["Regular", "Bold", "Italic", "Bold Italic"],
+      "TeX Gyre Cursor" => ["Regular", "Bold", "Italic", "Bold Italic"],
+      "TeX Gyre Heros"  => ["Regular", "Bold", "Italic", "Bold Italic"],
+      "TeX Gyre Schola" => ["Regular", "Bold", "Italic", "Bold Italic"],
+    }
+    fonts.each do |family, styles|
+      styles.each do |style|
+        assert_match(/^\s*#{family}:style=#{style}$/, output)
+      end
+    end
   end
 end
