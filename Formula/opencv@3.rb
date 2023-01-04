@@ -1,10 +1,14 @@
 class OpencvAT3 < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
-  url "https://github.com/opencv/opencv/archive/3.4.16.tar.gz"
-  sha256 "5e37b791b2fe42ed39b52d9955920b951ee42d5da95f79fbc9765a08ef733399"
+  url "https://github.com/opencv/opencv/archive/3.4.19.tar.gz"
+  sha256 "9b913e74299ce4416a5c94000da577c592bf670fd53bad16220eb115a0821529"
   license "BSD-3-Clause"
-  revision 4
+
+  livecheck do
+    url :stable
+    regex(/^v?(3(?:\.\d+)+)$/i)
+  end
 
   bottle do
     sha256                               arm64_ventura:  "7e781bbd9512e29fb16453dc99d90d08c58da6f4eb8d5928021bd79b319078d6"
@@ -32,7 +36,7 @@ class OpencvAT3 < Formula
   depends_on "numpy"
   depends_on "openexr"
   depends_on "protobuf"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "tbb"
   depends_on "webp"
 
@@ -50,20 +54,8 @@ class OpencvAT3 < Formula
     sha256 "a125f962ea07f0656869cbd97433f0e465013effc13c97a414752e0d25ed9a7d"
   end
 
-  # allow cmake to find OpenEXR 3+.
-  patch do
-    url "https://github.com/opencv/opencv/commit/f43fec7ee674d9fc65be21119066c3e67c856357.patch?full_index=1"
-    sha256 "b46e4e9dc93878bccd2351c79795426797d27f54a4720d51f805c118770e6f4a"
-  end
-
-  # Fix build against lapack 3.10.0, https://github.com/opencv/opencv/pull/21114
-  patch do
-    url "https://github.com/opencv/opencv/commit/54c180092d2ca02e0460eac7176cab23890fc11e.patch?full_index=1"
-    sha256 "66fd79afe33ddd4d6bb2002d56ca43029a68ab5c6ce9fd7d5ca34843bc5db902"
-  end
-
   def python3
-    "python3.10"
+    "python3.11"
   end
 
   def install
@@ -143,9 +135,8 @@ class OpencvAT3 < Formula
     system ENV.cxx, "test.cpp", "-I#{include}", "-L#{lib}", "-o", "test"
     assert_equal shell_output("./test").strip, version.to_s
 
-    python = Formula["python@3.10"].opt_bin/python3
-    ENV["PYTHONPATH"] = prefix/Language::Python.site_packages(python)
-    output = shell_output("#{python} -c 'import cv2; print(cv2.__version__)'")
+    ENV["PYTHONPATH"] = prefix/Language::Python.site_packages(python3)
+    output = shell_output("#{python3} -c 'import cv2; print(cv2.__version__)'")
     assert_equal version.to_s, output.chomp
   end
 end
