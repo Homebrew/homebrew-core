@@ -26,12 +26,11 @@ class LlvmAT11 < Formula
   # We intentionally use Make instead of Ninja.
   # See: Homebrew/homebrew-core/issues/35513
   depends_on "cmake" => :build
+  depends_on "python@3.11" => :build
   depends_on "swig" => :build
-  depends_on "python@3.10"
 
   uses_from_macos "libedit"
   uses_from_macos "libffi", since: :catalina
-  uses_from_macos "libxml2"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
@@ -85,6 +84,8 @@ class LlvmAT11 < Formula
   patch :DATA
 
   def install
+    python3 = "python3.11"
+
     projects = %w[
       clang
       clang-tools-extra
@@ -101,7 +102,6 @@ class LlvmAT11 < Formula
       libunwind
     ]
 
-    python3 = "python3.10"
     py_ver = Language::Python.major_minor_version(python3)
     site_packages = Language::Python.site_packages(python3).delete_prefix("lib/")
 
@@ -115,9 +115,6 @@ class LlvmAT11 < Formula
     # can almost be treated as an entirely different build from llvm.
     ENV.permit_arch_flags
 
-    # we install the lldb Python module into libexec to prevent users from
-    # accidentally importing it with a non-Homebrew Python or a Homebrew Python
-    # in a non-default prefix. See https://lldb.llvm.org/resources/caveats.html
     args = %W[
       -DLLVM_ENABLE_PROJECTS=#{projects.join(";")}
       -DLLVM_ENABLE_RUNTIMES=#{runtimes.join(";")}
@@ -134,10 +131,9 @@ class LlvmAT11 < Formula
       -DLLVM_OPTIMIZED_TABLEGEN=ON
       -DLLVM_TARGETS_TO_BUILD=all
       -DLLDB_USE_SYSTEM_DEBUGSERVER=ON
-      -DLLDB_ENABLE_PYTHON=ON
+      -DLLDB_ENABLE_PYTHON=OFF
       -DLLDB_ENABLE_LUA=OFF
-      -DLLDB_ENABLE_LZMA=ON
-      -DLLDB_PYTHON_RELATIVE_PATH=libexec/#{site_packages}
+      -DLLDB_ENABLE_LZMA=OFF
       -DLIBOMP_INSTALL_ALIASES=OFF
       -DCLANG_PYTHON_BINDINGS_VERSIONS=#{py_ver}
       -DPACKAGE_VENDOR=#{tap.user}
@@ -161,6 +157,8 @@ class LlvmAT11 < Formula
       sdk = MacOS.sdk_path_if_needed
       args << "-DDEFAULT_SYSROOT=#{sdk}" if sdk
     else
+      # Disable `libxml2` which isn't very useful.
+      args << "-DLLVM_ENABLE_LIBXML2=OFF"
       args << "-DLLVM_ENABLE_LIBCXX=OFF"
       args << "-DLLVM_CREATE_XCODE_TOOLCHAIN=OFF"
       args << "-DCLANG_DEFAULT_CXX_STDLIB=libstdc++"
