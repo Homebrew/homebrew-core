@@ -26,6 +26,7 @@ class Libtensorflow < Formula
   end
 
   def install
+    python3 = "python3.11"
     optflag = if Hardware::CPU.arm? && OS.mac?
       "-mcpu=apple-m1"
     elsif build.bottle?
@@ -34,7 +35,7 @@ class Libtensorflow < Formula
       "-march=native"
     end
     ENV["CC_OPT_FLAGS"] = optflag
-    ENV["PYTHON_BIN_PATH"] = which("python3.11")
+    ENV["PYTHON_BIN_PATH"] = which(python3)
     ENV["TF_IGNORE_MAX_BAZEL_VERSION"] = "1"
     ENV["TF_NEED_JEMALLOC"] = "1"
     ENV["TF_NEED_GCP"] = "0"
@@ -64,7 +65,8 @@ class Libtensorflow < Formula
       --verbose_failures
     ]
     if OS.linux?
-      env_path = "#{HOMEBREW_PREFIX}/bin:/usr/bin:/bin"
+      pyver = Language::Python.major_minor_version python3
+      env_path = "#{Formula["python@#{pyver}"].opt_libexec}/bin:#{HOMEBREW_PREFIX}/bin:/usr/bin:/bin"
       bazel_args += %W[
         --action_env=PATH=#{env_path}
         --host_action_env=PATH=#{env_path}
