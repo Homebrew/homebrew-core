@@ -45,6 +45,7 @@ class Texlive < Formula
     sha256 x86_64_linux:   "4917ec16ad9c4ae5966f20f9182df8c23d38831481e43b56d067aebb5635ffea"
   end
 
+  depends_on "pkg-config" => :build
   depends_on "cairo"
   depends_on "clisp"
   depends_on "fontconfig"
@@ -75,7 +76,6 @@ class Texlive < Formula
   uses_from_macos "zlib"
 
   on_linux do
-    depends_on "pkg-config" => :build
     depends_on "libice"
     depends_on "libnsl"
     depends_on "libsm"
