@@ -32,18 +32,18 @@ class Bde < Formula
   end
 
   def install
-    buildpath.install resource("bde-tools")
+    (buildpath/"bde-tools").install resource("bde-tools")
 
     # Use brewed pcre2 instead of bundled sources
     inreplace "project.cmake", "${listDir}/thirdparty/pcre2\n", ""
     inreplace "groups/bdl/group/bdl.dep", "pcre2", "libpcre2-posix"
     inreplace "groups/bdl/bdlpcre/bdlpcre_regex.h", "#include <pcre2/pcre2.h>", "#include <pcre2.h>"
 
-    toolchain_file = "cmake/toolchains/#{OS.kernel_name.downcase}/default.cmake"
+    toolchain_file = "bde-tools/cmake/toolchains/#{OS.kernel_name.downcase}/default.cmake"
     args = std_cmake_args + %W[
       -DBUILD_BITNESS=64
       -DUFID=opt_exc_mt_64_shr
-      -DCMAKE_MODULE_PATH=cmake
+      -DCMAKE_MODULE_PATH=./bde-tools/cmake
       -DCMAKE_INSTALL_RPATH=#{rpath}
       -DCMAKE_TOOLCHAIN_FILE=#{toolchain_file}
       -DPYTHON_EXECUTABLE=#{which("python3.11")}
