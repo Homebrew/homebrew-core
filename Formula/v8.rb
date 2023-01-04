@@ -38,21 +38,20 @@ class V8 < Formula
   fails_with gcc: "5"
 
   # Look up the correct resource revisions in the DEP file of the specific releases tag
-  # e.g. for CIPD dependency gn: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/10.6.194.17/DEPS#46
+  # e.g. for CIPD dependency gn: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/10.8.168.22/DEPS#48
   resource "gn" do
     url "https://gn.googlesource.com/gn.git",
-        revision: "0bcd37bd2b83f1a9ee17088037ebdfe6eab6d31a"
+        revision: "cc28efe62ef0c2fb32455f414a29c4a55bb7fbc4"
   end
 
-  # e.g.: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/10.6.194.17/DEPS#92
   resource "v8/base/trace_event/common" do
     url "https://chromium.googlesource.com/chromium/src/base/trace_event/common.git",
-        revision: "2ba7a48ca6167ee8ef311a7f3bc60b5e5cf5ee79"
+        revision: "521ac34ebd795939c7e16b37d9d3ddb40e8ed556"
   end
 
   resource "v8/build" do
     url "https://chromium.googlesource.com/chromium/src/build.git",
-        revision: "339f8c652787781e6dd39ce0624c1a012f69ece8"
+        revision: "7e7c21a9ac34c4fc2b255aa44d639efec9c33b90"
   end
 
   resource "v8/third_party/googletest/src" do
@@ -62,7 +61,7 @@ class V8 < Formula
 
   resource "v8/third_party/icu" do
     url "https://chromium.googlesource.com/chromium/deps/icu.git",
-        revision: "b3070c52557323463e6b9827e2343e60e1b91f85"
+        revision: "20f8ac695af59b6c830def7d4e95bfeb13dd7be5"
   end
 
   resource "v8/third_party/jinja2" do
@@ -77,7 +76,7 @@ class V8 < Formula
 
   resource "v8/third_party/zlib" do
     url "https://chromium.googlesource.com/chromium/src/third_party/zlib.git",
-        revision: "8d1d3e341948009ed8dc807a545204e7a1854c33"
+        revision: "d689fca54d7b43154f7cf77f785d19f2628fa133"
   end
 
   def install
