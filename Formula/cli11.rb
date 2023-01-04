@@ -1,8 +1,8 @@
 class Cli11 < Formula
   desc "Simple and intuitive command-line parser for C++11"
   homepage "https://cliutils.github.io/CLI11/book/"
-  url "https://github.com/CLIUtils/CLI11/archive/v2.3.1.tar.gz"
-  sha256 "378da73d2d1d9a7b82ad6ed2b5bda3e7bc7093c4034a1d680a2e009eb067e7b2"
+  url "https://github.com/CLIUtils/CLI11/archive/v2.3.2.tar.gz"
+  sha256 "aac0ab42108131ac5d3344a9db0fdf25c4db652296641955720a4fbe52334e22"
   license "BSD-3-Clause"
   head "https://github.com/CLIUtils/CLI11.git", branch: "master"
 
