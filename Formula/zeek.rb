@@ -2,8 +2,8 @@ class Zeek < Formula
   desc "Network security monitor"
   homepage "https://www.zeek.org"
   url "https://github.com/zeek/zeek.git",
-      tag:      "v4.2.2",
-      revision: "40eb7f80378284202e52e6c45299cac10abf07ab"
+      tag:      "v5.1.1",
+      revision: "80d359af4993d8202bb735da5e3ebe8a75a24431"
   license "BSD-3-Clause"
   head "https://github.com/zeek/zeek.git", branch: "master"
 
@@ -26,15 +26,14 @@ class Zeek < Formula
 
   depends_on "bison" => :build
   depends_on "cmake" => :build
+  depends_on "flex" => :build
   depends_on "swig" => :build
-  depends_on "caf"
-  depends_on "geoip"
+  depends_on "c-ares"
   depends_on "libmaxminddb"
   depends_on macos: :mojave
   depends_on "openssl@1.1"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
-  uses_from_macos "flex"
   uses_from_macos "libpcap"
   uses_from_macos "libxcrypt"
   uses_from_macos "zlib"
@@ -42,6 +41,8 @@ class Zeek < Formula
   fails_with gcc: "5"
 
   def install
+    (buildpath/"auxil/c-ares").rmtree
+
     # Remove SDK paths from zeek-config. This breaks usage with other SDKs.
     # https://github.com/corelight/zeek-community-id/issues/15
     inreplace "zeek-config.in" do |s|
@@ -49,19 +50,24 @@ class Zeek < Formula
       s.gsub! "@ZEEK_CONFIG_ZLIB_INCLUDE_DIR@", ""
     end
 
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args,
-                      "-DBROKER_DISABLE_TESTS=on",
-                      "-DBUILD_SHARED_LIBS=on",
-                      "-DINSTALL_AUX_TOOLS=on",
-                      "-DINSTALL_ZEEKCTL=on",
-                      "-DUSE_GEOIP=on",
-                      "-DCAF_ROOT=#{Formula["caf"].opt_prefix}",
-                      "-DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}",
-                      "-DZEEK_ETC_INSTALL_DIR=#{etc}",
-                      "-DZEEK_LOCAL_STATE_DIR=#{var}"
-      system "make", "install"
-    end
+    # Avoid references to the Homebrew shims directory
+    inreplace "auxil/spicy/spicy/hilti/toolchain/src/config.cc.in", "${CMAKE_CXX_COMPILER}", ENV.cxx
+
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DBROKER_DISABLE_TESTS=on",
+                    "-DINSTALL_AUX_TOOLS=on",
+                    "-DINSTALL_ZEEKCTL=on",
+                    "-DUSE_GEOIP=on",
+                    "-DCARES_ROOT_DIR=#{Formula["c-ares"].opt_prefix}",
+                    "-DCARES_LIBRARIES=#{Formula["c-ares"].opt_lib/shared_library("libcares")}",
+                    "-DLibMMDB_LIBRARY=#{Formula["libmaxminddb"].opt_lib/shared_library("libmaxminddb")}",
+                    "-DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}",
+                    "-DPYTHON_EXECUTABLE=#{which("python3.11")}",
+                    "-DZEEK_ETC_INSTALL_DIR=#{etc}",
+                    "-DZEEK_LOCAL_STATE_DIR=#{var}",
+                    *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
