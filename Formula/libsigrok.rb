@@ -72,9 +72,11 @@ class Libsigrok < Formula
     sha256 "c876fd075549e7783a6d5bfc8d99a695cfc583ddbcea0217d8e3f9351d1723af"
   end
 
-  def install
-    python = "python3.11"
+  def python3
+    "python3.11"
+  end
 
+  def install
     resource("fw-fx2lafw").stage do
       if build.head?
         system "./autogen.sh"
@@ -104,7 +106,7 @@ class Libsigrok < Formula
     # We need to use the Makefile to generate all of the dependencies
     # for setup.py, so the easiest way to make the Python libraries
     # work is to adjust setup.py's arguments here.
-    prefix_site_packages = prefix/Language::Python.site_packages(python)
+    prefix_site_packages = prefix/Language::Python.site_packages(python3)
     inreplace "Makefile.am" do |s|
       s.gsub!(/^(setup_py =.*setup\.py .*)/, "\\1 --no-user-cfg")
       s.gsub!(
@@ -120,7 +122,7 @@ class Libsigrok < Formula
     end
 
     mkdir "build" do
-      ENV["PYTHON"] = python
+      ENV["PYTHON"] = python3
       ENV.prepend_path "PKG_CONFIG_PATH", lib/"pkgconfig"
       args = %w[
         --disable-java
@@ -151,9 +153,9 @@ class Libsigrok < Formula
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
 
-    system Formula["python@3.11"].opt_bin/"python3.11", "-c", <<~EOS
+    system python3, "-c", <<~EOS
       import sigrok.core as sr
-      sr.Context_create()
+      sr.Context.create()
     EOS
   end
 end
