@@ -18,6 +18,10 @@ class HttpParser < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "96d431f1e2e5f0a301e813e270df42aa3a66f16a791bdbf929bc40d0c0270229"
   end
 
+  # "http-parser is not actively maintained. New projects and projects looking
+  # to migrate should consider llhttp (https://github.com/nodejs/llhttp)."
+  deprecate! date: "2023-01-03", because: :repo_archived
+
   depends_on "coreutils" => :build
 
   def install
