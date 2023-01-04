@@ -67,6 +67,7 @@ class Rabbitmq < Formula
       NODE_IP_ADDRESS=127.0.0.1
       NODENAME=rabbit@localhost
       RABBITMQ_LOG_BASE=#{var}/log/rabbitmq
+      PLUGINS_DIR="#{opt_prefix}/plugins:#{HOMEBREW_PREFIX}/share/rabbitmq/plugins"
     EOS
   end
 
