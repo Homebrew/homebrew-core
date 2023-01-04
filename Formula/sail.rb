@@ -6,6 +6,7 @@ class Sail < Formula
   url "https://files.pythonhosted.org/packages/3a/6c/39b5e5e0ce557ddd98b6af0223b7a63afcc40b3646ee1a2511805dc45a08/sailed.io-0.10.6.tar.gz"
   sha256 "158ed9f03bcbcefa080647da90bc64d0acdec26514a3635a2843233eea90efa0"
   license "GPL-3.0-only"
+  revision 1
 
   bottle do
     rebuild 2
@@ -21,7 +22,7 @@ class Sail < Formula
 
   depends_on "fabric"
   depends_on "pyinvoke"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "six"
 
@@ -101,7 +102,7 @@ class Sail < Formula
   end
 
   def install
-    python3 = "python3.10"
+    python3 = "python3.11"
     venv = virtualenv_create(libexec, python3)
     venv.pip_install resources
 
