@@ -103,7 +103,7 @@
   },
   "charmcraft": {
     "extra_packages": ["appdirs", "pydantic"],
-    "exclude_packages": ["six", "tabulate", "PyYAML", "jsonschema", "attrs", "pyrsistent", "typing-extensions"]
+    "exclude_packages": ["six", "tabulate", "PyYAML", "typing-extensions"]
   },
   "ciphey": {
     "exclude_packages": ["six"]
