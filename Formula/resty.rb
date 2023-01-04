@@ -19,10 +19,7 @@ class Resty < Formula
   end
 
   uses_from_macos "perl"
-
-  on_linux do
-    depends_on "python@3.10"
-  end
+  uses_from_macos "python"
 
   conflicts_with "nss", because: "both install `pp` binaries"
 
@@ -46,7 +43,9 @@ class Resty < Formula
     bin.env_script_all_files(libexec/"bin", PERL5LIB: ENV["PERL5LIB"])
 
     bin.install "pypp"
-    rewrite_shebang detected_python_shebang, bin/"pypp" if OS.linux?
+    if !OS.mac? || MacOS.version >= :monterey
+      rewrite_shebang detected_python_shebang(use_python_from_path: true), bin/"pypp"
+    end
   end
 
   def caveats
