@@ -6,7 +6,8 @@ class Fabric < Formula
   url "https://files.pythonhosted.org/packages/1f/36/9969093324a67cee916f484eda7b3547e8f8e6077f5f2a1814cde80d6fc2/fabric-2.7.1.tar.gz"
   sha256 "76f8fef59cf2061dbd849bbce4fe49bdd820884385004b0ca59136ac3db129e4"
   license "BSD-2-Clause"
-  head "https://github.com/fabric/fabric.git"
+  revision 1
+  head "https://github.com/fabric/fabric.git", branch: "main"
 
   bottle do
     rebuild 1
@@ -23,12 +24,12 @@ class Fabric < Formula
   depends_on "rust" => :build
   depends_on "openssl@1.1"
   depends_on "pyinvoke"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "six"
 
   resource "bcrypt" do
-    url "https://files.pythonhosted.org/packages/e8/36/edc85ab295ceff724506252b774155eff8a238f13730c8b13badd33ef866/bcrypt-3.2.2.tar.gz"
-    sha256 "433c410c2177057705da2a9f2cd01dd157493b2a7ac14c8593a16b3dab6b6bfb"
+    url "https://files.pythonhosted.org/packages/8c/ae/3af7d006aacf513975fd1948a6b4d6f8b4a307f8a244e1a3d3774b297aad/bcrypt-4.0.1.tar.gz"
+    sha256 "27d375903ac8261cfe4047f6709d16f7d18d39b1ec92aaf72af989552a650ebd"
   end
 
   resource "cffi" do
@@ -37,13 +38,13 @@ class Fabric < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/89/d9/5fcd312d5cce0b4d7ee8b551a0ea99e4ea9db0fdbf6dd455a19042e3370b/cryptography-37.0.4.tar.gz"
-    sha256 "63f9c17c0e2474ccbebc9302ce2f07b55b3b3fcb211ded18a42d5764f5c10a82"
+    url "https://files.pythonhosted.org/packages/12/e3/c46c274cf466b24e5d44df5d5cd31a31ff23e57f074a2bb30931a8c9b01a/cryptography-39.0.0.tar.gz"
+    sha256 "f964c7dcf7802d133e8dbd1565914fa0194f9d683d82411989889ecd701e8adf"
   end
 
   resource "paramiko" do
-    url "https://files.pythonhosted.org/packages/1d/08/3b8d8f1b4ec212c17429c2f3ff55b7f2237a1ad0c954972e39c8f0ac394c/paramiko-2.11.0.tar.gz"
-    sha256 "003e6bee7c034c21fbb051bf83dc0a9ee4106204dd3c53054c71452cc4ec3938"
+    url "https://files.pythonhosted.org/packages/98/75/e78ddbe671a4a59514b59bc6a321263118e4ac3fe88175dd784d1a47a00f/paramiko-2.12.0.tar.gz"
+    sha256 "376885c05c5d6aa6e1f4608aac2a6b5b0548b1add40274477324605903d9cd49"
   end
 
   resource "pathlib2" do
@@ -65,7 +66,7 @@ class Fabric < Formula
     virtualenv_install_with_resources
 
     # we depend on pyinvoke, but that's a separate formula, so install a `.pth` file to link them
-    site_packages = Language::Python.site_packages("python3.10")
+    site_packages = Language::Python.site_packages("python3.11")
     pyinvoke = Formula["pyinvoke"].opt_libexec
     (libexec/site_packages/"homebrew-pyinvoke.pth").write pyinvoke/site_packages
   end
