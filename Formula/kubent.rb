@@ -15,7 +15,7 @@ class Kubent < Formula
       -X main.version=#{version}
       -X main.gitSha=#{Utils.git_head}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags), "cmd/kubent/main.go"
+    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/kubent"
   end
 
   test do
