@@ -3,7 +3,7 @@ class Cpufetch < Formula
   homepage "https://github.com/Dr-Noob/cpufetch"
   url "https://github.com/Dr-Noob/cpufetch/archive/v1.03.tar.gz"
   sha256 "550168e0523240a1fb837e85073e0aa69de1894f1b89ec3a5721a5d935679afb"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
   head "https://github.com/Dr-Noob/cpufetch.git", branch: "master"
 
   bottle do
