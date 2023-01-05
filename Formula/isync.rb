@@ -5,7 +5,6 @@ class Isync < Formula
   sha256 "7c3273894f22e98330a330051e9d942fd9ffbc02b91952c2f1896a5c37e700ff"
   license "GPL-2.0-or-later"
   revision 1
-  head "https://git.code.sf.net/p/isync/isync.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "04fb22e1a315723cc3ab4035656c3435998821be930a4df4d49a97cfaa586a4e"
@@ -18,28 +17,20 @@ class Isync < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "28a71e46d89483ffde37b91ed00f9a7a60933c184db724c6103fee86392bdad3"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
+  head do
+    url "https://git.code.sf.net/p/isync/isync.git", branch: "master"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
+
   depends_on "berkeley-db@5"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "zlib"
 
   def install
-    # Regenerated for HEAD, and because of our patch
-    if build.head?
-      system "./autogen.sh"
-    else
-      system "autoreconf", "-fiv"
-    end
-
-    args = %W[
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-      --disable-silent-rules
-    ]
-
-    system "./configure", *args
+    system "./autogen.sh" if build.head?
+    system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make", "install"
   end
 
