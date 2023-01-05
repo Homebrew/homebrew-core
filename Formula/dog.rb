@@ -18,13 +18,16 @@ class Dog < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "55daa95c827fd102b2599978ebbc0fb60d497395388531533891c8d2a28ff3b4"
   end
 
+  # Match deprecation date of `openssl@1.1`
+  deprecate! date: "2023-09-11", because: :unmaintained
+
   depends_on "just" => :build
   depends_on "pandoc" => :build
   depends_on "rust" => :build
 
   on_linux do
     depends_on "pkg-config" => :build
-    depends_on "openssl@1.1"
+    depends_on "openssl@1.1" # OpenSSL 3 issue: https://github.com/ogham/dog/issues/98
   end
 
   def install
