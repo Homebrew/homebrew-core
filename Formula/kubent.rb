@@ -20,5 +20,6 @@ class Kubent < Formula
 
   test do
     assert_match "no configuration has been provided", shell_output("#{bin}/kubent 2>&1")
+    assert_match version.to_s, shell_output("#{bin}/kubent --version 2>&1")
   end
 end
