@@ -6,6 +6,7 @@ class Solargraph < Formula
       tag:      "v0.48.0",
       revision: "d498612c3335457464c20480b3b22bfb687e9a42"
   license "MIT"
+  revision 1
 
   bottle do
     sha256                               arm64_ventura:  "d81291ea3c9fda5358b963e12fbc33480755605de9631fe030ebda2ffba630cd"
@@ -18,6 +19,7 @@ class Solargraph < Formula
   end
 
   uses_from_macos "ruby", since: :catalina
+  uses_from_macos "xz"
 
   def install
     ENV["GEM_HOME"] = libexec
