@@ -4,7 +4,7 @@ class Asio < Formula
   url "https://downloads.sourceforge.net/project/asio/asio/1.24.0%20%28Stable%29/asio-1.24.0.tar.bz2"
   sha256 "8976812c24a118600f6fcf071a20606630a69afe4c0abee3b0dea528e682c585"
   license "BSL-1.0"
-  head "https://github.com/chriskohlhoff/asio.git", branch: "master"
+  revision 1
 
   livecheck do
     url :stable
@@ -22,9 +22,13 @@ class Asio < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9ad1851fe6c46fa7440e78f0572eb23698fded2b1d80795a7558126ab7c740da"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "openssl@1.1"
+  head do
+    url "https://github.com/chriskohlhoff/asio.git", branch: "master"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
+
+  depends_on "openssl@3"
 
   def install
     ENV.cxx11
@@ -32,14 +36,12 @@ class Asio < Formula
     if build.head?
       cd "asio"
       system "./autogen.sh"
-    else
-      system "autoconf"
     end
 
-    system "./configure", "--disable-dependency-tracking",
+    system "./configure", *std_configure_args,
                           "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--with-boost=no"
+                          "--with-boost=no",
+                          "--with-openssl=#{Formula["openssl@3"].opt_prefix}"
     system "make", "install"
     pkgshare.install "src/examples"
   end
