@@ -2,8 +2,8 @@ class Caf < Formula
   # Renamed from libccpa
   desc "Implementation of the Actor Model for C++"
   homepage "https://www.actor-framework.org/"
-  url "https://github.com/actor-framework/actor-framework/archive/0.18.5.tar.gz"
-  sha256 "4c96f896f000218bb65890b4d7175451834add73750d5f33b0c7fe82b7d5a679"
+  url "https://github.com/actor-framework/actor-framework/archive/0.18.6.tar.gz"
+  sha256 "c2ead63a0322d992fea8813a7f7d15b4d16cbb8bbe026722f2616a79109b91cc"
   license "BSD-3-Clause"
   head "https://github.com/actor-framework/actor-framework.git", branch: "master"
 
@@ -20,7 +20,7 @@ class Caf < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   fails_with gcc: "5"
 
