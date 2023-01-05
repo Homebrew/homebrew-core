@@ -4,6 +4,7 @@ class Urdfdom < Formula
   url "https://github.com/ros/urdfdom/archive/3.0.0.tar.gz"
   sha256 "3c780132d9a0331eb2116ea5dac6fa53ad2af86cb09f37258c34febf526d52b4"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -23,6 +24,7 @@ class Urdfdom < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :test
   depends_on "console_bridge"
   depends_on "tinyxml"
   depends_on "urdfdom_headers"
@@ -48,8 +50,9 @@ class Urdfdom < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-L#{lib}", "-lurdfdom_world", "-std=c++11",
-                    "-o", "test"
+    system ENV.cxx, "test.cpp", shell_output("pkg-config --cflags urdfdom_headers").chomp,
+                    "-L#{lib}", "-lurdfdom_world",
+                    "-std=c++11", "-o", "test"
     system "./test"
 
     (testpath/"test.xml").write <<~EOS
