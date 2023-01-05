@@ -16,9 +16,14 @@ class Httping < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "db4d5364a17224f353ae268afb1ac9090814fb7cf656f88b757b5e325bb25c3a"
   end
 
-  depends_on "gettext"
-  depends_on "openssl@1.1"
+  depends_on "gettext" => :build # for msgfmt
+  depends_on "openssl@3"
+
   uses_from_macos "ncurses"
+
+  on_macos do
+    depends_on "gettext" # for libintl
+  end
 
   def install
     # Reported upstream, see: https://github.com/folkertvanheusden/HTTPing/issues/4
