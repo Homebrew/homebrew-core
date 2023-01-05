@@ -1,8 +1,8 @@
 class Jpegoptim < Formula
   desc "Utility to optimize JPEG files"
   homepage "https://github.com/tjko/jpegoptim"
-  url "https://github.com/tjko/jpegoptim/archive/v1.5.0.tar.gz"
-  sha256 "67b0feba73fd72f0bd383f25bf84149a73378d34c0c25bc0b9b25b0264d85824"
+  url "https://github.com/tjko/jpegoptim/archive/v1.5.1.tar.gz"
+  sha256 "07c71dc83802f84227b2dc2cb50fbd154b0a8a270538342163cd1a9b27def22c"
   license "GPL-3.0-or-later"
   head "https://github.com/tjko/jpegoptim.git", branch: "master"
 
