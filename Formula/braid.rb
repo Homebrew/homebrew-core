@@ -5,6 +5,7 @@ class Braid < Formula
       tag:      "v1.1.8",
       revision: "d7391f2585fc86a8057d88de248ddc082eb8fa1b"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9b87226e335b4bbf5ab6db80f4ae502c64849bdb1a3e93c0d40b954a7b8729f7"
