@@ -27,7 +27,7 @@ class Ekg2 < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "readline"
 
   # Fix the build on OS X 10.9+
