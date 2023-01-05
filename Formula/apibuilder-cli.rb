@@ -4,12 +4,20 @@ class ApibuilderCli < Formula
   url "https://github.com/apicollective/apibuilder-cli/archive/0.1.43.tar.gz"
   sha256 "69c8c100ba9d56e83c146b5338c2a68c189fc6d1ca2eb184f357a84091224077"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "928a2a30b122f17f8d1c297b5440c8a7b58755aa3da21e0f98f34600171486c4"
   end
 
   uses_from_macos "ruby"
+
+  # Fix compatibility with Ruby 3.2.
+  # https://github.com/apicollective/apibuilder-cli/pull/85
+  patch do
+    url "https://github.com/apicollective/apibuilder-cli/commit/63f84f3f021ef11eb75304bdd902950fb7cafb49.patch?full_index=1"
+    sha256 "0a99973808f37455f544fad91d677107418f008a8baff3bb59a47add63c6401e"
+  end
 
   def install
     system "./install.sh", prefix
