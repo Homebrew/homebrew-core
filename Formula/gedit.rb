@@ -40,13 +40,6 @@ class Gedit < Formula
   depends_on "pango"
   depends_on "tepl"
 
-  # Fix for macOS build failure
-  # Remove in next release
-  patch do
-    url "https://gitlab.gnome.org/GNOME/gedit/-/commit/b648d64c1492c187000e92377a390e65d7ddadf5.diff"
-    sha256 "672f75fe5788534ebf9092fd7506913afa5631710084b0efd232a036ef16c3b5"
-  end
-
   def install
     ENV["DESTDIR"] = "/"
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
