@@ -4,6 +4,7 @@ class Mailcatcher < Formula
   url "https://github.com/sj26/mailcatcher/archive/refs/tags/v0.8.2.tar.gz"
   sha256 "3bf200ab3b2926d3747a462afd68dce5a28a11fe8d2834ce929c99c90d4192d3"
   license "MIT"
+  revision 1
 
   bottle do
     sha256                               arm64_ventura:  "767b2931a3c17d8c96a2468051f06061a8196fe270b6b6bb15d805820bf37f6d"
@@ -17,16 +18,19 @@ class Mailcatcher < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "libyaml"
 
+  uses_from_macos "xz" => :build
   uses_from_macos "curl" => :test
   uses_from_macos "expect" => :test
   uses_from_macos "netcat" => :test
   uses_from_macos "libffi"
-  uses_from_macos "ruby"
   uses_from_macos "sqlite"
 
   on_linux do
     depends_on "node" => :build
+    # Not compatible with Ruby 3.2+ yet
+    depends_on "ruby@3.1"
   end
 
   resource "bundler" do
