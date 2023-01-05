@@ -4,6 +4,7 @@ class Nagios < Formula
   url "https://downloads.sourceforge.net/project/nagios/nagios-4.x/nagios-4.4.9/nagios-4.4.9.tar.gz"
   sha256 "0e793f3f3654f10961db34950a0c129240cc80222119175552d7e322a9ba4334"
   license "GPL-2.0-only"
+  revision 1
 
   livecheck do
     url :stable
@@ -24,7 +25,7 @@ class Nagios < Formula
   depends_on "gd"
   depends_on "libpng"
   depends_on "nagios-plugins"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "unzip"
 
@@ -65,7 +66,7 @@ class Nagios < Formula
       "--with-nagios-group='#{group}'",
       "--with-command-user=#{user}",
       "--with-httpd-conf=#{share}",
-      "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}",
+      "--with-ssl=#{Formula["openssl@3"].opt_prefix}",
       "--disable-libtool",
     ]
     args << "--with-command-group=_www" if OS.mac?
