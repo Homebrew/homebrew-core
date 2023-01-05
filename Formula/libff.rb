@@ -19,7 +19,7 @@ class Libff < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "openssl@1.1" => :build
+  depends_on "openssl@3" => :build
 
   depends_on "gmp"
 
@@ -33,7 +33,7 @@ class Libff < Formula
     system "cmake", "-S", ".", "-B", "build",
                     "-DWITH_PROCPS=OFF",
                     "-DCURVE=#{curve}",
-                    "-DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}",
+                    "-DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}",
                     "-DCMAKE_POSITION_INDEPENDENT_CODE=ON",
                     *std_cmake_args
     system "cmake", "--build", "build"
