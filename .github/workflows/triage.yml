@@ -64,7 +64,6 @@ jobs:
               path: Formula/.+@.+
               except:
                 - Formula/bash-completion@2.rb
-                - Formula/openssl@1.1.rb
                 - Formula/openssl@3.rb
                 - Formula/postgresql@15.rb
                 - Formula/python@3.11.rb
@@ -165,7 +164,7 @@ jobs:
               keep_if_no_match: true
 
             - label: CI-linux-self-hosted
-              path: Formula/(gdbm|llvm|openssl@1.1|python@3.10|qt(@5)?).rb
+              path: Formula/(gdbm|llvm|openssl@1.1|python@3.11|qt(@5)?).rb
               keep_if_no_match: true
 
             - label: bump-formula-pr
