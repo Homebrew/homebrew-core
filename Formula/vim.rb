@@ -2,10 +2,9 @@ class Vim < Formula
   desc "Vi 'workalike' with many additional features"
   homepage "https://www.vim.org/"
   # vim should only be updated every 50 releases on multiples of 50
-  url "https://github.com/vim/vim/archive/v9.0.1100.tar.gz"
-  sha256 "b115e67a42f4ac76839eab44d2844df0adda32f078dbba62b715ec8da162c00b"
+  url "https://github.com/vim/vim/archive/v9.0.1150.tar.gz"
+  sha256 "aaa03eaeb68e8ee39137c5ffb8d41b4cce58f53860724829aba6385454b98c69"
   license "Vim"
-  revision 1
   head "https://github.com/vim/vim.git", branch: "master"
 
   # The Vim repository contains thousands of tags and the `Git` strategy isn't
@@ -39,6 +38,12 @@ class Vim < Formula
 
   conflicts_with "macvim",
     because: "vim and macvim both install vi* binaries"
+
+  # fixes build issue with 9.0.1150, remove after next release
+  patch do
+    url "https://github.com/vim/vim/commit/5bcd29b84e4dd6435177f37a544ecbf8df02412c.patch?full_index=1"
+    sha256 "6d1ae23897088cc13b31ac22f268e74fa063364b7c9a892dbee32397d4d62faf"
+  end
 
   def install
     ENV.prepend_path "PATH", Formula["python@3.11"].opt_libexec/"bin"
