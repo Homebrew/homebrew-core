@@ -25,7 +25,7 @@ class JohnJumbo < Formula
 
   depends_on "pkg-config" => :build
   depends_on "gmp"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "libxcrypt"
   uses_from_macos "zlib"
@@ -66,6 +66,12 @@ class JohnJumbo < Formula
     sha256 "6658f02056fd6d54231d3fdbf84135b32d47c09345fc07c6f861a1feebd00902"
   end
 
+  # Fix alignment compile errors on GCC 11. Remove in the next release
+  patch do
+    url "https://github.com/openwall/john/commit/8152ac071bce1ebc98fac6bed962e90e9b92d8cf.patch?full_index=1"
+    sha256 "efb4e3597c47930d63f51efbf18c409f436ea6bd0012a4290b05135a54d7edd4"
+  end
+
   def install
     ENV.append "CFLAGS", "-DJOHN_SYSTEMWIDE=1"
     ENV.append "CFLAGS", "-DJOHN_SYSTEMWIDE_EXEC='\"#{share}/john\"'"
@@ -74,8 +80,8 @@ class JohnJumbo < Formula
     # Apple's M1 chip has no support for SSE 4.1.
     ENV.append "CFLAGS", "-mno-sse4.1" if Hardware::CPU.intel? && !MacOS.version.requires_sse4?
 
-    ENV["OPENSSL_LIBS"] = "-L#{Formula["openssl@1.1"].opt_lib}"
-    ENV["OPENSSL_CFLAGS"] = "-I#{Formula["openssl@1.1"].opt_include}"
+    ENV["OPENSSL_LIBS"] = "-L#{Formula["openssl@3"].opt_lib}"
+    ENV["OPENSSL_CFLAGS"] = "-I#{Formula["openssl@3"].opt_include}"
 
     cd "src" do
       system "./configure", "--disable-native-tests"
