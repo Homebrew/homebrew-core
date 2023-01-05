@@ -1,8 +1,8 @@
 class UrdfdomHeaders < Formula
   desc "Headers for Unified Robot Description Format (URDF) parsers"
   homepage "https://wiki.ros.org/urdfdom_headers/"
-  url "https://github.com/ros/urdfdom_headers/archive/1.0.5.tar.gz"
-  sha256 "76a68657c38e54bb45bddc4bd7d823a3b04edcd08064a56d8e7d46b9912035ac"
+  url "https://github.com/ros/urdfdom_headers/archive/1.1.0.tar.gz"
+  sha256 "01b91c2f7cb42b0033cbdf559684a60001f9927e5d0a5a3682a344cc354f1d39"
   license "BSD-3-Clause"
 
   bottle do
@@ -16,6 +16,7 @@ class UrdfdomHeaders < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :test
 
   def install
     ENV.cxx11
@@ -33,7 +34,7 @@ class UrdfdomHeaders < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-std=c++11", "-o", "test"
+    system ENV.cxx, shell_output("pkg-config --cflags urdfdom_headers").chomp, "test.cpp", "-std=c++11", "-o", "test"
     system "./test"
   end
 end
