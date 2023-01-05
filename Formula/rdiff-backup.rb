@@ -5,11 +5,6 @@ class RdiffBackup < Formula
   sha256 "4ce1ddd8ab15f4faed8cf547397b77ef10405c084bd61cb2a999f0ed1f78c1b9"
   license "GPL-2.0-or-later"
 
-  livecheck do
-    url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
-  end
-
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "b4e11a49c4888bce8920430c2042a6034806a67768c45023c85efa3a1af36ad7"
     sha256 cellar: :any,                 arm64_monterey: "3cfe003a25a7d4f7f27e4d716041f92368cd4ef1ff22f231990d6bef380280a4"
