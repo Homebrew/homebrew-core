@@ -24,10 +24,13 @@ class MitScheme < Formula
   # Dies on "configure: error: SIZEOF_CHAR is not 1" without Xcode.
   # https://github.com/Homebrew/homebrew-x11/issues/103#issuecomment-125014423
   depends_on xcode: :build
-  depends_on "openssl@1.1"
 
   uses_from_macos "m4" => :build
   uses_from_macos "ncurses"
+
+  on_macos do
+    depends_on arch: :x86_64 # No support for Apple silicon: https://www.gnu.org/software/mit-scheme/#status
+  end
 
   on_system :linux, macos: :ventura_or_newer do
     depends_on "texinfo" => :build
@@ -77,11 +80,9 @@ class MitScheme < Formula
     inreplace "microcode/configure" do |s|
       s.gsub! "/usr/local", prefix
 
-      if OS.mac?
-        # Fixes "configure: error: No MacOSX SDK for version: 10.10"
-        # Reported 23rd Apr 2016: https://savannah.gnu.org/bugs/index.php?47769
-        s.gsub!(/SDK=MacOSX\$\{MACOS\}$/, "SDK=MacOSX#{MacOS.sdk.version}")
-      end
+      # Fixes "configure: error: No MacOSX SDK for version: 10.10"
+      # Reported 23rd Apr 2016: https://savannah.gnu.org/bugs/index.php?47769
+      s.gsub!(/SDK=MacOSX\$\{MACOS\}$/, "SDK=MacOSX#{MacOS.sdk.version}") if OS.mac?
     end
 
     inreplace "edwin/compile.sh" do |s|
