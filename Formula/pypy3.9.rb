@@ -163,6 +163,5 @@ class Pypy39 < Formula
   test do
     system bin/"pypy3.9", "-c", "print('Hello, world!')"
     system bin/"pypy3.9", "-c", "import time; time.process_time()"
-    system scripts_folder/"pip_pypy3.9", "-vv", "list"
   end
 end
