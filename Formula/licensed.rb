@@ -5,6 +5,7 @@ class Licensed < Formula
       tag:      "3.9.1",
       revision: "31b44067a069b7601060af337d7c27571486728f"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 arm64_ventura:  "d20abc085408144616845a28c6cf6033ef2134d3ef86ea0781f3e5aac9560c80"
