@@ -4,6 +4,7 @@ class Openclonk < Formula
   license "ISC"
   revision 4
 
+  # hasn't worked for a long time, see: https://github.com/openclonk/openclonk/issues/63
   stable do
     url "https://www.openclonk.org/builds/release/7.0/openclonk-7.0-src.tar.bz2"
     sha256 "bc1a231d72774a7aa8819e54e1f79be27a21b579fb057609398f2aa5700b0732"
@@ -62,6 +63,8 @@ class Openclonk < Formula
       depends_on "sdl2"
     end
   end
+
+  deprecate! date: "2023-01-05", because: "does not build since 2018"
 
   depends_on "cmake" => :build
   depends_on "freealut"
