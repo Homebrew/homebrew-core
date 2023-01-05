@@ -1,14 +1,9 @@
 class Nrpe < Formula
   desc "Nagios remote plugin executor"
   homepage "https://www.nagios.org/"
-  url "https://downloads.sourceforge.net/project/nagios/nrpe-4.x/nrpe-4.0.3/nrpe-4.0.3.tar.gz"
-  sha256 "f907ba15381adfc6eef211508abd027f8e1973116080faa4534a1191211c0340"
+  url "https://github.com/NagiosEnterprises/nrpe/releases/download/nrpe-4.1.0/nrpe-4.1.0.tar.gz"
+  sha256 "a1f14aa8aaf935b576cc55ab5d77b7cb9c920d7702aff44c9d18c4c841ef8ecc"
   license "GPL-2.0"
-
-  livecheck do
-    url :stable
-    regex(%r{url=.*?/nrpe[._-]v?(\d+(?:\.\d+)+)\.t}i)
-  end
 
   bottle do
     rebuild 1
@@ -23,7 +18,7 @@ class Nrpe < Formula
   end
 
   depends_on "nagios-plugins"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     user  = `id -un`.chomp
@@ -37,9 +32,9 @@ class Nrpe < Formula
                           "--with-nrpe-group=#{group}",
                           "--with-nagios-user=#{user}",
                           "--with-nagios-group=#{group}",
-                          "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}",
+                          "--with-ssl=#{Formula["openssl@3"].opt_prefix}",
                           # Set both or it still looks for /usr/lib
-                          "--with-ssl-lib=#{Formula["openssl@1.1"].opt_lib}",
+                          "--with-ssl-lib=#{Formula["openssl@3"].opt_lib}",
                           "--enable-ssl",
                           "--enable-command-args"
 
