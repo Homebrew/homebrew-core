@@ -4,6 +4,7 @@ class NagiosPlugins < Formula
   url "https://github.com/nagios-plugins/nagios-plugins/releases/download/release-2.4.2/nagios-plugins-2.4.2.tar.gz"
   sha256 "5b2769ae3d05559ea76ee296e73cf6e99e7175ad1e7ab3a7582c4a36d4ae3f47"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/nagios-plugins/nagios-plugins.git", branch: "master"
 
   bottle do
@@ -19,7 +20,7 @@ class NagiosPlugins < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   on_linux do
     depends_on "bind"
@@ -32,7 +33,7 @@ class NagiosPlugins < Formula
       --disable-dependency-tracking
       --prefix=#{libexec}
       --libexecdir=#{libexec}/sbin
-      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
+      --with-openssl=#{Formula["openssl@3"].opt_prefix}
     ]
 
     system "./tools/setup" if build.head?
