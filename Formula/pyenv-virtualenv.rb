@@ -21,22 +21,6 @@ class PyenvVirtualenv < Formula
   def install
     ENV["PREFIX"] = prefix
     system "./install.sh"
-
-    # These inreplace steps may be unnecessary in the future if upstream
-    # addresses the following issue and PR:
-    # https://github.com/pyenv/pyenv-virtualenv/issues/307
-    # https://github.com/pyenv/pyenv-virtualenv/pull/308
-    inreplace bin/"pyenv-virtualenv-prefix" do |s|
-      s.gsub!('"${BASH_SOURCE%/*}"/../libexec', libexec.to_s)
-    end
-
-    inreplace bin/"pyenv-virtualenvs" do |s|
-      s.gsub!('"${BASH_SOURCE%/*}"/../libexec', libexec.to_s)
-    end
-
-    inreplace libexec/"pyenv-virtualenv-realpath" do |s|
-      s.gsub!('"${BASH_SOURCE%/*}"/../libexec', libexec.to_s)
-    end
   end
 
   def caveats
