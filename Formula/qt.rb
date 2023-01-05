@@ -35,7 +35,7 @@ class Qt < Formula
   depends_on "ninja"      => :build
   depends_on "node"       => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
   depends_on "six" => :build
   depends_on "vulkan-headers" => [:build, :test]
   depends_on xcode: :build
@@ -136,7 +136,7 @@ class Qt < Formula
   end
 
   def install
-    python = "python3.10"
+    python = "python3.11"
     # Install python dependencies for QtWebEngine
     venv_root = buildpath/"venv"
     venv = virtualenv_create(venv_root, python)
