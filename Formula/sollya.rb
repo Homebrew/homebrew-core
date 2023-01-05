@@ -4,6 +4,7 @@ class Sollya < Formula
   url "https://www.sollya.org/releases/sollya-8.0/sollya-8.0.tar.gz"
   sha256 "58d734f9a2fc8e6733c11f96d2df9ab25bef24d71c401230e29f0a1339a81192"
   license "CECILL-C"
+  revision 1
 
   livecheck do
     url "https://www.sollya.org/download.php"
