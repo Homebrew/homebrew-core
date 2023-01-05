@@ -4,15 +4,15 @@ class Ruby < Formula
   license "Ruby"
 
   stable do
-    url "https://cache.ruby-lang.org/pub/ruby/3.1/ruby-3.1.3.tar.gz"
-    sha256 "5ea498a35f4cd15875200a52dde42b6eb179e1264e17d78732c3a57cd1c6ab9e"
+    url "https://cache.ruby-lang.org/pub/ruby/3.2/ruby-3.2.0.tar.gz"
+    sha256 "daaa78e1360b2783f98deeceb677ad900f3a36c0ffa6e2b6b19090be77abc272"
 
     # Should be updated only when Ruby is updated (if an update is available).
     # The exception is Rubygem security fixes, which mandate updating this
     # formula & the versioned equivalents and bumping the revisions.
     resource "rubygems" do
-      url "https://rubygems.org/rubygems/rubygems-3.3.26.tgz"
-      sha256 "9b17a53a000a599926cf1ef19e9d2a35f87b436ae6500225eebe55db320dc68c"
+      url "https://rubygems.org/rubygems/rubygems-3.4.2.tgz"
+      sha256 "619a61177dfbe219dd159f7790058b1829bcabcfc433727154600e337b31d01a"
     end
   end
 
@@ -40,11 +40,15 @@ class Ruby < Formula
 
   keg_only :provided_by_macos
 
+  depends_on "autoconf" => :build
+  depends_on "bison" => :build
   depends_on "pkg-config" => :build
+  depends_on "rust" => :build
   depends_on "libyaml"
   depends_on "openssl@1.1"
   depends_on "readline"
 
+  uses_from_macos "gperf"
   uses_from_macos "libffi"
   uses_from_macos "libxcrypt"
   uses_from_macos "zlib"
