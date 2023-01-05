@@ -5,6 +5,7 @@ class Vroom < Formula
       tag:      "v1.12.0",
       revision: "d3abd6b22fe4afc0daa64d6b905911999b12dcdd"
   license "BSD-2-Clause"
+  revision 1
 
   bottle do
     rebuild 1
@@ -23,7 +24,7 @@ class Vroom < Formula
   depends_on "rapidjson" => :build
   depends_on "asio"
   depends_on macos: :mojave # std::optional C++17 support
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   fails_with gcc: "5"
 
