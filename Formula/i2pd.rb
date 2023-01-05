@@ -20,6 +20,13 @@ class I2pd < Formula
   depends_on "miniupnpc"
   depends_on "openssl@3"
 
+  # Upstream issue ref: https://github.com/PurpleI2P/i2pd/issues/1836
+  # Remove in next release
+  patch do
+    url "https://github.com/PurpleI2P/i2pd/commit/acd6af709ee6371b3d0340d2c92cb86f6f4bcb97.patch?full_index=1"
+    sha256 "54343ce6a8cf970cd65c9b39c55b3fe15f28c3a1dc6dbc07df870ad8118cebc7"
+  end
+
   def install
     args = %W[
       DEBUG=no
