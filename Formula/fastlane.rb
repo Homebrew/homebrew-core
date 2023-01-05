@@ -4,6 +4,7 @@ class Fastlane < Formula
   url "https://github.com/fastlane/fastlane/archive/2.211.0.tar.gz"
   sha256 "12409152bb95da59306a170eab2ff10323e585ac2da7c12f8bbd845189ebda96"
   license "MIT"
+  revision 1
   head "https://github.com/fastlane/fastlane.git", branch: "master"
 
   livecheck do
