@@ -1,6 +1,6 @@
 class Tinyxml < Formula
   desc "XML parser"
-  homepage "http://www.grinninglizard.com/tinyxml/"
+  homepage "https://sourceforge.net/projects/tinyxml/"
   url "https://downloads.sourceforge.net/project/tinyxml/tinyxml/2.6.2/tinyxml_2_6_2.tar.gz"
   sha256 "15bdfdcec58a7da30adc87ac2b078e4417dbe5392f3afb719f9ba6d062645593"
   license "Zlib"
@@ -22,7 +22,11 @@ class Tinyxml < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ade5525899de7063ade79d1b0dec70ceef3d0acc08e1dc1b55e937cb539ad38d"
   end
 
+  deprecate! date: "2023-01-05", because: :deprecated_upstream
+
   depends_on "cmake" => :build
+
+  # sourceforge mentions to use tinyxml2
 
   # The first two patches are taken from the debian packaging of tinyxml.
   #   The first patch enforces use of stl strings, rather than a custom string type.
