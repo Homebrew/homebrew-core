@@ -15,7 +15,10 @@ class CpuFeatures < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on arch: :x86_64 # https://github.com/google/cpu_features#whats-supported
+
+  on_macos do
+    depends_on arch: :x86_64 # https://github.com/google/cpu_features#whats-supported
+  end
 
   def install
     system "cmake", "-S", ".", "-B", "build",
