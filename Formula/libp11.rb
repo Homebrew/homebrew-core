@@ -29,20 +29,20 @@ class Libp11 < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libtool"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "./bootstrap" if build.head?
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
+    system "./configure", *std_configure_args,
+                          "--disable-silent-rules",
                           "--with-enginesdir=#{lib}/engines-1.1"
     system "make", "install"
     pkgshare.install "examples/auth.c"
   end
 
   test do
-    system ENV.cc, pkgshare/"auth.c", "-I#{Formula["openssl@1.1"].include}",
-                   "-L#{lib}", "-L#{Formula["openssl@1.1"].lib}",
+    system ENV.cc, pkgshare/"auth.c", "-I#{Formula["openssl@3"].include}",
+                   "-L#{lib}", "-L#{Formula["openssl@3"].lib}",
                    "-lp11", "-lcrypto", "-o", "test"
   end
 end
