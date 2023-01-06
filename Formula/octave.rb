@@ -5,7 +5,7 @@ class Octave < Formula
   mirror "https://ftpmirror.gnu.org/octave/octave-7.3.0.tar.xz"
   sha256 "a508ee6aebccfa68967c9e7e0a08793c4ca8e4ddace723aabdb8f71ad34d57f1"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
     sha256 arm64_ventura:  "886881e62fb6ee1472687a3e1fa476d3572f54665b80ba8e841071bc25054eb3"
@@ -81,6 +81,9 @@ class Octave < Formula
     inreplace "src/mkoctfile.in.cc",
               /%OCTAVE_CONF_OCT(AVE)?_LINK_(DEPS|OPTS)%/,
               '""'
+
+    # SUNDIALS 6.4.0 and later needs C++14 for C++ based features
+    ENV.append "CXXFLAGS", "-std=c++14"
 
     # Qt 5.12 compatibility
     # https://savannah.gnu.org/bugs/?55187
