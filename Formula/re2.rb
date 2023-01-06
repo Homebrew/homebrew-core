@@ -36,10 +36,15 @@ class Re2 < Formula
     # Run this for pkg-config files
     system "make", "common-install", "prefix=#{prefix}"
 
-    # Run this for the rest of the install
-    system "cmake", ".", "-DBUILD_SHARED_LIBS=ON", "-DRE2_BUILD_TESTING=OFF", *std_cmake_args
-    system "make"
-    system "make", "install"
+    # Build and install static library
+    system "cmake", "-B", "build-static", "-DRE2_BUILD_TESTING=OFF", *std_cmake_args
+    system "make", "-C", "build-static"
+    system "make", "-C", "build-static",  "install"
+
+    # Build and install shared library
+    system "cmake", "-B", "build-shared", "-DBUILD_SHARED_LIBS=ON", "-DRE2_BUILD_TESTING=OFF", *std_cmake_args
+    system "make", "-C", "build-shared"
+    system "make", "-C", "build-shared", "install"
   end
 
   test do
