@@ -16,6 +16,7 @@ class Recode < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "365bd66e439e5592ee482547354c758279ed085413efd9eb926db2beddb3d32e"
   end
 
+  depends_on "help2man" => :build
   depends_on "libtool" => :build
   depends_on "python@3.11" => :build
   depends_on "gettext"
