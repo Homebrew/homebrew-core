@@ -3,8 +3,8 @@ class GimmeAwsCreds < Formula
 
   desc "CLI to retrieve AWS credentials from Okta"
   homepage "https://github.com/Nike-Inc/gimme-aws-creds"
-  url "https://files.pythonhosted.org/packages/4d/65/9cea7d26d855dddc880ee7a22be14de1afea4e5059031c7237aa17cce14e/gimme%20aws%20creds-2.4.4.tar.gz"
-  sha256 "95711ee4f3e10abd44d63d4b4142f02d7175a6b8d0f540e17d4674a66112b399"
+  url "https://files.pythonhosted.org/packages/0e/63/c2aed27057343d776c95b2d95e1580a287fdc2ceb43e1ac64ae2d7bf32d5/gimme%20aws%20creds-2.5.0.tar.gz"
+  sha256 "706644a0c67dbaadd4b45b5d1f46a2f226bca3a6686e8df5eb79e13396a275d7"
   license "Apache-2.0"
 
   bottle do
@@ -54,18 +54,18 @@ class GimmeAwsCreds < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/9e/a2/10f0d67f71bf6f87b2dc6558679f23c0cb4c3be42089a7eef625ed35d002/boto3-1.26.8.tar.gz"
-    sha256 "b39303fdda9b5d77a152e3ec9f264ae318ccdaa853eaf694626dc335464ded98"
+    url "https://files.pythonhosted.org/packages/5f/62/24dd1c986417c8c8e559725760e22d256c153bc5becce9fb0b1ee7297301/boto3-1.26.44.tar.gz"
+    sha256 "4f4c3018caf2ddaf355f202be8ff48c5ecf9d4208d6d6c581055428fcfa2309b"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/9c/62/0e7a8c2bc63c3529db0ca3ee4c0f5b60a65165e594d1487b13b6524ddccd/botocore-1.29.8.tar.gz"
-    sha256 "48cf33d7c513320711321c3b303b0c9810b23e15fa03424f7323883e4ce6cef8"
+    url "https://files.pythonhosted.org/packages/4e/25/82c85c4f4bb3b076e55d07bf8bf13b53c715f92d8f43b49e36e61bbe73a1/botocore-1.29.44.tar.gz"
+    sha256 "e48371ff2c375f6a5ac2e6cdbb2d32aa14b1c9c0c049f12af96ec5614c55a6f1"
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/cb/a4/7de7cd59e429bd0ee6521ba58a75adaec136d32f91a761b28a11d8088d44/certifi-2022.9.24.tar.gz"
-    sha256 "0d9c601124e5a6ba9712dbc60d9c53c21e34f5f641fe83002317394311bdce14"
+    url "https://files.pythonhosted.org/packages/37/f7/2b1b0ec44fdc30a3d31dfebe52226be9ddc40cd6c0f34ffc8923ba423b69/certifi-2022.12.7.tar.gz"
+    sha256 "35824b4c3a97115964b408844d64aa14db1cc518f6562e8d7261699d1350a9e3"
   end
 
   resource "cffi" do
@@ -84,8 +84,8 @@ class GimmeAwsCreds < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/13/dd/a9608b7aebe5d2dc0c98a4b2090a6b815628efa46cc1c046b89d8cd25f4c/cryptography-38.0.3.tar.gz"
-    sha256 "bfbe6ee19615b07a98b1d2287d6a6073f734735b49ee45b11324d85efc4d5cbd"
+    url "https://files.pythonhosted.org/packages/12/e3/c46c274cf466b24e5d44df5d5cd31a31ff23e57f074a2bb30931a8c9b01a/cryptography-39.0.0.tar.gz"
+    sha256 "f964c7dcf7802d133e8dbd1565914fa0194f9d683d82411989889ecd701e8adf"
   end
 
   resource "ctap-keyring-device" do
@@ -104,8 +104,8 @@ class GimmeAwsCreds < Formula
   end
 
   resource "importlib-metadata" do
-    url "https://files.pythonhosted.org/packages/7e/ec/97f2ce958b62961fddd7258e0ceede844953606ad09b672fa03b86c453d3/importlib_metadata-5.0.0.tar.gz"
-    sha256 "da31db32b304314d044d3c12c79bd59e307889b287ad12ff387b3500835fc2ab"
+    url "https://files.pythonhosted.org/packages/90/07/6397ad02d31bddf1841c9ad3ec30a693a3ff208e09c2ef45c9a8a5f85156/importlib_metadata-6.0.0.tar.gz"
+    sha256 "e354bedeb60efa6affdcc8ae121b73544a7aa74156d047311948f6d711cd378d"
   end
 
   resource "jaraco.classes" do
@@ -124,8 +124,8 @@ class GimmeAwsCreds < Formula
   end
 
   resource "keyring" do
-    url "https://files.pythonhosted.org/packages/1c/35/c22960f14f5e17384296b2f09da259f8b5244fb3831eccec71cf948a49c6/keyring-23.11.0.tar.gz"
-    sha256 "ad192263e2cdd5f12875dedc2da13534359a7e760e77f8d04b50968a821c2361"
+    url "https://files.pythonhosted.org/packages/55/fe/282f4c205add8e8bb3a1635cbbac59d6def2e0891b145aa553a0e40dd2d0/keyring-23.13.1.tar.gz"
+    sha256 "ba2e15a9b35e21908d0aaf4e0a47acc52d6ae33444df0da2b49d41a46ef6d678"
   end
 
   resource "more-itertools" do
@@ -144,28 +144,28 @@ class GimmeAwsCreds < Formula
   end
 
   resource "pyobjc-core" do
-    url "https://files.pythonhosted.org/packages/39/ab/c30a65bd163d51c62cd223a5d75b46d32da6edf2dee6a7e69cfd65b42cf6/pyobjc-core-9.0.tar.gz"
-    sha256 "3e7010c648eb94b16dd37a55f7719ed3bef6559edf4cf8fd741f46869dc223b1"
+    url "https://files.pythonhosted.org/packages/1e/20/75b43cd85d8676d15f7d3876e8b64415bfd7b7f937710f9966738723daf3/pyobjc-core-9.0.1.tar.gz"
+    sha256 "5ce1510bb0bdff527c597079a42b2e13a19b7592e76850be7960a2775b59c929"
   end
 
   resource "pyobjc-framework-Cocoa" do
-    url "https://files.pythonhosted.org/packages/0a/fd/56c07379311e3c877b601ec3d192a9ca6c605edbb363394408d44e907769/pyobjc-framework-Cocoa-9.0.tar.gz"
-    sha256 "1a511c620e9b7ef22f2f4fa68572902cb614e66d3dbfa9e46a1a05f000f30084"
+    url "https://files.pythonhosted.org/packages/b5/35/da77d26b9b6ee97fede0a9364273aaa7970fea7947d15c0e28efd345db0e/pyobjc-framework-Cocoa-9.0.1.tar.gz"
+    sha256 "a8b53b3426f94307a58e2f8214dc1094c19afa9dcb96f21be12f937d968b2df3"
   end
 
   resource "pyobjc-framework-LocalAuthentication" do
-    url "https://files.pythonhosted.org/packages/f6/88/9a026ab2623ad6fc11f49c6ccfbeb6b57f652a07902e488e7cc800874f86/pyobjc-framework-LocalAuthentication-9.0.tar.gz"
-    sha256 "60fca33e4e31e83dad67ed3b7dc739200be81be251101c50b77df11d604b7184"
+    url "https://files.pythonhosted.org/packages/7e/9a/9f61d91b030365bfc6e4b0fe36ac29f9069de5d59569e84b1a75965f9833/pyobjc-framework-LocalAuthentication-9.0.1.tar.gz"
+    sha256 "f440325d33b4ce87200f876940c6d89c91a80bdbfc4926d174a5f11cd664c3dd"
   end
 
   resource "pyobjc-framework-Security" do
-    url "https://files.pythonhosted.org/packages/4f/1c/2c44c2afa960c2cd0edff3c6947ec531232426f28e858bc5ffd7f0aa842a/pyobjc-framework-Security-9.0.tar.gz"
-    sha256 "d441eeda097a428b7f72a0175d7d57f9eecc20711cb73acdcb5d21bc198dd230"
+    url "https://files.pythonhosted.org/packages/64/fa/a5b51b4c7fb86365cffaae11474d360a8d68910098b618a76a206b00938c/pyobjc-framework-Security-9.0.1.tar.gz"
+    sha256 "d2093debe7467d85dd7ecef130d592abe6c13ffdbaf943d6624bae4a081046e0"
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/be/ed/5bbc91f03fa4c839c4c7360375da77f9659af5f7086b7a7bdda65771c8e0/python-dateutil-2.8.1.tar.gz"
-    sha256 "73ebfe9dbf22e832286dafa60473e4cd239f8592f699aa5adaf10050e6e1823c"
+    url "https://files.pythonhosted.org/packages/4c/c4/13b4776ea2d76c115c1d1b84579f3764ee6d57204f6be27119f13a61d0a9/python-dateutil-2.8.2.tar.gz"
+    sha256 "0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"
   end
 
   resource "requests" do
@@ -189,13 +189,13 @@ class GimmeAwsCreds < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/b2/56/d87d6d3c4121c0bcec116919350ca05dc3afd2eeb7dc88d07e8083f8ea94/urllib3-1.26.12.tar.gz"
-    sha256 "3fa96cf423e6987997fc326ae8df396db2a8b7c667747d47ddd8ecba91f4a74e"
+    url "https://files.pythonhosted.org/packages/c2/51/32da03cf19d17d46cce5c731967bf58de9bd71db3a379932f53b094deda4/urllib3-1.26.13.tar.gz"
+    sha256 "c083dd0dce68dbfbe1129d5271cb90f9447dea7d52097c6e0126120c521ddea8"
   end
 
   resource "zipp" do
-    url "https://files.pythonhosted.org/packages/8d/d7/1bd1e0a5bc95a27a6f5c4ee8066ddfc5b69a9ec8d39ab11a41a804ec8f0d/zipp-3.10.0.tar.gz"
-    sha256 "7a7262fd930bd3e36c50b9a64897aec3fafff3dfdeec9623ae22b40e93f99bb8"
+    url "https://files.pythonhosted.org/packages/8e/b3/8b16a007184714f71157b1a71bbe632c5d66dd43bc8152b3c799b13881e1/zipp-3.11.0.tar.gz"
+    sha256 "a7a22e05929290a67401440b39690ae6563279bced5f314609d9d03798f56766"
   end
 
   def install
