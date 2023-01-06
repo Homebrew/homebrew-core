@@ -16,6 +16,20 @@ class Cpufetch < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "22c8f22e55957d44ba4a34167bd8d64d3dd01c54ba61a36c4fba9191dc343064"
   end
 
+  # Upstream issue ref: https://github.com/Dr-Noob/cpufetch/issues/168
+  # Remove in next release
+  patch do
+    url "https://github.com/Dr-Noob/cpufetch/commit/22a80d817d57814fc552365ad553c0a22f065fcd.patch?full_index=1"
+    sha256 "063b602cd5013ba7c2c5ea4e134c911164ec49b2ed14209c313c2ef005bd3d42"
+  end
+
+  # Upstream issue ref: https://github.com/Dr-Noob/cpufetch/issues/168
+  # Remove in next release
+  patch do
+    url "https://github.com/Dr-Noob/cpufetch/commit/095bbfb784f0b367558741e9b02f6278126e1c93.patch?full_index=1"
+    sha256 "494756db04ab00a0a57d519704f5032d2b77e7539d4c0233b789c5a6178fbab8"
+  end
+
   def install
     system "make"
     bin.install "cpufetch"
