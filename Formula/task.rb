@@ -11,7 +11,6 @@ class Task < Formula
     url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
-
   bottle do
     sha256                               arm64_ventura:  "2102db063dd8ff63b36a1503bec0255e1f51a7096fb0b0f923eacdf6cdddc3cf"
     sha256                               arm64_monterey: "f795845e5ec49a639baf6e7eab024f038ad1151c62ec03916752877941f5c89e"
@@ -31,6 +30,8 @@ class Task < Formula
     depends_on "readline"
     depends_on "util-linux"
   end
+
+  conflicts_with "go-task", because: "both install `task` binaries"
 
   fails_with gcc: "5"
 
