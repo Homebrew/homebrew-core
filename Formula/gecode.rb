@@ -30,6 +30,7 @@ class Gecode < Formula
     args = %W[
       --prefix=#{prefix}
       --disable-examples
+      --disable-mpfr
       --enable-qt
     ]
     ENV.cxx11
