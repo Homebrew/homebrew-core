@@ -5,6 +5,7 @@ class Jabba < Formula
   url "https://github.com/Jabba-Team/jabba/archive/0.12.0.tar.gz"
   sha256 "15a142239869733d7f0fe8c0cc0cd99f619e5bc8121ebabc9c28c382333b89c0"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/Jabba-Team/jabba.git", branch: "main"
 
   bottle do
@@ -20,26 +21,41 @@ class Jabba < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "auto"
-    dir = buildpath/"src/github.com/Jabba-Team/jabba"
-    dir.install buildpath.children
-    cd dir do
-      ldflags = "-X main.version=#{version}"
-      system "go", "build", *std_go_args(ldflags: ldflags)
+    ENV["JABBA_GET"] = "false"
+
+    # Customize install locations
+    # https://github.com/Jabba-Team/jabba/pull/17
+    inreplace "Makefile", " sh install.sh", " bash install.sh --skip-rc"
+    inreplace "install.sh" do |s|
+      s.gsub! "  rm -f", "  command rm -f"
+      s.gsub! "$JABBA_HOME_TO_EXPORT/bin/jabba", "#{opt_bin}/jabba"
+      s.gsub! "${JABBA_HOME}/bin", bin.to_s
+      s.gsub! "${JABBA_HOME}/jabba.sh", "#{pkgshare}/jabba.sh"
+      s.gsub! "${JABBA_HOME}/jabba.fish", "#{pkgshare}/jabba.fish"
     end
+
+    pkgshare.mkpath
+
+    system "make", "VERSION=#{version}", "install"
+  end
+
+  def caveats
+    <<~EOS
+      Add the following line to your ~/.bashrc or ~/.zshrc file:
+        [ -s "#{opt_pkgshare}/jabba.sh" ] && . "#{opt_pkgshare}/jabba.sh"
+
+      If you use the Fish shell then add the following line to your ~/.config/fish/config.fish:
+        [ -s "#{opt_pkgshare}/jabba.fish" ]; and source "#{opt_pkgshare}/jabba.fish"
+    EOS
   end
 
   test do
-    jdk_version = "zulu@17"
-    version_check ='openjdk version "17'
-
     ENV["JABBA_HOME"] = testpath/"jabba_home"
-
+    jdk_version = "zulu@17"
     system bin/"jabba", "install", jdk_version
-    jdk_path = shell_output("#{bin}/jabba which #{jdk_version}").strip
-    jdk_path += "/Contents/Home" if OS.mac?
-    assert_match version_check,
+    jdk_path = assert_match(/^export JAVA_HOME="([^"]+)"/,
+                           shell_output("#{bin}/jabba use #{jdk_version} 3>&1"))[1]
+    assert_match 'openjdk version "17',
                  shell_output("#{jdk_path}/bin/java -version 2>&1")
   end
 end
