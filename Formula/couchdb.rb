@@ -35,7 +35,7 @@ class Couchdb < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "icu4c"
-  depends_on "openssl@3"
+  depends_on "openssl@1.1"
   # NOTE: Supported `spidermonkey` versions are hardcoded at
   # https://github.com/apache/couchdb/blob/#{version}/src/couch/rebar.config.script
   depends_on "spidermonkey"
