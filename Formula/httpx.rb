@@ -1,8 +1,8 @@
 class Httpx < Formula
   desc "Fast and multi-purpose HTTP toolkit"
   homepage "https://github.com/projectdiscovery/httpx"
-  url "https://github.com/projectdiscovery/httpx/archive/v1.2.5.tar.gz"
-  sha256 "297b34f574bedd9575926f1e8c9f630a39ab54311bd2df821536359735a2b161"
+  url "https://github.com/projectdiscovery/httpx/archive/v1.2.6.tar.gz"
+  sha256 "9e23adb86879a20062c8921ce6125c80a8e20d6ceadcb72a9bd6403903e67085"
   license "MIT"
   head "https://github.com/projectdiscovery/httpx.git", branch: "master"
 
