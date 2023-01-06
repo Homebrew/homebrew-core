@@ -70,6 +70,7 @@ class CucumberCpp < Formula
            "-pthread"
     begin
       pid = fork { exec "./test" }
+      sleep 5
       expected = <<~EOS
         Feature: Test
 
