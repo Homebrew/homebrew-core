@@ -1,8 +1,8 @@
 class ZshAsync < Formula
   desc "Perform tasks asynchronously without external tools"
   homepage "https://github.com/mafredri/zsh-async"
-  url "https://github.com/mafredri/zsh-async/archive/v1.8.5.tar.gz"
-  sha256 "3ba4cbc6f560bf941fe80bee45754317dcc444f5f6114a7ebd40ca04eb20910a"
+  url "https://github.com/mafredri/zsh-async/archive/v1.8.6.tar.gz"
+  sha256 "0f2778cb882b73471569b016bbfa6d9d75572bff40dc7f25ac50b3a8dc94ef47"
   license "MIT"
 
   bottle do
