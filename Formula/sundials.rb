@@ -1,10 +1,9 @@
 class Sundials < Formula
   desc "Nonlinear and differential/algebraic equations solver"
   homepage "https://computing.llnl.gov/projects/sundials"
-  url "https://github.com/LLNL/sundials/releases/download/v6.3.0/sundials-6.3.0.tar.gz"
-  sha256 "89a22bea820ff250aa7239f634ab07fa34efe1d2dcfde29cc8d3af11455ba2a7"
+  url "https://github.com/LLNL/sundials/releases/download/v6.5.0/sundials-6.5.0.tar.gz"
+  sha256 "4e0b998dff292a2617e179609b539b511eb80836f5faacf800e688a886288502"
   license "BSD-3-Clause"
-  revision 1
 
   livecheck do
     url "https://computing.llnl.gov/projects/sundials/sundials-software"
@@ -28,22 +27,20 @@ class Sundials < Formula
   depends_on "suite-sparse"
 
   uses_from_macos "libpcap"
-  uses_from_macos "m4"
 
   def install
     blas = "-L#{Formula["openblas"].opt_lib} -lopenblas"
-    args = std_cmake_args + %W[
+    args = %W[
       -DBUILD_SHARED_LIBS=ON
       -DKLU_ENABLE=ON
       -DKLU_LIBRARY_DIR=#{Formula["suite-sparse"].opt_lib}
       -DKLU_INCLUDE_DIR=#{Formula["suite-sparse"].opt_include}
       -DLAPACK_ENABLE=ON
-      -DBLA_VENDOR=OpenBLAS
       -DLAPACK_LIBRARIES=#{blas};#{blas}
       -DMPI_ENABLE=ON
     ]
 
-    system "cmake", "-S", ".", "-B", "build", *args
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
