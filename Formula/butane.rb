@@ -1,8 +1,8 @@
 class Butane < Formula
   desc "Translates human-readable Butane Configs into machine-readable Ignition Configs"
   homepage "https://github.com/coreos/butane"
-  url "https://github.com/coreos/butane/archive/v0.16.0.tar.gz"
-  sha256 "ea6e8bc51bb2f00559c4392fa0e47758a6e84884a6a7b15980dcd3bf53c95b03"
+  url "https://github.com/coreos/butane/archive/v0.17.0.tar.gz"
+  sha256 "ea2526362f2c597766ce0346cf13915cf77c5415d0f5fc522ee600afda4a24c3"
   license "Apache-2.0"
   head "https://github.com/coreos/butane.git", branch: "main"
 
