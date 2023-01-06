@@ -51,6 +51,7 @@ class UtilLinux < Formula
     depends_on "readline"
 
     conflicts_with "bash-completion", because: "both install `mount`, `rfkill`, and `rtcwake` completions"
+    conflicts_with "flock", because: "both install `flock` binaries"
     conflicts_with "rename", because: "both install `rename` binaries"
   end
 
