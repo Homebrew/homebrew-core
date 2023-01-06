@@ -27,6 +27,7 @@ class Dscanner < Formula
   end
 
   def install
+    ENV.append "DFLAGS", "-fPIC" if OS.linux?
     system "make", "all", "DC=#{Hardware::CPU.arm? ? "ldc2" : "dmd"}"
     bin.install "bin/dscanner"
   end
