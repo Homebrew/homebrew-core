@@ -1,8 +1,6 @@
 class Ghc < Formula
   desc "Glorious Glasgow Haskell Compilation System"
   homepage "https://haskell.org/ghc/"
-  url "https://downloads.haskell.org/~ghc/9.4.4/ghc-9.4.4-src.tar.xz"
-  sha256 "e8cef25a6ded1531cda7a90488d0cfb6d780657d16636daa59430be030cd67e2"
   # We build bundled copies of libffi and GMP so GHC inherits the licenses
   license all_of: [
     "BSD-3-Clause",
@@ -10,6 +8,17 @@ class Ghc < Formula
     any_of: ["LGPL-3.0-or-later", "GPL-2.0-or-later"], # GMP
   ]
   head "https://gitlab.haskell.org/ghc/ghc.git", branch: "master"
+
+  stable do
+    url "https://downloads.haskell.org/~ghc/9.4.4/ghc-9.4.4-src.tar.xz"
+    sha256 "e8cef25a6ded1531cda7a90488d0cfb6d780657d16636daa59430be030cd67e2"
+
+    # Fix build with sphinx-doc 6+. Remove patch when available in release.
+    patch do
+      url "https://gitlab.haskell.org/ghc/ghc/-/commit/00dc51060881df81258ba3b3bdf447294618a4de.diff"
+      sha256 "354baeb8727fbbfb6da2e88f9748acaab23bcccb5806f8f59787997753231dbb"
+    end
+  end
 
   livecheck do
     url "https://www.haskell.org/ghc/download.html"
@@ -39,8 +48,8 @@ class Ghc < Formula
     depends_on "gmp" => :build
   end
 
-  # GHC 9.4.3 user manual recommend use LLVM 9 through 13
-  # https://downloads.haskell.org/~ghc/9.4.3/docs/users_guide/9.4.3-notes.html
+  # GHC 9.4.4 user manual recommend use LLVM 9 through 13
+  # https://downloads.haskell.org/~ghc/9.4.4/docs/users_guide/9.4.4-notes.html
   # and we met some unknown issue w/ LLVM 13 before https://gitlab.haskell.org/ghc/ghc/-/issues/20559
   # so conservatively use LLVM 12 here
   on_arm do
@@ -60,8 +69,14 @@ class Ghc < Formula
       end
     end
     on_linux do
-      url "https://downloads.haskell.org/~ghc/9.2.5/ghc-9.2.5-x86_64-ubuntu20.04-linux.tar.xz"
-      sha256 "be1ca5b2864880d7c3623c51f2c2ca773e380624929bf0be8cfadbdb7f4b7154"
+      on_arm do
+        url "https://downloads.haskell.org/~ghc/9.2.5/ghc-9.2.5-aarch64-deb10-linux.tar.xz"
+        sha256 "29c0735ada90cdbf7e4a227dee08f18d74e33ec05d7c681e4ef95b8aa13104b3"
+      end
+      on_intel do
+        url "https://downloads.haskell.org/~ghc/9.2.5/ghc-9.2.5-x86_64-ubuntu20.04-linux.tar.xz"
+        sha256 "be1ca5b2864880d7c3623c51f2c2ca773e380624929bf0be8cfadbdb7f4b7154"
+      end
     end
   end
 
@@ -77,8 +92,14 @@ class Ghc < Formula
       end
     end
     on_linux do
-      url "https://downloads.haskell.org/~cabal/cabal-install-3.8.1.0/cabal-install-3.8.1.0-x86_64-linux-deb10.tar.xz"
-      sha256 "c71a1a46fd42d235bb86be968660815c24950e5da2d1ff4640da025ab520424b"
+      on_arm do
+        url "https://downloads.haskell.org/~cabal/cabal-install-3.8.1.0/cabal-install-3.8.1.0-aarch64-linux-deb10.tar.xz"
+        sha256 "c7fa9029f2f829432dd9dcf764e58605fbb7431db79234feb3e46684a9b37214"
+      end
+      on_intel do
+        url "https://downloads.haskell.org/~cabal/cabal-install-3.8.1.0/cabal-install-3.8.1.0-x86_64-linux-deb10.tar.xz"
+        sha256 "c71a1a46fd42d235bb86be968660815c24950e5da2d1ff4640da025ab520424b"
+      end
     end
   end
 
