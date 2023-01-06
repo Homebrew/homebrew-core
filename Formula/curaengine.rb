@@ -29,6 +29,9 @@ class Curaengine < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b11d878824a2ddb8a966ee2134df5f48c45fb84de9894ca24fd5428bc8c7357a"
   end
 
+  # Requires extensive patching to build & has minimal installs
+  deprecate! date: "2023-01-06", because: :does_not_build
+
   depends_on "cmake" => :build
 
   fails_with gcc: "5"
