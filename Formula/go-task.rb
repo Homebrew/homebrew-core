@@ -17,6 +17,7 @@ class GoTask < Formula
   end
 
   depends_on "go" => :build
+  conflicts_with "task", because: "both install `task` binaries"
 
   def install
     ldflags = %W[
