@@ -13,7 +13,8 @@ class Gw < Formula
 
   def install
     system "make", "prep"
-    system "sed -i.bak 's/lglfw/lglfw3/g' Makefile && make"
+    inreplace "lglfw", "lglfw3", "Makefile"
+    system "make"
     bin.install "gw"
   end
 
