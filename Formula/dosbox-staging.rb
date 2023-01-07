@@ -40,6 +40,7 @@ class DosboxStaging < Formula
   uses_from_macos "zlib"
 
   on_linux do
+    depends_on "alsa-lib"
     depends_on "mesa"
     depends_on "mesa-glu"
   end
