@@ -1,8 +1,8 @@
 class Xmake < Formula
   desc "Cross-platform build utility based on Lua"
   homepage "https://xmake.io/"
-  url "https://github.com/xmake-io/xmake/releases/download/v2.7.4/xmake-v2.7.4.tar.gz"
-  sha256 "d490ff8825fa53fe5abfb549310cb54a2dfef1ebd3f82e24548483772994e06a"
+  url "https://github.com/xmake-io/xmake/releases/download/v2.7.5/xmake-v2.7.5.tar.gz"
+  sha256 "fc4a39a0c649e7469a2da2d66618ca3090050b1656ff43cf1fd46abc86232a3d"
   license "Apache-2.0"
   head "https://github.com/xmake-io/xmake.git", branch: "master"
 
@@ -18,11 +18,6 @@ class Xmake < Formula
 
   on_linux do
     depends_on "readline"
-  end
-
-  patch do
-    url "https://github.com/xmake-io/xmake/releases/download/v2.7.4/configure.diff"
-    sha256 "fa46107403b2ed062631c83009852130b5641eaf703589230c6daea428a13bf5"
   end
 
   def install
