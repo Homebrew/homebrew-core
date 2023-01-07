@@ -17,18 +17,24 @@ class Dfmt < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "852cdd41ee99f72be5b7e22af09e07a5da3457791016a78ec0038f3172c96120"
   end
 
-  on_macos do
+  on_arm do
     depends_on "ldc" => :build
   end
 
-  on_linux do
+  on_intel do
     depends_on "dmd" => :build
   end
 
   def install
-    target = OS.mac? ? "ldc" : "dmd"
+    target = if Hardware::CPU.arm?
+      "ldc"
+    else
+      ENV.append "DFLAGS", "-fPIC" if OS.linux?
+      "dmd"
+    end
     system "make", target
     bin.install "bin/dfmt"
+    bash_completion.install "bash-completion/completions/dfmt"
   end
 
   test do
