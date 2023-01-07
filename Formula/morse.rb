@@ -4,7 +4,7 @@ class Morse < Formula
   url "http://www.catb.org/~esr/morse/morse-2.5.tar.gz"
   sha256 "476d1e8e95bb173b1aadc755db18f7e7a73eda35426944e1abd57c20307d4987"
   license "BSD-2-Clause"
-  revision 2
+  revision 3
 
   livecheck do
     url :homepage
@@ -24,18 +24,27 @@ class Morse < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "pulseaudio"
+
+  on_macos do
+    depends_on "libx11"
+  end
+
+  on_linux do
+    depends_on "pulseaudio"
+  end
 
   def install
-    system "make", "all"
-    bin.install %w[morse QSO]
-    man1.install %w[morse.1 QSO.1]
+    inreplace "morse.d/Makefile", "/usr/X11R6/", "#{Formula["libx11"].opt_prefix}/"
+    system "make", "all", "DEVICE=#{OS.mac? ? "X11" : "PA"}"
+    bin.install "morse", "QSO"
+    man1.install "morse.1", "QSO.1"
   end
 
   test do
     # Fails in Linux CI with "pa_simple_Write failed"
     return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
 
-    assert_match "Could not initialize audio", shell_output("#{bin}/morse -- 2>&1", 1)
+    expected = OS.mac? ? "Can't access speaker" : "Could not initialize audio"
+    assert_match expected, shell_output("DISPLAY= #{bin}/morse -- 2>&1", 1)
   end
 end
