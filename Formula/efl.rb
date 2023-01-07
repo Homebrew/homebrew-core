@@ -4,7 +4,7 @@ class Efl < Formula
   url "https://download.enlightenment.org/rel/libs/efl/efl-1.26.3.tar.xz"
   sha256 "d9f83aa0fd9334f44deeb4e4952dc0e5144683afac786feebce6030951617d15"
   license all_of: ["GPL-2.0-only", "LGPL-2.1-only", "BSD-2-Clause", "FTL", "zlib-acknowledgement"]
-  revision 1
+  revision 2
 
   livecheck do
     url "https://download.enlightenment.org/rel/libs/efl/"
@@ -45,14 +45,17 @@ class Efl < Formula
   depends_on "lz4"
   depends_on "openssl@1.1"
   depends_on "poppler"
-  depends_on "pulseaudio"
   depends_on "shared-mime-info"
   depends_on "webp"
 
   uses_from_macos "zlib"
 
+  on_linux do
+    depends_on "pulseaudio"
+  end
+
   # Remove LuaJIT 2.0 linker args -pagezero_size and -image_base
-  # to fix ARM build using LuaJIT 2.1+ via `luajit-openresty`
+  # to fix ARM build using LuaJIT 2.1+ via `luajit`
   patch :DATA
 
   def install
@@ -71,14 +74,14 @@ class Efl < Formula
       -Dv4l2=false
       -Dx11=false
     ]
-    args << "-Dcocoa=true" if OS.mac?
+    args += ["-Dcocoa=true", "-Dpulseaudio=false"] if OS.mac?
 
     # Install in our Cellar - not dbus's
     inreplace "dbus-services/meson.build", "dep.get_pkgconfig_variable('session_bus_services_dir')",
                                            "'#{share}/dbus-1/services'"
 
-    system "meson", *std_meson_args, "build", *args
-    system "meson", "compile", "-C", "build", "-v"
+    system "meson", "setup", "build", *args, *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
   end
 
