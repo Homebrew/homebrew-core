@@ -1,8 +1,8 @@
 class Sftpgo < Formula
   desc "Fully featured SFTP server with optional HTTP/S, FTP/S and WebDAV support"
   homepage "https://github.com/drakkan/sftpgo"
-  url "https://github.com/drakkan/sftpgo/releases/download/v2.4.2/sftpgo_v2.4.2_src_with_deps.tar.xz"
-  sha256 "363e087599654385a6f8a4ffcf42b458301bc0c74b8aa35e13cc886b19948d19"
+  url "https://github.com/drakkan/sftpgo/releases/download/v2.4.3/sftpgo_v2.4.3_src_with_deps.tar.xz"
+  sha256 "964c9696940438695f15cd0dbb1d5712b28f4e410d0f9e3f0544297b6aae633f"
   license "AGPL-3.0-only"
 
   bottle do
