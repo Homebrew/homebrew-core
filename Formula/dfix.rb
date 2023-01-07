@@ -25,16 +25,20 @@ class Dfix < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "18eaa549250f741f4459b82c5425b4378587006db96f83f76ffd3967df9eaefd"
   end
 
-  on_macos do
+  on_arm do
     depends_on "ldc" => :build
   end
 
-  on_linux do
+  on_intel do
     depends_on "dmd" => :build
   end
 
   def install
-    ENV["DMD"] = "ldmd2" if OS.mac?
+    ENV["DMD"] = if Hardware::CPU.arm?
+      "ldmd2"
+    elsif OS.linux?
+      "dmd -fPIC"
+    end
     system "make"
     bin.install "bin/dfix"
     pkgshare.install "test/testfile_expected.d", "test/testfile_master.d"
