@@ -1,9 +1,9 @@
 class MitScheme < Formula
   desc "MIT/GNU Scheme development tools and runtime library"
   homepage "https://www.gnu.org/software/mit-scheme/"
-  url "https://ftp.gnu.org/gnu/mit-scheme/stable.pkg/11.2/mit-scheme-11.2.tar.gz"
-  mirror "https://ftpmirror.gnu.org/gnu/mit-scheme/stable.pkg/11.2/mit-scheme-11.2.tar.gz"
-  sha256 "0859cb03a7c841d2dbc67e374cfee2b3ae1f95f6a1ee846d8f5bad39c7e566a1"
+  url "https://ftp.gnu.org/gnu/mit-scheme/stable.pkg/12.1/mit-scheme-12.1.tar.gz"
+  mirror "https://ftpmirror.gnu.org/gnu/mit-scheme/stable.pkg/12.1/mit-scheme-12.1.tar.gz"
+  sha256 "5509fb69482f671257ab4c62e63b366a918e9e04734feb9f5ac588aa19709bc6"
   license "GPL-2.0-or-later"
 
   livecheck do
