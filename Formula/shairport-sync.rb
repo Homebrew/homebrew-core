@@ -4,6 +4,7 @@ class ShairportSync < Formula
   url "https://github.com/mikebrady/shairport-sync/archive/4.1.1.tar.gz"
   sha256 "e55caad73dcd36341baf8947cf5e0923997370366d6caf3dd917b345089c4a20"
   license "MIT"
+  revision 1
   head "https://github.com/mikebrady/shairport-sync.git", branch: "master"
 
   livecheck do
@@ -24,34 +25,41 @@ class ShairportSync < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "pkg-config" => :build
-  depends_on "libao"
   depends_on "libconfig"
   depends_on "libdaemon"
   depends_on "libsoxr"
   depends_on "openssl@1.1"
   depends_on "popt"
-  depends_on "pulseaudio"
+
+  on_macos do
+    depends_on "libao"
+  end
+
+  on_linux do
+    depends_on "alsa-lib"
+    depends_on "avahi"
+    depends_on "pulseaudio"
+  end
 
   def install
-    system "autoreconf", "-fvi"
+    system "autoreconf", "--force", "--install", "--verbose"
     args = %W[
+      --with-dns_sd
       --with-libdaemon
       --with-ssl=openssl
-      --with-ao
       --with-stdout
-      --with-pa
       --with-pipe
       --with-soxr
       --with-metadata
       --with-piddir=#{var}/run
       --sysconfdir=#{etc}/shairport-sync
-      --prefix=#{prefix}
     ]
-    if OS.mac?
-      args << "--with-dns_sd" # Enable bonjour
-      args << "--with-os=darwin"
+    args += if OS.mac?
+      ["--with-ao", "--with-os=darwin"]
+    else
+      ["--with-alsa", "--with-avahi", "--with-pa"]
     end
-    system "./configure", *args
+    system "./configure", *std_configure_args, *args
     system "make", "install"
   end
 
@@ -69,9 +77,9 @@ class ShairportSync < Formula
   test do
     output = shell_output("#{bin}/shairport-sync -V")
     if OS.mac?
-      assert_match "libdaemon-OpenSSL-dns_sd-ao-pa-stdout-pipe-soxr-metadata", output
+      assert_match "libdaemon-OpenSSL-dns_sd-ao-stdout-pipe-soxr-metadata", output
     else
-      assert_match "OpenSSL-ao-pa-stdout-pipe-soxr-metadata-sysconfdir", output
+      assert_match "libdaemon-OpenSSL-Avahi-dns_sd-ALSA-pa-stdout-pipe-soxr-metadata-sysconfdir", output
     end
   end
 end
