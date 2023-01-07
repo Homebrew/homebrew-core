@@ -36,7 +36,6 @@ class Rust < Formula
   depends_on "cmake" => :build
   depends_on "ninja" => :build
   depends_on "python@3.11" => :build
-  depends_on "libssh2"
   depends_on "openssl@1.1"
   depends_on "pkg-config"
 
@@ -58,8 +57,14 @@ class Rust < Formula
 
     on_linux do
       # From: https://github.com/rust-lang/rust/blob/#{version}/src/stage0.json
-      url "https://static.rust-lang.org/dist/2022-11-03/cargo-1.65.0-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "f7d67cf3b34a7d82fa2b22d42ad2aed20ee8f4be95ab97f88b8bf03a397217c2"
+      on_arm do
+        url "https://static.rust-lang.org/dist/2022-11-03/cargo-1.65.0-aarch64-unknown-linux-gnu.tar.gz"
+        sha256 "406d244def7ea78ed75ca4852498a1b632360626fb5fec69a8442b14ef04aee8"
+      end
+      on_intel do
+        url "https://static.rust-lang.org/dist/2022-11-03/cargo-1.65.0-x86_64-unknown-linux-gnu.tar.gz"
+        sha256 "f7d67cf3b34a7d82fa2b22d42ad2aed20ee8f4be95ab97f88b8bf03a397217c2"
+      end
     end
   end
 
