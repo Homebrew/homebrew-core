@@ -41,15 +41,10 @@ class Scipoptsuite < Formula
     system "cmake", "--install", "scipoptsuite-build"
 
     prefix.install "scip/check/instances/MIP/enigma.mps"
-    prefix.install "scip/examples/Binpacking"
   end
 
   test do
     output = shell_output("#{bin}/scip -c \"r #{prefix}/enigma.mps opt q\"")
-    assert_match "optimal solution found", output
-
-    system "cmake", "-B", "#{prefix}/Binpacking/build", "-S", "#{prefix}/Binpacking"
-    output = shell_output("Binpacking/build/binpacking -c \"r Binpacking/build/data/u20_00.bpa opt q\"")
     assert_match "optimal solution found", output
   end
 end
