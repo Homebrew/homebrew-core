@@ -6,7 +6,7 @@ class Scipoptsuite < Formula
   license all_of: ["Apache-2.0", "LGPL-3.0-or-later"]
 
   depends_on "cmake" => :build
-  depends_on "bison"
+  uses_from_macos "bison"
   depends_on "boost"
   depends_on "cppad"
   depends_on "gmp"
