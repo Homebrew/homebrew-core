@@ -18,9 +18,17 @@ class PyenvVirtualenv < Formula
 
   depends_on "pyenv"
 
+  on_macos do
+    # `readlink` on macOS Big Sur and earlier doesn't support the `-f` option
+    depends_on "coreutils"
+  end
+
   def install
     ENV["PREFIX"] = prefix
     system "./install.sh"
+
+    # macOS Big Sur and earlier do not support `readlink -f`
+    inreplace bin/"pyenv-virtualenv-prefix", "readlink", "#{Formula["coreutils"].opt_bin}/greadlink" if OS.mac?
   end
 
   def caveats
