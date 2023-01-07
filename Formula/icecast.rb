@@ -32,10 +32,15 @@ class Icecast < Formula
   uses_from_macos "libxslt"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--sysconfdir=#{etc}",
-                          "--localstatedir=#{var}"
+    args = %W[
+      --disable-silent-rules
+      --sysconfdir=#{etc}
+      --localstatedir=#{var}
+    ]
+    # HACK: Avoid linking brewed `curl` as side effect of `using: :homebrew_curl`
+    args << "--with-curl-config=/usr/bin/curl-config" if OS.mac?
+
+    system "./configure", *std_configure_args, *args
     system "make", "install"
   end
 
