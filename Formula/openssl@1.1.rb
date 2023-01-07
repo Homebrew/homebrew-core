@@ -34,6 +34,8 @@ class OpensslAT11 < Formula
   depends_on "ca-certificates"
 
   on_linux do
+    keg_only "it conflicts with the `openssl@3` formula"
+
     resource "Test::Harness" do
       url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Test-Harness-3.42.tar.gz"
       mirror "http://cpan.metacpan.org/authors/id/L/LE/LEONT/Test-Harness-3.42.tar.gz"
