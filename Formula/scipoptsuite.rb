@@ -5,9 +5,9 @@ class Scipoptsuite < Formula
   sha256 "5ad50eb42254c825d96f5747d8f3568dcbff0284dfbd1a727910c5a7c2899091"
   license all_of: ["Apache-2.0", "LGPL-3.0-or-later"]
 
-  depends_on "bison@2.7"
+  depends_on "cmake" => :build
+  depends_on "bison"
   depends_on "boost"
-  depends_on "cmake"
   depends_on "cppad"
   depends_on "gmp"
   depends_on "gnuplot"
@@ -41,10 +41,15 @@ class Scipoptsuite < Formula
     system "cmake", "--install", "scipoptsuite-build"
 
     prefix.install "scip/check/instances/MIP/enigma.mps"
+    prefix.install "scip/examples/Binpacking"
   end
 
   test do
     output = shell_output("#{bin}/scip -c \"r #{prefix}/enigma.mps opt q\"")
+    assert_match "optimal solution found", output
+
+    system "cmake", "-B", "#{prefix}/Binpacking/build", "-S", "#{prefix}/Binpacking"
+    output = shell_output("Binpacking/build/binpacking -c \"r Binpacking/build/data/u20_00.bpa opt q\"")
     assert_match "optimal solution found", output
   end
 end
