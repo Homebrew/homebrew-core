@@ -3,8 +3,8 @@ class Pipgrip < Formula
 
   desc "Lightweight pip dependency resolver"
   homepage "https://github.com/ddelange/pipgrip"
-  url "https://files.pythonhosted.org/packages/7f/59/22e9647cd3a6ea424d55ba3045cc599c1a06280feab219f0142cf59bbc4b/pipgrip-0.10.1.tar.gz"
-  sha256 "7cb309d82fea751cea5b3e546521cb5d7fda4935c6576c26a8bacdedc45ad004"
+  url "https://files.pythonhosted.org/packages/69/c7/dd8261bcc99eff40a63043ff461b46ed43d08f14f873b7b450e460802679/pipgrip-0.10.2.tar.gz"
+  sha256 "2a6116e2794357f5f4420c1282c2e7a37f0bc8c571b6af90ee6a8ea1f89c7461"
   license "BSD-3-Clause"
 
   bottle do
