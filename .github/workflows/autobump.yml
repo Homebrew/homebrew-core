@@ -44,7 +44,6 @@ env:
     arkade
     armadillo
     arrayfire
-    artifactory
     arturo
     asciidoctorj
     ask-cli
