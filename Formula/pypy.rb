@@ -189,16 +189,19 @@ end
 __END__
 --- a/lib_pypy/_tkinter/tklib_build.py
 +++ b/lib_pypy/_tkinter/tklib_build.py
-@@ -17,12 +17,12 @@ elif sys.platform == 'win32':
+@@ -17,7 +17,7 @@ elif sys.platform == 'win32':
      incdirs = []
      linklibs = ['tcl86t', 'tk86t']
      libdirs = []
 -elif sys.platform == 'darwin':
 +else:
      # homebrew
+     homebrew = os.environ.get('HOMEBREW_PREFIX', '')
      incdirs = ['/usr/local/opt/tcl-tk/include']
-     linklibs = ['tcl8.6', 'tk8.6']
-     libdirs = ['/usr/local/opt/tcl-tk/lib']
+@@ -26,7 +26,7 @@ elif sys.platform == 'darwin':
+     if homebrew:
+         incdirs.append(homebrew + '/include')
+         libdirs.append(homebrew + '/opt/tcl-tk/lib')
 -else:
 +if False: # disable Linux system tcl-tk detection
      # On some Linux distributions, the tcl and tk libraries are
