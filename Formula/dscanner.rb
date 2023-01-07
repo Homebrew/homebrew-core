@@ -27,6 +27,9 @@ class Dscanner < Formula
   end
 
   def install
+    # Fix for /usr/bin/ld: obj/dmd/containers/src/containers/ttree.o:
+    # relocation R_X86_64_32 against hidden symbol `__stop_minfo'
+    # can not be used when making a PIE object
     ENV.append "DFLAGS", "-fPIC" if OS.linux?
     system "make", "all", "DC=#{Hardware::CPU.arm? ? "ldc2" : "dmd"}"
     bin.install "bin/dscanner"
