@@ -3,6 +3,11 @@ class Genstats < Formula
   homepage "https://web.archive.org/web/20180831170016/https://www.vanheusden.com/genstats/"
   url "https://web.archive.org/web/20150331055106/http://vanheusden.com/genstats/genstats-1.2.tgz"
   sha256 "9988264357211a24f7024db05e24ed88db58227a626330114309147eb7078f6e"
+  license "GPL-2.0"
+  
+  livecheck do
+    skip "Upstream is gone and the formula uses archive.org URLs"
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "d60b585ddff616135b75457e8f51cc3d8b1cfc9a03fded05df23fde64a74cddb"
