@@ -5,6 +5,11 @@ class Certstrap < Formula
   sha256 "4b32289c20dfad7bf8ab653c200954b3b9981fcbf101b699ceb575c6e7661a90"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c5d6395c92d4c7e13c3f56b8d9e6a640583fa3644321093850cb106af2e91877"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cd72ace92ab23822ee98e6e0a374132f17b24ed473029266918891a4c6eea074"
