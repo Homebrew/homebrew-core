@@ -36,7 +36,7 @@ class Scipoptsuite < Formula
       -DCLIQUER=OFF
     ]
 
-    system "cmake", "-B", "scipoptsuite-build", "-S", ".", *cmake_args
+    system "cmake", "-B", "scipoptsuite-build", "-S", ".", *cmake_args, *std_cmake_args
     system "cmake", "--build", "scipoptsuite-build"
     system "cmake", "--install", "scipoptsuite-build"
 
