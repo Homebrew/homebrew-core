@@ -4,6 +4,7 @@ class DosboxStaging < Formula
   url "https://github.com/dosbox-staging/dosbox-staging/archive/v0.80.1.tar.gz"
   sha256 "2ca69e65e6c181197b63388c60487a3bcea804232a28c44c37704e70d49a0392"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/dosbox-staging/dosbox-staging.git", branch: "main"
 
   # New releases of dosbox-staging are indicated by a GitHub release (and
