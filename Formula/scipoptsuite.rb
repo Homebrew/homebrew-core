@@ -18,7 +18,7 @@ class Scipoptsuite < Formula
   uses_from_macos "zlib"
 
   def install
-    cmake_args = std_cmake_args + %W[
+    cmake_args = %W[
       -DPARASCIP=ON
       -DPAPILO=ON
       -DSOPLEX=ON
