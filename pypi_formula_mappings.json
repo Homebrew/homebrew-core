@@ -269,9 +269,6 @@
   "instalooter": {
     "exclude_packages": ["six"]
   },
-  "internetarchive": {
-    "exclude_packages": ["six"]
-  },
   "ipython": {
     "exclude_packages": ["six", "Pygments"]
   },
