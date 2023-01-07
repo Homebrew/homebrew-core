@@ -4,6 +4,7 @@ class Qmmp < Formula
   url "https://qmmp.ylsoftware.com/files/qmmp/2.1/qmmp-2.1.2.tar.bz2"
   sha256 "53ce8ba00920ea604555afdc801f24a426b92b07644743cc426006bdffca017a"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://qmmp.ylsoftware.com/downloads.php"
@@ -24,7 +25,6 @@ class Qmmp < Formula
   depends_on "cmake"      => :build
   depends_on "pkg-config" => :build
 
-  # TODO: on linux: pipewire
   depends_on "faad2"
   depends_on "ffmpeg"
   depends_on "flac"
@@ -49,7 +49,6 @@ class Qmmp < Formula
   depends_on "opus"
   depends_on "opusfile"
   depends_on "projectm"
-  depends_on "pulseaudio"
   depends_on "qt"
   depends_on "taglib"
   depends_on "wavpack"
@@ -61,6 +60,11 @@ class Qmmp < Formula
     # musepack is not bottled on Linux
     # https://github.com/Homebrew/homebrew-core/pull/92041
     depends_on "musepack"
+  end
+
+  on_linux do
+    # TODO: on linux: pipewire
+    depends_on "pulseaudio"
   end
 
   fails_with gcc: "5" # ffmpeg is compiled with GCC
