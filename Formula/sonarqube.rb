@@ -6,7 +6,7 @@ class Sonarqube < Formula
   license "LGPL-3.0-or-later"
 
   livecheck do
-    url "https://www.sonarqube.org/success-download-community-edition/"
+    url "https://www.sonarsource.com/products/sonarqube/downloads/"
     regex(/href=.*?sonarqube[._-]v?(\d+(?:\.\d+)+)\.zip/i)
   end
 
