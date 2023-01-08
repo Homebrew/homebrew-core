@@ -65,6 +65,7 @@ class Openimageio < Formula
       -DCCACHE_FOUND=
       -DEMBEDPLUGINS=ON
       -DOIIO_BUILD_TESTS=OFF
+      -DUSE_DCMTK=OFF
       -DUSE_EXTERNAL_PUGIXML=ON
       -DUSE_JPEGTURBO=ON
       -DUSE_NUKE=OFF
