@@ -15,6 +15,10 @@ class VertX < Formula
     sha256 cellar: :any_skip_relocation, all: "45b95b3679a4ec881e78b5e4a7bc1307273f7897aea04fad0684be910b233d17"
   end
 
+  # Upstream cannot write a test that works on formula
+  # Issue ref: https://github.com/vertx-distrib/homebrew-tap/issues/4
+  deprecate! date: "2023-01-07", because: "cannot test"
+
   # Unrecognized VM option 'UseBiasedLocking' since JDK 19
   depends_on "openjdk@17"
 
