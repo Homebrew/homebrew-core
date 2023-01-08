@@ -4,6 +4,7 @@ class Openttd < Formula
   url "https://cdn.openttd.org/openttd-releases/12.2/openttd-12.2-source.tar.xz"
   sha256 "81508f0de93a0c264b216ef56a05f8381fff7bffa6d010121a21490b4dace95c"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/OpenTTD/OpenTTD.git", branch: "master"
 
   livecheck do
