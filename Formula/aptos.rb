@@ -26,6 +26,7 @@ class Aptos < Formula
 
   on_linux do
     depends_on "pkg-config" => :build
+    depends_on "zip" => :build
     depends_on "openssl@3"
     depends_on "systemd"
   end
@@ -34,8 +35,8 @@ class Aptos < Formula
     system "#{Formula["rustup-init"].bin}/rustup-init",
       "-qy", "--no-modify-path", "--default-toolchain", "1.64"
     ENV.prepend_path "PATH", HOMEBREW_CACHE/"cargo_cache/bin"
-    system "cargo", "install", *std_cargo_args(path: "crates/aptos")
-    bin.install "target/release/aptos"
+    system "./scripts/cli/build_cli_release.sh", "homebrew"
+    bin.install "target/cli/aptos"
   end
 
   test do
