@@ -1,10 +1,9 @@
 class Weechat < Formula
   desc "Extensible IRC client"
   homepage "https://www.weechat.org"
-  url "https://weechat.org/files/src/weechat-3.7.1.tar.xz"
-  sha256 "c311c9de9f5d87404b667e0c690959388295485bce986fac4ab934ebd43589aa"
+  url "https://weechat.org/files/src/weechat-3.8.tar.xz"
+  sha256 "f7cb65c200f8c090c56f2cf98c0b184051e516e5f7099a4308cacf86f174bf28"
   license "GPL-3.0-or-later"
-  revision 1
   head "https://github.com/weechat/weechat.git", branch: "master"
 
   bottle do
@@ -33,13 +32,6 @@ class Weechat < Formula
 
   uses_from_macos "curl"
   uses_from_macos "tcl-tk"
-
-  # Fix build with Ruby 3.2
-  # https://github.com/weechat/weechat/pull/1865
-  patch do
-    url "https://github.com/weechat/weechat/commit/49ce7be88e331b4b23a2b918138e6238a998a2f8.patch?full_index=1"
-    sha256 "14fce206fbda311e1e355e0d1504d347e801c92b4d1a3d30f564b8356b408ec5"
-  end
 
   def install
     python3 = "python3.11"
