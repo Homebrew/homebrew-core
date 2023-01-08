@@ -24,7 +24,7 @@ class Libde265 < Formula
 
   def install
     extra_args = []
-    extra_args << "--build=aarch64-apple-darwin#{OS.kernel_version}" if Hardware::CPU.arm?
+    extra_args << "--build=aarch64-apple-darwin#{OS.kernel_version}" if OS.mac? && Hardware::CPU.arm?
 
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
