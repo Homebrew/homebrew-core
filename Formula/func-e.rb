@@ -17,6 +17,9 @@ class FuncE < Formula
   end
 
   depends_on "go" => :build
+  # archive-envoy does not support macos-11
+  # https://github.com/Homebrew/homebrew-core/pull/119899#issuecomment-1374663837
+  depends_on macos: :monterey
 
   def install
     ldflags = %W[
