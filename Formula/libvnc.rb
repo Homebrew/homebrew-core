@@ -6,10 +6,6 @@ class Libvnc < Formula
   license "GPL-2.0-only"
   head "https://github.com/LibVNC/libvncserver.git", branch: "master"
 
-  livecheck do
-    formula "libvncserver"
-  end
-
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "f48e89588cb1a19576b281f57e5603dd4be43fc243d0cd8ba11e89b2d945791b"
     sha256 cellar: :any,                 arm64_monterey: "bed86692d7831c43a601f2c0a1eb26aed08540bec111db9ad356068e7b1a7b2f"
