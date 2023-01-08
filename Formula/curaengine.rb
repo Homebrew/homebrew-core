@@ -7,16 +7,6 @@ class Curaengine < Formula
   version_scheme 1
   head "https://github.com/Ultimaker/CuraEngine.git", branch: "master"
 
-  # Releases like xx.xx or xx.xx.x are older than releases like x.x.x, so we
-  # work around this less-than-ideal situation by restricting the major version
-  # to one digit. This won't pick up versions where the major version is 10+
-  # but thankfully that hasn't been true yet. This should be handled in a better
-  # way in the future, to avoid the possibility of missing good versions.
-  livecheck do
-    url :stable
-    regex(/^v?(\d(?:\.\d+)+)$/i)
-  end
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "df46dbfdd389c20a311ffe46ccd8807496c60fdbb27ae3ed07f10592b0b8c27d"
