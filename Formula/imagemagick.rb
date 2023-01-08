@@ -54,11 +54,11 @@ class Imagemagick < Formula
   def install
     # Avoid references to shim
     inreplace Dir["**/*-config.in"], "@PKG_CONFIG@", Formula["pkg-config"].opt_bin/"pkg-config"
+    # versioned stuff in main tree is pointless for us
+    inreplace "configure", "${PACKAGE_NAME}-${PACKAGE_BASE_VERSION}", "${PACKAGE_NAME}"
 
     args = [
       "--enable-osx-universal-binary=no",
-      "--prefix=#{prefix}",
-      "--disable-dependency-tracking",
       "--disable-silent-rules",
       "--disable-opencl",
       "--enable-shared",
@@ -74,6 +74,7 @@ class Imagemagick < Formula
       "--with-gslib",
       "--with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts",
       "--with-lqr",
+      "--without-djvu",
       "--without-fftw",
       "--without-pango",
       "--without-wmf",
@@ -89,9 +90,7 @@ class Imagemagick < Formula
       ]
     end
 
-    # versioned stuff in main tree is pointless for us
-    inreplace "configure", "${PACKAGE_NAME}-${PACKAGE_BASE_VERSION}", "${PACKAGE_NAME}"
-    system "./configure", *args
+    system "./configure", *std_configure_args, *args
     system "make", "install"
   end
 
