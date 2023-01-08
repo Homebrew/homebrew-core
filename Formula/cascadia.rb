@@ -17,5 +17,10 @@ class Cascadia < Formula
 
   test do
     assert_match "Version #{version}", shell_output("#{bin}/cascadia --help")
+
+    test_html = '<foo><bar>aaa</bar><baz>bbb</baz></foo>'
+    test_css_selector = 'foo > bar'
+    expected_html_output = '<bar>aaa</bar>'
+    assert_match expected_html_output, shell_output("echo '#{test_html}' | #{bin}/cascadia --in --out --css '#{test_css_selector}' 2>/dev/null")
   end
 end
