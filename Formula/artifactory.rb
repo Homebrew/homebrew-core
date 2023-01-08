@@ -7,11 +7,6 @@ class Artifactory < Formula
   sha256 "b7d152435df543ae50c6a0ff44208aead93ca4f1b47b6658b1825df6ddcc2292"
   license "AGPL-3.0-or-later"
 
-  livecheck do
-    url "https://releases.jfrog.io/artifactory/bintray-artifactory/org/artifactory/oss/jfrog-artifactory-oss/"
-    regex(/href=.*?v?(\d+(?:\.\d+)+)/i)
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, all: "39f95a12d5e609016171cb09106bdfd211f9ac910a9c1b1ac4241fb64e0fbc8c"
   end
