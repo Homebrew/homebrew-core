@@ -1,8 +1,8 @@
 class Gnupg < Formula
   desc "GNU Pretty Good Privacy (PGP) package"
   homepage "https://gnupg.org/"
-  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.3.8.tar.bz2"
-  sha256 "540b7a40e57da261fb10ef521a282e0021532a80fd023e75fb71757e8a4969ed"
+  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.4.0.tar.bz2"
+  sha256 "1d79158dd01d992431dd2e3facb89fdac97127f89784ea2cb610c600fb0c1483"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -22,7 +22,6 @@ class Gnupg < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "gettext"
   depends_on "gnutls"
   depends_on "libassuan"
   depends_on "libgcrypt"
@@ -31,35 +30,31 @@ class Gnupg < Formula
   depends_on "libusb"
   depends_on "npth"
   depends_on "pinentry"
+  depends_on "readline"
 
+  uses_from_macos "bzip2"
   uses_from_macos "sqlite", since: :catalina
+  uses_from_macos "zlib"
 
-  on_linux do
-    depends_on "libidn"
-  end
-
-  # Fixes a build failure without ldap.
-  # Committed upstream, will be in the next release.
-  # https://dev.gnupg.org/T6239
-  patch do
-    url "https://dev.gnupg.org/rG7011286ce6e1fb56c2989fdafbd11b931c489faa?diff=1"
-    sha256 "407011d4ae9799f50008b431df60cd5b781dca0f572e956fd46245aa209af7e8"
+  on_macos do
+    depends_on "gettext"
   end
 
   def install
     libusb = Formula["libusb"]
     ENV.append "CPPFLAGS", "-I#{libusb.opt_include}/libusb-#{libusb.version.major_minor}"
 
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--sbindir=#{bin}",
-                          "--sysconfdir=#{etc}",
-                          "--enable-all-tests",
-                          "--with-pinentry-pgm=#{Formula["pinentry"].opt_bin}/pinentry"
-    system "make"
-    system "make", "check"
-    system "make", "install"
+    mkdir "build" do
+      system "../configure", *std_configure_args,
+                             "--disable-silent-rules",
+                             "--sbindir=#{bin}",
+                             "--sysconfdir=#{etc}",
+                             "--enable-all-tests",
+                             "--with-pinentry-pgm=#{Formula["pinentry"].opt_bin}/pinentry"
+      system "make"
+      system "make", "check"
+      system "make", "install"
+    end
 
     # Configure scdaemon as recommended by upstream developers
     # https://dev.gnupg.org/T5415#145864
