@@ -6,11 +6,6 @@ class VertX < Formula
   license any_of: ["EPL-2.0", "Apache-2.0"]
   revision 1
 
-  livecheck do
-    url "https://search.maven.org/remotecontent?filepath=io/vertx/vertx-stack-manager/"
-    regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, all: "45b95b3679a4ec881e78b5e4a7bc1307273f7897aea04fad0684be910b233d17"
   end
