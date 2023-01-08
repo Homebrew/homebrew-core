@@ -1,8 +1,8 @@
 class Katago < Formula
   desc "Neural Network Go engine with no human-provided knowledge"
   homepage "https://github.com/lightvector/KataGo"
-  url "https://github.com/lightvector/KataGo/archive/v1.12.0.tar.gz"
-  sha256 "648827d476f33c9d330e75efc17ef374fb15de6139060eb30026ed4be67af94b"
+  url "https://github.com/lightvector/KataGo/archive/v1.12.1.tar.gz"
+  sha256 "37afd9c9480b4633dd5e3af038ad209de9b2ba778ef52f47ef3bec98e7dee60b"
   license "MIT"
 
   livecheck do
