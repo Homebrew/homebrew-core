@@ -13,7 +13,7 @@ class Scipoptsuite < Formula
   depends_on "ipopt"
   depends_on "tbb"
 
-  uses_from_macos "bison"
+  uses_from_macos "bison@2.7"
   uses_from_macos "flex"
   uses_from_macos "zlib"
 
