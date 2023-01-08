@@ -5,7 +5,6 @@ class Scipoptsuite < Formula
   sha256 "5ad50eb42254c825d96f5747d8f3568dcbff0284dfbd1a727910c5a7c2899091"
   license all_of: ["Apache-2.0", "LGPL-3.0-or-later"]
 
-  uses_from_macos "bison"
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "cppad"
@@ -14,6 +13,7 @@ class Scipoptsuite < Formula
   depends_on "ipopt"
   depends_on "tbb"
 
+  uses_from_macos "bison"
   uses_from_macos "flex"
   uses_from_macos "zlib"
 
