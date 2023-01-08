@@ -1,8 +1,8 @@
 class Libucl < Formula
   desc "Universal configuration library parser"
   homepage "https://github.com/vstakhov/libucl"
-  url "https://github.com/vstakhov/libucl/archive/0.8.1.tar.gz"
-  sha256 "a6397e179672f0e8171a0f9a2cfc37e01432b357fd748b13f4394436689d24ef"
+  url "https://github.com/vstakhov/libucl/archive/0.8.2.tar.gz"
+  sha256 "d95a0e2151cc167a0f3e51864fea4e8977a0f4c473faa805269a347f7fb4e165"
   license "BSD-2-Clause"
 
   bottle do
