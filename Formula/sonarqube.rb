@@ -20,7 +20,7 @@ class Sonarqube < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "27a13db9e7e579600c980f66b66ac9b8ce0814d8eeba24e7d454c61bba4de362"
   end
 
-  depends_on "openjdk@11"
+  depends_on "openjdk@17"
 
   conflicts_with "sonarqube-lts", because: "both install the same binaries"
 
@@ -39,7 +39,7 @@ class Sonarqube < Formula
     end
 
     libexec.install Dir["*"]
-    env = Language::Java.overridable_java_home_env("11")
+    env = Language::Java.overridable_java_home_env("17")
     env["PATH"] = "$JAVA_HOME/bin:$PATH"
     (bin/"sonar").write_env_script libexec/"bin"/platform/"sonar.sh", env
   end
