@@ -1,8 +1,8 @@
 class Libeatmydata < Formula
   desc "LD_PRELOAD library and wrapper to transparently disable fsync and related calls"
   homepage "https://www.flamingspork.com/projects/libeatmydata/"
-  url "https://github.com/stewartsmith/libeatmydata/releases/download/v130/libeatmydata-130.tar.gz"
-  sha256 "48731cd7e612ff73fd6339378fbbff38dd3bcf6c243593b0d9773ca0051541c0"
+  url "https://github.com/stewartsmith/libeatmydata/releases/download/v131/libeatmydata-131.tar.gz"
+  sha256 "cf18a8c52138a38541be3478af446c06048108729d7e18476492d62d54baabc4"
   license "GPL-3.0-or-later"
   head "https://github.com/stewartsmith/libeatmydata.git", branch: "master"
 
