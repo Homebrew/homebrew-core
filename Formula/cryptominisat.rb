@@ -14,14 +14,13 @@ class Cryptominisat < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "f55031ebeb62eb54b08e6dc851bf0296d19d48b71e431f2eeb4a179590d0510e"
-    sha256 cellar: :any,                 arm64_monterey: "60015d38637dfee5ff04d9566ff52d17408cda515ee76a1cd01557c7a60ee3a3"
-    sha256 cellar: :any,                 arm64_big_sur:  "2bef2564da0b1b48add8b7bd153b3611abc839a1b555eb5ee70a290a5092f5eb"
-    sha256 cellar: :any,                 ventura:        "7bea27778e26209a1535f3b491979191e00c89f3b8710ab1bb74fc635e6ffb2e"
-    sha256 cellar: :any,                 monterey:       "b84162f9d9f5d1675fba871941bbe43f5a79558fde9928a7bfda8b1f7c0bd7a1"
-    sha256 cellar: :any,                 big_sur:        "23a2a2e8d087e591ae8702a98e1660b4ec3c407c4ded2822c7c9f27cb83b1035"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e26b0ba0ec4f574eae058ba3609e8c3bfb383a5a82fbf2ce23ef94e250266991"
+    sha256 cellar: :any,                 arm64_ventura:  "ebe5f3d813bd94d6366080733cd6a8b61ae2dc1bf243ee57dca8678b551d7bd6"
+    sha256 cellar: :any,                 arm64_monterey: "caf7fa1899076b2d98333f253505d802ec14b834f9915fdfbea51a4d525444e3"
+    sha256 cellar: :any,                 arm64_big_sur:  "31f3b36598745c142f428451dde74430228e23c737222de2b5e743ab8f163d44"
+    sha256 cellar: :any,                 ventura:        "1f223253304a9c846df31077bce73ed3451c000f96acefcd3a51cf52840c9ed9"
+    sha256 cellar: :any,                 monterey:       "a790c4ddfe4eeda555979d5a89e05ac976881287698613aa8b966a108503533e"
+    sha256 cellar: :any,                 big_sur:        "1ed4e6fef5258653335a460ef1d8aa9c6d4c8fd03b507ac7dc9ce8b985a9d53c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fbbfec94567e6c6a80f7670eae3b4838d8a90d955a92f58325fcece79212dac9"
   end
 
   depends_on "cmake" => :build
