@@ -3,8 +3,8 @@ class CfnLint < Formula
 
   desc "Validate CloudFormation templates against the CloudFormation spec"
   homepage "https://github.com/aws-cloudformation/cfn-lint/"
-  url "https://files.pythonhosted.org/packages/7b/78/068cdc7144984a9627757bee0c8636603610f30c416d02d77e7367c0a8a1/cfn-lint-0.72.6.tar.gz"
-  sha256 "a84fb9c2291b21787cc41edcf93481d97d8d3983bdc03c921bffd905d500080c"
+  url "https://files.pythonhosted.org/packages/f6/71/023a8e21e38c6a9d8f2513b9b9a80403727af0cb2d4cf7f2f0814bbd14d7/cfn-lint-0.72.7.tar.gz"
+  sha256 "b6559dd44015947b17f3c0b0d5f38a4bbdadccbb13b6000c96f1a22241f2b69c"
   license "MIT-0"
 
   bottle do
@@ -27,18 +27,18 @@ class CfnLint < Formula
   end
 
   resource "aws-sam-translator" do
-    url "https://files.pythonhosted.org/packages/c2/b7/df9463df4ebf3d573a58accc394fe3b5c765e49d3502d3175dc449519178/aws-sam-translator-1.55.0.tar.gz"
-    sha256 "08e182e76d6fabc13ce2f38b8a3932b3131407c6ad29ec2849ef3d9a41576b94"
+    url "https://files.pythonhosted.org/packages/96/c5/288763b89ab5b19da52cf099e4e23edd661e9fe06a853996ff16214f5de1/aws-sam-translator-1.56.0.tar.gz"
+    sha256 "ba97287f5ffc8bc55759f3a416230a27ce26d8c0118e77b9737fa700781bd816"
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/f0/14/b6546142dbae744f5a288b63e0ad1c6a30049d6f99ecfa8611bc9ef10305/boto3-1.26.42.tar.gz"
-    sha256 "4cfd7e05e4033dbca2cc59bcfdafbdaef9d83dc3c0448917569b301d85766d9d"
+    url "https://files.pythonhosted.org/packages/e5/c0/763f924ea24f55b8041232fd778305418518b82a10285af4e190d1c24450/boto3-1.26.46.tar.gz"
+    sha256 "e24d65c31780c208768ebcd152d8a0181591c9c8e7d971e23f318d7f41910ba1"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/0e/1c/b7862ffb26cc9ceb2bba2aa85363b18cc305c936cbf6fa2e47fd3942e107/botocore-1.29.42.tar.gz"
-    sha256 "d05c62f64e76194c40f598f5f7c804ec50d9820e9f03f6e0198558e4ace167c4"
+    url "https://files.pythonhosted.org/packages/bb/96/298f61ff79e6608596a5c74fd9641faba36dd8f6cc2519d4e74603262e67/botocore-1.29.46.tar.gz"
+    sha256 "78bf25933e35eb6354a9e80fe156f86dce4d346a92afe364dfce25c17ab0639f"
   end
 
   resource "jmespath" do
@@ -67,8 +67,8 @@ class CfnLint < Formula
   end
 
   resource "jsonschema" do
-    url "https://files.pythonhosted.org/packages/69/11/a69e2a3c01b324a77d3a7c0570faa372e8448b666300c4117a516f8b1212/jsonschema-3.2.0.tar.gz"
-    sha256 "c8a85b28d377cc7737e46e2d9f2b4f44ee3c0e1deac6bf46ddefc7187d30797a"
+    url "https://files.pythonhosted.org/packages/36/3d/ca032d5ac064dff543aa13c984737795ac81abc9fb130cd2fcff17cfabc7/jsonschema-4.17.3.tar.gz"
+    sha256 "0f864437ab8b6076ba6707453ef8f98a6a0d512a80e93f8abdb676f737ecb60d"
   end
 
   # only doing this because junit-xml source is not available in PyPI for v1.9
@@ -85,6 +85,11 @@ class CfnLint < Formula
   resource "pbr" do
     url "https://files.pythonhosted.org/packages/52/fb/630d52aaca8fc7634a0711b6ae12a0e828b6f9264bd8051225025c3ed075/pbr-5.11.0.tar.gz"
     sha256 "b97bc6695b2aff02144133c2e7399d5885223d42b7912ffaec2ca3898e673bfe"
+  end
+
+  resource "pydantic" do
+    url "https://files.pythonhosted.org/packages/53/17/34e54e352f6a3d304044e52d5ddd5cd621a62ec8fb7af08cc73af65dd3e1/pydantic-1.10.4.tar.gz"
+    sha256 "b9a3859f24eb4e097502a3be1fb4b2abb79b6103dd9e2e0edb70613a4459a648"
   end
 
   resource "pyrsistent" do
@@ -105,6 +110,11 @@ class CfnLint < Formula
   resource "sarif-om" do
     url "https://files.pythonhosted.org/packages/ba/de/bbdd93fe456d4011500784657c5e4a31e3f4fcbb276255d4db1213aed78c/sarif_om-1.0.4.tar.gz"
     sha256 "cd5f416b3083e00d402a92e449a7ff67af46f11241073eea0461802a3b5aef98"
+  end
+
+  resource "typing-extensions" do
+    url "https://files.pythonhosted.org/packages/e3/a7/8f4e456ef0adac43f452efc2d0e4b242ab831297f1bac60ac815d37eb9cf/typing_extensions-4.4.0.tar.gz"
+    sha256 "1511434bb92bf8dd198c12b1cc812e800d4181cfcb867674e0f8279cc93087aa"
   end
 
   resource "urllib3" do
