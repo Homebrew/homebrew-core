@@ -15,14 +15,19 @@ class Hunspell < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "09ba93523c0b255617dd5c9771da092b73a9e9f40f0e7f5c727b7b181f6c8248"
   end
 
-  depends_on "gettext"
   depends_on "readline"
+
+  uses_from_macos "ncurses"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   conflicts_with "freeling", because: "both install 'analyze' binary"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
+    system "./configure", *std_configure_args,
+                          "--disable-silent-rules",
                           "--with-ui",
                           "--with-readline"
     system "make"
