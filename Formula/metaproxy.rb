@@ -14,13 +14,13 @@ class Metaproxy < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "885f8eb27913f00873bcbfa360407457792a059d01ab5f42b962f0c2cf0057ca"
-    sha256 cellar: :any,                 arm64_monterey: "fee0dd1d5cc4be29c7edc429684e4f8ea15c2b15a53765386f323d7e4a3bf636"
-    sha256 cellar: :any,                 arm64_big_sur:  "0c9ce0b489ab4975a14e4a0de2c430c3aab5fd60e97eb1935a9c33fefe8297d8"
-    sha256 cellar: :any,                 ventura:        "c70a3907c0b92349e525a164ed5ec8be69a9fd47cdddfd813f38fd9a0916da33"
-    sha256 cellar: :any,                 monterey:       "4276c205f39bb06e6a4bde02fe7c68e2ee6e3a7f9360ee3ad4a2f716119e421a"
-    sha256 cellar: :any,                 big_sur:        "028ab6a680a6080e38d9b615a411397c0d29126dab5184b8f10e6d9b37b3e21a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7f11f45172174d355ac31bd9deeba2ad02ec3b59413c18b23e3f6e93581cb79d"
+    sha256 cellar: :any,                 arm64_ventura:  "5f55c3b73288a792bd8e4e7cf38c9fde4e21ad45a6a4961ab2d9957d42300570"
+    sha256 cellar: :any,                 arm64_monterey: "dbf687afa69f52a53e63d5754b6bb30ea91f4673a1b72ec9f26bb6d5d62246ac"
+    sha256 cellar: :any,                 arm64_big_sur:  "b281a369bc300ccefb7f2b15c72b15e842a72ada88f130b1a56f7cdb50d977f9"
+    sha256 cellar: :any,                 ventura:        "91e4db798dd20206ff631c4939edf186c9d26efeea21cef0c1aaa83eb22946fc"
+    sha256 cellar: :any,                 monterey:       "5defd04d977c66aab07001282f2442ddb802e7051f93887886ac989252c1e59d"
+    sha256 cellar: :any,                 big_sur:        "11a728fd1a729c52c0b64127d34f8893d63bbcb05fc6b01a035fa4ab52bb9021"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1fe7bdef0f0db9b6ef4584c67da66416a38598cdd41a68ebaf434fb91576d82d"
   end
 
   depends_on "pkg-config" => :build
