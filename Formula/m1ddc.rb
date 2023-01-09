@@ -4,7 +4,6 @@ class M1ddc < Formula
   url "https://github.com/waydabber/m1ddc/archive/refs/tags/v1.0.0.tar.gz"
   sha256 "884b65910e69915db29182363590d663a1a6d983e13ca5c41a74209058084c44"
   license "MIT"
-
   head "https://github.com/waydabber/m1ddc.git", branch: "main"
 
   depends_on arch: :arm
