@@ -7,14 +7,13 @@ class Freeling < Formula
   revision 10
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "051517f926b0161becac7bd8dbc3f3964839e044de99cefb272e014bf932864a"
-    sha256 cellar: :any,                 arm64_monterey: "526c63df3912ae9541f86bbb1e89a14c23cbc3c2233fb1b24aff9811e7994e23"
-    sha256 cellar: :any,                 arm64_big_sur:  "c6a82a3e57695acc5fa7842cc01035954ae342ad4edaee63c2ec1f58aaf4d7e7"
-    sha256 cellar: :any,                 ventura:        "e506f3d52f1f785bdfd63462f9301268a4447b1edec4f7a9816877dbd3eef909"
-    sha256 cellar: :any,                 monterey:       "dfab507ba6f80dc5985a0d976e66b8780456aa9b39c10d4ac15161e194036ca3"
-    sha256 cellar: :any,                 big_sur:        "7a9a3cc243d0617f4aec9a7b4c756a5b61e252b638200112c211cd66b9b5f3b5"
-    sha256 cellar: :any,                 catalina:       "15c7ddf25814b4a40358824aa3502a7f2f0d8fc4513963ba42e14a9db73e58b4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f40785345e0375efc61af44a27882f266732fc4e22120d4d0e7b6358c3fcd85c"
+    sha256 cellar: :any,                 arm64_ventura:  "75b3dc46dbfe83dfb68a9b6e48db01c70f84783d692c43d3471bee65fd609c50"
+    sha256 cellar: :any,                 arm64_monterey: "70b50c78541d1f43b52aa71eba4c67beff3c454829ba790d8b7a995b8bf120dd"
+    sha256 cellar: :any,                 arm64_big_sur:  "c6c42389cd81477eda463b035d2178ae1252cb582c8da61a67304c985ad7f7e0"
+    sha256 cellar: :any,                 ventura:        "2deb766979aee31c8f44de2d8fbb00ee679cae2bcfe14dfa0808c50d8d643aff"
+    sha256 cellar: :any,                 monterey:       "505de2d877f54867d1429c0615039df2c9dd94d90e03fbf42c85605eb6418c0f"
+    sha256 cellar: :any,                 big_sur:        "dbfcf146246e5a9dccc31f658614db98d09b665ed2bb3c1cc92521747d66e558"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6a6efd1bc975e83658e96b8a3a745ca9105b8ee2c853006a9065e63cfd192392"
   end
 
   depends_on "cmake" => :build
