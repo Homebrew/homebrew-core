@@ -24,9 +24,22 @@ class Imlib2 < Formula
   depends_on "libx11"
   depends_on "libxcb"
   depends_on "libxext"
+  depends_on "xz"
+
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
 
   def install
-    system "./configure", *std_configure_args, "--enable-amd64=no", "--without-id3"
+    system "./configure", *std_configure_args,
+                          "--disable-silent-rules",
+                          "--enable-amd64=no",
+                          "--without-heif",
+                          "--without-id3",
+                          "--without-j2k",
+                          "--without-jxl",
+                          "--without-ps",
+                          "--without-svg",
+                          "--without-webp"
     system "make", "install"
   end
 
