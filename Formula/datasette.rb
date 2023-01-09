@@ -2,8 +2,8 @@ class Datasette < Formula
   include Language::Python::Virtualenv
   desc "Open source multi-tool for exploring and publishing data"
   homepage "https://docs.datasette.io/en/stable/"
-  url "https://files.pythonhosted.org/packages/77/35/1e7aa435387dea9b30a4250f906796b33779ce2d3cedee647f5f4b0ee7b0/datasette-0.63.3.tar.gz"
-  sha256 "fc6a37c73d0d08e9240211a24893eb09886b84427be1ad2295a67be231175af3"
+  url "https://files.pythonhosted.org/packages/75/b0/00e47ec3df71eaef08ac56a10d333a46535c21f17e6338316d3cbc606739/datasette-0.64.tar.gz"
+  sha256 "6a972f9a86e44dab50e4a98fcbbdbd4c5d90e7e5327d9f8205ed7aebe155105d"
   license "Apache-2.0"
   head "https://github.com/simonw/datasette.git", branch: "main"
 
@@ -38,8 +38,8 @@ class Datasette < Formula
   end
 
   resource "asgiref" do
-    url "https://files.pythonhosted.org/packages/1f/35/e7d59b92ceffb1dc62c65156278de378670b46ab2364a3ea7216fe194ba3/asgiref-3.5.2.tar.gz"
-    sha256 "4a29362a6acebe09bf1d6640db38c1dc3d9217c68e6f9f6204d72667fc19a424"
+    url "https://files.pythonhosted.org/packages/78/2d/797c0537426266d6c9377a2ed6a4ac61e50c2d5b1ab4da101a4b9bfe26e2/asgiref-3.6.0.tar.gz"
+    sha256 "9567dfe7bd8d3c8c892227827c41cce860b368104c3431da67a0c5a65a949506"
   end
 
   resource "certifi" do
@@ -63,18 +63,18 @@ class Datasette < Formula
   end
 
   resource "httpcore" do
-    url "https://files.pythonhosted.org/packages/9b/20/26f6cc4fd00391f8f1c57b0020f5c6eec23904723db04b6f7608e222d815/httpcore-0.16.2.tar.gz"
-    sha256 "c35c5176dc82db732acfd90b581a3062c999a72305df30c0fc8fafd8e4aca068"
+    url "https://files.pythonhosted.org/packages/61/42/5c456b02816845d163fab0f32936b6a5b649f3f915beff6f819f4f6c90b2/httpcore-0.16.3.tar.gz"
+    sha256 "c5d6f04e2fc530f39e0c077e6a30caa53f1451096120f1f38b954afd0b17c0cb"
   end
 
   resource "httpx" do
-    url "https://files.pythonhosted.org/packages/8a/df/a3e8b91dfb452e645ef110985a30f0915276a1a2144004c7671c07bb203c/httpx-0.23.1.tar.gz"
-    sha256 "202ae15319be24efe9a8bd4ed4360e68fde7b38bcc2ce87088d416f026667d19"
+    url "https://files.pythonhosted.org/packages/f5/50/04d5e8ee398a10c767a341a25f59ff8711ae3adf0143c7f8b45fc560d72d/httpx-0.23.3.tar.gz"
+    sha256 "9818458eb565bb54898ccb9b8b251a28785dd4a55afbc23d0eb410754fe7d0f9"
   end
 
   resource "hupper" do
-    url "https://files.pythonhosted.org/packages/6e/0c/42cf24a35e97999bf1bdb64c8a27a70ae95ffa72d85090339b7b5404e536/hupper-1.10.3.tar.gz"
-    sha256 "cd6f51b72c7587bc9bce8a65ecd025a1e95f1b03284519bfe91284d010316cd9"
+    url "https://files.pythonhosted.org/packages/61/c0/11cb2e672162c3ea8b2ed227299fff22ff1ca08dd3f78c9bc6f1d44a162a/hupper-1.11.tar.gz"
+    sha256 "15c11bd775d8f98095b745b4e658a17c25c86e3b73275cae896ac1c8d533cb18"
   end
 
   resource "idna" do
