@@ -12,14 +12,13 @@ class Ncmpcpp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "76f18301d32737baac84267995a24de92092dc76c60327c479c7a0f6dd84139b"
-    sha256 cellar: :any,                 arm64_monterey: "cf2eca5f6cd5e691356f38ac0c5a8340b15e327d40ed716f0500baac4f7137b6"
-    sha256 cellar: :any,                 arm64_big_sur:  "eced36d7c545a790542a896f7513b76167cdc0e61f8cce67573fb73154968ee6"
-    sha256 cellar: :any,                 ventura:        "35b29ff5a268f63e9b72b2a390d736819539aa1536db14300413f39e4667f706"
-    sha256 cellar: :any,                 monterey:       "afd09c2d5c806b93818042ca072c60a27d07819168fe31169c90689937002460"
-    sha256 cellar: :any,                 big_sur:        "808b5a7a5a8a3b5af8e801e7c3220b56c034e14dc7d21469ffd071ba56d5d1c9"
-    sha256 cellar: :any,                 catalina:       "055ce811b2df28549105dad74e5813ca160a443593b5ae2d043255b53d22b26c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7aab89e6b1232657954e27f6e6623d7220d22c541bad3a6fcf05047a613b06c9"
+    sha256 cellar: :any,                 arm64_ventura:  "e788a047aa552285d5a98f617b4fa4e212797ebae6bf25e9264af088d04627ff"
+    sha256 cellar: :any,                 arm64_monterey: "45d066da30e3dcce5a6345c67acbe07c1e3590c346046c9951bbdaa98eb2da00"
+    sha256 cellar: :any,                 arm64_big_sur:  "a8389eb3a5385c9cfb1a2db767444c510e937f1b1a0e8331c208b1b0c5ffa8f3"
+    sha256 cellar: :any,                 ventura:        "7ed7606a3d2ef188c7475070b99444e31e7750e018d531e847d91d90eee39cd9"
+    sha256 cellar: :any,                 monterey:       "d8ec679506b89515a490c9687900a4f766284f1d9d6271ed7f392b7fe59afe37"
+    sha256 cellar: :any,                 big_sur:        "3ce289778a9180462a2132c9bb78e3ef03acbc72b30fbec0fee308e136b5f0d1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f5fc4f6550cf266e7da9ef7f5d1c1230c5c5729ca2def0d1a2e9f921ed653145"
   end
 
   head do
