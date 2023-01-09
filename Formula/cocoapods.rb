@@ -24,6 +24,12 @@ class Cocoapods < Formula
     depends_on "ruby"
   end
 
+  # Fix compatibility with Ruby 3.2, remove in next release
+  patch do
+    url "https://github.com/CocoaPods/CocoaPods/commit/2af8ba7e3477296d975243eeb1c12f379ab556a1.patch?full_index=1"
+    sha256 "391da12230d5e413853d96af7f310f5e588e80974df82caf1284c3d6f467cabc"
+  end
+
   def install
     if MacOS.version >= :mojave && MacOS::CLT.installed?
       ENV["SDKROOT"] = ENV["HOMEBREW_SDKROOT"] = MacOS::CLT.sdk_path(MacOS.version)
