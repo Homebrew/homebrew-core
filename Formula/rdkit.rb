@@ -16,13 +16,13 @@ class Rdkit < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "5327e4db99501802db6b75b000fba0fba2cef24a201d1b659a03c23b3e5552db"
-    sha256 cellar: :any,                 arm64_monterey: "825dd61ee8e7882098948c0d724a033baf9676cc3b99e3b8d26b2fb03443dd30"
-    sha256 cellar: :any,                 arm64_big_sur:  "0a5d026925d55893e38f4ad1636a3d32b5a905fcfdb3e00076355372c2bd1745"
-    sha256 cellar: :any,                 ventura:        "f746fcb31de3d35fe20ab0be09204c25c9a14a1bf76f39ed9369bc1ecc4b904b"
-    sha256 cellar: :any,                 monterey:       "8c0de62d6341dd529f3af4e4005c78cb79058a4a1c93cee58b06a685cfed9102"
-    sha256 cellar: :any,                 big_sur:        "5bc2eda99aa4bb888d1549b12ab8c34887910fb9e8c27cb692aff17e8acf06d1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "580fcb075b920a0e6978f8d6bb8ad2c62a3fa46cfb60a79db46a0782a17c185f"
+    sha256 cellar: :any,                 arm64_ventura:  "7377f2c1f450718a8c4945f07b955518ad3a6b91d4b7fd965c256163f277e001"
+    sha256 cellar: :any,                 arm64_monterey: "f43a320f64ba2488227a0e03af324f4c7b6684a68efef1ecf16d5b5bf28a681f"
+    sha256 cellar: :any,                 arm64_big_sur:  "d65f4a054f600eff12f4423cce3a91b1a402ce95b10a9b9dbf1ec62a22ca169c"
+    sha256 cellar: :any,                 ventura:        "5628d1d25616d69780ca3b4ba6a50084f977ed02a1970b4943b1af1d7ac1f7de"
+    sha256 cellar: :any,                 monterey:       "4aac4304026723804891154e1783094eeae4fa3398ef6eeb5e07b768349e85c9"
+    sha256 cellar: :any,                 big_sur:        "c13f9e5d27a96930daa42f948473872a4df027d324c2e9d81ddb07df87c92d9c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b625c2b3cfcd0dc91f94c40ab69ff9c7e580dd75d8d983113fbe77dccd622244"
   end
 
   depends_on "cmake" => :build
