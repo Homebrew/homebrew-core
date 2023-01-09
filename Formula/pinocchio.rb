@@ -8,14 +8,13 @@ class Pinocchio < Formula
   head "https://github.com/stack-of-tasks/pinocchio.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "8db5fb9ad64c7c9f52b6d58a92c873c7f3a73803696858a4c38628f21ffb6f4a"
-    sha256 cellar: :any,                 arm64_monterey: "13c90fddb707a9b0ac1dfc3e61fffc9bcb19cac60d2cb48daa0acab63ca7c61c"
-    sha256 cellar: :any,                 arm64_big_sur:  "7a406174b3b93bdebf9d73ec89deaabb73fa744d8f23e4feeed9b1f27f82e86c"
-    sha256 cellar: :any,                 ventura:        "65389451277e7418b672a422dc22c59c7a899c352275786a2ec38fff48890d36"
-    sha256 cellar: :any,                 monterey:       "ded3e15c0928e4ccdcf8e2544b6f5c2bfefe258a43668964b0518ca67bcf324c"
-    sha256 cellar: :any,                 big_sur:        "8ec4cebae4c9884ca03494090e2e0ce4ce65b1dbb381858e4c8bae7da81e337c"
-    sha256 cellar: :any,                 catalina:       "179af5d6985f8d5c1ec88c7ffb5a2d987f358fcc63a28f71d2fda89cbb40f06e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3dce7fe7e3be0987cbadf5713c9ba2a17623310c50197db10693fc5e279b7a1f"
+    sha256 cellar: :any,                 arm64_ventura:  "d55d40b6ad76a64c3cd885fbd2e9ef167f710c24e1faf0ebef1e22b163ddd540"
+    sha256 cellar: :any,                 arm64_monterey: "ff735a05ef378ad374a036df367b32221579f84cebc2e86a420541bf2e2e8b69"
+    sha256 cellar: :any,                 arm64_big_sur:  "b682b22a58f09428698666379b0aa1625cc000066d37b2b0dc8cf84083e70614"
+    sha256 cellar: :any,                 ventura:        "e483849f599872f580b7e4edede1dc01a5b6a126c65cc309f7c53acbebac53a3"
+    sha256 cellar: :any,                 monterey:       "532130106302f6db57e2a428c778157dd416e13094881281b5edc81fe09e7aea"
+    sha256 cellar: :any,                 big_sur:        "6aa6e27a18117e9ab7909b0cebb096b313703f35b8e79d598e92babb946cf8f4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ad0d69fe945fc706e2c2d99191df3a4e7049880b608f895b6cf7da03732659c6"
   end
 
   depends_on "cmake" => :build
