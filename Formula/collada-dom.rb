@@ -7,14 +7,13 @@ class ColladaDom < Formula
   head "https://github.com/rdiankov/collada-dom.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "c920a17cba52a9eddfcf9951004af4f929ac75c332aea326d6526302b26a7392"
-    sha256 cellar: :any,                 arm64_monterey: "3f4c94c87fcf91e70742ee59d9beaac2795f0338732d5416a68e498d58c4067d"
-    sha256 cellar: :any,                 arm64_big_sur:  "0fd24a0542b44e9718527d769a8f3b2229ee2f3f9e0c114472d0d28f9499edc7"
-    sha256 cellar: :any,                 ventura:        "e44ce87f14897e0656a82496c88935dee68e96e509a58c4f47ea03aa74ab8284"
-    sha256 cellar: :any,                 monterey:       "70bca431ec07f8e203c0fb60621527a6df11a122871c02af2e3b34cb615542bb"
-    sha256 cellar: :any,                 big_sur:        "45fe76243a5bfb058c5e5e618d7fa974177097c52ffedcaa53e2b19180634221"
-    sha256 cellar: :any,                 catalina:       "8cfbaf5caa2d489b860348d49596907fb137048241f64645a60d5156f4378ffc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "01048c13f1eb1ac249b40ff691c712724d0cbcaabfbc0d11eead0db21f15f5fa"
+    sha256 cellar: :any,                 arm64_ventura:  "61af8e1cb68c831b2f0e05be428891369cd618a11fa5f599b64fcb7968da6cb5"
+    sha256 cellar: :any,                 arm64_monterey: "a0742c5ac952ccef542876da61ded9131131b24459055f10c80054f1a305450f"
+    sha256 cellar: :any,                 arm64_big_sur:  "b1ddb37ba6194106a32824a45dbf2e4d241b884ce7baca2addd466c08fad015a"
+    sha256 cellar: :any,                 ventura:        "1c8c662ab73e9d52f11e2d68ec1dd79fa81fe7106e5d5cc8439459c06943235a"
+    sha256 cellar: :any,                 monterey:       "3706f35b027bb23dc1e3ec4ead6af0f2c838a2c1a1b5c7afd756896d8868b30a"
+    sha256 cellar: :any,                 big_sur:        "73b7eb7b3cb1396c014dc5985ea1ab2a8b43bb598dec4cd2b21e1ef33f7dc91e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "afba4b3a5cd9a4179fcd80ea26097854818f5b1c830b742658365b4ea25c3e87"
   end
 
   depends_on "cmake" => :build
