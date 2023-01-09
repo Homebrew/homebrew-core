@@ -7,14 +7,13 @@ class Bastet < Formula
   revision 4
 
   bottle do
-    sha256 arm64_ventura:  "007b3c5ce889f72efc83901d464e7b1d26d85889d33741f19cedb80ef420af8e"
-    sha256 arm64_monterey: "847549943397d6599052de7fddb1028fa521e86c778bb32ecc876b597d352c2e"
-    sha256 arm64_big_sur:  "f4e46f9ceeb65880d581bf0db249e4b781c37abadbd3d3199ff66aafde2f28d4"
-    sha256 ventura:        "af825b6aa5661f3212515a939bdf32248e431e5180d9d1a508f82e52d5d7fdcf"
-    sha256 monterey:       "c003bbb534a90d60b8a48abb3fc4fc418d5efe51f334063e5082b090dfc589cf"
-    sha256 big_sur:        "1309388b45599252aff6a86e11c634ce1eaf432ba95048af329c9c31103362ef"
-    sha256 catalina:       "afea0c4b2b48a465bad4dcbca28f5019f457968d45d6de5234e3c0a7b6965db0"
-    sha256 x86_64_linux:   "90a34c5ad79a5990922ad05c811c45caabd70e67dabe9f4b581c5de40d5c6699"
+    sha256 arm64_ventura:  "48a54ed15a7a18cd95c2c19c11fd231214cbe238be1d8631c96f8d6fbe8df4db"
+    sha256 arm64_monterey: "f610547eed513dbbcc8d56188789f39f9c6248333ff93b5e44ffa9e2e9976706"
+    sha256 arm64_big_sur:  "05f022697690ec5cc7351e5ce5993d4bcebc99ea9b0ad209e680cd7797512202"
+    sha256 ventura:        "457f59e816566c6648f24d8cc3453494e4a14bc377863e19720090057b4d92bc"
+    sha256 monterey:       "f726b6e48c5a626a6f3bb8e7e793c8692c6ab2a483d8a04d27e33bd49f2d5086"
+    sha256 big_sur:        "4d64c918a60640b75f0c511481b7d72d574c0ea27dd03b088629e6dc1c07f88b"
+    sha256 x86_64_linux:   "e7c7b021b4506c317ece8793476739e32452c4faf92e2b9d877be34e433f1ff3"
   end
 
   depends_on "boost"
