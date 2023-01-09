@@ -13,14 +13,13 @@ class Stp < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "04b2bf31bf46e41d8cc75096e53cbf591400797d9d80319e924052b181774e7c"
-    sha256 cellar: :any,                 arm64_monterey: "3a59742ce97c28d53372e5890aadecc132353bce698ed5292a93fc5bdcd4d4e1"
-    sha256 cellar: :any,                 arm64_big_sur:  "dd48b665715c672b2b9d4966ac00609b20e1da4dd35ff2acdd617748597d506b"
-    sha256 cellar: :any,                 ventura:        "50db753746537b8cbba6853456332c57375fc3e63b459f0bfd994a41fccfd437"
-    sha256 cellar: :any,                 monterey:       "33dc2648b086d748e025dfe384946525afcbcaa477d25ceb4d646fcba99d4c73"
-    sha256 cellar: :any,                 big_sur:        "687091372d5d0ca1afb5555e9e8741f4955996f42d5b21d010a9c81aeaa1c3d3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7e7daf57a9e46e15e13cd8b9182675785a345de0f5f15c86e60d957a3b439862"
+    sha256 cellar: :any,                 arm64_ventura:  "56b4a35b04e14bd72a3b1feed68bdf51c5685490ef217546544838a73d848e42"
+    sha256 cellar: :any,                 arm64_monterey: "1dc415463bd8ca89ef8220836f7f5884b9d13da8805acee98bda7da74e9718ad"
+    sha256 cellar: :any,                 arm64_big_sur:  "a28b087debbd62a35a1f54c59dc76b65dba5b32a919aeb5354ec9cda76f87478"
+    sha256 cellar: :any,                 ventura:        "21cfed5b9aaf58fcc7727caa8ad39d04f589149d7983591abca0cdbeb59789bd"
+    sha256 cellar: :any,                 monterey:       "4c74e59f1548eec3152763ebd7f8dc97844f4851503e1df93f7440d5f6a1e961"
+    sha256 cellar: :any,                 big_sur:        "2d022aa8899bd99248deae04511fe096bd3a4ea176d7a6772efe01d9678ec2e3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6987938313274368694342d33c5b412685a9d60e050c037f8deb577d4c6bc6b8"
   end
 
   # stp refuses to build with system bison and flex
