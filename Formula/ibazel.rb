@@ -1,8 +1,8 @@
 class Ibazel < Formula
   desc "Tools for building Bazel targets when source files change"
   homepage "https://github.com/bazelbuild/bazel-watcher"
-  url "https://github.com/bazelbuild/bazel-watcher/archive/refs/tags/v0.21.0.tar.gz"
-  sha256 "c6413d3298c51d968bbbe8a01f481b83947e55eae6af78c0b8268a91e02d7989"
+  url "https://github.com/bazelbuild/bazel-watcher/archive/refs/tags/v0.21.3.tar.gz"
+  sha256 "3000bee81750a0e34c69ca250c0974952152232ef9f23879791eebb18f5615e2"
   license "Apache-2.0"
 
   bottle do
@@ -18,6 +18,9 @@ class Ibazel < Formula
   depends_on "go" => [:build, :test]
   depends_on :macos
 
+  # patch to use bazel 6.0.0, upstream PR, https://github.com/bazelbuild/bazel-watcher/pull/575
+  patch :DATA
+
   def install
     system "bazel", "build", "--config=release", "--workspace_status_command", "echo STABLE_GIT_VERSION #{version}", "//cmd/ibazel:ibazel"
     bin.install "bazel-bin/cmd/ibazel/ibazel_/ibazel"
@@ -30,10 +33,10 @@ class Ibazel < Formula
 
       http_archive(
         name = "io_bazel_rules_go",
-        sha256 = "f2dcd210c7095febe54b804bb1cd3a58fe8435a909db2ec04e31542631cf715c",
+        sha256 = "56d8c5a5c91e1af73eca71a6fab2ced959b67c86d12ba37feedb0a2dfea441a6",
         urls = [
-            "https://mirror.bazel.build/github.com/bazelbuild/rules_go/releases/download/v0.31.0/rules_go-v0.31.0.zip",
-            "https://github.com/bazelbuild/rules_go/releases/download/v0.31.0/rules_go-v0.31.0.zip",
+            "https://mirror.bazel.build/github.com/bazelbuild/rules_go/releases/download/v0.37.0/rules_go-v0.37.0.zip",
+            "https://github.com/bazelbuild/rules_go/releases/download/v0.37.0/rules_go-v0.37.0.zip",
         ],
       )
 
@@ -71,3 +74,12 @@ class Ibazel < Formula
     Process.kill("TERM", pid)
   end
 end
+
+__END__
+diff --git a/.bazelversion b/.bazelversion
+index 8a30e8f..09b254e 100644
+--- a/.bazelversion
++++ b/.bazelversion
+@@ -1 +1 @@
+-5.4.0
++6.0.0
