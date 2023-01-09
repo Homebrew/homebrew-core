@@ -2,7 +2,7 @@ class Cascadia < Formula
   desc "Go cascadia package command-line CSS selector"
   homepage "https://github.com/suntong/cascadia"
   url "https://github.com/suntong/cascadia/archive/refs/tags/v1.2.7.tar.gz"
-  sha256 "64df164638843322f45aa6b736f2e4a6750b79514722bbb2a927707432bcf22c"
+  sha256 "ff314144fdab70a7347b0c1a27b5e6628abe72827947e3cb571cebd385fd61df"
   license "MIT"
   head "https://github.com/suntong/cascadia.git", branch: "master"
 
@@ -18,7 +18,7 @@ class Cascadia < Formula
     test_html = "<foo><bar>aaa</bar><baz>bbb</baz></foo>"
     test_css_selector = "foo > bar"
     expected_html_output = "<bar>aaa</bar>"
-    assert_match expected_html_output,
-shell_output("echo '#{test_html}' | #{bin}/cascadia --in --out --css '#{test_css_selector}' 2>/dev/null")
+    assert_equal expected_html_output,
+      pipe_output("#{bin}/cascadia --in --out --css '#{test_css_selector}'", test_html).strip
   end
 end
