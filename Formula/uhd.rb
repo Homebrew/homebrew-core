@@ -15,14 +15,13 @@ class Uhd < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256                               arm64_ventura:  "203ee442bdb64672f84d66c020a56648e739bf8be379dad9ecac74d67a88e10f"
-    sha256                               arm64_monterey: "48ad94802d28473e1e710f1e7dd91b9450cfa2f465e700301626c39a6f5c86a6"
-    sha256                               arm64_big_sur:  "b6e76b040b2d1c8274cfaecc16e960057db3c81b4a727291ae4f960b31cee88a"
-    sha256                               ventura:        "27fe77514a43d35631aa4b84a34a8026a0421843110445c8c2f0add5237484db"
-    sha256                               monterey:       "7a38f27db9c707100eb16b992211ad2debbdbe41f0510c916f9102df7c44feb6"
-    sha256                               big_sur:        "dd000e257205cf86cbf42d51109809a06c74489496acc3f741372fd4ea674a4d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2d216f9ed2caddcc9ca207d395885ee4271106698d62139115b894ebf330827d"
+    sha256                               arm64_ventura:  "8f2a7c8a5b10bda08b72690100bf00f8a330ae248108f34b2cbcf84f118c3c18"
+    sha256                               arm64_monterey: "c42265c7f7d09f0875a2db9b192c12dae5591398afee44d61f655228c213d962"
+    sha256                               arm64_big_sur:  "15844c8d40345504625b7d4035186f530e30d6e5dbc9841097373d8f0deed2f7"
+    sha256                               ventura:        "ca521e82eb8c68e80b2d428d01d6494bf2ad04363cbb3193a87acf54daadfd65"
+    sha256                               monterey:       "d7f800563122444037cc7f8be53cdeabc5dd19e4b1e7156ac90efcb940918ac1"
+    sha256                               big_sur:        "8d91add375503914d049074be80e43e1dc1be0700661c855f68842518d821894"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "775da4623190e153bfb12326a6fbd4c8ccc96975f60db651df28bb5eaecafcdb"
   end
 
   depends_on "cmake" => :build
