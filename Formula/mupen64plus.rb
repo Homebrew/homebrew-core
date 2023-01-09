@@ -12,11 +12,10 @@ class Mupen64plus < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 ventura:      "b8ea3824da04307420df3869d8d11d7658335f4c9543d06472fc764dc779568c"
-    sha256 cellar: :any,                 monterey:     "2eb73488a405767005c7bfa38827477a3af3750f6a0b89ecdf83426c0c5569bf"
-    sha256 cellar: :any,                 big_sur:      "609e68da8f0f86b81330a41b2fd8e8b38b3c1ac6e3523137ebf7b8b2036bdc70"
-    sha256 cellar: :any,                 catalina:     "f12ab0580cb949f04b44fb14d9607b1fd6dfe707b1eeec67e7c6429a49f48115"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "84ce051c633e46df34386a95ac16d6f7ebfd732b3d91f545898b611ca6969e97"
+    sha256 cellar: :any,                 ventura:      "5eacf154124129f106831fad1ff33835e3ee268d376993a3b2189a9d61274e06"
+    sha256 cellar: :any,                 monterey:     "89929811b162271c29daa644ad05d64af37079cc8f95b4a7b4c2b61fbdd1dda5"
+    sha256 cellar: :any,                 big_sur:      "f4de5ec3c0480181d0f33a13bd4da8e722a126b67b62e4e58afc99655f7d597e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "2886d428f085ff6d462d4411d26d057bb075023bde7ee28cfc15bb6488e64f7b"
   end
 
   depends_on "pkg-config" => :build
