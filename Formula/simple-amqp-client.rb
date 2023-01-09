@@ -8,14 +8,13 @@ class SimpleAmqpClient < Formula
   head "https://github.com/alanxz/SimpleAmqpClient.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "81e37926ad2b168fada2fede3893e482c149b8eff7cc6545c4fadd0b0a9ab2f0"
-    sha256 cellar: :any,                 arm64_monterey: "98e88b317c98418541f136c5a4258ac0a55811ab3930ce764f81b59cbeb2377f"
-    sha256 cellar: :any,                 arm64_big_sur:  "0c8874f465e52174070b0458134ba72778c244297b482d34549823d353efd4fb"
-    sha256 cellar: :any,                 ventura:        "de1ca3ebd077c11b64e08b03fe0721e644ef1ecca58b34b4f103ebed20a3d69a"
-    sha256 cellar: :any,                 monterey:       "a2da20f175d9b66adc2b792574bc97f7ee52786c2c874a105fdc4a6ffdb3c09e"
-    sha256 cellar: :any,                 big_sur:        "843b97c2ec5bc775a71375bee1890b6e64e11839965ea87d92fe90e575791392"
-    sha256 cellar: :any,                 catalina:       "aca58f6eefbc489a0e1e5d630d888efc9116355485f7891ad5759e5b4db5deb2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "30d2f03df8695f2416b6b0882030f23a36754fa3da8a3815003fed880b44fea9"
+    sha256 cellar: :any,                 arm64_ventura:  "4934679e7f98ae4e388cb49f4c792dfa6fc15b3f378996d779891eb811a312d1"
+    sha256 cellar: :any,                 arm64_monterey: "e9a426101f4a78e56e72a7a96287f5a24eeaa6bb908007fb97939dd26191d02c"
+    sha256 cellar: :any,                 arm64_big_sur:  "a32a157462250d92ed6966d105eaa94e68e1e5a5c7e4b3cf3be574147af3e181"
+    sha256 cellar: :any,                 ventura:        "248986fba0e118f8300bc51df19c8297346c102f35881aabae4cb2bd85a1aa12"
+    sha256 cellar: :any,                 monterey:       "0a77dcae6331e520082a3f22c921220729bf47a43b8465f619e97fa620d9d2b4"
+    sha256 cellar: :any,                 big_sur:        "e97081c00960b37ae568859c3b7d74fd9b32c6df864738c437a112532a9e56c4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7b129d31f3201a601476be861313c9533bc771806fcfdb31b497d899494c44ad"
   end
 
   depends_on "cmake" => :build
