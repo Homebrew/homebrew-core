@@ -24,8 +24,12 @@ class Unixodbc < Formula
 
   depends_on "libtool"
 
-  conflicts_with "libiodbc", because: "both install `odbcinst.h`"
   conflicts_with "virtuoso", because: "both install `isql` binaries"
+
+  # These conflict with `libiodbc`, which is now keg-only.
+  link_overwrite "include/odbcinst.h", "include/sql.h", "include/sqlext.h",
+                 "include/sqltypes.h", "include/sqlucode.h"
+  link_overwrite "lib/libodbc.a", "lib/libodbc.so"
 
   def install
     system "./configure", "--disable-debug",
