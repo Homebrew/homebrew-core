@@ -8,6 +8,7 @@ class Sh4d0wup < Formula
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "nettle"
+  depends_on "openssl@1.1"
   depends_on "zstd"
 
   def install
