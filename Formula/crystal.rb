@@ -4,12 +4,12 @@ class Crystal < Formula
   license "Apache-2.0"
 
   stable do
-    url "https://github.com/crystal-lang/crystal/archive/1.6.2.tar.gz"
-    sha256 "fbbff8f975a2627ac3f42208362365668fb08a33637f424e0c2c0e51b1f37cfa"
-
+    url "https://github.com/crystal-lang/crystal/archive/1.7.0.tar.gz"
+    sha256 "f49682fc79e4a71e2682189a1aaa95406b1ba21f8e2a0bcecdcd311acdc4b251"
+    
     resource "shards" do
-      url "https://github.com/crystal-lang/shards/archive/v0.17.1.tar.gz"
-      sha256 "cfae162980ef9260120f00ba530273fc2e1b595906b6d39db0cd41323f936e03"
+      url "https://github.com/crystal-lang/shards/archive/v0.17.2.tar.gz"
+      sha256 "ca3963512db8316b3624c0fba57f803419d67502416fe44938a27aa616cf9d70"
     end
   end
 
@@ -55,9 +55,11 @@ class Crystal < Formula
 
   fails_with gcc: "5"
 
-  # Every new crystal release is built from the previous one. The exceptions are
-  # when crystal make a minor release (only bug fixes). Reason is because those
-  # bugs could make the compiler from stopping compiling the next compiler.
+  # It used to be the case that every new crystal release was built from a 
+  # previous release, except patches. Crystal is updating its policy to 
+  # allow 4 minor releases of compatibility unless otherwise explicited.
+  # Therefore, the boot version should have the MINOR component be
+  # between the current minor - 4 and current minor - 1.
   #
   # See: https://github.com/Homebrew/homebrew-core/pull/81318
   resource "boot" do
