@@ -7,14 +7,13 @@ class Gource < Formula
   revision 3
 
   bottle do
-    sha256 arm64_ventura:  "557adabdc455f36a53771b2dfdc4d105011de331d4592fc73225a5f0c34890bb"
-    sha256 arm64_monterey: "39002ff5443571242c6dcf76728a068954bb534fe5c479412cfabc7dcdff1efe"
-    sha256 arm64_big_sur:  "54cca753a7f2705de77c771c0671027f3ba8eb57f3cca6047ba3f380921c0052"
-    sha256 ventura:        "f1951fd9ec911b7f608e4bc647a076ccda57a0aa21a81325d2e3f897969f43ec"
-    sha256 monterey:       "10a8655e6e61846e5ccac81e19aa9b26382092c64035a74ca1aa29a4e3c8c046"
-    sha256 big_sur:        "bbdf8ef1bf9bc91e47309ca0f30f81906ebb5776ebdb1c1e95c73789358bf9fe"
-    sha256 catalina:       "95f4d567f33ae6015a996256ee9ccd3e520644d6da2f3b8d61f79787b7199203"
-    sha256 x86_64_linux:   "b749ae045d6147ee4cc93068c62729f98ef5154e63735bd70561cbdb198b1e23"
+    sha256 arm64_ventura:  "0fed73bab25233076f066e7ff220c27fe67f9bd31e6412081e3c67b015e3666e"
+    sha256 arm64_monterey: "6b9c5e1ff77e77ecae8a3994478dcd0e596e0e4a5ec728b72f750ee95987a595"
+    sha256 arm64_big_sur:  "663179151f975d5a4ad660e82aaba10349572fc4753efc7e40d6b7889c87e9dd"
+    sha256 ventura:        "775f2c53867041f5e8ed676a77097b7234fccab31589c4f7e908c088fde52114"
+    sha256 monterey:       "1c585257f8a5364f280aa5150dc32f949b2dc340be2f996c905590c2cc0bc379"
+    sha256 big_sur:        "5bdde0885f86eb1acf021a4f9784c7e74272edc564a64215582d0019193bc9c2"
+    sha256 x86_64_linux:   "aa1391cdddf7f25199f8603fc92dc3e2ba3ad66175b1e4b5acff68e79e7c7e1d"
   end
 
   head do
