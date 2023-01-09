@@ -7,14 +7,13 @@ class Pagmo < Formula
   revision 3
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "43a76dd45a8d85f6ea670675337c403a61f461678b60b22c0d6a0c1feefca761"
-    sha256 cellar: :any,                 arm64_monterey: "ebee22f15722c58adacfa57e6055e3502f31465a6dde926f6f672fbee3769516"
-    sha256 cellar: :any,                 arm64_big_sur:  "cd404df2a833a26b171b51f1e00b765e6f796ca3fc2146ec253e6d626c7b1f5e"
-    sha256 cellar: :any,                 ventura:        "17f81db50b9bed1b30f95f59dee9c158d5a441e235aae53f4417b0e171e68a98"
-    sha256 cellar: :any,                 monterey:       "4b128647772e649ffcadfcabe191c5d6d1253b01056fdc56195040037004980f"
-    sha256 cellar: :any,                 big_sur:        "f87d29fadc20590569a49deb4794f4b5ba7783970b13909654f0a66485c029ec"
-    sha256 cellar: :any,                 catalina:       "9b225065bc980d683923746a6d88ce1d3f5fe02b9881cac6aa25b037cce5fab9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e669f76c3d5f5dc9c40a47d38f46368f822190f56a58bbfe52a981f1b3061a00"
+    sha256 cellar: :any,                 arm64_ventura:  "af3498b215e2f9d649acd0b0117c873329fb85183ddee69cc9525c75f7c02a99"
+    sha256 cellar: :any,                 arm64_monterey: "6e9f221a9c7d5fc475c10b71ed61f975ec935b60ce95b2a5d386a48d3855a8eb"
+    sha256 cellar: :any,                 arm64_big_sur:  "7d41e40c5cc13fdccf10797ae625d997e9b3f144bfe47a5e473ba8f4803d7588"
+    sha256 cellar: :any,                 ventura:        "52fd8fa749297993c064a8c6271ad9e1b3e8433b201a856a6d6610ff477d13d4"
+    sha256 cellar: :any,                 monterey:       "0ffd37782e82eb101546316c117d70f6f2cab6e780f4c47cf60095551246d670"
+    sha256 cellar: :any,                 big_sur:        "f40421043c90181ffb0f59eb1b8e79fdf43ebbb5efec79cf5453e69554b250c8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "322f06e922c7b3368e6396e28b625a1863906021570b6494b516c2f9b304b6d0"
   end
 
   depends_on "cmake" => :build
