@@ -30,6 +30,12 @@ class Seal < Formula
     sha256 "3692e6e6183dbc49253e51e86c3e52e7affcac925f57db0949dbb4d34b558a9a"
   end
 
+  # patch cmake configs, remove in next release
+  patch do
+    url "https://github.com/microsoft/SEAL/commit/0a838b11f1547e265edb75f00a90b245edc664a4.patch?full_index=1"
+    sha256 "9f72279b15e2a4890cc36bc60459b20827883a6fab0048b383a447cd0b60f0fc"
+  end
+
   def install
     if Hardware::CPU.intel?
       resource("hexl").stage do
