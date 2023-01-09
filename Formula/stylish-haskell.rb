@@ -1,23 +1,10 @@
 class StylishHaskell < Formula
   desc "Haskell code prettifier"
   homepage "https://github.com/haskell/stylish-haskell"
+  url "https://github.com/haskell/stylish-haskell/archive/v0.14.4.0.tar.gz"
+  sha256 "7858b2e5089fb6845d5fa2a92f69626c7275ead7e44ec8c8308f73d1a288fed6"
   license "BSD-3-Clause"
   head "https://github.com/haskell/stylish-haskell.git", branch: "main"
-
-  stable do
-    url "https://github.com/haskell/stylish-haskell/archive/v0.14.4.0.tar.gz"
-    sha256 "7858b2e5089fb6845d5fa2a92f69626c7275ead7e44ec8c8308f73d1a288fed6"
-
-    # Add support for GHC 9.4. Remove in the next release
-    patch do
-      url "https://github.com/haskell/stylish-haskell/commit/256e85c3df06c4458940cc31b56cfd8558571617.patch?full_index=1"
-      sha256 "3515df4af730e897504f170f0846d75a7f8e5eb6bd5a8401a96e291f66e08414"
-    end
-    patch do
-      url "https://github.com/haskell/stylish-haskell/commit/05cc9e18f39ee7d465746d8493832e4012d6674b.patch?full_index=1"
-      sha256 "e908ae961b57a7645e89a07d322219a7d832db75f5e135fbe286ebf07252fbc6"
-    end
-  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "945190777d785552525eac8f9cd812f909b806d30002f65dcb98da0cfbba2279"
