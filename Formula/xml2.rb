@@ -3,7 +3,7 @@ class Xml2 < Formula
   homepage "https://web.archive.org/web/20160730094113/www.ofb.net/~egnor/xml2/"
   url "https://web.archive.org/web/20160427221603/download.ofb.net/gale/xml2-0.5.tar.gz"
   sha256 "e3203a5d3e5d4c634374e229acdbbe03fea41e8ccdef6a594a3ea50a50d29705"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
     skip "Upstream is gone and the formula uses archive.org URLs"
@@ -24,6 +24,8 @@ class Xml2 < Formula
     sha256 cellar: :any_skip_relocation, el_capitan:     "85e939873edbb3dd1b072437992a0c404534a5084cccd6f9f76d99b09ddda695"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "51048810fc19ddd5955049fb8d358b0f4862e9333b056efd6d28a0e6c42c6e4e"
   end
+
+  deprecate! date: "2023-01-10", because: :repo_removed
 
   depends_on "pkg-config" => :build
 
