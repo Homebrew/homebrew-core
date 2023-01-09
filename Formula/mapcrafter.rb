@@ -7,14 +7,13 @@ class Mapcrafter < Formula
   revision 7
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "4fea5d54718fc77b8b7557839d1507ffebf8f4ac9d85c040fb29e16411c55868"
-    sha256 cellar: :any,                 arm64_monterey: "44e58878dcca0fafcad78133a2dc333e285f71716de830a264147ce2c42155cc"
-    sha256 cellar: :any,                 arm64_big_sur:  "3a6bc0db21092639082f548fdf8a3072750f0273d5efe7968fc7b3c71183623e"
-    sha256 cellar: :any,                 ventura:        "fb44e3ae145f2d840d9688d864340e898ad8442394a74770774407342cdaa86b"
-    sha256 cellar: :any,                 monterey:       "58e38265d1e6152ed0ca7d35cb992f878a4cfd9a09b6f72806959a3b51cb8678"
-    sha256 cellar: :any,                 big_sur:        "8107c6f213679b2cb451607364773541449b764963707e29084e2562f2acd33c"
-    sha256 cellar: :any,                 catalina:       "e1532320d92c4e5797aab789f4d26d11e871f8eb4fdfb3c5dd5b1f5995f3ab4a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1e32000df4087a54bff7cb1b46289d89ef6a6d27b83d43d60397f29ca0a3ed70"
+    sha256 cellar: :any,                 arm64_ventura:  "09a0ca21ab205a905c30443647581723126b109a30f98d945006aab5d9bfe4e6"
+    sha256 cellar: :any,                 arm64_monterey: "dd3b387299e1d45005f90a4455a8f3f4498554b1fc0b24523f83ee652f42934b"
+    sha256 cellar: :any,                 arm64_big_sur:  "ffc7f348ec306fff455b9b64e160758f787795120efc863dc1e60744cd5ca444"
+    sha256 cellar: :any,                 ventura:        "4e534e2b7cbe4565a37d45075b79f31f2505f88f00271d667d278dcfcb07c139"
+    sha256 cellar: :any,                 monterey:       "2b099964a12b9d44b6ce7f6f09a227213f4308b4bf0751b1bd21e177f48fb190"
+    sha256 cellar: :any,                 big_sur:        "12e1d407b240c0aac77be423235a6636ffc3ecc2b15d07f568286f0d534c7b05"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "af8d1f5d66243ddbd1dd66fa3c2867ac516b387e8e7a931f4134d4fa01ee809f"
   end
 
   depends_on "cmake" => :build
