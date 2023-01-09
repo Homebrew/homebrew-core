@@ -8,13 +8,13 @@ class Vtk < Formula
   head "https://gitlab.kitware.com/vtk/vtk.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "5d4d79b2b171400e8989efa3899b721bf62ce9ff6f8997f0c86f08c92b91a12b"
-    sha256 cellar: :any,                 arm64_monterey: "fc0ae90d5df009812ef7200844eb91a858edac633dfd5135f02f112f9972a0ed"
-    sha256 cellar: :any,                 arm64_big_sur:  "c1a459e4d1cf5f55ad2ce50911be49f34cdc394cf9dff532c950ee8308ad2765"
-    sha256 cellar: :any,                 ventura:        "4af73feefcfeb44a58aaaf077e8cfd0ea715538c0f301be11ae4558a7599de8d"
-    sha256 cellar: :any,                 monterey:       "9f9411db0c66a467f3db4502526855f03044db18b7196fd89ad8cec87122099c"
-    sha256 cellar: :any,                 big_sur:        "d1b8a09fb27eedf4581819dfe5ae1ad60d2ac437376cbb5fbd7e193f1e81cd04"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d8e0ff935451c0b11b6073bcb2e5617d8a40c59a53c90344748fd78431ef52b3"
+    sha256 cellar: :any,                 arm64_ventura:  "97c6c9f123cd5f5575b191799694f3389351a198a563aada4499a022c32d6cb9"
+    sha256 cellar: :any,                 arm64_monterey: "de808d34e989436471f41809b0e8dcd470110861e28f6b487cd2825440732e30"
+    sha256 cellar: :any,                 arm64_big_sur:  "f6e8242809db41d14f6d63339ecabfe0e6b13d4a8e82bb733904048b9476cecb"
+    sha256 cellar: :any,                 ventura:        "80feea22ec400f67f4599ac56a9d53317e321ff32496a09b8616855c09c6e2d1"
+    sha256 cellar: :any,                 monterey:       "305127752e1e7bce8cf1ece14d375c99753ad6ddfefc847c95ede581adb8bcb4"
+    sha256 cellar: :any,                 big_sur:        "9362d9707ef2cc799b85d9a37941a96d689ddd31754c671345ae9a55935952b2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d562e7256150cdf9dd7c1cbd109a07b00f12495764c0d701884391fe46fd21f4"
   end
 
   depends_on "cmake" => [:build, :test]
