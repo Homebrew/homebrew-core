@@ -13,14 +13,13 @@ class Povray < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "bfc8165d9d4f40422baada6a3e0f13e3640bbfe18ffadb63ad9889323093a8bf"
-    sha256 arm64_monterey: "2032ae90f229fbe6f3fdcae66d4767295232de2cfe7c56f9f04b832de5a8fbfb"
-    sha256 arm64_big_sur:  "d614487df79e96385724fee64473eff2e13a38c148157877ae4652a4c37ea661"
-    sha256 ventura:        "3e680ffe8a72884cc7e43f8ebf7296c320513f7c98bce5cef353b3a71471a753"
-    sha256 monterey:       "9ae1df8c6db5a0658a02a5bd8f08fd8cb8be5300b152233d71f2ef45e368ecdf"
-    sha256 big_sur:        "0f961aae4c0d5e972b73f1ff37912d4fc4a99b2a9583e9e83f7071c90d513088"
-    sha256 catalina:       "4f319b19fa285b2b9b134c610e77f9be10af29517a58bdbd5e2187410852f743"
-    sha256 x86_64_linux:   "924422864eab357aece24e2e5968461f9dea4e79e346819523301feebf9f144a"
+    sha256 arm64_ventura:  "e604edf0b8a232c3b5f959246b00a20cbe4093016a0346a86062db7fd026d956"
+    sha256 arm64_monterey: "478c125bd7219274fde373a995cb00ecfa0eae2be1a67c9d13481697402a394d"
+    sha256 arm64_big_sur:  "95dac65a88c25e48ad0ac603d76b35ec249d1231f26db00cb486aeaecc5fb9cf"
+    sha256 ventura:        "544ae2885610c66e016d4d402919257ec370d5241fcb5c9fbbeed28a1b873cdb"
+    sha256 monterey:       "d8c1634230a4e5475487ff3991e2a624c5cc46b2c5d4e00f01397890f10a86b2"
+    sha256 big_sur:        "116d6633f0fb3dbf06fd9f74da5ca096c09abe9a528b3e41eb68400417fc5fbb"
+    sha256 x86_64_linux:   "f88347b3825ce19d79443d656beaae2f8a2db4ec3f0f35034e4b7c7e5ce6c1c6"
   end
 
   depends_on "autoconf" => :build
