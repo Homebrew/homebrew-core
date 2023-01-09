@@ -1,8 +1,8 @@
 class Qsv < Formula
   desc "Ultra-fast CSV data-wrangling toolkit"
   homepage "https://github.com/jqnatividad/qsv"
-  url "https://github.com/jqnatividad/qsv/archive/refs/tags/0.81.0.tar.gz"
-  sha256 "c7e74827f4800df747097e0d6538e6cfc15011393ef57aef827589afb5f7d5a3"
+  url "https://github.com/jqnatividad/qsv/archive/refs/tags/0.82.0.tar.gz"
+  sha256 "230f72056ade313078b73398261ba78833eb7d749a44944ab7e04e232c0293fa"
   license any_of: ["MIT", "Unlicense"]
   head "https://github.com/jqnatividad/qsv.git", branch: "master"
 
