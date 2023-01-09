@@ -8,13 +8,13 @@ class Tfel < Formula
   head "https://github.com/thelfer/tfel.git", using: :git, branch: "master"
 
   bottle do
-    sha256 arm64_ventura:  "730f69c7daf530581f01c87b5e8934f938ae4a3585fe11c7adb33160de2568aa"
-    sha256 arm64_monterey: "558bbbf8978f0fd1a81b672b1bfece19c5316dcb2dcf0a3a4bcbb5c2239d8bfe"
-    sha256 arm64_big_sur:  "72a86416e1e0f9046d76d48aaa4688b23bf99c17ade8c05c5d113cd225bf89f6"
-    sha256 ventura:        "5ad32922cad1b904726ba6689f5815d1100c0dbfc306afcfe5bb2ef9724143b0"
-    sha256 monterey:       "9334e2f6d1fd4f688947b3c408aae56ec98510501c8eab2cbb2f3fb5210ec090"
-    sha256 big_sur:        "9a4a31b1327e390840dc28eeba23284f4b1934f825194fc08975452489c00f58"
-    sha256 x86_64_linux:   "c7507b59585685bdc7375a20c6b5f21e8b112594e791cea3095edc8d539895ce"
+    sha256 arm64_ventura:  "7f9faf03cb651a5a537f142f4888b2e35f334ff3be73c7fb052ad7e0cd8c7987"
+    sha256 arm64_monterey: "8bf742def68aa4dff762e70d4233ca444bb322729c5e6fff712c459df8406c42"
+    sha256 arm64_big_sur:  "fc16133e08021a0d31be63b2b9baa03adabcca71b1f9910dd265659c77997e6c"
+    sha256 ventura:        "53911120787bc37d8420ff9d6aafba53ce687b41bc869e298dc11fc9a4046be2"
+    sha256 monterey:       "b91b8c62831b55fa2d7dddda65c643141f37de14e4125422c6897a4a8254509f"
+    sha256 big_sur:        "7b2b4837da1a949b8ed0d216222eb8aea028908ddf6ad2b74c182c08b8188772"
+    sha256 x86_64_linux:   "591bde34d7eb5c1fa0d2b160a4a4a4de610762c1cf6e57c81c57c532aa1351f5"
   end
 
   depends_on "cmake" => :build
