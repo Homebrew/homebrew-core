@@ -5,8 +5,8 @@ class StylishHaskell < Formula
   head "https://github.com/haskell/stylish-haskell.git", branch: "main"
 
   stable do
-    url "https://github.com/haskell/stylish-haskell/archive/v0.14.3.0.tar.gz"
-    sha256 "27f8b372e5ff18608f1db22598c99bb3d535083a65b02ebc40af5fc0b3b4ed38"
+    url "https://github.com/haskell/stylish-haskell/archive/v0.14.4.0.tar.gz"
+    sha256 "7858b2e5089fb6845d5fa2a92f69626c7275ead7e44ec8c8308f73d1a288fed6"
 
     # Add support for GHC 9.4. Remove in the next release
     patch do
