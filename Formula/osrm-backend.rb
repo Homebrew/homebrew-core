@@ -20,14 +20,13 @@ class OsrmBackend < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "2d998ee491cf85784a042b9f7e2670a9992b1e2e3c0d3788adafe9ed7e606c72"
-    sha256 cellar: :any,                 arm64_monterey: "6bac4fd2ddd10c1adf9168a840ce61f72120b2bbb6437e904486c91099586942"
-    sha256 cellar: :any,                 arm64_big_sur:  "39be94c81ca0dae090db3d08274a0c2e523ba21f8d2e38daed7b5d017fffdc64"
-    sha256 cellar: :any,                 ventura:        "eef2cb68ee9911e541127fa448175e3996b5f46d0a876b57bc7953ece436d539"
-    sha256 cellar: :any,                 monterey:       "624391fecd8061b5025729c4b4660630155ea50a85584f060e6e4b835399d77f"
-    sha256 cellar: :any,                 big_sur:        "e3f27f007ab6cb98966d2e72508de09bd570848668c54319d7877e2c3f6fbf03"
-    sha256 cellar: :any,                 catalina:       "96e63874022b3d48a147707aa067d1f59c655a95261babd15478e4c2e7110960"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fb266283ec549aeca3a4e948a90f16857356ab414b201ab1269c37ff68858187"
+    sha256 cellar: :any,                 arm64_ventura:  "0ee5c319363134a31b6bc308703c01f3bbdf10faa73f051a1cf912607bbded28"
+    sha256 cellar: :any,                 arm64_monterey: "6cdee9eefaa025a83f0030093efcf51e1ecc5af3ee1b489cc303c05383b11bde"
+    sha256 cellar: :any,                 arm64_big_sur:  "3ee16292f8073c0d40d03ec3adb397b6e323d4933d357c82bba2693241177c3e"
+    sha256 cellar: :any,                 ventura:        "b490dc9cb2e0d46a25bce611214491dc2fea0ea88fbf944fd86ada818001d54a"
+    sha256 cellar: :any,                 monterey:       "a87802cb4adbf41c6dfc801e69f1e0b15b460eace40849ef5edece245df684e4"
+    sha256 cellar: :any,                 big_sur:        "de9bbf77048dc64759bacfb903ad4baae0e5344f29981e8b5580362cd0a92ea4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2ed8be2ef8a7ef9eceb6dc584ab590ef4846760c9d094b889542a8123ebe7d51"
   end
 
   depends_on "cmake" => :build
