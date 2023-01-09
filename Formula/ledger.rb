@@ -22,14 +22,13 @@ class Ledger < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "ca32c1dd2b126b3bccc39df580521ddc44dca54d2bb705b25f72a832565d204f"
-    sha256 cellar: :any,                 arm64_monterey: "bd27554bb2573470cd09a1de662eadc37c6f8c93aab40a61eb6d810f017c8105"
-    sha256 cellar: :any,                 arm64_big_sur:  "b7a4b5aeac4418d4a44799b7401f55e6ee4c70a107798f4ba7b434cf18166c5f"
-    sha256 cellar: :any,                 ventura:        "099b8829436ba8b9a5a829ef1dc278549263aed187855ad1fda159121014485c"
-    sha256 cellar: :any,                 monterey:       "2784429160f1a542e957672dd32c45a77b62a2f80a16884c63a36ccf01cde44f"
-    sha256 cellar: :any,                 big_sur:        "e152d44b03f66daad7445c15b8475d87ec1f8b8440622932881e92ee2f9be919"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "59400e2c576b65415fa26f044d5152142449611294c3ba6d914f837f471607c8"
+    sha256 cellar: :any,                 arm64_ventura:  "b4cadeddff0fd9aa68f065b11ffa3d43085a8f8d40bf86144e0f30eb09a5d9f6"
+    sha256 cellar: :any,                 arm64_monterey: "64eb80922a7691edd063fd9f20e48c1b0fc187b35b207be16794433447211ba6"
+    sha256 cellar: :any,                 arm64_big_sur:  "397ef66603c42f7c4f04ce6435a88389792e4bcd5d5115e596eba12493d9decf"
+    sha256 cellar: :any,                 ventura:        "022e44b5c98b9a95018d8b56a67dc3bdb84dfc1e1dc9a71b50819b033c619c12"
+    sha256 cellar: :any,                 monterey:       "55cf7f70458d6a7ae6f2105b0740fa21137891325baae575ae0de243c1c40772"
+    sha256 cellar: :any,                 big_sur:        "6b112d60cfc260a0b06229ec0cb7efbbcf727d997355ac4b27f80b950704d80b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "57f3f7aa8cbbe2be6fd355d09e6dcebe5df42fa67bf1b93b74bf516ff2ede80e"
   end
 
   depends_on "cmake" => :build
