@@ -1,7 +1,7 @@
 class ManDb < Formula
   desc "Unix documentation system"
   homepage "https://www.nongnu.org/man-db/"
-  url "https://download.savannah.gnu.org/releases/man-db/man-db-2.11.2.tar.xz"
+  url "https://download.savannah.gnu.org/releases/man-db/man-db-2.11.2.tar.xz", using: :homebrew_curl
   mirror "https://download-mirror.savannah.gnu.org/releases/man-db/man-db-2.11.2.tar.xz"
   sha256 "cffa1ee4e974be78646c46508e6dd2f37e7c589aaab2938cc1064f058fef9f8d"
   license "GPL-2.0-or-later"
