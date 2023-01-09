@@ -1,12 +1,12 @@
 class Xsel < Formula
   desc "Command-line program for getting and setting the contents of the X selection"
-  homepage "http://www.vergenet.net/~conrad/software/xsel/"
+  homepage "https://www.vergenet.net/~conrad/software/xsel/"
   license "MIT"
 
   # Stable block to apply Fedora patches as current release is from 2008.
   # Remove when a new release is available.
   stable do
-    url "http://www.vergenet.net/~conrad/software/xsel/download/xsel-1.2.0.tar.gz"
+    url "https://www.vergenet.net/~conrad/software/xsel/download/xsel-1.2.0.tar.gz"
     sha256 "b927ce08dc82f4c30140223959b90cf65e1076f000ce95e520419ec32f5b141c"
 
     # Fedora Patch 0: xsel-1.2.0-MAX_NUM_TARGETS.patch (using upstream commit)
