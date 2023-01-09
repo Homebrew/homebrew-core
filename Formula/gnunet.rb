@@ -16,8 +16,6 @@ class Gnunet < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "aa2caa63b0612e0c697d73bdf72feb228ede99c75c75aa284c8606080f329716"
   end
 
-  # macOS `ld64` does not like the `.la` files created during the build.
-  depends_on "llvm" => :build if DevelopmentTools.clang_build_version >= 1400
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "gnutls"
@@ -34,9 +32,9 @@ class Gnunet < Formula
 
   def install
     ENV.deparallelize if OS.linux?
-    # Workaround for Xcode 14 ld until Makefile is fixed
-    # Ref: https://github.com/Homebrew/homebrew-core/pull/113789#issuecomment-1288125182
-    ENV.append_to_cflags "-fuse-ld=lld" if DevelopmentTools.clang_build_version >= 1400
+    # Workaround for LOGIN_NAME_MAX not defined on macOS
+    # Ref: https://bugs.gnunet.org/view.php?id=7557
+    ENV.append_to_cflags "-DLOGIN_NAME_MAX=255" if OS.mac?
     system "./configure", *std_configure_args, "--disable-documentation"
     system "make", "install"
   end
