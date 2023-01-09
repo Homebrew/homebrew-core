@@ -34,6 +34,9 @@ class Pyoxidizer < Formula
   end
 
   test do
+    ENV["SDKROOT"] = MacOS.sdk_path
+    ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
+
     system bin/"pyoxidizer", "init-rust-project", "hello_world"
     assert_predicate testpath/"hello_world/Cargo.toml", :exist?
 
