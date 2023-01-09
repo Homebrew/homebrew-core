@@ -2,22 +2,22 @@ class Xcdiff < Formula
   desc "Tool to diff xcodeproj files"
   homepage "https://github.com/bloomberg/xcdiff"
   url "https://github.com/bloomberg/xcdiff.git",
-    tag:      "0.9.0",
-    revision: "0e6a933af7cada626fb3aac2fe44c5dc8fb745c6"
+    tag:      "0.10.0",
+    revision: "289872e572224ae429d0f4d25ff9be906c9df1a0"
   license "Apache-2.0"
   head "https://github.com/bloomberg/xcdiff.git", branch: "main"
   depends_on :macos
-  depends_on xcode: "13.3"
+  depends_on xcode: "14.1"
 
   resource "homebrew-testdata" do
-    url "https://github.com/bloomberg/xcdiff/archive/refs/tags/0.9.0.tar.gz"
-    sha256 "f8565e0395a41274019ba691a9588e34f06ae586b921f43c0bd792981dcdb53a"
+    url "https://github.com/bloomberg/xcdiff/archive/refs/tags/0.10.0.tar.gz"
+    sha256 "c093e128873f1bb2605b14bf9100c5ad7855be17b14f2cad36668153110b1265"
   end
 
   def install
     system "make", "update_version"
     system "make", "update_hash"
-    system "make", "build"
+    system "swift", "build", "--disable-sandbox", "--configuration", "release"
     bin.install ".build/release/xcdiff"
   end
 
