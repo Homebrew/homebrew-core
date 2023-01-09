@@ -8,14 +8,13 @@ class Pcb2gcode < Formula
   head "https://github.com/pcb2gcode/pcb2gcode.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "b3e6b48f2e5e63272ee3d97167c56c9a28f110d42f36b9b3c03455729377b155"
-    sha256 cellar: :any,                 arm64_monterey: "e83354a49d5ca3beff774b097e789b79330bbce4d9d5388da8006334c66b2c25"
-    sha256 cellar: :any,                 arm64_big_sur:  "f73a00e3c21ffa00009b450f2d728144417055009f2a82ba6a3ae969ba3003db"
-    sha256 cellar: :any,                 ventura:        "2bc1bc68b7246e0563482133f8fe16c16ea19c1761136c1b0b8e84913577628e"
-    sha256 cellar: :any,                 monterey:       "a1ce70052b5b1746a6b4f1997787aefed336bc01aa5767eac444be929e026882"
-    sha256 cellar: :any,                 big_sur:        "def348fc4f16ba1c61f8ea4397b14e4d8af171f2654a6403456072bb3da22509"
-    sha256 cellar: :any,                 catalina:       "6c6dc43876c7f7103f6d8864040f3c32f6cc733ccb0258e5dcbf121ce9e3477d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aea298c9b282ad8e1750dee166976200463891bfd78e397d3570e29526550507"
+    sha256 cellar: :any,                 arm64_ventura:  "41ee077ad873fa09513b7acf48f7371ad10ff1090e70cbb41a1d5821a8a08bb7"
+    sha256 cellar: :any,                 arm64_monterey: "aed173e2abea2a17c9752522ea184df44f105b848055caeecfcdacb5e882a115"
+    sha256 cellar: :any,                 arm64_big_sur:  "1ddd17e10af11ae52aed1a7cc9ce9712d5d0574f361d1d8b66bd87369f971231"
+    sha256 cellar: :any,                 ventura:        "d0a3481c48fb8a419906776c0facee2b596bd7f2b18a636d18cce01b9466ae1b"
+    sha256 cellar: :any,                 monterey:       "669e3b8e956e5181f563a88025db9352665d409213d24a3e92b09405f1a83669"
+    sha256 cellar: :any,                 big_sur:        "52bb94aec6e947d03ab5e76606c19bfbf24f3e6f496966f341ad9327fa9b30ae"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9bbe8640a6fe185e179184aa2095d67b7c88649c45aca57c121b20e0230a262d"
   end
 
   # Release 2.0.0 doesn't include an autoreconfed tarball
