@@ -8,14 +8,13 @@ class Dspdfviewer < Formula
   head "https://github.com/dannyedel/dspdfviewer.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "07998857ede66fe92b0600f4371f7055e39bcf53ccefe2f422d8bf5ff7dde603"
-    sha256 cellar: :any,                 arm64_monterey: "5608e07059285b8fa01a4ef9da50bfabc88d45daa892440ca1d6964034005c54"
-    sha256 cellar: :any,                 arm64_big_sur:  "4b1da827d7fd1b37568563024d6de2cec601a61273870c07caab6e198f4d1275"
-    sha256 cellar: :any,                 ventura:        "bd880bedff37f19dac5ac5b1969cac0c4f5218ebbc00d43236be54b9dbc5bb17"
-    sha256 cellar: :any,                 monterey:       "e5cfd303e5e674878ccc916255b2badb33fb5affa3144df5e0f340afa27b77fb"
-    sha256 cellar: :any,                 big_sur:        "049556ce9aba7d17efc8c11ca533a171efedadcf534b03303ada5ed8c76ef66a"
-    sha256 cellar: :any,                 catalina:       "a1ca2f5a517c2a798990ef0f19671c9714e932afd2066c9b11a0ee39f577c072"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5c4176a31204b3cc43a8aa1ffb4b3e7ead429165ec4139c25d4071e1dcbb604a"
+    sha256 cellar: :any,                 arm64_ventura:  "7ee081442cc15d6b6cb3c1c8791db4e1ac99caddf9e19b9a3e7da8f42c3fd6cd"
+    sha256 cellar: :any,                 arm64_monterey: "1720055b7850161f0ff6b09a678d597b9357ae0bea2db05d2651f0c46d80197b"
+    sha256 cellar: :any,                 arm64_big_sur:  "5d53db9ce37e910f71a0aaad82d1b26344d08decce5485751632cd05601f8c76"
+    sha256 cellar: :any,                 ventura:        "834c422d0aa8a96cc77d1036e4793d3f8fdfdc79fcbf6c6a7da79f0c269459fe"
+    sha256 cellar: :any,                 monterey:       "586e860f2c06b995132b35653a6c14403c012421cd9cf32baa1b379824e27015"
+    sha256 cellar: :any,                 big_sur:        "0b551ba47aa6287fb0a94750a9ab85afa3e1d715d22d602dc98cdef34ac1b8f9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "940e18745c5787e8ec2ce8a961283e44d148b45b4fc7370480057b6c15c3df6b"
   end
 
   depends_on "cmake" => :build
