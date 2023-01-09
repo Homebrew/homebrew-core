@@ -13,14 +13,13 @@ class BoostBuild < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fcad64c30f166d2252b1c4e7f54dbc90343f2e89e7981ef44c6ca0775fae630e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9ee705b9b468e8fb0a0ee5de383d92c45d99f76922588af6b2aff47e587fee79"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b01468ff38165cef62b85462180653af35d0c2582e83859c7fa35a2116f89f60"
-    sha256 cellar: :any_skip_relocation, ventura:        "880e693b12ab4b872f1b54b89918193bb43028232a93743f23c838e3a2bf6ecd"
-    sha256 cellar: :any_skip_relocation, monterey:       "1ba103ced650911393ab68afedc3aa33c77f9fe1b9518c34a2b0dd6c00ffae26"
-    sha256 cellar: :any_skip_relocation, big_sur:        "482592978d87a195871fe22dbad2be0a0a5ce9364b467b8953b2323af15c9c0d"
-    sha256 cellar: :any_skip_relocation, catalina:       "7729a63edc79cbe0bbfd182ef9ffdd66b328785c48ad32be3b7b234ced401ce2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d7088c63b513ac634e59792492e58e8a07455a0ffc0292fb70b87c0bafe7a488"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d3af7dde0f8a21e43509133aeaf0183824fa6c02bd82ca6177081dc56848f22f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2757cf8b76103e41b8e7c7b34bc31ff209f6feeaa821d636b05a3735b2f1cc95"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "96d54d0d154e8bccff90e2f3f85eecca9e8ce51138298cf3e0ff6dd8f32675dd"
+    sha256 cellar: :any_skip_relocation, ventura:        "6530dde226225d9a66a677dbe9ab268863c3dfdc820eb712b8fd9aba218af67b"
+    sha256 cellar: :any_skip_relocation, monterey:       "86282c5ed13d46d54eda2b097c2ecb0d5d976af4baf83afd72491cb20d9a4af9"
+    sha256 cellar: :any_skip_relocation, big_sur:        "1a99263f39eeaf50ff4de7acfe51788a5f44b1b084a3e350f286e7491d346ff6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0d47ffca39d87efdd9f1dc5086838d2e8c29e3602acd470e49f357e87948fb53"
   end
 
   conflicts_with "b2-tools", because: "both install `b2` binaries"
