@@ -34,14 +34,13 @@ class Upscaledb < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "561ea010fecea886bc48df34a98d67387cd17b1a73372ed3a93f5bdbe4c9e00a"
-    sha256 cellar: :any,                 arm64_monterey: "681c6480b867cfabe84dc86f642ff8190a09db19cbba45e2ab825c08bb22e8c5"
-    sha256 cellar: :any,                 arm64_big_sur:  "52c35ae632361c43f0134e4601f447d8f0ce5849e054a697c56a821380515ef1"
-    sha256 cellar: :any,                 ventura:        "ccef51601512d5f41cde7ca821e5d2f8a508cfa66d6a34cf777ac1a8aea7e2e8"
-    sha256 cellar: :any,                 monterey:       "eb56657cf69888dfe9a60d62f021470f59b402a846b1c08f623d672c55032663"
-    sha256 cellar: :any,                 big_sur:        "92a278053f801938558c40b6ab2284125e1da0c4815caa1dc75b6bdf8cd83ebf"
-    sha256 cellar: :any,                 catalina:       "b902d877822ecdd047b3286a45ccd28a732655d1f672ec7ba104181307c2d7af"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c693331be7046fb3f52e6a046aa1279943c086731a164192740b2cee07ec2864"
+    sha256 cellar: :any,                 arm64_ventura:  "3e53df8a01216c9fb312eea599fa6a4ce5aa996476b3618157c613baa7631973"
+    sha256 cellar: :any,                 arm64_monterey: "4165747c590e3fa385edb3ca82572e61c6d7d46fab5ab0653506113af584ad54"
+    sha256 cellar: :any,                 arm64_big_sur:  "4d2ffbcb757f65413634d50556cb8be81871c3915cb5b173d60b146428843504"
+    sha256 cellar: :any,                 ventura:        "b77dd8e5fccacf9fb9f3e89fc62005afeea0bcca6d0682ad22ed412d7222068a"
+    sha256 cellar: :any,                 monterey:       "fe6720fa4fef28905e48926764bd350eb9cb7ef86a8cf3ebb17f5fd320f50a15"
+    sha256 cellar: :any,                 big_sur:        "23a345451fc0f2ba05ad1b84e3eaa58efb8deb84096d084c0550c0751e7bfd03"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9388aed680e2927f5953ae803bffd0bc0bf6a239efbed1e9ea06ccb3144d0653"
   end
 
   depends_on "autoconf" => :build
