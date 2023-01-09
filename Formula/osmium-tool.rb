@@ -7,14 +7,13 @@ class OsmiumTool < Formula
   revision 3
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "3259066785aa82d6dae6b4f1fcdd53c10858ba19bfe1672695e33a9d1beca680"
-    sha256 cellar: :any,                 arm64_monterey: "ecfb1b350bb2d92d32ff311a1659084db2000b244eb7351c30bf94283c35265a"
-    sha256 cellar: :any,                 arm64_big_sur:  "cfb56102bd3cb066cdfade5936679d4cf1c5ff7cb36464f901b7cb2071873aab"
-    sha256 cellar: :any,                 ventura:        "fee70d13913c52c1cb502f5150586c15d88228c1459edb566999f1687d816f5b"
-    sha256 cellar: :any,                 monterey:       "2e11f60463925a700b88a2b171905a8a8f64ee2cd7cfb44965a7d61ac4f7a8ef"
-    sha256 cellar: :any,                 big_sur:        "457422771493c4c8d432f7081c77d806113886da9dcaacf60f3c2c1465948acb"
-    sha256 cellar: :any,                 catalina:       "8f25a3775f55b6c72cca6714632ed5463b94a724ea619a8955c4fc94dc03ff38"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5a0c1361abc5a4d59d50e84438072f7903428a55372029578bdcd01cf068fee9"
+    sha256 cellar: :any,                 arm64_ventura:  "ef6fb69e1cb749d35ffab87e2f842efa0f16c57047e96ab895bf5f063e487cc6"
+    sha256 cellar: :any,                 arm64_monterey: "6d2223c0fa9866d66db794f80ee1d2771327156aa77fb5fa7fa62ca31e11b4a5"
+    sha256 cellar: :any,                 arm64_big_sur:  "cddf3e857d857be6ce79fe4e6f5e055e26b6a6f2ebbbd34000c9df936273eb7d"
+    sha256 cellar: :any,                 ventura:        "f733109b5eaab596ecdbe2fa07dd02a630f189c274e8b32eaa3193b0d7058f10"
+    sha256 cellar: :any,                 monterey:       "1c2c65baf505cd961b7d2a21fdd35aa90ffad5408c049f9d5245249c66eaf804"
+    sha256 cellar: :any,                 big_sur:        "bef07c4ffd4e49b17ac0cbe31f2b03ebe5e8af0179ab2da595cdf574325848ac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0d0abf08b249ebb86ce347e7983847966b888cd5437e9e7eb05ab2f0f94b0695"
   end
 
   depends_on "cmake" => :build
