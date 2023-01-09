@@ -25,16 +25,14 @@ class Krb5 < Formula
 
   depends_on "openssl@1.1"
 
-  uses_from_macos "bison"
+  uses_from_macos "bison" => :build
   uses_from_macos "libedit"
 
   def install
     cd "src" do
-      system "./configure", "--disable-debug",
-                            "--disable-dependency-tracking",
+      system "./configure", *std_configure_args,
                             "--disable-nls",
                             "--disable-silent-rules",
-                            "--prefix=#{prefix}",
                             "--without-system-verto",
                             "--without-keyutils"
       system "make"
