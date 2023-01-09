@@ -4,7 +4,7 @@ class Fastlane < Formula
   url "https://github.com/fastlane/fastlane/archive/2.211.0.tar.gz"
   sha256 "12409152bb95da59306a170eab2ff10323e585ac2da7c12f8bbd845189ebda96"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/fastlane/fastlane.git", branch: "master"
 
   livecheck do
@@ -22,7 +22,7 @@ class Fastlane < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7acc727ed018c608b3b0bd0faca04bbe11791ec73eaea6ba259d6860f8d3bc15"
   end
 
-  depends_on "ruby"
+  depends_on "ruby@3.1"
 
   on_macos do
     depends_on "terminal-notifier"
