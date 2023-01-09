@@ -30,11 +30,15 @@ class Gnunet < Formula
   uses_from_macos "curl"
   uses_from_macos "sqlite"
 
+  # Patch for LOGIN_NAME_MAX not defined on macOS
+  # Remove in 0.19.3
+  patch do
+    url "https://git.gnunet.org/gnunet.git/patch/?id=613554cc80f481025def331ac5a7ab111510ce0f"
+    sha256 "02d498dd85c351de7a89fecfa5b78c9ee32abd1a58188264c93cf84ebd3f4416"
+  end
+
   def install
     ENV.deparallelize if OS.linux?
-    # Workaround for LOGIN_NAME_MAX not defined on macOS
-    # Ref: https://bugs.gnunet.org/view.php?id=7557
-    ENV.append_to_cflags "-DLOGIN_NAME_MAX=255" if OS.mac?
     system "./configure", *std_configure_args, "--disable-documentation"
     system "make", "install"
   end
