@@ -2,10 +2,10 @@ class Redex < Formula
   include Language::Python::Shebang
 
   desc "Bytecode optimizer for Android apps"
-  homepage "https://fbredex.com"
+  homepage "https://github.com/facebook/redex"
   license "MIT"
-  revision 10
-  head "https://github.com/facebook/redex.git", branch: "master"
+  revision 11
+  head "https://github.com/facebook/redex.git", branch: "main"
 
   stable do
     url "https://github.com/facebook/redex/archive/v2017.10.31.tar.gz"
@@ -56,14 +56,19 @@ class Redex < Formula
   depends_on "jsoncpp"
   depends_on "python@3.11"
 
-  resource "test_apk" do
+  resource "homebrew-test_apk" do
     url "https://raw.githubusercontent.com/facebook/redex/fa32d542d4074dbd485584413d69ea0c9c3cbc98/test/instr/redex-test.apk"
     sha256 "7851cf2a15230ea6ff076639c2273bc4ca4c3d81917d2e13c05edcc4d537cc04"
   end
 
   def install
-    # https://github.com/facebook/redex/issues/457
-    inreplace "Makefile.am", "/usr/include/jsoncpp", Formula["jsoncpp"].opt_include
+    if build.stable?
+      # https://github.com/facebook/redex/issues/457
+      inreplace "Makefile.am", "/usr/include/jsoncpp", Formula["jsoncpp"].opt_include
+      # Work around missing include. Fixed upstream but code has been refactored
+      # Ref: https://github.com/facebook/redex/commit/3f4cde379da4657068a0dbe85c03df558854c31c
+      ENV.append "CXXFLAGS", "-include set"
+    end
 
     python_scripts = %w[
       apkutil
@@ -78,14 +83,16 @@ class Redex < Formula
     rewrite_shebang detected_python_shebang, *python_scripts
 
     system "autoreconf", "--force", "--install", "--verbose"
-    system "./configure", *std_configure_args, "--with-boost=#{Formula["boost"].opt_prefix}"
+    system "./configure", *std_configure_args,
+                          "--disable-silent-rules",
+                          "--with-boost=#{Formula["boost"].opt_prefix}"
     system "make"
     system "make", "install"
   end
 
   test do
-    testpath.install resource("test_apk")
-    system "#{bin}/redex", "--ignore-zipalign", "redex-test.apk", "-o", "redex-test-out.apk"
+    testpath.install resource("homebrew-test_apk")
+    system bin/"redex", "--ignore-zipalign", "redex-test.apk", "-o", "redex-test-out.apk"
     assert_predicate testpath/"redex-test-out.apk", :exist?
   end
 end
