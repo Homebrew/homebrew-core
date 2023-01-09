@@ -45,18 +45,26 @@ class Wownero < Formula
 
   conflicts_with "monero", because: "both install a wallet2_api.h header"
 
+  # patch build issue (missing includes)
+  # remove when wownero syncs fixes from monero
+  patch do
+    url "https://github.com/monero-project/monero/commit/96677fffcd436c5c108718b85419c5dbf5da9df2.patch?full_index=1"
+    sha256 "e39914d425b974bcd548a3aeefae954ab2f39d832927ffb97a1fbd7ea03316e0"
+  end
+
   # Boost 1.76 compatibility
   # https://github.com/loqs/monero/commit/5e902e5e32c672661dfe5677c4a950c4dd409198
   patch :DATA
 
   def install
     # Need to help CMake find `readline` when not using /usr/local prefix
-    system "cmake", ".", *std_cmake_args, "-DReadline_ROOT_DIR=#{Formula["readline"].opt_prefix}"
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DReadline_ROOT_DIR=#{Formula["readline"].opt_prefix}"
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
     # Fix conflict with miniupnpc.
     # This has been reported at https://github.com/monero-project/monero/issues/3862
-    rm lib/"libminiupnpc.a"
+    (lib/"libminiupnpc.a").unlink
   end
 
   service do
