@@ -44,6 +44,14 @@ class Xplanet < Formula
     sha256 "0a88a9c984462659da37db58d003da18a4c21c0f4cd8c5c52f5da2b118576d6e"
   end
 
+  # Fix build with C++11 using Arch Linux patch. Remove in the next release.
+  # There is an upstream commit but SourceForge doesn't provide a way to get raw patch.
+  # Commit ref: https://sourceforge.net/p/xplanet/code/207/
+  patch do
+    url "https://raw.githubusercontent.com/archlinux/svntogit-community/040965e32860345ca2d744239b6e257da33460a2/trunk/xplanet-c%2B%2B11.patch"
+    sha256 "e651c7081c43ea48090186580b5a2a5d5039ab3ffbf34f7dd970037a16081454"
+  end
+
   def install
     # Workaround for ancient config files not recognizing aarch64 macos.
     if Hardware::CPU.arm?
