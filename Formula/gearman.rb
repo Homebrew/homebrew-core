@@ -7,14 +7,13 @@ class Gearman < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "95b2c5141c5811012eb63f2bde53ce34b8b10d44091d83ca26fdb9f90f952c7f"
-    sha256 cellar: :any,                 arm64_monterey: "47ae5c4a1e46839d326f9d0a8645db99667faa9421d6b1f24ef8428d88114fc0"
-    sha256 cellar: :any,                 arm64_big_sur:  "9f4604a39f29d820d364501feec99fe4224d365d308dc4b1a2e85499b14fd906"
-    sha256 cellar: :any,                 ventura:        "fb41eeff69f94675705274a2a9791d576659898b6a34a49b8ea4385dbeed3785"
-    sha256 cellar: :any,                 monterey:       "a07630494be1b88b82cc38c9f255ca29f6387b85dfe7cf239b29652b7a632309"
-    sha256 cellar: :any,                 big_sur:        "1d99f2e4f0dff33a17832e43e1b3b7b4c749311bd838e3c8796548adf8e48be2"
-    sha256 cellar: :any,                 catalina:       "cf60ac6edfc875eebdbaacb3831247a294e1e844441eb1417d4c648f4e0d91c2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6f8b04328b9fbfa337b299811b3dc21c12c47448692a881080e955633b2f5279"
+    sha256 cellar: :any,                 arm64_ventura:  "56f8a2607c3974a05f26a0228110d92644b8c55ba33748d9cacea344835f0647"
+    sha256 cellar: :any,                 arm64_monterey: "ef1f9565f364f0ef2c609368f948889a663e613d0444fed501a955cc0cd8d4da"
+    sha256 cellar: :any,                 arm64_big_sur:  "4e58758ab0e23da7d42dd2df7bc37f0000344c8fb6e48f74eed8a82da97b7db2"
+    sha256 cellar: :any,                 ventura:        "4fb671b56f94bfd2890e7254562b17d085608ae08474e2cee905a4b56f274138"
+    sha256 cellar: :any,                 monterey:       "b4dd7a044f2df431fa9fdf591bd677713e96085e8c1019832cadcfa79b957d33"
+    sha256 cellar: :any,                 big_sur:        "de3c60bc5ef48594bbac864ba5ed7530256ffea60008370a683190fa78223330"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ac573d6b5ca6838e133cc2dc00b13909448e69a2d511773e9a0cd7e8f2f3bb30"
   end
 
   depends_on "pkg-config" => :build
