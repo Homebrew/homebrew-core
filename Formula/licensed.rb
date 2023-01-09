@@ -20,6 +20,7 @@ class Licensed < Formula
   depends_on "pkg-config" => :build
   depends_on "ruby@2.7"
   depends_on "xz"
+  uses_from_macos "libffi"
 
   # Runtime dependencies of licensed
   # https://rubygems.org/gems/licensed/versions/4.0.0/dependencies
