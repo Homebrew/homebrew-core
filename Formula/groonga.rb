@@ -1,8 +1,8 @@
 class Groonga < Formula
   desc "Fulltext search engine and column store"
   homepage "https://groonga.org/"
-  url "https://packages.groonga.org/source/groonga/groonga-12.1.0.tar.gz"
-  sha256 "a4b53589f726f237eaafd8d032335b71c369ac3cfab99f7335c5d127920139d7"
+  url "https://packages.groonga.org/source/groonga/groonga-12.1.1.tar.gz"
+  sha256 "a49b93ef5655c5a94a9f5d371182482f1a75a61364e415155b69a951d1372c45"
   license "LGPL-2.1-or-later"
 
   livecheck do
