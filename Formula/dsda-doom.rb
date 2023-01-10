@@ -3,6 +3,7 @@ class DsdaDoom < Formula
   homepage "https://github.com/kraflab/dsda-doom"
   url "https://github.com/kraflab/dsda-doom/archive/refs/tags/v0.25.4.tar.gz"
   sha256 "a7ba9f920eff10fd56dba797c0fa666e356f458f4fb4d2453c5c03ef5e3fbde8"
+  license "GPL-2.0-only"
   head "https://github.com/kraflab/dsda-doom.git", branch: "master"
 
   livecheck do
