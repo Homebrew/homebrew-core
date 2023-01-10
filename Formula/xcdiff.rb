@@ -23,18 +23,12 @@ class Xcdiff < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/xcdiff --version").chomp
+    project = "Fixtures/ios_project_1/Project.xcodeproj"
+    diff_args = "-p1 #{project} -p2 #{project}"
     resource("homebrew-testdata").stage do
-      assert_match "\n", shell_output(
-        "#{bin}/xcdiff -p1 Fixtures/ios_project_1/Project.xcodeproj -p2 Fixtures/ios_project_1/Project.xcodeproj -d",
-      )
-      assert_match "✅ BUILD_PHASES > \"Project\" target\n", shell_output(
-        "#{bin}/xcdiff " \
-        "-p1 Fixtures/ios_project_1/Project.xcodeproj " \
-        "-p2 Fixtures/ios_project_1/Project.xcodeproj " \
-        "-g BUILD_PHASES " \
-        "-t Project " \
-        "-v",
-      )
+      assert_match "\n", shell_output("#{bin}/xcdiff #{diff_args} -d")
+      out = shell_output("#{bin}/xcdiff #{diff_args} -g BUILD_PHASES -t Project -v")
+      assert_match "✅ BUILD_PHASES > \"Project\" target\n", out
     end
   end
 end
