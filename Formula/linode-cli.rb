@@ -6,7 +6,7 @@ class LinodeCli < Formula
   url "https://github.com/linode/linode-cli/archive/refs/tags/v5.27.2.tar.gz"
   sha256 "2f16c5507d4a6673c3185d5ad3744d27448de25c96f32bd7ffa82e3647c0e898"
   license "BSD-3-Clause"
-  head "https://github.com/linode/linode-cli.git", branch: "master"
+  head "https://github.com/linode/linode-cli.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f7aadeea34f7eeceaeb8bb1e189d15927223e50c373d58b5131ee4edfced34b2"
