@@ -26,7 +26,7 @@ class Xcdiff < Formula
     project = "Fixtures/ios_project_1/Project.xcodeproj"
     diff_args = "-p1 #{project} -p2 #{project}"
     resource("homebrew-testdata").stage do
-     # assert no difference between projects
+      # assert no difference between projects
       assert_equal "\n", shell_output("#{bin}/xcdiff #{diff_args} -d")
       out = shell_output("#{bin}/xcdiff #{diff_args} -g BUILD_PHASES -t Project -v")
       assert_match "✅ BUILD_PHASES > \"Project\" target\n", out
