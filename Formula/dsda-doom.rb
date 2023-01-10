@@ -22,10 +22,10 @@ class DsdaDoom < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "dumb"
   depends_on "fluid-synth"
   depends_on "libvorbis"
   depends_on "mad"
-  depends_on "pcre"
   depends_on "portmidi"
   depends_on "sdl2"
   depends_on "sdl2_image"
@@ -44,12 +44,10 @@ class DsdaDoom < Formula
     system "cmake", "-S", "prboom2", "-B", "build",
                     "-DDOOMWADDIR=#{doomwaddir(HOMEBREW_PREFIX)}",
                     "-DDSDAPWADDIR=#{libexec}",
-                    "-DBUILD_GL=ON",
-                    "-DWITH_DUMB=OFF",
-                    "-DWITH_IMAGE=ON",
+                    "-DWITH_DUMB=OM",
                     "-DWITH_FLUIDSYNTH=ON",
+                    "-DWITH_IMAGE=ON",
                     "-DWITH_MAD=ON",
-                    "-DWITH_PCRE=ON",
                     "-DWITH_PORTMIDI=ON",
                     "-DWITH_VORBISFILE=ON",
                     "-DWITH_ZLIB=ON",
