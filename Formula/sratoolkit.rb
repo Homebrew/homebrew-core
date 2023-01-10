@@ -49,7 +49,7 @@ class Sratoolkit < Formula
 
     # Workaround to allow clang/aarch64 build to use the gcc/arm64 directory
     # Issue ref: https://github.com/ncbi/ncbi-vdb/issues/65
-    ln_s "../gcc/arm64", buildpath/"ncbi-vdb-source/interfaces/cc/clang/aarch64" if Hardware::CPU.arm?
+    ln_s "../gcc/arm64", buildpath/"ncbi-vdb-source/interfaces/cc/clang/arm64" if Hardware::CPU.arm?
 
     # Need to use HDF 1.10 API: error: too few arguments to function call, expected 5, have 4
     # herr_t h5e = H5Oget_info_by_name( self->hdf5_handle, buffer, &obj_info, H5P_DEFAULT );
