@@ -24,8 +24,10 @@ class Liblcf < Formula
   uses_from_macos "expat"
 
   def install
-    args = std_cmake_args + ["-DLIBLCF_UPDATE_MIMEDB=OFF"]
-    system "cmake", "-S", ".", "-B", "build", *args
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                    "-DLIBLCF_UPDATE_MIMEDB=OFF",
+                    *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
