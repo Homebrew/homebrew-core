@@ -10,7 +10,7 @@ class Lesspipe < Formula
   end
 
   def install
-    system "./configure", "--prefix=#{prefix}", "--yes"
+    system "./configure", "--prefix=#{prefix}"
     man1.mkpath
     system "make", "install"
   end
