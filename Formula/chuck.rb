@@ -1,9 +1,9 @@
 class Chuck < Formula
   desc "Concurrent, on-the-fly audio programming language"
   homepage "https://chuck.cs.princeton.edu/"
-  url "https://chuck.cs.princeton.edu/release/files/chuck-1.4.1.1.tgz"
-  mirror "http://chuck.stanford.edu/release/files/chuck-1.4.1.1.tgz"
-  sha256 "4459ee6f151da72dcde1525e0afe05329d61086356b168ecfc0bc3a570290f63"
+  url "https://chuck.cs.princeton.edu/release/files/chuck-1.4.2.0.tgz"
+  mirror "http://chuck.stanford.edu/release/files/chuck-1.4.2.0.tgz"
+  sha256 "848c2c0bdad88175924c5a94b9f286aa84f41a7b1fe27478290d224956e3f318"
   license "GPL-2.0-or-later"
   head "https://github.com/ccrma/chuck.git", branch: "main"
 
@@ -34,7 +34,7 @@ class Chuck < Formula
   end
 
   def install
-    os = OS.mac? ? "osx" : "linux-pulse"
+    os = OS.mac? ? "mac" : "linux-pulse"
     system "make", "-C", "src", os
     bin.install "src/chuck"
     pkgshare.install "examples"
