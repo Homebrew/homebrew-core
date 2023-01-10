@@ -1,8 +1,8 @@
 class MsgpackCxx < Formula
   desc "MessagePack implementation for C++ / msgpack.org[C++]"
   homepage "https://msgpack.org/"
-  url "https://github.com/msgpack/msgpack-c/releases/download/cpp-4.1.3/msgpack-cxx-4.1.3.tar.gz"
-  sha256 "2539075ea2f35c15cab5c50ecba00d76fc4cbdcd485840257f15ebb04e8e3e1a"
+  url "https://github.com/msgpack/msgpack-c/releases/download/cpp-5.0.0/msgpack-cxx-5.0.0.tar.gz"
+  sha256 "80f997575acff12b1b64158ef9dbad4cff32595f985532e16c6ea67e317452d5"
   license "BSL-1.0"
   head "https://github.com/msgpack/msgpack-c.git", branch: "cpp_master"
 
