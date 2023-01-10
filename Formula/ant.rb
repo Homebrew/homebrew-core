@@ -1,9 +1,9 @@
 class Ant < Formula
   desc "Java build tool"
   homepage "https://ant.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=ant/binaries/apache-ant-1.10.12-bin.tar.xz"
-  mirror "https://archive.apache.org/dist/ant/binaries/apache-ant-1.10.12-bin.tar.xz"
-  sha256 "6115c940367e50755cf806de5816f20a1db1321b1cb734e2c34ab20ef6682b9b"
+  url "https://www.apache.org/dyn/closer.lua?path=ant/binaries/apache-ant-1.10.13-bin.tar.xz"
+  mirror "https://archive.apache.org/dist/ant/binaries/apache-ant-1.10.13-bin.tar.xz"
+  sha256 "de0a860bf339e6975558f426772a6aa2c6ae0856215dd9aaf57aa2476d665664"
   license "Apache-2.0"
   head "https://git-wip-us.apache.org/repos/asf/ant.git", branch: "master"
 
@@ -14,15 +14,15 @@ class Ant < Formula
   depends_on "openjdk"
 
   resource "ivy" do
-    url "https://www.apache.org/dyn/closer.lua?path=ant/ivy/2.5.0/apache-ivy-2.5.0-bin.tar.gz"
-    mirror "https://archive.apache.org/dist/ant/ivy/2.5.0/apache-ivy-2.5.0-bin.tar.gz"
-    sha256 "3855a5769b5dbeafa9fb6a00f130467fd0f89da684a0b33a91e3dc5dae2715c7"
+    url "https://www.apache.org/dyn/closer.lua?path=ant/ivy/2.5.1/apache-ivy-2.5.1-bin.tar.gz"
+    mirror "https://archive.apache.org/dist/ant/ivy/2.5.1/apache-ivy-2.5.1-bin.tar.gz"
+    sha256 "ce9d3d5e37f6bc3c95a21efc94ae4ab73ec27b3e8d0d86515b44b562c4bb431e"
   end
 
   resource "bcel" do
-    url "https://www.apache.org/dyn/closer.lua?path=commons/bcel/binaries/bcel-6.5.0-bin.tar.gz"
-    mirror "https://archive.apache.org/dist/commons/bcel/binaries/bcel-6.5.0-bin.tar.gz"
-    sha256 "023114972b8a2c267f832eab9349b6b475e8c6df559f207e33324877cf17fa30"
+    url "https://www.apache.org/dyn/closer.lua?path=commons/bcel/binaries/bcel-6.7.0-bin.tar.gz"
+    mirror "https://archive.apache.org/dist/commons/bcel/binaries/bcel-6.7.0-bin.tar.gz"
+    sha256 "d1bee25e9da24f0a9c808dc8137fcfc7fe662d3d3ac95eaee477586e8bb1ea2e"
   end
 
   def install
