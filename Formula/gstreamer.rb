@@ -52,8 +52,6 @@ class Gstreamer < Formula
       system "ninja", "-v"
       system "ninja", "install", "-v"
     end
-
-    bin.env_script_all_files libexec/"bin", GST_PLUGIN_SYSTEM_PATH: HOMEBREW_PREFIX/"lib/gstreamer-1.0"
   end
 
   def caveats
