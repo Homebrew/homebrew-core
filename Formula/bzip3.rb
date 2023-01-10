@@ -15,14 +15,6 @@ class Bzip3 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "652ff77bbe2107000ebfea60b7f37cdcf621e6693f4705b5d457d072ca500408"
   end
 
-  # Fix -flat_namespace being used on Big Sur and later.
-  # upstream patch commit, https://github.com/kspalaiologos/bzip3/commit/e667cacfaa0b4b56e45d48e0496041c376c82d53
-  # remove in next release
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
-    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
-  end
-
   def install
     system "./configure", *std_configure_args, "--disable-silent-rules", "--disable-arch-native"
     system "make", "install"
