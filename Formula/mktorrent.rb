@@ -18,7 +18,7 @@ class Mktorrent < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9e0e51078893e14e1ab8c491ad7e46058f67bf61a20d89c800df6ebd3857bab3"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "make", "USE_PTHREADS=1", "USE_OPENSSL=1", "USE_LONG_OPTIONS=1"
