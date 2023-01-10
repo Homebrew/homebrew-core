@@ -1,8 +1,8 @@
 class Msgpack < Formula
   desc "Library for a binary-based efficient data interchange format"
   homepage "https://msgpack.org/"
-  url "https://github.com/msgpack/msgpack-c/releases/download/c-4.0.0/msgpack-c-4.0.0.tar.gz"
-  sha256 "420fe35e7572f2a168d17e660ef981a589c9cbe77faa25eb34a520e1fcc032c8"
+  url "https://github.com/msgpack/msgpack-c/releases/download/c-5.0.0/msgpack-c-5.0.0.tar.gz"
+  sha256 "eb6d77f32dbaaae9174d96cacfe02af30bf1ea329c45018074cd95ac6e6fa6e5"
   license "BSL-1.0"
   head "https://github.com/msgpack/msgpack-c.git", branch: "c_master"
 
