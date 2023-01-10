@@ -3,8 +3,8 @@ class SphinxDoc < Formula
 
   desc "Tool to create intelligent and beautiful documentation"
   homepage "https://www.sphinx-doc.org/"
-  url "https://files.pythonhosted.org/packages/1a/09/7f5e77006825a89062aa7e9db4df1a4561fd37df364ce28ab03e8083264a/Sphinx-6.1.2.tar.gz"
-  sha256 "19678b91c1f4e2025cfe3bfcbf473ffa3b086651bbdd43d6816e16e4cc58a8b4"
+  url "https://files.pythonhosted.org/packages/db/0b/a0f60c4abd8a69bd5b0d20edde8a8d8d9d4ca825bbd920d328d248fd0290/Sphinx-6.1.3.tar.gz"
+  sha256 "0dac3b698538ffef41716cf97ba26c1c7788dba73ce6f150c1ff5b4720786dd2"
   license "BSD-2-Clause"
 
   bottle do
@@ -72,8 +72,8 @@ class SphinxDoc < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/6b/f7/c240d7654ddd2d2f3f328d8468d4f1f876865f6b9038b146bec0a6737c65/packaging-22.0.tar.gz"
-    sha256 "2198ec20bd4c017b8f9717e00f0c8714076fc2fd93816750ab48e2c41de2cfd3"
+    url "https://files.pythonhosted.org/packages/47/d5/aca8ff6f49aa5565df1c826e7bf5e85a6df852ee063600c1efa5b932968c/packaging-23.0.tar.gz"
+    sha256 "b6ad297f8907de0fa2fe1ccbd26fdaf387f5f47c7275fedf8cce89f99446cf97"
   end
 
   resource "pytz" do
@@ -91,9 +91,9 @@ class SphinxDoc < Formula
     sha256 "09b16deb8547d3412ad7b590689584cd0fe25ec8db3be37788be3810cbf19cb1"
   end
 
-  resource "sphinxcontrib-applehelp" do
-    url "https://files.pythonhosted.org/packages/9f/01/ad9d4ebbceddbed9979ab4a89ddb78c9760e74e6757b1880f1b2760e8295/sphinxcontrib-applehelp-1.0.2.tar.gz"
-    sha256 "a072735ec80e7675e3f432fcae8610ecf509c5f1869d17e2eecff44389cdbc58"
+  resource "sphinxcontrib.applehelp" do
+    url "https://files.pythonhosted.org/packages/00/45/1973a8e0fae5a9b4fafd6c0523164622f8166d4f099c6616e6654bc07979/sphinxcontrib.applehelp-1.0.3.tar.gz"
+    sha256 "83749f09f6ac843b8cb685277dbc818a8bf2d76cc19602699094fe9a74db529e"
   end
 
   resource "sphinxcontrib-devhelp" do
