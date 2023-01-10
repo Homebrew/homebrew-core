@@ -3,8 +3,8 @@ class Poetry < Formula
 
   desc "Python package management tool"
   homepage "https://python-poetry.org/"
-  url "https://files.pythonhosted.org/packages/1b/02/b2ac00c4d7baf3173f55193dfd4640c61a760f1803f8e09024d8c4d195d1/poetry-1.3.1.tar.gz"
-  sha256 "fde98462ad5dc9879393157da93092206a3411117e25a4761a41c6d08f31aea8"
+  url "https://files.pythonhosted.org/packages/6b/ed/57f55c650cb61310ac15df2b694d41dfb45c33480c3394410a911b847971/poetry-1.3.2.tar.gz"
+  sha256 "26ded25f0cf67943243ca4f0aafd47ec4668bdb62845dbb8c2b0e3d9cd280bf4"
   license "MIT"
   head "https://github.com/python-poetry/poetry.git", branch: "master"
 
@@ -29,8 +29,8 @@ class Poetry < Formula
   # `lockfile` is used directly by `poetry` but is not present as a direct dependency.
   # See https://github.com/python-poetry/poetry/pull/7169
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/1a/cb/c4ffeb41e7137b23755a45e1bfec9cbb76ecf51874c6f1d113984ecaa32c/attrs-22.1.0.tar.gz"
-    sha256 "29adc2665447e5191d0e7c568fde78b21f9672d344281d0c6e1ab085429b22b6"
+    url "https://files.pythonhosted.org/packages/21/31/3f468da74c7de4fcf9b25591e682856389b3400b4b62f201e65f15ea3e07/attrs-22.2.0.tar.gz"
+    sha256 "c9227bfc2f01993c03f68db37d1d15c9690188323c067c641f1a35ca58185f99"
   end
 
   resource "CacheControl" do
@@ -69,8 +69,8 @@ class Poetry < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/d8/73/292d9ea2370840a163e6dd2d2816a571244e9335e2f6ad957bf0527c492f/filelock-3.8.2.tar.gz"
-    sha256 "7565f628ea56bfcd8e54e42bdc55da899c85c1abfe1b5bcfd147e9188cebb3b2"
+    url "https://files.pythonhosted.org/packages/0b/dc/eac02350f06c6ed78a655ceb04047df01b02c6b7ea3fc02d4df24ca87d24/filelock-3.9.0.tar.gz"
+    sha256 "7b319f24340b51f55a2bf7a12ac0755a9b03e718311dac567a0f4f7fabd2f5de"
   end
 
   resource "html5lib" do
@@ -84,8 +84,8 @@ class Poetry < Formula
   end
 
   resource "importlib-metadata" do
-    url "https://files.pythonhosted.org/packages/32/5a/e0d75c8010295ae6746f379f5324bc726076dfc426548bfa6f0763fce870/importlib_metadata-5.1.0.tar.gz"
-    sha256 "d5059f9f1e8e41f80e9c56c2ee58811450c31984dfa625329ffd7c0dad88a73b"
+    url "https://files.pythonhosted.org/packages/90/07/6397ad02d31bddf1841c9ad3ec30a693a3ff208e09c2ef45c9a8a5f85156/importlib_metadata-6.0.0.tar.gz"
+    sha256 "e354bedeb60efa6affdcc8ae121b73544a7aa74156d047311948f6d711cd378d"
   end
 
   resource "jaraco.classes" do
@@ -99,8 +99,8 @@ class Poetry < Formula
   end
 
   resource "keyring" do
-    url "https://files.pythonhosted.org/packages/1c/35/c22960f14f5e17384296b2f09da259f8b5244fb3831eccec71cf948a49c6/keyring-23.11.0.tar.gz"
-    sha256 "ad192263e2cdd5f12875dedc2da13534359a7e760e77f8d04b50968a821c2361"
+    url "https://files.pythonhosted.org/packages/55/fe/282f4c205add8e8bb3a1635cbbac59d6def2e0891b145aa553a0e40dd2d0/keyring-23.13.1.tar.gz"
+    sha256 "ba2e15a9b35e21908d0aaf4e0a47acc52d6ae33444df0da2b49d41a46ef6d678"
   end
 
   resource "lockfile" do
@@ -119,8 +119,8 @@ class Poetry < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/6b/f7/c240d7654ddd2d2f3f328d8468d4f1f876865f6b9038b146bec0a6737c65/packaging-22.0.tar.gz"
-    sha256 "2198ec20bd4c017b8f9717e00f0c8714076fc2fd93816750ab48e2c41de2cfd3"
+    url "https://files.pythonhosted.org/packages/47/d5/aca8ff6f49aa5565df1c826e7bf5e85a6df852ee063600c1efa5b932968c/packaging-23.0.tar.gz"
+    sha256 "b6ad297f8907de0fa2fe1ccbd26fdaf387f5f47c7275fedf8cce89f99446cf97"
   end
 
   resource "pexpect" do
@@ -129,13 +129,13 @@ class Poetry < Formula
   end
 
   resource "pkginfo" do
-    url "https://files.pythonhosted.org/packages/12/d1/03b865975864a30d4a23f87fd5b9f816db2e4b2e8f4fe696a3238b749cc0/pkginfo-1.9.2.tar.gz"
-    sha256 "ac03e37e4d601aaee40f8087f63fc4a2a6c9814dda2c8fa6aab1b1829653bdfa"
+    url "https://files.pythonhosted.org/packages/b4/1c/89b38e431c20d6b2389ed8b3926c2ab72f58944733ba029354c6d9f69129/pkginfo-1.9.6.tar.gz"
+    sha256 "8fd5896e8718a4372f0ea9cc9d96f6417c9b986e23a4d116dda26b62cc29d046"
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/ec/4c/9af851448e55c57b30a13a72580306e628c3b431d97fdae9e0b8d4fa3685/platformdirs-2.6.0.tar.gz"
-    sha256 "b46ffafa316e6b83b47489d240ce17173f123a9b9c83282141c3daf26ad9ac2e"
+    url "https://files.pythonhosted.org/packages/cf/4d/198b7e6c6c2b152f4f9f4cdf975d3590e33e63f1920f2d89af7f0390e6db/platformdirs-2.6.2.tar.gz"
+    sha256 "e1fea1fe471b9ff8332e229df3cb7de4f53eeea4998d3b6bfff542115e998bd2"
   end
 
   resource "poetry-core" do
@@ -159,13 +159,13 @@ class Poetry < Formula
   end
 
   resource "pyrsistent" do
-    url "https://files.pythonhosted.org/packages/b8/ef/325da441a385a8a931b3eeb70db23cb52da42799691988d8d943c5237f10/pyrsistent-0.19.2.tar.gz"
-    sha256 "bfa0351be89c9fcbcb8c9879b826f4353be10f58f8a677efab0c017bf7137ec2"
+    url "https://files.pythonhosted.org/packages/bf/90/445a7dbd275c654c268f47fa9452152709134f61f09605cf776407055a89/pyrsistent-0.19.3.tar.gz"
+    sha256 "1a2994773706bbb4995c31a97bc94f1418314923bd1048c6d964837040376440"
   end
 
   resource "rapidfuzz" do
-    url "https://files.pythonhosted.org/packages/cc/42/f3bde4d6e5711b5ba266dc66c66bc0659e7c2f2016f46d1927c76d40ad57/rapidfuzz-2.13.6.tar.gz"
-    sha256 "948445a054d9fb30a93597c325d8836232bd68e61443a88779a57702aa35a007"
+    url "https://files.pythonhosted.org/packages/15/e5/2ab8375be6955aff1925b69c41429cbe54e32a67461c0b59f94c9b8b1cc5/rapidfuzz-2.13.7.tar.gz"
+    sha256 "8d3e252d4127c79b4d7c2ae47271636cbaca905c8bb46d80c7930ab906cf4b5c"
   end
 
   resource "requests" do
@@ -179,8 +179,8 @@ class Poetry < Formula
   end
 
   resource "shellingham" do
-    url "https://files.pythonhosted.org/packages/bd/e6/fdf53ebbf08016dba98f2b047d4db95790157f0e2eed3b14bb5754271475/shellingham-1.5.0.tar.gz"
-    sha256 "72fb7f5c63103ca2cb91b23dee0c71fe8ad6fbfd46418ef17dbe40db51592dad"
+    url "https://files.pythonhosted.org/packages/1f/13/fab0a3f512478bc387b66c51557ee715ede8e9811c77ce952f9b9a4d8ac1/shellingham-1.5.0.post1.tar.gz"
+    sha256 "823bc5fb5c34d60f285b624e7264f4dda254bc803a3774a147bf99c0e3004a28"
   end
 
   resource "tomlkit" do
@@ -189,8 +189,8 @@ class Poetry < Formula
   end
 
   resource "trove-classifiers" do
-    url "https://files.pythonhosted.org/packages/42/09/c07dd7fab889708e6322884461a5be112f858bcd44c13d355dafde9cccf1/trove-classifiers-2022.12.1.tar.gz"
-    sha256 "8eccd9c075038ef2ec73276e2422d0dbf4d632f9133f029632d0df35374caf77"
+    url "https://files.pythonhosted.org/packages/b2/e6/f4bafe4f29aa5cf678bd0ecdba156f09e18e5037e427d51e54324a99be8b/trove-classifiers-2022.12.22.tar.gz"
+    sha256 "fe0fe3f085987161aee2a5a853c7cc7cdf64515c5965d57ad968fdd8cc3b0362"
   end
 
   resource "urllib3" do
