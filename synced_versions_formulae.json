@@ -8,6 +8,7 @@
     "x86_64-linux-gnu-binutils"
   ],
   ["apache-arrow", "apache-arrow-glib"],
+  ["auditbeat", "filebeat", "heartbeat", "metricbeat", "packetbeat"],
   ["avro-c", "avro-cpp", "avro-tools"],
   ["aws-console", "cfn-format", "rain"],
   ["boost", "boost-bcp", "boost-build", "boost-mpi", "boost-python3"],
