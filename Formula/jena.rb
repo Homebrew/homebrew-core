@@ -12,6 +12,8 @@ class Jena < Formula
 
   depends_on "openjdk"
 
+  conflicts_with "samba", because: "both install `tdbbackup` binaries"
+
   def install
     env = {
       JAVA_HOME: Formula["openjdk"].opt_prefix,
