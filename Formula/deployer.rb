@@ -15,8 +15,6 @@ class Deployer < Formula
 
   def install
     bin.install "deployer.phar" => "dep"
-    bin.env_script_all_files libexec, PATH: "#{Formula["php@8.1"].opt_bin}:$PATH"
-    chmod 0755, libexec/"dep"
   end
 
   test do
