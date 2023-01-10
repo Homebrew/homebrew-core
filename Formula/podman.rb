@@ -148,10 +148,18 @@ class Podman < Formula
         for rootless containers to work properly.
       EOS
     end
+    on_macos do
+      <<-EOS
+        In order to run containers locally, podman depends on a Linux kernel.
+        One can be started manually using `podman machine` from this package.
+        To start a podman VM automatically at login, also install the cask
+        "podman-desktop".
+      EOS
+    end
   end
 
   service do
-    run [opt_bin/"podman", "system", "service", "--time=0"]
+    run linux: [opt_bin/"podman", "system", "service", "--time=0"]
     environment_variables PATH: std_service_path_env
     working_dir HOMEBREW_PREFIX
   end
