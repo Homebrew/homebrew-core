@@ -53,6 +53,7 @@ class Samba < Formula
   end
 
   conflicts_with "jena", because: "both install `tdbbackup` binaries"
+  conflicts_with "puzzles", because: "both install `net` binaries"
 
   resource "Parse::Yapp" do
     url "https://cpan.metacpan.org/authors/id/W/WB/WBRASWELL/Parse-Yapp-1.21.tar.gz"
