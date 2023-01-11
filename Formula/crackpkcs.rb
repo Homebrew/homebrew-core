@@ -17,6 +17,10 @@ class Crackpkcs < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7fe6ba851498a7e734d172a966411bf9d2afed85ba6bd6c85cb3bac2f2d865af"
   end
 
+  # Match deprecation date of `openssl@1.1` as current release segfaults with `openssl@3`.
+  # Last release on 2018-03-10.
+  deprecate! date: "2023-09-11", because: :unmaintained
+
   depends_on "pkg-config" => :build
   depends_on "openssl@1.1"
 
