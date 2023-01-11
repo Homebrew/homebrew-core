@@ -17,16 +17,18 @@ class Zola < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b185e33df9ce30f79b8a0501d4fe871bc8005f2dbdd115408c14bc3bb59845a1"
   end
 
-  depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
   depends_on "rust" => :build
+  depends_on "libsass" # for sass-sys
+  depends_on "oniguruma" # for onig_sys
 
   on_linux do
-    depends_on "openssl@1.1"
+    depends_on "openssl@3" # Uses Secure Transport on macOS
   end
 
   def install
-    ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix if OS.linux?
-    system "cargo", "install", *std_cargo_args
+    ENV["RUSTONIG_SYSTEM_LIBONIG"] = "1"
+    system "cargo", "install", "--features", "native-tls", *std_cargo_args
 
     bash_completion.install "completions/zola.bash"
     zsh_completion.install "completions/_zola"
