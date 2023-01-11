@@ -1,8 +1,8 @@
 class Baresip < Formula
   desc "Modular SIP useragent"
   homepage "https://github.com/baresip/baresip"
-  url "https://github.com/baresip/baresip/archive/refs/tags/v2.10.0.tar.gz"
-  sha256 "1bbeda0cb6c0f0480fb67f4fcc389df42384da7da909d9d950538fbbbfb92495"
+  url "https://github.com/baresip/baresip/archive/refs/tags/v2.11.0.tar.gz"
+  sha256 "fe0aeb3ae1d9c2d3bcc6d1a53adb8dbd34740de287a40a2d59d6c0cec58943c7"
   license "BSD-3-Clause"
 
   bottle do
@@ -15,6 +15,8 @@ class Baresip < Formula
     sha256 x86_64_linux:   "a2c7f7c663930e887c60ebae525bae0cada7be7368b684d9d110ec5159b900dc"
   end
 
+  depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
   depends_on "libre"
   depends_on "librem"
 
@@ -22,26 +24,14 @@ class Baresip < Formula
     libre = Formula["libre"]
     librem = Formula["librem"]
     args = %W[
-      PREFIX=#{prefix}
-      LIBRE_MK=#{libre.opt_share}/re/re.mk
-      LIBRE_INC=#{libre.opt_include}/re
-      LIBRE_SO=#{libre.opt_lib}
-      LIBREM_PATH=#{librem.opt_prefix}
-      LIBREM_SO=#{librem.opt_lib}
-      MOD_AUTODETECT=
-      USE_G711=1
-      USE_OPENGL=1
-      USE_STDIO=1
-      USE_UUID=1
-      HAVE_GETOPT=1
-      RELEASE=1
-      V=1
+      -DCMAKE_BUILD_TYPE=Release
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DRE_INCLUDE_DIR=#{libre.opt_include}/re
+      -DREM_INCLUDE_DIR=#{librem.opt_include}/rem
     ]
-    if OS.mac?
-      args << "USE_AVCAPTURE=1"
-      args << "USE_COREAUDIO=1"
-    end
-    system "make", "install", *args
+    system "cmake", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build", "-j"
+    system "cmake", "--install", "build"
   end
 
   test do
