@@ -1,11 +1,9 @@
 class AmmoniteRepl < Formula
   desc "Ammonite is a cleanroom re-implementation of the Scala REPL"
   homepage "https://ammonite.io/"
-  # Prefer 2.13-x.xx versions, until significant regression in 3.0-x.xx is resolved
-  # See https://github.com/com-lihaoyi/Ammonite/issues/1190
-  url "https://github.com/com-lihaoyi/Ammonite/releases/download/2.5.6/2.13-2.5.6"
+  url "https://github.com/com-lihaoyi/Ammonite/releases/download/2.5.6/3.2-2.5.6"
   version "2.5.6"
-  sha256 "365cf83befaa147972510eee4ee736b28c648ac632d8e30ca9b9cfa0515e2e45"
+  sha256 "afcea3a8155232ce46131af26bfacf0af59754fffa949d4ee2715a90a13be673"
   license "MIT"
 
   bottle do
@@ -20,8 +18,6 @@ class AmmoniteRepl < Formula
     (bin/"amm").write_env_script libexec/"bin/amm", Language::Java.overridable_java_home_env
   end
 
-  # This test demonstrates the bug on 3.0-x.xx versions
-  # If/when it passes there, it should be safe to upgrade again
   test do
     (testpath/"testscript.sc").write <<~EOS
       #!/usr/bin/env amm
