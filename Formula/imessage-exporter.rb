@@ -8,8 +8,7 @@ class ImessageExporter < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--path", "imessage-exporter", "--locked", "--root", prefix
-    bin.install "target/release/imessage-exporter"
+    system "cargo", "install", *std_cargo_args(path: "imessage-exporter")
   end
 
   test do
