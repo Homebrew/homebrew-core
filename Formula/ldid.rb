@@ -20,7 +20,7 @@ class Ldid < Formula
   end
 
   depends_on "libplist"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   uses_from_macos "libxml2"
 
   def install
