@@ -18,6 +18,10 @@ class SshPermitA38 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ef88b670035ed8bc6bcba5290a1bf297237a7abcaeb243c1d686f0e45683cbd7"
   end
 
+  # Match deprecation date of `openssl@1.1`. openssl-sys==0.9.27 doesn't support `openssl@3`
+  # Last release on 2018-08-18
+  deprecate! date: "2023-09-11", because: :unmaintained
+
   depends_on "cmake" => :build
   depends_on "rust" => :build
   depends_on "openssl@1.1"
