@@ -13,19 +13,22 @@ class Souffle < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "54359b0756972ca99d438dd8cbd72a49dfe93b53ee3c1731e7b32931973b5bfc"
   end
 
-  depends_on "bison" => :build # Bison included in macOS is out of date.
+  depends_on "bison" => :build 
   depends_on "cmake" => :build
-  depends_on "mcpp" => :build
   depends_on "pkg-config" => :build
-  uses_from_macos "flex" => :build
-  uses_from_macos "libffi"
-  uses_from_macos "ncurses"
-  uses_from_macos "sqlite"
-  uses_from_macos "zlib"
+  depends_on "libffi" => :build
+  depends_on "flex" => :build
+  depends_on "mcpp" => :build
+  depends_on "swig" 
+  depends_on "libomp"
+  depends_on "ncurses"
+  depends_on "sqlite"
+  depends_on "zlib"
+  depends_on "gcc"
 
   def install
     cmake_args = [
-      "-DSOUFFLE_DOMAIN_64BIT=ON",
+      "-DCMAKE_CXX_COMPILER=#{Formula["gcc"].bin}/g++-#{Formula["gcc"].version.major}",
       "-DSOUFFLE_GIT=OFF",
       "-DSOUFFLE_BASH_COMPLETION=ON",
       "-DBASH_COMPLETION_COMPLETIONSDIR=#{bash_completion}",
@@ -34,9 +37,27 @@ class Souffle < Formula
     ]
     system "cmake", "-S", ".", "-B", "build", *cmake_args, *std_cmake_args
     inreplace "#{buildpath}/build/src/souffle-compile.py" do |s|
-      s.gsub!(/"compiler": ".*?"/, "\"compiler\": \"/usr/bin/c++\"")
-      s.gsub!(%r{-I.*?/src/include }, "")
-      s.gsub!(%r{"source_include_dir": ".*?/src/include"}, "\"source_include_dir\": \"#{include}\"")
+      sqlite_include = "#{Formula["sqlite"].opt_include}"
+      lib_ext = ".so"
+      lib_ext = ".dylib" if OS.mac?
+      link_options = [
+        "#{Formula["sqlite"].opt_lib}/libsqlite3#{lib_ext}",
+        "#{Formula["zlib"].opt_lib}/libz#{lib_ext}",
+        "#{Formula["ncurses"].opt_lib}/libncurses#{lib_ext}",
+      ]
+      if OS.linux?
+        link_options << "-ldl"
+      end
+      rpaths = [
+        "#{Formula["sqlite"].opt_lib}",
+        "#{Formula["zlib"].opt_lib}",
+        "#{Formula["ncurses"].opt_lib}",
+      ]
+      s.gsub!("#{Formula["sqlite"].opt_lib}", "#{Formula["sqlite3"].opt_lib}")
+      s.gsub!(/"includes": ".*?"/, "\"includes\": \"-I#{include} -I#{sqlite_include}\"")
+      s.gsub!(/"link_options": ".*?"/, "\"link_options\": \"#{link_options * " "}\"")
+      s.gsub!(/"rpaths": ".*?"/, "\"rpaths\": \"#{rpaths * ":"}\"")
+      s.gsub!(/"source_include_dir": ".*?"/, "\"source_include_dir\": \"#{include}\"")
     end
     system "cmake", "--build", "build", "-j", "--target", "install"
     include.install Dir["src/include/*"]
@@ -57,6 +78,13 @@ class Souffle < Formula
       1,2
     EOS
     system "#{bin}/souffle", "-F", "#{testpath}/.", "-D", "#{testpath}/.", "#{testpath}/example.dl"
+    assert_predicate testpath/"path.csv", :exist?
+    assert_equal "1,2\n", shell_output("cat #{testpath}/path.csv")
+    rm testpath/"path.csv"
+
+    system "#{bin}/souffle", "-o", "example", "#{testpath}/example.dl"
+    assert_predicate testpath/"example", :exist?
+    system "./example", "-F", "#{testpath}/.", "-D", "#{testpath}/."
     assert_predicate testpath/"path.csv", :exist?
     assert_equal "1,2\n", shell_output("cat #{testpath}/path.csv")
   end
