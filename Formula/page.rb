@@ -19,6 +19,10 @@ class Page < Formula
   depends_on "rust" => :build
   depends_on "neovim"
 
+  on_linux do
+    conflicts_with "tcl-tk", because: "both install `page` binaries"
+  end
+
   def install
     system "cargo", "install", *std_cargo_args
 
