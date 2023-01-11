@@ -12,7 +12,7 @@ class ImessageExporter < Formula
   end
 
   test do
-    system "imessage-exporter -h"
+    system "imessage-exporter", "-h"
     system "echo", "Done!"
   end
 end
