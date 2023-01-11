@@ -3,9 +3,9 @@ class AmmoniteRepl < Formula
   homepage "https://ammonite.io/"
   # Prefer 2.13-x.xx versions, until significant regression in 3.0-x.xx is resolved
   # See https://github.com/com-lihaoyi/Ammonite/issues/1190
-  url "https://github.com/com-lihaoyi/Ammonite/releases/download/2.5.5/2.13-2.5.5"
-  version "2.5.5"
-  sha256 "84f21d96cc1e7aaebdd355f294431dcedbd5bc488dfbc14d0ba1ff0939aab40e"
+  url "https://github.com/com-lihaoyi/Ammonite/releases/download/2.5.6/2.13-2.5.6"
+  version "2.5.6"
+  sha256 "365cf83befaa147972510eee4ee736b28c648ac632d8e30ca9b9cfa0515e2e45"
   license "MIT"
 
   bottle do
