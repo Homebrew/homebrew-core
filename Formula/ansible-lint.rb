@@ -102,8 +102,8 @@ class AnsibleLint < Formula
       - hosts: all
         gather_facts: false
         tasks:
-        - name: ping
-          ansible.builtin.ping:
+          - name: ping
+            ansible.builtin.ping:
     EOS
     system bin/"ansible-lint", testpath/"playbook.yml"
   end
