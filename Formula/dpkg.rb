@@ -4,8 +4,8 @@ class Dpkg < Formula
   # Please use a mirror as the primary URL as the
   # dpkg site removes tarballs regularly which means we get issues
   # unnecessarily and older versions of the formula are broken.
-  url "https://deb.debian.org/debian/pool/main/d/dpkg/dpkg_1.21.17.tar.xz"
-  sha256 "6bb214f378a72d9de999598e60b9e387ab03c0899288f5414da1332ef225686f"
+  url "https://deb.debian.org/debian/pool/main/d/dpkg/dpkg_1.21.18.tar.xz"
+  sha256 "7fcbbf28ecf622bad84229114dab4f62e0b0c29f6263b00dd1f3f73fe40e1062"
   license "GPL-2.0-only"
 
   livecheck do
@@ -14,13 +14,13 @@ class Dpkg < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "5c577ed9e78189c87d8b3a9c2f93d235dca2ec08794d88366bd6d194ea912db3"
-    sha256 arm64_monterey: "8b2b1b9c97d86064cb66d992fad62a68068fc81d6db5e80fdce6d89ab1413f29"
-    sha256 arm64_big_sur:  "672b1404d61d46355159ccf909f9a78e123e370573e329366693af15a775fb7f"
-    sha256 ventura:        "4f4ccbc7e1d8fe4e8eed8a04353620fab8cb9a659e32418be5905cba92674462"
-    sha256 monterey:       "a1401fb70fe8289b3da7b67bce69318459c4d569c311f3a353f158def76df50e"
-    sha256 big_sur:        "e284d7abe06525ab5f1a4695ac160e601424c0a8fe7f1ca03b4e84a06cf5b00c"
-    sha256 x86_64_linux:   "862ec4f5c06ae7b1dff8d1b21f39d66ad50b4d44ff9d44268a75fdbc9d33a677"
+    sha256 arm64_ventura:  "df0add112743aac0cf360ef25f40869b56ddad2c622ec3e438aab278af52fa4d"
+    sha256 arm64_monterey: "39f988ea146d7581cfec50c1487b3d0fb953ded29f11e70cd523dfebd07521af"
+    sha256 arm64_big_sur:  "e4591cd9208732f449dc2931cc21acd64443b858eab3fd8ce466912d45cbf742"
+    sha256 ventura:        "e502eb02e5a4086a096321827b852d7b7ca760df79596343c124fafee2407809"
+    sha256 monterey:       "32b4acfe37c8d76a827f417a7bf6d6c23c906cb8e14bc5ba1b7bf753934cb109"
+    sha256 big_sur:        "63afe11c54809ce9586a07467d7a7cbbb323046ecfee267fb0bbecf2d9b90cec"
+    sha256 x86_64_linux:   "9ddca631dddf8a0a2545b30b5cf97e72df5003e2c61d98d75d3d83a0e6723eed"
   end
 
   depends_on "pkg-config" => :build

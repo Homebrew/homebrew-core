@@ -3,18 +3,18 @@ class PipAudit < Formula
 
   desc "Audits Python environments and dependency trees for known vulnerabilities"
   homepage "https://pypi.org/project/pip-audit/"
-  url "https://files.pythonhosted.org/packages/88/a1/df74cb445b0c46d2fc97caf0c40a27d047f49ff9390e49f81bd55c5406e2/pip_audit-2.4.12.tar.gz"
-  sha256 "eab6aab5a649e93f17309bf8d57bb369a63fa9ef60e96b585bba22acdbb54b97"
+  url "https://files.pythonhosted.org/packages/12/20/2dd169e3a37d48e27f62b1881ce4695238c621ef28d16ac2b41f102a4592/pip_audit-2.4.13.tar.gz"
+  sha256 "e0c9fe070a16aefdbb9c4d43df6a0183bc951375a293f58264c5e80b5edb57d7"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "350026bcc8b61cf7560c6e3e01d85c94ae4774f2e3dcc7442e22e14dfe25c9ec"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "15d699036c9b5436fe47b03d926e91ef36ff1c3e036fecb5e7f432bee69abcb1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "51e2405e0552ae88e8a9366e322ec6aed0d2731a566b6f946f8bffbc78ac41af"
-    sha256 cellar: :any_skip_relocation, ventura:        "4e1d5b34718813425676bb6de6acd4d5d9c3f51d73d452de042fd1ad00b0cdbb"
-    sha256 cellar: :any_skip_relocation, monterey:       "a3565e57a8115d3dff5c2986c0a0572fc3948740ce056a9b413b1d5968f16ed9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c06417e25ee7bf61d4f33769f7b231e04afa7c41bc89e393939882241d77184b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1e2063521cc557c3ed1416ee8cd28b5117aef1767a3d63ae3bf61335994faeb6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "afb9fc0ded190aa4fc0bf5697e94419fdb4178673924077bebcb60f219e16a44"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "00c2cf61e6484e1a27e5d8387269924848f88e58f415662ce4284e331b23119e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6d6021e525fd3fe52174c3c4cc612c35d7757dd5ad0aeb3adc52d243b397974b"
+    sha256 cellar: :any_skip_relocation, ventura:        "480494528fc768fad6e5a74cf61903421efa7706226a404d5996ed4e7cd29913"
+    sha256 cellar: :any_skip_relocation, monterey:       "e52a71b1a9f7fa2cabd13156f7e3099885a13e0ebdab3b3404c7b1aab2f2b467"
+    sha256 cellar: :any_skip_relocation, big_sur:        "dc6660fe4bc1e32a937ac2e031078f37012acd0705c205cda5b5a98f7a4bdd55"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "08c6adf9d417aefa5c0abba46c067faabbcc71d119a9acad409380321075fba8"
   end
 
   depends_on "pygments"
@@ -42,8 +42,8 @@ class PipAudit < Formula
   end
 
   resource "cyclonedx-python-lib" do
-    url "https://files.pythonhosted.org/packages/b5/17/8045ae6daa35e301ca52d6a179f30f8fb4ae0545b6a0a3ea3a4ab8376444/cyclonedx_python_lib-3.1.1.tar.gz"
-    sha256 "48ae942a892e8385f4e0193d2e295a338df9ab864652081406c26f58085d2b35"
+    url "https://files.pythonhosted.org/packages/5e/dd/b56126883e08351401faa0cd398ac436e8be0f501e113a86b63eadec46f7/cyclonedx_python_lib-3.1.3.tar.gz"
+    sha256 "077894908b441a1a9ff84207fe3c84f1229b319564cbe83eb929e856cace3c02"
   end
 
   resource "filelock" do
@@ -72,8 +72,8 @@ class PipAudit < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/6b/f7/c240d7654ddd2d2f3f328d8468d4f1f876865f6b9038b146bec0a6737c65/packaging-22.0.tar.gz"
-    sha256 "2198ec20bd4c017b8f9717e00f0c8714076fc2fd93816750ab48e2c41de2cfd3"
+    url "https://files.pythonhosted.org/packages/47/d5/aca8ff6f49aa5565df1c826e7bf5e85a6df852ee063600c1efa5b932968c/packaging-23.0.tar.gz"
+    sha256 "b6ad297f8907de0fa2fe1ccbd26fdaf387f5f47c7275fedf8cce89f99446cf97"
   end
 
   resource "pip-api" do
@@ -102,8 +102,8 @@ class PipAudit < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/11/23/814edf09ec6470d52022b9e95c23c1bef77f0bc451761e1504ebd09606d3/rich-12.6.0.tar.gz"
-    sha256 "ba3a3775974105c221d31141f2c116f4fd65c5ceb0698657a11e9f295ec93fd0"
+    url "https://files.pythonhosted.org/packages/2f/1a/91f38976d2ed0b955e683fdbaafebf94606ff238b1ef604438a06a6d695f/rich-13.0.1.tar.gz"
+    sha256 "25f83363f636995627a99f6e4abc52ed0970ebbd544960cc63cbb43aaac3d6f0"
   end
 
   resource "sortedcontainers" do
