@@ -27,7 +27,7 @@ class Trafficserver < Formula
   depends_on "pkg-config" => :build
   depends_on "hwloc"
   depends_on macos: :mojave # `error: call to unavailable member function 'value': introduced in macOS 10.14`
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pcre"
   depends_on "yaml-cpp"
 
@@ -56,7 +56,7 @@ class Trafficserver < Formula
       --mandir=#{man}
       --localstatedir=#{var}
       --sysconfdir=#{pkgetc}
-      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
+      --with-openssl=#{Formula["openssl@3"].opt_prefix}
       --with-yaml-cpp=#{Formula["yaml-cpp"].opt_prefix}
       --with-group=admin
       --disable-tests
