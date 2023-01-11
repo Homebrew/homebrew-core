@@ -17,11 +17,11 @@ class Fq < Formula
 
   depends_on "concurrencykit"
   depends_on "jlog"
-  depends_on "openssl@1.1"
 
   uses_from_macos "sqlite"
 
   on_linux do
+    depends_on "openssl@3"
     depends_on "util-linux"
   end
 
