@@ -26,6 +26,15 @@ class Logstash < Formula
 
   uses_from_macos "ruby" => :build
 
+  # Ruby 3.2 compatibility.
+  # https://github.com/elastic/logstash/pull/14838
+  patch do
+    on_linux do
+      url "https://github.com/elastic/logstash/commit/95870c0f7a7c008c10e848191f85a1065e7db800.patch?full_index=1"
+      sha256 "b09065efe41a0098266d1243df19c6e35f4d075db06b41309c8fa791b25453f5"
+    end
+  end
+
   def install
     # remove non open source files
     rm_rf "x-pack"
