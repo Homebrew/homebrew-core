@@ -1,9 +1,9 @@
 class Pike < Formula
   desc "Dynamic programming language"
   homepage "https://pike.lysator.liu.se/"
+  # Homepage has an expired SSL cert as of 16/12/2020, so we add a Debian mirror
   url "https://pike.lysator.liu.se/pub/pike/latest-stable/Pike-v8.0.1738.tar.gz"
   mirror "http://deb.debian.org/debian/pool/main/p/pike8.0/pike8.0_8.0.1738.orig.tar.gz"
-  # Homepage has an expired SSL cert as of 16/12/2020, so we add a Debian mirror
   sha256 "1033bc90621896ef6145df448b48fdfa342dbdf01b48fd9ae8acf64f6a31b92a"
   license any_of: ["GPL-2.0-only", "LGPL-2.1-only", "MPL-1.1"]
   revision 1
@@ -33,8 +33,11 @@ class Pike < Formula
   depends_on "pcre"
   depends_on "webp"
 
+  uses_from_macos "bzip2"
   uses_from_macos "krb5"
   uses_from_macos "libxcrypt"
+  uses_from_macos "sqlite"
+  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gnu-sed" => :build
@@ -56,19 +59,20 @@ class Pike < Formula
     # Reported upstream here: https://git.lysator.liu.se/pikelang/pike/-/issues/10082.
     ENV.prepend_path "PATH", Formula["gnu-sed"].libexec/"gnubin" if OS.mac?
 
-    system "make", "CONFIGUREARGS='--prefix=#{prefix} --without-bundles --with-abi=64'"
+    configure_args = %W[
+      --prefix=#{libexec}
+      --with-abi=64
+      --without-bundles
+      --without-freetype
+      --without-gdbm
+      --without-odbc
+    ]
 
-    system "make", "install",
-                   "prefix=#{libexec}",
-                   "exec_prefix=#{libexec}",
-                   "share_prefix=#{libexec}/share",
-                   "lib_prefix=#{libexec}/lib",
-                   "man_prefix=#{libexec}/man",
-                   "include_path=#{libexec}/include",
-                   "INSTALLARGS=--traditional"
+    system "make", "CONFIGUREARGS=#{configure_args.join(" ")}"
+    system "make", "install", "INSTALLARGS=--traditional"
 
-    bin.install_symlink "#{libexec}/bin/pike"
-    share.install_symlink "#{libexec}/share/man"
+    bin.install_symlink libexec/"bin/pike"
+    man1.install_symlink libexec/"share/man/man1/pike.1"
   end
 
   test do
