@@ -8,13 +8,14 @@ class AnsibleLint < Formula
   license all_of: ["MIT", "GPL-3.0-or-later"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4c57176a634957642c835ce1aa7c604ee9af74d61b72a6e39617d8e8d838596a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e2911bf2113eb941266760ab9ccecaaaf7e41db089be137e461d332d3595a011"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "628b53e86eb80ad6e274d3c7413774a9725dd14ef1b817263c241fbb2fb39f5c"
-    sha256 cellar: :any_skip_relocation, ventura:        "056279c9bc571c6c5dab9698c8e52f389e594f9f79ff81680501cacef238ccf3"
-    sha256 cellar: :any_skip_relocation, monterey:       "a3f641175a73e5e591b0a0008e847a011b920c64ec6a5d954491b9e5658fe58d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "cf8cc25a7642bf04a45caced845979af933e8e30fe8f89b0ea8a9e046b1e0572"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0ecd40aa3522ff19b5d36ec629c599653f42b766419a52a2117ea96637777d1b"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ba8225ca30994c4dfba37814826e70672e34bedfe64b50130374ba2557d67a32"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4c68e6ee384c0d915f5f1934ccfc0449ade7cfc3b998f9fe5d95c816c75c0fc9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cb4dbaa0e2945a7faad35a1608ce7a03e0200b1add03836997f805fd375d4a1b"
+    sha256 cellar: :any_skip_relocation, ventura:        "76cc4f524a72b34f7d165498fc51a1573faf7a0b3f14c09ec7847cb6515feb43"
+    sha256 cellar: :any_skip_relocation, monterey:       "3a1dfec2a7518b7c71396abd602e824f870abae3f51b94422040a6c9dc9a515e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8c6c479220b2485fedda1fea0ca9c6f3278fe7ab33d70ffb5d9844f2228eceba"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "91cc7c7e641f81401f831cc441cc558571a7a2634ab2f46ae641d188a3338296"
   end
 
   depends_on "pkg-config" => :build
@@ -102,8 +103,8 @@ class AnsibleLint < Formula
       - hosts: all
         gather_facts: false
         tasks:
-        - name: ping
-          ansible.builtin.ping:
+          - name: ping
+            ansible.builtin.ping:
     EOS
     system bin/"ansible-lint", testpath/"playbook.yml"
   end

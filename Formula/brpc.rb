@@ -1,7 +1,7 @@
 class Brpc < Formula
   desc "Better RPC framework"
   homepage "https://brpc.apache.org/"
-  url "https://dlcdn.apache.org/incubator/brpc/1.3.0/apache-brpc-1.3.0-incubating-src.tar.gz"
+  url "https://dlcdn.apache.org/brpc/1.3.0/apache-brpc-1.3.0-incubating-src.tar.gz"
   sha256 "582287922f5c8fe7649f820a39f64e1c61c3fdda827c7b393ad3ec2df5b4f9d7"
   license "Apache-2.0"
   head "https://github.com/apache/incubator-brpc.git", branch: "master"
