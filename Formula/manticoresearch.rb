@@ -21,7 +21,7 @@ class Manticoresearch < Formula
   # Only even patch versions are stable releases
   livecheck do
     url :stable
-    regex(/^v?(\d+(?:\.\d+)*\.\d*[02468])$/i)
+    regex(/^v?(\d+(?:\.\d+)+\.\d*[02468])$/i)
   end
 
   bottle do
