@@ -33,6 +33,8 @@ class TclTk < Formula
     depends_on "pkg-config" => :build
     depends_on "libx11"
     depends_on "libxext"
+
+    conflicts_with "page", because: "both install `page` binaries" # from tcllib
   end
 
   resource "critcl" do
