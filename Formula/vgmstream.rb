@@ -2,9 +2,9 @@ class Vgmstream < Formula
   desc "Library for playing streamed audio formats from video games"
   homepage "https://vgmstream.org"
   url "https://github.com/vgmstream/vgmstream.git",
-      tag:      "r1800",
-      revision: "49af2cea7d6265a6e063f5d4e09e34df8f861998"
-  version "r1800"
+      tag:      "r1810",
+      revision: "8b0204f3fce845df91adc68e43669f9b660d7c63"
+  version "r1810"
   license "ISC"
   version_scheme 1
   head "https://github.com/vgmstream/vgmstream.git", branch: "master"
