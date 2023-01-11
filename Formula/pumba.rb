@@ -26,9 +26,11 @@ class Pumba < Formula
   def install
     goldflags = %W[
       -s -w
-      -X main.Version=#{version}
-      -X main.BuildTime=#{time.iso8601}
-    ].join(" ")
+      -X main.version=#{version}
+      -X main.commit=#{tap.user}
+      -X main.branch=master
+      -X main.buildTime=#{time.iso8601}
+    ]
     system "go", "build", *std_go_args(ldflags: goldflags), "./cmd"
   end
 
