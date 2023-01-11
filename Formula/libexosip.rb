@@ -25,7 +25,7 @@ class Libexosip < Formula
   depends_on "pkg-config" => :build
   depends_on "c-ares"
   depends_on "libosip"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     # Extra linker flags are needed to build this on macOS. See:
@@ -35,8 +35,7 @@ class Libexosip < Formula
       ENV.append "LDFLAGS", "-framework CoreFoundation -framework CoreServices " \
                             "-framework Security"
     end
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make", "install"
   end
 
