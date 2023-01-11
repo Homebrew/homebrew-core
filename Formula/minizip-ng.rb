@@ -25,7 +25,7 @@ class MinizipNg < Formula
   uses_from_macos "zlib"
 
   on_linux do
-    depends_on "openssl@1.1"
+    depends_on "openssl@3"
   end
 
   conflicts_with "minizip", because: "both install a `libminizip.a` library"
