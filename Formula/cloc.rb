@@ -1,8 +1,8 @@
 class Cloc < Formula
   desc "Statistics utility to count lines of code"
   homepage "https://github.com/AlDanial/cloc/"
-  url "https://github.com/AlDanial/cloc/archive/v1.96.tar.gz"
-  sha256 "9cab16a2d9b9e915d7f7299f718d13bb7a8e2082255d29747dc79498d5a4a3a4"
+  url "https://github.com/AlDanial/cloc/archive/v1.96.1.tar.gz"
+  sha256 "f0551d98dcce9ca2e78b984adf8e8cc7c6002037a1155e5294338c435e4a1af1"
   license "GPL-2.0-or-later"
   head "https://github.com/AlDanial/cloc.git", branch: "master"
 
