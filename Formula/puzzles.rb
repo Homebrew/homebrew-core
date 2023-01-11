@@ -40,6 +40,8 @@ class Puzzles < Formula
     depends_on "pango"
   end
 
+  conflicts_with "samba", because: "both install `net` binaries"
+
   def install
     system "cmake", ".", *std_cmake_args
     system "make", "install"
