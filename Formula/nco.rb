@@ -1,8 +1,8 @@
 class Nco < Formula
   desc "Command-line operators for netCDF and HDF files"
   homepage "https://nco.sourceforge.io/"
-  url "https://github.com/nco/nco/archive/5.1.3.tar.gz"
-  sha256 "f6766627dab3f067c88f2cd713e3058c324ea4f900fabf9755bdd8918c32de7b"
+  url "https://github.com/nco/nco/archive/5.1.4.tar.gz"
+  sha256 "4b1ec67b795b985990620be7b7422ecae6da77f5ec93e4407b799f0220dffc88"
   license "BSD-3-Clause"
 
   bottle do
