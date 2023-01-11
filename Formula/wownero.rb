@@ -52,10 +52,6 @@ class Wownero < Formula
     sha256 "e39914d425b974bcd548a3aeefae954ab2f39d832927ffb97a1fbd7ea03316e0"
   end
 
-  # Boost 1.76 compatibility
-  # https://github.com/loqs/monero/commit/5e902e5e32c672661dfe5677c4a950c4dd409198
-  patch :DATA
-
   def install
     # Need to help CMake find `readline` when not using /usr/local prefix
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DReadline_ROOT_DIR=#{Formula["readline"].opt_prefix}"
@@ -82,18 +78,3 @@ class Wownero < Formula
     assert_equal address, shell_output(cmd).lines.last.split[1]
   end
 end
-
-__END__
-diff --git a/contrib/epee/include/storages/portable_storage.h b/contrib/epee/include/storages/portable_storage.h
-index f77e89cb6..066e12878 100644
---- a/contrib/epee/include/storages/portable_storage.h
-+++ b/contrib/epee/include/storages/portable_storage.h
-@@ -39,6 +39,8 @@
- #include "span.h"
- #include "int-util.h"
-
-+#include <boost/mpl/contains.hpp>
-+
- namespace epee
- {
-   class byte_slice;
