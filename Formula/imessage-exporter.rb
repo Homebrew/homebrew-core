@@ -6,6 +6,7 @@ class ImessageExporter < Formula
   license "GPL-3.0-or-later"
 
   depends_on "rust" => :build
+  depends_on "sqlite"
 
   def install
     system "cargo", "install", *std_cargo_args(path: "imessage-exporter")
