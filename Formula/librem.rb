@@ -1,8 +1,8 @@
 class Librem < Formula
   desc "Toolkit library for real-time audio and video processing"
   homepage "https://github.com/baresip/rem"
-  url "https://github.com/baresip/rem/archive/refs/tags/v2.10.0.tar.gz"
-  sha256 "82d417f9ece6cafdbfb1e342cf1c7cf4390136578dd7c77b4c7995cbbf4792a0"
+  url "https://github.com/baresip/rem/archive/refs/tags/v2.11.0.tar.gz"
+  sha256 "16885d9343bab4186a2804107016076d06794d71a46cd70daba05b8fa897e024"
   license "BSD-3-Clause"
 
   bottle do
@@ -15,14 +15,18 @@ class Librem < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "51a69e77ce208071f5887d222ba6808bc4aab080c0866879c3bc533c0b6e2e1f"
   end
 
+  depends_on "cmake" => :build
   depends_on "libre"
 
   def install
     libre = Formula["libre"]
-    system "make", "install", "PREFIX=#{prefix}",
-                              "LIBRE_MK=#{libre.opt_share}/re/re.mk",
-                              "LIBRE_INC=#{libre.opt_include}/re",
-                              "LIBRE_SO=#{libre.opt_lib}"
+    args = %W[
+      -DCMAKE_BUILD_TYPE=Release
+      -DRE_INCLUDE_DIR=#{libre.opt_include}/re
+    ]
+    system "cmake", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build", "-j"
+    system "cmake", "--install", "build"
   end
 
   test do
