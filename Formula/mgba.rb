@@ -42,10 +42,6 @@ class Mgba < Formula
     depends_on "elfutils"
   end
 
-  # discussions in here, https://github.com/mgba-emu/mgba/issues/2700
-  # commit reference, https://github.com/mgba-emu/mgba/commit/981d01134b15c1d8214d9a7e5944879852588063
-  patch :DATA
-
   def install
     # Install .app bundle into prefix, not prefix/Applications
     inreplace "src/platform/qt/CMakeLists.txt", "Applications", "."
@@ -67,25 +63,3 @@ class Mgba < Formula
     system "#{bin}/mGBA", "-h"
   end
 end
-
-__END__
-diff --git a/CMakeLists.txt b/CMakeLists.txt
-index ce8e4d687..a8116d3ea 100644
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
-@@ -718,8 +718,13 @@ if (USE_LZMA)
- endif()
-
- if(USE_EPOXY)
--	list(APPEND FEATURE_SRC ${CMAKE_CURRENT_SOURCE_DIR}/src/platform/opengl/gl.c ${CMAKE_CURRENT_SOURCE_DIR}/src/platform/opengl/gles2.c)
--	list(APPEND FEATURE_DEFINES BUILD_GL BUILD_GLES2 BUILD_GLES3)
-+	if(APPLE AND MACOSX_SDK VERSION_GREATER 10.14)
-+		list(APPEND FEATURE_SRC ${CMAKE_CURRENT_SOURCE_DIR}/src/platform/opengl/gles2.c)
-+		list(APPEND FEATURE_DEFINES BUILD_GLES2 BUILD_GLES3)
-+	else()
-+		list(APPEND FEATURE_SRC ${CMAKE_CURRENT_SOURCE_DIR}/src/platform/opengl/gl.c ${CMAKE_CURRENT_SOURCE_DIR}/src/platform/opengl/gles2.c)
-+		list(APPEND FEATURE_DEFINES BUILD_GL BUILD_GLES2 BUILD_GLES3)
-+	endif()
- 	list(APPEND FEATURES EPOXY)
- 	include_directories(AFTER ${EPOXY_INCLUDE_DIRS})
- 	link_directories(${EPOXY_LIBRARY_DIRS})
