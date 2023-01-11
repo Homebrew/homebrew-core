@@ -1,8 +1,8 @@
 class Tass64 < Formula
   desc "Multi pass optimizing macro assembler for the 65xx series of processors"
   homepage "https://tass64.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/tass64/source/64tass-1.57.2900-src.zip"
-  sha256 "e4f0dcb1b00d5206ccb391eb5b8b43f4d95f064d63af739a71f5c822bbfc56a4"
+  url "https://downloads.sourceforge.net/project/tass64/source/64tass-1.58.2974-src.zip"
+  sha256 "3f3e2b1867664cb3b64d315fea11938f1666d79d11ea705a6937310257ef0a67"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.0-or-later", "LGPL-2.1-only", "MIT"]
 
   bottle do
