@@ -93,7 +93,7 @@ class Streamlink < Formula
     assert_match "video.mp4: ISO Media, MP4 v2", shell_output("file video.mp4")
 
     url = OS.mac? ? "https://ok.ru/video/3388934659879" : "https://www.youtube.com/watch?v=pOtd1cbOP7k"
-    output = shell_output("#{bin}/streamlink -l debug '#{url}'")
+    output = shell_output("#{bin}/streamlink --ffmpeg-no-validation -l debug '#{url}'")
     assert_match "Available streams:", output
     refute_match "error", output
     refute_match "Could not find metadata", output
