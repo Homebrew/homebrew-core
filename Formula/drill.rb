@@ -21,13 +21,13 @@ class Drill < Formula
   depends_on "rust" => :build
 
   on_linux do
-    depends_on "openssl@1.1" # Uses Secure Transport on macOS
+    depends_on "openssl@3" # Uses Secure Transport on macOS
   end
 
   conflicts_with "ldns", because: "both install a `drill` binary"
 
   def install
-    ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix if OS.linux?
+    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix if OS.linux?
     system "cargo", "install", *std_cargo_args
   end
 
