@@ -76,8 +76,8 @@ class Mesa < Formula
   end
 
   resource "glxgears.c" do
-    url "https://gitlab.freedesktop.org/mesa/demos/-/raw/db5ad06a346774a249b22797e660d55bde0d9571/src/xdemos/glxgears.c"
-    sha256 "3873db84d708b5d8b3cac39270926ba46d812c2f6362da8e6cd0a1bff6628ae6"
+    url "https://gitlab.freedesktop.org/mesa/demos/-/raw/caac7be425a185e191224833375413772c4aff8d/src/xdemos/glxgears.c"
+    sha256 "344a03aff01708350d90603fd6b841bccd295157670f519b459bbf3874acf847"
   end
 
   resource "gl_wrap.h" do
