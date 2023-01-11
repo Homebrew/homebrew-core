@@ -25,15 +25,17 @@ class Gloox < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libidn"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "zlib"
 
   def install
-    system "./configure", "--prefix=#{prefix}",
+    system "./configure", *std_configure_args,
+                          "--disable-silent-rules",
                           "--with-zlib",
-                          "--disable-debug",
-                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}"
+                          "--with-openssl=#{Formula["openssl@3"].opt_prefix}",
+                          "--without-tests",
+                          "--without-examples"
     system "make", "install"
   end
 
