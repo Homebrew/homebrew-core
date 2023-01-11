@@ -6,6 +6,7 @@ class Olsrd < Formula
   url "https://github.com/OLSR/olsrd/archive/v0.9.8.tar.gz"
   sha256 "ee9e524224e5d5304dcf61f1dc5485c569da09d382934ff85b233be3e24821a3"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -34,6 +35,12 @@ class Olsrd < Formula
 
   on_linux do
     depends_on "gpsd"
+
+    # patch to support gpsd 3.25, remove when patch avail in the upstream
+    patch do
+      url "https://github.com/OLSR/olsrd/commit/17d583258969c1d182361e0e168b3cad79ef64e6.patch?full_index=1"
+      sha256 "8b84d751119a55db06bb88284a8e29a96cccea343cb5104e8eb38a1c22deac05"
+    end
   end
 
   # Apply upstream commit to fix build with bison >= 3.7.1
