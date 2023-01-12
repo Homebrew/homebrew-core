@@ -2,8 +2,8 @@ class Licensefinder < Formula
   desc "Find licenses for your project's dependencies"
   homepage "https://github.com/pivotal/LicenseFinder"
   url "https://github.com/pivotal/LicenseFinder.git",
-      tag:      "v7.0.1",
-      revision: "b938cbfb33e8ec4eb9f2a4abcfb6e3462d226621"
+      tag:      "v7.1.0",
+      revision: "81092404aeaf1cb39dbf2551f50f007ed049c26c"
   license "MIT"
 
   bottle do
@@ -17,9 +17,7 @@ class Licensefinder < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8fad2104fa2186844235e5628d8afe03f34b08e7b9c62631399dde2b3947b493"
   end
 
-  on_system :linux, macos: :mojave_or_older do
-    depends_on "ruby@2.7"
-  end
+  depends_on "ruby"
 
   def install
     ENV["GEM_HOME"] = libexec
@@ -32,8 +30,9 @@ class Licensefinder < Formula
   test do
     gem_home = testpath/"gem_home"
     ENV["GEM_HOME"] = gem_home
-    gem_command = (MacOS.version <= :mojave) ? Formula["ruby@2.7"].bin/"gem" : "gem"
-    system gem_command, "install", "bundler"
+    # GEM_PATH is empty on linux, so set it to find the installed gems
+    ENV["GEM_PATH"] = libexec if OS.linux?
+    system "gem", "install", "bundler"
 
     mkdir "test"
     (testpath/"test/Gemfile").write <<~EOS
