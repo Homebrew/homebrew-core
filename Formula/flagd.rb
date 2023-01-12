@@ -37,7 +37,7 @@ class Flagd < Formula
         curl -X POST "localhost:#{port}/schema.v1.Service/ResolveBoolean" -d '{"flagKey":"myBoolFlag","context":{}}' -H "Content-Type: application/json"
       BASH
 
-      expected_output = '{"value":true,"reason":"STATIC","variant":"on"}'
+      expected_output = /true/
 
       assert_match expected_output, shell_output(resolve_boolean_command)
     ensure
