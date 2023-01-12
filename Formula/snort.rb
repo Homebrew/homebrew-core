@@ -31,7 +31,7 @@ class Snort < Formula
   depends_on "libdnet"
   depends_on "libpcap" # macOS version segfaults
   depends_on "luajit"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pcre"
   depends_on "xz" # for lzma.h
 
@@ -41,7 +41,10 @@ class Snort < Formula
     depends_on "libunwind"
   end
 
-  # Hyperscan improves IPS performance, but is only available for x86_64 arch.
+  on_arm do
+    depends_on "vectorscan"
+  end
+
   on_intel do
     depends_on "hyperscan"
   end
@@ -59,10 +62,9 @@ class Snort < Formula
     # On Apple ARM, building with flags results in broken binaries and they need to be removed.
     inreplace "cmake/FindLuaJIT.cmake", " -pagezero_size 10000 -image_base 100000000\"", "\""
 
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args, "-DENABLE_TCMALLOC=ON"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DENABLE_TCMALLOC=ON"
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   def caveats
