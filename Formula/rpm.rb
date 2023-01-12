@@ -22,7 +22,7 @@ class Rpm < Formula
   depends_on "libmagic"
   depends_on "lua"
   depends_on macos: :ventura
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pkg-config"
   depends_on "popt"
   depends_on "sqlite"
