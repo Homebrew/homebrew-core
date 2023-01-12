@@ -20,20 +20,20 @@ class Avfs < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "bzip2"
   depends_on "libfuse@2"
   depends_on :linux # on macOS, requires closed-source macFUSE
-  depends_on "openssl@1.1"
   depends_on "xz"
+  depends_on "zlib"
 
   def install
-    args = %W[
-      --disable-silent-rules
-      --enable-fuse
-      --enable-library
-      --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
-    ]
-
-    system "./configure", *std_configure_args, *args
+    system "./configure", *std_configure_args,
+                          "--disable-silent-rules",
+                          "--enable-fuse",
+                          "--enable-library",
+                          "--with-system-zlib",
+                          "--with-system-bzlib",
+                          "--with-xz"
     system "make", "install"
   end
 
