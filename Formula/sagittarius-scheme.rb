@@ -19,7 +19,7 @@ class SagittariusScheme < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "bdw-gc"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "unixodbc"
 
   uses_from_macos "libffi", since: :catalina
