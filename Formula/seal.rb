@@ -35,6 +35,10 @@ class Seal < Formula
     url "https://github.com/microsoft/SEAL/commit/0a838b11f1547e265edb75f00a90b245edc664a4.patch?full_index=1"
     sha256 "9f72279b15e2a4890cc36bc60459b20827883a6fab0048b383a447cd0b60f0fc"
   end
+  patch do
+    url "https://github.com/microsoft/SEAL/commit/13e94ef0e01aa9874885bbfdbca1258ab380ddeb.patch?full_index=1"
+    sha256 "19e3dde5aeb78c01dbe5ee73624cf4621060d071ab1a437515eedc00b47310a1"
+  end
 
   def install
     if Hardware::CPU.intel?
