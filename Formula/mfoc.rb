@@ -1,10 +1,11 @@
 class Mfoc < Formula
   desc "Implementation of 'offline nested' attack by Nethemba"
   homepage "https://github.com/nfc-tools/mfoc"
-  url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/mfoc/mfoc-0.10.7.tar.bz2"
-  sha256 "93d8ac4cb0aa6ed94855ca9732a2ffd898a9095c087f12f9402205443c2eb98c"
-  license "GPL-2.0"
-  revision 1
+  url "https://github.com/nfc-tools/mfoc/archive/refs/tags/mfoc-0.10.7.tar.gz"
+  sha256 "2dfd8ffa4a8b357807680d190a91c8cf3db54b4211a781edc1108af401dbaad7"
+  license "GPL-2.0-only"
+  revision 2
+  head "https://github.com/nfc-tools/mfoc.git"
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "198199b28fba78263ae5f47178b4fc1334034e6f9501a2e75725676b7d83ebb3"
@@ -19,11 +20,14 @@ class Mfoc < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "42a1e94b179175e30631ae1d85e59a8d106def94007da48b2c98ccf09e16b13f"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "pkg-config" => :build
   depends_on "libnfc"
   depends_on "libusb"
 
   def install
+    system "autoreconf", "-is"
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make"
