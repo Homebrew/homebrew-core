@@ -3,7 +3,7 @@ class Sngrep < Formula
   homepage "https://github.com/irontec/sngrep"
   url "https://github.com/irontec/sngrep/archive/v1.6.0.tar.gz"
   sha256 "fd80964d6560f2ff57b4f5bef2353d1a6f7c48d2f1a5f0a167c854bd2e801999"
-  license "GPL-3.0-or-later"
+  license "GPL-3.0-or-later" => { with: "openvpn-openssl-exception" }
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "0b7aa728a1094a767d83ce9e21be2cbe9815485d86d9aa0ceca8f5eeabe8ba77"
@@ -19,7 +19,7 @@ class Sngrep < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "ncurses" if DevelopmentTools.clang_build_version >= 1000
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "libpcap"
   uses_from_macos "ncurses"
@@ -28,11 +28,9 @@ class Sngrep < Formula
     ENV.append_to_cflags "-I#{Formula["ncurses"].opt_include}/ncursesw" if OS.linux?
 
     system "./bootstrap.sh"
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
+    system "./configure", *std_configure_args,
                           "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}"
+                          "--with-openssl"
     system "make", "install"
   end
 
