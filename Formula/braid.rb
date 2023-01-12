@@ -34,8 +34,8 @@ class Braid < Formula
   end
 
   resource "json" do
-    url "https://rubygems.org/gems/json-2.6.1.gem"
-    sha256 "7ff682a2db805d6b924e4e87341c3c0036824713a23c58ca53267ce7e5ce2ffd"
+    url "https://rubygems.org/gems/json-2.6.3.gem"
+    sha256 "86aaea16adf346a2b22743d88f8dcceeb1038843989ab93cda44b5176c845459"
   end
 
   resource "main" do
