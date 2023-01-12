@@ -1,8 +1,8 @@
 class Fdroidcl < Formula
   desc "F-Droid desktop client"
   homepage "https://github.com/mvdan/fdroidcl"
-  url "https://github.com/mvdan/fdroidcl/archive/refs/tags/v0.5.0.tar.gz"
-  sha256 "532a8c4c93216cbf13378ff409c06a08d48e8baee6119a50ed43dc0ce9ec7879"
+  url "https://github.com/mvdan/fdroidcl/archive/refs/tags/v0.6.0.tar.gz"
+  sha256 "d9031c8b1a7e03ab382ffaf49da2c199e978d65f64ebe52168509b6ad8b7bb07"
   license "BSD-3-Clause"
   head "https://github.com/mvdan/fdroidcl.git", branch: "master"
 
