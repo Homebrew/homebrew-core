@@ -53,9 +53,9 @@ class Ssldump < Formula
       cp Formula["automake"].share/"automake-#{Formula["automake"].version.major_minor}"/fn, fn
     end
 
-    system "./configure", "--disable-debug",
+    system "./configure", *std_configure_args,
+                          "--disable-debug",
                           "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
                           "--mandir=#{man}",
                           "--with-pcap=#{Formula["libpcap"].opt_prefix}"
     system "make"
