@@ -1,9 +1,9 @@
 class TomeePlus < Formula
   desc "Everything in TomEE Web Profile and JAX-RS, plus more"
   homepage "https://tomee.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=tomee/tomee-8.0.13/apache-tomee-8.0.13-plus.tar.gz"
-  mirror "https://archive.apache.org/dist/tomee/tomee-8.0.13/apache-tomee-8.0.13-plus.tar.gz"
-  sha256 "c67d347696a217c1507aa2c8b2ae804e5033765428ff1d4390629e13f3b310e4"
+  url "https://www.apache.org/dyn/closer.lua?path=tomee/tomee-9.0.0/apache-tomee-9.0.0-plus.tar.gz"
+  mirror "https://archive.apache.org/dist/tomee/tomee-9.0.0/apache-tomee-9.0.0-plus.tar.gz"
+  sha256 "328c545bc94f4de1bfb915068b6929f3a5428506a12b88560719d6516f2e7de5"
   license "Apache-2.0"
 
   bottle do
