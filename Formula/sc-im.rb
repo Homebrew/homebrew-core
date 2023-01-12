@@ -1,10 +1,9 @@
 class ScIm < Formula
   desc "Spreadsheet program for the terminal, using ncurses"
   homepage "https://github.com/andmarti1424/sc-im"
-  url "https://github.com/andmarti1424/sc-im/archive/v0.8.2.tar.gz"
-  sha256 "7f00c98601e7f7709431fb4cbb83707c87016a3b015d48e5a7c2f018eff4b7f7"
+  url "https://github.com/andmarti1424/sc-im/archive/v0.8.3.tar.gz"
+  sha256 "5568f9987b6d26535c0e7a427158848f1bc03d829f74e41cbcf007d8704e9bd3"
   license "BSD-4-Clause"
-  revision 5
   head "https://github.com/andmarti1424/sc-im.git", branch: "main"
 
   bottle do
