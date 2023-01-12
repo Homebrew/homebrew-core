@@ -21,27 +21,11 @@ class SonarqubeLts < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "cc58a80f7dd387a6e05462def97df3db4e974427fc5a78c6809565ef162289c6"
   end
 
-  depends_on "java-service-wrapper"
-  depends_on "openjdk@11"
+  depends_on "openjdk@17"
 
   conflicts_with "sonarqube", because: "both install the same binaries"
 
   def install
-    # Use Java Service Wrapper 3.5.46 which is Apple Silicon compatible
-    # Java Service Wrapper doesn't support the  wrapper binary to be symlinked, so it's copied
-    jsw_libexec = Formula["java-service-wrapper"].opt_libexec
-    ln_s jsw_libexec/"lib/wrapper.jar", "#{buildpath}/lib/jsw/wrapper-3.5.46.jar"
-    ln_s jsw_libexec/"lib/libwrapper.dylib", "#{buildpath}/bin/macosx-universal-64/lib/"
-    cp jsw_libexec/"bin/wrapper", "#{buildpath}/bin/macosx-universal-64/"
-    cp jsw_libexec/"scripts/App.sh.in", "#{buildpath}/bin/macosx-universal-64/sonar.sh"
-    sonar_sh_file = "bin/macosx-universal-64/sonar.sh"
-    inreplace sonar_sh_file, "@app.name@", "SonarQube"
-    inreplace sonar_sh_file, "@app.long.name@", "SonarQube"
-    inreplace sonar_sh_file, "../conf/wrapper.conf", "../../conf/wrapper.conf"
-    inreplace "conf/wrapper.conf", "wrapper-3.2.3.jar", "wrapper-3.5.46.jar"
-    rm "lib/jsw/wrapper-3.2.3.jar"
-    rm "bin/macosx-universal-64/lib/libwrapper.jnilib"
-
     # Delete native bin directories for other systems
     remove, keep = if OS.mac?
       ["linux", "macosx-universal"]
