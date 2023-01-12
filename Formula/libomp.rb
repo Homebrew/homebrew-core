@@ -1,8 +1,8 @@
 class Libomp < Formula
   desc "LLVM's OpenMP runtime library"
   homepage "https://openmp.llvm.org/"
-  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-15.0.6/openmp-15.0.6.src.tar.xz"
-  sha256 "1ac6f159d81625d852a42676ff6d8820cb744c18d825a56d56a6d7aa389f5ac9"
+  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-15.0.7/openmp-15.0.7.src.tar.xz"
+  sha256 "3f168d38e7a37b928dcb94b33ce947f75d81eef6fa6a4f9d16b6dc5511c07358"
   license "MIT"
 
   livecheck do
