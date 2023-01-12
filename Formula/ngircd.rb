@@ -23,14 +23,14 @@ class Ngircd < Formula
   end
 
   depends_on "libident"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "zlib"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--sysconfdir=#{HOMEBREW_PREFIX}/etc",
+    system "./configure", *std_configure_args,
+                          "--disable-silent-rules",
+                          "--sysconfdir=#{etc}",
                           "--enable-ipv6",
                           "--with-ident",
                           "--with-openssl"
