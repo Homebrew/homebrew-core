@@ -15,14 +15,18 @@ class Librem < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "51a69e77ce208071f5887d222ba6808bc4aab080c0866879c3bc533c0b6e2e1f"
   end
 
+  depends_on "cmake" => :build
   depends_on "libre"
 
   def install
     libre = Formula["libre"]
-    system "make", "install", "PREFIX=#{prefix}",
-                              "LIBRE_MK=#{libre.opt_share}/re/re.mk",
-                              "LIBRE_INC=#{libre.opt_include}/re",
-                              "LIBRE_SO=#{libre.opt_lib}"
+    args = %W[
+      -DCMAKE_BUILD_TYPE=Release
+      -DRE_INCLUDE_DIR=#{libre.opt_include}/re
+    ]
+    system "cmake", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build", "-j"
+    system "cmake", "--install", "build"
   end
 
   test do
