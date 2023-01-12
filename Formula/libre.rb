@@ -15,13 +15,15 @@ class Libre < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c0553f193f135f8ca44a3d04bbac3510049b98bff41512f6fc8616ed17150665"
   end
 
+  depends_on "cmake" => :build
   depends_on "openssl@3"
 
   uses_from_macos "zlib"
 
   def install
-    sysroot = "SYSROOT=#{MacOS.sdk_path}/usr" if OS.mac?
-    system "make", *sysroot, "install", "PREFIX=#{prefix}", "RELEASE=1", "V=1"
+    system "cmake", "-B", "build", "-DCMAKE_BUILD_TYPE=Release", *std_cmake_args
+    system "cmake", "--build", "build", "-j"
+    system "cmake", "--install", "build"
   end
 
   test do
