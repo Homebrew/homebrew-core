@@ -11,13 +11,13 @@ class ClangFormat < Formula
     sha256 "4ad8b2cc8003c86d0078d15d987d84e3a739f24aae9033865c027abae93ee7a4"
 
     resource "clang" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-15.0.6/clang-15.0.6.src.tar.xz"
-      sha256 "10119ae195f1b4f979fe42e67b781e175b0c0d4e982fd6a2f44c4aa7fc925233"
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-15.0.7/clang-15.0.7.src.tar.xz"
+      sha256 "a6b673ef15377fb46062d164e8ddc4d05c348ff8968f015f7f4af03f51000067"
     end
 
     resource "cmake" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-15.0.6/cmake-15.0.6.src.tar.xz"
-      sha256 "7613aeeaba9b8b12b35224044bc349b5fa45525919625057fa54dc882dcb4c86"
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-15.0.7/cmake-15.0.7.src.tar.xz"
+      sha256 "8986f29b634fdaa9862eedda78513969fe9788301c9f2d938f4c10a3e7a3e7ea"
     end
   end
 
