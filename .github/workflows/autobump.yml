@@ -36,6 +36,7 @@ env:
     apidoc
     apktool
     apt
+    aptos
     arb
     argo
     argocd
