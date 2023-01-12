@@ -4,7 +4,7 @@ class Mktorrent < Formula
   url "https://github.com/pobrn/mktorrent/archive/v1.1.tar.gz"
   sha256 "d0f47500192605d01b5a2569c605e51ed319f557d24cfcbcb23a26d51d6138c9"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "a3b1b1184becd346de3398d0f32c7f2bfc5b72700414760f2bfbb787f7ef4453"
@@ -18,7 +18,7 @@ class Mktorrent < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9e0e51078893e14e1ab8c491ad7e46058f67bf61a20d89c800df6ebd3857bab3"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "make", "USE_PTHREADS=1", "USE_OPENSSL=1", "USE_LONG_OPTIONS=1"
