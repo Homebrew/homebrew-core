@@ -14,19 +14,20 @@ class Encfs < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "gettext" => :build
   depends_on "pkg-config" => :build
-  depends_on "gettext"
   depends_on "libfuse@2"
   depends_on :linux # on macOS, requires closed-source macFUSE
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
+  depends_on "tinyxml2"
 
   def install
-    ENV.cxx11
-
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DBUILD_UNIT_TESTS=OFF",
+                    "-DUSE_INTERNAL_TINYXML=OFF",
+                    *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
