@@ -22,9 +22,10 @@ class DartSdk < Formula
   uses_from_macos "python" => :build
   uses_from_macos "xz" => :build
 
+  # always use the HEAD commit, https://chromium.googlesource.com/chromium/tools/depot_tools/+/refs/heads/main
   resource "depot-tools" do
     url "https://chromium.googlesource.com/chromium/tools/depot_tools.git",
-        revision: "6fde0fbe9226ae3fc9f5c709adb93249924e5c49"
+        revision: "4f3b322a39a668384bab321da1ca2e699a562a1b"
   end
 
   def install
