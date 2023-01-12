@@ -38,7 +38,7 @@ class SonarqubeLts < Formula
     libexec.install Dir["*"]
 
     (bin/"sonar").write_env_script libexec/"bin/#{keep}-64/sonar.sh",
-      Language::Java.overridable_java_home_env("11")
+      Language::Java.overridable_java_home_env("17")
   end
 
   service do
