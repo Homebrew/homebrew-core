@@ -3,8 +3,8 @@ class Conan < Formula
 
   desc "Distributed, open source, package manager for C/C++"
   homepage "https://conan.io"
-  url "https://files.pythonhosted.org/packages/39/ff/677d26e3e040b45ed0ca43c47d9fa1429aa7f2d67f396ff41f1f9fb6b5ba/conan-1.56.0.tar.gz"
-  sha256 "7fc3a8bf85b4e8be2d95b441bd78b623d7ab76364fb034f02480c77bd10f9a37"
+  url "https://files.pythonhosted.org/packages/0e/6c/8e5485a93517f12f17708f05a36f5e5acc3513a0cc67bb9e9e5fe7af03eb/conan-1.57.0.tar.gz"
+  sha256 "be2cef73e3aeba7a148a3bddee1c8b1e17fdc8d18fd18b5273d02787954be8cc"
   license "MIT"
   head "https://github.com/conan-io/conan.git", branch: "develop"
 
@@ -107,8 +107,8 @@ class Conan < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/c2/51/32da03cf19d17d46cce5c731967bf58de9bd71db3a379932f53b094deda4/urllib3-1.26.13.tar.gz"
-    sha256 "c083dd0dce68dbfbe1129d5271cb90f9447dea7d52097c6e0126120c521ddea8"
+    url "https://files.pythonhosted.org/packages/c5/52/fe421fb7364aa738b3506a2d99e4f3a56e079c0a798e9f4fa5e14c60922f/urllib3-1.26.14.tar.gz"
+    sha256 "076907bf8fd355cde77728471316625a4d2f7e713c125f51953bb5b3eecf4f72"
   end
 
   def install
