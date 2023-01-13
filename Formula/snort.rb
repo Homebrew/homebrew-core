@@ -52,10 +52,11 @@ class Snort < Formula
 
   fails_with gcc: "5"
 
-  # PR ref, https://github.com/snort3/snort3/pull/225
+  # build patch, remove in next release
+  # upstream PR ref, https://github.com/snort3/snort3/pull/286
   patch do
-    url "https://github.com/snort3/snort3/commit/704c9d2127377b74d1161f5d806afa8580bd29bf.patch?full_index=1"
-    sha256 "4a96e428bd073590aafe40463de844069a0e6bbe07ada5c63ce1746a662ac7bd"
+    url "https://github.com/snort3/snort3/commit/da94fd11baa9b224a5f23ab34d1a5ce6c97d1fce.patch?full_index=1"
+    sha256 "150211aadaffb6c7e82454dc3add130e971dd938444c8996d7f0d7bb7c0eac8d"
   end
 
   def install
