@@ -19,6 +19,7 @@ class Hebcal < Formula
   depends_on "go" => :build
 
   def install
+    # populate DEFAULT_CITY variable
     system "make", "dcity.go"
     system "go", "build", *std_go_args(ldflags: "-s -w")
   end
