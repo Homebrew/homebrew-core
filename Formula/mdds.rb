@@ -21,6 +21,10 @@ class Mdds < Formula
 
   fails_with gcc: "5" # for C++17
 
+  # patch for `no template named 'void_t' in namespace 'std';`
+  # upstream patch PR, https://gitlab.com/mdds/mdds/-/merge_requests/65
+  patch :DATA
+
   def install
     args = %W[
       --prefix=#{prefix}
@@ -49,8 +53,22 @@ class Mdds < Formula
       }
     EOS
     system ENV.cxx, "test.cpp", "-o", "test",
-                    "-std=c++11",
+                    "-std=c++17",
                     "-I#{include.children.first}"
     system "./test"
   end
 end
+
+__END__
+diff --git a/include/mdds/global.hpp b/include/mdds/global.hpp
+index ed2ef7c..b4b8556 100644
+--- a/include/mdds/global.hpp
++++ b/include/mdds/global.hpp
+@@ -190,7 +190,7 @@ struct is_complete : std::false_type
+ };
+
+ template<typename T>
+-struct is_complete<T, std::void_t<decltype(sizeof(T) != 0)>> : std::true_type
++struct is_complete<T, std::__void_t<decltype(sizeof(T) != 0)>> : std::true_type
+ {
+ };
