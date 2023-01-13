@@ -1,9 +1,20 @@
 class X11vnc < Formula
   desc "VNC server for real X displays"
   homepage "https://github.com/LibVNC/x11vnc"
-  url "https://github.com/LibVNC/x11vnc/archive/0.9.16.tar.gz"
-  sha256 "885e5b5f5f25eec6f9e4a1e8be3d0ac71a686331ee1cfb442dba391111bd32bd"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later" => { with: "openvpn-openssl-exception" }
+  revision 1
+  head "https://github.com/LibVNC/x11vnc.git", branch: "master"
+
+  stable do
+    url "https://github.com/LibVNC/x11vnc/archive/0.9.16.tar.gz"
+    sha256 "885e5b5f5f25eec6f9e4a1e8be3d0ac71a686331ee1cfb442dba391111bd32bd"
+
+    # Fix build with -fno-common. Remove in the next release
+    patch do
+      url "https://github.com/LibVNC/x11vnc/commit/a48b0b1cd887d7f3ae67f525d7d334bd2feffe60.patch?full_index=1"
+      sha256 "c8c699f0dd4af42a91782df4291459ba2855b22661dc9e6698a0a63ca361a832"
+    end
+  end
 
   bottle do
     rebuild 1
@@ -20,25 +31,17 @@ class X11vnc < Formula
   depends_on "automake" => :build
   depends_on "pkg-config" => :build
   depends_on "libvncserver"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "libxcrypt"
 
   def install
-    # Work around failure from GCC 10+ using default of `-fno-common`
-    # /usr/bin/ld: x11vnc-xwrappers.o:(.bss+0x440): multiple definition of `pointerMutex|inputMutex|clientMutex`
-    ENV.append_to_cflags "-fcommon" if OS.linux?
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["openssl@3"].opt_lib/"pkgconfig"
 
-    ENV.prepend_path "PKG_CONFIG_PATH", Formula["openssl@1.1"].opt_lib/"pkgconfig"
-
-    args = %W[
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-      --mandir=#{man}
-      --without-x
-    ]
-
-    system "./autogen.sh", *args
+    system "./autogen.sh", *std_configure_args,
+                           "--disable-silent-rules",
+                           "--mandir=#{man}",
+                           "--without-x"
     system "make", "install"
   end
 
