@@ -3,8 +3,8 @@ class Dotdrop < Formula
 
   desc "Save your dotfiles once, deploy them everywhere"
   homepage "https://deadc0de.re/dotdrop"
-  url "https://files.pythonhosted.org/packages/79/c2/6dd54083a1c5afd30aca3ca4b7f149b62d7d97e113b754ca8da0ae636382/dotdrop-1.12.3.tar.gz"
-  sha256 "4d10608e218b3a187c481f0a58ef1007b528b13b630cc2293689adc0feaf2a00"
+  url "https://github.com/deadc0de6/dotdrop/archive/v1.12.4.tar.gz"
+  sha256 "d2b1456da19d1fe795f5681ca2adff321812cc28ae53fcf397972b1b9b6d74c2"
   license "GPL-3.0-or-later"
 
   bottle do
