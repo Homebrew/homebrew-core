@@ -3,8 +3,8 @@ class Diffoscope < Formula
 
   desc "In-depth comparison of files, archives, and directories"
   homepage "https://diffoscope.org"
-  url "https://files.pythonhosted.org/packages/d8/09/5a5c7a480342f2c8a600bf69199a0d2cb78ae785bff7a293d28581ca61c4/diffoscope-231.tar.gz"
-  sha256 "f08cddd1eb8312f196489a575d65e63ed00e17cb778f3934f8397b10f9d02d4b"
+  url "https://files.pythonhosted.org/packages/54/05/d8833330abea8ecb2443c142630a7123ee1bb248ca591e945f65c10586d1/diffoscope-232.tar.gz"
+  sha256 "1fd10b465d3566e6f65bdc00b6a814ff129900a2f4f9f4bae922069467214082"
   license "GPL-3.0-or-later"
 
   bottle do
