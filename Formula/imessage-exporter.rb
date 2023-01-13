@@ -13,10 +13,15 @@ class ImessageExporter < Formula
   end
 
   test do
-    assert_equal "fake is not a valid export type! Must be one of <txt, html>\n", shell_output("imessage-exporter -f fake")
-    assert_equal "Diagnostics are enabled; format is disallowed\n", shell_output("imessage-exporter -f txt -d")
-    assert_equal "No export type selected, required by no-copy\n", shell_output("imessage-exporter -n")
-    assert_equal "No export type selected, required by export-path\n", shell_output("imessage-exporter -o fake")
-    assert_equal "", shell_output("imessage-exporter -p fake")
+    assert_equal "imessage is not a valid export type! Must be one of <txt, html>\n",
+    shell_output("imessage-exporter -f imessage")
+    assert_equal "Diagnostics are enabled; format is disallowed\n",
+    shell_output("imessage-exporter -f txt -d")
+    assert_equal "No export type selected, required by no-copy\n",
+    shell_output("imessage-exporter -n")
+    assert_equal "No export type selected, required by export-path\n",
+    shell_output("imessage-exporter -o imessage")
+    assert_equal "",
+    shell_output("imessage-exporter -p imessage")
   end
 end
