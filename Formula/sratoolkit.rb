@@ -67,7 +67,6 @@ class Sratoolkit < Formula
     system "cmake", "--install", "sra-tools-build"
 
     # Remove non-executable files.
-    (bin/"magic").unlink if OS.linux?
     (bin/"ncbi").rmtree
   end
 
