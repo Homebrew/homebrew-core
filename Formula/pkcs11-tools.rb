@@ -6,26 +6,35 @@ class Pkcs11Tools < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "1d986581dbe9eb9490e77d3e61d5ce90ee30d6777f1cd2cb9fe0d39d0b70c2f8"
-    sha256 cellar: :any,                 arm64_monterey: "bf484252566d3546fb51de13756957fc4325fe04ac2e9dab27f2bb83aeacbf8a"
-    sha256 cellar: :any,                 arm64_big_sur:  "52173ec7a2ea6e8549caf29df6798510d919c6702fc8c04040b5b0ce90e51f3e"
-    sha256 cellar: :any,                 ventura:        "968b17275709f3bc7b9177771c3fc2eece67db206d2afb225075e7ed62c1b974"
-    sha256 cellar: :any,                 monterey:       "010e67e29eff3d1c84ce1287fc9cb25dbca2f72e53cb7561aa148e5d9e432835"
-    sha256 cellar: :any,                 big_sur:        "e92251b5b918108a76bbdadc1c9096c5484699cc7a841e9e346d2e8832d4430d"
-    sha256 cellar: :any,                 catalina:       "066e8d93a82912709539b99c393e0063331502e57b8e8ba94d8531fb827fa656"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "927e5bf029cbde5f87ab0da8b0539c862c0d9c60ff7cf0263eb216956763e8fa"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "0745f7e6f38190263957a3e110eba0e1019824a8e45f80a97b486b09ae976ebd"
+    sha256 cellar: :any,                 arm64_monterey: "81f2281b90d03c95730ca77ab40be136a2d4d4536b4b548dc19c53050353419c"
+    sha256 cellar: :any,                 arm64_big_sur:  "f8890ce23a1b904f23242b226ba11b646aa09e33550f2da22abc27b258d42a7c"
+    sha256 cellar: :any,                 ventura:        "fbf21d6143981827d9ee88fcaf4d6d0d8090c20fcb04716a3e70255dedbdc90b"
+    sha256 cellar: :any,                 monterey:       "ab0728b88903cab23dff9a9cb8220649dffe62386435b12682c8b5ab53def285"
+    sha256 cellar: :any,                 big_sur:        "9894a2f01f24d23cc1403f81ebf6b0c8e3497da5064116b8c9710b4ee889bc93"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "14db1a21d1813e2583e49c0700c3e8384b943fa5b341c1b7a98752752de88e5c"
   end
 
   depends_on "pkg-config" => :build
   depends_on "softhsm" => :test
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
+
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
 
+  # Fix Linux build error using gnulib upstream commit.
+  # ../gl/string.h:965:1: error: expected ',' or ';' before '_GL_ATTRIBUTE_MALLOC'
+  # Remove when the gnulib submodule is updated and available in a release
+  patch :p2 do
+    on_linux do
+      url "https://git.savannah.gnu.org/cgit/gnulib.git/patch/lib?id=cc91160a1ea5e18fcb2ccadb32e857d365581f53"
+      directory "gl"
+    end
+  end
+
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make", "install"
   end
 

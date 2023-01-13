@@ -1,9 +1,9 @@
 class Couchdb < Formula
   desc "Apache CouchDB database server"
   homepage "https://couchdb.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=couchdb/source/3.2.2/apache-couchdb-3.3.0.tar.gz"
-  mirror "https://archive.apache.org/dist/couchdb/source/3.3.0/apache-couchdb-3.3.0.tar.gz"
-  sha256 "e8c6bf3f99a8f0d2af5806652f57d53796367e2d4b24dedc86e268cf86f787a0"
+  url "https://www.apache.org/dyn/closer.lua?path=couchdb/source/3.3.1/apache-couchdb-3.3.1.tar.gz"
+  mirror "https://archive.apache.org/dist/couchdb/source/3.3.1/apache-couchdb-3.3.1.tar.gz"
+  sha256 "9b89d7b54f7ef52b42bd51a6a0a2d3b1b06cce395df2c99d8f1f47f9355e2bee"
   license "Apache-2.0"
 
   livecheck do
@@ -12,13 +12,13 @@ class Couchdb < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "7a28d9819abd5d7ee722222ca187e2c63eb76905a178c6cf0743fe62aad11e05"
-    sha256 cellar: :any,                 arm64_monterey: "f7a2b0deb4cc8e654dfa29aa8c48e4f5eed34c1123e9986f3d9c1d43443e78f1"
-    sha256 cellar: :any,                 arm64_big_sur:  "7274815dc32c5788dcb2ceeeb623597a4680e2dac9fb31d5af36d73375ae21d9"
-    sha256 cellar: :any,                 ventura:        "8743e6f152213236f4d661d223c31f9afd89dd3f22760e6556b22631ea3fb230"
-    sha256 cellar: :any,                 monterey:       "2cd2776a646c14fbd5f774596f6e8ddb740f38f045e70064facedc0109854238"
-    sha256 cellar: :any,                 big_sur:        "a3e0206d18b52e3aa2af1ce87534150dfc4e8c991790cbbe259206368f8d5fde"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "10d7b4514130032b10269c156b9bef58b7cc2ebf9b9190bbef5f92cae91289d3"
+    sha256 cellar: :any,                 arm64_ventura:  "6f488cc015a935bceb317670582f330c0ab3bd18fb9bdfa3c30b3d9953bc5726"
+    sha256 cellar: :any,                 arm64_monterey: "7804a9a74fb0132f7bb19ef2633a630748568bccd416e90eaa3999416d8cd84f"
+    sha256 cellar: :any,                 arm64_big_sur:  "fa235624a26a96160cbc351eec2318ed3ddfd46473817d1f1bdb3cbd2d6161d2"
+    sha256 cellar: :any,                 ventura:        "faaec2dacc255ffde0e540015e1b98bceb0b5943e263027d3466eb08f6c66b2b"
+    sha256 cellar: :any,                 monterey:       "8cb7a0e39ca6142da3203feb8c66874196c06def1e0fd78a045d2bf4816cf835"
+    sha256 cellar: :any,                 big_sur:        "a991b7cbf3d83f9a268e90ed9d28867fc039e59deddaee7f2de9f9adb02487af"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "411726864edb64d9cbb5e74c41f651016f02b4cd8cb2a8ff9a2de07aa9149c9d"
   end
 
   depends_on "autoconf" => :build

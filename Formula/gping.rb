@@ -1,8 +1,8 @@
 class Gping < Formula
   desc "Ping, but with a graph"
   homepage "https://github.com/orf/gping"
-  url "https://github.com/orf/gping/archive/gping-v1.6.3.tar.gz"
-  sha256 "ed55d87d04482a137e1d56355095f56fb4977724032245e3547206274966c1c5"
+  url "https://github.com/orf/gping/archive/gping-v1.7.0.tar.gz"
+  sha256 "e40c8c89f8dd7b7f17f391a039817171c54128612c9b989b280f11bf07d1f511"
   license "MIT"
   head "https://github.com/orf/gping.git", branch: "master"
 
@@ -16,13 +16,13 @@ class Gping < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "274888e9f1280f8f769a1cf97631c5daa97125fa4876046d4a9fba930290e555"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c9916a629a28005ce21c107a838c35ec8da1d4663fbeebc23c9c68b01a0698c5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "28555a6f27330012d92a94e997e3c3df73f89b2a55eddd3bbd333ce0f134f37f"
-    sha256 cellar: :any_skip_relocation, ventura:        "f5ca5493559293796fcaed2bf1e578fa2a91e23cf3914811d892427466b85500"
-    sha256 cellar: :any_skip_relocation, monterey:       "0ab088d1be8f35647da3936663f5977f5c2fd1d489c170b072465a60d19c9ead"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d9197b7cc5236ade7331c48a28f8e85ab4e2639264f0fb2bf96a99b57a41a4f1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7a804dc4aba65f0cc264444c88421c4a3325ab750c6d5541a9faae8bd88cf14a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "93dadc6c4c1185cea11825236545dcc1d0ef0a52c5b67d24836812b530ade331"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "680fb01aac0dd30968a5f27341f88518eaa159126336a834f02ab248fb966162"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "08a37a053ecb1703574572612ae4b210a9b156114be738a3133480f11cc38364"
+    sha256 cellar: :any_skip_relocation, ventura:        "9e8a10068ad604accb86315db9f8a46313e18962a6fa2f09eb0e2078c8f6567f"
+    sha256 cellar: :any_skip_relocation, monterey:       "5b9f70db578974912339418c207258031e9c35182fee3223e0d282ee747c01f6"
+    sha256 cellar: :any_skip_relocation, big_sur:        "23b8217bc47c4d15c1dff47b4b941ee3f4f7f3907840f09dc0963fb558cd5f24"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c2ef7f3dc3a65218ed2f13d5cf3b343d0ad70664d57ddd9fe5d18b9a1f58b386"
   end
 
   depends_on "rust" => :build

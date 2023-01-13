@@ -6,27 +6,28 @@ class Zola < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "745cf51a531ba4f32b54a6f1a871586e06a61006dbfeecb06724f1541f068039"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "40487210c9f3e7df0359c0717717a824ed181fd00313e3434b1b670a8cdbacb0"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0072604ec0763a9807cef530ca396ca21349c3994d3e4b09053fa3cfce660ae5"
-    sha256 cellar: :any_skip_relocation, ventura:        "9849137582ef3a4d8d67e15a4f80b2dfc88fa2c43feb425a97b70da76ae47690"
-    sha256 cellar: :any_skip_relocation, monterey:       "b56c6f2b926bdd873f3f1a2ff184f8b8140dda268d42c13297d1ce965a454a77"
-    sha256 cellar: :any_skip_relocation, big_sur:        "913c41c78e92dfec5b46b7733679892d42967dae731787df7332ac7cd4ca2746"
-    sha256 cellar: :any_skip_relocation, catalina:       "3663e5809c701cefcaaf1eb734011fac816fb7eb7d96d2ede3dcba6fabdcee4e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b185e33df9ce30f79b8a0501d4fe871bc8005f2dbdd115408c14bc3bb59845a1"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_ventura:  "89d9d4295d0e405ebc3ea2035974b9221cf12711ac72d0c518f078a0894a1eed"
+    sha256 cellar: :any,                 arm64_monterey: "1254587c6c0fb421a6d1209de41530a5fc41e8bea240fe37d5ddc1cc86e7ea7b"
+    sha256 cellar: :any,                 arm64_big_sur:  "127d6a120df4d4fb5298c645a66ab956255cb2b38c031c94ae3040d4b1b0bd6e"
+    sha256 cellar: :any,                 ventura:        "20495c0b33e03b214e32bca0136bdac8746978893201a48a7dfa52440736d3ab"
+    sha256 cellar: :any,                 monterey:       "bae23b7e40aa396aea13d0732fe96ac915cad05605bfc392c9ac988afa27f57f"
+    sha256 cellar: :any,                 big_sur:        "54b1fb1bcbb4c6bfde0a3f035b7e97f794a7547b2385f0feb8c4cbf999a542b7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e081a32aa135535a946470a38ee473002aede9c3bb0ddd1afe58a5c935376952"
   end
 
-  depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
   depends_on "rust" => :build
+  depends_on "libsass" # for sass-sys
+  depends_on "oniguruma" # for onig_sys
 
   on_linux do
-    depends_on "openssl@1.1"
+    depends_on "openssl@3" # Uses Secure Transport on macOS
   end
 
   def install
-    ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix if OS.linux?
-    system "cargo", "install", *std_cargo_args
+    ENV["RUSTONIG_SYSTEM_LIBONIG"] = "1"
+    system "cargo", "install", "--features", "native-tls", *std_cargo_args
 
     bash_completion.install "completions/zola.bash"
     zsh_completion.install "completions/_zola"

@@ -3,19 +3,19 @@ class Awscli < Formula
 
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
-  url "https://github.com/aws/aws-cli/archive/2.9.13.tar.gz"
-  sha256 "1a246328b38f0e95514f65b37fa9ee9c693aca557b97710a88ff252a0102dd51"
+  url "https://github.com/aws/aws-cli/archive/2.9.14.tar.gz"
+  sha256 "6d0a7d28e076c174f697b3ac34930e4201367bf6043b6f9dcc0a2d15b2b6ee9c"
   license "Apache-2.0"
   head "https://github.com/aws/aws-cli.git", branch: "v2"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "be52b9027d7d28803ff8f8bee7a4de197b3be957a204731ea940f1ed3db19b52"
-    sha256 cellar: :any,                 arm64_monterey: "c6be8198a5cefbb2608a38f5b2b169a2019dc0d45542d7878cf2f3a2c7fcef2f"
-    sha256 cellar: :any,                 arm64_big_sur:  "8e13d0f2755ffdf0776992f6c57674984bb2d44ef7482fd9de9ef049bae154d8"
-    sha256 cellar: :any,                 ventura:        "bdcd29bf715f6583843eaa01a2e7b21f9fdad598e531a0f65638afb383114f61"
-    sha256 cellar: :any,                 monterey:       "5201b2fa692a981f4d31ebea95badc1c27fb6c84e49997724043537144604080"
-    sha256 cellar: :any,                 big_sur:        "90d769b895de2bac63b63fda188074fed5f51f658d10cde04407957bb802daad"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1c51545acc6f52d730d08084ebbcc2596cd0226aa946f6ff6f801ce43d9a3a66"
+    sha256 cellar: :any,                 arm64_ventura:  "0ee67dbae90a16f24f1835442a4e98feb0fa3a455e251d944e5dc899a7a647a0"
+    sha256 cellar: :any,                 arm64_monterey: "3fd6bda5f3d0b5c745363d233cba21fd8aad34f795cbcdc4d61d387347fbb0a0"
+    sha256 cellar: :any,                 arm64_big_sur:  "5272c8dbd4485b5f2e7d9afe42f88a6b7e1d37fa6ee1d554270cfa19a6117bb5"
+    sha256 cellar: :any,                 ventura:        "17c0c0fe12a1e0b2c25e97343886f998c9de103603bd5f5bfb18e05e994fd53f"
+    sha256 cellar: :any,                 monterey:       "aaccb87430fe265f261b429331e1583da039646e516ed0c87a0ef98555d75738"
+    sha256 cellar: :any,                 big_sur:        "c260f1775a84bc207dbb86f398f4df84df060c2c53e78eb44d20ce8597550e2e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "08811743b0166823448ee70845106a784b1cc9a0bc279e1525a05f77549161a3"
   end
 
   depends_on "cmake" => :build

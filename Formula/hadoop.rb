@@ -21,6 +21,7 @@ class Hadoop < Formula
   # WARNING: Check https://cwiki.apache.org/confluence/display/HADOOP/Hadoop+Java+Versions before updating JDK version
   depends_on "openjdk@11"
 
+  conflicts_with "corepack", because: "both install `yarn` binaries"
   conflicts_with "yarn", because: "both install `yarn` binaries"
 
   def install

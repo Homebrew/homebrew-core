@@ -1,18 +1,18 @@
 class Moar < Formula
   desc "Nice to use pager for humans"
   homepage "https://github.com/walles/moar"
-  url "https://github.com/walles/moar/archive/refs/tags/v1.11.3.tar.gz"
-  sha256 "78a63a16c6370270aaf4c2d5e606aa05d738950b4c73922e2169b4cefc7ab760"
+  url "https://github.com/walles/moar/archive/refs/tags/v1.11.4.tar.gz"
+  sha256 "4eae12ad5ed1fd8618dc323e42583248f259386a19e89b8effe49671b3af5e72"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9511747c20ba6fdd9d30ce5a8966add59b850792bd69c625c3c308a01450ac89"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9511747c20ba6fdd9d30ce5a8966add59b850792bd69c625c3c308a01450ac89"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9511747c20ba6fdd9d30ce5a8966add59b850792bd69c625c3c308a01450ac89"
-    sha256 cellar: :any_skip_relocation, ventura:        "0960696a7d48eb9214872d9f54fa9ef2f465b3296e9213b5a0a0ebc61802c86d"
-    sha256 cellar: :any_skip_relocation, monterey:       "0960696a7d48eb9214872d9f54fa9ef2f465b3296e9213b5a0a0ebc61802c86d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0960696a7d48eb9214872d9f54fa9ef2f465b3296e9213b5a0a0ebc61802c86d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c7b34aab2089204882ea2c02b0beb0595a92e282b7fc5d1dd3f10a785cf99d37"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8019185514964e3baeeec09a4bb2d87f43f524c4a2025f2f4695c5995e804eb4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8019185514964e3baeeec09a4bb2d87f43f524c4a2025f2f4695c5995e804eb4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8019185514964e3baeeec09a4bb2d87f43f524c4a2025f2f4695c5995e804eb4"
+    sha256 cellar: :any_skip_relocation, ventura:        "22f442ac122ee2af683e6a68d4a98bb3be58247696d9c637aea488ce6b3a5b98"
+    sha256 cellar: :any_skip_relocation, monterey:       "22f442ac122ee2af683e6a68d4a98bb3be58247696d9c637aea488ce6b3a5b98"
+    sha256 cellar: :any_skip_relocation, big_sur:        "22f442ac122ee2af683e6a68d4a98bb3be58247696d9c637aea488ce6b3a5b98"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "faccdcb98a9d45ce8539a6889405cd8bb030e5e553ff98ac5baa8acd57df2a4d"
   end
 
   depends_on "go" => :build

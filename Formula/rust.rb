@@ -4,25 +4,25 @@ class Rust < Formula
   license any_of: ["Apache-2.0", "MIT"]
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.66.0-src.tar.gz"
-    sha256 "3b3cd3ea5a82a266e75d0b35f0b54c16021576d9eb78d384052175a772935a48"
+    url "https://static.rust-lang.org/dist/rustc-1.66.1-src.tar.gz"
+    sha256 "5b3c933a94c72187705d4ee293198babfdd09442f5937fbd685db3a81f4959ba"
 
     # From https://github.com/rust-lang/rust/tree/#{version}/src/tools
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
-          tag:      "0.67.0",
-          revision: "d65d197ad5c6c09234369f219f943e291d4f04b9"
+          tag:      "0.67.1",
+          revision: "ad779e08be893e57a9e17a810223a3e966f8c0d8"
     end
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "6752423e2055f254c352b912c71ac8b6092770a191c294ab40cf3df623a4b1f3"
-    sha256 cellar: :any,                 arm64_monterey: "01bb6094b8cea7742e870d48fb766462616987d3ac9386e8dc3ead2167f07604"
-    sha256 cellar: :any,                 arm64_big_sur:  "4bcd071a238b73a66682d3083f6c997ae80d9ef281437f8ff3a65705b5dc428a"
-    sha256 cellar: :any,                 ventura:        "4f735aad5f49e5542331caf8a2973ae73ca7d11ac9eb09b4a4168562ce5534ed"
-    sha256 cellar: :any,                 monterey:       "9bee0e310361385b0a086dd885e3fa536f0785996639beb6536145d0853df072"
-    sha256 cellar: :any,                 big_sur:        "78b68759eef6851ac21d337d23a226d027f31d89ffdd36d38ca2c9b26f340c6c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "45f0b9bbe0dbefab50f13a57f770612b548b6ef3130bf5188ec93d6c83354815"
+    sha256 cellar: :any,                 arm64_ventura:  "7f5e39a6bdf9653a262a4253d8b6a823bf307bddbb199a322dd3bc022e575a78"
+    sha256 cellar: :any,                 arm64_monterey: "3b09c1f9686ce6331c6c7bed320fcf38bd16a2c12b4b1b8b9e06b496ab571719"
+    sha256 cellar: :any,                 arm64_big_sur:  "65c49cb3b57a9c5e55a8212749b5d2fd302836d18e2f053b9e33f2a9f77622fb"
+    sha256 cellar: :any,                 ventura:        "0288f03e170a4e9064e365908c6d7357018b4c155d9a9f6aa8fa6feb4ac157bb"
+    sha256 cellar: :any,                 monterey:       "d199b1c6b8f0914bae30ce4391a71453917e7e65fc76b4a02643d7744dc551ed"
+    sha256 cellar: :any,                 big_sur:        "5926386542993b5ef066e8bb1c8bad4e6e3a88def27281e5c0943608a6d13eda"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "49e1a14a9d0474886ce020c23f835b25e882d8d0fbcdab521c02ce2bd13d3824"
   end
 
   head do

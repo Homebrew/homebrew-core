@@ -13,19 +13,17 @@ class Slrn < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_ventura:  "b01cfa08e80b18f090f98cf2644f01ba047b43464831456a75ccba25473076cf"
-    sha256 arm64_monterey: "58fc905615d5e7b14fd19c8d790ec88a2ecd13e73ac2206e6f23d62f47e96f68"
-    sha256 arm64_big_sur:  "b714ac9c245119ba08001c7729f77093491457c54f17b2d1d09184f690ffa288"
-    sha256 ventura:        "4201c954df5fdfb3e9f39813d9bb827b330dbc27270793e8909f92a3e09e0956"
-    sha256 monterey:       "2a01ba80ca3bc05f40f4da7d1fae0e72029e9f07a8d42eb265ad37efc36812e0"
-    sha256 big_sur:        "1e3a47c2adbd775237d1b34cba86c82a14096d792a922887f76f6eadb0964513"
-    sha256 catalina:       "5440f5353ec5ae3f3a2cdd3ed43b931bd41db738ee4b993b0ec3b41618f7406f"
-    sha256 mojave:         "35550c096c81454ae0756d0831fa8a6dd2db9857db591b72f8cf96aeb4e4fac3"
-    sha256 x86_64_linux:   "e9f1013ef2eb1b03c54754621b7669de769a87f412f025d5f83d8c1ee2efe5c9"
+    rebuild 2
+    sha256 arm64_ventura:  "f802b3c9ffb6f3974d353225cf25e52605d6c25fa85dbfd9b9710a33d075218b"
+    sha256 arm64_monterey: "03933542674c0ea7206e58e91879b25b068609a954231a7fe1bf64b9636a7ca3"
+    sha256 arm64_big_sur:  "deb43212975b4d77acb6d79eb556990588a71d47a94029f24736bc1661bb18eb"
+    sha256 ventura:        "409721aae6f317e0e3e0b471c7488dd634585a193957c4feb7916a6a645768a1"
+    sha256 monterey:       "8018c76bf03539804c59b85442cb2c8b578208f0a8b0ea325b559b810cc4a8cf"
+    sha256 big_sur:        "e29042ebfccfb58c2ce1883f763173da76c5a38d190e98255abebf6dc632e343"
+    sha256 x86_64_linux:   "5bf9ff614629b46445541310dd089e4893dbfa2e463944aff5596cb14476f812"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "s-lang"
 
   def install
@@ -37,9 +35,8 @@ class Slrn < Formula
     # needed after next slrn release.
     ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
 
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}",
+    system "./configure", *std_configure_args,
+                          "--with-ssl=#{Formula["openssl@3"].opt_prefix}",
                           "--with-slrnpull=#{var}/spool/news/slrnpull",
                           "--with-slang=#{HOMEBREW_PREFIX}"
     system "make", "all", "slrnpull"

@@ -1,18 +1,18 @@
 class CiliumCli < Formula
   desc "CLI to install, manage & troubleshoot Kubernetes clusters running Cilium"
   homepage "https://cilium.io"
-  url "https://github.com/cilium/cilium-cli/archive/refs/tags/v0.12.11.tar.gz"
-  sha256 "be932924cf1799d6e8493042dc7435ab1d95ed046d7a06ad1d358c7409402a2e"
+  url "https://github.com/cilium/cilium-cli/archive/refs/tags/v0.12.12.tar.gz"
+  sha256 "1914686ff67bc852948a58fb95d6c438c824ce3a4d02f9b501b4a8770991bdb3"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4ff07a9a057af7ec6d483e10f0b0ae26188147f217d536584f37d5e8bb0ec4e7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "13af02b7738a43646c8b53ebca4f29c6c6478bbd60403c93cb5853fc684563ce"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "02f52c21e8544340ed5cf3fb996b917b6fd9bf51852aad46a88dc011f1d3fed2"
-    sha256 cellar: :any_skip_relocation, ventura:        "be6912615074a07ccc2d73a89c5ea13f0641462ced17404f4bb6a1935106bc2f"
-    sha256 cellar: :any_skip_relocation, monterey:       "0773f32a3da8b3a316d1fe8fe12f28205b262c4b9472ce3673b8bdc6184794d9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2937a2a1000ceb333363409054fb47f51154ed81a836c45d4bd7be8a31c58f04"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "366beb6cf5bc950598bed49c88040cfef978a21adabfb7ddeb5d244cb6a4fd61"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4eedb097db64ce8f52b24adb44a92ca23bd634d648858281f12481955c5de4f9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b4acdb55de4da41aaba13734f299b68c724b5da69c432d5c77f8c0bc96f9b649"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f5d341136044e1bcb7a3d39737faaaad626ef8eb8dc6eb945988fb0d1afb8d11"
+    sha256 cellar: :any_skip_relocation, ventura:        "985ed15b79ce843579b3b90db42f021b2d58de8d644c2a99db31908fd824fffb"
+    sha256 cellar: :any_skip_relocation, monterey:       "57d40f4bc09b70e0ee18afe931ca6a89515961789768e90d9a3e5a7ba3a647f8"
+    sha256 cellar: :any_skip_relocation, big_sur:        "97f3be2338bd83770f60f731d4be97dba647835ede8f683fc071f77fc8a7fac2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "af77c348eefefa3fd5e500997fbb379468f15a13bd712d8ecef220dc15e458d5"
   end
 
   depends_on "go" => :build

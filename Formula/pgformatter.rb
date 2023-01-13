@@ -1,19 +1,18 @@
 class Pgformatter < Formula
   desc "PostgreSQL syntax beautifier"
   homepage "https://sqlformat.darold.net/"
-  url "https://github.com/darold/pgFormatter/archive/v5.3.tar.gz"
-  sha256 "ad709a2c92c763d54088ae3f3002276a962ea25b5aa29ae16dd57e10f51b66f9"
+  url "https://github.com/darold/pgFormatter/archive/v5.4.tar.gz"
+  sha256 "d0d922863594ca46ceca6fe9cb9d2f6dfef505c9732add505a02e9e630d3c4a6"
   license "PostgreSQL"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "958626095788cd522c949b42f4ef80bf79c1fd05c31c9389f5b4a1a03d28cadd"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "958626095788cd522c949b42f4ef80bf79c1fd05c31c9389f5b4a1a03d28cadd"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7eefcaea365b20a43a68c55b20aea88c660f633e92b97355bf1db0bb66a296ed"
-    sha256 cellar: :any_skip_relocation, ventura:        "e07e4d8a053f0126dfa50c082c14a589d7cec6781d2abb53fc37aa737e2b3bad"
-    sha256 cellar: :any_skip_relocation, monterey:       "e07e4d8a053f0126dfa50c082c14a589d7cec6781d2abb53fc37aa737e2b3bad"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d38e00a17190b05a85276c2b77f1cdfe3c6dd79f46183a862cb383cdd4abd8b3"
-    sha256 cellar: :any_skip_relocation, catalina:       "e475bf116f1638ceafe659f0dd8685a70b9b2466256e927de8d14dd8655a7b3f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7668280d5d9f12f618f69b9af999ba49fb65adfe640e4ff0eb2551d575e3af67"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1aac1d52dc2962a6ab1d941b266ae611549e25b275ffdce88a7e606b8ddf78bb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1aac1d52dc2962a6ab1d941b266ae611549e25b275ffdce88a7e606b8ddf78bb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "421bea7cd89ef84473ad0ac59ec9619d276f0535c628f047105b5ece2ba45b7c"
+    sha256 cellar: :any_skip_relocation, ventura:        "f33ef9982bcba1931fdf3f3031d1a66d859fb3616bcd839c2b243584218625b7"
+    sha256 cellar: :any_skip_relocation, monterey:       "f33ef9982bcba1931fdf3f3031d1a66d859fb3616bcd839c2b243584218625b7"
+    sha256 cellar: :any_skip_relocation, big_sur:        "1ef6bdf4c8989f4c64f7866d6f1994b42ec986b7e31bd06f68204103140c2add"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a59e5e67acc43d57a72a56211d8a50a8fe1561652dce28c490110f91582c1001"
   end
 
   def install

@@ -7,13 +7,14 @@ class Trafficserver < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 arm64_ventura:  "87bea1b8122598dd3c529135221dd31c2fa9b25d8237d0f719af47ac28d50903"
-    sha256 arm64_monterey: "bec943f9ccc45cd39cbe3da176a4a8279a6ef16525457b9c29bd1428a6d74ce3"
-    sha256 arm64_big_sur:  "3f8ba6b6234a3551c270cb62d3b14c5902ff3586b5d2be2718fced1aa34061ee"
-    sha256 ventura:        "3386ec7a4a5dbc28974c26378e9520caca6e38ca1957f8946370de83a8f3e926"
-    sha256 monterey:       "8f3ce83f3cea5b614e058f5ec01474d01e5db115a22441de27c690b0039f0a85"
-    sha256 big_sur:        "be85e056a66aff3010a2724a7401dc26f811ba63da7ca451c90db3505911de65"
-    sha256 x86_64_linux:   "75b329a3e0ede556c5a378fb8de7d8531904a9b9fe1fe59cfcf84450c8265ffb"
+    rebuild 1
+    sha256 arm64_ventura:  "2a218cb530837ee85c8848bf9528dcd24d2b12a76fb4a279ce11b5182c55c542"
+    sha256 arm64_monterey: "237dd8cf79dc9b1cb579806c8628b11a3288fa6314580977e773ea9af27f773a"
+    sha256 arm64_big_sur:  "d865eac70aeefb577fccade81c2e2acd8855f6aa8a1ca85bdaa45dfa4a2a31a3"
+    sha256 ventura:        "0fe7710eca8e8190713a06f73ffd0d854e209e26614ec92ec677c96c5c2643a3"
+    sha256 monterey:       "8ae71a89c9751b540dff46ab847aaa6607366d1bd2c2ac6ab8bca802933cf1e0"
+    sha256 big_sur:        "d61152e41660a97e00423e42a654869ab63f90bf89b20deded85378ac87789e3"
+    sha256 x86_64_linux:   "5f44336902e39bd4debf3ceff1eeb30e236ccb390656138feae53b4af35bfd77"
   end
 
   head do
@@ -27,7 +28,7 @@ class Trafficserver < Formula
   depends_on "pkg-config" => :build
   depends_on "hwloc"
   depends_on macos: :mojave # `error: call to unavailable member function 'value': introduced in macOS 10.14`
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pcre"
   depends_on "yaml-cpp"
 
@@ -56,7 +57,7 @@ class Trafficserver < Formula
       --mandir=#{man}
       --localstatedir=#{var}
       --sysconfdir=#{pkgetc}
-      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
+      --with-openssl=#{Formula["openssl@3"].opt_prefix}
       --with-yaml-cpp=#{Formula["yaml-cpp"].opt_prefix}
       --with-group=admin
       --disable-tests

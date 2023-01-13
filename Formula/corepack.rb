@@ -18,6 +18,7 @@ class Corepack < Formula
 
   depends_on "node"
 
+  conflicts_with "hadoop", because: "both install `yarn` binaries"
   conflicts_with "yarn", because: "both install `yarn` and `yarnpkg` binaries"
   conflicts_with "pnpm", because: "both install `pnpm` and `pnpx` binaries"
 

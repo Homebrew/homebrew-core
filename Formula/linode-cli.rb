@@ -3,19 +3,19 @@ class LinodeCli < Formula
 
   desc "CLI for the Linode API"
   homepage "https://www.linode.com/products/cli/"
-  url "https://files.pythonhosted.org/packages/e5/3a/8ddc3d01d86bd16b225d6e16dc324b14de0894a5c1963bf6338aac217384/linode-cli-5.28.0.tar.gz"
-  sha256 "ae575331f8f4efa0c4e253b68da3de154318567eac3a112aa4c54a8b24137dba"
+  url "https://files.pythonhosted.org/packages/df/40/34b6c1d93699f276c203f11f349e358a309fef912bec06a89bec37b5ba87/linode-cli-5.28.1.tar.gz"
+  sha256 "a2f79fb20b44667272456a1cb10ddcb8382a40f3a30cbf85ee0b8490d24ea1f9"
   license "BSD-3-Clause"
   head "https://github.com/linode/linode-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6bbf91ccdc7442cb61da0dc92af2d3e19db2848730f24e378e864d3591b82ef6"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5d0b6696d0f07fa5d587f12dab16a2191d73f9d54a643e79f02004147949a1d4"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8bb7d75a0b87da8e1693391ca9591a80fb3c573ccec2d76fe37749404c64b2d0"
-    sha256 cellar: :any_skip_relocation, ventura:        "85ee9bbc88d16ffafd708092874fbb9b86d777e024df4a66e76a12b332bb8cad"
-    sha256 cellar: :any_skip_relocation, monterey:       "c3b7aac65ff2ab3a31ae668674ce103556764c8b3171111e9f2db8eceb98dd1a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "805d62f81f70a34e1f34cfb5b14e7d4a9fcd4715f50678ce6d7b6b5e50b8c39a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bfbb8219134f2589014c34a82bcd951f1773556cfbbef83a4da3185face33760"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "aac8b0559ff213241e983b0a840f52015d2be49ab5ede97b5c6ac6d6364fed5d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "10f47104c4ecc3c0f6657afb6a0a13692d20c91768c5b3ebd1a655b17cb013bb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8f3e821f6c957840766573e97173d1bc31b5488e0e79481502d5ba513ab908f5"
+    sha256 cellar: :any_skip_relocation, ventura:        "d36e8419a2f1c2f1bdc0f5f2b4c2793f19f521d2e65877ec40d5c787e0785b38"
+    sha256 cellar: :any_skip_relocation, monterey:       "0736f38e00167d85e628917236c899659b9b69e619b7e2d99f60527a63a155a0"
+    sha256 cellar: :any_skip_relocation, big_sur:        "257b99f8c89fb1341514f21c56027246d59cf6838568a90cd0c05f03302dd3fc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7e2605e322059749dc9fedcc20a17c7fd2f50d48b180a0ecb73eebe9e17949a7"
   end
 
   depends_on "openssl@1.1"
@@ -33,8 +33,8 @@ class LinodeCli < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/a1/34/44964211e5410b051e4b8d2869c470ae8a68ae274953b1c7de6d98bbcf94/charset-normalizer-2.1.1.tar.gz"
-    sha256 "5a3d016c7c547f69d6f81fb0db9449ce888b418b5b9952cc5e6e66843e9dd845"
+    url "https://files.pythonhosted.org/packages/96/d7/1675d9089a1f4677df5eb29c3f8b064aa1e70c1251a0a8a127803158942d/charset-normalizer-3.0.1.tar.gz"
+    sha256 "ebea339af930f8ca5d7a699b921106c6e29c617fe9606fa7baa043c1cdae326f"
   end
 
   resource "idna" do
@@ -43,8 +43,8 @@ class LinodeCli < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/a5/61/a867851fd5ab77277495a8709ddda0861b28163c4613b011bc00228cc724/requests-2.28.1.tar.gz"
-    sha256 "7c5599b102feddaa661c826c56ab4fee28bfd17f5abca1ebbe3e7f19d7c97983"
+    url "https://files.pythonhosted.org/packages/9d/ee/391076f5937f0a8cdf5e53b701ffc91753e87b07d66bae4a09aa671897bf/requests-2.28.2.tar.gz"
+    sha256 "98b1b2782e3c6c4904938b84c0eb932721069dfdb9134313beff7c83c2df24bf"
   end
 
   resource "terminaltables" do
@@ -53,8 +53,8 @@ class LinodeCli < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/c2/51/32da03cf19d17d46cce5c731967bf58de9bd71db3a379932f53b094deda4/urllib3-1.26.13.tar.gz"
-    sha256 "c083dd0dce68dbfbe1129d5271cb90f9447dea7d52097c6e0126120c521ddea8"
+    url "https://files.pythonhosted.org/packages/c5/52/fe421fb7364aa738b3506a2d99e4f3a56e079c0a798e9f4fa5e14c60922f/urllib3-1.26.14.tar.gz"
+    sha256 "076907bf8fd355cde77728471316625a4d2f7e713c125f51953bb5b3eecf4f72"
   end
 
   def install

@@ -7,13 +7,14 @@ class Mdcat < Formula
   head "https://github.com/swsnr/mdcat.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8cbcbd87a03086e43e0c51d1f066e3b62a5ffc665c33bba8eac08668ebc2a6a9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0e0aea8a458a5c310051a7e42de79810bd9b600d26a0288c0eacd11043c5033e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2c3eb59380be76de82ae1d54e8fae7bf337b8eee8148403b4bdb2e3c6b35db57"
-    sha256 cellar: :any_skip_relocation, ventura:        "4b562d9262f382996f8b4c9cf747b89f21ac1e3ac4776f2937b995be8a04b6ab"
-    sha256 cellar: :any_skip_relocation, monterey:       "ac0fcbf5bf18b19d826a3a72690bde101f64f503d39856fee10abb2ba7cbeef2"
-    sha256 cellar: :any_skip_relocation, big_sur:        "73b852c7cfff71779f0bb3cc152c6b1829b0cc1499ea9d3d660ed96d960ddde6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ccc0c8d5754cc4cd2b385e6bc34e9fd52ff20400721b5a54aea259f0cf63a2a2"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "89f68747fe7f2e9bfd913e7c0f5d2ef14205bbbb1eb2499f583fbb5d1a203181"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6465a387850444b2ee657023cc7b2ba77de253de3dd32e20c92b80713fe925dc"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "927e32a49334328fdeab60a9fa619cd9a9a6dff08b7928a95c437b0ced5f09ad"
+    sha256 cellar: :any_skip_relocation, ventura:        "f7312ad2ca5eaebf10c605fd9fc73a39450b88bd7b77b0f29bf01ba793497dc5"
+    sha256 cellar: :any_skip_relocation, monterey:       "e3de28949b5f067dd9970d2043f329856cbc767ac5f4bddb03264c01249ad695"
+    sha256 cellar: :any_skip_relocation, big_sur:        "fa7e1f162e5b6409169f8fb4e2b6d470597898738c8b9c6b5b531137fbe70738"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "46649ba17441db1e6188f47bf8defda6764fdf8b8920210fe053adb264439bfb"
   end
 
   depends_on "cmake" => :build
@@ -21,7 +22,7 @@ class Mdcat < Formula
 
   on_linux do
     depends_on "pkg-config" => :build
-    depends_on "openssl@1.1"
+    depends_on "openssl@3"
   end
 
   def install

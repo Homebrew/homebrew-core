@@ -13,22 +13,20 @@ class Ssldump < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "177ba7308d97d3c5d695a5ef5a54bfb7b3790259bc91bb4ea4f555c3a0d626f5"
-    sha256 cellar: :any,                 arm64_monterey: "4e68e15e5fd410822495680f04ce90f9c45b462ebdc5512c8c49b51bbc4bfd40"
-    sha256 cellar: :any,                 arm64_big_sur:  "51fc5984a5f7dbef4c4299458e60a8ebdbe88d69c3422a8883863fafa63b9854"
-    sha256 cellar: :any,                 ventura:        "712519b18606d351bf69be064209acbbdd848fe5d8c7bfff756af4b26a606cc5"
-    sha256 cellar: :any,                 monterey:       "74dd546d763c9bda4fd915e6b60cd24c333c0f3aa9dacd258b473dafa04b0277"
-    sha256 cellar: :any,                 big_sur:        "27b04d713522d2937232b457ee32a2293cc9c633acee5efc147ae3fa84741da2"
-    sha256 cellar: :any,                 catalina:       "4f05ecf010a75b92ce19c9889759484f7f4e337e2659516be3c87fe02d99c9ed"
-    sha256 cellar: :any,                 mojave:         "3c9186ee97ff509fd83a0e81acc06e621d50701bcf94e15ce61e4edbbb1b9796"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "101d9148eb4db18bc3993815a813ae25ba23f5babaa7c67a3db739ca40f77e87"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_ventura:  "233c699efc6adbf54ae1e0877b8376d016492116785942fa9cb7b5e38d6ac174"
+    sha256 cellar: :any,                 arm64_monterey: "a020925b76ade838f6462b00870256b47236390f4d185ffec7735ca33c6025fd"
+    sha256 cellar: :any,                 arm64_big_sur:  "3ff8463d5dc460c8d5775c307c492af601d12e455a27b3a5b966cd97d43560f1"
+    sha256 cellar: :any,                 ventura:        "728ec5ab844645fb4ccffebeda3cdaa8b99581261cae35ccd3193d6256aad34c"
+    sha256 cellar: :any,                 monterey:       "041b163945f15d099482ef9d7e4fa584d484439e90f11a2e81af663d004cab87"
+    sha256 cellar: :any,                 big_sur:        "747bc2115e5e70c9c38679cb13212f5b1a01266156b4c43756e209a5947b2523"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cb5412234f420bc697835b6ede35a28ff31d03b2219f55e89c93352f1a0a74ea"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libpcap"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   # reorder include files
   # https://sourceforge.net/p/ssldump/bugs/40/
@@ -50,12 +48,12 @@ class Ssldump < Formula
     # this project doesn't use Makefile.am so they're not brought in.  The copies
     # in the 0.9b3 tarball are too old to detect MacOS
     %w[config.guess config.sub].each do |fn|
-      cp "#{Formula["automake"].opt_prefix}/share/automake-#{Formula["automake"].version.major_minor}/#{fn}", fn
+      cp Formula["automake"].share/"automake-#{Formula["automake"].version.major_minor}"/fn, fn
     end
 
-    system "./configure", "--disable-debug",
+    system "./configure", *std_configure_args,
+                          "--disable-debug",
                           "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
                           "--mandir=#{man}",
                           "--with-pcap=#{Formula["libpcap"].opt_prefix}"
     system "make"

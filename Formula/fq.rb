@@ -7,21 +7,20 @@ class Fq < Formula
   head "https://github.com/circonus-labs/fq.git", branch: "master"
 
   bottle do
-    sha256 ventura:      "02d5b254edb825ab8ea356960c2cd8eb0d4a82bb81602b2de13baad0785671ce"
-    sha256 monterey:     "08bdc96d9e8587b7cfa430fe6eebdc0bdaef042f8b2d0150309977c8fcd46fc0"
-    sha256 big_sur:      "cc5d1afac284b9e5f0c94e46f02d66dae8bc5a6a49dda7b2c95c82b62c82bb9e"
-    sha256 catalina:     "67a46b7b2067466a653e64327ed90d2b0d5624b025df8919e1376710471ba7a7"
-    sha256 mojave:       "195ecf7b14066822a6645469e43cf5550f825e6989531dffa43d66d029228743"
-    sha256 x86_64_linux: "317d6eec9519da8351b677b2ec61577fd2b8052b109533297b53b29ebf230d35"
+    rebuild 1
+    sha256 ventura:      "f0e6202567699912b509c9ec544c9b193eb86001879e8fe3d4f449e02f3f5a4b"
+    sha256 monterey:     "60be8da7fc7c0e9909d92c225815e220c697e498f1b62b4206d1bf2a72b58be1"
+    sha256 big_sur:      "0953c716b652e678dd83c6aadc9b42b5d2699c1d9ed234e4387a3bbaad4f09ad"
+    sha256 x86_64_linux: "e451023b35a528f0839e7e432ee2825ce4cc8deac929641da92242cd2e723128"
   end
 
   depends_on "concurrencykit"
   depends_on "jlog"
-  depends_on "openssl@1.1"
 
   uses_from_macos "sqlite"
 
   on_linux do
+    depends_on "openssl@3"
     depends_on "util-linux"
   end
 

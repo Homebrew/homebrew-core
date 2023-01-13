@@ -3,18 +3,18 @@ class Pipgrip < Formula
 
   desc "Lightweight pip dependency resolver"
   homepage "https://github.com/ddelange/pipgrip"
-  url "https://files.pythonhosted.org/packages/69/c7/dd8261bcc99eff40a63043ff461b46ed43d08f14f873b7b450e460802679/pipgrip-0.10.2.tar.gz"
-  sha256 "2a6116e2794357f5f4420c1282c2e7a37f0bc8c571b6af90ee6a8ea1f89c7461"
+  url "https://files.pythonhosted.org/packages/4c/fc/48fb28d8615c2bdbc2555da0c2f2f52a20d95ba606a4d5f4f67aad6fbd46/pipgrip-0.10.4.tar.gz"
+  sha256 "ccdd5068d0171093e3a8e2670dceb17e609ed1ed05a7d533d41678e48e938e31"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4a975c3d45bf11765a18c7595b802fd6cec0d4f095aecc3ce5c1315bcd1d63f4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "90a118996aaa01140969b8c1af5efa7e446e464fd28daed5c50b5dd98903fe7a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3b08ca0a80dec0a22b9499aacbbd35ff696a58c289305302454ab0bd5873b37c"
-    sha256 cellar: :any_skip_relocation, ventura:        "15d2e7b155c23568fd0c3118db80b54b041cf45670a41e2fa160b858674e3254"
-    sha256 cellar: :any_skip_relocation, monterey:       "919c1bbb603ee4ff9c7acef416d32ca042a7ad256a897191c187ae9133f4f658"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e39601ac8d5bf63010b49b01be3b116724c70156c98809ab47a07a4d680a56a4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a59434e8d8cd7cce5708a9420ccf358ed566ac63dc5e068ba6a579edfc0f80d4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c18cb820ee0e1bc055151788d53615de04d92906cfa797fd1f7ae0845bd37bc1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4355b59405f1da21ae2e551cb93be0cac817d110ac351d1de15cd2d494a7490c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6aae463dd8bb2149655b22555385a4130de5ccd91d73fa4513b3d6b8d856befb"
+    sha256 cellar: :any_skip_relocation, ventura:        "13d25363d7a764ee74e3f4b065bb5f22031acde890a96ceedc5b4d40c495cec7"
+    sha256 cellar: :any_skip_relocation, monterey:       "f979a0ef7ad5ac34d753eea71cedc1c91470793afe243eca1a2915df07f316f2"
+    sha256 cellar: :any_skip_relocation, big_sur:        "755f6718559d08e0e346542743dfcae15f3e3af7ec18c637780706e3073cf7b4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0b788320b39cf5db887f51d994170a33fe4c19431bb914a5f327b5a6ad83a3c9"
   end
 
   depends_on "python@3.11"
@@ -31,8 +31,8 @@ class Pipgrip < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/6b/f7/c240d7654ddd2d2f3f328d8468d4f1f876865f6b9038b146bec0a6737c65/packaging-22.0.tar.gz"
-    sha256 "2198ec20bd4c017b8f9717e00f0c8714076fc2fd93816750ab48e2c41de2cfd3"
+    url "https://files.pythonhosted.org/packages/47/d5/aca8ff6f49aa5565df1c826e7bf5e85a6df852ee063600c1efa5b932968c/packaging-23.0.tar.gz"
+    sha256 "b6ad297f8907de0fa2fe1ccbd26fdaf387f5f47c7275fedf8cce89f99446cf97"
   end
 
   resource "pkginfo" do

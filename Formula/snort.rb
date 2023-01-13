@@ -13,13 +13,14 @@ class Snort < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "ce25f5607ce3d7768f80a526f596fa15facab68de594111e3dd59080f58910f6"
-    sha256 cellar: :any,                 arm64_monterey: "a9573939de64a7f85fec078e5ef4e6474e0df70754348881ffdb8254661af71d"
-    sha256 cellar: :any,                 arm64_big_sur:  "772b816f224f2942cede0e657e72a6081946a193f14306fa8c399969de292c3c"
-    sha256 cellar: :any,                 ventura:        "902b7556f4c971d41f7912f51cbffd94b73d4295b39728b8399ce9872cd98f44"
-    sha256 cellar: :any,                 monterey:       "f4a474d068470dace598b5f9d63c010420b4cc4f48fff4a1dce516bf334c9fc4"
-    sha256 cellar: :any,                 big_sur:        "2fa6ad2448606a80e7f3383762f39b5dbb542aa04d7e4abd3001d7975567faf8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a682aaa1368b3367bee81f67d2e648e514aabb26395577e8343cb8e06f02e0a7"
+    rebuild 1
+    sha256 cellar: :any, arm64_ventura:  "01bbd12e1615dc4708325b2fc739e04f21962346794d4884436bd3dc42b736eb"
+    sha256 cellar: :any, arm64_monterey: "f0560d959142360cbcf22fb556d19294370a127998ff9769036b26024cf84092"
+    sha256 cellar: :any, arm64_big_sur:  "acbf5a7f4ec50e6785465fb661941cc5f22a5f912e2a10c1951464d8818ed51c"
+    sha256 cellar: :any, ventura:        "ab9d249f971d5ae5676c18778fa8c62d5beabae8c07c98db5c688981662c6398"
+    sha256 cellar: :any, monterey:       "4c85847c0365eecf09d952fdec11c3050d9e310e3a829b90f2cea9a089fd886d"
+    sha256 cellar: :any, big_sur:        "4647cb1a7f59bfbcffe43fb504188aca1d88156e0d27e813db0c5c5e9fe9375d"
+    sha256               x86_64_linux:   "4f621feaefbfbf8728a35d9c5895f1bc0f8716c3121229c264a1afbde671d16a"
   end
 
   depends_on "cmake" => :build
@@ -31,7 +32,7 @@ class Snort < Formula
   depends_on "libdnet"
   depends_on "libpcap" # macOS version segfaults
   depends_on "luajit"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pcre"
   depends_on "xz" # for lzma.h
 
@@ -41,7 +42,10 @@ class Snort < Formula
     depends_on "libunwind"
   end
 
-  # Hyperscan improves IPS performance, but is only available for x86_64 arch.
+  on_arm do
+    depends_on "vectorscan"
+  end
+
   on_intel do
     depends_on "hyperscan"
   end
@@ -59,10 +63,9 @@ class Snort < Formula
     # On Apple ARM, building with flags results in broken binaries and they need to be removed.
     inreplace "cmake/FindLuaJIT.cmake", " -pagezero_size 10000 -image_base 100000000\"", "\""
 
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args, "-DENABLE_TCMALLOC=ON"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DENABLE_TCMALLOC=ON"
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   def caveats

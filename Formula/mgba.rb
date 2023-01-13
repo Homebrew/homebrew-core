@@ -1,8 +1,8 @@
 class Mgba < Formula
   desc "Game Boy Advance emulator"
   homepage "https://mgba.io/"
-  url "https://github.com/mgba-emu/mgba/archive/0.10.0.tar.gz"
-  sha256 "e2d66d9ce7c51b1ef3b339b04e871287bf166f6a1d7125ef112dbf53ab8bbd48"
+  url "https://github.com/mgba-emu/mgba/archive/0.10.1.tar.gz"
+  sha256 "5fc1d7ac139fe51ef71782d5de12d11246563cdebd685354b6188fdc82a84bdf"
   license "MPL-2.0"
   head "https://github.com/mgba-emu/mgba.git", branch: "master"
 
@@ -12,14 +12,13 @@ class Mgba < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "9456f4984fe046c3ff9be56a644f4d3b6b9e22ba59321ef6bb9f39986fe99ea5"
-    sha256 arm64_monterey: "fda5f57d8ace572ad6ff1b3457a47077882140d707a1076a8c1a32938ca43ee8"
-    sha256 arm64_big_sur:  "23038b35ba70a5a7a23847607ad84706d14bc507854cdb946a9e47cf3dab6fbe"
-    sha256 ventura:        "4803a421edbeae11303feee604ded130d8f5457a7bae15451e43b2390853f625"
-    sha256 monterey:       "7c3646e7cbd567454301e2917e3e9286624d565d2ba200396f6d376374ff881c"
-    sha256 big_sur:        "eebee6cce324280243304e19398b22a19bd60efbd04dbd0658fe2285c7e724ca"
-    sha256 catalina:       "9b0054aa6bb75a4afbb22d413e241e54c2fb77243ed5fc712bd74dcc8022f527"
-    sha256 x86_64_linux:   "4c2aed6811fbc6349bf76f323e935f3c21d841b48fb50ec7d0d55aff9aba4727"
+    sha256 arm64_ventura:  "584bde4b0f0d0baa337a4fceedaff49e7f234d41d6b8aaed8e036571abed575c"
+    sha256 arm64_monterey: "4aaeb726cf6617932f74a21f955ddb10d64ef5cdb299054f4926f39f013143e6"
+    sha256 arm64_big_sur:  "c0b2a3a4aa9e1de968df9e8f1503b7ee81fecfd37bc44389f58cb4072494fb0c"
+    sha256 ventura:        "fea6b0f43e41647bd8e3bf94d2d311e133fd56bfb0a264a599f9e6a5d6cec688"
+    sha256 monterey:       "9932d3d66de37e3c724860551764ce5c19e89bfc97e823b36f32cbd8d411089b"
+    sha256 big_sur:        "4989c70fecfe563140e844a04ce126c5e25a6faf7b2f76474bbfde876a08bbbc"
+    sha256 x86_64_linux:   "ba11dc52534a5970901684e57fe58a07871c6fcee7b8c644075101c2e7ddce2b"
   end
 
   depends_on "cmake" => :build
@@ -42,10 +41,6 @@ class Mgba < Formula
     depends_on "elfutils"
   end
 
-  # discussions in here, https://github.com/mgba-emu/mgba/issues/2700
-  # commit reference, https://github.com/mgba-emu/mgba/commit/981d01134b15c1d8214d9a7e5944879852588063
-  patch :DATA
-
   def install
     # Install .app bundle into prefix, not prefix/Applications
     inreplace "src/platform/qt/CMakeLists.txt", "Applications", "."
@@ -67,25 +62,3 @@ class Mgba < Formula
     system "#{bin}/mGBA", "-h"
   end
 end
-
-__END__
-diff --git a/CMakeLists.txt b/CMakeLists.txt
-index ce8e4d687..a8116d3ea 100644
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
-@@ -718,8 +718,13 @@ if (USE_LZMA)
- endif()
-
- if(USE_EPOXY)
--	list(APPEND FEATURE_SRC ${CMAKE_CURRENT_SOURCE_DIR}/src/platform/opengl/gl.c ${CMAKE_CURRENT_SOURCE_DIR}/src/platform/opengl/gles2.c)
--	list(APPEND FEATURE_DEFINES BUILD_GL BUILD_GLES2 BUILD_GLES3)
-+	if(APPLE AND MACOSX_SDK VERSION_GREATER 10.14)
-+		list(APPEND FEATURE_SRC ${CMAKE_CURRENT_SOURCE_DIR}/src/platform/opengl/gles2.c)
-+		list(APPEND FEATURE_DEFINES BUILD_GLES2 BUILD_GLES3)
-+	else()
-+		list(APPEND FEATURE_SRC ${CMAKE_CURRENT_SOURCE_DIR}/src/platform/opengl/gl.c ${CMAKE_CURRENT_SOURCE_DIR}/src/platform/opengl/gles2.c)
-+		list(APPEND FEATURE_DEFINES BUILD_GL BUILD_GLES2 BUILD_GLES3)
-+	endif()
- 	list(APPEND FEATURES EPOXY)
- 	include_directories(AFTER ${EPOXY_INCLUDE_DIRS})
- 	link_directories(${EPOXY_LIBRARY_DIRS})

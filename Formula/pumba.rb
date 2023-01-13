@@ -1,8 +1,8 @@
 class Pumba < Formula
   desc "Chaos testing tool for Docker"
   homepage "https://github.com/alexei-led/pumba"
-  url "https://github.com/alexei-led/pumba/archive/0.9.6.tar.gz"
-  sha256 "15865c6eeb108bc65bcd0aa6f3e270a7fed28854ea53eaa62cd0365c05d37f7c"
+  url "https://github.com/alexei-led/pumba/archive/0.9.7.tar.gz"
+  sha256 "e880c4fe28fbd04df8b71bd2acf6a8740f01578e5f67c801058e639d7dfb46c2"
   license "Apache-2.0"
   head "https://github.com/alexei-led/pumba.git", branch: "master"
 
@@ -12,13 +12,13 @@ class Pumba < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e52897528676100440cdeedca4d234ea962117a75e2a6b568bcec1d651f34063"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0a85e3affbc08452b4d792d73c8a7e7d3a43ad2f92f349de916af7ec4b8cdecc"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "797ab3178b9a04ac6e4df1524ffb9b4fbc2c04abb513b60ff0851b4986193b98"
-    sha256 cellar: :any_skip_relocation, ventura:        "06bead9146d31dd18b8b860562d3709de8d642e6cda77f14eb0cd7e37c2a2104"
-    sha256 cellar: :any_skip_relocation, monterey:       "80c950398451fab2610e7d81d0c577341cddc7334298c8f9dbecfaa31ae0e075"
-    sha256 cellar: :any_skip_relocation, big_sur:        "692d5cb6d4933d75210db0c4059226c33b552c02d245c62a6c4b742e2574a8ef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7d64ee926c90ddcd7525361beff9ebd3cf59de08095695b353ba45f061d4435d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4405e5f50375cf179431eea009797d0474658c4728c564bfbcfeff96b02e51c5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "005c8e9c537ad08a2da596a094af003133ab0b75aaf35c45959e12fa9c7f1eff"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cfeb22a1a5f348a525aedb9ef8e22d5c8a974b2e6e4c85ed7a64f8e3b7b99839"
+    sha256 cellar: :any_skip_relocation, ventura:        "cec7cde030bfae611c8da594d78cc7404e98a47e3f3f9113152e337b4a483ca5"
+    sha256 cellar: :any_skip_relocation, monterey:       "f59ad191fc02d799096c645374403bfb772b7d81dc6f06b20bf5121076a8d765"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c981dda5cffe70dd150490ac68bf2ec7a33de222912632865cd9f73f877488ff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6ef073e593b652418176ed0fa74e613248ebf9494c5c0fbe5941fb9f8b88e3a8"
   end
 
   depends_on "go" => :build

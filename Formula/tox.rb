@@ -3,26 +3,26 @@ class Tox < Formula
 
   desc "Generic Python virtualenv management and test command-line tool"
   homepage "https://tox.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/70/c4/74a995db95714ead327f30933290fd04a6be9489fb0adbcef8c6f816a3d4/tox-4.2.6.tar.gz"
-  sha256 "ecf224a4f3a318adcdd71aa8fe15ffd31f14afd6a9845a43ffd63950a7325538"
+  url "https://files.pythonhosted.org/packages/49/58/54500bcc3118b538ff07a333347dabb947e1fe5b28564620ffe29b417a9e/tox-4.2.8.tar.gz"
+  sha256 "7c31940d755355210151e8bef23feab3d714a8a4795e513c454ff0baccd995b1"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d43eb425defb91e1767392c9e07c3362137e2bb6699895d3dd7a7904d0a4a493"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "dbc9baefc6ad3bbd8bfd1e0a1b314c4f7dc0364fc535e0f6bb5b5f64b191436b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "12dc5b63abc0b2212944eba6c514ef2dd46ee207051295ec5c36dcd2acb792c1"
-    sha256 cellar: :any_skip_relocation, ventura:        "42dc779d882ab5e2f44ed58745544e5cc4e262f960d05321296e89c3526d12f0"
-    sha256 cellar: :any_skip_relocation, monterey:       "4b6300ffd716c56e72520f8f2508d95970a254da2c01e19849a688f05d49b36f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ae7ba9377416e9078ae1d415d00e79204606239e715831ded9659631935de0dd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "227552f3d978f1e5bf93af679484dfe72646a253ca11a400ba2d1c687634cf6a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a42d2ea6291d2a4e63981fd05c40d3ec625e02c0531c8c89dff8a78c0100a496"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cfbb781c53319f3ca7187da097f9a79a2ec6dbc9b1f71f4ea1d2d30f1f65e681"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "151a4af53001fb817b289be2cff9eeb6f54573ff9acfa3c0c959be05d23e2406"
+    sha256 cellar: :any_skip_relocation, ventura:        "cd78bb1c2cab70330bcc314e9793248648a333ce09912d6d3fc33d09fce1de5a"
+    sha256 cellar: :any_skip_relocation, monterey:       "beb4b3219dae584dcffca32242c4b3916d9c3523956fefb786ca43aa8b66902b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6902b3dbc3530847659126855b750f1929a6d1e904ef44c12e7792d6a0a2e1d7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ee256e5214140fd2de178b02f9753c12f66e2026d255c6436d0b32e54f899978"
   end
 
   depends_on "python@3.11"
   depends_on "six"
 
   resource "cachetools" do
-    url "https://files.pythonhosted.org/packages/c2/6f/278225c5a070a18a76f85db5f1238f66476579fa9b04cda3722331dcc90f/cachetools-5.2.0.tar.gz"
-    sha256 "6a94c6402995a99c3970cc7e4884bb60b4a8639938157eeed436098bf9831757"
+    url "https://files.pythonhosted.org/packages/3d/cf/8bab81474cb9ec7879ba28aef71c8351db92cd03587d9eac8e908b2c1c23/cachetools-5.2.1.tar.gz"
+    sha256 "5991bc0e08a1319bb618d3195ca5b6bc76646a49c21d55962977197b301cc1fe"
   end
 
   resource "chardet" do
@@ -46,8 +46,8 @@ class Tox < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/6b/f7/c240d7654ddd2d2f3f328d8468d4f1f876865f6b9038b146bec0a6737c65/packaging-22.0.tar.gz"
-    sha256 "2198ec20bd4c017b8f9717e00f0c8714076fc2fd93816750ab48e2c41de2cfd3"
+    url "https://files.pythonhosted.org/packages/47/d5/aca8ff6f49aa5565df1c826e7bf5e85a6df852ee063600c1efa5b932968c/packaging-23.0.tar.gz"
+    sha256 "b6ad297f8907de0fa2fe1ccbd26fdaf387f5f47c7275fedf8cce89f99446cf97"
   end
 
   resource "platformdirs" do

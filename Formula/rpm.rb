@@ -12,9 +12,10 @@ class Rpm < Formula
   end
 
   bottle do
-    sha256 arm64_ventura: "aefec64781c00cadb3cf23c472dca6b95448f7e1d13b2d99f02bd402428c62e7"
-    sha256 ventura:       "b8f1babd7bb8e9441dd20b122a36294d7c6efde30b914232d10ce0b9b31331e4"
-    sha256 x86_64_linux:  "7abd5ec6e0fe728546f10d918de572587bfffa4bbcc3bc1543283dbb48fd0d2b"
+    rebuild 1
+    sha256 arm64_ventura: "b53546064adccbad8b399e755dee7ce53b7e5740bafb0c9f57c21755bbd44a4e"
+    sha256 ventura:       "c3479781c5af9756f03f0fa03ae34a8810aa5fe4a5a578c012be0aa6d2778b18"
+    sha256 x86_64_linux:  "92fa3dcdb9eb03d3db9941ac7ee1a01a380aa78bdf8d0446f397ac699ff02ca1"
   end
 
   depends_on "gettext"
@@ -22,7 +23,7 @@ class Rpm < Formula
   depends_on "libmagic"
   depends_on "lua"
   depends_on macos: :ventura
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pkg-config"
   depends_on "popt"
   depends_on "sqlite"

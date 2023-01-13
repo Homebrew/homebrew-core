@@ -2,18 +2,18 @@ class Licensed < Formula
   desc "Cache and verify the licenses of dependencies"
   homepage "https://github.com/github/licensed"
   url "https://github.com/github/licensed.git",
-      tag:      "4.0.1",
-      revision: "7aa963664c1415fa90b6af7fd973f0b739650cc0"
+      tag:      "4.0.2",
+      revision: "1068f972a1a8994ef0c08ad89d7a5a746f4eb28c"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "4a29f5ec33431803dc8e53acc12ef16cec00123ae61acf64679301e5d1a1615a"
-    sha256 cellar: :any, arm64_monterey: "97c250165f5fbdbdb3e10b8987c573562fdfaf9e65787598746b3f83f479f928"
-    sha256 cellar: :any, arm64_big_sur:  "5a55aeea64cfce25d8bed61eb2eae167a17dbf0bb0165b9908f0154e7e748d35"
-    sha256 cellar: :any, ventura:        "8d344c0dc07f6e0aaddab3652b37f86ee90a8a38031b897b991e734b7c5adf06"
-    sha256 cellar: :any, monterey:       "8c63965f9c4913b898668cb42b576e040f3784d9bc1f24070e2d1e018e4ba9c5"
-    sha256 cellar: :any, big_sur:        "480364cc227ed7266223e2c25f68e59fc6961d8703b3037f0b0b1de8050ab5ff"
-    sha256               x86_64_linux:   "52ab0a110465275c929cdcfdfc6749eab66e2ae0b16ee639e6a51dc8c6442364"
+    sha256 cellar: :any, arm64_ventura:  "2831a06f3ab1d16d3359323a4eb759d955d8347563933ddb2a874d16c2ed5f6b"
+    sha256 cellar: :any, arm64_monterey: "77164a895aaca9ee73ef71215f76cf9343d23e565f40419e987f5cd5bf45cfdf"
+    sha256 cellar: :any, arm64_big_sur:  "f4e54d928d668d82204b996798becae4edd2e1f2b1ab10c387dbc2da51916f09"
+    sha256 cellar: :any, ventura:        "4d2be6ae693f102158d4a48cd5741d3515b78c87b15e85d83c372e8859201c49"
+    sha256 cellar: :any, monterey:       "c8c8b22211e57392c52f97598d458da42402968cae4660e68353c44175b91ddb"
+    sha256 cellar: :any, big_sur:        "f5ab7d5a466ffc948b0b81df0c61f357cabcb1ed403ddd6209ba5c453a753616"
+    sha256               x86_64_linux:   "556e521f9a211663b872d3c408ece570f6f70d646381464d8eb23e5817ab96e7"
   end
 
   depends_on "cmake" => :build

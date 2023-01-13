@@ -3,42 +3,31 @@ class PythonBuild < Formula
 
   desc "Simple, correct PEP 517 build frontend"
   homepage "https://github.com/pypa/build"
-  url "https://files.pythonhosted.org/packages/0f/61/aaf43fbb36cc4308be8ac8088f52db9622b0dbf1f0880c1016ae6aa03f46/build-0.9.0.tar.gz"
-  sha256 "1a07724e891cbd898923145eb7752ee7653674c511378eb9c7691aab1612bc3c"
+  url "https://files.pythonhosted.org/packages/de/1c/fb62f81952f0e74c3fbf411261d1adbdd2d615c89a24b42d0fe44eb4bcf3/build-0.10.0.tar.gz"
+  sha256 "d5b71264afdb5951d6704482aac78de887c80691c52b88a9ad195983ca2c9269"
   license "MIT"
   head "https://github.com/pypa/build.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "627b7ce96d4cc4bb54072f1348a1159ce7bd93bd1909d72e0797e23822360729"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5f4bad095b425f11e26daa8450d716d6d3d87a6b086fa93e746e42b2b5edca4e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f734c014c744750da9b3ff86252ccc04830b22219dadcc7705edb6e2426357cc"
-    sha256 cellar: :any_skip_relocation, ventura:        "3eef3b41a48887701c20d382613226d4b6066bf3e1149c0fe1adf1ab013b1542"
-    sha256 cellar: :any_skip_relocation, monterey:       "f687f81100265c55552369fa8da87af664b6a126570b7eb0cacc0f5d82f14eae"
-    sha256 cellar: :any_skip_relocation, big_sur:        "63acd4ceb75a08030b0be6868d99e5fb27f10397601161b107ef0be218a28601"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "547a0ff2639a4eddba12c058af02c73b1df8a63c46f316005c756a76fbb8a82d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e3d83d48e235c2f0df712103938c6f76c1dcaa7a840dca73109ff0842de90f22"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f3f4686a7cc93dd8254b16196da4b5314cc9819fd53e87b253d08dbdc41af2d4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "adbdf3df6cae13f89f8a5e0e22f24b0deafb62b9779dc32cbe3d3c4ab8ccec1a"
+    sha256 cellar: :any_skip_relocation, ventura:        "6b30dc352f6573edaff4fffdd1f4153c5fb41f59a585d36ce685a4cacb641ac6"
+    sha256 cellar: :any_skip_relocation, monterey:       "57686ab4d99f61ca65b345a41a00e24c4b619011e341a0d779e744f9c963fe28"
+    sha256 cellar: :any_skip_relocation, big_sur:        "88a8a7d3a15a7fd5dcae318b3e15c9e58bde70cbfd6c9f95e2eb6b6eab83f67f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b3d0881beff7e8b537ca1d3b1cbe63fcbf334234809cbc6ffb92d1afc19cbc82"
   end
 
   depends_on "python@3.11"
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/df/9e/d1a7217f69310c1db8fdf8ab396229f55a699ce34a203691794c5d1cad0c/packaging-21.3.tar.gz"
-    sha256 "dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb"
+    url "https://files.pythonhosted.org/packages/47/d5/aca8ff6f49aa5565df1c826e7bf5e85a6df852ee063600c1efa5b932968c/packaging-23.0.tar.gz"
+    sha256 "b6ad297f8907de0fa2fe1ccbd26fdaf387f5f47c7275fedf8cce89f99446cf97"
   end
 
-  resource "pep517" do
-    url "https://files.pythonhosted.org/packages/4d/19/e11fcc88288f68ae48e3aa9cf5a6fd092a88e629cb723465666c44d487a0/pep517-0.13.0.tar.gz"
-    sha256 "ae69927c5c172be1add9203726d4b84cf3ebad1edcd5f71fcdc746e66e829f59"
-  end
-
-  resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/71/22/207523d16464c40a0310d2d4d8926daffa00ac1f5b1576170a32db749636/pyparsing-3.0.9.tar.gz"
-    sha256 "2b020ecf7d21b687f219b71ecad3631f644a47f01403fa1d1036b0c6416d70fb"
-  end
-
-  resource "tomli" do
-    url "https://files.pythonhosted.org/packages/c0/3f/d7af728f075fb08564c5949a9c95e44352e23dee646869fa104a3b2060a3/tomli-2.0.1.tar.gz"
-    sha256 "de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f"
+  resource "pyproject_hooks" do
+    url "https://files.pythonhosted.org/packages/25/c1/374304b8407d3818f7025457b7366c8e07768377ce12edfe2aa58aa0f64c/pyproject_hooks-1.0.0.tar.gz"
+    sha256 "f271b298b97f5955d53fb12b72c1fb1948c22c1a6b70b315c54cedaca0264ef5"
   end
 
   def install

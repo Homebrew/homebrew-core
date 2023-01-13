@@ -4,16 +4,16 @@ class Mailcatcher < Formula
   url "https://github.com/sj26/mailcatcher/archive/refs/tags/v0.8.2.tar.gz"
   sha256 "3bf200ab3b2926d3747a462afd68dce5a28a11fe8d2834ce929c99c90d4192d3"
   license "MIT"
-  revision 1
+  revision 2
 
   bottle do
-    sha256                               arm64_ventura:  "44bbcc45b8d55befe3798a0806467e07134e9a712b3223509898ba4506336250"
-    sha256                               arm64_monterey: "83f3a9836315b4a067c7c562394cad3362ebda644b4231c415161b29d8c064f2"
-    sha256                               arm64_big_sur:  "7dd8ce41e87aef5c67dbd0322c0dc8b08ee7273f3d94e683369a3ab961a21b23"
-    sha256                               ventura:        "23cd4c9e9ddeab59fee3b75b6fd0826888f6dbd678af72f1c833640c2b49350b"
-    sha256                               monterey:       "5ba53dec35e23eeb9f538279285b00981367d40c75d5d82804399a3d40a5ff39"
-    sha256                               big_sur:        "3ba96086225d34d2c4d18533efed3443d7e96f2840aae0a92b364eb0ab0f8004"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b2746ba9e11748d69917be2f4e6f0868ad1430e9a2e814939e0bee0336055251"
+    sha256                               arm64_ventura:  "7dc97b72f0a0b3dc1d7d802790d605843f5dddca526563b1423702ef95b9163a"
+    sha256                               arm64_monterey: "15c4023cd56f93d8110ff458dc94b3ef86398e590f75f359e492e08ef1b3d857"
+    sha256                               arm64_big_sur:  "866e3fb7cc513af402be042beabf92c78bc22c42e3a6513feff3a50f27d36c66"
+    sha256                               ventura:        "a0ca0a497a30409e1911b2d20c10dc61c8cc4120aa4a5ca5f644f368b95a7523"
+    sha256                               monterey:       "8ab4f5a35754138b67352fcba02b77f1373e0e3c81b2da544422153e330b0812"
+    sha256                               big_sur:        "53c72b71f3f9a29b5651b30c785bfe4f312369e7d5edcd7bf62513999a59753b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7a1b239e9cd341dc9c83821652fd1ee4009455babe0e765e33dfe03fd123ec2e"
   end
 
   depends_on "pkg-config" => :build

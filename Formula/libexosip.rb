@@ -12,20 +12,20 @@ class Libexosip < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "ec7177a55d501d4223c59de047ad9b755ef21bbf467db8b2c34c144f969d209e"
-    sha256 cellar: :any,                 arm64_monterey: "f25383f6e18e92d09bea5ce9a5355de38897736a00a1b5b73198f093e9f0302e"
-    sha256 cellar: :any,                 arm64_big_sur:  "e5862acc819d00bfe377cb07242481b6bf0749c358eb3d7e3523a22efa05b893"
-    sha256 cellar: :any,                 ventura:        "79d12c5df437966dbcaf96b9a43e2b0c9477b411284706dc7dc11a3ad25bc3bd"
-    sha256 cellar: :any,                 monterey:       "15e973aa1ca096bd2f5120d2fc9a99549eef1349e73d44225370f47ddb1e3e5b"
-    sha256 cellar: :any,                 big_sur:        "5a9c2568c86ffd96558f1d3c30dba6b088db674016df2ca5a70b265309108e59"
-    sha256 cellar: :any,                 catalina:       "f5afd5d2f0a37b824d6d054eaceae651c8b91484f0e8ca7f501c04f52e4daee6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "15d4453f9ff8cf68f1e4862fe2e4bfcffbf5ccc3c17b735b78cd14b68f218759"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "f16e7871375ba4b6fa1a0449efdbaac6cd0ecd385cb30ca73b81e5303b4fe643"
+    sha256 cellar: :any,                 arm64_monterey: "986de480122d68131d838a6f0d37921978491b83e01fc53ab8631c50ce428cf0"
+    sha256 cellar: :any,                 arm64_big_sur:  "54df18bb3bea9dca975b830312f28ac7510dadb108db9053a3eafdf8481add0b"
+    sha256 cellar: :any,                 ventura:        "836deee9270859281bfb13c2b75d44cad2e6d2f38a2a99490c086b749f45258e"
+    sha256 cellar: :any,                 monterey:       "a3ffa4272cd49779d2ba780252af1a9e9bc56d30dae6e1b757bdd449e7c47221"
+    sha256 cellar: :any,                 big_sur:        "7af6a64fb918f2ddc565947e49f911520f7340f8ddf09cb23a28aad2e4be35cf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "07fe4531bd26a4c6fabb8833e55dc9b955c3f995c5c024177b9a9e3800785782"
   end
 
   depends_on "pkg-config" => :build
   depends_on "c-ares"
   depends_on "libosip"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     # Extra linker flags are needed to build this on macOS. See:
@@ -35,8 +35,7 @@ class Libexosip < Formula
       ENV.append "LDFLAGS", "-framework CoreFoundation -framework CoreServices " \
                             "-framework Security"
     end
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make", "install"
   end
 

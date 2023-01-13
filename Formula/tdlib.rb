@@ -7,28 +7,27 @@ class Tdlib < Formula
   head "https://github.com/tdlib/td.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "90ee842a87597f9d18d7459e89a71ec41ff1ff2bbb815ae33941a81a9842c7cb"
-    sha256 cellar: :any,                 arm64_monterey: "00e02b03043acd904f3a6422f32e1cef717262c802b1a26bafd392384c392feb"
-    sha256 cellar: :any,                 arm64_big_sur:  "8be24a3d5ff903fb42d8a50e1cdf74d15222cecd602f1b94fdf1ca1767ed0937"
-    sha256 cellar: :any,                 ventura:        "3b034d9e53b98e7848b1567fe9c3fd3d91f6954bafe22be51ded94e191f36392"
-    sha256 cellar: :any,                 monterey:       "a2c1f2879ca86f6fc3621b097ebead6145a87d9c4404ceaa52a4506fc8e6d8b5"
-    sha256 cellar: :any,                 big_sur:        "7de0871fcfc2f560f2737a017d4466ac9924a275b8b1f812328e23a590eea183"
-    sha256 cellar: :any,                 catalina:       "4f83585dd6cc3635b37e93e89db0c939ab0d0e47dff327d2ad5a5357a038777f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2741ee46f0de27c0a2bf4be6ce0c6a0d07d4ef5f7ad51ff5ca726598fb114418"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "453ae4e6474f7483de288a9f9401e50384dfc4e094fe34f4f6927d0868f1c53c"
+    sha256 cellar: :any,                 arm64_monterey: "d63a391500b354be858ea542555e32e5bcbf25e1c5b6e5ce6fb1fc9caa383b1f"
+    sha256 cellar: :any,                 arm64_big_sur:  "d89f1c5d42063c1c787d8bdacef1d4a7f508e4f480f65f55412fa2c6d85ae01d"
+    sha256 cellar: :any,                 ventura:        "a18fe5ac33ffbd29734e6a811a4a5f00303487c1a63bce58b9d5a05e0b161e06"
+    sha256 cellar: :any,                 monterey:       "f445c63b3ebc517e25008bc5eefe5cb631e9fbdac5f80530e292270be44bee25"
+    sha256 cellar: :any,                 big_sur:        "e005fffee17a01c0deb9d1cf6afc29fb3d997bbb56391c3fc5b5d70b52503a8a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "763e767a1c640428361a506075089ca11a7f2e930dd315137968bc359ab901d1"
   end
 
   depends_on "cmake" => :build
   depends_on "gperf" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "readline"
 
   uses_from_macos "zlib"
 
   def install
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

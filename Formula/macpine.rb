@@ -1,8 +1,8 @@
 class Macpine < Formula
   desc "Lightweight Linux VMs on MacOS"
   homepage "https://beringresearch.github.io/macpine/"
-  url "https://github.com/beringresearch/macpine/archive/refs/tags/v0.8.tar.gz"
-  sha256 "bd3d1e47acb9cbb29b57fa570817a12cc61b618721113fe356bff6b3a01c3953"
+  url "https://github.com/beringresearch/macpine/archive/refs/tags/v0.9.tar.gz"
+  sha256 "fbbed218de0037d0fc82bc675fbe89b44202f757f12a5ab53f32ff70345ee1c2"
   license "Apache-2.0"
   head "https://github.com/beringresearch/macpine.git", branch: "main"
 
@@ -21,13 +21,13 @@ class Macpine < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8705f9a058e0d1ab5c9172da384eb53e4bee10004819cc48ffaea4262d383b93"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c51bd2e0c75193e6a622ee93f316ae56f1decdeae9d09a44122847e366c41625"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "de5a2c829c59ff3236ab890fb21f991091199f6a1deaeedcbae5c9ff40ad8b3d"
-    sha256 cellar: :any_skip_relocation, ventura:        "5a1516a0093f00b6269ef7fce98c366687f65f087fac6605f84265d11ef62072"
-    sha256 cellar: :any_skip_relocation, monterey:       "d30216817bc324ff6fddbdf7aa27d1c029e90ecfb9005894940c4fc1b7446d57"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a7482326b2d9a18353152ab96d940c4137ba414005b8099020595b020272268e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "089491cccf630e33ad19f8d665dba2aa69ef7d91dbd86c80ea08e292ff114c55"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4e1da6b8f34a22fc5fc63ba08b7bfac98e49810dc48480eb02d482e58027faff"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "31fdc359d83fed29fe4dd9d31c0a2e47c847d24769fedee8830b2387ee095422"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "86804d74a4c347c33f10d281e0194d4847a74c5b9995ceaa3f3eec8e4305b0c7"
+    sha256 cellar: :any_skip_relocation, ventura:        "d6436309f60f3f0b4280a4fd4d1d78ab7cda32377815958d868f0e09cd750717"
+    sha256 cellar: :any_skip_relocation, monterey:       "b73b6106d67192cbcaaefdd79dc4e7600e0898ca02ab500be56acf525880b14c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "cdd5fd51572c843ac660d140a6c48f229e90b531cb1ad169e448781d6b2a0d78"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f18fb694cde179cafbffe3b48f2bcee4f89b2604aa44ce43557b757433403987"
   end
 
   depends_on "go" => :build

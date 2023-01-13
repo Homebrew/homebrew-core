@@ -1,19 +1,19 @@
 class CargoDeny < Formula
   desc "Cargo plugin for linting your dependencies"
   homepage "https://github.com/EmbarkStudios/cargo-deny"
-  url "https://github.com/EmbarkStudios/cargo-deny/archive/refs/tags/0.13.5.tar.gz"
-  sha256 "aebfff46cf510fc9a85ce0059e88792c6467f44c17dd29badce50a13af47e4f7"
+  url "https://github.com/EmbarkStudios/cargo-deny/archive/refs/tags/0.13.7.tar.gz"
+  sha256 "61c9d20baf7b941713cc3b2e83ca2233b39d6efaa4ed11abd73a12839096ff65"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/EmbarkStudios/cargo-deny.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2a60f355a3fd9c26b718ab101f8254dd2833c225f04aaca5c834b4ceb03c8c33"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9377e21588e242c5a7df3535949b95cafedbec3cec8560b3638c843d3cd041c0"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5f7acd050ff3531569a0eb933d92068106e78f2a94a794c5bd7d2adcab83733b"
-    sha256 cellar: :any_skip_relocation, ventura:        "bb74b7cf66bf337220f0ae1aab51869ae40f55e64ae1cb7f4cbd92cf30edacc0"
-    sha256 cellar: :any_skip_relocation, monterey:       "c0ccbb7929741d90d495f3422b4c647957f4dced7c2954156e0c428665a58d5b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8d7aaa2a7409b67bfbc18e5173b45032823948ec87cddf27b8307b47db6edb2d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b5b9e7fe103e52b1037b71a2cf70fcf998d99ae407189d2315421128fae1919b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "793518168925844a18e4f8753d6fd7ac54b042a655c33202a4caad3153c84292"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "71fd15496031c3a9ba6725f223d49549f8e4b5eea1a8f5b593d645bc44483cd7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6aec68abe45a0ede27cd780219f1cd0f55f257ba3ab002a239a63d01285378f9"
+    sha256 cellar: :any_skip_relocation, ventura:        "2b5be9883ebb275f902c124435734f1f13cefc6413012fb4d4bed0e9abaac4d3"
+    sha256 cellar: :any_skip_relocation, monterey:       "9f4b291a1e9994eb073d3e5da977d6d52be979915acf31355814c445ed07dad8"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7b02b12819461aedf17d271c54b8b09d1e6f99cc4f0f74a30dc5daae39a73917"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b21549d8e6fa598e44767953d050c910ecf13f59af93b36f1b7beda8a612193e"
   end
 
   depends_on "rust" # uses `cargo` at runtime

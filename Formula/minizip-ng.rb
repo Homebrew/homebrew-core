@@ -7,13 +7,14 @@ class MinizipNg < Formula
   head "https://github.com/zlib-ng/minizip-ng.git", branch: "dev"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "43a2ab806a9998e1433936052bb06ad74e40758e1eb756aa198ecb77fd3d374c"
-    sha256 cellar: :any,                 arm64_monterey: "5d07f21b9801111f7771b1582118a0c6534f5e742ea6e82ed99364135a7f3882"
-    sha256 cellar: :any,                 arm64_big_sur:  "35acc454699491a937fce748cbcd2adb204b57d24675f87207a4e93f1fbac954"
-    sha256 cellar: :any,                 ventura:        "8ede9fed008a0be3adbdd462ddb42f388025d7d3e5114edf0153e37bd134aea9"
-    sha256 cellar: :any,                 monterey:       "78f88c347a1c0671fab15478f44edfe704b6415bbeb57eeebeebd063a8099b31"
-    sha256 cellar: :any,                 big_sur:        "601c54d38237a4feba8925296fcc389883cea00e4da2919bba9854cb23ecf567"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "649351dbab5bd062b47978035735aa9784761ad66e13e83f5a6f99ebf0e19738"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "08ed127760491f6f2ea54db3f5cf50518ce27d736ee7e17347aa72d86aff79c6"
+    sha256 cellar: :any,                 arm64_monterey: "76b7012e487529a82c0855d63dffc82a2540677eb7be11fab19c8805d1b28440"
+    sha256 cellar: :any,                 arm64_big_sur:  "87796475924b64907c2a30c14234952ae77c8816185a9b225575efd5ea848963"
+    sha256 cellar: :any,                 ventura:        "909eb70c9f37f1df9d054f0c8dce037c1ac0cc4f673c1792d32cdf9878c8e902"
+    sha256 cellar: :any,                 monterey:       "ce1f3a362d0668c88558188a00e9b39b783ef025747719f2b9cb9753cb279745"
+    sha256 cellar: :any,                 big_sur:        "0b12b11e68e45558f20918f97e77f1fd04db4f00bbcc76b3b167af23705550f5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2e019ab6a66b2b38cade0ce3bc9daf3446a44d9fc379e2cc5d54123a17c5c1ca"
   end
 
   depends_on "cmake" => :build
@@ -25,7 +26,7 @@ class MinizipNg < Formula
   uses_from_macos "zlib"
 
   on_linux do
-    depends_on "openssl@1.1"
+    depends_on "openssl@3"
   end
 
   conflicts_with "minizip", because: "both install a `libminizip.a` library"

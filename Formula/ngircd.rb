@@ -12,25 +12,25 @@ class Ngircd < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "bb80b2f49177072ca73666a7a9537355f4b1bc14c118f6a8cb2e748e0e7aa961"
-    sha256 arm64_monterey: "e99d8d95834f66b6d5c4d14e94b207939852e9e1ee9e7634d58f894b3fb44ce0"
-    sha256 ventura:        "c5170552d07576ea7ca1b6720903fabd6a9609f617c124781d518cd9c9b32a8c"
-    sha256 monterey:       "7939168fb5b5936e1acf6f9a9729ed98d4ea1f8bde061b46ab926eec219a2db1"
-    sha256 big_sur:        "9fe092e3ca8de75453b4aa667067e1cd863c041b8055ae7981e51f3506ac19c4"
-    sha256 catalina:       "95f504faeffb209318e93a050c632805178e91cd1e9475bbccfa9eb040b8d785"
-    sha256 mojave:         "af9fea8f344f76077063b24d68d057bb9ecb93db1fb469d2e0992d0919f87b0c"
-    sha256 x86_64_linux:   "162378420b96b05babe0deb07fd568a719970b3737313aeb79b048d0c72ecff6"
+    rebuild 1
+    sha256 arm64_ventura:  "acfbc81c0549606bdd4f9c450be16f471ce9651091cf68ecd2d1c8de0fcecaed"
+    sha256 arm64_monterey: "2a099c7b6d8a01f6aba11859bf203e06907ccf8973d4b1acf766b82493627ce9"
+    sha256 arm64_big_sur:  "76bbc7ff4b78c2582bee92e0493b083d36ab63ee8ad0bb6fe7fc86638dcb54e5"
+    sha256 ventura:        "92313e1cdfc649c20fcccb57372f00872e0b34a2d847c002fbe6faf7a6021e8a"
+    sha256 monterey:       "50d3ccd2a87132e386b54a987a53e2f652db6cf1055ba087ca81bb56fc97d37e"
+    sha256 big_sur:        "8c87f44e004de24a0a1b2c38ec6cc8bcfc0261d80f2ebab0b337165b6c52126e"
+    sha256 x86_64_linux:   "c3d318555f9f398f8e68909b949387a0737bc6d0c2e5730839ca0793e1261f50"
   end
 
   depends_on "libident"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "zlib"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--sysconfdir=#{HOMEBREW_PREFIX}/etc",
+    system "./configure", *std_configure_args,
+                          "--disable-silent-rules",
+                          "--sysconfdir=#{etc}",
                           "--enable-ipv6",
                           "--with-ident",
                           "--with-openssl"

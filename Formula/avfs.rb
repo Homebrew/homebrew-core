@@ -16,24 +16,25 @@ class Avfs < Formula
   end
 
   bottle do
-    sha256 x86_64_linux: "6e490770e6562a092085e1a0855e7d6c988a6d8ce9d5cafdcbde082baea8679b"
+    rebuild 1
+    sha256 x86_64_linux: "32fa53bd6af3f41059f363e42069fee2455442dec722834ac4b47299cce5ec7d"
   end
 
   depends_on "pkg-config" => :build
+  depends_on "bzip2"
   depends_on "libfuse@2"
   depends_on :linux # on macOS, requires closed-source macFUSE
-  depends_on "openssl@1.1"
   depends_on "xz"
+  depends_on "zlib"
 
   def install
-    args = %W[
-      --disable-silent-rules
-      --enable-fuse
-      --enable-library
-      --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
-    ]
-
-    system "./configure", *std_configure_args, *args
+    system "./configure", *std_configure_args,
+                          "--disable-silent-rules",
+                          "--enable-fuse",
+                          "--enable-library",
+                          "--with-system-zlib",
+                          "--with-system-bzlib",
+                          "--with-xz"
     system "make", "install"
   end
 
