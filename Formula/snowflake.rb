@@ -18,12 +18,6 @@ class Snowflake < Formula
 
   depends_on "go" => :build
 
-  # patch build, remove in next release
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/93d8acb/snowflake/2.4.0.patch"
-    sha256 "2c10cde8a894088791cf7395367aa27455140601038ba95ef24e6479e3cc0af3"
-  end
-
   def install
     system "go", "build", *std_go_args(output: bin/"snowflake-broker"), "./broker"
     system "go", "build", *std_go_args(output: bin/"snowflake-client"), "./client"
