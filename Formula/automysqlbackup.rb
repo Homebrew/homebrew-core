@@ -49,6 +49,8 @@ class Automysqlbackup < Formula
     working_dir HOMEBREW_PREFIX
     run_type :cron
     cron "0 4 * * *"
+    log_path var/"log/automysqlbackup.log"
+    error_log_path var/"log/automysqlbackup.log"
   end
 
   test do
