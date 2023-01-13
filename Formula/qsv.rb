@@ -25,9 +25,9 @@ class Qsv < Formula
   test do
     (testpath/"test.csv").write("first header,second header")
     assert_equal <<~EOS, shell_output("#{bin}/qsv stats test.csv")
-      field,type,sum,min,max,range,min_length,max_length,mean,stddev,variance,nullcount
-      first header,NULL,,,,,,,,,,0
-      second header,NULL,,,,,,,,,,0
+      field,type,sum,min,max,range,min_length,max_length,mean,stddev,variance,nullcount,sparsity
+      first header,NULL,,,,,,,,,,0,NaN
+      second header,NULL,,,,,,,,,,0,NaN
     EOS
   end
 end
