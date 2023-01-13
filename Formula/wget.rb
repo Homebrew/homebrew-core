@@ -27,7 +27,7 @@ class Wget < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libidn2"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   on_linux do
     depends_on "util-linux"
@@ -38,7 +38,7 @@ class Wget < Formula
     system "./configure", "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}",
                           "--with-ssl=openssl",
-                          "--with-libssl-prefix=#{Formula["openssl@1.1"].opt_prefix}",
+                          "--with-libssl-prefix=#{Formula["openssl@3"].opt_prefix}",
                           "--disable-pcre",
                           "--disable-pcre2",
                           "--without-libpsl",
