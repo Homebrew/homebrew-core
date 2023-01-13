@@ -14,6 +14,7 @@ class Ddcutil < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "df4a31ba6fdbead2533760c2f14709230398d377d833fe93ebdfb810f73c1f63"
   end
 
+  depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "i2c-tools"
   depends_on "kmod"
