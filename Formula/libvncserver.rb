@@ -4,6 +4,7 @@ class Libvncserver < Formula
   url "https://github.com/LibVNC/libvncserver/archive/LibVNCServer-0.9.14.tar.gz"
   sha256 "83104e4f7e28b02f8bf6b010d69b626fae591f887e949816305daebae527c9a5"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/LibVNC/libvncserver.git", branch: "master"
 
   livecheck do
@@ -25,21 +26,17 @@ class Libvncserver < Formula
   depends_on "jpeg-turbo"
   depends_on "libgcrypt"
   depends_on "libpng"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
-    args = std_cmake_args + %W[
-      -DJPEG_INCLUDE_DIR=#{Formula["jpeg-turbo"].opt_include}
-      -DJPEG_LIBRARY=#{Formula["jpeg-turbo"].opt_lib}/#{shared_library("libjpeg")}
-      -DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}
-    ]
-
-    mkdir "build" do
-      system "cmake", "..", *args
-      system "cmake", "--build", "."
-      system "ctest", "-V"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DJPEG_INCLUDE_DIR=#{Formula["jpeg-turbo"].opt_include}",
+                    "-DJPEG_LIBRARY=#{Formula["jpeg-turbo"].opt_lib/shared_library("libjpeg")}",
+                    "-DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}",
+                    *std_cmake_args
+    system "cmake", "--build", "build"
+    system "ctest", "--test-dir", "build", "--verbose"
+    system "cmake", "--install", "build"
   end
 
   test do
