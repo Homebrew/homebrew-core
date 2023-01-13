@@ -46,7 +46,7 @@ class Truffle < Formula
     deuniversalize_machos truffle_dir/"node_modules/fsevents/fsevents.node"
 
     # Remove incompatible pre-built binaries that have arbitrary names
-    truffle_dir.glob("node_modules/ganache/dist/node/*.node").each do |f|
+    truffle_dir.glob("node_modules/ganache/dist/node{/,/F/}*.node").each do |f|
       next unless f.dylib?
       next if f.arch == Hardware::CPU.arch
       next if OS.mac? && f.archs.include?(Hardware::CPU.arch)
