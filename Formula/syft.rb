@@ -2,8 +2,8 @@ class Syft < Formula
   desc "CLI for generating a Software Bill of Materials from container images"
   homepage "https://github.com/anchore/syft"
   url "https://github.com/anchore/syft.git",
-      tag:      "v0.65.0",
-      revision: "bc1edb9c8a2fb4824bfdcac6147edc2bbf47aaf6"
+      tag:      "v0.66.1",
+      revision: "ac94bf530c7b1e6ee5df1ed0f9f6454fca8bc918"
   license "Apache-2.0"
   head "https://github.com/anchore/syft.git", branch: "main"
 
@@ -18,7 +18,11 @@ class Syft < Formula
   end
 
   depends_on "go" => :build
-  depends_on "docker" => :test
+
+  resource "homebrew-micronaut.cdx.json" do
+    url "https://raw.githubusercontent.com/anchore/syft/934644232ab115b2518acdb5d240ae31aaf55989/syft/pkg/cataloger/java/test-fixtures/graalvm-sbom/micronaut.json"
+    sha256 "c09171c53d83db5de5f2b9bdfada33d242ebf7ff9808ad2bd1343754406ad44e"
+  end
 
   def install
     ldflags = %W[
@@ -34,11 +38,14 @@ class Syft < Formula
     ldflags << "-linkmode \"external\" -extldflags \"-static\"" if OS.linux?
 
     system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/syft"
+
+    generate_completions_from_executable(bin/"syft", "completion")
   end
 
   test do
-    output = shell_output("#{bin}/syft attest busybox 2>&1", 1)
-    assert_match "Available formats: [syft-json spdx-json cyclonedx-json]", output
+    testpath.install resource("homebrew-micronaut.cdx.json")
+    output = shell_output("#{bin}/syft convert #{testpath}/micronaut.json")
+    assert_match "netty-codec-http2  4.1.73.Final  UnknownPackage", output
 
     assert_match version.to_s, shell_output("#{bin}/syft --version")
   end
