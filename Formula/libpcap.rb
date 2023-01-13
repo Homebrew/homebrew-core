@@ -1,8 +1,8 @@
 class Libpcap < Formula
   desc "Portable library for network traffic capture"
   homepage "https://www.tcpdump.org/"
-  url "https://www.tcpdump.org/release/libpcap-1.10.2.tar.gz"
-  sha256 "db6d79d4ad03b8b15fb16c42447d093ad3520c0ec0ae3d331104dcfb1ce77560"
+  url "https://www.tcpdump.org/release/libpcap-1.10.3.tar.gz"
+  sha256 "2a8885c403516cf7b0933ed4b14d6caa30e02052489ebd414dc75ac52e7559e6"
   license "BSD-3-Clause"
   head "https://github.com/the-tcpdump-group/libpcap.git", branch: "master"
 
