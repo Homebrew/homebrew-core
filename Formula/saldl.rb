@@ -27,6 +27,12 @@ class Saldl < Formula
 
   uses_from_macos "libxslt"
 
+  # build patch for waf update, remove in next release
+  patch do
+    url "https://github.com/saldl/saldl/commit/360c29d6c8cee5f7e608af42237928be429c3407.patch?full_index=1"
+    sha256 "1be89dce5397a66dfeaaf7d3e6e6c8a2871069c1cf28751820d12f3c7e558862"
+  end
+
   def install
     ENV.refurbish_args
 
