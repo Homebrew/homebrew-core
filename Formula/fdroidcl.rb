@@ -24,6 +24,28 @@ class Fdroidcl < Formula
   end
 
   test do
-    assert_match "done", shell_output("#{bin}/fdroidcl update")
+    assert_match "f-droid.org/repo", shell_output("#{bin}/fdroidcl update")
+
+    list = <<~EOS
+      Connectivity
+      Development
+      Games
+      Graphics
+      Internet
+      Money
+      Multimedia
+      Navigation
+      Phone & SMS
+      Reading
+      Science & Education
+      Security
+      Sports & Health
+      System
+      Theming
+      Time
+      Writing
+    EOS
+    assert_equal list, shell_output("#{bin}/fdroidcl list categories")
+    assert_match version.to_s, shell_output("#{bin}/fdroidcl version")
   end
 end
