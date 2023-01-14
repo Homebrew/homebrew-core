@@ -21,7 +21,7 @@ class Socat < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a2658491f6539bd6f99a06ab1f7c9ae2c8b59313ccd5adb53dc64973cdb0f2f4"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "readline"
 
   def install
