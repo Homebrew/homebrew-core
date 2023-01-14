@@ -4,8 +4,8 @@ class Ghcup < Formula
   # There is a tarball at Hackage, but that doesn't include the shell completions.
   #
   # TODO: Try to switch `ghc@9.2` to `ghc` when ghcup.cabal allows Cabal>=3.8
-  url "https://github.com/haskell/ghcup-hs/archive/refs/tags/v0.1.19.2.tar.gz"
-  sha256 "47c85ca6ced22f62831c9f14b7ff5feec3d6d5ba24af089ac223ed1c8d0fe47d"
+  url "https://github.com/haskell/ghcup-hs/archive/refs/tags/v0.21.tar.gz"
+  sha256 "66bf77b062740eb18053b5b0456d568874b2981f641597e6152a721851900c4e"
   license "LGPL-3.0-only"
   head "https://github.com/haskell/ghcup-hs.git", branch: "master"
 
