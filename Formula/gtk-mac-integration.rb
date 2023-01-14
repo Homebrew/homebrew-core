@@ -24,7 +24,7 @@ class GtkMacIntegration < Formula
   end
 
   head do
-    url "https://gitlab.gnome.org/GNOME/gtk-mac-integration.git"
+    url "https://gitlab.gnome.org/GNOME/gtk-mac-integration.git", branch: "master"
   end
 
   depends_on "autoconf" => :build
