@@ -5,11 +5,6 @@ class Libsamplerate < Formula
   sha256 "16e881487f184250deb4fcb60432d7556ab12cb58caea71ef23960aec6c0405a"
   license "BSD-2-Clause"
 
-  livecheck do
-    url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
-  end
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_ventura:  "1520ae5ea1977615402b3f16329b1ee932fe169b993915646968dca22623d4ad"
