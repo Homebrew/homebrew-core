@@ -25,7 +25,7 @@ class LibtorrentRakshasa < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "zlib"
 
@@ -33,11 +33,8 @@ class LibtorrentRakshasa < Formula
     because: "they both use the same libname"
 
   def install
-    args = ["--prefix=#{prefix}", "--disable-debug",
-            "--disable-dependency-tracking"]
-
     system "sh", "autogen.sh"
-    system "./configure", *args
+    system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make"
     system "make", "install"
   end
