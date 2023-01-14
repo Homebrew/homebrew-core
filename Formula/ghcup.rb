@@ -4,10 +4,10 @@ class Ghcup < Formula
   # There is a tarball at Hackage, but that doesn't include the shell completions.
   #
   # TODO: Try to switch `ghc@9.2` to `ghc` when ghcup.cabal allows Cabal>=3.8
-  url "https://gitlab.haskell.org/haskell/ghcup-hs/-/archive/v0.1.18.0/ghcup-hs-v0.1.18.0.tar.bz2"
-  sha256 "fac7e5fd0ec6d95c3d2daa56b4d77ec8daa37b179b43e62c528d90053b01aeb9"
+  url "https://github.com/haskell/ghcup-hs/archive/refs/tags/v0.1.19.2.tar.gz"
+  sha256 "47c85ca6ced22f62831c9f14b7ff5feec3d6d5ba24af089ac223ed1c8d0fe47d"
   license "LGPL-3.0-only"
-  head "https://gitlab.haskell.org/haskell/ghcup-hs.git", branch: "master"
+  head "https://github.com/haskell/ghcup-hs.git", branch: "master"
 
   livecheck do
     url :stable
@@ -29,12 +29,6 @@ class Ghcup < Formula
   depends_on "ghc@9.2" => :build
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
-
-  # upstream mr: https://gitlab.haskell.org/haskell/ghcup-hs/-/merge_requests/277
-  patch do
-    url "https://gitlab.haskell.org/fishtreesugar/ghcup-hs/-/commit/22f0081303b14ea1da10e6ec5020a41dab591668.diff"
-    sha256 "ae513910d39f5d6b3d00de5d5f4da1420263c581168dabd221f2fe4f941c7c65"
-  end
 
   def install
     system "cabal", "v2-update"
