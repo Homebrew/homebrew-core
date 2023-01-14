@@ -1,9 +1,9 @@
 class Saxon < Formula
   desc "XSLT and XQuery processor"
   homepage "https://saxon.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/saxon/Saxon-HE/11/Java/SaxonHE11-4J.zip"
-  version "11.4"
-  sha256 "2ec48dde4092862b1d3510d7a673d3149ad48885f8831c7878c9a85d79417094"
+  url "https://github.com/Saxonica/Saxon-HE/blob/main/12/Java/SaxonHE12-0J.zip"
+  version "12.0"
+  sha256 "c476746275dd5a0de1d203e89c21a249a02efe33350b560c4086cb08b0816be7"
   license all_of: ["BSD-3-Clause", "MIT", "MPL-2.0"]
 
   livecheck do
