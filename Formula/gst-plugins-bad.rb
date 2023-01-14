@@ -31,11 +31,13 @@ class GstPluginsBad < Formula
   depends_on "gettext"
   depends_on "gst-plugins-base"
   depends_on "jpeg-turbo"
+  depends_on "json-glib"
   depends_on "libnice"
   depends_on "libusrsctp"
   depends_on "openssl@1.1"
   depends_on "opus"
   depends_on "orc"
+  depends_on "qrencode"
   depends_on "rtmpdump"
   depends_on "srtp"
 
