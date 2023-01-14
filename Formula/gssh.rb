@@ -1,10 +1,9 @@
 class Gssh < Formula
   desc "SSH automation tool based on Groovy DSL"
   homepage "https://github.com/int128/groovy-ssh"
-  url "https://github.com/int128/groovy-ssh/archive/2.10.1.tar.gz"
-  sha256 "d1a6e2293e4f23f3245ede7d473a08d4fb6019bf18efbef1a74c894d5c50d6a1"
+  url "https://github.com/int128/groovy-ssh/archive/2.11.0.tar.gz"
+  sha256 "86dba70bc6370af9db2e1364c1c97dc57f884703bc6814c7a845ec2bdf1ed279"
   license "Apache-2.0"
-  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "fb94322029d9beb3032089198fb9b755b38396151200ac14bd1be0e333f6e6bf"
