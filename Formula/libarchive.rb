@@ -22,6 +22,11 @@ class Libarchive < Formula
 
   keg_only :provided_by_macos
 
+  # needed to reconfigure after patch
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+
   depends_on "libb2"
   depends_on "lz4"
   depends_on "xz"
@@ -31,9 +36,15 @@ class Libarchive < Formula
   uses_from_macos "expat"
   uses_from_macos "zlib"
 
+  # fix pkg-config file, remove in next release
+  patch do
+    url "https://github.com/libarchive/libarchive/commit/1f35c466aaa9444335a1b854b0b7223b0d2346c2.patch?full_index=1"
+    sha256 "c3a8b7b6324f95bbcb24a506e07a58fdac3e93d32d7fc67d5d20dd4ba63a3d49"
+  end
+
   def install
-    system "./configure",
-           "--prefix=#{prefix}",
+    system "autoreconf", "-ifv" # remove in release after 3.6.2
+    system "./configure", *std_configure_args,
            "--without-lzo2",    # Use lzop binary instead of lzo2 due to GPL
            "--without-nettle",  # xar hashing option but GPLv3
            "--without-xml2",    # xar hashing option but tricky dependencies
