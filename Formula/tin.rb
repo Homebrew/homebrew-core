@@ -20,17 +20,24 @@ class Tin < Formula
     sha256 x86_64_linux:   "30b3b8d2c6b1c01e37e1a3f1248ad70f9f2b0827e2de8d7f16653acba44b761e"
   end
 
-  depends_on "gettext"
+  depends_on "pcre2"
 
   uses_from_macos "bison" => :build
+  uses_from_macos "ncurses"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   conflicts_with "mutt", because: "both install mmdf.5 and mbox.5 man pages"
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--mandir=#{man}"
+    # Remove bundled libraries
+    %w[intl pcre].each { |l| (buildpath/l).rmtree }
+
+    system "./configure", *std_configure_args,
+                          "--mandir=#{man}",
+                          "--with-pcre2-config=#{Formula["pcre2"].opt_prefix}/bin/pcre2-config"
     system "make", "build"
     system "make", "install"
   end
