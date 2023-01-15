@@ -22,13 +22,13 @@ class S6 < Formula
   end
 
   resource "skalibs" do
-    url "https://skarnet.org/software/skalibs/skalibs-2.12.0.1.tar.gz"
-    sha256 "3e228f72f18d88c17f6c4e0a66881d6d3779427b7e7e889f3142b6f26da30285"
+    url "https://skarnet.org/software/skalibs/skalibs-2.13.0.0.tar.gz"
+    sha256 "b875bf3df3f0f500984ccafe45a9a95add7e4026b39ee8da620f09606be74fcc"
   end
 
   resource "execline" do
-    url "https://skarnet.org/software/execline/execline-2.9.0.1.tar.gz"
-    sha256 "01260fcaf80ffbca2a94aa55ea474dfb9e39b3033b55c8af88126791879531f6"
+    url "https://skarnet.org/software/execline/execline-2.9.1.0.tar.gz"
+    sha256 "b5d68e021fa0c4679089d265110a6c81f4ecc141067bf686dccb4bfd061c0404"
   end
 
   def install
