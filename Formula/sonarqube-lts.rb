@@ -46,6 +46,7 @@ class SonarqubeLts < Formula
   end
 
   test do
+    ENV["SONAR_JAVA_PATH"] = Formula["openjdk@17"].opt_bin/"java"
     assert_match "SonarQube", shell_output("#{bin}/sonar status", 1)
   end
 end
