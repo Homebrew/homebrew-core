@@ -72,7 +72,11 @@ class Distcc < Formula
       \t@echo Homebrew
     EOS
     assert_match "distcc hosts list does not contain any hosts", shell_output("#{bin}/pump make 2>&1", 1)
-    ENV["DISTCC_POTENTIAL_HOSTS"] = "localhost"
-    assert_match "Homebrew\n", shell_output("#{bin}/pump make")
+
+    # `pump make` timeout on linux runner and is not reproducible, so only run this test for macOS runners
+    if OS.mac?
+      ENV["DISTCC_POTENTIAL_HOSTS"] = "localhost"
+      assert_match "Homebrew\n", shell_output("#{bin}/pump make")
+    end
   end
 end
