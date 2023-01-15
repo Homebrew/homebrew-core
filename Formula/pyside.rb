@@ -26,7 +26,7 @@ class Pyside < Formula
   depends_on "ninja" => :build
   depends_on xcode: :build
   depends_on "llvm"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "qt"
 
   uses_from_macos "libxml2"
@@ -39,7 +39,7 @@ class Pyside < Formula
   fails_with gcc: "5"
 
   def python3
-    "python3.10"
+    "python3.11"
   end
 
   def install
@@ -97,12 +97,12 @@ class Pyside < Formula
 
     modules.each { |mod| system python3, "-c", "import PySide6.Qt#{mod}" }
 
-    python3_config = Formula["python@3.10"].opt_bin/"#{python3}-config"
+    python3_config = Formula["python@3.11"].opt_bin/"#{python3}-config"
     pyincludes = shell_output("#{python3_config} --includes").chomp.split
     pylib = shell_output("#{python3_config} --ldflags --embed").chomp.split
     if OS.linux?
       pylib += %W[
-        -Wl,-rpath,#{Formula["python@3.10"].opt_lib}
+        -Wl,-rpath,#{Formula["python@3.11"].opt_lib}
         -Wl,-rpath,#{lib}
       ]
     end
