@@ -5,10 +5,11 @@ class TigerVnc < Formula
   sha256 "9ff3f3948f2a4e8cc06ee598ee4b1096beb62094c13e0b1462bff78587bed789"
   license "GPL-2.0-or-later"
 
-  # regex here is to avoid pre-releases, like `v1.10.90`, `v1.11.90`, etc.
+  # Tags with a 90+ patch are unstable (e.g., the 1.9.90 tag is used for the
+  # 1.10.0 beta release) and this regex should only match the stable versions.
   livecheck do
     url :stable
-    regex(/^v?((?!\d+\.\d+\.9\d+)\d+(?:\.\d+)+)$/i)
+    regex(/^v?(\d+\.\d+\.(?:\d|[1-8]\d+)(?:\.\d+)*)$/i)
   end
 
   bottle do
