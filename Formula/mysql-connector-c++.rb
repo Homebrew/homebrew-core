@@ -18,7 +18,6 @@ class MysqlConnectorCxx < Formula
     sha256 cellar: :any,                 monterey:       "bf509a6346328acebe632c087ccf64d45d9aeeaee2a62e919e2cc0d547cff928"
     sha256 cellar: :any,                 big_sur:        "177987159c619258613b2defb87f1ad686cea87c70c967ad0c80fb562fb2d659"
     sha256 cellar: :any,                 catalina:       "71ae5ab9dafca521b0232834702259947cab9677d7df611690ed4bcf6bd61a5f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4e8577785defea700cd26ba07923c34703e5e4dbd8a29c571db04a6dc2eeaefa"
   end
 
   depends_on "boost" => :build
