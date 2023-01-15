@@ -1,9 +1,9 @@
 class MidnightCommander < Formula
   desc "Terminal-based visual file manager"
   homepage "https://www.midnight-commander.org/"
-  url "https://www.midnight-commander.org/downloads/mc-4.8.28.tar.xz"
-  mirror "https://ftp.osuosl.org/pub/midnightcommander/mc-4.8.28.tar.xz"
-  sha256 "e994d9be9a7172e9ac4a4ad62107921f6aa312e668b056dfe5b8bcebbaf53803"
+  url "https://www.midnight-commander.org/downloads/mc-4.8.29.tar.xz"
+  mirror "https://ftp.osuosl.org/pub/midnightcommander/mc-4.8.29.tar.xz"
+  sha256 "773a453112fb6d175a322f042f583af4ad4566d7424fadcfb0f5b61b18c631ca"
   license "GPL-3.0-or-later"
 
   livecheck do
