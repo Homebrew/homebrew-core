@@ -2,16 +2,15 @@ class Ghcup < Formula
   desc "Installer for the general purpose language Haskell"
   homepage "https://www.haskell.org/ghcup/"
   # There is a tarball at Hackage, but that doesn't include the shell completions.
-  #
-  # TODO: Try to switch `ghc@9.2` to `ghc` when ghcup.cabal allows Cabal>=3.8
-  url "https://github.com/haskell/ghcup-hs/archive/refs/tags/v0.1.19.2.tar.gz"
-  sha256 "47c85ca6ced22f62831c9f14b7ff5feec3d6d5ba24af089ac223ed1c8d0fe47d"
+  url "https://github.com/haskell/ghcup-hs/archive/refs/tags/v0.1.19.0.tar.gz"
+  sha256 "0509d00552d5c1fd7c3ef59e611eeb701953fc026478a0f123e23e606659fd28"
   license "LGPL-3.0-only"
+  revision 1
   head "https://github.com/haskell/ghcup-hs.git", branch: "master"
 
   livecheck do
     url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    strategy :github_latest
   end
 
   bottle do
@@ -25,7 +24,7 @@ class Ghcup < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@9.2" => :build
+  depends_on "ghc" => :build
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
