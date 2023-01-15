@@ -1,14 +1,10 @@
 class Onioncat < Formula
   desc "VPN-adapter that provides location privacy using Tor or I2P"
   homepage "https://www.onioncat.org"
-  url "https://www.cypherpunk.at/ocat/download/Source/0.3/onioncat-0.3.9.tar.gz"
-  sha256 "c9f2f62fe835f9055c4b409a93f514f9dffdd1fcaeb9d461854731303b528e90"
-  license "GPL-3.0"
-
-  livecheck do
-    url "https://www.cypherpunk.at/ocat/download/Source/current/"
-    regex(/href=.*?onioncat[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
+  url "https://github.com/rahra/onioncat/archive/refs/tags/v0.4.7.tar.gz"
+  sha256 "cb830cf92e6dfefe593c941d203ee8478a9687a2708d153b0c585ad0c90ce199"
+  license "GPL-3.0-only"
+  head "https://github.com/rahra/onioncat.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f90771ab2a7452000b57fa958fe4b22f3ee9623145449a4021a64a7160ff3e5a"
@@ -20,18 +16,23 @@ class Onioncat < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6032e98bbce7b3c2182c06ff794abcdcfd4ac8743d61ca367d346120c2130680"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "tor"
 
+  # Fix missing headers remove in next release
+  patch do
+    url "https://github.com/rahra/onioncat/commit/daaa2efe4222910d1ee1550bfe41579cb7b480de.patch?full_index=1"
+    sha256 "a4327cd9b411f7f9019106dfba7205d26f8f8249d726f5b92f0b91944a5ef238"
+  end
+
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    system "autoreconf", "-ifv"
+    system "./configure", *std_configure_args
     system "make", "install"
-    rm_f "#{bin}/gcat" # just a symlink that does the same as ocat -I
   end
 
   test do
-    system "#{bin}/ocat", "-i", "fncuwbiisyh6ak3i.onion" # convert keybase's address to IPv6 address format
+    system bin/"ocat", "-i", "fncuwbiisyh6ak3i.onion" # convert keybase's address to IPv6 address format
   end
 end
