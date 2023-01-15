@@ -13,7 +13,7 @@ class Papilo < Formula
   depends_on "tbb"
 
   def install
-    cmake_args = %W[
+    cmake_args = %w[
       -DBOOST=ON
       -DGMP=ON
       -DLUSOL=ON
