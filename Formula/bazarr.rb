@@ -72,6 +72,14 @@ class Bazarr < Formula
 
   def post_install
     pkgetc.mkpath
+
+    config_file = pkgetc/"config.ini"
+    unless config_file.exist?
+      config_file.write <<~EOS
+        [backup]
+        folder = #{opt_libexec}/data/backup
+      EOS
+    end
   end
 
   service do
@@ -88,6 +96,12 @@ class Bazarr < Formula
 
     system "#{bin}/bazarr", "--help"
 
+    config_file = testpath/"config/config.ini"
+    config_file.write <<~EOS
+      [backup]
+      folder = #{testpath}/custom_backup
+    EOS
+
     port = free_port
 
     Open3.popen3("#{bin}/bazarr", "--config", testpath, "-p", port.to_s) do |_, _, stderr, wait_thr|
@@ -102,5 +116,7 @@ class Bazarr < Formula
       Process.kill "TERM", wait_thr.pid
       Process.wait wait_thr.pid
     end
+
+    assert_includes File.read(config_file), "#{testpath}/custom_backup"
   end
 end
