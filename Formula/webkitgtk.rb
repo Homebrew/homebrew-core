@@ -4,6 +4,7 @@ class Webkitgtk < Formula
   url "https://webkitgtk.org/releases/webkitgtk-2.38.3.tar.xz"
   sha256 "41f001d1ed448c6936b394a9f20e4640eebf83a7f08262df28504f7410604a5a"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url "https://webkitgtk.org/releases/"
