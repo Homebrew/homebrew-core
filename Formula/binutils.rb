@@ -1,11 +1,10 @@
 class Binutils < Formula
   desc "GNU binary tools for native development"
   homepage "https://www.gnu.org/software/binutils/binutils.html"
-  url "https://ftp.gnu.org/gnu/binutils/binutils-2.39.tar.xz"
-  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.39.tar.xz"
-  sha256 "645c25f563b8adc0a81dbd6a41cffbf4d37083a382e02d5d3df4f65c09516d00"
+  url "https://ftp.gnu.org/gnu/binutils/binutils-2.40.tar.bz2"
+  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.40.tar.bz2"
+  sha256 "f8298eb153a4b37d112e945aa5cb2850040bcf26a3ea65b5a715c83afe05e48a"
   license all_of: ["GPL-2.0-or-later", "GPL-3.0-or-later", "LGPL-2.0-or-later", "LGPL-3.0-only"]
-  revision 1
 
   bottle do
     sha256                               arm64_ventura:  "75133dcb211cfe242e392be4c40164fb0ea56eba53ef5e717d3a3c49f5242b1c"
