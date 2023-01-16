@@ -26,11 +26,11 @@ class Papilo < Formula
     system "cmake", "--build", "papilo-build"
     system "cmake", "--install", "papilo-build"
 
-    prefix.install "papilo-build/test"
+    prefix.install "Dir["output/test/instances/*"]"
   end
 
   test do
-    output = shell_output("#{prefix}/test/unit_test")
-    assert_match "All tests passed", output
+    output = shell_output("#{bin}/papilo presolve -f #{prefix}/instances/test.mps")
+    assert_match "presolving finished after", output
   end
 end
