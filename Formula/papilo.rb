@@ -26,7 +26,7 @@ class Papilo < Formula
     system "cmake", "--build", "papilo-build"
     system "cmake", "--install", "papilo-build"
 
-    prefix.install "Dir["output/test/instances/*"]"
+    prefix.install Dir["test/instances/*"]
   end
 
   test do
