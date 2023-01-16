@@ -5,6 +5,11 @@ class Metals < Formula
   sha256 "18bcdb08aca2a38409e4af03f1108611285c1d20b9044e5cf2ecd8efa5fc60a2"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9da7788da6c9110a23572c8684427f315ad60c8b25ef330a9a0a9c0de6312756"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f7c65425141c48a074d3df2784fa064a8def4563c997be1af37ab9239cdbe837"
