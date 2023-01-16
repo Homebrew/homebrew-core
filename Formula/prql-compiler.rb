@@ -18,12 +18,14 @@ class PrqlCompiler < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", *std_cargo_args(path: "prql-compiler")
+    cd "prql-compiler" do
+      system "cargo", "install", *std_cargo_args
+    end
   end
 
   test do
     stdin = "from employees | filter has_dog | select salary"
-    stdout = pipe_output("#{bin}/prql-compiler compile", stdin)
+    stdout = pipe_output("#{bin}/prqlc compile", stdin)
     assert_match "SELECT", stdout
   end
 end
