@@ -4,6 +4,7 @@ class Clinfo < Formula
   url "https://github.com/Oblomov/clinfo/archive/3.0.21.02.21.tar.gz"
   sha256 "e52f5c374a10364999d57a1be30219b47fb0b4f090e418f2ca19a0c037c1e694"
   license "CC0-1.0"
+  revision 1
   head "https://github.com/Oblomov/clinfo.git", branch: "master"
 
   livecheck do
@@ -24,7 +25,7 @@ class Clinfo < Formula
 
   on_linux do
     depends_on "opencl-headers" => :build
-    depends_on "ocl-icd"
+    depends_on "opencl-icd-loader"
     depends_on "pocl"
   end
 
