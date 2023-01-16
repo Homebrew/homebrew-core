@@ -5,6 +5,8 @@ class Metals < Formula
   sha256 "18bcdb08aca2a38409e4af03f1108611285c1d20b9044e5cf2ecd8efa5fc60a2"
   license "Apache-2.0"
 
+  # Some version tags don't become a release, so it's necessary to check the
+  # GitHub releases instead.
   livecheck do
     url :stable
     strategy :github_latest
