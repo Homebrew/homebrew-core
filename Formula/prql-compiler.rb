@@ -18,9 +18,7 @@ class PrqlCompiler < Formula
   depends_on "rust" => :build
 
   def install
-    cd "prql-compiler" do
-      system "cargo", "install", *std_cargo_args
-    end
+    system "cargo", "install", *std_cargo_args(path: "prql-compiler"), "--features", "cli"
   end
 
   test do
