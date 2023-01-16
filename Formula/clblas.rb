@@ -4,6 +4,7 @@ class Clblas < Formula
   url "https://github.com/clMathLibraries/clBLAS/archive/v2.12.tar.gz"
   sha256 "7269c7cb06a43c5e96772010eba032e6d54e72a3abff41f16d765a5e524297a9"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "51bf7beb98613de62fd3490a19917322d29cb6b44a99d7bf4618f7812b5b151c"
@@ -26,7 +27,7 @@ class Clblas < Formula
 
   on_linux do
     depends_on "opencl-headers" => [:build, :test]
-    depends_on "ocl-icd"
+    depends_on "opencl-icd-loader"
     depends_on "pocl"
   end
 
