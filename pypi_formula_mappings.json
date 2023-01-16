@@ -356,6 +356,9 @@
   "keepkey-agent": {
     "exclude_packages": ["six", "docutils"]
   },
+  "keyring": {
+    "exclude_packages": ["cffi", "pycparser"]
+  },
   "khal": {
     "exclude_packages": ["six"]
   },
