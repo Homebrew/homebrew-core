@@ -17,12 +17,6 @@ class Gssh < Formula
 
   depends_on "openjdk@11"
 
-  # Fix shadowJar build failure, remove in next release
-  patch do
-    url "https://github.com/int128/groovy-ssh/commit/87913563ebb96c95a9fd17737c56aeff29916f0a.patch?full_index=1"
-    sha256 "c4c41e991ebb2eed737fb4bc90667a4b1f00958cabe8c4a5695c855072c7aeaf"
-  end
-
   def install
     ENV["CIRCLE_TAG"] = version
     ENV["VERSION"] = version
