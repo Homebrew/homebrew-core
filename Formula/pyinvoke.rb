@@ -3,20 +3,10 @@ class Pyinvoke < Formula
 
   desc "Pythonic task management & command execution"
   homepage "https://www.pyinvoke.org/"
+  url "https://files.pythonhosted.org/packages/43/59/42a4d8336c01a8df19e62b25949b551f9d3dc0d4292eea25eddacc9e329e/invoke-2.0.0.tar.gz"
+  sha256 "7ab5dd9cd76b787d560a78b1a9810d252367ab595985c50612702be21d671dd7"
   license "BSD-2-Clause"
-  revision 1
   head "https://github.com/pyinvoke/invoke.git", branch: "main"
-
-  stable do
-    url "https://files.pythonhosted.org/packages/2b/8d/9aec496bbd200589397b4cd6d546576c296465c1bdeb28c1ea1019e75a1f/invoke-1.7.3.tar.gz"
-    sha256 "41b428342d466a82135d5ab37119685a989713742be46e42a3a399d685579314"
-
-    # Backport support for Python 3.11. Remove in the next release.
-    patch do
-      url "https://github.com/pyinvoke/invoke/commit/406a45e854f6e8df4aa0de01e3b731fea2b1f1ec.patch?full_index=1"
-      sha256 "f052fb5c0a79fa2e7508b37e3e1d866ae0a86d81d20699871510f903b0838c15"
-    end
-  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e4254961d8b57fe582e30b38b4e39ea0d8ea53401a1a485511ae12f2c545c94b"
