@@ -41,6 +41,51 @@ class Fheroes2 < Formula
 
     bin.install "script/demo/download_demo_version.sh" => "fheroes2-install-demo"
     bin.install "script/homm2/extract_homm2_resources.sh" => "fheroes2-extract-resources"
+
+    puts <<~EOS
+
+      ================================
+      You will need to have a demo version or the full version of Heroes of Might and Magic II game to be able to play. If you do not have the original Heroes of Might and Magic II game, type the following command:
+
+    EOS
+
+    ohai "fheroes2-install-demo"
+
+    puts <<~EOS
+
+      This script will download and install all the necessary files from the demo version of the original Heroes of Might and Magic II game.
+
+      If you have a legally purchased copy of the original game, type the following command:
+
+    EOS
+
+    ohai "fheroes2-extract-resources"
+
+    puts <<~EOS
+
+      This script will extract all the necessary resource files from the original Heroes of Might and Magic II game.
+
+      As an alternative to the previous step, you can manually copy the subdirectories
+      'ANIM', 'DATA', 'MAPS' and 'MUSIC' (some of them may be missing depending on the
+      version of the original game) from the original game directory to the '.fheroes2'
+      subdirectory of your home directory.
+
+      When all prerequisites are in place, you can start the game by typing:
+
+    EOS
+
+    ohai "fheroes2"
+
+    puts <<~EOS
+
+      Please visit project website:
+
+      #{homepage}
+
+      and read #{prefix}/share/doc/fheroes2/README.txt for more information.
+      ================================
+
+    EOS
   end
 
   test do
