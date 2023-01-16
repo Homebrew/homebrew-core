@@ -5,6 +5,7 @@ class Hashcat < Formula
   mirror "https://github.com/hashcat/hashcat/archive/v6.2.6.tar.gz"
   sha256 "b25e1077bcf34908cc8f18c1a69a2ec98b047b2cbcf0f51144dcf3ba1e0b7b2a"
   license "MIT"
+  revision 1
   version_scheme 1
   head "https://github.com/hashcat/hashcat.git", branch: "master"
 
@@ -32,7 +33,7 @@ class Hashcat < Formula
 
   on_linux do
     depends_on "opencl-headers" => :build
-    depends_on "ocl-icd"
+    depends_on "opencl-icd-loader"
     depends_on "pocl"
   end
 
