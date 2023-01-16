@@ -22,19 +22,25 @@ class Gstreamer < Formula
   end
 
   depends_on "bison" => :build
+  depends_on "gettext" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "gettext"
   depends_on "glib"
 
   uses_from_macos "flex" => :build
 
+  on_macos do
+    depends_on "gettext"
+  end
+
   def install
+    cd "subprojects/gstreamer" if build.head?
+
     # Ban trying to chown to root.
     # https://bugzilla.gnome.org/show_bug.cgi?id=750367
-    args = std_meson_args + %w[
+    args = %w[
       -Dintrospection=enabled
       -Dptp-helper-permissions=none
     ]
@@ -46,14 +52,11 @@ class Gstreamer < Formula
     inreplace "meson.build",
       "cdata.set_quoted('PLUGINDIR', join_paths(get_option('prefix'), get_option('libdir'), 'gstreamer-1.0'))",
       "cdata.set_quoted('PLUGINDIR', '#{HOMEBREW_PREFIX}/lib/gstreamer-1.0')"
+    inreplace "gst/gstregistry.c", "#elif defined(HAVE_DLADDR)", "#elif 0"
 
-    mkdir "build" do
-      system "meson", *args, ".."
-      system "ninja", "-v"
-      system "ninja", "install", "-v"
-    end
-
-    bin.env_script_all_files libexec/"bin", GST_PLUGIN_SYSTEM_PATH: HOMEBREW_PREFIX/"lib/gstreamer-1.0"
+    system "meson", "setup", "build", *args, *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   def caveats
