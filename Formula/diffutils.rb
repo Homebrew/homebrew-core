@@ -4,7 +4,7 @@ class Diffutils < Formula
   url "https://ftp.gnu.org/gnu/diffutils/diffutils-3.9.tar.xz"
   mirror "https://ftpmirror.gnu.org/diffutils/diffutils-3.9.tar.xz"
   sha256 "d80d3be90a201868de83d78dad3413ad88160cc53bcc36eb9eaf7c20dbf023f1"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "db92359b7a7cc8eacdc1b5998df69cfa24bdaa54e02ae06f4a10bdb339c190f8"
