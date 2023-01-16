@@ -1,9 +1,9 @@
 class Jpeginfo < Formula
   desc "Prints information and tests integrity of JPEG/JFIF files"
   homepage "https://www.kokkonen.net/tjko/projects.html"
-  url "https://www.kokkonen.net/tjko/src/jpeginfo-1.6.2.tar.gz"
-  sha256 "1d5fda959ebc540fa9c81376e6008756499a524a5f66f8129c87915e4ccda004"
-  license "GPL-2.0-or-later"
+  url "https://www.kokkonen.net/tjko/src/jpeginfo-1.7.0.tar.gz"
+  sha256 "dc985083448d9707d42e49bed826a247c0dbda6913c870e9a5d9bf7c74939659"
+  license "GPL-3.0-or-later"
   head "https://github.com/tjko/jpeginfo.git", branch: "master"
 
   livecheck do
