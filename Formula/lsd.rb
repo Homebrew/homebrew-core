@@ -16,6 +16,7 @@ class Lsd < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "20fc3d18113e6fe56c387d1d3443d8b6dbf6888e07f53b90c9d8266e0048680d"
   end
 
+  depends_on "pandoc" => :build
   depends_on "rust" => :build
 
   def install
@@ -24,6 +25,9 @@ class Lsd < Formula
     bash_completion.install "lsd.bash"
     fish_completion.install "lsd.fish"
     zsh_completion.install "_lsd"
+
+    system "pandoc", "doc/lsd.md", "--standalone", "--to=man", "-o", "doc/lsd.1"
+    man1.install "doc/lsd.1"
   end
 
   test do
