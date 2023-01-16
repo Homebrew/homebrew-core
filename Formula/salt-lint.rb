@@ -3,8 +3,8 @@ class SaltLint < Formula
 
   desc "Check for best practices in SaltStack"
   homepage "https://github.com/warpnet/salt-lint"
-  url "https://files.pythonhosted.org/packages/ad/42/9780ad0ffefc15421a4d586ba0f6f38b8a2c44794c37312a06a3e4e983f6/salt-lint-0.9.0.tar.gz"
-  sha256 "057a410e505d2c53602a55f1824bcd7b48970ef4d88589c7b461f001f1f8b7d9"
+  url "https://files.pythonhosted.org/packages/5e/93/20ed28be32d01ac594cc3f78a797be5caf5e32157d85f374c675ce0782ad/salt-lint-0.9.1.tar.gz"
+  sha256 "898afdb8af9b2e09ba1deb0fd62c1a94250ef4301cf531f59e6c0c0493309c60"
   license "MIT"
 
   bottle do
