@@ -17,6 +17,8 @@ class Genstats < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "051dbb7c4f653b615b606d1fce15df9336a086e38428fcfdb2aee9f0057d8990"
     sha256 cellar: :any_skip_relocation, el_capitan:    "44502f7a2dfcb1355336db69267d6363d6e8b8767b47628b0d3099743513ed5f"
   end
+  
+  disable! date: "2022-07-31", because: "Upstream website has disappeared; formula provides archive.org URLs for 'brew extract' usage"
 
   def install
     # Tried to make this a patch.  Applying the patch hunk would
