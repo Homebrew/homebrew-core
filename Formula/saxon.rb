@@ -3,7 +3,7 @@ class Saxon < Formula
   homepage "https://github.com/Saxonica/Saxon-HE"
   url "https://github.com/Saxonica/Saxon-HE/blob/main/12/Java/SaxonHE12-0J.zip?raw=true"
   version "12.0"
-  sha256 "32a638c2461d94c3cf68b25658bb475cdfc09c17de36f8b97bbd73bab6e3c4e4"
+  sha256 "c476746275dd5a0de1d203e89c21a249a02efe33350b560c4086cb08b0816be7"
   license all_of: ["BSD-3-Clause", "MIT", "MPL-2.0"]
 
   livecheck do
