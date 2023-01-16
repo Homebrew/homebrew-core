@@ -4,7 +4,7 @@ class Cf4ocl < Formula
   url "https://github.com/nunofachada/cf4ocl/archive/v2.1.0.tar.gz"
   sha256 "662c2cc4e035da3e0663be54efaab1c7fedc637955a563a85c332ac195d72cfa"
   license "LGPL-3.0"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "721f4e1699a3909dff50586705fe8d1ed67b1ee67d34b653f84d76ead782e345"
@@ -25,7 +25,7 @@ class Cf4ocl < Formula
 
   on_linux do
     depends_on "opencl-headers" => :build
-    depends_on "ocl-icd"
+    depends_on "opencl-icd-loader"
     depends_on "pocl"
   end
 
