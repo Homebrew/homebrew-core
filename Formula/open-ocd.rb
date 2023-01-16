@@ -34,7 +34,6 @@ class OpenOcd < Formula
   depends_on "hidapi"
   depends_on "libftdi"
   depends_on "libusb"
-  depends_on "libusb-compat"
 
   def install
     ENV["CCACHE"] = "none"
