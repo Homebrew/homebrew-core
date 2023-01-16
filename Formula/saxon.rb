@@ -6,14 +6,6 @@ class Saxon < Formula
   sha256 "c476746275dd5a0de1d203e89c21a249a02efe33350b560c4086cb08b0816be7"
   license all_of: ["BSD-3-Clause", "MIT", "MPL-2.0"]
 
-  livecheck do
-    url :stable
-    regex(%r{url=.*?/SaxonHE(\d+(?:[.-]\d+)+)J?\.(?:t|zip)}i)
-    strategy :sourceforge do |page, regex|
-      page.scan(regex).map { |match| match&.first&.gsub("-", ".") }
-    end
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, all: "39e9110c49b68bd767e5faabff06a566bd60649b69e7f0d068006702713eafb8"
   end
