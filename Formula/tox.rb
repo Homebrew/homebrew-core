@@ -3,8 +3,8 @@ class Tox < Formula
 
   desc "Generic Python virtualenv management and test command-line tool"
   homepage "https://tox.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/af/98/c602b590ddeee6af2b39a0dae2612468cbb7424986eff52d267931fad021/tox-4.3.1.tar.gz"
-  sha256 "df2bf3c8329d1bc23a618329480ddefc0400af42804f801599b2ec38914f6309"
+  url "https://files.pythonhosted.org/packages/5a/ed/8ac59f9062ccea7367cb0996de7f6b2adad4af6c4428527f14b61ef3cbb4/tox-4.3.2.tar.gz"
+  sha256 "95bc7bf7d959563a29775a18a6fc5794724124d8212fa1ec3b81e0ff579fb710"
   license "MIT"
 
   bottle do
@@ -18,7 +18,6 @@ class Tox < Formula
   end
 
   depends_on "python@3.11"
-  depends_on "six"
 
   resource "cachetools" do
     url "https://files.pythonhosted.org/packages/3d/cf/8bab81474cb9ec7879ba28aef71c8351db92cd03587d9eac8e908b2c1c23/cachetools-5.2.1.tar.gz"

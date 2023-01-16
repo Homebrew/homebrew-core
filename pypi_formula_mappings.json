@@ -626,9 +626,6 @@
   "todoman": {
     "exclude_packages": ["six", "tabulate"]
   },
-  "tox": {
-    "exclude_packages": ["six"]
-  },
   "trailscraper": {
     "exclude_packages": ["six"]
   },
