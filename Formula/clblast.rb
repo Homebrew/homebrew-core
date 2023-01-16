@@ -4,6 +4,7 @@ class Clblast < Formula
   url "https://github.com/CNugteren/CLBlast/archive/1.5.3.tar.gz"
   sha256 "8d4fc4716e5ac4fe2f5a292cca42395cda1a47d60b7a350fd59f31b5905c2df6"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "4e3241807573e4d558bdf6bef9e04b54fca51d9639fdacb8ae1ae79a43e23565"
@@ -20,7 +21,7 @@ class Clblast < Formula
 
   on_linux do
     depends_on "opencl-headers" => [:build, :test]
-    depends_on "ocl-icd"
+    depends_on "opencl-icd-loader"
     depends_on "pocl"
   end
 
