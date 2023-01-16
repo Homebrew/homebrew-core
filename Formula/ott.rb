@@ -23,6 +23,7 @@ class Ott < Formula
   end
 
   depends_on "ocaml" => :build
+  depends_on "ocaml-findlib" => :build
 
   def install
     system "make", "world"
