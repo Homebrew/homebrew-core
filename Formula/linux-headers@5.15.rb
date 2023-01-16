@@ -1,8 +1,8 @@
 class LinuxHeadersAT515 < Formula
   desc "Header files of the Linux kernel"
   homepage "https://kernel.org/"
-  url "https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.15.87.tar.gz"
-  sha256 "4565aa0188f85fbe0453582df83a1808040975a0dcc89fed5005c19a826be76b"
+  url "https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.15.88.tar.gz"
+  sha256 "1a095f7a75b86d86f8f4f495f74f108965d75e93ccd810b29d6db0a9991d80af"
   license "GPL-2.0-only"
 
   bottle do
