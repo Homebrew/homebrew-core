@@ -4,7 +4,7 @@ class Unar < Formula
   url "https://github.com/MacPaw/XADMaster/archive/refs/tags/v1.10.7.tar.gz"
   sha256 "3d766dc1856d04a8fb6de9942a6220d754d0fa7eae635d5287e7b1cf794c4f45"
   license "LGPL-2.1-or-later"
-  revision 1
+  revision 2
   head "https://github.com/MacPaw/XADMaster.git", branch: "master"
 
   bottle do
@@ -20,11 +20,12 @@ class Unar < Formula
 
   depends_on xcode: :build
 
-  uses_from_macos "llvm" => [:build, :test]
+  uses_from_macos "llvm" => :build
   uses_from_macos "bzip2"
 
   on_linux do
     depends_on "gnustep-base"
+    depends_on "icu4c"
     depends_on "wavpack"
   end
 
