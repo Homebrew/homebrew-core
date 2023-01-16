@@ -4,6 +4,7 @@ class LuckyCommit < Formula
   url "https://github.com/not-an-aardvark/lucky-commit/archive/refs/tags/v2.2.1.tar.gz"
   sha256 "3b35472c90d36f8276bddab3e75713e4dcd99c2a7abc3e412a9acd52e0fbcf81"
   license "MIT"
+  revision 1
 
   bottle do
     rebuild 1
@@ -20,7 +21,7 @@ class LuckyCommit < Formula
   depends_on "rust" => :build
 
   on_linux do
-    depends_on "ocl-icd"
+    depends_on "opencl-icd-loader"
     depends_on "pocl"
   end
 
