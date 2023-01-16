@@ -24,9 +24,12 @@ class Packmol < Formula
   end
 
   def install
+    # Avoid passing -march=native to gfortran
+    inreplace "Makefile", "-march=native", ENV["HOMEBREW_OPTFLAGS"] if build.bottle?
+
     system "./configure"
     system "make"
-    bin.install("packmol")
+    bin.install "packmol"
     pkgshare.install "solvate.tcl"
     (pkgshare/"examples").install resource("examples")
   end
