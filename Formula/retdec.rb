@@ -27,7 +27,7 @@ class Retdec < Formula
 
   on_macos do
     depends_on xcode: :build
-    depends_on macos: :mojave
+    depends_on macos: :catalina
   end
 
   def install
