@@ -1,8 +1,8 @@
 class RedisAT62 < Formula
   desc "Persistent key-value database, with built-in net interface"
   homepage "https://redis.io/"
-  url "https://download.redis.io/releases/redis-6.2.9.tar.gz"
-  sha256 "9661b2c6b1cc9bf2999471b37a4d759fa5e747d408142c18af8792ebd8384a2a"
+  url "https://download.redis.io/releases/redis-6.2.10.tar.gz"
+  sha256 "22684f66d272379b91e3e53693918b535e2a6e54b9d14e1cad171658e0eefeca"
   license "BSD-3-Clause"
 
   livecheck do
