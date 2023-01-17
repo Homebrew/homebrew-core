@@ -28,6 +28,9 @@ class DartSdk < Formula
         revision: "4f3b322a39a668384bab321da1ca2e699a562a1b"
   end
 
+  # fix `"Bad state: Future already completed" error message.` issue
+  patch :DATA
+
   def install
     resource("depot-tools").stage(buildpath/"depot-tools")
 
@@ -49,3 +52,19 @@ class DartSdk < Formula
     end
   end
 end
+
+__END__
+diff --git a/pkg/analysis_server/lib/src/server/dev_server.dart b/pkg/analysis_server/lib/src/server/dev_server.dart
+index d59e2fae..ce73cafc 100644
+--- a/pkg/analysis_server/lib/src/server/dev_server.dart
++++ b/pkg/analysis_server/lib/src/server/dev_server.dart
+@@ -51,6 +51,9 @@ class DevAnalysisServer {
+     var exitCode = 0;
+
+     void handleStatusNotification(Notification notification) {
++      if (whenComplete.isCompleted) {
++        return;
++      }
+       var params = notification.params;
+       if (params != null && params.containsKey('analysis')) {
+         var isAnalyzing =
