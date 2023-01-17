@@ -1,19 +1,10 @@
 class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://www.musicpd.org/"
+  url "https://www.musicpd.org/download/mpd/0.23/mpd-0.23.12.tar.xz"
+  sha256 "b7fca62284ecc25a681ea6a07abc49200af5353be42cb5a31e3173be9d8702e7"
   license "GPL-2.0-or-later"
   head "https://github.com/MusicPlayerDaemon/MPD.git", branch: "master"
-
-  stable do
-    url "https://www.musicpd.org/download/mpd/0.23/mpd-0.23.12.tar.xz"
-    sha256 "b7fca62284ecc25a681ea6a07abc49200af5353be42cb5a31e3173be9d8702e7"
-
-    # Fix build with boost 1.81.0. Remove in the next release.
-    patch do
-      url "https://github.com/MusicPlayerDaemon/MPD/commit/e4b055eb6d08c5c8f8d85828ce4005d410e462cb.patch?full_index=1"
-      sha256 "f22db9ef76aea9e24de079edcb6d2882a5285d82d4063ce30454347c6d3fd767"
-    end
-  end
 
   livecheck do
     url "https://www.musicpd.org/download.html"
