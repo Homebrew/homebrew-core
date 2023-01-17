@@ -23,7 +23,6 @@ class Gmic < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "bash-completion"
   depends_on "fftw"
   depends_on "jpeg-turbo"
   depends_on "libpng"
@@ -32,6 +31,10 @@ class Gmic < Formula
 
   uses_from_macos "curl"
   uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "bash-completion"
+  end
 
   # Use .dylibs instead of .so on macOS
   patch do
