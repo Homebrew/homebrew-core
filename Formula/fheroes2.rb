@@ -49,10 +49,10 @@ class Fheroes2 < Formula
 
       > #{homepage}
 
-      and read 
-      
-      > #{prefix}/share/doc/fheroes2/README.txt 
-      
+      and read
+
+      > #{prefix}/share/doc/fheroes2/README.txt
+
       for full installation instructions and more information.
     EOS
   end
