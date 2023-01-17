@@ -37,7 +37,7 @@ class SeleniumServer < Formula
   test do
     port = free_port
     fork { exec "#{bin}/selenium-server standalone --port #{port}" }
-    sleep 10
+    sleep 20
     output = shell_output("curl --silent localhost:#{port}/status")
     output = JSON.parse(output)
 
