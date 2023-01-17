@@ -45,29 +45,15 @@ class Fheroes2 < Formula
 
   def caveats
     <<~EOS
-      You will need to have a demo version or the full version of Heroes of Might and Magic II game to be able to play.
-
-      If you do not have the original Heroes of Might and Magic II game, type the following command:
-
-      fheroes2-install-demo
-
-      This script will download and install all the necessary files from the demo version of the original Heroes of Might and Magic II game.
-
-      If you have a legally purchased copy of the original game, type the following command:
-
-      fheroes2-extract-resources
-
-      This script will extract all the necessary resource files from the original Heroes of Might and Magic II game.
-
-      As an alternative to the previous step, you can manually copy the subdirectories 'ANIM', 'DATA', 'MAPS' and 'MUSIC' (some of them may be missing depending on the version of the original game) from the original game directory to the '.fheroes2' subdirectory of your home directory. When all prerequisites are in place, you can start the game by typing:
-
-      fheroes2
-
       Please visit project website:
 
-      #{homepage}
+      > #{homepage}
 
-      and read #{prefix}/share/doc/fheroes2/README.txt for more information.
+      and read 
+      
+      > #{prefix}/share/doc/fheroes2/README.txt 
+      
+      for full installation instructions and more information.
     EOS
   end
 
