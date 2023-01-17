@@ -23,6 +23,7 @@ class Gmic < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "bash-completion"
   depends_on "fftw"
   depends_on "jpeg-turbo"
   depends_on "libpng"
@@ -31,6 +32,15 @@ class Gmic < Formula
 
   uses_from_macos "curl"
   uses_from_macos "zlib"
+
+  # Use .dylibs instead of .so on macOS
+  patch do
+    on_macos do
+      url "https://raw.githubusercontent.com/macports/macports-ports/a859c5929c929548f5156f5cab13a2f341982e72/science/gmic/files/patch-src-Makefile.diff"
+      sha256 "5b4914a05135f6c137bb5980d0c3bf8d94405f03d4e12b6ee38bd0e0e004a358"
+      directory "src"
+    end
+  end
 
   def install
     # The Makefile is not safe to run in parallel.
@@ -47,7 +57,7 @@ class Gmic < Formula
       SOVERSION=#{version}
     ]
     system "make", "lib", "cli_shared", *args
-    system "make", "install", *args
+    system "make", "install", *args, "PREFIX=#{prefix}"
     lib.install "src/libgmic.a"
 
     # Need gmic binary to build completions
