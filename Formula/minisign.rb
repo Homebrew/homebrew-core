@@ -1,8 +1,8 @@
 class Minisign < Formula
   desc "Sign files & verify signatures. Works with signify in OpenBSD"
   homepage "https://jedisct1.github.io/minisign/"
-  url "https://github.com/jedisct1/minisign/archive/0.10.tar.gz"
-  sha256 "9fe40c2bd899a91f6b62a6ff3d469ece670f155307df50c2482ddd31337ab6da"
+  url "https://github.com/jedisct1/minisign/archive/0.11.tar.gz"
+  sha256 "74c2c78a1cd51a43a6c98f46a4eabefbc8668074ca9aa14115544276b663fc55"
   license "ISC"
 
   bottle do
