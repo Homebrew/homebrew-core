@@ -205,6 +205,7 @@
     "exclude_packages": ["six"]
   },
   "fabric": {
+    "extra_packages": ["decorator"],
     "exclude_packages": ["six", "invoke"]
   },
   "fava": {
