@@ -27,7 +27,9 @@ class Libxpm < Formula
       --sysconfdir=#{etc}
       --localstatedir=#{var}
       --disable-dependency-tracking
+      --disable-open-zfile
       --disable-silent-rules
+      --disable-stat-zfile
     ]
 
     system "./configure", *args
