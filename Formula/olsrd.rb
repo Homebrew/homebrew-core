@@ -39,7 +39,7 @@ class Olsrd < Formula
     # patch to support gpsd 3.25, remove when patch avail in the upstream
     patch do
       url "https://github.com/OLSR/olsrd/commit/17d583258969c1d182361e0e168b3cad79ef64e6.patch?full_index=1"
-      sha256 "8b84d751119a55db06bb88284a8e29a96cccea343cb5104e8eb38a1c22deac05"
+      sha256 "2c7a210a3a504f1df51da3ceb0908d309c447a9a1566d6da244f4ae9e9e3cab1"
     end
   end
 
