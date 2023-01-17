@@ -30,8 +30,8 @@ class ErlangAT24 < Formula
   uses_from_macos "libxslt" => :build # for xsltproc
 
   resource "html" do
-    url "https://github.com/erlang/otp/releases/download/OTP-24.3.4.7/otp_doc_html_24.3.4.7.tar.gz"
-    sha256 "37fb272117b449e597a6c9a0d8a0b80a854a3020bd1fc0a62325ceb895005670"
+    url "https://github.com/erlang/otp/releases/download/OTP-24.3.4.8/otp_doc_html_24.3.4.8.tar.gz"
+    sha256 "0627f8efc6566d579c3e7107307b663cb955e4d194ce05aae68a8f1f2dddc01f"
   end
 
   def install
