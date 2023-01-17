@@ -3,8 +3,8 @@ class Pydocstyle < Formula
 
   desc "Python docstring style checker"
   homepage "https://www.pydocstyle.org/"
-  url "https://files.pythonhosted.org/packages/1e/b6/7d1de9e068d5804222698086295363cd8fb99c79146c59431058c9c17150/pydocstyle-6.2.3.tar.gz"
-  sha256 "d867acad25e48471f2ad8a40ef9813125e954ad675202245ca836cb6e28b2297"
+  url "https://files.pythonhosted.org/packages/e9/5c/d5385ca59fd065e3c6a5fe19f9bc9d5ea7f2509fa8c9c22fb6b2031dd953/pydocstyle-6.3.0.tar.gz"
+  sha256 "7ce43f0c0ac87b07494eb9c0b462c0b73e6ff276807f204d6b53edc72b7e44e1"
   license "MIT"
   head "https://github.com/PyCQA/pydocstyle.git", branch: "master"
 
