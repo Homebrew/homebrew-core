@@ -535,6 +535,7 @@
   },
   "sail": {
     "package_name": "sailed-io",
+    "extra_packages": ["decorator"],
     "exclude_packages": [
       "six", "PyYAML", "invoke", "fabric", "bcrypt", "cffi", "cryptography",
       "paramiko", "pathlib2", "pycparser", "PyNaCl"
