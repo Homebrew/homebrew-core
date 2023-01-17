@@ -3,8 +3,8 @@ class AnsibleLint < Formula
 
   desc "Checks ansible playbooks for practices and behaviour"
   homepage "https://github.com/ansible/ansible-lint/"
-  url "https://files.pythonhosted.org/packages/48/fc/adb3e2fa2f31dae785d1a3602a2792fc657953e1bf0f5d36d0aa98201441/ansible-lint-6.10.2.tar.gz"
-  sha256 "e228449ac2f10d1c16df35c4769282b529ac1fe2b50767333fad1c85a62df671"
+  url "https://files.pythonhosted.org/packages/85/fa/ef4a04d0d6bb88d22c79937d9983b903fc7de6448d4941457bf292173e29/ansible-lint-6.11.0.tar.gz"
+  sha256 "348ac356c3817a6db98fb6993ec17b5b236c16312238759f0a3f14f3543a9e50"
   license all_of: ["MIT", "GPL-3.0-or-later"]
 
   bottle do
@@ -57,8 +57,8 @@ class AnsibleLint < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/6b/f7/c240d7654ddd2d2f3f328d8468d4f1f876865f6b9038b146bec0a6737c65/packaging-22.0.tar.gz"
-    sha256 "2198ec20bd4c017b8f9717e00f0c8714076fc2fd93816750ab48e2c41de2cfd3"
+    url "https://files.pythonhosted.org/packages/47/d5/aca8ff6f49aa5565df1c826e7bf5e85a6df852ee063600c1efa5b932968c/packaging-23.0.tar.gz"
+    sha256 "b6ad297f8907de0fa2fe1ccbd26fdaf387f5f47c7275fedf8cce89f99446cf97"
   end
 
   resource "pyrsistent" do
@@ -67,8 +67,8 @@ class AnsibleLint < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/b4/b9/f735d18e35aea71b6516d2970d268fccf3978f4848156ed20cc858c287bd/rich-13.0.0.tar.gz"
-    sha256 "3aa9eba7219b8c575c6494446a59f702552efe1aa261e7eeb95548fa586e1950"
+    url "https://files.pythonhosted.org/packages/20/db/fb6f586e2869440d99601b30f6874842015b0c8ca1a6a094abf4e24163f5/rich-13.1.0.tar.gz"
+    sha256 "81c73a30b144bbcdedc13f4ea0b6ffd7fdc3b0d3cc259a9402309c8e4aee1964"
   end
 
   resource "ruamel.yaml" do
