@@ -19,7 +19,7 @@ class Packmol < Formula
 
   depends_on "gcc" # for gfortran
 
-  resource "examples" do
+  resource "homebrew-testdata" do
     url "https://www.ime.unicamp.br/~martinez/packmol/examples/examples.tar.gz"
     sha256 "97ae64bf5833827320a8ab4ac39ce56138889f320c7782a64cd00cdfea1cf422"
   end
@@ -32,7 +32,7 @@ class Packmol < Formula
     system "make"
     bin.install "packmol"
     pkgshare.install "solvate.tcl"
-    (pkgshare/"examples").install resource("examples")
+    (pkgshare/"examples").install resource("homebrew-testdata")
   end
 
   test do
