@@ -22,7 +22,7 @@ class Cmus < Formula
   depends_on "faad2"
   depends_on "ffmpeg"
   depends_on "flac"
-  depends_on "libao"
+  depends_on "libao" # See https://github.com/cmus/cmus/issues/1130
   depends_on "libcue"
   depends_on "libogg"
   depends_on "libvorbis"
@@ -34,16 +34,20 @@ class Cmus < Formula
     depends_on "alsa-lib"
   end
 
-  fails_with gcc: "5" # ffmpeg is compiled with GCC
-
   def install
-    system "./configure", "prefix=#{prefix}", "mandir=#{man}",
-                          "CONFIG_WAVPACK=n", "CONFIG_MPC=n",
-                          "CONFIG_AO=y"
+    args = [
+      "prefix=#{prefix}",
+      "mandir=#{man}",
+      "CONFIG_WAVPACK=n",
+      "CONFIG_MPC=n",
+      "CONFIG_AO=y"
+    ]
+    system "./configure", *args
     system "make", "install"
   end
 
   test do
-    system "#{bin}/cmus", "--plugins"
+    plugins = shell_output("#{bin}/cmus --plugins")
+    assert_match "ao", plugins
   end
 end
