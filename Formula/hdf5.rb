@@ -49,18 +49,16 @@ class Hdf5 < Formula
     system "autoreconf", "--force", "--install", "--verbose"
 
     args = %W[
-      --disable-dependency-tracking
       --disable-silent-rules
       --enable-build-mode=production
       --enable-fortran
       --enable-cxx
-      --prefix=#{prefix}
       --with-default-plugindir=#{lib}/plugin
       --with-szlib=#{Formula["libaec"].opt_prefix}
     ]
     args << "--with-zlib=#{Formula["zlib"].opt_prefix}" if OS.linux?
 
-    system "./configure", *args
+    system "./configure", *std_configure_args, *args
 
     # Avoid shims in settings file
     inreplace "src/libhdf5.settings", Superenv.shims_path/ENV.cxx, ENV.cxx
