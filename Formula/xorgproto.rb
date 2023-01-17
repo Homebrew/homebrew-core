@@ -36,6 +36,9 @@ class Xorgproto < Formula
 
     system "./configure", *args
     system "make", "install"
+    # Legacy protocol headers cause conflicts with libx11 and util-macros
+    rm_f include/"X11/extensions/XKBgeom.h" # provided by libx11
+    rm_f share/"pkgconfig/xorg-macros.pc" # provided by util-macros
   end
 
   test do
