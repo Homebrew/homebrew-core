@@ -1,9 +1,8 @@
 class Jove < Formula
   desc "Emacs-style editor with vi-like memory, CPU, and size requirements"
   homepage "https://directory.fsf.org/wiki/Jove"
-  url "https://www.cs.toronto.edu/pub/hugh/jove-dev/jove4.16.0.73.tgz"
-  mirror "https://ftp.openbsd.org/pub/OpenBSD/distfiles/jove4.16.0.73.tgz"
-  sha256 "9c9e202607f5972c382098d10b63c815ac01e578f432626c982e6aa65000c630"
+  url "https://github.com/jonmacs/jove/archive/refs/tags/4.17.4.9.tar.gz"
+  sha256 "6d9aeb85c04fedac7e3df2a1716e014dc53d6938f665fc32a9facd40c117102d"
 
   bottle do
     sha256 arm64_ventura:  "b201d1acdef17d2d3a74b4c6aa7d6e59e4c9d74ee208ef508b56017441ac719c"
@@ -24,12 +23,6 @@ class Jove < Formula
 
   on_system :linux, macos: :ventura_or_newer do
     depends_on "groff" => :build
-  end
-
-  # Per MacPorts, avoid clash with libc getline
-  patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/3cada68f/jove/patch-getline.diff"
-    sha256 "96e557370d6e8924cc73bda8dbe65e54f4cc902785ffcf0056d8925bb4e77bf6"
   end
 
   def install
