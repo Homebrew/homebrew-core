@@ -5,7 +5,7 @@ class Sourcekitten < Formula
       tag:      "0.34.0",
       revision: "f403b5cdbaa1748fe74da47915013fe058166e03"
   license "MIT"
-  head "https://github.com/jpsim/SourceKitten.git", branch: "master"
+  head "https://github.com/jpsim/SourceKitten.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "952b446c12d9f506fa18e519aa2c866c138c04f9b5fa0aa7bd95c4d0e73da56f"
@@ -16,7 +16,7 @@ class Sourcekitten < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "b3bcc001fec06724d61a75de962687e67af125a37c906404a026b499d3573087"
   end
 
-  depends_on xcode: ["13.0", :build]
+  depends_on xcode: ["14.0", :build]
   depends_on :macos
   depends_on xcode: "6.0"
 
@@ -26,7 +26,7 @@ class Sourcekitten < Formula
 
   test do
     system "#{bin}/sourcekitten", "version"
-    return if MacOS::Xcode.version < 13
+    return if MacOS::Xcode.version < 14
 
     ENV["IN_PROCESS_SOURCEKIT"] = "YES"
     system "#{bin}/sourcekitten", "syntax", "--text", "import Foundation // Hello World"
