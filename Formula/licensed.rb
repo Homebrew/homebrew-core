@@ -2,8 +2,8 @@ class Licensed < Formula
   desc "Cache and verify the licenses of dependencies"
   homepage "https://github.com/github/licensed"
   url "https://github.com/github/licensed.git",
-      tag:      "4.0.2",
-      revision: "1068f972a1a8994ef0c08ad89d7a5a746f4eb28c"
+      tag:      "4.0.3",
+      revision: "88210ad980f81175d65a80428283fffa3d669f86"
   license "MIT"
 
   bottle do
