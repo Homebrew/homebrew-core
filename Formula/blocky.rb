@@ -2,8 +2,8 @@ class Blocky < Formula
   desc "Fast and lightweight DNS proxy as ad-blocker with many features"
   homepage "https://0xerr0r.github.io/blocky"
   url "https://github.com//0xerr0r/blocky/archive/refs/tags/v0.20.tar.gz"
-  license "Apache-2.0"
   sha256 "aae5346e9c1ce4b326b9e578939aa26ddca39338d79d0ddb3eb079ae7a949e87"
+  license "Apache-2.0"
   head "https://github.com/0xerr0r/blocky.git", branch: "development"
 
   depends_on "go" => :build
@@ -59,7 +59,7 @@ EOF_STABLE
   test do
     system sbin/"blocky version"
 
-    out = shell_output("#{sbin}/blocky healthcheck", 0)
+    out = shell_output("#{sbin}/blocky healthcheck")
     assert_match(/^OK$/, out)
   end
 end
