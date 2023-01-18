@@ -1,9 +1,9 @@
 class OpenjdkAT8 < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.java.net/"
-  url "https://github.com/openjdk/jdk8u/archive/refs/tags/jdk8u352-ga.tar.gz"
-  version "1.8.0+352"
-  sha256 "141dcb6b321cc78e993f1f126dde9f6c0a7af5d11bfe390f5cf5b1513fabdc1c"
+  url "https://github.com/openjdk/jdk8u/archive/refs/tags/jdk8u362-ga.tar.gz"
+  version "1.8.0+362"
+  sha256 "dd3606bd274d25c96f2dc2e63b7cab36a2b03d82b0ce4f312cfb53056f758d9f"
   license "GPL-2.0-only"
 
   livecheck do
@@ -49,7 +49,8 @@ class OpenjdkAT8 < Formula
     depends_on "libxtst"
   end
 
-  # Oracle doesn't serve JDK 7 downloads anymore, so use Zulu JDK 7 for bootstrapping.
+  # Oracle doesn't serve JDK 7 downloads anymore, so we use Zulu JDK 7 for bootstrapping.
+  # https://www.azul.com/downloads/?version=java-7-lts&package=jdk
   resource "boot-jdk" do
     on_macos do
       url "https://cdn.azul.com/zulu/bin/zulu7.56.0.11-ca-jdk7.0.352-macosx_x64.tar.gz"
