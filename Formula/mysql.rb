@@ -148,10 +148,10 @@ class Mysql < Formula
           mysql_secure_installation
 
       MySQL is configured to only allow connections from localhost by default
-
+      
       To connect run:
           mysql -u root
-          
+
       If installing on Apple M2, run:
           brew postinstall mysql
     EOS
