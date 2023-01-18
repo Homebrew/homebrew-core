@@ -1,8 +1,8 @@
 class Karn < Formula
   desc "Manage multiple Git identities"
   homepage "https://github.com/prydonius/karn"
-  url "https://github.com/prydonius/karn/archive/v0.0.5.tar.gz"
-  sha256 "bb3e6d93a4202cde22f8ea0767c994dfebd018fba1f4c1876bf9ab0e765aa45c"
+  url "https://github.com/prydonius/karn/archive/v0.1.0.tar.gz"
+  sha256 "96f10ff263468b9f91244edf16d8ea548c9d281cba9b2597eaf5270f9e6127e3"
   license "MIT"
 
   bottle do
@@ -33,6 +33,7 @@ class Karn < Formula
     system "git", "init"
     system "git", "config", "--global", "user.name", "Test"
     system "git", "config", "--global", "user.email", "test@test.com"
+    system "git", "config", "--global", "user.signingkey", "test"
     system "#{bin}/karn", "update"
   end
 end
