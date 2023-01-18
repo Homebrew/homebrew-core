@@ -45,15 +45,8 @@ class Fheroes2 < Formula
 
   def caveats
     <<~EOS
-      Please visit project website:
-
-      > #{homepage}
-
-      and read
-
-      > #{prefix}/share/doc/fheroes2/README.txt
-
-      for full installation instructions and more information.
+      Documentation is available at:
+      #{prefix}/share/doc/fheroes2/README.txt
     EOS
   end
 
