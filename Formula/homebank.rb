@@ -8,7 +8,7 @@ class Homebank < Formula
   license "GPL-2.0-or-later"
 
   livecheck do
-    url "http://homebank.free.fr/public/"
+    url "http://homebank.free.fr/public/sources/"
     regex(/href=.*?homebank[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
