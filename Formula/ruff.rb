@@ -2,8 +2,8 @@ class Ruff < Formula
   desc "Extremely fast Python linter, written in Rust"
   homepage "https://github.com/charliermarsh/ruff"
   # ruff should only be updated every 5 releases on multiples of 5
-  url "https://github.com/charliermarsh/ruff/archive/refs/tags/v0.0.220.tar.gz"
-  sha256 "1177fb9af565ab11c56151d54fc1390c244d6a189ceb1952d4a1edbbc9f648e3"
+  url "https://github.com/charliermarsh/ruff/archive/refs/tags/v0.0.225.tar.gz"
+  sha256 "54728209e313aaebc9283fef86bdb29cfc7ad76da4168cdb16499b334624ae57"
   license "MIT"
   head "https://github.com/charliermarsh/ruff.git", branch: "main"
 
@@ -20,7 +20,7 @@ class Ruff < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--no-default-features", *std_cargo_args
+    system "cargo", "install", "--no-default-features", *std_cargo_args(path: "ruff_cli")
     bin.install "target/release/ruff" => "ruff"
     generate_completions_from_executable(bin/"ruff", ".", shell_parameter_format: "--generate-shell-completion=")
   end
