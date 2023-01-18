@@ -22,7 +22,7 @@ class Shaderc < Formula
     resource "spirv-tools" do
       # https://github.com/google/shaderc/blob/known-good/known_good.json
       url "https://github.com/KhronosGroup/SPIRV-Tools.git",
-          revision: "0e6fbba7762c071118b3e84258a358ede31fb609"
+          revision: "63de608daeb7e91fbea6d7477a50debe7cac57ce"
     end
   end
 
