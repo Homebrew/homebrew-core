@@ -44,6 +44,7 @@ class SpirvTools < Formula
 
     mkdir "build" do
       system "cmake", "..", *std_cmake_args,
+                            "-DCMAKE_INSTALL_RPATH=#{rpath}",
                             "-DBUILD_SHARED_LIBS=ON",
                             "-DSPIRV_SKIP_TESTS=ON",
                             "-DSPIRV_TOOLS_BUILD_STATIC=OFF"
