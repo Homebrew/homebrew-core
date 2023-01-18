@@ -1,8 +1,8 @@
 class Onioncat < Formula
   desc "VPN-adapter that provides location privacy using Tor or I2P"
   homepage "https://www.onioncat.org"
-  url "https://github.com/rahra/onioncat/archive/refs/tags/v0.4.7.tar.gz"
-  sha256 "cb830cf92e6dfefe593c941d203ee8478a9687a2708d153b0c585ad0c90ce199"
+  url "https://github.com/rahra/onioncat/archive/refs/tags/v4.10.0.tar.gz"
+  sha256 "4b73566fa44038584bb458faee002b72aabc250b6975ae01d4efbb8de4db3a15"
   license "GPL-3.0-only"
   head "https://github.com/rahra/onioncat.git", branch: "master"
 
@@ -19,12 +19,6 @@ class Onioncat < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "tor"
-
-  # Fix missing headers remove in next release
-  patch do
-    url "https://github.com/rahra/onioncat/commit/daaa2efe4222910d1ee1550bfe41579cb7b480de.patch?full_index=1"
-    sha256 "a4327cd9b411f7f9019106dfba7205d26f8f8249d726f5b92f0b91944a5ef238"
-  end
 
   def install
     system "autoreconf", "-ifv"
