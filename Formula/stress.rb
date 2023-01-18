@@ -1,8 +1,8 @@
 class Stress < Formula
   desc "Tool to impose load on and stress test a computer system"
   homepage "https://web.archive.org/web/20190702093856/https://people.seas.harvard.edu/~apw/stress/"
-  url "https://deb.debian.org/debian/pool/main/s/stress/stress_1.0.5.orig.tar.gz"
-  sha256 "1798e49ca365d928fb194ba1b8e8d1e09963b49e9edb0a78bcbba15750bb5027"
+  url "https://deb.debian.org/debian/pool/main/s/stress/stress_1.0.6.orig.tar.gz"
+  sha256 "480e879cd7d9a835eca7c145949f3e5c5dd644e503ab2bf6309cae7672b2fa68"
   license "GPL-2.0-or-later"
 
   livecheck do
