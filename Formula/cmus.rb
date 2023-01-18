@@ -40,7 +40,7 @@ class Cmus < Formula
       "mandir=#{man}",
       "CONFIG_WAVPACK=n",
       "CONFIG_MPC=n",
-      "CONFIG_AO=y"
+      "CONFIG_AO=y",
     ]
     system "./configure", *args
     system "make", "install"
