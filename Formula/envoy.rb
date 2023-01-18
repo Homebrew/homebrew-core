@@ -1,8 +1,8 @@
 class Envoy < Formula
   desc "Cloud-native high-performance edge/middle/service proxy"
   homepage "https://www.envoyproxy.io/index.html"
-  url "https://github.com/envoyproxy/envoy/archive/refs/tags/v1.24.1.tar.gz"
-  sha256 "385e5345e9bc73dcdae311d1df61e16e998860fc958571be9c9b781ad20e14f8"
+  url "https://github.com/envoyproxy/envoy/archive/refs/tags/v1.25.0.tar.gz"
+  sha256 "81e6cecfb22d52b5d81bad54271d0febeb27dd2e79847315228fe0560ea83854"
   license "Apache-2.0"
   head "https://github.com/envoyproxy/envoy.git", branch: "main"
 
@@ -42,14 +42,6 @@ class Envoy < Formula
   fails_with :gcc do
     version "8"
     cause "C++17 support and tcmalloc requirement"
-  end
-
-  # Fix build with GCC 11 by updating brotli. Remove in the next release with commit
-  patch do
-    on_linux do
-      url "https://github.com/envoyproxy/envoy/commit/b58fb72476fac20f213c4a4a09a97d709f736442.patch?full_index=1"
-      sha256 "7ec3ae77702c7e373eb4050e2947499708f5c8cb0df065479e204290902810c6"
-    end
   end
 
   def install
