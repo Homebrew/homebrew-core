@@ -1,8 +1,8 @@
 class Blockhash < Formula
   desc "Perceptual image hash calculation tool"
   homepage "https://github.com/commonsmachinery/blockhash"
-  url "https://github.com/commonsmachinery/blockhash/archive/v0.3.2.tar.gz"
-  sha256 "add1e27e43b35dde56e44bc6d1f0556facf4a18a0f9072df04d4134d8f517365"
+  url "https://github.com/commonsmachinery/blockhash/archive/v0.3.3.tar.gz"
+  sha256 "3c48af7bdb1f673b2f3c9f8c0bfa9107a7019b54ac3b4e30964bc0707debdd3a"
   license "MIT"
   head "https://github.com/commonsmachinery/blockhash.git", branch: "master"
 
