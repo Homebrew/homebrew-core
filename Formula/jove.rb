@@ -30,7 +30,7 @@ class Jove < Formula
     man1.mkpath
     (lib/"jove").mkpath
 
-    system "make", "install", "JOVEHOME=#{prefix}", "MANDIR=#{man1}"
+    system "make", "install", "JOVEHOME=#{prefix}", "DMANDIR=#{man1}"
   end
 
   test do
