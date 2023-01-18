@@ -25,7 +25,7 @@ class Librdkafka < Formula
   depends_on "python@3.11" => :build
   depends_on "lz4"
   depends_on "lzlib"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "zstd"
 
   uses_from_macos "curl"
