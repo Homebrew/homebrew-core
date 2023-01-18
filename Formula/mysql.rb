@@ -151,6 +151,9 @@ class Mysql < Formula
 
       To connect run:
           mysql -u root
+          
+      If installing on Apple M2, run:
+          brew postinstall mysql
     EOS
     if (my_cnf = ["/etc/my.cnf", "/etc/mysql/my.cnf"].find { |x| File.exist? x })
       s += <<~EOS
