@@ -1,8 +1,8 @@
 class SpirvTools < Formula
   desc "API and commands for processing SPIR-V modules"
   homepage "https://github.com/KhronosGroup/SPIRV-Tools"
-  url "https://github.com/KhronosGroup/SPIRV-Tools/archive/v2022.4.tar.gz"
-  sha256 "a156215a2d7c6c5b267933ed691877a9a66f07d75970da33ce9ad627a71389d7"
+  url "https://github.com/KhronosGroup/SPIRV-Tools/archive/v2023.1.tar.gz"
+  sha256 "f3d8245aeb89f098c01dddaa566f9c0f2aab4a3d62a9020afaeb676b5e7e64d4"
   license "Apache-2.0"
 
   bottle do
