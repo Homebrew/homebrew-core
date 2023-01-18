@@ -178,6 +178,9 @@
   "dooit": {
     "exclude_packages": ["six", "PyYAML", "virtualenv"]
   },
+  "dstack": {
+    "exclude_packages": ["six", "PyYAML"]
+  },
   "duplicity": {
     "extra_packages": [
       "azure-storage-blob", "b2sdk", "boto", "boto3", "boxsdk[jwt]",
