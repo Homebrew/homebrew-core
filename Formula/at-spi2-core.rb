@@ -10,13 +10,13 @@ class AtSpi2Core < Formula
     sha256 x86_64_linux: "5886c9ff2107a4f37c76767958c35c3fb1f5547f0a6d0342b533b58bbeb47222"
   end
 
+  depends_on "gettext" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkg-config" => [:build, :test]
   depends_on "python@3.11" => :build
   depends_on "dbus"
-  depends_on "gettext"
   depends_on "glib"
   depends_on "libx11"
   depends_on "libxtst"
