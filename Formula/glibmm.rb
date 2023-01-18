@@ -18,20 +18,16 @@ class Glibmm < Formula
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkg-config" => [:build, :test]
   depends_on "glib"
   depends_on "libsigc++"
 
   fails_with gcc: "5"
 
   def install
-    ENV.cxx11
-
-    mkdir "build" do
-      system "meson", *std_meson_args, ".."
-      system "ninja"
-      system "ninja", "install"
-    end
+    system "meson", "setup", "build", "-Dbuild-examples=false", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do
@@ -44,27 +40,7 @@ class Glibmm < Formula
          return 0;
       }
     EOS
-    gettext = Formula["gettext"]
-    glib = Formula["glib"]
-    libsigcxx = Formula["libsigc++"]
-    flags = %W[
-      -I#{gettext.opt_include}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
-      -I#{include}/glibmm-2.68
-      -I#{libsigcxx.opt_include}/sigc++-3.0
-      -I#{libsigcxx.opt_lib}/sigc++-3.0/include
-      -I#{lib}/glibmm-2.68/include
-      -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
-      -L#{libsigcxx.opt_lib}
-      -L#{lib}
-      -lglib-2.0
-      -lglibmm-2.68
-      -lgobject-2.0
-      -lsigc-3.0
-    ]
-    flags << "-lintl" if OS.mac?
+    flags = shell_output("pkg-config --cflags --libs glibmm-2.68").chomp.split
     system ENV.cxx, "-std=c++17", "test.cpp", "-o", "test", *flags
     system "./test"
   end
