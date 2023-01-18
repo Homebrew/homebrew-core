@@ -59,7 +59,7 @@ class Blocky < Formula
   test do
     system sbin/"blocky version"
 
-    out = shell_output("#{sbin}/blocky healthcheck")
-    assert_match(/^OK$/, out)
+    out = shell_output("#{sbin}/blocky healthcheck", 1)
+    assert_match(/^NOT OK$/, out)
   end
 end
