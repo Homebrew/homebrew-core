@@ -30,6 +30,10 @@ class Erlang < Formula
     depends_on "libtool" => :build
   end
 
+  on_linux
+    depends_on "libxslt" => :build
+  end
+
   depends_on "openssl@1.1"
   depends_on "unixodbc"
   depends_on "wxwidgets" # for GUI apps like observer
