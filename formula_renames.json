@@ -51,6 +51,7 @@
   "gloo-ctl": "glooctl",
   "gnatsd": "nats-server",
   "gnome-icon-theme": "adwaita-icon-theme",
+  "gnome-themes-standard": "gnome-themes-extra",
   "gnupg2": "gnupg",
   "gnuplot4": "gnuplot@4",
   "gold": "binutils",
