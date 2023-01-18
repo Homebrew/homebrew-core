@@ -1,8 +1,8 @@
 class Blocky < Formula
-  desc "Fast and lightweight DNS proxy as ad-blocker for local network with many features"
+  desc "Fast and lightweight DNS proxy as ad-blocker with many features"
   homepage "https://0xerr0r.github.io/blocky"
-  license "Apache-2.0"
   url "https://github.com//0xerr0r/blocky/archive/refs/tags/v0.20.tar.gz"
+  license "Apache-2.0"
   sha256 "aae5346e9c1ce4b326b9e578939aa26ddca39338d79d0ddb3eb079ae7a949e87"
   head "https://github.com/0xerr0r/blocky.git", branch: "development"
 
@@ -12,7 +12,7 @@ class Blocky < Formula
     system "go", "build", *std_go_args, "-o", sbin/"blocky"
 
     config_yml = if build.head?
-<<EOF_HEAD
+      <<EOF_HEAD
 # Reference the example config in the docs for all options
 # https://github.com/0xERR0R/blocky/blob/development/docs/config.yml
 
@@ -29,7 +29,7 @@ bootstrapDns:
   - https://1.1.1.1/dns-query
 EOF_HEAD
     else
-<<EOF_STABLE
+      <<EOF_STABLE
 # Reference the example config in the docs for all options
 # https://github.com/0xERR0R/blocky/blob/v0.20/docs/config.yml
 
