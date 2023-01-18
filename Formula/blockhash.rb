@@ -19,7 +19,7 @@ class Blockhash < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
   depends_on "imagemagick"
 
   resource "homebrew-testdata" do
@@ -28,7 +28,7 @@ class Blockhash < Formula
   end
 
   def install
-    python3 = "python3.10"
+    python3 = "python3.11"
     system python3, "./waf", "configure", "--prefix=#{prefix}"
     # pkg-config adds -fopenmp flag during configuring
     # This fails the build on system clang, and OpenMP is not used in blockhash
