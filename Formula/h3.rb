@@ -1,8 +1,8 @@
 class H3 < Formula
   desc "Hexagonal hierarchical geospatial indexing system"
   homepage "https://uber.github.io/h3/"
-  url "https://github.com/uber/h3/archive/v4.0.1.tar.gz"
-  sha256 "01891901707c6430caaea7e645ff5ac6980cae166094a6f924ded197e5774a19"
+  url "https://github.com/uber/h3/archive/v4.1.0.tar.gz"
+  sha256 "ec99f1f5974846bde64f4513cf8d2ea1b8d172d2218ab41803bf6a63532272bc"
   license "Apache-2.0"
 
   bottle do
