@@ -30,7 +30,7 @@ class Erlang < Formula
     depends_on "libtool" => :build
   end
 
-  on_linux
+  on_linux do
     depends_on "libxslt" => :build
   end
 
