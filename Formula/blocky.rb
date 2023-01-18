@@ -12,36 +12,36 @@ class Blocky < Formula
     system "go", "build", *std_go_args, "-o", sbin/"blocky"
 
     config_yml = if build.head?
-      <<EOF_HEAD
-# Reference the example config in the docs for all options
-# https://github.com/0xERR0R/blocky/blob/development/docs/config.yml
+      <<~EOF_HEAD
+        # Reference the example config in the docs for all options
+        # https://github.com/0xERR0R/blocky/blob/development/docs/config.yml
 
-ports:
-  dns: "127.0.0.1:53,[::1]:53"
+        ports:
+          dns: "127.0.0.1:53,[::1]:53"
 
-upstream:
-  default:
-    - 1.1.1.1
-    - 1.0.0.1
+        upstream:
+          default:
+            - 1.1.1.1
+            - 1.0.0.1
 
-bootstrapDns:
-  - tcp+udp:1.1.1.1
-  - https://1.1.1.1/dns-query
-EOF_HEAD
+        bootstrapDns:
+          - tcp+udp:1.1.1.1
+          - https://1.1.1.1/dns-query
+      EOF_HEAD
     else
-      <<EOF_STABLE
-# Reference the example config in the docs for all options
-# https://github.com/0xERR0R/blocky/blob/v0.20/docs/config.yml
+      <<~EOF_STABLE
+        # Reference the example config in the docs for all options
+        # https://github.com/0xERR0R/blocky/blob/v0.20/docs/config.yml
 
-port: "127.0.0.1:53,[::1]:53"
+        port: "127.0.0.1:53,[::1]:53"
 
-upstream:
-  default:
-    - 1.1.1.1
-    - 1.0.0.1
+        upstream:
+          default:
+            - 1.1.1.1
+            - 1.0.0.1
 
-bootstrapDns: tcp+udp:1.1.1.1
-EOF_STABLE
+        bootstrapDns: tcp+udp:1.1.1.1
+      EOF_STABLE
     end
 
     File.write "config.yml", config_yml
