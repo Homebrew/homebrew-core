@@ -19,6 +19,7 @@ class Cbmc < Formula
   depends_on "cmake" => :build
   depends_on "maven" => :build
   depends_on "openjdk" => :build
+  depends_on "rust" => :build
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
