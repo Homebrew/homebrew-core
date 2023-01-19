@@ -2,12 +2,11 @@ class Zig < Formula
   desc "Programming language designed for robustness, optimality, and clarity"
   homepage "https://ziglang.org/"
   license "MIT"
-  revision 1
   head "https://github.com/ziglang/zig.git", branch: "master"
 
   stable do
-    url "https://ziglang.org/download/0.10.0/zig-0.10.0.tar.xz"
-    sha256 "d8409f7aafc624770dcd050c8fa7e62578be8e6a10956bca3c86e8531c64c136"
+    url "https://ziglang.org/download/0.10.1/zig-0.10.1.tar.xz"
+    sha256 "69459bc804333df077d441ef052ffa143d53012b655a51f04cfef1414c04168c"
 
     on_macos do
       # We need to make sure there is enough space in the MachO header when we rewrite install names.
