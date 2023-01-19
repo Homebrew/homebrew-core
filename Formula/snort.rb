@@ -51,6 +51,13 @@ class Snort < Formula
 
   fails_with gcc: "5"
 
+  # build patch, remove when it is available
+  # upstream PR ref, https://github.com/snort3/snort3/pull/286
+  patch do
+    url "https://github.com/snort3/snort3/commit/2b498993a47c728c3e273b440266eb40e5aa56c6.patch?full_index=1"
+    sha256 "fb93fe6bf01f3f7d3479c25f2ebe52f0d19b42574b608ec15451c3397906139b"
+  end
+
   def install
     # These flags are not needed for LuaJIT 2.1 (Ref: https://luajit.org/install.html).
     # On Apple ARM, building with flags results in broken binaries and they need to be removed.
