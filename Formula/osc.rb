@@ -3,8 +3,9 @@ class Osc < Formula
 
   desc "Command-line interface to work with an Open Build Service"
   homepage "https://openbuildservice.org"
-  url "https://github.com/openSUSE/osc/archive/0.182.0.tar.gz"
-  sha256 "aafbc66f114ffcabd1c25c7f3754895a5c26608c4d8193de02382221e68403c7"
+  url "https://github.com/openSUSE/osc/archive/1.0.0b3.tar.gz"
+  version "1.0.0b3"
+  sha256 "c02d03c9327abd7a6055b8d6d7170ee57011567536f8b41dbf68b2580f7b179e"
   license "GPL-2.0-or-later"
   head "https://github.com/openSUSE/osc.git", branch: "master"
 
@@ -36,9 +37,6 @@ class Osc < Formula
     sha256 "99f2260a30901c949a8dc6d5f82cd5312ffb8abc92e76633baf231bbbcb2decb"
   end
 
-  # upstream issue tracker, https://github.com/openSUSE/osc/issues/1101
-  patch :DATA
-
   def install
     openssl = Formula["openssl@1.1"]
     ENV["SWIG_FEATURES"] = "-I#{openssl.opt_include}"
@@ -52,25 +50,3 @@ class Osc < Formula
     system bin/"osc", "--version"
   end
 end
-
-__END__
-diff --git a/osc/util/git_version.py b/osc/util/git_version.py
-index 69022cf..67a12e4 100644
---- a/osc/util/git_version.py
-+++ b/osc/util/git_version.py
-@@ -3,6 +3,7 @@ import subprocess
-
-
- def get_git_archive_version():
-+    return None
-     """
-     Return version that is set by git during `git archive`.
-     The returned format is equal to what `git describe --tags` returns.
-@@ -18,6 +19,7 @@ def get_git_archive_version():
-
-
- def get_git_version():
-+    return None
-     """
-     Determine version from git repo by calling `git describe --tags`.
-     """
