@@ -43,10 +43,13 @@ class Flex < Formula
   keg_only :provided_by_macos
 
   depends_on "help2man" => :build
-  depends_on "gettext"
 
   uses_from_macos "bison" => :build
   uses_from_macos "m4"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   def install
     if build.head?
@@ -59,10 +62,9 @@ class Flex < Formula
     # remove with the next release
     ENV.append "CPPFLAGS", "-D_GNU_SOURCE" if OS.linux?
 
-    system "./configure", "--disable-dependency-tracking",
+    system "./configure", *std_configure_args,
                           "--disable-silent-rules",
-                          "--enable-shared",
-                          "--prefix=#{prefix}"
+                          "--enable-shared"
     system "make", "install"
     bin.install_symlink "flex" => "lex"
   end
