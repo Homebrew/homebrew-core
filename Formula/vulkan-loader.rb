@@ -1,8 +1,8 @@
 class VulkanLoader < Formula
   desc "Vulkan ICD Loader"
   homepage "https://github.com/KhronosGroup/Vulkan-Loader"
-  url "https://github.com/KhronosGroup/Vulkan-Loader/archive/refs/tags/v1.3.238.tar.gz"
-  sha256 "54efc088258e83304f105d6998adaa54340045f490884b2d136a8584d66cb861"
+  url "https://github.com/KhronosGroup/Vulkan-Loader/archive/refs/tags/v1.3.239.tar.gz"
+  sha256 "dcdbe3f5362035ecc5ffce2140393de377038c44e00dfb8bae43816eec57dfc6"
   license "Apache-2.0"
   head "https://github.com/KhronosGroup/Vulkan-Loader.git", branch: "master"
 
