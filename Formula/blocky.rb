@@ -14,7 +14,7 @@ class Blocky < Formula
       -X github.com/0xERR0R/blocky/util.Version=#{version}
       -X github.com/0xERR0R/blocky/util.BuildTime=#{time.iso8601}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags, output: bin/"blocky")
+    system "go", "build", *std_go_args(ldflags: ldflags)
     sbin.install_symlink bin/"blocky"
 
     (var/"log").mkpath
