@@ -11,7 +11,8 @@ concurrency:
   cancel-in-progress: true
 
 permissions:
-  contents: read
+  contents: 'read'
+  id-token: 'write'
 
 jobs:
   recreate:
@@ -25,12 +26,21 @@ jobs:
         runner_name:
           - linux-self-hosted-1
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+      
+      - name: Authenticate to Google Cloud
+        id: 'gcloud-auth'
+        uses: 'google-github-actions/auth@v1'
+        with:
+          token_format: access_token
+          workload_identity_provider: projects/${{ secrets.GCP_PROJECT_NUM }}/locations/global/workloadIdentityPools/recreate-linux-runners/providers/github-provider
+          service_account: recreate-linux-runners@${{ secrets.GCP_PROJECT_ID }}.iam.gserviceaccount.com
+
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v1
-        with:
-          project_id: ${{ secrets.GCP_PROJECT_ID }}
-          service_account_key: ${{ secrets.GCP_SA_KEY }}
-          export_default_credentials: true
 
       - name: Wait for idle runner
         id: killable
@@ -45,6 +55,4 @@ jobs:
         with:
           runner_name: ${{ matrix.runner_name }}
           gcp_project_id: ${{ secrets.GCP_PROJECT_ID }}
-          gcp_service_account: ${{ secrets.GCP_SERVICE_ACCOUNT }}
-          gcp_sa_key: ${{ secrets.GCP_SA_KEY }}
           github_token: ${{ secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN }}
