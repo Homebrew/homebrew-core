@@ -6,7 +6,7 @@ class Libvdpau < Formula
   license "MIT"
 
   livecheck do
-    url "https://gitlab.freedesktop.org/vdpau/libvdpau.git"
+    url :stable
     regex(/^(?:libvdpau[._-])?v?(\d+(?:\.\d+)+)$/i)
   end
 
@@ -29,11 +29,9 @@ class Libvdpau < Formula
   depends_on "xorgproto"
 
   def install
-    mkdir "build" do
-      system "meson", *std_meson_args, ".."
-      system "ninja"
-      system "ninja", "install"
-    end
+    system "meson", "setup", "build", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
   test do
     assert_match "-I#{include}", shell_output("pkg-config --cflags vdpau")
