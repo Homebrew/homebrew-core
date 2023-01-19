@@ -14,38 +14,43 @@ class Blocky < Formula
       -X github.com/0xERR0R/blocky/util.Version=#{version}
       -X github.com/0xERR0R/blocky/util.BuildTime=#{time.iso8601}
     ]
-    system "go", "build", *std_go_args(ldflags:ldflags, output: sbin/"blocky")
+    system "go", "build", *std_go_args(ldflags: ldflags, output: sbin/"blocky")
+
+    (var/"log").mkpath
 
     config_yml = if build.head?
       <<~EOF_HEAD
         # Reference the example config in the docs for all options
         # https://github.com/0xERR0R/blocky/blob/development/docs/config.yml
-
         ports:
           dns: "127.0.0.1:53,[::1]:53"
-
         upstream:
           default:
             - 1.1.1.1
             - 1.0.0.1
-
         bootstrapDns:
           - tcp+udp:1.1.1.1
           - https://1.1.1.1/dns-query
+        log:
+          level: info
+          format: text
+          timestamp: true
+          privacy: false
       EOF_HEAD
     else
       <<~EOF_STABLE
         # Reference the example config in the docs for all options
         # https://github.com/0xERR0R/blocky/blob/v0.20/docs/config.yml
-
         port: "127.0.0.1:53,[::1]:53"
-
         upstream:
           default:
             - 1.1.1.1
             - 1.0.0.1
-
         bootstrapDns: tcp+udp:1.1.1.1
+        logLevel: info
+        logFormat: text
+        logTimestamp: true
+        logPrivacy: false
       EOF_STABLE
     end
 
@@ -56,6 +61,8 @@ class Blocky < Formula
     run [opt_sbin/"blocky", "--config", etc/"blocky/config.yml"]
     keep_alive true
     require_root true
+    error_log_path var/"log/blocky.log"
+    log_path var/"log/blocky.log"
   end
 
   test do
