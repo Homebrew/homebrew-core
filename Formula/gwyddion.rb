@@ -4,6 +4,7 @@ class Gwyddion < Formula
   url "http://gwyddion.net/download/2.62/gwyddion-2.62.tar.gz"
   sha256 "6c71fda9f783be5beabd21bfd749a91b2404b24cd74b7115adec31d235d40688"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "http://gwyddion.net/download.php"
@@ -25,7 +26,6 @@ class Gwyddion < Formula
   depends_on "fftw"
   depends_on "gtk+"
   depends_on "gtkglext"
-  depends_on "gtksourceview"
   depends_on "libxml2"
   depends_on "minizip"
 
@@ -36,15 +36,16 @@ class Gwyddion < Formula
     depends_on "automake" => :build
     depends_on "gtk-doc" => :build
     depends_on "libtool" => :build
-    depends_on "gtk-mac-integration"
+    # TODO: depends_on "gtk-mac-integration"
   end
 
   def install
     system "autoreconf", "--force", "--install", "--verbose" if OS.mac?
-    system "./configure", "--disable-dependency-tracking",
+    system "./configure", *std_configure_args,
+                          "--disable-silent-rules",
                           "--disable-desktop-file-update",
-                          "--prefix=#{prefix}",
                           "--with-html-dir=#{doc}",
+                          "--without-gtksourceview",
                           "--disable-pygwy"
     system "make", "install"
   end
