@@ -16,16 +16,20 @@ class Vala < Formula
     sha256 x86_64_linux:   "13bdb063f26cf187830b4b1b9c70f7a5f73947cde1e3adec62b0d295c16e2735"
   end
 
-  depends_on "gettext"
   depends_on "glib"
   depends_on "graphviz"
   depends_on "pkg-config"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
+  uses_from_macos "libxslt" => :build # for xsltproc
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   def install
-    system "./configure", *std_configure_args
+    system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make" # Fails to compile as a single step
     system "make", "install"
   end
