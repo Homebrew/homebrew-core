@@ -1,8 +1,8 @@
 class Pandoc < Formula
   desc "Swiss-army knife of markup format conversion"
   homepage "https://pandoc.org/"
-  url "https://hackage.haskell.org/package/pandoc-2.19.2/pandoc-2.19.2.tar.gz"
-  sha256 "36e83694c36a5af35a4442c4d5abd4273289d9d309793466f59c1632e87d4245"
+  url "https://github.com/jgm/pandoc/archive/refs/tags/3.0.1.tar.gz"
+  sha256 "d8b45c3d8434c03db7cd6c571664a2a0a0ba906bfee3b8d82470103978ddc4ce"
   license "GPL-2.0-or-later"
   head "https://github.com/jgm/pandoc.git", branch: "master"
 
@@ -25,7 +25,7 @@ class Pandoc < Formula
 
   def install
     system "cabal", "v2-update"
-    system "cabal", "v2-install", *std_cabal_v2_args
+    system "cabal", "v2-install", *std_cabal_v2_args, "pandoc-cli"
     generate_completions_from_executable(bin/"pandoc", "--bash-completion",
                                          shells: [:bash], shell_parameter_format: :none)
     man1.install "man/pandoc.1"
