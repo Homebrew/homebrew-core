@@ -1,8 +1,8 @@
 class Highway < Formula
   desc "Performance-portable, length-agnostic SIMD with runtime dispatch"
   homepage "https://github.com/google/highway"
-  url "https://github.com/google/highway/archive/refs/tags/1.0.2.tar.gz"
-  sha256 "e8ef71236ac0d97f12d553ec1ffc5b6375d57b5f0b860c7447dd69b6ed1072db"
+  url "https://github.com/google/highway/archive/refs/tags/1.0.3.tar.gz"
+  sha256 "566fc77315878473d9a6bd815f7de78c73734acdcb745c3dde8579560ac5440e"
   license "Apache-2.0"
   head "https://github.com/google/highway.git", branch: "master"
 
