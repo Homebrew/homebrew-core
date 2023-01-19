@@ -56,6 +56,13 @@ class Julia < Formula
     sha256 "1eea77d8024ad8bc9c733a0e0770661bc08228d335b20c4696350ed5dfdab29a"
   end
 
+  # Fix Linux build, listdc++ issue. Remove in next version.
+  # https://github.com/JuliaLang/julia/issues/47987
+  patch do
+    url "https://github.com/JuliaLang/julia/commit/0b211609.patch?full_index=1"
+    sha256 "f8b802ef2004320dd8039b3c4896e99f5460c9bcada29bc699eaca7f843f2737"
+  end
+
   def install
     # Build documentation available at
     # https://github.com/JuliaLang/julia/blob/v#{version}/doc/build/build.md
