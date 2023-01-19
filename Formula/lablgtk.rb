@@ -6,11 +6,6 @@ class Lablgtk < Formula
   license "LGPL-2.1"
   revision 1
 
-  livecheck do
-    url :stable
-    strategy :github_latest
-  end
-
   bottle do
     sha256 cellar: :any, arm64_ventura:  "b77e7e12785ed1b84c04e2d7f33745b3d63a8aa101c7d3d10189a9a0ffd0956a"
     sha256 cellar: :any, arm64_monterey: "97abc8b9ca15184d58e73218a5617d417efc94183ae8ff6bb2bb5e6e4dd2efd2"
@@ -21,6 +16,10 @@ class Lablgtk < Formula
     sha256 cellar: :any, catalina:       "6693d979ec1eba98402d6b5f6747de3ce204567b53e37144231b26731173a620"
     sha256               x86_64_linux:   "30f9191323a86ef69a1794027fdf8c6ef6b49b97df043732038bb0c9423c1b2e"
   end
+
+  # GTK 2 is EOL: https://blog.gtk.org/2020/12/16/gtk-4-0/
+  # GTK 3 supported package is named `lablgtk3` so may be better as separate formula
+  deprecate! date: "2023-01-18", because: :unmaintained
 
   depends_on "pkg-config" => :build
   depends_on "gtk+"
