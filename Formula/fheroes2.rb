@@ -46,7 +46,7 @@ class Fheroes2 < Formula
   def caveats
     <<~EOS
       Documentation is available at:
-      #{prefix}/share/doc/fheroes2/README.txt
+      #{share}/doc/fheroes2/README.txt
     EOS
   end
 
