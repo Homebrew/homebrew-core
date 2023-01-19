@@ -32,7 +32,7 @@ class Gkrellm < Formula
   depends_on "gdk-pixbuf"
   depends_on "gettext"
   depends_on "glib"
-  depends_on "gtk+"
+  depends_on "gtk+" # GTK3 issue: https://git.srcbox.net/gkrellm/gkrellm/issues/1
   depends_on "openssl@1.1"
   depends_on "pango"
 
