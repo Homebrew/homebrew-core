@@ -1,7 +1,7 @@
 class Blocky < Formula
   desc "Fast and lightweight DNS proxy as ad-blocker with many features"
   homepage "https://0xerr0r.github.io/blocky"
-  url "https://github.com//0xerr0r/blocky/archive/refs/tags/v0.20.tar.gz"
+  url "https://github.com/0xerr0r/blocky/archive/refs/tags/v0.20.tar.gz"
   sha256 "aae5346e9c1ce4b326b9e578939aa26ddca39338d79d0ddb3eb079ae7a949e87"
   license "Apache-2.0"
   head "https://github.com/0xerr0r/blocky.git", branch: "development"
@@ -9,7 +9,12 @@ class Blocky < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args, "-o", sbin/"blocky"
+    ldflags = %W[
+      -s -w
+      -X github.com/0xERR0R/blocky/util.Version=#{version}
+      -X github.com/0xERR0R/blocky/util.BuildTime=#{time.iso8601}
+    ]
+    system "go", "build", *std_go_args(ldflags:ldflags, output: sbin/"blocky")
 
     config_yml = if build.head?
       <<~EOF_HEAD
@@ -44,10 +49,7 @@ class Blocky < Formula
       EOF_STABLE
     end
 
-    File.write "config.yml", config_yml
-
-    (etc/"blocky").mkpath
-    etc.install "config.yml" => "blocky/config.yml"
+    (etc/"blocky/config.yml").write config_yml
   end
 
   service do
@@ -57,9 +59,7 @@ class Blocky < Formula
   end
 
   test do
-    system sbin/"blocky version"
-
-    out = shell_output("#{sbin}/blocky healthcheck", 1)
-    assert_match(/^NOT OK$/, out)
+    assert_match "NOT OK", shell_output("#{sbin}/blocky healthcheck", 1)
+    assert_match "Version: #{version}", shell_output("#{sbin}/blocky version")
   end
 end
