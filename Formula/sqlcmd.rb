@@ -19,12 +19,14 @@ class Sqlcmd < Formula
   depends_on "go" => :build
 
   def install
-    ENV["CGO_ENABLED"] = "0"
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/sqlcmd"
+    ldflags = "-s -w -X main.version=#{version}"
+    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/modern"
   end
 
   test do
     out = shell_output("#{bin}/sqlcmd -S 127.0.0.1 -E -Q 'SELECT @@version'", 1)
     assert_match "connection refused", out
+
+    assert_equal "sqlcmd: #{version}", shell_output("#{bin}/sqlcmd --version").chomp
   end
 end
