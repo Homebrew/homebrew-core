@@ -1,8 +1,8 @@
 class Prs < Formula
   desc "Secure, fast & convenient password manager CLI with GPG & git sync"
   homepage "https://timvisee.com/projects/prs"
-  url "https://github.com/timvisee/prs/archive/v0.4.1.tar.gz"
-  sha256 "f7f8f5d815cf1c4034f1c2aa36ed29b7e3ab2a884791b4b69ffc845d5d111524"
+  url "https://github.com/timvisee/prs/archive/v0.5.0.tar.gz"
+  sha256 "c09b563181bc58b49db8e4f015749785798bd55b35a1f1924b3e432fa5f387f2"
   license "GPL-3.0-only"
 
   bottle do
@@ -39,7 +39,7 @@ class Prs < Formula
     EOS
 
     assert_equal expected, shell_output("#{bin}/prs init --no-interactive 2>&1")
-    assert_equal "prs-cli #{version}\n", shell_output("#{bin}/prs --version")
+    assert_equal "prs #{version}\n", shell_output("#{bin}/prs --version")
     assert_equal "", shell_output("#{bin}/prs list --no-interactive --quiet")
   end
 end
