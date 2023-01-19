@@ -14,7 +14,8 @@ class Blocky < Formula
       -X github.com/0xERR0R/blocky/util.Version=#{version}
       -X github.com/0xERR0R/blocky/util.BuildTime=#{time.iso8601}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags, output: sbin/"blocky")
+    system "go", "build", *std_go_args(ldflags: ldflags, output: bin/"blocky")
+    sbin.install_symlink bin/"blocky"
 
     (var/"log").mkpath
 
@@ -66,7 +67,10 @@ class Blocky < Formula
   end
 
   test do
+    # client
+    assert_match "Version: #{version}", shell_output("#{bin}/blocky version")
+
+    # server
     assert_match "NOT OK", shell_output("#{sbin}/blocky healthcheck", 1)
-    assert_match "Version: #{version}", shell_output("#{sbin}/blocky version")
   end
 end
