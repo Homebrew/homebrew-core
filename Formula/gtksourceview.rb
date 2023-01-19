@@ -3,12 +3,7 @@ class Gtksourceview < Formula
   homepage "https://projects.gnome.org/gtksourceview/"
   url "https://download.gnome.org/sources/gtksourceview/2.10/gtksourceview-2.10.5.tar.gz"
   sha256 "f5c3dda83d69c8746da78c1434585169dd8de1eecf2a6bcdda0d9925bf857c97"
-  revision 6
-
-  livecheck do
-    url :stable
-    regex(/gtksourceview[._-]v?(2\.([0-8]\d*?)?[02468](?:\.\d+)*?)\.t/i)
-  end
+  revision 7
 
   bottle do
     sha256 arm64_ventura:  "ee366f1b7a1605ab1fd1a3b5a74cd1b408f2080e1ed0124621542b4319be28cf"
@@ -22,6 +17,9 @@ class Gtksourceview < Formula
     sha256 x86_64_linux:   "d37f90eecf7dbc89d89af0efa8fe6f78d8912dc77fd525dff5d3a181cff9e22e"
   end
 
+  # GTK 2 is EOL: https://blog.gtk.org/2020/12/16/gtk-4-0/
+  deprecate! date: "2023-01-18", because: :unmaintained
+
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
@@ -29,8 +27,11 @@ class Gtksourceview < Formula
 
   uses_from_macos "perl" => :build
 
-  on_macos do
-    depends_on "gtk-mac-integration"
+  resource "gtk-mac-integration" do
+    on_macos do
+      url "https://download.gnome.org/sources/gtk-mac-integration/3.0/gtk-mac-integration-3.0.1.tar.xz"
+      sha256 "f19e35bc4534963127bbe629b9b3ccb9677ef012fc7f8e97fd5e890873ceb22d"
+    end
   end
 
   # patches added the ensure that gtk-mac-integration is supported properly instead
@@ -43,10 +44,22 @@ class Gtksourceview < Formula
   end
 
   def install
-    ENV.prepend_path "PERL5LIB", Formula["intltool"].libexec/"lib/perl5" unless OS.mac?
+    if OS.mac?
+      resource("gtk-mac-integration").stage do
+        system "./configure", "--prefix=#{libexec}",
+                              "--disable-dependency-tracking",
+                              "--disable-silent-rules",
+                              "--with-gtk2",
+                              "--without-gtk3",
+                              "--enable-introspection=no"
+        system "make", "install"
+      end
+      ENV.prepend_path "PKG_CONFIG_PATH", libexec/"lib/pkgconfig"
+    else
+      ENV.prepend_path "PERL5LIB", Formula["intltool"].libexec/"lib/perl5"
+    end
 
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make", "install"
   end
 
