@@ -1,9 +1,18 @@
 class GtkMacIntegration < Formula
   desc "Integrates GTK macOS applications with the Mac desktop"
   homepage "https://wiki.gnome.org/Projects/GTK+/OSX/Integration"
-  url "https://download.gnome.org/sources/gtk-mac-integration/3.0/gtk-mac-integration-3.0.1.tar.xz"
-  sha256 "f19e35bc4534963127bbe629b9b3ccb9677ef012fc7f8e97fd5e890873ceb22d"
   license "LGPL-2.1-only"
+
+  stable do
+    url "https://download.gnome.org/sources/gtk-mac-integration/3.0/gtk-mac-integration-3.0.1.tar.xz"
+    sha256 "f19e35bc4534963127bbe629b9b3ccb9677ef012fc7f8e97fd5e890873ceb22d"
+
+    # Fix -flat_namespace being used on Big Sur and later.
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+    end
+  end
 
   # We use a common regex because gtk-mac-integration doesn't use GNOME's
   # "even-numbered minor is stable" version scheme.
@@ -25,31 +34,27 @@ class GtkMacIntegration < Formula
 
   head do
     url "https://gitlab.gnome.org/GNOME/gtk-mac-integration.git", branch: "master"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "gtk-doc" => :build
+    depends_on "libtool" => :build
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
   depends_on "gobject-introspection" => :build
-  depends_on "gtk-doc" => :build
-  depends_on "libtool" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkg-config" => [:build, :test]
   depends_on "gettext"
-  depends_on "gtk+"
   depends_on "gtk+3"
   depends_on :macos
 
   def install
-    args = %W[
-      --disable-dependency-tracking
-      --disable-silent-rules
-      --prefix=#{prefix}
-      --with-gtk2
-      --with-gtk3
-      --enable-introspection=yes
-      --enable-python=no
-    ]
-
-    system "./autogen.sh", *args
+    configure = build.head? ? "./autogen.sh" : "./configure"
+    system configure, *std_configure_args,
+                      "--disable-silent-rules",
+                      "--without-gtk2",
+                      "--with-gtk3",
+                      "--enable-introspection=yes",
+                      "--enable-python=no"
     system "make", "install"
   end
 
@@ -62,57 +67,7 @@ class GtkMacIntegration < Formula
         return 0;
       }
     EOS
-    atk = Formula["atk"]
-    cairo = Formula["cairo"]
-    fontconfig = Formula["fontconfig"]
-    freetype = Formula["freetype"]
-    gdk_pixbuf = Formula["gdk-pixbuf"]
-    gettext = Formula["gettext"]
-    glib = Formula["glib"]
-    gtkx = Formula["gtk+"]
-    harfbuzz = Formula["harfbuzz"]
-    libpng = Formula["libpng"]
-    pango = Formula["pango"]
-    pixman = Formula["pixman"]
-    flags = %W[
-      -I#{atk.opt_include}/atk-1.0
-      -I#{cairo.opt_include}/cairo
-      -I#{fontconfig.opt_include}
-      -I#{freetype.opt_include}/freetype2
-      -I#{gdk_pixbuf.opt_include}/gdk-pixbuf-2.0
-      -I#{gettext.opt_include}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
-      -I#{gtkx.opt_include}/gtk-2.0
-      -I#{gtkx.opt_lib}/gtk-2.0/include
-      -I#{harfbuzz.opt_include}/harfbuzz
-      -I#{include}/gtkmacintegration
-      -I#{libpng.opt_include}/libpng16
-      -I#{pango.opt_include}/pango-1.0
-      -I#{pixman.opt_include}/pixman-1
-      -DMAC_INTEGRATION
-      -D_REENTRANT
-      -L#{atk.opt_lib}
-      -L#{cairo.opt_lib}
-      -L#{gdk_pixbuf.opt_lib}
-      -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
-      -L#{gtkx.opt_lib}
-      -L#{lib}
-      -L#{pango.opt_lib}
-      -latk-1.0
-      -lcairo
-      -lgdk-quartz-2.0
-      -lgdk_pixbuf-2.0
-      -lgio-2.0
-      -lglib-2.0
-      -lgobject-2.0
-      -lgtk-quartz-2.0
-      -lgtkmacintegration-gtk2
-      -lintl
-      -lpango-1.0
-      -lpangocairo-1.0
-    ]
+    flags = shell_output("pkg-config --cflags --libs gtk-mac-integration-gtk3").chomp.split
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
