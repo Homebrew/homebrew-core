@@ -24,9 +24,12 @@ class Gts < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => [:build, :test]
-  depends_on "gettext"
   depends_on "glib"
   depends_on "netpbm"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   conflicts_with "pcb", because: "both install a `gts.h` header"
 
@@ -37,9 +40,7 @@ class Gts < Formula
   def install
     # The `configure` passes `-flat_namespace` but none of our usual patches apply.
     system "autoreconf", "--force", "--install", "--verbose"
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
-
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
