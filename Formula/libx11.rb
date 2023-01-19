@@ -18,8 +18,10 @@ class Libx11 < Formula
   depends_on "pkg-config" => :build
   depends_on "util-macros" => :build
   depends_on "xtrans" => :build
-  depends_on "libxcb"
-  depends_on "xorgproto"
+  depends_on "libxcb" => :build
+  depends_on "libxau" => :build
+  depends_on "libxdmcp" => :build
+  depends_on "xorgproto" => :build
 
   def install
     ENV.delete "LC_ALL"
