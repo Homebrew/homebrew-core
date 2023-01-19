@@ -18,7 +18,7 @@ class Awk < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6b9a89dc8999517cda6105d5c5e0e94294aba8f507aa85b21ee9a3a75c08a0a7"
   end
 
-  uses_from_macos "bison"
+  uses_from_macos "bison" => :build
 
   on_linux do
     conflicts_with "gawk", because: "both install an `awk` executable"
