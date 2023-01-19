@@ -21,11 +21,9 @@ class Grt < Formula
   depends_on "cmake" => :build
 
   def install
-    cd "build"
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args
-      system "make", "install"
-    end
+    system "cmake", "-S", "build", "-B", "_build", "-DBUILD_TESTS=OFF", "-DBUILD_EXAMPLES=OFF", *std_cmake_args
+    system "cmake", "--build", "_build"
+    system "cmake", "--install", "_build"
   end
 
   test do
