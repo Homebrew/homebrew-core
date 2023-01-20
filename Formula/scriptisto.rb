@@ -13,6 +13,21 @@ class Scriptisto < Formula
   end
 
   test do
-    system "#{bin}/scriptisto", "new", "rust"
+    (testpath/"hello-c.c").write <<~EOS
+      #!/usr/bin/env scriptisto
+
+      // scriptisto-begin
+      // script_src: main.c
+      // build_cmd: cc -O2 main.c -o ./script
+      // scriptisto-end
+
+      #include <stdio.h>
+      int main()
+      {
+        puts("Hello, world!");
+        return 0;
+      }
+    EOS
+    assert_equal "Hello, world!\n", shell_output("scriptisto ./hello-c.c")
   end
 end
