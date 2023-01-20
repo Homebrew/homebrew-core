@@ -45,7 +45,7 @@ class Mold < Formula
 
     # Avoid embedding libdir in the binary.
     # This helps make the bottle relocatable.
-    inreplace "config.h.in", "@CMAKE_INSTALL_FULL_LIBDIR@", ""
+    inreplace "common/config.h.in", "@CMAKE_INSTALL_FULL_LIBDIR@", ""
     # Ensure we're using Homebrew-provided versions of these dependencies.
     %w[mimalloc tbb zlib zstd].map { |dir| (buildpath/"third-party"/dir).rmtree }
     args = %w[
