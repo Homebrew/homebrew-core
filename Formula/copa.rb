@@ -21,7 +21,8 @@ class Copa < Formula
         "ArtifactType": "container_image"
       }
     EOS
-    output = shell_output("#{bin}/copa patch --image=mcr.microsoft.com/oss/nginx/nginx:1.21.6 --report=report.json 2>&1", 1)
+    output = shell_output("#{bin}/copa patch --image=mcr.microsoft.com/oss/nginx/nginx:1.21.6  \
+                          --report=report.json 2>&1", 1)
     assert_match "Error: no scanning results for os-pkgs found", output
   end
 end
