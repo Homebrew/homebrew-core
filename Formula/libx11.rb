@@ -22,7 +22,6 @@ class Libx11 < Formula
   depends_on "util-macros" => :build
   depends_on "xorgproto" => :build
   depends_on "xtrans" => :build
-  
 
   def install
     ENV.delete "LC_ALL"
