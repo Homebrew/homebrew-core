@@ -1,13 +1,26 @@
 class GnuCobol < Formula
-  desc "Implements much of the COBOL 85 and COBOL 2002 standards"
-  homepage "https://sourceforge.net/projects/gnucobol/"
-  url "https://downloads.sourceforge.net/project/gnucobol/gnucobol/3.1/gnucobol-3.1.2.tar.xz"
-  sha256 "597005d71fd7d65b90cbe42bbfecd5a9ec0445388639404662e70d53ddf22574"
+  desc "COBOL85-202x compiler supporting lots of dialect specific extensions"
+  homepage "https://www.gnu.org/software/gnucobol/"
+  # url "https://ftp.gnu.org/gnu/gnucobol/gnucobol-3.2.tar.xz"
+  url "https://alpha.gnu.org/gnu/gnucobol/gnucobol-3.2-rc1.tar.xz"
+  sha256 "026e01480fa91fae2b53c20bd118c133234fe1b07409e144fdbe5e17e5a8e6e7"
   license "GPL-3.0-or-later"
 
   livecheck do
     url :stable
     regex(%r{url=.*?/gnucobol[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
+  head do
+    url "https://svn.code.sf.net/p/gnucobol/code/trunk"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "bison" => :build
+    depends_on "flex" => :build
+    depends_on "gnu-sed" => :build
+    depends_on "help2man" => :build
+    depends_on "texinfo" => :build
   end
 
   bottle do
@@ -25,11 +38,19 @@ class GnuCobol < Formula
 
   depends_on "berkeley-db"
   depends_on "gmp"
+  # alternative would be json-c
+  depends_on "cjson"
+  # actually berkeley-db is recommended, if not used then configure must use --without-db
+  # cjson is also only recommended - but for homebrew-core this attribute should not be used
+  # further optional packages:
+  #    libxml2 and ncurses, but may be used from macos
+  #    lmdb  -> only for "head"
 
   def install
     # both environment variables are needed to be set
     # the cobol compiler takes these variables for calling cc during its run
     # if the paths to gmp and bdb are not provided, the run of cobc fails
+    # preferable alternative: use pkg-config to set it up during configure
     gmp = Formula["gmp"]
     bdb = Formula["berkeley-db"]
     ENV.append "CPPFLAGS", "-I#{gmp.opt_include} -I#{bdb.opt_include}"
@@ -56,6 +77,8 @@ class GnuCobol < Formula
       000004 DISPLAY "Hello World!".
       000005 STOP RUN.
     EOS
+    system "#{bin}/cobc", "hello.cob"
+    system "#{bin}/cobcrun", "hello"
     system "#{bin}/cobc", "-x", "hello.cob"
     system "./hello"
   end
