@@ -33,6 +33,12 @@ class CeresSolver < Formula
 
   fails_with gcc: "5" # C++17
 
+  # Fix version detection for suite-sparse >= 6.0. Remove in next release.
+  patch do
+    url "https://github.com/ceres-solver/ceres-solver/commit/352b320ab1b5438a0838aea09cbbf07fa4ff5d71.patch?full_index=1"
+    sha256 "0289adbea4cb66ccff57eeb844dd6d6736c37649b6ff329fed73cf0e9461fb53"
+  end
+
   def install
     system "cmake", ".", *std_cmake_args,
                     "-DBUILD_SHARED_LIBS=ON",
@@ -48,7 +54,7 @@ class CeresSolver < Formula
     (testpath/"CMakeLists.txt").write <<~EOS
       cmake_minimum_required(VERSION 3.5)
       project(helloworld)
-      find_package(Ceres REQUIRED)
+      find_package(Ceres REQUIRED COMPONENTS SuiteSparse)
       add_executable(helloworld helloworld.cc)
       target_link_libraries(helloworld Ceres::ceres)
     EOS
