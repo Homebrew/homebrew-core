@@ -190,23 +190,20 @@ class Semgrep < Formula
       # We pass --no-depexts so as to disable the check for pkg-config.
       # It seems to not be found when building on ubuntu
       # See discussion on https://github.com/Homebrew/homebrew-core/pull/82693
-      system "opam", "install", "-y", "--deps-only", "--no-depexts", "./semgrep-core/src/pfff"
-      system "opam", "install", "-y", "--deps-only", "--no-depexts", "./semgrep-core/src/ocaml-tree-sitter-core"
-      system "opam", "install", "-y", "--deps-only", "--no-depexts", "./semgrep-core"
+      system "opam", "install", "-y", "--deps-only", "--no-depexts", "./libs/ocaml-tree-sitter-core"
+      system "opam", "install", "-y", "--deps-only", "--no-depexts", "./"
 
       # Run configure script in ocaml-tree-sitter-core
-      cd "semgrep-core/src/ocaml-tree-sitter-core" do
+      cd "./libs/ocaml-tree-sitter-core" do
         system "./configure"
       end
 
       # Install semgrep-core and spacegrep
-      cd "semgrep-core" do
-        system "opam", "install", "--deps-only", "-y", "."
-        system "opam", "exec", "--", "make", "all"
-        system "opam", "exec", "--", "make", "install"
-        bin.install "_build/install/default/bin/semgrep-core" => "semgrep-core"
-        bin.install "_build/install/default/bin/spacegrep" => "spacegrep"
-      end
+      system "opam", "install", "--deps-only", "-y", "."
+      system "opam", "exec", "--", "make", "core"
+      system "opam", "exec", "--", "make", "core-install"
+      bin.install "_build/install/default/bin/semgrep-core" => "semgrep-core"
+      bin.install "_build/install/default/bin/spacegrep" => "spacegrep"
     end
 
     ENV["SEMGREP_SKIP_BIN"] = "1"
@@ -243,3 +240,4 @@ class Semgrep < Formula
     assert_match "a + b == a + b", output
   end
 end
+
