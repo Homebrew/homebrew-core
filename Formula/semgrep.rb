@@ -4,8 +4,8 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.dev"
   url "https://github.com/returntocorp/semgrep.git",
-      tag:      "v1.4.0",
-      revision: "56be8122b10b8d99b8973bb93651fe1da4df64cd"
+      tag:      "v1.5.1",
+      revision: "e95f1c8a8f535bf19c56ca12f9c68b4cbcdc391b"
   license "LGPL-2.1-only"
   head "https://github.com/returntocorp/semgrep.git", branch: "develop"
 
@@ -108,6 +108,11 @@ class Semgrep < Formula
   resource "packaging" do
     url "https://files.pythonhosted.org/packages/df/9e/d1a7217f69310c1db8fdf8ab396229f55a699ce34a203691794c5d1cad0c/packaging-21.3.tar.gz"
     sha256 "dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb"
+  end
+
+  resource "parsy" do
+    url "https://files.pythonhosted.org/packages/70/96/ba47d2f91e3375cfcae1cf7f90b6c2b043e6e15b76a0dd2f75a0849391de/parsy-2.0.tar.gz"
+    sha256 "7fd36ce0ebb0b80d969d39975038172de95ba212d9f0e1e73d8d51bf284f4524"
   end
 
   resource "peewee" do
