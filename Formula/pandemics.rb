@@ -6,6 +6,7 @@ class Pandemics < Formula
   url "https://registry.npmjs.org/pandemics/-/pandemics-0.11.11.tgz"
   sha256 "e9e54497f5b32c15cb5635d780566d855d086b82c352be154d5fb01a18f8ff7e"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9d067a0bb598178d1d774015aaa93d8ad21d021501541a78c005afe8f19da109"
