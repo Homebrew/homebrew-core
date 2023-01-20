@@ -3,8 +3,8 @@ class Prowler < Formula
 
   desc "Open Source Security tool to perform Cloud Security best practices"
   homepage "https://prowler.pro/"
-  url "https://github.com/prowler-cloud/prowler/archive/refs/tags/3.1.0.tar.gz"
-  sha256 "ee847e951c0ade68894bb62978d0beacfd6cffe031566f96d37b2e17b2322845"
+  url "https://github.com/prowler-cloud/prowler/archive/refs/tags/3.1.1.tar.gz"
+  sha256 "71069c9abaafab0450652affadb81bca6cc5f39373ac4799b095ed6805aa8952"
   license "Apache-2.0"
 
   bottle do
