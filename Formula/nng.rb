@@ -27,11 +27,12 @@ class Nng < Formula
   depends_on "ninja" => :build
 
   def install
-    mkdir "build" do
-      system "cmake", "..", "-GNinja", "-DNNG_ENABLE_DOC=ON", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
-      system "ninja"
-      system "ninja", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", "-G", "Ninja",
+                    "-DNNG_ENABLE_DOC=ON",
+                    "-DBUILD_SHARED_LIBS=ON",
+                    *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

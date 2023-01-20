@@ -12,14 +12,14 @@ class Fheroes2 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_ventura:  "a32abbe9d2f4fbff2cdbb89dc62e1a870af240ceefcb17d5aea083f7fb4d655f"
-    sha256 arm64_monterey: "c9ec77d02b1093b67b674e2a3ea719fda143b3f3e08736838791cd555b198e21"
-    sha256 arm64_big_sur:  "14248f4986bd21089bb40fe7a1930dd2d3943c7f0472b3f8a6e3df5570613e7b"
-    sha256 ventura:        "1e9a98edc985f06cc4f7378f2b05364faee649806f25a38b0b130f9677dff530"
-    sha256 monterey:       "9110c6760f98fcb3d23230e340019963cfa8c7a4adc7133fa9444436216fe26a"
-    sha256 big_sur:        "f2d77f652b180fbac69cf02fcce377fb6af2fb251e27a7308556a1168bd9ecb3"
-    sha256 x86_64_linux:   "46c8eec9bfef8be247b3b85e35f61b9837b4bf578ecffe224c8f1e83c3aa0e4c"
+    rebuild 2
+    sha256 arm64_ventura:  "45c1286356bc1a9f23cdcd5f417734a8c15b12a3ef85d12bb9e0bb4625afdaa7"
+    sha256 arm64_monterey: "a216bcbb598d3d3cadfb395de2d49c49249c2678dd619d2e87b3d7c22a8fb2a8"
+    sha256 arm64_big_sur:  "2db5e2c0e115178c69debeaca9f3fc05a912b496de38f44014c3a3dac0cd81d4"
+    sha256 ventura:        "95f6e78df7d0d774a6063c935608afd09c3f356bc8c2b23fca860278a8eba8b7"
+    sha256 monterey:       "9a54f7e774773db896120280151ebaf80815c0654ba0b553a98ac4a5888b81db"
+    sha256 big_sur:        "d65c569d7507c1b3aa5e5fddb566345ca92bdda3ca6ffca1efd3472490817780"
+    sha256 x86_64_linux:   "6bf603523da2369f0dad1f4145fc7f836d2fffddfdcc26cfda5d7361a75dead0"
   end
 
   depends_on "cmake" => :build
@@ -41,6 +41,13 @@ class Fheroes2 < Formula
 
     bin.install "script/demo/download_demo_version.sh" => "fheroes2-install-demo"
     bin.install "script/homm2/extract_homm2_resources.sh" => "fheroes2-extract-resources"
+  end
+
+  def caveats
+    <<~EOS
+      Documentation is available at:
+      #{share}/doc/fheroes2/README.txt
+    EOS
   end
 
   test do

@@ -1,19 +1,19 @@
 class KubeLinter < Formula
   desc "Static analysis tool for Kubernetes YAML files and Helm charts"
   homepage "https://github.com/stackrox/kube-linter"
-  url "https://github.com/stackrox/kube-linter/archive/0.5.1.tar.gz"
-  sha256 "e7dde2d07af7b133a0fe95ed4fe5cc230a3f9fc105f68aaf39ce6de900ebedba"
+  url "https://github.com/stackrox/kube-linter/archive/0.6.0.tar.gz"
+  sha256 "7d56831e16f0a883713dbae5d9d83e566d1831e4ace87f99f35c68573cd87e2b"
   license "Apache-2.0"
   head "https://github.com/stackrox/kube-linter.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "16b4f68b867d5b88a4e73df6c90cd42e7cfdb373e589a286c56fc0ce3846c64e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "16b4f68b867d5b88a4e73df6c90cd42e7cfdb373e589a286c56fc0ce3846c64e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "16b4f68b867d5b88a4e73df6c90cd42e7cfdb373e589a286c56fc0ce3846c64e"
-    sha256 cellar: :any_skip_relocation, ventura:        "6a8b5fd14a5928416cf5c7fa04dd1ca9739232a13f88a0cc4429da5c788c3143"
-    sha256 cellar: :any_skip_relocation, monterey:       "6a8b5fd14a5928416cf5c7fa04dd1ca9739232a13f88a0cc4429da5c788c3143"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6a8b5fd14a5928416cf5c7fa04dd1ca9739232a13f88a0cc4429da5c788c3143"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "801e2b579f0c73166e94f6a96df3c225e52aa07ac681221b1fc3097e9a3de76f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8d96e16464a24e55ce650de0ec5528fccd2fc2da95a723532bffacfb0dbf7627"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8d96e16464a24e55ce650de0ec5528fccd2fc2da95a723532bffacfb0dbf7627"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8d96e16464a24e55ce650de0ec5528fccd2fc2da95a723532bffacfb0dbf7627"
+    sha256 cellar: :any_skip_relocation, ventura:        "9c9ecd7ca50bfb25370259b0bdeecf8de167e3053f4a6fa19cdbc29c28cd0a00"
+    sha256 cellar: :any_skip_relocation, monterey:       "9c9ecd7ca50bfb25370259b0bdeecf8de167e3053f4a6fa19cdbc29c28cd0a00"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9c9ecd7ca50bfb25370259b0bdeecf8de167e3053f4a6fa19cdbc29c28cd0a00"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "24f4a6ae51b71b24db15d32ac60b97234460bbaa3ddb82714093938fb1f48722"
   end
 
   depends_on "go" => :build

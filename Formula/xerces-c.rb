@@ -8,13 +8,14 @@ class XercesC < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "6d5d2ab9215f5d716c2d714f2cfd85f57c5c263b782d92a657b61a2eceacabb9"
-    sha256 cellar: :any,                 arm64_monterey: "8a412a239af33b893ea1c5bef13650f5d2cd074c1c1dca368579120efdd2f366"
-    sha256 cellar: :any,                 arm64_big_sur:  "5e44f510463f401a0c50d7ce136f8073e3ff0a3cdaa59f1640d9b2c99585e0fc"
-    sha256 cellar: :any,                 ventura:        "108e04af86f1049a210cd4c2255c6891578468c6d9ac53ac5b9552d1cff41598"
-    sha256 cellar: :any,                 monterey:       "2222908e9bbcaddf3db710e4b5034c999bd4c42d31cb1e58cfa59e9039b2f2ee"
-    sha256 cellar: :any,                 big_sur:        "924efc9ed9d26683ba2639b0714e191ab2f397bfc812be5370dcbbacf053e1df"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "92fb7b227025549bdb51f35d41762ee08cff52ce6b52882e4bb947feff1ef23d"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "99006e9ad984212dc5016d5aa9f6ae8021d50f56fec9e13947d9779d9decc1de"
+    sha256 cellar: :any,                 arm64_monterey: "55c380d3cda733199a22d294208fb6b552ae53373ebba6d1ca91737c99ea52eb"
+    sha256 cellar: :any,                 arm64_big_sur:  "a932e185d8ddde919516e0c7cc24f6a98ed760369df9a1edf96db3969d929934"
+    sha256 cellar: :any,                 ventura:        "529a48ca044cff1006c56e0ba471591d625c4f0efd7a117f98e0d928c3c2cbfc"
+    sha256 cellar: :any,                 monterey:       "17f2a1e797058706fe947034ab4c912f196bf12195736e719c6953d3c418f0c3"
+    sha256 cellar: :any,                 big_sur:        "c61f70bacc917fb00e378878265bc575d427d879148b320cabc14dc71bdca56c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b7f4e544f614d90c303c47caa8630c6b8ac1a6e2f7f30cdd41137710a0a27f36"
   end
 
   depends_on "cmake" => :build
@@ -22,18 +23,21 @@ class XercesC < Formula
   uses_from_macos "curl"
 
   def install
-    ENV.cxx11
+    # Prevent opportunistic linkage to `icu4c`
+    args = std_cmake_args + %W[
+      -DCMAKE_DISABLE_FIND_PACKAGE_ICU=ON
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+    ]
 
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
-      system "make"
-      system "ctest", "-V"
-      system "make", "install"
-      system "make", "clean"
-      system "cmake", "..", "-DBUILD_SHARED_LIBS=OFF", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
-      system "make"
-      lib.install Dir["src/*.a"]
-    end
+    system "cmake", "-S", ".", "-B", "build_shared", "-DBUILD_SHARED_LIBS=ON", *args
+    system "cmake", "--build", "build_shared"
+    system "ctest", "--test-dir", "build_shared", "--verbose"
+    system "cmake", "--install", "build_shared"
+
+    system "cmake", "-S", ".", "-B", "build_static", "-DBUILD_SHARED_LIBS=OFF", *args
+    system "cmake", "--build", "build_static"
+    lib.install Dir["build_static/src/*.a"]
+
     # Remove a sample program that conflicts with libmemcached
     # on case-insensitive file systems
     (bin/"MemParse").unlink

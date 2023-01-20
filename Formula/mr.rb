@@ -28,7 +28,7 @@ class Mr < Formula
   def install
     system "make"
     bin.install "mr", "webcheckout"
-    man1.install gzip("mr.1", "webcheckout.1")
+    man1.install Utils::Gzip.compress("mr.1", "webcheckout.1")
     pkgshare.install Dir["lib/*"]
   end
 

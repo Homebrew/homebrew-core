@@ -5,20 +5,19 @@ class Julia < Formula
   #
   # TODO: Use system `suite-sparse` when `julia` supports v6.
   # Issue ref: https://github.com/JuliaLang/julia/issues/47884
-  url "https://github.com/JuliaLang/julia/releases/download/v1.8.3/julia-1.8.3-full.tar.gz"
-  sha256 "52b6895a9d4ad2fe36db261ee8c4c8cc9212b837a12f93002faaf537a2151f50"
+  url "https://github.com/JuliaLang/julia/releases/download/v1.8.5/julia-1.8.5-full.tar.gz"
+  sha256 "35554080a4b4d3ce52ef220254306bd42ac0d88eff9eb85592a57d0663db5df2"
   license all_of: ["MIT", "BSD-3-Clause", "Apache-2.0", "BSL-1.0"]
-  revision 1
   head "https://github.com/JuliaLang/julia.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "c90ce7101d2ab444eafc38fd473519a53dd474f6c9f23ed0d5e2b10405b09d20"
-    sha256 cellar: :any,                 arm64_monterey: "73f6643266d96413fa71c2efc0c0c597dfd82e4dc4de9da7bdbca3ce72f29871"
-    sha256 cellar: :any,                 arm64_big_sur:  "6dba3219907f42c74cd7badf26996edeaf6a77c3f3ff209a40bc35604a92e388"
-    sha256 cellar: :any,                 ventura:        "de8125e742afd9119f12bd1d6d0066221ed2e57dc80f7ed56f322cbf8211037b"
-    sha256 cellar: :any,                 monterey:       "c06ed6071c0b7b7d88ceeb20cc843171e19825779c656ec536ded5d26c28ff97"
-    sha256 cellar: :any,                 big_sur:        "5a759dac3854b7e8036c691914b2f874ec6d660a98064b20ab633b035f632fe8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3b875cffce265ca443eb2f3a0695e168530f7ee32717fad90500969f1c848cf1"
+    sha256 cellar: :any,                 arm64_ventura:  "8b45ec4ce5468d03bb94f69dee628ee4825ffeb1367afb459b670f8133227851"
+    sha256 cellar: :any,                 arm64_monterey: "514d53743912fa14afb76b078426d50b86507bde478fe0d7eccf16d28ea3aa43"
+    sha256 cellar: :any,                 arm64_big_sur:  "33142e0cc8a8717de76b2b07cb39894b76f78abb6d633aade97786cc811094b6"
+    sha256 cellar: :any,                 ventura:        "900e344a56e58415ea29e72ef661e79adb6b484a235239d58af83bdda15c2d61"
+    sha256 cellar: :any,                 monterey:       "d0aa241d4f6aad4b5c8b6e737d12b326173cd2c5ac23c51f40e02e44785f0262"
+    sha256 cellar: :any,                 big_sur:        "f6451f63c8b8deb18ed792ba1fc2c076933e9a899d120122ef1c36862a672353"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b8533af5ab2f6e870726f974d4dec20d6fe5da9fa4336536bbe124a81e856f0b"
   end
 
   depends_on "cmake" => :build # Needed to build LLVM
@@ -51,10 +50,17 @@ class Julia < Formula
   fails_with gcc: "5"
 
   # Link against libgcc_s.1.1.dylib, not libgcc_s.1.dylib
-  # https://github.com/JuliaLang/julia/pull/46240
+  # https://github.com/JuliaLang/julia/issues/48056
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/dd7279eea22d92688d2a821c245d92c4f8406fcf/julia/libgcc_s.diff"
-    sha256 "f12c11db53390145b4a9b1ea3b412019eee89c0d197eef6c78b0565bf7fd7aaf"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/202ccbabd44bd5ab02fbdee2f51f87bb88d74417/julia/libgcc_s-1.8.5.diff"
+    sha256 "1eea77d8024ad8bc9c733a0e0770661bc08228d335b20c4696350ed5dfdab29a"
+  end
+
+  # Fix Linux build, listdc++ issue. Remove in next version.
+  # https://github.com/JuliaLang/julia/issues/47987
+  patch do
+    url "https://github.com/JuliaLang/julia/commit/0b211609.patch?full_index=1"
+    sha256 "f8b802ef2004320dd8039b3c4896e99f5460c9bcada29bc699eaca7f843f2737"
   end
 
   def install

@@ -5,11 +5,6 @@ class GtkChtheme < Formula
   sha256 "26f4b6dd60c220d20d612ca840b6beb18b59d139078be72c7b1efefc447df844"
   revision 3
 
-  livecheck do
-    url :homepage
-    regex(/href=.*?gtk-chtheme[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "5b0a66205d00b377659f777db9aa0196af0ba64519bcd759ba7bc9da55afb37e"
     sha256 cellar: :any,                 arm64_monterey: "a6b9e2b55273be2bbfe8b54a82757e22c4a19e45a1f63780500499e73393d408"
@@ -23,6 +18,10 @@ class GtkChtheme < Formula
     sha256 cellar: :any,                 sierra:         "5af49da12ab0e1799377eb160cff68283b7a24e0149135603d35810e6c0d7e55"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8b7b31e4dee87e90caa847fadfb056eb44f063a6903528eeb3238ab6a78b8ca9"
   end
+
+  # GTK 2 is EOL: https://blog.gtk.org/2020/12/16/gtk-4-0/
+  # No new release or commit since 2008
+  deprecate! date: "2023-01-18", because: :unmaintained
 
   depends_on "pkg-config" => :build
   depends_on "gettext"

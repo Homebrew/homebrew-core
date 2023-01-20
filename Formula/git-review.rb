@@ -49,7 +49,7 @@ class GitReview < Formula
 
   def install
     virtualenv_install_with_resources
-    man1.install gzip("git-review.1")
+    man1.install Utils::Gzip.compress("git-review.1")
   end
 
   test do

@@ -1,9 +1,9 @@
 class Wireshark < Formula
   desc "Graphical network analyzer and capture tool"
   homepage "https://www.wireshark.org"
-  url "https://www.wireshark.org/download/src/all-versions/wireshark-4.0.2.tar.xz"
-  mirror "https://1.eu.dl.wireshark.org/src/all-versions/wireshark-4.0.2.tar.xz"
-  sha256 "f35915699f2f9b28ddb211202d40ec8984e5834d3c911483144a4984ba44411d"
+  url "https://www.wireshark.org/download/src/all-versions/wireshark-4.0.3.tar.xz"
+  mirror "https://1.eu.dl.wireshark.org/src/all-versions/wireshark-4.0.3.tar.xz"
+  sha256 "6c51e15bcc0afb93734e686dbff354ffd159f570bd2904bcbbad6f3feb7e9511"
   license "GPL-2.0-or-later"
   head "https://gitlab.com/wireshark/wireshark.git", branch: "master"
 
@@ -13,13 +13,13 @@ class Wireshark < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "b77227776d9c22545b9293eea171a7bcba9a8f9571b6fff318bfc314270ad88a"
-    sha256 arm64_monterey: "8b7bc467337aa944d70363cfdcfcb0bb8d9adb015e4635857ae7a942dd60372d"
-    sha256 arm64_big_sur:  "ea51202bd8dff8f258e23e0da456c7caf81988c00051472bfb64b9d587a4f848"
-    sha256 ventura:        "a667c6328fc2c3a84d259abd6a0d973f509c136872f59e438ebb9e218df774bf"
-    sha256 monterey:       "e3d5cec2a0e7beda097a7e9bb4524f4e530f197e73bdc6fa43be130126f3f63b"
-    sha256 big_sur:        "42800280364ae61010b17327ba6303fa1e766fb9553514819ef8cc2004ce6cd9"
-    sha256 x86_64_linux:   "ae706550761a4977b6ecaee52523d2aac4c51ef11d2a61fd6ef5e0af79eeda69"
+    sha256 arm64_ventura:  "ed981aeab980341210869eebe5c4bdef8ab52e4309087d65c2d30cac64f989df"
+    sha256 arm64_monterey: "f088621c27caec85b4183c6fdf6b153767db17cc632093da55abb348416209fa"
+    sha256 arm64_big_sur:  "9468c9ac26dcabc6ab915aae8b65c955995702456c0cdaa199bc5c41386e206d"
+    sha256 ventura:        "0f8a37c382c7aa0e38069e62314facc2ba29cd24a23fc8a679fac73ff8a0873b"
+    sha256 monterey:       "fcb648f3da10afe95ad67755fa519e7430ee5063d08e460cfd2fbe1dca6fa888"
+    sha256 big_sur:        "a15cbb5b88689312cc419a7ed92f0321c61fa2c3733a64e1d75df90ed6dcb38b"
+    sha256 x86_64_linux:   "aa61d106a0d3975f51adfa64a3b8de1c3c7e0eb29e6deff07389debe2408175c"
   end
 
   depends_on "cmake" => :build

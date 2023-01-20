@@ -18,6 +18,8 @@ class SpirvTools < Formula
   depends_on "cmake" => :build
   depends_on "python@3.11" => :build
 
+  conflicts_with "shaderc", because: "both install `spirv-*` binaries"
+
   resource "re2" do
     # revision number could be found in ./DEPS
     url "https://github.com/google/re2.git",

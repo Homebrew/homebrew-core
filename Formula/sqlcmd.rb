@@ -1,30 +1,31 @@
 class Sqlcmd < Formula
   desc "Microsoft SQL Server command-line interface"
   homepage "https://github.com/microsoft/go-sqlcmd"
-  url "https://github.com/microsoft/go-sqlcmd/archive/refs/tags/v0.10.0.tar.gz"
-  sha256 "718f2e770d4b2d04521b4988c6e353d0b8df4a559582da3a3e8627dbbbdd8c40"
+  url "https://github.com/microsoft/go-sqlcmd/archive/refs/tags/v0.11.0.tar.gz"
+  sha256 "8b8922a8f13f6961a75f1f7423a6b32ce6e5100c4bbb68db3bf5b00f129169d5"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2f8ce37a16cc727356faa80f57d2f05f919f1afa31b012e07d26c4de9afcce9f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4f522588f31fce97b48872a0de9e46e530be933e34a4efdecea30fb3019cb8ba"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4f522588f31fce97b48872a0de9e46e530be933e34a4efdecea30fb3019cb8ba"
-    sha256 cellar: :any_skip_relocation, ventura:        "2d765818f612bca97abb7b61f407badc8f2e5348f1698c39474b5a2d12b8399a"
-    sha256 cellar: :any_skip_relocation, monterey:       "046a8193b10eba6081c4ad1e95167d16c451ea675777ba7685496fbe9b734e2e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "046a8193b10eba6081c4ad1e95167d16c451ea675777ba7685496fbe9b734e2e"
-    sha256 cellar: :any_skip_relocation, catalina:       "046a8193b10eba6081c4ad1e95167d16c451ea675777ba7685496fbe9b734e2e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d4bfe0c85b2f981a6516a83d6ea9d242129625096b290e83e19180242b237c37"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6f5b5a26a6583e3615da7cd403904787a709c71f4ede15d6001cb1b3820b974e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "bc57a8dbf5f4836620500e77bf3f2b4ab7355b1500094c9a6b5a8607b6be990a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9293d60d76fa4153000e1dbe549601367da3b8e94c09f0beff961d4e9e0b7f5a"
+    sha256 cellar: :any_skip_relocation, ventura:        "acdcc8366eb5b5a2bf2ea2fbbadaef86c2531eda8c62f2fe753838c00ea5e649"
+    sha256 cellar: :any_skip_relocation, monterey:       "f7d27429bb9fcad5d2a612570d63ee6b71260c1b6f5be0459cdd47f638a5f1d4"
+    sha256 cellar: :any_skip_relocation, big_sur:        "5de0ef0f813a9cb40417f41db11553f628cf2b17a0e79e27c32696e6d4f8af66"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "21722fbaa51e1b213a140b68b9427892d5e00fc0d56ed574edeff5c705925735"
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["CGO_ENABLED"] = "0"
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/sqlcmd"
+    ldflags = "-s -w -X main.version=#{version}"
+    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/modern"
   end
 
   test do
     out = shell_output("#{bin}/sqlcmd -S 127.0.0.1 -E -Q 'SELECT @@version'", 1)
     assert_match "connection refused", out
+
+    assert_equal "sqlcmd: #{version}", shell_output("#{bin}/sqlcmd --version").chomp
   end
 end

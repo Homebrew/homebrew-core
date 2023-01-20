@@ -1,18 +1,18 @@
 class Prs < Formula
   desc "Secure, fast & convenient password manager CLI with GPG & git sync"
   homepage "https://timvisee.com/projects/prs"
-  url "https://github.com/timvisee/prs/archive/v0.4.1.tar.gz"
-  sha256 "f7f8f5d815cf1c4034f1c2aa36ed29b7e3ab2a884791b4b69ffc845d5d111524"
+  url "https://github.com/timvisee/prs/archive/v0.5.0.tar.gz"
+  sha256 "c09b563181bc58b49db8e4f015749785798bd55b35a1f1924b3e432fa5f387f2"
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "961985744643a37b043e0b97f5150faf69e27f3ce98990b16129a8e13a71a7fc"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "66e43ef6f5409c9c2e1ffcf7be721d3186b851e14e9db754e925d7097e77349c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ac727e06c559e5c64c0f6b6dfb99eddcba297d1ffb45ae0b24ca2159c4e52270"
-    sha256 cellar: :any_skip_relocation, ventura:        "b7254d21e5224ea4b53d48d4c1611e755dbadf661a80865bb504d944bfde2378"
-    sha256 cellar: :any_skip_relocation, monterey:       "1cdd752d854769e2f6c6936a4897334474a1fc366023ad7b1c6ac4c7a3fbc822"
-    sha256 cellar: :any_skip_relocation, big_sur:        "98da3f34c0555a262a36c4dfc6b424e343804ce3f47d92294298a2aeb4d9f3ba"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "21a2c5f858ca44a69618624efe280a8808a382d4b226a5626f6a01bb14c79a98"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c179ab6efea0b20ea6728f741ccf68566fcd3116ac0c1ad37e34664962b5829a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "03e32f7a7be5705cd65bafd8b91d464be6b8aa8cbbe743ea0a2084e4ec106f51"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f0d06a166a4be290c1b2246d441e21f6d27a4f8838678700f51aa61637abc471"
+    sha256 cellar: :any_skip_relocation, ventura:        "ae05b51b6c3f02790bdf22f00717bf9ae155e037c15da735ce1689710b4a5a08"
+    sha256 cellar: :any_skip_relocation, monterey:       "fbc0c4071ec4a681c1c129ebf83af025dfc535bca1775e7ee3987f15c7511e17"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9dbedc7e970b7354bd9951175941c06e9bce761bdef08b8dda507e3da290db98"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "003944e33f04aad5fe54bcf3f5ba832c2cb12099ff0b12f9606e311d8dcd69c9"
   end
 
   depends_on "rust" => :build
@@ -39,7 +39,7 @@ class Prs < Formula
     EOS
 
     assert_equal expected, shell_output("#{bin}/prs init --no-interactive 2>&1")
-    assert_equal "prs-cli #{version}\n", shell_output("#{bin}/prs --version")
+    assert_equal "prs #{version}\n", shell_output("#{bin}/prs --version")
     assert_equal "", shell_output("#{bin}/prs list --no-interactive --quiet")
   end
 end

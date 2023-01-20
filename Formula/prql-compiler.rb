@@ -1,24 +1,24 @@
 class PrqlCompiler < Formula
   desc "Simple, powerful, pipelined SQL replacement"
   homepage "https://prql-lang.org"
-  url "https://github.com/prql/prql/archive/refs/tags/0.4.0.tar.gz"
-  sha256 "7387b529071fbc89944649d9a9b9cb1b919ca7288560cc96f428c0a77337e752"
+  url "https://github.com/prql/prql/archive/refs/tags/0.4.1.tar.gz"
+  sha256 "b60df362a0b823600ccc614c335f4a8876a577a7ceeb6d162f16540fd9340f73"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b7424fe736ef2fd15f5e67a76b6576bac3e7930adba598c9dadba939ad915b9c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "56cc9833b457c187014dce5adc9ff212987a983b88089b608ad58f06d43bd5d5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7190ec9bf9c2c060d3864278171fd7ca3406d58505d88057edc9c1c11f02b529"
-    sha256 cellar: :any_skip_relocation, ventura:        "cac3ad853cd4575e9e4711a5a9e9541e5802b48dd717ae0fdbdb6737a8872a54"
-    sha256 cellar: :any_skip_relocation, monterey:       "d93a32516573867316e32d973f77eca392c7e194cbb5b17a0674195e8adebb2c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "eeb82dd2a0ba3dd1082dbcc90500e174cadcfe71e84d498c05fbd45bd242611c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a9da8a68182ce95b628532794dc3167fb5e2e5c7b773f9456229b6bd56f7da2d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "650d49a52514b28dd6438c841dbe49386d227ba96b73d14fe85a582f5afd279f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "28436c6cdae7975627d587727e83c0654eeadfc3161b5692a57702975e97a38c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b2cc00b3e6ed1ef772f762575b81d1e56515fc66c9df3cdf7e0c3c02f2b81663"
+    sha256 cellar: :any_skip_relocation, ventura:        "070897d6a9848d94f2b48260611ba7965709622c67d0475fa1a4062108020c91"
+    sha256 cellar: :any_skip_relocation, monterey:       "12b699203da7adead7bead94dfd279162819c313eccb2910236ed15c25c08407"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ee236950a9e00540ffc00b624470ec6ae25f1b86572adc2e4e6c2a3fd355a7f8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a58b4b32c8d40e8ddb565a028182388178c0f021b353ee64eac840fbc17a5af5"
   end
 
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", *std_cargo_args(path: "prql-compiler"), "--features", "cli"
+    system "cargo", "install", "prqlc", *std_cargo_args(path: "prql-compiler/prqlc")
   end
 
   test do

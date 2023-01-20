@@ -27,7 +27,7 @@ class Rolldice < Formula
   def install
     system "make", "CC=#{ENV.cc}"
     bin.install "rolldice"
-    man6.install gzip("rolldice.6")
+    man6.install Utils::Gzip.compress("rolldice.6")
   end
 
   test do

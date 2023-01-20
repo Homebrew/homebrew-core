@@ -28,7 +28,6 @@ class Anjuta < Formula
   depends_on "adwaita-icon-theme"
   depends_on "autogen"
   depends_on "gdl"
-  depends_on "gnome-themes-standard"
   depends_on "gnutls"
   depends_on "gtksourceview3"
   depends_on "hicolor-icon-theme"

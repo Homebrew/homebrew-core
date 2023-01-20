@@ -31,7 +31,7 @@ class Pidof < Formula
 
   def install
     system "make", "all", "CC=#{ENV.cc}", "CFLAGS=#{ENV.cflags}"
-    man1.install gzip("pidof.1")
+    man1.install Utils::Gzip.compress("pidof.1")
     bin.install "pidof"
   end
 

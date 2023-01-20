@@ -1,20 +1,19 @@
 class Highway < Formula
   desc "Performance-portable, length-agnostic SIMD with runtime dispatch"
   homepage "https://github.com/google/highway"
-  url "https://github.com/google/highway/archive/refs/tags/1.0.2.tar.gz"
-  sha256 "e8ef71236ac0d97f12d553ec1ffc5b6375d57b5f0b860c7447dd69b6ed1072db"
+  url "https://github.com/google/highway/archive/refs/tags/1.0.3.tar.gz"
+  sha256 "566fc77315878473d9a6bd815f7de78c73734acdcb745c3dde8579560ac5440e"
   license "Apache-2.0"
   head "https://github.com/google/highway.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "cfb84f99cd8417948358145e0172ed7ad697d2e77ca4e21beee4463d8351b0e2"
-    sha256 cellar: :any,                 arm64_monterey: "cdc23066920bb62986f4b848b4ff6b13cdd8c211f5b6b6f3dc0ce739ff248bbd"
-    sha256 cellar: :any,                 arm64_big_sur:  "209c3641472a9688d92f6cf2557dbb3c004e9c2e83b995eef0bf1d4fb259a476"
-    sha256 cellar: :any,                 ventura:        "01abac2200f8d03f6b9eb3fb7d940ce085dcf23633e4d8c384439f25a2c68f8d"
-    sha256 cellar: :any,                 monterey:       "6f5347f6bb7a69ca3ec3655806d173db4219ff28f880d561e16654379a1dc615"
-    sha256 cellar: :any,                 big_sur:        "189cb36dbe972c0ad1b9ddfb770b2223ff04ee44eaf72d6359e522bd14c956a8"
-    sha256 cellar: :any,                 catalina:       "6a301cbf286cef4498342aa45f1beee434f557cfb1bc5f27657b45125f4124e4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ffafceae65875313337f7f094ada2abe73a49520520ac078ab4f2555714e4011"
+    sha256 cellar: :any,                 arm64_ventura:  "0df1dfbfba2f4aa51b6c8d06cd25a5734bd64c4eac4dd642bdf05e1c6a4faee1"
+    sha256 cellar: :any,                 arm64_monterey: "d113ba1bce679f1b4b7167a04f678f40f97051cbb9732641757bdfa15daeb68d"
+    sha256 cellar: :any,                 arm64_big_sur:  "8ea148a8b04c67f99de6e3195fdcc7b1d33ed484e091df7be1f065c1fab798a5"
+    sha256 cellar: :any,                 ventura:        "11c314be0ee6875177503b0819e0f6cb8def0f4abbd37e9ff21605c089194fef"
+    sha256 cellar: :any,                 monterey:       "20059832fbfeddd5609e82caf28f0db4d3f5bf3f467ab34b37f394db2d1c66e5"
+    sha256 cellar: :any,                 big_sur:        "043501b77eaef66c715ab49ffce7964fc4a03eea2f9357bae637112660217e2a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "249e0436a47bac3efb7d798d5c80252365f9ce09f0427b447bc00b31b96972ad"
   end
 
   depends_on "cmake" => :build

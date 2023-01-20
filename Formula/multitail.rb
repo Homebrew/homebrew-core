@@ -24,7 +24,7 @@ class Multitail < Formula
     system "make", "-f", "makefile.macosx", "multitail", "DESTDIR=#{HOMEBREW_PREFIX}"
 
     bin.install "multitail"
-    man1.install gzip("multitail.1")
+    man1.install Utils::Gzip.compress("multitail.1")
     etc.install "multitail.conf"
   end
 

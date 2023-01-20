@@ -1,19 +1,18 @@
 class Onefetch < Formula
   desc "Command-line Git information tool"
   homepage "https://github.com/o2sh/onefetch"
-  url "https://github.com/o2sh/onefetch/archive/2.14.2.tar.gz"
-  sha256 "df5e10aac076369bbbdeb94eef286dbde8d10859fd8f47af7e2748fadef0622c"
+  url "https://github.com/o2sh/onefetch/archive/2.15.1.tar.gz"
+  sha256 "53b1c3acff1e557d3ff9f9a5f6ebbc1a6a5748912a6b96cb6ae0e35e9b5954a7"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9f1a30918f552243064de48d676cad0b42353b8900442c4767aaf8169e6f72f8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a7a53e763435559e4d49a7c151b873f8ecdbc01745d0234e19c4b4203d4d194a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fe975449c82a21ec7e4ff5331656fb437861c1c78c186fd7a6842fb86b562c42"
-    sha256 cellar: :any_skip_relocation, ventura:        "2118047958912a722ad2b05b41a0e9e4041d0dc973f02042d7cbf3bf5a18cfc1"
-    sha256 cellar: :any_skip_relocation, monterey:       "ffc838300aa4c52191823aeff02ca82b9da9aa502e8534160208b6a4173d9a00"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d8c266f7035e51370267d6d807636f9974b198bbb93d8411fd6f0bfbd84de7e5"
-    sha256 cellar: :any_skip_relocation, catalina:       "6110c913a91bf796f2fa31e22078250a6a2babdd90e14ba434ee102b5f94d085"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9e1b803fb49c420337bc81479eae56a954d6b98c22aa3f5b6f0d3b9ab6c886a2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fca68d469c926ba18adad64bf58bcd36c472d16fb9d4bd783a75ba94eea3d6be"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6a930e2a2cbbc39fcff71c78b23a79a9340c193badc6869db561ec8e13e06b27"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e70df35cf69626137408b1c26d624f5fe1cb2fdfdb3c1f5d6459afc603d73fac"
+    sha256 cellar: :any_skip_relocation, ventura:        "1ec8aad1b80654586ff20a5945db7e69c28dd26b3b211967f9fad26c2cb66e8f"
+    sha256 cellar: :any_skip_relocation, monterey:       "cdc1ea5eaefc948a8b37672a01cc83dbd6a55224bc040948ad8a1ca49df85c9c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6f5ddddfa77c2aa077eb808cd0e0610d755bc95a4ad87634dcfe11f9b7c4d09e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e371157da5efe3c3752f85689e8c78dd74d3f2456889bf6ac8e1bdf9470a2571"
   end
 
   depends_on "cmake" => :build

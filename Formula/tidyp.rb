@@ -33,7 +33,7 @@ class Tidyp < Formula
       system "#{bin}/tidyp -xml-help > tidyp1.xml"
       system "#{bin}/tidyp -xml-config > tidyp-config.xml"
       system "/usr/bin/xsltproc tidyp1.xsl tidyp1.xml > tidyp.1"
-      man1.install gzip("tidyp.1")
+      man1.install Utils::Gzip.compress("tidyp.1")
     end
   end
 

@@ -27,7 +27,7 @@ class Par < Formula
   def install
     system "make", "-f", "protoMakefile"
     bin.install "par"
-    man1.install gzip("par.1")
+    man1.install Utils::Gzip.compress("par.1")
   end
 
   test do

@@ -31,7 +31,7 @@ class Launch < Formula
     xcodebuild "-configuration", "Deployment", "SYMROOT=build", "clean"
     xcodebuild "-arch", Hardware::CPU.arch, "-configuration", "Deployment", "SYMROOT=build"
 
-    man1.install gzip("launch.1")
+    man1.install Utils::Gzip.compress("launch.1")
     bin.install "build/Deployment/launch"
   end
 

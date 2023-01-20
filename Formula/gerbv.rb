@@ -20,7 +20,7 @@ class Gerbv < Formula
   depends_on "gettext" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "gtk+"
+  depends_on "gtk+" # GTK3/GTK4 issue: https://github.com/gerbv/gerbv/issues/71
 
   def install
     ENV.append "CPPFLAGS", "-DQUARTZ" if OS.mac?
