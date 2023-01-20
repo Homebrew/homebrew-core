@@ -85,13 +85,13 @@ class Prowler < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/c3/b9/51ad579e26c3cbb6589687b20887e30e8180866140f67d5817ff0251396b/boto3-1.26.50.tar.gz"
-    sha256 "3737d8a506f50065bb2366a6b8e7545d88034f4771527790a125e0abd307d8e8"
+    url "https://files.pythonhosted.org/packages/91/c4/a95e49f3bc35bc162bb17f198c7c281c14abfe0d54bfcd90688ab7fc4fd8/boto3-1.26.53.tar.gz"
+    sha256 "665d3226383dc393e59a41f1a82cd34b63d87236a1fff63e7c3af7cab2f416d0"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/2f/90/6ef8ae718153f970fa28e019d4768b2767ec03dd8701d7df1036bf7ed4d9/botocore-1.29.50.tar.gz"
-    sha256 "5cc68b78a48217550c18b4639420b7c3b48ed9e09e749343143acbfa423ceec5"
+    url "https://files.pythonhosted.org/packages/2b/ff/6f2068be7d68b45eb9dbe3e60d0a6415149737f06ded2d371ea51d4ed62d/botocore-1.29.53.tar.gz"
+    sha256 "e48de9e0cd1db19a5c301457caca23ef27dd0f4b553e375b908bc7a023571b6d"
   end
 
   resource "certifi" do
@@ -122,6 +122,11 @@ class Prowler < Formula
   resource "colorama" do
     url "https://files.pythonhosted.org/packages/d8/53/6f443c9a4a8358a93a6792e2acffb9d9d5cb0a5cfd8802644b7b1c9a02e4/colorama-0.4.6.tar.gz"
     sha256 "08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44"
+  end
+
+  resource "contextlib2" do
+    url "https://files.pythonhosted.org/packages/c7/13/37ea7805ae3057992e96ecb1cffa2fa35c2ef4498543b846f90dd2348d8f/contextlib2-21.6.0.tar.gz"
+    sha256 "ab1e2bfe1d01d968e1b7e8d9023bc51ef3509bba217bb730cee3827e1ee82869"
   end
 
   resource "cryptography" do
@@ -180,8 +185,8 @@ class Prowler < Formula
   end
 
   resource "portalocker" do
-    url "https://files.pythonhosted.org/packages/a6/5c/57ef8091f9f1d01bf5413fcd0fd1f2f255f45536e42bfd34bc45b6cc2786/portalocker-2.6.0.tar.gz"
-    sha256 "964f6830fb42a74b5d32bce99ed37d8308c1d7d44ddf18f3dd89f4680de97b39"
+    url "https://files.pythonhosted.org/packages/1f/f8/969e6f280201b40b31bcb62843c619f343dcc351dff83a5891530c9dd60e/portalocker-2.7.0.tar.gz"
+    sha256 "032e81d534a88ec1736d03f780ba073f047a06c478b06e2937486f334e955c51"
   end
 
   resource "pycparser" do
@@ -217,6 +222,11 @@ class Prowler < Formula
   resource "s3transfer" do
     url "https://files.pythonhosted.org/packages/e1/eb/e57c93d5cd5edf8c1d124c831ef916601540db70acd96fa21fe60cef1365/s3transfer-0.6.0.tar.gz"
     sha256 "2ed07d3866f523cc561bf4a00fc5535827981b117dd7876f036b0c1aca42c947"
+  end
+
+  resource "schema" do
+    url "https://files.pythonhosted.org/packages/4e/e8/01e1b46d9e04cdaee91c9c736d9117304df53361a191144c8eccda7f0ee9/schema-0.7.5.tar.gz"
+    sha256 "f06717112c61895cabc4707752b88716e8420a8819d71404501e114f91043197"
   end
 
   resource "shodan" do
