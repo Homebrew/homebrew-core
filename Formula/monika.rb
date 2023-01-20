@@ -3,8 +3,8 @@ require "language/node"
 class Monika < Formula
   desc "Synthetic monitoring made easy"
   homepage "https://monika.hyperjump.tech"
-  url "https://registry.npmjs.org/@hyperjumptech/monika/-/monika-1.14.1.tgz"
-  sha256 "0dcf2ad68a7c71d1e196a742afda9fe7d02b056dd604aad1e159646d1e4a9aa3"
+  url "https://registry.npmjs.org/@hyperjumptech/monika/-/monika-1.15.0.tgz"
+  sha256 "b55cff61b8ab764f25b19442c0186056e62984e9f76e94adec94d560a27b9eb3"
   license "MIT"
 
   bottle do
