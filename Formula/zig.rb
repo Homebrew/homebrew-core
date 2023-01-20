@@ -27,7 +27,15 @@ class Zig < Formula
   fails_with gcc: "5" # LLVM is built with GCC
 
   def install
-    system "cmake", "-S", ".", "-B", "build", "-DZIG_STATIC_LLVM=ON", *std_cmake_args
+    cpu = case Hardware.oldest_cpu
+    when :arm_vortex_tempest then "apple_m1" # See `zig targets`.
+    else Hardware.oldest_cpu
+    end
+
+    args = ["-DZIG_STATIC_LLVM=ON"]
+    args << "-DZIG_TARGET_MCPU=#{cpu}" if build.bottle?
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
