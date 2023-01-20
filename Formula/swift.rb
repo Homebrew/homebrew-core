@@ -52,13 +52,13 @@ class Swift < Formula
     depends_on "icu4c" # Used in swift-corelibs-foundation
 
     resource "swift-corelibs-foundation" do
-      url "https://github.com/apple/swift-corelibs-foundation/archive/refs/tags/swift-5.7.2-RELEASE.tar.gz"
-      sha256 "92f06d557f033f4cb4a2e32e3fdd5f809713ea9716af73c959cc235946702935"
+      url "https://github.com/apple/swift-corelibs-foundation/archive/refs/tags/swift-5.7.3-RELEASE.tar.gz"
+      sha256 "78852bcfcf703957953761cbd18a2398c31b25f26ddf3ac18983b959e1564f3d"
     end
 
     resource "swift-corelibs-libdispatch" do
-      url "https://github.com/apple/swift-corelibs-libdispatch/archive/refs/tags/swift-5.7.2-RELEASE.tar.gz"
-      sha256 "99294849b57a2e8443e957483c90405693d09bbd1684f7b96a8b063d812f7825"
+      url "https://github.com/apple/swift-corelibs-libdispatch/archive/refs/tags/swift-5.7.3-RELEASE.tar.gz"
+      sha256 "4c6b7b0ecdf10e9cbe1cd007b9a09689ea412edb8e3a289ade6d105df43209f5"
 
       # Fix race condition building both shared and static libdispatch.
       patch do
@@ -68,8 +68,8 @@ class Swift < Formula
     end
 
     resource "swift-corelibs-xctest" do
-      url "https://github.com/apple/swift-corelibs-xctest/archive/refs/tags/swift-5.7.2-RELEASE.tar.gz"
-      sha256 "d03d496ce8c0813a9dab202d0ed8d2d4cc81a371aaf8fe017334f31150f7e198"
+      url "https://github.com/apple/swift-corelibs-xctest/archive/refs/tags/swift-5.7.3-RELEASE.tar.gz"
+      sha256 "4f152a62522008c09948202cd94d1d25c42b68ef5c8eb21abaa9855ea3e5a47f"
     end
   end
 
@@ -77,78 +77,78 @@ class Swift < Formula
   fails_with :gcc
 
   resource "llvm-project" do
-    url "https://github.com/apple/llvm-project/archive/refs/tags/swift-5.7.2-RELEASE.tar.gz"
-    sha256 "e1d310fb5453ef3a6abe5129a8f9029916320baf8422f3e4da94fd84f08e871b"
+    url "https://github.com/apple/llvm-project/archive/refs/tags/swift-5.7.3-RELEASE.tar.gz"
+    sha256 "003e933dcfe8251ab0d809aba36d8f38d3cafa5946df2e0f0713962d9e5ebd62"
   end
 
   resource "cmark" do
-    url "https://github.com/apple/swift-cmark/archive/refs/tags/swift-5.7.2-RELEASE.tar.gz"
-    sha256 "fba4e4d40d641daa7752a64f7e45a0806be180942a265b9362168a4a02dc1c65"
+    url "https://github.com/apple/swift-cmark/archive/refs/tags/swift-5.7.3-RELEASE.tar.gz"
+    sha256 "143a58286e611460ba5ffe3d53d8be5bfbe655f9eba4571201537bb417547b63"
   end
 
   resource "llbuild" do
-    url "https://github.com/apple/swift-llbuild/archive/refs/tags/swift-5.7.2-RELEASE.tar.gz"
-    sha256 "7b5bf47d124c5722a423e296b21fb81dfd246a2442d8b05c65cedf8026e2cb4c"
+    url "https://github.com/apple/swift-llbuild/archive/refs/tags/swift-5.7.3-RELEASE.tar.gz"
+    sha256 "bf1f1ca43d4f658813382ddb144d11f2ccd79ab7b10b31fde673087587310909"
   end
 
   resource "swiftpm" do
-    url "https://github.com/apple/swift-package-manager/archive/refs/tags/swift-5.7.2-RELEASE.tar.gz"
-    sha256 "004c99ac28a54ddb352c1eddb02ac1cb1c3782dc9b8f6c2c2652ed17934a2769"
+    url "https://github.com/apple/swift-package-manager/archive/refs/tags/swift-5.7.3-RELEASE.tar.gz"
+    sha256 "01ed764386cbac24c07497b192261746ddc961ce876f5f94bdcebccc1322105c"
   end
 
   resource "indexstore-db" do
-    url "https://github.com/apple/indexstore-db/archive/refs/tags/swift-5.7.2-RELEASE.tar.gz"
-    sha256 "9c0aeae36a6c992b95200cdfad3ab08cb2e249893e312bd3732e859cbe26ffac"
+    url "https://github.com/apple/indexstore-db/archive/refs/tags/swift-5.7.3-RELEASE.tar.gz"
+    sha256 "210eff2343c4b122fd8622af7f0ad19cca41838dac66db8b5a35d477eaae79a0"
   end
 
   resource "sourcekit-lsp" do
-    url "https://github.com/apple/sourcekit-lsp/archive/refs/tags/swift-5.7.2-RELEASE.tar.gz"
-    sha256 "9f72d9ea15f29fa31cd7e25fb97c2165707f2c57907d58195f8140d198bf5499"
+    url "https://github.com/apple/sourcekit-lsp/archive/refs/tags/swift-5.7.3-RELEASE.tar.gz"
+    sha256 "cabcc7b5b839fff159210a04303660646ba2d1f51c9cf288c3a6df3373cbcd96"
   end
 
   resource "swift-driver" do
-    url "https://github.com/apple/swift-driver/archive/refs/tags/swift-5.7.2-RELEASE.tar.gz"
-    sha256 "193750dba9822685daff20dc61d910b6812435b44361adc8093f1b850c20eaa4"
+    url "https://github.com/apple/swift-driver/archive/refs/tags/swift-5.7.3-RELEASE.tar.gz"
+    sha256 "4a730616abd89191dfbebae888bc9c2436447868b69b2d4dcb7dbb2111ad2863"
   end
 
   resource "swift-tools-support-core" do
-    url "https://github.com/apple/swift-tools-support-core/archive/refs/tags/swift-5.7.2-RELEASE.tar.gz"
-    sha256 "45a17aa44e0080056f416d71f743d62dbbe03515f95ad2a9482a3ed954535fe5"
+    url "https://github.com/apple/swift-tools-support-core/archive/refs/tags/swift-5.7.3-RELEASE.tar.gz"
+    sha256 "a0c54390f93642ee5df61bc65274c8c6a11e35177fb20188c1d9b710d69ef319"
   end
 
   resource "swift-docc" do
-    url "https://github.com/apple/swift-docc/archive/refs/tags/swift-5.7.2-RELEASE.tar.gz"
-    sha256 "9c0c1b3bbf4f7c1e5d34c44436702912ee8181c243719e19a00ab6602ade0976"
+    url "https://github.com/apple/swift-docc/archive/refs/tags/swift-5.7.3-RELEASE.tar.gz"
+    sha256 "bd0a4e652ca15b626a30b05e6931945267c3b15a0504628a102fcc97ebed45dd"
   end
 
   resource "swift-lmdb" do
-    url "https://github.com/apple/swift-lmdb/archive/refs/tags/swift-5.7.2-RELEASE.tar.gz"
-    sha256 "435ebaec63d134020887d93562bfe1f9aa2cfca94dfec7d9bdaf35a8247d0a46"
+    url "https://github.com/apple/swift-lmdb/archive/refs/tags/swift-5.7.3-RELEASE.tar.gz"
+    sha256 "915c99c1b4e4031db076e3c357dedb52df350c7c968c8b77f6ad5753b11a2ff3"
   end
 
   resource "swift-docc-render-artifact" do
-    url "https://github.com/apple/swift-docc-render-artifact/archive/refs/tags/swift-5.7.2-RELEASE.tar.gz"
-    sha256 "868ed7df904c8fd52d3647a2f6ea74264e888a762ad9d06565c44d10d2e93af5"
+    url "https://github.com/apple/swift-docc-render-artifact/archive/refs/tags/swift-5.7.3-RELEASE.tar.gz"
+    sha256 "7ae5fbce5e860d94514c91f28228fb762297de2be1e01233e4046174fdfc16be"
   end
 
   resource "swift-docc-symbolkit" do
-    url "https://github.com/apple/swift-docc-symbolkit/archive/refs/tags/swift-5.7.2-RELEASE.tar.gz"
-    sha256 "15ccd287f6287210dee146bcb32962593c4f6a8f33b21fd293836dd17fb7c5e3"
+    url "https://github.com/apple/swift-docc-symbolkit/archive/refs/tags/swift-5.7.3-RELEASE.tar.gz"
+    sha256 "8a2e44c5eae188cf697785ceace4be96dceea46d47c32cb9e0728786ce72ef57"
   end
 
   resource "swift-markdown" do
-    url "https://github.com/apple/swift-markdown/archive/refs/tags/swift-5.7.2-RELEASE.tar.gz"
-    sha256 "6e82c713cd13851e3621bd3318eb1228cded7c105aa24d57ca94dbb00ae4ba96"
+    url "https://github.com/apple/swift-markdown/archive/refs/tags/swift-5.7.3-RELEASE.tar.gz"
+    sha256 "d2d14a2879d43c0579eb6e0562cb408596985862117441acf834cafa7d7f4f63"
   end
 
   resource "swift-cmark-gfm" do
-    url "https://github.com/apple/swift-cmark/archive/refs/tags/swift-5.7.2-RELEASE-gfm.tar.gz"
-    sha256 "b2546ac1e364b860e1094a4ec45fa046fdc1c540aedda61e3f884bd0a0b4eb4b"
+    url "https://github.com/apple/swift-cmark/archive/refs/tags/swift-5.7.3-RELEASE-gfm.tar.gz"
+    sha256 "2dbcd0fb1907b5feb321175d9a3e629dc2845a7bde7ad9e5846b3074e3d93768"
   end
 
   resource "swift-experimental-string-processing" do
-    url "https://github.com/apple/swift-experimental-string-processing/archive/refs/tags/swift-5.7.2-RELEASE.tar.gz"
-    sha256 "a5f8db10c736cf4e33ab813fa1db1783c936e9587b79e15b1fec643cd78c7703"
+    url "https://github.com/apple/swift-experimental-string-processing/archive/refs/tags/swift-5.7.3-RELEASE.tar.gz"
+    sha256 "86f5e1c9336fc4fc7529554418bff760aaafc8397dc29c4e56a5b1334dcdffba"
   end
 
   # To find the version to use, check the release/#{version.major_minor} entry of:
@@ -190,8 +190,8 @@ class Swift < Formula
 
   # As above: refer to update-checkout-config.json
   resource "yams" do
-    url "https://github.com/jpsim/Yams/archive/refs/tags/5.0.1.tar.gz"
-    sha256 "ec1ad699c30f0db45520006c63a88cc1c946a7d7b36dff32a96460388c0a4af2"
+    url "https://github.com/jpsim/Yams/archive/refs/tags/5.0.0.tar.gz"
+    sha256 "b31b6df500d6191368c93f605690ca9857fff7c6fd1c8897e9765fb624535c63"
   end
 
   # As above: refer to update-checkout-config.json
