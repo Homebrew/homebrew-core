@@ -1,8 +1,8 @@
 class Gedit < Formula
   desc "GNOME text editor"
   homepage "https://wiki.gnome.org/Apps/Gedit"
-  url "https://download.gnome.org/sources/gedit/44/gedit-44.1.tar.xz"
-  sha256 "0462378d7284ccf8cd4782a4d1ff902c5dc2b81dffcd40285ad543f5945d8fda"
+  url "https://download.gnome.org/sources/gedit/44/gedit-44.2.tar.xz"
+  sha256 "3bbb1b3775d4c277daf54aaab44b0eb83a4eb1f09f0391800041c9e56893ec11"
   license "GPL-2.0-or-later"
 
   bottle do
