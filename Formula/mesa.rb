@@ -35,7 +35,6 @@ class Mesa < Formula
   depends_on "xorgproto" => :build
 
   depends_on "expat"
-  depends_on "gettext"
   depends_on "libx11"
   depends_on "libxcb"
   depends_on "libxdamage"
@@ -45,6 +44,10 @@ class Mesa < Formula
   uses_from_macos "llvm"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   on_linux do
     depends_on "elfutils"
@@ -101,21 +104,21 @@ class Mesa < Formula
       args += %w[
         -Dplatforms=x11,wayland
         -Dglx=auto
-        -Ddri3=true
+        -Ddri3=enabled
         -Dgallium-drivers=auto
         -Dgallium-omx=disabled
-        -Degl=true
-        -Dgbm=true
+        -Degl=enabled
+        -Dgbm=enabled
         -Dopengl=true
         -Dgles1=enabled
         -Dgles2=enabled
-        -Dvalgrind=false
+        -Dvalgrind=disabled
         -Dtools=drm-shim,etnaviv,freedreno,glsl,nir,nouveau,lima
       ]
     end
 
-    system "meson", "build", *args, *std_meson_args
-    system "meson", "compile", "-C", "build"
+    system "meson", "setup", "build", *args, *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
     inreplace lib/"pkgconfig/dri.pc" do |s|
       s.change_make_var! "dridriverdir", HOMEBREW_PREFIX/"lib/dri"
