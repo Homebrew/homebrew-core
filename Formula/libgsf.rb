@@ -20,24 +20,25 @@ class Libgsf < Formula
     url "https://github.com/GNOME/libgsf.git", branch: "master"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
+    depends_on "gettext" => :build
     depends_on "gtk-doc" => :build
     depends_on "libtool" => :build
   end
 
-  depends_on "intltool" => :build
   depends_on "pkg-config" => :build
-  depends_on "gettext"
   depends_on "glib"
 
+  uses_from_macos "bzip2"
   uses_from_macos "libxml2"
+  uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   def install
-    args = %W[--disable-dependency-tracking --prefix=#{prefix}]
-    if build.head?
-      system "./autogen.sh", *args
-    else
-      system "./configure", *args
-    end
+    configure = build.head? ? "./autogen.sh" : "./configure"
+    system configure, *std_configure_args, "--disable-silent-rules"
     system "make", "install"
   end
 
