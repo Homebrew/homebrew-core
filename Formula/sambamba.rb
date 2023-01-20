@@ -1,8 +1,8 @@
 class Sambamba < Formula
   desc "Tools for working with SAM/BAM data"
   homepage "https://lomereiter.github.io/sambamba/"
-  url "https://github.com/biod/sambamba/archive/refs/tags/v0.8.2.tar.gz"
-  sha256 "10f7160db5a1c50296b32e94f7d7570739aa7d90c93fe0981246fe89eab6dd98"
+  url "https://github.com/biod/sambamba/archive/refs/tags/v1.0.0.tar.gz"
+  sha256 "6992c5c29f7917e404dd2b32fff4e75e3655c27129053e5fa01cfabe1f4d071f"
   license "GPL-2.0-or-later"
 
   bottle do
