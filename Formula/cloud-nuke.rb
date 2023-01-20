@@ -1,8 +1,8 @@
 class CloudNuke < Formula
   desc "CLI tool to nuke (delete) cloud resources"
   homepage "https://gruntwork.io/"
-  url "https://github.com/gruntwork-io/cloud-nuke/archive/v0.22.1.tar.gz"
-  sha256 "bb3b8825a6d59c39cdd821332fd2a2e5e5d6df54615a9f4937f0fd633f8b8db1"
+  url "https://github.com/gruntwork-io/cloud-nuke/archive/v0.23.0.tar.gz"
+  sha256 "5445b60d4ec58d9cd04bc40375913a70825b86b47539cbc085be5f51b6ab6c6d"
   license "MIT"
   head "https://github.com/gruntwork-io/cloud-nuke.git", branch: "master"
 
