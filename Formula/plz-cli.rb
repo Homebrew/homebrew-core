@@ -1,8 +1,8 @@
 class PlzCli < Formula
   desc "Copilot for your terminal"
   homepage "https://github.com/m1guelpf/plz-cli"
-  url "https://github.com/m1guelpf/plz-cli/archive/refs/tags/v0.1.7.tar.gz"
-  sha256 "26fd34c423dafe48acd865d9044f29dd3d473e67945b2fb5bc09d80dbc7fa887"
+  url "https://github.com/m1guelpf/plz-cli/archive/refs/tags/v0.1.8.tar.gz"
+  sha256 "84a8835f091b305d21f52c36a19b4f4264ee72348f576ea2dd5a4c383f84acce"
   license "MIT"
   head "https://github.com/m1guelpf/plz-cli.git", branch: "main"
 
