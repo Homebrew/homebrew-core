@@ -240,4 +240,3 @@ class Semgrep < Formula
     assert_match "a + b == a + b", output
   end
 end
-
