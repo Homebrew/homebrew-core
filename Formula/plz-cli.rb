@@ -24,7 +24,7 @@ class PlzCli < Formula
 
   test do
     ENV["OPENAI_API_KEY"] = "sk-XXXXXXXX"
-    expected = "✖ Failed to get a response. Have you set the OPENAI_API_KEY variable?"
+    expected = "Incorrect API key provided: sk-XXXXXXXX"
     assert_match expected, shell_output("#{bin}/plz brewtest", 1)
   end
 end
