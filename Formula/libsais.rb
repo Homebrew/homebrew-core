@@ -9,8 +9,8 @@ class Libsais < Formula
   depends_on "gcc" => :build
 
   def install
-    system "make", "all"
-    system "make", "install", "PREFIX=#{prefix}", "MANS=#{man}"
+    system "make", "all", "PLIBS=libsais.a"
+    system "make", "install", "PREFIX=#{prefix}", "MANS=#{man}", "PLIBS=libsais.a"
   end
 
   test do
