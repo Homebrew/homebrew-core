@@ -19,6 +19,8 @@ class LibcouchbaseAT2 < Formula
 
   keg_only :versioned_formula
 
+  deprecate! date: "2023-01-20", because: :versioned_formula
+
   depends_on "cmake" => :build
   depends_on "libev"
   depends_on "libevent"
