@@ -14,6 +14,6 @@ class Fzfnpm < Formula
   end
 
   test do
-    assert_predicate "#{bin}/fzfnpm", :executable?
+    assert_predicate Pathname.new("#{bin}/fzfnpm"), :executable?
   end
 end
