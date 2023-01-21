@@ -7,7 +7,6 @@ class Libsais < Formula
   head "https://github.com/IlyaGrebnov/libsais.git", branch: "master"
 
   depends_on "gcc" => :build
-  depends_on "make" => :build
 
   def install
     system "make", "all"
