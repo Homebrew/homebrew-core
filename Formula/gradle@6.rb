@@ -1,9 +1,14 @@
 class GradleAT6 < Formula
   desc "Open-source build automation tool based on the Groovy and Kotlin DSL"
   homepage "https://www.gradle.org/"
-  url "https://services.gradle.org/distributions/gradle-6.9.2-all.zip"
-  sha256 "8bde5c859a3ddf5d127ac77465fc24fa8a831d3d8d49e8248548f2cb87485ef1"
+  url "https://services.gradle.org/distributions/gradle-6.9.3-all.zip"
+  sha256 "91bbf438ec3f18c9273392972e5627bb9965ef88b262729d1b243d7db5cdd1b8"
   license "Apache-2.0"
+
+  livecheck do
+    url "https://gradle.org/releases/"
+    regex(/href=.*?gradle[._-]v?(6(?:\.\d+)+)-all\.(?:zip|t)/i)
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "30827d4a933e2feb56ae803c0a6f1f65bb888a49085bc38812c9def932aa49de"
