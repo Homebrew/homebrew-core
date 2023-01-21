@@ -22,7 +22,6 @@ class Luarocks < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2c2fcf803a9a182998eb4e0a674edc53fb98b75725fb390aa112b33bfab40298"
   end
 
-  depends_on "lua@5.1" => :test
   depends_on "lua@5.3" => :test
   depends_on "luajit" => :test
   depends_on "lua"
@@ -42,7 +41,7 @@ class Luarocks < Formula
       to use Lua#{Formula["lua"].version.major_minor}, but you can require it to use another version at runtime
       with the `--lua-dir` flag, like this:
 
-        luarocks --lua-dir=#{Formula["lua@5.1"].opt_prefix} install say
+        luarocks --lua-dir=#{Formula["lua@5.3"].opt_prefix} install say
     EOS
   end
 
@@ -50,7 +49,6 @@ class Luarocks < Formula
     luas = [
       Formula["lua"],
       Formula["lua@5.3"],
-      Formula["lua@5.1"],
     ]
 
     luas.each do |lua|
