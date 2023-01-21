@@ -22,8 +22,6 @@ class Clair < Formula
   end
 
   depends_on "go" => :build
-  depends_on "rpm"
-  depends_on "xz"
 
   def install
     ldflags = %W[
