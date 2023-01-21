@@ -17,6 +17,9 @@ class Xsw < Formula
     sha256 x86_64_linux:   "85ae0378112fd3d6d2307c9bbc1506896f1d534ddc26d8dc04fcc122a7617668"
   end
 
+  # Last release on 2009-05-09
+  deprecate! date: "2023-01-21", because: :unmaintained
+
   depends_on "sdl12-compat"
   depends_on "sdl_gfx"
   depends_on "sdl_image"
