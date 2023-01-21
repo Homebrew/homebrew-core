@@ -1,8 +1,8 @@
 class Stress < Formula
   desc "Tool to impose load on and stress test a computer system"
   homepage "https://github.com/resurrecting-open-source-projects/stress"
-  url "https://github.com/resurrecting-open-source-projects/stress/archive/refs/tags/1.0.6.tar.gz"
-  sha256 "480e879cd7d9a835eca7c145949f3e5c5dd644e503ab2bf6309cae7672b2fa68"
+  url "https://github.com/resurrecting-open-source-projects/stress/archive/refs/tags/1.0.7.tar.gz"
+  sha256 "cdaa56671506133e2ed8e1e318d793c2a21c4a00adc53f31ffdef1ece8ace0b1"
   license "GPL-2.0-or-later"
 
   bottle do
