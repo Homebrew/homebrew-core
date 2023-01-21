@@ -721,6 +721,11 @@ class Dvc < Formula
     sha256 "e60305c5e5d314f5389259b7f22aaa33d8f7dee49763119234af3755c55b9101"
   end
 
+  resource "sqltrie" do
+    url "https://files.pythonhosted.org/packages/02/ba/cd984affb4d7e2935d7c2c3e72f5434ef901d22cc56681b7f1563f4459a4/sqltrie-0.0.26.tar.gz"
+    sha256 "c2989a1b643e95bb29f5c2514ceaa07e70524f76622788064be90a6cd14145e0"
+  end
+
   resource "sshfs" do
     url "https://files.pythonhosted.org/packages/35/61/7cd80d9add4dec01e7518527290c371244aa2012fbef7f02aac210898a14/sshfs-2022.6.0.tar.gz"
     sha256 "700b78a6af6952b4333474bdb55729a0d1949acf0157a3cb6d7b50221166b26e"
