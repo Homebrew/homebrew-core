@@ -28,6 +28,7 @@ class ChromeCli < Formula
     bin.install "scripts/chromium-cli"
     bin.install "scripts/brave-cli"
     bin.install "scripts/vivaldi-cli"
+    bin.install "scripts/edge-cli"
   end
 
   test do
