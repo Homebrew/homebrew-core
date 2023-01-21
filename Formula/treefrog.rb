@@ -36,7 +36,7 @@ class Treefrog < Formula
     if OS.mac?
       inreplace "src/corelib.pro", "/usr/local", HOMEBREW_PREFIX
     else
-      inreplace "src/corelib.pro", "/usr/include", HOMEBREW_PREFIX/"include"
+      inreplace "src/corelib.pro", "/usr/lib", HOMEBREW_PREFIX/"lib"
     end
 
     system "./configure", "--prefix=#{prefix}", "--enable-shared-mongoc", "--enable-shared-glog"
