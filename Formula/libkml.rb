@@ -4,6 +4,7 @@ class Libkml < Formula
   url "https://github.com/libkml/libkml/archive/refs/tags/1.3.0.tar.gz"
   sha256 "8892439e5570091965aaffe30b08631fdf7ca7f81f6495b4648f0950d7ea7963"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "d88944c196adb57f50cb0cec0bbb0f7e91966354ec912552d9457851cdc7716d"
@@ -62,7 +63,7 @@ class Libkml < Formula
     EOS
 
     pkg_config_flags = shell_output("pkg-config --cflags --libs libkml gtest").chomp.split
-    system ENV.cxx, "test.cpp", *pkg_config_flags, "-std=c++11", "-o", "test"
+    system ENV.cxx, "test.cpp", *pkg_config_flags, "-std=c++14", "-o", "test"
     assert_match("PASSED", shell_output("./test"))
   end
 end
