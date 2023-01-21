@@ -1,10 +1,14 @@
 class Hdf5AT110 < Formula
   desc "File format designed to store large amounts of data"
   homepage "https://www.hdfgroup.org/HDF5"
-  url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.10/hdf5-1.10.8/src/hdf5-1.10.8.tar.bz2"
-  sha256 "66ec544b195a4cb9f6ffed034fd82e52429d6112747c2996ab69853f606e546b"
+  url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.10/hdf5-1.10.9/src/hdf5-1.10.9.tar.bz2"
+  sha256 "00c4be7096f36fdcafa4f974e126c6c1412428e38ebc7b181d907459e781f191"
   license "BSD-3-Clause"
-  revision 1
+
+  livecheck do
+    url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.10/"
+    regex(%r{href=["']?hdf5[._-]v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
 
   bottle do
     rebuild 1
