@@ -6,11 +6,6 @@ class Caffe < Formula
   license "BSD-2-Clause"
   revision 43
 
-  livecheck do
-    url :stable
-    strategy :github_latest
-  end
-
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "839a67b9ca63d507107b5c30b88e407c62a91e4f6cf9f4a2271f7d137ac0c301"
     sha256 cellar: :any,                 arm64_monterey: "184737d595e4311d8dfb3e27620f65dd8d7955663c187af0bf643868faa46a5c"
