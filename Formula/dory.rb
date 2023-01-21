@@ -15,7 +15,7 @@ class Dory < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "dc25156512dc5b729b7b732d58752f4d7b17d19c884f1f5c6db21e42db9244f2"
   end
 
-  depends_on "ruby@2.7"
+  depends_on "ruby"
 
   def install
     ENV["GEM_HOME"] = libexec
