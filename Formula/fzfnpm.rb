@@ -14,5 +14,6 @@ class Fzfnpm < Formula
 
   test do
     assert_predicate Pathname.new("#{bin}/fzfnpm"), :executable?
+    assert_match "No package.json file \u{1FAE5}\n", shell_output("#{bin}/fzfnpm", 1)
   end
 end
