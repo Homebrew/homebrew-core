@@ -25,6 +25,8 @@ class Nuraft < Formula
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
     pkgshare.install "examples"
+    # for `examples/in_memory_log_store.hxx`
+    include.install "src/event_awaiter.h"
   end
 
   test do
