@@ -16,20 +16,24 @@ class Vte3 < Formula
     sha256 x86_64_linux:   "b1ec1d73d262b8dc6a92d14da66b1889391079302fc45ea1dbb61562c0266d99"
   end
 
+  depends_on "gettext" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkg-config" => [:build, :test]
   depends_on "vala" => :build
-  depends_on "gettext"
+  depends_on "fribidi"
+  depends_on "glib"
   depends_on "gnutls"
   depends_on "gtk+3"
   depends_on "icu4c"
   depends_on macos: :mojave
+  depends_on "pango"
   depends_on "pcre2"
 
   on_macos do
-    depends_on "llvm" => [:build, :test] if DevelopmentTools.clang_build_version <= 1200
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1200
+    depends_on "gettext"
   end
 
   on_linux do
@@ -54,17 +58,12 @@ class Vte3 < Formula
     ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1200)
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
 
-    # Work around for ../src/widget.cc:765:30: error: use of undeclared identifier 'W_EXITCODE'
-    # Issue ref: https://gitlab.gnome.org/GNOME/vte/-/issues/2592
-    # TODO: Remove once issue is fixed upstream.
-    ENV.append_to_cflags "-D_DARWIN_C_SOURCE" if OS.mac?
-
-    system "meson", *std_meson_args, "build",
-                    "-Dgir=true",
-                    "-Dgtk3=true",
-                    "-Dgnutls=true",
-                    "-Dvapi=true",
-                    "-D_b_symbolic_functions=false"
+    system "meson", "setup", "build", "-Dgir=true",
+                                      "-Dgtk3=true",
+                                      "-Dgnutls=true",
+                                      "-Dvapi=true",
+                                      "-D_b_symbolic_functions=false",
+                                      *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
   end
@@ -80,68 +79,7 @@ class Vte3 < Formula
         return 0;
       }
     EOS
-    atk = Formula["atk"]
-    cairo = Formula["cairo"]
-    fontconfig = Formula["fontconfig"]
-    freetype = Formula["freetype"]
-    gdk_pixbuf = Formula["gdk-pixbuf"]
-    gettext = Formula["gettext"]
-    glib = Formula["glib"]
-    gnutls = Formula["gnutls"]
-    gtkx3 = Formula["gtk+3"]
-    harfbuzz = Formula["harfbuzz"]
-    libepoxy = Formula["libepoxy"]
-    libpng = Formula["libpng"]
-    libtasn1 = Formula["libtasn1"]
-    nettle = Formula["nettle"]
-    pango = Formula["pango"]
-    pixman = Formula["pixman"]
-    flags = %W[
-      -I#{atk.opt_include}/atk-1.0
-      -I#{cairo.opt_include}/cairo
-      -I#{fontconfig.opt_include}
-      -I#{freetype.opt_include}/freetype2
-      -I#{gdk_pixbuf.opt_include}/gdk-pixbuf-2.0
-      -I#{gettext.opt_include}
-      -I#{glib.opt_include}/gio-unix-2.0/
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
-      -I#{gnutls.opt_include}
-      -I#{gtkx3.opt_include}/gtk-3.0
-      -I#{harfbuzz.opt_include}/harfbuzz
-      -I#{include}/vte-2.91
-      -I#{libepoxy.opt_include}
-      -I#{libpng.opt_include}/libpng16
-      -I#{libtasn1.opt_include}
-      -I#{nettle.opt_include}
-      -I#{pango.opt_include}/pango-1.0
-      -I#{pixman.opt_include}/pixman-1
-      -D_REENTRANT
-      -L#{atk.opt_lib}
-      -L#{cairo.opt_lib}
-      -L#{gdk_pixbuf.opt_lib}
-      -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
-      -L#{gnutls.opt_lib}
-      -L#{gtkx3.opt_lib}
-      -L#{lib}
-      -L#{pango.opt_lib}
-      -latk-1.0
-      -lcairo
-      -lcairo-gobject
-      -lgdk-3
-      -lgdk_pixbuf-2.0
-      -lgio-2.0
-      -lglib-2.0
-      -lgnutls
-      -lgobject-2.0
-      -lgtk-3
-      -lpango-1.0
-      -lpangocairo-1.0
-      -lvte-2.91
-      -lz
-    ]
-    flags << "-lintl" if OS.mac?
+    flags = shell_output("pkg-config --cflags --libs vte-2.91").chomp.split
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
