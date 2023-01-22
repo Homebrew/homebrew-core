@@ -23,6 +23,7 @@ class Gcab < Formula
     sha256 x86_64_linux:   "d31fd6fd578719a656cc13e05570257bfc9dd0ecb057cf1a003561a5c202443b"
   end
 
+  depends_on "gettext" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
@@ -37,11 +38,9 @@ class Gcab < Formula
   end
 
   def install
-    mkdir "build" do
-      system "meson", *std_meson_args, "-Ddocs=false", ".."
-      system "ninja"
-      system "ninja", "install"
-    end
+    system "meson", "setup", "build", "-Ddocs=false", "-Dtests=false", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do
