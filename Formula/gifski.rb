@@ -17,7 +17,7 @@ class Gifski < Formula
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
-  depends_on "ffmpeg@4"
+  depends_on "ffmpeg@4" # FFmpeg 5 issue: https://github.com/ImageOptim/gifski/issues/242
 
   uses_from_macos "llvm" => :build
 
