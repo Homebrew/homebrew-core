@@ -33,10 +33,10 @@ class Blocky < Formula
           - tcp+udp:1.1.1.1
           - https://1.1.1.1/dns-query
         log:
-          level: info
+          level: warn
           format: text
           timestamp: true
-          privacy: false
+          privacy: true
       EOF_HEAD
     else
       <<~EOF_STABLE
@@ -48,10 +48,10 @@ class Blocky < Formula
             - 1.1.1.1
             - 1.0.0.1
         bootstrapDns: tcp+udp:1.1.1.1
-        logLevel: info
+        logLevel: warn
         logFormat: text
         logTimestamp: true
-        logPrivacy: false
+        logPrivacy: true
       EOF_STABLE
     end
 
