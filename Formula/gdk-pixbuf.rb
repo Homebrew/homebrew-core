@@ -16,10 +16,12 @@ class GdkPixbuf < Formula
     sha256 x86_64_linux:   "3309a7fef974594a786d317e9be0a8e4f1001e362ff2d8186107f3f6c163b7e4"
   end
 
+  depends_on "docutils" => :build # for rst2man
+  depends_on "gettext" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkg-config" => [:build, :test]
   depends_on "glib"
   depends_on "jpeg-turbo"
   depends_on "libpng"
@@ -47,17 +49,18 @@ class GdkPixbuf < Formula
               "-DGDK_PIXBUF_LIBDIR=\"@0@\"'.format('#{HOMEBREW_PREFIX}/lib')"
 
     ENV["DESTDIR"] = "/"
-    system "meson", *std_meson_args, "build",
-                    "-Drelocatable=false",
-                    "-Dnative_windows_loaders=false",
-                    "-Dinstalled_tests=false",
-                    "-Dman=false",
-                    "-Dgtk_doc=false",
-                    "-Dpng=enabled",
-                    "-Dtiff=enabled",
-                    "-Djpeg=enabled",
-                    "-Dintrospection=enabled"
-    system "meson", "compile", "-C", "build", "-v"
+    system "meson", "setup", "build", "-Drelocatable=false",
+                                      "-Dnative_windows_loaders=false",
+                                      "-Dtests=false",
+                                      "-Dinstalled_tests=false",
+                                      "-Dman=true",
+                                      "-Dgtk_doc=false",
+                                      "-Dpng=enabled",
+                                      "-Dtiff=enabled",
+                                      "-Djpeg=enabled",
+                                      "-Dintrospection=enabled",
+                                      *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
 
     # Other packages should use the top-level modules directory
@@ -89,27 +92,7 @@ class GdkPixbuf < Formula
         return 0;
       }
     EOS
-    gettext = Formula["gettext"]
-    glib = Formula["glib"]
-    libpng = Formula["libpng"]
-    pcre = Formula["pcre"]
-    flags = (ENV.cflags || "").split + (ENV.cppflags || "").split + (ENV.ldflags || "").split
-    flags += %W[
-      -I#{gettext.opt_include}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
-      -I#{include}/gdk-pixbuf-2.0
-      -I#{libpng.opt_include}/libpng16
-      -I#{pcre.opt_include}
-      -D_REENTRANT
-      -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
-      -L#{lib}
-      -lgdk_pixbuf-2.0
-      -lglib-2.0
-      -lgobject-2.0
-    ]
-    flags << "-lintl" if OS.mac?
+    flags = shell_output("pkg-config --cflags --libs gdk-pixbuf-#{gdk_so_ver}").chomp.split
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
