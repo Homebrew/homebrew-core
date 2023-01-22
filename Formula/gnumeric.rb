@@ -15,46 +15,35 @@ class Gnumeric < Formula
     sha256 x86_64_linux:   "55b58532a33bb596e56550979a92a6ce5b6631adabf75e0bc68ca354d4f0befa"
   end
 
+  depends_on "gettext" => :build
   depends_on "intltool" => :build
+  depends_on "itstool" => :build
   depends_on "pkg-config" => :build
   depends_on "adwaita-icon-theme"
-  depends_on "gettext"
+  depends_on "glib"
   depends_on "goffice"
-  depends_on "itstool"
+  depends_on "gtk+3"
+  depends_on "libgsf"
   depends_on "libxml2"
-  depends_on "rarian"
+  depends_on "pango"
 
-  uses_from_macos "bison"
+  uses_from_macos "bison" => :build
+  uses_from_macos "perl"
 
-  on_linux do
-    depends_on "perl"
-
-    resource "XML::Parser" do
-      url "https://cpan.metacpan.org/authors/id/T/TO/TODDR/XML-Parser-2.44.tar.gz"
-      sha256 "1ae9d07ee9c35326b3d9aad56eae71a6730a73a116b9fe9e8a4758b7cc033216"
-    end
+  on_macos do
+    depends_on "gettext"
   end
 
   def install
-    if OS.linux?
-      ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
-
-      resources.each do |res|
-        res.stage do
-          system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
-          system "make", "PERL5LIB=#{ENV["PERL5LIB"]}"
-          system "make", "install"
-        end
-      end
-    end
+    ENV.prepend_path "PERL5LIB", Formula["intltool"].opt_libexec/"lib/perl5" unless OS.mac?
 
     # ensures that the files remain within the keg
     inreplace "component/Makefile.in",
               "GOFFICE_PLUGINS_DIR = @GOFFICE_PLUGINS_DIR@",
               "GOFFICE_PLUGINS_DIR = @libdir@/goffice/@GOFFICE_API_VER@/plugins/gnumeric"
 
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
+    system "./configure", *std_configure_args,
+                          "--disable-silent-rules",
                           "--disable-schemas-compile"
     system "make", "install"
   end
