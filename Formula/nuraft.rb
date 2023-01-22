@@ -19,14 +19,18 @@ class Nuraft < Formula
   depends_on "asio"
   depends_on "openssl@3"
 
+  # patch to include missing header, `event_awaiter.h`, remove when it is available
+  patch do
+    url "https://github.com/eBay/NuRaft/commit/65736ff4314a0fa15f724a213fa42bf26bc86f70.patch?full_index=1"
+    sha256 "0d06d4a6b5b6fa348affacfff6bc100df1403a7194d7caf2b205e8a142401863"
+  end
+
   def install
     # We override OPENSSL_LIBRARY_PATH to avoid statically linking to OpenSSL
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DOPENSSL_LIBRARY_PATH="
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
     pkgshare.install "examples"
-    # for `examples/in_memory_log_store.hxx`
-    include.install "src/event_awaiter.h"
   end
 
   test do
