@@ -23,19 +23,24 @@ class Goffice < Formula
     depends_on "libtool" => :build
   end
 
+  depends_on "gettext" => :build
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
   depends_on "atk"
   depends_on "cairo"
   depends_on "gdk-pixbuf"
-  depends_on "gettext"
+  depends_on "glib"
   depends_on "gtk+3"
   depends_on "libgsf"
   depends_on "librsvg"
   depends_on "pango"
-  depends_on "pcre"
 
+  uses_from_macos "libxml2"
   uses_from_macos "libxslt"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   def install
     if OS.linux?
@@ -44,12 +49,8 @@ class Goffice < Formula
       ENV["INTLTOOL_PERL"] = Formula["perl"].bin/"perl"
     end
 
-    args = %W[--disable-dependency-tracking --prefix=#{prefix}]
-    if build.head?
-      system "./autogen.sh", *args
-    else
-      system "./configure", *args
-    end
+    configure = build.head? ? "./autogen.sh" : "./configure"
+    system configure, *std_configure_args, "--disable-silent-rules"
     system "make", "install"
   end
 
