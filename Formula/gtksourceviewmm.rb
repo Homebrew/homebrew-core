@@ -6,11 +6,6 @@ class Gtksourceviewmm < Formula
   license "LGPL-2.1-or-later"
   revision 12
 
-  livecheck do
-    url :stable
-    regex(/gtksourceviewmm[._-]v?(2\.([0-8]\d*?)?[02468](?:\.\d+)*?)\.t/i)
-  end
-
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "420a7b698a8d7c40b3c30f4720c0c065e3ee71cda8542a517ae8aea3a3cbccbd"
     sha256 cellar: :any,                 arm64_monterey: "2735fdddc92f3280188428fc9fa83431a700c376bcae4424bca10005dd440c76"
