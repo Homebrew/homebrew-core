@@ -1,9 +1,11 @@
 class Libgda < Formula
   desc "Provides unified data access to the GNOME project"
   homepage "https://www.gnome-db.org/"
-  url "https://download.gnome.org/sources/libgda/5.2/libgda-5.2.10.tar.xz"
-  sha256 "6f6cdf7b8053f553b907e0c88a6064eb48cf2751852eb24323dcf027792334c8"
-  license "GPL-2.0-or-later"
+  url "https://download.gnome.org/sources/libgda/6.0/libgda-6.0.0.tar.xz"
+  sha256 "995f4b420e666da5c8bac9faf55e7aedbe3789c525d634720a53be3ccf27a670"
+  # The executable tools are GPL-2.0-or-later, but these are considered experimental
+  # and not installed by default. The license should be updated when tools are installed.
+  license "LGPL-2.0-or-later"
 
   bottle do
     sha256 arm64_ventura:  "549596f0f624bf5479e52239da0e558792426ba5077360822a773f2a40b81c3a"
@@ -18,46 +20,59 @@ class Libgda < Formula
     sha256 x86_64_linux:   "65f1e3cae4f56ec7264a6d59421564c75f10f65bae8ea3e3914dbb5e08fb7eee"
   end
 
+  depends_on "gettext" => :build
   depends_on "gobject-introspection" => :build
   depends_on "intltool" => :build
-  depends_on "itstool" => :build
-  depends_on "pkg-config" => :build
-  depends_on "gettext"
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
+  depends_on "pkg-config" => [:build, :test]
+  depends_on "vala" => :build
   depends_on "glib"
-  depends_on "libgcrypt"
-  depends_on "libgee"
-  depends_on "openssl@1.1"
-  depends_on "readline"
+  depends_on "iso-codes"
+  depends_on "json-glib"
+  depends_on "sqlite"
 
-  uses_from_macos "perl" => :build
+  uses_from_macos "libxml2"
 
-  # Fix -flat_namespace being used on Big Sur and later.
+  on_macos do
+    depends_on "gettext"
+  end
+
+  # Backport fix for sqlcipher and sqlite pkg-config file generation
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
-    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+    url "https://gitlab.gnome.org/GNOME/libgda/-/commit/3e0c7583ddcc3649f24ad1f1b5d851072fd3f721.diff"
+    sha256 "a6cb1927ef2174267fd5b01ca7d6b1141f4bad969fa6d10560c62998c6150fd4"
+  end
+
+  # Backport fix for undefined behavior due to signed integer overflow
+  patch do
+    url "https://gitlab.gnome.org/GNOME/libgda/-/commit/657b2f8497da907559a6769c5b1d2d7b5bd40688.diff"
+    sha256 "bfc26217647e27aaf065a4b6c210b96e1a6f7cd67d780a3a124951c6a5bc566d"
+  end
+
+  # Backport fix for macOS dynamic loading of sqlite.dylib
+  patch do
+    url "https://gitlab.gnome.org/GNOME/libgda/-/commit/98f014c783583e3ad87ee546e8dccf34d50f1e37.diff"
+    sha256 "2f2d257085b40ef4fccf2db68fe51407ba0f59d39672fc95fd91be3e46e91ffa"
   end
 
   def install
-    ENV.prepend_path "PERL5LIB", Formula["intltool"].libexec/"lib/perl5" unless OS.mac?
-
-    # this build uses the sqlite source code that comes with libgda,
-    # as opposed to using the system or brewed sqlite3, which is not supported on macOS,
-    # as mentioned in https://github.com/GNOME/libgda/blob/95eeca4b0470f347c645a27f714c62aa6e59f820/libgda/sqlite/README#L31
-
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--disable-binreloc",
-                          "--disable-gtk-doc",
-                          "--without-java",
-                          "--enable-introspection",
-                          "--enable-system-sqlite=no"
-    system "make"
-    system "make", "install"
+    system "meson", "setup", "build", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
+    pkgshare.install "examples/SimpleExample/example.c"
   end
 
   test do
-    system "#{bin}/gda-sql", "-v"
+    cp pkgshare/"example.c", testpath
+    flags = shell_output("pkg-config --cflags --libs libgda-#{version.major_minor}").chomp.split
+    system ENV.cc, "example.c", "-o", "example", *flags
+    assert_match <<~EOS, shell_output("./example")
+      ------+---------+---------
+      p1    | chair   | 2.000000
+      p3    | glass   | 1.100000
+      p1000 | flowers | 1.990000
+      (3 rows)
+    EOS
   end
 end
