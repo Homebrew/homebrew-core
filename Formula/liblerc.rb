@@ -18,15 +18,20 @@ class Liblerc < Formula
       #include <Lerc_c_api.h>
       #include <Lerc_types.h>
       int main() {
+        const int infoArrSize = (int)LercNS::InfoArrOrder::_last;
+        const int dataRangeArrSize = (int)LercNS::DataRangeArrOrder::_last;
+        lerc_status hr(0);
+
+        return 0 ;
       }
     EOS
 
-    system ENV.cxx, "test.cc", "-std=c++11",
+    system ENV.cxx, "test.cc", "-std=gnu++17",
                     "-I#{include}",
                     "-L#{lib}",
                     "-lLerc",
                     "-o", "test_liblerc"
 
-    assert_equal("", shell_output("./test_liblerc"))
+    assert_empty shell_output("./test_liblerc")
   end
 end
