@@ -22,7 +22,7 @@ class Verapdf < Formula
   end
 
   depends_on "maven" => :build
-  depends_on "openjdk"
+  depends_on "openjdk@17"
 
   def install
     system "mvn", "clean", "install"
@@ -31,7 +31,7 @@ class Verapdf < Formula
     system "java", "-DINSTALL_PATH=#{libexec}", "-jar", installer_file, "-options-system"
 
     bin.install libexec/"verapdf", libexec/"verapdf-gui"
-    bin.env_script_all_files libexec, Language::Java.overridable_java_home_env
+    bin.env_script_all_files libexec, Language::Java.overridable_java_home_env("17")
     prefix.install "tests"
   end
 
