@@ -1,6 +1,6 @@
 class Subnetcalc < Formula
   desc "IPv4/IPv6 subnet calculator"
-  homepage "https://www.uni-due.de/~be0001/subnetcalc/"
+  homepage "https://github.com/dreibh/subnetcalc"
   url "https://github.com/dreibh/subnetcalc/archive/refs/tags/subnetcalc-2.4.21.tar.gz"
   sha256 "43b5c162496529238e4261ac8f562f04965b4ee1956c508b6c1c78c7e7cc3ca2"
   license "GPL-3.0-or-later"
