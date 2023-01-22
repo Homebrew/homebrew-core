@@ -16,12 +16,14 @@ class Baobab < Formula
     sha256 x86_64_linux:   "a8e1d5e8a4bd3bd5ab45d1d2378de419695d4da58e111a3d64113f9d5e7da30b"
   end
 
+  depends_on "gettext" => :build
   depends_on "itstool" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
   depends_on "adwaita-icon-theme"
+  depends_on "glib"
   depends_on "gtk4"
   depends_on "hicolor-icon-theme"
   depends_on "libadwaita"
@@ -29,11 +31,10 @@ class Baobab < Formula
   def install
     # stop meson_post_install.py from doing what needs to be done in the post_install step
     ENV["DESTDIR"] = "/"
-    mkdir "build" do
-      system "meson", *std_meson_args, ".."
-      system "ninja"
-      system "ninja", "install"
-    end
+
+    system "meson", "setup", "build", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   def post_install
