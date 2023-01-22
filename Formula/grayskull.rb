@@ -3,8 +3,8 @@ class Grayskull < Formula
 
   desc "Recipe generator for Conda"
   homepage "https://github.com/conda-incubator/grayskull"
-  url "https://files.pythonhosted.org/packages/29/f3/b23710fcf349a7581ed51233abcece586562e093c88eebc84414a47c577f/grayskull-1.8.4.tar.gz"
-  sha256 "e0fab1efd2141b42aded727f1212b326f3972abcf1d0e6d37e89ed07cd76bd00"
+  url "https://files.pythonhosted.org/packages/8d/86/1e98d72c142c94ada719f8d7c1cecfa8409e7468cabc0935922a5c306209/grayskull-2.0.0.tar.gz"
+  sha256 "6362fcb9bb666a7f21e6daebafae85d2134edc73f1e9a935d0d0aa526e9ea6f9"
   license "Apache-2.0"
 
   bottle do
@@ -19,6 +19,11 @@ class Grayskull < Formula
 
   depends_on "cmake" => :build
   depends_on "python@3.11"
+
+  resource "beautifulsoup4" do
+    url "https://files.pythonhosted.org/packages/e8/b0/cd2b968000577ec5ce6c741a54d846dfa402372369b8b6861720aa9ecea7/beautifulsoup4-4.11.1.tar.gz"
+    sha256 "ad9aa55b65ef2808eb405f46cf74df7fcb7044d5cbc26487f96eb2ef2e436693"
+  end
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/37/f7/2b1b0ec44fdc30a3d31dfebe52226be9ddc40cd6c0f34ffc8923ba423b69/certifi-2022.12.7.tar.gz"
@@ -83,6 +88,11 @@ class Grayskull < Formula
   resource "ruamel.yaml.jinja2" do
     url "https://files.pythonhosted.org/packages/91/e0/ad199ab894f773551fc352541ce3305b9e7c366a4ae8c44ab1bc9ca3abff/ruamel.yaml.jinja2-0.2.7.tar.gz"
     sha256 "8449be29d9a157fa92d1648adc161d718e469f0d38a6b21e0eabb76fd5b3e663"
+  end
+
+  resource "soupsieve" do
+    url "https://files.pythonhosted.org/packages/f3/03/bac179d539362319b4779a00764e95f7542f4920084163db6b0fd4742d38/soupsieve-2.3.2.post1.tar.gz"
+    sha256 "fc53893b3da2c33de295667a0e19f078c14bf86544af307354de5fcf12a3f30d"
   end
 
   resource "stdlib-list" do
