@@ -16,6 +16,7 @@ class Zenity < Formula
     sha256 x86_64_linux:   "3b64e8ebc5f116dc1d0b85f9c42f2a0adb7e0cdbef3930fc69eb249a8b0d1374"
   end
 
+  depends_on "gettext" => :build
   depends_on "itstool" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
@@ -26,11 +27,9 @@ class Zenity < Formula
   def install
     ENV["DESTDIR"] = "/"
 
-    mkdir "build" do
-      system "meson", *std_meson_args, ".."
-      system "ninja", "-v"
-      system "ninja", "install", "-v"
-    end
+    system "meson", "setup", "build", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do
