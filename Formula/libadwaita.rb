@@ -23,17 +23,17 @@ class Libadwaita < Formula
     sha256 x86_64_linux:   "af2ba8cfcd2daf6b7a3bf6179f4d34d5106ead47ba06cfa1ff0d0e305d6abd46"
   end
 
+  depends_on "gettext" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => [:build, :test]
-  depends_on "sassc" => :build
   depends_on "vala" => :build
   depends_on "gtk4"
 
   def install
-    system "meson", "setup", "build", *std_meson_args, "-Dtests=false"
-    system "meson", "compile", "-C", "build"
+    system "meson", "setup", "build", "-Dtests=false", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
   end
 
