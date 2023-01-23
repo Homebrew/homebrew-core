@@ -1,8 +1,8 @@
 class Paps < Formula
   desc "Pango to PostScript converter"
   homepage "https://github.com/dov/paps"
-  url "https://github.com/dov/paps/archive/v0.7.1.tar.gz"
-  sha256 "b8cbd16f8dd5832ecfa9907d31411b35a7f12d81a5ec472a1555d00a8a205e0e"
+  url "https://github.com/dov/paps/archive/v0.7.9.tar.gz"
+  sha256 "5f0198a011533d915fbf9f5e47438148d1f3a056bcd90bc21d6ae6476b6f3abc"
   license "LGPL-2.0"
 
   bottle do
