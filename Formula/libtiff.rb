@@ -25,6 +25,7 @@ class Libtiff < Formula
   end
 
   depends_on "jpeg-turbo"
+  depends_on "liblerc"
   depends_on "zstd"
 
   uses_from_macos "zlib"
@@ -38,6 +39,8 @@ class Libtiff < Formula
       --disable-webp
       --with-jpeg-include-dir=#{Formula["jpeg-turbo"].opt_include}
       --with-jpeg-lib-dir=#{Formula["jpeg-turbo"].opt_lib}
+      --with-lerc-include-dir=#{Formula["liblerc"].opt_include}
+      --with-lerc-lib-dir=#{Formula["liblerc"].opt_lib}
       --without-x
     ]
     system "./configure", *args
