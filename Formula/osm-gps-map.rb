@@ -1,10 +1,18 @@
 class OsmGpsMap < Formula
   desc "GTK+ library to embed OpenStreetMap maps"
   homepage "https://github.com/nzjrs/osm-gps-map"
-  url "https://github.com/nzjrs/osm-gps-map/releases/download/1.2.0/osm-gps-map-1.2.0.tar.gz"
-  sha256 "ddec11449f37b5dffb4bca134d024623897c6140af1f9981a8acc512dbf6a7a5"
   license "GPL-2.0-or-later"
   revision 1
+
+  stable do
+    url "https://github.com/nzjrs/osm-gps-map/releases/download/1.2.0/osm-gps-map-1.2.0.tar.gz"
+    sha256 "ddec11449f37b5dffb4bca134d024623897c6140af1f9981a8acc512dbf6a7a5"
+
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+    end
+  end
 
   bottle do
     rebuild 1
@@ -20,8 +28,8 @@ class OsmGpsMap < Formula
   head do
     url "https://github.com/nzjrs/osm-gps-map.git", branch: "master"
     depends_on "autoconf" => :build
+    depends_on "autoconf-archive" => :build
     depends_on "automake" => :build
-    depends_on "gnome-common" => :build
     depends_on "gtk-doc" => :build
     depends_on "libtool" => :build
   end
@@ -31,17 +39,11 @@ class OsmGpsMap < Formula
   depends_on "gdk-pixbuf"
   depends_on "glib"
   depends_on "gtk+3"
-  depends_on "libsoup@2"
-
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
-    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
-  end
+  depends_on "libsoup@2" # libsoup 3 issue: https://github.com/nzjrs/osm-gps-map/issues/96
 
   def install
-    system "./autogen.sh" if build.head?
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--disable-silent-rules", "--prefix=#{prefix}"
+    configure = build.head? ? "./autogen.sh" : "./configure"
+    system configure, *std_configure_args, "--disable-silent-rules", "--enable-introspection"
     system "make", "install"
   end
 
