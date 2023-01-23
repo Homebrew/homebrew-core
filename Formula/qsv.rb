@@ -26,8 +26,8 @@ class Qsv < Formula
     (testpath/"test.csv").write("first header,second header")
     assert_equal <<~EOS, shell_output("#{bin}/qsv stats test.csv")
       field,type,sum,min,max,range,min_length,max_length,mean,stddev,variance,nullcount,sparsity
-      first header,NULL,,,,,,,,,,0,NaN
-      second header,NULL,,,,,,,,,,0,NaN
+      first header,NULL,,,,,,,,,,0,"Failed to convert to decimal ""NaN"""
+      second header,NULL,,,,,,,,,,0,"Failed to convert to decimal ""NaN"""
     EOS
   end
 end
