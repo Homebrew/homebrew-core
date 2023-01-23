@@ -34,12 +34,14 @@ class Pdal < Formula
   depends_on "laszip"
   depends_on "libpq"
   depends_on "numpy"
+  depends_on "xerces-c"
 
   fails_with gcc: "5" # gdal is compiled with GCC
 
   def install
     system "cmake", ".", *std_cmake_args,
                          "-DWITH_LASZIP=TRUE",
+                         "-DBUILD_PLUGIN_E57=ON",
                          "-DBUILD_PLUGIN_GREYHOUND=ON",
                          "-DBUILD_PLUGIN_ICEBRIDGE=ON",
                          "-DBUILD_PLUGIN_PGPOINTCLOUD=ON",
