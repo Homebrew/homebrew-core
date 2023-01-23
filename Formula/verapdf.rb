@@ -25,6 +25,7 @@ class Verapdf < Formula
   depends_on "openjdk@17"
 
   def install
+    ENV["JAVA_HOME"] = Language::Java.java_home("17")
     system "mvn", "clean", "install"
 
     installer_file = Pathname.glob("installer/target/verapdf-izpack-installer-*.jar").first
