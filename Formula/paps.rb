@@ -3,7 +3,7 @@ class Paps < Formula
   homepage "https://github.com/dov/paps"
   url "https://github.com/dov/paps/archive/v0.7.9.tar.gz"
   sha256 "5f0198a011533d915fbf9f5e47438148d1f3a056bcd90bc21d6ae6476b6f3abc"
-  license "LGPL-2.0"
+  license "LGPL-2.0-or-later"
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "ed0aafc74080ba2ba2a3ec1dd3d1d112952626ccdc297db089fdd93bcd1c23c7"
@@ -18,25 +18,16 @@ class Paps < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ee348bc7685c17d5453ca8f661b98020849d5c0265ec30cba5ab8321a6333bd3"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "intltool" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "fontconfig"
-  depends_on "freetype"
-  depends_on "gettext"
-  depends_on "glib"
+  depends_on "fmt"
   depends_on "pango"
 
-  uses_from_macos "perl" => :build
-
   def install
-    ENV.prepend_path "PERL5LIB", Formula["intltool"].libexec/"lib/perl5" unless OS.mac?
-
-    system "./autogen.sh"
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    system "meson", "setup", "build", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
     pkgshare.install "examples"
   end
 
