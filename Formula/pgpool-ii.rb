@@ -3,6 +3,8 @@ class PgpoolIi < Formula
   homepage "https://www.pgpool.net/mediawiki/index.php/Main_Page"
   url "https://www.pgpool.net/mediawiki/images/pgpool-II-4.4.2.tar.gz"
   sha256 "3e6c788e70f0672c7b38c88a6ca76f31f3786b125689980cc063ab752ca58234"
+  # NTP license that excludes distributing "with fee"
+  license :cannot_represent
 
   livecheck do
     url "https://www.pgpool.net/mediawiki/index.php/Downloads"
