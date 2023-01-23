@@ -7,6 +7,11 @@ class Flagd < Formula
   license "Apache-2.0"
   head "https://github.com/open-feature/flagd.git", branch: "main"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0c8558056f046cb8ef92164e533797e750c8eb9cca05f39442cbd71a8a6495b9"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ff1113e52f67bbbd990b182f63e648253ab510f345055551e371601687012d36"
