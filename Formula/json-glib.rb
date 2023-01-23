@@ -17,18 +17,22 @@ class JsonGlib < Formula
     sha256 x86_64_linux:   "5def8d6b0014378f86ed161dcf1570e2ca5432c5616d34e7f96c84d6fd4ff97d"
   end
 
+  depends_on "docbook-xsl" => :build
+  depends_on "gettext" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
 
+  uses_from_macos "libxslt" => :build # for xsltproc
+
   def install
-    mkdir "build" do
-      system "meson", *std_meson_args, "-Dintrospection=enabled", ".."
-      system "ninja"
-      system "ninja", "install"
-    end
+    ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
+
+    system "meson", "setup", "build", "-Dintrospection=enabled", "-Dman=true", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do
