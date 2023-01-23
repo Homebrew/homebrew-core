@@ -18,6 +18,7 @@ class Verilator < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "help2man" => :build
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
