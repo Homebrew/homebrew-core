@@ -186,7 +186,7 @@
     "exclude_packages": ["six", "PyYAML", "virtualenv"]
   },
   "dstack": {
-    "exclude_packages": ["six", "PyYAML"]
+    "exclude_packages": ["six", "PyYAML", "typing-extensions"]
   },
   "duplicity": {
     "extra_packages": [
