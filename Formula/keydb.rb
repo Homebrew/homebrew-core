@@ -1,8 +1,8 @@
 class Keydb < Formula
   desc "Multithreaded fork of Redis"
   homepage "https://keydb.dev"
-  url "https://github.com/Snapchat/KeyDB/archive/v6.3.1.tar.gz"
-  sha256 "851b91e14dc3e9c973a1870acdc5f2938ad51a12877e64e7716d9e9ae91ce389"
+  url "https://github.com/Snapchat/KeyDB/archive/v6.3.2.tar.gz"
+  sha256 "2fdbdf2f0126bf973f8a56ef8777b7471a828df1a2f3555d5c96104a211582e7"
   license "BSD-3-Clause"
 
   bottle do
