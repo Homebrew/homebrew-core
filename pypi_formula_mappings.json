@@ -102,7 +102,7 @@
     "exclude_packages": ["six", "PyYAML"]
   },
   "cfn-lint": {
-    "exclude_packages": ["junit-xml", "six", "PyYAML"]
+    "exclude_packages": ["six", "PyYAML"]
   },
   "charmcraft": {
     "extra_packages": ["appdirs", "pydantic"],
@@ -120,15 +120,14 @@
   },
   "cloudformation-cli": {
     "extra_packages": ["cloudformation-cli-go-plugin", "cloudformation-cli-java-plugin", "cloudformation-cli-python-plugin"],
-    "exclude_packages": ["junit-xml", "six"]
+    "exclude_packages": ["six"]
   },
   "charm-tools": {
     "exclude_packages": ["six"],
     "extra_packages": ["wheel"]
   },
   "checkov": {
-    "exclude_packages": ["junit-xml", "six", "tabulate", "PyYAML", "typing-extensions"],
-    "extra_packages": ["junit-xml-2"]
+    "exclude_packages": ["six", "tabulate", "PyYAML", "typing-extensions"]
   },
   "cloudiscovery": {
     "exclude_packages": ["six"]
@@ -379,8 +378,7 @@
   },
   "moto": {
     "package_name": "moto[all,server]",
-    "exclude_packages": ["junit-xml", "six", "PyYAML"],
-    "extra_packages": ["junit-xml-2"]
+    "exclude_packages": ["six", "PyYAML"]
   },
   "mycli": {
     "exclude_packages": ["six", "tabulate", "Pygments"]
