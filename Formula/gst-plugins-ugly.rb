@@ -1,8 +1,8 @@
 class GstPluginsUgly < Formula
   desc "Library for constructing graphs of media-handling components"
   homepage "https://gstreamer.freedesktop.org/"
-  url "https://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly-1.20.5.tar.xz"
-  sha256 "af67d8ba7cab230f64d0594352112c2c443e2aa36a87c35f9f98a43d11430b87"
+  url "https://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly-1.22.0.tar.xz"
+  sha256 "a644dc981afa2d8d3a913f763ab9523c0620ee4e65a7ec73c7721c29da3c5a0c"
   license "LGPL-2.0-or-later"
   head "https://gitlab.freedesktop.org/gstreamer/gst-plugins-ugly.git", branch: "master"
 
