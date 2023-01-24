@@ -75,8 +75,9 @@ class PreCommit < Formula
   test do
     system "git", "init"
     (testpath/".pre-commit-config.yaml").write <<~EOS
+      repos:
       -   repo: https://github.com/pre-commit/pre-commit-hooks
-          sha: v0.9.1
+          rev: v0.9.1
           hooks:
           -   id: trailing-whitespace
     EOS
