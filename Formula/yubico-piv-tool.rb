@@ -28,7 +28,7 @@ class YubicoPivTool < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "check"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pcsc-lite"
 
   def install
