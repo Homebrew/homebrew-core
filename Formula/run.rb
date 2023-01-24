@@ -1,8 +1,8 @@
 class Run < Formula
   desc "Easily manage and invoke small scripts and wrappers"
   homepage "https://github.com/TekWizely/run"
-  url "https://github.com/TekWizely/run/archive/v0.11.0.tar.gz"
-  sha256 "f9ea93feb1231674c2b8ec1d52b72c3f2ca0cd4590d09b9b39356a97dbf4a920"
+  url "https://github.com/TekWizely/run/archive/v0.11.1.tar.gz"
+  sha256 "18f2d5a61c29b8de5dab9581b46efdd815ea367454acec719108c4f3742375db"
   license "MIT"
 
   bottle do
