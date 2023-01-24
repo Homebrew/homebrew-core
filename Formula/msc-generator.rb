@@ -1,8 +1,8 @@
 class MscGenerator < Formula
   desc "Draws signalling charts from textual description"
   homepage "https://gitlab.com/msc-generator/msc-generator"
-  url "https://gitlab.com/api/v4/projects/31167732/packages/generic/msc-generator/8.2/msc-generator-8.2.tar.gz"
-  sha256 "643efd48958f4fc20d40af56ea1be6c2d2e2c80c055b622c91971a3e1e5252ca"
+  url "https://gitlab.com/api/v4/projects/31167732/packages/generic/msc-generator/8.3/msc-generator-8.3.tar.gz"
+  sha256 "121bae7973b474d0bf571da27c8ead9810e842df258eed678d0c51614f4520d8"
   license "AGPL-3.0-or-later"
 
   bottle do
