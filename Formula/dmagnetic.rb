@@ -23,7 +23,7 @@ class Dmagnetic < Formula
 
   def install
     # Look for configuration and other data within the Homebrew prefix rather than the default paths
-    inreplace "src/toplevel/dMagnetic_pathnames.h" do |s|
+    inreplace "src/frontends/default/pathnames.h" do |s|
       s.gsub! "/etc/", "#{etc}/"
       s.gsub! "/usr/local/", "#{HOMEBREW_PREFIX}/"
     end
