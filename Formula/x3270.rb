@@ -2,7 +2,7 @@ class X3270 < Formula
   desc "IBM 3270 terminal emulator for the X Window System and Windows"
   homepage "http://x3270.bgp.nu/"
   url "http://x3270.bgp.nu/download/04.02/suite3270-4.2ga7-src.tgz"
-  sha256 "ef576c231d0d62340e335fc33aac45075b0d991a00404348d114fb59740cce2f"
+  sha256 "68f16dd3bc75f50c054e8482711e76fcf5b4984aacc47a359fd94f01c9c0a429"
   license "BSD-3-Clause"
 
   livecheck do
@@ -25,14 +25,13 @@ class X3270 < Formula
   uses_from_macos "tcl-tk"
 
   def install
-    args = %W[
-      --prefix=#{prefix}
+    args = %w[
       --enable-c3270
       --enable-pr3287
       --enable-s3270
       --enable-tcl3270
     ]
-    system "./configure", *args
+    system "./configure", *std_configure_args, *args
     system "make", "install"
     system "make", "install.man"
   end
