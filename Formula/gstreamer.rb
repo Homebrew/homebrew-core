@@ -1,8 +1,8 @@
 class Gstreamer < Formula
   desc "Development framework for multimedia applications"
   homepage "https://gstreamer.freedesktop.org/"
-  url "https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.20.5.tar.xz"
-  sha256 "5a19083faaf361d21fc391124f78ba6d609be55845a82fa8f658230e5fa03dff"
+  url "https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.22.0.tar.xz"
+  sha256 "78d21b5469ac93edafc6d8ceb63bc82f6cbbee94d2f866cca6b9252157ee0a09"
   license "LGPL-2.0-or-later"
   head "https://gitlab.freedesktop.org/gstreamer/gstreamer.git", branch: "main"
 
