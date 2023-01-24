@@ -27,7 +27,7 @@ class GitTown < Formula
     system "go", "build", *std_go_args(ldflags: ldflags)
 
     # Install shell completions
-    generate_completions_from_executable(bin/"git-town", "completions")
+    generate_completions_from_executable(bin/"git-town", "install", "completions")
   end
 
   test do
