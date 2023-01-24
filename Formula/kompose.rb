@@ -16,8 +16,7 @@ class Kompose < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b9b48d58808855c3e8aa8c4211422706693adbac6d416abfcb407e44d537188a"
   end
 
-  # Bump to 1.18 on the next release, if possible.
-  depends_on "go@1.17" => :build
+  depends_on "go" => :build
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")
