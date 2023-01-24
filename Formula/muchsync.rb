@@ -9,10 +9,10 @@ class Muchsync < Formula
     url "http://www.muchsync.org/muchsync.git", branch: "master"
   end
 
-  depends_on "notmuch" => :build
-  depends_on "openssl@1.1" => :build
-  depends_on "xapian" => :build=
-  uses_from_macos "sqlite" => :build
+  depends_on "xapian" => :build
+  depends_on "notmuch"
+  depends_on "openssl@1.1"
+  uses_from_macos "sqlite"
 
   def install
     system "./configure", *std_configure_args, "--disable-silent-rules"
