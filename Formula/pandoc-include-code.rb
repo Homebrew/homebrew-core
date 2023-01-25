@@ -6,8 +6,6 @@ class PandocIncludeCode < Formula
   license "MPL-2.0"
   revision 2
   head "https://github.com/owickstrom/pandoc-include-code.git", branch: "master"
-  # see https://github.com/owickstrom/pandoc-include-code/issues/46
-  deprecate! date: "2023-01-25", because: :unmaintained
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "03487512c8b41b88561df1e3e2f9d93ee09a6ea0381346c400417716a2b88b55"
@@ -20,6 +18,9 @@ class PandocIncludeCode < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:    "46561ef2e3dbbc9b15cb84ca1b82f7c6510ed900ca3c6e7252d45eb00ac8c991"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ab22b3df53ac6762dcc8b564ebbefdc96a814ba31f93fc4dd701bbb28bacb958"
   end
+
+  # see https://github.com/owickstrom/pandoc-include-code/issues/46
+  deprecate! date: "2023-01-25", because: :unmaintained
 
   depends_on "cabal-install" => :build
   depends_on "ghc@8.10" => :build
