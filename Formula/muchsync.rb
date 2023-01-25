@@ -5,9 +5,7 @@ class Muchsync < Formula
   sha256 "f83e2f6fcd0ef4813475fddc8d39285686654da5f41565a1e9a9acd781a3beac"
   license "GPL-2.0-or-later"
 
-  head do
-    url "http://www.muchsync.org/muchsync.git", branch: "master"
-  end
+  head "http://www.muchsync.org/muchsync.git", branch: "master"
 
   depends_on "xapian" => :build
   depends_on "notmuch"
