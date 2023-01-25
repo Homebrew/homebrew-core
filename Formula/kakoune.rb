@@ -21,7 +21,6 @@ class Kakoune < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "606496e883548440a2813b00e3639212da5d3aa11a52d4fd9ae180d373197fc5"
   end
 
-  depends_on macos: :high_sierra # needs C++17
   depends_on "ncurses"
 
   uses_from_macos "libxslt" => :build
@@ -32,8 +31,16 @@ class Kakoune < Formula
     depends_on "pkg-config" => :build
   end
 
-  fails_with gcc: "5"
-  fails_with gcc: "6"
+  fails_with :clang do
+    build 1200
+    cause "Requires C++20"
+  end
+
+  # See <https://github.com/mawww/kakoune/blob/v2022.10.31/README.asciidoc#building>
+  fails_with :gcc do
+    version "10.2"
+    cause "Requires GCC >= 10.3"
+  end
 
   def install
     cd "src" do
