@@ -22,7 +22,7 @@ class Mdless < Formula
       ## title second level
     EOS
     out = shell_output("#{bin}/mdless --no-color -P test.md")
-    assert_match /^title first level =+$/, out
-    assert_match /^title second level \-+$/, out
+    assert_match(/^title first level =+$/, out)
+    assert_match(/^title second level -+$/, out)
   end
 end
