@@ -21,13 +21,8 @@ class Mdless < Formula
       # title first level
       ## title second level
     EOS
-    shell_output("#{bin}/mdless --no-color -P test.md").chomp.split("\n").each do |line|
-      if line.start_with?("title first level")
-        assert line.end_with?("==="), "first level title expected to use === delimiter"
-      end
-      if line.start_with?("title second level")
-        assert line.end_with?("---"), "second level title expected to use --- delimiter"
-      end
-    end
+    out = shell_output("#{bin}/mdless --no-color -P test.md")
+    assert_match /^title first level =+$/, out
+    assert_match /^title second level \-+$/, out
   end
 end
