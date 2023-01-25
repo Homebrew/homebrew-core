@@ -6,6 +6,7 @@ class PandocIncludeCode < Formula
   license "MPL-2.0"
   revision 2
   head "https://github.com/owickstrom/pandoc-include-code.git", branch: "master"
+  # see https://github.com/owickstrom/pandoc-include-code/issues/46
   deprecate! date: "2023-01-25", because: :unmaintained
 
   bottle do
