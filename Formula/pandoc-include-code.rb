@@ -6,6 +6,7 @@ class PandocIncludeCode < Formula
   license "MPL-2.0"
   revision 2
   head "https://github.com/owickstrom/pandoc-include-code.git", branch: "master"
+  deprecate! date: "2023-01-25", because: :unmaintained
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "03487512c8b41b88561df1e3e2f9d93ee09a6ea0381346c400417716a2b88b55"
