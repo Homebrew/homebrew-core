@@ -17,6 +17,9 @@ class GnomeCommon < Formula
     sha256 cellar: :any_skip_relocation, all:           "186e36c90aadeb3fe96a17c685b1610b43ff5522d7cd4bad372d6f823938bb07"
   end
 
+  # https://wiki.gnome.org/Projects/GnomeCommon
+  deprecate! date: "2023-01-25", because: :deprecated_upstream
+
   conflicts_with "autoconf-archive", because: "both install ax_check_enable_debug.m4 and ax_code_coverage.m4"
 
   def install
