@@ -39,6 +39,13 @@ class Krew < Formula
     bin.install "build/krew" => "kubectl-krew"
   end
 
+  def caveats
+    <<~EOS
+      To use the binaries installed by krew you can add $HOME/.krew/bin to your PATH with:
+        PATH="$HOME/.krew/bin:$PATH"
+    EOS
+  end
+
   test do
     ENV["KREW_ROOT"] = testpath
     ENV["PATH"] = "#{ENV["PATH"]}:#{testpath}/bin"
