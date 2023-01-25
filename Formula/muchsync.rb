@@ -26,4 +26,8 @@ class Muchsync < Formula
     log_path var/"log/muchsync.log"
     error_log_path var/"log/muchsync.log"
   end
+
+  test do
+    system bin/"muchsync", "--version"
+  end
 end
