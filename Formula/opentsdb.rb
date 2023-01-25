@@ -85,7 +85,7 @@ class Opentsdb < Formula
 
   service do
     run opt_bin/"start-tsdb.sh"
-    working_directory HOMEBREW_PREFIX
+    working_dir HOMEBREW_PREFIX
     log_path var/"opentsdb/opentsdb.log"
     error_log_path var/"opentsdb/opentsdb.err"
   end
