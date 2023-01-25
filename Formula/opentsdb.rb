@@ -3,7 +3,7 @@ class Opentsdb < Formula
   homepage "http://opentsdb.net/"
   url "https://github.com/OpenTSDB/opentsdb/archive/refs/tags/v2.4.1.tar.gz"
   sha256 "70456fa8b33a9f0855105422f944d6ef14d077c4b4c9c26f8e4a86f329b247a0"
-  license "LGPL-2.1"
+  license "LGPL-2.1-or-later"
 
   livecheck do
     url :stable
