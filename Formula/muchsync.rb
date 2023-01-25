@@ -18,38 +18,6 @@ class Muchsync < Formula
     system "make", "install"
   end
 
-  def caveats
-    <<~EOS
-
-      To clone an existing mailbox from a remote server, run the following command on the first startup.
-      Note: muchsync also needs to be installed on the server.
-
-          muchsync --init $HOME/inbox SERVER
-
-      Optional:
-
-      To enable polling the server for new messages adjust the files created by this brew.
-
-      See "brew ls muchsync" for file locations and adjust string "SERVER" in the files.
-
-      Linux: homebrew.muchsync.service
-      OS X : homebrew.muchsync.plist
-
-      Adjust the interval (default value = 5 minutes) by modifying the interval specified in the files.
-
-      After that, enable the service that will poll new messages.
-
-          brew services start muchsync
-
-      For more options, please refer to the man pages.
-
-    EOS
-  end
-
-  test do
-    system bin/"muchsync", "--version"
-  end
-
   service do
     run [opt_bin/"muchsync", "SERVER"]
     run_type :interval
