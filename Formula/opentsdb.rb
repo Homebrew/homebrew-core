@@ -29,8 +29,8 @@ class Opentsdb < Formula
     with_env(JAVA_HOME: Language::Java.java_home("1.8")) do
       ENV.prepend_path "PATH", Formula["python@3.11"].opt_libexec/"bin"
       system "autoreconf", "--force", "--install", "--verbose"
-      system "./configure", "--disable-silent-rules",
-                            "--prefix=#{prefix}",
+      system "./configure", *std_configure_args,
+                            "--disable-silent-rules",
                             "--mandir=#{man}",
                             "--sysconfdir=#{etc}",
                             "--localstatedir=#{var}/opentsdb"
@@ -83,37 +83,11 @@ class Opentsdb < Formula
     end
   end
 
-  plist_options manual: "#{HOMEBREW_PREFIX}/opt/opentsdb/bin/start-tsdb.sh"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>KeepAlive</key>
-        <dict>
-          <key>OtherJobEnabled</key>
-          <dict>
-            <key>#{Formula["hbase"].plist_name}</key>
-            <true/>
-          </dict>
-        </dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/start-tsdb.sh</string>
-        </array>
-        <key>WorkingDirectory</key>
-        <string>#{HOMEBREW_PREFIX}</string>
-        <key>StandardOutPath</key>
-        <string>#{var}/opentsdb/opentsdb.log</string>
-        <key>StandardErrorPath</key>
-        <string>#{var}/opentsdb/opentsdb.err</string>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run opt_bin/"start-tsdb.sh"
+    working_directory HOMEBREW_PREFIX
+    log_path var/"opentsdb/opentsdb.log"
+    error_log_path var/"opentsdb/opentsdb.err"
   end
 
   test do
