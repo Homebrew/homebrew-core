@@ -1,8 +1,8 @@
 class Rustfmt < Formula
   desc "Format Rust code"
   homepage "https://rust-lang.github.io/rustfmt/"
-  url "https://github.com/rust-lang/rustfmt/archive/refs/tags/v1.5.1.tar.gz"
-  sha256 "dc29a1c066fe4816e1400655c676d632335d667c3b0231ce344b2a7b02acc267"
+  url "https://github.com/rust-lang/rustfmt/archive/refs/tags/v1.5.2.tar.gz"
+  sha256 "73a319d7603e3839c1319777af34b0bb0393bc5a73dcb4e4a02470e4218cb238"
   license any_of: ["MIT", "Apache-2.0"]
   head "https://github.com/rust-lang/rustfmt.git", branch: "master"
 
