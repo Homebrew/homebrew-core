@@ -44,6 +44,11 @@ class Ghc < Formula
   uses_from_macos "m4" => :build
   uses_from_macos "ncurses"
 
+  # Build uses sed -r option, which is not available in Catalina shipped sed.
+  on_catalina do
+    depends_on "gnu-sed" => :build
+  end
+
   on_linux do
     depends_on "gmp" => :build
   end
@@ -125,6 +130,8 @@ class Ghc < Formula
       ENV.deparallelize { system "make", "install" }
 
       ENV.prepend_path "PATH", binary/"bin"
+      # Build uses sed -r option, which is not available in Catalina shipped sed.
+      ENV.prepend_path "PATH", Formula["gnu-sed"].libexec/"gnubin" if MacOS.version == :catalina
     end
 
     resource("cabal-install").stage { (binary/"bin").install "cabal" }
