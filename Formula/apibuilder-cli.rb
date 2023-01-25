@@ -2,7 +2,7 @@ class ApibuilderCli < Formula
   desc "Command-line interface to generate clients for api builder"
   homepage "https://www.apibuilder.io"
   url "https://github.com/apicollective/apibuilder-cli/archive/0.1.45.tar.gz"
-  sha256 "635386febe5f3684c6ad68bc0a3372dfe899042ecd6fcb73f0a7e0ac39f8dfc1"
+  sha256 "4048f5a0de69ef02e83245baf17b7bf5ee7f969c6d7e400194042f8e519f7fb9"
   license "MIT"
   revision 1
 
