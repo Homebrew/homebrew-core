@@ -21,6 +21,8 @@ class Kakoune < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "606496e883548440a2813b00e3639212da5d3aa11a52d4fd9ae180d373197fc5"
   end
 
+  uses_from_macos "llvm" => :build, since: :big_sur
+
   on_linux do
     depends_on "binutils" => :build
   end
