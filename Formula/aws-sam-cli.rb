@@ -3,8 +3,8 @@ class AwsSamCli < Formula
 
   desc "CLI tool to build, test, debug, and deploy Serverless applications using AWS SAM"
   homepage "https://aws.amazon.com/serverless/sam/"
-  url "https://files.pythonhosted.org/packages/e7/6e/53ef6dccb3e50c76670a445db7457456c74329837805f858028cbf331b5c/aws-sam-cli-1.70.1.tar.gz"
-  sha256 "96ed8df5726f1261358d20a1f9b08cd477a8458cf23f7f6e6fb1d6e675b87c9f"
+  url "https://files.pythonhosted.org/packages/bf/a3/d31cca8dc6a6b129fa316d26280ee2a01904907eda0f58c3169181c37c7c/aws-sam-cli-1.71.0.tar.gz"
+  sha256 "ecdf136360e67e8a654fc4fd0838260656888765aadea67a114817579f0d6408"
   license "Apache-2.0"
 
   bottle do
@@ -37,8 +37,8 @@ class AwsSamCli < Formula
   end
 
   resource "aws-sam-translator" do
-    url "https://files.pythonhosted.org/packages/95/dd/b8f4cf982a303fc8b0268a45cea14966208965f294dc2c86bf60a0fccdac/aws-sam-translator-1.57.0.tar.gz"
-    sha256 "5953b973468f72c11ce6fe3ae4c5bea11fb774bf46c91970e3ab4460c5e1798e"
+    url "https://files.pythonhosted.org/packages/62/33/d01190b7f72856a666f06407035b921d9c5951f4e0d8e779d6793bf50c4e/aws-sam-translator-1.58.0.tar.gz"
+    sha256 "74eff244a4923320e5df2f37617d85505356353e6022ae9812c6f0abcfbad5d3"
   end
 
   resource "binaryornot" do
@@ -47,13 +47,13 @@ class AwsSamCli < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/56/f3/df2608da2c159789494247897715d06db84c62b57b4a83c6df33ccafa5ec/boto3-1.26.55.tar.gz"
-    sha256 "d68576dcb1c520474eafb64b996661068a369f40bbd104ccb9502cad71849e57"
+    url "https://files.pythonhosted.org/packages/27/2c/f61f642b54b0b481e2a3a0c4b270dec0b45816f0c0e0a57e54feb2df3c0a/boto3-1.26.56.tar.gz"
+    sha256 "0ff8667fbfda8390cab2718a4d129374a6ddd6fd1913f79777fd4498f93c84f1"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/78/1a/1324dae2454f4fca30e47c62999353ba465430d52a97f5c3afcde0e3d142/botocore-1.29.55.tar.gz"
-    sha256 "5fe6b8809292bb178a9378fea4f96bc969003d1048cf6de8ad3c5a73690fefa9"
+    url "https://files.pythonhosted.org/packages/64/36/9ca8dd3097463dff6b88fd8015ba86e04ca22f8479b9d3bc60c21fd31ced/botocore-1.29.56.tar.gz"
+    sha256 "ca4d6403d745218270a20d9ca3ca9a33e3ad2fabb59a96ed8d6e1a824b274c86"
   end
 
   resource "certifi" do
