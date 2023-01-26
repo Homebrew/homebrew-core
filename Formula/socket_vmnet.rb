@@ -1,8 +1,8 @@
 class SocketVmnet < Formula
   desc "Daemon to provide vmnet.framework support for rootless QEMU"
   homepage "https://github.com/lima-vm/socket_vmnet"
-  url "https://github.com/lima-vm/socket_vmnet/archive/refs/tags/v1.1.0.tar.gz"
-  sha256 "da85362518c4ccfef3587240d380d52d7c7621c4567f1d9a476e1c17c5a7563b"
+  url "https://github.com/lima-vm/socket_vmnet/archive/refs/tags/v1.1.1.tar.gz"
+  sha256 "d7c2c9322e38b63e533806b2d92e892a3155fddf175f7bb804fd2ba9087d41cb"
   license "Apache-2.0"
   head "https://github.com/lima-vm/socket_vmnet.git", branch: "master"
 
