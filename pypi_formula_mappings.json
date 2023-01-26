@@ -195,7 +195,7 @@
       "paramiko", "pexpect", "psutil", "pydrive2",
       "python-swiftclient[keystone]", "requests[security]", "requests-oauthlib"
     ],
-    "exclude_packages": ["six", "PyYAML", "typing-extensions"]
+    "exclude_packages": ["protobuf", "PyYAML", "six", "typing-extensions"]
   },
   "dvc": {
     "package_name": "dvc[all]",
