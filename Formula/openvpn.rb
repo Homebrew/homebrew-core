@@ -29,6 +29,7 @@ class Openvpn < Formula
   depends_on "pkcs11-helper"
 
   on_linux do
+    depends_on "libcap-ng"
     depends_on "linux-pam"
     depends_on "net-tools"
   end
