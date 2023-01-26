@@ -29,7 +29,7 @@ class Cpr < Formula
 
   def install
     args = %W[
-      -DCPR_FORCE_USE_SYSTEM_CURL=ON
+      -DCPR_USE_SYSTEM_CURL=ON
       -DCPR_BUILD_TESTS=OFF
       -DCMAKE_INSTALL_RPATH=#{rpath}
     ] + std_cmake_args
