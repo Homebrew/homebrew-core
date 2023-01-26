@@ -15,6 +15,7 @@ class Libx11 < Formula
     sha256 x86_64_linux:   "3c69dcd99677609205c21fdaab84931471b7e8ce3a7242dfecf58099a566eab5"
   end
 
+  depends_on "libpthread-stubs" => :build
   depends_on "pkg-config" => :build
   depends_on "util-macros" => :build
   depends_on "xtrans" => :build
