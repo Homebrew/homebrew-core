@@ -4,7 +4,7 @@ class Gdal < Formula
   url "http://download.osgeo.org/gdal/3.6.2/gdal-3.6.2.tar.xz"
   sha256 "35f40d2e08061b342513cdcddc2b997b3814ef8254514f0ef1e8bc7aa56cf681"
   license "MIT"
-  revision 2
+  revision 3
 
   livecheck do
     url "https://download.osgeo.org/gdal/CURRENT/"
@@ -43,6 +43,7 @@ class Gdal < Formula
   depends_on "libdap"
   depends_on "libgeotiff"
   depends_on "libheif"
+  depends_on "liblerc"
   depends_on "libpng"
   depends_on "libpq"
   depends_on "libspatialite"
@@ -56,6 +57,7 @@ class Gdal < Formula
   depends_on "poppler"
   depends_on "proj"
   depends_on "python@3.11"
+  depends_on "qhull"
   depends_on "sqlite"
   depends_on "unixodbc"
   depends_on "webp"
@@ -85,11 +87,13 @@ class Gdal < Formula
               /(set\(INSTALL_ARGS "--single-version-externally-managed --record=record.txt")\)/,
               "\\1 --install-lib=#{prefix/Language::Python.site_packages(python3)})"
 
+    # keep C++ standard in sync with `abseil.rb`
     args = %W[
       -DENABLE_PAM=ON
       -DBUILD_PYTHON_BINDINGS=ON
       -DCMAKE_INSTALL_RPATH=#{lib}
       -DPython_EXECUTABLE=#{which(python3)}
+      -DCMAKE_CXX_STANDARD=17
     ]
 
     # JavaVM.framework in SDK causing Java bindings to be built
