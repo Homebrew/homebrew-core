@@ -1,9 +1,9 @@
 class Gmime < Formula
   desc "MIME mail utilities"
-  homepage "https://spruce.sourceforge.io/gmime/"
-  url "https://download.gnome.org/sources/gmime/3.2/gmime-3.2.7.tar.xz"
-  sha256 "2aea96647a468ba2160a64e17c6dc6afe674ed9ac86070624a3f584c10737d44"
-  license "LGPL-2.1"
+  homepage "https://github.com/jstedfast/gmime"
+  url "https://github.com/jstedfast/gmime/releases/download/3.2.13/gmime-3.2.13.tar.xz"
+  sha256 "2e10a54d4821daf8b16c019ad5d567e0fb8e766f8ffe5fec3d4c6a37373d6406"
+  license "LGPL-2.1-or-later"
 
   bottle do
     sha256                               arm64_ventura:  "2a4e60e2f6765cee1aa9b62cfefbf60ca2f8a9ed17515eaee2ffa498bae89e8f"
@@ -22,12 +22,6 @@ class Gmime < Formula
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "gpgme"
-
-  # Fix -flat_namespace being used on Big Sur and later.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
-    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
-  end
 
   def install
     args = %W[
