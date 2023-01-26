@@ -25,6 +25,8 @@ class Cpr < Formula
     depends_on "openssl@3"
   end
 
+  fails_with gcc: "5" # C++17
+
   def install
     args = %W[
       -DCPR_FORCE_USE_SYSTEM_CURL=ON
@@ -54,7 +56,7 @@ class Cpr < Formula
       }
     EOS
 
-    system ENV.cxx, "test.cpp", "-std=c++11", "-I#{include}", "-L#{lib}",
+    system ENV.cxx, "test.cpp", "-std=c++17", "-I#{include}", "-L#{lib}",
                     "-lcpr", "-o", testpath/"test"
     assert_match "200", shell_output("./test")
   end
