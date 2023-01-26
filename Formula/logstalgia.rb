@@ -1,10 +1,9 @@
 class Logstalgia < Formula
   desc "Web server access log visualizer with retro style"
   homepage "https://logstalgia.io/"
-  url "https://github.com/acaudwell/Logstalgia/releases/download/logstalgia-1.1.3/logstalgia-1.1.3.tar.gz"
-  sha256 "82e6a33c3c305c1f1d32d7e115ba0b307bb191ed2a70368a3cd9138ced0a98d9"
-  license "GPL-3.0"
-  revision 1
+  url "https://github.com/acaudwell/Logstalgia/releases/download/logstalgia-1.1.4/logstalgia-1.1.4.tar.gz"
+  sha256 "c049eff405e924035222edb26bcc6c7b5f00a08926abdb7b467e2449242790a9"
+  license "GPL-3.0-only"
 
   bottle do
     sha256 arm64_ventura:  "41dbb3eca9e29150230d903ba6aa7df60519beef66aba71ff43921b19c317151"
