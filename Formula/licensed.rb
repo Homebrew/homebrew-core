@@ -24,7 +24,7 @@ class Licensed < Formula
   uses_from_macos "libffi"
 
   # Runtime dependencies of licensed
-  # https://rubygems.org/gems/licensed/versions/4.0.0/dependencies
+  # https://rubygems.org/gems/licensed/versions/4.0.4/dependencies
 
   # Upstream has temporarily removed cocoapods-core as a dependency, but it
   # will be restored in a future release, so commenting these resources out
@@ -161,22 +161,22 @@ class Licensed < Formula
     sha256 "c5944793349ae03c432e1780a2ca929d60b88c7d14d52d630db0508c3a8a17d8"
   end
 
-  # licensee 9.16.0 -> octokit 6.0.1 -> faraday 2.7.2 -> faraday-net_http 3.0.2
+  # licensee 9.16.0 -> octokit 6.0.1 -> faraday 2.7.4 -> faraday-net_http 3.0.2
   resource "faraday-net_http-3.0.2" do
     url "https://rubygems.org/gems/faraday-net_http-3.0.2.gem"
     sha256 "6882929abed8094e1ee30344a3369e856fe34530044630d1f652bf70ebd87e8d"
   end
 
-  # licensee 9.16.0 -> octokit 6.0.1 -> faraday 2.7.2 -> ruby2_keywords 0.0.5
+  # licensee 9.16.0 -> octokit 6.0.1 -> faraday 2.7.4 -> ruby2_keywords 0.0.5
   resource "ruby2_keywords-0.0.5" do
     url "https://rubygems.org/gems/ruby2_keywords-0.0.5.gem"
     sha256 "ffd13740c573b7301cf7a2e61fc857b2a8e3d3aff32545d6f8300d8bae10e3ef"
   end
 
-  # llicensee 9.16.0 -> octokit 6.0.1 -> faraday 2.7.2
-  resource "faraday-2.7.2" do
-    url "https://rubygems.org/gems/faraday-2.7.2.gem"
-    sha256 "16c3ee797ff57b2fe412c3aeacc412a60bec9eadfff5b79df24a43608d678a9e"
+  # llicensee 9.16.0 -> octokit 6.0.1 -> faraday 2.7.4
+  resource "faraday-2.7.4" do
+    url "https://rubygems.org/gems/faraday-2.7.4.gem"
+    sha256 "f2a6977c2b44295a868685b7f3b6f9a1b479d465a4bb4656fba0730fbadc40b8"
   end
 
   # licensee 9.16.0 -> octokit 6.0.1 -> sawyer 0.9.2 -> addressable 2.8.1 -> public_suffix 5.0.1
@@ -191,22 +191,22 @@ class Licensed < Formula
     sha256 "bc724a176ef02118c8a3ed6b5c04c39cf59209607ffcce77b91d0261dbadedfa"
   end
 
-  # licensee 9.16.0 -> octokit 6.0.1 -> sawyer 0.9.2 -> faraday 2.7.2 -> faraday-net_http 3.0.2
+  # licensee 9.16.0 -> octokit 6.0.1 -> sawyer 0.9.2 -> faraday 2.7.4 -> faraday-net_http 3.0.2
   resource "faraday-net_http-3.0.2" do
     url "https://rubygems.org/gems/faraday-net_http-3.0.2.gem"
     sha256 "6882929abed8094e1ee30344a3369e856fe34530044630d1f652bf70ebd87e8d"
   end
 
-  # licensee 9.16.0 -> octokit 6.0.1 -> sawyer 0.9.2 -> faraday 2.7.2 -> ruby2_keywords 0.0.5
+  # licensee 9.16.0 -> octokit 6.0.1 -> sawyer 0.9.2 -> faraday 2.7.4 -> ruby2_keywords 0.0.5
   resource "ruby2_keywords-0.0.5" do
     url "https://rubygems.org/gems/ruby2_keywords-0.0.5.gem"
     sha256 "ffd13740c573b7301cf7a2e61fc857b2a8e3d3aff32545d6f8300d8bae10e3ef"
   end
 
-  # licensee 9.16.0 -> octokit 6.0.1 -> sawyer 0.9.2 -> faraday 2.7.2
-  resource "faraday-2.7.2" do
-    url "https://rubygems.org/gems/faraday-2.7.2.gem"
-    sha256 "16c3ee797ff57b2fe412c3aeacc412a60bec9eadfff5b79df24a43608d678a9e"
+  # licensee 9.16.0 -> octokit 6.0.1 -> sawyer 0.9.2 -> faraday 2.7.4
+  resource "faraday-2.7.4" do
+    url "https://rubygems.org/gems/faraday-2.7.4.gem"
+    sha256 "f2a6977c2b44295a868685b7f3b6f9a1b479d465a4bb4656fba0730fbadc40b8"
   end
 
   # licensee 9.16.0 -> octokit 6.0.1 -> sawyer 0.9.2
@@ -245,10 +245,10 @@ class Licensed < Formula
     sha256 "b2206466b682ac1177b6b8ec321d00a84fca02d096c5d676a7a0cc5838dc0701"
   end
 
-  # licensee 9.16.0 -> rugged 1.5.0.1
-  resource "rugged-1.5.0.1" do
-    url "https://rubygems.org/gems/rugged-1.5.0.1.gem"
-    sha256 "1d947f2b19a2bb1d9fb4e3c7d6e8b8def3ed18f5aee21a8c7f8edb3fce66010a"
+  # licensee 9.16.0 -> rugged 1.5.1
+  resource "rugged-1.5.1" do
+    url "https://rubygems.org/gems/rugged-1.5.1.gem"
+    sha256 "a83493d050652d9e65eb6844a32f2c3da59e385e875214f7e502db547a7fce72"
   end
 
   # licensee 9.16.0 -> thor 1.2.1
