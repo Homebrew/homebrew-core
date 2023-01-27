@@ -24,6 +24,7 @@ class Metview < Formula
   depends_on "gdbm"
   depends_on "netcdf"
   depends_on "pango"
+  depends_on "pkg-config"
   depends_on "proj"
   depends_on "qt"
 
