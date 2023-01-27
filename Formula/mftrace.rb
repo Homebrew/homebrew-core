@@ -39,13 +39,14 @@ class Mftrace < Formula
   end
 
   def install
+    ENV["PYTHON"] = which("python3.11")
     buildpath.install resource("manpage") if build.stable?
     system "./autogen.sh" if build.head?
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
   test do
-    system "#{bin}/mftrace", "--version"
+    system bin/"mftrace", "--version"
   end
 end
