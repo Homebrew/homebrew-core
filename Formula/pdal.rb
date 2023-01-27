@@ -29,12 +29,12 @@ class Pdal < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "xerces-c" => :build
   depends_on "gdal"
   depends_on "hdf5"
   depends_on "laszip"
   depends_on "libpq"
   depends_on "numpy"
-  depends_on "xerces-c"
 
   fails_with gcc: "5" # gdal is compiled with GCC
 
