@@ -46,7 +46,6 @@ class Rizin < Formula
         "-Duse_sys_capstone=enabled",
         "-Duse_sys_xxhash=enabled",
         "-Duse_sys_magic=enabled",
-        "-Drizin_plugins=#{HOMEBREW_PREFIX}/lib/rizin/plugins",
         "-Denable_tests=false",
         "-Denable_rz_test=false",
         "--wrap-mode=nodownload",
@@ -56,17 +55,6 @@ class Rizin < Formula
       system "ninja"
       system "ninja", "install"
     end
-  end
-
-  def post_install
-    (HOMEBREW_PREFIX/"lib/rizin/plugins").mkpath
-  end
-
-  def caveats
-    <<~EOS
-      Plugins, extras and bindings will installed at:
-        #{HOMEBREW_PREFIX}/lib/rizin
-    EOS
   end
 
   test do
