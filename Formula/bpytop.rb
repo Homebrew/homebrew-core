@@ -45,11 +45,13 @@ class Bpytop < Formula
   test do
     config = (testpath/".config/bpytop")
     mkdir config/"themes"
+    # Disable cpu_freq on arm due to missing support: https://github.com/giampaolo/psutil/issues/1892
     (config/"bpytop.conf").write <<~EOS
       #? Config file for bpytop v. #{version}
 
       update_ms=2000
       log_level=DEBUG
+      show_cpu_freq=#{!Hardware::CPU.arm?}
     EOS
 
     require "pty"
