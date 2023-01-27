@@ -1,12 +1,12 @@
 class Siege < Formula
   desc "HTTP regression testing and benchmarking utility"
   homepage "https://www.joedog.org/siege-home/"
-  url "http://download.joedog.org/siege/siege-4.1.6.tar.gz"
+  url "https://download.joedog.org/siege/siege-4.1.6.tar.gz"
   sha256 "309d589bfc819b6f15d2e5e8591b3c0c6f693624f5060eeac067a4d9a7757de9"
   license "GPL-3.0-or-later"
 
   livecheck do
-    url "http://download.joedog.org/siege/?C=M&O=D"
+    url "https://download.joedog.org/siege/?C=M&O=D"
     regex(/href=.*?siege[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
