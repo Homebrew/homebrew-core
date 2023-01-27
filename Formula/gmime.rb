@@ -24,7 +24,7 @@ class Gmime < Formula
   depends_on "gpgme"
 
   def install
-    args = %W[
+    args = %w[
       --enable-largefile
       --disable-vala
       --disable-glibtest
