@@ -10,16 +10,16 @@ class Jbang < Formula
   end
 
   depends_on "openjdk"
-
+  
   def install
-    libexec.install "bin/jbang.jar"
-    bin.write_jar_script libexec/"jbang.jar", "jbang"
+    libexec.install Dir["*"]
+    inreplace "#{libexec}/bin/jbang", /^abs_jbang_dir=.*/, "abs_jbang_dir=#{libexec}/bin"
+    bin.install_symlink "#{libexec}/bin/jbang"
   end
 
   test do
     system "#{bin}/jbang", "init", "--template=cli", testpath/"hello.java"
     assert_match "hello made with jbang", (testpath/"hello.java").read
-
     assert_match version.to_s, shell_output("#{bin}/jbang --version 2>&1")
   end
 end
