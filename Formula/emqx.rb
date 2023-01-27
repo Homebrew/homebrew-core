@@ -21,14 +21,14 @@ class Emqx < Formula
   depends_on "ccache"    => :build
   depends_on "cmake"     => :build
   depends_on "coreutils" => :build
-  depends_on "erlang@24" => :build
+  depends_on "erlang"    => :build
   depends_on "freetds"   => :build
   depends_on "libtool"   => :build
-  depends_on "openssl@3"
+  depends_on "openssl@1.1"
 
-  uses_from_macos "curl"    => :build
-  uses_from_macos "unzip"   => :build
-  uses_from_macos "zip"     => :build
+  uses_from_macos "curl"  => :build
+  uses_from_macos "unzip" => :build
+  uses_from_macos "zip"   => :build
 
   on_linux do
     depends_on "ncurses"
@@ -38,13 +38,13 @@ class Emqx < Formula
   def install
     ENV["PKG_VSN"] = version.to_s
     touch(".prepare")
-    system "make", "emqx-rel"
-    prefix.install Dir["_build/emqx/rel/emqx/*"]
-    rm %W[
-      #{bin}/emqx.cmd
-      #{bin}/emqx_ctl.cmd
-      #{bin}/no_dot_erlang.boot
-    ]
+    system "make", "emqx"
+    system "tar", "xzf", "_build/emqx/rel/emqx/emqx-#{version}.tar.gz", "-C", prefix
+    %w[emqx.cmd emqx_ctl.cmd no_dot_erlang.boot].each do |f|
+      rm bin/f
+    end
+    chmod "+x", prefix/"releases/#{version}/no_dot_erlang.boot"
+    bin.install_symlink prefix/"releases/#{version}/no_dot_erlang.boot"
   end
 
   test do
