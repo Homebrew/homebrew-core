@@ -208,26 +208,12 @@ jobs:
           name: bottles
           path: ~/bottles/
 
-      # Workaround until the `cache` action uses the changes from
-      # https://github.com/actions/toolkit/pull/580.
-      - name: Unlink workspace
-        run: |
-          mv "${GITHUB_WORKSPACE}" "${GITHUB_WORKSPACE}-link"
-          mkdir "${GITHUB_WORKSPACE}"
-
       - name: Cache gems
         uses: actions/cache@v3
         with:
           path: ${{steps.set-up-homebrew.outputs.gems-path}}
           key: ${{runner.os}}-rubygems-v2-${{steps.set-up-homebrew.outputs.gems-hash}}
           restore-keys: ${{runner.os}}-rubygems-v2-
-
-      # Workaround until the `cache` action uses the changes from
-      # https://github.com/actions/toolkit/pull/580.
-      - name: Re-link workspace
-        run: |
-          rmdir "${GITHUB_WORKSPACE}"
-          mv "${GITHUB_WORKSPACE}-link" "${GITHUB_WORKSPACE}"
 
       - name: Install gems
         run: brew install-bundler-gems
@@ -268,10 +254,3 @@ jobs:
           body: ":x: @${{github.actor}} bottle request for ${{github.event.inputs.formula}} [failed](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}})."
           bot_body: ":x: Bottle request for ${{github.event.inputs.formula}} [failed](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}})."
           bot: BrewTestBot
-
-      # Workaround until the `cache` action uses the changes from
-      # https://github.com/actions/toolkit/pull/580.
-      - name: Unlink workspace
-        run: |
-          rm "${GITHUB_WORKSPACE}"
-          mkdir "${GITHUB_WORKSPACE}"
