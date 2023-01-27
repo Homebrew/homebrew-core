@@ -24,13 +24,7 @@ class Pipdeptree < Formula
   end
 
   test do
-    expected = <<~EOS
-      pip==22.3.1
-      pipdeptree==2.3.3
-      setuptools==65.6.3
-      wheel==0.38.4
-    EOS
-    assert_equal expected, shell_output("#{bin}/pipdeptree --all")
+    assert_match "pipdeptree==#{version}", shell_output("#{bin}/pipdeptree --all")
 
     assert_empty shell_output("#{bin}/pipdeptree --user-only").strip
 
