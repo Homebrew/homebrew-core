@@ -28,7 +28,7 @@ class Hadoop < Formula
     rm_f Dir["bin/*.cmd", "sbin/*.cmd", "libexec/*.cmd", "etc/hadoop/*.cmd"]
     libexec.install %w[bin sbin libexec share etc]
 
-    hadoop_env = Language::Java.java_home_env("11")
+    hadoop_env = Language::Java.overridable_java_home_env("11")
     hadoop_env[:HADOOP_LOG_DIR] = var/"hadoop"
 
     (libexec/"bin").each_child do |path|
