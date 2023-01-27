@@ -17,6 +17,7 @@ class Metview < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
   depends_on "cairo"
   depends_on "eccodes"
   depends_on "eigen"
@@ -24,7 +25,6 @@ class Metview < Formula
   depends_on "gdbm"
   depends_on "netcdf"
   depends_on "pango"
-  depends_on "pkg-config"
   depends_on "proj"
   depends_on "qt"
 
