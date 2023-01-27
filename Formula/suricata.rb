@@ -68,6 +68,7 @@ class Suricata < Formula
       args << "--with-libpcap-libraries=#{Formula["libpcap"].opt_lib}"
     end
 
+    inreplace "configure", "for ac_prog in python3 ", "for ac_prog in python3.11 "
     system "./configure", *std_configure_args, *args
     system "make", "install-full"
 
