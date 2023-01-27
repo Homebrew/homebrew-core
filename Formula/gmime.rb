@@ -25,8 +25,6 @@ class Gmime < Formula
 
   def install
     args = %W[
-      --disable-dependency-tracking
-      --prefix=#{prefix}
       --enable-largefile
       --disable-vala
       --disable-glibtest
@@ -34,7 +32,7 @@ class Gmime < Formula
       --enable-introspection
     ]
 
-    system "./configure", *args
+    system "./configure", *std_configure_args, *args
     system "make", "install"
   end
 
