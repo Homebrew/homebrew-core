@@ -1,8 +1,8 @@
 class Abseil < Formula
   desc "C++ Common Libraries"
   homepage "https://abseil.io"
-  url "https://github.com/abseil/abseil-cpp/archive/refs/tags/20220623.1.tar.gz"
-  sha256 "91ac87d30cc6d79f9ab974c51874a704de9c2647c40f6932597329a282217ba8"
+  url "https://github.com/abseil/abseil-cpp/archive/refs/tags/20230125.1.tar.gz"
+  sha256 "81311c17599b3712069ded20cca09a62ab0bf2a89dfa16993786c8782b7ed145"
   license "Apache-2.0"
   head "https://github.com/abseil/abseil-cpp.git", branch: "master"
 
@@ -23,14 +23,20 @@ class Abseil < Formula
   fails_with gcc: "5" # C++17
 
   def install
-    mkdir "build" do
-      system "cmake", "..",
-                      *std_cmake_args,
-                      "-DCMAKE_INSTALL_RPATH=#{rpath}",
-                      "-DCMAKE_CXX_STANDARD=17",
-                      "-DBUILD_SHARED_LIBS=ON"
-      system "make"
-      system "make", "install"
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                    "-DCMAKE_CXX_STANDARD=17",
+                    "-DBUILD_SHARED_LIBS=ON",
+                    "-DABSL_PROPAGATE_CXX_STD=ON",
+                    *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
+
+    # Remove bad flags in .pc files.
+    # https://github.com/abseil/abseil-cpp/issues/1408
+    if OS.mac?
+      inreplace lib.glob("pkgconfig/absl_random_internal_randen_hwaes{,_impl}.pc"),
+                "-Xarch_x86_64 -Xarch_x86_64 -Xarch_arm64 ", ""
     end
   end
 
