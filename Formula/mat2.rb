@@ -1,8 +1,8 @@
 class Mat2 < Formula
   desc "Metadata anonymization toolkit"
   homepage "https://0xacab.org/jvoisin/mat2"
-  url "https://0xacab.org/jvoisin/mat2/-/archive/0.13.1/mat2-0.13.1.tar.gz"
-  sha256 "473c56d60733a4434e10c85a86e928bd714f8f72a0b4772251cfa0a45f805e1d"
+  url "https://0xacab.org/jvoisin/mat2/-/archive/0.13.2/mat2-0.13.2.tar.gz"
+  sha256 "957633dd80b0c060062925b057607559bdcd9a52fbe25bee0723d1db425dffaf"
   license "LGPL-3.0-or-later"
 
   bottle do
