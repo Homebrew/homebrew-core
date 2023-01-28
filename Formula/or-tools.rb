@@ -4,7 +4,7 @@ class OrTools < Formula
   url "https://github.com/google/or-tools/archive/v9.5.tar.gz"
   sha256 "57f81b94949d35dc042690db3fa3f53245cffbf6824656e1a03f103a3623c939"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/google/or-tools.git", branch: "stable"
 
   livecheck do
@@ -43,10 +43,16 @@ class OrTools < Formula
   patch :DATA
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
-                    "-DUSE_SCIP=OFF",
-                    "-DBUILD_SAMPLES=OFF",
-                    "-DBUILD_EXAMPLES=OFF"
+    args = %w[
+      -DUSE_SCIP=OFF
+      -DBUILD_SAMPLES=OFF
+      -DBUILD_EXAMPLES=OFF
+    ]
+
+    # Support ABSL_LEGACY_THREAD_ANNOTATIONS, https://github.com/google/or-tools/issues/3655
+    # remove in next release
+    args << "-DCMAKE_CXX_FLAGS=-DABSL_LEGACY_THREAD_ANNOTATIONS"
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build", "-v"
     system "cmake", "--build", "build", "--target", "install"
     pkgshare.install "ortools/linear_solver/samples/simple_lp_program.cc"
