@@ -4,7 +4,7 @@ class S2geometry < Formula
   url "https://github.com/google/s2geometry/archive/v0.10.0.tar.gz"
   sha256 "1c17b04f1ea20ed09a67a83151ddd5d8529716f509dde49a8190618d70532a3d"
   license "Apache-2.0"
-  revision 3
+  revision 4
 
   livecheck do
     url :homepage
@@ -117,7 +117,7 @@ class S2geometry < Formula
         return  0;
       }
     EOS
-    system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test",
+    system ENV.cxx, "-std=c++17", "test.cpp", "-o", "test",
                     "-I#{Formula["openssl@3"].opt_include}",
                     "-L#{lib}", "-ls2"
     system "./test"
