@@ -19,8 +19,14 @@ class Tradcpp < Formula
   depends_on "bmake" => :build
 
   def install
+    bmake_args = %W[
+      prefix=#{prefix}
+      MK_INSTALL_AS_USER=yes
+      MANDIR=#{man}
+    ]
+
     system "bmake"
-    system "bmake", "prefix=#{prefix}", "MK_INSTALL_AS_USER=yes", "install"
+    system "bmake", *bmake_args, "install"
   end
 
   test do
