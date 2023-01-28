@@ -1,8 +1,8 @@
 class Abseil < Formula
   desc "C++ Common Libraries"
   homepage "https://abseil.io"
-  url "https://github.com/abseil/abseil-cpp/archive/refs/tags/20220623.1.tar.gz"
-  sha256 "91ac87d30cc6d79f9ab974c51874a704de9c2647c40f6932597329a282217ba8"
+  url "https://github.com/abseil/abseil-cpp/archive/refs/tags/20230125.0.tar.gz"
+  sha256 "3ea49a7d97421b88a8c48a0de16c16048e17725c7ec0f1d3ea2683a2a75adc21"
   license "Apache-2.0"
   head "https://github.com/abseil/abseil-cpp.git", branch: "master"
 
@@ -23,15 +23,13 @@ class Abseil < Formula
   fails_with gcc: "5" # C++17
 
   def install
-    mkdir "build" do
-      system "cmake", "..",
-                      *std_cmake_args,
-                      "-DCMAKE_INSTALL_RPATH=#{rpath}",
-                      "-DCMAKE_CXX_STANDARD=17",
-                      "-DBUILD_SHARED_LIBS=ON"
-      system "make"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                    "-DCMAKE_CXX_STANDARD=17",
+                    "-DBUILD_SHARED_LIBS=ON",
+                    *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
