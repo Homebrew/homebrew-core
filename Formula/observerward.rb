@@ -19,6 +19,11 @@ class Observerward < Formula
   depends_on "rust" => :build
 
   def install
+    # Fix a segfault when built with rust 1.67.0.
+    # Remove on next release.
+    inreplace "Cargo.toml", 'prettytable-rs = "^0.9"', 'prettytable-rs = "^0.10"'
+    system "cargo", "update", "--package", "prettytable-rs", "--precise", "0.10.0"
+
     system "cargo", "install", *std_cargo_args
   end
 
