@@ -20,7 +20,7 @@ class StructurizrCli < Formula
   test do
     result = pipe_output("#{bin}/structurizr-cli").strip
     # not checking `Structurizr DSL` version as it is different binary
-    assert_match "Structurizr CLI v#{version}", result
-    assert_match "Usage: structurizr push|pull|lock|unlock|export|validate|list [options]", result
+    assert_match "structurizr-cli: #{version}", result
+    assert_match "Usage: structurizr push|pull|lock|unlock|export|validate|list|help [options]", result
   end
 end
