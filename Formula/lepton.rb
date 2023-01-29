@@ -18,6 +18,8 @@ class Lepton < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "0fdd05b0bfb892d9f768134cc9c929ae9544137b8ac75a875f06d6f83d15607d"
   end
 
+  deprecate! date: "2023-01-29", because: :repo_archived
+
   depends_on "cmake" => :build
 
   # ARM might be supported in next release, if there is ever one
