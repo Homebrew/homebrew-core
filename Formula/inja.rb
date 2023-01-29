@@ -32,7 +32,7 @@ class Inja < Formula
           inja::render_to(std::cout, "Hello {{ name }}!\\n", data);
       }
     EOS
-    system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test",
+    system ENV.cxx, "-std=c++17", "test.cpp", "-o", "test",
            "-I#{include}", "-I#{Formula["nlohmann-json"].opt_include}"
     assert_equal "Hello world!\n", shell_output("./test")
   end
