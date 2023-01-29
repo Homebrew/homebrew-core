@@ -34,6 +34,8 @@ class Dust < Formula
   end
 
   test do
+    # failed with Linux CI run, but works with local run
+    # https://github.com/Homebrew/homebrew-core/pull/121789#issuecomment-1407749790
     if OS.linux?
       system bin/"dust", "-n", "1"
     else
