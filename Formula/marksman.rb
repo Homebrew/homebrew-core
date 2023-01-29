@@ -17,7 +17,7 @@ class Marksman < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8c0ddf03a37dffb5ce295f3a67a0f7ccf3659e7076d43038444ca42c139038fe"
   end
 
-  depends_on "dotnet@7" => :build
+  depends_on "dotnet" => :build
 
   uses_from_macos "zlib"
 
