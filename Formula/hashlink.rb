@@ -29,9 +29,6 @@ class Hashlink < Formula
   end
 
   def install
-    # remove with 1.13 release:
-    inreplace "Makefile", /PCRE_INCLUDE =/, "PCRE_FLAGS =" unless build.head?
-
     if OS.mac?
       # make file doesn't set rpath on mac yet
       system "make", "PREFIX=#{libexec}", "EXTRA_LFLAGS=-Wl,-rpath,#{libexec}/lib"
