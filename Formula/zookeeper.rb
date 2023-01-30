@@ -29,20 +29,14 @@ class Zookeeper < Formula
   depends_on "openjdk"
   depends_on "openssl@1.1"
 
+  resource "default_logback_xml" do
+    url "https://raw.githubusercontent.com/apache/zookeeper/release-3.8.1/conf/logback.xml"
+    sha256 "2fae7f51e4f92e8e3536e5f9ac193cb0f4237d194b982bb00b5c8644389c901f"
+  end
+
   def default_zk_env
     <<~EOS
       [ -z "$ZOOCFGDIR" ] && export ZOOCFGDIR="#{etc}/zookeeper"
-    EOS
-  end
-
-  def default_log4j_properties
-    <<~EOS
-      log4j.rootCategory=WARN, zklog
-      log4j.appender.zklog = org.apache.log4j.RollingFileAppender
-      log4j.appender.zklog.File = #{var}/log/zookeeper/zookeeper.log
-      log4j.appender.zklog.Append = true
-      log4j.appender.zklog.layout = org.apache.log4j.PatternLayout
-      log4j.appender.zklog.layout.ConversionPattern = %d{yyyy-MM-dd HH:mm:ss} %c{1} [%p] %m%n
     EOS
   end
 
@@ -82,15 +76,18 @@ class Zookeeper < Formula
               /^dataDir=.*/, "dataDir=#{var}/run/zookeeper/data"
     (etc/"zookeeper").install "conf/zoo.cfg"
 
-    (pkgshare/"examples").install "conf/log4j.properties", "conf/zoo_sample.cfg"
+    (pkgshare/"examples").install "conf/logback.xml", "conf/zoo_sample.cfg"
   end
 
   def post_install
+    tmpdir = Pathname.new(Dir.mktmpdir)
+    tmpdir.install resource("default_logback_xml")
+
     defaults = etc/"zookeeper/defaults"
     defaults.write(default_zk_env) unless defaults.exist?
 
-    log4j_properties = etc/"zookeeper/log4j.properties"
-    log4j_properties.write(default_log4j_properties) unless log4j_properties.exist?
+    logback_xml = etc/"zookeeper/logback.xml"
+    logback_xml.write(tmpdir/"default_logback_xml") unless logback_xml.exist?
   end
 
   service do
