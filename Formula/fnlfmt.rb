@@ -18,7 +18,7 @@ class Fnlfmt < Formula
 
   test do
     (testpath/"testfile.fnl").write("(fn [abc def] nil)")
-    expected = "(fn [abc def]\n  nil)\n\n"
+    expected = "(fn [abc def] nil)\n\n"
     assert_equal expected, shell_output("#{bin}/fnlfmt #{testpath}/testfile.fnl")
   end
 end
