@@ -49,9 +49,6 @@ class Erlang < Formula
     system "./otp_build", "autoconf" unless File.exist? "configure"
 
     args = %W[
-      --disable-debug
-      --disable-silent-rules
-      --prefix=#{prefix}
       --enable-dynamic-ssl-lib
       --enable-hipe
       --enable-shared-zlib
@@ -69,7 +66,7 @@ class Erlang < Formula
       args << "--with-dynamic-trace=dtrace" if MacOS::CLT.installed?
     end
 
-    system "./configure", *args
+    system "./configure", *std_configure_args, *args
     system "make"
     system "make", "install"
 
