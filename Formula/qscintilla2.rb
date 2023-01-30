@@ -43,12 +43,10 @@ class Qscintilla2 < Formula
 
   def install
     args = []
-    spec = ""
 
     if OS.mac?
       # TODO: when using qt 6, modify the spec
       spec = (ENV.compiler == :clang) ? "macx-clang" : "macx-g++"
-      spec << "-arm64" if Hardware::CPU.arm?
       args = %W[-config release -spec #{spec}]
     end
 
