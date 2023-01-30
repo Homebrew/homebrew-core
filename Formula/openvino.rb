@@ -42,10 +42,25 @@ class Openvino < Formula
     end
   end
 
-  resource "onednn_cpu" do
-    on_intel do
+  on_intel do
+    resource "onednn_cpu" do
       url "https://github.com/openvinotoolkit/oneDNN/archive/44de3c3698b687c26e487fc8f0213fa487e8fe2c.tar.gz"
       sha256 "2c6aa7d787a947aa032224683f216ab38c168de4aed61d0554671774060a3615"
+    end
+
+    on_linux do
+      depends_on "opencl-headers"
+      depends_on "opencl-icd-loader"
+
+      resource "onednn_gpu" do
+        url "https://github.com/oneapi-src/oneDNN/archive/fbec3e25a559ee252022ae066817b204e106a6ba.tar.gz"
+        sha256 "414747494018d41b115593e0ea7f952cdff62418f94ca32d89300e435293addd"
+      end
+
+      resource "opencl-hpp-headers" do
+        url "https://github.com/KhronosGroup/OpenCL-CLHPP/archive/refs/tags/v2022.09.30.tar.gz"
+        sha256 "999dec3ebf451f0f1087e5e1b9a5af91434b4d0c496d47e912863ac85ad1e6b2"
+      end
     end
   end
 
@@ -74,6 +89,7 @@ class Openvino < Formula
     resource("ittapi").stage buildpath/"thirdparty/ittapi/ittapi"
     resource("xbyak").stage buildpath/"thirdparty/xbyak"
     resource("onnx").stage buildpath/"thirdparty/onnx/onnx"
+    resource("opencl-hpp-headers").stage buildpath/"thirdparty/ocl/clhpp_headers"
 
     if Hardware::CPU.arm?
       resource("openvino_contrib").stage buildpath/"openvino_contrib"
@@ -88,7 +104,6 @@ class Openvino < Formula
       -DENABLE_CPPLINT=OFF
       -DENABLE_CLANG_FORMAT=OFF
       -DENABLE_NCC_STYLE=OFF
-      -DENABLE_INTEL_GPU=OFF
       -DENABLE_TEMPLATE=OFF
       -DENABLE_INTEL_GNA=OFF
       -DENABLE_INTEL_MYRIAD_COMMON=OFF
