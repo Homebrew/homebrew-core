@@ -3,10 +3,9 @@ class SpiceGtk < Formula
 
   desc "GTK client/libraries for SPICE"
   homepage "https://www.spice-space.org"
-  url "https://www.spice-space.org/download/gtk/spice-gtk-0.41.tar.xz"
-  sha256 "d8f8b5cbea9184702eeb8cc276a67d72acdb6e36e7c73349fb8445e5bca0969f"
+  url "https://www.spice-space.org/download/gtk/spice-gtk-0.42.tar.xz"
+  sha256 "9380117f1811ad1faa1812cb6602479b6290d4a0d8cc442d44427f7f6c0e7a58"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later", "BSD-3-Clause"]
-  revision 1
 
   livecheck do
     url "https://www.spice-space.org/download/gtk/"
@@ -62,6 +61,9 @@ class SpiceGtk < Formula
     sha256 "2b020ecf7d21b687f219b71ecad3631f644a47f01403fa1d1036b0c6416d70fb"
   end
 
+  # https://gitlab.com/keycodemap/keycodemapdb/-/merge_requests/18
+  patch :DATA
+
   def install
     venv = virtualenv_create(buildpath/"venv", "python3.11")
     venv.pip_install resources
@@ -99,3 +101,14 @@ class SpiceGtk < Formula
     system "./test"
   end
 end
+__END__
+diff --git a/subprojects/keycodemapdb/tools/keymap-gen b/subprojects/keycodemapdb/tools/keymap-gen
+index b6cc95b..d05e945 100755
+--- a/subprojects/keycodemapdb/tools/keymap-gen
++++ b/subprojects/keycodemapdb/tools/keymap-gen
+@@ -1,4 +1,4 @@
+-#!/usr/bin/python3
++#!/usr/bin/env python3
+ # -*- python -*-
+ #
+ # Keycode Map Generator
