@@ -34,6 +34,10 @@ class Erlang < Formula
   depends_on "unixodbc"
   depends_on "wxwidgets" # for GUI apps like observer
 
+  on_linux do
+    depends_on "libxslt" => :build
+  end
+
   resource "html" do
     url "https://github.com/erlang/otp/releases/download/OTP-25.2.2/otp_doc_html_25.2.2.tar.gz"
     mirror "https://fossies.org/linux/misc/otp_doc_html_25.2.2.tar.gz"
