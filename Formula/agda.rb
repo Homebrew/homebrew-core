@@ -2,11 +2,10 @@ class Agda < Formula
   desc "Dependently typed functional programming language"
   homepage "https://wiki.portal.chalmers.se/agda/"
   license "BSD-3-Clause"
-  revision 3
 
   stable do
-    url "https://hackage.haskell.org/package/Agda-2.6.2.2/Agda-2.6.2.2.tar.gz"
-    sha256 "e5be3761717b144f64e760d8589ec6fdc0dda60d40125c49cdd48f54185c527a"
+    url "https://hackage.haskell.org/package/Agda-2.6.3/Agda-2.6.3.tar.gz"
+    sha256 "beacc9802c470e42bb0707f9ffe7db488a936c635407dada5d4db060b58d6016"
 
     # Use Hackage metadata revision to support GHC 9.4.
     # TODO: Remove this resource on next release along with corresponding install logic
