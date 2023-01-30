@@ -5,7 +5,7 @@ class CargoMake < Formula
   sha256 "69c24bd9d0405d07bdf681e4fdf96bf32a95ca4b439f203e7f3997fdf9800781"
   license "Apache-2.0"
 
-  depends_on "rust" => [:build, :test]
+  depends_on "rust" # uses `cargo` at runtime
 
   def install
     system "cargo", "install", *std_cargo_args
