@@ -7,13 +7,6 @@ class Agda < Formula
     url "https://hackage.haskell.org/package/Agda-2.6.3/Agda-2.6.3.tar.gz"
     sha256 "beacc9802c470e42bb0707f9ffe7db488a936c635407dada5d4db060b58d6016"
 
-    # Use Hackage metadata revision to support GHC 9.4.
-    # TODO: Remove this resource on next release along with corresponding install logic
-    resource "Agda.cabal" do
-      url "https://hackage.haskell.org/package/Agda-2.6.2.2/revision/2.cabal"
-      sha256 "b69c2f317db2886cb387134af00a3e42a06fab6422686938797924d034255a55"
-    end
-
     resource "stdlib" do
       url "https://github.com/agda/agda-stdlib/archive/v1.7.1.tar.gz"
       sha256 "6f92ae14664e5d1217e8366c647eb23ca88bc3724278f22dc6b80c23cace01df"
@@ -55,8 +48,6 @@ class Agda < Formula
   uses_from_macos "zlib"
 
   def install
-    resource("Agda.cabal").stage { buildpath.install "2.cabal" => "Agda.cabal" } unless build.head?
-
     system "cabal", "v2-update"
     system "cabal", "--store-dir=#{libexec}", "v2-install", *std_cabal_v2_args
 
