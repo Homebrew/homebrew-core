@@ -30,11 +30,7 @@ class AwscliAT1 < Formula
   depends_on "pyyaml"
   depends_on "six"
 
-  # Remove this dependency when the version is at or above 1.27.6
-  # and replace with `uses_from_macos "mandoc"`
-  on_system :linux, macos: :ventura_or_newer do
-    depends_on "groff"
-  end
+  uses_from_macos "mandoc"
 
   resource "botocore" do
     url "https://files.pythonhosted.org/packages/dc/0c/7377983853fb50de53d409c82466bacf86d0273b3f0ebce070b00388f731/botocore-1.29.60.tar.gz"
