@@ -29,7 +29,7 @@ class Upx < Formula
     cp "#{bin}/upx", "."
     chmod 0755, "./upx"
 
-    system "#{bin}/upx", "-1", "./upx"
+    system "#{bin}/upx", "-1", "--force-execve", "./upx"
     system "./upx", "-V" # make sure the binary we compressed works
     system "#{bin}/upx", "-d", "./upx"
   end
