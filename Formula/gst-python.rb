@@ -27,6 +27,9 @@ class GstPython < Formula
   depends_on "pygobject3"
   depends_on "python@3.11"
 
+  # Avoid overlinking
+  patch :DATA
+
   def python3
     which("python3.11")
   end
@@ -49,3 +52,30 @@ class GstPython < Formula
     EOS
   end
 end
+__END__
+diff --git a/gi/overrides/meson.build b/gi/overrides/meson.build
+index 5977ee3..1b399af 100644
+--- a/gi/overrides/meson.build
++++ b/gi/overrides/meson.build
+@@ -3,13 +3,20 @@ install_data(pysources,
+     install_dir: pygi_override_dir,
+     install_tag: 'python-runtime')
+ 
++# avoid overlinking
++if host_machine.system() == 'windows'
++    python_ext_dep = python_dep
++else
++    python_ext_dep = python_dep.partial_dependency(compile_args: true)
++endif
++
+ gstpython = python.extension_module('_gi_gst',
+     sources: ['gstmodule.c'],
+     install: true,
+     install_dir : pygi_override_dir,
+     install_tag: 'python-runtime',
+     include_directories : [configinc],
+-    dependencies : [gst_dep, python_dep, pygobject_dep])
++    dependencies : [gst_dep, python_ext_dep, pygobject_dep])
+ 
+ env = environment()
+ env.prepend('_GI_OVERRIDES_PATH', [
