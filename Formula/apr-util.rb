@@ -1,11 +1,10 @@
 class AprUtil < Formula
   desc "Companion library to apr, the Apache Portable Runtime library"
   homepage "https://apr.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=apr/apr-util-1.6.1.tar.bz2"
-  mirror "https://archive.apache.org/dist/apr/apr-util-1.6.1.tar.bz2"
-  sha256 "d3e12f7b6ad12687572a3a39475545a072608f4ba03a6ce8a3778f607dd0035b"
+  url "https://www.apache.org/dyn/closer.lua?path=apr/apr-util-1.6.2.tar.bz2"
+  mirror "https://archive.apache.org/dist/apr/apr-util-1.6.2.tar.bz2"
+  sha256 "4fe57443a7905027e13707c875c5de6f9fc6e2e5a2725d695b25a8a10c2d27e0"
   license "Apache-2.0"
-  revision 4
 
   bottle do
     sha256 arm64_ventura:  "534b2aef9b78f3e0c3af062fb496917b9ede4972c9e3a77675b840285cf862cd"
