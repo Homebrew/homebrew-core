@@ -35,19 +35,19 @@ class Evince < Formula
 
   def install
     ENV["DESTDIR"] = "/"
-    system "meson", *std_meson_args, "build",
-                    "-Dnautilus=false",
-                    "-Dcomics=enabled",
-                    "-Ddjvu=enabled",
-                    "-Dpdf=enabled",
-                    "-Dps=enabled",
-                    "-Dtiff=enabled",
-                    "-Dxps=enabled",
-                    "-Dgtk_doc=false",
-                    "-Dintrospection=true",
-                    "-Ddbus=false",
-                    "-Dgspell=enabled"
-    system "meson", "compile", "-C", "build", "-v"
+    system "meson", "setup", "build", "-Dnautilus=false",
+                                      "-Dcomics=enabled",
+                                      "-Ddjvu=enabled",
+                                      "-Dpdf=enabled",
+                                      "-Dps=enabled",
+                                      "-Dtiff=enabled",
+                                      "-Dxps=enabled",
+                                      "-Dgtk_doc=false",
+                                      "-Dintrospection=true",
+                                      "-Ddbus=false",
+                                      "-Dgspell=enabled",
+                                      *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
   end
 
