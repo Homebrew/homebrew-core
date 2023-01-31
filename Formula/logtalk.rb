@@ -12,11 +12,11 @@ class Logtalk < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b3baaaae0206922b73983312e0a397b6a88aa8611eb711ff96f5845a11fcc32b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f2c2089beac032ba2363d4dde788763cc9897d2dca797e034117b3741cffd79d"
-    sha256 cellar: :any_skip_relocation, monterey:       "e858853bed353ee6d38d88ead6a656934aeb07d2b4722e5dffccd7283c614bf0"
-    sha256 cellar: :any_skip_relocation, big_sur:        "01382a82b2c73b4a65d8aacfeb733f612bcd036bdd4fc44e75b270e42ca78405"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e1d44a7c436f6f57861b1e6d07ecb393b52d007580b2b4714dd91554f122026e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "fafb0f4ce065ee767944e0c861e0ee2a068d08758b0836fc59989375d01dfbfb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b834585f3fa36cb4c7a31cf345b098b116e71fbbab8335ee90729f70ef22180c"
+    sha256 cellar: :any_skip_relocation, monterey:       "3cd3a58cd71399f571885dedd321771aad8678dac796214dc0c85e386f383f28"
+    sha256 cellar: :any_skip_relocation, big_sur:        "975ecb49f737ff3305ef2c8d4087efe9826ddc6cd0454e6360e3bb8a5be3e745"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fa3a521308076db67f50084b50f56214b90b437df3b34ab4004f7ab9b179199a"
   end
 
   depends_on "gnu-prolog"
