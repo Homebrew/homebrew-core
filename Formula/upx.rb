@@ -20,9 +20,9 @@ class Upx < Formula
   uses_from_macos "zlib"
 
   def install
-    system "make", "all"
-    bin.install "build/release/upx"
-    man1.install "doc/upx.1"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
