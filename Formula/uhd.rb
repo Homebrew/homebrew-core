@@ -3,10 +3,9 @@ class Uhd < Formula
   homepage "https://files.ettus.com/manual/"
   # The build system uses git to recover version information
   url "https://github.com/EttusResearch/uhd.git",
-      tag:      "v4.3.0.0",
-      revision: "1f8fd3457dee48dc472446113a6998c2529adf59"
+      tag:      "v4.4.0.0",
+      revision: "5fac246bc18ab04cb4870026a630e46d0fd87b17"
   license all_of: ["GPL-3.0-or-later", "LGPL-3.0-or-later", "MIT", "BSD-3-Clause", "Apache-2.0"]
-  revision 2
   head "https://github.com/EttusResearch/uhd.git", branch: "master"
 
   livecheck do
@@ -34,13 +33,13 @@ class Uhd < Formula
   fails_with gcc: "5"
 
   resource "Mako" do
-    url "https://files.pythonhosted.org/packages/6d/f2/8ad2ec3d531c97c4071572a4104e00095300e278a7449511bee197ca22c9/Mako-1.2.2.tar.gz"
-    sha256 "3724869b363ba630a272a5f89f68c070352137b8fd1757650017b7e06fda163f"
+    url "https://files.pythonhosted.org/packages/05/5f/2ba6e026d33a0e6ddc1dddf9958677f76f5f80c236bd65309d280b166d3e/Mako-1.2.4.tar.gz"
+    sha256 "d60a3903dc3bb01a18ad6a89cdbe2e4eadc69c0bc8ef1e3773ba53d44c3f7a34"
   end
 
   resource "MarkupSafe" do
-    url "https://files.pythonhosted.org/packages/1d/97/2288fe498044284f39ab8950703e88abbac2abbdf65524d576157af70556/MarkupSafe-2.1.1.tar.gz"
-    sha256 "7f91197cc9e48f989d12e4e6fbc46495c446636dfc81b9ccf50bb0ec74b91d4b"
+    url "https://files.pythonhosted.org/packages/95/7e/68018b70268fb4a2a605e2be44ab7b4dd7ce7808adae6c5ef32e34f4b55a/MarkupSafe-2.1.2.tar.gz"
+    sha256 "abcabc8c2b26036d62d4c746381a6f7cf60aafcc653198ad678306986b09450d"
   end
 
   def install
