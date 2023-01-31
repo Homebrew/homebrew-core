@@ -3,8 +3,8 @@ class Pdm < Formula
 
   desc "Modern Python package and dependency manager supporting the latest PEP standards"
   homepage "https://pdm.fming.dev"
-  url "https://files.pythonhosted.org/packages/6b/aa/a0097b5664f9120c45887e7d06e797601005084200da350242a696314cc6/pdm-2.4.1.tar.gz"
-  sha256 "557fccbd895be49ece4bde0a15b22f8c1a57240d5a2397fa1398696586f3bc13"
+  url "https://files.pythonhosted.org/packages/47/9d/03cdc2fbe8b80dcea503fbc7bf66a9a24dc0ea850651c68b866fcab4ac44/pdm-2.4.2.tar.gz"
+  sha256 "8df281d19501c81b0ba803aff1781995ef057a43b5967bf190d4b0a126182cf5"
   license "MIT"
   head "https://github.com/pdm-project/pdm.git", branch: "main"
 
@@ -117,8 +117,8 @@ class Pdm < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/96/29/395e31686066cee66f8c0809d98b5e68d0f0c9b67e80f956b5659c8113fb/rich-13.3.0.tar.gz"
-    sha256 "98ce3ede653f23fbc02b0f8bd8a16a6b2bb4cfbdcfccf736eb28ba2810af241e"
+    url "https://files.pythonhosted.org/packages/68/31/b8934896818c885001aeb7df388ba0523ea3ec88ad31805983d9b0480a50/rich-13.3.1.tar.gz"
+    sha256 "125d96d20c92b946b983d0d392b84ff945461e5a06d3867e9f9e575f8697b67f"
   end
 
   resource "shellingham" do
