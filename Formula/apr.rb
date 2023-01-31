@@ -19,39 +19,16 @@ class Apr < Formula
 
   keg_only :provided_by_macos, "Apple's CLT provides apr"
 
-  depends_on "autoconf@2.69" => :build
-
   uses_from_macos "libxcrypt"
 
   on_linux do
     depends_on "util-linux"
   end
 
-  # Apply r1871981 which fixes a compile error on macOS 11.0.
-  # Remove with the next release, along with the autoconf call & dependency.
-  patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/7e2246542543bbd3111a4ec29f801e6e4d538f88/apr/r1871981-macos11.patch"
-    sha256 "8754b8089d0eb53a7c4fd435c9a9300560b675a8ff2c32315a5e9303408447fe"
-  end
-
-  # Apply r1882980+1882981 to fix implicit exit() declaration
-  # Remove with the next release, along with the autoconf call & dependency.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/fa29e2e398c638ece1a72e7a4764de108bd09617/apr/r1882980%2B1882981-configure.patch"
-    sha256 "24189d95ab1e9523d481694859b277c60ca29bfec1300508011794a78dfed127"
-  end
-
-  # Fix -flat_namespace being used on Big Sur and later.
-  # We patch `libtool.m4` directly because we call `autoconf`.
-  patch :DATA
-
   def install
     # https://bz.apache.org/bugzilla/show_bug.cgi?id=57359
     # The internal libtool throws an enormous strop if we don't do...
     ENV.deparallelize
-
-    # Needed to apply the patch.
-    system "autoconf"
 
     system "./configure", *std_configure_args
     system "make", "install"
@@ -83,30 +60,3 @@ class Apr < Formula
     assert_equal version.to_s, shell_output("./test")
   end
 end
-
-__END__
-diff --git a/build/libtool.m4 b/build/libtool.m4
-index e86a682..c1c342f 100644
---- a/build/libtool.m4
-+++ b/build/libtool.m4
-@@ -1067,16 +1067,11 @@ _LT_EOF
-       _lt_dar_allow_undefined='$wl-undefined ${wl}suppress' ;;
-     darwin1.*)
-       _lt_dar_allow_undefined='$wl-flat_namespace $wl-undefined ${wl}suppress' ;;
--    darwin*) # darwin 5.x on
--      # if running on 10.5 or later, the deployment target defaults
--      # to the OS version, if on x86, and 10.4, the deployment
--      # target defaults to 10.4. Don't you love it?
--      case ${MACOSX_DEPLOYMENT_TARGET-10.0},$host in
--	10.0,*86*-darwin8*|10.0,*-darwin[[91]]*)
--	  _lt_dar_allow_undefined='$wl-undefined ${wl}dynamic_lookup' ;;
--	10.[[012]][[,.]]*)
-+    darwin*)
-+      case ${MACOSX_DEPLOYMENT_TARGET},$host in
-+	10.[[012]],*|,*powerpc*)
- 	  _lt_dar_allow_undefined='$wl-flat_namespace $wl-undefined ${wl}suppress' ;;
--	10.*)
-+	*)
- 	  _lt_dar_allow_undefined='$wl-undefined ${wl}dynamic_lookup' ;;
-       esac
-     ;;
