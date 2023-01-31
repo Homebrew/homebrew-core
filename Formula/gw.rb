@@ -10,11 +10,8 @@ class Gw < Formula
   depends_on "icu4c"
   depends_on "wget"
   depends_on "zlib"
-  depends_on "ninja"
 
   def install
-    system "pwd"
-    system "ls", "-la"
     system "bash", "build_skia.sh"
     system "make"
     bin.install "gw"
