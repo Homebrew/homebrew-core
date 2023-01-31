@@ -31,8 +31,8 @@ class GrafanaAgent < Formula
     ]
     args = std_go_args(ldflags: ldflags) + %w[-tags=noebpf]
 
-    system "go", "build", *args, "./cmd/agent"
-    system "go", "build", *args, "-o", bin/"grafana-agentctl", "./cmd/agentctl"
+    system "go", "build", *args, "./cmd/grafana-agent"
+    system "go", "build", *args, "-o", bin/"grafana-agentctl", "./cmd/grafana-agentctl"
   end
 
   def post_install
