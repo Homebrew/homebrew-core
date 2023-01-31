@@ -1,18 +1,18 @@
 class Bitrise < Formula
   desc "Command-line automation tool"
   homepage "https://github.com/bitrise-io/bitrise"
-  url "https://github.com/bitrise-io/bitrise/archive/2.2.1.tar.gz"
-  sha256 "626a5caefc4fa8d51c8e70e75c051122e6627ebf7a7ac569f02520fecea0e470"
+  url "https://github.com/bitrise-io/bitrise/archive/2.2.2.tar.gz"
+  sha256 "33bb1c017907298117c2bcb7b36684fe1890867c7c8c13faaffd3444d403a5a6"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "602a3ea54b0471560ec69396688ff2a23cb5f05ec57f70f97114daf80d3d9b29"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "91501167a9d3d1025a426db086a4d8cd9b0636a5c32d28682bcfbff708d68897"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a804c2b31f40e53cf890b7d2dced6be536cfbffff108dac6cc6be326eadc93a4"
-    sha256 cellar: :any_skip_relocation, ventura:        "23fa7933dd94f2ca7ca6daeac8d918a35cf8d96e75996ddf84d9040f5f063614"
-    sha256 cellar: :any_skip_relocation, monterey:       "1f1ed63131c8df486f71b59092fe9bb5f73d81fba59e67d4c9967eea2c77197e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "43452da27f63d6c737b81dca2b73d79ecc0df1b591cdced71591bc54ac226d49"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "17c33e8940b4805048860817a213e59aae692c699cc05cc2d0bc70f91fc4aedb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "95be0caacea69efda1f425d7b830af7c8ecfed5f07ab03e64631682590f458ec"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d524e4378841b466515bd342db6c788fc2600cd1af8556d8bbeff326bc982738"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5264fb3e80f36d223e933717ac913621d932b95967c90bdb61d76e81a34afd3c"
+    sha256 cellar: :any_skip_relocation, ventura:        "fbbfbcfcd86dce433d36a43f03a6a328a91ecadba5037c7c0405b42fb574d11a"
+    sha256 cellar: :any_skip_relocation, monterey:       "1a76d884ba541e3ee64ae44fa2fa1833dc7f8b0c24c0dca06803032936cc639b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d2e951322bade666b65da11e595744e3f5e52e22ca789b3a3315429cbfe26b8d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "86158640413bfa57966bf96d7846bc5524e6669f642a8055d09b5012525591d9"
   end
 
   depends_on "go" => :build

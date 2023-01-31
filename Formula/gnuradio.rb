@@ -6,6 +6,7 @@ class Gnuradio < Formula
   url "https://github.com/gnuradio/gnuradio/archive/refs/tags/v3.10.5.1.tar.gz"
   sha256 "85d90147f7f28450bff75eeefd2b44adc88b231d29fe8e86cc3a65437dba6d9f"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/gnuradio/gnuradio.git", branch: "main"
 
   livecheck do
@@ -14,13 +15,13 @@ class Gnuradio < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "d20a29621a86561196464bcdad5390f61eea822c90aca6ec29944869828dabee"
-    sha256 cellar: :any,                 arm64_monterey: "3e3969864a6ab74be6b8ba0edb686b0b323ce46056201c0c91c32d5b01026c36"
-    sha256 cellar: :any,                 arm64_big_sur:  "2c57b99a2c0963b9c78683809f49d6ae854e59c8facf1067237d54d8793595d0"
-    sha256 cellar: :any,                 ventura:        "2ac4549b2bbb392fba16fb494380b678179041570219497ddc7ab9634b1c3a4c"
-    sha256 cellar: :any,                 monterey:       "345e19c858b3f6e6b1eb5597ddef0325fc88b8ca2c595f96d57cbfd2205d8580"
-    sha256 cellar: :any,                 big_sur:        "9e60ce725a20b666c3f7796be042fd6e34dd995c0d09fb31e6bf69d982fa5810"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ed4768e6085c2a719d8991543b7ebfade68c97e5f8fd51347a0eb42972beb5b4"
+    sha256 cellar: :any,                 arm64_ventura:  "9e503a9ddcae5b1ec5374203f1e3c934a4273124cfd47558a2317f9f24e3f3a3"
+    sha256 cellar: :any,                 arm64_monterey: "8eec0192d5bb71a7463a7d4897cc4bdfbb0b18f74c0727785c95241195ffef01"
+    sha256 cellar: :any,                 arm64_big_sur:  "9e8612eb49cca805ac288b339529beda3362fc0736d7c55524465363e3cdb901"
+    sha256 cellar: :any,                 ventura:        "51589efc82382f1d64ca1b4cabbf129caf09e7a52d4aae2ad6180b81ac3d969a"
+    sha256 cellar: :any,                 monterey:       "2d95928ce50ab257d0fb2900acbdd9f9b0eac4357668ff51f3e0f04da36172e5"
+    sha256 cellar: :any,                 big_sur:        "268f1ccc2ced067680581fbcba54a74c36cf0a68dd412252de8d5cb8dbca9338"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3324f42deb5220277e3d0c248e9aa94f9ff0f0f1e18ffaf55ac410fe697e6222"
   end
 
   depends_on "cmake" => :build
