@@ -2,10 +2,9 @@ class Vroom < Formula
   desc "Vehicle Routing Open-Source Optimization Machine"
   homepage "http://vroom-project.org/"
   url "https://github.com/VROOM-Project/vroom.git",
-      tag:      "v1.12.0",
-      revision: "d3abd6b22fe4afc0daa64d6b905911999b12dcdd"
+      tag:      "v1.13.0",
+      revision: "c87a87c4053b01396fb1011f665910c696e27c91"
   license "BSD-2-Clause"
-  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "100102d237bd1f14a8f314566a1f376dfaa4ecc01623c88b3e73995c2d719253"
@@ -25,13 +24,6 @@ class Vroom < Formula
   depends_on "openssl@3"
 
   fails_with gcc: "5"
-
-  # Fix build on macOS (https://github.com/VROOM-Project/vroom/issues/723)
-  # Patch accepted upstream, remove on next release
-  patch do
-    url "https://github.com/VROOM-Project/vroom/commit/f9e66df218e32eeb0026d2e1611a27ccf004fefd.patch?full_index=1"
-    sha256 "848d5f03910d5cd4ae78b68f655c2db75a0e9f855e5ec34855e8cac58a0601b7"
-  end
 
   def install
     # Use brewed dependencies instead of vendored dependencies
