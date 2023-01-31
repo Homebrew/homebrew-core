@@ -2,11 +2,10 @@ class Llvm < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
   # NOTE: `ccls` will need rebuilding on every version bump.
-  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-15.0.7/llvm-project-15.0.7.src.tar.xz"
-  sha256 "8b5fcb24b4128cf04df1b0b9410ce8b1a729cb3c544e6da885d234280dedeac6"
+  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-16.0.0-rc1/llvm-project-16.0.0rc1.src.tar.xz"
+  sha256 "8399db003b223ce33e3d7a5ee9df8dc3574cedffa5d9be4783660643f8402900"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
-  revision 1
   head "https://github.com/llvm/llvm-project.git", branch: "main"
 
   livecheck do
