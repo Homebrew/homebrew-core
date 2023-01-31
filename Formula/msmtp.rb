@@ -1,8 +1,8 @@
 class Msmtp < Formula
   desc "SMTP client that can be used as an SMTP plugin for Mutt"
   homepage "https://marlam.de/msmtp/"
-  url "https://marlam.de/msmtp/releases/msmtp-1.8.22.tar.xz"
-  sha256 "1b04206286a5b82622335e4eb09e17074368b7288e53d134543cbbc6b79ea3e7"
+  url "https://marlam.de/msmtp/releases/msmtp-1.8.23.tar.xz"
+  sha256 "cf04c16b099b3d414db4b5b93fc5ed9d46aad564c81a352aa107a33964c356b8"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,14 +11,13 @@ class Msmtp < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "998546c39f503352cfcda5e4b67d514b693eecb531fbb14c49122b425e4b192c"
-    sha256 arm64_monterey: "92d52d20ef071b7de5dcd5be20655d29cce0b5704bf51e566b589174d0671094"
-    sha256 arm64_big_sur:  "0cf7ac0320339689f3746094f2504e608621e270fbfb213bbe25cff544b11a1f"
-    sha256 ventura:        "be8d73253cacaf969572d9aa2a469d27c6efe8ec682282dd0132cd44e0160f6f"
-    sha256 monterey:       "30141e954634d0da2cd15fcef4292d6bc424ad1d822f5995e71f41f7b6efb50a"
-    sha256 big_sur:        "16c4c861b923ddfcc1633f9960d8676968b4bf4dd4fde4977972fd04311d394f"
-    sha256 catalina:       "8fe09ebdfcddedd9b7bd5e7143a21be824fc5c6cd7ccdde3fd34e4d0bf2069cf"
-    sha256 x86_64_linux:   "06310653bd5d605a7695ccc4e66e269b91e2a4767daffa46cb4bab227ed9ae59"
+    sha256 arm64_ventura:  "5b7bd15f68a6de10c3abe8fe08c8b64c4283f72a58ca05369b8d3cea0f43329c"
+    sha256 arm64_monterey: "0cc3a6d3daed4b0fd15e70520cb120efd82f7f1210560b39b8e9c7854e16f053"
+    sha256 arm64_big_sur:  "f2362f4e117b58a5d4578e29b67ddbfcf761b852becd2147ef2cddf375d83d24"
+    sha256 ventura:        "a575d0c47546e4bb0bd78a9b12a4e0fc3ebc72c4fe63d2ef9d76da691aa48269"
+    sha256 monterey:       "d87aaa7e55968b4128e2329c45f767c78fb8f13e18344d067f849aad12b080e8"
+    sha256 big_sur:        "32932f4e3b8c9dfe9efe9eaa3414cb5f991669ffe8c5bca8768270b2a9f42408"
+    sha256 x86_64_linux:   "ebf44d0aff2e946cacc349948aab422c1eeec885e70fc4be022cd1c29b9b4322"
   end
 
   depends_on "pkg-config" => :build

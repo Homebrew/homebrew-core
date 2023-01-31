@@ -1,8 +1,8 @@
 class Pgroonga < Formula
   desc "PostgreSQL plugin to use Groonga as index"
   homepage "https://pgroonga.github.io/"
-  url "https://packages.groonga.org/source/pgroonga/pgroonga-2.4.3.tar.gz"
-  sha256 "6f44052cf112808d07ebdba70918b1d7ece45e743f0907d8889583d726a3fc6f"
+  url "https://packages.groonga.org/source/pgroonga/pgroonga-2.4.4.tar.gz"
+  sha256 "e5b29bfa4a2321a0ccc14b55d5156c3cb5cc03c08f7ec2d54ccc2212186292a4"
   license "PostgreSQL"
 
   livecheck do
@@ -11,13 +11,13 @@ class Pgroonga < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "60dd745c24744ca80840a015026ee626587c9e0068a4244ce7e3acfc95df1d5c"
-    sha256 cellar: :any,                 arm64_monterey: "0cc719b5510567910fe4e261059e7245ffe76262fc9c4c75f567fc693be5de9c"
-    sha256 cellar: :any,                 arm64_big_sur:  "e3baca19270b957660ca5270df4c346b19b04a293176e789971bb8407326dab3"
-    sha256 cellar: :any,                 ventura:        "5f685fdc6aa5cac975e5143e862e0957452dca8a21f82bc928b02b7500455e7d"
-    sha256 cellar: :any,                 monterey:       "d08fd817d1541251dcab0b0f3b95f2d04da16a26c5135233d968ba9ee1df05df"
-    sha256 cellar: :any,                 big_sur:        "3e4626bf73c212c0501bcdb16a94e410e82707747352d9608246c6312f583031"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "671e44c0a759a311da1cf5d17ec27c9a6c9256d452f20d0584b8af8caf198a1b"
+    sha256 cellar: :any,                 arm64_ventura:  "33ac3a412ecda9e790dfd3956caad5051166d99301dd473d434cff8782466955"
+    sha256 cellar: :any,                 arm64_monterey: "54f48d1f03a8987de38103e6ddb091db2221c257bff9dad69342fd3652dcac32"
+    sha256 cellar: :any,                 arm64_big_sur:  "69f0464c1fc266d33a46daeba0afc1e2b0a09370bbe8a304ec3138c166ac1671"
+    sha256 cellar: :any,                 ventura:        "016b9c9f26829718b6b54ea03c14bc892b58093944f694b6ed2136a8631b551d"
+    sha256 cellar: :any,                 monterey:       "e2b7ee533c4adf25f754894772fa77f86a72b68bae1bab270f5068d99313370e"
+    sha256 cellar: :any,                 big_sur:        "3cb4b9ef822df08f4070adabf35f2cbc3aba4d6e7c5ee8bb0b106953828d2520"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0003684ef9e3936b1d760f369770edc801ad7e7884797c0250dce32bf19697ac"
   end
 
   depends_on "pkg-config" => :build

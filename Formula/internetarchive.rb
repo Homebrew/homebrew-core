@@ -3,18 +3,18 @@ class Internetarchive < Formula
 
   desc "Python wrapper for the various Internet Archive APIs"
   homepage "https://github.com/jjjake/internetarchive"
-  url "https://files.pythonhosted.org/packages/2d/fd/4ac60fdd9b5d9d836d763a5627beb5578db7f6953105db02d032288db675/internetarchive-3.2.0.tar.gz"
-  sha256 "701ee744398ed8d35a1e33641c2b971f4fb5e5665fc6c792f0305d22a79f4b39"
+  url "https://files.pythonhosted.org/packages/5c/8b/d3dce4a7fef92b7ccdc49ac34110a59e6c53b35e2fa4f36ccc0f3fc7172f/internetarchive-3.3.0.tar.gz"
+  sha256 "3cb7fe3cc21795aa0bf7be1eedca10090287e9c54160e0cf8640f16b6be14c1d"
   license "AGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "183329d73892ecd2919e778ed6d79a14ecfbbb6dab5fdbeb807f0eb25c836e86"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a751cff59ce3c500d6046ca8d71bdf9902f94b2cd797217ea2bc5d309580dd75"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f6aee0b7a5f3f10a166167121cb63bda4c71a1ae4958f37b143f9c2dff4fce4d"
-    sha256 cellar: :any_skip_relocation, ventura:        "5c4d843d34a06f7063c73986292779c8a478300484065a6f963b994002a657cd"
-    sha256 cellar: :any_skip_relocation, monterey:       "6f8da51e1640f818e9d48e06f2f798b32a784f6addd90f172fd2d40697cd9d1e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d8e1d560636e55c15f197838e52eb0001b9ff036b121e25a4ed1a7741574e500"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3eb0093b67ff0d87267ca694d919e31e4b1080212083d1bfbd0e847736f3ef66"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fb582c722bdc36c0c1659d6f0c97dbc69fee58c06c86cc405d610596915a26ea"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "29343eae6523b7b4ad6b86eacd657b4599ca7d12ea4808168c212a5b2d30212c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5def012fb77da3e537f77cd4000f27bedaca91c1952f2c352c6556171fa0a2e0"
+    sha256 cellar: :any_skip_relocation, ventura:        "b24512762ab8a0e40ba238c48d35b108547ce2ffd6af3639904bd87f7b4ab74f"
+    sha256 cellar: :any_skip_relocation, monterey:       "b7d50d80150d1bb846cc617a5d6dffdcd1b289a842dfea6311069841c014e23d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "3ce1b320ff6d91ce9604b21facdc972830a70266481ba5a0978bd921649367d8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bb8ab607994409074f8530cdcdb49af50c0192ab6b1bec9113263026012cf5de"
   end
 
   depends_on "python@3.11"
@@ -25,8 +25,8 @@ class Internetarchive < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/a1/34/44964211e5410b051e4b8d2869c470ae8a68ae274953b1c7de6d98bbcf94/charset-normalizer-2.1.1.tar.gz"
-    sha256 "5a3d016c7c547f69d6f81fb0db9449ce888b418b5b9952cc5e6e66843e9dd845"
+    url "https://files.pythonhosted.org/packages/96/d7/1675d9089a1f4677df5eb29c3f8b064aa1e70c1251a0a8a127803158942d/charset-normalizer-3.0.1.tar.gz"
+    sha256 "ebea339af930f8ca5d7a699b921106c6e29c617fe9606fa7baa043c1cdae326f"
   end
 
   resource "contextlib2" do
@@ -55,8 +55,8 @@ class Internetarchive < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/a5/61/a867851fd5ab77277495a8709ddda0861b28163c4613b011bc00228cc724/requests-2.28.1.tar.gz"
-    sha256 "7c5599b102feddaa661c826c56ab4fee28bfd17f5abca1ebbe3e7f19d7c97983"
+    url "https://files.pythonhosted.org/packages/9d/ee/391076f5937f0a8cdf5e53b701ffc91753e87b07d66bae4a09aa671897bf/requests-2.28.2.tar.gz"
+    sha256 "98b1b2782e3c6c4904938b84c0eb932721069dfdb9134313beff7c83c2df24bf"
   end
 
   resource "schema" do
@@ -70,8 +70,8 @@ class Internetarchive < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/c2/51/32da03cf19d17d46cce5c731967bf58de9bd71db3a379932f53b094deda4/urllib3-1.26.13.tar.gz"
-    sha256 "c083dd0dce68dbfbe1129d5271cb90f9447dea7d52097c6e0126120c521ddea8"
+    url "https://files.pythonhosted.org/packages/c5/52/fe421fb7364aa738b3506a2d99e4f3a56e079c0a798e9f4fa5e14c60922f/urllib3-1.26.14.tar.gz"
+    sha256 "076907bf8fd355cde77728471316625a4d2f7e713c125f51953bb5b3eecf4f72"
   end
 
   def install

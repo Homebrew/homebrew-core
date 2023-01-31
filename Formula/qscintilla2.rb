@@ -1,10 +1,9 @@
 class Qscintilla2 < Formula
   desc "Port to Qt of the Scintilla editing component"
   homepage "https://www.riverbankcomputing.com/software/qscintilla/intro"
-  url "https://www.riverbankcomputing.com/static/Downloads/QScintilla/2.13.3/QScintilla_src-2.13.3.tar.gz"
-  sha256 "711d28e37c8fccaa8229e8e39a5b3b2d97f3fffc63da10b71c71b84fa3649398"
+  url "https://www.riverbankcomputing.com/static/Downloads/QScintilla/2.13.4/QScintilla_src-2.13.4.tar.gz"
+  sha256 "890c261f31e116f426b0ea03a136d44fc89551ebfd126d7b0bdf8a7197879986"
   license "GPL-3.0-only"
-  revision 1
 
   # The downloads page also lists pre-release versions, which use the same file
   # name format as stable versions. The only difference is that files for
@@ -17,15 +16,13 @@ class Qscintilla2 < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_ventura:  "d4337a5f500a99e0bc88d83bc0be51a85913a7b60f4249a632ddbcd001a4c7f4"
-    sha256 cellar: :any,                 arm64_monterey: "d4337a5f500a99e0bc88d83bc0be51a85913a7b60f4249a632ddbcd001a4c7f4"
-    sha256 cellar: :any,                 arm64_big_sur:  "341f42c780929057356e40120c929562446f9f504fdd12a92ea0ff1e1472c5b5"
-    sha256 cellar: :any,                 ventura:        "c00a1377269db9bb302847b99b785edffd453d3f2bf36a2a26db0e629488d697"
-    sha256 cellar: :any,                 monterey:       "e5f3be88e13c7fad078dc39c0fdb2871104002da39dbed1a63a9f9aed23fc393"
-    sha256 cellar: :any,                 big_sur:        "935c0cbc9e462facb84f406f5959c09bb514c129bb11d96eaadbbc9aa4786c63"
-    sha256 cellar: :any,                 catalina:       "86e6861479dc4340b36311b63f4b2356411de921abf9b412a1b7a5f0c47c7b52"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f092425250b68a1ccbec4bdd5d642111aae1a3ea6bbf63b24932120f1417f4f4"
+    sha256 cellar: :any,                 arm64_ventura:  "044898d03d179ff9afd40ce662f2b0b7a6258409f293fcd70a0161ca0596d9a6"
+    sha256 cellar: :any,                 arm64_monterey: "044898d03d179ff9afd40ce662f2b0b7a6258409f293fcd70a0161ca0596d9a6"
+    sha256 cellar: :any,                 arm64_big_sur:  "3ee5e34dff911cfc98231b34e436608c4ddd522defb82e777d855385bfeba980"
+    sha256 cellar: :any,                 ventura:        "881349023c5bb39444db825c4762471f6b309fa2c3274d888be85abd6c5183a2"
+    sha256 cellar: :any,                 monterey:       "881349023c5bb39444db825c4762471f6b309fa2c3274d888be85abd6c5183a2"
+    sha256 cellar: :any,                 big_sur:        "f0c9c0a0368ec16b09241d779bf7df5313e0128532a616686af7fb01200c3cef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0a7b44012be2fa4cc48bb687e0d258c8439d489e72d92ca86a6d733ebf9af2d4"
   end
 
   depends_on "pyqt-builder" => :build
@@ -44,12 +41,10 @@ class Qscintilla2 < Formula
 
   def install
     args = []
-    spec = ""
 
     if OS.mac?
       # TODO: when using qt 6, modify the spec
       spec = (ENV.compiler == :clang) ? "macx-clang" : "macx-g++"
-      spec << "-arm64" if Hardware::CPU.arm?
       args = %W[-config release -spec #{spec}]
     end
 

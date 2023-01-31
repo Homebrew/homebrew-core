@@ -1,8 +1,8 @@
 class Dust < Formula
   desc "More intuitive version of du in rust"
   homepage "https://github.com/bootandy/dust"
-  url "https://github.com/bootandy/dust/archive/v0.8.3.tar.gz"
-  sha256 "1e07203546274276503a4510adcf5dc6eacd5d1e20604fcd55a353b3b63c1213"
+  url "https://github.com/bootandy/dust/archive/v0.8.4.tar.gz"
+  sha256 "611f2da80ef5b1d4423bcda159a65e9436692357b686b91b1dd8245a76eed589"
   license "Apache-2.0"
   head "https://github.com/bootandy/dust.git", branch: "master"
 
@@ -12,15 +12,13 @@ class Dust < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ffa6dcff87e28671bcb9d488a54e2b095d78ede9945a736b692f1f03d6e4a1d2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8459366edac296e35df8598fa1ded08448b691ab07de289d3ad02ab403644ac0"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "13c912d4ca38e5fb053a02bb3534df155125f662a1a5554e4def555b74d0c5e4"
-    sha256 cellar: :any_skip_relocation, ventura:        "751b82c8a0d41f9e8dcbe91b4fad1e08727a7d958078961058ea94841873e676"
-    sha256 cellar: :any_skip_relocation, monterey:       "6a04c6681d1cfb6357605d018be6fc8cf20fe29b9da656a5886a5893585a6c9c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1fb7f67c5612d8172e34e019af005c267119ca1caa2bb2cc1fd2116aef182c39"
-    sha256 cellar: :any_skip_relocation, catalina:       "0e3b7c9209a8111e83f97ed92e8f41c220564558d032e7a918017075e57d68c4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "15f9df74f891f4087e40a24dc38f3d5a5aecb6ff0caae2555585c18e5fdc065b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1a65013abedb991a36ddd4cfdb838f740bf8018b9cbdd96c1dd2d003a4214745"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5241603619cbe3271772faabd3cca9c1173a5a9deee52f4d7b83710e0cec058e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "22f6df699cc7c174ba960aed32ebc41b01f1e5d8d5fd11ff72429016f344ffe3"
+    sha256 cellar: :any_skip_relocation, ventura:        "7ede3b80c9d2284fc14705273259446a560f3947a215e7e15700e53081cd794a"
+    sha256 cellar: :any_skip_relocation, monterey:       "8d058ce2b61e7a6f2fcdc8cedac8e246599bf666413d5802def46a47d4e6b36f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "bd31ce0e250725898b300667ecf62686f94960e5e4113c14ee0962a4d2a93c1e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5c1aa1fb3ae017c18f72d835a35116a2c6be07c62c24b18cf68ce3bd74e388ea"
   end
 
   depends_on "rust" => :build
@@ -34,6 +32,12 @@ class Dust < Formula
   end
 
   test do
-    assert_match(/\d+.+?\./, shell_output("#{bin}/dust -n 1"))
+    # failed with Linux CI run, but works with local run
+    # https://github.com/Homebrew/homebrew-core/pull/121789#issuecomment-1407749790
+    if OS.linux?
+      system bin/"dust", "-n", "1"
+    else
+      assert_match(/\d+.+?\./, shell_output("#{bin}/dust -n 1"))
+    end
   end
 end

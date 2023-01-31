@@ -3,8 +3,8 @@ class Deheader < Formula
 
   desc "Analyze C/C++ files for unnecessary headers"
   homepage "http://www.catb.org/~esr/deheader/"
-  url "http://www.catb.org/~esr/deheader/deheader-1.8.tar.gz"
-  sha256 "ebf144b441cc12ff5003e3e36c16e772382a153968c44334d5d6a892b44cab06"
+  url "http://www.catb.org/~esr/deheader/deheader-1.9.tar.gz"
+  sha256 "493d482e4e53f122db326e2c182d2dae2ec2ad841852d2d9c18fbd8a78811e86"
   license "BSD-2-Clause"
 
   livecheck do
@@ -13,8 +13,7 @@ class Deheader < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "b32980eca30764c8a936e099452e952224ece8f51f5185e5862c746bd28eda15"
+    sha256 cellar: :any_skip_relocation, all: "520a39f42246a713a11ec63c932df1d913537eac3b1a2bb3931328ffa5f86a24"
   end
 
   head do

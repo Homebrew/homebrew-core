@@ -1,19 +1,18 @@
 class Pcalc < Formula
   desc "Calculator for those working with multiple bases, sizes, and close to the bits"
   homepage "https://github.com/alt-romes/programmer-calculator"
-  url "https://github.com/alt-romes/programmer-calculator/archive/v2.2.tar.gz"
-  sha256 "d76c1d641cdb7d0b68dd30d4ef96d6ccf16cad886b01b4464bdbf3a2fa976172"
+  url "https://github.com/alt-romes/programmer-calculator/archive/v3.0.tar.gz"
+  sha256 "6ede71e1442710e73edb99eb1742452e67ad5095cad328526633722850aa1136"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f23cc9bbef0d1fd5f473167e18c400d84383f419ed470f30c0de3e2764395702"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "799c6f87ae31666765e9bf3b08553b5d51e9b76c54208e679e0f03ee94250f1e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fab09fa817c8bff8e571344a16b1c6be62c76fb21afc4db76617b6c1fc4b15f0"
-    sha256 cellar: :any_skip_relocation, ventura:        "7416bbe3fa8df57ade664665e1271b9bd525fd222d68f334a1362dea51aac0a9"
-    sha256 cellar: :any_skip_relocation, monterey:       "71efc7e3060ea9a4fc3e5a9e9e519d72bb51de179302f1d815de0f7994f169b9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "78d3f7309704b06f355e6712f1d2e4062bf5aff75aa84dbc740e27fe54c37467"
-    sha256 cellar: :any_skip_relocation, catalina:       "582fae9a802ad376f792180263277acb57a63167980156bb68f1689bf923e033"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a09f8b238d357411b0742611e924758e9d204c80b5b9178b618034bc1ebf00e1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8726e03985b7241593b16d00eafd49b008e479058d3bf984da595c3e4cc2195a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8cb160f96c00151800102a58e493b8e394bfdaea743329ca7af245502185bdf5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ba2a72db4f367a3ae6dceef1eba8eb5e9ea84586acef55d163d53503a3ffddb1"
+    sha256 cellar: :any_skip_relocation, ventura:        "7929c84fa052dc93f47b5dfe37d4332ff916e2c300739b08f721e72bea265a86"
+    sha256 cellar: :any_skip_relocation, monterey:       "2259c04f3360d9bb7c26693fe47651972408c21d2b18a7760ecc218d2e2a33ab"
+    sha256 cellar: :any_skip_relocation, big_sur:        "bfef357df427a5d36419bee76ac2a65ce36e191c354d9d773f53b3ed6fd7058f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3bfe8638f58d9b4a6b71c50f08d37b6bf10e773ff1d43946879269cf00df69d4"
   end
 
   uses_from_macos "ncurses"

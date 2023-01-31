@@ -1,8 +1,8 @@
 class GstPluginsBase < Formula
   desc "GStreamer plugins (well-supported, basic set)"
   homepage "https://gstreamer.freedesktop.org/"
-  url "https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.20.5.tar.xz"
-  sha256 "11f911ef65f3095d7cf698a1ad1fc5242ac3ad6c9270465fb5c9e7f4f9c19b35"
+  url "https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.22.0.tar.xz"
+  sha256 "f53672294f3985d56355c8b1df8f6b49c8c8721106563e19f53be3507ff2229d"
   license "LGPL-2.0-or-later"
   head "https://gitlab.freedesktop.org/gstreamer/gst-plugins-base.git", branch: "master"
 
@@ -12,13 +12,13 @@ class GstPluginsBase < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "a3a353c76189f1ae51e6b4c046f85d2251264ebb37e5023ea06a62809025d773"
-    sha256 arm64_monterey: "c21b4a8e6cf09a43cb574da9a4b99d705189c9d01ecd51d4ff87494551ea4a7e"
-    sha256 arm64_big_sur:  "0bd6be3f07c5cb0ecc88b8c167187e5aa632500d52f8f9342f6f722973a16321"
-    sha256 ventura:        "7d0fef276f2f82fcf1e92d583f7d21c4c5c66104bf44fa7db1de6551a5fb97df"
-    sha256 monterey:       "8beb288ad29abd319a42ca436b01a13bc6593f768551de4498e786e1a4ce5b03"
-    sha256 big_sur:        "e614558a1b1e1d72a17120324bf07d8cba86f39dabdf76c57b300ab24e6181cb"
-    sha256 x86_64_linux:   "0dc7e6a058682b1476aa7014020c5edb8d95f201311b9c898293be123ac3de8e"
+    sha256 arm64_ventura:  "ec71766211d31b8300b2475b1f0fdc8b01a144dc7e2f8f81dc01f07b7db978a3"
+    sha256 arm64_monterey: "6b26c8d07ee85b3dfb2208f1fe17bcfc552ef34c9baefb6bb06f7006df55dd9b"
+    sha256 arm64_big_sur:  "0147c9958bcc7b285d2064690e07e1db914bc09a38b839fb4e8f1b72cf63b367"
+    sha256 ventura:        "2e13d8e8f9505338cce3deb091170dd497f9b42a4df900620d364dcbdb086c87"
+    sha256 monterey:       "2935a2b7adc86391f345b18edc1ae524f3891e7767c8eefc2f5267ee584c431e"
+    sha256 big_sur:        "6fa559b478d2dff3294fa4e6d922ac3d9d2f68ed0b9f0c4f4c98520602fe3afd"
+    sha256 x86_64_linux:   "1a25f75c42202eb653dcecc32c765ac238303ea1387fadc98e0d0e19a2f0a432"
   end
 
   depends_on "gobject-introspection" => :build

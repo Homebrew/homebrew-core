@@ -3,8 +3,8 @@ class GstDevtools < Formula
 
   desc "GStreamer development and validation tools"
   homepage "https://gstreamer.freedesktop.org/modules/gstreamer.html"
-  url "https://gstreamer.freedesktop.org/src/gst-devtools/gst-devtools-1.20.5.tar.xz"
-  sha256 "5684436121b8bae07fd00b74395f95e44b5f26323dce4fa045fa665676807bba"
+  url "https://gstreamer.freedesktop.org/src/gst-devtools/gst-devtools-1.22.0.tar.xz"
+  sha256 "4d21fee5c15f2877c0b1f6c2da0cdba67ce7caab2c199ab27e91a1394d5ba195"
   license "LGPL-2.1-or-later"
   head "https://gitlab.freedesktop.org/gstreamer/gst-devtools.git", branch: "master"
 
@@ -14,13 +14,13 @@ class GstDevtools < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "fd54ccc7cff8566b374875d65899ef1a36913e1e4048bab2b74efe941f263994"
-    sha256 arm64_monterey: "8e70edceb0d37d00142e838b23985f713f5a2893937ca77c3fa10907453c8d4e"
-    sha256 arm64_big_sur:  "fbcc046496fa19f38210bebfef79d53e5073c775866316126f5bdea515ebaf73"
-    sha256 ventura:        "79be9fb59c15220c5d6dc9ad978537883251f35fa2a17792f1c03fd18addacea"
-    sha256 monterey:       "348827f557cab2431747a6387a3c5b647ab4cfb13b37886b45830bd0c094e9ab"
-    sha256 big_sur:        "8ace31da36bac519db16469a83a180354d853968c9153c980aedec981dd2e187"
-    sha256 x86_64_linux:   "4d5e361535caf26074c61d1615f57323c7a30cfb250f60b606afbed1dcb3dadb"
+    sha256 arm64_ventura:  "fcbd0823c79339f93fd0beaecf2edd2c8865fd4861ed707e0cd2575385eab23f"
+    sha256 arm64_monterey: "98d37761162ed0ff37afa62f86c2e56045f09847153490ce14c79ad22d6f4e51"
+    sha256 arm64_big_sur:  "91cd476c3f601516584333d01f7bdd449efb296fa6b7609468502393af2f3b97"
+    sha256 ventura:        "1c71376517f5b816a396e6e6efb812191e269f1646b44ac116a347d59854a121"
+    sha256 monterey:       "c1eb2b68e7fa3997d1dd7970ea58af418bb6d802ec75196c915f47ee128b49fb"
+    sha256 big_sur:        "66b4bbc01e35abe21bd8687540d00b1d14517419b8ed4f3b152d5e4e753bda3e"
+    sha256 x86_64_linux:   "0fbe200e9fd1c563d4407a52b949ddb5786a4afb33cde3d3cfdc3a8b4b9b9d4a"
   end
 
   depends_on "gobject-introspection" => :build

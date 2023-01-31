@@ -316,10 +316,11 @@
     "exclude_packages": ["PyYAML"]
   },
   "jupyterlab": {
+    "extra_packages": ["jupyter-console"],
     "exclude_packages": [
       "ipython", "appnope", "asttokens", "backcall", "decorator", "executing", "jedi",
       "matplotlib-inline", "parso", "pexpect", "pickleshare", "prompt-toolkit", "ptyprocess",
-      "pure-eval", "Pygments", "six", "stack-data", "traitlets", "wcwidth"
+      "pure-eval", "Pygments", "six", "stack-data", "traitlets", "wcwidth", "PyYAML"
     ]
   },
   "keepkey-agent": {
