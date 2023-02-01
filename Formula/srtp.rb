@@ -23,7 +23,7 @@ class Srtp < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@1.1"
 
   def install
     system "./configure", "--disable-debug", "--prefix=#{prefix}", "--enable-openssl"
