@@ -1,10 +1,9 @@
 class Rethinkdb < Formula
   desc "Open-source database for the realtime web"
   homepage "https://rethinkdb.com/"
-  url "https://download.rethinkdb.com/repository/raw/dist/rethinkdb-2.4.2.tgz"
-  sha256 "35e6a76a527d473a7d962515a0414dea6e09300fff368ae713964ce2494d9c0d"
+  url "https://download.rethinkdb.com/repository/raw/dist/rethinkdb-2.4.3.tgz"
+  sha256 "c3788c7a270fbb49e3da45787b6be500763c190fb059e39b7def9454f9a4674f"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/rethinkdb/rethinkdb.git", branch: "next"
 
   livecheck do
