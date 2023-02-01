@@ -30,27 +30,24 @@ class Libngspice < Formula
 
   head do
     url "https://git.code.sf.net/p/ngspice/ngspice.git", branch: "master"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "bison" => :build
-    depends_on "flex" => :build
-    depends_on "libtool" => :build
   end
 
-  def install
-    system "./autogen.sh" if build.head?
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "bison" => :build
+  depends_on "flex" => :build
+  depends_on "libtool" => :build
 
-    args = %W[
-      --disable-debug
-      --disable-dependency-tracking
-      --prefix=#{prefix}
+  def install
+    system "./autogen.sh"
+
+    args = %w[
       --with-ngshared
       --enable-cider
       --enable-xspice
     ]
 
-    system "./configure", *args
+    system "./configure", *std_configure_args, *args
     system "make", "install"
 
     # remove script files
