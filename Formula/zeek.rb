@@ -13,13 +13,13 @@ class Zeek < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "fa93e6176cf97f82780d2110414e7934fdbcf8070bebc8ef9407b5ab589ad4b9"
-    sha256 arm64_monterey: "80060a6e15fbaa65b7a74a2712e31bca292a20c713a9563cd1da714e3d63a385"
-    sha256 arm64_big_sur:  "ef2b9e304742a56d4f0652453620721188a525f8e0778d6ee4a4b4d8b81fc770"
-    sha256 ventura:        "8b0c9da0ac2c56f3e3f1ff99ef840d261dc693b4716af04efe297027dec4cfcd"
-    sha256 monterey:       "9c4a13980311f9245221e5f3eb27c968daab730f83ee3e1fff9516755caf9b08"
-    sha256 big_sur:        "cb5eff2965c0acafbe74111e22c062482226c423034b91956e12a4e19322616b"
-    sha256 x86_64_linux:   "284858db0d06901a300639c78e39527846955640c0cfde7226983dee5a384d74"
+    sha256 arm64_ventura:  "3107e587063f170bc33b5e2b7a9c18261dd7f51bfd3847b56502d6f8e3084d96"
+    sha256 arm64_monterey: "92a677f134b423cb2b1f986c39e55c2bde7f8c6a6fa8928972592caab3212e5f"
+    sha256 arm64_big_sur:  "2d2b324bf5896b6d9a09705db5fa6b068f776780916bed6baff8d32632008adc"
+    sha256 ventura:        "b827b68f9aca1f5a8bb4174fc0ae78ed539f8d33bd5e02b7e2b4a2d0f06a989b"
+    sha256 monterey:       "2cb6fb1d6fd819ec2a4074ca251998adfa47201db1f89450258eb8f1bae2c670"
+    sha256 big_sur:        "a0e48ae441fe747d7ad574aeed76289934597cb749ddc2aa130e92d4b1dbc1a6"
+    sha256 x86_64_linux:   "82a148f4b92b251085b1a6d8db3106ec2a9553c1d6a7cadfa3320c3ce279f357"
   end
 
   depends_on "bison" => :build
