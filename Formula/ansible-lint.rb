@@ -3,8 +3,8 @@ class AnsibleLint < Formula
 
   desc "Checks ansible playbooks for practices and behaviour"
   homepage "https://github.com/ansible/ansible-lint/"
-  url "https://files.pythonhosted.org/packages/85/fa/ef4a04d0d6bb88d22c79937d9983b903fc7de6448d4941457bf292173e29/ansible-lint-6.11.0.tar.gz"
-  sha256 "348ac356c3817a6db98fb6993ec17b5b236c16312238759f0a3f14f3543a9e50"
+  url "https://files.pythonhosted.org/packages/c0/8b/67b428041c412d701b7d831e79fcf020f9480f1c32301e26b114290fb5ff/ansible-lint-6.12.0.tar.gz"
+  sha256 "887e88262dbd9e2cbb5b7a70a94d945a8a2791d1467cf30af49c22b60899b40b"
   license all_of: ["MIT", "GPL-3.0-or-later"]
 
   bottle do
@@ -26,8 +26,8 @@ class AnsibleLint < Formula
   depends_on "yamllint"
 
   resource "ansible-compat" do
-    url "https://files.pythonhosted.org/packages/b6/a1/bf63af6f20afa76b828956e67b811e76615cb06cbd44f5be1ff8cadb902a/ansible-compat-2.2.7.tar.gz"
-    sha256 "08deddcd0a1dc6baabe674b07c6ff882118492c123d281f56f01905271a7ffc4"
+    url "https://files.pythonhosted.org/packages/90/a2/a7228ad38339ac104d70e3a2e70744557c41fa34e8d4773382c852991ef9/ansible-compat-3.0.1.tar.gz"
+    sha256 "d7dc5e4b7fade9b7375c568a24475b7be81024cac2a20caef3260ef0b51287b4"
   end
 
   resource "attrs" do
@@ -40,11 +40,6 @@ class AnsibleLint < Formula
     sha256 "e7b23fc8b2cd06d3dec0692baabecb249dda94e06a617901ff03a6c56fd71693"
   end
 
-  resource "commonmark" do
-    url "https://files.pythonhosted.org/packages/60/48/a60f593447e8f0894ebb7f6e6c1f25dafc5e89c5879fdc9360ae93ff83f0/commonmark-0.9.1.tar.gz"
-    sha256 "452f9dc859be7f06631ddcb328b6919c67984aca654e5fefb3914d54691aed60"
-  end
-
   resource "filelock" do
     url "https://files.pythonhosted.org/packages/0b/dc/eac02350f06c6ed78a655ceb04047df01b02c6b7ea3fc02d4df24ca87d24/filelock-3.9.0.tar.gz"
     sha256 "7b319f24340b51f55a2bf7a12ac0755a9b03e718311dac567a0f4f7fabd2f5de"
@@ -53,6 +48,16 @@ class AnsibleLint < Formula
   resource "jsonschema" do
     url "https://files.pythonhosted.org/packages/36/3d/ca032d5ac064dff543aa13c984737795ac81abc9fb130cd2fcff17cfabc7/jsonschema-4.17.3.tar.gz"
     sha256 "0f864437ab8b6076ba6707453ef8f98a6a0d512a80e93f8abdb676f737ecb60d"
+  end
+
+  resource "markdown-it-py" do
+    url "https://files.pythonhosted.org/packages/33/e9/ac8a93e9eda3891ecdfecf5e01c060bbd2c44d4e3e77efc83b9c7ce9db32/markdown-it-py-2.1.0.tar.gz"
+    sha256 "cf7e59fed14b5ae17c0006eff14a2d9a00ed5f3a846148153899a0224e2c07da"
+  end
+
+  resource "mdurl" do
+    url "https://files.pythonhosted.org/packages/d6/54/cfe61301667036ec958cb99bd3efefba235e65cdeb9c84d24a8293ba1d90/mdurl-0.1.2.tar.gz"
+    sha256 "bb413d29f5eea38f31dd4754dd7377d4465116fb207585f97bf925588687c1ba"
   end
 
   resource "packaging" do
@@ -66,8 +71,8 @@ class AnsibleLint < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/20/db/fb6f586e2869440d99601b30f6874842015b0c8ca1a6a094abf4e24163f5/rich-13.1.0.tar.gz"
-    sha256 "81c73a30b144bbcdedc13f4ea0b6ffd7fdc3b0d3cc259a9402309c8e4aee1964"
+    url "https://files.pythonhosted.org/packages/68/31/b8934896818c885001aeb7df388ba0523ea3ec88ad31805983d9b0480a50/rich-13.3.1.tar.gz"
+    sha256 "125d96d20c92b946b983d0d392b84ff945461e5a06d3867e9f9e575f8697b67f"
   end
 
   resource "ruamel.yaml" do
