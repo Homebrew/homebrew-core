@@ -1,8 +1,8 @@
 class Bcpp < Formula
   desc "C(++) beautifier"
   homepage "https://invisible-island.net/bcpp/"
-  url "https://invisible-mirror.net/archives/bcpp/bcpp-20221002.tgz"
-  sha256 "ad87caf9f1df0212994ca6eff1c4e0e7b63559aaef0a4ba54555092ebc438437"
+  url "https://invisible-mirror.net/archives/bcpp/bcpp-20230130.tgz"
+  sha256 "ebc9935b1e0eb72d8aaf9379f2def66af839af3c06e4147aae4b1347eb272519"
   license "MIT"
 
   livecheck do
