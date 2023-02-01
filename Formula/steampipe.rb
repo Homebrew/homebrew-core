@@ -1,8 +1,8 @@
 class Steampipe < Formula
   desc "Use SQL to instantly query your cloud services"
   homepage "https://steampipe.io/"
-  url "https://github.com/turbot/steampipe/archive/refs/tags/v0.18.2.tar.gz"
-  sha256 "490293ba5245b4316bf143ad38a98de16d0219278ea79c79d1b26b53b34255a9"
+  url "https://github.com/turbot/steampipe/archive/refs/tags/v0.18.3.tar.gz"
+  sha256 "92cc09febd2eebe90825b72ada0426510b6b372d61e4bef7a5df3e61eed59aeb"
   license "AGPL-3.0-only"
   head "https://github.com/turbot/steampipe.git", branch: "main"
 
@@ -31,6 +31,6 @@ class Steampipe < Formula
     else # Linux
       assert_match "Steampipe service is not installed", output
     end
-    assert_match "steampipe version #{version}", shell_output(bin/"steampipe --version")
+    assert_match "Steampipe v#{version}", shell_output(bin/"steampipe --version")
   end
 end
