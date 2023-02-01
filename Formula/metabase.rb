@@ -11,7 +11,13 @@ class Metabase < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "b6e48046862579146b723506409139cb69103e6b1a641a57d082e3fdc04cec9f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fb9ff970173bfb4c5345a0088585950ac391d4d352cb9f5a12975b44b298bcba"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "fb9ff970173bfb4c5345a0088585950ac391d4d352cb9f5a12975b44b298bcba"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fb9ff970173bfb4c5345a0088585950ac391d4d352cb9f5a12975b44b298bcba"
+    sha256 cellar: :any_skip_relocation, ventura:        "fb9ff970173bfb4c5345a0088585950ac391d4d352cb9f5a12975b44b298bcba"
+    sha256 cellar: :any_skip_relocation, monterey:       "fb9ff970173bfb4c5345a0088585950ac391d4d352cb9f5a12975b44b298bcba"
+    sha256 cellar: :any_skip_relocation, big_sur:        "fb9ff970173bfb4c5345a0088585950ac391d4d352cb9f5a12975b44b298bcba"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "61b18479da9f842131c7da7f6cc51a06eb5a06a8010383b386d18203ea0e2d75"
   end
 
   head do
