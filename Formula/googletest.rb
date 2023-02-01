@@ -4,6 +4,7 @@ class Googletest < Formula
   url "https://github.com/google/googletest/archive/v1.13.0.tar.gz"
   sha256 "ad7fdba11ea011c1d925b3289cf4af2c66a352e18d4c7264392fead75e919363"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "78afe4f6baa4bd3bb904aa4113210e106c70281c10d7d809972b137e0f3b733d"
@@ -16,6 +17,8 @@ class Googletest < Formula
   end
 
   depends_on "cmake" => :build
+
+  patch :DATA
 
   def install
     system "cmake", ".", *std_cmake_args
@@ -38,5 +41,33 @@ class Googletest < Formula
     EOS
     system ENV.cxx, "test.cpp", "-std=c++14", "-L#{lib}", "-lgtest", "-lgtest_main", "-pthread", "-o", "test"
     system "./test"
+
+    # C++17-specific googeltest features should work:
+    (testpath/"test17.cpp").write <<~EOS
+      #include <gmock/gmock.h>
+      #include <string_view>
+
+      TEST(Simple, String)
+      {
+        ASSERT_THAT(std::string_view("hello"), "hello");
+      }
+    EOS
+    system ENV.cxx, "test17.cpp", "-std=c++17", "-L#{lib}",
+           "-lgmock_main", "-lgmock", "-lgtest", "-pthread", "-o", "test17"
+    system "./test17"
   end
 end
+
+__END__
+Enable C++17 features in googletest.
+
+--- a/googletest/cmake/internal_utils.cmake
++++ b/googletest/cmake/internal_utils.cmake
+@@ -197,7 +197,7 @@ function(cxx_library_with_type name type cxx_flags)
+   endif()
+
+   if (NOT "${CMAKE_VERSION}" VERSION_LESS "3.8")
+-    target_compile_features(${name} PUBLIC cxx_std_14)
++    target_compile_features(${name} PUBLIC cxx_std_17)
+   endif()
+ endfunction()
