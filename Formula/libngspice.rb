@@ -1,10 +1,11 @@
 class Libngspice < Formula
   desc "Spice circuit simulator as shared library"
   homepage "https://ngspice.sourceforge.io/"
+  license :cannot_represent
 
   stable do
-    url "https://downloads.sourceforge.net/project/ngspice/ng-spice-rework/38/ngspice-38.tar.gz"
-    sha256 "2c3e22f6c47b165db241cf355371a0a7558540ab2af3f8b5eedeeb289a317c56"
+    url "https://downloads.sourceforge.net/project/ngspice/ng-spice-rework/39/ngspice-39.tar.gz"
+    sha256 "b89c6bbce6e82ca9370b7f5584c9a608b625a7ed25e754758c378a6fb7107925"
 
     # Fix -flat_namespace being used on Big Sur and later.
     patch do
@@ -30,27 +31,24 @@ class Libngspice < Formula
 
   head do
     url "https://git.code.sf.net/p/ngspice/ngspice.git", branch: "master"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "bison" => :build
-    depends_on "flex" => :build
-    depends_on "libtool" => :build
   end
 
-  def install
-    system "./autogen.sh" if build.head?
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "bison" => :build
+  depends_on "flex" => :build
+  depends_on "libtool" => :build
 
-    args = %W[
-      --disable-debug
-      --disable-dependency-tracking
-      --prefix=#{prefix}
+  def install
+    system "./autogen.sh"
+
+    args = %w[
       --with-ngshared
       --enable-cider
       --enable-xspice
     ]
 
-    system "./configure", *args
+    system "./configure", *std_configure_args, *args
     system "make", "install"
 
     # remove script files
