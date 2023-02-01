@@ -31,6 +31,6 @@ class Steampipe < Formula
     else # Linux
       assert_match "Steampipe service is not installed", output
     end
-    assert_match "steampipe version #{version}", shell_output(bin/"steampipe --version")
+    assert_match "Steampipe v#{version}", shell_output(bin/"steampipe --version")
   end
 end
