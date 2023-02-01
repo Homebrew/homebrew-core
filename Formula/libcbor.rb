@@ -6,13 +6,13 @@ class Libcbor < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "5f28c88bc7f8d1f7151fdcfa5914e376243ec871023c55c35c93bc24132317dd"
-    sha256 cellar: :any,                 arm64_monterey: "4e24385ee758d122aa94647b657cf2ad51b0b1f1b206c5b5c28584013ed46ddb"
-    sha256 cellar: :any,                 arm64_big_sur:  "9f95e222a5ffe4ac89b36930851b6918d9b574e6d959b96c7fdeb02058aa2645"
-    sha256 cellar: :any,                 ventura:        "d47430f5ed58a42c6062217d8c83dea5af4d6d1ff8c02a0c8ea9121cf7a9b027"
-    sha256 cellar: :any,                 monterey:       "273d6d3a9fec6bfdaec5127bba7ed30804320bb17488042397a50e15e2f020e7"
-    sha256 cellar: :any,                 big_sur:        "e4fd52516f99358858359b1acb624bb7242d272eb4697f6dc597470c772ef5c8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fc65c81bee78c14d16e99717e8700d93373c6782fddcc13f970036d9a129eda2"
+    sha256 cellar: :any,                 arm64_ventura:  "ee1e77e1e6cef7ba754d1757f7aa038e34b139466f789231b672e389a194a5fc"
+    sha256 cellar: :any,                 arm64_monterey: "57f42308a7a0da1e7c5e7093669c0b860d83832903ec1233fad60ecd8ac92aeb"
+    sha256 cellar: :any,                 arm64_big_sur:  "3f8fcacd05f809c68d133967f3485997d3864afd76c7ea8df4b00a6638cd71dd"
+    sha256 cellar: :any,                 ventura:        "3c52d6c4828af57070d970dab0cfe3e174572c0eb6adf496c1cbdb54988cd97a"
+    sha256 cellar: :any,                 monterey:       "5b1cc91f67025cfe899980d227fb0d14592635746e966b19307c9fc298f514e0"
+    sha256 cellar: :any,                 big_sur:        "b748fb213e434fe650e0964d72f84275a5aac3620b336778dbdf578b5263df0c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0c532bdfe6b9efb37ff7cd43d1fcf2def27aefbffbea09093cecf16f95adc198"
   end
 
   depends_on "cmake" => :build
