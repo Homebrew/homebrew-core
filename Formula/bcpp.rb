@@ -11,14 +11,13 @@ class Bcpp < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0a7bee1cf07a63413b46211dc0aceaf8da2fbd994e9c4bd2c0839e36674f753f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1da20cc17b58e3c8e50e625466fafcfeb982a29c6112788e8d3d725a8a301c75"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f47f8f238b0196c31f31bf94c3a2f10743f21656da26e8e5049a3c964493b528"
-    sha256 cellar: :any_skip_relocation, ventura:        "db8212d94848763824e279f3fbce53b168d91e4d107a890724779bfc83f4a738"
-    sha256 cellar: :any_skip_relocation, monterey:       "07c75d2ddb2e040d14c4dd35112579ebc815d8ad623a093ba34785d110e9e9c6"
-    sha256 cellar: :any_skip_relocation, big_sur:        "abf240394669e9cf1729060888eaa8076fbc39093788ff5c395db996718941a3"
-    sha256 cellar: :any_skip_relocation, catalina:       "8527335dbcc1422c229a02962c692e22636c3cdf14de756460d2daf87de4e7b2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bed43f0ca103d4eae3359136737fa5dd376b274e234c2ee7a683e20b1f8b208f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "225a1ab659784c0dce94579e1e7c1b20b7180e5bc2e836e96d6f5b400a9b18bd"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1a0b96f9971ccd11b8fef6e938e3a177851501f910dc0da45619d319372832a8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "602eae881b1448b893cbc3f748cd7e0716908b0e50369b7b47d8d633a3fa4769"
+    sha256 cellar: :any_skip_relocation, ventura:        "f0e9caea33a17f03930130cd40e31ebe8b5186fe545698f3035828817a459c4c"
+    sha256 cellar: :any_skip_relocation, monterey:       "9144ea39e29b465caba77b7583a109c8c95ee2a45d9b689fca98dd2284c262eb"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9b5a21d558ca2b49c55a505494d83a314afe3781ca96fbe3e3c1d811c0adf8f2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8da477c21a11d38be1394447dc58246b746e09b3c213aed89ad13369c29be9c7"
   end
 
   fails_with gcc: "5"
