@@ -12,13 +12,13 @@ class Zabbix < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "bbfd7dd36775f0db83c2019555e373808fd46337ef1230d9ed8b63708f95b9d7"
-    sha256 arm64_monterey: "9a3a919725a5a1404b54e77a46eda545dbc3118832f7eb6a864900d3ab0b7911"
-    sha256 arm64_big_sur:  "0922e0110812b49d4cf153d33f9f616e28d5a3e4ea80537e4f0d9b72a6722fde"
-    sha256 ventura:        "fe8d39f3ebf3ad3a5a7f0b0ad7a1afd8fdebb93518b3acff3865349028d66031"
-    sha256 monterey:       "fbe767594a19e13e098be2c789d34558b66e006ff1d937fac21f1898e7032a6a"
-    sha256 big_sur:        "bed92c66991ce6fff8c9ea7e8d8f3067930430fffadefd517f50e325fa042a0b"
-    sha256 x86_64_linux:   "b600259cfb22f02b7b843692bd480219c8b43c0d1eee900d4c73859c6c752cec"
+    sha256 arm64_ventura:  "e2d86d35b30adb67738c00a81d7c8b4ad27353172d213ded67cb3dab75698070"
+    sha256 arm64_monterey: "18cfa06031cd894f636b28cdd6606c3b965946fada9f33cccf0f4f465fa5f6d0"
+    sha256 arm64_big_sur:  "c30c393971a91f1028469906be891ad0f444f15a0f24de56a8baa003dde9974e"
+    sha256 ventura:        "e733bec3bc49f298a29e72b240648e5abc0ef37d805349b6d1522c4a4bc93f75"
+    sha256 monterey:       "411b81f2ca498a75699dda516ba879524232c49c3429f7dde757ccdfcc7c0832"
+    sha256 big_sur:        "afcdbc1d97cd00c5f5b7263f2c65d201c299cb31001f0baa6b89519ae1c0a720"
+    sha256 x86_64_linux:   "77d492e6d4d9f4790bf6072396ab9b92fc9e0e323af223eceedbbb61ec8fd865"
   end
 
   depends_on "pkg-config" => :build
