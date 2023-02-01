@@ -7,13 +7,13 @@ class Steampipe < Formula
   head "https://github.com/turbot/steampipe.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "72bf6cb31da4a7b3d939557e7d9636ef7fa581a3db9455e2abb38a14d7a3abb3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "18d0f5a94f1496a484b5589cb60a728e509fd972adaa4a45dcb8c980dac2af96"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d8884b3c6399cc4999cb2f8afbc6408a5c80a63039076df809cfdb053f122f1d"
-    sha256 cellar: :any_skip_relocation, ventura:        "047ccfaa16b8cc23b9b7e67d54d16989b61d086687e22509c681ded48b7ee59c"
-    sha256 cellar: :any_skip_relocation, monterey:       "45984398b72f3ae69023947c3721d30996f69f8a28d1884290cf25b53619c8b1"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d9bf21e3ddafe15539d021a5764392a952d893583b38bac62ca113420edeacd9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f9240e50fbad6366d44a784e726a1a3b02d19f2744e7b5eecd972f65ea990274"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "593433191d6be62fa169eef1792c1f880e1ccc2caace140d397c6adb9c390d4a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9cc84bc11876259540fc775f9c0772293ae60e867d00278f631ab98cbbf76080"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3ee30ab7bb2d37d7d4e4962c9b53d96cbe00341dceebf2bd04e3ac0494c28823"
+    sha256 cellar: :any_skip_relocation, ventura:        "19cf7017e019a6fe9a361a4fdc76fca9f502c4d4a428eb8916ad637e0cb982ef"
+    sha256 cellar: :any_skip_relocation, monterey:       "ef2540b5e2f61b78e6fbd876437a4f3d1a7c65a74f09cde1d996a6cb26e91793"
+    sha256 cellar: :any_skip_relocation, big_sur:        "15ebb5db0bfb49a672e0a886754df66cbb8a911e27db85a50f66d2a6e6219711"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7826a5bbd480e5a24bfd743dd3a5037c9325524f284891c8b416ae169aaa7bbd"
   end
 
   depends_on "go" => :build
