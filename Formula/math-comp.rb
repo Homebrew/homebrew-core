@@ -17,6 +17,7 @@ class MathComp < Formula
   end
 
   depends_on "ocaml" => :build
+  depends_on "ocaml-findlib" => :build
   depends_on "coq"
 
   def install
