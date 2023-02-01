@@ -6,13 +6,13 @@ class Libde265 < Formula
   license "LGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "62257cc326efdd4b9055b61396bb1aa9136e7b66888404d9b7fa066f6b3aa21a"
-    sha256 cellar: :any,                 arm64_monterey: "6676c2535237dcb4eb457f0ddb23125b87218e0e137dc34aa1b66920cc6fe40a"
-    sha256 cellar: :any,                 arm64_big_sur:  "d9f44ac3ef31fffc8d704e278f02f3fc7a00cc6296c107646f2092343e4f115e"
-    sha256 cellar: :any,                 ventura:        "d5f56cf35f972702c4cc6d0e837a83b62fcb84b42e55fb4a415b678a1a18f7d0"
-    sha256 cellar: :any,                 monterey:       "a282a833e315a4be5f9e52cbc726a12113c49f0a5dd8ac699e7fd18e2e8d3616"
-    sha256 cellar: :any,                 big_sur:        "f94a2c35bdcda702dffbbbf3f885d0fe2e5e8ba51423cdd55444980b735723f2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1951618266922aa0d517ffa63ab1787a45802bf6b1058607a5219d0f88491e77"
+    sha256 cellar: :any,                 arm64_ventura:  "cd269b04f879cf736e59a4543a359f493baec4180570ab8a64ac980d1f5d8d75"
+    sha256 cellar: :any,                 arm64_monterey: "ba6dd741ce35d7023354e6a01775fcfe59a05700c8ec3e28d9f27e2d9ec7fe9d"
+    sha256 cellar: :any,                 arm64_big_sur:  "5ba1a106c989d9836f29a89ec3c83acbefe01a400f1e94fd2d34e054614c8815"
+    sha256 cellar: :any,                 ventura:        "958ea9fe4735b4e09b99b416f229cc4d03f63ee0cd11d110f05cdd13d505528e"
+    sha256 cellar: :any,                 monterey:       "e35e1196c5d748634db9327381c567d981768488b43bf144ed8707a8e305ed98"
+    sha256 cellar: :any,                 big_sur:        "7c3afaff06376a54fde19c6e4615dcb18eb24b53a2f932e9286c2176e7ee06da"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8385af5d9d6ee2d7c009ec98ffef6884abad83664fa31f3d631f80d597ef2573"
   end
 
   # Fix -flat_namespace being used on Big Sur and later.
