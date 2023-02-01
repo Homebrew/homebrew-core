@@ -1,10 +1,9 @@
 class C2rust < Formula
   desc "Migrate C code to Rust"
   homepage "https://github.com/immunant/c2rust"
-  url "https://github.com/immunant/c2rust/archive/refs/tags/v0.16.0.tar.gz"
-  sha256 "9ed1720672afb503db91b30cec1dedcf878841f57eaea4c7046839890990d8cd"
+  url "https://github.com/immunant/c2rust/archive/refs/tags/v0.17.0.tar.gz"
+  sha256 "7a178ad0f858e6169aa5c0edc85e04c754b954de4d0c3336d90a98ec8f583512"
   license "BSD-3-Clause"
-  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "021c790568ddb4693f2dd068cb4ce5e5e58144877d41c509e4f810ad1653c486"
@@ -19,7 +18,7 @@ class C2rust < Formula
 
   depends_on "cmake" => [:build, :test]
   depends_on "rust" => :build
-  depends_on "llvm@14"
+  depends_on "llvm"
 
   fails_with gcc: "5"
 
