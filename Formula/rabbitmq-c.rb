@@ -7,15 +7,13 @@ class RabbitmqC < Formula
   head "https://github.com/alanxz/rabbitmq-c.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_ventura:  "683a44cba4e1e063e150bbcf602ea5c8a310b12d88faf0c98b8ca2673f0c7699"
-    sha256 cellar: :any,                 arm64_monterey: "b5e656e15711c417775fb532b61374f34fb00b69ddf2f24841d6c8976bb1c29c"
-    sha256 cellar: :any,                 arm64_big_sur:  "5356ca6f455bb61d4ab4d8d66a27d399ebd027bddd5ebfe9bc5daa69d97c1dda"
-    sha256 cellar: :any,                 ventura:        "5e79508f8c8f343e672a05051977de2aeaaccf72c6684a4eec96f9fba1f8d99a"
-    sha256 cellar: :any,                 monterey:       "9528f0000e5d9beb29ca43cf88d0e04f92e05c1361bf1edbeb87212b68b8b295"
-    sha256 cellar: :any,                 big_sur:        "5f060aea640ac85272c2a4c2b4f5e0ced90d38942bded0c841b9f75c2cbcdf75"
-    sha256 cellar: :any,                 catalina:       "8f68d7d99f11f8443466b47289ea01700467e1786ee6ba0cd02ab98046787186"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "88e01cadd8c92b6afcf52fcbbe435ba1103320d3e5d4172e1db15f355116daa2"
+    sha256 cellar: :any,                 arm64_ventura:  "8cd28a5c50c682592c7b4965a8a3b98247dbc3cc086eb9be520ec8c4b2f573a6"
+    sha256 cellar: :any,                 arm64_monterey: "f0d844e45fe322d9032baaf1f8714c9b3a9dd8a9629c78500fea5620c20c0d01"
+    sha256 cellar: :any,                 arm64_big_sur:  "fab52cfefd873de24513d54662bdba8a4f6604768a629477d655e334d84ff3e8"
+    sha256 cellar: :any,                 ventura:        "fdedbc0e58627dd553cdc904b1b6060989dbe003db0a38b6fa3219cfb9bf5396"
+    sha256 cellar: :any,                 monterey:       "9e94d4e4635166f7a7acb74f802c650a063b5612bf0292da7449f09186f7e22b"
+    sha256 cellar: :any,                 big_sur:        "9a2c1e519eafcd31eb76698ed0f8a3dc27b10afa252262ae7ea585da4cd07179"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0572c7cab11aec2137e0b6409e3a8b218bffb617e2fa2d29c25c2afd906a2180"
   end
 
   depends_on "cmake" => :build
