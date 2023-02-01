@@ -7,13 +7,13 @@ class OpentelemetryCpp < Formula
   head "https://github.com/open-telemetry/opentelemetry-cpp.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ba378e447d2be33d7966a1aefa42ccfc1299bf51e7e10258a14035f576c03b7c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7fad81bc0a03420a9269122db23709133157a07ef8ba0987f2a3931a0c3feda6"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "592e5aabb6a100cd5586482e283487d3248b23365a9eb9ebc15a3aba41970afb"
-    sha256 cellar: :any_skip_relocation, ventura:        "f6d68e6e3c1c654c4d95e6ccb935fd5e81cc40e784747e73f2a4064ccd6284e9"
-    sha256 cellar: :any_skip_relocation, monterey:       "686f48590ecb7a0c79c7fa71464e22973c4e4b9f86da9ed46ce21dd7f016ec2b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "66b27de1d743a740c528687c4f6a4625422af27d463234ab95df99c791485c35"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cd5b6950475d36a9562921c9700ad9a4ea7300f662458a59580babca3ab172b4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cbeb1ac7f62d885b1da78d5dd696aba5a64419b633a4632bd697a86bdf75296f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "53a1cabdf23d90daf3eb90b93255ff789ecc82799ab22eed6abf649e6eeb404b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "165e17e92ff42b8c44c227ed26347fc9c91d178d51f059756980af066c1ca23c"
+    sha256 cellar: :any_skip_relocation, ventura:        "265f8a37577dac9e432aae815243499794c458c6b33a58c5a73769f13e600a98"
+    sha256 cellar: :any_skip_relocation, monterey:       "5c33a21581e4041b8a53e0b5ea8b52d8eff4f070694294578af5cf2d01b8a64a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "3aa32ff2ea64217b303a7634842c9d43049bfe6525e779c6c7d058e63fa67ff5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cea05e8a8cf47639e53aa33adcb3b65d7e111fe468f7e58971de30421cd89611"
   end
 
   depends_on "cmake" => :build
