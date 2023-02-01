@@ -26,7 +26,8 @@ class Djhtml < Formula
   end
 
   test do
-    (testpath/"test.html").write <<~EOF
+    test_file = testpath/"test.html"
+    test_file.write <<~EOF
       <html>
       <p>Hello, World!</p>
       </html>
@@ -37,6 +38,8 @@ class Djhtml < Formula
         <p>Hello, World!</p>
       </html>
     EOF
-    assert_equal expected_output, shell_output("#{bin}/djhtml --tabwidth 2 test.html")
+
+    system bin/"djhtml", "--tabwidth", "2", test_file
+    assert_equal expected_output, test_file.read
   end
 end
