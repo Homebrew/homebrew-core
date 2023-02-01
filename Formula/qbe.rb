@@ -11,14 +11,13 @@ class Qbe < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2a688a0a860fa5ea45fce179551f31dbf1002b2e2cf4173bd5cb67b98fdbbbc9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ede097fbd833309d4afb675ef089aee3fe5bff6fced0a5551dc4111688ed31a1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "72c102e7eb668d52ea3d369450d30d19b0272d3bfe35049cf99d0c003bd7ff98"
-    sha256 cellar: :any_skip_relocation, ventura:        "5774777e6f5e8fe124ec8ff83cb1e7b3db72b2dcac0676467890ab38739161dd"
-    sha256 cellar: :any_skip_relocation, monterey:       "62feb0473090724b350a1a8a5afa8ee48f0e3d9062e5afce63a4d690ec2c9a5c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6f042b0d40491ed8ff1641814abd41ff67584405dce9f1c112b96b787b8c7d8e"
-    sha256 cellar: :any_skip_relocation, catalina:       "f840bba007e227ace59e8cd04df766c2610c1b28331ec90f46c35d17e7db4924"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "29cff072dab5d807051b2371e810c57cdcff9e27d7720a1d25c11d9ed0803c56"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1e0f58c85a4bbf3b4eef38435d8bdfee9254a4e0311381e939d000311081c289"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c5318c7031f94916e283ab4161095171b6ab9cb6e6a9430ea6c5f0811568ab62"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e00dce5f83a8cf7e9400c42234e5b63f670d99a2fdcbad487389f90093780bf2"
+    sha256 cellar: :any_skip_relocation, ventura:        "0c919e700fb02acf816593311660d0269c621eabd2a3274d85d0a4496a00fef9"
+    sha256 cellar: :any_skip_relocation, monterey:       "7a48c78d50eb35e007a17431b41d59f08a23ce911291bb9bdc13a0dab59f40ca"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c56c49645beaec309145f55d36ca1cab8109f92621ce74f0d742350e6b30a05a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "182be378da98a564106defabd1377fba09bac76277e003a4c5f037d31ef89b82"
   end
 
   def install
