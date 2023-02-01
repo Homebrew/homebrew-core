@@ -3,8 +3,8 @@ class Libngspice < Formula
   homepage "https://ngspice.sourceforge.io/"
 
   stable do
-    url "https://downloads.sourceforge.net/project/ngspice/ng-spice-rework/38/ngspice-38.tar.gz"
-    sha256 "2c3e22f6c47b165db241cf355371a0a7558540ab2af3f8b5eedeeb289a317c56"
+    url "https://downloads.sourceforge.net/project/ngspice/ng-spice-rework/39/ngspice-39.tar.gz"
+    sha256 "b89c6bbce6e82ca9370b7f5584c9a608b625a7ed25e754758c378a6fb7107925"
 
     # Fix -flat_namespace being used on Big Sur and later.
     patch do
