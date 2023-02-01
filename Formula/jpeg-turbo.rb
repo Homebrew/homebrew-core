@@ -7,14 +7,13 @@ class JpegTurbo < Formula
   head "https://github.com/libjpeg-turbo/libjpeg-turbo.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "692e1da07f1d20df3d8157bee3b15c37d53fdd04b6d5de754f0841a3915ab1ab"
-    sha256 cellar: :any,                 arm64_monterey: "c9dbfe3df4b1c8cd4ac7ef18a3643c923c8081e6acdf9936ebff79b7514f14cd"
-    sha256 cellar: :any,                 arm64_big_sur:  "02e7859fbd2d7ac8336600bde67184ff78339146da99525b404ba683d184dff7"
-    sha256 cellar: :any,                 ventura:        "4aeb72103a5a6572f7a7574b459ca1d941579c4e9cd93f8c48b7ef208533df09"
-    sha256 cellar: :any,                 monterey:       "d2d17e1b59fd7aff903b1b6d15209aa304de4bf974881c11700600f0d7bd486a"
-    sha256 cellar: :any,                 big_sur:        "c2cbe03545e80c2b438a3d7f9b96fbcb7db4130b39ddae267a3b199f58f99c1c"
-    sha256 cellar: :any,                 catalina:       "8b3fc1875533efe903b131b285074e745c7cbd5888eaec72407a2e1b8a8d150b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dda8e2acfdedd64381f39301191955822d082c8c9c65a2dd4b9cece33267408c"
+    sha256 cellar: :any,                 arm64_ventura:  "d00e1ed5362087315ba0d537102311e6d8432c5cbe9296697141a02d53a6cdbe"
+    sha256 cellar: :any,                 arm64_monterey: "3a3c98f98547a73ed8a7d63df80d2693b090157c23b284e4cdc768984e17ebbb"
+    sha256 cellar: :any,                 arm64_big_sur:  "3f665c70d244ee7db9619b5ac7523f1a5f77d5a983280751fb4e7e727173026e"
+    sha256 cellar: :any,                 ventura:        "c42a466d35b221dceeb01f1d2533c861a2e0c711e8e9e8586d840a44b3da2a23"
+    sha256 cellar: :any,                 monterey:       "b3ac7986c12826bbdc6e9eb512d2edcc26ae53ddd1e977e1d97c9dc28dbd0054"
+    sha256 cellar: :any,                 big_sur:        "c72bd1ef2c9ea4d6bc68809ee29536b9044243a3f48d682eab784b3919e66505"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5b9c322a9fb4658e1c0d97bb3c53ea0dbd4be116d66ea4c8e12f3bc214e76c01"
   end
 
   depends_on "cmake" => :build
