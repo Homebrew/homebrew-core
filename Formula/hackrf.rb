@@ -1,10 +1,9 @@
 class Hackrf < Formula
   desc "Low cost software radio platform"
   homepage "https://github.com/greatscottgadgets/hackrf"
-  url "https://github.com/greatscottgadgets/hackrf/releases/download/v2022.09.1/hackrf-2022.09.1.tar.xz"
-  sha256 "bacd4e7937467ffa14654624444c8b5c716ab470d8c1ee8d220d2094ae2adb3e"
+  url "https://github.com/greatscottgadgets/hackrf/releases/download/v2023.01.1/hackrf-2023.01.1.tar.xz"
+  sha256 "32a03f943a30be4ba478e94bf69f14a5b7d55be6761007f4a4f5453418206a11"
   license "GPL-2.0-or-later"
-  revision 1
   head "https://github.com/greatscottgadgets/hackrf.git", branch: "master"
 
   livecheck do
