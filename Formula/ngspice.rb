@@ -23,29 +23,26 @@ class Ngspice < Formula
 
   head do
     url "https://git.code.sf.net/p/ngspice/ngspice.git", branch: "master"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "bison" => :build
-    depends_on "libtool" => :build
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "bison" => :build
+  depends_on "libtool" => :build
   depends_on "fftw"
   depends_on "libngspice"
   depends_on "readline"
 
   def install
-    system "./autogen.sh" if build.head?
+    system "./autogen.sh"
 
     args = %w[
-      --disable-dependency-tracking
-      --disable-silent-rules
       --with-readline=yes
       --enable-xspice
       --without-x
     ]
 
-    system "./configure", *args, *std_configure_args
+    system "./configure", *std_configure_args, *args
     system "make", "install"
 
     # fix references to libs
