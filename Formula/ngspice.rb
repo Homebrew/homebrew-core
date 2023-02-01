@@ -1,10 +1,9 @@
 class Ngspice < Formula
   desc "Spice circuit simulator"
   homepage "https://ngspice.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/ngspice/ng-spice-rework/38/ngspice-38.tar.gz"
-  sha256 "2c3e22f6c47b165db241cf355371a0a7558540ab2af3f8b5eedeeb289a317c56"
+  url "https://downloads.sourceforge.net/project/ngspice/ng-spice-rework/39/ngspice-39.tar.gz"
+  sha256 "b89c6bbce6e82ca9370b7f5584c9a608b625a7ed25e754758c378a6fb7107925"
   license :cannot_represent
-  revision 1
 
   livecheck do
     url :stable
@@ -24,29 +23,26 @@ class Ngspice < Formula
 
   head do
     url "https://git.code.sf.net/p/ngspice/ngspice.git", branch: "master"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "bison" => :build
-    depends_on "libtool" => :build
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "bison" => :build
+  depends_on "libtool" => :build
   depends_on "fftw"
   depends_on "libngspice"
   depends_on "readline"
 
   def install
-    system "./autogen.sh" if build.head?
+    system "./autogen.sh"
 
     args = %w[
-      --disable-dependency-tracking
-      --disable-silent-rules
       --with-readline=yes
       --enable-xspice
       --without-x
     ]
 
-    system "./configure", *args, *std_configure_args
+    system "./configure", *std_configure_args, *args
     system "make", "install"
 
     # fix references to libs
