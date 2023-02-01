@@ -1,8 +1,8 @@
 class Highs < Formula
   desc "Linear optimization software"
   homepage "https://www.maths.ed.ac.uk/hall/HiGHS/"
-  url "https://github.com/ERGO-Code/HiGHS/archive/refs/tags/v1.4.1.tar.gz"
-  sha256 "9890e02ff2d1607ed4d0708a0f2e3a2dc64da1f4301bb85cf1f2c924aa1fee7b"
+  url "https://github.com/ERGO-Code/HiGHS/archive/refs/tags/v1.4.2.tar.gz"
+  sha256 "29330e284491143cd53a547c23178221df46423679a98f6684251e65cc384d2b"
   license "MIT"
 
   bottle do
