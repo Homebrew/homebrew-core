@@ -14,8 +14,7 @@ class Ulfius < Formula
   def install
     mkdir "ulfius-build" do
       args = std_cmake_args
-      args += ["-DWITH_JOURNALD=OFF", "-DWITH_WEBSOCKET=on",
-               "-DWITH_GNUTLS=on", "-DWITH_CURL=on", "-DBUILD_STATIC=on"]
+      args += ["-DWITH_JOURNALD=OFF", "-DWITH_WEBSOCKET=on", "-DWITH_GNUTLS=on", "-DWITH_CURL=on"]
       system "cmake", *args, ".."
       system "make", "install"
     end
