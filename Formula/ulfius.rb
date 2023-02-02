@@ -12,12 +12,15 @@ class Ulfius < Formula
   uses_from_macos "curl"
 
   def install
-    mkdir "ulfius-build" do
-      args = std_cmake_args
-      args += ["-DWITH_JOURNALD=OFF", "-DWITH_WEBSOCKET=on", "-DWITH_GNUTLS=on", "-DWITH_CURL=on"]
-      system "cmake", *args, ".."
-      system "make", "install"
-    end
+    args = %w[
+      -DWITH_JOURNALD=OFF
+      -DWITH_WEBSOCKET=on
+      -DWITH_GNUTLS=on
+      -DWITH_CURL=on
+    ]
+    system "cmake", "-S", ".", "-B", "ulfius-build", *std_cmake_args, *args
+    system "cmake", "--build", "ulfius-build"
+    system "cmake", "--install", "ulfius-build"
   end
 
   test do
