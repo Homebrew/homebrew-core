@@ -13,10 +13,8 @@ class Soplex < Formula
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
-    cd "build" do
-      system "make"
-      system "make", "install"
-    end
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
     pkgshare.install "src/example.cpp"
   end
 
