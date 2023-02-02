@@ -3,8 +3,8 @@ class PreCommit < Formula
 
   desc "Framework for managing multi-language pre-commit hooks"
   homepage "https://pre-commit.com/"
-  url "https://files.pythonhosted.org/packages/d4/27/dcc5671be62457ec522ad1157422e78c416011ea12a0be022f1380807093/pre_commit-3.0.2.tar.gz"
-  sha256 "aa97fa71e7ab48225538e1e91a6b26e483029e6de64824f04760c32557bc91d7"
+  url "https://files.pythonhosted.org/packages/97/e9/26c7a792c8793e844ccfdac1e832136909f9a49dde32550b961edfacb51e/pre_commit-3.0.3.tar.gz"
+  sha256 "4187e74fda38f0f700256fb2f757774385503b04292047d0899fc913207f314b"
   license "MIT"
   head "https://github.com/pre-commit/pre-commit.git", branch: "main"
 
@@ -29,8 +29,8 @@ class PreCommit < Formula
   end
 
   resource "identify" do
-    url "https://files.pythonhosted.org/packages/57/76/df32f28bf83cc8f43f2f0b1a29f504ca9fb8ea811ce2d26f658a4f4667a6/identify-2.5.16.tar.gz"
-    sha256 "c47acedfe6495b1c603ed7e93469b26e839cab38db4155113f36f718f8b3dc47"
+    url "https://files.pythonhosted.org/packages/6b/c1/dcb61490b9324dd6c4b071835ce89840536a636512100e300e67e27ab447/identify-2.5.17.tar.gz"
+    sha256 "93cc61a861052de9d4c541a7acb7e3dcc9c11b398a2144f6e52ae5285f5f4f06"
   end
 
   resource "nodeenv" do
