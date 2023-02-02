@@ -17,8 +17,8 @@ class Podman < Formula
     sha256                               x86_64_linux:   "4b4d3245f41cc8ad7f6352f1ccd8db1ad5a12910572ef47a6a1ec1d053aec5dd"
   end
 
-  depends_on "go-md2man" => :build
   depends_on "go" => :build
+  depends_on "go-md2man" => :build
 
   on_macos do
     depends_on "qemu"
@@ -40,8 +40,8 @@ class Podman < Formula
 
   resource "gvproxy" do
     on_macos do
-      url "https://github.com/containers/gvisor-tap-vsock/archive/v0.4.0.tar.gz"
-      sha256 "896cf02fbabce9583a1bba21e2b384015c0104d634a73a16d2f44552cf84d972"
+      url "https://github.com/containers/gvisor-tap-vsock/archive/v0.5.0.tar.gz"
+      sha256 "8048f4f5faa2722547d1854110c2347f817b2f47ec51d39b2a7b308f52a7fe59"
     end
   end
 
@@ -60,15 +60,15 @@ class Podman < Formula
 
   resource "netavark" do
     on_linux do
-      url "https://github.com/containers/netavark/archive/refs/tags/v1.3.0.tar.gz"
-      sha256 "cc8a8e03498cb9b4c74fdbda09a64fdf9000fea398d07073c4e368fc83d35f56"
+      url "https://github.com/containers/netavark/archive/refs/tags/v1.4.0.tar.gz"
+      sha256 "cf76114808141be295b247ffee386afd89b69af8f6cb5703d8f82ca7bfd2ae06"
     end
   end
 
   resource "aardvark-dns" do
     on_linux do
-      url "https://github.com/containers/aardvark-dns/archive/refs/tags/v1.3.0.tar.gz"
-      sha256 "6dd1ce4346ed5c57bbd990140e02e69c036919032582b937d2ad7835329d3bc3"
+      url "https://github.com/containers/aardvark-dns/archive/refs/tags/v1.4.0.tar.gz"
+      sha256 "76a878fb69c61785a2400ef341829643821d63f994e0b203a597ac07216c8c33"
     end
   end
 
