@@ -84,12 +84,17 @@ class Gdal < Formula
               /(set\(INSTALL_ARGS "--single-version-externally-managed --record=record.txt")\)/,
               "\\1 --install-lib=#{prefix/Language::Python.site_packages(python3)})"
 
-    system "cmake", "-S", ".", "-B", "build",
-                    "-DBUILD_PYTHON_BINDINGS=ON",
-                    "-DPython_EXECUTABLE=#{which(python3)}",
-                    "-DENABLE_PAM=ON",
-                    "-DCMAKE_INSTALL_RPATH=#{lib}",
-                    *std_cmake_args
+    args = %W[
+      -DENABLE_PAM=ON
+      -DBUILD_PYTHON_BINDINGS=ON
+      -DCMAKE_INSTALL_RPATH=#{lib}
+      -DPython_EXECUTABLE=#{which(python3)}
+    ]
+
+    # JavaVM.framework in SDK causing Java bindings to be built
+    args << "-DBUILD_JAVA_BINDINGS=OFF" if MacOS.version <= :catalina
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
