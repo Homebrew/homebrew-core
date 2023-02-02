@@ -6,14 +6,13 @@ class C2rust < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "021c790568ddb4693f2dd068cb4ce5e5e58144877d41c509e4f810ad1653c486"
-    sha256 cellar: :any,                 arm64_monterey: "3273e2b69c83050f500993c11f7f64fd2f93249c123bf4680b3f1321132452a2"
-    sha256 cellar: :any,                 arm64_big_sur:  "a77f2a4bf5276333f97711bb7dd39bebe1bb621a8d0ddad389ccb76d7b3fef51"
-    sha256 cellar: :any,                 ventura:        "6d2f738f210810787e76bfb8bb1e223d6d79b2d50c7f87651d496ddc879e5720"
-    sha256 cellar: :any,                 monterey:       "5644197dcaf9d4c3ad60bb9c23f37d3ab9b9f6e9372501a0e7baaa4cc2633e43"
-    sha256 cellar: :any,                 big_sur:        "d62b726bf0c9c547366eb30b56f6e779aaffded61f09e5dbbabf276daf9ca794"
-    sha256 cellar: :any,                 catalina:       "5726ecc28aced3d728e39a42ca0bb63319a16680bf392d89570511177ed39fe4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dc1eb6240a68f394375a5fbaf71694279628f8299e241a6afd32f3932a3450fb"
+    sha256 cellar: :any,                 arm64_ventura:  "ef0266ce3f58b3fcfb099460379718daaddda579cb6fe4276033ee53ce28fa14"
+    sha256 cellar: :any,                 arm64_monterey: "f2418295fb1799248c0953bb50d10491d3d098c31589b9da90a0c4f4202c9989"
+    sha256 cellar: :any,                 arm64_big_sur:  "91e780a79d0faad66081f2351dc51db52a8b53e5917d37582252d68539c7d4fa"
+    sha256 cellar: :any,                 ventura:        "6ca3569f68c48a1934004e0d39f5876ca864af1b2b6dda0cf56dd72e23c2705b"
+    sha256 cellar: :any,                 monterey:       "ac9149ad2d77b36a266309f65b688d8e0689b2d27722d9289756344a9fa87581"
+    sha256 cellar: :any,                 big_sur:        "0ffa4bf5baa798997fd175325ebda6cc31955e69934241487976acb5b6cbbfec"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c5993deacf7b350d6ed3673d76b91a9f6e3013bbd495b054f6f0f152f88ea7ac"
   end
 
   depends_on "cmake" => [:build, :test]
