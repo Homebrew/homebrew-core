@@ -25,6 +25,8 @@ class Ncdu < Formula
   # Without this, `ncdu` is unusable when `TERM=tmux-256color`.
   depends_on "ncurses"
 
+  patch :DATA
+
   def install
     # Fix illegal instruction errors when using bottles on older CPUs.
     # https://github.com/Homebrew/homebrew-core/issues/92282
@@ -51,3 +53,20 @@ class Ncdu < Formula
     assert_equal Pathname.pwd.size, output[3][0]["asize"]
   end
 end
+
+__END__
+diff --git a/build.zig b/build.zig
+index 45bd314..aac1b54 100644
+--- a/build.zig
++++ b/build.zig
+@@ -10,6 +10,10 @@ pub fn build(b: *std.build.Builder) void {
+     const exe = b.addExecutable("ncdu", "src/main.zig");
+     exe.setTarget(target);
+     exe.setBuildMode(mode);
++    if (exe.target.isDarwin()) {
++        // useful for package maintainers
++        exe.headerpad_max_install_names = true;
++    }
+     exe.addCSourceFile("src/ncurses_refs.c", &[_][]const u8{});
+     exe.linkLibC();
+     exe.linkSystemLibrary("ncursesw");
