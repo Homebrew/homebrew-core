@@ -35,21 +35,12 @@ class Teleport < Formula
 
   conflicts_with "etsh", because: "both install `tsh` binaries"
 
-  # Keep this in sync with https://github.com/gravitational/teleport/tree/v#{version}
-  resource "webassets" do
-    url "https://github.com/gravitational/webassets/archive/5c619e15216a9a3b06ef517d44292f0443f8674f.tar.gz"
-    sha256 "e3070df51ff01cc3297cbc7998b4cfb2e26db9d602a58233c89e89dfcfdd5d0d"
-  end
-
   def install
-    (buildpath/"webassets").install resource("webassets")
     ENV.deparallelize { system "make", "full", "FIDO2=dynamic" }
     bin.install Dir["build/*"]
   end
 
   test do
-    curl_output = shell_output("curl \"https://api.github.com/repos/gravitational/teleport/contents/webassets?ref=v#{version}\"")
-    assert_match JSON.parse(curl_output)["sha"], resource("webassets").url
     assert_match version.to_s, shell_output("#{bin}/teleport version")
     assert_match version.to_s, shell_output("#{bin}/tsh version")
     assert_match version.to_s, shell_output("#{bin}/tctl version")
