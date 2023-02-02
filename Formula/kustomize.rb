@@ -25,13 +25,10 @@ class Kustomize < Formula
   depends_on "go" => :build
 
   def install
-    commit = Utils.git_head
-
     cd "kustomize" do
       ldflags = %W[
         -s -w
         -X sigs.k8s.io/kustomize/api/provenance.version=#{name}/v#{version}
-        -X sigs.k8s.io/kustomize/api/provenance.gitCommit=#{commit}
         -X sigs.k8s.io/kustomize/api/provenance.buildDate=#{time.iso8601}
       ]
 
@@ -47,8 +44,8 @@ class Kustomize < Formula
     (testpath/"kustomization.yaml").write <<~EOS
       resources:
       - service.yaml
-      patchesStrategicMerge:
-      - patch.yaml
+      patches:
+      - path: patch.yaml
     EOS
     (testpath/"patch.yaml").write <<~EOS
       apiVersion: v1
