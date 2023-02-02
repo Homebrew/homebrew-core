@@ -27,7 +27,9 @@ class Teleport < Formula
 
   depends_on "go" => :build
   depends_on "pkg-config" => :build
+  depends_on "yarn" => :build
   depends_on "libfido2"
+  depends_on "node"
 
   uses_from_macos "curl" => :test
   uses_from_macos "netcat" => :test
