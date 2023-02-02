@@ -7,13 +7,13 @@ class AprUtil < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 arm64_ventura:  "320d7b43f03f9772c4a6ac275ebaedcea7499c7e123cad8260421e5fd6676dbf"
-    sha256 arm64_monterey: "372e88baddbf7fe179d6cd2ade929edac4d0e04e67e49d9070c6e0bb4c8fb7d4"
-    sha256 arm64_big_sur:  "ef74f0dc5f7c6a48cc878d47b4e5eadf0c25ce8bfd793729a66d3dc1f2a0c18b"
-    sha256 ventura:        "58eee2972e5710863062eca49329fddc2b08e478cd1f43aaf22723f2333bc64b"
-    sha256 monterey:       "c09fa3ce85e04a55042e267c6d99ea47b979ed3c3fb4cf2c413cb9eae01ee886"
-    sha256 big_sur:        "10ec220c162b204c6b13b6ffccef5f1f6de86063b54e44178c20ec27b49410e6"
-    sha256 x86_64_linux:   "0301aa6c6e778d6ccf7c332df04ad43aa9cddb4e9ad0e5de09bf2ecd9a0496ab"
+    sha256 arm64_ventura:  "6934399a13fd918d1b923b0f3c11b147b7f95252fb5346e6c2c1ff0ea469dd47"
+    sha256 arm64_monterey: "b9f49b64bb09ebbacca86db8b043eeae0d4ccbdbbc107387ac62940a0813c8b2"
+    sha256 arm64_big_sur:  "ccb19102ab96bc0ca3575931a34ebfbb8313fddd03c91d6379316f80174a84be"
+    sha256 ventura:        "0ed3fd969da7b5199386e5ad2da2c1585c273c4e9bfc3d601b3cb12984ca298a"
+    sha256 monterey:       "5bcb46d9d71cfbbcd247ead2d3eb47d587397cfd7c2c34ea5f3f855bc06985c5"
+    sha256 big_sur:        "12b7c6a3247bd7fcf1c8f240e7d1b94f1d6303ac065583806a8ac895353ac452"
+    sha256 x86_64_linux:   "8cee1baa7025531d181d2c6a49198f2095b043405ddbb8618ae9e5e36c2713fb"
   end
 
   keg_only :shadowed_by_macos, "Apple's CLT provides apr (but not apr-util)"
