@@ -1,9 +1,13 @@
 class Aide < Formula
   desc "File and directory integrity checker"
   homepage "https://aide.github.io/"
-  url "https://github.com/aide/aide/releases/download/v0.17.4/aide-0.17.4.tar.gz"
-  sha256 "c81505246f3ffc2e76036d43a77212ae82895b5881d9b9e25c1361b1a9b7a846"
   license "GPL-2.0-or-later"
+
+  stable do
+    url "https://github.com/aide/aide/releases/download/v0.17.4/aide-0.17.4.tar.gz"
+    sha256 "c81505246f3ffc2e76036d43a77212ae82895b5881d9b9e25c1361b1a9b7a846"
+    depends_on "pcre"
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "da63a166bd78f49ae0459e96f2f98ceda43ae418c9e5430e3641d3cf37499a6d"
@@ -19,13 +23,15 @@ class Aide < Formula
   head do
     url "https://github.com/aide/aide.git", branch: "master"
     depends_on "autoconf" => :build
+    depends_on "autoconf-archive" => :build
     depends_on "automake" => :build
+    depends_on "bison" => :build
+    depends_on "pcre2"
   end
 
   depends_on "pkg-config" => :build
   depends_on "libgcrypt"
   depends_on "libgpg-error"
-  depends_on "pcre"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
