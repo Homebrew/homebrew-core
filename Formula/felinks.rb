@@ -1,9 +1,14 @@
 class Felinks < Formula
   desc "Text mode browser and Gemini, NNTP, FTP, Gopher, Finger, and BitTorrent client"
   homepage "https://github.com/rkd77/elinks#readme"
-  url "https://github.com/rkd77/elinks/releases/download/v0.16.0/elinks-0.16.0.tar.xz"
-  sha256 "4d65b78563af39ba1d0a9ab1c081e129ef2ed541009e6ff11c465ba9d8f0f234"
   license "GPL-2.0-only"
+
+  # TODO: Switch to `libidn2` on next release and remove stable block
+  stable do
+    url "https://github.com/rkd77/elinks/releases/download/v0.16.0/elinks-0.16.0.tar.xz"
+    sha256 "4d65b78563af39ba1d0a9ab1c081e129ef2ed541009e6ff11c465ba9d8f0f234"
+    depends_on "libidn"
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "161812829640eb38d7b3cc8745a357dde5c5504d5c275b024a39c7d765cbf6ac"
@@ -19,11 +24,11 @@ class Felinks < Formula
     url "https://github.com/rkd77/elinks.git", branch: "master"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
+    depends_on "libidn2"
   end
 
   depends_on "pkg-config" => :build
   depends_on "brotli"
-  depends_on "libidn"
   depends_on "openssl@3"
   depends_on "tre"
   depends_on "zstd"
