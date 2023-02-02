@@ -1,9 +1,9 @@
 class Apr < Formula
   desc "Apache Portable Runtime library"
   homepage "https://apr.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=apr/apr-1.7.1.tar.bz2"
-  mirror "https://archive.apache.org/dist/apr/apr-1.7.1.tar.bz2"
-  sha256 "402f8fcd12fbedbf12e681900d341c1f78d71b033104b201680933dc839c8d26"
+  url "https://www.apache.org/dyn/closer.lua?path=apr/apr-1.7.2.tar.bz2"
+  mirror "https://archive.apache.org/dist/apr/apr-1.7.2.tar.bz2"
+  sha256 "75e77cc86776c030c0a5c408dfbd0bf2a0b75eed5351e52d5439fa1e5509a43e"
   license "Apache-2.0"
 
   bottle do
