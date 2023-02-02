@@ -7,13 +7,13 @@ class Apr < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "2436fcb8df3235cf77a8a935c1394d56d1866c54c24c415bc8596f6a38e2e40e"
-    sha256 cellar: :any,                 arm64_monterey: "6d4620fe0ebacfaacebc26778d7fbb11fbf64a5b799d062c704d71de2f8723cf"
-    sha256 cellar: :any,                 arm64_big_sur:  "73d4746a4dfbdab5fb5de0c9e3f16719588e512cdb82bdb3203debc4fd5c2ad3"
-    sha256 cellar: :any,                 ventura:        "c4ea18de14696d7935ea9152bcfabe3879552a9f574da1a7144e0bb3c772fe39"
-    sha256 cellar: :any,                 monterey:       "573499a25e0232ba1537d857459b0aa4209daddc4a29036074d9ef39679105e0"
-    sha256 cellar: :any,                 big_sur:        "b8e064bbeb1e14aa0df92917fcec6cfd00d88854199928a29f12ab4bf1ae8f61"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e759919ebcadd46d5801f829a970d84b52fe9cd0f76835029dd824f58ecd8b50"
+    sha256 cellar: :any,                 arm64_ventura:  "43d7a315b75512c306abc9d3c4b565f6055aaf74d4dd76ca5ef4982510a8dfe2"
+    sha256 cellar: :any,                 arm64_monterey: "933669452ddcd56ad2de33b066886f5619701d24bdf25fb9851627a6f6383211"
+    sha256 cellar: :any,                 arm64_big_sur:  "0de897019d6d6bb016d736ddb8abd030ced05199b12296191df368887cd15a52"
+    sha256 cellar: :any,                 ventura:        "bd5e75c1eb97d724b1e3379882ea039648c07410e43d14b9b63f1114e9640054"
+    sha256 cellar: :any,                 monterey:       "ad643047773efb61fea049f450e93ec8235681d7bb8e5038346d5412afe17232"
+    sha256 cellar: :any,                 big_sur:        "5a31bfc312dbc46708437cceec41482dd73d14a65475f7b1317429365d1f509c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bb12d8b8b2e4691cc2be81032892f11bd9a8e279cc183238d78a9893e3ab7bc5"
   end
 
   keg_only :provided_by_macos, "Apple's CLT provides apr"
