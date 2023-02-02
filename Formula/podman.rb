@@ -72,6 +72,13 @@ class Podman < Formula
     end
   end
 
+  # Fix build failure when building docs
+  # Remove in next release after this is merged
+  patch do
+    url "https://github.com/containers/podman/commit/bd8937c5049771a60c40206fadda44316f1514ad.patch?full_index=1"
+    sha256 "509e65022d6eb640997afdbcc5f8f5d94b422786f6c2931810a0609a4a8193de"
+  end
+
   def install
     if OS.mac?
       ENV["CGO_ENABLED"] = "1"
