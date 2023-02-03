@@ -17,6 +17,9 @@ class Goplus < Formula
     sha256 x86_64_linux:   "4142d7d0efe2f3693c04737fc4858e5b4ceadabaf54209842126340b8bf129e3"
   end
 
+  # https://github.com/goplus/gop/issues/1350
+  deprecate! date: "2023-02-03", because: "cannot run with go1.20"
+
   depends_on "go"
 
   def install
