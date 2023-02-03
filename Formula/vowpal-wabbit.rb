@@ -1,8 +1,8 @@
 class VowpalWabbit < Formula
   desc "Online learning algorithm"
   homepage "https://github.com/VowpalWabbit/vowpal_wabbit"
-  url "https://github.com/VowpalWabbit/vowpal_wabbit/archive/9.6.0.tar.gz"
-  sha256 "dfbbd278472e5e4d61f50d6ab8a2147ee447db2451942d8a4689d1f3bf6e6e1f"
+  url "https://github.com/VowpalWabbit/vowpal_wabbit/archive/9.7.0.tar.gz"
+  sha256 "213a9386f35aa958475fa9fc54785353a8180623442eef2876867463efcfefe8"
   license "BSD-3-Clause"
   head "https://github.com/VowpalWabbit/vowpal_wabbit.git", branch: "master"
 
@@ -24,10 +24,6 @@ class VowpalWabbit < Formula
   depends_on "eigen"
   depends_on "fmt"
   uses_from_macos "zlib"
-  patch do
-    url "https://github.com/VowpalWabbit/vowpal_wabbit/commit/0cb410dfc885ca1ecafd1f8a962b481574fb3b82.patch?full_index=1"
-    sha256 "798246d976932a6e278d071fdff0bff57ba994a3aef58926bbf4e0bf6fa09690"
-  end
 
   def install
     ENV.cxx11
