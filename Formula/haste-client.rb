@@ -2,12 +2,11 @@ class HasteClient < Formula
   desc "CLI client for haste-server"
   homepage "https://hastebin.com/"
   license "MIT"
-  revision 7
   head "https://github.com/toptal/haste-client.git", branch: "master"
 
   stable do
-    url "https://github.com/toptal/haste-client/archive/v0.2.3.tar.gz"
-    sha256 "becbc13c964bb88841a440db4daff8e535e49cc03df7e1eddf16f95e2696cbaf"
+    url "https://github.com/toptal/haste-client/archive/v0.3.0.tar.gz"
+    sha256 "9f7e943be47408ba0b9765328794e7b87bdb2a785f1e9edb5d541d67b4a75d31"
 
     # Remove for > 0.2.3
     # Upstream commit from 19 Jul 2017 "Bump version to 0.2.3"
