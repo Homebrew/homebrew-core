@@ -11,8 +11,8 @@ class E2fsprogs < Formula
   head "https://git.kernel.org/pub/scm/fs/ext2/e2fsprogs.git", branch: "master"
 
   stable do
-    url "https://downloads.sourceforge.net/project/e2fsprogs/e2fsprogs/v1.46.5/e2fsprogs-1.46.5.tar.gz"
-    sha256 "b7430d1e6b7b5817ce8e36d7c8c7c3249b3051d0808a96ffd6e5c398e4e2fbb9"
+    url "https://downloads.sourceforge.net/project/e2fsprogs/e2fsprogs/v1.46.6/e2fsprogs-1.46.6.tar.gz"
+    sha256 "bf2fcc7ee5178fe73a3057f7e2aa3fe52e98b7bb461509c67b021ba00f94c6f7"
 
     # Remove `-flat_namespace` flag and fix M1 shared library build.
     # Sent via email to theodore.tso@gmail.com
