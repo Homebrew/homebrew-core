@@ -4,6 +4,7 @@ class Goplus < Formula
   url "https://github.com/goplus/gop/archive/v1.1.3.tar.gz"
   sha256 "11e676f1ff4a391248747bad9d4c1673d366fcf306bd3e185fee5870afd02fee"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/goplus/gop.git", branch: "main"
 
   bottle do
@@ -17,7 +18,8 @@ class Goplus < Formula
     sha256 x86_64_linux:   "4142d7d0efe2f3693c04737fc4858e5b4ceadabaf54209842126340b8bf129e3"
   end
 
-  depends_on "go"
+  # Move to go1.20 once https://github.com/goplus/gop/issues/1350 is resolved
+  depends_on "go@1.19"
 
   def install
     ENV["GOPROOT_FINAL"] = libexec
@@ -28,6 +30,8 @@ class Goplus < Formula
   end
 
   test do
+    ENV["GOROOT"] = Formula["go@1.19"].opt_libexec
+
     (testpath/"hello.gop").write <<~EOS
       println("Hello World")
     EOS
