@@ -9,6 +9,12 @@ class Macvim < Formula
   revision 2
   head "https://github.com/macvim-dev/macvim.git", branch: "master"
 
+  livecheck do
+    url "https://github.com/macvim-dev/macvim/releases?q=prerelease%3Afalse&expanded=true"
+    regex(/Updated\s+to\s+Vim\s+v?(\d+(?:\.\d+)+)/i)
+    strategy :page_match
+  end
+
   bottle do
     sha256 arm64_ventura:  "6bfdc09ca2b99add2aab85877dc9e44ff37c73e9f8f594f4b619d35df35d8558"
     sha256 arm64_monterey: "b223801cfc94df5f6ca8a11c4d0be1ae240559ab32461d325505a970bbca7fc7"
