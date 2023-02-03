@@ -2,13 +2,12 @@ class GolangciLint < Formula
   desc "Fast linters runner for Go"
   homepage "https://golangci-lint.run/"
   license "GPL-3.0-only"
-  revision 1
   head "https://github.com/golangci/golangci-lint.git", branch: "master"
 
   stable do
     url "https://github.com/golangci/golangci-lint.git",
-        tag:      "v1.50.1",
-        revision: "8926a95fa8e051dca7cc4a9921a5f7f9bebdc8d2"
+        tag:      "v1.51.0",
+        revision: "6d3f06c5eba95bcde9ebb9e0586a7da50599e3a3"
 
     # patch for apple diff
     # upstream commit ref, https://github.com/golangci/golangci-lint/commit/58ebedda6341e2f67d4338eb1d8f75b4a54590d1
