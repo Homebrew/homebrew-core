@@ -20,6 +20,12 @@ class Brogue < Formula
 
   uses_from_macos "ncurses"
 
+  # build patch for sdl_image.h include, remove in next release
+  patch do
+    url "https://github.com/tmewett/BrogueCE/commit/baff9b5081c60ec3c0117913e419fa05126025db.patch?full_index=1"
+    sha256 "7b51b43ca542958cd2051d6edbe8de3cbe73a5f1ac3e0d8e3c9bff99554f877e"
+  end
+
   def install
     system "make", "bin/brogue", "RELEASE=YES", "TERMINAL=YES", "DATADIR=#{libexec}"
     libexec.install "bin/brogue", "bin/keymap.txt", "bin/assets"
