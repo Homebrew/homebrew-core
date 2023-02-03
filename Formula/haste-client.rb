@@ -1,20 +1,10 @@
 class HasteClient < Formula
   desc "CLI client for haste-server"
   homepage "https://hastebin.com/"
+  url "https://github.com/toptal/haste-client/archive/v0.3.0.tar.gz"
+  sha256 "9f7e943be47408ba0b9765328794e7b87bdb2a785f1e9edb5d541d67b4a75d31"
   license "MIT"
   head "https://github.com/toptal/haste-client.git", branch: "master"
-
-  stable do
-    url "https://github.com/toptal/haste-client/archive/v0.3.0.tar.gz"
-    sha256 "9f7e943be47408ba0b9765328794e7b87bdb2a785f1e9edb5d541d67b4a75d31"
-
-    # Remove for > 0.2.3
-    # Upstream commit from 19 Jul 2017 "Bump version to 0.2.3"
-    patch do
-      url "https://github.com/toptal/haste-client/commit/1037d89.patch?full_index=1"
-      sha256 "1e9c47f35c65f253fd762c673b7677921b333c02d2c4e4ae5f182fcd6a5747c6"
-    end
-  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "dc801c71f126d37c41d0a482dbc45764fd5ed30c7d1c89e549274cf37f984017"
@@ -29,20 +19,20 @@ class HasteClient < Formula
   uses_from_macos "ruby", since: :high_sierra
 
   resource "faraday" do
-    url "https://rubygems.org/gems/faraday-0.17.4.gem"
-    sha256 "11677b5b261fbbfd4d959f702078d81c0bb66006c00ab2f329f32784778e4d9c"
+    url "https://rubygems.org/gems/faraday-0.17.6.gem"
+    sha256 "a572118695fce2937e3a8bed33498ac0c25a263cdb570ea5cd2e41b36c821c34"
   end
 
   resource "json" do
     on_system :linux, macos: :sierra_or_older do
-      url "https://rubygems.org/gems/json-2.5.1.gem"
-      sha256 "918d8c41dacb7cfdbe0c7bbd6014a5372f0cf1c454ca150e9f4010fe80cc3153"
+      url "https://rubygems.org/gems/json-2.6.3.gem"
+      sha256 "86aaea16adf346a2b22743d88f8dcceeb1038843989ab93cda44b5176c845459"
     end
   end
 
   resource "multipart-post" do
-    url "https://rubygems.org/gems/multipart-post-2.1.1.gem"
-    sha256 "d2dd7aa957650e0d99e0513cd388401b069f09528441b87d884609c8e94ffcfd"
+    url "https://rubygems.org/gems/multipart-post-2.3.0.gem"
+    sha256 "3dcdd74a767302559fcf91a63b568ee00770494ce24195167b1c147ab3f6fe51"
   end
 
   def install
