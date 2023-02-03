@@ -25,6 +25,6 @@ class TotpCli < Formula
 
   test do
     assert_match "generate", shell_output("#{bin}/totp-cli help")
-    assert_match "Password", pipe_output("#{bin}/totp-cli list 2>&1", "")
+    assert_match "storage error", pipe_output("#{bin}/totp-cli list 2>&1", "")
   end
 end
