@@ -2,8 +2,8 @@ class Ruff < Formula
   desc "Extremely fast Python linter, written in Rust"
   homepage "https://github.com/charliermarsh/ruff"
   # ruff should only be updated every 5 releases on multiples of 5
-  url "https://github.com/charliermarsh/ruff/archive/refs/tags/v0.0.235.tar.gz"
-  sha256 "58957e98d8354d247acfb9152705ddf678eca9de902d298ddc0c5eb1eac00801"
+  url "https://github.com/charliermarsh/ruff/archive/refs/tags/v0.0.240.tar.gz"
+  sha256 "6a38b7711a41010d34285c88e66bb0777fde2e15427213636a81485782eef83c"
   license "MIT"
   head "https://github.com/charliermarsh/ruff.git", branch: "main"
 
