@@ -57,7 +57,7 @@ class Ntopng < Formula
     end
 
     system "./autogen.sh"
-    system "./configure", *std_configure_args
+    system "./configure", "--with-ndpi-static-lib=#{Formula["ndpi"].lib}", *std_configure_args
     system "make"
     system "make", "install", "MAN_DIR=#{man}"
   end
