@@ -3,8 +3,8 @@ class Snakefmt < Formula
 
   desc "Snakemake code formatter"
   homepage "https://github.com/snakemake/snakefmt/"
-  url "https://files.pythonhosted.org/packages/36/2e/3781ccb07a312f59e343d6a5e6586b20972a540b49a9cded917ff371bbbd/snakefmt-0.8.0.tar.gz"
-  sha256 "22bbc1552164d9a1556bedf01db463515ead3b37fb2c7ae29975ab7f13f5995d"
+  url "https://files.pythonhosted.org/packages/dd/2a/7e2bf9b7e61c23b39d15fbb4b5ea0e48c5ebca15be54b9887810621b24ef/snakefmt-0.8.1.tar.gz"
+  sha256 "73158bf48645603ead6f0aacbfe4f43cf8dc0fbd192fbac813a3e64baaee995f"
   license "MIT"
   head "https://github.com/snakemake/snakefmt.git", branch: "master"
 
