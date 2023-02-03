@@ -1,6 +1,8 @@
 class E2fsprogs < Formula
   desc "Utilities for the ext2, ext3, and ext4 file systems"
   homepage "https://e2fsprogs.sourceforge.io/"
+  url "https://downloads.sourceforge.net/project/e2fsprogs/e2fsprogs/v1.46.6/e2fsprogs-1.46.6.tar.gz"
+  sha256 "bf2fcc7ee5178fe73a3057f7e2aa3fe52e98b7bb461509c67b021ba00f94c6f7"
   license all_of: [
     "GPL-2.0-or-later",
     "LGPL-2.0-or-later", # lib/ex2fs
@@ -9,15 +11,6 @@ class E2fsprogs < Formula
     "MIT",               # lib/et, lib/ss
   ]
   head "https://git.kernel.org/pub/scm/fs/ext2/e2fsprogs.git", branch: "master"
-
-  stable do
-    url "https://downloads.sourceforge.net/project/e2fsprogs/e2fsprogs/v1.46.6/e2fsprogs-1.46.6.tar.gz"
-    sha256 "bf2fcc7ee5178fe73a3057f7e2aa3fe52e98b7bb461509c67b021ba00f94c6f7"
-
-    # Remove `-flat_namespace` flag and fix M1 shared library build.
-    # Sent via email to theodore.tso@gmail.com
-    patch :DATA
-  end
 
   livecheck do
     url :stable
@@ -87,19 +80,3 @@ class E2fsprogs < Formula
     system bin/"lsattr", "-al"
   end
 end
-
-__END__
-diff --git a/lib/Makefile.darwin-lib b/lib/Makefile.darwin-lib
-index 95cdd4b..95e8ee0 100644
---- a/lib/Makefile.darwin-lib
-+++ b/lib/Makefile.darwin-lib
-@@ -24,7 +24,8 @@ image:		$(BSD_LIB)
- $(BSD_LIB): $(OBJS)
- 	$(E) "	GEN_BSD_SOLIB $(BSD_LIB)"
- 	$(Q) (cd pic; $(CC) -dynamiclib -compatibility_version 1.0 -current_version $(BSDLIB_VERSION) \
--		-flat_namespace -undefined warning -o $(BSD_LIB) $(OBJS))
-+		-install_name $(BSDLIB_INSTALL_DIR)/$(BSD_LIB) \
-+		-undefined dynamic_lookup -o $(BSD_LIB) $(OBJS))
- 	$(Q) $(MV) pic/$(BSD_LIB) .
- 	$(Q) $(RM) -f ../$(BSD_LIB)
- 	$(Q) (cd ..; $(LN) $(LINK_BUILD_FLAGS) \
