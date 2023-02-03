@@ -49,7 +49,9 @@ class HasteClient < Formula
   end
 
   test do
-    output = pipe_output("#{bin}/haste", "testing", 0)
-    assert_match(%r{^https://hastebin\.com/.+}, output)
+    test_file = testpath/"dummy_file"
+    touch test_file
+    output = shell_output("#{bin}/haste #{test_file} 2>&1", 1)
+    assert_match "Unauthorized request: missing access token", output
   end
 end
