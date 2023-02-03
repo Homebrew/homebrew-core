@@ -1,19 +1,11 @@
 class GolangciLint < Formula
   desc "Fast linters runner for Go"
   homepage "https://golangci-lint.run/"
-  license "GPL-3.0-only"
-  head "https://github.com/golangci/golangci-lint.git", branch: "master"
-
-  stable do
-    url "https://github.com/golangci/golangci-lint.git",
+  url "https://github.com/golangci/golangci-lint.git",
         tag:      "v1.51.0",
         revision: "6d3f06c5eba95bcde9ebb9e0586a7da50599e3a3"
-
-    # patch for apple diff
-    # upstream commit ref, https://github.com/golangci/golangci-lint/commit/58ebedda6341e2f67d4338eb1d8f75b4a54590d1
-    # remove in next release
-    patch :DATA
-  end
+  license "GPL-3.0-only"
+  head "https://github.com/golangci/golangci-lint.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b3d00d4719199fd7c376294e8b5d3cd83ca199abaa0a25d8e87847e174bb2aeb"
@@ -74,31 +66,3 @@ class GolangciLint < Formula
     assert_match expected_message, ok_test
   end
 end
-
-__END__
-diff --git a/go.mod b/go.mod
-index 0050eca9..d945ee54 100644
---- a/go.mod
-+++ b/go.mod
-@@ -87,7 +87,7 @@ require (
- 	github.com/sivchari/containedctx v1.0.2
- 	github.com/sivchari/tenv v1.7.0
- 	github.com/sonatard/noctx v0.0.1
--	github.com/sourcegraph/go-diff v0.6.1
-+	github.com/sourcegraph/go-diff v0.6.2-0.20221031073116-7ef5f68ebea1
- 	github.com/spf13/cobra v1.6.0
- 	github.com/spf13/pflag v1.0.5
- 	github.com/spf13/viper v1.12.0
-diff --git a/go.sum b/go.sum
-index 4fb2714e..42cf46a3 100644
---- a/go.sum
-+++ b/go.sum
-@@ -494,6 +494,8 @@ github.com/sonatard/noctx v0.0.1 h1:VC1Qhl6Oxx9vvWo3UDgrGXYCeKCe3Wbw7qAWL6FrmTY=
- github.com/sonatard/noctx v0.0.1/go.mod h1:9D2D/EoULe8Yy2joDHJj7bv3sZoq9AaSb8B4lqBjiZI=
- github.com/sourcegraph/go-diff v0.6.1 h1:hmA1LzxW0n1c3Q4YbrFgg4P99GSnebYa3x8gr0HZqLQ=
- github.com/sourcegraph/go-diff v0.6.1/go.mod h1:iBszgVvyxdc8SFZ7gm69go2KDdt3ag071iBaWPF6cjs=
-+github.com/sourcegraph/go-diff v0.6.2-0.20221031073116-7ef5f68ebea1 h1:FEIBISvqa2IsyC4KQQBQ1Ef2QvweGUgEIjCdE3gz+zs=
-+github.com/sourcegraph/go-diff v0.6.2-0.20221031073116-7ef5f68ebea1/go.mod h1:iBszgVvyxdc8SFZ7gm69go2KDdt3ag071iBaWPF6cjs=
- github.com/spf13/afero v1.8.2 h1:xehSyVa0YnHWsJ49JFljMpg1HX19V6NDZ1fkm1Xznbo=
- github.com/spf13/afero v1.8.2/go.mod h1:CtAatgMJh6bJEIs48Ay/FOnkljP3WeGUG0MC1RfAqwo=
- github.com/spf13/cast v1.5.0 h1:rj3WzYc11XZaIZMPKmwP96zkFEnnAmV8s6XbB2aY32w=
