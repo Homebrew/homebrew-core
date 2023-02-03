@@ -17,7 +17,9 @@ class Gomplate < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f44f0319eb88531404a40470c8f3f351c543e328c90fffbf1e89985664ed2a78"
   end
 
-  depends_on "go" => :build
+  # upstream issue report, https://github.com/hairyhenderson/gomplate/issues/1614
+  # update to use go@1.20 when the issue is resolved
+  depends_on "go@1.19" => :build
 
   def install
     system "make", "build", "VERSION=#{version}"
