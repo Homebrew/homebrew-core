@@ -21,7 +21,8 @@ class Loki < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b3e390c5294886b1bb4db6c98cb6eba5f2ba98fa63ce8e2fdcfba55e13a959ea"
   end
 
-  depends_on "go" => :build
+  # https://github.com/grafana/loki/issues/8399
+  depends_on "go@1.19" => :build
 
   def install
     cd "cmd/loki" do
