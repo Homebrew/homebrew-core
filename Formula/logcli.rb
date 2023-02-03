@@ -20,7 +20,8 @@ class Logcli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e412c9cb2ed612d31330ce6199953e0e408ae27f61c720602102d5723ce79efd"
   end
 
-  depends_on "go" => :build
+  # https://github.com/grafana/loki/issues/8399
+  depends_on "go@1.19" => :build
   depends_on "loki" => :test
 
   resource "testdata" do
