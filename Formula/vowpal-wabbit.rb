@@ -24,11 +24,11 @@ class VowpalWabbit < Formula
   depends_on "eigen"
   depends_on "fmt"
 
+  uses_from_macos "zlib"
+
   on_arm do
     depends_on "sse2neon" => :build
   end
-
-  uses_from_macos "zlib"
 
   patch :DATA
 
