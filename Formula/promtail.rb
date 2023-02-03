@@ -20,7 +20,8 @@ class Promtail < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2c874f61a5c459aeeb973459ebd3551cb5092b105e54d8050118a1869d98b0f3"
   end
 
-  depends_on "go" => :build
+  # https://github.com/grafana/loki/issues/8399
+  depends_on "go@1.19" => :build
 
   on_linux do
     depends_on "systemd"
