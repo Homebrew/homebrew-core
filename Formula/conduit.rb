@@ -23,8 +23,8 @@ class Conduit < Formula
     # Run conduit with random free ports for gRPC and HTTP servers
     log = shell_output("#{bin}/conduit --grpc.address :0 --http.address :0")
     # Check that gRPC server started
-    assert_match("grpc server started", log)
+    assert_match(/grpc server started/, log)
     # Check that HTTP server started
-    assert_match("http server started", log)
+    assert_match(/http server started/, log)
   end
 end
