@@ -3,8 +3,8 @@ class AwsSamCli < Formula
 
   desc "CLI tool to build, test, debug, and deploy Serverless applications using AWS SAM"
   homepage "https://aws.amazon.com/serverless/sam/"
-  url "https://files.pythonhosted.org/packages/bf/a3/d31cca8dc6a6b129fa316d26280ee2a01904907eda0f58c3169181c37c7c/aws-sam-cli-1.71.0.tar.gz"
-  sha256 "ecdf136360e67e8a654fc4fd0838260656888765aadea67a114817579f0d6408"
+  url "https://files.pythonhosted.org/packages/15/6b/34d00b73952d495413c1d70d2c400e805e6d62a0b59f5a6b2b5b550abc75/aws-sam-cli-1.72.0.tar.gz"
+  sha256 "a26837ed8cdd846db2090029fd81e02b80ff7edc7f54267304808cc923005171"
   license "Apache-2.0"
 
   bottle do
@@ -33,13 +33,13 @@ class AwsSamCli < Formula
   end
 
   resource "aws-lambda-builders" do
-    url "https://files.pythonhosted.org/packages/5a/86/4f32ec7d3f81a8e877e84f04dd2551ef299610b714262b199a98b1272e05/aws_lambda_builders-1.24.0.tar.gz"
-    sha256 "fd7277e01a3c280c5a2a5ca5eb7888594ecddbc8355d1f519ea48a1f07f9d2d8"
+    url "https://files.pythonhosted.org/packages/ab/3c/362aab4b71d692fbc231f34226df3d1b85a0a0b271001a45cdd4bc8a1eb6/aws_lambda_builders-1.25.0.tar.gz"
+    sha256 "4bb736a74457f87883861d57c0f6a859bd4e047b78ee58e09d16703a0c5172f3"
   end
 
   resource "aws-sam-translator" do
-    url "https://files.pythonhosted.org/packages/62/33/d01190b7f72856a666f06407035b921d9c5951f4e0d8e779d6793bf50c4e/aws-sam-translator-1.58.0.tar.gz"
-    sha256 "74eff244a4923320e5df2f37617d85505356353e6022ae9812c6f0abcfbad5d3"
+    url "https://files.pythonhosted.org/packages/b5/9c/1061fce18ff0442fa004e464299f8c5c2eb119ce7ee5f5eee1d8034e1b3d/aws-sam-translator-1.58.1.tar.gz"
+    sha256 "cd60a19085d432bc00769b597bc2e6854f546ff9928f8067fc5fbcb5a1ed74ff"
   end
 
   resource "binaryornot" do
@@ -48,13 +48,13 @@ class AwsSamCli < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/27/2c/f61f642b54b0b481e2a3a0c4b270dec0b45816f0c0e0a57e54feb2df3c0a/boto3-1.26.56.tar.gz"
-    sha256 "0ff8667fbfda8390cab2718a4d129374a6ddd6fd1913f79777fd4498f93c84f1"
+    url "https://files.pythonhosted.org/packages/93/42/c1f5f019b65ad457a0966737e10404bbfc64e69bfa974464f3a954ed1856/boto3-1.26.63.tar.gz"
+    sha256 "f688555dd427271e0493e6d166126ce76e1744dd89d626575ba7c2e62ba86e14"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/64/36/9ca8dd3097463dff6b88fd8015ba86e04ca22f8479b9d3bc60c21fd31ced/botocore-1.29.56.tar.gz"
-    sha256 "ca4d6403d745218270a20d9ca3ca9a33e3ad2fabb59a96ed8d6e1a824b274c86"
+    url "https://files.pythonhosted.org/packages/cd/6f/c824350f304f9f4541baafa11ece2258749a9e19eaedccdf6a6d414a5be7/botocore-1.29.63.tar.gz"
+    sha256 "710864600818b80c865334e12af729923e2886cc760685c614c0eae9cbbfdd4d"
   end
 
   resource "certifi" do
@@ -98,8 +98,8 @@ class AwsSamCli < Formula
   end
 
   resource "dateparser" do
-    url "https://files.pythonhosted.org/packages/bb/2d/2f5dc79f80623f0f7ec4ee5291512caffda18f3ea070cb2775cc7839733f/dateparser-1.1.6.tar.gz"
-    sha256 "e703db1815270c020552f4b3e3a981937b48b2cbcfcef5347071b74788dd9214"
+    url "https://files.pythonhosted.org/packages/44/ea/cbf18a84d7b97261ec8f2d5d6ef5e1c44101189d33aca22a18bd52c4e73a/dateparser-1.1.7.tar.gz"
+    sha256 "ff047d9cffad4d3113ead8ec0faf8a7fc43bab7d853ac8715e071312b53c465a"
   end
 
   resource "docker" do
@@ -208,8 +208,8 @@ class AwsSamCli < Formula
   end
 
   resource "python-slugify" do
-    url "https://files.pythonhosted.org/packages/7c/d3/8e523f41fc3f8d3cc58d2284bb49c1961caefc1a434599ff410ddde38f82/python-slugify-7.0.0.tar.gz"
-    sha256 "7a0f21a39fa6c1c4bf2e5984c9b9ae944483fd10b54804cb0e23a3ccd4954f0b"
+    url "https://files.pythonhosted.org/packages/49/3b/492affa71ccdeaadce1a6fba17e12fec301820b19b8cd7220d849686f8ec/python-slugify-8.0.0.tar.gz"
+    sha256 "f1da83f3c7ab839b3f84543470cd95bdb5a81f1a0b80fed502f78b7dca256062"
   end
 
   resource "pytz" do
@@ -278,8 +278,8 @@ class AwsSamCli < Formula
   end
 
   resource "websocket-client" do
-    url "https://files.pythonhosted.org/packages/75/af/1d13b93e7a21aca7f8ab8645fcfcfad21fc39716dc9dce5dc2a97f73ff78/websocket-client-1.4.2.tar.gz"
-    sha256 "d6e8f90ca8e2dd4e8027c4561adeb9456b54044312dba655e7cae652ceb9ae59"
+    url "https://files.pythonhosted.org/packages/02/cd/1adc1276f1e8f6a929783f4c2992ec7a4934a81f8ced3d4a87191cc168c2/websocket-client-1.5.0.tar.gz"
+    sha256 "561ca949e5bbb5d33409a37235db55c279235c78ee407802f1d2314fff8a8536"
   end
 
   resource "Werkzeug" do
