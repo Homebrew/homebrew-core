@@ -23,24 +23,36 @@ class VowpalWabbit < Formula
   depends_on "boost"
   depends_on "eigen"
   depends_on "fmt"
+
+  on_arm do
+    depends_on "sse2neon" => :build
+  end
+
   uses_from_macos "zlib"
+
+  patch :DATA
 
   def install
     ENV.cxx11
+
+    args = %w[
+      -DBUILD_TESTING=OFF
+      -DRAPIDJSON_SYS_DEP=ON
+      -DFMT_SYS_DEP=ON
+      -DSPDLOG_SYS_DEP=ON
+      -DVW_BOOST_MATH_SYS_DEP=On
+      -DVW_EIGEN_SYS_DEP=On
+      -DVW_SSE2NEON_SYS_DEP=On
+      -DVW_INSTALL=On
+    ]
+
     # The project provides a Makefile, but it is a basic wrapper around cmake
     # that does not accept *std_cmake_args.
     # The following should be equivalent, while supporting Homebrew's standard args.
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args,
-                            "-DBUILD_TESTING=OFF",
-                            "-DRAPIDJSON_SYS_DEP=ON",
-                            "-DFMT_SYS_DEP=ON",
-                            "-DSPDLOG_SYS_DEP=ON",
-                            "-DVW_BOOST_MATH_SYS_DEP=On",
-                            "-DVW_EIGEN_SYS_DEP=On",
-                            "-DVW_INSTALL=On"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
+
     bin.install Dir["utl/*"]
     rm bin/"active_interactor.py"
     rm bin/"vw-validate.html"
@@ -97,3 +109,31 @@ class VowpalWabbit < Formula
     system bin/"vw", "-t", "-i", "cb.model", "-d", "test.dat", "-p", "cb.predict"
   end
 end
+
+__END__
+diff --git a/ext_libs/ext_libs.cmake b/ext_libs/ext_libs.cmake
+index 1ef57fe..20972fc 100644
+--- a/ext_libs/ext_libs.cmake
++++ b/ext_libs/ext_libs.cmake
+@@ -107,7 +107,7 @@ endif()
+ 
+ add_library(sse2neon INTERFACE)
+ if(VW_SSE2NEON_SYS_DEP)
+-  find_path(SSE2NEON_INCLUDE_DIRS "sse2neon/sse2neon.h")
++  find_path(SSE2NEON_INCLUDE_DIRS "sse2neon.h")
+   target_include_directories(sse2neon SYSTEM INTERFACE "${SSE2NEON_INCLUDE_DIRS}")
+ else()
+   # This submodule is placed into a nested subdirectory since it exposes its
+diff --git a/vowpalwabbit/core/src/reductions/lda_core.cc b/vowpalwabbit/core/src/reductions/lda_core.cc
+index f078d9c..ede5e06 100644
+--- a/vowpalwabbit/core/src/reductions/lda_core.cc
++++ b/vowpalwabbit/core/src/reductions/lda_core.cc
+@@ -33,7 +33,7 @@ VW_WARNING_STATE_POP
+ #include "vw/io/logger.h"
+ 
+ #if defined(__ARM_NEON)
+-#  include <sse2neon/sse2neon.h>
++#  include <sse2neon.h>
+ #endif
+ 
+ #include <algorithm>
