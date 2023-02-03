@@ -20,11 +20,11 @@ class Conduit < Formula
   test do
     # Assert conduit version
     assert_match(version.to_s, shell_output("#{bin}/conduit -version"))
-    # Run conduit
-    log = shell_output("#{bin}/conduit")
-    # Check that gRPC server is running on port :8084
-    assert_match("grpc server started address=[::]:8084", log)
-    # Check that HTTP server is running on port :8080
-    assert_match("http server started address=[::]:8080", log)
+    # Run conduit with random free ports for gRPC and HTTP servers
+    log = shell_output("#{bin}/conduit --grpc.address :0 --http.address :0")
+    # Check that gRPC server started
+    assert_match("grpc server started", log)
+    # Check that HTTP server started
+    assert_match("http server started", log)
   end
 end
