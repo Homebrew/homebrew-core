@@ -8,17 +8,8 @@ class Agda < Formula
     sha256 "beacc9802c470e42bb0707f9ffe7db488a936c635407dada5d4db060b58d6016"
 
     resource "stdlib" do
-      url "https://github.com/agda/agda-stdlib/archive/v1.7.1.tar.gz"
-      sha256 "6f92ae14664e5d1217e8366c647eb23ca88bc3724278f22dc6b80c23cace01df"
-
-      # Backport upstream commits to support GHC 9.4.
-      # TODO: Remove patches when updating resource to 1.7.2 or later
-      # Ref: https://github.com/agda/agda-stdlib/commit/43c36399a8ca35e0bb2d99bf6359c931e5838990
-      patch :DATA
-      patch do
-        url "https://github.com/agda/agda-stdlib/commit/81a924e41d24669a8935cc1b7168a96f0087ac21.patch?full_index=1"
-        sha256 "8b84d751119a55db06bb88284a8e29a96cccea343cb5104e8eb38a1c22deac05"
-      end
+      url "https://github.com/agda/agda-stdlib/archive/v1.7.2.tar.gz"
+      sha256 "d86a41b9d2e1d2e956ec91bdef9cb34646da11f50f76996761c9a1562c3c47a2"
     end
   end
 
@@ -141,36 +132,3 @@ class Agda < Formula
     assert_equal "", shell_output(testpath/"IOTest")
   end
 end
-
-__END__
-diff --git a/agda-stdlib-utils.cabal b/agda-stdlib-utils.cabal
-index ceaabafdb..502bb3eb9 100644
---- a/agda-stdlib-utils.cabal
-+++ b/agda-stdlib-utils.cabal
-@@ -9,8 +9,9 @@ tested-with:     GHC == 8.0.2
-                  GHC == 8.4.4
-                  GHC == 8.6.5
-                  GHC == 8.8.4
--                 GHC == 8.10.5
--                 GHC == 9.0.1
-+                 GHC == 8.10.7
-+                 GHC == 9.0.2
-+                 GHC == 9.2.1
-
- executable GenerateEverything
-   hs-source-dirs:   .
-@@ -21,7 +22,7 @@ executable GenerateEverything
-                     , directory >= 1.0.0.0 && < 1.4
-                     , filemanip >= 0.3.6.2 && < 0.4
-                     , filepath  >= 1.4.1.0 && < 1.5
--                    , mtl       >= 2.2.2   && < 2.3
-+                    , mtl       >= 2.2.2   && < 2.4
-
- executable AllNonAsciiChars
-   hs-source-dirs:   .
-@@ -29,4 +30,4 @@ executable AllNonAsciiChars
-   default-language: Haskell2010
-   build-depends:      base      >= 4.9.0.0 && < 4.17
-                     , filemanip >= 0.3.6.2 && < 0.4
--                    , text      >= 1.2.3.0 && < 1.3
-+                    , text      >= 1.2.3.0 && < 2.1
