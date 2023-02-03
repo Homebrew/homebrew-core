@@ -15,7 +15,8 @@ class Liqoctl < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5aa043426f8a164d4f35d6216fc1ac8039454849d5114d44e6db0298b36225cc"
   end
 
-  depends_on "go" => :build
+  # upstream issue, https://github.com/liqotech/liqo/issues/1657
+  depends_on "go@1.19" => :build
 
   def install
     ENV["CGO_ENABLED"] = "0"
