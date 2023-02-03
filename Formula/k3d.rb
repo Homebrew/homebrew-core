@@ -21,7 +21,8 @@ class K3d < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b54a5483a88662242d44450a2d0a22e200ad22543bf2d3e8e5818e1b40715b20"
   end
 
-  depends_on "go" => :build
+  # upstream issue, https://github.com/k3d-io/k3d/issues/1207
+  depends_on "go@1.19" => :build
 
   def install
     require "net/http"
