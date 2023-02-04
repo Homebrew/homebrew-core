@@ -22,8 +22,7 @@ class OpenexrAT2 < Formula
 
   keg_only :versioned_formula
 
-  # Commented out while this formula still has dependents.
-  # deprecate! date: "2021-04-01", because: :unsupported
+  deprecate! date: "2023-02-04", because: :unsupported
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
