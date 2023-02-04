@@ -5,8 +5,9 @@ class Mavsdk < Formula
   homepage "https://mavsdk.mavlink.io"
   url "https://github.com/mavlink/MAVSDK.git",
       tag:      "v1.4.12",
-      revision: "1e08fccd593b25970b87df9f2609ce4907ceae1f"
+      revision: "7456cc7b89b406f78bbf0adc66bdcfc9192840f6"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
