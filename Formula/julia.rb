@@ -3,7 +3,7 @@ class Julia < Formula
   homepage "https://julialang.org/"
   # Use the `-full` tarball to avoid having to download during the build.
   #
-  # TODO: Use system `suite-sparse` when `julia` supports v6.
+  # TODO: Use system `suite-sparse` when `julia` supports v7.
   # Issue ref: https://github.com/JuliaLang/julia/issues/47884
   url "https://github.com/JuliaLang/julia/releases/download/v1.8.5/julia-1.8.5-full.tar.gz"
   sha256 "35554080a4b4d3ce52ef220254306bd42ac0d88eff9eb85592a57d0663db5df2"
@@ -21,6 +21,7 @@ class Julia < Formula
   end
 
   depends_on "cmake" => :build # Needed to build LLVM
+  depends_on "suite-sparse" => :test # Check bundled copy is used
   depends_on "ca-certificates"
   depends_on "curl"
   depends_on "gcc" # for gfortran
@@ -34,7 +35,6 @@ class Julia < Formula
   depends_on "openlibm"
   depends_on "p7zip"
   depends_on "pcre2"
-  # TODO: depends_on "suite-sparse"
   depends_on "utf8proc"
 
   uses_from_macos "perl" => :build
@@ -111,6 +111,7 @@ class Julia < Formula
     args << "JULIA_CPU_TARGET=#{cpu_targets.join(";")}" if build.stable?
     args << "TAGGED_RELEASE_BANNER=Built by #{tap.user} (v#{pkg_version})"
 
+    ENV.append "LDFLAGS", "-Wl,-rpath,#{lib}/julia"
     # Help Julia find keg-only dependencies
     deps.map(&:to_formula).select(&:keg_only?).map(&:opt_lib).each do |libdir|
       ENV.append "LDFLAGS", "-Wl,-rpath,#{libdir}"
@@ -125,7 +126,6 @@ class Julia < Formula
       ENV.append "LDFLAGS", "-Wl,-rpath,/usr/lib" # Needed to find macOS zlib.
     else
       ENV.append "LDFLAGS", "-Wl,-rpath,#{lib}"
-      ENV.append "LDFLAGS", "-Wl,-rpath,#{lib}/julia"
     end
 
     # Remove library versions from MbedTLS_jll, nghttp2_jll and others
