@@ -4,7 +4,7 @@ class Fastnetmon < Formula
   url "https://github.com/pavel-odintsov/fastnetmon/archive/refs/tags/v1.2.3.tar.gz"
   sha256 "72f364ff5557afe5670bb9444e975841bf2c2db4eb13d2425e5d2903ca8fcf22"
   license "GPL-2.0-only"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 1
@@ -23,7 +23,6 @@ class Fastnetmon < Formula
   depends_on "capnp"
   depends_on "grpc"
   depends_on "hiredis"
-  depends_on "json-c"
   depends_on "log4cpp"
   depends_on macos: :big_sur # We need C++ 20 available for build which is available from Big Sur
   depends_on "mongo-c-driver"
