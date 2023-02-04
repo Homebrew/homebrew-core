@@ -2,10 +2,9 @@ class Grpc < Formula
   desc "Next generation open source RPC library and framework"
   homepage "https://grpc.io/"
   url "https://github.com/grpc/grpc.git",
-      tag:      "v1.51.1",
-      revision: "0a82c02a9b817a53574994374dcff53f2e961df2"
+      tag:      "v1.52.1",
+      revision: "c2682c64a5f8599b5690a79b50f1c9c3ef5e2433"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/grpc/grpc.git", branch: "master"
 
   # The "latest" release on GitHub is sometimes for an older major/minor and
@@ -106,7 +105,7 @@ class Grpc < Formula
     system ENV.cc, "test.cpp", "-L#{Formula["abseil"].opt_lib}", *pkg_config_flags, "-o", "test"
     system "./test"
 
-    output = shell_output("grpc_cli ls localhost:#{free_port} 2>&1", 1)
+    output = shell_output("#{bin}/grpc_cli ls localhost:#{free_port} 2>&1", 1)
     assert_match "Received an error when querying services endpoint.", output
   end
 end
