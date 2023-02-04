@@ -6,6 +6,7 @@ class PipAudit < Formula
   url "https://files.pythonhosted.org/packages/e3/79/9b0eadacb4bde3d860b7e2bb3747f5f251eba2620bba6a6bfeba7009bc06/pip_audit-2.4.14.tar.gz"
   sha256 "1259629fe24302e257052e977146f56bebf34927740d5efd184aaafa3b1b3b38"
   license "Apache-2.0"
+  revision 1
   version_scheme 1
 
   bottle do
