@@ -24,7 +24,16 @@ class CadenceWorkflow < Formula
 
   def install
     system "make", ".fake-codegen"
-    system "make", "cadence", "cadence-server", "cadence-canary", "cadence-sql-tool", "cadence-cassandra-tool"
+    make_args = %w[
+      cadence
+      cadence-server
+      cadence-canary
+      cadence-sql-tool
+      cadence-cassandra-tool
+    ]
+    make_args << "EMULATE_X86=" unless Hardware::CPU.intel?
+    system "make", *make_args
+
     bin.install "cadence"
     bin.install "cadence-server"
     bin.install "cadence-canary"
