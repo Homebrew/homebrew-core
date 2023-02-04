@@ -18,9 +18,9 @@ class Libqalculate < Formula
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "gnuplot" => :optional
   depends_on "mpfr"
   depends_on "readline"
+  depends_on "gnuplot" => :optional
 
   uses_from_macos "perl" => :build
   uses_from_macos "curl"
