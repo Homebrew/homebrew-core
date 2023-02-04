@@ -1,8 +1,9 @@
 class Podman < Formula
   desc "Tool for managing OCI containers and pods"
   homepage "https://podman.io/"
-  url "https://github.com/containers/podman/archive/v4.3.1.tar.gz"
-  sha256 "455c29c4ee78cd6365e5d46e20dd31a5ce4e6e1752db6774253d76bd3ca78813"
+  url "https://github.com/containers/podman.git",
+      tag:      "v4.4.0",
+      revision: "3443f453e28169a88848f90a7ce3137fc4a4bebf"
   license all_of: ["Apache-2.0", "GPL-3.0-or-later"]
   head "https://github.com/containers/podman.git", branch: "main"
 
@@ -17,10 +18,8 @@ class Podman < Formula
     sha256                               x86_64_linux:   "4b4d3245f41cc8ad7f6352f1ccd8db1ad5a12910572ef47a6a1ec1d053aec5dd"
   end
 
+  depends_on "go" => :build
   depends_on "go-md2man" => :build
-  # Required latest gvisor.dev/gvisor/pkg/gohacks
-  # Try to switch to the latest go on the next release
-  depends_on "go@1.18" => :build
 
   on_macos do
     depends_on "qemu"
@@ -29,6 +28,7 @@ class Podman < Formula
   on_linux do
     depends_on "autoconf" => :build
     depends_on "automake" => :build
+    depends_on "make" => :build
     depends_on "pkg-config" => :build
     depends_on "rust" => :build
     depends_on "conmon"
@@ -42,8 +42,8 @@ class Podman < Formula
 
   resource "gvproxy" do
     on_macos do
-      url "https://github.com/containers/gvisor-tap-vsock/archive/v0.4.0.tar.gz"
-      sha256 "896cf02fbabce9583a1bba21e2b384015c0104d634a73a16d2f44552cf84d972"
+      url "https://github.com/containers/gvisor-tap-vsock/archive/v0.5.0.tar.gz"
+      sha256 "8048f4f5faa2722547d1854110c2347f817b2f47ec51d39b2a7b308f52a7fe59"
     end
   end
 
@@ -62,21 +62,22 @@ class Podman < Formula
 
   resource "netavark" do
     on_linux do
-      url "https://github.com/containers/netavark/archive/refs/tags/v1.3.0.tar.gz"
-      sha256 "cc8a8e03498cb9b4c74fdbda09a64fdf9000fea398d07073c4e368fc83d35f56"
+      url "https://github.com/containers/netavark/archive/refs/tags/v1.5.0.tar.gz"
+      sha256 "303fbcf3fc645b0e8e8fc1759626c92082f85f49b9d07672918aebd496a24d34"
     end
   end
 
   resource "aardvark-dns" do
     on_linux do
-      url "https://github.com/containers/aardvark-dns/archive/refs/tags/v1.3.0.tar.gz"
-      sha256 "6dd1ce4346ed5c57bbd990140e02e69c036919032582b937d2ad7835329d3bc3"
+      url "https://github.com/containers/aardvark-dns/archive/refs/tags/v1.5.0.tar.gz"
+      sha256 "b7e7ca1b94c1a62c8800f49befb803ec37cc5caf7656352537343a8fb654e4a6"
     end
   end
 
   def install
     if OS.mac?
       ENV["CGO_ENABLED"] = "1"
+      ENV.prepend_path "PATH", Formula["make"].opt_libexec/"gnubin"
 
       system "make", "podman-remote"
       bin.install "bin/darwin/podman" => "podman-remote"
@@ -90,7 +91,7 @@ class Podman < Formula
         (libexec/"podman").install "bin/gvproxy"
       end
 
-      system "make", "podman-remote-darwin-docs"
+      system "make", "-j1", "podman-remote-darwin-docs"
       man1.install Dir["docs/build/remote/darwin/*.1"]
 
       bash_completion.install "completions/bash/podman"
