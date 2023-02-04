@@ -2,6 +2,7 @@ class Protobuf < Formula
   desc "Protocol buffers (Google's data interchange format)"
   homepage "https://github.com/protocolbuffers/protobuf/"
   license "BSD-3-Clause"
+  head "https://github.com/protocolbuffers/protobuf.git", branch: "main"
 
   stable do
     url "https://github.com/protocolbuffers/protobuf/releases/download/v21.12/protobuf-all-21.12.tar.gz"
@@ -29,14 +30,7 @@ class Protobuf < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "13a477c4b847bdb0a0f7fe06b65ba816c083152b946a55744bb41bb2921aef31"
   end
 
-  head do
-    url "https://github.com/protocolbuffers/protobuf.git", branch: "main"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
+  depends_on "cmake" => :build
   depends_on "python@3.10" => [:build, :test]
   depends_on "python@3.11" => [:build, :test]
 
@@ -49,24 +43,23 @@ class Protobuf < Formula
   end
 
   def install
-    # Don't build in debug mode. See:
-    # https://github.com/Homebrew/homebrew/issues/9279
-    # https://github.com/protocolbuffers/protobuf/blob/5c24564811c08772d090305be36fae82d8f12bbe/configure.ac#L61
-    ENV.prepend "CXXFLAGS", "-DNDEBUG"
-    ENV.cxx11
+    cmake_args = %w[
+      -Dprotobuf_BUILD_LIBPROTOC=ON
+      -Dprotobuf_BUILD_SHARED_LIBS=ON
+      -Dprotobuf_INSTALL_EXAMPLES=ON
+      -Dprotobuf_BUILD_TESTS=OFF
+    ] + std_cmake_args
 
-    system "./autogen.sh" if build.head?
-    system "./configure", *std_configure_args, "--with-zlib", "--with-pic"
-    system "make"
-    system "make", "check"
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
-    # Install editor support and examples
-    pkgshare.install "editors/proto.vim", "examples"
+    pkgshare.install "editors/proto.vim"
     elisp.install "editors/protobuf-mode.el"
 
     ENV.append_to_cflags "-I#{include}"
     ENV.append_to_cflags "-L#{lib}"
+    ENV["PROTOC"] = bin/"protoc"
 
     cd "python" do
       pythons.each do |python|
