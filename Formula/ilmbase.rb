@@ -24,8 +24,7 @@ class Ilmbase < Formula
   keg_only "ilmbase conflicts with `openexr` and `imath`"
 
   # https://github.com/AcademySoftwareFoundation/openexr/pull/929
-  # Commented out while this formula still has dependents.
-  # deprecate! date: "2021-04-05", because: :unsupported
+  deprecate! date: "2023-02-04", because: :unsupported
 
   depends_on "cmake" => :build
 
