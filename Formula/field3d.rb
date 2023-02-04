@@ -16,6 +16,11 @@ class Field3d < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c6b7c036967955a85f3b22c2f924c85b36688f1b4c1e608df07393095c86bedf"
   end
 
+  # Depends on deprecated `ilmbase` and upstream has been discussing
+  # archiving repo in https://groups.google.com/g/field3d-dev/c/nBrVsNQ9SHo
+  # Last release on 2020-03-11
+  deprecate! date: "2023-02-03", because: :unmaintained
+
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "hdf5"
