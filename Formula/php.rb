@@ -116,9 +116,9 @@ class Php < Formula
     # sdk path or it won't find the headers
     headers_path = "=#{MacOS.sdk_path_if_needed}/usr" if OS.mac?
 
-    # `_www` no longer exists in ubuntu-22.04, use `www-data` instead
-    fpm_user = OS.mac? ? "_www", "www-data"
-    fpm_group = OS.mac? ? "_www", "www-data"
+    # `_www` only exists on macOS. 
+    fpm_user = OS.mac? ? "_www" : "www-data"
+    fpm_group = OS.mac? ? "_www" : "www-data"
 
     args = %W[
       --prefix=#{prefix}
