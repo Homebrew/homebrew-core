@@ -4,7 +4,7 @@ class Kush < Formula
   url "https://github.com/anigkus/kush/archive/refs/tags/v0.0.9.tar.gz"
   sha256 "865402e6672112900b686f5f2647485f576c7cda71089c90f4e453dca0c8b059"
   license "Apache-2.0"
-  head "https://github.com/anigkus/kush.git"
+  head "https://github.com/anigkus/kush.git", branch: "main"
   depends_on "go" => :build
   def install
     system "go", "build", *std_go_args
