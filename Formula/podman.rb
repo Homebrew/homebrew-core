@@ -92,6 +92,7 @@ class Podman < Formula
         (libexec/"podman").install "bin/gvproxy"
       end
 
+      # Remove the "-j1" flag at next release
       system "make", "-j1", "podman-remote-darwin-docs"
       man1.install Dir["docs/build/remote/darwin/*.1"]
 
