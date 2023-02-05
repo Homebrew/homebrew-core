@@ -27,7 +27,7 @@ class SdlTtf < Formula
   end
 
   head do
-    url "https://github.com/libsdl-org/SDL_ttf.git", branch: "main"
+    url "https://github.com/libsdl-org/SDL_ttf.git", branch: "SDL-1.2"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -35,8 +35,7 @@ class SdlTtf < Formula
   end
 
   # SDL 1.2 is deprecated, unsupported, and not recommended for new projects.
-  # Commented out while this formula still has dependents.
-  # deprecate! date: "2013-08-17", because: :deprecated_upstream
+  deprecate! date: "2023-02-05", because: :deprecated_upstream
 
   depends_on "pkg-config" => :build
   depends_on "freetype"
