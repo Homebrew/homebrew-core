@@ -1,15 +1,10 @@
 class Physfs < Formula
   desc "Library to provide abstract access to various archives"
   homepage "https://icculus.org/physfs/"
-  url "https://icculus.org/physfs/downloads/physfs-3.0.2.tar.bz2"
-  sha256 "304df76206d633df5360e738b138c94e82ccf086e50ba84f456d3f8432f9f863"
+  url "https://github.com/icculus/physfs/archive/refs/tags/release-3.2.0.tar.gz"
+  sha256 "1991500eaeb8d5325e3a8361847ff3bf8e03ec89252b7915e1f25b3f8ab5d560"
   license "Zlib"
   head "https://github.com/icculus/physfs.git", branch: "main"
-
-  livecheck do
-    url "https://icculus.org/physfs/downloads/"
-    regex(/href=.*?physfs[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
 
   bottle do
     rebuild 2
@@ -33,14 +28,12 @@ class Physfs < Formula
   end
 
   def install
-    mkdir "macbuild" do
-      args = std_cmake_args
-      args << "-DPHYSFS_BUILD_TEST=TRUE"
-      args << "-DCMAKE_INSTALL_RPATH=#{rpath}"
-      args << "-DPHYSFS_BUILD_WX_TEST=FALSE" unless build.head?
-      system "cmake", "..", *args
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DPHYSFS_BUILD_TEST=TRUE",
+                    "-DCMAKE_EXE_LINKER_FLAGS=-Wl,-rpath,#{rpath}",
+                    *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
