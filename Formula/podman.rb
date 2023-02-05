@@ -30,6 +30,7 @@ class Podman < Formula
     depends_on "automake" => :build
     depends_on "make" => :build
     depends_on "pkg-config" => :build
+    depends_on "protobuf" => :build
     depends_on "rust" => :build
     depends_on "conmon"
     depends_on "crun"
