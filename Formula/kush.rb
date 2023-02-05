@@ -11,7 +11,7 @@ class Kush < Formula
     generate_completions_from_executable(bin/"kush", "completion")
   end
   test do
-    output = shell_output("#{bin}/kush version")
+    output = shell_output("#{bin}/kush --version")
     assert_match "Version:    #{version}", output
   end
 end
