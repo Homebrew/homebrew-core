@@ -327,8 +327,8 @@ class Php < Formula
   test do
     # Ubuntu no longer has a `_www` user, switch to use `www-data`
     if OS.linux? && ENV["CI"]
-      inreplace etc/"php-fpm.d/www.conf", "user = _www", "user = www-data"
-      inreplace etc/"php-fpm.d/www.conf", "group = _www", "group = www-data"
+      inreplace Formula["php"].etc/"php/#{version.major_minor}/php-fpm.d/www.conf", "user = _www", "user = www-data"
+      inreplace Formula["php"].etc/"php/#{version.major_minor}/php-fpm.d/www.conf", "group = _www", "group = www-data"
     end
 
     assert_match(/^Zend OPcache$/, shell_output("#{bin}/php -i"),
