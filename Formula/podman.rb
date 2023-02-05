@@ -175,6 +175,7 @@ class Podman < Formula
         #{libexec}/podman/catatonit
         #{libexec}/podman/netavark
         #{libexec}/podman/aardvark-dns
+        #{libexec}/podman/quadlet
         #{libexec}/podman/rootlessport
       ].sort, Dir[libexec/"podman/*"].sort
       out = shell_output("file #{libexec}/podman/catatonit")
