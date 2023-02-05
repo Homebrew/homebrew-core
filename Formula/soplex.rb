@@ -5,6 +5,11 @@ class Soplex < Formula
   sha256 "357db78d18d9f1b81a4fe65cf0182475d2a527a6ad9030ac2f5ef7c077d6764c"
   license "Apache-2.0"
 
+  livecheck do
+    url "https://soplex.zib.de/soplexdata.js"
+    regex(/["']name["']:\s*?["']soplex[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "fe7cab6cf7d72f3600615567c5d35928f64100a894aec88c036a1b74ae8ebaef"
     sha256 cellar: :any,                 arm64_monterey: "871d364891d796e3a9a6d6c9892f6f5eaf78ee931eb9150aa8ccdd11dfa84f3a"
