@@ -1,8 +1,8 @@
 class Blaze < Formula
   desc "High-performance C++ math library for dense and sparse arithmetic"
   homepage "https://bitbucket.org/blaze-lib/blaze"
-  url "https://bitbucket.org/blaze-lib/blaze/downloads/blaze-3.8.1.tar.gz"
-  sha256 "a084c6d1acc75e742a1cdcddf93d0cda0d9e3cc4014c246d997a064fa2196d39"
+  url "https://bitbucket.org/blaze-lib/blaze/downloads/blaze-3.8.2.tar.gz"
+  sha256 "4c4e1915971efbedab95790e4c5cf017d8448057fa8f8c62c46e1643bf72cbb1"
   license "BSD-3-Clause"
   head "https://bitbucket.org/blaze-lib/blaze.git", branch: "master"
 
