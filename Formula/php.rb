@@ -116,6 +116,10 @@ class Php < Formula
     # sdk path or it won't find the headers
     headers_path = "=#{MacOS.sdk_path_if_needed}/usr" if OS.mac?
 
+    # `_www` no longer exists in ubuntu-22.04, use `www-data` instead
+    fpm_user = OS.mac? ? "_www", "www-data"
+    fpm_group = OS.mac? ? "_www", "www-data"
+
     args = %W[
       --prefix=#{prefix}
       --localstatedir=#{var}
@@ -149,8 +153,8 @@ class Php < Formula
       --with-external-gd
       --with-external-pcre
       --with-ffi
-      --with-fpm-user=_www
-      --with-fpm-group=_www
+      --with-fpm-user=#{fpm_user}
+      --with-fpm-group=#{fpm_group}
       --with-gettext=#{Formula["gettext"].opt_prefix}
       --with-gmp=#{Formula["gmp"].opt_prefix}
       --with-iconv#{headers_path}
@@ -325,12 +329,6 @@ class Php < Formula
   end
 
   test do
-    # Ubuntu no longer has a `_www` user, switch to use `www-data`
-    if OS.linux? && ENV["CI"]
-      inreplace Formula["php"].etc/"php/#{version.major_minor}/php-fpm.d/www.conf", "user = _www", "user = www-data"
-      inreplace Formula["php"].etc/"php/#{version.major_minor}/php-fpm.d/www.conf", "group = _www", "group = www-data"
-    end
-
     assert_match(/^Zend OPcache$/, shell_output("#{bin}/php -i"),
       "Zend OPCache extension not loaded")
     # Test related to libxml2 and
