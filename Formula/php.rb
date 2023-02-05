@@ -327,7 +327,7 @@ class Php < Formula
   test do
     # Ubuntu no longer has a `_www` user,
     # so we create one temporarily for testing
-    system "useradd", "-m", "_www" if OS.linux? && ENV["CI"]
+    system "sudo", "useradd", "-m", "_www" if OS.linux? && ENV["CI"]
 
     assert_match(/^Zend OPcache$/, shell_output("#{bin}/php -i"),
       "Zend OPCache extension not loaded")
@@ -418,7 +418,7 @@ class Php < Formula
 
       assert_match expected_output, shell_output("curl -s 127.0.0.1:#{port}")
     ensure
-      system "userdel", "_www" if OS.linux? && ENV["CI"]
+      system "sudo", "userdel", "_www" if OS.linux? && ENV["CI"]
       if pid
         Process.kill("TERM", pid)
         Process.wait(pid)
