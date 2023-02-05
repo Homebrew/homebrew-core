@@ -4,7 +4,7 @@ class Volta < Formula
   url "https://github.com/volta-cli/volta/archive/v1.1.1.tar.gz"
   sha256 "f2289274538124984bebb09b0968c2821368d8a80d60b9615e4f999f6751366d"
   license "BSD-2-Clause"
-  revision 1
+  revision 2
   head "https://github.com/volta-cli/volta.git", branch: "main"
 
   livecheck do
@@ -32,10 +32,12 @@ class Volta < Formula
     system "cargo", "install", *std_cargo_args
     generate_completions_from_executable(bin/"volta", "completions")
 
-    libexec.install bin
-    (libexec/"bin").each_child do |f|
+    bin.each_child do |f|
       basename = f.basename
-      (bin/basename).write_env_script f, VOLTA_INSTALL_DIR: opt_prefix/"bin"
+      next if basename.to_s == "volta-shim"
+
+      (libexec/"bin").install f
+      (bin/basename).write_env_script libexec/"bin"/basename, VOLTA_INSTALL_DIR: opt_prefix/"bin"
     end
   end
 
@@ -43,5 +45,9 @@ class Volta < Formula
     system bin/"volta", "install", "node@19.0.1"
     node = shell_output("#{bin}/volta which node").chomp
     assert_match "19.0.1", shell_output("#{node} --version")
+    path = testpath/"test.js"
+    path.write "console.log('hello');"
+    output = shell_output("#{testpath}/.volta/bin/node #{path}").strip
+    assert_equal "hello", output
   end
 end
