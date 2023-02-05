@@ -6,11 +6,11 @@ class JpegTurbo < Formula
   license "IJG"
   head "https://github.com/libjpeg-turbo/libjpeg-turbo.git", branch: "main"
 
-  # Tags with a 90+ patch are unstable (e.g., the 2.0.90 tag is used for the
-  # 2.1.0 beta release) and this regex should only match the stable versions.
+  # Versions with a 90+ patch are unstable (e.g., 2.1.90 corresponds to
+  # 3.0 beta1) and this regex should only match the stable versions.
   livecheck do
-    url :head
-    regex(/^v?(\d+\.\d+\.(?:\d|[1-8]\d+)(?:\.\d+)*)$/i)
+    url :stable
+    regex(%r{url=.*?/libjpeg-turbo[._-]v?(\d+\.\d+\.(?:\d|[1-8]\d+)(?:\.\d+)*)\.t}i)
   end
 
   bottle do
