@@ -28,7 +28,7 @@ class GitAppraise < Formula
   end
 
   test do
-    system "git", "init"
+    system "git", "init", "--initial-branch=master"
     system "git", "config", "user.email", "user@email.com"
     (testpath/"README").write "test"
     system "git", "add", "README"
