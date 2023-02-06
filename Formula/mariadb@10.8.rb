@@ -1,8 +1,8 @@
 class MariadbAT108 < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.com/MariaDB/mariadb-10.8.6/source/mariadb-10.8.6.tar.gz"
-  sha256 "a9a97c799b699e10c93965bbd7043453f7a20e140bd229d209aa1616f29fbf6d"
+  url "https://downloads.mariadb.com/MariaDB/mariadb-10.8.7/source/mariadb-10.8.7.tar.gz"
+  sha256 "03abaab0a32f3538ea65915bad404159fda61c4244f47649a42eb1754206b802"
   license "GPL-2.0-only"
 
   # This uses a placeholder regex to satisfy the `PageMatch` strategy
@@ -36,7 +36,8 @@ class MariadbAT108 < Formula
   keg_only :versioned_formula
 
   # See: https://mariadb.com/kb/en/changes-improvements-in-mariadb-108/
-  deprecate! date: "2023-05-01", because: :unsupported
+  # End-of-life on 2023-05-20: https://mariadb.org/about/#maintenance-policy
+  deprecate! date: "2023-05-20", because: :unsupported
 
   depends_on "bison" => :build
   depends_on "cmake" => :build
@@ -59,13 +60,6 @@ class MariadbAT108 < Formula
   end
 
   fails_with gcc: "5"
-
-  # fix compilation, remove in 10.8.7
-  patch do
-    url "https://github.com/mariadb-corporation/mariadb-connector-c/commit/44383e3df4896f2d04d9141f640934d3e74e04d7.patch?full_index=1"
-    sha256 "3641e17e29dc7c9bf24bc23e4d68da81f0d9f33b0568f8ff201c4ebc0487d26a"
-    directory "libmariadb"
-  end
 
   def install
     ENV.cxx11
@@ -107,10 +101,9 @@ class MariadbAT108 < Formula
     # Disable RocksDB on Apple Silicon (currently not supported)
     args << "-DPLUGIN_ROCKSDB=NO" if Hardware::CPU.arm?
 
-    system "cmake", ".", *std_cmake_args, *args
-
-    system "make"
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "_build", *std_cmake_args, *args
+    system "cmake", "--build", "_build"
+    system "cmake", "--install", "_build"
 
     # Fix my.cnf to point to #{etc} instead of /etc
     (etc/"my.cnf.d").mkpath
