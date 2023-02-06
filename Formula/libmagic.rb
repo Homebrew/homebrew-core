@@ -20,7 +20,15 @@ class Libmagic < Formula
     sha256 x86_64_linux:   "7a7951e67423493720b99273788ab46042209b802ca2006d20acdbccd67185a5"
   end
 
+  depends_on "pkg-config" => :test
   uses_from_macos "zlib"
+
+  # Upstream patch for missing pkg-config stanza (https://bugs.astron.com/view.php?id=419)
+  # Remove on next release
+  patch do
+    url "https://github.com/file/file/commit/8bc37a45bad67bc4604471c64f0c9f3372b55d2c.patch?full_index=1"
+    sha256 "104f1854c93924dd1590049bf653b0cb9b57b269e7bf54d6a219a44c09011961"
+  end
 
   def install
     system "./configure", "--disable-dependency-tracking",
@@ -51,7 +59,8 @@ class Libmagic < Formula
           puts(magic_file(cookie, argv[1]));
       }
     EOS
-    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lmagic", "-o", "test"
+    flags = shell_output("pkg-config --cflags --libs #{name}").chomp.split
+    system ENV.cc, "test.c", "-o", "test", *flags
     cp test_fixtures("test.png"), "test.png"
     assert_equal "image/png", shell_output("./test test.png").chomp
   end
