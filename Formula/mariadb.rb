@@ -1,8 +1,8 @@
 class Mariadb < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.com/MariaDB/mariadb-10.10.2/source/mariadb-10.10.2.tar.gz"
-  sha256 "57cbd0112b22b592f657cd4eb82e2f36ad901351317bf8e17849578e803f3cb2"
+  url "https://downloads.mariadb.com/MariaDB/mariadb-10.10.3/source/mariadb-10.10.3.tar.gz"
+  sha256 "0d0c45fe85059d8d26c6e229f30410a8b8f7282ec2d56560fc9a8930e14ed77d"
   license "GPL-2.0-only"
 
   # This uses a placeholder regex to satisfy the `PageMatch` strategy
@@ -58,13 +58,6 @@ class Mariadb < Formula
 
   fails_with gcc: "5"
 
-  # fix compilation, remove in 10.10.3
-  patch do
-    url "https://github.com/mariadb-corporation/mariadb-connector-c/commit/44383e3df4896f2d04d9141f640934d3e74e04d7.patch?full_index=1"
-    sha256 "3641e17e29dc7c9bf24bc23e4d68da81f0d9f33b0568f8ff201c4ebc0487d26a"
-    directory "libmariadb"
-  end
-
   def install
     ENV.cxx11
 
@@ -105,10 +98,9 @@ class Mariadb < Formula
     # Disable RocksDB on Apple Silicon (currently not supported)
     args << "-DPLUGIN_ROCKSDB=NO" if Hardware::CPU.arm?
 
-    system "cmake", ".", *std_cmake_args, *args
-
-    system "make"
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "_build", *std_cmake_args, *args
+    system "cmake", "--build", "_build"
+    system "cmake", "--install", "_build"
 
     # Fix my.cnf to point to #{etc} instead of /etc
     (etc/"my.cnf.d").mkpath
