@@ -20,8 +20,15 @@ class Conduit < Formula
   test do
     # Assert conduit version
     assert_match(version.to_s, shell_output("#{bin}/conduit -version"))
+
+    require "Open3"
     # Run conduit with random free ports for gRPC and HTTP servers
-    log = shell_output("#{bin}/conduit --grpc.address :0 --http.address :0")
+    _, stdout, _, wait_thr = Open3.popen3("conduit --grpc.address :0 --http.address :0")
+    sleep 5
+    # Kill conduit
+    Process.kill "SIGKILL", wait_thr.pid
+    log = stdout.read
+    puts(log)
     # Check that gRPC server started
     assert_match(/grpc server started/, log)
     # Check that HTTP server started
