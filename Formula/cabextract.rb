@@ -1,8 +1,8 @@
 class Cabextract < Formula
   desc "Extract files from Microsoft cabinet files"
   homepage "https://www.cabextract.org.uk/"
-  url "https://www.cabextract.org.uk/cabextract-1.9.1.tar.gz"
-  sha256 "afc253673c8ef316b4d5c29cc4aa8445844bee14afffbe092ee9469405851ca7"
+  url "https://www.cabextract.org.uk/cabextract-1.10.tar.gz"
+  sha256 "edfc785ef252460cab7fdfa6fb2599058a6f5618f7f48a4ad22da816da8cb117"
   license "GPL-3.0"
 
   livecheck do
