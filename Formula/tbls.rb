@@ -22,7 +22,7 @@ class Tbls < Formula
     ldflags = %W[
       -s -w
       -X github.com/k1LoW/tbls.version=#{version}
-      -X github.com/k1LoW/tbls.date=#{time.rfc3339}
+      -X github.com/k1LoW/tbls.date=#{time.iso8601}
       -X github.com/k1LoW/tbls/version.Version=#{version}
     ]
     system "go", "build", *std_go_args(ldflags: ldflags)
