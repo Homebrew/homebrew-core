@@ -1,10 +1,8 @@
 class Conduit < Formula
   desc "Streams data between data stores. Kafka Connect replacement. No JVM required"
   homepage "https://conduit.io/"
-  url "https://github.com/ConduitIO/conduit",
-   using:    :git,
-   tag:      "v0.5.0",
-   revision: "eacafff5bc575f14396a95c8fd402b8316c1dfb2"
+  url "https://github.com/ConduitIO/conduit/archive/refs/tags/v0.5.0.tar.gz"
+  sha256 "ba57506c17a99356c443d3c4459977c825dcce1b039965ba7699140e11d95afc"
   license "Apache-2.0"
   head "https://github.com/ConduitIO/conduit.git", branch: "main"
 
@@ -13,12 +11,16 @@ class Conduit < Formula
   depends_on "yarn"
 
   def install
+    inreplace "Makefile" do |s|
+      s.change_make_var! "VERSION", version.to_s
+    end
     system "make"
     bin.install "conduit"
   end
 
   test do
     require "Open3"
+
     # Assert conduit version
     assert_match(version.to_s, shell_output("#{bin}/conduit -version"))
 
