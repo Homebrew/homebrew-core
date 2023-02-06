@@ -53,7 +53,7 @@ class Fheroes2 < Formula
   test do
     io = IO.popen("#{bin}/fheroes2 2>&1")
     io.any? do |line|
-      /fheroes2 engine, version:/.match?(line)
+      line.include?("fheroes2 engine, version:")
     end
   end
 end
