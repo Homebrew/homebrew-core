@@ -33,7 +33,7 @@ class Ksync < Formula
       -w
       -X #{project}/pkg/ksync.GitCommit=#{Utils.git_short_head}
       -X #{project}/pkg/ksync.GitTag=#{version}
-      -X #{project}/pkg/ksync.BuildDate=#{time.rfc3339(9)}
+      -X #{project}/pkg/ksync.BuildDate=#{time.iso8601(9)}
       -X #{project}/pkg/ksync.VersionString=#{tap.user}
       -X #{project}/pkg/ksync.GoVersion=go#{Formula["go"].version}
     ]
