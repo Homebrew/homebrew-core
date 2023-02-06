@@ -7,6 +7,7 @@ class Embulk < Formula
   url "https://github.com/embulk/embulk/releases/download/v0.9.24/embulk-0.9.24.jar"
   sha256 "acf204ffa0112ae4fd6757b4557fef6f72e2d5dd163af439f8b13ae98fb9dafd"
   license "Apache-2.0"
+  revision 1
   version_scheme 1
 
   livecheck do
@@ -18,7 +19,7 @@ class Embulk < Formula
     sha256 cellar: :any_skip_relocation, all: "cf6500c8b780a8b842484e34d7d451e433b9c1ebbcb39c60531423649d01bb4f"
   end
 
-  depends_on "openjdk@8"
+  depends_on "zulu8"
 
   def install
     libexec.install "embulk-#{version}.jar"
