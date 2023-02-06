@@ -1,8 +1,8 @@
 class MariadbAT103 < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.com/MariaDB/mariadb-10.3.37/source/mariadb-10.3.37.tar.gz"
-  sha256 "a7b25f3534eff9dd847ca19f3adf70a975ee572929c16b1cf7ef8930bf782677"
+  url "https://downloads.mariadb.com/MariaDB/mariadb-10.3.38/source/mariadb-10.3.38.tar.gz"
+  sha256 "4afbeff86d996475bb2324db9845c0746ea6e128c129b86a4a0163e4dc93293c"
   license "GPL-2.0-only"
 
   # This uses a placeholder regex to satisfy the `PageMatch` strategy
@@ -36,7 +36,8 @@ class MariadbAT103 < Formula
   keg_only :versioned_formula
 
   # See: https://mariadb.com/kb/en/changes-improvements-in-mariadb-103/
-  deprecate! date: "2023-05-01", because: :unsupported
+  # End-of-life on 2023-05-25: https://mariadb.org/about/#maintenance-policy
+  deprecate! date: "2023-05-25", because: :unsupported
 
   depends_on "bison" => :build
   depends_on "cmake" => :build
@@ -99,10 +100,9 @@ class MariadbAT103 < Formula
     # disable TokuDB, which is currently not supported on macOS
     args << "-DPLUGIN_TOKUDB=NO"
 
-    system "cmake", ".", *std_cmake_args, *args
-
-    system "make"
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "_build", *std_cmake_args, *args
+    system "cmake", "--build", "_build"
+    system "cmake", "--install", "_build"
 
     # Fix my.cnf to point to #{etc} instead of /etc
     (etc/"my.cnf.d").mkpath
