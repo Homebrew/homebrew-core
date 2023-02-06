@@ -1,14 +1,10 @@
 class DfuProgrammer < Formula
   desc "Device firmware update based USB programmer for Atmel chips"
-  homepage "https://dfu-programmer.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/dfu-programmer/dfu-programmer/0.7.2/dfu-programmer-0.7.2.tar.gz"
-  sha256 "1db4d36b1aedab2adc976e8faa5495df3cf82dc4bf883633dc6ba71f7c4af995"
-  license "GPL-2.0"
-
-  livecheck do
-    url :stable
-    regex(%r{url=.*?/dfu-programmer[._-]v?(\d+(?:\.\d+)+)\.t}i)
-  end
+  homepage "https://github.com/dfu-programmer/dfu-programmer"
+  url "https://github.com/dfu-programmer/dfu-programmer/releases/download/v1.0.0/dfu-programmer-1.0.0.tar.gz"
+  sha256 "867eaf0a8cd10123715491807ab99cecb54dc6f09dddade4b2a42b0b0ef9e6b0"
+  license "GPL-2.0-or-later"
+  head "https://github.com/dfu-programmer/dfu-programmer.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "9f41045987af7f7daa4470dcb37de69a210e4ccb6bc5f8e9b4d5d2bf310ec562"
@@ -25,17 +21,13 @@ class DfuProgrammer < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e92b3de2d143401517c149f42de3acd6f2d64bc779ed515f7f89ac5fadb1fe9c"
   end
 
-  head do
-    url "https://github.com/dfu-programmer/dfu-programmer.git", branch: "master"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-  end
-
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "libusb-compat"
 
   def install
-    system "./bootstrap.sh" if build.head?
-    system "./configure", "--prefix=#{prefix}",
+    system "./bootstrap.sh"
+    system "./configure", *std_configure_args,
                           "--disable-libusb_1_0"
     system "make", "install"
   end
