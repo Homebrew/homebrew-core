@@ -27,7 +27,7 @@ class GrafanaAgent < Formula
       -X github.com/grafana/agent/pkg/build.Branch=HEAD
       -X github.com/grafana/agent/pkg/build.Version=v#{version}
       -X github.com/grafana/agent/pkg/build.BuildUser=#{tap.user}
-      -X github.com/grafana/agent/pkg/build.BuildDate=#{time.rfc3339}
+      -X github.com/grafana/agent/pkg/build.BuildDate=#{time.strftime("%FT%T#{time.utc? ? 'Z' : '%:z'}")}
     ]
     args = std_go_args(ldflags: ldflags) + %w[-tags=noebpf]
 

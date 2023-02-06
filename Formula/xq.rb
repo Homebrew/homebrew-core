@@ -24,7 +24,7 @@ class Xq < Formula
       -s -w
       -X main.commit=#{Utils.git_head}
       -X main.version=#{version}
-      -X main.date=#{time.rfc3339}
+      -X main.date=#{time.strftime("%FT%T#{time.utc? ? 'Z' : '%:z'}")}
     ]
 
     system "go", "build", *std_go_args(ldflags: ldflags)

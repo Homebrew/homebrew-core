@@ -24,7 +24,7 @@ class Chezmoi < Formula
       -s -w
       -X main.version=#{version}
       -X main.commit=#{Utils.git_head}
-      -X main.date=#{time.rfc3339}
+      -X main.date=#{time.strftime("%FT%T#{time.utc? ? 'Z' : '%:z'}")}
       -X main.builtBy=#{tap.user}
     ]
     system "go", "build", *std_go_args(ldflags: ldflags)
