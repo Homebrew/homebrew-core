@@ -24,7 +24,7 @@ class GolangciLint < Formula
       -s -w
       -X main.version=#{version}
       -X main.commit=#{Utils.git_short_head(length: 7)}
-      -X main.date=#{time.rfc3339}
+      -X main.date=#{time.iso8601}
     ]
 
     system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/golangci-lint"
