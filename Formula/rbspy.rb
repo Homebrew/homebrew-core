@@ -37,11 +37,11 @@ class Rbspy < Formula
 
     expected_result = <<~EOS
       % self  % total  name
-      100.00   100.00  sleep [c function] - (unknown)
-        0.00   100.00  ccc - sample_program.rb
-        0.00   100.00  bbb - sample_program.rb
-        0.00   100.00  aaa - sample_program.rb
-        0.00   100.00  <main> - sample_program.rb
+      100.00   100.00  sleep [c function] - (unknown):0
+        0.00   100.00  ccc - sample_program.rb:11
+        0.00   100.00  bbb - sample_program.rb:7
+        0.00   100.00  aaa - sample_program.rb:3
+        0.00   100.00  <main> - sample_program.rb:13
     EOS
     assert_equal File.read("result"), expected_result
   end
