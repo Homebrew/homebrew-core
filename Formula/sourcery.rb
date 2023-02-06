@@ -4,7 +4,6 @@ class Sourcery < Formula
   url "https://github.com/krzysztofzablocki/Sourcery/archive/2.0.1.tar.gz"
   sha256 "bc28b9b0392b91e7787ca7e4c02e16aed11b39e940e8916e2c0cf745b1163fb1"
   license "MIT"
-  revision 1
   version_scheme 1
   head "https://github.com/krzysztofzablocki/Sourcery.git", branch: "master"
 
