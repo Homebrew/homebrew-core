@@ -20,7 +20,7 @@ class Hysteria < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X main.appVersion=v#{version} -X main.appDate=#{time.rfc3339} -X main.appCommit=#{Utils.git_short_head}"
+    ldflags = "-s -w -X main.appVersion=v#{version} -X main.appDate=#{time.iso8601} -X main.appCommit=#{Utils.git_short_head}"
     system "go", "build", *std_go_args(ldflags: ldflags), "./app/cmd"
   end
 
