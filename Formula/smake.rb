@@ -1,8 +1,8 @@
 class Smake < Formula
   desc "Portable make program with automake features"
-  homepage "https://s-make.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/s-make/smake-1.2.5.tar.bz2"
-  sha256 "27566aa731a400c791cd95361cc755288b44ff659fa879933d4ea35d052259d4"
+  homepage "https://codeberg.org/schilytools/schilytools"
+  url "https://codeberg.org/schilytools/schilytools/archive/2023-01-12.tar.gz"
+  sha256 "d66f8b3badeef07432502c1ff48f559bb5f07170aeaf48eff8222f8316dff992"
   license "GPL-2.0-only"
 
   bottle do
@@ -20,10 +20,14 @@ class Smake < Formula
     sha256 x86_64_linux:   "5d03986ec19a639fd339db5cb01fb7d1e11dbea580614a3ff70a24e1151feb24"
   end
 
+  depends_on arch: :x86_64
+
   def install
     # ARM fails to build with Os
     ENV.O1 if Hardware::CPU.arm?
 
+    chdir "psmake"
+    system "./MAKE-sh", "-force-config"
     system "make", "GMAKE_NOWARN=true", "INS_BASE=#{libexec}", "INS_RBASE=#{libexec}", "install"
     bin.install_symlink libexec/"bin/smake"
     man1.install_symlink Dir["#{libexec}/share/man/man1/*.1"]
@@ -31,6 +35,6 @@ class Smake < Formula
   end
 
   test do
-    system "#{bin}/smake", "-version"
+    system bin/"smake", "-version"
   end
 end
