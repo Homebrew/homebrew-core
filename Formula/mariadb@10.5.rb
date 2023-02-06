@@ -1,8 +1,8 @@
 class MariadbAT105 < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.com/MariaDB/mariadb-10.5.18/source/mariadb-10.5.18.tar.gz"
-  sha256 "3593b0dcc0f2e80e98177019f5dcfa5cc8c14172ce161a6fa50f8084f2cef749"
+  url "https://downloads.mariadb.com/MariaDB/mariadb-10.5.19/source/mariadb-10.5.19.tar.gz"
+  sha256 "244c4a24249064106623cb84aa6de514ddf1787de86664075282bba8ec5757f4"
   license "GPL-2.0-only"
 
   # This uses a placeholder regex to satisfy the `PageMatch` strategy
@@ -36,7 +36,8 @@ class MariadbAT105 < Formula
   keg_only :versioned_formula
 
   # See: https://mariadb.com/kb/en/changes-improvements-in-mariadb-105/
-  deprecate! date: "2025-06-01", because: :unsupported
+  # End-of-life on 2025-06-24: https://mariadb.org/about/#maintenance-policy
+  deprecate! date: "2025-06-24", because: :unsupported
 
   depends_on "bison" => :build
   depends_on "cmake" => :build
@@ -102,10 +103,9 @@ class MariadbAT105 < Formula
     # Disable RocksDB on Apple Silicon (currently not supported)
     args << "-DPLUGIN_ROCKSDB=NO" if Hardware::CPU.arm?
 
-    system "cmake", ".", *std_cmake_args, *args
-
-    system "make"
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "_build", *std_cmake_args, *args
+    system "cmake", "--build", "_build"
+    system "cmake", "--install", "_build"
 
     # Fix my.cnf to point to #{etc} instead of /etc
     (etc/"my.cnf.d").mkpath
