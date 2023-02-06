@@ -96,7 +96,7 @@ class Grafana < Formula
     listening = Timeout.timeout(10) do
       li = false
       r.each do |l|
-        if /HTTP Server Listen/.match?(l)
+        if l.include?("HTTP Server Listen")
           li = true
           break
         end
