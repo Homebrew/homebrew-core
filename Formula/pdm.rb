@@ -3,8 +3,8 @@ class Pdm < Formula
 
   desc "Modern Python package and dependency manager supporting the latest PEP standards"
   homepage "https://pdm.fming.dev"
-  url "https://files.pythonhosted.org/packages/47/9d/03cdc2fbe8b80dcea503fbc7bf66a9a24dc0ea850651c68b866fcab4ac44/pdm-2.4.2.tar.gz"
-  sha256 "8df281d19501c81b0ba803aff1781995ef057a43b5967bf190d4b0a126182cf5"
+  url "https://files.pythonhosted.org/packages/8a/41/1cf525f3fbd07d989d8817114601951a610e0a31b9b0772a1e3a60541b80/pdm-2.4.3.tar.gz"
+  sha256 "1a9f23bb6e975f4036f8b5feedbf4eb84049c78a94c11dad354abe0a18f9eaae"
   license "MIT"
   head "https://github.com/pdm-project/pdm.git", branch: "main"
 
@@ -52,8 +52,8 @@ class Pdm < Formula
   end
 
   resource "findpython" do
-    url "https://files.pythonhosted.org/packages/5f/6a/9e5b06461f2302cce2775ea04c429ee9c7a1fcc60ca004eee94d34be4c2d/findpython-0.2.3.tar.gz"
-    sha256 "c265a8fe9fd05736031eed6e58ad5551634ef0819aa1c1e45fa3530e5b6a4656"
+    url "https://files.pythonhosted.org/packages/21/1a/fa0e5e87180e15a417c6102c4f557398ce5edbfa4416d6ed981c2bdef6e6/findpython-0.2.4.tar.gz"
+    sha256 "61f1768cdd843dc2f8a45971272c58c25641a50b19da91302e2492e32a667362"
   end
 
   resource "idna" do
