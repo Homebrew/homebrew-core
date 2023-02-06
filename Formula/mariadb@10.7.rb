@@ -1,25 +1,13 @@
 class MariadbAT107 < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.com/MariaDB/mariadb-10.7.7/source/mariadb-10.7.7.tar.gz"
-  sha256 "fd2f9fa3f135823c1626c9700e3bd736b829bfc09f61f5557d7313a7c9e02c29"
+  url "https://downloads.mariadb.com/MariaDB/mariadb-10.7.8/source/mariadb-10.7.8.tar.gz"
+  sha256 "f8c69d9080d85eafb3e3a84837bfa566a7f5527a8af6f9a081429d4de0de4778"
   license "GPL-2.0-only"
 
-  # This uses a placeholder regex to satisfy the `PageMatch` strategy
-  # requirement. In the future, this will be updated to use a `Json` strategy
-  # and we can remove the unused regex at that time.
+  # https://mariadb.com/kb/en/mariadb-10-7-8-release-notes/#notable-items
   livecheck do
-    url "https://downloads.mariadb.org/rest-api/mariadb/all-releases/?olderReleases=false"
-    regex(/unused/i)
-    strategy :page_match do |page|
-      json = JSON.parse(page)
-      json["releases"]&.map do |release|
-        next unless release["release_number"]&.start_with?(version.major_minor)
-        next unless release["status"]&.include?("stable")
-
-        release["release_number"]
-      end
-    end
+    skip "10.7.8 is the final release of MariaDB 10.7"
   end
 
   bottle do
@@ -36,7 +24,9 @@ class MariadbAT107 < Formula
   keg_only :versioned_formula
 
   # See: https://mariadb.com/kb/en/changes-improvements-in-mariadb-107/
-  disable! date: "2023-02-01", because: :unsupported
+  # and https://mariadb.org/about/#maintenance-policy
+  # End-of-life on 2023-02-09. Disable date set to 3 months after.
+  disable! date: "2023-05-09", because: :unsupported
 
   depends_on "bison" => :build
   depends_on "cmake" => :build
@@ -55,13 +45,6 @@ class MariadbAT107 < Formula
   end
 
   fails_with gcc: "5"
-
-  # fix compilation, remove in 10.7.8
-  patch do
-    url "https://github.com/mariadb-corporation/mariadb-connector-c/commit/44383e3df4896f2d04d9141f640934d3e74e04d7.patch?full_index=1"
-    sha256 "3641e17e29dc7c9bf24bc23e4d68da81f0d9f33b0568f8ff201c4ebc0487d26a"
-    directory "libmariadb"
-  end
 
   def install
     # Set basedir and ldata so that mysql_install_db can find the server
