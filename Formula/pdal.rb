@@ -1,10 +1,9 @@
 class Pdal < Formula
   desc "Point data abstraction library"
   homepage "https://www.pdal.io/"
-  url "https://github.com/PDAL/PDAL/releases/download/2.4.3/PDAL-2.4.3-src.tar.gz"
-  sha256 "abac604c6dcafdcd8a36a7d00982be966f7da00c37d89db2785637643e963e4c"
+  url "https://github.com/PDAL/PDAL/releases/download/2.5.0/PDAL-2.5.0-src.tar.gz"
+  sha256 "5eab602af7003be84935fae3548a6e7018a4b4a6d8f8812c845847eea33239d2"
   license "BSD-3-Clause"
-  revision 5
   head "https://github.com/PDAL/PDAL.git", branch: "master"
 
   # The upstream GitHub repository sometimes creates tags that only include a
@@ -13,7 +12,7 @@ class Pdal < Formula
   # substitute the version from livecheck in the `stable` URL, so we check the
   # first-party download page, which links to the tarballs on GitHub.
   livecheck do
-    url "https://pdal.io/en/stable/download.html"
+    url "https://pdal.io/en/latest/download.html"
     regex(/href=.*?PDAL[._-]v?(\d+(?:\.\d+)+)[._-]src\.t/i)
   end
 
