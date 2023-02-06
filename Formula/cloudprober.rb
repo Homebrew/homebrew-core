@@ -25,7 +25,7 @@ class Cloudprober < Formula
   test do
     io = IO.popen("#{bin}/cloudprober --logtostderr", err: [:child, :out])
     io.any? do |line|
-      /Initialized status surfacer/.match?(line)
+      line.include?("Initialized status surfacer")
     end
   end
 end
