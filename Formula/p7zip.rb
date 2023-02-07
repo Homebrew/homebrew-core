@@ -1,8 +1,8 @@
 class P7zip < Formula
   desc "7-Zip (high compression file archiver) implementation"
   homepage "https://github.com/p7zip-project/p7zip"
-  url "https://github.com/p7zip-project/p7zip/archive/v17.04.tar.gz"
-  sha256 "ea029a2e21d2d6ad0a156f6679bd66836204aa78148a4c5e498fe682e77127ef"
+  url "https://github.com/p7zip-project/p7zip/archive/v17.05.tar.gz"
+  sha256 "9473e324de6a87d89cb7ff65b0fec4ae3f147f03ffc138189c336a4650d74804"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
 
   bottle do
