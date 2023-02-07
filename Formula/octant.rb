@@ -25,6 +25,9 @@ class Octant < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4df389cca7e8d7586332ee36bf529a8e6aaf70f94acd2ba567c99445e8874bd3"
   end
 
+  # "VMware has ended active development of this project, this repository will no longer be updated."
+  deprecate! date: "2023-02-07", because: :repo_archived
+
   depends_on "go" => :build
   depends_on "node@14" => :build
 
