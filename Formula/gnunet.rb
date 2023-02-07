@@ -1,9 +1,9 @@
 class Gnunet < Formula
   desc "Framework for distributed, secure and privacy-preserving applications"
   homepage "https://gnunet.org/"
-  url "https://ftp.gnu.org/gnu/gnunet/gnunet-0.19.2.tar.gz"
-  mirror "https://ftpmirror.gnu.org/gnunet/gnunet-0.19.2.tar.gz"
-  sha256 "86034d92ebf8f6623dad95f1031ded1466e064b96ffac9d3e9d47229ac2c22ff"
+  url "https://ftp.gnu.org/gnu/gnunet/gnunet-0.19.3.tar.gz"
+  mirror "https://ftpmirror.gnu.org/gnunet/gnunet-0.19.3.tar.gz"
+  sha256 "82b7d5fe12d481387c37d2fbf032bb605c2e4d5976079a1947943243e5ba7a25"
   license "AGPL-3.0-or-later"
 
   bottle do
@@ -29,13 +29,6 @@ class Gnunet < Formula
 
   uses_from_macos "curl"
   uses_from_macos "sqlite"
-
-  # Patch for LOGIN_NAME_MAX not defined on macOS
-  # Remove in 0.19.3
-  patch do
-    url "https://git.gnunet.org/gnunet.git/patch/?id=613554cc80f481025def331ac5a7ab111510ce0f"
-    sha256 "02d498dd85c351de7a89fecfa5b78c9ee32abd1a58188264c93cf84ebd3f4416"
-  end
 
   def install
     ENV.deparallelize if OS.linux?
