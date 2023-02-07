@@ -3,8 +3,8 @@ require "language/node"
 class HasuraCli < Formula
   desc "Command-Line Interface for Hasura GraphQL Engine"
   homepage "https://hasura.io"
-  url "https://github.com/hasura/graphql-engine/archive/v2.17.1.tar.gz"
-  sha256 "c09a6e877a0ea8fdaf5a2ee511a3b83c86eb1634254a319a62abd41ec999b40e"
+  url "https://github.com/hasura/graphql-engine/archive/v2.18.0.tar.gz"
+  sha256 "2e9a79d8dfe497b8234f7d91683f1fdd4217081fc4cd3f0f9e177d53d061d99a"
   license "Apache-2.0"
 
   bottle do
