@@ -1,8 +1,8 @@
 class Babeld < Formula
   desc "Loop-avoiding distance-vector routing protocol"
   homepage "https://www.irif.fr/~jch/software/babel/"
-  url "https://www.irif.fr/~jch/software/files/babeld-1.12.1.tar.gz"
-  sha256 "9ab59d7ac741f3630df23f9c3b67c60294d8b34ab622398f9b89773a878ecb1e"
+  url "https://www.irif.fr/~jch/software/files/babeld-1.12.2.tar.gz"
+  sha256 "1db22b6193070ea2450a1ab51196fd72f58a1329f780cb0388e2e4b2e7768cbb"
   license "MIT"
   head "https://github.com/jech/babeld.git", branch: "master"
 
