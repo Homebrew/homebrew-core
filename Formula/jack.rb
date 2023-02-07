@@ -25,7 +25,7 @@ class Jack < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
   depends_on "berkeley-db"
   depends_on "libsamplerate"
   depends_on "libsndfile"
@@ -46,7 +46,7 @@ class Jack < Formula
       ENV.append "LDFLAGS", "-Wl,-compatibility_version,1"
       ENV.append "LDFLAGS", "-Wl,-current_version,#{version}"
     end
-    python3 = "python3.10"
+    python3 = "python3.11"
     system python3, "./waf", "configure", "--prefix=#{prefix}", "--example-tools"
     system python3, "./waf", "build"
     system python3, "./waf", "install"
