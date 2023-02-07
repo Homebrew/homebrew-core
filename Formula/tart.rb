@@ -1,8 +1,8 @@
 class Tart < Formula
   desc "macOS and Linux VMs on Apple Silicon to use in CI and other automations"
   homepage "https://github.com/cirruslabs/tart"
-  url "https://github.com/cirruslabs/tart/archive/refs/tags/0.37.0.tar.gz"
-  sha256 "9f2d4af148107f8fed38af0973fcfa6cf3a9b31bab529da8d89ada49f789d519"
+  url "https://github.com/cirruslabs/tart/archive/refs/tags/0.37.1.tar.gz"
+  sha256 "c9ced4b02540e0e3827ac1de19d65ffd74f70715ac9cca92946675309b78f280"
   license "AGPL-3.0-or-later"
 
   bottle do
