@@ -47,7 +47,7 @@ class Jack < Formula
       ENV.append "LDFLAGS", "-Wl,-current_version,#{version}"
     end
     python3 = "python3.11"
-    system python3, "./waf", "configure", "--prefix=#{prefix}", "--example-tools"
+    system python3, "./waf", "configure", "--prefix=#{prefix}"
     system python3, "./waf", "build"
     system python3, "./waf", "install"
   end
