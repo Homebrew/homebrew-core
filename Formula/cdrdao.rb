@@ -28,6 +28,13 @@ class Cdrdao < Formula
   depends_on "libvorbis"
   depends_on "mad"
 
+  # Fixes build on macOS prior to 12.
+  # Remove when merged and released.
+  patch do
+    url "https://github.com/cdrdao/cdrdao/commit/105d72a61f510e3c47626476f9bbc9516f824ede.patch?full_index=1"
+    sha256 "0e235c0c34abaad56edb03a2526b3792f6f7ea12a8144cee48998cf1326894eb"
+  end
+
   def install
     system "./autogen.sh"
     system "./configure", *std_configure_args, "--mandir=#{man}"
