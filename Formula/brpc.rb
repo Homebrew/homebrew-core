@@ -4,7 +4,7 @@ class Brpc < Formula
   url "https://dlcdn.apache.org/brpc/1.4.0/apache-brpc-1.4.0-src.tar.gz"
   sha256 "6bdfe4fae5103edd4216a5893bc75d97707697bd559bc7a48513b3474e702009"
   license "Apache-2.0"
-  head "https://github.com/apache/incubator-brpc.git", branch: "master"
+  head "https://github.com/apache/brpc.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "382a6deb2c15f11562ac69ca645b9c361d94caf2346bf182dce1f2a54a9bb870"
