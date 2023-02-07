@@ -3,8 +3,8 @@ class Prowler < Formula
 
   desc "Open Source Security tool to perform Cloud Security best practices"
   homepage "https://prowler.pro/"
-  url "https://files.pythonhosted.org/packages/ee/27/81fa9b6ac286c1c5b5278e86e95cd922c28ef5401918537485a627acbdb8/prowler-3.1.3.tar.gz"
-  sha256 "96bf5dbbe68feaac07b2519d071306540c0ce87932d6217ff06f460ba5960183"
+  url "https://files.pythonhosted.org/packages/e5/12/56b3f0ed1ff9928914c9c0a081eb0d4535a984ec2f3dffe4dc67b21e2cbc/prowler-3.1.4.tar.gz"
+  sha256 "744c81fd2e36df86d9c71efb53cc5b35bb3a0b01711cd360e1d63dc515ba63e7"
   license "Apache-2.0"
 
   bottle do
@@ -85,13 +85,13 @@ class Prowler < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/f5/06/b3723636e094e833bba96b33cee496cd47ccc7362f5f3422d15d96644f7f/boto3-1.26.64.tar.gz"
-    sha256 "b0e3d078ec56bc858cc5edae4cda3eed2b1872055828cf5f22d83fc6f79a6d40"
+    url "https://files.pythonhosted.org/packages/8d/59/72ed66c45aacdc1339423ed2f4e350594ed233deabac726dbcd69b4d847f/boto3-1.26.67.tar.gz"
+    sha256 "c2e21ac64370fee1f3dccd97b4767e89d046c45c00faec27c36405618e34c7e5"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/60/91/cda3984eed3ad1cd58c192184b647ab45a5f696c19555959076e7be81cd2/botocore-1.29.64.tar.gz"
-    sha256 "2424c96547eeb9b76eb5bcee5b5bc01741834f525ecc4d538d71d269c7ba6662"
+    url "https://files.pythonhosted.org/packages/fb/e3/5557a3301221e8c984344acce43af61ed2ff99cf39aefa4305e400ef3620/botocore-1.29.67.tar.gz"
+    sha256 "0ccec4a906b6b8c7bb6bc5226509059ee9ed94d3cf1014487ef5b8e56801e6a3"
   end
 
   resource "certifi" do
@@ -130,8 +130,8 @@ class Prowler < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/12/e3/c46c274cf466b24e5d44df5d5cd31a31ff23e57f074a2bb30931a8c9b01a/cryptography-39.0.0.tar.gz"
-    sha256 "f964c7dcf7802d133e8dbd1565914fa0194f9d683d82411989889ecd701e8adf"
+    url "https://files.pythonhosted.org/packages/6a/f5/a729774d087e50fffd1438b3877a91e9281294f985bda0fd15bf99016c78/cryptography-39.0.1.tar.gz"
+    sha256 "d1f6198ee6d9148405e49887803907fe8962a23e6c6f83ea7d98f1c0de375695"
   end
 
   resource "detect-secrets" do
@@ -253,7 +253,7 @@ class Prowler < Formula
     assert_match "rds", shell_output("#{bin}/prowler aws --list-services")
 
     assert_match "NoCredentialsError -- Unable to locate credentials",
-      shell_output("#{bin}/prowler aws --quick-inventory 2>&1")
+      shell_output("#{bin}/prowler aws --quick-inventory 2>&1", 1)
 
     assert_match "Prowler #{version}", shell_output("#{bin}/prowler -v")
   end
