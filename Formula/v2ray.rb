@@ -22,8 +22,7 @@ class V2ray < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1a9d347cd01bddb5e1a4c81c0374b4c6ca62b5ea3f1f4e353c1c68f59895089d"
   end
 
-  # Bump to Go 1.18 with when v5 releases.
-  depends_on "go@1.17" => :build
+  depends_on "go" => :build
 
   resource "geoip" do
     url "https://github.com/v2fly/geoip/releases/download/202302020047/geoip.dat"
