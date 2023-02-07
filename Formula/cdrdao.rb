@@ -20,6 +20,8 @@ class Cdrdao < Formula
     sha256 x86_64_linux:   "3c86d5f308211f6fe68cf6c27d2c7fe5a59bd7f154382d9cdb5fff4c85fd5364"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "pkg-config" => :build
   depends_on "lame"
   depends_on "libao"
@@ -27,6 +29,7 @@ class Cdrdao < Formula
   depends_on "mad"
 
   def install
+    system "./autogen.sh"
     system "./configure", *std_configure_args, "--mandir=#{man}"
     system "make", "install"
   end
