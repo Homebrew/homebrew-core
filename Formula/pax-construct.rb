@@ -14,6 +14,10 @@ class PaxConstruct < Formula
     sha256 cellar: :any_skip_relocation, all: "7b033ca0a10e6011280fce831ec89b49717cf985137b4134caac26da3669c5a5"
   end
 
+  # Does not run with maven 3.9.0, https://github.com/ops4j/org.ops4j.pax.construct/issues/153
+  # No releases or code commits since Aug 2016
+  deprecate! date: "2023-02-07", because: :unmaintained
+
   # Needed at runtime! pax-clone: line 47: exec: mvn: not found
   depends_on "maven"
 
