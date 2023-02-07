@@ -7,8 +7,8 @@ class Openttd < Formula
   head "https://github.com/OpenTTD/OpenTTD.git", branch: "master"
 
   livecheck do
-    url :homepage
-    regex(/Download stable \((\d+(\.\d+)+)\)/i)
+    url "https://cdn.openttd.org/openttd-releases/latest.yaml"
+    regex(/version:\s*?v?(\d+(?:\.\d+)+)/i)
   end
 
   bottle do
@@ -44,16 +44,31 @@ class Openttd < Formula
   resource "opengfx" do
     url "https://cdn.openttd.org/opengfx-releases/7.1/opengfx-7.1-all.zip"
     sha256 "928fcf34efd0719a3560cbab6821d71ce686b6315e8825360fba87a7a94d7846"
+
+    livecheck do
+      url "https://cdn.openttd.org/opengfx-releases/latest.yaml"
+      regex(/version:\s*?v?(\d+(?:\.\d+)+)/i)
+    end
   end
 
   resource "openmsx" do
     url "https://cdn.openttd.org/openmsx-releases/0.4.2/openmsx-0.4.2-all.zip"
     sha256 "5a4277a2e62d87f2952ea5020dc20fb2f6ffafdccf9913fbf35ad45ee30ec762"
+
+    livecheck do
+      url "https://cdn.openttd.org/openmsx-releases/latest.yaml"
+      regex(/version:\s*?v?(\d+(?:\.\d+)+)/i)
+    end
   end
 
   resource "opensfx" do
     url "https://cdn.openttd.org/opensfx-releases/1.0.3/opensfx-1.0.3-all.zip"
     sha256 "e0a218b7dd9438e701503b0f84c25a97c1c11b7c2f025323fb19d6db16ef3759"
+
+    livecheck do
+      url "https://cdn.openttd.org/opensfx-releases/latest.yaml"
+      regex(/version:\s*?v?(\d+(?:\.\d+)+)/i)
+    end
   end
 
   def install
