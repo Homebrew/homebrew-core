@@ -18,8 +18,8 @@ class Step < Formula
   depends_on "go" => :build
 
   resource "certificates" do
-    url "https://github.com/smallstep/certificates/releases/download/v0.23.1/step-ca_0.23.1.tar.gz"
-    sha256 "9d31db46f2da00ff72bbc5584cecd971e9600a8791d0385fd3e1106d957b4741"
+    url "https://github.com/smallstep/certificates/releases/download/v0.23.2/step-ca_0.23.2.tar.gz"
+    sha256 "a12b7b580846efcdef60e2dd80187c713c808a841daf17f6b42da37e1a5df45c"
   end
 
   def install
