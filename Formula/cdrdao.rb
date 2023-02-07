@@ -1,9 +1,9 @@
 class Cdrdao < Formula
   desc "Record CDs in Disk-At-Once mode"
   homepage "https://cdrdao.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/cdrdao/cdrdao-1.2.4.tar.bz2"
-  sha256 "358d9cb83370ceaecdc60564cbf14c2ea2636eac60a966e2461c011ba09853b4"
-  license "GPL-2.0"
+  url "https://github.com/cdrdao/cdrdao/archive/refs/tags/rel_1_2_5.tar.gz"
+  sha256 "b347189ab550ae5bd1a19d323cdfd8928039853c23aa5e33d7273ab8c750692a"
+  license "GPL-2.0-or-later"
 
   bottle do
     sha256 arm64_ventura:  "be033aee75694dcc9feb66deac2b9e0058041f18979bf9b5228c1e9a0f9cd572"
@@ -26,44 +26,8 @@ class Cdrdao < Formula
   depends_on "libvorbis"
   depends_on "mad"
 
-  # first patch fixes build problems under 10.6
-  # see https://sourceforge.net/p/cdrdao/patches/23/
-  patch do
-    url "https://sourceforge.net/p/cdrdao/patches/_discuss/thread/205354b0/141e/attachment/cdrdao-mac.patch"
-    sha256 "ee1702dfd9156ebb69f5d84dcab04197e11433dd823e80923fd497812041179e"
-  end
-
-  # second patch fixes device autodetection on macOS
-  # see https://trac.macports.org/ticket/27819
-  # upstream bug report:
-  # https://sourceforge.net/p/cdrdao/bugs/175/
-  patch :p0, :DATA
-
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}", "--mandir=#{man}"
+    system "./configure", *std_configure_args, "--mandir=#{man}"
     system "make", "install"
   end
 end
-
-__END__
---- dao/main.cc	2013-11-26 12:00:00.000000000 -0400
-+++ dao/main.cc	2013-11-26 12:00:00.000000000 -0400
-@@ -1242,7 +1242,7 @@
- const char* getDefaultDevice(DaoDeviceType req)
- {
-     int i, len;
--    static char buf[128];
-+    static char buf[1024];
- 
-     // This function should not be called if the command issues
-     // doesn't actually require a device.
-@@ -1270,7 +1270,7 @@
- 	    if (req == NEED_CDRW_W && !rww)
- 	      continue;
- 
--	    strncpy(buf, sdata[i].dev.c_str(), 128);
-+	    strncpy(buf, sdata[i].dev.c_str(), 1024);
- 	    delete[] sdata;
- 	    return buf;
- 	}
