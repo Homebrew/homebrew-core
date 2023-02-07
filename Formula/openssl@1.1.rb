@@ -1,13 +1,13 @@
 class OpensslAT11 < Formula
   desc "Cryptography and SSL/TLS Toolkit"
   homepage "https://openssl.org/"
-  url "https://www.openssl.org/source/openssl-1.1.1s.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.1s.tar.gz"
-  mirror "http://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.1s.tar.gz"
-  mirror "https://www.openssl.org/source/old/1.1.1/openssl-1.1.1s.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/old/1.1.1/openssl-1.1.1s.tar.gz"
-  mirror "http://www.mirrorservice.org/sites/ftp.openssl.org/source/old/1.1.1/openssl-1.1.1s.tar.gz"
-  sha256 "c5ac01e760ee6ff0dab61d6b2bbd30146724d063eb322180c6f18a6f74e4b6aa"
+  url "https://www.openssl.org/source/openssl-1.1.1t.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.1t.tar.gz"
+  mirror "http://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.1t.tar.gz"
+  mirror "https://www.openssl.org/source/old/1.1.1/openssl-1.1.1t.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/old/1.1.1/openssl-1.1.1t.tar.gz"
+  mirror "http://www.mirrorservice.org/sites/ftp.openssl.org/source/old/1.1.1/openssl-1.1.1t.tar.gz"
+  sha256 "8dee9b24bdb1dcbf0c3d1e9b02fb8f6bf22165e807f45adeb7c9677536859d3b"
   license "OpenSSL"
   version_scheme 1
 
