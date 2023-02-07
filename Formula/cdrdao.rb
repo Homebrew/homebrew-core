@@ -33,4 +33,9 @@ class Cdrdao < Formula
     system "./configure", *std_configure_args, "--mandir=#{man}"
     system "make", "install"
   end
+
+  test do
+    assert_match "ERROR: No device specified, no default device found.",
+     shell_output("#{bin}/cdrdao drive-info 2>&1", 1)
+  end
 end
