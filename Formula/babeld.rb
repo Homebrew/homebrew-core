@@ -21,12 +21,6 @@ class Babeld < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8b34878106cd3d0cce9727157896340b5823dfdfcd00d0123a22c2041378a0de"
   end
 
-  # patch IN6_IS_ADDR_MULTICAST is not defined on macOS
-  patch do
-    url "https://github.com/jech/babeld/commit/fbb31080862aca1d0afb599edbcb2b25ac79b79c.patch?full_index=1"
-    sha256 "0f1308c2f21b64ec38b79f37782217ff21e8de85e1eaabd047fdd801b83dfa3f"
-  end
-
   def install
     if OS.mac?
       # LDLIBS='' fixes: ld: library not found for -lrt
