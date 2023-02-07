@@ -2,9 +2,14 @@ class SkaffoldAT139 < Formula
   desc "Easy and Repeatable Kubernetes Development"
   homepage "https://skaffold.dev/"
   url "https://github.com/GoogleContainerTools/skaffold.git",
-    tag:      "v1.39.4",
-    revision: "a3808f67c77a9c846ffb961ee6267f116cd30478"
+      tag:      "v1.39.5",
+      revision: "64f6ffd59dd1c76e73ae41cd81a712cd1726c5e1"
   license "Apache-2.0"
+
+  livecheck do
+    url :stable
+    regex(/^v?(1\.39(?:\.\d+)+)$/i)
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "542b24c1d9093b2f55ac99bc558e961b466afc1475e027905d0e2ba0dfde97a8"
