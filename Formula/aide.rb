@@ -4,8 +4,8 @@ class Aide < Formula
   license "GPL-2.0-or-later"
 
   stable do
-    url "https://github.com/aide/aide/releases/download/v0.17.4/aide-0.17.4.tar.gz"
-    sha256 "c81505246f3ffc2e76036d43a77212ae82895b5881d9b9e25c1361b1a9b7a846"
+    url "https://github.com/aide/aide/releases/download/v0.18/aide-0.18.tar.gz"
+    sha256 "f1166ad01a50f7f4523a585760c673ae11185a38cfa602ae7c9e9266effd038d"
     depends_on "pcre"
   end
 
