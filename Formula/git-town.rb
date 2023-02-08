@@ -1,8 +1,8 @@
 class GitTown < Formula
   desc "High-level command-line interface for Git"
   homepage "https://www.git-town.com/"
-  url "https://github.com/git-town/git-town/archive/refs/tags/7.9.0.tar.gz"
-  sha256 "9c2308cb78ee04743830fe045edc78d2869d9edc31c7a191eed4f846166284b9"
+  url "https://github.com/git-town/git-town/archive/refs/tags/v7.9.0.tar.gz"
+  sha256 "316002e79bb60bb0ef694720c3c220aa543d21abcd9bacb604d7209d66629ffd"
   license "MIT"
   revision 1
 
@@ -27,7 +27,7 @@ class GitTown < Formula
     system "go", "build", *std_go_args(ldflags: ldflags)
 
     # Install shell completions
-    generate_completions_from_executable(bin/"git-town", "install", "completions")
+    generate_completions_from_executable(bin/"git-town", "completions")
   end
 
   test do
