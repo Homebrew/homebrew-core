@@ -60,7 +60,7 @@ class John < Formula
     (testpath/"passwd").write <<~EOS
       root:$1$brew$dOoH2.7QsPufgT8T.pihw/:0:0:System Administrator:/var/root:/bin/sh
     EOS
-    system "john", "--wordlist=#{pkgshare}/password.lst", "passwd"
-    assert_match(/snoopy/, shell_output("john --show passwd"))
+    system bin/"john", "--wordlist=#{pkgshare}/password.lst", "passwd"
+    assert_match(/snoopy/, shell_output("#{bin}/john --show passwd"))
   end
 end
