@@ -39,7 +39,7 @@ class Gemgen < Formula
       [DejaVu](https://dejavu-fonts.github.io/)\
       [EB Garamond](https://github.com/octaviopardo/EBGaramond12)
     EOF
-    system "gemgen", "-o", testpath, input
+    system bin/"gemgen", "-o", testpath, input
     output = <<~EOF
       # Typeface
 
