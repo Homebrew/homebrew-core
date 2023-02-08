@@ -2,12 +2,11 @@ class Ledger < Formula
   desc "Command-line, double-entry accounting tool"
   homepage "https://ledger-cli.org/"
   license "BSD-3-Clause"
-  revision 11
   head "https://github.com/ledger/ledger.git", branch: "master"
 
   stable do
-    url "https://github.com/ledger/ledger/archive/v3.2.1.tar.gz"
-    sha256 "92bf09bc385b171987f456fe3ee9fa998ed5e40b97b3acdd562b663aa364384a"
+    url "https://github.com/ledger/ledger/archive/v3.3.0.tar.gz"
+    sha256 "42307121666b5195a122857ec572e554b77ecf6b12c53e716756c9dae20dc7c1"
 
     # Add compatibility for Python 3.10 and later. Remove in the next release
     patch do
