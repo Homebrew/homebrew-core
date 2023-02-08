@@ -1,15 +1,11 @@
 class TransmissionCli < Formula
   desc "Lightweight BitTorrent client"
   homepage "https://www.transmissionbt.com/"
-  url "https://github.com/transmission/transmission-releases/raw/d5ccf14/transmission-3.00.tar.xz"
-  sha256 "9144652fe742f7f7dd6657716e378da60b751aaeda8bef8344b3eefc4db255f2"
+  # pull from git tag to get submodules
+  url "https://github.com/transmission/transmission.git",
+    tag:      "4.0.0",
+    revision: "280ace12f8a2b99fdf144011cd4f6fed8be876fe"
   license any_of: ["GPL-2.0-only", "GPL-3.0-only"]
-
-  livecheck do
-    url "https://github.com/transmission/transmission-releases/"
-    strategy :page_match
-    regex(/href=.*?transmission[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
 
   bottle do
     rebuild 1
@@ -24,31 +20,31 @@ class TransmissionCli < Formula
     sha256 x86_64_linux:   "178d05964e9efd8d4541cf5589f4772ccdc59b8de83158f96b8ad7ffeff6b8d2"
   end
 
+  depends_on "cmake" => :build
+  depends_on "gettext" => :build
   depends_on "pkg-config" => :build
   depends_on "libevent"
   depends_on "openssl@1.1"
 
+  uses_from_macos "python" => :build
   uses_from_macos "curl"
   uses_from_macos "zlib"
 
   def install
-    if OS.mac?
-      ENV.append "LDFLAGS", "-framework Foundation -prebind"
-      ENV.append "LDFLAGS", "-liconv"
-    end
-
-    args = %W[
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-      --disable-mac
-      --disable-nls
-      --without-gtk
+    args = %w[
+      -DENABLE_DAEMON=ON
+      -DENABLE_QT=OFF
+      -DENABLE_WEB=OFF
+      -DENABLE_UTILS=ON
+      -DENABLE_CLI=ON
+      -DENABLE_MAC=OFF
+      -DENABLE_TESTS=OFF
+      -DENABLE_NLS=OFF
     ]
 
-    system "./configure", *args
-    system "make", "install"
-
-    (var/"transmission").mkpath
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, *args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   def caveats
