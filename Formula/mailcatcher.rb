@@ -140,7 +140,7 @@ class Mailcatcher < Formula
   end
 
   test do
-    system "mailcatcher"
+    system bin/"mailcatcher"
     (testpath/"mailcatcher.exp").write <<~EOS
       #! /usr/bin/env expect
 
