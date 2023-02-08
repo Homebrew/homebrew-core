@@ -15,11 +15,15 @@ class Lgeneral < Formula
     sha256 catalina:       "66d10dfacdb72700cec8fafd0e86e79ff0e63380b75df3b41f46c6bd3b6ccdc9"
     sha256 x86_64_linux:   "b56e6479e47df76fbda4e241872269c9ba9ea59170153aca6b5adbaaf69cec84"
   end
-
+  
+  # deprecated because sdl_mixer is depricated
+  deprecate! date: "2022-02-08", because: :deprecated_upstream  
+  
   depends_on "gettext"
   depends_on "sdl12-compat"
   depends_on "sdl2"
   depends_on "sdl_mixer"
+  
 
   def install
     # Applied in community , to remove in next release
