@@ -39,7 +39,8 @@ class Meilisearch < Formula
   test do
     port = free_port
     fork { exec bin/"meilisearch", "--http-addr", "127.0.0.1:#{port}" }
-    sleep(3)
+    sleep_count = Hardware::CPU.arm? ? 3 : 10
+    sleep sleep_count
     output = shell_output("curl -s 127.0.0.1:#{port}/version")
     assert_match version.to_s, output
   end
