@@ -29,6 +29,6 @@ class Alerter < Formula
   end
 
   test do
-    system "alerter", "-timeout", "1", "-title", "Alerter Test", "-message", "test"
+    system bin/"alerter", "-timeout", "1", "-title", "Alerter Test", "-message", "test"
   end
 end
