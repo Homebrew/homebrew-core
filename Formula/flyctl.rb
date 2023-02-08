@@ -43,7 +43,7 @@ class Flyctl < Formula
   test do
     assert_match "flyctl v#{version}", shell_output("#{bin}/flyctl version")
 
-    flyctl_status = shell_output("flyctl status 2>&1", 1)
+    flyctl_status = shell_output("#{bin}/flyctl status 2>&1", 1)
     assert_match "Error No access token available. Please login with 'flyctl auth login'", flyctl_status
   end
 end
