@@ -30,7 +30,7 @@ class Smug < Formula
         - name: test
     EOF
 
-    assert_equal(version, shell_output("smug").lines.first.split("Version").last.chomp)
+    assert_equal(version, shell_output("#{bin}/smug").lines.first.split("Version").last.chomp)
 
     with_env(TERM: "screen-256color") do
       system bin/"smug", "start", "--file", testpath/"test.yml", "--detach"
