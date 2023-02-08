@@ -42,7 +42,7 @@ class Tart < Formula
   test do
     ENV["TART_HOME"] = testpath/".tart"
     (testpath/"empty.ipsw").write ""
-    output = shell_output("tart create --from-ipsw #{testpath/"empty.ipsw"} test 2>&1", 1)
+    output = shell_output("#{bin}/tart create --from-ipsw #{testpath/"empty.ipsw"} test 2>&1", 1)
     assert_match "Unable to load restore image", output
   end
 end
