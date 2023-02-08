@@ -22,6 +22,6 @@ class Conmon < Formula
   end
 
   test do
-    assert_match "conmon: Container ID not provided. Use --cid", shell_output("conmon 2>&1", 1)
+    assert_match "conmon: Container ID not provided. Use --cid", shell_output("#{bin}/conmon 2>&1", 1)
   end
 end
