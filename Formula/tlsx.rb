@@ -23,6 +23,6 @@ class Tlsx < Formula
   end
 
   test do
-    system "tlsx", "-u", "expired.badssl.com:443", "-expired"
+    system bin/"tlsx", "-u", "expired.badssl.com:443", "-expired"
   end
 end
