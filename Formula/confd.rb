@@ -53,7 +53,7 @@ class Confd < Formula
       version: v1
     EOS
 
-    system "confd", "-backend", "file", "-file", "keys.yaml", "-onetime", "-confdir=."
+    system bin/"confd", "-backend", "file", "-file", "keys.yaml", "-onetime", "-confdir=."
     assert_predicate testpath/"test.conf", :exist?
     refute_predicate (testpath/"test.conf").size, :zero?
   end
