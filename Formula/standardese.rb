@@ -83,10 +83,9 @@ class Standardese < Formula
           using Baz = Test;
       };
     EOS
-    system "standardese",
-           "--compilation.standard", "c++17",
-           "--output.format", "xml",
-           testpath/"test.hpp"
+    system bin/"standardese", "--compilation.standard", "c++17",
+                              "--output.format", "xml",
+                              testpath/"test.hpp"
     assert_includes (testpath/"doc_test.xml").read, "<subdocument output-name=\"doc_test\" title=\"test.hpp\">"
   end
 end
