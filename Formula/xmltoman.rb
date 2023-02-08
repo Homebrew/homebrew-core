@@ -57,6 +57,6 @@ class Xmltoman < Formula
   end
 
   test do
-    assert_match "You need to specify a file to parse", shell_output("xmltoman 2>&1", 1).strip
+    assert_match "You need to specify a file to parse", shell_output("#{bin}/xmltoman 2>&1", 1).strip
   end
 end
