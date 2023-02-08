@@ -31,6 +31,6 @@ class Gleam < Formula
     Dir.chdir testpath
     system bin/"gleam", "new", "test_project"
     Dir.chdir "test_project"
-    system "gleam", "test"
+    system bin/"gleam", "test"
   end
 end
