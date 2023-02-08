@@ -23,6 +23,13 @@ class Tart < Formula
     sha256 "7f42694b32d7f122a74a771e1f2f17bd3dca020fb79754780fbc17e9abd65bbe"
   end
 
+  # patch for 12-arm build, upstream PR ref, https://github.com/cirruslabs/tart/pull/408
+  # remove when patch is available in next release
+  patch do
+    url "https://github.com/cirruslabs/tart/commit/c91e6882e64289838a7bb97fd85ff5ab0b5e1d87.patch?full_index=1"
+    sha256 "015e0c25402c34031ed07cf0fe6c5558e139ab7472ecc4f625edab886d51aff5"
+  end
+
   def install
     resource("softnet").stage do
       system "cargo", "install", *std_cargo_args
