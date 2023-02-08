@@ -21,6 +21,10 @@ class LibgpgError < Formula
     sha256 x86_64_linux:   "d7d28c36ed2465543dd68313819bb940dcf0d0b5592af36199294801cc458681"
   end
 
+  on_macos do
+    depends_on "gettext"
+  end
+
   def install
     # NOTE: gpg-error-config is deprecated upstream, so we should remove this at some point.
     # https://dev.gnupg.org/T5683
