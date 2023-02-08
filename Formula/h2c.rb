@@ -14,7 +14,7 @@ class H2c < Formula
   end
 
   test do
-    assert_match "h2c.pl [options] < file", shell_output("h2c --help")
+    assert_match "h2c.pl [options] < file", shell_output("#{bin}/h2c --help")
 
     # test if h2c can convert HTTP headers to curl options.
     assert_match "curl --head --http1.1 --header Accept: --header \"Shoesize: 12\" --user-agent \"moo\" https://example.com/",
