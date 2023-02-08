@@ -1,19 +1,10 @@
 class Ledger < Formula
   desc "Command-line, double-entry accounting tool"
   homepage "https://ledger-cli.org/"
+  url "https://github.com/ledger/ledger/archive/v3.3.0.tar.gz"
+  sha256 "42307121666b5195a122857ec572e554b77ecf6b12c53e716756c9dae20dc7c1"
   license "BSD-3-Clause"
   head "https://github.com/ledger/ledger.git", branch: "master"
-
-  stable do
-    url "https://github.com/ledger/ledger/archive/v3.3.0.tar.gz"
-    sha256 "42307121666b5195a122857ec572e554b77ecf6b12c53e716756c9dae20dc7c1"
-
-    # Add compatibility for Python 3.10 and later. Remove in the next release
-    patch do
-      url "https://github.com/ledger/ledger/commit/c66ca93b2e9d8db82d196f144ba60482fb92d716.patch?full_index=1"
-      sha256 "eaa8ec87f6abe2dc6a5c8530cc49856872037f1463ab2e98f037e2b263841478"
-    end
-  end
 
   livecheck do
     url :stable
@@ -40,14 +31,6 @@ class Ledger < Formula
 
   on_system :linux, macos: :ventura_or_newer do
     depends_on "groff" => :build
-  end
-
-  # Compatibility with Boost 1.76
-  # https://github.com/ledger/ledger/issues/2030
-  # https://github.com/ledger/ledger/pull/2036
-  patch do
-    url "https://github.com/ledger/ledger/commit/e60717ccd78077fe4635315cb2657d1a7f539fca.patch?full_index=1"
-    sha256 "edba1dd7bde707f510450db3197922a77102d5361ed7a5283eb546fbf2221495"
   end
 
   def install
