@@ -24,6 +24,6 @@ class Oak < Formula
   end
 
   test do
-    assert_equal "Hello, World!\n14\n", shell_output("oak eval \"std.println('Hello, World!')\"")
+    assert_equal "Hello, World!\n14\n", shell_output("#{bin}/oak eval \"std.println('Hello, World!')\"")
   end
 end
