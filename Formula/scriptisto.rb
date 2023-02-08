@@ -38,6 +38,6 @@ class Scriptisto < Formula
         return 0;
       }
     EOS
-    assert_equal "Hello, world!\n", shell_output("scriptisto ./hello-c.c")
+    assert_equal "Hello, world!\n", shell_output("#{bin}/scriptisto ./hello-c.c")
   end
 end
