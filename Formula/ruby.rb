@@ -4,8 +4,8 @@ class Ruby < Formula
   license "Ruby"
 
   stable do
-    url "https://cache.ruby-lang.org/pub/ruby/3.2/ruby-3.2.0.tar.gz"
-    sha256 "daaa78e1360b2783f98deeceb677ad900f3a36c0ffa6e2b6b19090be77abc272"
+    url "https://cache.ruby-lang.org/pub/ruby/3.2/ruby-3.2.1.tar.gz"
+    sha256 "13d67901660ee3217dbd9dd56059346bd4212ce64a69c306ef52df64935f8dbd"
 
     # Should be updated only when Ruby is updated (if an update is available).
     # The exception is Rubygem security fixes, which mandate updating this
