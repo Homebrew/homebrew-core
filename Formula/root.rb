@@ -143,11 +143,11 @@ class Root < Formula
     EOS
 
     # Test ROOT command line mode
-    system "#{bin}/root", "-b", "-l", "-q", "-e", "gSystem->LoadAllLibraries(); 0"
+    system bin/"root", "-b", "-l", "-q", "-e", "gSystem->LoadAllLibraries(); 0"
 
     # Test ROOT executable
     assert_equal "\nProcessing test.C...\nHello, world!\n",
-                 shell_output("root -l -b -n -q test.C")
+                 shell_output("#{bin}/root -l -b -n -q test.C")
 
     # Test linking
     (testpath/"test.cpp").write <<~EOS
@@ -158,9 +158,9 @@ class Root < Formula
         return 0;
       }
     EOS
-    flags = %w[cflags libs ldflags].map { |f| "$(root-config --#{f})" }
+    flags = %w[cflags libs ldflags].map { |f| "$(#{bin}/root-config --#{f})" }
     flags << "-Wl,-rpath,#{lib}/root"
-    shell_output("$(root-config --cxx) test.cpp #{flags.join(" ")}")
+    shell_output("$(#{bin}/root-config --cxx) test.cpp #{flags.join(" ")}")
     assert_equal "Hello, world!\n", shell_output("./a.out")
 
     # Test Python module
