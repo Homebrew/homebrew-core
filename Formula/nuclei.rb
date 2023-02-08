@@ -45,6 +45,6 @@ class Nuclei < Formula
               words:
                 - "IN\tA"
     EOS
-    system "nuclei", "-target", "google.com", "-t", "test.yaml"
+    system bin/"nuclei", "-target", "google.com", "-t", "test.yaml"
   end
 end
