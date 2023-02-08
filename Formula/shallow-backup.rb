@@ -87,6 +87,6 @@ class ShallowBackup < Formula
     assert_predicate testpath/".config/shallow-backup.conf", :exist?
 
     # Checks if the test file is in the config
-    system "shallow-backup -show | grep test.svg"
+    assert_match "test.svg", shell_output("#{bin}/shallow-backup -show")
   end
 end
