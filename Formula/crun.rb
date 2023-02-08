@@ -30,6 +30,6 @@ class Crun < Formula
   end
 
   test do
-    assert_equal "", shell_output("crun --rootless=true list -q").strip
+    assert_empty shell_output("#{bin}/crun --rootless=true list -q").strip
   end
 end
