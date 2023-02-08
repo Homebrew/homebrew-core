@@ -2,13 +2,12 @@ class Manticoresearch < Formula
   desc "Open source text search engine"
   homepage "https://www.manticoresearch.com"
   license "GPL-2.0-only"
-  revision 2
   version_scheme 1
   head "https://github.com/manticoresoftware/manticoresearch.git", branch: "master"
 
   stable do
-    url "https://github.com/manticoresoftware/manticoresearch/archive/refs/tags/5.0.2.tar.gz"
-    sha256 "ca7828a6841ed8bdbc330516f85ad3a85749998f443b9de319cec60e12c64c07"
+    url "https://github.com/manticoresoftware/manticoresearch/archive/refs/tags/6.0.0.tar.gz"
+    sha256 "3f6ab679a9bddb0672b8f0650ba2024cecfbbc9b7a57917e7dff3ec2073a98ed"
 
     # Allow system ICU usage and tune build (config from homebrew; release build; don't split symbols).
     # Remove with next release
