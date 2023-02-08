@@ -3,8 +3,8 @@ require "language/node"
 class Eleventy < Formula
   desc "Simpler static site generator"
   homepage "https://www.11ty.dev"
-  url "https://registry.npmjs.org/@11ty/eleventy/-/eleventy-1.0.2.tgz"
-  sha256 "536144e7b38e1b27d44c23c611c4e7ab0442963879f3fa4c1acfe766696728f8"
+  url "https://registry.npmjs.org/@11ty/eleventy/-/eleventy-2.0.0.tgz"
+  sha256 "c0aba966ec5e78f4253d3c204b9e934761386e309d55cc20e867424707a8e58a"
   license "MIT"
   head "https://github.com/11ty/eleventy.git", branch: "master"
 
