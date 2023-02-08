@@ -28,7 +28,7 @@ class Atuin < Formula
   test do
     # or `atuin init zsh` to setup the `ATUIN_SESSION`
     ENV["ATUIN_SESSION"] = "random"
-    assert_match "autoload -U add-zsh-hook", shell_output("atuin init zsh")
+    assert_match "autoload -U add-zsh-hook", shell_output("#{bin}/atuin init zsh")
     assert shell_output("#{bin}/atuin history list").blank?
   end
 end
