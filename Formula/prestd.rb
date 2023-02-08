@@ -42,9 +42,9 @@ class Prestd < Formula
       database = "prest"
     EOS
 
-    output = shell_output("prestd migrate up --path .", 255)
+    output = shell_output("#{bin}/prestd migrate up --path .", 255)
     assert_match "connect: connection refused", output
 
-    assert_match version.to_s, shell_output("prestd version")
+    assert_match version.to_s, shell_output("#{bin}/prestd version")
   end
 end
