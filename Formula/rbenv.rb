@@ -44,21 +44,21 @@ class Rbenv < Formula
 
   test do
     # Create a fake ruby version and executable.
-    rbenv_root = Pathname(shell_output("rbenv root").strip)
+    rbenv_root = Pathname(shell_output("#{bin}/rbenv root").strip)
     ruby_bin = rbenv_root/"versions/1.2.3/bin"
     foo_script = ruby_bin/"foo"
     foo_script.write "echo hello"
     chmod "+x", foo_script
 
     # Test versions.
-    versions = shell_output("eval \"$(#{bin}/rbenv init -)\" && rbenv versions").split("\n")
+    versions = shell_output("eval \"$(#{bin}/rbenv init -)\" && #{bin}/rbenv versions").split("\n")
     assert_equal 2, versions.length
     assert_match(/\* system/, versions[0])
     assert_equal("  1.2.3", versions[1])
 
     # Test rehash.
-    system "rbenv", "rehash"
+    system bin/"rbenv", "rehash"
     refute_match "Cellar", (rbenv_root/"shims/foo").read
-    assert_equal "hello", shell_output("eval \"$(#{bin}/rbenv init -)\" && rbenv shell 1.2.3 && foo").chomp
+    assert_equal "hello", shell_output("eval \"$(#{bin}/rbenv init -)\" && #{bin}/rbenv shell 1.2.3 && foo").chomp
   end
 end
