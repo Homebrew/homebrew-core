@@ -44,7 +44,7 @@ class Oras < Formula
 
     # Although it might not make much sense passing the JSON as both manifest and payload,
     # it helps make the test consistent as the error can randomly switch between either hash
-    output = shell_output("oras push localhost:#{port}/test-artifact:v1 " \
+    output = shell_output("#{bin}/oras push localhost:#{port}/test-artifact:v1 " \
                           "--config test.json:application/vnd.homebrew.test.config.v1+json " \
                           "./test.json 2>&1", 1)
     assert_match "#{port}: connect: connection refused", output
