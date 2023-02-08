@@ -27,7 +27,7 @@ class Fclones < Formula
     (testpath/"foo3.txt").write "foo"
     (testpath/"bar1.txt").write "bar"
     (testpath/"bar2.txt").write "bar"
-    output = shell_output("fclones group #{testpath}")
+    output = shell_output("#{bin}/fclones group #{testpath}")
     assert_match "Redundant: 9 B (9 B) in 3 files", output
     assert_match "2c28c7a023ea186855cfa528bb7e70a9", output
     assert_match "e7c4901ca83ec8cb7e41399ff071aa16", output
