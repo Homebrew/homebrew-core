@@ -1,10 +1,9 @@
 class PgCron < Formula
   desc "Run periodic jobs in PostgreSQL"
   homepage "https://github.com/citusdata/pg_cron"
-  url "https://github.com/citusdata/pg_cron/archive/refs/tags/v1.4.2.tar.gz"
-  sha256 "3652722ea98d94d8e27bf5e708dd7359f55a818a43550d046c5064c98876f1a8"
+  url "https://github.com/citusdata/pg_cron/archive/refs/tags/v1.5.0.tar.gz"
+  sha256 "a78e8fc2d6c996422b1ca1397bd041196a0fd0685517eeca8629415eb7fddbc3"
   license "PostgreSQL"
-  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "864b0cdaab5f8cd61f48ec3a85a05c0284f6fa4e35a5e9723a702c6104511282"
@@ -17,10 +16,10 @@ class PgCron < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "bddc49247c16f2efa40654d060d3deb3decb171bf0cee49d54e1362219a2de2c"
   end
 
-  depends_on "postgresql@14"
+  depends_on "postgresql@15"
 
   def postgresql
-    Formula["postgresql@14"]
+    Formula["postgresql@15"]
   end
 
   def install
