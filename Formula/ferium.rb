@@ -28,16 +28,16 @@ class Ferium < Formula
   end
 
   test do
-    system "ferium", "--help"
+    system bin/"ferium", "--help"
     ENV["FERIUM_CONFIG_FILE"] = testpath/"config.json"
-    system "ferium", "profile", "create",
-                     "--game-version", "1.19",
-                     "--mod-loader", "quilt",
-                     "--output-dir", testpath/"mods",
-                     "--name", "test"
-    system "ferium", "add", "sodium"
-    system "ferium", "list", "--verbose"
-    system "ferium", "upgrade"
+    system bin/"ferium", "profile", "create",
+                         "--game-version", "1.19",
+                         "--mod-loader", "quilt",
+                         "--output-dir", testpath/"mods",
+                         "--name", "test"
+    system bin/"ferium", "add", "sodium"
+    system bin/"ferium", "list", "--verbose"
+    system bin/"ferium", "upgrade"
     !Dir.glob("#{testpath}/mods/*.jar").empty?
   end
 end
