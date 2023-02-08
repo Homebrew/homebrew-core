@@ -9,8 +9,8 @@ class Spades < Formula
   license "GPL-2.0-only"
 
   livecheck do
-    url "https://cab.spbu.ru/files/?C=M&O=D"
-    regex(%r{href=.*?release(\d+(?:\.\d+)+)/?["' >]}i)
+    url "https://github.com/ablab/spades"
+    strategy :github_latest
   end
 
   bottle do
