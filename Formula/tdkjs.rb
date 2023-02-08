@@ -29,6 +29,6 @@ class Tdkjs < Formula
 
   test do
     system "printf", "'''tdk.init()\ntdk.setColor('red')\nfunction animate(){\ntdk.circle(0, 0, 20)\n}''' > test.js"
-    system "tdkjs", "test.js", "output.html"
+    system bin/"tdkjs", "test.js", "output.html"
   end
 end
