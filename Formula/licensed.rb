@@ -23,7 +23,7 @@ class Licensed < Formula
   uses_from_macos "libffi"
 
   # Runtime dependencies of licensed
-  # https://rubygems.org/gems/licensed/versions/4.0.4/dependencies
+  # https://rubygems.org/gems/licensed/versions/4.1.0/dependencies
 
   # Upstream has temporarily removed cocoapods-core as a dependency, but it
   # will be restored in a future release, so commenting these resources out
@@ -220,22 +220,22 @@ class Licensed < Formula
     sha256 "a5dfea1a92c82856a0fe603fa29d43c086df90ad01186cee7bc5211b76f0b128"
   end
 
-  # licensee 9.16.0 -> reverse_markdown 2.1.1 -> nokogiri 1.13.10 -> mini_portile2 2.8.1
+  # licensee 9.16.0 -> reverse_markdown 2.1.1 -> nokogiri 1.14.1 -> mini_portile2 2.8.1
   resource "mini_portile2-2.8.1" do
     url "https://rubygems.org/gems/mini_portile2-2.8.1.gem"
     sha256 "b70e325e37a378aea68b6d78c9cdd060c66cbd2bef558d8f13a6af05b3f2c4a9"
   end
 
-  # licensee 9.16.0 -> reverse_markdown 2.1.1 -> nokogiri 1.13.10 -> racc 1.6.2
+  # licensee 9.16.0 -> reverse_markdown 2.1.1 -> nokogiri 1.14.1 -> racc 1.6.2
   resource "racc-1.6.2" do
     url "https://rubygems.org/gems/racc-1.6.2.gem"
     sha256 "58d26b3666382396fea84d33dc0639b7ee8d704156a52f8f22681f07b2f94f26"
   end
 
-  # licensee 9.16.0 -> reverse_markdown 2.1.1 -> nokogiri 1.13.10
-  resource "nokogiri-1.13.10" do
-    url "https://rubygems.org/gems/nokogiri-1.13.10.gem"
-    sha256 "d3ee00f26c151763da1691c7fc6871ddd03e532f74f85101f5acedc2d099e958"
+  # licensee 9.16.0 -> reverse_markdown 2.1.1 -> nokogiri 1.14.1
+  resource "nokogiri-1.14.1" do
+    url "https://rubygems.org/gems/nokogiri-1.14.1.gem"
+    sha256 "b2db3af7769c29cd77d5f39cd3d0b65ab10975bdecf04be71d683f9c9abe2663"
   end
 
   # licensee 9.16.0 -> reverse_markdown 2.1.1
@@ -274,22 +274,22 @@ class Licensed < Formula
     sha256 "d58feac7e5048113dd0c9630af7188baf81d83ab37fdd248fcbc63b9e5da654e"
   end
 
-  # reverse_markdown 2.1.1 -> nokogiri 1.13.10 -> mini_portile2 2.8.1
+  # reverse_markdown 2.1.1 -> nokogiri 1.14.1 -> mini_portile2 2.8.1
   resource "mini_portile2-2.8.1" do
     url "https://rubygems.org/gems/mini_portile2-2.8.1.gem"
     sha256 "b70e325e37a378aea68b6d78c9cdd060c66cbd2bef558d8f13a6af05b3f2c4a9"
   end
 
-  # reverse_markdown 2.1.1 -> nokogiri 1.13.10 -> racc 1.6.2
+  # reverse_markdown 2.1.1 -> nokogiri 1.14.11 -> racc 1.6.2
   resource "racc-1.6.2" do
     url "https://rubygems.org/gems/racc-1.6.2.gem"
     sha256 "58d26b3666382396fea84d33dc0639b7ee8d704156a52f8f22681f07b2f94f26"
   end
 
-  # reverse_markdown 2.1.1 -> nokogiri 1.13.10
-  resource "nokogiri-1.13.10" do
-    url "https://rubygems.org/gems/nokogiri-1.13.10.gem"
-    sha256 "d3ee00f26c151763da1691c7fc6871ddd03e532f74f85101f5acedc2d099e958"
+  # reverse_markdown 2.1.1 -> nokogiri 1.14.1
+  resource "nokogiri-1.14.1" do
+    url "https://rubygems.org/gems/nokogiri-1.14.1.gem"
+    sha256 "b2db3af7769c29cd77d5f39cd3d0b65ab10975bdecf04be71d683f9c9abe2663"
   end
 
   # reverse_markdown 2.1.1
