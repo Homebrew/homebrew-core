@@ -56,7 +56,7 @@ class Pyenv < Formula
 
   test do
     # Create a fake python version and executable.
-    pyenv_root = Pathname(shell_output("pyenv root").strip)
+    pyenv_root = Pathname(shell_output("#{bin}/pyenv root").strip)
     python_bin = pyenv_root/"versions/1.2.3/bin"
     foo_script = python_bin/"foo"
     foo_script.write "echo hello"
@@ -65,13 +65,13 @@ class Pyenv < Formula
     # Test versions.
     versions = shell_output("eval \"$(#{bin}/pyenv init --path)\" " \
                             "&& eval \"$(#{bin}/pyenv init -)\" " \
-                            "&& pyenv versions").split("\n")
+                            "&& #{bin}/pyenv versions").split("\n")
     assert_equal 2, versions.length
     assert_match(/\* system/, versions[0])
     assert_equal("  1.2.3", versions[1])
 
     # Test rehash.
-    system "pyenv", "rehash"
+    system bin/"pyenv", "rehash"
     refute_match "Cellar", (pyenv_root/"shims/foo").read
     assert_equal "hello", shell_output("eval \"$(#{bin}/pyenv init --path)\" " \
                                        "&& eval \"$(#{bin}/pyenv init -)\" " \
