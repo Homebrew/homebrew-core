@@ -19,6 +19,7 @@ class Lgeneral < Formula
   depends_on "gettext"
   depends_on "sdl12-compat"
   depends_on "sdl2"
+  depends_on "sdl_mixer"
 
   def install
     # Applied in community , to remove in next release
