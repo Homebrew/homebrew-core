@@ -16,10 +16,11 @@ class PgCron < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "bddc49247c16f2efa40654d060d3deb3decb171bf0cee49d54e1362219a2de2c"
   end
 
-  depends_on "postgresql@15"
+  # upstream issue for running with pg@15, https://github.com/citusdata/pg_cron/issues/237
+  depends_on "postgresql@14"
 
   def postgresql
-    Formula["postgresql@15"]
+    Formula["postgresql@14"]
   end
 
   def install
