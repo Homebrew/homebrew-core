@@ -33,6 +33,6 @@ class Unum < Formula
   end
 
   test do
-    assert_match "LATIN SMALL LETTER X", shell_output("unum x").strip
+    assert_match "LATIN SMALL LETTER X", shell_output("#{bin}/unum x").strip
   end
 end
