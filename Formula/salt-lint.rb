@@ -35,7 +35,7 @@ class SaltLint < Formula
         file.managed:
             - source: salt://{{unspaced_var}}/example
     EOS
-    out = shell_output("salt-lint #{testpath}/test.sls", 2)
+    out = shell_output("#{bin}/salt-lint #{testpath}/test.sls", 2)
     assert_match "[206] Jinja variables should have spaces before and after: '{{ var_name }}'", out
   end
 end
