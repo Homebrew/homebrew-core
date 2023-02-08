@@ -24,7 +24,7 @@ class Dbdeployer < Formula
   end
 
   test do
-    shell_output("dbdeployer init --skip-shell-completion --skip-tarball-download")
+    shell_output("#{bin}/dbdeployer init --skip-shell-completion --skip-tarball-download")
     assert_predicate testpath/"opt/mysql", :exist?
     assert_predicate testpath/"sandboxes", :exist?
   end
