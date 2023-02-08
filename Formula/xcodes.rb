@@ -22,6 +22,6 @@ class Xcodes < Formula
   end
 
   test do
-    assert_match "1.0", shell_output("xcodes list")
+    assert_match "1.0", shell_output("#{bin}/xcodes list")
   end
 end
