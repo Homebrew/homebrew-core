@@ -28,11 +28,11 @@ class Awscli < Formula
 
   # Python resources should be updated based on setup.cfg. One possible way is:
   # 1. Run `pipgrip 'awscli @ #{url}' --sort`
-  # 2. Ignore `six`. Update all other PyPI packages
+  # 2. Ignore `docutils` and `six`. Update all other PyPI packages
 
   resource "awscrt" do
-    url "https://files.pythonhosted.org/packages/3b/ae/227b0ba4b8d59aea3c4fb226ff5d99163e999f926c4b79a2fc4f79a8c2c9/awscrt-0.16.9.tar.gz"
-    sha256 "ed8e03377ab2e1b676a653f497d6834f42d26bb25d02348c3935ff543f0da750"
+    url "https://files.pythonhosted.org/packages/ae/98/dda092078f2d47bad08e184ab9d364b8f89166497062bc1cf811c0bbbde2/awscrt-0.16.10.tar.gz"
+    sha256 "3101499b479b82f0403f615bf520c1f8b9506818d275e3e28ade25cc6bcdb92b"
   end
 
   resource "cffi" do
