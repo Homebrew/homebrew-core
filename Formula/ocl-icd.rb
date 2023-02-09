@@ -30,6 +30,8 @@ class OclIcd < Formula
   uses_from_macos "libxslt" => :build
   uses_from_macos "ruby" => :build
 
+  conflicts_with "opencl-icd-loader", because: "both install `lib/libOpenCL.so` library"
+
   def install
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
     system "./bootstrap"
