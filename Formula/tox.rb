@@ -86,23 +86,18 @@ class Tox < Formula
   end
 
   test do
-    ENV["LC_ALL"] = "en_US.UTF-8"
+    assert_match "usage", shell_output("#{bin}/tox --help")
+    system bin/"tox"
     pyver = Language::Python.major_minor_version(Formula["python@3.11"].opt_bin/"python3.11").to_s.delete(".")
-    (testpath/"tox.ini").write <<~EOS
-      [tox]
-      envlist=py#{pyver}
-      skipsdist=True
 
-      [testenv]
-      deps=pytest
-      commands=pytest
-    EOS
-    (testpath/"test_trivial.py").write <<~EOS
+    system bin/"tox", "quickstart", "src"
+    (testpath/"src/test_trivial.py").write <<~EOS
       def test_trivial():
           assert True
     EOS
-    assert_match "usage", shell_output("#{bin}/tox --help")
-    system bin/"tox"
-    assert_predicate testpath/".tox/py#{pyver}", :exist?
+    chdir "src" do
+      system bin/"tox", "run"
+    end
+    assert_predicate testpath/"src/.tox/py#{pyver}", :exist?
   end
 end
