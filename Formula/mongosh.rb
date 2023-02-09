@@ -17,11 +17,11 @@ class Mongosh < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "dac3bf86e760aa4054179f7e4722a9bc7e9b9fd0a3125d8ce6e34ee43dfacffe"
   end
 
-  depends_on "node@16"
+  depends_on "node"
 
   def install
-    system "#{Formula["node@16"].bin}/npm", "install", *Language::Node.std_npm_install_args(libexec)
-    (bin/"mongosh").write_env_script libexec/"bin/mongosh", PATH: "#{Formula["node@16"].opt_bin}:$PATH"
+    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    bin.install_symlink Dir[libexec/"bin/*"]
   end
 
   test do
