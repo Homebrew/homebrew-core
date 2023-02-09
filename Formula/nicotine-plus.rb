@@ -1,12 +1,12 @@
 class NicotinePlus < Formula
   include Language::Python::Virtualenv
 
-  desc "Graphical client for the Soulseek file sharing network"
-  homepage "https://nicotine-plus.github.io/nicotine-plus/"
+  desc "Graphical client for the Soulseek peer-to-peer network"
+  homepage "https://nicotine-plus.org"
   url "https://files.pythonhosted.org/packages/33/42/09d44ca8a6ee8eb9982e6e289bcc4523cbd8f2290decc3a07655c1a22bfd/nicotine-plus-3.2.8.tar.gz"
   sha256 "48e1bcda9483f3d2228f8c4ff6fe68f1b61898c354d54b1358726997b926b283"
   license "GPL-3.0-or-later"
-  head "https://github.com/Nicotine-Plus/nicotine-plus.git", branch: "master"
+  head "https://github.com/nicotine-plus/nicotine-plus.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "11c8055c72c63005533bdd885725c718c4d6aea8bde08bdea26a8ec38ecd06d5"
