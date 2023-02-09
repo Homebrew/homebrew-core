@@ -1,8 +1,8 @@
 class Pandocomatic < Formula
   desc "Automate the use of pandoc"
   homepage "https://heerdebeer.org/Software/markdown/pandocomatic/"
-  url "https://github.com/htdebeer/pandocomatic/archive/1.0.0.tar.gz"
-  sha256 "22fc1802afc74ead9fc1011180c005c63932e8430aef61984dfaa43efb64c2d4"
+  url "https://github.com/htdebeer/pandocomatic/archive/1.1.0.tar.gz"
+  sha256 "33a2f2ac628c54851be1b5b10114b3e086f08efd8c28826d00608fca1f3616b7"
   license "GPL-3.0-or-later"
 
   bottle do
