@@ -20,6 +20,33 @@ class ShadowsocksRust < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
+    (buildpath/"shadowsocks-rust.json").write <<~EOS
+      {
+          "server":"localhost",
+          "server_port":8388,
+          "password":"barfoo!",
+          "timeout":600,
+          "acl": "/usr/local/etc/chn.acl",
+          "locals": [
+              {
+                  "protocol": "socks",
+                  "local_address": "127.0.0.1",
+                  "local_port": 1080
+              },
+              {
+                  "protocol": "http",
+                  "local_address": "127.0.0.1",
+                  "local_port": 3128
+              }
+          ]
+      }
+    EOS
+    etc.install "shadowsocks-rust.json"
+  end
+
+  service do
+    run [opt_bin/"sslocal", "--config", etc/"shadowsocks-rust.json"]
+    keep_alive true
   end
 
   test do
