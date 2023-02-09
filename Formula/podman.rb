@@ -2,8 +2,8 @@ class Podman < Formula
   desc "Tool for managing OCI containers and pods"
   homepage "https://podman.io/"
   url "https://github.com/containers/podman.git",
-      tag:      "v4.4.0",
-      revision: "3443f453e28169a88848f90a7ce3137fc4a4bebf"
+      tag:      "v4.4.1",
+      revision: "34e8f3933242f2e566bbbbf343cf69b7d506c1cf"
   license all_of: ["Apache-2.0", "GPL-3.0-or-later"]
   head "https://github.com/containers/podman.git", branch: "main"
 
