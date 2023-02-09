@@ -35,6 +35,10 @@ class GstPluginsBase < Formula
   depends_on "pango"
   depends_on "theora"
 
+  on_linux do
+    depends_on "freeglut"
+  end
+
   def install
     # gnome-vfs turned off due to lack of formula for it.
     args = std_meson_args + %w[
