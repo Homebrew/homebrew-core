@@ -11,8 +11,8 @@ class Ruby < Formula
     # The exception is Rubygem security fixes, which mandate updating this
     # formula & the versioned equivalents and bumping the revisions.
     resource "rubygems" do
-      url "https://rubygems.org/rubygems/rubygems-3.4.2.tgz"
-      sha256 "619a61177dfbe219dd159f7790058b1829bcabcfc433727154600e337b31d01a"
+      url "https://rubygems.org/rubygems/rubygems-3.4.6.tgz"
+      sha256 "6a53bdd53495e80cda63a1f393c45bea0d66b3ecf11c34d88fabdacd0704412f"
     end
   end
 
