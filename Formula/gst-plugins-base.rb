@@ -38,6 +38,7 @@ class GstPluginsBase < Formula
   def install
     # gnome-vfs turned off due to lack of formula for it.
     args = std_meson_args + %w[
+      -Dexamples=disabled
       -Dintrospection=enabled
       -Dlibvisual=disabled
       -Dalsa=disabled
