@@ -26,6 +26,8 @@ class Jack < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "python@3.11" => :build
+  depends_on "meson" => :test
+  depends_on "ninja" => :test
   depends_on "berkeley-db"
   depends_on "libsamplerate"
   depends_on "libsndfile"
@@ -38,6 +40,11 @@ class Jack < Formula
   on_linux do
     depends_on "alsa-lib"
     depends_on "systemd"
+  end
+
+  resource "jack-example-tools" do
+    url "https://github.com/jackaudio/jack-example-tools/archive/refs/tags/4.tar.gz"
+    sha256 "2b1e0dc3cb3b5bfb0423f0aeb21eb611437cf71ee0ace2ca199f05f02705f174"
   end
 
   def install
@@ -60,6 +67,10 @@ class Jack < Formula
   end
 
   test do
+    testpath.install resource("jack-example-tools")
+    system "meson", "setup", "--prefix=#{testpath}", "build"
+    system "ninja", "-C", "build"
+
     source_name = "test_source"
     sink_name = "test_sink"
     fork do
@@ -69,13 +80,13 @@ class Jack < Formula
         exec "#{bin}/jackd", "-d", "dummy"
       end
     end
-    system "#{bin}/jack_wait", "--wait", "--timeout", "10"
+    system "#{testpath}/jack_wait", "--wait", "--timeout", "10"
     fork do
-      exec "#{bin}/jack_midiseq", source_name, "16000", "0", "60", "8000"
+      exec "#{testpath}/jack_midiseq", source_name, "16000", "0", "60", "8000"
     end
-    midi_sink = IO.popen "#{bin}/jack_midi_dump #{sink_name}"
+    midi_sink = IO.popen "#{testpath}/jack_midi_dump #{sink_name}"
     sleep 1
-    system "#{bin}/jack_connect", "#{source_name}:out", "#{sink_name}:input"
+    system "#{testpath}/jack_connect", "#{source_name}:out", "#{sink_name}:input"
     sleep 1
     Process.kill "TERM", midi_sink.pid
 
