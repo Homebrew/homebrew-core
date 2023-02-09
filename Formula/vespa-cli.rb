@@ -1,8 +1,8 @@
 class VespaCli < Formula
   desc "Command-line tool for Vespa.ai"
   homepage "https://vespa.ai"
-  url "https://github.com/vespa-engine/vespa/archive/v8.120.11.tar.gz"
-  sha256 "a3c3c275ad19670fa54bb7a06babe3528994976a306f636af511437ae4b45b2b"
+  url "https://github.com/vespa-engine/vespa/archive/v8.121.38.tar.gz"
+  sha256 "857020ffe1a6e0adc16233c01d73fd4ecc70866ce37f5412fcd432300749a949"
   license "Apache-2.0"
 
   livecheck do
@@ -23,14 +23,18 @@ class VespaCli < Formula
 
   depends_on "go" => :build
 
+  # patch the version override, remove in next release
+  patch do
+    url "https://github.com/vespa-engine/vespa/commit/121cc99584a9d99950c4037162c43b5f583a312d.patch?full_index=1"
+    sha256 "7002a836d8424dccc593435b9c8bb97f95d6cc8f78a4938f2f91ac5da8ed2c89"
+  end
+
   def install
     cd "client/go" do
-      with_env(VERSION: version.to_s) do
+      with_env(VERSION: version.to_s, PREFIX: prefix.to_s) do
         system "make", "all", "manpages"
       end
-      bin.install "bin/vespa"
-      man1.install Dir["share/man/man1/vespa*.1"]
-      generate_completions_from_executable(bin/"vespa", "completion", base_name: "vespa")
+      generate_completions_from_executable(bin/"vespa", "completion")
     end
   end
 
