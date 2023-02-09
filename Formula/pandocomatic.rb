@@ -12,8 +12,22 @@ class Pandocomatic < Formula
   depends_on "pandoc"
   depends_on "ruby"
 
+  resource "optimist" do
+    url "https://rubygems.org/gems/optimist-3.0.1.gem"
+    sha256 "336b753676d6117cad9301fac7e91dab4228f747d4e7179891ad3a163c64e2ed"
+  end
+
+  resource "paru" do
+    url "https://rubygems.org/gems/paru-1.1.0.gem"
+    sha256 "0c7406a398d9b356043a4a1bfee81f33947d056bb114e9dfb6a5e2c68806fe57"
+  end
+
   def install
     ENV["GEM_HOME"] = libexec
+    resources.each do |r|
+      system "gem", "install", r.cached_download, "--ignore-dependencies",
+             "--no-document", "--install-dir", libexec
+    end
     system "gem", "build", "#{name}.gemspec"
     system "gem", "install", "#{name}-#{version}.gem"
     bin.install libexec/"bin/#{name}"
