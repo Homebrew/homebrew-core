@@ -22,6 +22,7 @@ class Ledger < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "texinfo" => :build # for makeinfo
   depends_on "boost"
   depends_on "gmp"
   depends_on "mpfr"
