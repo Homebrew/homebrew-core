@@ -24,6 +24,10 @@ class NicotinePlus < Formula
   depends_on "pygobject3"
   depends_on "python@3.11"
 
+  on_linux do
+    depends_on "gettext" => :build # for `msgfmt`
+  end
+
   def install
     virtualenv_install_with_resources
   end
