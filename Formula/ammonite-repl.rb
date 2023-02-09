@@ -6,6 +6,11 @@ class AmmoniteRepl < Formula
   sha256 "d5882da5e80cb2cb19c1cf996f1f89a982e1fa0aee80fdb1f383f195a65b1450"
   license "MIT"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "38200fbd6c3f2a67f9d61b32eb5bf75d388d5d88dffaf1d9a3a1cfa54d8a7b76"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "891b26612d1e352a4fd518f2772e8d28693a08a3db47971aa9e012762e85b6c4"
