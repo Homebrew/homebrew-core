@@ -28,6 +28,8 @@ class Asymptote < Formula
   depends_on "gsl"
   depends_on "readline"
 
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
   uses_from_macos "ncurses"
 
   on_linux do
