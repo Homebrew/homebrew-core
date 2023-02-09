@@ -58,13 +58,6 @@ class MariadbAT106 < Formula
 
   fails_with gcc: "5"
 
-  # fix compilation, remove in 10.6.12
-  patch do
-    url "https://github.com/mariadb-corporation/mariadb-connector-c/commit/44383e3df4896f2d04d9141f640934d3e74e04d7.patch?full_index=1"
-    sha256 "3641e17e29dc7c9bf24bc23e4d68da81f0d9f33b0568f8ff201c4ebc0487d26a"
-    directory "libmariadb"
-  end
-
   def install
     # Set basedir and ldata so that mysql_install_db can find the server
     # without needing an explicit path to be set. This can still
