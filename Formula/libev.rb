@@ -40,7 +40,7 @@ class Libev < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~'EOS'
+    (testpath/"test.c").write <<~EOS
       /* Wait for stdin to become readable, then read and echo the first line. */
 
       #include <stdio.h>
