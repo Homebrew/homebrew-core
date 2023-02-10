@@ -42,6 +42,7 @@ class Zstd < Formula
                     "-DZSTD_ZLIB_SUPPORT=ON",
                     "-DZSTD_LZMA_SUPPORT=ON",
                     "-DZSTD_LZ4_SUPPORT=ON",
+                    "-DCMAKE_CXX_STANDARD=11",
                     *std_cmake_args
     system "cmake", "--build", "builddir"
     system "cmake", "--install", "builddir"
