@@ -22,18 +22,24 @@ class Conduit < Formula
     # Assert conduit version
     assert_match(version.to_s, shell_output("#{bin}/conduit -version"))
 
-    # Run conduit with random free ports for gRPC and HTTP servers
-    command ="conduit --grpc.address :0 --http.address :0"
-    io = IO.popen(command)
-    pid = io.pid
-    sleep(5)
-    # Kill process
-    Process.kill("INT", pid)
-    # Read output
-    log = io.read
-    # Check that gRPC server started
-    assert_match(/grpc server started/, log)
-    # Check that HTTP server started
-    assert_match(/http server started/, log)
+    File.open("output.txt", "w") do |file|
+      # redirect stdout to the file
+      $stdout.reopen(file)
+      pid = fork do
+        # Run conduit with random free ports for gRPC and HTTP servers
+        exec "conduit --grpc.address :0 --http.address :0"
+      end
+      sleep(5)
+      # Kill process
+      Process.kill("SIGKILL", pid)
+    end
+    File.open("output.txt", "r") do |file|
+      # Read logs
+      log = file.read
+      # Check that gRPC server started
+      assert_match(/grpc server started/, log)
+      # Check that HTTP server started
+      assert_match(/http server started/, log)
+    end
   end
 end
