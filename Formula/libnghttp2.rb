@@ -50,7 +50,7 @@ class Libnghttp2 < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~'EOS'
+    (testpath/"test.c").write <<~EOS
       #include <nghttp2/nghttp2.h>
       #include <stdio.h>
 
