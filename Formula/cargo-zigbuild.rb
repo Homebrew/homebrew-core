@@ -1,8 +1,8 @@
 class CargoZigbuild < Formula
   desc "Compile Cargo project with zig as linker"
   homepage "https://github.com/messense/cargo-zigbuild"
-  url "https://github.com/messense/cargo-zigbuild/archive/refs/tags/v0.15.0.tar.gz"
-  sha256 "a6f855a011062cb19c7e921aeeac1188edca9ae7ac0c845bc1346921ea982feb"
+  url "https://github.com/messense/cargo-zigbuild/archive/refs/tags/v0.16.0.tar.gz"
+  sha256 "307e5e2ea6a2c5eb582f6134fbc19c125643c35a19d5104f3abf897854cff8dc"
   license "MIT"
   head "https://github.com/messense/cargo-zigbuild.git", branch: "main"
 
@@ -25,7 +25,7 @@ class CargoZigbuild < Formula
   end
 
   test do
-    # https://github.com/ziglang/zig/issues/10377
+    # Remove errant CPATH environment variable
     ENV.delete "CPATH"
 
     system "#{Formula["rustup-init"].bin}/rustup-init", "-y", "--no-modify-path"
