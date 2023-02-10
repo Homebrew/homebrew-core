@@ -3,7 +3,7 @@ class Cabextract < Formula
   homepage "https://www.cabextract.org.uk/"
   url "https://www.cabextract.org.uk/cabextract-1.10.tar.gz"
   sha256 "edfc785ef252460cab7fdfa6fb2599058a6f5618f7f48a4ad22da816da8cb117"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   livecheck do
     url :homepage
