@@ -18,8 +18,11 @@ class Truncate < Formula
 
   disable! date: "2022-07-31", because: :repo_removed
 
+  on_macos do
+    conflicts_with "uutils-coreutils", because: "both install `truncate` binaries"
+  end
+
   conflicts_with "coreutils", because: "both install `truncate` binaries"
-  conflicts_with "uutils-coreutils", because: "both install `truncate` binaries"
 
   def install
     system "make"
