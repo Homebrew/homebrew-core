@@ -3,7 +3,7 @@ class Mawk < Formula
   homepage "https://invisible-island.net/mawk/"
   url "https://invisible-mirror.net/archives/mawk/mawk-1.3.4-20230203.tgz"
   sha256 "6db7a32ac79c51107ad31a407d4f92c6b842dde2f68a7533b4e7b7b03e8900be"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
 
   livecheck do
     url "https://invisible-mirror.net/archives/mawk/?C=M&O=D"
