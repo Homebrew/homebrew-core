@@ -24,12 +24,16 @@ class GtkVnc < Formula
   depends_on "gtk+3"
   depends_on "libgcrypt"
 
+  # coroutine: avoid ucontext impl on macOS M1 hardware. Remove in the next release
+  patch do
+    url "https://gitlab.gnome.org/GNOME/gtk-vnc/-/commit/40c59c557ecf7d22d307b8cf890ce08b0376ca5a.diff"
+    sha256 "795f35a50bb4a1976d05b961a708415246a2c3f1164c1f9d4e7931996af9f706"
+  end
+
   def install
-    mkdir "build" do
-      system "meson", *std_meson_args, "-Dwith-vala=disabled", ".."
-      system "ninja", "-v"
-      system "ninja", "install", "-v"
-    end
+    system "meson", "setup", "build", "-Dwith-vala=disabled", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do
