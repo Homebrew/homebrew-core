@@ -37,14 +37,10 @@ class Clamav < Formula
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
-  on_macos do
-    depends_on "libiconv"
-  end
-
   skip_clean "share/clamav"
 
   def install
-    args = std_cmake_args + %W[
+    args = %W[
       -DAPP_CONFIG_DIRECTORY=#{etc}/clamav
       -DDATABASE_DIRECTORY=#{var}/lib/clamav
       -DENABLE_JSON_SHARED=ON
@@ -55,7 +51,7 @@ class Clamav < Formula
       -DENABLE_MILTER=OFF
     ]
 
-    system "cmake", "-S", ".", "-B", "build", *args
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
