@@ -1,10 +1,14 @@
 class Micromamba < Formula
   desc "Fast Cross-Platform Package Manager"
   homepage "https://github.com/mamba-org/mamba"
-  url "https://github.com/mamba-org/mamba/archive/refs/tags/2023.02.03.tar.gz"
-  version "1.3.0"
-  sha256 "4c794246dd6008caebebef8c6266e6ba3f9ff5ce48908c830e448811587e9921"
+  url "https://github.com/mamba-org/mamba/archive/refs/tags/micromamba-1.3.1.tar.gz"
+  sha256 "af66b79bc6b9673209e92b6ce6e52a21a79c55e86960a9d5bb10691cf2b4e327"
   license "BSD-3-Clause"
+
+  livecheck do
+    url :stable
+    regex(/^micromamba[._-]v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "a95ca7a0f74a2e0bee8ee9c72ecf196f3b5c9af661d8f5ca57e22686e25d6cbd"
