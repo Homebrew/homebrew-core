@@ -19,6 +19,14 @@
     ],
     "exclude_packages": ["pycrypto", "six"]
   },
+  "ansible@6": {
+    "extra_packages": [
+      "docker", "python-neutronclient", "shade", "pywinrm", "kerberos", "boto3", "apache-libcloud", "passlib",
+      "zabbix-api", "junos-eznc", "jxmlease", "dnspython", "pysphere3", "python-consul", "requests-credssp",
+      "openshift", "pexpect", "ntc-templates", "proxmoxer"
+    ],
+    "exclude_packages": ["six", "PyYAML"]
+  },
   "ansible-lint": {
     "exclude_packages": [
       "PyYAML", "yamllint", "pathspec",
