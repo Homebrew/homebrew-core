@@ -8,7 +8,7 @@ class QtAT5 < Formula
   mirror "https://mirrors.ocf.berkeley.edu/qt/archive/qt/5.15/5.15.8/single/qt-everywhere-opensource-src-5.15.8.tar.xz"
   sha256 "776a9302c336671f9406a53bd30b8e36f825742b2ec44a57c08217bff0fa86b9"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "93e52c51254fd322840cb8d52d8bcaa28d94674f3f280c429e4867a158f44fb2"
