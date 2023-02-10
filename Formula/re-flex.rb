@@ -25,7 +25,7 @@ class ReFlex < Formula
   end
 
   test do
-    (testpath/"echo.l").write <<~'EOS'
+    (testpath/"echo.l").write <<~EOS
       %{
       #include <stdio.h>
       %}
