@@ -47,18 +47,27 @@ class UutilsCoreutils < Formula
     libexec.install_symlink "uuman" => "man"
 
     # Symlink non-conflicting binaries
-    %w[
-      base32 dircolors factor hashsum hostid nproc numfmt pinky ptx realpath
-      shred shuf stdbuf tac timeout truncate
-    ].each do |cmd|
+    no_conflict = if OS.mac?
+      %w[
+        base32 dircolors factor hashsum hostid nproc numfmt pinky ptx realpath
+        shred shuf stdbuf tac timeout truncate
+      ]
+    else
+      %w[hashsum]
+    end
+    no_conflict.each do |cmd|
       bin.install_symlink "u#{cmd}" => cmd
       man1.install_symlink "u#{cmd}.1.gz" => "#{cmd}.1.gz"
     end
   end
 
   def caveats
+    provided_by = "coreutils"
+    on_macos do
+      provided_by = "macOS"
+    end
     <<~EOS
-      Commands also provided by macOS have been installed with the prefix "u".
+      Commands also provided by #{provided_by} have been installed with the prefix "u".
       If you need to use these commands with their normal names, you
       can add a "uubin" directory to your PATH from your bashrc like:
         PATH="#{opt_libexec}/uubin:$PATH"
