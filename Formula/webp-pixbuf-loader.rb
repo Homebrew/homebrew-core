@@ -81,8 +81,9 @@ class WebpPixbufLoader < Formula
       }
     EOS
 
-    flags = shell_output("pkg-config --cflags --libs gdk-pixbuf-#{gdk_so_ver}").chomp.split
-    system ENV.cc, "test.c", "-o", "test_loader", *flags
+    pkg_config_cmd = Formula["pkg-config"].opt_bin/"pkg-config --cflags --libs gdk-pixbuf-#{gdk_so_ver}"
+    pkg_config_flags = shell_output(pkg_config_cmd).chomp.split
+    system ENV.cc, "test.c", "-o", "test_loader", *pkg_config_flags
     system "./test_loader", "test.webp"
   end
 end
