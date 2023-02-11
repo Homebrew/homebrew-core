@@ -49,9 +49,11 @@ class Fplll < Formula
         return 0;
       }
     EOS
-    system "pkg-config", "fplll", "--cflags"
-    system "pkg-config", "fplll", "--libs"
-    pkg_config_flags = `pkg-config --cflags --libs gmp mpfr fplll`.chomp.split
+
+    system Formula["pkg-config"].opt_bin/"pkg-config", "fplll", "--cflags"
+    system Formula["pkg-config"].opt_bin/"pkg-config", "fplll", "--libs"
+    pkg_config_cmd = Formula["pkg-config"].opt_bin/"pkg-config --cflags --libs gmp mpfr fplll"
+    pkg_config_flags = shell_output(pkg_config_cmd).chomp.split
     system ENV.cxx, "-std=c++11", "test.cpp", *pkg_config_flags, "-o", "test"
     system "./test"
   end
