@@ -26,7 +26,8 @@ class Xkeyboardconfig < Formula
 
   test do
     assert_predicate man7/"xkeyboard-config.7", :exist?
-    assert_equal "#{share}/X11/xkb", shell_output("pkg-config --variable=xkb_base xkeyboard-config").chomp
+    pkg_config_cmd = Formula["pkg-config"].opt_bin/"pkg-config --variable=xkb_base xkeyboard-config"
+    assert_equal "#{share}/X11/xkb", shell_output(pkg_config_cmd).chomp
     assert_match "Language-Team: English",
       shell_output("strings #{share}/locale/en_GB/LC_MESSAGES/xkeyboard-config.mo")
   end
