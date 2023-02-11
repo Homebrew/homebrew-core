@@ -62,8 +62,9 @@ class Libgda < Formula
 
   test do
     cp pkgshare/"example.c", testpath
-    flags = shell_output("pkg-config --cflags --libs libgda-#{version.major_minor}").chomp.split
-    system ENV.cc, "example.c", "-o", "example", *flags
+    pkg_config_cmd = Formula["pkg-config"].opt_bin/"pkg-config --cflags --libs libgda-#{version.major_minor}"
+    pkg_config_flags = shell_output(pkg_config_cmd).chomp.split
+    system ENV.cc, "example.c", "-o", "example", *pkg_config_flags
     assert_match <<~EOS, shell_output("./example")
       ------+---------+---------
       p1    | chair   | 2.000000
