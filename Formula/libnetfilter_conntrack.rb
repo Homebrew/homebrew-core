@@ -22,7 +22,8 @@ class LibnetfilterConntrack < Formula
   end
 
   test do
-    pkg_config_flags = shell_output("pkg-config --cflags --libs libnetfilter_conntrack libmnl").chomp.split
+    pkg_config_cmd = Formula["pkg-config"].opt_bin/"pkg-config --cflags --libs libnetfilter_conntrack libmnl"
+    pkg_config_flags = shell_output(pkg_config_cmd).chomp.split
     system ENV.cc, pkgshare/"examples/nfct-mnl-get.c", *pkg_config_flags, "-o", "nfct-mnl-get"
     assert_match "mnl_socket_recvfrom: Operation not permitted", shell_output("#{testpath}/nfct-mnl-get inet 2>&1", 1)
   end
