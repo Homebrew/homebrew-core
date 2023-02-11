@@ -68,8 +68,10 @@ class Projectm < Formula
         return 0;
       }
     EOS
-    flags = shell_output("pkg-config libprojectM sdl2 --cflags --libs").split
-    system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test", *flags
+
+    pkg_config_cmd = Formula["pkg-config"].opt_bin/"pkg-config --cflags --libs libprojectM sdl2"
+    pkg_config_flags = shell_output(pkg_config_cmd).chomp.split
+    system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test", *pkg_config_flags
 
     # Fails in Linux CI with "Video init failed: No available video device"
     return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
