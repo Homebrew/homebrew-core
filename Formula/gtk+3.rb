@@ -94,8 +94,10 @@ class Gtkx3 < Formula
         return 0;
       }
     EOS
-    flags = shell_output("pkg-config --cflags --libs gtk+-3.0").chomp.split
-    system ENV.cc, "test.c", "-o", "test", *flags
+
+    pkg_config_cmd = Formula["pkg-config"].opt_bin/"pkg-config --cflags --libs gtk+-3.0"
+    pkg_config_flags = shell_output(pkg_config_cmd).chomp.split
+    system ENV.cc, "test.c", "-o", "test", *pkg_config_flags
     system "./test"
     # include a version check for the pkg-config files
     assert_match version.to_s, shell_output("cat #{lib}/pkgconfig/gtk+-3.0.pc").strip
