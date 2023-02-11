@@ -10,6 +10,7 @@ class Astgen < Formula
   depends_on "node"
 
   def install
+    # Disable custom postinstall script
     system "npm", "install", *Language::Node.std_npm_install_args(libexec), "--ignore-scripts"
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
@@ -19,8 +20,8 @@ class Astgen < Formula
       console.log("Hello, world!");
     EOS
 
-    assert_match "Converted AST", shell_output("astgen -t js -i . -o out")
-    assert_match '"fullName": "main.js"', File.read("out/main.js.json")
-    assert_match '"0":"Console"', File.read("out/main.js.typemap")
+    assert_match "Converted AST", shell_output("#{bin}/astgen -t js -i . -o #{testpath}/out")
+    assert_match '"fullName": "main.js"', (testpath/"out/main.js.json").read
+    assert_match '"0":"Console"', (testpath/"out/main.js.typemap").read
   end
 end
