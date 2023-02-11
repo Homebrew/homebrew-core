@@ -16,6 +16,7 @@ class Ghex < Formula
   end
 
   depends_on "desktop-file-utils" => :build
+  depends_on "gettext" => :build # for msgfmt
   depends_on "itstool" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
