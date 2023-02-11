@@ -42,8 +42,9 @@ class Libid3tag < Formula
       }
     EOS
 
-    pkg_config_cflags = shell_output("pkg-config --cflags --libs id3tag").chomp.split
-    system ENV.cc, "test.c", *pkg_config_cflags, "-o", "test"
+    pkg_config_cmd = Formula["pkg-config"].opt_bin/"pkg-config --cflags --libs id3tag"
+    pkg_config_flags = shell_output(pkg_config_cmd).chomp.split
+    system ENV.cc, "test.c", *pkg_config_flags, "-o", "test"
     system "./test"
   end
 end
