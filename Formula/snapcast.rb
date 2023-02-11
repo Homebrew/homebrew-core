@@ -1,10 +1,9 @@
 class Snapcast < Formula
   desc "Synchronous multiroom audio player"
   homepage "https://github.com/badaix/snapcast"
-  url "https://github.com/badaix/snapcast/archive/refs/tags/v0.26.0.tar.gz"
-  sha256 "166353267a5c461a3a0e7cbd05d78c4bfdaebeda078801df3b76820b54f27683"
+  url "https://github.com/badaix/snapcast/archive/refs/tags/v0.27.0.tar.gz"
+  sha256 "c662c6eafbaa42a4797a4ed6ba4a7602332abf99f6ba6ea88ff8ae59978a86ba"
   license "GPL-3.0-or-later"
-  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_ventura:  "fdc7b6323f142d3bff859224c0849674d908844f6d26cbf5facac011527c5f66"
