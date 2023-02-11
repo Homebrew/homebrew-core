@@ -61,8 +61,9 @@ class Gts < Formula
       }
     EOS
 
-    cflags = Utils.safe_popen_read("pkg-config", "--cflags", "--libs", "gts").strip.split
-    system ENV.cc, "gtstest.c", *cflags, "-lm", "-o", "gtstest"
+    pkg_config_cmd = Formula["pkg-config"].opt_bin/"pkg-config --cflags --libs gts"
+    pkg_config_flags = shell_output(pkg_config_cmd).chomp.split
+    system ENV.cc, "gtstest.c", *pkg_config_flags, "-lm", "-o", "gtstest"
     system "./gtstest"
   end
 end
