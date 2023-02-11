@@ -1,8 +1,12 @@
 class Zf < Formula
   desc "Command-line fuzzy finder that prioritizes matches on filenames"
   homepage "https://github.com/natecraddock/zf"
-  url "https://github.com/natecraddock/zf/archive/refs/tags/0.6.0.tar.gz"
-  sha256 "9767ce1142933c753b749630229d10519c4c0b208f63931e43495acc632135e2"
+
+  # zf requires git submodules for dependencies until the Zig package manager is able
+  # to resolve pure Zig dependencies, likely in Zig version 0.11.0
+  url "https://github.com/natecraddock/zf.git",
+      tag:      "0.7.0",
+      revision: "2999185c7f8a5bf1ffffadb57498a603d8fd582d"
   license "MIT"
   head "https://github.com/natecraddock/zf.git", branch: "master"
 
