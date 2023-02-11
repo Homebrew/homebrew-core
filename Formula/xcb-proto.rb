@@ -32,7 +32,8 @@ class XcbProto < Formula
   end
 
   test do
-    assert_match "#{share}/xcb", shell_output("pkg-config --variable=xcbincludedir xcb-proto").chomp
+    pkg_config_cmd = Formula["pkg-config"].opt_bin/"pkg-config --variable=xcbincludedir xcb-proto"
+    assert_match "#{share}/xcb", shell_output(pkg_config_cmd).chomp
     system python3, "-c", <<~EOS
       import collections
       output = collections.defaultdict(int)
