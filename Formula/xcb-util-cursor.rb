@@ -44,9 +44,10 @@ class XcbUtilCursor < Formula
   end
 
   test do
-    flags = shell_output("pkg-config --cflags --libs xcb-util xcb-cursor").chomp.split
-    assert_includes flags, "-I#{include}"
-    assert_includes flags, "-L#{lib}"
+    pkg_config_cmd = Formula["pkg-config"].opt_bin/"pkg-config --cflags --libs xcb-util xcb-cursor"
+    pkg_config_flags = shell_output(pkg_config_cmd).chomp.split
+    assert_includes pkg_config_flags, "-I#{include}"
+    assert_includes pkg_config_flags, "-L#{lib}"
     (testpath/"test.c").write <<~EOS
       #include <xcb/xcb.h>
       #include <xcb/xcb_util.h>
@@ -67,6 +68,6 @@ class XcbUtilCursor < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", *flags
+    system ENV.cc, "test.c", *pkg_config_flags
   end
 end
