@@ -19,12 +19,6 @@ class Sdlpop < Formula
   depends_on "sdl2"
   depends_on "sdl2_image"
 
-  # Fix SDL2 header search location during build. Patch accepted upstream, remove on next release.
-  patch do
-    url "https://github.com/NagyD/SDLPoP/commit/26d3fb9ffee2831ab98b1f0359ba25b41f6fffc8.patch?full_index=1"
-    sha256 "4c62ddef19d5550f3dc0db6d5a2fff7ba2c2454d376ca624a147b4c650512097"
-  end
-
   def install
     system "make", "-C", "src"
     doc.install Dir["doc/*"]
