@@ -50,8 +50,10 @@ class Libadwaita < Formula
         return g_application_run (G_APPLICATION (app), argc, argv);
       }
     EOS
-    flags = shell_output("#{Formula["pkg-config"].opt_bin}/pkg-config --cflags --libs libadwaita-1").strip.split
-    system ENV.cc, "test.c", "-o", "test", *flags
+
+    pkg_config_cmd = Formula["pkg-config"].opt_bin/"pkg-config --cflags --libs libadwaita-1"
+    pkg_config_flags = shell_output(pkg_config_cmd).chomp.split
+    system ENV.cc, "test.c", "-o", "test", *pkg_config_flags
     system "./test", "--help"
 
     # include a version check for the pkg-config files
