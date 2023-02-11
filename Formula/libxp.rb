@@ -53,6 +53,7 @@ class Libxp < Formula
   end
 
   test do
-    assert_match "-I#{include}", shell_output("pkg-config --cflags xp").chomp
+    pkg_config_cmd = Formula["pkg-config"].opt_bin/"pkg-config --cflags xp"
+    assert_match "-I#{include}", shell_output(pkg_config_cmd).chomp
   end
 end
