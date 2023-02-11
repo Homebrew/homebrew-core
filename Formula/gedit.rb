@@ -69,8 +69,10 @@ class Gedit < Formula
         return 0;
       }
     EOS
-    flags = shell_output("pkg-config --cflags --libs gedit").chomp.split
-    flags << "-Wl,-rpath,#{lib}/gedit" if OS.linux?
+
+    pkg_config_cmd = Formula["pkg-config"].opt_bin/"pkg-config --cflags --libs gedit"
+    pkg_config_flags = shell_output(pkg_config_cmd).chomp.split
+    pkg_config_flags << "-Wl,-rpath,#{lib}/gedit" if OS.linux?
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
