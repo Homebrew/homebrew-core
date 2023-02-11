@@ -46,7 +46,8 @@ class Oscats < Formula
   end
 
   test do
-    pkg_config_flags = shell_output("pkg-config --cflags --libs oscats glib-2.0").chomp.split
+    pkg_config_cmd = Formula["pkg-config"].opt_bin/"pkg-config --cflags --libs oscats glib-2.0"
+    pkg_config_flags = shell_output(pkg_config_cmd).chomp.split
     system ENV.cc, pkgshare/"examples/ex01.c", *pkg_config_flags, "-o", "ex01"
     assert_match "Done", shell_output("#{testpath}/ex01")
   end
