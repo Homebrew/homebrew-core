@@ -102,11 +102,12 @@ class Grpc < Formula
       }
     EOS
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["openssl@1.1"].opt_lib/"pkgconfig"
-    pkg_config_flags = shell_output("pkg-config --cflags --libs libcares protobuf re2 grpc++").chomp.split
+    pkg_config_cmd = Formula["pkg-config"].opt_bin/"pkg-config --cflags --libs libcares protobuf re2 grpc++"
+    pkg_config_flags = shell_output(pkg_config_cmd).chomp.split
     system ENV.cc, "test.cpp", "-L#{Formula["abseil"].opt_lib}", *pkg_config_flags, "-o", "test"
     system "./test"
 
-    output = shell_output("grpc_cli ls localhost:#{free_port} 2>&1", 1)
+    output = shell_output("#{bin}/grpc_cli ls localhost:#{free_port} 2>&1", 1)
     assert_match "Received an error when querying services endpoint.", output
   end
 end
