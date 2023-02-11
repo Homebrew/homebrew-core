@@ -56,7 +56,9 @@ class Sollya < Formula
         return 0;
       }
     EOF
-    pkg_config_flags = shell_output("pkg-config --cflags --libs gmp mpfr fplll").chomp.split
+
+    pkg_config_cmd = Formula["pkg-config"].opt_bin/"pkg-config --cflags --libs gmp mpfr fplll"
+    pkg_config_flags = shell_output(pkg_config_cmd).chomp.split
     system ENV.cc, "test.c", *pkg_config_flags, "-I#{include}", "-L#{lib}", "-lsollya", "-o", "test"
     assert_equal "pi", shell_output("./test")
   end
