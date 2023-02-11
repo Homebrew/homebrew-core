@@ -37,8 +37,9 @@ class Libva < Formula
   end
 
   test do
+    pkg_config_cmd = Formula["pkg-config"].opt_bin/"pkg-config --cflags #{name}"
     %w[libva libva-drm libva-wayland libva-x11].each do |name|
-      assert_match "-I#{include}", shell_output("pkg-config --cflags #{name}")
+      assert_match "-I#{include}", shell_output(pkg_config_cmd)
     end
     (testpath/"test.c").write <<~EOS
       #include <va/va.h>
