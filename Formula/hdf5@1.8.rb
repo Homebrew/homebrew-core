@@ -3,9 +3,8 @@ class Hdf5AT18 < Formula
   homepage "https://www.hdfgroup.org/HDF5"
   # NOTE: 1.8.23 is expected to be the last release for HDF5-1.8
   # (see: https://portal.hdfgroup.org/display/support/HDF5%201.8.22#HDF51.8.22-futureFutureofHDF5-1.8).
-  url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8/hdf5-1.8.22/src/hdf5-1.8.22.tar.bz2"
-  sha256 "689b88c6a5577b05d603541ce900545779c96d62b6f83d3f23f46559b48893a4"
-  revision 4
+  url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8/hdf5-1.8.23/src/hdf5-1.8.23.tar.bz2"
+  sha256 "69ac1f7e28de5a96b45fd597f18b2ce1e1c47f4b2b64dc848a64be66722da64e"
 
   livecheck do
     url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8/"
