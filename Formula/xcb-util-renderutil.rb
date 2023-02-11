@@ -39,6 +39,7 @@ class XcbUtilRenderutil < Formula
   end
 
   test do
-    assert_match "-I#{include}", shell_output("pkg-config --cflags xcb-renderutil")
+    pkg_config_cmd = Formula["pkg-config"].opt_bin/"pkg-config --cflags xcb-renderutil"
+    assert_match "-I#{include}", shell_output(pkg_config_cmd)
   end
 end
