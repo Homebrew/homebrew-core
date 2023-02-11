@@ -65,7 +65,9 @@ class Clp < Formula
         return status;
       }
     EOS
-    pkg_config_flags = `pkg-config --cflags --libs clp`.chomp.split
+
+    pkg_config_cmd = Formula["pkg-config"].opt_bin/"pkg-config --cflags --libs clp"
+    pkg_config_flags = shell_output(pkg_config_cmd).chomp.split
     system ENV.cxx, "test.cpp", *pkg_config_flags
     system "./a.out"
   end
