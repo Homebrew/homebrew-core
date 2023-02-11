@@ -48,8 +48,9 @@ class Libglademm < Formula
       }
     EOS
     ENV.libxml2
-    flags = shell_output("#{Formula["pkg-config"].opt_bin}/pkg-config --cflags --libs libglademm-2.4").strip.split
-    system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test", *flags
+    pkg_config_cmd = Formula["pkg-config"].opt_bin/"pkg-config --cflags --libs libglademm-#{version.major_minor}"
+    pkg_config_flags = shell_output(pkg_config_cmd).chomp.split
+    system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test", *pkg_config_flags
     system "./test"
   end
 end
