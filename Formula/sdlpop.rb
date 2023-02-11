@@ -43,6 +43,6 @@ class Sdlpop < Formula
   end
 
   test do
-    assert_equal "See doc/Readme.txt", shell_output("#{bin}/prince --help").chomp
+    assert_equal "See README.md", shell_output("#{bin}/prince --help").chomp
   end
 end
