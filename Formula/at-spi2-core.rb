@@ -62,8 +62,9 @@ class AtSpi2Core < Formula
       }
     EOS
 
-    pkg_config_cflags = shell_output("pkg-config --cflags --libs atspi-2").chomp.split
-    system ENV.cc, "test.c", *pkg_config_cflags, "-lgobject-2.0", "-o", "test"
+    pkg_config_cmd = Formula["pkg-config"].opt_bin/"pkg-config --cflags --libs atspi-2"
+    pkg_config_flags = shell_output(pkg_config_cmd).chomp.split
+    system ENV.cc, "test.c", *pkg_config_flags, "-lgobject-2.0", "-o", "test"
     assert_match "AT-SPI", shell_output("#{testpath}/test 2>&1", 133)
   end
 end
