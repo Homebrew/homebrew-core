@@ -26,7 +26,7 @@ class CubejsCli < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/cubejs --version")
-    system "cubejs", "create", "hello-world", "-d", "postgres"
+    system bin/"cubejs", "create", "hello-world", "-d", "postgres"
     assert_predicate testpath/"hello-world/schema/Orders.js", :exist?
   end
 end
