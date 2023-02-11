@@ -24,6 +24,7 @@ class TrashCli < Formula
   depends_on "six"
 
   conflicts_with "macos-trash", because: "both install a `trash` binary"
+  conflicts_with "osx-trash", because: "both install a `trash` binary"
   conflicts_with "trash", because: "both install a `trash` binary"
 
   resource "psutil" do

@@ -20,8 +20,9 @@ class MacosTrash < Formula
   depends_on :macos
   uses_from_macos "swift", since: :big_sur # Swift 5.5.0
 
-  conflicts_with "trash", because: "both install a `trash` binary"
+  conflicts_with "osx-trash", because: "both install a `trash` binary"
   conflicts_with "trash-cli", because: "both install a `trash` binary"
+  conflicts_with "trash", because: "both install a `trash` binary"
 
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release"
