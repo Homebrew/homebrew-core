@@ -1,8 +1,8 @@
 class Simdjson < Formula
   desc "SIMD-accelerated C++ JSON parser"
   homepage "https://simdjson.org"
-  url "https://github.com/simdjson/simdjson/archive/3.1.0.tar.gz"
-  sha256 "14d17ba7139d27c1e1bf01e765f5c26e84cc9e9be6a316c977638e01c7de85fa"
+  url "https://github.com/simdjson/simdjson/archive/refs/tags/v3.1.1.tar.gz"
+  sha256 "4fcb1c9b1944e2eb8a4a4a22c979e2827165216f859e94d93c846c1261e0e432"
   license "Apache-2.0"
   head "https://github.com/simdjson/simdjson.git", branch: "master"
 
