@@ -92,8 +92,10 @@ class Gtk4 < Formula
       }
     EOS
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["jpeg-turbo"].opt_lib/"pkgconfig"
-    flags = shell_output("#{Formula["pkg-config"].opt_bin}/pkg-config --cflags --libs gtk4").strip.split
-    system ENV.cc, "test.c", "-o", "test", *flags
+
+    pkg_config_cmd = Formula["pkg-config"].opt_bin/"pkg-config --cflags --libs gtk4"
+    pkg_config_flags = shell_output(pkg_config_cmd).chomp.split
+    system ENV.cc, "test.c", "-o", "test", *pkg_config_flags
     system "./test"
     # include a version check for the pkg-config files
     assert_match version.to_s, shell_output("cat #{lib}/pkgconfig/gtk4.pc").strip
