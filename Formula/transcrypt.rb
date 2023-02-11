@@ -12,6 +12,7 @@ class Transcrypt < Formula
 
   on_linux do
     depends_on "util-linux"
+    depends_on "vim" # needed for xxd
   end
 
   def install
