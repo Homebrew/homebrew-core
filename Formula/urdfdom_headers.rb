@@ -28,7 +28,10 @@ class UrdfdomHeaders < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, shell_output("pkg-config --cflags urdfdom_headers").chomp, "test.cpp", "-std=c++11", "-o", "test"
+
+    pkg_config_cmd = Formula["pkg-config"].opt_bin/"pkg-config --cflags urdfdom_headers"
+    pkg_config_flags = shell_output(pkg_config_cmd).chomp.split
+    system ENV.cxx, *pkg_config_flags, "test.cpp", "-std=c++11", "-o", "test"
     system "./test"
   end
 end
