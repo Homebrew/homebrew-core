@@ -33,9 +33,11 @@ class Sdl2Mixer < Formula
 
   depends_on "pkg-config" => :build
   depends_on "flac"
-  depends_on "libmodplug"
+  depends_on "fluid-synth"
   depends_on "libvorbis"
+  depends_on "libxmp"
   depends_on "mpg123"
+  depends_on "opusfile"
   depends_on "sdl2"
 
   def install
@@ -46,36 +48,47 @@ class Sdl2Mixer < Formula
       system "./autogen.sh"
     end
 
-    args = %W[
-      --prefix=#{prefix}
-      --disable-dependency-tracking
-      --enable-music-flac
-      --disable-music-flac-shared
-      --disable-music-midi-fluidsynth
-      --disable-music-midi-fluidsynth-shared
-      --disable-music-mod-mikmod-shared
-      --disable-music-mod-modplug-shared
-      --disable-music-mp3-mpg123-shared
-      --disable-music-ogg-shared
-      --enable-music-mod-mikmod
-      --enable-music-mod-modplug
-      --enable-music-ogg
-      --enable-music-mp3-mpg123
-    ]
+    system "./configure", *std_configure_args,
+      "--enable-music-wave",
+      "--enable-music-mod",
+      "--enable-music-mod-xmp",
+      "--disable-music-mod-xmp-shared",
+      "--disable-music-mod-modplug",
+      "--enable-music-midi",
+      "--enable-music-midi-fluidsynth",
+      "--disable-music-midi-fluidsynth-shared",
+      "--disable-music-midi-native",
+      "--disable-music-midi-timidy",
+      "--enable-music-ogg",
+      "--enable-music-ogg-vorbis",
+      "--disable-music-ogg-vorbis-shared",
+      "--disable-music-ogg-stb",
+      "--disable-music-ogg-tremor",
+      "--enable-music-flac",
+      "--enable-music-flac-libflac",
+      "--disable-music-flac-libflac-shared",
+      "--disable-music-flac-drflac",
+      "--enable-music-mp3",
+      "--enable-music-mp3-mpg123",
+      "--disable-music-mp3-mpg123-shared",
+      "--disable-music-mp3-drmp3",
+      "--enable-music-opus",
+      "--disable-music-opus-shared"
 
-    system "./configure", *args
     system "make", "install"
   end
 
   test do
     (testpath/"test.c").write <<~EOS
+      #include <stdlib.h>
       #include <SDL2/SDL_mixer.h>
 
       int main()
       {
-          int success = Mix_Init(0);
+          const int INIT_FLAGS = MIX_INIT_FLAC | MIX_INIT_MOD | MIX_INIT_MP3 | MIX_INIT_OGG | MIX_INIT_MID | MIX_INIT_OPUS;
+          int success = Mix_Init(INIT_FLAGS);
           Mix_Quit();
-          return success;
+          return success == INIT_FLAGS ? EXIT_SUCCESS : EXIT_FAILURE;
       }
     EOS
     system ENV.cc, "-I#{Formula["sdl2"].opt_include}/SDL2",
