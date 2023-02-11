@@ -23,11 +23,12 @@ class Jack < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "cmake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "python@3.11" => :build
-  depends_on "meson" => :test
-  depends_on "ninja" => :test
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "berkeley-db"
   depends_on "libsamplerate"
   depends_on "libsndfile"
@@ -53,6 +54,13 @@ class Jack < Formula
       ENV.append "LDFLAGS", "-Wl,-compatibility_version,1"
       ENV.append "LDFLAGS", "-Wl,-current_version,#{version}"
     end
+
+    resource("jack-example-tools").stage do
+      system "meson", "setup", "build", *std_meson_args
+      system "meson", "compile", "-C", "build", "--verbose"
+      system "meson", "install", "-C", "build"
+    end
+
     python3 = "python3.11"
     system python3, "./waf", "configure", "--prefix=#{prefix}"
     system python3, "./waf", "build"
@@ -67,10 +75,6 @@ class Jack < Formula
   end
 
   test do
-    testpath.install resource("jack-example-tools")
-    system "meson", "setup", "--prefix=#{testpath}", "build"
-    system "ninja", "-C", "build"
-
     source_name = "test_source"
     sink_name = "test_sink"
     fork do
