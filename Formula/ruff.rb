@@ -20,9 +20,8 @@ class Ruff < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--no-default-features", *std_cargo_args(path: "ruff_cli")
-    bin.install "target/release/ruff" => "ruff"
-    generate_completions_from_executable(bin/"ruff", "--generate-shell-completion")
+    system "cargo", "install", "--no-default-features", *std_cargo_args(path: "crates/ruff_cli")
+    generate_completions_from_executable(bin/"ruff", "generate-shell-completion")
   end
 
   test do
