@@ -50,8 +50,9 @@ class Gtksourceview5 < Formula
         return 0;
       }
     EOS
-    flags = shell_output("#{Formula["pkg-config"].opt_bin}/pkg-config --cflags --libs gtksourceview-5").strip.split
-    system ENV.cc, "test.c", "-o", "test", *flags
+    pkg_config_cmd = Formula["pkg-config"].opt_bin/"pkg-config --cflags --libs gtksourceview-5"
+    pkg_config_flags = shell_output(pkg_config_cmd).chomp.split
+    system ENV.cc, "test.c", "-o", "test", *pkg_config_flags
     system "./test"
   end
 end
