@@ -59,7 +59,8 @@ class Libgweather < Formula
       }
     EOS
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["icu4c"].opt_lib/"pkgconfig" if OS.mac?
-    pkg_config_flags = shell_output("pkg-config --cflags --libs gweather4").chomp.split
+    pkg_config_cmd = Formula["pkg-config"].opt_bin/"pkg-config --cflags --libs gweather4"
+    pkg_config_flags = shell_output(pkg_config_cmd).chomp.split
     system ENV.cc, "-DGWEATHER_I_KNOW_THIS_IS_UNSTABLE=1", "test.c", "-o", "test", *pkg_config_flags
     system "./test"
   end
