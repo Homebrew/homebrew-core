@@ -40,8 +40,10 @@ class Glibmm < Formula
          return 0;
       }
     EOS
-    flags = shell_output("pkg-config --cflags --libs glibmm-2.68").chomp.split
-    system ENV.cxx, "-std=c++17", "test.cpp", "-o", "test", *flags
+
+    pkg_config_cmd = Formula["pkg-config"].opt_bin/"pkg-config --cflags --libs glibmm-2.68"
+    pkg_config_flags = shell_output(pkg_config_cmd).chomp.split
+    system ENV.cxx, "-std=c++17", "test.cpp", "-o", "test", *pkg_config_flags
     system "./test"
   end
 end
