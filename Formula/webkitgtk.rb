@@ -130,7 +130,8 @@ class Webkitgtk < Formula
       }
     EOS
 
-    pkg_config_flags = shell_output("pkg-config --cflags --libs gtk+-3.0 webkit2gtk-4.1").chomp.split
+    pkg_config_cmd = Formula["pkg-config"].opt_bin/"pkg-config --cflags --libs gtk+-3.0 webkit2gtk-4.1"
+    pkg_config_flags = shell_output(pkg_config_cmd).chomp.split
     system ENV.cc, "test.c", *pkg_config_flags, "-o", "test"
     # While we cannot open a browser window in CI, we can make sure that the test binary runs
     # and produces the expected warning.
