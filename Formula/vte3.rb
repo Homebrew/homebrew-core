@@ -79,8 +79,9 @@ class Vte3 < Formula
         return 0;
       }
     EOS
-    flags = shell_output("pkg-config --cflags --libs vte-2.91").chomp.split
-    system ENV.cc, "test.c", "-o", "test", *flags
+    pkg_config_cmd = Formula["pkg-config"].opt_bin/"pkg-config --cflags --libs vte-2.91"
+    pkg_config_flags = shell_output(pkg_config_cmd).chomp.split
+    system ENV.cc, "test.c", "-o", "test", *pkg_config_flags
     system "./test"
   end
 end
