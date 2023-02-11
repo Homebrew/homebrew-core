@@ -37,9 +37,9 @@ class Libgnomecanvasmm < Formula
         return 0;
       }
     EOS
-    command = "#{Formula["pkg-config"].opt_bin}/pkg-config --cflags --libs libgnomecanvasmm-2.6"
-    flags = shell_output(command).strip.split
-    system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test", *flags
+    pkg_config_cmd = Formula["pkg-config"].opt_bin/"pkg-config --cflags --libs libgnomecanvasmm-2.6"
+    pkg_config_flags = shell_output(pkg_config_cmd).chomp.split
+    system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test", *pkg_config_flags
     system "./test"
   end
 end
