@@ -31,6 +31,7 @@ class StartupNotification < Formula
   end
 
   test do
-    assert_match "-I#{include}", shell_output("pkg-config --cflags libstartup-notification-1.0").chomp
+    pkg_config_cmd = Formula["pkg-config"].opt_bin/"pkg-config --cflags --libs libstartup-notification-1.0"
+    assert_match "-I#{include}", shell_output(pkg_config_cmd).chomp
   end
 end
