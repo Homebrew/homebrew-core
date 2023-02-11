@@ -1,15 +1,8 @@
 class Hdf5AT18 < Formula
   desc "File format designed to store large amounts of data"
   homepage "https://www.hdfgroup.org/HDF5"
-  # NOTE: 1.8.23 is expected to be the last release for HDF5-1.8
-  # (see: https://portal.hdfgroup.org/display/support/HDF5%201.8.22#HDF51.8.22-futureFutureofHDF5-1.8).
   url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8/hdf5-1.8.23/src/hdf5-1.8.23.tar.bz2"
   sha256 "69ac1f7e28de5a96b45fd597f18b2ce1e1c47f4b2b64dc848a64be66722da64e"
-
-  livecheck do
-    url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8/"
-    regex(%r{href=["']?hdf5[._-]v?(\d+(?:\.\d+)+)/?["' >]}i)
-  end
 
   bottle do
     rebuild 1
@@ -23,6 +16,10 @@ class Hdf5AT18 < Formula
   end
 
   keg_only :versioned_formula
+
+  # 1.8.23 is the last release for 1.8.x
+  # https://github.com/HDFGroup/hdf5#release-schedule
+  deprecate! date: "2023-02-11", because: :unsupported
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
