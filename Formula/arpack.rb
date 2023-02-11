@@ -38,10 +38,6 @@ class Arpack < Formula
       --enable-icb-exmm
     ]
 
-    # Fix for GCC 10, remove with next version
-    # https://github.com/opencollab/arpack-ng/commit/ad82dcbc
-    args << "FFLAGS=-fallow-argument-mismatch"
-
     system "./bootstrap"
     system "./configure", *args
     system "make"
