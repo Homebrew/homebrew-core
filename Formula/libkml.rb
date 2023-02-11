@@ -61,7 +61,8 @@ class Libkml < Formula
       }
     EOS
 
-    pkg_config_flags = shell_output("pkg-config --cflags --libs libkml gtest").chomp.split
+    pkg_config_cmd = Formula["pkg-config"].opt_bin/"pkg-config --cflags --libs libkml gtest"
+    pkg_config_flags = shell_output(pkg_config_cmd).chomp.split
     system ENV.cxx, "test.cpp", *pkg_config_flags, "-std=c++14", "-o", "test"
     assert_match("PASSED", shell_output("./test"))
   end
