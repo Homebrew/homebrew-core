@@ -120,7 +120,8 @@ class Openvino < Formula
   end
 
   test do
-    pkg_config_flags = shell_output("pkg-config --cflags --libs openvino").chomp.split
+    pkg_config_cmd = Formula["pkg-config"].opt_bin/"pkg-config --cflags --libs openvino"
+    pkg_config_flags = shell_output(pkg_config_cmd).chomp.split
 
     (testpath/"openvino_available_devices.c").write <<~EOS
       #include <openvino/c/openvino.h>
