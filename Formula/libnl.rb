@@ -55,7 +55,8 @@ class Libnl < Formula
       }
     EOS
 
-    pkg_config_flags = shell_output("pkg-config --cflags --libs libnl-3.0 libnl-route-3.0").chomp.split
+    pkg_config_cmd = Formula["pkg-config"].opt_bin/"pkg-config --cflags --libs libnl-3.0 libnl-route-3.0"
+    pkg_config_flags = shell_output(pkg_config_cmd).chomp.split
     system ENV.cc, "test.c", *pkg_config_flags, "-o", "test"
     assert_match "Unable to delete link: Operation not permitted", shell_output("#{testpath}/test 2>&1", 228)
 
