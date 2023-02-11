@@ -95,7 +95,8 @@ class Avahi < Formula
       }
     EOS
 
-    pkg_config_flags = shell_output("pkg-config --cflags --libs avahi-client avahi-core avahi-glib").chomp.split
+    pkg_config_cmd = Formula["pkg-config"].opt_bin/"pkg-config --cflags --libs avahi-client avahi-core avahi-glib"
+    pkg_config_flags = shell_output(pkg_config_cmd).chomp.split
     system ENV.cc, "test.c", *pkg_config_flags, "-o", "test"
     assert_match "Avahi", shell_output("#{testpath}/test 2>&1", 134)
   end
