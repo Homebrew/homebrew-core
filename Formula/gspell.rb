@@ -54,8 +54,10 @@ class Gspell < Formula
       }
     EOS
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["icu4c"].opt_lib/"pkgconfig" if OS.mac?
-    flags = shell_output("pkg-config --cflags --libs gspell-1").chomp.split
-    system ENV.cc, "test.c", "-o", "test", *flags
+
+    pkg_config_cmd = Formula["pkg-config"].opt_bin/"pkg-config --cflags --libs gspell-1"
+    pkg_config_flags = shell_output(pkg_config_cmd).chomp.split
+    system ENV.cc, "test.c", "-o", "test", *pkg_config_flags
     ENV["G_DEBUG"] = "fatal-warnings"
 
     # This test will fail intentionally when iso-codes gets updated.
