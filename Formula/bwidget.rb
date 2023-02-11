@@ -15,16 +15,10 @@ class Bwidget < Formula
     # Fails with: no display name and no $DISPLAY environment variable
     return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
 
-    # Fails on macOS 11 if CI minimum OS version is too low (1106 vs 1107)
-    return if OS.mac? && MacOS.version < :monterey
-
     test_bwidget = <<~EOS
-      catch {
-        package require BWidget
-        puts "OK"
-      }
+      puts [package require BWidget]
       exit
     EOS
-    assert_equal "OK\n", pipe_output("tclsh", test_bwidget), "Bwidget test failed"
+    assert_equal version.to_s, pipe_output("#{Formula["tcl-tk"].bin}/tclsh", test_bwidget).chomp
   end
 end
