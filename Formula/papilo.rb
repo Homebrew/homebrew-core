@@ -26,11 +26,11 @@ class Papilo < Formula
     system "cmake", "--build", "papilo-build"
     system "cmake", "--install", "papilo-build"
 
-    prefix.install "papilo/test/instances/test.mps"
+    pkgshare.install "papilo/test/instances/test.mps"
   end
 
   test do
-    output = shell_output("#{bin}/papilo presolve -f #{prefix}/test.mps")
+    output = shell_output("#{bin}/papilo presolve -f #{pkgshare}/test.mps")
     assert_match "presolving finished after", output
   end
 end
