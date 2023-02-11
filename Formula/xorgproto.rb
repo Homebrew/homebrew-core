@@ -38,7 +38,9 @@ class Xorgproto < Formula
   end
 
   test do
-    assert_equal "-I#{include}", shell_output("pkg-config --cflags xproto").chomp
-    assert_equal "-I#{include}/X11/dri", shell_output("pkg-config --cflags xf86driproto").chomp
+    xproto_pkg_config_cmd = Formula["pkg-config"].opt_bin/"pkg-config --cflags xproto"
+    assert_equal "-I#{include}", shell_output(xproto_pkg_config_cmd).chomp
+    xf86driproto_pkg_config_cmd = Formula["pkg-config"].opt_bin/"pkg-config --cflags xf86driproto"
+    assert_equal "-I#{include}/X11/dri", shell_output(xf86driproto_pkg_config_cmd).chomp
   end
 end
