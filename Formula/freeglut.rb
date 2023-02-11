@@ -47,8 +47,10 @@ class Freeglut < Formula
 
   test do
     resource("init_error_func.c").stage(testpath)
-    flags = shell_output("pkg-config --cflags --libs glut gl xext x11").chomp.split
-    system ENV.cc, "init_error_func.c", "-o", "init_error_func", *flags
+
+    pkg_config_cmd = Formula["pkg-config"].opt_bin/"pkg-config --cflags --libs glut gl xext x11"
+    pkg_config_flags = shell_output(pkg_config_cmd).chomp.split
+    system ENV.cc, "init_error_func.c", "-o", "init_error_func", *pkg_config_flags
     assert_match "Entering user defined error handler", shell_output("./init_error_func 2>&1", 1)
   end
 end
