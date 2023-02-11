@@ -3,7 +3,7 @@ class Pachi < Formula
   homepage "https://pachi.or.cz/"
   url "https://github.com/pasky/pachi/archive/pachi-12.70.tar.gz"
   sha256 "5c5f081fec5ff6ad984f75c32c4c5b3d7d5b9dc5677a8058d9146b35fa922733"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   head "https://github.com/pasky/pachi.git", branch: "master"
 
   bottle do
@@ -32,7 +32,6 @@ class Pachi < Formula
     ENV["MAC"] = "1"
     ENV["DOUBLE_FLOATING"] = "1"
 
-    # https://github.com/pasky/pachi/issues/78
     inreplace "Makefile", "build.h: .git/HEAD .git/index", "build.h:"
     inreplace "Makefile", "DCNN=1", "DCNN=0"
 
