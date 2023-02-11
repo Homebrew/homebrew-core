@@ -33,7 +33,9 @@ class Libvdpau < Formula
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
   end
+
   test do
-    assert_match "-I#{include}", shell_output("pkg-config --cflags vdpau")
+    pkg_config_cmd = Formula["pkg-config"].opt_bin/"pkg-config --cflags vdpau"
+    assert_match "-I#{include}", shell_output(pkg_config_cmd)
   end
 end
