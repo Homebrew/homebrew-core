@@ -1,7 +1,6 @@
 class Zf < Formula
   desc "Command-line fuzzy finder that prioritizes matches on filenames"
   homepage "https://github.com/natecraddock/zf"
-
   # zf requires git submodules for dependencies until the Zig package manager is able
   # to resolve pure Zig dependencies, likely in Zig version 0.11.0
   url "https://github.com/natecraddock/zf.git",
