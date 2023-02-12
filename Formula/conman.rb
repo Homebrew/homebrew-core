@@ -32,11 +32,10 @@ class Conman < Formula
     assert_match "conman-#{version} FREEIPMI", shell_output("#{sbin}/conmand -V 2>&1")
 
     conffile = testpath/"conman.conf"
-    conffile.write(<<~EOS,
+    conffile.write <<~EOS
       console name="test-sleep1" dev="/bin/sleep 30"
       console name="test-sleep2" dev="/bin/sleep 30"
     EOS
-                  )
 
     fork { exec "#{sbin}/conmand", "-F", "-c", conffile }
     sleep 5
