@@ -19,7 +19,7 @@ class Arturo < Formula
   depends_on "mysql"
 
   def install
-    inreplace "build.nims", "ROOT_DIR    = r\"{getHomeDir()}.arturo\".fmt", "ROOT_DIR=\"#{prefix}\""
+    inreplace "build.nims", "ROOT_DIR        = r\"{getHomeDir()}.arturo\".fmt", "ROOT_DIR=\"#{prefix}\""
     # Use mini install on Linux to avoid webkit2gtk dependency, which does not have a formula.
     args = OS.mac? ? "" : "mini"
     system "./build.nims", "install", args
