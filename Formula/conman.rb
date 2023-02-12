@@ -3,7 +3,7 @@ class Conman < Formula
   homepage "https://github.com/dun/conman"
   url "https://github.com/dun/conman/archive/conman-0.3.1.tar.gz"
   sha256 "cd47d3d9a72579b470dd73d85cd3fec606fa5659c728ff3c1c57e970f4da72a2"
-  license "GPL-3.0-only"
+  license "GPL-3.0-or-later"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
