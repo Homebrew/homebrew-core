@@ -85,13 +85,13 @@ class Jack < Formula
         exec "#{bin}/jackd", "-d", "dummy"
       end
     end
-    system "#{testpath}/jack_wait", "--wait", "--timeout", "10"
+    system "#{bin}/jack_wait", "--wait", "--timeout", "10"
     fork do
-      exec "#{testpath}/jack_midiseq", source_name, "16000", "0", "60", "8000"
+      exec "#{bin}/jack_midiseq", source_name, "16000", "0", "60", "8000"
     end
-    midi_sink = IO.popen "#{testpath}/jack_midi_dump #{sink_name}"
+    midi_sink = IO.popen "#{bin}/jack_midi_dump #{sink_name}"
     sleep 1
-    system "#{testpath}/jack_connect", "#{source_name}:out", "#{sink_name}:input"
+    system "#{bin}/jack_connect", "#{source_name}:out", "#{sink_name}:input"
     sleep 1
     Process.kill "TERM", midi_sink.pid
 
