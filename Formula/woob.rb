@@ -3,8 +3,8 @@ class Woob < Formula
 
   desc "Web Outside of Browsers"
   homepage "https://woob.tech/"
-  url "https://files.pythonhosted.org/packages/fa/32/6ac87f318955292f7917600d8e1d42146279c238a85365428f6944c6b3b9/woob-3.2.tar.gz"
-  sha256 "f3207daa894153af6e21cad8dc99ad4d68915de7316515421d8009cb90ada780"
+  url "https://files.pythonhosted.org/packages/56/db/e1490d10ddcf2af5b9f11a11852679da45f26c95646efb8722c69e3d01db/woob-3.3.1.tar.gz"
+  sha256 "9d8b0ee0d3d357fc8a01e78b80a64b87c5cb0cc8c5ea8bb82f5831296f73dc6b"
   license "LGPL-3.0-or-later"
 
   livecheck do
@@ -51,11 +51,6 @@ class Woob < Formula
     sha256 "08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44"
   end
 
-  resource "cssselect" do
-    url "https://files.pythonhosted.org/packages/d1/91/d51202cc41fbfca7fa332f43a5adac4b253962588c7cc5a54824b019081c/cssselect-1.2.0.tar.gz"
-    sha256 "666b19839cfaddb9ce9d36bfe4c969132c647b92fc9088c4e23f786b30f1b3dc"
-  end
-
   resource "html2text" do
     url "https://files.pythonhosted.org/packages/6c/f9/033a17d8ea8181aee41f20c74c3b20f1ccbefbbc3f7cd24e3692de99fb25/html2text-2020.1.16.tar.gz"
     sha256 "e296318e16b059ddb97f7a8a1d6a5c1d7af4544049a01e261731d2d5cc277bbb"
@@ -69,6 +64,11 @@ class Woob < Formula
   resource "lxml" do
     url "https://files.pythonhosted.org/packages/06/5a/e11cad7b79f2cf3dd2ff8f81fa8ca667e7591d3d8451768589996b65dec1/lxml-4.9.2.tar.gz"
     sha256 "2455cfaeb7ac70338b3257f41e21f0724f4b5b0c0e7702da67ee6c3640835b67"
+  end
+
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/47/d5/aca8ff6f49aa5565df1c826e7bf5e85a6df852ee063600c1efa5b932968c/packaging-23.0.tar.gz"
+    sha256 "b6ad297f8907de0fa2fe1ccbd26fdaf387f5f47c7275fedf8cce89f99446cf97"
   end
 
   resource "python-dateutil" do
