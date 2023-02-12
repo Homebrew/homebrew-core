@@ -69,7 +69,10 @@ class Getdns < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-I#{include}", "-o", "test", "test.c", "-L#{lib}", "-lgetdns"
+
+    pkg_config_cmd = Formula["pkg-config"].opt_bin/"pkg-config --cflags --libs getdns"
+    pkg_config_flags = shell_output(pkg_config_cmd).chomp.split
+    system ENV.cc, "-o", "test", "test.c", *pkg_config_flags
     system "./test"
   end
 end
