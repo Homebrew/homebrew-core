@@ -3,8 +3,8 @@ class Snakemake < Formula
 
   desc "Pythonic workflow system"
   homepage "https://snakemake.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/4b/e4/8d851251f0b0da99ba99ff34be2f29f6ce4dba901565b74af6b0def0f965/snakemake-7.21.0.tar.gz"
-  sha256 "ebf91f4ca5c70809fcbfd2e8cbc982096cdadac1ec34138bb147b4a8c975c85b"
+  url "https://files.pythonhosted.org/packages/5f/b6/513a64da9bc5a45f8fa7fc11e47959a9f69d63abe772b3db890e510b774b/snakemake-7.22.0.tar.gz"
+  sha256 "68d7bb4ab7555f7b58a3ba748a880024df919042cfb670da231886385de697cd"
   license "MIT"
   head "https://github.com/snakemake/snakemake.git", branch: "main"
 
@@ -120,8 +120,8 @@ class Snakemake < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/cf/4d/198b7e6c6c2b152f4f9f4cdf975d3590e33e63f1920f2d89af7f0390e6db/platformdirs-2.6.2.tar.gz"
-    sha256 "e1fea1fe471b9ff8332e229df3cb7de4f53eeea4998d3b6bfff542115e998bd2"
+    url "https://files.pythonhosted.org/packages/11/39/702094fc1434a4408783b071665d9f5d8a1d0ba4dddf9dadf3d50e6eb762/platformdirs-3.0.0.tar.gz"
+    sha256 "8a1228abb1ef82d788f74139988b137e78692984ec7b08eaa6c65f1723af28f9"
   end
 
   resource "psutil" do
