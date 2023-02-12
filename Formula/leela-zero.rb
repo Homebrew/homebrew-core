@@ -5,7 +5,7 @@ class LeelaZero < Formula
   url "https://github.com/leela-zero/leela-zero.git",
       tag:      "v0.17",
       revision: "3f297889563bcbec671982c655996ccff63fa253"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
   revision 3
 
   bottle do
@@ -34,17 +34,14 @@ class LeelaZero < Formula
   end
 
   def install
-    mkdir "build"
-    cd "build" do
-      system "cmake", "..", *std_cmake_args
-      system "cmake", "--build", "."
-      bin.install "leelaz"
-    end
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
     pkgshare.install resource("network")
   end
 
   test do
-    system "#{bin}/leelaz", "--help"
+    system bin/"leelaz", "--help"
     assert_match(/^= [A-T][0-9]+$/,
       pipe_output("#{bin}/leelaz --cpu-only --gtp -w #{pkgshare}/*.gz", "genmove b\n", 0))
   end
