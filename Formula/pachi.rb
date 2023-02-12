@@ -1,8 +1,8 @@
 class Pachi < Formula
   desc "Software for the Board Game of Go/Weiqi/Baduk"
   homepage "https://pachi.or.cz/"
-  url "https://github.com/pasky/pachi/archive/pachi-12.60.tar.gz"
-  sha256 "3c05cf4fe5206ba4cbe0e0026ec3225232261b44e9e05e45f76193b4b31ff8e9"
+  url "https://github.com/pasky/pachi/archive/pachi-12.70.tar.gz"
+  sha256 "5c5f081fec5ff6ad984f75c32c4c5b3d7d5b9dc5677a8058d9146b35fa922733"
   license "GPL-2.0"
   head "https://github.com/pasky/pachi.git", branch: "master"
 
@@ -18,40 +18,28 @@ class Pachi < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e0fc26989c0cf90b6fa2256e129b0b87993464ec27ad88fefe569abdd9702292"
   end
 
-  resource "patterns" do
-    url "https://sainet-dist.s3.amazonaws.com/pachi_patterns.zip"
-    sha256 "73045eed2a15c5cb54bcdb7e60b106729009fa0a809d388dfd80f26c07ca7cbc"
-  end
+  depends_on "caffe"
 
-  resource "book" do
-    url "https://gnugo.baduk.org/books/ra6.zip"
-    sha256 "1e7ffc75c424e94338308c048aacc479da6ac5cbe77c0df8adc733956872485a"
+  resource "datafiles" do
+    url "https://launchpad.net/~lemonsqueeze/+archive/ubuntu/pachi/+sourcefiles/pachi-go-data/12.70/pachi-go-data_12.70.orig.tar.xz"
+    sha256 "f907292e34d3d4e79b0ca1d6181b36fe15aad3741a02f622094657a909910a8b"
   end
 
   def install
+    ENV["DESTDIR"] = HOMEBREW_PREFIX
+    ENV["DATADIR"] = pkgshare
+    ENV["GENERIC"] = "1"                # make cpu-generic binary (intel)
     ENV["MAC"] = "1"
     ENV["DOUBLE_FLOATING"] = "1"
 
     # https://github.com/pasky/pachi/issues/78
     inreplace "Makefile", "build.h: .git/HEAD .git/index", "build.h:"
-    inreplace "Makefile", "DCNN=1", "DCNN=0"
 
     system "make"
-    bin.install "pachi"
 
-    pkgshare.install resource("patterns")
-    pkgshare.install resource("book")
-  end
-
-  def caveats
-    <<~EOS
-      This formula also downloads additional data, such as opening books
-      and pattern files. They are stored in #{opt_pkgshare}.
-
-      At present, pachi cannot be pointed to external files, so make sure
-      to set the working directory to #{opt_pkgshare} if you want pachi
-      to take advantage of these additional files.
-    EOS
+    buildpath.install resource("datafiles")     # copy missing datafiles (dcnn)
+    system "make", "install"
+    system "make", "install-data"               # install datafiles in /usr/share/pachi
   end
 
   test do
