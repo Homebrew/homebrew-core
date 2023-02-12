@@ -1,10 +1,9 @@
 class Getdns < Formula
   desc "Modern asynchronous DNS API"
   homepage "https://getdnsapi.net"
-  url "https://getdnsapi.net/releases/getdns-1-7-0/getdns-1.7.0.tar.gz"
-  sha256 "ea8713ce5e077ac76b1418ceb6afd25e6d4e39e9600f6f5e81d3a3a13a60f652"
+  url "https://getdnsapi.net/releases/getdns-1-7-3/getdns-1.7.3.tar.gz"
+  sha256 "f1404ca250f02e37a118aa00cf0ec2cbe11896e060c6d369c6761baea7d55a2c"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/getdnsapi/getdns.git", branch: "develop"
 
   # We check the GitHub releases instead of https://getdnsapi.net/releases/,
