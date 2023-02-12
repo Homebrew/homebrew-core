@@ -59,9 +59,9 @@ class Jack < Formula
     system python3, "./waf", "configure", "--prefix=#{prefix}"
     system python3, "./waf", "build"
     system python3, "./waf", "install"
+  end
 
-    # builds after jack
-    ENV.prepend_path "PKG_CONFIG_PATH", Formula["jack"].opt_lib/"pkgconfig"
+  def post_install
     resource("jack-example-tools").stage do
       system "meson", "setup", "build", "--prefix=#{prefix}/jack-example-tools", "--mandir=#{man}", *std_meson_args
       system "meson", "compile", "-C", "build", "--verbose"
