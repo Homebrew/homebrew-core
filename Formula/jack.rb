@@ -40,7 +40,7 @@ class Jack < Formula
 
   def install
     if OS.mac? && MacOS.version <= :high_sierra
-      # See https://github.com/jackaudio/jack2/issues/640#issuecomment-723022578
+      # See jackaudio/jack2#issues/640#issuecomment-723022578
       ENV.append "LDFLAGS", "-Wl,-compatibility_version,1"
       ENV.append "LDFLAGS", "-Wl,-current_version,#{version}"
     end
