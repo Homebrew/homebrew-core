@@ -25,10 +25,10 @@ class Jack < Formula
   depends_on "automake" => :build
   depends_on "cmake" => :build
   depends_on "libtool" => :build
-  depends_on "pkg-config" => :build
-  depends_on "python@3.11" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
+  depends_on "pkg-config" => :build
+  depends_on "python@3.11" => :build
   depends_on "berkeley-db"
   depends_on "libsamplerate"
   depends_on "libsndfile"
@@ -63,7 +63,7 @@ class Jack < Formula
     # builds after jack
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["jack"].opt_lib/"pkgconfig"
     resource("jack-example-tools").stage do
-      system "meson", "setup", "build", "--prefix=#{prefix}/jack-example-tools","--mandir=#{man}",*std_meson_args
+      system "meson", "setup", "build", "--prefix=#{prefix}/jack-example-tools", "--mandir=#{man}", *std_meson_args
       system "meson", "compile", "-C", "build", "--verbose"
       system "meson", "install", "-C", "build"
     end
