@@ -1,8 +1,8 @@
 class GitAnnex < Formula
   desc "Manage files with git without checking in file contents"
   homepage "https://git-annex.branchable.com/"
-  url "https://hackage.haskell.org/package/git-annex-10.20221212/git-annex-10.20221212.tar.gz"
-  sha256 "ef67b4b93728d86050d6e6ec862e950cd6f9db488aea9c840092f024b8a0d629"
+  url "https://hackage.haskell.org/package/git-annex-10.20230126/git-annex-10.20230126.tar.gz"
+  sha256 "f5b2c8561cf9085e1d0de0aba2215e7c6b50e2afb597c3263d3ff606a47d6519"
   license all_of: ["AGPL-3.0-or-later", "BSD-2-Clause", "BSD-3-Clause",
                    "GPL-2.0-only", "GPL-3.0-or-later", "MIT"]
   head "git://git-annex.branchable.com/", branch: "master"
@@ -18,43 +18,29 @@ class GitAnnex < Formula
   end
 
   depends_on "cabal-install" => :build
+  depends_on "ghc" => :build
   depends_on "pkg-config" => :build
   depends_on "libmagic"
 
-  on_arm do
-    # An llc process leak in GHC 8.10 causes build to fail on ARM CI.
-    # Since some `git-annex` Haskell dependencies don't cleanly build
-    # with GHC 9.2+, we add workarounds to successfully build.
-    #
-    # Ref: https://github.com/Homebrew/homebrew-core/pull/99021
-    # TODO: Try to switch to `ghc` when feed has a release that allows base>=4.17
-    depends_on "ghc@9.2" => :build
+  resource "bloomfilter" do
+    url "https://hackage.haskell.org/package/bloomfilter-2.0.1.0/bloomfilter-2.0.1.0.tar.gz"
+    sha256 "6c5e0d357d5d39efe97ae2776e8fb533fa50c1c05397c7b85020b0f098ad790f"
 
-    resource "bloomfilter" do
-      url "https://hackage.haskell.org/package/bloomfilter-2.0.1.0/bloomfilter-2.0.1.0.tar.gz"
-      sha256 "6c5e0d357d5d39efe97ae2776e8fb533fa50c1c05397c7b85020b0f098ad790f"
-
-      # Fix build with GHC 9.2
-      # PR ref: https://github.com/bos/bloomfilter/pull/20
-      patch do
-        url "https://github.com/bos/bloomfilter/commit/fb79b39c44404fd791a3bed973e9d844fb084f1e.patch?full_index=1"
-        sha256 "c91c45fbdeb92f9dcb9b55412d14603b4e480139f6638e8b6ed651acd92409f3"
-      end
+    # Fix build with GHC >= 9.2
+    # PR ref: https://github.com/bos/bloomfilter/pull/20
+    patch do
+      url "https://github.com/bos/bloomfilter/commit/fb79b39c44404fd791a3bed973e9d844fb084f1e.patch?full_index=1"
+      sha256 "c91c45fbdeb92f9dcb9b55412d14603b4e480139f6638e8b6ed651acd92409f3"
     end
-  end
-  on_intel do
-    depends_on "ghc@8.10" => :build
   end
 
   def install
-    # Add workarounds to build with GHC 9.2
-    if Hardware::CPU.arm?
-      (buildpath/"homebrew/bloomfilter").install resource("bloomfilter")
-      (buildpath/"cabal.project.local").write <<~EOS
-        packages: ./*.cabal
-                  homebrew/bloomfilter/
-      EOS
-    end
+    # Add workarounds to build with GHC >= 9.2
+    (buildpath/"homebrew/bloomfilter").install resource("bloomfilter")
+    (buildpath/"cabal.project.local").write <<~EOS
+      packages: ./*.cabal
+                homebrew/bloomfilter/
+    EOS
 
     system "cabal", "v2-update"
     system "cabal", "v2-install", *std_cabal_v2_args, "--flags=+S3"
