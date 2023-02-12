@@ -55,16 +55,17 @@ class Jack < Formula
       ENV.append "LDFLAGS", "-Wl,-current_version,#{version}"
     end
 
+    python3 = "python3.11"
+    system python3, "./waf", "configure", "--prefix=#{prefix}"
+    system python3, "./waf", "build"
+    system python3, "./waf", "install"
+
+    # builds after jack
     resource("jack-example-tools").stage do
       system "meson", "setup", "build", *std_meson_args
       system "meson", "compile", "-C", "build", "--verbose"
       system "meson", "install", "-C", "build"
     end
-
-    python3 = "python3.11"
-    system python3, "./waf", "configure", "--prefix=#{prefix}"
-    system python3, "./waf", "build"
-    system python3, "./waf", "install"
   end
 
   service do
