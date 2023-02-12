@@ -24,7 +24,6 @@ class Gnutls < Formula
   depends_on "pkg-config" => :build
   depends_on "ca-certificates"
   depends_on "gmp"
-  depends_on "guile"
   depends_on "libidn2"
   depends_on "libtasn1"
   depends_on "libunistring"
@@ -42,9 +41,6 @@ class Gnutls < Formula
       --prefix=#{prefix}
       --sysconfdir=#{etc}
       --with-default-trust-store-file=#{pkgetc}/cert.pem
-      --with-guile-site-dir=#{share}/guile/site/3.0
-      --with-guile-site-ccache-dir=#{lib}/guile/3.0/site-ccache
-      --with-guile-extension-dir=#{lib}/guile/3.0/extensions
       --disable-heartbeat-support
       --with-p11-kit
     ]
@@ -60,35 +56,16 @@ class Gnutls < Formula
   def post_install
     rm_f pkgetc/"cert.pem"
     pkgetc.install_symlink Formula["ca-certificates"].pkgetc/"cert.pem"
-
-    # Touch gnutls.go to avoid Guile recompilation.
-    # See https://github.com/Homebrew/homebrew-core/pull/60307#discussion_r478917491
-    touch lib/"guile/3.0/site-ccache/gnutls.go"
   end
 
   def caveats
     <<~EOS
-      If you are going to use the Guile bindings you will need to add the following
-      to your .bashrc or equivalent in order for Guile to find the TLS certificates
-      database:
-        export GUILE_TLS_CERTIFICATE_DIRECTORY=#{pkgetc}/
+      Guile bindings are now in the `guile-gnutls` formula.
     EOS
   end
 
   test do
+    # TODO: Ship a better test.
     system bin/"gnutls-cli", "--version"
-
-    gnutls = testpath/"gnutls.scm"
-    gnutls.write <<~EOS
-      (use-modules (gnutls))
-      (gnutls-version)
-    EOS
-
-    ENV["GUILE_AUTO_COMPILE"] = "0"
-    ENV["GUILE_LOAD_PATH"] = HOMEBREW_PREFIX/"share/guile/site/3.0"
-    ENV["GUILE_LOAD_COMPILED_PATH"] = HOMEBREW_PREFIX/"lib/guile/3.0/site-ccache"
-    ENV["GUILE_SYSTEM_EXTENSIONS_PATH"] = HOMEBREW_PREFIX/"lib/guile/3.0/extensions"
-
-    system "guile", gnutls
   end
 end
