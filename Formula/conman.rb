@@ -16,6 +16,7 @@ class Conman < Formula
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make", "install"
+    inreplace Dir["#{pkgshare}/examples/*.exp"], "/usr/share/", "#{share}/"
   end
 
   def caveats
@@ -30,7 +31,18 @@ class Conman < Formula
   end
 
   test do
-    system bin/"conman", "-V"
-    system sbin/"conmand", "-V"
+    assert_match "conman-#{version}", shell_output("#{bin}/conman -V 2>&1")
+    assert_match "conman-#{version} FREEIPMI", shell_output("#{sbin}/conmand -V 2>&1")
+
+    conffile = testpath/"conman.conf"
+    conffile.write(<<~EOS,
+      console name="test-sleep1" dev="/bin/sleep 30"
+      console name="test-sleep2" dev="/bin/sleep 30"
+    EOS
+                  )
+
+    fork { exec "#{sbin}/conmand", "-F", "-c", conffile }
+    sleep 5
+    assert_match(/test-sleep\d\ntest-sleep\d\n/, shell_output("#{bin}/conman -q 2>&1"))
   end
 end
