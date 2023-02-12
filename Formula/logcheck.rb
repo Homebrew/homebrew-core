@@ -14,7 +14,16 @@ class Logcheck < Formula
     sha256 cellar: :any_skip_relocation, all: "ce01d92a5ca847e047f0123f6e27d0708bc0f0d768e30021a8660ca796b32aa9"
   end
 
+  on_macos do
+    depends_on "gnu-sed" => :build
+  end
+
   def install
+    # use gnu-sed on macOS
+    ENV.prepend_path "PATH", Formula["gnu-sed"].libexec/"gnubin" if OS.mac?
+
+    # Fix dependency on `dpkg-parsechangelog`
+    inreplace "Makefile", "$$(dpkg-parsechangelog -S version)", version.to_s
     inreplace "Makefile", "$(DESTDIR)/$(CONFDIR)", "$(CONFDIR)"
     system "make", "install", "--always-make", "DESTDIR=#{prefix}",
                    "SBINDIR=sbin", "BINDIR=bin", "CONFDIR=#{etc}/logcheck"
