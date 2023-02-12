@@ -46,6 +46,7 @@ class Binutils < Formula
       "--enable-targets=all",
       "--with-system-zlib",
       "--disable-nls",
+      "--enable-install-libiberty",
     ]
     system "./configure", *args
     system "make", *make_args
