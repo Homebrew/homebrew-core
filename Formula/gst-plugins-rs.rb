@@ -1,10 +1,11 @@
 class GstPluginsRs < Formula
+  include Language::Python::Shebang
+
   desc "GStreamer plugins written in Rust"
   homepage "https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs"
-  url "https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/0.8.4/gst-plugins-rs-0.8.4.tar.bz2"
-  sha256 "c3499bb73d44f93f0d5238a09e121bef96750e8869651e09daaee5777c2e215c"
+  url "https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/0.9.8/gst-plugins-rs-0.9.8.tar.bz2"
+  sha256 "4e6cd84bdae00913414c259549477d9f980a9822b7611bcab6e0f73fec510fa3"
   license "MIT"
-  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "919fe1d643d32b727d5f074f64be8fead7c8938bda439b4195438e442eb56633"
@@ -20,18 +21,19 @@ class GstPluginsRs < Formula
   depends_on "cargo-c" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
+  depends_on "python@3.11" => :build # for tomllib
   depends_on "rust" => :build
   depends_on "dav1d"
+  depends_on "gst-plugins-bad" # for gst-webrtc
   depends_on "gst-plugins-base"
   depends_on "gstreamer"
   depends_on "gtk4"
+  depends_on "libpthread-stubs"
   depends_on "pango" # for closedcaption
 
-  # commit ref, https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/commit/ea98a0b5964cd196abbb48c621969a8ef33eb157
-  # remove in next release
-  patch :DATA
-
   def install
+    rewrite_shebang detected_python_shebang, "dependencies.py"
+
     mkdir "build" do
       # csound is disabled as the dependency detection seems to fail
       # the sodium crate fails while building native code as well
@@ -54,18 +56,3 @@ class GstPluginsRs < Formula
     assert_match version.to_s, output
   end
 end
-
-__END__
-diff --git a/video/dav1d/Cargo.toml b/video/dav1d/Cargo.toml
-index 9ae00ef..2c2e005 100644
---- a/video/dav1d/Cargo.toml
-+++ b/video/dav1d/Cargo.toml
-@@ -10,7 +10,7 @@ description = "Dav1d Plugin"
-
- [dependencies]
- atomic_refcell = "0.1"
--dav1d = "0.7"
-+dav1d = "0.8"
- gst = { package = "gstreamer", git = "https://gitlab.freedesktop.org/gstreamer/gstreamer-rs", branch = "0.18", version = "0.18" }
- gst-base = { package = "gstreamer-base", git = "https://gitlab.freedesktop.org/gstreamer/gstreamer-rs", branch = "0.18", version = "0.18" }
- gst-video = { package = "gstreamer-video", git = "https://gitlab.freedesktop.org/gstreamer/gstreamer-rs", branch = "0.18", version = "0.18", features = ["v1_12"] }
