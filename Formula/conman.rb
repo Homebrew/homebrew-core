@@ -13,7 +13,7 @@ class Conman < Formula
     system "./bootstrap"
     system "./configure", *std_configure_args, "--disable-silent-rules", "--sysconfdir=#{etc}"
     system "make", "install"
-    inreplace Dir["#{pkgshare}/examples/*.exp"], "/usr/share/", "#{share}/"
+    inreplace pkgshare.glob("examples/*.exp"), "/usr/share/", "#{opt_share}/"
   end
 
   def caveats
