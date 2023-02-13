@@ -3,8 +3,8 @@ class Sceptre < Formula
 
   desc "Build better AWS infrastructure"
   homepage "https://docs.sceptre-project.org/"
-  url "https://files.pythonhosted.org/packages/fe/a6/e9b320aa3d24c0e199f4bcc83534b89f06048133384e0e3cc01244dbb1bf/sceptre-4.0.0.tar.gz"
-  sha256 "979c981b9e8fe24551a76c22d78b7a5e650b2606b3d74856f73b6843cb643709"
+  url "https://files.pythonhosted.org/packages/24/f8/f16102d9aa808e6cf4c277cdc8cd35b356f04dfa217232ceffb4dd80f97b/sceptre-4.0.1.tar.gz"
+  sha256 "c72844c4f41fe90fd5f5efaaba340f4433e0b1320cbc62c62dfeb2a071879ef2"
   license "Apache-2.0"
 
   bottle do
