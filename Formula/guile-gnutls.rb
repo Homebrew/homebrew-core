@@ -40,7 +40,7 @@ class GuileGnutls < Formula
       If you are going to use the Guile bindings you will need to add the following
       to your .bashrc or equivalent in order for Guile to find the TLS certificates
       database:
-        export GUILE_TLS_CERTIFICATE_DIRECTORY=#{pkgetc}/
+        export GUILE_TLS_CERTIFICATE_DIRECTORY=#{Formula["gnutls"].pkgetc}/
     EOS
   end
 
