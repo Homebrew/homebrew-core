@@ -1,8 +1,6 @@
 class Gradle < Formula
   desc "Open-source build automation tool based on the Groovy and Kotlin DSL"
   homepage "https://www.gradle.org/"
-  # TODO: switch dependency to `openjdk` on 7.6.
-  # Ref: https://github.com/gradle/gradle/issues/20372
   url "https://services.gradle.org/distributions/gradle-8.0-all.zip"
   sha256 "f30b29580fe11719087d698da23f3b0f0d04031d8995f7dd8275a31f7674dc01"
   license "Apache-2.0"
@@ -23,12 +21,12 @@ class Gradle < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4ba00f5fb6200ba402ef737e47cd3c3c079d77466299c7ef49ed28de3b1c4dc5"
   end
 
-  depends_on "openjdk@17"
+  depends_on "openjdk"
 
   def install
     rm_f Dir["bin/*.bat"]
     libexec.install %w[bin docs lib src]
-    env = Language::Java.overridable_java_home_env("17")
+    env = Language::Java.overridable_java_home_env("19")
     (bin/"gradle").write_env_script libexec/"bin/gradle", env
   end
 
