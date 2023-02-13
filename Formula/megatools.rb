@@ -24,11 +24,10 @@ class Megatools < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
+  depends_on "curl" # curl >= 7.85.0 is required
   depends_on "glib"
   depends_on "glib-networking"
   depends_on "openssl@1.1"
-
-  uses_from_macos "curl"
 
   def install
     mkdir "build" do
