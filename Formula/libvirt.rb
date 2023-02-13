@@ -46,27 +46,24 @@ class Libvirt < Formula
 
   on_linux do
     depends_on "libtirpc"
-    depends_on "linux-headers@5.16"
   end
 
   fails_with gcc: "5"
 
   def install
-    mkdir "build" do
-      args = %W[
-        --localstatedir=#{var}
-        --mandir=#{man}
-        --sysconfdir=#{etc}
-        -Ddriver_esx=enabled
-        -Ddriver_qemu=enabled
-        -Ddriver_network=enabled
-        -Dinit_script=none
-        -Dqemu_datadir=#{Formula["qemu"].opt_pkgshare}
-      ]
-      system "meson", *std_meson_args, *args, ".."
-      system "meson", "compile"
-      system "meson", "install"
-    end
+    args = %W[
+      --localstatedir=#{var}
+      --mandir=#{man}
+      --sysconfdir=#{etc}
+      -Ddriver_esx=enabled
+      -Ddriver_qemu=enabled
+      -Ddriver_network=enabled
+      -Dinit_script=none
+      -Dqemu_datadir=#{Formula["qemu"].opt_pkgshare}
+    ]
+    system "meson", "setup", "build", *args, *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   service do
