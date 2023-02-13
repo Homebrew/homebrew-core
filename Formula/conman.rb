@@ -11,7 +11,7 @@ class Conman < Formula
 
   def install
     system "./bootstrap"
-    system "./configure", *std_configure_args, "--disable-silent-rules"
+    system "./configure", *std_configure_args, "--disable-silent-rules", "--sysconfdir=#{etc}"
     system "make", "install"
     inreplace Dir["#{pkgshare}/examples/*.exp"], "/usr/share/", "#{share}/"
   end
