@@ -65,7 +65,7 @@ class Gnutls < Formula
   end
 
   test do
-    # TODO: Ship a better test.
     system bin/"gnutls-cli", "--version"
+    assert_match "expired certificate", shell_output("#{bin}/gnutls-cli expired.badssl.com", 1)
   end
 end
