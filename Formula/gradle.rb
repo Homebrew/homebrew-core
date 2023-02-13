@@ -3,8 +3,8 @@ class Gradle < Formula
   homepage "https://www.gradle.org/"
   # TODO: switch dependency to `openjdk` on 7.6.
   # Ref: https://github.com/gradle/gradle/issues/20372
-  url "https://services.gradle.org/distributions/gradle-7.6-all.zip"
-  sha256 "312eb12875e1747e05c2f81a4789902d7e4ec5defbd1eefeaccc08acf096505d"
+  url "https://services.gradle.org/distributions/gradle-8.0-all.zip"
+  sha256 "f30b29580fe11719087d698da23f3b0f0d04031d8995f7dd8275a31f7674dc01"
   license "Apache-2.0"
 
   livecheck do
