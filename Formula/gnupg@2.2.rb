@@ -32,6 +32,7 @@ class GnupgAT22 < Formula
   depends_on "libusb"
   depends_on "npth"
   depends_on "pinentry"
+  depends_on "readline" # Possible opportunistic linkage. TODO: Check if this can be removed.
 
   uses_from_macos "sqlite" => :build
 
