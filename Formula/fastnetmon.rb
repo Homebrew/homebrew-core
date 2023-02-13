@@ -30,8 +30,8 @@ class Fastnetmon < Formula
   uses_from_macos "ncurses"
 
   on_linux do
+    depends_on "elfutils"
     depends_on "libbpf"
-    depends_on "libelf"
     depends_on "libpcap"
 
     patch do
@@ -51,10 +51,10 @@ class Fastnetmon < Formula
   fails_with gcc: "5"
 
   # patch macOS build, remove in next release
-  # upstream PR ref, https://github.com/pavel-odintsov/fastnetmon/pull/950
+  # upstream PR ref, pavel-odintsov/fastnetmon#950
   patch do
-    url "https://github.com/pavel-odintsov/fastnetmon/commit/94d88b6bdfd438eaeac63f39441d4fc7e2bd76f0.patch?full_index=1"
-    sha256 "0b70fd1a9e47f2f1de3580564089e355905a89f5a05bfecd6d10f5b29a7d569a"
+    url "https://github.com/pavel-odintsov/fastnetmon/commit/b3895208c9aab27881c97e1181e7622ea3ea84b0.patch?full_index=1"
+    sha256 "8ee473b8b44765af6ad5bb9e9ffec7cb6b47bec196fb96de12f21bf890f778a1"
   end
 
   def install
