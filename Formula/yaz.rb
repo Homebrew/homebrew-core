@@ -37,6 +37,7 @@ class Yaz < Formula
   depends_on "pkg-config" => :build
   depends_on "gnutls"
   depends_on "icu4c"
+  depends_on "readline" # Possible opportunistic linkage. TODO: Check if this can be removed.
 
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
