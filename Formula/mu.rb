@@ -36,6 +36,7 @@ class Mu < Formula
   depends_on "gettext"
   depends_on "glib"
   depends_on "gmime"
+  depends_on "guile" # Possible opportunistic linkage. TODO: Check if this can be removed.
   depends_on "xapian"
 
   on_system :linux, macos: :ventura_or_newer do
