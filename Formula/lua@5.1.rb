@@ -23,8 +23,9 @@ class LuaAT51 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4b5ebc378db8f01127fdec3922b58252ede872cd6b70cbbde2adde311f1f699a"
   end
 
-  # Commented out while this formula still has dependents.
-  # deprecate! date: "2012-02-17", because: :unsupported
+  # See: https://www.lua.org/versions.html#5.1
+  # Last release on 2012-02-17
+  deprecate! date: "2023-02-12", because: :deprecated_upstream
 
   uses_from_macos "unzip"
 
