@@ -1,8 +1,8 @@
 class UtilMacros < Formula
   desc "X.Org: Set of autoconf macros used to build other xorg packages"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/util/util-macros-1.19.3.tar.bz2"
-  sha256 "0f812e6e9d2786ba8f54b960ee563c0663ddbe2434bf24ff193f5feab1f31971"
+  url "https://www.x.org/archive/individual/util/util-macros-1.20.0.tar.xz"
+  sha256 "0b86b262dbe971edb4ff233bc370dfad9f241d09f078a3f6d5b7f4b8ea4430db"
   license "MIT"
 
   bottle do
