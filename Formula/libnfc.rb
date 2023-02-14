@@ -37,7 +37,7 @@ class Libnfc < Formula
                           "--prefix=#{prefix}", "--enable-serial-autoprobe",
                           "--with-drivers=all"
     system "make", "install"
-    (prefix/"etc/nfc/libnfc.conf").write "allow_intrusive_scan=yes"
+    (prefix/"etc/nfc/libnfc.conf").write "allow_intrusive_scan=yes\n"
   end
 
   test do
