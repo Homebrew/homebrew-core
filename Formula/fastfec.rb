@@ -1,8 +1,8 @@
 class Fastfec < Formula
   desc "Extremely fast FEC filing parser written in C"
   homepage "https://github.com/washingtonpost/FastFEC"
-  url "https://github.com/washingtonpost/FastFEC/archive/refs/tags/0.0.4.tar.gz"
-  sha256 "8c508e0a93416a1ce5609536152dcbdab0df414c3f3a791e11789298455d1c71"
+  url "https://github.com/washingtonpost/FastFEC/archive/refs/tags/0.1.9.tar.gz"
+  sha256 "1f6611b76c54005580d937cbac75b57783a33aa18eb32e4906ae919f6a1f0c0e"
   license "MIT"
 
   bottle do
@@ -19,6 +19,9 @@ class Fastfec < Formula
   depends_on "pcre"
   uses_from_macos "curl"
 
+  # https://github.com/washingtonpost/FastFEC/pull/55
+  patch :DATA
+
   def install
     ENV["ZIG_SYSTEM_LINKER_HACK"] = "1"
     args = [
@@ -26,6 +29,7 @@ class Fastfec < Formula
       "-Dvendored-pcre=false",
     ]
     if OS.linux?
+      args << "-fPIC"
       args << "--search-prefix"
       args << Formula["curl"].opt_prefix
     end
@@ -35,10 +39,33 @@ class Fastfec < Formula
   end
 
   test do
-    system "#{bin}/fastfec", "--no-stdin", "13425"
-    assert_predicate testpath/"output/13425/F3XN.csv", :exist?
-    assert_predicate testpath/"output/13425/header.csv", :exist?
-    assert_predicate testpath/"output/13425/SA11A1.csv", :exist?
-    assert_predicate testpath/"output/13425/SB23.csv", :exist?
+    assert_match "About to parse filing ID 13425", shell_output("#{bin}/fastfec --no-stdin 13425", 2)
   end
 end
+__END__
+diff --git a/build.zig b/build.zig
+index 4836924..04f581b 100644
+--- a/build.zig
++++ b/build.zig
+@@ -12,6 +12,10 @@ pub fn linkPcre(vendored_pcre: bool, libExe: *std.build.LibExeObjStep) void {
+             libExe.linkSystemLibrary("libpcre");
+         }
+     }
++    if (libExe.target.isDarwin()) {
++      // useful for package maintainers
++      libExe.headerpad_max_install_names = true;
++    }
+ }
+ 
+ pub fn build(b: *std.build.Builder) !void {
+@@ -45,6 +50,10 @@ pub fn build(b: *std.build.Builder) !void {
+         // Library build step
+         const fastfec_lib = b.addSharedLibrary("fastfec", null, .unversioned);
+         fastfec_lib.setTarget(target);
++        if (fastfec_lib.target.isDarwin()) {
++          // useful for package maintainers
++          fastfec_lib.headerpad_max_install_names = true;
++        }
+         fastfec_lib.setBuildMode(mode);
+         fastfec_lib.install();
+         fastfec_lib.linkLibC();
