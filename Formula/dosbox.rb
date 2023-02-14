@@ -21,6 +21,11 @@ class Dosbox < Formula
     depends_on "automake" => :build
   end
 
+  # Has dependencies on deprecated `sdl_net` and `sdl_sound`.
+  # Recommend available forks that support SDL 2 or the Cask (macOS-only).
+  deprecate! date:    "2023-02-13",
+             because: "uses deprecated SDL 1.2. Consider `dosbox-x`/`dosbox-staging` formulae or `dosbox` cask"
+
   depends_on "libpng"
   depends_on "sdl12-compat"
   depends_on "sdl_net"
