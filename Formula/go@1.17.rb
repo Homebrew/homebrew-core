@@ -24,6 +24,10 @@ class GoAT117 < Formula
 
   keg_only :versioned_formula
 
+  # EOL with Go 1.19 release (2022-08-02)
+  # Ref: https://go.dev/doc/devel/release#policy
+  deprecate! date: "2023-02-14", because: :unsupported
+
   depends_on "go" => :build
 
   def install
