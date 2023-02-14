@@ -5,10 +5,6 @@ class Anttweakbar < Formula
   version "1.16"
   sha256 "fbceb719c13ceb13b9fd973840c2c950527b6e026f9a7a80968c14f76fcf6e7c"
 
-  livecheck do
-    skip "Not maintained"
-  end
-
   bottle do
     rebuild 2
     sha256 cellar: :any,                 arm64_ventura:  "6825d7d72639e43a4ba9aa648201118ef8e3f55b5163c809291ac233451d1dbe"
@@ -20,6 +16,11 @@ class Anttweakbar < Formula
     sha256 cellar: :any,                 catalina:       "4987c69c018c37bb0165f080d36f785c5454818cc529583a53a03088615759fe"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ae09470f66b8f8d6d6aae8125cc871565ab2fe349d5fc293c8e5534f90b8d1fc"
   end
+
+  # From https://sourceforge.net/projects/anttweakbar/:
+  # "The project is not maintained anymore but feel free to download
+  # and modify the source code to fit your needs or fix issues."
+  deprecate! date: "2023-02-14", because: :unmaintained
 
   on_linux do
     depends_on "libxcursor"
