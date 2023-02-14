@@ -1,8 +1,8 @@
 class UserspaceRcu < Formula
   desc "Library for userspace RCU (read-copy-update)"
   homepage "https://liburcu.org"
-  url "https://lttng.org/files/urcu/userspace-rcu-0.13.2.tar.bz2"
-  sha256 "1213fd9f1b0b74da7de2bb74335b76098db9738fec5d3cdc07c0c524f34fc032"
+  url "https://lttng.org/files/urcu/userspace-rcu-0.14.0.tar.bz2"
+  sha256 "ca43bf261d4d392cff20dfae440836603bf009fce24fdc9b2697d837a2239d4f"
   license all_of: ["LGPL-2.1-or-later", "MIT"]
 
   livecheck do
