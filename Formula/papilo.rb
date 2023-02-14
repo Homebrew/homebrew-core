@@ -33,7 +33,7 @@ class Papilo < Formula
     ]
 
     system "cmake", "-B", "papilo-build", "-S", ".", *cmake_args, *std_cmake_args
-    system "cmake", "--build", "papilo/build"
+    system "cmake", "--build", "papilo-build"
     system "cmake", "--install", "papilo-build"
 
     pkgshare.install "test/instances/test.mps"
