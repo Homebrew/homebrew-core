@@ -18,6 +18,9 @@ class Sz81 < Formula
     sha256 x86_64_linux:   "99dd0e53ec8daf391aa95acda0fa68578248088e6ab944f5615607a18cddfd82"
   end
 
+  # Last release on 2011-02-13
+  deprecate! date: "2023-02-13", because: :unmaintained
+
   depends_on "sdl12-compat"
 
   def install
