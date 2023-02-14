@@ -25,8 +25,7 @@ class SdlNet < Formula
   end
 
   # SDL 1.2 is deprecated, unsupported, and not recommended for new projects.
-  # Commented out while this formula still has dependents.
-  # deprecate! date: "2013-08-17", because: :deprecated_upstream
+  deprecate! date: "2023-02-13", because: :deprecated_upstream
 
   depends_on "pkg-config" => :build
   depends_on "sdl12-compat"
