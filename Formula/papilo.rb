@@ -1,8 +1,7 @@
 class Papilo < Formula
   desc "Parallel Presolve for Integer and Linear Optimization"
   homepage "https://www.scipopt.org"
-  url "https://scipopt.org/download/release/scipoptsuite-8.0.3.tgz"
-  version "2.1.2"
+  url "https://github.com/scipopt/papilo/archive/refs/tags/v2.1.2.tar.gz"
   sha256 "5ad50eb42254c825d96f5747d8f3568dcbff0284dfbd1a727910c5a7c2899091"
   license all_of: ["LGPL-3.0-only", "GPL-3.0-only"]
 
@@ -33,11 +32,11 @@ class Papilo < Formula
       -DBLA_VENDOR=OpenBLAS
     ]
 
-    system "cmake", "-B", "papilo-build", "-S", "./papilo", *cmake_args, *std_cmake_args
-    system "cmake", "--build", "papilo-build"
+    system "cmake", "-B", "papilo-build", "-S", ".", *cmake_args, *std_cmake_args
+    system "cmake", "--build", "papilo/build"
     system "cmake", "--install", "papilo-build"
 
-    pkgshare.install "papilo/test/instances/test.mps"
+    pkgshare.install "test/instances/test.mps"
   end
 
   test do
