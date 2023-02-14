@@ -1,8 +1,8 @@
 class AwsConsole < Formula
   desc "Command-line to use AWS CLI credentials to launch the AWS console in a browser"
   homepage "https://github.com/aws-cloudformation/rain"
-  url "https://github.com/aws-cloudformation/rain/archive/v1.2.0.tar.gz"
-  sha256 "064bc2b563c9b759d16147f33fe5c64bf0af3640cb4ae543e49615ae17b22e01"
+  url "https://github.com/aws-cloudformation/rain/archive/v1.3.0.tar.gz"
+  sha256 "ac693a4742269ce813e7679a5b83c239739ec04fc95cf569b6387ee16a3bf1fc"
   license "Apache-2.0"
 
   livecheck do
