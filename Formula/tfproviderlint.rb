@@ -18,6 +18,9 @@ class Tfproviderlint < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "76c181e440e93dca6784ff49c7592f2a039ba64785220c7f9eb66bdc73f3273a"
   end
 
+  # Issue ref: https://github.com/bflad/tfproviderlint/issues/255
+  deprecate! date: "2023-02-14", because: "errors with Go 1.18 or later"
+
   depends_on "go@1.17" => [:build, :test]
 
   resource "test_resource" do
