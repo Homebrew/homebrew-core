@@ -20,7 +20,6 @@ class MecabUnidic < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "083c740c7c309410266eb793755477b6d37da6f6c85dddbb62e31b27dcbae135"
     sha256 cellar: :any_skip_relocation, el_capitan:    "9ece990d89f8949c82003296bd256ebafddaf5d9caf03a63ea692f2009d52783"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "879c531b56d96abefea1809837e3309816fd442381766dea3675424ba7c6772e"
-    sha256 cellar: :any_skip_relocation, all:           "879c531b56d96abefea1809837e3309816fd442381766dea3675424ba7c6772e"
   end
 
   depends_on "mecab"
