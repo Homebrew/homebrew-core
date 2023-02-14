@@ -12,8 +12,8 @@ class Perkeep < Formula
 
     # Newer gopherjs to support a newer Go version.
     resource "gopherjs" do
-      url "https://github.com/gopherjs/gopherjs/archive/refs/tags/1.17.1+go1.17.3.tar.gz"
-      sha256 "8c5275ddf09646fdeb9df701f49425feb2327ec25dddfa49e2d9d323813398af"
+      url "https://github.com/gopherjs/gopherjs/archive/refs/tags/v1.18.0-beta2+go1.18.5.tar.gz"
+      sha256 "8dc2e85245343862e47ce9293e7c4b364cbd7aada734b823366ba10e72cfb93e"
     end
   end
 
@@ -29,7 +29,7 @@ class Perkeep < Formula
   end
 
   # This should match what gopherjs supports.
-  depends_on "go@1.17" => :build
+  depends_on "go@1.18" => :build
   depends_on "pkg-config" => :build
 
   conflicts_with "hello", because: "both install `hello` binaries"
@@ -37,7 +37,7 @@ class Perkeep < Formula
   def install
     if build.stable?
       ENV["GOPATH"] = buildpath
-      ENV["CAMLI_GOPHERJS_GOROOT"] = Formula["go"].opt_libexec
+      ENV["CAMLI_GOPHERJS_GOROOT"] = Formula["go@1.18"].opt_libexec
 
       (buildpath/"src/perkeep.org").install buildpath.children
 
