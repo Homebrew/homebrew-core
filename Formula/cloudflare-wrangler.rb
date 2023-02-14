@@ -1,10 +1,10 @@
 class CloudflareWrangler < Formula
   desc "CLI tool for Cloudflare Workers"
-  homepage "https://github.com/cloudflare/wrangler"
-  url "https://github.com/cloudflare/wrangler/archive/v1.20.0.tar.gz"
-  sha256 "ca6829372d471cc7155fe02a600e92afb1fdf0a4847c65b91aedb99119ef398a"
+  homepage "https://github.com/cloudflare/wrangler-legacy"
+  url "https://github.com/cloudflare/wrangler-legacy/archive/v1.20.0.tar.gz"
+  sha256 "3bb0fbc091e1bca95293bca968918a708f80051f25b65f12e756cca732a4f949"
   license any_of: ["Apache-2.0", "MIT"]
-  head "https://github.com/cloudflare/wrangler.git", branch: "master"
+  head "https://github.com/cloudflare/wrangler-legacy.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6fc9e1228716d8eda62a4919dc70ba86a71d57930b9ca9114aa8bff56da85e12"
@@ -16,6 +16,11 @@ class CloudflareWrangler < Formula
     sha256 cellar: :any_skip_relocation, catalina:       "56e6d54716315c45b5198782c5f00b95fc9a9a99b36dbba1a06cb3b7c9c819d9"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "89909585925717cb4e0e97532da21898d3cc027ae9ab1e14dd56225cb72e3a8a"
   end
+
+  # Wrangler v1 is deprecated as of 2023-02-16 but will receive support for
+  # critical updates until 2023-08-01, at which point all support for v1 will
+  # be sunsetted.
+  disable! date: "2023-08-01", because: :unsupported
 
   depends_on "rust" => :build
 
