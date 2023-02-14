@@ -18,8 +18,9 @@ class GuileAT2 < Formula
 
   keg_only :versioned_formula
 
-  # Commented out while this formula still has dependents.
-  # deprecate! date: "2020-04-07", because: :versioned_formula
+  # Original deprecation date: 2020-04-07
+  # Temporarily undeprecated from 2022-07-29 to 2023-02-13
+  deprecate! date: "2023-02-13", because: :versioned_formula
 
   depends_on "gnu-sed" => :build
   depends_on "bdw-gc"
