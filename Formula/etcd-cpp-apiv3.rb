@@ -1,8 +1,8 @@
 class EtcdCppApiv3 < Formula
   desc "C++ implementation for etcd's v3 client API, i.e., ETCDCTL_API=3"
   homepage "https://github.com/etcd-cpp-apiv3/etcd-cpp-apiv3"
-  url "https://github.com/etcd-cpp-apiv3/etcd-cpp-apiv3/archive/refs/tags/v0.2.12.tar.gz"
-  sha256 "84f969c663cdb7bf7b4bf9954446b7d585f89ae8f47655c175159b1dcabbfb07"
+  url "https://github.com/etcd-cpp-apiv3/etcd-cpp-apiv3/archive/refs/tags/v0.12.13.tar.gz"
+  sha256 "0a9f089cd4f3afb21ad45deeb98c21c8731a2f7f1d4af95837da3ae977148656"
   license "BSD-3-Clause"
 
   bottle do
@@ -81,8 +81,6 @@ class EtcdCppApiv3 < Formula
     etcd_pid = fork do
       if OS.mac? && Hardware::CPU.arm?
         # etcd isn't officially supported on arm64
-        # https://github.com/etcd-io/etcd/issues/10318
-        # https://github.com/etcd-io/etcd/issues/10677
         ENV["ETCD_UNSUPPORTED_ARCH"]="arm64"
       end
 
