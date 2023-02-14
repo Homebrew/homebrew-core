@@ -18,10 +18,14 @@ class Simdutf < Formula
   depends_on "cmake" => :build
   depends_on "python@3.11" => :build
   depends_on "icu4c"
-  depends_on "libiconv"
   depends_on macos: :catalina
 
+  on_macos do
+    depends_on "libiconv"
+  end
+
   def install
+    ENV.runtime_cpu_detection
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DBUILD_TESTING=ON"
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
