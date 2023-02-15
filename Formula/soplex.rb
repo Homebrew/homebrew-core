@@ -23,8 +23,8 @@ class Soplex < Formula
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "gmp"
-  depends_on "tbb"
   depends_on "papilo"
+  depends_on "tbb"
   uses_from_macos "zlib"
 
   def install
