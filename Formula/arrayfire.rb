@@ -32,6 +32,10 @@ class Arrayfire < Formula
       rpath(source: lib, target: HOMEBREW_PREFIX/"lib"),
     ]
 
+    # Our compiler shims strip `-Werror`, which breaks upstream detection of linker features.
+    # https://github.com/arrayfire/arrayfire/blob/715e21fcd6e989793d01c5781908f221720e7d48/src/backend/opencl/CMakeLists.txt#L598
+    inreplace "src/backend/opencl/CMakeLists.txt", "if(group_flags)", "if(FALSE)" if OS.mac?
+
     system "cmake", "-S", ".", "-B", "build",
                     "-DAF_BUILD_CUDA=OFF",
                     "-DAF_COMPUTE_LIBRARY=FFTW/LAPACK/BLAS",
