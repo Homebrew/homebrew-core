@@ -1,8 +1,8 @@
 class Nvc < Formula
   desc "VHDL compiler and simulator"
   homepage "https://github.com/nickg/nvc"
-  url "https://github.com/nickg/nvc/releases/download/r1.8.1/nvc-1.8.1.tar.gz"
-  sha256 "d17f01b3ec0b380be551e8374388aad96967b2646275c0003c4b506d56df6344"
+  url "https://github.com/nickg/nvc/releases/download/r1.8.2/nvc-1.8.2.tar.gz"
+  sha256 "d2fee04dbf5b08f3f39f535482ecb9d92c0dd09e7fa11588a9e57ac07ee5ef77"
   license "GPL-3.0-or-later"
 
   bottle do
