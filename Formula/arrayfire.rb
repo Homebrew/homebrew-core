@@ -19,8 +19,10 @@ class Arrayfire < Formula
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
   depends_on "fftw"
+  depends_on "fmt"
   depends_on "freeimage"
   depends_on "openblas"
+  depends_on "spdlog"
 
   fails_with gcc: "5"
 
@@ -38,6 +40,7 @@ class Arrayfire < Formula
 
     system "cmake", "-S", ".", "-B", "build",
                     "-DAF_BUILD_CUDA=OFF",
+                    "-DAF_WITH_EXTERNAL_PACKAGES_ONLY=ON", # avoid vendored deps
                     "-DAF_COMPUTE_LIBRARY=FFTW/LAPACK/BLAS",
                     "-DCMAKE_INSTALL_RPATH=#{rpaths.join(";")}",
                     *std_cmake_args
