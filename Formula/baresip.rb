@@ -1,8 +1,8 @@
 class Baresip < Formula
   desc "Modular SIP useragent"
   homepage "https://github.com/baresip/baresip"
-  url "https://github.com/baresip/baresip/archive/refs/tags/v2.11.0.tar.gz"
-  sha256 "fe0aeb3ae1d9c2d3bcc6d1a53adb8dbd34740de287a40a2d59d6c0cec58943c7"
+  url "https://github.com/baresip/baresip/archive/refs/tags/v2.12.0.tar.gz"
+  sha256 "784dceac625094367a8d4983ca1e432e51742d614e1be8e75ab3d1804bdaa80d"
   license "BSD-3-Clause"
 
   bottle do
