@@ -4,6 +4,7 @@ class GrafanaAgent < Formula
   url "https://github.com/grafana/agent/archive/refs/tags/v0.31.3.tar.gz"
   sha256 "b55218728cbbbc86ca8242d073bfe6297d04314edaeaab7e6b63b69d80ee61a2"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1076070a9f7bd1aa67cb69611afc8a92827f537cc4a297eb788ba006d77a419a"
@@ -16,6 +17,8 @@ class GrafanaAgent < Formula
   end
 
   depends_on "go" => :build
+  depends_on "node" => :build
+  depends_on "yarn" => :build
 
   on_linux do
     depends_on "systemd" => :build
@@ -29,7 +32,14 @@ class GrafanaAgent < Formula
       -X github.com/grafana/agent/pkg/build.BuildUser=#{tap.user}
       -X github.com/grafana/agent/pkg/build.BuildDate=#{time.iso8601}
     ]
-    args = std_go_args(ldflags: ldflags) + %w[-tags=noebpf]
+    args = std_go_args(ldflags: ldflags) + %w[-tags=builtinassets,noebpf]
+
+    # Build the UI, which is baked into the final binary when the builtinassets
+    # tag is set.
+    cd "web/ui" do
+      system "yarn"
+      system "yarn", "run", "build"
+    end
 
     system "go", "build", *args, "./cmd/grafana-agent"
     system "go", "build", *args, "-o", bin/"grafana-agentctl", "./cmd/grafana-agentctl"
