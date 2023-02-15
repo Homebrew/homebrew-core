@@ -70,6 +70,7 @@ class Envoy < Formula
       # external/v8/src/base/platform/platform-darwin.cc:56:22: 'getsectdatafromheader_64'
       # is deprecated: first deprecated in macOS 13.0.
       # https://bugs.chromium.org/p/v8/issues/detail?id=13428.
+      # Reference: https://github.com/envoyproxy/envoy/pull/23707.
       args << "--cxxopt=-Wno-deprecated-declarations"
       args << "--host_cxxopt=-Wno-deprecated-declarations"
     end
