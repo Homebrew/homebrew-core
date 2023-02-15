@@ -1,8 +1,6 @@
 class Algol68g < Formula
   desc "Algol 68 compiler-interpreter"
   homepage "https://jmvdveer.home.xs4all.nl/algol.html"
-  # The upstream download url currently returns a 404 error.
-  # Until fixed, we can use a copy from OpenBSD.
   url "https://jmvdveer.home.xs4all.nl/algol68g-3.1.2.tar.gz"
   sha256 "bcac9a5e20ef14c8c693ef418988cb056e76c290fc9d6fa1f6564231dc78261d"
   license "GPL-3.0-or-later"
