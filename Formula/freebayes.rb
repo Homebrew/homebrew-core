@@ -1,8 +1,8 @@
 class Freebayes < Formula
   desc "Bayesian haplotype-based genetic polymorphism discovery and genotyping"
   homepage "https://github.com/freebayes/freebayes"
-  url "https://github.com/freebayes/freebayes/releases/download/v1.3.6/freebayes-1.3.6-src.tar.gz"
-  sha256 "6016c1e58fdf34a1f6f77b720dd8e12e13a127f7cbac9c747e47954561b437f5"
+  url "https://github.com/freebayes/freebayes/archive/refs/tags/v1.3.7.tar.gz"
+  sha256 "89c2202aaa82925bc6a49e04df593e5ef3b1547b3b514efcbd490a54d8ad200b"
   license "MIT"
   head "https://github.com/freebayes/freebayes.git", branch: "master"
 
