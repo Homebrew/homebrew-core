@@ -22,6 +22,8 @@ class Wbox < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a7b840389d15d72983d68617019bc052ddcea1249468c939f53c70dc3d1dede3"
   end
 
+  deprecate! date: "2023-02-15", because: :repo_removed
+
   def install
     system "make"
     bin.install "wbox"
