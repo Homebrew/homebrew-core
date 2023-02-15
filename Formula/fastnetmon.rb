@@ -7,13 +7,14 @@ class Fastnetmon < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "4af807a58397ac1aaeb66ddf6a40370bdea2c263b564679ce8cf26a6cec15468"
-    sha256 cellar: :any,                 arm64_monterey: "dad57f07e2b09065646fe5ba4a95a6f3ca5b1942aeb6ce20fddd1ff295c5d1ad"
-    sha256 cellar: :any,                 arm64_big_sur:  "4bf8c6fede0588f485743747bca66426987785586541da2716081bc4bef9dfd0"
-    sha256 cellar: :any,                 ventura:        "d09403e88899dc70f290887f66390e046e37d4800eb015332cde3d4530c955f7"
-    sha256 cellar: :any,                 monterey:       "49eab6198e74cd00c5ea0994076000d4099348f676fbfd3cac10f39a551b377c"
-    sha256 cellar: :any,                 big_sur:        "9257546d16889bf24a33b06d67963c4d4eec6a9ea119fd49a5e35ba50c19370c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f9e80cc2b916e701a1048afd79d5b7420dc9a79be660a6f101a3e25f9e84abdc"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "2b4dda6d3c0f218d666e88f459dda479b322e26374c9f9dde86bdae5b1660ce2"
+    sha256 cellar: :any,                 arm64_monterey: "00ecd8349b21c859ea3c1cf175eaf7088272c1c881f913aeff436f1c63596104"
+    sha256 cellar: :any,                 arm64_big_sur:  "28e6a96d656dcfa6bc44da3c7a3dc95ad8d8bbeb7de07fea39010795ddd88b29"
+    sha256 cellar: :any,                 ventura:        "d4eae16a2d4ed1d01ccaa32e44eb8f9a352686a2a5e8edd9b8f6c49dc0e7f064"
+    sha256 cellar: :any,                 monterey:       "683804fc1a036bc97e1613783f031db86d6e8818ef9754b4eda54a9fec413f3c"
+    sha256 cellar: :any,                 big_sur:        "82f8d91c8f71cbf25c183bd5a5f6ddb6004272ebe65e4ac68611be942ab59c7a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "27777837bc3236e5abd9f799307aa3c09d5900c14b9e70c4d948ac48c01101b6"
   end
 
   depends_on "cmake" => :build
@@ -30,8 +31,8 @@ class Fastnetmon < Formula
   uses_from_macos "ncurses"
 
   on_linux do
+    depends_on "elfutils"
     depends_on "libbpf"
-    depends_on "libelf"
     depends_on "libpcap"
 
     patch do
@@ -51,10 +52,10 @@ class Fastnetmon < Formula
   fails_with gcc: "5"
 
   # patch macOS build, remove in next release
-  # upstream PR ref, https://github.com/pavel-odintsov/fastnetmon/pull/950
+  # upstream PR ref, pavel-odintsov/fastnetmon#950
   patch do
-    url "https://github.com/pavel-odintsov/fastnetmon/commit/94d88b6bdfd438eaeac63f39441d4fc7e2bd76f0.patch?full_index=1"
-    sha256 "0b70fd1a9e47f2f1de3580564089e355905a89f5a05bfecd6d10f5b29a7d569a"
+    url "https://github.com/pavel-odintsov/fastnetmon/commit/b3895208c9aab27881c97e1181e7622ea3ea84b0.patch?full_index=1"
+    sha256 "8ee473b8b44765af6ad5bb9e9ffec7cb6b47bec196fb96de12f21bf890f778a1"
   end
 
   def install

@@ -3,18 +3,18 @@ class B2Tools < Formula
 
   desc "B2 Cloud Storage Command-Line Tools"
   homepage "https://github.com/Backblaze/B2_Command_Line_Tool"
-  url "https://files.pythonhosted.org/packages/06/9b/2f5e207a898458172e53ecddb5be8e6728a877441d7a300cd0f381424c43/b2-3.7.0.tar.gz"
-  sha256 "b16ea0699594877597fb4faa1d1950e20673294e1b2fc78f3cd296a3dadd17ce"
+  url "https://files.pythonhosted.org/packages/d6/64/ea8699244dfa15ddb1b92d93f386955a2d9f66a5c0fa28f95ea4b5445f96/b2-3.7.1.tar.gz"
+  sha256 "68b10511447576c3286159f5fe66ee180dddb4547dcb4a423fa964454720019f"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "217e9d20ea75792705b7b05ae7a31205ef0beacd0f5d9013faf117b97eb70cc9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "70a9e69a1931024ccd8d3397d1e9da88239f330609eeedf67fabf84da70bec01"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f45b7434d1f2f0c17b36ef6c90467dbfb1cbec54125a4b18279a6540f7fe801a"
-    sha256 cellar: :any_skip_relocation, ventura:        "a3d788dc987a6804b47d4b32f154adfadcb63285ca4fbabecbd035d5e7146626"
-    sha256 cellar: :any_skip_relocation, monterey:       "3f273deccf6ca2993046b509984bc9639c25a3633bbbd6872b71a2d2214679c9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e282f6c71020ac59d981e157c7f6686b94e7620c7255fc1c1e65be5d332d3077"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7ffc1ac9c8b54fecfe667786289beb71cb3a30eece7fb2aafe1ca148b7c318bc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3392d9b2a570935ddd3850fa4d4f4d0f0a255b9695d0bbceca3074c854805230"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b79e0c555702dd4d2551f70ae7c92ee01800fc935beb93a04c3fc490bb1514a0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "78bdfa1434427b28a91d3cf773c5c237a3b53da097a526bce8d49a0cf3ed2976"
+    sha256 cellar: :any_skip_relocation, ventura:        "3db268d431fb0dfb5a43fbd8d1fecb546fe2556165b8b38067c33ab740fdc014"
+    sha256 cellar: :any_skip_relocation, monterey:       "b743dfc8f9169bb40dd0cd2c2234126a1c1f78ca282a07ddbf992a4787ea0f5f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7d81fed9b6ccd9081b84f55a478e9be7eb09473b0fccbb487e9345fe17e2c14c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3cca9e10bb99d55ebbda69176a103a5c460c01bfec8a77c1892fe8fdcbea4b7f"
   end
 
   # Does not work with Python 3.11, see https://github.com/Backblaze/B2_Command_Line_Tool/issues/834

@@ -1,19 +1,18 @@
 class Noti < Formula
   desc "Trigger notifications when a process completes"
   homepage "https://github.com/variadico/noti"
-  url "https://github.com/variadico/noti/archive/3.6.0.tar.gz"
-  sha256 "7ae07d93e33039fbbe29aa2ecd224ba311d08338f87dd8b45aae70fc459eb8a4"
+  url "https://github.com/variadico/noti/archive/3.7.0.tar.gz"
+  sha256 "f970a4dd242e6b58edf51320aa237bb20d689bbc8fd0f7d0db5aa1980a2dc269"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c2c8e81b60fbad78d0c3050ba5c6d2ca92ca999ee3c4496bfbfaad3a2a0f4c6f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4030645e54ca4c1c8978a4029c21213c0a19687849bb80e72495b94edbbcbf16"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "17bf78992c9af85a5ca68e63dde196cdb66ce71690a31de9d3dafa218e4c49aa"
-    sha256 cellar: :any_skip_relocation, ventura:        "2e1507d0859fffad4e6b4b5a920f2cf4c3e9435802bec4c801a59c52c1e6d6aa"
-    sha256 cellar: :any_skip_relocation, monterey:       "18bcb41a040e9e9723253246a151a1ad2bd9f9f03f1854683ffe41ff1f2e03b5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e0c80fcde8f4539a3206045854750395bc300395523b63446df57abe22cf4187"
-    sha256 cellar: :any_skip_relocation, catalina:       "25b7f723c3b55868ca27d253fb655e0165f8ba515242a75907294c87a521aed7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "258775f1024c641237b18515dd6ac2021a1a10a56210bdcfe3bb18f3b2546eb4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fc237b7b1e28e0974312a7b154dd06b8bc5cdde57f7dd197e008b7e1450d9ffd"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e93a4812623537c4f636b81238d48049c2aa74920c4b34945d317b0001714e11"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "00bbb0435c2d8478f994220e4b209561428a535bb36b9b298f169e51f8abfe9f"
+    sha256 cellar: :any_skip_relocation, ventura:        "d0a210912a499f329ee9709b5544147df22ccb09544c323f1ecdde4dcbbfe956"
+    sha256 cellar: :any_skip_relocation, monterey:       "468ea5232ab7fb8acd9818fe0c285a38f2b16eb23bb66b1d57dedc5c572f443a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "32a52ff508147b1ff62967f173391b14c7f865dc1a56163b243e71c3d38f2bdf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "01035f395f9d150621351e73a6f87091dd10d2af579ffc1c1b636990f6d937e8"
   end
 
   depends_on "go" => :build

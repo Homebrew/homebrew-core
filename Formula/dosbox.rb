@@ -7,12 +7,14 @@ class Dosbox < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "3f571b7da43fc854f8461b1858707d83de20956f88b1dfddc1be01d274c523b1"
-    sha256 cellar: :any,                 arm64_big_sur:  "009dab922218da32e74e950fdf0d76765daf0381e0141bd7f260358c99bd3fb7"
-    sha256 cellar: :any,                 monterey:       "778c92ee3958eae4fcccbddfa8563bd84abe7e2d6c9b553ad824cfbc389b75f0"
-    sha256 cellar: :any,                 big_sur:        "ed35e2b0e24624b888f33b28e08b6b251ce0857dc29d35c66fce6551840eef33"
-    sha256 cellar: :any,                 catalina:       "c8eea7e3be337405f4b95fccf2191c728a5b0f1c0f5baae0c8702e5911355508"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6483258c6369d1e398a63f809d4695ef0bc42057f90d622f4378f9a66b6e1b9b"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "68a487d11fa60605b0c558718b5a03d55c299e7630237071271a4747c41f74d7"
+    sha256 cellar: :any,                 arm64_monterey: "3dd3bc00e4f462681f1fdbe36d0e6a0e9304c0af255921f81b725645939c1033"
+    sha256 cellar: :any,                 arm64_big_sur:  "7915a1fd2252960d61b3f7f0afdec0a0dd2fc3b3e94bed387b80042df9fa6fa2"
+    sha256 cellar: :any,                 ventura:        "5ba4fa87bf0f348c34010b58704c0deed4f46343d1741478adb3c419c07bc26e"
+    sha256 cellar: :any,                 monterey:       "76e4d2f92b5a26c3adef2f93f8b888ca28dded281c19fec4e2d8b98846442974"
+    sha256 cellar: :any,                 big_sur:        "e30428b22f27e51a3f09db39a743ce9244488b12969c8dbd6d7e0306cffa2ccf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e6395e97359209de3a67567107030c99d2a1fd23c2a1fadf99c562ba6d9623ca"
   end
 
   head do
@@ -20,6 +22,11 @@ class Dosbox < Formula
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end
+
+  # Has dependencies on deprecated `sdl_net` and `sdl_sound`.
+  # Recommend available forks that support SDL 2 or the Cask (macOS-only).
+  deprecate! date:    "2023-02-13",
+             because: "uses deprecated SDL 1.2. Consider `dosbox-x`/`dosbox-staging` formulae or `dosbox` cask"
 
   depends_on "libpng"
   depends_on "sdl12-compat"

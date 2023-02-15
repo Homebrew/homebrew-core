@@ -12,24 +12,24 @@ class Perkeep < Formula
 
     # Newer gopherjs to support a newer Go version.
     resource "gopherjs" do
-      url "https://github.com/gopherjs/gopherjs/archive/refs/tags/1.17.1+go1.17.3.tar.gz"
-      sha256 "8c5275ddf09646fdeb9df701f49425feb2327ec25dddfa49e2d9d323813398af"
+      url "https://github.com/gopherjs/gopherjs/archive/refs/tags/v1.18.0-beta2+go1.18.5.tar.gz"
+      sha256 "8dc2e85245343862e47ce9293e7c4b364cbd7aada734b823366ba10e72cfb93e"
     end
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e4ac74693fe6eee20f743e6894fceb543514f9d2a034f7f1e394c2f43fa60e67"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "80b74aa6f9784371b2a2b4f79ed15fb8d998a3589f1cc85885ba60d259196dea"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b02cb9968771e49d46b9f605d53f88b61bb32cd765d46146280b2426abffc00f"
-    sha256 cellar: :any_skip_relocation, ventura:        "90b59df7cdc6b91b7031503fc9ad0ee22ea55da5fc40481a15200788750c1d8f"
-    sha256 cellar: :any_skip_relocation, monterey:       "a30e484cd077d745047fcf919d857ed2d1ca68589b7017e91e0417fa5c256b6b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "663b51444cae568b049afdc4c3bffb0dadd70dc0d63764cf6a9e9d9f5568afc1"
-    sha256 cellar: :any_skip_relocation, catalina:       "6ccd732cc142a7efb8b78b150909eb0eabde2d9fbb9683fdfaaf550c2ebbbbdb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a3822eb5d2bc22fb31733101ca980db8baf8ebc4ab1994a47fc0739ab35a998d"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c3f22417345af02864c07b3dc562ba8761cbc0ad45cd1504d7142b0ef18065f5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9dc4933072ef2f422c7f27eebe7a687bcee27ec38229afa5b80284b33a6ce023"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4624396d2d8f4a57c59cb8a44d7523835562839d4b588cf313d261cdd5ae1cb9"
+    sha256 cellar: :any_skip_relocation, ventura:        "fa7553919ace49169e83acc7356542aa62dcdcbc857a84a62e7c28ad3dd205fd"
+    sha256 cellar: :any_skip_relocation, monterey:       "21c3e3e744c284d7ed0d27837599c887a69c5c3ae0ce7035f9a9f2cbffde1180"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c4bbe8600fee0e1cbf39a389ba6ceefd57d787d329256aa0bd0c2edf9f8fef9c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "46418f4f07c4f2934642ef6c99795aa69a0d4b394f73ffe11a6625ae864c4286"
   end
 
   # This should match what gopherjs supports.
-  depends_on "go@1.17" => :build
+  depends_on "go@1.18" => :build
   depends_on "pkg-config" => :build
 
   conflicts_with "hello", because: "both install `hello` binaries"
@@ -37,7 +37,7 @@ class Perkeep < Formula
   def install
     if build.stable?
       ENV["GOPATH"] = buildpath
-      ENV["CAMLI_GOPHERJS_GOROOT"] = Formula["go"].opt_libexec
+      ENV["CAMLI_GOPHERJS_GOROOT"] = Formula["go@1.18"].opt_libexec
 
       (buildpath/"src/perkeep.org").install buildpath.children
 

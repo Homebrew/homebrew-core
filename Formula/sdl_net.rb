@@ -6,14 +6,14 @@ class SdlNet < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "c2cc9f53d62c2c7d24983f1cc232d80c88e9b8388099a9217367f5756b37661b"
-    sha256 cellar: :any,                 arm64_monterey: "9c3a09a6b01bf4f12ce8cf93a3a84a2fd69374f37efaaae1407f9b08d60909f6"
-    sha256 cellar: :any,                 arm64_big_sur:  "df69bf9d42edb022106c78000302b411e6d74fdb9887fcf77a1faf9c9471bb07"
-    sha256 cellar: :any,                 ventura:        "fa8891242afb08536f0a549968948b49f13d099a7f7bf5e9f558f9772a49654b"
-    sha256 cellar: :any,                 monterey:       "d1a110b94053b04b196860c796306b65548a78095c7f7a1284207b6d7cff0014"
-    sha256 cellar: :any,                 big_sur:        "0e945058276859291d1a893ffd5d8344e38b5386880d06428d9c4702f6d95b4d"
-    sha256 cellar: :any,                 catalina:       "9c00923f573a9ef1602f0a4a8146732746ffb3d61c5516e0dacda51f9fa7dd3a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9932fbe1d2c977082001cf66d39b60deeaac1f734077ed20cfebc26d335b2c5a"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "a540153ae627dc66c6849340986d29786b402f23342e690436fd2a66fb140d50"
+    sha256 cellar: :any,                 arm64_monterey: "39fb97850d76d1f75eb6563a62f18669d710961f615da885faaeb2e718f86871"
+    sha256 cellar: :any,                 arm64_big_sur:  "3911f2d87252dc9664b135dcb0191a76ef65a91af654b4ff6c065ede75b1b4e1"
+    sha256 cellar: :any,                 ventura:        "6a6c827253ae3de47321f8745f0a092ffe92b6094f600b8ed04e06f0c3f46076"
+    sha256 cellar: :any,                 monterey:       "8c40d00afbf4ef01f54f0256112a27e307b91cf9db0e92ba3614ab8c7addcd3b"
+    sha256 cellar: :any,                 big_sur:        "da0b71714dcd880e45af93992e7db91119458fa6c8d10ea7c300741fbe7792b6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7896bfe211fa38169d1f42294df3aa94ed3d17b87525f5772607862510bcd259"
   end
 
   head do
@@ -25,8 +25,7 @@ class SdlNet < Formula
   end
 
   # SDL 1.2 is deprecated, unsupported, and not recommended for new projects.
-  # Commented out while this formula still has dependents.
-  # deprecate! date: "2013-08-17", because: :deprecated_upstream
+  deprecate! date: "2023-02-13", because: :deprecated_upstream
 
   depends_on "pkg-config" => :build
   depends_on "sdl12-compat"

@@ -3,19 +3,18 @@ class Esphome < Formula
 
   desc "Make creating custom firmwares for ESP32/ESP8266 super easy"
   homepage "https://github.com/esphome/esphome"
-  url "https://files.pythonhosted.org/packages/e5/3b/a70709cff1c80c4a10a66dc23d45bb9501382006655b39a5b913ad10da7e/esphome-2022.12.8.tar.gz"
-  sha256 "478b3dd51163d2df1e2220f3b18fed0b03c92f9de5880500cd9850327d090cb6"
+  url "https://files.pythonhosted.org/packages/40/92/5bcf820f5045ff56abff03eb9e2dda8540c411965296e98d9036a64dd369/esphome-2023.2.0.tar.gz"
+  sha256 "3699a16711b7e3657586a078ffc6d10ca9362c5df4d9d59988854e76eab7aa46"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "c7df8354823a48720ff4230267c15a3ef94d265128cd98fb9cf7ee902fecfaa0"
-    sha256 cellar: :any,                 arm64_monterey: "fc3455d8118d2436d36eda14e9d7a3a6ee55a01f6178405e2fe26f24e969dc85"
-    sha256 cellar: :any,                 arm64_big_sur:  "1c29bfcecc5fa5da21b32f06e5e37dcb0b5ef4fa267cef4b4bc2c3e69f9c8701"
-    sha256 cellar: :any,                 ventura:        "a4a8c43571b4d13b6a914f3e32f582a19dc6dc269cd7055acbdc36fb6c17dbb0"
-    sha256 cellar: :any,                 monterey:       "b61eb390e9edec3bfc090325803619df2c63d72052215814bf5a9deac1ba6484"
-    sha256 cellar: :any,                 big_sur:        "87a6d5b33814aa2fb9f34b67c98e677087437901fd728158e0a5adfa57c04b05"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9878fabbfe3e65d30b06f02334c68b6bf25bb9bade4ce7704573c52cc4d2e627"
+    sha256 cellar: :any,                 arm64_ventura:  "21b50de4b46d33435a2d94c75cd2c75cb56ff9dbe9b597b0f2851b1c122b6041"
+    sha256 cellar: :any,                 arm64_monterey: "8a926327c7b02a0dca700e855cd88054604b1515a9badfeb860bcf9e17e43564"
+    sha256 cellar: :any,                 arm64_big_sur:  "859666d10ec49e1943acc0936d6c5f37b79baee9c9381077da151d71cad187ce"
+    sha256 cellar: :any,                 ventura:        "aef4c376ec8edbc899182f7539d59bfa5969e02fe56bc55ac95f064e49f01861"
+    sha256 cellar: :any,                 monterey:       "7dec9125078dfaf5ff7dbe8fac13e1948883f071e714d3ccece97042d12bbb68"
+    sha256 cellar: :any,                 big_sur:        "e9c4c31323640d6a8bea625d034cde1a196a8de34e62e88531adddb283794632"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8b060d4620d3cad1dd977086216be25744c1fa2e1b4c276b168d196254ce68dc"
   end
 
   depends_on "rust" => :build # for cryptography
@@ -26,8 +25,8 @@ class Esphome < Formula
   depends_on "six"
 
   resource "aioesphomeapi" do
-    url "https://files.pythonhosted.org/packages/3e/11/4f248f214d16b343501a345548d71def06dc79eca73194ba59c59b9cc229/aioesphomeapi-13.0.1.tar.gz"
-    sha256 "70ac03ec2b744e55171a924096951ee3ebf3482d626cbe47d5b0310c9ed16aa8"
+    url "https://files.pythonhosted.org/packages/26/85/d48e293c82e806d527ca431823351f22dbb5116621545e0d32d4075f99bf/aioesphomeapi-13.1.0.tar.gz"
+    sha256 "9cd4da47b8b019cf0a173badf2bad80ba1d79f1edee8ffd0ab3cf83ec3329cb5"
   end
 
   resource "aiofiles" do
@@ -96,8 +95,8 @@ class Esphome < Formula
   end
 
   resource "esphome-dashboard" do
-    url "https://files.pythonhosted.org/packages/9f/ac/2362949db47ca8e8f6b36cd02949516a6350740570bfd529883c13508e21/esphome-dashboard-20221213.0.tar.gz"
-    sha256 "2f03fe2c11f31168cf52287a69a66723b621f39bec6b531dd588015a42ce508b"
+    url "https://files.pythonhosted.org/packages/a4/32/696037877380c91efc806ea230f0f1d260c270fb548e47a94b32bc77da81/esphome-dashboard-20230214.0.tar.gz"
+    sha256 "4df408bef2cbb18b9b2db6a2d91349902bbdea76051166dd654f166896e95305"
   end
 
   resource "esptool" do
@@ -231,8 +230,8 @@ class Esphome < Formula
   end
 
   resource "zeroconf" do
-    url "https://files.pythonhosted.org/packages/f5/4f/c47cea73d7ae5467b63de3999d7207fd5b14d70cb2f35ce81c4ab7d7a52e/zeroconf-0.39.4.tar.gz"
-    sha256 "701e4d697f89fe952aa9c13a512ed6bf472dcf4f0a6d275e71085604b3882295"
+    url "https://files.pythonhosted.org/packages/6f/a3/3ad6b606a44a1c8e11a2d064b55d16fe99e9a6b25af346e1e5c23e11cf9f/zeroconf-0.47.1.tar.gz"
+    sha256 "65ab91068f8fafe00856b63756c72296b69682709681e96e8bb5d101345d5011"
   end
 
   def install

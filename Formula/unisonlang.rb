@@ -4,9 +4,9 @@ class Unisonlang < Formula
   desc "Friendly programming language from the future"
   homepage "https://unison-lang.org/"
   url "https://github.com/unisonweb/unison.git",
-      tag:      "release/M4f",
-      revision: "e5d9662c6c8802eecc63da2d6348e899d0d3ba8c"
-  version "M4f"
+      tag:      "release/M4g",
+      revision: "77e636320d9d886e561264e4df5511840af94cc0"
+  version "M4g"
   license "MIT"
   head "https://github.com/unisonweb/unison.git", branch: "trunk"
 
@@ -16,15 +16,15 @@ class Unisonlang < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7e4367ca5c865358ca1131028819fb8f5227712f56e543cdc323531dead280e1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5d25efdc2b8df048b74a27183902f20edb5615ab119e33502b212900baa7c248"
-    sha256 cellar: :any_skip_relocation, ventura:        "63d5a21d23f4bad2ef1de3992269818f24ad4c68533b90ccd75a47742ae9ac01"
-    sha256 cellar: :any_skip_relocation, monterey:       "9cb24e4b01ae3ac3131dbbaf951e3e309d980b9bf6cd5d7a1ea4300da9098807"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e2f9a57ba304b7b6bf22e59b22d7a8e144d0753139b2ed0656d8d8901158f5cd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5a11603a95392b83704faa61d3ffe904f1beba93768d39053e0737bbb38997a7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1c541dcfcddb9b8dd70b2f20112b8e625ef7cf49586346c296a27a0d467ed46a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "07621b9a346b7f8c376cf1dea0340a151d9f21d7a8aebf0337115b8b5786cb94"
+    sha256 cellar: :any_skip_relocation, ventura:        "b6011f1707202fa795807b1d7580f42844164ab6f85355552eff4d129593a6a7"
+    sha256 cellar: :any_skip_relocation, monterey:       "4b657b216297eb54b15a102727457e2909303b6f3b5a4759e2919e780d3130c7"
+    sha256 cellar: :any_skip_relocation, big_sur:        "fe296b92d1f0a9968cc25eb12f1fb5b836e1aa270a17bde5544eca857ee29cc6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3c3c01e379808478c8f1473d97d89aa7c4cefd451ce71f00aeecaa5f32baf813"
   end
 
-  depends_on "ghc@8.10" => :build
+  depends_on "ghc@8.10" => :build # GHC 9.2 open PR: https://github.com/unisonweb/unison/pull/3642
   depends_on "haskell-stack" => :build
   depends_on "node@18" => :build
 
@@ -33,9 +33,9 @@ class Unisonlang < Formula
   uses_from_macos "zlib"
 
   resource "local-ui" do
-    url "https://github.com/unisonweb/unison-local-ui/archive/refs/tags/release/M4f.tar.gz"
-    sha256 "868cc77c936b15ba67818295913fc4e9da44077f780a30bfe7bee307802e3b18"
-    version "M4f"
+    url "https://github.com/unisonweb/unison-local-ui/archive/refs/tags/release/M4g.tar.gz"
+    sha256 "b9946ef2912dcbc9fca928acf9b7af44308e668faff7c95d8396506d23897352"
+    version "M4g"
   end
 
   def install

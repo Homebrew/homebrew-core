@@ -3,19 +3,18 @@ class Localstack < Formula
 
   desc "Fully functional local AWS cloud stack"
   homepage "https://github.com/localstack/localstack"
-  url "https://files.pythonhosted.org/packages/35/c0/f10f425501818714511db8a1551c46d5abda04b4b3fa180a0ff7a3ec03c4/localstack-1.3.1.tar.gz"
-  sha256 "e3eb32654ee84e706d04086a875a482a0496e3440971d67ed62a4f10fb41e6c1"
+  url "https://files.pythonhosted.org/packages/a5/d2/f63340acc30c8bc60fc19af98dc80ac27888b022e100c45e5cbbdd034ebf/localstack-1.4.0.tar.gz"
+  sha256 "d841044cfd5579f10431316ae30de9633b9e4a8fdd6eb6006eba6d7f4f1a3298"
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "7403c512d5627e931b1f6f22e6038bc04013bfa06db3e648592f19bdff88ca82"
-    sha256 cellar: :any,                 arm64_monterey: "00f15340f690846acee5f744ff0f40784a2061df0b6ae7780e75b8ad7e4a84b7"
-    sha256 cellar: :any,                 arm64_big_sur:  "e220f74b67c7db5e91db1abcec188dd3412044d16dafa72db7d943faaff0067b"
-    sha256 cellar: :any,                 ventura:        "6b7d09a7244be263669cd91c8365e2fdfccee917813e2f5b103c7be5c0900537"
-    sha256 cellar: :any,                 monterey:       "5408882e2a60aedd3b8a7ebf7b99be4133aca121fc97b3a90ec249ec2c94f2ab"
-    sha256 cellar: :any,                 big_sur:        "701f44adc7ce3f5e8fb8334a64653520a8a7c2e3eabb7e692f566912dc1a6e6e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3d1b8f36afcd31c5c418d214ecf74237450b58c991a3f55edadc6944bfc20837"
+    sha256 cellar: :any,                 arm64_ventura:  "286b922e6bb1cae912162494a5c87c05c8f5a9643c16a3a1e053d36f44201e16"
+    sha256 cellar: :any,                 arm64_monterey: "0022a9da984bc48b55f70b2e8229a6b0d5c8f6b48fd9b22fb58766e516ab0d48"
+    sha256 cellar: :any,                 arm64_big_sur:  "85ff4a3374dd0a77b619123b8129f737c9a78d3ff3e011ff78e7345832a5c14d"
+    sha256 cellar: :any,                 ventura:        "a8376c5c78e594c9b739fec7ca41d5fd9019648a794e7ccbae921fc9be609d20"
+    sha256 cellar: :any,                 monterey:       "29d7b4cfda8343d60060e2e57fe97a305f9b183e3be0d0745b556e593c61bcac"
+    sha256 cellar: :any,                 big_sur:        "66c1ac953be553561c1685fe0e43cf1bce886b7912a3c0d10997458336243f99"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "28661fc8195309652b72c289d5c45a4a87798ecfaed3375d97bad0791a02b071"
   end
 
   depends_on "rust" => :build # for cryptography
@@ -32,13 +31,13 @@ class Localstack < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/85/d4/7a96989ea342cc26d56414f8e563ca7ea97fe8cb4caa27ea2b8acc0ec1ef/boto3-1.24.96.tar.gz"
-    sha256 "6b8899542cff82becceb3498a2240bf77c96def0515b0a31f7f6a9d5b92e7a3d"
+    url "https://files.pythonhosted.org/packages/c0/63/5dd782da5653528c35ca2ec7f44a41ec3121cda8701f14c6416912118dc6/boto3-1.26.69.tar.gz"
+    sha256 "eb8cde24a4c5755c35126e8cd460e6b51c63d04292419e7e95721232720c7e5b"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/1d/9e/c3094925ac483e295e694a54665c925f70560b5988603dca597fe099b45d/botocore-1.27.96.tar.gz"
-    sha256 "fc0a13ef6042e890e361cf408759230f8574409bb51f81740d2e5d8ad5d1fbea"
+    url "https://files.pythonhosted.org/packages/db/31/720ac07bd096fdd24fbeb42111638b41fd220e618790b94ada77a6bd1f3e/botocore-1.29.69.tar.gz"
+    sha256 "7e1bebca013544fbc298cb58603bfccd5f71b49c720a5c33c07cf5dfc8145a1f"
   end
 
   resource "cachetools" do
@@ -107,8 +106,8 @@ class Localstack < Formula
   end
 
   resource "localstack-ext" do
-    url "https://files.pythonhosted.org/packages/f9/7f/531135f2bacfb7ad97f1541a9742f274325724a755607f9c020609132c34/localstack-ext-1.3.1.tar.gz"
-    sha256 "ccc18a1932a899dbb2761380c5f89ffc269fd502621b69b18a0e1afbbf3d4897"
+    url "https://files.pythonhosted.org/packages/9a/b8/a79c385e98996410402bc45ac8bd9aa6df23b03a092c7a5f8973d92bb433/localstack-ext-1.4.0.tar.gz"
+    sha256 "fee7ac1e207fe78c047dc59fe1ef415b566f7157c08000fbc860257d8c6ffba8"
   end
 
   resource "markdown-it-py" do
@@ -197,8 +196,8 @@ class Localstack < Formula
   end
 
   resource "stevedore" do
-    url "https://files.pythonhosted.org/packages/66/c0/26afabea111a642f33cfd15f54b3dbe9334679294ad5c0423c556b75eba2/stevedore-4.1.1.tar.gz"
-    sha256 "7f8aeb6e3f90f96832c301bff21a7eb5eefbe894c88c506483d355565d88cc1a"
+    url "https://files.pythonhosted.org/packages/f1/25/993d09dc7be3e7927228853c75324104d734bb784bd766b025ebf9f47b16/stevedore-5.0.0.tar.gz"
+    sha256 "2c428d2338976279e8eb2196f7a94910960d9f7ba2f41f3988511e95ca447021"
   end
 
   resource "tailer" do

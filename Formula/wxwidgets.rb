@@ -1,8 +1,8 @@
 class Wxwidgets < Formula
   desc "Cross-platform C++ GUI toolkit"
   homepage "https://www.wxwidgets.org"
-  url "https://github.com/wxWidgets/wxWidgets/releases/download/v3.2.2/wxWidgets-3.2.2.tar.bz2"
-  sha256 "8edf18672b7bc0996ee6b7caa2bee017a9be604aad1ee471e243df7471f5db5d"
+  url "https://github.com/wxWidgets/wxWidgets/releases/download/v3.2.2.1/wxWidgets-3.2.2.1.tar.bz2"
+  sha256 "dffcb6be71296fff4b7f8840eb1b510178f57aa2eb236b20da41182009242c02"
   license "LGPL-2.0-or-later" => { with: "WxWindows-exception-3.1" }
   head "https://github.com/wxWidgets/wxWidgets.git", branch: "master"
 
@@ -12,13 +12,13 @@ class Wxwidgets < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "58d5559ee74ae6cca04eca6844c87ab0b0f5fe1c2c051ccb12cadc698d11786e"
-    sha256 cellar: :any,                 arm64_monterey: "81797f4ea357878bf981dc68590c4030095abc45388d6b516de145d477207c60"
-    sha256 cellar: :any,                 arm64_big_sur:  "1884df490ea8c9b5cbc7ecb743009d0c0664c6431fcc00a95ce69dae88eb32fa"
-    sha256 cellar: :any,                 ventura:        "9419b13b2e2e4a5966a9992dfed9a038452c89694233a97c073fe666188b7227"
-    sha256 cellar: :any,                 monterey:       "584b440ccc46f360a39b64376fd3c55c8021ea86c4272fea914b5e2875e901ec"
-    sha256 cellar: :any,                 big_sur:        "143f6d54fb4ef661f90aec748c630fbc155858975ba5df873fa8e5a326e064ac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "83d047c023a49515a8dc4f523f4a56aa9d0642508e25fb5fbc790216c34c344e"
+    sha256 cellar: :any,                 arm64_ventura:  "57f4e7e5c477ceedcfc61e2c0cc1e9fb43dcbc5460e178651ea72fa082743cca"
+    sha256 cellar: :any,                 arm64_monterey: "eabe4d3be0802595b3690ea0a7e0ba928cd05323563fdc4c2c8eca0cc617fd5f"
+    sha256 cellar: :any,                 arm64_big_sur:  "4440d70361440822a00750c2363c2d6eef2412863d8308c9571fe2352143799c"
+    sha256 cellar: :any,                 ventura:        "5a7051517de061440de513389d20bc7e7a8cc1601571f836c553a1ba19c97702"
+    sha256 cellar: :any,                 monterey:       "5f3399ebf5080fd205c39fe7da594f216175ab451fea181e59d5bd7d7e94295d"
+    sha256 cellar: :any,                 big_sur:        "ed575bbb6e1cd8545facc7b14c83ca6d7b1c1ef64e2fdc93b7700217e6565612"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4e144d7720804e4c5873ca76be1b7e70c571a3b9d927f0913c29599070a27dad"
   end
 
   depends_on "pkg-config" => :build

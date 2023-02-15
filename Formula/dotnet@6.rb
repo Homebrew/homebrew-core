@@ -3,8 +3,8 @@ class DotnetAT6 < Formula
   homepage "https://dotnet.microsoft.com/"
   # Source-build tag announced at https://github.com/dotnet/source-build/discussions
   url "https://github.com/dotnet/installer.git",
-      tag:      "v6.0.113",
-      revision: "4a23b50f9783e31c496e8c21b8f117351feea870"
+      tag:      "v6.0.114",
+      revision: "346c0065dd9540261ec07e938b808833446d2a9e"
   license "MIT"
 
   # https://github.com/dotnet/source-build/#support
@@ -25,13 +25,13 @@ class DotnetAT6 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "0f6a62011530e72732499e5df1bbbefff8710cdc3ab1119d67aa431ea2790df7"
-    sha256 cellar: :any,                 arm64_monterey: "7cbf553229a97a1bda86d2119ff1df76c166160f8e34083da2fc1573da1deae3"
-    sha256 cellar: :any,                 arm64_big_sur:  "001afdd2ae9946f244157cd6fb20372e721b92f0fc7d1adc7bc74acad1488c98"
-    sha256 cellar: :any,                 ventura:        "7bdb2c3f387bb78dacf8abf2b7402b813d3bcb588944583536737e4be8d5b21a"
-    sha256 cellar: :any,                 monterey:       "4ca3311010504fcd5b5740fce7058556679b2840791267e919e57997e0acf869"
-    sha256 cellar: :any,                 big_sur:        "53ca9da089cbdbcd1eb26d0d6518fdfe03908bfd5c8591ed2d394a5d9a370941"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a512bd7c3c985108c3fca3fec3439adfde440653fe07ce9e60de7426b695d7ac"
+    sha256 cellar: :any,                 arm64_ventura:  "e321d22cf019fcf43b9182ab920fb56b06472eb44a841d5e9da7c68efd06d099"
+    sha256 cellar: :any,                 arm64_monterey: "bec272194da05a71880e7f81fcfbfbd6d2b52369d87563b3776bca4c73fc06f3"
+    sha256 cellar: :any,                 arm64_big_sur:  "b7edf93d33f58eaa16f6d3f590208fd32d46b7744125f35129502d9afeb1217d"
+    sha256 cellar: :any,                 ventura:        "cadb65f97ef88bcf4765925ed1927698b4392f3bf919190b6288283abc0b31b3"
+    sha256 cellar: :any,                 monterey:       "264e2d92b82139a7277655fbb68a45a6c9eb6f9badb7b289d38a2846ee8a2a58"
+    sha256 cellar: :any,                 big_sur:        "e5f103cdec092cdeaf95ba7760c07c0c81f1dbcd11d57350b2d69668dc5c2bf0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "968678d4e9ce603f57e9378906a1abab629a30eeefbf0c1143027b91c3ad1eae"
   end
 
   keg_only :versioned_formula

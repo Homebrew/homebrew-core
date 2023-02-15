@@ -1,8 +1,8 @@
 class UserspaceRcu < Formula
   desc "Library for userspace RCU (read-copy-update)"
   homepage "https://liburcu.org"
-  url "https://lttng.org/files/urcu/userspace-rcu-0.13.2.tar.bz2"
-  sha256 "1213fd9f1b0b74da7de2bb74335b76098db9738fec5d3cdc07c0c524f34fc032"
+  url "https://lttng.org/files/urcu/userspace-rcu-0.14.0.tar.bz2"
+  sha256 "ca43bf261d4d392cff20dfae440836603bf009fce24fdc9b2697d837a2239d4f"
   license all_of: ["LGPL-2.1-or-later", "MIT"]
 
   livecheck do
@@ -11,14 +11,13 @@ class UserspaceRcu < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "662b6c7315f6070482140ddd035874cf52c434286d44a44bf7f31125ff7686ae"
-    sha256 cellar: :any,                 arm64_monterey: "d2cb9246e240a6db9c40d9e3a19288d064ef95345f3e884a5892fa2b341fcb9c"
-    sha256 cellar: :any,                 arm64_big_sur:  "c661f7dadf4ef5fdedc1ea707da817fba3e491b0b263b070fc234f35614a8afe"
-    sha256 cellar: :any,                 ventura:        "ebe06cf034c8018f1c1ff1420a11a29df85f4a5a2e7852466e43944a83f82877"
-    sha256 cellar: :any,                 monterey:       "c9cf73dd281dddd9fca16844e005392d0f0fb1132f4540ef95e552d7799113c6"
-    sha256 cellar: :any,                 big_sur:        "5e1b5b33fc0f5ad814ddc1d738f5ca8c2811422b9d37ecc1d517328287fc7d4e"
-    sha256 cellar: :any,                 catalina:       "3056888d7a39aa8ff2859eaac9d14ed0d15b921d857378160f6f49f7365ab07c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "35bfb4f4d8c549bcc9a75aaa5e194c410ad3134768b8355ff428a82ec905a0dd"
+    sha256 cellar: :any,                 arm64_ventura:  "416b50750d8377a585a4888f505e555bfdbe289ae4178991494d538ff2f1be5f"
+    sha256 cellar: :any,                 arm64_monterey: "bdab779474bf1feb9209b8c3e722598a91c08b202d8ab2ce3e1331fc02e6e31f"
+    sha256 cellar: :any,                 arm64_big_sur:  "af68e283caa6bd03ecddf38dcb02ce6f4e544395b0f080d0591887a791d1e569"
+    sha256 cellar: :any,                 ventura:        "e604608f8a7f56421731aa3b91fbf33588156dfb3cef1e15c62d3e38f3e862c9"
+    sha256 cellar: :any,                 monterey:       "c5ace1a972369e7a61c51d1e5f6a9aeb7a0cb5a7f9d28ade2ce1918d8c7e50c8"
+    sha256 cellar: :any,                 big_sur:        "8771fdf50786cff24c9d40659100580e1aba5b0503c0204a07733dd46f5707a4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e23f5d09163f5263dacfa83825ab64bc2a1fdd6fbd629d084a2d5722bb032257"
   end
 
   # Fix -flat_namespace being used on Big Sur and later.

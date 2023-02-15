@@ -8,13 +8,16 @@ class Wemux < Formula
 
   bottle do
     rebuild 3
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "57909369808e5a5b85c118d3cbab8a5ad2ef9c5139102ee3bf934a53e0467b09"
-    sha256 cellar: :any_skip_relocation, big_sur:       "977fdbcc9dcbb4a9d6149d043cd1ac3e5887421e76eee644d1e3703be1e111cb"
-    sha256 cellar: :any_skip_relocation, catalina:      "5fb4eaf177d1766716003032bfc632d02ebed302c57e00dc752ed3de4b9cf1f6"
-    sha256 cellar: :any_skip_relocation, mojave:        "5fb4eaf177d1766716003032bfc632d02ebed302c57e00dc752ed3de4b9cf1f6"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "5fb4eaf177d1766716003032bfc632d02ebed302c57e00dc752ed3de4b9cf1f6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0141da5136178a7dd857688ba9ec076c9a03f04bbe2710cd925619561885e947"
-    sha256 cellar: :any_skip_relocation, all:           "d847810b075ffcc34b7d1ec081bc955bdeca349769a3b8079e08db3f9eb572a8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d847810b075ffcc34b7d1ec081bc955bdeca349769a3b8079e08db3f9eb572a8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d847810b075ffcc34b7d1ec081bc955bdeca349769a3b8079e08db3f9eb572a8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "57909369808e5a5b85c118d3cbab8a5ad2ef9c5139102ee3bf934a53e0467b09"
+    sha256 cellar: :any_skip_relocation, ventura:        "d847810b075ffcc34b7d1ec081bc955bdeca349769a3b8079e08db3f9eb572a8"
+    sha256 cellar: :any_skip_relocation, monterey:       "d847810b075ffcc34b7d1ec081bc955bdeca349769a3b8079e08db3f9eb572a8"
+    sha256 cellar: :any_skip_relocation, big_sur:        "977fdbcc9dcbb4a9d6149d043cd1ac3e5887421e76eee644d1e3703be1e111cb"
+    sha256 cellar: :any_skip_relocation, catalina:       "5fb4eaf177d1766716003032bfc632d02ebed302c57e00dc752ed3de4b9cf1f6"
+    sha256 cellar: :any_skip_relocation, mojave:         "5fb4eaf177d1766716003032bfc632d02ebed302c57e00dc752ed3de4b9cf1f6"
+    sha256 cellar: :any_skip_relocation, high_sierra:    "5fb4eaf177d1766716003032bfc632d02ebed302c57e00dc752ed3de4b9cf1f6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0141da5136178a7dd857688ba9ec076c9a03f04bbe2710cd925619561885e947"
   end
 
   depends_on "tmux"

@@ -9,8 +9,10 @@ class Chronograf < Formula
   head "https://github.com/influxdata/chronograf.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3b422d92c858d0b2530ebf5545354a713d138ec9b5cbfa96e98ace40585d153e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e60c6cbad7cf26be81a3ecf4e67d76860cd0dc51e313ec7b0a84a9f0cca1866e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f36ad1c8bccee48018a89ba866c95e82c6924a7ddd65b625c0e815bfc9add575"
+    sha256 cellar: :any_skip_relocation, ventura:        "b238acdc43b5e16ec01bc145f87142532d3b4fc93c743b06d33f239b9fcd5276"
     sha256 cellar: :any_skip_relocation, monterey:       "c7cb92de2c6cfa35963ba9b236f9770be2f3e7c7c34217ed66410a01ce4321d6"
     sha256 cellar: :any_skip_relocation, big_sur:        "67f7d0341b169a14d77ed62616bb6b933772637a891a2eeac370cf5944f634a1"
     sha256 cellar: :any_skip_relocation, catalina:       "6f13cf0d008d4d2b395e19a85aa419c1a7e4c46d624db2ec3776abb2d201506d"

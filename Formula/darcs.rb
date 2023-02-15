@@ -16,7 +16,7 @@ class Darcs < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@8.10" => :build
+  depends_on "ghc@8.10" => :build # GHC 9.2 open patch: http://bugs.darcs.net/patch2244
   depends_on "gmp"
 
   uses_from_macos "ncurses"

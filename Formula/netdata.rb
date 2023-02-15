@@ -1,8 +1,8 @@
 class Netdata < Formula
   desc "Diagnose infrastructure problems with metrics, visualizations & alarms"
   homepage "https://netdata.cloud/"
-  url "https://github.com/netdata/netdata/releases/download/v1.38.0/netdata-v1.38.0.tar.gz"
-  sha256 "1463bb2bc9025a24eba937af86c4ec990582647f97a3ea47c53914c9e7cc8085"
+  url "https://github.com/netdata/netdata/releases/download/v1.38.1/netdata-v1.38.1.tar.gz"
+  sha256 "e32a5427f0c00550210dbbf0046c2621313955256edf836db686e2bc270b8d10"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,13 +11,13 @@ class Netdata < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "2a80bbd02b2e74e7e3ca62db0a6354d90639366f578f81358cc331f6149dac88"
-    sha256 arm64_monterey: "100707db2257922b0824755abbc44031740893ba6aafede135c1e5862f88e307"
-    sha256 arm64_big_sur:  "bc46fa43df8473a15a4b6fd9465a05ef5a49a067b60c9c212973036514f37b61"
-    sha256 ventura:        "93673187141fbaebb9e915059f04f4f4714f1949a7327aa8094b3f10f82d9827"
-    sha256 monterey:       "f07ab01872255a3e33d739aabc8face039fa8e882925f6cb00fdd6a81014ac81"
-    sha256 big_sur:        "51e07b490e9892a6c79a2ebbad6deee5ff3cdbcf226464608bc37c64d3dc78a3"
-    sha256 x86_64_linux:   "561ddce963fb1c2c6f3b4b987a0a28b74b9d69449c3afd8ad5b1ba56e822390f"
+    sha256 arm64_ventura:  "6c4471013a25cf3b17b96359a0e44f51cadc9ae2159a58b155b51ae423279d76"
+    sha256 arm64_monterey: "98a7ae423f287a8dd518a1c2f28f6fa297748ecfc5183728771eb12d997f31b9"
+    sha256 arm64_big_sur:  "232e854704a19b540ecb042202c6ff809835e5b50da52eb92bc93bf03c799ba1"
+    sha256 ventura:        "4bbdf98716571dff3f3a1c63c3deba38c4337c7b9106c155a6ac58d1a4b91d25"
+    sha256 monterey:       "fed0e06f3fbcae40148c2eca52ad227e0d74fec75ed3b565dee2d4c669b99517"
+    sha256 big_sur:        "6a68b1b73614760ca24472199ccf79bc1b355c68d2b45c3ed8087f2a5676cc8f"
+    sha256 x86_64_linux:   "70d09aa0d1c9c88612f8d8d8962e3afe0856f042bb81719a5ba0c0533caff01e"
   end
 
   depends_on "autoconf" => :build
@@ -41,7 +41,7 @@ class Netdata < Formula
   end
 
   def install
-    # https://github.com/protocolbuffers/protobuf/issues/9947
+    # protocolbuffers/protobuf#9947: ABI may depend on NDEBUG
     ENV.append_to_cflags "-DNDEBUG"
 
     # We build judy as static library, so we don't need to install it

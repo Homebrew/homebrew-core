@@ -1,8 +1,8 @@
 class Nomad < Formula
   desc "Distributed, Highly Available, Datacenter-Aware Scheduler"
   homepage "https://www.nomadproject.io"
-  url "https://github.com/hashicorp/nomad/archive/v1.4.3.tar.gz"
-  sha256 "0710f6bd787ed6fc98003ce63f5b7b44ae6b6672757f5638812af4ca1bca56fc"
+  url "https://github.com/hashicorp/nomad/archive/v1.4.4.tar.gz"
+  sha256 "22c74cdbcbb194130a8bc4c36faf34452bc11567f61f784c22103db3cb475c90"
   license "MPL-2.0"
   head "https://github.com/hashicorp/nomad.git", branch: "main"
 
@@ -12,14 +12,13 @@ class Nomad < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "36e5297490a14b3970dc9e085ad47c2ceac228397a4ec3a8f8b3e456f9905ca9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a2816dc80261f89cb2d0937c6649c45130367201c2cd94e1c7edcd6895078b4e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "53202b4844e2c96d5cee060a0ad116df3ddec4f41740f1bf2468193d0d2e364d"
-    sha256 cellar: :any_skip_relocation, ventura:        "b113e89063faff33603c0609af5c4de443e5cfc2512a8b53c7b36d2bfac1c7d9"
-    sha256 cellar: :any_skip_relocation, monterey:       "a0a7268cde875b249db62ca893b5ac07d105e0e342aa1317043279a2b3ac555b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c6305f71c83a9fe12da89e8451d90b2829dd49eae8b373e421237f72725853e0"
-    sha256 cellar: :any_skip_relocation, catalina:       "567bb893593047d4131757d41896175fe4aef4d155c08358d9050c4ac8b0cff0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "122b26bb08f5fd335fb7c45c4a6a9f537b26f579eca5026e11cf5eb33684f943"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "39616226cbb7e888ace63df10db2fc4004c85b4dd8cb471f21897b6515b84e72"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1cd276d5bedb8c41a353198d0eb71cc0d00f35452649ecd9375d7c66f6ec251c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d53c1c0399ec03a48700a3e15371abd3562df803ee9cbe7b5176ee90773b2a2a"
+    sha256 cellar: :any_skip_relocation, ventura:        "677296c0de27fc062ff072c406bcf4ed95807b330434e4aeb677437cebf2281a"
+    sha256 cellar: :any_skip_relocation, monterey:       "eed21b021fa202f991514fa62798b3d52e78b67e546ab4a0a4f4990637d35fab"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f60f5a24534b2f1bcfdf0de19053e30d2674d825e54315063930dc1262f5a4ee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b5ed1abbba714221d504fd663a7087504281c929894aea1e2a1266d2a928a478"
   end
 
   depends_on "go" => :build

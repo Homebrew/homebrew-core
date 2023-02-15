@@ -4,16 +4,17 @@ class Csvtk < Formula
   url "https://github.com/shenwei356/csvtk/archive/refs/tags/v0.25.0.tar.gz"
   sha256 "47d244068274ad5070ef50cafee243d1035c51692b025bf074d0b7be3f8a7d1c"
   license "MIT"
+  head "https://github.com/shenwei356/csvtk.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "82ed512905b11fe2de26ca015077e91a87b8d745d49e366ebbf6e42baee3c5c4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "434cd3b6895fdf38adfe0cf83420e8b46f916e2bf18ae1749fea0306d24edebb"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c5a305858fdfc9ca7d36275ffb6906a615df52f9df207efd5b6d67fe78ef9f7a"
-    sha256 cellar: :any_skip_relocation, ventura:        "3ba5ce2275aca60868e552e4e53b4d041d965b0ae4374f146939ad5f2db8a62a"
-    sha256 cellar: :any_skip_relocation, monterey:       "418c568216b92cda592b6971effa8c50e78298030e6f21ce76495b52b167bea5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d3bd98413d7c2642508d32420afd9448a4817e611e8a97ec2cd96694cd1daaab"
-    sha256 cellar: :any_skip_relocation, catalina:       "70e4f39b714164b44c3e5b55554d78d454db9fcfb185f1f28536aaa1e99f2486"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4630f21fe4e10dfbf6b029930822c1be479b010d8a059a1bd0f6c76ae61d1883"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "55e724f8e7d696f4a9000218eb26fd47e630807fa8c1bf028b0c355f063da092"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9b57e9972d8444d3efcacbab3d8fb0bb105cb4e748dc615aea4bc69a441e5310"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c1f2d2c2dcb4da27cf0a7a455632ffdbeb1bf60d58119b7ec993d6e18881d7d9"
+    sha256 cellar: :any_skip_relocation, ventura:        "6cd54c4a0ecabe5323173f3f9c2c93a246baced3edc248a28febf1c7ed4d9ee0"
+    sha256 cellar: :any_skip_relocation, monterey:       "5bb590cb449bd0bd7a87a93f4557dee620a4773fe3a5870163bc1ab8aaff7e55"
+    sha256 cellar: :any_skip_relocation, big_sur:        "997ab37d15bc89e995db26128be9de166766b5af8e71105b122053cd09f7a540"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b82e21b95073094055c192a0b53a18d6bd6e3b3dea77fad39ea6b96c66aac72a"
   end
 
   depends_on "go" => :build
@@ -25,6 +26,7 @@ class Csvtk < Formula
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w"), "./csvtk"
+    generate_completions_from_executable(bin/"csvtk", "genautocomplete", shell_parameter_format: :arg)
   end
 
   test do

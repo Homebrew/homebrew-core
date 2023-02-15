@@ -7,18 +7,18 @@ class Simdutf < Formula
   head "https://github.com/simdutf/simdutf.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "8ef7bc62a51a5a931c6b8f7eec2815e3315124c880bb9ad5fc2a805300cd5633"
-    sha256 cellar: :any, arm64_monterey: "2bed48ae7c979e6e78e5cca84224c62f5cab3ae04acbf19ed21bfe4aea153b9c"
-    sha256 cellar: :any, arm64_big_sur:  "fa0a4dfca0e68c331e4e8cceda912480bb455135bfa95b149512f270d79a4bd7"
-    sha256 cellar: :any, ventura:        "f2d2ba41c4cdb26cdde04b449c1a0b93cc228d982251c8603c3e1c2ed4ff9861"
-    sha256 cellar: :any, monterey:       "919ad9598e1a45279a999c4a70f2e8dea9c66a60012a81ee5c62e58885e88992"
-    sha256 cellar: :any, big_sur:        "d97a778640e2163dfb7663c9032b32b79ad10468f97de8442a7962ede2849fe8"
+    rebuild 1
+    sha256 cellar: :any, arm64_ventura:  "ebe6a9025c9f78ebdb16b525c4459de52195b2ed5f90ab364d4f8b36bee5aaf1"
+    sha256 cellar: :any, arm64_monterey: "0575b6ec23391dea888a811a03fc62869426208ab03988fc7f64ab0189c946b3"
+    sha256 cellar: :any, arm64_big_sur:  "524d428c5d2f96e04ae27da1ed72152d47c457a2e847cdf2eb706075c4826bcd"
+    sha256 cellar: :any, ventura:        "8fa829f3459e958877d502e903c76523f37f6102052b49bbe238cd61b3b22a7f"
+    sha256 cellar: :any, monterey:       "e43ba6dff9f3786e540474640c0da6330c2400a189e6eb4fbb365f55da571581"
+    sha256 cellar: :any, big_sur:        "3ed5c979a418c38801a77c9ca2b8b46d280b7634838fc3eb11a6c24630246b16"
   end
 
   depends_on "cmake" => :build
   depends_on "python@3.11" => :build
   depends_on "icu4c"
-  depends_on "libiconv"
   depends_on macos: :catalina
 
   def install

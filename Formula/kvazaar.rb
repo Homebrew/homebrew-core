@@ -26,7 +26,7 @@ class Kvazaar < Formula
   depends_on "libtool" => :build
   depends_on "yasm" => :build
 
-  resource "videosample" do
+  resource "homebrew-videosample" do
     url "https://samples.mplayerhq.hu/V-codecs/lm20.avi"
     sha256 "a0ab512c66d276fd3932aacdd6073f9734c7e246c8747c48bf5d9dd34ac8b392"
   end
@@ -39,7 +39,7 @@ class Kvazaar < Formula
 
   test do
     # download small sample and try to encode it
-    resource("videosample").stage do
+    resource("homebrew-videosample").stage do
       system bin/"kvazaar", "-i", "lm20.avi", "--input-res", "16x16", "-o", "lm20.hevc"
       assert_predicate Pathname.pwd/"lm20.hevc", :exist?
     end

@@ -2,8 +2,8 @@ class Openj9 < Formula
   desc "High performance, scalable, Java virtual machine"
   homepage "https://www.eclipse.org/openj9/"
   url "https://github.com/eclipse-openj9/openj9.git",
-      tag:      "openj9-0.35.0",
-      revision: "e04a7f6c1c365a6b375deb5f641c72309b170b95"
+      tag:      "openj9-0.36.1",
+      revision: "0592661e480dd108a708689dc56bf1a427677645"
   license any_of: [
     "EPL-2.0",
     "Apache-2.0",
@@ -17,12 +17,11 @@ class Openj9 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "9570aad125859a5ab095905d6cdc64e2f537dddc8762419d9bea87230c045cba"
-    sha256 cellar: :any, arm64_big_sur:  "a45ff6f91ee86d0fcc2bfbd3ce83f4aea20715aa01df3e01680f163b74e36c24"
-    sha256 cellar: :any, ventura:        "2763ff46d605b2a7173fc85ee04413f111f800343779644d698a86f54988274d"
-    sha256 cellar: :any, monterey:       "a1ec2be6a1104b63db5dd1da2c71da3a746478cfca5a6037eb6744426dd22a89"
-    sha256 cellar: :any, big_sur:        "432828659e46fed219dcd4ce9e89a16555c054f85077b001f67b18dcbddcd145"
-    sha256 cellar: :any, catalina:       "89d89fc29751a74527f9d4a465a9a36adccb19a5935ef0e70e0ddea864f0058c"
+    sha256 cellar: :any, arm64_monterey: "213f1f0d27f274f438464fce66e693829a741af827e9a875210d1a306f093612"
+    sha256 cellar: :any, arm64_big_sur:  "7880e7f0f318d52abbc964bbd4edda9841688a6fb25e1e14dba561b777900fec"
+    sha256 cellar: :any, ventura:        "576323186740d1082951bfd0619406f763265e2b38f33bf5c25d41f6f6fed43b"
+    sha256 cellar: :any, monterey:       "5213d77bcf32d9e1d06322d5383aef76478f96d1b152f193c9f292de552c7a77"
+    sha256 cellar: :any, big_sur:        "ec0c3842f142ade5c0f2f386e4f4e113f4c885d646dbce7928921e247359b0ba"
   end
 
   keg_only :shadowed_by_macos
@@ -63,7 +62,7 @@ class Openj9 < Formula
   end
 
   # From https://github.com/eclipse-openj9/openj9/blob/openj9-#{version}/doc/build-instructions/
-  # We use JDK 17 to bootstrap on Apple Silicon since there is no JDK 16 prebuilt.
+  # We use JDK 17 to bootstrap.
   resource "boot-jdk" do
     on_macos do
       on_arm do
@@ -71,26 +70,26 @@ class Openj9 < Formula
         sha256 "50e4c324e7ffcf18c2e3ea7b1bfa870672203dab3fe61520c09fb2bdbe81f2c0"
       end
       on_intel do
-        url "https://github.com/AdoptOpenJDK/semeru16-binaries/releases/download/jdk-16.0.2%2B7_openj9-0.27.0/ibm-semeru-open-jdk_x64_mac_16.0.2_7_openj9-0.27.0.tar.gz"
-        sha256 "89e807261145243a358a2a626f64340944c03622f34eaa35429053e2085d7aef"
+        url "https://github.com/AdoptOpenJDK/semeru17-binaries/releases/download/jdk-17.0.5%2B8_openj9-0.35.0/ibm-semeru-open-jdk_x64_mac_17.0.5_8_openj9-0.35.0.tar.gz"
+        sha256 "a8b5aefd73cfee2f46ece159728b3d22af10e841e4a7bb55aaef6dba3aa09e2c"
       end
     end
     on_linux do
-      url "https://github.com/AdoptOpenJDK/semeru16-binaries/releases/download/jdk-16.0.2%2B7_openj9-0.27.0/ibm-semeru-open-jdk_x64_linux_16.0.2_7_openj9-0.27.0.tar.gz"
-      sha256 "1349eb9a1d9af491a1984d66a80126730357c4a5c4fcbe7112a2c832f6c0886e"
+      url "https://github.com/AdoptOpenJDK/semeru17-binaries/releases/download/jdk-17.0.5%2B8_openj9-0.35.0/ibm-semeru-open-jdk_x64_linux_17.0.5_8_openj9-0.35.0.tar.gz"
+      sha256 "b46de9cd00af8a0223f4b50deb2627ab91fe515a69383a96fd2c12757cef24fe"
     end
   end
 
   resource "omr" do
     url "https://github.com/eclipse-openj9/openj9-omr.git",
-        tag:      "openj9-0.35.0",
-        revision: "85a21674fdf30403b75c3000a4dc10605ca52ba2"
+        tag:      "openj9-0.36.1",
+        revision: "f491bbf6f6f3f87bfd38a65055589125c13de555"
   end
 
   resource "openj9-openjdk-jdk" do
     url "https://github.com/ibmruntimes/openj9-openjdk-jdk17.git",
-        tag:      "openj9-0.35.0",
-        revision: "32d2c409a3325231f58eed81de0f0f1a229b43d6"
+        tag:      "openj9-0.36.0",
+        revision: "927b34f84c8c5ff380df16f2df8dd84a44b8c79e"
   end
 
   def install

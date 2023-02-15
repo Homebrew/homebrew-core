@@ -41,6 +41,7 @@ class Vice < Formula
   depends_on "libpng"
   depends_on "librsvg"
   depends_on "libvorbis"
+  depends_on "readline" # Possible opportunistic linkage. TODO: Check if this can be removed.
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build

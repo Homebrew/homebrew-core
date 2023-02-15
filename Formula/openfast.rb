@@ -1,18 +1,18 @@
 class Openfast < Formula
   desc "NREL-supported OpenFAST whole-turbine simulation code"
   homepage "https://openfast.readthedocs.io"
-  url "https://github.com/openfast/openfast/archive/v3.4.0.tar.gz"
-  sha256 "74ceb7792a9439bf121dc396fe91d9e99945a5e9544317f2f1f6f95d969392f4"
+  url "https://github.com/openfast/openfast/archive/v3.4.1.tar.gz"
+  sha256 "0717c3aba48aa58fac10de308313328f6ed798cdf9c210172ccc978ec591f170"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "79a342f67d880d42e285198cf9c2277ecf9006dcb98559686489672b8719084a"
-    sha256 cellar: :any,                 arm64_monterey: "b26932fb5c61a1212acd429531fcface3a7c69ba107138f70d8991adddbddc99"
-    sha256 cellar: :any,                 arm64_big_sur:  "f0b8d43af8b4d6541205cc690eeca240e70623abfd62b4862e07df28278ac2da"
-    sha256 cellar: :any,                 ventura:        "046887ae86c46f0ea40bfd54a88dce7989894a19ade4225b415c5befd932c850"
-    sha256 cellar: :any,                 monterey:       "22d15537c0361fb0297d2a8eba64c233139bdea2c9b8facfd6cb6b81622620d6"
-    sha256 cellar: :any,                 big_sur:        "c43fdb8f64d1a6f7f375171c6e8056f5cff011bcdd1271d14cbba6dccfc6dc58"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e2113748e63093375b48b90f5d971c4edd73fd647687f2d502575c3df91e61e2"
+    sha256 cellar: :any,                 arm64_ventura:  "445ecd409fccf95219db12d6cefb101e2fc997d25c75a473427c3a7ae7939221"
+    sha256 cellar: :any,                 arm64_monterey: "2edd69143709b8289fc848b865ce68b24ea7d09016dd59cff344d98f2fe0c878"
+    sha256 cellar: :any,                 arm64_big_sur:  "92fec98fed83d8d6644742efcd853ad5bfffb89b2b034420c59aba0749828c2b"
+    sha256 cellar: :any,                 ventura:        "f52f053fa965eee38b1d1fa15c5928ebdfa4550d97b26f5cca765f4ebee207de"
+    sha256 cellar: :any,                 monterey:       "5fea5d63eb9e2d12839e3c560aa03190a7b7aa8453dfa2953506fd63f0e6089a"
+    sha256 cellar: :any,                 big_sur:        "730643bb4cdaa7e0904eeda4a1e8321ad72891851f7dd5b63f9d1eea49c24d80"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "34c3acba44c2319eca5765f94a5bea766fe83d0c2887924f8b76450cab2c5dc9"
   end
 
   depends_on "cmake" => :build

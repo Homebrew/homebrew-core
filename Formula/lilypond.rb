@@ -1,8 +1,8 @@
 class Lilypond < Formula
   desc "Music engraving system"
   homepage "https://lilypond.org"
-  url "https://lilypond.org/download/sources/v2.24/lilypond-2.24.0.tar.gz"
-  sha256 "3cedbe3b92b02569e3a6f2f0674858967b3da278d70aa3e98aef5bdcd7f78b69"
+  url "https://lilypond.org/download/sources/v2.24/lilypond-2.24.1.tar.gz"
+  sha256 "d5c59087564a5cd6f08a52ba80e7d6509b91c585e44385dcc0fa39265d181509"
   license all_of: [
     "GPL-3.0-or-later",
     "GPL-3.0-only",
@@ -13,7 +13,6 @@ class Lilypond < Formula
     "AGPL-3.0-only",
     "LPPL-1.3c",
   ]
-  revision 1
 
   livecheck do
     url "https://lilypond.org/source.html"
@@ -21,13 +20,13 @@ class Lilypond < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "c8241845c55c18951523f4e96258281f1b5539981c33c222a1cff885f62a012f"
-    sha256 arm64_monterey: "59441cf679a019b3d6cbbfce5b87bfbae081e193ff45f5b8be0afb95614e120c"
-    sha256 arm64_big_sur:  "ce9b57df1ff009212994a0277527e96ffa0eaee192d5e07630f9aec5f4d0ea29"
-    sha256 ventura:        "5e379accb12daa34dab8cf690cf48514c35a6c0f5890b507051d65a194913188"
-    sha256 monterey:       "7cae5b84cc6d6ebd524345ae218ac48f384e06e0fd1e3c3868523386ddd67f04"
-    sha256 big_sur:        "af9e52e3270014d40863f9a3cbf6824be28367d5f6c758ed43faa1d0c917fd20"
-    sha256 x86_64_linux:   "e9e6311a81d7d1351ee75db814b4e5e997b48a27e05165b56029a7417d4e07ff"
+    sha256 arm64_ventura:  "c45e113cf07c6e3f5cdf643afef23374d3a0ecd3899eea218ada9643b01d6d66"
+    sha256 arm64_monterey: "f8c7fa7a880578518afc49fa973c3c9fc3e7121777cc876034ebd27a34bdf4c4"
+    sha256 arm64_big_sur:  "c2bc546882c16a954bc3e09534d73ba2aa72eefa1d727fb6b5e7317d456f1259"
+    sha256 ventura:        "eb3a0f38944e7148d50db0ef6f304d1e486b796d11de913215e07ef9217f74c4"
+    sha256 monterey:       "96950e483a62532a6f8245b9b2ed6e11ec0c3ceae8e3895f478af3e26034f845"
+    sha256 big_sur:        "747b81fb47da9b632cc89036f5c8cb97b320244b819f8f89e50eb13a37c81e47"
+    sha256 x86_64_linux:   "4795737ac58934f65fc775dc2d6ad5de4e895649a5be6e6656663811f7d28746"
   end
 
   head do
@@ -39,7 +38,6 @@ class Lilypond < Formula
   depends_on "bison" => :build # bison >= 2.4.1 is required
   depends_on "fontforge" => :build
   depends_on "gettext" => :build
-  depends_on "libpthread-stubs" => :build
   depends_on "pkg-config" => :build
   depends_on "t1utils" => :build
   depends_on "texinfo" => :build # makeinfo >= 6.1 is required

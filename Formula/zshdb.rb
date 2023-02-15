@@ -15,13 +15,8 @@ class Zshdb < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "388da120bb13ac218a9940ac65353776836a05a1d7b22b464d87800d5b7a8f91"
-    sha256 cellar: :any_skip_relocation, big_sur:       "192eac5cebd479f637b5a0d6ea50abb908f0ab2453b570e9888a16f1c5eea1ec"
-    sha256 cellar: :any_skip_relocation, catalina:      "2bdc583e95b4d4bd92624d48ce804561e3a337792dbba74f451a2507eb939704"
-    sha256 cellar: :any_skip_relocation, mojave:        "2bdc583e95b4d4bd92624d48ce804561e3a337792dbba74f451a2507eb939704"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "2bdc583e95b4d4bd92624d48ce804561e3a337792dbba74f451a2507eb939704"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0095aa6ebce686ac4a2208a3e0dfdabd31d05d191e19dd81270621743d5e63c0"
-    sha256 cellar: :any_skip_relocation, all:           "0095aa6ebce686ac4a2208a3e0dfdabd31d05d191e19dd81270621743d5e63c0"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "1b158f2b1bf4ea4e7d00c4770a75570e140ad33071ddef878528e3ca3f3095f0"
   end
 
   head do

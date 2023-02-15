@@ -23,11 +23,11 @@ class Libprelude < Formula
     sha256 x86_64_linux:   "1eae16d58ad46e6a6d8e1e6ca08e27a4fd609620622ca49dba416778bbe73edb"
   end
 
-  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "python@3.11" => [:build, :test]
   depends_on "gnutls"
   depends_on "libgpg-error"
+  depends_on "libtool"
 
   # Fix compatibility with Python 3.10 or later using Debian patch.
   # ImportError: symbol not found in flat namespace '_PyIOBase_Type'

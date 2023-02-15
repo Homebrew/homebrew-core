@@ -24,8 +24,11 @@ class AardvarkShellUtils < Formula
   # Last release on 2003-12-25
   deprecate! date: "2023-02-10", because: :unmaintained
 
+  on_macos do
+    conflicts_with "uutils-coreutils", because: "both install `realpath` binaries"
+  end
+
   conflicts_with "coreutils", because: "both install `realpath` binaries"
-  conflicts_with "uutils-coreutils", because: "both install `realpath` binaries"
 
   def install
     system "./configure", "--disable-debug",

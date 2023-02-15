@@ -3,8 +3,8 @@ class Woob < Formula
 
   desc "Web Outside of Browsers"
   homepage "https://woob.tech/"
-  url "https://files.pythonhosted.org/packages/fa/32/6ac87f318955292f7917600d8e1d42146279c238a85365428f6944c6b3b9/woob-3.2.tar.gz"
-  sha256 "f3207daa894153af6e21cad8dc99ad4d68915de7316515421d8009cb90ada780"
+  url "https://files.pythonhosted.org/packages/56/db/e1490d10ddcf2af5b9f11a11852679da45f26c95646efb8722c69e3d01db/woob-3.3.1.tar.gz"
+  sha256 "9d8b0ee0d3d357fc8a01e78b80a64b87c5cb0cc8c5ea8bb82f5831296f73dc6b"
   license "LGPL-3.0-or-later"
 
   livecheck do
@@ -13,13 +13,13 @@ class Woob < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "530a8d217e66bf1ac5a56bd44d528304747a8d8f8020c34e9f5b373bdd18154e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f6e4b58ba59cf6698c3707409a409c2578a7a2114ed304fd3606e6b1105d7038"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5feaf9c390fcc56829b49f5ce50b6d49bf4e525294cff1cbcd55772abfcdac8c"
-    sha256 cellar: :any_skip_relocation, ventura:        "bee9aa8156a85c76a81d15db0939f3f9d237631b4a1d79875ece232ab1cea387"
-    sha256 cellar: :any_skip_relocation, monterey:       "9606ef02982ef08911789757142ee0c3fd64f95dedb2cbfaeb379bf788d8043f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "92082a22babba683f32276c3ea7961b333ebf2c72fa7734a1ca9606f79dcc1ef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "988160eeadac8872cfe3b105aaa64f0bbb1eb63cf91b78ff7d705d64472090d9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ce7386a9b8bb8e7724042873597c05f07e6e1f319cfc6b4a22882e70c993e2da"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "609d0c2b15339330c114973ecdc7f85f65b73755a448fc497de936d5abfd9950"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "45dbf8ab51869c3744c065a69935aaf16dcc12206c2c1cf672083738e214662f"
+    sha256 cellar: :any_skip_relocation, ventura:        "ce8e132c07727805613d3431e8e346679fdbdf329ccb0a6dae2d6cccb03abf1c"
+    sha256 cellar: :any_skip_relocation, monterey:       "23f92b3a6684c5ece0df9b73feb7cf930c4c8dea8567e666e9339e83686a4b35"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b14a0eea4994b38740acf6932dad44ab56b1c90c207155d6f6632ce9ae1f8f4b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b32e2c35393c9aa1ad1f6b33be7eeabbb3e60d7fd1c23502cd330f16aad13383"
   end
 
   depends_on "gnupg"
@@ -51,11 +51,6 @@ class Woob < Formula
     sha256 "08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44"
   end
 
-  resource "cssselect" do
-    url "https://files.pythonhosted.org/packages/d1/91/d51202cc41fbfca7fa332f43a5adac4b253962588c7cc5a54824b019081c/cssselect-1.2.0.tar.gz"
-    sha256 "666b19839cfaddb9ce9d36bfe4c969132c647b92fc9088c4e23f786b30f1b3dc"
-  end
-
   resource "html2text" do
     url "https://files.pythonhosted.org/packages/6c/f9/033a17d8ea8181aee41f20c74c3b20f1ccbefbbc3f7cd24e3692de99fb25/html2text-2020.1.16.tar.gz"
     sha256 "e296318e16b059ddb97f7a8a1d6a5c1d7af4544049a01e261731d2d5cc277bbb"
@@ -69,6 +64,11 @@ class Woob < Formula
   resource "lxml" do
     url "https://files.pythonhosted.org/packages/06/5a/e11cad7b79f2cf3dd2ff8f81fa8ca667e7591d3d8451768589996b65dec1/lxml-4.9.2.tar.gz"
     sha256 "2455cfaeb7ac70338b3257f41e21f0724f4b5b0c0e7702da67ee6c3640835b67"
+  end
+
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/47/d5/aca8ff6f49aa5565df1c826e7bf5e85a6df852ee063600c1efa5b932968c/packaging-23.0.tar.gz"
+    sha256 "b6ad297f8907de0fa2fe1ccbd26fdaf387f5f47c7275fedf8cce89f99446cf97"
   end
 
   resource "python-dateutil" do

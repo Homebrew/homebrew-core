@@ -1,19 +1,18 @@
 class FdkAacEncoder < Formula
   desc "Command-line encoder frontend for libfdk-aac"
   homepage "https://github.com/nu774/fdkaac"
-  url "https://github.com/nu774/fdkaac/archive/v1.0.3.tar.gz"
-  sha256 "ee444518353833b2b8f1b106bb4d9e9c15ae4d48569be9b6c89fc38dabf364b7"
+  url "https://github.com/nu774/fdkaac/archive/v1.0.5.tar.gz"
+  sha256 "87b2d2cc913a1f90bd19315061ede81c1c3364e160802c70117a7ea81e80bd33"
   license "Zlib"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "9bbbd22db23e92042e772b5780ad37636cc6c6b8da5f94d016edec8da81a8dd6"
-    sha256 cellar: :any,                 arm64_monterey: "bef622b7d5d4026b6d8615f6a747bcf0128826cfabe9bbe3cce6c0cd139591b9"
-    sha256 cellar: :any,                 arm64_big_sur:  "dd84a279e61d463b1651f1bc2c4fef060f6bc0059cf25c798a2161123cf1368b"
-    sha256 cellar: :any,                 ventura:        "e93f9b63e33d5685f406d1be95cd9a47098bcb69a132fd639f96f098b55996a8"
-    sha256 cellar: :any,                 monterey:       "9903add3d37f84fd89d0ba40c8f719a093126dbe5f47c4639c3399109fb855e1"
-    sha256 cellar: :any,                 big_sur:        "f9103b8b675603ca90b3e7f4efb0074a1452e9852d1a1659d2f59a5a025a8c83"
-    sha256 cellar: :any,                 catalina:       "6de255d18252acbcc3e0b8214b9eb46c3c4d2a29b46e6cc15bc7cbc81cd61115"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e40141a65ef6f0c04974df102db68f08866701c9b2e018efcb2c11e84253174f"
+    sha256 cellar: :any,                 arm64_ventura:  "53ead014ba7ed33292482be014d74bc631fc64a9027f7ae6a5858b66e51cef24"
+    sha256 cellar: :any,                 arm64_monterey: "df8bf96255c43057c312a4062aa386d1dc136c0dd86094c7d9cd067120b57ee4"
+    sha256 cellar: :any,                 arm64_big_sur:  "66c2be632e6ba93f7fd30d43ff968edfed911d104e14d8a43b86b52cf8d78719"
+    sha256 cellar: :any,                 ventura:        "cfaf04fdeffda1f429b28ee0dd84914768f4339007a14999415aae8eea232051"
+    sha256 cellar: :any,                 monterey:       "02f940f3b2a982e8f727cb9a449623777e33de70d41ad43423462aafe6db0ad0"
+    sha256 cellar: :any,                 big_sur:        "aab1624f88d3b7b0b0c3ae2e772ee86efd4b6707468a78d43459a598920eb053"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8fd87f32244ba80edb9825fa589570d8591f6ce337aa994025ad04f221f545f7"
   end
 
   depends_on "autoconf" => :build

@@ -32,6 +32,10 @@ class Coreutils < Formula
   depends_on "gmp"
   uses_from_macos "gperf" => :build
 
+  on_macos do
+    conflicts_with "uutils-coreutils", because: "coreutils and uutils-coreutils install the same binaries"
+  end
+
   on_linux do
     depends_on "attr"
   end
@@ -43,7 +47,6 @@ class Coreutils < Formula
   conflicts_with "idutils", because: "both install `gid` and `gid.1`"
   conflicts_with "md5sha1sum", because: "both install `md5sum` and `sha1sum` binaries"
   conflicts_with "truncate", because: "both install `truncate` binaries"
-  conflicts_with "uutils-coreutils", because: "coreutils and uutils-coreutils install the same binaries"
 
   # https://github.com/Homebrew/homebrew-core/pull/36494
   def breaks_macos_users

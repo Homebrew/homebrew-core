@@ -3,19 +3,18 @@ class Esptool < Formula
 
   desc "ESP8266 and ESP32 serial bootloader utility"
   homepage "https://github.com/espressif/esptool"
-  url "https://files.pythonhosted.org/packages/8b/4c/82d7fe5fa0643415bbb90bebff1f861816903c481ee5156fabd6d76dc684/esptool-4.4.tar.gz"
-  sha256 "8acd4dfe70819b1302861ae92894380fb4700b377f5a4739479a4ec276e0b256"
+  url "https://files.pythonhosted.org/packages/e5/28/7b221cedef94c99e56c86508211ab47f662733c0698a7b2767cdf6864034/esptool-4.5.tar.gz"
+  sha256 "eb2602e6af8cb8f6f32d5046441b3a102cd48c505e4afcf836a95a4fc39002a6"
   license "GPL-2.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "f4f3ca5a13ef6bb4440a9568897ba16aea9f3ca5ef3715fbfbe2d1790383a473"
-    sha256 cellar: :any,                 arm64_monterey: "54267a72542328c0c0a9eb8630b0d9f9b21ed6f2e6020888eae0f1f862d2c764"
-    sha256 cellar: :any,                 arm64_big_sur:  "9ed5be17fb51960b545bad3c1bf8c84c9043b5a83a865ac4ac82b9f8a4883884"
-    sha256 cellar: :any,                 ventura:        "20345550e343743ea284630b99027147a3541e5971213f60af39476ae91621a3"
-    sha256 cellar: :any,                 monterey:       "ee3162f847fb4c3997f84ce927212c50af07953b2d855406990620e635bae3eb"
-    sha256 cellar: :any,                 big_sur:        "005e9a142d37e83d71039c44b204cc1df0bccb83ac65ca59d33d6a4872e80952"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8f3a339a549817036cfa18c2c0d645ed10cdc508feeaf8697f2cdb6b20a7585c"
+    sha256 cellar: :any,                 arm64_ventura:  "a15ed8229dda38d6337d1fe652a0d00c0f11aa7e001b57426752061291ece03b"
+    sha256 cellar: :any,                 arm64_monterey: "f52af08377084d25111db8090b47304743d496054b7627728a157314cbadf29f"
+    sha256 cellar: :any,                 arm64_big_sur:  "ec75e9cc8c991fe9586a4d7416d8ab2cef9b8430f2a1a493a8f2449c81bd8914"
+    sha256 cellar: :any,                 ventura:        "e386da8ca48d7609c52cd63c0e6cde67df489c5d60835cf50d127d1784159519"
+    sha256 cellar: :any,                 monterey:       "01f93371ad04479cdf566313784c35ffeacbbf966e3a94ac7ec61728d607212e"
+    sha256 cellar: :any,                 big_sur:        "9be94d7ac7ae2ba46f7c4e49dd46811d88e19f81785dc351bb09fc7a25029bc0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0fdd530e34d1554a8178167da1bb9528182d3368dcad000cc52c40d167230416"
   end
 
   depends_on "rust" => :build
@@ -23,8 +22,8 @@ class Esptool < Formula
   depends_on "six"
 
   resource "bitstring" do
-    url "https://files.pythonhosted.org/packages/4c/b1/80d58eeb21c9d4ca739770558d61f6adacb13aa4908f4f55e0974cbd25ee/bitstring-3.1.9.tar.gz"
-    sha256 "a5848a3f63111785224dca8bb4c0a75b62ecdef56a042c8d6be74b16f7e860e7"
+    url "https://files.pythonhosted.org/packages/d2/64/e733b18349be383a4b7859c865d6c9e5ccc5845e9b4258504055607ec1cb/bitstring-4.0.1.tar.gz"
+    sha256 "7719f08f6df89ce28453a5e580d4a8ec1d1bda892dbb033466da0ccd9bdcb706"
   end
 
   resource "cffi" do
@@ -53,8 +52,8 @@ class Esptool < Formula
   end
 
   resource "reedsolo" do
-    url "https://files.pythonhosted.org/packages/c8/cb/bb2ddbd00c9b4215dd57a2abf7042b0ae222b44522c5eb664a8fd9d786da/reedsolo-1.5.4.tar.gz"
-    sha256 "b8b25cdc83478ccb06361a0e8fadc27b376a3dfabbb1dc6bb583a998a22c0127"
+    url "https://files.pythonhosted.org/packages/9b/10/28d1492cc82a103bc06f18cb9a9dbb3a9168ab2e4068801fa0aa0c76b231/reedsolo-1.6.0.tar.gz"
+    sha256 "4e290d3b0a7207ac7aac186790766c752b5fcdf5e0b04dfd260349579052bbac"
   end
 
   def install

@@ -27,6 +27,8 @@ class Libspectrum < Formula
     depends_on "libtool" => :build
   end
 
+  deprecate! date: "2023-02-14", because: :unmaintained
+
   depends_on "pkg-config" => :build
   depends_on "audiofile"
   depends_on "glib"

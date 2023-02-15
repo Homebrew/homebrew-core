@@ -21,6 +21,11 @@ class StoneSoup < Formula
     sha256 x86_64_linux:   "eef057937a3400fbf577121fd0a8567d0295b6d1c0dd5985ee202f11a59bee57"
   end
 
+  # Only supports Lua 5.1 and doesn't work with LuaJIT 2.1 (needs older 2.0).
+  # Issues relating to using newer Lua are closed so doesn't seem planned to update,
+  # e.g. https://github.com/crawl/crawl/issues/1829#issuecomment-799492138
+  deprecate! date: "2023-02-12", because: "uses deprecated `lua@5.1`"
+
   depends_on "pkg-config" => :build
   depends_on "python@3.11" => :build
   depends_on "pyyaml" => :build

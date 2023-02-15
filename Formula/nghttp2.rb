@@ -1,21 +1,19 @@
 class Nghttp2 < Formula
   desc "HTTP/2 C Library"
   homepage "https://nghttp2.org/"
-  url "https://github.com/nghttp2/nghttp2/releases/download/v1.51.0/nghttp2-1.51.0.tar.gz"
-  mirror "http://fresh-center.net/linux/www/nghttp2-1.51.0.tar.gz"
-  sha256 "2a0bef286f65b35c24250432e7ec042441a8157a5b93519412d9055169d9ce54"
+  url "https://github.com/nghttp2/nghttp2/releases/download/v1.52.0/nghttp2-1.52.0.tar.gz"
+  mirror "http://fresh-center.net/linux/www/nghttp2-1.52.0.tar.gz"
+  sha256 "9877caa62bd72dde1331da38ce039dadb049817a01c3bdee809da15b754771b8"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 arm64_ventura:  "fb429fe151edbc052bac0626bb8c965b77cb5a03532269701745f8b765b7591c"
-    sha256 arm64_monterey: "fd7079661b7868aa2a5abb24df3370c08848c4e622640f0f38c03ab00a41f84c"
-    sha256 arm64_big_sur:  "d42d0ed5accbbe7c4f0ccffd3a8f5ebf747abc799da8f8459000348476c3e23f"
-    sha256 ventura:        "ae5de72a3407df9973e76fa8067076e87dd26345afde9cd247b812b16b6c567e"
-    sha256 monterey:       "78bc8f7d368a6a08609f235f1a3b976b3dfb965e3e1bf41425952f0b089cdbb8"
-    sha256 big_sur:        "f9e7779eeaa372d5514bb2de7e60a9ffad62b9bcc5ece3fe5f5baed52a754173"
-    sha256 catalina:       "da5db8fdbc32ad93099bcf91313b0458f288021228681f8ce5150564e79a9c74"
-    sha256 x86_64_linux:   "152bb2ac4799f90ad7245612d370064c6d0927d876483a8097219743593cff61"
+    sha256 arm64_ventura:  "826b4e8636144e38625be9047827091b21ebd87c4f9c1608ee97d457a1da7be4"
+    sha256 arm64_monterey: "224b62a8c7c9a6c2f28046f0dd2e49c2109d70f2e38f86a6afea088040149f21"
+    sha256 arm64_big_sur:  "5f1342646003a7a0c697a2f6a734c04b85891d94649ba39ec1d74e07f7bf61b3"
+    sha256 ventura:        "c188287b3708ae3656f0395ac486d23f55cd17e524c3a2dde666017415419ce0"
+    sha256 monterey:       "0b7f60bc072bc4d2ec0c76c72c6397fbe2e5eeafcb6d18917f55f097887dec98"
+    sha256 big_sur:        "7c0673d4575ce0f2df65c82d22b361cea475c92edcaf793dd10373fa160ac3e2"
+    sha256 x86_64_linux:   "dbec8d0ae69d5a4cb4aab0c43633aad827e8b156af2727b680caced10e4c6122"
   end
 
   head do

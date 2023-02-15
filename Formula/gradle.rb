@@ -1,10 +1,8 @@
 class Gradle < Formula
   desc "Open-source build automation tool based on the Groovy and Kotlin DSL"
   homepage "https://www.gradle.org/"
-  # TODO: switch dependency to `openjdk` on 7.6.
-  # Ref: https://github.com/gradle/gradle/issues/20372
-  url "https://services.gradle.org/distributions/gradle-7.6-all.zip"
-  sha256 "312eb12875e1747e05c2f81a4789902d7e4ec5defbd1eefeaccc08acf096505d"
+  url "https://services.gradle.org/distributions/gradle-8.0-all.zip"
+  sha256 "f30b29580fe11719087d698da23f3b0f0d04031d8995f7dd8275a31f7674dc01"
   license "Apache-2.0"
 
   livecheck do
@@ -13,22 +11,15 @@ class Gradle < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4ba00f5fb6200ba402ef737e47cd3c3c079d77466299c7ef49ed28de3b1c4dc5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4ba00f5fb6200ba402ef737e47cd3c3c079d77466299c7ef49ed28de3b1c4dc5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4ba00f5fb6200ba402ef737e47cd3c3c079d77466299c7ef49ed28de3b1c4dc5"
-    sha256 cellar: :any_skip_relocation, ventura:        "4ba00f5fb6200ba402ef737e47cd3c3c079d77466299c7ef49ed28de3b1c4dc5"
-    sha256 cellar: :any_skip_relocation, monterey:       "4ba00f5fb6200ba402ef737e47cd3c3c079d77466299c7ef49ed28de3b1c4dc5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "4be64b296fb7a3b5c16d7807dd278dbcb2fbc21a6209e65786e0548f48cffc44"
-    sha256 cellar: :any_skip_relocation, catalina:       "4be64b296fb7a3b5c16d7807dd278dbcb2fbc21a6209e65786e0548f48cffc44"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4ba00f5fb6200ba402ef737e47cd3c3c079d77466299c7ef49ed28de3b1c4dc5"
+    sha256 cellar: :any_skip_relocation, all: "7c7f4ede8c41bcda700b1dbaa05aaaec91dd03b77acefcb5e122215345a4b107"
   end
 
-  depends_on "openjdk@17"
+  depends_on "openjdk"
 
   def install
     rm_f Dir["bin/*.bat"]
     libexec.install %w[bin docs lib src]
-    env = Language::Java.overridable_java_home_env("17")
+    env = Language::Java.overridable_java_home_env("19")
     (bin/"gradle").write_env_script libexec/"bin/gradle", env
   end
 

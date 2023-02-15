@@ -4,7 +4,7 @@ class MbedtlsAT2 < Formula
   url "https://github.com/Mbed-TLS/mbedtls/archive/mbedtls-2.28.2.tar.gz"
   sha256 "1db6d4196178fa9f8264bef5940611cd9febcd5d54ec05f52f1e8400f792b5a4"
   license "Apache-2.0"
-  head "https://github.com/Mbed-TLS/mbedtls.git", branch: "development_2.x"
+  head "https://github.com/Mbed-TLS/mbedtls.git", branch: "mbedtls-2.28"
 
   livecheck do
     url :stable
