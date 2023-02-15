@@ -52,7 +52,7 @@ class Fastnetmon < Formula
   fails_with gcc: "5"
 
   # patch macOS build, remove in next release
-  # upstream PR ref, pavel-odintsov/fastnetmon#950
+  # upstream PR ref, https://github.com/pavel-odintsov/fastnetmon/pull/950
   patch do
     url "https://github.com/pavel-odintsov/fastnetmon/commit/b3895208c9aab27881c97e1181e7622ea3ea84b0.patch?full_index=1"
     sha256 "8ee473b8b44765af6ad5bb9e9ffec7cb6b47bec196fb96de12f21bf890f778a1"
