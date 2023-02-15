@@ -50,8 +50,8 @@ class Pyenv < Formula
     share.install prefix/"man"
 
     # Do not manually install shell completions. See:
-    #   - https://github.com/pyenv/pyenv/issues/1056#issuecomment-356818337
-    #   - https://github.com/Homebrew/homebrew-core/pull/22727
+    #   - pyenv/pyenv#1056#issuecomment-356818337
+    #   - Homebrew/homebrew-core#22727
   end
 
   test do
