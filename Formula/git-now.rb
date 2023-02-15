@@ -5,9 +5,16 @@ class GitNow < Formula
   head "https://github.com/iwata/git-now.git", branch: "master"
 
   stable do
-    url "https://github.com/iwata/git-now.git",
-        tag:      "v0.1.1.0",
-        revision: "a07a05893b9ddf784833b3d4b410c843633d0f71"
+    # We switched from git url to tarballs & resource as submodule fetch fails without
+    # https://github.com/iwata/git-now/commit/9beab94649afd0822c2c5bf38db9963c7a997ba7
+    # but we cannot apply a patch before `git submodule update --init --recursive`.
+    url "https://github.com/iwata/git-now/archive/refs/tags/v0.1.1.0.tar.gz"
+    sha256 "b6f6b9221dcab10de44514575f54e80daf825dc9f5a72262f5708a7432aa087f"
+
+    resource "shFlags" do
+      url "https://github.com/nvie/shFlags/archive/refs/tags/1.0.3.tar.gz"
+      sha256 "5e8dfddc7eb5f51f56b74b9d928cb64bd969e0d511c3efab5c0a6c2433c6fedd"
+    end
 
     # Fix error on Linux due to /bin/sh using dash
     patch do
@@ -30,6 +37,7 @@ class GitNow < Formula
   depends_on "gnu-getopt"
 
   def install
+    (buildpath/"shFlags").install resource("shFlags")
     system "make", "prefix=#{libexec}", "install"
     (bin/"git-now").write_env_script libexec/"bin/git-now", PATH: "#{Formula["gnu-getopt"].opt_bin}:$PATH"
     zsh_completion.install "etc/_git-now"
