@@ -41,7 +41,7 @@ class Netdata < Formula
   end
 
   def install
-    # protocolbuffers/protobuf#9947: ABI may depend on NDEBUG
+    # https://github.com/protocolbuffers/protobuf/issues/9947
     ENV.append_to_cflags "-DNDEBUG"
 
     # We build judy as static library, so we don't need to install it
