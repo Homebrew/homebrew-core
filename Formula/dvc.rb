@@ -793,7 +793,8 @@ class Dvc < Formula
 
     virtualenv_install_with_resources
 
-    generate_completions_from_executable(bin/"dvc", "completion", "-s", shells: [:bash, :zsh])
+    generate_completions_from_executable(bin/"dvc", "completion", "-vv", "-s", shells: [:bash, :zsh])
+    odie (bash_completion/"dvc").read
   end
 
   test do
