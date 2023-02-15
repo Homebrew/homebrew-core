@@ -23,11 +23,16 @@ class Soplex < Formula
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "gmp"
+  depends_on "papilo"
   depends_on "tbb"
   uses_from_macos "zlib"
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    cmake_args = %w[
+      -DPAPILO=ON
+    ]
+
+    system "cmake", "-S", ".", "-B", "build", *cmake_args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
     pkgshare.install "src/example.cpp"
@@ -51,7 +56,8 @@ class Soplex < Formula
     assert_match "problem is solved [optimal]", shell_output("#{bin}/soplex test.lp")
 
     system ENV.cxx, pkgshare/"example.cpp", "-std=c++14", "-L#{lib}", "-I#{include}",
-      "-L#{Formula["gmp"].opt_lib}", "-lsoplex", "-lz", "-lgmp", "-o", "test"
+      "-L#{Formula["gmp"].opt_lib}", "-L#{Formula["papilo"].opt_lib}", "-lsoplex",
+      "-lz", "-lgmp", "-lpapilo", "-o", "test"
     system "./test"
   end
 end
