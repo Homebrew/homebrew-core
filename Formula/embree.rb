@@ -1,8 +1,8 @@
 class Embree < Formula
   desc "High-performance ray tracing kernels"
   homepage "https://embree.github.io/"
-  url "https://github.com/embree/embree/archive/v3.13.5.tar.gz"
-  sha256 "b8c22d275d9128741265537c559d0ea73074adbf2f2b66b0a766ca52c52d665b"
+  url "https://github.com/embree/embree/archive/v4.0.0.tar.gz"
+  sha256 "bb967241f9516712a9f8e399ed7f756d7baeec3c85c223c0005ede8b95c9fa61"
   license "Apache-2.0"
   head "https://github.com/embree/embree.git", branch: "master"
 
@@ -44,7 +44,7 @@ class Embree < Formula
   test do
     (testpath/"test.c").write <<~EOS
       #include <assert.h>
-      #include <embree3/rtcore.h>
+      #include <embree4/rtcore.h>
       int main() {
         RTCDevice device = rtcNewDevice("verbose=1");
         assert(device != 0);
@@ -53,7 +53,7 @@ class Embree < Formula
       }
     EOS
 
-    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lembree3"
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lembree4"
     system "./a.out"
   end
 end
