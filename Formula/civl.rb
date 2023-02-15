@@ -2,7 +2,7 @@ class Civl < Formula
   desc "Concurrency Intermediate Verification Language"
   homepage "https://vsl.cis.udel.edu/civl/"
   url "https://vsl.cis.udel.edu/lib/sw/civl/1.21/r5476/release/CIVL-1.21_5476.tgz"
-  version "1.21_5476"
+  version "1.21-5476"
   sha256 "6228c7ba17ce516921975e84001b47a6260f432af44784136164654be5e7ad4e"
   license all_of: ["GPL-3.0-or-later", "LGPL-3.0-or-later", "BSD-3-Clause"]
 
