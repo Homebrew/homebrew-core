@@ -3,8 +3,8 @@ class Papilo < Formula
   homepage "https://www.scipopt.org"
   url "https://github.com/scipopt/papilo/archive/refs/tags/v2.1.2.tar.gz"
   sha256 "7e3d829c957767028db50b5c5085601449b00671e7efc2d5eb0701a6903d102f"
-  version_scheme 1
   license all_of: ["LGPL-3.0-only", "GPL-3.0-only"]
+  version_scheme 1
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "e515a614c26a9eca753896cc692b027a0833ad0199048f452d6570c7cd1842b7"
