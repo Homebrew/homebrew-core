@@ -26,19 +26,16 @@ class Arrayfire < Formula
 
   def install
     # Fix for: `ArrayFire couldn't locate any backends.`
-    # We cannot use `CMAKE_INSTALL_RPATH` since upstream override this:
-    #   https://github.com/arrayfire/arrayfire/blob/590267d2/CMakeModules/InternalUtils.cmake#L181
-    linker_flags = [
+    rpaths = [
       rpath(source: lib, target: Formula["fftw"].opt_lib),
       rpath(source: lib, target: Formula["openblas"].opt_lib),
       rpath(source: lib, target: HOMEBREW_PREFIX/"lib"),
     ]
-    linker_flags.map! { |path| "-Wl,-rpath,#{path}" }
 
     system "cmake", "-S", ".", "-B", "build",
                     "-DAF_BUILD_CUDA=OFF",
                     "-DAF_COMPUTE_LIBRARY=FFTW/LAPACK/BLAS",
-                    "-DCMAKE_SHARED_LINKER_FLAGS=#{linker_flags.join(" ")}",
+                    "-DCMAKE_INSTALL_RPATH=#{rpaths.join(";")}",
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
