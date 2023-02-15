@@ -11,7 +11,8 @@ class Whistle < Formula
     sha256 cellar: :any_skip_relocation, all: "73cff8825dc749e1da449a04af00964614890101605e8b20e012d383b39bf066"
   end
 
-  # npm dependency `set-global-proxy` ships an x86_64-only binary.
+  # `bin/proxy/mac/Whistle` was only built for `x86_64`
+  # upstream issue tracker, https://github.com/avwo/whistle/issues/734
   depends_on arch: :x86_64
   depends_on "node"
 
