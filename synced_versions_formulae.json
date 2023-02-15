@@ -10,6 +10,7 @@
   ["apache-arrow", "apache-arrow-glib"],
   ["avro-c", "avro-cpp", "avro-tools"],
   ["aws-console", "cfn-format", "rain"],
+  ["baresip", "libre", "librem"],
   ["boost", "boost-bcp", "boost-build", "boost-mpi", "boost-python3"],
   ["bundler-completion", "gem-completion", "rails-completion", "ruby-completion"],
   ["buildifier", "buildozer"],
