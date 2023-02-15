@@ -3,11 +3,9 @@ class Algol68g < Formula
   homepage "https://jmvdveer.home.xs4all.nl/algol.html"
   # The upstream download url currently returns a 404 error.
   # Until fixed, we can use a copy from OpenBSD.
-  url "https://ftp.openbsd.org/pub/OpenBSD/distfiles/algol68g-2.8.5.tar.gz"
-  mirror "https://jmvdveer.home.xs4all.nl/algol68g-2.8.5.tar.gz"
-  sha256 "0f757c64a8342fe38ec501bde68b61d26d051dffd45742ca58b7288a99c7e2d8"
+  url "https://jmvdveer.home.xs4all.nl/algol68g-3.1.2.tar.gz"
+  sha256 "bcac9a5e20ef14c8c693ef418988cb056e76c290fc9d6fa1f6564231dc78261d"
   license "GPL-3.0-or-later"
-  revision 1
 
   livecheck do
     url "https://jmvdveer.home.xs4all.nl/en.download.algol-68-genie-current.html"
