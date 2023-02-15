@@ -26,7 +26,15 @@ class Csvtk < Formula
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w"), "./csvtk"
-    generate_completions_from_executable(bin/"csvtk", "genautocomplete", shell_parameter_format: :arg)
+
+    # We do this because the command to generate completions doesn't print them
+    # to stdout and only writes them to a file
+    system bin/"csvtk", "genautocomplete", "--shell", "bash", "--file", "csvtk.bash"
+    system bin/"csvtk", "genautocomplete", "--shell", "zsh", "--file", "_csvtk"
+    system bin/"csvtk", "genautocomplete", "--shell", "fish", "--file", "csvtk.fish"
+    bash_completion.install "csvtk.bash" => "csvtk"
+    zsh_completion.install "_csvtk"
+    fish_completion.install "csvtk.fish"
   end
 
   test do
