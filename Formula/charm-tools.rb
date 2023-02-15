@@ -3,8 +3,8 @@ class CharmTools < Formula
 
   desc "Tools for authoring and maintaining juju charms"
   homepage "https://github.com/juju/charm-tools"
-  url "https://files.pythonhosted.org/packages/eb/e1/684dbbf7a11274a4a5bce15d2cc7c4a054b88b1c51b087d8b3c74a051184/charm-tools-3.0.4.tar.gz"
-  sha256 "47725b0c71baeffc25c2b788fd84a4720bd66ca87515d7a9a28a3acc7cfe0107"
+  url "https://files.pythonhosted.org/packages/5c/44/d865757925098ad4957c02401bed5b7642db2f794a2c4f348ab165e115ab/charm-tools-3.0.5.tar.gz"
+  sha256 "9dc2e8a688033a342f0f840b82d5ba4f118fcc2590085a4153001dcfeea54125"
   license "GPL-3.0-only"
 
   bottle do
@@ -208,13 +208,13 @@ class CharmTools < Formula
   end
 
   resource "types-docutils" do
-    url "https://files.pythonhosted.org/packages/9d/8e/f71b3ab0b2a20143c9ad8d072ce638dda5a5958bb17befd390b26dd6489f/types-docutils-0.19.1.3.tar.gz"
-    sha256 "36fe30de56f1ece1a9f7a990d47daa781b5af831d2b3f2dcb7dfd01b857cc3d4"
+    url "https://files.pythonhosted.org/packages/e5/c0/adbf5dd6a48ecb9e1ab70321294a17108960c6de11db686d277bc2e7d68a/types-docutils-0.19.1.4.tar.gz"
+    sha256 "1b64b21b609ff1fc7791d3d930f14b56b36ad09029fd97e45e34cc889d671b5f"
   end
 
   resource "types-setuptools" do
-    url "https://files.pythonhosted.org/packages/d0/e0/c551d49faedf9db1b4c4e061e90ac258189f0f6bfb7f3ade3a1cba20296a/types-setuptools-67.2.0.1.tar.gz"
-    sha256 "07648088bc2cbf0f2745107d394e619ba2a747f68a5904e6e4089c0cb8322065"
+    url "https://files.pythonhosted.org/packages/62/d0/7df9c20c727fc4c9cc4b389dee6f429ef6bed4604677885029d3c6d70ab5/types-setuptools-67.3.0.1.tar.gz"
+    sha256 "1a26d373036c720e566823b6edd664a2db4d138b6eeba856721ec1254203474f"
   end
 
   resource "urllib3" do
@@ -238,8 +238,8 @@ class CharmTools < Formula
   end
 
   resource "zipp" do
-    url "https://files.pythonhosted.org/packages/1f/29/54ba1934c45af649698410456fa8a78a475c82efd5c562e51011079458d1/zipp-3.12.1.tar.gz"
-    sha256 "a3cac813d40993596b39ea9e93a18e8a2076d5c378b8bc88ec32ab264e04ad02"
+    url "https://files.pythonhosted.org/packages/d1/2f/ba544a8a6ad5ad9dcec1b00f536bb9fb078f5f50d1a1408876de18a9151b/zipp-3.13.0.tar.gz"
+    sha256 "23f70e964bc11a34cef175bc90ba2914e1e4545ea1e3e2f67c079671883f9cb6"
   end
 
   def install
