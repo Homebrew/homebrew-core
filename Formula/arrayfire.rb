@@ -40,7 +40,6 @@ class Arrayfire < Formula
 
     system "cmake", "-S", ".", "-B", "build",
                     "-DAF_BUILD_CUDA=OFF",
-                    "-DAF_WITH_EXTERNAL_PACKAGES_ONLY=ON", # avoid vendored deps
                     "-DAF_COMPUTE_LIBRARY=FFTW/LAPACK/BLAS",
                     "-DCMAKE_INSTALL_RPATH=#{rpaths.join(";")}",
                     *std_cmake_args
