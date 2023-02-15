@@ -1,8 +1,8 @@
 class FdkAacEncoder < Formula
   desc "Command-line encoder frontend for libfdk-aac"
   homepage "https://github.com/nu774/fdkaac"
-  url "https://github.com/nu774/fdkaac/archive/v1.0.3.tar.gz"
-  sha256 "ee444518353833b2b8f1b106bb4d9e9c15ae4d48569be9b6c89fc38dabf364b7"
+  url "https://github.com/nu774/fdkaac/archive/v1.0.5.tar.gz"
+  sha256 "87b2d2cc913a1f90bd19315061ede81c1c3364e160802c70117a7ea81e80bd33"
   license "Zlib"
 
   bottle do
