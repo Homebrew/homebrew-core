@@ -16,7 +16,7 @@ class Webkitgtk < Formula
 
   depends_on "cmake" => :build
   depends_on "gobject-introspection" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkg-config" => [:build, :test]
   depends_on "python@3.11" => :build
   depends_on "cairo"
   depends_on "enchant"
