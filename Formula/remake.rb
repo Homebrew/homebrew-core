@@ -33,10 +33,10 @@ class Remake < Formula
   conflicts_with "make", because: "both install texinfo files for make"
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make", "install"
+    # Remove texinfo files for make to avoid conflict
+    info.glob("make.info*").map(&:unlink)
   end
 
   test do
