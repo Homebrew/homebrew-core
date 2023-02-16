@@ -1,8 +1,8 @@
 class Datree < Formula
   desc "CLI tool to run policies against Kubernetes manifests YAML files or Helm charts"
   homepage "https://datree.io/"
-  url "https://github.com/datreeio/datree/archive/1.8.21.tar.gz"
-  sha256 "fd25884ac9751ac0dca203b5aca62ea50dbc4b9e99282f4df5d3b6a95d439f2c"
+  url "https://github.com/datreeio/datree/archive/1.8.24.tar.gz"
+  sha256 "93b63a69b5bb1bdc5b9062c8f2e611fd9ec6a192c10f3aa5abadbd70d542a98b"
   license "Apache-2.0"
   head "https://github.com/datreeio/datree.git", branch: "main"
 
