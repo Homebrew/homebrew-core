@@ -21,7 +21,7 @@ class Bcoin < Formula
   end
 
   depends_on "python@3.11" => :build
-  depends_on "node@16"
+  depends_on "node"
 
   def node
     deps.reject(&:build?)
