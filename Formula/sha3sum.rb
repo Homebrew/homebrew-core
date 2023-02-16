@@ -1,8 +1,8 @@
 class Sha3sum < Formula
   desc "Keccak, SHA-3, SHAKE, and RawSHAKE checksum utilities"
-  homepage "https://github.com/maandree/sha3sum"
-  url "https://github.com/maandree/sha3sum/archive/1.2.2.tar.gz"
-  sha256 "57cfda5d9d16aa14c78d278b1c14fd9f3504424ee62bc18137ce6435c1364d12"
+  homepage "https://codeberg.org/maandree/sha3sum"
+  url "https://codeberg.org/maandree/sha3sum/archive/1.2.2.tar.gz"
+  sha256 "3169789c996f9958026aba228e51431c712db02f1e2e29aba12c7a4f574f4747"
   license "ISC"
 
   bottle do
