@@ -23,12 +23,6 @@ class VespaCli < Formula
 
   depends_on "go" => :build
 
-  # patch the version override, remove in next release
-  patch do
-    url "https://github.com/vespa-engine/vespa/commit/121cc99584a9d99950c4037162c43b5f583a312d.patch?full_index=1"
-    sha256 "7002a836d8424dccc593435b9c8bb97f95d6cc8f78a4938f2f91ac5da8ed2c89"
-  end
-
   def install
     cd "client/go" do
       with_env(VERSION: version.to_s, PREFIX: prefix.to_s) do
