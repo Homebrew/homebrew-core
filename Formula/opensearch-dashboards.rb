@@ -15,9 +15,14 @@ class OpensearchDashboards < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "0964149b822339ee6fd07743db63a9c9fced4ed1143ef5f111da67b64598e623"
   end
 
+  # Match deprecation date of `node@14`.
+  # TODO: Remove if migrated to `node@18` or `node`. Update date if migrated to `node@16`.
+  # Issue ref: https://github.com/opensearch-project/OpenSearch-Dashboards/issues/2929
+  deprecate! date: "2023-04-30", because: "uses deprecated `node@14`"
+
   depends_on "yarn" => :build
   depends_on arch: :x86_64 # https://github.com/opensearch-project/OpenSearch-Dashboards/issues/1630
-  depends_on "node@14" # use `node@16` after https://github.com/opensearch-project/OpenSearch-Dashboards/issues/406
+  depends_on "node@14" # use `node@18` after https://github.com/opensearch-project/OpenSearch-Dashboards/issues/2929
 
   def install
     inreplace "package.json", /"node": "14\.\d+\.\d+"/, %Q("node": "#{Formula["node@14"].version}")
