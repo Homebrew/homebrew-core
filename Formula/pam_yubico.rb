@@ -22,6 +22,10 @@ class PamYubico < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "396c081539899c3450ea38767fe2d33e547367da9351bb7c2726c7455516fcad"
   end
 
+  # Deprecation date set to 1 year after upstream issue was created.
+  # Issue opened on 2022-07-29: https://github.com/Yubico/yubico-pam/issues/242
+  deprecate! date: "2023-07-29", because: "uses deprecated `ykclient`"
+
   depends_on "pkg-config" => :build
   depends_on "libyubikey"
   depends_on "ykclient"
