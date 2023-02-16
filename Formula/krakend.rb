@@ -18,12 +18,8 @@ class Krakend < Formula
   depends_on "go" => :build
 
   def install
-    (buildpath/"src/github.com/devopsfaith/krakend-ce").install buildpath.children
-    cd "src/github.com/devopsfaith/krakend-ce" do
-      system "make", "build"
-      bin.install "krakend"
-      prefix.install_metafiles
-    end
+    system "make", "build"
+    bin.install "krakend"
   end
 
   test do
