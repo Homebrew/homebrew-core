@@ -17,8 +17,8 @@ class Carrot2 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "357fb923776eb79ecc87788189897165bf733fd35d0fdd3a94e37cb73333b8d9"
   end
 
-  depends_on "gradle" => :build
-  depends_on "node@16" => :build
+  depends_on "gradle@7" => :build
+  depends_on "node@18" => :build
   depends_on "yarn" => :build
   depends_on "openjdk"
 
@@ -26,12 +26,12 @@ class Carrot2 < Formula
     # Make possible to build the formula with the latest available in Homebrew gradle
     inreplace "gradle/validation/check-environment.gradle",
       /expectedGradleVersion = '[^']+'/,
-      "expectedGradleVersion = '#{Formula["gradle"].version}'"
+      "expectedGradleVersion = '#{Formula["gradle@7"].version}'"
 
     # Use yarn and node from Homebrew
     inreplace "gradle/node/yarn-projects.gradle", "download = true", "download = false"
     inreplace "build.gradle" do |s|
-      s.gsub! "node: '16.13.0'", "node: '#{Formula["node@16"].version}'"
+      s.gsub! "node: '16.13.0'", "node: '#{Formula["node@18"].version}'"
       s.gsub! "yarn: '1.22.15'", "yarn: '#{Formula["yarn"].version}'"
     end
 
