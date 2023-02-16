@@ -3,8 +3,8 @@ class Conan < Formula
 
   desc "Distributed, open source, package manager for C/C++"
   homepage "https://conan.io"
-  url "https://files.pythonhosted.org/packages/f0/f1/876a916cd7a5f89d838842cb3d3c52251aeaa6dabc92db0f53b9c417e610/conan-1.58.0.tar.gz"
-  sha256 "001039c40b523ac3b26bb675eb90887760b06c657a0d10d60157e382ba2f9b73"
+  url "https://files.pythonhosted.org/packages/41/b2/839b3bdd1a02e0d32c13a49ce6fe8239535997736cafab864a0eb351e5ac/conan-1.59.0.tar.gz"
+  sha256 "161c8f2d3193c209a1e9525fe7d6c600688da529a9864e6ef557133e93131952"
   license "MIT"
   head "https://github.com/conan-io/conan.git", branch: "develop"
 
@@ -47,8 +47,8 @@ class Conan < Formula
   end
 
   resource "distro" do
-    url "https://files.pythonhosted.org/packages/b5/7e/ddfbd640ac9a82e60718558a3de7d5988a7d4648385cf00318f60a8b073a/distro-1.7.0.tar.gz"
-    sha256 "151aeccf60c216402932b52e40ee477a939f8d58898927378a02abbe852c1c39"
+    url "https://files.pythonhosted.org/packages/4b/89/eaa3a3587ebf8bed93e45aa79be8c2af77d50790d15b53f6dfc85b57f398/distro-1.8.0.tar.gz"
+    sha256 "02e111d1dc6a50abb8eed6bf31c3e48ed8b0830d1ea2a1b78c61765c2513fdd8"
   end
 
   resource "fasteners" do
