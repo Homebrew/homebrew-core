@@ -34,6 +34,6 @@ class Mfoc < Formula
   end
 
   test do
-    assert_match "test" shell_output("#{bin}/mfoc -O /dev/null")
+    assert_match "test", shell_output("#{bin}/mfoc -O /dev/null")
   end
 end
