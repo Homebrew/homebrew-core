@@ -21,7 +21,7 @@ class VirustotalCli < Formula
   def install
     system "go", "build", *std_go_args(output: bin/"vt", ldflags: "-X cmd.Version=#{version}"), "./vt/main.go"
 
-    generate_completions_from_executable(bin/"vt", "completion", base_name: "vt", shells: [:bash, :zsh])
+    generate_completions_from_executable(bin/"vt", "completion", base_name: "vt")
   end
 
   test do
