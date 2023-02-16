@@ -18,7 +18,7 @@ class HasuraCli < Formula
   end
 
   depends_on "go" => :build
-  depends_on "node@16" => :build # Switch back to node with https://github.com/vercel/pkg/issues/1364
+  depends_on "node@18" => :build
 
   def install
     Language::Node.setup_npm_environment
@@ -31,6 +31,8 @@ class HasuraCli < Formula
 
     # Based on `make build-cli-ext`, but only build a single host-specific binary
     cd "cli-ext" do
+      # TODO: Remove `npm update pkg` when https://github.com/hasura/graphql-engine/issues/9440 is resolved.
+      system "npm", "update", "pkg"
       system "npm", "install", *Language::Node.local_npm_install_args
       system "npm", "run", "prebuild"
       system "./node_modules/.bin/pkg", "./build/command.js", "--output", "./bin/cli-ext-hasura", "-t", "host"
