@@ -119,7 +119,7 @@ class C7n < Formula
             tag: CreatorName
             principal_id_tag: CreatorId
     EOF
-    output = shell_output("custodian validate --verbose #{testpath}/good-policy.yml 2>&1")
+    output = shell_output("#{bin}/custodian validate --verbose #{testpath}/good-policy.yml 2>&1")
     assert_match "valid", output
     # has invalid "action" key instead of "actions"
     (testpath/"bad-policy.yml").write <<~EOF
