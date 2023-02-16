@@ -1,8 +1,8 @@
 class GoCamo < Formula
   desc "Secure image proxy server"
   homepage "https://github.com/cactus/go-camo"
-  url "https://github.com/cactus/go-camo/archive/refs/tags/v2.4.1.tar.gz"
-  sha256 "b0ecf8837fc0ef7fdf1fc2145a28e7246dd0bafcb64037bfb8dd6a4e393a1b0f"
+  url "https://github.com/cactus/go-camo/archive/refs/tags/v2.4.2.tar.gz"
+  sha256 "1182573507a50e95aa11cbd283a9d691b86b8f7c16f61b2dd7320e2aef1a2594"
   license "MIT"
 
   bottle do
