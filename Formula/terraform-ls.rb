@@ -26,8 +26,7 @@ class TerraformLs < Formula
   def install
     ldflags = %W[
       -s -w
-      -X main.version=#{version}
-      -X main.versionPrerelease=#{tap.user}
+      -X main.rawVersion=#{version}
     ]
     system "go", "build", *std_go_args(ldflags: ldflags.join(" "))
   end
