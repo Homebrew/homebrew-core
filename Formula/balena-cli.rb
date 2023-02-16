@@ -22,6 +22,12 @@ class BalenaCli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3a65813ed2c8eaa8c2d447b053338d0b4f0239b168b4c43f3cbaf31f2da6d1b1"
   end
 
+  # Match deprecation date of `node@14`.
+  # TODO: Remove if migrated to `node@18` or `node`. Update date if migrated to `node@16`.
+  # Issue ref: https://github.com/balena-io/balena-cli/issues/2221
+  # Issue ref: https://github.com/balena-io/balena-cli/issues/2403
+  deprecate! date: "2023-04-30", because: "uses deprecated `node@14`"
+
   depends_on "node@14"
 
   on_macos do
