@@ -1,8 +1,8 @@
 class Zola < Formula
   desc "Fast static site generator in a single binary with everything built-in"
   homepage "https://www.getzola.org/"
-  url "https://github.com/getzola/zola/archive/v0.16.1.tar.gz"
-  sha256 "c153fd0cc1435930a4871165e6ad4865e3528465f3f41d0671a9837121688ac7"
+  url "https://github.com/getzola/zola/archive/v0.17.0.tar.gz"
+  sha256 "a7254554e61f2c737bc3981a6278e0fbac5dc685e5d90c014fc60eced99bf55c"
   license "MIT"
 
   bottle do
@@ -18,7 +18,6 @@ class Zola < Formula
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
-  depends_on "libsass" # for sass-sys
   depends_on "oniguruma" # for onig_sys
 
   on_linux do
@@ -29,21 +28,19 @@ class Zola < Formula
     ENV["RUSTONIG_SYSTEM_LIBONIG"] = "1"
     system "cargo", "install", "--features", "native-tls", *std_cargo_args
 
-    bash_completion.install "completions/zola.bash"
-    zsh_completion.install "completions/_zola"
-    fish_completion.install "completions/zola.fish"
+    generate_completions_from_executable(bin/"zola", "completion")
   end
 
   test do
     system "yes '' | #{bin}/zola init mysite"
-    (testpath/"mysite/content/blog/index.md").write <<~EOS
+    (testpath/"mysite/content/blog/_index.md").write <<~EOS
       +++
       +++
 
       Hi I'm Homebrew.
     EOS
-    (testpath/"mysite/templates/page.html").write <<~EOS
-      {{ page.content | safe }}
+    (testpath/"mysite/templates/section.html").write <<~EOS
+      {{ section.content | safe }}
     EOS
 
     cd testpath/"mysite" do
