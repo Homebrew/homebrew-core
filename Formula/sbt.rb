@@ -39,7 +39,7 @@ class Sbt < Formula
       Project specific options should be placed in .sbtopts in the root of your project.
       Global settings should be placed in #{etc}/sbtopts
 
-      #{tap.user}'s installation does not include `sbtn`.
+      The installation does not include `sbtn`.
     EOS
   end
 
