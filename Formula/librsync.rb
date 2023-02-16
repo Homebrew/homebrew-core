@@ -1,8 +1,8 @@
 class Librsync < Formula
   desc "Library that implements the rsync remote-delta algorithm"
   homepage "https://librsync.github.io/"
-  url "https://github.com/librsync/librsync/archive/v2.3.2.tar.gz"
-  sha256 "ef8ce23df38d5076d25510baa2cabedffbe0af460d887d86c2413a1c2b0c676f"
+  url "https://github.com/librsync/librsync/archive/v2.3.3.tar.gz"
+  sha256 "1a79a74173fe385bb59e6ff5be80ac33ab654f9fcc7a9beba37d875ecba88a39"
   license "LGPL-2.1-or-later"
 
   bottle do
