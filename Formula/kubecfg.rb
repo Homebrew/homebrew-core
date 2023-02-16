@@ -18,17 +18,12 @@ class Kubecfg < Formula
   depends_on "go" => :build
 
   def install
-    (buildpath/"src/github.com/kubecfg/kubecfg").install buildpath.children
+    system "make", "VERSION=v#{version}"
+    bin.install "kubecfg"
+    pkgshare.install Pathname("examples").children
+    pkgshare.install Pathname("testdata").children
 
-    cd "src/github.com/kubecfg/kubecfg" do
-      system "make", "VERSION=v#{version}"
-      bin.install "kubecfg"
-      pkgshare.install Pathname("examples").children
-      pkgshare.install Pathname("testdata").children
-      prefix.install_metafiles
-    end
-
-    generate_completions_from_executable(bin/"kubecfg", "completion", "--shell", shells: [:bash, :zsh])
+    generate_completions_from_executable(bin/"kubecfg", "completion", "--shell")
   end
 
   test do
