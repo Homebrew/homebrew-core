@@ -17,15 +17,16 @@ class Mongosh < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f7e6111437d3f1c5aeb2bd9e6189ff2d261e5ae1a2d90126a9cb09c9c6e714c8"
   end
 
-  depends_on "node"
+  depends_on "node@16"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
-    bin.install_symlink Dir[libexec/"bin/*"]
+    system "#{Formula["node@16"].bin}/npm", "install", *Language::Node.std_npm_install_args(libexec)
+    (bin/"mongosh").write_env_script libexec/"bin/mongosh", PATH: "#{Formula["node@16"].opt_bin}:$PATH"
   end
 
   test do
     assert_match "ECONNREFUSED 0.0.0.0:1", shell_output("#{bin}/mongosh \"mongodb://0.0.0.0:1\" 2>&1", 1)
     assert_match "#ok#", shell_output("#{bin}/mongosh --nodb --eval \"print('#ok#')\"")
+    assert_match "all tests passed", shell_output("#{bin}/mongosh --smokeTests 2>&1")
   end
 end
