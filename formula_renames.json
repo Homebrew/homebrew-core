@@ -100,6 +100,7 @@
   "mat": "mat2",
   "maven32": "maven@3.2",
   "minizip2": "minizip-ng",
+  "mist": "mist-cli",
   "mkl-dnn": "onednn",
   "mobile-shell": "mosh",
   "mongo-c": "mongo-c-driver",
