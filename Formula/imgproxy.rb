@@ -39,7 +39,7 @@ class Imgproxy < Formula
     pid = fork do
       exec bin/"imgproxy"
     end
-    sleep 10
+    sleep 20
 
     output = testpath/"test-converted.png"
 
