@@ -18,7 +18,7 @@ class HasuraCli < Formula
   end
 
   depends_on "go" => :build
-  depends_on "node@16" => :build # Switch back to node with https://github.com/vercel/pkg/issues/1364
+  depends_on "node" => :build
 
   def install
     Language::Node.setup_npm_environment
