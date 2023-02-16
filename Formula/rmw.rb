@@ -1,8 +1,8 @@
 class Rmw < Formula
   desc "Safe-remove utility for the command-line"
   homepage "https://remove-to-waste.info/"
-  url "https://github.com/theimpossibleastronaut/rmw/releases/download/v0.8.1/rmw-0.8.1.tar.gz"
-  sha256 "abad25d8c0b2d6593fe426ca2c2d064207630e6a827a7d769f4991cbb583337b"
+  url "https://github.com/theimpossibleastronaut/rmw/releases/download/v0.9.0/rmw-0.9.0.tar.xz"
+  sha256 "cc9d20733c9f9945054041ee6aeac7f4a4b7a675f297ffe388e4863fb84ed4a1"
   license "GPL-3.0-or-later"
   head "https://github.com/theimpossibleastronaut/rmw.git", branch: "master"
 
@@ -27,13 +27,11 @@ class Rmw < Formula
   depends_on "pkg-config" => :build
   depends_on "canfigger"
   depends_on "gettext"
-  # Slightly buggy with system ncurses
-  # https://github.com/theimpossibleastronaut/rmw/issues/205
   depends_on "ncurses"
 
   def install
     mkdir "build" do
-      system "meson", *std_meson_args, ".."
+      system "meson", *std_meson_args, "-Db_sanitize=none", ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
     end
