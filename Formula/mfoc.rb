@@ -28,8 +28,7 @@ class Mfoc < Formula
 
   def install
     system "autoreconf", "-is"
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make"
     system "make", "install"
   end
