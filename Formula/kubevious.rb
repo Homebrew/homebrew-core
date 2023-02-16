@@ -17,6 +17,11 @@ class Kubevious < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "984b531593b6d8842cb75a34c1ceafd0ba211f85d7c9bcdaec4e4faeb8eba840"
   end
 
+  # Match deprecation date of `node@14`.
+  # TODO: Remove if migrated to `node@18` or `node`. Update date if migrated to `node@16`.
+  # Issue ref: https://github.com/kubevious/cli/issues/8
+  deprecate! date: "2023-04-30", because: "uses deprecated `node@14`"
+
   # upstream issue to track node@18 support
   # https://github.com/kubevious/cli/issues/8
   depends_on "node@14"
