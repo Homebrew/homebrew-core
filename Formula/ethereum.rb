@@ -27,7 +27,9 @@ class Ethereum < Formula
   conflicts_with "erigon", because: "both install `evm` binaries"
 
   def install
-    # See https://github.com/golang/go/issues/26487
+    # Force superenv to use -O0 to fix "cgo-dwarf-inference:2:8: error:
+    # enumerator value for '__cgo_enum__0' is not an integer constant".
+    # See discussion in https://github.com/Homebrew/brew/issues/14763.
     ENV.O0 if OS.linux?
 
     system "make", "all"
