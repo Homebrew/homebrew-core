@@ -1,22 +1,14 @@
 class CmuPocketsphinx < Formula
   desc "Lightweight speech recognition engine for mobile devices"
-  homepage "https://cmusphinx.sourceforge.io/"
+  homepage "https://cmusphinx.github.io/"
+  url "https://github.com/cmusphinx/pocketsphinx/archive/v5.0.0.tar.gz"
+  sha256 "78ffe5b60b6981b08667435dd26c5a179b612b8ca372bd9c23c896a8b2239a20"
   license "BSD-2-Clause"
-
-  stable do
-    url "https://downloads.sourceforge.net/project/cmusphinx/pocketsphinx/0.8/pocketsphinx-0.8.tar.gz"
-    sha256 "874c4c083d91c8ff26a2aec250b689e537912ff728923c141c4dac48662cce7a"
-
-    # Fix -flat_namespace being used on Big Sur and later.
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
-      sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
-    end
-  end
+  head "https://github.com/cmusphinx/pocketsphinx.git", branch: "master"
 
   livecheck do
     url :stable
-    regex(%r{url=.*?/pocketsphinx[._-]v?(\d+(?:\.\d+)+)\.t}i)
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
@@ -34,25 +26,17 @@ class CmuPocketsphinx < Formula
     sha256 x86_64_linux:   "3807f33dd6becb2a82ff3ba4062f6604a4001a2650d98526815b17b799627a17"
   end
 
-  head do
-    url "https://github.com/cmusphinx/pocketsphinx.git", branch: "master"
+  depends_on "cmake" => :build
 
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-    depends_on "swig" => :build
+  # Fix header installation. Can be removed in next release after 5.0.0.
+  patch do
+    url "https://github.com/cmusphinx/pocketsphinx/commit/74a5ec86468a481cae2a6167a0921455354232d3.patch?full_index=1"
+    sha256 "ef9ad6edbba721cc3e4fe0cf9ba0dd14ed18b9f4cb4be079e021f0e28221160a"
   end
 
-  depends_on "pkg-config" => :build
-  depends_on "cmu-sphinxbase"
-
   def install
-    if build.head?
-      ENV["NOCONFIGURE"] = "yes"
-      system "./autogen.sh"
-    end
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DBUILD_SHARED_LIBS=ON"
+    system "cmake", "--build", "build"
+    system "cmake", "--build", "build", "--target", "install"
   end
 end
