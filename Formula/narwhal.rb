@@ -10,6 +10,9 @@ class Narwhal < Formula
     sha256 cellar: :any_skip_relocation, all: "74667a2b115b6ee5a337b291882a06a3df9b4292a5a2b11fb5470e38abd228bc"
   end
 
+  # GitHub repo's description has appended [deprecated]
+  deprecate! date: "2023-02-16", because: :deprecated_upstream
+
   conflicts_with "spidermonkey", because: "both install a js binary"
   conflicts_with "elixir-build", because: "both install `json` binaries"
 
