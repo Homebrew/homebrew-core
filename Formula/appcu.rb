@@ -5,7 +5,6 @@ class Appcu < Formula
   sha256 "752ad84867b81c18d9972aa31cc55420b573c5583b90899871f18b60f5da1f80"
   license "MIT"
 
-
   depends_on "rust" => :build
 
   def install
