@@ -18,8 +18,6 @@ class Cc65 < Formula
     sha256 x86_64_linux:   "a07773f9ba0bcbe345f8e3c27495b9f149ff0a4df6245748cb8152a75b13880f"
   end
 
-  conflicts_with "grc", because: "both install `grc` binaries"
-
   def install
     system "make", "PREFIX=#{prefix}"
     system "make", "install", "PREFIX=#{prefix}"
