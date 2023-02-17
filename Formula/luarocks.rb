@@ -1,8 +1,8 @@
 class Luarocks < Formula
   desc "Package manager for the Lua programming language"
   homepage "https://luarocks.org/"
-  url "https://luarocks.org/releases/luarocks-3.9.1.tar.gz"
-  sha256 "ffafd83b1c42aa38042166a59ac3b618c838ce4e63f4ace9d961a5679ef58253"
+  url "https://luarocks.org/releases/luarocks-3.9.2.tar.gz"
+  sha256 "bca6e4ecc02c203e070acdb5f586045d45c078896f6236eb46aa33ccd9b94edb"
   license "MIT"
   head "https://github.com/luarocks/luarocks.git", branch: "master"
 
