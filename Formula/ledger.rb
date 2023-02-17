@@ -4,6 +4,7 @@ class Ledger < Formula
   url "https://github.com/ledger/ledger/archive/v3.3.0.tar.gz"
   sha256 "42307121666b5195a122857ec572e554b77ecf6b12c53e716756c9dae20dc7c1"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/ledger/ledger.git", branch: "master"
 
   livecheck do
@@ -25,6 +26,7 @@ class Ledger < Formula
   depends_on "texinfo" => :build # for makeinfo
   depends_on "boost"
   depends_on "gmp"
+  depends_on "gpgme"
   depends_on "mpfr"
   depends_on "python@3.11"
 
@@ -48,6 +50,7 @@ class Ledger < Formula
       -DBUILD_WEB_DOCS=1
       -DBoost_NO_BOOST_CMAKE=ON
       -DPython_FIND_VERSION_MAJOR=3
+      -DUSE_GPGME=1
     ] + std_cmake_args
     system "./acprep", "opt", "make", *args
     system "./acprep", "opt", "make", "doc", *args
