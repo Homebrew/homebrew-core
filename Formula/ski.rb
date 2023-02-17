@@ -4,11 +4,10 @@ class Ski < Formula
   desc "Evade the deadly Yeti on your jet-powered skis"
   homepage "http://catb.org/~esr/ski/"
   license "BSD-2-Clause"
-  revision 1
 
   stable do
-    url "http://www.catb.org/~esr/ski/ski-6.13.tar.gz"
-    sha256 "cfbd251ce2052d24f06db3197d11fa0c0028fc4b5c9bc724653b3dfebed7d028"
+    url "http://www.catb.org/~esr/ski/ski-6.14.tar.gz"
+    sha256 "7f81ab281aa6d3ff65a4558a29ad905b1774d28b2c2192b68d8723caf8764933"
 
     # Fix AttributeError: 'str' object has no attribute 'decode'
     # Issue ref: https://gitlab.com/esr/ski/-/issues/2
