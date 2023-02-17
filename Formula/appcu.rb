@@ -12,6 +12,8 @@ class Appcu < Formula
   end
 
   test do
+    ENV["HOME"] = testpath
     system bin/"appcu", "generate_config"
+    assert_predicate testpath/".config/appcu/config.yaml", :exist?
   end
 end
