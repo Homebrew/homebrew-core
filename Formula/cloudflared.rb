@@ -16,7 +16,8 @@ class Cloudflared < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "cf2e729603eb85d8274d5504b58d3aa13fec98244e5a3e0bdcf5b231a0cf713f"
   end
 
-  depends_on "go" => :build
+  # https://github.com/cloudflare/cloudflared/issues/888
+  depends_on "go@1.19" => :build
 
   def install
     system "make", "install",
