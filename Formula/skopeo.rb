@@ -17,10 +17,10 @@ class Skopeo < Formula
 
   depends_on "go" => :build
   depends_on "go-md2man" => :build
+  depends_on "pkg-config" => :build
   depends_on "gpgme"
 
   on_linux do
-    depends_on "pkg-config" => :build
     depends_on "device-mapper"
   end
 
