@@ -1,19 +1,10 @@
 class Protobuf < Formula
   desc "Protocol buffers (Google's data interchange format)"
-  homepage "https://github.com/protocolbuffers/protobuf/"
+  homepage "https://protobuf.dev/"
+  url "https://github.com/protocolbuffers/protobuf/releases/download/v22.3/protobuf-22.3.tar.gz"
+  sha256 "4101e11ef41afa91cac1bd95483cb781626781ae1a331501ed8379f2d82ca9bc"
   license "BSD-3-Clause"
   head "https://github.com/protocolbuffers/protobuf.git", branch: "main"
-
-  stable do
-    url "https://github.com/protocolbuffers/protobuf/releases/download/v21.12/protobuf-all-21.12.tar.gz"
-    sha256 "2c6a36c7b5a55accae063667ef3c55f2642e67476d96d355ff0acb13dbb47f09"
-
-    # Fix build with Python 3.11. Remove in the next release.
-    patch do
-      url "https://github.com/protocolbuffers/protobuf/commit/da973aff2adab60a9e516d3202c111dbdde1a50f.patch?full_index=1"
-      sha256 "911925e427a396fa5e54354db8324c0178f5c602b3f819f7d471bb569cc34f53"
-    end
-  end
 
   livecheck do
     url :stable
@@ -34,6 +25,7 @@ class Protobuf < Formula
   depends_on "cmake" => :build
   depends_on "python@3.10" => [:build, :test]
   depends_on "python@3.11" => [:build, :test]
+  depends_on "abseil"
 
   uses_from_macos "zlib"
 
@@ -44,13 +36,17 @@ class Protobuf < Formula
   end
 
   def install
+    # Keep `CMAKE_CXX_STANDARD` in sync with the same variable in `abseil.rb`.
     cmake_args = %w[
       -Dprotobuf_BUILD_LIBPROTOC=ON
+      -Dprotobuf_BUILD_SHARED_LIBS=ON
       -Dprotobuf_INSTALL_EXAMPLES=ON
       -Dprotobuf_BUILD_TESTS=OFF
-    ] + std_cmake_args
+      -Dprotobuf_ABSL_PROVIDER=package
+      -DCMAKE_CXX_STANDARD=17
+    ]
 
-    system "cmake", "-S", ".", "-B", "build", "-Dprotobuf_BUILD_SHARED_LIBS=ON", *cmake_args
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, *cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
@@ -62,6 +58,9 @@ class Protobuf < Formula
     ENV["PROTOC"] = bin/"protoc"
 
     cd "python" do
+      # Keep C++ standard in sync with `abseil.rb`.
+      inreplace "setup.py", "extra_compile_args.append('-std=c++14')",
+                            "extra_compile_args.append('-std=c++17')"
       pythons.each do |python|
         pyext_dir = prefix/Language::Python.site_packages(python)/"google/protobuf/pyext"
         with_env(LDFLAGS: "-Wl,-rpath,#{rpath(source: pyext_dir)} #{ENV.ldflags}".strip) do
