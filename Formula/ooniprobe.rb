@@ -20,7 +20,9 @@ class Ooniprobe < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "89324bb339716a74d32e30a5236d6fbe0eca5aa855d0856466a795aa784d418f"
   end
 
-  depends_on "go" => :build
+  # Upstream does not support go 1.20 yet and recommends using a specific Go version:
+  # https://github.com/ooni/probe-cli#build-instructions
+  depends_on "go@1.19" => :build
   depends_on "tor"
 
   def install
