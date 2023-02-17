@@ -17,8 +17,6 @@ class Make < Formula
     sha256 x86_64_linux:   "f2357f38942958a9d49e2d8f7562bd9fc61c2c1e8471239c022240b71b8cbf7d"
   end
 
-  conflicts_with "remake", because: "both install texinfo files for make"
-
   def install
     args = %W[
       --disable-dependency-tracking
