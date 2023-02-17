@@ -30,8 +30,6 @@ class Remake < Formula
 
   depends_on "readline"
 
-  conflicts_with "make", because: "both install texinfo files for make"
-
   def install
     system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make", "install"
