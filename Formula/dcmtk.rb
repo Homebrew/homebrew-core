@@ -6,7 +6,7 @@ class Dcmtk < Formula
   head "https://git.dcmtk.org/dcmtk.git", branch: "master"
 
   livecheck do
-    url "https://dicom.offis.de/download/dcmtk/release/"
+    url "https://dicom.offis.de/en/dcmtk/dcmtk-software-development/"
     regex(/href=.*?dcmtk[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
