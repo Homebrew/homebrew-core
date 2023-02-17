@@ -16,7 +16,10 @@ class Gost < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6c5a2ba36a5267f2e249f8645998d0707e6f20ca5134c1f88a16370d2900d9c2"
   end
 
-  depends_on "go" => :build
+  # Support for go 1.20 is merged upstream but not yet landed in a tag:
+  # https://github.com/ginuerzh/gost/commit/0f7376bd10c913c7e6b1e7e02dd5fd7769975d78
+  # Remove on next release.
+  depends_on "go@1.19" => :build
 
   def install
     system "go", "build", *std_go_args, "./cmd/gost"
