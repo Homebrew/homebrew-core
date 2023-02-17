@@ -20,7 +20,10 @@ class StorjUplink < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "226057ff620e59eef120705deed1c484c0b011ca102519718a52d530c001878e"
   end
 
-  depends_on "go" => :build
+  # Support for go 1.20 is merged upstream but not yet landed in a tag:
+  # https://github.com/storj/storj/commit/873a2025307ef85a1ff2f6bab37513ce3a0e0b4c
+  # Remove on next release.
+  depends_on "go@1.19" => :build
 
   def install
     system "go", "build", *std_go_args(output: bin/"uplink"), "./cmd/uplink"
