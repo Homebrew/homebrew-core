@@ -1,19 +1,9 @@
 class Protobuf < Formula
   desc "Protocol buffers (Google's data interchange format)"
-  homepage "https://github.com/protocolbuffers/protobuf/"
+  homepage "https://protobuf.dev/"
+  url "https://github.com/protocolbuffers/protobuf/releases/download/v22.5/protobuf-22.5.tar.gz"
+  sha256 "26859db86e2516bf447b5c73ad484c72016376dad179d96591d489911e09cdc2"
   license "BSD-3-Clause"
-  head "https://github.com/protocolbuffers/protobuf.git", branch: "main"
-
-  stable do
-    url "https://github.com/protocolbuffers/protobuf/releases/download/v21.12/protobuf-all-21.12.tar.gz"
-    sha256 "2c6a36c7b5a55accae063667ef3c55f2642e67476d96d355ff0acb13dbb47f09"
-
-    # Fix build with Python 3.11. Remove in the next release.
-    patch do
-      url "https://github.com/protocolbuffers/protobuf/commit/da973aff2adab60a9e516d3202c111dbdde1a50f.patch?full_index=1"
-      sha256 "911925e427a396fa5e54354db8324c0178f5c602b3f819f7d471bb569cc34f53"
-    end
-  end
 
   livecheck do
     url :stable
@@ -31,9 +21,17 @@ class Protobuf < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b915e53de62350858e1aa087cbf753a01655704b1e2991ec8098fc4c017be9f7"
   end
 
+  head do
+    url "https://github.com/protocolbuffers/protobuf.git", branch: "main"
+    depends_on "jsoncpp"
+  end
+
   depends_on "cmake" => :build
   depends_on "python@3.10" => [:build, :test]
   depends_on "python@3.11" => [:build, :test]
+  depends_on "abseil"
+  # TODO: Add the dependency below in Protobuf 24+. Also remove `head` block.
+  # TODO: depends_on "jsoncpp"
 
   uses_from_macos "zlib"
 
@@ -44,13 +42,21 @@ class Protobuf < Formula
   end
 
   def install
+    odie "Dependencies need adjusting!" if build.stable? && version >= "24"
+    # Keep `CMAKE_CXX_STANDARD` in sync with the same variable in `abseil.rb`.
+    abseil_cxx_standard = 17
     cmake_args = %w[
+      -DBUILD_SHARED_LIBS=ON
       -Dprotobuf_BUILD_LIBPROTOC=ON
+      -Dprotobuf_BUILD_SHARED_LIBS=ON
       -Dprotobuf_INSTALL_EXAMPLES=ON
       -Dprotobuf_BUILD_TESTS=OFF
-    ] + std_cmake_args
+      -Dprotobuf_ABSL_PROVIDER=package
+      -Dprotobuf_JSONCPP_PROVIDER=package
+    ]
+    cmake_args << "-DCMAKE_CXX_STANDARD=#{abseil_cxx_standard}"
 
-    system "cmake", "-S", ".", "-B", "build", "-Dprotobuf_BUILD_SHARED_LIBS=ON", *cmake_args
+    system "cmake", "-S", ".", "-B", "build", *cmake_args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
@@ -62,6 +68,9 @@ class Protobuf < Formula
     ENV["PROTOC"] = bin/"protoc"
 
     cd "python" do
+      # Keep C++ standard in sync with `abseil.rb`.
+      inreplace "setup.py", "extra_compile_args.append('-std=c++14')",
+                            "extra_compile_args.append('-std=c++#{abseil_cxx_standard}')"
       pythons.each do |python|
         pyext_dir = prefix/Language::Python.site_packages(python)/"google/protobuf/pyext"
         with_env(LDFLAGS: "-Wl,-rpath,#{rpath(source: pyext_dir)} #{ENV.ldflags}".strip) do
@@ -69,14 +78,6 @@ class Protobuf < Formula
         end
       end
     end
-
-    system "cmake", "-S", ".", "-B", "static",
-                    "-Dprotobuf_BUILD_SHARED_LIBS=OFF",
-                    "-DCMAKE_POSITION_INDEPENDENT_CODE=ON",
-                    "-DWITH_PROTOC=#{bin}/protoc",
-                    *cmake_args
-    system "cmake", "--build", "static"
-    lib.install buildpath.glob("static/*.a")
   end
 
   test do
