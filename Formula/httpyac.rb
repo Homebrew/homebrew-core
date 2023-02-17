@@ -46,16 +46,26 @@ class Httpyac < Formula
       Content-Type: text/html
       Authorization: Bearer token
 
-      # @keepStreaming
-      MQTT tcp://broker.hivemq.com
-      Topic: testtopic/1
-      Topic: testtopic/2
+      POST https://countries.trevorblades.com/graphql
+      Content-Type: application/json
+
+      query Continents($code: String!) {
+          continents(filter: {code: {eq: $code}}) {
+            code
+            name
+          }
+      }
+
+      {
+          "code": "EU"
+      }
     EOS
 
     output = shell_output("#{bin}/httpyac send test_cases --all")
     # for httpbin call
     assert_match "HTTP/1.1 200  - OK", output
-    # for mqtt calls
+    # for graphql call
+    assert_match "\"name\": \"Europe\"", output
     assert_match "2 requests processed (2 succeeded, 0 failed)", output
 
     assert_match version.to_s, shell_output("#{bin}/httpyac --version")
