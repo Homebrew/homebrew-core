@@ -23,7 +23,10 @@ class Algernon < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1fb0615287ba76cf2372cc91154d458c881d175e877b4140eeab7487282a7269"
   end
 
-  depends_on "go" => :build
+  # Support for go 1.20 is merged upstream but not yet landed in a tag:
+  # https://github.com/xyproto/algernon/commit/00f29f8bcd0da772041a96fa9b57f7e1e21a6654
+  # Remove on next release.
+  depends_on "go@1.19" => :build
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w"), "-mod=vendor"
