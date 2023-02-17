@@ -2,6 +2,7 @@ class Erlang < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "https://www.erlang.org/"
   # Download tarball from GitHub; it is served faster than the official tarball.
+  # Don't forget to update the documentation resource along with the url!
   url "https://github.com/erlang/otp/releases/download/OTP-25.2.3/otp_src_25.2.3.tar.gz"
   sha256 "f4d9f11d67ba478a053d72e635a44722a975603fe1284063fdf38276366bc61c"
   license "Apache-2.0"
@@ -36,9 +37,9 @@ class Erlang < Formula
   uses_from_macos "libxslt" => :build
 
   resource "html" do
-    url "https://github.com/erlang/otp/releases/download/OTP-25.2.2/otp_doc_html_25.2.2.tar.gz"
-    mirror "https://fossies.org/linux/misc/otp_doc_html_25.2.2.tar.gz"
-    sha256 "3077f209fe25034130e262c039a9c8d43773456cf49be052ee9057f870ee77e9"
+    url "https://github.com/erlang/otp/releases/download/OTP-25.2.3/otp_doc_html_25.2.3.tar.gz"
+    mirror "https://fossies.org/linux/misc/otp_doc_html_25.2.3.tar.gz"
+    sha256 "700e3d46f3fd5f04ad774758ab65dbd327c1ac879e9bdf03b220442fb99c88bc"
   end
 
   def install
@@ -88,6 +89,8 @@ class Erlang < Formula
   end
 
   test do
+    assert_equal version, resource("html").version, "`html` resource needs updating!"
+
     system "#{bin}/erl", "-noshell", "-eval", "crypto:start().", "-s", "init", "stop"
     (testpath/"factorial").write <<~EOS
       #!#{bin}/escript
