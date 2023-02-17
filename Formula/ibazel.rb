@@ -14,9 +14,15 @@ class Ibazel < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "2cfd4e769a2bcd1ffdc59af42de9af38943b295f0b4465e843aa07a67a429817"
   end
 
-  depends_on "bazel" => [:build, :test]
   depends_on "go" => [:build, :test]
-  depends_on :macos
+
+  on_macos do
+    depends_on "bazel" => [:build, :test]
+  end
+
+  on_linux do
+    depends_on "bazelisk" => [:build, :test]
+  end
 
   # patch to use bazel 6.0.0, upstream PR, https://github.com/bazelbuild/bazel-watcher/pull/575
   patch :DATA
