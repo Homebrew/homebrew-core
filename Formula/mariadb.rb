@@ -1,8 +1,8 @@
 class Mariadb < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.com/MariaDB/mariadb-10.10.3/source/mariadb-10.10.3.tar.gz"
-  sha256 "0d0c45fe85059d8d26c6e229f30410a8b8f7282ec2d56560fc9a8930e14ed77d"
+  url "https://downloads.mariadb.com/MariaDB/mariadb-10.11.2/source/mariadb-10.11.2.tar.gz"
+  sha256 "1c89dee0caed0f68bc2a1d203eb98a123150e6a179f6ee0f1fc0ba3f08dc71dc"
   license "GPL-2.0-only"
 
   # This uses a placeholder regex to satisfy the `PageMatch` strategy
