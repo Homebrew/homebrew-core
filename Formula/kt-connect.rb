@@ -17,7 +17,8 @@ class KtConnect < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ea73a5753cf517434033739d0055511adc1fa8786e1d247da71aa7837e72f14d"
   end
 
-  depends_on "go" => :build
+  # https://github.com/alibaba/kt-connect/issues/398
+  depends_on "go@1.19" => :build
 
   def install
     ldflags = "-s -w -X main.version=#{version}"
