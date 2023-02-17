@@ -24,8 +24,8 @@ class Liblinear < Formula
 
   # Fix sonames
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/7aed87f97f54f98f79495fb9fe071cfa4766403f/liblinear/patch-Makefile.diff"
-    sha256 "a51e794f06d73d544123af07cda8a4b21e7934498d21b7a6ed1a3e997f363155"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/bac35ae9140405dec00f1f700d2ecc27cf82526b/liblinear/patch-Makefile.diff"
+    sha256 "11a47747918f665d219b108fac073c626779555b5022903c9b240a4c29bbc2a0"
   end
 
   def install
