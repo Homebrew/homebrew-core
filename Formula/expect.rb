@@ -31,6 +31,15 @@ class Expect < Formula
 
   conflicts_with "ircd-hybrid", because: "both install an `mkpasswd` binary"
 
+  # Patch for configure scripts and various headers:
+  # https://core.tcl-lang.org/expect/tktview/0d5b33c00e5b4bbedb835498b0360d7115e832a0
+  # Appears to fix a segfault on ARM Ventura:
+  # https://github.com/Homebrew/homebrew-core/pull/123513
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/49c39ceebb547fc1965ae2c8d423fd8c082b52a7/expect/headers.diff"
+    sha256 "7a4d5c958b3e51a08368cae850607066baf9c049026bec11548e8c04cec363ef"
+  end
+
   def install
     tcltk = Formula["tcl-tk"]
     args = %W[
@@ -41,11 +50,6 @@ class Expect < Formula
       --enable-64bit
       --with-tcl=#{tcltk.opt_lib}
     ]
-
-    # Temporarily workaround build issues with building 5.45.4 using Xcode 12.
-    # Upstream bug (with more complicated fix) is here:
-    #   https://core.tcl-lang.org/expect/tktview/0d5b33c00e5b4bbedb835498b0360d7115e832a0
-    ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
 
     # Workaround for ancient config files not recognising aarch64 macos.
     am = Formula["automake"]
@@ -74,5 +78,6 @@ class Expect < Formula
   test do
     assert_match "works", shell_output("echo works | #{bin}/timed-read 1")
     assert_equal "", shell_output("{ sleep 3; echo fails; } | #{bin}/timed-read 1 2>&1")
+    assert_match "Done", pipe_output("#{bin}/expect", "exec true; puts Done")
   end
 end
