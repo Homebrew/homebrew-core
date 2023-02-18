@@ -26,6 +26,7 @@ class Jj < Formula
 
   def install
     system "cargo", "install", "--no-default-features", "--bin", "jj", *std_cargo_args
+    generate_completions_from_executable(bin/"jj", "debug", "completion", shell_parameter_format: :flag)
   end
 
   test do
