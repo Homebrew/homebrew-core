@@ -22,11 +22,25 @@ class Rpm2cpio < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5309dbce1d6af482193ea258b593b7f30c23036dd3dc6d56a1ea16edba480411"
   end
 
+  depends_on "libarchive"
   depends_on "xz"
 
   conflicts_with "rpm", because: "both install `rpm2cpio` binaries"
 
+  resource "homebrew-testdata" do
+    url "https://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/h/hello-2.10-9.fc38.x86_64.rpm"
+    sha256 "59a4cb33a7f59d00153a0d8c726d3e02b03d8bcb6f90e1a9348bc019258a26c8"
+  end
+
   def install
-    bin.install "rpm2cpio?revision=408590&view=co" => "rpm2cpio"
+    tar = OS.mac? ? "tar" : "bsdtar"
+    inreplace "rpm2cpio", "tar", Formula["libarchive"].bin/tar
+    bin.install "rpm2cpio"
+  end
+
+  test do
+    resource("homebrew-testdata").stage do
+      system "#{bin}/rpm2cpio", "hello-2.10-9.fc38.x86_64.rpm"
+    end
   end
 end
