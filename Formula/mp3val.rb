@@ -3,7 +3,7 @@ class Mp3val < Formula
   homepage "https://mp3val.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/mp3val/mp3val/mp3val%200.1.8/mp3val-0.1.8-src.tar.gz"
   sha256 "95a16efe3c352bb31d23d68ee5cb8bb8ebd9868d3dcf0d84c96864f80c31c39f"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey:  "75d055d4fb5b3abc7ded7ad8e99011fc2e84cf0d8c24c01f1512941b17d3f02d"
@@ -18,12 +18,13 @@ class Mp3val < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:    "b36cb11d26af2abdb0e0d811bb91f24d9b7e78bfdd8cd65f0aa2283c08725feb"
   end
 
-  # Apply this upstream commit to fix build on Linux:
-  # https://sourceforge.net/p/mp3val/subversion/95/
-  # Remove with next release.
-  patch :DATA
-
   def install
+    # Apply this upstream commit to fix build on Linux:
+    # https://sourceforge.net/p/mp3val/subversion/95/
+    # Remove with next release.
+    inreplace "crossapi.cpp",
+              "od=open(szNewName,O_WRONLY|O_CREAT|O_TRUNC);",
+              "od=open(szNewName,O_WRONLY|O_CREAT|O_TRUNC, S_IRUSR|S_IWUSR);"
     system "make", "-f", "Makefile.gcc"
     bin.install "mp3val.exe" => "mp3val"
   end
@@ -33,18 +34,3 @@ class Mp3val < Formula
     assert_match(/Done!$/, shell_output("#{bin}/mp3val -f #{mp3}"))
   end
 end
-
-__END__
-diff --git a/crossapi.cpp b/crossapi.cpp
-index cd8011a..fd586e1 100755
---- a/crossapi.cpp
-+++ b/crossapi.cpp
-@@ -241,7 +241,7 @@ int CrossAPI_MoveFile(char *szNewName,char *szOldName) {
- //Moving failed due to different logical drives of source and destination. Let's copy:
- 	id=open(szOldName,O_RDONLY);
- 	if(id==-1) return 0;
--	od=open(szNewName,O_WRONLY|O_CREAT|O_TRUNC);
-+	od=open(szNewName,O_WRONLY|O_CREAT|O_TRUNC, S_IRUSR|S_IWUSR);
- 	if(od==-1) {
- 		close(id);
- 		return 0;
