@@ -1,8 +1,8 @@
 class LeafProxy < Formula
   desc "Lightweight and fast proxy utility"
   homepage "https://github.com/eycorsican/leaf"
-  url "https://github.com/eycorsican/leaf/archive/v0.7.0.tar.gz"
-  sha256 "4db237fa5ceee763a2fd9344ffb92d744f5a98200f71744c4d85a5fe781238ca"
+  url "https://github.com/eycorsican/leaf/archive/v0.7.1.tar.gz"
+  sha256 "6aed2e706ee5e1d631766288d5c7b0211f00a0892670b505fdea944834a64162"
   license "Apache-2.0"
   head "https://github.com/eycorsican/leaf.git", branch: "master"
 
