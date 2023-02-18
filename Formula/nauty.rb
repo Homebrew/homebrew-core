@@ -1,17 +1,16 @@
 class Nauty < Formula
   desc "Automorphism groups of graphs and digraphs"
   homepage "https://pallini.di.uniroma1.it/"
-  url "https://pallini.di.uniroma1.it/nauty27r4.tar.gz"
-  version "2.7r4"
-  sha256 "b810c85a6fe299f3b4c9f24aaf929cac7f9546c2f35c20e1dd0adbc7408848a6"
+  url "https://pallini.di.uniroma1.it/nauty2_8_6.tar.gz"
+  sha256 "f2ce98225ca8330f5bce35f7d707b629247e09dda15fc479dc00e726fee5e6fa"
   license "Apache-2.0"
   version_scheme 1
 
   livecheck do
     url :homepage
-    regex(/Current\s+?version:\s*?v?(\d+(?:\.\d+)+(?:r\d+)?)/i)
+    regex(/Current\s+?version:\s*?v?(\d+(?:[._]\d+)+(?:r\d+)?)/i)
     strategy :page_match do |page, regex|
-      page.scan(regex).map { |match| match.first.tr("R", "r") }
+      page.scan(regex).map { |match| match.first.tr("_R", ".r") }
     end
   end
 
@@ -31,22 +30,22 @@ class Nauty < Formula
     system "make", "all"
 
     bin.install %w[
-      NRswitchg addedgeg amtog assembleg biplabg catg complg converseg
-      copyg countg cubhamg deledgeg delptg directg dreadnaut dretodot
-      dretog edgetransg genbg genbgL geng gengL genquarticg genrang
-      genspecialg gentourng gentreeg hamheuristic labelg linegraphg
-      listg multig newedgeg pickg planarg ranlabg shortg showg
-      subdivideg twohamg underlyingg vcolg watercluster2
+      NRswitchg addedgeg addptg amtog ancestorg assembleg biplabg catg complg
+      converseg copyg countg cubhamg deledgeg delptg dimacs2g directg dreadnaut
+      dretodot dretog edgetransg genbg genbgL geng gengL genposetg genquarticg
+      genrang genspecialg gentourng gentreeg hamheuristic labelg linegraphg
+      listg multig nbrhoodg newedgeg pickg planarg productg ranlabg shortg
+      showg subdivideg twohamg underlyingg vcolg watercluster2
     ]
 
     (include/"nauty").install Dir["*.h"]
 
     lib.install "nauty.a" => "libnauty.a"
 
-    doc.install "nug27.pdf", "README", Dir["*.txt"]
+    doc.install "nug#{version.major_minor.to_s.tr(".", "")}.pdf", "README", Dir["*.txt"]
 
     # Ancillary source files listed in README
-    pkgshare.install %w[sumlines.c sorttemplates.c bliss2dre.c blisstog.c poptest.c dretodot.c]
+    pkgshare.install %w[sumlines.c sorttemplates.c bliss2dre.c poptest.c]
   end
 
   test do
