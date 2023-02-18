@@ -37,6 +37,8 @@ class Rpm < Formula
     depends_on "libomp"
   end
 
+  conflicts_with "rpm2cpio", because: "both install `rpm2cpio` binaries"
+
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
