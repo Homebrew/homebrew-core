@@ -3,6 +3,7 @@ class Geoserver < Formula
   homepage "https://geoserver.org/"
   url "https://downloads.sourceforge.net/project/geoserver/GeoServer/2.22.2/geoserver-2.22.2-bin.zip"
   sha256 "bac56a8d75e3302bdb8c4cfa4cacfb44ce40da8515af28ec8c504351fb507112"
+  license "GPL-2.0-or-later"
 
   # GeoServer releases contain a large number of files for each version, so the
   # SourceForge RSS feed may only contain the most recent version (which may
