@@ -36,7 +36,7 @@ class Libnotify < Formula
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
     mkdir "build" do
-      system "meson", *std_meson_args, "-Dtests=false", ".."
+      system "meson", *std_meson_args, "-Dgtk_doc=false", "-Dman=false", "-Dtests=false", ".."
       system "ninja"
       system "ninja", "install"
     end
