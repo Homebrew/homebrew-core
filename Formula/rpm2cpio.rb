@@ -24,6 +24,8 @@ class Rpm2cpio < Formula
 
   depends_on "xz"
 
+  conflicts_with "rpm", because: "both install `rpm2cpio` binaries"
+
   def install
     bin.install "rpm2cpio?revision=408590&view=co" => "rpm2cpio"
   end
