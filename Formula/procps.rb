@@ -1,8 +1,8 @@
 class Procps < Formula
   desc "Utilities for browsing procfs"
   homepage "https://gitlab.com/procps-ng/procps"
-  url "https://gitlab.com/procps-ng/procps/-/archive/v4.0.2/procps-v4.0.2.tar.gz"
-  sha256 "b03e4b55eaa5661e726acb714e689356d80bc056b09965c2284d039ba8dc21e8"
+  url "https://gitlab.com/procps-ng/procps/-/archive/v4.0.3/procps-v4.0.3.tar.gz"
+  sha256 "14cc21219c45d196772274ea3f194f6d668b6cc667fbde9ee6d8039121b73fa6"
   license "GPL-2.0-or-later"
   head "https://gitlab.com/procps-ng/procps.git", branch: "master"
 
