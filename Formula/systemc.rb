@@ -1,14 +1,9 @@
 class Systemc < Formula
   desc "Core SystemC language and examples"
   homepage "https://accellera.org/"
-  url "https://www.accellera.org/images/downloads/standards/systemc/systemc-2.3.2.tar.gz"
-  sha256 "a28eeee00189f0e39f51461dcd7dbed7fb38e4e07dbd9e723473000ce6ef73c5"
+  url "https://github.com/accellera-official/systemc/archive/refs/tags/2.3.4.tar.gz"
+  sha256 "bfb309485a8ad35a08ee78827d1647a451ec5455767b25136e74522a6f41e0ea"
   license "Apache-2.0"
-
-  livecheck do
-    url "https://www.accellera.org/downloads/standards/systemc"
-    regex(/href=.*?systemc[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
 
   bottle do
     sha256 cellar: :any,                 ventura:      "57f08ae4d214e57d71537894ddb931c9c688892a01f54f82ec8d029d83274bac"
@@ -22,19 +17,12 @@ class Systemc < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "fbf3d2f9781a9d146d9b03ea4fbc36584331b3adfdbec24df0a7446e9420a0f0"
   end
 
-  # Fix -flat_namespace being used on Big Sur and later.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
-    sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
-  end
+  depends_on "cmake" => :build
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--with-arch-suffix=",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_CXX_STANDARD=11", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
@@ -45,7 +33,7 @@ class Systemc < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "-L#{lib}", "-lsystemc", "test.cpp"
+    system ENV.cxx, "-std=gnu++11", "-L#{lib}", "-lsystemc", "test.cpp"
     system "./a.out"
   end
 end
