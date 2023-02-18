@@ -1,8 +1,8 @@
 class OpenclIcdLoader < Formula
   desc "OpenCL Installable Client Driver (ICD) Loader"
   homepage "https://www.khronos.org/registry/OpenCL/"
-  url "https://github.com/KhronosGroup/OpenCL-ICD-Loader/archive/refs/tags/v2022.09.30.tar.gz"
-  sha256 "e9522fb736627dd4feae2a9c467a864e7d25bb715f808de8a04eea5a7d394b74"
+  url "https://github.com/KhronosGroup/OpenCL-ICD-Loader/archive/refs/tags/v2023.02.06.tar.gz"
+  sha256 "f31a932b470c1e115d6a858b25c437172809b939953dc1cf20a3a15e8785d698"
   license "Apache-2.0"
   head "https://github.com/KhronosGroup/OpenCL-ICD-Loader.git", branch: "main"
 
@@ -20,13 +20,14 @@ class OpenclIcdLoader < Formula
   keg_only :shadowed_by_macos, "macOS provides OpenCL.framework"
 
   depends_on "cmake" => :build
+  depends_on "ninja" => :build
   depends_on "opencl-headers" => [:build, :test]
 
   conflicts_with "ocl-icd", because: "both install `lib/libOpenCL.so` library"
 
   def install
     inreplace "loader/icd_platform.h", "\"/etc/", "\"#{etc}/"
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", "-G", "Ninja", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
     pkgshare.install "test/loader_test"
