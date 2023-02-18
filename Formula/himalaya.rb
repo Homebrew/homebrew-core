@@ -4,6 +4,7 @@ class Himalaya < Formula
   url "https://github.com/soywod/himalaya/archive/v0.7.1.tar.gz"
   sha256 "79ad75e765a5298c5c597beb175cec1d2982eead2172bc78daa7a9f159c99861"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "415a21495788fd92d2907cea2420154565b455e04dbf7b0bbd1375677475f566"
@@ -24,6 +25,7 @@ class Himalaya < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
+    generate_completions_from_executable(bin/"himalaya", "completion")
   end
 
   test do
