@@ -24,6 +24,8 @@ class CernNdiff < Formula
 
   depends_on "cmake" => :build
 
+  conflicts_with "ndiff", "nmap", because: "both install `ndiff` binaries"
+
   def install
     cd "tools/numdiff" do
       system "cmake", ".", *std_cmake_args
