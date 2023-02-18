@@ -22,7 +22,6 @@ class Rizin < Formula
   depends_on "pkg-config" => :build
   depends_on "capstone"
   depends_on "libmagic"
-  depends_on "libuv"
   depends_on "libzip"
   depends_on "lz4"
   depends_on "openssl@3"
@@ -40,7 +39,6 @@ class Rizin < Formula
         "-Duse_sys_zlib=enabled",
         "-Duse_sys_lz4=enabled",
         "-Duse_sys_tree_sitter=enabled",
-        "-Duse_sys_libuv=enabled",
         "-Duse_sys_openssl=enabled",
         "-Duse_sys_libzip_openssl=true",
         "-Duse_sys_capstone=enabled",
