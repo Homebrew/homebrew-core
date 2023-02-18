@@ -4,6 +4,7 @@ class Rpm2cpio < Formula
   url "https://svnweb.freebsd.org/ports/head/archivers/rpm2cpio/files/rpm2cpio?revision=408590&view=co"
   version "1.4"
   sha256 "2841bacdadde2a9225ca387c52259d6007762815468f621253ebb537d6636a00"
+  license "BSD-2-Clause"
 
   livecheck do
     url "https://svnweb.freebsd.org/ports/head/archivers/rpm2cpio/Makefile?view=co"
