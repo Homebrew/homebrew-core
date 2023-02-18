@@ -2,8 +2,8 @@ class Watch < Formula
   desc "Executes a program periodically, showing output fullscreen"
   homepage "https://gitlab.com/procps-ng/procps"
   url "https://gitlab.com/procps-ng/procps.git",
-      tag:      "v4.0.2",
-      revision: "135069f2b2d007353a549d7589a97aeec55ab3ed"
+      tag:      "v4.0.3",
+      revision: "806eb270f217ff7e1e745c7bda2b002b5be74be4"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
   head "https://gitlab.com/procps-ng/procps.git", branch: "master"
 
