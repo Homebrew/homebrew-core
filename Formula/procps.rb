@@ -33,6 +33,6 @@ class Procps < Formula
 
   test do
     system "#{bin}/ps", "--version"
-    assert_match "grep homebrew", shell_output("ps aux | grep homebrew")
+    assert_match "grep homebrew", shell_output("#{bin}/ps aux | grep homebrew")
   end
 end
