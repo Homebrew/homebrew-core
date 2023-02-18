@@ -5,6 +5,11 @@ class Pmtiles < Formula
   sha256 "b97095cccba9d13d79f52e216ed25d598f2fc203e050908ca19e06ff8060f2d7"
   license "BSD-3-Clause"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5f096280ee6ad1a1a280545af8ecc799189bdd09f06ca6bcaa3aa1116c88155c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c78b1e29063585f9806f8ab273372f5fa00d7f8ec8dceaf7c5447d5a80b3d682"
