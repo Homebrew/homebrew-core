@@ -25,7 +25,7 @@ class Ndiff < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "417d767a85801798bdd56f860a6554abbac5cf980080106ab5767be4c53121ca"
   end
 
-  conflicts_with "nmap", because: "both install `ndiff` binaries"
+  conflicts_with "cern-ndiff", "nmap", because: "both install `ndiff` binaries"
 
   def install
     ENV.deparallelize
