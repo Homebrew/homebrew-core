@@ -1,14 +1,9 @@
 class OmegaRpg < Formula
   desc "Classic Roguelike game"
-  homepage "http://www.alcyone.com/max/projects/omega/"
-  url "http://www.alcyone.com/binaries/omega/omega-0.80.2-src.tar.gz"
+  homepage "https://web.archive.org/web/20220521053542/http://www.alcyone.com/max/projects/omega/"
+  url "https://web.archive.org/web/20190318143402/http://www.alcyone.com/binaries/omega/omega-0.80.2-src.tar.gz"
   sha256 "60164319de90b8b5cae14f2133a080d5273e5de3d11c39df080a22bbb2886104"
   revision 1
-
-  livecheck do
-    url :homepage
-    regex(/latest.*?>v?(\d+(?:\.\d+)+)</i)
-  end
 
   bottle do
     rebuild 1
