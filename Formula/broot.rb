@@ -1,8 +1,8 @@
 class Broot < Formula
   desc "New way to see and navigate directory trees"
   homepage "https://dystroy.org/broot/"
-  url "https://github.com/Canop/broot/archive/v1.20.1.tar.gz"
-  sha256 "7a6fc5f657cab0f5a90c2fa0705d61371edeaa7f92cc7674292f48d4258c7ed1"
+  url "https://github.com/Canop/broot/archive/v1.20.2.tar.gz"
+  sha256 "372623ac1affc2473bcf75ce6be2862d8cc61ac4372a622a599b4c7f2ea06161"
   license "MIT"
   head "https://github.com/Canop/broot.git", branch: "master"
 
