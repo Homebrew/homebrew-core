@@ -1,15 +1,10 @@
 class GoAT117 < Formula
   desc "Go programming environment (1.17)"
-  homepage "https://golang.org"
+  homepage "https://go.dev/"
   url "https://go.dev/dl/go1.17.13.src.tar.gz"
   mirror "https://fossies.org/linux/misc/go1.17.13.src.tar.gz"
   sha256 "a1a48b23afb206f95e7bbaa9b898d965f90826f6f1d1fc0c1d784ada0cd300fd"
   license "BSD-3-Clause"
-
-  livecheck do
-    url "https://golang.org/dl/"
-    regex(/href=.*?go[._-]?v?(1\.17(?:\.\d+)*)[._-]src\.t/i)
-  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ea6bf463fa3ccf337f7603dacf55e6aa802b992b018a2f02cdbd6f888cf986f0"
