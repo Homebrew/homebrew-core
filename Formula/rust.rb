@@ -119,6 +119,7 @@ class Rust < Formula
     Dir["#{lib}/rustlib/**/*.dylib"].each do |dylib|
       chmod 0664, dylib
       MachO::Tools.change_dylib_id(dylib, "@rpath/#{File.basename(dylib)}")
+      MachO.codesign!(dylib) if Hardware::CPU.arm?
       chmod 0444, dylib
     end
   end
