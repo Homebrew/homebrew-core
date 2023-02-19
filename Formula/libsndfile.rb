@@ -20,10 +20,7 @@ class Libsndfile < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "999459d04493b8d24126025e3b954d0172bd89b38cbb92072a4ce993ce320d68"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
-  depends_on "pkg-config" => :build
+  depends_on "cmake" => :build
   depends_on "flac"
   depends_on "lame"
   depends_on "libogg"
@@ -34,9 +31,16 @@ class Libsndfile < Formula
   uses_from_macos "python" => :build
 
   def install
-    system "autoreconf", "-fvi"
-    system "./configure", *std_configure_args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DBUILD_SHARED_LIBS=ON",
+                    "-DBUILD_PROGRAMS=ON",
+                    "-DENABLE_PACKAGE_CONFIG=ON",
+                    "-DINSTALL_PKGCONFIG_MODULE=ON",
+                    "-DBUILD_EXAMPLES=OFF",
+                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                    *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
