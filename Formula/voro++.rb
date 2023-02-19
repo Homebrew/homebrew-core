@@ -1,13 +1,13 @@
 class Voroxx < Formula
   desc "3D Voronoi cell software library"
-  homepage "http://math.lbl.gov/voro++"
-  url "http://math.lbl.gov/voro++/download/dir/voro++-0.4.6.tar.gz"
+  homepage "https://math.lbl.gov/voro++/"
+  url "https://math.lbl.gov/voro++/download/dir/voro++-0.4.6.tar.gz"
   sha256 "ef7970071ee2ce3800daa8723649ca069dc4c71cc25f0f7d22552387f3ea437e"
   license "BSD-3-Clause"
   revision 1
 
   livecheck do
-    url "http://math.lbl.gov/voro++/download/"
+    url "https://math.lbl.gov/voro++/download/"
     regex(/href=.*?voro\+\+[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
