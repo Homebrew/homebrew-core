@@ -25,7 +25,10 @@ class Ipfs < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "58ecd9f387e58a58e78ba10370fcbb1f41dbe37e0325766f5a0751a7303fd87b"
   end
 
-  depends_on "go" => :build
+  # Support for go 1.20 is merged upstream but not yet landed in a tag:
+  # https://github.com/ipfs/kubo/pull/9647
+  # Remove on next release.
+  depends_on "go@1.19" => :build
 
   def install
     system "make", "build"
