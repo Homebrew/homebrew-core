@@ -77,8 +77,8 @@ class Sftpgo < Formula
     sleep 5
     assert_match expected_output, shell_output("curl -s 127.0.0.1:#{http_port}/healthz")
     system "ssh-keyscan", "-p", sftp_port.to_s, "127.0.0.1"
-    ensure
-      Process.kill("TERM", pid)
-      Process.wait(pid)
+  ensure
+    Process.kill("TERM", pid)
+    Process.wait(pid)
   end
 end
