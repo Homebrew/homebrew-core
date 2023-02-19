@@ -2,8 +2,8 @@ class Xcbeautify < Formula
   desc "Little beautifier tool for xcodebuild"
   homepage "https://github.com/tuist/xcbeautify"
   url "https://github.com/tuist/xcbeautify.git",
-      tag:      "0.16.0",
-      revision: "b578117619ffed44fb879b29e4e9a481143b0b1b"
+      tag:      "0.17.0",
+      revision: "9f3d55d3b6e048f91e03af843b488f99c483f1aa"
   license "MIT"
   head "https://github.com/tuist/xcbeautify.git", branch: "master"
 
