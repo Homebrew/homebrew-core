@@ -20,7 +20,7 @@ class ColladaDom < Formula
   depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "minizip"
-  depends_on "pcre"
+  depends_on "uriparser"
 
   uses_from_macos "libxml2"
 
