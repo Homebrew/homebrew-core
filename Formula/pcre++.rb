@@ -24,6 +24,9 @@ class Pcrexx < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "02065bd248d60295297eaafbeade3d86245aca27c913c68d0906fee8da4737c3"
   end
 
+  # Last release on 2004-08-25 and it is a wrapper around EOL `pcre`
+  deprecate! date: "2023-02-19", because: :unmaintained
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
