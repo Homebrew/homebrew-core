@@ -3,8 +3,8 @@ require "language/node"
 class MarpCli < Formula
   desc "Easily convert Marp Markdown files into static HTML/CSS, PDF, PPT and images"
   homepage "https://github.com/marp-team/marp-cli"
-  url "https://registry.npmjs.org/@marp-team/marp-cli/-/marp-cli-2.3.0.tgz"
-  sha256 "aa297d401756b9c2992935d18e53e1c2c3ad9529588d74a0c950e277b3499428"
+  url "https://registry.npmjs.org/@marp-team/marp-cli/-/marp-cli-2.4.0.tgz"
+  sha256 "ee03bd9ee85d5c5eb7aa8dd361818163daafb118f244d648b69edc5d4e242963"
   license "MIT"
 
   bottle do
@@ -39,7 +39,7 @@ class MarpCli < Formula
       # <!--fit--> :+1:
     EOS
 
-    system "marp", testpath/"deck.md", "-o", testpath/"deck.html"
+    system bin/"marp", testpath/"deck.md", "-o", testpath/"deck.html"
     assert_predicate testpath/"deck.html", :exist?
     content = (testpath/"deck.html").read
     assert_match "theme:uncover", content
