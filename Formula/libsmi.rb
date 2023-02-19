@@ -6,9 +6,13 @@ class Libsmi < Formula
   sha256 "f21accdadb1bb328ea3f8a13fc34d715baac6e2db66065898346322c725754d3"
   license all_of: ["TCL", "BSD-3-Clause", "Beerware"]
 
+  # The directory listing page where the tarballs were found now gives a 403
+  # (Forbidden) response. The Download and ChangeLog pages both list 0.4.8 as
+  # the newest version instead of 0.5.0. Further, 0.5.0 was released in 2014
+  # and wasn't announced on the mailing list, so we appear to be out of sources
+  # we can check for version information.
   livecheck do
-    url "https://www.ibr.cs.tu-bs.de/projects/libsmi/download/"
-    regex(/href=.*?libsmi[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    skip "No up-to-date sources to check for versions"
   end
 
   bottle do
