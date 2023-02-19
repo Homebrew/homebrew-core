@@ -8,7 +8,7 @@ class Ppl < Formula
   revision 1
 
   livecheck do
-    url "https://www.bugseng.com/ppl-download"
+    url "https://www.bugseng.com/content/ppl-download"
     regex(/href=.*?ppl[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
