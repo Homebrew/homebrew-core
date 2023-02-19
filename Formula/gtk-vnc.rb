@@ -5,6 +5,14 @@ class GtkVnc < Formula
   sha256 "512763ac4e0559d0158b6682ca5dd1a3bd633f082f5e4349d7158e6b5f80f1ce"
   license "LGPL-2.1-or-later"
 
+  # gtk-vnc doesn't use the usual "even-numbered minor is stable" GNOME version
+  # scheme, so we have to provide a regex to opt out of the `Gnome` strategy's
+  # version filtering (for now).
+  livecheck do
+    url :stable
+    regex(/gtk-vnc[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 arm64_ventura:  "74998a793c0d7fd96b2a9d4a7ed4b0da1a4d84dce9c2f3aac187fb1430f43423"
