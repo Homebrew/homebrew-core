@@ -25,7 +25,7 @@ class BerkeleyDb < Formula
 
   keg_only :provided_by_macos
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
