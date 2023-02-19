@@ -22,14 +22,14 @@ class Remctl < Formula
   end
 
   depends_on "libevent"
-  depends_on "pcre"
+  depends_on "pcre2"
 
   uses_from_macos "krb5"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--with-pcre=#{HOMEBREW_PREFIX}"
+    system "./configure", *std_configure_args,
+                          "--disable-silent-rules",
+                          "--with-pcre2=#{Formula["pcre2"].opt_prefix}"
     system "make", "install"
   end
 
