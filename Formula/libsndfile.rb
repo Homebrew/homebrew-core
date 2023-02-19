@@ -39,7 +39,7 @@ class Libsndfile < Formula
                     "-DINSTALL_PKGCONFIG_MODULE=ON",
                     "-DBUILD_EXAMPLES=OFF",
                     "-DCMAKE_INSTALL_RPATH=#{rpath}",
-                    "-DPYTHON_EXECUTABLE=#{python3}",
+                    "-DPYTHON_EXECUTABLE=#{which("python3")}",
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
