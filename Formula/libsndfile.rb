@@ -4,6 +4,7 @@ class Libsndfile < Formula
   url "https://github.com/libsndfile/libsndfile/releases/download/1.2.0/libsndfile-1.2.0.tar.xz"
   sha256 "0e30e7072f83dc84863e2e55f299175c7e04a5902ae79cfb99d4249ee8f6d60a"
   license "LGPL-2.1-or-later"
+  revision 1
 
   livecheck do
     url :stable
