@@ -26,10 +26,6 @@ class Cpansearch < Formula
 
   uses_from_macos "curl"
 
-  on_macos do
-    depends_on "pcre"
-  end
-
   def install
     unless OS.mac?
       # Help find some ncursesw headers
