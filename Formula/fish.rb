@@ -25,6 +25,7 @@ class Fish < Formula
   head do
     url "https://github.com/fish-shell/fish-shell.git", branch: "master"
 
+    depends_on "rust" => :build
     depends_on "sphinx-doc" => :build
   end
 
