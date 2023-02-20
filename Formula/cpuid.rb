@@ -1,8 +1,8 @@
 class Cpuid < Formula
   desc "CPU feature identification for Go"
   homepage "https://github.com/klauspost/cpuid"
-  url "https://github.com/klauspost/cpuid/archive/refs/tags/v2.2.3.tar.gz"
-  sha256 "e5e05a2b6a8672e92634a655600299b4d427ca48a449c329c90aef28a3b9019d"
+  url "https://github.com/klauspost/cpuid/archive/refs/tags/v2.2.4.tar.gz"
+  sha256 "66e5370b7f3c55e16ee72bf4d4f499421018e8e23fd1513a3f7ae23c0fb2785d"
   license "MIT"
   head "https://github.com/klauspost/cpuid.git", branch: "master"
 
