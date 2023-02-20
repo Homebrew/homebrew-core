@@ -3,8 +3,8 @@ class Pdm < Formula
 
   desc "Modern Python package and dependency manager supporting the latest PEP standards"
   homepage "https://pdm.fming.dev"
-  url "https://files.pythonhosted.org/packages/cb/b1/2f456cc7e351593684a2b5626335d1a07aac2867f70b08021faefc26865c/pdm-2.4.5.tar.gz"
-  sha256 "9bec01fd147ec10f587f6c42f2d3aebd3199af16a2cdce2a01e806370d8a6740"
+  url "https://files.pythonhosted.org/packages/e5/f0/bbc0eda94630a297ee8b0d179715bcae15bdda16bb14c3691e930853c8a6/pdm-2.4.6.tar.gz"
+  sha256 "83e7d0c6ada4c213575c4246da7e67e1ff463249a62ec8e91e86b2d79d9f7154"
   license "MIT"
   head "https://github.com/pdm-project/pdm.git", branch: "main"
 
@@ -122,8 +122,8 @@ class Pdm < Formula
   end
 
   resource "shellingham" do
-    url "https://files.pythonhosted.org/packages/1f/13/fab0a3f512478bc387b66c51557ee715ede8e9811c77ce952f9b9a4d8ac1/shellingham-1.5.0.post1.tar.gz"
-    sha256 "823bc5fb5c34d60f285b624e7264f4dda254bc803a3774a147bf99c0e3004a28"
+    url "https://files.pythonhosted.org/packages/1b/b5/8a4ebd9108ab4f78e697a901969f3c3bf27afddf734a4b8a2e7dd7d440e3/shellingham-1.5.1.tar.gz"
+    sha256 "41bc81fa8d74afb04338e0398f9732ee2217407ade778ae1e2709bde89d85c45"
   end
 
   resource "tomlkit" do
