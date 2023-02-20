@@ -1,11 +1,10 @@
 class I386ElfGdb < Formula
   desc "GNU debugger for i386-elf cross development"
   homepage "https://www.gnu.org/software/gdb/"
-  url "https://ftp.gnu.org/gnu/gdb/gdb-12.1.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gdb/gdb-12.1.tar.xz"
-  sha256 "0e1793bf8f2b54d53f46dea84ccfd446f48f81b297b28c4f7fc017b818d69fed"
+  url "https://ftp.gnu.org/gnu/gdb/gdb-13.1.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gdb/gdb-13.1.tar.xz"
+  sha256 "115ad5c18d69a6be2ab15882d365dda2a2211c14f480b3502c6eba576e2e95a0"
   license "GPL-3.0-or-later"
-  revision 1
   head "https://sourceware.org/git/binutils-gdb.git", branch: "master"
 
   livecheck do
