@@ -20,6 +20,10 @@ class Enchant < Formula
   depends_on "aspell"
   depends_on "glib"
 
+  on_system :linux, macos: :ventura_or_newer do
+    depends_on "groff" => :build
+  end
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
