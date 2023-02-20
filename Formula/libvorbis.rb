@@ -64,7 +64,7 @@ class Libvorbis < Formula
     testpath.install resource("oggfile")
     system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lvorbisfile",
                    "-o", "test"
-    assert_match "2 channel, 44100Hz\nEncoded by: Xiph.Org libVorbis",
+    assert_match "2 channel, 44100Hz\nEncoded by: Lavf59.27.100",
                  shell_output("./test < Example.ogg")
   end
 end
