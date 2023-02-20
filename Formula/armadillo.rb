@@ -33,10 +33,6 @@ class Armadillo < Formula
 
     system "cmake", ".", "-DDETECT_HDF5=ON", "-DALLOW_OPENBLAS_MACOS=ON", *std_cmake_args
     system "make", "install"
-
-    # Avoid cellar path references that are invalidated by version/revision bumps
-    hdf5 = Formula["hdf5"]
-    inreplace include/"armadillo_bits/config.hpp", hdf5.prefix.realpath, hdf5.opt_prefix
   end
 
   test do
