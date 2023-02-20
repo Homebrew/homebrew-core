@@ -3,6 +3,7 @@ class Qt < Formula
 
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
+  # Remove `ffmpeg` dependency from `on_macos` on rebuild.
   url "https://download.qt.io/official_releases/qt/6.4/6.4.2/single/qt-everywhere-src-6.4.2.tar.xz"
   sha256 "689f53e6652da82fccf7c2ab58066787487339f28d1ec66a8765ad357f4976be"
   license all_of: [
@@ -77,6 +78,7 @@ class Qt < Formula
 
   on_macos do
     depends_on "molten-vk" => [:build, :test]
+    depends_on "ffmpeg" # TODO: remove upon rebuild
   end
 
   on_linux do
