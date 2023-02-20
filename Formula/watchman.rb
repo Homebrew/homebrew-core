@@ -51,6 +51,7 @@ class Watchman < Formula
     #       formulae, so let's link them statically instead. This is done by default.
     system "cmake", "-S", ".", "-B", "build",
                     "-DENABLE_EDEN_SUPPORT=ON",
+                    "-DIS_FB_BUILD=NO",
                     "-DWATCHMAN_VERSION_OVERRIDE=#{version}",
                     "-DWATCHMAN_BUILDINFO_OVERRIDE=#{tap.user}",
                     "-DWATCHMAN_STATE_DIR=#{var}/run/watchman",
