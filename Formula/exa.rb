@@ -25,12 +25,8 @@ class Exa < Formula
 
   depends_on "pandoc" => :build
   depends_on "rust" => :build
-
+  depends_on "libgit2"
   uses_from_macos "zlib"
-
-  on_linux do
-    depends_on "libgit2"
-  end
 
   def install
     system "cargo", "install", *std_cargo_args
