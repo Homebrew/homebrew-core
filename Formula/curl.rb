@@ -46,17 +46,6 @@ class Curl < Formula
   uses_from_macos "krb5"
   uses_from_macos "zlib"
 
-  # Fix HTTP/2 corruption issues.
-  # Remove with 7.88.1.
-  patch do
-    url "https://github.com/curl/curl/commit/3103de2053ca8cacf9cdbe78764ba6814481709f.patch?full_index=1"
-    sha256 "f4abbeb8174ab51b393da02c2761ba56bc40c577b5802aa41e74a3adc7d5a0be"
-  end
-  patch do
-    url "https://github.com/curl/curl/commit/87ed650d04dc1a6f7944a5d952f7d5b0934a19ac.patch?full_index=1"
-    sha256 "39f74a9c88dced544a8ea0a1c1e8c9f30eae19c41223350991ebf03e5dec764d"
-  end
-
   def install
     system "./buildconf" if build.head?
 
