@@ -44,6 +44,10 @@ class Watchman < Formula
               /gtest_discover_tests\((.*)\)/,
               "gtest_discover_tests(\\1 DISCOVERY_TIMEOUT 30)"
 
+    # Workaround for build failure. Reported at:
+    # https://github.com/facebook/watchman/issues/1099
+    inreplace "watchman/cli/Cargo.toml", 'default = ["fb"]', "default = []"
+
     # NOTE: Setting `BUILD_SHARED_LIBS=ON` will generate DSOs for Eden libraries.
     #       These libraries are not part of any install targets and have the wrong
     #       RPATHs configured, so will need to be installed and relocated manually
@@ -51,7 +55,6 @@ class Watchman < Formula
     #       formulae, so let's link them statically instead. This is done by default.
     system "cmake", "-S", ".", "-B", "build",
                     "-DENABLE_EDEN_SUPPORT=ON",
-                    "-DIS_FB_BUILD=NO",
                     "-DWATCHMAN_VERSION_OVERRIDE=#{version}",
                     "-DWATCHMAN_BUILDINFO_OVERRIDE=#{tap.user}",
                     "-DWATCHMAN_STATE_DIR=#{var}/run/watchman",
