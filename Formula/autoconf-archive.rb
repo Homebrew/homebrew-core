@@ -4,7 +4,7 @@ class AutoconfArchive < Formula
   url "https://ftp.gnu.org/gnu/autoconf-archive/autoconf-archive-2023.02.20.tar.xz"
   mirror "https://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2023.02.20.tar.xz"
   sha256 "71d4048479ae28f1f5794619c3d72df9c01df49b1c628ef85fde37596dc31a33"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "07da3d145d395749125f2402925fd6995056bf303f9514ed9018cb9140b8d2fd"
