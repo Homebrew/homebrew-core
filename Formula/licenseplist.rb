@@ -26,6 +26,6 @@ class Licenseplist < Formula
     (testpath/"Cartfile.resolved").write <<~EOS
       github "realm/realm-swift" "v10.20.2"
     EOS
-    assert_match "None", shell_output("license-plist --suppress-opening-directory")
+    assert_match "None", shell_output("#{bin}/license-plist --suppress-opening-directory")
   end
 end
