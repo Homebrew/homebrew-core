@@ -17,8 +17,7 @@ class B2Tools < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3cca9e10bb99d55ebbda69176a103a5c460c01bfec8a77c1892fe8fdcbea4b7f"
   end
 
-  # Does not work with Python 3.11, see https://github.com/Backblaze/B2_Command_Line_Tool/issues/834
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "six"
 
   conflicts_with "boost-build", because: "both install `b2` binaries"
