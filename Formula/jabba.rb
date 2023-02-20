@@ -24,7 +24,7 @@ class Jabba < Formula
 
     # Customize install locations
     # https://github.com/Jabba-Team/jabba/pull/17
-    inreplace "Makefile", "bash install.sh", " bash install.sh --skip-rc"
+    inreplace "Makefile", " bash install.sh", " bash install.sh --skip-rc"
     inreplace "install.sh" do |s|
       s.gsub! "  rm -f", "  command rm -f"
       s.gsub! "$JABBA_HOME_TO_EXPORT/bin/jabba", "#{opt_bin}/jabba"
