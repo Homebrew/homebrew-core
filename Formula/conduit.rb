@@ -11,10 +11,7 @@ class Conduit < Formula
   depends_on "yarn"
 
   def install
-    inreplace "Makefile" do |s|
-      s.change_make_var! "VERSION", version.to_s
-    end
-    system "make"
+    system "make", "VERSION=#{version}"
     bin.install "conduit"
   end
 
