@@ -42,7 +42,7 @@ class Zeek < Formula
     (buildpath/"auxil/c-ares").rmtree
 
     # Remove SDK paths from zeek-config. This breaks usage with other SDKs.
-    # https://github.com/corelight/zeek-community-id/issues/15
+    # https://github.com/Homebrew/homebrew-core/pull/74932
     inreplace "zeek-config.in" do |s|
       s.gsub! "@ZEEK_CONFIG_PCAP_INCLUDE_DIR@", ""
       s.gsub! "@ZEEK_CONFIG_ZLIB_INCLUDE_DIR@", ""
