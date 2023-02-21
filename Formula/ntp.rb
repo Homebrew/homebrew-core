@@ -6,11 +6,6 @@ class Ntp < Formula
   sha256 "f65840deab68614d5d7ceb2d0bb9304ff70dcdedd09abb79754a87536b849c19"
   license all_of: ["BSD-2-Clause", "NTP"]
 
-  livecheck do
-    url "https://www.ntp.org/downloads.html"
-    regex(/href=.*?ntp[._-]v?(\d+(?:\.\d+)+(?:p\d+)?)\.t/i)
-  end
-
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "cc4137b25ab98f7945a4be36050f894c37bcbb75b9464936a69f35e019978684"
     sha256 cellar: :any,                 arm64_monterey: "56e2b28056f17d7650a305bfae1725adcff788bdfe53abde908c163fcc02ddd4"
