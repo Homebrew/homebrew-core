@@ -65,13 +65,6 @@ class DotnetAT6 < Formula
     sha256 "e96eabccea61bbbef3402e23f1889d385a6ae7ad84fe1d8f53f2507519ad86f7"
   end
 
-  # Fixes race condition in MSBuild.
-  # TODO: Remove with 6.0.3xx or later.
-  resource "homebrew-msbuild-patch" do
-    url "https://github.com/dotnet/msbuild/commit/64edb33a278d1334bd6efc35fecd23bd3af4ed48.patch?full_index=1"
-    sha256 "5870bcdd12164668472094a2f9f1b73a4124e72ac99bbbe43028370be3648ccd"
-  end
-
   # Backport fix for error on aspnetcore version while building 'installer in tarball'.
   # TODO: Remove once backport PR is merged and available in a release
   # PR ref: https://github.com/dotnet/installer/pull/14816
@@ -89,7 +82,6 @@ class DotnetAT6 < Formula
     ENV.append_path "LD_LIBRARY_PATH", Formula["icu4c"].opt_lib if OS.linux?
 
     (buildpath/".dotnet").install resource("dotnet-install.sh")
-    (buildpath/"src/SourceBuild/tarball/patches/msbuild").install resource("homebrew-msbuild-patch")
 
     # The source directory needs to be outside the installer directory
     (buildpath/"installer").install buildpath.children
