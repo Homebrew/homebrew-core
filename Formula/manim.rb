@@ -6,6 +6,7 @@ class Manim < Formula
   url "https://files.pythonhosted.org/packages/6e/ee/281ccf843f15700fa2221334ac7590627496a4d6645da2dcf150450628ec/manim-0.17.2.tar.gz"
   sha256 "cb9b6f8b27c07994b929f2ab1943a3f5a6767816391744bb0f64f998dd99ecfe"
   license "MIT"
+  head "https://github.com/manimCommunity/manim.git", branch: "main"
 
   depends_on "ninja" => :build
   depends_on "ffmpeg"
