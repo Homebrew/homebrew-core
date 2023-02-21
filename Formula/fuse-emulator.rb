@@ -6,11 +6,6 @@ class FuseEmulator < Formula
   license "GPL-2.0-or-later"
   revision 1
 
-  livecheck do
-    url :stable
-    regex(%r{url=.*?/fuse[._-]v?(\d+(?:\.\d+)+)\.t}i)
-  end
-
   bottle do
     sha256 arm64_monterey: "a27a5c880e711be90be247febe40f5a872c2a7cd5d3a569785cde244dfabf156"
     sha256 arm64_big_sur:  "2e69fcb7757f40f65d29b4e7a62217d51c9735024906b91b5a4ccfd329836f66"
