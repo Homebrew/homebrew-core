@@ -1,9 +1,9 @@
 class Moe < Formula
   desc "Console text editor for ISO-8859 and ASCII"
   homepage "https://www.gnu.org/software/moe/moe.html"
-  url "https://ftp.gnu.org/gnu/moe/moe-1.12.tar.lz"
-  mirror "https://ftpmirror.gnu.org/moe/moe-1.12.tar.lz"
-  sha256 "8a885f2be426f8e04ad39c96012bd860954085a23744f2451663168826d7a1e8"
+  url "https://ftp.gnu.org/gnu/moe/moe-1.13.tar.lz"
+  mirror "https://ftpmirror.gnu.org/moe/moe-1.13.tar.lz"
+  sha256 "43a557bc512f89d6c718e5f41029cfe3a055682620eb8dbece6302f34a26146b"
   license "GPL-2.0-or-later"
 
   bottle do
