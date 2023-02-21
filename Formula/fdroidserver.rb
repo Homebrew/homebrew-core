@@ -37,8 +37,8 @@ class Fdroidserver < Formula
   uses_from_macos "libxslt"
 
   resource "androguard" do
-    url "https://files.pythonhosted.org/packages/39/95/884ef512913b128d7ec111e11fdd20646610ad4b9a09949b9e1256432409/androguard-3.4.0a1.tar.gz"
-    sha256 "2bdd9583321b14bbc0c5bd92fd330f0efe7fb6abe1f334b658ded5f93849e898"
+    url "https://files.pythonhosted.org/packages/83/78/0f44e8f0fd10493b3118d79d60599c93e5a2cd378d83054014600a620cba/androguard-3.3.5.tar.gz"
+    sha256 "f0655ca3a5add74c550951e79bd0bebbd1c5b239178393d30d8db0bd3202cda2"
   end
 
   resource "apache-libcloud" do
