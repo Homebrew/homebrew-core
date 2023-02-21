@@ -1,8 +1,8 @@
 class Ethereum < Formula
   desc "Official Go implementation of the Ethereum protocol"
   homepage "https://geth.ethereum.org/"
-  url "https://github.com/ethereum/go-ethereum/archive/v1.10.26.tar.gz"
-  sha256 "500bb2c2382d1927da1b78226a726437370899ce6f130258d5792fd7c46cc29e"
+  url "https://github.com/ethereum/go-ethereum/archive/v1.11.1.tar.gz"
+  sha256 "d664456f9ce69c994a9ea210bb621eca4ceed4f799707132fc59081183fe6fb6"
   license "LGPL-3.0-or-later"
   head "https://github.com/ethereum/go-ethereum.git", branch: "master"
 
