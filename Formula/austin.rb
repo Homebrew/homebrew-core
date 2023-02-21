@@ -1,8 +1,8 @@
 class Austin < Formula
   desc "Python frame stack sampler for CPython"
   homepage "https://github.com/P403n1x87/austin"
-  url "https://github.com/P403n1x87/austin/archive/v3.4.1.tar.gz"
-  sha256 "e668af1172f0c2f8740bd7d2eed6613e916e97a7cc88aa6b0cf8420055c2bcc1"
+  url "https://github.com/P403n1x87/austin/archive/v3.5.0.tar.gz"
+  sha256 "b9cad3670c5f6f750d2c8dc6869a7c5b45fe42305185a0cd3f249e1aa017a7ea"
   license "GPL-3.0-or-later"
   head "https://github.com/P403n1x87/austin.git", branch: "master"
 
@@ -31,6 +31,6 @@ class Austin < Formula
 
   test do
     python3 = "python3.11"
-    shell_output(bin/"austin #{python3} -c \"from time import sleep; sleep(1)\"", 37)
+    shell_output(bin/"austin #{python3} -c \"from time import sleep; sleep(1)\"", 32)
   end
 end
