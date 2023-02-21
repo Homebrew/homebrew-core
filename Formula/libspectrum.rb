@@ -5,11 +5,6 @@ class Libspectrum < Formula
   sha256 "a353cb46e9b1a281061d816353ea010d0a6fe78e6a17aa0b7b74271ca5e4acfc"
   license "GPL-2.0-or-later"
 
-  livecheck do
-    url :stable
-    regex(%r{url=.*?/libspectrum[._-]v?(\d+(?:\.\d+)+)\.t}i)
-  end
-
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "a4274845dd06d14a86fad39c42f32201b7491d19110dbc26f04fbc2602513c2f"
     sha256 cellar: :any,                 arm64_big_sur:  "72eec781fcd9e66de8e08da5aa323f9e5bd8de3ec64ad1202fead40e65b3c3c3"
