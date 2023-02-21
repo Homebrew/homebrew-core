@@ -29,7 +29,7 @@ class Fortio < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/fortio version -s")
+    assert_match version.to_s, shell_output("#{bin}/fortio version")
 
     port = free_port
     begin
