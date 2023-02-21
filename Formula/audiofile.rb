@@ -17,11 +17,6 @@ class Audiofile < Formula
     end
   end
 
-  livecheck do
-    url :homepage
-    regex(/href=.*?audiofile[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_monterey: "566b6a39c409fee041a5777d97f99a53b41c2cae00fc9272e9b744c778476bfa"
