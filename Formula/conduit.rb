@@ -6,7 +6,7 @@ class Conduit < Formula
   license "Apache-2.0"
   head "https://github.com/ConduitIO/conduit.git", branch: "main"
 
-  depends_on "go"
+  depends_on "go" => :build
   depends_on "node"
   depends_on "yarn"
 
