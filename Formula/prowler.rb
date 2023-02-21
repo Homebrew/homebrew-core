@@ -3,8 +3,8 @@ class Prowler < Formula
 
   desc "Open Source Security tool to perform Cloud Security best practices"
   homepage "https://prowler.pro/"
-  url "https://files.pythonhosted.org/packages/09/45/305314207b8d06efc33e31c0c9ab1fcffdb0b10eeadf6f9379ebbd422049/prowler-3.2.0.tar.gz"
-  sha256 "68d207f6c3a562affc2717987994a7b1cf7efa8306d45838e51629d3fea9b3bc"
+  url "https://files.pythonhosted.org/packages/e4/6c/4a4c39ef21a5e109384821b2c01ec8d5f997b85e4659a9b7d7bfcf9008aa/prowler-3.2.1.tar.gz"
+  sha256 "6937c4162256d8cf190f3ae404381ac8774034dad754eb27605964809990e1ac"
   license "Apache-2.0"
 
   bottle do
@@ -85,13 +85,13 @@ class Prowler < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/c0/63/5dd782da5653528c35ca2ec7f44a41ec3121cda8701f14c6416912118dc6/boto3-1.26.69.tar.gz"
-    sha256 "eb8cde24a4c5755c35126e8cd460e6b51c63d04292419e7e95721232720c7e5b"
+    url "https://files.pythonhosted.org/packages/0d/bf/642df2c3fc35290809f81a77a1a9b9c970cb4a153a4e4bcf9e8ae4255b13/boto3-1.26.75.tar.gz"
+    sha256 "702efaf333ddd9a1520283a22bd74b6c3a890ab38df5afcf4e821a2f3d707688"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/db/31/720ac07bd096fdd24fbeb42111638b41fd220e618790b94ada77a6bd1f3e/botocore-1.29.69.tar.gz"
-    sha256 "7e1bebca013544fbc298cb58603bfccd5f71b49c720a5c33c07cf5dfc8145a1f"
+    url "https://files.pythonhosted.org/packages/88/d8/7ae59f07451146acf9f81978d7e855c9a0ff9ce3d1db1be1ec7f75fe0e2c/botocore-1.29.75.tar.gz"
+    sha256 "eef47ca90d02dbc92296208e24ac5e02bdf5cfa45f10d160fdc19612e141bce2"
   end
 
   resource "certifi" do
