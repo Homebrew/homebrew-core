@@ -1,8 +1,8 @@
 class Pluto < Formula
   desc "CLI tool to help discover deprecated apiVersions in Kubernetes"
   homepage "https://fairwinds.com"
-  url "https://github.com/FairwindsOps/pluto/archive/v5.13.3.tar.gz"
-  sha256 "c63f86ea3b309025372c844c0f3543732c52579fd94cda46c78513c311301c7d"
+  url "https://github.com/FairwindsOps/pluto/archive/v5.13.4.tar.gz"
+  sha256 "139cb20643a56e957daf06287d21d79a2f1b1d79b8194292bdadab07afba5f57"
   license "Apache-2.0"
   head "https://github.com/FairwindsOps/pluto.git", branch: "master"
 
