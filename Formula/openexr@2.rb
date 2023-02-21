@@ -5,10 +5,6 @@ class OpenexrAT2 < Formula
   sha256 "db261a7fcc046ec6634e4c5696a2fc2ce8b55f50aac6abe034308f54c8495f55"
   license "BSD-3-Clause"
 
-  livecheck do
-    formula "ilmbase"
-  end
-
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "3ae1ca91a7366461c5b30a91cafe68bf36a64a80f3fbea628f86dfbf4f985a81"
     sha256 cellar: :any,                 arm64_monterey: "f7c2ccf2e653530b225b40b9bf1335d6b9d52b012cf8c62d95e3d059467c69be"
