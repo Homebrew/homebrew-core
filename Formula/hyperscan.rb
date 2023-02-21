@@ -24,15 +24,14 @@ class Hyperscan < Formula
   depends_on "pcre"
 
   def install
-    cmake_args = std_cmake_args + ["-DBUILD_STATIC_AND_SHARED=ON"]
+    args = ["-DBUILD_STATIC_AND_SHARED=ON"]
 
     # Linux CI cannot guarantee AVX2 support needed to build fat runtime.
-    cmake_args << "-DFAT_RUNTIME=OFF" if OS.linux?
+    args << "-DFAT_RUNTIME=OFF" if OS.linux?
 
-    mkdir "build" do
-      system "cmake", "..", *cmake_args
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
