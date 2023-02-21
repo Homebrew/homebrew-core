@@ -1,8 +1,8 @@
 class Babl < Formula
   desc "Dynamic, any-to-any, pixel format translation library"
   homepage "https://www.gegl.org/babl/"
-  url "https://download.gimp.org/pub/babl/0.1/babl-0.1.98.tar.xz"
-  sha256 "f3b222f84e462735de63fa9c3651942f2b78fd314c73a22e05ff7c73afd23af1"
+  url "https://download.gimp.org/pub/babl/0.1/babl-0.1.100.tar.xz"
+  sha256 "a5e6e193676215d65d7cdfeaf1158a060b42a142a36f1ab076d1833212f9d2d4"
   license "LGPL-3.0-or-later"
   # Use GitHub instead of GNOME's git. The latter is unreliable.
   head "https://github.com/GNOME/babl.git", branch: "master"
