@@ -3,8 +3,8 @@ class West < Formula
 
   desc "Zephyr meta-tool"
   homepage "https://github.com/zephyrproject-rtos/west"
-  url "https://files.pythonhosted.org/packages/ae/9c/16f4df520be759b8de1b35d6959fabb86ec81b44ba0300ec68d5d869f006/west-0.14.0.tar.gz"
-  sha256 "9a52a78565fd4d69c64b75c549f61b131892b1b6d26c1cc162cdead1a3cf4b8f"
+  url "https://files.pythonhosted.org/packages/29/86/4283e43a287dd7e7146176dec4c6fb24c2aceac3628c964ef204a9005b58/west-1.0.0.tar.gz"
+  sha256 "66f870221928112ef58f2bfc5efd1d778e19eed140673984d97b221fbc0525f4"
   license "Apache-2.0"
   head "https://github.com/zephyrproject-rtos/west.git", branch: "main"
 
@@ -35,18 +35,13 @@ class West < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/df/9e/d1a7217f69310c1db8fdf8ab396229f55a699ce34a203691794c5d1cad0c/packaging-21.3.tar.gz"
-    sha256 "dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb"
+    url "https://files.pythonhosted.org/packages/47/d5/aca8ff6f49aa5565df1c826e7bf5e85a6df852ee063600c1efa5b932968c/packaging-23.0.tar.gz"
+    sha256 "b6ad297f8907de0fa2fe1ccbd26fdaf387f5f47c7275fedf8cce89f99446cf97"
   end
 
   resource "pykwalify" do
     url "https://files.pythonhosted.org/packages/d5/77/2d6849510dbfce5f74f1f69768763630ad0385ad7bb0a4f39b55de3920c7/pykwalify-1.8.0.tar.gz"
     sha256 "796b2ad3ed4cb99b88308b533fb2f559c30fa6efb4fa9fda11347f483d245884"
-  end
-
-  resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/71/22/207523d16464c40a0310d2d4d8926daffa00ac1f5b1576170a32db749636/pyparsing-3.0.9.tar.gz"
-    sha256 "2b020ecf7d21b687f219b71ecad3631f644a47f01403fa1d1036b0c6416d70fb"
   end
 
   resource "python-dateutil" do
