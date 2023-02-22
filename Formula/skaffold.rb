@@ -23,7 +23,7 @@ class Skaffold < Formula
   def install
     system "make"
     bin.install "out/skaffold"
-    generate_completions_from_executable(bin/"skaffold", "completion", shells: [:bash, :zsh])
+    generate_completions_from_executable(bin/"skaffold", "completion")
   end
 
   test do
