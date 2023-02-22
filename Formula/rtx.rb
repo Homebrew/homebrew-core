@@ -19,6 +19,7 @@ class Rtx < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
+    generate_completions_from_executable(bin/"rtx", "complete", "--shell")
   end
 
   test do
