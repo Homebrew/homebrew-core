@@ -21,9 +21,9 @@ class RomTools < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6944b83ac20c0a6bfcb285405abe6e5d9c42567b7f1be839316255a48bd85940"
   end
 
+  depends_on "asio" => :build
   depends_on "pkg-config" => :build
   depends_on "python@3.11" => :build
-  depends_on "asio"
   depends_on "flac"
   # Need C++ compiler and standard library support C++17.
   depends_on macos: :high_sierra
