@@ -18,8 +18,7 @@ class Dive < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "795372731d4e6cd97f76b98f84c9c03878f18277be95f3f94033990f05abc6ba"
   end
 
-  # Bump to 1.19 on the next release, if possible.
-  depends_on "go@1.18" => :build
+  depends_on "go" => :build
 
   on_linux do
     depends_on "gpgme" => :build
