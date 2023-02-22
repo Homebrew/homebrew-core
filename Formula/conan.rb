@@ -91,9 +91,11 @@ class Conan < Formula
   end
 
   test do
-    system bin/"conan", "search", "zlib", "--remote", "conancenter"
-
-    system bin/"conan", "install", "zlib/1.2.11@", "--build"
-    assert_predicate testpath/".conan/data/zlib/1.2.11", :exist?
+    system bin/"conan", "profile", "detect"
+    system bin/"conan", "install", "--requires=zlib/1.2.11",
+                                   "--build=missing",
+                                   "--lockfile-out=conan.lock"
+    lockfile = JSON.parse(File.read("conan.lock", mode: "r"))
+    refute_predicate lockfile["requires"].select { |req| req.start_with?("zlib/1.2.11") }, :empty?
   end
 end
