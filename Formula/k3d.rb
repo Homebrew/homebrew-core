@@ -22,8 +22,13 @@ class K3d < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ab6e8dbc60e972893a34168c37cda4e644aa1df0db72d4fd464e799bd1118b83"
   end
 
-  # upstream issue, https://github.com/k3d-io/k3d/issues/1207
-  depends_on "go@1.19" => :build
+  depends_on "go" => :build
+
+  # Backport Go 1.20 support. Remove in the next release.
+  patch do
+    url "https://github.com/k3d-io/k3d/commit/cc10d6a27d850b49a103a923a2aea5018b964a8d.patch?full_index=1"
+    sha256 "db429ee760adf1d605cb5a141ad627431813d7dc21acc537882f9d69b3cf4d63"
+  end
 
   def install
     require "net/http"
