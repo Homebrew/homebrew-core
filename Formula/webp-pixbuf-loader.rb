@@ -1,8 +1,8 @@
 class WebpPixbufLoader < Formula
   desc "WebP Image format GdkPixbuf loader"
   homepage "https://github.com/aruiz/webp-pixbuf-loader"
-  url "https://github.com/aruiz/webp-pixbuf-loader/archive/0.0.7.tar.gz"
-  sha256 "121bcb564c6908a8681281766f7c5941d09b5ec0b7b55b9212f1e832d637d3e7"
+  url "https://github.com/aruiz/webp-pixbuf-loader/archive/0.1.0.tar.gz"
+  sha256 "d900ba5937d0662cbaa0e2c53502c77e973264798871a94757b48c8d5d3483f0"
   license "LGPL-2.0-or-later"
   head "https://github.com/aruiz/webp-pixbuf-loader.git", branch: "mainline"
 
@@ -35,13 +35,6 @@ class WebpPixbufLoader < Formula
   # Subfolder that pixbuf loaders are installed into.
   def module_subdir
     "lib/gdk-pixbuf-#{gdk_so_ver}/#{gdk_module_ver}/loaders"
-  end
-
-  # upstream PR ref, https://github.com/aruiz/webp-pixbuf-loader/pull/59
-  # remove in next release
-  patch do
-    url "https://github.com/aruiz/webp-pixbuf-loader/commit/84cfcfcb236d936bdeec39c9607107a3279faf0e.patch?full_index=1"
-    sha256 "a710baa5b3177868cae186a460f87e6d9bfefde1b929ea7bdf17487774d8eb07"
   end
 
   def install
