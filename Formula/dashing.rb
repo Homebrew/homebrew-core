@@ -27,9 +27,7 @@ class Dashing < Formula
   end
 
   def install
-    system "go", "build", "-o", bin/"dashing", "-ldflags",
-             "-X main.version=#{version}"
-    prefix.install_metafiles
+    system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}")
   end
 
   test do
