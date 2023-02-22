@@ -17,8 +17,7 @@ class Tunnel < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9a079e012dffd514c536355269716695a150db0dc30cd3ea2c27aee789615805"
   end
 
-  # Bump to 1.19 on the next release, if possible.
-  depends_on "go@1.18" => :build
+  depends_on "go" => :build
 
   def install
     system "go", "build", "-o", bin/"tunnel", "./cmd/tunnel"
