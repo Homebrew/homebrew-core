@@ -23,11 +23,7 @@ class Ghz < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build",
-      "-ldflags", "-s -w -X main.version=#{version}",
-      *std_go_args,
-      "cmd/ghz/main.go"
-    prefix.install_metafiles
+    system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}"), "cmd/ghz/main.go"
   end
 
   test do
