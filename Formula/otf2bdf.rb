@@ -36,7 +36,7 @@ class Otf2bdf < Formula
   end
 
   resource "mkinstalldirs" do
-    url "http://sofia.nmsu.edu/~mleisher/Software/otf2bdf/mkinstalldirs"
+    url "https://web.archive.org/web/20220629172211/http://sofia.nmsu.edu/~mleisher/Software/otf2bdf/mkinstalldirs"
     sha256 "e7b13759bd5caac0976facbd1672312fe624dd172bbfd989ffcc5918ab21bfc1"
   end
 
