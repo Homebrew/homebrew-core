@@ -16,8 +16,7 @@ class PayloadDumperGo < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "914db99626b3362a7ff898f96b91b038ea02382b44aeff589ce3e265045dd4f4"
   end
 
-  # Bump to 1.19 on the next release, if possible.
-  depends_on "go@1.18" => :build
+  depends_on "go" => :build
   depends_on "xz"
 
   def install
