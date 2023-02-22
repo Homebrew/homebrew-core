@@ -20,8 +20,7 @@ class Fabio < Formula
   depends_on "consul"
 
   def install
-    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"fabio"
-    prefix.install_metafiles
+    system "go", "build", *std_go_args(ldflags: "-s -w")
   end
 
   def port_open?(ip_address, port, seconds = 1)
