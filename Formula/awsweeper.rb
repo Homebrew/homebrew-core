@@ -17,8 +17,7 @@ class Awsweeper < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "81776b638e309f839a362f70ba7d0621c2ca9e80f6472f334c5472049cbc3374"
   end
 
-  # Bump to 1.19 on the next release, if possible.
-  depends_on "go@1.18" => :build
+  depends_on "go" => :build
 
   def install
     ldflags = %W[
