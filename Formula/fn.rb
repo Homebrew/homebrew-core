@@ -16,8 +16,7 @@ class Fn < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e38836cae152077e69d2ddd9e232ab2f3a5b9e3bd3140a4c6cc83d1f7f3c6555"
   end
 
-  # Bump to 1.19 on the next release, if possible.
-  depends_on "go@1.18" => :build
+  depends_on "go" => :build
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")
