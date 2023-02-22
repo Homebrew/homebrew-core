@@ -23,9 +23,7 @@ class Erigon < Formula
   end
 
   depends_on "gcc" => :build
-  # Support for go 1.20 is merged upstream but not yet landed in a tag:
-  # https://github.com/ledgerwatch/erigon/pull/6848
-  # Remove on next release.
+  # Build fails with Go 1.20 on arm64 due to https://github.com/prysmaticlabs/gohashtree/issues/6
   depends_on "go@1.19" => :build
   depends_on "make" => :build
 
