@@ -24,7 +24,7 @@ class Conduit < Formula
       $stdout.reopen(file)
       pid = fork do
         # Run conduit with random free ports for gRPC and HTTP servers
-        exec bin/"conduit", "--grpc.address", ":0", 
+        exec bin/"conduit", "--grpc.address", ":0",
                             "--http.address", ":0"
       end
       sleep(5)
