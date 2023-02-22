@@ -17,8 +17,7 @@ class Charm < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "623e2d62e1dc1210de466ff4e4ea1d8e0c8ea059dbdc491ff5b8f3ec1cc9603e"
   end
 
-  # Bump to 1.19 on the next release, if possible.
-  depends_on "go@1.18" => :build
+  depends_on "go" => :build
 
   def install
     system "go", "build", *std_go_args, "./cmd/charm"
