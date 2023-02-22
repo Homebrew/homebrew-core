@@ -23,6 +23,10 @@ class GoAT118 < Formula
 
   keg_only :versioned_formula
 
+  # EOL with Go 1.20 release (2023-02-01)
+  # Ref: https://go.dev/doc/devel/release#policy
+  deprecate! date: "2023-02-21", because: :unsupported
+
   # Don't update this unless this version cannot bootstrap the new version.
   resource "gobootstrap" do
     checksums = {
