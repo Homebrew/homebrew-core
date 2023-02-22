@@ -4,6 +4,7 @@ class Libarchive < Formula
   url "https://www.libarchive.org/downloads/libarchive-3.6.2.tar.xz"
   sha256 "9e2c1b80d5fbe59b61308fdfab6c79b5021d7ff4ff2489fb12daf0a96a83551d"
   license "BSD-2-Clause"
+  revision 1
 
   livecheck do
     url :homepage
@@ -32,8 +33,7 @@ class Libarchive < Formula
   uses_from_macos "zlib"
 
   def install
-    system "./configure",
-           "--prefix=#{prefix}",
+    system "./configure", *std_configure_args,
            "--without-lzo2",    # Use lzop binary instead of lzo2 due to GPL
            "--without-nettle",  # xar hashing option but GPLv3
            "--without-xml2",    # xar hashing option but tricky dependencies
@@ -42,6 +42,9 @@ class Libarchive < Formula
 
     system "make", "install"
 
+    # fixes https://github.com/libarchive/libarchive/issues/1819
+    inreplace lib/"pkgconfig/libarchive.pc", "Libs.private: ", "Libs.private: -liconv " if OS.mac?
+    inreplace lib/"pkgconfig/libarchive.pc", "Requires.private: iconv", ""
     return unless OS.mac?
 
     # Just as apple does it.
