@@ -30,13 +30,7 @@ class Conduit < Formula
       # Kill process
       Process.kill("SIGKILL", pid)
     end
-    File.open("output.txt", "r") do |file|
-      # Read logs
-      log = file.read
-      # Check that gRPC server started
-      assert_match(/grpc server started/, log)
-      # Check that HTTP server started
-      assert_match(/http server started/, log)
-    end
+    assert_match "grpc server started", (testpath/"output.txt").read
+    assert_match "http server started", (testpath/"output.txt").read
   end
 end
