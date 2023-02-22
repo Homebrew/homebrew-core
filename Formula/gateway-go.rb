@@ -19,8 +19,7 @@ class GatewayGo < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "81394624d4f5bf2a35f565dfa9342f49badf78495b124d0a6ad14103f581050c"
   end
 
-  # Bump to 1.19 on the next release, if possible.
-  depends_on "go@1.18" => :build
+  depends_on "go" => :build
 
   def install
     ldflags = %W[
