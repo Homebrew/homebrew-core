@@ -48,7 +48,7 @@ class Fastfec < Formula
 
   test do
     testpath.install resource("homebrew-13360")
-    system bin/"fastfec", "13360.fec"
+    system bin/"fastfec", "--no-stdin", "13360.fec"
     %w[F3XA header SA11A1 SA17 SB23 SB29].each do |name|
       assert_path_exists testpath/"output/13360/#{name}.csv"
     end
