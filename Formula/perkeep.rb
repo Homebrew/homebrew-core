@@ -28,6 +28,9 @@ class Perkeep < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "46418f4f07c4f2934642ef6c99795aa69a0d4b394f73ffe11a6625ae864c4286"
   end
 
+  # HEAD may support Go 1.19 but last release was on 2020-11-11.
+  deprecate! date: "2023-02-21", because: "has `gopherjs` resource that doesn't support Go 1.19 or later"
+
   # This should match what gopherjs supports.
   depends_on "go@1.18" => :build
   depends_on "pkg-config" => :build
