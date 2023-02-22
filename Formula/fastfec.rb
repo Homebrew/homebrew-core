@@ -1,6 +1,7 @@
 class Fastfec < Formula
   desc "Extremely fast FEC filing parser written in C"
   homepage "https://github.com/washingtonpost/FastFEC"
+  # Check whether PCRE linking issue is fixed in Zig at version bump.
   url "https://github.com/washingtonpost/FastFEC/archive/refs/tags/0.1.9.tar.gz"
   sha256 "1f6611b76c54005580d937cbac75b57783a33aa18eb32e4906ae919f6a1f0c0e"
   license "MIT"
@@ -16,7 +17,15 @@ class Fastfec < Formula
 
   depends_on "pkg-config" => :build
   depends_on "zig" => :build
-  depends_on "pcre"
+
+  on_macos do
+    # Zig attempts to link with `libpcre.a` on Linux.
+    # This fails because it was not compiled with `-fPIC`.
+    # Use Homebrew PCRE on Linux when upstream resolves
+    #   https://github.com/ziglang/zig/issues/14111
+    # Don't forget to update the `install` method.
+    depends_on "pcre"
+  end
 
   resource "homebrew-13360" do
     url "https://docquery.fec.gov/dcdev/posted/13360.fec"
@@ -31,7 +40,8 @@ class Fastfec < Formula
   end
 
   def install
-    system "zig", "build", "-Dvendored-pcre=false"
+    # Set `vendored-pcre` to `false` unconditionally when `pcre` linkage is fixed upstream.
+    system "zig", "build", "-Dvendored-pcre=#{OS.linux?}"
     bin.install "zig-out/bin/fastfec"
     lib.install "zig-out/lib/#{shared_library("libfastfec")}"
   end
