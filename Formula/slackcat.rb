@@ -17,8 +17,7 @@ class Slackcat < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "96518aa5c2d2ddc1c62a1ee163748bc0909be294eebc290156a6ca1908d6216a"
   end
 
-  # Bump to 1.19 on the next release, if possible.
-  depends_on "go@1.18" => :build
+  depends_on "go" => :build
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}")
