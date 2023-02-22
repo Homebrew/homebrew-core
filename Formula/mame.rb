@@ -32,6 +32,7 @@ class Mame < Formula
   depends_on "python@3.11" => :build
   depends_on "rapidjson" => :build
   depends_on "sphinx-doc" => :build
+  depends_on "asio"
   depends_on "flac"
   depends_on "jpeg-turbo"
   # Need C++ compiler and standard library support C++17.
@@ -59,14 +60,13 @@ class Mame < Formula
     # Cut sdl2-config's invalid option.
     inreplace "scripts/src/osd/sdl.lua", "--static", ""
 
-    # Use bundled asio and lua instead of latest version.
-    # https://github.com/mamedev/mame/issues/5721
+    # Use bundled lua instead of latest version.
     # https://github.com/mamedev/mame/issues/5349
     system "make", "PYTHON_EXECUTABLE=#{Formula["python@3.11"].opt_bin}/python3.11",
                    "USE_LIBSDL=1",
                    "USE_SYSTEM_LIB_EXPAT=1",
                    "USE_SYSTEM_LIB_ZLIB=1",
-                   "USE_SYSTEM_LIB_ASIO=",
+                   "USE_SYSTEM_LIB_ASIO=1",
                    "USE_SYSTEM_LIB_LUA=",
                    "USE_SYSTEM_LIB_FLAC=1",
                    "USE_SYSTEM_LIB_GLM=1",
