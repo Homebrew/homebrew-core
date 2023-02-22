@@ -19,8 +19,7 @@ class Hub < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "213636e856404251ffd7897357ab91cc9519d3852e4b28cbb43575988d9bbc1b"
   end
 
-  # Bump to 1.19 on the next release, if possible.
-  depends_on "go@1.18" => :build
+  depends_on "go" => :build
 
   uses_from_macos "ruby" => :build
 
