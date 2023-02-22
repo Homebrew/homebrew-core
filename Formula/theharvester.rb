@@ -316,7 +316,7 @@ class Theharvester < Formula
       - ip:port
     EOS
 
-    output = shell_output("#{bin}/theharvester -d brew.sh -l 1 -b duckduckgo 2>&1")
+    output = shell_output("#{bin}/theharvester -d brew.sh --limit 1 --source urlscan 2>&1")
     assert_match "docs.brew.sh:", output
   end
 end
