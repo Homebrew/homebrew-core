@@ -25,8 +25,7 @@ class DnscryptProxy < Formula
 
   def install
     cd "dnscrypt-proxy" do
-      system "go", "build", "-ldflags", "-X main.version=#{version}", "-o",
-             sbin/"dnscrypt-proxy"
+      system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}", output: sbin/"dnscrypt-proxy")
       pkgshare.install Dir["example*"]
       etc.install pkgshare/"example-dnscrypt-proxy.toml" => "dnscrypt-proxy.toml"
     end
