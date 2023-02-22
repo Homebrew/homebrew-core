@@ -29,7 +29,7 @@ class Dafny < Formula
   uses_from_macos "python" => :build, since: :catalina # for z3
 
   # Use the following along with the z3 build below, as long as dafny
-  # cannot build with latest z3 (https://github.com/dafny-lang/dafny/issues/810)
+  # cannot build with latest z3 (https://github.com/dafny-lang/dafny/issues/3601)
   resource "z3" do
     url "https://github.com/Z3Prover/z3/archive/Z3-4.8.5.tar.gz"
     sha256 "4e8e232887ddfa643adb6a30dcd3743cb2fa6591735fbd302b49f7028cdc0363"
