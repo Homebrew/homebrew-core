@@ -27,12 +27,12 @@ class Mame < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e051f1d188a31001f4b69a295692cf35bbf1835bd3fa9b0724664bd883f1f426"
   end
 
+  depends_on "asio" => :build
   depends_on "glm" => :build
   depends_on "pkg-config" => :build
   depends_on "python@3.11" => :build
   depends_on "rapidjson" => :build
   depends_on "sphinx-doc" => :build
-  depends_on "asio"
   depends_on "flac"
   depends_on "jpeg-turbo"
   # Need C++ compiler and standard library support C++17.
