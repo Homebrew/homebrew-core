@@ -1,7 +1,7 @@
 class Otf2bdf < Formula
   desc "OpenType to BDF font converter"
-  homepage "http://sofia.nmsu.edu/~mleisher/Software/otf2bdf/"
-  url "http://sofia.nmsu.edu/~mleisher/Software/otf2bdf/otf2bdf-3.1.tbz2"
+  homepage "https://web.archive.org/web/20220629172211/http://sofia.nmsu.edu/~mleisher/Software/otf2bdf/"
+  url "https://web.archive.org/web/20220629172211/http://sofia.nmsu.edu/~mleisher/Software/otf2bdf/otf2bdf-3.1.tbz2"
   sha256 "3d63892e81187d5192edb96c0dc6efca2e59577f00e461c28503006681aa5a83"
 
   livecheck do
@@ -22,6 +22,9 @@ class Otf2bdf < Formula
     sha256 cellar: :any,                 high_sierra:    "208ef317e3c51e88818c4f59ca0333a76d6efeed97b04affe66c3cd6b601bada"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "474eb191656b41d2707754f98de17c2a5691a8917981ee52155de962dc314395"
   end
+
+  # source disapeared
+  deprecate! date: "2023-02-22", because: :repo_removed
 
   depends_on "freetype"
 
