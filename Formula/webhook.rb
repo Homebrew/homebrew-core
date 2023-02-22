@@ -18,8 +18,7 @@ class Webhook < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3b9d7fe8bda4f6a5f69d04d48230a8b17ad61d4544a07433a92ffa4abbc7c3a4"
   end
 
-  # Bump to 1.19 on the next release, if possible.
-  depends_on "go@1.18" => :build
+  depends_on "go" => :build
 
   def install
     system "go", "build", *std_go_args
