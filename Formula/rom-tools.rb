@@ -23,6 +23,7 @@ class RomTools < Formula
 
   depends_on "pkg-config" => :build
   depends_on "python@3.11" => :build
+  depends_on "asio"
   depends_on "flac"
   # Need C++ compiler and standard library support C++17.
   depends_on macos: :high_sierra
@@ -47,15 +48,13 @@ class RomTools < Formula
     # Cut sdl2-config's invalid option.
     inreplace "scripts/src/osd/sdl.lua", "--static", ""
 
-    # Use bundled asio instead of latest version.
-    # See: <https://github.com/mamedev/mame/issues/5721>
     args = %W[
       PYTHON_EXECUTABLE=#{which("python3.11")}
       TOOLS=1
       USE_LIBSDL=1
       USE_SYSTEM_LIB_EXPAT=1
       USE_SYSTEM_LIB_ZLIB=1
-      USE_SYSTEM_LIB_ASIO=
+      USE_SYSTEM_LIB_ASIO=1
       USE_SYSTEM_LIB_FLAC=1
       USE_SYSTEM_LIB_UTF8PROC=1
     ]
