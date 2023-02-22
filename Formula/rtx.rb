@@ -4,6 +4,7 @@ class Rtx < Formula
   url "https://github.com/jdxcode/rtx/archive/refs/tags/v1.14.3.tar.gz"
   sha256 "31c5b5689c779705b2dea74795a3ce655a7c0edc1e7c16410eb3cddde05a9a93"
   license "MIT"
+  head "https://github.com/jdxcode/rtx.git", branch: "main"
 
   bottle do
     rebuild 1
