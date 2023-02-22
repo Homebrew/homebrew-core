@@ -22,7 +22,7 @@ class Clipper < Formula
   depends_on :macos
 
   def install
-    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"clipper", "clipper.go"
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "clipper.go"
   end
 
   service do
