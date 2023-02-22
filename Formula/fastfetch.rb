@@ -25,13 +25,6 @@ class Fastfetch < Formula
 
   uses_from_macos "zlib" => :build
 
-  # Fix build on macOS < 12. Remove when merged and released.
-  # PR: https://github.com/LinusDierheimer/fastfetch/pull/425
-  patch do
-    url "https://github.com/LinusDierheimer/fastfetch/commit/6983c165ee8bb6860640cde1a333e77b9b736529.patch?full_index=1"
-    sha256 "b0da380a16fcaf3aec06bf8127dd3913583b424d54d602cc765c44687b884195"
-  end
-
   def install
     system "cmake", "-S", ".", "-B", "build", "-DCMAKE_INSTALL_SYSCONFDIR=#{etc}", *std_cmake_args
     system "cmake", "--build", "build"
