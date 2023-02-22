@@ -19,8 +19,7 @@ class Vaulted < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3acf911a97ce6aa9aacff3d0e39c70d497e2b2b808a5ebe620301259035988c3"
   end
 
-  # Bump to 1.19 on the next release, if possible.
-  depends_on "go@1.18" => :build
+  depends_on "go" => :build
 
   def install
     system "go", "build", "-o", bin/"vaulted", "."
