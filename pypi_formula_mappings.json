@@ -350,6 +350,9 @@
   "legit": {
     "exclude_packages": ["six"]
   },
+  "linode-cli": {
+    "exclude_packages": ["PyYAML"]
+  },
   "liquidctl": {
     "exclude_packages": ["pillow"]
   },
