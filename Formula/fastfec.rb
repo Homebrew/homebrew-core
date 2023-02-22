@@ -1,8 +1,8 @@
 class Fastfec < Formula
   desc "Extremely fast FEC filing parser written in C"
   homepage "https://github.com/washingtonpost/FastFEC"
-  url "https://github.com/washingtonpost/FastFEC/archive/refs/tags/0.0.4.tar.gz"
-  sha256 "8c508e0a93416a1ce5609536152dcbdab0df414c3f3a791e11789298455d1c71"
+  url "https://github.com/washingtonpost/FastFEC/archive/refs/tags/0.1.9.tar.gz"
+  sha256 "1f6611b76c54005580d937cbac75b57783a33aa18eb32e4906ae919f6a1f0c0e"
   license "MIT"
 
   bottle do
@@ -17,28 +17,30 @@ class Fastfec < Formula
   depends_on "pkg-config" => :build
   depends_on "zig" => :build
   depends_on "pcre"
-  uses_from_macos "curl"
+
+  resource "homebrew-13360" do
+    url "https://docquery.fec.gov/dcdev/posted/13360.fec"
+    sha256 "b7e86309f26af66e21b28aec7bd0f7844d798b621eefa0f7601805681334e04c"
+  end
+
+  # Fix install_name rewriting for bottling.
+  # https://github.com/washingtonpost/FastFEC/pull/56
+  patch do
+    url "https://github.com/washingtonpost/FastFEC/commit/36cf7e84083ac2c6dbd1694107e2c0a3fdc800ae.patch?full_index=1"
+    sha256 "d00cc61ea7bd1ab24496265fb8cf203de7451ef6b77a69822becada3f0e14047"
+  end
 
   def install
-    ENV["ZIG_SYSTEM_LINKER_HACK"] = "1"
-    args = [
-      # Use brew's pcre
-      "-Dvendored-pcre=false",
-    ]
-    if OS.linux?
-      args << "--search-prefix"
-      args << Formula["curl"].opt_prefix
-    end
-    system "zig", "build", *args
+    system "zig", "build", "-Dvendored-pcre=false"
     bin.install "zig-out/bin/fastfec"
     lib.install "zig-out/lib/#{shared_library("libfastfec")}"
   end
 
   test do
-    system "#{bin}/fastfec", "--no-stdin", "13425"
-    assert_predicate testpath/"output/13425/F3XN.csv", :exist?
-    assert_predicate testpath/"output/13425/header.csv", :exist?
-    assert_predicate testpath/"output/13425/SA11A1.csv", :exist?
-    assert_predicate testpath/"output/13425/SB23.csv", :exist?
+    testpath.install resource("homebrew-13360")
+    system bin/"fastfec", "13360.fec"
+    %w[F3XA header SA11A1 SA17 SB23 SB29].each do |name|
+      assert_path_exists testpath/"output/13360/#{name}.csv"
+    end
   end
 end
