@@ -1,10 +1,20 @@
 class Ipget < Formula
   desc "Retrieve files over IPFS and save them locally"
   homepage "https://github.com/ipfs/ipget/"
-  url "https://github.com/ipfs/ipget/archive/refs/tags/v0.9.1.tar.gz"
-  sha256 "d065de300a1764077c31900e24e4843d5706eb397d787db0b3312d64c94f15a9"
   license "MIT"
   head "https://github.com/ipfs/ipget.git", branch: "master"
+
+  stable do
+    url "https://github.com/ipfs/ipget/archive/refs/tags/v0.9.1.tar.gz"
+    sha256 "d065de300a1764077c31900e24e4843d5706eb397d787db0b3312d64c94f15a9"
+
+    # Backport `quic-go` update to support Go 1.19.
+    # Remove in the next release.
+    patch do
+      url "https://github.com/ipfs/ipget/commit/2efde1ea597d8b659ee95af1cc7293a1f3baa219.patch?full_index=1"
+      sha256 "70cb408102ec93fca8a3f8313e29a782250c88c7780f81f9c0f6fe0c5acdb38e"
+    end
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "233788748853983df10588bf95efc20dddbb352411f8ed79be206722d03276ac"
@@ -16,9 +26,9 @@ class Ipget < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f3ca4537a2e1536933ca2cd4a17b9f8907dc0a5c3df4b04f8bdfdc74476cdb74"
   end
 
-  # The current version of `quic-go` dependency can only be built with `go@1.18`.
-  # Try `go@1.19` or newer at next release; upstream has already upgraded `quic-go` at master branch.
-  depends_on "go@1.18" => :build
+  # The current version of `quic-go` dependency can only be built with `go@1.19`.
+  # Try `go@1.20` or newer at next release
+  depends_on "go@1.19" => :build
 
   def install
     system "make", "build"
