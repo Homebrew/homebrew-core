@@ -39,8 +39,7 @@ class Gdm < Formula
     Language::Go.stage_deps resources, buildpath/"src"
 
     cd "src/github.com/sparrc/gdm" do
-      system "go", "build", "-o", bin/"gdm",
-             "-ldflags", "-X main.Version=#{version}"
+      system "go", "build", *std_go_args(ldflags: "-X main.Version=#{version}")
     end
   end
 
