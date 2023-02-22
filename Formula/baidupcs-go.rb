@@ -16,8 +16,7 @@ class BaidupcsGo < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5f7cc7a5a6801b05ca2f3cc0f4b696196a260060bebe1374fa2efede1f15552b"
   end
 
-  # Bump to 1.19 on the next release, if possible.
-  depends_on "go@1.18" => :build
+  depends_on "go" => :build
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")
