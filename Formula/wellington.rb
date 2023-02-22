@@ -19,13 +19,12 @@ class Wellington < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1efe7a942728970650560a933ba9344e79cf5a63e96c18553cef995ab77445ef"
   end
 
-  # Bump to 1.19 on the next release, if possible.
-  depends_on "go@1.18" => :build
+  # Bump to 1.20 on the next release, if possible.
+  depends_on "go@1.19" => :build
 
   def install
-    system "go", "build", "-ldflags",
-            "-X github.com/wellington/wellington/version.Version=#{version}",
-            "-o", bin/"wt", "wt/main.go"
+    ldflags = "-X github.com/wellington/wellington/version.Version=#{version}"
+    system "go", "build", *std_go_args(output: bin/"wt", ldflags: ldflags), "wt/main.go"
   end
 
   test do
