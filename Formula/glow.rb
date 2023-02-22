@@ -18,7 +18,7 @@ class Glow < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-ldflags", "-s -w -X main.Version=#{version}", "-trimpath", "-o", bin/name
+    system "go", "build", *std_go_args(ldflags: "-s -w -X main.Version=#{version}")
   end
 
   test do
