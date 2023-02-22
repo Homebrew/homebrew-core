@@ -1,10 +1,9 @@
 class FontUtil < Formula
   desc "X.Org: Font package creation/installation utilities"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/font/font-util-1.3.3.tar.xz"
-  sha256 "e791c890779c40056ab63aaed5e031bb6e2890a98418ca09c534e6261a2eebd2"
+  url "https://www.x.org/archive/individual/font/font-util-1.4.0.tar.xz"
+  sha256 "9f724bf940128c7e39f7252bd961cd38cfac2359de2100a8bed696bf40d40f7d"
   license "MIT"
-  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e12c0d135ebb8f71ca2a975689b82f89779b4a2b2147c38e6a9a5fbcd489864e"
