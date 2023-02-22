@@ -1,10 +1,19 @@
 class Ncdu < Formula
   desc "NCurses Disk Usage"
   homepage "https://dev.yorhel.nl/ncdu"
-  url "https://dev.yorhel.nl/download/ncdu-2.2.2.tar.gz"
-  sha256 "90d920024e752318b469776ce57e03b3c702d49329ad9825aeeab36c3babf993"
   license "MIT"
   head "https://g.blicky.net/ncdu.git", branch: "zig"
+
+  # Remove `stable` block when the patch is no longer needed.
+  stable do
+    url "https://dev.yorhel.nl/download/ncdu-2.2.2.tar.gz"
+    sha256 "90d920024e752318b469776ce57e03b3c702d49329ad9825aeeab36c3babf993"
+
+    # Enable install_name rewriting when bottling.
+    # Remove in next release.
+    # https://code.blicky.net/yorhel/ncdu/commit/07a13d9c7397c3341f430e1127e7287fe53ba8b9
+    patch :DATA
+  end
 
   livecheck do
     url :homepage
@@ -25,8 +34,6 @@ class Ncdu < Formula
   depends_on "zig" => :build
   # Without this, `ncdu` is unusable when `TERM=tmux-256color`.
   depends_on "ncurses"
-
-  patch :DATA
 
   def install
     # Fix illegal instruction errors when using bottles on older CPUs.
