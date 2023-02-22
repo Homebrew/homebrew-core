@@ -17,8 +17,7 @@ class AwsEsProxy < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "927e9fcca53a19b16b22d363737b24111ecfd333dc9f969086b0e312c3d30a74"
   end
 
-  # Bump to 1.19 on the next release, if possible.
-  depends_on "go@1.18" => :build
+  depends_on "go" => :build
 
   def install
     system "go", "build", *std_go_args
