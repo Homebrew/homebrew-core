@@ -1,6 +1,6 @@
 class Geos < Formula
   desc "Geometry Engine"
-  homepage "https://trac.osgeo.org/geos"
+  homepage "https://libgeos.org/"
   url "https://download.osgeo.org/geos/geos-3.11.1.tar.bz2"
   sha256 "6d0eb3cfa9f92d947731cc75f1750356b3bdfc07ea020553daf6af1c768e0be2"
   license "LGPL-2.1-or-later"
