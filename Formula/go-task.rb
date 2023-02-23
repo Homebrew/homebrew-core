@@ -17,12 +17,13 @@ class GoTask < Formula
   end
 
   depends_on "go" => :build
+
   conflicts_with "task", because: "both install `task` binaries"
 
   def install
     ldflags = %W[
       -s -w
-      -X main.version=#{version}
+      -X github.com/go-task/task/v3/internal/version.version=#{version}
     ]
     system "go", "build", *std_go_args(ldflags: ldflags, output: bin/"task"), "./cmd/task"
     bash_completion.install "completion/bash/task.bash" => "task"
