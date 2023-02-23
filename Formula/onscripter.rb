@@ -6,11 +6,6 @@ class Onscripter < Formula
   license "GPL-2.0-or-later"
   revision 1
 
-  livecheck do
-    url :homepage
-    regex(/href=.*?onscripter[._-]v?(\d+(?:\.\d+)*)\.t/i)
-  end
-
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "b291a3aa9c8aa3b28bef0cbcaf28caefe0650d0a4203dcda060635a0bbf4d806"
     sha256 cellar: :any,                 arm64_monterey: "511063ae79a45b8dfad195cc4b16e84d00aa6932caff7c1835344be4852d65e5"
