@@ -5,6 +5,11 @@ class Libsolv < Formula
   sha256 "0286155964373c6cc3802d025750786c3ee79608d5cb884598e110e3918bb2fe"
   license "BSD-3-Clause"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "f48d9544a317cb66ffce9d2b31b16f8e5b467859fdbc29254557efd87abe2c13"
     sha256 cellar: :any,                 arm64_monterey: "a52ed60a8dc9907672a1d3dbd2ecce9a2ced03237e664e85e97c44371c1e8c30"
