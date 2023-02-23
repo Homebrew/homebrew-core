@@ -5,11 +5,8 @@ class Bwidget < Formula
   sha256 "bfe0036374b84293d23620a7f6dda86571813d0c7adfed983c1f337e5ce81ae0"
   license "TCL"
 
-  # tcllib project contains many packages, i.e. bwidget, tcllib, tklib, and tclunit.
-  # Currently the default livecheck returns the latest version of tcllib, not bwidget.
-  # Adding this livecheck block to specifically check bwidget.
   livecheck do
-    url :stable
+    url "https://sourceforge.net/projects/tcllib/rss?path=/BWidget"
     regex(%r{url=.*?/bwidget[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
