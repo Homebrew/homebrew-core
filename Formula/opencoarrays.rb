@@ -4,6 +4,7 @@ class Opencoarrays < Formula
   url "https://github.com/sourceryinstitute/OpenCoarrays/releases/download/2.10.1/OpenCoarrays-2.10.1.tar.gz"
   sha256 "b04b8fa724e7e4e5addbab68d81d701414e713ab915bafdf1597ec5dd9590cd4"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/sourceryinstitute/opencoarrays.git", branch: "main"
 
   bottle do
