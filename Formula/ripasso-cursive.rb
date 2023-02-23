@@ -13,6 +13,10 @@ class RipassoCursive < Formula
   depends_on "libgpg-error"
   depends_on "nettle"
 
+  on_linux do
+    depends_on "libxcb"
+  end
+
   def install
     ENV["SHELL_COMPLETIONS_DIR"] = buildpath
     my_cargo_args = std_cargo_args.map(&:clone)
