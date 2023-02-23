@@ -14,6 +14,12 @@ class Mesa < Formula
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/f0a40cf7d70ee5a25639b91d9a8088749a2dd04e/mesa/fix-build-on-macOS.patch"
       sha256 "a9b646e48d4e4228c3e06d8ca28f65e01e59afede91f58d4bd5a9c42a66b338d"
     end
+
+    # patch for fbconfig ref, remove in next release
+    patch do
+      url "https://gitlab.freedesktop.org/mesa/mesa/-/commit/9ca5a81a6eab703c64bce66baef2e880339d6680"
+      sha256 "71748822f95bf2935a7274521c3401a831cbc61047e37f9951e72844cf883119"
+    end
   end
 
   bottle do
