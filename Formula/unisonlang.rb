@@ -33,8 +33,8 @@ class Unisonlang < Formula
   uses_from_macos "zlib"
 
   resource "local-ui" do
-    url "https://github.com/unisonweb/unison-local-ui/archive/refs/tags/release/M4g.tar.gz"
-    sha256 "b9946ef2912dcbc9fca928acf9b7af44308e668faff7c95d8396506d23897352"
+    url "https://github.com/unisonweb/unison-local-ui/archive/refs/tags/release/M4h.tar.gz"
+    sha256 "cac7ddd1cbac628e54dbf56d879cb0a22f2b70ef3e711cf51b9e05cd5e409e44"
     version "M4h"
   end
 
