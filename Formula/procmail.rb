@@ -4,6 +4,7 @@ class Procmail < Formula
   # NOTE: Use the patched version from Apple
   url "https://github.com/apple-oss-distributions/procmail/archive/refs/tags/procmail-14.tar.gz"
   sha256 "835e95c34bf93e603ecdc98113ce41bb8fa610d7dd0efe56977a66b131c5335d"
+  license any_of: ["GPL-2.0-or-later", "Artistic-1.0-Perl"]
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0ebd812ae059d9cfcdc313028d1a967093b2fcb54745308f3ac900f17f850822"
