@@ -19,7 +19,7 @@ class Rtx < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", *std_cargo_args
+    system "cargo", "install", "--features=brew", *std_cargo_args
     generate_completions_from_executable(bin/"rtx", "complete", "--shell")
   end
 
