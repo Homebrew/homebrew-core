@@ -11,12 +11,20 @@ class Tccutil < Formula
   end
 
   depends_on :macos
+  depends_on "python@3.11"
+
+  def python
+    deps.first.to_formula
+  end
 
   def install
-    bin.install "tccutil.py" => "tccutil"
+    prefix.install_metafiles
+    libexec.install "tccutil.py"
+    (bin/"tccutil").write_env_script libexec/"tccutil.py", PATH: "#{python.opt_libexec}/bin:$PATH"
   end
 
   test do
+    ENV.prepend_path "PATH", python.opt_libexec/"bin"
     system "#{bin}/tccutil", "--help"
   end
 end
