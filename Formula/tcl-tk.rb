@@ -5,6 +5,7 @@ class TclTk < Formula
   mirror "https://fossies.org/linux/misc/tcl8.6.13-src.tar.gz"
   sha256 "43a1fae7412f61ff11de2cfd05d28cfc3a73762f354a417c62370a54e2caf066"
   license "TCL"
+  revision 1
 
   livecheck do
     url :stable
@@ -21,8 +22,6 @@ class TclTk < Formula
     sha256 catalina:       "9a0d3538f62527944ea7905d32532ad8239f6a6dd45f94742a3b2cb72d9f1c10"
     sha256 x86_64_linux:   "7183c92a7b716deaf436a4a468c6866936a9f1f2b145516c7e6d83f323369da0"
   end
-
-  keg_only :provided_by_macos
 
   depends_on "openssl@1.1"
 
@@ -66,6 +65,7 @@ class TclTk < Formula
   def install
     args = %W[
       --prefix=#{prefix}
+      --includedir=#{include}/tcl-tk
       --mandir=#{man}
       --enable-threads
       --enable-64bit
