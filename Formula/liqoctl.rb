@@ -1,8 +1,8 @@
 class Liqoctl < Formula
   desc "Is a CLI tool to install and manage Liqo-enabled clusters"
   homepage "https://liqo.io"
-  url "https://github.com/liqotech/liqo/archive/refs/tags/v0.7.0.tar.gz"
-  sha256 "033a0edc30faac340abd6a912292af0942213693c2853c1024e740bdfd4d5f38"
+  url "https://github.com/liqotech/liqo/archive/refs/tags/v0.7.1.tar.gz"
+  sha256 "5b78f6ce6d868868a57e4bfa6ec825dda7aa1075be0fefec70d9b1ef2b5e201a"
   license "Apache-2.0"
 
   bottle do
@@ -16,8 +16,7 @@ class Liqoctl < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8b4277364b3a7bbf19a6b6b62d4cc7fcc0c2d314227b87fce005db00e98960a8"
   end
 
-  # upstream issue, https://github.com/liqotech/liqo/issues/1657
-  depends_on "go@1.19" => :build
+  depends_on "go" => :build
 
   def install
     ENV["CGO_ENABLED"] = "0"
