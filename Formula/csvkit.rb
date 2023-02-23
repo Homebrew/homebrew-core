@@ -3,8 +3,8 @@ class Csvkit < Formula
 
   desc "Suite of command-line tools for converting to and working with CSV"
   homepage "https://csvkit.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/2e/5b/0e65c6eafaf28e755e65fff7a91501c5570974267a72367906627d662ae4/csvkit-1.1.0.tar.gz"
-  sha256 "ad836b4ebf17674284ec94e2adeb9bea97367c9c7310187c2d8e2e3f1ded9c13"
+  url "https://files.pythonhosted.org/packages/f7/88/bc793b75b22b24c8876bb516002768060f0b933da13661387a55604266cb/csvkit-1.1.1.tar.gz"
+  sha256 "beddb7b78f6b22adbed6ead5ad5de4bfb31dd2c55f3211b2a2b3b65529049223"
   license "MIT"
 
   bottle do
@@ -77,8 +77,8 @@ class Csvkit < Formula
   end
 
   resource "openpyxl" do
-    url "https://files.pythonhosted.org/packages/3d/73/bb87810cdde809f69fef11d31e77297894e58710d47626dc5e5b3ff8f92a/openpyxl-3.1.0.tar.gz"
-    sha256 "eccedbe1cdd8b2494057e73959b496821141038dbb7eb9266ea59e3f34208231"
+    url "https://files.pythonhosted.org/packages/10/bf/950ea7896f3c42ab04073cd2903f0a190ba77ef28bdf76191f6f86373712/openpyxl-3.1.1.tar.gz"
+    sha256 "f06d44e2c973781068bce5ecf860a09bcdb1c7f5ce1facd5e9aa82c92c93ae72"
   end
 
   resource "parsedatetime" do
