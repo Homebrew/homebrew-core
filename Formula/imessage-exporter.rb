@@ -3,7 +3,7 @@ class ImessageExporter < Formula
   homepage "https://github.com/ReagentX/imessage-exporter"
   url "https://github.com/ReagentX/imessage-exporter/archive/refs/tags/1.1.0.tar.gz"
   sha256 "b932862b5f4c1c607c4dd401f99d088b4e1291ce7d5c2a7d1c40da9c91478e97"
-  license "GPL-3"
+  license "GPL-3.0-only"
 
   depends_on "rust" => :build
 
