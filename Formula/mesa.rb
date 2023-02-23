@@ -17,8 +17,8 @@ class Mesa < Formula
 
     # patch for fbconfig ref, remove in next release
     patch do
-      url "https://gitlab.freedesktop.org/mesa/mesa/-/commit/9ca5a81a6eab703c64bce66baef2e880339d6680"
-      sha256 "71748822f95bf2935a7274521c3401a831cbc61047e37f9951e72844cf883119"
+      url "https://gitlab.freedesktop.org/mesa/mesa/-/commit/9ca5a81a6eab703c64bce66baef2e880339d6680.diff"
+      sha256 "ad7c3bbe2dc2f477c38f8d092cfa50071030f3775532be1e28f3edaa99e71b17"
     end
   end
 
