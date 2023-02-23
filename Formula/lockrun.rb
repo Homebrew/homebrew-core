@@ -4,6 +4,7 @@ class Lockrun < Formula
   url "http://unixwiz.net/tools/lockrun.c"
   version "1.1.3"
   sha256 "cea2e1e64c57cb3bb9728242c2d30afeb528563e4d75b650e8acae319a2ec547"
+  license :public_domain
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "faddfa34e58f779eb9881ab52b8623f41a875b6198a40a6588e7048c42d210a3"
