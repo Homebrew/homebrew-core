@@ -30,8 +30,10 @@ class Ortp < Formula
 
   def install
     resource("bctoolbox").stage do
+      args = ["-DENABLE_TESTS_COMPONENT=OFF"]
+      args << "-DCMAKE_C_FLAGS=-Wno-error=unused-parameter" if OS.linux?
       system "cmake", "-S", ".", "-B", "build",
-                      "-DENABLE_TESTS_COMPONENT=OFF",
+                      *args,
                       *std_cmake_args(install_prefix: libexec)
       system "cmake", "--build", "build"
       system "cmake", "--install", "build"
@@ -40,7 +42,7 @@ class Ortp < Formula
     ENV.prepend_path "PKG_CONFIG_PATH", libexec/"lib/pkgconfig"
     ENV.append "LDFLAGS", "-Wl,-rpath,#{libexec}/lib" if OS.linux?
     cflags = ["-I#{libexec}/include"]
-    cflags << "-Wno-error=unused-parameter" if OS.linux?
+    cflags << "-Wno-error=maybe-uninitialized" if OS.linux?
 
     args = %W[
       -DCMAKE_PREFIX_PATH=#{libexec}
