@@ -23,6 +23,13 @@ class Mat2 < Formula
     sha256 "6e5f8ba84836b99fe60be5fb27f84be4ad919bbb6b49caa6ae81e70584b55e58"
   end
 
+  # Fix pyproject.toml config, remove in next release
+  # https://0xacab.org/jvoisin/mat2/-/merge_requests/104
+  patch do
+    url "https://0xacab.org/jvoisin/mat2/-/commit/ed0ffa5693b6d710b19a9101d6cb0625f8b6f1fc.diff"
+    sha256 "b067ede2688af82b77438bf60891356f1aa5b33e78208e1f3ea485570626cbe2"
+  end
+
   def install
     python = "python3.11"
 
