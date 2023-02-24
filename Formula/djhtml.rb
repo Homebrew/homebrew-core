@@ -3,8 +3,8 @@ class Djhtml < Formula
 
   desc "Django/Jinja template indenter"
   homepage "https://github.com/rtts/djhtml"
-  url "https://files.pythonhosted.org/packages/13/e9/ddaf9ddda47baf30908f2e1b7ad8dc914d12a6f5975bc61243ef87c851f0/djhtml-3.0.1.tar.gz"
-  sha256 "076c2f35040a63dcc1333169d670c66a26769e8dbd9a74abf8405b0195db602c"
+  url "https://files.pythonhosted.org/packages/b6/0f/5be9e91f5e9d1c9b46831987cb0087ad760827b239359c8d1e33174183e5/djhtml-3.0.2.tar.gz"
+  sha256 "f260cdfe7033b21ebc01961db7e1c8832fd5830ec9af1b0e57f3e1f58deb1bd0"
   license "GPL-3.0-or-later"
 
   bottle do
