@@ -164,7 +164,8 @@ class Csound < Formula
 
   def caveats
     caveats = <<~EOS
-      To use the Java bindings, you may need to add to #{shell_profile}:
+      To use the Java bindings, you may need to add to your shell profile
+      e.g. ~/.profile or ~/.zshrc:
         export CLASSPATH="#{opt_libexec}/csnd6.jar:."
       and link the native shared library into your Java Extensions folder:
     EOS
