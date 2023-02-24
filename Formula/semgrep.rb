@@ -181,11 +181,6 @@ class Semgrep < Formula
       ENV["OPAMROOT"] = opamroot
       ENV["OPAMYES"] = "1"
 
-      # Officially suggested workaround for breaking change in setuptools v50.0.0
-      # See: https://sourceforge.net/p/ruamel-yaml/tickets/356/
-      # Relevant Issue: https://github.com/pypa/setuptools/issues/2355
-      ENV["SETUPTOOLS_USE_DISTUTILS"] = "stdlib"
-
       system "opam", "init", "--no-setup", "--disable-sandboxing"
       ENV.deparallelize { system "opam", "switch", "create", "ocaml-base-compiler.4.14.0" }
 
