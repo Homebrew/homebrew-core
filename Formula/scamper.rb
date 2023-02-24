@@ -23,6 +23,8 @@ class Scamper < Formula
   depends_on "pkg-config" => :build
   depends_on "openssl@3"
 
+  uses_from_macos "zlib"
+
   def install
     system "./configure", *std_configure_args
     system "make", "install"
