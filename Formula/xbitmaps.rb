@@ -1,8 +1,8 @@
 class Xbitmaps < Formula
   desc "Bitmap images used by multiple X11 applications"
   homepage "https://xcb.freedesktop.org"
-  url "https://xorg.freedesktop.org/archive/individual/data/xbitmaps-1.1.2.tar.bz2"
-  sha256 "b9f0c71563125937776c8f1f25174ae9685314cbd130fb4c2efce811981e07ee"
+  url "https://xorg.freedesktop.org/archive/individual/data/xbitmaps-1.1.3.tar.xz"
+  sha256 "ad6cad54887832a17d86c2ccfc5e52a1dfab090f8307b152c78b0e1529cd0f7a"
   license "MIT"
 
   bottle do
