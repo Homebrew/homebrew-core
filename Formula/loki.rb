@@ -1,8 +1,8 @@
 class Loki < Formula
   desc "Horizontally-scalable, highly-available log aggregation system"
   homepage "https://grafana.com/loki"
-  url "https://github.com/grafana/loki/archive/v2.7.3.tar.gz"
-  sha256 "07b7030576abf4ef63febf4dcddf95ff935aab6d9ab4fc0404322794d94bf3ee"
+  url "https://github.com/grafana/loki/archive/v2.7.4.tar.gz"
+  sha256 "b5521c0d12699f59ddf48ff7eaacddaa56abe90da4579f35c18f0752fc8e95c0"
   license "AGPL-3.0-only"
   head "https://github.com/grafana/loki.git", branch: "main"
 
@@ -22,7 +22,7 @@ class Loki < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "846aa7d6a1ab7d2df91b2f13d57b67c90dbef6ee4c5ee716981efc87f9fcb313"
   end
 
-  # https://github.com/grafana/loki/issues/8399
+  # TODO: Try `go@1.20` or newer on the next release
   depends_on "go@1.19" => :build
 
   def install
