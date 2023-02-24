@@ -74,8 +74,7 @@ class GnupgAT14 < Formula
         brew install gnupg
 
       If you really need to use these tools without the "1" suffix you can
-      add a "gpgbin" directory to your PATH from your #{shell_profile} like:
-
+      add a "gpgbin" directory to your PATH like:
           PATH="#{opt_libexec}/gpgbin:$PATH"
 
       Note that doing so may interfere with GPG-using formulae installed via
