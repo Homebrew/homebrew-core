@@ -59,8 +59,8 @@ class Arangodb < Formula
   # with a unified CLI
   resource "starter" do
     url "https://github.com/arangodb-helper/arangodb.git",
-        tag:      "0.15.6",
-        revision: "6eaf220a66662125ccb27d3df9289d526b80109c"
+        tag:      "0.15.7",
+        revision: "0cd043932e6c6f2bd9dc0391ea0313c304b3ca9d"
   end
 
   def install
