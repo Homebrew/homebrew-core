@@ -27,7 +27,8 @@ class Piknik < Formula
 
   def caveats
     <<~EOS
-      In order to get convenient shell aliases, put something like this in #{shell_profile}:
+      In order to get convenient shell aliases, add the following to your shell
+      profile e.g. ~/.profile or ~/.zshrc:
         . #{etc}/profile.d/piknik.sh
     EOS
   end
