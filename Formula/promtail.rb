@@ -1,8 +1,8 @@
 class Promtail < Formula
   desc "Log agent for Loki"
   homepage "https://grafana.com/loki"
-  url "https://github.com/grafana/loki/archive/v2.7.3.tar.gz"
-  sha256 "07b7030576abf4ef63febf4dcddf95ff935aab6d9ab4fc0404322794d94bf3ee"
+  url "https://github.com/grafana/loki/archive/v2.7.4.tar.gz"
+  sha256 "b5521c0d12699f59ddf48ff7eaacddaa56abe90da4579f35c18f0752fc8e95c0"
   license "AGPL-3.0-only"
   head "https://github.com/grafana/loki.git", branch: "main"
 
@@ -21,7 +21,7 @@ class Promtail < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b7d12eb4cfefaa68a6792b121c70241185e88e7d041a0e263c669057daa281f5"
   end
 
-  # https://github.com/grafana/loki/issues/8399
+  # TODO: Try `go@1.20` or newer on the next release
   depends_on "go@1.19" => :build
 
   on_linux do
