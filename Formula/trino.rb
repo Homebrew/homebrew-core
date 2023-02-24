@@ -3,8 +3,8 @@ class Trino < Formula
 
   desc "Distributed SQL query engine for big data"
   homepage "https://trino.io"
-  url "https://search.maven.org/remotecontent?filepath=io/trino/trino-server/407/trino-server-407.tar.gz", using: :nounzip
-  sha256 "748679eeac0b4f1976d79c5364aa66e45bb43b9bb868f56b1023738fc48a4fb5"
+  url "https://search.maven.org/remotecontent?filepath=io/trino/trino-server/408/trino-server-408.tar.gz", using: :nounzip
+  sha256 "e6edf64eaa7f8116af185eef9468ce93727ad258844d8676041272e427e3795e"
   license "Apache-2.0"
 
   livecheck do
