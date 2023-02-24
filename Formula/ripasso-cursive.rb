@@ -19,10 +19,7 @@ class RipassoCursive < Formula
 
   def install
     ENV["SHELL_COMPLETIONS_DIR"] = buildpath
-    my_cargo_args = std_cargo_args.map(&:clone)
-    my_cargo_args.pop
-    my_cargo_args.push("cursive")
-    system "cargo", "install", "ripasso-cursive", *my_cargo_args
+    system "cargo", "install", "ripasso-cursive", *std_cargo_args(path: "cursive")
 
     man1.install "target/man-page/cursive/ripasso-cursive.1"
   end
