@@ -52,8 +52,9 @@ class Resty < Formula
 
   def caveats
     <<~EOS
-      To activate the resty, add the following at the end of your #{shell_profile}:
-      source #{opt_pkgshare}/resty
+      To activate the resty, add the following to your shell profile e.g. ~/.profile
+      or ~/.zshrc:
+        source #{opt_pkgshare}/resty
     EOS
   end
 
