@@ -1,8 +1,8 @@
 class Mydumper < Formula
   desc "How MySQL DBA & support engineer would imagine 'mysqldump' ;-)"
   homepage "https://launchpad.net/mydumper"
-  url "https://github.com/mydumper/mydumper/archive/v0.13.1-2.tar.gz"
-  sha256 "85ab85ee51432201a1228bd0db998a00cf5096d73c02bce337c0ed79d027bd92"
+  url "https://github.com/mydumper/mydumper/archive/v0.14.1-1.tar.gz"
+  sha256 "719ea52041ee2c874b1590d6f70cc8ee9b5d604c4088eb11da7cd525da1f0d66"
   license "GPL-3.0-or-later"
 
   livecheck do
