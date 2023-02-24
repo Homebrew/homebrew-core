@@ -59,7 +59,8 @@ class Virtualenvwrapper < Formula
 
   def caveats
     <<~EOS
-      To activate virtualenvwrapper, add the following at the end of your #{shell_profile}:
+      To activate virtualenvwrapper, add the following to your shell profile
+      e.g. ~/.profile or ~/.zshrc
         source virtualenvwrapper.sh
     EOS
   end
