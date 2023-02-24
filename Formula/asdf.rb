@@ -30,17 +30,12 @@ class Asdf < Formula
   end
 
   def caveats
-    s = "To use asdf, add the following line to your #{shell_profile}:\n"
-
-    s += if preferred == :fish
-      "  source #{opt_libexec}/asdf.fish\n\n"
-    else
-      "  . #{opt_libexec}/asdf.sh\n\n"
-    end
-
-    s += "Restart your terminal for the settings to take effect."
-
-    s
+    <<~EOS
+      To use asdf, add the following line (or equivalent) to your shell profile
+      e.g. ~/.profile or ~/.zshrc:
+        . #{opt_libexec}/asdf.sh
+      Restart your terminal for the settings to take effect.
+    EOS
   end
 
   test do
