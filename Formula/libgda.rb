@@ -6,6 +6,7 @@ class Libgda < Formula
   # The executable tools are GPL-2.0-or-later, but these are considered experimental
   # and not installed by default. The license should be updated when tools are installed.
   license "LGPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_ventura:  "b18587293e001ff6935192e6fcd7abe9e4331567676b93e05c82ec1f26852c78"
