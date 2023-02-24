@@ -3,8 +3,8 @@ require "language/node"
 class Rospo < Formula
   desc "🐸 Simple, reliable, persistent ssh tunnels with embedded ssh server"
   homepage "https://github.com/ferama/rospo"
-  url "https://github.com/ferama/rospo/archive/refs/tags/v0.10.2.tar.gz"
-  sha256 "0f017d7d8aaebda65c41406142e455b997591e28c90db2ea5cdd38afd4d6de16"
+  url "https://github.com/ferama/rospo/archive/refs/tags/v0.10.3.tar.gz"
+  sha256 "a063af8a72edd0efd5fb60b6fc55fa54a0b9ae3088188f794b1ce92dc30af27c"
   license "MIT"
 
   bottle do
