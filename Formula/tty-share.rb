@@ -20,7 +20,7 @@ class TtyShare < Formula
 
   def install
     ldflags = "-s -w -X main.version=#{version}"
-    system "go", "build", "-mod=vendor", "-ldflags", ldflags, "-o", bin/"tty-share", "."
+    system "go", "build", *std_go_args(ldflags: ldflags), "-mod=vendor"
   end
 
   test do
