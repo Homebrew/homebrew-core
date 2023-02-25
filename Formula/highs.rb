@@ -1,4 +1,3 @@
-# Class for the HiGHS solver
 class Highs < Formula
   desc "Linear optimization software"
   homepage "https://www.maths.ed.ac.uk/hall/HiGHS/"
