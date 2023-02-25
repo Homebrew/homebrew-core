@@ -25,7 +25,6 @@ class Librist < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "cjson"
-  depends_on "cmocka"
   depends_on "mbedtls"
 
   def install
