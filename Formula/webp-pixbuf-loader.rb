@@ -37,19 +37,10 @@ class WebpPixbufLoader < Formula
     "lib/gdk-pixbuf-#{gdk_so_ver}/#{gdk_module_ver}/loaders"
   end
 
-  # upstream PR ref, https://github.com/aruiz/webp-pixbuf-loader/pull/59
-  # remove in next release
-  patch do
-    url "https://github.com/aruiz/webp-pixbuf-loader/commit/84cfcfcb236d936bdeec39c9607107a3279faf0e.patch?full_index=1"
-    sha256 "a710baa5b3177868cae186a460f87e6d9bfefde1b929ea7bdf17487774d8eb07"
-  end
-
   def install
-    mkdir "build" do
-      system "meson", *std_meson_args, "-Dgdk_pixbuf_moduledir=#{prefix}/#{module_subdir}", ".."
-      system "ninja", "-v"
-      system "ninja", "install", "-v"
-    end
+    system "meson", "setup", "build", *std_meson_args, "-Dgdk_pixbuf_moduledir=#{prefix}/#{module_subdir}"
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   # After the loader is linked in, update the global cache of pixbuf loaders
