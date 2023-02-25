@@ -2,17 +2,16 @@ class Sysdig < Formula
   desc "System-level exploration and troubleshooting tool"
   homepage "https://sysdig.com/"
   license "Apache-2.0"
-  revision 9
 
   stable do
-    url "https://github.com/draios/sysdig/archive/0.29.3.tar.gz"
-    sha256 "6b96797859002ab69a2bed4fdba1c7fe8064ecf8661621ae7d8fbf8599ffa636"
+    url "https://github.com/draios/sysdig/archive/refs/tags/0.31.3.tar.gz"
+    sha256 "31dd35fa37f2505af82ae7976c969f0be3deb3b3e968794003e7b0b466515483"
 
     # Update to value of FALCOSECURITY_LIBS_VERSION found in
     # https://github.com/draios/sysdig/blob/#{version}/cmake/modules/falcosecurity-libs.cmake
     resource "falcosecurity-libs" do
-      url "https://github.com/falcosecurity/libs/archive/e5c53d648f3c4694385bbe488e7d47eaa36c229a.tar.gz"
-      sha256 "80903bc57b7f9c5f24298ecf1531cf66ef571681b4bd1e05f6e4db704ffb380b"
+      url "https://github.com/falcosecurity/libs/archive/refs/tags/0.10.5.tar.gz"
+      sha256 "2a4b37c08bec4ba81326314831f341385aff267062e8d4483437958689662936"
     end
   end
 
@@ -78,7 +77,7 @@ class Sysdig < Formula
 
     # These flags are not needed for LuaJIT 2.1 (Ref: https://luajit.org/install.html).
     # On Apple ARM, the flags results in broken binaries and need to be removed.
-    inreplace %w[CMakeLists.txt falcosecurity-libs/cmake/modules/CompilerFlags.cmake],
+    inreplace "CMakeLists.txt",
               "set(CMAKE_EXE_LINKER_FLAGS \"-pagezero_size 10000 -image_base 100000000\")",
               ""
 
