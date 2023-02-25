@@ -25,10 +25,6 @@ class CargoZigbuild < Formula
   end
 
   test do
-    # Remove errant CPATH environment variable
-    # https://github.com/ziglang/zig/issues/10377
-    ENV.delete "CPATH"
-
     system "#{Formula["rustup-init"].bin}/rustup-init", "-y", "--no-modify-path"
     ENV.prepend_path "PATH", HOMEBREW_CACHE/"cargo_cache/bin"
     system "rustup", "target", "add", "aarch64-unknown-linux-gnu"
