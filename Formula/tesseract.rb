@@ -4,7 +4,7 @@ class Tesseract < Formula
   url "https://github.com/tesseract-ocr/tesseract/archive/5.3.0.tar.gz"
   sha256 "7e70870f8341e5ea228af2836ce79a36eefa11b01b56177b4a8997f330c014b8"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/tesseract-ocr/tesseract.git", branch: "main"
 
   livecheck do
