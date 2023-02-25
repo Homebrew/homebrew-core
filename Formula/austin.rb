@@ -30,7 +30,8 @@ class Austin < Formula
   end
 
   test do
-    python3 = "python3.11"
-    shell_output(bin/"austin #{python3} -c \"from time import sleep; sleep(1)\"", 32)
+    assert_match "need either a command to run or a PID to attach to",
+      shell_output(bin/"austin --gc 2>&1", 255)
+    assert_equal "austin #{version}", shell_output(bin/"austin --version").chomp
   end
 end
