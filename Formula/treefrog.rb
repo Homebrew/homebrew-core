@@ -58,10 +58,6 @@ class Treefrog < Formula
     assert_predicate testpath/"hello", :exist?
     cd "hello" do
       assert_predicate Pathname.pwd/"hello.pro", :exist?
-      # FIXME: `qmake` has a broken mkspecs file on Linux.
-      # Remove when the following PR is merged:
-      # https://github.com/Homebrew/homebrew-core/pull/107400
-      return if OS.linux?
 
       system Formula["qt"].opt_bin/"qmake"
       assert_predicate Pathname.pwd/"Makefile", :exist?
