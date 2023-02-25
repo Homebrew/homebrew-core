@@ -1,8 +1,8 @@
 class Ack < Formula
   desc "Search tool like grep, but optimized for programmers"
   homepage "https://beyondgrep.com/"
-  url "https://beyondgrep.com/ack-v3.6.0"
-  sha256 "436c4ef67a99a60e1fd119e24c0f3eec8f97b5914cc36fe960ebab71045a21c7"
+  url "https://beyondgrep.com/ack-v3.7.0"
+  sha256 "dd5a7c2df81ee15d97b6bf6b3ff84ad2529c98e1571817861c7d4fd8d48af908"
   license "Artistic-2.0"
 
   livecheck do
