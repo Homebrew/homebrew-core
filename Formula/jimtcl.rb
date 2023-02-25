@@ -1,10 +1,9 @@
 class Jimtcl < Formula
   desc "Small footprint implementation of Tcl"
   homepage "http://jim.tcl.tk/index.html"
-  url "https://github.com/msteveb/jimtcl/archive/0.81.tar.gz"
-  sha256 "ab7eb3680ba0d16f4a9eb1e05b7fcbb7d23438e25185462c55cd032a1954a985"
+  url "https://github.com/msteveb/jimtcl/archive/0.82.tar.gz"
+  sha256 "e8af929b815e4d30e54ff116b2b933e56c00a02b9110529d1a58660b2469aea7"
   license "BSD-2-Clause"
-  revision 1
 
   bottle do
     sha256 arm64_ventura:  "5321ca61c00bae61155f8d7a4a6abf91d491f5dd7e627092b2fb200d08cce243"
@@ -22,12 +21,6 @@ class Jimtcl < Formula
 
   uses_from_macos "sqlite"
   uses_from_macos "zlib"
-
-  # Fix EOF detection with openssl@3. Remove in the next release.
-  patch do
-    url "https://github.com/msteveb/jimtcl/commit/b0271cca8e335a1ebe4e3d6a8889bd4d7d5e30e6.patch?full_index=1"
-    sha256 "dbeeb8bb9a1174c4c0d44d8dafc1958994417014176c12d959daa8b31aa4b5b0"
-  end
 
   def install
     system "./configure", "--disable-debug",
