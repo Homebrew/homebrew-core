@@ -1,9 +1,9 @@
 class G2o < Formula
   desc "General framework for graph optimization"
   homepage "https://openslam-org.github.io/g2o.html"
-  url "https://github.com/RainerKuemmerle/g2o/archive/refs/tags/20201223_git.tar.gz"
-  version "20201223"
-  sha256 "20af80edf8fd237e29bd21859b8fc734e615680e8838824e8b3f120c5f4c1672"
+  url "https://github.com/RainerKuemmerle/g2o/archive/refs/tags/20230223_git.tar.gz"
+  version "20230223"
+  sha256 "c8cf002f636ce2e83fc96f5e8257be4020cf1ae9f6a9d71838ec024f4d8a16cf"
   license "BSD-2-Clause"
 
   livecheck do
