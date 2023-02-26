@@ -104,7 +104,7 @@ class Luajit < Formula
     system bin/"luajit", "-b", "-o", "osx", "-a", "arm64", "empty.lua", "empty.o"
     assert_predicate testpath/"empty.o", :exist?
 
-    # Check that we're not affected by https://github.com/LuaJIT/LuaJIT/issues/865.
+    # Check that we're not affected by LuaJIT/LuaJIT/issues/865.
     require "macho"
     machobj = MachO.open("empty.o")
     assert_kind_of MachO::FatFile, machobj
