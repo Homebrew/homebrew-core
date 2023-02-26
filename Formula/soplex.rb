@@ -28,10 +28,6 @@ class Soplex < Formula
   uses_from_macos "zlib"
 
   def install
-    cmake_args = %w[
-      -DPAPILO=ON
-    ]
-
     system "cmake", "-S", ".", "-B", "build", *cmake_args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
@@ -56,8 +52,7 @@ class Soplex < Formula
     assert_match "problem is solved [optimal]", shell_output("#{bin}/soplex test.lp")
 
     system ENV.cxx, pkgshare/"example.cpp", "-std=c++14", "-L#{lib}", "-I#{include}",
-      "-L#{Formula["gmp"].opt_lib}", "-L#{Formula["papilo"].opt_lib}", "-lsoplex",
-      "-lz", "-lgmp", "-lpapilo", "-o", "test"
+      "-L#{Formula["gmp"].opt_lib}", "-lsoplex", "-lz", "-lgmp", "-o", "test"
     system "./test"
   end
 end
