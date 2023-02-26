@@ -23,12 +23,11 @@ class Soplex < Formula
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "gmp"
-  depends_on "papilo"
   depends_on "tbb"
   uses_from_macos "zlib"
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *cmake_args, *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
     pkgshare.install "src/example.cpp"
