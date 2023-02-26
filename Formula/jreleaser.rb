@@ -1,8 +1,8 @@
 class Jreleaser < Formula
   desc "Release projects quickly and easily with JReleaser"
   homepage "https://jreleaser.org/"
-  url "https://github.com/jreleaser/jreleaser/releases/download/v1.4.0/jreleaser-1.4.0.zip"
-  sha256 "0dd340f7ffde49d697c4fffacf884fe871a6af65753da0b1c71c77638d59113a"
+  url "https://github.com/jreleaser/jreleaser/releases/download/v1.5.0/jreleaser-1.5.0.zip"
+  sha256 "baa07cd0c840bf24f554f564f70372ef81189956141b6ac432a507ff1f05c783"
   license "Apache-2.0"
 
   bottle do
