@@ -20,6 +20,6 @@ class Zimpl < Formula
   end
 
   test do
-    assert_match "Variables: 10   Constraints: 23   Non Zeros: 56", shell_output("#{bin}/zimpl expr.zpl")
+    assert_match "Variables: 10   Constraints: 23   Non Zeros: 56", shell_output("#{bin}/zimpl #{pkgshare}/expr.zpl")
   end
 end
