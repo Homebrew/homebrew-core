@@ -29,6 +29,10 @@ class Freetype < Formula
   uses_from_macos "zlib"
 
   def install
+    # This file will be installed to bindir, so we want to avoid embedding the
+    # absolute path to the pkg-config shim.
+    inreplace "builds/unix/freetype-config.in", "%PKG_CONFIG%", "pkg-config"
+
     system "./configure", "--prefix=#{prefix}",
                           "--enable-freetype-config",
                           "--without-harfbuzz"
