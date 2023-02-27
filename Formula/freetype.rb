@@ -5,6 +5,7 @@ class Freetype < Formula
   mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.13.0.tar.xz"
   sha256 "5ee23abd047636c24b2d43c6625dcafc66661d1aca64dec9e0d05df29592624c"
   license "FTL"
+  revision 1
 
   livecheck do
     url :stable
@@ -21,6 +22,7 @@ class Freetype < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3cc9ca454d4115c028b018f5aa7098b09099dea807fa4a5d5b928acc8d5c965c"
   end
 
+  depends_on "pkg-config" => :build
   depends_on "libpng"
 
   uses_from_macos "bzip2"
