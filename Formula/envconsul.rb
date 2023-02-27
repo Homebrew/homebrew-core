@@ -38,6 +38,7 @@ class Envconsul < Formula
     require "timeout"
 
     consul_default_port = 8500
+    localhost_ip = "127.0.0.1".freeze
 
     begin
       if port_open?(localhost_ip, consul_default_port)
