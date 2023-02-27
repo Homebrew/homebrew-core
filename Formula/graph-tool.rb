@@ -6,7 +6,6 @@ class GraphTool < Formula
   url "https://downloads.skewed.de/graph-tool/graph-tool-2.46.tar.bz2"
   sha256 "305508f0c2989a150aecd5df010424979cd17e83f67852121e4ab29eb07d3275"
   license "LGPL-3.0-or-later"
-  revision 0
 
   livecheck do
     url "https://downloads.skewed.de/graph-tool/"
