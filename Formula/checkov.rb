@@ -4,8 +4,8 @@ class Checkov < Formula
   desc "Prevent cloud misconfigurations during build-time for IaC tools"
   homepage "https://www.checkov.io/"
   # checkov should only be updated every 15 releases on multiples of 15
-  url "https://files.pythonhosted.org/packages/74/cd/feea2b7f5e65cd38b38c3caec69af49b227be9c59adb30a9114d1e31e18c/checkov-2.3.30.tar.gz"
-  sha256 "00694a50b150c06d4aa0407f8135213a066943906ac62c04dd32daa1a9d1b25f"
+  url "https://files.pythonhosted.org/packages/9f/09/d0527d83c2fcb5c36e14720345213914e6b08fbe87f477e1859701b90bdc/checkov-2.3.45.tar.gz"
+  sha256 "729d0b2398a9b0f3932cbdf2bb3a81bc255e3d5bdab19043a59a3bbd3047abe1"
   license "Apache-2.0"
 
   bottle do
@@ -81,13 +81,13 @@ class Checkov < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/0d/bf/642df2c3fc35290809f81a77a1a9b9c970cb4a153a4e4bcf9e8ae4255b13/boto3-1.26.75.tar.gz"
-    sha256 "702efaf333ddd9a1520283a22bd74b6c3a890ab38df5afcf4e821a2f3d707688"
+    url "https://files.pythonhosted.org/packages/7b/e2/791d051eb96f60a79388a0c99073f7d74914095b0967104af051037b876c/boto3-1.26.79.tar.gz"
+    sha256 "73d7bd1f16118ef0dfe936e0420cd76b02d1aedb75330ebda51168458ab752ac"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/88/d8/7ae59f07451146acf9f81978d7e855c9a0ff9ce3d1db1be1ec7f75fe0e2c/botocore-1.29.75.tar.gz"
-    sha256 "eef47ca90d02dbc92296208e24ac5e02bdf5cfa45f10d160fdc19612e141bce2"
+    url "https://files.pythonhosted.org/packages/1c/5c/345187635651290397d511e8ce279b74e3718d7f556b6abad4b469b80c4c/botocore-1.29.79.tar.gz"
+    sha256 "c7ded44062bed3b928944cfb09e1578ed3fed0e4c98de4f233f3c2056a8d491e"
   end
 
   resource "cached-property" do
@@ -441,8 +441,8 @@ class Checkov < Formula
   end
 
   resource "zipp" do
-    url "https://files.pythonhosted.org/packages/ab/47/b47d02b741e0aa6f998fc80457d3dfc05cb7732ef480597c2971cbc79260/zipp-3.14.0.tar.gz"
-    sha256 "9e5421e176ef5ab4c0ad896624e87a7b2f07aca746c9b2aa305952800cb8eecb"
+    url "https://files.pythonhosted.org/packages/00/27/f0ac6b846684cecce1ee93d32450c45ab607f65c2e0255f0092032d91f07/zipp-3.15.0.tar.gz"
+    sha256 "112929ad649da941c23de50f356a2b5570c954b65150642bccdd66bf194d224b"
   end
 
   def install
