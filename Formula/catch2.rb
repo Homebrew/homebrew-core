@@ -1,8 +1,8 @@
 class Catch2 < Formula
   desc "Modern, C++-native, header-only, test framework"
   homepage "https://github.com/catchorg/Catch2"
-  url "https://github.com/catchorg/Catch2/archive/v3.3.1.tar.gz"
-  sha256 "d90351cdc55421f640c553cfc0875a8c834428679444e8062e9187d05b18aace"
+  url "https://github.com/catchorg/Catch2/archive/v3.3.2.tar.gz"
+  sha256 "8361907f4d9bff3ae7c1edb027f813659f793053c99b67837a0c0375f065bae2"
   license "BSL-1.0"
 
   bottle do
