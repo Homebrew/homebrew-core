@@ -8,6 +8,7 @@ class Ghcup < Formula
   revision 1
   head "https://github.com/haskell/ghcup-hs.git", branch: "master"
 
+  # Upstream has retagged a version before, so we check releases instead.
   livecheck do
     url :stable
     strategy :github_latest
