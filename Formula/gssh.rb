@@ -19,7 +19,7 @@ class Gssh < Formula
 
   def install
     ENV["CIRCLE_TAG"] = version
-    ENV["VERSION"] = version
+    ENV["GROOVY_SSH_VERSION"] = version
     system "./gradlew", "shadowJar"
     libexec.install "cli/build/libs/gssh.jar"
     bin.write_jar_script libexec/"gssh.jar", "gssh"
