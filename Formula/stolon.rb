@@ -35,12 +35,31 @@ class Stolon < Formula
     end
   end
 
-  test do
-    pid = fork do
-      exec "consul", "agent", "-dev"
+  def port_open?(ip_address, port, seconds = 1)
+    Timeout.timeout(seconds) do
+      TCPSocket.new(ip_address, port).close
     end
-    sleep 2
+    true
+  rescue Errno::ECONNREFUSED, Errno::EHOSTUNREACH, Timeout::Error
+    false
+  end
 
+  test do
+    require "socket"
+    require "timeout"
+
+    consul_default_port = 8500
+    localhost_ip = "127.0.0.1".freeze
+
+    if port_open?(localhost_ip, consul_default_port)
+      puts "Consul already running"
+    else
+      pid = fork do
+        exec "consul agent -dev -bind 127.0.0.1"
+        puts "Consul started"
+      end
+      sleep 5
+    end
     assert_match "stolonctl version #{version}",
       shell_output("#{bin}/stolonctl version 2>&1")
     assert_match "nil cluster data: <nil>",
@@ -52,7 +71,6 @@ class Stolon < Formula
     assert_match "stolon-proxy version #{version}",
       shell_output("#{bin}/stolon-proxy --version 2>&1")
 
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+    system "consul", "leave"
   end
 end
