@@ -37,6 +37,9 @@ class Zlib < Formula
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
+
+    # Avoid rebuilds of dependants that hardcode this path.
+    inreplace lib/"pkgconfig/zlib.pc", prefix, opt_prefix
   end
 
   test do
