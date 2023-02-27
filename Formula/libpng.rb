@@ -39,6 +39,9 @@ class Libpng < Formula
     system "make"
     system "make", "test"
     system "make", "install"
+
+    # Avoid rebuilds of dependants that hardcode this path.
+    inreplace lib/"pkgconfig/libpng.pc", prefix, opt_prefix
   end
 
   test do
