@@ -37,24 +37,24 @@ class Envconsul < Formula
     require "socket"
     require "timeout"
 
-    port = free_port
     consul_default_port = 8500
+
     begin
       if port_open?(localhost_ip, consul_default_port)
         puts "Consul already running"
       else
         fork do
-          exec "consul agent -dev -bind 127.0.0.1 -http-port #{port}"
+          exec "consul agent -dev -bind 127.0.0.1"
           puts "Consul started"
         end
         sleep 5
       end
-      system "consul", "kv", "put", "-http-addr", "127.0.0.1:#{port}", "homebrew-recipe-test/working", "1"
-      output = shell_output("#{bin}/envconsul -consul-addr=127.0.0.1:#{port} " \
+      system "consul", "kv", "put", "homebrew-recipe-test/working", "1"
+      output = shell_output("#{bin}/envconsul " \
                             "-upcase -prefix homebrew-recipe-test env")
       assert_match "WORKING=1", output
     ensure
-      system "consul", "leave", "-http-addr", "127.0.0.1:#{port}"
+      system "consul", "leave"
     end
   end
 end
