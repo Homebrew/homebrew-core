@@ -141,6 +141,7 @@ class PostgresqlAT15 < Formula
 
   service do
     run [opt_bin/"postgres", "-D", f.postgresql_datadir]
+    environment_variables LC_ALL: "C"
     keep_alive true
     log_path f.postgresql_log_path
     error_log_path f.postgresql_log_path
