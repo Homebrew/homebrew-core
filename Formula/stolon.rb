@@ -54,7 +54,7 @@ class Stolon < Formula
     if port_open?(localhost_ip, consul_default_port)
       puts "Consul already running"
     else
-      pid = fork do
+      fork do
         exec "consul agent -dev -bind 127.0.0.1"
         puts "Consul started"
       end
