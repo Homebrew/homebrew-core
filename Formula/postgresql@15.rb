@@ -4,7 +4,7 @@ class PostgresqlAT15 < Formula
   url "https://ftp.postgresql.org/pub/source/v15.2/postgresql-15.2.tar.bz2"
   sha256 "99a2171fc3d6b5b5f56b757a7a3cb85d509a38e4273805def23941ed2b8468c7"
   license "PostgreSQL"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://ftp.postgresql.org/pub/source/"
@@ -52,6 +52,10 @@ class PostgresqlAT15 < Formula
     ENV.delete "PKG_CONFIG_LIBDIR"
     ENV.prepend "LDFLAGS", "-L#{Formula["openssl@1.1"].opt_lib} -L#{Formula["readline"].opt_lib}"
     ENV.prepend "CPPFLAGS", "-I#{Formula["openssl@1.1"].opt_include} -I#{Formula["readline"].opt_include}"
+
+    # Fix 'libintl.h' file not found for extensions
+    ENV.prepend "LDFLAGS", "-L#{Formula["gettext"].opt_lib}"
+    ENV.prepend "CPPFLAGS", "-I#{Formula["gettext"].opt_include}"
 
     args = std_configure_args + %W[
       --datadir=#{opt_pkgshare}
@@ -154,5 +158,6 @@ class PostgresqlAT15 < Formula
     assert_equal (opt_lib/"postgresql").to_s, shell_output("#{bin}/pg_config --pkglibdir").chomp
     assert_equal (opt_include/"postgresql").to_s, shell_output("#{bin}/pg_config --pkgincludedir").chomp
     assert_equal (opt_include/"postgresql/server").to_s, shell_output("#{bin}/pg_config --includedir-server").chomp
+    assert_match "-I#{Formula["gettext"].opt_include}", shell_output("#{bin}/pg_config --cppflags")
   end
 end
