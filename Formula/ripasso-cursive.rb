@@ -9,6 +9,7 @@ class RipassoCursive < Formula
   depends_on "llvm" => :build
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
+  depends_on "tmux" => :test
   depends_on "gpgme"
   depends_on "libgpg-error"
   depends_on "nettle"
@@ -25,7 +26,12 @@ class RipassoCursive < Formula
   end
 
   test do
-    output = shell_output("#{bin}/ripasso-cursive -h")
-    assert_match "password manager", output
+    system "tmux", "-u", "new-session", "-d", "-x", "80", "-y", "50", "-s", "foo"
+    system "tmux", "send", "-t", "foo", "#{bin}/ripasso-cursive", "ENTER"
+    system "sleep", "1"
+    output = shell_output("tmux capture-pane -pS")
+    system "tmux", "kill-session", "-t", "foo"
+
+    assert_match "─┤ Ripasso ├─", output
   end
 end
