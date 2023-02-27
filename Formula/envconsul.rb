@@ -24,15 +24,31 @@ class Envconsul < Formula
     system "go", "build", *std_go_args(ldflags: "-s -w")
   end
 
-  test do
-    port = free_port
-    begin
-      fork do
-        exec "consul agent -dev -bind 127.0.0.1 -http-port #{port}"
-        puts "consul started"
-      end
-      sleep 5
+  def port_open?(ip_address, port, seconds = 1)
+    Timeout.timeout(seconds) do
+      TCPSocket.new(ip_address, port).close
+    end
+    true
+  rescue Errno::ECONNREFUSED, Errno::EHOSTUNREACH, Timeout::Error
+    false
+  end
 
+  test do
+    require "socket"
+    require "timeout"
+
+    port = free_port
+    consul_default_port = 8500
+    begin
+      if port_open?(localhost_ip, consul_default_port)
+        puts "Consul already running"
+      else
+        fork do
+          exec "consul agent -dev -bind 127.0.0.1 -http-port #{port}"
+          puts "Consul started"
+        end
+        sleep 5
+      end
       system "consul", "kv", "put", "-http-addr", "127.0.0.1:#{port}", "homebrew-recipe-test/working", "1"
       output = shell_output("#{bin}/envconsul -consul-addr=127.0.0.1:#{port} " \
                             "-upcase -prefix homebrew-recipe-test env")
