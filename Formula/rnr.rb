@@ -1,8 +1,8 @@
 class Rnr < Formula
   desc "Command-line tool to batch rename files and directories"
   homepage "https://github.com/ismaelgv/rnr"
-  url "https://github.com/ismaelgv/rnr/archive/refs/tags/v0.4.1.tar.gz"
-  sha256 "85013be46725acc1cd6f2d2089c42f426c052efab26d22db8a9f28051eebbb6a"
+  url "https://github.com/ismaelgv/rnr/archive/refs/tags/v0.4.2.tar.gz"
+  sha256 "cde8e5366552263300e60133b82f6a3868aeced2fe83abc91c2168085dff0998"
   license "MIT"
 
   bottle do
