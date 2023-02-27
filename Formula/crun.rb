@@ -1,8 +1,8 @@
 class Crun < Formula
   desc "Fast and lightweight fully featured OCI runtime and C library"
   homepage "https://github.com/containers/crun"
-  url "https://github.com/containers/crun/releases/download/1.8/crun-1.8.tar.xz"
-  sha256 "6dc621b6825eaf0d6a8f70d2a7fa9adde24cee3ad9221a5efbadb0b8b25e0843"
+  url "https://github.com/containers/crun/releases/download/1.8.1/crun-1.8.1.tar.xz"
+  sha256 "01b68269d94e5fe11106a9b14c2f144be03b16ec798951f4efa6aa16ba9da29a"
   license any_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
 
   bottle do
