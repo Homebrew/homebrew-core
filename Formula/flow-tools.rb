@@ -28,6 +28,10 @@ class FlowTools < Formula
   end
 
   def install
+    # Work around failure from GCC 10+ using default of `-fno-common`
+    # /usr/bin/ld: acl2.o:(.bss+0x0): multiple definition of `acl_list'
+    ENV.append_to_cflags "-fcommon" if OS.linux?
+
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
