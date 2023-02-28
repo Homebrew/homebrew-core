@@ -18,7 +18,7 @@ class GitSeries < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7d5130d7d0265432d2f1dc775f20bbb09d6ff7ce5c98e9b839972c94308c2332"
   end
 
-  depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "libgit2"
   depends_on "libssh2"
@@ -28,6 +28,7 @@ class GitSeries < Formula
     # Ensure that the `openssl` crate picks up the intended library.
     # https://crates.io/crates/openssl#manual-configuration
     ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
+    ENV["OPENSSL_NO_VENDOR"] = "1"
 
     ENV["LIBGIT2_SYS_USE_PKG_CONFIG"] = "1"
     ENV["LIBSSH2_SYS_USE_PKG_CONFIG"] = "1"
@@ -36,6 +37,15 @@ class GitSeries < Formula
     # system "cargo", "install", *std_cargo_args
     system "cargo", "install", "--root", prefix, "--path", "."
     man1.install "git-series.1"
+  end
+
+  # TODO: Add this method to `brew`.
+  def check_binary_linkage(binary, library)
+    binary.dynamically_linked_libraries.any? do |dll|
+      next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
+
+      File.realpath(dll) == File.realpath(library)
+    end
   end
 
   test do
@@ -55,5 +65,17 @@ class GitSeries < Formula
     system "git", "checkout", "HEAD~1"
     system bin/"git-series", "base", "HEAD"
     system bin/"git-series", "commit", "-a", "-m", "new feature v1"
+
+    linked_libraries = [
+      Formula["libgit2"].opt_lib/shared_library("libgit2"),
+      Formula["libssh2"].opt_lib/shared_library("libssh2"),
+      Formula["openssl@1.1"].opt_lib/shared_library("libssl"),
+    ]
+    linked_libraries << (Formula["openssl@1.1"].opt_lib/shared_library("libcrypto")) if OS.mac?
+
+    linked_libraries.each do |library|
+      assert check_binary_linkage(bin/"git-series", library),
+             "No linkage with #{library.basename}! Cargo is likely using a vendored version."
+    end
   end
 end
