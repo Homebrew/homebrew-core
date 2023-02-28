@@ -1,8 +1,8 @@
 class Astro < Formula
   desc "To build and run Airflow DAGs locally and interact with the Astronomer API"
   homepage "https://www.astronomer.io/"
-  url "https://github.com/astronomer/astro-cli/archive/refs/tags/v1.10.0.tar.gz"
-  sha256 "85552ad52f396298fe240421a51247506cb7f82e4ad64fbbd749fd2494a3f22d"
+  url "https://github.com/astronomer/astro-cli/archive/refs/tags/v1.11.0.tar.gz"
+  sha256 "42d6bf6a7ce9285f2f9b70c66e6d4541f7eb8ff43aec330803f53ce1e0f0b17b"
   license "Apache-2.0"
 
   livecheck do
@@ -37,7 +37,7 @@ class Astro < Formula
     assert_match(/^Initializing Astro project*/, run_output)
     assert_predicate testpath/".astro/config.yaml", :exist?
 
-    run_output = shell_output("echo 'test@invalid.io' | #{bin}/astro login astronomer.io", 1)
+    run_output = shell_output("echo 'test@invalid.io' | #{bin}/astro login astronomer.io --token-login=test", 1)
     assert_match(/^Welcome to the Astro CLI*/, run_output)
   end
 end
