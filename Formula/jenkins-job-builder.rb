@@ -3,8 +3,8 @@ class JenkinsJobBuilder < Formula
 
   desc "Configure Jenkins jobs with YAML files stored in Git"
   homepage "https://docs.openstack.org/infra/jenkins-job-builder/"
-  url "https://files.pythonhosted.org/packages/45/9b/bf0f284d27fd41707d849126b5bac29a1a02919304372a334ed869613318/jenkins-job-builder-4.1.0.tar.gz"
-  sha256 "e630a5b5da260f8bb92d9ad824550707fb0b3915d8b96a1e24e6a501c8b4f974"
+  url "https://files.pythonhosted.org/packages/1c/17/372682cf9e2ec89c54561a171f7402c7d5e3a026511d7ebce76220e6e7ef/jenkins-job-builder-4.2.0.tar.gz"
+  sha256 "3c545842882be44c28562055b41bf242bbfe5b52e25ce2c789edd8af82194d76"
   license "Apache-2.0"
 
   bottle do
@@ -73,8 +73,8 @@ class JenkinsJobBuilder < Formula
   end
 
   resource "stevedore" do
-    url "https://files.pythonhosted.org/packages/66/c0/26afabea111a642f33cfd15f54b3dbe9334679294ad5c0423c556b75eba2/stevedore-4.1.1.tar.gz"
-    sha256 "7f8aeb6e3f90f96832c301bff21a7eb5eefbe894c88c506483d355565d88cc1a"
+    url "https://files.pythonhosted.org/packages/f1/25/993d09dc7be3e7927228853c75324104d734bb784bd766b025ebf9f47b16/stevedore-5.0.0.tar.gz"
+    sha256 "2c428d2338976279e8eb2196f7a94910960d9f7ba2f41f3988511e95ca447021"
   end
 
   resource "urllib3" do
