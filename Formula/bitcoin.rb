@@ -41,7 +41,10 @@ class Bitcoin < Formula
     depends_on "util-linux" => :build # for `hexdump`
   end
 
-  fails_with gcc: "5"
+  fails_with :gcc do
+    version "7" # fails with GCC 7.x and earlier
+    cause "Requires std::filesystem support"
+  end
 
   def install
     system "./autogen.sh"
