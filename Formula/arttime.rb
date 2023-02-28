@@ -3,7 +3,6 @@ class Arttime < Formula
   homepage "https://github.com/poetaman/arttime"
   url "https://github.com/poetaman/arttime/archive/refs/tags/v2.0.0.tar.gz"
   sha256 "385c8ddf39653ab52c1c1ea8edca14c19cb3eb05c8d1e6627201ccb2cc191755"
-  # version "2.0.0"
   license "GPL-3.0-only"
   head "https://github.com/poetaman/arttime.git", branch: "main"
 
