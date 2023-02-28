@@ -3,6 +3,7 @@ class FlowTools < Formula
   homepage "https://code.google.com/archive/p/flow-tools/"
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/flow-tools/flow-tools-0.68.5.1.tar.bz2"
   sha256 "80bbd3791b59198f0d20184761d96ba500386b0a71ea613c214a50aa017a1f67"
+  license "BSD-2-Clause"
 
   bottle do
     sha256 arm64_ventura:  "9b3c31e16ad744d7bf46bb4f19592fde2ba528679c14da62b6cfefc45d7c16df"
