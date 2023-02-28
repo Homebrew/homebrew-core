@@ -20,6 +20,7 @@ class Rtx < Formula
 
   def install
     system "cargo", "install", "--features=brew", *std_cargo_args
+    man1.install "man/man1/rtx.1"
     generate_completions_from_executable(bin/"rtx", "complete", "--shell")
   end
 
