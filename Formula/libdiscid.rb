@@ -4,7 +4,7 @@ class Libdiscid < Formula
   url "http://ftp.musicbrainz.org/pub/musicbrainz/libdiscid/libdiscid-0.6.3.tar.gz"
   mirror "https://ftp.osuosl.org/pub/musicbrainz/libdiscid/libdiscid-0.6.3.tar.gz"
   sha256 "0f9efc7ab65f24da57673547304b0143ee89f33638beadcc20a8401e077b3c25"
-  license "LGPL-2.1"
+  license "LGPL-2.1-or-later"
 
   livecheck do
     url "https://ftp.osuosl.org/pub/musicbrainz/libdiscid/"
