@@ -15,12 +15,33 @@ class CargoEdit < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "369459c3c1c778113fb1e17b9ede22ae43d0faef13cc73f6cb21413a89af766d"
   end
 
+  depends_on "pkg-config" => :build
   depends_on "libgit2"
   depends_on "openssl@1.1"
   depends_on "rust" # uses `cargo` at runtime
 
   def install
-    system "cargo", "install", *std_cargo_args
+    ENV["OPENSSL_NO_VENDOR"] = "1"
+
+    # Read the default flags from `Cargo.toml` so we can remove the `vendored-libgit2` feature.
+    cargo_toml = (buildpath/"Cargo.toml").read
+    cargo_option_regex = /default\s*=\s*(\[.+?\])/m
+    cargo_options = JSON.parse(cargo_toml[cargo_option_regex, 1].sub(",\n]", "]"))
+    cargo_options.delete("vendored-libgit2")
+
+    # We use the `features` flags to disable vendored `libgit2` but enable all other defaults.
+    # We do this since there is no way to disable a specific default feature with `cargo`.
+    # https://github.com/rust-lang/cargo/issues/3126
+    system "cargo", "install", "--no-default-features", "--features", cargo_options.join(","), *std_cargo_args
+  end
+
+  # TODO: Add this method to `brew`.
+  def check_binary_linkage(binary, library)
+    binary.dynamically_linked_libraries.any? do |dll|
+      next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
+
+      File.realpath(dll) == File.realpath(library)
+    end
   end
 
   test do
@@ -41,6 +62,15 @@ class CargoEdit < Formula
 
       system bin/"cargo-rm", "rm", "clap"
       refute_match(/clap/, (crate/"Cargo.toml").read)
+    end
+
+    [
+      Formula["libgit2"].opt_lib/shared_library("libgit2"),
+      Formula["openssl@1.1"].opt_lib/shared_library("libssl"),
+      Formula["openssl@1.1"].opt_lib/shared_library("libcrypto"),
+    ].each do |library|
+      assert check_binary_linkage(bin/"cargo-upgrade", library),
+             "No linkage with #{library.basename}! Cargo is likely using a vendored version."
     end
   end
 end
