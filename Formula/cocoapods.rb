@@ -1,10 +1,9 @@
 class Cocoapods < Formula
   desc "Dependency manager for Cocoa projects"
   homepage "https://cocoapods.org/"
-  url "https://github.com/CocoaPods/CocoaPods/archive/1.11.3.tar.gz"
-  sha256 "91d31754611520529b101ee57a059c5caadcd7ddb3c5b3b1065edc0ef5c43372"
+  url "https://github.com/CocoaPods/CocoaPods/archive/1.12.0.tar.gz"
+  sha256 "ebd98e8c359f29b48059c077416d8c5d0c51817741aaa45efcf5356c89f3f1ae"
   license "MIT"
-  revision 1
 
   bottle do
     rebuild 1
@@ -23,12 +22,6 @@ class Cocoapods < Formula
 
   on_arm do
     depends_on "ruby"
-  end
-
-  # Fix compatibility with Ruby 3.2, remove in next release
-  patch do
-    url "https://github.com/CocoaPods/CocoaPods/commit/2af8ba7e3477296d975243eeb1c12f379ab556a1.patch?full_index=1"
-    sha256 "391da12230d5e413853d96af7f310f5e588e80974df82caf1284c3d6f467cabc"
   end
 
   def install
