@@ -1,10 +1,9 @@
 class GrafanaAgent < Formula
   desc "Exporter for Prometheus Metrics, Loki Logs, and Tempo Traces"
   homepage "https://grafana.com/docs/agent/"
-  url "https://github.com/grafana/agent/archive/refs/tags/v0.31.3.tar.gz"
-  sha256 "b55218728cbbbc86ca8242d073bfe6297d04314edaeaab7e6b63b69d80ee61a2"
+  url "https://github.com/grafana/agent/archive/refs/tags/v0.32.0.tar.gz"
+  sha256 "af385fa66fe196fd793b35b9362611d3fdc4df0192f3f29b6a1e48bb6dbfaf43"
   license "Apache-2.0"
-  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "629a35a5c58bfbd1d40167eec9bc2a76053448c755b88e42a4ae5e0ce1cac1c5"
