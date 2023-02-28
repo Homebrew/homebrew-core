@@ -8,8 +8,7 @@ class Prestodb < Formula
   license "Apache-2.0"
 
   # Upstream has said that we should check Maven for Presto version information
-  # and the highest version found there is newest:
-  # https://github.com/prestodb/presto/issues/16200
+  # and the highest version found there is newest: prestodb/presto/issues/16200
   livecheck do
     url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-server/"
     regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
