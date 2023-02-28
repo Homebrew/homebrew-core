@@ -15,6 +15,7 @@ class Arttime < Formula
   end
 
   def install
+    ENV["TERM"]="xterm"
     system "./install.sh", "--noupdaterc", "--prefix", prefix.to_s, "--zcompdir", "#{share}/zsh/functions"
   end
 
