@@ -19,7 +19,7 @@ class Ponyc < Formula
   depends_on "cmake" => :build
   depends_on "python@3.11" => :build
 
-  uses_from_macos "llvm" => :build
+  uses_from_macos "llvm" => [:build, :test]
   uses_from_macos "zlib"
 
   # We use LLVM to work around an error while building bundled `google-benchmark` with GCC
@@ -42,6 +42,9 @@ class Ponyc < Formula
   end
 
   test do
+    # ENV["CC"] returns llvm_clang, which does not work in a test block.
+    ENV.clang
+
     system "#{bin}/ponyc", "-rexpr", "#{prefix}/packages/stdlib"
 
     (testpath/"test/main.pony").write <<~EOS
