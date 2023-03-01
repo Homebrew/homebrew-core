@@ -5,6 +5,7 @@ class AwsSsoCli < Formula
       tag:      "v1.9.10",
       revision: "11ec65288f78702a5e80078c04e0ef8b4ac7cb67"
   license "GPL-3.0-only"
+  head "https://github.com/synfinatic/aws-sso-cli.git", branch: "main"
 
   depends_on "go" => :build
   depends_on xcode: :build
