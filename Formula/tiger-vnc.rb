@@ -1,8 +1,8 @@
 class TigerVnc < Formula
   desc "High-performance, platform-neutral implementation of VNC"
   homepage "https://tigervnc.org/"
-  url "https://github.com/TigerVNC/tigervnc/archive/v1.13.0.tar.gz"
-  sha256 "770e272f5fcd265a7c518f9a38b3bece1cf91e0f4e5e8d01f095b5e58c6f9c40"
+  url "https://github.com/TigerVNC/tigervnc/archive/v1.13.1.tar.gz"
+  sha256 "b7c5b8ed9e4e2c2f48c7b2c9f21927db345e542243b4be88e066b2daa3d1ae25"
   license "GPL-2.0-or-later"
 
   # Tags with a 90+ patch are unstable (e.g., the 1.9.90 tag is used for the
