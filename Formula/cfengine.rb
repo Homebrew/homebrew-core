@@ -53,6 +53,19 @@ class Cfengine < Formula
     (pkgshare/"CoreBase").install resource("masterfiles")
   end
 
+  def post_install
+    workdir = var/"cfengine"
+    secure_dirs = %W[
+      #{workdir}/inputs
+      #{workdir}/outputs
+      #{workdir}/ppkeys
+      #{workdir}/plugins
+    ]
+    chmod 0700, secure_dirs
+    chmod 0750, workdir/"state"
+    chmod 0755, workdir/"modules"
+  end
+
   test do
     assert_equal "CFEngine Core #{version}", shell_output("#{bin}/cf-agent -V").chomp
   end
