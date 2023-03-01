@@ -27,7 +27,7 @@ class Cbmc < Formula
   fails_with gcc: "5"
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "-S", ".", "-Dsat_impl=minisat2;cadical", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
