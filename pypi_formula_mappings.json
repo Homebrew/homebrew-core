@@ -106,6 +106,9 @@
     "extra_packages": ["certbot-apache", "certbot-nginx"],
     "exclude_packages": ["six"]
   },
+  "cffi": {
+    "exclude_packages": ["pycparser"]
+  },
   "coconut": {
     "exclude_packages": ["Pygments"]
   },
@@ -515,6 +518,9 @@
   "pydocstyle": "pydocstyle[toml]",
   "pygitup": {
     "exclude_packages": ["typing-extensions"]
+  },
+  "pygit2": {
+    "exclude_packages": ["cffi", "pycparser"]
   },
   "pylint": {
     "exclude_packages": ["isort", "typing-extensions"]
