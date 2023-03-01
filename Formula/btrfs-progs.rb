@@ -17,6 +17,8 @@ class BtrfsProgs < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "9dae11900cbd2374ce820588da084dec3a98bc1a7b7fea55ff90f1470d46f6d7"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "pkg-config" => :build
   depends_on "python@3.11" => [:build, :test]
   depends_on "sphinx-doc" => :build
@@ -29,7 +31,7 @@ class BtrfsProgs < Formula
   depends_on "zstd"
 
   def install
-    mv "config.h.in", "include"
+    system "./autogen.sh"
     system "./configure", "--disable-python", *std_configure_args
     # Override `udevdir` since Homebrew's `pkg-config udev --variable=udevdir` output
     # is #{Formula["systemd"].lib}/udev. This path is used to install udev rules.
