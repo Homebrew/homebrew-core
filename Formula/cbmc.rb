@@ -5,6 +5,7 @@ class Cbmc < Formula
       tag:      "cbmc-5.77.0",
       revision: "e1e7dc7426168bca56ee92bf1513053c7db99317"
   license "BSD-4-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "453919f71d38db4f44c3974ac70659af3300c8eacca7bc322dbbf395b88f73c6"
@@ -27,7 +28,7 @@ class Cbmc < Formula
   fails_with gcc: "5"
 
   def install
-    system "cmake", "-S", ".", "-Dsat_impl=minisat2;cadical", "-B", "build", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", "-Dsat_impl=minisat2;cadical", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
