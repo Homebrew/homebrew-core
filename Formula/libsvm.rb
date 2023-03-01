@@ -1,7 +1,6 @@
 class Libsvm < Formula
   desc "Library for support vector machines"
   homepage "https://www.csie.ntu.edu.tw/~cjlin/libsvm/"
-
   # TODO: Upstream deletes old downloads, so we need a mirror
   url "https://www.csie.ntu.edu.tw/~cjlin/libsvm/libsvm-3.31.tar.gz"
   sha256 "00ab561f48df5fc92a84209ad8fe5199eaf2e519b3c279bacfc935978a75cf1f"
@@ -27,9 +26,9 @@ class Libsvm < Formula
     system "make", "CFLAGS=#{ENV.cflags}"
     system "make", "lib"
     bin.install "svm-scale", "svm-train", "svm-predict"
-    lib.install "libsvm.so.2" => shared_library("libsvm", 2)
-    lib.install_symlink shared_library("libsvm", 2) => shared_library("libsvm")
-    MachO::Tools.change_dylib_id("#{lib}/libsvm.2.dylib", "#{lib}/libsvm.2.dylib") if OS.mac?
+    lib.install "libsvm.so.3" => shared_library("libsvm", 3)
+    lib.install_symlink shared_library("libsvm", 3) => shared_library("libsvm")
+    MachO::Tools.change_dylib_id("#{lib}/libsvm.3.dylib", "#{lib}/libsvm.3.dylib") if OS.mac?
     include.install "svm.h"
   end
 
