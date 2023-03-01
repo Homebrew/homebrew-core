@@ -1,10 +1,10 @@
 class Libsvm < Formula
   desc "Library for support vector machines"
   homepage "https://www.csie.ntu.edu.tw/~cjlin/libsvm/"
-  # TODO: Upstream deletes old downloads, so we need a mirror
   url "https://www.csie.ntu.edu.tw/~cjlin/libsvm/libsvm-3.31.tar.gz"
   sha256 "00ab561f48df5fc92a84209ad8fe5199eaf2e519b3c279bacfc935978a75cf1f"
   license "BSD-3-Clause"
+  head "https://github.com/cjlin1/libsvm.git", branch: "master"
 
   livecheck do
     url :homepage
