@@ -61,5 +61,7 @@ class Consul < Formula
     v = "value"
     system bin/"consul", "kv", "put", "-http-addr", "127.0.0.1:#{http_port}", k, v
     assert_equal v, shell_output(bin/"consul kv get -http-addr 127.0.0.1:#{http_port} #{k}").chomp
+
+    system bin/"consul", "leave", "-http-addr", "127.0.0.1:#{http_port}"
   end
 end
