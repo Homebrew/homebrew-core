@@ -1,8 +1,9 @@
 class Raptor < Formula
   desc "RDF parser toolkit"
   homepage "https://librdf.org/raptor/"
-  url "https://download.librdf.org/source/raptor2-2.0.15.tar.gz"
-  sha256 "ada7f0ba54787b33485d090d3d2680533520cd4426d2f7fb4782dd4a6a1480ed"
+  url "https://download.librdf.org/source/raptor2-2.0.16.tar.gz"
+  sha256 "089db78d7ac982354bdbf39d973baf09581e6904ac4c92a98c5caadb3de44680"
+  license any_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later", "Apache-2.0"]
 
   livecheck do
     url :homepage
