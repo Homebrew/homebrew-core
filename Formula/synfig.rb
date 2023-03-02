@@ -2,6 +2,7 @@ class Synfig < Formula
   desc "Command-line renderer"
   homepage "https://synfig.org/"
   license "GPL-3.0-or-later"
+  revision 1
 
   stable do
     url "https://downloads.sourceforge.net/project/synfig/development/1.5.1/synfig-1.5.1.tar.gz"
@@ -165,14 +166,14 @@ index 6baccb4..bea55cc 100644
  #	include <avformat.h>
 @@ -232,12 +233,14 @@ public:
  		close();
- 
+
  		if (!av_registered) {
 +#if LIBAVCODEC_VERSION_MAJOR < 59 // FFMPEG < 5.0
  			av_register_all();
 +#endif
  			av_registered = true;
  		}
- 
+
  		// guess format
 -		AVOutputFormat *format = av_guess_format(NULL, filename.c_str(), NULL);
 +		const AVOutputFormat *format = av_guess_format(NULL, filename.c_str(), NULL);
@@ -199,6 +200,6 @@ index 6baccb4..bea55cc 100644
 + 			return false;
 + 		}
 +#endif
- 
+
  		packet = av_packet_alloc();
  		assert(packet);
