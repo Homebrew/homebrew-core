@@ -33,7 +33,6 @@ class Raptor < Formula
   end
 
   test do
-    # should add real test
-    system, "false"
+    system bin/"rapper", "--count", "http://example.org/index.rdf"
   end
 end
