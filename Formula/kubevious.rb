@@ -3,8 +3,8 @@ require "language/node"
 class Kubevious < Formula
   desc "Detects and prevents Kubernetes misconfigurations and violations"
   homepage "https://github.com/kubevious/cli"
-  url "https://registry.npmjs.org/kubevious/-/kubevious-1.0.52.tgz"
-  sha256 "4132ec8ae379a65b0532bf79d92900bf58428cdd10c51df1092a79334b57e3bd"
+  url "https://registry.npmjs.org/kubevious/-/kubevious-1.0.53.tgz"
+  sha256 "5601a17c83787ad9d75d11a31ce9806fd3747ae4e2cc6970c2fba1d8960cf4c8"
   license "Apache-2.0"
 
   bottle do
