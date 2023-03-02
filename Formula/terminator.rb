@@ -24,6 +24,10 @@ class Terminator < Formula
   depends_on "six"
   depends_on "vte3"
 
+  on_linux do
+    depends_on "gettext" => :build
+  end
+
   resource "psutil" do
     url "https://files.pythonhosted.org/packages/3d/7d/d05864a69e452f003c0d77e728e155a89a2a26b09e64860ddd70ad64fb26/psutil-5.9.4.tar.gz"
     sha256 "3d7f9739eb435d4b1338944abe23f49584bde5395f27487d2ee25ad9a8774a62"
