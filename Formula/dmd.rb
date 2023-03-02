@@ -9,13 +9,13 @@ class Dmd < Formula
     sha256 "98125e1ffddfa0490edeb6cf1d9bc7fade701f210182d2350b56bf8c10b890f2"
 
     resource "phobos" do
-      url "https://github.com/dlang/phobos/archive/v2.102.1.tar.gz"
-      sha256 "dc6905a97c08115849f408e0a0d2ff89876610092844e52181821231dbfc37f9"
+      url "https://github.com/dlang/phobos/archive/v2.102.2.tar.gz"
+      sha256 "e4fcc5b2eacb38a1921590865535cf93be6344ffe852ebb62f2426db8fae38e3"
     end
 
     resource "tools" do
-      url "https://github.com/dlang/tools/archive/v2.102.1.tar.gz"
-      sha256 "8918280a41c18bc2b20d240a26b4f35eaee6df8b52b9ea4b45c42b50e991ac69"
+      url "https://github.com/dlang/tools/archive/v2.102.2.tar.gz"
+      sha256 "95935f1b887a5eec2353c03063b804de194a490473bcf3140b907a7152cd3cdb"
     end
   end
 
