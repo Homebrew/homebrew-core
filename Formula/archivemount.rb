@@ -3,6 +3,7 @@ class Archivemount < Formula
   homepage "https://www.cybernoia.de/software/archivemount.html"
   url "https://www.cybernoia.de/software/archivemount/archivemount-0.9.1.tar.gz"
   sha256 "c529b981cacb19541b48ddafdafb2ede47a40fcaf16c677c1e2cd198b159c5b3"
+  license "LGPL-2.0-or-later"
 
   bottle do
     rebuild 1
