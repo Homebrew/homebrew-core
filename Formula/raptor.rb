@@ -25,6 +25,7 @@ class Raptor < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8e12ca0982ee8eebad9a39d5f77ef329dd9e56fdbfa9e3d083648bfecba8d6d7"
   end
 
+  uses_from_macos "curl"
   uses_from_macos "libxml2"
 
   def install
