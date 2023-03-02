@@ -4,6 +4,7 @@ class HaskellLanguageServer < Formula
   url "https://github.com/haskell/haskell-language-server/archive/1.9.1.0.tar.gz"
   sha256 "d8426defbbcf910fb706f7d4e8d03a6721e262148ecf25811bfce9ba80c76aed"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/haskell/haskell-language-server.git", branch: "master"
 
   # we need :github_latest here because otherwise
