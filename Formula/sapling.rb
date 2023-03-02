@@ -30,6 +30,8 @@ class Sapling < Formula
     ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
     ENV["SAPLING_VERSION"] = version.to_s
 
+    # Don't allow the build to break our shim configuration.
+    inreplace "eden/scm/distutils_rust/__init__.py", '"HOMEBREW_CCCFG"', '"NONEXISTENT"'
     system "make", "-C", "eden/scm", "install-oss", "PREFIX=#{prefix}", "PYTHON=#{python3}", "PYTHON3=#{python3}"
   end
 
