@@ -60,6 +60,7 @@ env:
     aws-elasticbeanstalk
     aws-es-proxy
     aws-rotate-key
+    aws-sam-cli
     azcopy
     b3sum
     bagit

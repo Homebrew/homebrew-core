@@ -6,6 +6,7 @@ class AwsSamCli < Formula
   url "https://files.pythonhosted.org/packages/00/04/6c97aa9539c712fa987c2e4f926c4bb7c78083718cc39548a82f9b370023/aws-sam-cli-1.75.0.tar.gz"
   sha256 "02f7f4723dd567a7bb9807f74469ee81601634de257da9d7869b604c63759626"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "762e71080b0715d189b3050a1538ec8dae582c8ff14b5c45e22da67842fe2d10"
@@ -293,13 +294,6 @@ class AwsSamCli < Formula
 
   def install
     virtualenv_install_with_resources
-
-    # remove non-native architecture `aws-lambda-rie` binary
-    site_packages = Language::Python.site_packages(python3)
-    rapid_path = libexec/site_packages/"samcli/local/rapid/"
-    rapid_path.each_child do |f|
-      f.delete if f.file? && f.basename.to_s.exclude?(Hardware::CPU.arch.to_s)
-    end
   end
 
   test do
