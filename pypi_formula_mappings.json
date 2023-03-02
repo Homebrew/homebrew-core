@@ -276,6 +276,9 @@
   "git-remote-codecommit": {
     "exclude_packages": ["six"]
   },
+  "gitless": {
+    "exclude_packages": ["pygit2"]
+  },
   "gitlint": {
     "exclude_packages": ["six"]
   },
