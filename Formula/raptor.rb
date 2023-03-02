@@ -33,6 +33,6 @@ class Raptor < Formula
   end
 
   test do
-    system bin/"rapper", "--count", "http://example.org/index.rdf"
+    system bin/"rapper", "--output", "ntriples", "https://planetrdf.com/guide/rss.rdf"
   end
 end
