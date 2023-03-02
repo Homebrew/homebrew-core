@@ -16,13 +16,9 @@ class GitBranchless < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5bf7f015971734d8f7dd9b5a2decda30a504dc7af449fda1cb85d8815f91e063"
   end
 
+  depends_on "pkg-config" => :build
   depends_on "rust" => :build
-
-  uses_from_macos "zlib"
-
-  on_linux do
-    depends_on "pkg-config" => :build
-  end
+  depends_on "libgit2"
 
   def install
     system "cargo", "install", *std_cargo_args(path: "git-branchless")
@@ -36,5 +32,13 @@ class GitBranchless < Formula
 
     system "git", "branchless", "init"
     assert_match "Initial Commit", shell_output("git sl").strip
+
+    linkage_with_libgit2 = (bin/"git-branchless").dynamically_linked_libraries.any? do |dll|
+      next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
+
+      File.realpath(dll) == (Formula["libgit2"].opt_lib/shared_library("libgit2")).realpath.to_s
+    end
+
+    assert linkage_with_libgit2, "No linkage with libgit2! Cargo is likely using a vendored version."
   end
 end
