@@ -1,8 +1,8 @@
 class Ace < Formula
   desc "ADAPTIVE Communication Environment: OO network programming in C++"
   homepage "https://www.dre.vanderbilt.edu/~schmidt/ACE.html"
-  url "https://github.com/DOCGroup/ACE_TAO/releases/download/ACE%2BTAO-7_0_11/ACE+TAO-7.0.11.tar.bz2"
-  sha256 "e49eb4eb7a0436e4c9af031a36f24ac8335ed3ee06d85e49162ac5df4d14a38d"
+  url "https://github.com/DOCGroup/ACE_TAO/releases/download/ACE%2BTAO-7_1_0/ACE+TAO-7.1.0.tar.bz2"
+  sha256 "90d642b7a67445da89cb73d2c091b169b373c63d2db78cf498d930864b382d43"
   license "DOC"
 
   livecheck do
