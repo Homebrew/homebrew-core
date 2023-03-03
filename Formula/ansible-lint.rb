@@ -3,8 +3,8 @@ class AnsibleLint < Formula
 
   desc "Checks ansible playbooks for practices and behaviour"
   homepage "https://github.com/ansible/ansible-lint/"
-  url "https://files.pythonhosted.org/packages/55/40/389a376cf6fa992374ac7eaa64985b297d614135ebbef0c0f5d12ad1bbb4/ansible-lint-6.13.1.tar.gz"
-  sha256 "435c12b4fd88da815af6821f3bf8b04ebb651811da89a11c9d190baff21badaa"
+  url "https://files.pythonhosted.org/packages/74/24/e7e00cdaa813485ad1ef10e1ff0a4528a85a79866246075536b1dcadadea/ansible-lint-6.14.0.tar.gz"
+  sha256 "e55157ac18bb3e3dfef424381c0299c67aac633de5aa11f7f80fe0a508041d7a"
   license all_of: ["MIT", "GPL-3.0-or-later"]
 
   bottle do
@@ -46,8 +46,8 @@ class AnsibleLint < Formula
   end
 
   resource "markdown-it-py" do
-    url "https://files.pythonhosted.org/packages/33/e9/ac8a93e9eda3891ecdfecf5e01c060bbd2c44d4e3e77efc83b9c7ce9db32/markdown-it-py-2.1.0.tar.gz"
-    sha256 "cf7e59fed14b5ae17c0006eff14a2d9a00ed5f3a846148153899a0224e2c07da"
+    url "https://files.pythonhosted.org/packages/e4/c0/59bd6d0571986f72899288a95d9d6178d0eebd70b6650f1bb3f0da90f8f7/markdown-it-py-2.2.0.tar.gz"
+    sha256 "7c9a5e412688bc771c67432cbfebcdd686c93ce6484913dccf06cb5a0bea35a1"
   end
 
   resource "mdurl" do
