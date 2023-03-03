@@ -29,7 +29,7 @@ class Ace < Formula
     ln_sf "platform_#{os}.GNU", "include/makeinclude/platform_macros.GNU"
 
     # Set up the environment the way ACE expects during build.
-    ENV.cxx11
+    ENV.cxx14
     ENV["ACE_ROOT"] = buildpath
     ENV["DYLD_LIBRARY_PATH"] = "#{buildpath}/lib"
 
