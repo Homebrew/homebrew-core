@@ -19,6 +19,8 @@ jobs:
   remove-disabled-formulae:
     if: startsWith(github.repository, 'Homebrew/')
     runs-on: ubuntu-22.04
+    container:
+      image: ghcr.io/homebrew/ubuntu22.04:master
     steps:
       - name: Set up Homebrew
         id: set-up-homebrew
@@ -28,6 +30,11 @@ jobs:
         uses: Homebrew/actions/git-user-config@master
         with:
           username: BrewTestBot
+
+      - name: Install gpg for commit signing
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y gpg
 
       - name: Set up commit signing
         uses: Homebrew/actions/setup-commit-signing@master

@@ -15,6 +15,8 @@ jobs:
   create_matrix:
     if: startsWith( github.repository, 'Homebrew/' )
     runs-on: ubuntu-22.04
+    container:
+      image: ghcr.io/homebrew/ubuntu22.04:master
     outputs:
       json: ${{ steps.matrix.outputs.json }}
     env:
@@ -24,6 +26,7 @@ jobs:
       - name: Set up Homebrew
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
+
       - id: matrix
         run: |
           formula=$(find  $(brew --repo "${TAP}")/Formula |  shuf -n "${TEST_COUNT}" | xargs -I{} basename {} .rb)
@@ -32,6 +35,8 @@ jobs:
   audit_online:
     if: startsWith( github.repository, 'Homebrew/' )
     runs-on: ubuntu-22.04
+    container:
+      image: ghcr.io/homebrew/ubuntu22.04:master
     needs: create_matrix
     name: "Online check: ${{ matrix.formula }}"
     env:
@@ -46,6 +51,6 @@ jobs:
 
       - name: Check formula for missing upstreams etc.
         run: brew audit --online --skip-style --only github_repository_archived,gitlab_repository_archived,homepage ${{ matrix.formula }}
-        
+
       - name: Check formula for missing sources.
         run: brew fetch -s ${{ matrix.formula }}
