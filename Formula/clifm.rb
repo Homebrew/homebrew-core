@@ -18,9 +18,9 @@ class Clifm < Formula
   end
 
   def install
-    system "cmake", ".", *std_cmake_args
-    system "cmake", "--build", "."
-    system "cmake", "--install", ".", "--prefix", prefix
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
