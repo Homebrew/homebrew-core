@@ -24,7 +24,7 @@ class Cracklib < Formula
   depends_on "gettext"
 
   resource "cracklib-words" do
-    url "https://github.com/cracklib/cracklib/releases/download/v2.9.8/cracklib-words-2.9.8.bz2"
+    url "https://github.com/cracklib/cracklib/releases/download/v2.9.9/cracklib-words-2.9.9.bz2"
     sha256 "ec25ac4a474588c58d901715512d8902b276542b27b8dd197e9c2ad373739ec4"
   end
 
