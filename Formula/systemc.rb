@@ -5,6 +5,11 @@ class Systemc < Formula
   sha256 "bfb309485a8ad35a08ee78827d1647a451ec5455767b25136e74522a6f41e0ea"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "86a338b268c08838c1c081c3b90ea2aadc8f6bfe6554dc6eddc68bc93878a619"
     sha256 cellar: :any,                 arm64_monterey: "eb2010d067c45efd303bac411973243c0ff936c23b7da1c8a13b80ecf348e68c"
