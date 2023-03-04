@@ -6,6 +6,11 @@ class Stackql < Formula
       revision: "d739e964a3f7ab917d774dd3fb6beb091abf2342"
   license "MIT"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8ff42b6e99094b602a0cb69dc88d812d788881c7d0712f2392bce44b284956d9"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "75758a75e17f80bc559360dcdf3ad2153bafae205f3a725bb28e5a45b3dc1b1d"
