@@ -37,6 +37,7 @@ class Grafana < Formula
 
     os = OS.kernel_name.downcase
     arch = Hardware::CPU.intel? ? "amd64" : Hardware::CPU.arch.to_s
+    bin.install "bin/#{os}-#{arch}/grafana"
     bin.install "bin/#{os}-#{arch}/grafana-cli"
     bin.install "bin/#{os}-#{arch}/grafana-server"
 
@@ -53,7 +54,7 @@ class Grafana < Formula
   end
 
   service do
-    run [opt_bin/"grafana-server",
+    run [opt_bin/"grafana", "server",
          "--config", etc/"grafana/grafana.ini",
          "--homepath", opt_pkgshare,
          "--packaging=brew",
@@ -71,7 +72,7 @@ class Grafana < Formula
     require "timeout"
 
     # first test
-    system bin/"grafana-server", "-v"
+    system bin/"grafana", "server", "-v"
 
     # avoid stepping on anything that may be present in this directory
     tdir = File.join(Dir.pwd, "grafana-test")
@@ -84,7 +85,7 @@ class Grafana < Formula
     end
     Dir.chdir(pkgshare)
 
-    res = PTY.spawn(bin/"grafana-server",
+    res = PTY.spawn(bin/"grafana", "server",
       "cfg:default.paths.logs=#{logdir}",
       "cfg:default.paths.data=#{datadir}",
       "cfg:default.paths.plugins=#{plugdir}",
