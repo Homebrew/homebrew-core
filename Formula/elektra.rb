@@ -24,11 +24,14 @@ class Elektra < Formula
   depends_on "doxygen" => :build
 
   def install
-    mkdir "build" do
-      system "cmake", "..", "-DBINDINGS=cpp", "-DTOOLS=kdb;",
-                            "-DPLUGINS=NODEP;-tracer", *std_cmake_args
-      system "make", "install"
-    end
+    args = %w[
+      -DBINDINGS=cpp
+      -DTOOLS=kdb
+      -DPLUGINS=NODEP;-tracer
+    ]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
     bash_completion.install "scripts/completion/kdb-bash-completion" => "kdb"
     fish_completion.install "scripts/completion/kdb.fish"
