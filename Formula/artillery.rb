@@ -7,6 +7,11 @@ class Artillery < Formula
   sha256 "dd2270e6056923595b6dfa59c1b8548d5bc92539ce984b9fa2d0584cd2fdf6cc"
   license "MPL-2.0"
 
+  livecheck do
+    url :stable
+    regex(/href=.*?artillery[._-]v?(\d+(?:\.\d+)+[._-]\d+)\.t/i)
+  end
+
   bottle do
     sha256                               arm64_ventura:  "689f156fe8c6256570e4704356a584f42a1434bfe2e368af659ef8aba7a1d6f5"
     sha256                               arm64_monterey: "7f199224a527716d8c6af0d65491ce767503aa110f2972351cd36b036782caec"
