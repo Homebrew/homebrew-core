@@ -11,7 +11,6 @@ class AwsSsoCli < Formula
   depends_on xcode: :build
 
   def install
-    system "make"
     system "make", "install", "INSTALL_PREFIX=#{prefix}"
   end
 
