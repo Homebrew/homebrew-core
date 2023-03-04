@@ -17,22 +17,23 @@ class Portablegl < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5072b5c557a56c16b3db6a916074c0c4933e925681c80a88bb78b9fbe6e7c307"
   end
 
-  depends_on "python@3.11" => :test
   depends_on "sdl2" => :test
 
   def install
     include.install "portablegl.h"
     include.install "portablegl_unsafe.h"
-    (pkgshare/"tests").install "glcommon"
-    (pkgshare/"tests").install "testing"
+    (pkgshare/"tests").install %w[glcommon media testing]
   end
 
   test do
-    python = Formula["python@3.11"].opt_bin/"python3.11"
+    # Tests require PNG image outputs to be pixel-identical.
+    # Such exactness may be broken by -march=native.
+    ENV.remove_from_cflags "-march=native"
+
     cp_r Dir["#{pkgshare}/tests/*"], testpath
     cd "testing" do
       system "make", "run_tests"
-      assert_match "All tests passed", shell_output("#{python} check_tests.py")
+      assert_match "All tests passed", shell_output("./run_tests")
     end
   end
 end
