@@ -9,7 +9,7 @@ class Artillery < Formula
 
   livecheck do
     url :stable
-    regex(/href=.*?artillery[._-]v?(\d+(?:\.\d+)+[._-]\d+)\.t/i)
+    regex(%r{["'][^"' ]*?/artillery[._-]v?(\d+(?:[.-]\d+)+)\.t}i)
   end
 
   bottle do
