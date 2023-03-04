@@ -28,7 +28,7 @@ class Geogram < Formula
     depends_on "doxygen" => :build
   end
 
-  resource "bunny" do
+  resource "homebrew-bunny" do
     url "https://raw.githubusercontent.com/FreeCAD/Examples/be0b4f9/Point_cloud_ExampleFiles/PointCloud-Data_Stanford-Bunny.asc"
     sha256 "4fc5496098f4f4aa106a280c24255075940656004c6ef34b3bf3c78989cbad08"
   end
@@ -51,7 +51,7 @@ class Geogram < Formula
   end
 
   test do
-    resource("bunny").stage { testpath.install Dir["*"].first => "bunny.xyz" }
+    resource("homebrew-bunny").stage { testpath.install Dir["*"].first => "bunny.xyz" }
     system "#{bin}/vorpalite", "profile=reconstruct", "bunny.xyz", "bunny.meshb"
     assert_predicate testpath/"bunny.meshb", :exist?, "bunny.meshb should exist!"
   end
