@@ -1,8 +1,8 @@
 class Msgpack < Formula
   desc "Library for a binary-based efficient data interchange format"
   homepage "https://msgpack.org/"
-  url "https://github.com/msgpack/msgpack-c/releases/download/c-5.0.0/msgpack-c-5.0.0.tar.gz"
-  sha256 "eb6d77f32dbaaae9174d96cacfe02af30bf1ea329c45018074cd95ac6e6fa6e5"
+  url "https://github.com/msgpack/msgpack-c/releases/download/c-6.0.0/msgpack-c-6.0.0.tar.gz"
+  sha256 "3654f5e2c652dc52e0a993e270bb57d5702b262703f03771c152bba51602aeba"
   license "BSL-1.0"
   head "https://github.com/msgpack/msgpack-c.git", branch: "c_master"
 
@@ -25,8 +25,9 @@ class Msgpack < Formula
 
   def install
     # C++ Headers are now in msgpack-cxx
-    system "cmake", ".", *std_cmake_args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", "-DMSGPACK_BUILD_TESTS=OFF", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
@@ -63,7 +64,7 @@ class Msgpack < Formula
       }
     EOS
 
-    system ENV.cc, "-o", "test", "test.c", "-L#{lib}", "-lmsgpackc"
+    system ENV.cc, "-o", "test", "test.c", "-L#{lib}", "-lmsgpack-c"
     assert_equal "1\n2\n3\n", `./test`
   end
 end
