@@ -24,6 +24,11 @@ class Clifm < Formula
   end
 
   test do
-    pipe_output("#{bin}/clifm --version")
+    # fix `clifm: dumb: Unsupported terminal.` error
+    ENV["TERM"] = "xterm"
+
+    output = shell_output("#{bin}/clifm nonexist 2>&1", 2)
+    assert_match "clifm: nonexist: No such file or directory", output
+    assert_match version.to_s, shell_output("#{bin}/clifm --version")
   end
 end
