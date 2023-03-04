@@ -6,6 +6,11 @@ class Pinocchio < Formula
   license "BSD-2-Clause"
   head "https://github.com/stack-of-tasks/pinocchio.git", branch: "master"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "1115b38e228404f4f26bf3e5f73d32f683228b99abc9a9c6ac1263cbcc1d1da9"
     sha256 cellar: :any,                 arm64_monterey: "849a51002a17484d3c202382b5f6ea01c94cc2772dbd8c0ad6fdf348f9a771af"
