@@ -6,11 +6,6 @@ class Pcrexx < Formula
   sha256 "77ee9fc1afe142e4ba2726416239ced66c3add4295ab1e5ed37ca8a9e7bb638a"
   license "LGPL-2.1-only"
 
-  livecheck do
-    url "https://www.daemon.de/projects/pcrepp/download/"
-    regex(/href=.*?pcre\+\+[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
     rebuild 2
     sha256 cellar: :any,                 arm64_ventura:  "67b2481140ac7c4101d443b54f4d6c7bb7bb1ede6338bae81a4c78509ff49f52"
