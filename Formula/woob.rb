@@ -3,8 +3,8 @@ class Woob < Formula
 
   desc "Web Outside of Browsers"
   homepage "https://woob.tech/"
-  url "https://files.pythonhosted.org/packages/56/db/e1490d10ddcf2af5b9f11a11852679da45f26c95646efb8722c69e3d01db/woob-3.3.1.tar.gz"
-  sha256 "9d8b0ee0d3d357fc8a01e78b80a64b87c5cb0cc8c5ea8bb82f5831296f73dc6b"
+  url "https://files.pythonhosted.org/packages/fe/f3/3d620ccce60c1dbe91b4489034049433bb532b7720d54265c1989f2b3d20/woob-3.4.tar.gz"
+  sha256 "9de0fa3e713c67dfda33f99ad8f8ef7b468b4e01b7aa5d36759ba6d9a8a91258"
   license "LGPL-3.0-or-later"
 
   bottle do
@@ -27,8 +27,8 @@ class Woob < Formula
   uses_from_macos "libxslt"
 
   resource "Babel" do
-    url "https://files.pythonhosted.org/packages/ff/80/45b42203ecc32c8de281f52e3ec81cb5e4ef16127e9e8543089d8b1649fb/Babel-2.11.0.tar.gz"
-    sha256 "5ef4b3226b0180dedded4229651c8b0e1a3a6a2837d45a073272f313e4cf97f6"
+    url "https://files.pythonhosted.org/packages/ba/42/54426ba5d7aeebde9f4aaba9884596eb2fe02b413ad77d62ef0b0422e205/Babel-2.12.1.tar.gz"
+    sha256 "cc2d99999cd01d44420ae725a21c9e3711b3aadc7976d6147f622d8581963455"
   end
 
   resource "certifi" do
@@ -69,11 +69,6 @@ class Woob < Formula
   resource "python-dateutil" do
     url "https://files.pythonhosted.org/packages/4c/c4/13b4776ea2d76c115c1d1b84579f3764ee6d57204f6be27119f13a61d0a9/python-dateutil-2.8.2.tar.gz"
     sha256 "0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"
-  end
-
-  resource "pytz" do
-    url "https://files.pythonhosted.org/packages/03/3e/dc5c793b62c60d0ca0b7e58f1fdd84d5aaa9f8df23e7589b39cc9ce20a03/pytz-2022.7.1.tar.gz"
-    sha256 "01a0681c4b9684a28304615eba55d1ab31ae00bf68ec157ec3708a8182dbbcd0"
   end
 
   resource "requests" do
