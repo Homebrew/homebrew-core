@@ -1,15 +1,15 @@
 class Wireshark < Formula
   desc "Graphical network analyzer and capture tool"
   homepage "https://www.wireshark.org"
-  url "https://www.wireshark.org/download/src/all-versions/wireshark-4.0.3.tar.xz"
-  mirror "https://1.eu.dl.wireshark.org/src/all-versions/wireshark-4.0.3.tar.xz"
-  sha256 "6c51e15bcc0afb93734e686dbff354ffd159f570bd2904bcbbad6f3feb7e9511"
+  url "https://www.wireshark.org/download/src/all-versions/wireshark-4.0.4.tar.xz"
+  mirror "https://1.eu.dl.wireshark.org/src/all-versions/wireshark-4.0.4.tar.xz"
+  sha256 "a4a09f6564f00639036ffe5064ac4dc2176adfa3e484c539c9c73f835436e74b"
   license "GPL-2.0-or-later"
   head "https://gitlab.com/wireshark/wireshark.git", branch: "master"
 
   livecheck do
     url "https://www.wireshark.org/download.html"
-    regex(/Stable Release \((\d+(?:\.\d+)*)/i)
+    regex(/href=.*?wireshark[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
