@@ -5,6 +5,11 @@ class LinuxHeadersAT515 < Formula
   sha256 "593ae3930cabde390aa6105faa614f1d10b0b7eda782680a120e345de6ed256f"
   license "GPL-2.0-only"
 
+  livecheck do
+    url "https://mirrors.edge.kernel.org/pub/linux/kernel/v5.x/"
+    regex(/href=.*?linux[._-]v?(5\.15(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, x86_64_linux: "36e835d4cdc48ed2a94458ca5bb8797cd70e2386d8b85ee3b9c181024e2446e5"
   end
