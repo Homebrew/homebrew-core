@@ -18,6 +18,12 @@ class Elvish < Formula
 
   depends_on "go" => :build
 
+  # patch version info, upstream PR ref, https://github.com/elves/elvish/pull/1666
+  patch do
+    url "https://github.com/elves/elvish/commit/ece4f886fd2d0fd48df004f3c1750e6c37191173.patch?full_index=1"
+    sha256 "c8a544ebb0337c8060fbe7218759fd2b2fbc8744daf4b6828fbc7df13fb92b05"
+  end
+
   def install
     system "go", "build",
       *std_go_args(ldflags: "-s -w -X src.elv.sh/pkg/buildinfo.VersionSuffix="), "./cmd/elvish"
