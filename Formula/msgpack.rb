@@ -28,9 +28,20 @@ class Msgpack < Formula
     system "cmake", "-S", ".", "-B", "build", "-DMSGPACK_BUILD_TESTS=OFF", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
+
+    # `libmsgpackc` was renamed to `libmsgpack-c`, but this needlessly breaks dependents.
+    # TODO: Remove this when upstream bumps the `SOVERSION`, since this will require dependent rebuilds.
+    lib.glob(shared_library("libmsgpack-c", "*")).each do |dylib|
+      dylib = dylib.basename
+      old_name = dylib.to_s.sub("msgpack-c", "msgpackc")
+      lib.install_symlink dylib => old_name
+    end
   end
 
   test do
+    refute_empty lib.glob(shared_library("libmsgpackc", "2")),
+                 "Upstream has bumped `SOVERSION`! The workaround in the `install` method can be removed"
+
     # Reference: https://github.com/msgpack/msgpack-c/blob/c_master/QUICKSTART-C.md
     (testpath/"test.c").write <<~EOS
       #include <msgpack.h>
