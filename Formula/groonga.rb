@@ -62,6 +62,10 @@ class Groonga < Formula
       --with-mecab
     ]
 
+    # Temporary workaround for `msgpack` rename. Remove when resolved:
+    # https://github.com/groonga/groonga/issues/1536
+    args << "--with-message-pack=#{Formula["msgpack"].opt_prefix}"
+
     if build.head?
       args << "--with-ruby"
       system "./autogen.sh"
