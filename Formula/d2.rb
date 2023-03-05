@@ -30,7 +30,7 @@ class D2 < Formula
       homebrew-core -> brew: depends
     EOS
 
-    system bin/"d2", test_file
+    system bin/"d2", "test.d2"
     assert_predicate testpath/"test.svg", :exist?
 
     assert_match "dagre is a directed graph layout library for JavaScript",
