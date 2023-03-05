@@ -6,8 +6,8 @@ class LinuxHeadersAT515 < Formula
   license "GPL-2.0-only"
 
   livecheck do
-    url "https://mirrors.edge.kernel.org/pub/linux/kernel/v5.x/"
-    regex(/href=.*?linux[._-]v?(5\.15(?:\.\d+)+)\.t/i)
+    url :homepage
+    regex(/href=.*?linux[._-]v?(5\.15(?:\.\d+)*)\.t/i)
   end
 
   bottle do
