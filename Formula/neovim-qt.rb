@@ -19,10 +19,18 @@ class NeovimQt < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "msgpack"
   depends_on "neovim"
   depends_on "qt@5"
 
   fails_with gcc: "5"
+
+  # Fix finding `msgpack`
+  # https://github.com/equalsraf/neovim-qt/pull/1054
+  patch do
+    url "https://github.com/equalsraf/neovim-qt/commit/6831b54729e0ec812a366e01fa98483114f1cf49.patch?full_index=1"
+    sha256 "9bd6dc3adc1ddebed25aea00396eb4c79dd31f72d5f7e62c24d845db19ffe494"
+  end
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DUSE_SYSTEM_MSGPACK=ON"
