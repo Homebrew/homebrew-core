@@ -24,12 +24,6 @@ class K3d < Formula
 
   depends_on "go" => :build
 
-  # Backport Go 1.20 support. Remove in the next release.
-  patch do
-    url "https://github.com/k3d-io/k3d/commit/cc10d6a27d850b49a103a923a2aea5018b964a8d.patch?full_index=1"
-    sha256 "db429ee760adf1d605cb5a141ad627431813d7dc21acc537882f9d69b3cf4d63"
-  end
-
   def install
     require "net/http"
     uri = URI("https://update.k3s.io/v1-release/channels")
