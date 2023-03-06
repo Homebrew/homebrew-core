@@ -27,10 +27,8 @@ class Vineyard < Formula
   depends_on "gflags"
   depends_on "glog"
   depends_on "libgrape-lite"
-  depends_on "nlohmann-json"
   depends_on "open-mpi"
   depends_on "openssl@1.1"
-  depends_on "tbb"
 
   fails_with gcc: "5"
 
@@ -44,8 +42,6 @@ class Vineyard < Formula
                     "-DCMAKE_CXX_STANDARD_REQUIRED=TRUE",
                     "-DPYTHON_EXECUTABLE=#{which(python)}",
                     "-DUSE_EXTERNAL_ETCD_LIBS=ON",
-                    "-DUSE_EXTERNAL_TBB_LIBS=ON",
-                    "-DUSE_EXTERNAL_NLOHMANN_JSON_LIBS=ON",
                     "-DBUILD_VINEYARD_TESTS=OFF",
                     "-DUSE_LIBUNWIND=OFF",
                     "-DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}",
