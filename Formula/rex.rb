@@ -21,8 +21,8 @@ class Rex < Formula
     resource "Module::Build" do
       # AWS::Signature4 requires Module::Build v0.4205 and above, while standard
       # MacOS Perl installation has 0.4003
-      url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-0.4231.tar.gz"
-      sha256 "7e0f4c692c1740c1ac84ea14d7ea3d8bc798b2fb26c09877229e04f430b2b717"
+      url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-0.4232.tar.gz"
+      sha256 "67c82ee245d94ba06decfa25572ab75fdcd26a9009094289d8f45bc54041771b"
     end
 
     resource "Clone::Choose" do
@@ -31,18 +31,18 @@ class Rex < Formula
     end
 
     resource "Exporter::Tiny" do
-      url "https://cpan.metacpan.org/authors/id/T/TO/TOBYINK/Exporter-Tiny-1.002002.tar.gz"
-      sha256 "00f0b95716b18157132c6c118ded8ba31392563d19e490433e9a65382e707101"
+      url "https://cpan.metacpan.org/authors/id/T/TO/TOBYINK/Exporter-Tiny-1.006000.tar.gz"
+      sha256 "d95479ff085699d6422f7fc8306db085e34b626438deb82ec82d41df2295f400"
     end
 
     resource "JSON::MaybeXS" do
-      url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/JSON-MaybeXS-1.004003.tar.gz"
-      sha256 "5bee3b17ff9dcffd6e99ab8cf7f35747650bfce1dc622e3ad10b85a194462fbf"
+      url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/JSON-MaybeXS-1.004004.tar.gz"
+      sha256 "7ca5921306a544f621705dce987fe955b1a6833d0b195c094626a19dca094dba"
     end
 
-    resource "Scalar::List::Utils" do
-      url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Scalar-List-Utils-1.60.tar.gz"
-      sha256 "c685bad8021f008f321288b7c3182ec724ab198a77610e877c86f3fad4b85f07"
+    resource "Scalar::Util" do
+      url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Scalar-List-Utils-1.63.tar.gz"
+      sha256 "cafbdf212f6827dc9a0dd3b57b6ee50e860586d7198228a33262d55c559eb2a9"
     end
 
     resource "YAML" do
@@ -81,8 +81,8 @@ class Rex < Formula
     end
 
     resource "HTML::Parser" do
-      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTML-Parser-3.78.tar.gz"
-      sha256 "22564002f206af94c1dd8535f02b0d9735125d9ebe89dd0ff9cd6c000e29c29d"
+      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTML-Parser-3.81.tar.gz"
+      sha256 "c0910a5c8f92f8817edd06ccfd224ba1c2ebe8c10f551f032587a1fc83d62ff2"
     end
 
     resource "HTML::Tagset" do
@@ -116,8 +116,8 @@ class Rex < Formula
     end
 
     resource "HTTP::Daemon" do
-      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Daemon-6.14.tar.gz"
-      sha256 "f0767e7f3cbb80b21313c761f07ad8ed253bce9fa2d0ba806b3fb72d309b2e1d"
+      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Daemon-6.16.tar.gz"
+      sha256 "b38d092725e6fa4e0c4dc2a47e157070491bafa0dbe16c78a358e806aa7e173d"
     end
 
     resource "HTTP::Date" do
@@ -126,8 +126,8 @@ class Rex < Formula
     end
 
     resource "HTTP::Message" do
-      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-6.37.tar.gz"
-      sha256 "0e59da0a85e248831327ebfba66796314cb69f1bfeeff7a9da44ad766d07d802"
+      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-6.44.tar.gz"
+      sha256 "398b647bf45aa972f432ec0111f6617742ba32fc773c6612d21f64ab4eacbca1"
     end
 
     resource "HTTP::Negotiate" do
@@ -146,8 +146,8 @@ class Rex < Formula
     end
 
     resource "LWP::UserAgent" do
-      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.67.tar.gz"
-      sha256 "96eec40a3fd0aa1bd834117be5eb21c438f73094d861a1a7e5774f0b1226b723"
+      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.68.tar.gz"
+      sha256 "42784a5869855ee08522dfb1d30fccf98ca4ddefa8c6c1bcb0d68a0adceb7f01"
     end
 
     resource "LWP::MediaTypes" do
@@ -186,8 +186,8 @@ class Rex < Formula
     end
 
     resource "URI" do
-      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/URI-5.10.tar.gz"
-      sha256 "16325d5e308c7b7ab623d1bf944e1354c5f2245afcfadb8eed1e2cae9a0bd0b5"
+      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/URI-5.17.tar.gz"
+      sha256 "5f7e42b769cb27499113cfae4b786c37d49e7c7d32dbb469602cd808308568f8"
     end
 
     resource "WWW::RobotRules" do
@@ -217,8 +217,8 @@ class Rex < Formula
   end
 
   resource "Data::Validate::IP" do
-    url "https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Data-Validate-IP-0.30.tar.gz"
-    sha256 "fe2f7663e18b70d5510529c22f45fdd2bbdb4a5adb26d65c9050c5b9696e8a1c"
+    url "https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Data-Validate-IP-0.31.tar.gz"
+    sha256 "734aff86b6f9cad40e1c4da81f28faf18e0802c76a566d95e5613d4318182fc1"
   end
 
   resource "Hash::Merge" do
@@ -227,8 +227,8 @@ class Rex < Formula
   end
 
   resource "Net::OpenSSH" do
-    url "https://cpan.metacpan.org/authors/id/S/SA/SALVA/Net-OpenSSH-0.82.tar.gz"
-    sha256 "d41aa24dd53466753209f5a67c6392e6f3fa599709169342cbcc5f4871d97e83"
+    url "https://cpan.metacpan.org/authors/id/S/SA/SALVA/Net-OpenSSH-0.83.tar.gz"
+    sha256 "43d7d8672e9d4ecbd1ceb2a99e4143ca665f227d04720c43307e352f96060adf"
   end
 
   resource "Sort::Naturally" do
