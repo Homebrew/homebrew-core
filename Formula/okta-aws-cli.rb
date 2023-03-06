@@ -14,5 +14,8 @@ class OktaAwsCli < Formula
     str_help = shell_output("#{bin}/okta-aws-cli --help")
     assert_match "Usage::", str_help
     assert_match "Flags:", str_help
+    str_error = shell_output("#{bin}/okta-aws-cli -w \"ads\" 2>&1", 1)
+    assert_match "Okta Org Domain value is not set", str_error
+    assert_match "OIDC App ID value is not set", str_error
   end
 end
