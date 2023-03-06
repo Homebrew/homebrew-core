@@ -2,11 +2,10 @@ class Audacious < Formula
   desc "Free and advanced audio player based on GTK+"
   homepage "https://audacious-media-player.org/"
   license "BSD-2-Clause"
-  revision 2
 
   stable do
-    url "https://distfiles.audacious-media-player.org/audacious-4.2.tar.bz2"
-    sha256 "feb304e470a481fe2b3c4ca1c9cb3b23ec262540c12d0d1e6c22a5eb625e04b3"
+    url "https://distfiles.audacious-media-player.org/audacious-4.3.tar.bz2"
+    sha256 "27584dc845c7e70db8c9267990945f17322a1ecc80ff8b452e9ca916a0ce9091"
 
     resource "plugins" do
       url "https://distfiles.audacious-media-player.org/audacious-plugins-4.2.tar.bz2"
