@@ -21,6 +21,7 @@ class Mtoc < Formula
 
   depends_on "llvm" => :build
   depends_on :macos
+  conflicts_with "ocmtoc", because: "both install `mtoc` binaries"
 
   patch do
     url "https://raw.githubusercontent.com/acidanthera/ocbuild/d3e57820ce85bc2ed4ce20cc25819e763c17c114/patches/mtoc-permissions.patch"
