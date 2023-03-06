@@ -6,13 +6,10 @@ class Victoriametrics < Formula
   license "Apache-2.0"
 
   depends_on "cmake" => :build
-  depends_on "cmake" => :build
   depends_on "go" => :build
 
   def install
     ENV.deparallelize
-    mkdir_p buildpath/"src/github.com/VictoriaMetrics"
-    ln_sf buildpath, buildpath/"src/github.com/VictoriaMetrics/VictoriaMetrics"
 
     system "make", "victoria-metrics"
     bin.install "bin/victoria-metrics"
@@ -23,7 +20,7 @@ class Victoriametrics < Formula
     EOS
 
     (buildpath/"victoriametrics.args").write <<~EOS
-      --promscrape.config #{etc}/scrape.yml
+      --promscrape.config=#{etc}/scrape.yml
       --storageDataPath=#{var}/victoriametrics-data
       --retentionPeriod=12
       --httpListenAddr=127.0.0.1:8428
@@ -43,9 +40,6 @@ class Victoriametrics < Formula
           - targets: ["127.0.0.1:8428"]
     EOS
     etc.install "victoriametrics.args", "scrape.yml"
-    ohai "Documentation: https://docs.victoriametrics.com/Single-server-VictoriaMetrics.html"
-    ohai "VictoriaMetrics Github : https://github.com/VictoriaMetrics/VictoriaMetrics"
-    ohai "Join our communities: https://docs.victoriametrics.com/Single-server-VictoriaMetrics.html#contacts"
   end
 
   def caveats
@@ -64,13 +58,25 @@ class Victoriametrics < Formula
   end
 
   test do
+    http_port = free_port
+
+    (testpath/"scrape.yml").write <<~EOS
+      global:
+        scrape_interval: 10s
+
+      scrape_configs:
+        - job_name: "victoriametrics"
+          static_configs:
+          - targets: ["127.0.0.1:#{http_port}"]
+    EOS
+
     pid = fork do
-      exec bin/"victoria-metrics"
+      exec bin/"victoria-metrics", "-promscrape.config=#{testpath}/scrape.yml", "-storageDataPath=#{testpath}/victoriametrics-data", "-httpListenAddr=127.0.0.1:#{http_port}"
     end
-    sleep 1
-    assert_match "Single-node VictoriaMetrics", shell_output("curl -s 127.0.0.1:8428")
+    sleep 3
+    assert_match "Single-node VictoriaMetrics", shell_output("curl -s 127.0.0.1:#{http_port}")
   ensure
-    Process.kill("TERM", pid)
+    Process.kill(9, pid)
     Process.wait(pid)
   end
 end
