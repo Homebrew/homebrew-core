@@ -1,8 +1,8 @@
 class Pgroonga < Formula
   desc "PostgreSQL plugin to use Groonga as index"
   homepage "https://pgroonga.github.io/"
-  url "https://packages.groonga.org/source/pgroonga/pgroonga-2.4.4.tar.gz"
-  sha256 "e5b29bfa4a2321a0ccc14b55d5156c3cb5cc03c08f7ec2d54ccc2212186292a4"
+  url "https://packages.groonga.org/source/pgroonga/pgroonga-2.4.5.tar.gz"
+  sha256 "092df71209d740614cf12661783db1a4b1f8a98be6243b6bdf4ea8cb6e3c05c2"
   license "PostgreSQL"
 
   livecheck do
@@ -25,7 +25,7 @@ class Pgroonga < Formula
   depends_on "postgresql@14"
 
   def postgresql
-    Formula["postgresql@14"]
+    Formula["postgresql@15"]
   end
 
   def install
