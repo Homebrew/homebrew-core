@@ -8,8 +8,8 @@ class Audacious < Formula
     sha256 "27584dc845c7e70db8c9267990945f17322a1ecc80ff8b452e9ca916a0ce9091"
 
     resource "plugins" do
-      url "https://distfiles.audacious-media-player.org/audacious-plugins-4.2.tar.bz2"
-      sha256 "6fa0f69c3a1041eb877c37109513ab4a2a0a56a77d9e8c13a1581cf1439a417f"
+      url "https://distfiles.audacious-media-player.org/audacious-plugins-4.3.tar.bz2"
+      sha256 "662ef6c8c4bd70d0f35fd1c5f08b91549b9436638b65f8a1a33956b09df89fc6"
     end
   end
 
