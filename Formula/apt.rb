@@ -93,8 +93,8 @@ class Apt < Formula
   end
 
   resource "XS::Parse::Keyword::Builder" do
-    url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/XS-Parse-Keyword-0.32.tar.gz"
-    sha256 "b2d02b83b8d8141cddad9111ef3f93459bd578783660d58a63b6cf9dcdfc1318"
+    url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/XS-Parse-Keyword-0.33.tar.gz"
+    sha256 "551b82d2884ab3b37bc9be5d1c85b1c1986d083904b7817a0fafc78260dcfc57"
   end
 
   resource "Syntax::Keyword::Try" do
