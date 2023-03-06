@@ -71,7 +71,10 @@ class Victoriametrics < Formula
     EOS
 
     pid = fork do
-      exec bin/"victoria-metrics", "-promscrape.config=#{testpath}/scrape.yml", "-storageDataPath=#{testpath}/victoriametrics-data", "-httpListenAddr=127.0.0.1:#{http_port}"
+      exec bin/"victoria-metrics",
+        "-promscrape.config=#{testpath}/scrape.yml",
+        "-storageDataPath=#{testpath}/victoriametrics-data",
+        "-httpListenAddr=127.0.0.1:#{http_port}"
     end
     sleep 3
     assert_match "Single-node VictoriaMetrics", shell_output("curl -s 127.0.0.1:#{http_port}")
