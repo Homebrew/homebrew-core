@@ -116,8 +116,15 @@ class GetIplayer < Formula
 
     resources.each do |r|
       r.stage do
-        system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
-        system "make", "install"
+        if File.exist? "Makefile.PL"
+          system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+          system "make"
+          system "make", "install"
+        else
+          system "perl", "Build.PL", "--install_base", libexec
+          system "./Build"
+          system "./Build", "install"
+        end
       end
     end
 
