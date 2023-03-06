@@ -150,6 +150,10 @@
     "exclude_packages": ["six", "PyYAML", "Pygments"],
     "extra_packages": ["distro"]
   },
+  "conan@1": {
+    "exclude_packages": ["six", "PyYAML", "Pygments"],
+    "extra_packages": ["distro"]
+  },
   "commitizen": {
     "exclude_packages": ["PyYAML", "typing-extensions"]
   },
