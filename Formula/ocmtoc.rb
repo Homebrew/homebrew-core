@@ -15,6 +15,7 @@ class Ocmtoc < Formula
   end
 
   depends_on :macos
+  conflicts_with "mtoc", because: "both install `mtoc` binaries"
 
   def install
     xcodebuild "-arch", Hardware::CPU.arch,
