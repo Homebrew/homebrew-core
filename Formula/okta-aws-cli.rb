@@ -6,6 +6,7 @@ class OktaAwsCli < Formula
   license "Apache-2.0"
 
   depends_on "go"
+
   def install
     system "go", "build", "-o", bin/"okta-aws-cli", "cmd/okta-aws-cli/main.go"
   end
