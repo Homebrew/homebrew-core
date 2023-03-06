@@ -249,8 +249,6 @@ class Rex < Formula
 
     perl_build
     (libexec/"lib").install "blib/lib/Rex", "blib/lib/Rex.pm"
-    inreplace "bin/rex", "#!perl", "#!/usr/bin/env perl"
-    inreplace "bin/rexify", "#!perl", "#!/usr/bin/env perl"
 
     %w[rex rexify].each do |cmd|
       libexec.install "bin/#{cmd}"
