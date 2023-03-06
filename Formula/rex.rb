@@ -25,6 +25,11 @@ class Rex < Formula
       sha256 "67c82ee245d94ba06decfa25572ab75fdcd26a9009094289d8f45bc54041771b"
     end
 
+    resource "Clone" do
+      url "https://cpan.metacpan.org/authors/id/G/GA/GARU/Clone-0.46.tar.gz"
+      sha256 "aadeed5e4c8bd6bbdf68c0dd0066cb513e16ab9e5b4382dc4a0aafd55890697b"
+    end
+
     resource "Clone::Choose" do
       url "https://cpan.metacpan.org/authors/id/H/HE/HERMES/Clone-Choose-0.010.tar.gz"
       sha256 "5623481f58cee8edb96cd202aad0df5622d427e5f748b253851dfd62e5123632"
