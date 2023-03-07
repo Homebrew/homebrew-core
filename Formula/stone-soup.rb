@@ -5,11 +5,6 @@ class StoneSoup < Formula
   sha256 "e8ff1d09718ab3cbff6bac31651185b584c9eea2c9b6f42f0796127ca5599997"
   license "GPL-2.0-or-later"
 
-  livecheck do
-    url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
-  end
-
   bottle do
     sha256 arm64_ventura:  "c37530a95dbd1b4df7d64f35a3e4ccd4e9d5e53565d956f0e6d7f9ffbc1d73d7"
     sha256 arm64_monterey: "cf6ca59c6899897889fb1dd675513941085da9832c565009a33f35d0eaa8d983"
