@@ -332,6 +332,9 @@
     "package_name": "jinja2-cli[yaml,toml,xml]",
     "exclude_packages": ["PyYAML"]
   },
+  "johnnydep": {
+    "exclude_packages": ["six", "tabulate", "PyYAML"]
+  },
   "jrnl": {
     "exclude_packages": ["six", "Pygments"]
   },
