@@ -28,13 +28,6 @@ class Dc3dd < Formula
     sha256 "909d47954697e7c04218f972915b787bd1244d75e3bd01620bc167d5bbc49c15"
   end
 
-  # Apply patch to fix gnulib with newer glibc.
-  # Reported upstream here: https://sourceforge.net/p/dc3dd/bugs/19.
-  patch do
-    url "http://distfiles.lesslinux.org/dc3dd-7.2.646_glibc-2.28-1.patch"
-    sha256 "0c3ef49b7bf4952ed94df1e54495ca1df2f081cba34cd421c14cff267cb9866c"
-  end
-
   def install
     ENV.prepend_create_path "PERL5LIB", buildpath/"gettext-pm/lib/perl5"
     resource("gettext-pm").stage do
