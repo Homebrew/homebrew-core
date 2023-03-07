@@ -32,10 +32,15 @@ class Libp11 < Formula
   depends_on "openssl@3"
 
   def install
+    openssl = deps.find { |d| d.name.match?(/^openssl/) }
+                  .to_formula
+    enginesdir = Utils.safe_popen_read("pkg-config", "--variable=enginesdir", "libcrypto").chomp
+    enginesdir.sub!(openssl.prefix.realpath, prefix)
+
     system "./bootstrap" if build.head?
     system "./configure", *std_configure_args,
                           "--disable-silent-rules",
-                          "--with-enginesdir=#{lib}/engines-1.1"
+                          "--with-enginesdir=#{enginesdir}"
     system "make", "install"
     pkgshare.install "examples/auth.c"
   end
