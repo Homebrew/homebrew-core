@@ -5,7 +5,7 @@ class Victoriametrics < Formula
   sha256 "92803ae61f927b7173e25d4537c429bf3054edfa2f719bafc8fb9fcd411cab87"
   license "Apache-2.0"
 
-  depends_on "cmake" => :build
+  depends_on "make" => :build
   depends_on "go" => :build
 
   def install
@@ -14,23 +14,7 @@ class Victoriametrics < Formula
     system "make", "victoria-metrics"
     bin.install "bin/victoria-metrics"
 
-    (bin/"victoriametrics_brew_services").write <<~EOS
-      #!/bin/bash
-      exec #{bin}/victoria-metrics $(<#{etc}/victoriametrics.args)
-    EOS
-
-    (buildpath/"victoriametrics.args").write <<~EOS
-      --promscrape.config=#{etc}/scrape.yml
-      --storageDataPath=#{var}/victoriametrics-data
-      --retentionPeriod=12
-      --httpListenAddr=127.0.0.1:8428
-      --graphiteListenAddr=:2003
-      --opentsdbListenAddr=:4242
-      --influxListenAddr=:8089
-      --enableTCP6
-    EOS
-
-    (buildpath/"scrape.yml").write <<~EOS
+    (etc/"scrape.yml").write <<~EOS
       global:
         scrape_interval: 10s
 
@@ -39,19 +23,19 @@ class Victoriametrics < Formula
           static_configs:
           - targets: ["127.0.0.1:8428"]
     EOS
-    etc.install "victoriametrics.args", "scrape.yml"
-  end
-
-  def caveats
-    <<~EOS
-      When run from `brew services`, `victoriametrics` is run from
-      `victoriametrics_brew_services` and uses the flags in:
-        #{etc}/victoriametrics.args
-    EOS
+    etc.install "scrape.yml"
   end
 
   service do
-    run [opt_bin/"victoriametrics_brew_services"]
+    run [opt_bin/"victoriametrics_brew_services",
+      "-promscrape.config=#{etc}/scrape.yml",
+      "-storageDataPath=#{var}/victoriametrics-data",
+      "-retentionPeriod=12",
+      "-httpListenAddr=127.0.0.1:8428",
+      "-graphiteListenAddr=:2003",
+      "-opentsdbListenAddr=:4242",
+      "-influxListenAddr=:8089",
+      "-enableTCP6"]
     keep_alive false
     log_path var/"log/victoria-metrics.log"
     error_log_path var/"log/victoria-metrics.err.log"
