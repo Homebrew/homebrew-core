@@ -5,10 +5,10 @@ class OktaAwsCli < Formula
   sha256 "06374f0eb3e371a8ef1a5e8fb2bcd0e5bfcac607aa2083f6c1101b54713a47bf"
   license "Apache-2.0"
 
-  depends_on "go"
+  depends_on "go" => :build
 
   def install
-    system "go", "build", "-o", bin/"okta-aws-cli", "cmd/okta-aws-cli/main.go"
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/okta-aws-cli"
   end
 
   test do
