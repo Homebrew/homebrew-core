@@ -3,8 +3,8 @@ class Animdl < Formula
 
   desc "Anime downloader and streamer"
   homepage "https://github.com/justfoolingaround/animdl"
-  url "https://files.pythonhosted.org/packages/48/96/d48e9d60a60323b4abdc50bfc0564fb4c2824e696b7a7a0f48b34e15891b/animdl-1.7.3.tar.gz"
-  sha256 "bc1d9b717bfc3df19e6597bdd987e13e7c7e9fa633f1077c8bd70d5fabe12953"
+  url "https://files.pythonhosted.org/packages/01/7b/47c107f7311e622e4b679c7e90bd97d3d45532fc997d20b632d692175484/animdl-1.7.7.tar.gz"
+  sha256 "64a78a9c11b544a8f470f5ac1c57e39247d3e50735a6d33a277dd1cc27229c37"
   license "GPL-3.0-only"
   head "https://github.com/justfoolingaround/animdl.git", branch: "master"
 
@@ -81,8 +81,8 @@ class Animdl < Formula
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/06/5a/e11cad7b79f2cf3dd2ff8f81fa8ca667e7591d3d8451768589996b65dec1/lxml-4.9.2.tar.gz"
-    sha256 "2455cfaeb7ac70338b3257f41e21f0724f4b5b0c0e7702da67ee6c3640835b67"
+    url "https://files.pythonhosted.org/packages/aa/23/bda4e9881090f0f5e33e2efe89aacfa0668eb6e1ab2de28591e2912d78d4/lxml-4.9.0.tar.gz"
+    sha256 "520461c36727268a989790aef08884347cd41f2d8ae855489ccf40b50321d8d7"
   end
 
   resource "markdown-it-py" do
@@ -126,8 +126,8 @@ class Animdl < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/68/31/b8934896818c885001aeb7df388ba0523ea3ec88ad31805983d9b0480a50/rich-13.3.1.tar.gz"
-    sha256 "125d96d20c92b946b983d0d392b84ff945461e5a06d3867e9f9e575f8697b67f"
+    url "https://files.pythonhosted.org/packages/5e/0e/ef0a49be56dbc4052a086888cd2490e15fcc95b0eda79e9d0e737b1ab93d/rich-13.3.2.tar.gz"
+    sha256 "91954fe80cfb7985727a467ca98a7618e5dd15178cc2da10f553b36a93859001"
   end
 
   resource "sniffio" do
