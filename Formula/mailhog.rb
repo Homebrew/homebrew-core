@@ -144,7 +144,15 @@ class Mailhog < Formula
   end
 
   service do
-    run opt_bin/"MailHog"
+    run [
+      opt_bin/"MailHog",
+      "-api-bind-addr",
+      "127.0.0.1:8025",
+      "-smtp-bind-addr",
+      "127.0.0.1:1025",
+      "-ui-bind-addr",
+      "127.0.0.1:8025"
+    ]
     keep_alive true
     log_path var/"log/mailhog.log"
     error_log_path var/"log/mailhog.log"
