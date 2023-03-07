@@ -6,8 +6,8 @@ class Teku < Formula
 
   stable do
     url "https://github.com/ConsenSys/teku.git",
-        tag:      "23.2.0",
-        revision: "7a4abc6f913bc16ee9e1fe1cdc85b8047f5204fe"
+        tag:      "23.3.0",
+        revision: "e895b424cba784ad987d1c2db49e1c30e0432c56"
 
     # Fix build with gradle 8.0. Remove with stable block on next release.
     patch do
