@@ -3,8 +3,8 @@ require "language/node"
 class Solhint < Formula
   desc "Linter for Solidity code"
   homepage "https://protofire.github.io/solhint/"
-  url "https://registry.npmjs.org/solhint/-/solhint-3.4.0.tgz"
-  sha256 "d7a214896a9b9d0c79110cdf1774057c0d78bfa9e8fbafb6628aeb8953aa00f8"
+  url "https://registry.npmjs.org/solhint/-/solhint-3.4.1.tgz"
+  sha256 "84c80f5c8bc41314f0957e01820078637a36809ce4e09efdef1c65060c56f7a4"
   license "MIT"
 
   bottle do
