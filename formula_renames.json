@@ -5,6 +5,7 @@
   "app-engine-java-sdk": "app-engine-java",
   "ark": "velero",
   "arm": "nyx",
+  "aztfy": "aztfexport",
   "artifactory-cli-go": "jfrog-cli-go",
   "badtouch": "authoscope",
   "bash-completion2": "bash-completion@2",
