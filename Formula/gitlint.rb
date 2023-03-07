@@ -3,8 +3,8 @@ class Gitlint < Formula
 
   desc "Linting for your git commit messages"
   homepage "https://jorisroovers.com/gitlint/"
-  url "https://files.pythonhosted.org/packages/fe/11/971074a89e50f31e32b79b73a84b8aed5787ad5718bb3857477514304db7/gitlint-core-0.18.0.tar.gz"
-  sha256 "b032eb574f7399aec6a5246a78810bacb7ce9c9fd2d9e4375950549196cae681"
+  url "https://files.pythonhosted.org/packages/29/59/c317a4a39657a4a76cd7dc0c9db4147cca57f13ebe11a469d8c6c0f88715/gitlint_core-0.19.0.tar.gz"
+  sha256 "97d5d65a39f40d72f82545134e89949ea17d3845415bea7ce3c465b93a1ef2f2"
   license "MIT"
 
   bottle do
@@ -37,8 +37,8 @@ class Gitlint < Formula
   end
 
   resource "sh" do
-    url "https://files.pythonhosted.org/packages/b7/09/89c28aaf2a49f226fef8587c90c6386bd2cc03a0295bc4ff7fc6ee43c01d/sh-1.14.3.tar.gz"
-    sha256 "e4045b6c732d9ce75d571c79f5ac2234edd9ae4f5fa9d59b09705082bdca18c7"
+    url "https://files.pythonhosted.org/packages/ff/c7/0c170c7dde31f088f3c8221f90e054b121b5bd36f9e6f94edca4fdb64c0c/sh-2.0.2.tar.gz"
+    sha256 "364a25cd2380c3170c46718fe3cc6ffc94b36721e30196a064be508f9b3162f4"
   end
 
   def install
