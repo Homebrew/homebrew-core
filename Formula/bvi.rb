@@ -1,9 +1,9 @@
 class Bvi < Formula
   desc "Vi-like binary file (hex) editor"
   homepage "https://bvi.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/bvi/bvi/1.4.1/bvi-1.4.1.src.tar.gz"
-  sha256 "3035255ca79e0464567d255baa5544f7794e2b7eb791dcc60cc339cf1aa01e28"
-  license "GPL-3.0"
+  url "https://downloads.sourceforge.net/project/bvi/bvi/1.4.2/bvi-1.4.2.src.tar.gz"
+  sha256 "4bba16c2b496963a9b939336c0abcc8d488664492080ae43a86da18cf4ce94f2"
+  license "GPL-3.0-or-later"
 
   bottle do
     sha256 arm64_ventura:  "b08d6d539610ecfa5cc971f294acd494b09f158f4796fbfb747b6421bbe3b887"
@@ -26,6 +26,11 @@ class Bvi < Formula
   end
 
   test do
-    system "#{bin}/bvi", "-c", "q"
+    if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
+      out = shell_output("#{bin}/bvi -c q", 1)
+      assert_match out, "Input is not from a terminal"
+    else
+      system "#{bin}/bvi", "-c", "q"
+    end
   end
 end
