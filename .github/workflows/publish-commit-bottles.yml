@@ -29,7 +29,6 @@ jobs:
     runs-on: ${{github.event.inputs.large_runner == 'true' && 'homebrew-large-bottle-upload' || 'ubuntu-22.04'}}
     container:
       image: ghcr.io/homebrew/ubuntu22.04:master
-      options: --net=host
     steps:
       - name: Post comment once started
         uses: Homebrew/actions/post-comment@master
