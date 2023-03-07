@@ -1,8 +1,8 @@
 class Procs < Formula
   desc "Modern replacement for ps written by Rust"
   homepage "https://github.com/dalance/procs"
-  url "https://github.com/dalance/procs/archive/v0.13.4.tar.gz"
-  sha256 "9b9b59b79049cf6ae2c39d9cc5b0c5af81411ba898a414fda41f68921c3c9539"
+  url "https://github.com/dalance/procs/archive/v0.14.0.tar.gz"
+  sha256 "fa5af0951dc8aa63c0590f8c5c1136594866057704cfb1cdfc22ac3cc49437c6"
   license "MIT"
 
   bottle do
@@ -20,9 +20,9 @@ class Procs < Formula
   def install
     system "cargo", "install", *std_cargo_args
 
-    system bin/"procs", "--completion", "bash"
-    system bin/"procs", "--completion", "fish"
-    system bin/"procs", "--completion", "zsh"
+    system bin/"procs", "--gen-completion", "bash"
+    system bin/"procs", "--gen-completion", "fish"
+    system bin/"procs", "--gen-completion", "zsh"
     bash_completion.install "procs.bash" => "procs"
     fish_completion.install "procs.fish"
     zsh_completion.install "_procs"
