@@ -2,8 +2,8 @@ class Aztfy < Formula
   desc "Bring your existing Azure resources under the management of Terraform"
   homepage "https://azure.github.io/aztfy"
   url "https://github.com/Azure/aztfy.git",
-      tag:      "v0.10.0",
-      revision: "c11238f3e80c7750f5760859a1b6e5f2e2f09ca4"
+      tag:      "v0.11.0",
+      revision: "a70eab527442ed3866285fc0337c59eb20ccca70"
   license "MPL-2.0"
   head "https://github.com/Azure/aztfy.git", branch: "main"
 
