@@ -17,7 +17,7 @@ class MermaidCli < Formula
   # Needs Chromium for puppeteer. Chromium is currently installed as a pre-built.
   # Ref: https://github.com/Homebrew/homebrew-core/pull/83338
   # Ref: https://github.com/Homebrew/homebrew-core/issues/100192
-  deprecate! date: "2022-04-30", because: "installs a pre-built copy of Chromium"
+  disable! date: "2023-03-07", because: "installs a pre-built copy of Chromium"
 
   depends_on "node"
 
