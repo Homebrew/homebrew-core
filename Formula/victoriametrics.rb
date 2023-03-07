@@ -5,8 +5,8 @@ class Victoriametrics < Formula
   sha256 "92803ae61f927b7173e25d4537c429bf3054edfa2f719bafc8fb9fcd411cab87"
   license "Apache-2.0"
 
-  depends_on "make" => :build
   depends_on "go" => :build
+  depends_on "make" => :build
 
   def install
     ENV.deparallelize
@@ -28,14 +28,14 @@ class Victoriametrics < Formula
 
   service do
     run [opt_bin/"victoriametrics_brew_services",
-      "-promscrape.config=#{etc}/scrape.yml",
-      "-storageDataPath=#{var}/victoriametrics-data",
-      "-retentionPeriod=12",
-      "-httpListenAddr=127.0.0.1:8428",
-      "-graphiteListenAddr=:2003",
-      "-opentsdbListenAddr=:4242",
-      "-influxListenAddr=:8089",
-      "-enableTCP6"]
+      "--promscrape.config=#{etc}/scrape.yml",
+      "--storageDataPath=#{var}/victoriametrics-data",
+      "--retentionPeriod=12",
+      "--httpListenAddr=127.0.0.1:8428",
+      "--graphiteListenAddr=:2003",
+      "--opentsdbListenAddr=:4242",
+      "--influxListenAddr=:8089",
+      "--enableTCP6"]
     keep_alive false
     log_path var/"log/victoria-metrics.log"
     error_log_path var/"log/victoria-metrics.err.log"
