@@ -151,7 +151,7 @@ class Mailhog < Formula
       "-smtp-bind-addr",
       "127.0.0.1:1025",
       "-ui-bind-addr",
-      "127.0.0.1:8025"
+      "127.0.0.1:8025",
     ]
     keep_alive true
     log_path var/"log/mailhog.log"
