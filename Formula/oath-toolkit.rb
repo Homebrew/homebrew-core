@@ -1,11 +1,11 @@
 class OathToolkit < Formula
   desc "Tools for one-time password authentication systems"
   homepage "https://www.nongnu.org/oath-toolkit/"
-  url "https://download.savannah.gnu.org/releases/oath-toolkit/oath-toolkit-2.6.6.tar.gz"
-  mirror "https://fossies.org/linux/privat/oath-toolkit-2.6.6.tar.gz"
-  sha256 "fd68b315c71ba1db47bcc6e67f598568db4131afc33abd23ed682170e3cb946c"
+  url "https://download.savannah.gnu.org/releases/oath-toolkit/oath-toolkit-2.6.7.tar.gz"
+  mirror "https://fossies.org/linux/privat/oath-toolkit-2.6.7.tar.gz"
+  sha256 "36eddfce8f2f36347fb257dbf878ba0303a2eaafe24eaa071d5cd302261046a9"
   license all_of: ["GPL-3.0-or-later", "LGPL-2.1-or-later"]
-  revision 1
+  head "https://gitlab.com/oath-toolkit/oath-toolkit.git", branch: "master"
 
   livecheck do
     url "https://download.savannah.gnu.org/releases/oath-toolkit/"
@@ -22,11 +22,26 @@ class OathToolkit < Formula
     sha256               x86_64_linux:   "b571a3591c7215d239a068af0b284211a7222b96af08bd73736c6c8dd08c6547"
   end
 
+  # Restrict autoconf, automake, gtk-doc, and libtool to head builds on next release.
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "gtk-doc"  => :build
+  depends_on "libtool"  => :build
   depends_on "pkg-config" => :build
   depends_on "libxmlsec1"
 
+  # pam_oath: Provide fallback pam_modutil_getpwnam implementation.
+  # Remove on next release.
+  patch do
+    url "https://gitlab.com/oath-toolkit/oath-toolkit/-/commit/ff7f814c5f4fce00917cf60bafea0e9591fab3ed.diff"
+    sha256 "50a9c1d3ab15548a9fb58e603082b148c9d3fa3c0d4ca3e13281284c43ed1824"
+  end
+
   def install
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
+    # Needed for patch. Add `if build.head?` on next release.
+    system "autoreconf", "-fiv"
+
+    system "./configure", *std_configure_args
     system "make"
     system "make", "install"
   end
