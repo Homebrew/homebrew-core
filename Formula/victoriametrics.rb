@@ -9,8 +9,6 @@ class Victoriametrics < Formula
   depends_on "make" => :build
 
   def install
-    ENV.deparallelize
-
     system "make", "victoria-metrics"
     bin.install "bin/victoria-metrics"
 
@@ -27,15 +25,7 @@ class Victoriametrics < Formula
   end
 
   service do
-    run [opt_bin/"victoriametrics_brew_services",
-      "--promscrape.config=#{etc}/scrape.yml",
-      "--storageDataPath=#{var}/victoriametrics-data",
-      "--retentionPeriod=12",
-      "--httpListenAddr=127.0.0.1:8428",
-      "--graphiteListenAddr=:2003",
-      "--opentsdbListenAddr=:4242",
-      "--influxListenAddr=:8089",
-      "--enableTCP6"]
+    run [opt_bin/"victoriametrics_brew_services", "--promscrape.config=#{etc}/scrape.yml", "--storageDataPath=#{var}/victoriametrics-data", "--retentionPeriod=12", "--httpListenAddr=127.0.0.1:8428", "--enableTCP6"]
     keep_alive false
     log_path var/"log/victoria-metrics.log"
     error_log_path var/"log/victoria-metrics.err.log"
