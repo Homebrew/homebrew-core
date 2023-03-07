@@ -1,8 +1,8 @@
 class Sdl2 < Formula
   desc "Low-level access to audio, keyboard, mouse, joystick, and graphics"
   homepage "https://www.libsdl.org/"
-  url "https://github.com/libsdl-org/SDL/releases/download/release-2.26.3/SDL2-2.26.3.tar.gz"
-  sha256 "c661205a553b7d252425f4b751ff13209e5e020b876bbfa1598494af61790057"
+  url "https://github.com/libsdl-org/SDL/releases/download/release-2.26.4/SDL2-2.26.4.tar.gz"
+  sha256 "1a0f686498fb768ad9f3f80b39037a7d006eac093aad39cb4ebcc832a8887231"
   license "Zlib"
 
   livecheck do
