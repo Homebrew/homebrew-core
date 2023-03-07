@@ -41,7 +41,7 @@ class Benerator < Formula
     # Test if version is correct
     ohai "Test if the correct version of benerator is installed"
     assert_match "Benerator Community Edition 3.1.0-jdk-11",
-                 shell_output("benerator --version")
+                 shell_output("#{bin}/benerator --version")
 
     # Test if data is generated follow the corrected scheme.
     # We feed benerator an xml and a scheme in demo/db/script/h2.multischema.sql.
@@ -108,9 +108,9 @@ class Benerator < Formula
       <evaluate assert="result == 100" target="schema3">select count(*) from "schema3"."db_manufacturer"</evaluate>
       <echo>No Error Occurs. Data Generated Correcly</echo>
       </setup>
-      XML
+    XML
 
     assert_match "No Error Occurs. Data Generated Correcly",
-                 shell_output("benerator myscript.xml")
+      shell_output("#{bin}/benerator myscript.xml")
   end
 end
