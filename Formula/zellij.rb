@@ -1,8 +1,8 @@
 class Zellij < Formula
   desc "Pluggable terminal workspace, with terminal multiplexer as the base feature"
   homepage "https://zellij.dev"
-  url "https://github.com/zellij-org/zellij/archive/v0.34.4.tar.gz"
-  sha256 "687e30a3e6916cdd7189ab04ff4b170bc5e09edd937637f0388b3f8432d0fc49"
+  url "https://github.com/zellij-org/zellij/archive/v0.35.0.tar.gz"
+  sha256 "7141f6252f9f54127ffaeca6f2e3df1b9376c54ae8e1f3be39211982ea913336"
   license "MIT"
 
   bottle do
