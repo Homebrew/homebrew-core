@@ -19,9 +19,14 @@ class AwsEsProxy < Formula
 
   depends_on "go" => :build
 
+  # patch to add the missing go.sum file, remove in next release
+  patch do
+    url "https://github.com/abutaha/aws-es-proxy/commit/5a40bd821e26ce7b6827327f25b22854a07b8880.patch?full_index=1"
+    sha256 "b604cf8d51d3d325bd9810feb54f7bb1a1a7a226cada71a08dd93c5a76ffc15f"
+  end
+
   def install
-    system "go", "build", *std_go_args
-    prefix.install_metafiles
+    system "go", "build", *std_go_args(ldflags: "-s -w")
   end
 
   def caveats
