@@ -13,13 +13,13 @@ class Gmic < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "e89d85e222c15aec44c7f0f546aa6c9566f2c56c5d07163535b81d2dc4803901"
-    sha256 cellar: :any,                 arm64_monterey: "a8262640bb75551c27335ea30abba607c4db7711fe7d23ad2954d894386326cb"
-    sha256 cellar: :any,                 arm64_big_sur:  "258c36f2c8831e02034b0184a38bba434db60b11067064023622169e545b3b09"
-    sha256 cellar: :any,                 ventura:        "522b4bfc280d09e97c800f4bf8af63ba079c8db97a72f418e8111b2cd9122759"
-    sha256 cellar: :any,                 monterey:       "6ef8093beb037c4a0f0709c7e72b19a1caeb6db6cefe6ff5a03ceed2ebeed3d7"
-    sha256 cellar: :any,                 big_sur:        "f154cbdaa8d2eb6f4d47525c273b3337109ecf9d236a5a02fa5bb0c26783a1dd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2eaf722affb5afa812dd69fcdce9cb76d116b61096754cf6987e71934ac7abba"
+    sha256 cellar: :any,                 arm64_ventura:  "17fc9e3ea98cdf39126c609e384f9cea10d690d2bdf62d860db938c3658644f7"
+    sha256 cellar: :any,                 arm64_monterey: "1b8492650dd7bf7bb2fda2379ef4edda319a923019e8f7639993cb8ad337d27d"
+    sha256 cellar: :any,                 arm64_big_sur:  "736bf612c507bdde09a5c781c3edad094b7dd57b9bc503675eb938b1ff6386a4"
+    sha256 cellar: :any,                 ventura:        "69a3516db58a1314aa9417d7ebeab4fed734a025a97c1330ee657bffdb9c7203"
+    sha256 cellar: :any,                 monterey:       "126bc5af0994195bb6a6c07768cede6c6c0adff28ec48bc0d26dfc6f0db4dda2"
+    sha256 cellar: :any,                 big_sur:        "cafda78c77d896e382049692618c31b1e100a2ed639fc84041ece9213f48042f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e3318b025a41a58d90ef85c7633fafd7ec6ffcc406ae647e790d613c8904bcaf"
   end
 
   depends_on "pkg-config" => :build
