@@ -1,8 +1,8 @@
 class Terraform < Formula
   desc "Tool to build, change, and version infrastructure"
   homepage "https://www.terraform.io/"
-  url "https://github.com/hashicorp/terraform/archive/v1.3.9.tar.gz"
-  sha256 "243fcc54910a41b58a1c7a9be1d0f875100a68f51fb64fbe499d9003c44fbf73"
+  url "https://github.com/hashicorp/terraform/archive/v1.4.0.tar.gz"
+  sha256 "1bcab87807eea8290bdd059ef7403ff98bafcd4a052e86251f3ace19a86a877b"
   license "MPL-2.0"
   head "https://github.com/hashicorp/terraform.git", branch: "main"
 
@@ -30,14 +30,6 @@ class Terraform < Formula
   fails_with gcc: "5"
 
   def install
-    # v0.6.12 - source contains tests which fail if these environment variables are set locally.
-    ENV.delete "AWS_ACCESS_KEY"
-    ENV.delete "AWS_SECRET_KEY"
-
-    # resolves issues fetching providers while on a VPN that uses /etc/resolv.conf
-    # https://github.com/hashicorp/terraform/issues/26532#issuecomment-720570774
-    ENV["CGO_ENABLED"] = "1"
-
     system "go", "build", *std_go_args(ldflags: "-s -w")
   end
 
