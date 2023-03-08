@@ -1,8 +1,8 @@
 class Cadence < Formula
   desc "Resource-oriented smart contract programming language"
   homepage "https://github.com/onflow/cadence"
-  url "https://github.com/onflow/cadence/archive/v0.35.0.tar.gz"
-  sha256 "4af6f82161119cd644953866aba9094d7949d2bb013822972fadbd0bdba4de95"
+  url "https://github.com/onflow/cadence/archive/v0.36.0.tar.gz"
+  sha256 "6f14e98eade0c9bed77ca79bb00b2706fea1ccf83a06a1fbd739d98f96af038f"
   license "Apache-2.0"
   head "https://github.com/onflow/cadence.git", branch: "master"
 
