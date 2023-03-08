@@ -7,6 +7,9 @@ class Zbctl < Formula
   license "Apache-2.0"
   head "https://github.com/camunda/zeebe.git", branch: "develop"
 
+  # Upstream creates stable version tags (e.g., `v1.2.3`) before a release but
+  # the version isn't considered to be released until a corresponding release
+  # is created on GitHub, so it's necessary to use the `GithubLatest` strategy.
   livecheck do
     url :stable
     strategy :github_latest
