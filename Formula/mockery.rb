@@ -1,8 +1,8 @@
 class Mockery < Formula
   desc "Mock code autogenerator for Golang"
   homepage "https://github.com/vektra/mockery"
-  url "https://github.com/vektra/mockery/archive/v2.21.3.tar.gz"
-  sha256 "875061a9b9661bc81e3a5bfe45e22211efa2e000f08639e6d74314ac4ba1cd78"
+  url "https://github.com/vektra/mockery/archive/v2.21.4.tar.gz"
+  sha256 "8af3078b2f4dfe28da4d38b2e118d3124b38a0c67c87154b3c40be649c9f317f"
   license "BSD-3-Clause"
   head "https://github.com/vektra/mockery.git", branch: "master"
 
