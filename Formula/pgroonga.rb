@@ -22,10 +22,10 @@ class Pgroonga < Formula
 
   depends_on "pkg-config" => :build
   depends_on "groonga"
-  depends_on "postgresql@14"
+  depends_on "postgresql@15"
 
   def postgresql
-    Formula["postgresql@14"]
+    Formula["postgresql@15"]
   end
 
   def install
