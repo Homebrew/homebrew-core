@@ -3,8 +3,8 @@ require "language/node"
 class CloudflareWrangler2 < Formula
   desc "CLI tool for Cloudflare Workers"
   homepage "https://github.com/cloudflare/workers-sdk"
-  url "https://registry.npmjs.org/wrangler/-/wrangler-2.12.1.tgz"
-  sha256 "61b973ad812ea434e57f0d7d7e4c51345e317e04028aa116ce0df5d01e80970c"
+  url "https://registry.npmjs.org/wrangler/-/wrangler-2.12.2.tgz"
+  sha256 "de505b7d17fb8a8220ebb95f685bc99187b48bd3e49ff797a6673eb3d1a728dc"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
