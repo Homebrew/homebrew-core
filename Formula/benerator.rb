@@ -17,30 +17,19 @@ class Benerator < Formula
     env_script = libexec / "benerator-env"
     env_script.write_env_script(
       libexec / "bin/benerator",
-      JAVA_HOME:      Formula["openjdk"].opt_prefix,
+      JAVA_HOME:      Language::Java.java_home,
       BENERATOR_HOME: libexec,
     )
 
     # Install the wrapper script
     bin.install libexec / "benerator-env" => "benerator"
-    rm_f "#{bin}/benerator_common"
-    rm_f "#{bin}/log4j2.xml"
   end
 
-  def caveats
-    <<~EOS
-      To use the benerator commands, please set the following environment variables:
-
-      BENERATOR_HOME="#{libexec}"
-      JAVA_HOME="$(/usr/libexec/java_home)"
-
-    EOS
-  end
 
   test do
     # Test if version is correct
     ohai "Test if the correct version of benerator is installed"
-    assert_match "Benerator Community Edition 3.1.0-jdk-11",
+    assert_match "Benerator Community Edition #{version}-jdk-#{Formula["openjdk"].version.major}",
                  shell_output("#{bin}/benerator --version")
 
     # Test if data is generated follow the corrected scheme.
