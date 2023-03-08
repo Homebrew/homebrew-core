@@ -23,10 +23,6 @@ env:
 
 permissions:
   contents: read
-  
-concurrency:
-  group: publish-bottles
-  cancel-in-progress: false
 
 jobs:
   upload:
