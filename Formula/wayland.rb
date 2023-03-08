@@ -5,9 +5,11 @@ class Wayland < Formula
   sha256 "6dc64d7fc16837a693a51cfdb2e568db538bfdc9f457d4656285bb9594ef11ac"
   license "MIT"
 
+  # Tags with a 90+ patch are unstable (e.g., the 1.9.90 tag is used for the
+  # 1.10.0 beta release) and this regex should only match the stable versions.
   livecheck do
-    url "https://wayland.freedesktop.org/releases.html"
-    regex(/href=.*?wayland[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url "https://gitlab.freedesktop.org/api/v4/projects/121/releases"
+    regex(/version (\d+(?:\.\d+)+) for the official release/i)
   end
 
   bottle do
