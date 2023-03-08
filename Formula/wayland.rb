@@ -8,8 +8,8 @@ class Wayland < Formula
   # Tags with a 90+ patch are unstable (e.g., the 1.9.90 tag is used for the
   # 1.10.0 beta release) and this regex should only match the stable versions.
   livecheck do
-    url "https://gitlab.freedesktop.org/api/v4/projects/121/releases"
-    regex(/version (\d+(?:\.\d+)+) for the official release/i)
+    url "https://wayland.freedesktop.org/releases.html"
+    regex(/href=.*?wayland[._-]v?(\d+\.\d+(?:\.(?:\d|[1-8]\d+)(?:\.\d+)*)?)\.t/i)
   end
 
   bottle do
