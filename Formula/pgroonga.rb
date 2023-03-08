@@ -25,7 +25,7 @@ class Pgroonga < Formula
   depends_on "postgresql@14"
 
   def postgresql
-    Formula["postgresql@15"]
+    Formula["postgresql@14"]
   end
 
   def install
