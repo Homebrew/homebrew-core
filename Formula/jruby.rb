@@ -1,8 +1,8 @@
 class Jruby < Formula
   desc "Ruby implementation in pure Java"
   homepage "https://www.jruby.org/"
-  url "https://search.maven.org/remotecontent?filepath=org/jruby/jruby-dist/9.4.1.0/jruby-dist-9.4.1.0-bin.tar.gz"
-  sha256 "5e0cce40b7c42f8ad0f619fdd906460fe3ef13444707f70eb8abfc6481e0d6b6"
+  url "https://search.maven.org/remotecontent?filepath=org/jruby/jruby-dist/9.4.2.0/jruby-dist-9.4.2.0-bin.tar.gz"
+  sha256 "c2b065c5546d398343f86ddea68892bb4a4b4345e6c8875e964a97377733c3f1"
   license any_of: ["EPL-2.0", "GPL-2.0-only", "LGPL-2.1-only"]
 
   livecheck do
