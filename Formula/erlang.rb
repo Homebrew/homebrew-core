@@ -37,9 +37,9 @@ class Erlang < Formula
   uses_from_macos "libxslt" => :build
 
   resource "html" do
-    url "https://github.com/erlang/otp/releases/download/OTP-25.2.3/otp_doc_html_25.2.3.tar.gz"
-    mirror "https://fossies.org/linux/misc/otp_doc_html_25.2.3.tar.gz"
-    sha256 "700e3d46f3fd5f04ad774758ab65dbd327c1ac879e9bdf03b220442fb99c88bc"
+    url "https://github.com/erlang/otp/releases/download/OTP-25.3/otp_doc_html_25.3.tar.gz"
+    mirror "https://fossies.org/linux/misc/otp_doc_html_25.3.tar.gz"
+    sha256 "bc5f24a115e436dd73e617c7cc90d6e7d6e20fd43c0bae3f929333887d96317b"
   end
 
   def install
