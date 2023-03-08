@@ -15,7 +15,7 @@ class Base16384 < Formula
   end
 
   test do
-    assert_match "1234567890abcdefg",
-      shell_output("echo 1234567890abcdefg | #{bin}/base16384 -e - - | #{bin}/base16384 -d - -")
+    hash = pipe_output("#{bin}/base16384 -e - -", "1234567890abcdefg")
+    assert_match "1234567890abcdefg", pipe_output("#{bin}/base16384 -d - -", hash)
   end
 end
