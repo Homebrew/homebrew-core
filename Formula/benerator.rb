@@ -14,30 +14,22 @@ class Benerator < Formula
     # Installs only the "bin" and "lib" directories from the tarball
     libexec.install Dir["bin", "lib"]
     # Generate a script that sets the necessary environment variables
-    env_script = libexec / "benerator-env"
-    env_script.write_env_script(
+    (bin/"benerator").write_env_script(
       libexec / "bin/benerator",
       JAVA_HOME:      Language::Java.java_home,
       BENERATOR_HOME: libexec,
     )
-
-    # Install the wrapper script
-    bin.install libexec / "benerator-env" => "benerator"
   end
-
 
   test do
     # Test if version is correct
-    ohai "Test if the correct version of benerator is installed"
-    assert_match "Benerator Community Edition #{version}-jdk-#{Formula["openjdk"].version.major}",
+    assert_match "Benerator Community Edition #{version}-jdk-11",
                  shell_output("#{bin}/benerator --version")
-
+    assert_includes shell_output("#{bin}/benerator --version"), "Java version:  #{Formula["openjdk"].version}"
     # Test if data is generated follow the corrected scheme.
     # We feed benerator an xml and a scheme in demo/db/script/h2.multischema.sql.
     # The XML scheme in myscript.xml have an inhouse test in <evaluate /> to check if the data is generated correctly,
     # If no, benerator will throw an error, otherwise a success message will be printed.
-    ohai "Test if data generated follow correct scheme"
-
     File.write(testpath / "myscript.xml", <<~XML)
       <setup defaultDataset="US" defaultLocale="en_US">
       <import domains="person,net,product"/>
