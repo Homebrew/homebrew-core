@@ -25,6 +25,8 @@ class X3270 < Formula
   uses_from_macos "tcl-tk"
 
   def install
+    ENV.append "CPPFLAGS", "-I#{Formula["tcl-tk"].opt_include}/tcl-tk" unless OS.mac?
+
     args = %w[
       --enable-c3270
       --enable-pr3287
