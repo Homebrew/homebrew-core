@@ -7,14 +7,13 @@ class F3d < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "1670039c44e7d3cf5dd1bed69f036b631ebb82eae0e7cad0a8d21e8c7dc61f58"
-    sha256 cellar: :any,                 arm64_monterey: "1730a7b915a69ef8a9369e7f032511a44bca9d280523cabaa69b2a64faeed122"
-    sha256 cellar: :any,                 arm64_big_sur:  "082b489a728ad43f9f80a8aaa3610a2028d3e2eedf8303062973625bd1348fb7"
-    sha256 cellar: :any,                 ventura:        "190ac079b6094bf7d5e1def52dcf255bf6339c4c5c6f56236ce76557f0558264"
-    sha256 cellar: :any,                 monterey:       "f7f44e7c2c788be7a6ab133c54c1aabdca2fa2aa882f9a8fdc88e8c5bc3f1c7c"
-    sha256 cellar: :any,                 big_sur:        "1978912917d63001226f844b18696ac2dee6f79e21f433d4f3c51b8090798920"
-    sha256 cellar: :any,                 catalina:       "9f118e2c5e7aeb9a84d2d04ed08fdfd7bdb922abdfd57c0c54409e3ed02e2209"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0deb4bb19364627fd611df0040de1803a623556b27f159e79e3077cf99f53f89"
+    sha256 cellar: :any,                 arm64_ventura:  "d19122637681362a34a7db04dc5c917443abd922da557c331e08bffde44eb53b"
+    sha256 cellar: :any,                 arm64_monterey: "48c6f6abfdd27c4875700d1fd2757584b403b6331779c33c920368e2548955db"
+    sha256 cellar: :any,                 arm64_big_sur:  "56d65f127c9f07fdf97e16274fa4d5791e0a4eba2fb081782c33d0c543d9ee4e"
+    sha256 cellar: :any,                 ventura:        "7054aea63ff751b2016baaaa428c611032baea30435734a55367c417c5b3f26a"
+    sha256 cellar: :any,                 monterey:       "826621baec0a247fba7f3ddf538a721c6ffdf020c4499123826bb14d334c5d0c"
+    sha256 cellar: :any,                 big_sur:        "84e2e87aac1a56644722f7bd124053031d4af5be83fc18ae0bd59c1cc20ed60f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c94ad1c1963051e2a991710c43b07811b3a4a450d81a7d4384a76b39e7eb3286"
   end
 
   depends_on "cmake" => :build
