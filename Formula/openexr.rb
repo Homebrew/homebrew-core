@@ -8,14 +8,13 @@ class Openexr < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "abbb61fdcaa3c461dbfca5176764409f11c8900d6a39d2d6a069fb3205d400e2"
-    sha256 cellar: :any,                 arm64_monterey: "633811a87f2087ee77e05aeb3bdbaea9cede0c010c0e4ddf5212b1f7dc773369"
-    sha256 cellar: :any,                 arm64_big_sur:  "a86f1c3252e421bb3c511fd17d02031eb62d19fc35be4e332835ef8023bc6903"
-    sha256 cellar: :any,                 ventura:        "2bac7697182d779f0b0ec1c3cbf1746211ad59b923066f0fdfbafa56015ddd9a"
-    sha256 cellar: :any,                 monterey:       "7b5eac70a2b63764fe1dc4efa787b04f65f7566413b2727a3f5366256b007723"
-    sha256 cellar: :any,                 big_sur:        "db79b777e18b0c58f9b9d856e681a62e54ce91e54c8a1a5faaf4a6a98e515871"
-    sha256 cellar: :any,                 catalina:       "264da60466034171be1337d9b18f9293122ad82c364de5d037e7fab468525196"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "37824df7fbc74d4e2f2b9837e14917b707fffdc94bbec39fe0babda17d0c9781"
+    sha256 cellar: :any,                 arm64_ventura:  "8ec440463c50f2d8de6a55d41054d43f2bc61fcba5f0d4fd1c4dd8c02f1e123c"
+    sha256 cellar: :any,                 arm64_monterey: "0bb316cc2d29f68df2ac84d1b02a0173b1023a6c8e9bdee56fbaa269dd214b35"
+    sha256 cellar: :any,                 arm64_big_sur:  "0e21bd94255450a9ab028065802680af7364b1a59465f5bce3ea8e0be0e0fe9a"
+    sha256 cellar: :any,                 ventura:        "663c79c379b05f42424446cc19e687283a1e40ebdc108472f24b251baa517e13"
+    sha256 cellar: :any,                 monterey:       "a2ce22e877661986c45c1f088faf821f63e082fc06e5c1c694dd0ed055875d16"
+    sha256 cellar: :any,                 big_sur:        "ccee390858581429454b282a9060e9acc20e989ef2bef39286b3ddf6a72d8448"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7da6c6b4024f01ab623a4e66e0d25d1bd60d3600fa4829e9e0eee8d26ebb2d17"
   end
 
   depends_on "cmake" => :build
