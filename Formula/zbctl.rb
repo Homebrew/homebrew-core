@@ -7,6 +7,11 @@ class Zbctl < Formula
   license "Apache-2.0"
   head "https://github.com/camunda/zeebe.git", branch: "develop"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "96ca56e1662d1820abea31a1cb6a0f529a7b504524c7fc58e3b021eb835e17b6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "96ca56e1662d1820abea31a1cb6a0f529a7b504524c7fc58e3b021eb835e17b6"
