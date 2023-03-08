@@ -4,6 +4,7 @@ class Nauty < Formula
   url "https://pallini.di.uniroma1.it/nauty2_8_6.tar.gz"
   sha256 "f2ce98225ca8330f5bce35f7d707b629247e09dda15fc479dc00e726fee5e6fa"
   license "Apache-2.0"
+  revision 1
   version_scheme 1
 
   livecheck do
@@ -22,6 +23,14 @@ class Nauty < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "22b84b07e19852f8ed33cd090b5864a4a0120eb9d5f9762de625c84ecc9b05a8"
     sha256 cellar: :any_skip_relocation, big_sur:        "0d1ad5f56bae624d64cb5c7039a774d6a64babb94bffd2ef784275a10cecff25"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c3ad1d061abeddf585c4112957c5728735872dcc90996532277012629cedaeed"
+  end
+
+  # Apply upstream fixes. See:
+  #   https://mailman.anu.edu.au/pipermail/nauty/2023-January.txt
+  #   https://github.com/Homebrew/homebrew-core/issues/125101
+  patch do
+    url "https://gitweb.gentoo.org/repo/gentoo.git/plain/sci-mathematics/nauty/files/nauty-2.8.6-gentreeg-gentourng.patch"
+    sha256 "2a6ae62a3064d24513442a094fe6db41c6733cb5259172350791819be7bf3c11"
   end
 
   def install
