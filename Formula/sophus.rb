@@ -4,6 +4,7 @@ class Sophus < Formula
   url "https://github.com/strasdat/Sophus/archive/refs/tags/1.22.10.tar.gz"
   sha256 "eb1da440e6250c5efc7637a0611a5b8888875ce6ac22bf7ff6b6769bbc958082"
   license "MIT"
+  version_scheme 1
   head "https://github.com/strasdat/Sophus.git", branch: "master"
 
   bottle do
