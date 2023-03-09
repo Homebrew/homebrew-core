@@ -25,7 +25,7 @@ class Benerator < Formula
     # Test if version is correct
     assert_match "Benerator Community Edition #{version}-jdk-11",
                  shell_output("#{bin}/benerator --version")
-    assert_includes shell_output("#{bin}/benerator --version"), "Java version:  #{Formula["openjdk"].version}"
+    assert_match "Java version:  #{Formula["openjdk"].version}", shell_output("#{bin}/benerator --version")
     # Test if data is generated follow the corrected scheme.
     # We feed benerator an xml and a scheme in demo/db/script/h2.multischema.sql.
     # The XML scheme in myscript.xml have an inhouse test in <evaluate /> to check if the data is generated correctly,
