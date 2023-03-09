@@ -5,6 +5,11 @@ class Joern < Formula
   sha256 "ceddd43317e2aeb3b7250f4d28a20b866f61b561a32c67930e1ca0b22ddf548a"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b4efef84d13d9d149d6b3da245dcc413482bd3c0367adcf984432aef23132ecb"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ab5858f01c9a8f5e2a0881fe4a69a3321ffebfe3625bac38b5dfc106b9e23d2e"
