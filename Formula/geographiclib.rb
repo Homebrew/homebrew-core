@@ -6,6 +6,11 @@ class Geographiclib < Formula
   license "MIT"
   head "https://github.com/geographiclib/geographiclib.git", branch: "main"
 
+  livecheck do
+    url :stable
+    regex(/^r?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "d3af59a982fb0fa2f335a31dae74bc7b6edf4b8a54dd678018fcf4e1e8b60180"
     sha256 cellar: :any,                 arm64_monterey: "00ffe52a19790b22caa22a1b8ddb4fe0f98005994893d0b83cd9f9d614695e00"
