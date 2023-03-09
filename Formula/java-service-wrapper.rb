@@ -1,8 +1,8 @@
 class JavaServiceWrapper < Formula
   desc "Simplify the deployment, launch and monitoring of Java applications"
   homepage "https://wrapper.tanukisoftware.com/"
-  url "https://downloads.sourceforge.net/project/wrapper/wrapper_src/Wrapper_3.5.52_20230307/wrapper_3.5.52_src.tar.gz"
-  sha256 "8b69e5e5ec24391071ebc93603f99f1c37f0eca5bcfee03d0d9acd230e8aaac5"
+  url "https://downloads.sourceforge.net/project/wrapper/wrapper_src/Wrapper_3.5.53_20230309/wrapper_3.5.53_src.tar.gz"
+  sha256 "9835e5b07fa2bbd09caa5330b5bacc89c030b910a52b55a63d8d9260817c512c"
   license "GPL-2.0-only"
 
   bottle do
