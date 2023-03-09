@@ -249,12 +249,54 @@ class Qt < Formula
       include.install_symlink f/"Headers" => f.stem
     end
 
+    # Install a qtversion.xml to ease integration with QtCreator
+    # As far as we can tell, there is no ability to make the Qt buildsystem
+    # generate this and it's in the Qt source tarball at all.
+    # Multiple people on StackOverflow have asked for this and it's a pain
+    # to add Qt to QtCreator (the official IDE) without it.
+    # Given Qt upstream seems extremely unlikely to accept this: let's ship our
+    # own version.
+    # If you read this and you can eliminate it or upstream it: please do!
+    # More context in https://github.com/Homebrew/homebrew-core/pull/124923
+    qtversion_xml = share/"qtcreator/QtProject/qtcreator/qtversion.xml"
+    qtversion_xml.dirname.mkpath
+    qtversion_xml.write <<~XML
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE QtCreatorQtVersions>
+      <qtcreator>
+      <data>
+        <variable>QtVersion.0</variable>
+        <valuemap type="QVariantMap">
+        <value type="int" key="Id">1</value>
+        <value type="QString" key="Name">Qt %{Qt:Version} (#{HOMEBREW_PREFIX})</value>
+        <value type="QString" key="QMakePath">#{opt_bin}/qmake</value>
+        <value type="QString" key="QtVersion.Type">Qt4ProjectManager.QtVersion.Desktop</value>
+        <value type="QString" key="autodetectionSource"></value>
+        <value type="bool" key="isAutodetected">false</value>
+        </valuemap>
+      </data>
+      <data>
+        <variable>Version</variable>
+        <value type="int">1</value>
+      </data>
+      </qtcreator>
+    XML
+
     return unless OS.mac?
 
     bin.glob("*.app") do |app|
       libexec.install app
       bin.write_exec_script libexec/app.basename/"Contents/MacOS"/app.stem
     end
+  end
+
+  def caveats
+    <<~EOS
+      You can add Homebrew's Qt to QtCreator's "Qt Versions" in:
+        Preferences > Qt Versions > Link with Qt...
+      pressing "Choose..." and selecting as the Qt installation path:
+        #{HOMEBREW_PREFIX}
+    EOS
   end
 
   test do
