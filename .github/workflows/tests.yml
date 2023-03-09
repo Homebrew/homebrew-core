@@ -83,12 +83,12 @@ jobs:
               core.setOutput('syntax-only', 'false')
             }
 
-            if (label_names.includes('CI-linux-self-hosted')) {
-              core.setOutput('linux-runner', 'linux-self-hosted-1')
+            if (label_names.includes('CI-linux-large-runner')) {
+              core.setOutput('linux-runner', 'homebrew-large-bottle-build')
             } else {
               core.setOutput('linux-runner', 'ubuntu-22.04')
-              core.setOutput('logs-dir', '/github/home/.cache/Homebrew/Logs')
             }
+            core.setOutput('logs-dir', '/github/home/.cache/Homebrew/Logs')
 
             if (label_names.includes('CI-no-fail-fast')) {
               console.log('CI-no-fail-fast label found. Continuing tests despite failing matrix builds.')
