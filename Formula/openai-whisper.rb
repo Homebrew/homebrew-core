@@ -3,8 +3,8 @@ class OpenaiWhisper < Formula
 
   desc "General-purpose speech recognition model"
   homepage "https://github.com/openai/whisper"
-  url "https://files.pythonhosted.org/packages/00/c6/fb251c4f7de1c78753a2d54d6aaf1a859ddc3797ed4d6003f15866f4c4a4/openai-whisper-20230124.tar.gz"
-  sha256 "31adf9353bf0e3f891b6618896f22c65cf78cd6f845a4d5b7125aa5102187f79"
+  url "https://files.pythonhosted.org/packages/77/23/e10f6a5ecd0b883eeaa4f9481ffa374502a0eef333b6d3c98cab15096f0e/openai-whisper-20230308.tar.gz"
+  sha256 "bb75d41b3b6b56de984b475833a7eb5e35374b5cae1362b0ed3a414c8ca7d596"
   license "MIT"
   head "https://github.com/openai/whisper.git", branch: "main"
 
@@ -22,7 +22,7 @@ class OpenaiWhisper < Formula
   depends_on "ffmpeg"
   depends_on "huggingface-cli"
   depends_on "numpy"
-  depends_on "python@3.11"
+  depends_on "python@3.10"
   depends_on "pytorch"
   depends_on "pyyaml"
 
@@ -40,9 +40,25 @@ class OpenaiWhisper < Formula
     sha256 "34a17436ed1e96697a86f9de3d15a3b0be01d8bc8de9c1dffd59fb8234ed5307"
   end
 
+  resource "llvmlite" do
+    url "https://files.pythonhosted.org/packages/14/27/1468111538f33bd9fb13c0b2c1534c7a487cec8fadf14e318d73be18e4e1/llvmlite-0.39.1.tar.gz"
+    sha256 "b43abd7c82e805261c425d50335be9a6c4f84264e34d6d6e475207300005d572"
+  end
+
   resource "more-itertools" do
-    url "https://files.pythonhosted.org/packages/13/b3/397aa9668da8b1f0c307bc474608653d46122ae0563d1d32f60e24fa0cbd/more-itertools-9.0.0.tar.gz"
-    sha256 "5a6257e40878ef0520b1803990e3e22303a41b5714006c32a3fd8304b26ea1ab"
+    url "https://files.pythonhosted.org/packages/2e/d0/bea165535891bd1dcb5152263603e902c0ec1f4c9a2e152cc4adff6b3a38/more-itertools-9.1.0.tar.gz"
+    sha256 "cabaa341ad0389ea83c17a94566a53ae4c9d07349861ecb14dc6d0345cf9ac5d"
+  end
+
+  # Upstream issue tracker for supporting py3.11, https://github.com/numba/numba/issues/8304
+  resource "numba" do
+    url "https://files.pythonhosted.org/packages/e2/1e/de917b683bb5f0b6078fb1397293eab84c4eaa825fbf94d73d6488eb354f/numba-0.56.4.tar.gz"
+    sha256 "32d9fef412c81483d7efe0ceb6cf4d3310fde8b624a9cecca00f790573ac96ee"
+  end
+
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/47/d5/aca8ff6f49aa5565df1c826e7bf5e85a6df852ee063600c1efa5b932968c/packaging-23.0.tar.gz"
+    sha256 "b6ad297f8907de0fa2fe1ccbd26fdaf387f5f47c7275fedf8cce89f99446cf97"
   end
 
   resource "regex" do
@@ -60,7 +76,7 @@ class OpenaiWhisper < Formula
     sha256 "32dc474157367f8e551f470af0136a1ddafc9e18476400c3869f1ef4f0c12042"
   end
 
-  resource "test-audio" do
+  resource "homebrew-test-audio" do
     url "https://raw.githubusercontent.com/openai/whisper/7858aa9c08d98f75575035ecd6481f462d66ca27/tests/jfk.flac"
     sha256 "63a4b1e4c1dc655ac70961ffbf518acd249df237e5a0152faae9a4a836949715"
   end
@@ -78,7 +94,7 @@ class OpenaiWhisper < Formula
   end
 
   test do
-    testpath.install resource("test-audio")
+    testpath.install resource("homebrew-test-audio")
     # for some unknown reason, the file is installed as `tests` rather than `jfk.flac`
     system "#{bin}/whisper", "tests", "--model", "tiny.en", "--output_format", "txt"
     transcription = File.read("tests.txt")
