@@ -4,7 +4,7 @@ class DmtxUtils < Formula
   url "https://github.com/dmtx/dmtx-utils/archive/v0.7.6.tar.gz"
   sha256 "0d396ec14f32a8cf9e08369a4122a16aa2e5fa1675e02218f16f1ab777ea2a28"
   license "LGPL-2.1"
-  revision 5
+  revision 6
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "65d04597069d638a468b5d3a4efb2f692d2db3252f6224498ae74355f10dde49"
