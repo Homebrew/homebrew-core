@@ -8,8 +8,8 @@ class ServiceWeaver < Formula
     sha256 "12e2d085db784748220f4238ce209f607c9f4b99a8b086e78e521ec906c66103"
 
     resource "weaver-gke" do
-      url "https://github.com/ServiceWeaver/weaver-gke/archive/refs/tags/v0.1.0.tar.gz"
-      sha256 "63ebcd3b72d3859f54d215ba7a2f33aadb275dee94f1028471b15527b728090e"
+      url "https://github.com/ServiceWeaver/weaver-gke/archive/refs/tags/v0.1.1.tar.gz"
+      sha256 "58bd18e21549647e39127346fdc291ebe14053241000f6761841d77465b20f0c"
     end
   end
 
