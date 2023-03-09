@@ -22,8 +22,8 @@ class Ospray < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "ispc" => :build
   depends_on "embree"
+  depends_on "ispc"
   depends_on macos: :mojave # Needs embree bottle built with SSE4.2.
   depends_on "tbb"
 
@@ -35,33 +35,37 @@ class Ospray < Formula
   resource "openvkl" do
     url "https://github.com/openvkl/openvkl/archive/refs/tags/v1.3.2.tar.gz"
     sha256 "7704736566bf17497a3e51c067bd575316895fda96eccc682dae4aac7fb07b28"
+
+    # Fix CMake install location.
+    # Remove when https://github.com/openvkl/openvkl/pull/18 is merged.
+    patch do
+      url "https://github.com/openvkl/openvkl/commit/67fcc3f8c34cf1fc7983b1acc4752eb9e2cfe769.patch?full_index=1"
+      sha256 "f68aa633772153ec13c597de2328e1a3f2d64e0bcfd15dc374378d0e1b1383ee"
+    end
   end
 
   def install
     resources.each do |r|
       r.stage do
-        mkdir "build" do
-          system "cmake", "..", *std_cmake_args,
-                                "-DCMAKE_INSTALL_NAME_DIR=#{lib}",
-                                "-DBUILD_EXAMPLES=OFF"
-          system "make"
-          system "make", "install"
-        end
+        args = %W[
+          -DCMAKE_INSTALL_NAME_DIR=#{lib}
+          -DBUILD_EXAMPLES=OFF
+        ]
+        system "cmake", "-S", ".", "-B", "build", *std_cmake_args, *args
+        system "cmake", "--build", "build"
+        system "cmake", "--install", "build"
       end
     end
 
-    args = std_cmake_args + %W[
+    args = %W[
       -DCMAKE_INSTALL_NAME_DIR=#{lib}
       -DOSPRAY_ENABLE_APPS=OFF
       -DOSPRAY_ENABLE_TESTING=OFF
       -DOSPRAY_ENABLE_TUTORIALS=OFF
     ]
-
-    mkdir "build" do
-      system "cmake", *args, ".."
-      system "make"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, *args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
