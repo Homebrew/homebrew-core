@@ -16,7 +16,6 @@ class CargoOutdated < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "30bc7667a6e1bf3e04835e0db2426b25d2bbbc0290140d75ec7200b85f3e002e"
   end
 
-  depends_on "libgit2"
   depends_on "openssl@1.1"
   depends_on "rust"
 
