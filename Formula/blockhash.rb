@@ -4,7 +4,7 @@ class Blockhash < Formula
   url "https://github.com/commonsmachinery/blockhash/archive/v0.3.3.tar.gz"
   sha256 "3c48af7bdb1f673b2f3c9f8c0bfa9107a7019b54ac3b4e30964bc0707debdd3a"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/commonsmachinery/blockhash.git", branch: "master"
 
   bottle do
