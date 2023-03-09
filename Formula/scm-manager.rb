@@ -5,6 +5,11 @@ class ScmManager < Formula
   sha256 "8861aa4c765dfe046264f97347065c9c1c6055c14abf4b8d09a340f393a41b29"
   license all_of: ["Apache-2.0", "MIT"]
 
+  livecheck do
+    url "https://scm-manager.org/download/rss.xml"
+    regex(%r{/download/(\d+(?:\.\d+)+)}i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "130940defae1b8b956c58d3ad23d4a584940cf84a43093b904e668ea5ded775f"
   end
