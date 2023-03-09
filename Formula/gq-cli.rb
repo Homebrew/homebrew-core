@@ -1,7 +1,9 @@
 class GqCli < Formula
   desc "A command-line tool for goquant.io"
   homepage "https://goquant.io"
+  url "https://brickelldatabros1aboah.blob.core.windows.net/public/macos-x86.tar.gz"
   license "MIT"
+  version "0.0.1"
 
   if Hardware::CPU.arm?
     url "https://brickelldatabros1aboah.blob.core.windows.net/public/macos-arm.tar.gz"
