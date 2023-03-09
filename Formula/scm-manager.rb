@@ -6,8 +6,8 @@ class ScmManager < Formula
   license all_of: ["Apache-2.0", "MIT"]
 
   livecheck do
-    url "https://scm-manager.org/download/rss.xml"
-    regex(%r{/download/(\d+(?:\.\d+)+)}i)
+    url "https://scm-manager.org/download/"
+    regex(/href=.*?unix[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
