@@ -1,7 +1,6 @@
 class Snappy < Formula
   desc "Compression/decompression library aiming for high speed"
   homepage "https://google.github.io/snappy/"
-  # TODO: Remove `ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib` at rebuild.
   url "https://github.com/google/snappy/archive/1.1.10.tar.gz"
   sha256 "49d831bffcc5f3d01482340fe5af59852ca2fe76c3e05df0e67203ebbe0f1d90"
   license "BSD-3-Clause"
@@ -32,20 +31,11 @@ class Snappy < Formula
     cause "error: invalid output constraint '=@ccz' in asm"
   end
 
-  # Fix for build failure. Remove with next release.
-  patch do
-    on_linux do
-      url "https://github.com/google/snappy/commit/0c716d435abe65250100c2caea0e5126ac4e14bd.patch?full_index=1"
-      sha256 "12ff7d1182a35298de3287db32ef8581b8ef600efd6d9509fcc894d3d2056c80"
-    end
-  end
-
   # Fix issue where `snappy` setting -fno-rtti causes build issues on `folly`
   # `folly` issue ref: https://github.com/facebook/folly/issues/1583
   patch :DATA
 
   def install
-    ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
     ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
 
     # Disable tests/benchmarks used for Snappy development
