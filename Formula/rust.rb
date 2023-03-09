@@ -4,14 +4,14 @@ class Rust < Formula
   license any_of: ["Apache-2.0", "MIT"]
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.67.1-src.tar.gz"
-    sha256 "46483d3e5de85a3bd46f8e7a3ae1837496391067dbe713a25d3cf051b3d9ff6e"
+    url "https://static.rust-lang.org/dist/rustc-1.68.0-src.tar.gz"
+    sha256 "eaf4d8b19f23a232a4770fb53ab5e7acdedec11da1d02b0e5d491ca92ca96d62"
 
     # From https://github.com/rust-lang/rust/tree/#{version}/src/tools
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
-          tag:      "0.68.0",
-          revision: "8ecd4f20a9efb626975ac18a016d480dc7183d9b"
+          tag:      "0.69.0",
+          revision: "115f34552518a2f9b96d740192addbac1271e7e6"
     end
   end
 
@@ -36,7 +36,7 @@ class Rust < Formula
   depends_on "cmake" => :build
   depends_on "ninja" => :build
   depends_on "python@3.11" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pkg-config"
 
   uses_from_macos "curl"
@@ -46,24 +46,24 @@ class Rust < Formula
     on_macos do
       # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0.json
       on_arm do
-        url "https://static.rust-lang.org/dist/2023-01-10/cargo-1.66.1-aarch64-apple-darwin.tar.gz"
-        sha256 "01e83be8ce32e3af5155efde7f3e14b0864c1a73b2e73f03401bd14b67018ad7"
+        url "https://static.rust-lang.org/dist/2023-02-09/cargo-1.67.1-aarch64-apple-darwin.tar.gz"
+        sha256 "1d5e7ca72fa4a75c1fbe0e2cd87c32e2e0e0d1321e18d3c2097e70ce33ce649a"
       end
       on_intel do
-        url "https://static.rust-lang.org/dist/2023-01-10/cargo-1.66.1-x86_64-apple-darwin.tar.gz"
-        sha256 "125d0ec5b5a159f4f3757b4ae9eaa338afb7d38b4e290794b8157ed6ca8ac16f"
+        url "https://static.rust-lang.org/dist/2023-02-09/cargo-1.67.1-x86_64-apple-darwin.tar.gz"
+        sha256 "7404d9dccb0f6ae776e5ddea1413bcf42b24ff1415a08b1763575692ef0c397d"
       end
     end
 
     on_linux do
       # From: https://github.com/rust-lang/rust/blob/#{version}/src/stage0.json
       on_arm do
-        url "https://static.rust-lang.org/dist/2023-01-10/cargo-1.66.1-aarch64-unknown-linux-gnu.tar.gz"
-        sha256 "96a44a8ca403f66573d5a8a56610456ac8c0a075f32a6680f8ec4cfff27aa244"
+        url "https://static.rust-lang.org/dist/2023-02-09/cargo-1.67.1-aarch64-unknown-linux-gnu.tar.gz"
+        sha256 "e1ab1452572cb78fc7ec88bcadb2fd3e230c72b84d990fd6fc4ec57a24abdb2f"
       end
       on_intel do
-        url "https://static.rust-lang.org/dist/2023-01-10/cargo-1.66.1-x86_64-unknown-linux-gnu.tar.gz"
-        sha256 "7752e7c5cd12204fe852bcb2a67d7fa9ab037f26dd34ccc3b25253b4c223df19"
+        url "https://static.rust-lang.org/dist/2023-02-09/cargo-1.67.1-x86_64-unknown-linux-gnu.tar.gz"
+        sha256 "8d9310dc1e8d36ebd8d56ccaddb0c854daddb6b750c147c141be04f0ec6e89f0"
       end
     end
   end
@@ -73,7 +73,7 @@ class Rust < Formula
 
     # Ensure that the `openssl` crate picks up the intended library.
     # https://crates.io/crates/openssl#manual-configuration
-    ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
+    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
 
     if OS.mac? && MacOS.version <= :sierra
       # Requires the CLT to be the active developer directory if Xcode is installed
