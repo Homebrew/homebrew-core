@@ -1,30 +1,33 @@
 class GqCli < Formula
-  desc "A command-line tool for goquant.io"
+  desc "Command-line interface for GQ"
   homepage "https://goquant.io"
-  url "https://brickelldatabros1aboah.blob.core.windows.net/public/macos-x86.tar.gz"
   license "MIT"
-  version "0.0.1"
 
-  if Hardware::CPU.arm?
-    url "https://brickelldatabros1aboah.blob.core.windows.net/public/macos-arm.tar.gz"
-    sha256 "d70775df10c53b5e6b38af46c2a963bd094417c0e621db82d5adb398b634913a"
-  else
-    url "https://brickelldatabros1aboah.blob.core.windows.net/public/macos-x86.tar.gz"
-    sha256 "99a64a8b7164c66a03aa8f34e68a7acb4cf2254642345839c742afd989a5f2f1"
+  bottle do
+    sha256 cellar: :any_skip_relocation, monterey: "b21e0a5f4238130218bfae10c6604a05263e9ef52f462af246d54a93f54821d1"
   end
+
+  on_macos do
+    on_arm do
+      url "https://brickelldatabros1aboah.blob.core.windows.net/public/gq-arm-0.0.1.big_sur.bottle.tar.gz"
+      sha256 "d8d14a758174c9f67bb7adaf4d4a8897f3b3fa3b7f4338eb86f2c2c222e9a785"
+    end
+
+    on_intel do
+      url "https://brickelldatabros1aboah.blob.core.windows.net/public/gq-x86-0.0.1.high_sierra.bottle.tar.gz"
+      sha256 "99a64a8b7164c66a03aa8f34e68a7acb4cf2254642345839c742afd989a5f2f1"
+    end
+  end
+
   def install
     bin.install "gq"
   end
 
   def post_install
-    if system("#{prefix}/install.sh")
-      ohai "Installation successful"
-    else
-      opoo "Installation failed"
-    end
+    system "sudo", "chmod", "+x", "#{bin}/gq"
   end
 
   test do
-    assert_match "gq", shell_output("#{bin}/gq --help")
+    system "#{bin}/gq", "--version"
   end
 end
