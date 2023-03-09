@@ -8,7 +8,7 @@ class Geographiclib < Formula
 
   livecheck do
     url :stable
-    regex(/^r?(\d+(?:\.\d+)+)$/i)
+    regex(/^r(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
