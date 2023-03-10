@@ -26,10 +26,9 @@ class Victoriametrics < Formula
 
   service do
     run [opt_bin/"victoria-metrics",
+      "-httpListenAddr=127.0.0.1:8428",
       "-promscrape.config=#{etc}/victoriametrics/scrape.yml",
-      "-storageDataPath=#{var}/victoriametrics-data",
-      "-httpListenAddr=127.0.0.1:8428"
-    ]
+      "-storageDataPath=#{var}/victoriametrics-data"]
     keep_alive false
     log_path var/"log/victoria-metrics.log"
     error_log_path var/"log/victoria-metrics.err.log"
