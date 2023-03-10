@@ -12,7 +12,7 @@ class Victoriametrics < Formula
     system "make", "victoria-metrics"
     bin.install "bin/victoria-metrics"
 
-    (etc/"scrape.yml").write <<~EOS
+    (etc/"victoriametrics/scrape.yml").write <<~EOS
       global:
         scrape_interval: 10s
 
@@ -25,7 +25,10 @@ class Victoriametrics < Formula
   end
 
   service do
-    run [bin/"victoria-metrics", "-promscrape.config=#{etc}/scrape.yml", "-storageDataPath=#{var}/victoriametrics-data", "-httpListenAddr=127.0.0.1:8428", "-enableTCP6"]
+    run [opt_bin"victoria-metrics", "-promscrape.config=#{etc}/victoriametrics/scrape.yml",
+      "-storageDataPath=#{var}/victoriametrics-data",
+      "-httpListenAddr=127.0.0.1:8428"
+    ]
     keep_alive false
     log_path var/"log/victoria-metrics.log"
     error_log_path var/"log/victoria-metrics.err.log"
