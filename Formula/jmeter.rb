@@ -10,7 +10,9 @@ class Jmeter < Formula
     sha256 cellar: :any_skip_relocation, all: "ad4c2d2fd4fe481f9443824e6555240d68b26bd01a7ce8444f755fe20f32e51e"
   end
 
-  depends_on "openjdk"
+  # Explicitely require version to avoid issues with snowflake driver
+  # upstream issue: https://github.com/snowflakedb/snowflake-jdbc/issues/589
+  depends_on "openjdk@11"
 
   resource "jmeter-plugins-manager" do
     url "https://search.maven.org/remotecontent?filepath=kg/apc/jmeter-plugins-manager/1.7/jmeter-plugins-manager-1.7.jar"
@@ -22,7 +24,7 @@ class Jmeter < Formula
     rm_f Dir["bin/*.bat"]
     prefix.install_metafiles
     libexec.install Dir["*"]
-    (bin/"jmeter").write_env_script libexec/"bin/jmeter", JAVA_HOME: Formula["openjdk"].opt_prefix
+    (bin/"jmeter").write_env_script libexec/"bin/jmeter", JAVA_HOME: Formula["openjdk@11"].opt_prefix
 
     resource("jmeter-plugins-manager").stage do
       (libexec/"lib/ext").install Dir["*"]
