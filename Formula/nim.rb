@@ -1,8 +1,8 @@
 class Nim < Formula
   desc "Statically typed compiled systems programming language"
   homepage "https://nim-lang.org/"
-  url "https://nim-lang.org/download/nim-1.6.10.tar.xz"
-  sha256 "13d7702f8b57087babe8cd051c13bc56a3171418ba867b49c6bbd09b29d24fea"
+  url "https://nim-lang.org/download/nim-1.6.12.tar.xz"
+  sha256 "acef0b0ab773604d4d7394b68519edb74fb30f46912294b28bc27e0c7b4b4dc2"
   license "MIT"
   head "https://github.com/nim-lang/Nim.git", branch: "devel"
 
@@ -25,7 +25,7 @@ class Nim < Formula
   depends_on "help2man" => :build
 
   on_linux do
-    depends_on "openssl@1.1"
+    depends_on "openssl@3"
   end
 
   def install
