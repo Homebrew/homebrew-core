@@ -1,8 +1,8 @@
 class Dutree < Formula
   desc "Tool to analyze file system usage written in Rust"
   homepage "https://github.com/nachoparker/dutree"
-  url "https://github.com/nachoparker/dutree/archive/refs/tags/v0.2.15.tar.gz"
-  sha256 "436484f7335939c208860c7e062dea47807aa82f175acde684d8f13f6e7d0efe"
+  url "https://github.com/nachoparker/dutree/archive/refs/tags/v0.2.18.tar.gz"
+  sha256 "55c30e57cc339dd16141510af33245cc3b82f588f22419fc034f02b36ebecba0"
   license "GPL-3.0-only"
   head "https://github.com/nachoparker/dutree.git", branch: "master"
 
