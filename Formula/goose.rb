@@ -1,8 +1,8 @@
 class Goose < Formula
   desc "Go Language's command-line interface for database migrations"
   homepage "https://github.com/pressly/goose"
-  url "https://github.com/pressly/goose/archive/v3.9.0.tar.gz"
-  sha256 "fa425e599403f57a7f13b951adf3290486b47a3a16ff646825dbd1d6562c915f"
+  url "https://github.com/pressly/goose/archive/v3.10.0.tar.gz"
+  sha256 "df6ac59600609ad1d18846f3b29e6b83764d396c247b4d0a0cadfa3f48a2e27c"
   license "MIT"
 
   bottle do
