@@ -19,7 +19,6 @@ class Dooit < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "poetry" => :build
   depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "six"
@@ -171,11 +170,7 @@ class Dooit < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3.11")
-    venv.pip_install resources
-    poetry = Formula["poetry"].opt_bin/"poetry"
-    system poetry, "build", "--format", "wheel", "--verbose", "--no-interaction"
-    venv.pip_install_and_link Dir["dist/dooit-*.whl"].first
+    virtualenv_install_with_resources
 
     # we depend on virtualenv, but that's a separate formula, so install a `.pth` file to link them
     site_packages = Language::Python.site_packages("python3.11")
