@@ -25,6 +25,7 @@ class Vte3 < Formula
   depends_on "glib"
   depends_on "gnutls"
   depends_on "gtk+3"
+  depends_on "gtk4"
   depends_on "icu4c"
   depends_on macos: :mojave
   depends_on "pango"
@@ -59,6 +60,7 @@ class Vte3 < Formula
 
     system "meson", "setup", "build", "-Dgir=true",
                                       "-Dgtk3=true",
+                                      "-Dgtk4=true",
                                       "-Dgnutls=true",
                                       "-Dvapi=true",
                                       "-D_b_symbolic_functions=false",
@@ -79,6 +81,10 @@ class Vte3 < Formula
       }
     EOS
     flags = shell_output("pkg-config --cflags --libs vte-2.91").chomp.split
+    system ENV.cc, "test.c", "-o", "test", *flags
+    system "./test"
+
+    flags = shell_output("pkg-config --cflags --libs vte-2.91-gtk4").chomp.split
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
