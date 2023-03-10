@@ -2,8 +2,8 @@ class Flagd < Formula
   desc "Feature flag daemon with a Unix philosophy"
   homepage "https://github.com/open-feature/flagd"
   url "https://github.com/open-feature/flagd.git",
-      tag:      "v0.4.2",
-      revision: "5dad8ada4dd981b13cc7640d55ccb6e4cab02295"
+      tag:      "flagd/v0.4.4",
+      revision: "873c7b37dbbfefa8f6448fb1dec06b2ce40fb02d"
   license "Apache-2.0"
   head "https://github.com/open-feature/flagd.git", branch: "main"
 
@@ -28,7 +28,8 @@ class Flagd < Formula
       -X main.date=#{time.iso8601}
     ]
 
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "make", "workspace-init"
+    system "go", "build", *std_go_args(ldflags: ldflags), "./flagd/main.go"
     generate_completions_from_executable(bin/"flagd", "completion")
   end
 
