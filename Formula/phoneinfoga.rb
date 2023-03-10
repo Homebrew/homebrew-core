@@ -7,8 +7,8 @@ class Phoneinfoga < Formula
   head "https://github.com/sundowndev/phoneinfoga.git", branch: "master"
 
   depends_on "go" => :build
+  depends_on "yarn" => :build
   depends_on "node@16"
-  depends_on "yarn"
 
   def install
     cd "web/client" do
