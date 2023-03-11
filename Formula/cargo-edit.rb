@@ -4,6 +4,7 @@ class CargoEdit < Formula
   url "https://github.com/killercup/cargo-edit/archive/v0.11.9.tar.gz"
   sha256 "46670295e2323fc2f826750cdcfb2692fbdbea87122fe530a07c50c8dba1d3d7"
   license "MIT"
+  revision 1
 
   bottle do
     rebuild 1
@@ -17,11 +18,14 @@ class CargoEdit < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libgit2"
+  depends_on "libgit2@1.5"
   depends_on "openssl@1.1"
   depends_on "rust" # uses `cargo` at runtime
 
   def install
+    # Ensure the declared `openssl@1.1` dependency will be picked up.
+    # https://docs.rs/openssl/latest/openssl/#manual
+    ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
     ENV["OPENSSL_NO_VENDOR"] = "1"
 
     # Read the default flags from `Cargo.toml` so we can remove the `vendored-libgit2` feature.
@@ -66,7 +70,7 @@ class CargoEdit < Formula
     end
 
     [
-      Formula["libgit2"].opt_lib/shared_library("libgit2"),
+      Formula["libgit2@1.5"].opt_lib/shared_library("libgit2"),
       Formula["openssl@1.1"].opt_lib/shared_library("libssl"),
       Formula["openssl@1.1"].opt_lib/shared_library("libcrypto"),
     ].each do |library|
