@@ -56,9 +56,11 @@ class Nwchem < Formula
       ENV["LAPACK_LIB"] = "-L#{Formula["openblas"].opt_lib} -lopenblas"
       ENV["BLAS_SIZE"] = "4"
       ENV["SCALAPACK"] = "-L#{Formula["scalapack"].opt_prefix}/lib -lscalapack"
+      ENV["SCALAPACK_SIZE"] = "8"
       ENV["USE_64TO32"] = "y"
+      ENV["USE_HWOPT"] = "n"
       os = OS.mac? ? "MACX64" : "LINUX64"
-      system "make", "nwchem_config", "NWCHEM_MODULES=all python"
+      system "make", "nwchem_config", "NWCHEM_MODULES=all python", "USE_MPI=Y"
       system "make", "NWCHEM_TARGET=#{os}", "USE_MPI=Y"
 
       bin.install "../bin/#{os}/nwchem"
