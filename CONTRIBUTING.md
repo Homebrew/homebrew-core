@@ -42,7 +42,7 @@ with these commands:
 
 ```
 brew uninstall --force foo
-brew install --build-from-source foo
+HOMEBREW_NO_INSTALL_FROM_API=1 brew install --build-from-source foo
 brew test foo
 brew audit --strict foo
 brew style foo
