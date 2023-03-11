@@ -7,6 +7,11 @@ class Dagger < Formula
   license "Apache-2.0"
   head "https://github.com/dagger/dagger.git", branch: "main"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4e77c5d777e103597e2196897a4c39aa39f093f560929ad89475c77d69e268d2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5bea80386dde82fbff42872fe2d2df1b2dfca997f3aae278d676d5fba7016456"
