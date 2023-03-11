@@ -30,24 +30,6 @@ class Nwchem < Formula
 
   uses_from_macos "libxcrypt"
 
-  # patches for compatibility with python@3.11
-  # https://github.com/nwchemgit/nwchem/issues/271
-  patch do
-    url "https://github.com/nwchemgit/nwchem/commit/638401361c6f294164a4f820ff867a62ac836fd5.patch?full_index=1"
-    sha256 "20516447b75bde548eb7e40faafcc5d310e8236a7cd3e44f53a753ac1312530e"
-  end
-
-  patch do
-    url "https://github.com/nwchemgit/nwchem/commit/cd0496c6bdd58cf2f1004e32cb39499a14c4c677.patch?full_index=1"
-    sha256 "1ff3fdacdebb0f812f6f14c423053a12f2389b0208b8809f3ab401b066866ffc"
-  end
-
-  # patch for compatibility with ARM
-  patch do
-    url "https://github.com/nwchemgit/nwchem/commit/2a14c04f.patch?full_index=1"
-    sha256 "3a14bb5312861948a468a02a0a079a730e8d9db98d2f2758076f9cd649a6fc04"
-  end
-
   def install
     pkgshare.install "QA"
 
