@@ -1,9 +1,11 @@
 class Cfv < Formula
+  include Language::Python::Virtualenv
+
   desc "Test and create various files (e.g., .sfv, .csv, .crc., .torrent)"
-  homepage "https://cfv.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/cfv/cfv/1.18.3/cfv-1.18.3.tar.gz"
-  sha256 "ff28a8aa679932b83eb3b248ed2557c6da5860d5f8456ffe24686253a354cff6"
-  license "GPL-2.0"
+  homepage "https://github.com/cfv-project/cfv"
+  url "https://files.pythonhosted.org/packages/db/54/c5926a7846a895b1e096854f32473bcbdcb2aaff320995f3209f0a159be4/cfv-3.0.0.tar.gz"
+  sha256 "2530f08b889c92118658ff4c447ccf83ac9d2973af8dae4d33cf5bed1865b376"
+  license "GPL-2.0-or-later"
 
   bottle do
     rebuild 1
@@ -18,8 +20,10 @@ class Cfv < Formula
     sha256 cellar: :any_skip_relocation, el_capitan:     "49b83783b5737a364504fdd9fd09672134e0103c7bb8152741d67fca455fde04"
   end
 
+  depends_on "python@3.11"
+
   def install
-    system "make", "prefix=#{prefix}", "mandir=#{man}", "install"
+    virtualenv_install_with_resources
   end
 
   test do
