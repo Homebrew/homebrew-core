@@ -56,7 +56,8 @@ class Bazel < Formula
       system "./output/bazel", "--output_user_root",
                                buildpath/"output_user_root",
                                "build",
-                               "scripts:bash_completion"
+                               "scripts:bash_completion",
+                               "scripts:fish_completion"
 
       bin.install "scripts/packages/bazel.sh" => "bazel"
       ln_s libexec/"bin/bazel-real", bin/"bazel-#{version}"
@@ -65,6 +66,7 @@ class Bazel < Formula
 
       bash_completion.install "bazel-bin/scripts/bazel-complete.bash"
       zsh_completion.install "scripts/zsh_completion/_bazel"
+      fish_completion.install "bazel-bin/scripts/bazel.fish"
     end
   end
 
