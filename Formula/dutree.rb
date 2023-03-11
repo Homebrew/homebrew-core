@@ -26,6 +26,6 @@ class Dutree < Formula
     touch testpath/"brewtest"
     assert_match "brewtest", shell_output("#{bin}/dutree --usage #{testpath}")
 
-    assert_match "dutree version v#{version}", shell_output("#{bin}/dutree --version")
+    assert_match "dutree version #{version}", shell_output("#{bin}/dutree --version")
   end
 end
