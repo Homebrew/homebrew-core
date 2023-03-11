@@ -1,10 +1,9 @@
 class Libowfat < Formula
   desc "Reimplements libdjb"
   homepage "https://www.fefe.de/libowfat/"
-  url "https://www.fefe.de/libowfat/libowfat-0.32.tar.xz"
-  sha256 "f4b9b3d9922dc25bc93adedf9e9ff8ddbebaf623f14c8e7a5f2301bfef7998c1"
+  url "https://www.fefe.de/libowfat/libowfat-0.33.tar.xz"
+  sha256 "311ec8b3f4b72bb442e323fb013a98f956fa745547f2bc9456287b20d027cd7d"
   license "GPL-2.0-only"
-  revision 1
   head ":pserver:cvs:@cvs.fefe.de:/cvs", using: :cvs
 
   livecheck do
@@ -22,12 +21,10 @@ class Libowfat < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ed6b06c82988da9cee1f3d4fc9f9e7b180fcf656cb1e508237b3cfe225257770"
   end
 
-  patch do
-    url "https://github.com/mistydemeo/libowfat/commit/278a675a6984e5c202eee9f7e36cda2ae5da658d.patch?full_index=1"
-    sha256 "32eab2348f495f483f7cd34ffd7543bd619f312b7094a4b55be9436af89dd341"
-  end
+  patch :DATA
 
   def install
+    system "make", "headers"
     system "make", "libowfat.a"
     system "make", "install", "prefix=#{prefix}", "MAN3DIR=#{man3}"
   end
@@ -44,3 +41,67 @@ class Libowfat < Formula
     system "./test"
   end
 end
+
+__END__
+diff --git a/socket/socket_accept4_flags.c b/socket/socket_accept4_flags.c
+index c4b417d..1954e77 100644
+--- a/socket/socket_accept4_flags.c
++++ b/socket/socket_accept4_flags.c
+@@ -79,6 +79,7 @@ incoming:
+ #endif
+ 
+ #ifdef HAVE_ACCEPT4
++#if !defined(__APPLE__)
+     static int noaccept4;	// auto initialized to 0
+     if (noaccept4)
+       fd=-1;
+@@ -94,6 +95,7 @@ incoming:
+       }
+     }
+     if (fd==-1) {
++#endif
+ #endif
+       int fl = 0;
+       /* if we get here, the kernel did not support accept4. */
+@@ -118,8 +120,10 @@ incoming:
+ #endif
+ #endif
+ #ifdef HAVE_ACCEPT4
++#if !defined(__APPLE__)
+     }
+ #endif
++#endif
+ 
+ #ifdef __MINGW32__
+   }
+diff --git a/socket/socket_accept6_flags.c b/socket/socket_accept6_flags.c
+index ec87bfa..017ed59 100644
+--- a/socket/socket_accept6_flags.c
++++ b/socket/socket_accept6_flags.c
+@@ -93,6 +93,7 @@ incoming:
+ #endif
+ 
+ #ifdef HAVE_ACCEPT4
++#if !defined(__APPLE__)
+     static int noaccept4;	// auto initialized to 0
+     if (noaccept4)
+       fd=-1;
+@@ -107,6 +108,7 @@ incoming:
+       }
+     }
+     if (fd==-1) {
++#endif
+ #endif
+       int fl = 0;
+       fd = accept(s, (struct sockaddr *) &sa, &dummy);
+@@ -131,8 +133,10 @@ incoming:
+ #endif
+ #endif
+ #ifdef HAVE_ACCEPT4
++#if !defined(__APPLE__)
+     }
+ #endif
++#endif
+ #ifdef __MINGW32__
+   }
+ #endif
