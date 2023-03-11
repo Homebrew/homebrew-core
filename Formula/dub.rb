@@ -33,11 +33,26 @@ class Dub < Formula
     system "bin/dub", "scripts/man/gen_man.d"
     bin.install "bin/dub"
     man1.install Dir["scripts/man/*.1"]
+
+    bash_completion.install "scripts/bash-completion/dub.bash" => "dub"
     zsh_completion.install "scripts/zsh-completion/_dub"
     fish_completion.install "scripts/fish-completion/dub.fish"
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/dub --version").split(/[ ,]/)[2]
+    assert_match "DUB version #{version}", shell_output("#{bin}/dub --version")
+
+    (testpath/"dub.json").write <<~EOS
+      {
+        "name": "brewtest",
+        "description": "A simple D application"
+      }
+    EOS
+    (testpath/"source/app.d").write <<~EOS
+      import std.stdio;
+      void main() { writeln("Hello, world!"); }
+    EOS
+    system "#{bin}/dub", "build"
+    assert_equal "Hello, world!", shell_output("#{testpath}/brewtest").chomp
   end
 end
