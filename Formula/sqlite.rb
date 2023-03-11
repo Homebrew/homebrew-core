@@ -50,6 +50,9 @@ class Sqlite < Formula
 
     system "./configure", *args
     system "make", "install"
+
+    # Avoid rebuilds of dependants that hardcode this path.
+    inreplace lib/"pkgconfig/sqlite3.pc", prefix, opt_prefix
   end
 
   test do
