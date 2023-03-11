@@ -52,7 +52,6 @@ class Glib < Formula
     args = %W[
       --default-library=both
       --localstatedir=#{var}
-      -Diconv=auto
       -Dgio_module_dir=#{HOMEBREW_PREFIX}/lib/gio/modules
       -Dbsymbolic_functions=false
       -Ddtrace=false
