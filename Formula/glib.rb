@@ -46,6 +46,8 @@ class Glib < Formula
 
   def install
     inreplace %w[gio/xdgmime/xdgmime.c glib/gutils.c], "@@HOMEBREW_PREFIX@@", HOMEBREW_PREFIX
+    # Avoid the sandbox violation when an empty directory is created outside of the formula prefix.
+    inreplace "gio/meson.build", "install_emptydir(glib_giomodulesdir)", ""
 
     # Disable dtrace; see https://trac.macports.org/ticket/30413
     # and https://gitlab.gnome.org/GNOME/glib/-/issues/653
@@ -55,6 +57,7 @@ class Glib < Formula
       -Dgio_module_dir=#{HOMEBREW_PREFIX}/lib/gio/modules
       -Dbsymbolic_functions=false
       -Ddtrace=false
+      -Druntime_dir=#{var}/run
     ]
 
     system "meson", "setup", "build", *args, *std_meson_args
