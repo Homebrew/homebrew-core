@@ -22,6 +22,9 @@ class CargoEdit < Formula
   depends_on "rust" # uses `cargo` at runtime
 
   def install
+    # Ensure the declared `openssl@1.1` dependency will be picked up.
+    # https://docs.rs/openssl/latest/openssl/#manual
+    ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
     ENV["OPENSSL_NO_VENDOR"] = "1"
 
     # Read the default flags from `Cargo.toml` so we can remove the `vendored-libgit2` feature.
