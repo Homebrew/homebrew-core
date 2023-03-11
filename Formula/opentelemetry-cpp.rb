@@ -22,19 +22,22 @@ class OpentelemetryCpp < Formula
   depends_on "nlohmann-json"
   depends_on "prometheus-cpp"
   depends_on "protobuf"
+  # TODO remove thrift dependency when Jaeger exporter is removed
+  # upstream PR, # https://github.com/open-telemetry/opentelemetry-cpp/pull/2031
   depends_on "thrift"
 
   uses_from_macos "curl"
 
   def install
     system "cmake", "-S", ".", "-B", "build",
+                    "-DCMAKE_CXX_STANDARD=14",
+                    "-DCMAKE_CXX_STANDARD_REQUIRED=TRUE",
                     "-DCMAKE_INSTALL_RPATH=#{rpath}",
-                    "-DBUILD_TESTING=OFF",
                     "-DWITH_ELASTICSEARCH=ON",
                     "-DWITH_EXAMPLES=OFF",
-                    "-DWITH_JAEGER=ON",
+                    # upstream PR to remove Jaeger exporter
+                    "-DWITH_JAEGER=OFF",
                     "-DWITH_LOGS_PREVIEW=ON",
-                    "-DWITH_METRICS_PREVIEW=ON",
                     "-DWITH_OTLP=ON",
                     "-DWITH_OTLP_GRPC=ON",
                     "-DWITH_OTLP_HTTP=ON",
