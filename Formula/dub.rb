@@ -22,7 +22,7 @@ class Dub < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7ad9a025ebe764f94dbc23116b68b6b10682d0ec4886c0d0663860203055841f"
   end
 
-  depends_on "ldc" => :build
+  depends_on "ldc" => [:build, :test]
   depends_on "pkg-config"
 
   uses_from_macos "curl"
@@ -52,7 +52,7 @@ class Dub < Formula
       import std.stdio;
       void main() { writeln("Hello, world!"); }
     EOS
-    system "#{bin}/dub", "build"
+    system "#{bin}/dub", "build", "--compiler=#{Formula["ldc"].opt_bin}/ldc2"
     assert_equal "Hello, world!", shell_output("#{testpath}/brewtest").chomp
   end
 end
