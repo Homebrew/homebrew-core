@@ -9,7 +9,7 @@ class Teip < Formula
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "oniguruma"
-  uses_from_macos "llvm" # for libclang
+  uses_from_macos "llvm" => :build # for libclang
 
   def install
     ENV["RUSTONIG_DYNAMIC_LIBONIG"] = "1"
