@@ -14,10 +14,11 @@ class Benerator < Formula
     # Installs only the "bin" and "lib" directories from the tarball
     libexec.install Dir["bin", "lib"]
     # Generate a script that sets the necessary environment variables
+    env = Language::Java.overridable_java_home_env
+    env["BENERATOR_HOME"] = libexec
     (bin/"benerator").write_env_script(
       libexec / "bin/benerator",
-      JAVA_HOME:      Language::Java.overridable_java_home_env,
-      BENERATOR_HOME: libexec,
+      env,
     )
   end
 
