@@ -13,6 +13,7 @@ class RubyBuild < Formula
   depends_on "autoconf"
   depends_on "pkg-config"
   depends_on "readline"
+  depends_on "libyaml"
 
   def install
     # these references are (as-of v20210420) only relevant on FreeBSD but they
