@@ -4,6 +4,7 @@ class GitInteractiveRebaseTool < Formula
   url "https://github.com/MitMaro/git-interactive-rebase-tool/archive/2.2.1.tar.gz"
   sha256 "86f262e6607ac0bf5cee22ca1b333cf9f827e09d3257658d525a518aa785ca7c"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
