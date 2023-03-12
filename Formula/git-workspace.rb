@@ -4,6 +4,7 @@ class GitWorkspace < Formula
   url "https://github.com/orf/git-workspace/archive/refs/tags/v1.2.1.tar.gz"
   sha256 "42413850a298f8d82737b7b1370b8c15be55927368d109eba7a599e498a441c1"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "e625c6e986197e317d036f6edb60a57bc6d091fa16279d801a43ade85fad2c36"
@@ -17,7 +18,7 @@ class GitWorkspace < Formula
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
-  depends_on "libgit2"
+  depends_on "libgit2@1.5"
 
   def install
     system "cargo", "install", *std_cargo_args
@@ -34,7 +35,7 @@ class GitWorkspace < Formula
     linkage_with_libgit2 = (bin/"git-workspace").dynamically_linked_libraries.any? do |dll|
       next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
 
-      File.realpath(dll) == (Formula["libgit2"].opt_lib/shared_library("libgit2")).realpath.to_s
+      File.realpath(dll) == (Formula["libgit2@1.5"].opt_lib/shared_library("libgit2")).realpath.to_s
     end
 
     assert linkage_with_libgit2, "No linkage with libgit2! Cargo is likely using a vendored version."
