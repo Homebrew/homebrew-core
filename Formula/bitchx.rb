@@ -13,7 +13,10 @@ class Bitchx < Formula
     # https://sourceforge.net/p/bitchx/git/ci/1c6ff3088ad01a15bea50f78f1b2b468db7afae9/
     # https://sourceforge.net/p/bitchx/git/ci/4f63d4892995eec6707f194b462c9fc3184ee85d/
     # Remove with next release.
-    patch :DATA
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/7a83dbb5d8e3a3070ff80a28d396868cdd6b23ac/bitchx/linux.patch"
+      sha256 "99caa10f32bfe4727a836b8cc99ec81e3c059729e4bb90641be392f4e98255d9"
+    end
   end
 
   bottle do
@@ -64,76 +67,3 @@ class Bitchx < Formula
     system bin/"BitchX", "-v"
   end
 end
-
-__END__
-diff --git a/dll/amp/layer2.c b/dll/amp/layer2.c
-index d4c4d95..2b7d412 100644
---- a/dll/amp/layer2.c
-+++ b/dll/amp/layer2.c
-@@ -77,7 +77,7 @@ int hsize,fs,mean_frame_size;
- 					   nbal=&t_nbal2;
- 					   sblimit=8;
- 					   break;
--				default  : /*printf(" bit alloc info no gud ");*/
-+				default  : break;
- 				}
- 				break;
- 		case 1 : switch (bitrate)	/* 1 = 48 kHz */
-@@ -98,7 +98,7 @@ int hsize,fs,mean_frame_size;
- 					   nbal=&t_nbal2;
- 					   sblimit=8;
- 					   break;
--				default  : /*printf(" bit alloc info no gud ");*/
-+				default  : break;
- 				}
- 				break;
- 		case 2 : switch (bitrate)	/* 2 = 32 kHz */
-@@ -122,10 +122,10 @@ int hsize,fs,mean_frame_size;
-                                    nbal=&t_nbal3;
-                                    sblimit=12;
- 				   break;
--			default  : /*printf("bit alloc info not ok\n");*/
-+			default  : break;
- 			}
- 	                break;                                                    
--		default  : /*printf("sampling freq. not ok/n");*/
-+		default  : break;
- 	} else {
- 		bit_alloc_index=&t_allocMPG2;
- 		nbal=&t_nbalMPG2;
-diff --git a/source/commands.c b/source/commands.c
-index d140d57..7fd81d6 100644
---- a/source/commands.c
-+++ b/source/commands.c
-@@ -118,7 +118,6 @@ extern	int	doing_notice;
- 
- static	void	oper_password_received (char *, char *);
- 
--int	no_hook_notify = 0;
- int	load_depth = -1;
- 
- extern char	cx_function[];
-diff --git a/source/modules.c b/source/modules.c
-index 52817fc..99d39bb 100644
---- a/source/modules.c
-+++ b/source/modules.c
-@@ -77,7 +77,7 @@ extern int BX_read_sockets();
- extern int identd;
- extern int doing_notice;
- 
--int (*serv_open_func) (int, unsigned long, int);
-+extern int (*serv_open_func) (int, unsigned long, int);
- extern int (*serv_output_func) (int, int, char *, int);
- extern int (*serv_input_func)  (int, char *, int, int, int);
- extern int (*serv_close_func) (int, unsigned long, int);
-diff --git a/source/numbers.c b/source/numbers.c
-index 741fca9..2f80f22 100644
---- a/source/numbers.c
-+++ b/source/numbers.c
-@@ -66,7 +66,6 @@ void	show_server_map		(void);
- int	stats_k_grep		(char **);
- void	who_handlekill		(char *, char *, char *);
- void	handle_tracekill	(int, char *, char *, char *);
--int	no_hook_notify;
- extern  AJoinList *ajoin_list;
- void	remove_from_server_list (int);
