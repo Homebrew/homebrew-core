@@ -19,6 +19,12 @@ class LaceworkCli < Formula
 
   depends_on "go" => :build
 
+  # Enable completions, remove after merged and released
+  patch do
+    url "https://github.com/lacework/go-sdk/commit/750bad27d89fe925a9f69377a87bc738907aecff.patch?full_index=1"
+    sha256 "aa962fbaf173503a67c7bf86c5120f76723a983f7f3e118484bf0ae102c13cc6"
+  end
+
   def install
     ldflags = %W[
       -s -w
@@ -27,6 +33,8 @@ class LaceworkCli < Formula
       -X github.com/lacework/go-sdk/cli/cmd.BuildTime=#{time.iso8601}
     ]
     system "go", "build", *std_go_args(output: bin/"lacework", ldflags: ldflags), "./cli"
+
+    generate_completions_from_executable(bin/"lacework", "completion", base_name: "lacework")
   end
 
   test do
