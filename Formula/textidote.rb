@@ -31,10 +31,10 @@ class Textidote < Formula
     system "ant", "-Dbuild.targetjdk=#{Formula["openjdk"].version.major}"
 
     # Install the JAR + a wrapper script
-    libexec.install "textidote.jar"
+    libexec.install "textidote-#{version}.jar" => "textidote.jar"
     bin.write_jar_script libexec/"textidote.jar", "textidote"
 
-    bash_completion.install "Completions/textidote.bash"
+    bash_completion.install "Completions/textidote.bash" => "textidote"
     zsh_completion.install "Completions/textidote.zsh" => "_textidote"
   end
 
