@@ -4,6 +4,7 @@ class GitAbsorb < Formula
   url "https://github.com/tummychow/git-absorb/archive/0.6.9.tar.gz"
   sha256 "feaee35e6771d66d6d895a69d59d812cfbcabbecaa70ece64f87528a8c3c2fb5"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     rebuild 1
