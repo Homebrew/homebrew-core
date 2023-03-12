@@ -10,8 +10,8 @@ class Ghc < Formula
   head "https://gitlab.haskell.org/ghc/ghc.git", branch: "master"
 
   stable do
-    url "https://downloads.haskell.org/~ghc/9.4.4/ghc-9.4.4-src.tar.xz"
-    sha256 "e8cef25a6ded1531cda7a90488d0cfb6d780657d16636daa59430be030cd67e2"
+    url "https://downloads.haskell.org/~ghc/9.6.1/ghc-9.6.1-src.tar.xz"
+    sha256 "fe5ac909cb8bb087e235de97fa63aff47a8ae650efaa37a2140f4780e21f34cb"
 
     # Fix build with sphinx-doc 6+. Remove patch when available in release.
     patch do
@@ -65,22 +65,22 @@ class Ghc < Formula
   resource "binary" do
     on_macos do
       on_arm do
-        url "https://downloads.haskell.org/~ghc/9.2.5/ghc-9.2.5-aarch64-apple-darwin.tar.xz"
-        sha256 "b060ad093e0d86573e01b3d1fd622d4892f8d8925cbb7d75a67a01d2a4f27f18"
+        url "https://downloads.haskell.org/~ghc/9.4.4/ghc-9.4.4-aarch64-apple-darwin.tar.xz"
+        sha256 "b50507b229e0c418b32e4b6cc060288ba9497fdd912962e3b0707d0a2b003658"
       end
       on_intel do
-        url "https://downloads.haskell.org/~ghc/9.2.5/ghc-9.2.5-x86_64-apple-darwin.tar.xz"
-        sha256 "6c46f5003f29d09802d572a7c5fabf6c1f91714a474967a5415b15df77fdcd90"
+        url "https://downloads.haskell.org/~ghc/9.4.4/ghc-9.4.4-x86_64-apple-darwin.tar.xz"
+        sha256 "3a35e355ef993830c273f86ab6286aab3e825f6e53288d1980e473911e4ede94"
       end
     end
     on_linux do
       on_arm do
-        url "https://downloads.haskell.org/~ghc/9.2.5/ghc-9.2.5-aarch64-deb10-linux.tar.xz"
-        sha256 "29c0735ada90cdbf7e4a227dee08f18d74e33ec05d7c681e4ef95b8aa13104b3"
+        url "https://downloads.haskell.org/~ghc/9.4.4/ghc-9.4.4-aarch64-deb10-linux.tar.xz"
+        sha256 "2c0f22a7430490be3071f88240761bd7aadb7d40f22c6b9f1d2485ffcdf4e2e0"
       end
       on_intel do
-        url "https://downloads.haskell.org/~ghc/9.2.5/ghc-9.2.5-x86_64-ubuntu20.04-linux.tar.xz"
-        sha256 "be1ca5b2864880d7c3623c51f2c2ca773e380624929bf0be8cfadbdb7f4b7154"
+        url "https://downloads.haskell.org/~ghc/9.4.4/ghc-9.4.4-x86_64-deb11-linux.tar.xz"
+        sha256 "3794e9ebf463beb7d39e781fa3ef5b344c6144bc405192f1086f855ba8b227b3"
       end
     end
   end
