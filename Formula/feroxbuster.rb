@@ -1,8 +1,8 @@
 class Feroxbuster < Formula
   desc "Fast, simple, recursive content discovery tool written in Rust"
   homepage "https://epi052.github.io/feroxbuster"
-  url "https://github.com/epi052/feroxbuster/archive/refs/tags/v2.9.0.tar.gz"
-  sha256 "0eaf51f4c7848d85d8059e030c9dba9d25eecc7fdad7e90806734e4af85cf779"
+  url "https://github.com/epi052/feroxbuster/archive/refs/tags/v2.9.1.tar.gz"
+  sha256 "1b0c5d95c9916121be26810c4fca0068cd338d072aa41c9f853ff84d3255d433"
   license "MIT"
 
   bottle do
