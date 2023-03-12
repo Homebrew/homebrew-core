@@ -16,8 +16,8 @@ class Dpp < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4d4667872ae69547c1c7afe2ce4484e4d64553fd0d06870378520dfafcd895f4"
   end
 
-  depends_on "dub" => :build
   depends_on "dmd" => :build
+  depends_on "dub" => :build
   depends_on "ldc" => [:build, :test]
 
   uses_from_macos "llvm" # for libclang
