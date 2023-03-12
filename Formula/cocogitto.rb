@@ -4,6 +4,7 @@ class Cocogitto < Formula
   url "https://github.com/cocogitto/cocogitto/archive/refs/tags/5.3.1.tar.gz"
   sha256 "ac6847ce55ba284184d0792afb53c6579da415600bc1b01c180dd87ad34597d0"
   license "MIT"
+  revision 1
 
   bottle do
     rebuild 1
@@ -18,7 +19,7 @@ class Cocogitto < Formula
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
-  depends_on "libgit2"
+  depends_on "libgit2@1.5"
 
   def install
     system "cargo", "install", *std_cargo_args
@@ -38,7 +39,7 @@ class Cocogitto < Formula
     linkage_with_libgit2 = (bin/"cog").dynamically_linked_libraries.any? do |dll|
       next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
 
-      File.realpath(dll) == (Formula["libgit2"].opt_lib/shared_library("libgit2")).realpath.to_s
+      File.realpath(dll) == (Formula["libgit2@1.5"].opt_lib/shared_library("libgit2")).realpath.to_s
     end
 
     assert linkage_with_libgit2, "No linkage with libgit2! Cargo is likely using a vendored version."
