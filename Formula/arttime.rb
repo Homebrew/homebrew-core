@@ -20,6 +20,7 @@ class Arttime < Formula
   end
 
   test do
+    # arttime is a GUI application
     system bin/"arttime", "--version"
   end
 end
