@@ -29,6 +29,13 @@ class Scrcpy < Formula
     sha256 "9e241615f578cd690bb43311000debdecf6a9c50a7082b001952f18f6f21ddc2"
   end
 
+  # Fix an "expected expression" error.
+  # Remove when https://github.com/Genymobile/scrcpy/pull/3787 is merged.
+  patch do
+    url "https://github.com/Genymobile/scrcpy/commit/9ef5855cf2ce37708bb4e1eff21fd91027df95e9.patch?full_index=1"
+    sha256 "a4718fc0994dff0080dc0b3cafb949546df87a9197ba7306e9b41af5f3bc5155"
+  end
+
   def install
     r = resource("prebuilt-server")
     r.fetch
