@@ -1,8 +1,8 @@
 class Fclones < Formula
   desc "Efficient Duplicate File Finder"
   homepage "https://github.com/pkolaczk/fclones"
-  url "https://github.com/pkolaczk/fclones/archive/refs/tags/v0.29.3.tar.gz"
-  sha256 "da77f7af69f9c3bb77537cd28e6f7bb57975751b63925e6fa6b1f8fb9e24dc3c"
+  url "https://github.com/pkolaczk/fclones/archive/refs/tags/v0.30.0.tar.gz"
+  sha256 "d22eec734dbc7c4b179d650c3e259c6682e923b72e596978adac5cd6f2fccbb2"
   license "MIT"
 
   bottle do
