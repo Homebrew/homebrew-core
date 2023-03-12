@@ -17,6 +17,7 @@ class Dpp < Formula
   end
 
   depends_on "dub" => :build
+  depends_on "dmd" => :build
   depends_on "ldc" => [:build, :test]
 
   uses_from_macos "llvm" # for libclang
