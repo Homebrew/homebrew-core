@@ -28,6 +28,19 @@ class Freetype < Formula
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
 
+  # Earlier versions of Apple Clang don't recognise the `fallthrough` attribute.
+  # The following patches make it possible to build with them.
+  # Remove both on next release.
+  patch do
+    url "https://gitlab.freedesktop.org/freetype/freetype/-/commit/2257f9abf6e12daf7c3e1bfe28fa88de85e45785.diff"
+    sha256 "64f41363467c455ccfeb3350bc3bea0c028fa5d108821e2e81cd8475675b7926"
+  end
+
+  patch do
+    url "https://gitlab.freedesktop.org/freetype/freetype/-/commit/d874ffa96ccad7dd122cdc369a284d171e221809.diff"
+    sha256 "aff06e28afc48cd96d7ea4321069046db8ba0f512bf965ef475c1cdbcdc2635f"
+  end
+
   def install
     # This file will be installed to bindir, so we want to avoid embedding the
     # absolute path to the pkg-config shim.
