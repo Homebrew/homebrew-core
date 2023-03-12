@@ -3,8 +3,8 @@ class Benerator < Formula
   homepage "https://rapiddweller.github.io/homebrew-benerator/"
   url "https://github.com/rapiddweller/rapiddweller-benerator-ce/releases/download/3.1.0/rapiddweller-benerator-ce-3.1.0-jdk-11-dist.tar.gz"
   sha256 "194feb051ae18cfcd407b8e1668ce9c60561394bc454f9fc9747c274166843bc"
-
   license "Apache-2.0"
+
   depends_on "openjdk"
 
   def install
@@ -16,7 +16,7 @@ class Benerator < Formula
     # Generate a script that sets the necessary environment variables
     (bin/"benerator").write_env_script(
       libexec / "bin/benerator",
-      JAVA_HOME:      Language::Java.java_home,
+      JAVA_HOME:      Language::Java.overridable_java_home_env,
       BENERATOR_HOME: libexec,
     )
   end
@@ -30,7 +30,7 @@ class Benerator < Formula
     # We feed benerator an xml and a scheme in demo/db/script/h2.multischema.sql.
     # The XML scheme in myscript.xml have an inhouse test in <evaluate /> to check if the data is generated correctly,
     # If no, benerator will throw an error, otherwise a success message will be printed.
-    File.write(testpath / "myscript.xml", <<~XML)
+    (testpath/"myscript.xml").write <<~XML
       <setup defaultDataset="US" defaultLocale="en_US">
       <import domains="person,net,product"/>
       <import platforms="db"/>
