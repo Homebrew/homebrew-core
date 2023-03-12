@@ -3,8 +3,8 @@ class Tox < Formula
 
   desc "Generic Python virtualenv management and test command-line tool"
   homepage "https://tox.wiki/en/latest/"
-  url "https://files.pythonhosted.org/packages/d7/75/02b8654c1150a05f4f3967e470b459b07937cba862d698d5b02765f971cc/tox-4.4.6.tar.gz"
-  sha256 "9786671d23b673ace7499c602c5746e2a225d1ecd9d9f624d0461303f40bd93b"
+  url "https://files.pythonhosted.org/packages/ad/65/5afee4b3e6d3fd242340b3c3a1d787f987c0aabe2597f6c7c44b04be6c51/tox-4.4.7.tar.gz"
+  sha256 "52c92a96e2c3fd47c5301e9c26f5a871466133d5376958c1ed95ef4ff4629cbe"
   license "MIT"
 
   bottle do
@@ -50,8 +50,8 @@ class Tox < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/11/39/702094fc1434a4408783b071665d9f5d8a1d0ba4dddf9dadf3d50e6eb762/platformdirs-3.0.0.tar.gz"
-    sha256 "8a1228abb1ef82d788f74139988b137e78692984ec7b08eaa6c65f1723af28f9"
+    url "https://files.pythonhosted.org/packages/79/c4/f98a05535344f79699bbd494e56ac9efc986b7a253fe9f4dba7414a7f505/platformdirs-3.1.1.tar.gz"
+    sha256 "024996549ee88ec1a9aa99ff7f8fc819bb59e2c3477b410d90a16d32d6e707aa"
   end
 
   resource "pluggy" do
@@ -60,13 +60,13 @@ class Tox < Formula
   end
 
   resource "pyproject-api" do
-    url "https://files.pythonhosted.org/packages/86/92/a63e1fd25adfde23f21d87676a4dc39fb969d2979c60aac9d7b3425d6223/pyproject_api-1.5.0.tar.gz"
-    sha256 "0962df21f3e633b8ddb9567c011e6c1b3dcdfc31b7860c0ede7e24c5a1200fbe"
+    url "https://files.pythonhosted.org/packages/23/6f/d02d1cab4a30998806687036e03ffecbf66e35df6bfab5a29f22ec61a075/pyproject_api-1.5.1.tar.gz"
+    sha256 "435f46547a9ff22cf4208ee274fca3e2869aeb062a4834adfc99a4dd64af3cf9"
   end
 
   resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/3d/ad/906d59bbcb0e6178989cee52166a8a6651ddaea18b38e728eaac22e61cad/virtualenv-20.19.0.tar.gz"
-    sha256 "37a640ba82ed40b226599c522d411e4be5edb339a0c0de030c0dc7b646d61590"
+    url "https://files.pythonhosted.org/packages/e7/32/925d0ee72929865228d5160ec86c7967aea3f7f257f6f2226fcf08cc2352/virtualenv-20.20.0.tar.gz"
+    sha256 "a8a4b8ca1e28f864b7514a253f98c1d62b64e31e77325ba279248c65fb4fcef4"
   end
 
   def install
