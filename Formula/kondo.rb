@@ -1,8 +1,8 @@
 class Kondo < Formula
   desc "Save disk space by cleaning non-essential files from software projects"
   homepage "https://github.com/tbillington/kondo"
-  url "https://github.com/tbillington/kondo/archive/v0.5.tar.gz"
-  sha256 "d26646e1d098909b61f982945484883fb82f08df48ac8b2a9cc9bed8a45ff5cf"
+  url "https://github.com/tbillington/kondo/archive/v0.6.tar.gz"
+  sha256 "fce3082e294353e5a82ad1481796ea8130234eb581c31a279c9e7a73ca72d632"
   license "MIT"
 
   bottle do
