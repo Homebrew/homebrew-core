@@ -1,6 +1,8 @@
 class Ghc < Formula
   desc "Glorious Glasgow Haskell Compilation System"
   homepage "https://haskell.org/ghc/"
+  url "https://downloads.haskell.org/~ghc/9.6.1/ghc-9.6.1-src.tar.xz"
+  sha256 "fe5ac909cb8bb087e235de97fa63aff47a8ae650efaa37a2140f4780e21f34cb"
   # We build bundled copies of libffi and GMP so GHC inherits the licenses
   license all_of: [
     "BSD-3-Clause",
@@ -8,17 +10,6 @@ class Ghc < Formula
     any_of: ["LGPL-3.0-or-later", "GPL-2.0-or-later"], # GMP
   ]
   head "https://gitlab.haskell.org/ghc/ghc.git", branch: "master"
-
-  stable do
-    url "https://downloads.haskell.org/~ghc/9.6.1/ghc-9.6.1-src.tar.xz"
-    sha256 "fe5ac909cb8bb087e235de97fa63aff47a8ae650efaa37a2140f4780e21f34cb"
-
-    # Fix build with sphinx-doc 6+. Remove patch when available in release.
-    patch do
-      url "https://gitlab.haskell.org/ghc/ghc/-/commit/00dc51060881df81258ba3b3bdf447294618a4de.diff"
-      sha256 "354baeb8727fbbfb6da2e88f9748acaab23bcccb5806f8f59787997753231dbb"
-    end
-  end
 
   livecheck do
     url "https://www.haskell.org/ghc/download.html"
@@ -53,12 +44,10 @@ class Ghc < Formula
     depends_on "gmp" => :build
   end
 
-  # GHC 9.4.4 user manual recommend use LLVM 9 through 13
-  # https://downloads.haskell.org/~ghc/9.4.4/docs/users_guide/9.4.4-notes.html
-  # and we met some unknown issue w/ LLVM 13 before https://gitlab.haskell.org/ghc/ghc/-/issues/20559
-  # so conservatively use LLVM 12 here
+  # GHC 9.6.1 user manual recommend use LLVM 11 through 15
+  # https://downloads.haskell.org/~ghc/9.6.1/docs/users_guide/9.6.1-notes.html
   on_arm do
-    depends_on "llvm@12"
+    depends_on "llvm"
   end
 
   # A binary of ghc is needed to bootstrap ghc
