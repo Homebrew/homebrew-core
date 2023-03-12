@@ -4,6 +4,7 @@ class Exa < Formula
   url "https://github.com/ogham/exa/archive/v0.10.1.tar.gz"
   sha256 "ff0fa0bfc4edef8bdbbb3cabe6fdbd5481a71abbbcc2159f402dea515353ae7c"
   license "MIT"
+  revision 1
   head "https://github.com/ogham/exa.git", branch: "master"
 
   livecheck do
