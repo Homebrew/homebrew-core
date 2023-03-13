@@ -4,6 +4,7 @@ class Texapp < Formula
   url "https://www.floodgap.com/software/texapp/dist0/0.6.11.txt"
   sha256 "03c3d5475dfb7877000ce238d342023aeab3d44f7bac4feadc475e501aa06051"
 
+  # website now shows "The last moments of App.net global, as witnessed from Texapp"
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3de41340c8be2327e079f024ac9c4cc0ebe27c937934f827b53c20869cebbf88"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3de41340c8be2327e079f024ac9c4cc0ebe27c937934f827b53c20869cebbf88"
@@ -18,6 +19,8 @@ class Texapp < Formula
     sha256 cellar: :any_skip_relocation, el_capitan:     "6615c40b9f733227163ad90b0082c40e7a5885c8ffa36dcb6c5892c09367c279"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3de41340c8be2327e079f024ac9c4cc0ebe27c937934f827b53c20869cebbf88"
   end
+
+  deprecate! date: "2023-03-13", because: :repo_archived
 
   def install
     bin.install "#{version}.txt" => "texapp"
