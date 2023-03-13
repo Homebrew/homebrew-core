@@ -5,9 +5,9 @@ class Arttime < Formula
   sha256 "385c8ddf39653ab52c1c1ea8edca14c19cb3eb05c8d1e6627201ccb2cc191755"
   license "GPL-3.0-only"
   head "https://github.com/poetaman/arttime.git", branch: "main"
-  
+
   depends_on "fzf"
-  
+
   on_linux do
     depends_on "diffutils"
     depends_on "less"
