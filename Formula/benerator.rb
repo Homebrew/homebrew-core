@@ -16,10 +16,7 @@ class Benerator < Formula
     # Generate a script that sets the necessary environment variables
     env = Language::Java.overridable_java_home_env
     env["BENERATOR_HOME"] = libexec
-    (bin/"benerator").write_env_script(
-      libexec / "bin/benerator",
-      env,
-    )
+    (bin/"benerator").write_env_script(libexec/"bin/benerator", env)
   end
 
   test do
