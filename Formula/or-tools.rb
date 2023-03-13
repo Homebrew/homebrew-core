@@ -22,7 +22,7 @@ class OrTools < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkg-config" => [:build, :test]
   depends_on "abseil"
   depends_on "cbc"
   depends_on "cgl"
@@ -59,18 +59,21 @@ class OrTools < Formula
     # Linear Solver & Glop Solver
     system ENV.cxx, "-std=c++17", pkgshare/"simple_lp_program.cc",
            "-I#{include}", "-L#{lib}", "-lortools",
-           "-L#{Formula["abseil"].opt_lib}", "-labsl_time",
+           *shell_output("pkg-config --cflags --libs absl_check absl_log").chomp.split,
            "-o", "simple_lp_program"
     system "./simple_lp_program"
+
     # Routing Solver
     system ENV.cxx, "-std=c++17", pkgshare/"simple_routing_program.cc",
            "-I#{include}", "-L#{lib}", "-lortools",
+           *shell_output("pkg-config --cflags --libs absl_check absl_log").chomp.split,
            "-o", "simple_routing_program"
     system "./simple_routing_program"
+
     # Sat Solver
     system ENV.cxx, "-std=c++17", pkgshare/"simple_sat_program.cc",
            "-I#{include}", "-L#{lib}", "-lortools",
-           "-L#{Formula["abseil"].opt_lib}", "-labsl_raw_hash_set",
+           *shell_output("pkg-config --cflags --libs absl_log absl_raw_hash_set").chomp.split,
            "-o", "simple_sat_program"
     system "./simple_sat_program"
   end
