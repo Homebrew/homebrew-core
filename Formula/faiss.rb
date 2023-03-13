@@ -1,7 +1,7 @@
 class Faiss < Formula
   desc "Efficient similarity search and clustering of dense vectors"
   homepage "https://github.com/facebookresearch/faiss"
-  url "https://github.com/facebookresearch/faiss/archive/v1.7.3.tar.gz"
+  url "https://github.com/facebookresearch/faiss/archive/refs/tags/v1.7.3.tar.gz"
   sha256 "3e4fac26d8c9e9008ecea4ae5fc414c658998fce4ba75835058b1a71d3516002"
   license "MIT"
 
@@ -29,16 +29,15 @@ class Faiss < Formula
   end
 
   def install
-    args = *std_cmake_args + %w[
+    args = %w[
       -DFAISS_ENABLE_GPU=OFF
       -DFAISS_ENABLE_PYTHON=OFF
       -DBUILD_SHARED_LIBS=ON
     ]
-    system "cmake", "-B", "build", ".", *args
-    cd "build" do
-      system "make"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
+
     pkgshare.install "demos"
   end
 
