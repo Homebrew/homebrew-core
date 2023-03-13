@@ -2,18 +2,11 @@ class CabalInstall < Formula
   desc "Command-line interface for Cabal and Hackage"
   homepage "https://www.haskell.org/cabal/"
   license "BSD-3-Clause"
-  head "https://github.com/haskell/cabal.git", branch: "3.8"
+  head "https://github.com/haskell/cabal.git", branch: "3.10"
 
   stable do
-    url "https://hackage.haskell.org/package/cabal-install-3.8.1.0/cabal-install-3.8.1.0.tar.gz"
-    sha256 "61ce436f2e14e12bf07ea1c81402362f46275014cd841a76566f0766d0ea67e6"
-
-    # Use Hackage metadata revision to support GHC 9.4.
-    # TODO: Remove this resource on next release along with corresponding install logic
-    resource "cabal-install.cabal" do
-      url "https://hackage.haskell.org/package/cabal-install-3.8.1.0/revision/2.cabal"
-      sha256 "e29a58254bb8aaf950bf541e0fe9cf63f9ae99b8ae1f7f47b62b863c25dd54d0"
-    end
+    url "https://hackage.haskell.org/package/cabal-install-3.10.1.0/cabal-install-3.10.1.0.tar.gz"
+    sha256 "995de368555449230e0762b259377ed720798717f4dd26a4fa711e8e41c7838d"
   end
 
   bottle do
@@ -48,7 +41,6 @@ class CabalInstall < Formula
   end
 
   def install
-    resource("cabal-install.cabal").stage { buildpath.install "2.cabal" => "cabal-install.cabal" } unless build.head?
     resource("bootstrap").stage buildpath
     cabal = buildpath/"cabal"
     cd "cabal-install" if build.head?
