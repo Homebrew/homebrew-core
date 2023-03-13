@@ -1,14 +1,16 @@
 class Dps8m < Formula
-  desc "Simulator for the Multics dps-8/m mainframe"
-  homepage "https://ringzero.wikidot.com/"
-  url "https://gitlab.com/dps8m/dps8m/-/archive/R3.0.0/dps8m-R3.0.0.tar.gz"
-  sha256 "cee3cc0942ceb929d267c4989551526ff50e777706f62bfc449e16d1428a1d2e"
+  desc "Simulator of the 36‑bit GE/Honeywell/Bull 600/6000‑series mainframe computers"
+  homepage "https://dps8m.gitlab.io/"
+  url "https://dps8m.gitlab.io/dps8m-archive/R3.0.0/dps8m-r3.0.0-src.tar.gz"
+  sha256 "e3eac9e4f8b6c7fad498ff1848ba722e1a2e220b793ce02e2ea6a7a585e0c91f"
   license "ICU"
+  revision 1
   head "https://gitlab.com/dps8m/dps8m.git", branch: "master"
 
   livecheck do
-    url :stable
-    regex(/^R?(\d+(?:\.\d+)+)$/i)
+    url "https://dps8m.gitlab.io/dps8m/"
+    regex(/DPS8M R?(\d+(?:\.\d+)+)</i)
+    strategy :page_match
   end
 
   bottle do
@@ -31,22 +33,23 @@ class Dps8m < Formula
     # See https://sourceforge.net/p/dps8m/mailman/message/35960505/
     bin.mkpath
 
-    system "make", "INSTALL_ROOT=#{prefix}", "install"
+    system "make"
+    bin.install %w[dps8/dps8 punutil/punutil prt2pdf/prt2pdf].map { |f| "src/#{f}" }
   end
 
   test do
     (testpath/"test.exp").write <<~EOS
-      spawn #{bin}/dps8
+      spawn #{bin}/dps8 -t
       set timeout 30
       expect {
         timeout { exit 1 }
-        "sim>"
+        ">"
       }
       set timeout 10
-      send "help\r"
+      send "SH VE\r"
       expect {
         timeout { exit 2 }
-        "SKIPBOOT"
+        "Version:"
       }
       send "q\r"
       expect {
@@ -54,6 +57,6 @@ class Dps8m < Formula
         eof
       }
     EOS
-    assert_equal "Goodbye", shell_output("expect -f test.exp").lines.last.chomp
+    system("expect", "-f", "test.exp")
   end
 end
