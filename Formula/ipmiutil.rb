@@ -1,8 +1,8 @@
 class Ipmiutil < Formula
   desc "IPMI server management utility"
   homepage "https://ipmiutil.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/ipmiutil/ipmiutil-3.1.8.tar.gz"
-  sha256 "b14357b9723e38a19c24df2771cff63d5f15f8682cd8a5b47235044b767b1888"
+  url "https://downloads.sourceforge.net/project/ipmiutil/ipmiutil-3.1.9.tar.gz"
+  sha256 "c0dacc4ad506538f59ed45373b775748deddddc36e6d3c303f5069a59cacab08"
   license all_of: ["BSD-2-Clause", "BSD-3-Clause", "GPL-2.0-or-later"]
 
   bottle do
