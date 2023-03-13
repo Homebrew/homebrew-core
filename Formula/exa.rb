@@ -52,8 +52,19 @@ class Exa < Formula
   end
 
   test do
-    (testpath/"test.txt").write("")
-    assert_match "test.txt", shell_output("#{bin}/exa")
+    testfile = "test.txt"
+    touch testfile
+    assert_match testfile, shell_output(bin/"exa")
+
+    # Test git integration
+    flags = "--long --git --no-permissions --no-filesize --no-user --no-time"
+    exa_output = proc { shell_output("#{bin}/exa #{flags}").lines.grep(/#{testfile}/).first.split.first }
+    system "git", "init"
+    assert_equal "-N", exa_output.call
+    system "git", "add", testfile
+    assert_equal "N-", exa_output.call
+    system "git", "commit", "-m", "Initial commit"
+    assert_equal "--", exa_output.call
 
     linkage_with_libgit2 = (bin/"exa").dynamically_linked_libraries.any? do |dll|
       next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
