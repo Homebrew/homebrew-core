@@ -48,8 +48,8 @@ class OrTools < Formula
       -DBUILD_EXAMPLES=OFF
     ]
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
-    system "cmake", "--build", "build", "-v"
-    system "cmake", "--build", "build", "--target", "install"
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
     pkgshare.install "ortools/linear_solver/samples/simple_lp_program.cc"
     pkgshare.install "ortools/constraint_solver/samples/simple_routing_program.cc"
     pkgshare.install "ortools/sat/samples/simple_sat_program.cc"
