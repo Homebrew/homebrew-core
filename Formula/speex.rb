@@ -11,6 +11,7 @@ class Speex < Formula
     regex(/href=.*?speex[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  # upstream recommends Opus on the main page instead
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "e8e8cbefa65f7819b2feb27b9067248d97f2e5607253c0a5c8a49a495d7fc824"
     sha256 cellar: :any,                 arm64_monterey: "b0cba69db1b66944a019f312fa128d6c6460f971fdd5cfddc0725051b76a4dd0"
@@ -21,6 +22,8 @@ class Speex < Formula
     sha256 cellar: :any,                 catalina:       "21a5518f517dabbb9eb1d80d14e0e7716fd36f7db01e779b875b733db4c5fa14"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ea2ee48a402525421cb3ef8b83173d4bc57741c10e84fe6fae66691905293ec"
   end
+
+  deprecate! date: "2023-03-13", because: :deprecated_upstream
 
   depends_on "pkg-config" => :build
   depends_on "libogg"
