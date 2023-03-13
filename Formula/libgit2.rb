@@ -25,9 +25,6 @@ class Libgit2 < Formula
   depends_on "pkg-config" => :build
   depends_on "libssh2"
 
-  # TODO: Remove ASAP after merge.
-  conflicts_with "pygit2", because: "pygit2 inadvertently links with unversioned `libgit2` while building"
-
   def install
     args = %w[-DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF -DUSE_SSH=ON]
 
