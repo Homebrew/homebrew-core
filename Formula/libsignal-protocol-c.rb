@@ -18,6 +18,8 @@ class LibsignalProtocolC < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3d3f06b8dc3938b4dc6912a65606713000e6ad910c4bfcb4af4e9c0dca899e0c"
   end
 
+  deprecate! date: "2023-03-13", because: :repo_archived
+
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "openssl@1.1"
