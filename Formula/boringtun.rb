@@ -4,6 +4,7 @@ class Boringtun < Formula
   url "https://github.com/cloudflare/boringtun/archive/refs/tags/boringtun-0.5.2.tar.gz"
   sha256 "660f69e20b1980b8e75dc0373dfe137f58fb02b105d3b9d03f35e1ce299d61b3"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/cloudflare/boringtun.git", branch: "master"
 
   bottle do
