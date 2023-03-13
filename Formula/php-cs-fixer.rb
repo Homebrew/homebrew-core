@@ -1,7 +1,6 @@
 class PhpCsFixer < Formula
   desc "Tool to automatically fix PHP coding standards issues"
   homepage "https://cs.symfony.com/"
-  # Bump to php 8.2 on the next release, if possible.
   url "https://github.com/FriendsOfPHP/PHP-CS-Fixer/releases/download/v3.15.0/php-cs-fixer.phar"
   sha256 "cd7b675680c8365b67742c77e62b92996e8f3439d314a306ffed86c7a2d6bf1d"
   license "MIT"
@@ -22,7 +21,7 @@ class PhpCsFixer < Formula
     libexec.install "php-cs-fixer.phar"
 
     (bin/"php-cs-fixer").write <<~EOS
-      #!#{Formula["php@8.1"].opt_bin}/php
+      #!#{Formula["php"].opt_bin}/php
       <?php require '#{libexec}/php-cs-fixer.phar';
     EOS
   end
@@ -37,7 +36,7 @@ class PhpCsFixer < Formula
       $this->foo('homebrew rox');
     EOS
 
-    system "#{bin}/php-cs-fixer", "fix", "test.php"
+    system bin/"php-cs-fixer", "fix", "test.php"
     assert compare_file("test.php", "correct_test.php")
   end
 end
