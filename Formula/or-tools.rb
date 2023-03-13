@@ -47,10 +47,6 @@ class OrTools < Formula
       -DBUILD_SAMPLES=OFF
       -DBUILD_EXAMPLES=OFF
     ]
-
-    # Support ABSL_LEGACY_THREAD_ANNOTATIONS, https://github.com/google/or-tools/issues/3655
-    # remove in next release
-    args << "-DCMAKE_CXX_FLAGS=-DABSL_LEGACY_THREAD_ANNOTATIONS"
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build", "-v"
     system "cmake", "--build", "build", "--target", "install"
