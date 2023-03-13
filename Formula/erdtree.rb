@@ -1,8 +1,8 @@
 class Erdtree < Formula
   desc "Multi-threaded file-tree visualizer and disk usage analyzer"
   homepage "https://github.com/solidiquis/erdtree"
-  url "https://github.com/solidiquis/erdtree/archive/refs/tags/v1.3.0.tar.gz"
-  sha256 "5e18506734f67d6800ffc65238209a5e5db8080c53ca2f91dc5646376183ef8c"
+  url "https://github.com/solidiquis/erdtree/archive/refs/tags/v1.4.0.tar.gz"
+  sha256 "a77152c99bfda8aee688cd5c373dace5a82feb4250f0937ee077d90307efc887"
   license "MIT"
 
   bottle do
