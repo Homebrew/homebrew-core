@@ -2,8 +2,8 @@ class PhpCsFixer < Formula
   desc "Tool to automatically fix PHP coding standards issues"
   homepage "https://cs.symfony.com/"
   # Bump to php 8.2 on the next release, if possible.
-  url "https://github.com/FriendsOfPHP/PHP-CS-Fixer/releases/download/v3.14.4/php-cs-fixer.phar"
-  sha256 "c0a023616e6cac6286bb478247ee63e070e5f31a0a0c85bf23e8720a9668f142"
+  url "https://github.com/FriendsOfPHP/PHP-CS-Fixer/releases/download/v3.15.0/php-cs-fixer.phar"
+  sha256 "cd7b675680c8365b67742c77e62b92996e8f3439d314a306ffed86c7a2d6bf1d"
   license "MIT"
 
   bottle do
@@ -16,7 +16,7 @@ class PhpCsFixer < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c78eff6f4d8ae00266717f8d7b909e6f02e3e898a0892c151cfbaf6c7f573ba9"
   end
 
-  depends_on "php@8.1"
+  depends_on "php"
 
   def install
     libexec.install "php-cs-fixer.phar"
