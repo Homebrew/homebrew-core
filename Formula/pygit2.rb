@@ -22,9 +22,6 @@ class Pygit2 < Formula
   depends_on "libgit2@1.5"
   depends_on "python@3.11"
 
-  # TODO: Remove ASAP after merge.
-  conflicts_with "libgit2", because: "inadvertently links with unversioned `libgit2` while building"
-
   def python3
     "python3.11"
   end
