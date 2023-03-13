@@ -1,10 +1,8 @@
 class Fb303 < Formula
   desc "Thrift functions for querying information from a service"
   homepage "https://github.com/facebook/fb303"
-  # TODO: Add back to `synced_versions_formulae.json` when upstream resolves:
-  #   https://github.com/facebook/fb303/issues/34
-  url "https://github.com/facebook/fb303/archive/v2023.02.20.00.tar.gz"
-  sha256 "2e0c39a6fa1156cc8d2d79278a39e9150a7e76e045971c72086fc9c548e26c08"
+  url "https://github.com/facebook/fb303/archive/v2023.03.06.00.tar.gz"
+  sha256 "b438e5c2018054c3ad29ca13e50970992e068f6bad1284e406d2925ed6afb00d"
   license "Apache-2.0"
   head "https://github.com/facebook/fb303.git", branch: "main"
 
