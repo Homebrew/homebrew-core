@@ -28,6 +28,6 @@ class AwsConsole < Formula
   test do
     # No other operation is possible without valid AWS credentials configured
     output = shell_output("#{bin}/aws-console 2>&1", 1)
-    assert_match "could not establish AWS credentials; please run 'aws configure' or choose a profile", output
+    assert_match "a region was not specified. You can run 'aws configure' or choose a profile with a region", output
   end
 end
