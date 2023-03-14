@@ -1,8 +1,9 @@
 class Libmarpa < Formula
   desc "Marpa parse engine C library -- STABLE"
   homepage "https://jeffreykegler.github.io/Marpa-web-site/libmarpa.html"
-  url "https://github.com/jeffreykegler/libmarpa/archive/refs/tags/v8.6.2.tar.gz"
-  sha256 "b7eb539143959c406ced4a3afdb56419cc5836e679f4094630697e7dd2b7f55a"
+  url "https://cpan.metacpan.org/authors/id/J/JK/JKEGL/Marpa-R2-12.000000.tar.gz"
+  version "11.0.2"
+  sha256 "9f59a4f6bd3716f1a48a8ef25621f6709d7066c26175ced62e7c6bdf71e96b3f"
   license "MIT"
   head "https://github.com/jeffreykegler/libmarpa.git", branch: "tested"
 
@@ -18,22 +19,15 @@ class Libmarpa < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "fcfb728a555cedfcf5f88178a45e82be6679a0d52e5afd90fee2641bcef3cd15"
   end
 
-  depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "cmake" => :build
-  depends_on "emacs" => :build
   depends_on "libtool" => :build
-  depends_on "texinfo" => :build
-  depends_on "texlive" => :build
 
   def install
-    ENV.deparallelize
-    inreplace "work/etc/libmarpa.pc.in", "prefix=\".\"", "prefix=\"#{prefix}\"" if build.head?
-    system "make", build.head? ? "dist" : "dists"
-    system "cmake", "-S", "cm_dist", "-B", "build", *std_cmake_args
-    system "cmake", "--build", "build"
-    system "cmake", "--install", "build"
-    include.install (prefix/"inc").children unless build.head?
+    cd "engine/read_only" do
+      system "./configure", *std_configure_args, "--disable-silent-rules"
+      system "make"
+      system "make", "install"
+    end
   end
 
   test do
