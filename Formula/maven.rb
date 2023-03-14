@@ -20,9 +20,11 @@ class Maven < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "2efa650c771e9d1e0e3b1004449408e9acd862ddecfc712039bb0d22a57b0bea"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b43474278ad5bd5d050973ce33506a64b4beae218c73fd56b8b8a5386358eda9"
   end
-
-  depends_on "openjdk"
-
+  
+  caveats do
+    depends_on_java "8+"
+  end
+  
   conflicts_with "mvnvm", because: "also installs a 'mvn' executable"
 
   def install
@@ -41,8 +43,6 @@ class Maven < Formula
 
       basename = file.basename
       next if basename.to_s == "m2.conf"
-
-      (bin/basename).write_env_script file, Language::Java.overridable_java_home_env
     end
   end
 

@@ -21,7 +21,9 @@ class MavenAT35 < Formula
 
   disable! date: "2022-07-31", because: :unmaintained
 
-  depends_on "openjdk"
+  caveats do
+    depends_on_java "8+"
+  end
 
   def install
     # Remove windows files
