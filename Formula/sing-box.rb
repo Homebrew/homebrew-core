@@ -8,7 +8,7 @@ class SingBox < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-X \"github.com/sagernet/sing-box/constant.Version=#{version}\" -s -w -buildid="
+    ldflags = "-s -w -X github.com/sagernet/sing-box/constant.Version=#{version} -buildid="
     tags = "with_gvisor,with_quic,with_wireguard,with_utls,with_reality_server,with_clash_api"
     system "go", "build", "-tags", tags, *std_go_args(ldflags: ldflags), "./cmd/sing-box"
   end
