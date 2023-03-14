@@ -43,6 +43,8 @@ class Maven < Formula
 
       basename = file.basename
       next if basename.to_s == "m2.conf"
+
+      (bin/basename).write_env_script file, Language::Java.overridable_java_home_env
     end
   end
 
