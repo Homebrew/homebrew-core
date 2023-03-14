@@ -108,7 +108,7 @@ class Cp2k < Formula
         --with-cosma=no
         --with-libvori=no
       ]
-      args << "--generic" if build.bottle?
+      args << "--target-cpu=generic" if build.bottle?
 
       cd "tools/toolchain" do
         # Need OpenBLAS source to get proc arch info in scripts/get_openblas_arch.sh
