@@ -29,7 +29,7 @@ class Victoriametrics < Formula
       opt_bin/"victoria-metrics",
       "-httpListenAddr=127.0.0.1:8428",
       "-promscrape.config=#{etc}/victoriametrics/scrape.yml",
-      "-storageDataPath=#{var}/victoriametrics-data"
+      "-storageDataPath=#{var}/victoriametrics-data",
     ]
     keep_alive false
     log_path var/"log/victoria-metrics.log"
