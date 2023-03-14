@@ -25,10 +25,12 @@ class Victoriametrics < Formula
   end
 
   service do
-    run [opt_bin/"victoria-metrics",
+    run [
+      opt_bin/"victoria-metrics",
       "-httpListenAddr=127.0.0.1:8428",
       "-promscrape.config=#{etc}/victoriametrics/scrape.yml",
-      "-storageDataPath=#{var}/victoriametrics-data"]
+      "-storageDataPath=#{var}/victoriametrics-data"
+    ]
     keep_alive false
     log_path var/"log/victoria-metrics.log"
     error_log_path var/"log/victoria-metrics.err.log"
@@ -49,9 +51,9 @@ class Victoriametrics < Formula
 
     pid = fork do
       exec bin/"victoria-metrics",
+        "-httpListenAddr=127.0.0.1:#{http_port}",
         "-promscrape.config=#{testpath}/scrape.yml",
-        "-storageDataPath=#{testpath}/victoriametrics-data",
-        "-httpListenAddr=127.0.0.1:#{http_port}"
+        "-storageDataPath=#{testpath}/victoriametrics-data"
     end
     sleep 3
     assert_match "Single-node VictoriaMetrics", shell_output("curl -s 127.0.0.1:#{http_port}")
