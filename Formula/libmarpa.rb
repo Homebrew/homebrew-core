@@ -1,8 +1,8 @@
 class Libmarpa < Formula
   desc "Marpa parse engine C library -- STABLE"
   homepage "https://jeffreykegler.github.io/Marpa-web-site/libmarpa.html"
-  url "https://github.com/jeffreykegler/libmarpa/archive/refs/tags/v8.6.2.tar.gz"
-  sha256 "b7eb539143959c406ced4a3afdb56419cc5836e679f4094630697e7dd2b7f55a"
+  url "https://github.com/jeffreykegler/libmarpa/archive/refs/tags/v9.0.3.tar.gz"
+  sha256 "2fd21d7ae0c05743a0503cd52467f33beff72c555b0b10283e2c761464496f21"
   license "MIT"
   head "https://github.com/jeffreykegler/libmarpa.git", branch: "tested"
 
@@ -28,12 +28,12 @@ class Libmarpa < Formula
 
   def install
     ENV.deparallelize
-    inreplace "work/etc/libmarpa.pc.in", "prefix=\".\"", "prefix=\"#{prefix}\"" if build.head?
-    system "make", build.head? ? "dist" : "dists"
+    inreplace "work/etc/libmarpa.pc.in", "prefix=\".\"", "prefix=\"#{prefix}\""
+    inreplace "work/ac/Makefile.am", "git log -n 5", "## git log -n 5"
+    system "make", "dist"
     system "cmake", "-S", "cm_dist", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
-    include.install (prefix/"inc").children unless build.head?
   end
 
   test do
