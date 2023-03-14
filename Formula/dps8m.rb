@@ -8,9 +8,8 @@ class Dps8m < Formula
   head "https://gitlab.com/dps8m/dps8m.git", branch: "master"
 
   livecheck do
-    url "https://dps8m.gitlab.io/dps8m/"
-    regex(/DPS8M R?(\d+(?:\.\d+)+)</i)
-    strategy :page_match
+    url "https://dps8m.gitlab.io/dps8m/Releases/"
+    regex(/href=.*?dps8m[._-]r?(\d+(?:\.\d+)+)[._-]src\.t/i)
   end
 
   bottle do
