@@ -1,8 +1,8 @@
 class Kdoctor < Formula
   desc "Environment diagnostics for Kotlin Multiplatform Mobile app development"
   homepage "https://github.com/kotlin/kdoctor"
-  url "https://github.com/Kotlin/kdoctor/archive/refs/tags/v0.0.6.tar.gz"
-  sha256 "5d4e7800f312991ab8546f563b469ce2d4cdeb2b41ef6f4e66ab36bd4bb754d7"
+  url "https://github.com/Kotlin/kdoctor/archive/refs/tags/v1.0.0.tar.gz"
+  sha256 "6c65a454ddb0258122f8dc4ab0cce5dff21425da770a07685eada13f78c8df65"
   license "Apache-2.0"
   head "https://github.com/Kotlin/kdoctor.git", branch: "master"
 
@@ -18,7 +18,6 @@ class Kdoctor < Formula
   depends_on "gradle" => :build
   depends_on "openjdk" => :build
   depends_on xcode: ["12.5", :build]
-  depends_on "curl"
   depends_on :macos
 
   def install
