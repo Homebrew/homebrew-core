@@ -24,6 +24,8 @@ class Maven < Formula
   caveats do
     depends_on_java "8+"
   end
+
+  depends_on "openjdk" => :test
   
   conflicts_with "mvnvm", because: "also installs a 'mvn' executable"
 

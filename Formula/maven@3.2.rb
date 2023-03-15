@@ -19,6 +19,8 @@ class MavenAT32 < Formula
     depends_on_java "8+"
   end
 
+  depends_on "openjdk" => :test
+
   def install
     # Remove windows files
     rm_f Dir["bin/*.bat"]
