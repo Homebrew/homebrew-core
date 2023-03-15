@@ -1,10 +1,9 @@
 class Staticcheck < Formula
   desc "State of the art linter for the Go programming language"
   homepage "https://staticcheck.io/"
-  url "https://github.com/dominikh/go-tools/archive/2023.1.2.tar.gz"
-  sha256 "c112f8f5f41866729bf7e8f83881210228d0d6e2c037f45870b5d90ce239e4be"
+  url "https://github.com/dominikh/go-tools/archive/2023.1.3.tar.gz"
+  sha256 "c3a140e3166b0e6025267619de6f8f01e056527c347eacf780be3d2e03f341eb"
   license "MIT"
-  revision 1
   head "https://github.com/dominikh/go-tools.git", branch: "master"
 
   bottle do
