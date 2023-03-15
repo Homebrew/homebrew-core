@@ -21,7 +21,7 @@ class Osc < Formula
   end
 
   depends_on "rust" => :build # for cryptography
-  depends_on "openssl@3"
+  depends_on "openssl@1.1"
   depends_on "pycparser"
   depends_on "python@3.11"
 
