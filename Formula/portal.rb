@@ -25,8 +25,6 @@ class Portal < Formula
     # Start a local relay server on an open port.
     port=free_port
     fork do
-      $stdout.reopen("/dev/null")
-      $stderr.reopen("/dev/null")
       exec "#{bin}/portal", "serve", "--port=#{port}"
     end
     sleep 2
