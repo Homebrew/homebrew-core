@@ -8,7 +8,7 @@ class Phoneinfoga < Formula
 
   depends_on "go" => :build
   depends_on "yarn" => :build
-  depends_on "node@16"
+  depends_on "node@19"
 
   def install
     cd "web/client" do
