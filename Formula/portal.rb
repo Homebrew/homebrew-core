@@ -20,7 +20,7 @@ class Portal < Formula
 
   test do
     # Simple version check test.
-    system "#{bin}/portal", "version"
+    assert_match version.to_s, shell_output("#{bin}/portal version")
 
     # Start a local relay server on an open port.
     port=free_port
