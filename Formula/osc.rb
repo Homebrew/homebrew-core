@@ -66,7 +66,7 @@ class Osc < Formula
     EOS
 
     output = shell_output("#{bin}/osc status 2>&1", 1).chomp
-    assert_equal "Directory '.' is not a working copy", output
+    assert_match "Directory '.' is not a working copy", output
     assert_match "Please specify a command", shell_output("#{bin}/osc 2>&1", 2)
   end
 end
