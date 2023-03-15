@@ -19,6 +19,9 @@ class Cdecl < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1ce7e2b34d87649b10f5cd29b4df13c565f518936b42f029b7d1b592984d237e"
   end
 
+  # Source archives are no longer available
+  deprecate! date: "2023-03-14", because: :does_not_build
+
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
 
