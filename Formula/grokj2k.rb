@@ -106,7 +106,7 @@ class Grokj2k < Formula
         const GRK_COLOR_SPACE color_space = GRK_CLRSPC_GRAY;
 
         grk_image *image;
-        image = grk_image_new(1, &cmptparm, color_space);
+        image = grk_image_new(1, &cmptparm, color_space, true);
 
         grk_object_unref(&image->obj);
         return 0;
