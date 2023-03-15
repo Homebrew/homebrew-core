@@ -25,6 +25,8 @@ class Portal < Formula
     # Start a local relay server on an open port.
     port=free_port
     fork do
+      $stdout.reopen("/dev/null")
+      $stderr.reopen("/dev/null")
       exec "#{bin}/portal", "serve", "--port=#{port}"
     end
     sleep 2
@@ -38,7 +40,8 @@ class Portal < Formula
     test_file_sender.write(test_file_content)
     password_file=(testpath/"password.txt")
     fork do
-      exec "#{bin}/portal send -s=raw --relay=:#{port} #{test_file_sender} > #{password_file}"
+      $stdout.reopen(password_file)
+      exec "#{bin}/portal", "send", "-s=raw", "--relay=:#{port}", test_file_sender
     end
     sleep 2
 
