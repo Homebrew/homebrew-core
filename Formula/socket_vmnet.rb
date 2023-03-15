@@ -25,18 +25,24 @@ class SocketVmnet < Formula
     system "make", "install.bin", "install.doc", "VERSION=#{version}", "PREFIX=#{prefix}"
   end
 
+  def post_install
+    (var/"run").mkpath
+    (var/"log/socket_vmnet").mkpath
+  end
+
   def caveats
     <<~EOS
-      To install an optional launchd service, run the following command (sudo is necessary):
-      sudo brew services start socket_vmnet
+      socket_vmnet requires root privileges so you will need to run
+        `sudo #{opt_prefix}/socket_vmnet` or `sudo brew services start socket_vmnet`.
+      You should be certain that you trust any software you grant root privileges.
     EOS
   end
 
   service do
     run [opt_bin/"socket_vmnet", "--vmnet-gateway=192.168.105.1", var/"run/socket_vmnet"]
     run_type :immediate
-    error_log_path var/"run/socket_vmnet.stderr"
-    log_path var/"run/socket_vmnet.stdout"
+    error_log_path var/"log/socket_vmnet/stderr"
+    log_path var/"log/socket_vmnet/stdout"
     require_root true
   end
 
