@@ -6,11 +6,6 @@ class Portal < Formula
   license "MIT"
   head "https://github.com/SpatiumPortae/portal.git", branch: "master"
 
-  livecheck do
-    url :stable
-    strategy :github_latest
-  end
-
   depends_on "go" => :build
 
   def install
