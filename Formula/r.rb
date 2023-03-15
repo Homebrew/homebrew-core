@@ -56,8 +56,8 @@ class R < Formula
   # https://bugs.r-project.org/show_bug.cgi?id=18426
   patch do
     on_ventura :or_newer do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/d647f4e1d61c8dba5f15edf7a0fc567f681641fb/r/ventura.diff"
-      sha256 "0b3c230432ef6a9231eaf48f39fd22155d3e1c7cd4f2a497e96ff4bdc7d91b84"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/1b1104166dc06444e691dd1b2bec3606b095e382/r/ventura.diff"
+      sha256 "de146793532e4498480014f824bf2446e02aa70206284851127561f6c37108bf"
     end
   end
 
