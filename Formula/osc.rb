@@ -21,8 +21,7 @@ class Osc < Formula
   end
 
   depends_on "rust" => :build # for cryptography
-  depends_on "swig" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pycparser"
   depends_on "python@3.11"
 
@@ -49,15 +48,25 @@ class Osc < Formula
   end
 
   def install
-    openssl = Formula["openssl@1.1"]
-    ENV["SWIG_FEATURES"] = "-I#{openssl.opt_include}"
-
-    inreplace "osc/conf.py", "'/etc/ssl/certs'", "'#{openssl.pkgetc}/cert.pem'"
     virtualenv_install_with_resources
-    mv bin/"osc-wrapper.py", bin/"osc"
   end
 
   test do
-    system bin/"osc", "version"
+    test_config = testpath/"oscrc"
+    ENV["OSC_CONFIG"] = test_config
+
+    test_config.write <<~EOS
+      [general]
+      apiurl = https://api.opensuse.org
+
+      [https://api.opensuse.org]
+      credentials_mgr_class=osc.credentials.TransientCredentialsManager
+      user=brewtest
+      pass=
+    EOS
+
+    output = shell_output("#{bin}/osc status 2>&1", 1).chomp
+    assert_equal "Directory '.' is not a working copy", output
+    assert_match "Please specify a command", shell_output("#{bin}/osc 2>&1", 2)
   end
 end
