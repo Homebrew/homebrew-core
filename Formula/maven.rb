@@ -21,12 +21,12 @@ class Maven < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b43474278ad5bd5d050973ce33506a64b4beae218c73fd56b8b8a5386358eda9"
   end
   
+  depends_on "openjdk" => :test
+
   caveats do
     depends_on_java "8+"
   end
 
-  depends_on "openjdk" => :test
-  
   conflicts_with "mvnvm", because: "also installs a 'mvn' executable"
 
   def install
