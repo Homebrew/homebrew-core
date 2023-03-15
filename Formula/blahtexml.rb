@@ -21,6 +21,9 @@ class Blahtexml < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "87d59192ccfff76b31b99071e19cbb24bddc8e98260d8d922fdf336fc695e5b8"
   end
 
+  # Last release on 2010-11-27
+  deprecate! date: "2023-03-14", because: :unmaintained
+
   depends_on "xerces-c"
 
   # Add missing unistd.h includes, taken from MacPorts
