@@ -23,10 +23,6 @@ class MavenAT35 < Formula
 
   depends_on "openjdk" => :test
 
-  caveats do
-    depends_on_java "8+"
-  end
-
   def install
     # Remove windows files
     rm_f Dir["bin/*.cmd"]
