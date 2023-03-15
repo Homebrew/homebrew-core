@@ -4,8 +4,8 @@ class Zf < Formula
   # zf requires git submodules for dependencies until the Zig package manager is able
   # to resolve pure Zig dependencies, likely in Zig version 0.11.0
   url "https://github.com/natecraddock/zf.git",
-      tag:      "0.7.0",
-      revision: "2999185c7f8a5bf1ffffadb57498a603d8fd582d"
+      tag:      "0.8.0",
+      revision: "fb66faf9258ebad06ac06c8d2a597b869b72069b"
   license "MIT"
   head "https://github.com/natecraddock/zf.git", branch: "master"
 
