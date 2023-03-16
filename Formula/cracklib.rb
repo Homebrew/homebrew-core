@@ -35,9 +35,8 @@ class Cracklib < Formula
   end
 
   def install
-    system "./configure", "--disable-dependency-tracking",
+    system "./configure", *std_configure_args,
                           "--disable-silent-rules",
-                          "--prefix=#{prefix}",
                           "--sbindir=#{bin}",
                           "--without-python",
                           "--with-default-dict=#{var}/cracklib/cracklib-words"
