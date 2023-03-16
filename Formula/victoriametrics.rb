@@ -21,7 +21,6 @@ class Victoriametrics < Formula
           static_configs:
           - targets: ["127.0.0.1:8428"]
     EOS
-    etc.install "scrape.yml"
   end
 
   service do
