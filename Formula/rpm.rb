@@ -5,6 +5,7 @@ class Rpm < Formula
   sha256 "37f3b42c0966941e2ad3f10fde3639824a6591d07197ba8fd0869ca0779e1f56"
   license "GPL-2.0-only"
   version_scheme 1
+  head "https://github.com/rpm-software-management/rpm.git", branch: "master"
 
   livecheck do
     url "https://rpm.org/download.html"
