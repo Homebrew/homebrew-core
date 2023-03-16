@@ -31,13 +31,7 @@ class Openmama < Formula
   end
 
   def install
-    uuid_args = if OS.mac?
-      ["-DUUID_INCLUDE_DIRS=#{MacOS.sdk_path_if_needed}/usr/include", "-DUUID_LIBRARIES=c"]
-    else
-      []
-    end
-
-    args = uuid_args + %W[
+    args = %W[
       -DAPR_ROOT=#{Formula["apr"].opt_prefix}
       -DPROTON_ROOT=#{Formula["qpid-proton"].opt_prefix}
       -DCMAKE_INSTALL_RPATH=#{rpath}
@@ -45,6 +39,8 @@ class Openmama < Formula
       -DWITH_TESTTOOLS=OFF
       -DOPENMAMA_VERSION=#{version}
     ]
+
+    args << "-DUUID_INCLUDE_DIRS=#{MacOS.sdk_path_if_needed}/usr/include" << "-DUUID_LIBRARIES=c" if OS.mac?
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
