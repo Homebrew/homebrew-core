@@ -94,6 +94,13 @@ class Mold < Formula
     return unless OS.linux?
 
     cp_r pkgshare/"test", testpath
+
+    # Remove non-native tests.
+    arch = Hardware::CPU.arm? ? "aarch64" : Hardware::CPU.arch.to_s
+    testpath.glob("test/elf/*.sh")
+            .reject { |f| f.basename(".sh").to_s.match?(/^(#{arch}_)?[^_]+$/) }
+            .each(&:unlink)
+
     inreplace testpath.glob("test/elf/*.sh") do |s|
       s.gsub!(%r{(\./|`pwd`/)?mold-wrapper}, lib/"mold/mold-wrapper", false)
       s.gsub!(%r{(\.|`pwd`)/mold}, bin/"mold", false)
