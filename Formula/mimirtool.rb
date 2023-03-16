@@ -2,8 +2,8 @@ class Mimirtool < Formula
   desc "CLI for interacting with Grafana Mimir"
   homepage "https://grafana.com/docs/mimir/latest/operators-guide/tools/mimirtool/"
   url "https://github.com/grafana/mimir.git",
-        tag:      "mimir-2.7.0",
-        revision: "4af9b3acc856dbc234f8d5767bd4a58c8aea68b6"
+        tag:      "mimir-2.7.1",
+        revision: "dbe4ccd39cb58391e6174441ae11ae25bfebd395"
   license "AGPL-3.0-only"
   head "https://github.com/grafana/mimir.git", branch: "main"
 
