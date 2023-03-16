@@ -3,7 +3,7 @@ class Cracklib < Formula
   homepage "https://github.com/cracklib/cracklib"
   url "https://github.com/cracklib/cracklib/releases/download/v2.9.10/cracklib-2.9.10.tar.bz2"
   sha256 "9e0f2546220c6023754d81e5110c87192f92c703a2b0cc58661cd82dbcf07c63"
-  license "LGPL-2.1"
+  license "LGPL-2.1-only"
 
   livecheck do
     url :stable
