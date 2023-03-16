@@ -1,8 +1,8 @@
 class Portal < Formula
   desc "Quick and easy command-line file transfer utility from any computer to another"
   homepage "https://github.com/SpatiumPortae/portal"
-  url "https://github.com/SpatiumPortae/portal/archive/v1.2.2.tar.gz"
-  sha256 "94c334285925175edfc470239ea2cc73a0039f9487ce92e60764f0965aba66d4"
+  url "https://github.com/SpatiumPortae/portal/archive/v1.2.3.tar.gz"
+  sha256 "6d71f8c4b60da2bff404509fbeff57fc41a1300b51867aeace9632562fa9e30a"
   license "MIT"
   head "https://github.com/SpatiumPortae/portal.git", branch: "master"
 
