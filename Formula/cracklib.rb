@@ -24,8 +24,8 @@ class Cracklib < Formula
   depends_on "gettext"
 
   resource "cracklib-words" do
-    url "https://github.com/cracklib/cracklib/releases/download/v2.9.8/cracklib-words-2.9.8.bz2"
-    sha256 "ec25ac4a474588c58d901715512d8902b276542b27b8dd197e9c2ad373739ec4"
+    url "https://github.com/cracklib/cracklib/releases/download/v2.9.10/cracklib-words-2.9.10.bz2"
+    sha256 "19a557eb482332a4499267d9e25089a76bfb9e2bdea7ecf62ea6b6df4fb4c118"
   end
 
   # Fix -flat_namespace being used on Big Sur and later.
