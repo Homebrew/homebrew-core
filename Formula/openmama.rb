@@ -1,8 +1,8 @@
 class Openmama < Formula
   desc "Open source high performance messaging API for various Market Data sources"
   homepage "https://openmama.finos.org"
-  url "https://github.com/finos/OpenMAMA/archive/OpenMAMA-6.3.1-release.tar.gz"
-  sha256 "43e55db00290bc6296358c72e97250561ed4a4bb3961c1474f0876b81ecb6cf9"
+  url "https://github.com/finos/OpenMAMA/archive/refs/tags/OpenMAMA-6.3.2-release.tar.gz"
+  sha256 "5c09b5c73467c4122fe275c0f880c70e4b9f6f8d1ecbaa1aeeac7d8195d9ffef"
   license "LGPL-2.1-only"
 
   bottle do
