@@ -37,14 +37,15 @@ class Openmama < Formula
       []
     end
 
-    system "cmake", "-S", ".", "-B", "build",
-                    "-DAPR_ROOT=#{Formula["apr"].opt_prefix}",
-                    "-DPROTON_ROOT=#{Formula["qpid-proton"].opt_prefix}",
-                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
-                    "-DINSTALL_RUNTIME_DEPENDENCIES=OFF",
-                    "-DWITH_TESTTOOLS=OFF",
-                    *uuid_args,
-                    *std_cmake_args
+    args = uuid_args + %W[
+      -DAPR_ROOT=#{Formula["apr"].opt_prefix}
+      -DPROTON_ROOT=#{Formula["qpid-proton"].opt_prefix}
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DINSTALL_RUNTIME_DEPENDENCIES=OFF
+      -DWITH_TESTTOOLS=OFF
+      -DOPENMAMA_VERSION=#{version}
+    ]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
