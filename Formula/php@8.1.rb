@@ -2,9 +2,9 @@ class PhpAT81 < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
-  url "https://www.php.net/distributions/php-8.1.16.tar.xz"
-  mirror "https://fossies.org/linux/www/php-8.1.16.tar.xz"
-  sha256 "d61f13d96a58b93c39672b58f25e1ee4ce88500f4acb1430cb01a514875c1258"
+  url "https://www.php.net/distributions/php-8.1.17.tar.xz"
+  mirror "https://fossies.org/linux/www/php-8.1.17.tar.xz"
+  sha256 "b5c48f95b8e1d8624dd05fc2eab7be13277f9a203ccba97bdca5a1a0fb4a1460"
   license "PHP-3.01"
 
   livecheck do
