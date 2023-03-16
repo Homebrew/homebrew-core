@@ -22,6 +22,7 @@ class Ns3 < Formula
   depends_on "gsl"
   depends_on "open-mpi"
 
+  uses_from_macos "python" => :build
   uses_from_macos "libxml2"
   uses_from_macos "sqlite"
 
