@@ -39,6 +39,13 @@ class Rpm < Formula
 
   conflicts_with "rpm2cpio", because: "both install `rpm2cpio` binaries"
 
+  # Fix an "expected expression" error.
+  # Upstreamed at https://github.com/rpm-software-management/rpm/pull/2434.
+  patch do
+    url "https://github.com/rpm-software-management/rpm/commit/5375b90150b5468ea9985b81f10dc8fae20d9db4.patch?full_index=1"
+    sha256 "24c4c8ffc5259204797b9ef6050edb5bfef4e03940866bf30e9d41256179ec55"
+  end
+
   def install
     ENV.append "LDFLAGS", "-lomp" if OS.mac?
 
