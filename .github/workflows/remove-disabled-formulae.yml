@@ -31,11 +31,6 @@ jobs:
         with:
           username: BrewTestBot
 
-      - name: Install gpg for commit signing
-        run: |
-          sudo apt-get update -y
-          sudo apt-get install -y gpg
-
       - name: Set up commit signing
         uses: Homebrew/actions/setup-commit-signing@master
         with:
