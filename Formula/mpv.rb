@@ -19,7 +19,7 @@ class Mpv < Formula
 
   depends_on "docutils" => :build
   depends_on "meson" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkg-config" => [:build, :test]
   depends_on xcode: :build
   depends_on "ffmpeg"
   depends_on "jpeg-turbo"
@@ -82,5 +82,8 @@ class Mpv < Formula
   test do
     system bin/"mpv", "--ao=null", "--vo=null", test_fixtures("test.wav")
     assert_match "vapoursynth", shell_output(bin/"mpv --vf=help")
+
+    # Make sure `pkg-config` can parse `mpv.pc` after the `inreplace`.
+    system "pkg-config", "mpv"
   end
 end
