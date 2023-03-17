@@ -1,10 +1,10 @@
 class Kyuubi < Formula
   desc "Serverless SQL on data warehouses and lakehouses"
   homepage "https://kyuubi.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=kyuubi/kyuubi-1.6.1-incubating/apache-kyuubi-1.6.1-incubating-bin.tgz"
-  mirror "https://archive.apache.org/dist/kyuubi/kyuubi-1.6.1-incubating/apache-kyuubi-1.6.1-incubating-bin.tgz"
-  version "1.6.1-incubating"
-  sha256 "a64a6e5d71b39b0e494597282493250df1c74714fc2bba5057946926c0a32ba2"
+  url "https://www.apache.org/dyn/closer.lua?path=kyuubi/kyuubi-1.7.0/apache-kyuubi-1.7.0-bin.tgz"
+  mirror "https://archive.apache.org/dist/kyuubi/kyuubi-1.7.0/apache-kyuubi-1.7.0-bin.tgz"
+  version "1.7.0"
+  sha256 "beaf25f2c466f4cd03bcfcc7e0c6a63c51cfe5811f524fdc810550239eded461"
   license "Apache-2.0"
   head "https://github.com/apache/kyuubi.git", branch: "master"
 
@@ -34,10 +34,6 @@ class Kyuubi < Formula
   test do
     ENV.append "_JAVA_OPTIONS", "-Duser.home=#{testpath}"
     ENV.append "_JAVA_OPTIONS", "-Dkyuubi.frontend.bind.host=localhost"
-    ENV.append "_JAVA_OPTIONS", "-Dkyuubi.zookeeper.embedded.data.dir=#{testpath}/zk"
-    ENV.append "_JAVA_OPTIONS", "-Dkyuubi.metrics.reporters=''"
-    ENV.append "KYUUBI_LOG_DIR", testpath/"logs"
-    ENV.append "KYUUBI_PID_DIR", testpath/"pid"
     ENV.append "KYUUBI_WORK_DIR_ROOT", testpath/"work"
     ENV.append "SPARK_HOME", Formula["apache-spark"].opt_libexec.to_s
 
