@@ -77,6 +77,16 @@ class FluidSynth < Formula
                     "-Denable-waveout=OFF",
                     "-Denable-winmidi=OFF",
                     *std_cmake_args
+
+    # On macOS, readline is keg-only so use the absolute path to its pc file
+    # uses_from_macos "readline" produces another error
+    # Related error: Package 'readline', required by 'fluidsynth', not found
+    if OS.mac?
+      inreplace "build/fluidsynth.pc",
+                "readline",
+                "#{Formula["readline"].opt_lib}/pkgconfig/readline.pc"
+    end
+
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
