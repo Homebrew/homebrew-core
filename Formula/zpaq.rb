@@ -20,7 +20,7 @@ class Zpaq < Formula
 
   resource "test" do
     url "https://mattmahoney.net/dc/calgarytest2.zpaq"
-    sha256 "ad3b58c245b2a54136d3ff28be78c069b0272eb31f808bf82014134e5913cf7e"
+    sha256 "b110688939477bbe62263faff1ce488872c68c0352aa8e55779346f1bd1ed07e"
   end
 
   def install
