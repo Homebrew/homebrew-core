@@ -7,10 +7,6 @@ class Aicommits < Formula
   sha256 "cc2d9011a3ef1eb7317078c9154753412f3cb42f8a73dccc1cd8f84744c57a72"
   license "MIT"
 
-  livecheck do
-    url :stable
-  end
-
   depends_on "node"
 
   def install
