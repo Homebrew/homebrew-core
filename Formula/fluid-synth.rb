@@ -23,24 +23,62 @@ class FluidSynth < Formula
   depends_on "portaudio"
   depends_on "readline"
 
+  on_macos do
+    depends_on "gettext"
+  end
+
+  on_linux do
+    depends_on "alsa-lib"
+    depends_on "jack"
+    depends_on "systemd"
+  end
+
   resource "homebrew-test" do
     url "https://upload.wikimedia.org/wikipedia/commons/6/61/Drum_sample.mid"
     sha256 "a1259360c48adc81f2c5b822f221044595632bd1a76302db1f9d983c44f45a30"
   end
 
   def install
-    args = std_cmake_args + %w[
-      -Denable-framework=OFF
-      -Denable-portaudio=ON
-      -DLIB_SUFFIX=
-      -Denable-dbus=OFF
-      -Denable-sdl2=OFF
-    ]
-
-    mkdir "build" do
-      system "cmake", "..", *args
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build",
+                    "-Denable-alsa=#{OS.linux?}",
+                    "-Denable-aufile=ON",
+                    "-Denable-coverage=OFF",
+                    "-Denable-coreaudio=#{OS.mac?}",
+                    "-Denable-coremidi=#{OS.mac?}",
+                    "-Denable-dart=OFF",
+                    "-Denable-dbus=OFF",
+                    "-Denable-dsound=OFF",
+                    "-Denable-floats=OFF",
+                    "-Denable-fpe-check=OFF",
+                    "-Denable-framework=OFF",
+                    "-Denable-ipv6=ON",
+                    "-Denable-jack=#{OS.linux?}",
+                    "-Denable-ladspa=OFF",
+                    "-Denable-lash=OFF",
+                    "-Denable-libinstpatch=OFF",
+                    "-Denable-libsndfile=ON",
+                    "-Denable-midishare=OFF",
+                    "-Denable-network=ON",
+                    "-Denable-opensles=OFF",
+                    "-Denable-oboe=OFF",
+                    "-Denable-openmp=OFF",
+                    "-Denable-oss=OFF",
+                    "-Denable-pipewire=OFF",
+                    "-Denable-portaudio=ON",
+                    "-Denable-profiling=OFF",
+                    "-Denable-pulseaudio=OFF",
+                    "-Denable-readline=ON",
+                    "-Denable-sdl2=OFF",
+                    "-Denable-systemd=#{OS.linux?}",
+                    "-Denable-trap-on-fpe=OFF",
+                    "-Denable-threads=ON",
+                    "-Denable-ubsan=OFF",
+                    "-Denable-wasapi=OFF",
+                    "-Denable-waveout=OFF",
+                    "-Denable-winmidi=OFF",
+                    *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
     pkgshare.install "sf2"
   end
