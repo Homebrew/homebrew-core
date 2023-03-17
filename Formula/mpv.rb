@@ -64,6 +64,17 @@ class Mpv < Formula
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
 
+    if OS.mac?
+      # `pkg-config --libs mpv` includes libarchive, but that package is
+      # keg-only so it needs to look for the pkgconfig file in libarchive's opt
+      # path.
+      libarchive = Formula["libarchive"].opt_prefix
+      inreplace lib/"pkgconfig/mpv.pc" do |s|
+        s.gsub!(/^Requires\.private:(.*)\blibarchive\b(.*?)(,.*)?$/,
+                "Requires.private:\\1#{libarchive}/lib/pkgconfig/libarchive.pc\\3")
+      end
+    end
+
     bash_completion.install "etc/mpv.bash-completion" => "mpv"
     zsh_completion.install "etc/_mpv.zsh" => "_mpv"
   end
