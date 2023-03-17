@@ -47,6 +47,8 @@ class Lmod < Formula
       end
     end
 
+    # We install `tcl-tk` headers in a subdirectory to avoid conflicts with other formulae.
+    ENV.append_to_cflags "-I#{Formula["tcl-tk"].opt_include}/tcl-tk" if OS.linux?
     system "./configure", "--with-siteControlPrefix=yes", "--prefix=#{prefix}"
     system "make", "install"
   end
