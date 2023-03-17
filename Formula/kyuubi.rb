@@ -3,7 +3,6 @@ class Kyuubi < Formula
   homepage "https://kyuubi.apache.org/"
   url "https://www.apache.org/dyn/closer.lua?path=kyuubi/kyuubi-1.7.0/apache-kyuubi-1.7.0-bin.tgz"
   mirror "https://archive.apache.org/dist/kyuubi/kyuubi-1.7.0/apache-kyuubi-1.7.0-bin.tgz"
-  version "1.7.0"
   sha256 "beaf25f2c466f4cd03bcfcc7e0c6a63c51cfe5811f524fdc810550239eded461"
   license "Apache-2.0"
   head "https://github.com/apache/kyuubi.git", branch: "master"
