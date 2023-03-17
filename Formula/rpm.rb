@@ -1,11 +1,20 @@
 class Rpm < Formula
   desc "Standard unix software packaging tool"
   homepage "https://rpm.org/"
-  url "https://ftp.osuosl.org/pub/rpm/releases/rpm-4.18.x/rpm-4.18.1.tar.bz2"
-  sha256 "37f3b42c0966941e2ad3f10fde3639824a6591d07197ba8fd0869ca0779e1f56"
   license "GPL-2.0-only"
   version_scheme 1
   head "https://github.com/rpm-software-management/rpm.git", branch: "master"
+
+  stable do
+    url "https://ftp.osuosl.org/pub/rpm/releases/rpm-4.18.x/rpm-4.18.1.tar.bz2"
+    sha256 "37f3b42c0966941e2ad3f10fde3639824a6591d07197ba8fd0869ca0779e1f56"
+
+    # Fix an "expected expression" error. Remove on next release.
+    patch do
+      url "https://github.com/rpm-software-management/rpm/commit/b960c0b43a080287a7c13533eeb2d9f288db1414.patch?full_index=1"
+      sha256 "28417a368e4d4a6c722944a8fe325212b3cea96b6d355437c6366606a7ca0d00"
+    end
+  end
 
   livecheck do
     url "https://rpm.org/download.html"
@@ -38,13 +47,6 @@ class Rpm < Formula
   end
 
   conflicts_with "rpm2cpio", because: "both install `rpm2cpio` binaries"
-
-  # Fix an "expected expression" error.
-  # Upstreamed at https://github.com/rpm-software-management/rpm/pull/2434.
-  patch do
-    url "https://github.com/rpm-software-management/rpm/commit/5375b90150b5468ea9985b81f10dc8fae20d9db4.patch?full_index=1"
-    sha256 "24c4c8ffc5259204797b9ef6050edb5bfef4e03940866bf30e9d41256179ec55"
-  end
 
   def install
     ENV.append "LDFLAGS", "-lomp" if OS.mac?
