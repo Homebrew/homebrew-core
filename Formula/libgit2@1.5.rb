@@ -4,6 +4,7 @@ class Libgit2AT15 < Formula
   url "https://github.com/libgit2/libgit2/archive/v1.5.2.tar.gz"
   sha256 "57638ac0e319078f56a7e17570be754515e5b1276d3750904b4214c92e8fa196"
   license "GPL-2.0-only" => { with: "GCC-exception-2.0" }
+  head "https://github.com/libgit2/libgit2.git", branch: "maint/v1.5"
 
   livecheck do
     url :stable
