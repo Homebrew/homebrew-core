@@ -168,17 +168,21 @@ class Borgmatic < Formula
     log_content = File.read(log_path)
 
     # Assert that the proper borg commands were executed
-    assert_match <<~EOS, log_content
+    assert_equal <<~EOS, log_content
       --version --debug --show-rc
       info --json #{repo_path}
       init --encryption repokey --debug #{repo_path}
       --version
+      create #{repo_path}::{hostname}-{now:%Y-%m-%dT%H:%M:%S.%f} /etc /home
       prune --keep-daily 7 --glob-archives {hostname}-* #{repo_path}
       compact #{repo_path}
-      create #{repo_path}::{hostname}-{now:%Y-%m-%dT%H:%M:%S.%f} /etc /home
       info --json #{repo_path}
       check --glob-archives {hostname}-* #{repo_path}
       --version
+      create #{repo_path}::{hostname}-{now:%Y-%m-%dT%H:%M:%S.%f} /etc /home #{testpath}/.borgmatic --json
+      prune --keep-daily 7 --glob-archives {hostname}-* --list #{repo_path}
+      compact #{repo_path}
+      info --json #{repo_path}
     EOS
   end
 end
