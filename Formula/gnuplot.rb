@@ -2,7 +2,7 @@ class Gnuplot < Formula
   desc "Command-driven, interactive function plotting"
   homepage "http://www.gnuplot.info/"
   url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/5.4.6/gnuplot-5.4.6.tar.gz"
-  sha256 "bef7b9618079c724f19d3b0e1d7830b5b407a56b303f2b9e3690a4ce8ce0a89c"
+  sha256 "02fc27918200ed64d8f0c3b84fe81b95b59cd47ad99f270939ae497c19f27419"
   license "gnuplot"
 
   bottle do
