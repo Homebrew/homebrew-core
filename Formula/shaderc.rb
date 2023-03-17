@@ -10,19 +10,19 @@ class Shaderc < Formula
     resource "glslang" do
       # https://github.com/google/shaderc/blob/known-good/known_good.json
       url "https://github.com/KhronosGroup/glslang.git",
-          revision: "1fb2f1d7896627d62a289439a2c3e750e551a7ab"
+          revision: "ef77cf3a92490f7c37f36f20263cd3cd8c94f009"
     end
 
     resource "spirv-headers" do
       # https://github.com/google/shaderc/blob/known-good/known_good.json
       url "https://github.com/KhronosGroup/SPIRV-Headers.git",
-          revision: "d13b52222c39a7e9a401b44646f0ca3a640fbd47"
+          revision: "1feaf4414eb2b353764d01d88f8aa4bcc67b60db"
     end
 
     resource "spirv-tools" do
       # https://github.com/google/shaderc/blob/known-good/known_good.json
       url "https://github.com/KhronosGroup/SPIRV-Tools.git",
-          revision: "63de608daeb7e91fbea6d7477a50debe7cac57ce"
+          revision: "44d72a9b36702f093dd20815561a56778b2d181e"
     end
   end
 
