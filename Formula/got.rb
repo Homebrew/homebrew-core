@@ -22,12 +22,12 @@ class Got < Formula
   depends_on "bison" => :build
   depends_on "pkg-config" => :build
   depends_on "libevent"
-  depends_on :macos # FIXME: build fails on Linux.
   depends_on "ncurses"
   depends_on "openssl@1.1"
   uses_from_macos "zlib"
 
   on_linux do
+    depends_on "libbsd"
     depends_on "libmd"
     depends_on "util-linux" # for libuuid
   end
