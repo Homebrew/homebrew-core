@@ -25,8 +25,6 @@ class MavenAT38 < Formula
 
   depends_on "openjdk"
 
-  conflicts_with "mvnvm", because: "also installs a 'mvn' executable"
-
   def install
     # Remove windows files
     rm_f Dir["bin/*.cmd"]
