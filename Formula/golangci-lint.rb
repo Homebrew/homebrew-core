@@ -34,8 +34,7 @@ class GolangciLint < Formula
 
   test do
     str_version = shell_output("#{bin}/golangci-lint --version")
-    go_version = Formula["go"].version
-    assert_match "golangci-lint has version #{version} built with go#{go_version}", str_version
+    assert_match(/golangci-lint has version #{version} built with go(.*) from/, str_version)
 
     str_help = shell_output("#{bin}/golangci-lint --help")
     str_default = shell_output("#{bin}/golangci-lint")
