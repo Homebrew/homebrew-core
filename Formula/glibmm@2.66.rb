@@ -7,8 +7,8 @@ class GlibmmAT266 < Formula
 
   livecheck do
     url "https://download.gnome.org/sources/glibmm/2.66/"
-    strategy :page_match
     regex(/href=.*?glibmm[._-]v?(2\.66(?:\.\d+)+)\.t/i)
+    strategy :page_match
   end
 
   bottle do
