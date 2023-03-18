@@ -1,4 +1,6 @@
 [
+  "cargo-edit",
+  "cargo-outdated",
   "couchdb-lucene",
   "dasht",
   "hive",

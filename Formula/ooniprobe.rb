@@ -1,8 +1,8 @@
 class Ooniprobe < Formula
   desc "Network interference detection tool"
   homepage "https://ooni.org/"
-  url "https://github.com/ooni/probe-cli/archive/v3.17.0.tar.gz"
-  sha256 "b5de405f6ca6c0a0d8f630274efac7f24f54890c5571ce1f6a42849d6fa8854e"
+  url "https://github.com/ooni/probe-cli/archive/v3.17.1.tar.gz"
+  sha256 "f8d89803c34f8f8112ed8aee2b462058fa20782e5b927f619cbf09805ec6f56d"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,14 +11,13 @@ class Ooniprobe < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1dd57aa045ce0c6fca0a3dde82d010ec925e3188ebf30b0fbf1b05ea4f96745c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3e7dfeac0148fb386e2d66eb37c0d77eecb28fb82cc1c83c1d17e7e66ff62b88"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "eac4f6d252463cb90700787205679543bf7d296c6f659d311c1422733c572c48"
-    sha256 cellar: :any_skip_relocation, ventura:        "eb43f851efc036236c02360eb11f8fa047ca376a7e6f8a6c0433c0aee969df12"
-    sha256 cellar: :any_skip_relocation, monterey:       "352e99ddbbbed86b7ffe59827eefd933061dae3176e88c97ed58309df3002092"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6bf4ff07b63cf7ee1c4489d914c6edc02044b73f2df43489c31d38cacc11be93"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b8d6333124c42d9dcbfd097973766b7c6e28edca8000f9a30463bb522f225c9e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d9b84a55e43d123c793ae150cb1cbe9c469af78547489c6b16792999778ec081"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0d50dd20e462d685bb8393920107627d6081e8e1c7075291983fc317792037eb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d0547b7df9e3ad444c6e2176f6b42b1bbe899e1bbcfd52eea8ca2c27d4b75afe"
+    sha256 cellar: :any_skip_relocation, ventura:        "e56a9eeeb6a6ba3755170172fc576a806eaa21cda9428521ef5a1cc47a3e03a2"
+    sha256 cellar: :any_skip_relocation, monterey:       "3d2aeb22f38db37d04982122baceadf2d50a91dc02a1893b18c54c3dcb7f594f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a3440be6d6ceb12dd450b0b32b51a80d031a930b5042c5b4a5f54a1654af1857"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e73b2552f6a37d33303766b095e9980c7c0d69b7200cbac70a214ae432c53457"
   end
 
   # Upstream does not support go 1.20 yet and recommends using a specific Go version:

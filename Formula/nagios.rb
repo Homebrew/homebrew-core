@@ -88,39 +88,6 @@ class Nagios < Formula
     inreplace config, /^nagios_user=.*/, "nagios_user=#{ENV["USER"]}"
   end
 
-  def caveats
-    <<~EOS
-      First we need to create a command dir using superhuman powers:
-
-        mkdir -p #{nagios_var}/rw
-        sudo chgrp _www #{nagios_var}/rw
-        sudo chmod 2775 #{nagios_var}/rw
-
-      Then install the Nagios web frontend into Apple's built-in Apache:
-
-        1) Turn on Personal Web Sharing.
-
-        2) Load the cgi and php modules by patching /etc/apache2/httpd.conf:
-
-          -#LoadModule php5_module        libexec/apache2/libphp5.so
-          +LoadModule php5_module        libexec/apache2/libphp5.so
-
-          -#LoadModule cgi_module libexec/apache2/mod_cgi.so
-          +LoadModule cgi_module libexec/apache2/mod_cgi.so
-
-        3) Symlink the sample config and create your web account:
-
-          sudo ln -sf #{share}/nagios.conf /etc/apache2/other/
-          htpasswd -cs #{nagios_etc}/htpasswd.users nagiosadmin
-          sudo apachectl restart
-
-      Log in with your web account (and don't forget to RTFM :-)
-
-        open http://localhost/nagios
-
-    EOS
-  end
-
   service do
     run [opt_bin/"nagios", etc/"nagios/nagios.cfg"]
     keep_alive true

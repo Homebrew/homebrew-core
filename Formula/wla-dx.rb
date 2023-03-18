@@ -7,8 +7,8 @@ class WlaDx < Formula
 
   livecheck do
     url :stable
-    strategy :github_latest
     regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)(?:-fix)*["' >]}i)
+    strategy :github_latest
   end
 
   bottle do

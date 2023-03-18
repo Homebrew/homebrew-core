@@ -4,19 +4,19 @@ class Zf < Formula
   # zf requires git submodules for dependencies until the Zig package manager is able
   # to resolve pure Zig dependencies, likely in Zig version 0.11.0
   url "https://github.com/natecraddock/zf.git",
-      tag:      "0.7.0",
-      revision: "2999185c7f8a5bf1ffffadb57498a603d8fd582d"
+      tag:      "0.8.0",
+      revision: "fb66faf9258ebad06ac06c8d2a597b869b72069b"
   license "MIT"
   head "https://github.com/natecraddock/zf.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d11d9cff78d3a81fbbe7a00ad8b34404fa9fe34d0a1b0de95acbafcadd317e49"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c0632872a8071acbb0a871127e5670fdeeb291d0dabd82efc710f44db95468c9"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b03d8f5d14817261ab62c6e3b4d249b458b95bf0302b0261b89ead8a5dbe9f70"
-    sha256 cellar: :any_skip_relocation, ventura:        "47beecf5ed2ec41755793faa0f21978e2a58c70882c9a9fe06a466212c8774a3"
-    sha256 cellar: :any_skip_relocation, monterey:       "cdf06efa5bdd69792d85932fd97c97360df9e047f7b792b30b30e1dbbba6bace"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0a36ff7fbfadb81b615c4c6f01b4e2f7b49e59232d3ac7638e8f9f26774b9eb4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0fa3eebc130eefb44d09000fe7f7f908bd0d0b38a111775db98e8329ef80527c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6dbab2a5e6182fc671cbbae1d066df3b5f08c4cb40c8ebde65fe9043e5d1dcf0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "56d5a4a874a0bd082b3455fe06a16b0d4343b770a3701b248f211c24cb1d42a5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "aada6ce9c5e8d78dae76bd08d02a7aef5ca1ac22685c5fd65c29077dd7d87912"
+    sha256 cellar: :any_skip_relocation, ventura:        "1c47cd203b641575113c6ab10b33608eb3b9495ff168d5a3253eced802760a4c"
+    sha256 cellar: :any_skip_relocation, monterey:       "63035c6f21e1b357d347d0d3d92a790d4e66028911a3ee3b78192212eaea2fdf"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ca285ce67e75edd1630b9db30d24ad2954a0749deda7a399114a5413a9d0bbb0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0c26ef59e4187e32882b959a121453eb82b2aff3935a7f8961d642e5e027ef0a"
   end
 
   depends_on "zig" => :build

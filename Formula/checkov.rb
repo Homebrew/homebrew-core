@@ -4,18 +4,18 @@ class Checkov < Formula
   desc "Prevent cloud misconfigurations during build-time for IaC tools"
   homepage "https://www.checkov.io/"
   # checkov should only be updated every 15 releases on multiples of 15
-  url "https://files.pythonhosted.org/packages/93/46/5a96469d5ee4a477e199dcbf4bb4b0e27f9720de9066f49fb173fe171951/checkov-2.3.75.tar.gz"
-  sha256 "40833413b193ed837abab7ca99cf3f23247c955ab9e1bbf73c2cfb6e0931ca26"
+  url "https://files.pythonhosted.org/packages/78/a0/c467288efd584bdba966b18e1e8f65248aac6b00c4586bfad9c043eb25fd/checkov-2.3.90.tar.gz"
+  sha256 "ecd872d0f55e55578c42f3bd611df34c3f389a0ba3c36d8f924ea45e6158ad74"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5f1d2b6ae7da8f07b41b8175e1b736b2bc105bdaa4598bf49c70918ae01ed0dd"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e2a75fe3c5905df5abfaaa9c540bdfe40332c9d57dfb365378b8898ef4f37a2f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f00c1cca1ed889463a49ef2a217f7b15eeef118b6074be77d5ed49fc7d401d9a"
-    sha256 cellar: :any_skip_relocation, ventura:        "ec79220e959119397bd4e14ef50c35e487fa5f4bc358af22dc7237941bc0b2cf"
-    sha256 cellar: :any_skip_relocation, monterey:       "a8d99dab4d12f415f28bd4b82fc988e51bf613ded29349848ca078fb5da11081"
-    sha256 cellar: :any_skip_relocation, big_sur:        "785db7128eef7b42446fc8d1e67b65e45f14ac624b45ce0ed54b9cf9bd375cc3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e32162fe06c1c4321db44e95a53f8f69eab5cb4f273ee281ec716bad15eda00d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "702f1591244a8461ebf5776cc73eecb2baa1318fe73dfe1f6589cffee4ba2352"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cce4d5b25e5f91752d5fb9a7623c68cf957380aa0680b9eff6dff526388d7e4a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a506a2393ac35670496a7919e03ed52d6486234e17af045143b98948beaffbae"
+    sha256 cellar: :any_skip_relocation, ventura:        "dc0644a4e036eda2c8d21f79b3796bbbbad8d1f680e8f66fe7a789542d97faf8"
+    sha256 cellar: :any_skip_relocation, monterey:       "b9c70ec61496d334f2a306d4201738a12210c2f431296886738f53629950d98d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "32f57068e327be3cc63876f48a5de04c450223d0117c87a30a83d11385bc6489"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cac44661fa629e4452c01d8991777c2d0da9b0960d376b0bd4aa59039c176d8c"
   end
 
   depends_on "cmake" => :build # for igraph
@@ -61,8 +61,8 @@ class Checkov < Formula
   end
 
   resource "bc-detect-secrets" do
-    url "https://files.pythonhosted.org/packages/d4/13/4ec3a01fcb7e43793d74b5adff322c7f7252eeb5a99f02a5c9a11124646a/bc-detect-secrets-1.4.13.tar.gz"
-    sha256 "166a3da9ad228824e11793e7eca0a1ee8b2846997d3887a3ebbe0289cf247b3d"
+    url "https://files.pythonhosted.org/packages/49/83/637f8a537d416184bf37aba473429d61c8e416b35efd603160fa0c272bb6/bc-detect-secrets-1.4.14.tar.gz"
+    sha256 "92e2dd6129b5f162d4f4758661bbf33344fb4a60b1b20c9635747eb16b33cf73"
   end
 
   resource "bc-jsonpath-ng" do
@@ -81,13 +81,13 @@ class Checkov < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/7e/60/8778d71c827e14965a141e1b605d67da9e9b9924ec837bdff4e60d4c54f7/boto3-1.26.87.tar.gz"
-    sha256 "b0f7e801d6d5cb96ed89e1d39326bb072b5d9175bb6c986850c77b640474d297"
+    url "https://files.pythonhosted.org/packages/1e/f6/252c68d619f4f0b6e9ac16ef3b699d2dee863bdec250e1a42e273d2ec1ec/boto3-1.26.90.tar.gz"
+    sha256 "1d33abca60643d14f90a9e77d94085ebfd8f8bf8f157f582466f6b3a141bab8c"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/90/e8/19b4b72b31265cefd4fe2498b91ce7556171f0e4b2a2cb640ca9be576554/botocore-1.29.87.tar.gz"
-    sha256 "2b981c3ebb347bdf2a8c3c0ce7e7712c76bfe43ae87d30776a3ab469e305f469"
+    url "https://files.pythonhosted.org/packages/76/0e/89c2706ebbbfbb3b6b8baded188221d2e9afc54388e60a3d76795d4cb94b/botocore-1.29.90.tar.gz"
+    sha256 "2dbbc2c7d93ddefcf9896268597212d446e5d416fbceb1b12c793660fa9f83f3"
   end
 
   resource "cached-property" do
@@ -366,8 +366,8 @@ class Checkov < Formula
   end
 
   resource "unidiff" do
-    url "https://files.pythonhosted.org/packages/be/69/aa7dc315290382a52e7441c61c987b801434078b1c07bd9a7b377206ae82/unidiff-0.7.4.tar.gz"
-    sha256 "2bbcbc986e1fb97f04b1d7b864aa6002ab02f4d8a996bf03aa6e5a81447d1fc5"
+    url "https://files.pythonhosted.org/packages/a3/48/81be0ac96e423a877754153699731ef439fd7b80b4c8b5425c94ed079ebd/unidiff-0.7.5.tar.gz"
+    sha256 "2e5f0162052248946b9f0970a40e9e124236bf86c82b70821143a6fc1dea2574"
   end
 
   resource "update-checker" do
@@ -376,8 +376,8 @@ class Checkov < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/c5/52/fe421fb7364aa738b3506a2d99e4f3a56e079c0a798e9f4fa5e14c60922f/urllib3-1.26.14.tar.gz"
-    sha256 "076907bf8fd355cde77728471316625a4d2f7e713c125f51953bb5b3eecf4f72"
+    url "https://files.pythonhosted.org/packages/21/79/6372d8c0d0641b4072889f3ff84f279b738cd8595b64c8e0496d4e848122/urllib3-1.26.15.tar.gz"
+    sha256 "8a388717b9476f934a21484e8c8e61875ab60644d29b9b39e11e4b9dc1c6b305"
   end
 
   resource "wcwidth" do
@@ -419,7 +419,7 @@ class Checkov < Formula
     EOS
 
     output = shell_output("#{bin}/checkov -f #{testpath}/test.tf 2>&1", 1)
-    assert_match "Passed checks: 4, Failed checks: 5, Skipped checks: 0", output
+    assert_match "Passed checks: 4, Failed checks: 6, Skipped checks: 0", output
 
     (testpath/"test2.tf").write <<~EOS
       resource "aws_s3_bucket" "foo-bucket" {
@@ -436,6 +436,6 @@ class Checkov < Formula
       }
     EOS
     output = shell_output("#{bin}/checkov -f #{testpath}/test2.tf 2>&1", 1)
-    assert_match "Passed checks: 4, Failed checks: 4, Skipped checks: 1", output
+    assert_match "Passed checks: 4, Failed checks: 5, Skipped checks: 1", output
   end
 end

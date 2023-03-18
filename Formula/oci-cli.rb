@@ -3,19 +3,19 @@ class OciCli < Formula
 
   desc "Oracle Cloud Infrastructure CLI"
   homepage "https://docs.cloud.oracle.com/iaas/Content/API/Concepts/cliconcepts.htm"
-  url "https://files.pythonhosted.org/packages/70/ac/217535e7ab9d7990dbc64681add3b5f55a7210b08f804c629a94256e70b8/oci-cli-3.23.3.tar.gz"
-  sha256 "11c64f1234c9f06388b683526233b163ad5f0dab6e8d373a3cdfa90a68958ef5"
+  url "https://files.pythonhosted.org/packages/0d/cd/4d864638408e87f181e23c021d185eb3c9963084c5a3dba3b19cf6f7ad5b/oci-cli-3.23.4.tar.gz"
+  sha256 "f18e268d1a32224b5dd6658d808eb24658ca93aab7cc40af32ad3ef4099e890e"
   license any_of: ["UPL-1.0", "Apache-2.0"]
   head "https://github.com/oracle/oci-cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "d202cdd1f05dfe8d9dc519f5e26a0594cc44b42d5afaef42228ce7d12b418c72"
-    sha256 cellar: :any,                 arm64_monterey: "4357a8163ded9bf033a39f409b9130ecb6bc0effbd526774e73d0375ea654182"
-    sha256 cellar: :any,                 arm64_big_sur:  "d777a2b3e1e070d40ad2460a13893b3ee4fde78e6f012c944e60c5acbf9a864d"
-    sha256 cellar: :any,                 ventura:        "e9c6bd5cb613ed0d075c782ed9cdf0b825142725d83f51aa037e378b1857f260"
-    sha256 cellar: :any,                 monterey:       "828a1e177eff5c4d3840e12bf9fdde755d42ae21859e49e2100745ef20b83f90"
-    sha256 cellar: :any,                 big_sur:        "ef911aa6062ee22ab1a9898642f498a5f1032f2527c22a7aa8ebf5a83810fcd8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8bacf61b34a39a1f2d1cb50cfb893eab9795e525a4cd7c7c9d97534a693fd812"
+    sha256 cellar: :any,                 arm64_ventura:  "23ac8c8c84e8a60a30e49f119cac02054118cc4fddec543763518b6536d1fe90"
+    sha256 cellar: :any,                 arm64_monterey: "656ac11640262168b53a18ad89b80ad57971b4d89c5ba4ad25caafa7be7f0514"
+    sha256 cellar: :any,                 arm64_big_sur:  "081d0c69101939342ff4b7991f7f8ab3802b3cff24070696598ef601e55a1c9b"
+    sha256 cellar: :any,                 ventura:        "6ddfded9de3fb5b10bb330cdbcfcdac04667241c964d6b07cf8c0e82f4ec46dd"
+    sha256 cellar: :any,                 monterey:       "489be52c12e58deb3e09bb699f92e7c53b9649c9a74c1fbeac623bcc295eec00"
+    sha256 cellar: :any,                 big_sur:        "63dee60531b8cf46146a813504666cf0d46016c656857350bb42e72ea55dad4f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2866b96a812a6cc735476e133a3b32fe3cd1c1f2139c8a200fca86f997a5b79f"
   end
 
   depends_on "rust" => :build
@@ -48,8 +48,8 @@ class OciCli < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/e3/3f/41186b1f2fd86a542d399175f6b8e43f82cd4dfa51235a0b030a042b811a/cryptography-38.0.4.tar.gz"
-    sha256 "175c1a818b87c9ac80bb7377f5520b7f31b3ef2a0004e2420319beadedb67290"
+    url "https://files.pythonhosted.org/packages/fa/f3/f4b8c175ea9a1de650b0085858059050b7953a93d66c97ed89b93b232996/cryptography-39.0.2.tar.gz"
+    sha256 "bc5b871e977c8ee5a1bbc42fa8d19bcc08baf0c51cbf1586b0e87a2694dde42f"
   end
 
   resource "jmespath" do
@@ -58,8 +58,8 @@ class OciCli < Formula
   end
 
   resource "oci" do
-    url "https://files.pythonhosted.org/packages/c8/59/ad8b6d1c6b3238c2a3163afa7fe7632c1438513ff619810208f3a3d7fd50/oci-2.94.0.tar.gz"
-    sha256 "647aa9436d1d924b35f14e18d2d5b08a3bbbbb12361d399bf9d5def62dbaeb7f"
+    url "https://files.pythonhosted.org/packages/87/b6/1945061a62ad9763e70415cf96b2eb4b2b31bca82c4ead439d408c76435b/oci-2.95.0.tar.gz"
+    sha256 "bed3de3e0ffcd8f0dac2ae617833223d2efb4afa02cbc082a52d5587e8459804"
   end
 
   resource "prompt-toolkit" do
@@ -73,8 +73,8 @@ class OciCli < Formula
   end
 
   resource "pyOpenSSL" do
-    url "https://files.pythonhosted.org/packages/e7/2f/c6d89edac75482f11e231b644e365d31d5479b7b727734e6a8f3d00decd5/pyOpenSSL-22.1.0.tar.gz"
-    sha256 "7a83b7b272dd595222d672f5ce29aa030f1fb837630ef229f62e72e395ce8968"
+    url "https://files.pythonhosted.org/packages/af/6e/0706d5e0eac08fcff586366f5198c9bf0a8b46f0f45b1858324e0d94c295/pyOpenSSL-23.0.0.tar.gz"
+    sha256 "c1cc5f86bcacefc84dada7d31175cae1b1518d5f60d3d0bb595a67822a868a6f"
   end
 
   resource "python-dateutil" do

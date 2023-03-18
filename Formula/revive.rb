@@ -2,19 +2,19 @@ class Revive < Formula
   desc "Fast, configurable, extensible, flexible, and beautiful linter for Go"
   homepage "https://revive.run"
   url "https://github.com/mgechev/revive.git",
-      tag:      "v1.2.5",
-      revision: "a4f4632a3f934868012008d36eecafb912282d45"
+      tag:      "v1.3.1",
+      revision: "b03e54f617491984b41f0411b69326f94d03a76f"
   license "MIT"
   head "https://github.com/mgechev/revive.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "330be52bc1318bed0487581d880237613710cda3856a3baa033ff671dfd6806f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "330be52bc1318bed0487581d880237613710cda3856a3baa033ff671dfd6806f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "330be52bc1318bed0487581d880237613710cda3856a3baa033ff671dfd6806f"
-    sha256 cellar: :any_skip_relocation, ventura:        "d9f552820ad1b8fa688bd2973baef194ec105c33cfa4bde3ff90a3172f83eedb"
-    sha256 cellar: :any_skip_relocation, monterey:       "d9f552820ad1b8fa688bd2973baef194ec105c33cfa4bde3ff90a3172f83eedb"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d9f552820ad1b8fa688bd2973baef194ec105c33cfa4bde3ff90a3172f83eedb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1ea5593ac6f1d2fc7633bda6c50504040e02e0f9924bbce181e7a741f8715533"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7da60f366374cc99e376e2233773c6d8fbf6d56df0dd7feb56e2b1433e7bdac9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7da60f366374cc99e376e2233773c6d8fbf6d56df0dd7feb56e2b1433e7bdac9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7da60f366374cc99e376e2233773c6d8fbf6d56df0dd7feb56e2b1433e7bdac9"
+    sha256 cellar: :any_skip_relocation, ventura:        "22c5e03b9635a1826c9372d4d2c14a86e06fbb4a6f50637af974abf5525211cf"
+    sha256 cellar: :any_skip_relocation, monterey:       "22c5e03b9635a1826c9372d4d2c14a86e06fbb4a6f50637af974abf5525211cf"
+    sha256 cellar: :any_skip_relocation, big_sur:        "22c5e03b9635a1826c9372d4d2c14a86e06fbb4a6f50637af974abf5525211cf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "decb2e90caa79b24e1a6c961d8a7fc2505342f766e199baa41b6cf0be7790490"
   end
 
   depends_on "go" => :build

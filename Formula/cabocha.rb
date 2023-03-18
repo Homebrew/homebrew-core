@@ -19,6 +19,9 @@ class Cabocha < Formula
     sha256 x86_64_linux:   "182dfe90c7dcc7c8bf00ece489a1d03b39b1dc66719a58c52efce8f8a8b30b96"
   end
 
+  # Last release on 2015-01-24
+  deprecate! date: "2023-03-14", because: :unmaintained
+
   depends_on "crf++"
   depends_on "mecab"
   depends_on "mecab-ipadic"

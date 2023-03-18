@@ -3,18 +3,18 @@ class Borgmatic < Formula
 
   desc "Simple wrapper script for the Borg backup software"
   homepage "https://torsion.org/borgmatic/"
-  url "https://files.pythonhosted.org/packages/db/4d/bbe4fe66fb2fc6fcf2f0550638dce9d169acd237b3be29ebe8f6a2615c6b/borgmatic-1.7.8.tar.gz"
-  sha256 "fa563208f2a069664f5242068e0981112eaf83565b819e5be962a6a6a01cca13"
+  url "https://files.pythonhosted.org/packages/74/53/c7ec58aeff933602ea2eb2a779be5b11c1a7d3dc9aede5e9bdbae5ed1e90/borgmatic-1.7.9.tar.gz"
+  sha256 "bf7431c32ed5eaba97f741b8fd7a7a9954d492ba835e6b9d821ded8741828ee9"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "06cf25355339f26965b730c8e73638dd1ead21a5551080994933c9a875873594"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ef4ed54f6a5c0974d904d8e2dbba245d68a4cf19ee6a0c3b809913358c576b96"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fb7c154a493ec066cf3ace58a1f433a41b8be45b816c7d2a895b84fb9d9b34c7"
-    sha256 cellar: :any_skip_relocation, ventura:        "b4e4652d8b346c71a5367f1a5c96bfe025773810c0b11b8220757874aae9ba2e"
-    sha256 cellar: :any_skip_relocation, monterey:       "df5f36fac91403b8fbcc9f0d5d1380d01267f1c6a2a536a4e8170e8f9f2439dc"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b6cd88e217fddee20d9f55b8a5ca87da586e86db1a619bfe87a0959775a9180b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f0963d6306b08d475bb6a8f547481f8b969bf3be3a739e27eb76c00ea9b18b8e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "deab789d9dc4b160e67cf38ca57a91621db1d568063f8c6eb5b0730fde393d72"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c08a28cb69a939cd134bf2f38182b7dce080643894256cad890ec4eec83f9b14"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "86a354be5003059b4eee7070d2b49eb08263853a58dc3bc331c6a7be3f9c405b"
+    sha256 cellar: :any_skip_relocation, ventura:        "7473debbfe445614a21188d0c9b91cec305a2b08e638b8f017a33691e2adc81c"
+    sha256 cellar: :any_skip_relocation, monterey:       "526569fc6360c9cac3839d839a59cbcff118b8786ba81f697ad68fdcabcd5e0f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9455661889bc5bc73dbfd0f58e62165529d8ff507700aeafb7ac8f0d23b1f363"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "844a53cabd53e34a60267ee1a75ddf600ee10d0f91a1c7d68917ff7ed01d0620"
   end
 
   depends_on "python@3.11"
@@ -30,8 +30,8 @@ class Borgmatic < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/96/d7/1675d9089a1f4677df5eb29c3f8b064aa1e70c1251a0a8a127803158942d/charset-normalizer-3.0.1.tar.gz"
-    sha256 "ebea339af930f8ca5d7a699b921106c6e29c617fe9606fa7baa043c1cdae326f"
+    url "https://files.pythonhosted.org/packages/ff/d7/8d757f8bd45be079d76309248845a04f09619a7b17d6dfc8c9ff6433cac2/charset-normalizer-3.1.0.tar.gz"
+    sha256 "34e0a2f9c370eb95597aae63bf85eb5e96826d81e3dcf88b8886012906f509b5"
   end
 
   resource "colorama" do
@@ -70,8 +70,8 @@ class Borgmatic < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/c5/52/fe421fb7364aa738b3506a2d99e4f3a56e079c0a798e9f4fa5e14c60922f/urllib3-1.26.14.tar.gz"
-    sha256 "076907bf8fd355cde77728471316625a4d2f7e713c125f51953bb5b3eecf4f72"
+    url "https://files.pythonhosted.org/packages/21/79/6372d8c0d0641b4072889f3ff84f279b738cd8595b64c8e0496d4e848122/urllib3-1.26.15.tar.gz"
+    sha256 "8a388717b9476f934a21484e8c8e61875ab60644d29b9b39e11e4b9dc1c6b305"
   end
 
   def install
@@ -168,17 +168,21 @@ class Borgmatic < Formula
     log_content = File.read(log_path)
 
     # Assert that the proper borg commands were executed
-    assert_match <<~EOS, log_content
+    assert_equal <<~EOS, log_content
       --version --debug --show-rc
       info --json #{repo_path}
       init --encryption repokey --debug #{repo_path}
       --version
+      create #{repo_path}::{hostname}-{now:%Y-%m-%dT%H:%M:%S.%f} /etc /home
       prune --keep-daily 7 --glob-archives {hostname}-* #{repo_path}
       compact #{repo_path}
-      create #{repo_path}::{hostname}-{now:%Y-%m-%dT%H:%M:%S.%f} /etc /home
       info --json #{repo_path}
       check --glob-archives {hostname}-* #{repo_path}
       --version
+      create #{repo_path}::{hostname}-{now:%Y-%m-%dT%H:%M:%S.%f} /etc /home #{testpath}/.borgmatic --json
+      prune --keep-daily 7 --glob-archives {hostname}-* --list #{repo_path}
+      compact #{repo_path}
+      info --json #{repo_path}
     EOS
   end
 end

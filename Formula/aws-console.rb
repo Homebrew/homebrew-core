@@ -1,8 +1,8 @@
 class AwsConsole < Formula
   desc "Command-line to use AWS CLI credentials to launch the AWS console in a browser"
   homepage "https://github.com/aws-cloudformation/rain"
-  url "https://github.com/aws-cloudformation/rain/archive/v1.3.2.tar.gz"
-  sha256 "db9c0c72d2e6a5e0d0114b9c6e5a33f32ad4aad9e80c9dadacab2b7e9c2de35f"
+  url "https://github.com/aws-cloudformation/rain/archive/v1.3.3.tar.gz"
+  sha256 "230db11449b34043dc9e10a009134bd5dca240dc20a5d12710b98606f62559a7"
   license "Apache-2.0"
 
   livecheck do
@@ -10,13 +10,13 @@ class AwsConsole < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c9e8aa96e7240088e5e771eca7369e02c96e69b6cfee4c57c902d33cf963147f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "efdf1c94b4c17ee8de0db7bebd5e826f12b89f07f60d74f803eacf563499040c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "84fd08fed0a2fb95c7f7da833c3a4ab4895ad1fb469fe7fdae21ab4a29a07b8f"
-    sha256 cellar: :any_skip_relocation, ventura:        "142c0c9fedb515487bd229f5c89cc78d7c973c156706c8678dd0381e471f4bb5"
-    sha256 cellar: :any_skip_relocation, monterey:       "d6a6b226f32edfde3f1771b94c89e6a259c134760343217736bb2f939b196c45"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d01062d636760a09fe2bf558dcf5e2428d03b30770505fd0eb70779e30e685b7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7954ac0504bfef877b06012205223cb8f40070ce948cd697ea4525c01f4151fb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f2665626a9c857808c7be349c3087f1e6b7ebdee30dfc7cc31f1496be7b6a6d9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f2665626a9c857808c7be349c3087f1e6b7ebdee30dfc7cc31f1496be7b6a6d9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f2665626a9c857808c7be349c3087f1e6b7ebdee30dfc7cc31f1496be7b6a6d9"
+    sha256 cellar: :any_skip_relocation, ventura:        "9ac620ed5baf7e68acdec5b260d2d985c76134be5804451966678aa2e1210737"
+    sha256 cellar: :any_skip_relocation, monterey:       "9ac620ed5baf7e68acdec5b260d2d985c76134be5804451966678aa2e1210737"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9ac620ed5baf7e68acdec5b260d2d985c76134be5804451966678aa2e1210737"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bc6f4393be3ad63df8dc951c4e5877e3248e258460fe05a58157e7e32839c5fc"
   end
 
   depends_on "go" => :build
@@ -28,6 +28,6 @@ class AwsConsole < Formula
   test do
     # No other operation is possible without valid AWS credentials configured
     output = shell_output("#{bin}/aws-console 2>&1", 1)
-    assert_match "could not establish AWS credentials; please run 'aws configure' or choose a profile", output
+    assert_match "a region was not specified. You can run 'aws configure' or choose a profile with a region", output
   end
 end

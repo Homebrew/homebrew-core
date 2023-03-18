@@ -9,16 +9,19 @@ class Dooit < Formula
   head "https://github.com/kraanzu/dooit.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c22fc5b416c88a0680075be0015ee23c27466f66f187b4472bd7473e629ea6b7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "fcb3d6487e9daf8da2bd9260e862f64196716b4f70f12f2d2ffd55e63226594e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8038769736cf96ebb9338d4b032b224ea4578bede9acb521e382bebb29576a09"
-    sha256 cellar: :any_skip_relocation, ventura:        "d8805da36b23696225cf071190dc8fc6dac86f394fd9a8e9b9045b331303408f"
-    sha256 cellar: :any_skip_relocation, monterey:       "15a5ebc42c51dadc20efc5a45e15612958df848d2a525674ffdc675b9f0c0ff3"
-    sha256 cellar: :any_skip_relocation, big_sur:        "391b87a19aee92ea94be0a3095b4060706bb19ed8def81e45a92894df00b23a5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a07f17f88d0490e6862eb52ca9ec6f48b601248713a818a9465461d59c9fb9b8"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "035d06a2e93e252d8c53c36358a45f7ce39b4b542ba2c124647e52913337f460"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "52c9e8cd815f612e72f95a79accc2e4d7ddea3dde387d69ee38c901d2f1495e5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "38ec05ea79a4e8377e427f273a3316d9e9f95be60c4ec7af167cb61b53aad60e"
+    sha256 cellar: :any_skip_relocation, ventura:        "79b8b80743de2be501695cd24343e6a90e0057b886c8bd2f0a94a4c1cbe8f8a4"
+    sha256 cellar: :any_skip_relocation, monterey:       "9d80c52b2bdc1bf4897f1a4a4c4f44b852f491086f1f2441c37caeb1d79e12c2"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b3e14ffc72497ebde79fd4618dd454653d13db77f231792b77ed9241214356ef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "10badf2519275c4c0f9a65012122b7a97c6e871716fbb82de011e27925276ba6"
   end
 
   depends_on "cmake" => :build
+  depends_on "pygments"
+  depends_on "python-typing-extensions"
   depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "six"
@@ -104,11 +107,6 @@ class Dooit < Formula
     sha256 "b6ad297f8907de0fa2fe1ccbd26fdaf387f5f47c7275fedf8cce89f99446cf97"
   end
 
-  resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/da/6a/c427c06913204e24de28de5300d3f0e809933f376e0b7df95194b2bb3f71/Pygments-2.14.0.tar.gz"
-    sha256 "b3ed06a9e8ac9a9aae5a6f5dbe78a8a58655d17b43b93c078f094ddc476ae297"
-  end
-
   resource "pyperclip" do
     url "https://files.pythonhosted.org/packages/a7/2c/4c64579f847bd5d539803c8b909e54ba087a79d01bb3aba433a95879a6c5/pyperclip-1.8.2.tar.gz"
     sha256 "105254a8b04934f0bc84e9c24eb360a591aaf6535c9def5f29d92af107a9bf57"
@@ -142,11 +140,6 @@ class Dooit < Formula
   resource "textual" do
     url "https://files.pythonhosted.org/packages/c7/49/f90f1df0b9b585cadbb4a288b4dc3f5604cf5e93820b4b20fd6d73f58c23/textual-0.12.1.tar.gz"
     sha256 "f826b422e39e4ca188307336f6a4f4b0a89834dab2628430b613084c70799dfd"
-  end
-
-  resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/d3/20/06270dac7316220643c32ae61694e451c98f8caf4c8eab3aa80a2bedf0df/typing_extensions-4.5.0.tar.gz"
-    sha256 "5cb5f4a79139d699607b3ef622a1dedafa84e115ab0024e0d9c044a9479ca7cb"
   end
 
   resource "tzlocal" do

@@ -21,6 +21,9 @@ class Binkd < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "83ac41663d506bea26d30d168d2b5193f2d42da32ed8530ec8422f990281c3b7"
   end
 
+  # Last release on 1997-05-09
+  deprecate! date: "2023-03-14", because: :unmaintained
+
   uses_from_macos "zlib"
 
   def install

@@ -200,7 +200,7 @@
     "exclude_packages": ["six"]
   },
   "dooit": {
-    "exclude_packages": ["six", "PyYAML", "virtualenv"]
+    "exclude_packages": ["six", "PyYAML", "virtualenv", "Pygments", "typing-extensions"]
   },
   "dstack": {
     "exclude_packages": ["six", "PyYAML", "typing-extensions"]
@@ -246,7 +246,7 @@
       "numpy", "pillow", "PyYAML", "yamllint", "pathspec", "fonttools", "Brotli",
       "ipython", "appnope", "asttokens", "backcall", "decorator", "executing", "jedi",
       "matplotlib-inline", "parso", "pexpect", "pickleshare", "prompt-toolkit", "ptyprocess",
-      "pure-eval", "Pygments", "six", "stack-data", "traitlets", "wcwidth"
+      "pure-eval", "Pygments", "six", "stack-data", "traitlets", "wcwidth", "typing-extensions"
     ],
     "extra_packages": ["wheel"]
   },
@@ -457,7 +457,7 @@
     "exclude_packages": ["six"]
   },
   "ocrmypdf": {
-    "exclude_packages": ["pillow"]
+    "exclude_packages": ["pillow", "pycparser"]
   },
   "onlykey-agent": {
     "exclude_packages": ["six", "Cython"]
@@ -508,7 +508,7 @@
     "exclude_packages": ["PyYAML"]
   },
   "pocsuite3": {
-    "exclude_packages": ["six"]
+    "exclude_packages": ["six", "PyYAML"]
   },
   "poetry": {
     "exclude_packages": ["six", "virtualenv"]

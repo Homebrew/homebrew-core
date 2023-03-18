@@ -8,13 +8,14 @@ class Gitlint < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b2ff182766d7e36a8767a2776cbfc29d893eaa41db0b8b316e47b97fc65e415c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "09578b908fc814e0d8d43f4629ddff25bc07440d1fe14451e9ba70428701a730"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "caaa2531c830499d1c84e7175dfe246f9dfaaaa84fcc0dda09cfff89dd3f2127"
-    sha256 cellar: :any_skip_relocation, ventura:        "eae71fbd54573037bf098ffcfae61ae1ad2b5ef7cd1128b5d7fe58152d6db1f2"
-    sha256 cellar: :any_skip_relocation, monterey:       "bef2e4b1ee6d9ff969a3056e6b1dbf5e52eddaa694f85de967a8f55171b963ec"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c1b403d54ea9fb7abd33ea796de70d125686e6ce6a3b49e603d52e74255b6e16"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9864ef0cc95d169a63f5ab0b4c35c2480e53be11b6787642a3e416e23ae72b3e"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8d405098bd2a0e76aa35c2c962a78047eb9813bd2e8137d32e77465ec65a1baa"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "729efc2e3ad555e6d77fa801042a157bfa2182738794a1b80fd4345aa0b8ef30"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2c0961fb81b39f533e9448b51f62579be7fd2870ad96b05bf06ece1dc0cf9d4a"
+    sha256 cellar: :any_skip_relocation, ventura:        "7d3d8661621b9a761425df188984da146c615f5a2d9e89d29615f86d2ebb4ce2"
+    sha256 cellar: :any_skip_relocation, monterey:       "c25ba5a796a144b68544c08eb44a1d23f89448b42c7195e6637e3a21c214f710"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c75117e820488a1eeeef95548342f64632e626c8c31b2570f769faa15a3a6ec0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e15b677036ec1ede61fdc4d533fc92f20e0faa99f29c2eeaa7b713b176ad1c0c"
   end
 
   depends_on "python@3.11"
@@ -42,6 +43,10 @@ class Gitlint < Formula
 
   def install
     virtualenv_install_with_resources
+
+    # Click does not support bash version older than 4.4
+    generate_completions_from_executable(bin/"gitlint", shells:                 [:fish, :zsh],
+                                                        shell_parameter_format: :click)
   end
 
   test do

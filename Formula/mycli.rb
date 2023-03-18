@@ -9,14 +9,14 @@ class Mycli < Formula
   revision 1
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_ventura:  "03bae901b11bab34471ad3ae9a60724fe070c39aab56e69234d75839f08c9894"
-    sha256 cellar: :any,                 arm64_monterey: "86958cc8f00b6839642dfeea836d1302e6f06d58079a83e5a3feb12d5dff09d2"
-    sha256 cellar: :any,                 arm64_big_sur:  "e2d4a95290e13660f0a53e5a1807b0e2a1d1a98d3b9105c95f939449bbbcafe0"
-    sha256 cellar: :any,                 ventura:        "dd993cbe26743c61bdb5b662a8a47234b87064ae72d966a23500fcfb68a693ac"
-    sha256 cellar: :any,                 monterey:       "77711194f05b41351dafc18adfe49bea0791a23da84010ac4fad39439922c6fb"
-    sha256 cellar: :any,                 big_sur:        "0f73a5c64a42d4d3ccd3d55ccd4ff5fe77151df8a5dc88bbb4d0b6c0c5331657"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aab23d7af25367a1b3ebc66ab8e94d31ad64894e6cf6efb12d8ed44a39ce51c2"
+    rebuild 3
+    sha256 cellar: :any,                 arm64_ventura:  "eae7cfee86bd779cb412d2b494d95aea9717c004be3c957c85daaa0583502d73"
+    sha256 cellar: :any,                 arm64_monterey: "6d4ff2e021a465d4735dc95b87eeb04bc9b424e6b72cbd1cbd6fded0fc37cc18"
+    sha256 cellar: :any,                 arm64_big_sur:  "77d8a4a81f70352d9be177224634066472d84bfceb98436ee2470beead384fd7"
+    sha256 cellar: :any,                 ventura:        "6e854f582c44f7fe32c83f2932cc484ef731f5ba964b99985a1d70111a7b6114"
+    sha256 cellar: :any,                 monterey:       "9e0ea674e0bf2cc5e8e7803c06ad544ce5dae27da570ffe2f5ed69b0a04498cb"
+    sha256 cellar: :any,                 big_sur:        "e11c1c0e9f018cb161c081e66638aa8de11ca78e56765704a2f76aa3741409cc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "16a3b4690f361eb12d56d2abb77871014a8d6744dc731aa29959b9d94c4c49ae"
   end
 
   depends_on "rust" => :build
@@ -104,6 +104,10 @@ class Mycli < Formula
 
   def install
     virtualenv_install_with_resources
+
+    # Click does not support bash version older than 4.4
+    generate_completions_from_executable(bin/"mycli", shells:                 [:fish, :zsh],
+                                                      shell_parameter_format: :click)
   end
 
   test do

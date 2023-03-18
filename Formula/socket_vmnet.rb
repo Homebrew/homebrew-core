@@ -7,12 +7,13 @@ class SocketVmnet < Formula
   head "https://github.com/lima-vm/socket_vmnet.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "01ab44a93ed874d4500ac8a7f8ef44252fe5ff96a2e78df35ed4c4da837b848f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "da933499a674b796edc643629ecc50382fe13057e86d86173fbcb9878b649cfd"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6f1a4c54f294dfc2851218b0cf1432120e606c84e577d065a9e3caac5660ab36"
-    sha256 cellar: :any_skip_relocation, ventura:        "113fb0d997b92520557a7430bd10695c17099d55308cd5ee731c0b386d749b94"
-    sha256 cellar: :any_skip_relocation, monterey:       "fcd1d497e67e89debad36400637317534338de174ed7c7876bd869e9e9efc09c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "fb87bb0eaadd73398fcde0924b3ffc49c67354267474d8e89788d58191b980d8"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8f5a3c9fe4b2c1194232be3b66d88bc527f115d9c34ec1da288d7d5f709352f6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5a6c4bb0974e5c724894a450b93722410f6c6dff23f86c55d8e4e78da3e2b788"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d432aa75e3181a255655cc37e63386d797e4db2bd86275f658cd91ae46978e7a"
+    sha256 cellar: :any_skip_relocation, ventura:        "985252b80ad35b4ab0e9f3eddd973d26fb76c90f033fe7ebdd369a461af30121"
+    sha256 cellar: :any_skip_relocation, monterey:       "83690ef40370e4b7155450a72326cbac6fc14169bc36fd824a5494f74ef88721"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ed57ff746e0dca70e6d38564dc4158ef6034726c601493cffcc0c765576b6b7f"
   end
 
   keg_only "#{HOMEBREW_PREFIX}/bin is often writable by a non-admin user"
@@ -25,18 +26,24 @@ class SocketVmnet < Formula
     system "make", "install.bin", "install.doc", "VERSION=#{version}", "PREFIX=#{prefix}"
   end
 
+  def post_install
+    (var/"run").mkpath
+    (var/"log/socket_vmnet").mkpath
+  end
+
   def caveats
     <<~EOS
-      To install an optional launchd service, run the following command (sudo is necessary):
-      sudo brew services start socket_vmnet
+      socket_vmnet requires root privileges so you will need to run
+        `sudo #{opt_prefix}/socket_vmnet` or `sudo brew services start socket_vmnet`.
+      You should be certain that you trust any software you grant root privileges.
     EOS
   end
 
   service do
     run [opt_bin/"socket_vmnet", "--vmnet-gateway=192.168.105.1", var/"run/socket_vmnet"]
     run_type :immediate
-    error_log_path var/"run/socket_vmnet.stderr"
-    log_path var/"run/socket_vmnet.stdout"
+    error_log_path var/"log/socket_vmnet/stderr"
+    log_path var/"log/socket_vmnet/stdout"
     require_root true
   end
 

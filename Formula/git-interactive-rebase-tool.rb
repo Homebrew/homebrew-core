@@ -4,6 +4,7 @@ class GitInteractiveRebaseTool < Formula
   url "https://github.com/MitMaro/git-interactive-rebase-tool/archive/2.2.1.tar.gz"
   sha256 "86f262e6607ac0bf5cee22ca1b333cf9f827e09d3257658d525a518aa785ca7c"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,14 +12,13 @@ class GitInteractiveRebaseTool < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "1ac575cd58d30c97816c09ba486d3fa1d2057dbafb79d55d9971215260d39480"
-    sha256 cellar: :any,                 arm64_monterey: "451279b234f20f109fecc9be99dfbcb15a8986406976d321c27a400880bc87cc"
-    sha256 cellar: :any,                 arm64_big_sur:  "80d377b60f769fa652d925fcd479e7be55bf6010474ba2c25da7e76fb4d56625"
-    sha256 cellar: :any,                 ventura:        "e89b99d8937eec1932f5416d573c5ae708d6b0a4b43d2063b4dda2a75ee60001"
-    sha256 cellar: :any,                 monterey:       "28bd974a0057f0e47e65a6d890e30eecba9f4a8cdb52ff3c2b4c2b5463bc6bc8"
-    sha256 cellar: :any,                 big_sur:        "4f41d96eed608acf08a0c35fb541317567b2b2ccd756f12fd284fcc6780abe53"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f2af72c4cc5358d03fa418bcec51f14c468c9864dd7bb3769585d98fc6e793fb"
+    sha256 cellar: :any,                 arm64_ventura:  "81c3010ced34175a71c93debfca1a074559ede8dbc44c3e8503fd06bfc1e9b65"
+    sha256 cellar: :any,                 arm64_monterey: "ab88da6750263baa5f17e8ef0fbf5202a72adc1f849fa90d16086d6dbf0deca9"
+    sha256 cellar: :any,                 arm64_big_sur:  "cc6a74874c27c762e677cf4f882479b5392d6625b6a5286d9d81b8944af00e7b"
+    sha256 cellar: :any,                 ventura:        "631910ee464118d7db43a58b6e1e0e592522feaeaaaa000fdd7f2801858581f8"
+    sha256 cellar: :any,                 monterey:       "1bc6945ffa674db04d40f46768de0cd7eef18e10fbacc7a781d14f17e1cd54f4"
+    sha256 cellar: :any,                 big_sur:        "8b46968eea1f837abae46382b005829cc5fd97195c6a44c64b48573e71f958d2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d24e90c4a92b407827923f32162381fe6a7ce85cacdfa779429d3bedc5839320"
   end
 
   depends_on "pkg-config" => :build

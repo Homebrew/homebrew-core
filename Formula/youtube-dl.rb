@@ -19,13 +19,24 @@ class YoutubeDl < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "badafc55a0e6036f92ac52c82c7113630409752921d4bdf6801ce8f8c3efe816"
   end
 
+  head do
+    url "https://github.com/ytdl-org/youtube-dl.git", branch: "master"
+    depends_on "pandoc" => :build
+  end
+
   depends_on "python@3.11"
 
   def install
-    virtualenv_install_with_resources
-    man1.install_symlink libexec/"share/man/man1/youtube-dl.1" => "youtube-dl.1"
-    bash_completion.install libexec/"etc/bash_completion.d/youtube-dl.bash-completion"
-    fish_completion.install libexec/"etc/fish/completions/youtube-dl.fish"
+    if build.head?
+      system "make", "PREFIX=#{prefix}", "MANDIR=#{man}", "PYTHON=python3", "install"
+      fish_completion.install prefix/"etc/fish/completions/youtube-dl.fish"
+      (prefix/"etc/fish").rmtree
+    else
+      virtualenv_install_with_resources
+      man1.install_symlink libexec/"share/man/man1/youtube-dl.1" => "youtube-dl.1"
+      bash_completion.install libexec/"etc/bash_completion.d/youtube-dl.bash-completion"
+      fish_completion.install libexec/"etc/fish/completions/youtube-dl.fish"
+    end
   end
 
   test do

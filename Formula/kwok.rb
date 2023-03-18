@@ -1,18 +1,18 @@
 class Kwok < Formula
   desc "Kubernetes WithOut Kubelet - Simulates thousands of Nodes and Clusters"
   homepage "https://kwok.sigs.k8s.io"
-  url "https://github.com/kubernetes-sigs/kwok/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "f8b5d01df09e1b68078c9754bb1922f1e9be3794fd519cd0de615280a0fff84d"
+  url "https://github.com/kubernetes-sigs/kwok/archive/refs/tags/v0.1.1.tar.gz"
+  sha256 "3bfcde29f5fac4a045f55003320e2d53901e4b27899485c24f6f558ef69e03cc"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d6a27711bbb104ba7845258e6a2de993c5509117e9cc85084bf1c64119f1cca1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "889009797e864e7253b5d1b9b99dc670dd4ab916eb6be09e9b9258c364357a3d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4a88e248d4a92c3fa5a8333c3fe227aa2d51f21f72fe9677d7b4e584e497f76b"
-    sha256 cellar: :any_skip_relocation, ventura:        "a2748deb629a8f4057651463f4d1195d966080d44394eb37eb65162c2b59f10a"
-    sha256 cellar: :any_skip_relocation, monterey:       "41b9cc19836994c34d3292d43c03c1e861e2218d5540fb6a3d046e7e9feb821b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "25fdc1769ee74766177523523d7d1c00288fc791b812cbc98a8d88ceec0cbde0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f24b2f3fa9ff6a124e582783e394e3ae477d64b8cf21852552c4bc7d9a1618fd"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8154b855e0cb4dc736131ecc855d63bfa71db3641fb9dc3ac895b7effd33f634"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "be008c29377d1a83baf31bd079f67d209b423debab343dfb5c705c7fe7172e76"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f4aa174b532e3d455dd62e09be33040114f721c030f5b60fe534135a1081354a"
+    sha256 cellar: :any_skip_relocation, ventura:        "2ed7778ae6d1e0a49316ed54cac6a2dd40fdbc8ceb90dd7b1ac33fb7f15a29c1"
+    sha256 cellar: :any_skip_relocation, monterey:       "c80f2d1932ecf86b37ecfbdff9284ce76edc805e37826d00efdb760ef7b2ff5a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "20a8b3cc41ea699e07bbf0019fb101daa25c62b48a69ebe4fd8257cad6bcf80d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ccc131975811b41837fd357e5afe884c4adccab5f49d81429c3e662ebee99a8"
   end
 
   depends_on "go" => :build

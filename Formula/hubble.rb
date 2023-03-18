@@ -1,18 +1,18 @@
 class Hubble < Formula
   desc "Network, Service & Security Observability for Kubernetes using eBPF"
   homepage "https://github.com/cilium/hubble"
-  url "https://github.com/cilium/hubble/archive/refs/tags/v0.11.2.tar.gz"
-  sha256 "f5111aedbf967b8953bbaf1d64a764093ff14cc62bdb803a879a393da22be74d"
+  url "https://github.com/cilium/hubble/archive/refs/tags/v0.11.3.tar.gz"
+  sha256 "13736d48c180d1a78de91e5b99c3baa232f21cbeccf89bd4fd3f8c500e5a445a"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5ac047de0f2b158136718f36522fc3e9b10c5fa8882bce9644e8e305a27316be"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e576333fd18f315702afafa419b4cf917a5f37f4a78a0c653f327bc78e761b40"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2e9b3552cca173dc906f8db6150ce4ee92d70345d1713221bad54e1696c0daf4"
-    sha256 cellar: :any_skip_relocation, ventura:        "163a135af82aa9e2135f089ad56b6d3e130416a14fe7d646aad5be63f6ddf4ea"
-    sha256 cellar: :any_skip_relocation, monterey:       "c0c987599d901fb489461058acfcfa3fb315a56181a7664a51d4cc794e320602"
-    sha256 cellar: :any_skip_relocation, big_sur:        "799d3a6f1eaf7e434092b610ea2aea4b320ba3aea3ffb40e43619725c784dd61"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5f9e782b8602c1242b8c3590276e9a3d0388b2e5e0fbc51515999dbb93a36f5d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fa5616fda34cb14d2fc51e2155f9fc12aab1854fae5b784287196f5ecde3f69a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6a4489500ada4f5199db99bfec3ab4336f550d7d9d515cbe69c01dbb71f4c89b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b741127974588b0acc62b5ff5db88635f51179bc2b7dede20ae4e1d700e8fb6d"
+    sha256 cellar: :any_skip_relocation, ventura:        "18df7f06b0bde91de62589d507f2b491570b2a58353a23d595a22ddea9d6f425"
+    sha256 cellar: :any_skip_relocation, monterey:       "c31b179022e1f77f3ecb26268e439b57a71554b34be876e29e24dba74695f974"
+    sha256 cellar: :any_skip_relocation, big_sur:        "acb73470d747b4b192648ff37461f5562d7594e74aa80e90848028bc52fc96a0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c51fa70dda8494bc474151826acd9e6c6e9535a7c1d9c0c81f0d198b131c29e2"
   end
 
   depends_on "go" => :build

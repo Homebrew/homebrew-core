@@ -1,18 +1,18 @@
 class Crane < Formula
   desc "Tool for interacting with remote images and registries"
   homepage "https://github.com/google/go-containerregistry"
-  url "https://github.com/google/go-containerregistry/archive/v0.13.0.tar.gz"
-  sha256 "e5946a3cab514085278386cf9962a3591def359dbc213c06e7a53501766590fd"
+  url "https://github.com/google/go-containerregistry/archive/v0.14.0.tar.gz"
+  sha256 "33ce5a1745c595b8cf7d9f231b7b7c8fea22a5f71c386fc8325d0e0c18bf686d"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "abee3f66e8952e4cf2af806a0f2d703e002e23610acab9539df1b7e776858e86"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "40e50a5aa5ead8e8d9626bab79b00c2b93c167f7cd6255b352de8b9edbe39e39"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b4cf362e59bcc1257fbe62694f2a19940348c0fb8dbf16b84bf74953ea1d8db2"
-    sha256 cellar: :any_skip_relocation, ventura:        "d17c792b19b9eb0b726df5687b79b1f1482b821008011323c7327805b21da4b2"
-    sha256 cellar: :any_skip_relocation, monterey:       "7a646e540fc1921a7d8535c2a11101df5c6e05ecb4480ae23547d28260112571"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6f2701308a1b810a19a1a3e147adf0072f18a77e0911ed18fa6f31cd7ac4d5dd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "599106f2740faec14d37d4e82b080aabd140ad108e5430856a54a9140df6356d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "62dc4b30a796d11b2fc04d4451615eb0ba8faf061ab7e41e3341a1c7acc78ef2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "62dc4b30a796d11b2fc04d4451615eb0ba8faf061ab7e41e3341a1c7acc78ef2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "62dc4b30a796d11b2fc04d4451615eb0ba8faf061ab7e41e3341a1c7acc78ef2"
+    sha256 cellar: :any_skip_relocation, ventura:        "911b51e297b4e5490cdceb6e2500262152296d3f12daa133fdde2794893cae0c"
+    sha256 cellar: :any_skip_relocation, monterey:       "911b51e297b4e5490cdceb6e2500262152296d3f12daa133fdde2794893cae0c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "911b51e297b4e5490cdceb6e2500262152296d3f12daa133fdde2794893cae0c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2b10cc1fe5e4761205a627122e30e6fb434af87e774815b5f3ccfe75825e532e"
   end
 
   depends_on "go" => :build

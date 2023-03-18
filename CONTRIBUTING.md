@@ -33,16 +33,18 @@ Once you've addressed any potential feedback and a member of the Homebrew org ha
 
 ### To contribute a fix to the `foo` formula
 
-If you are already well versed in the use of `git`, then you can find the local
-copy of the `homebrew-core` repository in this directory:
-`$(brew --repository homebrew/core)`. Modify the formula there using `brew edit foo`
+If you are already well-versed in the use of `git`, then you can work with the local
+copy of the `homebrew-core` repository as you are used to. You may need to run
+`brew tap homebrew/core` to clone it, if you haven't done so already; the repository
+will then be located in the directory `$(brew --repository homebrew/core)`.
+Modify the formula there using `brew edit foo`,
 leaving the section `bottle do ... end` unchanged, and prepare a pull request
 as you usually do.  Before submitting your pull request, be sure to test it
 with these commands:
 
 ```
 brew uninstall --force foo
-brew install --build-from-source foo
+HOMEBREW_NO_INSTALL_FROM_API=1 brew install --build-from-source foo
 brew test foo
 brew audit --strict foo
 brew style foo
@@ -57,6 +59,7 @@ about it from the introduction at
 https://docs.brew.sh/How-To-Open-a-Homebrew-Pull-Request and then proceed as
 follows:
 
+* run `brew tap homebrew/core`, if you haven't done so previously
 * run `brew edit foo` and make edits
 * leave the section `bottle do ... end` unchanged
 * test your changes using the commands listed above

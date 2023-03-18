@@ -1,8 +1,8 @@
 class Cubelib < Formula
   desc "Cube, is a performance report explorer for Scalasca and Score-P"
   homepage "https://scalasca.org/software/cube-4.x/download.html"
-  url "https://apps.fz-juelich.de/scalasca/releases/cube/4.8/dist/cubelib-4.8.tar.gz", using: :homebrew_curl
-  sha256 "171c93ac5afd6bc74c50a9a58efdaf8589ff5cc1e5bd773ebdfb2347b77e2f68"
+  url "https://apps.fz-juelich.de/scalasca/releases/cube/4.8/dist/cubelib-4.8.1.tar.gz", using: :homebrew_curl
+  sha256 "e4d974248963edab48c5d0fc5831146d391b0ae4632cccafe840bf5f12cd80a9"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,13 +11,13 @@ class Cubelib < Formula
   end
 
   bottle do
-    sha256                               arm64_ventura:  "880cffe3e891991564c8382a55a2a60980c9c20dbb9763bbb9e9977f46577ef6"
-    sha256                               arm64_monterey: "0290c8ce0977fd0a9fca00898a79a0fd4182cab21ed26e0269b5395dcf73525f"
-    sha256                               arm64_big_sur:  "746d7cf5118c9b8b1cbf2536bf6406ee947417cd1e55eb8b56e3e96f9a1a3af4"
-    sha256                               ventura:        "458cc03b406c3f50445a34fb4edb07831b0c3860d74dc61911f964c58e29af65"
-    sha256                               monterey:       "6d5ff9657b95c6615ce0a9b3190cd2bf1050cf8cb37dc8385fb27e19e347bb48"
-    sha256                               big_sur:        "9ed456dbf250cbbeb5d9010fa60a8765db661bcf95efb3318e2af2642ecbcd1f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "36f099c06f1ca0fa821477e13f8efb89dd6606e78402f91cb6b62a008dbc275b"
+    sha256                               arm64_ventura:  "31a4f63d6b368da9050d8f891619e9e62ea7cfe02af66f7004f12fd15bad6e04"
+    sha256                               arm64_monterey: "0f32c63323cb7075849dbbff312a856cd54b8e6b8854a77690f7f44f63eb5deb"
+    sha256                               arm64_big_sur:  "3b65fcd3200db9f61e8982b413f7f786cdfb3c40d2109947b83f4dd4afef842d"
+    sha256                               ventura:        "f6c2ff0ca670e0446d95633e33d0f781ca99a0fa7fafa9af2d12104ce09e3506"
+    sha256                               monterey:       "cb0b173a4a34539a1ba532bdd9d79ed4a9fcb989f48a3f12dd36af988822fb15"
+    sha256                               big_sur:        "2e10383644ad9a107aeb3349c59d92e56db6f16b5aad086deafd5864c4c6ccf7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c6c70544de82a4f24b4e7976141e63f16ae76b5e44ecd42a1ec0ed6077fe3b55"
   end
 
   uses_from_macos "zlib"

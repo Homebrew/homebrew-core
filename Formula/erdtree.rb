@@ -1,18 +1,18 @@
 class Erdtree < Formula
   desc "Multi-threaded file-tree visualizer and disk usage analyzer"
   homepage "https://github.com/solidiquis/erdtree"
-  url "https://github.com/solidiquis/erdtree/archive/refs/tags/v1.3.0.tar.gz"
-  sha256 "5e18506734f67d6800ffc65238209a5e5db8080c53ca2f91dc5646376183ef8c"
+  url "https://github.com/solidiquis/erdtree/archive/refs/tags/v1.5.2.tar.gz"
+  sha256 "8bf5693e3649def61c3bc12f42a3a019647c4efda4bbaafb13a7bf84de67d668"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "06eeb5f63421e89b2fb3903f6358c57f16c11d20fa8f4ae4145067c705dfdd8c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4fa69fa1e199114d4a74747caf2326ca3f2a7fa835b16dfbfd3bb7056e64e060"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b3a7adce45b2b93286908fa0d00bda71025250cfb0828c75b58c72375d59ba24"
-    sha256 cellar: :any_skip_relocation, ventura:        "6cc957e9d4184f257443c6db2b9cf3b218e38b08886c36e000795478cd4148e8"
-    sha256 cellar: :any_skip_relocation, monterey:       "e11fc2c581631d039cb701165a288e0922194cfe0c96c7402902a004154c3469"
-    sha256 cellar: :any_skip_relocation, big_sur:        "48f8fc5a5107e41b8bb44139f39ec72efd6c52f5388722854c2d88339197fc0c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d00b5c6773f942e0ebe74cd774c786a5fb0b8aaf592950235ba9026f5d57e2cf"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "01c61810abd065e0ddca0c6b2ebb01df4d7833a8a6bd14694534cfe04544453c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "05c7d89e0541a483a3843ad78eb70510a05e67586bb1a27c4a9ac3fe638fe74f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5605089dc3a74bfb972883b3c58e2fe1f87aeb1ff8740915b60fdb7d25365cee"
+    sha256 cellar: :any_skip_relocation, ventura:        "1034cc94cff545424ab8dce323a978024d886fa3999dcb8cdc9fbc322b9c51c3"
+    sha256 cellar: :any_skip_relocation, monterey:       "b595ff3db4a60397baabd0e7426bb0d3cf21257c7dd0dc4ab2902e5af936ed74"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7a90c15586f0ebf4a94850edc7d8f4e9578d95eb33b45081fd9c0fdf5209439f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0696f2b63738a962e4152cb6dd45c09da107fc0040be36df491770b0cbc560c5"
   end
 
   depends_on "rust" => :build

@@ -1,19 +1,18 @@
 class ZlibNg < Formula
   desc "Zlib replacement with optimizations for next generation systems"
   homepage "https://github.com/zlib-ng/zlib-ng"
-  url "https://github.com/zlib-ng/zlib-ng/archive/2.0.6.tar.gz"
-  sha256 "8258b75a72303b661a238047cb348203d88d9dddf85d480ed885f375916fcab6"
+  url "https://github.com/zlib-ng/zlib-ng/archive/2.0.7.tar.gz"
+  sha256 "6c0853bb27738b811f2b4d4af095323c3d5ce36ceed6b50e5f773204fb8f7200"
   license "Zlib"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "0ad26fa280a898e242d0e6eb458feca8df57dad93bf7cf7330268a830731cc32"
-    sha256 cellar: :any,                 arm64_monterey: "27e2439642448477e9e0100c025242af1c136c8314d6f8cae85ba5ad1101cd0d"
-    sha256 cellar: :any,                 arm64_big_sur:  "68c5eb10ccca6d24f04b9d1544c00bfadfddc2e668b1ebfc1b884f73a0ba2056"
-    sha256 cellar: :any,                 ventura:        "eb172adb8d246fb99cb05629718235ac4785a70a5bdb253efa20a302f6280c94"
-    sha256 cellar: :any,                 monterey:       "f9d1492435a2216b3b9009f3850821a5cad24598d7fe324154b3ff4351d2d4a9"
-    sha256 cellar: :any,                 big_sur:        "c144f0a15009955bc6c00ff887f52263166e69fd76faf4f68521460839f3c086"
-    sha256 cellar: :any,                 catalina:       "e73656cc12181b5c35df40e579420d7f93eec7c8536bf044f3ddae9703e10b99"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ee344d5250258b2e2f9cdaebbdba9b6f6f01ae881ad5aa976d2fc9a629af5548"
+    sha256 cellar: :any,                 arm64_ventura:  "c4dcbe4634cfd7ae97fb37dc9f1101b534807d5adfc4d50ff7e43161c73cb362"
+    sha256 cellar: :any,                 arm64_monterey: "1ca8c0b6134401565a0309533b98d6f9ed7ee5e01c49ac385c6d53d5b846c65b"
+    sha256 cellar: :any,                 arm64_big_sur:  "e8692606eae0001b6b5a7854c5e24d35af55e088afc079021de9dad59a506a61"
+    sha256 cellar: :any,                 ventura:        "d40acc4bc18b101e8815d39b4137106113e73a0aa2e6cbc05594794ee0a99e14"
+    sha256 cellar: :any,                 monterey:       "abb78fe6c0974e0e62562c46b6630c0d579f19609e95a9eeb68a99b854eac531"
+    sha256 cellar: :any,                 big_sur:        "59094b0129766c803c907163d3c54136429be62b8664a1506b7be7749495d0f0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b9db9a7af2f61d9c1bf8ea1dd39ed0ad515d8f44be9ddbff451a17643a3d2e68"
   end
 
   # https://zlib.net/zlib_how.html

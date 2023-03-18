@@ -4,17 +4,16 @@ class GitSeries < Formula
   url "https://github.com/git-series/git-series/archive/0.9.1.tar.gz"
   sha256 "c0362e19d3fa168a7cb0e260fcdecfe070853b163c9f2dfd2ad8213289bc7e5f"
   license "MIT"
-  revision 7
+  revision 8
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_ventura:  "04889a2a2676538b5529b2cfb5085acce8bb3771b914e1207fb2c4b84a606df8"
-    sha256 cellar: :any,                 arm64_monterey: "503c48f0ad4435030aab00b3ebfb1162a49e93bf9332043c66de07c2d8f3a1f1"
-    sha256 cellar: :any,                 arm64_big_sur:  "7ee96f2e51fac16a9d1ff0352b74fab9ad68aad0d6c1a4a00e9cd738b03a5fdf"
-    sha256 cellar: :any,                 ventura:        "4fdcedd491262fc937cca80829200393fc9323ad126ec3dbab84ed613e8bca35"
-    sha256 cellar: :any,                 monterey:       "479c9f19e2ee86d2686ebb106e7d20bca4f71b10b1297544014b6f6f10e2a754"
-    sha256 cellar: :any,                 big_sur:        "59dcd3a3cd5044f679d294ba6a4170503f077e601fb6ef7f75f7392ab1dcf7eb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3080234f5707f6f8c5cdcde8e93a3cf5e3bbe10b6ea9cc54f1d21a2151f6e0f3"
+    sha256 cellar: :any,                 arm64_ventura:  "6f0c466c52a6c4f1e160195c07d2769e397b5c430a7e099c5e83957d15560c5f"
+    sha256 cellar: :any,                 arm64_monterey: "8a369876e7020187f64383c5648bee3999fda97fec7fea4337005effb1aedecb"
+    sha256 cellar: :any,                 arm64_big_sur:  "86da0b8d651dd3ed067c07ab62d764604c037a793d245b46704fd99321021bb8"
+    sha256 cellar: :any,                 ventura:        "60c8902fd153b2ac7e406e33ba04a734e63cbaf2161fa5e8711a85a27c8063d9"
+    sha256 cellar: :any,                 monterey:       "dda19762e1ee0a3e08c9480afd6e5dd546f59ebc40a3661b7af6635d8061b07b"
+    sha256 cellar: :any,                 big_sur:        "8fb717cef8354558eb6513a323240db699bf885b8931bdb5b1ca38b8793fafd0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "72e716f079406bd81c575e9d122ae6a940240848a69e5a02a9539f78a744adc7"
   end
 
   depends_on "pkg-config" => :build

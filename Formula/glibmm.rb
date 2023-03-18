@@ -1,19 +1,18 @@
 class Glibmm < Formula
   desc "C++ interface to glib"
   homepage "https://www.gtkmm.org/"
-  url "https://download.gnome.org/sources/glibmm/2.74/glibmm-2.74.0.tar.xz"
-  sha256 "2b472696cbac79db8e405724118ec945219c5b9b18af63dc8cfb7f1d89b0f1fa"
+  url "https://download.gnome.org/sources/glibmm/2.76/glibmm-2.76.0.tar.xz"
+  sha256 "8637d80ceabd94fddd6e48970a082a264558d4ab82684e15ffc87e7ef3462ab2"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "e49ef477f2779e88d125131dbb474894fdde113cf667630ef8947821d64cb0a4"
-    sha256 cellar: :any, arm64_monterey: "9bed07ed0bc12a9eeb415a900d2a01b5163de1f595cdbdf77523c605410f7b56"
-    sha256 cellar: :any, arm64_big_sur:  "94c4d0b2ef01fa6f52f59e3eac7527f5b28c1aa71ccd60de4479402eefc7b34c"
-    sha256 cellar: :any, ventura:        "ede6b35b4de6f4ac9418f20db8b3249f3c8160257561d6d94c69663c32c62974"
-    sha256 cellar: :any, monterey:       "271bf32165f1e0c4566f7006a3d29346ed9a62f16e1bf14e2ceb710edaec0f0c"
-    sha256 cellar: :any, big_sur:        "ec798cefd26699800dd2ea6a6f0898f3c1f422b75e66eab54099b25f8ba7b0cd"
-    sha256 cellar: :any, catalina:       "7ef9ed7c63ea3d68e26f153b9bf77c1468f6811abead311f9f5c824b5eaa3550"
-    sha256               x86_64_linux:   "af31cc06c35171195312c20dbea1bcf188b6c09e770e160b0c12f64850ee57ec"
+    sha256 cellar: :any, arm64_ventura:  "efb2d63014192cb076d4972e352dc235bf61030e7be0fb261cccc90f2f183013"
+    sha256 cellar: :any, arm64_monterey: "96edf336fd9654f9e659370c388d5956ed3da540ae5f88f17aa9d825c5073876"
+    sha256 cellar: :any, arm64_big_sur:  "cad2efd82f0fd07269fc25e7299730bffa7d29f5132dfa8cb214524fcf33f20c"
+    sha256 cellar: :any, ventura:        "337a1116c3310f4d7d5b26a462f5c115cb1fa08bfb0224ae49f856cf7a88ac08"
+    sha256 cellar: :any, monterey:       "5e71daf9c7ad6aaf1b6cd644e8bd27c54081a12ff3daec41a19e57f424f491bd"
+    sha256 cellar: :any, big_sur:        "db053d1bb27ec96c72cd75e10f7365e340115d00d1a89df9cf9f2ed3d01c56fd"
+    sha256               x86_64_linux:   "b3ebeaa7cf7b0491e47ee2315792e863b4e8f8d8b101793d5cab4c1a0fcb97a0"
   end
 
   depends_on "meson" => :build

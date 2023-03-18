@@ -6,20 +6,21 @@ class Jbang < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "416905ac55c4ec8bc71fe9570d6e7d279f504682ba71ba9d36a1672f710a7519"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "d29c6bc4843dd71d03166982c39c1965bcf8ff60de78fc543ebdd6fe6a870df4"
   end
 
   depends_on "openjdk"
 
   def install
-    libexec.install "bin/jbang.jar"
-    bin.write_jar_script libexec/"jbang.jar", "jbang"
+    libexec.install Dir["*"]
+    inreplace "#{libexec}/bin/jbang", /^abs_jbang_dir=.*/, "abs_jbang_dir=#{libexec}/bin"
+    bin.install_symlink libexec/"bin/jbang"
   end
 
   test do
     system "#{bin}/jbang", "init", "--template=cli", testpath/"hello.java"
     assert_match "hello made with jbang", (testpath/"hello.java").read
-
     assert_match version.to_s, shell_output("#{bin}/jbang --version 2>&1")
   end
 end

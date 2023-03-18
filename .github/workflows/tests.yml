@@ -5,12 +5,16 @@ on:
     branches:
       - master
   pull_request:
+  merge_group:
 
 env:
   HOMEBREW_DEVELOPER: 1
   HOMEBREW_GITHUB_ACTIONS: 1
   HOMEBREW_NO_AUTO_UPDATE: 1
   HOMEBREW_NO_INSTALL_FROM_API: 1
+  GH_REPO: ${{github.repository}}
+  GH_NO_UPDATE_NOTIFIER: 1
+  GH_PROMPT_DISABLED: 1
 
 concurrency:
   group: "tests-${{ github.ref }}"
@@ -83,12 +87,21 @@ jobs:
               core.setOutput('syntax-only', 'false')
             }
 
-            if (label_names.includes('CI-linux-large-runner')) {
-              core.setOutput('linux-runner', 'homebrew-large-bottle-build')
-            } else {
-              core.setOutput('linux-runner', 'ubuntu-22.04')
+            if (label_names.includes('CI-published-bottle-commits')) {
+              console.log('CI-published-bottle-commits label found. Skipping tests job.')
+              core.setOutput('syntax-only', 'true')
             }
-            core.setOutput('logs-dir', '/github/home/.cache/Homebrew/Logs')
+
+            if (label_names.includes('CI-linux-self-hosted')) {
+              core.setOutput('linux-runner', 'linux-self-hosted-1')
+            } else {
+              if (label_names.includes('CI-linux-large-runner')) {
+                core.setOutput('linux-runner', 'homebrew-large-bottle-build')
+              } else {
+                core.setOutput('linux-runner', 'ubuntu-22.04')
+              }
+              core.setOutput('logs-dir', '/github/home/.cache/Homebrew/Logs')
+            }
 
             if (label_names.includes('CI-no-fail-fast')) {
               console.log('CI-no-fail-fast label found. Continuing tests despite failing matrix builds.')
@@ -252,7 +265,7 @@ jobs:
         with:
           workdir: ${{matrix.workdir || github.workspace}}
           result_path: bottles/steps_output.txt
-          step_name: 'Build summary on ${{ matrix.runner }}'
+          step_name: "Build summary on ${{ matrix.runner }}"
 
       - name: Output brew linkage result
         if: always()
@@ -260,8 +273,8 @@ jobs:
         with:
           workdir: ${{matrix.workdir || github.workspace}}
           result_path: bottles/linkage_output.txt
-          step_name: '`brew linkage` output on ${{ matrix.runner }}'
-          collapse: 'true'
+          step_name: "`brew linkage` output on ${{ matrix.runner }}"
+          collapse: "true"
 
       - name: Output brew bottle result
         if: always()
@@ -269,8 +282,8 @@ jobs:
         with:
           workdir: ${{matrix.workdir || github.workspace}}
           result_path: bottles/bottle_output.txt
-          step_name: '`brew bottle` output on ${{ matrix.runner }}'
-          collapse: 'true'
+          step_name: "`brew bottle` output on ${{ matrix.runner }}"
+          collapse: "true"
 
       - name: Run brew test-bot ${{ needs.setup_tests.outputs.test-bot-dependents-args }} --skipped-or-failed-formulae=${{ steps.brew-test-bot-formulae.outputs.skipped_or_failed_formulae }}
         if: ${{(success() || failure()) && fromJson(needs.setup_tests.outputs.test-dependents)}}
@@ -284,8 +297,8 @@ jobs:
         with:
           workdir: ${{matrix.workdir || github.workspace}}
           result_path: bottles/steps_output.txt
-          step_name: 'Dependent summary on ${{ matrix.runner }}'
-          collapse: 'true'
+          step_name: "Dependent summary on ${{ matrix.runner }}"
+          collapse: "true"
 
       - name: Upload logs
         if: always()

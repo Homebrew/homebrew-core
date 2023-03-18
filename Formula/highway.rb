@@ -1,19 +1,19 @@
 class Highway < Formula
   desc "Performance-portable, length-agnostic SIMD with runtime dispatch"
   homepage "https://github.com/google/highway"
-  url "https://github.com/google/highway/archive/refs/tags/1.0.3.tar.gz"
-  sha256 "566fc77315878473d9a6bd815f7de78c73734acdcb745c3dde8579560ac5440e"
+  url "https://github.com/google/highway/archive/refs/tags/1.0.4.tar.gz"
+  sha256 "faccd343935c9e98afd1016e9d20e0b8b89d908508d1af958496f8c2d3004ac2"
   license "Apache-2.0"
   head "https://github.com/google/highway.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "0df1dfbfba2f4aa51b6c8d06cd25a5734bd64c4eac4dd642bdf05e1c6a4faee1"
-    sha256 cellar: :any,                 arm64_monterey: "d113ba1bce679f1b4b7167a04f678f40f97051cbb9732641757bdfa15daeb68d"
-    sha256 cellar: :any,                 arm64_big_sur:  "8ea148a8b04c67f99de6e3195fdcc7b1d33ed484e091df7be1f065c1fab798a5"
-    sha256 cellar: :any,                 ventura:        "11c314be0ee6875177503b0819e0f6cb8def0f4abbd37e9ff21605c089194fef"
-    sha256 cellar: :any,                 monterey:       "20059832fbfeddd5609e82caf28f0db4d3f5bf3f467ab34b37f394db2d1c66e5"
-    sha256 cellar: :any,                 big_sur:        "043501b77eaef66c715ab49ffce7964fc4a03eea2f9357bae637112660217e2a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "249e0436a47bac3efb7d798d5c80252365f9ce09f0427b447bc00b31b96972ad"
+    sha256 cellar: :any,                 arm64_ventura:  "bf339bb1c48a86e1184b779e43a014e7a225bbc39d35fde53ca8dc4cdf41d117"
+    sha256 cellar: :any,                 arm64_monterey: "25a7c5e9e1efccd83c720528bdb2ae1f95b717b6e0c831aaec3f1aa5fd52336b"
+    sha256 cellar: :any,                 arm64_big_sur:  "c84a4071052cad3f05d4ffc48a4bb465d28a67e758dd6014489f7ce5492ce271"
+    sha256 cellar: :any,                 ventura:        "3b0a131e0e508ed7e82573b2533cc805683505978634e4d9dad2589b252ce57d"
+    sha256 cellar: :any,                 monterey:       "d6d822c9109e1e382593ee54a7d59146c63ce153008f56740068f98ecbab2e3c"
+    sha256 cellar: :any,                 big_sur:        "9c3214e645ed27aa0c3de5f15b1675f06bbaed2f4019427153ea17c7e524ff34"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "013c196452d1498bb642756ccad877df568746e0dcaa7b3f0e334fd3521df27e"
   end
 
   depends_on "cmake" => :build

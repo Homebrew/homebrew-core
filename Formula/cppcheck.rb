@@ -1,19 +1,19 @@
 class Cppcheck < Formula
   desc "Static analysis of C and C++ code"
   homepage "https://sourceforge.net/projects/cppcheck/"
-  url "https://github.com/danmar/cppcheck/archive/2.10.2.tar.gz"
-  sha256 "915785d01fa6f5571e9d450102056466222b554525ce3ad67c61b75508a7a451"
+  url "https://github.com/danmar/cppcheck/archive/2.10.3.tar.gz"
+  sha256 "8aae5e116daeaaf5d19f3efa61b91c06f161cb97412a1d1af6e1e20686e48967"
   license "GPL-3.0-or-later"
   head "https://github.com/danmar/cppcheck.git", branch: "main"
 
   bottle do
-    sha256 arm64_ventura:  "890a93811103e0a793f24cd140587cc64647cae1dc9d0f0661b325eb53dcfe8c"
-    sha256 arm64_monterey: "01de6052670ab6aea95aa490adb137df0c57557546fa2ae9f255a9eab11e47ea"
-    sha256 arm64_big_sur:  "b662c0bbd8bde54d8a40e2750dd2bcaac26c92916c3c9abadcd8f7faa9b77db8"
-    sha256 ventura:        "cf6c3ec41463859b875907c097f8566acc49af2942a3fe17a78279d57e6490dd"
-    sha256 monterey:       "eb407e2a7c426795f9464c5c76bda0b4ff9f30b94ee695b8e4298bb58509f550"
-    sha256 big_sur:        "b69ae2c4a271d022a611089444cb1f7ac1cb62411cae0d0f2a6f72aba700fc2c"
-    sha256 x86_64_linux:   "a8ef05b44536938433bfcc9458b7abefc736357790227abff9dadb6c9513feef"
+    sha256 arm64_ventura:  "a938844ffa0e18ce01a484cbf8337b9bd5beb53a6caf5e3216f14d6af52ae7ba"
+    sha256 arm64_monterey: "2fd0c4431d164540040a7d1a01757c4784761d16bb99edba2e08fb549f9b474c"
+    sha256 arm64_big_sur:  "02b820d800d4ccb42bdc5d3ac103eab8927fdf25c77302c1631579dd82a67842"
+    sha256 ventura:        "87690f458a9de8af8ca2889338ad0fb386444615923bee37ef02fccaf111e8bc"
+    sha256 monterey:       "3f15255e707c6248b120f586cd41f40d64f898fc35faa6ab1ace7626d803bf6c"
+    sha256 big_sur:        "87420cca7618715fd6aa608cb75f0b8041f12ac78129d3955f1b976a3b357ab0"
+    sha256 x86_64_linux:   "9782c7fdd9257bc8f4efdc8863db1890b0b15805648143abb423acd8549a63a7"
   end
 
   depends_on "cmake" => :build

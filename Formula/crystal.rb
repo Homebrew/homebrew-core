@@ -11,6 +11,9 @@ class Crystal < Formula
       url "https://github.com/crystal-lang/shards/archive/v0.17.2.tar.gz"
       sha256 "ca3963512db8316b3624c0fba57f803419d67502416fe44938a27aa616cf9d70"
     end
+
+    depends_on "llvm@14"
+    depends_on "pcre"
   end
 
   livecheck do
@@ -35,6 +38,8 @@ class Crystal < Formula
       url "https://github.com/crystal-lang/shards.git", branch: "master"
     end
 
+    depends_on "llvm"
+    depends_on "pcre2"
     uses_from_macos "libffi" # for the interpreter
   end
 
@@ -42,9 +47,7 @@ class Crystal < Formula
   depends_on "gmp" # std uses it but it's not linked
   depends_on "libevent"
   depends_on "libyaml"
-  depends_on "llvm@14"
   depends_on "openssl@1.1" # std uses it but it's not linked
-  depends_on "pcre"
   depends_on "pkg-config" # @[Link] will use pkg-config if available
 
   on_linux do

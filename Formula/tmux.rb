@@ -20,8 +20,8 @@ class Tmux < Formula
 
   livecheck do
     url :stable
-    strategy :github_latest
     regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+[a-z]?)["' >]}i)
+    strategy :github_latest
   end
 
   bottle do

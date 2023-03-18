@@ -2,18 +2,18 @@ class Cbmc < Formula
   desc "C Bounded Model Checker"
   homepage "https://www.cprover.org/cbmc/"
   url "https://github.com/diffblue/cbmc.git",
-      tag:      "cbmc-5.78.0",
-      revision: "a8abbf157233e33347dee68e6e3bfee1e385d208"
+      tag:      "cbmc-5.79.0",
+      revision: "4af9c8a54867ca76e8c22d218d4eca2eedbf8d5f"
   license "BSD-4-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "be173d332a7e2e72a2273afb9c3c6216c7c7aa4b0edacf0e3c409c6ab4227986"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e35093624b33a6ac96e3feb9ee3a3825e948fa503c8c9a39c8748f78bb82f555"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "087ff26ff208888f73db435dc12d84bbf279f3318e70f3b7dd78f6705a3e3067"
-    sha256 cellar: :any_skip_relocation, ventura:        "a19b5ad3ebe762e15ca5edf6d1a57fb597ed0b85b1d47269b3b2b6bcf85b7752"
-    sha256 cellar: :any_skip_relocation, monterey:       "ba00ed3a9068ca7b56433d5aa5c02867f1666296f689daf83b6d1b99ca9914d4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f4bbffde31ceda4e3411aa109cf1d573af3e61f750d325466b8c1f72f8ddc059"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "80409e3a26b297dc82f386f204460eb22a9db69b8d4c660dc17b94427e71f850"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7199e591032cc86ba94cc55553996cf751e8b7122386340182c00298d035fa8f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d2b61c89dbb1e0b86df59a8ecdd8f19674ddd40ff5f88761a88edb347713ecc9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "de643eebaca41c33c334841a27a70818dfb9e2b6e99a6ae7e9c4b3f2327aa91f"
+    sha256 cellar: :any_skip_relocation, ventura:        "ec8f46e0233d80c7b4fe48df5d868180122399ac20a49c4ee66cd02d30c12547"
+    sha256 cellar: :any_skip_relocation, monterey:       "5704ac661a0b903db3d6c692145e3d4f3b2ae679b4faaa5401a446f945f5fbcb"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e6dc62a263373777d43ac16137cbcca05742fac8743a4c380b04b528c1045465"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1bfefa8da1662963bdb68b539f4de0f0f07d5675d632debc106d8481d86c0e93"
   end
 
   depends_on "cmake" => :build

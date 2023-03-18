@@ -8,13 +8,14 @@ class Fdroidserver < Formula
   license "AGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "1dfa8eaf9258b7f4f4c11d835a2dbdd0e7bbb0822c60277914ca8eab8f4c5187"
-    sha256 cellar: :any,                 arm64_monterey: "0333cbc673ea633883fd53980a3ee8f8b7b073733eca817eb8b278a4e5321fd9"
-    sha256 cellar: :any,                 arm64_big_sur:  "53474140d8e9aaa5b062e24c594d0583465b01ae22b6f47b37b1ad86713fe6e7"
-    sha256 cellar: :any,                 ventura:        "4bf3761681207d494fce173a9a796cb44befce627bdd416ae8d6cf351a38fc0f"
-    sha256 cellar: :any,                 monterey:       "5c253aba55accd6c27d2013c7494a9b7076562193d5fe97fa7e7996f660732ee"
-    sha256 cellar: :any,                 big_sur:        "018155dd30df4ccab1cd748b1719ab07307d30d5be3fb8852f65f89b0e1b0f30"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2cdd5c3914550a6c0723b93009716c73543604562a4d3265f9b4876b178554ed"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "935e42e3ed2f8d83f5039deb3cc935c223bf034187b0224b3a1e2a56f41628af"
+    sha256 cellar: :any,                 arm64_monterey: "5abf98afd49ed6ed99f30e8477c5806f71c8714d1d6062b603f24be2c627950a"
+    sha256 cellar: :any,                 arm64_big_sur:  "7c7f3be23cc9d40dacfdb813cfe28ee1de1bef2980b4cbb8797bb12f44883d16"
+    sha256 cellar: :any,                 ventura:        "952cbee02b6ebcb28cc950b25126a63653148f2a2ad9c02eb999adf3a4b3dc1a"
+    sha256 cellar: :any,                 monterey:       "eb293c1404481aa748a640f0b7a9aba3999af8ca377b28df44a4116929f91283"
+    sha256 cellar: :any,                 big_sur:        "b989fc28601e4d2d1803df438f8ea34e66e75d7274b6d14133df3e1fd4c3a83e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a5af6197d91865e442d73f5bd9b7d39e04bb29acc176f58519640181a5a7453e"
   end
 
   depends_on "pkg-config" => :build
@@ -25,6 +26,7 @@ class Fdroidserver < Formula
   depends_on "openssl@1.1"
   depends_on "pillow"
   depends_on "pygments"
+  depends_on "python-typing-extensions"
   depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "s3cmd"
@@ -218,11 +220,6 @@ class Fdroidserver < Formula
   resource "smmap" do
     url "https://files.pythonhosted.org/packages/21/2d/39c6c57032f786f1965022563eec60623bb3e1409ade6ad834ff703724f3/smmap-5.0.0.tar.gz"
     sha256 "c840e62059cd3be204b0c9c9f74be2c09d5648eddd4580d9314c3ecde0b30936"
-  end
-
-  resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/d3/20/06270dac7316220643c32ae61694e451c98f8caf4c8eab3aa80a2bedf0df/typing_extensions-4.5.0.tar.gz"
-    sha256 "5cb5f4a79139d699607b3ef622a1dedafa84e115ab0024e0d9c044a9479ca7cb"
   end
 
   resource "urllib3" do

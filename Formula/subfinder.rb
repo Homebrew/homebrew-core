@@ -1,19 +1,19 @@
 class Subfinder < Formula
   desc "Subdomain discovery tool"
   homepage "https://github.com/projectdiscovery/subfinder"
-  url "https://github.com/projectdiscovery/subfinder/archive/v2.5.6.tar.gz"
-  sha256 "e8cdb00b82aca8f58fa9b97d91579c5daf1914fec8160690fcd770884c63860f"
+  url "https://github.com/projectdiscovery/subfinder/archive/v2.5.7.tar.gz"
+  sha256 "6ff2b05189727ab3bd8e3391b7c5c9c4ae2079a81e766f509fe21033c435134d"
   license "MIT"
   head "https://github.com/projectdiscovery/subfinder.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9e070c1dbb453fce3b0825f8826ccd944b8795929050ee9d0e358a4625e20583"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9e070c1dbb453fce3b0825f8826ccd944b8795929050ee9d0e358a4625e20583"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9e070c1dbb453fce3b0825f8826ccd944b8795929050ee9d0e358a4625e20583"
-    sha256 cellar: :any_skip_relocation, ventura:        "88fb095e44e3f2648592684e7f9d366aab8461a88719a86dbdd40a9916eb7ecf"
-    sha256 cellar: :any_skip_relocation, monterey:       "88fb095e44e3f2648592684e7f9d366aab8461a88719a86dbdd40a9916eb7ecf"
-    sha256 cellar: :any_skip_relocation, big_sur:        "88fb095e44e3f2648592684e7f9d366aab8461a88719a86dbdd40a9916eb7ecf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6cf84b4f728805ffe145360033d297630944a6d50b3f78bb2ec5bb8b0008ae15"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6f6331fddb5c7e5ebe1fdebccd7c3e6eb0d8ce86314cd12b71097348edf05a1e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6f6331fddb5c7e5ebe1fdebccd7c3e6eb0d8ce86314cd12b71097348edf05a1e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6f6331fddb5c7e5ebe1fdebccd7c3e6eb0d8ce86314cd12b71097348edf05a1e"
+    sha256 cellar: :any_skip_relocation, ventura:        "53f02ad9b52e008b0ca574247091c39caa8dde066ada16bea198a0e1b506d6d6"
+    sha256 cellar: :any_skip_relocation, monterey:       "53f02ad9b52e008b0ca574247091c39caa8dde066ada16bea198a0e1b506d6d6"
+    sha256 cellar: :any_skip_relocation, big_sur:        "53f02ad9b52e008b0ca574247091c39caa8dde066ada16bea198a0e1b506d6d6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e3bbbcfe9d0bd7aa741da307f8472081f3efc74af5a76adc5bae6834325e1250"
   end
 
   depends_on "go" => :build

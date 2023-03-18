@@ -4,16 +4,16 @@ class GitAbsorb < Formula
   url "https://github.com/tummychow/git-absorb/archive/0.6.9.tar.gz"
   sha256 "feaee35e6771d66d6d895a69d59d812cfbcabbecaa70ece64f87528a8c3c2fb5"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "f678d1bc4450f8c028afedde10949fd35b44ac7bd591fb5b4e5d0b1239183fcf"
-    sha256 cellar: :any,                 arm64_monterey: "6e03cfe030c55dcbf0511102585a15b35215c09cb7772126caf85a1b02163c15"
-    sha256 cellar: :any,                 arm64_big_sur:  "80462448e675d5204cd6d689b6148a5cc9887a8cd906eb6fe303734e571aaaf9"
-    sha256 cellar: :any,                 ventura:        "ce2e708695292d3b8e917e8a5dc0193d8477391f6ad1eb014858ea3554e00332"
-    sha256 cellar: :any,                 monterey:       "58e08d227361fb9ba3673db8d24fc7ab938be1d23273522eb21bb123a733c2e0"
-    sha256 cellar: :any,                 big_sur:        "8a78cb69ba8dd23088fcdb9cbe16482d0f6f79b35472945ae40d132b5a612d0d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9b4a50cb88696997435a845c23d5f4ece11fbaf4bcc7dbaa7de3bd8c6300a415"
+    sha256 cellar: :any,                 arm64_ventura:  "426726a6a169378925c36d190999306d8f5e9b644799b3fae2d8024996f75e7d"
+    sha256 cellar: :any,                 arm64_monterey: "f9772277da668ac87e9de34b21b3e709cf43da95a97d55788f70cf9585ea59a6"
+    sha256 cellar: :any,                 arm64_big_sur:  "4e9b27087a3f4ef04b08d68e7412ae69e833e42ad6296c22fd67accbdb87fe40"
+    sha256 cellar: :any,                 ventura:        "d2b1b51f096629140558b6e146b35910859843b03585dd55f5e58ab83bc04b94"
+    sha256 cellar: :any,                 monterey:       "e73ac5e72d5a173d667c1d009a0f335c615ca30b998cef1a44473fab4c950363"
+    sha256 cellar: :any,                 big_sur:        "42b2cb619d9b9705e4d43a895dd41b84876779fa106f153714ffab7519a41b77"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "32c233480b6a03846682a55bfbe0da325e574e70ffba9d1bb5a5f8d58638532a"
   end
 
   depends_on "pkg-config" => :build

@@ -1,8 +1,8 @@
 class Fst < Formula
   desc "Represent large sets and maps compactly with finite state transducers"
   homepage "https://github.com/BurntSushi/fst"
-  url "https://github.com/BurntSushi/fst/archive/refs/tags/fst-bin-0.4.2.tar.gz"
-  sha256 "15eca6442021c7a4eeb64891515b9fe6cef7cf3f39eb72fb02042c90cae8ae1f"
+  url "https://github.com/BurntSushi/fst/archive/refs/tags/fst-bin-0.4.3.tar.gz"
+  sha256 "13d1b28a6a6eaf5ce53c1840e7e6c2cb42ff7f846cd57047ddd32601667c8a5f"
   license any_of: ["Unlicense", "MIT"]
   head "https://github.com/BurntSushi/fst.git", branch: "master"
 
@@ -12,15 +12,13 @@ class Fst < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b63e88f373219dbffc9152126a3ad5b6e7622042e57afc01de260ed300217f5f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a7647c09e81d45d06eff18ddda7ea3aee56873baacd88cea01845d6d233a06a9"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9ed10e637357437f215e55b1070d78a55eb76736ecd26f283a5097a0a547856b"
-    sha256 cellar: :any_skip_relocation, ventura:        "602a84846847f4f4b0b1462b655c4bd79fe9e994c7e8837e58502cc20406fadb"
-    sha256 cellar: :any_skip_relocation, monterey:       "17cc8d03046d553a7ccf5d1ca49788edad2ef996e6ed3b16185d1f0bb3627599"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7160bf5eea7f95abb9045e0c6f2539325ba106863834aa105c29f754aa6489f9"
-    sha256 cellar: :any_skip_relocation, catalina:       "38de7bf2581e11b619d8aa68e7d0b8d1a6969ec134d576efb2496267f1aef896"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4cc60019c5cf01d17c4001f49513eaa189cc4b4cb69dc2c0a0bf4d60beaa3949"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5ad7bfd34ae243f510522166d02bd9fc1ad24488cfc16a68d25f96e84ab1ec87"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7e96ce0a1e5e150f27ed111738f01576734e65a4dd1d5799bb3819df0c91d363"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "046025781603f0f516c317c8f87a9e2a106eda8d1fc5a2e19303e17d0b4e0b1a"
+    sha256 cellar: :any_skip_relocation, ventura:        "b2674c7f7e94b5381849dd98ed9a17556e5cabd43ff4696d796f2489884bb7d8"
+    sha256 cellar: :any_skip_relocation, monterey:       "c947b6915cd67c7c86b1606ab6e9f09ff4aa258ce0282125da3b3072fa06445a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "daef781d826e2aa4384e136cb9c815b603676b0a7b4376b646619f0a03fe5790"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e05329c5e355ffab20c7a71127133ff6f961b0c36fb5ef2509e5c159cb517e8c"
   end
 
   depends_on "rust" => :build

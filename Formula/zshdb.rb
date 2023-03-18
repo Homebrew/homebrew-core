@@ -1,8 +1,8 @@
 class Zshdb < Formula
   desc "Debugger for zsh"
   homepage "https://github.com/rocky/zshdb"
-  url "https://downloads.sourceforge.net/project/bashdb/zshdb/1.1.2/zshdb-1.1.2.tar.gz"
-  sha256 "bf9cb36f60ce6833c5cd880c58d6741873b33f5d546079eebcfce258d609e9af"
+  url "https://downloads.sourceforge.net/project/bashdb/zshdb/1.1.3/zshdb-1.1.3.tar.gz"
+  sha256 "10cfb5ffbf4bea82a0be2b262aed88c5b15966b77ae986c7d88f50c25778f77b"
   license "GPL-3.0"
 
   # We check the "zshdb" directory page because the bashdb project contains
@@ -10,13 +10,12 @@ class Zshdb < Formula
   # RSS feed.
   livecheck do
     url "https://sourceforge.net/projects/bashdb/files/zshdb/"
-    strategy :page_match
     regex(%r{href=(?:["']|.*?zshdb/)?v?(\d+(?:[.-]\d+)+)/?["' >]}i)
+    strategy :page_match
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "1b158f2b1bf4ea4e7d00c4770a75570e140ad33071ddef878528e3ca3f3095f0"
+    sha256 cellar: :any_skip_relocation, all: "cd141e76881226d00c069ea1ae725e69d836ec2f7413713d421bcd616ac2390d"
   end
 
   head do

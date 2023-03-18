@@ -1,19 +1,19 @@
 class Benthos < Formula
   desc "Stream processor for mundane tasks written in Go"
   homepage "https://www.benthos.dev"
-  url "https://github.com/benthosdev/benthos/archive/v4.12.1.tar.gz"
-  sha256 "aa8f082049714528a84515a74c126a3f2ab021dcf35d476bc8aff6623e29d017"
+  url "https://github.com/benthosdev/benthos/archive/v4.13.0.tar.gz"
+  sha256 "de4b164806b88addfd0126e4c1be3c76b8b0a64fd11f12fa6c351470ea2d733a"
   license "MIT"
   head "https://github.com/benthosdev/benthos.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "aab8ac0a13550cf9df0c3ce6e41ae3f89cbb9c0dff42c7d61d8696046dd0d8ad"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6cf861769784b82f36cb54991b29d17bfa29abaa0533a31fb185db70c65624ba"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "180938c66bd8f41cae4ae4620f36ed1c2ba67f3ce7cde10e414c32d26f25fbe9"
-    sha256 cellar: :any_skip_relocation, ventura:        "a6237bf9e3df42e237117d99d178f779f3c2b1bd9385088cd1dcbdc417381d42"
-    sha256 cellar: :any_skip_relocation, monterey:       "ed86f8b6f4646fda003fc7de74a863c99cb72c6fa2a0abb53b4f7b38e0dfe996"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8e86818f1d11fe715554009ad36f84d06b45c17c4d093908dc99a5f66ca1a82f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7253e9200c6272addf328364a419c68ffa76371c578f4ffd56234ddc3b20edbf"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e2a115088f24a0fd0124a65a357ee8b73750468fbf95a8adf4578644975cb7c2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "20c45d76e89f026a989208cb49c5d9e62609631a6cb7233ac57dcb1bbb79a983"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c40d181d2f5a959bf01cbceab454f9625acbd96b02d69f978fcd4445dff35b92"
+    sha256 cellar: :any_skip_relocation, ventura:        "fc9f3b6e337299bde1181bdbc52458406c93b77bb960328b0d8778af06d74715"
+    sha256 cellar: :any_skip_relocation, monterey:       "41e2eab9622d931fc3e532e108abd05adf2adc4bd52f49e1f23b6e55fe2edf31"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4930136b16eaea1da65611ca23becc4813f48f0bbe8286191b78ce8c7c2c0239"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "196638a895c1a61834cab40d804cd0adb65d5db89871886bfd9701e6bf5b58a9"
   end
 
   depends_on "go" => :build

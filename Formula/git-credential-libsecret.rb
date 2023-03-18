@@ -1,8 +1,8 @@
 class GitCredentialLibsecret < Formula
   desc "Git helper for accessing credentials via libsecret"
   homepage "https://git-scm.com"
-  url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.39.2.tar.xz"
-  sha256 "475f75f1373b2cd4e438706185175966d5c11f68c4db1e48c26257c43ddcf2d6"
+  url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.40.0.tar.xz"
+  sha256 "b17a598fbf58729ef13b577465eb93b2d484df1201518b708b5044ff623bf46d"
   license "GPL-2.0-or-later"
   head "https://github.com/git/git.git", branch: "master"
 
@@ -11,13 +11,13 @@ class GitCredentialLibsecret < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "24a4ab12987359ef3d185030fc6abf5af5dea34ac51857a42ed773cdda67a9a9"
-    sha256 cellar: :any,                 arm64_monterey: "3e37230178aa71e17262bd358bfee48d076743cdebc7fa2c820898e1f75c646f"
-    sha256 cellar: :any,                 arm64_big_sur:  "24be2d5ba788182e96052c8f36301d479e04540c132aece201cf73ee8f49a629"
-    sha256 cellar: :any,                 ventura:        "2c79106e33f7f0b9c32bab625a8fa068493775040858f141ac09494416321bb0"
-    sha256 cellar: :any,                 monterey:       "faee44fcfca0318b5dfe85e835787517083d2aad13fb485558121e3c3be97289"
-    sha256 cellar: :any,                 big_sur:        "a41926ec3649d23baf38ea809441e371aef0d6b37265cfc793665b1574eb4403"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d4680e707cba0f63216c278861dc5214099b53214a13b7944a907067d1422e65"
+    sha256 cellar: :any,                 arm64_ventura:  "f90fde059b967920342661e71e0ed86a1b7b7e68c6c3d7ca5faf24d389677878"
+    sha256 cellar: :any,                 arm64_monterey: "c30a4775f43c5eb69df27e635b5c257db3410e6cfa335f1de97250fdfd110cb5"
+    sha256 cellar: :any,                 arm64_big_sur:  "7bac858dbeccb037381c0599be74df4eae8e21ffef741e8a4c4664eea8f6bfb0"
+    sha256 cellar: :any,                 ventura:        "a11b1952cd67588168daed601730b74746c2dd1dc6ce3eba61c6bc8edf427a12"
+    sha256 cellar: :any,                 monterey:       "741f2d015c37c368e240574b1f5a2c33936ff1e000ee8674b80be13a0553b21e"
+    sha256 cellar: :any,                 big_sur:        "d366a9b5fe34aaddfd4f93a4d1a380567de6e38e1919bfe23f467609d258329b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f5f900e3b6b07fb1c6c56e90fc914c4a1e38b493c7db856e7d3124e2a4c0769a"
   end
 
   depends_on "pkg-config" => :build

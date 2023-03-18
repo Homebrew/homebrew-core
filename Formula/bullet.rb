@@ -7,13 +7,14 @@ class Bullet < Formula
   head "https://github.com/bulletphysics/bullet3.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "5203e3c85c52a73d7966beb7a17964a9f28c3e2dd9dd13860f42fb3612b82ff6"
-    sha256 cellar: :any,                 arm64_monterey: "1428752eba3082f8c3e609b0f10a65231d8f8383c490e232e911e2a3bc13804f"
-    sha256 cellar: :any,                 arm64_big_sur:  "9451605fb3e7bbefb0c9b09233c79d5d291dd605c8cd78f664091ec72fdd9534"
-    sha256 cellar: :any,                 ventura:        "a91743f519ed3f92204459cc874444207bd276310364e44c177d5e606e9e756e"
-    sha256 cellar: :any,                 monterey:       "5e4cefb168bddf4ca6d8cf6d7775805b27fe5b5ede0a1fae995d5a3b8aa1c672"
-    sha256 cellar: :any,                 big_sur:        "1869670cc9f22ff4dcb44ae6490d486c5611e650657ec18529fb6f9dff6b799e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "17411a4bc7ea80de76276fe437acbd2b1bc58747d38891dfe48d74fe0798bc0d"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "6cb9f0e3435ac577cdae63a3593693da7a2e93110e92691f9b43ab35282bfa5a"
+    sha256 cellar: :any,                 arm64_monterey: "84fe44bad0dc14eb49e1cd40c6ef1545c05186aca4a5a7e5e485fdabc3751fe5"
+    sha256 cellar: :any,                 arm64_big_sur:  "c786c28169f4f65cfb8c6183453a468386ec9f58dbfa45420510ebd272be1ecd"
+    sha256 cellar: :any,                 ventura:        "4bfaa654682214a65629e2d09f36944857fc67162fde4bbb67e7bce7b6ff10b6"
+    sha256 cellar: :any,                 monterey:       "50eed1d7cd3dedb6c64970b2a729e0128cb18f20477c106676e18d7539764fda"
+    sha256 cellar: :any,                 big_sur:        "89803317a3b1ca72df1f1473efd8d99bcb857f47c2c3adccc7b4cb3ffc2fe406"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d3670bbfd66cfd61791baf1e268c42baab46191b1b8e11392d18d6f34c8b1875"
   end
 
   depends_on "cmake" => :build
@@ -29,6 +30,7 @@ class Bullet < Formula
       -DBT_USE_EGL=ON
       -DBUILD_UNIT_TESTS=OFF
       -DINSTALL_EXTRA_LIBS=ON
+      -DBULLET2_MULTITHREADING=ON
     ]
 
     double_args = std_cmake_args + %W[

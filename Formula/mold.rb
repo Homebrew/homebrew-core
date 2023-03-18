@@ -1,19 +1,19 @@
 class Mold < Formula
   desc "Modern Linker"
   homepage "https://github.com/rui314/mold"
-  url "https://github.com/rui314/mold/archive/v1.10.1.tar.gz"
-  sha256 "19e4aa16b249b7e6d2e0897aa1843a048a0780f5c76d8d7e643ab3a4be1e4787"
+  url "https://github.com/rui314/mold/archive/refs/tags/v1.11.0.tar.gz"
+  sha256 "99318eced81b09a77e4c657011076cc8ec3d4b6867bd324b8677974545bc4d6f"
   license "AGPL-3.0-only"
   head "https://github.com/rui314/mold.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "41c470ed38ccb4a7693582514388d09394f8a1aa82a38facaf8f32606a8a346a"
-    sha256 cellar: :any,                 arm64_monterey: "daefd55abeb1761a76aa964e202d2b5775bd93c1c48eaf044b5693b2e18a3f77"
-    sha256 cellar: :any,                 arm64_big_sur:  "c12a49ee4a1fa780959c08960c211d7df05b49881e2dbb32f119de528f1e9ee1"
-    sha256 cellar: :any,                 ventura:        "d724d5b837a060f95f10d4fdd2888b84e8fe4f18a31e99d83463bc268196553a"
-    sha256 cellar: :any,                 monterey:       "b305856bb491e3db7c3d185a967840e10d602b0c6c3bedfcfdd47800919dfeac"
-    sha256 cellar: :any,                 big_sur:        "a819a049f75bc106e6ba4bba4712b4a86718397bd18d15e2bf0b96d9305f8c13"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bf0da43e2724210e3850bdbdb0dd4f686af84c068afb0d9db5a37424cdf37248"
+    sha256 cellar: :any,                 arm64_ventura:  "d158233061e2e55a942da7de55a222ad6f6b9f701d2d055c8ff4e8cc41f6d4e0"
+    sha256 cellar: :any,                 arm64_monterey: "8433f206feb9ffccee86b6aa6dc19011be9d1f5d97329c91f237f7f1275862c6"
+    sha256 cellar: :any,                 arm64_big_sur:  "9ce1103104151bdfeea5d2adb3d7a560a2b5c8f4a9521e296c7896c303f1e6b0"
+    sha256 cellar: :any,                 ventura:        "eb20fc42a814f39fd52210db34db263c000b4ec054f5d7fda74add55ea702835"
+    sha256 cellar: :any,                 monterey:       "7e3efc407c8579eb0a41459d2c35dfbdff8995774c4d01801e477f8b8e81b0d6"
+    sha256 cellar: :any,                 big_sur:        "5bf0497aaabf1661560776939d84aec11c88ca40c6c7b7af9c3cabc9eb735095"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9d3d99b7f4f39fcb17c4856ae5cf47241abd83a707e020748c376f6455751960"
   end
 
   depends_on "cmake" => :build
@@ -94,6 +94,13 @@ class Mold < Formula
     return unless OS.linux?
 
     cp_r pkgshare/"test", testpath
+
+    # Remove non-native tests.
+    arch = Hardware::CPU.arm? ? "aarch64" : Hardware::CPU.arch.to_s
+    testpath.glob("test/elf/*.sh")
+            .reject { |f| f.basename(".sh").to_s.match?(/^(#{arch}_)?[^_]+$/) }
+            .each(&:unlink)
+
     inreplace testpath.glob("test/elf/*.sh") do |s|
       s.gsub!(%r{(\./|`pwd`/)?mold-wrapper}, lib/"mold/mold-wrapper", false)
       s.gsub!(%r{(\.|`pwd`)/mold}, bin/"mold", false)

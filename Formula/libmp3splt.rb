@@ -9,8 +9,8 @@ class Libmp3splt < Formula
   # the RSS feed as of writing.
   livecheck do
     url "https://sourceforge.net/projects/mp3splt/files/libmp3splt/"
-    strategy :page_match
     regex(%r{href=.*?/v?(\d+(?:\.\d+)+[a-z]?)/?["' >]}i)
+    strategy :page_match
   end
 
   bottle do

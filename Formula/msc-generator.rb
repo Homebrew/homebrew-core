@@ -5,6 +5,17 @@ class MscGenerator < Formula
   sha256 "f9eb8acb81a017ca8544d3397120468fd01b2e98c3734b1e3c92d0e7e6f89e55"
   license "AGPL-3.0-or-later"
 
+  livecheck do
+    url "https://gitlab.com/api/v4/projects/31167732/packages"
+    strategy :json do |json|
+      json.map do |item|
+        next unless item["name"]&.downcase&.include?("msc-generator")
+
+        item["version"]
+      end
+    end
+  end
+
   bottle do
     sha256 arm64_ventura:  "76278d5fa2ce33e4e1f2ebcc27d1eb6fc6861f6c4dff0d888ab98d37b6720686"
     sha256 arm64_monterey: "d6c721135921bd819cea49c2f02693d357ca0218ba230a765c12284218cbdcb9"

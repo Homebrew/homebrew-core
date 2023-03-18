@@ -4,6 +4,7 @@ class Gmsh < Formula
   url "https://gmsh.info/src/gmsh-4.11.1-source.tgz"
   sha256 "c5fe1b7cbd403888a814929f2fd0f5d69e27600222a18c786db5b76e8005b365"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://gitlab.onelab.info/gmsh/gmsh.git", branch: "master"
 
   livecheck do
@@ -12,13 +13,13 @@ class Gmsh < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "0db350e10e50d6bcb4beb97912d2ae4cc4d27b1024167dda517ad4a1f03a58cb"
-    sha256 cellar: :any,                 arm64_monterey: "7deec3401c4687d2a8a588c825e5b5066c0a00a48b1d3cb56c7bf594000cbcc4"
-    sha256 cellar: :any,                 arm64_big_sur:  "9df46a33ad58e99a8ceb25f2e8c20791e29d1b431888e7be604efe58f02f01bd"
-    sha256 cellar: :any,                 ventura:        "0d28989659a80d5f9c5c9a45d9e7814dec198994ff0bcf8a80ca598fd69d1639"
-    sha256 cellar: :any,                 monterey:       "0ae614d82355c5835690ab5992771e563ff5f8e47406542a01168e3bd05cbb60"
-    sha256 cellar: :any,                 big_sur:        "af5fe39a97cbd841df917b30f0ad3651ee77c60e4dfa1c343a7ceaf7caaaa4ed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "548b2f8fd24e3add5e3f9dbf54216451045c658e096ff31fd2244d7a106572c4"
+    sha256 cellar: :any,                 arm64_ventura:  "a8328f219a8147ed59c2a914dba9bad2416f0103c8da2d4e392ae31206c0e1ef"
+    sha256 cellar: :any,                 arm64_monterey: "81a4f86a19b14711a4ffd3cc92c5f27f76ec624861e5e8484a0dd17151d0c0b7"
+    sha256 cellar: :any,                 arm64_big_sur:  "0939ec2c63ce60d4c20cd6ee27d061197136e2107f4ea100b0d0349ee3176d39"
+    sha256 cellar: :any,                 ventura:        "a5d273c8b3530f4ecf9825a785031a950f54074e143e271e569bead5d94ca424"
+    sha256 cellar: :any,                 monterey:       "d68df2536c01f6eec7a9289c41e9352af8892836705f5296f004d0adf3d2996e"
+    sha256 cellar: :any,                 big_sur:        "9b19a36a83a4196d644dc6a3831e7914b649af8e08c177326488a52d45066135"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "74a034d2ed6390d1f814d966807f3123a7689b2d179fdf9e7882e87cd6b1b4b7"
   end
 
   depends_on "cmake" => :build

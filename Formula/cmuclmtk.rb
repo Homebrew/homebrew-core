@@ -8,8 +8,8 @@ class Cmuclmtk < Formula
   # RSS feed as of writing.
   livecheck do
     url "https://sourceforge.net/projects/cmusphinx/files/cmuclmtk/"
-    strategy :page_match
     regex(%r{href=.*?/v?(\d+(?:\.\d+)+)/?["' >]}i)
+    strategy :page_match
   end
 
   bottle do

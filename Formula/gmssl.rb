@@ -6,6 +6,11 @@ class Gmssl < Formula
   license "Apache-2.0"
   head "https://github.com/guanzhi/GmSSL.git", branch: "master"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "3901189ad99d6383777117a33b8cac4cbdcb96874dd7df8c620b305aa4c05f16"
     sha256 cellar: :any,                 arm64_monterey: "0adabc2e2e7d41fff55c5ac4a24676001a2df3b59f71e0ffb22da34997206c1d"

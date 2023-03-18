@@ -4,6 +4,7 @@ class CargoC < Formula
   url "https://github.com/lu-zero/cargo-c/archive/v0.9.17.tar.gz"
   sha256 "95fcf50505516dfa6a941e666d1388810da9d7a9e1c623c09068faef5d50b3b9"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,17 +12,17 @@ class CargoC < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "06583c259ff52596d677d6d078177b8332ce5fad390990ee3108f8fba6e9e9f9"
-    sha256 cellar: :any,                 arm64_monterey: "be0c8ca9ef2d47c48150f939a877d051f3787d2e87cfbd74731e3204c4d6dc9b"
-    sha256 cellar: :any,                 arm64_big_sur:  "605bb7037f3477534a3336ad9726eca9fc3446f954ceb8e246ef2ca88f7227cc"
-    sha256 cellar: :any,                 ventura:        "45ac6c9062fc126ecdb9ba842ba20a9ad13a1a9169ae834173c14fd71eb4dc35"
-    sha256 cellar: :any,                 monterey:       "e41b15f1bcc06b631d63bd7122c781b65e80bf9ec75cb615ec8d535298aaddf8"
-    sha256 cellar: :any,                 big_sur:        "c15d8d1ca92e96e55044953512134c5ad3e4a3bcc53e81b09c7cacd7bb620f2e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d15aa74f00c90a13d60a4f5e00ff14693ba68bfc83c81228beb7832a81a9608f"
+    sha256 cellar: :any,                 arm64_ventura:  "04e65e30c844ef254637b26e04c58ccd0970991e79bc43badc5efd90c9099be2"
+    sha256 cellar: :any,                 arm64_monterey: "b85903251bc13301b8f042f7ad02ec6396906b6cdf428d947c2ec3d3f0016e7a"
+    sha256 cellar: :any,                 arm64_big_sur:  "3dfbc10543193678c1d7feef393e7bd47035fafd8fed3d5ed65d82060c3f4614"
+    sha256 cellar: :any,                 ventura:        "5b7fffccc3c013477f70e777045e01f268e6db472aefc8e4d87e0f9c3a3ce355"
+    sha256 cellar: :any,                 monterey:       "ca792b2e58e1b9af8fdb40b711e815eb8ca8c6255bd1356ea094f7ff77af48b1"
+    sha256 cellar: :any,                 big_sur:        "a40f1e7de26be164dffc81b6b36f247ce5db28447d3c95e5dc27ef5988e8b307"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6b2ad8aca8c89c6ed6fffa5bb30841669f592eb6efd5591d20610db6b75fa23b"
   end
 
   depends_on "rust" => :build
-  depends_on "libgit2"
+  depends_on "libgit2@1.5"
   depends_on "libssh2"
   depends_on "openssl@1.1"
 
@@ -34,6 +35,8 @@ class CargoC < Formula
   def install
     ENV["LIBGIT2_SYS_USE_PKG_CONFIG"] = "1"
     ENV["LIBSSH2_SYS_USE_PKG_CONFIG"] = "1"
+    # Ensure the correct `openssl` will be picked up.
+    ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
     ENV["OPENSSL_NO_VENDOR"] = "1"
 
     system "cargo", "install", *std_cargo_args
@@ -53,7 +56,7 @@ class CargoC < Formula
     assert_match cargo_error, shell_output("#{bin}/cargo-cbuild cbuild 2>&1", 1)
 
     [
-      Formula["libgit2"].opt_lib/shared_library("libgit2"),
+      Formula["libgit2@1.5"].opt_lib/shared_library("libgit2"),
       Formula["libssh2"].opt_lib/shared_library("libssh2"),
       Formula["openssl@1.1"].opt_lib/shared_library("libssl"),
       Formula["openssl@1.1"].opt_lib/shared_library("libcrypto"),

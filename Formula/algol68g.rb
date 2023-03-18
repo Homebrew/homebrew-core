@@ -1,8 +1,8 @@
 class Algol68g < Formula
   desc "Algol 68 compiler-interpreter"
   homepage "https://jmvdveer.home.xs4all.nl/algol.html"
-  url "https://jmvdveer.home.xs4all.nl/algol68g-3.1.2.tar.gz"
-  sha256 "bcac9a5e20ef14c8c693ef418988cb056e76c290fc9d6fa1f6564231dc78261d"
+  url "https://jmvdveer.home.xs4all.nl/algol68g-3.1.3.tar.gz"
+  sha256 "660c338c1bf9db123073c7403cc21aa465795a9377754162cbbf8bda97259612"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,13 +11,13 @@ class Algol68g < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5e3c1b6022f9c95d43ac177889330b2aeab5cc4c75bec0d9c81e6bc3a4e52bad"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f37748c1160655c380dc27e2b6702f4c1ddf822eeb4efae01218d05b22e82985"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3d4ba4e02d88e183fb54a96e1702e229b930e603c11fbdd20071c7e4931a0076"
-    sha256                               ventura:        "922c5dfa253374741d669ae51d9a525670f1b797ed302520963ad1d8cf76cf7d"
-    sha256                               monterey:       "0d3222188e840cdea444f4da1c40fc3737c7dfa8f8463c7b7adc08726224b002"
-    sha256                               big_sur:        "7044219f656b07cf34c3e96a429cb51aa6eb5c0e7d86441201c342e350afbda6"
-    sha256                               x86_64_linux:   "92de0b7334e0346c309dfa18e2d930e8b58ad111bd3d30a91bcbe25bdfd45f46"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "be2fd40b6157f3bc6722cb7f69fb6cb255ffcdabe1c617bddf6ea00da1cf2682"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "fc005b9d89e967b0226bd188b454c93674701210b72803542f1eb050cc8dccb9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a3825f4dcf4006f87fe8b415fc730ac3eb6f06e0d2f56cb28b6b927acc71f4cc"
+    sha256                               ventura:        "6701b85c7ed51df62a53e51bb121e31aea7ab64a284a17036e18df537c73c883"
+    sha256                               monterey:       "bbb6a6834d403ef37177bfeaf79897965f344931cfda234adb54f05aef234a96"
+    sha256                               big_sur:        "f4ae94895bd0907e9e85f1550b689a321b1219cadef38a63902f46acc3fa394d"
+    sha256                               x86_64_linux:   "70601fae3c5ce2e041243f80403b27a592df2cda4045c98b570199295736b9d0"
   end
 
   on_linux do

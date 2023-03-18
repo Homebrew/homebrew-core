@@ -9,6 +9,9 @@ class Bar < Formula
     sha256 cellar: :any_skip_relocation, all: "9f0dd0a974b69b3420bc0fd4620506ff0308f1b94409e571daee22087b0ebb8a"
   end
 
+  # Last release on 2006-02-02
+  deprecate! date: "2023-03-14", because: :unmaintained
+
   def install
     bin.install "bar"
   end

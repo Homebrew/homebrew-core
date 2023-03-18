@@ -1,10 +1,20 @@
 class Rpm < Formula
   desc "Standard unix software packaging tool"
   homepage "https://rpm.org/"
-  url "https://ftp.osuosl.org/pub/rpm/releases/rpm-4.18.x/rpm-4.18.0.tar.bz2"
-  sha256 "2a17152d7187ab30edf2c2fb586463bdf6388de7b5837480955659e5e9054554"
   license "GPL-2.0-only"
   version_scheme 1
+  head "https://github.com/rpm-software-management/rpm.git", branch: "master"
+
+  stable do
+    url "https://ftp.osuosl.org/pub/rpm/releases/rpm-4.18.x/rpm-4.18.1.tar.bz2"
+    sha256 "37f3b42c0966941e2ad3f10fde3639824a6591d07197ba8fd0869ca0779e1f56"
+
+    # Fix an "expected expression" error. Remove on next release.
+    patch do
+      url "https://github.com/rpm-software-management/rpm/commit/b960c0b43a080287a7c13533eeb2d9f288db1414.patch?full_index=1"
+      sha256 "28417a368e4d4a6c722944a8fe325212b3cea96b6d355437c6366606a7ca0d00"
+    end
+  end
 
   livecheck do
     url "https://rpm.org/download.html"
@@ -13,9 +23,9 @@ class Rpm < Formula
 
   bottle do
     rebuild 1
-    sha256 arm64_ventura: "b53546064adccbad8b399e755dee7ce53b7e5740bafb0c9f57c21755bbd44a4e"
-    sha256 ventura:       "c3479781c5af9756f03f0fa03ae34a8810aa5fe4a5a578c012be0aa6d2778b18"
-    sha256 x86_64_linux:  "92fa3dcdb9eb03d3db9941ac7ee1a01a380aa78bdf8d0446f397ac699ff02ca1"
+    sha256 arm64_ventura: "2d97d36743ae989839e7ef4c4d3f396c2f7cd5ab7ff87b429510a4bb9b047cf7"
+    sha256 ventura:       "d5085f39aee9be16443d96ba081f46cfb80818dc6f0c3bb5367f6d79b62c51fd"
+    sha256 x86_64_linux:  "f7021265bd0654607b2e50709a8e29f0be08e3da8ca407566b04109fa0d176e8"
   end
 
   depends_on "gettext"
@@ -38,12 +48,6 @@ class Rpm < Formula
   end
 
   conflicts_with "rpm2cpio", because: "both install `rpm2cpio` binaries"
-
-  # Fix -flat_namespace being used on Big Sur and later.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
-    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
-  end
 
   def install
     ENV.append "LDFLAGS", "-lomp" if OS.mac?

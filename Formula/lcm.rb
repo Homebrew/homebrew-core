@@ -18,6 +18,11 @@ class Lcm < Formula
     end
   end
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_ventura:  "386e950921eba82b38394b42e31fccaa778922b1d069d9f79ccec9574d721fca"
