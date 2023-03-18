@@ -19,6 +19,11 @@ class ClangFormat < Formula
       url "https://github.com/llvm/llvm-project/releases/download/llvmorg-16.0.0/cmake-16.0.0.src.tar.xz"
       sha256 "04e62ab7d0168688d9102680adf8eabe7b04275f333fe20eef8ab5a3a8ea9fcc"
     end
+
+    resource "third-party" do
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-16.0.0/third-party-16.0.0.src.tar.xz"
+      sha256 "ddc21cdd290df012f8aa719767d80df3c37f49cfdb087d3e814087dcfaebfc7a"
+    end
   end
 
   livecheck do
@@ -57,6 +62,7 @@ class ClangFormat < Formula
       (buildpath/"src").install buildpath.children
       (buildpath/"src/tools/clang").install resource("clang")
       (buildpath/"cmake").install resource("cmake")
+      (buildpath/"third-party").install resource("third-party")
 
       buildpath/"src"
     end
