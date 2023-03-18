@@ -8,8 +8,8 @@ class Openmsx < Formula
 
   livecheck do
     url :stable
-    strategy :github_latest
     regex(%r{href=.*?/tag/RELEASE[._-]v?(\d+(?:[._]\d+)+)["' >]}i)
+    strategy :github_latest
   end
 
   bottle do
