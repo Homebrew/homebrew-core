@@ -16,7 +16,7 @@ class SocketVmnet < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "ed57ff746e0dca70e6d38564dc4158ef6034726c601493cffcc0c765576b6b7f"
   end
 
-  keg_only "the bin directory is often writable by a non-admin user"
+  keg_only "Homebrew's bin directory is often writable by a non-admin user"
 
   depends_on :macos
   depends_on macos: :catalina
