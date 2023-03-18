@@ -13,8 +13,8 @@ class Mame < Formula
   # (e.g., 0.226).
   livecheck do
     url :stable
-    strategy :github_latest
     regex(/>\s*MAME v?(\d+(?:\.\d+)+)/im)
+    strategy :github_latest
   end
 
   bottle do
