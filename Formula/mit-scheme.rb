@@ -8,8 +8,8 @@ class MitScheme < Formula
 
   livecheck do
     url "https://ftp.gnu.org/gnu/mit-scheme/stable.pkg/?C=M&O=D"
-    strategy :page_match
     regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["' >]}i)
+    strategy :page_match
   end
 
   bottle do
