@@ -18,7 +18,7 @@ class FluidSynth < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkg-config" => [:build, :test]
   depends_on "glib"
   depends_on "libsndfile"
   depends_on "portaudio"
@@ -100,5 +100,8 @@ class FluidSynth < Formula
     wavout = testpath/"Drum_sample.wav"
     system bin/"fluidsynth", "-F", wavout, pkgshare/"sf2/VintageDreamsWaves-v2.sf2", testpath/"Drum_sample.mid"
     assert_predicate wavout, :exist?
+
+    # Check the pkg-config module
+    system "pkg-config", "--cflags", "--libs", "--static", lib/"pkgconfig/fluidsynth.pc"
   end
 end
