@@ -3,8 +3,8 @@ class Sqlfluff < Formula
 
   desc "SQL linter and auto-formatter for Humans"
   homepage "https://docs.sqlfluff.com/"
-  url "https://files.pythonhosted.org/packages/e3/c2/11a7ba95828b0b33fa1b77fa7e9bca81732a8d729709eab09684f802421b/sqlfluff-2.0.0.tar.gz"
-  sha256 "8dad3cde858fb752d64f7c834d88bd3cc8b656bfcd24e9a6ebb576bb31f584ef"
+  url "https://files.pythonhosted.org/packages/af/cd/e80ace53dc8fe8741ee11e422f983d71c94c0a79bfc7ac0fbec27db5446b/sqlfluff-2.0.1.tar.gz"
+  sha256 "e869af256f1973bea86b70b1018c47a21e7430e2b8f142558177c6c73763a2fc"
   license "MIT"
 
   bottle do
@@ -73,8 +73,8 @@ class Sqlfluff < Formula
   end
 
   resource "pathspec" do
-    url "https://files.pythonhosted.org/packages/f4/8e/f91cffb32740b251cff04cad1e7cdd2c710582c735a01f56307316c148f2/pathspec-0.11.0.tar.gz"
-    sha256 "64d338d4e0914e91c1792321e6907b5a593f1ab1851de7fc269557a21b30ebbc"
+    url "https://files.pythonhosted.org/packages/95/60/d93628975242cc515ab2b8f5b2fc831d8be2eff32f5a1be4776d49305d13/pathspec-0.11.1.tar.gz"
+    sha256 "2798de800fa92780e33acca925945e9a19a133b715067cf165b8866c15a31687"
   end
 
   resource "pluggy" do
