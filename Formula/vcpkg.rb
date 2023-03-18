@@ -11,8 +11,8 @@ class Vcpkg < Formula
   # format as the stable tags.
   livecheck do
     url :stable
-    strategy :github_latest
     regex(%r{href=.*?/tag/v?(\d{4}(?:[._-]\d{2}){2})["' >]}i)
+    strategy :github_latest
   end
 
   bottle do
