@@ -7,7 +7,6 @@ class Squashfs < Formula
   head "https://github.com/plougher/squashfs-tools.git", branch: "master"
 
   # Tags like `4.4-git.1` are not release versions and the regex omits these
-  # (see: https://github.com/plougher/squashfs-tools/issues/96).
   livecheck do
     url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
@@ -36,7 +35,6 @@ class Squashfs < Formula
 
   # Patch necessary to emulate the sigtimedwait process otherwise we get build failures.
   # Also clang fixes, extra endianness knowledge and a bundle of other macOS fixes.
-  # Original patchset: https://github.com/plougher/squashfs-tools/pull/69
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/67d366d76a655dca08177bf05d812361c4175a10/squashfs/4.5.1.patch"
     sha256 "2cc6cfb75f1479cbc74e3a03b1c359ba63f1c1caa5bb65d6ffca0e95264552f1"
