@@ -10,8 +10,8 @@ class Zshdb < Formula
   # RSS feed.
   livecheck do
     url "https://sourceforge.net/projects/bashdb/files/zshdb/"
-    strategy :page_match
     regex(%r{href=(?:["']|.*?zshdb/)?v?(\d+(?:[.-]\d+)+)/?["' >]}i)
+    strategy :page_match
   end
 
   bottle do
