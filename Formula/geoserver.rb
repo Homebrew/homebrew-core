@@ -11,8 +11,8 @@ class Geoserver < Formula
   # "GeoServer" directory page instead, since this is reliable.
   livecheck do
     url "https://sourceforge.net/projects/geoserver/files/GeoServer/"
-    strategy :page_match
     regex(%r{href=(?:["']|.*?GeoServer/)?v?(\d+(?:\.\d+)+)/?["' >]}i)
+    strategy :page_match
   end
 
   bottle do
