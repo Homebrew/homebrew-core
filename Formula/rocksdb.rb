@@ -31,7 +31,7 @@ class Rocksdb < Formula
   end
 
   def install
-    base_args = std_cmake_args + %W[
+    args = %W[
       -DPORTABLE=ON
       -DUSE_RTTI=ON
       -DWITH_BENCHMARK_TOOLS=OFF
@@ -40,41 +40,23 @@ class Rocksdb < Formula
       -DWITH_SNAPPY=ON
       -DWITH_ZLIB=ON
       -DWITH_ZSTD=ON
+      -DROCKSDB_BUILD_SHARED=ON
       -DCMAKE_EXE_LINKER_FLAGS=-Wl,-rpath,#{rpath}
     ]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
-    # build rocksdb_lite
-    lite_args = base_args + %w[
-      -DROCKSDB_LITE=ON
-      -DARTIFACT_SUFFIX=_lite
-      -DWITH_CORE_TOOLS=OFF
-      -DWITH_TOOLS=OFF
-    ]
-    mkdir "build_lite" do
-      system "cmake", "..", *lite_args
-      system "make", "install"
+    cd "build/tools" do
+      bin.install "sst_dump" => "rocksdb_sst_dump"
+      bin.install "db_sanity_test" => "rocksdb_sanity_test"
+      bin.install "write_stress" => "rocksdb_write_stress"
+      bin.install "ldb" => "rocksdb_ldb"
+      bin.install "db_repl_stress" => "rocksdb_repl_stress"
+      bin.install "rocksdb_dump"
+      bin.install "rocksdb_undump"
     end
-    p = lib/"cmake/rocksdb/RocksDB"
-    ["Targets.cmake", "Targets-release.cmake"].each do |s|
-      File.rename "#{p}#{s}", "#{p}_Lite#{s}"
-    end
-
-    # build regular rocksdb
-    mkdir "build" do
-      system "cmake", "..", *base_args
-      system "make", "install"
-
-      cd "tools" do
-        bin.install "sst_dump" => "rocksdb_sst_dump"
-        bin.install "db_sanity_test" => "rocksdb_sanity_test"
-        bin.install "write_stress" => "rocksdb_write_stress"
-        bin.install "ldb" => "rocksdb_ldb"
-        bin.install "db_repl_stress" => "rocksdb_repl_stress"
-        bin.install "rocksdb_dump"
-        bin.install "rocksdb_undump"
-      end
-      bin.install "db_stress_tool/db_stress" => "rocksdb_stress"
-    end
+    bin.install "build/db_stress_tool/db_stress" => "rocksdb_stress"
   end
 
   test do
@@ -103,16 +85,6 @@ class Rocksdb < Formula
                                 "-L#{Formula["lz4"].opt_lib}", "-llz4",
                                 "-L#{Formula["zstd"].opt_lib}", "-lzstd"
     system "./db_test"
-    system ENV.cxx, "test.cpp", "-o", "db_test_lite", "-v",
-                                "-std=c++17",
-                                *extra_args,
-                                "-lz", "-lbz2",
-                                "-L#{lib}", "-lrocksdb_lite",
-                                "-DROCKSDB_LITE=1",
-                                "-L#{Formula["snappy"].opt_lib}", "-lsnappy",
-                                "-L#{Formula["lz4"].opt_lib}", "-llz4",
-                                "-L#{Formula["zstd"].opt_lib}", "-lzstd"
-    system "./db_test_lite"
 
     assert_match "sst_dump --file=", shell_output("#{bin}/rocksdb_sst_dump --help 2>&1")
     assert_match "rocksdb_sanity_test <path>", shell_output("#{bin}/rocksdb_sanity_test --help 2>&1", 1)
