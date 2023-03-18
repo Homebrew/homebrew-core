@@ -9,8 +9,8 @@ class Sdl2Image < Formula
   # release version instead of Git tags.
   livecheck do
     url :stable
-    strategy :github_latest
     regex(%r{href=.*?/tag/release[._-]v?(\d+(?:\.\d+)+)["' >]}i)
+    strategy :github_latest
   end
 
   bottle do
