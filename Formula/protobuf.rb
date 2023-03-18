@@ -46,12 +46,11 @@ class Protobuf < Formula
   def install
     cmake_args = %w[
       -Dprotobuf_BUILD_LIBPROTOC=ON
-      -Dprotobuf_BUILD_SHARED_LIBS=ON
       -Dprotobuf_INSTALL_EXAMPLES=ON
       -Dprotobuf_BUILD_TESTS=OFF
     ] + std_cmake_args
 
-    system "cmake", "-S", ".", "-B", "build", *cmake_args
+    system "cmake", "-S", ".", "-B", "build", "-Dprotobuf_BUILD_SHARED_LIBS=ON", *cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
@@ -64,9 +63,19 @@ class Protobuf < Formula
 
     cd "python" do
       pythons.each do |python|
-        system python, *Language::Python.setup_install_args(prefix, python), "--cpp_implementation"
+        pyext_dir = prefix/Language::Python.site_packages(python)/"google/protobuf/pyext"
+        with_env(LDFLAGS: "-Wl,-rpath,#{rpath(source: pyext_dir)} #{ENV.ldflags}".strip) do
+          system python, *Language::Python.setup_install_args(prefix, python), "--cpp_implementation"
+        end
       end
     end
+
+    system "cmake", "-S", ".", "-B", "static",
+                    "-Dprotobuf_BUILD_SHARED_LIBS=OFF",
+                    "-DWITH_PROTOC=#{bin}/protoc",
+                    *cmake_args
+    system "cmake", "--build", "static"
+    lib.install buildpath.glob("static/*.a")
   end
 
   test do
