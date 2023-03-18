@@ -8,8 +8,8 @@ class DeviceMapper < Formula
 
   livecheck do
     url :stable
-    strategy :page_match
     regex(/href=.*?;a=tag;.*?>Release (\d+(?:\.\d+)+)</i)
+    strategy :page_match
   end
 
   bottle do
