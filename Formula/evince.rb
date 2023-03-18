@@ -15,6 +15,8 @@ class Evince < Formula
     sha256 x86_64_linux:   "7424c6e6d75d8eeb2c9bf302d360bc35c3fea37aa0a535e5099fbb899309b91a"
   end
 
+  depends_on "desktop-file-utils" => :build # for update-desktop-database
+  depends_on "gettext" => :build # for msgfmt
   depends_on "gobject-introspection" => :build
   depends_on "itstool" => :build
   depends_on "meson" => :build
