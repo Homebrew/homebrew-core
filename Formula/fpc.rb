@@ -10,8 +10,8 @@ class Fpc < Formula
   # RSS feed and we can't rely on the SourceForge strategy.
   livecheck do
     url "https://sourceforge.net/projects/freepascal/files/Source/"
-    strategy :page_match
     regex(%r{href=(?:["']|.*?Source/)?v?(\d+(?:\.\d+)+)/?["' >]}i)
+    strategy :page_match
   end
 
   bottle do
