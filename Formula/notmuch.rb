@@ -30,7 +30,6 @@ class Notmuch < Formula
   depends_on "cffi"
   depends_on "glib"
   depends_on "gmime"
-  depends_on "pycparser"
   depends_on "python@3.11"
   depends_on "talloc"
   depends_on "xapian"
@@ -79,12 +78,11 @@ class Notmuch < Formula
 
     system python3, "-c", "import notmuch"
 
-    (testpath/"notmuch2-test.py").write <<~PYTHON
+    system python3, "-c", <<~PYTHON
       import notmuch2
       db = notmuch2.Database(mode=notmuch2.Database.MODE.READ_ONLY)
-      print(db.path)
+      assert str(db.path) == '#{testpath}/Mail', 'Wrong db.path!'
       db.close()
     PYTHON
-    assert_match "#{testpath}/Mail", shell_output("#{python3} notmuch2-test.py")
   end
 end
