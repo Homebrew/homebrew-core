@@ -33,6 +33,11 @@ class YoutubeDl < Formula
       (prefix/"etc/fish").rmtree
     else
       virtualenv_install_with_resources
+      # Handle "ERROR: Unable to extract uploader id" until new release
+      # https://github.com/ytdl-org/youtube-dl/issues/31530
+      inreplace libexec/"lib/python3.11/site-packages/youtube_dl/extractor/youtube.py",
+                "owner_profile_url, 'uploader id')",
+                "owner_profile_url, 'uploader id', fatal=False)"
       man1.install_symlink libexec/"share/man/man1/youtube-dl.1" => "youtube-dl.1"
       bash_completion.install libexec/"etc/bash_completion.d/youtube-dl.bash-completion"
       fish_completion.install libexec/"etc/fish/completions/youtube-dl.fish"
