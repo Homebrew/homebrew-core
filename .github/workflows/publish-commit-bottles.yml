@@ -40,7 +40,7 @@ jobs:
     container:
       image: ghcr.io/homebrew/ubuntu22.04:master
     permissions:
-      pull-requests: write
+      pull-requests: ${{inputs.commit_bottles_to_pr_branch && 'write' || 'read'}}
     steps:
       - name: Post comment once started
         uses: Homebrew/actions/post-comment@master
@@ -80,6 +80,7 @@ jobs:
         if: inputs.commit_bottles_to_pr_branch
         env:
           GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        working-directory: ${{steps.set-up-homebrew.outputs.repository-path}}
 
       - name: Pull and upload bottles to GitHub Packages
         env:
@@ -104,6 +105,7 @@ jobs:
         if: inputs.commit_bottles_to_pr_branch
         env:
           GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        working-directory: ${{steps.set-up-homebrew.outputs.repository-path}}
 
       - name: Push commits
         uses: Homebrew/actions/git-try-push@master
@@ -120,6 +122,7 @@ jobs:
         if: inputs.commit_bottles_to_pr_branch
         env:
           GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        working-directory: ${{steps.set-up-homebrew.outputs.repository-path}}
 
       - name: Post comment on failure
         if: ${{!success()}}
