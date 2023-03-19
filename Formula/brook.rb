@@ -23,7 +23,7 @@ class Brook < Formula
 
   test do
     output = shell_output "#{bin}/brook link --server 1.2.3.4:56789 --password hello"
-    # We expect something like "brook://server?password=hello&server=1.2.3.4%3A56789&username="
+    # We expect something like "brook://server?password=hello&server=1.2.3.4%3A56789"
     uri = URI(output)
     assert_equal "brook", uri.scheme
     assert_equal "server", uri.host
@@ -31,6 +31,5 @@ class Brook < Formula
     query = URI.decode_www_form(uri.query).to_h
     assert_equal "1.2.3.4:56789", query["server"]
     assert_equal "hello", query["password"]
-    assert_equal "", query["username"]
   end
 end
