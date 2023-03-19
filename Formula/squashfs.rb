@@ -36,8 +36,8 @@ class Squashfs < Formula
   # Patch necessary to emulate the sigtimedwait process otherwise we get build failures.
   # Also clang fixes, extra endianness knowledge and a bundle of other macOS fixes.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/67d366d76a655dca08177bf05d812361c4175a10/squashfs/4.5.1.patch"
-    sha256 "2cc6cfb75f1479cbc74e3a03b1c359ba63f1c1caa5bb65d6ffca0e95264552f1"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/994887031c83878c226fdcec99c24b5325604cc8/squashfs/4.6.0.patch"
+    sha256 "b3423ad782ad59d6647f3a88d8a3af837dd3cdc08512ab1fc9e8ed5888cc8146"
   end
 
   def install
@@ -70,7 +70,15 @@ class Squashfs < Formula
       end
     end
 
-    doc.install %W[README-#{version} RELEASE-READMEs USAGE COPYING]
+    doc.install %W[
+      README-#{version}
+      USAGE-#{version}
+      USAGE-MKSQUASHFS-#{version}
+      USAGE-SQFSCAT-#{version}
+      USAGE-SQFSTAR-#{version}
+      USAGE-UNSQUASHFS-#{version}
+      COPYING
+    ]
   end
 
   test do
