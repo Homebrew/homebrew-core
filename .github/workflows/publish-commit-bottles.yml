@@ -40,7 +40,7 @@ jobs:
     container:
       image: ghcr.io/homebrew/ubuntu22.04:master
     permissions:
-      pull-requests: ${{inputs.commit_bottles_to_pr_branch && 'write' || 'read'}}
+      pull-requests: write
     steps:
       - name: Post comment once started
         uses: Homebrew/actions/post-comment@master
