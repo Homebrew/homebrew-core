@@ -6,6 +6,7 @@ class GraphTool < Formula
   url "https://downloads.skewed.de/graph-tool/graph-tool-2.47.tar.bz2"
   sha256 "4d35404c60a74bdac8c18d44c67f8a27aedaa9f197e9b03ac517383e5daaddbb"
   license "LGPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url "https://downloads.skewed.de/graph-tool/"
@@ -131,7 +132,7 @@ class GraphTool < Formula
 
   test do
     (testpath/"test.py").write <<~EOS
-      import graph_tool as gt
+      import graph_tool.all as gt
       g = gt.Graph()
       v1 = g.add_vertex()
       v2 = g.add_vertex()
