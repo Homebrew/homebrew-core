@@ -25,6 +25,10 @@ class Gucharmap < Formula
   depends_on "vala" => :build
   depends_on "gtk+3"
 
+  on_linux do
+    depends_on "gettext"
+  end
+
   resource "ucd" do
     url "https://www.unicode.org/Public/15.0.0/ucd/UCD.zip"
     sha256 "5fbde400f3e687d25cc9b0a8d30d7619e76cb2f4c3e85ba9df8ec1312cb6718c"
