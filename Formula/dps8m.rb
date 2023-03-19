@@ -33,7 +33,7 @@ class Dps8m < Formula
     bin.mkpath
 
     system "make"
-    bin.install %w[dps8/dps8 punutil/punutil prt2pdf/prt2pdf].map { |f| "src/#{f}" }
+    bin.install %w[src/dps8/dps8 src/punutil/punutil src/prt2pdf/prt2pdf]
   end
 
   test do
