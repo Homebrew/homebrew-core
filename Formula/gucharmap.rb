@@ -26,7 +26,7 @@ class Gucharmap < Formula
   depends_on "gtk+3"
 
   on_linux do
-    depends_on "gettext"
+    depends_on "gettext" => :build
   end
 
   resource "ucd" do
