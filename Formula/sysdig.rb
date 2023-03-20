@@ -12,6 +12,9 @@ class Sysdig < Formula
     resource "falcosecurity-libs" do
       url "https://github.com/falcosecurity/libs/archive/refs/tags/0.10.5.tar.gz"
       sha256 "2a4b37c08bec4ba81326314831f341385aff267062e8d4483437958689662936"
+
+      # Fix 'file INSTALL cannot make directory "/sysdig/userspace/libscap"'.
+      patch :DATA
     end
   end
 
@@ -107,3 +110,17 @@ class Sysdig < Formula
     assert_match "/tmp/sysdig/sample", output
   end
 end
+
+__END__
+--- a/cmake/modules/libscap.cmake
++++ b/cmake/modules/libscap.cmake
+@@ -49,6 +49,9 @@ if(BUILD_LIBSCAP_MODERN_BPF)
+        "${PROJECT_BINARY_DIR}/libpman/libpman.a"
+ endif()
+ )
++
++include(GNUInstallDirs)
++
+ install(FILES ${LIBSCAP_LIBS} DESTINATION "${CMAKE_INSTALL_LIBDIR}/${LIBS_PACKAGE_NAME}"
+                        COMPONENT "scap" OPTIONAL)
+ install(DIRECTORY "${LIBSCAP_INCLUDE_DIR}" DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/${LIBS_PACKAGE_NAME}/userspace"
