@@ -115,11 +115,11 @@ class GraphTool < Formula
       (libexec/site_packages/"homebrew-#{package_name}.pth").write package/site_packages
     end
 
-    ENV["CC"]=Formula["llvm"].opt_bin/"clang"
-    ENV["CXX"]=Formula["llvm"].opt_bin/"clang++"
-    ENV["LDFLAGS"]="-L#{Formula["llvm"].opt_lib} -Wl,-rpath,#{Formula["llvm"].opt_lib}" \
-        " -L#{Formula["libomp"].opt_lib} -Wl,-rpath,#{Formula["libomp"].opt_lib}"
-    ENV["CPPFLAGS"]="-I#{Formula["llvm"].opt_include} -I#{Formula["libomp"].opt_include}"
+    ENV["CC"] = Formula["llvm"].opt_bin/"clang"
+    ENV["CXX"] = Formula["llvm"].opt_bin/"clang++"
+    ENV["LDFLAGS"] = "-L#{Formula["llvm"].opt_lib} -Wl,-rpath,#{Formula["llvm"].opt_lib} "
+    ENV["LDFLAGS"] += "-L#{Formula["libomp"].opt_lib} -Wl,-rpath,#{Formula["libomp"].opt_lib}"
+    ENV["CPPFLAGS"] = "-I#{Formula["llvm"].opt_include} -I#{Formula["libomp"].opt_include}"
 
     args = %W[
       PYTHON=#{python3}
