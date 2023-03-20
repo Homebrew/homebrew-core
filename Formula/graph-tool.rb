@@ -34,8 +34,8 @@ class GraphTool < Formula
   depends_on "fonttools"
   depends_on "google-sparsehash"
   depends_on "gtk+3"
-  depends_on "librsvg"
   depends_on "libomp"
+  depends_on "librsvg"
   depends_on "llvm"
   depends_on macos: :mojave # for C++17
   depends_on "numpy"
@@ -114,12 +114,13 @@ class GraphTool < Formula
       package = Formula[package_name].opt_libexec
       (libexec/site_packages/"homebrew-#{package_name}.pth").write package/site_packages
     end
-    
+
     ENV["CC"]=Formula["llvm"].opt_bin/"clang"
     ENV["CXX"]=Formula["llvm"].opt_bin/"clang++"
-    ENV["LDFLAGS"]="-L#{Formula["llvm"].opt_lib} -Wl,-rpath,#{Formula["llvm"].opt_lib} -L#{Formula["libomp"].opt_lib} -Wl,-rpath,#{Formula["libomp"].opt_lib}"
+    ENV["LDFLAGS"]="-L#{Formula["llvm"].opt_lib} -Wl,-rpath,#{Formula["llvm"].opt_lib}" + \
+        " -L#{Formula["libomp"].opt_lib} -Wl,-rpath,#{Formula["libomp"].opt_lib}"
     ENV["CPPFLAGS"]="-I#{Formula["llvm"].opt_include} -I#{Formula["libomp"].opt_include}"
-    
+
     args = %W[
       PYTHON=#{python3}
       --with-python-module-path=#{prefix/site_packages}
