@@ -46,10 +46,6 @@ class Chapel < Formula
     # Chapel uses this ENV to work out where to install.
     ENV["CHPL_HOME"] = libexec
     ENV["CHPL_GMP"] = "system"
-    # This enables a workaround for
-    #   https://github.com/llvm/llvm-project/issues/54438
-    ENV["CHPL_HOST_USE_SYSTEM_LIBCXX"] = "yes"
-
     # don't try to set CHPL_LLVM_GCC_PREFIX since the llvm
     # package should be configured to use a reasonable GCC
     (libexec/"chplconfig").write <<~EOS
