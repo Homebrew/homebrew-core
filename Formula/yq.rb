@@ -1,8 +1,8 @@
 class Yq < Formula
   desc "Process YAML, JSON, XML, CSV and properties documents from the CLI"
   homepage "https://github.com/mikefarah/yq"
-  url "https://github.com/mikefarah/yq/archive/v4.32.1.tar.gz"
-  sha256 "724cddee2b475ffebeb4f11031b6a01267e22350277c3bb965bb1b404488c635"
+  url "https://github.com/mikefarah/yq/archive/v4.32.2.tar.gz"
+  sha256 "769b77a01fe8c389b17b3a5eb606a395540eb7ccdc533e2db2542baeceefcbc9"
   license "MIT"
   head "https://github.com/mikefarah/yq.git", branch: "master"
 
