@@ -107,11 +107,36 @@ jobs:
           GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
         working-directory: ${{steps.set-up-homebrew.outputs.repository-path}}
 
+      - name: Get current branch and remote
+        id: branch-and-remote-info
+        working-directory: ${{steps.set-up-homebrew.outputs.repository-path}}
+        run: |
+          branch="$(git branch --show-current)"
+          if [[ -n "$branch" ]]
+          then
+            echo "branch=$branch" >> "$GITHUB_OUTPUT"
+          else
+            echo "::error ::Not on a branch!"
+            exit 1
+          fi
+
+          if push_remote="$(git config --local "branch.$branch.pushRemote")"
+          then
+            echo "remote=$push_remote" >> "$GITHUB_OUTPUT"
+          elif remote="$(git config --local "branch.$branch.remote")"
+            echo "remote=$remote" >> "$GITHUB_OUTPUT"
+          else
+            echo "::error ::Could not find branch remote!"
+            exit 1
+          fi
+
       - name: Push commits
         uses: Homebrew/actions/git-try-push@master
         with:
           token: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
           directory: ${{steps.set-up-homebrew.outputs.repository-path}}
+          remote: ${{steps.branch-and-remote-info.outputs.remote}}
+          branch: ${{steps.branch-and-remote-info.outputs.branch}}
         env:
           GIT_COMMITTER_NAME: BrewTestBot
           GIT_COMMITTER_EMAIL: 1589480+BrewTestBot@users.noreply.github.com
