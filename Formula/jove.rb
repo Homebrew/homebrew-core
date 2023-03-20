@@ -1,8 +1,8 @@
 class Jove < Formula
   desc "Emacs-style editor with vi-like memory, CPU, and size requirements"
   homepage "https://directory.fsf.org/wiki/Jove"
-  url "https://github.com/jonmacs/jove/archive/refs/tags/4.17.5.1.tar.gz"
-  sha256 "674fe3784c9aa58e1fbe010c7da8e026bffa5e057ab30341333a2dbcaf12887b"
+  url "https://github.com/jonmacs/jove/archive/refs/tags/4.17.5.2.tar.gz"
+  sha256 "e28836e23001b79cd2d2e9e0174de426be46388e28b7086c57d3d072481af9b8"
   # license ref, https://github.com/jonmacs/jove/blob/4_17/LICENSE
   license :cannot_represent
 
