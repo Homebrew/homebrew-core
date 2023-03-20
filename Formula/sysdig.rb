@@ -80,6 +80,11 @@ class Sysdig < Formula
     # ld: unaligned pointer(s) for architecture arm64
     inreplace "falcosecurity-libs/driver/ppm_events_public.h", " __attribute__((packed))", "" if Hardware::CPU.arm?
 
+    # Override hardcoded C++ standard settings.
+    inreplace %w[CMakeLists.txt falcosecurity-libs/cmake/modules/CompilerFlags.cmake],
+              /set\(CMAKE_CXX_FLAGS "(.*) -std=c\+\+0x"\)/,
+              'set(CMAKE_CXX_FLAGS "\\1")'
+
     # Keep C++ standard in sync with `abseil.rb`.
     args = %W[
       -DSYSDIG_VERSION=#{version}
@@ -88,7 +93,7 @@ class Sysdig < Formula
       -DBUILD_LIBSCAP_EXAMPLES=OFF
       -DDIR_ETC=#{etc}
       -DFALCOSECURITY_LIBS_SOURCE_DIR=#{buildpath}/falcosecurity-libs
-      -DCMAKE_CXX_STANDARD=17
+      -DCMAKE_CXX_FLAGS=-std=c++17
     ]
 
     # `USE_BUNDLED_*=OFF` flags are implied by `USE_BUNDLED_DEPS=OFF`, but let's be explicit.
