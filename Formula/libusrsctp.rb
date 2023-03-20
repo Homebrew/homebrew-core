@@ -4,6 +4,7 @@ class Libusrsctp < Formula
   url "https://github.com/sctplab/usrsctp/archive/0.9.5.0.tar.gz"
   sha256 "260107caf318650a57a8caa593550e39bca6943e93f970c80d6c17e59d62cd92"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/sctplab/usrsctp.git", branch: "master"
 
   bottle do
@@ -21,9 +22,9 @@ class Libusrsctp < Formula
   depends_on "cmake" => :build
 
   def install
-    system "cmake", ".", *std_cmake_args
-    system "make"
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", "-Dsctp_build_shared_lib=ON", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
