@@ -18,7 +18,7 @@ class Gd < Formula
   end
 
   head do
-    url "https://github.com/libgd/libgd.git"
+    url "https://github.com/libgd/libgd.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

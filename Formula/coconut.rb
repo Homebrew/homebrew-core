@@ -3,19 +3,18 @@ class Coconut < Formula
 
   desc "Simple, elegant, Pythonic functional programming"
   homepage "http://coconut-lang.org/"
-  url "https://files.pythonhosted.org/packages/55/23/81b074bc722359a56131930673ce4e65f48a5c1ad538a79a77f346c77064/coconut-2.1.1.tar.gz"
-  sha256 "38ce2c38c915e305e7c060a3e902d6ca8e504410182a0d4b50abe4df31aaebe3"
+  url "https://files.pythonhosted.org/packages/cc/a7/49b6d5a7b67ec52cd9932c36bc064988673c913a94e88304e533cf2c1396/coconut-2.2.0.tar.gz"
+  sha256 "1651c15945e21cf9b4e0e2712e9effdca54fdc5945f62f99712db16f04391891"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a11c0ed966672b8aaecbb31b44b82d5b7449b777171587cc672d8053e98530d8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ecf8cf6c070c3544e4a42f66d29324801a61592b7962cf999b9d99dccd2918d3"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6a682b82d886408092f4016074ea1265f85f4f60a98449e515ff92e7a901d4b2"
-    sha256 cellar: :any_skip_relocation, ventura:        "c8f3528f15219a69ff5bd7488173c9b46506d6a974cec200e999b89fc5ea9976"
-    sha256 cellar: :any_skip_relocation, monterey:       "1245f5925d66ab8f47bc2ec30dc3d277a29ff7140e464d056187ab52badcdf56"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6decbd6d1a45bf3479e2918bf7b7237f49f2b01cf77ed4537b0d8b2d1eb5bb5b"
-    sha256 cellar: :any_skip_relocation, catalina:       "e98783cee8f73e6877bae04220729ee5499ae9c80157d72b1494a12dccb8678f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c97f204375e49b763dced6c73ef8b2fd3c3c90a3ea237b1eb09b630d917bf5ec"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b5ccdba9ce83f347a3ae8a6d0e1e837f1525c1bd035e6e35cf31cd59fa54f9ab"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b5094974db4f73a4c2f9e68b6fa8f4768a84b90967e7137d80ff226ad04ff65a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "38d9677981288784d7d8b9d78d78100263a359602c3ccf435406b6926faece3a"
+    sha256 cellar: :any_skip_relocation, ventura:        "104919aa3b1e68cb13242001a67792046349e4121aaf9cd6175a629ff0373726"
+    sha256 cellar: :any_skip_relocation, monterey:       "93cc736e5b7a77166f862c9cea8895ed002707be19150511423d70f772e781c3"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6e94622a988049042dd04719ae4ca0bc51789c904d9926ef854fd3b223735105"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bde3be5ad7d86ea8157246363f4e55c79b5bd3e58b2afa54023cebd02293740f"
   end
 
   depends_on "pygments"
@@ -27,8 +26,8 @@ class Coconut < Formula
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/e2/d9/1009dbb3811fee624af34df9f460f92b51edac528af316eb5770f9fbd2e1/prompt_toolkit-3.0.32.tar.gz"
-    sha256 "e7f2129cba4ff3b3656bbdda0e74ee00d2f874a8bcdb9dd16f5fec7b3e173cae"
+    url "https://files.pythonhosted.org/packages/fb/93/180be2342f89f16543ec4eb3f25083b5b84eba5378f68efff05409fb39a9/prompt_toolkit-3.0.36.tar.gz"
+    sha256 "3e163f254bef5a03b146397d7c1963bd3e2812f0964bb9a24e6ec761fd28db63"
   end
 
   resource "wcwidth" do

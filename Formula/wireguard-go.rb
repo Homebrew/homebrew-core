@@ -1,8 +1,8 @@
 class WireguardGo < Formula
   desc "Userspace Go implementation of WireGuard"
   homepage "https://www.wireguard.com/"
-  url "https://git.zx2c4.com/wireguard-go/snapshot/wireguard-go-0.0.20220316.tar.xz"
-  sha256 "fd6759c116e358d311309e049cc2dcc390bc326710f5fc175e0217b755330c2a"
+  url "https://git.zx2c4.com/wireguard-go/snapshot/wireguard-go-0.0.20230223.tar.xz"
+  sha256 "ed3694e808d96720e79e17ae396f89f7c2024da07f3449ff0af8fbc6dbfa7f6a"
   license "MIT"
   head "https://git.zx2c4.com/wireguard-go.git", branch: "master"
 
@@ -12,14 +12,13 @@ class WireguardGo < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "26bcf79b8fbbf79d4afcef86c1851fd2ddec8bcbd9b426977c7fdb3134365f1b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "07fe4038743e02c3474db81af543dcdb4ff35149eaacaae0944695f05facb140"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "49c9d68a379b6d68e45d6a7af04e8d684102a2f748b54d67e652a75e2fd0b671"
-    sha256 cellar: :any_skip_relocation, ventura:        "3f8e802bac2d0063fcf8178acba2fe910e37db790b3b85e231d2e5e49fa21007"
-    sha256 cellar: :any_skip_relocation, monterey:       "5b75283c47dc11a78114df31782b10f3715525ea18265c5bb059efbf32827f65"
-    sha256 cellar: :any_skip_relocation, big_sur:        "685bbaed5298bbb87c76e3166ee6ba2af26e322ef86bec67db51bc293bca250d"
-    sha256 cellar: :any_skip_relocation, catalina:       "f66feff3fea2b654a6dd4af64cf42af35a57b9057aea22714e9ad56e7aa0ca25"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b2f1243b3617996b8a28480f700f491ed3c7bd92423a0f5a8954230244f99d75"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3acf6bab85bca095db52bbdcb62f13c9e74eb8422c2a1de6ef2783ebb568e43b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "122189d1822022e73e9e525ea8a471560098a72953b1c166183e8b0db7036d65"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fc63a4b505ceb31f676e38780235436e85f88b1c5da9c918c0e73f1d13e2e0ff"
+    sha256 cellar: :any_skip_relocation, ventura:        "3416e1bada02bd49344bee1791a9219e946f26e54616c481d72c345cb464b785"
+    sha256 cellar: :any_skip_relocation, monterey:       "acb4c151fecd4b2133f43af3e3ce130010a2acd511e1dd67ea544f8e67f9e565"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ae4ff4de0f51cba3ed348e1a6125bb0a4014c6ed593b27ec4d35878aa56ff49d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cea569e3ebb40ce3e341edacbb5b1c451c05534c2bdacc0d73aa2f0da73b2725"
   end
 
   depends_on "go" => :build

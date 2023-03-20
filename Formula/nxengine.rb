@@ -17,6 +17,9 @@ class Nxengine < Formula
     sha256 cellar: :any, catalina:       "be3f2bcd0f8d5e04c25224d6ddeb0c0e11ec64627266ee35f79f5c35c1511264"
   end
 
+  # Last release on 2014-07-15
+  deprecate! date: "2023-02-04", because: "uses deprecated `sdl_ttf`"
+
   depends_on "sdl12-compat"
   depends_on "sdl_ttf"
 

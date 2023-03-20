@@ -1,8 +1,8 @@
 class Privoxy < Formula
   desc "Advanced filtering web proxy"
   homepage "https://www.privoxy.org/"
-  url "https://downloads.sourceforge.net/project/ijbswa/Sources/3.0.33%20%28stable%29/privoxy-3.0.33-stable-src.tar.gz"
-  sha256 "04b104e70dac61561b9dd110684b250fafc8c13dbe437a60fae18ddd9a881fae"
+  url "https://downloads.sourceforge.net/project/ijbswa/Sources/3.0.34%20%28stable%29/privoxy-3.0.34-stable-src.tar.gz"
+  sha256 "e6ccbca1656f4e616b4657f8514e33a70f6697e9d7294356577839322a3c5d2c"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,14 +11,13 @@ class Privoxy < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "5298701701335108a58643a9c0db4a898372fda89e0fddca47f199490160391b"
-    sha256 cellar: :any,                 arm64_monterey: "4d59937215ae6911b77ce1ca02608942c0b9ca7a18c38da89909fb9c3a6fe6e9"
-    sha256 cellar: :any,                 arm64_big_sur:  "97cd684af21193fe0b7596860338af0b8a6a6f6f833475d92959b6ce75bce8fc"
-    sha256 cellar: :any,                 ventura:        "2db1a4cb1ffb97f3cbd02cd9ca3eb40f5e31dddc85452797a0aebc4de6320043"
-    sha256 cellar: :any,                 monterey:       "fd15bbf9ebf08d19f9212829def741754cc51b0394f5643dd0d3680008250827"
-    sha256 cellar: :any,                 big_sur:        "0491266998ea099927d512de21e195ea356bcf09e2fb956a204f27a6f89c8226"
-    sha256 cellar: :any,                 catalina:       "b19e5234b39ad38c70ab95f9763da0ee02e5b7978067f9662d2d15f3341a1e53"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e38d940bdb7370ec469171cd1aaa7de5ac98c52e2b4bdc42a4d0c92601544d0d"
+    sha256 cellar: :any,                 arm64_ventura:  "9e9553d35f57d1857a1518216b4263eb9ffce10cf9e93da7a38f688f23606610"
+    sha256 cellar: :any,                 arm64_monterey: "1b0028627cbd63a818a043537b4357b7bb0105fb56ba0b4d92efe3300cc953f9"
+    sha256 cellar: :any,                 arm64_big_sur:  "583123f742ab84d72e189867ec920940e7ecada0cd4bec3dbb7c2784b51e2b9e"
+    sha256 cellar: :any,                 ventura:        "6dbe6c6a8868cf03772a719adfd6c49bfd7da372067147994c56a9c629c7ff0e"
+    sha256 cellar: :any,                 monterey:       "317d73bfe1c16bf887be0627f7aa27f543aa61dc8d1c9748cac74b11abbc0b14"
+    sha256 cellar: :any,                 big_sur:        "46df2df9e4dcaf3f16ba6540fdc8432db8395d5fd03fc9a6fe51c9629e216be2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a4b3fcb5f8fd5f5479462ae9db4fb99a300dab2005b3f383b78f13cb6a8eed4f"
   end
 
   depends_on "autoconf" => :build

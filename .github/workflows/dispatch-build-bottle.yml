@@ -26,6 +26,7 @@ env:
   HOMEBREW_DEVELOPER: 1
   HOMEBREW_GITHUB_ACTIONS: 1
   HOMEBREW_NO_AUTO_UPDATE: 1
+  HOMEBREW_NO_INSTALL_FROM_API: 1
 
 permissions:
   contents: read
@@ -113,7 +114,7 @@ jobs:
         with:
           workdir: ${{matrix.workdir || github.workspace}}
           result_path: bottles/steps_output.txt
-          step_name: 'Build summary on ${{ matrix.runner }}'
+          step_name: "Build summary on ${{ matrix.runner }}"
 
       - name: Output brew linkage result
         if: always()
@@ -121,7 +122,7 @@ jobs:
         with:
           workdir: ${{matrix.workdir || github.workspace}}
           result_path: bottles/linkage_output.txt
-          step_name: '`brew linkage` output on ${{ matrix.runner }}'
+          step_name: "`brew linkage` output on ${{ matrix.runner }}"
 
       - name: Output brew bottle result
         if: always()
@@ -129,7 +130,7 @@ jobs:
         with:
           workdir: ${{matrix.workdir || github.workspace}}
           result_path: bottles/bottle_output.txt
-          step_name: '`brew bottle` output on ${{ matrix.runner }}'
+          step_name: "`brew bottle` output on ${{ matrix.runner }}"
 
       - name: Upload logs
         if: always()
@@ -151,10 +152,10 @@ jobs:
           cd bottles
           count=$(ls *.json | wc -l | xargs echo -n)
           echo "$count bottles"
-          echo "::set-output name=count::$count"
+          echo "count=$count" >> $GITHUB_OUTPUT
           failures=$(ls failed/*.json | wc -l | xargs echo -n)
           echo "$failures failed bottles"
-          echo "::set-output name=failures::$failures"
+          echo "failures=$failures" >> $GITHUB_OUTPUT
 
       - name: Upload failed bottles
         if: always() && steps.bottles.outputs.failures > 0
@@ -208,26 +209,12 @@ jobs:
           name: bottles
           path: ~/bottles/
 
-      # Workaround until the `cache` action uses the changes from
-      # https://github.com/actions/toolkit/pull/580.
-      - name: Unlink workspace
-        run: |
-          mv "${GITHUB_WORKSPACE}" "${GITHUB_WORKSPACE}-link"
-          mkdir "${GITHUB_WORKSPACE}"
-
       - name: Cache gems
         uses: actions/cache@v3
         with:
           path: ${{steps.set-up-homebrew.outputs.gems-path}}
           key: ${{runner.os}}-rubygems-v2-${{steps.set-up-homebrew.outputs.gems-hash}}
           restore-keys: ${{runner.os}}-rubygems-v2-
-
-      # Workaround until the `cache` action uses the changes from
-      # https://github.com/actions/toolkit/pull/580.
-      - name: Re-link workspace
-        run: |
-          rmdir "${GITHUB_WORKSPACE}"
-          mv "${GITHUB_WORKSPACE}-link" "${GITHUB_WORKSPACE}"
 
       - name: Install gems
         run: brew install-bundler-gems
@@ -254,6 +241,7 @@ jobs:
         uses: Homebrew/actions/git-try-push@master
         with:
           token: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
+          directory: /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core
         env:
           GIT_COMMITTER_NAME: BrewTestBot
           GIT_COMMITTER_EMAIL: 1589480+BrewTestBot@users.noreply.github.com
@@ -268,10 +256,3 @@ jobs:
           body: ":x: @${{github.actor}} bottle request for ${{github.event.inputs.formula}} [failed](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}})."
           bot_body: ":x: Bottle request for ${{github.event.inputs.formula}} [failed](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}})."
           bot: BrewTestBot
-
-      # Workaround until the `cache` action uses the changes from
-      # https://github.com/actions/toolkit/pull/580.
-      - name: Unlink workspace
-        run: |
-          rm "${GITHUB_WORKSPACE}"
-          mkdir "${GITHUB_WORKSPACE}"

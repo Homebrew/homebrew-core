@@ -1,28 +1,23 @@
 class Xmake < Formula
   desc "Cross-platform build utility based on Lua"
   homepage "https://xmake.io/"
-  url "https://github.com/xmake-io/xmake/releases/download/v2.7.4/xmake-v2.7.4.tar.gz"
-  sha256 "d490ff8825fa53fe5abfb549310cb54a2dfef1ebd3f82e24548483772994e06a"
+  url "https://github.com/xmake-io/xmake/releases/download/v2.7.7/xmake-v2.7.7.tar.gz"
+  sha256 "aa05875921896ba4a07ac10a876979326367370631599919537fb2f8ff096750"
   license "Apache-2.0"
   head "https://github.com/xmake-io/xmake.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4c5d401ffb6484fc2bef8ff27507a95183edc0a613ff8f4ce5a1390eaf4933ec"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7cc480b234eb2a5831ea98cf216d62ef529d3423afcb9b669279ee71cc9521b9"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "356a400a3cd194d59005cc6b9e573d6b0893eea36f07e059cc14ba58fc3f6d06"
-    sha256 cellar: :any_skip_relocation, ventura:        "e446ce0af41f7c1201f731adc9d92da44151e1035075b508601f27ffa02894dc"
-    sha256 cellar: :any_skip_relocation, monterey:       "e1df716e53e395f90b780598ebe5abeb2a921ec570680ec0d8b30970fde1dbb2"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f16c5abbc006bce0bd41c1953f498fdc30ce56ddabe92940cd26dddd636ec681"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2da4513f8a093cf99c0b4120dba3c9c0539ff36a3b1780e6d1d313a09f0a96f2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6f6e043545b1139b92e822c461c3ed9711bdec3e00371fdd7e6944936e659f88"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4b4a084dfa37d6cc2c5c61a9b00e6bac41adfc4d8491a01f6ce393830f08de1a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4a1cdd678a8e80f89c4136875289c22be582fc24a0aeef198ff18245320ea5d1"
+    sha256 cellar: :any_skip_relocation, ventura:        "01014f446bb29957997effd9b22161195e9d8aa5e60ea9fc0695600d6533c975"
+    sha256 cellar: :any_skip_relocation, monterey:       "a3d9445d1c8bf1257c39a1d3d69a066ce8c6d23aca364f8c72145df036d602ae"
+    sha256 cellar: :any_skip_relocation, big_sur:        "af9f347abd4f5657dd4d85738985bb94ea028811bef8894c62c2f9f43bc5fba6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1e8aa1a524da6d94bafd387c68922ef9b5b7b621a282f757a55005cbf1c33c18"
   end
 
   on_linux do
     depends_on "readline"
-  end
-
-  patch do
-    url "https://github.com/xmake-io/xmake/releases/download/v2.7.4/configure.diff"
-    sha256 "fa46107403b2ed062631c83009852130b5641eaf703589230c6daea428a13bf5"
   end
 
   def install

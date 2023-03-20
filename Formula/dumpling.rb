@@ -2,8 +2,8 @@ class Dumpling < Formula
   desc "Creating SQL dump from a MySQL-compatible database"
   homepage "https://github.com/pingcap/tidb"
   url "https://github.com/pingcap/tidb.git",
-      tag:      "v6.5.0",
-      revision: "706c3fa3c526cdba5b3e9f066b1a568fb96c56e3"
+      tag:      "v6.6.0",
+      revision: "f4ca0821fb96a2bdd37d2fb97eb26c07fc58d4e4"
   license "Apache-2.0"
   head "https://github.com/pingcap/tidb.git", branch: "master"
 
@@ -13,13 +13,13 @@ class Dumpling < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "399afa4735f7f0bb6d51e093cdebab16dd4a65f9657fc4c602994f33957780c2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e633576048a2cf32dde5f4a8de2fa8cbd46a447dce80ca2d6b7a1da609b5dd63"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "81d0269fac0681afc8802a16cd3a8c5acf65cb1da4eaac0b1bbf0821baea1c36"
-    sha256 cellar: :any_skip_relocation, ventura:        "69f49dd47d3a017873071d9f68cd1ada316cb4bd18420c25c1f1d0d0084603ec"
-    sha256 cellar: :any_skip_relocation, monterey:       "1150b4defd6b1b0d34af29928484e225bbd2fe2a31c1984adb8c0bf145ee8730"
-    sha256 cellar: :any_skip_relocation, big_sur:        "98fd3ffea46a6dc3deebfc732c771357a3ac4a31df306da6d76852901edd3d1f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "11fec69ca3445f1bebe1d745b6f2d3000e195c526203b3f082213545b2b171d3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c168394774259627b11b09f66e7a2be6f21b648c3326e977341f411f45127a3b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "077e761679c1d7b3301976a983637fb235043d31fdcef47669d447c90c03ca71"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5b38a71890d7814187dd891dd51e99755fc40de054f9930f13835588bbb3caf7"
+    sha256 cellar: :any_skip_relocation, ventura:        "fca3705bdd2355d12623351b6867c4537d8977b824826eea9f29fec6fba21b16"
+    sha256 cellar: :any_skip_relocation, monterey:       "cc3224da5fed206aa7625bcde656d9f4a9c272cb7ecd40a546d5d48aa7d323d6"
+    sha256 cellar: :any_skip_relocation, big_sur:        "391b960893f9c89d73f68201576fbd47356fafd850bed23a57dcc6982fb00b30"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b03b5cc3aee82f00d634bf9e18d4b00170681cee8462e271b014c7ee6b7dd2fb"
   end
 
   depends_on "go" => :build

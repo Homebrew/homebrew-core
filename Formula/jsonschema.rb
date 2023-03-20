@@ -9,26 +9,28 @@ class Jsonschema < Formula
   head "https://github.com/python-jsonschema/jsonschema.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4c26cd5129a5f40259fbd68a639a8be2716772f101f3b2b221d1bc933f7a7bc5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2bf59f4a37da0c8b58947f074e5667a557a89e83529d7368f9106aa8a44d1817"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5aaf0cc515401f186bbc5a8dc2ac1c8a1b55f526990140990216b20ce7bcc9ab"
-    sha256 cellar: :any_skip_relocation, ventura:        "69b4ac6fab0ebe23582c0a7ddb2dd3e62c0a26ec2a4e28daf1264a4a9cc821ea"
-    sha256 cellar: :any_skip_relocation, monterey:       "c4e3904eb06d086a33ad63ea8991bf1f884ca5b386370bf7a7d167fd1e508966"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a2c29684ce27332a6ad33ac34d8666bb1ef2242836b70391df176cf0bf93db82"
-    sha256 cellar: :any_skip_relocation, catalina:       "674cd7a0bde6a6b8c36fff283e2d2dd70c1aa9c9a5143d4f5e30a6bfb32667b4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4e02603ac9676ccfd62a9a457e81514df7a3cfceadaf4399e0e176ce2aea1710"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b4497ebb5664dd3b2b87a8b47a66ae796cf317032dd833e8f79488064b3b9c0e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b218d0b5f2b42e17c13710955b8099021ef302453fb6f6e01bdc9c4c5002307c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6584b6fed9ac39d34eb7128dc34b624fe7a5c8bd463d20ddca421c327d5b455d"
+    sha256 cellar: :any_skip_relocation, ventura:        "ca12521a58d52cb0880a2c2a170ec74738f43738c2b11889c4ec1253f6e6d354"
+    sha256 cellar: :any_skip_relocation, monterey:       "22ef6546b03378994e3cee49bfc7f3f0127d13b88a938fba53e31d8987620ad3"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0aac0cf2e568bc02885ca1448ea6969109d57bf482b156c26d71b7f8c9b9ac29"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d5d9adbaab5f963722b4da057ae1524bb48c5c7d5f4f1cf2a214c969d6160598"
   end
 
-  depends_on "python@3.10"
+  deprecate! date: "2023-01-20", because: "cli is deprecated, and will be removed"
+
+  depends_on "python@3.11"
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/1a/cb/c4ffeb41e7137b23755a45e1bfec9cbb76ecf51874c6f1d113984ecaa32c/attrs-22.1.0.tar.gz"
-    sha256 "29adc2665447e5191d0e7c568fde78b21f9672d344281d0c6e1ab085429b22b6"
+    url "https://files.pythonhosted.org/packages/21/31/3f468da74c7de4fcf9b25591e682856389b3400b4b62f201e65f15ea3e07/attrs-22.2.0.tar.gz"
+    sha256 "c9227bfc2f01993c03f68db37d1d15c9690188323c067c641f1a35ca58185f99"
   end
 
   resource "pyrsistent" do
-    url "https://files.pythonhosted.org/packages/b8/ef/325da441a385a8a931b3eeb70db23cb52da42799691988d8d943c5237f10/pyrsistent-0.19.2.tar.gz"
-    sha256 "bfa0351be89c9fcbcb8c9879b826f4353be10f58f8a677efab0c017bf7137ec2"
+    url "https://files.pythonhosted.org/packages/bf/90/445a7dbd275c654c268f47fa9452152709134f61f09605cf776407055a89/pyrsistent-0.19.3.tar.gz"
+    sha256 "1a2994773706bbb4995c31a97bc94f1418314923bd1048c6d964837040376440"
   end
 
   def install

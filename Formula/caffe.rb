@@ -4,23 +4,19 @@ class Caffe < Formula
   url "https://github.com/BVLC/caffe/archive/1.0.tar.gz"
   sha256 "71d3c9eb8a183150f965a465824d01fe82826c22505f7aa314f700ace03fa77f"
   license "BSD-2-Clause"
-  revision 42
-
-  livecheck do
-    url :stable
-    strategy :github_latest
-  end
+  revision 43
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "6c1ec8636767f4ffc987a93905ba78f66ed830f2c15f1704f89952e966bb1eaa"
-    sha256 cellar: :any,                 arm64_monterey: "51f87ecef8a5e4ec2709a35a446c637cad13a265f486bf2ee6e401fd117e5308"
-    sha256 cellar: :any,                 arm64_big_sur:  "8293f75f81d7a30159edd0cf1f36c009e13b6ab5b381965fc009694746285a91"
-    sha256 cellar: :any,                 ventura:        "2e0db445f36a82daad014cb62698798883e431c73f813dde83142b71a785fc70"
-    sha256 cellar: :any,                 monterey:       "f7624395484ebdb8b1c2313bb28c0914dd2cf3bafed69958b868e2dab356adac"
-    sha256 cellar: :any,                 big_sur:        "283c78e3999df58ee224deb2ab8c230bbff0dbf3740c2cab99d5a07bf97761df"
-    sha256 cellar: :any,                 catalina:       "f0e7a6c067904aab5384c5d944ca011081dced065f35916ccde199f16aecc800"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1a0e6899388068cf5a2697a562ed367a4d7c466df4b2a261a61c6032df0fe7d8"
+    sha256 cellar: :any,                 arm64_ventura:  "839a67b9ca63d507107b5c30b88e407c62a91e4f6cf9f4a2271f7d137ac0c301"
+    sha256 cellar: :any,                 arm64_monterey: "184737d595e4311d8dfb3e27620f65dd8d7955663c187af0bf643868faa46a5c"
+    sha256 cellar: :any,                 arm64_big_sur:  "7cf4b212b6fdf9bd18a94625348f62c20becca29ec0e00b77bc6c1bdbea45ff9"
+    sha256 cellar: :any,                 ventura:        "1da4910ab90d3980153d5fa3d2e1629679f1beea1d2438cbf249ba6d7fa782d9"
+    sha256 cellar: :any,                 monterey:       "082ccc224264bafd4b7139140fc5461f9e442cebc37ff5c8aeeed04a0f3d0c56"
+    sha256 cellar: :any,                 big_sur:        "0a4c1a98a9ca96332be624aa388dd88250cdcef2f8c2c96ee5c9f4de1479ca4b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b90091b481b0900bc049743ded1cdc2249d2aa70f3f441a05158778c47647a89"
   end
+
+  deprecate! date: "2022-12-30", because: :deprecated_upstream
 
   depends_on "cmake" => :build
   depends_on "boost"

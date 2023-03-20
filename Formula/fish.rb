@@ -1,8 +1,8 @@
 class Fish < Formula
   desc "User-friendly command-line shell for UNIX-like operating systems"
   homepage "https://fishshell.com"
-  url "https://github.com/fish-shell/fish-shell/releases/download/3.5.1/fish-3.5.1.tar.xz"
-  sha256 "a6d45b3dc5a45dd31772e7f8dfdfecabc063986e8f67d60bd7ca60cc81db6928"
+  url "https://github.com/fish-shell/fish-shell/releases/download/3.6.0/fish-3.6.0.tar.xz"
+  sha256 "97044d57773ee7ca15634f693d917ed1c3dc0fa7fde1017f1626d60b83ea6181"
   license "GPL-2.0-only"
 
   livecheck do
@@ -13,20 +13,19 @@ class Fish < Formula
   pour_bottle? only_if: :default_prefix
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "247f2bf1fa3869cee18bf44bc5982841d7a704468165534ca79b3b45970b7c14"
-    sha256 cellar: :any,                 arm64_monterey: "13e8e8cbb8dff7100071fa3c6b6ac1c8020391bebb6ee6bc09a30f6596b745b6"
-    sha256 cellar: :any,                 arm64_big_sur:  "b89a98ad4bd08705fa846414067b107108306ae7ad8b36262c4ea1f2de416ebc"
-    sha256 cellar: :any,                 ventura:        "a67cffd23c641079a2745ec866e189984a43588256dfcc15eac398babccc18c1"
-    sha256 cellar: :any,                 monterey:       "0586d93e70fdf0fdc28f9043f95fb64034fb1b2bca6d02a4dbc8e18b0c057057"
-    sha256 cellar: :any,                 big_sur:        "d5af21044ac5b8974411fed9b51ffaad19410194f14a78c4545a9d5b836de0c9"
-    sha256 cellar: :any,                 catalina:       "a071642cc6bcc7e5297775f4a7b702388e6b34aa22a1beb348f765f2eb6c0c9e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c8ed12388a0f26f7f242efdd492e9f439e4a5cff0167f6e22c26ca1b44d11dbd"
+    sha256 cellar: :any,                 arm64_ventura:  "b7cfa15ddc6d68c2c4c76d7b1c5b1b9925e7c312893cd6495e7e4a55189293db"
+    sha256 cellar: :any,                 arm64_monterey: "059122804525146dc81a24ae04e2f48367f4f6689c7841d3425f7779faec6dfa"
+    sha256 cellar: :any,                 arm64_big_sur:  "2ed86a252b527d7dbd2fa49c9ec50de2840d84d3eb541c9dc7a57a6a6c53865a"
+    sha256 cellar: :any,                 ventura:        "aeb45cbbf3a2651936a2d947e8f88d7dc3b9c967f4240e1bc8db244c96f68af8"
+    sha256 cellar: :any,                 monterey:       "f0264928c8d313c0c2e41421d5c75ff964ca530db324168138441adcd7a0348e"
+    sha256 cellar: :any,                 big_sur:        "d653f23d4037db777262dd1bdf3a1e5710483be080132a56213eaecd98ea995d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3e2476caac96faa299f1b474ad8970ab7bc71c0498e1357ffd7a4ace93e802b1"
   end
 
   head do
     url "https://github.com/fish-shell/fish-shell.git", branch: "master"
 
+    depends_on "rust" => :build
     depends_on "sphinx-doc" => :build
   end
 

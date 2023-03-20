@@ -6,18 +6,20 @@ class Solargraph < Formula
       tag:      "v0.48.0",
       revision: "d498612c3335457464c20480b3b22bfb687e9a42"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256                               arm64_ventura:  "d81291ea3c9fda5358b963e12fbc33480755605de9631fe030ebda2ffba630cd"
-    sha256                               arm64_monterey: "3ce57d41d103c0991523999d5e52f6514e00ce42881afa21770a70964afecc02"
-    sha256                               arm64_big_sur:  "89beb80b2f179869286c4ca981eaf55f72582a8289aca33c728f73357dd6d465"
-    sha256                               ventura:        "2de083ef48c67163e7c2255bdba398797ad59c2c77d0cce10210060156b4b361"
-    sha256                               monterey:       "0137d12c253ff5e44ca3591084cc4a143ce8b83ce3c9565efbfdaa6060478df9"
-    sha256                               big_sur:        "a32ae970c5c58d9f6cd603e2ae79a417fd4bd406116e125478eef77efcd8d3b5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a18ed50b3d5a27dffd4c381ca00e923a029616271527e658764a93e0b207b5a7"
+    sha256                               arm64_ventura:  "19aae494ddcd40f80c72a4ec3c98fab4ff5831c4c6a500e035e1b648e3968d06"
+    sha256                               arm64_monterey: "17a8947c8f83f193f3e8ee70902b647f5d63bc342902d0b5bd130ed9367652c6"
+    sha256                               arm64_big_sur:  "747fb16e3f3aa4a772322349521af539c9378f38a5e5d517b4dc405a93226b43"
+    sha256                               ventura:        "480a88b17aa102d20b5cbfe6130a0b740328217e3205e68599bfa6c0ea58dddd"
+    sha256                               monterey:       "8ffe7bd88c07052c8a0646e6d03658f9ddfa298013203ca06f44ca1e116463c2"
+    sha256                               big_sur:        "28768ad1041ad18df04c85a81754226911ac79e4a48be26dba4ba05808a80f5e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8e554c13221a7ad25a8c07291573956c12a9203aebb754f754d6afc2666d177e"
   end
 
   uses_from_macos "ruby", since: :catalina
+  uses_from_macos "xz"
 
   def install
     ENV["GEM_HOME"] = libexec

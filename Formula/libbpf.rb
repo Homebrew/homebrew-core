@@ -10,17 +10,14 @@ class Libbpf < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "linux-headers@5.16" => :test
   depends_on "elfutils"
   depends_on :linux
 
   uses_from_macos "zlib"
 
   def install
-    chdir "src" do
-      system "make"
-      system "make", "install", "PREFIX=#{prefix}", "LIBDIR=#{lib}"
-    end
+    system "make", "-C", "src"
+    system "make", "-C", "src", "install", "PREFIX=#{prefix}", "LIBDIR=#{lib}"
   end
 
   test do
@@ -33,8 +30,7 @@ class Libbpf < Formula
         return(0);
       }
     EOS
-    system ENV.cc, "test.c", "-I#{Formula["linux-headers@5.16"].opt_include}", "-I#{include}", "-L#{lib}",
-                   "-lbpf", "-o", "test"
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lbpf", "-o", "test"
     system "./test"
   end
 end

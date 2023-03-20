@@ -1,38 +1,27 @@
 class RdiffBackup < Formula
   desc "Reverse differential backup tool, over a network or locally"
   homepage "https://rdiff-backup.net/"
-  url "https://github.com/rdiff-backup/rdiff-backup/releases/download/v2.0.5/rdiff-backup-2.0.5.tar.gz"
-  sha256 "2bb7837b4a9712b6efaebfa7da8ed6348ffcb02fcecff0e19d8fff732e933b87"
+  url "https://files.pythonhosted.org/packages/80/07/3287f3da5e72f01cbd1124339ce411efc95fa4f16d015ff605509a32d23a/rdiff-backup-2.2.4.tar.gz"
+  sha256 "948151492a42c2ad47ca90dfb2d1cbe7a5bb90f2bc2b9b6f3ef4238a7bf0dbf5"
   license "GPL-2.0-or-later"
-  revision 2
-
-  livecheck do
-    url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
-  end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "00738ee63bb98459076c6dc2673e28d7945129eb17f6cfb31a8f751ea6b94b6f"
-    sha256 cellar: :any,                 arm64_monterey: "9841037fad91c2e5567e03916d7413fd1e74d6858dff760b2a3728c53e1baf80"
-    sha256 cellar: :any,                 arm64_big_sur:  "66247de6c20d7350372ecb4efb63b3f5bec4c7f2fe29c4ed80723ebdcd0018fa"
-    sha256 cellar: :any,                 ventura:        "257e6838c0ea2cc6cb32c0650f4a950c2c55c8fcee8718c844c55edc985aa999"
-    sha256 cellar: :any,                 monterey:       "c64863e034cc7deb4de5574243baac6b0c180ab556ccea2b8fde137cd1910d74"
-    sha256 cellar: :any,                 big_sur:        "3aaeb0620c7dd027efea476c6b3af79425a7baf2056abc29ed88e405bf2f107a"
-    sha256 cellar: :any,                 catalina:       "e53a41d9556104c8b72a6b876969b2634d48a1153552af42af86456b5c1add67"
-    sha256 cellar: :any,                 mojave:         "f3d24f92212373f45e8323a8d054cef1b1ee0b392c96034cbf461bb60b0effd6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dedf7b7d0f5341a6159e46485c358502f3e50682db4f33f6ac69877830d0c99e"
+    sha256 cellar: :any,                 arm64_ventura:  "5c83d4d892e3375b61cf26823d09ceba1f9c50042cc1b9169b5e229bf03642ed"
+    sha256 cellar: :any,                 arm64_monterey: "61f5b82186deb11cd4f07a5d0330447cd7ea60c465ca3d87e54b6b8ad683d227"
+    sha256 cellar: :any,                 arm64_big_sur:  "99569c1cf1be6fea5a974812ec2b4286fa0e2cbed4c670f3103ea4a8652d50c3"
+    sha256 cellar: :any,                 ventura:        "979c5a9f23e1709f9de926b479731b0baf6f093ec0c13d7a7fdf64468407b034"
+    sha256 cellar: :any,                 monterey:       "46007f5c710314f638f7f38025e7ec93a2060d661a392ce6ca17ed907915c114"
+    sha256 cellar: :any,                 big_sur:        "7aa77a02ac4bd702384aee0fdce0ef1efe2ce2daf2113ccfeab8232fe994167f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0124759c951f6a29bbb06e61afb769780f4b435d0ff80585b196db3ba6abfc8c"
   end
 
   depends_on "librsync"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
+  depends_on "pyyaml"
 
   def install
-    os = OS.mac? ? "macosx" : "linux-x86_64"
-    system "python3.10", "setup.py", "build", "--librsync-dir=#{prefix}"
-    libexec.install Dir["build/lib.#{os}*/rdiff_backup"]
-    libexec.install Dir["build/scripts-*/*"]
-    man1.install Dir["docs/*.1"]
-    bin.install_symlink Dir["#{libexec}/rdiff-backup*"]
+    python3 = "python3.11"
+    system python3, *Language::Python.setup_install_args(prefix, python3), "--install-data=#{prefix}"
   end
 
   test do

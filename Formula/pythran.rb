@@ -3,21 +3,19 @@ class Pythran < Formula
 
   desc "Ahead of Time compiler for numeric kernels"
   homepage "https://pythran.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/99/e0/ed0e81de05cfa4ecbcbceec6603d175387d8bc7a6332cbfd155d09958ccf/pythran-0.12.0.tar.gz"
-  sha256 "eff3dd0d3eebe57372f0d14f82985525e9bcdfb5b1d1010e1932cf9207060f9f"
+  url "https://files.pythonhosted.org/packages/4a/1b/059a68158bf65c857cfd6b80aed06a8fd35f2582cf548fb96f0b519b0d2b/pythran-0.12.1.tar.gz"
+  sha256 "702c2701187cfb38f66c0c20cc85d04d0e156d260a8d92892da65947faa5360e"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/serge-sans-paille/pythran.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e5bf394a94b7af4cd5144c55e796a3de7a30e82f7966d6b2b5dc1aa03a1091f8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e5bf394a94b7af4cd5144c55e796a3de7a30e82f7966d6b2b5dc1aa03a1091f8"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e5bf394a94b7af4cd5144c55e796a3de7a30e82f7966d6b2b5dc1aa03a1091f8"
-    sha256 cellar: :any_skip_relocation, ventura:        "ea51ad415eb3da7ed5e1dea09bd6a2caa7a6bd8c1ff24e9091f73c6295d0215f"
-    sha256 cellar: :any_skip_relocation, monterey:       "ea51ad415eb3da7ed5e1dea09bd6a2caa7a6bd8c1ff24e9091f73c6295d0215f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ea51ad415eb3da7ed5e1dea09bd6a2caa7a6bd8c1ff24e9091f73c6295d0215f"
-    sha256 cellar: :any_skip_relocation, catalina:       "ea51ad415eb3da7ed5e1dea09bd6a2caa7a6bd8c1ff24e9091f73c6295d0215f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f30eb8b8aaafff3f6cfa3bd473f3d8b9d63239f5e3ce2630797855a331a230ec"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2242ff7ef584033d48281786887cd0676c7e397339b9ea40aef1100402335d66"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2242ff7ef584033d48281786887cd0676c7e397339b9ea40aef1100402335d66"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2242ff7ef584033d48281786887cd0676c7e397339b9ea40aef1100402335d66"
+    sha256 cellar: :any_skip_relocation, ventura:        "2225d213fdceddaab2e5b26eb4b0f77936550bbc89462d759c16bace06793f0e"
+    sha256 cellar: :any_skip_relocation, monterey:       "2225d213fdceddaab2e5b26eb4b0f77936550bbc89462d759c16bace06793f0e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "2225d213fdceddaab2e5b26eb4b0f77936550bbc89462d759c16bace06793f0e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4286f9064a81b4bbe54ef2b715ceced50b18d890a6763c1a7287e6982d88720a"
   end
 
   depends_on "gcc" # for OpenMP

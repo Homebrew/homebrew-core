@@ -1,21 +1,19 @@
 class Autodiff < Formula
   desc "Automatic differentiation made easier for C++"
   homepage "https://autodiff.github.io"
-  url "https://github.com/autodiff/autodiff/archive/v0.6.12.tar.gz"
-  sha256 "3e9d667b81bba8e43bbe240a0321e25f4be248d1761097718664445306882dcc"
+  url "https://github.com/autodiff/autodiff/archive/v1.0.1.tar.gz"
+  sha256 "63f2c8aaf940fbb1d1e7098b1d6c08794da0194eec3faf773f3123dc7233838c"
   license "MIT"
   head "https://github.com/autodiff/autodiff.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5d69df0c39e6a5bc02ede1dbf05f1d68a018205f2b23d99036e23aaa782d4d5d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6dde05e670781d1b6d590f249b38d4a1e7235df3bf716d97b41d2020cb7ae83c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ae6c00fc401205db2d003d3692e19e8fa9bd1118033724a13990cc67e9838b1a"
-    sha256 cellar: :any_skip_relocation, ventura:        "f0225b6c948e0d6d0ecf6553ea10a011a50d6bbed9deee58009e431826efd2f7"
-    sha256 cellar: :any_skip_relocation, monterey:       "c9af697593908ad18fc74255b22d79fd4eb1b029ed22e4ec92ac32f89667b6c1"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a6efd6b87f3062ac9bf07f7e3d3cc01d04cb2acdbfae08565e5f94fbb48ca7b2"
-    sha256 cellar: :any_skip_relocation, catalina:       "fb2b3fb7181e30a35443666b115d524c00ff8a332791d2df6bd2829fc3ca4ccb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b8efedec30763cbeb464eed98e71c93cebcb0ab599045468e85cd78df5a7b6e4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d1152952a96a07c31ea880f2e8fc3f874b44a5235f98ab268efae86beeb35722"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c1fec5054d836642476231566e59ae43bf121e1a9620b4152b638c21578ab489"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a13d01c5b8f834804d9525d04d52ca42158a89a6ddd31282ce14591d144d5432"
+    sha256 cellar: :any_skip_relocation, ventura:        "60e873a61aff0c54b79f3b309477e0691087e3d40372218c3133c6fe70fdeb21"
+    sha256 cellar: :any_skip_relocation, monterey:       "621b8f93af3389890e3499c544cc233175de49fbad5a3931ad8bb73b1078f968"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a03382f7b4de3f8f9a6ff1a21f040c3dd14e825dbfed9ef1e2a5399150f74be3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1a858fa06c093ffb988ed650fc9758d389e1c0df2fde4d607bcbe401d29c8938"
   end
 
   depends_on "cmake" => :build

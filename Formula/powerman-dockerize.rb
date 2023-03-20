@@ -1,18 +1,18 @@
 class PowermanDockerize < Formula
   desc "Utility to simplify running applications in docker containers"
   homepage "https://github.com/powerman/dockerize"
-  url "https://github.com/powerman/dockerize/archive/refs/tags/v0.17.0.tar.gz"
-  sha256 "2b218fa1272efa78455f16f6e9b686090fe68263a1ee471f677fd3e0e5c77bce"
+  url "https://github.com/powerman/dockerize/archive/refs/tags/v0.19.0.tar.gz"
+  sha256 "192c142ab25893c7a1e8a135280d8e72f05f12b56c1e2b5d932946707ec68c6b"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f7391856b61235d519dd963de1752e280a1929efd6a85fdcae3fdb38f01d23d2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f7e0c6feca7d2a16c7d92e19dc0b98565ab13c250a28ba29e4509831d9b43377"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e80606a13537c77163eea188e6731775b8ed4920ea6a47febe2778feab494a59"
-    sha256 cellar: :any_skip_relocation, ventura:        "c8ac791e7753afab462d8e34a95329c1e9d6ac059d90d1823bc4e15f910efaee"
-    sha256 cellar: :any_skip_relocation, monterey:       "aa828ed546efe1a420c0ddec3f2c61f7bb87d99a486b40bf0ecc810cfac626d9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0016fbbf9de7259deec1d18512b428a77e5673c8db758fcb0242fd0050dd3f04"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "302336f1c52d60c91bbf3b7a9cba145e4f20f6826c91d6f4e668a8abf42c9114"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "22a49e6780e8e00a054aaa35c6749d21095d374eac84c5c773ff549b38adae4a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "22a49e6780e8e00a054aaa35c6749d21095d374eac84c5c773ff549b38adae4a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "22a49e6780e8e00a054aaa35c6749d21095d374eac84c5c773ff549b38adae4a"
+    sha256 cellar: :any_skip_relocation, ventura:        "8ab1eff297eb25f14338b89b7bd198978b3541e619203fa92ef2450b0045e098"
+    sha256 cellar: :any_skip_relocation, monterey:       "8ab1eff297eb25f14338b89b7bd198978b3541e619203fa92ef2450b0045e098"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8ab1eff297eb25f14338b89b7bd198978b3541e619203fa92ef2450b0045e098"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "02c820b472202d7146338d7c94989edf2ce8f8c6223abf57f688224a9f92cc0e"
   end
 
   depends_on "go" => :build

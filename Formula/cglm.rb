@@ -1,18 +1,18 @@
 class Cglm < Formula
   desc "Optimized OpenGL/Graphics Math (glm) for C"
   homepage "https://github.com/recp/cglm"
-  url "https://github.com/recp/cglm/archive/refs/tags/v0.8.8.tar.gz"
-  sha256 "8e3fd955eb7e961e9cf737743009437c29648dcc618bdabaa65db1047445f542"
+  url "https://github.com/recp/cglm/archive/refs/tags/v0.8.9.tar.gz"
+  sha256 "9561c998eb2a86dca5f8596b5cd290d76f56b7735c8a2486c585c43c196ceedd"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "5c681487720bb2425913f923ea18457e8a7b05f764b7026e15d679fd6d1caa1b"
-    sha256 cellar: :any,                 arm64_monterey: "d2fade77b3795e4a92a6545984d81a36458643e756b5b26a3a48b9d26f0b0a1d"
-    sha256 cellar: :any,                 arm64_big_sur:  "d69fe43c2a662ed77a3bb71b27d3601fa6df53ed0b9d7f30f7dff9f03a141a1e"
-    sha256 cellar: :any,                 ventura:        "7afec36968ee4cf2b4acc9c80a38709c027a3985831854f6690b90dd7009440f"
-    sha256 cellar: :any,                 monterey:       "11a427d7a27ae6cd6b2dad65ff6adf7ab5c0b57aa5af098ffa27ac953b7d0ef4"
-    sha256 cellar: :any,                 big_sur:        "70ecc406b6e5c5830c8f1dd97ca59434d4c4e4d8c30e00a2a9b2ac676380de5c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e2a0b73b961bc8d93e17f4d9ca369d10fa8ab8190c0773842c3545c5f68e42e6"
+    sha256 cellar: :any,                 arm64_ventura:  "09c64c92b8fbc14122e7696c007fbad165c4d2122212e97b0522cb10c3ad7bf9"
+    sha256 cellar: :any,                 arm64_monterey: "67043e337087d9a3cdfac5f86486dbd31725eee1caaa9d7a7130b846d1c4d13f"
+    sha256 cellar: :any,                 arm64_big_sur:  "f556d15cf860255714192580d60330541dbd41328449771f875e620f34b7a29b"
+    sha256 cellar: :any,                 ventura:        "a555f5ff395baf7f7f619876ac66c07b1455e68aad04e68ca8ecb26944b5885a"
+    sha256 cellar: :any,                 monterey:       "e0fdda10593638d07a408e62077683833f62bb21750221d87c1d992877ac8a50"
+    sha256 cellar: :any,                 big_sur:        "c54a77111cb737885398fc2fdf36374f3a3cce685085f798f0b63f73cb1503d7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d4dd1386e5fff49160975443f9c9931c8e3c280356646b1a0ac74c5f20e43a70"
   end
 
   depends_on "autoconf" => :build

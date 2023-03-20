@@ -8,13 +8,14 @@ class Retdec < Formula
   head "https://github.com/avast/retdec.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "3dfd7d0d0b66aac5a3c4a7f333a4b0f2f7851971a846f19cd6175c0c32e4ca73"
-    sha256 cellar: :any,                 arm64_monterey: "c04a36cb28404cc815388c76c21ce50678170240b87224ed0f6888027994caf2"
-    sha256 cellar: :any,                 arm64_big_sur:  "ec2d9890fd1f2b255ed7b50540c339eecda7a1b09af70abb2b6e449c64e564fc"
-    sha256 cellar: :any,                 ventura:        "38a135db8ca3194bb24020d3caa398acdd2ec5356f453e29d2093acaa1cbb168"
-    sha256 cellar: :any,                 monterey:       "d76440c1290e3d55236ddd72c64a6ab7b3649a8abd4c65b28a8b945ac447a003"
-    sha256 cellar: :any,                 big_sur:        "da5e8a6e9023347d01d8e0d2c6c05c724fa9a3792bb09f5ca64fd86a4ecf9828"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "10652a633bb9e69b41f513e2b8440159a5c9d7a5407fc124ebca6497f6d23cdb"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "b7cde2657b59f79866cd54252feccc890acf33a2b4d878c10e28fb370cf54e79"
+    sha256 cellar: :any,                 arm64_monterey: "7113e40714bd347a886920c65a00f9267de5ade96fe76d8ae6a16aca074aa0d4"
+    sha256 cellar: :any,                 arm64_big_sur:  "c5f2c1b8668e3b931b3fa4806e6072a1c397427d16c8bd3fe04addb713860873"
+    sha256 cellar: :any,                 ventura:        "c3d083e2d657f03bc597359bd3a70a4567c1e0cdc1ed1a9c483821cea07a8802"
+    sha256 cellar: :any,                 monterey:       "a2ce1d3714eb89c08ed0c2b4f1ed0618646a03e50e79d6adb8074ed05184e3b1"
+    sha256 cellar: :any,                 big_sur:        "71305564bb1b74ab1b83345bec0eefd44151bfe46c35b42d352bd55017bcff3c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dcf8464ae585bc75c3a5b0cbf5520a933905775f67046a76c51290c70d4e13bc"
   end
 
   depends_on "autoconf" => :build
@@ -27,7 +28,7 @@ class Retdec < Formula
 
   on_macos do
     depends_on xcode: :build
-    depends_on macos: :mojave
+    depends_on macos: :catalina
   end
 
   def install

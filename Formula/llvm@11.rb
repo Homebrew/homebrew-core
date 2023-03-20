@@ -8,13 +8,14 @@ class LlvmAT11 < Formula
   revision 4
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "3b72fa109a152db3a77e9ae88228a03f0575c913a9d45b4a840c9ea5a01cf0e3"
-    sha256 cellar: :any,                 arm64_monterey: "1f9a2e81762d314611a01ac17cafa7cd8b0c2fc92d697a5cec9555e9e1598497"
-    sha256 cellar: :any,                 arm64_big_sur:  "64552a671357b02596313def4711086027b3e49079d65588dcca75572b87108d"
-    sha256 cellar: :any,                 monterey:       "4a368a132b47fa0b3c9678927d59b5bb4fee1538d4fab9f049fc80cf83464830"
-    sha256 cellar: :any,                 big_sur:        "375a61e449b4d1bbb9b3633a4b55d1676df0eb3943b6fcef3dc3355ad50d5539"
-    sha256 cellar: :any,                 catalina:       "00b2c6b12d4603e8e7fa472aa3c16ed7283d3feae15f0799e90632d1bcf192ab"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "46be09876c5a0c71d98f0d63e7eaaa323c3af97207670a691138ef743f6344de"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "2dd2d2c64d4eaced81c3fd64beea1c8d68fa17b564b2c536a1931e614f18756c"
+    sha256 cellar: :any,                 arm64_monterey: "d0d40b083bab471b93e36a5075802906672cc666ccc242ec316820fc4349f298"
+    sha256 cellar: :any,                 arm64_big_sur:  "d1732cbc50152aebc30471f942eeec30ca6b150e900a7000940baf3b98c5d5b5"
+    sha256 cellar: :any,                 ventura:        "b1ad7348bfba7835c9360a7220689304d9be0092558b614fa52c9e5624dd4153"
+    sha256 cellar: :any,                 monterey:       "ce98c1e1b94155d74a37826764e8b7f58bb9fe827f9c6988e753e53d78a3824f"
+    sha256 cellar: :any,                 big_sur:        "af3a8de67ed789b846b88f0f969026abd53bd4dc06869ac90ee486cda58e1c4c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0864d39f56bc7998edd70e07f822f4fdc946746959dd73387770b41fe699f608"
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
@@ -26,12 +27,11 @@ class LlvmAT11 < Formula
   # We intentionally use Make instead of Ninja.
   # See: Homebrew/homebrew-core/issues/35513
   depends_on "cmake" => :build
+  depends_on "python@3.11" => :build
   depends_on "swig" => :build
-  depends_on "python@3.10"
 
   uses_from_macos "libedit"
   uses_from_macos "libffi", since: :catalina
-  uses_from_macos "libxml2"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
@@ -85,6 +85,8 @@ class LlvmAT11 < Formula
   patch :DATA
 
   def install
+    python3 = "python3.11"
+
     projects = %w[
       clang
       clang-tools-extra
@@ -101,7 +103,6 @@ class LlvmAT11 < Formula
       libunwind
     ]
 
-    python3 = "python3.10"
     py_ver = Language::Python.major_minor_version(python3)
     site_packages = Language::Python.site_packages(python3).delete_prefix("lib/")
 
@@ -115,9 +116,6 @@ class LlvmAT11 < Formula
     # can almost be treated as an entirely different build from llvm.
     ENV.permit_arch_flags
 
-    # we install the lldb Python module into libexec to prevent users from
-    # accidentally importing it with a non-Homebrew Python or a Homebrew Python
-    # in a non-default prefix. See https://lldb.llvm.org/resources/caveats.html
     args = %W[
       -DLLVM_ENABLE_PROJECTS=#{projects.join(";")}
       -DLLVM_ENABLE_RUNTIMES=#{runtimes.join(";")}
@@ -134,10 +132,9 @@ class LlvmAT11 < Formula
       -DLLVM_OPTIMIZED_TABLEGEN=ON
       -DLLVM_TARGETS_TO_BUILD=all
       -DLLDB_USE_SYSTEM_DEBUGSERVER=ON
-      -DLLDB_ENABLE_PYTHON=ON
+      -DLLDB_ENABLE_PYTHON=OFF
       -DLLDB_ENABLE_LUA=OFF
-      -DLLDB_ENABLE_LZMA=ON
-      -DLLDB_PYTHON_RELATIVE_PATH=libexec/#{site_packages}
+      -DLLDB_ENABLE_LZMA=OFF
       -DLIBOMP_INSTALL_ALIASES=OFF
       -DCLANG_PYTHON_BINDINGS_VERSIONS=#{py_ver}
       -DPACKAGE_VENDOR=#{tap.user}
@@ -161,6 +158,8 @@ class LlvmAT11 < Formula
       sdk = MacOS.sdk_path_if_needed
       args << "-DDEFAULT_SYSROOT=#{sdk}" if sdk
     else
+      # Disable `libxml2` which isn't very useful.
+      args << "-DLLVM_ENABLE_LIBXML2=OFF"
       args << "-DLLVM_ENABLE_LIBCXX=OFF"
       args << "-DLLVM_CREATE_XCODE_TOOLCHAIN=OFF"
       args << "-DCLANG_DEFAULT_CXX_STDLIB=libstdc++"

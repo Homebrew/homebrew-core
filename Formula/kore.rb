@@ -12,26 +12,35 @@ class Kore < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "cbfccd4baa858b4b8319dc8dc8c24c72cf840c5ad0103d5d22b5d5fc206a34aa"
-    sha256 arm64_monterey: "f9f45763516449a9075be07735bf72855164b51ab549dbc07de6215bb163069a"
-    sha256 arm64_big_sur:  "75177641b3a63332f5931f39ac61001f8e45aa8751cf3c37032889a9ef49ad3f"
-    sha256 ventura:        "980d2d6c841e6e3ff768255422687a603c983d32f66a4c92b90e8a0d8976f94d"
-    sha256 monterey:       "8ba71c5137d2f2170c901a55ee0e5854b997163f715c43d46c4b823b111005f3"
-    sha256 big_sur:        "d270269663c58354047235b84a11360eb676e48e2bd1029077f58ef32d24b802"
-    sha256 catalina:       "c09baa37e79632bad83a33cae733a06f22e5caa461c20c85749a345436e0ec2b"
-    sha256 x86_64_linux:   "ef4df9e7c709ac5d717deb8b8f7b093c8936884e28039bd25ad494f56a5b1027"
+    rebuild 1
+    sha256 arm64_ventura:  "2079b1a823ee0915cb18e0148f04514d04638dc91807d2b3ef27c32129f7303a"
+    sha256 arm64_monterey: "0a22c98bd62f85f7cb1dcd41ef763c95bb97c4d77592432770de250e97dde75c"
+    sha256 arm64_big_sur:  "37860487cb7c2ec1efeb924857b32da30d3bd6dd07f7eff4da3ad42d24134252"
+    sha256 ventura:        "a826de0cab4f5e9b7cef6d7a08573d38b476cefda028e3ace20a8c1b79b7d414"
+    sha256 monterey:       "4a013753ae526626e4afd5519a41521c5c2e2a004b741306617b7d23f6c7b218"
+    sha256 big_sur:        "13917b8cf36d5fb5b57fb5028aa49fd421bd4ec930742b697d194ee0c0e1bb21"
+    sha256 x86_64_linux:   "8f982ba054916139a8560c8826a450b30784e08c672aaebcc8736d6ca88e4eb0"
   end
 
   depends_on "pkg-config" => :build
   depends_on macos: :sierra # needs clock_gettime
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
+    openssl = Formula["openssl@3"]
+
+    # We modify Makefile variables to save OpenSSL paths which get used at runtime.
+    # We don't directly override FEATURES_INC as Makefile uses 'FEATURES_INC+='.
+    # This is not needed on macOS where the Makefile already saves pkg-config output.
+    unless OS.mac?
+      inreplace "Makefile", /^FEATURES_INC=$/, "FEATURES_INC=-I#{openssl.opt_include}"
+      ENV["OPENSSL_PATH"] = openssl.opt_prefix
+    end
+
     ENV.deparallelize { system "make", "PREFIX=#{prefix}", "TASKS=1" }
     system "make", "install", "PREFIX=#{prefix}"
 
     # Remove openssl cellar references, which breaks kore on openssl updates
-    openssl = Formula["openssl@1.1"]
     inreplace [pkgshare/"features", pkgshare/"linker"], openssl.prefix.realpath, openssl.opt_prefix if OS.mac?
   end
 

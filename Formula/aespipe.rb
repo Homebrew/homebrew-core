@@ -5,8 +5,8 @@ class Aespipe < Formula
   sha256 "b135e1659f58dc9be5e3c88923cd03d2a936096ab8cd7f2b3af4cb7a844cef96"
 
   livecheck do
-    url "http://loop-aes.sourceforge.net/aespipe/"
-    regex(/href=.*?aespipe[._-]v?(\d+(?:\.\d+)+[a-z])\.t/i)
+    url "https://loop-aes.sourceforge.net/aespipe/"
+    regex(/href=.*?aespipe[._-]v?(\d+(?:\.\d+)+[a-z]?)\.t/i)
     strategy :page_match
   end
 

@@ -4,7 +4,7 @@ class Ronn < Formula
   url "https://github.com/rtomayko/ronn/archive/0.7.3.tar.gz"
   sha256 "808aa6668f636ce03abba99c53c2005cef559a5099f6b40bf2c7aad8e273acb4"
   license "MIT"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -12,14 +12,13 @@ class Ronn < Formula
   end
 
   bottle do
-    sha256                               arm64_ventura:  "619e4bc705a2b76f1a172f26addd7b602e46a1629701b03bfeab699c2a7ef9a8"
-    sha256                               arm64_monterey: "2f89aae0f91bdd8f9fd78735e9df17d431cb51b909f8fdb898a0390f2050debd"
-    sha256                               arm64_big_sur:  "e2571e7b4050d3155b0b433d910febd2809082db77240bd2f1adb28f353a6a50"
-    sha256                               ventura:        "f8dd86ef5e1db413727574197e30540537f28d0c41db6343d48cb1bfe5cfe49d"
-    sha256                               monterey:       "dd392f329175492f8be04af6e806184bf88a78e2c01abd3ee8a8e0064d3bf2c2"
-    sha256                               big_sur:        "f454a854b1633f682a373bdaf766208f05b6be7a5066ff3fe2d37e1b96615acf"
-    sha256                               catalina:       "0a41650e18cc230f86ce33858afdd936e3b3bd95234d8e58fd5377e4eab69379"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "010026d4a9920e007b8660518a95d0b8b0b50d31f413aa4aea6ccdea165e4218"
+    sha256                               arm64_ventura:  "c5e7a90b72cbaa1a35c4ac4d936d158fb9ae260f596c61d8970dbbca50ab333a"
+    sha256                               arm64_monterey: "7e76db3363362b07768e2bad9a4759593891d9404177e8aa816c96f5f82d543b"
+    sha256                               arm64_big_sur:  "7c31834c062487315b2943bd04e652757d2bcd38b6a4ee8139f8e1b44108fff8"
+    sha256                               ventura:        "bdc695822c2a7d61cc9ca71a53ff964c0719b8c2308663f065f0936334c63bdf"
+    sha256                               monterey:       "481aaabfe48cf8d4cd35b3ba5b140db8790b5f79aad20baa553591bed87bf4d4"
+    sha256                               big_sur:        "d1bdf3a0223e34208d762933397bf3d15ea0c7ba413519ba96f5e02519e96dbc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1aad5803b03234fa52d4308c71ac58bc45b3c792630d1a4e165848e2ae0e61ef"
   end
 
   depends_on "groff" => :test

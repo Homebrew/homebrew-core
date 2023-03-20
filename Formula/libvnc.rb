@@ -6,10 +6,6 @@ class Libvnc < Formula
   license "GPL-2.0-only"
   head "https://github.com/LibVNC/libvncserver.git", branch: "master"
 
-  livecheck do
-    formula "libvncserver"
-  end
-
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "f48e89588cb1a19576b281f57e5603dd4be43fc243d0cd8ba11e89b2d945791b"
     sha256 cellar: :any,                 arm64_monterey: "bed86692d7831c43a601f2c0a1eb26aed08540bec111db9ad356068e7b1a7b2f"
@@ -21,6 +17,8 @@ class Libvnc < Formula
     sha256 cellar: :any,                 mojave:         "4744d5940eb9095e9d7ec8a731c8f611a252e5548237d3d338a2334766b38825"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0a38e3225e47344136ae3e0e51c0f1875d25ad7f7b49f319c87383262f842938"
   end
+
+  disable! date: "2023-01-02", because: "use libvncserver instead"
 
   depends_on "cmake" => :build
   depends_on "jpeg-turbo"

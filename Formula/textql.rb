@@ -21,6 +21,12 @@ class Textql < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7d491cd48d7e35debc11c6c9ffacec4538ed039a22d5b88302b6eed0e0d62fd1"
   end
 
+  # Upstream repo does support go modules but no response to request for new release
+  # Ref: https://github.com/dinedal/textql/issues/131
+  # Ref: https://github.com/dinedal/textql/issues/139
+  # Last release on 2015-12-16
+  deprecate! date: "2023-01-21", because: "depends on `glide` to build"
+
   depends_on "glide" => :build
   depends_on "go" => :build
 

@@ -19,6 +19,7 @@ class NameThatHash < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5635edb4f1faa51b8096a8b55e73e22e95319634a29421e800c808e15ba5a721"
   end
 
+  depends_on "pygments"
   depends_on "python@3.11"
 
   resource "click" do
@@ -29,11 +30,6 @@ class NameThatHash < Formula
   resource "commonmark" do
     url "https://files.pythonhosted.org/packages/60/48/a60f593447e8f0894ebb7f6e6c1f25dafc5e89c5879fdc9360ae93ff83f0/commonmark-0.9.1.tar.gz"
     sha256 "452f9dc859be7f06631ddcb328b6919c67984aca654e5fefb3914d54691aed60"
-  end
-
-  resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/e0/ef/5905cd3642f2337d44143529c941cc3a02e5af16f0f65f81cbef7af452bb/Pygments-2.13.0.tar.gz"
-    sha256 "56a8508ae95f98e2b9bdf93a6be5ae3f7d8af858b43e02c5a2ff083726be40c1"
   end
 
   resource "rich" do

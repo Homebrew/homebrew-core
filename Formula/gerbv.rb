@@ -1,19 +1,18 @@
 class Gerbv < Formula
   desc "Gerber (RS-274X) viewer"
   homepage "https://gerbv.github.io/"
-  url "https://github.com/gerbv/gerbv/archive/refs/tags/v2.9.5.tar.gz"
-  sha256 "a90b3e50941bed90eaf45e9b0d19b2d074eec1f433dcf3a1b3cbf14d8dc7c1ec"
+  url "https://github.com/gerbv/gerbv/archive/refs/tags/v2.9.6.tar.gz"
+  sha256 "0e517ea28bcb76fb7547c759b0d09e6d207e1cb539d95af6ef609354d2f48ad3"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_ventura:  "c078f973a81f5ca0c840cabe5d84bca8046a38e2bdd32cda2ef8bc49c24cd1e5"
-    sha256 arm64_monterey: "950b0b1ca9d3eeba0969942d3dae2cbec4763486d019487722cc499dafc1ca26"
-    sha256 arm64_big_sur:  "8b33c2b141d62e56e7f1614338b869d0f7c5c6e9b7f0d82402377f4303436b53"
-    sha256 ventura:        "722f3d5a190b233a91710c4c4a3e856423f56ff80031b9e8c79d0c62f7530f88"
-    sha256 monterey:       "7adea609399112bf9ac696eb8e5d1f6f6fda7074d6f2c4e24fbe25d613301f0a"
-    sha256 big_sur:        "95788334f0a71a78241df7e808e4563a1d8a13d9a4e0865b5369726064788fca"
-    sha256 catalina:       "09d4f39eee02503e116457a291a7252bde5da85e2951a29bae23533187a3ee88"
-    sha256 x86_64_linux:   "be57eadae3680d2486074e14762b15c3ed5473a066994b2e069662be676f0001"
+    sha256 arm64_ventura:  "c928c62d0e8eda9e96dbbf4a9baad1ab7bc18fc8078dca3a85af0f97ef49ff3e"
+    sha256 arm64_monterey: "46bf2b6cd222d5bdfe053c82f774c4eb8dad2b37622e5459a9022ccb71c62192"
+    sha256 arm64_big_sur:  "12c2b634ddd479d09858a51a59eac8fa51bb969280f8d41a2199c32420cc4c1b"
+    sha256 ventura:        "0026267f7f29606d244ca9bd395f3c4d7065fe3c4c6816dbdf6d8dfcf3a507ad"
+    sha256 monterey:       "7e7c6507bfb6b7b4b79c9719dc22d53710077b6b286b1e1db20f69af16bb97e2"
+    sha256 big_sur:        "93e553925362828ff57324975da7a6a03719e5d34e7f0083b7038d9f07e1e940"
+    sha256 x86_64_linux:   "598968f958e6c3313d4f52e2b36417835a200c767eb0f0575811750ea61649c5"
   end
 
   depends_on "autoconf" => :build
@@ -21,7 +20,7 @@ class Gerbv < Formula
   depends_on "gettext" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "gtk+"
+  depends_on "gtk+" # GTK3/GTK4 issue: https://github.com/gerbv/gerbv/issues/71
 
   def install
     ENV.append "CPPFLAGS", "-DQUARTZ" if OS.mac?

@@ -1,8 +1,8 @@
 class PysideAT2 < Formula
   desc "Official Python bindings for Qt"
   homepage "https://wiki.qt.io/Qt_for_Python"
-  url "https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.15.7-src/pyside-setup-opensource-src-5.15.7.tar.xz"
-  sha256 "f61210ae24e6882d5d0ca0059229e5dc4f35e2bca92dd6caf96c0f41943a8294"
+  url "https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.15.8-src/pyside-setup-opensource-src-5.15.8.tar.xz"
+  sha256 "23436302c8deb5b4cbc769b205d09604e38ba83b40708efccb7bd8c9af6f6b5d"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-3.0-only"]
 
   livecheck do
@@ -11,12 +11,12 @@ class PysideAT2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "31e34cffe4d0912a00196e901742f932081fc1a8aa9ec3171c804304ce8f321d"
-    sha256 cellar: :any, arm64_monterey: "9572db68877f799d9c397c925246e756f51d8d37f83236fc0c500d33c8992bfa"
-    sha256 cellar: :any, arm64_big_sur:  "32e543ecff6cef9bc5864e3f0b85233058b17f1ff5d79b860313461cd7f338e8"
-    sha256 cellar: :any, ventura:        "7552f8ae8d6d84dccfe131b2ee869af5d1e2646a075c6adca79aed3a24013fad"
-    sha256 cellar: :any, monterey:       "53e71205d91568df5b0598586339f38dfa07194516e416161d8f572e775fbcff"
-    sha256 cellar: :any, big_sur:        "9600bb5fb67bc676490cb7ef6bde1a89a806aa0b97b7d7b39f4ada92bf82c767"
+    sha256 cellar: :any, arm64_ventura:  "af03e39fc3732733d5628c8276260b7875c24408acecc8c4c39d4e9a82430385"
+    sha256 cellar: :any, arm64_monterey: "1636dfa790e8b3019b4184f93a4299c3b154d144d2d3059cc5ec0e7493c99f9c"
+    sha256 cellar: :any, arm64_big_sur:  "cfc721047693259d09e97cbd7f4ca38a8aa80cc27304089a00ba793384a5139d"
+    sha256 cellar: :any, ventura:        "fc342a0cbf305f7d746ff6fe9a0db9d8cac2c07995a1a13205749931ee15b87a"
+    sha256 cellar: :any, monterey:       "6078faee4e1023d527faf7c116827a5d40ab5ebba768925ce7eed9c14c784a1c"
+    sha256 cellar: :any, big_sur:        "fd5e818a3a5b0038f683e7514cf6a2cde626700b42fbcf63f642d930b7e486cc"
   end
 
   keg_only :versioned_formula

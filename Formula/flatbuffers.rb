@@ -1,8 +1,8 @@
 class Flatbuffers < Formula
   desc "Serialization library for C++, supporting Java, C#, and Go"
   homepage "https://google.github.io/flatbuffers"
-  url "https://github.com/google/flatbuffers/archive/v22.12.06.tar.gz"
-  sha256 "209823306f2cbedab6ff70997e0d236fcfd1864ca9ad082cbfdb196e7386daed"
+  url "https://github.com/google/flatbuffers/archive/v23.3.3.tar.gz"
+  sha256 "8aff985da30aaab37edf8e5b02fda33ed4cbdd962699a8e2af98fdef306f4e4d"
   license "Apache-2.0"
   head "https://github.com/google/flatbuffers.git", branch: "master"
 
@@ -12,13 +12,13 @@ class Flatbuffers < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "8c0f6dbd551eac4168e08f0e1a26b710a1c4f76f79fcc428b7155070edf9de54"
-    sha256 cellar: :any,                 arm64_monterey: "d81c9edea9f784e4950c4a763a126e75e44b3c1d9660b77dfbb1f355ef79d414"
-    sha256 cellar: :any,                 arm64_big_sur:  "00154b682acac3e8dc3edaa61f0adb78955f171a3859230fc69143d591453c68"
-    sha256 cellar: :any,                 ventura:        "e3fb8a9ecbda4ccfe957bd5e5ff057981f06570b6162bb5f0a1f4a3bde0ed5ae"
-    sha256 cellar: :any,                 monterey:       "25bfc55e2da1a3a3134e5e10ed3401aa9d9f8e6dc91d6e6ff5017387cf7620e8"
-    sha256 cellar: :any,                 big_sur:        "c94968e2e1c9ab5531c7f20e9df39ffd4a4b2101816afbb8be68a38abb7c7005"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "955fbfbf584c69da3723708b59bbadb547a48cecf15de24a62abee3ac32b6af7"
+    sha256 cellar: :any,                 arm64_ventura:  "41bed661b4685bb18ee01f2b961809edd87f905dfe88ad617abc8cfd0710e56d"
+    sha256 cellar: :any,                 arm64_monterey: "dc323c25fb592db857668f9a3bfb912cf7a2fbb3db042f430dd0cb4b1d60430b"
+    sha256 cellar: :any,                 arm64_big_sur:  "4e37d3f03d1ae3948b6952d6f518b3f8f0bfed61f4d542f3f0fae3bb4b5c2508"
+    sha256 cellar: :any,                 ventura:        "37cc5b96af418233914174d4d7d31dc0b87a18a9499eab96e68a690a418939eb"
+    sha256 cellar: :any,                 monterey:       "d7a1eed20df9c5ae981fb7f98fa517113aa2bc79b88b1899002aa73e4fddf355"
+    sha256 cellar: :any,                 big_sur:        "965086222342bf387d8cdb68b38df5ff32d2160fb43f35ae0a0fcfd963ecafe1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5c8c0495e43dc190f185dd7161ce05d48034a4acf6c8b7a3ed0ab2b1cdd26686"
   end
 
   depends_on "cmake" => :build

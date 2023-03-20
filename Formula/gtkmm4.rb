@@ -1,8 +1,8 @@
 class Gtkmm4 < Formula
   desc "C++ interfaces for GTK+ and GNOME"
   homepage "https://www.gtkmm.org/"
-  url "https://download.gnome.org/sources/gtkmm/4.8/gtkmm-4.8.0.tar.xz"
-  sha256 "c82786d46e2b07346b6397ca7f1929d952f4922fa5c9db3dee08498b9a136cf5"
+  url "https://download.gnome.org/sources/gtkmm/4.10/gtkmm-4.10.0.tar.xz"
+  sha256 "e1b109771557ecc53cba915a80b6ede827ffdbd0049c62fdf8bd7fa79afcc6eb"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -11,14 +11,13 @@ class Gtkmm4 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "528dbb1dbb63538c5e603848ca21924a6788e051b1db9aa6c277472ca412e63e"
-    sha256 cellar: :any, arm64_monterey: "dec88e65848253c7a4d434a2d2f8f203bd41815ca6b03caa19c40b38c9210a7c"
-    sha256 cellar: :any, arm64_big_sur:  "9b85467c73912e156db432c26f8d65d20eb34d557849549e300ca7da48f47b61"
-    sha256 cellar: :any, ventura:        "4c745cb4d3b88143b1629a60c01729847dd3924f5c2ac83182fabcd97dfa94e6"
-    sha256 cellar: :any, monterey:       "c9149bef97843c81b6f2345eecae097c88232164acfea98a09f63a7d4f283b29"
-    sha256 cellar: :any, big_sur:        "2c7247708b823ce00462cf419513ba5cee394951f7a6db411a0654011bb68751"
-    sha256 cellar: :any, catalina:       "8a1da65e7de51882a9815e05b20afc3a00c81e9dfff4a10d3c74f587ccc574bb"
-    sha256               x86_64_linux:   "bbb9b2f21354e474597d8c4ac91af3ac1a86396b5e5d43a3259487f6aae9fe28"
+    sha256 cellar: :any, arm64_ventura:  "7ccb484b0df2e4d2270d35d404751166e4b0917ca8a43547242f587e38b99b00"
+    sha256 cellar: :any, arm64_monterey: "e75513422db9413b7cbf3f7d659bcd6160c66137aa15cf41275a62c7620ee748"
+    sha256 cellar: :any, arm64_big_sur:  "a873f2bbad0c599bb71965061532b610955b5762dd3cb8e81c3526a6eeddac60"
+    sha256 cellar: :any, ventura:        "2ae876886e55d5fcf9de15273ff58c14091934855f0e232cba307de9c7adc253"
+    sha256 cellar: :any, monterey:       "7f60d3e02f3a575d53b3a35cef959812ba8829bb93cd4c41b634e78110534cc8"
+    sha256 cellar: :any, big_sur:        "cd1cdf2bec5e69eb42ccdb8878ffa2b8c6fb7d97dddf54122d193aa33ddc40c6"
+    sha256               x86_64_linux:   "fdbed5da4ff3aab516a19c6d5ff82c3ca415c6be62cf153f2dcceac0105026da"
   end
 
   depends_on "meson" => :build

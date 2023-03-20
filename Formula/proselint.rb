@@ -10,15 +10,14 @@ class Proselint < Formula
   head "https://github.com/amperser/proselint.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "53c5150a7e3d4482836d9fd72cfdc4257ae2efea60f12af941874045aa05a069"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3ff8f8f8ef7bb4b0fb56369770bd24e6516044d0e403d9a5a7eb72ff73bed9e3"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e6e14cd993003d73da10b027c1b970c53d99506cd0f1b773c67592d3e12b8681"
-    sha256 cellar: :any_skip_relocation, ventura:        "3990779414e97f32ac8262b906fdb3f24bcc890b7b4e2692b19b34d10464edab"
-    sha256 cellar: :any_skip_relocation, monterey:       "5855ad203a93a97d78b54b9fc22efd40e9fddf8f51aae9c7d20f7234a3c62f82"
-    sha256 cellar: :any_skip_relocation, big_sur:        "097182dbeeb8fcaeaa3b3bd40b690cd9f8026c760bc177b8d764f346e23d1c76"
-    sha256 cellar: :any_skip_relocation, catalina:       "880b7bf9d6348fe8b2845971f37429c210d66836a054a20e7fe3de01bdcba2e1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a188af82c223211e586acbdb3fd80561cbf9c0a963e128fa305aa55e0d0d1b78"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9a5829fdcd105a044993dc63bf9ee2bb42a075b15aa416f05b41587e448a74bd"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a99d0eff9a09c4e195caf20a2eb448e4305c61786b592adbd6ad98dc788e5849"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7423630937ce4c70aeba94ab02532422fb1d0d19132fe632335cbd1679dc7fbd"
+    sha256 cellar: :any_skip_relocation, ventura:        "94aabb15c29ab3291aace706ee0acf906ec6bfce8ce1ba86506028209face8eb"
+    sha256 cellar: :any_skip_relocation, monterey:       "4aa8f05c1e3f1082c8c8186d4fca8f47b2887a01917cc2f2ac573cf594eef8d1"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e3fa366974923cf5fd04d11e0f70dc8b6d6b57863b965ad67297c24530bd0548"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "801bbc1c0af4b44e9770f872b6cfa289d59745fd1f84b4f40d34c9b009b6e500"
   end
 
   depends_on "python@3.11"
@@ -30,8 +29,8 @@ class Proselint < Formula
   end
 
   resource "future" do
-    url "https://files.pythonhosted.org/packages/45/0b/38b06fd9b92dc2b68d58b75f900e97884c45bedd2ff83203d933cf5851c9/future-0.18.2.tar.gz"
-    sha256 "b1bead90b70cf6ec3f0710ae53a525360fa360d306a86583adc6bf83a4db537d"
+    url "https://files.pythonhosted.org/packages/8f/2e/cf6accf7415237d6faeeebdc7832023c90e0282aa16fd3263db0eb4715ec/future-0.18.3.tar.gz"
+    sha256 "34a17436ed1e96697a86f9de3d15a3b0be01d8bc8de9c1dffd59fb8234ed5307"
   end
 
   def install

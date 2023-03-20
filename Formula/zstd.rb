@@ -1,23 +1,26 @@
 class Zstd < Formula
   desc "Zstandard is a real-time compression algorithm"
   homepage "https://facebook.github.io/zstd/"
-  url "https://github.com/facebook/zstd/archive/v1.5.2.tar.gz"
-  mirror "http://fresh-center.net/linux/misc/zstd-1.5.2.tar.gz"
-  mirror "http://fresh-center.net/linux/misc/legacy/zstd-1.5.2.tar.gz"
-  sha256 "f7de13462f7a82c29ab865820149e778cbfe01087b3a55b5332707abf9db4a6e"
+  url "https://github.com/facebook/zstd/archive/v1.5.4.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/zstd-1.5.4.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/legacy/zstd-1.5.4.tar.gz"
+  sha256 "35ad983197f8f8eb0c963877bf8be50490a0b3df54b4edeb8399ba8a8b2f60a4"
   license "BSD-3-Clause"
   head "https://github.com/facebook/zstd.git", branch: "dev"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    rebuild 3
-    sha256 cellar: :any,                 arm64_ventura:  "92f953ed8a8c77b9e282d7cb6a6288d77e6f40bb1b3eec78e2fbbae29c12b220"
-    sha256 cellar: :any,                 arm64_monterey: "844b957a277cd93f70f8de91bd4caa21579f9b9e2f55bd5daf0334eee8ef1196"
-    sha256 cellar: :any,                 arm64_big_sur:  "091743749cec2f0ae34482ae370aa5a563d6c7841c42fbc25e0d061863f5faa5"
-    sha256 cellar: :any,                 ventura:        "40b665d1ad7b73e24e15d2cc7e49629c7bda5a40e947a3e4106935100a189828"
-    sha256 cellar: :any,                 monterey:       "b0eabfa556c5aed039a5b22cd7e2e3dd52c7d2416c1141e4a8e9e825b9238fc3"
-    sha256 cellar: :any,                 big_sur:        "585bced60a658bfbda88d6a500fa26671871aa354f65cef767f17ea46209b4f2"
-    sha256 cellar: :any,                 catalina:       "bdd2d3349fbcaa7e299cb6184f43e7f2bf29bd5936396d4c7c3d132bd687cd15"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "006b5ab6a4616a8b6f59953cb9efb546d312e3ba231c303bb56749e7f66f56df"
+    sha256 cellar: :any,                 arm64_ventura:  "0d9bceb9cfaeab8f5bf8d1a199b3c241c72dfee55c3e3fd9b2b34114570c3401"
+    sha256 cellar: :any,                 arm64_monterey: "6de68b55a5336e68071b587756944e5138334760f594d3c84f036c0558a06019"
+    sha256 cellar: :any,                 arm64_big_sur:  "dc078a0e82e3cfe82e7b3aa05d3cdfcf9d450e0db8300203247962c45e453bee"
+    sha256 cellar: :any,                 ventura:        "7af6b7ea795672d8db6059c9491f8b6a973d376be21b5bd5ce98022e7870c03a"
+    sha256 cellar: :any,                 monterey:       "833ef75fe78b4c27e29fc7abaa4a5ee962b622ffa4c1de5e02ef4fff13394e3e"
+    sha256 cellar: :any,                 big_sur:        "0e425c420f3a24a3b5e1cd932e01855b1945465467c0cf0a5f25e9d98b46ef75"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fe565b3d44fc25338174bc25efaacf02581c6f6128211d9f7d175aabf2a7973f"
   end
 
   depends_on "cmake" => :build
@@ -37,6 +40,7 @@ class Zstd < Formula
                     "-DZSTD_ZLIB_SUPPORT=ON",
                     "-DZSTD_LZMA_SUPPORT=ON",
                     "-DZSTD_LZ4_SUPPORT=ON",
+                    "-DCMAKE_CXX_STANDARD=11",
                     *std_cmake_args
     system "cmake", "--build", "builddir"
     system "cmake", "--install", "builddir"

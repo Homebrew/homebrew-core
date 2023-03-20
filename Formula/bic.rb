@@ -16,7 +16,7 @@ class Bic < Formula
   end
 
   head do
-    url "https://github.com/hexagonal-sun/bic.git"
+    url "https://github.com/hexagonal-sun/bic.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "autoconf-archive" => :build

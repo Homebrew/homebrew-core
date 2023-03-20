@@ -1,23 +1,24 @@
 class Verilator < Formula
   desc "Verilog simulator"
   homepage "https://www.veripool.org/wiki/verilator"
-  url "https://github.com/verilator/verilator/archive/refs/tags/v5.004.tar.gz"
-  sha256 "7d193a09eebefdbec8defaabfc125663f10cf6ab0963ccbefdfe704a8a4784d2"
+  url "https://github.com/verilator/verilator/archive/refs/tags/v5.006.tar.gz"
+  sha256 "eb4ca4157ba854bc78c86173c58e8bd13311984e964006803dd45dc289450cfe"
   license any_of: ["LGPL-3.0-only", "Artistic-2.0"]
   head "https://github.com/verilator/verilator.git", branch: "master"
 
   bottle do
-    sha256 arm64_ventura:  "3eb15f62df1c3bc4e746c5c87b0e5fc754c7b112cfd740a6396ecb292732f59b"
-    sha256 arm64_monterey: "6ed63f0d2c73a6a6a30f79bb1724425ff86516cc025bb90f2b6162d1e874b49d"
-    sha256 arm64_big_sur:  "885d5183c418ee06c4010af9cef9dce6145f3e88c18339e29271c7f504a24b3a"
-    sha256 ventura:        "b6cc61b640c35328200463b173f145b0879f6d0321b79091776c76b4425cf339"
-    sha256 monterey:       "4e5c87f959617510373c5b255fc54b79772338d32fce2c42793e1769ff3517e0"
-    sha256 big_sur:        "dbf9cf4ee0c3b4b2aa5ccd73948d7db0dd096375e7279fea2557581f5d0377ac"
-    sha256 x86_64_linux:   "896b28ff444f53df0f94b51162be2dfd83d7d0f029d6d2fa83570453a73bb21a"
+    sha256 arm64_ventura:  "dc55e6bf368d49b4a7d74724d40cf391c6b5851c990eb09038b3bf1c5ca4b5f2"
+    sha256 arm64_monterey: "cab7366ce717706d1f2d7561d7f3d33aeeb8b6970d8935705d6ea5887ebc4903"
+    sha256 arm64_big_sur:  "8e8592064ed92f1ef2ae1366d4b7d5d4577ee9ed9a17e904b3d552968094c3fd"
+    sha256 ventura:        "b0005019a659e484ed1764e7409193a433fb37238afb03f1474b0a58136b80a9"
+    sha256 monterey:       "dfbfb7e4fad62af9d10c2dd04899415e76b4a024f3478bea5354cb165b7b17ab"
+    sha256 big_sur:        "9e5217141d3bc5b9dbcbeaaa3e50eb8f2424a800bfeefa3f39e900eaa7aa3e4d"
+    sha256 x86_64_linux:   "c1f7bd3051e2f0da6ffab35981d45ba0c2e7731a5c99b61097425cd266ca1f5c"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "help2man" => :build
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build

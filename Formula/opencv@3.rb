@@ -4,17 +4,16 @@ class OpencvAT3 < Formula
   url "https://github.com/opencv/opencv/archive/3.4.16.tar.gz"
   sha256 "5e37b791b2fe42ed39b52d9955920b951ee42d5da95f79fbc9765a08ef733399"
   license "BSD-3-Clause"
-  revision 4
+  revision 6
 
   bottle do
-    sha256                               arm64_ventura:  "7e781bbd9512e29fb16453dc99d90d08c58da6f4eb8d5928021bd79b319078d6"
-    sha256                               arm64_monterey: "f75bb2d7f18c01bca91163c1b4e92dd58a28f9bd3e8ab56847a0d0d6634c2c79"
-    sha256                               arm64_big_sur:  "4e621e0ff3d86735c4512518c85c53a836ca9e302dbf24868b3a7e738ce3d4c9"
-    sha256                               ventura:        "64c6d7e78c93eb2e57bf4ef33d5dabe83cce246404de9971b631e73bd6fa5475"
-    sha256                               monterey:       "36fa66447534208b967e820a302647cb4b3ff47a6c589250094bceb6b56bb70a"
-    sha256                               big_sur:        "4429807d11651fa53a5f37bd6f0a7b2ec3e46cb021450e3b4aac0feaca2433ac"
-    sha256                               catalina:       "1868345fbc6ccc3e573ab768509ca65086f20c5aa4d59969fa46229a4fdb7876"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "db558366ad194d1d8b17a73fc76a4abb58214902e39ed03bec1d2ec1c8e0964f"
+    sha256 arm64_ventura:  "a0cf378b1b6288826a29ea8a9349b36f837dc8a51c79a1edf0254e615e82b88f"
+    sha256 arm64_monterey: "f4e077e6ebc80d32ac242276a630368c6c1ea64820dd5314ef7e4fd364670bb0"
+    sha256 arm64_big_sur:  "630306054d51e221b965812ac2732d277e8e43b31fee64506cdbdc1115c5c355"
+    sha256 ventura:        "0af87278617dc9b0c9ab239f5037bc266b0b2bb770066805f8ea33d73b43d5a0"
+    sha256 monterey:       "6c220e7eea6f0faa91bc4b805114128db04114d88399672168341e09654ca868"
+    sha256 big_sur:        "3bb1327728de94c06b1676bc917c83c44f4b4af3935081a892af7966d0fc44f4"
+    sha256 x86_64_linux:   "aefdd526d8137a846b0b2a829464d7d895fc77c5011b68cdfcb5b7a966f07ab4"
   end
 
   keg_only :versioned_formula

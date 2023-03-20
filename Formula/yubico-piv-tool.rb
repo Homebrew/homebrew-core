@@ -1,8 +1,8 @@
 class YubicoPivTool < Formula
   desc "Command-line tool for the YubiKey PIV application"
   homepage "https://developers.yubico.com/yubico-piv-tool/"
-  url "https://developers.yubico.com/yubico-piv-tool/Releases/yubico-piv-tool-2.3.0.tar.gz"
-  sha256 "a02a12d9545d1ef7a1b998606d89b7b655a5f5a1437736cf51db083f876f55a9"
+  url "https://developers.yubico.com/yubico-piv-tool/Releases/yubico-piv-tool-2.3.1.tar.gz"
+  sha256 "da89dafd8b6185aa635346753f9ddb29af29bc4abd92dd81f37d9d6560b5d64e"
   license "BSD-2-Clause"
 
   livecheck do
@@ -11,14 +11,13 @@ class YubicoPivTool < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "003a83e34fadee641720bf199666c4ac9379fd781c1962d48c55020bc19e5237"
-    sha256 cellar: :any,                 arm64_monterey: "8f318d73ecaba695565af93bb8b17220832e30c51cae308b9b3737788e394975"
-    sha256 cellar: :any,                 arm64_big_sur:  "99b5bb89e217f0e98b5edaf95b75a2d50c07a5f593a104edc66518d51e86e59b"
-    sha256 cellar: :any,                 ventura:        "d8b283f9d158783072fa1c83cc11f26809143ef657c62dcd15541759ade0d6f1"
-    sha256 cellar: :any,                 monterey:       "963208d74145e747d84890ad0515214e9fa843d103cebd74501e1230eda7a2b7"
-    sha256 cellar: :any,                 big_sur:        "ba15d7a429b902fcc6cfdd6c5378081b01d22a28779a7571e268e1d5d10ff1d8"
-    sha256 cellar: :any,                 catalina:       "118ab85bbda0694c6edc746dd210849814c05c41a586217c9ed974d67f406a30"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fba7bda0c4156d76af37f971ead7c8a39d395fa62cacc8ab69d20f8bce77ea98"
+    sha256 cellar: :any,                 arm64_ventura:  "f4bcaee48a934e59a22a29021a5dcaa857417651fcd9cd274c2476b5c6cbcc1f"
+    sha256 cellar: :any,                 arm64_monterey: "883cf669ce25204e04a81c1df515ea02f848a7d907bd82fdbc394543d1375097"
+    sha256 cellar: :any,                 arm64_big_sur:  "4b6849717fab3c4f870d3a619f202bf9fc1a90ad86c87a63c119aa88e79d8d8f"
+    sha256 cellar: :any,                 ventura:        "7e27d4943fa7280709765beb41ff01272cf208e53a0c5405074df14dafd6170d"
+    sha256 cellar: :any,                 monterey:       "55fd2c1dfdbc687e30ffe5d527030a4c8100e85d447b5094b2621e125668285b"
+    sha256 cellar: :any,                 big_sur:        "97a1f11168ba2107003b5f9346289cf639cb5922c11d6995272e1ec45610d434"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "16aad2f1a7e9e78c05fc1b3c87435033cb854f3683e6be062096d2e27a9532bf"
   end
 
   depends_on "check" => :build
@@ -28,7 +27,7 @@ class YubicoPivTool < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "check"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pcsc-lite"
 
   def install

@@ -3,20 +3,18 @@ class Folderify < Formula
 
   desc "Generate pixel-perfect macOS folder icons in the native style"
   homepage "https://github.com/lgarron/folderify"
-  url "https://files.pythonhosted.org/packages/68/03/a4834a40d95a0bc2debdbad7e0e1bf909a95ff68c0a64098ea52f6ccb794/folderify-2.3.1.tar.gz"
-  sha256 "0927c9453dc8efb6ea4addb0eee2711528152045f22d411c9de1e7f45621f06c"
+  url "https://files.pythonhosted.org/packages/4c/18/a4d6491e4f64cbff4821cefa9fec1cfcb3048e19fc806d7e9af876654b94/folderify-2.4.0.tar.gz"
+  sha256 "daf1f5c64d59528d61d5a223d9ad2ba8f0e10ffd0d9cc2286ccd65b7fa516c24"
   license "MIT"
-  revision 1
   head "https://github.com/lgarron/folderify.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f80bae8eede3de718f6827c8f079ba573ecc77849d29c080a5cdff10bed4f7c1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "37aedb692e39efba0f2da125fef6c5fa91d214d57a159067831d31fd03a73324"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e9df72f0aa9b70c864d2bf24dae188f3be89b80b304798d9aa08bb92505a6652"
-    sha256 cellar: :any_skip_relocation, ventura:        "2ac11aa91e532e4118ef7860dd5cecfe903ced3d8b0c549374a4410424bb732f"
-    sha256 cellar: :any_skip_relocation, monterey:       "2ac11aa91e532e4118ef7860dd5cecfe903ced3d8b0c549374a4410424bb732f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9c0d30d913babe9c33ce461319a123c4cf6db2ca67329347440fec56c5c7102b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a2b1e1d23423c152acb05f34a26cd5e6c5480116bc63a2868cef9659f1a42837"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c42d0a7a535288bd8479f5071e8a973e8027bcaa259437667b20c50a2c4b9285"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5bb8a9116732629a9698c44f2f533560a325dcd7a1eadbfbc7473598e07889da"
+    sha256 cellar: :any_skip_relocation, ventura:        "d6e1ee0027d66edcb184e0f8653d7bcea684dd511881c5bab69876d053dff8a6"
+    sha256 cellar: :any_skip_relocation, monterey:       "d6e1ee0027d66edcb184e0f8653d7bcea684dd511881c5bab69876d053dff8a6"
+    sha256 cellar: :any_skip_relocation, big_sur:        "1a714d0ecddc788eae807a62b55dcd6f7d5d864a3b0da91ba3446dfb5d6b9337"
   end
 
   depends_on xcode: :build
@@ -59,7 +57,7 @@ class Folderify < Formula
       "icon.png",
     )
     # folderify applies the test icon to a folder
-    system "folderify", "icon.png", testpath.to_s
+    system bin/"folderify", "icon.png", testpath.to_s
     # Tests for the presence of the file icon
     assert_predicate testpath / "Icon\r", :exist?
   end

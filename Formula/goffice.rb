@@ -1,42 +1,46 @@
 class Goffice < Formula
   desc "Gnumeric spreadsheet program"
   homepage "https://gitlab.gnome.org/GNOME/goffice"
-  url "https://download.gnome.org/sources/goffice/0.10/goffice-0.10.53.tar.xz"
-  sha256 "27fd58796faa1cd4cc0120c34ea85315a0891ec71f55bc6793c14ecf168a3f57"
+  url "https://download.gnome.org/sources/goffice/0.10/goffice-0.10.55.tar.xz"
+  sha256 "16a221191855a6a6c0d06b1ef8e481cf3f52041a654ec96d35817045ba1a99af"
   license any_of: ["GPL-3.0-only", "GPL-2.0-only"]
 
   bottle do
-    sha256 arm64_ventura:  "2fb61cc9cf1a09b28dd4cce9e605afd312c91650ae6ab8ba4bf70e869aa095eb"
-    sha256 arm64_monterey: "2426ed9aaf3e27647f2c1d2f94f1bbec28508a523a7b3d3c85275b3c3c7be6e4"
-    sha256 arm64_big_sur:  "1f4b90257ea35b0ab860a699a4157c58f516fd1eb4e5b96db57df1b97749b517"
-    sha256 ventura:        "f175281be8b894ac62b17ccbce96fe1fa70f4ef33b191f33cdab07ef7655a66e"
-    sha256 monterey:       "57727191aa501e1a7f354f02bdc3afdcd3dc416fc0341115852d15bd9170cec5"
-    sha256 big_sur:        "4d58399efa826a093d22b526c5d3e8a6411dcd3eebec6dea69741b0338c251d0"
-    sha256 catalina:       "e9d2ffd833d7d450c00deb779bac5dba5721db7b45350ca41b827bb232e50bbe"
-    sha256 x86_64_linux:   "7aca0ab34ebbae29dbe4ea367f1e58feb4e00ca7e011152172265074b561afd6"
+    sha256 arm64_ventura:  "b4fba5dd3adb45ec2bbd704602870bebdb56498f8e32a0d9cc73695e56d70539"
+    sha256 arm64_monterey: "d65b7f9ed3f4f20f40db33f6a5e0524a7bb4eefbf7aa64cf2bd6d16ee36a10fe"
+    sha256 arm64_big_sur:  "0aa63ad148cb4aae4c65266661a83918c908e20215370f370a83539b76013925"
+    sha256 ventura:        "64237ea971207b9ed98c30df3fd174e43655c961e3fda8f477c694046906d6eb"
+    sha256 monterey:       "e504938af2973d98cfed4e9a402ba7abafbfa9a1d93cb5deebda0af512bc70db"
+    sha256 big_sur:        "b4b6abb961eb7cc3485f517d1ea196104b0bddfdaa6dee3f258f906584f6e434"
+    sha256 x86_64_linux:   "8cde966d15d0204ea00adf282e606d026988617d25d5e2f139a623a8ce8f1b66"
   end
 
   head do
-    url "https://github.com/GNOME/goffice.git"
+    url "https://gitlab.gnome.org/GNOME/goffice.git", branch: "master"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "gtk-doc" => :build
     depends_on "libtool" => :build
   end
 
+  depends_on "gettext" => :build
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
   depends_on "atk"
   depends_on "cairo"
   depends_on "gdk-pixbuf"
-  depends_on "gettext"
+  depends_on "glib"
   depends_on "gtk+3"
   depends_on "libgsf"
   depends_on "librsvg"
   depends_on "pango"
-  depends_on "pcre"
 
+  uses_from_macos "libxml2"
   uses_from_macos "libxslt"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   def install
     if OS.linux?
@@ -45,12 +49,8 @@ class Goffice < Formula
       ENV["INTLTOOL_PERL"] = Formula["perl"].bin/"perl"
     end
 
-    args = %W[--disable-dependency-tracking --prefix=#{prefix}]
-    if build.head?
-      system "./autogen.sh", *args
-    else
-      system "./configure", *args
-    end
+    configure = build.head? ? "./autogen.sh" : "./configure"
+    system configure, *std_configure_args, "--disable-silent-rules"
     system "make", "install"
   end
 

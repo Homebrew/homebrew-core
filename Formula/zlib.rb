@@ -15,14 +15,14 @@ class Zlib < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "55e71e5c7907eb8870b3f8b00349c620dc6115d5139dcb45cc3a87101663162c"
-    sha256 cellar: :any,                 arm64_monterey: "27b22a6738cbf4a4f3925ace7c72aebcb53a7c13c002ff78492718e15774e8e0"
-    sha256 cellar: :any,                 arm64_big_sur:  "83700f7752031794c295557ee3c6aa9783f93ec9de44ac117f7958a83d823dfa"
-    sha256 cellar: :any,                 ventura:        "cfbda79e30416433d6a554f187a99fa9769c79a35e73ccabb53c3c02170ce26c"
-    sha256 cellar: :any,                 monterey:       "8473a260917ecc2595a8f903bdd8a23a034683eac350839000a26b17286c7462"
-    sha256 cellar: :any,                 big_sur:        "495733577a835472554be619e26ad09fa62684d1d1eba3efae5a8beaeeee9a56"
-    sha256 cellar: :any,                 catalina:       "4da7de2b14c12452d4612417e571e04188c6a7594b7f583e7bc72e27f9d965c7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0082aa29a61507e237389ee4e9fb6a6ed0cbd5d341e3905527c089c88e730411"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "565286ede6cc691fb781b96a76235d714159bf47c7af2cadbca01bffa92bd785"
+    sha256 cellar: :any,                 arm64_monterey: "71825106a1d3cc348f145e58a0f2580f7394c6e747455041551517bb0958b9a6"
+    sha256 cellar: :any,                 arm64_big_sur:  "5dfa4fd7fb89f0aff96b98965da0af7e01ef6c3b8f4a90f7b2b135e2f757783f"
+    sha256 cellar: :any,                 ventura:        "39899e784ac736887dd6b5a08740c0a625bcb5da06fa473dede99c67b7fcbccc"
+    sha256 cellar: :any,                 monterey:       "ceee8b2e24b0c8e7fbb72d63f7844a0cdf4677771e94c46153190ba11be0f48c"
+    sha256 cellar: :any,                 big_sur:        "c7e4e0fed83c7515f658f802604e2b6a0be47f1020d4ddfd2025aa748641fe00"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "087e022c50655b9a7cdfd980bcff0764ce0f53f02724d4a9cbb7ba3b68b863a9"
   end
 
   keg_only :provided_by_macos
@@ -37,6 +37,9 @@ class Zlib < Formula
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
+
+    # Avoid rebuilds of dependants that hardcode this path.
+    inreplace lib/"pkgconfig/zlib.pc", prefix, opt_prefix
   end
 
   test do

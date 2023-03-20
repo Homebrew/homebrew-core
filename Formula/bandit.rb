@@ -3,39 +3,57 @@ class Bandit < Formula
 
   desc "Security-oriented static analyser for Python code"
   homepage "https://github.com/PyCQA/bandit"
-  url "https://files.pythonhosted.org/packages/39/36/a37a2f6f8d0ed8c3bc616616ed5019e1df2680bd8b7df49ceae80fd457de/bandit-1.7.4.tar.gz"
-  sha256 "2d63a8c573417bae338962d4b9b06fbc6080f74ecd955a092849e1e65c717bd2"
+  url "https://files.pythonhosted.org/packages/5e/67/997278e785edf155bd57163ae7030f979a0907857365cb30815d93b5354b/bandit-1.7.5.tar.gz"
+  sha256 "bdfc739baa03b880c2d15d0431b31c658ffc348e907fe197e54e0389dd59e11e"
   license "Apache-2.0"
   head "https://github.com/PyCQA/bandit.git", branch: "main"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "915f962f89f0cf0ae432a4fc72901c4529a66a280b22a6d44306efcdc716ff80"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b1e17670712be6fee6d21317c108098e3d5144708d133f218deeeaa797c9d98b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "43bd465a694df50d4c6d305d947ee3df3b9d011629a6070ea4960af73a0aa991"
-    sha256 cellar: :any_skip_relocation, ventura:        "c94f859d5644ac37a62613030f07da6b73865b993ece6a0501d7692e87be8906"
-    sha256 cellar: :any_skip_relocation, monterey:       "058d08e4c08317f2516696e3ab71e4145ab8d48106a26edb84be0a2e9c066ba0"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d9abf0e13a3b93ee4711cb3524b8e404a5e0dc17ed1c17174477a888218e85eb"
-    sha256 cellar: :any_skip_relocation, catalina:       "c4d190831b21b6110bb3eab21f79406e94b196a57188a744fa137b45fcc00552"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "20277723685bcd548b17fcf4639d6ba3bbc3a1638c091b5612816d04f7eb2d15"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fa3afa173d1e7572ec381a7aeb8bec78d6e15a5959084d4be477964268689db6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d822580c5d91458b769fc4ab27036ad5650e726ef41ea4d1dd6e5026fb3d3e0e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d61224cd2d8814ad36fe96b826f589e6a7de26fe4d4368963308aa5ab842d29e"
+    sha256 cellar: :any_skip_relocation, ventura:        "ab90908f077546066adc0be87503d93ea4974fbd40229d95f0f3d8c443e51240"
+    sha256 cellar: :any_skip_relocation, monterey:       "6a229a36dfec67064f83244f4adfbdf78af5a5145a7159249a6f7289cf704c97"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a33c88dfcf620565d537c03e5cf6312589f2e71bc9299a17aec0ceb30bde53ba"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1f773304d077124de18019c2d141e85b5ef8360afc4775a347064a8c3d904fea"
   end
 
   depends_on "python@3.11"
   depends_on "pyyaml"
 
   resource "gitdb" do
-    url "https://files.pythonhosted.org/packages/fc/44/64e02ef96f20b347385f0e9c03098659cb5a1285d36c3d17c56e534d80cf/gitdb-4.0.9.tar.gz"
-    sha256 "bac2fd45c0a1c9cf619e63a90d62bdc63892ef92387424b855792a6cabe789aa"
+    url "https://files.pythonhosted.org/packages/4b/47/dc98f3d5d48aa815770e31490893b92c5f1cd6c6cf28dd3a8ae0efffac14/gitdb-4.0.10.tar.gz"
+    sha256 "6eb990b69df4e15bad899ea868dc46572c3f75339735663b81de79b06f17eb9a"
   end
 
   resource "GitPython" do
-    url "https://files.pythonhosted.org/packages/22/ab/3dd8b8a24399cee9c903d5f7600d20e8703d48904020f46f7fa5ac5474e9/GitPython-3.1.29.tar.gz"
-    sha256 "cc36bfc4a3f913e66805a28e84703e419d9c264c1077e537b54f0e1af85dbefd"
+    url "https://files.pythonhosted.org/packages/5f/11/2b0f60686dbda49028cec8c66bd18a5e82c96d92eef4bc34961e35bb3762/GitPython-3.1.31.tar.gz"
+    sha256 "8ce3bcf69adfdf7c7d503e78fd3b1c492af782d58893b650adb2ac8912ddd573"
+  end
+
+  resource "markdown-it-py" do
+    url "https://files.pythonhosted.org/packages/e4/c0/59bd6d0571986f72899288a95d9d6178d0eebd70b6650f1bb3f0da90f8f7/markdown-it-py-2.2.0.tar.gz"
+    sha256 "7c9a5e412688bc771c67432cbfebcdd686c93ce6484913dccf06cb5a0bea35a1"
+  end
+
+  resource "mdurl" do
+    url "https://files.pythonhosted.org/packages/d6/54/cfe61301667036ec958cb99bd3efefba235e65cdeb9c84d24a8293ba1d90/mdurl-0.1.2.tar.gz"
+    sha256 "bb413d29f5eea38f31dd4754dd7377d4465116fb207585f97bf925588687c1ba"
   end
 
   resource "pbr" do
-    url "https://files.pythonhosted.org/packages/52/fb/630d52aaca8fc7634a0711b6ae12a0e828b6f9264bd8051225025c3ed075/pbr-5.11.0.tar.gz"
-    sha256 "b97bc6695b2aff02144133c2e7399d5885223d42b7912ffaec2ca3898e673bfe"
+    url "https://files.pythonhosted.org/packages/02/d8/acee75603f31e27c51134a858e0dea28d321770c5eedb9d1d673eb7d3817/pbr-5.11.1.tar.gz"
+    sha256 "aefc51675b0b533d56bb5fd1c8c6c0522fe31896679882e1c4c63d5e4a0fccb3"
+  end
+
+  resource "Pygments" do
+    url "https://files.pythonhosted.org/packages/da/6a/c427c06913204e24de28de5300d3f0e809933f376e0b7df95194b2bb3f71/Pygments-2.14.0.tar.gz"
+    sha256 "b3ed06a9e8ac9a9aae5a6f5dbe78a8a58655d17b43b93c078f094ddc476ae297"
+  end
+
+  resource "rich" do
+    url "https://files.pythonhosted.org/packages/5e/0e/ef0a49be56dbc4052a086888cd2490e15fcc95b0eda79e9d0e737b1ab93d/rich-13.3.2.tar.gz"
+    sha256 "91954fe80cfb7985727a467ca98a7618e5dd15178cc2da10f553b36a93859001"
   end
 
   resource "smmap" do
@@ -44,8 +62,8 @@ class Bandit < Formula
   end
 
   resource "stevedore" do
-    url "https://files.pythonhosted.org/packages/62/4c/5445ea215b920e55f40a4f519571d5bfffb81c2f0c9ba4f2c70b1b501954/stevedore-4.1.0.tar.gz"
-    sha256 "02518a8f0d6d29be8a445b7f2ac63753ff29e8f2a2faa01777568d5500d777a6"
+    url "https://files.pythonhosted.org/packages/f1/25/993d09dc7be3e7927228853c75324104d734bb784bd766b025ebf9f47b16/stevedore-5.0.0.tar.gz"
+    sha256 "2c428d2338976279e8eb2196f7a94910960d9f7ba2f41f3988511e95ca447021"
   end
 
   def install

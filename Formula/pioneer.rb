@@ -1,21 +1,19 @@
 class Pioneer < Formula
   desc "Game of lonely space adventure"
   homepage "https://pioneerspacesim.net/"
-  url "https://github.com/pioneerspacesim/pioneer/archive/20220203.tar.gz"
-  sha256 "415b55bab7f011f7244348428e13006fa67a926b9be71f2c4ad24e92cfeb051c"
+  url "https://github.com/pioneerspacesim/pioneer/archive/20230203.tar.gz"
+  sha256 "80eea94e0f7e4d8e6a0c4629bdfb89201f82aae2f59ee7a1f7a487eeeccf27c7"
   license "GPL-3.0-only"
   head "https://github.com/pioneerspacesim/pioneer.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 arm64_ventura:  "027d68852763a927f369c9b0a500fcc0ffb221bbea1bda39b3ad8700851cb07f"
-    sha256 arm64_monterey: "b2e190f79505cc823854dcb3c46b333994fb15f065e95dc77934d4b27119aa8d"
-    sha256 arm64_big_sur:  "0ca5b9a984198c3e3d60e3e02c8f3ccc046d2082900627a9bf970610c6260d95"
-    sha256 ventura:        "c1d523715401ea5664fd3a12888ec5a275401bf13e3427a23b7f4a2f6ce07a50"
-    sha256 monterey:       "0bb70eb1bb53b649bafb3ae3a52d4743fdaf690274a3e9ee0288e03fc26bc427"
-    sha256 big_sur:        "310a48a34c8a19d9cb66bb7aa4f9a231d4519f636cfe1f3f2ecc219236ddbf1f"
-    sha256 catalina:       "9b4bf989c69c7d9c24093aa728351b2558ccaf3770891c65f3c8d28da9778bfa"
-    sha256 x86_64_linux:   "35b337ad69a13c8be0a0dc16281be604220cc3d26b247fdf90947ce51c93675a"
+    sha256 arm64_ventura:  "6629891c8f8f85d32796a2e984675b3a543d19b9bd17e86daa3001e108a6649f"
+    sha256 arm64_monterey: "95f82fcc3dc1c3b12189ee417dda7ee2517bdc0bd850af9247b98dfa6e5c1e14"
+    sha256 arm64_big_sur:  "759269a2e00d06d6cc09293f7ff41bbc53991fe44721a870b32bd771ab70d7c4"
+    sha256 ventura:        "de952238374b4bcebde412c5c02c06bc1390238136b9f5f987f73dd0125ca720"
+    sha256 monterey:       "10abffe3e985ffcacd1709f6f1e1072bc8755d767e7c5fa3d6b7f2f3011f45d3"
+    sha256 big_sur:        "805b22fbde064931335713adbc9b25142d508141b3a798779a777c08082be107"
+    sha256 x86_64_linux:   "2af51910ed74e3ec2a4e79aadf489da5bf312b3f63a044d74528221dde1106f3"
   end
 
   depends_on "cmake" => :build

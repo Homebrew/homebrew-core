@@ -5,11 +5,6 @@ class StoneSoup < Formula
   sha256 "e8ff1d09718ab3cbff6bac31651185b584c9eea2c9b6f42f0796127ca5599997"
   license "GPL-2.0-or-later"
 
-  livecheck do
-    url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
-  end
-
   bottle do
     sha256 arm64_ventura:  "c37530a95dbd1b4df7d64f35a3e4ccd4e9d5e53565d956f0e6d7f9ffbc1d73d7"
     sha256 arm64_monterey: "cf6ca59c6899897889fb1dd675513941085da9832c565009a33f35d0eaa8d983"
@@ -20,6 +15,11 @@ class StoneSoup < Formula
     sha256 catalina:       "edbc05d07621b8424656f6d997cfce5cdae087fd4fc2f624fcd85e6f61fd8c27"
     sha256 x86_64_linux:   "eef057937a3400fbf577121fd0a8567d0295b6d1c0dd5985ee202f11a59bee57"
   end
+
+  # Only supports Lua 5.1 and doesn't work with LuaJIT 2.1 (needs older 2.0).
+  # Issues relating to using newer Lua are closed so doesn't seem planned to update,
+  # e.g. https://github.com/crawl/crawl/issues/1829#issuecomment-799492138
+  deprecate! date: "2023-02-12", because: "uses deprecated `lua@5.1`"
 
   depends_on "pkg-config" => :build
   depends_on "python@3.11" => :build

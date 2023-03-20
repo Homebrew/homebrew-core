@@ -3,22 +3,29 @@ require "language/node"
 class Whistle < Formula
   desc "HTTP, HTTP2, HTTPS, Websocket debugging proxy"
   homepage "https://github.com/avwo/whistle"
-  url "https://registry.npmjs.org/whistle/-/whistle-2.9.39.tgz"
-  sha256 "da392833b3f3f286e8c2299e505408ec8223ffd133857ad902b901975d5d9951"
+  url "https://registry.npmjs.org/whistle/-/whistle-2.9.43.tgz"
+  sha256 "8d8bfcd7155006d2ab3ea8034ecd10cf6bc053f827c31b164cac84b8767dfd33"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "de465ab1a5a8cdaf471e5126f3e59cc65daa769d21d879220a6f568da8a3616a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ebc1065e962d6197d7d38235315330233c53807a4b6820c2caa5d27457b1daa0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ebc1065e962d6197d7d38235315330233c53807a4b6820c2caa5d27457b1daa0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ebc1065e962d6197d7d38235315330233c53807a4b6820c2caa5d27457b1daa0"
+    sha256 cellar: :any_skip_relocation, ventura:        "b69101cdbdbf18b5fb5ad2b85be620f4fa8dc95f038e4320653423fce553a793"
+    sha256 cellar: :any_skip_relocation, monterey:       "b69101cdbdbf18b5fb5ad2b85be620f4fa8dc95f038e4320653423fce553a793"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b69101cdbdbf18b5fb5ad2b85be620f4fa8dc95f038e4320653423fce553a793"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b69101cdbdbf18b5fb5ad2b85be620f4fa8dc95f038e4320653423fce553a793"
   end
 
-  # `bin/proxy/mac/Whistle` was only built for `x86_64`
-  # upstream issue tracker, https://github.com/avwo/whistle/issues/734
-  depends_on arch: :x86_64
   depends_on "node"
 
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
+
+    # Remove x86 specific optional feature
+    node_modules = libexec/"lib/node_modules/whistle/node_modules"
+    rm_f node_modules/"set-global-proxy/lib/mac/whistle" if Hardware::CPU.arm?
   end
 
   test do

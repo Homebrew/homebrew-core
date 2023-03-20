@@ -1,10 +1,10 @@
 class Openssh < Formula
   desc "OpenBSD freely-licensed SSH connectivity tools"
   homepage "https://www.openssh.com/"
-  url "https://cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-9.1p1.tar.gz"
-  mirror "https://cloudflare.cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-9.1p1.tar.gz"
-  version "9.1p1"
-  sha256 "19f85009c7e3e23787f0236fbb1578392ab4d4bf9f8ec5fe6bc1cd7e8bfdd288"
+  url "https://cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-9.3p1.tar.gz"
+  mirror "https://cloudflare.cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-9.3p1.tar.gz"
+  version "9.3p1"
+  sha256 "e9baba7701a76a51f3d85a62c383a3c9dcd97fa900b859bc7db114c1868af8a8"
   license "SSH-OpenSSH"
 
   livecheck do
@@ -13,14 +13,13 @@ class Openssh < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "30dbc217ba91a3b7246dd21cc8662d1fd3bcf19d0f869c4bdfdb61a126711bf4"
-    sha256 arm64_monterey: "0a542c0f11d8d94245d96a26700dc2169a61d5e6712ae1f692a7eaa36aa0c91e"
-    sha256 arm64_big_sur:  "50e41ea5da92f0a11fa766f769c1f95a71c5902d7f2b4efb1d7c47cd5652faa9"
-    sha256 ventura:        "d02a77aecb957d5cf45654ade0505f1bbbf577a182fa1cea7d69d0a5e225992d"
-    sha256 monterey:       "b1ed4e0f37f5b600403036fc2d14de298a81c57ff1ee96fba6b87103f2970982"
-    sha256 big_sur:        "2ae6602db02ad26f680b37bbb2a9aa9b20a508237a5be509395b22fa02ee3be2"
-    sha256 catalina:       "e8e6e6727003343dc912216f3b255974db09f8453a87551a61f4c507cf5a7920"
-    sha256 x86_64_linux:   "bf000bf4474311a85a2c8b2884963382012802f7aa82f58398bd998a0c0b1d86"
+    sha256 arm64_ventura:  "7d04616551aa0bd4fea5cabbb2c552bf4028e8fb46182ffc1cdc41a72095165d"
+    sha256 arm64_monterey: "5c12ec44957d76ac42fa5208c068b47d3a1e23665a45024abab46baa4001b34f"
+    sha256 arm64_big_sur:  "e5cc1985fbfe5791c89c8466df90e86f12ab790fac38634d2b06b9528d58c7ba"
+    sha256 ventura:        "37624f12f9d84b50743616c94a84af2cb43700db7237cd836fa2f19cd2ee1789"
+    sha256 monterey:       "ca20a41ded82acdd4fdea2b07ad8331c2609a0e2fb19f5d1694060d9a564268c"
+    sha256 big_sur:        "3f05ee8fe3dfd0b9eb6e652776517c8c69ff9ee8b2a640f932b28f2954b70d61"
+    sha256 x86_64_linux:   "e1c6ca49d87078c8c57899dc434601806dd81c0a40aaf2ad8b56a2dbc5a56d19"
   end
 
   # Please don't resubmit the keychain patch option. It will never be accepted.

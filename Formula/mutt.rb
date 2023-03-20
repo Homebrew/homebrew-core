@@ -15,18 +15,18 @@ class Mutt < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_ventura:  "5fa6f5259600067cd92062db1b39eab0ead4d3948cf8d75632a71aea39dab1ee"
-    sha256 arm64_monterey: "7581dde4cd1e5a1d212a4717501fe1aa583da29e73311a2ba99e7345bd30c074"
-    sha256 arm64_big_sur:  "e8d25146c9af852f3a42e67ad5f2f4220a602c03e2d4473d04b742422d6cc4d3"
-    sha256 ventura:        "4ad6d9e2cacf4ae7b55ea8d8aaffa4c408249d55fe6ca2e95512e964012c1233"
-    sha256 monterey:       "aa5fd22d5e6cc922b8ce772da71f0983cdc0970dac08755e32a8a55afbc0fa4f"
-    sha256 big_sur:        "dea8564bdac672468fc03e7f56bf763efcf6b6b8449edcd927dea5e34f3c2343"
-    sha256 catalina:       "2c58602698841548996bec5ce6e5e4eb03b829e870706273f889fb0c00b90b0d"
-    sha256 x86_64_linux:   "64c5c039490d0c9c4524c429b230df0cd42301ae6a5abf407d9b8b44049743e3"
+    rebuild 1
+    sha256 arm64_ventura:  "75402fa2874ea11b9161df5a1570d5d37a17a5b139ff963f050c724311e472f8"
+    sha256 arm64_monterey: "f278aee880d1f861f8b4bffa4a505ad37c007edc809ea4b31641a7978c2f2b85"
+    sha256 arm64_big_sur:  "b6add7e90b217df2a3bbb346182e6fb1b409bbff4619c741a3c0f08aa903d725"
+    sha256 ventura:        "7bb9f3303700a0c0d89c76a85defe9290ac60cfd63e89cbf38070e7531c1d3be"
+    sha256 monterey:       "d15f5bea037b83f62f4d7cf858cefd33345b97e9e8450fbe79f0d4849cae9ca2"
+    sha256 big_sur:        "54e8a82b62d333bb241fc4d3f212f09cff0d3ede07dca280a38e77e788b67afc"
+    sha256 x86_64_linux:   "4aa24d8649a336ef29f04e08ae3b5aad77edd63668004985c8a5aa728aedb7de"
   end
 
   head do
-    url "https://gitlab.com/muttmua/mutt.git"
+    url "https://gitlab.com/muttmua/mutt.git", branch: "master"
 
     resource "html" do
       url "https://muttmua.gitlab.io/mutt/manual-dev.html"
@@ -36,6 +36,7 @@ class Mutt < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "gpgme"
+  depends_on "libidn2"
   depends_on "openssl@1.1"
   depends_on "tokyo-cabinet"
 
@@ -56,16 +57,17 @@ class Mutt < Formula
       --disable-warnings
       --prefix=#{prefix}
       --enable-debug
+      --enable-gpgme
       --enable-hcache
       --enable-imap
       --enable-pop
       --enable-sidebar
       --enable-smtp
       --with-gss
+      --with-idn2
       --with-sasl
       --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
       --with-tokyocabinet
-      --enable-gpgme
     ]
 
     system "./prepare", *args

@@ -1,18 +1,17 @@
 class Swiftplantuml < Formula
   desc "Generate UML class diagrams from Swift sources"
   homepage "https://github.com/MarcoEidinger/SwiftPlantUML"
-  url "https://github.com/MarcoEidinger/SwiftPlantUML/archive/0.6.2.tar.gz"
-  sha256 "3fcfaded9b824115b37c627e6a7e235522bffc371bfef3c35119b5ab3207fc25"
+  url "https://github.com/MarcoEidinger/SwiftPlantUML/archive/0.7.4.tar.gz"
+  sha256 "8b8678f7a307448b3147b8fcfb09bca68ecdf124c2cc6ed7a9c2f4e8be302bde"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "41bb594b21a0a27497bee8de2a0f18e0dc5f416846f8ddfffad369edf0df60b5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "35e239464c15500b77d934892b6d1848637581a51240dd43326eab217b652183"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1e4fe2418e139ca0d1cda671c5acd7572d18890cb78d73139e89dbac7c553b33"
-    sha256 cellar: :any_skip_relocation, ventura:        "21a89201d53ca6819dde849d49d4da79de254a2a8f67a330aff6ad5f0ede0d8b"
-    sha256 cellar: :any_skip_relocation, monterey:       "06ce1ef56e536dd11c773e730f90796e4da8be41b3844aabb4f6ba30d34dddd9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c456ca66dd30f08214b084af6985724ac2bea855d48988890d67959ba8a8d6d5"
-    sha256 cellar: :any_skip_relocation, catalina:       "143f92e5793600648b794dd20f62cfdb2601ac5607d17bd8ddc8b9ddcaa8072c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b1b3d42ef1578e67cfbca58eccbc3bc1f88ca2bd869c734af081e3087caab5a6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "dc2279239ccd2da1c6b183d2acc7b288c13d3d61697b8d1a5d3557e7871704a9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "debd729d8d5138645d61b30b74baae1b6779ac5213d77ee86e61681d3fa9951d"
+    sha256 cellar: :any_skip_relocation, ventura:        "17b30d7872d734606f330585b96164eeeff4f7134a90904aaade1d29fceef158"
+    sha256 cellar: :any_skip_relocation, monterey:       "19303b80ce22e8ab6551c246dd0a9cfa74390ff2a1323cee06ba838f854a3799"
+    sha256 cellar: :any_skip_relocation, big_sur:        "88a29cbe87015344d9233d5af09e6f8a537e9d6cd0b5b946042bea97fbb8415a"
   end
 
   depends_on xcode: ["12.2", :build]

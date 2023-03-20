@@ -32,12 +32,9 @@ class Nvm < Formula
       problems against the standard nvm install method prior to reporting.
 
       You should create NVM's working directory if it doesn't exist:
-
         mkdir ~/.nvm
 
-      Add the following to #{shell_profile} or your desired shell
-      configuration file:
-
+      Add the following to your shell profile e.g. ~/.profile or ~/.zshrc:
         export NVM_DIR="$HOME/.nvm"
         [ -s "#{opt_prefix}/nvm.sh" ] && \\. "#{opt_prefix}/nvm.sh"  # This loads nvm
         [ -s "#{opt_prefix}/etc/bash_completion.d/nvm" ] && \\. "#{opt_prefix}/etc/bash_completion.d/nvm"  # This loads nvm bash_completion

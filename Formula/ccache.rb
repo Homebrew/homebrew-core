@@ -1,20 +1,19 @@
 class Ccache < Formula
   desc "Object-file caching compiler wrapper"
   homepage "https://ccache.dev/"
-  url "https://github.com/ccache/ccache/releases/download/v4.7.4/ccache-4.7.4.tar.xz"
-  sha256 "df0c64d15d3efaf0b4f6837dd6b1467e40eeaaa807db25ce79c3a08a46a84e36"
+  url "https://github.com/ccache/ccache/releases/download/v4.8/ccache-4.8.tar.xz"
+  sha256 "b963ee3bf88d7266b8a0565e4ba685d5666357f0a7e364ed98adb0dc1191fcbb"
   license "GPL-3.0-or-later"
   head "https://github.com/ccache/ccache.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "35341df4e3899eb409b712e1f59826fac4312c78581c016acdcd15515a454209"
-    sha256 cellar: :any,                 arm64_monterey: "ba78c3c27dfe4cfa628d0dd799c289056e848e5cbbbc847117f2fae6e33949a6"
-    sha256 cellar: :any,                 arm64_big_sur:  "237f9ce565fa10a9bd43038bec4bf035cd44b136a849c45a12a00af18397833b"
-    sha256 cellar: :any,                 ventura:        "ff337e38d7d1a17c55bc60325e0fd197aa1f05b42f34f6180e35756a87e05508"
-    sha256 cellar: :any,                 monterey:       "4e58ab93aa6690b1d754154b33c4e2fe457c6c2710aa29c208d1904cdd18f2dc"
-    sha256 cellar: :any,                 big_sur:        "927efbcf6927bd90df8e15f4495ae614f9bce3b98601569dc1158cfc9ed5d4c2"
-    sha256 cellar: :any,                 catalina:       "acde8ffc90a1c59bfe423720193dd8d4059816f850e0fa01caaa92126d96bcab"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cec1be15a66689bff21cdefd5244f13149f89f134398c0f67c38d4a4a75503cb"
+    sha256 cellar: :any,                 arm64_ventura:  "1256f221c0db2dce9111077378a386c31aae88e030882ea4890da8bb9a15aa76"
+    sha256 cellar: :any,                 arm64_monterey: "18f910678dd3c957307423cf70fd637364be509138c386b2aee817efbd933a82"
+    sha256 cellar: :any,                 arm64_big_sur:  "5ad50d725a25c3438dda4d9f29e0338eb45402d0f02578fe96a0b8b30f2db65e"
+    sha256 cellar: :any,                 ventura:        "36c1d3385e5b5fd734f5b75e7224bdd8171e86a333b7b69c76bdbe7a7f795883"
+    sha256 cellar: :any,                 monterey:       "50e5c9744229a7bc4da0467f7b4348d3b671b4deded2ff9cfd801ca48ebe5aa1"
+    sha256 cellar: :any,                 big_sur:        "85f2346f9e95a3befa6f58a9b4085b2aa3049a1894529947a1f19eb4000ebcfb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bfb0da0d60457bd690022fa805d1af86ac69b8bcf1061f3f5ae9f031f161250f"
   end
 
   depends_on "asciidoctor" => :build

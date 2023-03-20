@@ -1,20 +1,19 @@
 class Lux < Formula
   desc "Fast and simple video downloader"
   homepage "https://github.com/iawia002/lux"
-  url "https://github.com/iawia002/lux/archive/v0.16.0.tar.gz"
-  sha256 "e16f3ec485793326c09f6b7096edacbb117fcbbd40341289e055ea19a5347033"
+  url "https://github.com/iawia002/lux/archive/v0.17.0.tar.gz"
+  sha256 "29cfabfd968565f834de63b7ba13a4b4eb4759b72003fb7aab5db98b060521e6"
   license "MIT"
   head "https://github.com/iawia002/lux.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4eab4337efa2def339ada5c7e0d73329e1207be17b7b50be30914c3a9469f4c7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "573e00b2cbdd6c13a681ee869e11836858463a27c777f60857ac369443d89117"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a52447f547ad8c46ae28dfad776ae1bf767c8bcf1d410a917bff27a1bc962be8"
-    sha256 cellar: :any_skip_relocation, ventura:        "2bfccf2d9c186bb201c7ab7c7dbeaf3bb96e11a05e5f505dc0b890502177bf9c"
-    sha256 cellar: :any_skip_relocation, monterey:       "fe590137419bb55a098b0d41cb52fdf5b51ff07d60985a5fed9d54989db5742e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "4c5106a821c50c9085f74fb8b148e0ccbbcc18652780d24124143032adb54b01"
-    sha256 cellar: :any_skip_relocation, catalina:       "76e78832943bc4291d61de04f0dc362517e22d795e0438e9a4c9c0567fe00b44"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "724eaf6b8eb4c027d7b6d6bed22a5e51fc37dec9a5ee78b6f0d014caa57dc472"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c0977a6271a83ea0e9e089502894561a683e10e2b3f60386f9a75b299c03d237"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c0977a6271a83ea0e9e089502894561a683e10e2b3f60386f9a75b299c03d237"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c0977a6271a83ea0e9e089502894561a683e10e2b3f60386f9a75b299c03d237"
+    sha256 cellar: :any_skip_relocation, ventura:        "22e62eca53b5e2f4dce35ae0dce0eb990265ed317bed5c5d4b82fb216cfff51a"
+    sha256 cellar: :any_skip_relocation, monterey:       "22e62eca53b5e2f4dce35ae0dce0eb990265ed317bed5c5d4b82fb216cfff51a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "22e62eca53b5e2f4dce35ae0dce0eb990265ed317bed5c5d4b82fb216cfff51a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b5c02706e201cb46b8c96d7371e444dfdb054083620a05a3c104da241681dcde"
   end
 
   depends_on "go" => :build

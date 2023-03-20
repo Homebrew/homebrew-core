@@ -1,8 +1,8 @@
 class Entr < Formula
   desc "Run arbitrary commands when files change"
   homepage "https://eradman.com/entrproject/"
-  url "https://eradman.com/entrproject/code/entr-5.2.tar.gz"
-  sha256 "237e309d46b075210c0e4cb789bfd0c9c777eddf6cb30341c3fe3dbcc658c380"
+  url "https://eradman.com/entrproject/code/entr-5.3.tar.gz"
+  sha256 "d70b44a23136b87c89bb0079452121e6afdecf6b8f4178c19f2caac3dec3662f"
   license "ISC"
   head "https://github.com/eradman/entr.git", branch: "master"
 
@@ -12,14 +12,13 @@ class Entr < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "465f2d09a5e66083be2293f7b9f51e95922710b894f30e2512e3269249e538a8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "270d91dfcd9338451893d293cec6d3a678b60b992b11f4e4c3abc38b759cf6f2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "05029ebc446156661c5dfbfcca580b5d86eabf6a2ebef2aa3588fc8b0e7a6f2e"
-    sha256 cellar: :any_skip_relocation, ventura:        "c6f5b4d7834ec3015850b3dd86b593b359f1ec4ebaf3d583ee0fba005d780c33"
-    sha256 cellar: :any_skip_relocation, monterey:       "1bc645365005cf6436d910ba5274d145637fe96d2c1c2c1879c19a92c8f9e8ba"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ecb46fcc12d0660c98fb34ea7499400f28fce37bc732fddf8b41280bb3fe911d"
-    sha256 cellar: :any_skip_relocation, catalina:       "eb8cdfa72ff30ef75df060cc5ea0e10f0b2225be92cffcdd365731d576dbba8e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a8e1f28408eb01df7f7421e5cc723f9bd998c8f3def0af26dcad45a86647c53c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "19e77c22fc2cbba622e413ee7387441a195b9a9dbfdf4a8c369ab4f88c01b327"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cbbfa6225852f7c6cb81b4b343e9bdd34a525810d98e3084609c886bede81e32"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b049f02ff567c13380eb718e5fe3f20ebd41d133aaadd18f2b8a49bab9d27c01"
+    sha256 cellar: :any_skip_relocation, ventura:        "26a897bfd70b1fde256e888e1ac94674a0445bb671a2c126433fb05c9bd6dee2"
+    sha256 cellar: :any_skip_relocation, monterey:       "8c63dc22fb95ccd6a3794c904f937336dedc08d3b41ed5f94555149f997ed9a3"
+    sha256 cellar: :any_skip_relocation, big_sur:        "fefecd79d23b0bb05a5c02672a288c3b733062cbd2e5b53ab0864c01ec07ace5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ffdaa2e01c945bc07b7be5f924ac75be7cfa917bb0f8969ca2e892329b6d26f8"
   end
 
   def install

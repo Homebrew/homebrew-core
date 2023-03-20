@@ -6,19 +6,17 @@ class Awslogs < Formula
   url "https://files.pythonhosted.org/packages/96/7b/20bff9839d6679e25d989f94ca4320466ec94f3441972aadaafbad50560f/awslogs-0.14.0.tar.gz"
   sha256 "1b249f87fa2adfae39b9867f3066ac00b9baf401f4783583ab28fcdea338f77e"
   license "BSD-3-Clause"
-  revision 3
+  revision 4
   head "https://github.com/jorgebastida/awslogs.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "db940ee59609952b6e2251568f11647fd8e236a3c5ebf6b902798cd1a4a155be"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "bf940e077956a855f8a7d7797528e258f4dc2aed6961b5d2cab8e1f11d8cd17c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "32f93ee5842ab88a565f3795c028c8936bacef0a47c82e230a22578df6b1cc09"
-    sha256 cellar: :any_skip_relocation, ventura:        "ecbc039cac8614452dc71876f048cd56b8b0142b68bcb10e3f6c914381b4c988"
-    sha256 cellar: :any_skip_relocation, monterey:       "ec9e68210168ebc0a3b9c6bf2f66aaf20dfbeced69a943a5347023c0f962d3e4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "86864dc46d4215e39f95392263d68fbbf8472bea835b350c86738f7b13e15219"
-    sha256 cellar: :any_skip_relocation, catalina:       "13a4e491a27337b913f465c8582672936524455d6bb0a1cdb224866bc0bf89db"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d4f17d633effa2e90989f673a5cdd62607f95ec86609de92eb2ee06b008edcce"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2e6c01c7db955f53c3dcc18b3a24fac169f5a3778a7c5df6c302edb9ef024c81"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "29129ede0efa5097cf53f57f0affafa5f2ec960b1fa81c5fd896aa7e3278af05"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "311a561ec79b832015fbef9b52c15533c3bbe006104cdd999d43f70b9860bd2d"
+    sha256 cellar: :any_skip_relocation, ventura:        "9317592b5b6dad41d08b859a03fa952bb2fcc12300436c2c774badf65b775659"
+    sha256 cellar: :any_skip_relocation, monterey:       "633cbe72406fbb4afa1920f8bdd082e662300e7d5293afc2dcd776b09fe2f96b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ec87edb19c90a6235b5d61d57266c032c7db15dc5bc28edabf4d870f8df23e8b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "16a5665bea7425a24e1a8c73a99e5e6268c5394498da4f18d2cbe8cf0297f809"
   end
 
   depends_on "python@3.11"
@@ -31,13 +29,13 @@ class Awslogs < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/df/e4/893fc4af6ee0c801725b48ba4d3120705126edab71e0fe84f8eb4850c427/boto3-1.26.4.tar.gz"
-    sha256 "244fd0776fc1f69c3ed34f359db7a90a6108372486abc999ce8515a79bbfc86e"
+    url "https://files.pythonhosted.org/packages/2d/ae/7a28ce6d8eb6b4e5ae1c7cf302179a6ef78c11f7a54e818df5dd7b237724/boto3-1.26.73.tar.gz"
+    sha256 "bd92def38355ea055c6c29bd599832878eecc19cad21dab34ade38280e1b403b"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/32/c1/3a3cbbdc58a71c1dfafbeeb79dd09b68a030ff5c52df7ad8e87d5ed57c10/botocore-1.29.4.tar.gz"
-    sha256 "fa86747f5092723c0dc7f201a48cdfac3ad8d03dd6cb7abc189abc708be43269"
+    url "https://files.pythonhosted.org/packages/e8/0a/bc0b30cc6c97072c350276d7b99b16100d1c6743942e8880af237344d914/botocore-1.29.73.tar.gz"
+    sha256 "a9f0e006b3342424d59d5e23dc1ca0c6972c909a727dcd0811c9b20966d4adf8"
   end
 
   resource "jmespath" do
@@ -56,13 +54,13 @@ class Awslogs < Formula
   end
 
   resource "termcolor" do
-    url "https://files.pythonhosted.org/packages/62/1a/e78a930f70dd576f2a7250a98263ac973a80d6f1a395d89328844881a0c0/termcolor-2.1.0.tar.gz"
-    sha256 "b80df54667ce4f48c03fe35df194f052dc27a541ebbf2544e4d6b47b5d6949c4"
+    url "https://files.pythonhosted.org/packages/e5/4e/b2a54a21092ad2d5d70b0140e4080811bee06a39cc8481651579fe865c89/termcolor-2.2.0.tar.gz"
+    sha256 "dfc8ac3f350788f23b2947b3e6cfa5a53b630b612e6cd8965a015a776020b99a"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/b2/56/d87d6d3c4121c0bcec116919350ca05dc3afd2eeb7dc88d07e8083f8ea94/urllib3-1.26.12.tar.gz"
-    sha256 "3fa96cf423e6987997fc326ae8df396db2a8b7c667747d47ddd8ecba91f4a74e"
+    url "https://files.pythonhosted.org/packages/c5/52/fe421fb7364aa738b3506a2d99e4f3a56e079c0a798e9f4fa5e14c60922f/urllib3-1.26.14.tar.gz"
+    sha256 "076907bf8fd355cde77728471316625a4d2f7e713c125f51953bb5b3eecf4f72"
   end
 
   def install

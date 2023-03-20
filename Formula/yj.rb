@@ -20,7 +20,8 @@ class Yj < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-ldflags", "-X main.Version=#{version}", *std_go_args
+    ldflags = "-s -w -X main.Version=#{version}"
+    system "go", "build", *std_go_args(ldflags: ldflags)
   end
 
   test do

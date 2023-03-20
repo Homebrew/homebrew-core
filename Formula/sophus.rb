@@ -1,14 +1,14 @@
 class Sophus < Formula
   desc "C++ implementation of Lie Groups using Eigen"
-  homepage "https://strasdat.github.io/Sophus/"
-  url "https://github.com/strasdat/Sophus/archive/refs/tags/v22.10.tar.gz"
-  sha256 "270709b83696da179447cf743357e36a8b9bc8eed5ff4b9d66d33fe691010bad"
+  homepage "https://strasdat.github.io/Sophus/latest/"
+  url "https://github.com/strasdat/Sophus/archive/refs/tags/1.22.10.tar.gz"
+  sha256 "eb1da440e6250c5efc7637a0611a5b8888875ce6ac22bf7ff6b6769bbc958082"
   license "MIT"
-  revision 1
+  version_scheme 1
   head "https://github.com/strasdat/Sophus.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "5c03acef1a12656ea660610b57869d2df2ac38655fa4e783e2a959e5a65fa008"
+    sha256 cellar: :any_skip_relocation, all: "e444266e8c7ead4969b894a4ed37b57dba375d1eea5ecce83695d4f47812eb68"
   end
 
   depends_on "cmake" => [:build, :test]

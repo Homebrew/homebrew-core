@@ -6,19 +6,19 @@ class Libtensorflow < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "6338d2b8b3783529d2b88bc1dd2952b7be6eeb47a4fb92046773538ddb42a52f"
-    sha256 cellar: :any,                 arm64_monterey: "6338d2b8b3783529d2b88bc1dd2952b7be6eeb47a4fb92046773538ddb42a52f"
-    sha256 cellar: :any,                 arm64_big_sur:  "f7bf9ae6bbb912322dbf159a429cf8d2c02a69499def33e0d50e5fc67a103a06"
-    sha256 cellar: :any,                 ventura:        "bda2efd536cf339b515c30bc2358087cdb0ec01b79c258e7287086f6013b060b"
-    sha256 cellar: :any,                 monterey:       "bda2efd536cf339b515c30bc2358087cdb0ec01b79c258e7287086f6013b060b"
-    sha256 cellar: :any,                 big_sur:        "8cbf67ceeaf31bafcd5f567ad4476b98ba7c2b13bb16ca4856a7e46f3e0a496b"
-    sha256 cellar: :any,                 catalina:       "0e659810b7c74403b61217c99c52a95e7e812f81d9395b916f2260e7b24586ba"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9388c60f0faab1e4cff146b63b8a7870250aa2109c6cef7c218cbf3e4ed08b67"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "9e529d7a13f5b604f78eacb99295e390df2042f9c0d3dbe8936b772f67847736"
+    sha256 cellar: :any,                 arm64_monterey: "9e529d7a13f5b604f78eacb99295e390df2042f9c0d3dbe8936b772f67847736"
+    sha256 cellar: :any,                 arm64_big_sur:  "8736eb09a4815c18d72b08205ed295dda74387506fbeb6f1fe52ebe825b3ea33"
+    sha256 cellar: :any,                 ventura:        "885aba0f397b266ae566323f4a9e7b1cc3520111f034d25c1295a1882dc2016f"
+    sha256 cellar: :any,                 monterey:       "885aba0f397b266ae566323f4a9e7b1cc3520111f034d25c1295a1882dc2016f"
+    sha256 cellar: :any,                 big_sur:        "82590c6f06fdfbc42c5b3fcc3885a748af608b34da5f74145265c8d253e31cd5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a22557d1a7275ba52068c22de3e72354962e8e849f005b15c416be6621171069"
   end
 
   depends_on "bazelisk" => :build
   depends_on "numpy" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
 
   resource "homebrew-test-model" do
     url "https://github.com/tensorflow/models/raw/v1.13.0/samples/languages/java/training/model/graph.pb"
@@ -26,6 +26,7 @@ class Libtensorflow < Formula
   end
 
   def install
+    python3 = "python3.11"
     optflag = if Hardware::CPU.arm? && OS.mac?
       "-mcpu=apple-m1"
     elsif build.bottle?
@@ -34,7 +35,7 @@ class Libtensorflow < Formula
       "-march=native"
     end
     ENV["CC_OPT_FLAGS"] = optflag
-    ENV["PYTHON_BIN_PATH"] = which("python3.10")
+    ENV["PYTHON_BIN_PATH"] = which(python3)
     ENV["TF_IGNORE_MAX_BAZEL_VERSION"] = "1"
     ENV["TF_NEED_JEMALLOC"] = "1"
     ENV["TF_NEED_GCP"] = "0"
@@ -64,7 +65,8 @@ class Libtensorflow < Formula
       --verbose_failures
     ]
     if OS.linux?
-      env_path = "#{HOMEBREW_PREFIX}/bin:/usr/bin:/bin"
+      pyver = Language::Python.major_minor_version python3
+      env_path = "#{Formula["python@#{pyver}"].opt_libexec}/bin:#{HOMEBREW_PREFIX}/bin:/usr/bin:/bin"
       bazel_args += %W[
         --action_env=PATH=#{env_path}
         --host_action_env=PATH=#{env_path}

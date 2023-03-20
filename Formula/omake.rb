@@ -1,8 +1,8 @@
 class Omake < Formula
   desc "Build system designed for scalability, portability, and concision"
   homepage "http://projects.camlcity.org/projects/omake.html"
-  url "https://github.com/ocaml-omake/omake/archive/omake-0.10.5.tar.gz"
-  sha256 "5d46294eaa519a9fa51e8d6487d5f6770ed773c2153c80ffd3d249060b147e55"
+  url "https://github.com/ocaml-omake/omake/archive/omake-0.10.6.tar.gz"
+  sha256 "f84f4cbb18a075782a7432bbf9abd5ef177eb0603fc1c69afffce8c2c25e30ee"
   license "GPL-2.0-only"
   head "https://github.com/ocaml-omake/omake.git", branch: "master"
 
@@ -12,14 +12,13 @@ class Omake < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "ccb4ab08ba88836f3179967c0c118e1681adf9a408812c40f38e244ce6f4f0f5"
-    sha256 arm64_monterey: "468982988c821b3a65bc02a244398c2e1a6c4a2bcdd5115af05a98e4da52e804"
-    sha256 arm64_big_sur:  "544ac68e5eea28f84324223b827050c5fb96e5e9bb86e0ec15d25ca6e9e8af4c"
-    sha256 ventura:        "8e84c6f018f584e61b83b0a503b4205ae84c407bec34cdca890d469a030e5839"
-    sha256 monterey:       "cc8b8e8275e34b5f718ab0bd17a14da3064da00c467abe27c3718a8ed8abbebc"
-    sha256 big_sur:        "9d7cd18e5d23347cd547221021d2f613e001dc7ecd27d8cfce3714c5b77526b6"
-    sha256 catalina:       "a3420c41c140cdbf160ae44233dec2edf971f8b0177ff2f4d03a2e58f22cc0fe"
-    sha256 x86_64_linux:   "4fb8e22103867842e42543bfee9ee440a1589b3b56b5d00bcf25e125956d251c"
+    sha256 arm64_ventura:  "94c636910242c5431bf03e0cd3d5c8f2972a48ad821ba36443ce603c44c84f70"
+    sha256 arm64_monterey: "40ad54dcd5bef35cfb5ab3e7cb7b5f81e03c1b313b1f7c74e715b6ea6c6353f7"
+    sha256 arm64_big_sur:  "a980b712dacb260d0ec4b2121545cdec4a1534ca95976e10b6edfb6eb2137569"
+    sha256 ventura:        "3794f8d448da10ad33558e4a7390f8e657a4de09a84db6933387f1f59da0603c"
+    sha256 monterey:       "f41e4e4311dd134634010373863ef6ab0830c0c4bbb210590c8e2975b10fe35d"
+    sha256 big_sur:        "8dd4cb8d9e79996dc69c9205dfddba7e7e530971f197c2f40d306818afb6a97e"
+    sha256 x86_64_linux:   "5d2038dba034f18eae8f32a98f526ef30b45ceae8ca6bd103b3e083267ab2695"
   end
 
   depends_on "ocaml" => [:build, :test]

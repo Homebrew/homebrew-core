@@ -1,11 +1,12 @@
 class Sproxy < Formula
   desc "HTTP proxy server collecting URLs in a 'siege-friendly' manner"
   homepage "https://www.joedog.org/sproxy-home/"
-  url "http://download.joedog.org/sproxy/sproxy-1.02.tar.gz"
+  url "https://download.joedog.org/sproxy/sproxy-1.02.tar.gz"
   sha256 "29b84ba66112382c948dc8c498a441e5e6d07d2cd5ed3077e388da3525526b72"
+  license "GPL-2.0-or-later"
 
   livecheck do
-    url "http://download.joedog.org/sproxy/"
+    url "https://download.joedog.org/sproxy/"
     regex(/href=.*?sproxy[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
@@ -119,7 +120,9 @@ class Sproxy < Formula
     # configure, though, as a result of this change, that flag would be honored.
     # Reported 10th May 2016 to https://www.joedog.org/support/
     inreplace "doc/Makefile.am", "$(prefix)/man", "$(mandir)"
-    inreplace "lib/Makefile.am", "Makefile.PL", "Makefile.PL PREFIX=$(prefix)"
+    inreplace "lib/Makefile.am",
+              "Makefile.PL",
+              "Makefile.PL PREFIX=$(prefix) INSTALLSITEMAN3DIR=$(mandir)/man3"
 
     # Only needed due to the change to "Makefile.am"
     system "autoreconf", "-fiv"

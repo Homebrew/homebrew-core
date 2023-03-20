@@ -1,8 +1,8 @@
 class Xa < Formula
   desc "6502 cross assembler"
   homepage "https://www.floodgap.com/retrotech/xa/"
-  url "https://www.floodgap.com/retrotech/xa/dists/xa-2.3.13.tar.gz"
-  sha256 "a9477af150b6c8a91cd3d41e1cf8c9df552d383326495576830271ca4467bd86"
+  url "https://www.floodgap.com/retrotech/xa/dists/xa-2.3.14.tar.gz"
+  sha256 "1b9bbabddbd8d3b9410b852e50a128eea41e681339e6f76c3e8076fa5420f02e"
   license "GPL-2.0"
 
   livecheck do
@@ -11,14 +11,13 @@ class Xa < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "af93973d6dc5c7b7d4b6489a7afadb0e21c90132a3b21a8a58dcf81b3c17fc27"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "687e89ab608aeccce2daaf92b1d3310d4972a3b7119d5b532fc43675b42bf70a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "51bb4da669873d151714aced3994391e2c1442bdf8d2f6288a273cc9d6dde3d4"
-    sha256 cellar: :any_skip_relocation, ventura:        "32d409389b8b31ab0a22b9cd529361f4dba3f73f7eddb59b695553d65bf99089"
-    sha256 cellar: :any_skip_relocation, monterey:       "9f92a04dc6f464f62ab5656f06b24493ecea8eb24aed541bc8c26597c8fbf5a7"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f6833bbb16557cdfdb1356a5b0fb848b017250a1730e67b2b52530373ced44f8"
-    sha256 cellar: :any_skip_relocation, catalina:       "78e256701c504ea351845e31ae035445e4fd318344aa413882b3e40f5103db75"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "82ed28676962237aeb258d348db80f60559f56d11aa52609f2c0a9445e3419c4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "172d4111c918fa05acf0602d2319fc82b132caa45ac28c5efb0e93b82eb31095"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e36e9f9ee137f4a114d18fe00824a3ee99a79402ab8ffa5fa163e1ce727b66fb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "de1f333683f9ee7da2f97a64b2d81f7e2dd1d682c7a344226d029a9fff5b2ad6"
+    sha256 cellar: :any_skip_relocation, ventura:        "a7a11bcb7e77bf152fa9e7efadccb7d1f43b7deba30b230a7bea882ade915a59"
+    sha256 cellar: :any_skip_relocation, monterey:       "dde1b4784048684759394096b4ddf2fd26eeb78824bb0a18212b8ea31335062e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0868d331255bc58b921606c29f0f59d484e4331cd407645de6894fc67b4f3557"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "43df54eda0dc37af75135b339767dc19bad10aab69364abc149e32551dc031c3"
   end
 
   def install

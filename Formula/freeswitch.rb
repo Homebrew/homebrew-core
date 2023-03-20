@@ -2,8 +2,8 @@ class Freeswitch < Formula
   desc "Telephony platform to route various communication protocols"
   homepage "https://freeswitch.org"
   url "https://github.com/signalwire/freeswitch.git",
-      tag:      "v1.10.8",
-      revision: "35108661409083be680d0e74e6abd563e0a4c384"
+      tag:      "v1.10.9",
+      revision: "a615e85afcdc5f3ca438e86fefc7ca21ee6b3a06"
   license "MPL-1.1"
   head "https://github.com/signalwire/freeswitch.git", branch: "master"
 
@@ -13,13 +13,13 @@ class Freeswitch < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "2bb979f0e691bf40412830016e85dd661f56fbaf2b5720bb31da32531f7c1e33"
-    sha256 arm64_monterey: "7b5f2f425115a319cbd21ef279e525dae40a8ac4d74ee68819e907e0b012ab2e"
-    sha256 arm64_big_sur:  "5198917bd65265839cc4bfd7afb7f8e60ba7eb74213b254f3ffa31b7168bf1f2"
-    sha256 ventura:        "fabe1f906acfdbb3b2844b7afd44b4dbbdbd81ee18a409e934b5d9676d27954a"
-    sha256 monterey:       "967fcad01bfa72c563b2b680d4c631c398568b9338f8e241c35cc4a28048b044"
-    sha256 big_sur:        "c85f6a73aab968eb2ed630f0c273153ce7ae16a94c2a27b4f740e34be1d6a426"
-    sha256 x86_64_linux:   "c9d3b99cac170fa6eb067c9fe78988dc215c70c89208c6cdbeb6c278484f279b"
+    sha256 arm64_ventura:  "532f5f623c2106e0ebb950566b620c318a48e49a52dee09a29b8145eb20ba3af"
+    sha256 arm64_monterey: "978a959b48f9e823a47dfeddc4e9fd17961024bf1c5008ef444b8918b007ab37"
+    sha256 arm64_big_sur:  "f53446a36df40b969f4924e3333237aee360fb403df549938741deb59f31c763"
+    sha256 ventura:        "45886bd9b05d5d2618294cb88625df5793e2a460b91a5ddf1445063c71b489d2"
+    sha256 monterey:       "2851823517c35721812bca2cdad4ade835760eff62f375284c4d944151d3a5ef"
+    sha256 big_sur:        "52348175e2bf205b95a9222a5e0d6d3a5aac03b83975a512dfd15213265e9a13"
+    sha256 x86_64_linux:   "728afa7c0d039a99eec7e9c9c3c669e996366e5cfdd58f8ee8316bffdc85c354"
   end
 
   depends_on "autoconf" => :build
@@ -109,13 +109,13 @@ class Freeswitch < Formula
   # There's no tags for now https://github.com/freeswitch/spandsp/issues/13
   resource "spandsp" do
     url "https://github.com/freeswitch/spandsp.git",
-        revision: "e59ca8fb8b1591e626e6a12fdc60a2ebe83435ed"
+        revision: "67d2455efe02e7ff0d897f3fd5636fed4d54549e"
   end
 
   resource "libks" do
     url "https://github.com/signalwire/libks.git",
-        tag:      "v1.8.0",
-        revision: "bccc2f394855500c8f6f488b441d6fb94343491b"
+        tag:      "v1.8.2",
+        revision: "85a575bb892254dd105a6490b9864956b90430ce"
   end
 
   resource "signalwire-c" do

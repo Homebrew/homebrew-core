@@ -3,9 +3,9 @@
 class Nethack < Formula
   desc "Single-player roguelike video game"
   homepage "https://www.nethack.org/"
-  url "https://www.nethack.org/download/3.6.6/nethack-366-src.tgz"
-  version "3.6.6"
-  sha256 "cfde0c3ab6dd7c22ae82e1e5a59ab80152304eb23fb06e3129439271e5643ed2"
+  url "https://www.nethack.org/download/3.6.7/nethack-367-src.tgz"
+  version "3.6.7"
+  sha256 "98cf67df6debf9668a61745aa84c09bcab362e5d33f5b944ec5155d44d2aacb2"
   license "NGPL"
   head "https://github.com/NetHack/NetHack.git", branch: "NetHack-3.7"
 
@@ -17,24 +17,29 @@ class Nethack < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "036088c874f5a27701745acae3082df04828dc9769e1c92b439ff97f45dae67f"
-    sha256 arm64_big_sur:  "9d9c5a416f9d3c7770a7d6243d504f05d9fbff7bba1340b39f58ba1b61438cd5"
-    sha256 monterey:       "071e1e9085c91831f95fe604153629dfcd43c6904e65da35d3a210ae06c281a9"
-    sha256 big_sur:        "d4db0fc0aa73dd80ef2e32a521db2f67d597606217713dd5644adec265a7cab5"
-    sha256 catalina:       "69418bfcba43b656118140a7e50992772567c4c2ab4827ce0af343892a149945"
-    sha256 mojave:         "4d186d190dcab9cc719a3868aa73a6c311407f8c1510e1d3bfd185a8070177bc"
-    sha256 high_sierra:    "6b6b5eb3571c69d31ac0c88f42acae3cea5f42ec513bafd03960db8c9f994177"
-    sha256 x86_64_linux:   "dec198f62385da0ed939d44e47a0dad22c5069f146b682200a12b053ce729432"
+    sha256 arm64_ventura:  "e51292f937dbfdb68feb969552da8ab484a8728d5fb85fc6e389cdfd0ed57922"
+    sha256 arm64_monterey: "f546283d68a22ff79a4a382a05fb9f7c1949b8057e52f478c8cead4300d424b4"
+    sha256 arm64_big_sur:  "078ee2989d66bf8a98a577509c86dc4e7bddc009fe475dcfe172c075bd0cdb39"
+    sha256 ventura:        "a2ca955b4f528e11d3d5baceeb8bb9783914f595a1a010e12ce23cc5206e85ef"
+    sha256 monterey:       "0fad9d74cfab3770167a0de3de5228f2ec5c079e94d6956c140f820b3b8e2097"
+    sha256 big_sur:        "9478349296901830cee4abfeecbca729453a87732753603216e6a7ca8b31695a"
+    sha256 x86_64_linux:   "e8904c482b7915880b90dd409d7a66d74b46524d07071f3eb720aa870cf78a83"
   end
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
   uses_from_macos "ncurses"
 
-  def install
-    ENV.deparallelize
+  # add macos patch, upstream PR ref, https://github.com/NetHack/NetHack/pull/988
+  patch do
+    url "https://github.com/NetHack/NetHack/commit/79cf1e902483c070b209b55059159da5f2120b97.patch?full_index=1"
+    sha256 "5daf984512d9c512818e0376cf2b57a5cd9eefaa626ea286bfd70d899995b5de"
+  end
 
-    # Fixes https://github.com/NetHack/NetHack/issues/274
+  def install
+    # Build everything in-order; no multi builds.
+    ENV.deparallelize
+    # see https://github.com/Homebrew/brew/issues/14763.
     ENV.O0
 
     cd "sys/unix" do

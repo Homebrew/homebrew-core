@@ -1,8 +1,8 @@
 class Zenith < Formula
   desc "In terminal graphical metrics for your *nix system"
   homepage "https://github.com/bvaisvil/zenith/"
-  url "https://github.com/bvaisvil/zenith/archive/0.13.1.tar.gz"
-  sha256 "1f2914a1ddd7dd76cca0e0c07ca77bd048addfd80fc6329ea7b83647ea66020a"
+  url "https://github.com/bvaisvil/zenith/archive/0.14.0.tar.gz"
+  sha256 "2cbcea2625cfa97c161b974ad412a47e330f7fd31bec0479e329ed3606cfc569"
   license "MIT"
   version_scheme 1
   head "https://github.com/bvaisvil/zenith.git", branch: "master"
@@ -13,15 +13,13 @@ class Zenith < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9704d8a28d5a9aa3c91ba4f60666653b8edbe24cbc7f45c5926f9ed645d24944"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d1a9ace0e4078128fb378c9487dc2469526325d2c625298217ef1f8b5daf5a47"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "eeeeac8902c3edc9d2b70a3a88640c855c47756787189174bccd417493081052"
-    sha256 cellar: :any_skip_relocation, ventura:        "e75128e90b171c62edb97f339faa343da0d15ffe6f04b52a45ea9b8d86482c33"
-    sha256 cellar: :any_skip_relocation, monterey:       "942ee49856e4fc203ee1b270c07169f48ab349cae845b9a46d73c59692789ff9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "bd572e0fb6e05f01b949aadd9d501e0a301ff2220daae4592eedcd92a18b42e0"
-    sha256 cellar: :any_skip_relocation, catalina:       "46aaf1840a0b1c12a55a5ab7f8c865ebeea9acd198800ba509fa531422a69998"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3332cd889a08fda83dba1b841b6062d8d5ea9a062d4b32f5d21aa44df2b79d2c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a7e798fd4a122923dbc8e1918829b9e3359a7c414bc68bede6177fb7fd2453fc"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a72ea12db621b2eb9243573586d3b769330742dfc8bb45a55c9708964192b123"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f929e8ab0b948d3638012111c33813c098e7060aa3918d42cbaefb99e9c43924"
+    sha256 cellar: :any_skip_relocation, ventura:        "8211610bb6b9f31578a9990bedd73fc4a31ce0e70faadfffee3b065b4cb5746d"
+    sha256 cellar: :any_skip_relocation, monterey:       "aa08396983f63d03a509641a4eec6a471cf5f6c3402ede16be76e7b5de517b71"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a31ea9fcae037b05887b2d1cb82c01602f61b3ac4161a5e63dacce70d0a9ea05"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2326336b1c105cfeb1927684314cee9f38c5df89e27428e26264c0dec817f711"
   end
 
   depends_on "rust" => :build

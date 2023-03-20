@@ -5,13 +5,13 @@ class Runcocoa < Formula
   version "20120108"
   sha256 "d90079efb92c8eef3c8e2c142683eb0c632ca61120c9e4a617bf9dac5362bf86"
 
-  livecheck do
-    skip "No version information available to check"
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, all: "878f152f9c0e3915335074975020b52290f867142bcced9b44f8d8b3b6f0aaea"
   end
+
+  # Last commit on 2012-01-08 with no releases/tags.
+  # Also no license: https://github.com/michaeltyson/Commandline-Cocoa/issues/4
+  deprecate! date: "2023-02-14", because: :unmaintained
 
   def install
     bin.install "runcocoa.sh" => "runcocoa"

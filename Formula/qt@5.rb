@@ -3,21 +3,21 @@
 class QtAT5 < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/5.15/5.15.7/single/qt-everywhere-opensource-src-5.15.7.tar.xz"
-  mirror "https://mirrors.dotsrc.org/qtproject/archive/qt/5.15/5.15.7/single/qt-everywhere-opensource-src-5.15.7.tar.xz"
-  mirror "https://mirrors.ocf.berkeley.edu/qt/archive/qt/5.15/5.15.7/single/qt-everywhere-opensource-src-5.15.7.tar.xz"
-  sha256 "8a71986676a3f37a198a9113acedbfd5bc5606a459b6b85816d951458adbe9a0"
+  url "https://download.qt.io/official_releases/qt/5.15/5.15.8/single/qt-everywhere-opensource-src-5.15.8.tar.xz"
+  mirror "https://mirrors.dotsrc.org/qtproject/archive/qt/5.15/5.15.8/single/qt-everywhere-opensource-src-5.15.8.tar.xz"
+  mirror "https://mirrors.ocf.berkeley.edu/qt/archive/qt/5.15/5.15.8/single/qt-everywhere-opensource-src-5.15.8.tar.xz"
+  sha256 "776a9302c336671f9406a53bd30b8e36f825742b2ec44a57c08217bff0fa86b9"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
+  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "6862997c7ed6e467d3fefc277e116b8549e0e4c8c03d72fa4220e8e09aa1c98f"
-    sha256 cellar: :any,                 arm64_monterey: "c63014e2be32bff361f16f56459a048b9149c567e789b2ad070f0baf24af3a95"
-    sha256 cellar: :any,                 arm64_big_sur:  "764b2b1164e8b3666ee45e7867c8b7370a8f893e109dd6818afe7803ce932b0d"
-    sha256 cellar: :any,                 ventura:        "5c370a6cd0df84c365650b12d3b8e724a0ddff7a6eafe9e3c9c112db3e37b82f"
-    sha256 cellar: :any,                 monterey:       "a2defa1620680b91453086ae87132b7f75f35d2444cfc79f6f459593471024ec"
-    sha256 cellar: :any,                 big_sur:        "79717cb3b3a03ca2fc7bb1beefd974c6053a94e8298903708035620ad6d5a830"
-    sha256 cellar: :any,                 catalina:       "bcff7bff3dc04516c7456ccbd330ab37c53af0107c9f877b37646422ce2d66e2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e0d76c81f6604a3fa576bbaaf6712cf0e539607559ccdec74473168e300233ea"
+    sha256 cellar: :any,                 arm64_ventura:  "80db845716cee249eb424670056138785c2ce8815f16a805520d2cce5dd7e6b4"
+    sha256 cellar: :any,                 arm64_monterey: "a979309fc71095a2e2064abb9fb97f92643a480a117e7a0860cbbdda8600f38e"
+    sha256 cellar: :any,                 arm64_big_sur:  "7842784e8190399194cac5b386a7e1a6266f5940f9ada7c6f16f20a4e755951d"
+    sha256 cellar: :any,                 ventura:        "25a85217b26196f477a11c677b4645e73d6a683190a793ebc1d0f20e1d6ba122"
+    sha256 cellar: :any,                 monterey:       "5ca03960f30417b2f64c9016a8a53d61a053d2ea419532ee32802ed77609f842"
+    sha256 cellar: :any,                 big_sur:        "48d913b8d27bf076e2dd85b441147e7205f85b182b7c7b56a104dd2075553374"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "311137d3eb328362cd12c33d361b32e922d53b3388cda0356463a9ea548e6d64"
   end
 
   keg_only :versioned_formula
@@ -120,33 +120,18 @@ class QtAT5 < Formula
     revision: "5eedfe23148a234211ba477f76fc2ea2e8529189"
   end
 
-  # Backport of https://code.qt.io/cgit/qt/qtbase.git/commit/src/plugins/platforms/cocoa?id=dece6f5840463ae2ddf927d65eb1b3680e34a547
-  # to fix the build with Xcode 13.
-  # The original commit is for Qt 6 and cannot be applied cleanly to Qt 5.
-  patch :DATA
-
   # Fix build for GCC 11
   patch do
-    url "https://invent.kde.org/qt/qt/qtbase/commit/b340ca80cf4f994c26f01b017b8ca395a79324da.patch"
-    sha256 "d9b2e5e1745bd75912f244f713f1d31a8bdda0a2975e16734f5a785ca891d7bc"
+    url "https://invent.kde.org/qt/qt/qtbase/commit/ee7aed5e1020fa88f86777701948c8a236db4fc5.patch"
+    sha256 "ed082ed3cac51158ede4a0f4236eedf99c0981b3451c69f34e116fa8487fa333"
     directory "qtbase"
   end
 
   # https://download.qt.io/official_releases/qt/5.15/CVE-2022-25255-qprocess5-15.diff
   patch do
-    url "https://invent.kde.org/qt/qt/qtbase/commit/1eb66b24c3dd1232b1eaec57d6014edfe41954dc.patch"
-    sha256 "7aa710337cc8e1b0fec83c65a5f2446659ca1619550e8573a8224c8193dff55b"
+    url "https://invent.kde.org/qt/qt/qtbase/commit/12df089a0095645daae4f932c495258751d881fc.patch"
+    sha256 "43ba11c26de2fa57bf541be02d3078bde4e8fecabda97e28e35e1f9252c4264b"
     directory "qtbase"
-  end
-
-  # Patch for qmake on ARM
-  # https://codereview.qt-project.org/c/qt/qtbase/+/327649
-  patch do
-    on_arm do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/9dc732/qt/qt-split-arch.patch"
-      sha256 "36915fde68093af9a147d76f88a4e205b789eec38c0c6f422c21ae1e576d45c0"
-      directory "qtbase"
-    end
   end
 
   def install
@@ -285,14 +270,3 @@ class QtAT5 < Formula
     system "./hello"
   end
 end
-
-__END__
---- a/qtbase/src/plugins/platforms/cocoa/qiosurfacegraphicsbuffer.h
-+++ b/qtbase/src/plugins/platforms/cocoa/qiosurfacegraphicsbuffer.h
-@@ -43,4 +43,6 @@
- #include <qpa/qplatformgraphicsbuffer.h>
- #include <private/qcore_mac_p.h>
-+
-+#include <CoreGraphics/CGColorSpace.h>
-
- QT_BEGIN_NAMESPACE

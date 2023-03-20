@@ -74,11 +74,14 @@ class LlvmAT12 < Formula
       clang
       clang-tools-extra
       lld
-      lldb
       mlir
       polly
       openmp
     ]
+    # LLDB fails to build on arm64 linux:
+    # NativeRegisterContextLinux_arm.cpp:60:64: error: no matching function for call to
+    # 'lldb_private::process_linux::NativeRegisterContextLinux::NativeRegisterContextLinux()'
+    projects << "lldb" if !OS.linux? || !Hardware::CPU.arm?
     runtimes = %w[
       compiler-rt
       libcxx
@@ -99,9 +102,6 @@ class LlvmAT12 < Formula
     # can almost be treated as an entirely different build from llvm.
     ENV.permit_arch_flags
 
-    # we install the lldb Python module into libexec to prevent users from
-    # accidentally importing it with a non-Homebrew Python or a Homebrew Python
-    # in a non-default prefix. See https://lldb.llvm.org/resources/caveats.html
     args = %W[
       -DLLVM_ENABLE_PROJECTS=#{projects.join(";")}
       -DLLVM_ENABLE_RUNTIMES=#{runtimes.join(";")}
@@ -121,7 +121,6 @@ class LlvmAT12 < Formula
       -DLLDB_ENABLE_PYTHON=OFF
       -DLLDB_ENABLE_LUA=OFF
       -DLLDB_ENABLE_LZMA=OFF
-      -DLLDB_PYTHON_RELATIVE_PATH=libexec/#{site_packages}
       -DLIBOMP_INSTALL_ALIASES=OFF
       -DCLANG_PYTHON_BINDINGS_VERSIONS=#{py_ver}
       -DLLVM_CREATE_XCODE_TOOLCHAIN=#{MacOS::Xcode.installed? ? "ON" : "OFF"}

@@ -3,8 +3,8 @@ require "language/node"
 class Hsd < Formula
   desc "Handshake Daemon & Full Node"
   homepage "https://handshake.org"
-  url "https://github.com/handshake-org/hsd/archive/v4.0.2.tar.gz"
-  sha256 "ee58d681491bee90299ea2fa18656ac26fc6aef2bf3e363cb996be5015b06feb"
+  url "https://github.com/handshake-org/hsd/archive/v5.0.1.tar.gz"
+  sha256 "545c50358232bc6003b6de1ea95cc20e4918778afe706997c61089420484676b"
   license "MIT"
 
   livecheck do
@@ -13,14 +13,13 @@ class Hsd < Formula
   end
 
   bottle do
-    sha256                               arm64_ventura:  "84ebc75554473cb29d2d039262f3c9e12bdd4111ebb0876e6e8d6d72a81b639a"
-    sha256                               arm64_monterey: "322295b784df6ecc6d4ed5cae4957589fba6f59662a38467cd7a16465161a7c4"
-    sha256                               arm64_big_sur:  "92a27b35ba52bcd1aab836d70720cc8e0a343ef2c05a035dd038e95948bf9e88"
-    sha256                               ventura:        "22118bf48f42d6dfa49c09338ab1c4d60de4cf3e1f0a5b47c558f39c3e99d720"
-    sha256                               monterey:       "333dda4bf02aed146bf4ae7c1458ac31dcd1ff9bdf0a5f7d25bdeeb88a711b64"
-    sha256                               big_sur:        "5ff1b677c57757866eb2acd527f62a7582160fe2af6cf9f1334f298a93c7455d"
-    sha256                               catalina:       "d13d7d46267337411111f127468ee825be178a80d3135bd68756589f54856641"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7eceddba39715d8c8d2a44add1bff762f2dd580786911bd9f44d258da0184227"
+    sha256                               arm64_ventura:  "0864a8c79a0a9abf3e5de9ba4a29d40dbf87f46955f3e8a572185297f9c85651"
+    sha256                               arm64_monterey: "549fdec6f1529239a5e57f2d61f1d524a9976913f7866cfbb3c2f3f1e3c57883"
+    sha256                               arm64_big_sur:  "773e274d9ea8c436891d1dec21724bdd303c0fdf6534d1b0387720ddf69ea961"
+    sha256                               ventura:        "2fb720854ff59869b3647a484b52c697542b0903180872e25a6211016f6c59e2"
+    sha256                               monterey:       "b084f090146ce1fd7eb4a55d33b7db08e964a271127efbfe76713547284da4f1"
+    sha256                               big_sur:        "f61ec0c9cb4d9aeaf9337d185c6c6cc7282fade49a9dc004f3834fcc370da78f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "de24c62e30033c7338df415559a28f26e0a2ee07fa0317f24e57e9924d65038d"
   end
 
   depends_on "node"

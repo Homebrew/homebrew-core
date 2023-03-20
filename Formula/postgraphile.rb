@@ -3,19 +3,19 @@ require "language/node"
 class Postgraphile < Formula
   desc "GraphQL schema created by reflection over a PostgreSQL schema 🐘"
   homepage "https://www.graphile.org/postgraphile/"
-  url "https://registry.npmjs.org/postgraphile/-/postgraphile-4.12.12.tgz"
-  sha256 "a31cde66cafe9b6bfb1afaebde197235d8b812135163f6fc01f6d321ec4f79c4"
+  url "https://registry.npmjs.org/postgraphile/-/postgraphile-4.13.0.tgz"
+  sha256 "bdf6c3047b16fd7bddc2eabd74939b986bc2fa0f56383f409fa3d7d95418cf77"
   license "MIT"
   head "https://github.com/graphile/postgraphile.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4fe1984d6ae6896a8912eb0218dc8072cb6d6a5915f3b4b7ebc55d2c9e762dc4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4fe1984d6ae6896a8912eb0218dc8072cb6d6a5915f3b4b7ebc55d2c9e762dc4"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4fe1984d6ae6896a8912eb0218dc8072cb6d6a5915f3b4b7ebc55d2c9e762dc4"
-    sha256 cellar: :any_skip_relocation, ventura:        "89602667d993e2337f95124fd5f25288deeab0bb9b79f54cb30bedf716047ec6"
-    sha256 cellar: :any_skip_relocation, monterey:       "89602667d993e2337f95124fd5f25288deeab0bb9b79f54cb30bedf716047ec6"
-    sha256 cellar: :any_skip_relocation, big_sur:        "89602667d993e2337f95124fd5f25288deeab0bb9b79f54cb30bedf716047ec6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4fe1984d6ae6896a8912eb0218dc8072cb6d6a5915f3b4b7ebc55d2c9e762dc4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "89fe3ed5c28e49b954f36201b2c1b641a38ec737216ff48ca04aa63256156334"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "89fe3ed5c28e49b954f36201b2c1b641a38ec737216ff48ca04aa63256156334"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "89fe3ed5c28e49b954f36201b2c1b641a38ec737216ff48ca04aa63256156334"
+    sha256 cellar: :any_skip_relocation, ventura:        "f4eba09e6051328f2d1ece4bb1c5539cb78112912afe17034a72d922e07f0814"
+    sha256 cellar: :any_skip_relocation, monterey:       "f4eba09e6051328f2d1ece4bb1c5539cb78112912afe17034a72d922e07f0814"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f4eba09e6051328f2d1ece4bb1c5539cb78112912afe17034a72d922e07f0814"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "89fe3ed5c28e49b954f36201b2c1b641a38ec737216ff48ca04aa63256156334"
   end
 
   depends_on "postgresql@14" => :test

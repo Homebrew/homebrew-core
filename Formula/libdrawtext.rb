@@ -1,30 +1,22 @@
 class Libdrawtext < Formula
   desc "Library for anti-aliased text rendering in OpenGL"
   homepage "http://nuclear.mutantstargoat.com/sw/libdrawtext/"
-  url "https://github.com/jtsiomb/libdrawtext/archive/v0.5.tar.gz"
-  sha256 "7eea99dbf9c86698b5b00ad7f0675b9327098112bf5c11f1bad0635077eae8a9"
+  url "https://github.com/jtsiomb/libdrawtext/archive/v0.6.tar.gz"
+  sha256 "714d94473622d756bfe7d70ad6340db3de7cc48f4f356a060e3cb48900c6da01"
   license "LGPL-3.0"
   head "https://github.com/jtsiomb/libdrawtext.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "62aeef081e3a86502eb7b867f8cd2e44dd4f54ad795183c6a8e6abcda00367e2"
-    sha256 cellar: :any, arm64_monterey: "0159f6a1ff8d4337e94df6fd14c7746906e2cc813b6557bf5792bf609c9f9262"
-    sha256 cellar: :any, arm64_big_sur:  "7383b095117bbcb658bb4563a709509bc01b4a3e747cf74c394fadb39a677300"
-    sha256 cellar: :any, ventura:        "b7aacf82e9f288e7c0b2c61853b062a260859be357ddc1f235dcfad6def2ff0e"
-    sha256 cellar: :any, monterey:       "9122e9b931f85762e6cce0cb0041d8e1482eb89de2e1d42a1f7523bbcd9bb5fa"
-    sha256 cellar: :any, big_sur:        "30bb9dd29ed877e48308f66be15ef43b2816e9a38b346a2e04b280ab64e677c9"
-    sha256 cellar: :any, catalina:       "e6aea4db0e3298e04dfbb215bcedcc4302d76965f82b4dfc921636dbc24ff939"
-    sha256 cellar: :any, mojave:         "0c63e8d53c61bcda8452501c584b2f06919054f4e447fa9ce8c929b0bee50d24"
-    sha256 cellar: :any, high_sierra:    "a4169631c0ac82995409931836ea16664618d37650337e994bfea7121a386791"
+    sha256 cellar: :any, arm64_ventura:  "4b01f03d8831ce1af64b7ee299948ebcbc719f07482925519a6ee53ce283ff9e"
+    sha256 cellar: :any, arm64_monterey: "ab6261d82ad121caeeb5945709def507dcef52d04afd1162f1473e973bc97a90"
+    sha256 cellar: :any, arm64_big_sur:  "c61a83f7c2be18d086863edd67880e588dd16fee1154367aa25eb4c0537f14f5"
+    sha256 cellar: :any, ventura:        "74941e09f6cb06ab0fa44b92cd40e37e340d51f8781c61ed8f7d086093d470ce"
+    sha256 cellar: :any, monterey:       "6588852f6f1c6fb9585c4c0cb16d9fe2d503fd68c94d08f982a7de5d0af87adf"
+    sha256 cellar: :any, big_sur:        "2f01264e3b9729a123e24c71078c5b7b5c2189c2a2ed2a8481763080ed213ce1"
   end
 
   depends_on "pkg-config" => :build
   depends_on "freetype"
-
-  patch do
-    url "https://github.com/jtsiomb/libdrawtext/commit/543cfc67beb76e2c25df0a329b5d38eff9d36c71.patch?full_index=1"
-    sha256 "dd6a78d2c982215b91fcb6fba9d00311b09a8eea26564f7710daabc744c3be09"
-  end
 
   def install
     system "./configure", "--disable-dbg", "--enable-opt", "--prefix=#{prefix}"

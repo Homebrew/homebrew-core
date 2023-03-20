@@ -14,22 +14,22 @@ class CKermit < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "496449775776f60014f2ba1a7cfb15ae2ef68406be08a017c916e8b4007a9606"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "652b323375488103e967db89a319cc16cca1e10e89fcfa884aa53277e0a37193"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d955b3b42d7645769fddf390632af6f113969c349f72677cd1581a86f8b82892"
-    sha256 cellar: :any_skip_relocation, ventura:        "9e51cc20d9b64bab69601ea103a0cac1a083ad0886d72412dfb18df5bcc82131"
-    sha256 cellar: :any_skip_relocation, monterey:       "effa2227e450791dbca069fa6e22c2c98a24d46754d6f76e32a2f0f0149355df"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8f78db34bdbe18b861392eb2ef15aa8d1cf7f869f6bbcaadcb4633bef72965b6"
-    sha256 cellar: :any_skip_relocation, catalina:       "fea40d461340389165bcaf8ce5fa074d703baef9a44252d25b3a0f96c29660cf"
-    sha256 cellar: :any_skip_relocation, mojave:         "3021e5f091b9bd56f3b5b1f289552ba83b1d6c10b229fac9aaeb8bbbecdc6f6e"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "b6eae07c8d3365501f4e13af80b54ded073a2b1fc09fa885a445c7f52d96d589"
-    sha256 cellar: :any_skip_relocation, sierra:         "b19ecd36ee298cba626b1276c228cdb4ee57726cf5af64166d8ff2800067e926"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "446776aff790c8f3b6f30be915dc18f4beffa973b92201384682beb7dc714562"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "982c8eb9c1956b669d4f769cb1c70a0cc7f32848674aba10e5aa906de57bdd1d"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6ee8af35826f4b5be62d1c4b4e8b38eb39915da0b28d6b8f53ff9dfbb99f6698"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8315af8bc632253d0b2fdfde4b9da0fef5ad11af891b4e4eb8b51a35902f1e33"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "259f1f0d2e2a1af6545bec724db3e1f154169dbd33e2b8ef43364381b3664cfe"
+    sha256 cellar: :any_skip_relocation, ventura:        "0772fae0e560c8e726c611bd1e5b55d03e77f6f42feb3f763cb12f15a0151dc9"
+    sha256 cellar: :any_skip_relocation, monterey:       "e379dd0cdd6eb9eec792cdd48ca7c5b7cd9281288840b15ce1d860fbb78982b2"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c2867c176bc81a35f56d5fe29847500b7c5f8c3e05ac10b5986073502a888a0f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0d5959e91d9fce4bee2b835433a8d2cc589f8f9f37e02c0f1078dbe645e6351a"
   end
 
+  uses_from_macos "libxcrypt"
   uses_from_macos "ncurses"
+
+  # Apply patch to fix build failure with glibc 2.28+
+  # Will be fixed in next release: https://www.kermitproject.org/ckupdates.html
+  patch :DATA
 
   def install
     os = OS.mac? ? "macosx" : "linux"
@@ -47,3 +47,17 @@ class CKermit < Formula
                  shell_output("#{bin}/kermit -C VERSION,exit")
   end
 end
+
+__END__
+diff -ru z/ckucmd.c k/ckucmd.c
+--- z/ckucmd.c	2004-01-07 10:04:04.000000000 -0800
++++ k/ckucmd.c	2019-01-01 15:52:44.798864262 -0800
+@@ -7103,7 +7103,7 @@
+ 
+ /* Here we must look inside the stdin buffer - highly platform dependent */
+ 
+-#ifdef _IO_file_flags			/* Linux */
++#ifdef _IO_EOF_SEEN			/* Linux */
+     x = (int) ((stdin->_IO_read_end) - (stdin->_IO_read_ptr));
+     debug(F101,"cmdconchk _IO_file_flags","",x);
+ #else  /* _IO_file_flags */

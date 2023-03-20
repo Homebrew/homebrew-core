@@ -16,6 +16,11 @@ class Guichan < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "654afd1dcf4f1fa523bba39ded7799d50ec10918eeece0aa5274ba123de17cea"
   end
 
+  # Uses deprecated SDL 1.2-based `sdl_image`. Also, the homepage redirects to
+  # a 404 error page and only remaining site is the Google Code archive.
+  # Last release on 2009-10-05
+  deprecate! date: "2023-02-05", because: :unmaintained
+
   depends_on "sdl_image"
 
   on_linux do

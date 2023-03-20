@@ -4,7 +4,7 @@ class Klee < Formula
   desc "Symbolic Execution Engine"
   homepage "https://klee.github.io/"
   license "NCSA"
-  revision 3
+  revision 4
   head "https://github.com/klee/klee.git", branch: "master"
 
   stable do
@@ -26,14 +26,13 @@ class Klee < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_ventura:  "0df70b3118b8400b43919f4f4164c4a824ab2808da1ee6a0229e203fc806237a"
-    sha256 arm64_monterey: "ff1484744cf2988dea68d5734f4b536a249b9dd50ecc9c8307b60096bf1a71d3"
-    sha256 arm64_big_sur:  "78a354ad5ce3ec8f36dbde3e5b7501f2166022aa9654666642260b82fe76635d"
-    sha256 ventura:        "675892a857e76870d320330ec3ba8e45cb69d3b99e6340c4f120c8c577c67068"
-    sha256 monterey:       "a875e602ad0b447ea83637ebac55103b2007b3867aa29a8fb121f1da7acd4b25"
-    sha256 big_sur:        "1f6d0a80dfc2e05ff91e971bc16b0dfc64d882deaa1ef06424353c88c7379cec"
-    sha256 x86_64_linux:   "16dd24f442b147420c04369891125483148147115899ae160f276a12d5645ff2"
+    sha256 arm64_ventura:  "a135fc9431d9e03c9cd0131c01360090986300754fffbe8baa7deb057afc124f"
+    sha256 arm64_monterey: "ed674c12a9e2414e6152c48a73f4ef8c6d933f253e6ef4864295f4e9558fd75f"
+    sha256 arm64_big_sur:  "2829efa164e390417595c73a70f8f3409f24a6bb181590091f46b6c3f115f760"
+    sha256 ventura:        "f5f3ddc1c5edf4985ffd88b4c2f36c7239f7bff2c6114601803c8b2dc096293e"
+    sha256 monterey:       "96bc452ac24d66be7a21ac8daca76cdbaefb2470ef6b4da354f0cfaeba44cdb6"
+    sha256 big_sur:        "f9d4fd03f224dcbf15fde6e7dc96f3e36e3e10cb1eb0c384faae412af7d20c06"
+    sha256 x86_64_linux:   "f1525a570a25ff4bb584c1bff4baaa83e11efc81da42901774ba958a5de68da0"
   end
 
   depends_on "cmake" => :build

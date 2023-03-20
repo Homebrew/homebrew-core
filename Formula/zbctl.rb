@@ -2,19 +2,27 @@ class Zbctl < Formula
   desc "Zeebe CLI client"
   homepage "https://docs.camunda.io/docs/apis-clients/cli-client/index/"
   url "https://github.com/camunda/zeebe.git",
-      tag:      "8.1.5",
-      revision: "611d642adbe91bbe221193df64409fa49b3ec090"
+      tag:      "8.1.9",
+      revision: "6d0999a27969dea3603d8ec43d838eabbcbf42f9"
   license "Apache-2.0"
   head "https://github.com/camunda/zeebe.git", branch: "develop"
 
+  # Upstream creates stable version tags (e.g., `v1.2.3`) before a release but
+  # the version isn't considered to be released until a corresponding release
+  # is created on GitHub, so it's necessary to use the `GithubLatest` strategy.
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f150dba966e39cc6f374782d780e76e285b98459a0726b095303e0b8a9c0f399"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f150dba966e39cc6f374782d780e76e285b98459a0726b095303e0b8a9c0f399"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f150dba966e39cc6f374782d780e76e285b98459a0726b095303e0b8a9c0f399"
-    sha256 cellar: :any_skip_relocation, ventura:        "fb45b726db000df211abcc7b7e02c4c2a80e43ec78ab2c6ff041f578d4ab9949"
-    sha256 cellar: :any_skip_relocation, monterey:       "fb45b726db000df211abcc7b7e02c4c2a80e43ec78ab2c6ff041f578d4ab9949"
-    sha256 cellar: :any_skip_relocation, big_sur:        "fb45b726db000df211abcc7b7e02c4c2a80e43ec78ab2c6ff041f578d4ab9949"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b71ce643b549533e4fa93ccc95097c1df2c4552b58b3767c895d2238a1a63278"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5e06616c4c86ea50fe57159ffbb0d21d8edb2c96e8e7f54c37efadb80d68f51d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5e06616c4c86ea50fe57159ffbb0d21d8edb2c96e8e7f54c37efadb80d68f51d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5e06616c4c86ea50fe57159ffbb0d21d8edb2c96e8e7f54c37efadb80d68f51d"
+    sha256 cellar: :any_skip_relocation, ventura:        "062b2690b551441d3b8c3c0487c1ddf7f0fedc188b414114a917c5ec5444cd5a"
+    sha256 cellar: :any_skip_relocation, monterey:       "062b2690b551441d3b8c3c0487c1ddf7f0fedc188b414114a917c5ec5444cd5a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "062b2690b551441d3b8c3c0487c1ddf7f0fedc188b414114a917c5ec5444cd5a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3fb9490bc4fdea59ef2b038076b0cbc843b995029d3fe4e76df2d7180783bc6b"
   end
 
   depends_on "go" => :build

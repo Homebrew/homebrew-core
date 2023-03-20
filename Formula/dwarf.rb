@@ -23,14 +23,18 @@ class Dwarf < Formula
   depends_on "flex"
   depends_on "readline"
 
-  uses_from_macos "bison"
+  uses_from_macos "bison" => :build
 
   def install
+    # Work around failure from GCC 10+ using default of `-fno-common`
+    # /usr/bin/ld: repl.o:(.bss+0x20): multiple definition of `fc_ptr'
+    args = ENV.compiler.to_s.start_with?("gcc") ? ["CC=#{ENV.cc} -fcommon"] : []
+
     %w[src/libdwarf.c doc/dwarf.man doc/xdwarf.man.html].each do |f|
       inreplace f, "/etc/dwarfrc", etc/"dwarfrc"
     end
 
-    system "make"
+    system "make", *args
     system "make", "install", "BINDIR=#{bin}", "MANDIR=#{man1}"
   end
 

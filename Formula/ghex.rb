@@ -1,21 +1,22 @@
 class Ghex < Formula
   desc "GNOME hex editor"
   homepage "https://wiki.gnome.org/Apps/Ghex"
-  url "https://download.gnome.org/sources/ghex/43/ghex-43.0.tar.xz"
-  sha256 "866c0622c66fdb5ad2a475e9cfcccb219a1c6431f009acb2291d43f2140b147e"
+  url "https://download.gnome.org/sources/ghex/43/ghex-43.1.tar.xz"
+  sha256 "a54b943efe42010a9c12e4dcdadb377bf36c94c3800778b8530c3a834409dcc7"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_ventura:  "74e151da0528935da9049a5dd39123190d781a3c063bc98d9415618062bad480"
-    sha256 arm64_monterey: "402113e3b5f93b1792663309f438dc9d27b9509e5ef3242514a75a43462560ef"
-    sha256 arm64_big_sur:  "dd4c724e0c28832d8e15720d3aa128e570a1492e0022c4d1b13d41f81c614f2a"
-    sha256 ventura:        "c0438c0eb753283effd90008a2e4d980f0102dd098fd26c32ee2bc6c422695b3"
-    sha256 monterey:       "2c1c3e16266e772f2cdb4bf59247c7ff921f3394ab031528d719078897f3b997"
-    sha256 big_sur:        "96265a286a5ee0db13a704dc2bf09417a694797a1b3362b90aa4a24def42e1b3"
-    sha256 x86_64_linux:   "062720289937674dadc9f42fcc739292e89e54b0189820f2a8897e969672971c"
+    sha256 arm64_ventura:  "e89bb00de21e8d6de4baad5a729eb08b3302bf56f3c26bbb9b6477df5ecb3d8c"
+    sha256 arm64_monterey: "8e6bb76c3d2b861813f7039679d1f28ca4861b15cef77655cdafb995de4efad5"
+    sha256 arm64_big_sur:  "153e64489e401835eef827bd273c42f31ca4b6e64a132fa30f99d2922fa120ea"
+    sha256 ventura:        "52a672a768aaf74237a7ecdc7f927451b62950af637089e995bc5c54e25819c1"
+    sha256 monterey:       "a622d3504f611d7c598e59828940324e367401c9cff887984fdd322dae192cab"
+    sha256 big_sur:        "96c3130ffbef361a3da4a9a01197ecc72f6545d7ba819c966d3acb3217f81a33"
+    sha256 x86_64_linux:   "7afac9d5abd2de851a521d00d87f4bdd128ca8fa404da6545de4996f13948974"
   end
 
   depends_on "desktop-file-utils" => :build
+  depends_on "gettext" => :build # for msgfmt
   depends_on "itstool" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build

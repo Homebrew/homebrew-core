@@ -4,30 +4,35 @@ class Goplus < Formula
   url "https://github.com/goplus/gop/archive/v1.1.3.tar.gz"
   sha256 "11e676f1ff4a391248747bad9d4c1673d366fcf306bd3e185fee5870afd02fee"
   license "Apache-2.0"
+  revision 2
   head "https://github.com/goplus/gop.git", branch: "main"
 
   bottle do
-    sha256 arm64_ventura:  "d5c30712180a7c9a55af310a414bc8861b962fb0d00bbbf95c0d93e0dc0c20cd"
-    sha256 arm64_monterey: "3bbea21b81acb18f2dd31d8dfae195b6044aedbe56c6dc092929daa6cf99556c"
-    sha256 arm64_big_sur:  "687641bddc2d20cf7a52f9dd4868974011ab2e13b962d5f1fed0718025c97bbe"
-    sha256 ventura:        "f5f6dffbf39cc8a2e71c9525de751b67e60f5476e3484bfba45c707878b9197e"
-    sha256 monterey:       "c57bbd4e51542b467c353d46485eea935ec9781c35fa7e7d82c795226d34624f"
-    sha256 big_sur:        "8dd6ef441b3d38b92a2afb27c3c6d4a0e593d668b67ff57f2ff8dc07cbbfdcf3"
-    sha256 catalina:       "f74e821a749f66396d381e9a2648829a53117a552699563aac86e38732bab6da"
-    sha256 x86_64_linux:   "4142d7d0efe2f3693c04737fc4858e5b4ceadabaf54209842126340b8bf129e3"
+    sha256 arm64_ventura:  "75f6f96124f722c26dd06264ff3bb3ff77694338c64e20c8d727e7edecc11dff"
+    sha256 arm64_monterey: "caafb5a3d85e5511acc51b6a2ff821db858348262d290fbdd2bf8370d0b3a0c0"
+    sha256 arm64_big_sur:  "70081288d225915d98a62fc2776c6048e400f85e4310d654f639d33e68d9b42b"
+    sha256 ventura:        "a70c9ea19622e0ce2a4df1d23049df567126aab61f3a7cddda1e85e8be5f547b"
+    sha256 monterey:       "3af1922010bb3b1925d9b7482fa155f694376addc092f47ecf6274014a4e8d18"
+    sha256 big_sur:        "4581adddb9a68ed623e0fa3c574b6caf0b925302fb85713b0bb620217a2e206c"
+    sha256 x86_64_linux:   "4bc9137b87042ada39f1d8e85e94ca26befe4472edd941cef102d61892261eeb"
   end
 
-  depends_on "go"
+  # Move to go1.20 once https://github.com/goplus/gop/issues/1350 is resolved
+  depends_on "go@1.19"
 
   def install
     ENV["GOPROOT_FINAL"] = libexec
     system "go", "run", "cmd/make.go", "--install"
 
     libexec.install Dir["*"] - Dir[".*"]
-    bin.install_symlink (libexec/"bin").children
+    libexec.glob("bin/*").each do |file|
+      (bin/file.basename).write_env_script file, PATH: "#{Formula["go@1.19"].opt_bin}:$PATH"
+    end
   end
 
   test do
+    ENV["GOROOT"] = Formula["go@1.19"].opt_libexec
+
     (testpath/"hello.gop").write <<~EOS
       println("Hello World")
     EOS
@@ -43,7 +48,7 @@ class Goplus < Formula
       module hello
     EOS
 
-    system "go", "get", "github.com/goplus/gop/builtin"
+    system Formula["go@1.19"].opt_bin/"go", "get", "github.com/goplus/gop/builtin"
     system bin/"gop", "build", "-o", "hello"
     assert_equal "Hello World\n", shell_output("./hello")
   end

@@ -1,8 +1,8 @@
 class NagaCli < Formula
   desc "Shader translation command-line tool"
   homepage "https://github.com/gfx-rs/naga"
-  url "https://github.com/gfx-rs/naga/archive/refs/tags/v0.10.0.tar.gz"
-  sha256 "9ad07283157af424d130f598be636211188e3ee553bcdf5a9809a40ee28d57c3"
+  url "https://github.com/gfx-rs/naga/archive/refs/tags/v0.11.0.tar.gz"
+  sha256 "b59cfa8e11895fa5badf053dede122185afa9f4e48779ec0b4b163daff4427b2"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/gfx-rs/naga.git", branch: "master"
 
@@ -12,13 +12,13 @@ class NagaCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5b2a425164a8b6531c39abe2ed61a8d4e68e4cc81ec55e35ebd0ae5c410d6f60"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cdf4bdd0201d8e49ad56e2482767ea9a435f09928e08862a378aabc5fab04f4c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3c03399f669b226f7764ac52eac2c17093a577f54900b36620fb88f3e7a55c58"
-    sha256 cellar: :any_skip_relocation, ventura:        "d5c34518cb374e9487375355206b707a2203479f7071af8c9df96bb9d14e0bdc"
-    sha256 cellar: :any_skip_relocation, monterey:       "061ad1c5059d6723fc6ea2fac894702233b6c9dc3badb6fb98237392a7e6c960"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ec17d75dda52b03a7f856c42d5b2c45a36068cf94218fc7d4e5c004f577e0751"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4de71885af471ff620f01b29438fb210d63a37cf9de0fe5a6e923f09f2cd9af7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8497b9e8eece37260803af251cf971af7db8013e0e90797eeefd2b42903b82d6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "731127ca77e1ed213722f382ef922107b6ca64dce92cb194c7da83564b90e1e3"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "777f7ccf16c0d2680733d24a7d681fcdca17967bff864ead4ec9c6206f375902"
+    sha256 cellar: :any_skip_relocation, ventura:        "8b47945e575a8b6ce0d03bcf47b26cbc182aa5af2d14eb6d85d61b18ae5705ff"
+    sha256 cellar: :any_skip_relocation, monterey:       "af7c77686594dfbcfa939c3d78da57582b72b4526197376a5ed8ae86d300791a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "5e7584b05151b295faa755d98204b626d1fc2d4ebf49587e22ba4df84236a1dd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3a90b5c43194d3b2f62a78916a3b068cd3bb66091f6a918d90304189f4c9e162"
   end
 
   depends_on "rust" => :build

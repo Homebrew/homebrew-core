@@ -18,25 +18,23 @@ class Remake < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "d7df7bd4d65ad45cfdcbdc938a69df3ebbdbf328cc74380b3f281a044afc028d"
-    sha256 arm64_monterey: "5c2479d3270cb34d5515d80136186d003e9eb96c7750b137d6f526a46b4003f7"
-    sha256 arm64_big_sur:  "b4370edfc5a075b5feb54686ba20b01dd2b2da18666b708ea5154af3b7df2c9b"
-    sha256 ventura:        "507f2808ffbdd7048607b5a8cde20cefa2241a88e3e35a68c8312f9795b17cb5"
-    sha256 monterey:       "609d23982a7c58ec3dc547e06dfc2f461b36ca622de3314490975a282117b9d4"
-    sha256 big_sur:        "bc482278bbce34be601363a34689176e611eacc0461984892bdee53cc5965936"
-    sha256 catalina:       "dc5e00c02c1def048f5d678e91349d8f8da951e8ada948d9f7538cc962d8feea"
-    sha256 x86_64_linux:   "450f4449921dacd7b78dd3194ead086ea99e224a4ecac433118e47b84979d485"
+    rebuild 1
+    sha256 arm64_ventura:  "5a7316d4730a456b7a84576294cf3ecc43bb0d66198a56c006b8b6fcd7ee34a8"
+    sha256 arm64_monterey: "fe58f73701268996a6f273fd59cc85694152ed4a2e1f2268b22c532c5797a91d"
+    sha256 arm64_big_sur:  "95b6ece00e5597ef7277055fbd63584d87255bc1f23168b496cc81bbed99c7ef"
+    sha256 ventura:        "cb1b7c4b4f65b0ee7bdc44243f69d45ef825c876f3349d8ed33c892998a2540f"
+    sha256 monterey:       "692455854a3099491ec14ab4f1c45cbf9c92002a1ecc4c472e0418b73604901c"
+    sha256 big_sur:        "523411a133faf8c381ca3d6ab6b057d42b4a14eaf21b249dc5a0213f5cfe974e"
+    sha256 x86_64_linux:   "caad81ec9c391c8a52c027ee7a7580d324c5743ad8fa1223c9ad11e41772d5b0"
   end
 
   depends_on "readline"
 
-  conflicts_with "make", because: "both install texinfo files for make"
-
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make", "install"
+    # Remove texinfo files for make to avoid conflict
+    info.glob("make.info*").map(&:unlink)
   end
 
   test do

@@ -2,20 +2,18 @@ class Carthage < Formula
   desc "Decentralized dependency manager for Cocoa"
   homepage "https://github.com/Carthage/Carthage"
   url "https://github.com/Carthage/Carthage.git",
-      tag:      "0.38.0",
-      revision: "9a3d1799ba8f8b9e2d4514cfa53a2cca6064136e"
+      tag:      "0.39.0",
+      revision: "187a78c62811d3d75a9b1d41bfaeff708936125d"
   license "MIT"
   head "https://github.com/Carthage/Carthage.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "44bfddd205d71910f3a6829fa7448b10a9bde620cc0d3b88a3d18ecbdb42fe21"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "31e066eb80819a224b4b98b2c5cb9f11989c787e8de7cc0b4c492663fd0e7075"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e9be26e66087b149d4d6ff813323fb5fa1ac0ec1a55d3d1a26fc3aafc8f8e8ec"
-    sha256 cellar: :any_skip_relocation, ventura:        "3ce52863cb7175f47439020dabbb004b292a1a935056e6dc5bf614b285eb5d5e"
-    sha256 cellar: :any_skip_relocation, monterey:       "17481cd77a643af4799e2c603ae808cd09a6487e73638caab0af8cdeffc2c438"
-    sha256 cellar: :any_skip_relocation, big_sur:        "863d4165b65d4a914f0585ca68a2ae15a179d663dbd29e6fd1d0a0ec769b97c3"
-    sha256 cellar: :any_skip_relocation, catalina:       "ea1df2bc55049416020811e5c995a28a3d6a0d26ef4bbe67bc9b248a11727e96"
-    sha256 cellar: :any_skip_relocation, mojave:         "417d7a04952ad1845e88f8699a508e5fee109f9f903433eb7c4c860738b7843e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "207c3a13cdcfd59bfa35bdb4e31be0a3e9e77df81a04dc9a281c1e121b861efb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5e47cbb0c43c84cff20f71b02488cafbf05e8844d38d2ec6fcd6625a0c88e998"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0a1088a4186a15467696f0130569f0403de04db67347b0de9cf3ec1bc23fb157"
+    sha256 cellar: :any_skip_relocation, ventura:        "b7168722ce8a83dab063dc118bf56a44d0a6423aeda1eab6dbad021039ee2fd7"
+    sha256 cellar: :any_skip_relocation, monterey:       "cc8b396ad5b820930f6dd9ff60145b423a2fd5840781f34f716880f00ef44371"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0df03fabcb07866f6e85c333b6ea8c0ed933d6d3f4697fd1691a2b7eeafed32e"
   end
 
   depends_on xcode: ["10.0", :build]

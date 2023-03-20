@@ -4,7 +4,7 @@ class Zbar < Formula
   url "https://linuxtv.org/downloads/zbar/zbar-0.23.90.tar.bz2"
   sha256 "9152c8fb302b3891e1cb9cc719883d2f4ccd2483e3430783a2cf2d93bd5901ad"
   license "LGPL-2.1-only"
-  revision 2
+  revision 4
 
   livecheck do
     url :homepage
@@ -12,15 +12,13 @@ class Zbar < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_ventura:  "0148fabe1084ac13f107a34c15e69a68a4e0de8c1212550ea927d5873450843b"
-    sha256 arm64_monterey: "e9b2610d5fa22cd12a463ac2701240acc8f6e1c1c190e6fbe1e8f56b12fb695e"
-    sha256 arm64_big_sur:  "66d7b6a0b9cc69e2d0786aa626577abc917adba4dd76b79e7bc959afd9eefb7c"
-    sha256 ventura:        "e7b877bc80e132b018fe786882ade65d5650ab81ae7e087c81f1a61d278ffb7f"
-    sha256 monterey:       "e3f3cd2101683ec1e5d129d9c590f9e61283dd078968231211c994ebd919eeeb"
-    sha256 big_sur:        "7a440c19a50c6dd6ebf77b41a254e78fa5ffc641877ae180d131f1cc0d2f4e6b"
-    sha256 catalina:       "6524034479ef1b0329914bba94b9a778f07436a4fdcef8d5685df31152a1d990"
-    sha256 x86_64_linux:   "b95de47606556882a0e828e77e7230a3e02d49df3fac48d6692f18e33a9e88b6"
+    sha256 arm64_ventura:  "a556e1d3761eef86b007225b17c1e2e3bd3d8f5c0586c96b9db95261012623e5"
+    sha256 arm64_monterey: "ecb4a7174906195486f0f9badabc2e5affd732022fc9e3b832c1b7a462a3e203"
+    sha256 arm64_big_sur:  "2e7a16f085ca08bd70c1ab3b8d88683281ea51481c3f1c26402c2b59f949fa6d"
+    sha256 ventura:        "8349004627c6741ecc50f1e9410be7ac4149ec7ad326c2c8e6896f23986d2f70"
+    sha256 monterey:       "853aa15556c0ccd130dd35074cfd67840720583d3e8564f7c9c1fee101c5d9ac"
+    sha256 big_sur:        "3b8169dcfeaed1f704084073f93c619510c415b37454d1a0858d5bd689b89911"
+    sha256 x86_64_linux:   "ef7a2cf8345087907b68a3ba10874aca3bcc9a8f8f3bafcd30dc8df4c5255fab"
   end
 
   head do

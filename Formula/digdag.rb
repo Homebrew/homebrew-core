@@ -1,10 +1,9 @@
 class Digdag < Formula
   desc "Workload Automation System"
   homepage "https://www.digdag.io/"
-  url "https://dl.digdag.io/digdag-0.10.4.jar"
-  sha256 "2020fa9395e74e14fdf4ada93bff0684dcea64f564788afd6a3ecc54e3bbd4bf"
+  url "https://dl.digdag.io/digdag-0.10.5.jar"
+  sha256 "97b50ae37dd5f96e44e9557846ba7b5cddfea0b1b927d7597886dc604f9387b6"
   license "Apache-2.0"
-  revision 1
 
   livecheck do
     url "https://github.com/treasure-data/digdag.git"
@@ -12,7 +11,13 @@ class Digdag < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "1e8af040e14f05c1f648ef90f3e0e7da9037d7e813cfb1fc7c644d174244d0cf"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e37d28f1924c0650e7cdb521183d22ac6121ed56369108ed95ad3fe59a29646e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e37d28f1924c0650e7cdb521183d22ac6121ed56369108ed95ad3fe59a29646e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e37d28f1924c0650e7cdb521183d22ac6121ed56369108ed95ad3fe59a29646e"
+    sha256 cellar: :any_skip_relocation, ventura:        "e37d28f1924c0650e7cdb521183d22ac6121ed56369108ed95ad3fe59a29646e"
+    sha256 cellar: :any_skip_relocation, monterey:       "e37d28f1924c0650e7cdb521183d22ac6121ed56369108ed95ad3fe59a29646e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e37d28f1924c0650e7cdb521183d22ac6121ed56369108ed95ad3fe59a29646e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b90e288ab66481212d6aa5e095300b1b769eee3b5e8ef20a1b334977bed073e5"
   end
 
   depends_on "openjdk@11"

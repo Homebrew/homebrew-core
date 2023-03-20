@@ -9,21 +9,22 @@ class ShallowBackup < Formula
   head "https://github.com/alichtman/shallow-backup.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "475d0b7428cb90ad8c7663325d3147a96b642db68ab53ea2339979b480b32c9a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8473f3d4d670e4dcf7133fa0f3e9ab0165a780574b71c0290f8bb9fd898b0d73"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "dac2ae642493ac2cf4ff7af73f1593bb483c9a7a2452f5068ea2e825b021258f"
-    sha256 cellar: :any_skip_relocation, ventura:        "a6ddf406cde6f44577a187c4d9e57ce46188876dbbe3cae33ad0246afc53d37c"
-    sha256 cellar: :any_skip_relocation, monterey:       "e47de84bb89e2d8c54c964a61c8b88b7d5725b5de848736a854af1d2f5e93cc7"
-    sha256 cellar: :any_skip_relocation, big_sur:        "49064af2df9c7b31992af5dfb2bb1c62d8c29a42405d1600b95bbcf0a3cb9479"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9f9f909639dc42912157c0290abcfb6c06689982e68eb3f8dfd2c0298e47b8e1"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9a2492b461b1d87eddb49a0e4ab40ef8b190534d6e1099ee77ae911314df60e3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "95516355dcc3104cbcd281de234fd2da04453fb87ac9ae361b2b1cd407ed9f3d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "af25f9064dbe01dbb07ea2193552949d793412bb0caca81e9e5c400d282d9118"
+    sha256 cellar: :any_skip_relocation, ventura:        "226758d858d2b74af070faa17318640734f4e248a30b23016f28fd7eb6d643cf"
+    sha256 cellar: :any_skip_relocation, monterey:       "62d9ced2450c7d5e54cecee708c52702f710aab25501f6750ea0daa4babc4423"
+    sha256 cellar: :any_skip_relocation, big_sur:        "fd12ad190208a24871f6aa7e95f1af096f00601c0f926c6ae657294c01fc167a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d8df8ff954a6fefd42c44bf2486bd319bfba4deac071dcb71c01357962a928c1"
   end
 
   depends_on "python@3.11"
   depends_on "six"
 
   resource "blessed" do
-    url "https://files.pythonhosted.org/packages/e5/ad/97453480e7bdfce94f05a983cf7ad7f1d90239efee53d5af28e622f0367f/blessed-1.19.1.tar.gz"
-    sha256 "9a0d099695bf621d4680dd6c73f6ad547f6a3442fbdbe80c4b1daa1edbc492fc"
+    url "https://files.pythonhosted.org/packages/25/ae/92e9968ad23205389ec6bd82e2d4fca3817f1cdef34e10aa8d529ef8b1d7/blessed-1.20.0.tar.gz"
+    sha256 "2cdd67f8746e048f00df47a2880f4d6acbcdb399031b604e34ba8f71d5787680"
   end
 
   resource "click" do
@@ -42,13 +43,13 @@ class ShallowBackup < Formula
   end
 
   resource "GitPython" do
-    url "https://files.pythonhosted.org/packages/22/ab/3dd8b8a24399cee9c903d5f7600d20e8703d48904020f46f7fa5ac5474e9/GitPython-3.1.29.tar.gz"
-    sha256 "cc36bfc4a3f913e66805a28e84703e419d9c264c1077e537b54f0e1af85dbefd"
+    url "https://files.pythonhosted.org/packages/ef/8d/50658d134d89e080bb33eb8e2f75d17563b5a9dfb75383ea1a78e1df6fff/GitPython-3.1.30.tar.gz"
+    sha256 "769c2d83e13f5d938b7688479da374c4e3d49f71549aaf462b646db9602ea6f8"
   end
 
   resource "inquirer" do
-    url "https://files.pythonhosted.org/packages/38/26/9ad1d6c8007af64989bf45500f00e21014f04a2a6b3413c6166c07cf4e98/inquirer-3.0.0.tar.gz"
-    sha256 "528725bfd7e18b063727529d2983cfa61e0e512042365a7697d89930588cb686"
+    url "https://files.pythonhosted.org/packages/9f/aa/ac9ffe7c70ece25ee552879a6132756de0cbda506e61aa9e4d4ee17be075/inquirer-3.1.2.tar.gz"
+    sha256 "d5b4dafe5cbb9edf5991b77bd08053b683e13b600bf9174c0bda5a35b3e88ec5"
   end
 
   resource "python-editor" do
@@ -67,8 +68,8 @@ class ShallowBackup < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/89/38/459b727c381504f361832b9e5ace19966de1a235d73cdbdea91c771a1155/wcwidth-0.2.5.tar.gz"
-    sha256 "c4d647b99872929fdb7bdcaa4fbe7f01413ed3d98077df798530e5b04f116c83"
+    url "https://files.pythonhosted.org/packages/5e/5f/1e4bd82a9cc1f17b2c2361a2d876d4c38973a997003ba5eb400e8a932b6c/wcwidth-0.2.6.tar.gz"
+    sha256 "a5220780a404dbe3353789870978e472cfe477761f06ee55077256e509b156d0"
   end
 
   def install
@@ -86,6 +87,6 @@ class ShallowBackup < Formula
     assert_predicate testpath/".config/shallow-backup.conf", :exist?
 
     # Checks if the test file is in the config
-    system "shallow-backup -show | grep test.svg"
+    assert_match "test.svg", shell_output("#{bin}/shallow-backup -show")
   end
 end

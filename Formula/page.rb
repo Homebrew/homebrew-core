@@ -1,23 +1,25 @@
 class Page < Formula
   desc "Use Neovim as pager"
   homepage "https://github.com/I60R/page"
-  url "https://github.com/I60R/page/archive/v4.6.2.tar.gz"
-  sha256 "8a3fe23e8460ef0549a44d5a8e67d16e87e96a00c6ac40b9365b6a2d406778a8"
+  url "https://github.com/I60R/page/archive/v4.6.3.tar.gz"
+  sha256 "51cf01933180499b27027fcdbda067f0cf80cebaa06d62400b655419f1806d46"
   license "MIT"
   head "https://github.com/I60R/page.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "009fb5f52405281bd8e0bc39ee9617c8d468d6da46ef9518604b976916b0d7a1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6f5ec8d9d1c1164ed62c3545fe5f567c7e68db21efe7e33d34af2879e1b94155"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "36daadd6a77f932fa1bd82f292b71380f677e83079cac1b1a0b85cce395e4808"
-    sha256 cellar: :any_skip_relocation, ventura:        "4e3f6358bf5fbd4b38b90c33f3415f838030a4df3caf6517f99a00b034dfec0b"
-    sha256 cellar: :any_skip_relocation, monterey:       "42ea36b8eda12ad56070d4b91167b159989850a4b11aa69d6847530956d5d158"
-    sha256 cellar: :any_skip_relocation, big_sur:        "71125dc37df4ef17b2aa24a6f039a35988c3ef9817634b6de8d83a8ff65d3a8b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "27f7441fb37414346775ece63febdd4cc54903c5cba3a044a90b48c907b82876"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "115a1bee4a08a2e829bd9474e5896cc5f9ac415a509b29b26675bb14206465dc"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7dff421473d67b5b753c57deb9221fbdc863ba341e72b41b1a90ce71286ced4c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8e41089194d5a0afbe9b9e7f0876ff9a30261ddcc983c2b8cc708e917cd5a0f3"
+    sha256 cellar: :any_skip_relocation, ventura:        "9711f49884c59be816fa97363993b08b6f1655b1a4ec8de8a89c6e95355976b9"
+    sha256 cellar: :any_skip_relocation, monterey:       "ad312adf9e277f5dede93292f1cfb5001c4ad3a26ac55f877e25690d3c386f15"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d9598c8b80efa0b238478f877b19be504a1b07d3b41c8932e227a6ea4505cda8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e9cac68f8653a7f517a1cbe7429e98743e94379bf96564c11e6b81c964cb279d"
   end
 
   depends_on "rust" => :build
   depends_on "neovim"
+
+  conflicts_with "tcl-tk", because: "both install `page` binaries"
 
   def install
     system "cargo", "install", *std_cargo_args

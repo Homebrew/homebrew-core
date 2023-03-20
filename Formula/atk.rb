@@ -16,18 +16,17 @@ class Atk < Formula
     sha256               x86_64_linux:   "4ffb42482b22fe9150193395fc3fc0a41d1f92e3a8c0aa7e9dd17aaef8ff6f7c"
   end
 
+  depends_on "gettext" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkg-config" => [:build, :test]
   depends_on "glib"
 
   def install
-    mkdir "build" do
-      system "meson", *std_meson_args, ".."
-      system "ninja"
-      system "ninja", "install"
-    end
+    system "meson", "setup", "build", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do
@@ -39,21 +38,7 @@ class Atk < Formula
         return 0;
       }
     EOS
-    gettext = Formula["gettext"]
-    glib = Formula["glib"]
-    flags = %W[
-      -I#{gettext.opt_include}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
-      -I#{include}/atk-1.0
-      -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
-      -L#{lib}
-      -latk-1.0
-      -lglib-2.0
-      -lgobject-2.0
-    ]
-    flags << "-lintl" if OS.mac?
+    flags = shell_output("pkg-config --cflags --libs atk").chomp.split
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

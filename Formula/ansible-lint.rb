@@ -2,19 +2,19 @@ class AnsibleLint < Formula
   include Language::Python::Virtualenv
 
   desc "Checks ansible playbooks for practices and behaviour"
-  homepage "https://github.com/ansible/ansible-lint/"
-  url "https://files.pythonhosted.org/packages/24/84/19f148ada6996acd0408f8085bd6a5799acca7cd5f0d59cf4f8cf92f9aaa/ansible-lint-6.10.0.tar.gz"
-  sha256 "f5ecec58ebe7b6bfc4976be7d6e400411a8af05b0e1a19f15f25f59f3401348c"
+  homepage "https://ansible-lint.readthedocs.io/"
+  url "https://files.pythonhosted.org/packages/23/14/2a8876727995a0fb06925f032f18e95e0390400cead6801688129d0b647a/ansible-lint-6.14.2.tar.gz"
+  sha256 "de87ef104302c2c6fcb43798a75c42d4f0a5c07e887c2a1d07a0b5a9fb774de0"
   license all_of: ["MIT", "GPL-3.0-or-later"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c547854c6a8fd15f8b86389524770df9602cf84dd04b0a25b06fe8185bed986a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b91c157d5b9b463702bf656c58bf60387d760d83bd3dc620cf6d13cc4c2e31b8"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5e7fca61f7b0977dc3d6058425a08e34d892695d43a1a88880a23e8c3a86a6cf"
-    sha256 cellar: :any_skip_relocation, ventura:        "c42310b8db20bb1b401a75b27eb899a530b973cde8a84336dc2952a915c0e3dc"
-    sha256 cellar: :any_skip_relocation, monterey:       "60e3ca62785340be040c29da9dcfa0a2fa781b626e3cf12a0249d24f8084a0e1"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2b5a2313677b26363dc71bc1753ec9709b5c562fd5cd3bdafe33efa4f0d54882"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f5c49ab94a9e8d39d4b2c6f324a5d29c29bce2fb33b8d50359dc9814d0b03959"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "04daf6b64c58f0f927e3d58a490afe3dec099c339a805d45b22ce64985149652"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "24436e74ae9955b52a1cb4997eed93b59f4f28450d0783e572c568fb9b747cf7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "201e88880a1db6c272b959b31952d9d6ecbcd84e30ff816d865060ca44e3c638"
+    sha256 cellar: :any_skip_relocation, ventura:        "6b9938ee2465fe584326bacf430ab3055e975943fc03a4872981220afdf29dcd"
+    sha256 cellar: :any_skip_relocation, monterey:       "470c3b5a30336a6c8b4f8828effa2fc9f9c442dc157d5fd3a64ba03c41b01091"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7a0d92f5613ac2b983c6efd14e204288bcce77532f206c14ec183fac86e55280"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e034286d0185df8809f563fb91c16625c8bdb6418e79a212d979d7ab3f685ad9"
   end
 
   depends_on "pkg-config" => :build
@@ -25,14 +25,9 @@ class AnsibleLint < Formula
   depends_on "pyyaml"
   depends_on "yamllint"
 
-  resource "ansible-compat" do
-    url "https://files.pythonhosted.org/packages/b6/a1/bf63af6f20afa76b828956e67b811e76615cb06cbd44f5be1ff8cadb902a/ansible-compat-2.2.7.tar.gz"
-    sha256 "08deddcd0a1dc6baabe674b07c6ff882118492c123d281f56f01905271a7ffc4"
-  end
-
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/1a/cb/c4ffeb41e7137b23755a45e1bfec9cbb76ecf51874c6f1d113984ecaa32c/attrs-22.1.0.tar.gz"
-    sha256 "29adc2665447e5191d0e7c568fde78b21f9672d344281d0c6e1ab085429b22b6"
+    url "https://files.pythonhosted.org/packages/21/31/3f468da74c7de4fcf9b25591e682856389b3400b4b62f201e65f15ea3e07/attrs-22.2.0.tar.gz"
+    sha256 "c9227bfc2f01993c03f68db37d1d15c9690188323c067c641f1a35ca58185f99"
   end
 
   resource "bracex" do
@@ -40,14 +35,9 @@ class AnsibleLint < Formula
     sha256 "e7b23fc8b2cd06d3dec0692baabecb249dda94e06a617901ff03a6c56fd71693"
   end
 
-  resource "commonmark" do
-    url "https://files.pythonhosted.org/packages/60/48/a60f593447e8f0894ebb7f6e6c1f25dafc5e89c5879fdc9360ae93ff83f0/commonmark-0.9.1.tar.gz"
-    sha256 "452f9dc859be7f06631ddcb328b6919c67984aca654e5fefb3914d54691aed60"
-  end
-
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/d8/73/292d9ea2370840a163e6dd2d2816a571244e9335e2f6ad957bf0527c492f/filelock-3.8.2.tar.gz"
-    sha256 "7565f628ea56bfcd8e54e42bdc55da899c85c1abfe1b5bcfd147e9188cebb3b2"
+    url "https://files.pythonhosted.org/packages/0b/dc/eac02350f06c6ed78a655ceb04047df01b02c6b7ea3fc02d4df24ca87d24/filelock-3.9.0.tar.gz"
+    sha256 "7b319f24340b51f55a2bf7a12ac0755a9b03e718311dac567a0f4f7fabd2f5de"
   end
 
   resource "jsonschema" do
@@ -55,19 +45,29 @@ class AnsibleLint < Formula
     sha256 "0f864437ab8b6076ba6707453ef8f98a6a0d512a80e93f8abdb676f737ecb60d"
   end
 
+  resource "markdown-it-py" do
+    url "https://files.pythonhosted.org/packages/e4/c0/59bd6d0571986f72899288a95d9d6178d0eebd70b6650f1bb3f0da90f8f7/markdown-it-py-2.2.0.tar.gz"
+    sha256 "7c9a5e412688bc771c67432cbfebcdd686c93ce6484913dccf06cb5a0bea35a1"
+  end
+
+  resource "mdurl" do
+    url "https://files.pythonhosted.org/packages/d6/54/cfe61301667036ec958cb99bd3efefba235e65cdeb9c84d24a8293ba1d90/mdurl-0.1.2.tar.gz"
+    sha256 "bb413d29f5eea38f31dd4754dd7377d4465116fb207585f97bf925588687c1ba"
+  end
+
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/6b/f7/c240d7654ddd2d2f3f328d8468d4f1f876865f6b9038b146bec0a6737c65/packaging-22.0.tar.gz"
-    sha256 "2198ec20bd4c017b8f9717e00f0c8714076fc2fd93816750ab48e2c41de2cfd3"
+    url "https://files.pythonhosted.org/packages/47/d5/aca8ff6f49aa5565df1c826e7bf5e85a6df852ee063600c1efa5b932968c/packaging-23.0.tar.gz"
+    sha256 "b6ad297f8907de0fa2fe1ccbd26fdaf387f5f47c7275fedf8cce89f99446cf97"
   end
 
   resource "pyrsistent" do
-    url "https://files.pythonhosted.org/packages/b8/ef/325da441a385a8a931b3eeb70db23cb52da42799691988d8d943c5237f10/pyrsistent-0.19.2.tar.gz"
-    sha256 "bfa0351be89c9fcbcb8c9879b826f4353be10f58f8a677efab0c017bf7137ec2"
+    url "https://files.pythonhosted.org/packages/bf/90/445a7dbd275c654c268f47fa9452152709134f61f09605cf776407055a89/pyrsistent-0.19.3.tar.gz"
+    sha256 "1a2994773706bbb4995c31a97bc94f1418314923bd1048c6d964837040376440"
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/11/23/814edf09ec6470d52022b9e95c23c1bef77f0bc451761e1504ebd09606d3/rich-12.6.0.tar.gz"
-    sha256 "ba3a3775974105c221d31141f2c116f4fd65c5ceb0698657a11e9f295ec93fd0"
+    url "https://files.pythonhosted.org/packages/5e/0e/ef0a49be56dbc4052a086888cd2490e15fcc95b0eda79e9d0e737b1ab93d/rich-13.3.2.tar.gz"
+    sha256 "91954fe80cfb7985727a467ca98a7618e5dd15178cc2da10f553b36a93859001"
   end
 
   resource "ruamel.yaml" do
@@ -76,8 +76,8 @@ class AnsibleLint < Formula
   end
 
   resource "subprocess-tee" do
-    url "https://files.pythonhosted.org/packages/76/1b/653bc93bf15738ab2fe83a875d28354cbe7402b12e22801d35e5461fe3f2/subprocess-tee-0.4.0.tar.gz"
-    sha256 "7ea885ff32cdb2b2d3b2a6c464492f2ee1ebbf324e50598d75de4f6f3ea0f149"
+    url "https://files.pythonhosted.org/packages/f6/a0/acafd85c7c0aead293a16a70a49aba20ba2af9478771370b2897eae6059c/subprocess-tee-0.4.1.tar.gz"
+    sha256 "b3c124993f8b88d1eb1c2fde0bc2069787eac720ba88771cba17e8c93324825d"
   end
 
   resource "wcmatch" do
@@ -99,11 +99,12 @@ class AnsibleLint < Formula
     ENV["ANSIBLE_REMOTE_TEMP"] = testpath/"tmp"
     (testpath/"playbook.yml").write <<~EOS
       ---
-      - hosts: all
+      - name: Homebrew test
+        hosts: all
         gather_facts: false
         tasks:
-        - name: ping
-          ansible.builtin.ping:
+          - name: Ping
+            ansible.builtin.ping:
     EOS
     system bin/"ansible-lint", testpath/"playbook.yml"
   end

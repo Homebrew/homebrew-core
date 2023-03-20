@@ -9,12 +9,12 @@ class Luajit < Formula
   # Update this to the tip of the `v2.1` branch at the start of every month.
   # Get the latest commit with:
   #   `git ls-remote --heads https://github.com/LuaJIT/LuaJIT.git v2.1`
-  url "https://github.com/LuaJIT/LuaJIT/archive/8625eee71f16a3a780ec92bc303c17456efc7fb3.tar.gz"
+  url "https://github.com/LuaJIT/LuaJIT/archive/505e2c03de35e2718eef0d2d3660712e06dadf1f.tar.gz"
   # Use the version scheme `2.1.0-beta3-yyyymmdd.x` where `yyyymmdd` is the date of the
   # latest commit at the time of updating, and `x` is the number of commits on that date.
   # `brew livecheck luajit` will generate the correct version for you automatically.
-  version "2.1.0-beta3-20221208.2"
-  sha256 "1156729a8e6254c3c44a31f10bb96773f2bd44c0adb813f9d38c6b03d4766fa8"
+  version "2.1.0-beta3-20230221.4"
+  sha256 "67c88399b901a22e9a236f4b77e6fe39af00f6b7144ce9dd6f51141d921f1076"
   license "MIT"
   head "https://luajit.org/git/luajit-2.0.git", branch: "v2.1"
 
@@ -40,13 +40,13 @@ class Luajit < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "6efdd83ab63b480383faebd8604b51fc9ec7ce99f905e71a8d0c2cf56a69bcdd"
-    sha256 cellar: :any,                 arm64_monterey: "3017577e47f367490fecd8974c54bf8b59a7bda4f3f3d49f95d480ca8a1fa514"
-    sha256 cellar: :any,                 arm64_big_sur:  "8c2fae48f128f4c46ac6798beed39cef5f57f9e1d50effa5dfe3ebb473260260"
-    sha256 cellar: :any,                 ventura:        "6018d168694b6a7aafa71c8337623589cf33ef21c5dd162bcb226d1d6da9e973"
-    sha256 cellar: :any,                 monterey:       "a1b2c7b71dc8a0be15cde0db24c206a223591f07b69259fa1547c05dfbf0835e"
-    sha256 cellar: :any,                 big_sur:        "6fc08d42fe27afe064e8aeb70378a11061ee08340813610fa847ff01a34296cd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aa43af6d85643aa40606168c611dd2420f227a6e56ce59a7963fec4bccee89f1"
+    sha256 cellar: :any,                 arm64_ventura:  "2646bec768991d8ce8b3f9769e85b8df1b95743e0513abf1381752903e7690cd"
+    sha256 cellar: :any,                 arm64_monterey: "2319bb87370f3af7e867b018cee66e4e2a47fb57a06482d504b6af3efe07beb3"
+    sha256 cellar: :any,                 arm64_big_sur:  "fde5aba0499f146d0e5692d56d07170689d815351007d9454c6817a76d212df5"
+    sha256 cellar: :any,                 ventura:        "3a6f80b482fa6c582e377b32f3b65122d24673f6e02d61d5c8c6a88516e83a09"
+    sha256 cellar: :any,                 monterey:       "a335657c2a3fc21381c51869bace5e8fecdc03962606ff20b3837b21af68dbc4"
+    sha256 cellar: :any,                 big_sur:        "90e1d75a32ca6dab26428a172cf930b43586259e40a46f0a0e073d76d62e08ca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e9d5edd5b67ab6a31ed0c7d393b4fcefad82b66686494bcc545c3783600a4332"
   end
 
   def install
@@ -104,7 +104,7 @@ class Luajit < Formula
     system bin/"luajit", "-b", "-o", "osx", "-a", "arm64", "empty.lua", "empty.o"
     assert_predicate testpath/"empty.o", :exist?
 
-    # Check that we're not affected by https://github.com/LuaJIT/LuaJIT/issues/865.
+    # Check that we're not affected by LuaJIT/LuaJIT/issues/865.
     require "macho"
     machobj = MachO.open("empty.o")
     assert_kind_of MachO::FatFile, machobj

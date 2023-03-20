@@ -1,23 +1,23 @@
 class Tig < Formula
   desc "Text interface for Git repositories"
   homepage "https://jonas.github.io/tig/"
-  url "https://github.com/jonas/tig/releases/download/tig-2.5.7/tig-2.5.7.tar.gz"
-  sha256 "dbc7bac86b29098adaa005a76161e200f0734dda36de9f6bd35a861c7c29ca76"
+  url "https://github.com/jonas/tig/releases/download/tig-2.5.8/tig-2.5.8.tar.gz"
+  sha256 "b70e0a42aed74a4a3990ccfe35262305917175e3164330c0889bd70580406391"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "e5714a87f936aa18a67e0194f1620322cd414a5cbe7a60c162fe019ca1089441"
-    sha256 cellar: :any,                 arm64_monterey: "223dec6016b112b2657201767e02956e25fed98e31e4fdfaed25388cb75c4b94"
-    sha256 cellar: :any,                 arm64_big_sur:  "fef3c697604de0bd9c63d6a7a215477f2b607b38446e12d8b89fd0e29491476f"
-    sha256 cellar: :any,                 ventura:        "54fbb690bb8007fd3923a0893059a8c4059b7b47aec9491ecd2e2632e3798bc3"
-    sha256 cellar: :any,                 monterey:       "0e589cfbd49883f2c7c36b33fddfff2c87ae1b834d29291d07b8d01fbeda5a2d"
-    sha256 cellar: :any,                 big_sur:        "67d6a03327396458bf3c5c0ce55448d26be124ea90bfe7203da46d5eaf7f49a9"
-    sha256 cellar: :any,                 catalina:       "38fc1871df548ed93dcd7318f51e18818c4d0c341f89ddc5bb888b5241375d04"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c06537c36fe31445917ed77f8c97778bc59b88cc8ac00f140bb990a9b71a303f"
+    sha256 cellar: :any,                 arm64_ventura:  "a433db97a4470854452df7310d11758fea48ffd75a4e1e8a9f3b3ddae789dc44"
+    sha256 cellar: :any,                 arm64_monterey: "f6fde5e50a8665094751838fafa4ffab2548ffc46e6676b10ce39074429d2cb7"
+    sha256 cellar: :any,                 arm64_big_sur:  "6fdce8500cbc679b4ef77d545135ffe93be67a55858966a3775c06ce1d6e35ec"
+    sha256 cellar: :any,                 ventura:        "e1bd241e23b1dc78017372f04959356801e23a2750b51d84e564e4ed124185e9"
+    sha256 cellar: :any,                 monterey:       "768e3c0d3d8c4842bce7de7d63e7bcf9d092c8872b7a67d2c737efaf0aa81d6f"
+    sha256 cellar: :any,                 big_sur:        "1637bc2253879491360476a653b798a9736e585ee543e3ef0f54f571bdbee7c2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "962b5b01903e102b59a90b6a321b1d23d1bbda68b19d715f890a4b4a62c0421f"
   end
 
   head do
-    url "https://github.com/jonas/tig.git"
+    url "https://github.com/jonas/tig.git", branch: "master"
 
     depends_on "asciidoc" => :build
     depends_on "autoconf" => :build
@@ -27,6 +27,7 @@ class Tig < Formula
 
   # https://github.com/jonas/tig/issues/1210
   depends_on "ncurses"
+  depends_on "pcre2"
   depends_on "readline"
 
   def install

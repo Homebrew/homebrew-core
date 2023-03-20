@@ -29,7 +29,7 @@ class GnomeRecipes < Formula
   depends_on "libarchive"
   depends_on "libcanberra"
   depends_on "librest" # for goa
-  depends_on "libsoup@2"
+  depends_on "libsoup@2" # libsoup 3 issue: https://gitlab.gnome.org/GNOME/recipes/-/issues/155
   depends_on "libxml2"
 
   resource "goa" do

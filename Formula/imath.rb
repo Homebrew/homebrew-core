@@ -1,19 +1,18 @@
 class Imath < Formula
   desc "Library of 2D and 3D vector, matrix, and math operations"
   homepage "https://www.openexr.com/"
-  url "https://github.com/AcademySoftwareFoundation/Imath/archive/refs/tags/v3.1.6.tar.gz"
-  sha256 "ea5592230f5ab917bea3ceab266cf38eb4aa4a523078d46eac0f5a89c52304db"
+  url "https://github.com/AcademySoftwareFoundation/Imath/archive/refs/tags/v3.1.7.tar.gz"
+  sha256 "bff1fa140f4af0e7f02c6cb78d41b9a7d5508e6bcdfda3a583e35460eb6d4b47"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "0b0165f1503e0230d80cee448635ddb08e376d62069b9b426f5e363bb5cc8ba6"
-    sha256 cellar: :any,                 arm64_monterey: "ff6169b5986b709c9febe2b09929abc388a188be8041390a95d3f7b6f5814a22"
-    sha256 cellar: :any,                 arm64_big_sur:  "a94b22dd11a845ba003521ad6f80f4c2195059dd760047a07a802fd59d308f1b"
-    sha256 cellar: :any,                 ventura:        "66b235ef04409e3cdb50d419b32fba3e16680aa11211d8b0135393e5b9e609b4"
-    sha256 cellar: :any,                 monterey:       "9afc755be66e72fea866b8563934e704bc63ac831cca3b0e3661beb47fdb52ef"
-    sha256 cellar: :any,                 big_sur:        "1414bb873ce5225aca9173aaf8f4f74dea587c2077d4c934f36ac1e6cdf884f1"
-    sha256 cellar: :any,                 catalina:       "26b26215e534e8ae8a6ed2c95b04e0706932ef4aac9aef4a84396433c068d11f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f528de89730addebee49712701b2ee345b3ca8166b0e0f926a594652fdc85bfb"
+    sha256 cellar: :any,                 arm64_ventura:  "d3cbdbbd65ceb35b81035c0dd3383e60e8e7a3669c7e401c7321f0fcf6e7df3c"
+    sha256 cellar: :any,                 arm64_monterey: "41c9b6b892652ca0029a04a274fae07f53cb87829837265ce0bb6ae71b3893da"
+    sha256 cellar: :any,                 arm64_big_sur:  "87b27a37039375081ecf88ab3efd78835b5d6d9bff8bfc13e73f0eb152dd83dc"
+    sha256 cellar: :any,                 ventura:        "db0c7b03a7c218097c50e929280a33d82a4bb6e817a0ebf7170b0fc83c10cc27"
+    sha256 cellar: :any,                 monterey:       "5e9e860b0156cf2cbab7eef8c4fe2d068c192b522b348958d3a1ab8f4c7130eb"
+    sha256 cellar: :any,                 big_sur:        "78460fe6dfcdd140b61a1cf9ee44a04df43911e5550e9f95961b267f1d8b931b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f650fac2f979a3eda5d86c9d0e98687a987428fac960659844f5bc831feb8d8c"
   end
 
   depends_on "cmake" => :build

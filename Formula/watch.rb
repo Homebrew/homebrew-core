@@ -2,19 +2,19 @@ class Watch < Formula
   desc "Executes a program periodically, showing output fullscreen"
   homepage "https://gitlab.com/procps-ng/procps"
   url "https://gitlab.com/procps-ng/procps.git",
-      tag:      "v4.0.2",
-      revision: "135069f2b2d007353a549d7589a97aeec55ab3ed"
+      tag:      "v4.0.3",
+      revision: "806eb270f217ff7e1e745c7bda2b002b5be74be4"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
   head "https://gitlab.com/procps-ng/procps.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "0a0e9b20a5d963727fe871d036d36e8c6d9acd512f37afd89f2c776415df1e62"
-    sha256 cellar: :any,                 arm64_monterey: "295f41f104c803e7f8eeb9143f78d9d0c3ab0a586a9b21ef10d51f35f6aa5134"
-    sha256 cellar: :any,                 arm64_big_sur:  "f4be2f3608b91a6e1ec8d96301c7d1cc64e9f826db37c396f6145dd0c326cd80"
-    sha256 cellar: :any,                 ventura:        "c46ff9d0553bf1e0b521ea918bae5c37947082a60c429572d2684f3bf0adff23"
-    sha256 cellar: :any,                 monterey:       "e1fe02414d939a45b709243ccb5689d9619afbb3e7208af3f636c3b5a32dd52b"
-    sha256 cellar: :any,                 big_sur:        "a69794ac246a20aca413883e44fefeb34557caa52e6c655bba6822df140a3ad1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ce1c3480a970bf4415aded2f6b8ec57744a1b25e385ac32f705a681e4b9b4b2d"
+    sha256 cellar: :any,                 arm64_ventura:  "0a5090f84e5392c6bf5d00bbf6f61cd99935165a8a05e74d7c97aa9ea25a99b1"
+    sha256 cellar: :any,                 arm64_monterey: "02af446134c00742c47e54728d1084421b1fe1d7cc9757d27884ed05adf1e5be"
+    sha256 cellar: :any,                 arm64_big_sur:  "9e9411d482540eaa77872dcb971e7aaed55f2938f3ef10bb8a24e4d39dab1c6e"
+    sha256 cellar: :any,                 ventura:        "9c19ed7b3fd942dd2d889596a17c9d78469d8ab32a7e29eeaeeae3c0b2cdf09b"
+    sha256 cellar: :any,                 monterey:       "cdf2be215979e9529f232f8fbc444ddfe2cfe025a8301e529248c1d8a0040ec3"
+    sha256 cellar: :any,                 big_sur:        "89e4812e861078367f940028413f0bdaaf3a6f2d831f16e3f45022d54f855076"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "834c0202985476955c535679f23c806a2fe1bbf7b11fcddea32ef3225fe0e2be"
   end
 
   depends_on "autoconf" => :build

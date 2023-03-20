@@ -4,23 +4,33 @@ class Portmidi < Formula
   url "https://github.com/PortMidi/portmidi/archive/refs/tags/v2.0.4.tar.gz"
   sha256 "64893e823ae146cabd3ad7f9a9a9c5332746abe7847c557b99b2577afa8a607c"
   license "MIT"
+  revision 1
   version_scheme 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "4d1eacabbed9b9cc21f5891126b95474c410072736d1e0f0c69c85a1d05ee863"
-    sha256 cellar: :any,                 arm64_monterey: "e72738db9423088d59d65c5d41a41c17a6a929c286122c53dc8377ba48bae523"
-    sha256 cellar: :any,                 arm64_big_sur:  "6ef793d31a216d3ab6326ca7342c8a18b7e9e1432386421cf9a3a6a675bf4e02"
-    sha256 cellar: :any,                 ventura:        "fd8e93c75f7a823b4e592dfa7f951e6a4f2c2536c8262ae443e1de073d19c9e5"
-    sha256 cellar: :any,                 monterey:       "62fbb028d9eeb83d047559f0f7f6a7c23d586340f8314135cc369ca08e276a7c"
-    sha256 cellar: :any,                 big_sur:        "b69592ca4c66139bf269b33d45caede69a883f2e99bc8e6cca6d8db91c71df49"
-    sha256 cellar: :any,                 catalina:       "2b9d9436b11340384d5f447d05e765d48dbd9a3e38edff58d49193d1a4ba097f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3cb867e2067ab2610c4970281f93a7c21109f1cacd699cf66d965c4a87fe6a50"
+    sha256 cellar: :any,                 arm64_ventura:  "2d722c4357f6263f73456060dc5d131eb0b3b34ea54bef1cfe47d15bdc4ed75f"
+    sha256 cellar: :any,                 arm64_monterey: "94415b613563629ea6425c629dc768e3c9319823870e948c4060742d24401588"
+    sha256 cellar: :any,                 arm64_big_sur:  "f8ea203ccc085feee9e2e5c8f97ebcd59117f41331ac654dc542cfa8a901e2a9"
+    sha256 cellar: :any,                 ventura:        "505796ff7499cb66673b8774af23109d1803cd0ca79e45de041d66985cb553e6"
+    sha256 cellar: :any,                 monterey:       "7e348bdf4837001ff61ebad737ee19326a92c11ea2e122874abb39246a15b99e"
+    sha256 cellar: :any,                 big_sur:        "3025725eb9196f45005ee6305883d78fb98fd6412569fdb2c3685e9f6f117009"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "af653a873aa1e1a5255269323d28c28b97c6860f52687dc4677020aa5bfbf7de"
   end
 
   depends_on "cmake" => :build
 
   on_linux do
     depends_on "alsa-lib"
+  end
+
+  # Upstream patch, should be included in 2.0.5
+  # Fixes the following CMake error:
+  # The link interface of target "PortMidi::portmidi" contains:
+  #  Threads::Threads
+  # but the target was not found.
+  patch do
+    url "https://github.com/PortMidi/portmidi/commit/a47be8c58b25e2c122588e0b56306c0cfdce756c.patch?full_index=1"
+    sha256 "aeeb22a3809fb79d370003936a6d5b110d33cfc88b39fc0f83d060e1b79dab4c"
   end
 
   def install

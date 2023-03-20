@@ -7,34 +7,39 @@ class ClangFormat < Formula
   head "https://github.com/llvm/llvm-project.git", branch: "main"
 
   stable do
-    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-15.0.6/llvm-15.0.6.src.tar.xz"
-    sha256 "0b32199401f27e2e0353846a8c5fbadd77beca2570654fb9ef7ac9b7f26967e3"
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-16.0.0/llvm-16.0.0.src.tar.xz"
+    sha256 "bce6fc19c48501546097e7b839c9ee376ea23b5cfd09199de8e42d5a5b5d4aae"
 
     resource "clang" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-15.0.6/clang-15.0.6.src.tar.xz"
-      sha256 "10119ae195f1b4f979fe42e67b781e175b0c0d4e982fd6a2f44c4aa7fc925233"
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-16.0.0/clang-16.0.0.src.tar.xz"
+      sha256 "86d1348c8bb1ef13edecec19a0e68dc0db9b18b78f5de48d52ae7983edb9598f"
     end
 
     resource "cmake" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-15.0.6/cmake-15.0.6.src.tar.xz"
-      sha256 "7613aeeaba9b8b12b35224044bc349b5fa45525919625057fa54dc882dcb4c86"
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-16.0.0/cmake-16.0.0.src.tar.xz"
+      sha256 "04e62ab7d0168688d9102680adf8eabe7b04275f333fe20eef8ab5a3a8ea9fcc"
+    end
+
+    resource "third-party" do
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-16.0.0/third-party-16.0.0.src.tar.xz"
+      sha256 "ddc21cdd290df012f8aa719767d80df3c37f49cfdb087d3e814087dcfaebfc7a"
     end
   end
 
   livecheck do
     url :stable
-    strategy :github_latest
     regex(%r{href=.*?/tag/llvmorg[._-]v?(\d+(?:\.\d+)+)}i)
+    strategy :github_latest
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fbf56abfb24a21c165be6354c24784fda0404eb0009acb24e7764f985cc46396"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "863c6e225f28a486e59d9581a15a138f12a79be7ec0e88bfbb7a13dce69caed2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9dff09df90416010de10c0f2d5827d7088f752747b79c4b1dc2fdbfc8ec82bf2"
-    sha256 cellar: :any_skip_relocation, ventura:        "eaa6987f545e773b2af7030555198e441ce18ff1fc0be8728757cb167e271a4b"
-    sha256 cellar: :any_skip_relocation, monterey:       "f2057cfecd05af214a620f359634001fe78fb25b21ec2c19885cd57e38af9e6f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "047d4e2321824b31d4ec0208a85e114e579255c210f62e0415f618f1fbbe3362"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6a0d2f67c64a65e9411420b052c6f3cc234879ff62c8306c3090c19298abb4cc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0f86c7a1674bad4bdf8779c2102902d048d42d82bbf5c5a845eba4c4083f00b5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "72c3430217f8154818e7c1b59aea5b590670852c72d1414da9fa92b3b18eb809"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4c157889feba9ac2d038bc5019ed47e4c674822917dee2bb1eedc0f03050da32"
+    sha256 cellar: :any_skip_relocation, ventura:        "a9b35f22bad0c02af0af0245f925f0a7952bb30a18b1c48a70dae40d891cf299"
+    sha256 cellar: :any_skip_relocation, monterey:       "6594499fc2efdaccef31749a5d977c932d67c9482b1dfdf2f1933e33ad96df47"
+    sha256 cellar: :any_skip_relocation, big_sur:        "14f2a8f3c0e224efd711f72e5e5680fdfb70c70c8272a846642fc042781e9f19"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d0e4e2cefc6f445d7f73de14c2d940c860c5f6c1c6c396777d66d2101bc424ce"
   end
 
   depends_on "cmake" => :build
@@ -57,6 +62,7 @@ class ClangFormat < Formula
       (buildpath/"src").install buildpath.children
       (buildpath/"src/tools/clang").install resource("clang")
       (buildpath/"cmake").install resource("cmake")
+      (buildpath/"third-party").install resource("third-party")
 
       buildpath/"src"
     end

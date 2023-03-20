@@ -1,26 +1,25 @@
 class Vsh < Formula
   desc "HashiCorp Vault interactive shell"
   homepage "https://github.com/fishi0x01/vsh"
-  url "https://github.com/fishi0x01/vsh/archive/v0.12.1.tar.gz"
-  sha256 "bba0012dda672d1c23e414f6a5da30a241dc8a0a212ff49236f880fcdf68e446"
+  url "https://github.com/fishi0x01/vsh/archive/refs/tags/v0.12.2.tar.gz"
+  sha256 "713d8f8901c7fc3b2c9c620ce928fa17e3b5a5f949d0dd37ad5ad48ae46dab4b"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "07ea4baf0973e766def1143da13a9aa5e4470c7d0138bd13229e4cadbbdc1c61"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "26eab160879dd577cf97db36ff408bdec104c6c539ec2327dca68a63747ec7f6"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "be7c3c523c6569de739931d58efa026a27d0c11eac9f346ba7faf868cf44bef7"
-    sha256 cellar: :any_skip_relocation, ventura:        "3d69c69cb00af2c04526fc3997b324962cb9197fa8503503abeb0588966b9b6f"
-    sha256 cellar: :any_skip_relocation, monterey:       "5f3e7266a0a9490181027542debb58ab4bb80eaf629d8a3bbbdc4af828045608"
-    sha256 cellar: :any_skip_relocation, big_sur:        "65d5395f60ec5fd1e9102d7f9e631771a81d0d4c82a21286dc7cd504c8b6a62f"
-    sha256 cellar: :any_skip_relocation, catalina:       "a0d65e2cde343394ffa0fc8a83bae0f6e601c84021cead1768d5abab8be510c8"
-    sha256 cellar: :any_skip_relocation, mojave:         "e3c6daf68d62eea77e5fd51499cbd7298ace43e98ebf9810a786dd2f89cd825d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b9c44954fac3407c4319195d5307124c880005cd4db29639385a5704c31a639f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "871ee8e3e5c1932489003c5957639f3a79686355b4f59804ecd5cd81d21411a1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "53ffd41f78569a0a90d14c10042b872aed3ec9157712ca0c7f9d23cc693bad2a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "04d0cc010e2f5e7e53ced4cfb0bf9154affb30d24f4d81fe0d3ddf360f03671f"
+    sha256 cellar: :any_skip_relocation, ventura:        "315c73a67edf5b6dc7c55b3b9bf3553760b0d665b9292479dc839125e864d7f6"
+    sha256 cellar: :any_skip_relocation, monterey:       "f6ce8998843e3c16788807ab0c5a9a88ce077ddc9999db307f14cb2ba6e41184"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4c01ddb42c6236f01d1e79f5392a3638926a19769cf230a54e2bcb4f35c8383c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ffc2745dc23d2ca0e8086d800c808a407819ef59038bc3d86981c15e5235e481"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args, "-ldflags", "-X main.vshVersion=v#{version}"
+    ldflags = "-s -w -X main.vshVersion=v#{version}"
+    system "go", "build", *std_go_args(ldflags: ldflags)
   end
 
   test do

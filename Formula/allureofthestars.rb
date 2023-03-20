@@ -4,17 +4,17 @@ class Allureofthestars < Formula
   url "https://hackage.haskell.org/package/Allure-0.11.0.0/Allure-0.11.0.0.tar.gz"
   sha256 "6125cc585e2a5f28c88855c3c328385c1f21bed093d7606478f1b2af0cb2b6d6"
   license all_of: ["AGPL-3.0-or-later", "GPL-2.0-or-later", "OFL-1.1", "MIT", :cannot_represent]
-  revision 2
+  revision 3
   head "https://github.com/AllureOfTheStars/Allure.git", branch: "master"
 
   bottle do
-    sha256 arm64_ventura:  "7b817a675a66d28cd4d431ebe632f191c008268dd6e4e220f4f0a2ba537b0214"
-    sha256 arm64_monterey: "6ae827beabe27357dc2508cb2df02ee6fc91334b82b89f7f224c1b2d1547f950"
-    sha256 arm64_big_sur:  "b5575dc7c4003a656fd86e9bb6ccc1bb32ca6e7cc69b269b5119185fe026d4ef"
-    sha256 ventura:        "a55f0d42d41db620f24a58b4254e201805f096f9df3900bc73d4494992c7ff9d"
-    sha256 monterey:       "2c92d0873b2bdf32c9ab2950c6e2c5c534160a077ab8b708a9a79364cc2caf4e"
-    sha256 big_sur:        "bae28a26bd04288ed862ba47abce420f52ac48a647e3d6ee9cb05e0ccd8cceb3"
-    sha256 x86_64_linux:   "9ea9c63c0ce29a8397987c038517853faf066e95b9967e7ff436797177d0a00c"
+    sha256 arm64_ventura:  "fd0bcad13d8a72f0fb647abaa816ea6a89e9accb379a95087a9330a2cbbb9c45"
+    sha256 arm64_monterey: "9def42a925523a981ef37509734525f66c88670ad496bd050c254f50c604756b"
+    sha256 arm64_big_sur:  "001b7aa8f3cf6a01bf268800506307af8aaa93f9cbc35b0aeba3c9448d71b5bd"
+    sha256 ventura:        "578478ee4183c38ace3983f088fab57dd1bd85a43dbb2bf2467e1d54c72ca832"
+    sha256 monterey:       "ca27c6cac20911aecada5b64b9945df16294934ce67fd16cd893635b8ba80f55"
+    sha256 big_sur:        "4f52a679dc9e50a12d6f3e63ed1ad997c81f6f83d426313ef9cf43d13874e4c3"
+    sha256 x86_64_linux:   "3d61f7f1f7d957c035bd84a8260ce7807115c7b989299cb205469a2a0fa75035"
   end
 
   depends_on "cabal-install" => :build

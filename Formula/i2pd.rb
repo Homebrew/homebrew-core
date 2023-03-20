@@ -1,19 +1,18 @@
 class I2pd < Formula
   desc "Full-featured C++ implementation of I2P client"
   homepage "https://i2pd.website/"
-  url "https://github.com/PurpleI2P/i2pd/archive/2.44.0.tar.gz"
-  sha256 "b653c845ac7a16fefab2ace78e3ae496c12b05304bb66e41e776071635d4e070"
+  url "https://github.com/PurpleI2P/i2pd/archive/2.47.0.tar.gz"
+  sha256 "c988baf23215c37d5f566b7b2059a3c168c78d157eac6dc04a30ac266c6335f0"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "428523046ee5eb138bf0d745c7adc20604a2b8348dfd37952226c09ef717db6c"
-    sha256 cellar: :any,                 arm64_monterey: "e2a7c0001e541b027b7b969c417aa07fe66b979cd42f4f91ff94d545d92ed608"
-    sha256 cellar: :any,                 arm64_big_sur:  "fd309abd53ba63105aa276b5b5d27d561095057d9c71da25ae8fb2b1e0464933"
-    sha256 cellar: :any,                 ventura:        "5b203af6f4a7a871b49b2da92261e179f557efdefa9190889c7b64dd0de6f816"
-    sha256 cellar: :any,                 monterey:       "7da92d874561d362b3fd66a2fd413a3464c86137fe94b1cd599925b752835617"
-    sha256 cellar: :any,                 big_sur:        "55b2608f0ab14401ea035344687c757c346714a5aee34d54909c9c0d7e0910c4"
-    sha256 cellar: :any,                 catalina:       "11a7435ef5962ba2fc2f8836faa5494fa9a80780e279df004d7045a77ad96bfe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fe5ef7064d6ba3018e64288510c5d5fd59bafd79af8ef817d51177528f767286"
+    sha256 cellar: :any,                 arm64_ventura:  "224fa30c3ceb3b8d154d33b78472a7a89adc0367fedff1900db0c1195ca7562c"
+    sha256 cellar: :any,                 arm64_monterey: "c280799689ef20dbe4c63ac59a38ced1ad44ae0981d6471a65f9ad30b26fc44a"
+    sha256 cellar: :any,                 arm64_big_sur:  "7f9d3f073d4e23c8fc8c86c04bd59c86a68050f35ed28a10aaac616addece86e"
+    sha256 cellar: :any,                 ventura:        "80666bc1643f7132edd7f17f67627223affcd50f5f3876d081307fefd483e346"
+    sha256 cellar: :any,                 monterey:       "4eed2fe4473912b3d42ca6aa2439c1f65aa874afa73b1ee86fb08b47abd70775"
+    sha256 cellar: :any,                 big_sur:        "88593781528dbe1813b94a5a12162bd3aaef2c5b81adf3342eb13f0c81438543"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4d5426afd3b91529ded9aad53896bec18ddfbfee5bb4dc3da719ea76de9f7cff"
   end
 
   depends_on "boost"

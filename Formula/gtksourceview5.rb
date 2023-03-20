@@ -1,8 +1,8 @@
 class Gtksourceview5 < Formula
   desc "Text view with syntax, undo/redo, and text marks"
   homepage "https://projects.gnome.org/gtksourceview/"
-  url "https://download.gnome.org/sources/gtksourceview/5.6/gtksourceview-5.6.1.tar.xz"
-  sha256 "659d9cc9d034a114f07e7e134ee80d77dec0497cb1516ae5369119c2fcb9da16"
+  url "https://download.gnome.org/sources/gtksourceview/5.8/gtksourceview-5.8.0.tar.xz"
+  sha256 "110dd4c20def21886fbf777298fe0ef8cc2ad6023b8f36c7424411a414818933"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -11,14 +11,13 @@ class Gtksourceview5 < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "8500a38bde8f2362eba345a641ef494181ca8f9ca9d371d8c3eb5390cb3e447c"
-    sha256 arm64_monterey: "95ecf13f25c7b6dba6ce922afea5933b2932d0bc099a69a7c11fff678afa3a53"
-    sha256 arm64_big_sur:  "e89bff5608ef32a1e086e088a952f4cad107ea93889b8d50300c4585743bd021"
-    sha256 ventura:        "f8d9d594914e7ad2d94fb44d99a530dcb252e1a02d93dd19a09207dc90a75b89"
-    sha256 monterey:       "9ce97c46b9e259a2650e6afad120346ce35b979d781a57352134a877fc8d386e"
-    sha256 big_sur:        "326a12dd4ed21e70aa71a5e56c85fd10d0bb88f18f5a550037a958b0ad6af293"
-    sha256 catalina:       "b9e031a18b4e9ee7cf66a18f241cb0f589da07639ccc0ee4874b3fb12c32440f"
-    sha256 x86_64_linux:   "c8ea21321b5ea9dc065b15eae4d2fd955194146383b14a4640795d6743ce541c"
+    sha256 arm64_ventura:  "ea019efaff6facbb5914e7919783a893ef3406c9320ac6eafd8bf0191385dc83"
+    sha256 arm64_monterey: "1aed02642e163cde0301abb659b3ca20f5d080886dc2b348335b5267fe2ad96f"
+    sha256 arm64_big_sur:  "1d6640782a409f8675e412988cb679f069ec57c0fa5ee69d29602decdc17bc78"
+    sha256 ventura:        "9e38e2e5b689f987c9806e7fb8a550f2f67e7fb3e51a46a86d95705d218df4c4"
+    sha256 monterey:       "b9ae3db42dcf5b04fafe8f4411c58c2f2d9d54ef7ad6422b630eeedec692da33"
+    sha256 big_sur:        "49585cdeed5f785186a84cd901db5b850059d7ef50e4422eed1c93bb8c0ff32c"
+    sha256 x86_64_linux:   "1bc2706aec7338fd999d46e0158d5c234340d8c297d040ea0da8a12543ba3747"
   end
 
   depends_on "gobject-introspection" => :build

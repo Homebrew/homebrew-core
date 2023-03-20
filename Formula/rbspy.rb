@@ -1,18 +1,18 @@
 class Rbspy < Formula
   desc "Sampling profiler for Ruby"
   homepage "https://rbspy.github.io/"
-  url "https://github.com/rbspy/rbspy/archive/v0.15.0.tar.gz"
-  sha256 "1319a5a3e0c9fbc361f4d7dd7dddc2dc14d21bf097c0bd0e153bf1e8768af6a0"
+  url "https://github.com/rbspy/rbspy/archive/v0.16.0.tar.gz"
+  sha256 "fdb667d542431225cc30b19fdae7a2950b9c15731a3559ee54dfadd2bb2b6790"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "77b9cec9f2cd38bcb143b94f8a70b11fc97e74f55db479f00179387801ad0451"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e90b858c87894eb23c6f21d3d8118697fc848ab5450b2a698db8600d6cfd87b8"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "30a687b436080b1b384daeb9207e5d5bc4336359e1d26462719b336a015532fa"
-    sha256 cellar: :any_skip_relocation, ventura:        "2ac8453fd9d74fd4db13ebc5714a8bfc10ee2344eab2c98f6feec20db2ea3b7d"
-    sha256 cellar: :any_skip_relocation, monterey:       "7be3df421d1a2e1947fc4c17964820afb1b79cebec8ee72f0792fe00d66fc61d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c5205aa64706656c78c972ca6118b3d958ca4d962d2e559f5df56bfdcc1aabf6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c8c1f5a563088dd0a5ed1a47ce41fe3930d4575ceef1594bbdf7f22ae06cdb8a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ec14d99fdfbc6849c091791a1b88ee59c2110fd81d1deb91d60aac36563696b7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "99959d07c5bcf2929aa28675073945548c34ea4e4d8aefaa3ef27691d30c31b4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c0b376c2f585f1daee433b1a812036a85fc84ee3f0d4a5b584647cdf7f833ab4"
+    sha256 cellar: :any_skip_relocation, ventura:        "4d71a4b27aad9cf24209840f049c87174902bc31f3c44cfe34751b0d91b37da0"
+    sha256 cellar: :any_skip_relocation, monterey:       "120012b69574ce0eb4e4fa3efda9596959a0e558d6c9741ef8836cfaee931412"
+    sha256 cellar: :any_skip_relocation, big_sur:        "75e802671b8ae5d6b1ca6e4992e3cad080cd2ffd2c0df63b28d42047afb5cfa1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "20fbd09c66776715a366f89be3ed40498e8cd8fca77d20e9fc6f81968ffea561"
   end
 
   depends_on "rust" => :build
@@ -37,11 +37,11 @@ class Rbspy < Formula
 
     expected_result = <<~EOS
       % self  % total  name
-      100.00   100.00  sleep [c function] - (unknown)
-        0.00   100.00  ccc - sample_program.rb
-        0.00   100.00  bbb - sample_program.rb
-        0.00   100.00  aaa - sample_program.rb
-        0.00   100.00  <main> - sample_program.rb
+      100.00   100.00  sleep [c function] - (unknown):0
+        0.00   100.00  ccc - sample_program.rb:11
+        0.00   100.00  bbb - sample_program.rb:7
+        0.00   100.00  aaa - sample_program.rb:3
+        0.00   100.00  <main> - sample_program.rb:13
     EOS
     assert_equal File.read("result"), expected_result
   end

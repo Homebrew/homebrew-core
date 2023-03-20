@@ -1,9 +1,9 @@
 class ApacheDrill < Formula
   desc "Schema-free SQL Query Engine for Hadoop, NoSQL and Cloud Storage"
   homepage "https://drill.apache.org"
-  url "https://www.apache.org/dyn/closer.lua?path=drill/1.20.2/apache-drill-1.20.2.tar.gz"
-  mirror "https://dlcdn.apache.org/drill/1.20.2/apache-drill-1.20.2.tar.gz"
-  sha256 "2d4c7d85211b214b057d2bd4c081fdcf3c3898e866f7690e3f4a6ab25d1a4bed"
+  url "https://www.apache.org/dyn/closer.lua?path=drill/1.21.0/apache-drill-1.21.0.tar.gz"
+  mirror "https://dlcdn.apache.org/drill/1.21.0/apache-drill-1.21.0.tar.gz"
+  sha256 "d4581a4ed6a2a3371c698114f68815361a62f6ce9fdf91eb0a22fce7b7364152"
   license "Apache-2.0"
 
   livecheck do
@@ -12,7 +12,7 @@ class ApacheDrill < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "e07eb503674dae295482a82130fc3dd840743b5e424c713fbccb03645c886981"
+    sha256 cellar: :any_skip_relocation, all: "3f21a039e3ce31ace48ebfe839f96996c0a2994e8e246f66154ba0b758d28c5c"
   end
 
   depends_on "openjdk@11"

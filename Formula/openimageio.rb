@@ -1,26 +1,26 @@
 class Openimageio < Formula
   desc "Library for reading, processing and writing images"
   homepage "https://openimageio.org/"
-  url "https://github.com/OpenImageIO/oiio/archive/v2.4.6.0.tar.gz"
-  sha256 "a220e2bc56812b946f7ecc22dd8139b8101b51ea97522deed84a1bb6928f51dc"
+  url "https://github.com/OpenImageIO/oiio/archive/v2.4.9.0.tar.gz"
+  sha256 "d04c12575d63d13ed64fc037ea37da616224736213d785de9f50337f6eb5a9ed"
   license "BSD-3-Clause"
   revision 1
   head "https://github.com/OpenImageIO/oiio.git", branch: "master"
 
   livecheck do
     url :stable
-    strategy :github_latest
     regex(%r{href=.*?/tag/(?:Release[._-])?v?(\d+(?:\.\d+)+)["' >]}i)
+    strategy :github_latest
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "0025dcdc267724a513cb3c2712348468ab6a546aa8486b77b67c5ec6c32889fd"
-    sha256 cellar: :any,                 arm64_monterey: "519c54c3640765e8aa60e38cc6074b6ad884df4cf7d82ae64e84a843d3a0f86b"
-    sha256 cellar: :any,                 arm64_big_sur:  "321b6694bb20f34c0f8d4b22885b1a8e6b4d6acf8f94a9db938a35b3daa39282"
-    sha256 cellar: :any,                 ventura:        "05cd19f9b0585566ea8e6204fdd31fdfd861fbf81dc0dc75da647edb430f38c6"
-    sha256 cellar: :any,                 monterey:       "799f80dad61ace8e5d804f4c2e49a3abc93951266b9764ee5224413ef5ecaf5d"
-    sha256 cellar: :any,                 big_sur:        "bf6171826deda44c35b8242760fdb02e30b80577b251f0631a2cb5dc38456dfe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "447bb203dd3fe705dfd732104363c4430676b92770d5db1fdfceb4814b0d0eba"
+    sha256 cellar: :any,                 arm64_ventura:  "d8b2ef86400941388ea0d25bf266239733a82fb6bdecf715a42a4c3c2cdc2c31"
+    sha256 cellar: :any,                 arm64_monterey: "698775daaf34d714e76deee1dc0e7241ab48ccdb704b6f878ea6787e8e7283a3"
+    sha256 cellar: :any,                 arm64_big_sur:  "aae2b9cc8451df5b9efe8cdde1c5f2e65f2360a51a91e0109c10c52ae84b9c7e"
+    sha256 cellar: :any,                 ventura:        "2d9b9ae33c5418ee299c241f52124dc0d73d79a480ab3c5c54b2192d084007a2"
+    sha256 cellar: :any,                 monterey:       "1334cbd6ab68820325e4b2bae183c50a18117147f5a2d5b65bb8a5ce7ec371a3"
+    sha256 cellar: :any,                 big_sur:        "82f2679ec05f6c3fb118602dae305b3fecb335f01c51f66a1728129a8a784e68"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e4fa9e61656096e3a330a0c795663fed6d8f07a76f5170b336695ad419cf8cf8"
   end
 
   depends_on "cmake" => :build
@@ -65,6 +65,7 @@ class Openimageio < Formula
       -DCCACHE_FOUND=
       -DEMBEDPLUGINS=ON
       -DOIIO_BUILD_TESTS=OFF
+      -DUSE_DCMTK=OFF
       -DUSE_EXTERNAL_PUGIXML=ON
       -DUSE_JPEGTURBO=ON
       -DUSE_NUKE=OFF

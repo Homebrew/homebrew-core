@@ -4,6 +4,7 @@ class Libarchive < Formula
   url "https://www.libarchive.org/downloads/libarchive-3.6.2.tar.xz"
   sha256 "9e2c1b80d5fbe59b61308fdfab6c79b5021d7ff4ff2489fb12daf0a96a83551d"
   license "BSD-2-Clause"
+  revision 1
 
   livecheck do
     url :homepage
@@ -11,13 +12,13 @@ class Libarchive < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "7875b099adf5d4e1849aad7cc821ef42eab778754ba9c4d8d120627e73dd526b"
-    sha256 cellar: :any,                 arm64_monterey: "a50e5026469436a003651754a6a19355505c9431d0303136d19169e712d4fa7f"
-    sha256 cellar: :any,                 arm64_big_sur:  "455f93f00649d131b31e3ac8d062ad1a7c1e9aeefc808bdd24c2b6063e35ba2b"
-    sha256 cellar: :any,                 ventura:        "2be5517c185bbfd88f0d60836b209286c1315be3b4b31c3f1d5837a8ac0a5bbd"
-    sha256 cellar: :any,                 monterey:       "dbb5277eefb301b4143d0ca0adfb6c579818824c66f8346d96b567bc917de97d"
-    sha256 cellar: :any,                 big_sur:        "bd27460ed8639a1f552163cb09e6c5b8670eb133e6303f5ea0ac9be96bceb330"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bbff046632857e48d0146467dd298d1ed6b8315ceb405cc296b09410a6c7f1bb"
+    sha256 cellar: :any,                 arm64_ventura:  "8aa6a214d4ea80cb0092010bbfdd91aa6405c22b39a0587a5368c08dee6bdd15"
+    sha256 cellar: :any,                 arm64_monterey: "3dca2b28193205841b537cb73c20dbe4dc19e473068196c0815c1c2dbf1cd9c0"
+    sha256 cellar: :any,                 arm64_big_sur:  "255b8c7c939162611f4f7e7056555a19fd78459f642d224c28d4349ef8b804ff"
+    sha256 cellar: :any,                 ventura:        "bc3d258c66c8ac7a30925dc823acc0f5d65bbe72b44396785a388b4f578780ef"
+    sha256 cellar: :any,                 monterey:       "ca5dbd790a973e3f1b5d34fd8acdb7e7b1cab5d1557025939e72bad1646ab843"
+    sha256 cellar: :any,                 big_sur:        "994462e0b0807311e1825879e20a951c55b61e0445b73b843bc0c55d4570a2de"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cf97322be50a6d08a28a1fc6838d50ca6da0e6234a87615325580a3f3784af4a"
   end
 
   keg_only :provided_by_macos
@@ -32,8 +33,7 @@ class Libarchive < Formula
   uses_from_macos "zlib"
 
   def install
-    system "./configure",
-           "--prefix=#{prefix}",
+    system "./configure", *std_configure_args,
            "--without-lzo2",    # Use lzop binary instead of lzo2 due to GPL
            "--without-nettle",  # xar hashing option but GPLv3
            "--without-xml2",    # xar hashing option but tricky dependencies
@@ -42,6 +42,9 @@ class Libarchive < Formula
 
     system "make", "install"
 
+    # fixes https://github.com/libarchive/libarchive/issues/1819
+    inreplace lib/"pkgconfig/libarchive.pc", "Libs.private: ", "Libs.private: -liconv " if OS.mac?
+    inreplace lib/"pkgconfig/libarchive.pc", "Requires.private: iconv", ""
     return unless OS.mac?
 
     # Just as apple does it.

@@ -1,20 +1,19 @@
 class Pluto < Formula
   desc "CLI tool to help discover deprecated apiVersions in Kubernetes"
   homepage "https://fairwinds.com"
-  url "https://github.com/FairwindsOps/pluto/archive/v5.11.2.tar.gz"
-  sha256 "9f92a150d80de7c152369e8f03cfffb9b17b5d9f67896cacb504f1a59566a5ec"
+  url "https://github.com/FairwindsOps/pluto/archive/v5.15.1.tar.gz"
+  sha256 "a0c294558bfd05679f499cbe700c88ebe895856feeecf7eb9992033a316f2580"
   license "Apache-2.0"
   head "https://github.com/FairwindsOps/pluto.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "57995f33458eb17935d82b5bd338c9de60adce5fb18a9a1915fa0ae254ec1954"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3318191607547959c66988251db066325848aa9e32c5338fcc1c49795e14fa33"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "736ad336ce98702175b2c3a019bed7923b6e312dab6c1bd34cc9607fea90a3a0"
-    sha256 cellar: :any_skip_relocation, ventura:        "00db350fd3144a3ff18da0fcf8f325d901d3d6836b482d491c97755563a2afd3"
-    sha256 cellar: :any_skip_relocation, monterey:       "be23ef2a0ae97badf56ad4472068c4048f04197097c70682f5bd87e2603e2539"
-    sha256 cellar: :any_skip_relocation, big_sur:        "18a428637b47ad08b419d4534d925dcf3dd0f1c2f5ed29f07c7caca3ebd9c8fb"
-    sha256 cellar: :any_skip_relocation, catalina:       "6c398e0471e87c67e66db9220aff5de8480c27bbef7d7cc648c507314c727190"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f9575a2084e7e1f20dc26be4649ff926e0e443d4d30ea878e701013252754245"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "15d01c49039740536479500de905784a25d65a2fa073ab50e69a923c45425a32"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "15d01c49039740536479500de905784a25d65a2fa073ab50e69a923c45425a32"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b98cd2d061f040319d9ef5a039fc1be090a125c15ef880b3ab0c613db92f3cd7"
+    sha256 cellar: :any_skip_relocation, ventura:        "18a021bc5eb690618c96512581553afca2ece1adf3d7e0e50ed29b7e3fb7bf55"
+    sha256 cellar: :any_skip_relocation, monterey:       "18a021bc5eb690618c96512581553afca2ece1adf3d7e0e50ed29b7e3fb7bf55"
+    sha256 cellar: :any_skip_relocation, big_sur:        "18a021bc5eb690618c96512581553afca2ece1adf3d7e0e50ed29b7e3fb7bf55"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3bee688085e367d75f1aee2d14c7184eed5d36f4bf4ce2c833b16bea78461e4b"
   end
 
   depends_on "go" => :build
@@ -36,6 +35,6 @@ class Pluto < Formula
         name: homebrew-test
       spec: {}
     EOS
-    assert_match "homebrew-test", shell_output("#{bin}/pluto detect deployment.yaml", 3)
+    assert_match "homebrew-test", shell_output("#{bin}/pluto detect deployment.yaml")
   end
 end

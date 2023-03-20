@@ -1,21 +1,18 @@
 class IosWebkitDebugProxy < Formula
   desc "DevTools proxy for iOS devices"
   homepage "https://github.com/google/ios-webkit-debug-proxy"
-  url "https://github.com/google/ios-webkit-debug-proxy/archive/v1.8.8.tar.gz"
-  sha256 "5b743276f7fbcd145e6212e892867304c5e49e7c75c0f4a331ec6deb6a8d5b3e"
+  url "https://github.com/google/ios-webkit-debug-proxy/archive/v1.9.0.tar.gz"
+  sha256 "ba9bb2feaa976ad999e9e405d8cd8794cdf3546130a79f4785235200ead3c96c"
   license "BSD-3-Clause"
   head "https://github.com/google/ios-webkit-debug-proxy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "011c8eb6f8b60b90ec7a23c4d5cdfe60b24079e5522fd80341e1083e4e9fe30b"
-    sha256 cellar: :any, arm64_monterey: "6c36002c9d2488188b33d7f89c49b5dea290be833a7f2785b45213eff93c183b"
-    sha256 cellar: :any, arm64_big_sur:  "eb231061aab2df9284d4160f89567803399b86e3c58b95643db03e429ffdc05e"
-    sha256 cellar: :any, ventura:        "3cd4cf9948f66e2609071bc915b3f2f0eaeeb2cf54742b7e619dc1debc89a474"
-    sha256 cellar: :any, monterey:       "6e2190f23432e24dca8d7ccbaac86ff638a03f070b6bb5528a589a70aa5493fa"
-    sha256 cellar: :any, big_sur:        "0386ea5f531d49b175e460381c5f76c8696539c91225b1611d98665dba8d4685"
-    sha256 cellar: :any, catalina:       "c46bfdadb61495298c52d4d771d49fc0596ed8e5f1ec28cea8a9b57c77a035e8"
-    sha256 cellar: :any, mojave:         "890859443600c9a1bd40f0453a81948714b1b18be558f3991bbd8d6257274f15"
-    sha256 cellar: :any, high_sierra:    "c0111ff5ffe3e9146e7589d9e009f8b1907974bf9d23004a3611412e64b671f0"
+    sha256 cellar: :any, arm64_ventura:  "8783920760b38ffec7eea45645d85fb055ff3c48483d7c1e7831c1c290c92ee4"
+    sha256 cellar: :any, arm64_monterey: "ccce3a0260dd84e9dad0a39837e96c0c0c84f486b670fb8751db60089c6b490a"
+    sha256 cellar: :any, arm64_big_sur:  "d4fc36ed1066af71fdb0834630f1815f4b22700548fdb7a481d9d1752545586a"
+    sha256 cellar: :any, ventura:        "3d4a7c7f689dd22806bb649bb89ba947e12eb16cb036374d31159061786f76b5"
+    sha256 cellar: :any, monterey:       "7ce5286b7e4e2814d154f4e1d4d0d3ba29df745035d7a4cffcc35a9a95bd7154"
+    sha256 cellar: :any, big_sur:        "454295ce0a0bd3142ac16c758a8d923db079177357734ee47f717135f6864519"
   end
 
   depends_on "autoconf" => :build

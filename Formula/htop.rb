@@ -1,8 +1,8 @@
 class Htop < Formula
   desc "Improved top (interactive process viewer)"
   homepage "https://htop.dev/"
-  url "https://github.com/htop-dev/htop/archive/3.2.1.tar.gz"
-  sha256 "b5ffac1949a8daaabcffa659c0964360b5008782aae4dfa7702d2323cfb4f438"
+  url "https://github.com/htop-dev/htop/archive/3.2.2.tar.gz"
+  sha256 "3829c742a835a0426db41bb039d1b976420c21ec65e93b35cd9bfd2d57f44ac8"
   license "GPL-2.0-or-later"
   head "https://github.com/htop-dev/htop.git", branch: "main"
 
@@ -12,14 +12,13 @@ class Htop < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "9fca1606520e7cfb5ab4990b1cca6f57cd4e28c705abdf46d72ce433f445a9b5"
-    sha256 cellar: :any,                 arm64_monterey: "50735eb9e09ec8087f04640430d4bdac4941a0ce584dd1e52ec8ec8a58d743ed"
-    sha256 cellar: :any,                 arm64_big_sur:  "02e592c85dbfe7ee6bb0a2bf5275cc6434710aaa30d7756d11a363946a5cb76e"
-    sha256 cellar: :any,                 ventura:        "be8b2a1f9139c4e944f98815d6245a5fd18f19e3e05627b654ec749063b3c8a3"
-    sha256 cellar: :any,                 monterey:       "13ede571c82f9ed6f55d8ef081bd7db0f11ca8945dc306594465384f38f693f4"
-    sha256 cellar: :any,                 big_sur:        "3004679265a03a1d4d5162895e79de630535a7d6ebe0c59592cb307ed9aeb5d5"
-    sha256 cellar: :any,                 catalina:       "6a0040374a95b5adf832d15b69ee80fbe3fc24190f523f46e199e0cb60fd9057"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "864f057daa4b3361cf076523e9a532763153a512cbd7da90bfb6b10ecfca0c05"
+    sha256 cellar: :any,                 arm64_ventura:  "87daed2cfe0d478a778b09b5f29428f05b15ff081f0e70b9a2609cf479572721"
+    sha256 cellar: :any,                 arm64_monterey: "76872761874d2148c1da382b3922b25916f245ef1d05fa21f95dbc1baa5ff8d4"
+    sha256 cellar: :any,                 arm64_big_sur:  "52bdaef69f06d6808896cd8325ff6b2be3f96643660cc5475e1d45ba850a594d"
+    sha256 cellar: :any,                 ventura:        "38dcedb23adca849a1e1952c4a0d3249406b625f0e2094dfc47028be7df304b2"
+    sha256 cellar: :any,                 monterey:       "078c94ade63f91b01334d300f00489592361bdfef3600c0ca7f6ad3ce2032281"
+    sha256 cellar: :any,                 big_sur:        "7620c57b8abc846f264fb7906b96f3da07da7c6d2b43bde1579c29e04c77fc64"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bb45255abf5f0cd1d886bb8ea68b26c60517771268cf18ac3cec875b572b1fc6"
   end
 
   depends_on "autoconf" => :build

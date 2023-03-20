@@ -1,21 +1,19 @@
 class Nodenv < Formula
   desc "Manage multiple NodeJS versions"
   homepage "https://github.com/nodenv/nodenv"
-  url "https://github.com/nodenv/nodenv/archive/v1.4.0.tar.gz"
-  sha256 "33e2f3e467219695ba114f75a7c769f3ee4e29b29c1c97a852aa001327ca9713"
+  url "https://github.com/nodenv/nodenv/archive/v1.4.1.tar.gz"
+  sha256 "6c6ff198f1b99183431e709f2897774f1e0d5b0dcd105577972f709a61bf80c5"
   license "MIT"
   head "https://github.com/nodenv/nodenv.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "165824bf5003948d10d3492fc7c36491ec53013878eb5d5b4623fef3c9921dac"
-    sha256 cellar: :any,                 arm64_monterey: "fece520035f8c55b65005231b038d9748f8bd13dc97a37fa4712a42d00ea6221"
-    sha256 cellar: :any,                 arm64_big_sur:  "c86512e5a1505eb10c79a4aeb618db66cc08a48ac855e9c0f9fb9fba7868d5e7"
-    sha256 cellar: :any,                 ventura:        "d0d71ad27e803caab8d7301c6ee5a371380937af0e86a9896af211a31c295333"
-    sha256 cellar: :any,                 monterey:       "a20f7a9c8cee71ba311283d2f518f1f3f52a94d6757a5775021d9eda66a3cb98"
-    sha256 cellar: :any,                 big_sur:        "b6cce4dccc468b49f71f989a3f6f0d505f198e2fa4604a0cd8a24f969901a6d6"
-    sha256 cellar: :any,                 catalina:       "b5af0ac98407b7d246a41154c4ca9db9cad273b5fa65a487fcb080f3d15704f6"
-    sha256 cellar: :any,                 mojave:         "69231fd7b4e38aee64caecb7582969f0abcbeacaaf4ebce6de700b2e20848e11"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "891254a446324d72656e8e5b041ef5016525fad7afb91aa92a3c5447f3af04aa"
+    sha256 cellar: :any,                 arm64_ventura:  "47d4c5122eff23675e6ad3f9352b32b5f76e8f7d792e51cdc3975237ecee28f4"
+    sha256 cellar: :any,                 arm64_monterey: "ba6861d4f43e60dff19ac5ce379ca7d735b30ec069e82c8adba1481efe1a6ff6"
+    sha256 cellar: :any,                 arm64_big_sur:  "455da2a3a195be8acfdcf409527396ea7eecbef7acc4fe2a61302a6da5160d4a"
+    sha256 cellar: :any,                 ventura:        "44d883d0e8cb785c10962db06d085be9a973603785bd56f7da0dd48319563ad4"
+    sha256 cellar: :any,                 monterey:       "f2f480cc58e07f02797be233a5763fa790784a3a306f5b818af0ee08add55f40"
+    sha256 cellar: :any,                 big_sur:        "f1028a5621ac62466cadcd0e5d16c173aaf7b0720021114a943d258b4e141d2e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b54183dbc56c22fb74e8d0dd0aad919628dc22b4ece6751fe23150afd356df10"
   end
 
   depends_on "node-build"

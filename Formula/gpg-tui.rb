@@ -1,18 +1,18 @@
 class GpgTui < Formula
   desc "Manage your GnuPG keys with ease! 🔐"
   homepage "https://github.com/orhun/gpg-tui"
-  url "https://github.com/orhun/gpg-tui/archive/v0.9.2.tar.gz"
-  sha256 "c6392f3209146b85c68a328abf2083590ba3c7696545d1efbc4f72b497469ecc"
+  url "https://github.com/orhun/gpg-tui/archive/v0.9.4.tar.gz"
+  sha256 "37645b53a5969fe976ca2520ed81f54d88d65411c561389f7f9e773eb5247fd9"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "2a47c27143317bac40dfeae63aa4cd2248775fd7ac59c82fbf8d212c1a213ea5"
-    sha256 cellar: :any,                 arm64_monterey: "073d1bd182b49e0b69655244d2fa263f59bd8dc147b4179843d845e72acfdb9b"
-    sha256 cellar: :any,                 arm64_big_sur:  "6c0740765304e1bcb96b73a631dd90e48e72c573829a9e24a7dbe2fc554f9911"
-    sha256 cellar: :any,                 ventura:        "73d60f46c1898e62c99acc5491f198a9a8afa845b3f75341a3569b1626b09f50"
-    sha256 cellar: :any,                 monterey:       "129cb989c186124f238330f43dbf7a22171d1530569c340165630499d80ed4b2"
-    sha256 cellar: :any,                 big_sur:        "6f6102b9e78f4a70c1d27ef8966252a11a4010dbd987ce1e7eba6fd37f7491c8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e5f17936fe84638547a6b4170841e01376553e5c4c4c59d7c6876f11d4c867bf"
+    sha256 cellar: :any,                 arm64_ventura:  "e4969367e72f48de7f25bd381f888919e37fe8c553d14b9440a6ab2b104f2167"
+    sha256 cellar: :any,                 arm64_monterey: "337cef81506411638c8c107ba3886b1e06e37c690d05d6e303c9036a243c22a7"
+    sha256 cellar: :any,                 arm64_big_sur:  "2c30fd4b4933fd4dc62f2fb926ef967284fc9352db7411c80dfd00dcd7a16ea9"
+    sha256 cellar: :any,                 ventura:        "9a2f494cc64d0eacf9e0236bd73adc272bd73a1bac5da5dbf7be2912821fe64e"
+    sha256 cellar: :any,                 monterey:       "10ac3f7d21f15b4f01c38d6b8ecb5acad14d9090a1ad8d78c0e9a0315e5d7802"
+    sha256 cellar: :any,                 big_sur:        "2337c41c8af7f7163b16a2108847fa7a7c0cbecd526064459446cb1d8c1f1b99"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c6350e86b35b0890aade6d50b5cebb727457922b88748b06c7dfacf758213132"
   end
 
   depends_on "rust" => :build

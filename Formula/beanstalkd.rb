@@ -1,21 +1,18 @@
 class Beanstalkd < Formula
   desc "Generic work queue originally designed to reduce web latency"
   homepage "https://beanstalkd.github.io/"
-  url "https://github.com/beanstalkd/beanstalkd/archive/v1.12.tar.gz"
-  sha256 "f43a7ea7f71db896338224b32f5e534951a976f13b7ef7a4fb5f5aed9f57883f"
+  url "https://github.com/beanstalkd/beanstalkd/archive/v1.13.tar.gz"
+  sha256 "26292dcdc0a7011d2f8ad968612f2cd8b2ef07687224876015399ae85e9e5263"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f65fe8707dbd3fcbab4ef77c89ead60889a1b543159f1cc6d5fe4b69707caea0"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "eeea48d399e95e86921751ed92aab3b378d065f99ba5d488dc2fffb0f44296a1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7a3ff3ad7d79b13d3df7b8048134f8e7321d2daf4fa61c80e57041dff7a3d5ec"
-    sha256 cellar: :any_skip_relocation, ventura:        "66c231b751e394fb9279996c5f7fc2cace2caed16b9637e75b2ca96c0610b526"
-    sha256 cellar: :any_skip_relocation, monterey:       "bb7641f1326a43f92d8fd585b9678a52a02e88f6f1519001f431c565e0feb023"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8d2a2ae37dc5914fc8f9a81973e056d5d310a12e87ab089a97f47d0fa8a6168b"
-    sha256 cellar: :any_skip_relocation, catalina:       "eb308ce225c6f335a5a27518b63f8ce70caa263e94afbb7d9c2bb9000c12d974"
-    sha256 cellar: :any_skip_relocation, mojave:         "da06f9b4142a163f26de89e5d67c729fd4edd9fbd2dcf3ada91507f92f45ec93"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "d57a1db5de295181c1f5596951160cc65b7f27645806fb35834f6409cbc57a6e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0a15f72d4f8afb377d6610eb9c1a1e1c0006c080807fadd9ca05cc02360fa533"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "128bb476a00fb682cbc27ce9859d44efdb752221458b8bc33dd358313f1dd54e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d00ef3ef848ab20b6a0e8673134ddda3711e3b7ade51d5a143920038081de2be"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b2f814739b81709efe980fe1d740ad459aa74db08a8027907af4d76f912e8e4f"
+    sha256 cellar: :any_skip_relocation, ventura:        "02424e9c82015053c1217768e20fa081e6d692ae82000de9c792b0e94d77cbaa"
+    sha256 cellar: :any_skip_relocation, monterey:       "2d08f8d072061940b968de3f7b3f221dd4e18f083d96a85a3d33a1a2ad049d0d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c5fbf19ce7c3b3cd8d6681aa8da2f7d658fa81486277ca06bf6225ece4b28568"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e523cebb72efcd0e73c3c11cbf695f6b0a3486894b9c6f6ea4c7590dc6a59a77"
   end
 
   def install

@@ -11,8 +11,8 @@ class Bashdb < Formula
   # RSS feed.
   livecheck do
     url "https://sourceforge.net/projects/bashdb/files/bashdb/"
-    strategy :page_match
     regex(%r{href=(?:["']|.*?bashdb/)?v?(\d+(?:[.-]\d+)+)/?["' >]}i)
+    strategy :page_match
   end
 
   bottle do

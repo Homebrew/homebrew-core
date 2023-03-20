@@ -1,9 +1,9 @@
 class Picat < Formula
   desc "Simple, and yet powerful, logic-based multi-paradigm programming language"
   homepage "http://picat-lang.org/"
-  url "http://picat-lang.org/download/picat333_src.tar.gz"
-  version "3.3#3"
-  sha256 "2cc9801c218a8289ffc0d6eb5d3507f61887c86570c120e9075db7eb16b0cd7b"
+  url "http://picat-lang.org/download/picat34_src.tar.gz"
+  version "3.4"
+  sha256 "dbd990bfb4cb2367aba005b4848043d44f4d091d4f1d7699d77843afd0320a64"
   license "MPL-2.0"
 
   livecheck do
@@ -12,14 +12,13 @@ class Picat < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "30409974b9777b675712198b9b8a499daff506455f1a7de4e4e6fa9c0627ccdc"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "bb15b9fc5cd72a1655e835bbf7539b44c4d06aae826374b4b9facd0d0f185901"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1ea1072e34b8d14bbe64a3622c76a8abd71fdfcdfcf477b2f8334159b4b42433"
-    sha256 cellar: :any_skip_relocation, ventura:        "512b22b7af44b2ff93f3b169ff54b5b8145e0cb7e2874c343fffd66431860815"
-    sha256 cellar: :any_skip_relocation, monterey:       "7a62131b226b15b0eb792895a9f1dc0e5220dd045a929ff39d5a7d660f890762"
-    sha256 cellar: :any_skip_relocation, big_sur:        "451b2e2431baa3d77a34ef1a9779bb574a7193674ca3970749ca95d073b12b09"
-    sha256 cellar: :any_skip_relocation, catalina:       "69189ead9fd784662f8422de508885de6aa9a8594551551a374f2a7700fa7a4f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6b0f858e04946742e6b2ad741cc9a0e02d8c302cdf1d285d74e6b1267fb0e7fe"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "873daa47f3147bcdccafac45f462ab1ab08865cde0201fc5ddd75939a7296397"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3efd32e18d375401fdc7af5f57c5573e0d9d2ddf10a7bf57e75bc9ae8a5ab010"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "559368f4020dea145e25b20e4387ac6c6af3c8d45079254288313ee895610370"
+    sha256 cellar: :any_skip_relocation, ventura:        "bf2c284a23f03b11a7e32344b68538ccc0e22e2edcc9a2d6ee0a410b15e6803b"
+    sha256 cellar: :any_skip_relocation, monterey:       "373561b87c53856650846d37bb2d30156bdffe07fb30471703705db18cbd3ae8"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f992d81f49269822bc31e28aee899b920ad8993788b99dbf5bfcd46dd63eda9e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9efa62ebb105a7e7b51fc4701635ac3a4c68ec9f0b47cb00911867fdfeaa592d"
   end
 
   def install

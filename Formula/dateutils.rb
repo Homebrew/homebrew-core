@@ -17,7 +17,7 @@ class Dateutils < Formula
   end
 
   head do
-    url "https://github.com/hroptatyr/dateutils.git"
+    url "https://github.com/hroptatyr/dateutils.git", branch: "master"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build

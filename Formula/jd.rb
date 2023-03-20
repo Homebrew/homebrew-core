@@ -1,19 +1,18 @@
 class Jd < Formula
   desc "JSON diff and patch"
   homepage "https://github.com/josephburnett/jd"
-  url "https://github.com/josephburnett/jd/archive/v1.6.1.tar.gz"
-  sha256 "3e81a8dadb125628430a31e3ea67b8b3053c346d684b74784c6bf0451cc2def0"
+  url "https://github.com/josephburnett/jd/archive/v1.7.1.tar.gz"
+  sha256 "3d0b693546891bab41ca5c3be859bc760631608c9add559aa561fb751cdd1c92"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9d1fa14a9e1b7021871903842379366dd5d8e1d9e00993f32907ea0fd6fb47ec"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "150ed5128112728670d002d0e499b64b33cf9580c52696c42a85a2bf8b74eec4"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "464a7b3b8736329c9415ec9613730f9827cf4481e6907eb51e3b801080b6f682"
-    sha256 cellar: :any_skip_relocation, ventura:        "373d66d961ef3d46020cfdfaa1f277b8da454e153ec01bdc7a095297f78c3f8d"
-    sha256 cellar: :any_skip_relocation, monterey:       "fa9d0b17b270bf97d46e0a64789b3fbfcc779586b999f0e14f87246dfc690bf4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "98deeb2becde902f3ea470330433f430543054624619512b20dc33c273fea970"
-    sha256 cellar: :any_skip_relocation, catalina:       "9a71da0f9235ca3ff552451fdc1c5219d7391dd267b09622932077351a793b45"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f2eefc094cd2d2e9b17dfcd46b04652974e73d9cc8c72c77a114eb12fa0e75f2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0a2b07ba96ff95b927175fcdf22386d458b43fd0fd318263d7dfcd851deaa920"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a5459ba7e6a8b80bc8874dde1d866fda9b99f291ac41e462ec0de9c1eee45d2a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e23b8fd52d1d4d56c8e402127d7fd5ec9f7d3939ebf0be57c0360265bdab09ab"
+    sha256 cellar: :any_skip_relocation, ventura:        "17ae4f04c0016a933f923aacc09696a7ec54ac8ea76e5f2e7ba28903d84b2738"
+    sha256 cellar: :any_skip_relocation, monterey:       "9080e532d8e9c322d6322148d2c7a21bc8606fd9257683724d02f43f21cd4742"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f40bd8456140f8332ec1e13efef5a260f12e33908306a6b6429cea3446140408"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "112215528c11ec54910cdbd320d9c0ced6714d87f27a573fb86e40c26829b70b"
   end
 
   depends_on "go" => :build

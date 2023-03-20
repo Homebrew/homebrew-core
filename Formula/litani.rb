@@ -4,28 +4,29 @@ class Litani < Formula
   desc "Metabuild system"
   homepage "https://awslabs.github.io/aws-build-accumulator/"
   url "https://github.com/awslabs/aws-build-accumulator.git",
-      tag:      "1.27.0",
-      revision: "2e96431038ef80001f291587def57fa5218d482b"
+      tag:      "1.28.0",
+      revision: "00e2dda4e8ce2c6fb11e3904861e986af228099e"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "345510ac0f6a7246d8a1afafa5d4bf013c3a6df31719e7bac940e811796648ec"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "09b731d24d17fa9019814a66c59795e6a3045f53ece5ca841b7a675b23e331c1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "15ff461fea3eb008929ad2dd4ea59f7e465551d1e392ff47df810cad80a35e12"
-    sha256 cellar: :any_skip_relocation, ventura:        "3ce58a07493f813a922520af02cf195a37b4f4eb66ef084d655201ccac20e1a7"
-    sha256 cellar: :any_skip_relocation, monterey:       "25814ed866dcfd89ca11d9a09b98d28f2abfb6121419cf0a6dc5f9b89c6d97d1"
-    sha256 cellar: :any_skip_relocation, big_sur:        "37e505d935452f93ee7c7ca7b56f70577bb98b494cf9b5d8973bab63a3808022"
-    sha256 cellar: :any_skip_relocation, catalina:       "aca7bba81b938d4ee5301ed030e4f7d98975970850edda0faa64aa2301ba46b4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9f6c8b083732e2a18c1870ee990ca348372c87c53cc0dd2ef0ba4cdda43e2432"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "840aab2ed7faddc6a460dbd6779d0dd57a671782d6124c1e265bc69bb325c80e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "38bcc7f59fb4e09286c802393ee3a0cab1e13168e050e250cb7b3705ca966d1b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b965cba710b82f93033c8dfcbc3955242f63d32394722abec7723c58a2f66e28"
+    sha256 cellar: :any_skip_relocation, ventura:        "dec2d86f60dfc8065829d314d62b45e5d6a6df39dcae7850407a876e43cce781"
+    sha256 cellar: :any_skip_relocation, monterey:       "c2b7a57c397359998446bea9d32e2c9f3ca6fdfff9143350f3a39a449c4d4703"
+    sha256 cellar: :any_skip_relocation, big_sur:        "28eb692342a74464d4a1dbac3211f02882324255cc195a1b9ce91fcefcafa6dd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "593989e982ac9c52813f316298d6605f81ca1b743c95847c5d1bca2b73e7b978"
   end
 
   depends_on "coreutils" => :build
   depends_on "mandoc" => :build
   depends_on "scdoc" => :build
+
   depends_on "gnuplot"
   depends_on "graphviz"
   depends_on "ninja"
   depends_on "python@3.10"
+  depends_on "pyyaml"
 
   resource "Jinja2" do
     url "https://files.pythonhosted.org/packages/7a/ff/75c28576a1d900e87eb6335b063fab47a8ef3c8b4d88524c4bf78f670cce/Jinja2-3.1.2.tar.gz"
@@ -33,13 +34,8 @@ class Litani < Formula
   end
 
   resource "MarkupSafe" do
-    url "https://files.pythonhosted.org/packages/1d/97/2288fe498044284f39ab8950703e88abbac2abbdf65524d576157af70556/MarkupSafe-2.1.1.tar.gz"
-    sha256 "7f91197cc9e48f989d12e4e6fbc46495c446636dfc81b9ccf50bb0ec74b91d4b"
-  end
-
-  resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/a0/a4/d63f2d7597e1a4b55aa3b4d6c5b029991d3b824b5bd331af8d4ab1ed687d/PyYAML-5.4.1.tar.gz"
-    sha256 "607774cbba28732bfa802b54baa7484215f530991055bb562efbed5b2f20a45e"
+    url "https://files.pythonhosted.org/packages/95/7e/68018b70268fb4a2a605e2be44ab7b4dd7ce7808adae6c5ef32e34f4b55a/MarkupSafe-2.1.2.tar.gz"
+    sha256 "abcabc8c2b26036d62d4c746381a6f7cf60aafcc653198ad678306986b09450d"
   end
 
   def install

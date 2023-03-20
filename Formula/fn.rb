@@ -1,23 +1,22 @@
 class Fn < Formula
   desc "Command-line tool for the fn project"
   homepage "https://fnproject.io"
-  url "https://github.com/fnproject/cli/archive/0.6.23.tar.gz"
-  sha256 "1f34eb5c1c43759a4d5a4de01fe850ade410a1b4c4e7d4d51e23910e2f978854"
+  url "https://github.com/fnproject/cli/archive/0.6.24.tar.gz"
+  sha256 "ef59de4cacfd4c9e17b6f31937e889faf82fbf0d4e003f1b83de71b5c965015d"
   license "Apache-2.0"
   head "https://github.com/fnproject/cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "459e3ccc7de4bb49f8e901fcd27a14cfd41e754d6867fc694124bf1038b7d657"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c5a73a2c61a782c491c472eef535f660d7eddfef12d788d4c644ae040eb4e013"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a7e5fac2037ebf083c484554a1aca56729b9a631e5e6db8cd2e0930e1179d708"
-    sha256 cellar: :any_skip_relocation, ventura:        "abcd61b594b462e75305596a99635b21545121e1221a5c78d527d93f3f43c905"
-    sha256 cellar: :any_skip_relocation, monterey:       "81ea4ec3ababd3e8f3473ee9876d5d360835352ccf969751b5fef9afc0946b21"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ec596a172d47796de2f76d1cbf45c844e791ee468fdf198e4e83eefea35ebeb3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e38836cae152077e69d2ddd9e232ab2f3a5b9e3bd3140a4c6cc83d1f7f3c6555"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f7755be5fbf98065deba04682eea2d99a54c248da95c9dfa36f709d674942467"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f7755be5fbf98065deba04682eea2d99a54c248da95c9dfa36f709d674942467"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f7755be5fbf98065deba04682eea2d99a54c248da95c9dfa36f709d674942467"
+    sha256 cellar: :any_skip_relocation, ventura:        "9bd0d1eea1f603adf4d6c60fdc1fb4eb793bcda76367fb41c1f1c5a3cd77c756"
+    sha256 cellar: :any_skip_relocation, monterey:       "9bd0d1eea1f603adf4d6c60fdc1fb4eb793bcda76367fb41c1f1c5a3cd77c756"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9bd0d1eea1f603adf4d6c60fdc1fb4eb793bcda76367fb41c1f1c5a3cd77c756"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "02ccc42cd95bba508188021c8cb7a64747d34ce6a68b74b2d477282b19bd3657"
   end
 
-  # Bump to 1.18 on the next release, if possible.
-  depends_on "go@1.17" => :build
+  depends_on "go" => :build
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")

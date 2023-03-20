@@ -23,7 +23,7 @@ class Robodoc < Formula
   end
 
   head do
-    url "https://github.com/gumpu/ROBODoc.git"
+    url "https://github.com/gumpu/ROBODoc.git", branch: "release"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

@@ -1,8 +1,8 @@
 class Libvirt < Formula
   desc "C virtualization API"
   homepage "https://libvirt.org/"
-  url "https://libvirt.org/sources/libvirt-8.10.0.tar.xz"
-  sha256 "bb07b7b00f08f826dd4f623f8b233e4e8b221b8859bb5937ff45355f0ae29952"
+  url "https://libvirt.org/sources/libvirt-9.1.0.tar.xz"
+  sha256 "defebea252a24c1800fbf484b14018b6261192acbac5bda8395e47eba2a14d6a"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
   head "https://gitlab.com/libvirt/libvirt.git", branch: "master"
 
@@ -12,13 +12,13 @@ class Libvirt < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "afd35daa718cbce86f84d66c82eaad0c63a0ebe0241a63bde679f379b08a7c12"
-    sha256 arm64_monterey: "865a6235ed63951dd92a5964f5285f9742a2a62d1144cab1234d8803f691cc2e"
-    sha256 arm64_big_sur:  "b08aaef5e52c6bbf54b6818727ca01d5b80fc2d044a689c4e63b2fc6ca1a77a0"
-    sha256 ventura:        "0584a4a8cc4e21289df8424e1033c0010cd930902ad3705a987b4e39b585602e"
-    sha256 monterey:       "fdb417a753acfa3e313e1eb50998dbee08c88caab62d8f650ce1548e5256a2ac"
-    sha256 big_sur:        "9c0b9a0a5749550e6d32517cea45a6abb88d65bf2f2ac6170d75a11cc786a9e5"
-    sha256 x86_64_linux:   "9366316942953c0ecd81140161ef9988609656162be6251536733609c749c111"
+    sha256 arm64_ventura:  "a0ad1459d0cd11d37810d873eb1c2fba2ad167a0b4ab5ebe538ed8b44495e413"
+    sha256 arm64_monterey: "f0f153f7d349657a44b8177df87f519ed54ea6d3c95ade7f3c61e6de28728c5c"
+    sha256 arm64_big_sur:  "220969ba84fcac799a45ed3a4f145ad7dde85a560b5c9d8fbaa84302de9a027b"
+    sha256 ventura:        "7c7c79718b8eb242cb398fea929629b476d012bfcfb2bbf548866e0cbce1a3eb"
+    sha256 monterey:       "92a10075ddec2c0565e621fa0d3104add7b0da3b2babe78205f9d8662317d69a"
+    sha256 big_sur:        "91fd6fb6464237ea7848dd3a7fd87c74deec4c25d7208e88f53d8a858570a253"
+    sha256 x86_64_linux:   "6a7c8079937edc6b31676e8285f24fb046721c95185b1ab160540b996368410f"
   end
 
   depends_on "docutils" => :build
@@ -35,6 +35,7 @@ class Libvirt < Formula
   depends_on "libgcrypt"
   depends_on "libiscsi"
   depends_on "libssh2"
+  depends_on "readline" # Possible opportunistic linkage. TODO: Check if this can be removed.
   depends_on "yajl"
 
   uses_from_macos "curl"
@@ -46,27 +47,24 @@ class Libvirt < Formula
 
   on_linux do
     depends_on "libtirpc"
-    depends_on "linux-headers@5.16"
   end
 
   fails_with gcc: "5"
 
   def install
-    mkdir "build" do
-      args = %W[
-        --localstatedir=#{var}
-        --mandir=#{man}
-        --sysconfdir=#{etc}
-        -Ddriver_esx=enabled
-        -Ddriver_qemu=enabled
-        -Ddriver_network=enabled
-        -Dinit_script=none
-        -Dqemu_datadir=#{Formula["qemu"].opt_pkgshare}
-      ]
-      system "meson", *std_meson_args, *args, ".."
-      system "meson", "compile"
-      system "meson", "install"
-    end
+    args = %W[
+      --localstatedir=#{var}
+      --mandir=#{man}
+      --sysconfdir=#{etc}
+      -Ddriver_esx=enabled
+      -Ddriver_qemu=enabled
+      -Ddriver_network=enabled
+      -Dinit_script=none
+      -Dqemu_datadir=#{Formula["qemu"].opt_pkgshare}
+    ]
+    system "meson", "setup", "build", *args, *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   service do

@@ -1,20 +1,19 @@
 class Hidapi < Formula
   desc "Library for communicating with USB and Bluetooth HID devices"
   homepage "https://github.com/libusb/hidapi"
-  url "https://github.com/libusb/hidapi/archive/hidapi-0.12.0.tar.gz"
-  sha256 "28ec1451f0527ad40c1a4c92547966ffef96813528c8b184a665f03ecbb508bc"
+  url "https://github.com/libusb/hidapi/archive/hidapi-0.13.1.tar.gz"
+  sha256 "476a2c9a4dc7d1fc97dd223b84338dbea3809a84caea2dcd887d9778725490e3"
   license :cannot_represent
   head "https://github.com/libusb/hidapi.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "da52f714c620a873dfc84bc760aa2be3c4e5a9c611e3ca6e8cc69cde7e0b5213"
-    sha256 cellar: :any,                 arm64_monterey: "aa1f68edd1eee2d600109484c6f284374a4dd3275004171eaa819c1c6ff8e67d"
-    sha256 cellar: :any,                 arm64_big_sur:  "8abecf0b9d8a3ce86a4313f3feb33d3a5eae2b8db580c0aa084cae9878400ba4"
-    sha256 cellar: :any,                 ventura:        "344f250857a9b2d2356923ad70848f82be247f245bc1457a86d48efc4fffe140"
-    sha256 cellar: :any,                 monterey:       "becf77159ab020fd2a66cf3e1f0489c95d8020b93b3c48fc095d2b8d0245336a"
-    sha256 cellar: :any,                 big_sur:        "ba016a5a9004eb00fb1c037f9b6db103de6d27f9cae7139fb22f62c668eb9b90"
-    sha256 cellar: :any,                 catalina:       "607766ce3cef88e33a8674b3c7cf69cdbe6124845c7ff223e07cceb2ec74df29"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "828e2c72ca7e6903a9e3b7ddc0e66765eee1df977a6e832b2c66965cb4571f26"
+    sha256 cellar: :any,                 arm64_ventura:  "5aea99e710bcf73d1fac8accd3e9a09b89371e01a4af2a82a24805a49dfb0a2b"
+    sha256 cellar: :any,                 arm64_monterey: "bec6eb58d49ead05696b6161b5a6983d3db8ce3bee11f8ff84015553f7f67e79"
+    sha256 cellar: :any,                 arm64_big_sur:  "8cfe0a3418efdc673f600642ff6f3a2e00da8b1a0dfd8ae69522d498313d3899"
+    sha256 cellar: :any,                 ventura:        "c7e6be14f96decf0f3347679f8039ee6681159bee08b47b30d192d5bd201a1af"
+    sha256 cellar: :any,                 monterey:       "78132127798d995319ef6d20380d380627af1510d5c4a0f42bca00a0f744c550"
+    sha256 cellar: :any,                 big_sur:        "ac26c708492a75aeb308e29efc2631c0545aba947fef08fe51ebd16c416c5d8f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1b93d511f9c55afb290edc18e5c2c70662068940718c6990dada78bda990309a"
   end
 
   depends_on "cmake" => :build

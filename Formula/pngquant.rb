@@ -1,8 +1,8 @@
 class Pngquant < Formula
   desc "PNG image optimizing utility"
   homepage "https://pngquant.org/"
-  url "https://pngquant.org/pngquant-2.17.0-src.tar.gz"
-  sha256 "a27cf0e64db499ccb3ddae9b36036e881f78293e46ec27a9e7a86a3802fcda66"
+  url "https://pngquant.org/pngquant-2.18.0-src.tar.gz"
+  sha256 "e72194b52b36f040deaec49a1ddd5dcd8d4feecc3a5fe6c5e9589a9707b233d4"
   license :cannot_represent
   head "https://github.com/kornelski/pngquant.git", branch: "master"
 
@@ -12,14 +12,13 @@ class Pngquant < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "40167fcb5c1af7d0528cc234693e61305b9f12f279a78598345874e1e5ffc65e"
-    sha256 cellar: :any,                 arm64_monterey: "0863a99895ee5131ed359b3abc486557f80ee20ef4607d6066efb3af89b12384"
-    sha256 cellar: :any,                 arm64_big_sur:  "381b9ea76185f39a8bf68433b27341e8173479f822b2f5b72db3ba996c3e4325"
-    sha256 cellar: :any,                 ventura:        "24c1706e05d6f8fbaa96e4022279acd41577863eff7b0c307292f6848895a180"
-    sha256 cellar: :any,                 monterey:       "e1c3fd851c4342ac53ad8fb592e1231ff2f209ab745064598b2d5480fee2c35e"
-    sha256 cellar: :any,                 big_sur:        "88c043c714e64a92e10bfd7ba6e351793e363f1a792846bcf91c4bc8dd3a3949"
-    sha256 cellar: :any,                 catalina:       "5a57521e5b9c5024c56a3e1c09d485dc3af5a6cbfdecdf0804ccec6cfc61c117"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "19d0be8e84bc845c63c847adfedd6c8ad4a8b9176cf2c3b602c7a7f7966179fd"
+    sha256 cellar: :any,                 arm64_ventura:  "55fab88e60676f665814df9e581bdf08fc702c017710b5014b62b71918cc5c5a"
+    sha256 cellar: :any,                 arm64_monterey: "2a9880d5f9082fefeaa293e839b4c4c13cf667727f25a051fdaed81d893fd343"
+    sha256 cellar: :any,                 arm64_big_sur:  "0ac3705e4b0be4c8fddcf74651060c9f8c4a06cf606cf29487f4c7b1cb54e92c"
+    sha256 cellar: :any,                 ventura:        "4d2a131a292a55106feb2513cada8dcbd1b8028ddc59d7bb95a189b2ce51fd6e"
+    sha256 cellar: :any,                 monterey:       "fc3d3fd03d19f8ff9dcf2832262cd093bb3716f2362c17e5587930b5f3b974b5"
+    sha256 cellar: :any,                 big_sur:        "04f276c7261989d2c5af611cc8ee54e4bd6fe50b7e1f4d5df870564ce7b7f612"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d482fb76dc638ad8271269b95af411697e9d1f1ac21abc3f19ceace8af285ea8"
   end
 
   depends_on "pkg-config" => :build

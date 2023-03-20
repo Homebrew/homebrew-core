@@ -3,18 +3,18 @@ class SvtplayDl < Formula
 
   desc "Download videos from https://www.svtplay.se/"
   homepage "https://svtplay-dl.se/"
-  url "https://files.pythonhosted.org/packages/1e/fd/d0db3eaca2443474f0659738a760e52aae9eebff494a5d271a83c43919c4/svtplay-dl-4.17.tar.gz"
-  sha256 "41a1c78d55c639a5e82c5725d6cc5c449bf8d11e5aedd1bca670de7c44b23bd0"
+  url "https://files.pythonhosted.org/packages/49/26/84f65fa3eb09d3ddaf6e0b052068a743f2eaae734632e20a4674cf2304ae/svtplay-dl-4.19.tar.gz"
+  sha256 "ab227d5585f2657627f715b00a520558dd9ee239e311138d61dee07f1f9e3670"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "081104c2e3031dfebdcc3f7183c0757ba382e948293699c6a9dfc1efeb698abe"
-    sha256 cellar: :any,                 arm64_monterey: "16fe1c919c2295c9d372afb932c0dc87a4cae0d414ae94024669d89ddf8eeb63"
-    sha256 cellar: :any,                 arm64_big_sur:  "e8cd95d8cc54e63899bfa40546d98f998aa6fd76598f8219cd6b01f633416dd1"
-    sha256 cellar: :any,                 ventura:        "2ad6c5b9eb893287f3f918f2c3dc13782e0ee0be3c31a8332c5cbe29e7fa6b5d"
-    sha256 cellar: :any,                 monterey:       "40162d0f198de2adf941c8cf0ae3da7830a3f0a9a94423a158316135e3406526"
-    sha256 cellar: :any,                 big_sur:        "c2dc1b5918ce11dcf9fa9c8afe56e86828d5dd31ee0624b1ef94b4ae5323775f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8ba78d086a5b9ce88d2cdbc6fef6718e1f07504a54a3a9ff1eecefd977f41fe1"
+    sha256 cellar: :any,                 arm64_ventura:  "72f2caaa31e9821beaeddf8b10bd4f900a8399f46b196ad9aac13ec803f7fbe0"
+    sha256 cellar: :any,                 arm64_monterey: "28e577698078ec5ebe0af80714ce242136b15e5f529ae21801505b50f62453e8"
+    sha256 cellar: :any,                 arm64_big_sur:  "175b3aaad7d81045541dd3ea44e64848efcadc8f56f6e3d51caf199fbd9eb7ee"
+    sha256 cellar: :any,                 ventura:        "c65855bd84f35c132e78aa334682a235a0ab63a4ab0bba64822b4f438a39e842"
+    sha256 cellar: :any,                 monterey:       "0f1df75f499261f72d75be359a7c2b5a9ad1d19986438a8436018e7f8f748735"
+    sha256 cellar: :any,                 big_sur:        "4f07e76d8309edd61fe2b3ce5bd486af85d6e193a1840ca39034d09d32d68511"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "28c01d4bef60a6c82280d59cd6ad11c88689a3b2567055685c64f27fbbca3e55"
   end
 
   depends_on "rust" => :build
@@ -23,8 +23,8 @@ class SvtplayDl < Formula
   depends_on "pyyaml"
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/cb/a4/7de7cd59e429bd0ee6521ba58a75adaec136d32f91a761b28a11d8088d44/certifi-2022.9.24.tar.gz"
-    sha256 "0d9c601124e5a6ba9712dbc60d9c53c21e34f5f641fe83002317394311bdce14"
+    url "https://files.pythonhosted.org/packages/37/f7/2b1b0ec44fdc30a3d31dfebe52226be9ddc40cd6c0f34ffc8923ba423b69/certifi-2022.12.7.tar.gz"
+    sha256 "35824b4c3a97115964b408844d64aa14db1cc518f6562e8d7261699d1350a9e3"
   end
 
   resource "cffi" do
@@ -33,13 +33,13 @@ class SvtplayDl < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/a1/34/44964211e5410b051e4b8d2869c470ae8a68ae274953b1c7de6d98bbcf94/charset-normalizer-2.1.1.tar.gz"
-    sha256 "5a3d016c7c547f69d6f81fb0db9449ce888b418b5b9952cc5e6e66843e9dd845"
+    url "https://files.pythonhosted.org/packages/ff/d7/8d757f8bd45be079d76309248845a04f09619a7b17d6dfc8c9ff6433cac2/charset-normalizer-3.1.0.tar.gz"
+    sha256 "34e0a2f9c370eb95597aae63bf85eb5e96826d81e3dcf88b8886012906f509b5"
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/e3/3f/41186b1f2fd86a542d399175f6b8e43f82cd4dfa51235a0b030a042b811a/cryptography-38.0.4.tar.gz"
-    sha256 "175c1a818b87c9ac80bb7377f5520b7f31b3ef2a0004e2420319beadedb67290"
+    url "https://files.pythonhosted.org/packages/fa/f3/f4b8c175ea9a1de650b0085858059050b7953a93d66c97ed89b93b232996/cryptography-39.0.2.tar.gz"
+    sha256 "bc5b871e977c8ee5a1bbc42fa8d19bcc08baf0c51cbf1586b0e87a2694dde42f"
   end
 
   resource "idna" do
@@ -58,13 +58,13 @@ class SvtplayDl < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/a5/61/a867851fd5ab77277495a8709ddda0861b28163c4613b011bc00228cc724/requests-2.28.1.tar.gz"
-    sha256 "7c5599b102feddaa661c826c56ab4fee28bfd17f5abca1ebbe3e7f19d7c97983"
+    url "https://files.pythonhosted.org/packages/9d/ee/391076f5937f0a8cdf5e53b701ffc91753e87b07d66bae4a09aa671897bf/requests-2.28.2.tar.gz"
+    sha256 "98b1b2782e3c6c4904938b84c0eb932721069dfdb9134313beff7c83c2df24bf"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/c2/51/32da03cf19d17d46cce5c731967bf58de9bd71db3a379932f53b094deda4/urllib3-1.26.13.tar.gz"
-    sha256 "c083dd0dce68dbfbe1129d5271cb90f9447dea7d52097c6e0126120c521ddea8"
+    url "https://files.pythonhosted.org/packages/21/79/6372d8c0d0641b4072889f3ff84f279b738cd8595b64c8e0496d4e848122/urllib3-1.26.15.tar.gz"
+    sha256 "8a388717b9476f934a21484e8c8e61875ab60644d29b9b39e11e4b9dc1c6b305"
   end
 
   def install

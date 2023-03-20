@@ -1,20 +1,19 @@
 class Pango < Formula
   desc "Framework for layout and rendering of i18n text"
   homepage "https://pango.gnome.org"
-  url "https://download.gnome.org/sources/pango/1.50/pango-1.50.12.tar.xz"
-  sha256 "caef96d27bbe792a6be92727c73468d832b13da57c8071ef79b9df69ee058fe3"
+  url "https://download.gnome.org/sources/pango/1.50/pango-1.50.14.tar.xz"
+  sha256 "1d67f205bfc318c27a29cfdfb6828568df566795df0cb51d2189cde7f2d581e8"
   license "LGPL-2.0-or-later"
   head "https://gitlab.gnome.org/GNOME/pango.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "51b7e3860cd156895f0490cc129b566a1651aff7f7cce73c323696848ae20023"
-    sha256 cellar: :any, arm64_monterey: "7dc6606472b236915266dfb94c50f28f5861b52ef99f56d4d72a2227258872a0"
-    sha256 cellar: :any, arm64_big_sur:  "56c1e63e58b97e32da1f37f2db2433b9c5658d097bb3d92911821ca97fd7ecab"
-    sha256 cellar: :any, ventura:        "ab5f532dbd4d3bb1fd639c11e8209491bbff430d20db66b108496dfa13ff1bfb"
-    sha256 cellar: :any, monterey:       "8c06a68283a051294430d1d21b69488f5bfc9e75d4517c5edfb0cce50c85c0b3"
-    sha256 cellar: :any, big_sur:        "c33f8819693d365cff97fa9fb2cfebb8ee0d61421e28625b817b8e33b80c569a"
-    sha256 cellar: :any, catalina:       "80e859a35cd76f439534fc3d33b983d90662cef6d94abc0ccb06177e144ac4dd"
-    sha256               x86_64_linux:   "b9c7127cc6d731fbedf6cb96c67b6ab1997b00965fcc8485375fa499e5659cf9"
+    sha256 cellar: :any, arm64_ventura:  "36b5b69c52886ea5c6599bc35bf22eb942cc44b2bcbe2ea0bd2340d72fe1d832"
+    sha256 cellar: :any, arm64_monterey: "0aaa4549f79b4fcd445fcfa409a516e5d1058b41853a056b191c43ad3388d959"
+    sha256 cellar: :any, arm64_big_sur:  "34d3bddaee4e322f64cb8a65763702d0037dd65f100772665b71a0ac108708d0"
+    sha256 cellar: :any, ventura:        "eae13498d195f5407514f88c3681981e4cf8b1b3099af13ce771be9934929ead"
+    sha256 cellar: :any, monterey:       "34449966361af6e0ec7808fc48ea6b6368fb56c9873b332c77740a9ed4d0fdc1"
+    sha256 cellar: :any, big_sur:        "8058dda295f5bd9a7fa01124a22b850285363fc9ab65e644bb037ad621475eb3"
+    sha256               x86_64_linux:   "c0e091a6c225b78ca16eef4dd0d955a13996c44896a6ee5d182aef5944f59cc8"
   end
 
   depends_on "gobject-introspection" => :build

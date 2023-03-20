@@ -5,13 +5,6 @@ class Gqview < Formula
   sha256 "97e3b7ce5f17a315c56d6eefd7b3a60b40cc3d18858ca194c7e7262acce383cb"
   revision 3
 
-  # The "gqview" directory is where stable versions are found, so we use it in
-  # the regex to avoid matching releases in the "unstable" directory.
-  livecheck do
-    url :stable
-    regex(%r{url=.*?/gqview/[^/]+/gqview[._-]v?(\d+(?:\.\d+)+)\.t}i)
-  end
-
   bottle do
     sha256 arm64_ventura:  "a16fd3dcd391be5e7568bb232037c4af9c677cca3f520ab0886ea679cf5002f1"
     sha256 arm64_monterey: "ffe4e090d128841b174008928e53dcd153827c075ed8c8124cf6164f5733a9df"
@@ -25,6 +18,10 @@ class Gqview < Formula
     sha256 sierra:         "b0e983e36c58634a2ae893003567dac0737c012811c1dcb64f0def22fc11f604"
     sha256 x86_64_linux:   "18698348461bc51c97a1439a409726c32000f608f5f71f4ef7503c099899e99f"
   end
+
+  # GTK 2 is EOL: https://blog.gtk.org/2020/12/16/gtk-4-0/
+  # Last release on 2006-12-02
+  deprecate! date: "2023-01-18", because: :unmaintained
 
   depends_on "pkg-config" => :build
   depends_on "gtk+"

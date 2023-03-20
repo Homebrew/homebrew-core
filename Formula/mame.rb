@@ -1,9 +1,9 @@
 class Mame < Formula
   desc "Multiple Arcade Machine Emulator"
   homepage "https://mamedev.org/"
-  url "https://github.com/mamedev/mame/archive/mame0248.tar.gz"
-  version "0.248"
-  sha256 "7eef82527a4b66647e02625948d42e3502f13183192ea48e6fc2786d6f9222a0"
+  url "https://github.com/mamedev/mame/archive/mame0252.tar.gz"
+  version "0.252"
+  sha256 "9d6365fed1c5f6a7a854d5489df4c70300d01d2aabf6764b0e2476b59babc13e"
   license "GPL-2.0-or-later"
   head "https://github.com/mamedev/mame.git", branch: "master"
 
@@ -13,24 +13,24 @@ class Mame < Formula
   # (e.g., 0.226).
   livecheck do
     url :stable
-    strategy :github_latest
     regex(/>\s*MAME v?(\d+(?:\.\d+)+)/im)
+    strategy :github_latest
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "19f62fc2a4a981513d1c3a7c424dd5126bbe232f17942517400ce43814a4746a"
-    sha256 cellar: :any,                 arm64_monterey: "2eac1c7f058557d5a836f0ec456a6795c90f42ad65e8047ada99fba93864891e"
-    sha256 cellar: :any,                 arm64_big_sur:  "175f5ce71650fff874742963204d5e3bb0c9a27ecc765ba7295008ca9a327d82"
-    sha256 cellar: :any,                 ventura:        "f07c273321560ca1a262c8775d230e2fef65d06027944e4c3dd5ff783d899fce"
-    sha256 cellar: :any,                 monterey:       "5bb5d663495e95bfd50673efdd62317eb19837990068452fe07b359e40efff24"
-    sha256 cellar: :any,                 big_sur:        "a086ac658368380fe1868be396b0df058643a96c89f5ada65a936dcc21699eb1"
-    sha256 cellar: :any,                 catalina:       "dbb80839f064f33ac41e41058a8af0664a1e0023f98b7dff8ed9792b6745e1f8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2ae9e4e0a77951af89459eee3185a62d2cd80e73ded027c9551b38415f5fadbb"
+    sha256 cellar: :any,                 arm64_ventura:  "156aeae25cc4b320ff8c457fa36c24cbf4689006866398f88d79fec0e0d3cf5a"
+    sha256 cellar: :any,                 arm64_monterey: "505f88eb3f38435f024495f7cbf756d273e791fb55346a7965681ad2a9ca72c2"
+    sha256 cellar: :any,                 arm64_big_sur:  "425ba0ce4763eedc9d316528b0071bc0d20a5b6df00b5de7b12142e3a6d2b343"
+    sha256 cellar: :any,                 ventura:        "61c2a8c57f446404ca7f67a3c7035400d36ffe74ea5e67efc30090521c578298"
+    sha256 cellar: :any,                 monterey:       "e3c9a4c6d724b840b656ae2425eb7580a17f81025685d21c16eff0b061e5997e"
+    sha256 cellar: :any,                 big_sur:        "4d03a17500dadbf3744144622a8ae63aef7239b6290983cb15581889d42996f2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e051f1d188a31001f4b69a295692cf35bbf1835bd3fa9b0724664bd883f1f426"
   end
 
+  depends_on "asio" => :build
   depends_on "glm" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
   depends_on "rapidjson" => :build
   depends_on "sphinx-doc" => :build
   depends_on "flac"
@@ -60,14 +60,13 @@ class Mame < Formula
     # Cut sdl2-config's invalid option.
     inreplace "scripts/src/osd/sdl.lua", "--static", ""
 
-    # Use bundled asio and lua instead of latest version.
-    # https://github.com/mamedev/mame/issues/5721
+    # Use bundled lua instead of latest version.
     # https://github.com/mamedev/mame/issues/5349
-    system "make", "PYTHON_EXECUTABLE=#{Formula["python@3.10"].opt_bin}/python3.10",
+    system "make", "PYTHON_EXECUTABLE=#{Formula["python@3.11"].opt_bin}/python3.11",
                    "USE_LIBSDL=1",
                    "USE_SYSTEM_LIB_EXPAT=1",
                    "USE_SYSTEM_LIB_ZLIB=1",
-                   "USE_SYSTEM_LIB_ASIO=",
+                   "USE_SYSTEM_LIB_ASIO=1",
                    "USE_SYSTEM_LIB_LUA=",
                    "USE_SYSTEM_LIB_FLAC=1",
                    "USE_SYSTEM_LIB_GLM=1",

@@ -1,19 +1,19 @@
 class Tproxy < Formula
   desc "CLI tool to proxy and analyze TCP connections"
   homepage "https://github.com/kevwan/tproxy"
-  url "https://github.com/kevwan/tproxy/archive/refs/tags/v0.6.2.tar.gz"
-  sha256 "d2269af0fc93ebf9d691bc7d25262aeb43ea01309290c90c0996ed2b9392b8e2"
+  url "https://github.com/kevwan/tproxy/archive/refs/tags/v0.7.1.tar.gz"
+  sha256 "5679c273964073e276c743c3b70249c59941b4f5aa0c0d2df5ae3db59c94aa89"
   license "MIT"
   head "https://github.com/kevwan/tproxy.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f22a98b690f512ea95c368cb52dfa7862eead7e99744e833acb62619d708bbfe"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5d212a2006c0a097579097cb31440cac448698d534359b82ea3d0ea90bc26067"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "76cf182e2ffda3bde0924447d1d9eefb02ad8b145cf7004f9cae899dec09045b"
-    sha256 cellar: :any_skip_relocation, ventura:        "d0267f7e63e1f58a1793b82eb985598932ddd3c00368f77d289401f435841e4f"
-    sha256 cellar: :any_skip_relocation, monterey:       "64c3e6c49c29fe57ba828f31eac65a7b7c21a186461f6b528de19748fb24b376"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b55f46e20d4dc4bc0201d585951a7533a3337b8e887f6fc718f152711c8a8c52"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f07017814160af91024622c86beb92f63bdc1b60fc4e5a89ca4f0de61476ecb4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ba0ac64ee2b19134b1f98f9bb39b26226d105216a22086b43706ab2af4d71998"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ba0ac64ee2b19134b1f98f9bb39b26226d105216a22086b43706ab2af4d71998"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ba0ac64ee2b19134b1f98f9bb39b26226d105216a22086b43706ab2af4d71998"
+    sha256 cellar: :any_skip_relocation, ventura:        "87758a9cab820d8020cbcfeb1e189003fa49db40a059bdf7ea493e7a6628ec81"
+    sha256 cellar: :any_skip_relocation, monterey:       "87758a9cab820d8020cbcfeb1e189003fa49db40a059bdf7ea493e7a6628ec81"
+    sha256 cellar: :any_skip_relocation, big_sur:        "87758a9cab820d8020cbcfeb1e189003fa49db40a059bdf7ea493e7a6628ec81"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "899fd7021be8985d2d6ff5c14d23568bda0e3adb0759d4ed4c4ebeae738de9a3"
   end
 
   depends_on "go" => :build

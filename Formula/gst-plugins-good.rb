@@ -1,9 +1,10 @@
 class GstPluginsGood < Formula
   desc "GStreamer plugins (well-supported, under the LGPL)"
   homepage "https://gstreamer.freedesktop.org/"
-  url "https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.20.5.tar.xz"
-  sha256 "e83ab4d12ca24959489bbb0ec4fac9b90e32f741d49cda357cb554b2cb8b97f9"
+  url "https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.22.0.tar.xz"
+  sha256 "582e617271e7f314d1a2211e3e3856ae2e4303c8c0d6114e9c4a5ea5719294b0"
   license "LGPL-2.0-or-later"
+  revision 1
   head "https://gitlab.freedesktop.org/gstreamer/gst-plugins-good.git", branch: "master"
 
   livecheck do
@@ -12,13 +13,13 @@ class GstPluginsGood < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "a1aa81cabe957c407d7679ac939d5f31048582c42f252bda08f87a4b7d140c71"
-    sha256 arm64_monterey: "3c80e9ed3b66a12ff3dae5eaafc67571ef8f861bb24fe6d45590c42105019686"
-    sha256 arm64_big_sur:  "81448a48c9779399c79a24a8e8d1818f25bf6b40b8b04503aced3a9a86b9d4cc"
-    sha256 ventura:        "ec4d435e3b81e762fe1f01c131ce4da5b90b6bd6e13194ef8ffb798a8fcd05a8"
-    sha256 monterey:       "b6e786de63649e1713a28edfc8b57fd56cd892b9d4e4b40cbb74124fa5887863"
-    sha256 big_sur:        "d9dcaadfaa3bf955efa0ef4fa521204c3164e35ea02aae0dd18e0217f09256ea"
-    sha256 x86_64_linux:   "1dbbe80d68b14b1b1c080dfc04280b990ce76e246b6be2f6f98c512df1ebd548"
+    sha256 arm64_ventura:  "72cd2f3fd1f042e81f13e8e3e0b3bc89b0c960976ca69da0878c9a4a814c7c6b"
+    sha256 arm64_monterey: "d0813248b5b9293d87f4617659f03bbd0dd99bb72cb373d6b296b4afd0129c7b"
+    sha256 arm64_big_sur:  "d96eb9c033d6cad185ee3a18283d6178043da7e801c808895bd83db10e833f77"
+    sha256 ventura:        "5a6bffefff50a1e5f2f30dbecbe66de8579d92d608e9df55f96e667265320344"
+    sha256 monterey:       "53d3a38784ae703469de43f64f8a112835c73747e1a8a44a2b07524cc785edcd"
+    sha256 big_sur:        "6508f010cdfdbcdc2b1dc835b0071679245a60a5d26a3d3f46c090f6c84fe062"
+    sha256 x86_64_linux:   "c0e1873162c0f7f52e0c8e612a1897c3c50cf8740f2a6291fcb70dc512c698ee"
   end
 
   depends_on "meson" => :build

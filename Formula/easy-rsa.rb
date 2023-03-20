@@ -1,20 +1,19 @@
 class EasyRsa < Formula
   desc "CLI utility to build and manage a PKI CA"
   homepage "https://github.com/OpenVPN/easy-rsa"
-  url "https://github.com/OpenVPN/easy-rsa/archive/v3.1.1.tar.gz"
-  sha256 "35032fa0a07288e87504703fd6546f310c4e2692ccc23b94cb66acdd664badd5"
+  url "https://github.com/OpenVPN/easy-rsa/archive/v3.1.2.tar.gz"
+  sha256 "c9d008652f5f93218808fea4f0b9b19e45a4f010ae9e4da9ebc05a2508c4848f"
   license "GPL-2.0-only"
   head "https://github.com/OpenVPN/easy-rsa.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6a041662e1abcfba6bddc70ac6f4416d4a84e75f10c5fa7b104fbeab8e842b81"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6a041662e1abcfba6bddc70ac6f4416d4a84e75f10c5fa7b104fbeab8e842b81"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6a041662e1abcfba6bddc70ac6f4416d4a84e75f10c5fa7b104fbeab8e842b81"
-    sha256 cellar: :any_skip_relocation, ventura:        "d18291c09bc93374aefda8f1a8311cbca7fcdd325f2803b0fff6863624c95df6"
-    sha256 cellar: :any_skip_relocation, monterey:       "d18291c09bc93374aefda8f1a8311cbca7fcdd325f2803b0fff6863624c95df6"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d18291c09bc93374aefda8f1a8311cbca7fcdd325f2803b0fff6863624c95df6"
-    sha256 cellar: :any_skip_relocation, catalina:       "d18291c09bc93374aefda8f1a8311cbca7fcdd325f2803b0fff6863624c95df6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6a041662e1abcfba6bddc70ac6f4416d4a84e75f10c5fa7b104fbeab8e842b81"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dbac3fea20b3ddfb53762670eea6091267b8a6e7473e39fef5af14f80ff0a5dc"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "dbac3fea20b3ddfb53762670eea6091267b8a6e7473e39fef5af14f80ff0a5dc"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "dbac3fea20b3ddfb53762670eea6091267b8a6e7473e39fef5af14f80ff0a5dc"
+    sha256 cellar: :any_skip_relocation, ventura:        "58c1d07bbf1f9e3fe3ca37cc7d481df76ea23101a93df44b0957638ba23ba1dc"
+    sha256 cellar: :any_skip_relocation, monterey:       "58c1d07bbf1f9e3fe3ca37cc7d481df76ea23101a93df44b0957638ba23ba1dc"
+    sha256 cellar: :any_skip_relocation, big_sur:        "58c1d07bbf1f9e3fe3ca37cc7d481df76ea23101a93df44b0957638ba23ba1dc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dbac3fea20b3ddfb53762670eea6091267b8a6e7473e39fef5af14f80ff0a5dc"
   end
 
   depends_on "openssl@3"

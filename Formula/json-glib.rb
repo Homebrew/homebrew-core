@@ -6,29 +6,32 @@ class JsonGlib < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 arm64_ventura:  "9f17fc23523cce11c9fa0731030f32a4a6bbc45e2635147e2faeb781cca1df80"
-    sha256 arm64_monterey: "8d0477538b5e84536dd970d2dda48d46d89b5159996f41bf2c17b02ea7ee4075"
-    sha256 arm64_big_sur:  "dbaac34029a64a5d23c4c3d58f579cca68a9b65fa2ba6d8e44cac55781acce32"
-    sha256 ventura:        "7e10b5aac7fdf091cdf1cb6938dbbf1e0009949ea26c0d262fd4cbe8f4e4c908"
-    sha256 monterey:       "e23445c25a457a3fd6b076a60a1ec4d2732e1f8a22ff73f4db2a06b36cc40430"
-    sha256 big_sur:        "a3fb508a2f6f41c61d4b6a2392e9c1b724176325bfc75e8df298e77a04b07e12"
-    sha256 catalina:       "b583d641d9a5f529d4f54e2b58a8ed081dfcb8047ae107919d1144ce18c9681c"
-    sha256 mojave:         "4e6b678d4ec9dc003e261ca69be62178f49429425b29a84fee2fa47897fe0465"
-    sha256 x86_64_linux:   "5def8d6b0014378f86ed161dcf1570e2ca5432c5616d34e7f96c84d6fd4ff97d"
+    rebuild 1
+    sha256 arm64_ventura:  "753f1b417f67019352dd2241a506056d3a61d517143983963bbf100d0bf39305"
+    sha256 arm64_monterey: "2905d1e62cc0d99fd5bb240b0899401d2dc667f317d07d19378a0cccea01bf48"
+    sha256 arm64_big_sur:  "e74f3f36f6388489d5940ee05c290ad6f7164d65a141d31384ba4c7454bc9064"
+    sha256 ventura:        "bc74ee2868329c5484a5d98ce1e612f9f135f209a62e3f5ed7b80b2f446899d5"
+    sha256 monterey:       "c9e3f1128cf4ac8db8ca28ca88ab72a3fb6c50a3ce0c9df5fc394ed5c95b38b3"
+    sha256 big_sur:        "223b8bc85f42b9a68bbca1ccfce4e6daff89c0e51275ec26cb9a0a012b7bceeb"
+    sha256 x86_64_linux:   "3fae78dea79874ebb00176ac6e7d1af0972d47da744ad30b4d189d765098653f"
   end
 
+  depends_on "docbook-xsl" => :build
+  depends_on "gettext" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
 
+  uses_from_macos "libxslt" => :build # for xsltproc
+
   def install
-    mkdir "build" do
-      system "meson", *std_meson_args, "-Dintrospection=enabled", ".."
-      system "ninja"
-      system "ninja", "install"
-    end
+    ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
+
+    system "meson", "setup", "build", "-Dintrospection=enabled", "-Dman=true", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do

@@ -2,19 +2,18 @@ class Duckdb < Formula
   desc "Embeddable SQL OLAP Database Management System"
   homepage "https://www.duckdb.org"
   url "https://github.com/duckdb/duckdb.git",
-      tag:      "v0.6.1",
-      revision: "919cad22e8090087ae33625661f26a5fc78d188b"
+      tag:      "v0.7.1",
+      revision: "b00b93f0b14bfff869e1facfd86a6b556a6f1c6e"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "850a6d47aff870828513ee176e1f8132f76a4f533cf641cb32a942c4731dc770"
-    sha256 cellar: :any,                 arm64_monterey: "fd8791cb44e2261565dbe9cad94c1894134703ab430be64df06325c55c768414"
-    sha256 cellar: :any,                 arm64_big_sur:  "5f8b7c1746c9efbadc9858db48c7cb6b7fc86e09fdd4502389f15605d379abee"
-    sha256 cellar: :any,                 ventura:        "f8ec3cf2dc4bfe6fce10f7acbdb8a28ef1f7c43c53b11011904fb7dca2adc4f7"
-    sha256 cellar: :any,                 monterey:       "d44430150352cbc82d661818c7a46484f78e9dae0532430149eec2042f716ff9"
-    sha256 cellar: :any,                 big_sur:        "b66ff299905039374bb6fb2f685f9691f22aafbf23b45aef3b7614bd0b65f46b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3c6fe2bdcc79e08538d07c204627217eb2f952e1d7db471645280e6f8e54e1d0"
+    sha256 cellar: :any,                 arm64_ventura:  "4c9561b82d613ed2eb59716d5f99ad7a7a24011eedb2c21234d1f47985376cb7"
+    sha256 cellar: :any,                 arm64_monterey: "38edf75cac22b89858013b3735c6d84b0e185e58d168e18a35d4b9b2eb076b72"
+    sha256 cellar: :any,                 arm64_big_sur:  "599848c4bdae7f847bb6e383ff7f9dc558893789540babae0d76927b391403ae"
+    sha256 cellar: :any,                 ventura:        "bbf0b3048b3cea604ca700876c4d77431debaaf3c2ef3b417737a88b374a26bc"
+    sha256 cellar: :any,                 monterey:       "ff875bdebba7d54eb0a5935f70c8813d816980f364f47b3e073d8544bbcaebc2"
+    sha256 cellar: :any,                 big_sur:        "fc6c046a7ac940a57e540314c4ffc0baa2075694e2cd948afc9833956f287745"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "91001b67511feeda3325d193dee4c5947e9096e22a7c649faa6779d0225c2e08"
   end
 
   depends_on "cmake" => :build

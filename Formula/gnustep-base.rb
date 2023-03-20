@@ -4,17 +4,16 @@ class GnustepBase < Formula
   url "https://github.com/gnustep/libs-base/releases/download/base-1_28_0/gnustep-base-1.28.0.tar.gz"
   sha256 "c7d7c6e64ac5f5d0a4d5c4369170fc24ed503209e91935eb0e2979d1601039ed"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "4327477c03d1552b51d19fb5a3c81d52ababcd6cb9a14daf2e1ff7194a67d23e"
-    sha256 cellar: :any,                 arm64_monterey: "cf7a07aa822697b5f15a493422b07cf086408ce45849b75d64b8ffc216cef105"
-    sha256 cellar: :any,                 arm64_big_sur:  "d5733e00bb51841c86c82dff375c4ce0466dabb0c59975a6816a6b633321685f"
-    sha256 cellar: :any,                 ventura:        "1dac9623aa322cdc307f5ee2a0a577106e06ed6192cb8ee3470a22302d3b7602"
-    sha256 cellar: :any,                 monterey:       "5d678fc6a28241da2da40c5e57b1ea3826d503863a76a02accee96d1e67e7c94"
-    sha256 cellar: :any,                 big_sur:        "d68aa3d0c33fcdd56cb24aac6725b886a2921390a4cafcf66ef2946120d691be"
-    sha256 cellar: :any,                 catalina:       "b27fd65268dbd46b34cebb39a173a1c1c0f7e9ff5088f02e57e2e50faae7cb0d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "83c39b1524d8a326f22bb2082d7ed326a2b4cabd927a79b11ab786970b331d19"
+    sha256 cellar: :any,                 arm64_ventura:  "8321c4f4c88e7084055ffdd4a47d5f792379d49e662aa6b3d8f586e28ffd1432"
+    sha256 cellar: :any,                 arm64_monterey: "2be5d01c301c2ddd08517954ddabd6c848ef2d2068ac3a368c2ceef6a373434b"
+    sha256 cellar: :any,                 arm64_big_sur:  "eefb5b924796bbed2363208020fec26978879041d027e0f714bb9aa8eeb29e57"
+    sha256 cellar: :any,                 ventura:        "fccc6827af7851073317a850ddb412d9dda225d19a1f80831003f8f0c9154803"
+    sha256 cellar: :any,                 monterey:       "6d2b9e709bfaeabd827fa8ee695a1b52c1d5736a7208574183756a5f9cd9dd45"
+    sha256 cellar: :any,                 big_sur:        "fcd6ceeba0b0ab08f26f555e43a847e4d7fccedd2174403f98948d9079b31898"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8469b84215c32e04a27175e5c787e3b12dbdc80f55f5f2d6132f14e5b8772a75"
   end
 
   depends_on "gnustep-make" => :build

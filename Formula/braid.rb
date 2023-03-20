@@ -2,19 +2,18 @@ class Braid < Formula
   desc "Simple tool to help track vendor branches in a Git repository"
   homepage "https://cristibalan.github.io/braid/"
   url "https://github.com/cristibalan/braid.git",
-      tag:      "v1.1.8",
-      revision: "d7391f2585fc86a8057d88de248ddc082eb8fa1b"
+      tag:      "v1.1.9",
+      revision: "0b2f7cd4296039c0e8c0a5f563443c4f0665d026"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9b87226e335b4bbf5ab6db80f4ae502c64849bdb1a3e93c0d40b954a7b8729f7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9b87226e335b4bbf5ab6db80f4ae502c64849bdb1a3e93c0d40b954a7b8729f7"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ef6c996ced958c4fbf1782ab4dbfdb7ce1fd4109253dd86b338978876b29a312"
-    sha256 cellar: :any_skip_relocation, ventura:        "9b87226e335b4bbf5ab6db80f4ae502c64849bdb1a3e93c0d40b954a7b8729f7"
-    sha256 cellar: :any_skip_relocation, monterey:       "9b87226e335b4bbf5ab6db80f4ae502c64849bdb1a3e93c0d40b954a7b8729f7"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ef6c996ced958c4fbf1782ab4dbfdb7ce1fd4109253dd86b338978876b29a312"
-    sha256 cellar: :any_skip_relocation, catalina:       "ef6c996ced958c4fbf1782ab4dbfdb7ce1fd4109253dd86b338978876b29a312"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f41f9bcb623db022eb830f348a1fe7f408332d4ef8d41e90aca6701da7476ccd"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3402b0a04d37a38cbe3fec1f55d4365e338b8c4c0d6220efd8830ecf6d441cfe"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3402b0a04d37a38cbe3fec1f55d4365e338b8c4c0d6220efd8830ecf6d441cfe"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "442f0a9bbf78cbcf5f3c7067ba9b727641092d770502a98b43d5edb166274020"
+    sha256 cellar: :any_skip_relocation, ventura:        "3402b0a04d37a38cbe3fec1f55d4365e338b8c4c0d6220efd8830ecf6d441cfe"
+    sha256 cellar: :any_skip_relocation, monterey:       "3402b0a04d37a38cbe3fec1f55d4365e338b8c4c0d6220efd8830ecf6d441cfe"
+    sha256 cellar: :any_skip_relocation, big_sur:        "3402b0a04d37a38cbe3fec1f55d4365e338b8c4c0d6220efd8830ecf6d441cfe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "88f0796512331c9add77ddc67834521dec363d1e565ab146f0e964f310d114e7"
   end
 
   uses_from_macos "ruby", since: :high_sierra
@@ -35,8 +34,8 @@ class Braid < Formula
   end
 
   resource "json" do
-    url "https://rubygems.org/gems/json-2.6.1.gem"
-    sha256 "7ff682a2db805d6b924e4e87341c3c0036824713a23c58ca53267ce7e5ce2ffd"
+    url "https://rubygems.org/gems/json-2.6.3.gem"
+    sha256 "86aaea16adf346a2b22743d88f8dcceeb1038843989ab93cda44b5176c845459"
   end
 
   resource "main" do

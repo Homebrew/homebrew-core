@@ -2,8 +2,9 @@ class Erlang < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "https://www.erlang.org/"
   # Download tarball from GitHub; it is served faster than the official tarball.
-  url "https://github.com/erlang/otp/releases/download/OTP-25.2/otp_src_25.2.tar.gz"
-  sha256 "aee1ef294ee048c976d6a126a430367076354f484f557eacaf08bf086cb1314d"
+  # Don't forget to update the documentation resource along with the url!
+  url "https://github.com/erlang/otp/releases/download/OTP-25.3/otp_src_25.3.tar.gz"
+  sha256 "85c447efc1746740df4089d75bc0e47b88d5161d7c44e9fc4c20fa33ea5d19d7"
   license "Apache-2.0"
 
   livecheck do
@@ -12,18 +13,17 @@ class Erlang < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "37d912375212f286c839bcfd774ea7670e501652eea3dc83765f1aefa196aa9a"
-    sha256 cellar: :any,                 arm64_monterey: "532e2a650c862cb0766c423844a716c2c0726b7203956181d8e0b6331cf552b7"
-    sha256 cellar: :any,                 arm64_big_sur:  "04a7abbb560e4ffefbb8a7455c93fd36fe9eee7bc89518bf01805007fb2e2a0b"
-    sha256 cellar: :any,                 ventura:        "2fc528ecfa1c07dd81577573c204ebbb522a237d04bc8f0ae1096c1345972763"
-    sha256 cellar: :any,                 monterey:       "f704ed38fc962a8035cf1140133b86255c03347028e28f251cc9dc76e92451fc"
-    sha256 cellar: :any,                 big_sur:        "95544542d3892e2e03207487af72dee4d107e6cf951f49ceeca40907db38b9c5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ffa5e092f9ae72b0f5ee0577560a13996e9b55507c8638ee1dc171bf6af84870"
+    sha256 cellar: :any,                 arm64_ventura:  "ba18898b9c24853c2347ddedb22308b568f181ba2ab945f11822c7b5cb25a680"
+    sha256 cellar: :any,                 arm64_monterey: "d67264dfb9610a66fe16dc376f46c5fc35eea86a96f17f3c9f35495513ab1b38"
+    sha256 cellar: :any,                 arm64_big_sur:  "999e22efcaa3b39505ed48d55a4c30f0594153a48128e863607a0c4ce7583347"
+    sha256 cellar: :any,                 ventura:        "7b20e30e9077bd14a31b323efe4e9f83272b6eeb37ca723e5ee5c4696dc27f0f"
+    sha256 cellar: :any,                 monterey:       "9ced30f79622b6419f995218ea92766f87beaf1bf8fd6fbafdb64ff06f84aea9"
+    sha256 cellar: :any,                 big_sur:        "b9423756d742d5bbc59622676e980eb53698c13a2e478b4f3f2a46dd9a2da956"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c2b2c8531b5743c36eeec156e07c0ea967e89eeb4a1f97ef0f8b78260898e1e6"
   end
 
   head do
-    url "https://github.com/erlang/otp.git"
+    url "https://github.com/erlang/otp.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -34,10 +34,12 @@ class Erlang < Formula
   depends_on "unixodbc"
   depends_on "wxwidgets" # for GUI apps like observer
 
+  uses_from_macos "libxslt" => :build
+
   resource "html" do
-    url "https://github.com/erlang/otp/releases/download/OTP-25.2/otp_doc_html_25.2.tar.gz"
-    mirror "https://fossies.org/linux/misc/otp_doc_html_25.2.tar.gz"
-    sha256 "b08e933e4d8753039dfa03c47daec30f7a9194e5e41b8c3c318c6c95d861b252"
+    url "https://github.com/erlang/otp/releases/download/OTP-25.3/otp_doc_html_25.3.tar.gz"
+    mirror "https://fossies.org/linux/misc/otp_doc_html_25.3.tar.gz"
+    sha256 "bc5f24a115e436dd73e617c7cc90d6e7d6e20fd43c0bae3f929333887d96317b"
   end
 
   def install
@@ -49,9 +51,6 @@ class Erlang < Formula
     system "./otp_build", "autoconf" unless File.exist? "configure"
 
     args = %W[
-      --disable-debug
-      --disable-silent-rules
-      --prefix=#{prefix}
       --enable-dynamic-ssl-lib
       --enable-hipe
       --enable-shared-zlib
@@ -69,7 +68,7 @@ class Erlang < Formula
       args << "--with-dynamic-trace=dtrace" if MacOS::CLT.installed?
     end
 
-    system "./configure", *args
+    system "./configure", *std_configure_args, *args
     system "make"
     system "make", "install"
 
@@ -90,6 +89,8 @@ class Erlang < Formula
   end
 
   test do
+    assert_equal version, resource("html").version, "`html` resource needs updating!"
+
     system "#{bin}/erl", "-noshell", "-eval", "crypto:start().", "-s", "init", "stop"
     (testpath/"factorial").write <<~EOS
       #!#{bin}/escript

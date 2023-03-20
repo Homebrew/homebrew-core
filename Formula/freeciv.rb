@@ -1,8 +1,8 @@
 class Freeciv < Formula
   desc "Free and Open Source empire-building strategy game"
   homepage "http://freeciv.org"
-  url "https://downloads.sourceforge.net/project/freeciv/Freeciv%203.0/3.0.5/freeciv-3.0.5.tar.xz"
-  sha256 "4d2e22da54cf1e2821f78d0743ca25429c38dd7802414cd9e6090ad52f49ee83"
+  url "https://downloads.sourceforge.net/project/freeciv/Freeciv%203.0/3.0.6/freeciv-3.0.6.tar.xz"
+  sha256 "40e701157b957a2eb3c4548e5b819d06521c2ad1d47ae926be5117c7d6ace442"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,17 +11,17 @@ class Freeciv < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "17172f5a4fe4631dc59cc655989b2e2494a609f2cc421ee9030723a5235d84f3"
-    sha256 arm64_monterey: "2cb9e80fc11522e27a95fa7f5e285bd2e2f9a835b1915e8c10bfe54390a0b7fd"
-    sha256 arm64_big_sur:  "eb2cc8ed171224639b45d503e7ad86ee89ff1a67c2178aeff1c486dc8ae70bd7"
-    sha256 ventura:        "f59557bd0ac5ecde2499fba18f082181072a1eec228843a1fab158bd7e2349a6"
-    sha256 monterey:       "7c7a1f032065718ea222027d46bcec9ad67f39ffb92b6230ff874a186c989511"
-    sha256 big_sur:        "ea9f8c372d71ad373d0a4d6b958a6d63ccf302b52e89376f29c44b26eae61087"
-    sha256 x86_64_linux:   "f0a1af7d18de79b8ba4f693f8dfe87db10e1ba4f25941091b27b58417ea3f6cb"
+    sha256 arm64_ventura:  "7e6778de44f4bdde89579138feb4c2552fe669de57ae15f95eaa1e11d39782d6"
+    sha256 arm64_monterey: "057aef3311a43db28c71e0bf984fad9a3cd9f12faa3bd464061391df37ab1e72"
+    sha256 arm64_big_sur:  "bceb77f4f1fb2a272361a970050ee086e0b28af15ab59b30d3180957aec15739"
+    sha256 ventura:        "cfadf10dbd2353f791c8b18a0236b7a82f07726eebc57a0d99ad13e1823917d1"
+    sha256 monterey:       "12ef7c9b8d97abe449514575d4aae8abc5280d6de129f1ba4fe10237394d66dd"
+    sha256 big_sur:        "4b8cedb59f300fa98a8197eed9118e1c54fadd5d26a89adfc76c80923d83a9ca"
+    sha256 x86_64_linux:   "86325e34c3139fc2bd4b6f11697068b8546014d0c39706a4faffd3fb4410af11"
   end
 
   head do
-    url "https://github.com/freeciv/freeciv.git"
+    url "https://github.com/freeciv/freeciv.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

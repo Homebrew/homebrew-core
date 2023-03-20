@@ -1,8 +1,8 @@
 class ShibbolethSp < Formula
   desc "Shibboleth 2 Service Provider daemon"
   homepage "https://wiki.shibboleth.net/confluence/display/SHIB2"
-  url "https://shibboleth.net/downloads/service-provider/3.4.0/shibboleth-sp-3.4.0.tar.bz2"
-  sha256 "e7994be1105bc8683949fd11030a685fffc64cd6fa6d3e80c41bd078b05d5909"
+  url "https://shibboleth.net/downloads/service-provider/3.4.1/shibboleth-sp-3.4.1.tar.bz2"
+  sha256 "bffe3e62e46d86cc75db1093b77fa1456b30da7c930a13708afa0139c8a8acc1"
   license "Apache-2.0"
 
   livecheck do
@@ -11,13 +11,13 @@ class ShibbolethSp < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "02732d1e0fceb8355fb7ee196d834dd33232374db66f13bf78b5475b7a11bf37"
-    sha256 arm64_monterey: "a250892c2cdd08ba37230ca61f2d9d9cdb3d61c5300991aae6db1bb4c61544ac"
-    sha256 arm64_big_sur:  "1c560ef6e9233dfb527cf85ce6e419b168b58b9c07b358efa160ed92de848128"
-    sha256 ventura:        "5f7956100cfe411cc9fd4b6f2cfedeef39893e30844354ac5c825e4ff8ba4a12"
-    sha256 monterey:       "1cc0e826c460ca137b4bda20563615f2a4999bb5ac2d8e618d308d653cd29886"
-    sha256 big_sur:        "af5a8fa10ea9e4d9990ba641e8e3ad080e54d31264ad6eb1d93240bbb1d5068b"
-    sha256 x86_64_linux:   "03ba8592aab7f9315a596ce39d37cb1e319db400ea7098dcf876c8327e4815ba"
+    sha256 arm64_ventura:  "39bc3e88f3ebf7701f1a730807d1983751a48d173d1cba54040748b787afa6a0"
+    sha256 arm64_monterey: "97816635f3d80e3acde5d5e5928704bcc3e8534cbb11981be5daecd7f65b7a8d"
+    sha256 arm64_big_sur:  "edb8297894370d0bdf696fa8de765b4030f157871754c709ce07e78aed4b3110"
+    sha256 ventura:        "7b2a0d9ca98f69e14a82030c6a81fcc842f35ec010b4427cf4628018ee169f2a"
+    sha256 monterey:       "bc2d86fd34a55a12a8d542ebf7eefdd5d4cf4697f20cc6d9bdf8c4de0b3d005e"
+    sha256 big_sur:        "b1f897b4d6f5d637e3da43b008a3915e73291313c307c2c820a7a5ccec1e15f2"
+    sha256 x86_64_linux:   "4602cec97ab32f4862f5778aa7fe56924d3184acc197bbe8e1c616c265010d79"
   end
 
   depends_on "apr" => :build

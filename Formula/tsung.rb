@@ -1,25 +1,19 @@
 class Tsung < Formula
   desc "Load testing for HTTP, PostgreSQL, Jabber, and others"
   homepage "http://tsung.erlang-projects.org/"
-  url "http://tsung.erlang-projects.org/dist/tsung-1.7.0.tar.gz"
-  sha256 "6394445860ef34faedf8c46da95a3cb206bc17301145bc920151107ffa2ce52a"
-  license "GPL-2.0"
+  url "http://tsung.erlang-projects.org/dist/tsung-1.8.0.tar.gz"
+  sha256 "91e8643026017e3d0088a6710fb11c4f617477e826ebe4c5fe586aa63147fc92"
+  license "GPL-2.0-or-later"
   head "https://github.com/processone/tsung.git", branch: "develop"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d20e92b265cfe4d3f28787388630956ef8f695f4f4e219bf941c4187a0ebe81d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "19a9d329b07bf0f12e1cd44363b33aa8fdae0a583b51c7f17e21f779220a5045"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8e48b00e815ae6bd028601423ce94a47d0ece9694fbb162808ff58f5d69e484f"
-    sha256 cellar: :any_skip_relocation, ventura:        "849f05a8fa344b5eb1d9d9211c56a76c571ae83db3d6e96245aa51b55026871f"
-    sha256 cellar: :any_skip_relocation, monterey:       "c8f5e4f5aaf60ddd4c8c4ac6c3fab88d6ac8bfbf8b0a443f388f758eae35cbb4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "82f9c26269d705ce0757bb7b1f0485737b62bb6ab440c3a349a3910c2c929c31"
-    sha256 cellar: :any_skip_relocation, catalina:       "5ba49316a6d401d171ddd27e366c9bfb1a73aaeced24b562a326dbe1bd1249ab"
-    sha256 cellar: :any_skip_relocation, mojave:         "bfd02c24483727832c624e5de2e289efec4eaf30b651be8da85696c1c896c091"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "64dba403e11577b28f3a80114158b96d8c74f58d09a4d9930801674031d4a7d9"
-    sha256 cellar: :any_skip_relocation, sierra:         "e52abdb35507ceff03804d29a1ecf4e64d11e3345a9f095462cb653bba6cac6d"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "11f06a010b1a56d7a751bf5379d7d053c1befdf41f73aabeb79330761566724d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "75795d52b25505bc8b1f5815d3b424fc2bbeb916e18e0d1f7e4f6ab5f605863d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d1ebb56a584c6b3262d5e3e0d7727ccb2a51de2e20ad6e01220e893135495f79"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "fa20dc7737ea74dead418707ec87790f3117b8627b66251d269740ba25a7c991"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a0d6b63d452e76063467aaddc742adafe94d3817167de0bf074ad23d13fc6462"
+    sha256 cellar: :any_skip_relocation, ventura:        "a9a7a97f566daf05b32b3252902d6499412d91491da5f4874c3deafdd9979e1d"
+    sha256 cellar: :any_skip_relocation, monterey:       "3323a1469f410ad82f9d49aedaece4f8681f7bfb1ea59ff578037dcf9fcf9691"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a914e38136188ac75999578185d1b842f1f72f657556c2a0e467ebe2b164f5cf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "318abd3a1719a810eff7133506bb49a2088c180f0c5bd149db7124c386687824"
   end
 
   depends_on "erlang"

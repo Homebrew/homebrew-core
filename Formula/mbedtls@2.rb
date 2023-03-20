@@ -4,7 +4,7 @@ class MbedtlsAT2 < Formula
   url "https://github.com/Mbed-TLS/mbedtls/archive/mbedtls-2.28.2.tar.gz"
   sha256 "1db6d4196178fa9f8264bef5940611cd9febcd5d54ec05f52f1e8400f792b5a4"
   license "Apache-2.0"
-  head "https://github.com/Mbed-TLS/mbedtls.git", branch: "development_2.x"
+  head "https://github.com/Mbed-TLS/mbedtls.git", branch: "mbedtls-2.28"
 
   livecheck do
     url :stable
@@ -24,7 +24,7 @@ class MbedtlsAT2 < Formula
   keg_only :versioned_formula
 
   depends_on "cmake" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
 
   def install
     inreplace "include/mbedtls/config.h" do |s|
@@ -36,7 +36,7 @@ class MbedtlsAT2 < Formula
 
     system "cmake", "-S", ".", "-B", "build",
                     "-DUSE_SHARED_MBEDTLS_LIBRARY=On",
-                    "-DPython3_EXECUTABLE=#{which("python3.10")}",
+                    "-DPython3_EXECUTABLE=#{which("python3.11")}",
                     *std_cmake_args
     system "cmake", "--build", "build"
     # We run CTest because this is a crypto library. Running tests in parallel causes failures.

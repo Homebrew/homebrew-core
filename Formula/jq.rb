@@ -35,7 +35,7 @@ class Jq < Formula
   end
 
   head do
-    url "https://github.com/stedolan/jq.git"
+    url "https://github.com/stedolan/jq.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

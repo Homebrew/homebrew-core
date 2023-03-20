@@ -1,8 +1,8 @@
 class Openjdk < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.java.net/"
-  url "https://github.com/openjdk/jdk19u/archive/refs/tags/jdk-19.0.1-ga.tar.gz"
-  sha256 "26ebf4d182a0d4bba7a0387a931af576a538745a98ef6eb2c70e22655e846a45"
+  url "https://github.com/openjdk/jdk19u/archive/refs/tags/jdk-19.0.2-ga.tar.gz"
+  sha256 "c297c9d0a09721e84c420e7893ff9ba2e0c4e27370507dec4b356b59e6c8e7a2"
   license "GPL-2.0-only" => { with: "Classpath-exception-2.0" }
 
   livecheck do
@@ -11,14 +11,13 @@ class Openjdk < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_ventura:  "f8f4e322438b1f12f221dfa2456988e9438287585f242fba15e53a9a254dbc48"
-    sha256 cellar: :any, arm64_monterey: "0e6b0f8b09b57242adf280ec452d2695d596d3108eadfad78e793e0c9f65d2a7"
-    sha256 cellar: :any, arm64_big_sur:  "5ded901b7ed751d62f12b1123d6ef3631e681c2f70da490b1bcd8e2420a97d20"
-    sha256 cellar: :any, ventura:        "119cb96b8a9e6ab61a6dbaabb391f4f5f45ce64e41dbbcdd38fc8366452a31a5"
-    sha256 cellar: :any, monterey:       "8380eef4472205fdc0b3968c1241bfc616efaea90aef325198d767a74d2f78ee"
-    sha256 cellar: :any, big_sur:        "7f8144e91c53df5a413d03a7dc72db16fb98116185e2cae3c499715032bbf731"
-    sha256               x86_64_linux:   "f9ea52dd1f656ed210a56095ba42f8e54dfe230ccf7a55e3539ae36f72a130f0"
+    sha256 cellar: :any, arm64_ventura:  "c576dc5ee012c98010595cecfd9373050e9a48000291201c9f057cb0fa7eaf43"
+    sha256 cellar: :any, arm64_monterey: "f0d33cdc95ee66471146865dd98092c92b0ef97598fe1ea57d4cb31f859851b5"
+    sha256 cellar: :any, arm64_big_sur:  "05f317a736e6d6e2d4d20cc39cabbc69708d45b77ead5767ed082a3ead23aa89"
+    sha256 cellar: :any, ventura:        "de86351713f22cf37148d2def9002e8126a60d2f37540da28ea7c6a0edb8ff46"
+    sha256 cellar: :any, monterey:       "77f0d28cc4f5c8bd5907b5080fd760930326f1b12e7afbf2361b2527f960d6e9"
+    sha256 cellar: :any, big_sur:        "826d60202fa869103d4b35312555da0ccee5247f3875423836cc70ef93b46cd0"
+    sha256               x86_64_linux:   "46f18654dc8f56ea1a5b2d17e973d76faf517f394758c79b6e87a0b2ecaada6a"
   end
 
   keg_only :shadowed_by_macos
@@ -74,13 +73,6 @@ class Openjdk < Formula
         sha256 "3bfdb59fc38884672677cebca9a216902d87fe867563182ae8bc3373a65a2ebd"
       end
     end
-  end
-
-  # Fix build failure on Monterey with Clang 14+ due to function warning attribute.
-  # Remove if backported to JDK 19.
-  patch do
-    url "https://github.com/openjdk/jdk/commit/0599a05f8c7e26d4acae0b2cc805a65bdd6c6f67.patch?full_index=1"
-    sha256 "6a645cedccb54b4409f4226ba672b50687e18a3f5dfa0485ce1db6f5bc35f3d0"
   end
 
   # Patch to restore build on macOS 13

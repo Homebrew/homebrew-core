@@ -1,12 +1,18 @@
 class Bundletool < Formula
   desc "Command-line tool to manipulate Android App Bundles"
   homepage "https://github.com/google/bundletool"
-  url "https://github.com/google/bundletool/releases/download/1.13.2/bundletool-all-1.13.2.jar"
-  sha256 "b1b5fb21815c53d8302b31ca0bcc6d9992951365c899e353e1160ec7e7122366"
+  url "https://github.com/google/bundletool/releases/download/1.14.0/bundletool-all-1.14.0.jar"
+  sha256 "e740e7d38562c5e8d87cc817548b2db94e42802e9a0774fdf674e758ff79694d"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "f20598bc6fe3105246831f442d07d3b6cef333a89dd2a373bb10c3501b8249a3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "32deed7a065fc682c488378b5b5d976c981d50bbb3915f10488cc888c108dff2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "32deed7a065fc682c488378b5b5d976c981d50bbb3915f10488cc888c108dff2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "32deed7a065fc682c488378b5b5d976c981d50bbb3915f10488cc888c108dff2"
+    sha256 cellar: :any_skip_relocation, ventura:        "32deed7a065fc682c488378b5b5d976c981d50bbb3915f10488cc888c108dff2"
+    sha256 cellar: :any_skip_relocation, monterey:       "32deed7a065fc682c488378b5b5d976c981d50bbb3915f10488cc888c108dff2"
+    sha256 cellar: :any_skip_relocation, big_sur:        "32deed7a065fc682c488378b5b5d976c981d50bbb3915f10488cc888c108dff2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b6da5446853683797e16d5cc780adee297b58512c9b294d4675d56642cea9f95"
   end
 
   depends_on "openjdk"

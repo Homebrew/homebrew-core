@@ -1,18 +1,18 @@
 class Easyengine < Formula
   desc "Command-line control panel to manage WordPress sites"
   homepage "https://easyengine.io/"
-  url "https://github.com/EasyEngine/easyengine/releases/download/v4.6.3/easyengine.phar"
-  sha256 "e580f729e5e9074508f6c5ed6589e0ef78f63e348a8ecb24944670836f1660cd"
+  url "https://github.com/EasyEngine/easyengine/releases/download/v4.6.5/easyengine.phar"
+  sha256 "2477012abffeefe8b4008d669e0e632d086d3e7cdc2db6f04e5495355df6eb62"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "13b1c5e6afcf6737b9c2963a003b2c69a73debe7c571e88c88c728fb4891b032"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "13b1c5e6afcf6737b9c2963a003b2c69a73debe7c571e88c88c728fb4891b032"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "13b1c5e6afcf6737b9c2963a003b2c69a73debe7c571e88c88c728fb4891b032"
-    sha256 cellar: :any_skip_relocation, ventura:        "4493789c9bea2d5b4180c4736b737bbd80f8972b6590bcf23588c372d62d9b1d"
-    sha256 cellar: :any_skip_relocation, monterey:       "4493789c9bea2d5b4180c4736b737bbd80f8972b6590bcf23588c372d62d9b1d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "4493789c9bea2d5b4180c4736b737bbd80f8972b6590bcf23588c372d62d9b1d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "13b1c5e6afcf6737b9c2963a003b2c69a73debe7c571e88c88c728fb4891b032"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9d4ae6600854547c67ba66aca863376050c78b9b3b804a04b6b633aa7547932b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9d4ae6600854547c67ba66aca863376050c78b9b3b804a04b6b633aa7547932b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9d4ae6600854547c67ba66aca863376050c78b9b3b804a04b6b633aa7547932b"
+    sha256 cellar: :any_skip_relocation, ventura:        "74580985fb32c7f3592e2e72b6a9970e7d7bff26a6636c56aee56718398d3cf1"
+    sha256 cellar: :any_skip_relocation, monterey:       "74580985fb32c7f3592e2e72b6a9970e7d7bff26a6636c56aee56718398d3cf1"
+    sha256 cellar: :any_skip_relocation, big_sur:        "74580985fb32c7f3592e2e72b6a9970e7d7bff26a6636c56aee56718398d3cf1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9d4ae6600854547c67ba66aca863376050c78b9b3b804a04b6b633aa7547932b"
   end
 
   depends_on "dnsmasq"

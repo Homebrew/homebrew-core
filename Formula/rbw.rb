@@ -1,21 +1,19 @@
 class Rbw < Formula
   desc "Unoffical Bitwarden CLI client"
   homepage "https://github.com/doy/rbw"
-  url "https://github.com/doy/rbw/archive/refs/tags/1.4.3.tar.gz"
-  sha256 "2738aa6e868bf16292fcad9c9a45c60fe310d2303d06aea7875788bacda9b15b"
+  url "https://github.com/doy/rbw/archive/refs/tags/1.6.0.tar.gz"
+  sha256 "1917e79d9fe7142ca82919a5ed1cac50ca719c21e927d5c2e66ecb21d69e03aa"
   license "MIT"
   head "https://github.com/doy/rbw.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f409832baf1488b2b5a557e85889220db7960739a905b90a752944a192092d65"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "34564680f7a2bc2cc130ebb20707b173ee4754e4681b49d12a7e042c1b0c1edc"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "69a947b346dc757630773de4c6214a9d6ff8d8f93f4bf5f6b3b832acdde2280c"
-    sha256 cellar: :any_skip_relocation, ventura:        "6afc05c896f43098a2038057aaba11e53ce713175f29888749645b2a21e1d689"
-    sha256 cellar: :any_skip_relocation, monterey:       "ca8d9ceb7cad60ef36fa68483d66f10931d5fa89f8271fa96cbbc4a98b084a69"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f95bac15a4b67d7df0eea5fd7427ef60134d502d351c75921f22d44d5b046bdf"
-    sha256 cellar: :any_skip_relocation, catalina:       "bc8a5b52d263a430c63cde66964108e8579773866fae16f17fe40abc2aee65ee"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8d4ea418fbe435f6d87fb7c7ea843978fd4c1ad1be770ba7679ecc4f4b9f2910"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "65787990344ad50e56b1e2ebd01bfd1189137390f07f0c74dceefa60177a92c5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "31f133a332c33a9a8e24daca17e93ee41629674457cdf63bb1591d3a42c910a0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "15ddda21b252ab60baab88e4b7cac159d5f8dd864a4f0ef7f6bd20fbd8cb62b2"
+    sha256 cellar: :any_skip_relocation, ventura:        "25d74a307cc178fd5cecd94fc7f387ce896cec09cbb5a93fc0063b13459d3d34"
+    sha256 cellar: :any_skip_relocation, monterey:       "aafdb20404a9de31f4c7a495f56642cfa4e85db5a45555303e6f32831830b251"
+    sha256 cellar: :any_skip_relocation, big_sur:        "81ea16cddd89760ac3096cccdde10d8238013ba571a824a01e2ee3793ef43b4c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7e0d7c1cc5b3f76b5de4afdc18183a108c3ed3555b391e83637a1d114ad4d70d"
   end
 
   depends_on "rust" => :build

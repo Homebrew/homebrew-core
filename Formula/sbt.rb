@@ -1,9 +1,9 @@
 class Sbt < Formula
   desc "Build tool for Scala projects"
   homepage "https://www.scala-sbt.org/"
-  url "https://github.com/sbt/sbt/releases/download/v1.8.0/sbt-1.8.0.tgz"
-  mirror "https://sbt-downloads.cdnedge.bluemix.net/releases/v1.8.0/sbt-1.8.0.tgz"
-  sha256 "bc7f08b0f22c167bb5510928701f2b681753b66e29131e3f091afc5fb9066c59"
+  url "https://github.com/sbt/sbt/releases/download/v1.8.2/sbt-1.8.2.tgz"
+  mirror "https://sbt-downloads.cdnedge.bluemix.net/releases/v1.8.2/sbt-1.8.2.tgz"
+  sha256 "1f65344da074dbd66dfefa93c0eff8d319d772e5cad47fcbeb6ae178bbdf4686"
   license "Apache-2.0"
 
   livecheck do
@@ -12,7 +12,7 @@ class Sbt < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "97b17e722854b0f88873290a867edd7bbd9d9d2d070b7486b3ca410003ab8c20"
+    sha256 cellar: :any_skip_relocation, all: "83df3f430a2249b127057b0ee45c11f9b12c0f8f345c596fd90864e6968604ad"
   end
 
   depends_on "openjdk"
@@ -29,7 +29,7 @@ class Sbt < Formula
     # Removes:
     # 1. `sbt.bat` (Windows-only)
     # 2. `sbtn` (pre-compiled native binary)
-    (libexec/"bin").glob("sbt{.bat,n-x86_64*}").map(&:unlink)
+    (libexec/"bin").glob("sbt{.bat,n-x86_64*,n-aarch64*}").map(&:unlink)
     (bin/"sbt").write_env_script libexec/"bin/sbt", Language::Java.overridable_java_home_env
   end
 
@@ -39,7 +39,7 @@ class Sbt < Formula
       Project specific options should be placed in .sbtopts in the root of your project.
       Global settings should be placed in #{etc}/sbtopts
 
-      #{tap.user}'s installation does not include `sbtn`.
+      The installation does not include `sbtn`.
     EOS
   end
 

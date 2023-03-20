@@ -1,8 +1,8 @@
 class Got < Formula
   desc "Version control system"
   homepage "https://gameoftrees.org/"
-  url "https://gameoftrees.org/releases/portable/got-portable-0.79.tar.gz"
-  sha256 "78be1c0a905184ed1cb506468359faf87e4ee86851291b1670439c46bfb3d87c"
+  url "https://gameoftrees.org/releases/portable/got-portable-0.86.tar.gz"
+  sha256 "1478cb124c6cbe4633e2d2b593fa4451f0d3f6b7ef37e2baf2045cf1f3d5a7b0"
   license "ISC"
 
   livecheck do
@@ -11,27 +11,32 @@ class Got < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "07addec948c746fe2558c7643aed6525ea008d1e4184e18d774a7ae8630bbd59"
-    sha256 arm64_monterey: "eb9548554fb9253bee5edd5083fd52cec546d4fadc351bbbad3ad5050c7c4fb1"
-    sha256 arm64_big_sur:  "e0a9f51a2498ecde602725ecf833028e13946a9de4b14ae1d0054b809e8fa8b3"
-    sha256 ventura:        "b9e543596dcaa43750d10e40031d420ff19aae0b1d9f021c53374cb19e8d0405"
-    sha256 monterey:       "7860aaf4e3fd7170698d998cb8a19f60bf71e40ec0cd63c1272e119c5bccbab5"
-    sha256 big_sur:        "6eda1e6c39d744a1360449abf5897db2de6c7a455711808d40a4d5722897ad37"
-    sha256 catalina:       "a37a24d20837eff61c15a6b047d438fe209d7110b95442ea8d531ddc64fcbc62"
+    sha256 arm64_ventura:  "50b641fff2107b8de4b0e4cccaed053c249b72239f20abc0f849f8c334c34995"
+    sha256 arm64_monterey: "fadb9264e692e027d98ca8e19dae4730df1a06bcb8921837ab38f61eb52c5d96"
+    sha256 arm64_big_sur:  "861d6a4c5773a0291bcf908120552cc17b68943d53ef89beb9b6fb8f533819d4"
+    sha256 ventura:        "fedc5283c67903b13c3179b2e4f028a0ee2607de5ea348cead64adccc68abe29"
+    sha256 monterey:       "7b78ebc651efb8178eaf3baf49a8549b874187f4eda717737685513457995bc4"
+    sha256 big_sur:        "286c8e5373691559b492c873152d857a37bf7d0f70c552ece315069aa8cc6d9f"
+    sha256 x86_64_linux:   "bdfaf34a35a338c02cea202dc5294089a0b326e515a623e6b92d34d9a968909f"
   end
 
   depends_on "bison" => :build
   depends_on "pkg-config" => :build
   depends_on "libevent"
-  depends_on :macos # FIXME: build fails on Linux.
   depends_on "ncurses"
   depends_on "openssl@1.1"
   uses_from_macos "zlib"
 
   on_linux do
+    depends_on "libbsd"
     depends_on "libmd"
     depends_on "util-linux" # for libuuid
   end
+
+  # Avoid the `compat/getopt.c` placeholder and use the system's version.
+  # Reported to the upstream mailing list at
+  #   https://lists.openbsd.org/cgi-bin/mj_wwwusr?func=lists-long-full&extra=gameoftrees
+  patch :DATA
 
   def install
     # The `configure` script hardcodes our `openssl@3`, but we can't use it due to `libevent`.
@@ -49,3 +54,18 @@ class Got < Formula
     system bin/"got", "checkout", "repo.git", "src"
   end
 end
+
+__END__
+diff --git a/include/got_compat2.h b/include/got_compat2.h
+index ec546e4b..54e01a99 100644
+--- a/include/got_compat2.h
++++ b/include/got_compat2.h
+@@ -390,7 +390,7 @@ int scan_scaled(char *, long long *);
+ #define FMT_SCALED_STRSIZE	7  /* minus sign, 4 digits, suffix, null byte */
+ #endif
+ 
+-#ifndef HAVE_LIBBSD
++#if !defined(HAVE_LIBBSD) && !defined(__APPLE__)
+ /* getopt.c */
+ extern int	BSDopterr;
+ extern int	BSDoptind;

@@ -1,8 +1,8 @@
 class MariadbAT106 < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.com/MariaDB/mariadb-10.6.11/source/mariadb-10.6.11.tar.gz"
-  sha256 "5784ba4c5d8793badba58348576824d9849ec152e9cbee47a1765161d840c94a"
+  url "https://downloads.mariadb.com/MariaDB/mariadb-10.6.12/source/mariadb-10.6.12.tar.gz"
+  sha256 "3ed2eb7429c2fae5423ca55c661742d107e35246f1ab0c107096f0c4b839463a"
   license "GPL-2.0-only"
 
   # This uses a placeholder regex to satisfy the `PageMatch` strategy
@@ -23,14 +23,13 @@ class MariadbAT106 < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "d7d45e28a2b1e0683e6cc986ad76b5c15b3e086f909731865c473ffc718b8dec"
-    sha256 arm64_monterey: "47a6388bdc2f9c2c0eb273d13c4e5c0c3ec677e60f8422bbbfbd5b62436377e9"
-    sha256 arm64_big_sur:  "76725229ba94ac4732cc5617ba94ad650273f2a81ff47e7e847e810c295bcc53"
-    sha256 ventura:        "86b9ce3da6ec0b136e94865db66bb45eb6fd6d4dbd759ca87ae9c6840f9963b1"
-    sha256 monterey:       "850a2151bfcebc6b18cb4aa9b89f8f06835047ed1d0c06283dc183098a9aaee5"
-    sha256 big_sur:        "fe586abe97683fa9ce30306d00f910e84efa1ce2724b6d8c6a40bebe1c2c9560"
-    sha256 catalina:       "5eede772602489690233f89e58b7f8dd441821e4c9f0192c7de2ae17bc439ae1"
-    sha256 x86_64_linux:   "8088b5bf0e4274aab373ffd7fac74c9da5368f349b549e9b087153fbf4829af9"
+    sha256 arm64_ventura:  "44e8335ff0f6520a1d3c3516cb7ef602cd714a9c6732b72ca135c281725e68c1"
+    sha256 arm64_monterey: "e73eca0972ce10a8ff71823cf89be8b6ef57bf533e708d7059db4ac2ba7afb78"
+    sha256 arm64_big_sur:  "b22f47d8bfd34add635c18d2210698bdf9dce5329853869bc5d3ae4244a48e3b"
+    sha256 ventura:        "cc3b7b37b68618f36d2adaea10c97e225058b77250c866ba3c66d737890d16c6"
+    sha256 monterey:       "cf9f3c446c2da1746720c7c4952b54d6ea79e3f304841289821d3dff467c4e7b"
+    sha256 big_sur:        "fbaafae189a06081c9c93fc10db908f90faa69e478dd31a04cf8acf89b3f77de"
+    sha256 x86_64_linux:   "6f34a0b823a3924417c95ee6395187d08aee0804489cf317eaed1975fb765875"
   end
 
   keg_only :versioned_formula
@@ -47,6 +46,7 @@ class MariadbAT106 < Formula
 
   uses_from_macos "bzip2"
   uses_from_macos "libxcrypt"
+  uses_from_macos "libxml2"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
@@ -56,13 +56,6 @@ class MariadbAT106 < Formula
   end
 
   fails_with gcc: "5"
-
-  # fix compilation, remove in 10.6.12
-  patch do
-    url "https://github.com/mariadb-corporation/mariadb-connector-c/commit/44383e3df4896f2d04d9141f640934d3e74e04d7.patch?full_index=1"
-    sha256 "3641e17e29dc7c9bf24bc23e4d68da81f0d9f33b0568f8ff201c4ebc0487d26a"
-    directory "libmariadb"
-  end
 
   def install
     # Set basedir and ldata so that mysql_install_db can find the server

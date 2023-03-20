@@ -18,6 +18,7 @@ class Theharvester < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3385bbe5ef27952aee1aaf312d83fd5b0795da775979b74ae9fe6e9294f5f5b1"
   end
 
+  depends_on "pygments"
   depends_on "python-typing-extensions"
   depends_on "python@3.11"
   depends_on "pyyaml"
@@ -202,11 +203,6 @@ class Theharvester < Formula
     sha256 "5c7e60f8df95710dbe17550e16ce0153f83990c00ef744841b43f371ed53ebea"
   end
 
-  resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/e0/ef/5905cd3642f2337d44143529c941cc3a02e5af16f0f65f81cbef7af452bb/Pygments-2.13.0.tar.gz"
-    sha256 "56a8508ae95f98e2b9bdf93a6be5ae3f7d8af858b43e02c5a2ff083726be40c1"
-  end
-
   resource "pyppeteer" do
     url "https://files.pythonhosted.org/packages/68/d6/10e7dfaa677888f59bb68902729e0b3d4dee540642533f60a4cdb8c1eb63/pyppeteer-1.0.2.tar.gz"
     sha256 "ddb0d15cb644720160d49abb1ad0d97e87a55581febf1b7531be9e983aad7742"
@@ -320,7 +316,7 @@ class Theharvester < Formula
       - ip:port
     EOS
 
-    output = shell_output("#{bin}/theharvester -d brew.sh -l 1 -b duckduckgo 2>&1")
+    output = shell_output("#{bin}/theharvester -d brew.sh --limit 1 --source urlscan 2>&1")
     assert_match "docs.brew.sh:", output
   end
 end

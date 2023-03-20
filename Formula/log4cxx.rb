@@ -1,21 +1,19 @@
 class Log4cxx < Formula
   desc "Library of C++ classes for flexible logging"
   homepage "https://logging.apache.org/log4cxx/index.html"
-  url "https://www.apache.org/dyn/closer.lua?path=logging/log4cxx/0.13.0/apache-log4cxx-0.13.0.tar.gz"
-  mirror "https://archive.apache.org/dist/logging/log4cxx/0.13.0/apache-log4cxx-0.13.0.tar.gz"
-  sha256 "4e5be64b6b1e6de8525f8b87635270b81f772a98902d20d7ac646fdf1ac08284"
+  url "https://www.apache.org/dyn/closer.lua?path=logging/log4cxx/1.0.0/apache-log4cxx-1.0.0.tar.gz"
+  mirror "https://archive.apache.org/dist/logging/log4cxx/1.0.0/apache-log4cxx-1.0.0.tar.gz"
+  sha256 "6df9f1f682650de6045309473d5b2fe1f798a03ceb36a74a5b21f5520962d32f"
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "41118ffb5e48f82f6095694aaaa88657b49cc13cc7126b73e033b8ca7528b24a"
-    sha256 cellar: :any,                 arm64_monterey: "156d458121f40aeb1ddb85c78bfb55833376c896fa9127cf2c89902ad6a01e4a"
-    sha256 cellar: :any,                 arm64_big_sur:  "bd29e7d25c111e3f0467ccb20e910cf232ad28243e6cf3aad6aeb72c9a9044f2"
-    sha256 cellar: :any,                 ventura:        "529ed0d5405bfc605f920ef826996a646485279b785b3f9c118b231b8d5d2c7d"
-    sha256 cellar: :any,                 monterey:       "d4fc9c3b8697d0f8af74f3521e5b657d2b5f89e4440d801f84d93de559a2f35e"
-    sha256 cellar: :any,                 big_sur:        "8d924e6708ac4819647c2c7ab93d3cd4fa0ee97a5debe853824fa6e01a751e42"
-    sha256 cellar: :any,                 catalina:       "315a9e283ba58a053aa275bd9e0b1f7933844114c75d5503d1cd32878f9072a4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8a887eb24d48c9b1f0c5da04264fa8d91e20b72e1d91162e498a9ca24563ee3a"
+    sha256 cellar: :any,                 arm64_ventura:  "3d0f33b32809f8e031fb6205652936a3461615e6581d550bc2564d036a211478"
+    sha256 cellar: :any,                 arm64_monterey: "00f20ed7f3f8899e1c8bfde63fc5a6d669a8d74de675272d9e7a39db5acebac1"
+    sha256 cellar: :any,                 arm64_big_sur:  "191c762c51bc54d2d40ed443112ad031bb06c8f5c93274d3d06372896eeef821"
+    sha256 cellar: :any,                 ventura:        "247d1bee0654a1c6e768109e87f8707fd4c6cf14fa4177fac36f3c0bd90ac027"
+    sha256 cellar: :any,                 monterey:       "98a0592d6d08dbaed5508b24d6f334718b4dd8c368b2c76dc27a75c57f08d569"
+    sha256 cellar: :any,                 big_sur:        "cd86acc7a5d5c6668d9f9c5dfbc44ac4a26348148f3daeb96d6bf113615d3019"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fe4c29052b04fd9c3e4382e5acd5b9cccc910ad3b35826ece37a4420725b15ec"
   end
 
   depends_on "cmake" => :build

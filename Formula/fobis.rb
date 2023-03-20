@@ -9,15 +9,14 @@ class Fobis < Formula
   revision 2
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7363945213c145a1fccd7ceb02d78df2b605d311fd5c1e392dc799b7aed2f500"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "774c135cce4ef5e397309b159d5c3b5b2e21952a3cfcba8bb3f5dd6f034bc3c1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "854eb9629c3ca906bb2d6de13e076eb6a2bd188139020ac3fc5a2cd49d7dd451"
-    sha256 cellar: :any_skip_relocation, ventura:        "250b4c62f860222591fcf450c6a02d5cb6e9aa808a59f3ddcfd6fb234a3528ff"
-    sha256 cellar: :any_skip_relocation, monterey:       "731d4ce8d491658b88bb87f2766c75dec55b159cdac441bcf5457ed7d79b99b1"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9033858010025b95f32fb53879df00590f01cde953818426b6cbf38b90b944a6"
-    sha256 cellar: :any_skip_relocation, catalina:       "e1640f90d8c6f8e550fec00ca990576c16a2c53ec8bf01ef46d40aff3b32c09f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7c9a582cec179b65493bf663b98006561268e17e30acd8ac400068fc76e191d3"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ef3655ae24dbc9c1db4ca7310e0085019c8363f6cd3fe6244825ddf704e88727"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "48907a8772aaea92593c15fa496441b3e70fc6cd9ccbc6c33939ebb59da1afdc"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "34bd55f9d976e63024d4db2f340be2807b0d10a52b1a6d33ae1af305a65123be"
+    sha256 cellar: :any_skip_relocation, ventura:        "6979ae67c338a57331c033d7532e2f55919a15c5ba43263c5bf618b9e5ea8819"
+    sha256 cellar: :any_skip_relocation, monterey:       "ad700a8e305dae8552c63fe769290b5aede0bb026df206d5f035429f5bccc651"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0f30368491b20eb5a23162c69263500c829812a9fbd53fd3f2163d3d1818089e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b941e8f203bc59f207f77301a5bfd40262998d24b076fd3bfd56ccb5b0d3d64a"
   end
 
   depends_on "gcc" # for gfortran
@@ -30,8 +29,8 @@ class Fobis < Formula
   end
 
   resource "future" do
-    url "https://files.pythonhosted.org/packages/45/0b/38b06fd9b92dc2b68d58b75f900e97884c45bedd2ff83203d933cf5851c9/future-0.18.2.tar.gz"
-    sha256 "b1bead90b70cf6ec3f0710ae53a525360fa360d306a86583adc6bf83a4db537d"
+    url "https://files.pythonhosted.org/packages/8f/2e/cf6accf7415237d6faeeebdc7832023c90e0282aa16fd3263db0eb4715ec/future-0.18.3.tar.gz"
+    sha256 "34a17436ed1e96697a86f9de3d15a3b0be01d8bc8de9c1dffd59fb8234ed5307"
   end
 
   def install

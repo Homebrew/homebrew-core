@@ -1,8 +1,8 @@
 class Imagemagick < Formula
   desc "Tools and libraries to manipulate images in many formats"
   homepage "https://imagemagick.org/index.php"
-  url "https://imagemagick.org/archive/releases/ImageMagick-7.1.0-56.tar.xz"
-  sha256 "34baaf61a8c47d710666f03a4779048fd79c8e0a0910cf7b82e95961af127594"
+  url "https://imagemagick.org/archive/releases/ImageMagick-7.1.1-4.tar.xz"
+  sha256 "b99b37d5a457ca2acb7dc4c000989185d1bf5894d7dd59b8b4817959457ad50e"
   license "ImageMagick"
   head "https://github.com/ImageMagick/ImageMagick.git", branch: "main"
 
@@ -12,13 +12,13 @@ class Imagemagick < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "f34dc3d05289c5107ef4515acee3ce19b095137c26fb7beac8140f47f4cc19d4"
-    sha256 arm64_monterey: "6803e731b07152dcd9850171bbfda80a914fed97bfc8a99e4c27bb10b1f9a6eb"
-    sha256 arm64_big_sur:  "038b993d6f642c1e09c497045159d8155068e7a506583d15cff2bf6d2befae37"
-    sha256 ventura:        "d59b707e291ecb763adb3bdca23067c90c31d1cd5697d086fcf9d7cbe60bc9c0"
-    sha256 monterey:       "b9ec4efc6d38f2ca8346d45c011cf7015b0691e5e9e5f4dfa8ad85bffeb72cae"
-    sha256 big_sur:        "162bc49fcadbe5cf362c7bc34277fbf53df28e4ce8e518083cb089c6d4e40fde"
-    sha256 x86_64_linux:   "65e8623b5204df24c14caa180ad49758310b4c12a5c65935dcb6413a44cff4a3"
+    sha256 arm64_ventura:  "115be9807f0220f00b03188e14ef9d79509c6c48266e80699403e1bc0b01f603"
+    sha256 arm64_monterey: "f119d2331451198839947e7c78a9179e751765712185381da6bcc5064882dd36"
+    sha256 arm64_big_sur:  "ac60cd8b6369dcd031df897dda2ad469e7d3eb3a8277defef8b0208a57992f79"
+    sha256 ventura:        "cc4b66fa26d3d9238312a44ee01ce5615d7ec0b48647904d78c994777fcf45fb"
+    sha256 monterey:       "8975477b6a629f015231049def1620754ca903d6d95f9f97c59fcc3d91ce805f"
+    sha256 big_sur:        "0b912cc7946330625ee6e0c7b9977c3597f4d718759f65007a1c655b8ac55b57"
+    sha256 x86_64_linux:   "25e3b6cbda22f66a0c740a55acfd31bf2423f673a5d59ee2eaf3046776e3ba0a"
   end
 
   depends_on "pkg-config" => :build
@@ -54,11 +54,11 @@ class Imagemagick < Formula
   def install
     # Avoid references to shim
     inreplace Dir["**/*-config.in"], "@PKG_CONFIG@", Formula["pkg-config"].opt_bin/"pkg-config"
+    # versioned stuff in main tree is pointless for us
+    inreplace "configure", "${PACKAGE_NAME}-${PACKAGE_BASE_VERSION}", "${PACKAGE_NAME}"
 
     args = [
       "--enable-osx-universal-binary=no",
-      "--prefix=#{prefix}",
-      "--disable-dependency-tracking",
       "--disable-silent-rules",
       "--disable-opencl",
       "--enable-shared",
@@ -74,6 +74,7 @@ class Imagemagick < Formula
       "--with-gslib",
       "--with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts",
       "--with-lqr",
+      "--without-djvu",
       "--without-fftw",
       "--without-pango",
       "--without-wmf",
@@ -89,9 +90,7 @@ class Imagemagick < Formula
       ]
     end
 
-    # versioned stuff in main tree is pointless for us
-    inreplace "configure", "${PACKAGE_NAME}-${PACKAGE_BASE_VERSION}", "${PACKAGE_NAME}"
-    system "./configure", *args
+    system "./configure", *std_configure_args, *args
     system "make", "install"
   end
 

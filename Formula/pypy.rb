@@ -1,8 +1,8 @@
 class Pypy < Formula
   desc "Highly performant implementation of Python 2 in Python"
   homepage "https://pypy.org/"
-  url "https://downloads.python.org/pypy/pypy2.7-v7.3.10-src.tar.bz2"
-  sha256 "35e2cf4519cb51c4d5ffb4493ee24f0c7f42b4b04944903ca4b33981a04a3bc5"
+  url "https://downloads.python.org/pypy/pypy2.7-v7.3.11-src.tar.bz2"
+  sha256 "1117afb66831da4ea6f39d8d2084787a74689fd0229de0be301f9ed9b255093c"
   license "MIT"
   head "https://foss.heptapod.net/pypy/pypy", using: :hg
 
@@ -12,13 +12,13 @@ class Pypy < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "eb8793ef957f152f07495cd696a9c836b800b23e716f2ea3f4cc91a592982a8f"
-    sha256 cellar: :any,                 arm64_monterey: "06bffd693861f9db9155ddce5cd26508585667152ad2a0249f23bd45516f9c2c"
-    sha256 cellar: :any,                 arm64_big_sur:  "a46d356df82a1d635976bfc82f24d202d97199a39c0c0c7ff12a3ed464a54067"
-    sha256 cellar: :any,                 ventura:        "442d269ba1ac2ccad4082c5a389e8e8e7a991352268c2b30c76980fe7392bc43"
-    sha256 cellar: :any,                 monterey:       "c3ef301974e328937fac4e4af1cae5faaed8806c42ef4dd38e032f80b81b4bb9"
-    sha256 cellar: :any,                 big_sur:        "f54959e61dfab384a4bbdd53936a51390a693c9efd23cac9036e6bfeb17ce22e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9ceb143f47890d211652e7f3aa00aa4546717e8e7e8dfed2e020f5861b130475"
+    sha256 cellar: :any,                 arm64_ventura:  "0c16b3b1fd9fb51dcf921fb982d9a650becc5ed24479c63b574b9f05b879708c"
+    sha256 cellar: :any,                 arm64_monterey: "9d2e4a95ded688b5b04044da3e25a977dff9517b074b0712b68c57bdfa5dad02"
+    sha256 cellar: :any,                 arm64_big_sur:  "0fa8bf4c8732544c8adbf811b955508c90ba78cb42ad5d5273b09412cc1063a2"
+    sha256 cellar: :any,                 ventura:        "0cc34f6b6b0a9aadf7b960860ecdd1010b29b2ea8d3bed334fdd601b00b57184"
+    sha256 cellar: :any,                 monterey:       "77f11e4fac43941487565844f4ae9ed94bcc6f750cc29bee2a19324834b965cb"
+    sha256 cellar: :any,                 big_sur:        "dd3b63d5a7ecbc796139f3d1a66104eb6fca9b3efc505eba1b9b81771dda1f51"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c462e07549c01c0f52e1db0037eb610d15574a70588d7568cc08e8eeec635ede"
   end
 
   depends_on "pkg-config" => :build
@@ -37,17 +37,17 @@ class Pypy < Formula
   resource "bootstrap" do
     on_macos do
       on_arm do
-        url "https://downloads.python.org/pypy/pypy2.7-v7.3.10-macos_arm64.tar.bz2"
-        sha256 "14b178f005603e3df6db7574b77b9c65ae79feda1a629214cafcb4eee7da679d"
+        url "https://downloads.python.org/pypy/pypy2.7-v7.3.11-macos_arm64.tar.bz2"
+        sha256 "cc5696ab4f93cd3481c1e4990b5dedd7ba60ac0602fa1890d368889a6c5bf771"
       end
       on_intel do
-        url "https://downloads.python.org/pypy/pypy2.7-v7.3.4-osx64.tar.bz2"
-        sha256 "ee7bf42ce843596521e02c763408a5164d18f23c9617f1b8e032ce0675686582"
+        url "https://downloads.python.org/pypy/pypy2.7-v7.3.11-macos_x86_64.tar.bz2"
+        sha256 "56deee9c22640f5686c35b9d64fdb1ce3abd044583e4078f0b171ca2fd2a198e"
       end
     end
     on_linux do
-      url "https://downloads.python.org/pypy/pypy2.7-v7.3.4-linux64.tar.bz2"
-      sha256 "d3f7b0625e770d9be62201765d7d2316febc463372fba9c93a12969d26ae03dd"
+      url "https://downloads.python.org/pypy/pypy2.7-v7.3.11-linux64.tar.bz2"
+      sha256 "ba8ed958a905c0735a4cfff2875c25089954dc020e087d982b0ffa5b9da316cd"
     end
   end
 
@@ -189,16 +189,19 @@ end
 __END__
 --- a/lib_pypy/_tkinter/tklib_build.py
 +++ b/lib_pypy/_tkinter/tklib_build.py
-@@ -17,12 +17,12 @@ elif sys.platform == 'win32':
+@@ -17,7 +17,7 @@ elif sys.platform == 'win32':
      incdirs = []
      linklibs = ['tcl86t', 'tk86t']
      libdirs = []
 -elif sys.platform == 'darwin':
 +else:
      # homebrew
+     homebrew = os.environ.get('HOMEBREW_PREFIX', '')
      incdirs = ['/usr/local/opt/tcl-tk/include']
-     linklibs = ['tcl8.6', 'tk8.6']
-     libdirs = ['/usr/local/opt/tcl-tk/lib']
+@@ -26,7 +26,7 @@ elif sys.platform == 'darwin':
+     if homebrew:
+         incdirs.append(homebrew + '/include')
+         libdirs.append(homebrew + '/opt/tcl-tk/lib')
 -else:
 +if False: # disable Linux system tcl-tk detection
      # On some Linux distributions, the tcl and tk libraries are

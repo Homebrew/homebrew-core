@@ -1,19 +1,18 @@
 class Ivtools < Formula
   desc "X11 vector graphic servers"
   homepage "https://github.com/vectaport/ivtools"
-  url "https://github.com/vectaport/ivtools/archive/refs/tags/ivtools-2.0.11d.tar.gz"
-  sha256 "8c6fe536dff923f7819b4210a706f0abe721e13db8a844395048ded484fb2437"
+  url "https://github.com/vectaport/ivtools/archive/refs/tags/ivtools-2.1.tar.gz"
+  sha256 "6a5a55883399cbfef317d8bbf553e57e54945188666b344d9efa98ba3edb57ad"
   license "MIT"
-  revision 6
 
   bottle do
-    sha256 arm64_ventura:  "3bf5b5b67f221d982611087d016d1fa6bc5738c0377e077c5bb7ff1aac9e8420"
-    sha256 arm64_monterey: "87c69c86869d1d892f8a6b8c44d2e0bce2dabc2318af2bae6b477e9de4b6de55"
-    sha256 arm64_big_sur:  "dd7a1afa85963ad8e8e7ff40ff93ef083b070f73895b90cf69e3978cc4157a7b"
-    sha256 ventura:        "fd7358c55d328bf4b601109693af65ef36737a072355f203ffc42c71306a6ddd"
-    sha256 monterey:       "fbafffab2abeb3b042b2abae941c99143ca1eeb0f833e5daf75298cc77edbd02"
-    sha256 big_sur:        "378ca44654db9a902cda955de1f21b35cbd403374e5cbdabd9ba4938dcfcdaed"
-    sha256 x86_64_linux:   "7daac9b9b397ab356a1d4f95653e4c9d15252bde1d4d7a48c7e47e8d32118bdb"
+    sha256 arm64_ventura:  "4483b8a9d1b66a15b3d498771c68d6ba6ef39724d4d094da29b484115434f02b"
+    sha256 arm64_monterey: "6194cd9234844e6c43b54b0ea4a74b02406ac567bee9ba66de8c522e6a1ea544"
+    sha256 arm64_big_sur:  "cb3a1430296837d88716f7ecdbbf69aeb4b81564471e55a911739a5d24a03334"
+    sha256 ventura:        "85f1eccdceb4c8357f2f2224a6c2cb98980a3d9e6e7ff39950286188d811e1db"
+    sha256 monterey:       "385a2a5fa4336a9c0db3b463ccdc308a52d6ec0b6576d3600778dcb6cacafa8f"
+    sha256 big_sur:        "8bc6948e8d297c247fb66e31d11293b6c05b5a428bbbbe40b26e18556d125b4f"
+    sha256 x86_64_linux:   "0feb38759b3dc540c480a566dfa409a4b42007ada74559380d0b97d94888b7bd"
   end
 
   depends_on "ace"

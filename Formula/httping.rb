@@ -6,19 +6,24 @@ class Httping < Formula
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "d94a9daced98c5e2e3b192a2d90e4572b4aea047c3572810f5e437f2c03d7e8f"
-    sha256 cellar: :any,                 arm64_monterey: "c846542d55c712401ea113493bac025d53c760cb34e4afbdbf0589cc480cf040"
-    sha256 cellar: :any,                 arm64_big_sur:  "009816a0db310663c27211705990e2e6b31fa04bec6c8e31d974e3b91f6fdafc"
-    sha256 cellar: :any,                 ventura:        "d94abf69cdd015418cfb0ec25dd0f2542186933a7cfda72a293aac88f072a0a1"
-    sha256 cellar: :any,                 monterey:       "3bb35f1f10a559975d926cf8659cd4fe5474a054f97e6465b700075e598c4d4c"
-    sha256 cellar: :any,                 big_sur:        "01023fd55b938b08b2ba9d244a6ac5f4917e0eab92c07d77976a89df39c844b3"
-    sha256 cellar: :any,                 catalina:       "e6599bb0b22aeb3cb4d637e310b8d0af1f68220f05be7fdce866b421d40c6586"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "db4d5364a17224f353ae268afb1ac9090814fb7cf656f88b757b5e325bb25c3a"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "3141fe1d3df5213ea50d737dcbe5a22d19470b1b71bb5224cc31ab8cae5b1c7e"
+    sha256 cellar: :any,                 arm64_monterey: "94510b3f65c4e5e09f50416ed42dc3cea4919d423b44fb535abf33c931852fff"
+    sha256 cellar: :any,                 arm64_big_sur:  "a8986b877e0394d14426ddf81cdd2434bdaea19d77b5a89fde3b15abbf7a52f6"
+    sha256 cellar: :any,                 ventura:        "fbd0751a4589fc47844450fbdf7ed2addd0209e5fe5cd1e9fcf67a0fd5e9f97a"
+    sha256 cellar: :any,                 monterey:       "b81b8e64adb726690636e16e1b321a105b7ea74c2976334c555ee2057735b193"
+    sha256 cellar: :any,                 big_sur:        "cb7cf7e658c4d92d83fcbaa36779c4ed3b5d03b64cd764a77c68b83be85997f7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "94b00c89e3f72041ad7e5aee324783437ad76f99c1b5bfdacf858e6aaa4d101d"
   end
 
-  depends_on "gettext"
-  depends_on "openssl@1.1"
+  depends_on "gettext" => :build # for msgfmt
+  depends_on "openssl@3"
+
   uses_from_macos "ncurses"
+
+  on_macos do
+    depends_on "gettext" # for libintl
+  end
 
   def install
     # Reported upstream, see: https://github.com/folkertvanheusden/HTTPing/issues/4

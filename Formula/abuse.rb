@@ -23,6 +23,10 @@ class Abuse < Formula
     sha256               x86_64_linux:   "99bb1d87aef39b46eb39d0b6d9483afa3052bb0e616a16bbea90798545f1db37"
   end
 
+  # Uses deprecated `sdl_mixer`. HEAD does have support for SDL 2 but wasn't released.
+  # Last release on 2011-05-09 and last SVN revision on 2014-07-21
+  deprecate! date: "2023-02-05", because: :unmaintained
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build

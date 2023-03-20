@@ -1,8 +1,8 @@
 class Remind < Formula
   desc "Sophisticated calendar and alarm"
   homepage "https://dianne.skoll.ca/projects/remind/"
-  url "https://dianne.skoll.ca/projects/remind/download/remind-04.02.00.tar.gz"
-  sha256 "a6476cf0dfe71bc4668e774669100c58d68b68dc6ccf08ca7ea9fa3345e72739"
+  url "https://dianne.skoll.ca/projects/remind/download/remind-04.02.04.tar.gz"
+  sha256 "e8d8ccd9441d94bb277c71efaf35a87ce2025bbed9954107a5c62fd7e47711c3"
   license "GPL-2.0-only"
   head "https://git.skoll.ca/Skollsoft-Public/Remind.git", branch: "master"
 
@@ -12,14 +12,13 @@ class Remind < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "c2a1bcba977aababd25e119a83616cbac66d72356e93d33c95309a22fb9cc47d"
-    sha256 arm64_monterey: "57b522818917aa6dec6a28809c4b805c3b558fead531fb0fa9da448c415fe8c0"
-    sha256 arm64_big_sur:  "730775e3d26daf1a7a35f0e746b42db40dd1595e528aeb3a17bb44bd92510706"
-    sha256 ventura:        "4d4b1976006f2f3b998bb39f21f2e4a60857076e850de8cbc810ca1949910f1e"
-    sha256 monterey:       "57afc2cac915902842d0c1aaeaf280801e74328978efd371fc86d4135d0ecc63"
-    sha256 big_sur:        "d1610819c3951655ebc9cb637d41462a9459dacd18675735e75ddf0d87cd4c15"
-    sha256 catalina:       "0be7f6a1bbc14850a2d4ad39b43783ea6acc4f991d3d8c0b15a61917b3ddfc9b"
-    sha256 x86_64_linux:   "15b9fd47be67f496d6019be45856a4b200f150fe2ff64aace9b49a21287fd50e"
+    sha256 arm64_ventura:  "67fcaad3473d70462f08225c0cbc7e608a82b0051f5d50943fa9902b2b59b5c1"
+    sha256 arm64_monterey: "ad9ae323b171a4c9ff7c2f978319782ef7d681cd593ee8d2339ee2f71576d05b"
+    sha256 arm64_big_sur:  "11751814e48fb1506af7115908528516d48bb1de1ae4e238ac236d8b55ce7862"
+    sha256 ventura:        "3f338a5d51958cf6ec97029fac9e4abf24bb81bb17940e172d73f4da09f8ba45"
+    sha256 monterey:       "7b38066dd20e1f4fb02a2e70c3368265d361d042e345edcd40e2efe95c010dd8"
+    sha256 big_sur:        "d8b60a4406f4993ae212faf2e16cb275790032b41f3a162b7149683e7b5252ed"
+    sha256 x86_64_linux:   "1a4082452ff001c22b68bdcefe6e28ef71de3f5ebcb2806cbf0d8d567c6e135a"
   end
 
   conflicts_with "rem", because: "both install `rem` binaries"

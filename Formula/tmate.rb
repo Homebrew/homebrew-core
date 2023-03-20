@@ -1,10 +1,20 @@
 class Tmate < Formula
   desc "Instant terminal sharing"
   homepage "https://tmate.io/"
-  url "https://github.com/tmate-io/tmate/archive/2.4.0.tar.gz"
-  sha256 "62b61eb12ab394012c861f6b48ba0bc04ac8765abca13bdde5a4d9105cb16138"
   license "ISC"
   head "https://github.com/tmate-io/tmate.git", branch: "master"
+
+  stable do
+    url "https://github.com/tmate-io/tmate/archive/2.4.0.tar.gz"
+    sha256 "62b61eb12ab394012c861f6b48ba0bc04ac8765abca13bdde5a4d9105cb16138"
+
+    # Fix finding `msgpack`
+    # https://github.com/tmate-io/tmate/pull/281
+    patch do
+      url "https://github.com/tmate-io/tmate/commit/a5c6e80d3c54cd7faed52de5283b4f96bea86c13.patch?full_index=1"
+      sha256 "d48006bf00d6addd5db7c6b875b7a890d6f9bc1a8984a9e12e1087af5ff58f35"
+    end
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "8dd348850ee2dcc734eb9d148495406df82136ddec0d8e50ebef480128db3f10"

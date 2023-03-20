@@ -1,10 +1,11 @@
 class MidnightCommander < Formula
   desc "Terminal-based visual file manager"
   homepage "https://www.midnight-commander.org/"
-  url "https://www.midnight-commander.org/downloads/mc-4.8.28.tar.xz"
-  mirror "https://ftp.osuosl.org/pub/midnightcommander/mc-4.8.28.tar.xz"
-  sha256 "e994d9be9a7172e9ac4a4ad62107921f6aa312e668b056dfe5b8bcebbaf53803"
+  url "https://www.midnight-commander.org/downloads/mc-4.8.29.tar.xz"
+  mirror "https://ftp.osuosl.org/pub/midnightcommander/mc-4.8.29.tar.xz"
+  sha256 "01d8a3b94f58180cca5bf17257b5078d1fd6fd27a9b5c0e970ec767549540ad4"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url "https://ftp.osuosl.org/pub/midnightcommander/"
@@ -12,18 +13,17 @@ class MidnightCommander < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "5c37e9b42a5070f6e400132c03dda05daac033a88ff1fa4189cd01ae582f78bb"
-    sha256 arm64_monterey: "feee2456db02de756ee8d624dbf2170d67e61e9f2c57cc6fd2c7c19fc0ff2a41"
-    sha256 arm64_big_sur:  "30d7ec30f929bab59cb60fa0265abf41f5afc696851be7c0c80ce0756cb05ccc"
-    sha256 ventura:        "d160660e89eedd22dbaeb264f2b028d6421f6c2edc3fe04924bfab9d8f5e788e"
-    sha256 monterey:       "e421f892bd35e97be008972a38c3cf3e80f87009d8c9cbe03fc976b4e2792b95"
-    sha256 big_sur:        "feaa7ababc4fa2b2ed201d222e4e6a24c055b3962f2661a9a930aa37922fec3b"
-    sha256 catalina:       "51c915284413c26f18f27ed47a6bee028a6c0e8d9a4debd25ec4550f95e0fdf3"
-    sha256 x86_64_linux:   "8b8d63b9bc38ad634047402e4cb57ee048c74f29e5dd4db95d75b0b2b45cd289"
+    sha256 arm64_ventura:  "abd054157405602e35a08c7bdcd678ef298cf33476ad099ca9ef3c7d50b7090d"
+    sha256 arm64_monterey: "80adee8c4275ad0d78a9b78428a14bd7f420a6a2275b216598e00ee776cccd4e"
+    sha256 arm64_big_sur:  "fc3e4af13d343ed85f9c299ad5da26966d7ab4d6e7d2d4bc62e3219a785671c3"
+    sha256 ventura:        "5df32a68a42f7151cd86e57a8b655b5ce6ac22be8cd339dda85ec975c8eb90bd"
+    sha256 monterey:       "fd50dbec2047e44060b8c0b9563ad8be71288f58e657bc42c3ba211a21f44e01"
+    sha256 big_sur:        "d35fba9416fdcc566de28e58b8d10cc197609b3f4c9e3ffe239fba86e6277ff6"
+    sha256 x86_64_linux:   "e22475a7648e1d7a545ff4a410d7a3abcaedd9b8e1e9307a0d1ec3b57e5fbd67"
   end
 
   head do
-    url "https://github.com/MidnightCommander/mc.git"
+    url "https://github.com/MidnightCommander/mc.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

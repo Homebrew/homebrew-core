@@ -36,7 +36,7 @@ class Rustfmt < Formula
   test do
     system "cargo", "new", "hello_world", "--bin"
     cd "hello_world" do
-      system "rustfmt", "--check", "./src/main.rs"
+      system bin/"rustfmt", "--check", "./src/main.rs"
     end
   end
 end

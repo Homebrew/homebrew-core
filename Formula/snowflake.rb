@@ -1,28 +1,22 @@
 class Snowflake < Formula
   desc "Pluggable Transport using WebRTC, inspired by Flashproxy"
   homepage "https://www.torproject.org"
-  url "https://gitweb.torproject.org/pluggable-transports/snowflake.git/snapshot/snowflake-2.4.1.tar.gz"
-  sha256 "76eff09dea6a1d63dba3984876d17a6bc1c7c38da10b770980ae2ac9b18281a8"
+  url "https://gitweb.torproject.org/pluggable-transports/snowflake.git/snapshot/snowflake-2.5.1.tar.gz"
+  sha256 "1e8bbbb821ccbfa93c44349918532e0a800be0f6ffb086b189f98c1f04426a48"
   license "BSD-3-Clause"
   head "https://git.torproject.org/pluggable-transports/snowflake.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "10e7c4120adf86e122ac7d4cb026f6bb9cfd46e6f93b6ca5e596ae07a7f6fabd"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f93d447d7dc0ce61dc9816ba9bc877baa88b83220d2e7bda4eb6fd30a8c2a51f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "afbd3d72dfcb082e3636d5eb84b87a4c704db528fdd4eefb4f06777090801f6a"
-    sha256 cellar: :any_skip_relocation, ventura:        "e50a96234f648da82dd8493fa08427ca855df24da58cfb15c711316aa09cc090"
-    sha256 cellar: :any_skip_relocation, monterey:       "1b166f9261ba88519c17dfcb914d18dfa72c0ea1fb2abecc1efa3f90250b6856"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b52c9538018a19e103aab0e55817fc245fb2ebba4762148a387df1d9c99a78e1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2ffe93c871a3f65837b167d9dc1fcb564b620d76c8b0aca79ea550b59067401f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "18e2b7350f42e8d50a23cde2f6a629632a307e16a1b5b79e84886a7c13bdbdba"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b53d2458b80ee8c5ac2ce0dc5b228e39c9cda3c30cc96457a9082248e4458552"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ec332e2951aadfa1d86764e5eeb3608d1457db3ae5d5cab7596f9341b8f9d464"
+    sha256 cellar: :any_skip_relocation, ventura:        "1794d879a7caeeea796f266eb427233843fa577caf03909b0c904b719765c41e"
+    sha256 cellar: :any_skip_relocation, monterey:       "7ec936d5b9f0bfb7caef803dc14ed3eb6c3197fce2021f20272f1dc58883e004"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e07421cce69c8fa462114fad4aaf7c7070f752fce94268111185b5a0a7c64687"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "123158a0fe99aab46db613b785a1d67213dce4e2077d0a049f93d351ce99a928"
   end
 
   depends_on "go" => :build
-
-  # patch build, remove in next release
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/93d8acb/snowflake/2.4.0.patch"
-    sha256 "2c10cde8a894088791cf7395367aa27455140601038ba95ef24e6479e3cc0af3"
-  end
 
   def install
     system "go", "build", *std_go_args(output: bin/"snowflake-broker"), "./broker"

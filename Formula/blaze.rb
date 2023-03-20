@@ -1,20 +1,19 @@
 class Blaze < Formula
   desc "High-performance C++ math library for dense and sparse arithmetic"
   homepage "https://bitbucket.org/blaze-lib/blaze"
-  url "https://bitbucket.org/blaze-lib/blaze/downloads/blaze-3.8.1.tar.gz"
-  sha256 "a084c6d1acc75e742a1cdcddf93d0cda0d9e3cc4014c246d997a064fa2196d39"
+  url "https://bitbucket.org/blaze-lib/blaze/downloads/blaze-3.8.2.tar.gz"
+  sha256 "4c4e1915971efbedab95790e4c5cf017d8448057fa8f8c62c46e1643bf72cbb1"
   license "BSD-3-Clause"
   head "https://bitbucket.org/blaze-lib/blaze.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "18ba83dfa17f1f6b900a7ac9ab0205f41eeca2770d8fa0535d161d5a4d0dd11e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "56c29be29451bf0ad3ba1a644f859bb55c36a655c5ae26cf3808218819443ff3"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "56c29be29451bf0ad3ba1a644f859bb55c36a655c5ae26cf3808218819443ff3"
-    sha256 cellar: :any_skip_relocation, ventura:        "31e4979d51439c0e0d04af9e9b78299a3454e9b993c5c298b552cba9023fc461"
-    sha256 cellar: :any_skip_relocation, monterey:       "f9dd9f5ebcc97bad584ef931e68d9bf160ffa8f5ebb5443f53ce8ca8a39a4504"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f9dd9f5ebcc97bad584ef931e68d9bf160ffa8f5ebb5443f53ce8ca8a39a4504"
-    sha256 cellar: :any_skip_relocation, catalina:       "f9dd9f5ebcc97bad584ef931e68d9bf160ffa8f5ebb5443f53ce8ca8a39a4504"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "498f8d2f640474b8304983d8ec8753e3c038577bd24122808fd8ab23f4c57e19"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7517ce89404f505648d0a6c8581bee0037e03dbe9e2ff59a46ea331bbe03bbe3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e47ffe3bc0d4b023cb6aeb3a368b3758daa8f06fab8c5b701eb5e30733591bf2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e47ffe3bc0d4b023cb6aeb3a368b3758daa8f06fab8c5b701eb5e30733591bf2"
+    sha256 cellar: :any_skip_relocation, ventura:        "cdb1e443ad562ea1318c56b0aa3aa0851b3a61706937dea50e5a9b93d9c97889"
+    sha256 cellar: :any_skip_relocation, monterey:       "cdb1e443ad562ea1318c56b0aa3aa0851b3a61706937dea50e5a9b93d9c97889"
+    sha256 cellar: :any_skip_relocation, big_sur:        "cdb1e443ad562ea1318c56b0aa3aa0851b3a61706937dea50e5a9b93d9c97889"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d0ca0507adf1a1c979a0446130bff037163e335a12cd8d0517cd83b1209ce206"
   end
 
   depends_on "cmake" => :build

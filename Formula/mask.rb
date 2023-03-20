@@ -1,20 +1,18 @@
 class Mask < Formula
   desc "CLI task runner defined by a simple markdown file"
   homepage "https://github.com/jakedeichert/mask/"
-  url "https://github.com/jacobdeichert/mask/archive/v0.11.2.tar.gz"
-  sha256 "abe5fddc7ea1a1ffab59c8f0823a95c7a6fdcfe86749f816b06d7690319d56aa"
+  url "https://github.com/jacobdeichert/mask/archive/v0.11.3.tar.gz"
+  sha256 "539008c8c138bb38c142d0cc9f84c2b89b43e9eb8f5b349f5d0eb308de49860d"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c2e0cba1600c3a404b0c65848e5e4ba72a82336df51fdb74c56b9ac7626cc8b5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f086816201c09f876e6e3465ad7145862151207f3b60a27681d3fada2d3403e1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8c99cc0ec74a9a962a0597978bf229c945b39bb1c3d3273674a97cf873540ce7"
-    sha256 cellar: :any_skip_relocation, ventura:        "e9f53f5310f57d019e4bbe301f46de8e562433eff4b9c5c058b64c57d0dc21e1"
-    sha256 cellar: :any_skip_relocation, monterey:       "b36c0c40193b19d767e99abc4cf4a6c1e81498471134ef36360e43b8882b702e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "85fa85c696b792cad05a2143c49b2bcedca1eb1e45bcb51a41822067b264a30e"
-    sha256 cellar: :any_skip_relocation, catalina:       "1286dd0adc9263041717b451c0744f367412fc176572267d02a7e3f9248c8ccf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cbee75fc2c53fa298f600841235a70401a2b8a61a64fd9f9ee5ca70692d29efc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "73f9c9c0c4560645e966bd43877dc515af084596ead09d6e5f0f84b2a5177513"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1d7124bbbf12af553c85d1181f42a712f5b0002a9790220d4f81527aaa471674"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8f94ee39fe3f0054d250994ba555e7e5422b047d6171f0e2b99864d4e51c4ab1"
+    sha256 cellar: :any_skip_relocation, ventura:        "6ec576ca24d59929a51a18d91556e768f08eca59eac7c0c5d3739f6519150f94"
+    sha256 cellar: :any_skip_relocation, monterey:       "865ac5f8d110a6559e9823e254fc3e89f0289f1911a37b1b68dee77eddefc717"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a4634a535ceef99e088aae29e74504b0771a13ba0410795e4b0024c001792832"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "39d681c882ee39cc14d9e35b65ff876ee64a4dd37a592798a4bb7b3410c14f2b"
   end
 
   depends_on "rust" => :build

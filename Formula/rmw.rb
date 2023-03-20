@@ -1,8 +1,8 @@
 class Rmw < Formula
   desc "Safe-remove utility for the command-line"
   homepage "https://remove-to-waste.info/"
-  url "https://github.com/theimpossibleastronaut/rmw/releases/download/v0.8.1/rmw-0.8.1.tar.gz"
-  sha256 "abad25d8c0b2d6593fe426ca2c2d064207630e6a827a7d769f4991cbb583337b"
+  url "https://github.com/theimpossibleastronaut/rmw/releases/download/v0.9.0/rmw-0.9.0.tar.xz"
+  sha256 "cc9d20733c9f9945054041ee6aeac7f4a4b7a675f297ffe388e4863fb84ed4a1"
   license "GPL-3.0-or-later"
   head "https://github.com/theimpossibleastronaut/rmw.git", branch: "master"
 
@@ -12,14 +12,13 @@ class Rmw < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "7f1102ea022d979ee1736eb0abd441013740468146f02c3a61f3856bffd973b6"
-    sha256 arm64_monterey: "e9b973e0ab336b1b16d0dc382c17c54fe1e1810fc026d58c2359ef4baa722752"
-    sha256 arm64_big_sur:  "5997ee629e5d8f967bee558280199846efb08ef96237ce2e2930d8f71cd14fab"
-    sha256 ventura:        "25e56d3fafd47605a39d03f695e2b0277253c90ddea432380fba3be4e87e7019"
-    sha256 monterey:       "067944109685808a58fff34cbafde328a429fc99629073c8f27a7f327eb30622"
-    sha256 big_sur:        "22c455586c92ed7d09430b2f59b4a2e8dbbca71167025b361fc6ede8b58b212d"
-    sha256 catalina:       "278ae8ceb668e433b18cdf27714ad151a177260c1aeba61e17decdd5c90657c4"
-    sha256 x86_64_linux:   "23834c1e879ed7df29f94f96d806ec8738f44dd89a032d424b20c02d513ccaf5"
+    sha256 arm64_ventura:  "dfa9abe1e2f9a011a750b2c5d156f364fbf14276419b43d65eddaf6ba963104d"
+    sha256 arm64_monterey: "d4a7ec0a94e728d61c0edea0ef5e8e930fd3f036c03230e0843758cc5da7e633"
+    sha256 arm64_big_sur:  "7d42d38cd36038303191cf1666d4e4c9bf95a76dcf6d4f183597a7cd77d0093b"
+    sha256 ventura:        "25c787a75f8dead6995c96ce43a6035ed84a78d418f782d7fc39a0b457fc9098"
+    sha256 monterey:       "b9b8a5f843c5184971f4323487217f8471d3491f557b8e1a8f5f579d29a232eb"
+    sha256 big_sur:        "57d4b756b4d21bbd03851ed7afaa8c367ce0a57e39ff91bc478e2be1fe90781f"
+    sha256 x86_64_linux:   "49c7b0a3fd748ef20525b71c7171549213442eb8d0753b3e98dd2030bdd7c23f"
   end
 
   depends_on "meson" => :build
@@ -27,13 +26,11 @@ class Rmw < Formula
   depends_on "pkg-config" => :build
   depends_on "canfigger"
   depends_on "gettext"
-  # Slightly buggy with system ncurses
-  # https://github.com/theimpossibleastronaut/rmw/issues/205
   depends_on "ncurses"
 
   def install
     mkdir "build" do
-      system "meson", *std_meson_args, ".."
+      system "meson", *std_meson_args, "-Db_sanitize=none", ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
     end

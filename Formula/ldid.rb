@@ -8,19 +8,18 @@ class Ldid < Formula
   head "https://git.saurik.com/ldid.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "a8315e5af343624f881d8770fcb8e5cfb4ff6d5ace9bed68b149e86657dee506"
-    sha256 cellar: :any,                 arm64_monterey: "0ac9a13e531213216609846e8119f52647b3a5a40f2e24a29cd4a1c670326c76"
-    sha256 cellar: :any,                 arm64_big_sur:  "24ad6542039d4d6be36a6d4ecd3f0c693e1f184608e68edbb47c9e9184af8b36"
-    sha256 cellar: :any,                 ventura:        "7a407127350a6ca6ec30195be8f1d0456768ed5b87c4edc3b43d1b97c78a6998"
-    sha256 cellar: :any,                 monterey:       "7cd2258538aab23539e42b7b6eddbd213c8a2d1e6a6ef5b1516d444657800b9e"
-    sha256 cellar: :any,                 big_sur:        "cc64fe39c44a0f1f8bd317526f7e9addb7462738fde043c428f2132119da8fdd"
-    sha256 cellar: :any,                 catalina:       "076869a16234577407b0ea659e117863b927f9c3ac3c5b7cbde9d73af0b998ac"
-    sha256 cellar: :any,                 mojave:         "986774410fa97d8f9afc40d378ee97c9ea6e3b18d8055f3881c12a68466e38b6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "670cf109fed75163204dc01f6c52ce2b9809615c765a2001662cc3e3a192053c"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "f59786f3fff036564365d4ed4a8b41d4402bccbbbfa3162ae994bec1796ab3ef"
+    sha256 cellar: :any,                 arm64_monterey: "047e835731b086550a69c187b4705b3d746ea1cf813f63a804a87fa1c4c7f45a"
+    sha256 cellar: :any,                 arm64_big_sur:  "c81a69241a7bdea0eacd718bd1dbd473607224f38600f043d73be3641ece8cca"
+    sha256 cellar: :any,                 ventura:        "313f9431728e3b2f0ad61e12941447cadc3bb84ba1369c6cc6b01334420276b5"
+    sha256 cellar: :any,                 monterey:       "35aa6c645ea6b89a1745a636c2710e2638f88edc0ad097e38f09e3f7e9c20c6a"
+    sha256 cellar: :any,                 big_sur:        "b75d803f0c93a89a51d9a40d7e6184e4085fe31e5eb5e8b50c11735e9660903c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "016c453d56d1bf999650f1fe6c86b6a06affe7e64bb5e22c187b69e0a0fb11a5"
   end
 
   depends_on "libplist"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   uses_from_macos "libxml2"
 
   def install

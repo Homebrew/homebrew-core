@@ -1,9 +1,9 @@
 class OpenjdkAT8 < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.java.net/"
-  url "https://github.com/openjdk/jdk8u/archive/refs/tags/jdk8u352-ga.tar.gz"
-  version "1.8.0+352"
-  sha256 "141dcb6b321cc78e993f1f126dde9f6c0a7af5d11bfe390f5cf5b1513fabdc1c"
+  url "https://github.com/openjdk/jdk8u/archive/refs/tags/jdk8u362-ga.tar.gz"
+  version "1.8.0+362"
+  sha256 "dd3606bd274d25c96f2dc2e63b7cab36a2b03d82b0ce4f312cfb53056f758d9f"
   license "GPL-2.0-only"
 
   livecheck do
@@ -15,11 +15,10 @@ class OpenjdkAT8 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 ventura:      "37f21b19b1b1d03f4fbdf9b2406d20d720331fd075f097d720bf399f0ec4602e"
-    sha256 cellar: :any,                 monterey:     "46aec17c64762faf957f601de11bafc051c7eaf236d0318a708ed34ea936cfd5"
-    sha256 cellar: :any,                 big_sur:      "616b8c8b60b738da1497e9e2f6fcc918a83fa174921fcdb95fd0f3fcadbaa3aa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "232cfecc85bdcddd29eed18febc84069c91659e323bf4a137e14f39cb5219537"
+    sha256 cellar: :any,                 ventura:      "7b7a6aaf42fd84b6d0a044ad04d091106b38e535de6f62ebd1c82aa41f113a28"
+    sha256 cellar: :any,                 monterey:     "c9783575b8fc507d5aaaf5b67ba87766f75a888de0e1b40b1e6a5ddabde79c4f"
+    sha256 cellar: :any,                 big_sur:      "d946fddedabf49b3fa36398c9f83b2a163b25f8d9e5c9e5b6941f55b24e285bb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "ee61938b32c3738c41505d610d5ee32536ffc09ede48cd72711aded055af3168"
   end
 
   keg_only :versioned_formula
@@ -49,7 +48,8 @@ class OpenjdkAT8 < Formula
     depends_on "libxtst"
   end
 
-  # Oracle doesn't serve JDK 7 downloads anymore, so use Zulu JDK 7 for bootstrapping.
+  # Oracle doesn't serve JDK 7 downloads anymore, so we use Zulu JDK 7 for bootstrapping.
+  # https://www.azul.com/downloads/?version=java-7-lts&package=jdk
   resource "boot-jdk" do
     on_macos do
       url "https://cdn.azul.com/zulu/bin/zulu7.56.0.11-ca-jdk7.0.352-macosx_x64.tar.gz"

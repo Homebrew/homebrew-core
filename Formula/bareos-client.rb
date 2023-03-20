@@ -1,8 +1,8 @@
 class BareosClient < Formula
   desc "Client for Bareos (Backup Archiving REcovery Open Sourced)"
   homepage "https://www.bareos.org/"
-  url "https://github.com/bareos/bareos/archive/Release/22.0.0.tar.gz"
-  sha256 "65b2f0d2bcb8ddf82a4a611c1d272dc5921f9f610ba3df9d9fdaf376b4920c61"
+  url "https://github.com/bareos/bareos/archive/Release/22.0.2.tar.gz"
+  sha256 "70658b2ffb58599cd8f5eb0d700c07b112a618866c9d941f784c04be16924cfb"
   license "AGPL-3.0-only"
 
   livecheck do
@@ -11,13 +11,13 @@ class BareosClient < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "7ac82d4f6bedb62e7f98efb6dfce36c9cf3979f0cab58577fcea82fbc8f00048"
-    sha256 arm64_monterey: "bda2fa18371ce8a7d2d989836754b2004eab64af8e504daf7c70ff65298ea758"
-    sha256 arm64_big_sur:  "1890449d829ba3004c50ed5b9aeee1a5477d2cb0cab4caa50b358c6bbd43c4b6"
-    sha256 ventura:        "bcf196bc35ee7df6c937a420759c7737c14bc5d10433ba2fef3526c23f0843bc"
-    sha256 monterey:       "deef3da987cf0d0c2f4c90c97912646ce5f781dcc1f8cd321931508879c367e9"
-    sha256 big_sur:        "eefbb86a33c1418fe9a9cce8cea48c4f7ce39a3b23adab996268de01579eb293"
-    sha256 x86_64_linux:   "6d87a0347cba1650bd64bc78a7be84b6fc6307a76e8af81d4a54abf8ecf1d7a7"
+    sha256 arm64_ventura:  "11db9e64da397b206bb93979bc5680438c7771393c86c9186b265611ea4a96fb"
+    sha256 arm64_monterey: "096213ed7d05ec2cbdfdbd0412158e616aa69c52d1379a5167f706f6363bd69b"
+    sha256 arm64_big_sur:  "0d57ffd282865aa9cd28e482b1087a1eda508ac935736901ead4c3e7a2c83a52"
+    sha256 ventura:        "e47bb2c79d69670f1989d5880e0881c08c89fadd193fbc61564ea74f579221a7"
+    sha256 monterey:       "6aeb7c540d9411e9da68c1aa3a4df77def6bb09987ed26cda91a3a501304c006"
+    sha256 big_sur:        "ad0251f4962266b14521af06cda449854094785f8074107ede6ccfc4cd9828eb"
+    sha256 x86_64_linux:   "605dbfedf560f2523127837679768094e3065b59b6e68be74eca50617fcc7c26"
   end
 
   depends_on "cmake" => :build

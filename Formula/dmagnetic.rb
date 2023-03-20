@@ -1,8 +1,8 @@
 class Dmagnetic < Formula
   desc "Magnetic Scrolls Interpreter"
   homepage "https://www.dettus.net/dMagnetic/"
-  url "https://www.dettus.net/dMagnetic/dMagnetic_0.34.tar.bz2"
-  sha256 "570b1beb7111874cfbb54fc71868dccc732bc3235b9e5df586d93a4ff2b8e897"
+  url "https://www.dettus.net/dMagnetic/dMagnetic_0.36.tar.bz2"
+  sha256 "0b7614e47f6711ce58cfbee7188d56d17a92c104004f51ab61798b318e897d8f"
   license "BSD-2-Clause"
 
   livecheck do
@@ -11,19 +11,18 @@ class Dmagnetic < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "5b7c0c396302a2a58e6d2c4d3547653b622a2ce4dbd1b138382f020545a4c560"
-    sha256 arm64_monterey: "d5e92d330c580d50b50e4a9abeabe07c8d03c34b7119ceeae28bdd4dfbd48d0e"
-    sha256 arm64_big_sur:  "dfdc741291733bee64c506d1c381ee968ba6b53836b4a5d0428ae92b92cdf914"
-    sha256 ventura:        "1d9841ba3b46f8108381a342ce8e66453323ad42022418c76b68ee087768160b"
-    sha256 monterey:       "80776cb548df431c030a17e6880e28ba3d15e1fbc6aa7deed5c9de54f4b559b0"
-    sha256 big_sur:        "536f7efb82b7d9d981b277e2ff2ce23dbcd7c3be3527f336376a50e3b9b3dcd7"
-    sha256 catalina:       "702f73e365edc401d40fb8c9b913531063ba145e839027d6ad7e55356bd10483"
-    sha256 x86_64_linux:   "b672f707385a493c0fd20a51a4fd579411c5eaffbb599b418e5f9e5bf66147ee"
+    sha256 arm64_ventura:  "04a28c563b190acca6d3d0167e1476438717e558d243123fd821f4960c3f5ad2"
+    sha256 arm64_monterey: "4c7bbc22b20743ad1b6c45077c857ece0b446231686fbe664b21897434eb874d"
+    sha256 arm64_big_sur:  "c1a5fb93957fada941cc457a37406a43918e7c7eb1af4579c241edc43caa0868"
+    sha256 ventura:        "cb334115639d028f1c25661276aab6ef2c84db2e0bddfe7875bee3c5a07cc94c"
+    sha256 monterey:       "13a91829e4bca711a5e6dfbdb02292777f4ce3c836748a291df1aa601a055bc2"
+    sha256 big_sur:        "9e135dc4b24c390eb50527e84f7d915ba5b060429ec3c2e273e2fd6ebfe37693"
+    sha256 x86_64_linux:   "a89c211a9cd74bffa552a5d34fb90db3a3abbf20aba22e0d6d56dc0ba49ae387"
   end
 
   def install
     # Look for configuration and other data within the Homebrew prefix rather than the default paths
-    inreplace "src/toplevel/dMagnetic_pathnames.h" do |s|
+    inreplace "src/frontends/default/pathnames.h" do |s|
       s.gsub! "/etc/", "#{etc}/"
       s.gsub! "/usr/local/", "#{HOMEBREW_PREFIX}/"
     end

@@ -4,7 +4,7 @@ class Postgis < Formula
   url "https://download.osgeo.org/postgis/source/postgis-3.3.2.tar.gz"
   sha256 "9a2a219da005a1730a39d1959a1c7cec619b1efb009b65be80ffc25bad299068"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://download.osgeo.org/postgis/source/"
@@ -12,13 +12,13 @@ class Postgis < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "e392847c4a6f953f0b8a463a5ab0e90867027f2979b02b9c73237d13565887fd"
-    sha256 cellar: :any,                 arm64_monterey: "878abb2fd55536b49567a32ee20a2cedfee0c848665e802b0bec16219199295f"
-    sha256 cellar: :any,                 arm64_big_sur:  "4fd2bc0ef5f2b012f42fa85d42ff275fdefd72a7e7eb4e9fce7e0601f765a5f1"
-    sha256 cellar: :any,                 ventura:        "2c0e3d3daf6ec112336bc161209f3558242f4d61bbeb1dc6159d5138ecde5660"
-    sha256 cellar: :any,                 monterey:       "e54e26eeeea6ca539902adf62462f4c761373e329a2d9afe88afcebfc55e5128"
-    sha256 cellar: :any,                 big_sur:        "f75a88d60aea77a0b9676759c20167fe9ae70f6d971dccb3582e97d9f8674233"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f1f1ae0e738b09b6220dbbe02dfee56a5325afe9259b15026046bdc00bb16709"
+    sha256 cellar: :any,                 arm64_ventura:  "3cde54b37a9a7c3c7d9aab6f259111465c6388e2cbccc062063e967d3cef9412"
+    sha256 cellar: :any,                 arm64_monterey: "aec65ddab5eaacc23dda2ce0907fc3948acf850b4a0dad038ed95cb7d64f2726"
+    sha256 cellar: :any,                 arm64_big_sur:  "38af4aaa34598c8ec54e61bef27dda8c669276e3e123535bfc269488f54b40a9"
+    sha256 cellar: :any,                 ventura:        "8cdcaa0e88d765ccc73f589d845dbe80e43f5bf04a47d48b705539c414d83b3b"
+    sha256 cellar: :any,                 monterey:       "4885236a19f3ce94d92f9f5479d00c5d2dd3b30e356abe15a499ad812674cccf"
+    sha256 cellar: :any,                 big_sur:        "869fcfdc0e6b24ccd18712cc6a8f34eafc4d74b7d1bf479258c872c7c0d1bd3e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2fa798268a282ddd7dec8b2dfe090a2e19877c4cfcde31206ee1ac2fa159ba1f"
   end
 
   head do

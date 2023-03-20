@@ -3,7 +3,7 @@ class YelpTools < Formula
   include Language::Python::Virtualenv
 
   desc "Tools that help create and edit Mallard or DocBook documentation"
-  homepage "https://github.com/GNOME/yelp-tools"
+  homepage "https://gitlab.gnome.org/GNOME/yelp-tools"
   url "https://download.gnome.org/sources/yelp-tools/42/yelp-tools-42.1.tar.xz"
   sha256 "3e496a4020d4145b99fd508a25fa09336a503a4e8900028421e72c6a4b11f905"
   license "GPL-2.0-or-later"
@@ -53,7 +53,7 @@ class YelpTools < Formula
       ENV.append_path "PKG_CONFIG_PATH", share/"pkgconfig"
     end
 
-    system "meson", *std_meson_args, "build"
+    system "meson", "setup", "build", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
 

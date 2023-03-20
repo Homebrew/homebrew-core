@@ -14,19 +14,17 @@ class UtilLinux < Formula
   ]
 
   bottle do
-    rebuild 1
-    sha256 arm64_ventura:  "871957ce4150fd4795387c3a0040ef6ba7f804641f2821085867a5cc58496dc7"
-    sha256 arm64_monterey: "d55a06518360d9677ab53abfca0566f4cf90330f3798bb99944d208f44787bbf"
-    sha256 arm64_big_sur:  "e3d17bcc5a81b040e346b59f73491fd544f33b560dd0586961a9dbe085a54b57"
-    sha256 ventura:        "57fca00e8206de00ca97b88d605c6490c82c4f33f8ddf8dd7853841e6023e434"
-    sha256 monterey:       "793b7fd5fbaadba11b74130ff3f91d4429b119663692d57862f2a82695f02a9b"
-    sha256 big_sur:        "36d7907e0929a843753bc02f76b523189422cd1de66f9c042ffbd8095437159f"
-    sha256 x86_64_linux:   "69fb0dd33dc299a156948d60b6d34d0cb23e4cb50f1b2687618ad1765fe0401d"
+    rebuild 2
+    sha256 arm64_ventura:  "bae699a799d47cd4eefebfe710026caddb884c0c1b12946cf97178d69bc3e87b"
+    sha256 arm64_monterey: "d9968a649c0c89be84375cc3ec5f83173a522a6a8afa66e377bc61af7e8be83f"
+    sha256 arm64_big_sur:  "5254f2f95a81467864c46d96abaae044bfa98c13f6c386a1fd25facd67a32df8"
+    sha256 ventura:        "00275051b0a85c337ce82a7b410580b8a12947034d93b7536a5a56a4a62d18f2"
+    sha256 monterey:       "63fa7a684e7b4d4b652b54f9ba5dfe6ff1f20b974bf0509f76aaea26a97ef31d"
+    sha256 big_sur:        "f4091ecbc585f0cf9a244b5be177a5ac7bd49bf1650a0a5d79bbe28dfb7b9744"
+    sha256 x86_64_linux:   "aa2192315d8696997a44fac1681386ff0978d354a326477090cc0e940dbfa4b6"
   end
 
   keg_only :shadowed_by_macos, "macOS provides the uuid.h header"
-
-  depends_on "asciidoctor" => :build
 
   uses_from_macos "libxcrypt"
   uses_from_macos "ncurses"
@@ -53,6 +51,7 @@ class UtilLinux < Formula
     depends_on "readline"
 
     conflicts_with "bash-completion", because: "both install `mount`, `rfkill`, and `rtcwake` completions"
+    conflicts_with "flock", because: "both install `flock` binaries"
     conflicts_with "rename", because: "both install `rename` binaries"
   end
 
@@ -60,7 +59,7 @@ class UtilLinux < Formula
     # Temporary work around for patches. Remove in the next release.
     system "autoreconf", "--force", "--install", "--verbose" if OS.mac?
 
-    args = %w[--disable-silent-rules]
+    args = %w[--disable-silent-rules --disable-asciidoc]
 
     if OS.mac?
       args << "--disable-ipcs" # does not build on macOS

@@ -1,8 +1,8 @@
 class HtmlXmlUtils < Formula
   desc "Tools for manipulating HTML and XML files"
   homepage "https://www.w3.org/Tools/HTML-XML-utils/"
-  url "https://www.w3.org/Tools/HTML-XML-utils/html-xml-utils-8.4.tar.gz"
-  sha256 "41bb9b14e1f4cd6102e3f8dfb79e7146a24c09693869873165c421769a57d137"
+  url "https://www.w3.org/Tools/HTML-XML-utils/html-xml-utils-8.5.tar.gz"
+  sha256 "f20a46ac4ed30d028cd78476e5f20f5e2917a95cb7bce7df7f17d8fb3e4f79e7"
   license "W3C"
 
   livecheck do
@@ -11,14 +11,13 @@ class HtmlXmlUtils < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b443452875176892ac60cbfd1fe16768c6d4ff6ecfe6311d09d5459722f50379"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "66e08eeaa55322e3e088c454ca5dfa536dfb006af028431f49dde19603de08c4"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "266bde745a50183463b375f937ee0b6352f25d49c8d0fea63984939fcbc340ad"
-    sha256 cellar: :any_skip_relocation, ventura:        "a10b172a0688ca605c2c68459776a3e65ec096adf60c1ff5f6eb544a2abbe2f6"
-    sha256 cellar: :any_skip_relocation, monterey:       "d57473f0754a2f146c74c87774c1aaefaac8e82b168f31208e1fd92db461a721"
-    sha256 cellar: :any_skip_relocation, big_sur:        "94028fe5988b7d67104d8bac2b751b2b96fc07710ff045cff56365c8677e96f6"
-    sha256 cellar: :any_skip_relocation, catalina:       "8aa10fdafb70c37a904da4dd86b9498d6cfdf9b11e00db7f6eeb27140cac27d8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bcedcb2a41de4451a870f08cc23b38f45e209d849a00c9664b6b67053d920be0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9da23d056da555fbf6306037ce4469b1c2e65390c8ca5f01bff0da44ebe31cde"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7d4975799b15c7ea41ccfdd3d41362ae9a28456f013f44a32c0ac5539d49c6aa"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e7e79fe524c0876f73ec73b51db43965941c3a4d902071bab0a3084bdd88f84c"
+    sha256 cellar: :any_skip_relocation, ventura:        "52130fde2b7dcd1c01153665df9b35c53841e424c1b92c481298cc971c829373"
+    sha256 cellar: :any_skip_relocation, monterey:       "8fdab1c6c0a1143e276a47cf25af5acdf5a4648ae97432c94feebb4756e8632c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a2a33cf64b5ad4f023f55005b206d43b3a2c035de031a2566ce7738b06f81cb0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fdf02ccbd70a98f31080c719ac354b16857b5a15baaa417da2869be0d23e0638"
   end
 
   def install

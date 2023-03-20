@@ -11,14 +11,18 @@ class LibgpgError < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "1955fb0ad761875d609cce71140d83b0b313d0b8e09f7a4d10de021aa04a474a"
-    sha256 arm64_monterey: "9cfc7363abb102b284578c13d0e9b99a786bcd262e159541eebf6283c21c66c5"
-    sha256 arm64_big_sur:  "c023005814ffc801b659d5819ce7dc3aef4906fa538b90ad5526bfbc5fdd8a98"
-    sha256 ventura:        "13b643a6d383301f0df8dc7904398cda155d4417a4092adb6880881d6f21f981"
-    sha256 monterey:       "ffd831497a499fd7af47d69ab535a2eea51fcc85cea1db07ca748da77f64272c"
-    sha256 big_sur:        "bbc14e9b5e8e37b7ce5a498439097d4c3fe33c9126f9266f5c3089ec674c002c"
-    sha256 catalina:       "80e9fc05b831780e67221d972957088c15b644d83f685ffed9db22d4587f27c2"
-    sha256 x86_64_linux:   "d7d28c36ed2465543dd68313819bb940dcf0d0b5592af36199294801cc458681"
+    rebuild 1
+    sha256 arm64_ventura:  "f5a6db667584320df0aa91b6817a9fd910b96bcd101ab75ee3a5d86531e89e3d"
+    sha256 arm64_monterey: "a299620e41577dcbfeb796ce39eae98e48942d89ea71d65008abf585ce3fcc3e"
+    sha256 arm64_big_sur:  "e7479d41231a98176bd553b1f290d57edd7fc407c5b65d77d120ffc1af488796"
+    sha256 ventura:        "98a660faf039772f82c82546f4112cb790f889e5921b7424b8ba512fdc62dd4f"
+    sha256 monterey:       "d54bc062f430ef13c387f1569540954983792cc11a7dbd195870e48e1aba1a1d"
+    sha256 big_sur:        "f2724515c0fc44a7b0c0c7743c406c5421bb7050615d583ac7502e5dabb7ae83"
+    sha256 x86_64_linux:   "1bfe076ef9c724140487b4346566be5d0e1ff45599aa938c4d7f31abe21215b9"
+  end
+
+  on_macos do
+    depends_on "gettext"
   end
 
   def install

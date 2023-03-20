@@ -1,8 +1,8 @@
 class Tintin < Formula
   desc "MUD client"
   homepage "https://tintin.mudhalla.net/"
-  url "https://github.com/scandum/tintin/releases/download/2.02.20/tintin-2.02.20.tar.gz"
-  sha256 "331673e6ee3c945cf27e1c0d71cec1225c9d992588ed73b2a707c4c49523e8d2"
+  url "https://github.com/scandum/tintin/releases/download/2.02.31/tintin-2.02.31.tar.gz"
+  sha256 "f6359867f0c91ef2f1ddabd5e2d98b02b75bb0129470a824c9a0b143ff14e7c7"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,14 +11,13 @@ class Tintin < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "b4023a2a9469224b01787b7e9d3346e6e74657128a522723356f3972dc5fcbce"
-    sha256 cellar: :any,                 arm64_monterey: "22df076cf26294cfcc4916a5207da44c5b09e666214ac492f00a4cc834cf5686"
-    sha256 cellar: :any,                 arm64_big_sur:  "edb2f64c84e44ad7f1b76a1c5ec412dc94070fda47e902d1a69d9baa3db611f7"
-    sha256 cellar: :any,                 ventura:        "2d38c60b5064debcce25a9e480f102743ffc1c4e52158f00510e31ec7479c356"
-    sha256 cellar: :any,                 monterey:       "09bbec9d3b0c8fa2ea32b82a338cb8ccfcaa5f14c563fc5d1fd9b22ff0f47a69"
-    sha256 cellar: :any,                 big_sur:        "4395014464314a01722a142094b0ac57a3287f444dea2b188d42db858f215332"
-    sha256 cellar: :any,                 catalina:       "61e87a3cbbecbf6a0675d03118edb516a6e570ed9f442f92afacaa0979437986"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "17d90efb0dcd0a31a260531ffe10e5e2e87253ad8570f2dc931082acba886d94"
+    sha256 cellar: :any,                 arm64_ventura:  "5abf2cbdb5cd3e2ae9c01a5b29321d936e86f9d793551fb25f90a2f791ab4e3f"
+    sha256 cellar: :any,                 arm64_monterey: "8b3b152050a13305b5b8f03f755368f4e046515c57d97e369037ff0fbbb8ded8"
+    sha256 cellar: :any,                 arm64_big_sur:  "8cbe798a0f98f4101bd55a72b73af553f218e815caa084adec0005409413ddc2"
+    sha256 cellar: :any,                 ventura:        "419693b6825e7aedc436a8591906a66cdc88b8296e6ce94bb6986c7eef2ddd02"
+    sha256 cellar: :any,                 monterey:       "7f84c54c009d1fcafdae192e194479ce9c6603eaf7f4fe31c137c680fda0017a"
+    sha256 cellar: :any,                 big_sur:        "ae668678e8c4b3c38561e26f7d98102138beb1f81917e5cb529cd925150560e9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b702831ad086345f822a45e45eeab0e0d44e321593fd67eafcd34e0bec0c4d3d"
   end
 
   depends_on "gnutls"

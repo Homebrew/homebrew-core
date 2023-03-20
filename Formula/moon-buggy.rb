@@ -21,7 +21,7 @@ class MoonBuggy < Formula
   end
 
   head do
-    url "https://github.com/seehuhn/moon-buggy.git"
+    url "https://github.com/seehuhn/moon-buggy.git", branch: "master"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end

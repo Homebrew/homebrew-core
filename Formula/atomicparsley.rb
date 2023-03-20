@@ -1,23 +1,21 @@
 class Atomicparsley < Formula
   desc "MPEG-4 command-line tool"
   homepage "https://github.com/wez/atomicparsley"
-  url "https://github.com/wez/atomicparsley/archive/20210715.151551.e7ad03a.tar.gz"
-  version "20210715.151551.e7ad03a"
-  sha256 "546dcb5f3b625aff4f6bf22d27a0a636d15854fd729402a6933d31f3d0417e0d"
+  url "https://github.com/wez/atomicparsley/archive/20221229.172126.d813aa6.tar.gz"
+  version "20221229.172126.d813aa6"
+  sha256 "2f095a251167dc771e8f4434abe4a9c7af7d8e13c718fb8439a0e0d97078899b"
   license "GPL-2.0-or-later"
   version_scheme 1
   head "https://github.com/wez/atomicparsley.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e262f2feabbc9f16383b5d83e66c28578331e2cf7548046c4af8227dec1a8f93"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "fd6740f15d9d909a464b2759676bc5c8f9e7e0d47206637b136b398e2f71e4ce"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "79353541a9980e951bdf0a3137105f14c3bb42bcb399e0a98ee5b814374cdbd5"
-    sha256 cellar: :any_skip_relocation, ventura:        "38836330fb6f518aad718835a9277e1fe2eefc5825d3a26b4e89d4cb53815242"
-    sha256 cellar: :any_skip_relocation, monterey:       "1813634f5288568fa89a502960bf9560f79f8d4c344f36d3c45b6cb322bf01bb"
-    sha256 cellar: :any_skip_relocation, big_sur:        "85983e4b886164a9e7d865ad629cbef1583bd171e7d2190634dc9968e23117e1"
-    sha256 cellar: :any_skip_relocation, catalina:       "82b715beaadc88b8c342de0f71f1a81d24307cf2ec3a633c82db32f4ec11d2bb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8ffd502f75ccdee2e85002c006956f47dfb385ea5cb4709d79c1042baa4ee27b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b34175e14acdb01523b83fb7e84ba96cfedb6fba3e40e33a594481e5020608dd"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "996bb284186eaa30569575a32e0447e7e5cf2f0223c4367e58a76a1addfac27d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9e553cc071ff479799cd114c085b56f03f23b904ae94d03c8cf490845dae9f7e"
+    sha256 cellar: :any_skip_relocation, ventura:        "558289aeb9de98c1c813afab51c3c0d1d92fdf82388a805781d2f4b11df20690"
+    sha256 cellar: :any_skip_relocation, monterey:       "8cc2e316a549c4d1bdc4041fd9a6cfa47673e3ed196b3aecba5e72492d2dc152"
+    sha256 cellar: :any_skip_relocation, big_sur:        "256816a97ae5ff57bbf87c40db79601522aec0b6f0bf2a0b4dc939badbe730c1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1b7c684a13e7f448cf4fd791c7534f43489428ee0eae19749c129b4db1389d02"
   end
 
   depends_on "cmake" => :build

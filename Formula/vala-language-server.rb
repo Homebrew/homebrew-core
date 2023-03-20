@@ -1,17 +1,18 @@
 class ValaLanguageServer < Formula
   desc "Code Intelligence for Vala & Genie"
   homepage "https://github.com/vala-lang/vala-language-server"
-  url "https://github.com/vala-lang/vala-language-server/releases/download/0.48.5/vala-language-server-0.48.5.tar.xz"
-  sha256 "698a0f26b61a882517f31039e7dc8efdda1384de0687b1ab78f2a768c305b17e"
+  url "https://github.com/vala-lang/vala-language-server/releases/download/0.48.7/vala-language-server-0.48.7.tar.xz"
+  sha256 "a93e09497738144792466d0c5ccb1347583d84a9987b65b08f6aa5d5a1e3f431"
   license "LGPL-2.1-only"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "e52da2c7a6d04e21500d5c94b50e960071a30e4c8e5ccc3eb35e62950d5afe63"
-    sha256 cellar: :any, arm64_big_sur:  "696c0222b7254ba09819682b05659522794e27281a24a6d1cd0d7edb1034b881"
-    sha256 cellar: :any, monterey:       "9d60b232a351cd76708ddcd8253d51dcf78d821d61f8a152d781478d6d2c7a13"
-    sha256 cellar: :any, big_sur:        "f3f713cd02ef48c53f475e660e4719d5ade539f8739a2ac30b16c39a9b66a41b"
-    sha256 cellar: :any, catalina:       "e1adfcc2dab05e3633d76a8397cffae5e9e37530d28f90468c593bcbb3cef7ab"
-    sha256               x86_64_linux:   "505cda33ad604a86e51d83bd97c9940978439de9c6b14a3260f282d41bbb698e"
+    sha256 cellar: :any, arm64_ventura:  "8bceda4daa8845f577ab8133fff13b22ff342e9d9bc567a3b0e9c97eb6de8ab8"
+    sha256 cellar: :any, arm64_monterey: "51eb75d062bfb8901eaeff0ca491584cfbc62bb266861ab760d9fd1c34aada5d"
+    sha256 cellar: :any, arm64_big_sur:  "865dc144b42045cf9243ef56f7153dc341d6cb160b957c11f900844c27e4a2c5"
+    sha256 cellar: :any, ventura:        "5c3225a7fd5a42ae0b78713fe57ed1840ec4b090393e8e1cf53c1d250a392641"
+    sha256 cellar: :any, monterey:       "0b7304461e6e427f1ed2ebad4dcb6d66589c0bb5f77c6cf921207359461e5e46"
+    sha256 cellar: :any, big_sur:        "237b5e936501fb0d96ca3304947f4224113d39bb4a218a1b25d0702959a1fe81"
+    sha256               x86_64_linux:   "063a6451f6da46ce3112e2de698c723b69867fb4890a97b5ae78b16dc85ef23d"
   end
 
   depends_on "meson" => :build
@@ -30,7 +31,7 @@ class ValaLanguageServer < Formula
   end
 
   test do
-    length = (151 + testpath.to_s.length)
+    length = (testpath.to_s.length + 151)
     input =
       "Content-Length: #{length}\r\n" \
       "\r\n" \

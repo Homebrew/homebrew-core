@@ -2,22 +2,19 @@ class Fceux < Formula
   desc "All-in-one NES/Famicom Emulator"
   homepage "https://fceux.com/"
   url "https://github.com/TASEmulators/fceux.git",
-      tag:      "fceux-2.6.4",
-      revision: "2b8c61802029721229a26592e4578f92efe814fb"
+      tag:      "v2.6.5",
+      revision: "ea6ed69b874e3ae94072f1b4f14b9a8f0fdd774b"
   license "GPL-2.0-only"
-  revision 2
   head "https://github.com/TASEmulators/fceux.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "756430ce70feb593346978361c819e30c2c73ce4db936af2a0a0a69979907b73"
-    sha256 cellar: :any,                 arm64_monterey: "4e0229b41383077bc3ff7a3e9e43b4ebf248ebbb09d38078d89d7ea14d943a40"
-    sha256 cellar: :any,                 arm64_big_sur:  "92c1e577709978b28cef7875358b6b5b3643f9301c56b5ae9eac98eaefd51bba"
-    sha256 cellar: :any,                 ventura:        "a06905322aa5c213c721469026cead000d1688f3793519d629027a4b33687f12"
-    sha256 cellar: :any,                 monterey:       "cf55e27f1976a68608667cb3e5c7968c131e6d9a90e0691152784e1024006c19"
-    sha256 cellar: :any,                 big_sur:        "e82e9537ee0427af36473a76b0b26198d22e577716c1e3c73ef6be45514c578d"
-    sha256 cellar: :any,                 catalina:       "ace36678cd5d83047ca0038029e336f1833a80efd5c79ec88c1f02a78c4e1b74"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fdb660e38177e2fa16c4bf9006159238a9d0722e08f40728394f643e719a9b1f"
+    sha256 cellar: :any,                 arm64_ventura:  "84fc7e01a4bd37c50e66856663c0a85ad6a10b0a7092583ea76daa4e27f31b4d"
+    sha256 cellar: :any,                 arm64_monterey: "7c176a75a109ae6351a3b53a0f791cc440498591039655ee9d951b77567c39a8"
+    sha256 cellar: :any,                 arm64_big_sur:  "ed09257356077299043e5e2a00fe48a209de8931bd282d1687ed890dcdda20fb"
+    sha256 cellar: :any,                 ventura:        "7bb7541203311e9e12c240eee8d9f3e00788cffd810db4715189b4fbe5b392a7"
+    sha256 cellar: :any,                 monterey:       "4cb78e1bdff952dcb42bf2f5f90b8a12e178d64947fa9d41a53ce300042fc321"
+    sha256 cellar: :any,                 big_sur:        "0f0bd1643792ad6c2882b801d40fc2fd6ba5e4174858ef6a71fa6a47a68e8ed5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "40cb6b743e7b5d5ed218cc90d886705fcdad77cfe33d480c188e521d4e3d2b1d"
   end
 
   depends_on "cmake" => :build

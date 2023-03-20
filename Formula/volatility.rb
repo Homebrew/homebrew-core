@@ -10,14 +10,14 @@ class Volatility < Formula
   head "https://github.com/volatilityfoundation/volatility3.git", branch: "develop"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "5eb86910bd938108a7988fd95b5fa6262e8e68a926d1b7eb68b52f170c37391a"
-    sha256 cellar: :any,                 arm64_monterey: "4acdf5b6ae70abb80ade5fd647ef84166f4f59514b1fa7c683959df15e4acd0d"
-    sha256 cellar: :any,                 arm64_big_sur:  "4f56832a907494eba0248c858a34a018a60811f1d930f7259e3d3bc5ac433462"
-    sha256 cellar: :any,                 ventura:        "12c2c803293597ded40374ebdec0318cbc60aeb3492360440e5a9236a6a04630"
-    sha256 cellar: :any,                 monterey:       "26ca70a1baaff8f4106b4781b434e828b8547dff66de6aab9f9599417f33f7ff"
-    sha256 cellar: :any,                 big_sur:        "ea5cf2c5fa52e0d9052ab87d191b0f3d0ae1816dcec97aea2a7357b95772fead"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c7a70d3704a4d21200cfd5e47c69741c8d47a3c27e4595bcc0d73223a132dfe6"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_ventura:  "8e525e6512b5c1bc66ef23b00e1b5ae9c0de811141e320a144d3aa59d78e14e0"
+    sha256 cellar: :any,                 arm64_monterey: "05fee3aaadf580980a8fa78d2aa6c5ecb70e4c21aff0f8fc490eb78e0b825cfc"
+    sha256 cellar: :any,                 arm64_big_sur:  "a81affb49870e7495882b2fa8c36cf98e511178caab8786e04479c311c1230b8"
+    sha256 cellar: :any,                 ventura:        "e9a9339ca07327e7692eb5740cf5d528fdcda6dde362e11c5222e6c379cd11a1"
+    sha256 cellar: :any,                 monterey:       "b8353e0c75ca7b56cfffb77c6fe2fedf6c863f1efc434f16e3681d716d92e3aa"
+    sha256 cellar: :any,                 big_sur:        "42de8340b95a5fb2c35863dd6f52db5db2ddf543a8e5ff265eb68d183da20941"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4d80141455f26ffff4cdf47524e25818f37870f64ef715b3cab67e470c86eaca"
   end
 
   depends_on "python@3.11"
@@ -25,8 +25,8 @@ class Volatility < Formula
 
   # Extra resources are from `requirements.txt`: https://github.com/volatilityfoundation/volatility3#requirements
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/1a/cb/c4ffeb41e7137b23755a45e1bfec9cbb76ecf51874c6f1d113984ecaa32c/attrs-22.1.0.tar.gz"
-    sha256 "29adc2665447e5191d0e7c568fde78b21f9672d344281d0c6e1ab085429b22b6"
+    url "https://files.pythonhosted.org/packages/21/31/3f468da74c7de4fcf9b25591e682856389b3400b4b62f201e65f15ea3e07/attrs-22.2.0.tar.gz"
+    sha256 "c9227bfc2f01993c03f68db37d1d15c9690188323c067c641f1a35ca58185f99"
   end
 
   resource "capstone" do
@@ -35,8 +35,8 @@ class Volatility < Formula
   end
 
   resource "future" do
-    url "https://files.pythonhosted.org/packages/45/0b/38b06fd9b92dc2b68d58b75f900e97884c45bedd2ff83203d933cf5851c9/future-0.18.2.tar.gz"
-    sha256 "b1bead90b70cf6ec3f0710ae53a525360fa360d306a86583adc6bf83a4db537d"
+    url "https://files.pythonhosted.org/packages/8f/2e/cf6accf7415237d6faeeebdc7832023c90e0282aa16fd3263db0eb4715ec/future-0.18.3.tar.gz"
+    sha256 "34a17436ed1e96697a86f9de3d15a3b0be01d8bc8de9c1dffd59fb8234ed5307"
   end
 
   resource "jsonschema" do
@@ -50,13 +50,13 @@ class Volatility < Formula
   end
 
   resource "pycryptodome" do
-    url "https://files.pythonhosted.org/packages/0d/66/5e4a14e91ffeac819e6888037771286bc1b86869f25d74d60bc4a61d2c1e/pycryptodome-3.16.0.tar.gz"
-    sha256 "0e45d2d852a66ecfb904f090c3f87dc0dfb89a499570abad8590f10d9cffb350"
+    url "https://files.pythonhosted.org/packages/b8/2e/cf9cfd1ae6429381d3d9c14c8df79d91ae163929972f245a76058ea9d37d/pycryptodome-3.17.tar.gz"
+    sha256 "bce2e2d8e82fcf972005652371a3e8731956a0c1fbb719cc897943b3695ad91b"
   end
 
   resource "pyrsistent" do
-    url "https://files.pythonhosted.org/packages/b8/ef/325da441a385a8a931b3eeb70db23cb52da42799691988d8d943c5237f10/pyrsistent-0.19.2.tar.gz"
-    sha256 "bfa0351be89c9fcbcb8c9879b826f4353be10f58f8a677efab0c017bf7137ec2"
+    url "https://files.pythonhosted.org/packages/bf/90/445a7dbd275c654c268f47fa9452152709134f61f09605cf776407055a89/pyrsistent-0.19.3.tar.gz"
+    sha256 "1a2994773706bbb4995c31a97bc94f1418314923bd1048c6d964837040376440"
   end
 
   resource "yara-python" do

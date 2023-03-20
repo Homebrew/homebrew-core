@@ -1,21 +1,19 @@
 class Diffutils < Formula
   desc "File comparison utilities"
   homepage "https://www.gnu.org/s/diffutils/"
-  url "https://ftp.gnu.org/gnu/diffutils/diffutils-3.8.tar.xz"
-  mirror "https://ftpmirror.gnu.org/diffutils/diffutils-3.8.tar.xz"
-  sha256 "a6bdd7d1b31266d11c4f4de6c1b748d4607ab0231af5188fc2533d0ae2438fec"
-  license "GPL-3.0"
+  url "https://ftp.gnu.org/gnu/diffutils/diffutils-3.9.tar.xz"
+  mirror "https://ftpmirror.gnu.org/diffutils/diffutils-3.9.tar.xz"
+  sha256 "d80d3be90a201868de83d78dad3413ad88160cc53bcc36eb9eaf7c20dbf023f1"
+  license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "db92359b7a7cc8eacdc1b5998df69cfa24bdaa54e02ae06f4a10bdb339c190f8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4261be9ec928e4e841efd205eef060dc8a536b033c7d4377eae6e51f099b9eb2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "239aaf4a4b3e63ade873472f3442e6a910130f1f999b494ee02fa6acffa11c0b"
-    sha256 cellar: :any_skip_relocation, ventura:        "7483b137cb5e88f2c41cc1dbe62ac952f9998a6b8945b774836eac4fe7129d14"
-    sha256 cellar: :any_skip_relocation, monterey:       "64ddb0cccbc7163969ac093ca0251053991af34393188d3457695a358a0f3034"
-    sha256 cellar: :any_skip_relocation, big_sur:        "43ed975b1f8cd9c8aedc16848691972950c2c95405395bc646650fbf8e3d60c5"
-    sha256 cellar: :any_skip_relocation, catalina:       "c0a2132f021243dc25d19e6638eea2a423e09957d2c6c11582fc134301fffefd"
-    sha256 cellar: :any_skip_relocation, mojave:         "20cf9f34754b7c6c84ff790fe2240e072705a074a2af81f1ca25796801de2780"
-    sha256                               x86_64_linux:   "54486cec2842e69ad311ec74cdba142385784d00d3f8cb79fd745864a19c2d7f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f604055fb7f084ee809aa7018743e68af73c6aade0fea14dfa2c10d6b89c45f8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8a626d7df9922f4836ea7b6c08f854c10b691b92b40574dc050671620e2e62ba"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "67302e472f8601da64626b70b2f2a8bd5c65a5a27229a348f8fbbe51ac321dbf"
+    sha256 cellar: :any_skip_relocation, ventura:        "2e6815910c334366278d01b5cafdaa2388ae0c40cddf4d19c69d9dfeaa964a07"
+    sha256 cellar: :any_skip_relocation, monterey:       "913161dcbc00975f71c77a596e5d18c4796cee0fbdfbe86a204d590dc4c7c919"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d2f09c87d1e9ee416992933f8e929a4cdf508359c975fc2a6a752279d7ce7d9b"
+    sha256                               x86_64_linux:   "11c1772a7870b94e28409bf611324d913502d742a117267955adc8a8bf1f8e7b"
   end
 
   def install

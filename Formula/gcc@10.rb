@@ -23,13 +23,16 @@ class GccAT10 < Formula
   # out of the box on Xcode-only systems due to an incorrect sysroot.
   pour_bottle? only_if: :clt_installed
 
-  depends_on arch: :x86_64
   depends_on "gmp"
   depends_on "isl"
   depends_on "libmpc"
   depends_on "mpfr"
 
   uses_from_macos "zlib"
+
+  on_macos do
+    depends_on arch: :x86_64
+  end
 
   on_linux do
     depends_on "binutils"
@@ -103,7 +106,11 @@ class GccAT10 < Formula
 
       # Change the default directory name for 64-bit libraries to `lib`
       # https://www.linuxfromscratch.org/lfs/view/development/chapter06/gcc-pass2.html
-      inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64="
+      if Hardware::CPU.arm?
+        inreplace "gcc/config/aarch64/t-aarch64-linux", "lp64=../lib64", "lp64="
+      else
+        inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64="
+      end
     end
 
     mkdir "build" do

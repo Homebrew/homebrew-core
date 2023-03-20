@@ -1,18 +1,18 @@
 class Gobuster < Formula
   desc "Directory/file & DNS busting tool written in Go"
   homepage "https://github.com/OJ/gobuster"
-  url "https://github.com/OJ/gobuster/archive/refs/tags/v3.4.0.tar.gz"
-  sha256 "6c1d7a3aa9604d90ca818d6fc7a0b09501e419ecd4ab7665566c52fd0981b52d"
+  url "https://github.com/OJ/gobuster/archive/refs/tags/v3.5.0.tar.gz"
+  sha256 "95637b503aa6e96bad2e864e39b51d8f616dff87e54932e0d1af6af514c46e21"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c9820b56a0e45217b65115db2e25751c10163c7bce02ca3f055b7096310724b3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "074630eaef1913ff05aa15d4d6a76b746398c65edbafe5d41beb9c700f8dd869"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "df458e7067fc3dec8b116fe45eb236b7064a2f4eb33e2d23544c29a1b472fde0"
-    sha256 cellar: :any_skip_relocation, ventura:        "07df0ac727553adc8718705fa04c6b6116521324f03da1cc92d6260381875603"
-    sha256 cellar: :any_skip_relocation, monterey:       "db09e7d44a20593a6dc396f18597728aa3acd854c9284389a2ec141922b1fc30"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a784447973cce16026bd9aa06c6136f7541aa29f74100b1888fac7f26664fd49"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8dde5b5a125df983e8b0fd80f2a6918ab8554a6a576a4e832bfd3fcd3718f1d1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "39f5143ba65fd0a08bfaa94f8510649bc5443434d9584a6d46f363388318110d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "37542e80bb5de721368142b0b5acd7ff367864726d2da2829ff296f819f3f46e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5e098f079d2035fe8f9b400df45149bfced96ef47d52adca31ff84273bb381ab"
+    sha256 cellar: :any_skip_relocation, ventura:        "fb3407f0bdea0660470c86173c617c45b1e1ee75a767f0c0d6faef4e3232faff"
+    sha256 cellar: :any_skip_relocation, monterey:       "c473363b8bd234b17b3f2514758bdae6731d12c2660d6a5d5be60357d7538dd5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "23c617ae4a4c6a5034d84d12d79a9babb3fdfc79ac61427f5a7b5dd7351be4f9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a335f588aad5a03686f3b1621b01e0b69695315b16f0d9480bd1e1937c388967"
   end
 
   depends_on "go" => :build

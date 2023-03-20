@@ -1,8 +1,8 @@
 class Scotch < Formula
   desc "Package for graph partitioning, graph clustering, and sparse matrix ordering"
   homepage "https://gitlab.inria.fr/scotch/scotch"
-  url "https://gitlab.inria.fr/scotch/scotch/-/archive/v7.0.2/scotch-v7.0.2.tar.bz2"
-  sha256 "f7d97da677c144dbcaf8e51f1d34d6aebd8ddafa5fe132c3225084d479a8a54c"
+  url "https://gitlab.inria.fr/scotch/scotch/-/archive/v7.0.3/scotch-v7.0.3.tar.bz2"
+  sha256 "ef860d303606d79bd6cb8253d19b204bea0144417638dc905aaa8ad696fbf6b6"
   license "CECILL-C"
   head "https://gitlab.inria.fr/scotch/scotch.git", branch: "master"
 
@@ -12,13 +12,13 @@ class Scotch < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "7a10ee9f5de730ce3ef53160311baafbd381a653bdbb62c669f87b54ef60c2ea"
-    sha256 cellar: :any,                 arm64_monterey: "f6bb78dbe627af602c76357d7737e318dd60b04e89315ad6d4f2bc0690fd2d99"
-    sha256 cellar: :any,                 arm64_big_sur:  "3dd424ff71c5bcb8cf188cec5719db292ee12336c187dfc313f6e0ebc700a63c"
-    sha256 cellar: :any,                 ventura:        "1f6d6230995059641860cd3bbeb39f8614d2af3bd14b2f274899c883354464b8"
-    sha256 cellar: :any,                 monterey:       "d905aad48d0449754c178434bbab3e04628141a6ee27219dd2e389e45e4944fc"
-    sha256 cellar: :any,                 big_sur:        "4ba2ff04f51e8455c33c183209ba2bc5f6c2b2361ad0a0ee4e6cb35952ef016a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dace04b4d66184873d185e0f10d23cce70096580bc670846027a8c11c9f89a14"
+    sha256 cellar: :any,                 arm64_ventura:  "01e5c17ec2ee7dcb08ddfa423adfb1571f31c2207cddf27f5818cdd2a695afe1"
+    sha256 cellar: :any,                 arm64_monterey: "e8315bea61e114622e1a49f19a7553afba54b73a17fb89a5c45306b8d449d8c3"
+    sha256 cellar: :any,                 arm64_big_sur:  "1dda2643af1fbcf97043eef6f06372a3c40530b13f410d8aba6b3791e6542306"
+    sha256 cellar: :any,                 ventura:        "6a63a39cbb7d924adfb24a2ee87a83598ce74372ff545a42fd38bd58f22304c2"
+    sha256 cellar: :any,                 monterey:       "dcd96ab6445ae213cf5878bce9f1d89e2e1b8bd4f1deaa46e478738c3e3e8e72"
+    sha256 cellar: :any,                 big_sur:        "2154b2a2b06bcc3284920e50d2f8dbd8b2b366f273dda89d53ecec1382118bbe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2aaa7f2acd18cd8f9947a185e9aa363420f971373d093817e5d8400ff548360c"
   end
 
   depends_on "bison" => :build

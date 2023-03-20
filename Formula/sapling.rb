@@ -1,19 +1,20 @@
 class Sapling < Formula
   desc "Source control client"
   homepage "https://sapling-scm.com"
-  url "https://github.com/facebook/sapling/archive/refs/tags/0.2.20221222-152408-ha6a66d09.tar.gz"
-  sha256 "9fb65d42c3c96769f01cedbc45d99b9aec833009283da2fd8438e18e92178588"
+  url "https://github.com/facebook/sapling/archive/refs/tags/0.2.20230228-144002-h9440b05e.tar.gz"
+  sha256 "70483afad6d0b437cb755447120a34b1996ec09a7e835b40ac8cccdfe44e4b90"
   license "GPL-2.0-or-later"
   head "https://github.com/facebook/sapling.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "2695525a3c5956b26f460d19e9e09d0ac06206a6d50dec8bdb6ef97967d4bc8f"
-    sha256 cellar: :any,                 arm64_monterey: "204acf1174773ae64b216d0dbe4bb359e9abcf8b41267a8dd15922b9dbe12c31"
-    sha256 cellar: :any,                 arm64_big_sur:  "648720c6abce147ab540e8987754886e8a5fd1cb31e250f14e5442ea2cd9fd62"
-    sha256 cellar: :any,                 ventura:        "6e99e4722d96d1ed75235c856b232188fa50b8e9349556ff9bcb844dea4a624f"
-    sha256 cellar: :any,                 monterey:       "506618c14eca2c834f009d2c781950f0a9ea466f44e4bd0adcc21833c591f75d"
-    sha256 cellar: :any,                 big_sur:        "bc82657408afd6475db3a0f3d2fa514fdf27115c1e21d8b6afe4f000aedc1295"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d69a0f54a857cae17d3999b71dba9dbb137a8e342708f96b48d0b04bbefe47fa"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "b9aee4101baae22fe8b0e32a8eb9f086f63967851a9410960e36d3541c98845e"
+    sha256 cellar: :any,                 arm64_monterey: "bcaa04164fc08e79065d1899e8ade085047090b40c63174fb81fa02ac8437646"
+    sha256 cellar: :any,                 arm64_big_sur:  "5a0d6120c941935d1d0159b76b967968ca3421ec7f61fedb8d3bf0a6804589c5"
+    sha256 cellar: :any,                 ventura:        "e90c415a3327d7e0823c5b4e31b3d84514bc19f25687d5e9a5c231d686a07c7e"
+    sha256 cellar: :any,                 monterey:       "484be2fe2b901132f7c9cecb918dae45c7f43518a6ce2d2b57b816aeb536a7ac"
+    sha256 cellar: :any,                 big_sur:        "bf39795492d13fa68e0a247982b913031d1ea873543c548c8aa790250b32ba60"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "993b6d4628338f297b17eb1be68ffbea8bba85f54c76659e1db38d53b22974b1"
   end
 
   depends_on "cmake" => :build
@@ -22,18 +23,17 @@ class Sapling < Formula
   depends_on "gh"
   depends_on "node"
   depends_on "openssl@1.1"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def install
+    python3 = "python3.11"
+
     ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
-    ENV["PYTHON_SYS_EXECUTABLE"] = Formula["python@3.10"].opt_prefix/"bin/python3.10"
-    ENV["PYTHON"] = Formula["python@3.10"].opt_prefix/"bin/python3.10"
-    ENV["PYTHON3"] = Formula["python@3.10"].opt_prefix/"bin/python3.10"
     ENV["SAPLING_VERSION"] = version.to_s
 
-    cd "eden/scm" do
-      system "make", "PREFIX=#{prefix}", "install-oss"
-    end
+    # Don't allow the build to break our shim configuration.
+    inreplace "eden/scm/distutils_rust/__init__.py", '"HOMEBREW_CCCFG"', '"NONEXISTENT"'
+    system "make", "-C", "eden/scm", "install-oss", "PREFIX=#{prefix}", "PYTHON=#{python3}", "PYTHON3=#{python3}"
   end
 
   test do

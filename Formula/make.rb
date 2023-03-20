@@ -1,23 +1,20 @@
 class Make < Formula
   desc "Utility for directing compilation"
   homepage "https://www.gnu.org/software/make/"
-  url "https://ftp.gnu.org/gnu/make/make-4.4.tar.lz"
-  mirror "https://ftpmirror.gnu.org/make/make-4.4.tar.lz"
-  sha256 "48d0fc0b2a04bb50f2911c16da65723285f7f4804c74fc5a2124a3df6c5f78c4"
+  url "https://ftp.gnu.org/gnu/make/make-4.4.1.tar.lz"
+  mirror "https://ftpmirror.gnu.org/make/make-4.4.1.tar.lz"
+  sha256 "8814ba072182b605d156d7589c19a43b89fc58ea479b9355146160946f8cf6e9"
   license "GPL-3.0-only"
 
   bottle do
-    sha256 arm64_ventura:  "1eed07bf3c2d4521eb70271a5ef7be75a8d3401f9d1301a7a2925f217375bd5b"
-    sha256 arm64_monterey: "5d70e49b345e20553a0bb4c85b73ba5da42940de229abf94957784df18f8f71d"
-    sha256 arm64_big_sur:  "f1e067786d1da8f5eb10ef81fc7cd87de0b44417e8b100efd27682036124fb7c"
-    sha256 ventura:        "186e88d292e2439443ad09929244d268a0ca2e2867045f2d0ca63f104e2efd68"
-    sha256 monterey:       "ad56ca0950b6601ae210bc0279c0b35df6e6c3d432da5d93e69e5fe48b7b7690"
-    sha256 big_sur:        "18c9d5fc5ca26000b4e1b470385fe7cbc263ff9193740c5b6055df2504654784"
-    sha256 catalina:       "cd0512e7039014baa26887304f8f6adb01ab0335c7d5e6cf6406f515e4c2926b"
-    sha256 x86_64_linux:   "f2357f38942958a9d49e2d8f7562bd9fc61c2c1e8471239c022240b71b8cbf7d"
+    sha256 arm64_ventura:  "23e26446ffdefd2b7fe44c559e11ab6bc127abd32233847f4e73bb3de87d98c6"
+    sha256 arm64_monterey: "f3c69489afdb2ad686c7674d85deac4fcfdb3f891664c08c5d255af20a6eddcb"
+    sha256 arm64_big_sur:  "cdb852c53ed94d31d5f4988338336b004f21857d1ecaa8e84b1c155bf92e0c47"
+    sha256 ventura:        "206c13dc47f17131b1337ed24677b69288c2f03f780d09d1c3e5fd11a41d6ad9"
+    sha256 monterey:       "75651f4a57f1a712dfed7ed926de8b4c7f6c728544627ea059304f28455c4bab"
+    sha256 big_sur:        "2571cf69a3d123408660797685af0040097b1c273b13dfd0e3653ca1150830e2"
+    sha256 x86_64_linux:   "bded8e436d51f10ee36207ec69a0a318fb8583f83a5863f45bb203d3ae055170"
   end
-
-  conflicts_with "remake", because: "both install texinfo files for make"
 
   def install
     args = %W[

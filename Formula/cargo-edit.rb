@@ -1,26 +1,51 @@
 class CargoEdit < Formula
   desc "Utility for managing cargo dependencies from the command-line"
   homepage "https://killercup.github.io/cargo-edit/"
-  url "https://github.com/killercup/cargo-edit/archive/v0.11.7.tar.gz"
-  sha256 "73b3300afda280685be2a2391d5238aea341c2e15ac95ab288fa0f5ad38137fb"
+  url "https://github.com/killercup/cargo-edit/archive/v0.11.9.tar.gz"
+  sha256 "46670295e2323fc2f826750cdcfb2692fbdbea87122fe530a07c50c8dba1d3d7"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "57b5b6273b132b7eb822e17a09f89b6605bbeede8d141858c4dbdd9dcf5dc306"
-    sha256 cellar: :any,                 arm64_monterey: "7d5e6d0ed054eab45fd1facc2eda64d947de710ce674e94deee9fe66c322fbb2"
-    sha256 cellar: :any,                 arm64_big_sur:  "34086245329042029a43c94d8cb9a18ef25c3a2262a32113b8c39ddf7f6d5ef8"
-    sha256 cellar: :any,                 ventura:        "94deecc24a053295c766200d09e738f92a7fd65648752b59b4da9699d7cb38fb"
-    sha256 cellar: :any,                 monterey:       "aab9d60e9316bb6f66c12589fb9e8575e17f475fec266828042b392d620dba5b"
-    sha256 cellar: :any,                 big_sur:        "364a86ad39aad7335ef5df7ca695c30718e2545b3600e1180fa7c97293a4367d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9c8fa02debe0c1da2d0376a57407a6050cd1aecb1933f9efb6bd796850d45eee"
+    sha256 cellar: :any,                 arm64_ventura:  "9c22a6ccac6f359877195172f4ad8cec2659bd9a56ae2be3a7273e9e758e08a4"
+    sha256 cellar: :any,                 arm64_monterey: "6d4b42c778413653fa24cbe4b651f91a44ae9e6d8d48515f07a7cd8e54d2fc61"
+    sha256 cellar: :any,                 arm64_big_sur:  "37283b757ead9ea8b1fdc3d98e129396897e247a6a47e98cf6e276e1ce7a3b2e"
+    sha256 cellar: :any,                 ventura:        "3aca38c8a12b90b09b1a7daf78f51272ce12f668bee134d27e67f38deea347e1"
+    sha256 cellar: :any,                 monterey:       "fc16a6785d62b25d3b940084ff4ae44cee2cd3c69bd62b2782e29a08765a7dd8"
+    sha256 cellar: :any,                 big_sur:        "84f840e55f103757c1587f066ab306084d3ae639fe27202896ad496194dae7f2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cb6a11b52c1c6f8e5ae500a17cd428e249554ceed7a647f156ce89ae5b4659ca"
   end
 
-  depends_on "libgit2"
+  depends_on "pkg-config" => :build
+  depends_on "libgit2@1.5"
   depends_on "openssl@1.1"
   depends_on "rust" # uses `cargo` at runtime
 
   def install
-    system "cargo", "install", *std_cargo_args
+    # Ensure the declared `openssl@1.1` dependency will be picked up.
+    # https://docs.rs/openssl/latest/openssl/#manual
+    ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
+    ENV["OPENSSL_NO_VENDOR"] = "1"
+
+    # Read the default flags from `Cargo.toml` so we can remove the `vendored-libgit2` feature.
+    cargo_toml = (buildpath/"Cargo.toml").read
+    cargo_option_regex = /default\s*=\s*(\[.+?\])/m
+    cargo_options = JSON.parse(cargo_toml[cargo_option_regex, 1].sub(",\n]", "]"))
+    cargo_options.delete("vendored-libgit2")
+
+    # We use the `features` flags to disable vendored `libgit2` but enable all other defaults.
+    # We do this since there is no way to disable a specific default feature with `cargo`.
+    # https://github.com/rust-lang/cargo/issues/3126
+    system "cargo", "install", "--no-default-features", "--features", cargo_options.join(","), *std_cargo_args
+  end
+
+  # TODO: Add this method to `brew`.
+  def check_binary_linkage(binary, library)
+    binary.dynamically_linked_libraries.any? do |dll|
+      next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
+
+      File.realpath(dll) == File.realpath(library)
+    end
   end
 
   test do
@@ -41,6 +66,15 @@ class CargoEdit < Formula
 
       system bin/"cargo-rm", "rm", "clap"
       refute_match(/clap/, (crate/"Cargo.toml").read)
+    end
+
+    [
+      Formula["libgit2@1.5"].opt_lib/shared_library("libgit2"),
+      Formula["openssl@1.1"].opt_lib/shared_library("libssl"),
+      Formula["openssl@1.1"].opt_lib/shared_library("libcrypto"),
+    ].each do |library|
+      assert check_binary_linkage(bin/"cargo-upgrade", library),
+             "No linkage with #{library.basename}! Cargo is likely using a vendored version."
     end
   end
 end

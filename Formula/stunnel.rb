@@ -1,8 +1,8 @@
 class Stunnel < Formula
   desc "SSL tunneling program"
   homepage "https://www.stunnel.org/"
-  url "https://www.stunnel.org/downloads/stunnel-5.67.tar.gz"
-  sha256 "3086939ee6407516c59b0ba3fbf555338f9d52f459bcab6337c0f00e91ea8456"
+  url "https://www.stunnel.org/downloads/stunnel-5.69.tar.gz"
+  sha256 "1ff7d9f30884c75b98c8a0a4e1534fa79adcada2322635e6787337b4e38fdb81"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,14 +11,13 @@ class Stunnel < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "6b2e1a1f0cd77b6ba502eda29afd41ed4206923d98d9e49a9e12ff3dade2be61"
-    sha256 cellar: :any,                 arm64_monterey: "b6f21a7a7aae8934324cf27798f14dbe6e6d12fc33355dcc787bee438c67734e"
-    sha256 cellar: :any,                 arm64_big_sur:  "bd42513cfb34768bede1f403a525264792e9a0154371444bff812fe1240fad42"
-    sha256 cellar: :any,                 ventura:        "cca3b8088572dfdd24f3c2e9b28f3c87bc2e2485ee219d04520f743c6bba1fd8"
-    sha256 cellar: :any,                 monterey:       "ec23a90b002b6581abc3392fc1831ea1caaca2babaf325372dbb7a0f36a9cf6e"
-    sha256 cellar: :any,                 big_sur:        "17c6e31bdb6f96cf33b232654f401b60bf03eac5a2bf1b3874b36fa700bd961b"
-    sha256 cellar: :any,                 catalina:       "c568c4232dbbf3af31f3d93c15b9f8a4f8a1ff7df938b67f51809cde275689e8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f443ea4d37bfee124aac63d4160632b313c56e322751dc2156545cf2354fb1f7"
+    sha256 cellar: :any,                 arm64_ventura:  "4d3d865982840b1662a3058e106fbce761241a8ec4aa8998d71c8e007653028a"
+    sha256 cellar: :any,                 arm64_monterey: "2d4b8d9eaae526b0386afd3b6679d02eb2b23579c78b84dd9055a826cd9d77b8"
+    sha256 cellar: :any,                 arm64_big_sur:  "ff2b75c783a359a8a12347de55979f45e650c1cb0b58267c39b22bcffbf2d6d3"
+    sha256 cellar: :any,                 ventura:        "ad0e4c4b1cccfb33b03d704f4a71e8b0d61c09f89fccffd6b8421fca341ceb6a"
+    sha256 cellar: :any,                 monterey:       "9e3cfb283e6a94b9a935f8cdf2e4408a6c04ed945d0c3d48fea01dc6d0654dc3"
+    sha256 cellar: :any,                 big_sur:        "cd7b4eb6c115a163ef8df9f93bde1ea800c2488a1c9c29a6da73df30fd5af3b6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ea23482d88b174665da5b10b7b470a20a6b39163c6a1eb7414ed08645c4ba2c1"
   end
 
   depends_on "openssl@3"

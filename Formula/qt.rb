@@ -3,8 +3,10 @@ class Qt < Formula
 
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.4/6.4.1/single/qt-everywhere-src-6.4.1.tar.xz"
-  sha256 "e20b850b6134098a7f2e7701cfddfb213c6cf394b9e848e6fbc5b0e89dcfcc09"
+  url "https://download.qt.io/official_releases/qt/6.4/6.4.3/single/qt-everywhere-src-6.4.3.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.4/6.4.3/single/qt-everywhere-src-6.4.3.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.4/6.4.3/single/qt-everywhere-src-6.4.3.tar.xz"
+  sha256 "29a7eebdbba0ea57978dea6083709c93593a60f0f3133a3de08b9571ee8eaab4"
   license all_of: [
     "BSD-3-Clause",
     "GFDL-1.3-no-invariants-only",
@@ -12,7 +14,6 @@ class Qt < Formula
     { "GPL-3.0-only" => { with: "Qt-GPL-exception-1.0" } },
     "LGPL-3.0-only",
   ]
-  revision 1
   head "https://code.qt.io/qt/qt5.git", branch: "dev"
 
   # The first-party website doesn't make version information readily available,
@@ -23,20 +24,20 @@ class Qt < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "7c2713a07938eb6f4855d5299be68beba727a9e667ad4bc2ab732b956a8f57a1"
-    sha256 cellar: :any,                 arm64_monterey: "eefb0269a8c57ee032d207da4a0bd5966bf9c6689189f7efa4977a4ec430e228"
-    sha256 cellar: :any,                 arm64_big_sur:  "0ab048a1a4c7f14e1e161e24cc8f3571177374c42ca80ed02ce74b08803fde22"
-    sha256 cellar: :any,                 ventura:        "9fcbedda08b23809a2905387df0da8cf0e21d2e9f6e3d9bf929f5cf42d939430"
-    sha256 cellar: :any,                 monterey:       "e9ec9917d664ac70e288bed351d4e17653ef3b765ab6278abf59b866771cd4e9"
-    sha256 cellar: :any,                 big_sur:        "8383696f0f673f5c150e68f0bb204dea33f2694403ea49703a0e9ef5d33b7559"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a2bcc034ee7fca0174af5230a4572d71765e230aff83fdb3c322b3c8563235a7"
+    sha256 cellar: :any,                 arm64_ventura:  "22e5d4a21dbe0495078880dd624988f2ea29e22b002e4adb5521cb899e5a3e8f"
+    sha256 cellar: :any,                 arm64_monterey: "2db718bd6d79f03278429ccd3e9b7027408f755bacc66a95393d40a8b4c6336e"
+    sha256 cellar: :any,                 arm64_big_sur:  "82e62c88806f33220d9695d14424c7cf254f75528ffd38ac50d4f5e14d3691f9"
+    sha256 cellar: :any,                 ventura:        "4e6c01ef30005741622fdb3ea0c14b00960f11a9adbbcdc967d29f237aa0b373"
+    sha256 cellar: :any,                 monterey:       "f4851255333905bd79047de7bee03ef6fa45f91f14b2a114fcae2ff825e5a00c"
+    sha256 cellar: :any,                 big_sur:        "af5b856a1c2c5a52165a9a44a47e7e33ca82f66b108a332c2694c1d9bb236647"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "01e4bce2f090d55e2444d856ee48debc61933a43e1f1292f858c24fc2c184b96"
   end
 
   depends_on "cmake"      => [:build, :test]
   depends_on "ninja"      => :build
   depends_on "node"       => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
   depends_on "six" => :build
   depends_on "vulkan-headers" => [:build, :test]
   depends_on xcode: :build
@@ -136,16 +137,8 @@ class Qt < Formula
     directory "qtbase"
   end
 
-  # Fix Linux build with CMake versions >= 3.25
-  # remove in next release
-  patch do
-    url "https://github.com/qt/qtwebengine/commit/240e71877865ed07e4c8d5bd4553aa0772c2adf4.patch?full_index=1"
-    sha256 "8fb13bfc7aac50084e1c533955564a1819bbb25b544ebccd05b99e24527c7b80"
-    directory "qtwebengine"
-  end
-
   def install
-    python = "python3.10"
+    python = "python3.11"
     # Install python dependencies for QtWebEngine
     venv_root = buildpath/"venv"
     venv = virtualenv_create(venv_root, python)
@@ -254,12 +247,54 @@ class Qt < Formula
       include.install_symlink f/"Headers" => f.stem
     end
 
+    # Install a qtversion.xml to ease integration with QtCreator
+    # As far as we can tell, there is no ability to make the Qt buildsystem
+    # generate this and it's in the Qt source tarball at all.
+    # Multiple people on StackOverflow have asked for this and it's a pain
+    # to add Qt to QtCreator (the official IDE) without it.
+    # Given Qt upstream seems extremely unlikely to accept this: let's ship our
+    # own version.
+    # If you read this and you can eliminate it or upstream it: please do!
+    # More context in https://github.com/Homebrew/homebrew-core/pull/124923
+    qtversion_xml = share/"qtcreator/QtProject/qtcreator/qtversion.xml"
+    qtversion_xml.dirname.mkpath
+    qtversion_xml.write <<~XML
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE QtCreatorQtVersions>
+      <qtcreator>
+      <data>
+        <variable>QtVersion.0</variable>
+        <valuemap type="QVariantMap">
+        <value type="int" key="Id">1</value>
+        <value type="QString" key="Name">Qt %{Qt:Version} (#{HOMEBREW_PREFIX})</value>
+        <value type="QString" key="QMakePath">#{opt_bin}/qmake</value>
+        <value type="QString" key="QtVersion.Type">Qt4ProjectManager.QtVersion.Desktop</value>
+        <value type="QString" key="autodetectionSource"></value>
+        <value type="bool" key="isAutodetected">false</value>
+        </valuemap>
+      </data>
+      <data>
+        <variable>Version</variable>
+        <value type="int">1</value>
+      </data>
+      </qtcreator>
+    XML
+
     return unless OS.mac?
 
     bin.glob("*.app") do |app|
       libexec.install app
       bin.write_exec_script libexec/app.basename/"Contents/MacOS"/app.stem
     end
+  end
+
+  def caveats
+    <<~EOS
+      You can add Homebrew's Qt to QtCreator's "Qt Versions" in:
+        Preferences > Qt Versions > Link with Qt...
+      pressing "Choose..." and selecting as the Qt installation path:
+        #{HOMEBREW_PREFIX}
+    EOS
   end
 
   test do
@@ -323,7 +358,6 @@ class Qt < Formula
         Q_ASSERT(QSqlDatabase::isDriverAvailable("QSQLITE"));
         const auto &list = QImageReader::supportedImageFormats();
         QVulkanInstance inst;
-        // See https://github.com/actions/runner-images/issues/1779
         // if (!inst.create())
         //   qFatal("Failed to create Vulkan instance: %d", inst.errorCode());
         for(const char* fmt:{"bmp", "cur", "gif",

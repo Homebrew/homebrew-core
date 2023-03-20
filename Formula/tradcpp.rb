@@ -6,21 +6,27 @@ class Tradcpp < Formula
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a96734bf959182df15d329812a1f492f962e8011a84ee7f98915fdbde7faa839"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9584ff61e602fe8001d9c39dcaec1e348731955bd65583155953edc41ef989a3"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1ef32ad298a9059d8bfb8a9216d878b38c2f9283e04cdfba4f0a80d20302ea5a"
-    sha256 cellar: :any_skip_relocation, ventura:        "1319c923b8db5cdde40fa4785c1a1ce2153f290e693a94252fe9bad201d4be0c"
-    sha256 cellar: :any_skip_relocation, monterey:       "7d111d68702a671f85be5da6f8b8022dd92ae8bf62dadbb5d3c40660b5b9d19a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a9989ef6884603abbc66752b56adcf52ad8976b8c5cb0faa1904fdf8646d2725"
-    sha256 cellar: :any_skip_relocation, catalina:       "23d6d5712e23e1467f95e432f223a6e088d3a94e5ca179c6ad48b40b200e8878"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8600b885c4d6fbcfb9014dda1a1b34818c1daf84522e6df5aca004f78f81ae1e"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ae50daead4edf3e9669b42267182a9bae1f57720bbeb635e9dcc50341ceb27b3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f4a656232f875bcb230883e1f5ed126b4a548d0cece88453a487a4e2cfc4dd89"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2b8d415d6720467f22655633820ca17c596c7eb6c9e4a3251ce0d12c6b0c64b5"
+    sha256 cellar: :any_skip_relocation, ventura:        "4655462eea375707576c583c4107442cf648ed1deeebfbd64517b7058717ea66"
+    sha256 cellar: :any_skip_relocation, monterey:       "4efcf13b3cf15f4c8013ba1000f424d0a240ba16b8436a086d82a1a29edc7d2c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8818618fd35264ceb99df10c17a3af736fd91c886a1db778ad752095631523c9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "825a5e3d755cd11ad9e6e7cdb2f5d499cf273b294da1c78a7488535eccad598b"
   end
 
   depends_on "bmake" => :build
 
   def install
+    bmake_args = %W[
+      prefix=#{prefix}
+      MK_INSTALL_AS_USER=yes
+      MANDIR=#{man}
+    ]
+
     system "bmake"
-    system "bmake", "prefix=#{prefix}", "MK_INSTALL_AS_USER=yes", "install"
+    system "bmake", *bmake_args, "install"
   end
 
   test do

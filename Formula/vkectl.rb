@@ -17,6 +17,9 @@ class Vkectl < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a8642891d03c1b70b07f60f69492f8b104097508ca84b41f53c157c47853d78b"
   end
 
+  # github.com/choleraehyq/pid@v0.0.12/pid_go1.5_amd64.s:28: expected pseudo-register; found R13
+  deprecate! date: "2023-02-14", because: "does not build with Go 1.18 or later"
+
   # Bump to 1.18 on the next release, if possible.
   depends_on "go@1.17" => :build
 

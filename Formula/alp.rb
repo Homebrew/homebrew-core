@@ -20,8 +20,7 @@ class Alp < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"alp", "cli/alp/main.go"
-    prefix.install_metafiles
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cli/alp"
   end
 
   test do

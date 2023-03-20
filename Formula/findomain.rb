@@ -1,20 +1,18 @@
 class Findomain < Formula
   desc "Cross-platform subdomain enumerator"
   homepage "https://github.com/Findomain/Findomain"
-  url "https://github.com/Findomain/Findomain/archive/8.2.1.tar.gz"
-  sha256 "93c580c9773e991e1073b9b597bb7ccf77f54cebfb9761e4b1180ff97fb15bf6"
+  url "https://github.com/Findomain/Findomain/archive/8.2.2.tar.gz"
+  sha256 "b5d166a1d0e9b86165f1607d5c48c53957f3a2fc734a7cb1707beb9538abdfc5"
   license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2bedeb1fbdd276df930ac27881c3efaba5c39b62587673d107352ad80eb4be4e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "466bb6d8850ef62afa5383fb4fd528fcf39a1de42f6a2bc25e3bf529b0490bc9"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "af81af504a0ac10c6368b6b5cf371445a445fbb877a38d1e13b21644f77bb9a6"
-    sha256 cellar: :any_skip_relocation, ventura:        "5be0bf201066ecd19c4cd92a3d0d146f4bb9f96236efc30d8ff89d6e9aded307"
-    sha256 cellar: :any_skip_relocation, monterey:       "1627f7e3595bf79491d2df36c12b41feb7ed5454589c44de9e98ce1a182368fb"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a76c4af4f5cfd4ad9b24688a0f624fd43e1ab83ae8e7f5c34e3e1a547c8de9b5"
-    sha256 cellar: :any_skip_relocation, catalina:       "900cf89410b055cde885fe562db77ca5bb5964dd323e9681c05976485cbc096e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e026e8afe5d1c3ffbafc18051d23b02f0ea4b09241377a1e43ccf6647b6c4f5d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3176c40b31c3d8b26c3f95e5ef560b5373023b265844c96c0fbfdde5ebc218cf"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8436c553f6052de418029a77f25dfdfd7b61c1a3e66337018521058dea629298"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3ab0ede693d75114669a2da2c219cdcc321e22acbb18117fe81bc5b981587788"
+    sha256 cellar: :any_skip_relocation, ventura:        "7cd26246e1c3319339bf7ba9634268fbf88dfc23b245e55d3935a118fa1167a0"
+    sha256 cellar: :any_skip_relocation, monterey:       "6656214e3c559a20e94a383f7613133d8a121814f7c8b5485e127e2040247e15"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8a2bbc9cb792d95d1f3d459d802fb9d3aebe8c39f6cb196dd36540313a617a57"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0345179a3fb71f1b6310207de2168d770f2fa996b12d44a0b355c9b1547dcb8b"
   end
 
   depends_on "rust" => :build

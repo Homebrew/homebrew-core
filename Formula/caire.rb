@@ -1,20 +1,19 @@
 class Caire < Formula
   desc "Content aware image resize tool"
   homepage "https://github.com/esimov/caire"
-  url "https://github.com/esimov/caire/archive/v1.4.5.tar.gz"
-  sha256 "f352d6ec03bda53329a9888c6b3073429d6b081e2113d7a464a90eddaee1cb50"
+  url "https://github.com/esimov/caire/archive/v1.4.6.tar.gz"
+  sha256 "91af988656924387c1c2c7ccf0c263c2df2843bbfca58d28c5ea239cee4861af"
   license "MIT"
   head "https://github.com/esimov/caire.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "510be9ef3971dd6594e3d662a8a4a8f97fe5d587a902cabb803425a61b531b8f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7d59ce1a8791d14ee71f54abe8b0cadfe19ba512b90b13f2f8f7625b0e1a5ade"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6dc0a2e1542d2843ebca8f84d72c5cc74db54b6c09a3cf77bf71879156f9812b"
-    sha256 cellar: :any_skip_relocation, ventura:        "aab352ffb29304bf5b53fd7f17781e615bb6e2968fcf553dfb6c8b66c1a024e1"
-    sha256 cellar: :any_skip_relocation, monterey:       "9201a9019646d54bd87e4b04eb93249e6b423a985fa8562b8c6153f140d69c5a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "56c8c4cc534e40b5b9d157f4ab6327fa660d4b86bf4884340b74fb1fdd0f9d20"
-    sha256 cellar: :any_skip_relocation, catalina:       "2e2a3e4286f0358b389ad7e991959428bd8afb9fc5c2936aa74d007d6e8497e1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c393ce400070a99e19f770ab66b0a3b0c581d7eeb1e91a120979e94c4f97949d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "de8d5498c8a7225927089e78b74262da38c07c25676149e254ed2f51dca071b3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "bc8a8ce5ea3d3f5641ea6d92fb82e49c4eba64d6d3396740de5b49afedd666c2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "55bf8972c5e39debec946d4dc49bb0d100368477fab2ef191faeff14b762420e"
+    sha256 cellar: :any_skip_relocation, ventura:        "02e2bb7f928fdf07be538502c77b1f5d23d9e5955479085c69273f8f8522b268"
+    sha256 cellar: :any_skip_relocation, monterey:       "c22d0b1082028816b15909d23ed4fe75e15c18adbdcb59031d26670c193b2ab8"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0a1114072957e1012c78d2457d5f365cca2ca1c4af69a4ce8d7849dee0753398"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4c03ecc2961e471b765435ca1ece10bce69f77a592ef683ab75138b52e132f7f"
   end
 
   depends_on "go" => :build

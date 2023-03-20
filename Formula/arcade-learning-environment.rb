@@ -4,21 +4,19 @@ class ArcadeLearningEnvironment < Formula
   desc "Platform for AI research"
   homepage "https://github.com/mgbellemare/Arcade-Learning-Environment"
   url "https://github.com/mgbellemare/Arcade-Learning-Environment.git",
-      tag:      "v0.8.0",
-      revision: "d59d00688b58c5c14dff5fc79db5c22e86987f5d"
+      tag:      "v0.8.1",
+      revision: "ba84c1480008aa606ebc1efd7a04a7a7729796d4"
   license "GPL-2.0-only"
   head "https://github.com/mgbellemare/Arcade-Learning-Environment.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1f33932e7707d642c4fdc38f5474d8ee82c6cd7c31491081e947d5df4445a8a4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c26a068c64184f700b8b638e37c978b9e4b611e74fb5834016982706c7dd4009"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "35debc9b99e3b5142b5f626a8fa370c8025ba2f09f8d64c7948e4387d84beb2a"
-    sha256 cellar: :any_skip_relocation, ventura:        "afc216243c7e72bbc41c9c2b1c9e5b0ec3c7efe5bd55b091202f441cbce03f90"
-    sha256 cellar: :any_skip_relocation, monterey:       "efb722d0b171efa9869925d762361d301a98181d8dd053972cbff2b1dad80ef4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "cb7e5a9f35472e9b25499a5163cea73b27026908bee527aee9e521229676db00"
-    sha256 cellar: :any_skip_relocation, catalina:       "6c9f67f4b5653089a35e6d50df593bd93ed60078cbce10ca815f2aca176a6f58"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "63248a068444838a906590b26dabe111465a225de384c50c7f89faac0be16c92"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "287d60790b07e38192dfebfb30e7610d8b78713cf034b83758d665377d215e25"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "aaff14df45237f951184d547b292c4ac81c44b58365847d7b5ea4ffe2d6fbca7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2bdda57bca0c681578ea6ab983795e089c4f81cb09c5e80cad264f07923dd3c4"
+    sha256 cellar: :any_skip_relocation, ventura:        "db6349ef4ab6ae4cd2a0b47a68e8c0e41644677a1f3db6995a9693a337695ce7"
+    sha256 cellar: :any_skip_relocation, monterey:       "ba9280f972eb5ab2a305b29c5c0ba8f409e1236f2b570097ecdf5e44b7cf4ad4"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b136f842d9edc8ace1844242642d4b797551b0d0bd2b3fde07bf5269153247ce"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "64f5f513b6373d1d7045d52e607c18bbb9eff0a8afe722322642f17b301877ad"
   end
 
   depends_on "cmake" => :build
@@ -32,8 +30,8 @@ class ArcadeLearningEnvironment < Formula
   fails_with gcc: "5"
 
   resource "importlib-resources" do
-    url "https://files.pythonhosted.org/packages/06/72/6bf0df4fe7a139147f5d6b473f16d5aefb7bc5b719ba5dd33f230d35760f/importlib_resources-5.10.0.tar.gz"
-    sha256 "c01b1b94210d9849f286b86bb51bcea7cd56dde0600d8db721d7b81330711668"
+    url "https://files.pythonhosted.org/packages/4e/a2/3cab1de83f95dd15297c15bdc04d50902391d707247cada1f021bbfe2149/importlib_resources-5.12.0.tar.gz"
+    sha256 "4be82589bf5c1d7999aedf2a45159d10cb3ca4f19b2271f8792bc8e6da7b22f6"
   end
 
   def python3

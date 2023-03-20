@@ -1,6 +1,6 @@
 class Libiodbc < Formula
   desc "Database connectivity layer based on ODBC. (alternative to unixodbc)"
-  homepage "http://www.iodbc.org/dataspace/iodbc/wiki/iODBC/"
+  homepage "https://www.iodbc.org/"
   url "https://github.com/openlink/iODBC/archive/v3.52.15.tar.gz"
   sha256 "f6b376b6dffb4807343d6d612ed527089f99869ed91bab0bbbb47fdea5ed6ace"
   license any_of: ["BSD-3-Clause", "LGPL-2.0-only"]
@@ -17,11 +17,11 @@ class Libiodbc < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a2d26a3f634393d8351e612de1646ea705b61c9c758a10d7efd384a27055514b"
   end
 
+  keg_only "it conflicts with `unixodbc`"
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-
-  conflicts_with "unixodbc", because: "both install `odbcinst.h`"
 
   def install
     system "./autogen.sh"

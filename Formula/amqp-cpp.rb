@@ -1,8 +1,8 @@
 class AmqpCpp < Formula
   desc "C++ library for communicating with a RabbitMQ message broker"
   homepage "https://github.com/CopernicaMarketingSoftware/AMQP-CPP"
-  url "https://github.com/CopernicaMarketingSoftware/AMQP-CPP/archive/v4.3.18.tar.gz"
-  sha256 "cc2c1fc5da00a1778c2804306e06bdedc782a5f74762b9d9b442d3a498dd0c4f"
+  url "https://github.com/CopernicaMarketingSoftware/AMQP-CPP/archive/v4.3.20.tar.gz"
+  sha256 "89ffd421cf31058a6e530cd936e487af350db1b4cc8172459fd00ea127c27c34"
   license "Apache-2.0"
   head "https://github.com/CopernicaMarketingSoftware/AMQP-CPP.git", branch: "master"
 
@@ -12,15 +12,13 @@ class AmqpCpp < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "827e422fe2c209e48d781dd11881ddb11ecabda55f06ba1095019f7e667b5d35"
-    sha256 cellar: :any,                 arm64_monterey: "d6823017b0bbbddc0490d68c7a73beaa580b22bab360784baf60a4ff0d9046fb"
-    sha256 cellar: :any,                 arm64_big_sur:  "ae9cf4ec980c8cc699ebb1c70a785139d26759e703324ad1df8151c90aa18461"
-    sha256 cellar: :any,                 ventura:        "24ed76c164ad89e3a24e60909a85814c1ee446fec47b800bec2b41c400deb440"
-    sha256 cellar: :any,                 monterey:       "32e68fbfaeee7409a6b7e8fe4dd742d4589762cb601e0800e235acb2c326e3a4"
-    sha256 cellar: :any,                 big_sur:        "f0222f1ff29774ba9e39d11c92797f465cb066529cc7255e5c65f508e3ca3d46"
-    sha256 cellar: :any,                 catalina:       "7b8abc464785804e5ee792e480baef60e565d4567bb6b330230ccd99e5e63473"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e4b54f0272c3d9e660443bec29e24b785a9987835bd8c7fff4e6b6c7efaa17dc"
+    sha256 cellar: :any,                 arm64_ventura:  "e7e46bad0746bcb04668af65113aa3a49492b4eaf0088df9adad8a46155da19d"
+    sha256 cellar: :any,                 arm64_monterey: "966fe988253aa46a75fabd3259de7d214142e7fb27f6d0b42eda7fb7b5ca53e9"
+    sha256 cellar: :any,                 arm64_big_sur:  "f76cdc0992902f120f09946f5a3ac81c399d6f6d50b82c6b6f064e145dfb7578"
+    sha256 cellar: :any,                 ventura:        "bb4533aa1cf64aff8f138221a9dab27eb51aa314e8071c4e48398220b4b41091"
+    sha256 cellar: :any,                 monterey:       "f775925b6bf7956bf93a78c6702d46bc756580c531325811b34997d583bf4135"
+    sha256 cellar: :any,                 big_sur:        "f7566541bf2a42a5c334a739a0b65009c85174a3b56e6c72da9262ca3480901b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ea190ca98023a10046b97a609d875715e85b0ad925ac622e14af7eb7e7507386"
   end
 
   depends_on "cmake" => :build
@@ -44,7 +42,7 @@ class AmqpCpp < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-std=c++11", "-L#{lib}", "-o",
+    system ENV.cxx, "test.cpp", "-std=c++17", "-L#{lib}", "-o",
                     "test", "-lamqpcpp"
     system "./test"
   end

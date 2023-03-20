@@ -1,19 +1,18 @@
 class FontsEncodings < Formula
   desc "Font encoding tables for libfontenc"
   homepage "https://gitlab.freedesktop.org/xorg/font/encodings"
-  url "https://www.x.org/archive/individual/font/encodings-1.0.6.tar.xz"
-  sha256 "77e301de661f35a622b18f60b555a7e7d8c4d5f43ed41410e830d5ac9084fc26"
+  url "https://www.x.org/archive/individual/font/encodings-1.0.7.tar.xz"
+  sha256 "3a39a9f43b16521cdbd9f810090952af4f109b44fa7a865cd555f8febcea70a4"
   license :public_domain
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "863542f9892912c4f98cf5f8af13dbb2bc2be16d674559759e8d2b003d12ce56"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "863542f9892912c4f98cf5f8af13dbb2bc2be16d674559759e8d2b003d12ce56"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "863542f9892912c4f98cf5f8af13dbb2bc2be16d674559759e8d2b003d12ce56"
-    sha256 cellar: :any_skip_relocation, ventura:        "863542f9892912c4f98cf5f8af13dbb2bc2be16d674559759e8d2b003d12ce56"
-    sha256 cellar: :any_skip_relocation, monterey:       "863542f9892912c4f98cf5f8af13dbb2bc2be16d674559759e8d2b003d12ce56"
-    sha256 cellar: :any_skip_relocation, big_sur:        "863542f9892912c4f98cf5f8af13dbb2bc2be16d674559759e8d2b003d12ce56"
-    sha256 cellar: :any_skip_relocation, catalina:       "863542f9892912c4f98cf5f8af13dbb2bc2be16d674559759e8d2b003d12ce56"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ccc20d215d88365698fdd40a5066d867e2d465e5057a0084ded551a433ab088f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8c0127299540c1452cdb1849cdd5ba8b33eb24c9d79aa722aa21b64977c9fd9d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8c0127299540c1452cdb1849cdd5ba8b33eb24c9d79aa722aa21b64977c9fd9d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8c0127299540c1452cdb1849cdd5ba8b33eb24c9d79aa722aa21b64977c9fd9d"
+    sha256 cellar: :any_skip_relocation, ventura:        "8c0127299540c1452cdb1849cdd5ba8b33eb24c9d79aa722aa21b64977c9fd9d"
+    sha256 cellar: :any_skip_relocation, monterey:       "8c0127299540c1452cdb1849cdd5ba8b33eb24c9d79aa722aa21b64977c9fd9d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8c0127299540c1452cdb1849cdd5ba8b33eb24c9d79aa722aa21b64977c9fd9d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8f04de4d8394265ab50eb42d0e7b895547fd0032cc87d5180544e921c4487f44"
   end
 
   depends_on "font-util"   => :build

@@ -4,7 +4,7 @@ class Pazpar2 < Formula
   url "https://ftp.indexdata.com/pub/pazpar2/pazpar2-1.14.1.tar.gz"
   sha256 "9baf590adb52cd796eccf01144eeaaf7353db1fd05ae436bdb174fe24362db53"
   license "GPL-2.0-or-later"
-  revision 2
+  revision 3
 
   livecheck do
     url "https://ftp.indexdata.com/pub/pazpar2/"
@@ -12,14 +12,13 @@ class Pazpar2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "1de0a44c29755e29da368537dfe041932140fdbaac3a7e1452006958e490091c"
-    sha256 cellar: :any,                 arm64_monterey: "f954229ad517eb90444c024211db05b8b728d422d7d09e34c6aa47f62df81133"
-    sha256 cellar: :any,                 arm64_big_sur:  "922579df346fa8302138d14084cbb13392b8f42330200928b71104e6c7a99145"
-    sha256 cellar: :any,                 ventura:        "c470f4e445fb5760ab91f577462d2a76497df231b49e56ca05549964b2698cc3"
-    sha256 cellar: :any,                 monterey:       "53379506327169055b22ba82838572aa68a7be807ade89dff6f3c7a1762ca458"
-    sha256 cellar: :any,                 big_sur:        "4a46c092f50afbba241f1e6eefdb3bab092df96558176618d4f2059bc2a97461"
-    sha256 cellar: :any,                 catalina:       "0724f00c4d28966fee1f5fe026d51632c5efab65210462fc50cc05f0daf03a9a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bf885e581d8def9796a668b8f47add7c133313cda9a00f51921c0f47c0d85c2a"
+    sha256 cellar: :any,                 arm64_ventura:  "162654ec2c087897997249feccbf3595e456bdad51b6140b5a3fa6134ff484ad"
+    sha256 cellar: :any,                 arm64_monterey: "0f14b91888d588aad368bf8611b603f141db2834e361b842d490aa6d5ee156e5"
+    sha256 cellar: :any,                 arm64_big_sur:  "78304e1b4666d5db378d16a3b6c0915c77271e919208baa149532fa2ab9be197"
+    sha256 cellar: :any,                 ventura:        "1335d7c65c598cd0535767853aaecbc93c741901e133fae9d4e0c91517d0180b"
+    sha256 cellar: :any,                 monterey:       "c76b9a7e741031283bf83a96d5c051016fdaf19bb3b5854842d1dd3e8ac56b80"
+    sha256 cellar: :any,                 big_sur:        "fce42a0b3e170d057b9a6b8602a7bfd91570ff9bfaf825b3e547a0b5b27075fe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "822af8eb36975de56c5802a76d1e2f947ff964be6f1c7b7e6077968f0701320c"
   end
 
   head do

@@ -19,6 +19,9 @@ class Scrollkeeper < Formula
     sha256 x86_64_linux:   "81a0061c55b44717079288661e0ecaac1b22d6a72c72b89e98237eb51c099539"
   end
 
+  # Last release on 2003-12-06 and no upstream activity.
+  deprecate! date: "2023-02-16", because: :unmaintained
+
   depends_on "docbook"
   depends_on "gettext"
 

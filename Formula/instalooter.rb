@@ -9,15 +9,14 @@ class Instalooter < Formula
   revision 3
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "73ecf672f590abf0818fad173e77e95130d5d25d32156c37cd64e396224f89d5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3741c3972198d37b5e1048e9c97c4e9aaf44201b0ea9a78e1db7ed2bcfb6eaa2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9dc019ed138bddfdaa19c871f2dc573be245bab2ee66446f58bc128b88d83d68"
-    sha256 cellar: :any_skip_relocation, ventura:        "5f9f87fc11aeec86109fef3f8f3479c5754aef27f3069c99360ef1cab5d40a29"
-    sha256 cellar: :any_skip_relocation, monterey:       "bca6d50dd63de1bb6fe550f2015da77cc370ee7799c0a072a0ccffcc13a838c4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6f600e44ac088ac6081fdbe4573f53a57d54de20b8435ff51746219d3c4ac2d0"
-    sha256 cellar: :any_skip_relocation, catalina:       "47bba3b4ccead72fa67a5e56f8c344ce38fe1ffc7ab9d3017c4e407007f4eb6a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b24a71284c5de950a8e4250a26ce05affc8e93c4383eab7f090b69bcaacd630f"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cad091558eb5bd1495501dbe9fb6669b5a3088cf9f20f6e442495b9b7aeace6f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9c8b6da2922c02e21f0613254e52e13d404bcc0c093244d25129bb38bc5a2be7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "35873f81fdf70dcf619ce044f18ef7ae6a48d8817fe642267f8da6a22d0a0f87"
+    sha256 cellar: :any_skip_relocation, ventura:        "b6609bcc7bcc08a5962bfd8809ed70cb431580869d4c137ec62d996a4d6cb6d8"
+    sha256 cellar: :any_skip_relocation, monterey:       "7b400055f5c71f707e93959e80f215de2b90fc4ea342b705579c7ddffa30a7f5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d75ca6a5dd22ae2e15554c99d1a55d54774530ebf10d4c8cf872c1170465c0e4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cdeed01b88f0a29560bcc057bc8efa93961b9a15c83077d4e10e7d6345294fd9"
   end
 
   depends_on "python@3.11"
@@ -29,13 +28,13 @@ class Instalooter < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/cb/a4/7de7cd59e429bd0ee6521ba58a75adaec136d32f91a761b28a11d8088d44/certifi-2022.9.24.tar.gz"
-    sha256 "0d9c601124e5a6ba9712dbc60d9c53c21e34f5f641fe83002317394311bdce14"
+    url "https://files.pythonhosted.org/packages/37/f7/2b1b0ec44fdc30a3d31dfebe52226be9ddc40cd6c0f34ffc8923ba423b69/certifi-2022.12.7.tar.gz"
+    sha256 "35824b4c3a97115964b408844d64aa14db1cc518f6562e8d7261699d1350a9e3"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/a1/34/44964211e5410b051e4b8d2869c470ae8a68ae274953b1c7de6d98bbcf94/charset-normalizer-2.1.1.tar.gz"
-    sha256 "5a3d016c7c547f69d6f81fb0db9449ce888b418b5b9952cc5e6e66843e9dd845"
+    url "https://files.pythonhosted.org/packages/96/d7/1675d9089a1f4677df5eb29c3f8b064aa1e70c1251a0a8a127803158942d/charset-normalizer-3.0.1.tar.gz"
+    sha256 "ebea339af930f8ca5d7a699b921106c6e29c617fe9606fa7baa043c1cdae326f"
   end
 
   resource "coloredlogs" do
@@ -69,8 +68,8 @@ class Instalooter < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/a5/61/a867851fd5ab77277495a8709ddda0861b28163c4613b011bc00228cc724/requests-2.28.1.tar.gz"
-    sha256 "7c5599b102feddaa661c826c56ab4fee28bfd17f5abca1ebbe3e7f19d7c97983"
+    url "https://files.pythonhosted.org/packages/9d/ee/391076f5937f0a8cdf5e53b701ffc91753e87b07d66bae4a09aa671897bf/requests-2.28.2.tar.gz"
+    sha256 "98b1b2782e3c6c4904938b84c0eb932721069dfdb9134313beff7c83c2df24bf"
   end
 
   resource "tenacity" do
@@ -84,8 +83,8 @@ class Instalooter < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/b2/56/d87d6d3c4121c0bcec116919350ca05dc3afd2eeb7dc88d07e8083f8ea94/urllib3-1.26.12.tar.gz"
-    sha256 "3fa96cf423e6987997fc326ae8df396db2a8b7c667747d47ddd8ecba91f4a74e"
+    url "https://files.pythonhosted.org/packages/c5/52/fe421fb7364aa738b3506a2d99e4f3a56e079c0a798e9f4fa5e14c60922f/urllib3-1.26.14.tar.gz"
+    sha256 "076907bf8fd355cde77728471316625a4d2f7e713c125f51953bb5b3eecf4f72"
   end
 
   resource "verboselogs" do

@@ -1,20 +1,19 @@
 class Dnsx < Formula
   desc "DNS query and resolution tool"
   homepage "https://github.com/projectdiscovery/dnsx"
-  url "https://github.com/projectdiscovery/dnsx/archive/v1.1.1.tar.gz"
-  sha256 "b136298b2139bf5a2c94d4b2b41419ef63681c900fc9d6cec586eec7e1ed479c"
+  url "https://github.com/projectdiscovery/dnsx/archive/v1.1.3.tar.gz"
+  sha256 "0b050f1b0754e49f531f29878728611627626dcb5c5ad86abbc3135b4a0a3193"
   license "MIT"
   head "https://github.com/projectdiscovery/dnsx.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f67536faaf5cd6eb6321f28a5bf5d189f4bc7ea4677c8f104a98b5c183a8b9c9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b0334150e78dabc33980f35ddb8979afd7c966aebc8b8c28286601f5862349db"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5731182b9f7114e796a972d740ba915094ea94cb27b91b20de79c6818186bd1a"
-    sha256 cellar: :any_skip_relocation, ventura:        "d0014ad4d048820e167c5d8cda2d3414871b9d2728a903ca7daf78baaa034c6a"
-    sha256 cellar: :any_skip_relocation, monterey:       "af4032a8ad5d689dad9afb4740b176a9804a2993e254620ed310a9ca633e9af4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c7237c04b9c4e0fbc744e02b94faadebacb6c3bb3d22460ec77e9f2672af999d"
-    sha256 cellar: :any_skip_relocation, catalina:       "a6ac95d8caacf7c6ae9a5b89dbd8b5b26833d1d4a0cba7ed4b0743faa09f1481"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "abec4ef11a53ce8f0fbaff5c3e63e466639271b324f698a17d536ed89626532e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b656a37bd64c1aa17ebbee03c40cf7e567a1640708f365242360440295d18ba3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b656a37bd64c1aa17ebbee03c40cf7e567a1640708f365242360440295d18ba3"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b656a37bd64c1aa17ebbee03c40cf7e567a1640708f365242360440295d18ba3"
+    sha256 cellar: :any_skip_relocation, ventura:        "4d41571e2a6fb13204322585ea49aaea6452764037665fa6ec3f05bc84ce13e0"
+    sha256 cellar: :any_skip_relocation, monterey:       "4d41571e2a6fb13204322585ea49aaea6452764037665fa6ec3f05bc84ce13e0"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4d41571e2a6fb13204322585ea49aaea6452764037665fa6ec3f05bc84ce13e0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "24fd88c5f4e51ff7a15a3a87ff7cdfcb0d0aab72d50058e4b5d60df9845c2848"
   end
 
   depends_on "go" => :build

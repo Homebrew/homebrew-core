@@ -1,8 +1,8 @@
 class DependencyCheck < Formula
   desc "OWASP dependency-check"
   homepage "https://owasp.org/www-project-dependency-check/"
-  url "https://github.com/jeremylong/DependencyCheck/releases/download/v7.4.3/dependency-check-7.4.3-release.zip"
-  sha256 "a654622efd8400ce47c649937f31d806434e19cc50cb3e2248a620c666f5a37f"
+  url "https://github.com/jeremylong/DependencyCheck/releases/download/v8.1.2/dependency-check-8.1.2-release.zip"
+  sha256 "4eebe807f955d930d8dad0ff4b57715ac2c8c98ef1e18c79c03af283b5ec95f4"
   license "Apache-2.0"
 
   livecheck do
@@ -11,7 +11,7 @@ class DependencyCheck < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "5d8f83b110ef9107070ff2fff2eb36f8ca104c6eb7b5dd3b1bc54aa6c16ecc52"
+    sha256 cellar: :any_skip_relocation, all: "08474455b027e1165b5d0b3b3c971f23fc25d067c66775d0f27d2e885b87f76e"
   end
 
   depends_on "openjdk"
@@ -45,12 +45,14 @@ class DependencyCheck < Formula
     (testpath/"temp-props.properties").write <<~EOS
       cve.startyear=2017
       analyzer.assembly.enabled=false
+      analyzer.dependencymerging.enabled=false
+      analyzer.dependencybundling.enabled=false
     EOS
     system bin/"dependency-check", "-P", "temp-props.properties", "-f", "XML",
                "--project", "dc", "-s", libexec, "-d", testpath, "-o", testpath,
                "--cveUrlBase", "https://jeremylong.github.io/DependencyCheck/hb_nvd/nvdcve-1.1-%d.json.gz",
                "--cveUrlModified", "https://jeremylong.github.io/DependencyCheck/hb_nvd/nvdcve-1.1-modified.json.gz",
-               "--cveStartYear", Time.now.year, "--cveDownloadWait", "5000"
+               "--cveStartYear", Time.now.year, "--cveDownloadWait", "5000", "--disableKnownExploited"
     assert_predicate testpath/"dependency-check-report.xml", :exist?
   end
 end

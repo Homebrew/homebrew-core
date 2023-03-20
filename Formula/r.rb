@@ -1,8 +1,8 @@
 class R < Formula
   desc "Software environment for statistical computing"
   homepage "https://www.r-project.org/"
-  url "https://cran.r-project.org/src/base/R-4/R-4.2.2.tar.gz"
-  sha256 "0ff62b42ec51afa5713caee7c4fde7a0c45940ba39bef8c5c9487fef0c953df5"
+  url "https://cran.r-project.org/src/base/R-4/R-4.2.3.tar.gz"
+  sha256 "55e4a9a6d43be314e2c03d0266a6fa5444afdce50b303bfc3b82b3979516e074"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,14 +11,13 @@ class R < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_ventura:  "152cd202b51db3b90eba88f21f92691c319e202fb01abe08a62d3de76b4968a2"
-    sha256 arm64_monterey: "cc3f05d038756ce34b3c2c32652fca65f19ccff0f2f75162ee3ce30208960580"
-    sha256 arm64_big_sur:  "4e27877ca60b5dd929ee36c09d00b75d07265771b18fc9a964ade43bab7d3724"
-    sha256 ventura:        "3f7812d59a4e9e1768e3422dd880ae60be33d3e53e156b593b8e0b07e61d8769"
-    sha256 monterey:       "758f1bdd261f521802a75981298e2c2fa322fbfa45114ab5fcd0a59ad0a623a1"
-    sha256 big_sur:        "fa0f1d125a7f669abbc42cbfd543a09d597e32fbd6ef53f2fb60ebe5703b4d1e"
-    sha256 x86_64_linux:   "c45b510ba60002efcd9b22fbdb5eb5f51fe81b68d76dbb52f6a5c210218b0d38"
+    sha256 arm64_ventura:  "b48ded9ab20166698dd98565f2971ca3bbc1679ae2886feefac377744fa3cdc6"
+    sha256 arm64_monterey: "87a6d51a5cfac4bba2e2e524d87c3eeadc6a4187e76462f2a419312170d99645"
+    sha256 arm64_big_sur:  "88b817e08cedc0674a8b53731f6c168ee889251dc635c119c095478533777f02"
+    sha256 ventura:        "2a89d861203a6db062793e5a99ae9a469575f085a5adcef80d96afd9f9be84b9"
+    sha256 monterey:       "94c85b312e32273deabe9f83a630336cf3861b676bc1ae8cbe0b94b0c325cdf1"
+    sha256 big_sur:        "d290e628ff01b7fcd7640b682929a85e5d1e3bf180b37c27e81a94d3906deabc"
+    sha256 x86_64_linux:   "8e22c5aa2c402771169b08fe710f1e31ecf05c4058bf72e9ef05656695054da3"
   end
 
   depends_on "pkg-config" => :build
@@ -57,16 +56,12 @@ class R < Formula
   # https://bugs.r-project.org/show_bug.cgi?id=18426
   patch do
     on_ventura :or_newer do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/d647f4e1d61c8dba5f15edf7a0fc567f681641fb/r/ventura.diff"
-      sha256 "0b3c230432ef6a9231eaf48f39fd22155d3e1c7cd4f2a497e96ff4bdc7d91b84"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/1b1104166dc06444e691dd1b2bec3606b095e382/r/ventura.diff"
+      sha256 "de146793532e4498480014f824bf2446e02aa70206284851127561f6c37108bf"
     end
   end
 
   def install
-    # BLAS detection fails with Xcode 12 due to missing prototype
-    # https://bugs.r-project.org/bugzilla/show_bug.cgi?id=18024
-    ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
-
     args = [
       "--prefix=#{prefix}",
       "--enable-memory-profiling",

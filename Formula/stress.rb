@@ -1,25 +1,18 @@
 class Stress < Formula
   desc "Tool to impose load on and stress test a computer system"
-  homepage "https://web.archive.org/web/20190702093856/https://people.seas.harvard.edu/~apw/stress/"
-  url "https://deb.debian.org/debian/pool/main/s/stress/stress_1.0.5.orig.tar.gz"
-  sha256 "1798e49ca365d928fb194ba1b8e8d1e09963b49e9edb0a78bcbba15750bb5027"
+  homepage "https://github.com/resurrecting-open-source-projects/stress"
+  url "https://github.com/resurrecting-open-source-projects/stress/archive/refs/tags/1.0.7.tar.gz"
+  sha256 "cdaa56671506133e2ed8e1e318d793c2a21c4a00adc53f31ffdef1ece8ace0b1"
   license "GPL-2.0-or-later"
 
-  livecheck do
-    url "https://deb.debian.org/debian/pool/main/s/stress/"
-    regex(/href=.*?stress[._-]v?(\d+(?:\.\d+)+)\.orig\.t/i)
-  end
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "682417d0cce887de4bfad5dbf1382917cda827e21b760f890a74d1856e45915d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d62a404e264f4d64f2e5a14c9adee3f6cdb3593c31880410d24f38accea32bdf"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3dc5c125c3eb8cf95cb21bf4ae2efaf114b9b47677747026ba92a5c9eb09ad6e"
-    sha256 cellar: :any_skip_relocation, ventura:        "cf4131cee3e5082600056d0872a4a0147d477c6b87f24fab295a86201a649973"
-    sha256 cellar: :any_skip_relocation, monterey:       "c3a4929d6031c9cdf21cb81c8b3ff06b3a9bad924194eeadba7996aabb9cd9a7"
-    sha256 cellar: :any_skip_relocation, big_sur:        "00d9ed736381a3967b8eaf0b709328ccb0263640fdc856fe5c2e8f2164ea705d"
-    sha256 cellar: :any_skip_relocation, catalina:       "2fb692ddaa54337dfe07eb71ee647e167bbe41db054556c32d7507cba38caa43"
-    sha256 cellar: :any_skip_relocation, mojave:         "6220e38d281aa1f7933c582711083d2e33bc36071e32776a55a6c8441e3de209"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b303854895396f0b6b5a75e654b5315ae4eccd5d4c7de451d7d1997edb0a7e7a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f744647b8c4d3d83ecedd29b802bcf4d03b8fde7ca5a659caceb3d3bf4a19df8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ecf4d28b29d30fe0d43c30d5bb8f5bb119842694a04dcefdbef78a37ce0adb77"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e8ec9b4a8cd6c22f4987344d6db9d9287a54b0e9ec45897dae46deb1c49684da"
+    sha256 cellar: :any_skip_relocation, ventura:        "7c8d2136d92522af1285918a98ee6f175252ce4a575997aa34f05de62cab378a"
+    sha256 cellar: :any_skip_relocation, monterey:       "35747dadcf335894c442ffccfc3e85f16f35f404aae3e7630015abaeea2f6890"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4c0e687b08b14497b89ff3fee89e878808c32dd73d3ea1452ec5bfd49abab88c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ffa76db1094886481f76dcba90c949bd03f5d29971e943d9dce96a5f53f6da78"
   end
 
   depends_on "autoconf" => :build

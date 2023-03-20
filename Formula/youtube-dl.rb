@@ -8,24 +8,39 @@ class YoutubeDl < Formula
   license "Unlicense"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0d54237a227c12efaf38fd29deba9954fbd9bc5dac5404c70c9e34d618e3389d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0d54237a227c12efaf38fd29deba9954fbd9bc5dac5404c70c9e34d618e3389d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0d54237a227c12efaf38fd29deba9954fbd9bc5dac5404c70c9e34d618e3389d"
-    sha256 cellar: :any_skip_relocation, ventura:        "bf4a60b76c7aaa2ac750e92f7cf7aec386539aeb2d8d77054d087e6857b54dea"
-    sha256 cellar: :any_skip_relocation, monterey:       "bf4a60b76c7aaa2ac750e92f7cf7aec386539aeb2d8d77054d087e6857b54dea"
-    sha256 cellar: :any_skip_relocation, big_sur:        "bf4a60b76c7aaa2ac750e92f7cf7aec386539aeb2d8d77054d087e6857b54dea"
-    sha256 cellar: :any_skip_relocation, catalina:       "bf4a60b76c7aaa2ac750e92f7cf7aec386539aeb2d8d77054d087e6857b54dea"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "badafc55a0e6036f92ac52c82c7113630409752921d4bdf6801ce8f8c3efe816"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1785d927f08c742e1a5be3b7e78720b9b59ecbf0629097fbd3ac5f38f44c7660"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1785d927f08c742e1a5be3b7e78720b9b59ecbf0629097fbd3ac5f38f44c7660"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1785d927f08c742e1a5be3b7e78720b9b59ecbf0629097fbd3ac5f38f44c7660"
+    sha256 cellar: :any_skip_relocation, ventura:        "4a0b4ff89c2e65e477927b6e62d8aa5d9de8cfb7f655f482d847898bd61071cf"
+    sha256 cellar: :any_skip_relocation, monterey:       "4a0b4ff89c2e65e477927b6e62d8aa5d9de8cfb7f655f482d847898bd61071cf"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4a0b4ff89c2e65e477927b6e62d8aa5d9de8cfb7f655f482d847898bd61071cf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "176587c275b69443d195a8e3c88c392905bdd6c78614207da18093fb35962ee0"
+  end
+
+  head do
+    url "https://github.com/ytdl-org/youtube-dl.git", branch: "master"
+    depends_on "pandoc" => :build
   end
 
   depends_on "python@3.11"
 
   def install
-    virtualenv_install_with_resources
-    man1.install_symlink libexec/"share/man/man1/youtube-dl.1" => "youtube-dl.1"
-    bash_completion.install libexec/"etc/bash_completion.d/youtube-dl.bash-completion"
-    fish_completion.install libexec/"etc/fish/completions/youtube-dl.fish"
+    if build.head?
+      system "make", "PREFIX=#{prefix}", "MANDIR=#{man}", "PYTHON=python3", "install"
+      fish_completion.install prefix/"etc/fish/completions/youtube-dl.fish"
+      (prefix/"etc/fish").rmtree
+    else
+      virtualenv_install_with_resources
+      # Handle "ERROR: Unable to extract uploader id" until new release
+      # https://github.com/ytdl-org/youtube-dl/issues/31530
+      inreplace libexec/"lib/python3.11/site-packages/youtube_dl/extractor/youtube.py",
+                "owner_profile_url, 'uploader id')",
+                "owner_profile_url, 'uploader id', fatal=False)"
+      man1.install_symlink libexec/"share/man/man1/youtube-dl.1" => "youtube-dl.1"
+      bash_completion.install libexec/"etc/bash_completion.d/youtube-dl.bash-completion"
+      fish_completion.install libexec/"etc/fish/completions/youtube-dl.fish"
+    end
   end
 
   test do

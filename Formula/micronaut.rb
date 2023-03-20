@@ -1,8 +1,8 @@
 class Micronaut < Formula
   desc "Modern JVM-based framework for building modular microservices"
   homepage "https://micronaut.io/"
-  url "https://github.com/micronaut-projects/micronaut-starter/archive/v3.8.0.tar.gz"
-  sha256 "8bee74abd9497086afa2c876cba1a81b66c417910340ad966267cdb2a58a7680"
+  url "https://github.com/micronaut-projects/micronaut-starter/archive/v3.8.7.tar.gz"
+  sha256 "4c2427d419784b5589214d1f8d68e48214b4cd4252e03a6a10e0c70b3fdb5898"
   license "Apache-2.0"
 
   livecheck do
@@ -11,13 +11,13 @@ class Micronaut < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6e3b8e51f21b5b26b0dc63525c2cf7d78e60d24b0eed180a2e368f63d4d9715e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "59e829f8a58c14106ddfc4827e28e6985f0a8ff2706db7cf2a0d383ae5b72453"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "eb851970f452a7c1f0a2daccb71775a3d5e552e29551b783476eb49699412c96"
-    sha256 cellar: :any_skip_relocation, ventura:        "4da4872710ca3eaa67dd8f14a8d72278e5714195c0ccb0d585309935d704e3f1"
-    sha256 cellar: :any_skip_relocation, monterey:       "510c1b08e8244ba3dad463f4cbf356e7bf13421d3455b3034b37fbce987150ff"
-    sha256 cellar: :any_skip_relocation, big_sur:        "469728afb35343c3daa47a7a6865e323164367f44d4d83961b963c8051fb4ca9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "00edbcf80005dff1b6a2754bee35ab61a2b7a58b17e92aafdbcfea19b7909cc0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e52d8bd67b06c1fd05740f24c57c94649e55b339d9bac92f7e497fff0153f3d6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "633496e7c5ea081b894ea78cbd29e943d432825afe07dcd00c1846615aa0bf92"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bd6ca95cf0581c17e64e2adcd4f9526c71701c471141f64e2374bf6ac084d634"
+    sha256 cellar: :any_skip_relocation, ventura:        "f67c5a984dff1ccde8654ec178e729717f941c9fbbb50151eeec9f702ba09d46"
+    sha256 cellar: :any_skip_relocation, monterey:       "c70b45ab6d40071d6d8070486616a6b34fc7aa88829ced4852d92c1ec86e36cd"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9c93cc61f33846f716134055d3a2849c98b3b2583482d2eee2090d978e356c66"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e821918d1bb106a993a9f59cfa615417831eed28c47497e075942289a37044f3"
   end
 
   # Uses a hardcoded list of supported JDKs. Try switching to `openjdk` on update.

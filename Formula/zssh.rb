@@ -3,7 +3,7 @@ class Zssh < Formula
   homepage "https://zssh.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/zssh/zssh/1.5/zssh-1.5c.tgz"
   sha256 "a2e840f82590690d27ea1ea1141af509ee34681fede897e58ae8d354701ce71b"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
 
   livecheck do
     url :stable

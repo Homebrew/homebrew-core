@@ -31,6 +31,10 @@ class Libelf < Formula
 
   on_linux do
     keg_only "it conflicts with elfutils, which installs a maintained libelf.a"
+
+    # `libelf` should never be used on Linux as `elfutils` is available.
+    # Can make formula `depends_on :macos` afterward.
+    disable! date: "2023-05-13", because: :unmaintained # and upstream site is gone
   end
 
   def install

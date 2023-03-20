@@ -16,8 +16,6 @@ class Grc < Formula
 
   depends_on "python@3.11"
 
-  conflicts_with "cc65", because: "both install `grc` binaries"
-
   def install
     # fix non-standard prefix installs
     inreplace "grc", "/usr/local/etc/", "#{etc}/"

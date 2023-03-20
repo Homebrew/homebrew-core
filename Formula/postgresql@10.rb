@@ -6,11 +6,6 @@ class PostgresqlAT10 < Formula
   license "PostgreSQL"
   revision 3
 
-  livecheck do
-    url "https://ftp.postgresql.org/pub/source/"
-    regex(%r{href=["']?v?(10(?:\.\d+)+)/?["' >]}i)
-  end
-
   bottle do
     sha256 arm64_ventura:  "12a23aa3da4c20fe27d7d2cf7e68a31f8072b8e5e1356e95e0918d7d528a6faa"
     sha256 arm64_monterey: "95ff39fa2a308b2ba32569df5da563911664d447ab160cf9e7a4e0dc81cd46c1"

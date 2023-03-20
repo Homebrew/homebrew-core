@@ -17,13 +17,12 @@ class Killswitch < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:    "82a98dbef512e928dfcee02d0c7c50889856ce88740645ec1af0fcac7edfab12"
   end
 
-  # Bump to 1.18 on the next release, if possible.
-  depends_on "go@1.17" => :build
+  depends_on "go" => :build
   depends_on :macos
 
   def install
-    system "go", "build", "-mod=readonly", "-ldflags", "-s -w -X main.version=#{version}",
-           "-o", "#{bin}/killswitch", "cmd/killswitch/main.go"
+    system "go", "build", "-mod=readonly", *std_go_args(ldflags: "-s -w -X main.version=#{version}"),
+           "cmd/killswitch/main.go"
   end
 
   test do

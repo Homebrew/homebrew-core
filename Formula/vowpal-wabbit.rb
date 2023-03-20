@@ -1,20 +1,19 @@
 class VowpalWabbit < Formula
   desc "Online learning algorithm"
   homepage "https://github.com/VowpalWabbit/vowpal_wabbit"
-  url "https://github.com/VowpalWabbit/vowpal_wabbit/archive/9.6.0.tar.gz"
-  sha256 "dfbbd278472e5e4d61f50d6ab8a2147ee447db2451942d8a4689d1f3bf6e6e1f"
+  url "https://github.com/VowpalWabbit/vowpal_wabbit/archive/9.8.0.tar.gz"
+  sha256 "cfc7d43fc590dffebf0adb385560dd72735f23b9086c918e95475b341c620a9d"
   license "BSD-3-Clause"
   head "https://github.com/VowpalWabbit/vowpal_wabbit.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "a93633d4b89c08895d347e376812dbc4949238880295cd9e40b1c7989c6a5679"
-    sha256 cellar: :any,                 arm64_monterey: "94844c66dd9e1ad1926f58274857a1fa8cadfc36b8c051a11ab98fb16e1e8740"
-    sha256 cellar: :any,                 arm64_big_sur:  "137e1e3cfaf566104f384a0a73cb77704872e781910ca7e18e24cc8a0f7884bd"
-    sha256 cellar: :any,                 ventura:        "d6a3147090bdfa8b895db6b095407cbfbc563b2a0a3fb7fef1c84337bef95c41"
-    sha256 cellar: :any,                 monterey:       "8c3fbf88dfcaff31b65606de210beb85e8000e13b63156cf1cc8281e3cc97116"
-    sha256 cellar: :any,                 big_sur:        "e2f852d4573bfe2584b0d87ce178b2219943ae109633066b8e95dd8ca9a08cac"
-    sha256 cellar: :any,                 catalina:       "a5150986c662a1c629d603beb83aa7b0a555d11968f0a93a1a3c35fa6ca8cf0d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "98957d759c485fefbe0489855bbcfcb6e2d18c788bb752fecf66747adf40b780"
+    sha256 cellar: :any,                 arm64_ventura:  "ff3e93030ca988f26035e90b5a6d1354c382ac9adcdb7984de0c0d3f2ff69ce6"
+    sha256 cellar: :any,                 arm64_monterey: "8108740efaf0d761ffe9cecf715b1fd80c01c08fc1813104f7db9fec591b6233"
+    sha256 cellar: :any,                 arm64_big_sur:  "5f45affb33dfaf31856b7db812cb0ee404b0938a27151497ee4bdd640fffa802"
+    sha256 cellar: :any,                 ventura:        "77f28f684273db1bdef2e04d665cbe4eb7655075ac4fad35b60b99192a4869e6"
+    sha256 cellar: :any,                 monterey:       "65c83e129e76a29b79541420c3e99631214340018f80c09e5bc47c0260a1aae1"
+    sha256 cellar: :any,                 big_sur:        "9a84fab3d23d403d1b1742d180a89bee7d275b541f7556d45e1abf9208984209"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "70acd56e352d8d103aa860343b8ec6d90fc5c947b50593939c0b04eb2fe49819"
   end
 
   depends_on "cmake" => :build
@@ -23,28 +22,36 @@ class VowpalWabbit < Formula
   depends_on "boost"
   depends_on "eigen"
   depends_on "fmt"
+
   uses_from_macos "zlib"
-  patch do
-    url "https://github.com/VowpalWabbit/vowpal_wabbit/commit/0cb410dfc885ca1ecafd1f8a962b481574fb3b82.patch?full_index=1"
-    sha256 "798246d976932a6e278d071fdff0bff57ba994a3aef58926bbf4e0bf6fa09690"
+
+  on_arm do
+    depends_on "sse2neon" => :build
   end
+
+  patch :DATA
 
   def install
     ENV.cxx11
+
+    args = %w[
+      -DBUILD_TESTING=OFF
+      -DRAPIDJSON_SYS_DEP=ON
+      -DFMT_SYS_DEP=ON
+      -DSPDLOG_SYS_DEP=ON
+      -DVW_BOOST_MATH_SYS_DEP=On
+      -DVW_EIGEN_SYS_DEP=On
+      -DVW_SSE2NEON_SYS_DEP=On
+      -DVW_INSTALL=On
+    ]
+
     # The project provides a Makefile, but it is a basic wrapper around cmake
     # that does not accept *std_cmake_args.
     # The following should be equivalent, while supporting Homebrew's standard args.
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args,
-                            "-DBUILD_TESTING=OFF",
-                            "-DRAPIDJSON_SYS_DEP=ON",
-                            "-DFMT_SYS_DEP=ON",
-                            "-DSPDLOG_SYS_DEP=ON",
-                            "-DVW_BOOST_MATH_SYS_DEP=On",
-                            "-DVW_EIGEN_SYS_DEP=On",
-                            "-DVW_INSTALL=On"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
+
     bin.install Dir["utl/*"]
     rm bin/"active_interactor.py"
     rm bin/"vw-validate.html"
@@ -101,3 +108,31 @@ class VowpalWabbit < Formula
     system bin/"vw", "-t", "-i", "cb.model", "-d", "test.dat", "-p", "cb.predict"
   end
 end
+
+__END__
+diff --git a/ext_libs/ext_libs.cmake b/ext_libs/ext_libs.cmake
+index 1ef57fe..20972fc 100644
+--- a/ext_libs/ext_libs.cmake
++++ b/ext_libs/ext_libs.cmake
+@@ -107,7 +107,7 @@ endif()
+ 
+ add_library(sse2neon INTERFACE)
+ if(VW_SSE2NEON_SYS_DEP)
+-  find_path(SSE2NEON_INCLUDE_DIRS "sse2neon/sse2neon.h")
++  find_path(SSE2NEON_INCLUDE_DIRS "sse2neon.h")
+   target_include_directories(sse2neon SYSTEM INTERFACE "${SSE2NEON_INCLUDE_DIRS}")
+ else()
+   # This submodule is placed into a nested subdirectory since it exposes its
+diff --git a/vowpalwabbit/core/src/reductions/lda_core.cc b/vowpalwabbit/core/src/reductions/lda_core.cc
+index f078d9c..ede5e06 100644
+--- a/vowpalwabbit/core/src/reductions/lda_core.cc
++++ b/vowpalwabbit/core/src/reductions/lda_core.cc
+@@ -33,7 +33,7 @@ VW_WARNING_STATE_POP
+ #include "vw/io/logger.h"
+ 
+ #if defined(__ARM_NEON)
+-#  include <sse2neon/sse2neon.h>
++#  include <sse2neon.h>
+ #endif
+ 
+ #include <algorithm>

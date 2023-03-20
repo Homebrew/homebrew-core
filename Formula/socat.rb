@@ -11,17 +11,17 @@ class Socat < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "623b6a8ffbf52e2f49bd91d7f67ab4831656969f8915a855ac9141ada45950a1"
-    sha256 cellar: :any,                 arm64_monterey: "9869f1abbc5e6f06eb88b9d105b8cd7a51104c3fc61445a137c7df696ff5bbda"
-    sha256 cellar: :any,                 arm64_big_sur:  "6fbd66e30a037ad2894cf36efbe54246ea4b121d83c1c58ec46f0db8ea949be4"
-    sha256 cellar: :any,                 ventura:        "582473222d1b540d10b7526d51b8521cfd709bc5e7ac73d6a08a2b0c7530fd7f"
-    sha256 cellar: :any,                 monterey:       "53f46b767cb68336f0b8df622eb3ba6f05d83c1918566c6394336ed36c1abd15"
-    sha256 cellar: :any,                 big_sur:        "16de00d162871d7911ac6c31ceec915041f84252dbafa5629a1d9c659cd549cb"
-    sha256 cellar: :any,                 catalina:       "9a047ed686313839bfb8ed662d4e9ed7d3d682631b36317ce2b4bba37fdb2ed1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a2658491f6539bd6f99a06ab1f7c9ae2c8b59313ccd5adb53dc64973cdb0f2f4"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "f6aa50ee21327847f916a61422569ae7fff43c92024e3413fafbf28248c02f4e"
+    sha256 cellar: :any,                 arm64_monterey: "4e96a37131487c816cde4020cc70a7a595c7b9cdb45ea7451484bb6d89f7ffcd"
+    sha256 cellar: :any,                 arm64_big_sur:  "580ce7d208ec94379e1080ce76095b292535d6109b5e7bb6d133711e5e9e0151"
+    sha256 cellar: :any,                 ventura:        "75fad6c257fd4845d78eb46c1586de8aa3ba450a9d317ff87b327ece2222b9b2"
+    sha256 cellar: :any,                 monterey:       "4b77fd5affd99347d487a9da3fdac453e03eb1d9f114e10a1a7dbfe6e771e3ec"
+    sha256 cellar: :any,                 big_sur:        "72ed3ae16d6f7cc35e184eea5ccf5a88bbdb9a0aa7506d3acd960c8348bebb23"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e9cd03f1295c55fc5dc62d20d77a75412a113b69e2506aed038d3a7389768369"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "readline"
 
   def install

@@ -1,9 +1,10 @@
 class PythonAT311 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.11.1/Python-3.11.1.tgz"
-  sha256 "baed518e26b337d4d8105679caf68c5c32630d702614fc174e98cb95c46bdfa4"
+  url "https://www.python.org/ftp/python/3.11.2/Python-3.11.2.tgz"
+  sha256 "2411c74bda5bbcfcddaf4531f66d1adc73f247f529aee981b029513aefdbf849"
   license "Python-2.0"
+  revision 1
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -11,13 +12,13 @@ class PythonAT311 < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "8e3962bac859e8e01badafd6d77cb6858ddd35f45adc81aac3d68a2096955e1a"
-    sha256 arm64_monterey: "54c7eb00a23451b956abe4797a759e29824d33953fb57715bde6b9abb2500555"
-    sha256 arm64_big_sur:  "4692885fe40dd584e5e5ef71712c493d6be02f03d307d44b6c8ef9c51ddbe8e3"
-    sha256 ventura:        "7849cf9914426885513e01e7150fe5b9cfb189d61b4911108326b413be718136"
-    sha256 monterey:       "b668909b679a54930bd35a9a2738a27ef1d545db8a4d889b8d9a475e85519116"
-    sha256 big_sur:        "46d8a1a49f5690efda2cc21daaa368ef9979bffbfc4b5e8002b612801c6a1243"
-    sha256 x86_64_linux:   "a241482733606b5715d30e0eb72e8308748923c2e05de9834d15dbdbe0bc112f"
+    sha256 arm64_ventura:  "ecbb2abe321f79eef540a9fa17b53ff56d2df7a4c613f068fe17e1202f2271f2"
+    sha256 arm64_monterey: "cde36624e734632be009e3aa28d9bd07f4fa681c7caa270e7efb416b287c1e72"
+    sha256 arm64_big_sur:  "3276b3fa9177be8ac4a03fc88e49d075357938e39f83fc90694b7cb910ca1a56"
+    sha256 ventura:        "9805bbae47a078119132c57811de8c46ad0cbaed94911b0fe10c98953d0703e7"
+    sha256 monterey:       "1760c64881403847ad39e6df648ff0845fab321b638715734fe0264dfe7bcbda"
+    sha256 big_sur:        "4d07bdab981c17e93cfe71b17719d4218482d62bf2f8607d51577a344af321c9"
+    sha256 x86_64_linux:   "cc1f8647d66f6aa33cbeacf94199f09c40559967e6f4e1fefc0cadc635962c24"
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -48,6 +49,22 @@ class PythonAT311 < Formula
               "bin/pip-3.10"
   skip_clean "bin/easy_install3", "bin/easy_install-3.4", "bin/easy_install-3.5", "bin/easy_install-3.6",
               "bin/easy_install-3.7", "bin/easy_install-3.8", "bin/easy_install-3.9", "bin/easy_install-3.10"
+
+  link_overwrite "bin/2to3"
+  link_overwrite "bin/idle3"
+  link_overwrite "bin/pip3"
+  link_overwrite "bin/pydoc3"
+  link_overwrite "bin/python3"
+  link_overwrite "bin/python3-config"
+  link_overwrite "bin/wheel3"
+  link_overwrite "share/man/man1/python3.1"
+  link_overwrite "lib/libpython3.so"
+  link_overwrite "lib/pkgconfig/python3.pc"
+  link_overwrite "lib/pkgconfig/python3-embed.pc"
+  link_overwrite "Frameworks/Python.framework/Headers"
+  link_overwrite "Frameworks/Python.framework/Python"
+  link_overwrite "Frameworks/Python.framework/Resources"
+  link_overwrite "Frameworks/Python.framework/Versions/Current"
 
   # Always update to latest release
   resource "setuptools" do
@@ -213,12 +230,8 @@ class PythonAT311 < Formula
     system "make"
 
     ENV.deparallelize do
-      # The `altinstall` target prevents the installation of files with only Python's major
-      # version in its name. This allows us to link multiple versioned Python formulae.
-      #   https://github.com/python/cpython#installing-multiple-versions
-      #
       # Tell Python not to install into /Applications (default for framework builds)
-      system "make", "altinstall", "PYTHONAPPSDIR=#{prefix}"
+      system "make", "install", "PYTHONAPPSDIR=#{prefix}"
       system "make", "frameworkinstallextras", "PYTHONAPPSDIR=#{pkgshare}" if OS.mac?
     end
 
@@ -251,9 +264,6 @@ class PythonAT311 < Formula
       inreplace lib_cellar/"_sysconfigdata__darwin_darwin.py",
                 %r{('LINKFORSHARED': .*?)'(Python.framework/Versions/3.\d+/Python)'}m,
                 "\\1'#{opt_prefix}/Frameworks/\\2'"
-
-      # Remove symlinks that conflict with the main Python formula.
-      rm %w[Headers Python Resources Versions/Current].map { |subdir| frameworks/"Python.framework"/subdir }
     else
       # Prevent third-party packages from building against fragile Cellar paths
       inreplace Dir[lib_cellar/"**/_sysconfigdata_*linux_x86_64-*.py",
@@ -265,9 +275,6 @@ class PythonAT311 < Formula
       inreplace bin/"python#{version.major_minor}-config",
                 'prefix_real=$(installed_prefix "$0")',
                 "prefix_real=#{opt_prefix}"
-
-      # Remove symlinks that conflict with the main Python formula.
-      rm lib/"libpython3.so"
     end
 
     # Remove the site-packages that Python created in its Cellar.
@@ -309,16 +316,12 @@ class PythonAT311 < Formula
     # Write out sitecustomize.py
     (lib_cellar/"sitecustomize.py").atomic_write(sitecustomize)
 
-    # Install unversioned and major-versioned symlinks in libexec/bin.
+    # Install unversioned symlinks in libexec/bin.
     {
-      "idle"           => "idle#{version.major_minor}",
-      "idle3"          => "idle#{version.major_minor}",
-      "pydoc"          => "pydoc#{version.major_minor}",
-      "pydoc3"         => "pydoc#{version.major_minor}",
-      "python"         => "python#{version.major_minor}",
-      "python3"        => "python#{version.major_minor}",
-      "python-config"  => "python#{version.major_minor}-config",
-      "python3-config" => "python#{version.major_minor}-config",
+      "idle"          => "idle#{version.major_minor}",
+      "pydoc"         => "pydoc#{version.major_minor}",
+      "python"        => "python#{version.major_minor}",
+      "python-config" => "python#{version.major_minor}-config",
     }.each do |short_name, long_name|
       (libexec/"bin").install_symlink (bin/long_name).realpath => short_name
     end
@@ -372,21 +375,20 @@ class PythonAT311 < Formula
     mv (site_packages/"bin").children, bin
     rmdir site_packages/"bin"
 
-    rm_rf bin.glob("pip{,3}")
+    rm_rf bin/"pip"
     mv bin/"wheel", bin/"wheel#{version.major_minor}"
+    bin.install_symlink "wheel#{version.major_minor}" => "wheel3"
 
-    # Install unversioned and major-versioned symlinks in libexec/bin.
+    # Install unversioned symlinks in libexec/bin.
     {
-      "pip"    => "pip#{version.major_minor}",
-      "pip3"   => "pip#{version.major_minor}",
-      "wheel"  => "wheel#{version.major_minor}",
-      "wheel3" => "wheel#{version.major_minor}",
+      "pip"   => "pip#{version.major_minor}",
+      "wheel" => "wheel#{version.major_minor}",
     }.each do |short_name, long_name|
       (libexec/"bin").install_symlink (bin/long_name).realpath => short_name
     end
 
     # post_install happens after link
-    %W[wheel#{version.major_minor} pip#{version.major_minor}].each do |e|
+    %W[wheel3 pip3 wheel#{version.major_minor} pip#{version.major_minor}].each do |e|
       (HOMEBREW_PREFIX/"bin").install_symlink bin/e
     end
   end
@@ -406,9 +408,10 @@ class PythonAT311 < Formula
           # because the PYTHONPATH is evaluated after the sitecustomize.py. Many modules (e.g. PyQt4) are
           # built only for a specific version of Python and will fail with cryptic error messages.
           # In the end this means: Don't set the PYTHONPATH permanently if you use different Python versions.
-          exit('Your PYTHONPATH points to a site-packages dir for Python #{version.major_minor} but you are running Python ' +
-                str(sys.version_info[0]) + '.' + str(sys.version_info[1]) + '!\\n     PYTHONPATH is currently: "' + str(os.environ['PYTHONPATH']) + '"\\n' +
-                '     You should `unset PYTHONPATH` to fix this.')
+          exit(f'Your PYTHONPATH points to a site-packages dir for Python #{version.major_minor} '
+               f'but you are running Python {sys.version_info[0]}.{sys.version_info[1]}!\\n'
+               f'     PYTHONPATH is currently: "{os.environ["PYTHONPATH"]}"\\n'
+               f'     You should `unset PYTHONPATH` to fix this.')
       # Only do this for a brewed python:
       if os.path.realpath(sys.executable).startswith('#{rack}'):
           # Shuffle /Library site-packages to the end of sys.path
@@ -420,7 +423,7 @@ class PythonAT311 < Formula
           # the Cellar site-packages is a symlink to the HOMEBREW_PREFIX
           # site_packages; prefer the shorter paths
           long_prefix = re.compile(r'#{rack}/[0-9\\._abrc]+/Frameworks/Python\\.framework/Versions/#{version.major_minor}/lib/python#{version.major_minor}/site-packages')
-          sys.path = [long_prefix.sub('#{HOMEBREW_PREFIX/"lib/python#{version.major_minor}/site-packages"}', p) for p in sys.path]
+          sys.path = [long_prefix.sub('#{site_packages}', p) for p in sys.path]
           # Set the sys.executable to use the opt_prefix. Only do this if PYTHONEXECUTABLE is not
           # explicitly set and we are not in a virtualenv:
           if 'PYTHONEXECUTABLE' not in os.environ and sys.prefix == sys.base_prefix:
@@ -450,17 +453,14 @@ class PythonAT311 < Formula
   def caveats
     <<~EOS
       Python has been installed as
-        #{HOMEBREW_PREFIX}/bin/python#{version.major_minor}
+        #{HOMEBREW_PREFIX}/bin/python3
 
-      Unversioned and major-versioned symlinks `python`, `python3`, `python-config`, `python3-config`, `pip`, `pip3`, etc. pointing to
-      `python#{version.major_minor}`, `python#{version.major_minor}-config`, `pip#{version.major_minor}` etc., respectively, have been installed into
+      Unversioned symlinks `python`, `python-config`, `pip` etc. pointing to
+      `python3`, `python3-config`, `pip3` etc., respectively, have been installed into
         #{opt_libexec}/bin
 
-      If you do not need a specific version of Python, and always want Homebrew's `python3` in your PATH:
-        brew install python3
-
       You can install Python packages with
-        pip#{version.major_minor} install <package>
+        pip3 install <package>
       They will install into the site-package directory
         #{HOMEBREW_PREFIX}/lib/python#{version.major_minor}/site-packages
 

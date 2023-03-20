@@ -19,6 +19,9 @@ class Texapp < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3de41340c8be2327e079f024ac9c4cc0ebe27c937934f827b53c20869cebbf88"
   end
 
+  # website now shows "The last moments of App.net global, as witnessed from Texapp"
+  deprecate! date: "2023-03-13", because: :repo_archived
+
   def install
     bin.install "#{version}.txt" => "texapp"
   end

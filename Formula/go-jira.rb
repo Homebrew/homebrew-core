@@ -26,12 +26,11 @@ class GoJira < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"jira", "cmd/jira/main.go"
-    prefix.install_metafiles
+    system "go", "build", *std_go_args(ldflags: "-s -w", output: bin/"jira"), "cmd/jira/main.go"
   end
 
   test do
-    system "#{bin}/jira", "export-templates"
+    system bin/"jira", "export-templates"
     template_dir = testpath/".jira.d/templates/"
 
     files = Dir.entries(template_dir)

@@ -1,25 +1,25 @@
 class Libfixbuf < Formula
   desc "Implements the IPFIX Protocol as a C library"
   homepage "https://tools.netsa.cert.org/fixbuf/"
-  url "https://tools.netsa.cert.org/releases/libfixbuf-2.4.1.tar.gz"
-  sha256 "8c535d48120b08df1731de709f2dbd2ba8bce568ad64cac34826102caf594d84"
+  url "https://tools.netsa.cert.org/releases/libfixbuf-2.4.2.tar.gz"
+  sha256 "4286d94224a2d9e21937b50a87ee1e204768f30fd193f48f381a63743944bf08"
   license "LGPL-3.0-only"
 
+  # NOTE: This should be updated to check the main `/fixbuf/download.html`
+  # page when it links to a stable version again in the future.
   livecheck do
-    url "https://tools.netsa.cert.org/fixbuf/download.html"
-    regex(%r{releases/libfixbuf[._-]v?(\d+(?:\.\d+)+)\.t}i)
+    url "https://tools.netsa.cert.org/fixbuf2/download.html"
+    regex(/["'][^"']*?libfixbuf[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
-    sha256 arm64_ventura:  "1f90d97eb8549f9daddef3c3d01834a0613111fa8d4af46f1d4a596b27b1a3e7"
-    sha256 arm64_monterey: "74d131854da80f316aeaf105d83c590ea4ea0f705c5617b0ddfdc07d59063232"
-    sha256 arm64_big_sur:  "d29c4e4bd8a1d13508214f781306188fe89e78579747aea4ab1166a9d33a4402"
-    sha256 ventura:        "1fb266b06143e3465a96d3354eced7650241c3894d713a659ba8caee658c9018"
-    sha256 monterey:       "e769a1deb354474818e4edd98d91c4a6fa8c54e7f56402feaec66e3f566ee149"
-    sha256 big_sur:        "1cafffbb92c6bba1c328d01d1c00fa4ed1191a93eec966a6a3dce31219ef0d05"
-    sha256 catalina:       "4e7eb768bb5499147e8c630e4620c356abba37fff0c54d69daf8fe2c9f752771"
-    sha256 mojave:         "576d20e23954424a4132ed8b1dd9387f78ce0cf3b401d1fa1ed0d436016a3713"
-    sha256 x86_64_linux:   "8a550fa7ab4938f3eb086fee7eb88c0a90acb477bb247c37c1cba63cdf3a3fc1"
+    sha256 arm64_ventura:  "9187d2b567986e32c060ab687d8f6ef1a2a5290ed8a5fef15b32c22d793bb21e"
+    sha256 arm64_monterey: "b02a896fe100021e8fbfaa0731578452097232e1102763725bb6490291ff1635"
+    sha256 arm64_big_sur:  "73149cc50b6cc5c0269a140fddb904b8412201b26325c06fdfc8a4533d638671"
+    sha256 ventura:        "d2eed42c0dcc8950027df4809287a97e77a1376a9b33497adb5d3db6fc07f242"
+    sha256 monterey:       "f9b405fb82cc27bc3656a21e8c56c0c9b0d5772e258ccd27c86f5bc1a9a84c1a"
+    sha256 big_sur:        "e96af7ab90b912487891b04590a6a1e55ed4d4bc42631b935e2e50161d8d668a"
+    sha256 x86_64_linux:   "3468fb8842f3b2d131eee19c79f36a5740c15eed95a604210671aafe423aa90c"
   end
 
   depends_on "pkg-config" => :build

@@ -1,19 +1,35 @@
 class Cpufetch < Formula
   desc "CPU architecture fetching tool"
   homepage "https://github.com/Dr-Noob/cpufetch"
-  url "https://github.com/Dr-Noob/cpufetch/archive/v1.02.tar.gz"
-  sha256 "3d1c80aba3daa5fe300b6de6e06d9030f97b7be5210f8ea4110de733ea4373f8"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
   head "https://github.com/Dr-Noob/cpufetch.git", branch: "master"
 
+  stable do
+    url "https://github.com/Dr-Noob/cpufetch/archive/v1.03.tar.gz"
+    sha256 "550168e0523240a1fb837e85073e0aa69de1894f1b89ec3a5721a5d935679afb"
+
+    # Upstream issue ref: https://github.com/Dr-Noob/cpufetch/issues/168
+    # Remove in next release
+    patch do
+      url "https://github.com/Dr-Noob/cpufetch/commit/22a80d817d57814fc552365ad553c0a22f065fcd.patch?full_index=1"
+      sha256 "063b602cd5013ba7c2c5ea4e134c911164ec49b2ed14209c313c2ef005bd3d42"
+    end
+
+    # Upstream issue ref: https://github.com/Dr-Noob/cpufetch/issues/168
+    # Remove in next release
+    patch do
+      url "https://github.com/Dr-Noob/cpufetch/commit/095bbfb784f0b367558741e9b02f6278126e1c93.patch?full_index=1"
+      sha256 "494756db04ab00a0a57d519704f5032d2b77e7539d4c0233b789c5a6178fbab8"
+    end
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c607454509c0e6d3b292e36e3e47bc4b9e825ab68099a70e2ab672ef21b2a181"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0e957f2ce010aaf62e12573c176a666ded448450af54c2b7b6acd4c25561cee2"
-    sha256 cellar: :any_skip_relocation, ventura:        "a4c8cfa60f70dacf452afd5328e70430fed0f42731b835c97d765bf91e9dcd1d"
-    sha256 cellar: :any_skip_relocation, monterey:       "fc8ccba3b0c22f4eeae582ef6467629390b4123f71cddc5bb2208e86409c37d5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0364a04659759812076a6b70117e26679bbac74cee4943b7575844cb24169d16"
-    sha256 cellar: :any_skip_relocation, catalina:       "fecfd3b7d1c1a4b9811ec886f5733b1ebe944a9ceab4a0526ff18702674c5591"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "22c8f22e55957d44ba4a34167bd8d64d3dd01c54ba61a36c4fba9191dc343064"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e5149d2074889219c812f6ca2505e83347ca1534eb9f0892d998a18da03bd404"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ff63b2b85c84be38b371a3e37367aecd8685c85856b2ca586dfe2f147f940980"
+    sha256 cellar: :any_skip_relocation, ventura:        "3253382bd879bd53a615b56906b13fb4d9899c915451c385f659e1ce9b431af0"
+    sha256 cellar: :any_skip_relocation, monterey:       "e51fd38738c0ad936bfffb88fe4dc57e8e69c4b023fb0cce5d1a5c98f6259553"
+    sha256 cellar: :any_skip_relocation, big_sur:        "46c8c3b2ed335093b4e2eee7c969a114b7213ff6d5342b782dd227cbfb54db43"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a5949883510a59f2b7d8f4dd0c97678d249702a879d97bd0978671a983fb0e7a"
   end
 
   def install

@@ -31,7 +31,7 @@ class Bcrypt < Formula
                    "CFLAGS=#{ENV.cflags}",
                    "LDFLAGS=-lz"
     bin.install "bcrypt"
-    man1.install gzip("bcrypt.1")
+    man1.install Utils::Gzip.compress("bcrypt.1")
   end
 
   test do

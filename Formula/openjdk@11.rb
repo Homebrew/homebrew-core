@@ -1,8 +1,8 @@
 class OpenjdkAT11 < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.java.net/"
-  url "https://github.com/openjdk/jdk11u/archive/refs/tags/jdk-11.0.17-ga.tar.gz"
-  sha256 "1d36043f2cecfe2b079ca288c66ad7f009c50c828f4eab989e1adaeee443367b"
+  url "https://github.com/openjdk/jdk11u/archive/refs/tags/jdk-11.0.18-ga.tar.gz"
+  sha256 "c0560c3480e7ded2a59d783ddf2cb624a44ece9d3036f4a7a7575d597b18fb2e"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,13 +11,13 @@ class OpenjdkAT11 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "65d8e7b7a4e6f86ea503be7583d662040db8b3808cad76db4c7165bec17fcefc"
-    sha256 cellar: :any,                 arm64_monterey: "8fde089f21fc5b44cec749335be1cbff63008c0b160ff44cce36a865ad22bcd8"
-    sha256 cellar: :any,                 arm64_big_sur:  "cef244f475241213637c473bfca2057f0d73081edd9cee4c5e5a1a50d1df013b"
-    sha256 cellar: :any,                 ventura:        "8082fbf61e89734ef6c97d27f9b79c523aac57e60cce48492307d7527626d94d"
-    sha256 cellar: :any,                 monterey:       "a7dd4515b5a6c3215390a6fcf07a8809b88cca277ab1c3db190bf644eebce6fe"
-    sha256 cellar: :any,                 big_sur:        "a129af42c5d12e807a111916faa1654ac2547510d68994327288a83976da727b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5c4cdc324c887be6e88483846a2368ada8c6a64f77045991d8c2bb535143e546"
+    sha256 cellar: :any,                 arm64_ventura:  "05cd692e583b4fccba04c814b6304531c9bd1476996333392fd104fe8f96538a"
+    sha256 cellar: :any,                 arm64_monterey: "eb17ac97ee266055cfb1cef51a19913146ccba76cde635c7c505b6f898bc3ab9"
+    sha256 cellar: :any,                 arm64_big_sur:  "2d24c9d7959a2a7dcce671a8abc2b7a95b68a25434072e4e8f9c739290d3c43d"
+    sha256 cellar: :any,                 ventura:        "5a4ddc71e8adacdad1c0a56be7eff2cf9edf951523610ea4bc1fd9a9dc55f228"
+    sha256 cellar: :any,                 monterey:       "617fa70e78ead6459d1eb810fba7636a1fbfc045b256d1e2ca1ce1786303c9e8"
+    sha256 cellar: :any,                 big_sur:        "3a2110878daf46b2bbbebc28fb8ab6a76652490c8fc97ef293b275c5faa57f83"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5138ec9740b3faa6dd8c8e50ea80b027f62f3a256a6b989970f2944a3ffd5e27"
   end
 
   keg_only :versioned_formula
@@ -47,21 +47,28 @@ class OpenjdkAT11 < Formula
     depends_on "libxtst"
   end
 
+  # ARM64: https://www.azul.com/downloads/?version=java-11-lts&package=jdk
+  # Intel: https://jdk.java.net/archive/
   resource "boot-jdk" do
     on_macos do
       on_arm do
-        url "https://cdn.azul.com/zulu/bin/zulu11.58.15-ca-jdk11.0.16-macosx_aarch64.tar.gz"
-        sha256 "cb71a8ad38755f881a692098ca02378183a7a9c5093d7e6ad98ca5e7bc74b937"
+        url "https://cdn.azul.com/zulu/bin/zulu11.62.17-ca-jdk11.0.18-macosx_aarch64.tar.gz"
+        sha256 "2a3f56af83f9d180dfce5d6e771a292bbbd68a77c7c18ed3bdb607e86d773704"
       end
       on_intel do
-        url "https://download.java.net/java/GA/jdk10/10.0.2/19aef61b38124481863b1413dce1855f/13/openjdk-10.0.2_osx-x64_bin.tar.gz"
-        sha256 "77ea7675ee29b85aa7df138014790f91047bfdafbc997cb41a1030a0417356d7"
+        url "https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_osx-x64_bin.tar.gz"
+        sha256 "f365750d4be6111be8a62feda24e265d97536712bc51783162982b8ad96a70ee"
       end
     end
-    # Bootstrapping with JDK 10 hit a java.util.ConcurrentModificationException so we use JDK 11
     on_linux do
-      url "https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz"
-      sha256 "99be79935354f5c0df1ad293620ea36d13f48ec3ea870c838f20c504c9668b57"
+      on_arm do
+        url "https://cdn.azul.com/zulu-embedded/bin/zulu11.62.17-ca-jdk11.0.18-linux_aarch64.tar.gz"
+        sha256 "9f5ac83b584a297c792cc5feb67c752a2d9fc1259abec3a477e96be8b672f452"
+      end
+      on_intel do
+        url "https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz"
+        sha256 "99be79935354f5c0df1ad293620ea36d13f48ec3ea870c838f20c504c9668b57"
+      end
     end
   end
 

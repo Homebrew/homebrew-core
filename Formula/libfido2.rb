@@ -1,19 +1,18 @@
 class Libfido2 < Formula
   desc "Provides library functionality for FIDO U2F & FIDO 2.0, including USB"
   homepage "https://developers.yubico.com/libfido2/"
-  url "https://github.com/Yubico/libfido2/archive/1.12.0.tar.gz"
-  sha256 "813d6d25116143d16d2e96791718a74825da16b774a8d093d96f06ae1730d9c5"
+  url "https://github.com/Yubico/libfido2/archive/1.13.0.tar.gz"
+  sha256 "51d43727e2a1c4544c7fd0ee47786f443e39f1388ada735a509ad4af0a2459ca"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "1693534c09d366ff8c420e11fe483ce3ad4453d7864975b91585c559df881614"
-    sha256 cellar: :any,                 arm64_monterey: "2caf7758a5816420678d11fb81f0bef74837e12539c4c8be6d074d1a5b074d51"
-    sha256 cellar: :any,                 arm64_big_sur:  "a7cf0ef4f36cce15ab3b26b5681580d5af122b547f9b017ff7fda022517a0d2c"
-    sha256 cellar: :any,                 ventura:        "273a33cef92fcf44eb3661355becfa69477f92852d7ded6240577ebceb847374"
-    sha256 cellar: :any,                 monterey:       "130062c883742f34580c1ca5c63dca5215dae1ed6ff79c0f638be73daffd6ebf"
-    sha256 cellar: :any,                 big_sur:        "756ac14a01eb7e2162c100cc0b2ec6c310b33d00252f1a04144dd1d2f9a8b920"
-    sha256 cellar: :any,                 catalina:       "b7c9d561152606201046daf4c55aa743ada5c8f4fad36c27edd2e7964d897a7e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e518efa37cf76abee49f01988fe40a61396d207cf3b66fd62edc3e5f5d9847fd"
+    sha256 cellar: :any,                 arm64_ventura:  "7b5d3c0959fed640408631f685d51ec26704455241ef6e04d375514d7b941563"
+    sha256 cellar: :any,                 arm64_monterey: "c881e6791d6ee3e3f2b4c1f4f83ece33119522a782d6e47473f388144744d52b"
+    sha256 cellar: :any,                 arm64_big_sur:  "01acb36bc6fc4090efd2b4a3d4466a317e7590b330255bc8e0608d1adde5a828"
+    sha256 cellar: :any,                 ventura:        "73b745804c6746c64cf6d893d6ce79d8dcdcd61b12d0dc1ea661e44bb8df7821"
+    sha256 cellar: :any,                 monterey:       "cf58469b1f43448949602faeb760108b13b4ca9749ab4c1d2ba054d96c602182"
+    sha256 cellar: :any,                 big_sur:        "6bd137a882ad45647044ba1cc6f4c9ac582a2d0383e7ed7d071ac9acde3d38d2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "98b05a5da57c807f92bf4a689991556fc25b58df95de4a065368bfde80d35fc6"
   end
 
   depends_on "cmake" => :build

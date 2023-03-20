@@ -1,20 +1,19 @@
 class Libeatmydata < Formula
   desc "LD_PRELOAD library and wrapper to transparently disable fsync and related calls"
   homepage "https://www.flamingspork.com/projects/libeatmydata/"
-  url "https://github.com/stewartsmith/libeatmydata/releases/download/v130/libeatmydata-130.tar.gz"
-  sha256 "48731cd7e612ff73fd6339378fbbff38dd3bcf6c243593b0d9773ca0051541c0"
+  url "https://github.com/stewartsmith/libeatmydata/releases/download/v131/libeatmydata-131.tar.gz"
+  sha256 "cf18a8c52138a38541be3478af446c06048108729d7e18476492d62d54baabc4"
   license "GPL-3.0-or-later"
   head "https://github.com/stewartsmith/libeatmydata.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "a86412fd8dceb0c94bf46eabd26ebac14584b355feab695df8f54b069e8e02e1"
-    sha256 cellar: :any,                 arm64_monterey: "3f5017d7e37be50a9252f81e9022687522a7e3c1609b67444ad1ca057ad264dc"
-    sha256 cellar: :any,                 arm64_big_sur:  "b9c56d489dc16c1a3beb5cdd985146be80175f4fb867c9a961889ffa0a90f554"
-    sha256 cellar: :any,                 ventura:        "bcd0ac619facc90a8c73fad0090e740177d0960a75ef1265bb42c9c0df74579e"
-    sha256 cellar: :any,                 monterey:       "c8737d93760861f482f5d837c1a1895982b91fcb3f39641ecb4debb20aba9fad"
-    sha256 cellar: :any,                 big_sur:        "8add447ca5e24dc7ca18806cd05e1c331524103d6386b7042990a53c48cedec4"
-    sha256 cellar: :any,                 catalina:       "751364e952669da3326acb14d76957fce4b6208e6fbe3ce74bdeb14da8f0f600"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d69ac9bb30a2fb57e23265d0c21a40e70416c3db78ae2f6304e6b837978bd72c"
+    sha256 cellar: :any,                 arm64_ventura:  "de3355a75858f6920204fff4ad1e6eb7b38052a7bf07dae93328042742ee8cb0"
+    sha256 cellar: :any,                 arm64_monterey: "5aeff8a0e8b2c0a31cc32263aaa7a7ab6bbbd6f67eb580fb936afabdb0aa68bf"
+    sha256 cellar: :any,                 arm64_big_sur:  "e9483db0ccbd0655be7cc8460d15ee7859d413e3193de6757226d89e6ab939fa"
+    sha256 cellar: :any,                 ventura:        "a04cdcab93139d5f4c67c0d8dc1ec8edd3ce018196f479be4e42788d366d13c8"
+    sha256 cellar: :any,                 monterey:       "04224ec4469d4c4ec5a076067d375c705cd0aab2fda326aa4d99dec11d88a62e"
+    sha256 cellar: :any,                 big_sur:        "d41935844ac5a0c0ab0f3970d16f8172534cb0cf6c63b0ecb7532e7730d79cf7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2e475757576e6590c75990086fd97f7582028e9f44af02bbca011c1e7e7d3099"
   end
 
   depends_on "autoconf"         => :build

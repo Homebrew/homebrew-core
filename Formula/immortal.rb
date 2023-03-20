@@ -21,11 +21,10 @@ class Immortal < Formula
 
   def install
     ldflags = "-s -w -X main.version=#{version}"
-    system "go", "build", "-ldflags", ldflags, "-o", "#{bin}/immortal", "cmd/immortal/main.go"
-    system "go", "build", "-ldflags", ldflags, "-o", "#{bin}/immortalctl", "cmd/immortalctl/main.go"
-    system "go", "build", "-ldflags", ldflags, "-o", "#{bin}/immortaldir", "cmd/immortaldir/main.go"
+    %w[immortal immortalctl immortaldir].each do |file|
+      system "go", "build", *std_go_args(ldflags: ldflags, output: bin/file), "cmd/#{file}/main.go"
+    end
     man8.install Dir["man/*.8"]
-    prefix.install_metafiles
   end
 
   test do

@@ -3,21 +3,20 @@ class RobotFramework < Formula
 
   desc "Open source test framework for acceptance testing"
   homepage "https://robotframework.org/"
-  url "https://files.pythonhosted.org/packages/fb/84/b17ae2c97684f4e8573a81514d6db06a4da7dd55385612b4922af8541392/robotframework-6.0.zip"
-  sha256 "db9498dad21369a6702384db057994628cd2cf0a172f5685be941c4bf94e242f"
+  url "https://files.pythonhosted.org/packages/8e/08/018fa8662f17ae912debcb939f8279fc40c4cf0bf172fdd1875532997e41/robotframework-6.0.2.zip"
+  sha256 "6a9c06deb220099990f190c6e4e772675f625e4d5d84640fca6f0ad46ff538d0"
   license "Apache-2.0"
   head "https://github.com/robotframework/robotframework.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "c4800385431780805c0908a1dd2494e1371099cfd94a929d19039eead5fdeeb6"
-    sha256 cellar: :any,                 arm64_monterey: "c86f80e5f4983d7910dd45c3276f010e2ce97df9d35b7ba892d68be0bfb502a7"
-    sha256 cellar: :any,                 arm64_big_sur:  "2b2ccc704d6f6c9c9bad543d5de83b5679dc661cd4b0f7be9303b5014de35c85"
-    sha256 cellar: :any,                 ventura:        "8cd12098ded419bb396fc71d238d49930b281f1862f7ca6951309cc4c8231567"
-    sha256 cellar: :any,                 monterey:       "932bedd1165d173778b5427f593c790bfd1a877db4f4f00aa0beebf07461e4bb"
-    sha256 cellar: :any,                 big_sur:        "4983c7cfea2277b34064b2ad08269af5381fd65b79964f64f67794781ccc209d"
-    sha256 cellar: :any,                 catalina:       "7ac3dcf41cfff7ea20a08ecf76d72443f08e055a1bb3c1c306d6c4dcc736567d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "446e5f9cbca22d9b20841623af283df245e5b8e8e71816521f3017c50571d694"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_ventura:  "c2a04867942944d387e63bf49ac6799e6fa65f173727d874b96ecf80f0af9360"
+    sha256 cellar: :any,                 arm64_monterey: "00f401f7d4b5c8ffe3022c2aff0f2445219f3a50d9b15e89d55d77528cf7edfa"
+    sha256 cellar: :any,                 arm64_big_sur:  "d4a85b69cc8920efff619f6f9b4e29d00db44b227cd1d26d511a1b1203a3850f"
+    sha256 cellar: :any,                 ventura:        "4ba65b1a4269808136392bad465897183e99aa8ac3e5671393bdfbdf6d69c95b"
+    sha256 cellar: :any,                 monterey:       "d5d37b387bfce4c7beed2b0c2ea5dd9255af4ca5b4c79e8ab8020876a2cb90f2"
+    sha256 cellar: :any,                 big_sur:        "fee302f69ce840658deaa42925818f429fa1059baf5cb5a377922fed5c51161c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "238e66ff71dab2c70ded06cb70140518dd7d8e232d4b20abf47b795840f2cd69"
   end
 
   depends_on "rust" => :build
@@ -31,8 +30,8 @@ class RobotFramework < Formula
   end
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/1a/cb/c4ffeb41e7137b23755a45e1bfec9cbb76ecf51874c6f1d113984ecaa32c/attrs-22.1.0.tar.gz"
-    sha256 "29adc2665447e5191d0e7c568fde78b21f9672d344281d0c6e1ab085429b22b6"
+    url "https://files.pythonhosted.org/packages/21/31/3f468da74c7de4fcf9b25591e682856389b3400b4b62f201e65f15ea3e07/attrs-22.2.0.tar.gz"
+    sha256 "c9227bfc2f01993c03f68db37d1d15c9690188323c067c641f1a35ca58185f99"
   end
 
   resource "bcrypt" do
@@ -41,8 +40,8 @@ class RobotFramework < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/cb/a4/7de7cd59e429bd0ee6521ba58a75adaec136d32f91a761b28a11d8088d44/certifi-2022.9.24.tar.gz"
-    sha256 "0d9c601124e5a6ba9712dbc60d9c53c21e34f5f641fe83002317394311bdce14"
+    url "https://files.pythonhosted.org/packages/37/f7/2b1b0ec44fdc30a3d31dfebe52226be9ddc40cd6c0f34ffc8923ba423b69/certifi-2022.12.7.tar.gz"
+    sha256 "35824b4c3a97115964b408844d64aa14db1cc518f6562e8d7261699d1350a9e3"
   end
 
   resource "cffi" do
@@ -51,13 +50,8 @@ class RobotFramework < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/6d/0c/5e67831007ba6cd7e52c4095f053cf45c357739b0a7c46a45ddd50049019/cryptography-38.0.1.tar.gz"
-    sha256 "1db3d807a14931fa317f96435695d9ec386be7b84b618cc61cfa5d08b0ae33d7"
-  end
-
-  resource "exceptiongroup" do
-    url "https://files.pythonhosted.org/packages/cb/b2/ca0513bb83e236707e22218d1e52d5f5b38b608653d385edb3fb3a03d35f/exceptiongroup-1.0.0rc9.tar.gz"
-    sha256 "9086a4a21ef9b31c72181c77c040a074ba0889ee56a7b289ff0afb0d97655f96"
+    url "https://files.pythonhosted.org/packages/6a/f5/a729774d087e50fffd1438b3877a91e9281294f985bda0fd15bf99016c78/cryptography-39.0.1.tar.gz"
+    sha256 "d1f6198ee6d9148405e49887803907fe8962a23e6c6f83ea7d98f1c0de375695"
   end
 
   resource "h11" do
@@ -76,8 +70,8 @@ class RobotFramework < Formula
   end
 
   resource "paramiko" do
-    url "https://files.pythonhosted.org/packages/1d/08/3b8d8f1b4ec212c17429c2f3ff55b7f2237a1ad0c954972e39c8f0ac394c/paramiko-2.11.0.tar.gz"
-    sha256 "003e6bee7c034c21fbb051bf83dc0a9ee4106204dd3c53054c71452cc4ec3938"
+    url "https://files.pythonhosted.org/packages/3b/6b/554c00e5e68cd573bda345322a4e895e22686e94c7fa51848cd0e0442a71/paramiko-3.0.0.tar.gz"
+    sha256 "fedc9b1dd43bc1d45f67f1ceca10bc336605427a46dcdf8dec6bfea3edf57965"
   end
 
   resource "pycparser" do
@@ -96,13 +90,13 @@ class RobotFramework < Formula
   end
 
   resource "robotframework-archivelibrary" do
-    url "https://files.pythonhosted.org/packages/3d/ca/0cd119e4ebf6944d48b7e9467c9bc254ea3188cb2cf9109e8e87ae906a99/robotframework-archivelibrary-0.4.1.tar.gz"
-    sha256 "61cfb1d74717cb11862c87d8f44f5b5cc4a2862de42c441859df83fc33dd3dcf"
+    url "https://files.pythonhosted.org/packages/fb/20/a41b8c6694491c3cba5cb22f20a18015df1ed03fed78decafd60c254460f/robotframework-archivelibrary-0.4.2.tar.gz"
+    sha256 "c2ae4d8b16aa79686cbc583e504d17c05852a41560a05d34811d815a9e1d5e79"
   end
 
   resource "robotframework-pythonlibcore" do
-    url "https://files.pythonhosted.org/packages/ce/f1/1a5d360be3a69e0ba502171eadd0ae922dd509d200495615246161b5c38a/robotframework-pythonlibcore-3.0.0.tar.gz"
-    sha256 "1bce3b8dfcb7519789ee3a89320f6402e126f6d0a02794184a1ab8cee0e46b5d"
+    url "https://files.pythonhosted.org/packages/73/a9/8e721a37b2ad24865700833244a09f6e499529e3377bb0c9e003f457799b/robotframework-pythonlibcore-4.1.0.tar.gz"
+    sha256 "b677313e2015d28a8bb2bbeb1d98d46e8e850b213113523a7cc9a7ca85016187"
   end
 
   resource "robotframework-selenium2library" do
@@ -121,13 +115,13 @@ class RobotFramework < Formula
   end
 
   resource "scp" do
-    url "https://files.pythonhosted.org/packages/01/96/82028abe87441ae172ce9df2eeb46274130475bfeeb4dedeaddaf75b16a9/scp-0.14.4.tar.gz"
-    sha256 "54699b92cb68ae34b5928c48a888eab9722a212502cba89aa795bd56597505bd"
+    url "https://files.pythonhosted.org/packages/b6/50/277f788967eed7aa2cbb669ff91dff90d2232bfda95577515a783bbccf73/scp-0.14.5.tar.gz"
+    sha256 "64f0015899b3d212cb8088e7d40ebaf0686889ff0e243d5c1242efe8b50f053e"
   end
 
   resource "selenium" do
-    url "https://files.pythonhosted.org/packages/ed/9c/9030520bf6ff0b4c98988448a93c04fcbd5b13cd9520074d8ed53569ccfe/selenium-3.141.0.tar.gz"
-    sha256 "deaf32b60ad91a4611b98d8002757f29e6f2c2d5fcaf202e1c9ad06d6772300d"
+    url "https://files.pythonhosted.org/packages/2e/3d/492cf1a6823c48369328572c6bc63b7a957ba25c0009ee6bdb507cd9a6a4/selenium-4.8.0.tar.gz"
+    sha256 "fee36724d6cf0b18c73781bb8ec7be4a35ab1e2564e64e64e64da75e50e052af"
   end
 
   resource "sniffio" do
@@ -151,8 +145,8 @@ class RobotFramework < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/b2/56/d87d6d3c4121c0bcec116919350ca05dc3afd2eeb7dc88d07e8083f8ea94/urllib3-1.26.12.tar.gz"
-    sha256 "3fa96cf423e6987997fc326ae8df396db2a8b7c667747d47ddd8ecba91f4a74e"
+    url "https://files.pythonhosted.org/packages/c5/52/fe421fb7364aa738b3506a2d99e4f3a56e079c0a798e9f4fa5e14c60922f/urllib3-1.26.14.tar.gz"
+    sha256 "076907bf8fd355cde77728471316625a4d2f7e713c125f51953bb5b3eecf4f72"
   end
 
   resource "wsproto" do
@@ -162,9 +156,6 @@ class RobotFramework < Formula
 
   def install
     virtualenv_install_with_resources
-
-    # remove non-native binary
-    (libexec/Language::Python.site_packages("python3.11")/"selenium/webdriver/firefox/x86/x_ignore_nofocus.so").unlink
   end
 
   test do

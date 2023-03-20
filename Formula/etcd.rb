@@ -2,20 +2,19 @@ class Etcd < Formula
   desc "Key value store for shared configuration and service discovery"
   homepage "https://github.com/etcd-io/etcd"
   url "https://github.com/etcd-io/etcd.git",
-      tag:      "v3.5.6",
-      revision: "cecbe35ce0703cd0f8d2063dad4a9e541ae317e5"
+      tag:      "v3.5.7",
+      revision: "215b53cf3b48ee761f4c40908b3874b2e5e95e9f"
   license "Apache-2.0"
   head "https://github.com/etcd-io/etcd.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e4a29d70cf9e7c52cff3909b4c2c0cd801bbfb4d500009afb04143bd8e1de547"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e4a29d70cf9e7c52cff3909b4c2c0cd801bbfb4d500009afb04143bd8e1de547"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e4a29d70cf9e7c52cff3909b4c2c0cd801bbfb4d500009afb04143bd8e1de547"
-    sha256 cellar: :any_skip_relocation, ventura:        "06ce94b0d467b7aab8a954f5ae1018bbee16f4cd268b77215900293f2a8c3e60"
-    sha256 cellar: :any_skip_relocation, monterey:       "06ce94b0d467b7aab8a954f5ae1018bbee16f4cd268b77215900293f2a8c3e60"
-    sha256 cellar: :any_skip_relocation, big_sur:        "06ce94b0d467b7aab8a954f5ae1018bbee16f4cd268b77215900293f2a8c3e60"
-    sha256 cellar: :any_skip_relocation, catalina:       "06ce94b0d467b7aab8a954f5ae1018bbee16f4cd268b77215900293f2a8c3e60"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ff8cf0b826279321023a6f0878cbc24917b17166da75829d49dc9a47a97ab979"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1fe729530dc6c4c3b3769c131b231718b0a211d9d423dbdc74400401c541c037"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1fe729530dc6c4c3b3769c131b231718b0a211d9d423dbdc74400401c541c037"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1fe729530dc6c4c3b3769c131b231718b0a211d9d423dbdc74400401c541c037"
+    sha256 cellar: :any_skip_relocation, ventura:        "5bccd38618d5a65fc3ad05fe99447dfa968c22a3d27a98acaabc92c9fb44e994"
+    sha256 cellar: :any_skip_relocation, monterey:       "5bccd38618d5a65fc3ad05fe99447dfa968c22a3d27a98acaabc92c9fb44e994"
+    sha256 cellar: :any_skip_relocation, big_sur:        "5bccd38618d5a65fc3ad05fe99447dfa968c22a3d27a98acaabc92c9fb44e994"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "02a267f2c3db4e1063e703e1243daca054cad510c99039d3f17b0bca39089c6b"
   end
 
   depends_on "go" => :build

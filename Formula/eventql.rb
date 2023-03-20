@@ -13,7 +13,7 @@ class Eventql < Formula
   end
 
   head do
-    url "https://github.com/eventql/eventql.git"
+    url "https://github.com/eventql/eventql.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

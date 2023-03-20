@@ -1,9 +1,10 @@
 class Tesseract < Formula
   desc "OCR (Optical Character Recognition) engine"
   homepage "https://github.com/tesseract-ocr/"
-  url "https://github.com/tesseract-ocr/tesseract/archive/5.2.0.tar.gz"
-  sha256 "eba4deb2f92a3f89a6623812074af8c53b772079525b3c263aa70bbf7b748b3c"
+  url "https://github.com/tesseract-ocr/tesseract/archive/5.3.0.tar.gz"
+  sha256 "7e70870f8341e5ea228af2836ce79a36eefa11b01b56177b4a8997f330c014b8"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/tesseract-ocr/tesseract.git", branch: "main"
 
   livecheck do
@@ -12,23 +13,24 @@ class Tesseract < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "f3b29c4623a28cbacc1a15f62278151adc42cff53a9e864ddb5015f215456481"
-    sha256 cellar: :any,                 arm64_monterey: "29070e144239d3c19a40c8a5d1e65da4d299c6f808727c8b488b8e1b41ff19c7"
-    sha256 cellar: :any,                 arm64_big_sur:  "132afbe46ecb9a0538dc98500416a1c8e71251a46e323d3901388b2e1c5cbc24"
-    sha256 cellar: :any,                 ventura:        "c15d44d1307413f3a40436f1fc89bce2b9e3c0e07412481fc06d7aa012fed868"
-    sha256 cellar: :any,                 monterey:       "11139a8136168811d6f940deaadb510178a09fb1349016a1cdee57044423cc4a"
-    sha256 cellar: :any,                 big_sur:        "86ea450b30f352141233c9e489d6dbc28b54d845fba3df034d6fa533702f0c1f"
-    sha256 cellar: :any,                 catalina:       "eed4277512f94c92f37e9e51ff45be0909ddda2f09ee943fa29567100bda047a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ce05d6686c7469864529b371da41b4c384d856c71c1c2adfd6f035a37eba4432"
+    sha256 cellar: :any,                 arm64_ventura:  "543e244a690efd83103ff04fc546ec1f4f3bef2653f79fbcfad98d13b0b91dc2"
+    sha256 cellar: :any,                 arm64_monterey: "372389eded0fc4ca1f5d0f68e84c2cffcc218793c59e853c28f433dddf8d195c"
+    sha256 cellar: :any,                 arm64_big_sur:  "c889f9d20cca008850c6aeb6691b6c7280febf92d26ef89af09747d64122c374"
+    sha256 cellar: :any,                 ventura:        "99e8abb0e573f47ca5084ef7627b0a459daf8683a00241dac0d9b05074d0bafe"
+    sha256 cellar: :any,                 monterey:       "d397ffe212b5b9ab02b66e4eec1a4ee2ac09253fd340c7c55c4d54b8b1ffa640"
+    sha256 cellar: :any,                 big_sur:        "acfe1e1827f912feedceb1bb9a772c7f2e3ec016440ff8ac31ab8f81791d190c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7a744887b6b911905dc48af372ef9923870e789d502cd2dd2d6b99787f0f110a"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+  depends_on "cairo"
+  depends_on "icu4c"
   depends_on "leptonica"
   depends_on "libarchive"
+  depends_on "pango"
 
   fails_with gcc: "5"
 
@@ -64,10 +66,10 @@ class Tesseract < Formula
                           "--disable-dependency-tracking",
                           "--datarootdir=#{HOMEBREW_PREFIX}/share"
 
-    system "make"
+    system "make", "training"
 
     # make install in the local share folder to avoid permission errors
-    system "make", "install", "datarootdir=#{share}"
+    system "make", "install", "training-install", "datarootdir=#{share}"
 
     resource("snum").stage { mv "snum.traineddata", share/"tessdata" }
     resource("eng").stage { mv "eng.traineddata", share/"tessdata" }

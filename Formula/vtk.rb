@@ -1,20 +1,19 @@
 class Vtk < Formula
   desc "Toolkit for 3D computer graphics, image processing, and visualization"
   homepage "https://www.vtk.org/"
-  url "https://www.vtk.org/files/release/9.2/VTK-9.2.2.tar.gz"
-  sha256 "1c5b0a2be71fac96ff4831af69e350f7a0ea3168981f790c000709dcf9121075"
+  url "https://www.vtk.org/files/release/9.2/VTK-9.2.6.tar.gz"
+  sha256 "06fc8d49c4e56f498c40fcb38a563ed8d4ec31358d0101e8988f0bb4d539dd12"
   license "BSD-3-Clause"
   head "https://gitlab.kitware.com/vtk/vtk.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "55507cdffa7dd541f060a7c6d0fafdb97d8ec1afd893bec446eb431cdc310c15"
-    sha256 cellar: :any,                 arm64_monterey: "fd8b5266a33f0cf2d967df1ef522ed2c56aec78ce371669496343c98ed1f65f0"
-    sha256 cellar: :any,                 arm64_big_sur:  "ce4d4f25b956014b0b45a96da8361ae053931ae9548b7da83056c9d27c5f7669"
-    sha256 cellar: :any,                 ventura:        "3a80991286e9c383fd765e027be84b0728663d9f4535a29c5788922fec047b0b"
-    sha256 cellar: :any,                 monterey:       "8183b6b8fc6b8df5639e47027f62cab729aa7ff79e2aac19d2b15ccd44e8ec68"
-    sha256 cellar: :any,                 big_sur:        "b447d02c13ee4127382316c24e10d2551c5e2faa6234db005c73c5342477b66e"
-    sha256 cellar: :any,                 catalina:       "e370593ac5ec40f462bd8212db0cd940b5add11061aba88fe82f65d79f58027c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2aa435ad572edb96b633065c2174b319c44c0f3d145f0b707d2d4847c9816db9"
+    sha256 cellar: :any,                 arm64_ventura:  "29a7c1efa76edf7b8e86322d87580b60faf62888d1f9a8b3ee467bad1c4d65c3"
+    sha256 cellar: :any,                 arm64_monterey: "417cb4037b719c95cdf7c748410dfdc129cf0128433728174b2e30802fc86679"
+    sha256 cellar: :any,                 arm64_big_sur:  "be82192a6bdbff5accc8d691f44b5748c036f4fff6a0a14f52d5abfab86c84e4"
+    sha256 cellar: :any,                 ventura:        "c9be47428c7066a4fe8a49d00c4c5259525152c499786a450f5be01ae53f976c"
+    sha256 cellar: :any,                 monterey:       "8bd8a415b0b30f0c85787c0eaa138ef4c2be2bdc15dad0c61ae8f4ddc1061877"
+    sha256 cellar: :any,                 big_sur:        "d6df081eaaae9be771fda73f7a15064c0fec2a7f960946ce9316c19119839d38"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "13750a4b6e2cc7a36b8775792e239185c75ed5c4436763d12ea75e4b0021f59f"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -34,7 +33,7 @@ class Vtk < Formula
   depends_on "netcdf"
   depends_on "pugixml"
   depends_on "pyqt@5"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "qt@5"
   depends_on "sqlite"
   depends_on "theora"
@@ -100,7 +99,7 @@ class Vtk < Formula
       -DVTK_MODULE_USE_EXTERNAL_VTK_tiff:BOOL=ON
       -DVTK_MODULE_USE_EXTERNAL_VTK_utf8:BOOL=ON
       -DVTK_MODULE_USE_EXTERNAL_VTK_zlib:BOOL=ON
-      -DPython3_EXECUTABLE:FILEPATH=#{which("python3.10")}
+      -DPython3_EXECUTABLE:FILEPATH=#{which("python3.11")}
       -DVTK_GROUP_ENABLE_Qt:STRING=YES
       -DVTK_QT_VERSION:STRING=5
     ]

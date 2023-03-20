@@ -1,20 +1,18 @@
 class OsmiumTool < Formula
   desc "Libosmium-based command-line tool for processing OpenStreetMap data"
   homepage "https://osmcode.org/osmium-tool/"
-  url "https://github.com/osmcode/osmium-tool/archive/v1.14.0.tar.gz"
-  sha256 "67765fe6b612e791aab276af601dd12410b70486946e983753f6b0442f915233"
+  url "https://github.com/osmcode/osmium-tool/archive/v1.15.0.tar.gz"
+  sha256 "0b3be2f07d60dfb93f65d6a9f1af1fc9cf6ef68e5a460997d841c93079c3377b"
   license "GPL-3.0-or-later"
-  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "3259066785aa82d6dae6b4f1fcdd53c10858ba19bfe1672695e33a9d1beca680"
-    sha256 cellar: :any,                 arm64_monterey: "ecfb1b350bb2d92d32ff311a1659084db2000b244eb7351c30bf94283c35265a"
-    sha256 cellar: :any,                 arm64_big_sur:  "cfb56102bd3cb066cdfade5936679d4cf1c5ff7cb36464f901b7cb2071873aab"
-    sha256 cellar: :any,                 ventura:        "fee70d13913c52c1cb502f5150586c15d88228c1459edb566999f1687d816f5b"
-    sha256 cellar: :any,                 monterey:       "2e11f60463925a700b88a2b171905a8a8f64ee2cd7cfb44965a7d61ac4f7a8ef"
-    sha256 cellar: :any,                 big_sur:        "457422771493c4c8d432f7081c77d806113886da9dcaacf60f3c2c1465948acb"
-    sha256 cellar: :any,                 catalina:       "8f25a3775f55b6c72cca6714632ed5463b94a724ea619a8955c4fc94dc03ff38"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5a0c1361abc5a4d59d50e84438072f7903428a55372029578bdcd01cf068fee9"
+    sha256 cellar: :any,                 arm64_ventura:  "f06d9f6ae6a228b1fca37fad1bab9721760632c5f3f287d8b4c192beccbce372"
+    sha256 cellar: :any,                 arm64_monterey: "0cecfdad7eb06bdf718e7472ab6e40ad691a2733d79379b8b3114203b269a6d4"
+    sha256 cellar: :any,                 arm64_big_sur:  "a776cc479cb4a220b7179814464714f69e0dc7f60c96b21eb7807fb2906a6ae2"
+    sha256 cellar: :any,                 ventura:        "22a8add357c9ca575aed1d729942f7aee33d664029a19869edffe71c45006c51"
+    sha256 cellar: :any,                 monterey:       "c9a15aed4b8af602c9fa1131f63f1dbfd1bd056bac9e0d8d5b7261eb04771220"
+    sha256 cellar: :any,                 big_sur:        "fd6e881f2ff097715732c8e1904dc799da8ab7e78dae7bc67a9b9247ac7a6de7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0c82ba0a54458beefdff33686c3248ebeec6117f91f852520ecc2e51a47fd221"
   end
 
   depends_on "cmake" => :build

@@ -1,8 +1,8 @@
 class MsgpackCxx < Formula
   desc "MessagePack implementation for C++ / msgpack.org[C++]"
   homepage "https://msgpack.org/"
-  url "https://github.com/msgpack/msgpack-c/releases/download/cpp-4.1.3/msgpack-cxx-4.1.3.tar.gz"
-  sha256 "2539075ea2f35c15cab5c50ecba00d76fc4cbdcd485840257f15ebb04e8e3e1a"
+  url "https://github.com/msgpack/msgpack-c/releases/download/cpp-6.0.0/msgpack-cxx-6.0.0.tar.gz"
+  sha256 "0948d2db98245fb97b9721cfbc3e44c1b832e3ce3b8cfd7485adc368dc084d14"
   license "BSL-1.0"
   head "https://github.com/msgpack/msgpack-c.git", branch: "cpp_master"
 
@@ -12,15 +12,16 @@ class MsgpackCxx < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "ae4246359ff7b8141c09da79ad95272a1566319a267f315d46c2b570ab1c981d"
+    sha256 cellar: :any_skip_relocation, all: "6d0eb136ec6e4cc6c700562837ca5a937631dd475d5ca000f357686f8d6ef2aa"
   end
 
   depends_on "cmake" => :build
   depends_on "boost"
 
   def install
-    system "cmake", ".", *std_cmake_args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

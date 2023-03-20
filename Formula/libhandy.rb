@@ -1,19 +1,18 @@
 class Libhandy < Formula
   desc "Building blocks for modern adaptive GNOME apps"
   homepage "https://gitlab.gnome.org/GNOME/libhandy"
-  url "https://gitlab.gnome.org/GNOME/libhandy/-/archive/1.8.0/libhandy-1.8.0.tar.gz"
-  sha256 "34bafc4ed57401bf0c18be85b06d38fc274fe5858db5eeee9c28b67a07d762da"
+  url "https://gitlab.gnome.org/GNOME/libhandy/-/archive/1.8.2/libhandy-1.8.2.tar.gz"
+  sha256 "2c551aae128dff918b84943a93a58bc9be84f42a709b9e43c8d074538e68c10e"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 arm64_ventura:  "c2a5965da71d08b9b31d4df765cbef8268ef3b4b10210cd8164d7164b0b11e15"
-    sha256 arm64_monterey: "973506dea8f690558a01f8b4e786c66e785a9dc5fb69347bcf3f501a6bce2b00"
-    sha256 arm64_big_sur:  "a3907134a8b5a823a1a591f5aece22e2668503ee6d457100ec7e8985759f8933"
-    sha256 ventura:        "f495e7933e16595c07828dfff9f718caa2396250d4b7a96ff70f3f5eb442cd9d"
-    sha256 monterey:       "3299684c80ba3fb24bf03061c4086f0b5ba195f26833f251194477ebb9f6271b"
-    sha256 big_sur:        "b570dc588fde9e71fe4d65d196de009d968d0ed21931b3c01ff1b286c81cdac3"
-    sha256 catalina:       "77f8b6b63595aa9016a59753376a7795335c40b827070a65277a8858d624987e"
-    sha256 x86_64_linux:   "75047efa0473ce094e13388d08fefdea2dc44e5c58be89325f959efe9b87b6c5"
+    sha256 arm64_ventura:  "668691bf94bdb5c6bd900e5f0195863751846b55473e8e779727be361f59fe21"
+    sha256 arm64_monterey: "001495bb45f5be87376fe1643e8c1dd037904ea67d4bccc5b9f8e526bf24fc22"
+    sha256 arm64_big_sur:  "d13bb6d2bfc26b1f3f89e217efbba531be3929ebe7ce62f3fcd44a10c671b78e"
+    sha256 ventura:        "edc2b0389088589a19bf911340372ad9e1722850dc10e478e093c842cda4f220"
+    sha256 monterey:       "06fd70bcbb2a64fc528fc33baf9480c3944bb809615765529edec8103a63b06a"
+    sha256 big_sur:        "ae5ccaa60833a2a857309d0631b84d302df9e4724e5e70d6b3e3ea2d05456dee"
+    sha256 x86_64_linux:   "9d41a2ee187e6705d729bcb63e91dbd12821bbfdc8879ef7de3cfe5e1baf3943"
   end
 
   depends_on "gettext" => :build

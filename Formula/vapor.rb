@@ -29,7 +29,7 @@ class Vapor < Formula
   end
 
   test do
-    system "vapor", "new", "hello-world", "-n"
+    system bin/"vapor", "new", "hello-world", "-n"
     assert_predicate testpath/"hello-world/Package.swift", :exist?
   end
 end

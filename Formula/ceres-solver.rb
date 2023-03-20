@@ -4,7 +4,7 @@ class CeresSolver < Formula
   url "http://ceres-solver.org/ceres-solver-2.1.0.tar.gz"
   sha256 "f7d74eecde0aed75bfc51ec48c91d01fe16a6bf16bce1987a7073286701e2fc6"
   license "BSD-3-Clause"
-  revision 1
+  revision 3
   head "https://ceres-solver.googlesource.com/ceres-solver.git", branch: "master"
 
   livecheck do
@@ -13,15 +13,13 @@ class CeresSolver < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "4854064146581d467e76483acf43e32cac3870cd0d9d12b7ac2bf7b3b7924806"
-    sha256 cellar: :any,                 arm64_monterey: "8853908633eb208b01f8c837f25f21d26e7ab25467989a1e41d8fb169818a9e3"
-    sha256 cellar: :any,                 arm64_big_sur:  "c2248770066bdb4efaed2e8cdd28665d2b250b0f22323e3fb081e78ebfc5e558"
-    sha256 cellar: :any,                 ventura:        "c79050cc85fd6502a13f1b6077cd0bf570a908b3cd4890cc990ffce16dff4e5f"
-    sha256 cellar: :any,                 monterey:       "5ec1c84cbbae986126cb0876f46bd74621ff9b1a562ac60e5ae4bcc69c893468"
-    sha256 cellar: :any,                 big_sur:        "4904e364045a99496a2a299221b4a333088a988265cca04af91c05df89c8091a"
-    sha256 cellar: :any,                 catalina:       "ad19523c11bb9c90599c32ac22af103a96b29b77b046065fd1cc3c93c518e419"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aa7039f64b965c7c0f5e028da2a445b9a98dd80c043bb6b2257675c839a3d146"
+    sha256 cellar: :any,                 arm64_ventura:  "132406aae22f9f085d7c02375cb22a80988b569c0a12153d716398509bca764d"
+    sha256 cellar: :any,                 arm64_monterey: "02ae1599d8c04f6425e8a2df4448d57b37eed0f31fb486cbb934c7e3e4e6949e"
+    sha256 cellar: :any,                 arm64_big_sur:  "8a3d92ac03ad8b52224713c088064c4452c5b2a1f40c558d5f6030d91a2d0883"
+    sha256 cellar: :any,                 ventura:        "38bfcce75b8606172c39bcd3a4adfc988b9d90e59e3b595d0536bfb1f9561bdd"
+    sha256 cellar: :any,                 monterey:       "fe17f43c5efbe5113c7bfe424c8db2b9601cd9f4bdb1fb1ed3efad250e05d094"
+    sha256 cellar: :any,                 big_sur:        "7b81e35e58838e4ba4e78cecb9598ad6d8f738f24c665942c5f0cc13bf17686a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6542b1fc620acf916a4e22b92552bb81d35abe3a7381975a3389568cc0fe185a"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -34,6 +32,12 @@ class CeresSolver < Formula
   depends_on "tbb"
 
   fails_with gcc: "5" # C++17
+
+  # Fix version detection for suite-sparse >= 6.0. Remove in next release.
+  patch do
+    url "https://github.com/ceres-solver/ceres-solver/commit/352b320ab1b5438a0838aea09cbbf07fa4ff5d71.patch?full_index=1"
+    sha256 "0289adbea4cb66ccff57eeb844dd6d6736c37649b6ff329fed73cf0e9461fb53"
+  end
 
   def install
     system "cmake", ".", *std_cmake_args,
@@ -50,7 +54,7 @@ class CeresSolver < Formula
     (testpath/"CMakeLists.txt").write <<~EOS
       cmake_minimum_required(VERSION 3.5)
       project(helloworld)
-      find_package(Ceres REQUIRED)
+      find_package(Ceres REQUIRED COMPONENTS SuiteSparse)
       add_executable(helloworld helloworld.cc)
       target_link_libraries(helloworld Ceres::ceres)
     EOS

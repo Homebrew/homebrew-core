@@ -13,7 +13,7 @@ class Mahout < Formula
   end
 
   head do
-    url "https://github.com/apache/mahout.git"
+    url "https://github.com/apache/mahout.git", branch: "trunk"
     depends_on "maven" => :build
   end
 

@@ -1,19 +1,18 @@
 class Sftpgo < Formula
   desc "Fully featured SFTP server with optional HTTP/S, FTP/S and WebDAV support"
   homepage "https://github.com/drakkan/sftpgo"
-  url "https://github.com/drakkan/sftpgo/releases/download/v2.4.2/sftpgo_v2.4.2_src_with_deps.tar.xz"
-  sha256 "363e087599654385a6f8a4ffcf42b458301bc0c74b8aa35e13cc886b19948d19"
+  url "https://github.com/drakkan/sftpgo/releases/download/v2.4.4/sftpgo_v2.4.4_src_with_deps.tar.xz"
+  sha256 "9e248dea64e5738ddcb9b10ed47645887665c8adfe0d5554052fb31088fce665"
   license "AGPL-3.0-only"
 
   bottle do
-    sha256 arm64_ventura:  "14fc18cbbfb2caf6cc91129657fbd4d345d2d430c40dd3f640c2c3f23ca01d69"
-    sha256 arm64_monterey: "5c2afa12b2e2a4b5571e92b99f99261f1192d9dc2d5291b38beac1abacccbdf5"
-    sha256 arm64_big_sur:  "0516d81cff9f16b15ef9ecd18bd3b1f8a72cf362966e33eb67af696bec29d0f9"
-    sha256 ventura:        "4923cc09c2ad86013b6112b412243c73451a9aa106f8cb038d0080ef0de3d204"
-    sha256 monterey:       "27ee3b4d9ae84cc7af7cff96f17d093879d62332dc8bc0dbad36461d75649ed1"
-    sha256 big_sur:        "ea92b96cd0ce50dfb3cc30a511bf20c6837ee515a603e40b811ae6e765428f4d"
-    sha256 catalina:       "b2a048ad4c292bf28d7a67a65d9ec13436f4c4944ff53f5ab4c4dc3fd7921182"
-    sha256 x86_64_linux:   "d1c900cbf7c8e1ae72414203b22983e036c1e7575b8a9fed9c2794ac3da0fabb"
+    sha256 arm64_ventura:  "f57fe765321a4334d7d0d0e6a741142b1a1fc1cefbed575d3d5ca67990c2c673"
+    sha256 arm64_monterey: "c39cec67f7dd00d3080c30985c4b77f1e7930bea659ac7f9a4b188b5839358f6"
+    sha256 arm64_big_sur:  "c3dd4284782638426badf49b0903d21a3425d126bc0a405a0332879023f8e8aa"
+    sha256 ventura:        "5960f069c36bb49390e0de70488090f1021223ae8f78e7fb4a8d60d5db075e82"
+    sha256 monterey:       "2a17ff52f9420c5e166ce023f665124bc5fe4ced8c0ae80a6b3815a00a97dd29"
+    sha256 big_sur:        "ce545ee899c7f65ea25fa1dec364a5d45dd3bc2f8b01b786a4311aa818ca6977"
+    sha256 x86_64_linux:   "764d0840d3f1cefed059e1c47a0cf7ce86d6ec670c426e0d3d6f958038b7f89b"
   end
 
   depends_on "go" => :build
@@ -78,8 +77,8 @@ class Sftpgo < Formula
     sleep 5
     assert_match expected_output, shell_output("curl -s 127.0.0.1:#{http_port}/healthz")
     system "ssh-keyscan", "-p", sftp_port.to_s, "127.0.0.1"
-    ensure
-      Process.kill("TERM", pid)
-      Process.wait(pid)
+  ensure
+    Process.kill("TERM", pid)
+    Process.wait(pid)
   end
 end

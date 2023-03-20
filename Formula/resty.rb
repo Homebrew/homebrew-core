@@ -10,19 +10,18 @@ class Resty < Formula
   head "https://github.com/micha/resty.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7499f7b0641c562bae0884234014f9147cf382a4056f547345c2317922aae89a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ae63bd67ce12adff0eb514b088ee59aa9adbe8c8082921d756f7f126ec3b4259"
-    sha256 cellar: :any_skip_relocation, monterey:       "028a0448e86f15286d17d3c26c2d2ac7e10ecb8db09b702fa72bdb3e6b90ab12"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c5d7a031c90f48e1cfd133b39cf38af25eec9c123d781071924ec30b71d89e87"
-    sha256 cellar: :any_skip_relocation, catalina:       "104d7c808669976126d1906ea863b0f55d3b7612a0ecf5bf1314da0b53c8bdd8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5eaed008e68ef6dd2be18998c2ad5e16f41d7930c8c72e19f336597666885ec7"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1a3f52cd17e22f2d66c3577cc4f097624db50b8412a7c346568b120367284518"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1a3f52cd17e22f2d66c3577cc4f097624db50b8412a7c346568b120367284518"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e5c7150a045b16d9a42e1a15882d3877aae7022500db56222b8ee065ac37a2b7"
+    sha256 cellar: :any_skip_relocation, ventura:        "71ee80ce7ac984d228659e5411b95f8e28331b623421a78aa7e5cd70548189ad"
+    sha256 cellar: :any_skip_relocation, monterey:       "71ee80ce7ac984d228659e5411b95f8e28331b623421a78aa7e5cd70548189ad"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0bd9a42083f75c4766e0f880fae27b5a62bdc54c5ce017793f731da663571449"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "664f2cbfde2529e7749b5f9b078cf1382fd0cf8f00a984b646d0b6c710a4a3b5"
   end
 
   uses_from_macos "perl"
-
-  on_linux do
-    depends_on "python@3.10"
-  end
+  uses_from_macos "python"
 
   conflicts_with "nss", because: "both install `pp` binaries"
 
@@ -46,13 +45,16 @@ class Resty < Formula
     bin.env_script_all_files(libexec/"bin", PERL5LIB: ENV["PERL5LIB"])
 
     bin.install "pypp"
-    rewrite_shebang detected_python_shebang, bin/"pypp" if OS.linux?
+    if !OS.mac? || MacOS.version >= :monterey
+      rewrite_shebang detected_python_shebang(use_python_from_path: true), bin/"pypp"
+    end
   end
 
   def caveats
     <<~EOS
-      To activate the resty, add the following at the end of your #{shell_profile}:
-      source #{opt_pkgshare}/resty
+      To activate the resty, add the following to your shell profile e.g. ~/.profile
+      or ~/.zshrc:
+        source #{opt_pkgshare}/resty
     EOS
   end
 

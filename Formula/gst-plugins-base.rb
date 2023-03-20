@@ -1,10 +1,11 @@
 class GstPluginsBase < Formula
   desc "GStreamer plugins (well-supported, basic set)"
   homepage "https://gstreamer.freedesktop.org/"
-  url "https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.20.5.tar.xz"
-  sha256 "11f911ef65f3095d7cf698a1ad1fc5242ac3ad6c9270465fb5c9e7f4f9c19b35"
+  url "https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.22.0.tar.xz"
+  sha256 "f53672294f3985d56355c8b1df8f6b49c8c8721106563e19f53be3507ff2229d"
   license "LGPL-2.0-or-later"
-  head "https://gitlab.freedesktop.org/gstreamer/gst-plugins-base.git", branch: "master"
+  revision 1
+  head "https://gitlab.freedesktop.org/gstreamer/gstreamer.git", branch: "main"
 
   livecheck do
     url "https://gstreamer.freedesktop.org/src/gst-plugins-base/"
@@ -12,13 +13,13 @@ class GstPluginsBase < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "a3a353c76189f1ae51e6b4c046f85d2251264ebb37e5023ea06a62809025d773"
-    sha256 arm64_monterey: "c21b4a8e6cf09a43cb574da9a4b99d705189c9d01ecd51d4ff87494551ea4a7e"
-    sha256 arm64_big_sur:  "0bd6be3f07c5cb0ecc88b8c167187e5aa632500d52f8f9342f6f722973a16321"
-    sha256 ventura:        "7d0fef276f2f82fcf1e92d583f7d21c4c5c66104bf44fa7db1de6551a5fb97df"
-    sha256 monterey:       "8beb288ad29abd319a42ca436b01a13bc6593f768551de4498e786e1a4ce5b03"
-    sha256 big_sur:        "e614558a1b1e1d72a17120324bf07d8cba86f39dabdf76c57b300ab24e6181cb"
-    sha256 x86_64_linux:   "0dc7e6a058682b1476aa7014020c5edb8d95f201311b9c898293be123ac3de8e"
+    sha256 arm64_ventura:  "67aeb22f0e40a2752b61fef765c955f192e61f1e95fabd6fccc07b66d2adcaf4"
+    sha256 arm64_monterey: "f6482c457172d930da2d2076864448d262e2aa54bf8980b4f19eb1835f568983"
+    sha256 arm64_big_sur:  "7cc78006d75aa351a13bd37b248a045f61f02f17ffd776d52c84b7cf7e573d47"
+    sha256 ventura:        "a9b7872ad2807aca2cf6ae39f15955df37cd16ad3a43c5393777c00b698b2130"
+    sha256 monterey:       "6ea628ffd3de380e754b976279b0a01987cfb5309116124f6bd2e972cc61ac7b"
+    sha256 big_sur:        "9447c4edf79e62de63cf36c23d9f219b3862771cf1e0c2f97e5020695abcf802"
+    sha256 x86_64_linux:   "480df6404260fe6205219f44ed38688fa7f07da77063fcd120d661861dead2af"
   end
 
   depends_on "gobject-introspection" => :build
@@ -35,9 +36,14 @@ class GstPluginsBase < Formula
   depends_on "pango"
   depends_on "theora"
 
+  on_linux do
+    depends_on "freeglut"
+  end
+
   def install
     # gnome-vfs turned off due to lack of formula for it.
     args = std_meson_args + %w[
+      -Dexamples=disabled
       -Dintrospection=enabled
       -Dlibvisual=disabled
       -Dalsa=disabled

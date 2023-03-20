@@ -4,16 +4,16 @@ class Libkml < Formula
   url "https://github.com/libkml/libkml/archive/refs/tags/1.3.0.tar.gz"
   sha256 "8892439e5570091965aaffe30b08631fdf7ca7f81f6495b4648f0950d7ea7963"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "d88944c196adb57f50cb0cec0bbb0f7e91966354ec912552d9457851cdc7716d"
-    sha256 cellar: :any,                 arm64_monterey: "a563610ef8923bbc46478295b172df18acf09807708db7bcc678342f9fc1edcb"
-    sha256 cellar: :any,                 arm64_big_sur:  "d821b3e1fe0181c3f0d98b6a75c6499bf62ec07845e7ff408e44fc562d95130e"
-    sha256 cellar: :any,                 ventura:        "97b30d7d787d80268ee2df2c918a50da38c69ee51f88f7ab9995caffb47d8646"
-    sha256 cellar: :any,                 monterey:       "c1c7f462a02c8e2db02d9066019c26b76b768d996743618ccfe48fd4a11b536c"
-    sha256 cellar: :any,                 big_sur:        "9209953f47c04fcca293095e2f3e17bf11116321f9fe6fe2482f7759b8adc83a"
-    sha256 cellar: :any,                 catalina:       "c6b04631c27926eba07603f5a2ef77678f9f53f249ea6931f9f08a97f73230ac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4ee9e4dec15a9d674c0cc8404ce5551467bbdc4604ae96d7a82b780e59fb8468"
+    sha256 cellar: :any,                 arm64_ventura:  "4d706cf51e6e9b850bba757a87810f659786a9ecde9caa9c954ea0a961c06db5"
+    sha256 cellar: :any,                 arm64_monterey: "f7eab34add1f413ba5c0064e7e25cbfb998d2661546d6dc333010c9aad8ae3b7"
+    sha256 cellar: :any,                 arm64_big_sur:  "49627d8a08d0204887b6aaf9504f96d445baa432e2d4194f10165b207325075d"
+    sha256 cellar: :any,                 ventura:        "40b963c5f6126f16d16531ffcb0b63ff36c75a7e4ccfa606a7adc373d9efa0e5"
+    sha256 cellar: :any,                 monterey:       "3e4d4a663b1fdf137b7e9347776b0f58b447124a39e0271fd9dd90b5209beb9c"
+    sha256 cellar: :any,                 big_sur:        "8a2252b7f4e4ea322abbd86f9af02780d838c22103f9b562d64c03136e1549a8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "81a8cdd08aa6620f894eae9b3bd37184bb08f25800aba660c234320e4b51ef75"
   end
 
   depends_on "cmake" => :build
@@ -62,7 +62,7 @@ class Libkml < Formula
     EOS
 
     pkg_config_flags = shell_output("pkg-config --cflags --libs libkml gtest").chomp.split
-    system ENV.cxx, "test.cpp", *pkg_config_flags, "-std=c++11", "-o", "test"
+    system ENV.cxx, "test.cpp", *pkg_config_flags, "-std=c++14", "-o", "test"
     assert_match("PASSED", shell_output("./test"))
   end
 end

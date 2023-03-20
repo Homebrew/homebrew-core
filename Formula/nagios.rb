@@ -1,8 +1,8 @@
 class Nagios < Formula
   desc "Network monitoring and management system"
   homepage "https://www.nagios.org/"
-  url "https://downloads.sourceforge.net/project/nagios/nagios-4.x/nagios-4.4.9/nagios-4.4.9.tar.gz"
-  sha256 "0e793f3f3654f10961db34950a0c129240cc80222119175552d7e322a9ba4334"
+  url "https://downloads.sourceforge.net/project/nagios/nagios-4.x/nagios-4.4.10/nagios-4.4.10.tar.gz"
+  sha256 "8118dcfa0ce1c69506ba582c9ff0190d5b348bae0006b117eb17ada3bb5c776d"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,20 +11,19 @@ class Nagios < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "0637ec5ac33730cfe9e01e8796ff24bf4ba69aa8487bde4c457999e9958ce61d"
-    sha256 arm64_monterey: "689b180a922aa24bce6cd47e85bd7e09f415217b94b93619b90078677e131088"
-    sha256 arm64_big_sur:  "b285d96affcdae36672b789bb3e6fb5d6e8155d34cd500542e4e4196e4452973"
-    sha256 ventura:        "43cae1695d0d079a4935db9baef3409b0746cadef009a36e359ccc10af6ecddb"
-    sha256 monterey:       "8c0d9035ed0a74b33d2d33f1448e3b0393afce8d1d80b2a91188367ff2e8ea0c"
-    sha256 big_sur:        "a6a423daa32f7a08789b904d83bec0673d2574ee8c891b422974e131fc69f6ea"
-    sha256 catalina:       "cc3e0037b069eee5e7819d32861872dad58869cae36939fe546b6624e321fb0c"
-    sha256 x86_64_linux:   "ed8a37f74ff55e3e0cf1d5d454b5966d51d07408181588aa6f774b58710e4bc6"
+    sha256 arm64_ventura:  "290d9ff2fd3a8d76d83df7ed7b445f697927c43f729e070ed1ff69194e7bc2fa"
+    sha256 arm64_monterey: "d8be8e2f7e135c090861150657cacda5339cea9e0d00955f85d6ef8edc043809"
+    sha256 arm64_big_sur:  "7fb5a5fc186f90ac19e74be2e2ddfcce7523b5ad45d29ee67fe4278d74135e44"
+    sha256 ventura:        "5a8a68d1f4d2fa9706a8c84787b9bf35c70f95db6ccd801e99ea05e6d22f8c68"
+    sha256 monterey:       "56780c151f1903a218681678e81ace045067dd6eb27613d8beeb96fdbbca22cc"
+    sha256 big_sur:        "c6dbbe42f9fb6c0d86afd0902037a95ba8bde35d133a31f7ba903762a11f5956"
+    sha256 x86_64_linux:   "921787f28ff72c7e6e4e050e523b081f4a5e5b9f53a1266ea4daeff12075136f"
   end
 
   depends_on "gd"
   depends_on "libpng"
   depends_on "nagios-plugins"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "unzip"
 
@@ -65,7 +64,7 @@ class Nagios < Formula
       "--with-nagios-group='#{group}'",
       "--with-command-user=#{user}",
       "--with-httpd-conf=#{share}",
-      "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}",
+      "--with-ssl=#{Formula["openssl@3"].opt_prefix}",
       "--disable-libtool",
     ]
     args << "--with-command-group=_www" if OS.mac?
@@ -87,39 +86,6 @@ class Nagios < Formula
     return if config.read.include?("nagios_user=#{ENV["USER"]}")
 
     inreplace config, /^nagios_user=.*/, "nagios_user=#{ENV["USER"]}"
-  end
-
-  def caveats
-    <<~EOS
-      First we need to create a command dir using superhuman powers:
-
-        mkdir -p #{nagios_var}/rw
-        sudo chgrp _www #{nagios_var}/rw
-        sudo chmod 2775 #{nagios_var}/rw
-
-      Then install the Nagios web frontend into Apple's built-in Apache:
-
-        1) Turn on Personal Web Sharing.
-
-        2) Load the cgi and php modules by patching /etc/apache2/httpd.conf:
-
-          -#LoadModule php5_module        libexec/apache2/libphp5.so
-          +LoadModule php5_module        libexec/apache2/libphp5.so
-
-          -#LoadModule cgi_module libexec/apache2/mod_cgi.so
-          +LoadModule cgi_module libexec/apache2/mod_cgi.so
-
-        3) Symlink the sample config and create your web account:
-
-          sudo ln -sf #{share}/nagios.conf /etc/apache2/other/
-          htpasswd -cs #{nagios_etc}/htpasswd.users nagiosadmin
-          sudo apachectl restart
-
-      Log in with your web account (and don't forget to RTFM :-)
-
-        open http://localhost/nagios
-
-    EOS
   end
 
   service do

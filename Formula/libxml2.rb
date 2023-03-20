@@ -4,7 +4,7 @@ class Libxml2 < Formula
   url "https://download.gnome.org/sources/libxml2/2.10/libxml2-2.10.3.tar.xz"
   sha256 "5d2cc3d78bec3dbe212a9d7fa629ada25a7da928af432c93060ff5c17ee28a9c"
   license "MIT"
-  revision 1
+  revision 2
 
   # We use a common regex because libxml2 doesn't use GNOME's "even-numbered
   # minor is stable" version scheme.
@@ -14,14 +14,13 @@ class Libxml2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "a47d746469bbec6db18bf4adf78c651fb5a88597f2cf6713d2b81aa7ed1d2659"
-    sha256 cellar: :any,                 arm64_monterey: "0b95b0fa3cae856264629a446f18ad37160760d75863a15fdb2633e1bc9fbcff"
-    sha256 cellar: :any,                 arm64_big_sur:  "8ee63f97a42907837e318b651145b156b62ce0a9c11c9ae5a68fdb75c52cbc79"
-    sha256 cellar: :any,                 ventura:        "30ea52d1a1c5613d4e168a29c4aba2adcf79e9c856d5ae1db583ed51fb22d133"
-    sha256 cellar: :any,                 monterey:       "ece890dc84e7f40e927da92b2a6a38bda2263c9eb48f1bfe59686a457f4bc929"
-    sha256 cellar: :any,                 big_sur:        "d45e968d3a420beaa8e04c7f11177b9dbd9851894abe6ec15790041b7e02f310"
-    sha256 cellar: :any,                 catalina:       "2b8be40a79ddc2e29fd4a959628ada26747286a290ec0216bc18b9462d46349a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "df9caed670118ab9d1b84110243428e3b494b2be38d254864d4bfbba6c5c7be2"
+    sha256 cellar: :any,                 arm64_ventura:  "a708bd03acce240aed84cf429ccb2af3bc6605bd728fc225dfb76ba47b93878f"
+    sha256 cellar: :any,                 arm64_monterey: "0d9e841c5e2713a739abec51f3404d158348454cdcb7f5134b4e31ed51fd3f53"
+    sha256 cellar: :any,                 arm64_big_sur:  "a2dc1f53bda46e711a62f252ed6090746e7ce92a56656945401bc7f291fe0433"
+    sha256 cellar: :any,                 ventura:        "e98c021d5e43e40ca2f88fe5628da02408282b8e7cf0e7a2f0b6625c309b1433"
+    sha256 cellar: :any,                 monterey:       "33abb9294868acf28859d95d45ba1c962423c1863bd52ae3d4e5f340bca1d733"
+    sha256 cellar: :any,                 big_sur:        "614e1c3cb83710861357deae2bc3ec16eeac9b3a27387d6a1c366f1c24a218cc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c707815a1730c8e83bea251ca7d95f027bd5e8f4914ad17f84df268a4582272b"
   end
 
   head do

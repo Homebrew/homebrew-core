@@ -1,19 +1,19 @@
 class Mbt < Formula
   desc "Multi-Target Application (MTA) build tool for Cloud Applications"
   homepage "https://sap.github.io/cloud-mta-build-tool"
-  url "https://github.com/SAP/cloud-mta-build-tool/archive/v1.2.21.tar.gz"
-  sha256 "df195d67b3a60474ee8a75b31532e69ce12e9a2badf74f85246021a589848314"
+  url "https://github.com/SAP/cloud-mta-build-tool/archive/v1.2.23.tar.gz"
+  sha256 "a98f06248336d18b24b8da80a2f289f52bdd58adc41c34f048350194ad7e7831"
   license "Apache-2.0"
   head "https://github.com/SAP/cloud-mta-build-tool.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f47fb46778239a3eda7a874a1466003abe53d67a686d8495da726a3dd39cb72d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b9e594bcc343d811d763979b981b1c7b8496c47443c2e22170246397db9b34de"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ed677ef76c182db0e0d3cdb9f88c29289f3dd530b600e94061bed6cbe9f69bd8"
-    sha256 cellar: :any_skip_relocation, ventura:        "4dc2788d0bda39e91940bb237631aeda2537762f666906564e68ec045c60e7bb"
-    sha256 cellar: :any_skip_relocation, monterey:       "67106e0cef59bc93b9e85df9793591653f4233972ea34b0a6e4625484fd56582"
-    sha256 cellar: :any_skip_relocation, big_sur:        "deb92fd71928565413fc00c6e24a894a6414e98a58f62ac1af12f59d9509f0ce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9dc7dba22cfc16dcc8bf5d8f40ac5871dbb478917630644c217b59cde79b8dac"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2753b2144568964c3dd6862307f98ba37fb5fc545a2d41fce7a90e841360fab5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d9602f32c8a1aa9a92571bf4d83c20ae33c664437d8e4e936b443b48cf2a873c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "11d863598843d84d9e783edd3b5bf9fba5dc1ffc488b36bbfb987451e7ea898d"
+    sha256 cellar: :any_skip_relocation, ventura:        "a1e72ddcd80d881bfd06a20f2d3593f8ec3c44c7cf874631d21786badade817e"
+    sha256 cellar: :any_skip_relocation, monterey:       "5927ea25135f951b4ec2baa4cd811416d2faded995a25ceeabb41bcad025f610"
+    sha256 cellar: :any_skip_relocation, big_sur:        "88293e3850cde169c7c469a0bd29c8d8b27cc45fe34f5dddefde67f7ea69be7b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e79844b27a62513df0d0226787368975d5bef04d017f30c2db418b4c43973b38"
   end
 
   depends_on "go" => :build

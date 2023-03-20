@@ -1,8 +1,8 @@
 class SeleniumServer < Formula
   desc "Browser automation for testing purposes"
   homepage "https://www.selenium.dev/"
-  url "https://github.com/SeleniumHQ/selenium/releases/download/selenium-4.5.0/selenium-server-4.5.0.jar"
-  sha256 "74ed61b1b8c4b6d30449e50be17ecb7b9fd70013373dcfa8447f5c66e3eb53cd"
+  url "https://github.com/SeleniumHQ/selenium/releases/download/selenium-4.8.0/selenium-server-4.8.0.jar"
+  sha256 "40cac342e1f4cff53cb7e05d7556937797f4a41b133f22990f7e579359345d1b"
   license "Apache-2.0"
 
   livecheck do
@@ -11,7 +11,13 @@ class SeleniumServer < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "ca44817764cebed5e9d83f7e46acfdfb528346d273ae82bf6e0a022ddb6996ce"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fa18cfc075854d878fca7c8b428b4e8703e7907f1b91808d9ee7382bfb5ae387"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "fa18cfc075854d878fca7c8b428b4e8703e7907f1b91808d9ee7382bfb5ae387"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fa18cfc075854d878fca7c8b428b4e8703e7907f1b91808d9ee7382bfb5ae387"
+    sha256 cellar: :any_skip_relocation, ventura:        "fa18cfc075854d878fca7c8b428b4e8703e7907f1b91808d9ee7382bfb5ae387"
+    sha256 cellar: :any_skip_relocation, monterey:       "fa18cfc075854d878fca7c8b428b4e8703e7907f1b91808d9ee7382bfb5ae387"
+    sha256 cellar: :any_skip_relocation, big_sur:        "fa18cfc075854d878fca7c8b428b4e8703e7907f1b91808d9ee7382bfb5ae387"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "20421b38f8fdde48e27285d6d9ac7cdaf56b179495c840098bc1eef063e48108"
   end
 
   depends_on "openjdk"
@@ -37,7 +43,7 @@ class SeleniumServer < Formula
   test do
     port = free_port
     fork { exec "#{bin}/selenium-server standalone --port #{port}" }
-    sleep 6
+    sleep 20
     output = shell_output("curl --silent localhost:#{port}/status")
     output = JSON.parse(output)
 

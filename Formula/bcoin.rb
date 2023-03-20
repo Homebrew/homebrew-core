@@ -9,19 +9,18 @@ class Bcoin < Formula
   head "https://github.com/bcoin-org/bcoin.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256                               arm64_ventura:  "7a7e563538b078488bed8ea0f5a8ba0dd06b0340053376cbb3a59d4750ee1e17"
-    sha256                               arm64_monterey: "f0e36780788eacc5d842482fed2a94647ccd10194145870b885d6f3a7479847d"
-    sha256                               arm64_big_sur:  "da887bfcbbe76163924ff47f98553672c8a46173e61575aa1d6807785392c196"
-    sha256                               ventura:        "1c32a0dae2860596d5db70d8028f3575926ac3738956cda4976509072a19dfd7"
-    sha256                               monterey:       "677f0859d944f517f93717cbe69be2e7c530c0c16e6d8fc99590ebe166af8bd2"
-    sha256                               big_sur:        "e19447eaf8696a4ab72309083ff2373d4f30aa2cb04d35cd16b2cb472c32a23f"
-    sha256                               catalina:       "274567c8a4d52276ceecbe9763c6274b33b9b42218933cccc7e59948edd70c89"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8f12522c4eb98dced35c699c0c5122cb9be3069e0e18f41fd7f1ef088a60377a"
+    rebuild 2
+    sha256                               arm64_ventura:  "c3c02702652f0f567697cc614212a757d29fb3ee3d80ec9345dc7d00e10dd421"
+    sha256                               arm64_monterey: "777aa63316694628e1c88cd4ad73949ac2c32b97aac6d5e196c82d2a0040c13c"
+    sha256                               arm64_big_sur:  "304cc113c0dc1dec7d70745e73b816802f4f92068ece45298957ab6feb7edc7c"
+    sha256                               ventura:        "746e792b08dd522e81d1440c159997cf231044da8299726eb4ebadb0d497ffe7"
+    sha256                               monterey:       "49abdb5b53e076417bc0c0431a8dc6aff1d3030e2e2c90625a273a1545dfc8c9"
+    sha256                               big_sur:        "875527a488aec56c22828e1d314097d984d1acacd83f6533203bbd7437a6c027"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "43047da636f3b6b7fc3f230f4f55c4805723429531e8c1887ea896b51fcd9a38"
   end
 
   depends_on "python@3.11" => :build
-  depends_on "node@16"
+  depends_on "node"
 
   def node
     deps.reject(&:build?)

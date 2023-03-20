@@ -1,18 +1,18 @@
 class Xwin < Formula
   desc "Microsoft CRT and Windows SDK headers and libraries loader"
   homepage "https://github.com/Jake-Shadle/xwin"
-  url "https://github.com/Jake-Shadle/xwin/archive/refs/tags/0.2.10.tar.gz"
-  sha256 "4652aea66e7492fab52d35a1ad8ca8f00057499487ed5536d3fcb8fca883f234"
+  url "https://github.com/Jake-Shadle/xwin/archive/refs/tags/0.2.11.tar.gz"
+  sha256 "3cb5289c609bef487245ed8945accfad4c837b42ba37cd347d5b53ad2523c2d3"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9e951d6957329934b6a47b7326b4d6872eb8cf798bc94e110bcde2a707b7dcdf"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "818f0c238aca8ec5dac057d8c7152e4d906462c8e0a3f932ee515efca8ab9541"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0d9e0c19afbc01f54f87f6f29923358eadd8e0fa5900fc4a768bf33418139d9c"
-    sha256 cellar: :any_skip_relocation, ventura:        "2f5ffb3b80e0d42c4a5c71286d65164373b89ac6fe19082d1584a978db755b40"
-    sha256 cellar: :any_skip_relocation, monterey:       "6479a568886dcbe017345fc35107c91c0df823bc5251dbd5088ca5ad97c2f223"
-    sha256 cellar: :any_skip_relocation, big_sur:        "18d8d5dbf7a3ceda633054c4c8eee7c64558516e69c40fbf821a41b3b302ed31"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0bced955560a18f2c2dc9c9425e7b40251a1e73ed0bf6887b4001ce22ead4222"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fd21a5cd83bb6decd3c05c00eefecbbc018d403fc825d2b79d4ea0f59fa2dc33"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c52ed258dbffb56d3d8d62e31993e2570325d1e35644b3623913efb849655b95"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "812069f9f218b39d23df799846fc1e00212ff8112e134ee9df27669a6feae0b6"
+    sha256 cellar: :any_skip_relocation, ventura:        "60a033586fcb3c0eea547c588c28bf4ac2c482f2ad4d1b22e722e9d2cf199ff4"
+    sha256 cellar: :any_skip_relocation, monterey:       "b4c22d77f48a730696659fce273db9937aa707c1cad5f5ce6b3d281c019400d0"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c93d53030ec8b78dcdb1c7a779c8ae833f0112e886c90c24acb8fd69d6efa1c9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c2bed50fdc6fc80f80a48d84b668f5f1c4cbe395f2923fc0b45da08b4eb7f401"
   end
 
   depends_on "rust" => :build

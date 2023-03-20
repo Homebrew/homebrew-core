@@ -1,9 +1,9 @@
 class Xterm < Formula
   desc "Terminal emulator for the X Window System"
   homepage "https://invisible-island.net/xterm/"
-  url "https://invisible-mirror.net/archives/xterm/xterm-377.tgz"
-  mirror "https://deb.debian.org/debian/pool/main/x/xterm/xterm_377.orig.tar.gz"
-  sha256 "db108fe7a45d8ed97e604721b58443b473649e61e263631bf8759f8618a990b2"
+  url "https://invisible-mirror.net/archives/xterm/xterm-379.tgz"
+  mirror "https://deb.debian.org/debian/pool/main/x/xterm/xterm_379.orig.tar.gz"
+  sha256 "a7ddf274ee84b97fb1283675009d53ca2d02a0ffd5ce5a5118dafc3623ebb310"
   license "X11"
 
   livecheck do
@@ -12,14 +12,13 @@ class Xterm < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "98b6cad6f1f9929c9d87b03bb29a1e65d557fb5dab373bd376c1d5c71144c851"
-    sha256 arm64_monterey: "da19e9dd0f7e39b9041c6872cd4c8ba51920d767adc3eda32cae542eb4156743"
-    sha256 arm64_big_sur:  "50578593cee87d06aafe1f336b1868db5d5ddc7c41035017c94e1d562d60e5d1"
-    sha256 ventura:        "a7f32500e8ffc7ae7e623fe0dc2faa90e85cd920c5016088b079fd6138d43896"
-    sha256 monterey:       "5a91032c9351651c629bf9f98bc5c5f226d40e401aaef15696c7d1e92fd2b3a0"
-    sha256 big_sur:        "00969e337947753a17e1a906ca63de416516dae31ca940f58a685e270d2c87a8"
-    sha256 catalina:       "e5b81394d3077132594a7309ac6845bd4e36eb52eba662db3fe82b9528233e5c"
-    sha256 x86_64_linux:   "e67884b8fe83660f478c4c00fa8c751f5ff22341dd4c46970710635bf64106fb"
+    sha256 arm64_ventura:  "34c8c4422635d55289d117ced43e6fdf88f6ff485331f580d2700a710e5f1869"
+    sha256 arm64_monterey: "7bc7f8c3b8b6afca991c153d274fb7adfe286ae8948118a3774ecb9782cbc6ca"
+    sha256 arm64_big_sur:  "39ca9f3e5e97570339e83ead95b2a64e060e6eb33e857c75394573dfdbc5c6c7"
+    sha256 ventura:        "29288a517ffec0ff1a0d4939ccb0294603e8cabc0cb0f4c2aae1fbc6fc4f45bb"
+    sha256 monterey:       "121dc96617a3281bb299e5a6db57bccb54cc7db839fd9da0bfad2c5dab5b93c8"
+    sha256 big_sur:        "8527b1baf75d4abf42635a5361ea0704888c7360e1a6f2aa76e84aa82013c1d8"
+    sha256 x86_64_linux:   "362ebd15081ad6c51aa8118b02ce8087923ca4dd152adcba86e0d7f11c6bc994"
   end
 
   depends_on "fontconfig"

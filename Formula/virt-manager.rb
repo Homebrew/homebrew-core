@@ -3,20 +3,20 @@ class VirtManager < Formula
 
   desc "App for managing virtual machines"
   homepage "https://virt-manager.org/"
-  url "https://virt-manager.org/download/sources/virt-manager/virt-manager-4.1.0.tar.gz"
+  url "https://releases.pagure.org/virt-manager/virt-manager-4.1.0.tar.gz"
   sha256 "950681d7b32dc61669278ad94ef31da33109bf6fcf0426ed82dfd7379aa590a2"
   license "GPL-2.0-or-later"
   revision 3
   head "https://github.com/virt-manager/virt-manager.git", branch: "main"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any, arm64_ventura:  "7efcee6673cb651ddfa14098dae935a6354832dcb878551127c7f4b089414960"
-    sha256 cellar: :any, arm64_monterey: "d124494001e6bbe1bca7cc92e2613683f3abd04777ebfb2c2c09eb094a32dd0f"
-    sha256 cellar: :any, arm64_big_sur:  "fcbf43252d0725e5161e26ccc588a76563f39bb4389aa5a06544c45187a7110a"
-    sha256 cellar: :any, ventura:        "c5357cb29c18118b370b5b72750bdc9f7e05d91fd46adf59385791448d6d5c6e"
-    sha256 cellar: :any, monterey:       "af95f618cb10b92f775f5cc44ea97cbbebc549591cc6d0d85d6fffca4a1e4504"
-    sha256 cellar: :any, big_sur:        "efad14930b9b70527ff25ca784f59797f75bb8877784595f4b1d8b62e0634ae6"
+    rebuild 3
+    sha256 cellar: :any, arm64_ventura:  "defb94b2cf5538676af8757e65456c5667f54470d0dc4396f550b1b1871fa4ce"
+    sha256 cellar: :any, arm64_monterey: "74a019f2782a314223c5cdebb7fd7800eba143da472944e4be8aa4a099174763"
+    sha256 cellar: :any, arm64_big_sur:  "a92a01c82747ee7fda0f8c667eca48733d62dd4995e85d640c44fe789920b7a5"
+    sha256 cellar: :any, ventura:        "a270cb5df26a6680ad74a4f2e714bedb9034b8d7df241e1ac54480e014f12e83"
+    sha256 cellar: :any, monterey:       "121d36cf07eb44a6491cb874edf4098532525aab34e5018e2e7ae6fb8cba2273"
+    sha256 cellar: :any, big_sur:        "ec6723ce30f513eea3bfac1d5235113330b4fe235c5e02e879e95e5f1a93e69e"
   end
 
   depends_on "docutils" => :build
@@ -56,18 +56,18 @@ class VirtManager < Formula
   end
 
   resource "libvirt-python" do
-    url "https://files.pythonhosted.org/packages/ce/2a/2a41b4818f28fc4e8fca8e33f14ca52db5e35aae295e439ac03ceb6b4765/libvirt-python-8.10.0.tar.gz"
-    sha256 "fc30f136abe0b8228029a90814c8f44ac2947433c12f211363051c57df2d5401"
+    url "https://files.pythonhosted.org/packages/38/95/a072b313855a210370837b626ee683c0ac04d198e646e4aaf027ca707eea/libvirt-python-9.0.0.tar.gz"
+    sha256 "49702d33fa8cbcae19fa727467a69f7ae2241b3091324085ca1cc752b2b414ce"
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/a5/61/a867851fd5ab77277495a8709ddda0861b28163c4613b011bc00228cc724/requests-2.28.1.tar.gz"
-    sha256 "7c5599b102feddaa661c826c56ab4fee28bfd17f5abca1ebbe3e7f19d7c97983"
+    url "https://files.pythonhosted.org/packages/9d/ee/391076f5937f0a8cdf5e53b701ffc91753e87b07d66bae4a09aa671897bf/requests-2.28.2.tar.gz"
+    sha256 "98b1b2782e3c6c4904938b84c0eb932721069dfdb9134313beff7c83c2df24bf"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/c2/51/32da03cf19d17d46cce5c731967bf58de9bd71db3a379932f53b094deda4/urllib3-1.26.13.tar.gz"
-    sha256 "c083dd0dce68dbfbe1129d5271cb90f9447dea7d52097c6e0126120c521ddea8"
+    url "https://files.pythonhosted.org/packages/c5/52/fe421fb7364aa738b3506a2d99e4f3a56e079c0a798e9f4fa5e14c60922f/urllib3-1.26.14.tar.gz"
+    sha256 "076907bf8fd355cde77728471316625a4d2f7e713c125f51953bb5b3eecf4f72"
   end
 
   def install

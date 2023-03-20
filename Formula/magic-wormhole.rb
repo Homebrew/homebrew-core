@@ -9,15 +9,14 @@ class MagicWormhole < Formula
   revision 7
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_ventura:  "f808b89ee6fe506e35c6793ea62a319f918c07b7ffb8bed7f804fb6def3af8ed"
-    sha256 cellar: :any,                 arm64_monterey: "4a8908292c7c66a80c2024b555e31efb2ab01d5037de75f473f92e6cfe6e6ca8"
-    sha256 cellar: :any,                 arm64_big_sur:  "ea7718fb7a5b340251fce45bd7fd7e9d7f61ece998d53bc909553045986e69c1"
-    sha256 cellar: :any,                 ventura:        "fa1b7b1e3fef2c1ba86bdd04d416677191c237b99c7d76632bb5089b8ddc4fdd"
-    sha256 cellar: :any,                 monterey:       "3bc3e519ccfb0898c777292271be52ddaa5e6010ef0b6cad77c238b1675602f8"
-    sha256 cellar: :any,                 big_sur:        "8c70033c047ca74b1b9586e4d1f6bb3defda6e326ef29cfdfaa5002f5edb10c3"
-    sha256 cellar: :any,                 catalina:       "5dfcb38f77ca7b76cbdda33028553c0297a42a23391286c1d5adf32d4bb4bbdb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e0d6f23cdadb2e6062373d0b7973cebf6fd2178ab0522f1c9cc8260889cd0d05"
+    rebuild 3
+    sha256 cellar: :any,                 arm64_ventura:  "bae6214ca90989fc98bf649a34b3a99020f7a0433397b1e819a79802356741a4"
+    sha256 cellar: :any,                 arm64_monterey: "35884a0eaed2ff8c9a6eea02c13396593797c05acb71e308c0df32cc86ab5674"
+    sha256 cellar: :any,                 arm64_big_sur:  "900c9d299e91f8703898b09e5395bb52816d4862d7239f3455aeb98abbb52495"
+    sha256 cellar: :any,                 ventura:        "7019b2da9adaf5025c6c03d8739ae32e8f219b6474cda2946149c965adbf4838"
+    sha256 cellar: :any,                 monterey:       "10bdb03a720a652e391958b28b145a6d17c286a63ee8bbd2d1e27bd879b2a565"
+    sha256 cellar: :any,                 big_sur:        "16615a36bb6d92ab63ae8df719d64304c58d724e8791cdec4a9c3686bb689f37"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5da5efff3e639064869967a0823ba6cd03f70e41ec1543b7376481be06e2b80c"
   end
 
   depends_on "rust" => :build
@@ -34,13 +33,13 @@ class MagicWormhole < Formula
   end
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/1a/cb/c4ffeb41e7137b23755a45e1bfec9cbb76ecf51874c6f1d113984ecaa32c/attrs-22.1.0.tar.gz"
-    sha256 "29adc2665447e5191d0e7c568fde78b21f9672d344281d0c6e1ab085429b22b6"
+    url "https://files.pythonhosted.org/packages/21/31/3f468da74c7de4fcf9b25591e682856389b3400b4b62f201e65f15ea3e07/attrs-22.2.0.tar.gz"
+    sha256 "c9227bfc2f01993c03f68db37d1d15c9690188323c067c641f1a35ca58185f99"
   end
 
   resource "autobahn" do
-    url "https://files.pythonhosted.org/packages/c5/b5/c92d6640fd55cbbdd97c05800ab534d84197f7b485d89a9df981ab67cce3/autobahn-22.7.1.tar.gz"
-    sha256 "8b462ea2e6aad6b4dc0ed45fb800b6cbfeb0325e7fe6983907f122f2be4a1fe9"
+    url "https://files.pythonhosted.org/packages/53/99/b6e0ffa0e8bafe9dfae1c9ab46d44d07317cbf297fbf8f07aff8a80e5bd8/autobahn-23.1.2.tar.gz"
+    sha256 "c5ef8ca7422015a1af774a883b8aef73d4954c9fcd182c9b5244e08e973f7c3a"
   end
 
   resource "Automat" do
@@ -64,8 +63,8 @@ class MagicWormhole < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/13/dd/a9608b7aebe5d2dc0c98a4b2090a6b815628efa46cc1c046b89d8cd25f4c/cryptography-38.0.3.tar.gz"
-    sha256 "bfbe6ee19615b07a98b1d2287d6a6073f734735b49ee45b11324d85efc4d5cbd"
+    url "https://files.pythonhosted.org/packages/6a/f5/a729774d087e50fffd1438b3877a91e9281294f985bda0fd15bf99016c78/cryptography-39.0.1.tar.gz"
+    sha256 "d1f6198ee6d9148405e49887803907fe8962a23e6c6f83ea7d98f1c0de375695"
   end
 
   resource "hkdf" do
@@ -74,8 +73,8 @@ class MagicWormhole < Formula
   end
 
   resource "humanize" do
-    url "https://files.pythonhosted.org/packages/51/19/3e1adf0e7a8c8361496b085edcab2ddcd85410735a2b6fdd044247fc5b75/humanize-4.4.0.tar.gz"
-    sha256 "efb2584565cc86b7ea87a977a15066de34cdedaf341b11c851cfcfd2b964779c"
+    url "https://files.pythonhosted.org/packages/06/b1/9e491df2ee1c919d67ee328d8bc9f17b7a9af68e4077f3f5fac83a4488c9/humanize-4.6.0.tar.gz"
+    sha256 "5f1f22bc65911eb1a6ffe7659bd6598e33dcfeeb904eb16ee1e705a09bf75916"
   end
 
   resource "hyperlink" do
@@ -114,8 +113,8 @@ class MagicWormhole < Formula
   end
 
   resource "pyOpenSSL" do
-    url "https://files.pythonhosted.org/packages/e7/2f/c6d89edac75482f11e231b644e365d31d5479b7b727734e6a8f3d00decd5/pyOpenSSL-22.1.0.tar.gz"
-    sha256 "7a83b7b272dd595222d672f5ce29aa030f1fb837630ef229f62e72e395ce8968"
+    url "https://files.pythonhosted.org/packages/af/6e/0706d5e0eac08fcff586366f5198c9bf0a8b46f0f45b1858324e0d94c295/pyOpenSSL-23.0.0.tar.gz"
+    sha256 "c1cc5f86bcacefc84dada7d31175cae1b1518d5f60d3d0bb595a67822a868a6f"
   end
 
   resource "service-identity" do
@@ -139,8 +138,8 @@ class MagicWormhole < Formula
   end
 
   resource "txaio" do
-    url "https://files.pythonhosted.org/packages/6d/4b/28313388dfb2bdedb71b35b900459c56ba08ccb7ad2885487df037808c06/txaio-22.2.1.tar.gz"
-    sha256 "2e4582b70f04b2345908254684a984206c0d9b50e3074a24a4c55aba21d24d01"
+    url "https://files.pythonhosted.org/packages/51/91/bc9fd5aa84703f874dea27313b11fde505d343f3ef3ad702bddbe20bfd6e/txaio-23.1.1.tar.gz"
+    sha256 "f9a9216e976e5e3246dfd112ad7ad55ca915606b60b84a757ac769bd404ff704"
   end
 
   resource "txtorcon" do
@@ -154,8 +153,8 @@ class MagicWormhole < Formula
   end
 
   resource "zope.interface" do
-    url "https://files.pythonhosted.org/packages/c5/ec/3e116b5c3c54f1fb7296a686c110c14d1242bbea17286c487892075d9858/zope.interface-5.5.1.tar.gz"
-    sha256 "6d678475fdeb11394dc9aaa5c564213a1567cc663082e0ee85d52f78d1fbaab2"
+    url "https://files.pythonhosted.org/packages/38/6f/fbfb7dde38be7e5644bb342c4c7cdc444cd5e2ffbd70d091263b3858a8cb/zope.interface-5.5.2.tar.gz"
+    sha256 "bfee1f3ff62143819499e348f5b8a7f3aa0259f9aca5e0ddae7391d059dce671"
   end
 
   def install

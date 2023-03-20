@@ -4,36 +4,36 @@ class Shaderc < Formula
   license "Apache-2.0"
 
   stable do
-    url "https://github.com/google/shaderc/archive/refs/tags/v2022.4.tar.gz"
-    sha256 "a948436f2eca403026fe2c900df0108a0f4972005230817d805c43d96554c9ea"
+    url "https://github.com/google/shaderc/archive/refs/tags/v2023.3.tar.gz"
+    sha256 "7f66435c59797cdc6370dc97aa5cab21651385ac6c5159975566d51cc3e6650f"
 
     resource "glslang" do
       # https://github.com/google/shaderc/blob/known-good/known_good.json
       url "https://github.com/KhronosGroup/glslang.git",
-          revision: "728c689574fba7e53305b475cd57f196c1a21226"
+          revision: "ef77cf3a92490f7c37f36f20263cd3cd8c94f009"
     end
 
     resource "spirv-headers" do
       # https://github.com/google/shaderc/blob/known-good/known_good.json
       url "https://github.com/KhronosGroup/SPIRV-Headers.git",
-          revision: "c214f6f2d1a7253bb0e9f195c2dc5b0659dc99ef"
+          revision: "1feaf4414eb2b353764d01d88f8aa4bcc67b60db"
     end
 
     resource "spirv-tools" do
       # https://github.com/google/shaderc/blob/known-good/known_good.json
       url "https://github.com/KhronosGroup/SPIRV-Tools.git",
-          revision: "d9446130d5165f7fafcb3599252a22e264c7d4bd"
+          revision: "44d72a9b36702f093dd20815561a56778b2d181e"
     end
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "32a384bc8c303087851d33095fcf5aa00d3ae2398e694984192d7444a43102a8"
-    sha256 cellar: :any,                 arm64_monterey: "d5a628d418beca1c5e64c1707de4908b6f89a4e2e4cf959f3ff4a1aa513ba29f"
-    sha256 cellar: :any,                 arm64_big_sur:  "1e11618686e65f3f767d6fce64894a0efddc81e48a46fa8a9fbb4f688925aaff"
-    sha256 cellar: :any,                 ventura:        "22eb75a448a7a946cd89ddc00f1caf8b80d37b49e1b46a0eeda81264dfb791dc"
-    sha256 cellar: :any,                 monterey:       "f927c6d71677fefe0671d211824a847e7221cd547ffe4e81ffda965b8254a96a"
-    sha256 cellar: :any,                 big_sur:        "5e0df49d49a8c64950cfc7049efc812ff078ad5d36978956009b1bb4ae9765e0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aeab02a663b940cd5b25b288afa01ef28ea045aad330e4004736b68aacb1e1a4"
+    sha256 cellar: :any,                 arm64_ventura:  "6b07e4752ecff2c1f3fb8f4ef92aaabb256f8a2629f4d9df6762125b275d7eee"
+    sha256 cellar: :any,                 arm64_monterey: "a9fb7900064768b74595b7f6b0d379638c46d4b383cbd594fc3c59c8ed7d7fd6"
+    sha256 cellar: :any,                 arm64_big_sur:  "ce0b990d8da45738d67fe0e602ed316323f4985586c5e0b7ec5f4ef93a4d16ec"
+    sha256 cellar: :any,                 ventura:        "ca5fe4eb1799ec598d40c99e10cfacb8fa791d3665899ed0cebcee96b343d4cc"
+    sha256 cellar: :any,                 monterey:       "b6e9c5be72c5251d6fe499191ed50353cd4ae7f813bf1989532de56d2de40e37"
+    sha256 cellar: :any,                 big_sur:        "b4109db413fc33139f7e68cff51c738f35fea7b689424a254d2128303ac0dd90"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "94355b357e3ecd3aae2abd3dc7fa1f3daa6b09ad171050bb175dc7d447fb7076"
   end
 
   head do
@@ -57,6 +57,8 @@ class Shaderc < Formula
 
   depends_on "cmake" => :build
   depends_on "python@3.11" => :build
+
+  conflicts_with "spirv-tools", because: "both install `spirv-*` binaries"
 
   def install
     resources.each do |res|

@@ -9,6 +9,8 @@ class RakeCompletion < Formula
     sha256 cellar: :any_skip_relocation, all: "6d5a9f29cceb2470b61d563fc7d9d762e0a8b73f8e052d99103fad25e6301f62"
   end
 
+  deprecate! date: "2023-01-16", because: :repo_archived
+
   def install
     bash_completion.install "rake.sh" => "rake"
   end

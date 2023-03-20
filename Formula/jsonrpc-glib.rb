@@ -1,19 +1,18 @@
 class JsonrpcGlib < Formula
   desc "GNOME library to communicate with JSON-RPC based peers"
   homepage "https://gitlab.gnome.org/GNOME/jsonrpc-glib"
-  url "https://download.gnome.org/sources/jsonrpc-glib/3.42/jsonrpc-glib-3.42.0.tar.xz"
-  sha256 "221989a57ca82a12467dc427822cd7651b0cad038140c931027bf1074208276b"
+  url "https://download.gnome.org/sources/jsonrpc-glib/3.44/jsonrpc-glib-3.44.0.tar.xz"
+  sha256 "69406a0250d0cc5175408cae7eca80c0c6bfaefc4ae1830b354c0433bcd5ce06"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "9a07d3d66e08e50c022e44e961ca0d3427058d940940d02a75ce7fc0e80e446c"
-    sha256 cellar: :any, arm64_monterey: "92133b3379600969851a22f77764ea937b7a2c6ed7abfaace7f5d82a46f2e365"
-    sha256 cellar: :any, arm64_big_sur:  "3dba2a5b06bdbc459d6fec65f00dad9f9b2882fa5a67da9a50daa8a9a5332171"
-    sha256 cellar: :any, ventura:        "0af2def8340cdad1583d230f62cec998cba94796ccd1f379d2aac3880a9b8df6"
-    sha256 cellar: :any, monterey:       "cd47544117766135f25e5330c9bf0d56714546c22a233d2fc958d3fad2fa1ab6"
-    sha256 cellar: :any, big_sur:        "10bac873ad2f887cb49000ba547b74f3a0f415171cfc4b277ad597838ad77ba9"
-    sha256 cellar: :any, catalina:       "56077dcb4a1b7160f150d9ce3fe15b7967b4575ba125be59dda49601d55740d8"
-    sha256               x86_64_linux:   "f045fc3c514160508c4d033da944dfffaefa784c8646d7993e57682395a55218"
+    sha256 cellar: :any, arm64_ventura:  "81179b347f42fa5088707b190fc8c44cce5b4674a95d99124d15e17f55e07c64"
+    sha256 cellar: :any, arm64_monterey: "b9968d2db4506aa9493ae18baa2baf3606b94a270910fdc5d4a3928f6a1eb26f"
+    sha256 cellar: :any, arm64_big_sur:  "7a93842a0f8c1f9d2e926fbeca2ba17d176616e66b29b26fe128f5d1e68730bc"
+    sha256 cellar: :any, ventura:        "1a7c09d2663ff3df9280511655b194ced292b3fdc366fe502bfee8105978525f"
+    sha256 cellar: :any, monterey:       "4c5889ec718dd7362a9593d3d4be9c76a12f2252e9eda92b165e945cd8883080"
+    sha256 cellar: :any, big_sur:        "5f6b0972656e86a895a4026f5738416eb37b798792adcd30edb4ad3868a8bb05"
+    sha256               x86_64_linux:   "03191c798dee38b9983e2afb84310debbbd3850b21ad675b6629aa9e8cd677cc"
   end
 
   depends_on "gobject-introspection" => :build

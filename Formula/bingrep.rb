@@ -1,18 +1,18 @@
 class Bingrep < Formula
   desc "Greps through binaries from various OSs and architectures"
   homepage "https://github.com/m4b/bingrep"
-  url "https://github.com/m4b/bingrep/archive/v0.10.1.tar.gz"
-  sha256 "e27c7e073420a5feebb3497efafad343df597b613f6e31613af1a03558c5a3e6"
+  url "https://github.com/m4b/bingrep/archive/v0.11.0.tar.gz"
+  sha256 "3012aef73b3ef5e8b100824af0db2131f81771338fec5f9fe47dc71bf3782506"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f1adc1bf8f2d1649a3f96b07764097d2999f1f45161f83fe4da131b35feb6f3e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9facc7cf4350d43d0cdd146703aa0e6c32328ed238cb8123302e852e12031031"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "587c173f2d91a9962c4171a7e94c6500cf7b7862ce38747fed04c9df7091c7f4"
-    sha256 cellar: :any_skip_relocation, monterey:       "247db0c2c60f8c0c8948e3b9713f8cd4581175c68b7814a2d49c6e5d6cc08e74"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6459f314ce15ed4d79439fd781a4ba87902896129c3fdaa5dfc6fb6213763beb"
-    sha256 cellar: :any_skip_relocation, catalina:       "d409b61ad15fb9c5f63fa6765d497f870e83fdd2810a5fc1ed7eac8ff189b31b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f6334628344910dc05d429f44f222942205a6d5fa58b3e64574ae2aec7a6a223"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "349e4cd6b80fc83621693d1e68dd4e5c6ab29aa5259eb76edf8926e22f29e8e5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "20e1eb2ccd61e211cd3c6bba229b4ccc15ec3594337e20be2f68a2b141fd22c1"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "489ea944bbbd2aeb68925d26e2effee5520155564cd031a6294860445b4510c0"
+    sha256 cellar: :any_skip_relocation, ventura:        "8b2e9baa7b521954bea1cecc6c5259808fdff948fa776902a328f18945414b22"
+    sha256 cellar: :any_skip_relocation, monterey:       "d7c1fa10458fe1fedd754d8b5aa4bc1160abd305cf70078bc1d7e1c9caf385a8"
+    sha256 cellar: :any_skip_relocation, big_sur:        "cdc9b107c8cecaec93dc476ff09a6649c4bf4a9604ee98ce9748d53c71fd9f7b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0cc509264acdf417f6ae40d102132fddd7ec95c4130c05bfb5d7c4c468f5b3dd"
   end
 
   depends_on "rust" => :build
@@ -22,6 +22,15 @@ class Bingrep < Formula
   end
 
   test do
-    system bin/"bingrep", bin/"bingrep"
+    (testpath/"test.c").write <<~EOS
+      int homebrew_test() {
+        return 0;
+      }
+      int main() {
+        return homebrew_test();
+      }
+    EOS
+    system ENV.cc, testpath/"test.c"
+    assert_match "homebrew_test", shell_output("#{bin}/bingrep a.out")
   end
 end

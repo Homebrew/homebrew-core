@@ -8,7 +8,7 @@ class Texlive < Formula
   mirror "https://ftp.tu-chemnitz.de/pub/tug/historic/systems/texlive/2022/texlive-20220321-source.tar.xz"
   sha256 "5ffa3485e51eb2c4490496450fc69b9d7bd7cb9e53357d92db4bcd4fd6179b56"
   license :public_domain
-  revision 3
+  revision 4
   head "https://github.com/TeX-Live/texlive-source.git", branch: "trunk"
 
   livecheck do
@@ -34,17 +34,16 @@ class Texlive < Formula
   end
 
   bottle do
-    rebuild 3
-    sha256 arm64_ventura:  "09129b9914fd386e7a25365369bda149d639859674b7ceaf215722c58d59fc20"
-    sha256 arm64_monterey: "1e998f152614b4b21f4c8cdce0325cd64579bd22d2a201ea44be37f49e1d1d12"
-    sha256 arm64_big_sur:  "9423fd98a2d79873a6f89fef27d2555f95d9f3020aa432f0fd567fd49c19cef6"
-    sha256 ventura:        "21b570f9314e9827913d30493be4e3d95813c41d478a23d07d7f1495d2ffdd50"
-    sha256 monterey:       "7fd4ec2e1ebfc231c6b4a2b0b38ef720dd1c7ab943de1f8d07829bb0c428ee86"
-    sha256 big_sur:        "bad097cc26ea1a8fcc9969596266f1ec6ed1c9ddadb1063a4b582158d52253b8"
-    sha256 catalina:       "6f6ed35a1ed40069cae4299a4d939c3dbd6378276578da4fab36e63889ff0ead"
-    sha256 x86_64_linux:   "4917ec16ad9c4ae5966f20f9182df8c23d38831481e43b56d067aebb5635ffea"
+    sha256 arm64_ventura:  "dbbefb35066d5b3f3ff05b0dfaf6f8f693e6b5c0b9ee3cac1faad142f9dc15f1"
+    sha256 arm64_monterey: "d1d7174ad04b40bd8af96cccdd05a7ec2a0968b098d4c2b1fc4075ce4aba6c5c"
+    sha256 arm64_big_sur:  "1072e81065a9939ec8083e2f4bd867cac27eab3616ccdd1cd854c57e22d6db07"
+    sha256 ventura:        "6e3c96256e0a3cf02a853fae9f37b449ef0d1684c6a68df90aa26699a81509ea"
+    sha256 monterey:       "b3a94d0983d4228f376b9422965d1194997ce3e46aff4f03d7c24b28c905185f"
+    sha256 big_sur:        "0b724744053580e9e443558589489f7aca8dec7246a831170d09345ad4a35a7b"
+    sha256 x86_64_linux:   "ecc061a0f1fd4e947df3dd141473d28f2413a1e0e4d21a4b430b1fa5de7442b0"
   end
 
+  depends_on "pkg-config" => :build
   depends_on "cairo"
   depends_on "clisp"
   depends_on "fontconfig"
@@ -75,7 +74,6 @@ class Texlive < Formula
   uses_from_macos "zlib"
 
   on_linux do
-    depends_on "pkg-config" => :build
     depends_on "libice"
     depends_on "libnsl"
     depends_on "libsm"

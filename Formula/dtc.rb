@@ -1,9 +1,10 @@
 class Dtc < Formula
   desc "Device tree compiler"
-  homepage "https://www.devicetree.org/"
-  url "https://www.kernel.org/pub/software/utils/dtc/dtc-1.6.1.tar.xz"
-  sha256 "65cec529893659a49a89740bb362f507a3b94fc8cd791e76a8d6a2b6f3203473"
+  homepage "https://git.kernel.org/pub/scm/utils/dtc/dtc.git"
+  url "https://www.kernel.org/pub/software/utils/dtc/dtc-1.7.0.tar.xz"
+  sha256 "29edce3d302a15563d8663198bbc398c5a0554765c83830d0d4c0409d21a16c4"
   license any_of: ["GPL-2.0-or-later", "BSD-2-Clause"]
+  head "https://git.kernel.org/pub/scm/utils/dtc/dtc.git", branch: "main"
 
   livecheck do
     url "https://mirrors.edge.kernel.org/pub/software/utils/dtc/"
@@ -11,15 +12,13 @@ class Dtc < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "b2bbb6606b24abfdb46d7a7276e1c5505398ca38e21aeefcd2dd1b05fd6b37a2"
-    sha256 cellar: :any,                 arm64_monterey: "8a4fa796ccb2287c99895a475294ad882109f67ade30b0a065841fbf479623df"
-    sha256 cellar: :any,                 arm64_big_sur:  "168a39095510690ae8762826e1333a96b526e1124593449724cb932458fcefc9"
-    sha256 cellar: :any,                 ventura:        "637691691a6eb56e4549dd5684e65488fc4ed853d84a3a2e848d1d19acbe756b"
-    sha256 cellar: :any,                 monterey:       "077453035968d846c52b61c2d159b03031884a5442a04a1375bbbb01f426e18b"
-    sha256 cellar: :any,                 big_sur:        "dabe49f9ad4701b06c1954ac168c633b8ca9a5a8639302d75264640d5df4be49"
-    sha256 cellar: :any,                 catalina:       "9eef250847cc0a60cafb5b8f54d217f297568ba5297c99bda43c14b6fbc4fa45"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dc713c8397ab10c889bda1e8e8188569adb8928f9cce53b5ea7ca155bcb19f54"
+    sha256 cellar: :any,                 arm64_ventura:  "9ca326b92b46108692e2f27bf20e83877bf772650f0e6912be5ce3934df284a5"
+    sha256 cellar: :any,                 arm64_monterey: "c156365bf2807a0752ee136419436ab12158e10e302ba33074f7a339f35b8023"
+    sha256 cellar: :any,                 arm64_big_sur:  "12e2e120158a5aff71fbf0aa51f4b56634d57458182b9fc3f03f960f8051e49c"
+    sha256 cellar: :any,                 ventura:        "2272219303c0ed39def742cfbccfccf2c36f5d17387db9b6a49121d7c2aafef9"
+    sha256 cellar: :any,                 monterey:       "a319159e5002540c731072ab606432bfb116e2dc6606a3086be1b76c7bee0f68"
+    sha256 cellar: :any,                 big_sur:        "a30c0c5fa40f7786a727e4a0075cf76c4ec44564844c7730f2a594d83fbf2fe5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "383124731672d1c9ac6b80a024f5d2351a4661c9923b67d0c2aaae165f683422"
   end
 
   depends_on "pkg-config" => :build

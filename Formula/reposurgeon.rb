@@ -1,19 +1,19 @@
 class Reposurgeon < Formula
   desc "Edit version-control repository history"
   homepage "http://www.catb.org/esr/reposurgeon/"
-  url "https://gitlab.com/esr/reposurgeon/-/archive/4.33/reposurgeon-4.33.tar.gz"
-  sha256 "b8a103150d2d9986ca699cfc79aa7ed1e09c644fdadebd1b19351647de3cb5f5"
+  url "https://gitlab.com/esr/reposurgeon/-/archive/4.34/reposurgeon-4.34.tar.gz"
+  sha256 "85bf287001fd030a343b6113e46e54ba9e5e90b734013373e3b53a50efec7255"
   license "BSD-2-Clause"
   head "https://gitlab.com/esr/reposurgeon.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0c2ee4b1e506992a52cd2f906e6533cd4dd9b5c8c38692f75101779e870d3b9c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5d2b3ea48e7faf96f9bcf08a3d0cc8760e3b5a6ed63995482f82bae9f29df7ba"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d825b97e4c3a253a49f62ffb3c08b3e8d6a471ecd180f7f1048732da26a1f3bd"
-    sha256 cellar: :any_skip_relocation, ventura:        "624473a08bc14b16050edb1596d00d64158049e20192afcb236c07ef593c6bd2"
-    sha256 cellar: :any_skip_relocation, monterey:       "79f989ef74acbd5000ca95948df3a0cf911053e9fa011d5eb61ea7bb95d4e84f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "533416ab9826b6fe24b60b629997b46b09e65e1d6b3ce70ac05fa6517199f45f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3e8bf8f1bbcf6bdf88bfb1cd1103619c5ec1f731dbccc06bc30d87950e3f0627"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "85bca788fc241e62be4f4c910706a5d486451928d7a46c62746a87de214e0924"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7f7a1927c6aaead8eb4f7ba70a129305b182e0937bd5c695929d1466e6e5894b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c1561ede71954018f545db098afdbe6dc872add74b6750aa9c438f8f2f1be104"
+    sha256 cellar: :any_skip_relocation, ventura:        "b46775ac4be824afb2ec1658824afcf73edbf2a5c83494a3c27afb8fbaf171d8"
+    sha256 cellar: :any_skip_relocation, monterey:       "ca9ac1c0d89a1920720ca581002109c779aa1cc0d01c2bb2e37c9d4c3da683b4"
+    sha256 cellar: :any_skip_relocation, big_sur:        "2540f59aedec2a53b2bbb4feb9bac0eb0d1b7e2482d185198463a4249df664c5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e9165129cd0d2ab3d45dcf2c7f5b6722ff84eefd6ff6b181c0e96f035e7b32dd"
   end
 
   depends_on "asciidoctor" => :build

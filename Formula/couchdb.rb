@@ -1,9 +1,9 @@
 class Couchdb < Formula
   desc "Apache CouchDB database server"
   homepage "https://couchdb.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=couchdb/source/3.2.2/apache-couchdb-3.2.2.tar.gz"
-  mirror "https://archive.apache.org/dist/couchdb/source/3.2.2/apache-couchdb-3.2.2.tar.gz"
-  sha256 "69c9fd6f80133557f68a02e92dda72a4fd646d646f429f45bb8329a30f82f20e"
+  url "https://www.apache.org/dyn/closer.lua?path=couchdb/source/3.3.1/apache-couchdb-3.3.1.tar.gz"
+  mirror "https://archive.apache.org/dist/couchdb/source/3.3.1/apache-couchdb-3.3.1.tar.gz"
+  sha256 "9b89d7b54f7ef52b42bd51a6a0a2d3b1b06cce395df2c99d8f1f47f9355e2bee"
   license "Apache-2.0"
   revision 1
 
@@ -13,15 +13,13 @@ class Couchdb < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "1861396808675089a1605817913ec967a42b20b6ebba377a2b778240efb1b92a"
-    sha256 cellar: :any,                 arm64_monterey: "10915b592f151923cfdbb897fdfce09472428acf706c47270be15bbb7e03519d"
-    sha256 cellar: :any,                 arm64_big_sur:  "2fa3cd31dc3c53a80f389cca0cfcb01e6437f5769fd016af407e71a07454b5f6"
-    sha256 cellar: :any,                 ventura:        "3c3f87a257aca14d55eb434487b0384b625a0be3b9c52e51ecb0954e0b99b7a8"
-    sha256 cellar: :any,                 monterey:       "f62c2ccecaadc5de7caccd62d4f4500afebca0dc69d8d4d2dbe0b7ad5d68bd1e"
-    sha256 cellar: :any,                 big_sur:        "5f927c75898000afb985bd0574ac155869f1348fe018fc0b7c15ba4ae3950de5"
-    sha256 cellar: :any,                 catalina:       "ace6e1b4a44b08522fc49bfa65e194502a886fec1c0d5a8edad890eee43ecc3a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "af86b0a02aec04ac0b6d33027b4056ac3dad0794c1bdae9485c67626363ca5ed"
+    sha256 cellar: :any,                 arm64_ventura:  "d194d20995a127bcf9eaa1321d0beaa536183737bfb5c76cedeb536ed0f23b2b"
+    sha256 cellar: :any,                 arm64_monterey: "127f449e5dee5ddbe972823778b358c8eaea49966765449b0343bc625de44538"
+    sha256 cellar: :any,                 arm64_big_sur:  "7418e01bd588a9d2daed576e0e7912d591020537180880c4008f6898a7b3eb8c"
+    sha256 cellar: :any,                 ventura:        "a8066bb71c6c2ca2294cb545b83ccd0ccbbcb52acb99dbc18cad9426b7710c2d"
+    sha256 cellar: :any,                 monterey:       "c27fff48191c27500af593744a17121fc5239b033e94613808cfc145f23ace6d"
+    sha256 cellar: :any,                 big_sur:        "6c9013038fec4d6b838896b4190d395bc9769eecfe9843870b594c5d2c7a8af9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1338d77ccdb4a4964a42429f1c1385d4b6f6845759940075117caa3fbfa5c99a"
   end
 
   depends_on "autoconf" => :build
@@ -32,11 +30,11 @@ class Couchdb < Formula
   #   please re-compile this module with an Erlang/OTP 25 compiler
   # escript: exception error: undefined function rebar:main/1
   # Ref: https://github.com/Homebrew/homebrew-core/pull/105876
-  depends_on "erlang@24" => :build
+  depends_on "erlang" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "icu4c"
-  depends_on "openssl@3"
+  depends_on "openssl@1.1"
   # NOTE: Supported `spidermonkey` versions are hardcoded at
   # https://github.com/apache/couchdb/blob/#{version}/src/couch/rebar.config.script
   depends_on "spidermonkey"

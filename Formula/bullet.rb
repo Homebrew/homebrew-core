@@ -1,20 +1,20 @@
 class Bullet < Formula
   desc "Physics SDK"
   homepage "https://bulletphysics.org/"
-  url "https://github.com/bulletphysics/bullet3/archive/3.24.tar.gz"
-  sha256 "6b1e987d6f8156fa8a6468652f4eaad17b3e11252c9870359e5bca693e35780b"
+  url "https://github.com/bulletphysics/bullet3/archive/3.25.tar.gz"
+  sha256 "c45afb6399e3f68036ddb641c6bf6f552bf332d5ab6be62f7e6c54eda05ceb77"
   license "Zlib"
   head "https://github.com/bulletphysics/bullet3.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "496fb748084f2ac94dbaf62899878477bd3fda1e6a38305f4ebf1263fbf92502"
-    sha256 cellar: :any,                 arm64_monterey: "e62ed2decd835f7a0170558ff9823e1cd409af8718f171e909ba1d026b5b1857"
-    sha256 cellar: :any,                 arm64_big_sur:  "791078c5f49a76ab5ecfb1c0dec290ea4ba048c578d7fe49deee1ae2c108d9ee"
-    sha256 cellar: :any,                 ventura:        "158f3b0558793ed9b120eda1803fd5365cff51a65a1032a0ba41c897ced5e493"
-    sha256 cellar: :any,                 monterey:       "4f025cbf5fb191f35fdfa59c663146265c4ad5789238e480b71f3422013aed72"
-    sha256 cellar: :any,                 big_sur:        "e53efaacaf22922dbd1280786f5d75b670a765ea105f9c6cc706aa0f0fdd3861"
-    sha256 cellar: :any,                 catalina:       "0d0863190a55bef157fb7955a4f2c9618ebae828f3661bf6c4d9ac7c5676d14a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ec9a230902ea3638a673b810a67a00f0aa5be9b577a4a8947d8bed8519fb33b5"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "6cb9f0e3435ac577cdae63a3593693da7a2e93110e92691f9b43ab35282bfa5a"
+    sha256 cellar: :any,                 arm64_monterey: "84fe44bad0dc14eb49e1cd40c6ef1545c05186aca4a5a7e5e485fdabc3751fe5"
+    sha256 cellar: :any,                 arm64_big_sur:  "c786c28169f4f65cfb8c6183453a468386ec9f58dbfa45420510ebd272be1ecd"
+    sha256 cellar: :any,                 ventura:        "4bfaa654682214a65629e2d09f36944857fc67162fde4bbb67e7bce7b6ff10b6"
+    sha256 cellar: :any,                 monterey:       "50eed1d7cd3dedb6c64970b2a729e0128cb18f20477c106676e18d7539764fda"
+    sha256 cellar: :any,                 big_sur:        "89803317a3b1ca72df1f1473efd8d99bcb857f47c2c3adccc7b4cb3ffc2fe406"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d3670bbfd66cfd61791baf1e268c42baab46191b1b8e11392d18d6f34c8b1875"
   end
 
   depends_on "cmake" => :build
@@ -30,6 +30,7 @@ class Bullet < Formula
       -DBT_USE_EGL=ON
       -DBUILD_UNIT_TESTS=OFF
       -DINSTALL_EXTRA_LIBS=ON
+      -DBULLET2_MULTITHREADING=ON
     ]
 
     double_args = std_cmake_args + %W[

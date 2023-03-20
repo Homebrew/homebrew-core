@@ -1,8 +1,8 @@
 class Arangodb < Formula
   desc "Multi-Model NoSQL Database"
   homepage "https://www.arangodb.com/"
-  url "https://download.arangodb.com/Source/ArangoDB-3.10.0.tar.bz2"
-  sha256 "48b36216541f9da8ca86ce304a3ea96964da53a324c94c9a229552af70949726"
+  url "https://download.arangodb.com/Source/ArangoDB-3.10.4.tar.bz2"
+  sha256 "bc9cfaac5747995a6185d2cfea452b9fea8461bf91d2996dd75af75eef3cfddd"
   license "Apache-2.0"
   head "https://github.com/arangodb/arangodb.git", branch: "devel"
 
@@ -12,24 +12,27 @@ class Arangodb < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "01a162f32ecfbb10e1bf53131bccd1d09858cccfd160d0734c3a63745d429b21"
-    sha256 arm64_monterey: "b3715b5940358df40ea5988403859804df160664b17447e4d0b061f0b566f917"
-    sha256 arm64_big_sur:  "ba3473cf1c88aad5fa45784455c4832202ec14c1ee3c280766464ee6248fa9e7"
-    sha256 ventura:        "5f3def0aeb48125ccad9b31a74b06e573e6cb5f152dea09b59c849d40b70cc25"
-    sha256 monterey:       "ef8adb6f3dbd14fae7867fbb8c325b7ecacfe7849bf33cc4a3dee74b10edd292"
-    sha256 big_sur:        "a8195e62732388e7cb47997649df6634bb89e2a60691c43202bafeb9ac5b354c"
-    sha256 catalina:       "87f66fb788efa6df85000599103bfbd67ed04637f279e5c084a6773f09929e2e"
-    sha256 x86_64_linux:   "74d93be40c88c272108469cadff1517b0183a91db98e65ce0de2637a030d0279"
+    sha256 arm64_ventura:  "53afa49b9a2e4848ca33ea0933a521b50a43b36849d2c5fea08443034dd8d778"
+    sha256 arm64_monterey: "7cd65f1950e1f3a469a0978fec85f76ff2de404b17abca40d55945806e7de59d"
+    sha256 arm64_big_sur:  "c9249d113644c8c19d4fe4a94631a9dcc3c41d4130ec7d1aa16caf8b25574e33"
+    sha256 ventura:        "5f4b3a814c2a756c42c711b272c36aa8a651dd6bc2b4adbfae5a568962b582eb"
+    sha256 monterey:       "a2a85d8865eaee4b53a58de0698fad4ef52639dbad12527f212390a865b1e034"
+    sha256 big_sur:        "1e869c623de4995794d0da8c759300cb6df35d5f12160d4aece1bbe31dfcf56d"
+    sha256 x86_64_linux:   "7c80cd9f061e99a34be19691bb039015a10c231892c3e13e6af7e0d2377c0fa6"
   end
 
   depends_on "cmake" => :build
   depends_on "go" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
   depends_on macos: :mojave
   depends_on "openssl@1.1"
 
   on_macos do
     depends_on "llvm" => :build
+  end
+
+  on_linux do
+    depends_on "gcc@10" => :build
   end
 
   fails_with :clang do
@@ -40,6 +43,10 @@ class Arangodb < Formula
                                              ^               ~~~~~~~~~~~~~
     EOS
   end
+
+  # https://github.com/arangodb/arangodb/issues/17454
+  # https://github.com/arangodb/arangodb/issues/17454
+  fails_with gcc: "11"
 
   # https://www.arangodb.com/docs/stable/installation-compiling-debian.html
   fails_with :gcc do
@@ -52,8 +59,8 @@ class Arangodb < Formula
   # with a unified CLI
   resource "starter" do
     url "https://github.com/arangodb-helper/arangodb.git",
-        tag:      "0.15.5",
-        revision: "7832707bbf7d1ab76bb7f691828cfda2a7dc76cb"
+        tag:      "0.15.7",
+        revision: "0cd043932e6c6f2bd9dc0391ea0313c304b3ca9d"
   end
 
   def install

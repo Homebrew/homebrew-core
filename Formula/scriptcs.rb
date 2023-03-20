@@ -18,6 +18,9 @@ class Scriptcs < Formula
     sha256 cellar: :any_skip_relocation, el_capitan:     "e3b6cb117d23ccf9a745e0ac5e61fcb531d7e8a08476699d2ece6c31e564450e"
   end
 
+  # https://github.com/scriptcs/scriptcs/issues/1323
+  deprecate! date: "2023-02-21", because: :unmaintained
+
   depends_on "mono"
 
   def install

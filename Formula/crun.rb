@@ -1,12 +1,12 @@
 class Crun < Formula
   desc "Fast and lightweight fully featured OCI runtime and C library"
   homepage "https://github.com/containers/crun"
-  url "https://github.com/containers/crun/releases/download/1.7.2/crun-1.7.2.tar.xz"
-  sha256 "dfce0fdf042c7de84e8672369f54f723c2f788d2bde076a4c6edf530e6306b5a"
+  url "https://github.com/containers/crun/releases/download/1.8.1/crun-1.8.1.tar.xz"
+  sha256 "01b68269d94e5fe11106a9b14c2f144be03b16ec798951f4efa6aa16ba9da29a"
   license any_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "aa657e22ae5f3aac1539214d2535f12c93c26dc43099234a5c2e328b124c0e21"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "13a963024c1128a2ce2340f760dcc7a0692dddb94c100242f34836430e6333be"
   end
 
   depends_on "autoconf" => :build
@@ -30,6 +30,6 @@ class Crun < Formula
   end
 
   test do
-    assert_equal "", shell_output("crun --rootless=true list -q").strip
+    assert_empty shell_output("#{bin}/crun --rootless=true list -q").strip
   end
 end

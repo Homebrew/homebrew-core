@@ -1,8 +1,9 @@
 class Genstats < Formula
   desc "Generate statistics about stdin or textfiles"
-  homepage "https://www.vanheusden.com/genstats/"
-  url "https://www.vanheusden.com/genstats/genstats-1.2.tgz"
-  sha256 "f0fb9f29750cdaa85dba648709110c0bc80988dd6a98dd18a53169473aaa6ad3"
+  homepage "https://web.archive.org/web/20180831170016/www.vanheusden.com/genstats/"
+  url "https://web.archive.org/web/20150331055106if_/vanheusden.com/genstats/genstats-1.2.tgz"
+  sha256 "9988264357211a24f7024db05e24ed88db58227a626330114309147eb7078f6e"
+  license "GPL-2.0"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "d60b585ddff616135b75457e8f51cc3d8b1cfc9a03fded05df23fde64a74cddb"
@@ -13,8 +14,7 @@ class Genstats < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "051dbb7c4f653b615b606d1fce15df9336a086e38428fcfdb2aee9f0057d8990"
     sha256 cellar: :any_skip_relocation, el_capitan:    "44502f7a2dfcb1355336db69267d6363d6e8b8767b47628b0d3099743513ed5f"
   end
-
-  disable! date: "2022-07-31", because: "Upstream website has disappeared"
+  disable! date: "2022-07-31", because: "Upstream site gone; archive.org URLs provided for 'brew extract' usage"
 
   def install
     # Tried to make this a patch.  Applying the patch hunk would

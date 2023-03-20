@@ -19,7 +19,8 @@ class Ploticus < Formula
     sha256 el_capitan:     "088f4ba0eea75ed4b401f94331b70dd64e23f02fa0d95731fbaccf6904c8cea5"
     sha256 x86_64_linux:   "c7218f15936e3bc96796454d09612f99c8e8c5694b71d37af6625bbb3b254627"
   end
-
+  # See: https://ploticus.sourceforge.net/doc/news.html
+  deprecate! date: "2016-12-17", because: :deprecated_upstream
   depends_on "libpng"
 
   def install

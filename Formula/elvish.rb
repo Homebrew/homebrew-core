@@ -1,20 +1,19 @@
 class Elvish < Formula
   desc "Friendly and expressive shell"
   homepage "https://github.com/elves/elvish"
-  url "https://github.com/elves/elvish/archive/v0.18.0.tar.gz"
-  sha256 "f4635db90af2241bfd37e17ac1a72567b92d18a396598da2099a908b3d88c590"
+  url "https://github.com/elves/elvish/archive/refs/tags/v0.19.2.tar.gz"
+  sha256 "ef8032507c74c84369d49b098afcf1da65701aa071be9ee762f8bc456576ac94"
   license "BSD-2-Clause"
   head "https://github.com/elves/elvish.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "04ad1a9f481b117a64d750a078be683cc9be61d5983c3823226be61b03a922b9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b6187cc49a089a96a15fda4f1899b302dec13bf256febf4015fd5484a94a7bbe"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "820a6cb5f7f706ab12717e23586d2eb788ca8d5a5140362092945d2a8d188620"
-    sha256 cellar: :any_skip_relocation, ventura:        "29296df6f8dce31936e516ba0d7e21c6db3929e8c108d1ad1370651c4513088d"
-    sha256 cellar: :any_skip_relocation, monterey:       "cf517bf55f67746b5a2a5094abc5e5d0dff66069aec220cb89e792af08ea0a6a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6158072faf7d59114696e5a7c23ec1ed0bfd7175ff970fc0f0b6a6e0933f0fdf"
-    sha256 cellar: :any_skip_relocation, catalina:       "64d1ccfdf5e9d3026277221274b5943225de6d65520a06bcf0eda6f13674fa9a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dc21b2de77e60c7193eae1dbb1e9d317b766e043dd4bb504c05c259970192467"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b9dd4b68d9a4c944bd4f16540d281149f23052e9049cc1d56c98c0c10869ba45"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3c8b6065d78d525706b0e7a36368a2d5f74f1af434f54c71108b9db816386381"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c5cdcd6f5140d8926857ecf93b1a38968f58ebb74692cc3a2beb894da554b893"
+    sha256 cellar: :any_skip_relocation, ventura:        "52e99d52ff2ec57564b9534143c966692a156c8beb3efcd031e2f0342e1b9f98"
+    sha256 cellar: :any_skip_relocation, monterey:       "79dcb84093d07d2937e0667f0b089926299ad35d7453b23d27f9285db36f5b82"
+    sha256 cellar: :any_skip_relocation, big_sur:        "278eb08f2ea14fcf9f57ad5b75508bdfc01ab14729c4db34cb1cadd46044b1a1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a65fd8f49f47fb279ffdb460db56a91ab9efa533bcf17e4a8edeae280cff3d25"
   end
 
   depends_on "go" => :build

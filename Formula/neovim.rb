@@ -5,8 +5,8 @@ class Neovim < Formula
   head "https://github.com/neovim/neovim.git", branch: "master"
 
   stable do
-    url "https://github.com/neovim/neovim/archive/v0.8.1.tar.gz"
-    sha256 "b4484e130aa962457189f3dee34b8481943c1e395d2d684c6f8b91598494d9ec"
+    url "https://github.com/neovim/neovim/archive/v0.8.3.tar.gz"
+    sha256 "adf45ff160e1d89f519b6114732eba03485ae469beb27919b0f7a4f6b44233c1"
 
     # TODO: Consider shipping these as separate formulae instead. See discussion at
     #       https://github.com/orgs/Homebrew/discussions/3611
@@ -26,8 +26,8 @@ class Neovim < Formula
     end
 
     resource "tree-sitter-help" do
-      url "https://github.com/neovim/tree-sitter-vimdoc/archive/v1.1.0.tar.gz"
-      sha256 "4c0ef80c6dc09acab362478950ec6be58a4ab1cbf2d95754b8fbb566e4c647a1"
+      url "https://github.com/neovim/tree-sitter-vimdoc/archive/v1.3.0.tar.gz"
+      sha256 "f33f6d49c7d71feb2fd68ef2b2684da150f9f8e486ad9726213631d673942331"
     end
   end
 
@@ -37,14 +37,13 @@ class Neovim < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "4c82c70e9edfc82ba030806a4c2184a6d836fa6d88045252fa3fbc299aaa3184"
-    sha256 arm64_monterey: "ecd36021ba3421157c3a89fb03debf2fa89db38f5cc2f204183ae6230e638817"
-    sha256 arm64_big_sur:  "3c2e4769053b9ed9201752b4f875a687d3d483262020d22c6acb0b429fb4e1a7"
-    sha256 ventura:        "d8761d0a7f3a0ee85022bf5bfdc1b02cb9c9129548d3e9d6e54de785b1b37148"
-    sha256 monterey:       "82cec22a2ed30ef8297bc27516a74b006dde3eab1076618d5489beba9a78bd53"
-    sha256 big_sur:        "da00d8207ee0d8180b8ba7ac8fe2125284e4ee15c8a93e15fa7337bbbca5664c"
-    sha256 catalina:       "c497ba9b034064836dd67ce3605d66288845e2b7e2dad2306566302173118c40"
-    sha256 x86_64_linux:   "9ae3ad067badcd02856564a7f91b18bce61f022934e933bab78e7e3a9f447583"
+    sha256 arm64_ventura:  "c8a5997c58714fb6175d271979b1acb1d11d19e31be524550b07163391838f66"
+    sha256 arm64_monterey: "961d4a54534a2ed39f87c8b8bdac67bdbb4b6116dc5dbbc53baca91192e81634"
+    sha256 arm64_big_sur:  "464b92b856d7c7309e3003099e331a91d44063f1f65802cfa322c72b7a334cef"
+    sha256 ventura:        "a4ec5583a25b7bd9c1db17e77424150df34545dab3698bc14890eb650c315e42"
+    sha256 monterey:       "ed46e61e96fdfdb3921187fc7aa634c0edacd4712b11c284579d6dff1dd5483f"
+    sha256 big_sur:        "21a5aa079253e8d242b1afa7fcd90bbffc52436a38150c664a07ea0a339d32a9"
+    sha256 x86_64_linux:   "595efaa25e5cc775e1a6c51523e6d0aa1a20d851023d2660ffd4e21b4efd9e9c"
   end
 
   depends_on "cmake" => :build

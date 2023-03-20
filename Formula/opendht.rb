@@ -1,20 +1,18 @@
 class Opendht < Formula
   desc "C++17 Distributed Hash Table implementation"
   homepage "https://github.com/savoirfairelinux/opendht"
-  url "https://github.com/savoirfairelinux/opendht/archive/refs/tags/v2.4.10.tar.gz"
-  sha256 "8077958fb7006612b9b9758095461d8a35316b4224184f10cef785f0ec7031fe"
+  url "https://github.com/savoirfairelinux/opendht/archive/refs/tags/v2.4.12.tar.gz"
+  sha256 "5144bc4456d396b527b59065064bbc31fbe0d2af5fd052506219a66895791e64"
   license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "fef4bab7d51116fd0623ea3efd66e1c398b8d51e3e7586f5800e30334390a33e"
-    sha256 cellar: :any,                 arm64_monterey: "b89841268c4e43ec61bc3ccf04c6697cca4f7ea4c20ca2a41e1454693e4fcdd2"
-    sha256 cellar: :any,                 arm64_big_sur:  "1521af7886abc22fe7a00e4deca02180a88da2351bbbed5da02ed84ee8802d08"
-    sha256 cellar: :any,                 ventura:        "a6ffa2047d3697f100b9a34465bd9eff6671a7b72e68426b5debc306a036c42e"
-    sha256 cellar: :any,                 monterey:       "b801fa3a80c258a64c53a493f0980066fbdeeb4f8872ee71a44fe6c4c587da50"
-    sha256 cellar: :any,                 big_sur:        "d2591ae69288c30679d1abb952cd2a56432946878a6daeef430753a27bef83da"
-    sha256 cellar: :any,                 catalina:       "94df17098c2d52b3921e5ba236e22aa4f308528c441fde2c35dc1ad6baca5071"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "05f5e03c9cf7528669308ec88846fb29814277ad073de616b1812696b2dede1e"
+    sha256 cellar: :any,                 arm64_ventura:  "a47280a611b43e45ef4a152873b7145aaedb28bb3661cdf962f7e08c2052f5b2"
+    sha256 cellar: :any,                 arm64_monterey: "6cc4e29aedfd4c332dee91d2103b614965255bb0281e2d173eaa818071d98ab6"
+    sha256 cellar: :any,                 arm64_big_sur:  "d2a57dac11140dbb1460d991357628d0f2447cf18e92d527e38d888dba0c7a88"
+    sha256 cellar: :any,                 ventura:        "5444ad9cdabd6893c8a60d364a77d41447049ad6e7f9511879468ac772712b89"
+    sha256 cellar: :any,                 monterey:       "d9249fca0593b2ad533abe2e1f3f9d8bd41573511ca58c3aed876291a1ba29f9"
+    sha256 cellar: :any,                 big_sur:        "d7abf56c474403862d5c79f36130b15d58c6a3cd04ed8634949b0bad2b7c7862"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "841191babfd0c2fc4afeb53f28aeb79d43a1ad92a6658329691bb32b49ffd44b"
   end
 
   depends_on "cmake" => :build

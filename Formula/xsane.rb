@@ -24,7 +24,7 @@ class Xsane < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "gtk+"
+  depends_on "gtk+" # GTK3 issue: https://gitlab.com/sane-project/frontend/xsane/-/issues/34
   depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"

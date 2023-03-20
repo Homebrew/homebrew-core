@@ -1,8 +1,8 @@
 class Ooniprobe < Formula
   desc "Network interference detection tool"
   homepage "https://ooni.org/"
-  url "https://github.com/ooni/probe-cli/archive/v3.16.7.tar.gz"
-  sha256 "a019fd9e6f35a3dd4520b7d63d109e236b27121b835d901d6a7fbe12d608b070"
+  url "https://github.com/ooni/probe-cli/archive/v3.17.1.tar.gz"
+  sha256 "f8d89803c34f8f8112ed8aee2b462058fa20782e5b927f619cbf09805ec6f56d"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,20 +11,22 @@ class Ooniprobe < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "02d9e088beb99f91c8a0e2c38272bb82d648b63af467c745104229ac9e483d21"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "22ef037a15f6a841f1f70eeca34a810b55a49ded1554c6966948cd6cc6db8b55"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8066a81a3c627d576f440d2964e2cebf565daa3a0cde04078ae58572ceef5b26"
-    sha256 cellar: :any_skip_relocation, ventura:        "0cb6d743a1af9fced7be384db34f0d52c8c85dec54da4f7372f19363bdb70554"
-    sha256 cellar: :any_skip_relocation, monterey:       "46e38c6c115c1b200601ecbb6b65a8d22914eda2e9f6308f3a10892b342bac39"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0f251667b9758bdcb4497c4611d39c99e5abc90d163f132ef7e314d72e492b32"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f2070c9d8c9454ab033107f7a54776d97ff7bc63695312081a777ec11b4794eb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d9b84a55e43d123c793ae150cb1cbe9c469af78547489c6b16792999778ec081"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0d50dd20e462d685bb8393920107627d6081e8e1c7075291983fc317792037eb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d0547b7df9e3ad444c6e2176f6b42b1bbe899e1bbcfd52eea8ca2c27d4b75afe"
+    sha256 cellar: :any_skip_relocation, ventura:        "e56a9eeeb6a6ba3755170172fc576a806eaa21cda9428521ef5a1cc47a3e03a2"
+    sha256 cellar: :any_skip_relocation, monterey:       "3d2aeb22f38db37d04982122baceadf2d50a91dc02a1893b18c54c3dcb7f594f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a3440be6d6ceb12dd450b0b32b51a80d031a930b5042c5b4a5f54a1654af1857"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e73b2552f6a37d33303766b095e9980c7c0d69b7200cbac70a214ae432c53457"
   end
 
-  depends_on "go" => :build
+  # Upstream does not support go 1.20 yet and recommends using a specific Go version:
+  # https://github.com/ooni/probe-cli#build-instructions
+  depends_on "go@1.19" => :build
   depends_on "tor"
 
   def install
-    system "go", "build", *std_go_args, "-ldflags", "-s -w", "./cmd/ooniprobe"
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/ooniprobe"
     (var/"ooniprobe").mkpath
   end
 

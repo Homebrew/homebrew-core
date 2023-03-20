@@ -7,7 +7,14 @@ class Nap < Formula
   head "https://github.com/maaslalani/nap.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "aa1b0f4cfc407cb72526136b5f94197e3aca5150b790c7d35ea8034792e2597d"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5e5ac9b5da7d19b91650509c620c45620a57230df2d487f6c43cdc2e6dcabe9d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5e5ac9b5da7d19b91650509c620c45620a57230df2d487f6c43cdc2e6dcabe9d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f0ed819808bb795ecfce79d5415ea928d48b3f4cd9d716ef26e0e48a4f88067b"
+    sha256 cellar: :any_skip_relocation, ventura:        "13824542ffb0caad2b26b347bb375fde1beedd26c8b3af84145917cb92dabe22"
+    sha256 cellar: :any_skip_relocation, monterey:       "13824542ffb0caad2b26b347bb375fde1beedd26c8b3af84145917cb92dabe22"
+    sha256 cellar: :any_skip_relocation, big_sur:        "13824542ffb0caad2b26b347bb375fde1beedd26c8b3af84145917cb92dabe22"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b9a201267139b6f4d72d65a5651b981efba2fd74d0583221b87071ec34ad1051"
   end
 
   depends_on "go" => :build

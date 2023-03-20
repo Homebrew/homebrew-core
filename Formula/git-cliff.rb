@@ -1,23 +1,24 @@
 class GitCliff < Formula
   desc "Highly customizable changelog generator"
   homepage "https://github.com/orhun/git-cliff"
-  url "https://github.com/orhun/git-cliff/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "57321d1b1787f601b76347bcc981fbaf7d6a923a6fc1191a5360b6d72079186d"
+  url "https://github.com/orhun/git-cliff/archive/refs/tags/v1.1.2.tar.gz"
+  sha256 "26f05e4cfea07768d06ae92cd4b34bae786ed354089d9b5b1659d6408bf583c6"
   license "GPL-3.0-only"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c1741f6e597cc8405caac261c7c4bd46ddb50ba628e34c8afcba9ee26af9a741"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "26de2d156fffc3e1b411533be30f5eb89974260f0874d169de91cc4c81943516"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1cff3a8df9fc05dc9fe6aedde72d456e5a7f39477287c9bbc755b58f116061d2"
-    sha256 cellar: :any_skip_relocation, ventura:        "e33adc758d105fe69e0812846cee86f53d61f7e657da3cacaeea1dbd29d1916a"
-    sha256 cellar: :any_skip_relocation, monterey:       "b4606b9c79cd304635d4105e151efd454d54811fa039ffb2c7f3a619818188fa"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5475d8065a4a34b2074d5f4f05b1616153680225e85fc271a0374578a20c70d9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d8f5da6008832f634cce1381b8773d2b7ce8122c0e61b4dfee80e48d04dee319"
+    sha256 cellar: :any,                 arm64_ventura:  "e5dcb55037110786129976cfa7406f37719eceba17df62988f90c1a4470f6b9d"
+    sha256 cellar: :any,                 arm64_monterey: "cb25e8d7b22715512441c6d99f42df5f97267ebdf2bdc70918198a3ab5f69c92"
+    sha256 cellar: :any,                 arm64_big_sur:  "4ea6f3785a42118e97a008b0d897c8669032aeb7072d78ebb8e63b4445e2223f"
+    sha256 cellar: :any,                 ventura:        "7c64d7d0219b6eefa4e7914de112a4665121b18f99d923bd563b80328fa8156e"
+    sha256 cellar: :any,                 monterey:       "96bf1ea1fbcd777745f37350e308231b0447da4d40009ff317689d6d8fab8a22"
+    sha256 cellar: :any,                 big_sur:        "6f0c044733ad84e49634c0306f813703f76e26f6c0f9bdc1af909bf403395750"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cae134bba4b70583342c6ebe59a19da904cfb35c7fbe2ee4d558c227bde45af7"
   end
 
+  depends_on "pkg-config" => :build
   depends_on "rust" => :build
-
-  uses_from_macos "zlib"
+  depends_on "libgit2@1.5"
 
   def install
     system "cargo", "install", *std_cargo_args(path: "git-cliff")
@@ -38,5 +39,13 @@ class GitCliff < Formula
     system "git", "commit", "-m", "chore: initial commit"
     changelog = "### Miscellaneous Tasks\n\n- Initial commit"
     assert_match changelog, shell_output("git cliff")
+
+    linkage_with_libgit2 = (bin/"git-cliff").dynamically_linked_libraries.any? do |dll|
+      next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
+
+      File.realpath(dll) == (Formula["libgit2@1.5"].opt_lib/shared_library("libgit2")).realpath.to_s
+    end
+
+    assert linkage_with_libgit2, "No linkage with libgit2! Cargo is likely using a vendored version."
   end
 end

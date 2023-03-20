@@ -1,19 +1,19 @@
 class Busted < Formula
   desc "Elegant Lua unit testing"
   homepage "https://lunarmodules.github.io/busted/"
-  url "https://github.com/lunarmodules/busted/archive/refs/tags/v2.1.1.tar.gz"
-  sha256 "5b75200fd6e1933a2233b94b4b0b56a2884bf547d526cceb24741738c0443b47"
+  url "https://github.com/lunarmodules/busted/archive/refs/tags/v2.1.2.tar.gz"
+  sha256 "445519fa663dbdd21e8a6ecf1609f397d0e2168440e59ee29198ee687321e9a3"
   license "MIT"
   head "https://github.com/lunarmodules/busted.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7a1a7e69313f1ffbcea6f2a14c3ded1a28e7211ed5e1b0d368e30dade4d43d07"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ae0a45974b644832a62c5328c2ea0a15dc3ab38ff975f7adaee4db85051984dd"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b0856fdcc1fdd7997a28f1d70a70fe0a5909b9ac42470ca39bab8c038d5540f8"
-    sha256 cellar: :any_skip_relocation, ventura:        "70d5e8bd2997df38cb674f5d7466706a536007ce00e7ed85809f982d2e8fb03f"
-    sha256 cellar: :any_skip_relocation, monterey:       "9b5b41875dec98d94762d3319857ee989a567ee1dba8018caff2052c03605cb5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ae6f94da27bc893f5e59c7e194a34ff9884d70d798640f4f55fc5d810c779a64"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "436a10b61213c94b2b3b2148dbc7c17eb9f59954b2694ceeb0eb086543b2befb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c786f9112dbb02465796371299f4bca901abd098cb53e09a9ec32b49ba413449"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1206262092a4f062485f69c3f6089ca83860d690c3ad0106c5fb66dcee5fe3fd"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1add1b2ed97a73461df8dab0e780fc330353ae79c418f08a2679d881911dc0ca"
+    sha256 cellar: :any_skip_relocation, ventura:        "f0e7507ca4eea417efb556d1c9f41f3032ca2b64fcf7d7e85fe984b7d453a3f5"
+    sha256 cellar: :any_skip_relocation, monterey:       "e2a1c8e26fa76b9de341e1494ee290dba46f8a060a3c7a3d83b4823b2d755abc"
+    sha256 cellar: :any_skip_relocation, big_sur:        "fef0e53feb7b809d09cda5fae2b28cbb4e0b61533682a1310e1a2218d3a7d46b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2a6c1c7983b53105524d459212b180473c16f2787870ef38ef27e6e9d9815bdd"
   end
 
   depends_on "luarocks" => :build

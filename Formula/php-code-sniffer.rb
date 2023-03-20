@@ -1,19 +1,19 @@
 class PhpCodeSniffer < Formula
   desc "Check coding standards in PHP, JavaScript and CSS"
   homepage "https://github.com/squizlabs/PHP_CodeSniffer/"
-  url "https://github.com/squizlabs/PHP_CodeSniffer/releases/download/3.7.1/phpcs.phar"
-  sha256 "7a14323a14af9f58302d15442492ee1076a8cd72c018a816cb44965bf3a9b015"
+  url "https://github.com/squizlabs/PHP_CodeSniffer/releases/download/3.7.2/phpcs.phar"
+  sha256 "204214c1ea5ba814fb0b2608c19cca2c10bf5ffcc9f0e3d4c34aadc0179517b7"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "fcebbac688aa5e5261afd396d0f213ebbbaf0447a517bee9a5b2a0a745f92a1c"
+    sha256 cellar: :any_skip_relocation, all: "0e0811580ac110c427bc8eac1ee778b87c9db88958fa6c31ae2944e89d54a8ab"
   end
 
   depends_on "php"
 
   resource "phpcbf.phar" do
-    url "https://github.com/squizlabs/PHP_CodeSniffer/releases/download/3.7.1/phpcbf.phar"
-    sha256 "c93c0e83cbda21c21f849ccf0f4b42979d20004a5a6172ed0ea270eca7ae6fa8"
+    url "https://github.com/squizlabs/PHP_CodeSniffer/releases/download/3.7.2/phpcbf.phar"
+    sha256 "4eca732a997df08a4c97e43266eb8122f916d39bb002a000600fdd5393f4efe1"
   end
 
   def install

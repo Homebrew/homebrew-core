@@ -31,26 +31,18 @@ class Global < Formula
 
   depends_on "libtool"
   depends_on "ncurses"
+  depends_on "pygments"
   depends_on "python@3.11"
   depends_on "sqlite"
   depends_on "universal-ctags"
 
   skip_clean "lib/gtags"
 
-  resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/e0/ef/5905cd3642f2337d44143529c941cc3a02e5af16f0f65f81cbef7af452bb/Pygments-2.13.0.tar.gz"
-    sha256 "56a8508ae95f98e2b9bdf93a6be5ae3f7d8af858b43e02c5a2ff083726be40c1"
-  end
-
   def install
     system "sh", "reconf.sh" if build.head?
 
     python3 = "python3.11"
     ENV.prepend_create_path "PYTHONPATH", libexec/Language::Python.site_packages(python3)
-
-    resource("Pygments").stage do
-      system python3, *Language::Python.setup_install_args(libexec, python3)
-    end
 
     args = %W[
       --disable-dependency-tracking

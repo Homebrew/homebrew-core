@@ -1,18 +1,26 @@
 class Libcpuid < Formula
   desc "Small C library for x86 CPU detection and feature extraction"
   homepage "https://github.com/anrieff/libcpuid"
-  url "https://github.com/anrieff/libcpuid/archive/v0.5.1.tar.gz"
-  sha256 "36d62842ef43c749c0ba82237b10ede05b298d79a0e39ef5fd1115ba1ff8e126"
   license "BSD-2-Clause"
   head "https://github.com/anrieff/libcpuid.git", branch: "master"
 
+  stable do
+    url "https://github.com/anrieff/libcpuid/archive/v0.6.2.tar.gz"
+    sha256 "3e7f2fc243a6a68d6c909b701cfa0db6422ec33fccf91ea5ab7beda3eb798672"
+
+    # Fix build for macOS
+    # Remove in the next release
+    patch do
+      url "https://github.com/anrieff/libcpuid/commit/3b0a1f7e5b10efb978cea4c5cb5b727ba1ef3655.patch?full_index=1"
+      sha256 "d4dcc843e78fe5872aba483b0fb5adb0b8e702f6343a383db566dae81eec0d9d"
+    end
+  end
+
   bottle do
-    sha256 cellar: :any,                 ventura:      "fb0400133080f37bb561abba69f50809a468ac2e327bca02281de8d4c553f30e"
-    sha256 cellar: :any,                 monterey:     "10ee187d9e292dac42be9924bf2b5ea2f495267335e5e5a56a35779d28ff3036"
-    sha256 cellar: :any,                 big_sur:      "f7252b191ada11eee6bb25649cba4fda28be44c91ebcfd936e3508d3573bf4f1"
-    sha256 cellar: :any,                 catalina:     "e954e21a3bb2ab10c1eb831af1626ccf9cbbe69e123a4da6d69975d59cfca867"
-    sha256 cellar: :any,                 mojave:       "9cb4e35df56ce25adcfc4c0a03f1a377aac54ec7e217bc9bb583df41eebcc8c2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "20afc15713aa6f9097f50da5ea44d06beda67451c70c52639d9bb973c0f5d26f"
+    sha256 cellar: :any,                 ventura:      "b197362eee621d3118a68c1a5bd461beba3517c47fe014e1a94667e184f69557"
+    sha256 cellar: :any,                 monterey:     "a0f4c5f49d9d96a02878b347591a648970f5b62c7913a14db6053cbc2ced9cf1"
+    sha256 cellar: :any,                 big_sur:      "8ca0c97e736fb44cbb04e78fc8b952ee3d6fcad4bd4439aaad58ec0c1c3506ef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "563a8283a606ee0f6c7e8cc48a1da9c8c444393055a68ce596b2c2b1dc1cc0f7"
   end
 
   depends_on "autoconf" => :build

@@ -1,18 +1,18 @@
 class Libdeflate < Formula
   desc "Heavily optimized DEFLATE/zlib/gzip compression and decompression"
   homepage "https://github.com/ebiggers/libdeflate"
-  url "https://github.com/ebiggers/libdeflate/archive/v1.15.tar.gz"
-  sha256 "58b95040df7383dc0413defb700d9893c194732474283cc4c8f144b00a68154b"
+  url "https://github.com/ebiggers/libdeflate/archive/v1.17.tar.gz"
+  sha256 "fa4615af671513fa2a53dc2e7a89ff502792e2bdfc046869ef35160fcc373763"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "7dc0140e44b0136c450b54c3a8b13db56431a6b17243de7ad37e381524c46035"
-    sha256 cellar: :any,                 arm64_monterey: "0f84e1bf6e816ed42aaa21d31f3b288d862c93149eb1b555d70861dd3c1bfc8f"
-    sha256 cellar: :any,                 arm64_big_sur:  "0b770077d5233cf5d497cc4db13544fc50592d1d6e92b318a42a905a21790c52"
-    sha256 cellar: :any,                 ventura:        "7a069b2b4c05461e13e4c57789341f0460ce7cf588944bd851fb146d75e0eeec"
-    sha256 cellar: :any,                 monterey:       "c2d5e46d1af9656d226c143efec29865b124575f272faae1351d7b871d518262"
-    sha256 cellar: :any,                 big_sur:        "45f61f7a6c1c95e2dba2d318d10b0f6bc69ce8bf6b938f3e08078a681567379d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4c03412f5482e1353b30224ef9b135e00fc7578c3e88f4bea55c50cffceb53b0"
+    sha256 cellar: :any,                 arm64_ventura:  "fbdd26e8167677d0ee5ee7f18cc94a98872044715f077b1d8e9bd9216cd37f5d"
+    sha256 cellar: :any,                 arm64_monterey: "5116d8574dbe9f484c777033dafa9eb13232affd31398419f4ca2ac431b395c3"
+    sha256 cellar: :any,                 arm64_big_sur:  "3a3a2550934d65a7cafdbd6271480418797d6d5814d98941a4ef64d299b37bba"
+    sha256 cellar: :any,                 ventura:        "7229977b7c53d87560d1083e62add965f7fa0d9cec3b9e910529a95ef3b63a55"
+    sha256 cellar: :any,                 monterey:       "e675068af0ccfc0e3a406e7cfacfeb38d8b6f263cd0cae6846d1057a3d3c5bb6"
+    sha256 cellar: :any,                 big_sur:        "0a5189b08de91223c396a8a5917402bf071f11337f00cb90b0f220dc66dffc9e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7296fdcdfd35bf16b31f76d703746c0d6c67c9597cd29278ddbae18548614b38"
   end
 
   depends_on "cmake" => :build

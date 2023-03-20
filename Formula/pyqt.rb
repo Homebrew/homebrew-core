@@ -1,18 +1,18 @@
 class Pyqt < Formula
   desc "Python bindings for v6 of Qt"
   homepage "https://www.riverbankcomputing.com/software/pyqt/intro"
-  url "https://files.pythonhosted.org/packages/b2/c9/266b12a9826452e387f0ff4f0b4bbd29e11d2de81a5f60c0975933b34e7f/PyQt6-6.4.0.tar.gz"
-  sha256 "91392469be1f491905fa9e78fa4e4059a89ab616ddf2ecfd525bc1d65c26bb93"
+  url "https://files.pythonhosted.org/packages/c3/e0/e1b592a6253712721612e2e64a323930a724e1f5cf297ed5ec6d6c86dda1/PyQt6-6.4.2.tar.gz"
+  sha256 "740244f608fe15ee1d89695c43f31a14caeca41c4f02ac36c86dfba4a5d5813d"
   license "GPL-3.0-only"
-  revision 2
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "fd1773dedf980b58840d1d66fbe867b63c06bc7f61e00795305db6adf82cade1"
-    sha256 cellar: :any, arm64_monterey: "1efb502bba7dbec1a2f6c86e167714a9a2be18589af7cf9e9573492f833c3fe4"
-    sha256 cellar: :any, arm64_big_sur:  "973c1a7c7a224090192f9e4cf5e1d12c3df8685db3b22ea1262832f74ff8ea42"
-    sha256 cellar: :any, ventura:        "652ebd076fdb74aeff95d9986c74cb78fb658b3d1ee0780324f8d15a172670db"
-    sha256 cellar: :any, monterey:       "2b0eb83e40040268b47be2cc5116ce5be783dcbab9eb74f08c78c17370bfe312"
-    sha256 cellar: :any, big_sur:        "bc26595d591a92dfc503c9e90f488f8b16a3514292400541cae1cce775762c57"
+    sha256 cellar: :any,                 arm64_ventura:  "8a379bba6ad786d78ec55a868b410eb38022ed1674c2df50cde937f34623e705"
+    sha256 cellar: :any,                 arm64_monterey: "0da5528f8ea30bd0850e9f8800d6a137edcb465dfae11820c53ea3c8a9fc0500"
+    sha256 cellar: :any,                 arm64_big_sur:  "28ce8c847006c6f7e70a7790a72a6d0b44af08f3687225b84a2ec1a9a0588310"
+    sha256 cellar: :any,                 ventura:        "29178ac8f60b7ff5acbf3ee0808817a5c7a7caa8b57d15c82e50f5100f76c7a4"
+    sha256 cellar: :any,                 monterey:       "7dc408d797261fe6a3a16ae46b664579a28e038e0994a80dfa2b99670dbc8213"
+    sha256 cellar: :any,                 big_sur:        "29304df6f202d700cfb4178e9b5cf320ebefe99363b05556ca68a06cecde250f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "30e7399c81154bf9fa334f3efadb10ca7aba75ba46e4d420e67accbc197fd5e9"
   end
 
   depends_on "pyqt-builder" => :build
@@ -45,8 +45,8 @@ class Pyqt < Formula
   end
 
   resource "PyQt6-sip" do
-    url "https://files.pythonhosted.org/packages/39/fc/f889254efda90418e367df28da9d14ac64ca19a9d93f44355d21ac562b0f/PyQt6_sip-13.4.0.tar.gz"
-    sha256 "6d87a3ee5872d7511b76957d68a32109352caf3b7a42a01d9ee20032b350d979"
+    url "https://files.pythonhosted.org/packages/1e/24/99d1f9938afd58cf2d6120454cb36214bd76e18443b130b80b09fb368579/PyQt6_sip-13.4.1.tar.gz"
+    sha256 "e00e287ea05bbc293fc6e2198301962af9b7b622bd2daf4288f925a88ae35dc9"
   end
 
   resource "PyQt6-WebEngine" do

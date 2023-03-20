@@ -1,20 +1,25 @@
 class Questdb < Formula
   desc "Time Series Database"
   homepage "https://questdb.io"
-  url "https://github.com/questdb/questdb/releases/download/6.6.1/questdb-6.6.1-no-jre-bin.tar.gz"
-  sha256 "1dbe6af2dbf7465044542380cab2ce9273c5dfc4b62b50342b237b5cd891a68d"
+  url "https://github.com/questdb/questdb/releases/download/7.0.1/questdb-7.0.1-no-jre-bin.tar.gz"
+  sha256 "90a20542d6fe48dc8b6eada80d375e951d8a47c1c0b4f774759157eafdf64616"
   license "Apache-2.0"
 
-  bottle do
-    sha256 cellar: :any_skip_relocation, all: "f0e6d5980d5b234edfa721fb637de22ad7d3e4a6cd67cb564bbbc21fab06d60d"
+  livecheck do
+    url :stable
+    strategy :github_latest
   end
 
-  depends_on "openjdk@11"
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "53525fcb845f0845774edaae17e219b99be9b71377f07d1efbb323e28bbda98b"
+  end
+
+  depends_on "openjdk@17"
 
   def install
     rm_rf "questdb.exe"
     libexec.install Dir["*"]
-    (bin/"questdb").write_env_script libexec/"questdb.sh", Language::Java.overridable_java_home_env("11")
+    (bin/"questdb").write_env_script libexec/"questdb.sh", Language::Java.overridable_java_home_env("17")
     inreplace libexec/"questdb.sh", "/usr/local/var/questdb", var/"questdb"
   end
 

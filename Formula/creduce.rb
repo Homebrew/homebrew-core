@@ -3,18 +3,29 @@ class Creduce < Formula
   homepage "https://embed.cs.utah.edu/creduce/"
   license "BSD-3-Clause"
   revision 3
+  head "https://github.com/csmith-project/creduce.git", branch: "master"
 
   # Remove when `head` and `stable` use the same LLVM version.
   stable do
     url "https://embed.cs.utah.edu/creduce/creduce-2.10.0.tar.gz"
     sha256 "db1c0f123967f24d620b040cebd53001bf3dcf03e400f78556a2ff2e11fea063"
-    depends_on "llvm@9"
 
     # Use shared libraries.
     # Remove with the next release.
     patch do
       url "https://github.com/csmith-project/creduce/commit/e9bb8686c5ef83a961f63744671c5e70066cba4e.patch?full_index=1"
       sha256 "d5878a2c8fb6ebc5a43ad25943a513ff5226e42b842bb84f466cdd07d7bd626a"
+    end
+
+    # Port to LLVM 15.0.
+    # Remove with the next release.
+    patch do
+      url "https://github.com/csmith-project/creduce/commit/e507cca4ccb32585c5692d49b8d907c1051c826c.patch?full_index=1"
+      sha256 "71d772bf7d48a46019a07e38c04559c0d517bf06a07a26d8e8101273e1fabd8f"
+    end
+    patch do
+      url "https://github.com/csmith-project/creduce/commit/8d56bee3e1d2577fc8afd2ecc03b1323d6873404.patch?full_index=1"
+      sha256 "d846e2a04c211f2da9a87194181e3644324c933ec48a7327a940e4f4b692cbae"
     end
   end
 
@@ -24,18 +35,18 @@ class Creduce < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 monterey:     "069e9750872df6697d94b6bf720f40e90a6c0597d1ee93e92d859a2001efbb1b"
-    sha256 cellar: :any,                 big_sur:      "912f5a829739eb3eea26aea9d13de6473a5bbf534d5ab144839e1e8793b890a1"
-    sha256 cellar: :any,                 catalina:     "ce269469c92326c638d08ea7e5a1902c7643ebcbe277591945b9ded29373d081"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "05609defa2c67b6cc907d1c30f7f4080e03211ce918fa5d6b79c256b608805a8"
-  end
-
-  head do
-    url "https://github.com/csmith-project/creduce.git", branch: "master"
-    depends_on "llvm"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "e9220442570350391b2c0a6202547f1820c6c615770a902e6cd88fa5f0bdb37a"
+    sha256 cellar: :any,                 arm64_monterey: "d0f268739e28f7dd6b50f219e4c73b1c27c7be976ad37ceb2ac8480b8f38d78a"
+    sha256 cellar: :any,                 arm64_big_sur:  "be38688b49f4a4096c0a744cbe2e3db25c6245cb486dcb948b416539e4671d2a"
+    sha256 cellar: :any,                 ventura:        "28083b155caab3dcf9026f0c43596bb19e21a65ed3684bae084242b7521d1722"
+    sha256 cellar: :any,                 monterey:       "e3a479908579cf16b66452afa73dc58643ca66a6ffd4da3b351be9a737ac5c06"
+    sha256 cellar: :any,                 big_sur:        "d0dab5af485ec048a0c0d3c493a46350ab44cf5ed77010e44230a6010ffd777b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "105c73115fa41e44e34883582436b79882ab4f8f74b504a4ad1ebcf4826c1006"
   end
 
   depends_on "astyle"
+  depends_on "llvm"
 
   uses_from_macos "perl"
 
@@ -90,8 +101,8 @@ class Creduce < Formula
       ENV["CXX"] = llvm.opt_bin/"clang++"
     end
 
-    system "./configure", "--prefix=#{prefix}",
-                          "--disable-dependency-tracking",
+    system "./configure", *std_configure_args,
+                          "--disable-silent-rules",
                           "--bindir=#{libexec}"
     system "make"
     system "make", "install"

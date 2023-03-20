@@ -25,7 +25,7 @@ class Libsodium < Formula
   end
 
   head do
-    url "https://github.com/jedisct1/libsodium.git"
+    url "https://github.com/jedisct1/libsodium.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

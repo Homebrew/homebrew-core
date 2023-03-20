@@ -1,24 +1,22 @@
 class Highs < Formula
   desc "Linear optimization software"
   homepage "https://www.maths.ed.ac.uk/hall/HiGHS/"
-  url "https://github.com/ERGO-Code/HiGHS/archive/refs/tags/v1.4.1.tar.gz"
-  sha256 "9890e02ff2d1607ed4d0708a0f2e3a2dc64da1f4301bb85cf1f2c924aa1fee7b"
+  url "https://github.com/ERGO-Code/HiGHS/archive/refs/tags/v1.5.1.tar.gz"
+  sha256 "4b9441cb991e372b2d4fa4a85e89db199befa1b0017a3275b45ad5ef734efaca"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "99d84f9503723aa94d494bfd5822fb47682c0d2a5f367ad6f62620eee2929696"
-    sha256 cellar: :any,                 arm64_monterey: "4f40fcd5160c5eff1467f73c7472ef045973530e31a0adb3b486fb1cdfc8db9d"
-    sha256 cellar: :any,                 arm64_big_sur:  "cdc09f5a1b582099b30d76980d0526579546ea8d626c264dee8dfc15049f1f2d"
-    sha256 cellar: :any,                 ventura:        "93f06ef7febdb7d40eca38d4986c1820b7899e56ebb1825fca79f7540244ad30"
-    sha256 cellar: :any,                 monterey:       "84cb0d8c138cecdf025bb6d6ed38322e9232dc3a1aefd26c9e967ce2b3208a9c"
-    sha256 cellar: :any,                 big_sur:        "a50c1abc5c0b796bc28545a3781764a064c3ed79e1a8fcebda4443ec17b2c5bf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6c6b47c9dd833f6adcb9e0db6a4b29b9a35cf42b177821f947ce1dd57ab8ac3e"
+    sha256 cellar: :any,                 arm64_ventura:  "90bb5d131f97816884aac1bc360ec9c6586ced31a0f694330313ad5f4d8a9db9"
+    sha256 cellar: :any,                 arm64_monterey: "12291ca9e3432902f7d52ac67f011d47e2b12d61097b89ea5d85b00e587a8482"
+    sha256 cellar: :any,                 arm64_big_sur:  "9ec55d6e6ca31b6bfdac3283efb928a743c5470bccffa05130822b63932f6b87"
+    sha256 cellar: :any,                 ventura:        "553d4cb17009884f166fb4bc9d330dd9a9a16f6bfb8f318f3f68ae5e8ba298f8"
+    sha256 cellar: :any,                 monterey:       "e6c4eb1a40199a371e21a8c834beec5b8f6b7f8a3886500652f13d3c737f9364"
+    sha256 cellar: :any,                 big_sur:        "11cdb98fffce84422abadeba6d00216acabc4a63377f24de7645b13a2c6aa1f0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e0b6a82164a5f77b4badec0a74eda55ee1b4d509faeda002fb7030852c7fbeb3"
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "gcc" # for gfortran
-  depends_on "osi"
 
   uses_from_macos "zlib"
 

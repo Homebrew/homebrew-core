@@ -7,14 +7,14 @@ class Emacs < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_ventura:  "d020b6a9144f8fa619c067eeb0885969d5f1a171f238950ead32c8a037681c84"
-    sha256 arm64_monterey: "109fb5a7ab9ad048b04169c10bc7af54814ea366a1b7d8d45a54692aed585a41"
-    sha256 arm64_big_sur:  "824782de415411e7bb107143d1505fc9f844ecc15ffa2157a0987e0e282a396f"
-    sha256 ventura:        "9609f3ab6395623867ab8856b42127d37d837074060060f6bed2fc2c3a349d21"
-    sha256 monterey:       "d47f7fabda9e2e2e3679608253debb6865061a28f45045c8319b65d569268096"
-    sha256 big_sur:        "2163de8aa7c2150522e7d8b025ad4ea68ad628118ae4f9602f616c6866aaec95"
-    sha256 catalina:       "387278e4f542a29ca68598ead7a9671074fd75744db3a643db1af2702aa0f835"
-    sha256 x86_64_linux:   "ad7f9af688ff25c9a7ec44cda8a287529c27e9e32ed3a1e8cd0c33d1f4a430ca"
+    rebuild 1
+    sha256 arm64_ventura:  "f4a933ab0cb1c3f28dedc0704425fd34a48710845958287614589c9a73f4649e"
+    sha256 arm64_monterey: "ba71e6b793a5292ca964d3541cfb4222b968715110df1b5566f0f907b6ad673d"
+    sha256 arm64_big_sur:  "c11c264e7a5a947c06ae724bcd7ea7314c440f1014fdee1fb69adf23df76a17d"
+    sha256 ventura:        "db8c4b591ce83a564907c7208d045563da103c64f20450bf234e7355fcc27c9c"
+    sha256 monterey:       "4ae23c3a1fa87f997f08d77b874b3ca2995655173125ac0c9b62776a76899f35"
+    sha256 big_sur:        "41e45b591cec75cee7f9c08355356d35ca92e06eae2ece10b08abc1088798d18"
+    sha256 x86_64_linux:   "8612bf10b8605184e317c8ce31a0ea7a3c4d10785b5fe074a189b3b11146deb4"
   end
 
   head do
@@ -33,7 +33,7 @@ class Emacs < Formula
   uses_from_macos "ncurses"
 
   on_linux do
-    depends_on "jpeg"
+    depends_on "jpeg-turbo"
   end
 
   def install

@@ -1,19 +1,19 @@
 class Trafficserver < Formula
   desc "HTTP/1.1 compliant caching proxy server"
   homepage "https://trafficserver.apache.org/"
-  url "https://downloads.apache.org/trafficserver/trafficserver-9.1.4.tar.bz2"
-  mirror "https://archive.apache.org/dist/trafficserver/trafficserver-9.1.4.tar.bz2"
-  sha256 "186cc796d9d783c7c9313d855785b04b8573234b237802b759939c002a64b1df"
+  url "https://downloads.apache.org/trafficserver/trafficserver-9.2.0.tar.bz2"
+  mirror "https://archive.apache.org/dist/trafficserver/trafficserver-9.2.0.tar.bz2"
+  sha256 "45cc8198e2b0a12fad41d1cdc7e59675a64e1a38c6845923924de7bcfb5f74e4"
   license "Apache-2.0"
 
   bottle do
-    sha256 arm64_ventura:  "87bea1b8122598dd3c529135221dd31c2fa9b25d8237d0f719af47ac28d50903"
-    sha256 arm64_monterey: "bec943f9ccc45cd39cbe3da176a4a8279a6ef16525457b9c29bd1428a6d74ce3"
-    sha256 arm64_big_sur:  "3f8ba6b6234a3551c270cb62d3b14c5902ff3586b5d2be2718fced1aa34061ee"
-    sha256 ventura:        "3386ec7a4a5dbc28974c26378e9520caca6e38ca1957f8946370de83a8f3e926"
-    sha256 monterey:       "8f3ce83f3cea5b614e058f5ec01474d01e5db115a22441de27c690b0039f0a85"
-    sha256 big_sur:        "be85e056a66aff3010a2724a7401dc26f811ba63da7ca451c90db3505911de65"
-    sha256 x86_64_linux:   "75b329a3e0ede556c5a378fb8de7d8531904a9b9fe1fe59cfcf84450c8265ffb"
+    sha256 arm64_ventura:  "618c899fe9753c75ba338a0ac3ac39b58367eb78ae83c916ac585dffe76944cb"
+    sha256 arm64_monterey: "87288afff7329c6630a092d0e5322367cf3f5cc53e4e4fd17ed440f3ab4ce97a"
+    sha256 arm64_big_sur:  "0af95c168e7d5af31d8179f690863d408139c2f0fb983322137d069e35bdacf8"
+    sha256 ventura:        "21b8b4aa2f4c96f76e38853c4afde0f3aa294791d6eb17da9c0bb22c1edb840e"
+    sha256 monterey:       "898575eb75584f9c884c7580bc00344bf7a49ddb295cdc98e72761c117d6de38"
+    sha256 big_sur:        "f8d42c92a06c7b472c10f34a047dc417079539d9cf6c1581cf4ae0f4919222af"
+    sha256 x86_64_linux:   "eb16bfdc1c6ec0ff60d434aa86ab639ac02e40110c3fe35dfa8751d46d990974"
   end
 
   head do
@@ -27,7 +27,7 @@ class Trafficserver < Formula
   depends_on "pkg-config" => :build
   depends_on "hwloc"
   depends_on macos: :mojave # `error: call to unavailable member function 'value': introduced in macOS 10.14`
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pcre"
   depends_on "yaml-cpp"
 
@@ -56,7 +56,7 @@ class Trafficserver < Formula
       --mandir=#{man}
       --localstatedir=#{var}
       --sysconfdir=#{pkgetc}
-      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
+      --with-openssl=#{Formula["openssl@3"].opt_prefix}
       --with-yaml-cpp=#{Formula["yaml-cpp"].opt_prefix}
       --with-group=admin
       --disable-tests

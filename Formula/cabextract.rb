@@ -1,9 +1,9 @@
 class Cabextract < Formula
   desc "Extract files from Microsoft cabinet files"
   homepage "https://www.cabextract.org.uk/"
-  url "https://www.cabextract.org.uk/cabextract-1.9.1.tar.gz"
-  sha256 "afc253673c8ef316b4d5c29cc4aa8445844bee14afffbe092ee9469405851ca7"
-  license "GPL-3.0"
+  url "https://www.cabextract.org.uk/cabextract-1.11.tar.gz"
+  sha256 "b5546db1155e4c718ff3d4b278573604f30dd64c3c5bfd4657cd089b823a3ac6"
+  license "GPL-3.0-or-later"
 
   livecheck do
     url :homepage
@@ -11,17 +11,13 @@ class Cabextract < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3335c1095656e7e828c82ecc33e982c6a185557bb93f4023faa91ad2c16ce0aa"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7b76f71d383733860f6d81d72a38f3d0fb07c28d6fb72d7261b19c5973482853"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f421b4d93548f37080a4041a1ae83cffa6e0407489913ea09525e3e3f482d39e"
-    sha256 cellar: :any_skip_relocation, ventura:        "e486c6c9f917706387ad6acbdd33b9c9587ea0ed7d6cbb4e40f37bf89bb44c2c"
-    sha256 cellar: :any_skip_relocation, monterey:       "293895188547de1614324e2830e80f7605ee63b0c8019961e413a8c11c4e2fb7"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1ddac23f5e64926d1f2cd400e6fa0739db93dc0517712965b2b0ca1b3e74eabd"
-    sha256 cellar: :any_skip_relocation, catalina:       "d60179c028ac5fb69580f2f01cd9f59c1d1544c8f6d84a230a7dd3587f3c27e0"
-    sha256 cellar: :any_skip_relocation, mojave:         "cd27b939a0191d4dfff8ae13300b260b5ae01c563a21613718160012a982d5e8"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "c77caa7c32b4320f9e887abeea99261345e83f03e2c321ec9e99ddd9c75f5d98"
-    sha256 cellar: :any_skip_relocation, sierra:         "c531546af69afda3101f07b509eb143cdaef00f4fdcbdd420e60287508a87e5e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4a5504109fb1efe70b9d92f53cb617486f9036597ca77c606ff71d9e4b373f4b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8e4cd53d32db9ea97656f399dd9033eaa5ef5c8cc3226de8de09865e6c610435"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "371a13fefca5fbd78edd570020e5f0eaf82536c55e54a8efd01fe7570103cd01"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3d71ed3ba74cc371c392104c0f9c8f2fdc8e504e046140f5c1c74e95680fd6db"
+    sha256 cellar: :any_skip_relocation, ventura:        "2e30506702df76799a4c685f6004e58cbf06b27a1bbb25fb401f802aa95bd80b"
+    sha256 cellar: :any_skip_relocation, monterey:       "add98c9cb4c6d920c8acb6378ad9bec3bf1f95f531a522c07e4cfc6bf00c687f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "af25a0c0dadcae5b550953a5c2857533c65013ff65daaa67555d6bf0b204249c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5631eaa72da365accb3b576606fcfcc619879e83bfdd97c74233c073f6f42374"
   end
 
   def install

@@ -2,8 +2,8 @@ class Ipfs < Formula
   desc "Peer-to-peer hypermedia protocol"
   homepage "https://ipfs.tech/"
   url "https://github.com/ipfs/kubo.git",
-      tag:      "v0.17.0",
-      revision: "4485d6b71789766d36f0bdcc6d4514053f467887"
+      tag:      "v0.18.1",
+      revision: "675f8bddc18baf473f728af5ea8701cb79f97854"
   license all_of: [
     "MIT",
     any_of: ["MIT", "Apache-2.0"],
@@ -16,17 +16,20 @@ class Ipfs < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "515c219fee5f14f9361f39445e621817850280bd2b7bbf632db2584dfc4d2806"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "870140073dbb06eb5fa7acc801e53ea7369625cd49bef153c51cbf3e83834e14"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "135b436490698fe193b5b5c0827364ae8c2bb99d3c00f34b2a1a92af2dcc5e6f"
-    sha256 cellar: :any_skip_relocation, ventura:        "954b565bfd51172f4a72ffeda5bc1dbe6b7cb6124e1746fbd67acf67029151a1"
-    sha256 cellar: :any_skip_relocation, monterey:       "7eac91f7772537d1ed23e762f2be055be84db2a1cef5fa06066343cc521e1f8f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d95e0b7129b7903036e964e36d4de3a889a3558d631bf8168babc1b9c6e4dfc0"
-    sha256 cellar: :any_skip_relocation, catalina:       "fd98175231e48366e4ee4c17c79fa4fd350444b83127581c4efa49bb81eec5c3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "85a87c3e9658eca526df529e836774fe492ccb3870c2b959ede5197a6135e4dc"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fcbad31c879fdec667936a4554dcca91c691d66e44b9661f357a0809a00e6398"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "928391df10977e6fc904376b75a9af4eab747ee8bbd9a88fe3a0a018ae399df0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e90e63800fee90e649eaabcb0c303629af268d466106323feed7eaf85ebf2703"
+    sha256 cellar: :any_skip_relocation, ventura:        "aa4c5193277f7c900d647020acc15a18f9329330369cf8171867581708755f4d"
+    sha256 cellar: :any_skip_relocation, monterey:       "b164663b8126c003b6e77a1cd981996067e0af3cc0bf6a96ed6a69650144b80a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "1a45563a05f0ec8250036e80069be098afd65f0cc4eacaa2c016150456ce127c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2a595cddf7450bf86035d486f7221f52a60c0698143238f3388fca5fa3b5ca17"
   end
 
-  depends_on "go" => :build
+  # Support for go 1.20 is merged upstream but not yet landed in a tag:
+  # https://github.com/ipfs/kubo/pull/9647
+  # Remove on next release.
+  depends_on "go@1.19" => :build
 
   def install
     system "make", "build"

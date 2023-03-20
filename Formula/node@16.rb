@@ -1,8 +1,8 @@
 class NodeAT16 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v16.19.0/node-v16.19.0.tar.xz"
-  sha256 "4f1fec1aea2392f6eb6d1d040b01e7ee3e51e762a9791dfea590920bc1156706"
+  url "https://nodejs.org/dist/v16.19.1/node-v16.19.1.tar.xz"
+  sha256 "17fb716406198125b30c94dd3d1756207b297705626afe16d8dc479a65a1d8b5"
   license "MIT"
 
   livecheck do
@@ -11,13 +11,13 @@ class NodeAT16 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "0e877b5e2c90bf72aae114f0befe0ebc0efd3735919377e228cd21e411a8a378"
-    sha256 cellar: :any,                 arm64_monterey: "4ea748bf3d6c90f60ae04d823b363b82de3d05fa49cca4539d65597ff8b9be02"
-    sha256 cellar: :any,                 arm64_big_sur:  "48f60d8d4d7bb9743fa5107dda4ffdea575690ef2c98edb610bd8dbeab1bb27b"
-    sha256 cellar: :any,                 ventura:        "a3e0ddd531c81b9f76f9b0bdff1c065a6627625115e39e5fd8f872dfa9a1bf5d"
-    sha256 cellar: :any,                 monterey:       "6aaee79c3ce17469fce42c6e8fc793fa1c07f3daf831e9bb4120c93eb2734502"
-    sha256 cellar: :any,                 big_sur:        "4d61461224e2375eb07197d478dc8a933769ef934c90b6da8201de0d67d67997"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ec78b2537f296671435f0294b6d7e96b83181488feea11b207ab70fd4705b637"
+    sha256 cellar: :any,                 arm64_ventura:  "f58aff3deda91093e2f5c240ba9c888a37c759e85156fdc4dda73abbd5e8fc2b"
+    sha256 cellar: :any,                 arm64_monterey: "4cc5889fb689a3b73e001aa4b08747e6ea3db52619886e60f76cfd16c171ab1f"
+    sha256 cellar: :any,                 arm64_big_sur:  "45c2c4055a56808c95ee4e7cc2f8674b512fd646f2c72fae94d06367989535af"
+    sha256 cellar: :any,                 ventura:        "e85fd70a25422f067e9dec4425b0a16a9d6afdd661bcedba110f315d42dacaaf"
+    sha256 cellar: :any,                 monterey:       "f74dd23e22b3ac428f0d3f8abb73dd84afe8767675aa646dfe3acc3a37015c9b"
+    sha256 cellar: :any,                 big_sur:        "b0e8bffee8f402f4bc5fe56906607fec414f610f2e72ba229d9f8e2d6611ed1d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "34b37dcacb982c2cf907b61c20a914ae2465f7b50870dceb8f4620ddad30a94b"
   end
 
   keg_only :versioned_formula

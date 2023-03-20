@@ -19,7 +19,7 @@ class Juise < Formula
   end
 
   head do
-    url "https://github.com/Juniper/juise.git"
+    url "https://github.com/Juniper/juise.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

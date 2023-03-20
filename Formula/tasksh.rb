@@ -26,6 +26,7 @@ class Tasksh < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "readline" # Possible opportunistic linkage. TODO: Check if this can be removed.
   depends_on "task"
 
   on_linux do

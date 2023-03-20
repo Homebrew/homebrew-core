@@ -22,7 +22,7 @@ class Orgalorg < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-mod=mod", "-ldflags", "-s -w -X main.version=#{version}", *std_go_args
+    system "go", "build", "-mod=mod", *std_go_args(ldflags: "-s -w -X main.version=#{version}")
   end
 
   test do

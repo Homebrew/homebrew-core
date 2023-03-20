@@ -1,8 +1,8 @@
 class Clair < Formula
   desc "Vulnerability Static Analysis for Containers"
   homepage "https://github.com/quay/clair"
-  url "https://github.com/quay/clair/archive/v4.5.1.tar.gz"
-  sha256 "83c8b42fc2ab260de4f73a7954e4e98b51adea38ea07c1d4ce6bbb67c2900818"
+  url "https://github.com/quay/clair/archive/v4.6.0.tar.gz"
+  sha256 "211c0523e19e4964a64492385537864e5e8284a38a1b798d20a535b643d4987f"
   license "Apache-2.0"
 
   livecheck do
@@ -11,19 +11,16 @@ class Clair < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3385e3ea407d0e37896de6a9c4162621d2a7c786c8feed6387511eab462fe7f6"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "fe0318b20f8257649db32233d68476358acb4bda3149bf128fbf1b7aa4f28452"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fe6f6ab7ee6984c44c8631339dd881c0486cf0e032fb5b524c254726d691c2df"
-    sha256 cellar: :any_skip_relocation, ventura:        "e68de8dfe963cf4ef345fe58cd8d71ec2b4ff4d60e5e8fec7c40328fd00048fa"
-    sha256 cellar: :any_skip_relocation, monterey:       "dc4e83d6284e510aadc27e87fb6a6f9ac5d260a26a3d3c27946f627e26ff53bb"
-    sha256 cellar: :any_skip_relocation, big_sur:        "eee1ad5f4103bd3a0b4707b451a00e9eeba3e30066d514ed1646abcac74f7450"
-    sha256 cellar: :any_skip_relocation, catalina:       "edcc194f963aa58dbd2d0b77cda92ed351b593cfb85cfb36fbae0df346e27ee6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "222688479b8b7af6794526b1ba69bfbb61bc6ed0b7e927e0d0c1e9e709b0ddd9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "711004d1d271070a5500856ed5ff32fab9e4f5f9ca3dbaf03e3a0a2fea2935e9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "eaa9ffb4e4ff24fbb472a605b865d8aaef5af874f1e93bee2d9715574024c170"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3e8bbe51bca992633c73e01b1b1605081810c165c4560e4c31fcfc211b09b3a2"
+    sha256 cellar: :any_skip_relocation, ventura:        "c5d9487f9a0eb603babf8de6ae735fd4b0c78836559dd6e24244a3715e64c9fc"
+    sha256 cellar: :any_skip_relocation, monterey:       "7c2ccaaafd00a59baa2c4b8ae982044977f9e9e039e1b67d34e75a18db5c7927"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c3b2e82c8a4ea869cef700eeb1414843b1494c129d83b8d7ab69b434684fda0e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "74a376b9cc5c54c2c2451bd12c02817b5823642368d374ea0b8a107ac8e8f176"
   end
 
   depends_on "go" => :build
-  depends_on "rpm"
-  depends_on "xz"
 
   def install
     ldflags = %W[

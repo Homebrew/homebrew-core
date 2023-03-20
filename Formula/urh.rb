@@ -3,22 +3,19 @@ class Urh < Formula
 
   desc "Universal Radio Hacker"
   homepage "https://github.com/jopohl/urh"
-  url "https://files.pythonhosted.org/packages/c2/3d/9cbaac6d7101f50c408ac428d9e37668916a4a3e22292f38748b230239e0/urh-2.9.3.tar.gz"
-  sha256 "037b91bb87a113ac03d0695e0c2b5cce35d0886469b3ef46ba52d2342c8cfd8c"
+  url "https://files.pythonhosted.org/packages/1c/20/45c108e7c89db910d68b8cccd988603789b1886acb94f79a716b89dffa19/urh-2.9.4.tar.gz"
+  sha256 "da5ee5acf9af62a8261e35cf2f2e40c37dc0898f0d84a3efd5f4ea21e5fb9ced"
   license "GPL-3.0-only"
-  revision 3
   head "https://github.com/jopohl/urh.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "66d94ec0ed8cac4074e9e8783deec8088569069bfa7b8b2b7d7c9cfddb430c08"
-    sha256 cellar: :any,                 arm64_monterey: "79b14cc0d9925d93224017e10e0719da2e8bb113e99589729fb661667ad49a5c"
-    sha256 cellar: :any,                 arm64_big_sur:  "d50fd4c34ab6b56e28a89006ba3f27e030c1107e3dffe56f34236427721c6f4f"
-    sha256 cellar: :any,                 ventura:        "4443995daa3830f3da9f458eb34e1af6a14396b8a18a717514f05b1abb1b374d"
-    sha256 cellar: :any,                 monterey:       "1ce1473b5c9661fbfe6aaf7acebf3212f1c87c8660c9afcc5674369196f82ab4"
-    sha256 cellar: :any,                 big_sur:        "c4bf2f1bda2227932929cdea464da4e67302b5413f4c88d8a34bcc1a02e2c460"
-    sha256 cellar: :any,                 catalina:       "9a4c90a206ee271341819db55da4ae14704265fab550cdce5928b4e31e5aa0d9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e36bae1941ae6e9b61c9e63bc3daf2758056a92187f5f394f0244a4688b45128"
+    sha256 cellar: :any,                 arm64_ventura:  "8f11a16384870bcfb788b151fe6a5971083100cd6351cdfab7a363fd7347e184"
+    sha256 cellar: :any,                 arm64_monterey: "2b6e639d82196f76d76781d2122419986c9e643dcb4eded2e3432d5ee00fcf74"
+    sha256 cellar: :any,                 arm64_big_sur:  "7b1121f0d2d9780940c50cdf50482b13fe96ae7f6cab38462569ed19094c1b0e"
+    sha256 cellar: :any,                 ventura:        "94e865b02d6809295da8755a8186051648e7bafa15cac1b5a26aad83317d9bdc"
+    sha256 cellar: :any,                 monterey:       "2ec3e3b3e9978326034a42efdb988b6cfdf4c4253ea26eb49a6c9d21787f2bf3"
+    sha256 cellar: :any,                 big_sur:        "48352e9abdfa048dbcc5b0cb39aef14fd40d5d4fdcbadc7b40db3e95c0606be3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c9c5389cf8319dbc575ef300f37c57f982dddc2e77f7563010b3de395eae935d"
   end
 
   depends_on "pkg-config" => :build
@@ -29,8 +26,8 @@ class Urh < Formula
   depends_on "python@3.11"
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/e1/b0/7276de53321c12981717490516b7e612364f2cb372ee8901bd4a66a000d7/psutil-5.8.0.tar.gz"
-    sha256 "0c9ccb99ab76025f2f0bbecf341d4656e9c1351db8cc8a03ccd62e318ab4b5c6"
+    url "https://files.pythonhosted.org/packages/3d/7d/d05864a69e452f003c0d77e728e155a89a2a26b09e64860ddd70ad64fb26/psutil-5.9.4.tar.gz"
+    sha256 "3d7f9739eb435d4b1338944abe23f49584bde5395f27487d2ee25ad9a8774a62"
   end
 
   def install

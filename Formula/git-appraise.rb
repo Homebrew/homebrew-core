@@ -13,8 +13,10 @@ class GitAppraise < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "987bab897e08380d91b10c6fdd7202c7a8e067d1417fb9887196b6cb5cdde19c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "117d03b5537210ab8f3efa3a76ff1a29394e66125d005b13183b9414d322c101"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8f41dadc38480e15a1e0b55ba01ffa62a24416321b3337802c40a44a81e61dbe"
+    sha256 cellar: :any_skip_relocation, ventura:        "b4140f1103438c29899231dfe0b1cc289bc812c8d0e68bd7c827d10a68c1c900"
     sha256 cellar: :any_skip_relocation, monterey:       "ad050720c5681456f47cef2988332445afe205a3c952f00fce6f12f831eb16de"
     sha256 cellar: :any_skip_relocation, big_sur:        "cf48e84b761a284f1479fc5d3073ad19ed895d4718119cb175ca953246d98468"
     sha256 cellar: :any_skip_relocation, catalina:       "c09bd9a262807d81e959f60445ab6e60ec75907ea448306644efbb9eb9d62b39"
@@ -28,7 +30,7 @@ class GitAppraise < Formula
   end
 
   test do
-    system "git", "init"
+    system "git", "init", "--initial-branch=master"
     system "git", "config", "user.email", "user@email.com"
     (testpath/"README").write "test"
     system "git", "add", "README"

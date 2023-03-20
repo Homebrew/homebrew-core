@@ -24,8 +24,7 @@ class Gotags < Formula
 
   def install
     ENV["GO111MODULE"] = "auto"
-    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"gotags"
-    prefix.install_metafiles
+    system "go", "build", *std_go_args(ldflags: "-s -w")
   end
 
   test do

@@ -3,32 +3,31 @@ class PythonLspServer < Formula
 
   desc "Python Language Server for the Language Server Protocol"
   homepage "https://github.com/python-lsp/python-lsp-server"
-  url "https://files.pythonhosted.org/packages/13/c3/02952e2465da01d2b9f3df8972ddce72fe4ac471fa9af9fcc7a89dc8f863/python-lsp-server-1.6.0.tar.gz"
-  sha256 "d75cdff9027c4212e5b9e861e9a0219219c8e2c69508d9f24949951dabd0dc1b"
+  url "https://files.pythonhosted.org/packages/59/c5/fdb678be01f90450cb3c785eba8fbdd80361156c31da96137eb5c31f9a66/python-lsp-server-1.7.1.tar.gz"
+  sha256 "67473bb301f35434b5fa8b21fc5ed5fac27dc8a8446ccec8bae456af52a0aef6"
   license "MIT"
   head "https://github.com/python-lsp/python-lsp-server.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "22e80e963fe17745bfcb9a975b173283537c0be0dae2c64803e862a062a66fe1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0be623c09688e712b095a5dd48d2785f6fdde27f1dbb4268226233033ff3608a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4db452c719d04afd093cb64f776bef0fd76987422b4111554e31c3fc1ec92238"
-    sha256 cellar: :any_skip_relocation, ventura:        "faa9420f301b6cd3ef686163b138973f7ea3ef8a4fb30b02bf38a7abfc9f33dc"
-    sha256 cellar: :any_skip_relocation, monterey:       "8b63d3caac9372e49cae574a289222ab4919669bc09ae83e8bb4a98cd1e17b13"
-    sha256 cellar: :any_skip_relocation, big_sur:        "28d28aace6138499d16809656bb282f2e467ca0f2aaa561de542f2ee4bb1f065"
-    sha256 cellar: :any_skip_relocation, catalina:       "98e208b76802d77b63a9a2aa5e9c5883f639d45be559c4f4880a36a052c70add"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e3ba66f2c44bd11458288f3b7aed801e4395ea05b005b670cb5e23de304437da"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d4d06929be95194167fb4b7a3f2829e00bbea23e11844a8785baef196763fef1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "116eeddee5216dfca5c34148c8d28d7116c38d608b2b7f791e758fa10679b6a9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "763648951df2e98e4abfc122c5ee12c251bc838adf6fc7337db30a12420e45e5"
+    sha256 cellar: :any_skip_relocation, ventura:        "eeb6cdf8a37eb6a0d8aa6aee0e7cf72faba020d40a8ba7178b74c534c6c79daa"
+    sha256 cellar: :any_skip_relocation, monterey:       "8b422b6602129bfb38b7c8ab4343b724abcd8f0bcb2183ba23dc55afe4ef0bc9"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0cf446db386f9fe8de2dd451ae6f2ecc6f7426c76785aa6ea5290c4040f823e2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b957122c8c562a07b6d65b82690890a1063e392ef99f7d938a665fa2046ceb56"
   end
 
   depends_on "python@3.11"
 
   resource "docstring-to-markdown" do
-    url "https://files.pythonhosted.org/packages/1e/c5/53e13bb0e3dd8b7fa3595c80deb40a3742dd191a9350141d4daa7ab09a9f/docstring-to-markdown-0.10.tar.gz"
-    sha256 "12f75b0c7b7572defea2d9e24b57ef7ac38c3e26e91c0e5547cfc02b1c168bf6"
+    url "https://files.pythonhosted.org/packages/e9/68/cac92c4f3f837fbeba17e8dfcdb7658fac6a1d56c007ed0d407087f1127e/docstring-to-markdown-0.11.tar.gz"
+    sha256 "5b1da2c89d9d0d09b955dec0ee111284ceadd302a938a03ed93f66e09134f9b5"
   end
 
   resource "jedi" do
-    url "https://files.pythonhosted.org/packages/c2/25/273288df952e07e3190446efbbb30b0e4871a0d63b4246475f3019d4f55e/jedi-0.18.1.tar.gz"
-    sha256 "74137626a64a99c8eb6ae5832d99b3bdd7d29a3850fe2aa80a4126b2a7d949ab"
+    url "https://files.pythonhosted.org/packages/15/02/afd43c5066de05f6b3188f3aa74136a3289e6c30e7a45f351546cab0928c/jedi-0.18.2.tar.gz"
+    sha256 "bae794c30d07f6d910d32a7048af09b5a39ed740918da923c6b780790ebac612"
   end
 
   resource "parso" do
@@ -47,8 +46,8 @@ class PythonLspServer < Formula
   end
 
   resource "ujson" do
-    url "https://files.pythonhosted.org/packages/6e/4a/03ddad85a10dd52e209993a14afa0cb0dc5c348e4647329f1c53856ad9e6/ujson-5.5.0.tar.gz"
-    sha256 "b25077a971c7da47bd6846a912a747f6963776d90720c88603b1b55d81790780"
+    url "https://files.pythonhosted.org/packages/43/1a/b0a027144aa5c8f4ea654f4afdd634578b450807bb70b9f8bad00d6f6d3c/ujson-5.7.0.tar.gz"
+    sha256 "e788e5d5dcae8f6118ac9b45d0b891a0d55f7ac480eddcb7f07263f2bcf37b23"
   end
 
   def install

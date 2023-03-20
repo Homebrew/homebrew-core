@@ -1,20 +1,19 @@
 class EditorconfigChecker < Formula
   desc "Tool to verify that your files are in harmony with your .editorconfig"
   homepage "https://github.com/editorconfig-checker/editorconfig-checker"
-  url "https://github.com/editorconfig-checker/editorconfig-checker/archive/refs/tags/2.6.0.tar.gz"
-  sha256 "21c3ddffa915f0cd857cef580025a6ff86cdd8b78c6026a2d841d2ca482b48e7"
+  url "https://github.com/editorconfig-checker/editorconfig-checker/archive/refs/tags/2.7.0.tar.gz"
+  sha256 "6f7f842e04117c0124638973e0f0f49d669daa6e6dcec7e0ecf86109b2c51e99"
   license "MIT"
   head "https://github.com/editorconfig-checker/editorconfig-checker.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "385c4709db6ab2a7d38f9f022ac51bb60787478ddb2409deba9e03430f6d4587"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "07aaae3448d74c1135ff5b3e35f8cd8bedd8f0b3727c6b6c7a3b37c5cc669a5f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "07aaae3448d74c1135ff5b3e35f8cd8bedd8f0b3727c6b6c7a3b37c5cc669a5f"
-    sha256 cellar: :any_skip_relocation, ventura:        "42584005a18f4a1af03ae436b17ce742c43ccf1e5114c21b6cca0c19027e63b3"
-    sha256 cellar: :any_skip_relocation, monterey:       "a1e76c97a829f2b4bb869c90b7cb52ba89163c97b06910e9b060c9478d5f0a65"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a1e76c97a829f2b4bb869c90b7cb52ba89163c97b06910e9b060c9478d5f0a65"
-    sha256 cellar: :any_skip_relocation, catalina:       "a1e76c97a829f2b4bb869c90b7cb52ba89163c97b06910e9b060c9478d5f0a65"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "af56963c31d38a4203d8c2bc581e23b0691b4ec81e5792a69b07de80369c1c12"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8c3ff8bba72c42bc77d381d3273b2219f4bb060f14c826bad8e2a6c054e1ceae"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8c3ff8bba72c42bc77d381d3273b2219f4bb060f14c826bad8e2a6c054e1ceae"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8c3ff8bba72c42bc77d381d3273b2219f4bb060f14c826bad8e2a6c054e1ceae"
+    sha256 cellar: :any_skip_relocation, ventura:        "34872cd61b879386460265318386355db50e30002cd2c3ab81c632485cf25bd9"
+    sha256 cellar: :any_skip_relocation, monterey:       "34872cd61b879386460265318386355db50e30002cd2c3ab81c632485cf25bd9"
+    sha256 cellar: :any_skip_relocation, big_sur:        "34872cd61b879386460265318386355db50e30002cd2c3ab81c632485cf25bd9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bcdae0ba7faf0330f8f46663b72e15aedcacaa4bfaac97252e574c1909c9109a"
   end
 
   depends_on "go" => :build

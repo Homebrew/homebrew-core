@@ -21,7 +21,7 @@ class Cassandra < Formula
 
   depends_on "libcython" => :build
   depends_on "openjdk@11"
-  depends_on "python@3.10"
+  depends_on "python@3.10" # Python 3.11 issue: https://issues.apache.org/jira/browse/CASSANDRA-18088
   depends_on "six"
 
   resource "thrift" do

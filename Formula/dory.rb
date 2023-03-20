@@ -6,16 +6,17 @@ class Dory < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "baf1bf19aae6f4be3df208ba5cf524cb9d4179fd8d2e11ffc74d4f676033e670"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "baf1bf19aae6f4be3df208ba5cf524cb9d4179fd8d2e11ffc74d4f676033e670"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "baf1bf19aae6f4be3df208ba5cf524cb9d4179fd8d2e11ffc74d4f676033e670"
-    sha256 cellar: :any_skip_relocation, monterey:       "2b997c97ef0977274fc7cf99d73c7685d641f7f512c48fc96067dcff3fe6e138"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2b997c97ef0977274fc7cf99d73c7685d641f7f512c48fc96067dcff3fe6e138"
-    sha256 cellar: :any_skip_relocation, catalina:       "2b997c97ef0977274fc7cf99d73c7685d641f7f512c48fc96067dcff3fe6e138"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dc25156512dc5b729b7b732d58752f4d7b17d19c884f1f5c6db21e42db9244f2"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "801315212e458f3a16eba1e62acbe37a7ddec7fe6542b1546a0b01e4d33d8f27"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "801315212e458f3a16eba1e62acbe37a7ddec7fe6542b1546a0b01e4d33d8f27"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "801315212e458f3a16eba1e62acbe37a7ddec7fe6542b1546a0b01e4d33d8f27"
+    sha256 cellar: :any_skip_relocation, ventura:        "dc275970eb94ef3bba02bd5bf12241e26e4a35f415fa9de16710d9fe80b978bc"
+    sha256 cellar: :any_skip_relocation, monterey:       "dc275970eb94ef3bba02bd5bf12241e26e4a35f415fa9de16710d9fe80b978bc"
+    sha256 cellar: :any_skip_relocation, big_sur:        "dc275970eb94ef3bba02bd5bf12241e26e4a35f415fa9de16710d9fe80b978bc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "af4be9da0d1d895883e8527052f05d6c6d2da3c4c24bf123c62bc8dc4a0973d4"
   end
 
-  depends_on "ruby@2.7"
+  depends_on "ruby"
 
   def install
     ENV["GEM_HOME"] = libexec

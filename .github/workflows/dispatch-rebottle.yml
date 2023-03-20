@@ -22,7 +22,7 @@ on:
         description: "Whether to fail immediately on a single OS version failure (default: true)"
         default: "true"
         required: false
-        
+
 permissions:
   contents: read
 
@@ -30,6 +30,7 @@ env:
   HOMEBREW_DEVELOPER: 1
   HOMEBREW_GITHUB_ACTIONS: 1
   HOMEBREW_NO_AUTO_UPDATE: 1
+  HOMEBREW_NO_INSTALL_FROM_API: 1
 
 jobs:
   setup:
@@ -139,7 +140,7 @@ jobs:
           cd bottles
           count=$(ls *.json | wc -l | xargs echo -n)
           echo "$count bottles"
-          echo "::set-output name=count::$count"
+          echo "count=$count" >> $GITHUB_OUTPUT
 
       - name: Upload bottles to GitHub Actions
         if: always() && steps.bottles.outputs.count > 0
@@ -207,6 +208,7 @@ jobs:
         uses: Homebrew/actions/git-try-push@master
         with:
           token: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
+          directory: /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core
         env:
           GIT_COMMITTER_NAME: BrewTestBot
           GIT_COMMITTER_EMAIL: 1589480+BrewTestBot@users.noreply.github.com

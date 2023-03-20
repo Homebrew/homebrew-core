@@ -1,20 +1,19 @@
 class Hyperfine < Formula
   desc "Command-line benchmarking tool"
   homepage "https://github.com/sharkdp/hyperfine"
-  url "https://github.com/sharkdp/hyperfine/archive/v1.15.0.tar.gz"
-  sha256 "b1a7a11a1352cdb549cc098dd9caa6c231947cc4dd9cd91ec25072d6d2978172"
+  url "https://github.com/sharkdp/hyperfine/archive/v1.16.0.tar.gz"
+  sha256 "87186d3d41ee9552d6c3151a8cbba5b155b4aee350a15ecb159471ba6250ac8e"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/sharkdp/hyperfine.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c157190162c9057b25849321a82a93de6629132a578bbb1f1b9db7eb2f092a72"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b85f7faffc4336eb2e77507f157ef6afa1e24f4190507a02b513030d3168e2e7"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3a2ac9446129307b5a7a5a1a5597c663dd3a18224ee857a31a05397ed335526e"
-    sha256 cellar: :any_skip_relocation, ventura:        "001a44956d996c1982076020a741dfe3738be52ab27630eba34fb230b8923132"
-    sha256 cellar: :any_skip_relocation, monterey:       "d5a6dd6a109b445b3f7ebb40680ecc49b9d650cd5d3aec34ae02ccf87ee70ed2"
-    sha256 cellar: :any_skip_relocation, big_sur:        "64699ce6a189734b72360f454983f871ea49452b018eaa1a513f6cde10a4d95d"
-    sha256 cellar: :any_skip_relocation, catalina:       "20b88d7b97fef140a74964be9472b56a4f911f68ac2ffd6ce21008cd7af4db37"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ad705ad54d62b7283a12db3f6a6a29547b4f2fc0334be54614dff31c986b4356"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "48fc10af9c516a05fdb41bee042a54b1233b7fbbc762420c4691418fa7ae44d1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "95e5fdeeccd8e1e33e4debb11814b4d6631393e14c0ae0acb789da57c936f3db"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e14254ba2959fac01d1749fc2803ce6ed423df62204097e802a4c64d178fbe3e"
+    sha256 cellar: :any_skip_relocation, ventura:        "25e9d36240f69a91c52f5e50b2b0195e51c9855690d5a3e1ed4fd61702fbddba"
+    sha256 cellar: :any_skip_relocation, monterey:       "d18e905cb2945bf8bb3152ff91db41a83923e4c2c9b0b298ad045ca3a912c6cc"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d66e5f88231036a4a5f1fe4574b9cdc00a5a465195f54ebaaf4b78a15d843ec4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "41ed871b110f168a87521d7fedfe50291ae05df65c253db46ab2e6ce1e4f757f"
   end
 
   depends_on "rust" => :build

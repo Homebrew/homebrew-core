@@ -2,20 +2,19 @@ class Xcbeautify < Formula
   desc "Little beautifier tool for xcodebuild"
   homepage "https://github.com/tuist/xcbeautify"
   url "https://github.com/tuist/xcbeautify.git",
-      tag:      "0.16.0",
-      revision: "b578117619ffed44fb879b29e4e9a481143b0b1b"
+      tag:      "0.18.0",
+      revision: "4fa47a80f5801649e97ee3bb67b8d00337e90abd"
   license "MIT"
   head "https://github.com/tuist/xcbeautify.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b6bec8019161280b434f9e76d5ba08742d1d0b8dc236408d01554af2d327133a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "73f133729b9d2a40b3d4f162420fcae8425789905cc30ce4f81416ab792cc96f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "58d1037d0a4a6df88b5549973635d02e2adc4abbc2fef7cfc5302be5db7289cc"
-    sha256 cellar: :any_skip_relocation, ventura:        "901bea9761c40f4550b64978c7f0cfd92c1a6fbc55c4e155b1acbd400d649789"
-    sha256 cellar: :any_skip_relocation, monterey:       "7e51ded6a1619f1e00032df16da653aa228790a93b14498a2b20885cd158294d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "99b802ced5e8f9c16f2983315606f4512d3cf62b9cd43ba51079701edd36547f"
-    sha256 cellar: :any_skip_relocation, catalina:       "4c348994041017c4f18d3a5e39981204be679b756850b3bdd4e325aa3e71d711"
-    sha256                               x86_64_linux:   "2013cb7179eb9f8f5706f291b731d8fc5d5f1249d142ac492261efaeab0daec7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "099fcf0dee67ef581cea24fdd71373de2df7afc242777e6b708ecaa76bee3943"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "14111fef39cdb6e9fd0b78694ce0bbdba058b506f49b1f946a12693b0314a540"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fae7f5b74af43fcfc199a0c35551b0a6f5a73f5cffeac3b1312cc05ab9ee2ec3"
+    sha256 cellar: :any_skip_relocation, ventura:        "e703db7316c728405ffcb575e06ab12207c6f0e8d3f89df8f5ea7d889bbea52e"
+    sha256 cellar: :any_skip_relocation, monterey:       "087766fc80f24f4f7be279797c6f6488616965cf69ea0969ef1d407d462fa053"
+    sha256 cellar: :any_skip_relocation, big_sur:        "76c5506e47ef58a1706c8e5b5e9eb75e05cf57c4868c497faa3e86e3403dc004"
+    sha256                               x86_64_linux:   "b89fe34cbad59b1dfb8d70a1baf31e153302cd4c3e730c871d368d4068082c7b"
   end
 
   depends_on xcode: ["11.4", :build]

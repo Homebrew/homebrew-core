@@ -1,10 +1,9 @@
 class OrTools < Formula
   desc "Google's Operations Research tools"
   homepage "https://developers.google.com/optimization/"
-  url "https://github.com/google/or-tools/archive/v9.5.tar.gz"
-  sha256 "57f81b94949d35dc042690db3fa3f53245cffbf6824656e1a03f103a3623c939"
+  url "https://github.com/google/or-tools/archive/v9.6.tar.gz"
+  sha256 "bc4b07dc9c23f0cca43b1f5c889f08a59c8f2515836b03d4cc7e0f8f2c879234"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/google/or-tools.git", branch: "stable"
 
   livecheck do
@@ -13,17 +12,17 @@ class OrTools < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "34672a686112e2ab7442f8de1797bc05687293a4944e8842c608d2a41afe4874"
-    sha256 cellar: :any,                 arm64_monterey: "3ced7d174d313cde8a5b20e927874bbdd6b6da06ec3b8cc0df7f0fdc3c9a95fc"
-    sha256 cellar: :any,                 arm64_big_sur:  "8ac085ee9c00cffe72f5a3bb0c1dd408e6db905a47e44a74fd6c71fb29b25a4c"
-    sha256 cellar: :any,                 ventura:        "b0fc71da27ce2eeb84543019cbac3297e40ce518fadacb854d4cc788844a3f82"
-    sha256 cellar: :any,                 monterey:       "d3f678e1e2bc35aaac3fcb0681e23eb2a988c07fa8e8192c093d11bce2942967"
-    sha256 cellar: :any,                 big_sur:        "5232b03160dc6e21ae602a961dec8c016bfb68a260ed00609a33332c870acd48"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9f6eb897000a0ec9c357d25be591587c9030ecbb660e602f8800039876b0b200"
+    sha256 cellar: :any,                 arm64_ventura:  "0d822b8c261e0bbb33c58f3c783c56beebf2a1cd606654926f267630573de915"
+    sha256 cellar: :any,                 arm64_monterey: "15cbd9f44e5c07072cc5ca8cf3e1e29a266d7366a73af937e6c9e67a37c765ba"
+    sha256 cellar: :any,                 arm64_big_sur:  "367007d1964b818761c6b51b404cb75a86c05e98e83dc59c01bcb9e10b8dd500"
+    sha256 cellar: :any,                 ventura:        "c2f440e0ff49ee1a51fd920ae42d4e9d37e31594befcac47911d602ade0e9a90"
+    sha256 cellar: :any,                 monterey:       "2ac4b800fd5e041fc47d2e8b1d7449048f18a2ee7171e90cc5de9dd3a50fcd8b"
+    sha256 cellar: :any,                 big_sur:        "6fe28066976797a12e7fa15ac47f1ee8640483dc2057f454506baf52b9073689"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a96970f1b7cc4b252dfc0fc79740500afb8fcb70fb0d8b3ae50c2c565efbf49b"
   end
 
   depends_on "cmake" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkg-config" => [:build, :test]
   depends_on "abseil"
   depends_on "cbc"
   depends_on "cgl"
@@ -43,12 +42,14 @@ class OrTools < Formula
   patch :DATA
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
-                    "-DUSE_SCIP=OFF",
-                    "-DBUILD_SAMPLES=OFF",
-                    "-DBUILD_EXAMPLES=OFF"
-    system "cmake", "--build", "build", "-v"
-    system "cmake", "--build", "build", "--target", "install"
+    args = %w[
+      -DUSE_SCIP=OFF
+      -DBUILD_SAMPLES=OFF
+      -DBUILD_EXAMPLES=OFF
+    ]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
     pkgshare.install "ortools/linear_solver/samples/simple_lp_program.cc"
     pkgshare.install "ortools/constraint_solver/samples/simple_routing_program.cc"
     pkgshare.install "ortools/sat/samples/simple_sat_program.cc"
@@ -58,18 +59,21 @@ class OrTools < Formula
     # Linear Solver & Glop Solver
     system ENV.cxx, "-std=c++17", pkgshare/"simple_lp_program.cc",
            "-I#{include}", "-L#{lib}", "-lortools",
-           "-L#{Formula["abseil"].opt_lib}", "-labsl_time",
+           *shell_output("pkg-config --cflags --libs absl_check absl_log").chomp.split,
            "-o", "simple_lp_program"
     system "./simple_lp_program"
+
     # Routing Solver
     system ENV.cxx, "-std=c++17", pkgshare/"simple_routing_program.cc",
            "-I#{include}", "-L#{lib}", "-lortools",
+           *shell_output("pkg-config --cflags --libs absl_check absl_log").chomp.split,
            "-o", "simple_routing_program"
     system "./simple_routing_program"
+
     # Sat Solver
     system ENV.cxx, "-std=c++17", pkgshare/"simple_sat_program.cc",
            "-I#{include}", "-L#{lib}", "-lortools",
-           "-L#{Formula["abseil"].opt_lib}", "-labsl_raw_hash_set",
+           *shell_output("pkg-config --cflags --libs absl_log absl_raw_hash_set").chomp.split,
            "-o", "simple_sat_program"
     system "./simple_sat_program"
   end

@@ -22,7 +22,7 @@ class FsUae < Formula
   end
 
   head do
-    url "https://github.com/FrodeSolheim/fs-uae.git"
+    url "https://github.com/FrodeSolheim/fs-uae.git", branch: "master"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build

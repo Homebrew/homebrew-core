@@ -1,8 +1,8 @@
 class Gmic < Formula
   desc "Full-Featured Open-Source Framework for Image Processing"
   homepage "https://gmic.eu/"
-  url "https://gmic.eu/files/source/gmic_3.1.6.tar.gz"
-  sha256 "e73d63ba6520637c782b6e5e6805037a27b6255c011c9e2a60a56f9c28822ce4"
+  url "https://gmic.eu/files/source/gmic_3.2.2.tar.gz"
+  sha256 "c747496c8eece456f0e3404daca1b99ee94ddb694770970f220e2a62de803a58"
   license "CECILL-2.1"
   head "https://github.com/dtschump/gmic.git", branch: "master"
 
@@ -12,14 +12,13 @@ class Gmic < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "75979cdccedcca7601cb38adfc1ad7ba41e7dede4d53bcb4c9b9309762c51df3"
-    sha256 cellar: :any,                 arm64_monterey: "72dcacdcda2094a8e45e3e661c90f6212dc4a318770cf96e1663959f6615adb7"
-    sha256 cellar: :any,                 arm64_big_sur:  "71d73eaa67e5f4d725a99b97da172060590db4372f8ee66998cb928e0df75da5"
-    sha256 cellar: :any,                 ventura:        "aeafac0b2ac23f70acba6797e2d64661d45abaa379531ee555891baf1c79078c"
-    sha256 cellar: :any,                 monterey:       "69bcbea5efe9cdb517b4845f2cd68098fc49f562c8ce7120a350698811b760e9"
-    sha256 cellar: :any,                 big_sur:        "30f5ff5725f9a534e53b00f20131eac293fddc06e1be616af8e537eca7dabe7a"
-    sha256 cellar: :any,                 catalina:       "17237ebe1d43273a2a0862f90162f5e5a3f8bf59083f31bbe313082095565ec8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "06a19742505766b9ae1c10405eaa585381dd8e2d3d22de9b23f148bb2c7d9ef6"
+    sha256 cellar: :any,                 arm64_ventura:  "3746ec97c1011d8f964c62e4e98bf812dcde2bc3e2f18112934d1560a371cd51"
+    sha256 cellar: :any,                 arm64_monterey: "0e5b5a2c62c0d1c1c4ab37235f292fccb6c9b113d87513afeafa24f9b3551509"
+    sha256 cellar: :any,                 arm64_big_sur:  "14c3b143024f2229027dfd03a94e66a074c32ccbdaadab983fe58caf473b4774"
+    sha256 cellar: :any,                 ventura:        "f89d9a4f779abcb2d57214ab4b61e00f1008b4d7d6f91f591715bdf09f09aa6e"
+    sha256 cellar: :any,                 monterey:       "a81676ae8396eb5eaeed9c3a2c1669f8e6c98476a19de1156dca3d6f897e1fc2"
+    sha256 cellar: :any,                 big_sur:        "7c1401e2167685e4e7e6810ff834a1bce7678467a5f5eb67e77338eb2a8a92e6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0c13569b7cd535fee0412ef364d985946005c5ea92c69d4ffab995c5753ddfb5"
   end
 
   depends_on "pkg-config" => :build
@@ -31,6 +30,10 @@ class Gmic < Formula
 
   uses_from_macos "curl"
   uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "bash-completion"
+  end
 
   # Use .dylibs instead of .so on macOS
   patch do
@@ -56,7 +59,7 @@ class Gmic < Formula
       SOVERSION=#{version}
     ]
     system "make", "lib", "cli_shared", *args
-    system "make", "install", *args
+    system "make", "install", *args, "PREFIX=#{prefix}"
     lib.install "src/libgmic.a"
 
     # Need gmic binary to build completions

@@ -1,8 +1,8 @@
 class OpenOcd < Formula
   desc "On-chip debugging, in-system programming and boundary-scan testing"
   homepage "https://openocd.org/"
-  url "https://downloads.sourceforge.net/project/openocd/openocd/0.11.0/openocd-0.11.0.tar.bz2"
-  sha256 "43a3ce734aff1d3706ad87793a9f3a5371cb0e357f0ffd0a151656b06b3d1e7d"
+  url "https://downloads.sourceforge.net/project/openocd/openocd/0.12.0/openocd-0.12.0.tar.bz2"
+  sha256 "af254788be98861f2bd9103fe6e60a774ec96a8c374744eef9197f6043075afa"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,19 +11,18 @@ class OpenOcd < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "c8b903a424242f5c2b3851ca056ed1584e50e866544a78b157647212a2e88e5b"
-    sha256 arm64_monterey: "c9d4a7541767a76b5f588b30a188422c546d731d2786369d53a9458661879343"
-    sha256 arm64_big_sur:  "c95313b03e7050963f4a35a28e88743cd01d1a5e198f809e60ac9e3374799995"
-    sha256 ventura:        "d63b6ed964a99a918a373d20e7aadd6ce1482fca71b1b52927f2c5594e173f1d"
-    sha256 monterey:       "dfb1540fd17932f3f081c6c10b320a9794ee2ab498b4e869d211092cb594c820"
-    sha256 big_sur:        "8c776e777a2587d45f7abc2ab9cb3d682a9e1d0c186c16d3beeec4b5dddcc637"
-    sha256 catalina:       "70eeaab9796e8356a5ad08c8f69e9fc7a86f9ef3f7060248ab49722dfeb95794"
-    sha256 mojave:         "31773a9703e8b217b5d6dc58dc670a8f8afd2b51e7735bbd499eef2daad357dd"
-    sha256 x86_64_linux:   "7a1e636fc79b084859ad0a60a6a8bcd358f190b7381e9bb8fc3c8c8823978fb8"
+    rebuild 1
+    sha256 arm64_ventura:  "c611d6b6c9e57cb090035cb957b452df65f7cbc631efad899fb7ab41e1ea32e1"
+    sha256 arm64_monterey: "7b08b217ff97444f3b1543efe5d94f5b48dcdd74ea501426d894490e76f06405"
+    sha256 arm64_big_sur:  "7cdba4d5b4ac53b160be03c26f96f8f8d1d4963ff2abaac7c219bc9fee03b50a"
+    sha256 ventura:        "f55c5f34b7842ba9529b93f83997e1e6abac12ca77cd67bb76df8029894473a5"
+    sha256 monterey:       "5fe0d9ced9ebdac6350e56e4ef5594f4080ce2c81054fb0b5fb55eca99c75f24"
+    sha256 big_sur:        "fb7fef372618e8b59b07016c380b727d61103ee67ad5b68811bcbcc1516b3a6d"
+    sha256 x86_64_linux:   "0b26fad3eda406a9cb72f04943b43015371b8f224fc624347fd9616f2604ad9e"
   end
 
   head do
-    url "https://github.com/openocd-org/openocd.git"
+    url "https://github.com/openocd-org/openocd.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -36,7 +35,6 @@ class OpenOcd < Formula
   depends_on "hidapi"
   depends_on "libftdi"
   depends_on "libusb"
-  depends_on "libusb-compat"
 
   def install
     ENV["CCACHE"] = "none"

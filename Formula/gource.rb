@@ -1,24 +1,22 @@
 class Gource < Formula
   desc "Version Control Visualization Tool"
   homepage "https://github.com/acaudwell/Gource"
-  url "https://github.com/acaudwell/Gource/releases/download/gource-0.53/gource-0.53.tar.gz"
-  sha256 "3d5f64c1c6812f644c320cbc9a9858df97bc6036fc1e5f603ca46b15b8dd7237"
+  url "https://github.com/acaudwell/Gource/releases/download/gource-0.54/gource-0.54.tar.gz"
+  sha256 "1dcbcedf65d2cf4d69fe0b633e54c202926c08b829bcad0b73eaf9e29cd6fae5"
   license "GPL-3.0-or-later"
-  revision 2
 
   bottle do
-    sha256 arm64_ventura:  "557adabdc455f36a53771b2dfdc4d105011de331d4592fc73225a5f0c34890bb"
-    sha256 arm64_monterey: "39002ff5443571242c6dcf76728a068954bb534fe5c479412cfabc7dcdff1efe"
-    sha256 arm64_big_sur:  "54cca753a7f2705de77c771c0671027f3ba8eb57f3cca6047ba3f380921c0052"
-    sha256 ventura:        "f1951fd9ec911b7f608e4bc647a076ccda57a0aa21a81325d2e3f897969f43ec"
-    sha256 monterey:       "10a8655e6e61846e5ccac81e19aa9b26382092c64035a74ca1aa29a4e3c8c046"
-    sha256 big_sur:        "bbdf8ef1bf9bc91e47309ca0f30f81906ebb5776ebdb1c1e95c73789358bf9fe"
-    sha256 catalina:       "95f4d567f33ae6015a996256ee9ccd3e520644d6da2f3b8d61f79787b7199203"
-    sha256 x86_64_linux:   "b749ae045d6147ee4cc93068c62729f98ef5154e63735bd70561cbdb198b1e23"
+    sha256 arm64_ventura:  "b49d8188e5f03e8a549e24c1329b1dbffe05032a42d2766419c84d385647d1b6"
+    sha256 arm64_monterey: "5cbf7ad844d7f4b7ea5d35dda94ef8c7ee08ce22cf9b3806ecee0898beb37169"
+    sha256 arm64_big_sur:  "746a24a730d8bd1e158285c6ba4669720940037fd8cfce3454ed2e25bbc396b6"
+    sha256 ventura:        "e10bfbc4f393a035672da37fcb8e47027b55aea4f4e755aa9ac681954178e0c6"
+    sha256 monterey:       "a6f62398a07576b5cf518f4874a93a1d537bf835957c6da7d2627f3914684bd4"
+    sha256 big_sur:        "92bdb6e29436032811b16bdf9889bebf5e72c092958756e641eef6ea63e5f0d3"
+    sha256 x86_64_linux:   "aa829a21babf52ff635254d908b3beee9447d3f05a07b144c1cfb3b84abfd0ce"
   end
 
   head do
-    url "https://github.com/acaudwell/Gource.git"
+    url "https://github.com/acaudwell/Gource.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

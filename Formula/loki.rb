@@ -1,8 +1,8 @@
 class Loki < Formula
   desc "Horizontally-scalable, highly-available log aggregation system"
   homepage "https://grafana.com/loki"
-  url "https://github.com/grafana/loki/archive/v2.7.1.tar.gz"
-  sha256 "363f7ba0782e3eb1cfa89b1240311b182ce3e1c0c53497f18e876e71749f0e89"
+  url "https://github.com/grafana/loki/archive/v2.7.4.tar.gz"
+  sha256 "b5521c0d12699f59ddf48ff7eaacddaa56abe90da4579f35c18f0752fc8e95c0"
   license "AGPL-3.0-only"
   head "https://github.com/grafana/loki.git", branch: "main"
 
@@ -12,16 +12,17 @@ class Loki < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "805cf68ccf04a669620306c02f0a0bdd76e26f2689c1fe39bf6c15d458ff4888"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e29465950ef27c6896ce9a8a3736cd9bdd7cfd795994d3d3c596f76221204b29"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3f289685799dd44ed1a7cd88f15409be76a0bd403975230f184771942d3b1edb"
-    sha256 cellar: :any_skip_relocation, ventura:        "eea3c314f07d31ce220e77634ba1daf7f0d49e542ab9a29d7215240876b54308"
-    sha256 cellar: :any_skip_relocation, monterey:       "455470aa389379f8b90d699bb670cbf92f842ddc55b0e95a62b5abc90e7923ad"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b29ae242ff5b41099e22fb000b96003812d6d434abe62531f184f5f51dfb8495"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2d8559445f84b659e2f13ab780d9131a7f1129eb7222247023604f6bce09c90a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6336717373a1be401798125bc47c9117a7784bc55af519967e5e78b387dff16e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4280791c24144a0782c8fa07bdae4fe6af991dd999955f6ef3b45e7810516c3c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a38d02cd82dcfc4babd6ece0f9d1f99f2e7fe10a78716c0a770aa5aa85d31829"
+    sha256 cellar: :any_skip_relocation, ventura:        "4d80d3b968c1fe94632adf597a6aaf40aa8dcc9dc229f170eb9f1baa6deeb6ba"
+    sha256 cellar: :any_skip_relocation, monterey:       "259a660f235699fc03f1db926248c313a0738bfd8c67fd642d70abf0edf42fe2"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b37e36d3e627df3e6833fe2af1ded9c951b95c6f6d2d3136d10b8bfe6b083c63"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1feaae58c5da873bb7a69a4c78f82e22580c3cb63d3c2033c194fbaecc5f8e07"
   end
 
-  depends_on "go" => :build
+  # TODO: Try `go@1.20` or newer on the next release
+  depends_on "go@1.19" => :build
 
   def install
     cd "cmd/loki" do

@@ -1,9 +1,10 @@
 class Boost < Formula
   desc "Collection of portable C++ source libraries"
   homepage "https://www.boost.org/"
-  url "https://boostorg.jfrog.io/artifactory/main/release/1.80.0/source/boost_1_80_0.tar.bz2"
-  sha256 "1e19565d82e43bc59209a168f5ac899d3ba471d55c7610c677d4ccf2c9c500c0"
+  url "https://boostorg.jfrog.io/artifactory/main/release/1.81.0/source/boost_1_81_0.tar.bz2"
+  sha256 "71feeed900fbccca04a3b4f2f84a7c217186f28a940ed8b7ed4725986baf99fa"
   license "BSL-1.0"
+  revision 1
   head "https://github.com/boostorg/boost.git", branch: "master"
 
   livecheck do
@@ -15,14 +16,13 @@ class Boost < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "aa3d546bc5fd86a73ed3019e7dd1b04bda025798bd43d99e643f1114cbfef558"
-    sha256 cellar: :any,                 arm64_monterey: "147b71e637f2ab396c580f62f8a16917010efa4494be26d6ec4a3339f980087f"
-    sha256 cellar: :any,                 arm64_big_sur:  "572093eec4c68d13f95b3682e2c673a2610097bae1912ab4d6e2b2b857ef9122"
-    sha256 cellar: :any,                 ventura:        "9fd4dfa222b28d6972ef3c60648972122e9491c4e4c74b436871bb0646a670d7"
-    sha256 cellar: :any,                 monterey:       "cc487497f5beaa3726ed3e8772e8066e968ad494917b35c58c94f9e5febc7944"
-    sha256 cellar: :any,                 big_sur:        "35c01f163d0d54afc7cdf2b492245fb34d64faf42ac410d1c77d211f00789f14"
-    sha256 cellar: :any,                 catalina:       "a75afcf9ab1eee0eecb59282070b0559c56b7a00d5b3ab29c6a2d52c9b51b8a5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6d54fe09e3343863c9b2e7ba034ad2eaa2fce83651cc338da59e2895bbea0034"
+    sha256 cellar: :any,                 arm64_ventura:  "8a4a21f28eea820cdfb2ca94d6a9c2ecad40592b145de06698283dc3c7ae0eeb"
+    sha256 cellar: :any,                 arm64_monterey: "da47f5dce669699eb052452fe166e5cd118a6f6d3f64abe4cae53461743a2cc2"
+    sha256 cellar: :any,                 arm64_big_sur:  "640b02baab8cf76935b79203660de45e0721f1428697b9916327b06e86b9300a"
+    sha256 cellar: :any,                 ventura:        "b3fc7aade48d9a8bec56ac3cc57a3c5ead36d67365cf3447c578cd31ddb8fbee"
+    sha256 cellar: :any,                 monterey:       "160aabda5d6497dc72a389dd251becc971e37d4702763b3b45a5c7bbc29f0419"
+    sha256 cellar: :any,                 big_sur:        "51a2646e51a7a304848efa7cca17312c4a3acc5e28ef664037d0675c5c9a1e83"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "26a83186402f3625806df9d7f6e41a1188d726d7f21ee5ccbfb3310e763d1ebc"
   end
 
   depends_on "icu4c"

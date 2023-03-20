@@ -1,23 +1,19 @@
 class Cmocka < Formula
   desc "Unit testing framework for C"
   homepage "https://cmocka.org/"
-  url "https://cmocka.org/files/1.1/cmocka-1.1.5.tar.xz"
-  sha256 "f0ccd8242d55e2fd74b16ba518359151f6f8383ff8aef4976e48393f77bba8b6"
+  url "https://cmocka.org/files/1.1/cmocka-1.1.7.tar.xz"
+  sha256 "810570eb0b8d64804331f82b29ff47c790ce9cd6b163e98d47a4807047ecad82"
   license "Apache-2.0"
   head "https://git.cryptomilk.org/projects/cmocka.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "a8f740f136437949637b8587bcb355b51b31a8a58f872738caabdafb8f649f56"
-    sha256 cellar: :any,                 arm64_monterey: "a504b57668ab63e04fd3ca656d6a0a48a215779b9779dad64e6e65e56441c2fd"
-    sha256 cellar: :any,                 arm64_big_sur:  "e2ed51c48c56006bb4b8591259eb206968e46457e78b15570c567d990b5f97d3"
-    sha256 cellar: :any,                 ventura:        "62276a9dcaed10332781bd14a2d6e23e174d88a588558ec384d76ebb4b334380"
-    sha256 cellar: :any,                 monterey:       "221d35e014f83b7ba5c115ed5dc058508f956ff551141676a13ece2be1c476a3"
-    sha256 cellar: :any,                 big_sur:        "a852c9033a2ca9543dff361a5a5d19027dddab7d207e9a080cf9f8bf75751354"
-    sha256 cellar: :any,                 catalina:       "719b81c50a85d95dfc0bdd88b52e5642cc81e22f95776fc8d92065217bef879e"
-    sha256 cellar: :any,                 mojave:         "a05bfdbe08b08dc01db59d0c2c724b2a58c4f9e12c260dc5865e27dd456e7771"
-    sha256 cellar: :any,                 high_sierra:    "c4fc9fe8a73b23206c0db8907c2f67dea482d689afea18c5e746556aff8098b5"
-    sha256 cellar: :any,                 sierra:         "a8d32491c7cfd1670be11c022faa07619d7821a4328fb034e76f225933b5c4dc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0f6e5f5ffe5cdf0605d128b361f338ae8f986d7fbd5713681c07747738ff4266"
+    sha256 cellar: :any,                 arm64_ventura:  "59ce3786b76ea0bad5cf63974c4c341a967f562f6beeebac2714b9a6cdb8ee69"
+    sha256 cellar: :any,                 arm64_monterey: "655c370c95261b0a2497884db61e2d93e016b3ac12c895bd177c4937fe8382b9"
+    sha256 cellar: :any,                 arm64_big_sur:  "f834bde77c929e72148871eb2ebb902b6f746fc5c80581027ac3e2c8eba4e695"
+    sha256 cellar: :any,                 ventura:        "1af6df21cc146d414b8c6b03b995cb99e18ee020efcf34c6be4f2724684797ad"
+    sha256 cellar: :any,                 monterey:       "b5120aab3d6d5daf7a4166c0bd95b622d057bdc519ce9d8792ac3174effcec26"
+    sha256 cellar: :any,                 big_sur:        "4bdc48b2707b15f13d671f193de414f70a905e4a6e62e7f3ad823c0e01ec9f13"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f3ac6a9be93cbd9ff420c38ff86c3c5559fe2ab584423f8bddd04c77f7235ab3"
   end
 
   depends_on "cmake" => :build

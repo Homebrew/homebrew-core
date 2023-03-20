@@ -3,7 +3,7 @@ class PerconaXtrabackup < Formula
   homepage "https://www.percona.com/software/mysql-database/percona-xtrabackup"
   url "https://downloads.percona.com/downloads/Percona-XtraBackup-LATEST/Percona-XtraBackup-8.0.29-22/source/tarball/percona-xtrabackup-8.0.29-22.tar.gz"
   sha256 "7c3bdfaf0b02ec4c09b3cdb41b2a7f18f79dce9c5d396ada36fbc2557562ff55"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://www.percona.com/downloads/Percona-XtraBackup-LATEST/"
@@ -11,15 +11,13 @@ class PerconaXtrabackup < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_ventura:  "8b8c907a1ef919347c9e4470f555007d0d737ce0beff94e5e83562ff72f8029e"
-    sha256 arm64_monterey: "458c3e1c42fb886b761b488c96b16cf2b6fabf9c15f9757be2bb1252a097b3fe"
-    sha256 arm64_big_sur:  "6334b08778ac9f84cdc5bae40a3e79a3c5847bc5d4ad940c55b0d577792609e2"
-    sha256 ventura:        "a04107ecab6fbda3c4d54626370dc45c10064ab268c3cbb41392037bbfe99d83"
-    sha256 monterey:       "50e0cea6a56236121455148b9409a96321e6bfda33ccbd544b69f76d5c95a42e"
-    sha256 big_sur:        "dfb6c59a87caac4de10d941443761d0cf11a8ce293339f48dff126a0e10ec82a"
-    sha256 catalina:       "ed9c776f742ab91702841843d76f357a217483ff2baa1806be817efa2bf18522"
-    sha256 x86_64_linux:   "a48195f5f43f4c86e45e13dda822de73917e791f8bc654d05fe0d396a6d4acf5"
+    sha256 arm64_ventura:  "6cf8b9eb0878c54482e738fcec0a5268d322ea5ccb48dbae06561ff4453b940d"
+    sha256 arm64_monterey: "955566d27d963005be5d04e165afe2620fcdd5398737689cf22f8af45492c7f0"
+    sha256 arm64_big_sur:  "db1a36b5d778dacbd69617c91bacc29e3e6b4c4b5e143efb34e125fb82eebc19"
+    sha256 ventura:        "196356bb33ba9ba04b2caf0eedff1eb860c49bb042bd8387304402ec474d8739"
+    sha256 monterey:       "932086f3316a559c5065ac52526db1a6a548901d1e98e676c53b881046832df8"
+    sha256 big_sur:        "74e90100a581e3bfc8a0a0ca7d9965ea912603910651f22c132812369d8e54f5"
+    sha256 x86_64_linux:   "c97d299db52ead71ea70660de8b20ffa71c9aa39a0211e237703f3b50e9a00ed"
   end
 
   depends_on "cmake" => :build

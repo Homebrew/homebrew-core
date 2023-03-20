@@ -18,6 +18,7 @@ class Iredis < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "06cf10b414296d9626e18b70c5277dc22f87dca95ec3ca0ff1af75620f1e3aa9"
   end
 
+  depends_on "pygments"
   depends_on "python@3.11"
   depends_on "six"
 
@@ -59,11 +60,6 @@ class Iredis < Formula
   resource "prompt-toolkit" do
     url "https://files.pythonhosted.org/packages/fb/93/180be2342f89f16543ec4eb3f25083b5b84eba5378f68efff05409fb39a9/prompt_toolkit-3.0.36.tar.gz"
     sha256 "3e163f254bef5a03b146397d7c1963bd3e2812f0964bb9a24e6ec761fd28db63"
-  end
-
-  resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/e0/ef/5905cd3642f2337d44143529c941cc3a02e5af16f0f65f81cbef7af452bb/Pygments-2.13.0.tar.gz"
-    sha256 "56a8508ae95f98e2b9bdf93a6be5ae3f7d8af858b43e02c5a2ff083726be40c1"
   end
 
   resource "pyparsing" do

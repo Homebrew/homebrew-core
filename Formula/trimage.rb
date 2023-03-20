@@ -9,8 +9,7 @@ class Trimage < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, ventura: "8a431f153a9ebde3caaac7ce16403332dafa459476e7f2ad95863c87bd1941cc"
-    sha256 cellar: :any_skip_relocation, all:     "8a431f153a9ebde3caaac7ce16403332dafa459476e7f2ad95863c87bd1941cc"
+    sha256 cellar: :any_skip_relocation, all: "8a431f153a9ebde3caaac7ce16403332dafa459476e7f2ad95863c87bd1941cc"
   end
 
   depends_on "advancecomp"

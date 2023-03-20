@@ -5,6 +5,7 @@ class Csound < Formula
       tag:      "6.18.1",
       revision: "a1580f9cdf331c35dceb486f4231871ce0b00266"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://github.com/csound/csound.git", branch: "master"
 
   livecheck do
@@ -13,14 +14,13 @@ class Csound < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "1fa3f5ecd493502c6f8a380233ddf7ecaccf5590c1d0cb206eddf312e6195729"
-    sha256 arm64_monterey: "a1d5e7f06bc3b999b0cbc943e694b8ae0a2a7862e2c720f3cd73e3b929ceff98"
-    sha256 arm64_big_sur:  "8bed3925dc5b9741ec6f4d20f1cb17e9c1b22a77987fdcbef35b941f72e936bb"
-    sha256 ventura:        "44aac4e95442ef59d104f88e16b8f8c1e9c837c3b68ab8a1f288541ca9c08ab8"
-    sha256 monterey:       "847442c274b43b8d327b5fe4767ec41a19db8b3f01597310f254c2e5526eabdd"
-    sha256 big_sur:        "9fc1ef9ec6ce05f8d0661eb2a72f537d50a9c2fbdfd0ab0cf0b84febb05e21df"
-    sha256 catalina:       "a857c9ab223839877ecc31a819ff2ae7a6691358306cc6f0a55b2fce905fb854"
-    sha256 x86_64_linux:   "4e73a8fabb3e9dc1fad120d8808db75d166403c99145d7cdb74eee7164d0f8e0"
+    sha256 arm64_ventura:  "158f7bd20fd0c0b3d1d9f5066d35ff79630c9eb1eda8f15f0f75f25019866006"
+    sha256 arm64_monterey: "6d8413442ddd3660cd572b141ad8a5c2ea9dd1119694d7f1e8b4c9fee2279d40"
+    sha256 arm64_big_sur:  "928ffd75d79ff5aff1638367919978d19b87a512dd739e848f7dcbf9a9e4015c"
+    sha256 ventura:        "99b89dfb2f7047730fe4dff6572e2fb6ceafc3f68e0c407a2a3033efbbb93c09"
+    sha256 monterey:       "440842d27ea5ae7d4b7f1c0f3af9d40226e7aab97c9d3701ea5d21f17bce55f9"
+    sha256 big_sur:        "b6d0479f32f83fd8c8ce19679dc21ac0bee7d50f673d4b9356cbc067ebd8a05f"
+    sha256 x86_64_linux:   "e03f6ce722993e8f566853bdb6442564a7357f5dfa3024367664f93accda3407"
   end
 
   depends_on "asio" => :build
@@ -65,8 +65,8 @@ class Csound < Formula
   fails_with gcc: "5"
 
   resource "ableton-link" do
-    url "https://github.com/Ableton/link/archive/Link-3.0.5.tar.gz"
-    sha256 "74a470c8ae8f9c325e65e981839852e821ec56b980f8b923cb77ca833c4603ed"
+    url "https://github.com/Ableton/link/archive/Link-3.0.6.tar.gz"
+    sha256 "4f4fae68bd9351cba603f07990b0d1d9cd7f986c1c78f748d97168c8ae5269b2"
   end
 
   resource "csound-plugins" do
@@ -164,7 +164,8 @@ class Csound < Formula
 
   def caveats
     caveats = <<~EOS
-      To use the Java bindings, you may need to add to #{shell_profile}:
+      To use the Java bindings, you may need to add to your shell profile
+      e.g. ~/.profile or ~/.zshrc:
         export CLASSPATH="#{opt_libexec}/csnd6.jar:."
       and link the native shared library into your Java Extensions folder:
     EOS

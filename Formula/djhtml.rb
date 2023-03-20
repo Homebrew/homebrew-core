@@ -3,20 +3,18 @@ class Djhtml < Formula
 
   desc "Django/Jinja template indenter"
   homepage "https://github.com/rtts/djhtml"
-  url "https://files.pythonhosted.org/packages/26/8f/b838a00b9fa0033c210e5fddb43d41ac3f500decf840e6b251ea18c3da6e/djhtml-1.5.2.tar.gz"
-  sha256 "b54c4ab6effaf3dbe87d616ba30304f1dba22f07127a563df4130a71acc290ea"
+  url "https://files.pythonhosted.org/packages/a0/03/aac9bfb7c9b03604a2c4b0d474af22731ef41cb662fad07f956ae7bf0f6b/djhtml-3.0.6.tar.gz"
+  sha256 "abfc4d7b4730432ca6a98322fbdf8ae9d6ba254ea57ba3759a10ecb293bc57de"
   license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e4adc528310393b337a0db8f2ac6997671f967213c63f827bd2a837c15d625e0"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f208b0e5db6076c96817c5bdc98d856cf6ccf157992caaf8beef29ed1beb4a58"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9e6e08bfdd287ad597d669080c06d31952a5723868b5c4391cb299284c5e4d86"
-    sha256 cellar: :any_skip_relocation, ventura:        "0d467998a2ff88d61a63b33d979346ce9331c035bc7d8c6091939e95a47709e2"
-    sha256 cellar: :any_skip_relocation, monterey:       "e0d066cb4353341e6f36a7e5cc74927370330e80bc2a369fb351e4c6ea1f8a04"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7616b050d59d6be9c373a6e3f3ea415ce5bd46fcad14453b09a3f295700039f6"
-    sha256 cellar: :any_skip_relocation, catalina:       "c6fbd2e56df3a8441a0eb468f81922e6b457aac336d2f2113bc8276424962d8e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5d2cf279087581551f44cc9b757d9311502a3003bb329c74a4f0446e0c73846c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bdbeb839a0a9b284dc4c2eb9e3eecc74af5930ec4f9098db10c49511746e4d44"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0fb937a34da3f5e3a1252fa38b2d716a3868048f8cc18b1d9f00f3391450bca5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ff978720de6b56e295b274b126ecfc9f07689f7b39b72358e76abeb02196bf9d"
+    sha256 cellar: :any_skip_relocation, ventura:        "affec39a5174a4333fd6bb2c7f6ce36fb817c7032faa565ddc3ef505ef7512a4"
+    sha256 cellar: :any_skip_relocation, monterey:       "f8b66288fb9f60a09f0f284d64c7a4019eb0e66940a879101d5e20abc878540e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "84465d0a9bcc2ce550d35e359b490f98c2ae345076db1c0b28f8fce85c60ce9f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d6f36520350fa0d608c6ea74fb2949e62b9d3503e5dbbb923459d264a3e722e9"
   end
 
   depends_on "python@3.11"
@@ -26,7 +24,8 @@ class Djhtml < Formula
   end
 
   test do
-    (testpath/"test.html").write <<~EOF
+    test_file = testpath/"test.html"
+    test_file.write <<~EOF
       <html>
       <p>Hello, World!</p>
       </html>
@@ -37,6 +36,8 @@ class Djhtml < Formula
         <p>Hello, World!</p>
       </html>
     EOF
-    assert_equal expected_output, shell_output("#{bin}/djhtml --tabwidth 2 test.html")
+
+    system bin/"djhtml", "--tabwidth", "2", test_file
+    assert_equal expected_output, test_file.read
   end
 end

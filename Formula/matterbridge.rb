@@ -1,19 +1,18 @@
 class Matterbridge < Formula
   desc "Protocol bridge for multiple chat platforms"
   homepage "https://github.com/42wim/matterbridge"
-  url "https://github.com/42wim/matterbridge/archive/v1.25.2.tar.gz"
-  sha256 "e078a4776b1082230ea0b8146613679c23d3b0d322706c987261df987a04bfc5"
+  url "https://github.com/42wim/matterbridge/archive/v1.26.0.tar.gz"
+  sha256 "00e1bbfe3b32f2feccf9a7f13a6f12b1ce28a5eb04cc7b922b344e3493497425"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c6fd050cc559a9ce6bcbd5c19dee570f31489a867a79b31bd17aea5864e839af"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a6d54394cacd4fac5f2aceb85a80f287b74f4534ff971b77de2021be54954e45"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "62838814ac245e65dce8998e5b009d9ee99849897c81af44199bd9a3c44db20d"
-    sha256 cellar: :any_skip_relocation, ventura:        "b05348fd54eef7e3e4cded4e17f09faf70efe32852932e3a9d58468fde3947d4"
-    sha256 cellar: :any_skip_relocation, monterey:       "d91055137b8898b9f133108ad6e07a643c5a4453140e8857c5ea45a1973ea639"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f52d497a23d97561087e1762a8a0ec878549fdec336ba3625c1089e581d27f0c"
-    sha256 cellar: :any_skip_relocation, catalina:       "eeda6283cc709b2c85b7f6bdd62e7115edc2c3db730d96a6d277cf1abc9ed75a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c7a176037043824d9aa1cda3ca9d06527db5a2b3ed1c7f481e0857980ae21dbe"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "db4bd660db3e42897f23bffa81d3a241a2e41b56d035e649bf0ec6001dee5916"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4a396b9c2aeb5a81600301142e52bca66298e8608e96f2355cec6dfcb07dbf31"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3622f41d47b3f71ff04a21b70d0df84e9fdf14f1e1fa65c85e91178be1d17a01"
+    sha256 cellar: :any_skip_relocation, ventura:        "88c693006135c6475e9c3a0fea5aae515ffb0fc4f85bb1c77c256d997cba6f21"
+    sha256 cellar: :any_skip_relocation, monterey:       "8ff7a6b8c44f153fca6cfc57e9219eebb211fb38df9ad764248fa0b4f12cf83b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9c2550e9e8a6ff8c2b9611ccfb46fcbfa5da753f6b79349f002a8c8823d5f960"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4b90de5cbda5865e1150bdc823dd02bf4eaaa9358fc85de873e983b576ff5f34"
   end
 
   depends_on "go" => :build

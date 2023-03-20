@@ -1,16 +1,16 @@
 class Hashlink < Formula
   desc "Virtual machine for Haxe"
   homepage "https://hashlink.haxe.org/"
-  url "https://github.com/HaxeFoundation/hashlink/archive/1.12.tar.gz"
-  sha256 "7632840f4f64b06662210858418c6d26b8492cf7486a4e86ebe242e27cf8babd"
+  url "https://github.com/HaxeFoundation/hashlink/archive/1.13.tar.gz"
+  sha256 "696aef6871771e5e12c617df79187d1761e79bcfe3927531e99f665a8002956f"
   license "MIT"
   head "https://github.com/HaxeFoundation/hashlink.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 ventura:      "aebc07d5b327f360bf8a98075f372ddddfa5d82c5e3c8c73b4448b36daf95476"
-    sha256 cellar: :any,                 monterey:     "6ceecb580787e3968b24652cc90198895524bf6208a49f36a2a59df2b7fedaff"
-    sha256 cellar: :any,                 big_sur:      "0de282297d22fabbcaa317504bb44318e5530c70490d23cb36300c374a1bfbd1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "1622942df58df95150ebcb84d1535e3b98b9934ac13dada76f45b63befb8de16"
+    sha256 cellar: :any,                 ventura:      "873297b1650b732c537367ca8f6ff1ef92bacf295147f9d35c2c06fffb5fe8c3"
+    sha256 cellar: :any,                 monterey:     "050593487fc03f29ffde9e2439e9b31bbc89f472875f5aff47706af69023cc1a"
+    sha256 cellar: :any,                 big_sur:      "95508443ab609188bd8e6dc592186877da5269340602c2236ee77e5f68bcbb77"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "31fb972ebeab20da4999297696f339b6055b3e3021951f0f342c6baaae1d4a06"
   end
 
   depends_on "haxe" => :test
@@ -29,9 +29,6 @@ class Hashlink < Formula
   end
 
   def install
-    # remove with 1.13 release:
-    inreplace "Makefile", /PCRE_INCLUDE =/, "PCRE_FLAGS =" unless build.head?
-
     if OS.mac?
       # make file doesn't set rpath on mac yet
       system "make", "PREFIX=#{libexec}", "EXTRA_LFLAGS=-Wl,-rpath,#{libexec}/lib"

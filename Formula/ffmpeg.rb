@@ -6,7 +6,7 @@ class Ffmpeg < Formula
   # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
   license "GPL-2.0-or-later"
-  revision 1
+  revision 6
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
 
   livecheck do
@@ -15,17 +15,18 @@ class Ffmpeg < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "f466d4f3dcfef75c2c48794cce65591d650c7527f6a62f4459b59b5267802c1f"
-    sha256 arm64_monterey: "3afae87e1e1811edd4c10d394aebcfcd1e0cc045cd784d384ac5a8dbcbe133db"
-    sha256 arm64_big_sur:  "6b4dff8fde7b2a19d82c870cabd3fde7c1fe04d9f703ae62daa12f680664b7fc"
-    sha256 ventura:        "71d21f0b5d6dca421640010c37b068a0a6a9868a569fc5b4df9af257bbd5fd87"
-    sha256 monterey:       "0c3cd448280893bc81059b4044bb7363b3acaa62d3a70982a0d887ca19b783f8"
-    sha256 big_sur:        "c9d1d2f372ab573ff64d62c9239d4f04bf8f2c8ad8045ef88d38ce3784176fc3"
-    sha256 x86_64_linux:   "d63b9a6fae303abde2bafb8be30a8a727afae0655d96c562ec6986f6fecbc9ff"
+    sha256 arm64_ventura:  "99aacc5cab3b71f132ebaf3e8cbe8235cda3078e9820dfc24135078ec608c5a0"
+    sha256 arm64_monterey: "ac5436368882331110b92f8df01510c0fea993e5084d7b7c395fd3ac5e984093"
+    sha256 arm64_big_sur:  "d380061e143866ca55c483727c88cb50dc11064a7c3d4f888a3c304d7d713c7d"
+    sha256 ventura:        "a6b64aed8704b50a4fd6c029aaf7a30962b910dc5c636edae473977e4ddb2a3f"
+    sha256 monterey:       "4ca7613682e05f9c8c1cdb0f15085798170e3b93df6c9f3baaf57f3090d3b350"
+    sha256 big_sur:        "5de6de2e959bb72a80cfd2d215a583f687a396b523992c852ac63c3323b5cdfb"
+    sha256 x86_64_linux:   "582b9a75bb118b1d7cc518a70e2521d5eaf7f5c4da6957a92d432fa56afd986b"
   end
 
   depends_on "pkg-config" => :build
   depends_on "aom"
+  depends_on "aribb24"
   depends_on "dav1d"
   depends_on "fontconfig"
   depends_on "freetype"
@@ -49,6 +50,7 @@ class Ffmpeg < Formula
   depends_on "snappy"
   depends_on "speex"
   depends_on "srt"
+  depends_on "svt-av1"
   depends_on "tesseract"
   depends_on "theora"
   depends_on "webp"
@@ -87,6 +89,7 @@ class Ffmpeg < Formula
       --enable-gnutls
       --enable-gpl
       --enable-libaom
+      --enable-libaribb24
       --enable-libbluray
       --enable-libdav1d
       --enable-libmp3lame
@@ -96,6 +99,7 @@ class Ffmpeg < Formula
       --enable-librubberband
       --enable-libsnappy
       --enable-libsrt
+      --enable-libsvtav1
       --enable-libtesseract
       --enable-libtheora
       --enable-libvidstab

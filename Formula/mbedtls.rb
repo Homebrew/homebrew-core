@@ -8,22 +8,23 @@ class Mbedtls < Formula
 
   livecheck do
     url :stable
-    strategy :github_latest
     regex(%r{href=.*?/tag/(?:mbedtls[._-])?v?(\d+(?:\.\d+)+)["' >]}i)
+    strategy :github_latest
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "34339731ff914e54f43da25f27009496cffb6c79f54616d77efbbd73203d75fa"
-    sha256 cellar: :any,                 arm64_monterey: "f2723318e1b708f85d899274beb09014605d433bc13ad1614c5f3dcd2e44d315"
-    sha256 cellar: :any,                 arm64_big_sur:  "164a8fb70c2e5033ef82692cffdc7f19fbd7ddcc03c04bbb70bc8dc63759389e"
-    sha256 cellar: :any,                 ventura:        "1e16bf397c8cf8b2b97e0a9bfe528faed102bb3b0c0244875ec567c1c004db1d"
-    sha256 cellar: :any,                 monterey:       "ea763278788d0f2327259335266f4a7acb8855b58c7cce2c5674655440dcfb64"
-    sha256 cellar: :any,                 big_sur:        "72c46972acb5b431cbcca78089e3dc06a593c774c5195b9ae408b821d71410cd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e69e5ac71eb61eed22a88d193c757946c0acf568aebb27f5eea27ad3720b73de"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_ventura:  "f7ba34fc61d3246cd0613922df69f2607741b528e3c0ddfd07250c366a1b8352"
+    sha256 cellar: :any,                 arm64_monterey: "a74c0e95e23ee4ba92efdd6639575b57513313b22dd739b5f5bbc0a1028cfdad"
+    sha256 cellar: :any,                 arm64_big_sur:  "700bfca8dc0c813e5ada099ce4447070f8b3b870d3ffae7a551873d9edde3e71"
+    sha256 cellar: :any,                 ventura:        "87733b552725daa9d248cd43f370dbd306d628f107915040ab6b9404cf76b442"
+    sha256 cellar: :any,                 monterey:       "1d22fe8643320336647d3400912d782bbb73b0cd95d11f233dbb47a343b23eb6"
+    sha256 cellar: :any,                 big_sur:        "5de73a9242b98781def686f73f1163fa801066194927f578b1c9a5f584306484"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aa8801cace5b342aa221a9c0c98e50e51db0273731072ff1b647946c82df0e31"
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
 
   def install
     inreplace "include/mbedtls/mbedtls_config.h" do |s|
@@ -31,11 +32,13 @@ class Mbedtls < Formula
       s.gsub! "//#define MBEDTLS_THREADING_PTHREAD", "#define MBEDTLS_THREADING_PTHREAD"
       # allow use of mutexes within mbed TLS
       s.gsub! "//#define MBEDTLS_THREADING_C", "#define MBEDTLS_THREADING_C"
+      # enable DTLS-SRTP extension
+      s.gsub! "//#define MBEDTLS_SSL_DTLS_SRTP", "#define MBEDTLS_SSL_DTLS_SRTP"
     end
 
     system "cmake", "-S", ".", "-B", "build",
                     "-DUSE_SHARED_MBEDTLS_LIBRARY=On",
-                    "-DPython3_EXECUTABLE=#{which("python3.10")}",
+                    "-DPython3_EXECUTABLE=#{which("python3.11")}",
                     "-DCMAKE_INSTALL_RPATH=#{rpath}",
                     "-DGEN_FILES=OFF",
                     *std_cmake_args

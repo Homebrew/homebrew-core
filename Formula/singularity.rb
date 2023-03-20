@@ -14,7 +14,6 @@ class Singularity < Formula
   pour_bottle? only_if: :default_prefix
 
   depends_on "go" => :build
-  depends_on "openssl@1.1" => :build
   depends_on "pkg-config" => :build
   depends_on "libseccomp"
   depends_on :linux

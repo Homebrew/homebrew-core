@@ -11,18 +11,21 @@ class Cfengine < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "27b951de5b5ee9627613dc7523d8e2292f1b232c69c471aad025b86e327adcd5"
-    sha256 arm64_monterey: "09c2fa7bef3021135f30428c0a52f45c12c498d19c37484c046e82972e27a14a"
-    sha256 arm64_big_sur:  "bba68b7b689885281fe39990a47465bed00b30e574398b7d6d8dd090a93af605"
-    sha256 ventura:        "3ce88aadceac013e0766718411012c78f32a507f45026e71df07b202e944947e"
-    sha256 monterey:       "face2e3238f646256c734e6bc8387e1f777be23022b3860d68690425bceff81c"
-    sha256 big_sur:        "7d5cebadbb5b090776e1ccdad32efcca81c1f09685d024565be9f98a3b914ec6"
-    sha256 x86_64_linux:   "70c2b4ce3295bce05b2f9173e888c1239f40f672cdff29def1ef92f4d26d1769"
+    rebuild 1
+    sha256 arm64_ventura:  "0a56cdf797ef67920aef33f08dc9003de945bb4b8537fac05217cdde5362c448"
+    sha256 arm64_monterey: "3562db8dc457f1b10d5c8613a794d339c965fcfff16afbd18a594d7d0399ba53"
+    sha256 arm64_big_sur:  "2b31713dd96b8effed6b0ad3fd526dea82d846d37289aa086af34684b283eb0e"
+    sha256 ventura:        "bb84a9389272a98be63b3c17638eea7d7f7174691a0f2b3b23596b23564f7217"
+    sha256 monterey:       "397bfb71c7b503c06c43cd625a7c8a5fe8a91f7635eeee93283456dc153d8f1d"
+    sha256 big_sur:        "f9165e5051febf9bd586986e0b24dcad339040cafb64a059f87e6a1613718f9a"
+    sha256 x86_64_linux:   "fe883b67118f2dc184afef455214c4d32cbbe380e9b1218bce672a680c31fc4d"
   end
 
   depends_on "lmdb"
   depends_on "openssl@3"
   depends_on "pcre"
+
+  uses_from_macos "libxml2"
 
   on_linux do
     depends_on "linux-pam"
@@ -49,6 +52,19 @@ class Cfengine < Formula
     system "./configure", *args
     system "make", "install"
     (pkgshare/"CoreBase").install resource("masterfiles")
+  end
+
+  def post_install
+    workdir = var/"cfengine"
+    secure_dirs = %W[
+      #{workdir}/inputs
+      #{workdir}/outputs
+      #{workdir}/ppkeys
+      #{workdir}/plugins
+    ]
+    chmod 0700, secure_dirs
+    chmod 0750, workdir/"state"
+    chmod 0755, workdir/"modules"
   end
 
   test do

@@ -1,9 +1,9 @@
 class X8664LinuxGnuBinutils < Formula
   desc "GNU Binutils for x86_64-linux-gnu cross development"
   homepage "https://www.gnu.org/software/binutils/binutils.html"
-  url "https://ftp.gnu.org/gnu/binutils/binutils-2.39.tar.xz"
-  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.39.tar.xz"
-  sha256 "645c25f563b8adc0a81dbd6a41cffbf4d37083a382e02d5d3df4f65c09516d00"
+  url "https://ftp.gnu.org/gnu/binutils/binutils-2.40.tar.bz2"
+  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.40.tar.bz2"
+  sha256 "f8298eb153a4b37d112e945aa5cb2850040bcf26a3ea65b5a715c83afe05e48a"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,15 +11,16 @@ class X8664LinuxGnuBinutils < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "f5cacecde97d7d3e26842d799008d18cd8fe4153a7555d650494724f9571510c"
-    sha256 arm64_monterey: "1fe9f7c820b0669dedafd8e5aad15c3c162fc0e99140156d1f07dd6d56c9811e"
-    sha256 arm64_big_sur:  "1429ea522bf485ac5faa58e900c295054a381a320e1aaa6d0c3b8d759eecab70"
-    sha256 ventura:        "9d54c8a44903d2abf3dc1f56bdf8285606de14ac709b0b0c44d8112dcc549d4b"
-    sha256 monterey:       "7ae4d4241e69368b425188f4a086ea08b6f6effb93e3ec0a5c48302b7236774c"
-    sha256 big_sur:        "cf9c2f6587af7ccfc80d8980371524592804f52bbcb0230b663545272e16f706"
-    sha256 catalina:       "d29d967719dbf5c432c7f272633bbc2b865a782329c24ce7aca91185947ea6e0"
-    sha256 x86_64_linux:   "6f26e684578b2e64500edf2339578a12e9212560fd1935aabef4741ab7170aa2"
+    sha256 arm64_ventura:  "f9a28409dce37f4a63f4c6730eefd2380a83f91a57883f812622c7684ef2ef8c"
+    sha256 arm64_monterey: "57f7368fc8f9cee216bf89f6ec79efc7ea76c51de17806887e3ed21fdce5376a"
+    sha256 arm64_big_sur:  "0747ea5e5282e342f8ba03513d6b3557910d16df8a094ddeb4982aa13c5102f5"
+    sha256 ventura:        "392480cc4326afd89b00c5105ce23692e2d5f104b8fedb9daea54cb385219a8e"
+    sha256 monterey:       "03a7b9c231bfa17209693c3b815f6c5a1c30023c30e5133856f45e774847eadf"
+    sha256 big_sur:        "5f65086f18dbfb0922c6bc1d5fecd7f746371e282be1bd77030b93326e89c0da"
+    sha256 x86_64_linux:   "93bf432220d03a774dab1fe551d315b6734215c116864bbf5bc84d0e92c6fc55"
   end
+
+  uses_from_macos "zlib"
 
   on_system :linux, macos: :ventura_or_newer do
     depends_on "texinfo" => :build

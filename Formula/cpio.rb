@@ -20,6 +20,12 @@ class Cpio < Formula
 
   keg_only :shadowed_by_macos, "macOS provides cpio"
 
+  # Fix build with GCC 10 or later (-fno-common). Remove in the next release.
+  patch do
+    url "https://git.savannah.gnu.org/cgit/cpio.git/patch/?id=641d3f489cf6238bb916368d4ba0d9325a235afb"
+    sha256 "cdc04006fee03b60ab42bccae9a9bf146e3a4655d0e76a7a0a24689176a79ed0"
+  end
+
   def install
     system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make", "install"

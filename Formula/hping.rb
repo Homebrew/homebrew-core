@@ -5,17 +5,6 @@ class Hping < Formula
   version "3.20051105"
   sha256 "f5a671a62a11dc8114fa98eade19542ed1c3aa3c832b0e572ca0eb1a5a4faee8"
 
-  # The first-party download page (http://www.hping.org/download.php) has
-  # removed links to any archive files, with a notice that Hping is no longer
-  # actively developed. There won't be any new releases and we can't check for
-  # any in this state, so it's appropriate to skip this. If the GitHub repo
-  # (https://github.com/antirez/hping) starts creating releases, then it would
-  # be appropriate to update this livecheckable but there are no releases at
-  # the time of writing this.
-  livecheck do
-    skip "No longer actively developed"
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b23828f90e57c611c07a089da338937e42b24d5637595976c0d5d6214069cc4a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b2befbdc5f1ae3a5ed4f402bc0b0271dc557e05e82853f56da94d15f467c624d"
@@ -29,6 +18,8 @@ class Hping < Formula
     sha256 cellar: :any_skip_relocation, el_capitan:     "9644e041cb830ebd121c224cef3727e20c5bf4dcca918fd91135d74e10eb2123"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "bc0ad4627c731e75ac2b5358822f39a75d64cbb0a84e963a58c22dc7d9bfd3a4"
   end
+
+  deprecate! date: "2023-03-11", because: :unmaintained
 
   uses_from_macos "libpcap"
 

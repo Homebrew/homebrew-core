@@ -11,6 +11,9 @@ class LinuxHeadersAT516 < Formula
 
   keg_only :versioned_formula
 
+  # Linux kernel 5.16 is EOL with final release on 2022-04-13.
+  deprecate! date: "2023-02-13", because: :deprecated_upstream
+
   depends_on "rsync" => :build
   depends_on :linux
 

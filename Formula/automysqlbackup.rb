@@ -11,15 +11,14 @@ class Automysqlbackup < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4bbb9737e441d517ac533d4d1cf3ecf6c5dcbd6bfb255dbc4d3d8c6763f41627"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6a6221b7df024f5ba0ab971d2f00a6f788aa7ba4c4fa5409556a6540de0f7afd"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6499ee140c9ecc7517483b77dd3cdbd9b810c78ccd669e4160b13743d947be33"
-    sha256 cellar: :any_skip_relocation, ventura:        "7e67a4cee792d773a70aa60b184432028d2e7f551c785b926d7e061d4c98878f"
-    sha256 cellar: :any_skip_relocation, monterey:       "005eed57e1d895c9afb736b8931e05d4960bdfc4c50faff45094db816aecb65c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d6ce3e08b162183d802d0f2e58df6c485b8b53ef1354947f506e4bde4b53dc40"
-    sha256 cellar: :any_skip_relocation, catalina:       "d6ce3e08b162183d802d0f2e58df6c485b8b53ef1354947f506e4bde4b53dc40"
-    sha256 cellar: :any_skip_relocation, mojave:         "d6ce3e08b162183d802d0f2e58df6c485b8b53ef1354947f506e4bde4b53dc40"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6499ee140c9ecc7517483b77dd3cdbd9b810c78ccd669e4160b13743d947be33"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "452812b8437cd65781adbe94558e474283d72ba8a883250a4d141c4e8c284f8c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "452812b8437cd65781adbe94558e474283d72ba8a883250a4d141c4e8c284f8c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "452812b8437cd65781adbe94558e474283d72ba8a883250a4d141c4e8c284f8c"
+    sha256 cellar: :any_skip_relocation, ventura:        "97797f99e2b639017bf9dc545b3beaefcf22276a8fad76785afc96674813dcb1"
+    sha256 cellar: :any_skip_relocation, monterey:       "97797f99e2b639017bf9dc545b3beaefcf22276a8fad76785afc96674813dcb1"
+    sha256 cellar: :any_skip_relocation, big_sur:        "97797f99e2b639017bf9dc545b3beaefcf22276a8fad76785afc96674813dcb1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "452812b8437cd65781adbe94558e474283d72ba8a883250a4d141c4e8c284f8c"
   end
 
   def install
@@ -49,6 +48,8 @@ class Automysqlbackup < Formula
     working_dir HOMEBREW_PREFIX
     run_type :cron
     cron "0 4 * * *"
+    log_path var/"log/automysqlbackup.log"
+    error_log_path var/"log/automysqlbackup.log"
   end
 
   test do

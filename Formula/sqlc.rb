@@ -1,27 +1,25 @@
 class Sqlc < Formula
   desc "Generate type safe Go from SQL"
   homepage "https://sqlc.dev/"
-  url "https://github.com/kyleconroy/sqlc/archive/v1.16.0.tar.gz"
-  sha256 "40edb0cee447d8947e5d515c65ba75157dbc5dab057691b11b5957c6c7dd1519"
+  url "https://github.com/kyleconroy/sqlc/archive/v1.17.2.tar.gz"
+  sha256 "6c8e1b66d11c4aacffad8c5e9e7586df12e5b1c24f957d4c5d78c3789da5de56"
   license "MIT"
   head "https://github.com/kyleconroy/sqlc.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "00de190bfd77e705e249f975f63522ba342da373ed760a717757cc9239d7a8ed"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "623db51c51e3a41cbefaab8e8ca5508bfa8e986ff316274a90f10bbe6e906715"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "18370e81bf82f6ed4415055b7686d8e840bcb845f9dd1430bdab1968c483ed2a"
-    sha256 cellar: :any_skip_relocation, ventura:        "5bd5ba1578b3fafb1ced90506359c3f98a94e98c29768c44257746a539187037"
-    sha256 cellar: :any_skip_relocation, monterey:       "90c2da9efb1996965a01ddca52bad4859704018a47c74bc518173a2d444cc3fc"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1b74254a8e046284613945e9305b4818f47e6943674c6e736c794142bc576efc"
-    sha256 cellar: :any_skip_relocation, catalina:       "16340637b669b0ed9c3e05fdb15e5a6693f8eaa748c0cf0b99f2b0b369fddc22"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9371f1d57952cc6ad6e7c8b209c48d86709a524df53a54bde11eee2f010b18c7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d0b69ea618c5381f4fb070432cd6f811c35c10ccdfaf52cdb9e31bcaa8b4aec0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c3a9612bcf20896ec074aa7c5eeff573ee5e51ad2d37fb35a4d5403078a6c5aa"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c3db753e1793272c04b5ef7199ea0cbdb2ec299861014f80f76243af7a76ffb9"
+    sha256 cellar: :any_skip_relocation, ventura:        "29cf3f2a38e175507f8ebd3046d8b35b0f215fef880342fefc27d8076c184cc7"
+    sha256 cellar: :any_skip_relocation, monterey:       "0403f773b16af97c39bee8e72d92d254715a386b2af5781b24fc9a062d4562b4"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f659b81d1558cd5ecca81bf9a2f3f8730e2d7a4c1d6cdaec6ce836a7750f6c27"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2073a255a0239e30b900ef06fa121fd82a6c3ff5196c9a87577356fddc6cba8a"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args, "-ldflags", "-s -w", "./cmd/sqlc"
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/sqlc"
 
     generate_completions_from_executable(bin/"sqlc", "completion")
   end

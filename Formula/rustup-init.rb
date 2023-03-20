@@ -1,20 +1,18 @@
 class RustupInit < Formula
   desc "Rust toolchain installer"
   homepage "https://github.com/rust-lang/rustup"
-  url "https://github.com/rust-lang/rustup/archive/1.25.1.tar.gz"
-  sha256 "4d062c77b08309bd212f22dd7da1957c1882509c478e57762f34ec4fb2884c9a"
+  url "https://github.com/rust-lang/rustup/archive/1.25.2.tar.gz"
+  sha256 "dc9bb5d3dbac5cea9afa9b9c3c96fcf644a1e7ed6188a6b419dfe3605223b5f3"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "da743cec474c388a7774a7f7fecc458ee639d56cf4b47dc435717eb5e4476d54"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6125eed25505926f523304ebb665122a3d15b3de19b482b3b84008c93fe28fd4"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "597c38f3a49ada52ad08e863536254584294c7a4bf826d5c3ccc5ee658ff86f6"
-    sha256 cellar: :any_skip_relocation, ventura:        "ac71a435b74247270060dd2b0beb5fc479ada984aaadf9a777dd5ae9f3896473"
-    sha256 cellar: :any_skip_relocation, monterey:       "381604c17ed5b69af016c416ba9c19945ec86a2576fbfa331d7baff9c97c5d92"
-    sha256 cellar: :any_skip_relocation, big_sur:        "daf440be5aed32296c301664697f6e264c0262cc9949d04aed174de844fbdb98"
-    sha256 cellar: :any_skip_relocation, catalina:       "2d62d01b7380cf2c0dfb81de3ecab619dc5350b35ce2edabc02062267023c978"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cd649820fb2f782f82ea48c4cebb9ed17ae547d2c6476c6903639b760d6e0c6b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "16f17c91641ec51f96882e560cf153633d75a86ffc0694849f1ec3af3374cde3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "20d5f670eb0ff3f8d6854e8186131b57173691e3ebc44ea7c4fd7b964b643fab"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a90ada375a1415dd658664a84686ba0076b8024e0895dd4ee4bfbe325fb35f5c"
+    sha256 cellar: :any_skip_relocation, ventura:        "9f37940043950ca725bc75c6e73d795908ec224baed0257f116f825bcbb7b92d"
+    sha256 cellar: :any_skip_relocation, monterey:       "e4a955dc86df7e4db6b842c1396608c75f37db267ba943d3174af009d32f1d2e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d4f1c224cbe4042cc2dd2fce2c22771d53dab0cdb523e4a81c982d1adad45e2a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c749c63b8a4e4f3aecfbd73a22505fbf7d908c611f371b384d305b6639e47546"
   end
 
   depends_on "rust" => :build
@@ -24,7 +22,7 @@ class RustupInit < Formula
 
   on_linux do
     depends_on "pkg-config" => :build
-    depends_on "openssl@1.1"
+    depends_on "openssl@3"
   end
 
   def install

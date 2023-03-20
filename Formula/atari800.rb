@@ -8,8 +8,8 @@ class Atari800 < Formula
 
   livecheck do
     url :stable
-    strategy :github_latest
     regex(%r{href=.*?/tag/ATARI800[._-]v?(\d+(?:[._]\d+)+)["' >]}i)
+    strategy :github_latest
   end
 
   bottle do

@@ -10,15 +10,14 @@ class Gitup < Formula
   head "https://github.com/earwig/git-repo-updater.git", branch: "develop"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c1bea89a62730bf3c03d67653699ee75a4068c4db618b71b5ae971f1be69e7b6"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "84f6bdcc590d628a69a6df9d73daa7f4b03e727e7018435ae0eb6eeee0a9ecd2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "64b8c89c2f2eb10df5927b164fd3586b7887f9f8d354f179fc42d0f84a06bac9"
-    sha256 cellar: :any_skip_relocation, ventura:        "a7ff18b8d4ec8889a0dcb6ade317e60db8d3c1dc6f91e9718b791c3170081749"
-    sha256 cellar: :any_skip_relocation, monterey:       "cbfb28018815d98d4d7a526211850b06f0170ca1d010ff1015d1577dc150741d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c12f8494fa00c94bb840aacd2c6d416933f6180c65f8ab79fb82ed6aa2ef4da6"
-    sha256 cellar: :any_skip_relocation, catalina:       "d8459f0f5084b7bf1185b46b772ab789ad6d56746e52c7d0d7f8bdae8abf93c3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7eabc1f0d74014226967563a8a1b63667df1403f2b47e1742a3e47bfa475b739"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6110fff8fd46bffadb3b59d51a48eec76210962047600d867582004749110e73"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2912ddcf3ad3afa21a00a57c61d4cf6e91f399f8ca038883c5e18c34329f5b2c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "904c9403ba3d1debd7caae12b2022e8eebb1a0dab75d6d2c7937ec00177bd822"
+    sha256 cellar: :any_skip_relocation, ventura:        "cc14ccaf85e55faf029a5cbdbfed3f242bc28054f0578989a5f073355a214807"
+    sha256 cellar: :any_skip_relocation, monterey:       "7128646ce0ed24a44a05193e7c6fff6725bf97b5cf76693945e8bc40027aad2e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7172cbae00985c0f57a1b89b9f5026bd305455546a5266ba1b8d7c212b0fe3ea"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "45c09f68a85e5d32050da31f4f8364d930f08cadeb19d2002e9f05d1cd624435"
   end
 
   depends_on "python@3.11"
@@ -29,13 +28,13 @@ class Gitup < Formula
   end
 
   resource "gitdb" do
-    url "https://files.pythonhosted.org/packages/fc/44/64e02ef96f20b347385f0e9c03098659cb5a1285d36c3d17c56e534d80cf/gitdb-4.0.9.tar.gz"
-    sha256 "bac2fd45c0a1c9cf619e63a90d62bdc63892ef92387424b855792a6cabe789aa"
+    url "https://files.pythonhosted.org/packages/4b/47/dc98f3d5d48aa815770e31490893b92c5f1cd6c6cf28dd3a8ae0efffac14/gitdb-4.0.10.tar.gz"
+    sha256 "6eb990b69df4e15bad899ea868dc46572c3f75339735663b81de79b06f17eb9a"
   end
 
   resource "GitPython" do
-    url "https://files.pythonhosted.org/packages/22/ab/3dd8b8a24399cee9c903d5f7600d20e8703d48904020f46f7fa5ac5474e9/GitPython-3.1.29.tar.gz"
-    sha256 "cc36bfc4a3f913e66805a28e84703e419d9c264c1077e537b54f0e1af85dbefd"
+    url "https://files.pythonhosted.org/packages/ef/8d/50658d134d89e080bb33eb8e2f75d17563b5a9dfb75383ea1a78e1df6fff/GitPython-3.1.30.tar.gz"
+    sha256 "769c2d83e13f5d938b7688479da374c4e3d49f71549aaf462b646db9602ea6f8"
   end
 
   resource "smmap" do

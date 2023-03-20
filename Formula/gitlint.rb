@@ -3,19 +3,19 @@ class Gitlint < Formula
 
   desc "Linting for your git commit messages"
   homepage "https://jorisroovers.com/gitlint/"
-  url "https://files.pythonhosted.org/packages/fe/11/971074a89e50f31e32b79b73a84b8aed5787ad5718bb3857477514304db7/gitlint-core-0.18.0.tar.gz"
-  sha256 "b032eb574f7399aec6a5246a78810bacb7ce9c9fd2d9e4375950549196cae681"
+  url "https://files.pythonhosted.org/packages/73/51/b59270264aabcab5b933f3eb9bfb022464ca9205b04feef1bdc1635fd9b4/gitlint_core-0.19.1.tar.gz"
+  sha256 "7bf977b03ff581624a9e03f65ebb8502cc12dfaa3e92d23e8b2b54bbdaa29992"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e76c35c0f5c1264f660de5f79a30e5609247685ca0d27a0929696009870c6218"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e4ab8cb2671afa9e4aaa8de6fda45198162567a7e8611086bce572908f4e702a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "526b454400bcc7440c23e3659728140d2b96372734d4c59784e59a7ff542c98b"
-    sha256 cellar: :any_skip_relocation, ventura:        "f92add1cb7cca06297104b86f6c734bc164b197b440d53d86ec880159f89c5b3"
-    sha256 cellar: :any_skip_relocation, monterey:       "2043b77407919887505d5ac40225596e536a709e290be4840e9da25587b82731"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a519f46cce1b93e2045ef2880012e7a811accbe1816671ebc1b102ade4142d4c"
-    sha256 cellar: :any_skip_relocation, catalina:       "515ae6455446a91ae666d6e078e1c30eeaccac57f90976c6f72b867df31762e3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "395a1c0dc259937b455d9792749abae1235b65d1a48e10039cd2743c475b4920"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8d405098bd2a0e76aa35c2c962a78047eb9813bd2e8137d32e77465ec65a1baa"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "729efc2e3ad555e6d77fa801042a157bfa2182738794a1b80fd4345aa0b8ef30"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2c0961fb81b39f533e9448b51f62579be7fd2870ad96b05bf06ece1dc0cf9d4a"
+    sha256 cellar: :any_skip_relocation, ventura:        "7d3d8661621b9a761425df188984da146c615f5a2d9e89d29615f86d2ebb4ce2"
+    sha256 cellar: :any_skip_relocation, monterey:       "c25ba5a796a144b68544c08eb44a1d23f89448b42c7195e6637e3a21c214f710"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c75117e820488a1eeeef95548342f64632e626c8c31b2570f769faa15a3a6ec0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e15b677036ec1ede61fdc4d533fc92f20e0faa99f29c2eeaa7b713b176ad1c0c"
   end
 
   depends_on "python@3.11"
@@ -37,12 +37,16 @@ class Gitlint < Formula
   end
 
   resource "sh" do
-    url "https://files.pythonhosted.org/packages/b7/09/89c28aaf2a49f226fef8587c90c6386bd2cc03a0295bc4ff7fc6ee43c01d/sh-1.14.3.tar.gz"
-    sha256 "e4045b6c732d9ce75d571c79f5ac2234edd9ae4f5fa9d59b09705082bdca18c7"
+    url "https://files.pythonhosted.org/packages/ff/c7/0c170c7dde31f088f3c8221f90e054b121b5bd36f9e6f94edca4fdb64c0c/sh-2.0.2.tar.gz"
+    sha256 "364a25cd2380c3170c46718fe3cc6ffc94b36721e30196a064be508f9b3162f4"
   end
 
   def install
     virtualenv_install_with_resources
+
+    # Click does not support bash version older than 4.4
+    generate_completions_from_executable(bin/"gitlint", shells:                 [:fish, :zsh],
+                                                        shell_parameter_format: :click)
   end
 
   test do

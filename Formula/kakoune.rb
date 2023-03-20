@@ -12,28 +12,32 @@ class Kakoune < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6433e00227d299986ab1bbff1c41c9bcf8ddbaee825085ff3ab62cde72e377c7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1f31a1765a53309f42bdef042c82b8510aacdeed47e4b5563457c6a2e91fad7b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9ca17ff96ac28cdf3aa24317f6ddce22859c82087bff76d06a1f911948fca3c0"
-    sha256 cellar: :any_skip_relocation, ventura:        "ea0a3df04f0d8ad2ba262d0208ba8910e5cd728bd13044c39387601f0f401d04"
-    sha256 cellar: :any_skip_relocation, monterey:       "bee2f0c9c8d1f57f366d4d3452f9bf0d73e30509a651258d877311dd2733f4fd"
-    sha256 cellar: :any_skip_relocation, big_sur:        "4d49c03712e4b2e60d2ef91e14afa838552b4877e5a42121d6147443c307380b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "606496e883548440a2813b00e3639212da5d3aa11a52d4fd9ae180d373197fc5"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "771d79380fd9f1cf319e5e855b5218c33eae4d5c19ed7884710d7b596d2db1b0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "da6968f945e5f07e97e63cbcc91b664dcd88c0d7e24077f6a0ce3663d185922d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "805deb07df38ad4f5cb0f79d3898962d663fb036972d7b68b4fb584fc8a456b8"
+    sha256 cellar: :any_skip_relocation, ventura:        "1d6d075af2af9fe2641232745ce68f83ca56f84d2c98117702df2f93e7faaa8f"
+    sha256 cellar: :any_skip_relocation, monterey:       "04163a55a1f74fa8c16eb11b26baee11ca7729cd4d6439c251db964fd8df7606"
+    sha256 cellar: :any_skip_relocation, big_sur:        "fae1f0775f82b821689516906464b2502807736fa9048d691f5d1bf2742b47e7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0e008cd070d41894c2633d4686bfda79b5295d06b2352bd8ec4dc2ad4df799df"
   end
 
-  depends_on macos: :high_sierra # needs C++17
-  depends_on "ncurses"
-
-  uses_from_macos "libxslt" => :build
+  uses_from_macos "llvm" => :build, since: :big_sur
 
   on_linux do
     depends_on "binutils" => :build
-    depends_on "linux-headers@5.15" => :build
-    depends_on "pkg-config" => :build
   end
 
-  fails_with gcc: "5"
-  fails_with gcc: "6"
+  fails_with :clang do
+    build 1200
+    cause "Requires C++20"
+  end
+
+  # See <https://github.com/mawww/kakoune/blob/v2022.10.31/README.asciidoc#building>
+  fails_with :gcc do
+    version "10.2"
+    cause "Requires GCC >= 10.3"
+  end
 
   def install
     cd "src" do

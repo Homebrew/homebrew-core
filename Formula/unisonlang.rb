@@ -4,9 +4,9 @@ class Unisonlang < Formula
   desc "Friendly programming language from the future"
   homepage "https://unison-lang.org/"
   url "https://github.com/unisonweb/unison.git",
-      tag:      "release/M4e",
-      revision: "af0bc1325918c077fc62f9a7d2c3937d36d53563"
-  version "M4e"
+      tag:      "release/M4h",
+      revision: "b5fca58162798dc8635bedd200eb735a707a7fe8"
+  version "M4h"
   license "MIT"
   head "https://github.com/unisonweb/unison.git", branch: "trunk"
 
@@ -16,15 +16,15 @@ class Unisonlang < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3383767c375c4ed4cd435ada8ad1a41c3a37caa0b5862ba0e87146bc17469e16"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a038983ab8e47486759ab05c768457e7c70938db34d65e20d03070e39e2f7b62"
-    sha256 cellar: :any_skip_relocation, ventura:        "5ddfbca2b562432ef38cb34b0d06862ec9d1add35dde8445114bff0b735322c8"
-    sha256 cellar: :any_skip_relocation, monterey:       "38e235af4c9ec469bdc8b3030ae61ef490d84a0133a3f0827606ebb2d4dc9944"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9ffaf5bba561b915bcf2cddb4e151f5b3d3ee99ff6a01df494a099797e96e34d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e769988727a8c2b57802d92eedf7126acad0e085972e8b60a05860cd6dba2270"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6b9fb7bcd2579fa83e38e192bca8458f9d64a69e340872070b958b3c8ba2ccff"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "51ef67afce4c2f5c19129fdd06101f142db9feb3c2be56388bb96cd8502b1bba"
+    sha256 cellar: :any_skip_relocation, ventura:        "2f85c99bf33b350380933fa67a222827ef2eaba16a5fcb6b206dee303c875fd7"
+    sha256 cellar: :any_skip_relocation, monterey:       "e60accc2a84b3d8fa001fb7da9132b9d82fd6d2607e8d3ded872d1d4eeef7114"
+    sha256 cellar: :any_skip_relocation, big_sur:        "166c193bb3c83c683b6df7f8c4a48d3d46c960103b403107590154d3cd615ddf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ae23dafd3afa7e35fe6c3c98d1db200fd0b1a8ff4a23e0dd40263e20397558be"
   end
 
-  depends_on "ghc@8.10" => :build
+  depends_on "ghc@8.10" => :build # GHC 9.2 open PR: https://github.com/unisonweb/unison/pull/3642
   depends_on "haskell-stack" => :build
   depends_on "node@18" => :build
 
@@ -33,9 +33,9 @@ class Unisonlang < Formula
   uses_from_macos "zlib"
 
   resource "local-ui" do
-    url "https://github.com/unisonweb/unison-local-ui/archive/refs/tags/release/M4e.tar.gz"
-    sha256 "9caf016902a334db1109fd51c0aceaf7f64645201d1f1c44f45e7aaf9fd2a3d3"
-    version "M4e"
+    url "https://github.com/unisonweb/unison-local-ui/archive/refs/tags/release/M4h.tar.gz"
+    sha256 "cac7ddd1cbac628e54dbf56d879cb0a22f2b70ef3e711cf51b9e05cd5e409e44"
+    version "M4h"
   end
 
   def install
@@ -49,7 +49,7 @@ class Unisonlang < Formula
       # if that occurs. Problem seems to happening while running `elm-json install`.
       # Issue ref: https://github.com/zwilias/elm-json/issues/50
       Timeout.timeout(300) do
-        system "npm", "run", "ui-core:install"
+        system "npm", "run", "ui-core-install"
       end
       system "npm", "run", "build"
 

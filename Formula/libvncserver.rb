@@ -1,9 +1,11 @@
 class Libvncserver < Formula
   desc "VNC server and client libraries"
   homepage "https://libvnc.github.io"
-  url "https://github.com/LibVNC/libvncserver/archive/LibVNCServer-0.9.13.tar.gz"
-  sha256 "0ae5bb9175dc0a602fe85c1cf591ac47ee5247b87f2bf164c16b05f87cbfa81a"
+  url "https://github.com/LibVNC/libvncserver/archive/LibVNCServer-0.9.14.tar.gz"
+  sha256 "83104e4f7e28b02f8bf6b010d69b626fae591f887e949816305daebae527c9a5"
   license "GPL-2.0-or-later"
+  revision 1
+  head "https://github.com/LibVNC/libvncserver.git", branch: "master"
 
   livecheck do
     url :stable
@@ -11,37 +13,30 @@ class Libvncserver < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "87e7fe46721162bf960736153eb09f6c02233c6aed8559a75575cf449d14b836"
-    sha256 cellar: :any,                 arm64_monterey: "819203d759df0243fafbe98a4af39ceb66df276ec292d774b79e1292a1b565af"
-    sha256 cellar: :any,                 arm64_big_sur:  "2bc993923fe1854ab86f96e2644f1ae865b538b09092cafabe7bf4baadde2940"
-    sha256 cellar: :any,                 ventura:        "f60d76ab695a809578b36c57d452499f8d0be189a6e4977ece11d060cd55e986"
-    sha256 cellar: :any,                 monterey:       "9b4871a1a52f0f44d58bc57736490a44774738133cfe0b2ff92a6a86380d79f2"
-    sha256 cellar: :any,                 big_sur:        "a28d45216831ec31a87e0756fd13fd226b9341b2bfa798acc865be3f34a530ac"
-    sha256 cellar: :any,                 catalina:       "c667ff09ee40d2ab0e8db25a51697ae62edd14496c1075f07015bf0ed372695e"
-    sha256 cellar: :any,                 mojave:         "7e5799814cd2077d39c8d4c95806fa23c408d8a26c92140ba64f852b6a53567f"
-    sha256 cellar: :any,                 high_sierra:    "f331a9fc3ba043f0febe78df7551630a5a28f9adb362a58384901192476dff89"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d354f5da00e9fb92f82c6766245eca86b4a21be88c26ceed615e871618e5a51e"
+    sha256 cellar: :any,                 arm64_ventura:  "5212065cfd69a225a5daa89fe45a7677d2a2716970f69d7015b4206b6b90b633"
+    sha256 cellar: :any,                 arm64_monterey: "44455a6842335f99c4722e9fb89da75c1ce7af49778ee66bb08670e3ece665ab"
+    sha256 cellar: :any,                 arm64_big_sur:  "fb8f83791e2207e227b625710686602862a6fd9cd8ca88940e6c21a63fdd9435"
+    sha256 cellar: :any,                 ventura:        "fce52496a16dacb10b307481ce5faff96613aa9329cb63850f7f05be37909d79"
+    sha256 cellar: :any,                 monterey:       "35af138621f6415eec78d4e2e6e2f8bc5f74dd22bf38cb0f3c34fd2bd32c84df"
+    sha256 cellar: :any,                 big_sur:        "2f83240c0b85bdcf83c84cc6ba18ab00c8eb097520eea08133df3ab1d3c91ad9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "96d783c095df406689824ecfdcb6ee757526b6a5cf7b7951ef268d6ee8a6243f"
   end
 
   depends_on "cmake" => :build
   depends_on "jpeg-turbo"
   depends_on "libgcrypt"
   depends_on "libpng"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
-    args = std_cmake_args + %W[
-      -DJPEG_INCLUDE_DIR=#{Formula["jpeg-turbo"].opt_include}
-      -DJPEG_LIBRARY=#{Formula["jpeg-turbo"].opt_lib}/#{shared_library("libjpeg")}
-      -DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}
-    ]
-
-    mkdir "build" do
-      system "cmake", "..", *args
-      system "cmake", "--build", "."
-      system "ctest", "-V"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DJPEG_INCLUDE_DIR=#{Formula["jpeg-turbo"].opt_include}",
+                    "-DJPEG_LIBRARY=#{Formula["jpeg-turbo"].opt_lib/shared_library("libjpeg")}",
+                    "-DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}",
+                    *std_cmake_args
+    system "cmake", "--build", "build"
+    system "ctest", "--test-dir", "build", "--verbose"
+    system "cmake", "--install", "build"
   end
 
   test do

@@ -1,8 +1,8 @@
 class Log4cplus < Formula
   desc "Logging Framework for C++"
   homepage "https://sourceforge.net/p/log4cplus/wiki/Home/"
-  url "https://downloads.sourceforge.net/project/log4cplus/log4cplus-stable/2.0.8/log4cplus-2.0.8.tar.xz"
-  sha256 "f5949e713cf8635fc554384ab99b04716e3430f28eed6dd7d71ad03d959b91a0"
+  url "https://downloads.sourceforge.net/project/log4cplus/log4cplus-stable/2.1.0/log4cplus-2.1.0.tar.xz"
+  sha256 "d84ac8b1c46645122fbf72691f8eacef68c71b587403ee833bd9a252e06d46cc"
   license all_of: ["Apache-2.0", "BSD-2-Clause"]
 
   livecheck do
@@ -11,14 +11,13 @@ class Log4cplus < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "a0a8e4ba248749650e1444954c18d7fcbd91297bcd9514f611d8d17323c73432"
-    sha256 cellar: :any,                 arm64_monterey: "1c462b9d31dce4812a51fe1a620d423bacc424d12abfba3b9e161a3debda65b6"
-    sha256 cellar: :any,                 arm64_big_sur:  "fe85d95a5749af4c54332c4f799a121b8d15a11f949e96abbb22a8287a8c4c2c"
-    sha256 cellar: :any,                 ventura:        "b5398e0afde62a5e3fb2dc982ce2223daceda1152ad94bb7ebe523fef9c5c806"
-    sha256 cellar: :any,                 monterey:       "affad148e3fc8a11f5c3cfcca7aaa0b78a6fb0c1c1a23c43107b12af159274bc"
-    sha256 cellar: :any,                 big_sur:        "7130b433ddac37a7c5f7621b7e715944286432464d484bb1002863d1551c4066"
-    sha256 cellar: :any,                 catalina:       "59a7948863b88c2c47a138fc2a436aebbaae49ad4d674e0f5ce6489ad0ff9c3d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "644160ffb7361c99bd2b95674492f1545ffdc1ec36548f54249da82a6db18d3f"
+    sha256 cellar: :any,                 arm64_ventura:  "b739d2c97ab696cab6ec893d266e41b79482b238d77c4bced0e6b0f7ccba7bea"
+    sha256 cellar: :any,                 arm64_monterey: "e50c8d4a7ef6075645cb1b64949ee546b27d2a050a630ba4ab2662104248aa07"
+    sha256 cellar: :any,                 arm64_big_sur:  "1dc122450d38b78c0fc1451f49f0bf524fb10e0655125aa184e573d5063d3ed9"
+    sha256 cellar: :any,                 ventura:        "9b2e0339bbb57473a36590f863a2c2fc85e85d20d1bbce140060ff6a781ddaca"
+    sha256 cellar: :any,                 monterey:       "271c2f01d4a4bd4c66e470a5e2dae2d46b38a42ced2c61eca1f7dfd51507d897"
+    sha256 cellar: :any,                 big_sur:        "fdbb927a66ad0c9f4f2f2f06eb1978de8e591447860785e8164a0197181d8f97"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "79fe35bf4cd51b0397d5118f37116301e23a86f53bbc1874da72f927263b1640"
   end
 
   def install

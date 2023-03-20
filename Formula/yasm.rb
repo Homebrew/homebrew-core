@@ -21,7 +21,7 @@ class Yasm < Formula
   end
 
   head do
-    url "https://github.com/yasm/yasm.git"
+    url "https://github.com/yasm/yasm.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

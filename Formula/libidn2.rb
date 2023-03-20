@@ -6,6 +6,7 @@ class Libidn2 < Formula
   mirror "http://ftp.gnu.org/gnu/libidn/libidn2-2.3.4.tar.gz"
   sha256 "93caba72b4e051d1f8d4f5a076ab63c99b77faee019b72b9783b267986dbb45f"
   license any_of: ["GPL-2.0-or-later", "LGPL-3.0-or-later"]
+  revision 1
 
   livecheck do
     url :stable
@@ -13,38 +14,47 @@ class Libidn2 < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "733adfd62ece847bb7f36e57434c58582020cd7c572a2b37b6113811108ac1c1"
-    sha256 arm64_monterey: "38eed5a97aaddeebf0c510ed609466c2c0d1fdc996452e380a4ed9366000fe5e"
-    sha256 arm64_big_sur:  "3b7b3d218a6b04a8264174da41af73e638fc75a7dcbb4f41150f2f37166d5cb9"
-    sha256 ventura:        "3561d710120deb93c7b30c1c3a9639e9649e41fc7360b25ce6a8bc53424a43da"
-    sha256 monterey:       "335207a9dc5fdab95f75b5639108c66e57d9b3fe0c632a829e05947d8e0b31ff"
-    sha256 big_sur:        "d2db4a1e16ed4293bb44a0aca0166e9a4eda64f219d655c0aa56a1014398e0ff"
-    sha256 catalina:       "9cf7ddcc4469e80d0a81bc95312e2481bdddb2b5fdd9f1a20ca8b0b37eb38af3"
-    sha256 x86_64_linux:   "e95765dc4efb32e9b9d24f3b02624d40f9c6f2753a091296900f107ada06f106"
+    rebuild 1
+    sha256 arm64_ventura:  "b044c66cc0f1feea87d229f3f4016c5ff29a0fb0f712d0d5219f05465247b10f"
+    sha256 arm64_monterey: "64f5b404f308f58ea4dbe787559fb802abd9b624dabd9a1703aa241a2a86d0fb"
+    sha256 arm64_big_sur:  "e6c723cf6d603fad95bc7c7110d114d879555c38c2bed239f5a3e977ecc29434"
+    sha256 ventura:        "322028f5aaf50cac890a5eab03e3a21ecef83d76449c7d8f8d769d1c0887a7b7"
+    sha256 monterey:       "5dcfc410f76c7885fffea633054c58c61e8a5dd2a6cfae33c2ea94e27ae0e96b"
+    sha256 big_sur:        "234beba5f85ebd599ede74b4963e2cc5d2595e05b15bbe5bd528c8bc852bdc1d"
+    sha256 x86_64_linux:   "af78945967847cdf33779abbd1142cabb31d6b5d428f367e23bc068f1d240e49"
   end
 
   head do
-    url "https://gitlab.com/libidn/libidn2.git"
+    url "https://gitlab.com/libidn/libidn2.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "gengetopt" => :build
+    depends_on "gettext" => :build
+    depends_on "help2man" => :build
     depends_on "libtool" => :build
     depends_on "ronn" => :build
+
+    uses_from_macos "gperf" => :build
+
+    on_system :linux, macos: :ventura_or_newer do
+      depends_on "texinfo" => :build
+    end
   end
 
   depends_on "pkg-config" => :build
-  depends_on "gettext"
   depends_on "libunistring"
 
-  def install
-    system "./bootstrap" if build.head?
+  on_macos do
+    depends_on "gettext"
+  end
 
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--with-libintl-prefix=#{Formula["gettext"].opt_prefix}",
-                          "--with-packager=Homebrew"
+  def install
+    args = ["--disable-silent-rules", "--with-packager=Homebrew"]
+    args << "--with-libintl-prefix=#{Formula["gettext"].opt_prefix}" if OS.mac?
+
+    system "./bootstrap", "--skip-po" if build.head?
+    system "./configure", *std_configure_args, *args
     system "make", "install"
   end
 

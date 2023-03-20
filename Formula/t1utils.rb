@@ -19,7 +19,7 @@ class T1utils < Formula
   end
 
   head do
-    url "https://github.com/kohler/t1utils.git"
+    url "https://github.com/kohler/t1utils.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

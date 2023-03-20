@@ -1,8 +1,8 @@
 class Ki18n < Formula
   desc "KDE Gettext-based UI text internationalization"
   homepage "https://api.kde.org/frameworks/ki18n/html/index.html"
-  url "https://download.kde.org/stable/frameworks/5.101/ki18n-5.101.0.tar.xz"
-  sha256 "bf1530be9279d476c0531988eeb1c032e208f6010c8f00880bb5d694229fef65"
+  url "https://download.kde.org/stable/frameworks/5.104/ki18n-5.104.0.tar.xz"
+  sha256 "fe815b9e28c680fa472c7ab56e4d7934a8915f19409734a13433797a4be14ee1"
   license all_of: [
     "BSD-3-Clause",
     "LGPL-2.0-or-later",
@@ -18,13 +18,13 @@ class Ki18n < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "65fa762162be209d346815beb6c05e7c989ada313fb66f273d569fe34817fdab"
-    sha256 arm64_monterey: "10a1bdbfa8d7709b43e90f40fefab4debd0664bbcd84e51ddd6d49359f13ae26"
-    sha256 arm64_big_sur:  "bda696c0235f2f93fa120224dc432fcdba5c0ea7c923bfd1b861100ca0e416f6"
-    sha256 ventura:        "60ff407c7a9342ce659552c15eb2153cbad419fbdcafd67dfdde7245b641b553"
-    sha256 monterey:       "5138baeb4ecc3d954afbc94223c1a3a2d8106d2dd6f9b2c4445a18e0e8806d3f"
-    sha256 big_sur:        "4f0fedebe6e0a7bce8bd0a62fc5ac58e393b3a21530e1edcf578f7476b4ca3db"
-    sha256 x86_64_linux:   "5c3b66325ab39069c406e86c709a7ecafd28e45f7a52754ff526999bc15afeca"
+    sha256 cellar: :any,                 arm64_ventura:  "c64ee2b990abca45c92454ce2721e6856e9f5eba2db4f8a32f349c1927c94b28"
+    sha256 cellar: :any,                 arm64_monterey: "843873fe132706b6a0f4493e8c656e633f65ac0b20248ced785419e5dac016d2"
+    sha256 cellar: :any,                 arm64_big_sur:  "75855ddd0773f1dec095e066b9c6d00ad3757db48a9909d2beceb9d05ad25772"
+    sha256 cellar: :any,                 ventura:        "005536c8d471a093191f09a657043c864b9a2c9cf5ac5885ccfdca23b9adcce4"
+    sha256 cellar: :any,                 monterey:       "7095ddc5cffefb22fe82f69a3596a238398bfb0141c013f25557a3d2ab6e8e72"
+    sha256 cellar: :any,                 big_sur:        "f241873c4b3642ac4bab34d4e75c88cbb0d78d82a6dc91720590d0f437d07cb4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b01e76347ff832ecb184db06031ab04c7423de8da0b4d95fe8013ec0fb8bca20"
   end
 
   depends_on "cmake" => [:build, :test]

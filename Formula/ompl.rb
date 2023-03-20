@@ -1,10 +1,10 @@
 class Ompl < Formula
   desc "Open Motion Planning Library consists of many motion planning algorithms"
   homepage "https://ompl.kavrakilab.org/"
-  url "https://github.com/ompl/ompl/archive/1.5.2.tar.gz"
-  sha256 "db1665dd2163697437ef155668fdde6101109e064a2d1a04148e45b3747d5f98"
+  url "https://github.com/ompl/ompl/archive/1.6.0.tar.gz"
+  sha256 "f03daa95d2bbf1c21e91a38786242c245f4740f16aa9e9adbf7c7e0236e3c625"
   license "BSD-3-Clause"
-  revision 3
+  revision 1
   head "https://github.com/ompl/ompl.git", branch: "main"
 
   # We check the first-party download page because the "latest" GitHub release
@@ -15,14 +15,13 @@ class Ompl < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "843607614ddb38dad78f7995c2a1926ada94aad6eccf7756120977033d58003f"
-    sha256 cellar: :any,                 arm64_monterey: "30ee71e15b93d121ab4115219e73a518d64650a8bf557f8ec0074f13d746ac47"
-    sha256 cellar: :any,                 arm64_big_sur:  "d917e5fdf5c7d440fd91b82b258f675d47dfdd98f6dbf1666297063c97847da3"
-    sha256 cellar: :any,                 ventura:        "9a4320bc23a07517bf829a7943e10fe5c1eb38719ce7b396760fe130c9b7fa8a"
-    sha256 cellar: :any,                 monterey:       "6df2084f25065baf411c8d8308e2e8794ec64710dc12892d86ecd03d7e2221dd"
-    sha256 cellar: :any,                 big_sur:        "21964e04b91b8246c5910fdedd6f038417f04b9d86c2c2fb79f6a06e00871f07"
-    sha256 cellar: :any,                 catalina:       "c9691b20bccb579326f24add8b6b4c377d4f7bdf2e656a7de44b8811f486c0ca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3fec9ac266afa86e2cf676cb6acd864146b6aa1932870bf7761299cab2727c88"
+    sha256 cellar: :any,                 arm64_ventura:  "e5c2263d2ac730ebac237401f874c517dd8e57676bef891f14d78ef18deee745"
+    sha256 cellar: :any,                 arm64_monterey: "3119289b0d4f77b083acf7be1da96699587faeb51fd24f294a3dec5115f251f8"
+    sha256 cellar: :any,                 arm64_big_sur:  "9eee5a89b79556ee8733da78dc3109e6736e5084722c6a74a5e853d657a233a2"
+    sha256 cellar: :any,                 ventura:        "10ef9362526815aa4d4d314a7dda20743242de837b55bb5f29a606ec08d128eb"
+    sha256 cellar: :any,                 monterey:       "200c5a35215981bb781134170bea604e6b7ed1ba3463e80e5592da22086349d1"
+    sha256 cellar: :any,                 big_sur:        "edfb0198598aa74f209299e215fb7ec5651b1d78891177b02aab4d8d87a64f9e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "44610fe44593c2753c1945d564c1baef523573f33d9fa0ba6cf30d247b5c5ba2"
   end
 
   depends_on "cmake" => :build
@@ -33,7 +32,6 @@ class Ompl < Formula
   depends_on "ode"
 
   def install
-    ENV.cxx11
     args = std_cmake_args + %w[
       -DOMPL_REGISTRATION=OFF
       -DOMPL_BUILD_DEMOS=OFF
@@ -59,7 +57,7 @@ class Ompl < Formula
       }
     EOS
 
-    system ENV.cxx, "test.cpp", "-I#{include}/ompl-1.5", "-L#{lib}", "-lompl", "-o", "test"
+    system ENV.cxx, "test.cpp", "-I#{include}/ompl-#{version.major_minor}", "-L#{lib}", "-lompl", "-o", "test"
     system "./test"
   end
 end

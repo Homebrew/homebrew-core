@@ -10,27 +10,26 @@ class Tvnamer < Formula
   head "https://github.com/dbr/tvnamer.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "44bcd455f8e36aa40ab7e0d5a300752264520b18ffd739eefca7d760c2ae105a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ea4e7305d39b4960cf73fbf8fa9767aad646e83bb9d4cb36ae4271aa2b2eba94"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "44270b65aab543ed23b67d0e803ee8ed12b1053198fde809e8d09de945d91084"
-    sha256 cellar: :any_skip_relocation, ventura:        "426084e68945da49d1442a506117965f5c41ba4f1d337a94767e9855bb0ef8c2"
-    sha256 cellar: :any_skip_relocation, monterey:       "94be19c99705477fdd53b7f05f1b4c00ea511897f522c5e32590c4a4fb86a98e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c1a6f5ec60abccddfb3ab65731e70c579cee559d103a22609c8e002a71157412"
-    sha256 cellar: :any_skip_relocation, catalina:       "a4d03019f5357d1c4303d5a1efb3da25107ff401ed3051340173926b1177733b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9e6cb2069465bae0cb33abe999cd1e2092394aab991d634adb2dea3bae6282dc"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "33eb178a5c3033f0ed5d29725531949439a09ef5cd65690dc0c2d90623c610c9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "14e517b01bad38fa7059bf514d0c37dbcc4160735c3e5952e7dc1ce7186ee0ad"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "51d4b3b8a5d40f4269e0785f7f2e766d003e02923c564704b540142350457941"
+    sha256 cellar: :any_skip_relocation, ventura:        "06eb0bc11e8e1ac519257ee07516122cfc0fab4ac338a78eae102bc53eac590f"
+    sha256 cellar: :any_skip_relocation, monterey:       "e0bd8bab2ba136c7dbc5b9aca813b24fd4b11290a64f2d54b1c3d01a51a43cdf"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9ab06f2fc93b7f57e74faa91f3c48ec16455b912d1a19e0a8c4dc5f5d7c6e201"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5e4957eac10b6909126be373f2dc4d63208e31a1d2addd457388158c538817be"
   end
 
   depends_on "python@3.11"
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/cb/a4/7de7cd59e429bd0ee6521ba58a75adaec136d32f91a761b28a11d8088d44/certifi-2022.9.24.tar.gz"
-    sha256 "0d9c601124e5a6ba9712dbc60d9c53c21e34f5f641fe83002317394311bdce14"
+    url "https://files.pythonhosted.org/packages/37/f7/2b1b0ec44fdc30a3d31dfebe52226be9ddc40cd6c0f34ffc8923ba423b69/certifi-2022.12.7.tar.gz"
+    sha256 "35824b4c3a97115964b408844d64aa14db1cc518f6562e8d7261699d1350a9e3"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/a1/34/44964211e5410b051e4b8d2869c470ae8a68ae274953b1c7de6d98bbcf94/charset-normalizer-2.1.1.tar.gz"
-    sha256 "5a3d016c7c547f69d6f81fb0db9449ce888b418b5b9952cc5e6e66843e9dd845"
+    url "https://files.pythonhosted.org/packages/96/d7/1675d9089a1f4677df5eb29c3f8b064aa1e70c1251a0a8a127803158942d/charset-normalizer-3.0.1.tar.gz"
+    sha256 "ebea339af930f8ca5d7a699b921106c6e29c617fe9606fa7baa043c1cdae326f"
   end
 
   resource "idna" do
@@ -39,8 +38,8 @@ class Tvnamer < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/a5/61/a867851fd5ab77277495a8709ddda0861b28163c4613b011bc00228cc724/requests-2.28.1.tar.gz"
-    sha256 "7c5599b102feddaa661c826c56ab4fee28bfd17f5abca1ebbe3e7f19d7c97983"
+    url "https://files.pythonhosted.org/packages/9d/ee/391076f5937f0a8cdf5e53b701ffc91753e87b07d66bae4a09aa671897bf/requests-2.28.2.tar.gz"
+    sha256 "98b1b2782e3c6c4904938b84c0eb932721069dfdb9134313beff7c83c2df24bf"
   end
 
   resource "requests-cache" do
@@ -54,8 +53,8 @@ class Tvnamer < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/b2/56/d87d6d3c4121c0bcec116919350ca05dc3afd2eeb7dc88d07e8083f8ea94/urllib3-1.26.12.tar.gz"
-    sha256 "3fa96cf423e6987997fc326ae8df396db2a8b7c667747d47ddd8ecba91f4a74e"
+    url "https://files.pythonhosted.org/packages/c5/52/fe421fb7364aa738b3506a2d99e4f3a56e079c0a798e9f4fa5e14c60922f/urllib3-1.26.14.tar.gz"
+    sha256 "076907bf8fd355cde77728471316625a4d2f7e713c125f51953bb5b3eecf4f72"
   end
 
   def install

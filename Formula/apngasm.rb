@@ -4,18 +4,17 @@ class Apngasm < Formula
   url "https://github.com/apngasm/apngasm/archive/3.1.10.tar.gz"
   sha256 "8171e2c1d37ab231a2061320cb1e5d15cee37642e3ce78e8ab0b8dfc45b80f6c"
   license "Zlib"
-  revision 3
+  revision 5
   head "https://github.com/apngasm/apngasm.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "1506e2e15b8e46ec9a3f69da98f44cb106748572385cf9dde544f1241e808fb4"
-    sha256 cellar: :any,                 arm64_monterey: "c177663cbe53b8e95df7f58e4ae29d474ad6d6a783fa06759d29873a36c92a41"
-    sha256 cellar: :any,                 arm64_big_sur:  "c292d029d6a70e1232f30423690b71be59baa2738bf2f025ac9e7d4c3513f734"
-    sha256 cellar: :any,                 ventura:        "f6791aeb6c8cd3c076ec3ce0ca03c9d957fa364762c741fe62e00c9d2e5573b3"
-    sha256 cellar: :any,                 monterey:       "b2beca474fc168a54f16fabe8800ebb73fc3928409bb8dc04f6367bceb9909c4"
-    sha256 cellar: :any,                 big_sur:        "41ad219c9048cca6c303833ec301f50924a0cafc190ef5425f93544f2d56fc13"
-    sha256 cellar: :any,                 catalina:       "406db22f6432af40fd166975ac9050ad7d2152ea95cd62c4124c67e1eca1b76f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2f3921b1583e8912557caa117dfe36ff7f63083d1969743373a11684768ba6b5"
+    sha256 cellar: :any,                 arm64_ventura:  "4acdb6cff6fa9d01338279fc4dac97218cb8aa028ed3863373d4e5209fb86ae7"
+    sha256 cellar: :any,                 arm64_monterey: "68e7bfc9f0857f455da553dd6cd470c58ba27d7b9b583dffbf45d26b55615cc6"
+    sha256 cellar: :any,                 arm64_big_sur:  "042c64d0af4c1ba61312ab78e6b605889890b0b71ea6e5826e1e8a24b63aaf78"
+    sha256 cellar: :any,                 ventura:        "6dd843425e4346b0dfd4715609e7f5566ed614929eab0f040ca94badfe83e64f"
+    sha256 cellar: :any,                 monterey:       "0680cc57600f7c28acd73c11a4563378876f89b8541cf8c3662fb04f27ea55c1"
+    sha256 cellar: :any,                 big_sur:        "d7fe15f3a3c4f723b7c1ed5324eb300d75c5cfca0b7d8ab0e8e48af104c91cd8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "af638cd0b4172b7afbf389201171c25307405f5e6e93b50b22f249f68aa3d3e1"
   end
 
   depends_on "cmake" => :build

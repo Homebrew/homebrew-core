@@ -1,9 +1,10 @@
 class CargoC < Formula
   desc "Helper program to build and install c-like libraries"
   homepage "https://github.com/lu-zero/cargo-c"
-  url "https://github.com/lu-zero/cargo-c/archive/v0.9.15.tar.gz"
-  sha256 "ba29e662c2419ce12e4d5a9d0b05c057378088f474bc9316238c0a621b488299"
+  url "https://github.com/lu-zero/cargo-c/archive/v0.9.17.tar.gz"
+  sha256 "95fcf50505516dfa6a941e666d1388810da9d7a9e1c623c09068faef5d50b3b9"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,17 +12,17 @@ class CargoC < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "8bd2dca0982170de1d022ea041f780b6d781b4ef641076910d2c3cfc37554d11"
-    sha256 cellar: :any,                 arm64_monterey: "eb2cb2830b2eea3e4af89125928eb3bbf0fc8f2180b4b2ceccd6ed1175738fdc"
-    sha256 cellar: :any,                 arm64_big_sur:  "415c81f580ebe951ad694797395921f52f4718b3b0cf76b3c2f1d7840f50ccc8"
-    sha256 cellar: :any,                 ventura:        "4f57e3ad4774f8af86990f6a98ed28b136aa6e9c2c5c4472d83f9a7ab2df01ca"
-    sha256 cellar: :any,                 monterey:       "4e62f45fbd97805624ab001cb6a67d5b200bd1c7059567e483a453b159c01f85"
-    sha256 cellar: :any,                 big_sur:        "cd624e79d0282347b1918cd6ca75f7a80e8304f6d63feb46aaea5242a55e86bf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5179d65bf4d109c68987d15b16cd074f7eac8c41ca0ea65f699bb06f155eebc2"
+    sha256 cellar: :any,                 arm64_ventura:  "04e65e30c844ef254637b26e04c58ccd0970991e79bc43badc5efd90c9099be2"
+    sha256 cellar: :any,                 arm64_monterey: "b85903251bc13301b8f042f7ad02ec6396906b6cdf428d947c2ec3d3f0016e7a"
+    sha256 cellar: :any,                 arm64_big_sur:  "3dfbc10543193678c1d7feef393e7bd47035fafd8fed3d5ed65d82060c3f4614"
+    sha256 cellar: :any,                 ventura:        "5b7fffccc3c013477f70e777045e01f268e6db472aefc8e4d87e0f9c3a3ce355"
+    sha256 cellar: :any,                 monterey:       "ca792b2e58e1b9af8fdb40b711e815eb8ca8c6255bd1356ea094f7ff77af48b1"
+    sha256 cellar: :any,                 big_sur:        "a40f1e7de26be164dffc81b6b36f247ce5db28447d3c95e5dc27ef5988e8b307"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6b2ad8aca8c89c6ed6fffa5bb30841669f592eb6efd5591d20610db6b75fa23b"
   end
 
   depends_on "rust" => :build
-  depends_on "libgit2"
+  depends_on "libgit2@1.5"
   depends_on "libssh2"
   depends_on "openssl@1.1"
 
@@ -34,13 +35,34 @@ class CargoC < Formula
   def install
     ENV["LIBGIT2_SYS_USE_PKG_CONFIG"] = "1"
     ENV["LIBSSH2_SYS_USE_PKG_CONFIG"] = "1"
+    # Ensure the correct `openssl` will be picked up.
+    ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
+    ENV["OPENSSL_NO_VENDOR"] = "1"
 
     system "cargo", "install", *std_cargo_args
+  end
+
+  def check_binary_linkage(binary, library)
+    binary.dynamically_linked_libraries.any? do |dll|
+      next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
+
+      File.realpath(dll) == File.realpath(library)
+    end
   end
 
   test do
     cargo_error = "could not find `Cargo.toml`"
     assert_match cargo_error, shell_output("#{bin}/cargo-cinstall cinstall 2>&1", 1)
     assert_match cargo_error, shell_output("#{bin}/cargo-cbuild cbuild 2>&1", 1)
+
+    [
+      Formula["libgit2@1.5"].opt_lib/shared_library("libgit2"),
+      Formula["libssh2"].opt_lib/shared_library("libssh2"),
+      Formula["openssl@1.1"].opt_lib/shared_library("libssl"),
+      Formula["openssl@1.1"].opt_lib/shared_library("libcrypto"),
+    ].each do |library|
+      assert check_binary_linkage(bin/"cargo-cbuild", library),
+             "No linkage with #{library.basename}! Cargo is likely using a vendored version."
+    end
   end
 end

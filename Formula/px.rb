@@ -4,20 +4,18 @@ class Px < Formula
   desc "Ps and top for human beings (px / ptop)"
   homepage "https://github.com/walles/px"
   url "https://github.com/walles/px.git",
-      tag:      "3.1.0",
-      revision: "01b9e5fa0a1e378185cdc38adb52155f5c4dc1db"
+      tag:      "3.2.0",
+      revision: "8f52d01b4077714b2234675b7e7522bb42d12d08"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "56e6093ab47302a9d3b23cde2662860e408988d0a1c37d64d7f40111ad152e9c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5f31e7ad8a9756e216ffa798d1eb3f72b6287696d0e141b84d68442883099bcf"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0d6fba41606ec28108dff1ae620033ea698bcf8dbb838a7b3f49d175684dc8b8"
-    sha256 cellar: :any_skip_relocation, ventura:        "587459333a35b5ad557c2adedf5cbd7d4317065e206edb1ebe9dc46549222ce7"
-    sha256 cellar: :any_skip_relocation, monterey:       "97a6828c35501ed73e8a4a46eb3e3e3b580e94453a32bf3ed0c9d449fb330e37"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7d290178f607e07f603ea8a8d70db6d62eb313ab44e1f0b796dc527be3982a72"
-    sha256 cellar: :any_skip_relocation, catalina:       "153f67ba5e9f0cbd76f5ea56a8ee296c9a2783dc0b0151e78f65ce10400b0007"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4ad4b6a38f6494c2f049231c87cf463a24a32ac5b6c417a847563b15765e55d0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fc0b7a64f5288972e8314c925d63f99da21dcc1951e612f192283bea40bc98e4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "70022f6e7caf051db9fa27b5576415fa94954554ff4d18e9b038f09c3d4ad27c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7871bb0a2d1dc89a19b59d62fb8af6ae7442db2277d2bc72d178f6f1d358c9ff"
+    sha256 cellar: :any_skip_relocation, ventura:        "834810cf9aa6f34d57dfffb957939324fb1cc46720b9e284165292ffd2e70057"
+    sha256 cellar: :any_skip_relocation, monterey:       "df39f38c27ebcaf0a3fb55275357c4743f6e01e5b30ab229102215c0416ea60a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a41fa8d6302b356ace6fcca3e6f5e6fa94b843fcee89bb1dd907db3f45bbed38"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "296612c6c22a933f19850944270315c3d32195b78c06b1c0b994563f678cc819"
   end
 
   depends_on "python@3.11"

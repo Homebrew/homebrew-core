@@ -1,8 +1,8 @@
 class Coredns < Formula
   desc "DNS server that chains plugins"
   homepage "https://coredns.io/"
-  url "https://github.com/coredns/coredns/archive/v1.10.0.tar.gz"
-  sha256 "0fa6631899c0ae93d1b557add54fb18587a5c55627b177eb9f31cdfdf8677184"
+  url "https://github.com/coredns/coredns/archive/v1.10.1.tar.gz"
+  sha256 "f47186452e5f2925e2c71135669afd9e03b9b55831417d33d612ef2fa69924a7"
   license "Apache-2.0"
   head "https://github.com/coredns/coredns.git", branch: "master"
 
@@ -12,14 +12,13 @@ class Coredns < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "789ca382bc7bc114051d251bbe1f52ab0b1a34f97dad41a4e8f075c9b99987e4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7297b2db0b0b9605d83284b1003a11a3bda68369136cc71e25efcde8c6ec49a6"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b3ad40a9e6831dd84070f672b08fc8bdb9e0e3b343cac3bc705acbd21a4f4715"
-    sha256 cellar: :any_skip_relocation, ventura:        "3a912425aa5f7678bee06470dffad475ace691467e4cf61ff1d9b2180caf3da0"
-    sha256 cellar: :any_skip_relocation, monterey:       "7e7bd62f170026084a26fe235a190fdc33d1f29d3514f4aa4e523f768edd2e08"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7517447ac64977764985ac74d1027e1a67b1e22798683e22551a80c5965ea441"
-    sha256 cellar: :any_skip_relocation, catalina:       "85d0734f54404298d40a7fc80af544b7549c5e875c525cd03b2725061a671bdf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e05841208c8027e36e53d7e5d91fd609519f3e7305e5bee4afa85c73d15df72e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "90174107c61e9ce290ab14b954292a2fc8620a342debc09ee764d3dd37564a65"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ba15a73065ae027c910ae5f8ecc38879611abaacb7c2b8501783955a208c1882"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "949e84820bb33065bcc76c3bfe9c30b947d3a3bb0d644075d1c61cc622c647b7"
+    sha256 cellar: :any_skip_relocation, ventura:        "8dd7bd8f6639c524c3578d169271ce5290bb0824615d57f1a26df97c31f160ac"
+    sha256 cellar: :any_skip_relocation, monterey:       "19eb6ea8035710973836bec703f08a594d793d72a93af585172b01be924cb36f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a4951058901e8ca332a831826e52dd64ff30f9996e1871bb24c23651df740bbf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c5dda235c5ce6012160636941ee9244319f65a60e9c18263a950c91078c6ba76"
   end
 
   depends_on "go" => :build

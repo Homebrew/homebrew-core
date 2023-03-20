@@ -3,27 +3,25 @@ class Borgmatic < Formula
 
   desc "Simple wrapper script for the Borg backup software"
   homepage "https://torsion.org/borgmatic/"
-  url "https://files.pythonhosted.org/packages/ed/94/a2c04e1318b0a2648548a9e47af3f8eb063e3c6a4a3921d3688ddec33b1b/borgmatic-1.7.5.tar.gz"
-  sha256 "914c547028d3d6d94001e256082b8a4d8eb38db0c2d9948483b3b9712fce4b77"
+  url "https://files.pythonhosted.org/packages/74/53/c7ec58aeff933602ea2eb2a779be5b11c1a7d3dc9aede5e9bdbae5ed1e90/borgmatic-1.7.9.tar.gz"
+  sha256 "bf7431c32ed5eaba97f741b8fd7a7a9954d492ba835e6b9d821ded8741828ee9"
   license "GPL-3.0-or-later"
-  revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f595530096c14ea5bd438f4db5046784dad6dd167d1363609a7f6c7b274bb9bb"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4d9c2213f6f730d94647c43fd1d695a74a24844aac2e22fc81e16af2e92f0d1b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "43b1f6a44e6874f3edec5b11db14a619c4d181bf65f2869ba43cef3b80d8a260"
-    sha256 cellar: :any_skip_relocation, ventura:        "4619c5859fc06a28ce9c0ab1606c9db06f23708396920d159b311b671bf088b3"
-    sha256 cellar: :any_skip_relocation, monterey:       "7ded8bbfb31e8278159160a206f825602801cc2a72150daba6801fa543634f61"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8a36e3bd053b5a7fd3fd504b86c79a81f4241c646039798854eafb1f7090d946"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "80f543084de6449931b255b5f40520a7af75c5db1619902950580cb9e607a709"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "deab789d9dc4b160e67cf38ca57a91621db1d568063f8c6eb5b0730fde393d72"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c08a28cb69a939cd134bf2f38182b7dce080643894256cad890ec4eec83f9b14"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "86a354be5003059b4eee7070d2b49eb08263853a58dc3bc331c6a7be3f9c405b"
+    sha256 cellar: :any_skip_relocation, ventura:        "7473debbfe445614a21188d0c9b91cec305a2b08e638b8f017a33691e2adc81c"
+    sha256 cellar: :any_skip_relocation, monterey:       "526569fc6360c9cac3839d839a59cbcff118b8786ba81f697ad68fdcabcd5e0f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9455661889bc5bc73dbfd0f58e62165529d8ff507700aeafb7ac8f0d23b1f363"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "844a53cabd53e34a60267ee1a75ddf600ee10d0f91a1c7d68917ff7ed01d0620"
   end
 
   depends_on "python@3.11"
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/1a/cb/c4ffeb41e7137b23755a45e1bfec9cbb76ecf51874c6f1d113984ecaa32c/attrs-22.1.0.tar.gz"
-    sha256 "29adc2665447e5191d0e7c568fde78b21f9672d344281d0c6e1ab085429b22b6"
+    url "https://files.pythonhosted.org/packages/21/31/3f468da74c7de4fcf9b25591e682856389b3400b4b62f201e65f15ea3e07/attrs-22.2.0.tar.gz"
+    sha256 "c9227bfc2f01993c03f68db37d1d15c9690188323c067c641f1a35ca58185f99"
   end
 
   resource "certifi" do
@@ -32,8 +30,8 @@ class Borgmatic < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/a1/34/44964211e5410b051e4b8d2869c470ae8a68ae274953b1c7de6d98bbcf94/charset-normalizer-2.1.1.tar.gz"
-    sha256 "5a3d016c7c547f69d6f81fb0db9449ce888b418b5b9952cc5e6e66843e9dd845"
+    url "https://files.pythonhosted.org/packages/ff/d7/8d757f8bd45be079d76309248845a04f09619a7b17d6dfc8c9ff6433cac2/charset-normalizer-3.1.0.tar.gz"
+    sha256 "34e0a2f9c370eb95597aae63bf85eb5e96826d81e3dcf88b8886012906f509b5"
   end
 
   resource "colorama" do
@@ -52,13 +50,13 @@ class Borgmatic < Formula
   end
 
   resource "pyrsistent" do
-    url "https://files.pythonhosted.org/packages/b8/ef/325da441a385a8a931b3eeb70db23cb52da42799691988d8d943c5237f10/pyrsistent-0.19.2.tar.gz"
-    sha256 "bfa0351be89c9fcbcb8c9879b826f4353be10f58f8a677efab0c017bf7137ec2"
+    url "https://files.pythonhosted.org/packages/bf/90/445a7dbd275c654c268f47fa9452152709134f61f09605cf776407055a89/pyrsistent-0.19.3.tar.gz"
+    sha256 "1a2994773706bbb4995c31a97bc94f1418314923bd1048c6d964837040376440"
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/a5/61/a867851fd5ab77277495a8709ddda0861b28163c4613b011bc00228cc724/requests-2.28.1.tar.gz"
-    sha256 "7c5599b102feddaa661c826c56ab4fee28bfd17f5abca1ebbe3e7f19d7c97983"
+    url "https://files.pythonhosted.org/packages/9d/ee/391076f5937f0a8cdf5e53b701ffc91753e87b07d66bae4a09aa671897bf/requests-2.28.2.tar.gz"
+    sha256 "98b1b2782e3c6c4904938b84c0eb932721069dfdb9134313beff7c83c2df24bf"
   end
 
   resource "ruamel.yaml" do
@@ -72,8 +70,8 @@ class Borgmatic < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/c2/51/32da03cf19d17d46cce5c731967bf58de9bd71db3a379932f53b094deda4/urllib3-1.26.13.tar.gz"
-    sha256 "c083dd0dce68dbfbe1129d5271cb90f9447dea7d52097c6e0126120c521ddea8"
+    url "https://files.pythonhosted.org/packages/21/79/6372d8c0d0641b4072889f3ff84f279b738cd8595b64c8e0496d4e848122/urllib3-1.26.15.tar.gz"
+    sha256 "8a388717b9476f934a21484e8c8e61875ab60644d29b9b39e11e4b9dc1c6b305"
   end
 
   def install
@@ -170,17 +168,21 @@ class Borgmatic < Formula
     log_content = File.read(log_path)
 
     # Assert that the proper borg commands were executed
-    assert_match <<~EOS, log_content
+    assert_equal <<~EOS, log_content
       --version --debug --show-rc
       info --json #{repo_path}
       init --encryption repokey --debug #{repo_path}
       --version
+      create #{repo_path}::{hostname}-{now:%Y-%m-%dT%H:%M:%S.%f} /etc /home
       prune --keep-daily 7 --glob-archives {hostname}-* #{repo_path}
       compact #{repo_path}
-      create #{repo_path}::{hostname}-{now:%Y-%m-%dT%H:%M:%S.%f} /etc /home
       info --json #{repo_path}
       check --glob-archives {hostname}-* #{repo_path}
       --version
+      create #{repo_path}::{hostname}-{now:%Y-%m-%dT%H:%M:%S.%f} /etc /home #{testpath}/.borgmatic --json
+      prune --keep-daily 7 --glob-archives {hostname}-* --list #{repo_path}
+      compact #{repo_path}
+      info --json #{repo_path}
     EOS
   end
 end

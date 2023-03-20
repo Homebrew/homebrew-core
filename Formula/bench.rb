@@ -9,10 +9,11 @@ class Bench < Formula
     url "https://hackage.haskell.org/package/bench-1.0.12/bench-1.0.12.tar.gz"
     sha256 "a6376f4741588201ab6e5195efb1e9921bc0a899f77a5d9ac84a5db32f3ec9eb"
 
-    # Compatibility with GHC 8.8. Remove with the next release.
-    patch do
-      url "https://github.com/Gabriella439/bench/commit/846dea7caeb0aee81870898b80345b9d71484f86.patch?full_index=1"
-      sha256 "fac63cd1ddb0af3bda78900df3ac5a4e6b6d2bb8a3d4d94c2f55d3f21dc681d1"
+    # Use Hackage metadata revision to support GHC 9.2.
+    # TODO: Remove this resource on next release along with corresponding install logic
+    resource "bench.cabal" do
+      url "https://hackage.haskell.org/package/bench-1.0.12/revision/6.cabal"
+      sha256 "f8282ccb7a24968da277ea73a4272454d7dba215c36d76368c1f0b8c04d79944"
     end
   end
 
@@ -29,11 +30,13 @@ class Bench < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@8.10" => :build
+  depends_on "ghc@9.2" => :build
 
   uses_from_macos "zlib"
 
   def install
+    resource("bench.cabal").stage { buildpath.install "6.cabal" => "bench.cabal" } if build.stable?
+
     system "cabal", "v2-update"
     system "cabal", "v2-install", *std_cabal_v2_args
   end

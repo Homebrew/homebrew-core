@@ -1,8 +1,8 @@
 class Htpdate < Formula
   desc "Synchronize time with remote web servers"
   homepage "https://www.vervest.org/htp/"
-  url "https://www.vervest.org/htp/archive/c/htpdate-1.3.6.tar.gz"
-  sha256 "3cdc558ec8e53ef374a42490b2f28c0b23981fa8754a6d7182044707828ad1e9"
+  url "https://www.vervest.org/htp/archive/c/htpdate-1.3.7.tar.gz"
+  sha256 "88c52fe475308ee95f560fd7cf68c75bc6e9a6abf56be7fed203a7f762fe7ab2"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,14 +11,13 @@ class Htpdate < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a8e9117e974b451de897cd9c09cc5ad01ce002c0cb08ecc8b477ce1770d773bd"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6c0e9b954e33c77390997f36c4f0595b4fbf5c745f03630976e8f93a045885dc"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "dfead617fa38a6cacd01f760983dd72f587ca0b1d5cb31192835aae5f3480497"
-    sha256 cellar: :any_skip_relocation, ventura:        "e70c5771412b68ab00eb8878782d4e4bb9c55b2cc239359408968ae0a26306e9"
-    sha256 cellar: :any_skip_relocation, monterey:       "819881fadf593bbbf4be2a95e63626d0bb866d9ce838192fe8f82e2e7b9f404b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3cbc51687acaed114db92084f031d139b9db01d3d6d402fc50f24cc7b4125f6f"
-    sha256 cellar: :any_skip_relocation, catalina:       "4d3484226b6458a4b3e20a016f276c821fe5b2628349b8d48745655be686d760"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d750d20c8464e6ccdfd4be8ca3d8a9b7a6b182703ad07fd096254bde39860a03"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fb4393aa7f6111f06b5c4173425409030be3f2254f9d0b4fc01526e0e706326c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3c80d981c1bb95432d864eaf4f96f2ccb85905502937e8fda2d6d659541adf71"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6b692a656f344818c273c9e737b1b1b5554b463e01a0d2b59f79dbbb11559e3e"
+    sha256 cellar: :any_skip_relocation, ventura:        "2344e89ad92c8a86a740bedd60e1c6cc9308950ac16830acbf5e4515b87726b7"
+    sha256 cellar: :any_skip_relocation, monterey:       "8014f699a3441f6044f26e72845dad37f9f608bb079eaf27c9f53b8524a61f5c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6dc1a81595404f2699a2e3c47f13f88e7127dce248f85fc17e02df2b6a36d5d8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8f766bffd7355a05bd8d6101ee22f7f47b943862e6158dcfadec0d59316a13cc"
   end
 
   def install

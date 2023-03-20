@@ -1,8 +1,8 @@
 class Msgpack < Formula
   desc "Library for a binary-based efficient data interchange format"
   homepage "https://msgpack.org/"
-  url "https://github.com/msgpack/msgpack-c/releases/download/c-4.0.0/msgpack-c-4.0.0.tar.gz"
-  sha256 "420fe35e7572f2a168d17e660ef981a589c9cbe77faa25eb34a520e1fcc032c8"
+  url "https://github.com/msgpack/msgpack-c/releases/download/c-6.0.0/msgpack-c-6.0.0.tar.gz"
+  sha256 "3654f5e2c652dc52e0a993e270bb57d5702b262703f03771c152bba51602aeba"
   license "BSL-1.0"
   head "https://github.com/msgpack/msgpack-c.git", branch: "c_master"
 
@@ -12,26 +12,36 @@ class Msgpack < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "79297ad7e902c1c8005ee29bc58a7f049e9d3bfe7fb421d19e40ac969d775f33"
-    sha256 cellar: :any,                 arm64_monterey: "e3df397ffc4f82b7e321fd9a31f16979af074db08f663f485b474c0119643c7e"
-    sha256 cellar: :any,                 arm64_big_sur:  "94519c5e879506abb6e665f65982df1b461e53e83904a4ff88bd9ef34a05db83"
-    sha256 cellar: :any,                 ventura:        "8746ed14bcef9ef8a8c60f74e579a2082d73d0d175c6e2618a667c188fe0e47d"
-    sha256 cellar: :any,                 monterey:       "c457413b910943f87cffc03951d9dbe5cc60c23abf862c572dab0b18011bb682"
-    sha256 cellar: :any,                 big_sur:        "a6922853180da9206a75c706502c24971bfa73abf6aeed7b8341a6824e179580"
-    sha256 cellar: :any,                 catalina:       "702f8b5c56c9f4111a68111d4e03466894ac98c43a9e3127ddfb74559bad201d"
-    sha256 cellar: :any,                 mojave:         "ae673e0c74680acca0996eba8d4a2d7d6048c1986706f85f12f64a3d53750db8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "542fb3791b98792a25705dd2de670e9d0ac492f4d03246614052a81ed4bc02d4"
+    sha256 cellar: :any,                 arm64_ventura:  "e41b85a88da3012d8a7819799333410558cca1ef59663fda84718be0856002e6"
+    sha256 cellar: :any,                 arm64_monterey: "1d14abff9537f4d85dee74c10ce6f73fafa8e8719c5be05bfda9a836cbe732ad"
+    sha256 cellar: :any,                 arm64_big_sur:  "f3842a4dd94cf91e0259f5cf95e325314c664fe5b68b0a15d1a45739096b62e9"
+    sha256 cellar: :any,                 ventura:        "7abad795d8f0b89d7927db89147ba2a5273e04cdfdcda30d9bc402fef4352ce6"
+    sha256 cellar: :any,                 monterey:       "7b02d0690b3ca73cacf020eb6de303370b7d6def89b9769f0bd18222722e4903"
+    sha256 cellar: :any,                 big_sur:        "e422e0f9f84e2fa558e75e5145abcba59ef61c72dacdf757eb185694a58c08a7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d3dfeade8b72c260d4745892f254ceb72535502293f6ddd04d04f19cb7affa35"
   end
 
   depends_on "cmake" => :build
 
   def install
     # C++ Headers are now in msgpack-cxx
-    system "cmake", ".", *std_cmake_args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", "-DMSGPACK_BUILD_TESTS=OFF", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
+
+    # `libmsgpackc` was renamed to `libmsgpack-c`, but this needlessly breaks dependents.
+    # TODO: Remove this when upstream bumps the `SOVERSION`, since this will require dependent rebuilds.
+    lib.glob(shared_library("libmsgpack-c", "*")).each do |dylib|
+      dylib = dylib.basename
+      old_name = dylib.to_s.sub("msgpack-c", "msgpackc")
+      lib.install_symlink dylib => old_name
+    end
   end
 
   test do
+    refute_empty lib.glob(shared_library("libmsgpackc", "2")),
+                 "Upstream has bumped `SOVERSION`! The workaround in the `install` method can be removed"
+
     # Reference: https://github.com/msgpack/msgpack-c/blob/c_master/QUICKSTART-C.md
     (testpath/"test.c").write <<~EOS
       #include <msgpack.h>
@@ -65,7 +75,7 @@ class Msgpack < Formula
       }
     EOS
 
-    system ENV.cc, "-o", "test", "test.c", "-L#{lib}", "-lmsgpackc"
+    system ENV.cc, "-o", "test", "test.c", "-L#{lib}", "-lmsgpack-c"
     assert_equal "1\n2\n3\n", `./test`
   end
 end

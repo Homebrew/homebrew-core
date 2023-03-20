@@ -4,6 +4,7 @@ class Sollya < Formula
   url "https://www.sollya.org/releases/sollya-8.0/sollya-8.0.tar.gz"
   sha256 "58d734f9a2fc8e6733c11f96d2df9ab25bef24d71c401230e29f0a1339a81192"
   license "CECILL-C"
+  revision 1
 
   livecheck do
     url "https://www.sollya.org/download.php"
@@ -11,14 +12,13 @@ class Sollya < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "24c8ad7e4c09b06e16a5eabc7b19ef2a1c7106f5aecc726714ba3cb7d83a4dd0"
-    sha256 cellar: :any,                 arm64_monterey: "ab2fae288574175cf2fa8211a355514df71e916d9514b79da9c9836ea7b52647"
-    sha256 cellar: :any,                 arm64_big_sur:  "c07fef942ebff9171d52926e76947ad8eeccdc74be40290b18799c7dd67046fb"
-    sha256 cellar: :any,                 ventura:        "ff80b9b2a8861e4cf579b3cf016e8c349f15ffe87bad24c4b2e59a51b72a66bf"
-    sha256 cellar: :any,                 monterey:       "361f12cad5b11c1107747be6906745e048e9698596e40309d608bf0ae67866c7"
-    sha256 cellar: :any,                 big_sur:        "b3a49a1f76957bcbd5a81c8ea141b952b814eb45ff32063451550a7775d9f97b"
-    sha256 cellar: :any,                 catalina:       "614701c860f55043408ff5f1d3a6f4d527db39e07ea4f72715b969bacdeb9826"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b7ca886155f71257dd0fa97945db31705c58028169ea4c51f7c8f22631109db5"
+    sha256 cellar: :any,                 arm64_ventura:  "2f573d2f31f5e3bca82f0d2b3e27fe6b3e20d6b4b7c1a98e7a26cc55d7c2d2f1"
+    sha256 cellar: :any,                 arm64_monterey: "77a5e82516a3ef1c359bde51cbc1d1f81eef19dd493e3953e9fdc755a954444e"
+    sha256 cellar: :any,                 arm64_big_sur:  "4da855730938fc0b79730ff7cce4e11ea6ede0170b502e02f5ad752d2d5860a3"
+    sha256 cellar: :any,                 ventura:        "b79c3ee6d3a4e75213c6b18cfe6cc9349ef0b7bc70154bd0050e1a498094bbd9"
+    sha256 cellar: :any,                 monterey:       "f4602efb57d40817c15305241be91d7861930e5335f45b88199434c8743384cb"
+    sha256 cellar: :any,                 big_sur:        "901986bacc46541818bb27dd801a687c4729ed5d7aadfb03694c375f5cc2f714"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9160d801c71244d28535d85aafa6dd7a77a1adb4f67e83dae36ddb8f05bad991"
   end
 
   depends_on "automake" => :build

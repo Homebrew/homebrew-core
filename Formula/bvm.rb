@@ -18,6 +18,9 @@ class Bvm < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a19b280d30c8ab515c180d095a592d0a4ddcee2a69737d439bb67320a002c10f"
   end
 
+  # See: https://github.com/bvm/bvm/commit/44419a291f56aa483ea83d710a440e85dfeae91c
+  deprecate! date: "2023-02-16", because: :repo_archived
+
   depends_on "rust" => :build
 
   def install

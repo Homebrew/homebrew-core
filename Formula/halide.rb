@@ -1,15 +1,10 @@
 class Halide < Formula
   desc "Language for fast, portable data-parallel computation"
   homepage "https://halide-lang.org"
+  url "https://github.com/halide/Halide/archive/v15.0.0.tar.gz"
+  sha256 "6680424f80c5731a85d977c06327096afe5af31da3667e91d4d36a25fabdda15"
   license "MIT"
-  revision 4
-
-  # Remove `stable` when we switch to `llvm`.
-  stable do
-    url "https://github.com/halide/Halide/archive/v14.0.0.tar.gz"
-    sha256 "f9fc9765217cbd10e3a3e3883a60fc8f2dbbeaac634b45c789577a8a87999a01"
-    depends_on "llvm@14"
-  end
+  head "https://github.com/halide/Halide.git", branch: "main"
 
   livecheck do
     url :stable
@@ -17,26 +12,20 @@ class Halide < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_ventura:  "bbc21a619130e7cb70c69f8d94f4dd3a0e5009facb506a91178f18b3afc7badc"
-    sha256 cellar: :any,                 arm64_monterey: "ffca8fbcbc293419fdc272e18ba4ca418912c854ea9b0c9baabbaa1c0726e898"
-    sha256 cellar: :any,                 arm64_big_sur:  "5be685201da294126f82ea8e8aceeac5d0fe040b163e583f707e64d49f832b82"
-    sha256 cellar: :any,                 ventura:        "d31a9d7316b783747ca120ae9c59fc89f2ad29f0bbb8eb22e11f54c7d9cccc96"
-    sha256 cellar: :any,                 monterey:       "255337c037fd455f2bf51b9e796e9c265e29adae211f9d61416b0b2e2514a6fa"
-    sha256 cellar: :any,                 big_sur:        "808ad8f98edba45149a79752c6500bc47b8e8d00895a4f0d467ffb6b2f5746c3"
-    sha256 cellar: :any,                 catalina:       "29f0f95e86579622cd74411b4d07d0629c17cb2bf74fdff9a7a913857b7a3e33"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "73d56ba4ab967050852357cb08f1625e9956134aeeb86abdd070c02bf1d27469"
-  end
-
-  head do
-    url "https://github.com/halide/Halide.git", branch: "main"
-    depends_on "llvm"
+    sha256 cellar: :any,                 arm64_ventura:  "a73a5036caf2ebf5d15664613ce1276d14cd2e89d86ea8a1f3ee939a97eac055"
+    sha256 cellar: :any,                 arm64_monterey: "5fb04685717aa407a23f1deda52aa464fbffb15a49a39e17294f205d60361724"
+    sha256 cellar: :any,                 arm64_big_sur:  "a0bb91a4ddd4cde66f27cde5fb821f1168b752aaf3668522b685435172d64753"
+    sha256 cellar: :any,                 ventura:        "82e2e17d477547b3f663edbc7e4a40a8f459e705465e10a4fc3f7645b519effe"
+    sha256 cellar: :any,                 monterey:       "809462ea46cbc33395e499fbd1507bffa8d801a8e88003643df5daac7c119b1c"
+    sha256 cellar: :any,                 big_sur:        "bdc98190beba09044796de180b48aa1b719dabc45e221ef584f223585b73df40"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0b4262929abb83409d12158247d441f3e6429371f851c300745b9fd2448e339f"
   end
 
   depends_on "cmake" => :build
   depends_on "pybind11" => :build
   depends_on "jpeg-turbo"
   depends_on "libpng"
+  depends_on "llvm"
   depends_on "python@3.11"
 
   fails_with :gcc do
@@ -64,7 +53,7 @@ class Halide < Formula
     system ENV.cxx, "-std=c++17", "lesson_01_basics.cpp", "-L#{lib}", "-lHalide", "-o", "test"
     assert_match "Success!", shell_output("./test")
 
-    cp share/"doc/Halide/tutorial-python/lesson_01_basics.py", testpath
+    cp share/"doc/Halide_Python/tutorial-python/lesson_01_basics.py", testpath
     assert_match "Success!", shell_output("#{python3} lesson_01_basics.py")
   end
 end

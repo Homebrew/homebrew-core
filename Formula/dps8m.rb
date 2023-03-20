@@ -1,25 +1,25 @@
 class Dps8m < Formula
-  desc "Simulator for the Multics dps-8/m mainframe"
-  homepage "https://ringzero.wikidot.com/"
-  url "https://gitlab.com/dps8m/dps8m/-/archive/R3.0.0/dps8m-R3.0.0.tar.gz"
-  sha256 "cee3cc0942ceb929d267c4989551526ff50e777706f62bfc449e16d1428a1d2e"
+  desc "Simulator of the 36‑bit GE/Honeywell/Bull 600/6000‑series mainframe computers"
+  homepage "https://dps8m.gitlab.io/"
+  url "https://dps8m.gitlab.io/dps8m-archive/R3.0.0/dps8m-r3.0.0-src.tar.gz"
+  sha256 "e3eac9e4f8b6c7fad498ff1848ba722e1a2e220b793ce02e2ea6a7a585e0c91f"
   license "ICU"
+  revision 1
   head "https://gitlab.com/dps8m/dps8m.git", branch: "master"
 
   livecheck do
-    url :stable
-    regex(/^R?(\d+(?:\.\d+)+)$/i)
+    url "https://dps8m.gitlab.io/dps8m/Releases/"
+    regex(/href=.*?dps8m[._-]r?(\d+(?:\.\d+)+)[._-]src\.t/i)
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "da7b5be87b8f69e613145c28839ed308547823dfdb49ec6b1ab2b7e460217b6a"
-    sha256 cellar: :any,                 arm64_monterey: "c3a543790a54d7c89b2406543d12031d65358b0a6d628dab3e2e91fab93c8738"
-    sha256 cellar: :any,                 arm64_big_sur:  "fb6d8befa480a17d4cf80f6389a2f06d6005304098120e8e79b158589860cc51"
-    sha256 cellar: :any,                 ventura:        "c9f01dff1946f16e5f4f20c74939643d764ba65456ab3f62342624e7fc1b59ca"
-    sha256 cellar: :any,                 monterey:       "6d003d8c6626ebfbf6a2efe18bfd1f9c2b860eb442372dcb31de0a6040f64f72"
-    sha256 cellar: :any,                 big_sur:        "776bf405ac9a2e1d04f4770f4faeb8d7b1ab816cdbf88922b616073a41844301"
-    sha256 cellar: :any,                 catalina:       "75ed3b37ef4b1e869adc41e931a0b810312f0634085cf60255a461c8235cb96e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "382ab8f05a7161e6895075d7e263a8324e507415ede94d40cacdf47f324382bb"
+    sha256 cellar: :any,                 arm64_ventura:  "ba27cf723d5702593457efb495c769f2846b4bd3a6878ac79f92c0eca54da8f9"
+    sha256 cellar: :any,                 arm64_monterey: "efbf793085471011b68d7203e5a6a10a2ac9bfd2f9ea8b12a6e1f464a825b5ac"
+    sha256 cellar: :any,                 arm64_big_sur:  "b898cb7a4f4bd2d32cfdaa53c2792e3243fca88a316782605dc6b0ec75f379b8"
+    sha256 cellar: :any,                 ventura:        "3b2b3258518e5757a97a7270f1fba79fdd2380117326b25d913d7a857318a446"
+    sha256 cellar: :any,                 monterey:       "128e289f09358b7fc7913772787d2cd3a266d789e0f7f95d059e32f9a3984ff8"
+    sha256 cellar: :any,                 big_sur:        "a9e0b7f6aca5cc731c7f83126232510f70431839b3d5865f1bf97f19ea0f68bc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "86d29e9bdb2a3f19ac2010e8f0f1aaa9768a0c8c1d4cac5133549b0ca090a84a"
   end
 
   depends_on "libuv"
@@ -31,22 +31,23 @@ class Dps8m < Formula
     # See https://sourceforge.net/p/dps8m/mailman/message/35960505/
     bin.mkpath
 
-    system "make", "INSTALL_ROOT=#{prefix}", "install"
+    system "make"
+    bin.install %w[src/dps8/dps8 src/punutil/punutil src/prt2pdf/prt2pdf]
   end
 
   test do
     (testpath/"test.exp").write <<~EOS
-      spawn #{bin}/dps8
+      spawn #{bin}/dps8 -t
       set timeout 30
       expect {
         timeout { exit 1 }
-        "sim>"
+        ">"
       }
       set timeout 10
-      send "help\r"
+      send "SH VE\r"
       expect {
         timeout { exit 2 }
-        "SKIPBOOT"
+        "Version:"
       }
       send "q\r"
       expect {
@@ -54,6 +55,6 @@ class Dps8m < Formula
         eof
       }
     EOS
-    assert_equal "Goodbye", shell_output("expect -f test.exp").lines.last.chomp
+    system("expect", "-f", "test.exp")
   end
 end

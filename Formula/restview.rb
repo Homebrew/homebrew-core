@@ -3,20 +3,18 @@ class Restview < Formula
 
   desc "Viewer for ReStructuredText documents that renders them on the fly"
   homepage "https://mg.pov.lt/restview/"
-  url "https://files.pythonhosted.org/packages/df/57/c39171d211168008153b00c0dd9b873afb6d9e76eecbd3496c86aeaac8bf/restview-3.0.0.tar.gz"
-  sha256 "2b989610aaed2fd42da64f6cdc539cf3ee70ce370bcba872db72421ad515dd1e"
+  url "https://files.pythonhosted.org/packages/10/93/20516dada3c64de14305fd8137251cd4accaa7eba15b44deb1f2419aa9ff/restview-3.0.1.tar.gz"
+  sha256 "8c1a171c159d46d15d5569f77021828883a121d6f9baf758d641fc1e54b05ae5"
   license "GPL-3.0"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "53bf1c94ce5dd28f537d6e0391c4d45a598d86711ae85f1c89012d6b823ec24e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "17c48b5838702d58ab32bdb41af4ccd1544754a34118fba2901c1664507aba7e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f50937f4bd21ce1666c20e43f9f81b4da81d105d896e37fc0e78df34b1315e70"
-    sha256 cellar: :any_skip_relocation, ventura:        "9cee8d2afdf1816113f109cf6cef6493fa397e312520c224bf3fac59cc0cf14b"
-    sha256 cellar: :any_skip_relocation, monterey:       "301d16ee4e9b3cfe46d31dee3ccd535e783b1743dd9e5754ad4586d49cc6a1c5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "bd30574a3c873904c59cb16a3ec72e21a14b75f9c8fd88372dea94d239cb0cab"
-    sha256 cellar: :any_skip_relocation, catalina:       "8992fbee2f64fb5d41ed2f0fb04c8d37bc6914791187582a66b97a1588c99d67"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "762d85d4f7157aaf45a4e37d453d5fd844652434a65017331ece19d6f2c0c4f7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b7144d1e54ac3ed388b6af07e9d5d4d5c3ab69a7d8335827d436e5d95cd90700"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c41b60a583752a7c15309695cdc0dccccc9f98771cc28d290352863877fadfd4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f0526020a022a59774f2eb26fbcf5f9422085fce34286004c37e8a74f715ff51"
+    sha256 cellar: :any_skip_relocation, ventura:        "5c36b262a3d8898d9caeebc8f9faf3806e2554a3836d430ad2ce985ae389c69d"
+    sha256 cellar: :any_skip_relocation, monterey:       "045d7c7fbec94805454c23b54ac749995171610eb9b7e8a39d96f740bd02e44d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "41c9ba7729e2494ef67b6158b715b03dbf186e33cd12f9cdf7f35263578ea456"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c959a52879a1835bda4c7e8b9e454afc7ac20613a72c31547cfad5264e294991"
   end
 
   depends_on "docutils"
@@ -30,8 +28,8 @@ class Restview < Formula
   end
 
   resource "readme-renderer" do
-    url "https://files.pythonhosted.org/packages/81/c3/d20152fcd1986117b898f66928938f329d0c91ddc47f081c58e64e0f51dc/readme_renderer-37.3.tar.gz"
-    sha256 "cd653186dfc73055656f090f227f5cb22a046d7f71a841dfa305f55c9a513273"
+    url "https://files.pythonhosted.org/packages/15/4e/0ffa80eb3e0d0fcc0c6b901b36d4faa11c47d10b9a066fdd42f24c7e646a/readme_renderer-36.0.tar.gz"
+    sha256 "f71aeef9a588fcbed1f4cc001ba611370e94a0cd27c75b1140537618ec78f0a2"
   end
 
   resource "webencodings" do
@@ -63,7 +61,7 @@ class Restview < Formula
       sleep 3
       output = shell_output("curl -s 127.0.0.1:#{port}")
       assert_match "<p>Here we have a numbered list</p>", output
-      assert_match "<li><p>Four</p></li>", output
+      assert_match "<li>Four</li>", output
     ensure
       Process.kill("TERM", pid)
     end

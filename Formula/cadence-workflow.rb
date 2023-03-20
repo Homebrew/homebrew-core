@@ -2,20 +2,19 @@ class CadenceWorkflow < Formula
   desc "Distributed, scalable, durable, and highly available orchestration engine"
   homepage "https://cadenceworkflow.io/"
   url "https://github.com/uber/cadence.git",
-      tag:      "v0.24.0",
-      revision: "517c6c135a24a4f23eea6f3a3747e14e59b5d49e"
+      tag:      "v0.25.0",
+      revision: "eb2911866c5c66bdfd8949e533565471899b7ec4"
   license "MIT"
   head "https://github.com/uber/cadence.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3f6986c8afa1d4efbd726e798bfd46aae83f3cd6899c23c28499f93d96e4818f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1bb14f3835afb8190771c3bf2e42dd958c177221047f8b46a504304a1ab4d293"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0fa1a09734fdaa7f52b0acfccb58c3edd520789f209d5d8d438b853551f8e45f"
-    sha256 cellar: :any_skip_relocation, ventura:        "229555376c53bc0faa32310f25505482fc0d89e528ac0a48ae33a3853a91f0b6"
-    sha256 cellar: :any_skip_relocation, monterey:       "cf5cf6fa405398d5524c78983bc2b2e7a21d4912891a3c87dfe99eac6d081b96"
-    sha256 cellar: :any_skip_relocation, big_sur:        "4a60a393e42cb55466540616f32322fadab3b81d007f62d58205cedcac37be54"
-    sha256 cellar: :any_skip_relocation, catalina:       "473b4fb0483ddecdeb64e04f6714988e7be0e19bce25d40bb35c0d322dffc645"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eac15bfbfd057c587bde6b4beb996a526afa51d94cc8328b4eddb9d7ff9ca244"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ba5cebddd1a3e56f30ff1223511140848790f893cbe8c6c313fb3bc9d9cc9251"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0bcbee4c17bac0a853653cbc8f2cbad647cff84bf2e793c4092900acf20fc16e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "790744a226e4e23758d8dbfffb033f823e49133081988e54169d1b5c06616197"
+    sha256 cellar: :any_skip_relocation, ventura:        "b87177fc6043b776f440a63dd1445664d55b5fa33533a8271a5dc72337aa0d6d"
+    sha256 cellar: :any_skip_relocation, monterey:       "4000b32346f71b3ba90857d0ce5022f6e899d132deba42a5f8e1ef09a9d632f8"
+    sha256 cellar: :any_skip_relocation, big_sur:        "93f0a964a6227e8a65a537d16e54df81e36b248d473b80aaf7c3caf85c527e32"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "42240c643a6d8047a08d3e1928fcafb6f913bdf30d9815bee58facc77ee44f9c"
   end
 
   depends_on "go" => :build
@@ -24,7 +23,16 @@ class CadenceWorkflow < Formula
 
   def install
     system "make", ".fake-codegen"
-    system "make", "cadence", "cadence-server", "cadence-canary", "cadence-sql-tool", "cadence-cassandra-tool"
+    make_args = %w[
+      cadence
+      cadence-server
+      cadence-canary
+      cadence-sql-tool
+      cadence-cassandra-tool
+    ]
+    make_args << "EMULATE_X86=" unless Hardware::CPU.intel?
+    system "make", *make_args
+
     bin.install "cadence"
     bin.install "cadence-server"
     bin.install "cadence-canary"

@@ -11,16 +11,14 @@ class P0f < Formula
   end
 
   bottle do
-    rebuild 2
+    rebuild 3
     sha256 arm64_ventura:  "8a29bf28d9c094a0cf189897703653246509a2c5af95e949c910d98837d48687"
-    sha256 arm64_monterey: "20c57f61e80a48bf98f581db4092d2e02ebf638f9db351c76e572327a0480189"
-    sha256 arm64_big_sur:  "c2b5dfb6885142c3066f900623a1cb1e4920335ad80455f49ae463f2bb07e953"
+    sha256 arm64_monterey: "ef6f6ea7ee52b7abc9bca1c816b53b81e1449cb4eacd27f2789c39bfb0ef74a8"
+    sha256 arm64_big_sur:  "eb601352fdce0ac1b49dfbaa31f91f102768aad81ea907839cd424836edc541b"
     sha256 ventura:        "648f67e2bd6d531bcd310bd22966573f7d725f134b75f7bb1504a682981648a9"
-    sha256 monterey:       "2a8347e3475e8d63c23f364073b642a28bc6c41d356b17de6e07f4b17bef24de"
-    sha256 big_sur:        "333bc8a70dec845a21858507a78babe80e6c7cd15b1a2f4ea3c4715daeef331f"
-    sha256 catalina:       "e92f0c171b9cf2c80436092412916c98391d6fdc9f37ec16ab2243ad4539b288"
-    sha256 mojave:         "7c69ba2615e5ac9c84dba65ed8a208c7b3cc8b68d1f11b07ae3c5db17103557d"
-    sha256 x86_64_linux:   "d24c287755ee5a370ba3676590241e2ad2bf01ca672aecfa108725a165288d87"
+    sha256 monterey:       "2d2addb10494350f34a5bf1125bd88e83d8245def1d90ebb1286b469e944880e"
+    sha256 big_sur:        "1e5a460d94d43563f06e9eff624e8ec6bba232de496320fb6dd281333b06f045"
+    sha256 x86_64_linux:   "ed27c8135434e63b76d61034be7a15ed48311ae6d8e146177552ad23786c03af"
   end
 
   uses_from_macos "libpcap"

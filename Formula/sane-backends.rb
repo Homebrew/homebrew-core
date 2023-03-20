@@ -1,19 +1,9 @@
 class SaneBackends < Formula
   desc "Backends for scanner access"
   homepage "http://www.sane-project.org/"
+  url "https://gitlab.com/sane-project/backends/uploads/110fc43336d0fb5e514f1fdc7360dd87/sane-backends-1.2.1.tar.gz"
+  sha256 "f832395efcb90bb5ea8acd367a820c393dda7e0dd578b16f48928b8f5bdd0524"
   license "GPL-2.0-or-later"
-  revision 1
-
-  stable do
-    url "https://gitlab.com/sane-project/backends/uploads/7d30fab4e115029d91027b6a58d64b43/sane-backends-1.1.1.tar.gz"
-    sha256 "dd4b04c37a42f14c4619e8eea6a957f4c7c617fe59e32ae2872b373940a8b603"
-
-    # Fix -flat_namespace being used on Big Sur and later.
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
-      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
-    end
-  end
 
   livecheck do
     url :head
@@ -21,14 +11,13 @@ class SaneBackends < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "e9969c0a40d3a0d9635231908a44c548cdb3e54bb35619f92a440a9585fd11b3"
-    sha256 arm64_monterey: "1d403d6940c131a753c2305a830bb56599b733158edb3810e349a2c9a6fbcf54"
-    sha256 arm64_big_sur:  "597dbfeb7517f0b6d3a8c320fb3acbeb152cf74be7f91538ecb847a49e9ea53c"
-    sha256 ventura:        "0d3615b6c44a42b21403fcfa2ab296cfdcc6547d48defc196bc03c003f28c934"
-    sha256 monterey:       "5c2ba0815984ffc9597884db2b1fc13f1677a5dea344c73e0c090bf99cd8974b"
-    sha256 big_sur:        "381d3502dc3cd2c22e95e8a870578891b0da3580b800e70ab061029c47b52873"
-    sha256 catalina:       "b0d4a34cc8c506c4fc024edfdf13e5a1be13a551aaef21dfae8d8ffec3c2f93f"
-    sha256 x86_64_linux:   "be8cdd2d42cc791ba9773007c905ed73abeb3873e5d53cc1cc628ac4084f61d4"
+    sha256 arm64_ventura:  "16891b829a70d1ba93c7e78c01d530a1056b5a458e63be6fae053305601ccc44"
+    sha256 arm64_monterey: "e30551208ab027ea52010f856be76623660ca21788b79e9a274084a1a89a1f2c"
+    sha256 arm64_big_sur:  "9a688cb9f383fd208ce689f3feaea3ed0fe9ada761f296c8811dfdd9928689a4"
+    sha256 ventura:        "196d903218ffcbd6d570be010ab8a414c616a5af0d2d28b2e71660e7c19727d0"
+    sha256 monterey:       "cb82018f2956294ea6eaafdec36d74551ede36ab2c9967d920bee8a4cb4adf08"
+    sha256 big_sur:        "61cab7702db52ce96ac99337e9dc15fe9196135e034f50ab6a94979b625f8b76"
+    sha256 x86_64_linux:   "652541c2359077a7436822294aad78c140ea569bb3fd87cdfd649ff95a43ee8c"
   end
 
   head do

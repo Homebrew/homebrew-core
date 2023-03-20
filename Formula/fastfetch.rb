@@ -1,25 +1,29 @@
 class Fastfetch < Formula
   desc "Like neofetch, but much faster because written in C"
   homepage "https://github.com/LinusDierheimer/fastfetch"
-  url "https://github.com/LinusDierheimer/fastfetch/archive/refs/tags/1.7.5.tar.gz"
-  sha256 "e9807568c2c5a10240c635e1e9ad5dbe63326eb730ca3aac005e19d91d2cd1c5"
+  url "https://github.com/LinusDierheimer/fastfetch/archive/refs/tags/1.10.3.tar.gz"
+  sha256 "55385feb4f4d7c16b3e8555afb20b030f3dbf446e225b09f1dcae163702225b6"
   license "MIT"
   head "https://github.com/LinusDierheimer/fastfetch.git", branch: "dev"
 
   bottle do
-    sha256 arm64_ventura:  "587b22b41203aeb074ecbde8fd42fbf81eeb21db93fa0b2d3aac3f57dd8ecbe1"
-    sha256 arm64_monterey: "e4f9348bbe03561de4b6d55cdd557740ee22e3e118f00050511dfb386fab4a8e"
-    sha256 arm64_big_sur:  "d62b2f6a57999492c2e16f447e5c57d497633d547fad3566729e7ce64b962312"
-    sha256 ventura:        "c5c6208369ded1b2a5db4d875f3a93b5dda621fa32022e0f7e5aff8c4ce78009"
-    sha256 monterey:       "f2d21ac38ab7bb72ea50029b13bfd9d81fcc0b4df2d3a7815c421d0258fb864c"
-    sha256 big_sur:        "5077d6d8806e9812699de854902f8064fa8af5a3662db5b01226b56ad44231df"
-    sha256 catalina:       "d980f2fd4d0eacd09f4821a982d27a5d52744fcacc18d26229596ad2b99a334e"
-    sha256 x86_64_linux:   "8757d24b5daa28af495feec81f4be8fa5952c23df8f24185d8a0c69b5dc9269e"
+    sha256 arm64_ventura:  "75b8ed1f9d6a49ea1151f745a56d8f384d7832031309980042873289b4ca98ae"
+    sha256 arm64_monterey: "7abb0c38ed062cae9180a470d148a98e1066cf091b3fa6a1174aa8d6e16257d7"
+    sha256 arm64_big_sur:  "d2dc385192cd11cbf0e93c5abb96604f2a6c54297cd64f129d841d9cd3214bd9"
+    sha256 ventura:        "8f5bebea27207fcaae807df3d4713eac87574b22e09132c9dea2047dfaf82f9b"
+    sha256 monterey:       "9a0cd67b337ca945fb6f9992ba77610bacda8147f510c5ece7a8c65011bb148e"
+    sha256 big_sur:        "0b2ea1e43b573495aae25c57ca1d3576461edb954ae3643010015cb7d05a0285"
+    sha256 x86_64_linux:   "3431af9bb1988a8fec76e570a4c7b12c4dc6aad6f8a42a6f07521f91dc39369b"
   end
 
+  depends_on "chafa" => :build
   depends_on "cmake" => :build
+  depends_on "glib" => :build
+  depends_on "imagemagick" => :build
   depends_on "pkg-config" => :build
   depends_on "vulkan-loader" => :build
+
+  uses_from_macos "zlib" => :build
 
   def install
     system "cmake", "-S", ".", "-B", "build", "-DCMAKE_INSTALL_SYSCONFDIR=#{etc}", *std_cmake_args

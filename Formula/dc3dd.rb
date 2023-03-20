@@ -1,23 +1,18 @@
 class Dc3dd < Formula
   desc "Patched GNU dd that is intended for forensic acquisition of data"
   homepage "https://sourceforge.net/projects/dc3dd/"
-  url "https://downloads.sourceforge.net/project/dc3dd/dc3dd/7.2.646/dc3dd%207.2.646/dc3dd-7.2.646.7z"
-  sha256 "d26d5c1eaa413a10dfcdb2525a9fd8135902eb0b0a8f4632529fbebb06430d95"
+  url "https://downloads.sourceforge.net/project/dc3dd/dc3dd/7.3.0/dc3dd-7.3.0.zip"
+  sha256 "ec56b9551aec581322acaf3f557e0a6604d547de8a739374668e2f5af2053c3f"
   license "GPL-3.0-or-later"
-  revision 2
 
   bottle do
-    sha256 arm64_ventura:  "62c4ad25c7505cf54a8f2e6f3e513276e092f89d7cc4b6c62c8b88e987dd6e44"
-    sha256 arm64_monterey: "d52d1a475e5b2d60cf41bee342c69ed22155d43cadf08fc3fa158ba30a5fb7f5"
-    sha256 arm64_big_sur:  "2be42dbf1359cd71f34f59979dd5d20991f9315c6d00e77d66c62c652a0419e9"
-    sha256 ventura:        "975a22e22000e02e39c2130c54490445012b90ade1f6aa85693a36e5e7ebe9eb"
-    sha256 monterey:       "81691239ee28eea77448db74952f8f8f1595a6c09bb5924f0a092cf050ebbf17"
-    sha256 big_sur:        "4b01295bd5bab46484c16fd08989ea81bb69711daa15696dee756f75323e9ed2"
-    sha256 catalina:       "fdd027b6a694489b16d05eab760a88903a83add31033296b13bf660c5807ea12"
-    sha256 mojave:         "da27e2227f7fac70c613c4677ec597255c13b1253bc7c79cf58f7321a0a6427e"
-    sha256 high_sierra:    "b906b2d7009282e22eb97a1ad07982f3e4545fa4791cb2bc2eaf1e0c101ebaed"
-    sha256 sierra:         "581af2165e8c666a92060e8354107cd0b27ada0143b4e0f5416b1d76739f45b7"
-    sha256 x86_64_linux:   "b881a1edf6af2b67b038c16362d6805a7d70cf90d4ebb450f465da60005432e0"
+    sha256 arm64_ventura:  "9c79696dbf8e926a5183c46af958480fbb540aadef1cd2de77c633e7de416be0"
+    sha256 arm64_monterey: "f0e8d052797b5d7f6cceaff9333b667e5a097c431211c38fbeb503291b282944"
+    sha256 arm64_big_sur:  "76a28537261ac0d42152987b502bf33740912f8c2c4591d7dd4b718c812817ea"
+    sha256 ventura:        "87e8290407b91dc241e9fe3469997e18ce83c3b0200ec91e882ba3523e9ac720"
+    sha256 monterey:       "39000c17ca83c009a228e0c3e9e8c12f216b86d14edb9cd22600583c01f7eb9d"
+    sha256 big_sur:        "9edb4701637373330d394a78c9c7a1b2db92cf129040021e21f37c0cf201cd1f"
+    sha256 x86_64_linux:   "1b05f3886861e0ff5a15cb08f4697a6d56fca4242f5bfa271a305bcd7b6ae916"
   end
 
   depends_on "gettext"
@@ -27,13 +22,6 @@ class Dc3dd < Formula
   resource "gettext-pm" do
     url "https://cpan.metacpan.org/authors/id/P/PV/PVANDRY/gettext-1.07.tar.gz"
     sha256 "909d47954697e7c04218f972915b787bd1244d75e3bd01620bc167d5bbc49c15"
-  end
-
-  # Apply patch to fix gnulib with newer glibc.
-  # Reported upstream here: https://sourceforge.net/p/dc3dd/bugs/19.
-  patch do
-    url "http://distfiles.lesslinux.org/dc3dd-7.2.646_glibc-2.28-1.patch"
-    sha256 "0c3ef49b7bf4952ed94df1e54495ca1df2f081cba34cd421c14cff267cb9866c"
   end
 
   def install

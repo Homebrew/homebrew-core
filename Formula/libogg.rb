@@ -6,15 +6,14 @@ class Libogg < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "f18fefb04d186e649753d48a9cffd1ce6a7b7a94fe0470c932eb09ee7b9c4cd5"
-    sha256 cellar: :any,                 arm64_monterey: "119687ca3010a96ff903a55160690c62fa3864e8c23b89854b6decf4416f9762"
-    sha256 cellar: :any,                 arm64_big_sur:  "86f7182a3e7ad1a6cbc0520424875fcad195c97ee62db95d7b5e863be95eee95"
-    sha256 cellar: :any,                 ventura:        "b9d827e7f79a35900950435985b7b88a64e81965237173a02bb1af7a8028b62b"
-    sha256 cellar: :any,                 monterey:       "61cbbd4f4b5c7229dce6121d61ca24806c52c435a70b15bf060ca2f2e6412bbc"
-    sha256 cellar: :any,                 big_sur:        "b28fe3ad76ad6caafbedb2587deac3b4f03f79cb1466e6f76a06724eaae346ee"
-    sha256 cellar: :any,                 catalina:       "e6c116ef9fa7ebac93b5b22fb1208d1d1f4b000fdfdae4b0ae9ec18fe5a5412c"
-    sha256 cellar: :any,                 mojave:         "f416f50ef34e470f690e27f3c29f65d6fe5b1aec56f16a2a312ba6011e809720"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "db517cc6e922b1d3a7c845bad5dd4c78d48b170aa94187d6281f8577f228a180"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "273ec2cb3abd99d4aee0c8ac2523f5f3140457e6fc658b02168678a557299a43"
+    sha256 cellar: :any,                 arm64_monterey: "ce419864291a500b33b1e0cc7afa0c8a060cecf4adf2ef50d2d213f35f021822"
+    sha256 cellar: :any,                 arm64_big_sur:  "0f44d59f86d7cd828aa3fd70ba363455fdbfa01bcec6364a286c1db1f7168c29"
+    sha256 cellar: :any,                 ventura:        "52e5a973dfdfcb61357e7c80c4e3250742a56dec94650c9546a4a640b749192e"
+    sha256 cellar: :any,                 monterey:       "d4d289f5ab37ed438ceecb653ef3cbe23bbac53dbeb550a54c3ebef39f109681"
+    sha256 cellar: :any,                 big_sur:        "39a4c4d11e1a495a1cd167183c935634c10e9a75c222185d1e99df1710ffd353"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f32a15a651d53059f085695d189c2cfdbd7ee281ee3056b1b107eb07cead6965"
   end
 
   head do
@@ -27,7 +26,7 @@ class Libogg < Formula
 
   resource("oggfile") do
     url "https://upload.wikimedia.org/wikipedia/commons/c/c8/Example.ogg"
-    sha256 "379071af4fa77bc7dacf892ad81d3f92040a628367d34a451a2cdcc997ef27b0"
+    sha256 "f57b56d8aae4c847cf01224fb45293610d801cfdac43d932b5eeab1cd318182a"
   end
 
   def install

@@ -8,18 +8,18 @@ class Libff < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "dd59fb747b2b66aac85d3efbb8d89d8c31a76ba7e6b3d4f930eae35325b35cdf"
-    sha256 cellar: :any,                 arm64_monterey: "3bc7fe57f5d06f468d143100f64767344d54cf8f925b41ad72431828807b8ebd"
-    sha256 cellar: :any,                 arm64_big_sur:  "de8ad0e6ec68dd26c530f29e4e3d20247d2d4488e3355b53f036168eba942544"
-    sha256 cellar: :any,                 ventura:        "095e5d69d290a2ff876e32c327e2da30848d25726caa0c04e61c0d97a0969ef1"
-    sha256 cellar: :any,                 monterey:       "01a39f20109229d722f510d67183de70611fa206e8c2407c878cf63ad03b9bfa"
-    sha256 cellar: :any,                 big_sur:        "31327452c277cb5ab2b8c466ec66de12bf8839657e7a3e45faafe88f38c8ddc8"
-    sha256 cellar: :any,                 catalina:       "cfa9fac08910ff673c989d63a79076a33e063d15702a4b733098f151e3cf86f0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "587d6b29ca7e2570567f0f1bc6660143d910b69262011c2d2c1021ee1fba8194"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "12665fa3a1821e160992a72a91c67861ffd18fcc10bf255c20188474ec8785ac"
+    sha256 cellar: :any,                 arm64_monterey: "3f8fff685a6b4b00cb5dc78dad9927be27c22cfdbde465e1d7f49c08ea6a9d56"
+    sha256 cellar: :any,                 arm64_big_sur:  "183ad3fd1bb600316578dc051b250a02c803b03ee43af471b3ea3bac249af0d5"
+    sha256 cellar: :any,                 ventura:        "b42e23e8c807c75ff7825ba73a348a3c94e6d4d31682da30377b237ad99c5e8d"
+    sha256 cellar: :any,                 monterey:       "7e92d770effa52f27d690e55981eb4bbe164ab9266573b1554ae7efbf1870167"
+    sha256 cellar: :any,                 big_sur:        "5c89ae786b7d9f035e65ca4a47a0f0008511a0ba701a2659c1194c2f55157507"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e0c274f4e83f703347f24d6c6c487224b19c72eb4f199daecfbb6c794380cd17"
   end
 
   depends_on "cmake" => :build
-  depends_on "openssl@1.1" => :build
+  depends_on "openssl@3" => :build
 
   depends_on "gmp"
 
@@ -33,7 +33,7 @@ class Libff < Formula
     system "cmake", "-S", ".", "-B", "build",
                     "-DWITH_PROCPS=OFF",
                     "-DCURVE=#{curve}",
-                    "-DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}",
+                    "-DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}",
                     "-DCMAKE_POSITION_INDEPENDENT_CODE=ON",
                     *std_cmake_args
     system "cmake", "--build", "build"

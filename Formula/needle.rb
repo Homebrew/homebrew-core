@@ -1,15 +1,15 @@
 class Needle < Formula
   desc "Compile-time safe Swift dependency injection framework with real code"
   homepage "https://github.com/uber/needle"
-  url "https://github.com/uber/needle/archive/v0.21.0.tar.gz"
-  sha256 "e214b471319b0b3acc62a7105e06fc74b116a546ac5cce8cd4d3c18f0e6ff6a2"
+  url "https://github.com/uber/needle/archive/v0.22.0.tar.gz"
+  sha256 "25e9c37ea2bdf1a42ba183eb34ac4907ca68732332d1e5f7ce193263ac619af2"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "930af092bb21ad2fd58a84b2ee887f4712212248de113f0ef85866852bd70854"
-    sha256 cellar: :any, arm64_monterey: "b461236f894b3b735b80f87b4c1808be13f5e054d214d2e0fe8673e6861d4c09"
-    sha256 cellar: :any, ventura:        "37cfdaf73b74591acb2bd571dbea613e13790c0fbb548e6b99bea6ab46796c67"
-    sha256 cellar: :any, monterey:       "325586b63584cfa4093e0a0fffbf1d6271605330f29671f3fe18b870edc96f5f"
+    sha256 cellar: :any, arm64_ventura:  "50f420dc1d5156e6176f032e22fa6fcbb4f35ee51629d2d26e6e4264b82153a9"
+    sha256 cellar: :any, arm64_monterey: "7ab5cad2f46682955e752e111255b59e2ccd9b1d8d63416546cbbbdc4be1c035"
+    sha256 cellar: :any, ventura:        "aab548a4703d004d698ffe28b72784ea31637650db3100931ca59efbe8999c23"
+    sha256 cellar: :any, monterey:       "cd0d8cf19cc7bdd4a39e8f8557a76f03b93ea00377a9e91036dddcd2fd19f802"
   end
 
   depends_on xcode: ["14.0", :build]

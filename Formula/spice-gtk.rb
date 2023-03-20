@@ -3,10 +3,9 @@ class SpiceGtk < Formula
 
   desc "GTK client/libraries for SPICE"
   homepage "https://www.spice-space.org"
-  url "https://www.spice-space.org/download/gtk/spice-gtk-0.41.tar.xz"
-  sha256 "d8f8b5cbea9184702eeb8cc276a67d72acdb6e36e7c73349fb8445e5bca0969f"
+  url "https://www.spice-space.org/download/gtk/spice-gtk-0.42.tar.xz"
+  sha256 "9380117f1811ad1faa1812cb6602479b6290d4a0d8cc442d44427f7f6c0e7a58"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later", "BSD-3-Clause"]
-  revision 1
 
   livecheck do
     url "https://www.spice-space.org/download/gtk/"
@@ -14,14 +13,13 @@ class SpiceGtk < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "5376db1c3bb8e411ae9ed385060e294fff92a578235da5890aa0dfee162636ee"
-    sha256 arm64_monterey: "ff19af79165ab0f40164ebdda3bfe7f43a10a79031d120fcde0341afc7f384e7"
-    sha256 arm64_big_sur:  "d0bb47512168bb6b8d5a0d7f868e4eab2451a93adb3d37b3f0f39d2b82f088e4"
-    sha256 ventura:        "b86579acd53e59fe0fa769d3b323450746a41866b2c555471d90ca231d343615"
-    sha256 monterey:       "7d447cc1e928a6952f646f2b05baea519ecbaad6004c151394b491515829d894"
-    sha256 big_sur:        "006888d49e0de92da7fd8a72e1060b2a1893fd00ed74c797ca79d3f936ea6220"
-    sha256 catalina:       "09fecc7a853611827e3ead2512f7db7e7217f8d5040b7761f8be9c33c72879fe"
-    sha256 x86_64_linux:   "b7fa19f888be06a726f69c2bc0a12c28b2663f0fc7b72a82073559442e5cc77d"
+    sha256 arm64_ventura:  "1befb75e482902215839cf6148532a51e52e1abeb5031e3cb6336682aa33b35b"
+    sha256 arm64_monterey: "052d4242b3edbc13681bd49397cfb60ec52f57d04ed60cb636926f32fa16b88e"
+    sha256 arm64_big_sur:  "fcbbd7bbfc075d5addf210451858fe672b6fd33c055e3237bf7f7b3a64d40373"
+    sha256 ventura:        "bd9a3a48b7dd8b7e922f88ae0b304dedd155f2fbc9fcd46e75a5eb30e148a1cd"
+    sha256 monterey:       "93cb5b7f2b910a204ea3bdb57b7b6bae8709471516776972405a0f77600f6032"
+    sha256 big_sur:        "e2bdf4ad322cc650d11d7fcfd1d2de66fc0a5535f41c6c4f7c9b960932028992"
+    sha256 x86_64_linux:   "512b1f3cb245fc4ce907455c4d3b7ad266afce8a08b96209c6db29c40b7e0cb9"
   end
 
   depends_on "gobject-introspection" => :build
@@ -62,6 +60,9 @@ class SpiceGtk < Formula
     sha256 "2b020ecf7d21b687f219b71ecad3631f644a47f01403fa1d1036b0c6416d70fb"
   end
 
+  # https://gitlab.com/keycodemap/keycodemapdb/-/merge_requests/18
+  patch :DATA
+
   def install
     venv = virtualenv_create(buildpath/"venv", "python3.11")
     venv.pip_install resources
@@ -99,3 +100,14 @@ class SpiceGtk < Formula
     system "./test"
   end
 end
+__END__
+diff --git a/subprojects/keycodemapdb/tools/keymap-gen b/subprojects/keycodemapdb/tools/keymap-gen
+index b6cc95b..d05e945 100755
+--- a/subprojects/keycodemapdb/tools/keymap-gen
++++ b/subprojects/keycodemapdb/tools/keymap-gen
+@@ -1,4 +1,4 @@
+-#!/usr/bin/python3
++#!/usr/bin/env python3
+ # -*- python -*-
+ #
+ # Keycode Map Generator

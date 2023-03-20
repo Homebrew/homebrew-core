@@ -9,28 +9,27 @@ class Flit < Formula
   head "https://github.com/pypa/flit.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6bd28c6b210602e16d0430cfde9bea90bc36c3f3c8df5462e8894a2a6231e615"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4dbf8a9e8e9df5301a978774c79361bccb722227344b8257de66aef1f89864b7"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d424220d30faa14fcd391ae4acbcdcdb3b923ca4237990d85b5a15f614f5090b"
-    sha256 cellar: :any_skip_relocation, ventura:        "d8c0d3c83ec706d3c8db72b4ce50fa58fd05e230e6f4bc61836c7c024fe03ad2"
-    sha256 cellar: :any_skip_relocation, monterey:       "ec577206379daaaab4f712994a1a546a8a79b2b335165f374058cff750191ca9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a28df2da3dc584cc9ff6e2159e2bc0c33caadd813611d9a4aaad7b1d257762b4"
-    sha256 cellar: :any_skip_relocation, catalina:       "3da182a01a57251992616c5275d64781206644df7d7d9d8d5b31636b0b7e8fdc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "db0339e8e776366d78171427ccbd679f4566ad1715935aa1e9dc320615d37b6a"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c79cd79ddd53d849487514e66f3ce7cd062942639ebfa86b18c45cb032bedf62"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f1f355701e2e759a91dd1165f9a80127bc2a1ca7ea9f6ea01ab559fd03d5a069"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e89b7fcc04fb5ede6b3ee4468b5890689ee8ec4c47eea3d5b0dfce55cd2c0cb8"
+    sha256 cellar: :any_skip_relocation, ventura:        "17b346f784b1ce2d3503cc4f4776e71d05131d85c2080f55f971c5bada781e5c"
+    sha256 cellar: :any_skip_relocation, monterey:       "70d5d61f35d5b40ca442f193324101bc7a2fa4f9bc52b275c6dfefbef5a99f4c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "356f09a724ecc55cc158ffd911855942b1e67192e76bd893f82adc462e6d34a8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "84e9f9b69437ee28a56a66cb0bb6fdbd3c32c8dfdd209277cb4f7569c3b65660"
   end
 
   depends_on "docutils"
   depends_on "python@3.11"
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/cb/a4/7de7cd59e429bd0ee6521ba58a75adaec136d32f91a761b28a11d8088d44/certifi-2022.9.24.tar.gz"
-    sha256 "0d9c601124e5a6ba9712dbc60d9c53c21e34f5f641fe83002317394311bdce14"
+    url "https://files.pythonhosted.org/packages/37/f7/2b1b0ec44fdc30a3d31dfebe52226be9ddc40cd6c0f34ffc8923ba423b69/certifi-2022.12.7.tar.gz"
+    sha256 "35824b4c3a97115964b408844d64aa14db1cc518f6562e8d7261699d1350a9e3"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/a1/34/44964211e5410b051e4b8d2869c470ae8a68ae274953b1c7de6d98bbcf94/charset-normalizer-2.1.1.tar.gz"
-    sha256 "5a3d016c7c547f69d6f81fb0db9449ce888b418b5b9952cc5e6e66843e9dd845"
+    url "https://files.pythonhosted.org/packages/96/d7/1675d9089a1f4677df5eb29c3f8b064aa1e70c1251a0a8a127803158942d/charset-normalizer-3.0.1.tar.gz"
+    sha256 "ebea339af930f8ca5d7a699b921106c6e29c617fe9606fa7baa043c1cdae326f"
   end
 
   resource "flit-core" do
@@ -44,8 +43,8 @@ class Flit < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/a5/61/a867851fd5ab77277495a8709ddda0861b28163c4613b011bc00228cc724/requests-2.28.1.tar.gz"
-    sha256 "7c5599b102feddaa661c826c56ab4fee28bfd17f5abca1ebbe3e7f19d7c97983"
+    url "https://files.pythonhosted.org/packages/9d/ee/391076f5937f0a8cdf5e53b701ffc91753e87b07d66bae4a09aa671897bf/requests-2.28.2.tar.gz"
+    sha256 "98b1b2782e3c6c4904938b84c0eb932721069dfdb9134313beff7c83c2df24bf"
   end
 
   resource "tomli-w" do
@@ -54,8 +53,8 @@ class Flit < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/b2/56/d87d6d3c4121c0bcec116919350ca05dc3afd2eeb7dc88d07e8083f8ea94/urllib3-1.26.12.tar.gz"
-    sha256 "3fa96cf423e6987997fc326ae8df396db2a8b7c667747d47ddd8ecba91f4a74e"
+    url "https://files.pythonhosted.org/packages/c5/52/fe421fb7364aa738b3506a2d99e4f3a56e079c0a798e9f4fa5e14c60922f/urllib3-1.26.14.tar.gz"
+    sha256 "076907bf8fd355cde77728471316625a4d2f7e713c125f51953bb5b3eecf4f72"
   end
 
   def install

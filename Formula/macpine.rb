@@ -1,8 +1,8 @@
 class Macpine < Formula
   desc "Lightweight Linux VMs on MacOS"
   homepage "https://beringresearch.github.io/macpine/"
-  url "https://github.com/beringresearch/macpine/archive/refs/tags/v0.7.tar.gz"
-  sha256 "47777dee26c6c9c0d0683e9e6b0d8dd85b20c1336cbeffaa9f1be0b6fcedf8d7"
+  url "https://github.com/beringresearch/macpine/archive/refs/tags/v0.9.tar.gz"
+  sha256 "fbbed218de0037d0fc82bc675fbe89b44202f757f12a5ab53f32ff70345ee1c2"
   license "Apache-2.0"
   head "https://github.com/beringresearch/macpine.git", branch: "main"
 
@@ -22,13 +22,13 @@ class Macpine < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "17724ae6ba9ff82b9d55cb7d51f0fa5641fa568569c27350083c6d88dbe2dcd8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "be6eacbba1713dd2a5014bce46eb72ad3303272fd285b44bdafd3d1b892ba094"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4a57f7dce7aa83d375d014b5a9c8cccfeb09cd3078d70feffccee520ddc1af78"
-    sha256 cellar: :any_skip_relocation, ventura:        "427c9caab46cd89a59ba627271cbc6d7611c8e3e75669ffa84606a7968f0610b"
-    sha256 cellar: :any_skip_relocation, monterey:       "83acd669c461cf5b20cd4585c3b40d257b746c2f387e523c65c89a829b4ee566"
-    sha256 cellar: :any_skip_relocation, big_sur:        "edb32132706f0919e66cd22df2bbe95d16564abe0cdf7e5d22e89960e21da34d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e5bb38a7419f1314f36fe04c8f7aa94870e2bf12499ec08dba72ff24d1619b07"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ae25520460c488e1bd6d2cf9e3137a6dea39356f6f07ee2e86b2f516d0560c4c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7efd71cf4578bf9abe3ce07202eb62d7e43087751bd98e15c566978283d5192b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "40a28553c4c47e3b5fc264d41d7f468fc10ed8f585b5e7ea6ea8e12351f8bbf2"
+    sha256 cellar: :any_skip_relocation, ventura:        "5dbe2d92fe49d24b7bbddfeb54e0cc28e4df024227d28f55443dba532f7589e1"
+    sha256 cellar: :any_skip_relocation, monterey:       "5a1326dc4664559743bb31f0c37c2de9c57783793ce1d889bb3269129316a5c2"
+    sha256 cellar: :any_skip_relocation, big_sur:        "126db80dd234e69a8e7e60af5557932ea8647748870b1c210e059e0acc6ea8a4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7c294e421b90228e402c66017909669ce94717bf4fb5499347bd764c2e680082"
   end
 
   depends_on "go" => :build
@@ -38,6 +38,7 @@ class Macpine < Formula
 
   def install
     system "make", "install", "PREFIX=#{prefix}"
+    generate_completions_from_executable(bin/"alpine", "completion")
   end
 
   test do

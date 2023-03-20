@@ -17,6 +17,7 @@ class Gdl < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "26ae14bf457ab681be21fe8b61fa612af211f80c2d8f52416dbb4a9f55eaa0e7"
   end
 
+  depends_on "gettext" => :build
   depends_on "gobject-introspection" => :build
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
@@ -30,9 +31,9 @@ class Gdl < Formula
       ENV["INTLTOOL_PERL"] = Formula["perl"].bin/"perl"
     end
 
-    system "./configure", "--disable-dependency-tracking",
+    system "./configure", *std_configure_args,
                           "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+                          "--enable-introspection=yes"
     system "make", "install"
   end
 

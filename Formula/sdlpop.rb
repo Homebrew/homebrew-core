@@ -1,29 +1,23 @@
 class Sdlpop < Formula
   desc "Open-source port of Prince of Persia"
   homepage "https://github.com/NagyD/SDLPoP"
-  url "https://github.com/NagyD/SDLPoP/archive/v1.22.tar.gz"
-  sha256 "1af170f7f6def61b2ab9c3a9227feca335461d224faa99f3578fc09115ac505c"
+  url "https://github.com/NagyD/SDLPoP/archive/v1.23.tar.gz"
+  sha256 "41a9aa64b4e8d0a9d7a84ffced48f74f9528d81adbffc08593ecf84776c5d77a"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "1ccdaf2e5186bcc2d0094fbdc59206c5b602b367287ee76a3473969897f1af8a"
-    sha256 cellar: :any,                 ventura:       "786990712dda58b6dc2e1e7047ad3b24cf7282034e4db22c5d3a28350c701e52"
-    sha256 cellar: :any,                 monterey:      "6cdf33d633557c92f89591a24a6600db2485bb78ad1f5f6a8260a7e13f2607c4"
-    sha256 cellar: :any,                 big_sur:       "2c3a47b467b2bdd321d1b7f2d73ad7f40859319b2ae6b51ef0009c2274c2581b"
-    sha256 cellar: :any,                 catalina:      "4c2307714ee64456baac5c4b758e48c8aca6747a0daa92b8bc31fd1597663250"
-    sha256 cellar: :any,                 mojave:        "d304d506f73fec8e98b223eb0f8cfd087dd7a15a144fd0b46522f7a2b78261b9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1a9e40fba4560043c8f5b190a51f5b4d2be4ebc4f48b6cdab8d49c7dddc9814e"
+    sha256 cellar: :any,                 arm64_ventura:  "07ea2286bb9e2e5aefd579d7125882d5d744f3e3f7f5bbe1d67ce23242d8463f"
+    sha256 cellar: :any,                 arm64_monterey: "5678d9cd2ecb1de029c137d281034b891215f98ee9a2cc47c4597dd7d3467c92"
+    sha256 cellar: :any,                 arm64_big_sur:  "985ca9d07147b53562d0402685ab3e7db04803b18fbcaab180d8edacd64f40b8"
+    sha256 cellar: :any,                 ventura:        "21793456afcbac882492103a1f0f3b5d2a4b88c26df8df93be46c7ace3d96251"
+    sha256 cellar: :any,                 monterey:       "30ac230fb6c1f6fdd28d539c779428b5249e98f3984f4a8aba4ea4eba1038b61"
+    sha256 cellar: :any,                 big_sur:        "82fc8922689771f58c21f1fd08f1fc2b39c4cd32aee875c21152178ce5ef448a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8ef6448ced32c9d812689e9103bce4cf3df4eba04d34325898b205438fd73bc8"
   end
 
   depends_on "pkg-config" => :build
   depends_on "sdl2"
   depends_on "sdl2_image"
-
-  # Fix SDL2 header search location during build. Patch accepted upstream, remove on next release.
-  patch do
-    url "https://github.com/NagyD/SDLPoP/commit/26d3fb9ffee2831ab98b1f0359ba25b41f6fffc8.patch?full_index=1"
-    sha256 "4c62ddef19d5550f3dc0db6d5a2fff7ba2c2454d376ca624a147b4c650512097"
-  end
 
   def install
     system "make", "-C", "src"
@@ -49,6 +43,6 @@ class Sdlpop < Formula
   end
 
   test do
-    assert_equal "See doc/Readme.txt", shell_output("#{bin}/prince --help").chomp
+    assert_equal "See README.md", shell_output("#{bin}/prince --help").chomp
   end
 end

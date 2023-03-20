@@ -6,11 +6,6 @@ class Pcrexx < Formula
   sha256 "77ee9fc1afe142e4ba2726416239ced66c3add4295ab1e5ed37ca8a9e7bb638a"
   license "LGPL-2.1-only"
 
-  livecheck do
-    url "https://www.daemon.de/projects/pcrepp/download/"
-    regex(/href=.*?pcre\+\+[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
     rebuild 2
     sha256 cellar: :any,                 arm64_ventura:  "67b2481140ac7c4101d443b54f4d6c7bb7bb1ede6338bae81a4c78509ff49f52"
@@ -23,6 +18,9 @@ class Pcrexx < Formula
     sha256 cellar: :any,                 mojave:         "fdaf9cab000ba7b2f7787acd98e53aa3cade6e6536c0c0ec32a010ecade2cb53"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "02065bd248d60295297eaafbeade3d86245aca27c913c68d0906fee8da4737c3"
   end
+
+  # Last release on 2004-08-25 and it is a wrapper around EOL `pcre`
+  deprecate! date: "2023-02-19", because: :unmaintained
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build

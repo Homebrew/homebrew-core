@@ -1,19 +1,18 @@
 class Virtuoso < Formula
   desc "High-performance object-relational SQL database"
   homepage "https://virtuoso.openlinksw.com/wiki/main/"
-  url "https://github.com/openlink/virtuoso-opensource/releases/download/v7.2.8/virtuoso-opensource-7.2.8.tar.gz"
-  sha256 "979d221d1ddeb7898db0a928ad883897d9ddcd39886a54042fae9a9b9b551bfa"
+  url "https://github.com/openlink/virtuoso-opensource/releases/download/v7.2.9/virtuoso-opensource-7.2.9.tar.gz"
+  sha256 "be838c623aa6f8a2e2ab90005e63f0ff1363d6fa8fa64b811caab71e3125ba90"
   license "GPL-2.0-only" => { with: "openvpn-openssl-exception" }
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "58ad935254f290f7e50a5ffce7560a52020c366cb5cb486e039fd30f45941890"
-    sha256 cellar: :any,                 arm64_monterey: "a6aca0e48229e1f7758e5cb676876faac4e8866a94d1e0c13ba64fee14776895"
-    sha256 cellar: :any,                 arm64_big_sur:  "9e6b80ef1795a03f3e857d495c8f88cc0badc0860e8c337478672f28a90573ce"
-    sha256 cellar: :any,                 ventura:        "43a681009e3ac03fa1dc3d03395176be0ec3c915960cf472b3f9d87a765953d1"
-    sha256 cellar: :any,                 monterey:       "3cc49b38a93736781daef10bb283fff16dc6dd9491a415ac452e260bb1ac10ef"
-    sha256 cellar: :any,                 big_sur:        "1f84117306bcf67c000a6ebc460e449ec510cf30203bc4f50035aadb229d80cf"
-    sha256 cellar: :any,                 catalina:       "8d64e4a3e591c41076a7c145699a3f6be6f031b240c1058e4588408b10006551"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "030d688ffd43f34d323f59686b98da19a90c424e8ab7826b1d2c3066142fbe69"
+    sha256 cellar: :any,                 arm64_ventura:  "3a75a905b4b13f3b24cfe575d0734a63c04647b03ba7e1688694f586ac3ea24a"
+    sha256 cellar: :any,                 arm64_monterey: "f89bee2260392c6ae90fae32eaa6766682e0a82736a3af4d9afd6a6c846f9090"
+    sha256 cellar: :any,                 arm64_big_sur:  "36f3e085d9425c3fb75d9472c8325abc0c127da0b370c61349caf966fef26137"
+    sha256 cellar: :any,                 ventura:        "ecdc405773408b67d4cbc8fe37db34980801648ac12fcf0915a95f3acf026c28"
+    sha256 cellar: :any,                 monterey:       "b18bc3c59f8b7af966fb7d59598e63c69dc7c650a2481b7d97e9ac38351751d5"
+    sha256 cellar: :any,                 big_sur:        "b419fda92e6c0a9c1c12ae76c19b89be56d3161c73a632cd1c902ad74f00d6ed"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3e3934550d620fa88613ab3592891dfd4277f7dee120fa6f0bfaa6eee49e7a55"
   end
 
   head do

@@ -10,7 +10,7 @@ class ApacheCtakes < Formula
     sha256 cellar: :any_skip_relocation, all: "4c6af60f27e2795e09763b88aa81e00faa80ba6d46e6f6cac3d2cd0b72b9f69f"
   end
 
-  deprecate! date: "2021-12-21", because: "installs binaries and does not build from source"
+  disable! date: "2022-12-30", because: "installs binaries and does not build from source"
 
   depends_on "openjdk"
 

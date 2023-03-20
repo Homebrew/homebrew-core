@@ -4,7 +4,7 @@ class S2geometry < Formula
   url "https://github.com/google/s2geometry/archive/v0.10.0.tar.gz"
   sha256 "1c17b04f1ea20ed09a67a83151ddd5d8529716f509dde49a8190618d70532a3d"
   license "Apache-2.0"
-  revision 3
+  revision 4
 
   livecheck do
     url :homepage
@@ -12,14 +12,13 @@ class S2geometry < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "1fffb7be2e1fec6bcccc9987b01995a66dd0a5c6788c671ffbfd5a618e4b4038"
-    sha256 cellar: :any,                 arm64_monterey: "e8da995aed4d8566f45d2d25309dccabf1494d2f0adeafddbcd6ac21413b24ce"
-    sha256 cellar: :any,                 arm64_big_sur:  "882327e425f31807818f5297cde9c82e597d78398ddd967deb2f671cbf11dec6"
-    sha256 cellar: :any,                 ventura:        "3739b6d4e5ed5457147314bad7137320c8f0777bab754614928ae074662a8501"
-    sha256 cellar: :any,                 monterey:       "66173ff423d0e7699989dcf8eb7bea07583e354c666a62da7bc48f056dbe9300"
-    sha256 cellar: :any,                 big_sur:        "66ef9d2487533bd1957a2737eed309fee0327a5eb75725a1e2c25ed4cd7a561a"
-    sha256 cellar: :any,                 catalina:       "9d593b82057291a81c66c2ee58d576894f5c2478725d73fa27bac95e3d585b40"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0e7301689ba76d94503cdadc461b01689bc1d2d52724413b0aca9d7a482b0186"
+    sha256 cellar: :any,                 arm64_ventura:  "7c3d433e915ffd03e92c73b1d3be5e1cbf127041c6cedb761ea266831a9d0d57"
+    sha256 cellar: :any,                 arm64_monterey: "f5017d82e3624b783074ffc704819fb3c278ccce7b4f7749cba5f18c80de01d1"
+    sha256 cellar: :any,                 arm64_big_sur:  "3b4b5686c10ebddf04b5faa31520c8f80f91e0457596cad877b8ca123b5b2411"
+    sha256 cellar: :any,                 ventura:        "c8521cc65e3e8de4ecd1080a7e6186f03e90696bdd09176effc21ef5af1cc4d2"
+    sha256 cellar: :any,                 monterey:       "4a166d13c69aa0089127fd0c4b9a49f11007f85437649f4a0466c75113af0c79"
+    sha256 cellar: :any,                 big_sur:        "ec151db9a713cf396de417583f4e2c72e77a200852d0bad3dfc76dedfa54baed"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6e929ca8b220797e1dac8396b1da10dac728f022d421072e43ef76e94583f73c"
   end
 
   depends_on "cmake" => :build
@@ -117,7 +116,7 @@ class S2geometry < Formula
         return  0;
       }
     EOS
-    system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test",
+    system ENV.cxx, "-std=c++17", "test.cpp", "-o", "test",
                     "-I#{Formula["openssl@3"].opt_include}",
                     "-L#{lib}", "-ls2"
     system "./test"

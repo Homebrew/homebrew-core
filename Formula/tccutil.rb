@@ -7,16 +7,25 @@ class Tccutil < Formula
   head "https://github.com/jacobsalmela/tccutil.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "71f3e197c76e128e03b07e52d18f523d2ca19fa3f35e680e029175b755d2cef6"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "27033a9fedb26e4ea0087263ed08c2ab7136ca8258ac08f2fd0e6511d217c481"
   end
 
   depends_on :macos
+  depends_on "python@3.11"
+
+  def python
+    deps.first.to_formula
+  end
 
   def install
-    bin.install "tccutil.py" => "tccutil"
+    prefix.install_metafiles
+    libexec.install "tccutil.py"
+    (bin/"tccutil").write_env_script libexec/"tccutil.py", PATH: "#{python.opt_libexec}/bin:$PATH"
   end
 
   test do
+    ENV.prepend_path "PATH", python.opt_libexec/"bin"
     system "#{bin}/tccutil", "--help"
   end
 end

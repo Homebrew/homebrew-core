@@ -7,12 +7,14 @@ class SdlSound < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "d841ce9a75188dabed5f60bcac15b5fe587a27e1dd852cb1373a527166f6ebed"
-    sha256 cellar: :any,                 arm64_big_sur:  "34642d25aacd4036655c9a70ed1fb053e1bd97c6d6854cf4a9891efc09c17378"
-    sha256 cellar: :any,                 monterey:       "deaac135b0a7474a0cb2084c41296f3e16f43201288f555e756f7f7591e37d60"
-    sha256 cellar: :any,                 big_sur:        "f0f6b7aee1a5f2307e3e220b0e1fada6f10a524cf077c413d55079eebc36c1c6"
-    sha256 cellar: :any,                 catalina:       "0701c8b7c293a52efb1d2d62cb3619b1348260c2d6ea975ca519b05a9d6c5627"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5b87660a6a669220b3e7c8b8f6f0283a196180aa274e134aa342a04cd63b443f"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "9bea3a01efd7405fe3ad4899021c3c434576d8759be0702916e310faf7109bda"
+    sha256 cellar: :any,                 arm64_monterey: "26511aae3187e1aeb339e8d35c50ac417df5e7018ce86077216d3646419bb2b9"
+    sha256 cellar: :any,                 arm64_big_sur:  "7db0a9528c281c47c1fd4f79ce956269c8b3f37507c3669393024e79fcd965be"
+    sha256 cellar: :any,                 ventura:        "cb2fabfb579addf24b786c91df552d78d060051f4c398fd8cc72749b755062a5"
+    sha256 cellar: :any,                 monterey:       "9b5e444e0c09b52dc480459c5d0485815cbdcfb1ee00c3d8f02c0be3dd313cde"
+    sha256 cellar: :any,                 big_sur:        "8ea00e26e1d3714af082d90b09f33046b92dc2384b5095aeb6362efb7b32f4cb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "76f7b947c3a41598d7aff64f21d438c85bbc2cb8d1bf33774e33f1bd364980f9"
   end
 
   head do
@@ -26,8 +28,7 @@ class SdlSound < Formula
   keg_only "it conflicts with `sdl2_sound`"
 
   # SDL 1.2 is deprecated, unsupported, and not recommended for new projects.
-  # Commented out while this formula still has dependents.
-  # deprecate! date: "2013-08-17", because: :deprecated_upstream
+  deprecate! date: "2023-02-13", because: :deprecated_upstream
 
   depends_on "pkg-config" => :build
   depends_on "libogg"

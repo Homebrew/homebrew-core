@@ -1,8 +1,8 @@
 class Goenv < Formula
   desc "Go version management"
   homepage "https://github.com/syndbg/goenv"
-  url "https://github.com/syndbg/goenv/archive/2.0.4.tar.gz"
-  sha256 "f516d7d00d483a0d328dd4156e65399c2c84e12625080c82eaef500b0211a515"
+  url "https://github.com/syndbg/goenv/archive/2.0.6.tar.gz"
+  sha256 "ba4882cf34dd44b0d5349f0a2931aa672478a77fa64023874fc2cd1a52a15792"
   license "MIT"
   version_scheme 1
   head "https://github.com/syndbg/goenv.git", branch: "master"
@@ -13,14 +13,13 @@ class Goenv < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8ce0cde64ba99a0cf98cc07e92126a506ea38680e42c306cc6f888a6010c0803"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8ce0cde64ba99a0cf98cc07e92126a506ea38680e42c306cc6f888a6010c0803"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8ce0cde64ba99a0cf98cc07e92126a506ea38680e42c306cc6f888a6010c0803"
-    sha256 cellar: :any_skip_relocation, ventura:        "dee76e5bf5df3d39deed32510baa9e1420e1395df898551da1ad19189c12d922"
-    sha256 cellar: :any_skip_relocation, monterey:       "dee76e5bf5df3d39deed32510baa9e1420e1395df898551da1ad19189c12d922"
-    sha256 cellar: :any_skip_relocation, big_sur:        "dee76e5bf5df3d39deed32510baa9e1420e1395df898551da1ad19189c12d922"
-    sha256 cellar: :any_skip_relocation, catalina:       "dee76e5bf5df3d39deed32510baa9e1420e1395df898551da1ad19189c12d922"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8ce0cde64ba99a0cf98cc07e92126a506ea38680e42c306cc6f888a6010c0803"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b0e5d50704c497080a8b7ba300d12e5086ac2e248a69aa0b25fe2148a8ae1cd4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b0e5d50704c497080a8b7ba300d12e5086ac2e248a69aa0b25fe2148a8ae1cd4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b0e5d50704c497080a8b7ba300d12e5086ac2e248a69aa0b25fe2148a8ae1cd4"
+    sha256 cellar: :any_skip_relocation, ventura:        "82a9a7d404efa1f809605b3f5cc4ad99c55b0819a7088d00c8294effee7de3a9"
+    sha256 cellar: :any_skip_relocation, monterey:       "82a9a7d404efa1f809605b3f5cc4ad99c55b0819a7088d00c8294effee7de3a9"
+    sha256 cellar: :any_skip_relocation, big_sur:        "82a9a7d404efa1f809605b3f5cc4ad99c55b0819a7088d00c8294effee7de3a9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b0e5d50704c497080a8b7ba300d12e5086ac2e248a69aa0b25fe2148a8ae1cd4"
   end
 
   def install

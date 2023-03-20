@@ -8,12 +8,13 @@ class Montage < Formula
   head "https://github.com/Caltech-IPAC/Montage.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "5fb0ba7f92da2f1640b5b167a534e25dbbd8bfca5985496dc3160b8c80f8e941"
-    sha256 cellar: :any, arm64_monterey: "3351038e38cb15aea0c03e8085869f13d7a08e595b3ac175d7e516ebbb23930b"
-    sha256 cellar: :any, arm64_big_sur:  "89c301642c9ecdbc1735d7c4f7a2d4682579df7c47bbc79b4a9ca458f8ac612a"
-    sha256 cellar: :any, ventura:        "dd2019c0ad78b267ca235ad2d7a49a1554e94bba0e5366846ce79f6cf5d923c0"
-    sha256 cellar: :any, monterey:       "31f5c80d33f8b8ab6c19931c2d9ee4ce8afbc5bf3521beb30852caf253144acb"
-    sha256 cellar: :any, big_sur:        "185ebdfbbeacdfb4e2c5bf3b3e96e8a9bb21d74415612bab5417024465849ee9"
+    rebuild 1
+    sha256 cellar: :any, arm64_ventura:  "64bead5a3b77bd80dd4cdb5980ac40b4f140246a8dd77ffc91cc476e1d5201e0"
+    sha256 cellar: :any, arm64_monterey: "979157185163a1e4af7de11b882687e34e86b5e8a185c046c8e468da8a7765f6"
+    sha256 cellar: :any, arm64_big_sur:  "f9fb8238d49754d19175b69133cab7ac5d4a28d76cf0823894956eb9dcddc738"
+    sha256 cellar: :any, ventura:        "f6bc30d29752622bd772486c04d6feedf51a28bcf599571cf4b9336a21249900"
+    sha256 cellar: :any, monterey:       "98c1ea6725fe61b926cb5ae148b6fec4dac9c3f2a05d2573395bfbe1ca3f3ef6"
+    sha256 cellar: :any, big_sur:        "c0dae6deab1f09e34a1ba4dcebf923f697662a0b4a0f12b778cbc4eda7191d00"
   end
 
   depends_on "cfitsio"

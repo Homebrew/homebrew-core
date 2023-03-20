@@ -1,8 +1,9 @@
 class Geoserver < Formula
   desc "Java server to share and edit geospatial data"
   homepage "https://geoserver.org/"
-  url "https://downloads.sourceforge.net/project/geoserver/GeoServer/2.22.0/geoserver-2.22.0-bin.zip"
-  sha256 "ebcf88bdb3820634dd060e5d41bfb2769da7b6dd3b7ef5b09b800b73a9b568de"
+  url "https://downloads.sourceforge.net/project/geoserver/GeoServer/2.22.2/geoserver-2.22.2-bin.zip"
+  sha256 "bac56a8d75e3302bdb8c4cfa4cacfb44ce40da8515af28ec8c504351fb507112"
+  license "GPL-2.0-or-later"
 
   # GeoServer releases contain a large number of files for each version, so the
   # SourceForge RSS feed may only contain the most recent version (which may
@@ -10,12 +11,12 @@ class Geoserver < Formula
   # "GeoServer" directory page instead, since this is reliable.
   livecheck do
     url "https://sourceforge.net/projects/geoserver/files/GeoServer/"
-    strategy :page_match
     regex(%r{href=(?:["']|.*?GeoServer/)?v?(\d+(?:\.\d+)+)/?["' >]}i)
+    strategy :page_match
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "a14f6ed90e294dc7e8ee4679e1f067dca6770ed74c71522ec1c39a83acc3fcc9"
+    sha256 cellar: :any_skip_relocation, all: "9e8b5d05f9d84d86937b7e6437c47c1a746e52878bba4f498fe95fc239de5ce3"
   end
 
   def install

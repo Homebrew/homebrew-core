@@ -3,24 +3,25 @@ class Awscli < Formula
 
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
-  url "https://github.com/aws/aws-cli/archive/2.9.11.tar.gz"
-  sha256 "ec2a441b8a83aae6387429c3f9bedf32dd224d938d70dfbff168a21df8195084"
+  url "https://github.com/aws/aws-cli/archive/2.11.4.tar.gz"
+  sha256 "005a71054334d5bc4ab130feabbaed4099454d9d49b6c90285b392525e862676"
   license "Apache-2.0"
   head "https://github.com/aws/aws-cli.git", branch: "v2"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "b7cbcc9b018a517232ede6f31476926b95d095a61c4aed8c6054b33dd5982cec"
-    sha256 cellar: :any,                 arm64_monterey: "6a79b884dcb6f684478db032ccff9742a18e44cda4f3ca49c0094f89cff385f7"
-    sha256 cellar: :any,                 arm64_big_sur:  "70dd4e19fcc35d0da5083f516bd77b1c43b0b3e58c17920d6a2268cc95c81d1e"
-    sha256 cellar: :any,                 ventura:        "10df2c609320adc9a390d5f7b57f5f969093d1503b6d8215e536c0547054c7a9"
-    sha256 cellar: :any,                 monterey:       "53dfaf75f38547a5819c35d5e2491d05fd3c6b774f720f0b3bf9a9c9c4e43d24"
-    sha256 cellar: :any,                 big_sur:        "c54fbfeeba5ca273404cce6f0782abec395265599f496f5b3a86536e0ec736d4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6a6937977d9a098041ef218887a2642bc079aaf00c054506b77dff69f192d063"
+    sha256 cellar: :any,                 arm64_ventura:  "b9123ef4597abb5d9cb1f8d14e5e50469aac81dbfb29d2e198cb4a7e9a08769a"
+    sha256 cellar: :any,                 arm64_monterey: "de805dd2bc7865e9eb1f9efcb05f8fdc7a69f7bad5346d728a878eaaf9c66947"
+    sha256 cellar: :any,                 arm64_big_sur:  "a8a9cb28824d3b7dfb4369ae6f3ed316cb78cca35ff5d7a8c8edc0b4afdcdf69"
+    sha256 cellar: :any,                 ventura:        "d89831a13dea1a4b53d4400fe1a5399c6008d60e3350610d0a420e0133781c6c"
+    sha256 cellar: :any,                 monterey:       "f5c905256100c9745dc5a8a9764d8a0dc3b4121b7823a11179eb2e0e470ff909"
+    sha256 cellar: :any,                 big_sur:        "f068910f192d19e84bc29c0839130a804d018e42ca8d0706ec9e5ca3f9cc1c92"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c85943a8cf25f6dcc22a732a0a12c94a107c31f7d6adebc8a7e3ca5d019b0a67"
   end
 
   depends_on "cmake" => :build
   depends_on "rust" => :build # for cryptography
   depends_on "docutils"
+  depends_on "pycparser"
   depends_on "python@3.11"
   depends_on "six"
 
@@ -28,11 +29,11 @@ class Awscli < Formula
 
   # Python resources should be updated based on setup.cfg. One possible way is:
   # 1. Run `pipgrip 'awscli @ #{url}' --sort`
-  # 2. Ignore `six`. Update all other PyPI packages
+  # 2. Ignore `docutils` and `six`. Update all other PyPI packages
 
   resource "awscrt" do
-    url "https://files.pythonhosted.org/packages/96/c6/d352026b8fee89594d3be47e6d228e86fef72f0ef3c75704a0b0d690f484/awscrt-0.16.3.tar.gz"
-    sha256 "c37f50b74e3a7560f36ede35b7d2d530224d336b863aff554d97f7c9f59494d3"
+    url "https://files.pythonhosted.org/packages/d1/0f/b70b4ee10b4eff4c6db54cd7b9240c4fd47430b1abab3feea935f00463a3/awscrt-0.16.13.tar.gz"
+    sha256 "b7ec07435e178400369024450d118834a1c8b01ccfebe8140b82102fb161720d"
   end
 
   resource "cffi" do
@@ -41,13 +42,13 @@ class Awscli < Formula
   end
 
   resource "colorama" do
-    url "https://files.pythonhosted.org/packages/82/75/f2a4c0c94c85e2693c229142eb448840fba0f9230111faa889d1f541d12d/colorama-0.4.3.tar.gz"
-    sha256 "e96da0d330793e2cb9485e9ddfd918d456036c7149416295932478192f4436a1"
+    url "https://files.pythonhosted.org/packages/d8/53/6f443c9a4a8358a93a6792e2acffb9d9d5cb0a5cfd8802644b7b1c9a02e4/colorama-0.4.6.tar.gz"
+    sha256 "08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44"
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/e3/3f/41186b1f2fd86a542d399175f6b8e43f82cd4dfa51235a0b030a042b811a/cryptography-38.0.4.tar.gz"
-    sha256 "175c1a818b87c9ac80bb7377f5520b7f31b3ef2a0004e2420319beadedb67290"
+    url "https://files.pythonhosted.org/packages/fa/f3/f4b8c175ea9a1de650b0085858059050b7953a93d66c97ed89b93b232996/cryptography-39.0.2.tar.gz"
+    sha256 "bc5b871e977c8ee5a1bbc42fa8d19bcc08baf0c51cbf1586b0e87a2694dde42f"
   end
 
   resource "distro" do
@@ -65,11 +66,6 @@ class Awscli < Formula
     sha256 "9f1cd16b1e86c2968f2519d7fb31dd9d669916f515612c269d14e9ed52b51650"
   end
 
-  resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/5e/0b/95d387f5f4433cb0f53ff7ad859bd2c6051051cebbb564f139a999ab46de/pycparser-2.21.tar.gz"
-    sha256 "e644fdec12f7872f86c58ff790da456218b10f863970249516d60a5eaca77206"
-  end
-
   resource "python-dateutil" do
     url "https://files.pythonhosted.org/packages/4c/c4/13b4776ea2d76c115c1d1b84579f3764ee6d57204f6be27119f13a61d0a9/python-dateutil-2.8.2.tar.gz"
     sha256 "0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"
@@ -80,14 +76,19 @@ class Awscli < Formula
     sha256 "8b7ce697a2f212752a35c1ac414471dc16c424c9573be4926b56ff3f5d23b7af"
   end
 
+  resource "ruamel-yaml-clib" do
+    url "https://files.pythonhosted.org/packages/d5/31/a3e6411947eb7a4f1c669f887e9e47d61a68f9d117f10c3c620296694a0b/ruamel.yaml.clib-0.2.7.tar.gz"
+    sha256 "1f08fd5a2bea9c4180db71678e850b995d2a5f4537be0e94557668cf0f5f9497"
+  end
+
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/c2/51/32da03cf19d17d46cce5c731967bf58de9bd71db3a379932f53b094deda4/urllib3-1.26.13.tar.gz"
-    sha256 "c083dd0dce68dbfbe1129d5271cb90f9447dea7d52097c6e0126120c521ddea8"
+    url "https://files.pythonhosted.org/packages/21/79/6372d8c0d0641b4072889f3ff84f279b738cd8595b64c8e0496d4e848122/urllib3-1.26.15.tar.gz"
+    sha256 "8a388717b9476f934a21484e8c8e61875ab60644d29b9b39e11e4b9dc1c6b305"
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/89/38/459b727c381504f361832b9e5ace19966de1a235d73cdbdea91c771a1155/wcwidth-0.2.5.tar.gz"
-    sha256 "c4d647b99872929fdb7bdcaa4fbe7f01413ed3d98077df798530e5b04f116c83"
+    url "https://files.pythonhosted.org/packages/5e/5f/1e4bd82a9cc1f17b2c2361a2d876d4c38973a997003ba5eb400e8a932b6c/wcwidth-0.2.6.tar.gz"
+    sha256 "a5220780a404dbe3353789870978e472cfe477761f06ee55077256e509b156d0"
   end
 
   def python3

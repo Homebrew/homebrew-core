@@ -2,21 +2,19 @@ class Breezy < Formula
   include Language::Python::Virtualenv
 
   desc "Version control system implemented in Python with multi-format support"
-  # homepage "https://www.breezy-vcs.org" temporary? 503
-  homepage "https://github.com/breezy-team/breezy"
-  url "https://files.pythonhosted.org/packages/5e/06/b6ffff222a6917e2f50705b553db35ef51b14857b147c12eb952c18c7148/breezy-3.3.1.tar.gz"
-  sha256 "f00c2d17766f2947f6dc692e1247e5c1771a9186f4e941aa97ecc9d2ac23a8a6"
+  homepage "https://www.breezy-vcs.org/"
+  url "https://files.pythonhosted.org/packages/ad/0e/4a937454a5a9e4d2ba7fcb37aeb64c082cddd3fd2761e445a5e11fcfd382/breezy-3.3.2.tar.gz"
+  sha256 "4ea6949fcbb076b978545b099fac68abad35d6fa1899deef4f6b82a3dba257c1"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "6471e097c08c88e04396c2c3a9369aa7a0669a40e14e9a4a092d7e08c57e6d48"
-    sha256 cellar: :any,                 arm64_monterey: "112aac285e20ba29641222457f992d9554b41078037cebe339fe51c1452a19aa"
-    sha256 cellar: :any,                 arm64_big_sur:  "d5745424128ccd2e61292d33f4b83ba0f727e7526818007396ff4ebca5d039ae"
-    sha256 cellar: :any,                 ventura:        "713f3011b45011efa1e308d97de928e212767c245e62dc6e49c9d5883d43ebf2"
-    sha256 cellar: :any,                 monterey:       "731e9d5033ac21c3498ed68172c1926bbf8255e6a35e3248a0f239dafeabe9f3"
-    sha256 cellar: :any,                 big_sur:        "f9f8c4fde99297acb1f5446beab41c46f4d9f07ba1682a7c3514e9bd4e8f7d50"
-    sha256 cellar: :any,                 catalina:       "c8379ffb002940adf47f870ebb874293c47733e7b8457d076e982cd59a0b24a6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "adf090898d2035ac31e4c24263e170ee5cb86c6debab0e018af409bbafe79761"
+    sha256 cellar: :any,                 arm64_ventura:  "230e71c407e4fec67229957ead35048f038192d0f34034fa1b2c7b366b486ad4"
+    sha256 cellar: :any,                 arm64_monterey: "1701a27a93849535e27ce4812b5fac62d018a2073eaf3a5e2ebfdf090ed49240"
+    sha256 cellar: :any,                 arm64_big_sur:  "22f05db8be7601e058b2254e104fa59573a4b6336df85410a4146f810d417d81"
+    sha256 cellar: :any,                 ventura:        "4754073301e729bc055d682d3308f401507ccb6768c4e7f410f351dddc8b0f30"
+    sha256 cellar: :any,                 monterey:       "4a8a3a8fa0b745669c7895a332e4e30541faf7e488cba066940bbf81799904fa"
+    sha256 cellar: :any,                 big_sur:        "6e1991c4886348d9de5f963d46ec61104c839723fa36167dbf8df7e109ac961f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e63c0e98e6474db8498d9b6296a23fa4d2fc2fce5c2bd96c16228310a441ccc4"
   end
 
   depends_on "gettext" => :build
@@ -29,13 +27,13 @@ class Breezy < Formula
   conflicts_with "bazaar", because: "both install `bzr` binaries"
 
   resource "configobj" do
-    url "https://files.pythonhosted.org/packages/64/61/079eb60459c44929e684fa7d9e2fdca403f67d64dd9dbac27296be2e0fab/configobj-5.0.6.tar.gz"
-    sha256 "a2f5650770e1c87fb335af19a9b7eb73fc05ccf22144eb68db7d00cd2bcb0902"
+    url "https://files.pythonhosted.org/packages/cb/87/17d4c6d634c044ab08b11c0cd2a8a136d103713d438f8792d7be2c5148fb/configobj-5.0.8.tar.gz"
+    sha256 "6f704434a07dc4f4dc7c9a745172c1cad449feb548febd9f7fe362629c627a97"
   end
 
   resource "dulwich" do
-    url "https://files.pythonhosted.org/packages/d1/20/4c2ea55d6547460a93dce9112599953be1c939155eae7a8e11a17c4d0b2c/dulwich-0.20.50.tar.gz"
-    sha256 "50a941796b2c675be39be728d540c16b5b7ce77eb9e1b3f855650ece6832d2be"
+    url "https://files.pythonhosted.org/packages/14/a5/cf61f9209d48abf47d48086e0a0388f1030bb5f7cf2661972eee56ccee3d/dulwich-0.21.2.tar.gz"
+    sha256 "d865ae7fd9497d64ce345a6784ff1775b01317fba9632ef9d2dfd7978f1b0d4f"
   end
 
   resource "fastbencode" do
@@ -49,13 +47,13 @@ class Breezy < Formula
   end
 
   resource "patiencediff" do
-    url "https://files.pythonhosted.org/packages/96/d7/88848319e68f92db32982d0a2ca9b84c6fc05f38786f74c41c84adf26f6d/patiencediff-0.2.8.tar.gz"
-    sha256 "d8838ade52d91e09e3689f63c9d3ac7cb3b039f6ce2d730a39a1641cb40cdd53"
+    url "https://files.pythonhosted.org/packages/87/05/52ccc6d1c3dbfdcfc93e7048b755389c3e3ee86bdeab2c09290cf905542c/patiencediff-0.2.12.tar.gz"
+    sha256 "7ded9b7f2d5037081a9df63daa16629ce5c23b505f72737a2f332666a76c4232"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/b2/56/d87d6d3c4121c0bcec116919350ca05dc3afd2eeb7dc88d07e8083f8ea94/urllib3-1.26.12.tar.gz"
-    sha256 "3fa96cf423e6987997fc326ae8df396db2a8b7c667747d47ddd8ecba91f4a74e"
+    url "https://files.pythonhosted.org/packages/c5/52/fe421fb7364aa738b3506a2d99e4f3a56e079c0a798e9f4fa5e14c60922f/urllib3-1.26.14.tar.gz"
+    sha256 "076907bf8fd355cde77728471316625a4d2f7e713c125f51953bb5b3eecf4f72"
   end
 
   def install

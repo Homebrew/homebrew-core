@@ -47,7 +47,7 @@ class Rogue < Formula
     end
 
     system "make", "install"
-    man6.install gzip("rogue.6")
+    man6.install Utils::Gzip.compress("rogue.6")
     libexec.mkpath
     (var/"rogue").mkpath
   end

@@ -4,22 +4,20 @@ class EasyrpgPlayer < Formula
   url "https://easyrpg.org/downloads/player/0.7.0/easyrpg-player-0.7.0.tar.xz"
   sha256 "12149f89cc84f3a7f1b412023296cf42041f314d73f683bc6775e7274a1c9fbc"
   license "GPL-3.0-or-later"
-  revision 3
+  revision 4
 
   livecheck do
     url "https://github.com/EasyRPG/Player.git"
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "5be060696bb33df0a55eea6f9d51ce8ce559dca6a98c2df7ccd6a76b9ca1929c"
-    sha256 cellar: :any,                 arm64_monterey: "7face4d8c8de6e677f2666423c7d6351c3ed4e9a8482edf72defffccde372b62"
-    sha256 cellar: :any,                 arm64_big_sur:  "3e41830cabf00010ed53932a45b90ffe7f7632a9f53d214d6ab22c9e2a26adc2"
-    sha256 cellar: :any,                 ventura:        "6da33282f89e3cb4b826d178610ed184e6eeb916416e1244e5254f08660e47e3"
-    sha256 cellar: :any,                 monterey:       "8c5959946f1a49fc0b12ef5664dfb76ae59200e4b1789068546f6aa18e322d55"
-    sha256 cellar: :any,                 big_sur:        "5d0c23b97aa28f4cd220dffd594f58e85b9593cb8f5fd3c78b09035d19ea62f3"
-    sha256 cellar: :any,                 catalina:       "65332c983ecf0e9f4fac9e0dd8672451114ddf40ddb3d131aac6fa7c28918f79"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "423ad9c8e19c7eaec2674b4811e8dcd2e20b2f8fbd7622e2165e7b31702c5fca"
+    sha256 cellar: :any,                 arm64_ventura:  "0e8898fbb79b434b75345933dc4e5caac15a8756b500304a6c3eafbe70092bd4"
+    sha256 cellar: :any,                 arm64_monterey: "a346d38b8f2323390d1fecc9c37c47298bd9052afc0cd076189f84826ef8e715"
+    sha256 cellar: :any,                 arm64_big_sur:  "898f87d069f28bfab7f0db4a49755d533419408075baab30274617887b4d6fb3"
+    sha256 cellar: :any,                 ventura:        "a27ba0a849fef39fef553ad595217fffb452a9ad42e52757fd1df0704d41834c"
+    sha256 cellar: :any,                 monterey:       "dc89596e72cd7a078db044f33d27d0810b43a3dbedf6936323fbf76a2320d0c0"
+    sha256 cellar: :any,                 big_sur:        "88d830b70f1ce15d7732c1032cd1707297b86978f508344225c86c5e736be51f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7629047f8f56d4c4b846c2aa8c4115366be5946063b247486248f1bdbbced968"
   end
 
   depends_on "cmake" => :build

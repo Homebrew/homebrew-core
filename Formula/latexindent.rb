@@ -1,18 +1,18 @@
 class Latexindent < Formula
   desc "Add indentation to LaTeX files"
   homepage "https://latexindentpl.readthedocs.io"
-  url "https://github.com/cmhughes/latexindent.pl/archive/V3.19.1.tar.gz"
-  sha256 "1ec2b1b83d3dcde3bf654933ebbe9de38ba7793f2f52564450cae71c9cab913e"
+  url "https://github.com/cmhughes/latexindent.pl/archive/V3.20.4.tar.gz"
+  sha256 "0635489cfcb680493abb879998d43438b30c3e7bf0799cb1fa2b6354e5dfb1b9"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "440e729baff05d7e9f87960a815bbaeeb935573d7873907811fcab8a3ca446dd"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a675abf96188ff95db4c6615cd5e0b8219a4f75ca8ee7b5b80b779380d059a5d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "861b63ce19e94dcfa4087da8e01935d2f1d83a5dbe0f3fd32209fcad6cd75548"
-    sha256 cellar: :any_skip_relocation, ventura:        "edca363d045de0a012bf1f609853beaa9f9df1301597110cf3442873e777150e"
-    sha256 cellar: :any_skip_relocation, monterey:       "2ba02be94594b4339844e9c715582c5c7968a774f7960d4024cc12342729a67f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ded53737d4583cb64da9ffc3265cc7444937e71405b58bece0cd3ad23f5d86aa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "979f1ca23990460c842d5d987dff7b8052c8268de262dcbc24d62b4d31e2cfe9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e468df1e1da08f08380c4821573dac56d595fb2c59996bca61f4eca598c79c88"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "84fccdb828fa2eb008645672b6edec2f237b3b1213faa48a41a47d21ef7df30c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9a433b612228b0b32bada3509781b4e77d99b9cb479a6ce08559e0f6bfe7b6b1"
+    sha256 cellar: :any_skip_relocation, ventura:        "f27cdcdd0bb9a89b67f86b8f2d77de427942cd3a05c26f2b994b4f9c09f56deb"
+    sha256 cellar: :any_skip_relocation, monterey:       "dcc788588081c38b038af442a5d99aa6753879bcb4dbf1754e54ec67ac0b0572"
+    sha256 cellar: :any_skip_relocation, big_sur:        "78b3429cbd448780707f5764970151d4dd78079477fa6270aaf0619db395afb9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "61959152a393b0dacb5fcb91d2172dd6a53fab944112fa263fc9e84169fd5ae1"
   end
 
   depends_on "perl"
@@ -90,8 +90,8 @@ class Latexindent < Formula
   end
 
   resource "Module::Build" do
-    url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-0.4231.tar.gz"
-    sha256 "7e0f4c692c1740c1ac84ea14d7ea3d8bc798b2fb26c09877229e04f430b2b717"
+    url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-0.4232.tar.gz"
+    sha256 "67c82ee245d94ba06decfa25572ab75fdcd26a9009094289d8f45bc54041771b"
   end
 
   resource "Module::Implementation" do
@@ -115,8 +115,8 @@ class Latexindent < Formula
   end
 
   resource "Params::ValidationCompiler" do
-    url "https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Params-ValidationCompiler-0.30.tar.gz"
-    sha256 "dc5bee23383be42765073db284bed9fbd819d4705ad649c20b644452090d16cb"
+    url "https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Params-ValidationCompiler-0.31.tar.gz"
+    sha256 "7b6497173f1b6adb29f5d51d8cf9ec36d2f1219412b4b2410e9d77a901e84a6d"
   end
 
   resource "Role::Tiny" do
@@ -140,13 +140,13 @@ class Latexindent < Formula
   end
 
   resource "Sub::Quote" do
-    url "https://cpan.metacpan.org/authors/id/H/HA/HAARG/Sub-Quote-2.006006.tar.gz"
-    sha256 "6e4e2af42388fa6d2609e0e82417de7cc6be47223f576592c656c73c7524d89d"
+    url "https://cpan.metacpan.org/authors/id/H/HA/HAARG/Sub-Quote-2.006008.tar.gz"
+    sha256 "94bebd500af55762e83ea2f2bc594d87af828072370c7110c60c238a800d15b2"
   end
 
   resource "Test::Fatal" do
-    url "https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Test-Fatal-0.016.tar.gz"
-    sha256 "7283d430f2ba2030b8cd979ae3039d3f1b2ec3dde1a11ca6ae09f992a66f788f"
+    url "https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Test-Fatal-0.017.tar.gz"
+    sha256 "37dfffdafb84b762efe96b02fb2aa41f37026c73e6b83590db76229697f3c4a6"
   end
 
   resource "Try::Tiny" do
@@ -199,7 +199,7 @@ class Latexindent < Formula
     (libexec/"lib/perl5").install "LatexIndent"
     (libexec/"bin").install "latexindent.pl"
     (libexec/"bin").install "defaultSettings.yaml"
-    (bin/"latexindent").write_env_script("#{libexec}/bin/latexindent.pl", PERL5LIB: ENV["PERL5LIB"])
+    (bin/"latexindent").write_env_script(libexec/"bin/latexindent.pl", PERL5LIB: ENV["PERL5LIB"])
   end
 
   test do

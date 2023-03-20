@@ -24,7 +24,7 @@ class DockerLs < Formula
     system "go", "generate", "./lib"
 
     %w[docker-ls docker-rm].each do |name|
-      system "go", "build", "-trimpath", "-o", bin/name, "-ldflags", "-s -w", "./cli/#{name}"
+      system "go", "build", *std_go_args(ldflags: "-s -w", output: bin/name), "./cli/#{name}"
     end
   end
 

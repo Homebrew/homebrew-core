@@ -2,22 +2,25 @@
 class Macvim < Formula
   desc "GUI for vim, made for macOS"
   homepage "https://github.com/macvim-dev/macvim"
-  url "https://github.com/macvim-dev/macvim/archive/refs/tags/release-174.tar.gz"
-  version "9.0.472"
-  sha256 "9481eeca43cfc0a7cf0604088c4b536f274821adb62b0daefada978aa7f4c41b"
+  url "https://github.com/macvim-dev/macvim/archive/refs/tags/release-176.tar.gz"
+  version "9.0.1276"
+  sha256 "e729964b4979f42fd2701236adb9bea35c6cf3981aa02ae7790a240fb92cf39e"
   license "Vim"
-  revision 1
   head "https://github.com/macvim-dev/macvim.git", branch: "master"
 
+  livecheck do
+    url "https://github.com/macvim-dev/macvim/releases?q=prerelease%3Afalse&expanded=true"
+    regex(/Updated\s+to\s+Vim\s+v?(\d+(?:\.\d+)+)/i)
+    strategy :page_match
+  end
+
   bottle do
-    rebuild 1
-    sha256 arm64_ventura:  "de5c5d8b02a4e5e88ce6f4c5ada027e494b7ad37f6e4d5be3a80a2f60e7243f4"
-    sha256 arm64_monterey: "0f2f16662a0ab3a6b880e48d70c13ac1780813f80e46bf8def642978eddf1eb7"
-    sha256 arm64_big_sur:  "1ad7f004dc4475d0b33dea8807e6a98b4b94c149e51242539197007e6d845fd1"
-    sha256 ventura:        "9291a4bd874610b40b0595d04950b5f545294f88f8edca893ac52704b608cd23"
-    sha256 monterey:       "010a07565e1d30f2df3d6897eaab3349d045229c40a3649ee34f91262744088e"
-    sha256 big_sur:        "31235d0e38044b60a2b28c50f6045f315d4d4cb3ea30f270e7de0ea8231202d3"
-    sha256 catalina:       "637151f7b70df77045daaf913be2865d169c1fa3ad605e172cbdbed42b595d8b"
+    sha256 arm64_ventura:  "5f6f4d5b4c3992cfd29768219247c549934b9916a618e69fa91a0e45c820a51e"
+    sha256 arm64_monterey: "27e1a597702320e3fd77e5b07c76076b9520d34822d86d7bb85605232ca87a59"
+    sha256 arm64_big_sur:  "ef35ccc4db58f560b8dd8f64fb45da71f9519fcc2b3e03e8f510bc7913e53b86"
+    sha256 ventura:        "0b7c6adfdcbe8ac0fdd5682c055da621d31424ab4a997208345d882d6f4770c4"
+    sha256 monterey:       "6a218196af8bac6a528d7e9dfa8b0f2dd1fa2357da8bd47887cd0af2026eb7b6"
+    sha256 big_sur:        "bd6018f7a3e608fc6f143c4e79c3388e05284cc8a689b2ee39a6035ce14eeb0b"
   end
 
   depends_on xcode: :build

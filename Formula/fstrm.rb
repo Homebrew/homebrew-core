@@ -27,7 +27,7 @@ class Fstrm < Formula
   end
 
   head do
-    url "https://github.com/farsightsec/fstrm.git"
+    url "https://github.com/farsightsec/fstrm.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

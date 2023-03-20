@@ -7,16 +7,6 @@ class Curaengine < Formula
   version_scheme 1
   head "https://github.com/Ultimaker/CuraEngine.git", branch: "master"
 
-  # Releases like xx.xx or xx.xx.x are older than releases like x.x.x, so we
-  # work around this less-than-ideal situation by restricting the major version
-  # to one digit. This won't pick up versions where the major version is 10+
-  # but thankfully that hasn't been true yet. This should be handled in a better
-  # way in the future, to avoid the possibility of missing good versions.
-  livecheck do
-    url :stable
-    regex(/^v?(\d(?:\.\d+)+)$/i)
-  end
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "df46dbfdd389c20a311ffe46ccd8807496c60fdbb27ae3ed07f10592b0b8c27d"
@@ -28,6 +18,9 @@ class Curaengine < Formula
     sha256 cellar: :any_skip_relocation, catalina:       "47934876717e2bdc11b9ede033c2fbb33c3a2a9a506066143dacf59f7c572ecd"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b11d878824a2ddb8a966ee2134df5f48c45fb84de9894ca24fd5428bc8c7357a"
   end
+
+  # Requires extensive patching to build & has minimal installs
+  deprecate! date: "2023-01-06", because: :does_not_build
 
   depends_on "cmake" => :build
 

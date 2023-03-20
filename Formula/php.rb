@@ -2,9 +2,9 @@ class Php < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
-  url "https://www.php.net/distributions/php-8.2.0.tar.xz"
-  mirror "https://fossies.org/linux/www/php-8.2.0.tar.xz"
-  sha256 "6ea4c2dfb532950fd712aa2a08c1412a6a81cd1334dd0b0bf88a8e44c2b3a943"
+  url "https://www.php.net/distributions/php-8.2.4.tar.xz"
+  mirror "https://fossies.org/linux/www/php-8.2.4.tar.xz"
+  sha256 "bc7bf4ca7ed0dd17647e3ea870b6f062fcb56b243bfdef3f59ff7f94e96176a8"
   license "PHP-3.01"
 
   livecheck do
@@ -13,17 +13,17 @@ class Php < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "1cd68cd16bad12a23e4e3f8ab4be87455ff3e35d58ba22212cb8a3f0be5e83f5"
-    sha256 arm64_monterey: "3a6df9ae8fc672c12df1db29eaa7585d3f482fa1142cea0c751a79573028a1ba"
-    sha256 arm64_big_sur:  "f305c6a7053e819ce2a1afa0397debd97737fbccf013ed62f742778fc0596882"
-    sha256 ventura:        "f1b15af07a08e7e494d1ee469784fdd32f1a703b7a47f08198d44b7a062b681f"
-    sha256 monterey:       "b2776587333c8755a0a30249ff13110e8ae30ee461a0306424a2d5af66571038"
-    sha256 big_sur:        "1d4a3e676be4aefd7b2f95e6aaaf6c5c19768f38fcf937b863d05ca471460946"
-    sha256 x86_64_linux:   "8afad2a52f4fa331f0853c96533ce379c6c9b7dcf741491ecf9b5a6079cab2ef"
+    sha256 arm64_ventura:  "bb7debed8caa221686f5a68cdc78b8699cca9ec7ab54a9b46ec110c5a5221dc2"
+    sha256 arm64_monterey: "9d2d4d2b6b5b5c2fa27c95dd82a03b49a35fdd04bb335aa276169abd8cb4c3f5"
+    sha256 arm64_big_sur:  "941ab20e3682dc756c0534884f33b41832344ddeff71d5fcf99ea644b10ab4a6"
+    sha256 ventura:        "e65d9cfcf98bc58d8f68c44635d4a145acd2613fdb7b6f71c5d49c72bfa3dc74"
+    sha256 monterey:       "9025c5648b5221b18decb39c0a3073e828c7b410b960fa17957c4eabb1c4d946"
+    sha256 big_sur:        "598a2ba1e7629a141e17bdf688cb4a3fb1a3c955c6fe192e76240c1001110a4b"
+    sha256 x86_64_linux:   "3f2a63cedf0ddd6d672425abd5c9c284ab71d101c4d1380dab6b8adcae32db9e"
   end
 
   head do
-    url "https://github.com/php/php-src.git"
+    url "https://github.com/php/php-src.git", branch: "master"
 
     depends_on "bison" => :build # bison >= 3.0.0 required to generate parsers
     depends_on "re2c" => :build # required to generate PHP lexers
@@ -64,7 +64,7 @@ class Php < Formula
 
   on_macos do
     # PHP build system incorrectly links system libraries
-    # see https://github.com/php/php-src/pull/3472
+    # see https://github.com/php/php-src/issues/10680
     patch :DATA
   end
 
@@ -116,6 +116,10 @@ class Php < Formula
     # sdk path or it won't find the headers
     headers_path = "=#{MacOS.sdk_path_if_needed}/usr" if OS.mac?
 
+    # `_www` only exists on macOS.
+    fpm_user = OS.mac? ? "_www" : "www-data"
+    fpm_group = OS.mac? ? "_www" : "www-data"
+
     args = %W[
       --prefix=#{prefix}
       --localstatedir=#{var}
@@ -149,8 +153,8 @@ class Php < Formula
       --with-external-gd
       --with-external-pcre
       --with-ffi
-      --with-fpm-user=_www
-      --with-fpm-group=_www
+      --with-fpm-user=#{fpm_user}
+      --with-fpm-group=#{fpm_group}
       --with-gettext=#{Formula["gettext"].opt_prefix}
       --with-gmp=#{Formula["gmp"].opt_prefix}
       --with-iconv#{headers_path}

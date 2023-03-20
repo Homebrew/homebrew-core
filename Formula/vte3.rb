@@ -1,34 +1,40 @@
 class Vte3 < Formula
   desc "Terminal emulator widget used by GNOME terminal"
   homepage "https://wiki.gnome.org/Apps/Terminal/VTE"
-  url "https://download.gnome.org/sources/vte/0.70/vte-0.70.2.tar.xz"
-  sha256 "4d15b4380de3f564d57eabd006389c407c705df5b0c70030fdcc24971a334d80"
+  url "https://download.gnome.org/sources/vte/0.70/vte-0.70.3.tar.xz"
+  sha256 "9457134a02f3157fca04f7e0d39bdb0f3099be0a3ce82b7139d0c98a80748f23"
   license "LGPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_ventura:  "1f5fea1bc015167bd8a858ca8a149443775698cab6510f0870b6fd2100180afb"
-    sha256 arm64_monterey: "5b78a4dcc215831402e0d47a34481336ca4de251c1bb166cfb2f2e2ce5e6ae34"
-    sha256 arm64_big_sur:  "9dbefbc4873d8e55484a41e5e8452b62a1bbb86173380a5a39b94572fc43c8ed"
-    sha256 ventura:        "e232bed5063bd7ac5d8512c5b77b98bc5cca06fb04735888b3893363131a2dcc"
-    sha256 monterey:       "db6112d7be93a4004a1258ddd4e2382e3d8f573597683cbf023b4f2935bf3d71"
-    sha256 big_sur:        "a2a738d4088f107175875d91a72652c094916a3333d37bcffc7bc689d4484fe4"
-    sha256 x86_64_linux:   "edbe9ab6b18481fba3d686de975e322939d6dca526a4ca0f5e1ca61bd346bea6"
+    rebuild 1
+    sha256 arm64_ventura:  "a683fb92c4f391ed6413c6e8cb6124f27aff51972ffa9c735107b6514487c1da"
+    sha256 arm64_monterey: "8a932ead3a2a76c69d38365b1111b10019c43c9b6679355e49b52d603a120191"
+    sha256 arm64_big_sur:  "db8905f5fa38775ad09d77b913f360237468e4bde55144a34a0f1069372f7730"
+    sha256 ventura:        "2dd42d6838d0653954160c524a3c5b32c872ef5b58cd247311c2e4964794b8f9"
+    sha256 monterey:       "3c042884cab3ba7a8b5aab1b80a43afd769c04824054a6201b77f47d2f390fcb"
+    sha256 big_sur:        "ea674d064b2f7370102152d793ec476f325ab2abe1eb83b9c353ee99a86568c8"
+    sha256 x86_64_linux:   "9955bf7f3cce30c875febbfa0f28b8d1d2b589fdfd03277ef2a38527f61c8d13"
   end
 
+  depends_on "gettext" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkg-config" => [:build, :test]
   depends_on "vala" => :build
-  depends_on "gettext"
+  depends_on "fribidi"
+  depends_on "glib"
   depends_on "gnutls"
   depends_on "gtk+3"
+  depends_on "gtk4"
   depends_on "icu4c"
   depends_on macos: :mojave
+  depends_on "pango"
   depends_on "pcre2"
 
   on_macos do
-    depends_on "llvm" => [:build, :test] if DevelopmentTools.clang_build_version <= 1200
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1200
+    depends_on "gettext"
   end
 
   on_linux do
@@ -53,17 +59,13 @@ class Vte3 < Formula
     ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1200)
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
 
-    # Work around for ../src/widget.cc:765:30: error: use of undeclared identifier 'W_EXITCODE'
-    # Issue ref: https://gitlab.gnome.org/GNOME/vte/-/issues/2592
-    # TODO: Remove once issue is fixed upstream.
-    ENV.append_to_cflags "-D_DARWIN_C_SOURCE" if OS.mac?
-
-    system "meson", *std_meson_args, "build",
-                    "-Dgir=true",
-                    "-Dgtk3=true",
-                    "-Dgnutls=true",
-                    "-Dvapi=true",
-                    "-D_b_symbolic_functions=false"
+    system "meson", "setup", "build", "-Dgir=true",
+                                      "-Dgtk3=true",
+                                      "-Dgtk4=true",
+                                      "-Dgnutls=true",
+                                      "-Dvapi=true",
+                                      "-D_b_symbolic_functions=false",
+                                      *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
   end
@@ -79,68 +81,11 @@ class Vte3 < Formula
         return 0;
       }
     EOS
-    atk = Formula["atk"]
-    cairo = Formula["cairo"]
-    fontconfig = Formula["fontconfig"]
-    freetype = Formula["freetype"]
-    gdk_pixbuf = Formula["gdk-pixbuf"]
-    gettext = Formula["gettext"]
-    glib = Formula["glib"]
-    gnutls = Formula["gnutls"]
-    gtkx3 = Formula["gtk+3"]
-    harfbuzz = Formula["harfbuzz"]
-    libepoxy = Formula["libepoxy"]
-    libpng = Formula["libpng"]
-    libtasn1 = Formula["libtasn1"]
-    nettle = Formula["nettle"]
-    pango = Formula["pango"]
-    pixman = Formula["pixman"]
-    flags = %W[
-      -I#{atk.opt_include}/atk-1.0
-      -I#{cairo.opt_include}/cairo
-      -I#{fontconfig.opt_include}
-      -I#{freetype.opt_include}/freetype2
-      -I#{gdk_pixbuf.opt_include}/gdk-pixbuf-2.0
-      -I#{gettext.opt_include}
-      -I#{glib.opt_include}/gio-unix-2.0/
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
-      -I#{gnutls.opt_include}
-      -I#{gtkx3.opt_include}/gtk-3.0
-      -I#{harfbuzz.opt_include}/harfbuzz
-      -I#{include}/vte-2.91
-      -I#{libepoxy.opt_include}
-      -I#{libpng.opt_include}/libpng16
-      -I#{libtasn1.opt_include}
-      -I#{nettle.opt_include}
-      -I#{pango.opt_include}/pango-1.0
-      -I#{pixman.opt_include}/pixman-1
-      -D_REENTRANT
-      -L#{atk.opt_lib}
-      -L#{cairo.opt_lib}
-      -L#{gdk_pixbuf.opt_lib}
-      -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
-      -L#{gnutls.opt_lib}
-      -L#{gtkx3.opt_lib}
-      -L#{lib}
-      -L#{pango.opt_lib}
-      -latk-1.0
-      -lcairo
-      -lcairo-gobject
-      -lgdk-3
-      -lgdk_pixbuf-2.0
-      -lgio-2.0
-      -lglib-2.0
-      -lgnutls
-      -lgobject-2.0
-      -lgtk-3
-      -lpango-1.0
-      -lpangocairo-1.0
-      -lvte-2.91
-      -lz
-    ]
-    flags << "-lintl" if OS.mac?
+    flags = shell_output("pkg-config --cflags --libs vte-2.91").chomp.split
+    system ENV.cc, "test.c", "-o", "test", *flags
+    system "./test"
+
+    flags = shell_output("pkg-config --cflags --libs vte-2.91-gtk4").chomp.split
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

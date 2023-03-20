@@ -1,20 +1,19 @@
 class Glider < Formula
   desc "Forward proxy with multiple protocols support"
   homepage "https://github.com/nadoo/glider"
-  url "https://github.com/nadoo/glider/archive/refs/tags/v0.16.2.tar.gz"
-  sha256 "a1c7032ad508b6c55dad3a356737cf05083441ea16a46c03f8548d4892ff9183"
+  url "https://github.com/nadoo/glider/archive/refs/tags/v0.16.3.tar.gz"
+  sha256 "709b17ed90b41ec6da063b4598f32350f5e849d93a9ca77ca19b1978c500cb97"
   license "GPL-3.0-or-later"
   head "https://github.com/nadoo/glider.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d41f829ef1719b56dbf81914c39279cc522bca246cfa7c12495150beba0fd112"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8339ced3042241d3f128068b05cffc5f8f728cb6ab073272e0f76081b099b1e9"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ffcafc5e458c78e115b94f45abfb105e69d02f7a03b5d065414fdc4b996ef251"
-    sha256 cellar: :any_skip_relocation, ventura:        "8de4d77aa7daa7ffd049b32aa97703522986e1cc075c941b6f687a68107e11c4"
-    sha256 cellar: :any_skip_relocation, monterey:       "8b956d24977eaf0ad44ff2112ada966d7e77d26276b6751792241bbb68d1c487"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1b31c976c5a2d2c0e5e06a667cf2778c59a7d8bdf346c206efb455cce63f2232"
-    sha256 cellar: :any_skip_relocation, catalina:       "20dd59e4d32da80636537d41a57ebec46944ba3754141360a7f2b7b6d5a1c5d9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "38800c290f046908cfc31de29be0bcd4bf5f617c036a532d961d438c6004e601"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "526b4ff13b74f255865b113d747f3fecabae3a66b22f7755879292580f7cb4b0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "526b4ff13b74f255865b113d747f3fecabae3a66b22f7755879292580f7cb4b0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "526b4ff13b74f255865b113d747f3fecabae3a66b22f7755879292580f7cb4b0"
+    sha256 cellar: :any_skip_relocation, ventura:        "ab7563d4c05ccabdbc569b10ecb9d9cbf479b463f4491aeb35e17f9ab64b75a4"
+    sha256 cellar: :any_skip_relocation, monterey:       "ab7563d4c05ccabdbc569b10ecb9d9cbf479b463f4491aeb35e17f9ab64b75a4"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ab7563d4c05ccabdbc569b10ecb9d9cbf479b463f4491aeb35e17f9ab64b75a4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "079c2ddbf5802380f01e8bdb17ac4b90aa488e9eb8be87497c532531c779c9af"
   end
 
   depends_on "go" => :build

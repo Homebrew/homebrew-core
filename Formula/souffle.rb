@@ -1,22 +1,25 @@
 class Souffle < Formula
   desc "Logic Defined Static Analysis"
   homepage "https://souffle-lang.github.io"
-  url "https://github.com/souffle-lang/souffle/archive/refs/tags/2.3.tar.gz"
-  sha256 "db03f2d7a44dffb6ad5bc65637e5ba2b7c8ae6f326d83bcccb17986beadc4a31"
+  url "https://github.com/souffle-lang/souffle/archive/refs/tags/2.4.tar.gz"
+  sha256 "951f12272023dd3a1b398318ab24eb567bebad1d5f5b623e89c088e1418836af"
   license "UPL-1.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1331fbbd0231070f1c2c45748d442100992a4127b4c09b7ade363a47b4ff4502"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0a441bcb1b6ddb8c5695a8c9473bd507841f37eddd94e117c637a035d3d8d15b"
-    sha256 cellar: :any_skip_relocation, ventura:       "b704be498ec7a7f69afbf1b9466caed8a3f20f599bf5cd11dfe1d985a5c89c7d"
-    sha256 cellar: :any_skip_relocation, monterey:      "8a15d900785b447834ff525d837bde5976abdd7fdac46e99224e6d7604ebcd4c"
-    sha256 cellar: :any_skip_relocation, big_sur:       "54359b0756972ca99d438dd8cbd72a49dfe93b53ee3c1731e7b32931973b5bfc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9c0cc4fef22fd9d69ce94cbc39d3b4c29818f9202a1df2ae361e4e2786c1934f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ad8e61f58dedd5eebccd1a7512f77f15b832e060d46373bec4ed563320da20fb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "660b4427e40bef8305b9883c2a6287d5a04772a59c888d0017c0d1ea33e20cb5"
+    sha256 cellar: :any_skip_relocation, ventura:        "f85ce27bdf76085ff1e8828202809dfd6d1d304578fc26e4b2d283105808dd17"
+    sha256 cellar: :any_skip_relocation, monterey:       "274a7e2b76855cd451a66fca1b16e68cad6497d127c1f00d8a2254bae4c1ff53"
+    sha256 cellar: :any_skip_relocation, big_sur:        "421864326246cf50896f7fe863944c9b0aa26d8cb2fb11a6f987f158adf897ca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b8d92874c542c5f262ab0b4ba030ace501983e6076fe191194140211159f86a3"
   end
 
   depends_on "bison" => :build # Bison included in macOS is out of date.
   depends_on "cmake" => :build
   depends_on "mcpp" => :build
   depends_on "pkg-config" => :build
+  depends_on macos: :catalina
   uses_from_macos "flex" => :build
   uses_from_macos "libffi"
   uses_from_macos "ncurses"

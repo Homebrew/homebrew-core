@@ -6,16 +6,17 @@ class Lsd < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "12f7c0889cf4a5c18fd04f0dda7dac2af7a7c6aafc2a16ce2af4a76d28fc50b2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "657141d387cf3185c8e33a5730c13bf4ff600c35dc2b4ed7bb0c5d6bdd99501c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fb9f63aab186e0d6b231eae5cb7800976a06d4f44265b415b082b6996c1f0c38"
-    sha256 cellar: :any_skip_relocation, ventura:        "603348a70cb1484053c8732ecfffc96920177770dbb84f791e9ac3be23e26cf2"
-    sha256 cellar: :any_skip_relocation, monterey:       "0303125c2efa21b60105d8d576d032b2248e14deb7198b5bcb55a2bd5e58d4c8"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0cb90516594836c18243d8e799e88339e420735d2fb5c8182a4e3b78c83103cf"
-    sha256 cellar: :any_skip_relocation, catalina:       "5f105e34087e96b5fad8f62d69fb8b212f03501a526420415871fa2326a5f570"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "20fc3d18113e6fe56c387d1d3443d8b6dbf6888e07f53b90c9d8266e0048680d"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2eefb530b176b9a06c00660d21d0c451f7c85be4b921050b47cff041a8766fb1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "47a64747a179d32a3b25a60fd5983bb521f206f0a9e1ed822f74384026676be6"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2ece545c19380ba3c26bf5db30b25a9d5f77dc695d3a61887bf656267d7e7a72"
+    sha256 cellar: :any_skip_relocation, ventura:        "38bde1557a174ab1b066f1265798fdc86e598fef2e54e238a01254428c185817"
+    sha256 cellar: :any_skip_relocation, monterey:       "5872d5bba0ad3f1a2b0587542e2d4ccfb48a11f3f49371e01127fe6cce1cc7a7"
+    sha256 cellar: :any_skip_relocation, big_sur:        "03d625c493b30d412310289ce07ca803a67cdb872335bc9f8f3150e98a5c88f2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a848acf2b41f07b816dae92b3262697e88ef20fb910268c6c7c36f32b4c3fcf9"
   end
 
+  depends_on "pandoc" => :build
   depends_on "rust" => :build
 
   def install
@@ -24,6 +25,9 @@ class Lsd < Formula
     bash_completion.install "lsd.bash"
     fish_completion.install "lsd.fish"
     zsh_completion.install "_lsd"
+
+    system "pandoc", "doc/lsd.md", "--standalone", "--to=man", "-o", "doc/lsd.1"
+    man1.install "doc/lsd.1"
   end
 
   test do

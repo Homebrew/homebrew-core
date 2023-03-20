@@ -10,15 +10,14 @@ class Credstash < Formula
   head "https://github.com/fugue/credstash.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "52608d3499897c52d289b7ba30bd5ef1b4ac9d5638aceb0f5d6118cdda25922a"
-    sha256 cellar: :any,                 arm64_monterey: "e2cf82ffe8572152a4d29954d245c9c1cca360650d5647524f8e18913c97f0f3"
-    sha256 cellar: :any,                 arm64_big_sur:  "b54243ce850fc1eab92dd2c54438477f7e6effff757860f5988bd93a93fb6986"
-    sha256 cellar: :any,                 ventura:        "be2ac32bad49c2c4ea995a7f936f1da8f97bc24a52ace5a7c8a9c6224dbd2ea4"
-    sha256 cellar: :any,                 monterey:       "d5222f55dc5c4cf986d2ad2ad7831587bb39a0215c102a9374a422e5e8d55b0f"
-    sha256 cellar: :any,                 big_sur:        "9969ff2c103da08a614bde619554268c164c559fc899b6849e92644b92cd0571"
-    sha256 cellar: :any,                 catalina:       "9374f353b786d61526a755c995b99ecaba4e61a1456813f9a5a36cb820a10023"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "381772e9cc4dd54df348808c8b4c7e1c0e72dcfb6931bd40fc5b857987659994"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_ventura:  "a919782a8d10823d65c05afd63617fe01f0f3640c1e2cc47ad5723aced3ff508"
+    sha256 cellar: :any,                 arm64_monterey: "8fc4f9fb33f3c5370146196837e7dc7665106293338e41833c34be7f071af8b1"
+    sha256 cellar: :any,                 arm64_big_sur:  "7ebb38b086cfae58223de1c486213589a21ee06685ef8885f2ab290f93f2ce81"
+    sha256 cellar: :any,                 ventura:        "dbda91956a4378006c4c4a9d9638ee08a261a51e3cbd3d33a5b03129a769e98d"
+    sha256 cellar: :any,                 monterey:       "e4b952e6eb65a18385b2aee1906594b7aee7b1682ed3286138060273c9bb63be"
+    sha256 cellar: :any,                 big_sur:        "4e54ffc6dea4d5dce48ced799a65e53665eaa422ebc7d75f3bcdaaf2c1f58b5d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "15e075b3b5496589081cd5b29a86ec5249f36c05a71c3ef78a1647475030a4be"
   end
 
   depends_on "rust" => :build
@@ -33,13 +32,13 @@ class Credstash < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/df/e4/893fc4af6ee0c801725b48ba4d3120705126edab71e0fe84f8eb4850c427/boto3-1.26.4.tar.gz"
-    sha256 "244fd0776fc1f69c3ed34f359db7a90a6108372486abc999ce8515a79bbfc86e"
+    url "https://files.pythonhosted.org/packages/8d/59/72ed66c45aacdc1339423ed2f4e350594ed233deabac726dbcd69b4d847f/boto3-1.26.67.tar.gz"
+    sha256 "c2e21ac64370fee1f3dccd97b4767e89d046c45c00faec27c36405618e34c7e5"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/32/c1/3a3cbbdc58a71c1dfafbeeb79dd09b68a030ff5c52df7ad8e87d5ed57c10/botocore-1.29.4.tar.gz"
-    sha256 "fa86747f5092723c0dc7f201a48cdfac3ad8d03dd6cb7abc189abc708be43269"
+    url "https://files.pythonhosted.org/packages/fb/e3/5557a3301221e8c984344acce43af61ed2ff99cf39aefa4305e400ef3620/botocore-1.29.67.tar.gz"
+    sha256 "0ccec4a906b6b8c7bb6bc5226509059ee9ed94d3cf1014487ef5b8e56801e6a3"
   end
 
   resource "cffi" do
@@ -48,8 +47,8 @@ class Credstash < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/13/dd/a9608b7aebe5d2dc0c98a4b2090a6b815628efa46cc1c046b89d8cd25f4c/cryptography-38.0.3.tar.gz"
-    sha256 "bfbe6ee19615b07a98b1d2287d6a6073f734735b49ee45b11324d85efc4d5cbd"
+    url "https://files.pythonhosted.org/packages/6a/f5/a729774d087e50fffd1438b3877a91e9281294f985bda0fd15bf99016c78/cryptography-39.0.1.tar.gz"
+    sha256 "d1f6198ee6d9148405e49887803907fe8962a23e6c6f83ea7d98f1c0de375695"
   end
 
   resource "jmespath" do
@@ -73,8 +72,8 @@ class Credstash < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/b2/56/d87d6d3c4121c0bcec116919350ca05dc3afd2eeb7dc88d07e8083f8ea94/urllib3-1.26.12.tar.gz"
-    sha256 "3fa96cf423e6987997fc326ae8df396db2a8b7c667747d47ddd8ecba91f4a74e"
+    url "https://files.pythonhosted.org/packages/c5/52/fe421fb7364aa738b3506a2d99e4f3a56e079c0a798e9f4fa5e14c60922f/urllib3-1.26.14.tar.gz"
+    sha256 "076907bf8fd355cde77728471316625a4d2f7e713c125f51953bb5b3eecf4f72"
   end
 
   def install

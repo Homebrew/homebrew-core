@@ -1,9 +1,9 @@
 class MariadbConnectorC < Formula
   desc "MariaDB database connector for C applications"
   homepage "https://mariadb.org/download/?tab=connector&prod=connector-c"
-  url "https://downloads.mariadb.com/Connectors/c/connector-c-3.3.3/mariadb-connector-c-3.3.3-src.tar.gz"
-  mirror "https://fossies.org/linux/misc/mariadb-connector-c-3.3.3-src.tar.gz/"
-  sha256 "d77630e2376fe08185b5354621c877b0a203a6b186a0694574d37b764aeb2874"
+  url "https://downloads.mariadb.com/Connectors/c/connector-c-3.3.4/mariadb-connector-c-3.3.4-src.tar.gz"
+  mirror "https://fossies.org/linux/misc/mariadb-connector-c-3.3.4-src.tar.gz/"
+  sha256 "486e5fdf976a8e7fadf583ae912128655e013ac575fa79b2d1af0fb8827a78ed"
   license "LGPL-2.1-or-later"
   head "https://github.com/mariadb-corporation/mariadb-connector-c.git", branch: "3.3"
 
@@ -16,14 +16,13 @@ class MariadbConnectorC < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "b97bd4602f08f0183f63ac2b38d066bfd9e34245dda2aebcb24b78e3958bf9ec"
-    sha256 arm64_monterey: "086138120674893e58c030bd30bb8dc6fbb20ba8e49791c4113c1ad97d6512bb"
-    sha256 arm64_big_sur:  "15c53b9a973cc9a30259c1cf3705f609dc300668d1a80f3185bbc174140350bc"
-    sha256 ventura:        "8e1e3a0d3c6164276bf1c76bf260ae4a934ffe7b9b28c432b7b673655658e01f"
-    sha256 monterey:       "00b2f81b3b7d7bd8530ae3ce7e7267a656207d7727f40e8f24d2d7c8ccd62f7e"
-    sha256 big_sur:        "541bd0c968dcd286fdecfa3fcd578fbb82292a7fc8a4832f9ac8d81ee7e1f49f"
-    sha256 catalina:       "924bc54083a27ace9c7d58161c8100b44918eb0f772f0452c69a02fee72bdc58"
-    sha256 x86_64_linux:   "3f9be474e54109968728d0d43089dd7a230132f089ad77139860101800abfa64"
+    sha256 arm64_ventura:  "e3e26fcd4c4ca515a1266a046e72ae3968936795deb3ef1da17e5f35eae9d634"
+    sha256 arm64_monterey: "2fd04d6f77123312ee272e5695324a1a7bd79730cbeab7471a9089c7ed60605e"
+    sha256 arm64_big_sur:  "fb69795d4731538d86fdcc5892051b39ad150a68eb26dd112f6bef18df2ff8a7"
+    sha256 ventura:        "a7281ed033f530a89ba1922479c6441780de87d49ba83dcaab5635c09962b63c"
+    sha256 monterey:       "40429aff8742a48d41c83408cfacbbacf199193ee85000b7ca5e835d1abbafac"
+    sha256 big_sur:        "b75ad7f21b40bdb2299101ed2150a7fd5531093a233b84d6d9b8a533300649db"
+    sha256 x86_64_linux:   "b467dc55a2be180b0e73b8babda386bd3eccd7b565e757717c6c75d6cf5922fd"
   end
 
   depends_on "cmake" => :build

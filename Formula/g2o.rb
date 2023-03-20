@@ -1,9 +1,9 @@
 class G2o < Formula
   desc "General framework for graph optimization"
   homepage "https://openslam-org.github.io/g2o.html"
-  url "https://github.com/RainerKuemmerle/g2o/archive/refs/tags/20201223_git.tar.gz"
-  version "20201223"
-  sha256 "20af80edf8fd237e29bd21859b8fc734e615680e8838824e8b3f120c5f4c1672"
+  url "https://github.com/RainerKuemmerle/g2o/archive/refs/tags/20230223_git.tar.gz"
+  version "20230223"
+  sha256 "c8cf002f636ce2e83fc96f5e8257be4020cf1ae9f6a9d71838ec024f4d8a16cf"
   license "BSD-2-Clause"
 
   livecheck do
@@ -12,21 +12,19 @@ class G2o < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "eea750922b8eca237db78923657fc7cb2475ec6afc0b881cb6914ec026f7b7c8"
-    sha256 cellar: :any,                 arm64_monterey: "c492d099917d4f2a22b8b11095580fbd14de561942d048727e4069316832dfbb"
-    sha256 cellar: :any,                 arm64_big_sur:  "161de612759ffe32652d1eac931b72f8f3c7d1a9807acd9e7215459430df3eec"
-    sha256 cellar: :any,                 ventura:        "31d381a031fcc91cd406eb2357e67055fb8c8038aec681a68fb84cf2220167e5"
-    sha256 cellar: :any,                 monterey:       "e8d94c808de15df0286bf9337a17cf5c21935b6a9da55ad993560225c3d36623"
-    sha256 cellar: :any,                 big_sur:        "b99527b4e0670ced76af5ad443df1b83d3c3a16a84b9a834be849336e76d99fc"
-    sha256 cellar: :any,                 catalina:       "8d8d1b729449d5f6e5afd9ef70aa2531e75e60f2a3208dcfdf00ca3097e146c4"
-    sha256 cellar: :any,                 mojave:         "92c77224cffd95acface4d59aeb65a8e4330059c7c183ca4cd8df7fb90be9ffd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "645f512ca275ccc7749cb6be5ae149c21c37547ec962961d3fbb835fccb784d0"
+    sha256 cellar: :any,                 arm64_ventura:  "a3b6d5e633a19b498d0021e192bd1accf972fdedd837c86037bc8d285d3fa412"
+    sha256 cellar: :any,                 arm64_monterey: "c5c08f0adc21112a2402cab26e24672a6fc340971e49be81b616a2019f7bd833"
+    sha256 cellar: :any,                 arm64_big_sur:  "2b2f4166f6b22d7044f50b2febca70a173567bdbbc27655cea3f3228af3931f9"
+    sha256 cellar: :any,                 ventura:        "bb1f0c62c4f0f1d4cfcb8e2e353e9788ee7857086c8c345ac5fab02f7fb72960"
+    sha256 cellar: :any,                 monterey:       "31bd808038407640465775c5770417cada686d17811ab8fb045b99570d34294d"
+    sha256 cellar: :any,                 big_sur:        "9e2f48ed3049183ce84e30ae541f3eceb2b41dcd4b47a426bff14c7aa1a4be50"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5dc0e4a51f41c1575782966a1b0229347173e69860c879405390abf0e24cbc10"
   end
 
   depends_on "cmake" => :build
   depends_on "eigen"
 
-  resource "testdata" do
+  resource "homebrew-testdata" do
     url "https://raw.githubusercontent.com/OpenSLAM-org/openslam_g2o/2362b9e1e9dab318625cd0af9ba314c47ba8de48/data/2d/intel/intel.g2o"
     sha256 "4d87aaf96e1e04e47c723c371386b15358c71e98c05dad16b786d585f9fd70ff"
   end
@@ -67,7 +65,7 @@ class G2o < Formula
              "-L#{opt_lib}", *libs, "-std=c++11", "-o", testpath/"simple_optimize"
     end
 
-    resource("testdata").stage do
+    resource("homebrew-testdata").stage do
       last_output = shell_output(testpath/"simple_optimize intel.g2o 2>&1").lines.last
       assert_match("edges= 1837", last_output)
     end

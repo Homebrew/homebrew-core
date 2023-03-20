@@ -1,16 +1,16 @@
 class Ipmiutil < Formula
   desc "IPMI server management utility"
   homepage "https://ipmiutil.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/ipmiutil/ipmiutil-3.1.8.tar.gz"
-  sha256 "b14357b9723e38a19c24df2771cff63d5f15f8682cd8a5b47235044b767b1888"
+  url "https://downloads.sourceforge.net/project/ipmiutil/ipmiutil-3.1.9.tar.gz"
+  sha256 "c0dacc4ad506538f59ed45373b775748deddddc36e6d3c303f5069a59cacab08"
   license all_of: ["BSD-2-Clause", "BSD-3-Clause", "GPL-2.0-or-later"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7fcbfd7ad87af3180be0a707028d053d40ac5015e56492215b31ecdeb12594d1"
-    sha256 cellar: :any_skip_relocation, monterey:      "2ccf8da9a193781f4afc3df39aed16631347dc6c9dc54e2ff18e900ea2f8bd30"
-    sha256 cellar: :any_skip_relocation, big_sur:       "89d488a24b1d2e48cb4b59f97a6728f40bb6f5537ad216990d1a8cb7cf126935"
-    sha256 cellar: :any_skip_relocation, catalina:      "22cbdf5b31cbbe32d43972f8f65b9e7cd1ab4b502fc853bb5ec4ba8c881da217"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "97654675eb07ff4c52dfc12434302e4c57a50be29e18839d063e9f2acf4955b1"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ed89f20a5b615ab13fa8fc8049ecd0b8c0eec598cd3fb319f21df4fda98bc5b9"
+    sha256 cellar: :any_skip_relocation, ventura:       "6f120c16676bddea65c9863cf3cebeccb3ce3ae9098471bf401b86a715826cd4"
+    sha256 cellar: :any_skip_relocation, monterey:      "d4e88aeeb8d6f294103d421999bbb6c5d49941cda1a12866997ae2b45e044846"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ebd7f2895182e420f13eb5e8bb814a01b69b751596ef3c65b0e60df320cba2ea"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "10a444b399b0bd4486654bb914fde8db8140b63feda87fa9804845f099653a0a"
   end
 
   on_macos do

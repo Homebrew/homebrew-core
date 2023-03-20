@@ -1,8 +1,8 @@
 class Duck < Formula
   desc "Command-line interface for Cyberduck (a multi-protocol file transfer tool)"
   homepage "https://duck.sh/"
-  url "https://dist.duck.sh/duck-src-8.5.3.38959.tar.gz"
-  sha256 "a0c04ed874fb07eb1062b142c3aaa1190adc0789503b82e4898681e6eaedab3c"
+  url "https://dist.duck.sh/duck-src-8.5.5.39213.tar.gz"
+  sha256 "df0abbcda59649bd49852b5e084d2c8137796728f96fe5456b79afd9f9919621"
   license "GPL-3.0-only"
   head "https://github.com/iterate-ch/cyberduck.git", branch: "master"
 
@@ -12,13 +12,13 @@ class Duck < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "2b1cf5a5612efd2645f9c2ca56a0537de96b057e6eed0c0b7c704e94cec9f903"
-    sha256 cellar: :any, arm64_monterey: "b0561c0e6809a09f2d156c80e31fa942379b86b53de0b68284b1f61ac79a0122"
-    sha256 cellar: :any, arm64_big_sur:  "67b993b1f224b119ae3edd9068f31a63006a9c9179b2e4ddeee8faaf331296c7"
-    sha256 cellar: :any, ventura:        "dab4145b64fd4194374dd708767d5a35898432df42e641a528d577c736ac9942"
-    sha256 cellar: :any, monterey:       "95ddea4573bb8536e2f11881e848d2fff7fa792a01821cda370e3d4804e91cdd"
-    sha256 cellar: :any, big_sur:        "e5385dc323c7709be62943f7bd7f8664948f7b47be3902815779eb2bb75cec70"
-    sha256               x86_64_linux:   "5c896f55405ba4026e6d667e2495effc6d12bf2a5d633b8c644fb04c5f94d024"
+    sha256 cellar: :any, arm64_ventura:  "232b3ce0f7afbaae93f6eae2d0d5de79df2ac420e8c8ffd6b867218b8b1ad121"
+    sha256 cellar: :any, arm64_monterey: "5fb6d3f285ca530f861531caca17c50ffbc943b536c527d42d3e242830275540"
+    sha256 cellar: :any, arm64_big_sur:  "e6321affc8d4105b89aaeac2e2561c8cceacede6c2e7706d2f8ff6de680d7ab2"
+    sha256 cellar: :any, ventura:        "3a468791fc996ce2899a393ed9e3b6abf868ac863284ad6b72226f5be04b4f51"
+    sha256 cellar: :any, monterey:       "af9150ff07cdc341784a50a2b5b7d55b597a5c90a9909f29e8ac7de08bc58009"
+    sha256 cellar: :any, big_sur:        "574d74fc370cd39e2461c3c2b688a0d704261fdc97ff5c255efd9afdf446d0b5"
+    sha256               x86_64_linux:   "9884dbc85d6c0f7d7ff602ab9e439c999aed121848a2ab5a2a9ab164c9281b5c"
   end
 
   depends_on "ant" => :build
@@ -41,8 +41,8 @@ class Duck < Formula
   end
 
   resource "jna" do
-    url "https://github.com/java-native-access/jna/archive/refs/tags/5.12.1.tar.gz"
-    sha256 "2046655137ecd7f03e57a14bbe05e14d8299440604f993cef171c449daa3789c"
+    url "https://github.com/java-native-access/jna/archive/refs/tags/5.13.0.tar.gz"
+    sha256 "526bff8ffcbc2067a7403f55b01ad8d7a781c098abca79c4ea6c9e80198bb5fd"
   end
 
   resource "rococoa" do

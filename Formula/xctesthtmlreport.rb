@@ -1,18 +1,18 @@
 class Xctesthtmlreport < Formula
   desc "Xcode-like HTML report for Unit and UI Tests"
   homepage "https://github.com/XCTestHTMLReport/XCTestHTMLReport"
-  url "https://github.com/XCTestHTMLReport/XCTestHTMLReport/archive/refs/tags/2.2.4.tar.gz"
-  sha256 "d6f015d974bc7b281a531be7482400068bfaeb1b7f58040f197655cbea4900f3"
+  url "https://github.com/XCTestHTMLReport/XCTestHTMLReport/archive/refs/tags/2.3.3.tar.gz"
+  sha256 "66c1ecb369cb6966a021bccad2975b3b7e6de23a802e724df1e83c0d4d6ede6c"
   license "MIT"
   head "https://github.com/XCTestHTMLReport/XCTestHTMLReport.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "15e3b813ce0361421dd94757db348ec783d6b25643af13ba983cff8d3d075e35"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "09adf8c3aaef36698802f2f4ec9df0c54a2c30331793ad02443486e45bd157db"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f68268a932d48a169c9645c8b9bd9daa7927289736b5ff0bdf8a30363b1d5556"
-    sha256 cellar: :any_skip_relocation, ventura:        "020289c8131fd73d622134430888a9a4b66676628da1644a5359ffa63d198c20"
-    sha256 cellar: :any_skip_relocation, monterey:       "8fadf0792948314dff43eeec059bde7cc9ff10494cbb7542c279dca7424dd264"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0beaf5cedab2fada15b51b9e6225674e70457aa20ab2f5e682ed89ad3462a1a5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "acfbd8f5f8c36c67b6127a8f8902a847c04d36f7eef8730eaba3b2da10382301"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ccacad98433ec052b8c7798e0d02827c696341c31a50e4e79f8100ae505243f5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "283ca5afed54b07616d766884b13a8292f572717d87d0edbcc6ca2d996ec7071"
+    sha256 cellar: :any_skip_relocation, ventura:        "ce47940f6e024ad0cc8effba3e07b251f845bbd152390600d95aa9ee516399a6"
+    sha256 cellar: :any_skip_relocation, monterey:       "99983b990466c3f13f178a22133c88aaeb24de45bb5bd40d54356f72368d7a42"
+    sha256 cellar: :any_skip_relocation, big_sur:        "cb98a5d57423ef596d25ce6d4b7d9a38631bdc19c528fe6a539483297869275e"
   end
 
   depends_on :macos

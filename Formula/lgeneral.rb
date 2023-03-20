@@ -6,19 +6,20 @@ class Lgeneral < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_ventura:  "b280ab137a0aec382f0f1ae50a8e7c9dd91ada3cbc5162ffffd4bca9e869eb3f"
-    sha256 arm64_monterey: "b0881e6bd6b537c4dc322711a44d7567e6a2b624516d53d11d6524da5d35da79"
-    sha256 arm64_big_sur:  "39fd0efe18280a2e4b976ebf02f451c110de2a5222735e4d8d6ede97c22b28da"
-    sha256 ventura:        "2d0620575151d06fc050e8e5e903dd7e3002874c168560130b79ed6a69f94ff3"
-    sha256 monterey:       "a8b456e9aaeb0e99e8866d9f58a6f228688b770ab4962a124c17fbedab620d74"
-    sha256 big_sur:        "4e1eadd9caf43f4c37ae2a5046e124e08b815faf3e81032a7d82ca42313cc737"
-    sha256 catalina:       "66d10dfacdb72700cec8fafd0e86e79ff0e63380b75df3b41f46c6bd3b6ccdc9"
-    sha256 x86_64_linux:   "b56e6479e47df76fbda4e241872269c9ba9ea59170153aca6b5adbaaf69cec84"
+    rebuild 1
+    sha256 arm64_ventura:  "6814c4921c62261436537a16b3d945863fd8afa2e3f9702e1fe2b15d98ce9cc4"
+    sha256 arm64_monterey: "66e1e176e9fe55234aac274f8aab642aefaf71c8257576ef693eff1b21867f62"
+    sha256 arm64_big_sur:  "262a595324361728d033438f3373024b1925557ed9e1d19f7a921aae9370eeb9"
+    sha256 ventura:        "237418ae7e4069b558b046d4b68044c3c307c28898ff00ca56a20aa97d13d542"
+    sha256 monterey:       "bc51bd29569a83218f84748d31bac40cadff60a7caacaead3e499970aba25b37"
+    sha256 big_sur:        "643779c73ca7a36a3db58993aa374f451bfb3e4c50bd699968137e77330acddf"
+    sha256 x86_64_linux:   "eefab1384276b2406cbdb286bfc730b3d434112f2d5ea8be6c3edb451d34f2e9"
   end
 
   depends_on "gettext"
   depends_on "sdl12-compat"
   depends_on "sdl2"
+  depends_on "sdl2_mixer"
 
   def install
     # Applied in community , to remove in next release

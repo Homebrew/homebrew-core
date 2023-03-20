@@ -21,7 +21,7 @@ class EmsFlasher < Formula
   end
 
   head do
-    url "https://github.com/mikeryan/ems-flasher.git"
+    url "https://github.com/mikeryan/ems-flasher.git", branch: "master"
     depends_on "coreutils" => :build
     depends_on "gawk" => :build
   end

@@ -4,6 +4,7 @@ class Gwyddion < Formula
   url "http://gwyddion.net/download/2.62/gwyddion-2.62.tar.gz"
   sha256 "6c71fda9f783be5beabd21bfd749a91b2404b24cd74b7115adec31d235d40688"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "http://gwyddion.net/download.php"
@@ -11,21 +12,19 @@ class Gwyddion < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "7f1e88f594b85b1ff14136954abd497c76c6f714a424c4c5f60eebf5090eff71"
-    sha256 arm64_monterey: "6d89eceaff946e5fa27619df49db3489cfa9faf0b84134d0973f7ff13345c939"
-    sha256 arm64_big_sur:  "4edda3a2def3d79679378aef727ca9a5f2c64d2f4aea813ff80fc384e1f5dd20"
-    sha256 ventura:        "d165e2b0d7c9b8022ed75a2b31b4ecd05131bfd1e69708b8d1f7d06fe45edefc"
-    sha256 monterey:       "accc13498182cc7f5dd0216afcee03825a6ed823a5eae8a58bdbe97c155cf1c1"
-    sha256 big_sur:        "2a91c616047f1a3b9cb339490a2e4491bea9b78b4d954fc3bf4ee31d90f1c5ef"
-    sha256 catalina:       "bfb19b06d490f42a69db28807db6eedd064d00b5a63d5ec37562fd78951b4cab"
-    sha256 x86_64_linux:   "ac5ab5522b9803996f26a5107e35bcff7ba90bc89577d442eb50bf64e674350c"
+    sha256 arm64_ventura:  "4a49b940a99205827652c8fc6f1315f6bd0859da8c70aac8ed58d10afde2418f"
+    sha256 arm64_monterey: "8900ac4fdac23c65cbd1482eee05447c1a772c58254efa2328e715d6ef04b7ab"
+    sha256 arm64_big_sur:  "f9e978c7ceff5be6f41e24a8fb67f3d9e5a130e147e124ceadb02b07324c8ebb"
+    sha256 ventura:        "020b98c6bec6683132eb2880c47b7ccf01cf6de9c1f5d2a3dcec909c2f091d5e"
+    sha256 monterey:       "555150f246c5bcbe0ac084eab5cba816e1452d5e5c1ff02ed5f88cc713641ff2"
+    sha256 big_sur:        "e60db9093d3e1115e810b3e8d40792c1887dede197f536e22310018c4be8f4d4"
+    sha256 x86_64_linux:   "11eb01da39aa1cfc4611f5427f8c284d22e091b99a2fd5d44a1db93d857d0304"
   end
 
   depends_on "pkg-config" => :build
   depends_on "fftw"
   depends_on "gtk+"
   depends_on "gtkglext"
-  depends_on "gtksourceview"
   depends_on "libxml2"
   depends_on "minizip"
 
@@ -36,15 +35,16 @@ class Gwyddion < Formula
     depends_on "automake" => :build
     depends_on "gtk-doc" => :build
     depends_on "libtool" => :build
-    depends_on "gtk-mac-integration"
+    # TODO: depends_on "gtk-mac-integration"
   end
 
   def install
     system "autoreconf", "--force", "--install", "--verbose" if OS.mac?
-    system "./configure", "--disable-dependency-tracking",
+    system "./configure", *std_configure_args,
+                          "--disable-silent-rules",
                           "--disable-desktop-file-update",
-                          "--prefix=#{prefix}",
                           "--with-html-dir=#{doc}",
+                          "--without-gtksourceview",
                           "--disable-pygwy"
     system "make", "install"
   end

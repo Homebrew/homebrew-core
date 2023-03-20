@@ -1,18 +1,18 @@
 class Sonobuoy < Formula
   desc "Kubernetes component that generates reports on cluster conformance"
   homepage "https://github.com/vmware-tanzu/sonobuoy"
-  url "https://github.com/vmware-tanzu/sonobuoy/archive/v0.56.14.tar.gz"
-  sha256 "160591de1eb9b387504a9b3424ae5a27290b4ad25631846a76e96c83865748fc"
+  url "https://github.com/vmware-tanzu/sonobuoy/archive/v0.56.16.tar.gz"
+  sha256 "a20c806a1fe9f977514cc22695bc1d51ac48409bc4d5a2191a5caaa8e6c8b121"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3125438a5efa9f66ebeb9a39cc06001155c2b370858c9cb63f42111b0e055b0c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e0f186235fad405783f56b1febcedbf9eb8ff3e0b73744fd5aa84dce383537eb"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "14baeed333624bd9aea27521e98bdf9224a220c76560645c55525ea17de64cc5"
-    sha256 cellar: :any_skip_relocation, ventura:        "8fe83c3bdc7b4cfb609ef8d0d412ee9d4d231efa90a6a00c6e517fa8408c11ca"
-    sha256 cellar: :any_skip_relocation, monterey:       "bca6d675e8a393891f34b119c905f22ebe6fe8c15a54112b446ddbe7864f2c09"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3807cac8f6adcca9bbc7797fda1d95b2dd128769d52c901deaaeac8860cfd4f3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "51011bc0200b87df4c1a50f6f7bec7ebcd49256cdfda95e29822280e92bfd99a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d0ed8a9429c8b4344b247fcd8ab0bbb94acc358b7e7f5024d8b279da4ef96454"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "354ccf760a66778309bdd3ca14ea26653dcb3211698a9b4044443741af309a2d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d0ed8a9429c8b4344b247fcd8ab0bbb94acc358b7e7f5024d8b279da4ef96454"
+    sha256 cellar: :any_skip_relocation, ventura:        "973e37bf46983269400e0b4cc5a2cda89d4d0c7c86b00dc9774b92626c020230"
+    sha256 cellar: :any_skip_relocation, monterey:       "973e37bf46983269400e0b4cc5a2cda89d4d0c7c86b00dc9774b92626c020230"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a245d65db647bfb783abbea2cc7225093e6a3b4b8fac07805881eeac622c5afe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "07cc236f51a35e36ddcbbea3a10a0e7e2f5f8eb32070a2638033ccfd8f084695"
   end
 
   depends_on "go" => :build

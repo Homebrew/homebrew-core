@@ -10,27 +10,26 @@ class Grokmirror < Formula
   head "https://github.com/mricon/grokmirror.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7f150f165e9b344bdd451af27884677d636af72239d1168914b5b58377ce22aa"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3247fcb790e5bf02062162e65ee093bf6c33528a2f734e472bc259ea7b36ae02"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b3fa6d1cab11e8a5420fb936a5e0815f4913fa3c228316820fd489b02c7c4141"
-    sha256 cellar: :any_skip_relocation, ventura:        "12024c31b1e067f1028b2a089838ad8da3cd195aeb48b4a34591e3344a8be60d"
-    sha256 cellar: :any_skip_relocation, monterey:       "1021e03076c4b6851ecd9edc8916024e839e1731d10dcfc60799f01aae79e28c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "fc8fb3248cde8ca25f41c572e33250e7b74d77864366a3419457a57d9ba02d62"
-    sha256 cellar: :any_skip_relocation, catalina:       "711286b10063e47357abfdd277c1fdb12aa5c6bdd147c0f94349ea12aab51156"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "46fc238fa908a5e27b3ff868f028d26b00ffce7963cd09ec09ed6a498a649e6a"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "575557ee7b1dfb91f4b6d9c894f92d18fa2f3599a51eeffd9252d9a47ee30831"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "79e18c3586aebe8298b911feb87d772bd08c16b16e92e663289861f18cddd504"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3319592a5961b5c9e5bc8c4f6661887145fba61fb214d67911fce4e15ba6e964"
+    sha256 cellar: :any_skip_relocation, ventura:        "55ae3b899fb78983834cc8ba37cdda057b0d5dbc791788d6d821152b1dd6a0e2"
+    sha256 cellar: :any_skip_relocation, monterey:       "6fece291fbd9033dea1ee7187fc3e145ffab41767c7b0b7b11413644a88d1c4b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9e362090e2a147800d1882bdca7d7eea47e4bf5773c1f1244b406865ca4437e4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4dde4654426c623f3164b7d2d734fafbd5b70a2ca4735596d856ed133725f9b9"
   end
 
   depends_on "python@3.11"
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/cb/a4/7de7cd59e429bd0ee6521ba58a75adaec136d32f91a761b28a11d8088d44/certifi-2022.9.24.tar.gz"
-    sha256 "0d9c601124e5a6ba9712dbc60d9c53c21e34f5f641fe83002317394311bdce14"
+    url "https://files.pythonhosted.org/packages/37/f7/2b1b0ec44fdc30a3d31dfebe52226be9ddc40cd6c0f34ffc8923ba423b69/certifi-2022.12.7.tar.gz"
+    sha256 "35824b4c3a97115964b408844d64aa14db1cc518f6562e8d7261699d1350a9e3"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/a1/34/44964211e5410b051e4b8d2869c470ae8a68ae274953b1c7de6d98bbcf94/charset-normalizer-2.1.1.tar.gz"
-    sha256 "5a3d016c7c547f69d6f81fb0db9449ce888b418b5b9952cc5e6e66843e9dd845"
+    url "https://files.pythonhosted.org/packages/96/d7/1675d9089a1f4677df5eb29c3f8b064aa1e70c1251a0a8a127803158942d/charset-normalizer-3.0.1.tar.gz"
+    sha256 "ebea339af930f8ca5d7a699b921106c6e29c617fe9606fa7baa043c1cdae326f"
   end
 
   resource "idna" do
@@ -39,13 +38,13 @@ class Grokmirror < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/a5/61/a867851fd5ab77277495a8709ddda0861b28163c4613b011bc00228cc724/requests-2.28.1.tar.gz"
-    sha256 "7c5599b102feddaa661c826c56ab4fee28bfd17f5abca1ebbe3e7f19d7c97983"
+    url "https://files.pythonhosted.org/packages/9d/ee/391076f5937f0a8cdf5e53b701ffc91753e87b07d66bae4a09aa671897bf/requests-2.28.2.tar.gz"
+    sha256 "98b1b2782e3c6c4904938b84c0eb932721069dfdb9134313beff7c83c2df24bf"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/b2/56/d87d6d3c4121c0bcec116919350ca05dc3afd2eeb7dc88d07e8083f8ea94/urllib3-1.26.12.tar.gz"
-    sha256 "3fa96cf423e6987997fc326ae8df396db2a8b7c667747d47ddd8ecba91f4a74e"
+    url "https://files.pythonhosted.org/packages/c5/52/fe421fb7364aa738b3506a2d99e4f3a56e079c0a798e9f4fa5e14c60922f/urllib3-1.26.14.tar.gz"
+    sha256 "076907bf8fd355cde77728471316625a4d2f7e713c125f51953bb5b3eecf4f72"
   end
 
   def install

@@ -28,6 +28,7 @@ class Castget < Formula
   depends_on "id3lib"
 
   uses_from_macos "curl"
+  uses_from_macos "libxml2"
 
   def install
     system "./configure", "--disable-dependency-tracking",

@@ -1,10 +1,15 @@
 class Gpa < Formula
   desc "Graphical user interface for the GnuPG"
   homepage "https://www.gnupg.org/related_software/gpa/"
-  url "https://gnupg.org/ftp/gcrypt/gpa/gpa-0.10.0.tar.bz2"
-  mirror "https://deb.debian.org/debian/pool/main/g/gpa/gpa_0.10.0.orig.tar.bz2"
-  sha256 "95dbabe75fa5c8dc47e3acf2df7a51cee096051e5a842b4c9b6d61e40a6177b1"
   revision 2
+
+  stable do
+    url "https://gnupg.org/ftp/gcrypt/gpa/gpa-0.10.0.tar.bz2"
+    mirror "https://deb.debian.org/debian/pool/main/g/gpa/gpa_0.10.0.orig.tar.bz2"
+    sha256 "95dbabe75fa5c8dc47e3acf2df7a51cee096051e5a842b4c9b6d61e40a6177b1"
+
+    depends_on "gtk+" # TODO: Switch to `gtk+3` next release
+  end
 
   livecheck do
     url "https://gnupg.org/ftp/gcrypt/gpa/"
@@ -23,14 +28,21 @@ class Gpa < Formula
     sha256 x86_64_linux:   "1a17d322fea230c75e6578aeab62b9a757bf0bdd26db04e7d1ec9277ec41c39e"
   end
 
+  head do
+    url "https://dev.gnupg.org/source/gpa.git", branch: "master"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "gtk+3"
+  end
+
   depends_on "pkg-config" => :build
   depends_on "desktop-file-utils"
   depends_on "gpgme"
-  depends_on "gtk+"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./autogen.sh" if build.head?
+    system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make"
     system "make", "install"
   end

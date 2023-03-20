@@ -1,8 +1,8 @@
 class ImagemagickAT6 < Formula
   desc "Tools and libraries to manipulate images in many formats"
   homepage "https://legacy.imagemagick.org/"
-  url "https://imagemagick.org/archive/releases/ImageMagick-6.9.12-71.tar.xz"
-  sha256 "fa3eea5a3e5c4819efc008811901ed3d6288cbcd088001339b8c786d3148c15a"
+  url "https://imagemagick.org/archive/releases/ImageMagick-6.9.12-82.tar.xz"
+  sha256 "effd296a160f584ef16277560d464f4183e6f700fe3b77c99d7e9a5335128ed0"
   license "ImageMagick"
   head "https://github.com/imagemagick/imagemagick6.git", branch: "main"
 
@@ -12,13 +12,13 @@ class ImagemagickAT6 < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "a46c6f51751d84223d4300b750b3c5f48fa7232dfd41440c8e80fa1a4ee4d9b6"
-    sha256 arm64_monterey: "a46c20d202d80cf097b043bbeb2578f3a2a85d81f70cf64e0c49526001701660"
-    sha256 arm64_big_sur:  "fd4e7c0c450337b8c4a732b86231807105e3f6d9f5dac8573ae3733ce3d7b6e1"
-    sha256 ventura:        "9cc22258f988b41f944b291a45d58df44931965683c240372eba6e7aeaf1000e"
-    sha256 monterey:       "1456f1b36713a1315633dee1639bb5250cb6c6740911f0cceddeff063d73f6ba"
-    sha256 big_sur:        "6cf14a6795d4f38b30a29fe4f4aca0ebdde8498aa53110ecf9d330f9e0f5fbe1"
-    sha256 x86_64_linux:   "30af7c5afb0e8ca5a1fed5ff45a1638c928d8fe14199c2d4327c27fa76d60fff"
+    sha256 arm64_ventura:  "6a40a90bb69cc98784545314ef41bb2d79bd35054946ad40abec3ff34031092c"
+    sha256 arm64_monterey: "cc96f4385c93aa4748e8927e567a28f4597c45e800b10d472b6cf2df3c5fdd72"
+    sha256 arm64_big_sur:  "3d60466a24de352bf08025762027cb178ae2d735a2063842cdff8eebefa1c180"
+    sha256 ventura:        "0fdf59688a7cde6a2ed7fb432afa12e203c6d58c8f7ca71e61667060906464e9"
+    sha256 monterey:       "d4ac12cd0af79feae80c04c3e3b5e2f01eac4162a1d6be5ab7760785302e9ade"
+    sha256 big_sur:        "81db29876dddfd47871cfb05a8bf72b4f99c92e60aa49ee53b39e95052a65549"
+    sha256 x86_64_linux:   "a05899fd36b662d9df673a88b2e30ce315f2ba58c40ef0b44ebc87ba55e735dc"
   end
 
   keg_only :versioned_formula
@@ -43,11 +43,11 @@ class ImagemagickAT6 < Formula
   def install
     # Avoid references to shim
     inreplace Dir["**/*-config.in"], "@PKG_CONFIG@", Formula["pkg-config"].opt_bin/"pkg-config"
+    # versioned stuff in main tree is pointless for us
+    inreplace "configure", "${PACKAGE_NAME}-${PACKAGE_BASE_VERSION}", "${PACKAGE_NAME}"
 
     args = %W[
       --enable-osx-universal-binary=no
-      --prefix=#{prefix}
-      --disable-dependency-tracking
       --disable-silent-rules
       --disable-opencl
       --disable-openmp
@@ -59,15 +59,14 @@ class ImagemagickAT6 < Formula
       --with-openjp2
       --with-gslib
       --with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts
+      --without-djvu
       --without-fftw
       --without-pango
       --without-x
       --without-wmf
     ]
 
-    # versioned stuff in main tree is pointless for us
-    inreplace "configure", "${PACKAGE_NAME}-${PACKAGE_BASE_VERSION}", "${PACKAGE_NAME}"
-    system "./configure", *args
+    system "./configure", *std_configure_args, *args
     system "make", "install"
   end
 

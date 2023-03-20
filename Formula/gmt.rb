@@ -5,17 +5,17 @@ class Gmt < Formula
   mirror "https://mirrors.ustc.edu.cn/gmt/gmt-6.4.0-src.tar.xz"
   sha256 "b46effe59cf96f50c6ef6b031863310d819e63b2ed1aa873f94d70c619490672"
   license "LGPL-3.0-or-later"
-  revision 4
+  revision 5
   head "https://github.com/GenericMappingTools/gmt.git", branch: "master"
 
   bottle do
-    sha256 arm64_ventura:  "ef346c91b4746fe412b740f56606bc61afc97843bba5ae5d6f6f2c4b460b6b4e"
-    sha256 arm64_monterey: "3d3a53e59e45440e3457b968066219257fae08ce1f0c77eba2863d2cfcc022c8"
-    sha256 arm64_big_sur:  "c3d71a33976ce3de1aac6c85964616afeffa0c52da93018d93dbd0ec1cf98688"
-    sha256 ventura:        "684a63e7c272a9132f8b060b3c43cca5644073329ae7399e7e19492ee0ab3fa3"
-    sha256 monterey:       "e286b1e74ef3807ee30fffb5a14d31da77ac0499298016b261358ded33fe4c4e"
-    sha256 big_sur:        "f8a0ae2f0768d89603bef339b72aabc6bfc2c1dcd57ea67906d569d950b3e9f5"
-    sha256 x86_64_linux:   "21669e720a1f23b9d285d338d680a47b56d6a05e2c3fdba35305295668051591"
+    sha256 arm64_ventura:  "fef46f4de1c3f752d063310d346eb609479fea6cd04d6727533734f703aae778"
+    sha256 arm64_monterey: "630974184d2ae106d0c3cbca312086a6ecfb3f716988a006422d454f541d6d41"
+    sha256 arm64_big_sur:  "f701e8d961581f7fc71ea2e1fd944fca6e7d0fb40006c6631c161fdef105978a"
+    sha256 ventura:        "909621edde7e0269f38d195b4f85a190b91f0f2aafeb5eb9ef76aaf62d9e2932"
+    sha256 monterey:       "f36d0d0ff4c70b7f2d8a6adcb2061b687187620839350ef58b9f4758763f8c67"
+    sha256 big_sur:        "594113edd85dc420fe01d2dc5ac69a9e0902e70db918bd921024ae329198a5aa"
+    sha256 x86_64_linux:   "c788ac81e850a5431399b58095cc35fb3bf5036709b455bbdda2d64aab66c3c7"
   end
 
   depends_on "cmake" => :build

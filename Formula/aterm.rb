@@ -20,7 +20,7 @@ class Aterm < Formula
     sha256 cellar: :any, el_capitan:     "5140e20287eda941f8756dfdaf377663f84f6872d1ca3f6d70e04b554591d11a"
   end
 
-  deprecate! date: "2021-11-03", because: :unmaintained
+  disable! date: "2022-12-30", because: :unmaintained
 
   def install
     system "./configure", "--disable-dependency-tracking",

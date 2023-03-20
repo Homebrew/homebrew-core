@@ -1,13 +1,13 @@
 class Procps < Formula
   desc "Utilities for browsing procfs"
   homepage "https://gitlab.com/procps-ng/procps"
-  url "https://gitlab.com/procps-ng/procps/-/archive/v4.0.2/procps-v4.0.2.tar.gz"
-  sha256 "b03e4b55eaa5661e726acb714e689356d80bc056b09965c2284d039ba8dc21e8"
+  url "https://gitlab.com/procps-ng/procps/-/archive/v4.0.3/procps-v4.0.3.tar.gz"
+  sha256 "14cc21219c45d196772274ea3f194f6d668b6cc667fbde9ee6d8039121b73fa6"
   license "GPL-2.0-or-later"
   head "https://gitlab.com/procps-ng/procps.git", branch: "master"
 
   bottle do
-    sha256 x86_64_linux: "06259018ca643fff24ffba58139fff6176af84af752f5d4f0a213b743db4caa1"
+    sha256 x86_64_linux: "4af58c410f092e07f194fa8ec15017826bc3874dc1231c87a5620fc25fa1cc9f"
   end
 
   depends_on "autoconf" => :build
@@ -33,6 +33,6 @@ class Procps < Formula
 
   test do
     system "#{bin}/ps", "--version"
-    assert_match "grep homebrew", shell_output("ps aux | grep homebrew")
+    assert_match "grep homebrew", shell_output("#{bin}/ps aux | grep homebrew")
   end
 end

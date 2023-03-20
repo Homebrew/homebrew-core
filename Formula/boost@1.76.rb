@@ -4,17 +4,16 @@ class BoostAT176 < Formula
   url "https://boostorg.jfrog.io/artifactory/main/release/1.76.0/source/boost_1_76_0.tar.bz2"
   sha256 "f0397ba6e982c4450f27bf32a2a83292aba035b827a5623a14636ea583318c41"
   license "BSL-1.0"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "75e4cf932fd41e7be65c1dccd1b776e3d9ad1bff7db7ca0a51ce062c9c5d0380"
-    sha256 cellar: :any,                 arm64_monterey: "06b0d013ef4760a75511d8d637377caac0f8643cfc95ac1dfd67a96b708ad8e4"
-    sha256 cellar: :any,                 arm64_big_sur:  "b3d192a5702c5ba060ee45e6db0af475cefc61cb32cc4845d4a28769fb750ac8"
-    sha256 cellar: :any,                 ventura:        "d6dd0f9418b0052c656cce039065db464db3047c4ef161d73184d6158cc5666e"
-    sha256 cellar: :any,                 monterey:       "7e6f3919e4cb4f84c5e756d3040c6892f075c28a9054581188281c2babda255c"
-    sha256 cellar: :any,                 big_sur:        "1e8cbd437f466d6784e450c2a382946e2643c6430d290440914074190f75ab25"
-    sha256 cellar: :any,                 catalina:       "b9f891df6d3169ce4f36e0f14ab9f9c64ce23f7e488148f6b09f4a3a896a77bb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d966b3324e961e814af5bfaaab086051ed51c5a01e2ad916e9e2c2de4b49d397"
+    sha256 cellar: :any,                 arm64_ventura:  "83ac65772152f10da841202acf7bce92ec3993c77a78b632ffed49d1eb2aa8ca"
+    sha256 cellar: :any,                 arm64_monterey: "ddd664e4eb4da4ae7adaec20d3309cf1966e58699a291f6944c8895283e809d3"
+    sha256 cellar: :any,                 arm64_big_sur:  "fd3fdf87c5f5207d27184e76b8e1e24214bbc0e7f1d5f119553f21e3cf5ad2a9"
+    sha256 cellar: :any,                 ventura:        "73c494898266a0b2d02137dda4288c02efbf6d9e24dcf0075c74b59e59393f31"
+    sha256 cellar: :any,                 monterey:       "27fe1ac76e73891d48234eeeff722249e3bc49e0cf5a931c538fc488dbc18806"
+    sha256 cellar: :any,                 big_sur:        "244c1a3beab51a5f4cc250db278adec77f8382ab358e253c392e334fdca5ddba"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "28aa69127168176fa9a71de155b8260d71e5bac9dfa8d6c4199a0c6237070728"
   end
 
   keg_only :versioned_formula

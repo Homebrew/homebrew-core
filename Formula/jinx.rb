@@ -1,21 +1,19 @@
 class Jinx < Formula
   desc "Embeddable scripting language for real-time applications"
   homepage "https://github.com/JamesBoer/Jinx"
-  url "https://github.com/JamesBoer/Jinx/archive/v1.3.9.tar.gz"
-  sha256 "ea724319c902405eb16db3acdf6a31813c2bfd20e8312c1ade3d751ad8adc2ea"
+  url "https://github.com/JamesBoer/Jinx/archive/v1.3.10.tar.gz"
+  sha256 "5b3a3e6c2c4b976dfdb16519aee7299c98dbf417b8179099a5509a5fd4d513ac"
   license "MIT"
   head "https://github.com/JamesBoer/Jinx.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b2d93c00b2d144ef99c24429b26dea72b62f3cda448c6a926cba1e5b72a4d004"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6d860754de69cd9d21e3c09e17e95de5f6e788280d821604a665f0caac7b44e9"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0a0bbf1aabba2dc324df0900386ad1e3c75f8ec10a61374e23a3ccf16d442a80"
-    sha256 cellar: :any_skip_relocation, ventura:        "35cb2597f82ccc66ea698f96a73cb08c77b2428fb0c783633570c6eb0ab13c4e"
-    sha256 cellar: :any_skip_relocation, monterey:       "07ab4faca2d623a0184edefa4025b099241cb59d257d4c9f1abff32e0aadb1f6"
-    sha256 cellar: :any_skip_relocation, big_sur:        "fb9b426b226f2fc1388a52d97acfc55780baf6c7e4f148ce8e114b3a50f453ec"
-    sha256 cellar: :any_skip_relocation, catalina:       "3de90aa148fad5638d83f7214e30aa8a51c7b8c216ed8ce6cce5998be1fd71ee"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5b9985239e95b1b0bb0960948ec9f68263ebf0e53a1954c464674ddbfd4040ef"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "76c5986afd50a5bbe9ee092ab25dfe8633ae63e1895b5ee90107f508a6297673"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "362834274bbb963b081203c47ece5ccbae44ab6959177d293f2d6af86b2063bf"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2cc147cfcb7b0769a0570f011806266e8762eea26cc751fc49df4749f5e73de8"
+    sha256 cellar: :any_skip_relocation, ventura:        "6f9d56b84c16029fbec98ffe69d6fcf84e83effbeabde98cd2c3a553cbb366ff"
+    sha256 cellar: :any_skip_relocation, monterey:       "cafc3ac794c99f4e0a74380927681bd35eb465eb22d940a99cee23aae2f8ea61"
+    sha256 cellar: :any_skip_relocation, big_sur:        "eb75b3db57ce5a1349190419c5e1f7e880c74c0d0f8ae5485a708739358592ff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ca7c15cf146241f441cf37fd695dbae391da90bdb5cf6b3fcf7d3c1f05be2270"
   end
 
   depends_on "cmake" => :build

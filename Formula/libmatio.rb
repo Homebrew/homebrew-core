@@ -38,7 +38,7 @@ class Libmatio < Formula
 
   test do
     testpath.install resource("homebrew-test_mat_file")
-    (testpath/"mat.c").write <<~'EOS'
+    (testpath/"mat.c").write <<~EOS
       #include <stdlib.h>
       #include <matio.h>
 

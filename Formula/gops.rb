@@ -1,20 +1,19 @@
 class Gops < Formula
   desc "Tool to list and diagnose Go processes currently running on your system"
   homepage "https://github.com/google/gops"
-  url "https://github.com/google/gops/archive/refs/tags/v0.3.26.tar.gz"
-  sha256 "c6f9fb32deb94ad057822d342c57f74cae2c10c70b7fb712fcb0c1413c1cb169"
+  url "https://github.com/google/gops/archive/refs/tags/v0.3.27.tar.gz"
+  sha256 "1d5b8b0979c284d29d85f44aba6d0a5175059568aa698a242c5bc1d772263746"
   license "BSD-3-Clause"
   head "https://github.com/google/gops.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ecd9424cc032ac9284d624d4073c23ab8757fdb4a55a7f8c7385d8d0904d2267"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "815c17c46ab42a3568b402880f086a45884f42dbb8addf1a1ab16fad8404ddcb"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "aa9b882eceb26785e964ccbae13094255c221a151f3d42c0fc112535f26b0f2c"
-    sha256 cellar: :any_skip_relocation, ventura:        "f4c5656e5f137daae4bcef99a71f6c10f2edf2dcfee26c4ed4603cd9f5abc813"
-    sha256 cellar: :any_skip_relocation, monterey:       "1986c45a82376c07fa1ab0646b027ab6aed85f9c75ed1fcc0fff21edeab070ab"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9525396fbc7888f003893eef06a7302bdc1e9f39354ad45b8cbbd34d18d183f5"
-    sha256 cellar: :any_skip_relocation, catalina:       "82e7b45bce74679899c6aa5cd9cd8fc1160c80722f6d1a5fcf9a929c83ef1789"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3e99ad7ed938797f5cc8ff3c1a35a3b78f4046dac2b668b6c1ff6c6f7f2244b0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4b962ab71b74211a8cc4d421450597e73300b8a66027d8b3fa8ad55557f53de2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1c2bf5ee24c3ba38d15715d5a7e01c0aaad063fc6264303ea8522bd42be089ef"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6f0f151581fd4308ba90ec3eb1dd62171fe40e9b3a0a04258b5793cb5167c9fd"
+    sha256 cellar: :any_skip_relocation, ventura:        "809f885c8caf1b2f3b22dff4d33dfae0d2646c4a4b2291e4fb25d85c1fecb7df"
+    sha256 cellar: :any_skip_relocation, monterey:       "8c134a4ed12158c406cd3483f9d0802ddb7277c44597a13e8b453c0e9e482cc8"
+    sha256 cellar: :any_skip_relocation, big_sur:        "cc9b769c28f074605a2c2c6e58493b4cfa4e4808018cbd9725ebf13326a687ce"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3499eec0a4fd2cf8fd974bde8c82ed9ec0c3b49566756b5a06f5f234e3d472db"
   end
 
   depends_on "go" => [:build, :test]

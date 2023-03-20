@@ -1,34 +1,27 @@
 class Recode < Formula
   desc "Convert character set (charsets)"
   homepage "https://github.com/rrthomas/recode"
-  url "https://github.com/rrthomas/recode/releases/download/v3.7.12/recode-3.7.12.tar.gz"
-  sha256 "4db1c9076f04dbaa159726f5000847e5e5a83aec8e5c64f8ca04383f6cda12d5"
+  url "https://github.com/rrthomas/recode/releases/download/v3.7.14/recode-3.7.14.tar.gz"
+  sha256 "786aafd544851a2b13b0a377eac1500f820ce62615ccc2e630b501e7743b9f33"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "260c86f943187dfd054e94e290e8fa5b798e13afc40741c72238cdef6694a9ba"
-    sha256 cellar: :any,                 arm64_monterey: "ca950e0f4e50459a5aa6800dc411c1ccde64865cac4e740de65a5019639d822b"
-    sha256 cellar: :any,                 arm64_big_sur:  "69206a0503a2d1780ff9ccc8eaebf6adf94b4018bb0efb4cd983f7f5a3d07ce6"
-    sha256 cellar: :any,                 ventura:        "43b4d871639d2eb18d03a3e24bcd4920e35a9c5f8072d0ef30b9c54f6ee5f588"
-    sha256 cellar: :any,                 monterey:       "76bf51e5a583a21bad1f24ea1b4c5ce568974a732c99861d1fa0a31213146e81"
-    sha256 cellar: :any,                 big_sur:        "020a78f27f0275d0fc8c0621ea5b21a6f6ef6ff8279fdcafa401f316cb078c01"
-    sha256 cellar: :any,                 catalina:       "f57a3d106020c93f0ba9e713cddbf50dfc5a1e86efe25dce36060ee16cd0eeb0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "365bd66e439e5592ee482547354c758279ed085413efd9eb926db2beddb3d32e"
+    sha256 cellar: :any,                 arm64_ventura:  "43e1f1c1e34ea2a6ce0e794aa99378dcc282b88e75abd5b64407544f79b18f5e"
+    sha256 cellar: :any,                 arm64_monterey: "a350ff1d98007511a123cc29e8d338164d36ad97126e1cbf6f706d70d4a55238"
+    sha256 cellar: :any,                 arm64_big_sur:  "30c322a156a08ef567279ebafbe6766be1d65306e1ed0529554effd1ec682167"
+    sha256 cellar: :any,                 ventura:        "e994c456daa78b8e6c324ca5802b6b6ebf27207585280430102090299841ba1b"
+    sha256 cellar: :any,                 monterey:       "37660b18533ce9c469a27dce18f577947f4f5a7dbbb26b19e50a88d9ee9e2eb7"
+    sha256 cellar: :any,                 big_sur:        "249ce4061a2202c4a0435c913e34856a5f91ffe761a31a1ce43a55509dc19599"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ebf5fa37f30212152b21e78386294f7c25217ab049414d840bcbc87738bfe110"
   end
 
+  depends_on "help2man" => :build
   depends_on "libtool" => :build
   depends_on "python@3.11" => :build
   depends_on "gettext"
 
-  # Fix -flat_namespace being used on Big Sur and later.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
-    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
-  end
-
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 

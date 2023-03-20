@@ -20,9 +20,7 @@ class Oauth2Proxy < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-ldflags", "-s -w -X main.VERSION=#{version}",
-                          "-trimpath",
-                          "-o", bin/"oauth2-proxy"
+    system "go", "build", *std_go_args(ldflags: "-s -w -X main.VERSION=#{version}", output: bin/"oauth2-proxy")
     (etc/"oauth2-proxy").install "contrib/oauth2-proxy.cfg.example"
     bash_completion.install "contrib/oauth2-proxy_autocomplete.sh" => "oauth2-proxy"
   end

@@ -1,31 +1,34 @@
 class Vala < Formula
   desc "Compiler for the GObject type system"
   homepage "https://wiki.gnome.org/Projects/Vala"
-  url "https://download.gnome.org/sources/vala/0.56/vala-0.56.3.tar.xz"
-  sha256 "e1066221bf7b89cb1fa7327a3888645cb33b604de3bf45aa81132fd040b699bf"
+  url "https://download.gnome.org/sources/vala/0.56/vala-0.56.4.tar.xz"
+  sha256 "862c41d938543ed3d8d86c8219a61087797193defee8da0c50caf49993c66b6a"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 arm64_ventura:  "7cefffab4f86d1dff6b881892fe16eec70f943e6a14ec428c4bdcd626fb69e21"
-    sha256 arm64_monterey: "9710ea0dd1f5bbba23f41bf54982705a5c7fc6d4b35ae68fc8f6d65c876519ac"
-    sha256 arm64_big_sur:  "e5cf9e8f047f4ddf31b0f25c3076c6cc8b1ee9982de3d242b4796275af60a4e2"
-    sha256 ventura:        "a37e353afc48e25f09258bc9cc15b66eaf582fe0779a2243ac499d0b188a51da"
-    sha256 monterey:       "f8239f01d9b18c4be6d83b97c42a93c4ab436d3d13bab3f95d609b422ea0c2e9"
-    sha256 big_sur:        "bc77fabfbd06743e37f1c9ee78f1c608d68b4bf1c34783b75d2d8f5ed00cbc3a"
-    sha256 catalina:       "56ac3f0303166a5d6c556e8a899fbc5f3a743f38b84915dc19457c4284523f46"
-    sha256 x86_64_linux:   "13bdb063f26cf187830b4b1b9c70f7a5f73947cde1e3adec62b0d295c16e2735"
+    sha256 arm64_ventura:  "db54cec04e9304495e0afddbe16aee8a2f9e119c05c350d33de9e7d9d7659362"
+    sha256 arm64_monterey: "241055c1404cdeeea35468c670b5fcd5cc196451f0603f9d1db6feb50491306c"
+    sha256 arm64_big_sur:  "98d9ea416172b21334599564e39cae11c39efdace1652dfbe3abbb4310c74bdd"
+    sha256 ventura:        "9e6a4cc2df6a56e809f7c802e1810a1089261423ff694bc9889c253c0a95ce77"
+    sha256 monterey:       "62007a069be3fbdbd5499e9cebf278fa7a94cbd1fb142e2a5b65febef5c1bc75"
+    sha256 big_sur:        "1a9aa9081abd9a305c8d2be03a8ec6b5f9fb048b48eefc455c77cd9a4b597661"
+    sha256 x86_64_linux:   "137361ef3301c5527413f5de7a8972cb1d8f6fd4d813e73a7d3059e288344056"
   end
 
-  depends_on "gettext"
   depends_on "glib"
   depends_on "graphviz"
   depends_on "pkg-config"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
+  uses_from_macos "libxslt" => :build # for xsltproc
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   def install
-    system "./configure", *std_configure_args
+    system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make" # Fails to compile as a single step
     system "make", "install"
   end

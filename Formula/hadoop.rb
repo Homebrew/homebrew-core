@@ -7,27 +7,27 @@ class Hadoop < Formula
   license "Apache-2.0"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "caad5e1aa87bf016bdb4bd6e828e21640136ad33d18de09410d2bf4f2e985f00"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "caad5e1aa87bf016bdb4bd6e828e21640136ad33d18de09410d2bf4f2e985f00"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "caad5e1aa87bf016bdb4bd6e828e21640136ad33d18de09410d2bf4f2e985f00"
-    sha256 cellar: :any_skip_relocation, ventura:        "a7285cf8aeaae3e175340d73f5458aad739dcf377e5e3c622867f3889a5921da"
-    sha256 cellar: :any_skip_relocation, monterey:       "a7285cf8aeaae3e175340d73f5458aad739dcf377e5e3c622867f3889a5921da"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a7285cf8aeaae3e175340d73f5458aad739dcf377e5e3c622867f3889a5921da"
-    sha256 cellar: :any_skip_relocation, catalina:       "a7285cf8aeaae3e175340d73f5458aad739dcf377e5e3c622867f3889a5921da"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c530bd41f56225df151a59de2ad0043c574ff6d9984c4f12e71c90c7644e4de3"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9b9c119e86afd1b13cdd51df817742704cc777ac1f90038d7f4f0909b2f1bfa3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9b9c119e86afd1b13cdd51df817742704cc777ac1f90038d7f4f0909b2f1bfa3"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9b9c119e86afd1b13cdd51df817742704cc777ac1f90038d7f4f0909b2f1bfa3"
+    sha256 cellar: :any_skip_relocation, ventura:        "a812e0321548017cfa1eda7e4369a14ddd847b4242d9262c1720785555b7e1a1"
+    sha256 cellar: :any_skip_relocation, monterey:       "a812e0321548017cfa1eda7e4369a14ddd847b4242d9262c1720785555b7e1a1"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a812e0321548017cfa1eda7e4369a14ddd847b4242d9262c1720785555b7e1a1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cebd1b79a51c3d9890c37979124e131aa8e4fbbd2ff208822e4d91d7a66896ff"
   end
 
   # WARNING: Check https://cwiki.apache.org/confluence/display/HADOOP/Hadoop+Java+Versions before updating JDK version
   depends_on "openjdk@11"
 
+  conflicts_with "corepack", because: "both install `yarn` binaries"
   conflicts_with "yarn", because: "both install `yarn` binaries"
 
   def install
     rm_f Dir["bin/*.cmd", "sbin/*.cmd", "libexec/*.cmd", "etc/hadoop/*.cmd"]
     libexec.install %w[bin sbin libexec share etc]
 
-    hadoop_env = Language::Java.java_home_env("11")
+    hadoop_env = Language::Java.overridable_java_home_env("11")
     hadoop_env[:HADOOP_LOG_DIR] = var/"hadoop"
 
     (libexec/"bin").each_child do |path|

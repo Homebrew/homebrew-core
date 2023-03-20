@@ -4,6 +4,7 @@ class Urdfdom < Formula
   url "https://github.com/ros/urdfdom/archive/3.0.0.tar.gz"
   sha256 "3c780132d9a0331eb2116ea5dac6fa53ad2af86cb09f37258c34febf526d52b4"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,18 +12,17 @@ class Urdfdom < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "5e1e6d62b29b45f4ca8d470a8d7850d1d052243aa60623f065f57c8119a5c612"
-    sha256 cellar: :any,                 arm64_monterey: "0119d332e408fcfc79bba65b7f2ead332e309c101d48eeb9587ea9eb3bcb3053"
-    sha256 cellar: :any,                 arm64_big_sur:  "c36ca6d6feeb0bdc9b5a53ab272a78cd5a3e5902fd13bcc7b5ea1edc743a35d7"
-    sha256 cellar: :any,                 ventura:        "83da425b28bde6b5137cfe200532504996e406df14ee898d8b7adb5c611286bb"
-    sha256 cellar: :any,                 monterey:       "71070ede6f57db3c5140144fc0d18ed71d7c159f14b5c7834d4cec7f33fbe8e1"
-    sha256 cellar: :any,                 big_sur:        "da4484607e08e23f56cd1f38df0af861c8fa15de55e128f1c5baf264f58899f6"
-    sha256 cellar: :any,                 catalina:       "9fca3bc7b89402d176cc2ccd392c49acf25274c170c1fd8a26c3b579b134ad30"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b28fad24d464ee6921378d942e409122ba303c642bcdab05e46e50f370e6f6f0"
+    sha256 cellar: :any,                 arm64_ventura:  "69e286e3dbf2faea6d2a48cc31b78a7ad0088515625117c1cc8f34b80309924d"
+    sha256 cellar: :any,                 arm64_monterey: "27b8cd81640a8de4e9ffb343487a44ba9984f699d3c27f7ff9bd595e25e21d6c"
+    sha256 cellar: :any,                 arm64_big_sur:  "0ca970f6f985415e1e8af91a36ba0fc1d7b7170ec9235060e8d3973bd9ec4147"
+    sha256 cellar: :any,                 ventura:        "1f13a06d147840608fea0deaefd889e7eafb2a19c0c5bd2db50ffbe1d53a956d"
+    sha256 cellar: :any,                 monterey:       "43be2b4453f1a4f782bbc99ad5347a021825bf88ed8882500def4a0bc018a3c6"
+    sha256 cellar: :any,                 big_sur:        "fce2480ab751c0b9334f23961debbca834013c4ab8cae0aa117b43767f8e1d94"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a303920e61aa553fc7f71c0380d2bb2693e0f6aca0c0eee199768a5d6bdac9e3"
   end
 
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :test
   depends_on "console_bridge"
   depends_on "tinyxml"
   depends_on "urdfdom_headers"
@@ -48,8 +48,9 @@ class Urdfdom < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-L#{lib}", "-lurdfdom_world", "-std=c++11",
-                    "-o", "test"
+    system ENV.cxx, "test.cpp", shell_output("pkg-config --cflags urdfdom_headers").chomp,
+                    "-L#{lib}", "-lurdfdom_world",
+                    "-std=c++11", "-o", "test"
     system "./test"
 
     (testpath/"test.xml").write <<~EOS

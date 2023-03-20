@@ -9,14 +9,14 @@ class Mycli < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "61bd1d18980412f8c01e2d0ee98d58d8b3c7919cbbb40360f24ac0661dde931e"
-    sha256 cellar: :any,                 arm64_monterey: "b086553855be88d9a2a07a299845e4568f374a5c5ade11a22840354232096684"
-    sha256 cellar: :any,                 arm64_big_sur:  "3a3f6b6c3da98f9e2c6384cb545d8cb6acac58c07d00fa4c90d3ca8829a33421"
-    sha256 cellar: :any,                 ventura:        "35cd852e0d8a4ca0c5bfbc874c863b5f5e2f26617d48f6b45cc1d5ca8e3ab5f3"
-    sha256 cellar: :any,                 monterey:       "e94b4351bbca2d2ee0009e259e7e700d9caa2ec79cbcbc666efe87b577e16384"
-    sha256 cellar: :any,                 big_sur:        "a81609f114f59537d8cec8ef030484e36da3cf87e5d373b77ae959fa816cb847"
-    sha256 cellar: :any,                 catalina:       "69ecddae7517bca0b4673c9d79ad0a5ae228dedb71556fcb25ae0ae6d7699244"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "150a888229e2fea1bfadd0cc9ea299447982304af3c461edc74fec774d28638c"
+    rebuild 3
+    sha256 cellar: :any,                 arm64_ventura:  "eae7cfee86bd779cb412d2b494d95aea9717c004be3c957c85daaa0583502d73"
+    sha256 cellar: :any,                 arm64_monterey: "6d4ff2e021a465d4735dc95b87eeb04bc9b424e6b72cbd1cbd6fded0fc37cc18"
+    sha256 cellar: :any,                 arm64_big_sur:  "77d8a4a81f70352d9be177224634066472d84bfceb98436ee2470beead384fd7"
+    sha256 cellar: :any,                 ventura:        "6e854f582c44f7fe32c83f2932cc484ef731f5ba964b99985a1d70111a7b6114"
+    sha256 cellar: :any,                 monterey:       "9e0ea674e0bf2cc5e8e7803c06ad544ce5dae27da570ffe2f5ed69b0a04498cb"
+    sha256 cellar: :any,                 big_sur:        "e11c1c0e9f018cb161c081e66638aa8de11ca78e56765704a2f76aa3741409cc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "16a3b4690f361eb12d56d2abb77871014a8d6744dc731aa29959b9d94c4c49ae"
   end
 
   depends_on "rust" => :build
@@ -48,8 +48,8 @@ class Mycli < Formula
   end
 
   resource "configobj" do
-    url "https://files.pythonhosted.org/packages/64/61/079eb60459c44929e684fa7d9e2fdca403f67d64dd9dbac27296be2e0fab/configobj-5.0.6.tar.gz"
-    sha256 "a2f5650770e1c87fb335af19a9b7eb73fc05ccf22144eb68db7d00cd2bcb0902"
+    url "https://files.pythonhosted.org/packages/cb/87/17d4c6d634c044ab08b11c0cd2a8a136d103713d438f8792d7be2c5148fb/configobj-5.0.8.tar.gz"
+    sha256 "6f704434a07dc4f4dc7c9a745172c1cad449feb548febd9f7fe362629c627a97"
   end
 
   resource "cryptography" do
@@ -58,13 +58,13 @@ class Mycli < Formula
   end
 
   resource "importlib-resources" do
-    url "https://files.pythonhosted.org/packages/06/72/6bf0df4fe7a139147f5d6b473f16d5aefb7bc5b719ba5dd33f230d35760f/importlib_resources-5.10.0.tar.gz"
-    sha256 "c01b1b94210d9849f286b86bb51bcea7cd56dde0600d8db721d7b81330711668"
+    url "https://files.pythonhosted.org/packages/2e/f8/be5c59ff2545362397cbc989f5cd3835326fc4092433d50dfaf21616bc71/importlib_resources-5.10.2.tar.gz"
+    sha256 "e4a96c8cc0339647ff9a5e0550d9f276fc5a01ffa276012b58ec108cfd7b8484"
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/e2/d9/1009dbb3811fee624af34df9f460f92b51edac528af316eb5770f9fbd2e1/prompt_toolkit-3.0.32.tar.gz"
-    sha256 "e7f2129cba4ff3b3656bbdda0e74ee00d2f874a8bcdb9dd16f5fec7b3e173cae"
+    url "https://files.pythonhosted.org/packages/fb/93/180be2342f89f16543ec4eb3f25083b5b84eba5378f68efff05409fb39a9/prompt_toolkit-3.0.36.tar.gz"
+    sha256 "3e163f254bef5a03b146397d7c1963bd3e2812f0964bb9a24e6ec761fd28db63"
   end
 
   resource "pyaes" do
@@ -88,8 +88,8 @@ class Mycli < Formula
   end
 
   resource "sqlglot" do
-    url "https://files.pythonhosted.org/packages/c1/bb/2aa125cd737ff9cf7f07960235611ba976b6fe8c84642100fd0ec58d4a12/sqlglot-10.0.1.tar.gz"
-    sha256 "b702a6232873c3297213ab97ce2a04c32f37837ff8df8a788cc61281f50d5f38"
+    url "https://files.pythonhosted.org/packages/9f/94/e28696f966305c717710fc93ce297ab64b294dde2d6d56d13b611c444818/sqlglot-11.0.1.tar.gz"
+    sha256 "2bdeeaa20c215d48ec28a61057d76568d6a9aeb19af79b0470f7c2e42619aa0c"
   end
 
   resource "sqlparse" do
@@ -98,12 +98,16 @@ class Mycli < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/89/38/459b727c381504f361832b9e5ace19966de1a235d73cdbdea91c771a1155/wcwidth-0.2.5.tar.gz"
-    sha256 "c4d647b99872929fdb7bdcaa4fbe7f01413ed3d98077df798530e5b04f116c83"
+    url "https://files.pythonhosted.org/packages/5e/5f/1e4bd82a9cc1f17b2c2361a2d876d4c38973a997003ba5eb400e8a932b6c/wcwidth-0.2.6.tar.gz"
+    sha256 "a5220780a404dbe3353789870978e472cfe477761f06ee55077256e509b156d0"
   end
 
   def install
     virtualenv_install_with_resources
+
+    # Click does not support bash version older than 4.4
+    generate_completions_from_executable(bin/"mycli", shells:                 [:fish, :zsh],
+                                                      shell_parameter_format: :click)
   end
 
   test do

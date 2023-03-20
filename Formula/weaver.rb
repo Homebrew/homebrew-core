@@ -6,18 +6,20 @@ class Weaver < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9da5c1e57db6f181627f53f6c65bc18e9b8533b7ee43691c9d607237a6c1510c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c638f6c406f19d043f309a18841212b7430c69fdbe30e79e442a4eb0fe233c97"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6500563e47b77a95931aac8c28e80ceb7bc47ff0db38a25d1c3a91c52b573a85"
-    sha256 cellar: :any_skip_relocation, ventura:        "a1523ae7a3e959d4b12caa8c0a19e7636e616e7b63c37383e8983edbdb6d704d"
-    sha256 cellar: :any_skip_relocation, monterey:       "11e99cdd2ca89e7da78b3c31e08f4b9c0c09c21a8bd2d553040ccd85e98ed88a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "37789b704af76fddb2f995729014255b7bbd5729ab22596fd63f373b79dfe744"
-    sha256 cellar: :any_skip_relocation, catalina:       "0927144fcebd86ea362e17ce08e64a2253b2a35e647264d784ecda4f433386b7"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "18271d928a18de578b57515c52fb2db65f7ec5c8ecd76974a988ca270e25bb39"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d0b5dd663a8738e1777b6acc5212aaac5ba79013eabc4ce18ff1bc463973805f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "148f7278888814aaaee36d0872f0f9388ceeaf6adb683eb45af244ad610bd1d7"
+    sha256 cellar: :any_skip_relocation, ventura:        "f5a4abb08354b0c75c2262fb0323f3569135ee5bbca26280217f0b85f958d387"
+    sha256 cellar: :any_skip_relocation, monterey:       "d12fd6ecec7e13b818fd10541afc24d831f00a51ce97a363ce478bce0b56e08d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "228b96d7ae5ba078df562ed8d543a75aa4e63250b94598cbe849292605693dcf"
   end
 
   depends_on xcode: ["11.2", :build]
 
   uses_from_macos "swift"
+
+  conflicts_with "service-weaver", because: "both install a `weaver` binary"
 
   def install
     system "make", "install", "PREFIX=#{prefix}"

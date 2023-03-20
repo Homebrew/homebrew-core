@@ -4,17 +4,17 @@ class Boxes < Formula
   url "https://github.com/ascii-boxes/boxes/archive/v2.2.0.tar.gz"
   sha256 "98b8e3cf5008f46f096d5775d129c34db9f718728bffb0f5d67ae89bb494102e"
   license "GPL-3.0-only"
+  revision 1
   head "https://github.com/ascii-boxes/boxes.git", branch: "master"
 
   bottle do
-    sha256 arm64_ventura:  "669f8f6f0ad28479ae22549107b812adf0bf7cc3e57b5c12d4ff63f5dc46d967"
-    sha256 arm64_monterey: "23f81e330d74582785d6b6aca4900c10487d8cae733f5caf4944c484f93eb3e4"
-    sha256 arm64_big_sur:  "79e09ade59fd7db22de7f3160edbb03375290d25b1d16c1225cbd310cf30dc73"
-    sha256 ventura:        "a3521bcb60c3527561cd8fa639f9a8b2e08ed0b29fb82c8e4bb944012bae4c76"
-    sha256 monterey:       "dcd22b8872dde84938d31c7b373ebc6f139d6af2a1823d9954e097651a28daf5"
-    sha256 big_sur:        "43acc18d20ea9bc0cb30e4ed6498071763da130a2b91f0afff9c2f181eb6b814"
-    sha256 catalina:       "deb00c1a1a555dbae43cea3a45959902cba8a50cc261a88e8c5808c7042bbb19"
-    sha256 x86_64_linux:   "581f765f9c4d78d0ae2d507c45b4d931e6cbee06f637504eba9fb8e0f450804d"
+    sha256 arm64_ventura:  "bae581a59dcb2b51d6ff1cb1305a61222f742cddb3980bb2c1adab6165d4955e"
+    sha256 arm64_monterey: "adf2e35fd66cb5b4979f98cb0939a80ac8437c72c0d756b64064f6e7badf514c"
+    sha256 arm64_big_sur:  "4cbf476f6600a5f638afbe425af86f0870b87ba754b3efc8650415688ef9cfef"
+    sha256 ventura:        "0d38ba27787c51605ba631b7761ef8e4217a9f8e90eb695b1b6fccc7a2b02f09"
+    sha256 monterey:       "4deece97d1b40f1c5e159de7b306b2fb8f503f60dacc95c87640f614b2420559"
+    sha256 big_sur:        "5b72fbbc60ab92556f9da91e8a2543c432cb70ad18bfe337005ef731f310a8ec"
+    sha256 x86_64_linux:   "374ea58aadd6f262e27c0e9613b99af5de961264abe66df48de0e6c087193c97"
   end
 
   depends_on "bison" => :build

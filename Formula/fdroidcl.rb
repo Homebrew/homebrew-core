@@ -1,20 +1,19 @@
 class Fdroidcl < Formula
   desc "F-Droid desktop client"
   homepage "https://github.com/mvdan/fdroidcl"
-  url "https://github.com/mvdan/fdroidcl/archive/refs/tags/v0.5.0.tar.gz"
-  sha256 "532a8c4c93216cbf13378ff409c06a08d48e8baee6119a50ed43dc0ce9ec7879"
+  url "https://github.com/mvdan/fdroidcl/archive/refs/tags/v0.7.0.tar.gz"
+  sha256 "4dbbb2106c23564a19cdde912d3f06cd258f02eccd6382a0532ef64e7e61f2fd"
   license "BSD-3-Clause"
   head "https://github.com/mvdan/fdroidcl.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "81cd312b306d2c5b52e4736feb7da25df5ed0386b1b98c67b4093cd949783f43"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8ef0dc3e663006c1b297afba9938a3a275a92fba9dbcb2941e28a0c3fcddd6aa"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c6ff8a6974e3f1a1729fbfb499043047ec2b277acba25304e84551cf72fe4048"
-    sha256 cellar: :any_skip_relocation, ventura:        "e013872c3a029e1c1225327b5343b2509080b37905eaaf4a55936192c31c2ad2"
-    sha256 cellar: :any_skip_relocation, monterey:       "731c9962bc28fb2eef849886e576b951e0a02018607b4704ba6ac5dc9f935c99"
-    sha256 cellar: :any_skip_relocation, big_sur:        "aed5098245121b6f7659bee09c2730e6349203f9816ede1e2288237b5307ae35"
-    sha256 cellar: :any_skip_relocation, catalina:       "fa13c9f3630e79594a5cf71db75970dc193caa339576d7ca0ad1165d313ea192"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2b949401ff9f1beda983438e146f843539e3fd3dd7daf3f55c93c28976cb629c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b6439e615b6b2a8215cb52dddceccf338311592fb196a1c6d44f2aa5c266e5e5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b6439e615b6b2a8215cb52dddceccf338311592fb196a1c6d44f2aa5c266e5e5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b6439e615b6b2a8215cb52dddceccf338311592fb196a1c6d44f2aa5c266e5e5"
+    sha256 cellar: :any_skip_relocation, ventura:        "aab9b2028e64b0c1a6720227648e3cb5c2b4bb66356a826b325fb9189808d7ef"
+    sha256 cellar: :any_skip_relocation, monterey:       "aab9b2028e64b0c1a6720227648e3cb5c2b4bb66356a826b325fb9189808d7ef"
+    sha256 cellar: :any_skip_relocation, big_sur:        "aab9b2028e64b0c1a6720227648e3cb5c2b4bb66356a826b325fb9189808d7ef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e51256959812a67ce1ff4b6a9169e7e72cd07e3ef548d6199848caa3a6ce888d"
   end
 
   depends_on "go" => :build
@@ -24,6 +23,28 @@ class Fdroidcl < Formula
   end
 
   test do
-    assert_match "done", shell_output("#{bin}/fdroidcl update")
+    assert_match "f-droid.org/repo", shell_output("#{bin}/fdroidcl update")
+
+    list = <<~EOS
+      Connectivity
+      Development
+      Games
+      Graphics
+      Internet
+      Money
+      Multimedia
+      Navigation
+      Phone & SMS
+      Reading
+      Science & Education
+      Security
+      Sports & Health
+      System
+      Theming
+      Time
+      Writing
+    EOS
+    assert_equal list, shell_output("#{bin}/fdroidcl list categories")
+    assert_match version.to_s, shell_output("#{bin}/fdroidcl version")
   end
 end

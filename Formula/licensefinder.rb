@@ -2,24 +2,21 @@ class Licensefinder < Formula
   desc "Find licenses for your project's dependencies"
   homepage "https://github.com/pivotal/LicenseFinder"
   url "https://github.com/pivotal/LicenseFinder.git",
-      tag:      "v7.0.1",
-      revision: "b938cbfb33e8ec4eb9f2a4abcfb6e3462d226621"
+      tag:      "v7.1.0",
+      revision: "81092404aeaf1cb39dbf2551f50f007ed049c26c"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6373ac73507be45b2ede57c97b64112215345c4be09872504ccaa6d35e615098"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "64d7159ca202de5e3b51a6ab6833ca7e87219a899ef5bfa908f530aba8fb2af7"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e2053ded4e0ceda44a1d43f3dd29d57c6f7c118abeab2ee1c561a415666b960e"
-    sha256 cellar: :any_skip_relocation, ventura:        "43ba70c51eef7936f72e2de8cc7c0ae985a7415cec9781e6a32a668dc86ca2d2"
-    sha256 cellar: :any_skip_relocation, monterey:       "369e2affccf92dfb4d1869d1abc23118094553f062b78c1470635fb2347bda41"
-    sha256 cellar: :any_skip_relocation, big_sur:        "4944b6336d9316648a52b2a1a21a7f11cebcde1b746fc772f25d39d9672e2af3"
-    sha256 cellar: :any_skip_relocation, catalina:       "4944b6336d9316648a52b2a1a21a7f11cebcde1b746fc772f25d39d9672e2af3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8fad2104fa2186844235e5628d8afe03f34b08e7b9c62631399dde2b3947b493"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "164e134801f7eccba5c5cc70d98657dccdc5cf935a9fd92934e74d6c0ffce0e0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "164e134801f7eccba5c5cc70d98657dccdc5cf935a9fd92934e74d6c0ffce0e0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "164e134801f7eccba5c5cc70d98657dccdc5cf935a9fd92934e74d6c0ffce0e0"
+    sha256 cellar: :any_skip_relocation, ventura:        "87ac993d1fa172a2e30ba894f7c7329f4c69a071c4cbb2b3f7b8fc4fdbddfa69"
+    sha256 cellar: :any_skip_relocation, monterey:       "87ac993d1fa172a2e30ba894f7c7329f4c69a071c4cbb2b3f7b8fc4fdbddfa69"
+    sha256 cellar: :any_skip_relocation, big_sur:        "87ac993d1fa172a2e30ba894f7c7329f4c69a071c4cbb2b3f7b8fc4fdbddfa69"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1bdbc4f522c64ed0bf539afbb6e48f43c96b1284d2a00416dd535706e140d373"
   end
 
-  on_system :linux, macos: :mojave_or_older do
-    depends_on "ruby@2.7"
-  end
+  depends_on "ruby"
 
   def install
     ENV["GEM_HOME"] = libexec
@@ -32,8 +29,9 @@ class Licensefinder < Formula
   test do
     gem_home = testpath/"gem_home"
     ENV["GEM_HOME"] = gem_home
-    gem_command = (MacOS.version <= :mojave) ? Formula["ruby@2.7"].bin/"gem" : "gem"
-    system gem_command, "install", "bundler"
+    # GEM_PATH is empty on linux, so set it to find the installed gems
+    ENV["GEM_PATH"] = libexec if OS.linux?
+    system "gem", "install", "bundler"
 
     mkdir "test"
     (testpath/"test/Gemfile").write <<~EOS

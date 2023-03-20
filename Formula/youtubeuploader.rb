@@ -1,20 +1,19 @@
 class Youtubeuploader < Formula
   desc "Scripted uploads to Youtube"
   homepage "https://github.com/porjo/youtubeuploader"
-  url "https://github.com/porjo/youtubeuploader/archive/22.06.tar.gz"
-  sha256 "baf111cd99755b6ec17a694a3edf6fdf6886ffb606288451e6014de42bff3939"
+  url "https://github.com/porjo/youtubeuploader/archive/23.02.tar.gz"
+  sha256 "48f4315c713581547cd90b399c51a98f7d8a79c698f9a1f19f8a0d3dc70bd814"
   license "Apache-2.0"
   head "https://github.com/porjo/youtubeuploader.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7607706fdf7aa184bbffae10012705d6c48752550f3dc4d3aa351f367881c71e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cf637386f6edf508a3c4b0a63f3ea8beb30f7e7a4fd0523e90253d508459ba8a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6e73336a16d884c032dcbbf00ba249d6be8a0101f337b1c9d3ac331524439cf3"
-    sha256 cellar: :any_skip_relocation, ventura:        "8a16cdb7652e91cbfcc26ff923629134e4a99e1b91697e49769ebd4e899cb323"
-    sha256 cellar: :any_skip_relocation, monterey:       "4b3a029b1bf0b3f9a4ed2d71130828286624fb9e2e66bd6e5a9b8963eea71dce"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3d5ebc4f26f516589229cc6fc02c39529b3f3e674da4ebdb7591ba85afe816a1"
-    sha256 cellar: :any_skip_relocation, catalina:       "9e9b394c72f50c3049269e23aa8534ab5f036c2a10a98f6347f682fc577a5b81"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8013181d71607e29d777511a64fd3244451414fd2f37c69ec56bfedb4864ce9b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "07b89e4ed8ee773dde84b81772471e48ee910d291989d577136c0368cc34f67f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "07b89e4ed8ee773dde84b81772471e48ee910d291989d577136c0368cc34f67f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "07b89e4ed8ee773dde84b81772471e48ee910d291989d577136c0368cc34f67f"
+    sha256 cellar: :any_skip_relocation, ventura:        "a24e908a50675105dd26c9392e9f02f639555c1f00588e450646159279b234c0"
+    sha256 cellar: :any_skip_relocation, monterey:       "a24e908a50675105dd26c9392e9f02f639555c1f00588e450646159279b234c0"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a24e908a50675105dd26c9392e9f02f639555c1f00588e450646159279b234c0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cdb69cdbb2b5e68d63cc9a4234b01cf2ee89f2d2da18a4df1c5b28268e46e29e"
   end
 
   depends_on "go" => :build

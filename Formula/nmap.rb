@@ -33,7 +33,7 @@ class Nmap < Formula
   uses_from_macos "flex" => :build
   uses_from_macos "zlib"
 
-  conflicts_with "ndiff", because: "both install `ndiff` binaries"
+  conflicts_with "cern-ndiff", "ndiff", because: "both install `ndiff` binaries"
 
   def install
     # Needed for compatibility with `openssl@1.1`.

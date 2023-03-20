@@ -1,20 +1,19 @@
 class Mruby < Formula
   desc "Lightweight implementation of the Ruby language"
   homepage "https://mruby.org/"
-  url "https://github.com/mruby/mruby/archive/3.1.0.tar.gz"
-  sha256 "64ce0a967028a1a913d3dfc8d3f33b295332ab73be6f68e96d0f675f18c79ca8"
+  url "https://github.com/mruby/mruby/archive/3.2.0.tar.gz"
+  sha256 "3c198e4a31d31fe8524013066fac84a67fe6cd6067d92c25a1c79089744cb608"
   license "MIT"
   head "https://github.com/mruby/mruby.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2cb112f19c066a09881ee34b868b50132d64950b93851ed4349a4b8be3079f21"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "da37228c833501ecd4e2830808a9928990ae90a9d67e67966115350b5d1d6419"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "904cbd4a3b0c8db16f32988251c3528eef681bdd65673a73204fc1d57eba070e"
-    sha256 cellar: :any_skip_relocation, ventura:        "800e309bacd906e6e39ad7c4289cb052bddf122a49eac8a5097315bfa567028f"
-    sha256 cellar: :any_skip_relocation, monterey:       "bc0c23c86c20dcc9589e6c19d48ecc94c6fb460443cd0abd29ce8f3ed3f13fc0"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8b16ebd289ab95b7e44f82720069a7c7419dbff2843a3f901ceb296ad314c5a8"
-    sha256 cellar: :any_skip_relocation, catalina:       "e0d4cc5aa850d3b5ba19b9373a553c6a7f817f3bd60e2c2b321051cf87368802"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0eb7c46340717e9753faa4ddfa228a47534cb96868abbbf8df9ee28c6cffc91f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2acba472ff63497a1ece0d2dcd12ca60c425a21476b4fa2e3a0c76908f8f080c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2cbdd00ccffce8e1a59e9a56ea62fba258772cc8e1688bbcde58b40f95fe579f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d79dd3f3888b4df3248b7d6292597dd282884c33793ba5bc561f1a36eef08534"
+    sha256 cellar: :any_skip_relocation, ventura:        "0b1d2434d7488888c52ba9b8bab89c0b2d98afd4d7a213114feae7710c45dcf9"
+    sha256 cellar: :any_skip_relocation, monterey:       "242af9158824d0036e0d0823c1315ef3b87a104e8880185f6be2f1859290246e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "cd7069da7bfc7a0e9ee9ef651cf07f4985d7b3bd80fb309c0eaa02222327d961"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3d6b45547787797cdf50cfc7b259883148e80da624098cd36a01bb59ee011a69"
   end
 
   depends_on "bison" => :build

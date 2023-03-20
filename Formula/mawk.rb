@@ -1,9 +1,9 @@
 class Mawk < Formula
   desc "Interpreter for the AWK Programming Language"
   homepage "https://invisible-island.net/mawk/"
-  url "https://invisible-mirror.net/archives/mawk/mawk-1.3.4-20200120.tgz"
-  sha256 "7fd4cd1e1fae9290fe089171181bbc6291dfd9bca939ca804f0ddb851c8b8237"
-  license "GPL-2.0"
+  url "https://invisible-mirror.net/archives/mawk/mawk-1.3.4-20230203.tgz"
+  sha256 "6db7a32ac79c51107ad31a407d4f92c6b842dde2f68a7533b4e7b7b03e8900be"
+  license "GPL-2.0-only"
 
   livecheck do
     url "https://invisible-mirror.net/archives/mawk/?C=M&O=D"
@@ -11,16 +11,13 @@ class Mawk < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0df2baf444ccb241ff6433ce3f58801508d4b95ecbe82dcef27ac6b354a520a8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e89f98de9fc8f169163166448a4e0850f844e07bbff01c91d7b2b8ae248968f5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "506eea9d68d5300cd74b57f42cde86b21f405f644bf5ca61ec993fbb629ced01"
-    sha256 cellar: :any_skip_relocation, ventura:        "e0b8e8ad091c28157762bf953111506b05765ef2675ae586589662b829ca4fb2"
-    sha256 cellar: :any_skip_relocation, monterey:       "5487bc82c7a29d0dde02e2b0a2d7b32e4be7480269a8963043420e24a967ef63"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a669698248dacc35f2d82547a846e9ba3fd47dc56c8176c407f73cb24156c775"
-    sha256 cellar: :any_skip_relocation, catalina:       "03f9aa87a079b35b6f93813e4016e85d102c578d8b65f2f967b0b7c5c5d869ad"
-    sha256 cellar: :any_skip_relocation, mojave:         "802b3592430ca644c6590acad265f45ac892fe47fb37732e678afac13f8cf1f0"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "d113f78e1c20c8bf86fcf5ce083e206aeca58ee857e7d0a3acb0158d2b01fb45"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e6fade81fd45be1fea56283969f7ae1c8973c18e750c7a7240c2be0d9399a37b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b9f4b99fa6aac1ad10d33664a21166b4dbb891b364bf8733564b446064719180"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "35dfd1bf6c13583f52a4eb530e070ee1a6f580173352711fa5240ac7f20d1195"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "19341d6e0bb54ba93eb4e1b9df2fdd248c0c84bc49289668f6675b3f3efb86d5"
+    sha256 cellar: :any_skip_relocation, ventura:        "b294b3a40fe98791a70ad103f08f5324b62890d35510af4cb0e67f311b94032f"
+    sha256 cellar: :any_skip_relocation, monterey:       "48710755a0d4afe0f38871a07e715f5f75a8b6a13ac53216b8b2e47c8b3a5987"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0540238a8c4dc9829d1a83a39e32d374ca7d5499083761d0f582699520ee4a8c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c773761adb1755191d2a912ee394c56b644c198c4c43c0a1623bda63690d40c3"
   end
 
   def install

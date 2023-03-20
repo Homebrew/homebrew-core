@@ -1,23 +1,22 @@
 class Logstalgia < Formula
   desc "Web server access log visualizer with retro style"
   homepage "https://logstalgia.io/"
-  url "https://github.com/acaudwell/Logstalgia/releases/download/logstalgia-1.1.3/logstalgia-1.1.3.tar.gz"
-  sha256 "82e6a33c3c305c1f1d32d7e115ba0b307bb191ed2a70368a3cd9138ced0a98d9"
-  license "GPL-3.0"
+  url "https://github.com/acaudwell/Logstalgia/releases/download/logstalgia-1.1.4/logstalgia-1.1.4.tar.gz"
+  sha256 "c049eff405e924035222edb26bcc6c7b5f00a08926abdb7b467e2449242790a9"
+  license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_ventura:  "0995a316323b353da37e7127c74cc2e40c43cfba78eba1e2978f5738c2177ca3"
-    sha256 arm64_monterey: "51b1ebf735b6c26e34fd57234ca790d26c717b4b9a9697ce5bceedd23254ccea"
-    sha256 arm64_big_sur:  "2ec489672c5e729652dc221d3b8a6d328136c3250d06ee66ee4a6b565c316a95"
-    sha256 ventura:        "c8561a8baf8e6a8aae4505c12d8817bc2f1fb92772edbf934d61eef1976e4b31"
-    sha256 monterey:       "960950464fb35574b0231a78c4ed6c5bb5020966d001df95a1455c7862a7c8f5"
-    sha256 big_sur:        "6e947997e8b1d5b617413dca058ea0ee75cf17f61b84a328fdc2d3812525c558"
-    sha256 catalina:       "a74087e845875519b13535d3046cafe897f89e25a2993a17347ce1a898213486"
-    sha256 x86_64_linux:   "28f069755a8b6f4d20b2aec317340fe9620d1251ef741ca6f6c983fb18ceed89"
+    sha256 arm64_ventura:  "27e9810c391318dc66cd73a577452e2a4cdb261409ab0a91e5f7be62993cacf6"
+    sha256 arm64_monterey: "4417eb86e0840a81e4f65737b97b95c27bb4fb16cef3b06e490ea6ee02492ce9"
+    sha256 arm64_big_sur:  "4e83c5c6ebc90a2b1876078a0799032aba22d0227e59979cc061cdfec1c2c073"
+    sha256 ventura:        "55948f7595d2761138f3d9a15190eb3ebacf5493e9cc336e7cbb01a40fd5110a"
+    sha256 monterey:       "d29aa89705294c1aa80165c7ee66d2d46d1273b972be94744e56e6b59440e131"
+    sha256 big_sur:        "60c8226b514874695e821c3f35e57495f0c03a806d2daaeaf44d958340f7769b"
+    sha256 x86_64_linux:   "60e89a6cc0d0e08c367c5577ebf2a42be19340f8b7e652f3fc33585e17a0a858"
   end
 
   head do
-    url "https://github.com/acaudwell/Logstalgia.git"
+    url "https://github.com/acaudwell/Logstalgia.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

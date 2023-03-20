@@ -3,10 +3,9 @@ class Uhd < Formula
   homepage "https://files.ettus.com/manual/"
   # The build system uses git to recover version information
   url "https://github.com/EttusResearch/uhd.git",
-      tag:      "v4.3.0.0",
-      revision: "1f8fd3457dee48dc472446113a6998c2529adf59"
+      tag:      "v4.4.0.0",
+      revision: "5fac246bc18ab04cb4870026a630e46d0fd87b17"
   license all_of: ["GPL-3.0-or-later", "LGPL-3.0-or-later", "MIT", "BSD-3-Clause", "Apache-2.0"]
-  revision 1
   head "https://github.com/EttusResearch/uhd.git", branch: "master"
 
   livecheck do
@@ -15,14 +14,13 @@ class Uhd < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256                               arm64_ventura:  "203ee442bdb64672f84d66c020a56648e739bf8be379dad9ecac74d67a88e10f"
-    sha256                               arm64_monterey: "48ad94802d28473e1e710f1e7dd91b9450cfa2f465e700301626c39a6f5c86a6"
-    sha256                               arm64_big_sur:  "b6e76b040b2d1c8274cfaecc16e960057db3c81b4a727291ae4f960b31cee88a"
-    sha256                               ventura:        "27fe77514a43d35631aa4b84a34a8026a0421843110445c8c2f0add5237484db"
-    sha256                               monterey:       "7a38f27db9c707100eb16b992211ad2debbdbe41f0510c916f9102df7c44feb6"
-    sha256                               big_sur:        "dd000e257205cf86cbf42d51109809a06c74489496acc3f741372fd4ea674a4d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2d216f9ed2caddcc9ca207d395885ee4271106698d62139115b894ebf330827d"
+    sha256                               arm64_ventura:  "d8e5f3f1c35810633487d415c5e1de19558de4131933eeb42e5334e0aaa6a980"
+    sha256                               arm64_monterey: "6e4124f87b6091b08f148225c6289d7145f8b17a0c919445886cd3ff9fa1bd9e"
+    sha256                               arm64_big_sur:  "a82da41cb44056136c23a6e6f3cb35213bd4877aecc8584f8af8fdf44664f4ec"
+    sha256                               ventura:        "63470361e9dc82aa1344e395598367bbc9d217882b1db2be177aacdff65de8f9"
+    sha256                               monterey:       "ef8d41ba0e3e67286aaa1d17ae67cbc4c07d264ee14b75bb9760c691f8290ccc"
+    sha256                               big_sur:        "ae8b30d5b0112cd4a35e7c05826238e9ec8cecc7665f1d3ab21a6a03647ecabf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1a898e8cdb49511926e0b3c340ea5b54e66c1c806802f1e586688d244a967ed7"
   end
 
   depends_on "cmake" => :build
@@ -35,13 +33,13 @@ class Uhd < Formula
   fails_with gcc: "5"
 
   resource "Mako" do
-    url "https://files.pythonhosted.org/packages/6d/f2/8ad2ec3d531c97c4071572a4104e00095300e278a7449511bee197ca22c9/Mako-1.2.2.tar.gz"
-    sha256 "3724869b363ba630a272a5f89f68c070352137b8fd1757650017b7e06fda163f"
+    url "https://files.pythonhosted.org/packages/05/5f/2ba6e026d33a0e6ddc1dddf9958677f76f5f80c236bd65309d280b166d3e/Mako-1.2.4.tar.gz"
+    sha256 "d60a3903dc3bb01a18ad6a89cdbe2e4eadc69c0bc8ef1e3773ba53d44c3f7a34"
   end
 
   resource "MarkupSafe" do
-    url "https://files.pythonhosted.org/packages/1d/97/2288fe498044284f39ab8950703e88abbac2abbdf65524d576157af70556/MarkupSafe-2.1.1.tar.gz"
-    sha256 "7f91197cc9e48f989d12e4e6fbc46495c446636dfc81b9ccf50bb0ec74b91d4b"
+    url "https://files.pythonhosted.org/packages/95/7e/68018b70268fb4a2a605e2be44ab7b4dd7ce7808adae6c5ef32e34f4b55a/MarkupSafe-2.1.2.tar.gz"
+    sha256 "abcabc8c2b26036d62d4c746381a6f7cf60aafcc653198ad678306986b09450d"
   end
 
   def install

@@ -1,6 +1,6 @@
 class SdlTtf < Formula
   desc "Library for using TrueType fonts in SDL applications"
-  homepage "https://www.libsdl.org/projects/SDL_ttf/release-1.2.html"
+  homepage "https://github.com/libsdl-org/SDL_ttf"
   revision 2
 
   stable do
@@ -35,8 +35,7 @@ class SdlTtf < Formula
   end
 
   # SDL 1.2 is deprecated, unsupported, and not recommended for new projects.
-  # Commented out while this formula still has dependents.
-  # deprecate! date: "2013-08-17", because: :deprecated_upstream
+  deprecate! date: "2023-02-05", because: :deprecated_upstream
 
   depends_on "pkg-config" => :build
   depends_on "freetype"

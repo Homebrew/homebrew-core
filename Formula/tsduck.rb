@@ -1,20 +1,19 @@
 class Tsduck < Formula
   desc "MPEG Transport Stream Toolkit"
   homepage "https://tsduck.io/"
-  url "https://github.com/tsduck/tsduck/archive/v3.32-2983.tar.gz"
-  sha256 "2f0c35422a4f3e8876e9efa2683794336102fc225b826d5d3c4e033c4b666465"
+  url "https://github.com/tsduck/tsduck/archive/v3.33-3139.tar.gz"
+  sha256 "d7cdad9e46bf454cf7c952f23cd4b18f7690671ee8e0829d3a5da11db94b6201"
   license "BSD-2-Clause"
   head "https://github.com/tsduck/tsduck.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "b9ae0c79d4aa7ade081b2af21b553e05adf696ffbbaf56dbf772f0d1e822e383"
-    sha256 cellar: :any,                 arm64_monterey: "e21b506dd4ce875c097fbe85b0b26533aca7eb77bed0b664dc26bb8bb982c1c9"
-    sha256 cellar: :any,                 arm64_big_sur:  "87519f07414e36ebf73578f7ab9134a8ea3333b0e60d368e66d6ba44f90bab4b"
-    sha256 cellar: :any,                 ventura:        "a2c29b7b08836bd168100f58c725a9f7e9edb69404ea691e51395bff233e9b99"
-    sha256 cellar: :any,                 monterey:       "e9b07eb36903f4d25ce7a993f07cf0ceaef927a836558de8465de0c524576028"
-    sha256 cellar: :any,                 big_sur:        "9385dd6cb930d3245e21027687adc155d49f10327c788078d8066eee764aef06"
-    sha256 cellar: :any,                 catalina:       "9ef11f4ae882546ee3aab204ea4d5533a31ed304c1dfac91b7f8ce73d5abc4e3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "81c98439b3a25f62fe71eff376ec017bc3705e263cd9ec9e4afae6165592f5f6"
+    sha256 cellar: :any,                 arm64_ventura:  "da0c2042f7be49006833ffd6e5fd07b10d1d94e1ea645483facc51e36aa040b2"
+    sha256 cellar: :any,                 arm64_monterey: "cc1d820c8517ab555cfaa7838005bd1e5974d3ad31ea1e8f1a3f46bea9561a31"
+    sha256 cellar: :any,                 arm64_big_sur:  "e9f02c10a9948e2383e34117f908df0da8ae982c028da7467d5563bb39f9127d"
+    sha256 cellar: :any,                 ventura:        "23302fc9c3f7fcbf4d028e3b121a4ab46575a56a0b2f0528b7543be523c84aaf"
+    sha256 cellar: :any,                 monterey:       "cce68285495e5c410e5c34eddd57ec29ad7d3cfc77bd0828ba6dd77d5379c93b"
+    sha256 cellar: :any,                 big_sur:        "e4643b6374d773eb8427c64fd5ce322c24aa5197ff773b2af7bf554937dc4d87"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3aadf7b413f62bde1dc2b9566cc8e5448b21fd1c4901a09bf3b597cbbbba5164"
   end
 
   depends_on "dos2unix" => :build

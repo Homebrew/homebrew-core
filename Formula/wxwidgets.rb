@@ -1,8 +1,8 @@
 class Wxwidgets < Formula
   desc "Cross-platform C++ GUI toolkit"
   homepage "https://www.wxwidgets.org"
-  url "https://github.com/wxWidgets/wxWidgets/releases/download/v3.2.1/wxWidgets-3.2.1.tar.bz2"
-  sha256 "c229976bb413eb88e45cb5dfb68b27890d450149c09b331abd751e7ae0f5fa66"
+  url "https://github.com/wxWidgets/wxWidgets/releases/download/v3.2.2.1/wxWidgets-3.2.2.1.tar.bz2"
+  sha256 "dffcb6be71296fff4b7f8840eb1b510178f57aa2eb236b20da41182009242c02"
   license "LGPL-2.0-or-later" => { with: "WxWindows-exception-3.1" }
   head "https://github.com/wxWidgets/wxWidgets.git", branch: "master"
 
@@ -12,15 +12,13 @@ class Wxwidgets < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "edb8bfbbc0d73c3b3ab21a8cd6b5def66e6dcc077a72cc157c8a4d9c3ef00956"
-    sha256 cellar: :any,                 arm64_monterey: "76e7c905c89560d11a2a2bb32fae3e315b0589c3dbdfedec1530c13b74aa3ded"
-    sha256 cellar: :any,                 arm64_big_sur:  "855d074fcb1da69a300f99110d748921541b10861d745ed8be152d94b7b46e4b"
-    sha256 cellar: :any,                 ventura:        "50a7b2a25c0c7e12d7ef3f0b148b70cbf1955f56476f80210bd710c5a4f1c50b"
-    sha256 cellar: :any,                 monterey:       "2298c24d90acc7991a21b3807e4a412336df133cdc820be0bc8af848bea2908e"
-    sha256 cellar: :any,                 big_sur:        "a1760b6dce6dd151748352e99a54ba3a8f5de2bd32d01a8b6370fce94b085738"
-    sha256 cellar: :any,                 catalina:       "eed88d624813213f4f3272c7c0c6c1483b170642818e36aa14df76a495c4f333"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5f4fd75b1549902d61eee5a944b04048b45b4eb905e9929a8cc28011100cb2ce"
+    sha256 cellar: :any,                 arm64_ventura:  "57f4e7e5c477ceedcfc61e2c0cc1e9fb43dcbc5460e178651ea72fa082743cca"
+    sha256 cellar: :any,                 arm64_monterey: "eabe4d3be0802595b3690ea0a7e0ba928cd05323563fdc4c2c8eca0cc617fd5f"
+    sha256 cellar: :any,                 arm64_big_sur:  "4440d70361440822a00750c2363c2d6eef2412863d8308c9571fe2352143799c"
+    sha256 cellar: :any,                 ventura:        "5a7051517de061440de513389d20bc7e7a8cc1601571f836c553a1ba19c97702"
+    sha256 cellar: :any,                 monterey:       "5f3399ebf5080fd205c39fe7da594f216175ab451fea181e59d5bd7d7e94295d"
+    sha256 cellar: :any,                 big_sur:        "ed575bbb6e1cd8545facc7b14c83ca6d7b1c1ef64e2fdc93b7700217e6565612"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4e144d7720804e4c5873ca76be1b7e70c571a3b9d927f0913c29599070a27dad"
   end
 
   depends_on "pkg-config" => :build

@@ -4,17 +4,17 @@ class SimpleTiles < Formula
   url "https://github.com/propublica/simple-tiles/archive/v0.6.1.tar.gz"
   sha256 "2391b2f727855de28adfea9fc95d8c7cbaca63c5b86c7286990d8cbbcd640d6f"
   license "MIT"
-  revision 17
+  revision 18
   head "https://github.com/propublica/simple-tiles.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "91c2527500613ce739bf70d93ab8cb2473e843ac44eb38cb89e48b735577923f"
-    sha256 cellar: :any,                 arm64_monterey: "91c1f4b7b7e0f186c981539ece21d10279e3d1228134ed80df33186e55ed820d"
-    sha256 cellar: :any,                 arm64_big_sur:  "7cb19716ecc2babf25aea141f389b7f7761c81f99132fc6936727a779a35de4d"
-    sha256 cellar: :any,                 ventura:        "9ff8e18e0130a53d4b3b53f6b15b5fd15cac1ae6adb2d403b7e6665f0617cc3f"
-    sha256 cellar: :any,                 monterey:       "590dd2df54fd4f83c5efc83152e79485344c04cbb000a0bc2efc0cdc29034236"
-    sha256 cellar: :any,                 big_sur:        "26e389105db7f26e74a394892d23e017dfd6db0e50231a1db251936020d2ea95"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "85f1ada4cb8e81a98e2bd582bcdc0962d992d83e91ff901b72fb488b30f44d4d"
+    sha256 cellar: :any,                 arm64_ventura:  "5252e9ff36191861cf16c4b9812ebe7a102bbeebcb78885f8572f086e0aae563"
+    sha256 cellar: :any,                 arm64_monterey: "2b0e038282710117a9307cf7fee0ef4491a1c612331c2002b7a8cf8f3cdb540e"
+    sha256 cellar: :any,                 arm64_big_sur:  "827a05070f0eb7d02850aa47f58bb9fd98c801e46c998133e4202757b8e6dcb8"
+    sha256 cellar: :any,                 ventura:        "31162ff0e202da05f18fda98100983322b17e23d4b151b827f4e5a028148fae8"
+    sha256 cellar: :any,                 monterey:       "af5d85a6e8eca24129ae215ab6ffa2c3079172ae2c4dbfb1187ee4e73344745b"
+    sha256 cellar: :any,                 big_sur:        "f7393f4a5ec721669ae1125fddd5381b2e9b7da6915c7d7aa477e7aea5a1809f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "33e064d743920e4e704fbaef907e24c2a43dcf52b82da8ea6d65392696f76349"
   end
 
   depends_on "pkg-config" => :build

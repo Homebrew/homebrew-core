@@ -1,27 +1,25 @@
 class NatsStreamingServer < Formula
   desc "Lightweight cloud messaging system"
   homepage "https://nats.io"
-  url "https://github.com/nats-io/nats-streaming-server/archive/v0.25.2.tar.gz"
-  sha256 "f0a8baa9770d305c11b425a57383c8c0fcfa59836e30010aec19c14e54436b54"
+  url "https://github.com/nats-io/nats-streaming-server/archive/v0.25.3.tar.gz"
+  sha256 "3fd42f75ecf65aa8d5faebcaa45c5fe4a2a1a1d24c8f7d1f5919434f1ccbc3b1"
   license "Apache-2.0"
   head "https://github.com/nats-io/nats-streaming-server.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0e3ac6b541108e9e23d9731a7fe8d6c7bc3ac8b2d5880960b82bacec3fc37619"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2ab68ed5a2e3f798180efddf11fc983dd144e008579abab474c3da84881349e5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "94bb667e52dbd7fadcfa1efcca2c92f4ba54395d04b2d79f521244832c4d9d3d"
-    sha256 cellar: :any_skip_relocation, ventura:        "03d584de12f34b8ca6e704cad58813d711053e93944134268a43bd2086365786"
-    sha256 cellar: :any_skip_relocation, monterey:       "1979ee5de7edb1a5b4133bdd0563974a2e49313b87b539f2f0396faba6e93831"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d6604a421c7583d547927c5a5beb7f955664da49cbf51707c594c780b0626bb8"
-    sha256 cellar: :any_skip_relocation, catalina:       "aa9c7fd64d91edcf6d59badded667c0f52af54ed298c0553f38e87081c04d089"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0a8b5d70091889792474114d396c384482c8d2335933c7434e9a3a3c55540af4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7595afec85c53398229cdae0a2e03413f004b4d110f2cb73825bc3416aa5940e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "31171d17c6763cd8a9bfee3a2dfa4ed571607245a464a74c519ec35c971bf18d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9d1bb3527d1a871e05b72bf74f58439682296103a432d087547b500989a2f43c"
+    sha256 cellar: :any_skip_relocation, ventura:        "fe9ffbdb0154fb815d4c4877b8d745cc081d0d6e2fe51155b73cea2a96f1a966"
+    sha256 cellar: :any_skip_relocation, monterey:       "7dfaf98e147efb8bb4eb99c38a7e5e5e7fe0cfbb6773729e276cdcf369ec2cd4"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f6e01fc372b782e38990fa83e6de446761a9518db696aa99073488672be6d962"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "76f05c2dd715b1999ad21e445cd67a3cf7c4b1f6bd6b5457d9071684f343d561"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"nats-streaming-server"
-    prefix.install_metafiles
+    system "go", "build", *std_go_args(ldflags: "-s -w")
   end
 
   service do

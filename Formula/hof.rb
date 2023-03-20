@@ -7,6 +7,13 @@ class Hof < Formula
   license "BSD-3-Clause"
   head "https://github.com/hofstadter-io/hof.git", branch: "_dev"
 
+  # Latest release tag contains `-beta`, which is not ideal
+  # adding a livecheck block to check the stable release
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "201fc39b5bfa2a144cf714cd8c974ab4d7c40bc73fe3c0ffb880f2d910759463"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "201fc39b5bfa2a144cf714cd8c974ab4d7c40bc73fe3c0ffb880f2d910759463"

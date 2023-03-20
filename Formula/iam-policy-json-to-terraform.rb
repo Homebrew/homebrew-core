@@ -1,20 +1,19 @@
 class IamPolicyJsonToTerraform < Formula
   desc "Convert a JSON IAM Policy into terraform"
   homepage "https://github.com/flosell/iam-policy-json-to-terraform"
-  url "https://github.com/flosell/iam-policy-json-to-terraform/archive/1.8.1.tar.gz"
-  sha256 "601148725d0e0a114f59bd818982bd27c6868a2550114d429ef4411b98838615"
+  url "https://github.com/flosell/iam-policy-json-to-terraform/archive/1.8.2.tar.gz"
+  sha256 "b771e27aa863e8ec899e36c858e6b78d788123f7784bfb3ece8e6350853a3f9b"
   license "Apache-2.0"
   head "https://github.com/flosell/iam-policy-json-to-terraform.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "230a186721c392312168f6942dd66ded8b9e1b103e98eca1d7f50f35e7b82aea"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "230a186721c392312168f6942dd66ded8b9e1b103e98eca1d7f50f35e7b82aea"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "230a186721c392312168f6942dd66ded8b9e1b103e98eca1d7f50f35e7b82aea"
-    sha256 cellar: :any_skip_relocation, ventura:        "1e4e234b58119f95fccad7d0d1027f46681c5447bbe0164675a271ba224c263a"
-    sha256 cellar: :any_skip_relocation, monterey:       "898a475ea6f2628b7972e43f1a5849c3fec9eec86ceb5117e56a68849dab87cc"
-    sha256 cellar: :any_skip_relocation, big_sur:        "898a475ea6f2628b7972e43f1a5849c3fec9eec86ceb5117e56a68849dab87cc"
-    sha256 cellar: :any_skip_relocation, catalina:       "898a475ea6f2628b7972e43f1a5849c3fec9eec86ceb5117e56a68849dab87cc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "32c9e42a2c161b3ba1bc3765d21b08154e00bac3729232d25c1ee7de78f0b5d5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "de0dd9eac2c92e6d872cb70a31297a302f86a2481ee3b8e8e88abcf400fa3638"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "de0dd9eac2c92e6d872cb70a31297a302f86a2481ee3b8e8e88abcf400fa3638"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "de0dd9eac2c92e6d872cb70a31297a302f86a2481ee3b8e8e88abcf400fa3638"
+    sha256 cellar: :any_skip_relocation, ventura:        "45a53b59f71f30bac7149c65cf265e9ad8fd2089d1d3e378c6579fc9b3e0ae17"
+    sha256 cellar: :any_skip_relocation, monterey:       "45a53b59f71f30bac7149c65cf265e9ad8fd2089d1d3e378c6579fc9b3e0ae17"
+    sha256 cellar: :any_skip_relocation, big_sur:        "45a53b59f71f30bac7149c65cf265e9ad8fd2089d1d3e378c6579fc9b3e0ae17"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "adb27d7d5560c6a455a72d921653a07e4f808d717fc88e1796375b5158cb994a"
   end
 
   depends_on "go" => :build

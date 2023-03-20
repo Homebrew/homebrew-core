@@ -1,58 +1,37 @@
 class CmuPocketsphinx < Formula
   desc "Lightweight speech recognition engine for mobile devices"
-  homepage "https://cmusphinx.sourceforge.io/"
+  homepage "https://cmusphinx.github.io/"
+  url "https://github.com/cmusphinx/pocketsphinx/archive/v5.0.0.tar.gz"
+  sha256 "78ffe5b60b6981b08667435dd26c5a179b612b8ca372bd9c23c896a8b2239a20"
   license "BSD-2-Clause"
-
-  stable do
-    url "https://downloads.sourceforge.net/project/cmusphinx/pocketsphinx/0.8/pocketsphinx-0.8.tar.gz"
-    sha256 "874c4c083d91c8ff26a2aec250b689e537912ff728923c141c4dac48662cce7a"
-
-    # Fix -flat_namespace being used on Big Sur and later.
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
-      sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
-    end
-  end
+  head "https://github.com/cmusphinx/pocketsphinx.git", branch: "master"
 
   livecheck do
     url :stable
-    regex(%r{url=.*?/pocketsphinx[._-]v?(\d+(?:\.\d+)+)\.t}i)
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
-    sha256 arm64_ventura:  "cb3db8f8860e169f7bcdb427935fccdf2b9cddb1c3c1891d296a098664f4ba42"
-    sha256 arm64_monterey: "314f80412a27862cdb5b857b3ae8273e28e29f81dcb4279d60228b149df9b97f"
-    sha256 arm64_big_sur:  "4c3fc6b03df2530653a4ff38b270e9a37dd968748b38a011cae6500ab38d8084"
-    sha256 ventura:        "b3ce7baee259f699334d2a00e412c99ee1ee582f104875bc747e372933b19625"
-    sha256 monterey:       "263434383a2856a30d3119a4683a7c61a52521f08b8ee7bd08f02d8b1efa2de7"
-    sha256 big_sur:        "25ce90366420de438c34e8f037f1da3c7ded680375fcc69127cdec7695f84fed"
-    sha256 catalina:       "f2fc23a67634f26befdd128d21e886d7b3789484a14d498a40949e0e100d8afa"
-    sha256 mojave:         "cc655d82bfce35b2976e4dd0867fceb02b233363e7e101c62b09e60e2be9f8bb"
-    sha256 high_sierra:    "628d162751962337c769090867c3f9921d10b09f704f8f208b63abbefef205eb"
-    sha256 sierra:         "12abc8b527906e7ed0d2f6f0a6b6cb5c00f548fe94fcce995bdc80f43b4cf17b"
-    sha256 el_capitan:     "2f1f4738dbcf7641a530b82c4dc6447ecadb5f9b60cd2484c33c379efb5c46e5"
-    sha256 x86_64_linux:   "3807f33dd6becb2a82ff3ba4062f6604a4001a2650d98526815b17b799627a17"
+    sha256 arm64_ventura:  "0061941ed90615f083e805696e01ae0533e841cb0898efe8ed0170fe2f55b5a6"
+    sha256 arm64_monterey: "14914963bdeccfbb391f4a9c6e5fde36e7aceb9042592b70a3e11406a553d55b"
+    sha256 arm64_big_sur:  "0c8d323fbae3061aedc96f195ac9eb22b8cabc9b14b3f3ff2afbf327442a2050"
+    sha256 ventura:        "7e44c0fc71cf5cb8794dfd900492af1ae1e0ab2b3db8b1d261293b3b22c27964"
+    sha256 monterey:       "6db158c91df59ec2d1545c5e31d0b0e297c4955e651fd963c1c4d70d8a3f88d2"
+    sha256 big_sur:        "f5784b0c53d002bde02fe0e2c09a4c0c305fb6216a6eeaa57b1914ec94e7bdf8"
+    sha256 x86_64_linux:   "d85571c34ac30744302170922e466c101cd7a6c8d8bf7cbccc5941cd416a2a83"
   end
 
-  head do
-    url "https://github.com/cmusphinx/pocketsphinx.git"
+  depends_on "cmake" => :build
 
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-    depends_on "swig" => :build
+  # Fix header installation. Can be removed in next release after 5.0.0.
+  patch do
+    url "https://github.com/cmusphinx/pocketsphinx/commit/74a5ec86468a481cae2a6167a0921455354232d3.patch?full_index=1"
+    sha256 "ef9ad6edbba721cc3e4fe0cf9ba0dd14ed18b9f4cb4be079e021f0e28221160a"
   end
-
-  depends_on "pkg-config" => :build
-  depends_on "cmu-sphinxbase"
 
   def install
-    if build.head?
-      ENV["NOCONFIGURE"] = "yes"
-      system "./autogen.sh"
-    end
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DBUILD_SHARED_LIBS=ON"
+    system "cmake", "--build", "build"
+    system "cmake", "--build", "build", "--target", "install"
   end
 end

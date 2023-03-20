@@ -1,7 +1,7 @@
 class Shc < Formula
   desc "Shell Script Compiler"
   homepage "https://neurobin.github.io/shc"
-  url "https://github.com/neurobin/shc/archive/4.0.3.tar.gz"
+  url "https://github.com/neurobin/shc/archive/refs/tags/4.0.3.tar.gz"
   sha256 "7d7fa6a9f5f53d607ab851d739ae3d3b99ca86e2cb1425a6cab9299f673aee16"
   license "GPL-3.0"
   head "https://github.com/neurobin/shc.git", branch: "master"
@@ -19,7 +19,7 @@ class Shc < Formula
   end
 
   def install
-    system "./configure"
+    system "./configure", *std_configure_args
     system "make", "install", "prefix=#{prefix}"
     pkgshare.install "test"
   end

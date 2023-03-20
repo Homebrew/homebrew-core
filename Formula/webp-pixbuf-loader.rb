@@ -1,19 +1,19 @@
 class WebpPixbufLoader < Formula
   desc "WebP Image format GdkPixbuf loader"
   homepage "https://github.com/aruiz/webp-pixbuf-loader"
-  url "https://github.com/aruiz/webp-pixbuf-loader/archive/0.0.6.tar.gz"
-  sha256 "451cb6924a9aa6afaa21d5b63b402dcfcfe952a1873e078b17078c4a1964a693"
+  url "https://github.com/aruiz/webp-pixbuf-loader/archive/0.2.2.tar.gz"
+  sha256 "a5515697f0703c85fd1651e2b0df3caa5ae4cbfb3393e84a229cd61b91905f76"
   license "LGPL-2.0-or-later"
+  head "https://github.com/aruiz/webp-pixbuf-loader.git", branch: "mainline"
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "334127befcdb1c988eaaceb43bee6a4c338c0ba9a1a6b02ec553e0756739ae88"
-    sha256 cellar: :any, arm64_monterey: "603ebbb5dd68650a0deb2c41fc9682de704bfeb5831a93441fb07e69911355d5"
-    sha256 cellar: :any, arm64_big_sur:  "1d4c1ce0cfe5f675cc8c59a939e5b8a735237648e1c6691e94e0771c9bbf50b8"
-    sha256 cellar: :any, ventura:        "3282db36b28614cee57d5008dcbc2fcdf3057b9298e667e9c522e940e60cb1e9"
-    sha256 cellar: :any, monterey:       "b5c40535c457150fc1654a5072f4162230b17bf661aac05a65512f13f32e94e1"
-    sha256 cellar: :any, big_sur:        "dc06cb83d1f768769e089d1227db8198ba4af1808bcd5dad50b12b3cb63fa6d7"
-    sha256 cellar: :any, catalina:       "7cd01445a1d5214530530f7338c486e6dad5b05e3d06735511c7400eb1444075"
-    sha256               x86_64_linux:   "5f23b6308a09e77a85261b187e6746aef290fdf6be1043bfac198cd6ca4a99c4"
+    sha256 cellar: :any, arm64_ventura:  "ae829df3b53aa27f469a88a9a76759d3e4901389a40825cd6e123739b37f5c08"
+    sha256 cellar: :any, arm64_monterey: "06fab04126c988c633e5a47dfa05a8dbb35c5f50f5ec1e3be0f177c7750422e4"
+    sha256 cellar: :any, arm64_big_sur:  "2057d107760f62d8d5a8b89693d3ab2d89a5677ae3b64677beffc22cc0e99f5e"
+    sha256 cellar: :any, ventura:        "ed0cf9e53e7a55567f481927971d5c2bb978766cd477b74392956e4beaacf25b"
+    sha256 cellar: :any, monterey:       "51d897ed894f2cd28eaecd58b0bc426cdea85f981bed28fc80d5a13a17c45d43"
+    sha256 cellar: :any, big_sur:        "b53943fae5c90b47a24a6695cd3ad8676248b58a0228d10bfbbc01cf20df8ada"
+    sha256               x86_64_linux:   "d8d6710f3533eb574601938fa2fe8d3d47985aac730a5189cccda8bdf3fb5abb"
   end
 
   depends_on "meson" => :build
@@ -38,11 +38,9 @@ class WebpPixbufLoader < Formula
   end
 
   def install
-    mkdir "build" do
-      system "meson", *std_meson_args, "-Dgdk_pixbuf_moduledir=#{prefix}/#{module_subdir}", ".."
-      system "ninja", "-v"
-      system "ninja", "install", "-v"
-    end
+    system "meson", "setup", "build", *std_meson_args, "-Dgdk_pixbuf_moduledir=#{prefix}/#{module_subdir}"
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   # After the loader is linked in, update the global cache of pixbuf loaders

@@ -1,8 +1,8 @@
 class Uuu < Formula
   desc "Universal Update Utility, mfgtools 3.0. NXP I.MX Chip image deploy tools"
   homepage "https://github.com/NXPmicro/mfgtools"
-  url "https://github.com/NXPmicro/mfgtools/releases/download/uuu_1.4.243/uuu_source-1.4.243.tar.gz"
-  sha256 "9fcfe317c379be1e274aae34c19e1fd57188107f8fd0cdd379fe4473aacc92b1"
+  url "https://github.com/NXPmicro/mfgtools/releases/download/uuu_1.5.21/uuu_source-1.5.21.tar.gz"
+  sha256 "e89d3665af499ab71360d948176cf64619b082f8272a994d1fbfc000e67c0f14"
   license "BSD-3-Clause"
   head "https://github.com/NXPmicro/mfgtools.git", branch: "master"
 
@@ -13,14 +13,13 @@ class Uuu < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "2b3fc45dec8c1704cca73c7fa759112c730c260683b04859c557777066403a1e"
-    sha256 arm64_monterey: "6d98d5f7415a9a48212b6ceb9fca916ef5f389674af1226ea33deeed4fbf55db"
-    sha256 arm64_big_sur:  "fcc082a046e5434ffbb0194ca0246b1a6eb331679ca00a3e67f934575f022089"
-    sha256 ventura:        "d31106face607547c7b81758ffe3040066e6f2fc1572f69fab4fb3df1d8d3269"
-    sha256 monterey:       "6f282587da598660d96aad433ebc9537910ba5da6f768eacc96fe9ccd00db636"
-    sha256 big_sur:        "2e71e4dc3c51ae85422dafb07c465b81936cd1a3608dd2a6f0e8d336f666f9f8"
-    sha256 catalina:       "15485ecb8c573a08aa2de01a69b2c32c90607d71cf6efc506057771f56616246"
-    sha256 x86_64_linux:   "d7d8dc25a86d910314416c59d985d6a6e3aa8028c0875be9868edf2cb6528a15"
+    sha256 arm64_ventura:  "e13a2b32c07ba4a37b105ba11005ef441af6ab12c9f14c35f639eba205a282dd"
+    sha256 arm64_monterey: "764c2c55a738f4c735f08796bd806769b5c04f22d63d4fbc954436ca8f528aa4"
+    sha256 arm64_big_sur:  "0e139f269042a96f3dec0fdcba77901288aa0076156f29c409ad82d1ad0a4dd1"
+    sha256 ventura:        "8aa2876a1425782f0f2f0416f608d50e40ee0dd7364a1de00e1e0a713af930dd"
+    sha256 monterey:       "3cb5096a3e79451f8295bf2d48f294073673e3559becbdd923858f4da7c10337"
+    sha256 big_sur:        "e9ce4cccfce96d7e18d358fbbf4acfa346d95ff79f28a78f6a18f835ffef196c"
+    sha256 x86_64_linux:   "7ab6929cdcdf23fd790d5acd4637917e2498b2c776af76fcaec6ec2903d87444"
   end
 
   depends_on "cmake" => :build

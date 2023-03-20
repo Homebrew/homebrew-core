@@ -11,18 +11,18 @@ class Mono < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_monterey: "61b4b5c6e09559181bb324df3bf3be7176a5d11a46cd38140f1cd9a6945e665f"
-    sha256 arm64_big_sur:  "58a82c3bc29f421574b7b8372027099ff40413b79fbb7ad6604f4de6d2077506"
-    sha256 ventura:        "73ee9e234787f88bf7d2e00d8b19e8451aa88d06a973f843761da871f8761f63"
-    sha256 monterey:       "9377d9ec83e73e382853cb5f99dc865b4625ee3cf0717d6abb6b3c30a5803da8"
-    sha256 big_sur:        "02efa2df358fb3d45d8525d010b09ba553f259a2418370840231243b4439389b"
-    sha256 x86_64_linux:   "516caabaf57d2a4b90c6e6d09b0279774d4bf59afd3dfad4e120b80b61512ce7"
+    rebuild 2
+    sha256 arm64_monterey: "7c423e09da1607e5c80a8631fb4eb9f53869aca4c1bd702af36c3651a059f8dd"
+    sha256 arm64_big_sur:  "1a755293d5bd0b4d646c752be882493bbd272b8502998f78b673091a9a5e78e8"
+    sha256 ventura:        "a86886958f62a0456623b51ceeef71304a6b5bc4e98fd3f889a269e817987ec2"
+    sha256 monterey:       "26fc159d687c2c647cbdc7d54c3100d47034a1bef41ad5bcd37ed28b17f338b1"
+    sha256 big_sur:        "c319b187b5b7881bae3139a38028af4ae09f55acdd0a23b5dfe1deb04bab4372"
+    sha256 x86_64_linux:   "e147b8ae7c32cda6c96a34bdd1de6f7d15c40af36b9ae68cb2196eb7e827e0a2"
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   uses_from_macos "unzip" => :build
   uses_from_macos "krb5"

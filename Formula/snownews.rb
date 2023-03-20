@@ -1,8 +1,8 @@
 class Snownews < Formula
   desc "Text mode RSS newsreader"
-  homepage "https://github.com/msharov/snownews"
-  url "https://github.com/msharov/snownews/archive/v1.9.tar.gz"
-  sha256 "d8ef0c7ef779771e2c8322231bdfa7246d495ba8f24c3c210c96f3b6bd3776a7"
+  homepage "https://sourceforge.net/projects/snownews/"
+  url "https://downloads.sourceforge.net/project/snownews/snownews-1.9.tar.gz"
+  sha256 "f5a16b92254848ca465d578db3ed98af2323b1800ff27bb8c410e20e521bf485"
   license "GPL-3.0-only"
 
   bottle do

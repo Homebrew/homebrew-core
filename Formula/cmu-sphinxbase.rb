@@ -38,8 +38,7 @@ class CmuSphinxbase < Formula
     depends_on "swig" => :build
   end
 
-  # Commented out while this formula still has dependents.
-  # deprecate! date: "2022-06-12", because: :repo_archived
+  deprecate! date: "2023-02-16", because: :repo_archived
 
   depends_on "pkg-config" => :build
   # If these are found, they will be linked against and there is no configure

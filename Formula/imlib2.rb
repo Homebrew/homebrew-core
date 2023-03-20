@@ -1,18 +1,18 @@
 class Imlib2 < Formula
   desc "Image loading and rendering library"
   homepage "https://sourceforge.net/projects/enlightenment/"
-  url "https://downloads.sourceforge.net/project/enlightenment/imlib2-src/1.10.0/imlib2-1.10.0.tar.gz"
-  sha256 "6e5f5cff73e5a819593d908e391082d6b531e245e3f1f2c9e09f638e5012968e"
+  url "https://downloads.sourceforge.net/project/enlightenment/imlib2-src/1.11.0/imlib2-1.11.0.tar.gz"
+  sha256 "94b74f7c28d5d05ac936d479f944a71222311b8ced8d012fd57010830faade31"
   license "Imlib2"
 
   bottle do
-    sha256 arm64_ventura:  "b873e44f7f8af7fd5495e77713acdc1873f187e13f5a1636c32d8a87a16cfb2e"
-    sha256 arm64_monterey: "622b01363a9a6725654a482b463d0f6ae5b2b13b643ee90e8efa4e5e4e0f41e5"
-    sha256 arm64_big_sur:  "f5ffc27c58c52ce4b49b803ba9938b3d71b17dc1aebadfb45ced220a22e20219"
-    sha256 ventura:        "3d204b875066b60575d05d2d2c0596c60acf7b49e1204bf19aa90f2ad15b6e4e"
-    sha256 monterey:       "ebee85e06daeb7052b5da9825f0a0cd7daed59ec978a88290b3829d3d99dfdf9"
-    sha256 big_sur:        "0372b4f085ac6492d55aba0f82311bcc96baa07018ba61e3b6b69f054264d4b5"
-    sha256 x86_64_linux:   "e0866bc153e38b192a6415a55bd08b8289a85b0db2476ba051e6b43d33188dfe"
+    sha256 arm64_ventura:  "9593d7f05cf0e259f616c5c40ed62646f4d14e3bfb7e68e77524ad3f6d97f70c"
+    sha256 arm64_monterey: "924df5623cd34a98e1144f60d15f85f62524de314906bd357e1037eaed8bcaf8"
+    sha256 arm64_big_sur:  "4d777d6f7b7625f852cec2639ba2ea353abeed0a2a2b74663d7abe5262e33272"
+    sha256 ventura:        "f39e7d0faad74d47aa84419e0b87abd406343c5d30c3e677fd3375a511886044"
+    sha256 monterey:       "773dbe255a23e3748e4ccc91b37a8c02447a9759bc5a5bfb6d2724ca166ca6a6"
+    sha256 big_sur:        "46852d65700e5cf71b68ab45444dba8b0d7e791f6645bdbcaa9d15770d266a7e"
+    sha256 x86_64_linux:   "ce52a8970e87f07be1a03d94a5dae4490ae912c51cbee7e312d030e2700d520f"
   end
 
   depends_on "pkg-config" => :build
@@ -24,9 +24,22 @@ class Imlib2 < Formula
   depends_on "libx11"
   depends_on "libxcb"
   depends_on "libxext"
+  depends_on "xz"
+
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
 
   def install
-    system "./configure", *std_configure_args, "--enable-amd64=no", "--without-id3"
+    system "./configure", *std_configure_args,
+                          "--disable-silent-rules",
+                          "--enable-amd64=no",
+                          "--without-heif",
+                          "--without-id3",
+                          "--without-j2k",
+                          "--without-jxl",
+                          "--without-ps",
+                          "--without-svg",
+                          "--without-webp"
     system "make", "install"
   end
 

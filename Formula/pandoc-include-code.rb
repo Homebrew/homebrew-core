@@ -19,6 +19,9 @@ class PandocIncludeCode < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ab22b3df53ac6762dcc8b564ebbefdc96a814ba31f93fc4dd701bbb28bacb958"
   end
 
+  # see https://github.com/owickstrom/pandoc-include-code/issues/46
+  deprecate! date: "2023-01-25", because: :unmaintained
+
   depends_on "cabal-install" => :build
   depends_on "ghc@8.10" => :build
   depends_on "pandoc"

@@ -1,13 +1,19 @@
 class Tart < Formula
   desc "macOS and Linux VMs on Apple Silicon to use in CI and other automations"
   homepage "https://github.com/cirruslabs/tart"
-  url "https://github.com/cirruslabs/tart/archive/refs/tags/0.36.2.tar.gz"
-  sha256 "5f8e3b1d92907a1c6949ac8430ad1c48f24d28e8af73dd28b7cc87df69401eef"
+  # NOTE: 1.x uses non-open source license
+  # https://tart.run/blog/2023/02/11/changing-tart-license/
+  url "https://github.com/cirruslabs/tart/archive/refs/tags/0.38.0.tar.gz"
+  sha256 "ca6a46c2373eb9c9e105d2a80229f7cbcdb03d5ce800173ec01b78424f5a5d7f"
   license "AGPL-3.0-or-later"
 
+  livecheck do
+    skip "1.x uses non-open source license"
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "824b8df3b40c17054251d3eeebe044c789d27ff1da8234137a2836a34b4e69cc"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c62fbcbdd94c15a9ed978f538781ca349f1c66226f669005fda6e2b719256009"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2938ae8b794f0875409753bc21f34b306e4ee39e73157d28fc2b1407b7bd39c1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "be32fd68c2c54a9c874b4278ae8599116c1bb74464c1ae94064097839ae64e09"
   end
 
   depends_on "rust" => :build
@@ -19,8 +25,8 @@ class Tart < Formula
   uses_from_macos "swift"
 
   resource "softnet" do
-    url "https://github.com/cirruslabs/softnet/archive/refs/tags/0.6.0.tar.gz"
-    sha256 "fd01589b9cb1497394f1fd0fbed385dca51558352b5a7d1337cb92a1a2d2f95d"
+    url "https://github.com/cirruslabs/softnet/archive/refs/tags/0.6.2.tar.gz"
+    sha256 "7f42694b32d7f122a74a771e1f2f17bd3dca020fb79754780fbc17e9abd65bbe"
   end
 
   def install
@@ -35,7 +41,7 @@ class Tart < Formula
   test do
     ENV["TART_HOME"] = testpath/".tart"
     (testpath/"empty.ipsw").write ""
-    output = shell_output("tart create --from-ipsw #{testpath/"empty.ipsw"} test", 1)
+    output = shell_output("#{bin}/tart create --from-ipsw #{testpath/"empty.ipsw"} test 2>&1", 1)
     assert_match "Unable to load restore image", output
   end
 end

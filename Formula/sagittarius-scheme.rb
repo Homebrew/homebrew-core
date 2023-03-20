@@ -6,20 +6,20 @@ class SagittariusScheme < Formula
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "e186542008a7cdc791ae6afba6ca61eaee7f24ef3e0deb3d1fcb838a38257120"
-    sha256 cellar: :any,                 arm64_monterey: "aa58043d5a722199e9804c638b9dcd971e1bb581d56949cdd01eda2a6afcc2fe"
-    sha256 cellar: :any,                 arm64_big_sur:  "aefe414d8854397b1e9d10af0af06dbbeaaad6ec31fafe15f56041912a221869"
-    sha256 cellar: :any,                 ventura:        "5595f61f227ec712709f574f0557581de68a85f6bc08cdc7d2b9fe746d1c9db8"
-    sha256 cellar: :any,                 monterey:       "8e484bed19b121d1290f9498965d236422548c350150fce878e30831247b0e49"
-    sha256 cellar: :any,                 big_sur:        "83e532ea9baf7353b69eee3cef275fde3c6deb35333abbf4982fa92a6c40d9bb"
-    sha256 cellar: :any,                 catalina:       "61358c5b04f3fb9acb8752eafb515e1bc6bc1e3054495f974a6376b3dd795249"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1a09b312240733e744a0acbf2257766091c668eed670791f244ee0f492cd0833"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "237ea12128152a7f632b5ed43aceddb28995f8799067f13fa054a081cff466e6"
+    sha256 cellar: :any,                 arm64_monterey: "937526c62057dab00ce297beac5d106d3aa2268ebda9a2753a873427e8727e2f"
+    sha256 cellar: :any,                 arm64_big_sur:  "928d29bdbc346929358499d1adc55f4cc904d15fd4863580af2c9ebf11c3f57f"
+    sha256 cellar: :any,                 ventura:        "346109597d535794bfeea71fce3a280c2e73138ed1e0cfea02151f3784a57a44"
+    sha256 cellar: :any,                 monterey:       "151832417b0a270f1b11d1549fff12dfdd81b50eafbf8dedffb8a43e63e9c57f"
+    sha256 cellar: :any,                 big_sur:        "f0795af1db94d8df817ad6b70f5b2c85699f7a404dc24bb388f37ad3e4b38ad9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4825f62883dba6d3d4409a46948aef4fc6ca07f9ce2a715545d1f9413f4ad696"
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "bdw-gc"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "unixodbc"
 
   uses_from_macos "libffi", since: :catalina

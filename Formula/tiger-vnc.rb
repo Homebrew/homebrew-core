@@ -1,19 +1,25 @@
 class TigerVnc < Formula
   desc "High-performance, platform-neutral implementation of VNC"
   homepage "https://tigervnc.org/"
-  url "https://github.com/TigerVNC/tigervnc/archive/v1.12.0.tar.gz"
-  sha256 "9ff3f3948f2a4e8cc06ee598ee4b1096beb62094c13e0b1462bff78587bed789"
+  url "https://github.com/TigerVNC/tigervnc/archive/v1.13.1.tar.gz"
+  sha256 "b7c5b8ed9e4e2c2f48c7b2c9f21927db345e542243b4be88e066b2daa3d1ae25"
   license "GPL-2.0-or-later"
 
+  # Tags with a 90+ patch are unstable (e.g., the 1.9.90 tag is used for the
+  # 1.10.0 beta release) and this regex should only match the stable versions.
+  livecheck do
+    url :stable
+    regex(/^v?(\d+\.\d+\.(?:\d|[1-8]\d+)(?:\.\d+)*)$/i)
+  end
+
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "109fdbc449f3d9888c9442b95280bf1f3c2b9ac876670a7bb52f1fb0c350e10e"
-    sha256 cellar: :any, arm64_monterey: "77eb966db9ec8b43de5c86e21e6626097271d58f7fbd8ccea5d551bfb0e7ddbf"
-    sha256 cellar: :any, arm64_big_sur:  "da27b10b7a89f771a6e134b9e81fa5fd49b8f0ffbd545c8e6569644cd0dcfc65"
-    sha256 cellar: :any, ventura:        "8de663dc2ccab42a4256b3d3af1bf595f33e5c5dacc809961a54799df0d47103"
-    sha256 cellar: :any, monterey:       "13159586d63ec225969612e5d3f3d47eeacdadf7a3df3c930a932f9a95321002"
-    sha256 cellar: :any, big_sur:        "168aaa072c658c672b6cf54901d27c603ce09fe4c70d5711f5cd6b4b8927daea"
-    sha256 cellar: :any, catalina:       "e703e1d70a8d46b3c20bd58a9c8c4796ec221342413ca3342a2c2ea66cbc221f"
-    sha256               x86_64_linux:   "12274cb50da8dca757eb9a53340ffab3c5fc9f126f5d64c977c4b5cb6f87722b"
+    sha256 cellar: :any, arm64_ventura:  "020433420a88dee43baf6d3f615c599fcfb198af33a1aa7804b558c42d567530"
+    sha256 cellar: :any, arm64_monterey: "7736e3193f654d40c55995280d7a1bd065f869fff11780c83b26321fa83cf614"
+    sha256 cellar: :any, arm64_big_sur:  "85d05acc79800b9e5ebb4c187480edbb97afb7b54f0990513ca30ab0a0714d7e"
+    sha256 cellar: :any, ventura:        "7955a68a220e7823e98620a6f9be3c43e3057ae773388e5612cff6619fd93733"
+    sha256 cellar: :any, monterey:       "08a5dc1ad2f983174eda1c31e68bd66f2db1276cdde640df82ec2d2497b1a990"
+    sha256 cellar: :any, big_sur:        "d4961d1d80f491537148c9c5f800ada12df1ece76cc017e1ad10403f740055eb"
+    sha256               x86_64_linux:   "5d79edb3286b58e516c615f9350576d50737b61fe4aa94809b0eac7dabda978c"
   end
 
   depends_on "cmake" => :build
@@ -51,6 +57,6 @@ class TigerVnc < Formula
 
   test do
     output = shell_output("#{bin}/vncviewer -h 2>&1", 1)
-    assert_match "TigerVNC Viewer 64-bit v#{version}", output
+    assert_match "TigerVNC Viewer v#{version}", output
   end
 end

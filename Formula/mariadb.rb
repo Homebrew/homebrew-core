@@ -1,8 +1,8 @@
 class Mariadb < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.com/MariaDB/mariadb-10.10.2/source/mariadb-10.10.2.tar.gz"
-  sha256 "57cbd0112b22b592f657cd4eb82e2f36ad901351317bf8e17849578e803f3cb2"
+  url "https://downloads.mariadb.com/MariaDB/mariadb-10.11.2/source/mariadb-10.11.2.tar.gz"
+  sha256 "1c89dee0caed0f68bc2a1d203eb98a123150e6a179f6ee0f1fc0ba3f08dc71dc"
   license "GPL-2.0-only"
 
   # This uses a placeholder regex to satisfy the `PageMatch` strategy
@@ -20,14 +20,13 @@ class Mariadb < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "8bf8565ff3cfd8d9cb69ec38450dcc87802c9b8ae9f569a452926a9e8707642f"
-    sha256 arm64_monterey: "af53faa5484f46c67f0711aef9c2dbc0df1907e619dc616f576a00ce9c5ea994"
-    sha256 arm64_big_sur:  "18dbcf86270148e068d85eb4f9d3e0939a2edc1f6465199d5be2f7583185fe15"
-    sha256 ventura:        "aef7acbcdecd5b1e14f5a4815849c21799c6dedb99b190a669b52b803bd33c34"
-    sha256 monterey:       "9382abb29378ccebb7e11ecdcbd107d93299cf104611cc60d695d694bb139555"
-    sha256 big_sur:        "746b9c8f0971ea2f3d18043f5bbcb6b93ffc92d58a56a26fb7843b0be8b3006f"
-    sha256 catalina:       "b7134d5eb53aa6503405dda3e75a148f3077426f30c99eae76d97eececc4b948"
-    sha256 x86_64_linux:   "df7ad5f9b108da21ec963f40340f06a2abfa42c4b228c9f40ad9c18ff6fec2e4"
+    sha256 arm64_ventura:  "6b65a5ce4521ebdea09409de26b89853e577321c1f106dea2c1f07a45d23cea7"
+    sha256 arm64_monterey: "2d5fda58c720769bb973bce1b80e26f8405fccdbf05b2d63a3c0f582318917d7"
+    sha256 arm64_big_sur:  "7c853067d56e24cd480eaaa5266122b8ff22fd1c15a298ade4b49813f8be119d"
+    sha256 ventura:        "64f0437b9f957593bd36f1c2922ea503a6ee4daf80ec2779a282e76855a26e3b"
+    sha256 monterey:       "80b40e32e3243e5b3e50ae90de7dc131e6e51ea74375d1dbb30f767833602888"
+    sha256 big_sur:        "a50e9c1ed6e33364a921dae1e7a252aa6280e3b39aa012cd923a97abb79ad57b"
+    sha256 x86_64_linux:   "a3b657261becd4083f072c33f2e4d951cca860242e94ac78b7d5b68667a26bc4"
   end
 
   depends_on "bison" => :build
@@ -41,6 +40,7 @@ class Mariadb < Formula
 
   uses_from_macos "bzip2"
   uses_from_macos "libxcrypt"
+  uses_from_macos "libxml2"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
@@ -56,13 +56,6 @@ class Mariadb < Formula
   conflicts_with "mariadb-connector-c", because: "both install `mariadb_config`"
 
   fails_with gcc: "5"
-
-  # fix compilation, remove in 10.10.3
-  patch do
-    url "https://github.com/mariadb-corporation/mariadb-connector-c/commit/44383e3df4896f2d04d9141f640934d3e74e04d7.patch?full_index=1"
-    sha256 "3641e17e29dc7c9bf24bc23e4d68da81f0d9f33b0568f8ff201c4ebc0487d26a"
-    directory "libmariadb"
-  end
 
   def install
     ENV.cxx11
@@ -104,10 +97,9 @@ class Mariadb < Formula
     # Disable RocksDB on Apple Silicon (currently not supported)
     args << "-DPLUGIN_ROCKSDB=NO" if Hardware::CPU.arm?
 
-    system "cmake", ".", *std_cmake_args, *args
-
-    system "make"
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "_build", *std_cmake_args, *args
+    system "cmake", "--build", "_build"
+    system "cmake", "--install", "_build"
 
     # Fix my.cnf to point to #{etc} instead of /etc
     (etc/"my.cnf.d").mkpath

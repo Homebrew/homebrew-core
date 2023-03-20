@@ -1,10 +1,20 @@
 class Httperf < Formula
   desc "Tool for measuring webserver performance"
   homepage "https://github.com/httperf/httperf"
-  url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/httperf/httperf-0.9.0.tar.gz"
-  sha256 "e1a0bf56bcb746c04674c47b6cfa531fad24e45e9c6de02aea0d1c5f85a2bf1c"
   license "GPL-2.0"
   revision 2
+
+  stable do
+    url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/httperf/httperf-0.9.0.tar.gz"
+    sha256 "e1a0bf56bcb746c04674c47b6cfa531fad24e45e9c6de02aea0d1c5f85a2bf1c"
+
+    # Upstream patch for OpenSSL 1.1 compatibility
+    # https://github.com/httperf/httperf/pull/48
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/httperf/openssl-1.1.diff"
+      sha256 "69d5003f60f5e46d25813775bbf861366fb751da4e0e4d2fe7530d7bb3f3660a"
+    end
+  end
 
   # Until the upstream GitHub repository creates a new release (something after
   # 0.9.0), we're unable to create a check that can identify new versions.
@@ -13,39 +23,29 @@ class Httperf < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "3381391da57a081b647ac8d8aa09a6048c63a1c23211f947f2add0a684b35afc"
-    sha256 cellar: :any,                 arm64_monterey: "1d154cd3cc694cb0a57056fd7a3348a681892e7e808fea2639402db0e9b8930e"
-    sha256 cellar: :any,                 arm64_big_sur:  "2628055d8209f52ee35bd325c155bb506c36b581fa697d013f6fe32ed6ab0b2f"
-    sha256 cellar: :any,                 ventura:        "58e5433b256076f049d4d88f3deddcde0b35937ce24d4a8bea953a133fcd20b2"
-    sha256 cellar: :any,                 monterey:       "2db16578e75d150f3abe98f416359a307c1632ee00dcea6cc8f904ba95754eb1"
-    sha256 cellar: :any,                 big_sur:        "5c8f3e33c44d4d705ea1e23663ac922cc61019299787defcf60df6161608a5de"
-    sha256 cellar: :any,                 catalina:       "80a2634adda8fe39ebda84ccdf6cbbb0357668da3615067b6f9714229801d085"
-    sha256 cellar: :any,                 mojave:         "390d46278c9e7bd0f58003ba49bc1a0ab110ab24864029d6ae9fd8d3f491b57c"
-    sha256 cellar: :any,                 high_sierra:    "5c049e4bfc272313e7c1051da7430bc09e712d5a70f1593c5ecf08ac94b3b238"
-    sha256 cellar: :any,                 sierra:         "015d2ce99b57fa808ae284f44904ca209e11603bf66085bf64a8270c45203490"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a9f46b3ca870873ea6132895df6261af1ace9559f472d72d51187f15d354214c"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "cf626f3e9d749e395728ce1ca02b1441be6321989841a0b1135baef10455b739"
+    sha256 cellar: :any,                 arm64_monterey: "a6976f04d98a5195075909f77587f0c113ed94389a49ab1ff4ddfc263c14c3ea"
+    sha256 cellar: :any,                 arm64_big_sur:  "e8a25cd3891631f61aaaf69682a952ceaa5e680559defd48a0de3eaebe1f1519"
+    sha256 cellar: :any,                 ventura:        "3f61658586cbdac24c810c9b201d8054f9f800046a7ec1b6754e82e49be64244"
+    sha256 cellar: :any,                 monterey:       "72bdd969d2e88750ea3827860143f05756fb0da35f9ce04d185ed9de0f42791f"
+    sha256 cellar: :any,                 big_sur:        "a77143c2960957c7b998ef8259f23f7252264e297c1f8a7f812c7712eec756f3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "da0a7ad0ca9b357505cc3c26fa174dd7c4f289e2054e654eb82e2678aad8dc74"
   end
 
   head do
-    url "https://github.com/httperf/httperf.git"
+    url "https://github.com/httperf/httperf.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 
-  depends_on "openssl@1.1"
-
-  # Upstream patch for OpenSSL 1.1 compatibility
-  # https://github.com/httperf/httperf/pull/48
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/httperf/openssl-1.1.diff"
-    sha256 "69d5003f60f5e46d25813775bbf861366fb751da4e0e4d2fe7530d7bb3f3660a"
-  end
+  depends_on "openssl@3"
 
   def install
-    system "autoreconf", "-fvi" if build.head?
-    system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking"
+    system "autoreconf", "--force", "--install", "--verbose" if build.head?
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 

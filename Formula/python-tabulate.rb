@@ -6,23 +6,23 @@ class PythonTabulate < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cb133399eb9eac5597456ff97ad2998098d51b92a306f2ac69b6ddab10b1d7a6"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "59b5698b0f1d90ce0f4db412cfbe18173a9ff1c07bbce8b7e32f9618f3eeddb6"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3ac5018fabca43b5fda8c0c527152a0dc305b5f6ea13146a0e15a0b74e417880"
-    sha256 cellar: :any_skip_relocation, ventura:        "340787a971287aee2cb7419e2a1c5b8dbc5361e1ccd943efe0e6202b6933e5c3"
-    sha256 cellar: :any_skip_relocation, monterey:       "3e58adc3d2ab1940c6ee27404186fbc871fb9c5cf246039c7309e06430083322"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b4ac8f5dc44de25a24a0ee597e7fef637e40f7f9d0490142769a5142f95762a2"
-    sha256 cellar: :any_skip_relocation, catalina:       "31f07e4ef0661c4da765fbca3f8c6bf8571996a6cf2b661c0dff8f18cb9e6c40"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "83dbafc2f1d09361907a7746347f6dfe0c3a0add8dc66710ea50ff39abe3725b"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2f4936777a24b5061f87e299884aef95136b4d252b923ae305d9bbe73e2dad28"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c5e460cc4ab943bd3df71621927870d82c82e9cf04952685777da57f6f617623"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7520c9d33cb5d3a87400aa0c08cf34ca4af36fd0a37f4efef343d4babc859cd5"
+    sha256 cellar: :any_skip_relocation, ventura:        "6262b211e0254a8e7201f596ed6e7ad7901f943d095e59f73d87a1e6af420d53"
+    sha256 cellar: :any_skip_relocation, monterey:       "76ef2b0a509160d8cd16b0e8311f91ededec7e46f318143d6b96059b86032c53"
+    sha256 cellar: :any_skip_relocation, big_sur:        "2bf325d06152ecf195d458012ac7be874b25bd6329fceb463be171d0c5a8c9ff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "47496825538f1a5d0ab294a6fd11f303db31bdfbc88703df81603b903ba8815f"
   end
 
   depends_on "python@3.10" => [:build, :test]
-  depends_on "python@3.11" => [:build, :test]
-  depends_on "python@3.9" => [:build, :test]
+  depends_on "python@3.11" => [:build, :test] # FIXME: should be runtime dependency
 
   def pythons
     deps.map(&:to_formula)
         .select { |f| f.name.match?(/^python@\d\.\d+$/) }
+        .sort_by(&:version)
         .map { |f| f.opt_libexec/"bin/python" }
   end
 

@@ -1,9 +1,9 @@
 class Glassfish < Formula
   desc "Java EE application server"
   homepage "https://glassfish.org/"
-  url "https://download.eclipse.org/ee4j/glassfish/glassfish-7.0.0.zip"
-  mirror "https://github.com/eclipse-ee4j/glassfish/releases/download/7.0.0/glassfish-7.0.0.zip"
-  sha256 "3bf2140d9cab4dafe773afaf85dd7489c075e8bfb883a95f12d0aa2be306a4e3"
+  url "https://download.eclipse.org/ee4j/glassfish/glassfish-7.0.2.zip"
+  mirror "https://github.com/eclipse-ee4j/glassfish/releases/download/7.0.2/glassfish-7.0.2.zip"
+  sha256 "d98087f0dc24d503e10cb2565ed7833028d172c816de799ba89234f5f9e9bb67"
   license "EPL-2.0"
 
   livecheck do
@@ -12,7 +12,7 @@ class Glassfish < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "8f56c18877af7bd6d49496282807e73e9efe1dcf795af88d3bfb1d3c3d18fc14"
+    sha256 cellar: :any_skip_relocation, all: "3f21ccea36ec8b555282224e1cda9b44134dd61c6c6e1d1be5d930221a5ad512"
   end
 
   depends_on "openjdk@17"
@@ -43,9 +43,10 @@ class Glassfish < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/asadmin version")
-
     port = free_port
+    # `asadmin` needs this to talk to a custom port when running `asadmin version`
+    ENV["AS_ADMIN_PORT"] = port.to_s
+
     cp_r libexec/"glassfish/domains", testpath
     inreplace testpath/"domains/domain1/config/domain.xml", "port=\"4848\"", "port=\"#{port}\""
 
@@ -56,5 +57,7 @@ class Glassfish < Formula
 
     output = shell_output("curl -s -X GET localhost:#{port}")
     assert_match "GlassFish Server", output
+
+    assert_match version.to_s, shell_output("#{bin}/asadmin version")
   end
 end

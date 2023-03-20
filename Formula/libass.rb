@@ -1,18 +1,18 @@
 class Libass < Formula
   desc "Subtitle renderer for the ASS/SSA subtitle format"
   homepage "https://github.com/libass/libass"
-  url "https://github.com/libass/libass/releases/download/0.17.0/libass-0.17.0.tar.xz"
-  sha256 "971e2e1db59d440f88516dcd1187108419a370e64863f70687da599fdf66cc1a"
+  url "https://github.com/libass/libass/releases/download/0.17.1/libass-0.17.1.tar.xz"
+  sha256 "f0da0bbfba476c16ae3e1cfd862256d30915911f7abaa1b16ce62ee653192784"
   license "ISC"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "baa3b648fc992ec6809cedfabb7590cabca2dfea3c927e562191656a80d396b3"
-    sha256 cellar: :any,                 arm64_monterey: "0b19597e0eb0d9a5bddc13e0a5bcc17b2bfd77a17b5cc5cddb68c208a6838609"
-    sha256 cellar: :any,                 arm64_big_sur:  "091a8dc756479e45b245c0c913e39101991df611c9670ebf38e04fd4ad2d7c8b"
-    sha256 cellar: :any,                 ventura:        "7d65f258e3f0ad6a7d60428c9982050ec18edf64aa22c91692fd4084a42dbe34"
-    sha256 cellar: :any,                 monterey:       "eb7c43548a66b39afbc8822640b02531824f65e4293f8f6a0fa8c0addb874581"
-    sha256 cellar: :any,                 big_sur:        "affb71cad007121bb77b910707e7d3c197fa73875b366d70e7b31d927bf05c13"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ccd2e410057e8e959628f5c95152fbb9137267cac65092f5ac6ad1e111b9bb56"
+    sha256 cellar: :any,                 arm64_ventura:  "0f5b7f92f0a546fdc3132dc9aba43cfa6a0c9817fea4ae5757c300eff84848e2"
+    sha256 cellar: :any,                 arm64_monterey: "7d035facb52ae4af37f85aced182fa1500acc7b62a7ad1f0d0340215a7142f87"
+    sha256 cellar: :any,                 arm64_big_sur:  "0ba42a7412c531c983e6485f1dc6f2751b29442189ac35398ebbfb556193b5e2"
+    sha256 cellar: :any,                 ventura:        "690c44517e17fb4a72d442aa0b66942b4f5956a629dfbb5bb4a481917fb4083c"
+    sha256 cellar: :any,                 monterey:       "f21c63595e10a2b146cb82dbc07fe2adb1bbcfefc4751c0ec33bb0cbc7994cbc"
+    sha256 cellar: :any,                 big_sur:        "07e931e619def22ebab6739a7532479c837fae15222d99beb59aacbd4e308590"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "980cf8c0847512a6ff3df227516c85d6b42fd9775a7b26dc40226be5b202fefd"
   end
 
   head do

@@ -1,8 +1,8 @@
 class Jdupes < Formula
   desc "Duplicate file finder and an enhanced fork of 'fdupes'"
   homepage "https://github.com/jbruchon/jdupes"
-  url "https://github.com/jbruchon/jdupes/archive/v1.21.1.tar.gz"
-  sha256 "22de88d1963f70c8ed4d0aa40abe05b48aaa4cc08eed6a2c6c9747010f9f4eb7"
+  url "https://github.com/jbruchon/jdupes/archive/v1.21.3.tar.gz"
+  sha256 "8992d0ff1fe135c685063ce3c9d69d54f1f19f1b32845e84441f888218063cc0"
   license "MIT"
 
   livecheck do
@@ -11,13 +11,13 @@ class Jdupes < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f9595418b022ed126935f16404e6e2503fc92a8d6f5c017bbe1748636cf86ca1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "aa5affbd9d962355b5128e1e73927cf9fe2c6720cf05cba8ec48104bd80f1e5d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fb66eb36d818d088754b3dac1469f10edcc8aa2fb7db656956ada41fcab5ce6a"
-    sha256 cellar: :any_skip_relocation, ventura:        "56e94b0a68d4b53e85eb60ce7d3e1f82c20c31b77563a09fe5dfee44f44b2c86"
-    sha256 cellar: :any_skip_relocation, monterey:       "4f98e32a7c47f67b52de7a1ac1e16810fd94e410c3e064310604f50381251fad"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7d94e1e28842622a85ec6295da35c901f4e724ddb74429910cfced64fd111aca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "50cc4992d4da919e76961619f845b5bc8e4ad11e9487d9883ae2d65a2a0d4e35"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e24324ee039ffdd10282311adb902056e7d77cc253225b2da32da4e98fa869fd"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8385586fa874ee9821970e3e8673d5075d068d5b6f46fbd5378a9ac9d755895a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b19421ee595a1c69cf7754a1668f017284835b60c917616f1f3b7e86150a66b8"
+    sha256 cellar: :any_skip_relocation, ventura:        "7cf8bcafe29ab0bc5bd9ad959e79d9bf6f46077b9236b22b3e03a684944ad265"
+    sha256 cellar: :any_skip_relocation, monterey:       "9d78e219df00b25776c1613c92526a1f3c44df4b1bb1fdebe67e65fa7df00279"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4d74756fceec7d480e91d3f7d3b38946d3c945b0b7c101f9584ed32cf2b28bb0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8df5e09093977d45b08da78175dd18e8f221734d34c95cca11be1fec6beca13d"
   end
 
   def install

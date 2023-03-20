@@ -1,20 +1,18 @@
 class Pygobject3 < Formula
   desc "GNOME Python bindings (based on GObject Introspection)"
   homepage "https://wiki.gnome.org/Projects/PyGObject"
-  url "https://download.gnome.org/sources/pygobject/3.42/pygobject-3.42.2.tar.xz"
-  sha256 "ade8695e2a7073849dd0316d31d8728e15e1e0bc71d9ff6d1c09e86be52bc957"
+  url "https://download.gnome.org/sources/pygobject/3.44/pygobject-3.44.0.tar.xz"
+  sha256 "f6863d6a3b70d9ace4c36a9901d39e42c8801d11309ca2a8b3459d1c24e34b7f"
   license "LGPL-2.1-or-later"
-  revision 2
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "032efc90710d1ab36d5bf7aa8612126c5d862f5b5e9ae816dabaf40aeb8bd874"
-    sha256 cellar: :any, arm64_monterey: "24cba48d68641e43c07899d486d8b7e9bbdb8d4f1a23843e48ef328b09b5b647"
-    sha256 cellar: :any, arm64_big_sur:  "0edaaf1ea51ce8edb6370da3387d54d664a0f6a3359fac8f202f1bf81f14944e"
-    sha256 cellar: :any, ventura:        "855b43092e003be963c44dee252c116851aef666cbbc34d52a83195e771df2e6"
-    sha256 cellar: :any, monterey:       "6ba0aab7c1044eabaf82a14cd09b602f7713d863c5856284dc144ad4bf89ae74"
-    sha256 cellar: :any, big_sur:        "d926d5032ba049197ec493848e800061b7f974f11df90f9a03054292676e0b67"
-    sha256 cellar: :any, catalina:       "8440c7e5623f3a4a9c6f296a905a6f864ad9c61e85e8ed0ff1ef0a015ff6a37e"
-    sha256               x86_64_linux:   "46dea53b67a21df6da9b2ba8a5b780b5c7bb9f68c4d9e4531e0d3d8d679f54cd"
+    sha256 cellar: :any, arm64_ventura:  "f364142eb07f0b08693a533a844561acd1bc6afde3b8f11942ee56c1c9b16e67"
+    sha256 cellar: :any, arm64_monterey: "c90847d79f343c1f28432ceee1cf451b8096a70c8bcdf3ea2f024c7a47e59c5a"
+    sha256 cellar: :any, arm64_big_sur:  "0bec84c93e3b8b6553fd7de801946b8e919ebb8d786777fb1d9051c2fbeb3bfd"
+    sha256 cellar: :any, ventura:        "066ab58a4de77d34f5af7bd9a0baa1f49998539db7d57ed13886cea6117138e3"
+    sha256 cellar: :any, monterey:       "ac6c4fe10c35185d7e435e7425dfb80be5d3eb70b7ee323c21b1fdca1568bd8d"
+    sha256 cellar: :any, big_sur:        "6f6a4c7b37f16c4251564aae6daceae8558cba56cb2f213625070f09e8ce4a8d"
+    sha256               x86_64_linux:   "f0f95b49bb5b9ae4d7598e2e4748d28f698acf5dda201bcec77ae2d2495af44f"
   end
 
   depends_on "meson" => :build

@@ -2,37 +2,38 @@ class Portablegl < Formula
   desc "Implementation of OpenGL 3.x-ish in clean C"
   homepage "https://github.com/rswinkle/PortableGL"
   url "https://github.com/rswinkle/PortableGL.git",
-    tag:      "0.94",
-    revision: "ff02769271294639a3a91bef06c5a8b71fc55cfd"
+    tag:      "0.97.1",
+    revision: "24f8840b800f247c328860c578c19b0535be6d58"
   license "MIT"
   head "https://github.com/rswinkle/PortableGL.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5072b5c557a56c16b3db6a916074c0c4933e925681c80a88bb78b9fbe6e7c307"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5072b5c557a56c16b3db6a916074c0c4933e925681c80a88bb78b9fbe6e7c307"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5072b5c557a56c16b3db6a916074c0c4933e925681c80a88bb78b9fbe6e7c307"
-    sha256 cellar: :any_skip_relocation, ventura:        "a74c17ac74f36af4038cef1c4770c198fe2fb3a5e92988741ecb7b9b05598c87"
-    sha256 cellar: :any_skip_relocation, monterey:       "a74c17ac74f36af4038cef1c4770c198fe2fb3a5e92988741ecb7b9b05598c87"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a74c17ac74f36af4038cef1c4770c198fe2fb3a5e92988741ecb7b9b05598c87"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5072b5c557a56c16b3db6a916074c0c4933e925681c80a88bb78b9fbe6e7c307"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "abb0c595bf1ede018e8e0644d3aa263c9cd65af2572c16590b6214f23aa7f402"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "abb0c595bf1ede018e8e0644d3aa263c9cd65af2572c16590b6214f23aa7f402"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "abb0c595bf1ede018e8e0644d3aa263c9cd65af2572c16590b6214f23aa7f402"
+    sha256 cellar: :any_skip_relocation, ventura:        "abb0c595bf1ede018e8e0644d3aa263c9cd65af2572c16590b6214f23aa7f402"
+    sha256 cellar: :any_skip_relocation, monterey:       "abb0c595bf1ede018e8e0644d3aa263c9cd65af2572c16590b6214f23aa7f402"
+    sha256 cellar: :any_skip_relocation, big_sur:        "abb0c595bf1ede018e8e0644d3aa263c9cd65af2572c16590b6214f23aa7f402"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "acdd41c99fd456db8443da0d8b1bd7a85da618b6f7c885749527a125729bb25d"
   end
 
-  depends_on "python@3.11" => :test
   depends_on "sdl2" => :test
 
   def install
     include.install "portablegl.h"
     include.install "portablegl_unsafe.h"
-    (pkgshare/"tests").install "glcommon"
-    (pkgshare/"tests").install "testing"
+    (pkgshare/"tests").install %w[glcommon media testing]
   end
 
   test do
-    python = Formula["python@3.11"].opt_bin/"python3.11"
+    # Tests require PNG image outputs to be pixel-identical.
+    # Such exactness may be broken by -march=native.
+    ENV.remove_from_cflags "-march=native"
+
     cp_r Dir["#{pkgshare}/tests/*"], testpath
     cd "testing" do
       system "make", "run_tests"
-      assert_match "All tests passed", shell_output("#{python} check_tests.py")
+      assert_match "All tests passed", shell_output("./run_tests")
     end
   end
 end

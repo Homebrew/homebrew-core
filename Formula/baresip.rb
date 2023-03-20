@@ -1,20 +1,22 @@
 class Baresip < Formula
   desc "Modular SIP useragent"
   homepage "https://github.com/baresip/baresip"
-  url "https://github.com/baresip/baresip/archive/refs/tags/v2.10.0.tar.gz"
-  sha256 "1bbeda0cb6c0f0480fb67f4fcc389df42384da7da909d9d950538fbbbfb92495"
+  url "https://github.com/baresip/baresip/archive/refs/tags/v2.12.0.tar.gz"
+  sha256 "784dceac625094367a8d4983ca1e432e51742d614e1be8e75ab3d1804bdaa80d"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 arm64_ventura:  "0cafcad6c6a3b13c298c0fef3646888cfc7d8e4ec5535f04ea16e8339a57d45b"
-    sha256 arm64_monterey: "0f8d6a6c4a3664cd275720fd810b5a210ccff1dc0c1f4d2687f59a51adc5f341"
-    sha256 arm64_big_sur:  "63640cb9406809b1ea99c17f3eb84860ab121bee4823a121952071203f903a97"
-    sha256 ventura:        "e7e179bbd15bee1b9da4c0f8de23e4f3864ca9222a6a5157e3a2755ee214a70f"
-    sha256 monterey:       "ac118460d14f62a5b6fd93eb678e371355ef97924fac51dcb7ec550c7a75e27f"
-    sha256 big_sur:        "77240b2aa79c92acffcffb51040a6c9567eda6e8c886eecf317a3f089bb61f95"
-    sha256 x86_64_linux:   "a2c7f7c663930e887c60ebae525bae0cada7be7368b684d9d110ec5159b900dc"
+    sha256 arm64_ventura:  "143a4140cefd1ae972cd4613b67842c304b1d0824bdb1eb514bb55b293369c6c"
+    sha256 arm64_monterey: "0e5ba17ba6284d947b3889c832141c9d3e1012320def7f8baa88ff87b401a0ab"
+    sha256 arm64_big_sur:  "e4f2f639e7200954de9f3363d861d4c4795b2042175e4d240311fa69eb454233"
+    sha256 ventura:        "42f62b96b58e5bc0c4124abeab97b8ab5e3f9582f3ebb60cc31fffb6706b3a25"
+    sha256 monterey:       "14e80778bd6089f718d6ff248782153a3241b04e2c8dcf371bc6b3f678b9758f"
+    sha256 big_sur:        "4b3801176016f45dc1c46fd571fc81ef6ef531f2365db2c85394b0150eda7bb8"
+    sha256 x86_64_linux:   "1d1ae88fca25da68ccb3437cb285c5950ecef050a5402fb0d47c6b6da2be7402"
   end
 
+  depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
   depends_on "libre"
   depends_on "librem"
 
@@ -22,26 +24,14 @@ class Baresip < Formula
     libre = Formula["libre"]
     librem = Formula["librem"]
     args = %W[
-      PREFIX=#{prefix}
-      LIBRE_MK=#{libre.opt_share}/re/re.mk
-      LIBRE_INC=#{libre.opt_include}/re
-      LIBRE_SO=#{libre.opt_lib}
-      LIBREM_PATH=#{librem.opt_prefix}
-      LIBREM_SO=#{librem.opt_lib}
-      MOD_AUTODETECT=
-      USE_G711=1
-      USE_OPENGL=1
-      USE_STDIO=1
-      USE_UUID=1
-      HAVE_GETOPT=1
-      RELEASE=1
-      V=1
+      -DCMAKE_BUILD_TYPE=Release
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DRE_INCLUDE_DIR=#{libre.opt_include}/re
+      -DREM_INCLUDE_DIR=#{librem.opt_include}/rem
     ]
-    if OS.mac?
-      args << "USE_AVCAPTURE=1"
-      args << "USE_COREAUDIO=1"
-    end
-    system "make", "install", *args
+    system "cmake", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build", "-j"
+    system "cmake", "--install", "build"
   end
 
   test do

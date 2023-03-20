@@ -18,13 +18,14 @@ class PariGaldata < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "0955aa684155ddba3d65a6ba99b05a7e0e02fdc3b6f5cf3b9da11e0a102ca37e"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "effebc421eaf8df8474e3b80d5e7da743545fba06faf96750a19103884d0cf57"
   end
 
   depends_on "pari"
 
   def install
-    (share/"pari/galdata").install gzip(*Dir["#{buildpath}/galdata/*"])
+    (share/"pari/galdata").install Utils::Gzip.compress(*Dir["#{buildpath}/galdata/*"])
   end
 
   test do

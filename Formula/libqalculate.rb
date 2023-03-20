@@ -1,18 +1,18 @@
 class Libqalculate < Formula
   desc "Library for Qalculate! program"
   homepage "https://qalculate.github.io/"
-  url "https://github.com/Qalculate/libqalculate/releases/download/v4.5.0/libqalculate-4.5.0.tar.gz"
-  sha256 "b5d64ac3c524630a066855a403b284a14c78c77c6601bc67caf25d2e04d9d79f"
+  url "https://github.com/Qalculate/libqalculate/releases/download/v4.6.0/libqalculate-4.6.0.tar.gz"
+  sha256 "07b11dba19a80e8c5413a6bb25c81fb30cc0935b54fa0c9090c4ff8661985e08"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256                               arm64_ventura:  "cb7a837a283de4769d94cdf8c9dbe592f8059f68da5f48cbd6726ecbd7fa0d59"
-    sha256                               arm64_monterey: "3cd90e7dd56937d1fc28d28a1dfa9db39e519c8a2469082bdb2274b550553ca2"
-    sha256                               arm64_big_sur:  "191ecf7a3ed976e35e8c0149d40bb8e574ca2735ef0b7737eac02f8dff40f6e0"
-    sha256                               ventura:        "be99a4ab1e212eea0997ef811b122925ca246c0c2dc21147cf56f51858d9c107"
-    sha256                               monterey:       "59f967835b437760ef3b95797e1946a78ce1f8c2f14085aeeeb9303199cc3170"
-    sha256                               big_sur:        "6fe63706c356ab04b9f05b67f0e6d678c5ca581a2485dd21faf28ce5f228dd2f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a4940f9912d56dd2f8af9d425beae3e77e1126d45167a39e19d0dbbce42ebee2"
+    sha256                               arm64_ventura:  "711c7cb35977d3a8468a8be0bba3ce4e087731e8adc3401b1f948250088d6aa1"
+    sha256                               arm64_monterey: "93032bc440ab8f0a9fdb0f7fab995185003530c83dc470ac8993cdd2835a736f"
+    sha256                               arm64_big_sur:  "a6aac017daf1943ba30eacbf5bc455a33d743b2ba4011b9152ce0087f90de3c2"
+    sha256                               ventura:        "3d6271e27548f2e6a5a4fe26c965b63f3e8c13882557554f4eb99e7353c7cb8a"
+    sha256                               monterey:       "2ac0ba8e20232ed4dada0eea1affacc2549f4498efbbde3a791f9127d3fc7195"
+    sha256                               big_sur:        "3685edee09e9c4fa6eb0c15bc254347af81a0e3237f684dd623e9c4adb8ffd4b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5ebe23c37326c84bef11c3b027a5eaac8ead5f717599cdb0ad150384362fcf2d"
   end
 
   depends_on "intltool" => :build

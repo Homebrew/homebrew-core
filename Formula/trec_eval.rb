@@ -41,7 +41,7 @@ class TrecEval < Formula
     EOS
     (testpath/"qrels.test").write(qrels)
     (testpath/"results.test").write(results)
-    test_out = shell_output("trec_eval -m runid -m num_q -m\
+    test_out = shell_output("#{bin}/trec_eval -m runid -m num_q -m\
       map -m ndcg_cut.10 -m P.10 -m recall.10 qrels.test results.test")
     assert_equal out, test_out
   end

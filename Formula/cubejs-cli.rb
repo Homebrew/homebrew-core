@@ -3,18 +3,18 @@ require "language/node"
 class CubejsCli < Formula
   desc "Cube.js command-line interface"
   homepage "https://cube.dev/"
-  url "https://registry.npmjs.org/cubejs-cli/-/cubejs-cli-0.31.32.tgz"
-  sha256 "980a86bb552c1b74c935880874ab3892df7f79ffcff857ce4ddd3b80eed0eb4f"
+  url "https://registry.npmjs.org/cubejs-cli/-/cubejs-cli-0.32.9.tgz"
+  sha256 "80a270f195eed74e3e4f2604ccb1a157e2002fb738d73e04e92f80f25e51f7e4"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "64d8156e9ee1dd076afc416707c4bd0b637d0f6b2b02630ef7bfea9e2bd8a5a3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "64d8156e9ee1dd076afc416707c4bd0b637d0f6b2b02630ef7bfea9e2bd8a5a3"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "64d8156e9ee1dd076afc416707c4bd0b637d0f6b2b02630ef7bfea9e2bd8a5a3"
-    sha256 cellar: :any_skip_relocation, ventura:        "53f309a7d6a702bbb8157b155c14d2dd44e62dfcb4f031aa41064baf8e528186"
-    sha256 cellar: :any_skip_relocation, monterey:       "53f309a7d6a702bbb8157b155c14d2dd44e62dfcb4f031aa41064baf8e528186"
-    sha256 cellar: :any_skip_relocation, big_sur:        "53f309a7d6a702bbb8157b155c14d2dd44e62dfcb4f031aa41064baf8e528186"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "64d8156e9ee1dd076afc416707c4bd0b637d0f6b2b02630ef7bfea9e2bd8a5a3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1dce063b941be660313164dc4398acf01864bc59073f283faa06cd5766d88ab5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1dce063b941be660313164dc4398acf01864bc59073f283faa06cd5766d88ab5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1dce063b941be660313164dc4398acf01864bc59073f283faa06cd5766d88ab5"
+    sha256 cellar: :any_skip_relocation, ventura:        "44ba5c9712cf3c2ee97c92b751a4ab72d04e8a6e2e510a81885a895a7f2cd985"
+    sha256 cellar: :any_skip_relocation, monterey:       "44ba5c9712cf3c2ee97c92b751a4ab72d04e8a6e2e510a81885a895a7f2cd985"
+    sha256 cellar: :any_skip_relocation, big_sur:        "44ba5c9712cf3c2ee97c92b751a4ab72d04e8a6e2e510a81885a895a7f2cd985"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1dce063b941be660313164dc4398acf01864bc59073f283faa06cd5766d88ab5"
   end
 
   depends_on "node"
@@ -26,7 +26,7 @@ class CubejsCli < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/cubejs --version")
-    system "cubejs", "create", "hello-world", "-d", "postgres"
+    system bin/"cubejs", "create", "hello-world", "-d", "postgres"
     assert_predicate testpath/"hello-world/schema/Orders.js", :exist?
   end
 end

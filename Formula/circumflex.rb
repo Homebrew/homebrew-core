@@ -1,19 +1,18 @@
 class Circumflex < Formula
   desc "Hacker News in your terminal"
   homepage "https://github.com/bensadeh/circumflex"
-  url "https://github.com/bensadeh/circumflex/archive/refs/tags/2.8.tar.gz"
-  sha256 "b3ac1ab35ce4716290ad40898b3227b4b18197f8068a8f03fb1069231e60104e"
+  url "https://github.com/bensadeh/circumflex/archive/refs/tags/2.8.2.tar.gz"
+  sha256 "708f9c26af6b33994ed1f8d194ccd0645f408578eaf4a80eb45d7cf1fd0025c2"
   license "AGPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5b12d57706fd28dc01dfa8b4841d57fbe084180a81c7de6717276d329dce5144"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "464654c8411fcbba1cb390d7bd3f5ecd43b7d78bf84eb493837834867d0d6522"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d4718db4b6a93a6bdaebddaac8c8e8d3e5ade455721bb07f788e0ae343e6b969"
-    sha256 cellar: :any_skip_relocation, ventura:        "c953117f5b71ab6eeb38c7be7e349c373e746f1beee3933fb413fb6517014a9a"
-    sha256 cellar: :any_skip_relocation, monterey:       "74dc9897f3cf9a8d52777caf26f06648c7d2fb7a542274d5b137481eaabae76e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1e91f0646ea67e1fd10b00e748c5c8b6e513e91a0a93f088dac06c4921f2382d"
-    sha256 cellar: :any_skip_relocation, catalina:       "acde9cba8e397722e8ae2abf595fb22caeadac38165117737c37108911356b99"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bb4a3b5e060916d8a5eb44c32c98d9a710a6d6538e968c19a08d69d44b5f0fee"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "804bab531d0a999d7cdbe325de7d54b7ca56c3488eacdef7cd2822b7a0eb94b9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "804bab531d0a999d7cdbe325de7d54b7ca56c3488eacdef7cd2822b7a0eb94b9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "804bab531d0a999d7cdbe325de7d54b7ca56c3488eacdef7cd2822b7a0eb94b9"
+    sha256 cellar: :any_skip_relocation, ventura:        "6c31ecc21b4853b0b954f41045183774c3eae05f0e63e3d3d1fc8998ca1b3680"
+    sha256 cellar: :any_skip_relocation, monterey:       "6c31ecc21b4853b0b954f41045183774c3eae05f0e63e3d3d1fc8998ca1b3680"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6c31ecc21b4853b0b954f41045183774c3eae05f0e63e3d3d1fc8998ca1b3680"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d0e234de95637ad36b98f9b702861d5be1d34bee5a9043b4efdee87a6f0dae1f"
   end
 
   depends_on "go" => :build

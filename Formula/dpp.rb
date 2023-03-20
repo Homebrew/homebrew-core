@@ -2,19 +2,18 @@ class Dpp < Formula
   desc "Directly include C headers in D source code"
   homepage "https://github.com/atilaneves/dpp"
   url "https://github.com/atilaneves/dpp.git",
-      tag:      "v0.4.13",
-      revision: "a29b2931cfc9c43fd2cc29a9795d6a0b2e5c2e39"
+      tag:      "v0.4.14",
+      revision: "efcdeece9e577504e1cc2438da10a136901b914f"
   license "BSL-1.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "91aecb05f29fd67d2dc8b0a640278f2d438939db93e82b6ec39e263e393ff6b7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "db424cf9c108a38fe50597513f26f187df360d990f55e6f74b9153c6a85cd13a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "efdbbd1136c6320364b15692437dcce9f283f82810eb392595c3440ae8bed034"
-    sha256 cellar: :any_skip_relocation, ventura:        "f89c8f1d9452d43b2dae26ab66ebd66e07f2404243e6a9d10eb3eae0091e1f2f"
-    sha256 cellar: :any_skip_relocation, monterey:       "89d15859ef732a88df7c91281f1af81baa5b783e4248baddec50918b7b365e82"
-    sha256 cellar: :any_skip_relocation, big_sur:        "46be70b12a9fd3103c32dfedbe0ef3f2c71b7bfe5c957dc70ef59f7672a9dc6f"
-    sha256 cellar: :any_skip_relocation, catalina:       "010a0bc89e3e7193e13260a23dcf223a77c5b84f0902c53e57345d2ace0d243f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fa2b435911b3a960d25543fe31898d48ffebb7b268fa2423456e8a7c3b9c3f1d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "369795c21bba3228030746cd649a83fc679f4f87b75525afef3bd132d1114699"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "64a22e941ed8457d3075a74838dc964573330f68ea8b68e82c7538dc95557316"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a35bfe8f975383dee33e9ac42ec9b059976bc882df30355e6ef304be5ea264cc"
+    sha256 cellar: :any_skip_relocation, ventura:        "a5374d874c00ef9401423a1da133736236e9534f9f21fcb923fff7e8a6f1e4bd"
+    sha256 cellar: :any_skip_relocation, monterey:       "c7ccc222bf26054e503d1740de0a13056b4f5f1d25350045e55f25aa54d9ad87"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a15d9d85cc4fa8306be57a9f3edd5f069dc8e91449cef5fc971d68c6e5853726"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4d4667872ae69547c1c7afe2ce4484e4d64553fd0d06870378520dfafcd895f4"
   end
 
   depends_on "dub" => :build

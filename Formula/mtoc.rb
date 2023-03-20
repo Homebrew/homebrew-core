@@ -3,6 +3,7 @@ class Mtoc < Formula
   homepage "https://opensource.apple.com/"
   url "https://github.com/apple-oss-distributions/cctools/archive/refs/tags/cctools-949.0.1.tar.gz"
   sha256 "8b2d8dc371a57e42852fa6102efaf324ef004adf86072bf9957e2ac9005326c1"
+  license "APSL-2.0"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "04d75f24e8a8dbf876aa37fddd44139c5177b08348210ef3acacedb5ba8e1dc7"
@@ -16,8 +17,11 @@ class Mtoc < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:    "62587e723f38c2a51d3a951dca42df10b9aa1ac67c88d8e286b27e6957edd985"
   end
 
+  deprecate! date: "2022-12-30", because: :unmaintained
+
   depends_on "llvm" => :build
   depends_on :macos
+  conflicts_with "ocmtoc", because: "both install `mtoc` binaries"
 
   patch do
     url "https://raw.githubusercontent.com/acidanthera/ocbuild/d3e57820ce85bc2ed4ce20cc25819e763c17c114/patches/mtoc-permissions.patch"
@@ -46,7 +50,7 @@ class Mtoc < Formula
       -o #{testpath}/test
       #{testpath}/test.c
     ]
-    system "cc", *args
+    system ENV.cc, *args
     system "#{bin}/mtoc", "#{testpath}/test", "#{testpath}/test.pe"
   end
 end

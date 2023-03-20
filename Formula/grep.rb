@@ -1,21 +1,19 @@
 class Grep < Formula
   desc "GNU grep, egrep and fgrep"
   homepage "https://www.gnu.org/software/grep/"
-  url "https://ftp.gnu.org/gnu/grep/grep-3.8.tar.xz"
-  mirror "https://ftpmirror.gnu.org/grep/grep-3.8.tar.xz"
-  sha256 "498d7cc1b4fb081904d87343febb73475cf771e424fb7e6141aff66013abc382"
+  url "https://ftp.gnu.org/gnu/grep/grep-3.9.tar.xz"
+  mirror "https://ftpmirror.gnu.org/grep/grep-3.9.tar.xz"
+  sha256 "abcd11409ee23d4caf35feb422e53bbac867014cfeed313bb5f488aca170b599"
   license "GPL-3.0-or-later"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "d2450448352fb2c389634cab3dec581882f6fc0f02a79489b4ba9c603b8f780b"
-    sha256 cellar: :any,                 arm64_monterey: "2a97d1431a8c367299b3ec1a62836136ad0474f78bd515f29b2210cc85591a66"
-    sha256 cellar: :any,                 arm64_big_sur:  "b23c8e00f85e4a10c1827619248a117ab2df3bd1503b5191c4467533fd299bec"
-    sha256 cellar: :any,                 ventura:        "d0d9b98da7b6eedb0d08d0b73e4dfd0627f5f3d19a3b850e248d33f6d13f039e"
-    sha256 cellar: :any,                 monterey:       "5b13dfd3339908dedfb233c3ba77a45fff7f55569b9252979349eb7fb0a45b5a"
-    sha256 cellar: :any,                 big_sur:        "f3b4b34263e59e4dfe427381ddecb820189f8336c464d97e5ab4e8b624d65484"
-    sha256 cellar: :any,                 catalina:       "bbb952d77089ccca022c170c295b48dea9d5afc90c3da65ee447adb04593c2c2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f771443ddfadac7158cd0bb2f4f1e682a2cc9b69e99c8ed0f77e41f546838067"
+    sha256 cellar: :any,                 arm64_ventura:  "ffc7c2c2921571cfaae661324457dcb790b711f256068036e6184befd429f743"
+    sha256 cellar: :any,                 arm64_monterey: "33a5787d66a9ad255709ff63050a1d17412c141dcea67a25d795d04bd63fc25e"
+    sha256 cellar: :any,                 arm64_big_sur:  "6a26b928f5e92fff54f80702262f7b795c7cc18bf3c2eee83e6663b12f42a4aa"
+    sha256 cellar: :any,                 ventura:        "59dad9859bafb8db1936a651893f4fb326c46be7b07c1a7bc36216838cdbc293"
+    sha256 cellar: :any,                 monterey:       "53f8b2875abb875238699bf0355ea0c55e2518a59245decd5513ea3b5889470b"
+    sha256 cellar: :any,                 big_sur:        "91356bbe4b7d19fae8ffb73b16852e607e20029dafad426e98c860d4f4a91f8f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8b7660ceb6d9ab33bcc705e4c7fc08a2cc1f394019a42059ed2b6d7ed935069c"
   end
 
   depends_on "pkg-config" => :build

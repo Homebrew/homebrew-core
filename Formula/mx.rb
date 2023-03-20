@@ -1,8 +1,8 @@
 class Mx < Formula
   desc "Command-line tool used for the development of Graal projects"
   homepage "https://github.com/graalvm/mx"
-  url "https://github.com/graalvm/mx/archive/refs/tags/6.14.9.tar.gz"
-  sha256 "23ff44244c4ff8a3b88702463665de11a0c72f82541b00e4d162ee7ea6240f38"
+  url "https://github.com/graalvm/mx/archive/refs/tags/6.18.0.tar.gz"
+  sha256 "cca81b1c3915314fbed4ba581aca0765e4b5776891c4958966cb8084548790f1"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,15 +11,15 @@ class Mx < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "cb0b6992feb0b25660e63b79795ac1dfc1de4f944a6d0c36166b921933da85ab"
+    sha256 cellar: :any_skip_relocation, all: "6500f3a3ee77aaff579a0bd84ba7eba63aaaeb1c3cd995e15adf8ca64f419d5f"
   end
 
   depends_on "openjdk" => :test
   depends_on "python@3.11"
 
   resource "homebrew-testdata" do
-    url "https://github.com/oracle/graal/archive/refs/tags/vm-22.1.0.1.tar.gz"
-    sha256 "7653558bc4e4a5f89e5ddef7242ddc1ec5582ec75bdc94997feb76ed12ce8e94"
+    url "https://github.com/oracle/graal/archive/refs/tags/vm-22.3.0.tar.gz"
+    sha256 "410a003b8bab17af86fbc072d549e02e795b862a8396d08af9794febee17bad4"
   end
 
   def install

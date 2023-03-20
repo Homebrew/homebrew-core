@@ -9,6 +9,7 @@ class Stubby < Formula
   bottle do
     sha256 arm64_monterey: "9505f36ee4654adb527badc196224a2ea8969b0ed984b6e06732ef5c25571dce"
     sha256 arm64_big_sur:  "b2492e874a5dc3c235cde5dff8eb7c6e10dfb3eb52bcb12d86cc36fc8865ce92"
+    sha256 ventura:        "5017e46ff77e7233c6514c99c21867af459cad30231aca16bd6311bdddb7b32b"
     sha256 monterey:       "bd4eadc1f1ffd5675c17c038ffc02202cfc024e3cb1da5ae27b67bb98479b5ea"
     sha256 big_sur:        "47c88d9d9bfac6b2cff05fad0f9a94883e4dfe7f7eacfad5c32ed6a425038478"
     sha256 x86_64_linux:   "7dd5aef38ee748eb4ea4fd8b29cda8f67becb8a2679932f0126b5a443709e23d"

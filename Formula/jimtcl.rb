@@ -1,20 +1,18 @@
 class Jimtcl < Formula
   desc "Small footprint implementation of Tcl"
   homepage "http://jim.tcl.tk/index.html"
-  url "https://github.com/msteveb/jimtcl/archive/0.81.tar.gz"
-  sha256 "ab7eb3680ba0d16f4a9eb1e05b7fcbb7d23438e25185462c55cd032a1954a985"
+  url "https://github.com/msteveb/jimtcl/archive/0.82.tar.gz"
+  sha256 "e8af929b815e4d30e54ff116b2b933e56c00a02b9110529d1a58660b2469aea7"
   license "BSD-2-Clause"
-  revision 1
 
   bottle do
-    sha256 arm64_ventura:  "5321ca61c00bae61155f8d7a4a6abf91d491f5dd7e627092b2fb200d08cce243"
-    sha256 arm64_monterey: "82285abcd9d5a13cf8e0d1731aa4264d228229dde326d6177e9bce929fb32a9c"
-    sha256 arm64_big_sur:  "0ee14e7cebf6c60666a28d04b7e27cc5ce2f085f7ee0dbb9299842869f2dd8ea"
-    sha256 ventura:        "470113fc5affb8ca59af84456c772738ffbcd083d942e3f61d1aa705c43cf4e7"
-    sha256 monterey:       "d56d56810fbee5428e98522f2aadb7301e9fdb18f7fc23e6d7ca28043c11555e"
-    sha256 big_sur:        "2d72063f3c5525f61ef02ac050ed04d4d9aa56b413185fe1d5f6946b8fb41fc5"
-    sha256 catalina:       "8cc4a39c25b1e60ef0c8d77d6144eb40f7b937b3c862277b4ed3edb5fc20bc66"
-    sha256 x86_64_linux:   "011dcf9066667d0128c44db11e115f1f9636fae1ad9ab28a7a7ea6158096b7a6"
+    sha256 arm64_ventura:  "f80310436f9d2bc8d96178eb91a2ed561a3d935ca55046784c5e6a46a61895a1"
+    sha256 arm64_monterey: "ee69a018ea4c1fcad3d71040c0cf0d76fb886b493ac7b70345208ce0504ae0bc"
+    sha256 arm64_big_sur:  "43167817009a55f2d14e7378356d6c00d46570e1ccd7fe9bf012c23495c77398"
+    sha256 ventura:        "b55f9946c4311018d373f84a7a02c5ed128793e0f1df7519a5848d4baf286c6f"
+    sha256 monterey:       "bcb43b78367cc5b8f0814055268befc4ca46ee23afc007f36e14b534477a9668"
+    sha256 big_sur:        "b6f6bfd82e8514a83dd2a5ff0b3d8a172c85c102df7b87d1ecc4e85753fa72ac"
+    sha256 x86_64_linux:   "4b1193b996cd8fb9c7c6e41c9bb047c7a7b04238fc56fc8f9f6c67a58b291c1c"
   end
 
   depends_on "openssl@3"
@@ -22,12 +20,6 @@ class Jimtcl < Formula
 
   uses_from_macos "sqlite"
   uses_from_macos "zlib"
-
-  # Fix EOF detection with openssl@3. Remove in the next release.
-  patch do
-    url "https://github.com/msteveb/jimtcl/commit/b0271cca8e335a1ebe4e3d6a8889bd4d7d5e30e6.patch?full_index=1"
-    sha256 "dbeeb8bb9a1174c4c0d44d8dafc1958994417014176c12d959daa8b31aa4b5b0"
-  end
 
   def install
     system "./configure", "--disable-debug",

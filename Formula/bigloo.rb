@@ -1,9 +1,9 @@
 class Bigloo < Formula
   desc "Scheme implementation with object system, C, and Java interfaces"
   homepage "https://www-sop.inria.fr/indes/fp/Bigloo/"
-  url "ftp://ftp-sop.inria.fr/indes/fp/Bigloo/bigloo-4.4c-4.tar.gz"
-  version "4.4c-4"
-  sha256 "4ed71a86c6d762c35352e9f04871a11fe90fa5dbc974e728a86d9e8229d7c70f"
+  url "ftp://ftp-sop.inria.fr/indes/fp/Bigloo/bigloo-4.5a-1.tar.gz"
+  version "4.5a-1"
+  sha256 "d8f04e889936187dc519719b749ad03fe574165a0b6d318e561f1b3bce0d5808"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -12,11 +12,10 @@ class Bigloo < Formula
   end
 
   bottle do
-    sha256 ventura:      "095c3aab439429ab386196a1fc1cb5d490b89881964ec7900e45b55528486e28"
-    sha256 monterey:     "5584d706ebdcabd22decf7b6c21437f518f02b42b93290c9d6e2f2cccbc578cb"
-    sha256 big_sur:      "c960e247b0ea8492e1afde1fd02e76723651a4cd05fd5d4cd5ce4f8b653e09fb"
-    sha256 catalina:     "2f33fa4caac94d93c2657a8d670fd4256876bcd15e20b4cff6cc2526bc2ee03a"
-    sha256 x86_64_linux: "c02ce6371b839fe6910178f12668da807b581b72d251327ea9c2f4e635f52860"
+    sha256 ventura:      "4a37a9c1c8e8d48da7dc4b324095c43bafbf26b3c527f671b46aa963ba41a3ea"
+    sha256 monterey:     "d968668009008963975b81dec100761ec7e1887f54dd5e59be89f04506087aed"
+    sha256 big_sur:      "b3ee45051141a15c0e9fd5a2f41d18391e20bba99ec4dd91a44f043dd1c45fee"
+    sha256 x86_64_linux: "aed501d228c62e5e4deb3e88be668d7143cf5fa7ea682ef72ef1c58d869415fb"
   end
 
   depends_on "autoconf" => :build
@@ -61,6 +60,12 @@ class Bigloo < Formula
       args += %w[
         --os-macosx
         --disable-alsa
+      ]
+    end
+
+    if OS.linux?
+      args += %w[
+        --disable-libbacktrace
       ]
     end
 

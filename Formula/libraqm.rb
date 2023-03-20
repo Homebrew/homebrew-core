@@ -1,19 +1,18 @@
 class Libraqm < Formula
   desc "Library for complex text layout"
   homepage "https://github.com/HOST-Oman/libraqm"
-  url "https://github.com/HOST-Oman/libraqm/archive/v0.9.0.tar.gz"
-  sha256 "826e43bc638b53ec720e93a26f4ead494c6a28006d280609dac6aef09b39283e"
+  url "https://github.com/HOST-Oman/libraqm/archive/v0.10.0.tar.gz"
+  sha256 "be25c6376888b6fb7168746fa3191e17a3b950045552bd9a6eef85f8353facc8"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "6834fefcdb4df601516f21cdaa6d51c44b6bf0d465e9e086af8afed1dfff608f"
-    sha256 cellar: :any, arm64_monterey: "069e6e0f6bab066c06811c7abd7578404b9eb9ee6833629a2bec9ab2a1f1b743"
-    sha256 cellar: :any, arm64_big_sur:  "118bb1b1daaa4360a1399e265463b806a76b34abff36b28b83a27f376347f32b"
-    sha256 cellar: :any, ventura:        "99a0c48c9d6994d6556830a8d14c38de553f8c5f7bb978ef0161e40942cdc43c"
-    sha256 cellar: :any, monterey:       "958471b39a56ede02728876c421330cb14a112901d436f5f9cc9a2f4fdd2bb9e"
-    sha256 cellar: :any, big_sur:        "7d6f5ad30c91463733eedb4db44df068b1265a5e0c03b5254d35ef33a2197a8c"
-    sha256 cellar: :any, catalina:       "8b67c3c8fc0ad8885727fae09c08f44ee0764b976527161688db80838b625ec4"
-    sha256               x86_64_linux:   "d9a54ed8657f519f1644544b5867b079903768c27e9db8abf7f4355a3fc1b839"
+    sha256 cellar: :any, arm64_ventura:  "2113d8672e259d7b41f21f6bb724c8080f59f7a0fefea7da07cb4354b82823ab"
+    sha256 cellar: :any, arm64_monterey: "d8d26697bca05b66cd24a2f72edf99f24a01eb31053e0306723eb36da29b31e2"
+    sha256 cellar: :any, arm64_big_sur:  "731d16ee03f7905447ed708b6d8c3029c2cf39883da5f6294b237ce9e7cbd43b"
+    sha256 cellar: :any, ventura:        "dc26899677e909001998a2e9c30e13acc37fb45d93a6cd15265d27564a0ed29c"
+    sha256 cellar: :any, monterey:       "d72ed5e00f74a43990141749afa4519425e3af70e444317b51a37e8ed02f7cda"
+    sha256 cellar: :any, big_sur:        "2a78af6b0aa0b4e3016622d75d890e7cfde90893c9773df6c5fe1e9ff740087a"
+    sha256               x86_64_linux:   "916732cc7f3039ee80d9912f553a82c97e9469547078ce98a0cce7fcf43de4c5"
   end
 
   depends_on "meson" => :build

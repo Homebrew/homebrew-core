@@ -1,8 +1,8 @@
 class NodeAT18 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v18.12.1/node-v18.12.1.tar.xz"
-  sha256 "4fa406451bc52659a290e52cfdb2162a760bd549da4b8bbebe6a29f296d938df"
+  url "https://nodejs.org/dist/v18.15.0/node-v18.15.0.tar.xz"
+  sha256 "8e44d65018ff973284195c23186469a0ea4082e97ec4200e5f5706d5584daa37"
   license "MIT"
 
   livecheck do
@@ -11,14 +11,13 @@ class NodeAT18 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "2bf34d35dae54f4d6035aed07423a42e803efbcfce8f29f3fd01d74518a01f85"
-    sha256 cellar: :any,                 arm64_monterey: "6c1c1cf91bcaf70002531e6f29ed7b30b28dab4b197d6eb2f401b863b803ca2c"
-    sha256 cellar: :any,                 arm64_big_sur:  "8babdc71177ced262407f0e05bf951050b3c26f5f2a55aa8195635019e273506"
-    sha256 cellar: :any,                 ventura:        "46bc8300ca83d75435ea10597acec3b8695e688c2b04a2969e60266745bcff58"
-    sha256 cellar: :any,                 monterey:       "86177e9684caa0c024a4c8cdb478148b5e9ea0e699a1a31fc555beef63bd2ced"
-    sha256 cellar: :any,                 big_sur:        "f261760bbd78db651bc9a2756695db3e44cd4b8edf6a8fda25f88de77f2dea37"
-    sha256 cellar: :any,                 catalina:       "6c09a8e9bc2bbc96e2508a36881f6a15df5cf4cd476371fc8fd120eca1efea3a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4237c87c7a25490dcdb1c56d8ae5024478394349a9eb4be00d6da5320cd3959f"
+    sha256 arm64_ventura:  "b75c931440c01dd75a2b58d208adcf931cdc9d65b9e76f53bd0cd99f6d2f9bbf"
+    sha256 arm64_monterey: "897fb1dca959435c24c9ac94b0a30a3739bab734d2750cda29ae421830db458d"
+    sha256 arm64_big_sur:  "1febcb763ca4d358a77137c61818ce19873710d161caba26c2788960a5bc7274"
+    sha256 ventura:        "907c1b8a770bf1244baf8d426aafb7419e5bba9ce9ee28f789c2cbb50595687f"
+    sha256 monterey:       "ad879cd6dd0c25e50ebac167c077cd7aa57ecf5440f926f6dac9622b4b85b5c6"
+    sha256 big_sur:        "ed958a6ac42d1139377b78608962a534bb8bae994d50be0c56608f0abd0709db"
+    sha256 x86_64_linux:   "7d5e6c0658054f2722c6a028ca9a1fd0e421b5c21e37d74a0eb8225999de6b74"
   end
 
   keg_only :versioned_formula
@@ -28,7 +27,7 @@ class NodeAT18 < Formula
   deprecate! date: "2023-10-18", because: :unsupported
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
   depends_on "brotli"
   depends_on "c-ares"
   depends_on "icu4c"

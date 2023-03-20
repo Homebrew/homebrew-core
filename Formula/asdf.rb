@@ -1,13 +1,13 @@
 class Asdf < Formula
   desc "Extendable version manager with support for Ruby, Node.js, Erlang & more"
   homepage "https://asdf-vm.com/"
-  url "https://github.com/asdf-vm/asdf/archive/refs/tags/v0.11.0.tar.gz"
-  sha256 "ee66eb05688ce54dc1459bff90d043610492ebf393ddcf0847a295c92a9b2f7f"
+  url "https://github.com/asdf-vm/asdf/archive/refs/tags/v0.11.3.tar.gz"
+  sha256 "344cf4489180fc6409feba60b0c02a12df54eef470422b3f75bb757456b60bee"
   license "MIT"
   head "https://github.com/asdf-vm/asdf.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "8f0826eeb40dd4dde2399e299ef1231d1207da315143e5e8bccef5e2bb0ce033"
+    sha256 cellar: :any_skip_relocation, all: "d467470a78f635e6218700fc882153c047328b9f18bd7ab42011da2919f228d5"
   end
 
   depends_on "autoconf"
@@ -30,17 +30,12 @@ class Asdf < Formula
   end
 
   def caveats
-    s = "To use asdf, add the following line to your #{shell_profile}:\n"
-
-    s += if preferred == :fish
-      "  source #{opt_libexec}/asdf.fish\n\n"
-    else
-      "  . #{opt_libexec}/asdf.sh\n\n"
-    end
-
-    s += "Restart your terminal for the settings to take effect."
-
-    s
+    <<~EOS
+      To use asdf, add the following line (or equivalent) to your shell profile
+      e.g. ~/.profile or ~/.zshrc:
+        . #{opt_libexec}/asdf.sh
+      Restart your terminal for the settings to take effect.
+    EOS
   end
 
   test do

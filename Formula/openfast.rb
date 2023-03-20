@@ -1,19 +1,18 @@
 class Openfast < Formula
   desc "NREL-supported OpenFAST whole-turbine simulation code"
   homepage "https://openfast.readthedocs.io"
-  url "https://github.com/openfast/openfast/archive/v3.3.0.tar.gz"
-  sha256 "7d4f7d79dae3eabed109da1117204dd6dfa53b01ef027051c2be2d5f8dbb3ecb"
+  url "https://github.com/openfast/openfast/archive/v3.4.1.tar.gz"
+  sha256 "0717c3aba48aa58fac10de308313328f6ed798cdf9c210172ccc978ec591f170"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "c9f10fe6b118c739ab43988c03a4132c43341f0c192a7ae254e74b137a0eca09"
-    sha256 cellar: :any,                 arm64_monterey: "97cb2db42301fe6187c221fffd8b2992c525950eae4537cbc286508986f22b89"
-    sha256 cellar: :any,                 arm64_big_sur:  "3a2cbf179216f5bf8811d85d093fcff460cde5738b0d263c55b8de75555fb5c9"
-    sha256 cellar: :any,                 ventura:        "55f75a2f7b085902be5858c95a5e550871d9b020a93a85d4106191062d5c28b1"
-    sha256 cellar: :any,                 monterey:       "5cb32e81de0cdfd404ff9ccbd26a31123341e45a9c212d15119d43c3f0034801"
-    sha256 cellar: :any,                 big_sur:        "b54f60dac1f3588c854e99625b88dcec04082321842d6377737c830ddf7b6a9a"
-    sha256 cellar: :any,                 catalina:       "64ccf5de0b66943a6a264f6df6ff86957171ca67b64773924ef3224e9be7af24"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4e2bbe615c158dfaa1737eebbf566ad92904ed7b1c0998ffdc512a21d1a2b9f4"
+    sha256 cellar: :any,                 arm64_ventura:  "445ecd409fccf95219db12d6cefb101e2fc997d25c75a473427c3a7ae7939221"
+    sha256 cellar: :any,                 arm64_monterey: "2edd69143709b8289fc848b865ce68b24ea7d09016dd59cff344d98f2fe0c878"
+    sha256 cellar: :any,                 arm64_big_sur:  "92fec98fed83d8d6644742efcd853ad5bfffb89b2b034420c59aba0749828c2b"
+    sha256 cellar: :any,                 ventura:        "f52f053fa965eee38b1d1fa15c5928ebdfa4550d97b26f5cca765f4ebee207de"
+    sha256 cellar: :any,                 monterey:       "5fea5d63eb9e2d12839e3c560aa03190a7b7aa8453dfa2953506fd63f0e6089a"
+    sha256 cellar: :any,                 big_sur:        "730643bb4cdaa7e0904eeda4a1e8321ad72891851f7dd5b63f9d1eea49c24d80"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "34c3acba44c2319eca5765f94a5bea766fe83d0c2887924f8b76450cab2c5dc9"
   end
 
   depends_on "cmake" => :build

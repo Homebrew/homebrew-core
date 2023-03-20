@@ -9,6 +9,11 @@ class HomeassistantCli < Formula
   license "Apache-2.0"
   head "https://github.com/home-assistant-ecosystem/home-assistant-cli.git", branch: "dev"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d6664597c67833ace3ecb5bd6c441aab36259ff548346361231e3563fd26e848"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4e7924a158d09df90498d3ff6518e569d79c380acc5d9345ea733eab160cf9c7"

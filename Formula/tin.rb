@@ -11,26 +11,34 @@ class Tin < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "c83d7b30ce4bafc59bf1275e5d82bfafb4a8a87a27c62280996df5a7f7b48d38"
-    sha256 arm64_monterey: "f1b52ebb8e87716be76d7edc0680c0cff6aac863fcf3ad2a53523659038b4775"
-    sha256 arm64_big_sur:  "04f1a7eac2476bcadd410b3472e507ff6002e87f553f1746d9b2bbef4ba3617a"
-    sha256 ventura:        "41fca2aff459ad6ca92134475d95a0f7909500f6475469676835a003d3c173a4"
-    sha256 monterey:       "784a75aede2e6fb34144c1dfea6296b0affde6c24fbd66d6f67f108b8c5fc995"
-    sha256 big_sur:        "eb252538896e11bbfba786441a4f71d424b054db857faa573710e0d1c8ffeef8"
-    sha256 x86_64_linux:   "30b3b8d2c6b1c01e37e1a3f1248ad70f9f2b0827e2de8d7f16653acba44b761e"
+    rebuild 1
+    sha256                               arm64_ventura:  "279325cdda955514a69d824ce8a10a5d93e2118561133fa8b1adc5a3c847e4c6"
+    sha256                               arm64_monterey: "20081eeca41e91c2cd9d23313fc97180e92f19f6f375dce9dc7a361298e5f709"
+    sha256                               arm64_big_sur:  "e7d9f551293c92c6a2726856204303eb18e122e24693bbf1b4efb93a51c2c8b5"
+    sha256                               ventura:        "bd598a16a48913db70e0ee74bf976b9ad62a7e5219046fdf587d6578f768cfbf"
+    sha256                               monterey:       "7b2fab82e93e8a5a769cb83a781ba4e95b14b623d40c14b93d160c8075a280f5"
+    sha256                               big_sur:        "26d6c3893d0db776c0ed9d03a9436739137fa1b9c006b19449702066fe11e0e8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "386f648f9235e7ddfa23de2e0e5a6e6cf7af4c4045ca316037819b002640adbb"
   end
 
-  depends_on "gettext"
+  depends_on "pcre2"
 
   uses_from_macos "bison" => :build
+  uses_from_macos "ncurses"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   conflicts_with "mutt", because: "both install mmdf.5 and mbox.5 man pages"
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--mandir=#{man}"
+    # Remove bundled libraries
+    %w[intl pcre].each { |l| (buildpath/l).rmtree }
+
+    system "./configure", *std_configure_args,
+                          "--mandir=#{man}",
+                          "--with-pcre2-config=#{Formula["pcre2"].opt_prefix}/bin/pcre2-config"
     system "make", "build"
     system "make", "install"
   end

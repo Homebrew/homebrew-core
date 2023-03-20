@@ -1,19 +1,18 @@
 class VirustotalCli < Formula
   desc "Command-line interface for VirusTotal"
   homepage "https://github.com/VirusTotal/vt-cli"
-  url "https://github.com/VirusTotal/vt-cli/archive/0.10.4.tar.gz"
-  sha256 "2960a1cdf4c60d80203b8c339d59c5029537f3bf06b373d477edd7f2288fce42"
+  url "https://github.com/VirusTotal/vt-cli/archive/0.13.0.tar.gz"
+  sha256 "0908250bf659cb73be748da7a1c5d2d402aba0c9da0fc21a1ad629deb4f24a73"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fc1c47c2da590eb2c2adbaca810bcb041e26d5b95fdc4a2e8f9eb2a75b32d12e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d61b098ab7972d614fbae87409908220139f4171e15e4a7d6ea0ff47f9dc4df3"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fa4da9f77f878d422890871b9a626dfd3b999423a2bc943e9327d92e8d8490da"
-    sha256 cellar: :any_skip_relocation, ventura:        "9f1176aae3379e8b125cd94d0b66bcba78b9b93ee8780917a149e19cb9afaa74"
-    sha256 cellar: :any_skip_relocation, monterey:       "28f9710b4b25c5168f96bffda33362107ef0999493d18c7e8fec8c1f5ae0ac2a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "dd038ca4d854e0ea40bf6c43ee347b83929f601efe7a796710b8b1b9c2862fb1"
-    sha256 cellar: :any_skip_relocation, catalina:       "445e713d2b6d0e82758edd961baea2be050ec839fc4978b2b2ed3f24fdef4fb8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1a93054855ad39a22e10eae2c7a8cf2ec3f7283cd0cd441dfc8cc7b761bea88a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e5d8f4189c1f55fef87804cf4e0917b1a21377433839392087d8f3203099f6b0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e5d8f4189c1f55fef87804cf4e0917b1a21377433839392087d8f3203099f6b0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e5d8f4189c1f55fef87804cf4e0917b1a21377433839392087d8f3203099f6b0"
+    sha256 cellar: :any_skip_relocation, ventura:        "81dbf51586a117b2e8e96a9a8ad541f1062b80c51a1316fbea8e02dff9597bb4"
+    sha256 cellar: :any_skip_relocation, monterey:       "81dbf51586a117b2e8e96a9a8ad541f1062b80c51a1316fbea8e02dff9597bb4"
+    sha256 cellar: :any_skip_relocation, big_sur:        "81dbf51586a117b2e8e96a9a8ad541f1062b80c51a1316fbea8e02dff9597bb4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "210262b89aa36e224a9e1d328d693dde4dc5bec87c89cd601be53f8635a0b409"
   end
 
   depends_on "go" => :build
@@ -21,7 +20,7 @@ class VirustotalCli < Formula
   def install
     system "go", "build", *std_go_args(output: bin/"vt", ldflags: "-X cmd.Version=#{version}"), "./vt/main.go"
 
-    generate_completions_from_executable(bin/"vt", "completion", base_name: "vt", shells: [:bash, :zsh])
+    generate_completions_from_executable(bin/"vt", "completion", base_name: "vt")
   end
 
   test do

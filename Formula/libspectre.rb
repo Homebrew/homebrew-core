@@ -1,8 +1,8 @@
 class Libspectre < Formula
   desc "Small library for rendering Postscript documents"
   homepage "https://wiki.freedesktop.org/www/Software/libspectre/"
-  url "https://libspectre.freedesktop.org/releases/libspectre-0.2.11.tar.gz"
-  sha256 "79d44d65f835c5114592b60355d2fce117bace5c47a62fc63a07f10f133bd49c"
+  url "https://libspectre.freedesktop.org/releases/libspectre-0.2.12.tar.gz"
+  sha256 "55a7517cd3572bd2565df0cf450944a04d5273b279ebb369a895391957f0f960"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,14 +11,13 @@ class Libspectre < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "15c599d638b613e5a478bdbc7f1a80c2e0d1227f268451452eaf80cc41591976"
-    sha256 cellar: :any,                 arm64_monterey: "0045e0a03c25d49a3cff1d56651868c0c846da43740c546b2690f8bdce3aafd2"
-    sha256 cellar: :any,                 arm64_big_sur:  "4e40717cf4aa9927062522049475f18f31155d2755ec55784adda88310ce0b45"
-    sha256 cellar: :any,                 ventura:        "0095456a959fecb642f904f85f189fe201e2b1594b9603b2c401d7b9c15cd23b"
-    sha256 cellar: :any,                 monterey:       "b2e8615f861c91e1f9f7d53902c78c98bd73eadebd5fafa95481b3e321f0b87a"
-    sha256 cellar: :any,                 big_sur:        "d589840710bc56dc7eff27248facae9060bcd95de1d18e4507f0b9da63f6cc5f"
-    sha256 cellar: :any,                 catalina:       "29202b71e2a406982108cf4dac7fbf0208526697939bc8a7e78b648708f64d44"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "db3ddd37043fb3581e0d30b2b887f366daa5f263c918a41f53c3f944ecece151"
+    sha256 cellar: :any,                 arm64_ventura:  "9356c5442a8707d6af5b3e90079cf2029bd957700472b1376714fd3c2249ce78"
+    sha256 cellar: :any,                 arm64_monterey: "9ac5d73812cdc5686c83f86bea0b0006144a0632dcee49be757c1c95b4d87e97"
+    sha256 cellar: :any,                 arm64_big_sur:  "d7a5e28e5563333b22a3f85212c6c983cea189954b9f53f9561cab95fc567e5a"
+    sha256 cellar: :any,                 ventura:        "5021dd386f719ca41d8b7a749ce3bee5eb19d82d53b66743f276cdb132b2c36e"
+    sha256 cellar: :any,                 monterey:       "2e41bab718bb8426de64d68c784993e77ab088c9cafd384f23c868c43f88f5ce"
+    sha256 cellar: :any,                 big_sur:        "787acb27716e15096730040512928441e57c337e9a0a543d21f345fc6bf7785c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3514865edd037216507b01a0477484133c13189f04dc33512db7478ffad50d6a"
   end
 
   depends_on "ghostscript"

@@ -1,9 +1,9 @@
 class Icu4c < Formula
   desc "C/C++ and Java libraries for Unicode and globalization"
   homepage "https://icu.unicode.org/home"
-  url "https://github.com/unicode-org/icu/releases/download/release-71-1/icu4c-71_1-src.tgz"
-  version "71.1"
-  sha256 "67a7e6e51f61faf1306b6935333e13b2c48abd8da6d2f46ce6adca24b1e21ebf"
+  url "https://github.com/unicode-org/icu/releases/download/release-72-1/icu4c-72_1-src.tgz"
+  version "72.1"
+  sha256 "a2d2d38217092a7ed56635e34467f92f976b370e20182ad325edea6681a71d68"
   license "ICU"
 
   livecheck do
@@ -15,14 +15,13 @@ class Icu4c < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "551de1e60e6f979676ee4e829a8485c2d326a71e6b736299356880c71ec3bc8c"
-    sha256 cellar: :any,                 arm64_monterey: "0bf3c66f005e2d7662375b4baadd3022d57294947f421f9f8628799008a987f4"
-    sha256 cellar: :any,                 arm64_big_sur:  "5cbb7c32192790d114f179ca9456df9a5cbd0094a9e2383c9ae8e4ec5e5cd568"
-    sha256 cellar: :any,                 ventura:        "012f882f239863200f0f87150541ea695d609aa14c14a390909d249352ae51f9"
-    sha256 cellar: :any,                 monterey:       "87617a04333c53236f5174f5a3fa70458d61d735024ed477c0484adf2c3f80d3"
-    sha256 cellar: :any,                 big_sur:        "4c2904b4e7af60796e202d9f5ced39443ffd657b61a007b67bd109534b00c03f"
-    sha256 cellar: :any,                 catalina:       "0182e3999a76593888bc2b5d54c275b6d7f0eb75db354a3a37925179a9e91d84"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "89bcfb2f075f7ea40053a09804479bef4457b1f7f606617fb15116edef53c2e9"
+    sha256 cellar: :any,                 arm64_ventura:  "0666e999875e81eadd009af55007c95cda37c7234acc12eb85cf42177984c699"
+    sha256 cellar: :any,                 arm64_monterey: "90c50fe2cbf8bedcae43886caaa096ab6fc54f893be192912220ba1ec48e634f"
+    sha256 cellar: :any,                 arm64_big_sur:  "19575d7aa6e4451271cf20a9c455fc7f4a05103573879fa83d7b4625cffddcf5"
+    sha256 cellar: :any,                 ventura:        "ecb91e87e3e4d075e3e1392b8ec7dc6774bec47f4b534d318f2ec259052b10e4"
+    sha256 cellar: :any,                 monterey:       "ec1d2f2fe462d2cbe9775e48d5c4231af2b265f946de3902e0e042619c8ac205"
+    sha256 cellar: :any,                 big_sur:        "899d9a8e7ab10896afad66a3d3c9053a5a10ae290b23197b1210c03bc0af6e1d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "880ba1731d14d66d48594a7ca1532b12ec50c1e2e3b6c7cd96cfaf05bab04d2f"
   end
 
   keg_only :provided_by_macos, "macOS provides libicucore.dylib (but nothing else)"

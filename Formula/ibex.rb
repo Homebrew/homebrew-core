@@ -12,13 +12,11 @@ class Ibex < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, ventura:      "ac2a9082a320228a386cc45989c65f01f014642db9fc18cd94b998fdf84737fc"
-    sha256 cellar: :any_skip_relocation, monterey:     "5c659f26d051f9c2e25308976051cff13d3c99a5ff579116ece615f0172d1705"
-    sha256 cellar: :any_skip_relocation, big_sur:      "2fe73bcec8be89daf46ad449cced7ea3d5584d1eb8138343359fc0898e3ec826"
-    sha256 cellar: :any_skip_relocation, catalina:     "838265b9b44453641e3cbc39dbbb8903666ba3413ef8c7dc68af69f9759f4351"
-    sha256 cellar: :any_skip_relocation, mojave:       "91e091b03e482a8bae5248a435a8e827c79923aaee9f98f99d33254e176560d2"
-    sha256 cellar: :any_skip_relocation, high_sierra:  "bb10a673525d7145196f523190401c2aa42345b5035ed2bcf261081e3653638f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "396eb36d7b67037bd599525a5d591576dd25785076d6f117550c1885d2c81258"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, ventura:      "eea592d2c1c13bde0a000ca8705cabce4e11aeabb76a30dc8baf09931b9a22dd"
+    sha256 cellar: :any_skip_relocation, monterey:     "5fe0810e9f6ef9b72c7d1e9ceba7b6b9c37410dd93f9801ac37e9738ec245005"
+    sha256 cellar: :any_skip_relocation, big_sur:      "dbe9f4d68e4a406bd4926d6c821887e32af2d323f1d7ecd9a729ee0957c3e120"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "1b64c5e784e7585d8a70179625a1a10a9b1c6926bd224c3d165abaed3db66c78"
   end
 
   depends_on "bison" => :build

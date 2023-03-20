@@ -4,19 +4,15 @@ class Cf4ocl < Formula
   url "https://github.com/nunofachada/cf4ocl/archive/v2.1.0.tar.gz"
   sha256 "662c2cc4e035da3e0663be54efaab1c7fedc637955a563a85c332ac195d72cfa"
   license "LGPL-3.0"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "721f4e1699a3909dff50586705fe8d1ed67b1ee67d34b653f84d76ead782e345"
-    sha256 cellar: :any,                 arm64_big_sur:  "082e1894c94269ec1541fd6148a1dfca0f7385e64fb5e24dd0a3ed70563df603"
-    sha256 cellar: :any,                 ventura:        "36084922834a956b46406aa9137c6a74a058e5f4e19e3ec53b7acde6fef43f07"
-    sha256 cellar: :any,                 monterey:       "e2a0fad26922fc1f84a90837426ff2fcdffa20467cb55a6818a5820c88fb355a"
-    sha256 cellar: :any,                 big_sur:        "c9d99d7a996bc2c2e1ed6c94bd3639ec5bd97a09e6834a260cbd0a165832f094"
-    sha256 cellar: :any,                 catalina:       "42086ab65ee844ca3e982c19592ca56fc4d7e0c1417fc749585dc4f24426c1b5"
-    sha256 cellar: :any,                 mojave:         "bac407173815fb9bed500a83fb8c2cac4c599a4b1c35a6a619adbfa746817162"
-    sha256 cellar: :any,                 high_sierra:    "d5903425babf74b3f3af6b4aebf7e0c583bf0729d15799b4a99208141ca80b5a"
-    sha256 cellar: :any,                 sierra:         "dfbd0e6e303f7f8ff286e38b98562cbf9b18ac880070fcfa19240b0b9c8d4a2a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "28305a6cfb69ccd57b94203bb43beb18b29e3d4fc0eebbe37b04292660516da8"
+    sha256 cellar: :any,                 arm64_monterey: "918ad2b60fb6b57e75f4ed4c5d39e00be444540b6d6acf2ebd4a3aca65b2f379"
+    sha256 cellar: :any,                 arm64_big_sur:  "1dd45839fde1e811c48f46dbb2341aa58523b7b383fe63dd9455bac0b6341c44"
+    sha256 cellar: :any,                 ventura:        "fef74ca6cee236243b8f1a17567b92dab6a7c8d8409bfe70cc25af3c62046c11"
+    sha256 cellar: :any,                 monterey:       "0fbae4ce46da802207e1ec4bc0c950505e19fa8c26e1d6cd214a02bbaaa7b3b4"
+    sha256 cellar: :any,                 big_sur:        "cc8b6ca2880efe29c48df37e31c72dc16e3826444ab73491e15ce4e17de0b7c6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "24717beaa49876d58f32115ed8ce7d6d9e25b298dcf96ce4170b58dd13f062b3"
   end
 
   depends_on "cmake" => :build
@@ -25,7 +21,7 @@ class Cf4ocl < Formula
 
   on_linux do
     depends_on "opencl-headers" => :build
-    depends_on "ocl-icd"
+    depends_on "opencl-icd-loader"
     depends_on "pocl"
   end
 

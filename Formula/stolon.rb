@@ -23,23 +23,43 @@ class Stolon < Formula
   depends_on "libpq"
 
   def install
-    system "go", "build", "-ldflags", "-s -w -X github.com/sorintlab/stolon/cmd.Version=#{version}",
-                          "-trimpath", "-o", bin/"stolonctl", "./cmd/stolonctl"
-    system "go", "build", "-ldflags", "-s -w -X github.com/sorintlab/stolon/cmd.Version=#{version}",
-                          "-trimpath", "-o", bin/"stolon-keeper", "./cmd/keeper"
-    system "go", "build", "-ldflags", "-s -w -X github.com/sorintlab/stolon/cmd.Version=#{version}",
-                          "-trimpath", "-o", bin/"stolon-sentinel", "./cmd/sentinel"
-    system "go", "build", "-ldflags", "-s -w -X github.com/sorintlab/stolon/cmd.Version=#{version}",
-                          "-trimpath", "-o", bin/"stolon-proxy", "./cmd/proxy"
-    prefix.install_metafiles
+    ldflags = "-s -w -X github.com/sorintlab/stolon/cmd.Version=#{version}"
+
+    %w[
+      stolonctl ./cmd/stolonctl
+      stolon-keeper ./cmd/keeper
+      stolon-sentinel ./cmd/sentinel
+      stolon-proxy ./cmd/proxy
+    ].each_slice(2) do |bin_name, src_path|
+      system "go", "build", *std_go_args(ldflags: ldflags, output: bin/bin_name), src_path
+    end
+  end
+
+  def port_open?(ip_address, port, seconds = 1)
+    Timeout.timeout(seconds) do
+      TCPSocket.new(ip_address, port).close
+    end
+    true
+  rescue Errno::ECONNREFUSED, Errno::EHOSTUNREACH, Timeout::Error
+    false
   end
 
   test do
-    pid = fork do
-      exec "consul", "agent", "-dev"
-    end
-    sleep 2
+    require "socket"
+    require "timeout"
 
+    consul_default_port = 8500
+    localhost_ip = "127.0.0.1".freeze
+
+    if port_open?(localhost_ip, consul_default_port)
+      puts "Consul already running"
+    else
+      fork do
+        exec "consul agent -dev -bind 127.0.0.1"
+        puts "Consul started"
+      end
+      sleep 5
+    end
     assert_match "stolonctl version #{version}",
       shell_output("#{bin}/stolonctl version 2>&1")
     assert_match "nil cluster data: <nil>",
@@ -51,7 +71,6 @@ class Stolon < Formula
     assert_match "stolon-proxy version #{version}",
       shell_output("#{bin}/stolon-proxy --version 2>&1")
 
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+    system "consul", "leave"
   end
 end

@@ -1,26 +1,26 @@
 class Sonarqube < Formula
   desc "Manage code quality"
   homepage "https://www.sonarqube.org/"
-  url "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-9.8.0.63668.zip"
-  sha256 "5898eea6176e777b2af5656618cf679d235cb895c383c2cbd0b7bbf852d0f632"
+  url "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-9.9.0.65466.zip"
+  sha256 "f5b3045ac40b99dfc2ab45c0990074f4b15e426bdb91533d77f3b94b73d3d411"
   license "LGPL-3.0-or-later"
 
   livecheck do
-    url "https://www.sonarqube.org/success-download-community-edition/"
-    regex(/href=.*?sonarqube[._-]v?(\d+(?:\.\d+)+)\.zip/i)
+    url "https://www.sonarsource.com/page-data/products/sonarqube/downloads/page-data.json"
+    regex(/sonarqube[._-]v?(\d+(?:\.\d+)+)\.zip/i)
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7188bb41ffc4e3b2a57aecd452e78b85a2db84f6fe63004f32c36b2989ce1424"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7188bb41ffc4e3b2a57aecd452e78b85a2db84f6fe63004f32c36b2989ce1424"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7188bb41ffc4e3b2a57aecd452e78b85a2db84f6fe63004f32c36b2989ce1424"
-    sha256 cellar: :any_skip_relocation, ventura:        "7188bb41ffc4e3b2a57aecd452e78b85a2db84f6fe63004f32c36b2989ce1424"
-    sha256 cellar: :any_skip_relocation, monterey:       "7188bb41ffc4e3b2a57aecd452e78b85a2db84f6fe63004f32c36b2989ce1424"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7188bb41ffc4e3b2a57aecd452e78b85a2db84f6fe63004f32c36b2989ce1424"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "27a13db9e7e579600c980f66b66ac9b8ce0814d8eeba24e7d454c61bba4de362"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a06b3ae0b22ad47bb6f809666632730744b0cbc8567b8be2a8dbcb1ba88d9568"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a06b3ae0b22ad47bb6f809666632730744b0cbc8567b8be2a8dbcb1ba88d9568"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a06b3ae0b22ad47bb6f809666632730744b0cbc8567b8be2a8dbcb1ba88d9568"
+    sha256 cellar: :any_skip_relocation, ventura:        "a06b3ae0b22ad47bb6f809666632730744b0cbc8567b8be2a8dbcb1ba88d9568"
+    sha256 cellar: :any_skip_relocation, monterey:       "a06b3ae0b22ad47bb6f809666632730744b0cbc8567b8be2a8dbcb1ba88d9568"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a06b3ae0b22ad47bb6f809666632730744b0cbc8567b8be2a8dbcb1ba88d9568"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ebf2cc25e1802f84c5b06d6cf9d785e8ef0a13a83764be7dcca5073e34bd7739"
   end
 
-  depends_on "openjdk@11"
+  depends_on "openjdk@17"
 
   conflicts_with "sonarqube-lts", because: "both install the same binaries"
 
@@ -39,7 +39,7 @@ class Sonarqube < Formula
     end
 
     libexec.install Dir["*"]
-    env = Language::Java.overridable_java_home_env("11")
+    env = Language::Java.overridable_java_home_env("17")
     env["PATH"] = "$JAVA_HOME/bin:$PATH"
     (bin/"sonar").write_env_script libexec/"bin"/platform/"sonar.sh", env
   end

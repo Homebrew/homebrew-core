@@ -1,20 +1,19 @@
 class TmuxMemCpuLoad < Formula
   desc "CPU, RAM memory, and load monitor for use with tmux"
   homepage "https://github.com/thewtex/tmux-mem-cpu-load"
-  url "https://github.com/thewtex/tmux-mem-cpu-load/archive/v3.6.0.tar.gz"
-  sha256 "7f63e12052acda9c827959a7098c11c6da60b609b30735701977bdb799a43c42"
+  url "https://github.com/thewtex/tmux-mem-cpu-load/archive/v3.6.1.tar.gz"
+  sha256 "eefa5f891786b0d556db57179279a353dcdcd6bdedc07070b1e27c554477a420"
   license "Apache-2.0"
   head "https://github.com/thewtex/tmux-mem-cpu-load.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9798b520b479bf17689a722ffec29a27254b10e80d3faac2be332117065c92dd"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "908d9ef6772534f3e8566c1ff88df907e58586ad052f4084fef24488e4fa6f01"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5e2e38a29b73a3fce05d2f15036d16b8f036d27a9b2f7cdf6bd6ef91b6ebc9bc"
-    sha256 cellar: :any_skip_relocation, ventura:        "4d6371eb1cafc7838aacfc1a7af60ce7761f402a126ebe7e3010d5dea647c5c6"
-    sha256 cellar: :any_skip_relocation, monterey:       "8f39a31907df6aeae2afb43fa5cef232b8d72071a1c60bc64e6119ed1095a6c0"
-    sha256 cellar: :any_skip_relocation, big_sur:        "94a82c0e8c8e83db238bd7e9c1f2a32c4de993f456a299364a9f26107f2f43b4"
-    sha256 cellar: :any_skip_relocation, catalina:       "a7f743c3c85cc40204e88c1c0b3a101a7f16d37d90e36a0517c04d33e7424406"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e90bdd3275ce43b439aa7879aca9086d71188e2ac453aac8a5acb88d794f99f8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bcde6fcf8c75ab2d649bd524389d39f099784836fb335b307fb5ae4023797e36"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "642bca3a0a594f0098983d20caff51e533a749fd7c461c5039a35b9f12931ee6"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4104dc3f30b90dd5c192c8e9208d598f0384bb8161be9d9aa558cfc7de1d3e5f"
+    sha256 cellar: :any_skip_relocation, ventura:        "dcadca600d176e98c13232a0b311f8377a7b6c6fc7b27746c6595a2cc0142edd"
+    sha256 cellar: :any_skip_relocation, monterey:       "b7a648194d99c69f54d9e84623eb736b355a013754f45133cbc8d0427659c5c0"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e7bc2823a89543a090032ca0993b63957246a0b7eea35ce510fec7fba541daaa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5d4a62c764592161d1a8bf9a18b53ed93cb5e5f8accb704e634108c9176ea930"
   end
 
   depends_on "cmake" => :build

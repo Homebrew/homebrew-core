@@ -1,20 +1,18 @@
 class Openmama < Formula
   desc "Open source high performance messaging API for various Market Data sources"
   homepage "https://openmama.finos.org"
-  url "https://github.com/finos/OpenMAMA/archive/OpenMAMA-6.3.1-release.tar.gz"
-  sha256 "43e55db00290bc6296358c72e97250561ed4a4bb3961c1474f0876b81ecb6cf9"
+  url "https://github.com/finos/OpenMAMA/archive/refs/tags/OpenMAMA-6.3.2-release.tar.gz"
+  sha256 "5c09b5c73467c4122fe275c0f880c70e4b9f6f8d1ecbaa1aeeac7d8195d9ffef"
   license "LGPL-2.1-only"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_ventura:  "d2e54f54c813146bda879ee2e18102bf825fee2e883b6d2780e686db413709dc"
-    sha256 cellar: :any,                 arm64_monterey: "81aa664271767ec190b914b079f6aaddb4712ea5071ae983f41904ccabacbf75"
-    sha256 cellar: :any,                 arm64_big_sur:  "a123162e2ba61eb5c30e56460e0946071d905555dc83183b6f20f8ce6bc65193"
-    sha256 cellar: :any,                 ventura:        "5801134c86db7ae939a3b40e2a47a12ce90d3c88cf12f5e2b2782386dead63e5"
-    sha256 cellar: :any,                 monterey:       "178483d87eda050e29c6b646436c0ece4a14dcd5c1d98aec8103a49b97e2857c"
-    sha256 cellar: :any,                 big_sur:        "45153901e833685b76160a45e283b21c52e2382f4a1a65092acd97035f75e2ca"
-    sha256 cellar: :any,                 catalina:       "363d1c76bec6373017daa21a142f07793f818a2d871960641699b54ef54de980"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "643e5f3db30c0f6ae816f6131f0325e58d2bb82665756449347a0a5751bd88be"
+    sha256 cellar: :any,                 arm64_ventura:  "6de6d6508390baa3544fa1995f827b8bf9cd6e043d167b97411e4fdf1a82c2d5"
+    sha256 cellar: :any,                 arm64_monterey: "01798a8ef79a4568217feef635bf6c19a611df734fca69ca1d056a15ff6c8708"
+    sha256 cellar: :any,                 arm64_big_sur:  "035ce67cd9725c533fd499fb06cb71bde602a6fa166ebd5ee1d4895e39dd9c09"
+    sha256 cellar: :any,                 ventura:        "31d87546029420927fd22a57abb347c9e90886cdc3d1b53d835658100fd3f302"
+    sha256 cellar: :any,                 monterey:       "411572b9bbc3d14e3ed1fa4037fd1a8cce714111b8557a2771f810408e263170"
+    sha256 cellar: :any,                 big_sur:        "b0484f0ae2366f8c6170164c8067f42dd0f94a9e0afaefe3dc68924c4a57cbe0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "62da575388fea1bf4abd1799475004e328344c01351504d33c61aac0de464e46"
   end
 
   depends_on "cmake" => :build
@@ -31,20 +29,18 @@ class Openmama < Formula
   end
 
   def install
-    uuid_args = if OS.mac?
-      ["-DUUID_INCLUDE_DIRS=#{MacOS.sdk_path_if_needed}/usr/include", "-DUUID_LIBRARIES=c"]
-    else
-      []
-    end
+    args = %W[
+      -DAPR_ROOT=#{Formula["apr"].opt_prefix}
+      -DAPRUTIL_ROOT=#{Formula["apr-util"].opt_prefix}
+      -DPROTON_ROOT=#{Formula["qpid-proton"].opt_prefix}
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DINSTALL_RUNTIME_DEPENDENCIES=OFF
+      -DWITH_TESTTOOLS=OFF
+      -DOPENMAMA_VERSION=#{version}
+    ]
 
-    system "cmake", "-S", ".", "-B", "build",
-                    "-DAPR_ROOT=#{Formula["apr"].opt_prefix}",
-                    "-DPROTON_ROOT=#{Formula["qpid-proton"].opt_prefix}",
-                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
-                    "-DINSTALL_RUNTIME_DEPENDENCIES=OFF",
-                    "-DWITH_TESTTOOLS=OFF",
-                    *uuid_args,
-                    *std_cmake_args
+    args << "-DUUID_INCLUDE_DIRS=#{MacOS.sdk_path_if_needed}/usr/include" << "-DUUID_LIBRARIES=c" if OS.mac?
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

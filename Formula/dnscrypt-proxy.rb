@@ -1,8 +1,8 @@
 class DnscryptProxy < Formula
   desc "Secure communications between a client and a DNS resolver"
   homepage "https://dnscrypt.info"
-  url "https://github.com/DNSCrypt/dnscrypt-proxy/archive/2.1.2.tar.gz"
-  sha256 "aa55fd52b9c1b983405bf98b42ec754f5d6f59b429ba9c98115df617eef5dea4"
+  url "https://github.com/DNSCrypt/dnscrypt-proxy/archive/2.1.4.tar.gz"
+  sha256 "05f0a3e8c8f489caf95919e2a75a1ec4598edd3428d2b9dd357caba6adb2607d"
   license "ISC"
   head "https://github.com/DNSCrypt/dnscrypt-proxy.git", branch: "master"
 
@@ -12,22 +12,20 @@ class DnscryptProxy < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "63127aa2055234930ffaba3657c0b929c6617e0d6a51f838b62cc2ce2ced5a47"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d3ea6c1b4e59e02b601b6ac4d725823ea9e988fac26e51e11f39c953a5f218e5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fb685dac6c6eede13db486d13282c119bf65ec1453bf44210db24c9fe952098b"
-    sha256 cellar: :any_skip_relocation, ventura:        "89e267e37cd8366c3940cdfd5bf608ca9a866429934f54a50a4365376a039202"
-    sha256 cellar: :any_skip_relocation, monterey:       "53d22657ada544f52117830389f83a3e3a9f5bb138cb0e9687befd7d5781fa8a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0bcc224c3004a27208125a6c97135a2bc1ee23b7e2254e37c1046d9bc998d418"
-    sha256 cellar: :any_skip_relocation, catalina:       "e130425e2c1000396b6b51b942e83a87c44f36c7330d37284111c6101aa67a97"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "375d96ef3b1a89d3d5f1e5e340b9efc83acbefee67c080629cf567d7a6e7515d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "da74df355890ed829d55080348adc125bf5dfe0f70e0c04c286ce4e65e3b709d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "02aeddf862d70235a647e24bc64efb14b29d0c84931d7b2590fe142358bd5557"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "93f345adfc058e7ead522d7b2e7a7bf0609475865bf37c9d2238c3fa2ccaf7f0"
+    sha256 cellar: :any_skip_relocation, ventura:        "a23dae15ae623b6fe438b911eae117ac87d8d2d866757e527948e5b0bc665b2e"
+    sha256 cellar: :any_skip_relocation, monterey:       "8251312fe68d98ad53d4a5edc4c31a34d3d583e62ad5b9b4a6a5b5a63ca9b813"
+    sha256 cellar: :any_skip_relocation, big_sur:        "1d4b533f001583fdd3d627ed51b0809e33e5d5318ddb26a0ba0b1da6f6918bf0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "28702655cf286ac6850f31cafb4d365c12d8b65877d6ff1ace4c1da2795259ac"
   end
 
   depends_on "go" => :build
 
   def install
     cd "dnscrypt-proxy" do
-      system "go", "build", "-ldflags", "-X main.version=#{version}", "-o",
-             sbin/"dnscrypt-proxy"
+      system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}", output: sbin/"dnscrypt-proxy")
       pkgshare.install Dir["example*"]
       etc.install pkgshare/"example-dnscrypt-proxy.toml" => "dnscrypt-proxy.toml"
     end

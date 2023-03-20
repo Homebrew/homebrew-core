@@ -1,19 +1,18 @@
 class Webp < Formula
   desc "Image format providing lossless and lossy compression for web images"
   homepage "https://developers.google.com/speed/webp/"
-  url "https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-1.2.4.tar.gz"
-  sha256 "7bf5a8a28cc69bcfa8cb214f2c3095703c6b73ac5fba4d5480c205331d9494df"
+  url "https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-1.3.0.tar.gz"
+  sha256 "64ac4614db292ae8c5aa26de0295bf1623dbb3985054cb656c55e67431def17c"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "d6cc5a2a21f783077fc0c40e61809d14b52f9c878a682cefe750364222f51551"
-    sha256 cellar: :any,                 arm64_monterey: "f2857acd2c645e441e7363903906492e96cda8c52a1fe0c9ddb668fd12f63e53"
-    sha256 cellar: :any,                 arm64_big_sur:  "90cc74768d434a5476cf49144d02ef5dd24cfeb2dead12f1210ffa468e024c85"
-    sha256 cellar: :any,                 ventura:        "f3f06cd4ebe72b4f991800868e8dc9e6f49f22dccc20ff13fa5c771c3e60f8f2"
-    sha256 cellar: :any,                 monterey:       "51401f60176f19559cd04e37873da32c470fe3ac6ba0a9e096a4fafda5cd8065"
-    sha256 cellar: :any,                 big_sur:        "dc4045b5b9e114898adc9522c704aa668c15c64a5026a2f22c0edfb0cd5fdaeb"
-    sha256 cellar: :any,                 catalina:       "c3d401ed32f666e4b1bf40b7c9c037e4c618e12d9e31b61ae59dca03fb8982a0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "853c0c8e2d2b74f0a6f1b7d2b160c3fb69fa7b8a7ae93da5df9da97275a77b8f"
+    sha256 cellar: :any,                 arm64_ventura:  "fb2edf5a9f207f41aa11ff72efb0822da454f3a15e633738df8afdf69c40857d"
+    sha256 cellar: :any,                 arm64_monterey: "b184d1461126f09e2129f67cbc2025c3fc576f87a76a14bd7b5d76fd1d96a2d0"
+    sha256 cellar: :any,                 arm64_big_sur:  "edfeee19efb9e30eb99400eec5017d162ee70fb5d69346fec6f716a5f12c822b"
+    sha256 cellar: :any,                 ventura:        "f3f98d19c9ee4f773a937a0d5b44f504710c9f8af29cae6665820a18e2498e97"
+    sha256 cellar: :any,                 monterey:       "a07ca47cda0829022148d2b248972f3c37fd53bfbee6b767f8cbbd1a73e5fafe"
+    sha256 cellar: :any,                 big_sur:        "84ccd490c545a02910d950ba4b06027685939bec03256abbfbaf012fa02e7a1d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "89347c4622e958013b7977a06178766cf00d5a98e67acc03163d0c27595cf18f"
   end
 
   head do

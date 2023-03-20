@@ -44,10 +44,10 @@ class Coin3d < Formula
   end
 
   head do
-    url "https://github.com/coin3d/coin.git"
+    url "https://github.com/coin3d/coin.git", branch: "master"
 
     resource "pivy" do
-      url "https://github.com/coin3d/pivy.git"
+      url "https://github.com/coin3d/pivy.git", branch: "master"
     end
   end
 
@@ -139,5 +139,5 @@ index 27e26a6..73162c0 100644
 -  int type_len;
 +  Py_ssize_t type_len;
    PyObject * obj = 0;
- 
+
    if (!PyArg_ParseTuple(args, "Os#:cast", &obj, &type_name, &type_len)) {

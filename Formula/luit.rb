@@ -1,8 +1,8 @@
 class Luit < Formula
   desc "Filter run between arbitrary application and UTF-8 terminal emulator"
   homepage "https://invisible-island.net/luit/"
-  url "https://invisible-mirror.net/archives/luit/luit-20221028.tgz"
-  sha256 "ef78b3a64a697cb70a881558abb8251e4b30748ceefb8d44adbd8ea797bcfca6"
+  url "https://invisible-mirror.net/archives/luit/luit-20230201.tgz"
+  sha256 "ee2a8d1dbc7ee23d00c412a1f0b3d70678514d56d5be0a816dd95e232e76c56f"
   license "MIT"
 
   livecheck do
@@ -11,14 +11,13 @@ class Luit < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cafdcdbb1bf2aee513f735f786592a23c83bec40fbee45bbcc2665500964abfb"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "132aa18b60949dd628c7a8476df562c4fa04f88ead32f08cec54182add165a5e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "91e3b521424f647de71dff1b4159a7fb841a94e733d784e39945998006ddb987"
-    sha256 cellar: :any_skip_relocation, ventura:        "e24f9f095e0853835493f0f2886170b52ed5a7dba31747da653d1e15a1b7c8fe"
-    sha256 cellar: :any_skip_relocation, monterey:       "4f72da9571d474cecb82bc3f14041f2488be3821a2a1ed025aa22c6e35ae802c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7945436cd68b2d7af9deed97cbf27c4a885f0340e7816e92c005774b6074de32"
-    sha256 cellar: :any_skip_relocation, catalina:       "ca3df4772b8b9726d45906983fedd72464dcc04f884c9e1315b5982f3efac4f7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8d7f340c3f56ce265dfbcd8fdaa0824f4dc3e73e8baee2c8e3c634cd551acd67"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2921f3e72c9dd839dda3c52815a028d205136849b2ced7f5ca395c4949ff5c5e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4ad950b090ec568a426659521613dcf408a61a88ccc146de912f5b2b2c2187bb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ac0a89fc8a5ae33805e22959345b871ae09324c684c48147eaed4cf76ef47723"
+    sha256 cellar: :any_skip_relocation, ventura:        "5d7ac0c9eb7e4d3e44c023e4ee3ae398140b589deb81430a10beee9ebf257931"
+    sha256 cellar: :any_skip_relocation, monterey:       "6c5ca1a5b9e177545e5f34275b8c16b5e23d0fe2e5b4b7ac8df71a38e8495916"
+    sha256 cellar: :any_skip_relocation, big_sur:        "bebbd81806a71c8fdbca34f7b4c1cefd1f421b8a4c1bf5de02e006c929999f8c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "85589978fc902e61d62615feb5df1a3e99c4087171260a3069cf8976a20b9fed"
   end
 
   uses_from_macos "zlib"

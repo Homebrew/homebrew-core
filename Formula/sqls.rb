@@ -17,6 +17,8 @@ class Sqls < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5eb770bee66bb17bad1307ce42b6e4d1d90352612c28ffe832ba8eeae74dd271"
   end
 
+  disable! date: "2022-11-17", because: :repo_archived
+
   depends_on "go" => :build
 
   def install

@@ -6,8 +6,8 @@ class Autopsy < Formula
 
   livecheck do
     url "https://github.com/sleuthkit/autopsy.git"
-    strategy :github_latest
     regex(%r{href=.*?/tag/autopsy[._-]v?(\d+(?:\.\d+)+)["' >]}i)
+    strategy :github_latest
   end
 
   bottle do

@@ -1,8 +1,8 @@
 class JpegXl < Formula
   desc "New file format for still image compression"
   homepage "https://jpeg.org/jpegxl/index.html"
-  url "https://github.com/libjxl/libjxl/archive/v0.7.0.tar.gz"
-  sha256 "3114bba1fabb36f6f4adc2632717209aa6f84077bc4e93b420e0d63fa0455c5e"
+  url "https://github.com/libjxl/libjxl/archive/v0.8.1.tar.gz"
+  sha256 "60f43921ad3209c9e180563025eda0c0f9b1afac51a2927b9ff59fff3950dc56"
   license "BSD-3-Clause"
   revision 1
 
@@ -12,24 +12,26 @@ class JpegXl < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "7eb0830be36d3318ebcc215ac69cdd63e7f99fd0792e990112c5b26a90afd816"
-    sha256 cellar: :any,                 arm64_monterey: "61c94c8298518c28e7691f81a2121ce486d858dedadfe60022e1e551511030fc"
-    sha256 cellar: :any,                 arm64_big_sur:  "371a558450a0fdfdd8de9989011f1001a4e04e32e437f596299caee66c0ba18c"
-    sha256 cellar: :any,                 ventura:        "09a8f21c88586da121b247e5b52233009f85dba0434c63deb470aaf558de487b"
-    sha256 cellar: :any,                 monterey:       "a9f204cf962676a52a330a71d217c83c14e40a756f02edfdd8d5d8aedfb14663"
-    sha256 cellar: :any,                 big_sur:        "012d7b28ece1cfcd64bd2c26b35f19143dc606ba76bcd0e5eac667d6a3173f14"
-    sha256 cellar: :any,                 catalina:       "0ee7f2e5766b3cea61538f03925f22b6fba782f1c40e4db6439b07f7ec84ec1c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ba13a60f0f71f0818f95cc17f2dccdcf9062735b7a5aa98412fbcb6ca8e96ce9"
+    sha256 cellar: :any,                 arm64_ventura:  "7f91c90c84cc6d9a48a046bd1e1b287c501ad204bbf1aa85d0fb9de4d4c81fb8"
+    sha256 cellar: :any,                 arm64_monterey: "49d3e3c20e9d1465da66708198a04acde9a63a655769d85025f953b01504ff25"
+    sha256 cellar: :any,                 arm64_big_sur:  "cc73c732b088a6c22cde87f4928af39185e518ed7d29478b090bb848ef988a44"
+    sha256 cellar: :any,                 ventura:        "f3067f81764ce03946122d59197100da9aa2a41337a430bc622b3dd2c44bacff"
+    sha256 cellar: :any,                 monterey:       "acc6338a4fa91a43933b23e8884e0c8ff3a4b915834d15f9cc19d87bea7aaff8"
+    sha256 cellar: :any,                 big_sur:        "b03b751c9e71d937f5f1b0c3460829197a4866b9d79a2bd6858ab0d225fa4744"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6f96867e2e15962f29f8be41c54395d3cf29c59db3cce89a839704d605bdf0ae"
   end
 
   depends_on "cmake" => :build
+  depends_on "doxygen" => :build
   depends_on "pkg-config" => :build
+  depends_on "sphinx-doc" => :build
   depends_on "brotli"
   depends_on "giflib"
   depends_on "highway"
   depends_on "imath"
   depends_on "jpeg-turbo"
   depends_on "libpng"
+  depends_on "little-cms2"
   depends_on "openexr"
   depends_on "webp"
 
@@ -41,11 +43,6 @@ class JpegXl < Formula
 
   # These resources are versioned according to the script supplied with jpeg-xl to download the dependencies:
   # https://github.com/libjxl/libjxl/tree/v#{version}/third_party
-  resource "lodepng" do
-    url "https://github.com/lvandeve/lodepng.git",
-        revision: "48e5364ef48ec2408f44c727657ac1b6703185f8"
-  end
-
   resource "sjpeg" do
     url "https://github.com/webmproject/sjpeg.git",
         revision: "868ab558fad70fcbe8863ba4e85179eeb81cc840"
@@ -53,7 +50,7 @@ class JpegXl < Formula
 
   resource "skcms" do
     url "https://skia.googlesource.com/skcms.git",
-        revision: "64374756e03700d649f897dbd98c95e78c30c7da"
+        revision: "b25b07b4b07990811de121c0356155b2ba0f4318"
   end
 
   def install
@@ -61,6 +58,7 @@ class JpegXl < Formula
     # disable manpages due to problems with asciidoc 10
     system "cmake", "-S", ".", "-B", "build",
                     "-DJPEGXL_FORCE_SYSTEM_BROTLI=ON",
+                    "-DJPEGXL_FORCE_SYSTEM_LCMS2=ON",
                     "-DJPEGXL_FORCE_SYSTEM_HWY=ON",
                     "-DJPEGXL_ENABLE_JNI=OFF",
                     "-DJPEGXL_VERSION=#{version}",

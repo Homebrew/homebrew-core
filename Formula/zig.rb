@@ -1,28 +1,20 @@
 class Zig < Formula
   desc "Programming language designed for robustness, optimality, and clarity"
   homepage "https://ziglang.org/"
+  url "https://ziglang.org/download/0.10.1/zig-0.10.1.tar.xz"
+  sha256 "69459bc804333df077d441ef052ffa143d53012b655a51f04cfef1414c04168c"
   license "MIT"
   head "https://github.com/ziglang/zig.git", branch: "master"
 
-  stable do
-    url "https://ziglang.org/download/0.10.0/zig-0.10.0.tar.xz"
-    sha256 "d8409f7aafc624770dcd050c8fa7e62578be8e6a10956bca3c86e8531c64c136"
-
-    on_macos do
-      # We need to make sure there is enough space in the MachO header when we rewrite install names.
-      # https://github.com/ziglang/zig/issues/13388
-      patch :DATA
-    end
-  end
-
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "01af7e89a24e093d0a9237fd46cac44adf68a9abf43cbeab2d19f375c587728d"
-    sha256 cellar: :any,                 arm64_monterey: "7bd6777182b5b0d39aa73c0840b5d9619c76e0328cf48909648ef134ab0c8c2f"
-    sha256 cellar: :any,                 arm64_big_sur:  "c501006d75235e835705010031188f1e840f5e977c4022981bee7d95d9dd5e35"
-    sha256 cellar: :any,                 ventura:        "55c9562de04c6bc2f14e2a0d78e04bcfca087c567222b0f273ca828c2bd11910"
-    sha256 cellar: :any,                 monterey:       "f1df3f7f4fc4d266d5af55a7adacd17d38d47385f863a92902beecd434af1086"
-    sha256 cellar: :any,                 big_sur:        "8e9858adbecf1870e59028794a70e0e37c26ffe513301fb4d88e92819c3c160a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0cf9a390995748c4450c9b748cae48f333371a97d4f4fbe5c373ed64a2ca9166"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "8a4d9ff9954cc5653d7ee911bdb1763d391782ec9a238045ff56ba5f86bf2e1a"
+    sha256 cellar: :any,                 arm64_monterey: "39edbad109f049325e58dbc101a748c02c175be1f0a40174b2e896e4bef3ccdc"
+    sha256 cellar: :any,                 arm64_big_sur:  "0b51293590c234eeb6719160a14e4b613bf72881485e5d0e232cf780db76d3b9"
+    sha256 cellar: :any,                 ventura:        "b4ae05a9335758b47c4d9bb9c71ce455aff7449bb975f4996f4d92c32e407701"
+    sha256 cellar: :any,                 monterey:       "03372943e1f2b037452fef537f19114af3953f945eb30c5f8cb04b9335fe34c1"
+    sha256 cellar: :any,                 big_sur:        "237021c926ad9b3ae44112d1e34d7ba615d940ff28c29170915cd68af84b2b87"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f17973e872f1ea8de838d540cb1b8092a6a4091e41f2d08822a0431bbd970080"
   end
 
   depends_on "cmake" => :build
@@ -36,7 +28,15 @@ class Zig < Formula
   fails_with gcc: "5" # LLVM is built with GCC
 
   def install
-    system "cmake", "-S", ".", "-B", "build", "-DZIG_STATIC_LLVM=ON", *std_cmake_args
+    cpu = case Hardware.oldest_cpu
+    when :arm_vortex_tempest then "apple_m1" # See `zig targets`.
+    else Hardware.oldest_cpu
+    end
+
+    args = ["-DZIG_STATIC_LLVM=ON"]
+    args << "-DZIG_TARGET_MCPU=#{cpu}" if build.bottle?
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
@@ -66,17 +66,3 @@ class Zig < Formula
     assert_equal "Hello, world!", shell_output("./hello")
   end
 end
-
-__END__
-diff --git a/build.zig b/build.zig
-index e5e80b4..1da6892 100644
---- a/build.zig
-+++ b/build.zig
-@@ -154,6 +154,7 @@ pub fn build(b: *Builder) !void {
- 
-     exe.stack_size = stack_size;
-     exe.strip = strip;
-+    exe.headerpad_max_install_names = true;
-     exe.sanitize_thread = sanitize_thread;
-     exe.build_id = b.option(bool, "build-id", "Include a build id note") orelse false;
-     exe.install();

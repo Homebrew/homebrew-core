@@ -6,11 +6,6 @@ class Onscripter < Formula
   license "GPL-2.0-or-later"
   revision 1
 
-  livecheck do
-    url :homepage
-    regex(/href=.*?onscripter[._-]v?(\d+(?:\.\d+)*)\.t/i)
-  end
-
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "b291a3aa9c8aa3b28bef0cbcaf28caefe0650d0a4203dcda060635a0bbf4d806"
     sha256 cellar: :any,                 arm64_monterey: "511063ae79a45b8dfad195cc4b16e84d00aa6932caff7c1835344be4852d65e5"
@@ -21,6 +16,8 @@ class Onscripter < Formula
     sha256 cellar: :any,                 catalina:       "9225c0a491a3ec8292d605929af81daf7f155768ba1eadb1d4e60acaa940765d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5a30882de58f50332809a732af98007ef932ddc259e7c928c5ff9f959a349727"
   end
+
+  deprecate! date: "2023-02-05", because: "uses deprecated `sdl_image`, `sdl_mixer`, and `sdl_ttf`"
 
   depends_on "pkg-config" => :build
   depends_on "jpeg-turbo"

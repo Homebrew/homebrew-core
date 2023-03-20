@@ -1,21 +1,19 @@
 class AprUtil < Formula
   desc "Companion library to apr, the Apache Portable Runtime library"
   homepage "https://apr.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=apr/apr-util-1.6.1.tar.bz2"
-  mirror "https://archive.apache.org/dist/apr/apr-util-1.6.1.tar.bz2"
-  sha256 "d3e12f7b6ad12687572a3a39475545a072608f4ba03a6ce8a3778f607dd0035b"
+  url "https://www.apache.org/dyn/closer.lua?path=apr/apr-util-1.6.3.tar.bz2"
+  mirror "https://archive.apache.org/dist/apr/apr-util-1.6.3.tar.bz2"
+  sha256 "a41076e3710746326c3945042994ad9a4fcac0ce0277dd8fea076fec3c9772b5"
   license "Apache-2.0"
-  revision 4
 
   bottle do
-    sha256 arm64_ventura:  "534b2aef9b78f3e0c3af062fb496917b9ede4972c9e3a77675b840285cf862cd"
-    sha256 arm64_monterey: "3fbbe5ef907dc7f8b259f49c0891987f088ecaa0ad0fd75d47345804ec5d2976"
-    sha256 arm64_big_sur:  "72585edce1997ea0ac5be884f0fbed79f2746d3252e035ed63b1bd04ad501d94"
-    sha256 ventura:        "fc26e9e914a6240452123e48d2f4bba40dcbc75dd4f797ddf0c3b91898fb4c6f"
-    sha256 monterey:       "7695efa17e538d71459020c3838081629629c3c1169bd9ac166865d2bdacb213"
-    sha256 big_sur:        "94a9d60abb422a135295ac6c8425af4c72a0f49f46323aa19abd4b358c03270e"
-    sha256 catalina:       "8e62fdfe79eaa75a700fb97ea3264aa5bcd77dabcf526240d35537325387c353"
-    sha256 x86_64_linux:   "588c3c2c34bd3078f4b181da19d07e4bb509c7cb8afbf5ab6a5d707a730dce20"
+    sha256 arm64_ventura:  "6934399a13fd918d1b923b0f3c11b147b7f95252fb5346e6c2c1ff0ea469dd47"
+    sha256 arm64_monterey: "b9f49b64bb09ebbacca86db8b043eeae0d4ccbdbbc107387ac62940a0813c8b2"
+    sha256 arm64_big_sur:  "ccb19102ab96bc0ca3575931a34ebfbb8313fddd03c91d6379316f80174a84be"
+    sha256 ventura:        "0ed3fd969da7b5199386e5ad2da2c1585c273c4e9bfc3d601b3cb12984ca298a"
+    sha256 monterey:       "5bcb46d9d71cfbbcd247ead2d3eb47d587397cfd7c2c34ea5f3f855bc06985c5"
+    sha256 big_sur:        "12b7c6a3247bd7fcf1c8f240e7d1b94f1d6303ac065583806a8ac895353ac452"
+    sha256 x86_64_linux:   "8cee1baa7025531d181d2c6a49198f2095b043405ddbb8618ae9e5e36c2713fb"
   end
 
   keg_only :shadowed_by_macos, "Apple's CLT provides apr (but not apr-util)"

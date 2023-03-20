@@ -1,32 +1,32 @@
 class TemplateGlib < Formula
   desc "GNOME templating library for GLib"
   homepage "https://gitlab.gnome.org/GNOME/template-glib"
-  url "https://download.gnome.org/sources/template-glib/3.36/template-glib-3.36.0.tar.xz"
-  sha256 "1c129525ae64403a662f7666f6358386a815668872acf11cb568ab39bba1f421"
+  url "https://download.gnome.org/sources/template-glib/3.36/template-glib-3.36.1.tar.xz"
+  sha256 "3b167a17385ad745afbe20fadf8106c66d30c5bd746d5aa1d9bdb7e803f6a503"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "a628c43a450581b900844970e893e39ad08a9767b16f5a88df93858c5b93c8ff"
-    sha256 cellar: :any, arm64_monterey: "975a75a08cb72d71009a1d07f399f6847134af9b06492d746f4d86c9204b4c72"
-    sha256 cellar: :any, arm64_big_sur:  "505dfa99643c6f897cf481ca1af19aba67af9bb7c5c020d375f51cf93eed1b9f"
-    sha256 cellar: :any, ventura:        "8ef983234e3de51baedbc3e4d00dde51266b1c0f863800d23b950145131c8036"
-    sha256 cellar: :any, monterey:       "0abef023dfcaebcb376cac80a907ccdf7ad200955bba1fbdd64c11dcbb12b48e"
-    sha256 cellar: :any, big_sur:        "cc7bb0842a23032fd361459b61b49fe7bce110dd027e658e30cb905a0a09a338"
-    sha256 cellar: :any, catalina:       "73a0b311cedc2ae831aceb252b1c9215194ef4f75274bd5b8fc9e2dad8af79f1"
-    sha256               x86_64_linux:   "dab5fe31f0bcd02ccc610f8aa9544a9d8cb813903250ecb87cc35e7e4ada1917"
+    sha256 cellar: :any, arm64_ventura:  "774bc15db0c2b5e299f8e4d76ae83fc37204259beae21a5c8801c646f2b50c33"
+    sha256 cellar: :any, arm64_monterey: "df91f7944d110734160bcddd075cacb63080a9840204dc0a5b1878d0cdfca8c7"
+    sha256 cellar: :any, arm64_big_sur:  "323d025d1978534f458a7f877c9e4d8ea482b3fe50a00d36686b6ebb65922fd7"
+    sha256 cellar: :any, ventura:        "c07351a7b8832768973284fff89386299773e20fd07eb8def24d887005bf0b7d"
+    sha256 cellar: :any, monterey:       "c54b5045304c7098837709210ebd74a584a9c1565c9a654fa4fc6771e7912e6f"
+    sha256 cellar: :any, big_sur:        "4dead442226961da575f6d5c1a9745822baab6e874217375b29cabbf579ca33d"
+    sha256               x86_64_linux:   "20c6c8571b256ebcd3e6d76f1ea10241a87d60bb6f9ddf0e91dae900e7d7b7f9"
   end
 
   depends_on "bison" => :build # does not appear to work with system bison
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
+  depends_on "vala" => :build
   depends_on "glib"
   depends_on "gobject-introspection"
 
   uses_from_macos "flex"
 
   def install
-    system "meson", "setup", "build", "-Dvapi=false", "-Dintrospection=enabled", *std_meson_args
+    system "meson", "setup", "build", "-Dvapi=true", "-Dintrospection=enabled", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
   end

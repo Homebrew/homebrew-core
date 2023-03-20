@@ -1,8 +1,8 @@
 class Luarocks < Formula
   desc "Package manager for the Lua programming language"
   homepage "https://luarocks.org/"
-  url "https://luarocks.org/releases/luarocks-3.9.1.tar.gz"
-  sha256 "ffafd83b1c42aa38042166a59ac3b618c838ce4e63f4ace9d961a5679ef58253"
+  url "https://luarocks.org/releases/luarocks-3.9.2.tar.gz"
+  sha256 "bca6e4ecc02c203e070acdb5f586045d45c078896f6236eb46aa33ccd9b94edb"
   license "MIT"
   head "https://github.com/luarocks/luarocks.git", branch: "master"
 
@@ -12,17 +12,15 @@ class Luarocks < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "965d32fb05b950400ddfa6586c208d6b108fefafbd82aac77f423961447df7ec"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2c2fcf803a9a182998eb4e0a674edc53fb98b75725fb390aa112b33bfab40298"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2c2fcf803a9a182998eb4e0a674edc53fb98b75725fb390aa112b33bfab40298"
-    sha256 cellar: :any_skip_relocation, ventura:        "cd97356f99bb752439b21a7c5188bc61e9f9c0cbf46e09c82e8c110f9cf54765"
-    sha256 cellar: :any_skip_relocation, monterey:       "da96512ca94b72a6fb60859da82fd31f1428d5a2e016e082982a284d1873ba5b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "da96512ca94b72a6fb60859da82fd31f1428d5a2e016e082982a284d1873ba5b"
-    sha256 cellar: :any_skip_relocation, catalina:       "da96512ca94b72a6fb60859da82fd31f1428d5a2e016e082982a284d1873ba5b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2c2fcf803a9a182998eb4e0a674edc53fb98b75725fb390aa112b33bfab40298"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8c82ed75f35abd93f042561f4ed3b1e350a4ead7596bea57b8100adc73fb066d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8c82ed75f35abd93f042561f4ed3b1e350a4ead7596bea57b8100adc73fb066d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8c82ed75f35abd93f042561f4ed3b1e350a4ead7596bea57b8100adc73fb066d"
+    sha256 cellar: :any_skip_relocation, ventura:        "77d0eb8f6d9d3a509f48f11c34f84d13de71d106ab71ac13466b1f5cf3b61d9a"
+    sha256 cellar: :any_skip_relocation, monterey:       "77d0eb8f6d9d3a509f48f11c34f84d13de71d106ab71ac13466b1f5cf3b61d9a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "77d0eb8f6d9d3a509f48f11c34f84d13de71d106ab71ac13466b1f5cf3b61d9a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8c82ed75f35abd93f042561f4ed3b1e350a4ead7596bea57b8100adc73fb066d"
   end
 
-  depends_on "lua@5.1" => :test
   depends_on "lua@5.3" => :test
   depends_on "luajit" => :test
   depends_on "lua"
@@ -42,7 +40,7 @@ class Luarocks < Formula
       to use Lua#{Formula["lua"].version.major_minor}, but you can require it to use another version at runtime
       with the `--lua-dir` flag, like this:
 
-        luarocks --lua-dir=#{Formula["lua@5.1"].opt_prefix} install say
+        luarocks --lua-dir=#{Formula["lua@5.3"].opt_prefix} install say
     EOS
   end
 
@@ -50,7 +48,6 @@ class Luarocks < Formula
     luas = [
       Formula["lua"],
       Formula["lua@5.3"],
-      Formula["lua@5.1"],
     ]
 
     luas.each do |lua|

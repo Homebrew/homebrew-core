@@ -1,22 +1,33 @@
 class Ibazel < Formula
   desc "Tools for building Bazel targets when source files change"
   homepage "https://github.com/bazelbuild/bazel-watcher"
-  url "https://github.com/bazelbuild/bazel-watcher/archive/refs/tags/v0.21.0.tar.gz"
-  sha256 "c6413d3298c51d968bbbe8a01f481b83947e55eae6af78c0b8268a91e02d7989"
+  url "https://github.com/bazelbuild/bazel-watcher/archive/refs/tags/v0.21.4.tar.gz"
+  sha256 "57e87637f86f7260c8619525c470e2379b6e7cf7a51bfa1b2342b1f29d306777"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "589e6363b32a7b04d26c82ea20f0cf1c57bbbf8032a85184a51b10c099b73a8e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "96c2e05c6989413b925022963934672797bb1c2a6fd84c2094487b904d0178d0"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c0ef0efb3f2ddd64c0ef4091de7fe73533e9426944b2966c3305dc961735542a"
-    sha256 cellar: :any_skip_relocation, ventura:        "2eb34b4a29ec5bd9eea7dfec7edf6f6b2c93c23dc3fe4f83f67d57bbddfc1ddf"
-    sha256 cellar: :any_skip_relocation, monterey:       "2eb34b4a29ec5bd9eea7dfec7edf6f6b2c93c23dc3fe4f83f67d57bbddfc1ddf"
-    sha256 cellar: :any_skip_relocation, big_sur:        "baafd1ed952af966721f4982c9fc4cd746b1c3c7adfab0b0f49d94008570a1ca"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "70fb9e15f1baea5e6a24915c6ea10b087420022aaffa66bd1f81cff129af03d6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b3226ebae016c1c9583980b8101077ff55e3ed171b1e763e699fea31e41b929a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "424434a824b0748325601863238d18e925e22da91f7a26a7cc5ed6193b10a10a"
+    sha256 cellar: :any_skip_relocation, ventura:        "b61e899cea4841514b85b42dac082ed5f1f8ac3d8ae49d00b9234dc1bface4e4"
+    sha256 cellar: :any_skip_relocation, monterey:       "b61e899cea4841514b85b42dac082ed5f1f8ac3d8ae49d00b9234dc1bface4e4"
+    sha256 cellar: :any_skip_relocation, big_sur:        "49233ff62932a2dfe41ded272391e63a190ae801b857f583388f66d642e05fa5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "94a4c042fce4afc577475ad5a9492ab4e0551b1c22be275c4aaffefe766e58ee"
   end
 
-  depends_on "bazel" => [:build, :test]
   depends_on "go" => [:build, :test]
-  depends_on :macos
+
+  on_macos do
+    depends_on "bazel" => [:build, :test]
+  end
+
+  on_linux do
+    depends_on "bazelisk" => [:build, :test]
+  end
+
+  # patch to use bazel 6.0.0, upstream PR, https://github.com/bazelbuild/bazel-watcher/pull/575
+  patch :DATA
 
   def install
     system "bazel", "build", "--config=release", "--workspace_status_command", "echo STABLE_GIT_VERSION #{version}", "//cmd/ibazel:ibazel"
@@ -30,10 +41,10 @@ class Ibazel < Formula
 
       http_archive(
         name = "io_bazel_rules_go",
-        sha256 = "f2dcd210c7095febe54b804bb1cd3a58fe8435a909db2ec04e31542631cf715c",
+        sha256 = "dd926a88a564a9246713a9c00b35315f54cbd46b31a26d5d8fb264c07045f05d",
         urls = [
-            "https://mirror.bazel.build/github.com/bazelbuild/rules_go/releases/download/v0.31.0/rules_go-v0.31.0.zip",
-            "https://github.com/bazelbuild/rules_go/releases/download/v0.31.0/rules_go-v0.31.0.zip",
+            "https://mirror.bazel.build/github.com/bazelbuild/rules_go/releases/download/v0.38.1/rules_go-v0.38.1.zip",
+            "https://github.com/bazelbuild/rules_go/releases/download/v0.38.1/rules_go-v0.38.1.zip",
         ],
       )
 
@@ -71,3 +82,12 @@ class Ibazel < Formula
     Process.kill("TERM", pid)
   end
 end
+
+__END__
+diff --git a/.bazelversion b/.bazelversion
+index 8a30e8f..09b254e 100644
+--- a/.bazelversion
++++ b/.bazelversion
+@@ -1 +1 @@
+-5.4.0
++6.0.0

@@ -3,20 +3,18 @@ class Txt2tags < Formula
 
   desc "Conversion tool to generating several file formats"
   homepage "https://txt2tags.org/"
-  url "https://files.pythonhosted.org/packages/0e/80/dc4215b549ddbe1d1251bc4cd47ad6f4a65e1f9803815997817ff297d22e/txt2tags-3.7.tar.gz"
-  sha256 "27969387206d12b4e4a0eb13d0d5dd957d71dbb932451b0dceeab5e3dbb6178a"
-  revision 3
+  url "https://files.pythonhosted.org/packages/a3/91/3522a1fbefcc02d3d496854aea81b2b01a6e388bdb27ca0be39a91a43711/txt2tags-3.8.tar.gz"
+  sha256 "379869e866ed85225181ac65583827781a166c907de8bb40a9f3daf7b16c3483"
+  license "GPL-2.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c7ada1460b8414d186474f786fe2a5d2643b4f08cca60e3b81c9c946fa308cbe"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c7ada1460b8414d186474f786fe2a5d2643b4f08cca60e3b81c9c946fa308cbe"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c7ada1460b8414d186474f786fe2a5d2643b4f08cca60e3b81c9c946fa308cbe"
-    sha256 cellar: :any_skip_relocation, ventura:        "fd7145ac3dc3b49ff98088c5201a961bf361dc2cabb35b5bbb6db533fc861e82"
-    sha256 cellar: :any_skip_relocation, monterey:       "fd7145ac3dc3b49ff98088c5201a961bf361dc2cabb35b5bbb6db533fc861e82"
-    sha256 cellar: :any_skip_relocation, big_sur:        "fd7145ac3dc3b49ff98088c5201a961bf361dc2cabb35b5bbb6db533fc861e82"
-    sha256 cellar: :any_skip_relocation, catalina:       "fd7145ac3dc3b49ff98088c5201a961bf361dc2cabb35b5bbb6db533fc861e82"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "de5e182914b9b55783f347caeaa9d5f671e49bb1bbd055eb2c75958e110226f7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c733dd69bfebdbd7eaebcc27c4d80e2ed080cbcef5a71d22aa1965f6e4164bdb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c733dd69bfebdbd7eaebcc27c4d80e2ed080cbcef5a71d22aa1965f6e4164bdb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c733dd69bfebdbd7eaebcc27c4d80e2ed080cbcef5a71d22aa1965f6e4164bdb"
+    sha256 cellar: :any_skip_relocation, ventura:        "337725d77060c6e7f0ddd638ff0d904b98aca4b78748327b0494b7ab02584c8c"
+    sha256 cellar: :any_skip_relocation, monterey:       "337725d77060c6e7f0ddd638ff0d904b98aca4b78748327b0494b7ab02584c8c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "337725d77060c6e7f0ddd638ff0d904b98aca4b78748327b0494b7ab02584c8c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cbe92bcad887b8e2d4f32d1b2afe040e2577852d6d1eb4ec327ef62f05c4a826"
   end
 
   depends_on "python@3.11"

@@ -1,18 +1,18 @@
 class SofiaSip < Formula
   desc "SIP User-Agent library"
   homepage "https://sofia-sip.sourceforge.io/"
-  url "https://github.com/freeswitch/sofia-sip/archive/v1.13.11.tar.gz"
-  sha256 "aaebd6b480ab8fa56e02eea2d33272d8a8fc49257b1b94daa7033569f50acc6c"
+  url "https://github.com/freeswitch/sofia-sip/archive/v1.13.14.tar.gz"
+  sha256 "a517e31c6a406af3d7ec8cb0154e46ad12fbcb54dadfc3deada5d97bdbd9cc5a"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "378f0e53eb0f67c808b1b945db49395b5ef7b7c45db426967b338fdad92431de"
-    sha256 cellar: :any,                 arm64_monterey: "b751275b9e9fbfcef6467f71a5cba21f0a76922165b046151c174a7a0f2635c3"
-    sha256 cellar: :any,                 arm64_big_sur:  "0979e6efa9d99a3691989053be95ef021ee3c659b3f685ee9f64c74edb0b07db"
-    sha256 cellar: :any,                 ventura:        "274ff84113b56b98ad53ab8259d53aa5e30500093051fd23140dc517dcf0e7ae"
-    sha256 cellar: :any,                 monterey:       "ea70cb7f1679bd062d89d016141b5679d74210d9aa3bd0ceb26a5a054dcb222b"
-    sha256 cellar: :any,                 big_sur:        "7d8a534f02df4040a2bb526484e2186dbb1bb8ec877a1b224468660882b5f8e6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "94c87ea1757270244b39dfab0f6b9d7f7436d576dec8e090c0f84a5957032de8"
+    sha256 cellar: :any,                 arm64_ventura:  "bfb64a936a3aeaa45e62ebbec38ef5c80367a90b35c132937cfffe7915e88634"
+    sha256 cellar: :any,                 arm64_monterey: "a813e90a4350f194fadb9b391166fc4f228365164aeb023f82e49351b2af8db7"
+    sha256 cellar: :any,                 arm64_big_sur:  "d1e1035d5208ec5ed8524fc0fa833f24d5779ded1ad8bf460c98e189d3293e76"
+    sha256 cellar: :any,                 ventura:        "e3eba59e3f47f5a1eec8fc2742b2ce283a2342c931dd2021cf72371a026c4a0c"
+    sha256 cellar: :any,                 monterey:       "65c5af6c9db07ea047a68655649384cecf400e312048738364698d3b94a46102"
+    sha256 cellar: :any,                 big_sur:        "394da7b648bd351e1e6c88d222f44b9912268a0fe20dbfaf277b486bf058b51d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0b2b254d850f0c82836fff43ab69e8dd01dc3306753e200b9d08faec38f65532"
   end
 
   depends_on "autoconf" => :build

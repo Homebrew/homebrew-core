@@ -1,8 +1,8 @@
 class Solidity < Formula
   desc "Contract-oriented programming language"
   homepage "https://soliditylang.org"
-  url "https://github.com/ethereum/solidity/releases/download/v0.8.17/solidity_0.8.17.tar.gz"
-  sha256 "b0337ab0125be7e54461ab76b6e483f5e912d3f3e4b0c89bd00cfb0a3d6a5afd"
+  url "https://github.com/ethereum/solidity/releases/download/v0.8.19/solidity_0.8.19.tar.gz"
+  sha256 "9bc195e1695f271b65326c73a12223377d52ae4b4fee10589c5e7bde6fa44194"
   license all_of: ["GPL-3.0-or-later", "MIT", "BSD-3-Clause", "Apache-2.0", "CC0-1.0"]
 
   livecheck do
@@ -11,14 +11,13 @@ class Solidity < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d027e015f7f28edb42f9f59ee3e7fe4cdec90360bbb3d3811362b6d5f5c8880b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a44f2d497a1db10c796fc7833c2d166e53a2d441d75f0f03c56955d4267e229e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "275809d3b40b6470ebc0778f88cdc8921de593881e296370194b14f13652e348"
-    sha256 cellar: :any_skip_relocation, ventura:        "67ccce445e18ae44a2dc75b336869e61f87c4c6b405819659996dfec54df9d59"
-    sha256 cellar: :any_skip_relocation, monterey:       "5ce812a479c2164315250e4e6f970d646d0f268e646aff02c913e8e1da1e8fc1"
-    sha256 cellar: :any_skip_relocation, big_sur:        "92625da745854d006d18644647f1e93bbef87e5659596836fca1566aceeb9a89"
-    sha256 cellar: :any_skip_relocation, catalina:       "be5c8e865737ee4cee363010e44362d6f7099d3cea5d9e395f081aac013aca48"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "699bef7d67e8209d40b9cedc849df54106fdb8d7cad03c04d3940067ed7879c2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "742ae6d3896895c53b571cce3ee7b96cf0ac6fb82b8705cca18c16306d99687f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "16654e1e0c258b4484eca8ab746bcb4a48aac9dc6f40502d912656a854d489b4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b2e79896e0080242e6ab29532a1b6991dcfe38770f63653ddb49f4df38ec1053"
+    sha256 cellar: :any_skip_relocation, ventura:        "2dbadf9f5b6b053298e57fb55da81ae5f8f77ee3c8d87258ccbcb84c95746008"
+    sha256 cellar: :any_skip_relocation, monterey:       "4876889c3156d26a0d4b367aa7c2865ab608b52ec210ec3e056cb0de816337a6"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a0b1768b368457d748313e72cd7eb601dec0dd787b76e96e4e89a70a075a54c2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7caeb1de03ae8d3c55e7ab4df47cb65df1bc0d01ef5c773c8b3658a53780b138"
   end
 
   depends_on "cmake" => :build

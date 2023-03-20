@@ -9,15 +9,14 @@ class Flintrock < Formula
   revision 5
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "2e1f6e23d9febd433782653f5bfdabc7de8082f03a33bb2d896964502ff75935"
-    sha256 cellar: :any,                 arm64_monterey: "dfdbf5d1cb34ac0b4222a90abafe78162d59bb1d37cf86c04937020becdad602"
-    sha256 cellar: :any,                 arm64_big_sur:  "2e998e143c9f2a976462e6081f39656c4693572e02dfb262e369f4e54b6265af"
-    sha256 cellar: :any,                 ventura:        "f4090f56613759e67478b51c6e50f24b288bc85a34a000b2fdca92afaf138440"
-    sha256 cellar: :any,                 monterey:       "924c7326a1d8b691aa9d85c5bfe24731f4146223f013bff1c9bb206cd7aad54b"
-    sha256 cellar: :any,                 big_sur:        "1277d8befcf4750fd278e6ef7e81060d36ea5e060703ac13eabf5ff46ad17fc7"
-    sha256 cellar: :any,                 catalina:       "f0d15228ef6ed04419b555f85929d96538c758ae59c8e0363936c2d11eea8393"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4f9e789e8c5b6124cf603d2424c2ee7e8bcb85d1d1bafb67e8d5aa22738a4368"
+    rebuild 3
+    sha256 cellar: :any,                 arm64_ventura:  "af7b03cf4466a5dc871c9cdfcb5b4742695043aa830dfc7f723e7404adff26b7"
+    sha256 cellar: :any,                 arm64_monterey: "c1d8922635deb4237cfed541614f3d3dfb1ed249882f7f02cef3a316f75f5733"
+    sha256 cellar: :any,                 arm64_big_sur:  "1277c8fca9d74dffc5efafd87ee9f80edf51215b55d001c623bd8218454db3c9"
+    sha256 cellar: :any,                 ventura:        "3f50f2f7974ae7e265acf01d995fae388a899d77749ab4abac9dd3f90ab3cbfb"
+    sha256 cellar: :any,                 monterey:       "a04996f9fd2d1fb31895a88243c0a7a3a7719c5e343518c2fde9fd12c8c990de"
+    sha256 cellar: :any,                 big_sur:        "36ba8bafc43846970c4fa7149ede83f30dd31a2f0b6dee9758cd23b79e095e83"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d612d02cba4d04b5d128e9e72a7a07ec100f1dc47299e32aa55dd576a2c34d9d"
   end
 
   depends_on "rust" => :build
@@ -50,8 +49,8 @@ class Flintrock < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/13/dd/a9608b7aebe5d2dc0c98a4b2090a6b815628efa46cc1c046b89d8cd25f4c/cryptography-38.0.3.tar.gz"
-    sha256 "bfbe6ee19615b07a98b1d2287d6a6073f734735b49ee45b11324d85efc4d5cbd"
+    url "https://files.pythonhosted.org/packages/6a/f5/a729774d087e50fffd1438b3877a91e9281294f985bda0fd15bf99016c78/cryptography-39.0.1.tar.gz"
+    sha256 "d1f6198ee6d9148405e49887803907fe8962a23e6c6f83ea7d98f1c0de375695"
   end
 
   resource "jmespath" do
@@ -90,8 +89,8 @@ class Flintrock < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/b2/56/d87d6d3c4121c0bcec116919350ca05dc3afd2eeb7dc88d07e8083f8ea94/urllib3-1.26.12.tar.gz"
-    sha256 "3fa96cf423e6987997fc326ae8df396db2a8b7c667747d47ddd8ecba91f4a74e"
+    url "https://files.pythonhosted.org/packages/c5/52/fe421fb7364aa738b3506a2d99e4f3a56e079c0a798e9f4fa5e14c60922f/urllib3-1.26.14.tar.gz"
+    sha256 "076907bf8fd355cde77728471316625a4d2f7e713c125f51953bb5b3eecf4f72"
   end
 
   def install

@@ -2,7 +2,7 @@ class Mapnik < Formula
   desc "Toolkit for developing mapping applications"
   homepage "https://mapnik.org/"
   license "LGPL-2.1-or-later"
-  revision 15
+  revision 17
   head "https://github.com/mapnik/mapnik.git", branch: "master"
 
   stable do
@@ -22,13 +22,13 @@ class Mapnik < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "1ee8e37cfd927c0bddb456cd0435cb26de4dc6d9ae25728cff8f9e66daf61846"
-    sha256 cellar: :any,                 arm64_monterey: "c19d5bc65c66038e87e3048e96552fcd275a9b7e3230a77035604489a7195cba"
-    sha256 cellar: :any,                 arm64_big_sur:  "8bcb940e5911dcbd7a2c0c38d457a93e390c3c789d7097bb10841e81780cb3ef"
-    sha256 cellar: :any,                 ventura:        "a600af8282f392bfdd596cb5075bd4f1661aa1bddc6bef1ed67e1de2b186e835"
-    sha256 cellar: :any,                 monterey:       "86e4858ca029222867ef5a75d4e2b3a435acf1e2e77b4ff25f9216d7dbbeb0ef"
-    sha256 cellar: :any,                 big_sur:        "32870d981e76517265efd49cbbbd93c9a6ecb6551d255a8d6578094086c6cd80"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4e5a360f7bbb15196d1038e9914e99f8ae07a03b4e95261b2ec6699bb6b0c5c2"
+    sha256 cellar: :any,                 arm64_ventura:  "772b8917d290b0e48a79d4f8657e9a2a8421df35296e8f0820b3f7147805922e"
+    sha256 cellar: :any,                 arm64_monterey: "7a7f7863189378825cf3d9fff3a1f92db88d51c150a042377a465cfa7980054a"
+    sha256 cellar: :any,                 arm64_big_sur:  "9b862109f452ac4a348f6951c2e298fd5f16ef7e0d5e9d85c0389095c4016b27"
+    sha256 cellar: :any,                 ventura:        "2b707717510b0ec86caef8f764f46e9b977a51b7ba60ce6ab3da188d3e38c6b9"
+    sha256 cellar: :any,                 monterey:       "6bd44c2c18cc149413c9571e762a41115d88c1c5b7ca8a1f635ed408a003b9a2"
+    sha256 cellar: :any,                 big_sur:        "879fd855e4ddfc0a97846bc2e85fb79f383aaa3999ac7ec1ff136d761ef373b8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9962a7e3f65fdf6c7319a42744738ca17c8f5386cde15c100e3b37f94a47887a"
   end
 
   depends_on "pkg-config" => :build
@@ -92,6 +92,9 @@ class Mapnik < Formula
       WEBP_INCLUDES=#{webp}/include
       WEBP_LIBS=#{webp}/lib
     ]
+    # upstream issue, see https://github.com/boostorg/phoenix/issues/115
+    # workaround to avoid the inclusion of `boost/phoenix/stl/tuple.hpp`
+    args << "CUSTOM_CXXFLAGS=-DBOOST_PHOENIX_STL_TUPLE_H_"
 
     system "./configure", *args
     system "make"

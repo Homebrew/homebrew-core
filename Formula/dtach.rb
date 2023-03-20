@@ -29,7 +29,7 @@ class Dtach < Formula
 
     system "make"
     bin.install "dtach"
-    man1.install gzip("dtach.1")
+    man1.install Utils::Gzip.compress("dtach.1")
   end
 
   test do

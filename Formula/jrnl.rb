@@ -8,15 +8,14 @@ class Jrnl < Formula
   license "GPL-3.0-only"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "bba5ba3e04a49fce80938f73ad09b8ed625b8f929a4f609abebd76b30dafb9f5"
-    sha256 cellar: :any,                 arm64_monterey: "211d8a37a7d62f69376335277a15397b76b4e56ba288f9a839730b24e54758f2"
-    sha256 cellar: :any,                 arm64_big_sur:  "593c139d53cdd133756d9b0d507b1d17dc86d149fae9e5c1f10b8aa021d6bcf9"
-    sha256 cellar: :any,                 ventura:        "79352164b2db359e2c5e5579c20556d97673e8bed448a6c27e8018bb2b32630d"
-    sha256 cellar: :any,                 monterey:       "6ad14f522b9cd577952e143bbdf43f68b18575b72ae059593c21722a63be607b"
-    sha256 cellar: :any,                 big_sur:        "65800b89bca17f70f2adbfe4fd8308dbaaeb520aeea7cb5227b77c3bed5ba8c1"
-    sha256 cellar: :any,                 catalina:       "b4f734e3d8979b69335942ff2adede2d0cb6ab5f7aaf22ae047511946f53b8f2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eaf58a4526ddeca745362684249ab1542073bc699af16406bb14ae1077c9d523"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_ventura:  "d9f3cfe7646d2236936434eaa089120d27bbe63d8e9831e0104a731c670bec9a"
+    sha256 cellar: :any,                 arm64_monterey: "c55a41ef44bf5dbb531b09a178dc33e57d2be67bf8b1231b5447f6d85ab65e8b"
+    sha256 cellar: :any,                 arm64_big_sur:  "624b0029e5d5e0f2919e7fd841d22b4d72419e3c1a5b216b28b275929a162b48"
+    sha256 cellar: :any,                 ventura:        "5ba96493fa4b655f8f3af7191e30a9545414c01f53ccf9f43a6cd1694ce92056"
+    sha256 cellar: :any,                 monterey:       "3cb179640d7191db394073c354e63f530784c49c3081e8a0c0dd8a796a27a8ae"
+    sha256 cellar: :any,                 big_sur:        "833c95e632e0fd31e853379e53d9c0f4f23225d2c79dac4bff361a6dd9710e18"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8bdfa8abf56b0fc99406b8ddef61f9137eebbcec6ed52560e40ba2e2756cef76"
   end
 
   depends_on "rust" => :build
@@ -51,13 +50,13 @@ class Jrnl < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/13/dd/a9608b7aebe5d2dc0c98a4b2090a6b815628efa46cc1c046b89d8cd25f4c/cryptography-38.0.3.tar.gz"
-    sha256 "bfbe6ee19615b07a98b1d2287d6a6073f734735b49ee45b11324d85efc4d5cbd"
+    url "https://files.pythonhosted.org/packages/6a/f5/a729774d087e50fffd1438b3877a91e9281294f985bda0fd15bf99016c78/cryptography-39.0.1.tar.gz"
+    sha256 "d1f6198ee6d9148405e49887803907fe8962a23e6c6f83ea7d98f1c0de375695"
   end
 
   resource "importlib-metadata" do
-    url "https://files.pythonhosted.org/packages/7e/ec/97f2ce958b62961fddd7258e0ceede844953606ad09b672fa03b86c453d3/importlib_metadata-5.0.0.tar.gz"
-    sha256 "da31db32b304314d044d3c12c79bd59e307889b287ad12ff387b3500835fc2ab"
+    url "https://files.pythonhosted.org/packages/90/07/6397ad02d31bddf1841c9ad3ec30a693a3ff208e09c2ef45c9a8a5f85156/importlib_metadata-6.0.0.tar.gz"
+    sha256 "e354bedeb60efa6affdcc8ae121b73544a7aa74156d047311948f6d711cd378d"
   end
 
   resource "jaraco.classes" do
@@ -66,8 +65,8 @@ class Jrnl < Formula
   end
 
   resource "keyring" do
-    url "https://files.pythonhosted.org/packages/1c/35/c22960f14f5e17384296b2f09da259f8b5244fb3831eccec71cf948a49c6/keyring-23.11.0.tar.gz"
-    sha256 "ad192263e2cdd5f12875dedc2da13534359a7e760e77f8d04b50968a821c2361"
+    url "https://files.pythonhosted.org/packages/55/fe/282f4c205add8e8bb3a1635cbbac59d6def2e0891b145aa553a0e40dd2d0/keyring-23.13.1.tar.gz"
+    sha256 "ba2e15a9b35e21908d0aaf4e0a47acc52d6ae33444df0da2b49d41a46ef6d678"
   end
 
   resource "more-itertools" do
@@ -116,8 +115,8 @@ class Jrnl < Formula
   end
 
   resource "tzdata" do
-    url "https://files.pythonhosted.org/packages/5e/9f/63f7187ffd6d01dd5b5255b8c0b1c4f05ecfe79d940e0a243a6198071832/tzdata-2022.6.tar.gz"
-    sha256 "91f11db4503385928c15598c98573e3af07e7229181bee5375bd30f1695ddcae"
+    url "https://files.pythonhosted.org/packages/5b/30/b7abfb11be6642d26de1c1840d25e8d90333513350ad0ebc03101d55e13b/tzdata-2022.7.tar.gz"
+    sha256 "fe5f866eddd8b96e9fcba978f8e503c909b19ea7efda11e52e39494bad3a7bfa"
   end
 
   resource "tzlocal" do
@@ -126,8 +125,8 @@ class Jrnl < Formula
   end
 
   resource "zipp" do
-    url "https://files.pythonhosted.org/packages/8d/d7/1bd1e0a5bc95a27a6f5c4ee8066ddfc5b69a9ec8d39ab11a41a804ec8f0d/zipp-3.10.0.tar.gz"
-    sha256 "7a7262fd930bd3e36c50b9a64897aec3fafff3dfdeec9623ae22b40e93f99bb8"
+    url "https://files.pythonhosted.org/packages/1f/29/54ba1934c45af649698410456fa8a78a475c82efd5c562e51011079458d1/zipp-3.12.1.tar.gz"
+    sha256 "a3cac813d40993596b39ea9e93a18e8a2076d5c378b8bc88ec32ab264e04ad02"
   end
 
   resource "jeepney" do

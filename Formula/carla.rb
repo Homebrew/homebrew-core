@@ -1,8 +1,8 @@
 class Carla < Formula
   desc "Audio plugin host supporting LADSPA, LV2, VST2/3, SF2 and more"
   homepage "https://kxstudio.linuxaudio.org/Applications:Carla"
-  url "https://github.com/falkTX/Carla/archive/v2.5.2.tar.gz"
-  sha256 "e93c5d169538c991e1598c7de34a80f2e53af3cd063bb672fa020ba8e7dae140"
+  url "https://github.com/falkTX/Carla/archive/v2.5.4.tar.gz"
+  sha256 "251b5334bb86c84c85eddb541bfc68767d0fe422266e77df0c000b5b71fabb7e"
   license "GPL-2.0-or-later"
   head "https://github.com/falkTX/Carla.git", branch: "main"
 
@@ -12,14 +12,13 @@ class Carla < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "c7697e9831c2368b1231fdfd7d3488782644a5d20b0b2bef050828e62b009ee7"
-    sha256 cellar: :any,                 arm64_monterey: "a3054ec4823bd72dcbee11bb683d3d65662136b31900050d655ab314bf6a0aab"
-    sha256 cellar: :any,                 arm64_big_sur:  "f14c740272442ce6f573995c253a38cace30a88918a6e4ce4eb5c065c5f60281"
-    sha256 cellar: :any,                 ventura:        "9f7c9e2370458aa307de52175d51eadd6eedd8a03da2b22750320592acffa2dd"
-    sha256 cellar: :any,                 monterey:       "1d3fc9b4f2fc1d46800cc522ac0a826eede707e86cd522e9d244ef9665e8e84b"
-    sha256 cellar: :any,                 big_sur:        "81d2ec0a2a986aaf286abf4c169df0ceec42435ca0376fab0d268155a2424209"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "637095b6218896ea500a6318420faea52aa087d552a273dfbf2b5454428fd55a"
+    sha256 cellar: :any,                 arm64_ventura:  "6f04dc45e52855db5606394976e2f4eee1fff533658ee522e02dbe4bf517693b"
+    sha256 cellar: :any,                 arm64_monterey: "3f5d78274bc3a3d710dc612735d8954401e514f6b221df5b798bbf34f0dc8c7e"
+    sha256 cellar: :any,                 arm64_big_sur:  "e16eb0d6c7217dd2ca0158ae6dcbb59d68eb053f849f8074f6b8cca4e4ecf78d"
+    sha256 cellar: :any,                 ventura:        "fdd2c31cf6e32b543439e553a6d99a6363225c827b62eaf42a020cfbb5fce317"
+    sha256 cellar: :any,                 monterey:       "792ed455acbe919003d175556c58189dfb8caa99431ed7dfa4fcb2e97b43319f"
+    sha256 cellar: :any,                 big_sur:        "6c723187538457cc11b67933b21487cd0eb4e7505516b163b062592b7542944c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "52ef476e317692d51c3549bcfc9bf9a2f8ecbbe8e96a09d20d1d4bfdd2d81316"
   end
 
   depends_on "pkg-config" => :build

@@ -1,19 +1,18 @@
 class TRec < Formula
   desc "Blazingly fast terminal recorder that generates animated gif images for the web"
   homepage "https://github.com/sassman/t-rec-rs"
-  url "https://github.com/sassman/t-rec-rs/archive/v0.7.5.tar.gz"
-  sha256 "384230f2246a869cd8132a8fa7663051c1b4d5786a27cd34e184f837b8d5c5d8"
+  url "https://github.com/sassman/t-rec-rs/archive/v0.7.6.tar.gz"
+  sha256 "a261104e33d6f60a8f9fe51c2339b79875ddb5ff5b9e7de68e7e52f9d25bf19e"
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "72d31a1b73c2a3c4a9107be704a910fdf302ecbfc5b68795a253e0ed383767ce"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ed68d59b8c44bbe9f61703ec48a509b37016c3e9d4259e88a3a8be67521f41d5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9dc160993cf6715e05a1286bb888eb1703b1da261c8f43ec29109271a40e153a"
-    sha256 cellar: :any_skip_relocation, ventura:        "96f6a8e6b8067b2f88d9111223d212265760690df0ecd73624855a7a8d10e304"
-    sha256 cellar: :any_skip_relocation, monterey:       "2adc34152d4b1b50b314778d5236906e5e07f4e31232a45a3302c1a64abcd191"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ca333ea15d2e13356c245d293ae241f2a855240ee851ee70112cf444edd2a682"
-    sha256 cellar: :any_skip_relocation, catalina:       "8a4093d1a9512e2b09cdacb726a38fede7e84f74e20985aad5d243c4144ea112"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f035ede2751d186b99c826a7727a90b83a71aa4e4c9961b695e56aa586f34541"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f66c613c2713d64447c565f01e31ac69153ebf9dcefb3c3292fa5ec92c7b96fc"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "10e8931e0466e77574f5528464d94d78fefa4a303219341605430c0cd992441c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bedf1fd21666f526ffa3aad1196c3b7847b17734af07c984affcd2d20646ba16"
+    sha256 cellar: :any_skip_relocation, ventura:        "b2d905a57f708846827719505b1a6c7e43f45a0e2a1e0b4112039288b64d8194"
+    sha256 cellar: :any_skip_relocation, monterey:       "52275aef2850a0cac76c8fb91ce392bd29b6c494312b7f563896922bd8c78a8c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a1ea4ff9e0fd2f102ff606a9de2f7a851f51d518cd36cd70192fadf8d0ad2680"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3d3e2cb3b655b70016073b173db82dc545abb140388880ac0ae8c205c0732a1b"
   end
 
   depends_on "rust" => :build

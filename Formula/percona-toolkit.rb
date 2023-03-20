@@ -5,8 +5,8 @@ class PerconaToolkit < Formula
 
   desc "Command-line tools for MySQL, MariaDB and system tasks"
   homepage "https://www.percona.com/software/percona-toolkit/"
-  url "https://www.percona.com/downloads/percona-toolkit/3.5.0/source/tarball/percona-toolkit-3.5.0.tar.gz"
-  sha256 "302cf8beb4add0421b0b3c9355ac9946ca1c6b40d45a1993d33e112bf98c5f15"
+  url "https://www.percona.com/downloads/percona-toolkit/3.5.1/source/tarball/percona-toolkit-3.5.1.tar.gz"
+  sha256 "4268ed0ea045e4fc76d4ba69d7c6e5bf5f5302f6441df3bc7d78b3cad860ccc4"
   license any_of: ["GPL-2.0-only", "Artistic-1.0-Perl"]
   head "lp:percona-toolkit", using: :bzr
 
@@ -16,13 +16,13 @@ class PerconaToolkit < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "9c493b81d20cab1851d6e5f923dd23f3cec879b8ba46c3574b2786eda1c9c953"
-    sha256 cellar: :any,                 arm64_monterey: "f849be8d3203e63701b95b3cfa6d9aba36a24ed88f526b9863e35173b46f0b7c"
-    sha256 cellar: :any,                 arm64_big_sur:  "87080f02e2653b0f093b5356bbb7f4d06f64ed0ad5e4f11d227d06f7e7377d8a"
-    sha256 cellar: :any,                 ventura:        "56709b1894a9664adad7d6f460fa190dbe8d739da6833d1c76ab60c0bab6ed4b"
-    sha256 cellar: :any,                 monterey:       "afcef465e217bfc2a944878be9056476d5f3df418d91f8e0ea63240cb8812f77"
-    sha256 cellar: :any,                 big_sur:        "cc83ed13cbbc25ae172fe051a34031404726b4b5b0fd90774628ef0e3d76bdad"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5ef2f96cd5871f0a9a82636fca63229391a6c7788a9006a1405c0efb89c6e1e7"
+    sha256 cellar: :any,                 arm64_ventura:  "72211d3544c62fc8e10326ef3ac3c29e107f6f8077fa3a6d161e3a165722a787"
+    sha256 cellar: :any,                 arm64_monterey: "137ae019333c6ce5088dd939f04f503d70f99a9a51411130b657243d9a642af5"
+    sha256 cellar: :any,                 arm64_big_sur:  "564fd216e21cce8ce52cf11bcc0b7043a7b8cbc84db57cf84a4b67d450203087"
+    sha256 cellar: :any,                 ventura:        "a9cec78201ddda29075169149e6faeec1563732afd291c57d2fdb14855635efa"
+    sha256 cellar: :any,                 monterey:       "1fc5837c4399c6c20b2b5c2c5ab8bfb79c1fe4deb0728d17af8048e59d5c0c30"
+    sha256 cellar: :any,                 big_sur:        "a7a2c06dbb860de2f03d485ee15ffec9a2073d7db7f04a5fe92f7fd8da829cc0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "82acefcf82daf515319890718e0cebaa712c41b7df682bd83f4b696b8a44a095"
   end
 
   depends_on "mysql-client"

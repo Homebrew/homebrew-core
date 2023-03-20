@@ -1,20 +1,18 @@
 class BaculaFd < Formula
   desc "Network backup solution"
   homepage "https://www.bacula.org/"
-  url "https://downloads.sourceforge.net/project/bacula/bacula/13.0.1/bacula-13.0.1.tar.gz"
-  sha256 "d63848d695ac15c1ccfc117892753314bcb9232a852c40e32cca88c0e918978a"
+  url "https://downloads.sourceforge.net/project/bacula/bacula/13.0.2/bacula-13.0.2.tar.gz"
+  sha256 "6e08bcbe6a4ab070e17e9e9c4e9bc4e944d2e5bd376521ca342c6fe96a20687d"
   license "AGPL-3.0-only" => { with: "openvpn-openssl-exception" }
 
   bottle do
-    rebuild 1
-    sha256                               arm64_ventura:  "42e79cb194d0d3891a4694d50531bc14e95468980dc4ccafb74a53876b310361"
-    sha256                               arm64_monterey: "0ff0297669fece22344c9d26a49137112d941c8fe6d6821c6d26b81114d1f9e9"
-    sha256                               arm64_big_sur:  "3572aa477e228c9c27b0c408d5fd0201f81c97983846551232c470903b2159bd"
-    sha256                               ventura:        "f00e354684d8aa9d8491d152fac327fa898a0f6fbd912efeed316756736fcac4"
-    sha256                               monterey:       "cb1a1ef69ef2ef0053d2f8ca92279ad0bcd5458cdbe8077bf3acd3c4858dd948"
-    sha256                               big_sur:        "3f8d86143bba66c4e2e41ae275353e843ba8d4934473a1fed73f09609eb37519"
-    sha256                               catalina:       "c11e6a5e698b06bdfe5e02e825c6bc5ae6e6c8a0a5ff1a8605510ba5b3ad7fb7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "df5b1fa70eca4c5cfb903a7a77ba3d29f1b0097cfc3fdcc4fa0096090ad28421"
+    sha256                               arm64_ventura:  "82da2a843d76f03bdbc456c10ac52403c4937240718a996193b17d8aeb688a10"
+    sha256                               arm64_monterey: "110317c55f1ad9cde6679e52ee6df9f5f0a915dc655c5dbabbbd6d18a0ef4053"
+    sha256                               arm64_big_sur:  "b13b510999446703b023699a01130d08f69160e2d26c7dc2a366f06432fc808d"
+    sha256                               ventura:        "b7d9faaedab0adc479c600f5e3d462eaaea3ec8111bcbc760a55019f4731b4cf"
+    sha256                               monterey:       "36dff1d741e4c9d9676729c808e9e02bc7cea01d2f57b511fa5da53814260984"
+    sha256                               big_sur:        "7aa33848a3d4c1d251c35790555bed9a8b6c9d39f3e2fdaea96a896968dfd5a8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "696f80dacb43185c4bef853807cc61218dcfd2a7624789cb46634113235fd10e"
   end
 
   depends_on "openssl@3"

@@ -1,22 +1,19 @@
 class Snappy < Formula
   desc "Compression/decompression library aiming for high speed"
   homepage "https://google.github.io/snappy/"
-  # TODO: Remove `ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib` at rebuild.
-  url "https://github.com/google/snappy/archive/1.1.9.tar.gz"
-  sha256 "75c1fbb3d618dd3a0483bff0e26d0a92b495bbe5059c8b4f1c962b478b6e06e7"
+  url "https://github.com/google/snappy/archive/1.1.10.tar.gz"
+  sha256 "49d831bffcc5f3d01482340fe5af59852ca2fe76c3e05df0e67203ebbe0f1d90"
   license "BSD-3-Clause"
   head "https://github.com/google/snappy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "c7d3ceead31da3cbf20393cf83f0a31a67a30c9f0bd3dbb2188683a705798de3"
-    sha256 cellar: :any,                 arm64_monterey: "8259999a686e6998350672e5e67425d9b5c3afaa139e14b0ad81aa6ac0b3dfa9"
-    sha256 cellar: :any,                 arm64_big_sur:  "19b5a3afc6646dcec7a1803921b44fb5c57b6734fc0e32f025633f14d1da05ec"
-    sha256 cellar: :any,                 ventura:        "e861f2e9eeb649811212392d0e0c54f2ae0c23790aa69d0fe91bd74e75bed007"
-    sha256 cellar: :any,                 monterey:       "fafb5142d8503a35d03d7db786cbcc44f6c625fefdcfa39a1024d5670c87d56c"
-    sha256 cellar: :any,                 big_sur:        "d73fd47c36e1559d49e1c4c4346c754a9d2ff2af9a0bef25631f52763f19f0ef"
-    sha256 cellar: :any,                 catalina:       "e62a5ab8aa407d6e7d8ddbecdc66fdd1fb256b87730dfe4abbdf8996b3db2869"
-    sha256 cellar: :any,                 mojave:         "b5c89925c1e54ea1e1992d076836092fa754681b373b4834766236abb779cfab"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c6708c99972bc8ff6d2ad298cf0cd498853d73b45f9ac95a9370fc70b2c59297"
+    sha256 cellar: :any,                 arm64_ventura:  "ca95915a51bed09a5e70ebb6f253eabe4df5b00e87ebe49aea0124f8bb51bc3c"
+    sha256 cellar: :any,                 arm64_monterey: "40cfa23024bcadc5ed04823eb8dea4595ebe8e793d913e3c0074defb8eb9e185"
+    sha256 cellar: :any,                 arm64_big_sur:  "a18f25dc10ceffe4f8f0256c6ed9354e22a70069f01fc27013cee8cd7238386d"
+    sha256 cellar: :any,                 ventura:        "1e9238c5f3f100b635ca74a17b3441d5f5f9c23007537107340d5397bcbd483d"
+    sha256 cellar: :any,                 monterey:       "6c0e72f9f601374a7bfe92a9083e382715dc885015c36fc9081de0c068c5fd33"
+    sha256 cellar: :any,                 big_sur:        "14d183eff56f11c0ffdc1394d1fedfaa3cc5ba315e3abe4c21598dfbe9fe25d1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "73aa76de40ad1ca4f5b03a76180a018aadbc05bda2cde1d4b9030cf56d100f2f"
   end
 
   depends_on "cmake" => :build
@@ -32,20 +29,11 @@ class Snappy < Formula
     cause "error: invalid output constraint '=@ccz' in asm"
   end
 
-  # Fix for build failure. Remove with next release.
-  patch do
-    on_linux do
-      url "https://github.com/google/snappy/commit/0c716d435abe65250100c2caea0e5126ac4e14bd.patch?full_index=1"
-      sha256 "12ff7d1182a35298de3287db32ef8581b8ef600efd6d9509fcc894d3d2056c80"
-    end
-  end
-
   # Fix issue where `snappy` setting -fno-rtti causes build issues on `folly`
   # `folly` issue ref: https://github.com/facebook/folly/issues/1583
   patch :DATA
 
   def install
-    ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
     ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
 
     # Disable tests/benchmarks used for Snappy development

@@ -1,18 +1,18 @@
 class Biber < Formula
   desc "Backend processor for BibLaTeX"
   homepage "https://sourceforge.net/projects/biblatex-biber/"
-  url "https://github.com/plk/biber/archive/refs/tags/v2.18.tar.gz"
-  sha256 "b966cf9b35a92ce9a705fec7930baab8dc2bfaf9a9f311cdb92393640222c844"
+  url "https://github.com/plk/biber/archive/refs/tags/v2.19.tar.gz"
+  sha256 "1c1266bc8adb1637c4c59e23c47d919c5a38da4e53544a3c22c21de4a68fc9fe"
   license "Artistic-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "1eeec094249675ebb3fa0dcb030f4f344638169c7bb80f99b7ecbcac180d4375"
-    sha256 cellar: :any,                 arm64_monterey: "60826dd9f0decdd55155fa7c5a096383a8406ffd70a8ea19f509193f25e574dd"
-    sha256 cellar: :any,                 arm64_big_sur:  "d383c6698d8bf5e81d179b53faf7dbd2b912bd20ba9d5b49e09ca86e79a12e3b"
-    sha256 cellar: :any,                 ventura:        "4770ee5e27886afae45ce2a0c75f953100f6d092ceee19bf8171b379be8987cb"
-    sha256 cellar: :any,                 monterey:       "079710c6d908de4f8792ce7961e106fa75d64f5bb0786fe5a1f8f55e021ffd43"
-    sha256 cellar: :any,                 big_sur:        "8016cd2c16ac47f547a5c78fb7b642b0e14902d39932db6953be3082f10af03f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5714d4606ab740360a3c4dffb0675c204f44a307c73069efd1a91806873eb679"
+    sha256 cellar: :any,                 arm64_ventura:  "3f522597c2ed6494559a9b0cdb00fee94ce70fd7e215493f3a930b1faa4477ee"
+    sha256 cellar: :any,                 arm64_monterey: "cc12ff76b53af1c1456260dad3b2f9ba0caa2e4d71461c5989a1d9ba417d6b71"
+    sha256 cellar: :any,                 arm64_big_sur:  "ee379665659d8b460d402fcd3747af3fa15bcdaaa446ece0a76038982a6da7fe"
+    sha256 cellar: :any,                 ventura:        "ead523a858abe50f746a6e83efefdb3ef73385c66cba06ffe00dcdbf61ef9c5e"
+    sha256 cellar: :any,                 monterey:       "93e69afca08cbe73976d44661eebf6889bda77a240ad2fa7e6f855d09fd1756c"
+    sha256 cellar: :any,                 big_sur:        "6634422133ae03bfa6353c230259af926f571eb6b3f64881b4f122153c4e981f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4484229ee69a48419cae84503dfd13453ebf66914cc300c297c9e2a09ec4568f"
   end
 
   depends_on "pkg-config" => :build
@@ -223,8 +223,8 @@ class Biber < Formula
     sha256 "0d4535f88e43babd84ab604866215fc4d04398bd4db7b21852d4a31b1c15ef61"
   end
   resource "Sub::Quote" do
-    url "https://cpan.metacpan.org/authors/id/H/HA/HAARG/Sub-Quote-2.006006.tar.gz"
-    sha256 "6e4e2af42388fa6d2609e0e82417de7cc6be47223f576592c656c73c7524d89d"
+    url "https://cpan.metacpan.org/authors/id/H/HA/HAARG/Sub-Quote-2.006008.tar.gz"
+    sha256 "94bebd500af55762e83ea2f2bc594d87af828072370c7110c60c238a800d15b2"
   end
   resource "XString" do
     url "https://cpan.metacpan.org/authors/id/A/AT/ATOOMIC/XString-0.005.tar.gz"
@@ -235,8 +235,8 @@ class Biber < Formula
     sha256 "0c85793580f1274ef08173079131d101f77b22accea7afa8255202f0811682b2"
   end
   resource "Params::ValidationCompiler" do
-    url "https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Params-ValidationCompiler-0.30.tar.gz"
-    sha256 "dc5bee23383be42765073db284bed9fbd819d4705ad649c20b644452090d16cb"
+    url "https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Params-ValidationCompiler-0.31.tar.gz"
+    sha256 "7b6497173f1b6adb29f5d51d8cf9ec36d2f1219412b4b2410e9d77a901e84a6d"
   end
   resource "Path::Tiny" do
     url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Path-Tiny-0.144.tar.gz"
@@ -262,7 +262,7 @@ class Biber < Formula
     url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/List-UtilsBy-0.12.tar.gz"
     sha256 "fff1281fd469fe982b1a58044becfd970f313bff3a26e1c7b2b3f4c0a5ed71e0"
   end
-  resource "Scalar::List::Utils" do
+  resource "Scalar::Util" do
     url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Scalar-List-Utils-1.63.tar.gz"
     sha256 "cafbdf212f6827dc9a0dd3b57b6ee50e860586d7198228a33262d55c559eb2a9"
   end
@@ -339,8 +339,8 @@ class Biber < Formula
     sha256 "5f7e42b769cb27499113cfae4b786c37d49e7c7d32dbb469602cd808308568f8"
   end
   resource "IO::Socket::SSL" do
-    url "https://cpan.metacpan.org/authors/id/S/SU/SULLR/IO-Socket-SSL-2.078.tar.gz"
-    sha256 "4cf83737a72b0970948b494bc9ddab7f725420a0ca0152d25c7e48ef8fa2b6a1"
+    url "https://cpan.metacpan.org/authors/id/S/SU/SULLR/IO-Socket-SSL-2.081.tar.gz"
+    sha256 "07bdf826a8d6b463316d241451c890d1012fa2499a83d8e3d00ce0a584618443"
   end
   resource "Encode::Locale" do
     url "https://cpan.metacpan.org/authors/id/G/GA/GAAS/Encode-Locale-1.05.tar.gz"
@@ -377,16 +377,16 @@ class Biber < Formula
     sha256 "398b647bf45aa972f432ec0111f6617742ba32fc773c6612d21f64ab4eacbca1"
   end
   resource "HTML::Parser" do
-    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTML-Parser-3.80.tar.gz"
-    sha256 "63411db03016747e37c2636db11b05f8cc71608ef5bff36d04ddb0dc92f7835b"
+    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTML-Parser-3.81.tar.gz"
+    sha256 "c0910a5c8f92f8817edd06ccfd224ba1c2ebe8c10f551f032587a1fc83d62ff2"
   end
   resource "HTTP::Cookies" do
     url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Cookies-6.10.tar.gz"
     sha256 "e36f36633c5ce6b5e4b876ffcf74787cc5efe0736dd7f487bdd73c14f0bd7007"
   end
   resource "HTTP::Daemon" do
-    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Daemon-6.14.tar.gz"
-    sha256 "f0767e7f3cbb80b21313c761f07ad8ed253bce9fa2d0ba806b3fb72d309b2e1d"
+    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Daemon-6.16.tar.gz"
+    sha256 "b38d092725e6fa4e0c4dc2a47e157070491bafa0dbe16c78a358e806aa7e173d"
   end
   resource "HTTP::Negotiate" do
     url "https://cpan.metacpan.org/authors/id/G/GA/GAAS/HTTP-Negotiate-6.01.tar.gz"
@@ -401,12 +401,12 @@ class Biber < Formula
     sha256 "46b502e7a288d559429891eeb5d979461dd3ecc6a5c491ead85d165b6e03a51e"
   end
   resource "LWP::Protocol::http" do
-    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.67.tar.gz"
-    sha256 "96eec40a3fd0aa1bd834117be5eb21c438f73094d861a1a7e5774f0b1226b723"
+    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.68.tar.gz"
+    sha256 "42784a5869855ee08522dfb1d30fccf98ca4ddefa8c6c1bcb0d68a0adceb7f01"
   end
   resource "LWP" do
-    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.67.tar.gz"
-    sha256 "96eec40a3fd0aa1bd834117be5eb21c438f73094d861a1a7e5774f0b1226b723"
+    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.68.tar.gz"
+    sha256 "42784a5869855ee08522dfb1d30fccf98ca4ddefa8c6c1bcb0d68a0adceb7f01"
   end
   resource "LWP::Protocol::https" do
     url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/LWP-Protocol-https-6.10.tar.gz"
@@ -429,16 +429,16 @@ class Biber < Formula
     sha256 "ed6a4ccfab094c9cd164f564024e98bd21d94f4312ccac4d6246d22b34081acf"
   end
   resource "Text::BibTeX" do
-    url "https://cpan.metacpan.org/authors/id/A/AM/AMBS/Text-BibTeX-0.88.tar.gz"
-    sha256 "b014586e68bdbcafb0a2cfa0401eb0a04ea5de8c4d5bc36dd0f7faeab6acf42c"
+    url "https://cpan.metacpan.org/authors/id/A/AM/AMBS/Text-BibTeX-0.89.tar.gz"
+    sha256 "88a78ebf088ec7502f401c5a2b138c862cf5458534b773223bbf3aaf41224196"
   end
   resource "Text::CSV" do
     url "https://cpan.metacpan.org/authors/id/I/IS/ISHIGAKI/Text-CSV-2.02.tar.gz"
     sha256 "84120de3e10489ea8fbbb96411a340c32cafbe5cdff7dd9576b207081baa9d24"
   end
   resource "Text::CSV_XS" do
-    url "https://cpan.metacpan.org/authors/id/H/HM/HMBRAND/Text-CSV_XS-1.48.tgz"
-    sha256 "b72a2ed61c63561f6bfc1d5986a09f3ac252bdfda5c1c898b0b677641ce1e8bf"
+    url "https://cpan.metacpan.org/authors/id/H/HM/HMBRAND/Text-CSV_XS-1.50.tgz"
+    sha256 "85b5e1bed7e11dc0413d4e920cee25d980de47376c0048029041cf461eac96b1"
   end
   resource "Text::Roman" do
     url "https://cpan.metacpan.org/authors/id/S/SY/SYP/Text-Roman-3.5.tar.gz"
@@ -473,8 +473,8 @@ class Biber < Formula
     sha256 "c1f089c8ea152a789909d48a83dbfcf2626f773daf30431c8622582b26aba902"
   end
   resource "Alien::Build" do
-    url "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Alien-Build-2.75.tar.gz"
-    sha256 "8ca92a4d615dcf27cb3f5f5388afe017555186783c97b16c5156671db13e9571"
+    url "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Alien-Build-2.77.tar.gz"
+    sha256 "fbf39ef634e364616e43e851c15a195ffa157b5cd7c9d89abfd8e31b6b11f1e9"
   end
   resource "Alien::Libxml2" do
     url "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Alien-Libxml2-0.19.tar.gz"
@@ -501,8 +501,8 @@ class Biber < Formula
     sha256 "cd98c8104b70d7672bfa26b4513b78adf2b4b9220e586aa8beb1a508500365a6"
   end
   resource "XML::LibXSLT" do
-    url "https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/XML-LibXSLT-2.002000.tar.gz"
-    sha256 "4fd131c5a15f2f79e706810a70f3a5d08a6d1c946dcb39523f2c2ac948118a17"
+    url "https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/XML-LibXSLT-2.002001.tar.gz"
+    sha256 "df8927c4ff1949f62580d1c1e6f00f0cd56b53d3a957ee4b171b59bffa63b2c0"
   end
   resource "XML::Writer" do
     url "https://cpan.metacpan.org/authors/id/J/JO/JOSEPHW/XML-Writer-0.900.tar.gz"

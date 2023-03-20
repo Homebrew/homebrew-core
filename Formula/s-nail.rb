@@ -32,6 +32,8 @@ class SNail < Formula
   depends_on "libidn2"
   depends_on "openssl@3"
 
+  uses_from_macos "ncurses"
+
   def install
     system "make", "CC=#{ENV.cc}",
                    "C_INCLUDE_PATH=#{Formula["openssl@3"].opt_include}",

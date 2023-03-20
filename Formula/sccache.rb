@@ -6,6 +6,11 @@ class Sccache < Formula
   license "Apache-2.0"
   head "https://github.com/mozilla/sccache.git", branch: "main"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "794a4752acf8e95331c3c10bc9103595ffc40641c2be8b6d9a228bfd607a5bfb"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "84a5e5e59a183663ba3d343c1f08fcd70da4f03fa0c15283923eb662044b1607"

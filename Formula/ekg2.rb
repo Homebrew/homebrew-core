@@ -13,21 +13,18 @@ class Ekg2 < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "057590a3d797db559b5a9e119b5426de7b1482188ad99163b35d35894f77f02d"
-    sha256 arm64_monterey: "70fd07bef46d76450a77c68cc6633201080b11c2caacdc5b0a857eaec2bc9ebe"
-    sha256 arm64_big_sur:  "e1ca8c485b595b3d8a0edcd59699c99d280a14d3aa7bfd7646c6d966f903101f"
-    sha256 ventura:        "eb9427866797a3ab1dda864380f3d4b584f49ae5fc9d656b345b939acbcd75d7"
-    sha256 monterey:       "6ebb96a39595e0138fec66f379b7db080169ad019cae73943b43b48e958f777c"
-    sha256 big_sur:        "2f095607ab5e5bdbf0ca515983aeff44e4a2480d97fb460d19c63babd875bd05"
-    sha256 catalina:       "e17ea1385008892e80e0d5e0d44e510f6ac30e5d86423b55c61465eccd348d36"
-    sha256 mojave:         "78778e95338d2a0a61f7d4773716d927534d24e4d5867a04038401427b07c855"
-    sha256 high_sierra:    "f946e56a032b9526280745e6e57f8bc42a18d12fa9ced783f5515eb600bcdf0b"
-    sha256 sierra:         "35f01a57bbceb1a79abfa8b035e3135d0c821bbca22a63b273e32159e517813f"
-    sha256 x86_64_linux:   "a06b460073a25e212fc0488167281a438e4c72bc79ae30f204ea0d0d16643edc"
+    rebuild 1
+    sha256 arm64_ventura:  "e11dd5263d14ca6151025f5d9ca8172301df336a1ec3d412617767f0c2ce7a11"
+    sha256 arm64_monterey: "d233462650d03da68cc1acf4df091c2bd724cdfb124b8514161555ca731237a0"
+    sha256 arm64_big_sur:  "513f5f60b4c91957d35a569665d9f55000dded765f4515e9581f291d2abfcb36"
+    sha256 ventura:        "cf60041384bf67e252fbe27d60baceb48ea590d22184854c1990072c3948df71"
+    sha256 monterey:       "6c4d6e4a126cb31c7dda87f6080a11911ca1f153c44d26ee86ce11147f8667b3"
+    sha256 big_sur:        "d5f9ac13e6ef527cf44f51bad2461976f7a0007bdbc5ded0515720793771cb57"
+    sha256 x86_64_linux:   "b4bc5fe81b146a00416646862a5e723eae0d0c218a9373d28e9794a4f3accf16"
   end
 
   depends_on "pkg-config" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "readline"
 
   # Fix the build on OS X 10.9+

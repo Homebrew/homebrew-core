@@ -4,29 +4,32 @@ class Mailcatcher < Formula
   url "https://github.com/sj26/mailcatcher/archive/refs/tags/v0.8.2.tar.gz"
   sha256 "3bf200ab3b2926d3747a462afd68dce5a28a11fe8d2834ce929c99c90d4192d3"
   license "MIT"
+  revision 2
 
   bottle do
-    sha256                               arm64_ventura:  "767b2931a3c17d8c96a2468051f06061a8196fe270b6b6bb15d805820bf37f6d"
-    sha256                               arm64_monterey: "3be13e4d6da19162bc7d70f201185fdb3f7dcd1b6207d632df446a3adc9b27dc"
-    sha256                               arm64_big_sur:  "f1a3d77e3f95325952f78a408eba5e08b125b962f47a12265afd80489458f077"
-    sha256                               ventura:        "866f5a5e8ed7b4ae7c6f9f436d22e38dfd3d0d5fbe4ffd895b31934c2d1c709c"
-    sha256                               monterey:       "d33f530eef6e1f7455c7d2dd36fcf75472a709f76118da99d82d207034b6f484"
-    sha256                               big_sur:        "4f8ffd6afc2180fb12b59fda6ff9346ff2bbf6e6e10e685286cb161f706179b6"
-    sha256                               catalina:       "5bb1102c3a30c01a72f6b6a44ef0d19c35f434b32960cce7b2a3aa19c4ccbf20"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c27e2ce76bc1ea4b0d32f40e36a429eaf375a2dd7bc8bcc1e0a80240589720ee"
+    sha256                               arm64_ventura:  "7dc97b72f0a0b3dc1d7d802790d605843f5dddca526563b1423702ef95b9163a"
+    sha256                               arm64_monterey: "15c4023cd56f93d8110ff458dc94b3ef86398e590f75f359e492e08ef1b3d857"
+    sha256                               arm64_big_sur:  "866e3fb7cc513af402be042beabf92c78bc22c42e3a6513feff3a50f27d36c66"
+    sha256                               ventura:        "a0ca0a497a30409e1911b2d20c10dc61c8cc4120aa4a5ca5f644f368b95a7523"
+    sha256                               monterey:       "8ab4f5a35754138b67352fcba02b77f1373e0e3c81b2da544422153e330b0812"
+    sha256                               big_sur:        "53c72b71f3f9a29b5651b30c785bfe4f312369e7d5edcd7bf62513999a59753b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7a1b239e9cd341dc9c83821652fd1ee4009455babe0e765e33dfe03fd123ec2e"
   end
 
   depends_on "pkg-config" => :build
+  depends_on "libyaml"
 
+  uses_from_macos "xz" => :build
   uses_from_macos "curl" => :test
   uses_from_macos "expect" => :test
   uses_from_macos "netcat" => :test
   uses_from_macos "libffi"
-  uses_from_macos "ruby"
   uses_from_macos "sqlite"
 
   on_linux do
     depends_on "node" => :build
+    # Not compatible with Ruby 3.2+ yet
+    depends_on "ruby@3.1"
   end
 
   resource "bundler" do
@@ -137,7 +140,7 @@ class Mailcatcher < Formula
   end
 
   test do
-    system "mailcatcher"
+    system bin/"mailcatcher"
     (testpath/"mailcatcher.exp").write <<~EOS
       #! /usr/bin/env expect
 

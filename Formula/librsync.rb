@@ -1,20 +1,18 @@
 class Librsync < Formula
   desc "Library that implements the rsync remote-delta algorithm"
   homepage "https://librsync.github.io/"
-  url "https://github.com/librsync/librsync/archive/v2.3.2.tar.gz"
-  sha256 "ef8ce23df38d5076d25510baa2cabedffbe0af460d887d86c2413a1c2b0c676f"
+  url "https://github.com/librsync/librsync/archive/v2.3.4.tar.gz"
+  sha256 "a0dedf9fff66d8e29e7c25d23c1f42beda2089fb4eac1b36e6acd8a29edfbd1f"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "cc61b71352f218c2097897616816c87438636d4087a15060412711a5614b2342"
-    sha256 cellar: :any,                 arm64_monterey: "8f48bfa9495ff1e3f5dbb3c84a849205ee4307cfca4ca0d4c9fdc5dd04304617"
-    sha256                               arm64_big_sur:  "e2672691faeaba727acde6252c3dba8a39b9a0703f942f8f830d6e5514e15bb3"
-    sha256 cellar: :any,                 ventura:        "8ac966da10799876d5b9e1065d2da6870cfd209c218977801e4d08ad5c7a7b2d"
-    sha256 cellar: :any,                 monterey:       "4fa2dba2f40587cb7e1a3c837dae70c121509d858e44a5ec6bd564ba68c2cc3b"
-    sha256                               big_sur:        "7561cdbc8327f77db0647112ae1496ca544c659a04dfe83e703c9edeee890869"
-    sha256                               catalina:       "4d38d5dbea74b9eac4624877d7c7e29f08c38d68dedaaf9dadbdc5e3a820678b"
-    sha256                               mojave:         "5796b96a6fc4781e134879993d0fa23816994c424d9984ec0584ae6b0bea2963"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ae437eeb42f5d9cde1bdafc1fc8fdcdca1dc940d638c4225f9303a9ae439a2fa"
+    sha256 cellar: :any,                 arm64_ventura:  "ecf222fd327da97f55371c9c790dd373a4ff7c5db9ad8d3d94a18235c77cd7dd"
+    sha256 cellar: :any,                 arm64_monterey: "e2062c102af08ddda0befc3c942256fc1e9135c1f3a5ace59cb89033b2fd430b"
+    sha256 cellar: :any,                 arm64_big_sur:  "d8eacef1d3062a140f915d3f864f1ed2764175739658fbe7f39d5a316df4aa1e"
+    sha256 cellar: :any,                 ventura:        "56a8016cd9f57fd16a18dc4718af15fa033220894bda2dab1eeb03583982635a"
+    sha256 cellar: :any,                 monterey:       "0b1430ccb90548e554ae9b56990bfe958c416dac61594185b2ac0d38af89bb2d"
+    sha256 cellar: :any,                 big_sur:        "1f060456ddd3143afd9d7b4ce09fa73de0b685d16e5b5add2eec4039175879d1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9c48743c4c502118826bf142d7bb393099a994c882b55c1c11430c656382af16"
   end
 
   depends_on "cmake" => :build

@@ -29,7 +29,7 @@ class Intercal < Formula
   end
 
   head do
-    url "https://gitlab.com/esr/intercal.git"
+    url "https://gitlab.com/esr/intercal.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

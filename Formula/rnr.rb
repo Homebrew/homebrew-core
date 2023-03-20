@@ -1,19 +1,18 @@
 class Rnr < Formula
   desc "Command-line tool to batch rename files and directories"
   homepage "https://github.com/ismaelgv/rnr"
-  url "https://github.com/ismaelgv/rnr/archive/refs/tags/v0.4.1.tar.gz"
-  sha256 "85013be46725acc1cd6f2d2089c42f426c052efab26d22db8a9f28051eebbb6a"
+  url "https://github.com/ismaelgv/rnr/archive/refs/tags/v0.4.2.tar.gz"
+  sha256 "cde8e5366552263300e60133b82f6a3868aeced2fe83abc91c2168085dff0998"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "045c120169513225fc0c3531e0219281d5b1792044e58d25d9ad88836e6c308e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "19f9b96c9c53acc4ccc2296ebf16a3a6c51c1c0d0ee16fb6562c02953d52ccb4"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9616602a7538bba0f49e591397929ddb51c20aa4d5a53448ffe68d1d83eb1a68"
-    sha256 cellar: :any_skip_relocation, ventura:        "fe59ad75b5e4b1d82592dd06d30ccaaecfb59f9bae95ddf14965f8f0a93a52e9"
-    sha256 cellar: :any_skip_relocation, monterey:       "15db3a1e56b74e017e5777d6e6b3ae4b0b662f0d7ae18633609e735b30ddde90"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ba2390fcebc3cf0787e30d462ff0be92feb33a36d8a3e9752b121f4dfbfb820e"
-    sha256 cellar: :any_skip_relocation, catalina:       "e6a201e62a179608041e1fd5ed23386a025119d4de702e99411d5017511862e7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4248e01e2710b44632164c3644f6b88c43cd4813e9f07402b2c47347d40eb7f8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "13e613c2d00e9e996d6b0bd2b43e1e23bc60f4a5a6d5f0e1a7c33058be9cd98e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c47dbe0a3e417a52175e9af2d05752ba236ff850f6278b8829efc1a60bdbcb55"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "df46ce33f22472a8c3869bd61f8832340953469bc721b9091e04f35fcc4dea7b"
+    sha256 cellar: :any_skip_relocation, ventura:        "e7a1f0fbe20e79691075d96a574c6a55adf50bb2e5339242ca9b2b4ab08c1d1f"
+    sha256 cellar: :any_skip_relocation, monterey:       "5d77ebcc4d57548d2c95f5c5753e917896627e9ea117f6e4c05861d18b39408b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "bd2d7d0aafdd9699adc98bfcf5d56c8af2402ed2ae12789734de2fb0471f7380"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a837c604ac4157d95b648d0b9a4885287868eccf522e44f002d06096dc9145a5"
   end
 
   depends_on "rust" => :build

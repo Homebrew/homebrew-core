@@ -1,9 +1,9 @@
 class Chuck < Formula
   desc "Concurrent, on-the-fly audio programming language"
   homepage "https://chuck.cs.princeton.edu/"
-  url "https://chuck.cs.princeton.edu/release/files/chuck-1.4.1.1.tgz"
-  mirror "http://chuck.stanford.edu/release/files/chuck-1.4.1.1.tgz"
-  sha256 "4459ee6f151da72dcde1525e0afe05329d61086356b168ecfc0bc3a570290f63"
+  url "https://chuck.cs.princeton.edu/release/files/chuck-1.4.2.0.tgz"
+  mirror "http://chuck.stanford.edu/release/files/chuck-1.4.2.0.tgz"
+  sha256 "848c2c0bdad88175924c5a94b9f286aa84f41a7b1fe27478290d224956e3f318"
   license "GPL-2.0-or-later"
   head "https://github.com/ccrma/chuck.git", branch: "main"
 
@@ -13,14 +13,13 @@ class Chuck < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6cf0b6903300ccde433acbd1ea89a7b911278b136bb759a4568649d13199dd36"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2893bcb6afd2112930d50209b946675ed01e6e8371e84d8c8308f64626b66897"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4c6657a513369a6afc2d1d0673f84df3864a7583f80799e9e392b374282fbe90"
-    sha256 cellar: :any_skip_relocation, ventura:        "b784cc501cabd0ba5fd6369d2c5358eee28bedc836a8c79e271d959d1d8a65ba"
-    sha256 cellar: :any_skip_relocation, monterey:       "e42749e3f7fff4b65ab5f584bc86dc880c9407c881cd123f77335fee7cb50a41"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3b7391e0b40562151469f0f2b62f30bd084c428560fa4f68e746f00d9b022060"
-    sha256 cellar: :any_skip_relocation, catalina:       "8ecc0424bf308689a031260e8bf2f2a280812e5d59d403f30098e344df326bcf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "815b5ddb364f46e50da89327eecac55113bb7ce123a1dbb2959c79d953c51965"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5359fbc083244b9313209a0f14fdf92ba8e6ee3f617b31d9588d03acc1f2cb5b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5359fbc083244b9313209a0f14fdf92ba8e6ee3f617b31d9588d03acc1f2cb5b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0e46dab3127e31ae27bbefab004bfea849cd59de18b1d96e3c783974c3dffbb0"
+    sha256 cellar: :any_skip_relocation, ventura:        "83e0e5081d350088bdba87730810e58823accd1e604afa9eb7c7d055ea99bcb3"
+    sha256 cellar: :any_skip_relocation, monterey:       "83e0e5081d350088bdba87730810e58823accd1e604afa9eb7c7d055ea99bcb3"
+    sha256 cellar: :any_skip_relocation, big_sur:        "249b1344a43ab50dab69145b9094b5ef2297964e0b7f21198669546da6240d0f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6df0db29c35b41fa77e987fcd982cea3c0ba60ce48f4ee675e8f501f4a843064"
   end
 
   depends_on xcode: :build
@@ -34,7 +33,7 @@ class Chuck < Formula
   end
 
   def install
-    os = OS.mac? ? "osx" : "linux-pulse"
+    os = OS.mac? ? "mac" : "linux-pulse"
     system "make", "-C", "src", os
     bin.install "src/chuck"
     pkgshare.install "examples"

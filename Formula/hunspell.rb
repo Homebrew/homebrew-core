@@ -1,29 +1,33 @@
 class Hunspell < Formula
   desc "Spell checker and morphological analyzer"
   homepage "https://hunspell.github.io"
-  url "https://github.com/hunspell/hunspell/releases/download/v1.7.1/hunspell-1.7.1.tar.gz"
-  sha256 "b2d9c5369c2cc7f321cb5983fda2dbf007dce3d9e17519746840a6f0c4bf7444"
+  url "https://github.com/hunspell/hunspell/releases/download/v1.7.2/hunspell-1.7.2.tar.gz"
+  sha256 "11ddfa39afe28c28539fe65fc4f1592d410c1e9b6dd7d8a91ca25d85e9ec65b8"
   license any_of: ["MPL-1.1", "GPL-2.0-or-later", "LGPL-2.1-or-later"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "9bc2a6289a536f8147dc07bc64df5b50ecd67b599f0039737ce49d2a09f6da19"
-    sha256 cellar: :any,                 arm64_monterey: "e2b55b5d8ba672d91525b15ef165eec3bc1292e1e46ee9dbf01a069eda621a4d"
-    sha256 cellar: :any,                 arm64_big_sur:  "849e8289515dc32df0e28fb66371dbb6db15d4b283f970bc1fb5067c2d9bf225"
-    sha256 cellar: :any,                 ventura:        "e0a8af06b26f970b574dd6894025d756a251925e110553b4c39425b64339805c"
-    sha256 cellar: :any,                 monterey:       "134ffae149cb7cef8adbf76a165219a88ba0a9057b64ed03cee8cbe22444c004"
-    sha256 cellar: :any,                 big_sur:        "b4f0e1ab5c6df7381d0b62a746e40721fc432cafcba9b2d35eb4178e0f7ecb27"
-    sha256 cellar: :any,                 catalina:       "1d472e55eb42c1d0029fb306813f79593b7a7924d8180613e19fd45d402bc161"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "687239fa7f643f582bd3bc61fa0b35eb0821ab762ea92ab5f05a625e4d64e1f4"
+    sha256 cellar: :any,                 arm64_ventura:  "97e8e1bbf7cbad6fa97efd96711e0ff25d46cd98bd19c75dab4d1160c00b591d"
+    sha256 cellar: :any,                 arm64_monterey: "0077d77fd9cc1a47eb3b0e78818c91735899879fab8373acbc41bccf74cbd2cc"
+    sha256 cellar: :any,                 arm64_big_sur:  "1f0389abc127deb93d7230497181af1d2cbc18a354127b98f7aa1a7a47e56279"
+    sha256 cellar: :any,                 ventura:        "c0770e77b09220da99d9dc5f169a5a815b08b77350a7396ef1017d131fc2a800"
+    sha256 cellar: :any,                 monterey:       "a4f7164470263a3d9b5511136680475f91c5f4498b6d58097f18a8ee496cc3da"
+    sha256 cellar: :any,                 big_sur:        "9d58f7687ab71647524ada2ab980193d7083357072b15510d756e6f90a769830"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "09ba93523c0b255617dd5c9771da092b73a9e9f40f0e7f5c727b7b181f6c8248"
   end
 
-  depends_on "gettext"
   depends_on "readline"
+
+  uses_from_macos "ncurses"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   conflicts_with "freeling", because: "both install 'analyze' binary"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
+    system "./configure", *std_configure_args,
+                          "--disable-silent-rules",
                           "--with-ui",
                           "--with-readline"
     system "make"

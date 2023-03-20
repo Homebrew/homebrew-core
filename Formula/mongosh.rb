@@ -3,18 +3,18 @@ require "language/node"
 class Mongosh < Formula
   desc "MongoDB Shell to connect, configure, query, and work with your MongoDB database"
   homepage "https://github.com/mongodb-js/mongosh#readme"
-  url "https://registry.npmjs.org/@mongosh/cli-repl/-/cli-repl-1.6.1.tgz"
-  sha256 "0cdaa48033a21416835a01cfc801690c6bbdf12c581bbcfc41810f600bc3062a"
+  url "https://registry.npmjs.org/@mongosh/cli-repl/-/cli-repl-1.8.0.tgz"
+  sha256 "fd564c2e467bbd8348fa7ecca407d8a6a82d292b416163b6f76d8b43693295f8"
   license "Apache-2.0"
 
   bottle do
-    sha256                               arm64_ventura:  "50a8d799527a5edb9f5637e2eb5213ff8090ed1be2c4703803e743a7da59c091"
-    sha256                               arm64_monterey: "8df4816c70e0bc37e1891c6cc11a60dabe1eed860bce50dd519c2cef81ff8ee4"
-    sha256                               arm64_big_sur:  "8a08a5d6ef761f57c802a05d85ebe0fc60d4ec50b41d8762aa0a8327e52db098"
-    sha256                               ventura:        "9489ba35cd47f161f887e27590496c46a77d14781ef740c136963ad87434899d"
-    sha256                               monterey:       "30abdb96455270fa2399d275ca4f43269befae72da68fc755c367f2be2e376bf"
-    sha256                               big_sur:        "845dcd761de95c75465325fc54aeabec258dffe1faee3b053af9c9f98a2d5f9b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9591936e408af534528dca42130726ca8c649046ca4b145047376173e404c8ad"
+    sha256                               arm64_ventura:  "88f0da8ad04c9431825e53aa88045d3e2b0cbf3d23cf6f1856cd97156cb3f7f7"
+    sha256                               arm64_monterey: "79c5c6bee9c5ef7782cca3893b3ca0287ae6f2de22f0b5f3520355781499ab95"
+    sha256                               arm64_big_sur:  "fa14acbad9c911be9aeef81f491e879a20b88eb24468fd99bf9f83d126e16a8e"
+    sha256                               ventura:        "3ff792c1da8276f7e9d896939d87df8479ab0cd6665ae6744c85c08631b4d11d"
+    sha256                               monterey:       "6f2f353758a0389b58ad07ead5202937fc8abe1933cbf880f08ca6212ae25650"
+    sha256                               big_sur:        "e8715887c314d9854fbab640b98b345ad4ed76547e0cc18b077f6ff9e9962421"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "babbf1c006be0af4da656eb947f6fde2465e913e808ffd74c776058d9a4fb33a"
   end
 
   depends_on "node@16"
@@ -27,5 +27,6 @@ class Mongosh < Formula
   test do
     assert_match "ECONNREFUSED 0.0.0.0:1", shell_output("#{bin}/mongosh \"mongodb://0.0.0.0:1\" 2>&1", 1)
     assert_match "#ok#", shell_output("#{bin}/mongosh --nodb --eval \"print('#ok#')\"")
+    assert_match "all tests passed", shell_output("#{bin}/mongosh --smokeTests 2>&1")
   end
 end

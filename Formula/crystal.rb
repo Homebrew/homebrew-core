@@ -4,13 +4,16 @@ class Crystal < Formula
   license "Apache-2.0"
 
   stable do
-    url "https://github.com/crystal-lang/crystal/archive/1.6.2.tar.gz"
-    sha256 "fbbff8f975a2627ac3f42208362365668fb08a33637f424e0c2c0e51b1f37cfa"
+    url "https://github.com/crystal-lang/crystal/archive/1.7.3.tar.gz"
+    sha256 "3ad94dd2835a58af8dabf18d6cdf3791eb49cdfc6fdc6fd6a4e59abf0e860a6f"
 
     resource "shards" do
-      url "https://github.com/crystal-lang/shards/archive/v0.17.1.tar.gz"
-      sha256 "cfae162980ef9260120f00ba530273fc2e1b595906b6d39db0cd41323f936e03"
+      url "https://github.com/crystal-lang/shards/archive/v0.17.2.tar.gz"
+      sha256 "ca3963512db8316b3624c0fba57f803419d67502416fe44938a27aa616cf9d70"
     end
+
+    depends_on "llvm@14"
+    depends_on "pcre"
   end
 
   livecheck do
@@ -19,24 +22,24 @@ class Crystal < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "5ac90eee05b2d136eb07cbe8ada3406714c046902b4461bfb1ba35ad00aadd2c"
-    sha256 cellar: :any,                 arm64_monterey: "7619f85e4cda3f6a4318fdbfca48b9d951bd34d292e88c36e8d80889f81d15f3"
-    sha256 cellar: :any,                 arm64_big_sur:  "9f147fcb39669a2cb2a951c4f2a425571808706d9c41e438cf6452c2ccee2400"
-    sha256 cellar: :any,                 ventura:        "9d6a2fc1f841e3ef093ccf405443c6c4026657773f82746adfc0c0cfab866806"
-    sha256 cellar: :any,                 monterey:       "5a0290cf901a728d0c353e2544cc4c73cbeb0f698f25d9f89f5f09de2875ac1f"
-    sha256 cellar: :any,                 big_sur:        "c78e5642b4bcae672ad6af7472719883350e70251307c8655f6af566eaf6eb97"
-    sha256 cellar: :any,                 catalina:       "707755f9d35c7a318f029716e716af42b652795d69f14accebf51ac2ee101266"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "04935a3dbeb60ec7d1364f8e424679b2190e81584093781276ef516f1e016aeb"
+    sha256 cellar: :any,                 arm64_ventura:  "208f602967b52f210e7a6b77d590ea5f0c1a75a7f2ddd4adb28e13f110e7a0b0"
+    sha256 cellar: :any,                 arm64_monterey: "b3c460df2ed4da57a95eb75f44f358ed7d715cf58c26f1f3f5ca36ca0e7dd31f"
+    sha256 cellar: :any,                 arm64_big_sur:  "b199016644332e2d3a07ab683c0a43d0779017ed0f9ce53c0bbcfb212d0fa2e9"
+    sha256 cellar: :any,                 ventura:        "7fcb5188b52efd9bf47442ba6b0d09dd85b40c34614fc7e497507eac19370004"
+    sha256 cellar: :any,                 monterey:       "9cfbbc05fe4c345e06983e8e471e01a85e6256d0d7edaba7d2abaab5b29e2cc5"
+    sha256 cellar: :any,                 big_sur:        "53208361b8f7ea07ca642fb01f475d32cc18802712ad317e4f4ae6827c24f836"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "68a37752e1a0a2eb423b18bb42b8f8aa4751bff15a92afc560a962d63f74ae02"
   end
 
   head do
-    url "https://github.com/crystal-lang/crystal.git"
+    url "https://github.com/crystal-lang/crystal.git", branch: "master"
 
     resource "shards" do
-      url "https://github.com/crystal-lang/shards.git"
+      url "https://github.com/crystal-lang/shards.git", branch: "master"
     end
 
+    depends_on "llvm"
+    depends_on "pcre2"
     uses_from_macos "libffi" # for the interpreter
   end
 
@@ -44,9 +47,7 @@ class Crystal < Formula
   depends_on "gmp" # std uses it but it's not linked
   depends_on "libevent"
   depends_on "libyaml"
-  depends_on "llvm@14"
   depends_on "openssl@1.1" # std uses it but it's not linked
-  depends_on "pcre"
   depends_on "pkg-config" # @[Link] will use pkg-config if available
 
   on_linux do
@@ -55,9 +56,11 @@ class Crystal < Formula
 
   fails_with gcc: "5"
 
-  # Every new crystal release is built from the previous one. The exceptions are
-  # when crystal make a minor release (only bug fixes). Reason is because those
-  # bugs could make the compiler from stopping compiling the next compiler.
+  # It used to be the case that every new crystal release was built from a
+  # previous release, except patches. Crystal is updating its policy to
+  # allow 4 minor releases of compatibility unless otherwise explicited.
+  # Therefore, the boot version should have the MINOR component be
+  # between the current minor - 4 and current minor - 1.
   #
   # See: https://github.com/Homebrew/homebrew-core/pull/81318
   resource "boot" do

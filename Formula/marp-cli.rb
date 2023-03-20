@@ -3,19 +3,18 @@ require "language/node"
 class MarpCli < Formula
   desc "Easily convert Marp Markdown files into static HTML/CSS, PDF, PPT and images"
   homepage "https://github.com/marp-team/marp-cli"
-  url "https://registry.npmjs.org/@marp-team/marp-cli/-/marp-cli-2.2.2.tgz"
-  sha256 "c0c60dfa925e2a687ca2d203340d3d02ae9531f6b1cd830a4ec39ad24e8a2701"
+  url "https://registry.npmjs.org/@marp-team/marp-cli/-/marp-cli-2.4.0.tgz"
+  sha256 "ee03bd9ee85d5c5eb7aa8dd361818163daafb118f244d648b69edc5d4e242963"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7d3709b152ec1ae5a4c93ce8a1d0ad8b5b2345782a293b7c81bff408d19df8f8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7d3709b152ec1ae5a4c93ce8a1d0ad8b5b2345782a293b7c81bff408d19df8f8"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7d3709b152ec1ae5a4c93ce8a1d0ad8b5b2345782a293b7c81bff408d19df8f8"
-    sha256 cellar: :any_skip_relocation, ventura:        "57e645d5295baa70bd7b8fab37a415ba0a09936dcb63d01cec72b7abce136ca1"
-    sha256 cellar: :any_skip_relocation, monterey:       "57e645d5295baa70bd7b8fab37a415ba0a09936dcb63d01cec72b7abce136ca1"
-    sha256 cellar: :any_skip_relocation, big_sur:        "57e645d5295baa70bd7b8fab37a415ba0a09936dcb63d01cec72b7abce136ca1"
-    sha256 cellar: :any_skip_relocation, catalina:       "57e645d5295baa70bd7b8fab37a415ba0a09936dcb63d01cec72b7abce136ca1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3afd350be8f362579de77f5b2e0a7113375f94f691141be8dd983b88e6e504de"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "02a8a1f9c0d1d29742ac5a3efc85cffc1276367e0f28ae4053ae0157c976fe7c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "02a8a1f9c0d1d29742ac5a3efc85cffc1276367e0f28ae4053ae0157c976fe7c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "02a8a1f9c0d1d29742ac5a3efc85cffc1276367e0f28ae4053ae0157c976fe7c"
+    sha256 cellar: :any_skip_relocation, ventura:        "72fbe13449386b62e6ae2d5160c4d130abec7d5c35dc7c6f1301fb7a72603204"
+    sha256 cellar: :any_skip_relocation, monterey:       "72fbe13449386b62e6ae2d5160c4d130abec7d5c35dc7c6f1301fb7a72603204"
+    sha256 cellar: :any_skip_relocation, big_sur:        "72fbe13449386b62e6ae2d5160c4d130abec7d5c35dc7c6f1301fb7a72603204"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "06aa44cf13b6eae50f398e47808bce12b8c0bb0be87bac1dc632b2380df20831"
   end
 
   depends_on "node"
@@ -40,7 +39,7 @@ class MarpCli < Formula
       # <!--fit--> :+1:
     EOS
 
-    system "marp", testpath/"deck.md", "-o", testpath/"deck.html"
+    system bin/"marp", testpath/"deck.md", "-o", testpath/"deck.html"
     assert_predicate testpath/"deck.html", :exist?
     content = (testpath/"deck.html").read
     assert_match "theme:uncover", content

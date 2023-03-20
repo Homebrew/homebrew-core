@@ -19,11 +19,15 @@ class ProtocGenGogo < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1cd0e2d85d2acb9aeaea2405f7ca8e9a734970758027ef098d0ffd624b11c895"
   end
 
+  # gogoprotobuf is officially deprecated:
+  # https://github.com/gogo/protobuf/commit/f67b8970b736e53dbd7d0a27146c8f1ac52f74e5
+  deprecate! date: "2023-03-02", because: :deprecated_upstream
+
   depends_on "go" => :build
   depends_on "protobuf"
 
   def install
-    system "go", "build", *std_go_args, "-ldflags", "-s -w", "./protoc-gen-gogo"
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "./protoc-gen-gogo"
   end
 
   test do

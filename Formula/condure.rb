@@ -3,18 +3,18 @@ class Condure < Formula
 
   desc "HTTP/WebSocket connection manager"
   homepage "https://github.com/fanout/condure"
-  url "https://github.com/fanout/condure/archive/1.9.0.tar.gz"
-  sha256 "39e9a2c25bb00394958feba3d605c81f4dbe667d9eda75a059cb092f2bcbe093"
+  url "https://github.com/fanout/condure/archive/1.9.2.tar.gz"
+  sha256 "c95a7587997af82ab6f3bbf92cfb983b58d7c304133f3be1d0787e31d16ea065"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "53d0107ac95f2fd68113b56840906a5befce9dbcd38f3ed93c79b2b9104eefe8"
-    sha256 cellar: :any,                 arm64_monterey: "574ec83c1915f404ca85b4a17485d3436b9555fb5ec9cabb4fd5984823e6f8fa"
-    sha256 cellar: :any,                 arm64_big_sur:  "3ffc7ba890c3b041bea9b55ba7569f3ab31c15767c7040dbb19c3e83e522d88b"
-    sha256 cellar: :any,                 ventura:        "7c0eb97d6d6dfc296f17f4c14d7a9602ceade826147fdb48c480c69fa5ab3989"
-    sha256 cellar: :any,                 monterey:       "bd40d90af884a344ae09dc3813045d41b02f1e8dc53cec6072d3d067e6f8ae5f"
-    sha256 cellar: :any,                 big_sur:        "cd674c0e8f7429fbf82b7328082a207e934b69ae78f7a565dfd67bc0dfc20134"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e5f3666ecf387040e73874d715b7b697560fbbbf9d06c08f0112e431e5484d08"
+    sha256 cellar: :any,                 arm64_ventura:  "f1303c7f4e4fda6887b2d444d81bba105f462cb9b689115d335540c7505d57e3"
+    sha256 cellar: :any,                 arm64_monterey: "b2118a43f01eca57f002b5f9705ae11faeb10afb2a263c4fbe717328a03f6e5d"
+    sha256 cellar: :any,                 arm64_big_sur:  "b64f7dd122a8d0b88befd32b2e35a1c6f155ca0ee14b0b828bbee0245ce151ef"
+    sha256 cellar: :any,                 ventura:        "9cd462ef606149e0c05e82e0af59e7c91d4f7d9bec5bf31431dce5548e3c74b6"
+    sha256 cellar: :any,                 monterey:       "1d84c3a753d9e094d91e1a20d215d49c3cbbfa859b3594d17932679b56f8f599"
+    sha256 cellar: :any,                 big_sur:        "3199452c7dfc3b4bb8ef6dd50c5ed0fdb5de1a9fb68f1fef7a206b25c9f3a59a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "914119485fc92b4979990cbb295de42e3b9653b6ff5c5217d01070725d5e8fb5"
   end
 
   depends_on "pkg-config" => :build
@@ -24,8 +24,8 @@ class Condure < Formula
   depends_on "zeromq"
 
   resource "pyzmq" do
-    url "https://files.pythonhosted.org/packages/72/37/d5603f352522e249e44ee767a8a59b3fe7cf7f708a94fd40a637c6890add/pyzmq-23.2.1.tar.gz"
-    sha256 "2b381aa867ece7d0a82f30a0c7f3d4387b7cf2e0697e33efaa5bed6c5784abcd"
+    url "https://files.pythonhosted.org/packages/cf/89/9dbc5bc589a06e94d493b551177a0ebbe70f08b5ebdd49dddf212df869ff/pyzmq-25.0.0.tar.gz"
+    sha256 "f330a1a2c7f89fd4b0aa4dcb7bf50243bf1c8da9a2f1efc31daf57a2046b31f2"
   end
 
   resource "tnetstring3" do

@@ -1,8 +1,8 @@
 class HaskellStack < Formula
   desc "Cross-platform program for developing Haskell projects"
   homepage "https://haskellstack.org/"
-  url "https://github.com/commercialhaskell/stack/archive/v2.9.1.tar.gz"
-  sha256 "512d0188c195073d7c452f4b54ca005005ce7b865052a4856dc9975140051d9c"
+  url "https://github.com/commercialhaskell/stack/archive/v2.9.3.tar.gz"
+  sha256 "52eff38bfc687b1a0ded7001e9cd83a03b9152a4d54347df7cf0b3dd92196248"
   license "BSD-3-Clause"
   head "https://github.com/commercialhaskell/stack.git", branch: "master"
 
@@ -12,13 +12,13 @@ class HaskellStack < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "14660a1d83c39b2739bfeb813d59f531a1bad657662d11c0b3cd7c3ad63a5b74"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a3dae3216629fe49908992c551348378ffc86643cd1c05eb5bb0c2c942eeccb6"
-    sha256 cellar: :any_skip_relocation, ventura:        "b573c6e8ab2598eb71f5380428924d967ef2b90fe681d969a520f0df3e6c5dfc"
-    sha256 cellar: :any_skip_relocation, monterey:       "9670b5f56fba10637b47a5218e07a89838bf6b60c4cbd3cd6bd6e72898921a64"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3782938b77db10588becf4b2c5b3fec6b855e44b0aba0cb8d7552df462b438f5"
-    sha256 cellar: :any_skip_relocation, catalina:       "8f179178636d27c08a6458c3398cc3701ce3c5689d7fa74a4ad0c65b5d6d0508"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2cf7a4f5b5c4d00f33d139facf5de3ca2c4ab83dcd28cdc2c9344e3ebbae66de"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7d893b6d53dc84e774a0d37f946641365a70f1664bb7184416629e4604b76ad9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "715dbb96da1591cdb255e742957e48e8c18649603eb6562c0f3ce71c249f823f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "af09b4f95d5a7d48276cc6e02fa5e5090c1aade542e6a28bca8dd7245d19b79c"
+    sha256 cellar: :any_skip_relocation, ventura:        "7dd9e61b7d2851a9efbc31214343dfd7fb075f20677bc42ce0ed377bd210ac1e"
+    sha256 cellar: :any_skip_relocation, monterey:       "f114ac554db5c1b8c5a9fb1a28b618f61c75541229710b99517306bc95634112"
+    sha256 cellar: :any_skip_relocation, big_sur:        "18be789e3f5f903cc5832d6a6bf9ba760181a745fb0638bddd05a4d3c0bc7678"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bc6204f5ceb568e94ce35a4f77045b368fb72d0745c806012b77308fbf8003e4"
   end
 
   depends_on "cabal-install" => :build
@@ -38,6 +38,10 @@ class HaskellStack < Formula
   end
 
   def install
+    # Remove locked dependencies which only work with a single patch version of GHC.
+    # If there are issues resolving dependencies, then can consider bootstrapping with stack instead.
+    (buildpath/"cabal.project").unlink
+
     system "cabal", "v2-update"
     system "cabal", "v2-install", *std_cabal_v2_args
 
@@ -47,6 +51,6 @@ class HaskellStack < Formula
   test do
     system bin/"stack", "new", "test"
     assert_predicate testpath/"test", :exist?
-    assert_match "# test", File.read(testpath/"test/README.md")
+    assert_match "# test", (testpath/"test/README.md").read
   end
 end

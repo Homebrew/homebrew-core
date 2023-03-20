@@ -8,19 +8,21 @@ class Awk < Formula
   head "https://github.com/onetrueawk/awk.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "932275dcd4d64809bbae65d3819aa6b0fe643ac2a3ec16b3d1babacab13168ea"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "65041e32f93bb2c9fb34499a142599d1197812e746a97538dd6ea0d0b952c26d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b2d1a70b2bbb181d8d3a4372600c89f066085bd622af35ba5286d066d79d78fa"
-    sha256 cellar: :any_skip_relocation, ventura:        "91768e0238cfcf0de76ad9c1ea299455e652f66eef72349d7c63ea3626f9a841"
-    sha256 cellar: :any_skip_relocation, monterey:       "36440051d67edfd36eda51c6e37faac85b8d4cfbdd650160f66445b043686e43"
-    sha256 cellar: :any_skip_relocation, big_sur:        "50e132ca2ee5ccd0e5eb143ae3184f9d787bee4a1906b5465bcc2fdcee18626d"
-    sha256 cellar: :any_skip_relocation, catalina:       "b8169a72b8a1c318c426837f59044fc9c67f1b31d4029bb0e9f4f67d8d4c8602"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b875a21cdac385ac38de2474281d539e3e668b8eb2bb94043aa41c468d637df5"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "47f3d16ebd3eb5767c9053091532d69d2c8288a262f9007301b757639833ffdb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6bb8fdb607cba55ad0f173881e83f8f83ffbd3f2cbf84ca26a494cf614d6d3f6"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "253a8eb03a628051cc748336648bc984e4a2bb04322a06c8d8e2e43798d5f581"
+    sha256 cellar: :any_skip_relocation, ventura:        "4c14575b3b5c52aa4b7064bfa737e7a2cce5bf00643883f71be87f509fceb546"
+    sha256 cellar: :any_skip_relocation, monterey:       "7ab4bfa6706a1cad2f1990962b8067e359da9f49079803c7628483e97a0e396d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d566709d5824930ffecb61d05d86e724bf54c3956964ed39b3a3fffaac3b60e0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6b9a89dc8999517cda6105d5c5e0e94294aba8f507aa85b21ee9a3a75c08a0a7"
   end
 
-  uses_from_macos "bison"
+  uses_from_macos "bison" => :build
 
-  conflicts_with "gawk", because: "both install an `awk` executable"
+  on_linux do
+    conflicts_with "gawk", because: "both install an `awk` executable"
+  end
 
   def install
     system "make", "CC=#{ENV.cc}", "CFLAGS=#{ENV.cflags}"

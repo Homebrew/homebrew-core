@@ -18,6 +18,11 @@ class Vecx < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6fcb11d4d3f7cd46ef790ab6d712b26a4eea6c68a5a9eaf82e2cb128218926c2"
   end
 
+  # Upstream PR for SDL 2 support was opened on 2019-04-13 but no progress on merging.
+  # PR ref: https://github.com/jhawthorn/vecx/pull/5
+  # Last release on 2016-08-19
+  deprecate! date: "2023-02-05", because: "uses deprecated `sdl_gfx` and `sdl_image`"
+
   depends_on "sdl12-compat"
   depends_on "sdl_gfx"
   depends_on "sdl_image"

@@ -1,37 +1,32 @@
 class Onioncat < Formula
   desc "VPN-adapter that provides location privacy using Tor or I2P"
   homepage "https://www.onioncat.org"
-  url "https://www.cypherpunk.at/ocat/download/Source/0.3/onioncat-0.3.9.tar.gz"
-  sha256 "c9f2f62fe835f9055c4b409a93f514f9dffdd1fcaeb9d461854731303b528e90"
-  license "GPL-3.0"
-
-  livecheck do
-    url "https://www.cypherpunk.at/ocat/download/Source/current/"
-    regex(/href=.*?onioncat[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
+  url "https://github.com/rahra/onioncat/archive/refs/tags/v4.11.0.tar.gz"
+  sha256 "75ff9eed332e97a9efb7999bbe48867d00e06ac20601cc72b87897d5b1859f99"
+  license "GPL-3.0-only"
+  head "https://github.com/rahra/onioncat.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f90771ab2a7452000b57fa958fe4b22f3ee9623145449a4021a64a7160ff3e5a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "40f981f1c2d95f993249d1716b3e6193dfad9e3731e8d7f69ede25046a0fd960"
-    sha256 cellar: :any_skip_relocation, monterey:       "2f0edf6c284d728ad4146005d49966ef7b90c347fffa2585358b3d96a724ce2e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9053dd0ef8e185c7d328e3ea488106c567bf4fcff6b1b864f63ce2a0b6a882f0"
-    sha256 cellar: :any_skip_relocation, catalina:       "2cc9de36de4f8fb6bf5ef7776b7e8de219444123df698ac4a9cbfc7a87f0d4e6"
-    sha256 cellar: :any_skip_relocation, mojave:         "ea6c02f40094f48e34c8a4bd03d66761ddf6262745683006d58d26a27e5f5a9b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6032e98bbce7b3c2182c06ff794abcdcfd4ac8743d61ca367d346120c2130680"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "313d9bc109a8fdd7f9ceb5995e359e071e6ea822f4f20a550b6c84687e638894"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d8c8dba362799a9d9646efb169e854dc964dd0f76c3837a746f074a436e0f6b9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b7b14ce567dc873d3caae2039c68b510c0311698e5d8cc89e62cd4b46d9f3258"
+    sha256 cellar: :any_skip_relocation, ventura:        "03dbf70b4079c360e0fe10e7909068bf277be34b9780402faf525697b7b7cfb0"
+    sha256 cellar: :any_skip_relocation, monterey:       "3bf2a843df22a579b0965685c779df4165d0db2be9ffeeef32e2769136fd0cb7"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d3be4e31eed45930e85c8043abf03fc34ebc668bc5f9e2d8b09c4dfec8ae6090"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b7909dd65c46856bf1ba00a9253d6b51cd4c1b23b2595a57d0018607ca02bd94"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "tor"
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    system "autoreconf", "-ifv"
+    system "./configure", *std_configure_args
     system "make", "install"
-    rm_f "#{bin}/gcat" # just a symlink that does the same as ocat -I
   end
 
   test do
-    system "#{bin}/ocat", "-i", "fncuwbiisyh6ak3i.onion" # convert keybase's address to IPv6 address format
+    system bin/"ocat", "-i", "fncuwbiisyh6ak3i.onion" # convert keybase's address to IPv6 address format
   end
 end

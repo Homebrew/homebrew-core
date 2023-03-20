@@ -5,41 +5,32 @@ class Isync < Formula
   sha256 "7c3273894f22e98330a330051e9d942fd9ffbc02b91952c2f1896a5c37e700ff"
   license "GPL-2.0-or-later"
   revision 1
-  head "https://git.code.sf.net/p/isync/isync.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "04fb22e1a315723cc3ab4035656c3435998821be930a4df4d49a97cfaa586a4e"
-    sha256 cellar: :any,                 arm64_monterey: "95afd09cb00be9960ded1846393a3ba9954d7e65dda8704dd6678ee31564d588"
-    sha256 cellar: :any,                 arm64_big_sur:  "20bdf52bc6b10d073dbca79b20c6d7008d7639ad5109e20b98e7b05e1a5b8412"
-    sha256 cellar: :any,                 ventura:        "14c0f8dc5fd3cc09516f12783542047afd01ecece5e6f45c452f65547db88e9e"
-    sha256 cellar: :any,                 monterey:       "9fabb93ff8e3edacf208eccb77cc6e456eb52146839fb8df8f11fbaf34a1b118"
-    sha256 cellar: :any,                 big_sur:        "42d8ad7a8728df819720a4a0ded2bdbbba86a1c730f4593a0659af9808637435"
-    sha256 cellar: :any,                 catalina:       "bf1041694107d4d5173b2a79eb447a1ef568d6ad79783ede8ef5ac2157d78102"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "28a71e46d89483ffde37b91ed00f9a7a60933c184db724c6103fee86392bdad3"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "e4e43c921a44c03f8e2e8023a1d7c381318ad5185ecfe7d9992f50afd7fb4152"
+    sha256 cellar: :any,                 arm64_monterey: "816db2393272d941460076dd9407191c669fb1fa95c23ffeb428645e7e18bf00"
+    sha256 cellar: :any,                 arm64_big_sur:  "29e8f407d075874ecfe535755910e5b013bc9da62c15ddd1f095270b642336c5"
+    sha256 cellar: :any,                 ventura:        "abba23b4d43a1abeb313d1efaf43ed6ad8c0b83cd8cb02891a8d1de32b395d35"
+    sha256 cellar: :any,                 monterey:       "d76f4a0b6f3465f8a3b5443db5a67553ea0164350dbe1fc8a4106f4329f3ba5b"
+    sha256 cellar: :any,                 big_sur:        "b1b774bb526cfbf5742ebd662c521040be27c885d1b104cd7fa41ffd3e03f511"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c733c49de05ff2ebff3b768115e50b0ceed3326094c16df686b5a7f8d562e8c2"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
+  head do
+    url "https://git.code.sf.net/p/isync/isync.git", branch: "master"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
+
   depends_on "berkeley-db@5"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "zlib"
 
   def install
-    # Regenerated for HEAD, and because of our patch
-    if build.head?
-      system "./autogen.sh"
-    else
-      system "autoreconf", "-fiv"
-    end
-
-    args = %W[
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-      --disable-silent-rules
-    ]
-
-    system "./configure", *args
+    system "./autogen.sh" if build.head?
+    system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make", "install"
   end
 

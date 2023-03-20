@@ -11,25 +11,25 @@ class Remctl < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "9d26c41ccba77e96d77eaff8e2b5c42aa49bbafd0b02f993bfe0c08c772e7279"
-    sha256 cellar: :any,                 arm64_monterey: "b161331c32b5f808c45786646bf9d8d5244d04c0ef6ea946fcc63cd8dd0aa469"
-    sha256 cellar: :any,                 arm64_big_sur:  "36c2ae6555c83a5af010c387a449c1e772e78a41ccb869e398ccaa10b4f08d06"
-    sha256 cellar: :any,                 ventura:        "dcd0f4be5b39de39a79ba451f2cd15ae47caad05c241398fd821c9a7c19f3323"
-    sha256 cellar: :any,                 monterey:       "74f902bf328c3da38b39e8e72b9e5ff5d17d23d6feece805726bb04aff3ea9c4"
-    sha256 cellar: :any,                 big_sur:        "94401316d2f15ab8e85032aaf27a339c109a93bf550cfc1809938e05d723b49a"
-    sha256 cellar: :any,                 catalina:       "e9138bfed8e023dbb49f8007c51336f3b4a0174f5a265127701c727491648d09"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a3e423da7f473592d54aa1d5af65df02443c0f0ad33c904eceeeb991303519ea"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "a7d183ea3da3af640ed517baa9623a207098627c651d1028819c1e8c7536f2e1"
+    sha256 cellar: :any,                 arm64_monterey: "49d5e57e353ff5342a2a915daadb5adf29d632cbf764278b3925e34480f1a0d4"
+    sha256 cellar: :any,                 arm64_big_sur:  "67ab815bbb6094595b818fdd38d2c697a4ac6dd0a5e9ab6e9a17013cd42683fd"
+    sha256 cellar: :any,                 ventura:        "4474c52f63e68fa6cd369b00d41ee5963ab84f4f3156b94b09e3e3328c4c3037"
+    sha256 cellar: :any,                 monterey:       "c071e9621162fd5e00e2735f1eb10e3eba302f2f5430740b4122c0ab2800e7d2"
+    sha256 cellar: :any,                 big_sur:        "c98f0e9729545d32cf87de9eeb6cb5d9d889b26978903823cb78fadd10b03713"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "def6439b11bef8a6ee81d387991e0995b9fe76928e9dbd69bd65ea09b6931d1b"
   end
 
   depends_on "libevent"
-  depends_on "pcre"
+  depends_on "pcre2"
 
   uses_from_macos "krb5"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--with-pcre=#{HOMEBREW_PREFIX}"
+    system "./configure", *std_configure_args,
+                          "--disable-silent-rules",
+                          "--with-pcre2=#{Formula["pcre2"].opt_prefix}"
     system "make", "install"
   end
 

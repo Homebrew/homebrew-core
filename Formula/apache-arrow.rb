@@ -1,21 +1,21 @@
 class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-10.0.1/apache-arrow-10.0.1.tar.gz"
-  mirror "https://archive.apache.org/dist/arrow/arrow-10.0.1/apache-arrow-10.0.1.tar.gz"
-  sha256 "c814e0670112a22c1a6ec03ab420a52ae236a9a42e9e438c3cbd37f37e658fb3"
+  url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-11.0.0/apache-arrow-11.0.0.tar.gz"
+  mirror "https://archive.apache.org/dist/arrow/arrow-11.0.0/apache-arrow-11.0.0.tar.gz"
+  sha256 "2dd8f0ea0848a58785628ee3a57675548d509e17213a2f5d72b0d900b43f5430"
   license "Apache-2.0"
-  revision 3
+  revision 1
   head "https://github.com/apache/arrow.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "ed9b00a6cee18589331530aedafd7e3d7d7a1bd8bbc2d9e81c002030d18d3f64"
-    sha256 cellar: :any, arm64_monterey: "aa01c339202a3f980259fc118236511531cb0d1df81f4f91e25ca85b27e55128"
-    sha256 cellar: :any, arm64_big_sur:  "08cf4014c5e801662e0eab2a5cffbd83677657f01149cbc15fe44b9eb7f153e7"
-    sha256 cellar: :any, ventura:        "72037c1cdd16c32ca94756d50c53cf15365e3b1cb735c9a9c6722254b6126d59"
-    sha256 cellar: :any, monterey:       "2d3cd0e726c342fc3f3730d320e93658e0148b79da6c1a44e9f257a9f3e0ec21"
-    sha256 cellar: :any, big_sur:        "bb3a5e287a91a0cbbf08b1d813f601e19c38da334f024f6df2fd34e7813381ba"
-    sha256               x86_64_linux:   "ef8da52c0fefee4c5c2b67b0be0ed352209eb37aae7436047e25c90ae028790f"
+    sha256 cellar: :any, arm64_ventura:  "3f886898424c4d69047f4e75ea418c13eeabbddb1e8d6d7272981b57d7992aa9"
+    sha256 cellar: :any, arm64_monterey: "4fb530fefbc703ab3532546fde0740a48836f96acc2b9015a5398134a6fb3b62"
+    sha256 cellar: :any, arm64_big_sur:  "a1a418875a5603a971279c707dca386dee46da44d8ee1bd8a0d3e750ef92ec3f"
+    sha256 cellar: :any, ventura:        "972b67b08cf62ef783e7e703d87d9ed24f7677186e0b028c98c91afefc193b5e"
+    sha256 cellar: :any, monterey:       "92ac01e8d63c0150a0532b5887c2ed0f01adf915ce8bfed985064a6b1c1b5ad4"
+    sha256 cellar: :any, big_sur:        "5c843736daa03fce8a9509204f4c9f63e403fb39e5908607c95763032bc79c65"
+    sha256               x86_64_linux:   "8af56df47735d2191f68e9953d474593f82bed6b868676703ad79b0fac26102d"
   end
 
   depends_on "boost" => :build
@@ -44,7 +44,6 @@ class ApacheArrow < Formula
     ENV.runtime_cpu_detection if Hardware::CPU.intel?
 
     args = %W[
-      -DCMAKE_FIND_PACKAGE_PREFER_CONFIG=TRUE
       -DCMAKE_INSTALL_RPATH=#{rpath}
       -DARROW_COMPUTE=ON
       -DARROW_CSV=ON

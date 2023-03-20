@@ -3,8 +3,8 @@
 class Mercurial < Formula
   desc "Scalable distributed version control system"
   homepage "https://mercurial-scm.org/"
-  url "https://www.mercurial-scm.org/release/mercurial-6.3.1.tar.gz"
-  sha256 "6c39ab8732948d89cf1208751dd7d85d4042aa82153977451b9eb13367585072"
+  url "https://www.mercurial-scm.org/release/mercurial-6.3.3.tar.gz"
+  sha256 "13c97ff589c7605e80a488f336852ce1d538c5d4143cfb33be69bdaddd9157bd"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -13,14 +13,13 @@ class Mercurial < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "0ffb8b179aa7557fc22da21da69e1627ad515241e2ebd450941e695a421b4841"
-    sha256 arm64_monterey: "25d88c7f8c59c40f6fb0719041d14ceb79de888e9750d8d57db61d6541a484b5"
-    sha256 arm64_big_sur:  "b303d2f44d6a40c46aadb006da944a3b27518d5379cf234bf031f8f88ac3e937"
-    sha256 ventura:        "c6559ed597d308ddb0a224e257f8af33364cc1cf1e05672677d27f4029418cb3"
-    sha256 monterey:       "5bf2ea3e097a6dd9d904a13a11ac3866dc786efeae060a967792e121d136e18c"
-    sha256 big_sur:        "5ad92094b41ecb6d8fa96b9f5ecf3d928fa670426b07052f96cea0e70042db6f"
-    sha256 catalina:       "a370e26e8c81a663ab3ddff0b89b4a24a4661975e40e36d401ebd8310cade85e"
-    sha256 x86_64_linux:   "0d100f0b6ba45981c21f9f1ba6bd4a9f76881f288cf6a44eaf9edb0330d34bd3"
+    sha256 arm64_ventura:  "3fe0310976e30934b3fdc9f1ce0bb0ab6be05552777f144418a866248c9a1e1a"
+    sha256 arm64_monterey: "2c53a84c001384a6cf4f41ed654f488a9445ff6e15e58f7fa83eb267f8b8fffc"
+    sha256 arm64_big_sur:  "8dbc4f00b16223daee8d59b8a38d72554c97515226624659af2b651db596133c"
+    sha256 ventura:        "86c67bdcafb094da119f7938a1541d15624b573ba33ac8453b7279d652860785"
+    sha256 monterey:       "93237a3187b9459e7442ea28ae03ac400b096396262dcb4509791110d8acf50c"
+    sha256 big_sur:        "94fca0e8e657c128bdd3d09a2039100c81dc900e1c05d6a6de2931de0577c516"
+    sha256 x86_64_linux:   "e6438bb22c743b3f42b4933d20e72f58517b1db4ad79680b5a376a2ac85cca89"
   end
 
   depends_on "python@3.11"

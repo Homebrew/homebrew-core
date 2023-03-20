@@ -1,20 +1,18 @@
 class Blueutil < Formula
   desc "Get/set bluetooth power and discoverable state"
   homepage "https://github.com/toy/blueutil"
-  url "https://github.com/toy/blueutil/archive/v2.9.0.tar.gz"
-  sha256 "cbd66abe0c4044b0d62095e340abf3e63925d4380e0dce710a550764a1f62352"
+  url "https://github.com/toy/blueutil/archive/v2.9.1.tar.gz"
+  sha256 "50e50ebfa933f285d934d886a0209332df3088c3d25952c994f8bdb349f435ed"
   license "MIT"
   head "https://github.com/toy/blueutil.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bfc27ffc84b837c882787d2f3f3cd0a37ebae88c9e00c747b1b6f3e6019667e5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "adcb4a19c564cbd895f7e216df0a3293e17a009b243f5710edb9ba60965231db"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e29ddccdf7253406a3685f4099f3424ffb6d399ff2643f2d79f281ad97b93a67"
-    sha256 cellar: :any_skip_relocation, ventura:        "8ca9aacdc644af8a83fcf29a0877c20c9fdd7a2312c8b4e3f7d48ec8fcf11a0d"
-    sha256 cellar: :any_skip_relocation, monterey:       "bdcffcaabd1270881f5b28da53aa1a6a28b93cbeb134d2b08891861653364b92"
-    sha256 cellar: :any_skip_relocation, big_sur:        "429703e2bae1445d2a6ae2e1f52ed2c1f0bad3a94e80b44bfe36e698ba5ded30"
-    sha256 cellar: :any_skip_relocation, catalina:       "3717d1a6753d4d94c4b4cbc92afa8ce58ed02bc1435806646fba4c7c1d04787a"
-    sha256 cellar: :any_skip_relocation, mojave:         "389cd2270eededef8623fda47663f998cca159b82f17ef030962ac7dbae3522b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a506642507a316aef94d28f7a66e81bff31a8ea12f857976f82263f09d97a9ec"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1d6a6e311741e21dee7f92f27535eb735708c56c837b9ecec932f67df9bccd2f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d449cbb55d6bbb8e97a78cf31c95216260388a15da472aa5f792358c036d19f0"
+    sha256 cellar: :any_skip_relocation, ventura:        "67e67cff5697cef382650848559d340fa4eca64f1eda16bffde1409f9c6b4a5b"
+    sha256 cellar: :any_skip_relocation, monterey:       "44c7ff3ac1835f6cb530480d234153b1d069d6f2bb1de09749676c726fc48ebb"
+    sha256 cellar: :any_skip_relocation, big_sur:        "08fff9a9560d90369a06d1aea395b41524621101ec7adf6cee8cfd2565f92c0e"
   end
 
   depends_on xcode: :build

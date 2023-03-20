@@ -3,9 +3,10 @@ class Gnuradio < Formula
 
   desc "SDK for signal processing blocks to implement software radios"
   homepage "https://gnuradio.org/"
-  url "https://github.com/gnuradio/gnuradio/archive/refs/tags/v3.10.5.0.tar.gz"
-  sha256 "04aae0c45e55c8fcaf99829d92db102395c7e10a7ad9910533694806d5ae121a"
+  url "https://github.com/gnuradio/gnuradio/archive/refs/tags/v3.10.5.1.tar.gz"
+  sha256 "85d90147f7f28450bff75eeefd2b44adc88b231d29fe8e86cc3a65437dba6d9f"
   license "GPL-3.0-or-later"
+  revision 2
   head "https://github.com/gnuradio/gnuradio.git", branch: "main"
 
   livecheck do
@@ -14,13 +15,13 @@ class Gnuradio < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "7533aed37c6ae5339e59b2386a949a3f32c5f93b6b656ec4ed0376d614d74a35"
-    sha256 cellar: :any,                 arm64_monterey: "ebf7cfb2f6cc5f314f5dc5ec5d66dd6157ba437592304902ede402cf4d408427"
-    sha256 cellar: :any,                 arm64_big_sur:  "a68d2312730d889f1564ed82b513db8dc2c39d5fc9dd00e72b7268c458e4b6f8"
-    sha256 cellar: :any,                 ventura:        "3318fe9687763ac1d0ae95b4d08008a6b57f62edc7e9ddcc5a7b90067ed4d8c5"
-    sha256 cellar: :any,                 monterey:       "c324c450bc869f8ff6116093a1fd5050bcf5588c3178a9c65f12fb666a49dd87"
-    sha256 cellar: :any,                 big_sur:        "93d1e7d6a9296885f39254a4568b2a047498d1c0fac69ce89609891121f0c7ee"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "82d55ee18cdeaf5d88c18870acf3a99f2d9d9426488ecf516cd2f44ec8de25ac"
+    sha256 cellar: :any,                 arm64_ventura:  "adf192e79e33e86b94254fe0e3a7fe8d5c789520886ae8912f2d40105cabd605"
+    sha256 cellar: :any,                 arm64_monterey: "e33b77e660384be14263ff98f87e4d3e86c59cdc06d12a91c2acf8621297f8c1"
+    sha256 cellar: :any,                 arm64_big_sur:  "c76fff7354de3bb9802973b344a0c0e45805d83da6c36ec8022536a6f6875510"
+    sha256 cellar: :any,                 ventura:        "cdbb7467b9ae2acd1f39952b82fe888b33afd7fec9690cbd9e8bb95eb693a814"
+    sha256 cellar: :any,                 monterey:       "040894fa5d9283c35cc2dda5daa792af3e2b5c8b6d7c050935d2df83f9be4e6f"
+    sha256 cellar: :any,                 big_sur:        "7de4cbab3ba95bcce00a2a327e622c0bb3717e6fcb05addcc2e5b795cc3a842a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "467375a5bcaf9d1c4995e195344215cba05d4382af3a645a4a17435628b71c5c"
   end
 
   depends_on "cmake" => :build
@@ -42,7 +43,7 @@ class Gnuradio < Formula
   depends_on "pygments"
   depends_on "pygobject3"
   depends_on "pyqt@5"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "qt@5"
   depends_on "qwt-qt5"
@@ -76,13 +77,13 @@ class Gnuradio < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/6b/f7/c240d7654ddd2d2f3f328d8468d4f1f876865f6b9038b146bec0a6737c65/packaging-22.0.tar.gz"
-    sha256 "2198ec20bd4c017b8f9717e00f0c8714076fc2fd93816750ab48e2c41de2cfd3"
+    url "https://files.pythonhosted.org/packages/47/d5/aca8ff6f49aa5565df1c826e7bf5e85a6df852ee063600c1efa5b932968c/packaging-23.0.tar.gz"
+    sha256 "b6ad297f8907de0fa2fe1ccbd26fdaf387f5f47c7275fedf8cce89f99446cf97"
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/1d/97/2288fe498044284f39ab8950703e88abbac2abbdf65524d576157af70556/MarkupSafe-2.1.1.tar.gz"
-    sha256 "7f91197cc9e48f989d12e4e6fbc46495c446636dfc81b9ccf50bb0ec74b91d4b"
+    url "https://files.pythonhosted.org/packages/95/7e/68018b70268fb4a2a605e2be44ab7b4dd7ce7808adae6c5ef32e34f4b55a/MarkupSafe-2.1.2.tar.gz"
+    sha256 "abcabc8c2b26036d62d4c746381a6f7cf60aafcc653198ad678306986b09450d"
   end
 
   # pygccxml only published a .whl file on PyPi
@@ -92,7 +93,7 @@ class Gnuradio < Formula
   end
 
   def install
-    python = "python3.10"
+    python = "python3.11"
     ENV.cxx11
 
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
@@ -230,6 +231,6 @@ class Gnuradio < Formula
 
       main()
     EOS
-    system Formula["python@3.10"].opt_bin/"python3.10", testpath/"test.py"
+    system Formula["python@3.11"].opt_bin/"python3.11", testpath/"test.py"
   end
 end

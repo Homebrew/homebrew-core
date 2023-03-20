@@ -6,19 +6,17 @@ class Qrcp < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "889a88eb8962304e9a0f9cdca7f1a879585c99d7b7ee54fa89b9a670813d3a9c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "72b5897e63349242e2c60cae3662a9126b626a0c61955dea13acc7985a91194b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9561594ba75dca10b0ba413a3df8055f7009513a71694ea1ddab8f8ab7bdd125"
-    sha256 cellar: :any_skip_relocation, ventura:        "8e96085ce367c14aaaefb0438abbfcc2d8b6133e020da960cea07279a436a49b"
-    sha256 cellar: :any_skip_relocation, monterey:       "d50f012601dc63a2cd69060bf28cf33a0e31b1af92c7015667a3e9037df85732"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b413f243a3eb24dae58770f62005538e1c851c48781c75f5a755b87e9580b61f"
-    sha256 cellar: :any_skip_relocation, catalina:       "500c92e7643f664db127ab5c0eec5b4120e8715b0042100e619c2f986bce6137"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "28ca8979e794d2e04176f125c1445082a325930ec608c46e27e8f004a5f3542f"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "38d90c6db412242ad80b6757e322b01ef67950ab05515c30acf8e66f9e378ad3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c78211f9d68f2d3cd87480480e1bbd77d41c1bb901cb8a3de9a485f33daf0586"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a9e802476922a3b2838bf05a8e94ee9499c9c80178f1a269b6ab6cb09506506c"
+    sha256 cellar: :any_skip_relocation, ventura:        "7a9f8ec7bf540c48a95566c06d6619ad4bd7452f53b34a09b8729ffda68eabcb"
+    sha256 cellar: :any_skip_relocation, monterey:       "f48c800a4db6a665e865152fd0aa73341c23e445c6c4343175af56a4e88c0bc9"
+    sha256 cellar: :any_skip_relocation, big_sur:        "688fd46790df307ab1bf1b52fd8c65b3af682c55aaa4a210d49aba3e32bb3707"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9ccd045ad89452ab621622c1aca81888f9d57242a4f8360284b77580eee2efe8"
   end
 
-  # Bump to 1.18 on the next release, if possible.
-  depends_on "go@1.17" => :build
+  depends_on "go" => :build
 
   def install
     system "go", "build", *std_go_args

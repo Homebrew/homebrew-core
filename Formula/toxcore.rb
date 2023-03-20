@@ -6,17 +6,17 @@ class Toxcore < Formula
   url "https://github.com/TokTok/c-toxcore/releases/download/v0.2.18/c-toxcore-0.2.18.tar.gz"
   sha256 "f2940537998863593e28bc6a6b5f56f09675f6cd8a28326b7bc31b4836c08942"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/TokTok/c-toxcore.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "34c38e086bf1bc1fbe8b9a2ea3c54eeb457979bdb54c77d912e1d1c6d1bf564e"
-    sha256 cellar: :any,                 arm64_monterey: "6277c36679255dce2b2e7871f12ce639459ce3d5cdbe407bb1d72d2b2eb6e4f6"
-    sha256 cellar: :any,                 arm64_big_sur:  "855c9fa777d64f3e02a9f63aa9e64775c4f1d1833efeaf58af70c3d2d6528962"
-    sha256 cellar: :any,                 ventura:        "adf4cf14a05c71d947f85015345ec3580ca1d1698cfd7ce4b0054346c1e2a8da"
-    sha256 cellar: :any,                 monterey:       "488b94a6c29523fc399fee226289fbbc5efddfa6ad5c59fa934ce60dddf686e7"
-    sha256 cellar: :any,                 big_sur:        "ae90463b2d543b391adb410fcd6b5e5a80e33eed3f714a256fecc914d450468d"
-    sha256 cellar: :any,                 catalina:       "a865c7eb2ba80e585364f1a6bbb40008a7a58a63a8e8ec2a6811ae53636e09c1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "11ac05dd681117beb656643d29e19ff73b9c6c19e8a45fb29977ea2bcfef858c"
+    sha256 cellar: :any,                 arm64_ventura:  "6a3ef8820b22039a287ffb04ed6aecbdf075b2b69c5d3f4b8923fb858d1f161b"
+    sha256 cellar: :any,                 arm64_monterey: "d51bbd50a024f4d6d36b4b5edc93c0db0282e77bfabc5780d260ca08892a9613"
+    sha256 cellar: :any,                 arm64_big_sur:  "05fa35021af94207613fa41a15a5dd01d72c24fb5a0cb94d4ee22cc2adc817cb"
+    sha256 cellar: :any,                 ventura:        "42077d19b06dd8fe3b6e41c367f923d89b1153e4eb4a25f2e2d493a155e46d17"
+    sha256 cellar: :any,                 monterey:       "abed8294721cb6be0f8c21e4acf531ecd24bfe7b39139f37d0bdc223e37bb8e2"
+    sha256 cellar: :any,                 big_sur:        "e520954d4768276db131418b629d1df677baf0eea536897eef2614067b3731be"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "208c0afe6069c8401b10786609b3ebd5b58250b8611933731aeb471495c1a335"
   end
 
   depends_on "cmake" => :build

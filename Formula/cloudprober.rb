@@ -1,19 +1,18 @@
 class Cloudprober < Formula
   desc "Active monitoring software to detect failures before your customers do"
   homepage "https://cloudprober.org"
-  url "https://github.com/cloudprober/cloudprober/archive/refs/tags/v0.12.1.tar.gz"
-  sha256 "1ba5a700d7785e8ac399daca4fa7367797e48071909d72a0e9f12c06b9e62140"
+  url "https://github.com/cloudprober/cloudprober/archive/refs/tags/v0.12.6.tar.gz"
+  sha256 "0464359d3b388b59b0d43653f2722da42a75579a04007769f9379e96810948c8"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "292ce7fe9921d8f34ec4dbb2993d84324a82c985a60c1309516f3b38f643ce31"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b86897730eb5df03386b0c539e92240867873897f941ae60b20e79641489ec3c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5a99b8ca4065742e0c5e7bf4a55ade2343cc8d38add5b47d27cc411f1bd0b69e"
-    sha256 cellar: :any_skip_relocation, ventura:        "4cf90d162a95e00f3780bd0c2b03ff3aff25e9ddcc19211e549f946589d9a73e"
-    sha256 cellar: :any_skip_relocation, monterey:       "89bb5c5c525218aa7012cdf30e39e3bf172c8c3c875cd304332e1d08e763397d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8cc16bc15c83be7275e7027814b6db79aaa1500d3ba5cb7612c0b1fb41516af0"
-    sha256 cellar: :any_skip_relocation, catalina:       "74706e60d06d0d195939939d13f3b287e4758cb49284c167e842b3fe8867ffce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2e45ff09641d7862bac10c34cb95a345a2080e80b7a7e8bb8c578a24873d4f3e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "756471539e992dfb5e3f0b70931dd7a22b38c76bbcae506f71334e464a9fb9f5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "64b4185497d154d16c6d97dbe114f7bab43afd6841c4ad090f8e2ab56fc59ef6"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8bf4157850af41211153e9511e99bc3cc6bda1bdf231514be30ec2f32743d84b"
+    sha256 cellar: :any_skip_relocation, ventura:        "14cd25278fac6411856eed0c7be84df87cc298f1225da48b2eb3e226ebf5c0bd"
+    sha256 cellar: :any_skip_relocation, monterey:       "be485fa8214ef472f12c1a0499e2f1f8ebcd5986751bef44a9775fa9a5394e3a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "cc3ec34a625ab7cf84886f1281ef454019f8bebba787d7c17d5af79505dddff0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6e4da07bb55ff71a322841ebac7147bbcc8453876957198a23b6d07dca24de2d"
   end
 
   depends_on "go" => :build
@@ -26,7 +25,7 @@ class Cloudprober < Formula
   test do
     io = IO.popen("#{bin}/cloudprober --logtostderr", err: [:child, :out])
     io.any? do |line|
-      /Initialized status surfacer/.match?(line)
+      line.include?("Initialized status surfacer")
     end
   end
 end

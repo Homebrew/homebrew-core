@@ -3,27 +3,21 @@ class Hy < Formula
 
   desc "Dialect of Lisp that's embedded in Python"
   homepage "https://github.com/hylang/hy"
-  url "https://files.pythonhosted.org/packages/fc/d1/95dac7cb3e3a483cf53a8c18f529f50c619e6a4ee42b299802ca769dc174/hy-0.25.0.tar.gz"
-  sha256 "50ed88834b03a33fc25b85d8897bbe15b7846b84d324630ace8d052f7d48327b"
+  url "https://files.pythonhosted.org/packages/c5/6d/f23bcf595dc806f43af43853aa89614e5f30b046365c0639e84777606879/hy-0.26.0.tar.gz"
+  sha256 "07d2cd59f2b6ee6207fa94048a27ed45c5db0bae5a3893335cfa7dc74efc97a9"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2b7df14b72e77baf89aa3deb363b57e23f37dafa5dcbf2ff5fba5a8b9c9858ff"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e15ed91dc5c45758d18a02bf06cc2765714ae2f54cfb683a1c9d5fc3e36fe086"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d5f9f99c934ff6947f9037b65ebc32579005c265fb3be5c976087e5bcafa4531"
-    sha256 cellar: :any_skip_relocation, ventura:        "3764ebace3731a2d1166cc6718a69760dfe09eb725894bc0a49fe1eea1cbd2b5"
-    sha256 cellar: :any_skip_relocation, monterey:       "deda1c0fbdac60c70a30b9dada539dd8b92c2daf0a05e2fd9c24e255bab2115e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b96dd8de1b784c10c4c3545f9890fb44bbf5fab5f1843abae67cd5ad0210e91c"
-    sha256 cellar: :any_skip_relocation, catalina:       "0f0b54ba6b6e93b0b884c22148f8c269d9bfdf1707817b7f5558cc2988581386"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "02e03489269cbb7c289c7bf00dc324e01cccdcb72b1c53788feafea3fde0fb77"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "358f2a4bcd2af450a9c31c03b7c3b7b1f6db6f418a986e0e369b104a4cded045"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "991786bb1d03492a126cf05ee8c117a0799048e9bcf95d1b3f9923176ed3fea7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d2d9fa5bded872112d217cabff691a9f24cdf5deab5aecb9a64ace08d0f82e93"
+    sha256 cellar: :any_skip_relocation, ventura:        "2fae5d8f74ff09e7546c245d1f831e2fca91ba0a86734a8f783d9c82485f38a1"
+    sha256 cellar: :any_skip_relocation, monterey:       "d66e6e631ad4d79873d47f66d153bf7bc7dfd6030b0e7836981370320af16d2e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b67bd5a34d9366292c77f3354befff4c2cb8853b99d8572e71807ab643235a23"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "41870e64b014870af2ddc4f4a1e2262e152ce33034944b2824a72d9850f990c7"
   end
 
   depends_on "python@3.11"
-
-  resource "colorama" do
-    url "https://files.pythonhosted.org/packages/d8/53/6f443c9a4a8358a93a6792e2acffb9d9d5cb0a5cfd8802644b7b1c9a02e4/colorama-0.4.6.tar.gz"
-    sha256 "08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44"
-  end
 
   resource "funcparserlib" do
     url "https://files.pythonhosted.org/packages/93/44/a21dfd9c45ad6909257e5186378a4fedaf41406824ce1ec06bc2a6c168e7/funcparserlib-1.0.1.tar.gz"

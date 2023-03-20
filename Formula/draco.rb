@@ -1,19 +1,18 @@
 class Draco < Formula
   desc "3D geometric mesh and point cloud compression library"
   homepage "https://google.github.io/draco/"
-  url "https://github.com/google/draco/archive/1.5.5.tar.gz"
-  sha256 "6b7994150bbc513abcdbe22ad778d6b2df10fc8cdc7035e916985b2a209ab826"
+  url "https://github.com/google/draco/archive/1.5.6.tar.gz"
+  sha256 "0280888e5b8e4c4fb93bf40e65e4e8a1ba316a0456f308164fb5c2b2b0c282d6"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bf454b0a487fd8b3f1049c492da9cc5a5e22647852a4365b2aa65496f14ca892"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "447fa18ccaf04ecbcdf0d903c2cc111c4adf942738b41adb4b0558177aa09884"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1a23d767a3a8b68540fa9984a758a0580f20273c68fa37589aeead31a43c6eb5"
-    sha256 cellar: :any_skip_relocation, ventura:        "478ce1535433b4f71b8ab1f2d586b98a79b3093f17a6c2282529b799c9c256f1"
-    sha256 cellar: :any_skip_relocation, monterey:       "23bc006a34d949943bd11defb024dd5cd1c2dffc9d188c911117196d12728118"
-    sha256 cellar: :any_skip_relocation, big_sur:        "818507956a19af5676e4482877bf6f8e3b230f062dcae5ae29490b1f46b3f960"
-    sha256 cellar: :any_skip_relocation, catalina:       "5c5f6951c85dace70de82ecdcfee6bfa444b029e910377a1c6f6e3dce81bbae8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "457921bc7acf4f26b905699ef4c121878c10a8da3f85438c7fa04ff512384a24"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9b30900296a9302b9d9c671ef0378ff3f72cb3e10f7cf2e99863252a68020699"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "49723a07d6d9bdc90d32fc281fd4a4d7b88a9486a4c3979653d93f576efd21a3"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "198550f68b65961b9732cc97c861268043a06d291cbc25fe75bf55b6eb9a4cea"
+    sha256 cellar: :any_skip_relocation, ventura:        "6e77e04849d1ebcac81b34370e687be99d1dd06ac75fabf1a9daf5a3883826e6"
+    sha256 cellar: :any_skip_relocation, monterey:       "6063f6f10d70cf58fbe658dffc3046443bc2528194ca696c12ea6e5e2eb93190"
+    sha256 cellar: :any_skip_relocation, big_sur:        "adef68270316f1efc16fbef07cbb0ef7d7754744daac10a3fdd526736ab1a3b3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dd62e843573d136148e7b71bfe17f9fb51a6ff60f66dd1e447c481d783141d96"
   end
 
   depends_on "cmake" => :build

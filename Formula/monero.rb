@@ -2,8 +2,8 @@ class Monero < Formula
   desc "Official Monero wallet and CPU miner"
   homepage "https://www.getmonero.org/"
   url "https://github.com/monero-project/monero.git",
-      tag:      "v0.18.1.2",
-      revision: "66184f30859796f3c7c22f9497e41b15b5a4a7c9"
+      tag:      "v0.18.2.0",
+      revision: "99be9a044f3854f339548e2d99c539c18d7b1b01"
   license "BSD-3-Clause"
 
   livecheck do
@@ -12,14 +12,13 @@ class Monero < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "3c0c8c71557e292cb8d7b28c136b9c0ae032d10cb1fc8c4d4a148a759c394635"
-    sha256 cellar: :any,                 arm64_monterey: "763a62099afbbd84d9eaf1961287478e4dc6b08a2e4da5f9eca30013af99ab60"
-    sha256 cellar: :any,                 arm64_big_sur:  "a0f5d0ae695f459b68df4c70638b2f374882390f14942cca3f34e4e46b99ca82"
-    sha256 cellar: :any,                 ventura:        "28d7924beed98b4129b897e5531b6b2c493c0254f4c88b12884b5441c8798f8e"
-    sha256 cellar: :any,                 monterey:       "ae67c3ef1c44be10478a91af4e0b1968750ce89a0a6e3d55f7feb067e3d7754f"
-    sha256 cellar: :any,                 big_sur:        "261faa3cc969eb569b20f497b6d4ee65048c1d955b28e7482167807f01c4f5be"
-    sha256 cellar: :any,                 catalina:       "1d69e5d5fca688f9128257d57e4209b0a97b017445aad56343fe2103f781103c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ea86654297f7d69fb1959a0b34391b324f13b2f7e6932d92120746a79386b8ec"
+    sha256 cellar: :any,                 arm64_ventura:  "904b0d0f7c336ef446f2eabe34f2fd304c4df06d58d009e386fd3aea91f11b80"
+    sha256 cellar: :any,                 arm64_monterey: "f93fa25ee187ff48c6c52d5a142b68b38eea29b029f43d0ce08c791163e0e060"
+    sha256 cellar: :any,                 arm64_big_sur:  "cf5534b4d97a72d4548f31c6e72c77d2d23fbed0dc42afa09a3b3db7ea2675f2"
+    sha256 cellar: :any,                 ventura:        "1ddceefba0f7005d4f21666949cc9d40ff810e5b01d6e79f2fc9ade0eb758a39"
+    sha256 cellar: :any,                 monterey:       "7c3077afceba35fb82f69209b1ab2eb97b05476b787435c4ff5fb5609e5064e5"
+    sha256 cellar: :any,                 big_sur:        "3e5efba2891be8dae43c0be0398e1e3da01932f4ce8344ff11fb58850bb3e43a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ba559de072d84ceb9c8a52fb6b1155ab144a6ac6ff4864bb044694f2b511de46"
   end
 
   depends_on "cmake" => :build
@@ -27,6 +26,7 @@ class Monero < Formula
   depends_on "boost"
   depends_on "hidapi"
   depends_on "libsodium"
+  depends_on "libusb"
   depends_on "openssl@1.1"
   depends_on "protobuf"
   depends_on "readline"
@@ -36,8 +36,9 @@ class Monero < Formula
   conflicts_with "wownero", because: "both install a wallet2_api.h header"
 
   def install
-    system "cmake", ".", *std_cmake_args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   service do

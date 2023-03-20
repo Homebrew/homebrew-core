@@ -1,31 +1,22 @@
 class Gitql < Formula
   desc "Git query language"
   homepage "https://github.com/filhodanuvem/gitql"
-  url "https://github.com/filhodanuvem/gitql/archive/v2.3.0.tar.gz"
-  sha256 "e1866471dd3fc5d52fd18af5df489a25dca1168bf2517db2ee8fb976eee1e78a"
+  url "https://github.com/filhodanuvem/gitql/archive/v2.3.1.tar.gz"
+  sha256 "e3d34649f3dc714cb3189638103918314cf63b1ddbfd99a067d802730d1119b2"
   license "MIT"
   head "https://github.com/filhodanuvem/gitql.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a137abb5c33caae3f028dc0dd9d5de01233f186e411e85c5f15e9498b8db6ba7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1cf057b9ba370bc1f4f5c7f2a28df41484304a9acd1578179c9bbe235b187218"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9c51c047a1b0a54fc0442b8116cab4ac4fe15e32a81e1eab298d7ae335350abf"
-    sha256 cellar: :any_skip_relocation, ventura:        "a6314e3549f1d86138a9eb7faaac2b18393e2d69232ef4fcc99687c4a386e550"
-    sha256 cellar: :any_skip_relocation, monterey:       "c49e5de44b1ca2e817df8fec931424773605fca428a8552d72bf8f2e4201f738"
-    sha256 cellar: :any_skip_relocation, big_sur:        "4da2c5aeb11978212534942830e5dbf06df531e9c20ae13f046fb3c9a8cacee2"
-    sha256 cellar: :any_skip_relocation, catalina:       "2a12d8521aa575a1d6026747e3ba1b8aa7887d2bbe260965fe0eea13ff97a5d6"
-    sha256 cellar: :any_skip_relocation, mojave:         "a0762c0080eabc925f05e4a62de0fb9fc9cca8a9a948a9d4cb2d323ab1df8873"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "28081d93f6606dc4a39b1dfde118c3d21a909487b289538e86801de3febf1604"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f3aa2f078b36976dfbfe3b5a906ac43f625b04851fa400e03e21d5abcc965c9e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f8d5a45420e0c8696a821493c292c57a929d5571007fa0d6863a6c0479c17e0e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c510bf179af95811b10550f58751e33b54f7becae1106ead14d2088058deb141"
+    sha256 cellar: :any_skip_relocation, ventura:        "1afa4269aa54b3f990d4061b7fe21424c9aeb509ba86a6af4a6b7cdfd5d6daf6"
+    sha256 cellar: :any_skip_relocation, monterey:       "211d0bb817e59169943c5e12a9b6b147cb74a409eb59af501e774eedf30d7f4f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "1d03ac14a4d11bd7f0c09694b68b04b679eb6fc1feb5b292b1c289417e46ce26"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "39d4bb77007f584d4ebfb5f3b6e1d40e1c6794fb728f7e32877b75d6ca3f17cd"
   end
 
   depends_on "go" => :build
-
-  # Support 1.18 by updating dependencies.
-  # Remove with the next release.
-  patch do
-    url "https://github.com/filhodanuvem/gitql/commit/1bad3899592b0a8265e4a9c66e1c26e0bcbcd111.patch?full_index=1"
-    sha256 "b002683a2eac09f7342869cbbcb94a971f51db03fc7895bf7fa5a8069b030378"
-  end
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")

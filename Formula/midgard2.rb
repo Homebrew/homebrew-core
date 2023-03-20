@@ -30,12 +30,16 @@ class Midgard2 < Formula
   end
 
   head do
-    url "https://github.com/midgardproject/midgard-core.git", branch: "ratatoskr"
+    url "https://github.com/midgardproject/midgard-core.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
   end
+
+  # Doesn't build with libgda 6+
+  # Last release on 2012-09-26. Last commit on 2015-07-15.
+  deprecate! date: "2023-01-22", because: :unmaintained
 
   depends_on "pkg-config" => :build
   depends_on "dbus-glib"

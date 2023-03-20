@@ -1,19 +1,29 @@
 class MscGenerator < Formula
   desc "Draws signalling charts from textual description"
   homepage "https://gitlab.com/msc-generator/msc-generator"
-  url "https://gitlab.com/api/v4/projects/31167732/packages/generic/msc-generator/8.2/msc-generator-8.2.tar.gz"
-  sha256 "643efd48958f4fc20d40af56ea1be6c2d2e2c80c055b622c91971a3e1e5252ca"
+  url "https://gitlab.com/api/v4/projects/31167732/packages/generic/msc-generator/8.3.2/msc-generator-8.3.2.tar.gz"
+  sha256 "f9eb8acb81a017ca8544d3397120468fd01b2e98c3734b1e3c92d0e7e6f89e55"
   license "AGPL-3.0-or-later"
 
+  livecheck do
+    url "https://gitlab.com/api/v4/projects/31167732/packages"
+    strategy :json do |json|
+      json.map do |item|
+        next unless item["name"]&.downcase&.include?("msc-generator")
+
+        item["version"]
+      end
+    end
+  end
+
   bottle do
-    sha256 arm64_ventura:  "2c679958ca3bf418b7c70729ebbe86a37b8c835e0bf43c4ff61ff86c88f90c02"
-    sha256 arm64_monterey: "f9746df56efcfd9b2e6084306587e9ac7ab8a05931f6c6e1a7ead4ca783506ad"
-    sha256 arm64_big_sur:  "5eeea19b32e3195143c54da11acdb05b411d9efd24c0ed399a917579f82b84a5"
-    sha256 ventura:        "b01d1a9983ed79a817eead66092f6dd7d3e7e89e35d685176d3b5ce869f7206a"
-    sha256 monterey:       "abf0e87f36a6714637e2770205ac2f0ef05219df1dadc031960ecbdaea2f4c93"
-    sha256 big_sur:        "47e891b3ed5a64789fa5060ef7640c9fe71d12a4fa57d8432302aa46f245e98a"
-    sha256 catalina:       "ca52e1f668b9249096c0921e457f463adb3141e53fcddb5de7711d687b26c64b"
-    sha256 x86_64_linux:   "6f86d646eb14e18be7d5a0976334415ff9fa6ce40d6ead350aecfe9f08ae9752"
+    sha256 arm64_ventura:  "76278d5fa2ce33e4e1f2ebcc27d1eb6fc6861f6c4dff0d888ab98d37b6720686"
+    sha256 arm64_monterey: "d6c721135921bd819cea49c2f02693d357ca0218ba230a765c12284218cbdcb9"
+    sha256 arm64_big_sur:  "c20c6559cb104390b8698e8cc97bf54d8c1e0d250f92c558fa6088c6fab3c8e0"
+    sha256 ventura:        "216a07418371d93713f5841fdf096159f279a7d1e13005e534ecfa0c109a8fae"
+    sha256 monterey:       "48cb526ca7471152b121ea2e3e9859111b5963c08b361ceea3aaea85f31425a8"
+    sha256 big_sur:        "e375256edabd34d86a4539796d31ffc7fe1426c5a41b176e0a76fcd4b7f9314c"
+    sha256 x86_64_linux:   "c5e7880a5dc72e8e053f3e686ec469cf1ab9a028016f1c290cc39231ef80bd9a"
   end
 
   depends_on "autoconf" => :build

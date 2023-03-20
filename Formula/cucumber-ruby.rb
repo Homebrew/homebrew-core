@@ -4,6 +4,7 @@ class CucumberRuby < Formula
   url "https://github.com/cucumber/cucumber-ruby/archive/v8.0.0.tar.gz"
   sha256 "5e382fc00fd04842813f58c7c7a1b43c2ddf6a8e5c53ae9916daba95462cdb6a"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,14 +12,13 @@ class CucumberRuby < Formula
   end
 
   bottle do
-    sha256                               arm64_ventura:  "a95d4749713fe812d9f7e44d8572abfe55187c66c63b1ae11897bd15d3af89a8"
-    sha256                               arm64_monterey: "2ce8d7ed9c6f0a41cf86029da8e72584b36b4a2a1d18e79c22cb5855c191aaa1"
-    sha256                               arm64_big_sur:  "9e2e4a70dfcb245dad57752fd538a29ec0ea56caabf22c1704598b036a8cb55c"
-    sha256                               ventura:        "923e371248945cc80828d280f3c5997a7b2ef8ac1cd947a67e62fd0d45f29b28"
-    sha256                               monterey:       "5b05d36faf72b95190f77acae632bd3a8ac4ba947df23262ea4bc1c6b2402004"
-    sha256                               big_sur:        "30ac06c2908e0ca4ce7ba75e92393259911e454206a81c52f360b9aeda9a7c62"
-    sha256 cellar: :any,                 catalina:       "ee1eabb3641184384650cb0990a2d54c0b9f346cd941274a40d7c427e0c70f5e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0196d1843ab7614a204f29f4d10588d3397a4d89c9bdc2e297720ef3b6ac9899"
+    sha256                               arm64_ventura:  "63a75468e73e8201f581fb08ff5e7d23a0d31a3263d4c4d8156e2837c7098288"
+    sha256                               arm64_monterey: "c674a1582276891fbb6592041f5ffc2423e3a0ba869cef1fd0e7d5d0349329a4"
+    sha256                               arm64_big_sur:  "f922affbd0e4c738a0bbcafed5b9ca426336029b24f91ce248535afc17c03084"
+    sha256                               ventura:        "d20731d327188d4a02c1059d2aaf4599be99b32d8931571b7e727cd31feb33d3"
+    sha256                               monterey:       "aeca1ff5682acee4d1c8305ceb49a607861a32da7f4492b3d152380a1012d643"
+    sha256                               big_sur:        "082843d29dedbe24c41520c52f39929e02d0be6b6e93931c870f713f69e5b063"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3d25c5b6a9261e9488adcd3885bd186d498ff5056473f3de6095c82793be6828"
   end
 
   depends_on "pkg-config" => :build

@@ -15,7 +15,7 @@ class Smali < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a674a05a86c284a8f15d82c01e73af0e1802b755659c6417d79157ff2108f82f"
   end
 
-  depends_on "gradle" => :build
+  depends_on "gradle@6" => :build
   depends_on "openjdk"
 
   def install

@@ -9,15 +9,14 @@ class KeepkeyAgent < Formula
   revision 6
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_ventura:  "ddcec233d0fd15ccf88af9843a269df42906e1a33412c9aa3c2617b365679e70"
-    sha256 cellar: :any,                 arm64_monterey: "9c6163c9f2d3b32ba2d643a66b1f5a92a7652aa58627b5138f80e06646ad160d"
-    sha256 cellar: :any,                 arm64_big_sur:  "bb1753a8272208fb4abc0223a1e5322400e4d81b2a90013560d3d0f2b31f1713"
-    sha256 cellar: :any,                 ventura:        "c0384c26c06b708635f36b17d813f7cf800d04b7a08a5ff17a691792a35e63b5"
-    sha256 cellar: :any,                 monterey:       "b40b368a16d2d982a8aa6a039c81980d0ed850bdc4f2394270fb077e70015f30"
-    sha256 cellar: :any,                 big_sur:        "58a3d058ee22d9e0689464bcc4798605858a42b2e67efce4fca0ae4e7a313c19"
-    sha256 cellar: :any,                 catalina:       "87335d26356e2bfe0af2c20fd599b7d24355c8d55ef347cb47acf869d0885639"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d2f286f9a0602c958ae0cc44bec3cc5a488a93deda870c2cd011e590e0637f8c"
+    rebuild 3
+    sha256 cellar: :any,                 arm64_ventura:  "3983b7d20aad972674546462570a7c71941cb8ddd61c16166c734db18a9bef82"
+    sha256 cellar: :any,                 arm64_monterey: "e144ca0ac858a79005dabb6a4e6491ba3f34c591913f2efb5e3644e8acd2900b"
+    sha256 cellar: :any,                 arm64_big_sur:  "eb7583865ab9a0fba5aa6191b4e2a36faa961876d8d7049ccfabbd4e78464e52"
+    sha256 cellar: :any,                 ventura:        "1537296c7fe07468dda605be5329de2b3ce1145248facc5699d5f43c9554f454"
+    sha256 cellar: :any,                 monterey:       "6f24016477b3c2070b0d1babc092bbca20e6d00685b9adb8110dc8af767f10f4"
+    sha256 cellar: :any,                 big_sur:        "f1c7b8d78b56f533db209e6d90cf860f8b8f66ba54a96e77999f15f93e3a38c7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "42c261167823f24f350b981c7778d63f2287dab3cc3ed20275646d09104333ad"
   end
 
   depends_on "rust" => :build
@@ -47,8 +46,8 @@ class KeepkeyAgent < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/13/dd/a9608b7aebe5d2dc0c98a4b2090a6b815628efa46cc1c046b89d8cd25f4c/cryptography-38.0.3.tar.gz"
-    sha256 "bfbe6ee19615b07a98b1d2287d6a6073f734735b49ee45b11324d85efc4d5cbd"
+    url "https://files.pythonhosted.org/packages/6a/f5/a729774d087e50fffd1438b3877a91e9281294f985bda0fd15bf99016c78/cryptography-39.0.1.tar.gz"
+    sha256 "d1f6198ee6d9148405e49887803907fe8962a23e6c6f83ea7d98f1c0de375695"
   end
 
   resource "ecdsa" do
@@ -57,8 +56,8 @@ class KeepkeyAgent < Formula
   end
 
   resource "hidapi" do
-    url "https://files.pythonhosted.org/packages/ef/72/54273f701c737ae5f42d9c0adf641912d20eb955c75433f1093fa509bcc7/hidapi-0.12.0.post2.tar.gz"
-    sha256 "8ebb2117be8b27af5c780936030148e1971b6b7fda06e0581ff0bfb15e94ed76"
+    url "https://files.pythonhosted.org/packages/78/0a/d71f35a8dcbe88dab21cd668a62b688ea6dd45872feba45a97efd0452c19/hidapi-0.13.1.tar.gz"
+    sha256 "99b18b28ec414ef9b604ddaed08182e486a400486f31ca56f61d537eed1d17cf"
   end
 
   resource "keepkey" do
@@ -67,8 +66,8 @@ class KeepkeyAgent < Formula
   end
 
   resource "libagent" do
-    url "https://files.pythonhosted.org/packages/4e/91/856e10623fa9a88b5e0df0e922b15ba04dd1be3e43742211a81c50d5f5b4/libagent-0.14.6.tar.gz"
-    sha256 "59288e1ff6324f784fec178b562a0240f0883d74a6ccd106f958ad3ed712219c"
+    url "https://files.pythonhosted.org/packages/4e/0f/b48045dd9d12eea5c092aaad4c251443384da700c8d85349fc3c554a2320/libagent-0.14.7.tar.gz"
+    sha256 "8cea67fbe94216f61dbc22fac9d3d749b41b9cfc11393a76b0b0013c204adb98"
   end
 
   resource "libusb1" do
@@ -87,8 +86,8 @@ class KeepkeyAgent < Formula
   end
 
   resource "protobuf" do
-    url "https://files.pythonhosted.org/packages/0f/cd/165eaac1c43a5ba391a36087dc909e03c3ae3f7dbcab74f287631208ba92/protobuf-4.21.9.tar.gz"
-    sha256 "61f21493d96d2a77f9ca84fefa105872550ab5ef71d21c458eb80edcf4885a99"
+    url "https://files.pythonhosted.org/packages/ba/dd/f8a01b146bf45ac12a829bbc599e6590aa6a6849ace7d28c42d77041d6ab/protobuf-4.21.12.tar.gz"
+    sha256 "7cd532c4566d0e6feafecc1059d04c7915aec8e182d1cf7adee8b24ef1e2e6ab"
   end
 
   resource "pycparser" do

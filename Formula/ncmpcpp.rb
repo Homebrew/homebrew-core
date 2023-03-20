@@ -4,7 +4,7 @@ class Ncmpcpp < Formula
   url "https://rybczak.net/ncmpcpp/stable/ncmpcpp-0.9.2.tar.bz2"
   sha256 "faabf6157c8cb1b24a059af276e162fa9f9a3b9cd3810c43b9128860c9383a1b"
   license "GPL-2.0-or-later"
-  revision 8
+  revision 10
 
   livecheck do
     url "https://rybczak.net/ncmpcpp/installation/"
@@ -12,14 +12,13 @@ class Ncmpcpp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "76f18301d32737baac84267995a24de92092dc76c60327c479c7a0f6dd84139b"
-    sha256 cellar: :any,                 arm64_monterey: "cf2eca5f6cd5e691356f38ac0c5a8340b15e327d40ed716f0500baac4f7137b6"
-    sha256 cellar: :any,                 arm64_big_sur:  "eced36d7c545a790542a896f7513b76167cdc0e61f8cce67573fb73154968ee6"
-    sha256 cellar: :any,                 ventura:        "35b29ff5a268f63e9b72b2a390d736819539aa1536db14300413f39e4667f706"
-    sha256 cellar: :any,                 monterey:       "afd09c2d5c806b93818042ca072c60a27d07819168fe31169c90689937002460"
-    sha256 cellar: :any,                 big_sur:        "808b5a7a5a8a3b5af8e801e7c3220b56c034e14dc7d21469ffd071ba56d5d1c9"
-    sha256 cellar: :any,                 catalina:       "055ce811b2df28549105dad74e5813ca160a443593b5ae2d043255b53d22b26c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7aab89e6b1232657954e27f6e6623d7220d22c541bad3a6fcf05047a613b06c9"
+    sha256 cellar: :any,                 arm64_ventura:  "3ce6aad4d93abe434a6bf1e1eaaf4e3ea979a482531a78e97c6a288f5f1ae6ce"
+    sha256 cellar: :any,                 arm64_monterey: "0d4527e8b01c0c2e8f322289466385b02dc69ef4b9e0ccf4983245967f00df36"
+    sha256 cellar: :any,                 arm64_big_sur:  "72c8c434ea867d893d49e742ae8109492d65df25a672976e33bf7cd726621a1c"
+    sha256 cellar: :any,                 ventura:        "5830429e3f76f324afc99b8a339e51328328ed7bed1e0ebcb78232067f785622"
+    sha256 cellar: :any,                 monterey:       "d467809068fc47fbce693f0fc63f7c23d4c4c0dbe6c6460519ae7572dcd7d0a4"
+    sha256 cellar: :any,                 big_sur:        "912ccbfdb455c217ebbc4a76bd0226b9c80cd82859dc8b74701755f1b32e0192"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fb8a046a754eecbcf5dbf9c3fe070a63072ae63925e9c86a3cafdefa37f68b5f"
   end
 
   head do

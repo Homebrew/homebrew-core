@@ -1,8 +1,8 @@
 class Aqbanking < Formula
   desc "Generic online banking interface"
   homepage "https://www.aquamaniac.de/rdm/projects/aqbanking"
-  url "https://www.aquamaniac.de/rdm/attachments/download/467/aqbanking-6.5.3.tar.gz"
-  sha256 "6c62bf26aa42e69b21e188b54f6a5d825d6da34de1a14cbc3b67d85a9705136e"
+  url "https://www.aquamaniac.de/rdm/attachments/download/499/aqbanking-6.5.4.tar.gz"
+  sha256 "0d16ceae76f0718e466638f4547a8b14927f1d8d98322079cd6481adde30ac99"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,14 +11,13 @@ class Aqbanking < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "1ac366220ad338277a56f2923ae4298b8c7077ad1181a7aa49a726c045c4b828"
-    sha256 arm64_monterey: "e3a12de7657644364037be15c92717200409f4d94953452adf0a77e5c357c7e1"
-    sha256 arm64_big_sur:  "2e43a777b8c571a5bac1d1a0f5672c73209e73d6ec3ab2aab35ddd323beb3b26"
-    sha256 ventura:        "298dd362e2f7dd1e7c25405c6cef43d2495e8379f166c5c474a4831f5cf79382"
-    sha256 monterey:       "ddfbf5a556dc6cf7ef4e5695b37909e53d16dc33ac3479f78aa4a5de1b513f8e"
-    sha256 big_sur:        "8006ec44c588bb2d7e9aedf2c3ce0ff60c83359d7a897a6671007c1634431f66"
-    sha256 catalina:       "69ef4f19ee0347174f58a31ba063a426c66b4413ba8f3fbb0f458c02b53451f2"
-    sha256 x86_64_linux:   "6decd8373f661ce97d20985460570f52600a4f2c9633435885c79414eaa320ba"
+    sha256 arm64_ventura:  "86a10700be19457e9de426d1a517fff81d88f0c968edbb4422c4999b645d2db7"
+    sha256 arm64_monterey: "c03595358b762a435f0e23e4302de71da6f2a4d8444ef81b83723da5626bbbd5"
+    sha256 arm64_big_sur:  "5dd8f7f35e641a3b84243698b5d52e858e4c3c9bf6157386607ffc0b0d9a0ddd"
+    sha256 ventura:        "135b86a8abe352be9781d0e47d34bb7daafca2dc15e2050e454a7e672cbe6308"
+    sha256 monterey:       "edbeea160afd61148e15cf3d66729c6a79c5ca371fca10713112e50d7e0520ba"
+    sha256 big_sur:        "970f57f5314f055f7f9b8fc72ac37bbc74d62128912da29f3428cc76c5c27082"
+    sha256 x86_64_linux:   "601804c5ff8f4966834f1e1d9c8cabea7fe3a9e73081e0779b6ae26f59ad3bdd"
   end
 
   depends_on "gettext"

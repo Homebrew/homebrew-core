@@ -1,9 +1,9 @@
 class Chkrootkit < Formula
   desc "Rootkit detector"
   homepage "http://www.chkrootkit.org/"
-  url "ftp://ftp.pangeia.com.br/pub/seg/pac/chkrootkit-0.55.tar.gz"
-  mirror "https://fossies.org/linux/misc/chkrootkit-0.55.tar.gz"
-  sha256 "a81c0286ec449313f953701202a00e81b204fc2cf43e278585a11c12a5e0258b"
+  url "ftp://ftp.chkrootkit.org/pub/seg/pac/chkrootkit-0.57.tar.gz"
+  mirror "https://fossies.org/linux/misc/chkrootkit-0.57.tar.gz"
+  sha256 "06d1faee151aa3e3c0f91ac807ca92e60b75ed1c18268ccef2c45117156d253c"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -12,15 +12,13 @@ class Chkrootkit < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "df424f7b9dcd0ff298d054020bb1086be26c1276aa617da306a54561986615b1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "59a2d7c6798a78d907c269ab5ed9effdc111e4ff6b4dd7e5bd65ed3721846c72"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7a0131227a3d12132068de046c3a7fa851a452bae907c635a92a484868977104"
-    sha256 cellar: :any_skip_relocation, ventura:        "a53b31363f10d0fca17efc6fa2173b937f63776c19a01a2d2633b9c700b35f82"
-    sha256 cellar: :any_skip_relocation, monterey:       "818406aced3c057489cea7395219de7aeff1c7da9e2b3218939d291c21595c72"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7fac603ca267b72c2882d460a458957f843a5e821fb0406d6230d42f1fe0557b"
-    sha256 cellar: :any_skip_relocation, catalina:       "a181e6fe3a682bfb24742eac3823e3be8fa531e18954e99b02098bb7c43323fb"
-    sha256 cellar: :any_skip_relocation, mojave:         "dcb47fe6461d30ac9088466a4681eca173863767a6336965dee128e35bcf8c91"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7a1d5b23f87e71487ee2a4594ad9e9293791761158867903c574bfd89c9f2ba0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fada858d477924038a03199cbac79cd7afc04fbb31b42b9aecac628b39cd51d5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0b86a8b17ffd5a0265a6125aaa91074ac28498afdbdc38cbe78a200bae2e99dc"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "197c2bb6a5f4743cea04329b0da6ed3335cb85583c5378f9660ae4d6efdb092c"
+    sha256 cellar: :any_skip_relocation, ventura:        "bbb4b52d54410d6c35faff05d0aa539165c658f96a3ce4350636a45e415a45c9"
+    sha256 cellar: :any_skip_relocation, monterey:       "3e29dda433d905bba6d48e19c80ec8e7576a6920f31cf598859a52445973f7e7"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d3084546c6acaf0bb69c35fef3d6489876e1ff3d277181dea8822aac0c6cc051"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4252ccf9c41f02c23e5387848b799dd0089d47365ab1b9ad55bf6fa66bce6747"
   end
 
   def install

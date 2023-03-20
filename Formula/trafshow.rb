@@ -19,6 +19,8 @@ class Trafshow < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:    "16a44efd2d96a93d0dfeb3b6328338710599370308f21728f6900c98bb8df781"
   end
 
+  deprecate! date: "2023-02-07", because: :repo_archived
+
   depends_on "libtool" => :build
 
   uses_from_macos "libpcap"

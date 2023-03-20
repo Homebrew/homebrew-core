@@ -3,19 +3,18 @@ class Glances < Formula
 
   desc "Alternative to top/htop"
   homepage "https://nicolargo.github.io/glances/"
-  url "https://files.pythonhosted.org/packages/21/71/4580c2977846c59c3e4a8f16b738a16a4ff3761b323b2f83894c4d699bf5/Glances-3.3.0.4.tar.gz"
-  sha256 "8a0a5298ea55e34773eda86c51710a56f19c4724600472627079b1c370f79e4e"
+  url "https://files.pythonhosted.org/packages/84/79/538d602245f967f96f22c80bebae8314bde6557d5637232880168a77f06d/Glances-3.3.1.1.tar.gz"
+  sha256 "30a292210cbfbf2ae77ca2016561c0358cc4a3f041f1b0d4bcf6f62bf516299a"
   license "LGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "00c117dbdafadc7b85c7ff62d7ebc0ea85e6034b92e8000643d4f1ed70789f93"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e1e9661ad43f4ea3be24818e10ea850d77380eb1a7080121617143db6797ddeb"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f060745e511eafc304a4f945ef50fc70693790bda87f77385084863279d79c0f"
-    sha256 cellar: :any_skip_relocation, ventura:        "c99b8aa453b7fe043747a71f6d132f5198837ea894eb4c8c088f3bec343e07a3"
-    sha256 cellar: :any_skip_relocation, monterey:       "a894e09c7e3d3e6d63e36874612b9f6bc90b74f16eaa6b3ee14c3af755630310"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c0b1c59505c292e21785814c609f1076562b6dcd7e8e93279541a306fb049364"
-    sha256 cellar: :any_skip_relocation, catalina:       "6774d0e64a60bb48dda5f505dc9583d6a59cc21907365f6a9511c51fa61c06e1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "925d6976ff5cffabd2f573a530870628e3d01f9dc27963205bed584726b7c7c1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "62793e4abb1fec95a439a98122408753444adee8c73ae4625d7b3fc1d053d632"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5e9caf8d44006f8761a66c1eb907453a557fa5eb76379f7c5bdb6251eaba94dc"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7d561b4d9e62a5f3afa5b9c3830399e36a8cea80490fd8e48b767454c67170ae"
+    sha256 cellar: :any_skip_relocation, ventura:        "1d5b77488c87c32406667a790f01e7d46586a7c8f5549e0d040e85c5af79646b"
+    sha256 cellar: :any_skip_relocation, monterey:       "d1d5a1485a68d90d73ab582ed69782f25476678b64f900ca835297fdaf562ce3"
+    sha256 cellar: :any_skip_relocation, big_sur:        "934e1de0ab2f607b34d82bd834904358bd9ad48958c50bdd199d482824c55a59"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "494b7ddfaecbe3da6ad87c19c34a794ae36d4be4e5aa03aa490fb93504afdd2c"
   end
 
   depends_on "python@3.11"
@@ -25,24 +24,19 @@ class Glances < Formula
     sha256 "1bb3032db185915b62d7c6209c5a8792be6a32ab2fedacc84e01b52c51aa3e69"
   end
 
-  resource "future" do
-    url "https://files.pythonhosted.org/packages/45/0b/38b06fd9b92dc2b68d58b75f900e97884c45bedd2ff83203d933cf5851c9/future-0.18.2.tar.gz"
-    sha256 "b1bead90b70cf6ec3f0710ae53a525360fa360d306a86583adc6bf83a4db537d"
-  end
-
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/df/9e/d1a7217f69310c1db8fdf8ab396229f55a699ce34a203691794c5d1cad0c/packaging-21.3.tar.gz"
-    sha256 "dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb"
+    url "https://files.pythonhosted.org/packages/47/d5/aca8ff6f49aa5565df1c826e7bf5e85a6df852ee063600c1efa5b932968c/packaging-23.0.tar.gz"
+    sha256 "b6ad297f8907de0fa2fe1ccbd26fdaf387f5f47c7275fedf8cce89f99446cf97"
   end
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/de/eb/1c01a34c86ee3b058c556e407ce5b07cb7d186ebe47b3e69d6f152ca5cc5/psutil-5.9.3.tar.gz"
-    sha256 "7ccfcdfea4fc4b0a02ca2c31de7fcd186beb9cff8207800e14ab66f79c773af6"
+    url "https://files.pythonhosted.org/packages/3d/7d/d05864a69e452f003c0d77e728e155a89a2a26b09e64860ddd70ad64fb26/psutil-5.9.4.tar.gz"
+    sha256 "3d7f9739eb435d4b1338944abe23f49584bde5395f27487d2ee25ad9a8774a62"
   end
 
-  resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/71/22/207523d16464c40a0310d2d4d8926daffa00ac1f5b1576170a32db749636/pyparsing-3.0.9.tar.gz"
-    sha256 "2b020ecf7d21b687f219b71ecad3631f644a47f01403fa1d1036b0c6416d70fb"
+  resource "ujson" do
+    url "https://files.pythonhosted.org/packages/43/1a/b0a027144aa5c8f4ea654f4afdd634578b450807bb70b9f8bad00d6f6d3c/ujson-5.7.0.tar.gz"
+    sha256 "e788e5d5dcae8f6118ac9b45d0b891a0d55f7ac480eddcb7f07263f2bcf37b23"
   end
 
   def install

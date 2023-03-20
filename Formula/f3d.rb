@@ -4,17 +4,16 @@ class F3d < Formula
   url "https://github.com/f3d-app/f3d/archive/refs/tags/v1.3.1.tar.gz"
   sha256 "653dc4044e14d0618c1d947a8ee85d2513e100b3fc24bd6e51830131a13e795d"
   license "BSD-3-Clause"
-  revision 1
+  revision 3
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "1670039c44e7d3cf5dd1bed69f036b631ebb82eae0e7cad0a8d21e8c7dc61f58"
-    sha256 cellar: :any,                 arm64_monterey: "1730a7b915a69ef8a9369e7f032511a44bca9d280523cabaa69b2a64faeed122"
-    sha256 cellar: :any,                 arm64_big_sur:  "082b489a728ad43f9f80a8aaa3610a2028d3e2eedf8303062973625bd1348fb7"
-    sha256 cellar: :any,                 ventura:        "190ac079b6094bf7d5e1def52dcf255bf6339c4c5c6f56236ce76557f0558264"
-    sha256 cellar: :any,                 monterey:       "f7f44e7c2c788be7a6ab133c54c1aabdca2fa2aa882f9a8fdc88e8c5bc3f1c7c"
-    sha256 cellar: :any,                 big_sur:        "1978912917d63001226f844b18696ac2dee6f79e21f433d4f3c51b8090798920"
-    sha256 cellar: :any,                 catalina:       "9f118e2c5e7aeb9a84d2d04ed08fdfd7bdb922abdfd57c0c54409e3ed02e2209"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0deb4bb19364627fd611df0040de1803a623556b27f159e79e3077cf99f53f89"
+    sha256 cellar: :any,                 arm64_ventura:  "1cbcf70cc4bc2f12cf397c61a3126d0142840ed495871b796b2dde3604629b32"
+    sha256 cellar: :any,                 arm64_monterey: "741d7927dcc4c2c80f9653fd66fd3715f894fd64c990e6022316ec1252e3585b"
+    sha256 cellar: :any,                 arm64_big_sur:  "4792386c6b52c13ad630ef101397722d1f1f71a885c89bbeae3eb4a55aed4046"
+    sha256 cellar: :any,                 ventura:        "c285b75a2592d15c0120f7332cf7bc3fee215371b6c7246a7c443293742d8e62"
+    sha256 cellar: :any,                 monterey:       "c867f06aa6586641e3a9e6234bffc9ff7d821d2e66be9933b917fdf15619db8c"
+    sha256 cellar: :any,                 big_sur:        "d253e69b0bf3d29b5bf0c35c054fd43d7e6ed86539c35dbbd1fd02d76472ed33"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ebf32959d3056e6642320ae79d895eff63df6d08d83db056ae82c26ac1740616"
   end
 
   depends_on "cmake" => :build

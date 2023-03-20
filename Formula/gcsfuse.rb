@@ -1,8 +1,8 @@
 class Gcsfuse < Formula
   desc "User-space file system for interacting with Google Cloud"
   homepage "https://github.com/googlecloudplatform/gcsfuse"
-  url "https://github.com/GoogleCloudPlatform/gcsfuse/archive/v0.41.10.tar.gz"
-  sha256 "91228dae3b7fdcdbd2b86d02aa470a636d09f85e60bcc9e63db72001e25976e0"
+  url "https://github.com/GoogleCloudPlatform/gcsfuse/archive/v0.42.2.tar.gz"
+  sha256 "33e1bcf52786489efb6e2f8973d0e502597dcfbe539a4826d5c0076cc39666c5"
   license "Apache-2.0"
   head "https://github.com/GoogleCloudPlatform/gcsfuse.git", branch: "master"
 
@@ -12,10 +12,11 @@ class Gcsfuse < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "926378839715e3628210c2996659c3741025ca5a4c451af5ed4f6b5abece32ed"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "ff6857def51e176a7054a2cd446b7969b89a82da51abdcbea40395ea727962ff"
   end
 
-  depends_on "go" => :build
+  # gcc-11: The build tool has reset ENV; --env=std required.
+  depends_on "go@1.19" => :build
   depends_on "libfuse"
   depends_on :linux # on macOS, requires closed-source macFUSE
 

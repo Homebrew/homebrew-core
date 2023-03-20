@@ -1,28 +1,30 @@
 class AwsEsProxy < Formula
   desc "Small proxy between HTTP client and AWS Elasticsearch"
   homepage "https://github.com/abutaha/aws-es-proxy"
-  url "https://github.com/abutaha/aws-es-proxy/archive/v1.3.tar.gz"
-  sha256 "bf20710608b7615da937fb3507c67972cd0d9b6cb45df5ddbc66bc5606becebf"
+  url "https://github.com/abutaha/aws-es-proxy/archive/v1.5.tar.gz"
+  sha256 "ac6dca6cc271f57831ccf4a413e210d175641932e13dcd12c8d6036e8030e3a5"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6027f93eaf468cef549261cb4ab8d9605fbc7eb039f00d387a066c958e549692"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b053918e93c51c2b3a562dc30cfbcf30f07f2c10b841b5c61ab146595920368d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9ae9e19bb22445be989da3b8407bc42fba17a3f512d692bd8d727751b1703757"
-    sha256 cellar: :any_skip_relocation, ventura:        "ba6e4eb41e1319edc2fb59dce4c0e9ac41a3ee461fac5240fc1bd3e98b66ed21"
-    sha256 cellar: :any_skip_relocation, monterey:       "d6b34390ba856f75db3adf881e2659bf48c6d420abe8d4de1226e59c607e0a41"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5d172bf29028041152acbd6635aee845193fc19f0b8d4e086ed4a28ee9354a37"
-    sha256 cellar: :any_skip_relocation, catalina:       "1e1cb5b16185e9948621055c4960b608973110c5d68ab10cc07c61f52d456010"
-    sha256 cellar: :any_skip_relocation, mojave:         "a30caee0acb5d3c89764be328025d84c9cbeb2adce32a97b78048c399576bff0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "927e9fcca53a19b16b22d363737b24111ecfd333dc9f969086b0e312c3d30a74"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b2b1415650725652e3282217d2c09464410645b225f954101259df3827b4a135"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b2b1415650725652e3282217d2c09464410645b225f954101259df3827b4a135"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b2b1415650725652e3282217d2c09464410645b225f954101259df3827b4a135"
+    sha256 cellar: :any_skip_relocation, ventura:        "ca006b5fff25e619563f739d83881a461d0c763c9501d144b355da1940075468"
+    sha256 cellar: :any_skip_relocation, monterey:       "ca006b5fff25e619563f739d83881a461d0c763c9501d144b355da1940075468"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ca006b5fff25e619563f739d83881a461d0c763c9501d144b355da1940075468"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "11d0bf2df2385efb683589d960858d194c89ba11db563faebc76d6405f07c078"
   end
 
-  # Bump to 1.18 on the next release, if possible.
-  depends_on "go@1.17" => :build
+  depends_on "go" => :build
+
+  # patch to add the missing go.sum file, remove in next release
+  patch do
+    url "https://github.com/abutaha/aws-es-proxy/commit/5a40bd821e26ce7b6827327f25b22854a07b8880.patch?full_index=1"
+    sha256 "b604cf8d51d3d325bd9810feb54f7bb1a1a7a226cada71a08dd93c5a76ffc15f"
+  end
 
   def install
-    system "go", "build", *std_go_args
-    prefix.install_metafiles
+    system "go", "build", *std_go_args(ldflags: "-s -w")
   end
 
   def caveats

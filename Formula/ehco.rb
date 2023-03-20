@@ -22,11 +22,16 @@ class Ehco < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "566974576744f5056e4a7d4f5d3b14b0b6a4af3f25a8751f5fa5c1cf901c6e83"
   end
 
-  # quic-go needs to be updated to use go@1.19
-  # upstream issue, https://github.com/Ehco1996/ehco/issues/165
-  depends_on "go@1.18" => :build
+  depends_on "go@1.19" => :build
 
   uses_from_macos "netcat" => :test
+
+  # Backport quic-go update to support Go 1.19
+  # Remove in the next release
+  patch do
+    url "https://github.com/Ehco1996/ehco/commit/2f739a4279f9defaeb8beac9e97e82851e0dd995.patch?full_index=1"
+    sha256 "43235566b344e0d125d79719800f1de61cd032f89892b183adf8220b1c5cd298"
+  end
 
   def install
     ldflags = %W[

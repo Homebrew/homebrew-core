@@ -1,27 +1,33 @@
 class Nuraft < Formula
   desc "C++ implementation of Raft core logic as a replication library"
   homepage "https://github.com/eBay/NuRaft"
-  url "https://github.com/eBay/NuRaft/archive/v1.3.0.tar.gz"
-  sha256 "e09b53553678ddf8fa4823c461fe303e7631d30da0d45f63f90e7652b7e440bb"
+  url "https://github.com/eBay/NuRaft/archive/v2.1.0.tar.gz"
+  sha256 "42d19682149cf24ae12de0dabf70d7ad7e71e49fbfa61d565e9b46e2b3cd517f"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "7cbaeb5ed5a725891f3bac4c246795cbcf3745695a3a7eceb7e9fa2d9c5e97da"
-    sha256 cellar: :any,                 arm64_monterey: "581b6146b83a3f1c1fa53c4e64187ce90142636dba251d2770e91cb43aaa9f80"
-    sha256 cellar: :any,                 arm64_big_sur:  "c307cd8c272642f5f8dc53d457771d85346b43b3ebc01e115e74fd1ef5688ca4"
-    sha256 cellar: :any,                 ventura:        "5a7d3f9443d5368b393f83440d4cea5af482e60e41f581bfeb8762d5f6b7094f"
-    sha256 cellar: :any,                 monterey:       "2c1372a263af78e2eb8a9a45866f439730e501691593e5f662d9d52a98c49379"
-    sha256 cellar: :any,                 big_sur:        "d617acb8d874794b965f7684a246848deeb105521cafaff1ac9568e1d2e1154a"
-    sha256 cellar: :any,                 catalina:       "ee7ab713ac1a0af42a02db7d85d9cb3e37643d704733ce0a334cbcc552fe85dc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8d59a0c7861d9b1887702b995d409edfed115b914c8ad19231ae5c35de1b3f14"
+    sha256 cellar: :any,                 arm64_ventura:  "17cdd2860bbcd32bfa028c1706c02da066a796b0f1abfca96c76bdbcb05ca012"
+    sha256 cellar: :any,                 arm64_monterey: "5d024f15a5a6644bb74b7293ab5939376e9115102c3dcf466d9ef209496a27c4"
+    sha256 cellar: :any,                 arm64_big_sur:  "46efae0c6123d49ce9cf3f9f4798b4a556bf55e1cf7fbb1aaa12ce6b458613b8"
+    sha256 cellar: :any,                 ventura:        "e38d6cbd1be543fc3ee42ce4573309c0f058c83d8151519f9ce9272c4edd82f3"
+    sha256 cellar: :any,                 monterey:       "81250cae0a2c2ef68e88b1ab3e0f394d6ad803f257e23cac33ce07c7f4bfbe93"
+    sha256 cellar: :any,                 big_sur:        "668d54563b382c1160246452e6cf54fd6832c238e33731613d6537418f474b0a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "72a6fa91392aacbbc97f42a17330a2bc0c4b38dc97c3477f87b6c9c90474bd28"
   end
 
   depends_on "cmake" => :build
   depends_on "asio"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
+
+  # patch to include missing header, `event_awaiter.h`, remove when it is available
+  patch do
+    url "https://github.com/eBay/NuRaft/commit/65736ff4314a0fa15f724a213fa42bf26bc86f70.patch?full_index=1"
+    sha256 "0d06d4a6b5b6fa348affacfff6bc100df1403a7194d7caf2b205e8a142401863"
+  end
 
   def install
-    system "cmake", "-B", "build", *std_cmake_args
+    # We override OPENSSL_LIBRARY_PATH to avoid statically linking to OpenSSL
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DOPENSSL_LIBRARY_PATH="
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
     pkgshare.install "examples"
@@ -32,9 +38,9 @@ class Nuraft < Formula
     system ENV.cxx, "-std=c++11", "-o", "test",
                     "quick_start.cxx", "logger.cc", "in_memory_log_store.cxx",
                     "-I#{include}/libnuraft", "-I#{testpath}/echo",
-                    "-I#{Formula["openssl@1.1"].opt_include}",
+                    "-I#{Formula["openssl@3"].opt_include}",
                     "-L#{lib}", "-lnuraft",
-                    "-L#{Formula["openssl@1.1"].opt_lib}", "-lcrypto", "-lssl"
+                    "-L#{Formula["openssl@3"].opt_lib}", "-lcrypto", "-lssl"
     assert_match "hello world", shell_output("./test")
   end
 end

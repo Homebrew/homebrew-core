@@ -1,8 +1,8 @@
 class SwiProlog < Formula
   desc "ISO/Edinburgh-style Prolog interpreter"
   homepage "https://www.swi-prolog.org/"
-  url "https://www.swi-prolog.org/download/stable/src/swipl-9.0.3.tar.gz"
-  sha256 "e2919bc58710abd62b9cd40179a724c30bdbe9aa428af49d7fdc6d0158921afb"
+  url "https://www.swi-prolog.org/download/stable/src/swipl-9.0.4.tar.gz"
+  sha256 "feb2815a51d34fa81cb34e8149830405935a7e1d1c1950461239750baa8b49f0"
   license "BSD-2-Clause"
   head "https://github.com/SWI-Prolog/swipl-devel.git", branch: "master"
 
@@ -12,13 +12,14 @@ class SwiProlog < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "3df03320f6702fff05bef68d6ce1c2bbac59ddefaa264d324af5e1d880bae9d6"
-    sha256 arm64_monterey: "c5d50d9125a09585f6c2f0ab3d45ab5d084e3d554f1f7f2ded66ac4853452526"
-    sha256 arm64_big_sur:  "02b37cf09b14e97a36ef9623f62e78d9b67186af33c2e3d87fbd7f48f0143f8c"
-    sha256 ventura:        "c7afcab31d2f0cc5b0ae8f849db1d143f34c9bed0db8dfd41dfb77cb61783a9c"
-    sha256 monterey:       "64aedf69e5e1e56b6f4efa37790a963ae6dfcb1eaf4463bd307504b268c48c09"
-    sha256 big_sur:        "63fcb4b565a7b3eda277f282d2f6e3141b6e80b1e7db754dfbab10cbb46f6198"
-    sha256 x86_64_linux:   "b438b58997eb6507cc99f557ecbabc6b5427e2bfaefc084c563f6ff8666ddc88"
+    rebuild 1
+    sha256 arm64_ventura:  "76509c435a4249ef4594c9fe87e6c7543278bc87b9ad0745bccce4d6daf5c384"
+    sha256 arm64_monterey: "8f997823471430596e60239443343a4c5c8f6c40d4e65355ce4d7fcd9899fefb"
+    sha256 arm64_big_sur:  "9fb8a039478093771a808bf7eed91037ec51444db350f0f2fc3608807e3ef6de"
+    sha256 ventura:        "af9904a55d4d2e51ca9b9d3b106d41804e8789a265e986c613f559edc2e3201a"
+    sha256 monterey:       "8b483de3ba11170b5165888cc05fe2387bd29f03fb19e841febc3634c6e3f2ff"
+    sha256 big_sur:        "2d8b82dde64f73ba269c34a0240f4faf6028521e9a2c581125a38187207baebe"
+    sha256 x86_64_linux:   "c51d8ba176d8072047cb43aecbab4eedd1ca48336759d7fed68a8d65648ea0ad"
   end
 
   depends_on "cmake" => :build
@@ -28,7 +29,7 @@ class SwiProlog < Formula
   depends_on "libarchive"
   depends_on "libyaml"
   depends_on "openssl@3"
-  depends_on "pcre"
+  depends_on "pcre2"
   depends_on "readline"
   depends_on "unixodbc"
 

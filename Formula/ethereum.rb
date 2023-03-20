@@ -1,8 +1,8 @@
 class Ethereum < Formula
   desc "Official Go implementation of the Ethereum protocol"
   homepage "https://geth.ethereum.org/"
-  url "https://github.com/ethereum/go-ethereum/archive/v1.10.26.tar.gz"
-  sha256 "500bb2c2382d1927da1b78226a726437370899ce6f130258d5792fd7c46cc29e"
+  url "https://github.com/ethereum/go-ethereum/archive/v1.11.4.tar.gz"
+  sha256 "d62b2da50fc3ad8e891c73900c9439eef3c0884aa304e9bb8eb196c461c40d6e"
   license "LGPL-3.0-or-later"
   head "https://github.com/ethereum/go-ethereum.git", branch: "master"
 
@@ -12,20 +12,23 @@ class Ethereum < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8e13bf6dadead8df0261a5439dff7f9e251e5eb107f6c35056966b441ded2cdb"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5c3cf1e67e28267a07d6ba402a005bf06af6b35b10235a8cb114f42a50b68ae7"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "393adc7514488a06af9c0e4c16e6f5272fccc724dac62f9d55cd873ef89c1866"
-    sha256 cellar: :any_skip_relocation, ventura:        "72117e6835adfd03a9323e813f9bcc170728aa20d74383b7a0b55591bafeab6a"
-    sha256 cellar: :any_skip_relocation, monterey:       "6239b5839ed270783437e0bfe50e0bd9b81c029645cc467c5328b322bbaaca38"
-    sha256 cellar: :any_skip_relocation, big_sur:        "179133d5436cf346fab4620a1c2564cd47eadc877641de0af203dd6ec400bbe7"
-    sha256 cellar: :any_skip_relocation, catalina:       "5d6308ef0cd4213b1755b5532b97800a37ead217792ca0cb8ea38a4009378c31"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5034f052b701d4f1224a5d60be71a23c508606b876f523cea9a18481a0285852"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6c4f696f7d87f199ab0b0ec9ae55894486a52710a215dab5dc74a8af2c5b957f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a76146657670ee6549358c659dd67b829605e55bb9f5ac1ab7a92cca570a6166"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "13806b1ef70fea123db5452ea51601e49df62ba972410d69168e8ead78f92345"
+    sha256 cellar: :any_skip_relocation, ventura:        "5f838d238c98eabbef2a778804701cd84c2317b477b503dfe32d57d974318999"
+    sha256 cellar: :any_skip_relocation, monterey:       "9cd4f8531724a838f523a9ef1647bde5065700cd50d3703ce9532eaa12a8f936"
+    sha256 cellar: :any_skip_relocation, big_sur:        "bc4a61ce01a93a644d563ce3e4086351f766e84ab4fdc61f134f9cc68544f766"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9ff5881936ae34b0af731bc3b795874900729cf726d274db7c2e9af4924bda3c"
   end
 
   depends_on "go" => :build
 
+  conflicts_with "erigon", because: "both install `evm` binaries"
+
   def install
-    # See https://github.com/golang/go/issues/26487
+    # Force superenv to use -O0 to fix "cgo-dwarf-inference:2:8: error:
+    # enumerator value for '__cgo_enum__0' is not an integer constant".
+    # See discussion in https://github.com/Homebrew/brew/issues/14763.
     ENV.O0 if OS.linux?
 
     system "make", "all"

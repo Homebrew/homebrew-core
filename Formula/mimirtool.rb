@@ -2,8 +2,8 @@ class Mimirtool < Formula
   desc "CLI for interacting with Grafana Mimir"
   homepage "https://grafana.com/docs/mimir/latest/operators-guide/tools/mimirtool/"
   url "https://github.com/grafana/mimir.git",
-        tag:      "mimir-2.5.0",
-        revision: "25533fdfcf5d8e26ee8f49bcaf13e30bd678d4b3"
+        tag:      "mimir-2.7.1",
+        revision: "dbe4ccd39cb58391e6174441ae11ae25bfebd395"
   license "AGPL-3.0-only"
   head "https://github.com/grafana/mimir.git", branch: "main"
 
@@ -13,14 +13,13 @@ class Mimirtool < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5b52e8915e04c0d174a2eab443ee2dcada73fe01a8c3454e3e78e5f6e5e1c624"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7c12f4f48e17cff5977558083e02145caa4ae27e623c5aa1f1a8585bb49059c5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "803ca2e2cde3f36fb62ea4a0d7d8048d4e946d15d1b9e7b04c9db620beff8ac0"
-    sha256 cellar: :any_skip_relocation, ventura:        "23e61f68c02eaf2753b1e020403e26a129f39bacea96d33425a41725809fd1ba"
-    sha256 cellar: :any_skip_relocation, monterey:       "ca44ba45ff5409b332378329a594a902160f6b17fc79115c1c7fedb54424b0da"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c568c2e4923350f6bc6cd54f751d101b0d8bba3b756eb14789d5e9c3ee5d2df0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d99cf86eb8ab8fbffbff8bdb5f4b6fd00858f82bcd3bd99ff9efabe452422328"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4c28559176ef3fa0d8cbcb90c49fc8390020b9a4eea8d11f2d93e28b70ae1e6e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "393cc9c9d87d0b88d9c19d29261501388f9c15433c7b74665a4b74ffa931f25a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fc45a6b1452599acb95a57c5f7e3db4ac6e3ba46b610a082e77ea6d7904b2b80"
+    sha256 cellar: :any_skip_relocation, ventura:        "ffb2f402035276e3a6bc250e5623546c20533420a0ee76283ede0f4f6462860c"
+    sha256 cellar: :any_skip_relocation, monterey:       "f62073720f71fe08f06bcab04631253141b2763856a796c55635da218df56fcf"
+    sha256 cellar: :any_skip_relocation, big_sur:        "139335dfe466d7a57b4405aa9b4d4e6a15e1bdc45d60b0354293f11714f52de3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a3f8165dced5452c3ea1268aa53daa42b3602ead55b6067dda8ca74c9ec751ca"
   end
 
   depends_on "go" => :build

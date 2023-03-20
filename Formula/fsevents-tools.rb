@@ -25,7 +25,7 @@ class FseventsTools < Formula
   end
 
   head do
-    url "https://github.com/ggreer/fsevents-tools.git"
+    url "https://github.com/ggreer/fsevents-tools.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

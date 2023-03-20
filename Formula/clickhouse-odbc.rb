@@ -5,7 +5,7 @@ class ClickhouseOdbc < Formula
       tag:      "v1.2.1.20220905",
       revision: "fab6efc57d671155c3a386f49884666b2a02c7b7"
   license "Apache-2.0"
-  revision 2
+  revision 3
   head "https://github.com/ClickHouse/clickhouse-odbc.git", branch: "master"
 
   livecheck do
@@ -14,14 +14,13 @@ class ClickhouseOdbc < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "646ee4f8ebc0df78b212c1ee74bd7a74ca2328ff015d30e768e696bac69ad7e2"
-    sha256 cellar: :any,                 arm64_monterey: "12bbf5b2cfff9719b1b152fbaaeade5402dd00e3c1afdce26fe1038d816e62f8"
-    sha256 cellar: :any,                 arm64_big_sur:  "f2f916066c47b770a833c6f57fe454fed0651404a3d7d661fca046b0d144e95d"
-    sha256 cellar: :any,                 ventura:        "189a8c47018d91004450d3126eaa9b6b2d04916f6c7e98688481fef460213e36"
-    sha256 cellar: :any,                 monterey:       "c74cd3c21681d3ef719f093a0906b992c7f84f5da72a77e81875f97111f06a50"
-    sha256 cellar: :any,                 big_sur:        "5d9076057b916ff473394f93ba6508e5c16e9b21a9b1925466192de0f1e9f94a"
-    sha256 cellar: :any,                 catalina:       "340093f17757dc9016aea7083da93c1fbe5f51bfcb44978c3906519334951b8b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "64ef6e9358d4954126c39b069cf88a02d1164f674bd0aca7b62a0a2b49cc9018"
+    sha256 cellar: :any,                 arm64_ventura:  "9861a2a1c4cfd5e91da5bac18199324b960daaebd6d6c2cd63641a51124fa80e"
+    sha256 cellar: :any,                 arm64_monterey: "7db18ffe67c8d28059a4bfd6835f053fd48a6c12a21ad385df2aabf84ab87e60"
+    sha256 cellar: :any,                 arm64_big_sur:  "8178a93f509e725ba63e318059851183ed8d599c6a9eda6a1918258f63400ab5"
+    sha256 cellar: :any,                 ventura:        "00c541af823af303db5f25af6eed62ed43410b6f0a8d5459b72dfc33eef408a2"
+    sha256 cellar: :any,                 monterey:       "ceebc52bec28c344c2b06206ec8763336fb2b7f77224f7aacb183a8f25aee609"
+    sha256 cellar: :any,                 big_sur:        "6c41f4bd5a0404c135d2fb608e0a8086881cd71fc06ae7af95a1ccb52fe99bb2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f7ded074aefd6929a7a4660eb4f77175d6cb4cac2691067bfd0b7710b06a15b0"
   end
 
   depends_on "cmake" => :build

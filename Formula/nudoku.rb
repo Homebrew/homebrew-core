@@ -4,23 +4,23 @@ class Nudoku < Formula
   url "https://github.com/jubalh/nudoku/archive/2.1.0.tar.gz"
   sha256 "eeff7f3adea5bfe7b88bf7683d68e9a597aabd1442d1621f21760c746400b924"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/jubalh/nudoku.git", branch: "master"
 
   bottle do
-    sha256 arm64_ventura:  "2235a839fa91c8f417abad05439f67f70d6beb71458e84fe26fbfeefd0dabccf"
-    sha256 arm64_monterey: "71845f6de82d5ac9465279ae7f0dc65b580899f321d43e8bd8b2d59b194ebf24"
-    sha256 arm64_big_sur:  "daa1278f79f9fdf5cd8780ba68d3bf89982728c1ddf636f89475e89b14bd9c64"
-    sha256 ventura:        "ecfe15bec230427b33ea50f132610048b1f9933e4fed347fcc1e51b24bf46c80"
-    sha256 monterey:       "a4bc1536b1182fbd0fcd17e64382fe3598bd2ea418a85f76ea809867922faed6"
-    sha256 big_sur:        "ec43523a92bb16fadd4ab7fe3f9189cb13849fc3919bf4525b9074a471453745"
-    sha256 catalina:       "e6aa92aabc32164b2cc69d55d4a243f6aafdd6d6a109a40339d6546548153174"
-    sha256 mojave:         "3afc049f852d205bff4b674e751fb1db83d73ab82ba15e5f38a1ba9c33ffd2e5"
-    sha256 x86_64_linux:   "a866bdb43994c69ce7aa6dadc3b50446df14c1daaf4df89bbc095236c80fac07"
+    sha256 arm64_ventura:  "7af32212d5adb183528f350950913d31cb9de5644c1d8af158eef5b68bfc00de"
+    sha256 arm64_monterey: "b1bf18647b1f42eb7dce94d90649f314d99be5575fbc417c103a94cc9282b3b5"
+    sha256 arm64_big_sur:  "6350cd17943ce3a889f193d13ca662ffdc19eef6bfa38dc5e0f97b7a193e48b9"
+    sha256 ventura:        "414db0599466260fc27e629e4f325d9bc33e6fb30f37cb99c07bcf3b450d99c8"
+    sha256 monterey:       "8f296f4c8b2f0352e5ed7c492536c38f26c604c82c9a604559e17b75e9038685"
+    sha256 big_sur:        "83449b550966a303d2095e8232d98d629abccced9f104442ca7d24ec102e1d3d"
+    sha256 x86_64_linux:   "ae2f2e43eb521a04f347c59288bb2a9c68bfa8e95d2e06fa33e53e5dac693c56"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "pkg-config" => :build
+  depends_on "cairo"
   depends_on "gettext"
 
   uses_from_macos "ncurses"
@@ -29,6 +29,7 @@ class Nudoku < Formula
     system "autoreconf", "-fiv"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
+                          "--enable-cairo",
                           "--prefix=#{prefix}"
     system "make", "install"
   end

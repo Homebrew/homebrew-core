@@ -20,7 +20,7 @@ class Mfterm < Formula
   end
 
   head do
-    url "https://github.com/4ZM/mfterm.git"
+    url "https://github.com/4ZM/mfterm.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

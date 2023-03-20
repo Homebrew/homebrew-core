@@ -1,8 +1,8 @@
 class Lighttpd < Formula
   desc "Small memory footprint, flexible web-server"
   homepage "https://www.lighttpd.net/"
-  url "https://download.lighttpd.net/lighttpd/releases-1.4.x/lighttpd-1.4.67.tar.xz"
-  sha256 "7e04d767f51a8d824b32e2483ef2950982920d427d1272ef4667f49d6f89f358"
+  url "https://download.lighttpd.net/lighttpd/releases-1.4.x/lighttpd-1.4.69.tar.xz"
+  sha256 "16ac8db95e719629ba61949b99f8a26feba946a81d185215b28379bb4116b0b4"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,14 +11,13 @@ class Lighttpd < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "cb599254c185916c4d3be91b735af9fe0b9553f7b0cd0ec9602d5ef588b26104"
-    sha256 arm64_monterey: "44407e4dd4021ff95f7f2600f2b3ee588f882ef63c8964be34fa494fc11d9fb6"
-    sha256 arm64_big_sur:  "9f96876d812006781086e73a334bac6d9be27c8b07080548f479f49e1bdf942c"
-    sha256 ventura:        "c29b293d3ac804bc18085255a5d51a9347db2e10c81927fecfe851228a538a14"
-    sha256 monterey:       "b767d41ed5cbdba5ae2b2cc46edeeed2ff48d99f79a646d993e5ed0b23592112"
-    sha256 big_sur:        "43f1ac2cebffd57f6f0d25f0175972d57055ba5c517f93fcc7045ef6e4daeff5"
-    sha256 catalina:       "fc11c0e4faff6db25521b9fc27b9f72fe599564c1b2f2d4d64276f746ca8808a"
-    sha256 x86_64_linux:   "1aab21c024ce995eb10b83c02b68d007247f15068f8fc2998e69cef6cc3c84df"
+    sha256 arm64_ventura:  "a071a43e67f774e6008847e976b4ff1f59513e302b89e7eef7a3f6b887d1e50b"
+    sha256 arm64_monterey: "4f9c220cfb9ce6a5d0d9d4ff0268c818e8b995e8d18bfeb69ecc56622eee340b"
+    sha256 arm64_big_sur:  "1a17f721a33ef48f80e4d708fd07dfb3ac1577e5bf403be2d2762e7a685d71e1"
+    sha256 ventura:        "7cae468376deb3df8d95d93929ec1d6ecb15c961cb13fb3dee0afdf2bfe17354"
+    sha256 monterey:       "c8731b77cc633d4600064d7fc597d0cadd5d0f6a64c6c86d786ccad44d5b6aa4"
+    sha256 big_sur:        "b0043ccc2c0fea482d3ae04edbc506acf98c3ee047c1842a720b52be30bc3e6b"
+    sha256 x86_64_linux:   "9656af82353608c103f01f626e99b4b20cabf90499e495b0d1b3686c76d49ed1"
   end
 
   depends_on "autoconf" => :build
@@ -65,11 +64,6 @@ class Lighttpd < Formula
         s.sub!(/^var\.conf_dir\s*=\s*".+"$/, "var.conf_dir    = \"#{etc}/lighttpd\"")
         s.sub!(/^server\.port\s*=\s*80$/, "server.port = 8080")
         s.sub!(%r{^server\.document-root\s*=\s*server_root \+ "/htdocs"$}, "server.document-root = server_root")
-
-        # get rid of "warning: please use server.use-ipv6 only for hostnames, not
-        # without server.bind / empty address; your config will break if the kernel
-        # default for IPV6_V6ONLY changes"
-        s.sub!(/^server.use-ipv6\s*=\s*"enable"$/, 'server.use-ipv6 = "disable"')
 
         s.sub!(/^server\.username\s*=\s*".+"$/, 'server.username  = "_www"')
         s.sub!(/^server\.groupname\s*=\s*".+"$/, 'server.groupname = "_www"')

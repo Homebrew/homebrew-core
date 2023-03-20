@@ -21,6 +21,10 @@ class Termius < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e916b0c28ac0e82ecb9c432d99d29b2f15f7b6771e1d04b34273274cb0664bd0"
   end
 
+  # https://github.com/termius/termius-cli/issues/197#issuecomment-1399394041
+  # https://github.com/termius/termius-cli/issues/188
+  deprecate! date: "2023-01-25", because: :unmaintained
+
   depends_on "rust" => :build
   depends_on "openssl@1.1"
   depends_on "python@3.10"

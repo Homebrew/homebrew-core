@@ -12,18 +12,18 @@ class Libpng < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "5fcb6945c7fe220f8b983c18edd7a42d8d84a9d62696b4fec001c1697300fb61"
-    sha256 cellar: :any,                 arm64_monterey: "c437aaaf373f369e94825937854374a0b17bf965c1ba2a0faf22818111372038"
-    sha256 cellar: :any,                 arm64_big_sur:  "a19d1b6b4df35819a43ab5def000101bb902fbc85222d548ba9c1964578d41f7"
-    sha256 cellar: :any,                 ventura:        "b6a613111f86af2e0e50994f225626f257adbca25e48c3f824ed68340b08bf63"
-    sha256 cellar: :any,                 monterey:       "f7217880961411f37b5ba86376f5a6772bf45d1ae98ee86a01677439ce381cc0"
-    sha256 cellar: :any,                 big_sur:        "af1e13deeaa14eebacdbfb075e1cf245409cc1e2d2d7991e55b017262648245c"
-    sha256 cellar: :any,                 catalina:       "13780286d987167f7e50aea65947e1460a6616d0f1b224b37f8351775eab72f3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1c5a372a45b230cca6717e4cbfb9f85d4218118028c3961409e09c7cd4b85beb"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "27fb15928d0f711e37715342e2245b48536a09aff722c68910c5a1b947a37ef5"
+    sha256 cellar: :any,                 arm64_monterey: "3866f0b5172ab2d599f2cb43e14870b2a444dee43964ce5ececa35b885c9330d"
+    sha256 cellar: :any,                 arm64_big_sur:  "cf59cedc91afc6f2f3377567ba82b99b97744c60925a5d1df6ecf923fdb2f234"
+    sha256 cellar: :any,                 ventura:        "28c60231600a95cf267784ece25d0e2e5f220001baab625789cbdc7fb94611b6"
+    sha256 cellar: :any,                 monterey:       "d33e5b6d0b21373ddd6dca2d6eaf6c8314315fa882ce32fe02618a8d8bfd4cde"
+    sha256 cellar: :any,                 big_sur:        "86306aeedc4f2bc156897cb04e0a221cff1ee7fe5108c0e7a829543ebe4203a4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "499c5d31e7d78ab405e95aa16fc713e5ae4686d8919f5b94c8864fdde26e62de"
   end
 
   head do
-    url "https://github.com/glennrp/libpng.git"
+    url "https://github.com/glennrp/libpng.git", branch: "libpng16"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -39,6 +39,9 @@ class Libpng < Formula
     system "make"
     system "make", "test"
     system "make", "install"
+
+    # Avoid rebuilds of dependants that hardcode this path.
+    inreplace lib/"pkgconfig/libpng.pc", prefix, opt_prefix
   end
 
   test do

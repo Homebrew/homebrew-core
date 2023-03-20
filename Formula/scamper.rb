@@ -1,8 +1,8 @@
 class Scamper < Formula
   desc "Advanced traceroute and network measurement utility"
   homepage "https://www.caida.org/catalog/software/scamper/"
-  url "https://www.caida.org/catalog/software/scamper/code/scamper-cvs-20211212e.tar.gz"
-  sha256 "6da7064a08a16671a160baea926d0d304c38a441549a7c0dd7d0abf2e5e7a5f7"
+  url "https://www.caida.org/catalog/software/scamper/code/scamper-cvs-20230302.tar.gz"
+  sha256 "84e8b6f34417559e9330ebd269c8cebf68bdbd2307ef1738ff07c5e87776cd4f"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,17 +11,19 @@ class Scamper < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "c45d04260cb4685343c62081d99ec5e883ff0c29b2b0c2dd7d4f2618f3698fc4"
-    sha256 cellar: :any,                 arm64_monterey: "fbc6f10b913a5cea28abf1a0ff291a9e43cd9ed13c24ef90310bb0d2d1d89c56"
-    sha256 cellar: :any,                 arm64_big_sur:  "3b60fe6585a586a24821693c8e0d82d3b3b2d74d7cf531756c880283aca20be4"
-    sha256 cellar: :any,                 ventura:        "a83f3fcc0ced8f30ebcd409d6f29d03991d412feac0d32b18e10bdba761d8a5a"
-    sha256 cellar: :any,                 monterey:       "4c3637101ba885cdfb5ef11a760a2fe9ed7d1ff333743c17132c00c972fea1be"
-    sha256 cellar: :any,                 big_sur:        "c3b86754ee156a63ad9a16dffd883424e0c71b57bf90f889ac29da42afa191a7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a076e30566dfa088be382a3bb97ec8cff93dc37e87f4a81cbbe00b2eb5de756f"
+    sha256 cellar: :any,                 arm64_ventura:  "49226c7e0e770359af52804c9a47ec4051843f5a3bc2bdb9aaf69ded95fad994"
+    sha256 cellar: :any,                 arm64_monterey: "b946d84b2960836ac3e6c2fe79ceabf046bd545cf27a207f0bd60df19db6f1c7"
+    sha256 cellar: :any,                 arm64_big_sur:  "82be91e3e9c87e23413a6d6601a1366480dcf3891ad2d7e47f5459a3c36c0b92"
+    sha256 cellar: :any,                 ventura:        "60b171a27008dce7ebee9d5f69ae692753709eeacf8b687bc191494253f83e4a"
+    sha256 cellar: :any,                 monterey:       "09b739b442e50676aad6295b494e4dea8d6f55ac613e9266b1c899f9480348d0"
+    sha256 cellar: :any,                 big_sur:        "356c5ab36ceb30e9e57018f00b354577a09455d79fc11ef916da7121fdfde71c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a53036dcf640b28edfbd4bad22863637b9dff7f290eaf2082ebd5d1e51b4b70f"
   end
 
   depends_on "pkg-config" => :build
   depends_on "openssl@3"
+
+  uses_from_macos "zlib"
 
   def install
     system "./configure", *std_configure_args

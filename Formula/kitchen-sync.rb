@@ -1,8 +1,8 @@
 class KitchenSync < Formula
   desc "Fast efficiently sync database without dumping & reloading"
   homepage "https://github.com/willbryant/kitchen_sync"
-  url "https://github.com/willbryant/kitchen_sync/archive/v2.15.tar.gz"
-  sha256 "bceaa85b6eba6df636461ee90aee64493a9a504673860b1efbebae790b6a5bcf"
+  url "https://github.com/willbryant/kitchen_sync/archive/v2.17.tar.gz"
+  sha256 "1f6296ca0c9dcd9bb7944aebb8148ab3e857ef76b3dc2f74337fbd0d9edcff80"
   license "MIT"
   head "https://github.com/willbryant/kitchen_sync.git", branch: "master"
 
@@ -12,13 +12,13 @@ class KitchenSync < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "72270a99acb57c8f5f63fc2dd0de4ffdcd5750b155d1ab2e5a751bfdec65039a"
-    sha256 cellar: :any,                 arm64_monterey: "00c5f90a86f576cce38ed4decae7ffefaaef76584cc6be0e1cbc4843c74f3b83"
-    sha256 cellar: :any,                 arm64_big_sur:  "829c9e1cb5247833dfc517e1fbf13edff93220767089fee9472f1393167a76da"
-    sha256 cellar: :any,                 ventura:        "c211e4ce78880536b1d2e80fed160cdb12fcf191d150b96e4ac8795a6457f421"
-    sha256 cellar: :any,                 monterey:       "443a9801c2a9f68c98a3290ad020737f8c1f4a75e933d68dbe9c060de3efef53"
-    sha256 cellar: :any,                 big_sur:        "8351752c6f632f829f454299d2710d736aa231689451dd7e63c7572a9c33dfc8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dab9b6d113c8c392d14069c0fa3c3a215404fe0a87e44853c15b018792003088"
+    sha256 cellar: :any,                 arm64_ventura:  "ddb84094f83bd102d1265bed95a3a89a49c80e9f54c49efa33ca9b2d0d540617"
+    sha256 cellar: :any,                 arm64_monterey: "57bfe600076a6e201187e23964fbbe838da403432fa1c5f1e87a70a669caab61"
+    sha256 cellar: :any,                 arm64_big_sur:  "3fffdd7af0375625a2682cddd3e42df50c75f8df4831f105562a64ce1a709707"
+    sha256 cellar: :any,                 ventura:        "b42f537f2b0a2159d29dd39310c8d2ac316f8ab516e0f7979b4fc9b19a7d467e"
+    sha256 cellar: :any,                 monterey:       "f37f1ed67b54da5fa4a30549b3162138569c7306fd8d3a18e03c486cd11f7ee9"
+    sha256 cellar: :any,                 big_sur:        "60270754c4e413bb7add2d8104a925fc40a5920ebb0614cfd4ce852c00dc3fc6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "90aa8d03966bf367921a460cdb10f42e89b98f44a11b12b94af0a12549727fd3"
   end
 
   depends_on "cmake" => :build

@@ -1,10 +1,10 @@
 class Opencv < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
-  url "https://github.com/opencv/opencv/archive/refs/tags/4.6.0.tar.gz"
-  sha256 "1ec1cba65f9f20fe5a41fda1586e01c70ea0c9a6d7b67c9e13edf0cfe2239277"
+  url "https://github.com/opencv/opencv/archive/refs/tags/4.7.0.tar.gz"
+  sha256 "8df0079cdbe179748a18d44731af62a245a45ebf5085223dc03133954c662973"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -12,14 +12,13 @@ class Opencv < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "8ddbd64d5158b2119143a9e4b5888bd9fb75f27f55aac4a1b9a8eeca5d4a6e20"
-    sha256 arm64_monterey: "43d0fa746d4db8fb75c47f71dd519d04c0b46db1fb28cec002b295b96972adfa"
-    sha256 arm64_big_sur:  "2bbfa4767c6802cbe2efff58bf3738e9a4e4ebc3aa3bc79505627130a0896ba8"
-    sha256 ventura:        "6da770fdc4bff2ace7e2dad73be7850ed92dbf3355d558fb14ce8507c6af2548"
-    sha256 monterey:       "62878a3c791996285f5bdff682b7fc55504ca612670f6cb9b256de8326fee1da"
-    sha256 big_sur:        "180902fac413cf9e5b12eb3546c33912b6c8c9ecbf97777a017063a969bb8f3d"
-    sha256 catalina:       "883865a2853fb27173d02fc1bb2bbe64f65a139397632bc3e7c8f1917f983911"
-    sha256 x86_64_linux:   "59b917c12d31880b30da1173d70f479f2f93a3b1bbb882429e2a8ee59585b267"
+    sha256 arm64_ventura:  "9683f35f75afe5d30585ce850848fd65ef42829330f05c063dd0fb75b4789cf9"
+    sha256 arm64_monterey: "045c3f9163b50856d2ac5bbaa6b97e4ebc5f0eddc45dced63d30cc8ea391fc2b"
+    sha256 arm64_big_sur:  "586859cf6b884775aa5b90ed57682a94761967bad396d5338694cf2dd7bb2b44"
+    sha256 ventura:        "a7baec98b05535c0c788d42711666821d2f7dea2d182834f807759bc929e2f17"
+    sha256 monterey:       "3db7a87a4a817e44b29a5e4d25639a03dba9aabb42f8379478e56f5a3d313e77"
+    sha256 big_sur:        "56c9dd3de894392ef564a966bdaeddd767160956b3c9a1c944839cc8f7cd7985"
+    sha256 x86_64_linux:   "2dc3406d27a25cf25bf8a081d89641bec0ba02a73c50ee66037bbb32dfd41c27"
   end
 
   depends_on "cmake" => :build
@@ -37,7 +36,7 @@ class Opencv < Formula
   depends_on "openexr"
   depends_on "openjpeg"
   depends_on "protobuf"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "tbb"
   depends_on "vtk"
   depends_on "webp"
@@ -47,27 +46,12 @@ class Opencv < Formula
   fails_with gcc: "5" # ffmpeg is compiled with GCC
 
   resource "contrib" do
-    url "https://github.com/opencv/opencv_contrib/archive/refs/tags/4.6.0.tar.gz"
-    sha256 "1777d5fd2b59029cf537e5fd6f8aa68d707075822f90bde683fcde086f85f7a7"
-
-    # Fix build error: cannot initialize a parameter of type 'ceres::LocalParameterization *'
-    # Remove in the next release.
-    patch do
-      url "https://github.com/opencv/opencv_contrib/commit/4c93cc9925ece6c4a38cf8b869c8217d15104fe5.patch?full_index=1"
-      sha256 "9761c48d1c6f19fa0a2bf5a55cf7a0501a1e85fe595006ec5bd1929d9602f702"
-    end
-  end
-
-  # Fix build error: use of undeclared identifier 'CODEC_ID_H264'; did you mean 'AV_CODEC_ID_H264'
-  # Using commit from related PR for 3.4 branch: https://github.com/opencv/opencv/pull/22357
-  # Remove when fix is in 4.x branch and available in a release.
-  patch do
-    url "https://github.com/opencv/opencv/commit/496eed950f6d0e7fd92619d47e3cec8f06e96ace.patch?full_index=1"
-    sha256 "f9a5dac14d54b699383328a2d28b2d86f7274db8a603974ca5e9076d77490d49"
+    url "https://github.com/opencv/opencv_contrib/archive/refs/tags/4.7.0.tar.gz"
+    sha256 "42df840cf9055e59d0e22c249cfb19f04743e1bdad113d31b1573d3934d62584"
   end
 
   def python3
-    "python3.10"
+    "python3.11"
   end
 
   def install

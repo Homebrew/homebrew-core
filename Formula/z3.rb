@@ -1,26 +1,25 @@
 class Z3 < Formula
   desc "High-performance theorem prover"
   homepage "https://github.com/Z3Prover/z3"
-  url "https://github.com/Z3Prover/z3/archive/z3-4.11.2.tar.gz"
-  sha256 "e3a82431b95412408a9c994466fad7252135c8ed3f719c986cd75c8c5f234c7e"
+  url "https://github.com/Z3Prover/z3/archive/z3-4.12.1.tar.gz"
+  sha256 "a3735fabf00e1341adcc70394993c05fd3e2ae167a3e9bb46045e33084eb64a3"
   license "MIT"
-  revision 1
   head "https://github.com/Z3Prover/z3.git", branch: "master"
 
   livecheck do
     url :stable
-    strategy :github_latest
     regex(%r{href=.*?/tag/z3[._-]v?(\d+(?:\.\d+)+)["' >]}i)
+    strategy :github_latest
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "cec4d6c863d607ea1622f296d2804942d81234431159e2da7bf446c7bd341365"
-    sha256 cellar: :any,                 arm64_monterey: "7825fd2139a43998402e33b780eda21f88bbd715f7aed70585abd73e07a81fee"
-    sha256 cellar: :any,                 arm64_big_sur:  "6922b4af3ceaf632eccbae7ee3e1779ee259085c65dfce33c2d32e2fab6d2ad4"
-    sha256 cellar: :any,                 ventura:        "65b6a12c7d25bb6165831f74e3ae6cb9de3bff5f5b864729433bdd7fd2eda845"
-    sha256 cellar: :any,                 monterey:       "7f9aad29cdbafc7b78ae98dcbf4421a1074651a9e85332d5237dee671a4eac98"
-    sha256 cellar: :any,                 big_sur:        "33f9c591649639c3b216702a98787a3c416eb25aaaa2d1316b81f6649f5ed4af"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f87c3a49f986b2ada34629c8f899daf5103ebfa9c1e49a45df9eada19b4062d0"
+    sha256 cellar: :any,                 arm64_ventura:  "de7a906ffaca85ea45dd539fa56699d29daaf5acb734b93cf4ff737203376e24"
+    sha256 cellar: :any,                 arm64_monterey: "41357aed8d69b68eeb823a4b1ae603a384c2c104c789411d222909bb09265071"
+    sha256 cellar: :any,                 arm64_big_sur:  "01a528ad6cd584216f682f6a05a9bc413d96fb881b87e9ec2a15a56efb08d166"
+    sha256 cellar: :any,                 ventura:        "9918c8a891562b14bb69d7642a5f3cf5a79767baf78970710fd9c67e405a2f37"
+    sha256 cellar: :any,                 monterey:       "5707278f339e55a64b1dfcd2ccad204be4352d0326b370f7f3af94b88652d3b8"
+    sha256 cellar: :any,                 big_sur:        "59b19f0d8232e43f61a942ca91a91d8c1f2b47874c0118e31517a6ef27659d14"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d8039fa032a059b5dfc7b61412dc6a446b1f16839e5efaf52b3e61428ea613a2"
   end
 
   depends_on "cmake" => :build

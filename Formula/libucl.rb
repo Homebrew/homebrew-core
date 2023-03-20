@@ -1,24 +1,18 @@
 class Libucl < Formula
   desc "Universal configuration library parser"
   homepage "https://github.com/vstakhov/libucl"
-  url "https://github.com/vstakhov/libucl/archive/0.8.1.tar.gz"
-  sha256 "a6397e179672f0e8171a0f9a2cfc37e01432b357fd748b13f4394436689d24ef"
+  url "https://github.com/vstakhov/libucl/archive/0.8.2.tar.gz"
+  sha256 "d95a0e2151cc167a0f3e51864fea4e8977a0f4c473faa805269a347f7fb4e165"
   license "BSD-2-Clause"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any,                 arm64_ventura:  "0cb6426389a3a8dde21bddb291a265d28bbd831aa5d04d80e744238773ffc24e"
-    sha256 cellar: :any,                 arm64_monterey: "b034e87eacaa35c1394579d465a2c8bdbfc1e0ea9569b039c0bc1a4eb3264368"
-    sha256 cellar: :any,                 arm64_big_sur:  "55fcc8229b3dece974f8dad4e4c27ff4777817d0a19fa8399c822b4c869d05c2"
-    sha256 cellar: :any,                 ventura:        "2f0345a535cf861d09f850f89d399ba9a48b64e167165a88bf889eb8e6fb083f"
-    sha256 cellar: :any,                 monterey:       "1d8b096d33f1d0ca2080dbd3c63fab294fa801ae34ec078aba66c918da03bec4"
-    sha256 cellar: :any,                 big_sur:        "bc12495d53c1480a146b64d6f4312fdbfe10b5e7c7dc5d465255aab13b0b510e"
-    sha256 cellar: :any,                 catalina:       "8ff53b6da5423f7b6e11b6173b4b720d3563b1a24243ea4f977cf269d67aeb4c"
-    sha256 cellar: :any,                 mojave:         "1ffddb657d95f504ba3b7331f5dbbd995c5d237cda3f736e99182a16a8e8181d"
-    sha256 cellar: :any,                 high_sierra:    "dd5dbb4eb7e3d37816acc4f3bc2842c8e91caeb4a6f058eed75cab9d72192315"
-    sha256 cellar: :any,                 sierra:         "5c477e0feb163dc955e89eabf97cae445fefc9c920fe46073c85af348535d7cd"
-    sha256 cellar: :any,                 el_capitan:     "93e7d66507c386c9fe720b5f4c77d3b719574b7c311319cddc09bcbda659bce7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6a6e2d1c37ece770a3fc50ee265d293175c5cc16370187a9356fa3dc92246b01"
+    sha256 cellar: :any,                 arm64_ventura:  "f9e944d05b49df899f5b5cf0e655f4f23fc6978abd38e6b420e69f54b2d0b334"
+    sha256 cellar: :any,                 arm64_monterey: "09a3e260d36bcdc45e887b82eb7ec003509866fc34d781024bec94577e2e48c2"
+    sha256 cellar: :any,                 arm64_big_sur:  "2cb2ecaf50cddcaf11d401e0f9af425ba31b9a39010aaf320421403104445321"
+    sha256 cellar: :any,                 ventura:        "247a34b8fdfd55c25c6bb432bf0a99c46a33137491d9073bf64feb5f468ded44"
+    sha256 cellar: :any,                 monterey:       "91209890a1a2666cb79822dde2bb7c4914472c145f53019a546271e8845be9f2"
+    sha256 cellar: :any,                 big_sur:        "7496b34362a2cab89c43a44f76bacedf44f62835d80f651ab7348c8163b88e4d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "79b85d68fee133cdc1c58d8b290500e8e6dd8aab787e247e9f4cc2a166b1b0f7"
   end
 
   depends_on "autoconf" => :build

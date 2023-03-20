@@ -6,6 +6,7 @@ class Olsrd < Formula
   url "https://github.com/OLSR/olsrd/archive/v0.9.8.tar.gz"
   sha256 "ee9e524224e5d5304dcf61f1dc5485c569da09d382934ff85b233be3e24821a3"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -13,16 +14,13 @@ class Olsrd < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1278537dfc38526c39a2e62b42d507c84249f267d65371596deaa6cc20354d56"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "adfef1479c1e3e2070783547ba8a6a6c832287e0ae2c6ab18f2305bb4acb97c6"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d962f1a213860c614fafd91b494c4c06700c2d960645ff18bc410a071ba90250"
-    sha256 cellar: :any_skip_relocation, ventura:        "a2b2239bf19aab387f1ed2a1e720d5d1cef2c2dbdb6a2b394943af1d1d06c296"
-    sha256 cellar: :any_skip_relocation, monterey:       "821ca8fd35e1738acad8eeebbfbbee9adc95cae681ce7db97870f04d62226ecf"
-    sha256 cellar: :any_skip_relocation, big_sur:        "52333a59755987095e315f745c70d2187513099c2aff7692d8bf4711a44354d9"
-    sha256 cellar: :any_skip_relocation, catalina:       "95e531e19da3a6e11bf48851691e411d3fb27acf7dc18ccf5bed5c32aa3df4ff"
-    sha256 cellar: :any_skip_relocation, mojave:         "5ba1b0c584a2efe1d518be4032432818fca8bbccd3078e23ef7bbb3a9359a73e"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "70402085753c70fb12f3e0f249bf109ac77e0a22d7be890ac6484d7ffce8501f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e08df34e776e92e556f54d28be4788d4ba83fc9af8ace4b6c08dee49faae5270"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5855775631424ec0e2b51d6f3a08a83e595865c4f3090c24756d77a36f2d088b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "595f6879e8ea37977d87ce63927c7e731dde41717b070cec7faa8426e1c43109"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "46f59369b499e8dd35c9ae619ce0b893e0324778500a08007ece6c1329d19cdd"
+    sha256 cellar: :any_skip_relocation, ventura:        "b8950dc67c22e934018c5898834001cfa8345f2828acee9fea14ce7b7131dc4f"
+    sha256 cellar: :any_skip_relocation, monterey:       "a995c9cac2e2cb70a3235322c39fb259e634c932b45f0a64499c347003a03489"
+    sha256 cellar: :any_skip_relocation, big_sur:        "5e94afd5a8ed394b3fae056b10af1575c6a4383500978c7afe0b1ee375c8b4bb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2acf80ab45800922a52d9df98d466e657ff8b7d2dedb05cd9cd1c18f09457388"
   end
 
   uses_from_macos "bison" => :build
@@ -34,6 +32,12 @@ class Olsrd < Formula
 
   on_linux do
     depends_on "gpsd"
+
+    # patch to support gpsd 3.25, remove when patch avail in the upstream
+    patch do
+      url "https://github.com/OLSR/olsrd/commit/17d583258969c1d182361e0e168b3cad79ef64e6.patch?full_index=1"
+      sha256 "2c7a210a3a504f1df51da3ceb0908d309c447a9a1566d6da244f4ae9e9e3cab1"
+    end
   end
 
   # Apply upstream commit to fix build with bison >= 3.7.1

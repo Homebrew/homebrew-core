@@ -4,15 +4,16 @@ class Osmcoastline < Formula
   url "https://github.com/osmcode/osmcoastline/archive/v2.4.0.tar.gz"
   sha256 "2c1a28313ed19d6e2fb1cb01cde8f4f44ece378393993b0059f447c5fce11f50"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "326cfe7b3cc49dd9a9f58b6ad49854a13c83e83a26160ba3bff8786ed34794e7"
-    sha256 cellar: :any,                 arm64_monterey: "bf395e4aaa8109cb838ca97e4e7a913750435d1afbbb0c7443bb51cb640975cd"
-    sha256 cellar: :any,                 arm64_big_sur:  "6268f35bc703c7c0c48ea8e19f77a981d165f7b833bd681eec57a38dc31f1401"
-    sha256 cellar: :any,                 ventura:        "067bec8e3ec8e9c8998c572656a63e8ce21be5a9a5f17d7ec981a5c9f77b27f1"
-    sha256 cellar: :any,                 monterey:       "9361e9b0a498a79fd3053776b3e65672c105cec03210a2cd8a5a9d823a511c84"
-    sha256 cellar: :any,                 big_sur:        "e7a927f2a59c15f964f984fbf8d13a6825ee9424901e6b8763b7ff56c5c66731"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4842f2a98e88fda3c1ff47c600af886df86d2567f99a47cecd8ba68c46ce4498"
+    sha256 cellar: :any,                 arm64_ventura:  "269ea3be14f5395ed5e3d453937ae693470c3594e2d7389fb3180dc7e08b6c80"
+    sha256 cellar: :any,                 arm64_monterey: "17174749a13c700e3ae41146e6d69bda6ff5d8ee53be2f31c49fc9de602f3878"
+    sha256 cellar: :any,                 arm64_big_sur:  "1072decf9e48f16fe2583bed1c0f1044a2cf7e8bb9433820bfa2c9c123f7f2a2"
+    sha256 cellar: :any,                 ventura:        "04618e0e1ceed887d6cc7d5f8fb6ac601fa7cca7da3448ce22beeab44caefbd6"
+    sha256 cellar: :any,                 monterey:       "c914fa3fe6a150e9b9e3ffeec02efc4d27fb6617c88367ccfc1681b7ee56c5db"
+    sha256 cellar: :any,                 big_sur:        "481e2ac605a060679dc8472f68ccb01adcee971c5c8f00e3926014eb4e2148fa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8026a3742b442711009fca9f49048b5c8c6e3a402dc0dc6bedc08c9f124d825c"
   end
 
   depends_on "cmake" => :build

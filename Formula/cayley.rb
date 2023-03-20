@@ -21,8 +21,7 @@ class Cayley < Formula
   end
 
   depends_on "breezy" => :build
-  # Bump to 1.18 on the next release, if possible.
-  depends_on "go@1.17" => :build
+  depends_on "go" => :build
   depends_on "mercurial" => :build
 
   def install
@@ -39,8 +38,7 @@ class Cayley < Formula
         -X github.com/cayleygraph/cayley/version.GitHash=#{Utils.git_short_head}
       ]
 
-      # Build the binary
-      system "go", "build", "-o", bin/"cayley", "-ldflags", ldflags.join(" "), "./cmd/cayley"
+      system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/cayley"
 
       inreplace "cayley_example.yml", "./cayley.db", var/"cayley/cayley.db"
       etc.install "cayley_example.yml" => "cayley.yml"

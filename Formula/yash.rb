@@ -2,8 +2,8 @@ class Yash < Formula
   desc "Yet another shell: a POSIX-compliant command-line shell"
   homepage "https://yash.osdn.jp/"
   # Canonical: https://osdn.net/dl/yash/yash-*
-  url "https://dotsrc.dl.osdn.net/osdn/yash/77664/yash-2.53.tar.xz"
-  sha256 "e430ee845dfd7711c4f864d518df87dd78b40560327c494f59ccc4731585305d"
+  url "https://dotsrc.dl.osdn.net/osdn/yash/78345/yash-2.54.tar.xz"
+  sha256 "44a0ac1ccf7c3acecfbea027d8c0c930f13a828065be318055ce113015391839"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -12,14 +12,13 @@ class Yash < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "252f74f50cb198c22a6f70b4f7b5442b328b4cb1ab26d22a920123725a52858e"
-    sha256 arm64_monterey: "eeeeb786b844bf03a25850972e27ceb0e9c7814f4deec7487463d69b387cd897"
-    sha256 arm64_big_sur:  "11ccd561d0cf5e20aed78acedf51bce5ae2d79fdff9941837e40ea546252e4b6"
-    sha256 ventura:        "4b25667a22b83fc369d3d9bcd019fc92d819e75f09040973d39e6eeeacac8f65"
-    sha256 monterey:       "ba17c533a242d1d10ecc36a6e8984c8f15733babd6d4df1d8b920f080447f402"
-    sha256 big_sur:        "7bed4424790d3ce44dcea25c4c6726a6850ad28b390d013d7bbe361f28e3f66b"
-    sha256 catalina:       "a80f8bf4f399c71c4e7081b49ab20ef0ac97b2d2e9d72b5a87116c899b6ed24d"
-    sha256 x86_64_linux:   "9c3606fcd75067b35fdad853c9c2eb03c3ddb25713fd9ff10a18027c3859d1d1"
+    sha256 arm64_ventura:  "825e7b433ab67cedb8bda81d53a97daa4d3193735121f661a2133631c0d8950c"
+    sha256 arm64_monterey: "a8a728c98a8656d570ee6a635cb964a3c9201677c4ebe23f6c8f77a0e71ae45d"
+    sha256 arm64_big_sur:  "d9ac37ee67f2c7bcdd66438a9543c3cd07b7b2ecdeb1bf8bf9c0acdae9b002d3"
+    sha256 ventura:        "88eb309f518d95d2c73ff4871f7eff9c6dbe05e2a2860bd237d19dbcbcd1ebd6"
+    sha256 monterey:       "4ab2ebd75246a927c5e2ac95566ae5848ed0bbfd602eecbcb6bec2fe0ef294eb"
+    sha256 big_sur:        "fb27779593e6243c326a630dfbd892ae65de86118e10f60a0fb6baa5108db05b"
+    sha256 x86_64_linux:   "be69b88316019ac27d2b9e8f9583748c7640faa72dbc0816589d2330029553b5"
   end
 
   head do

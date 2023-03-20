@@ -9,27 +9,26 @@ class GitReview < Formula
   head "https://opendev.org/opendev/git-review.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "465665143bbad4a6e1cc00ffa3b3ddd3627ec508726f463b40d779d4e77f2a4a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7df1495c0fb807fd2337b88a71766c59c35c4ff1d1d21e17f520a6d3e597379f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9010deaf20b3c78b9ba95ed5466534552549cab39d733ab351580118178ac7d3"
-    sha256 cellar: :any_skip_relocation, ventura:        "e193a7e5655b097777bb43842558b0646a70e5a2ce4f6738d611c0dfc9052f92"
-    sha256 cellar: :any_skip_relocation, monterey:       "0a62cd57c2a5ba7452e42035cba35275755f08ad00676bfd0cf4e23fc42cf0e2"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d40296f48a0f24261fc4e8dd8087807fb16d215803af8bc2fb499dc50e4875e0"
-    sha256 cellar: :any_skip_relocation, catalina:       "e3b03b93811344d8b3ed75ef01b3ae386b50fa95ba776a5cc2137c36784387d9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a910dfac976e4a18bb859f40e7235eecabc9deef41a706c4354dc6fd39116f03"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9b140770d995b35fef5c00b3bfacdb325b8c5077b70ccfa9b5dfc29fdeb4e444"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "49d58c6cb4cac250cfd1664cc2eadffc4c84fc96d80ba6e4614c92397e20b408"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "46fa4da3efdd6f92200fb1259af57ba85e84aa164a6b6fd584a30585033fc702"
+    sha256 cellar: :any_skip_relocation, ventura:        "d2aac9d3da25e04b033749b096e2dbef43a45340aecad4e206934b42fa804854"
+    sha256 cellar: :any_skip_relocation, monterey:       "3f5ec02f7f35023ca2a234499576ded5ab471f342e7e88f83e17fe5a9b5cf4d2"
+    sha256 cellar: :any_skip_relocation, big_sur:        "28eb3a5e2839815d42941d72246c08ab6fb5d9c8ac9ffa53a2866c91cf395e77"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4b1dc5dd061157c6913353b5a908c535a07dc046d783d7a0a7a0fe2ef3b590b2"
   end
 
   depends_on "python@3.11"
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/cb/a4/7de7cd59e429bd0ee6521ba58a75adaec136d32f91a761b28a11d8088d44/certifi-2022.9.24.tar.gz"
-    sha256 "0d9c601124e5a6ba9712dbc60d9c53c21e34f5f641fe83002317394311bdce14"
+    url "https://files.pythonhosted.org/packages/37/f7/2b1b0ec44fdc30a3d31dfebe52226be9ddc40cd6c0f34ffc8923ba423b69/certifi-2022.12.7.tar.gz"
+    sha256 "35824b4c3a97115964b408844d64aa14db1cc518f6562e8d7261699d1350a9e3"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/a1/34/44964211e5410b051e4b8d2869c470ae8a68ae274953b1c7de6d98bbcf94/charset-normalizer-2.1.1.tar.gz"
-    sha256 "5a3d016c7c547f69d6f81fb0db9449ce888b418b5b9952cc5e6e66843e9dd845"
+    url "https://files.pythonhosted.org/packages/96/d7/1675d9089a1f4677df5eb29c3f8b064aa1e70c1251a0a8a127803158942d/charset-normalizer-3.0.1.tar.gz"
+    sha256 "ebea339af930f8ca5d7a699b921106c6e29c617fe9606fa7baa043c1cdae326f"
   end
 
   resource "idna" do
@@ -38,18 +37,18 @@ class GitReview < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/a5/61/a867851fd5ab77277495a8709ddda0861b28163c4613b011bc00228cc724/requests-2.28.1.tar.gz"
-    sha256 "7c5599b102feddaa661c826c56ab4fee28bfd17f5abca1ebbe3e7f19d7c97983"
+    url "https://files.pythonhosted.org/packages/9d/ee/391076f5937f0a8cdf5e53b701ffc91753e87b07d66bae4a09aa671897bf/requests-2.28.2.tar.gz"
+    sha256 "98b1b2782e3c6c4904938b84c0eb932721069dfdb9134313beff7c83c2df24bf"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/b2/56/d87d6d3c4121c0bcec116919350ca05dc3afd2eeb7dc88d07e8083f8ea94/urllib3-1.26.12.tar.gz"
-    sha256 "3fa96cf423e6987997fc326ae8df396db2a8b7c667747d47ddd8ecba91f4a74e"
+    url "https://files.pythonhosted.org/packages/c5/52/fe421fb7364aa738b3506a2d99e4f3a56e079c0a798e9f4fa5e14c60922f/urllib3-1.26.14.tar.gz"
+    sha256 "076907bf8fd355cde77728471316625a4d2f7e713c125f51953bb5b3eecf4f72"
   end
 
   def install
     virtualenv_install_with_resources
-    man1.install gzip("git-review.1")
+    man1.install Utils::Gzip.compress("git-review.1")
   end
 
   test do

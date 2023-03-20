@@ -1,24 +1,24 @@
 class GithubMarkdownToc < Formula
   desc "Easy TOC creation for GitHub README.md (in go)"
   homepage "https://github.com/ekalinin/github-markdown-toc.go"
-  url "https://github.com/ekalinin/github-markdown-toc.go/archive/1.2.0.tar.gz"
-  sha256 "6bfeab2b28e5c7ad1d5bee9aa6923882a01f56a7f2d0f260f01acde2111f65af"
+  url "https://github.com/ekalinin/github-markdown-toc.go/archive/refs/tags/v1.2.1.tar.gz"
+  sha256 "64e0fc1b87860ced2697ace61e1a91d9b1a14829df08f0da08e797efe5e91440"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "962254f8ec5d2aba52c3890b19e8e853f7c3edcfb721e2ef36710632129e9d29"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "db9ca9d24519c3cf044a6c461533744a020a69e569929299159164406d80ccc2"
-    sha256 cellar: :any_skip_relocation, monterey:       "3cd4223920e590394f7058cae9f8aa162914d9ada8df5866cd099b09da413af8"
-    sha256 cellar: :any_skip_relocation, big_sur:        "aaeb4ccfaa12ec8914842a6a9f6b68cc1c393e617d17af87832b2d3500a41458"
-    sha256 cellar: :any_skip_relocation, catalina:       "1ab9219a4b4e5280248b2aab4ee29f3956dddff78c70b941800948e2f72132cd"
-    sha256 cellar: :any_skip_relocation, mojave:         "f4e584f9514dd801a4d3243e9d962f12fa32cd3c6c62bed6037f4d1232153d0a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "add401cf034de867d02a1ab98b5072e362af92b0274f864ca99aca90ba2b0ec0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e9228bf710a91e26eb1c4b24bf3815c14ebba843ed99215ad8514eb41cfc2c68"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4b6a871dcb95229b7f01e7b3aa2e309e50db59ae2707b05777b01e0d1f340437"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9b7f9b21a20d0ea3adc57e6f1700f22a1dd02a910ff31b90d5e25d7993eb678f"
+    sha256 cellar: :any_skip_relocation, ventura:        "2b15946d89399f867064dda64f2565ce167ff1f7a240f1a427a67a3d27eff507"
+    sha256 cellar: :any_skip_relocation, monterey:       "18e637f4ace86aa720ffe6f516811d48badfff316273daa441f364ccf6938876"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ceb4404cd0d9cb9e0470df76d74b6109b4ef6668770d5cced64b0a6a1bb4e6d7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6b776f3f2b25671f686707ae436c0bf3e04df4cbf9dddd1ba49d2cb706a4ff17"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(output: bin/"gh-md-toc")
+    system "go", "build", *std_go_args(ldflags: "-s -w", output: bin/"gh-md-toc"), "./cmd/gh-md-toc"
   end
 
   test do

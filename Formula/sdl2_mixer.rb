@@ -1,27 +1,27 @@
 class Sdl2Mixer < Formula
   desc "Sample multi-channel audio mixer library"
   homepage "https://github.com/libsdl-org/SDL_mixer"
-  url "https://github.com/libsdl-org/SDL_mixer/releases/download/release-2.6.2/SDL2_mixer-2.6.2.tar.gz"
-  sha256 "8cdea810366decba3c33d32b8071bccd1c309b2499a54946d92b48e6922aa371"
+  url "https://github.com/libsdl-org/SDL_mixer/releases/download/release-2.6.3/SDL2_mixer-2.6.3.tar.gz"
+  sha256 "7a6ba86a478648ce617e3a5e9277181bc67f7ce9876605eea6affd4a0d6eea8f"
   license "Zlib"
+  revision 1
 
   # This formula uses a file from a GitHub release, so we check the latest
   # release version instead of Git tags.
   livecheck do
     url :stable
-    strategy :github_latest
     regex(%r{href=.*?/tag/release[._-]v?(\d+(?:\.\d+)+)["' >]}i)
+    strategy :github_latest
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "7fd6ab0b615a7704a6c31069f7efd5979d7619f85793eed2e1e2c25a00d42764"
-    sha256 cellar: :any,                 arm64_monterey: "e5b94cc708bc31845f609f89b804641d64c0e0b157a5cb469bdd8a3b1abe9b16"
-    sha256 cellar: :any,                 arm64_big_sur:  "a2b8cae3cd3ccc3f6233e3520b935fcd6501c4c9796e1e3c43d41f065eef4fef"
-    sha256 cellar: :any,                 ventura:        "fe6119565761b503c1c0c12c4bc3b3524e5d67ee13279a988cb00f8c5924799b"
-    sha256 cellar: :any,                 monterey:       "f5491b50e786a11f8df8b2403f1c752d34daa9aa0653fbf52318afa612b45dcc"
-    sha256 cellar: :any,                 big_sur:        "7e2b2c284949698bd612764c3eeab7fd2f4a3ae740e2803c369088265860b0a5"
-    sha256 cellar: :any,                 catalina:       "c04088e4f0404296e684cb36096279bbc973ebedbad9984c1f8f3c559fc64756"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b38a4c9dc9f8b383818b7a724daa3c970068d4549f4c0f5606b8696a374a4e2b"
+    sha256 cellar: :any,                 arm64_ventura:  "c043dc385f650b3e3724a7095113ee5fbf573486a0b2611c5dfb721ee63774ed"
+    sha256 cellar: :any,                 arm64_monterey: "904d0603c8b469af83ed67a29be09a7e762109c284ea154b788c6fafcf49ffa2"
+    sha256 cellar: :any,                 arm64_big_sur:  "c682563d2f4a9cabc9658f787e4514072883227e1974139600e23c841556418b"
+    sha256 cellar: :any,                 ventura:        "32ee9039da185a509b83bef2b516d7cc2abe6e90272cdede82dbb028c22bce7b"
+    sha256 cellar: :any,                 monterey:       "d6da5c475e9790af0c7c1c7f4650eabb5512696a0fb1e50f62915cc75c8d7ca6"
+    sha256 cellar: :any,                 big_sur:        "64d6f21fc6e6a0cd02d4faddfe32c7daf42ce7abff31ce858515b0bcc08c160e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3b7c2f966442b5364127e4ed065b1bb77b15e27f01cc4bc171a59b26aecaef73"
   end
 
   head do
@@ -34,9 +34,11 @@ class Sdl2Mixer < Formula
 
   depends_on "pkg-config" => :build
   depends_on "flac"
-  depends_on "libmodplug"
+  depends_on "fluid-synth"
   depends_on "libvorbis"
+  depends_on "libxmp"
   depends_on "mpg123"
+  depends_on "opusfile"
   depends_on "sdl2"
 
   def install
@@ -47,36 +49,47 @@ class Sdl2Mixer < Formula
       system "./autogen.sh"
     end
 
-    args = %W[
-      --prefix=#{prefix}
-      --disable-dependency-tracking
-      --enable-music-flac
-      --disable-music-flac-shared
-      --disable-music-midi-fluidsynth
-      --disable-music-midi-fluidsynth-shared
-      --disable-music-mod-mikmod-shared
-      --disable-music-mod-modplug-shared
-      --disable-music-mp3-mpg123-shared
-      --disable-music-ogg-shared
-      --enable-music-mod-mikmod
-      --enable-music-mod-modplug
-      --enable-music-ogg
-      --enable-music-mp3-mpg123
-    ]
+    system "./configure", *std_configure_args,
+      "--enable-music-wave",
+      "--enable-music-mod",
+      "--enable-music-mod-xmp",
+      "--disable-music-mod-xmp-shared",
+      "--disable-music-mod-modplug",
+      "--enable-music-midi",
+      "--enable-music-midi-fluidsynth",
+      "--disable-music-midi-fluidsynth-shared",
+      "--disable-music-midi-native",
+      "--disable-music-midi-timidy",
+      "--enable-music-ogg",
+      "--enable-music-ogg-vorbis",
+      "--disable-music-ogg-vorbis-shared",
+      "--disable-music-ogg-stb",
+      "--disable-music-ogg-tremor",
+      "--enable-music-flac",
+      "--enable-music-flac-libflac",
+      "--disable-music-flac-libflac-shared",
+      "--disable-music-flac-drflac",
+      "--enable-music-mp3",
+      "--enable-music-mp3-mpg123",
+      "--disable-music-mp3-mpg123-shared",
+      "--disable-music-mp3-drmp3",
+      "--enable-music-opus",
+      "--disable-music-opus-shared"
 
-    system "./configure", *args
     system "make", "install"
   end
 
   test do
     (testpath/"test.c").write <<~EOS
+      #include <stdlib.h>
       #include <SDL2/SDL_mixer.h>
 
       int main()
       {
-          int success = Mix_Init(0);
+          const int INIT_FLAGS = MIX_INIT_FLAC | MIX_INIT_MOD | MIX_INIT_MP3 | MIX_INIT_OGG | MIX_INIT_MID | MIX_INIT_OPUS;
+          int success = Mix_Init(INIT_FLAGS);
           Mix_Quit();
-          return success;
+          return success == INIT_FLAGS ? EXIT_SUCCESS : EXIT_FAILURE;
       }
     EOS
     system ENV.cc, "-I#{Formula["sdl2"].opt_include}/SDL2",

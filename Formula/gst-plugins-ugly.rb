@@ -1,8 +1,8 @@
 class GstPluginsUgly < Formula
   desc "Library for constructing graphs of media-handling components"
   homepage "https://gstreamer.freedesktop.org/"
-  url "https://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly-1.20.5.tar.xz"
-  sha256 "af67d8ba7cab230f64d0594352112c2c443e2aa36a87c35f9f98a43d11430b87"
+  url "https://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly-1.22.0.tar.xz"
+  sha256 "a644dc981afa2d8d3a913f763ab9523c0620ee4e65a7ec73c7721c29da3c5a0c"
   license "LGPL-2.0-or-later"
   head "https://gitlab.freedesktop.org/gstreamer/gst-plugins-ugly.git", branch: "master"
 
@@ -12,13 +12,13 @@ class GstPluginsUgly < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "091ed18cc17df1e34ce9fb8ccfc8525a2070639750641a78378d60498274d91a"
-    sha256 arm64_monterey: "f2889ce34b419f4235223e90aacd1d2d2f0b0788818994d0a43eb928ee440bcb"
-    sha256 arm64_big_sur:  "b8d6253e76065cfd072ac0504cacf61cdea1dc9d82369063ad0786ef85b8e999"
-    sha256 ventura:        "1cdb37b6d96ddcb4c6c9ace5890a722746bff584cf78278282959cb9d1758ba0"
-    sha256 monterey:       "fb1845a7bec55ca73f70b6a8ffe550a1d67ec1375317d918a04b48baa79d60b3"
-    sha256 big_sur:        "508246f9e7d47930fdb7f39d4393c36ca43bacd9ed6651c3241583403c10a024"
-    sha256 x86_64_linux:   "b6cd9460f8d8ac809bfb599d1a5151f794152aef4d1959264fdc3e839a9855c3"
+    sha256 arm64_ventura:  "34c97fe5f82fae715914e162829e116f1358214c2d41acba38c0be75d7ddf7b3"
+    sha256 arm64_monterey: "70b6ffb43edbaebaadd7f866436770fc6c72b618e3dbf143c244814b76136ccd"
+    sha256 arm64_big_sur:  "c4028b00d652a69a8808a7ed52f120f4be4162bc61027eb304e146ea85d2aa45"
+    sha256 ventura:        "93034803df9578a2aec65e6e73f75ed457792f4580736b4059edba70def940ce"
+    sha256 monterey:       "63097dcec77f9af54cab001fde7d5125b00c11485188352091ae7f0507e7355e"
+    sha256 big_sur:        "931acd6a551ebc858f45412499581ee82669c508c7c44c353d007bd040520ee3"
+    sha256 x86_64_linux:   "55a17f3e3fa9da3de4d1af0ae204c4e886f3dda9e6223af012a25f34219ee657"
   end
 
   depends_on "meson" => :build

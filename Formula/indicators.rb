@@ -1,13 +1,13 @@
 class Indicators < Formula
   desc "Activity indicators for modern C++"
   homepage "https://github.com/p-ranav/indicators"
-  url "https://github.com/p-ranav/indicators/archive/v2.2.tar.gz"
-  sha256 "b768f1b7ca64a413503f72d5460cc617c1458c17fb7a8c0ee503d753e1f20d03"
+  url "https://github.com/p-ranav/indicators/archive/v2.3.tar.gz"
+  sha256 "70da7a693ff7a6a283850ab6d62acf628eea17d386488af8918576d0760aef7b"
   license "MIT"
   head "https://github.com/p-ranav/indicators.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "60d4242ee3f9af21462bd6416eb0250a24109ef6a15e55904cedccd9a1dff42e"
+    sha256 cellar: :any_skip_relocation, all: "722fdcb2c0acf2eb576eaec0f91171d503b65c10910ec70abf1bf50bd45979bf"
   end
 
   depends_on "cmake" => :build

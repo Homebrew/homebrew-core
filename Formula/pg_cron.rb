@@ -1,22 +1,21 @@
 class PgCron < Formula
   desc "Run periodic jobs in PostgreSQL"
   homepage "https://github.com/citusdata/pg_cron"
-  url "https://github.com/citusdata/pg_cron/archive/refs/tags/v1.4.2.tar.gz"
-  sha256 "3652722ea98d94d8e27bf5e708dd7359f55a818a43550d046c5064c98876f1a8"
+  url "https://github.com/citusdata/pg_cron/archive/refs/tags/v1.5.1.tar.gz"
+  sha256 "45bb16481b7baab5d21dfa399b7bfa903dd334ff45a644ae81506a1ec0be0188"
   license "PostgreSQL"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "864b0cdaab5f8cd61f48ec3a85a05c0284f6fa4e35a5e9723a702c6104511282"
-    sha256 cellar: :any,                 arm64_monterey: "de153e8d2ed978871f338683cc37cd3db60556efa31085b3ada30ca32a21043b"
-    sha256 cellar: :any,                 arm64_big_sur:  "4b29b5814a740ba56edb6344bcb305dd50407f511394fd7714e5007caed07754"
-    sha256 cellar: :any,                 ventura:        "8298a0b17d05a0274a979342f74c629733f37852e26b710e5b6e3ede9e035704"
-    sha256 cellar: :any,                 monterey:       "00f830eef2cdaac50eafd420fc2e8186aa4782969d3cc80fe981acac6cd54d1c"
-    sha256 cellar: :any,                 big_sur:        "569f88ebc5cad834c2b1bd0bb416cad28f315892dcfce0808f5b0cdbbaa410e3"
-    sha256 cellar: :any,                 catalina:       "cf317c7daaad2d1bb6d2fff390a6d7824ef6250ba9b22c867baf4d4cc7efd0fa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bddc49247c16f2efa40654d060d3deb3decb171bf0cee49d54e1362219a2de2c"
+    sha256 cellar: :any,                 arm64_ventura:  "477d1eb67829094fc7f1e1841fe2879ff95587dea1ac17ed1cb398309eecf9ae"
+    sha256 cellar: :any,                 arm64_monterey: "218080009065e590c595a968ac2b8641716d774d8b9934672b6450bfad266cdc"
+    sha256 cellar: :any,                 arm64_big_sur:  "adacd84a0112f425fe134f993015b966b5c885a4a19fb027abb54dbb2afa30a2"
+    sha256 cellar: :any,                 ventura:        "ddf4f67386f09b337c11901e8c011d5df7c49e4cdb377516074f38c89ed7a1db"
+    sha256 cellar: :any,                 monterey:       "991c2b4912755af9c26d111f877a08c582798eec7639ec33093b15f2e30efcc6"
+    sha256 cellar: :any,                 big_sur:        "0b1a303c762614d38f7f0e476b9911029e6d9b42d6805e8684d2dd4bcfe1d27b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f4b9b14a120a6e4df296b7903fafad5b69218d0115c34d77ae5f62e2e87c42a9"
   end
 
+  # upstream issue for running with pg@15, https://github.com/citusdata/pg_cron/issues/237
   depends_on "postgresql@14"
 
   def postgresql

@@ -1,19 +1,19 @@
 class Dict < Formula
   desc "Dictionary Server Protocol (RFC2229) client"
-  homepage "http://www.dict.org/"
+  homepage "https://dict.org/bin/Dict"
   url "https://downloads.sourceforge.net/project/dict/dictd/dictd-1.13.1/dictd-1.13.1.tar.gz"
   sha256 "e4f1a67d16894d8494569d7dc9442c15cc38c011f2b9631c7f1cc62276652a1b"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_ventura:  "51ab6ccc175d30964e823fe0496fe957adc402eababac5d0ed7dbf766f47a5c6"
-    sha256 arm64_monterey: "78b07272ca6147d7bf00f0952d2c5a9692fd2de372d850e0ce3aed8f2acffc1d"
-    sha256 arm64_big_sur:  "e09d115b6d78be9f257b943de096aa09ae616733776e9b9e9825f1124cb8da4e"
-    sha256 ventura:        "dcd648b871a30130c8f20300ba716f4cbd9714b631120454951b68955041128b"
-    sha256 monterey:       "360dfa6fe899696ef4ddda448bdd904348dd02f147c3a0f5b7433c894773d214"
-    sha256 big_sur:        "04cd15245ebd92063b552cc04a92cb5fa888ef9b1dbaeb3199abe3d3a68d8e0b"
-    sha256 catalina:       "da4b9f76b6e3bb5d18f5ac0abe43dea7dd4f571f9e41686ff45b3945ecd40e9a"
-    sha256 x86_64_linux:   "dc56eeb450b3ce327f27d2ef1ca74c74e2e3e0b3c28ed6cae1c0543ad736a148"
+    rebuild 1
+    sha256 arm64_ventura:  "bf7cb1eff5364cef0a00a5c711fb42e498a4be1bcb3ebcbde5538b56e956de11"
+    sha256 arm64_monterey: "2c04cdc3159fc7e11ab8c221aabc76c5a370c73e0ecbaf26b3c803f313caeaa7"
+    sha256 arm64_big_sur:  "d22bd87df2353d4fc9260f3c7a1d0d99c2653e2c7b71f1efcf537c65415b13a0"
+    sha256 ventura:        "9d040510785ea9f3d6b989211138348b1db81d5adb02e4c34c1647f0e470865d"
+    sha256 monterey:       "0c1a3e0a5f9f2de898f106260c19d212468aefdd5adb3f04df0f26c76ad2e90a"
+    sha256 big_sur:        "de7803163887f1533950fdae9bd6c81901946b58339bee9985f55cd312db3afb"
+    sha256 x86_64_linux:   "e34a6fd3ec083c27f88d431eea7e3e21be17046a0b8eb3f51ba3f55226853d77"
   end
 
   depends_on "libtool" => :build
@@ -25,7 +25,8 @@ class Dict < Formula
 
   def install
     ENV["LIBTOOL"] = "glibtool"
-    system "./configure", "--prefix=#{prefix}", "--sysconfdir=#{etc}",
+    system "./configure", *std_configure_args,
+                          "--sysconfdir=#{etc}",
                           "--mandir=#{man}"
     system "make"
     system "make", "install"
@@ -33,5 +34,9 @@ class Dict < Formula
       server localhost
       server dict.org
     EOS
+  end
+
+  test do
+    assert_match "brewing or making beer.", shell_output("#{bin}/dict brew")
   end
 end

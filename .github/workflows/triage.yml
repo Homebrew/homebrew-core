@@ -64,7 +64,6 @@ jobs:
               path: Formula/.+@.+
               except:
                 - Formula/bash-completion@2.rb
-                - Formula/openssl@1.1.rb
                 - Formula/openssl@3.rb
                 - Formula/postgresql@15.rb
                 - Formula/python@3.11.rb
@@ -153,7 +152,7 @@ jobs:
               content: system "swift", "build"
 
             - label: long build
-              path: Formula/(agda|arangodb|boost|deno|dotnet|emscripten|envoy|gcc|ghc|libtensorflow|llvm|node|pango|ponyc|rust|suite-sparse|swift|texlive|qt|v8)(@[0-9]+)?.rb
+              path: Formula/(agda|arangodb|aws-sdk-cpp|boost|deno|dotnet|dvc|emscripten|envoy|freetype|gcc|ghc|libomp|libtensorflow|llvm|node|pango|ponyc|rust|suite-sparse|swift|texlive|qt|v8|vtk|xz|zstd)(@[0-9]+)?.rb
               keep_if_no_match: true
 
             - label: CI-build-dependents-from-source
@@ -161,11 +160,11 @@ jobs:
               keep_if_no_match: true
 
             - label: CI-skip-recursive-dependents
-              path: Formula/(gettext|openssl@(3|1.1)|sqlite).rb
+              path: Formula/(ca-certificates|gettext|openssl@(3|1.1)|sqlite).rb
               keep_if_no_match: true
 
             - label: CI-linux-self-hosted
-              path: Formula/(gdbm|llvm|openssl@1.1|python@3.10|qt(@5)?).rb
+              path: Formula/(freetype|gdbm|llvm|openssl@1.1|python@3.11|qt(@5)?|xz|zstd).rb
               keep_if_no_match: true
 
             - label: bump-formula-pr

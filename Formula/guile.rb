@@ -1,33 +1,20 @@
 class Guile < Formula
   desc "GNU Ubiquitous Intelligent Language for Extensions"
   homepage "https://www.gnu.org/software/guile/"
+  url "https://ftp.gnu.org/gnu/guile/guile-3.0.9.tar.xz"
+  mirror "https://ftpmirror.gnu.org/guile/guile-3.0.9.tar.xz"
+  sha256 "1a2625ac72b2366e95792f3fe758fd2df775b4044a90a4a9787326e66c0d750d"
   license "LGPL-3.0-or-later"
-  revision 3
-
-  stable do
-    url "https://ftp.gnu.org/gnu/guile/guile-3.0.8.tar.xz"
-    mirror "https://ftpmirror.gnu.org/guile/guile-3.0.8.tar.xz"
-    sha256 "daa7060a56f2804e9b74c8d7e7fe8beed12b43aab2789a38585183fcc17b8a13"
-
-    patch do
-      # A patch to fix JIT on Apple Silicon is embedded below, this fixes:
-      #   https://debbugs.gnu.org/cgi/bugreport.cgi?bug=44505
-      # We should remove it from here once Guile 3.0.9 is released.
-      on_macos do
-        url "https://git.savannah.gnu.org/cgit/guile.git/patch/?id=3bdcc3668fd8f9a5b6c9a313ff8d70acb32b2a52"
-        sha256 "3deeb4c01059615df97081e53056c76bcc465030aaaaf01f5941fbea4d16cb6f"
-      end
-    end
-  end
 
   bottle do
-    sha256 arm64_ventura:  "b72ef2808657d18e2307fb7d91d131ad86435714090e915c98cde94ddcc1fbc7"
-    sha256 arm64_monterey: "6990bfe4b7bd85e77f186a58c7134bf71c6879d1abeb9a9ccadf79ed08644a8f"
-    sha256 arm64_big_sur:  "68597781baa169a4d4bd4e6b183110bc83bdd10be8d9c91c5dd817cf561397e1"
-    sha256 ventura:        "a7474a97c56efce6ad5427c0777a32e871d2316a74158a0370e372d3b001f3b4"
-    sha256 monterey:       "d2e8968022b33acab8c3368ac748650f566929acbbf4c2717b9aee1f987486b8"
-    sha256 big_sur:        "599370380e1bd9cad5e3824a65385f77d798987fe6ff10c134b4cd1c07fb4bd4"
-    sha256 x86_64_linux:   "1664725ee652cf1e06226a440a0175875f592be861bb70c7310a8048e8517cdd"
+    rebuild 1
+    sha256 arm64_ventura:  "802b09beab5de8794ee71ee9556e78347f0d70b76c34fa8bde2799cbe0bdd64c"
+    sha256 arm64_monterey: "5bd0d6a721847e049d42e53a5aab7f062ecfd816d5dcf79047fc9cf6e39767cf"
+    sha256 arm64_big_sur:  "815898ea4478f76b02c7cf6b87570abb68da29fd07de2a233ee0f7ae95a9bf31"
+    sha256 ventura:        "6d6a9327705cc6d1910b20e6e0d5cf8e9264340302276e2e1be1cbbe32b00fbd"
+    sha256 monterey:       "9c0a36654c77db52102d4344be4bd468b5a96482383f65a6a0ab5c6c0ecce29b"
+    sha256 big_sur:        "07cfc8d1991c784e5d3a25dd939b6027c7d603e03bdc62c1bb8cb4a2ecb97803"
+    sha256 x86_64_linux:   "000f48044f48d7008a21691cf321bb77764dd7ee85e48c8a5088c66514bd9ed1"
   end
 
   head do
@@ -39,11 +26,6 @@ class Guile < Formula
     uses_from_macos "flex" => :build
   end
 
-  # Remove with Guile 3.0.9 release.
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "gettext" => :build
-
   depends_on "gnu-sed" => :build
   depends_on "bdw-gc"
   depends_on "gmp"
@@ -51,9 +33,6 @@ class Guile < Formula
   depends_on "libunistring"
   depends_on "pkg-config" # guile-config is a wrapper around pkg-config.
   depends_on "readline"
-
-  # Remove with Guile 3.0.9 release.
-  uses_from_macos "flex" => :build
 
   uses_from_macos "gperf"
   uses_from_macos "libffi", since: :catalina
@@ -64,9 +43,6 @@ class Guile < Formula
     inreplace "meta/guile-config.in", "@PKG_CONFIG@", Formula["pkg-config"].opt_bin/"pkg-config"
 
     system "./autogen.sh" unless build.stable?
-
-    # Remove with Guile 3.0.9 release.
-    system "autoreconf", "-vif" if OS.mac? && build.stable?
 
     system "./configure", *std_configure_args,
                           "--with-libreadline-prefix=#{Formula["readline"].opt_prefix}",

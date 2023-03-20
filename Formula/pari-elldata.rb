@@ -18,21 +18,14 @@ class PariElldata < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b578a29521f4a7588711db61e569eb22190aa0cdd2f3812a3112ce0640a07816"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b578a29521f4a7588711db61e569eb22190aa0cdd2f3812a3112ce0640a07816"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "14d4b536fee818631a347a24bc5fa176f2a82bae24a9aa5fbe2db690315b1c74"
-    sha256 cellar: :any_skip_relocation, ventura:        "b578a29521f4a7588711db61e569eb22190aa0cdd2f3812a3112ce0640a07816"
-    sha256 cellar: :any_skip_relocation, monterey:       "b578a29521f4a7588711db61e569eb22190aa0cdd2f3812a3112ce0640a07816"
-    sha256 cellar: :any_skip_relocation, big_sur:        "14d4b536fee818631a347a24bc5fa176f2a82bae24a9aa5fbe2db690315b1c74"
-    sha256 cellar: :any_skip_relocation, catalina:       "14d4b536fee818631a347a24bc5fa176f2a82bae24a9aa5fbe2db690315b1c74"
-    sha256 cellar: :any_skip_relocation, mojave:         "14d4b536fee818631a347a24bc5fa176f2a82bae24a9aa5fbe2db690315b1c74"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3650db70fd22fd44bad2ce00e8990a830659748de3449c39ce546a32d7643e43"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "7ed2f57963daa0d3f904f0cb3371c47f48364a2a192ad58f9b773a6b2f6dd417"
   end
 
   depends_on "pari"
 
   def install
-    (share/"pari/elldata").install gzip(*Dir["#{buildpath}/elldata/ell*"])
+    (share/"pari/elldata").install Utils::Gzip.compress(*Dir["#{buildpath}/elldata/ell*"])
     doc.install "elldata/README"
   end
 

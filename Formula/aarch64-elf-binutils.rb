@@ -1,9 +1,9 @@
 class Aarch64ElfBinutils < Formula
   desc "GNU Binutils for aarch64-elf cross development"
   homepage "https://www.gnu.org/software/binutils/"
-  url "https://ftp.gnu.org/gnu/binutils/binutils-2.39.tar.xz"
-  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.39.tar.xz"
-  sha256 "645c25f563b8adc0a81dbd6a41cffbf4d37083a382e02d5d3df4f65c09516d00"
+  url "https://ftp.gnu.org/gnu/binutils/binutils-2.40.tar.bz2"
+  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.40.tar.bz2"
+  sha256 "f8298eb153a4b37d112e945aa5cb2850040bcf26a3ea65b5a715c83afe05e48a"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,14 +11,13 @@ class Aarch64ElfBinutils < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "75fca4fd07afe73b111cecc6beaa1920110df1e602d5f2152541330b3b9d08e2"
-    sha256 arm64_monterey: "816819b80149e70c4b001ff0d68b02b2809c208bbf3f005729f0ce6522dfc6c7"
-    sha256 arm64_big_sur:  "b3f844bdbf112b87d74c2d368071d6838747252019692b6b200bf5ae4b2003d3"
-    sha256 ventura:        "1aea4eca9a82df1fbe5b05bd59663a1434aec026d9c55f77d572e48c3b0e31a8"
-    sha256 monterey:       "039fa6a5d98e1e6c6bab7580d25afc6791cad9fbfe3b53ce388435e1c2fd2aa1"
-    sha256 big_sur:        "5cbf1bf9d0a450e79405b239b8541cedd40619259828d2dd5cc42d53f619bce4"
-    sha256 catalina:       "711d3b85605b84d64aa88cb22a0de52668e0a232345293fc3dc040fe431b9fb3"
-    sha256 x86_64_linux:   "6529ba0f0d70e67b78a3e41be1200e5330550240c84c929d843e5ffb4aa4527e"
+    sha256 arm64_ventura:  "5c49fbe8956d46572b14d30aac96dea362d9fe027afed084f152f43a4a278d49"
+    sha256 arm64_monterey: "3b064370a49cdc8e23ce9f46d9f806de6e974ceb6ea88cc487fa23348189dbd6"
+    sha256 arm64_big_sur:  "e31ec863273eb6a9d49ccc00c94e3f9b2ce97bfdf5ac9ff3bce88b1655fa20e4"
+    sha256 ventura:        "b6a33fe5905aa39cfb378459ae42e995e83749daff229d293c88811838527e96"
+    sha256 monterey:       "d14fe23ba928f82a86d1f42b1dd980986e742c191f7b83d09d7c04f91fd7d565"
+    sha256 big_sur:        "c14e10801e0a5be2f738b4073eee6dd2c7fff7448fde1556090f42295cae4bd0"
+    sha256 x86_64_linux:   "f5dddac8b6b0b641298ac06706a0b7db79f93c42e987a0a9508955ad8e8d9f29"
   end
 
   on_system :linux, macos: :ventura_or_newer do

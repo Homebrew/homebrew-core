@@ -4,23 +4,23 @@ class GuileAT2 < Formula
   url "https://ftp.gnu.org/gnu/guile/guile-2.2.7.tar.xz"
   mirror "https://ftpmirror.gnu.org/guile/guile-2.2.7.tar.xz"
   sha256 "cdf776ea5f29430b1258209630555beea6d2be5481f9da4d64986b077ff37504"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 arm64_ventura:  "97c512b6352e46223d1d499ccbd2280177a66d6f9076fadbabf2bd84b5125b08"
-    sha256 arm64_monterey: "1de3f7d4c718fd2122bd3360eb8317b9df884799b80c7df0aa22bce7a8747f1b"
-    sha256 arm64_big_sur:  "c781109b4f185f2398a88e947b2b295ee8f19d345286b66c288dc10d12eae491"
-    sha256 ventura:        "1a43acde3b34779a6839ce2c3ee779b729172688ffd22ce6d7e24f8018f1a0b7"
-    sha256 monterey:       "4761b93580c0728f4f24b710aad17f6e00c5ad8db43068fbf59aa1ff8836897c"
-    sha256 big_sur:        "aef48eb8b76fe89a8562a05aea4d749b40e229f15171975e07450c6b0c3b97ff"
-    sha256 catalina:       "400b13228b43277fda50549b52a7c7416a81072fb512c2d2caafd54a35646b53"
-    sha256 x86_64_linux:   "e494b466134fd8d9b2a0dc512dd8814192c9a621fdb52bbdd45e6aeac29c1a3f"
+    sha256 arm64_ventura:  "557aa9ef8f3c8f575122150c28ba59ba9039296ce877ee4682bd4006d90c5b8c"
+    sha256 arm64_monterey: "5a1b1e6a6b110db0de83ddd4e8a09aa542bdc956ffcb68929528757e6fd62279"
+    sha256 arm64_big_sur:  "c121dcc2dab98dfcbfb1c6007171b64c1b5a7ab13336440d6d8f24a13e26f861"
+    sha256 ventura:        "4c44b0aa055223c46d33a3025ec363ad0f4bc965b3a4a6bd3f15711cb02b0d16"
+    sha256 monterey:       "2e2273836f9912d3e4dd0219f2af761d9fa014f552ecd938acb96af730813be8"
+    sha256 big_sur:        "b85baae60da2568229dfcd142067ddd660764e7ac72925279147b68b1269aa4a"
+    sha256 x86_64_linux:   "168e8a4a68d97a72f7eb9ba93ab9abcf2e16e2c583e68ae89eaf677a9602cc97"
   end
 
   keg_only :versioned_formula
 
-  # Commented out while this formula still has dependents.
-  # deprecate! date: "2020-04-07", because: :versioned_formula
+  # Original deprecation date: 2020-04-07
+  # Temporarily undeprecated from 2022-07-29 to 2023-02-13
+  deprecate! date: "2023-02-13", because: :versioned_formula
 
   depends_on "gnu-sed" => :build
   depends_on "bdw-gc"

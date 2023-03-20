@@ -10,8 +10,8 @@ class Gperftools < Formula
 
   livecheck do
     url :stable
-    strategy :github_latest
     regex(%r{href=.*?/tag/gperftools[._-]v?(\d+(?:\.\d+)+)["' >]}i)
+    strategy :github_latest
   end
 
   bottle do
@@ -26,7 +26,7 @@ class Gperftools < Formula
   end
 
   head do
-    url "https://github.com/gperftools/gperftools.git"
+    url "https://github.com/gperftools/gperftools.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

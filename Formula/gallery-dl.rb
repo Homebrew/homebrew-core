@@ -3,19 +3,19 @@ class GalleryDl < Formula
 
   desc "Command-line downloader for image-hosting site galleries and collections"
   homepage "https://github.com/mikf/gallery-dl"
-  url "https://files.pythonhosted.org/packages/74/69/8b64b8ffbf53b8a4770f822c2c3d2f12fd9862c84e3544aa204aa45ac9a4/gallery_dl-1.24.2.tar.gz"
-  sha256 "2aa0e9acaa2aa5b36952b33b9c0623ef572e321e94deceb992a5535b670778b7"
+  url "https://files.pythonhosted.org/packages/23/c8/456af8aa7c6910412407ffd2e4240b3439398aa8da5fe3cf5d765334410d/gallery_dl-1.25.0.tar.gz"
+  sha256 "5b1987eae00c9db9976563a42e1e01eab47a455db17d254167bbf8ec0c25c116"
   license "GPL-2.0-only"
   head "https://github.com/mikf/gallery-dl.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "498497137a19804fd538c83dc26ef5d29940729519a4727eb5f762c2df5f7c56"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8d7e007a414131049a055ae4179bb4c2060a80d977df1104bdbbe3d8e528f501"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1cbf4012c51329991d9c72a7765d68961f94c342d15c0d2842bd246f0a79b068"
-    sha256 cellar: :any_skip_relocation, ventura:        "7c0ba8fe7337027d78d1aa45ab6ca1745a85434dec206b046fd942a9f040ca6f"
-    sha256 cellar: :any_skip_relocation, monterey:       "b6e5663e7873e852f8e52c8e4269fc1e3aa9d7deed617725baaed109dad1813b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "eb96fb1c7d1da863b6a6fdd4228301dc2006fa8a350bbcf1fc632a72ec874fa8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "80c987aa76735b8acdcb36c9cb5abbfd80df48aa21a495d169448ce3c84e758c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b149a6c95d204d2e8028bcaf2c78bbb7615902b47b8d5b94c0cebf09d40f2ca0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e418b38f3d8588cd42d24ae6b942e08f538c0a45dc29beeebb173cab56843585"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fd6afbb56eb2360c36290f6f60e1324c254dcf29c69e6fcb709019b0adfa3483"
+    sha256 cellar: :any_skip_relocation, ventura:        "391de40c9124799dde69529c30b8e29e7cf0f204e2549a0549cdcd927090d500"
+    sha256 cellar: :any_skip_relocation, monterey:       "f162e6424e8960d416d71777f349663ba8866cb67937fbc00c889c23c19bac8e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "24056c38bb0dd728990feb2e7b5684d458edb020cebeda0c4e58c403e051624e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a3756ea87544131d2ff7e2696279413b6195b572f03d23b93c55cf44ebcd7c7c"
   end
 
   depends_on "python@3.11"
@@ -26,8 +26,8 @@ class GalleryDl < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/a1/34/44964211e5410b051e4b8d2869c470ae8a68ae274953b1c7de6d98bbcf94/charset-normalizer-2.1.1.tar.gz"
-    sha256 "5a3d016c7c547f69d6f81fb0db9449ce888b418b5b9952cc5e6e66843e9dd845"
+    url "https://files.pythonhosted.org/packages/ff/d7/8d757f8bd45be079d76309248845a04f09619a7b17d6dfc8c9ff6433cac2/charset-normalizer-3.1.0.tar.gz"
+    sha256 "34e0a2f9c370eb95597aae63bf85eb5e96826d81e3dcf88b8886012906f509b5"
   end
 
   resource "idna" do
@@ -36,13 +36,13 @@ class GalleryDl < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/a5/61/a867851fd5ab77277495a8709ddda0861b28163c4613b011bc00228cc724/requests-2.28.1.tar.gz"
-    sha256 "7c5599b102feddaa661c826c56ab4fee28bfd17f5abca1ebbe3e7f19d7c97983"
+    url "https://files.pythonhosted.org/packages/9d/ee/391076f5937f0a8cdf5e53b701ffc91753e87b07d66bae4a09aa671897bf/requests-2.28.2.tar.gz"
+    sha256 "98b1b2782e3c6c4904938b84c0eb932721069dfdb9134313beff7c83c2df24bf"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/c2/51/32da03cf19d17d46cce5c731967bf58de9bd71db3a379932f53b094deda4/urllib3-1.26.13.tar.gz"
-    sha256 "c083dd0dce68dbfbe1129d5271cb90f9447dea7d52097c6e0126120c521ddea8"
+    url "https://files.pythonhosted.org/packages/21/79/6372d8c0d0641b4072889f3ff84f279b738cd8595b64c8e0496d4e848122/urllib3-1.26.15.tar.gz"
+    sha256 "8a388717b9476f934a21484e8c8e61875ab60644d29b9b39e11e4b9dc1c6b305"
   end
 
   def install

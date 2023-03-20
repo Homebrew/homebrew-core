@@ -1,8 +1,8 @@
 class GstPluginsBad < Formula
   desc "GStreamer plugins less supported, not fully tested"
   homepage "https://gstreamer.freedesktop.org/"
-  url "https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.20.5.tar.xz"
-  sha256 "f431214b0754d7037adcde93c3195106196588973e5b32dcb24938805f866363"
+  url "https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.22.0.tar.xz"
+  sha256 "3c9d9300f5f4fb3e3d36009379d1fb6d9ecd79c1a135df742b8a68417dd663a1"
   license "LGPL-2.0-or-later"
   head "https://gitlab.freedesktop.org/gstreamer/gst-plugins-bad.git", branch: "master"
 
@@ -12,13 +12,13 @@ class GstPluginsBad < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "010120213bd50f71eb9411a561905ca3d85a72a82591e0351273ec43bf797d9d"
-    sha256 arm64_monterey: "96d634b448867d38c80d231df99bd01f586da79c09d115b4420fe4eb540e076a"
-    sha256 arm64_big_sur:  "64fc75c767f6f4590cf0c44ccef5741d29bb1002002f076da6bc77053364ea08"
-    sha256 ventura:        "95741a1736b7c311c1cadd4483d7c36af62723aac6a4319ca693ba260f7f5b6f"
-    sha256 monterey:       "eef5c8bdce9a1da53386a2ec4b0bfe2f413598fc1465773c590b422b1106d1c3"
-    sha256 big_sur:        "e62f6d626d28d1e3757a3048836fd723f53e19bc6c21cac08e82cb6ff130a98e"
-    sha256 x86_64_linux:   "d1bf29fc40b493ab62a655377cc0c138786071a39bbbaf8b5bfefeab7caaeb81"
+    sha256 arm64_ventura:  "da24f02ddefa2a782816c9d548f3105aabd048752e845d03cdb01e8e9f236ae2"
+    sha256 arm64_monterey: "5d1562a4d0c2ee784434dd24c7cdf091e5425277bc13354b9d50f750d8c77392"
+    sha256 arm64_big_sur:  "3a122b127e1c1af4e093fbb937ae9bb90900e332f9ef95de0cf49c8206f7e294"
+    sha256 ventura:        "08e833950120afbd48f03baeba86e2e82bb8b97ac845fc23610833019cf5514e"
+    sha256 monterey:       "1f294a19d4398027ed47db49f3778984e9d32424a9d79cadcd6b421782c047b2"
+    sha256 big_sur:        "1a48a2a49831cd0566f9ddbb73e469b87d49bef8f719e05b4fb9149121eba3b3"
+    sha256 x86_64_linux:   "575b25a7fb0011521bb80b67b3c5b0ddc70486023c99164cb08519538f6b4ee1"
   end
 
   depends_on "gobject-introspection" => :build

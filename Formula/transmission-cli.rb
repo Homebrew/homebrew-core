@@ -1,52 +1,50 @@
 class TransmissionCli < Formula
   desc "Lightweight BitTorrent client"
   homepage "https://www.transmissionbt.com/"
-  url "https://github.com/transmission/transmission-releases/raw/d5ccf14/transmission-3.00.tar.xz"
-  sha256 "9144652fe742f7f7dd6657716e378da60b751aaeda8bef8344b3eefc4db255f2"
+  url "https://github.com/transmission/transmission/releases/download/4.0.2/transmission-4.0.2.tar.xz"
+  sha256 "39bf7a104a722805a9dc089cdaaffe33bf90b82230a7ea7f340cae59f00a2ee8"
   license any_of: ["GPL-2.0-only", "GPL-3.0-only"]
 
   livecheck do
-    url "https://github.com/transmission/transmission-releases/"
-    strategy :page_match
-    regex(/href=.*?transmission[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_ventura:  "b6c5414407b789d0c97b2454a636d7abf5cd7344a3c55846b1e0648877db0986"
-    sha256 arm64_monterey: "7cea8d14774f036fb808ab778efd7aaebfdd46b0057e401ccfc1744e09f05e30"
-    sha256 arm64_big_sur:  "07a84ee48fdee3046614731074c3e3f20f814011d644e6804a836e586a11f4a5"
-    sha256 ventura:        "643cf06d5177d5df947ff6021971ba0605f7ad7cade990204d5d29a3820dd7f9"
-    sha256 monterey:       "8785d5cd7675a2f5203cd9cb4a7b13b756037d2ee127abfe6223b946733efe34"
-    sha256 big_sur:        "d536f415cf27818d83062e693c8ebde50057fbe36d120b81cda3bbb32e5396b7"
-    sha256 catalina:       "7640fdff8a0840356ea2d43d3ab0efe1d5da5c2840d9fe555deed3c9957705c1"
-    sha256 mojave:         "db2aa6896d89884e15d5dda0b35c152a96cd028703c69f7f8bd9288d0d61a838"
-    sha256 x86_64_linux:   "178d05964e9efd8d4541cf5589f4772ccdc59b8de83158f96b8ad7ffeff6b8d2"
+    sha256 arm64_ventura:  "cb6c77e2310ec184abc329f7ee10769fe94e73dd1bee681dc0adb1bb39147daa"
+    sha256 arm64_monterey: "96821a7f331ff397706b1d661d7160164b47df41a72e7504f6b67a3ffa4c119e"
+    sha256 arm64_big_sur:  "f2ca7e6a1c6cf4d692bcc22d2c5fc1adf0569882b4044ebf7befe4839aa6cb77"
+    sha256 ventura:        "06871e866e743ae99e3ae242ddb2ef8b055bf9e8434b0a2d4d0d24bba9a7d6de"
+    sha256 monterey:       "4bd05721254b1482d08ae061af18690e73e50283378b4239804f5e5fd533aa48"
+    sha256 big_sur:        "759fb23d07dabf7761c1dce899a29afd352eb238c98b8c76bb4922797ee838fb"
+    sha256 x86_64_linux:   "a1ac1bf4925a6aed7a7f8892160d3cfb2618d22ae17b8f299a6f74fb6805eff6"
   end
 
+  depends_on "cmake" => :build
+  depends_on "gettext" => :build
   depends_on "pkg-config" => :build
   depends_on "libevent"
   depends_on "openssl@1.1"
 
+  uses_from_macos "python" => :build
   uses_from_macos "curl"
   uses_from_macos "zlib"
 
   def install
-    if OS.mac?
-      ENV.append "LDFLAGS", "-framework Foundation -prebind"
-      ENV.append "LDFLAGS", "-liconv"
-    end
-
-    args = %W[
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-      --disable-mac
-      --disable-nls
-      --without-gtk
+    args = %w[
+      -DENABLE_CLI=ON
+      -DENABLE_DAEMON=ON
+      -DENABLE_MAC=OFF
+      -DENABLE_NLS=OFF
+      -DENABLE_QT=OFF
+      -DENABLE_TESTS=OFF
+      -DENABLE_UTILS=ON
+      -DENABLE_WEB=OFF
     ]
 
-    system "./configure", *args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, *args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
     (var/"transmission").mkpath
   end

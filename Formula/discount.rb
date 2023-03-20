@@ -1,8 +1,8 @@
 class Discount < Formula
   desc "C implementation of Markdown"
   homepage "https://www.pell.portland.or.us/~orc/Code/discount/"
-  url "https://www.pell.portland.or.us/~orc/Code/discount/discount-2.2.7.tar.bz2"
-  sha256 "b1262be5d7b04f3c4e2cee3a0937369b12786af18f65f599f334eefbc0ee9508"
+  url "https://www.pell.portland.or.us/~orc/Code/discount/discount-2.2.7b.tar.bz2"
+  sha256 "b9368cc2063831635f9e790d0c4c338c2b4b72658cdc244323241bfcddf6ffd5"
   license "BSD-3-Clause"
   head "https://github.com/Orc/discount.git", branch: "main"
 
@@ -12,25 +12,27 @@ class Discount < Formula
   # like a reliable source for the latest version information, unfortunately.
   livecheck do
     url :head
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    regex(/^v?(\d+(?:\.\d+)+[a-z]?)$/i)
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "969caad0bdbb46a4c023cdd9437b0ab27db66a0bdf27121688516a937f02a9a7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5f3fe3c2ed674a47a0eaaa9449e6bec0f59131c46130aff8c99f908dfdd555a5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6eb8a216722f471eb6475f13e7f02a079069667d9c428b93275a7424aaea9a75"
-    sha256 cellar: :any_skip_relocation, ventura:        "7beacc113d341be99e17a53128a27d99e80ca4cccd364bc6f4bd4e5b517654c8"
-    sha256 cellar: :any_skip_relocation, monterey:       "9ae27788828756b56502d01183b5f2ff5508a8b1666223d19ae7a3c36510e06c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "013c9e0bedb1a10f099e3b9a0c521c7e2f287602ae101284fc8d5bcbe76abfbf"
-    sha256 cellar: :any_skip_relocation, catalina:       "dcec657eb504394b83d9d949f3e33463733a4410681d38826040aaf9084f8ed5"
-    sha256 cellar: :any_skip_relocation, mojave:         "a5848add43adaee78666b9fc29de442944066e6bcbf7d547b68346dfa665c65f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "372b101acb6bcb3673a5e2056e4462f6fcec1d3c0a6af49a8a7c9c7d3375b250"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "03a512e21fb2f05d4d2e35e5b3f75199a61e0fa2ed44f7461c9405caa694a73c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "47ced80d8c7d86e2621ec51d2c0a4f6a8908c6b411809f14ad8ada82c58d73fe"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "78123c680c39668f0d37eeebe400ad5314fc78f4df38076aa77dd7e69eb67c38"
+    sha256 cellar: :any_skip_relocation, ventura:        "8eeb94fd9c35339a0282c884eab1f11bb535274128a9e836f00406e41ee6d970"
+    sha256 cellar: :any_skip_relocation, monterey:       "dd4569f09f12e8f69b39fa4cd2813515b050a228465549298409f6fe9fc24d3b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "3be94be78ab2d85a8503f893527c62efe438ca127873d0a03336e9e131a2783b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "17289c8fe47a7c9f6b3cd8a5d79a608c382402abeeed6fc9b9c2ad4de4178dd8"
   end
 
   conflicts_with "markdown", because: "both install `markdown` binaries"
   conflicts_with "multimarkdown", because: "both install `markdown` binaries"
 
   def install
+    # Shared libraries are currently not built because they require
+    # root access to build without patching.
+    # Issue reported upstream here: https://github.com/Orc/discount/issues/266.
+    # Add --shared to args when this is resolved.
     args = %W[
       --prefix=#{prefix}
       --mandir=#{man}
@@ -38,6 +40,7 @@ class Discount < Formula
       --enable-dl-tag
       --enable-pandoc-header
       --enable-superscript
+      --pkg-config
     ]
     system "./configure.sh", *args
     bin.mkpath

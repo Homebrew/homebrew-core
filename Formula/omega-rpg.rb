@@ -1,14 +1,9 @@
 class OmegaRpg < Formula
   desc "Classic Roguelike game"
-  homepage "http://www.alcyone.com/max/projects/omega/"
-  url "http://www.alcyone.com/binaries/omega/omega-0.80.2-src.tar.gz"
+  homepage "https://web.archive.org/web/20220521053542/http://www.alcyone.com/max/projects/omega/"
+  url "https://web.archive.org/web/20190318143402/http://www.alcyone.com/binaries/omega/omega-0.80.2-src.tar.gz"
   sha256 "60164319de90b8b5cae14f2133a080d5273e5de3d11c39df080a22bbb2886104"
   revision 1
-
-  livecheck do
-    url :homepage
-    regex(/latest.*?>v?(\d+(?:\.\d+)+)</i)
-  end
 
   bottle do
     rebuild 1
@@ -22,6 +17,8 @@ class OmegaRpg < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:    "0b08d090868aa2b1da56645e74ea87d6a15043c473aba35e56f3fbf2e4b4f4d4"
     sha256                               x86_64_linux:   "b7da84e88747a0e8f6715fa1961aed8004845da0eaeb523a9ee35271db6f9305"
   end
+
+  deprecate! date: "2023-02-15", because: :repo_removed
 
   uses_from_macos "ncurses"
 

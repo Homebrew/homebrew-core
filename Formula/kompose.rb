@@ -1,23 +1,21 @@
 class Kompose < Formula
   desc "Tool to move from `docker-compose` to Kubernetes"
   homepage "https://kompose.io/"
-  url "https://github.com/kubernetes/kompose/archive/v1.27.0.tar.gz"
-  sha256 "258e05c6e725fd2ef710275a6ce8d391d5d54de46f0a9f637ebbeb96b976b4ad"
+  url "https://github.com/kubernetes/kompose/archive/v1.28.0.tar.gz"
+  sha256 "6afd873246f53cd056a51c6d95377ce8da020e4a1da4e591d4520e2c160a6de9"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c72e214d68b500682945ff6d24e363bfeeb5686fd8a1c165743f7f84c7a6b519"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "73286744b877e3da7becc95f0502833e06eb37c36057c5719d00bb68901716f9"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8ba5b4cd7d937e38071767bfef36948f1bd0786b607e150feab27d56e06d1e55"
-    sha256 cellar: :any_skip_relocation, ventura:        "b68ba2aae5888ec75ec9cbeb112e1edf9976ca0b361eb071eafb3409c5148e8d"
-    sha256 cellar: :any_skip_relocation, monterey:       "1b1d5018ace1b8247f3dd0474eb9632d011f38716afce6e74bdc30a402aa0402"
-    sha256 cellar: :any_skip_relocation, big_sur:        "be28041f3dd15d9b717c0615c4234a3c615ce01baf423046f3b23f5f090a7412"
-    sha256 cellar: :any_skip_relocation, catalina:       "b217de5792e76e969ce916c4e282f603751b69890d91a42f758cb4146a858566"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b9b48d58808855c3e8aa8c4211422706693adbac6d416abfcb407e44d537188a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e5260435bd2e657104334e93bf0047360e173c8149e36049bc14b49bfe0ea203"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1457bdf346c96dbec5a8cfdbb3ca2ba430466e011f239975841904aed2250dea"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c45bd3bb4e448d08145c04dd6440592f464e7837bd5278e833dfdff5b4f6fb21"
+    sha256 cellar: :any_skip_relocation, ventura:        "9695aae955a8122bf78c447846ef3e9ad2a5be67bc779ae3fefed9d07958a25a"
+    sha256 cellar: :any_skip_relocation, monterey:       "05070f9b6ff9f6177dd299e12f37115f38cbb82d57a535587e604eeb3731e06d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "2206869fb86d72ed2b578c84883e3fecd3794b4010c4febeda0da3fd96f11b08"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7dbfd0d3304cf727012fdd7c26f946d47833884c70524dc31989de13cb473cdd"
   end
 
-  # Bump to 1.18 on the next release, if possible.
-  depends_on "go@1.17" => :build
+  depends_on "go" => :build
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")

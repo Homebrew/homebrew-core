@@ -7,14 +7,8 @@ class GitMultipush < Formula
   head "https://github.com/gavinbeatty/git-multipush.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7f02c0c3d5c5fd2e7ecb84b057ab23bf5452839b479a5ec47e1e374589efdb38"
-    sha256 cellar: :any_skip_relocation, big_sur:       "981bdfe608288a854656563e178db2cdb9e9a9db30381203e0f67bfd38d29e16"
-    sha256 cellar: :any_skip_relocation, catalina:      "b9de9b128791d8c416076ed738016ffe534ce85bacddf297ab9ce13954dcaff6"
-    sha256 cellar: :any_skip_relocation, mojave:        "8f4c2e7a1aee0db75154c4b21aee1a4bd398a9b889f119e7b86a06b1533b9304"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "edd99d5ec177bccf061f7424aa595a5515fa5728aec649594f42964cec1f371e"
-    sha256 cellar: :any_skip_relocation, sierra:        "81d0a4bc4808ab5a31b043640c2ec861cbe6a5fead1a76eda0ffa7bff8ae6158"
-    sha256 cellar: :any_skip_relocation, el_capitan:    "dab6c9480077541aff39c6ba5b27a91bbc557faedd713178e9f6e8ea7daa5371"
-    sha256 cellar: :any_skip_relocation, all:           "d5c375848d38c5eb1f2e47ad8bf1f43e93ed8ac7f6614de4b586b71a3a2d562e"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "d4827d3f19adf80aba2aecc3e4f475bc1527b6b66bbd8b77128d6065f3a5366b"
   end
 
   depends_on "asciidoc" => :build

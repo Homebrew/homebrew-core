@@ -28,9 +28,8 @@ class Forego < Formula
     ENV["GO111MODULE"] = "off"
     (buildpath/"src/github.com/ddollar/forego").install buildpath.children
     cd "src/github.com/ddollar/forego" do
-      system "go", "build", "-o", bin/"forego", "-ldflags",
-             "-X main.Version=#{version} -X main.allowUpdate=false"
-      prefix.install_metafiles
+      ldflags = "-X main.Version=#{version} -X main.allowUpdate=false"
+      system "go", "build", *std_go_args(ldflags: ldflags)
     end
   end
 

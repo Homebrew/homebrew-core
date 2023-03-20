@@ -30,6 +30,6 @@ class Pickle < Formula
   end
 
   test do
-    assert_match(/Package name[ |]+apcu/, shell_output("pickle info apcu"))
+    assert_match(/Package name[ |]+apcu/, shell_output("#{bin}/pickle info apcu"))
   end
 end

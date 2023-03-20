@@ -1,26 +1,29 @@
 class Tbb < Formula
   desc "Rich and complete approach to parallelism in C++"
   homepage "https://github.com/oneapi-src/oneTBB"
-  url "https://github.com/oneapi-src/oneTBB/archive/refs/tags/v2021.7.0.tar.gz"
-  sha256 "2cae2a80cda7d45dc7c072e4295c675fff5ad8316691f26f40539f7e7e54c0cc"
+  url "https://github.com/oneapi-src/oneTBB/archive/refs/tags/v2021.8.0.tar.gz"
+  sha256 "eee380323bb7ce864355ed9431f85c43955faaae9e9bce35c62b372d7ffd9f8b"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "e872d553d5c06d401f725fc6d9d6489cf888c66f7cc1cb1efffaf3640f79c100"
-    sha256 cellar: :any,                 arm64_monterey: "97c4b2a2c11ba82f58dd035f7a48e4a2ba15a619c84965345ec30848a9e0878d"
-    sha256 cellar: :any,                 arm64_big_sur:  "d2a5e661d1a86f8e3279399efd50d6c8696fb83ee9359856e0f0a6e8c72141d5"
-    sha256 cellar: :any,                 ventura:        "a094729f72f4d89bc7c5c1511fc92d9aa32282125dc08fad25c3921e79d02584"
-    sha256 cellar: :any,                 monterey:       "0f2c2a55a0ef29487183373986ee366db3dca5dc6ddac1622bf7c5f555cb9deb"
-    sha256 cellar: :any,                 big_sur:        "0a714ba09eb9717b540be7ca5b262cc9fd1300c1793817b265e66f1de37fa4f3"
-    sha256 cellar: :any,                 catalina:       "81857d93aaa85e0fd941274661d323c701e3201d218cccb7dcf9c2ff9d80c0bb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6f156f15d33d15b3213a01d4a803d3412df93d39dc3c28de03049e2ebf6b6b4b"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "46d04d29f58feb35f4fbb7e19ce0c7fab03c105cc6197348dd42db7a385eb23f"
+    sha256 cellar: :any,                 arm64_monterey: "45ee51718a1fdf082e0c1139b63cbb28e5e7e1c6cdad827f4e5fb3b75dd1e926"
+    sha256 cellar: :any,                 arm64_big_sur:  "8d20e75d3d0e7c520864f8781a0cdd3c343be0d78e40f0346e8fcb56008fc844"
+    sha256 cellar: :any,                 ventura:        "9faab40fd71f8a4697e0bd3f07b17e3059ae451ef0d068a0b55e7e468d1e57f5"
+    sha256 cellar: :any,                 monterey:       "854240810a892a3e690e5c75a7160d7c924ccd4853ecdb94586f9ace22f3b2b2"
+    sha256 cellar: :any,                 big_sur:        "5bfb895a4fe45dc2a142288c2ae849f5b01f71fbb18d5e6ef40014bb76f80ea0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9f41e9031bc50ebbab21271523fac58c9b72e7ed8fa45ee4a910b255a1e12d99"
   end
 
-  # If adding `hwloc` for TBBBind, you *must* add a test for its functionality.
-  # https://github.com/oneapi-src/oneTBB/blob/690aaf497a78a75ff72cddb084579427ab0a8ffc/CMakeLists.txt#L226-L228
   depends_on "cmake" => :build
   depends_on "python@3.11" => [:build, :test]
   depends_on "swig" => :build
+
+  on_linux do
+    depends_on "pkg-config" => :build
+    depends_on "hwloc"
+  end
 
   # Fix installation of Python components
   # See https://github.com/oneapi-src/oneTBB/issues/343
@@ -80,6 +83,28 @@ class Tbb < Formula
     # so let's check their existence.
     assert_path_exists lib/"libtbb.a"
     assert_path_exists lib/"libtbbmalloc.a"
+
+    # on macOS core types are not distinguished, because libhwloc does not support it for now
+    # see https://github.com/oneapi-src/oneTBB/blob/690aaf497a78a75ff72cddb084579427ab0a8ffc/CMakeLists.txt#L226-L228
+    (testpath/"cores-types.cpp").write <<~EOS
+      #include <cstdlib>
+      #include <tbb/task_arena.h>
+
+      int main() {
+          const auto numa_nodes = tbb::info::numa_nodes();
+          const auto size = numa_nodes.size();
+          const auto type = numa_nodes.front();
+      #ifdef __APPLE__
+          return size == 1 && type == tbb::task_arena::automatic ? EXIT_SUCCESS : EXIT_FAILURE;
+      #else
+          return size != 1 || type != tbb::task_arena::automatic ? EXIT_SUCCESS : EXIT_FAILURE;
+      #endif
+      }
+    EOS
+
+    system ENV.cxx, "cores-types.cpp", "--std=c++14", "-DTBB_PREVIEW_TASK_ARENA_CONSTRAINTS_EXTENSION=1",
+                                      "-L#{lib}", "-ltbb", "-o", "core-types"
+    system "./core-types"
 
     (testpath/"sum1-100.cpp").write <<~EOS
       #include <iostream>

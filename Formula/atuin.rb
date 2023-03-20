@@ -1,20 +1,18 @@
 class Atuin < Formula
   desc "Improved shell history for zsh and bash"
   homepage "https://github.com/ellie/atuin"
-  url "https://github.com/ellie/atuin/archive/refs/tags/v12.0.0.tar.gz"
-  sha256 "bfeeb14c3fd94862e2cb7c57ac2b77db78686b0afe49b5597ead9cca02dcc403"
+  url "https://github.com/ellie/atuin/archive/refs/tags/v13.0.1.tar.gz"
+  sha256 "c012ae65b7093954bc2d614633223f181261208ca282a409f245040f6ad976a1"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e7fff6ab64237cfd0296d657146c0ccac42f62ae25d135bebb5f0fbd2b841763"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "08ce3c57d76020baaaee7672c31aeab51ae753dfb2c42242ef1ca9bffc33df14"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "76b5bbebe4c2758f9c44cc86030279399d501c0a0ddee820900738cf45db3b65"
-    sha256 cellar: :any_skip_relocation, ventura:        "f633e62d06144cf42194fa59c960fc05de0401652f042c5892d787fc9a8be967"
-    sha256 cellar: :any_skip_relocation, monterey:       "56a9895ff2a37d67490851811422b180312975732e2f34e778249c2e4bfcbd9a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "741867bcf7ed64988d3084a1583b5186a62f542d13bedde156feb31af338579c"
-    sha256 cellar: :any_skip_relocation, catalina:       "44805dd61ee6163c3ae4ee537a00168f28b0b616181e202a2808867b8d0e4d55"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bba7de6d1c3dd8a1e7ca6041f135056bccf8a268bd23ba6c3e215351ff87206b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f234f62dd94e96f4b92c4c494ce64887b771e2868126b4b26db34793cee8f77a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1c2ceae6902a6b950cd63dfe09d52c89092eaa7acedc7985ad0fd056c8c0a46f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e380dc4017d7788b4e8dae85fc3df3ad2646179a55a8b657766c8672ab5cf083"
+    sha256 cellar: :any_skip_relocation, ventura:        "9b6ec1c49df7e5b4b5cb9cff569653945fc80bc8289489eb3df1c8cb1fd8579c"
+    sha256 cellar: :any_skip_relocation, monterey:       "5891b343314ea2498b9265c6cdc02f42b47b7305a36537606e59c92cd3bd2eb2"
+    sha256 cellar: :any_skip_relocation, big_sur:        "129b8d69fee29850359f4f763621b79e08cb928ee9eaebf98eceea0c234326a5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2dde69b8144ab4583282b14cd37eb2e961a53277dc448aa59bd89e8731c36e1a"
   end
 
   depends_on "rust" => :build
@@ -28,7 +26,7 @@ class Atuin < Formula
   test do
     # or `atuin init zsh` to setup the `ATUIN_SESSION`
     ENV["ATUIN_SESSION"] = "random"
-    assert_match "autoload -U add-zsh-hook", shell_output("atuin init zsh")
-    assert shell_output("atuin history list").blank?
+    assert_match "autoload -U add-zsh-hook", shell_output("#{bin}/atuin init zsh")
+    assert shell_output("#{bin}/atuin history list").blank?
   end
 end

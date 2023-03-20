@@ -9,11 +9,6 @@ class Octant < Formula
   license "Apache-2.0"
   head "https://github.com/vmware-tanzu/octant.git", branch: "master"
 
-  livecheck do
-    url :stable
-    strategy :github_latest
-  end
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d15cb0eed642b761f16c0b15af9cd2840abccdd01a9b396b2fc562285bf882c0"
@@ -24,6 +19,10 @@ class Octant < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "71c030c4adb0923f6b1c6956aa7888e5a89382bf32fb9139423867b3ae2a5b8e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4df389cca7e8d7586332ee36bf529a8e6aaf70f94acd2ba567c99445e8874bd3"
   end
+
+  # "VMware has ended active development of this project, this repository
+  # will no longer be updated."
+  deprecate! date: "2023-02-07", because: :repo_archived
 
   depends_on "go" => :build
   depends_on "node@14" => :build

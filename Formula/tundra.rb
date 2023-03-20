@@ -1,8 +1,8 @@
 class Tundra < Formula
   desc "Code build system that tries to be fast for incremental builds"
   homepage "https://github.com/deplinenoise/tundra"
-  url "https://github.com/deplinenoise/tundra/archive/v2.16.3.tar.gz"
-  sha256 "25c2649cd415996a5d8fdc4efc39345bd4d44a042a15c93c2a0523703b98f766"
+  url "https://github.com/deplinenoise/tundra/archive/v2.17.1.tar.gz"
+  sha256 "8cc16bf466b1006b089c132e46373fa651ed9fc5ef60d147a5af689f40686396"
   license "MIT"
 
   livecheck do
@@ -11,15 +11,13 @@ class Tundra < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bdd0d899c91a1119bf5c92a065b8512d93ebe55b3717739c643f45f007e69b4f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "881f85c3420de84fef6abada966f11381a2a2342584485a10be0cd129470302f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e7ab1c12b2e4655c43d05d0a2e3d7c639b0ba3f525ce19ccd63f0c1b5232b139"
-    sha256 cellar: :any_skip_relocation, ventura:        "814a8ec8b9082122bf161855085ec3412d94b9dc9a3946e4ef0f1ad2d2951117"
-    sha256 cellar: :any_skip_relocation, monterey:       "12546c667831e99b534a83f6d3e0ef5eb27795396a68198dba7510a73f28ee2e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a6b590396609eca11fc3d11a092d6354ce9ab2b56ac00b0ce19c1066740b67d1"
-    sha256 cellar: :any_skip_relocation, catalina:       "5300a0ef420db061926f21228da36eb747c8553cba76e48c86832f86cbbda0fa"
-    sha256 cellar: :any_skip_relocation, mojave:         "c2faa7134fd8cebc4a1552c2b5c772ed9f15024b5f8d9c9f7ec2a0123e74a23c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f9410f75d8351e7e9a78fdbccf4f84d6ed78108cf6d6a730b205e2b6c9bfac51"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4d9f2cd1374c20ef1da7e252042d44e65b5ad84c5c91c6e6cac714a583725f58"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0953e51bb22a0616db2bc8ad0cc1bd6f61b316b16ff7e5381c46f37ec4023d94"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a182719c47859df3ee2fab4e95532cc80f8fc7e709d20abf923351c688d23f3a"
+    sha256 cellar: :any_skip_relocation, ventura:        "fef8b9004f15f9d78de74bad24584c2d23689f4ba570d67ae672cb564a9f66bd"
+    sha256 cellar: :any_skip_relocation, monterey:       "87fe83996c49084606a9cc2d2e7d337a3f23b15be64ce1f9aadba477d666ea6d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "53b654296a0c03b4b7f2280c068071ce9727fb788840534d1e66abfb041ba8a4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6d6d953026b3e555729ca74533db71a97dc60dfd56d89d185070051d321916ee"
   end
 
   depends_on "googletest" => :build

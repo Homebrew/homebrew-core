@@ -16,7 +16,7 @@ class Scalariform < Formula
   end
 
   head do
-    url "https://github.com/scala-ide/scalariform.git"
+    url "https://github.com/scala-ide/scalariform.git", branch: "master"
     depends_on "sbt" => :build
   end
 

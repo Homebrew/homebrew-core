@@ -1,18 +1,18 @@
 class Gucharmap < Formula
   desc "GNOME Character Map, based on the Unicode Character Database"
   homepage "https://wiki.gnome.org/Apps/Gucharmap"
-  url "https://gitlab.gnome.org/GNOME/gucharmap/-/archive/15.0.2/gucharmap-15.0.2.tar.bz2"
-  sha256 "ab7317cf111ebe2efe435a68c65d5866923ad2f8c256dff1089fe2ff474b8470"
+  url "https://gitlab.gnome.org/GNOME/gucharmap/-/archive/15.0.3/gucharmap-15.0.3.tar.bz2"
+  sha256 "82636e4a5baacad795430a0de129450e84a69c4b1d68d007128c5023f9a82417"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_ventura:  "9b7d31351e1de102a14324471a47af88a6d2f9e3f7137f3629f51e537f4b0bf4"
-    sha256 arm64_monterey: "56036c11acc671e1ea64b6738c028c2f30e62f44d69c7486a4ee2c83ef79f4cc"
-    sha256 arm64_big_sur:  "c7fa054afb17f3d139a9448be6dbbcc838870595daf3b9c6d3e0417940d7fbc8"
-    sha256 ventura:        "8e80b0e5a5e7996cbd0b67fc15df8fc80ed91da30998f54d46e87fc625fbfa62"
-    sha256 monterey:       "6d545e0a772e7c38aa51375c7b5cf580624dffcd1ba3e4c630fe9e08854e1a67"
-    sha256 big_sur:        "3aaad8a75f07cc45f5c04a9a38f4a5a7127978d561409dedb0c168e5d65c21e2"
-    sha256 x86_64_linux:   "dbaedbda536b85bae704fa15f3d71a2f6bee406ecec19b7e243ccd456aacfb33"
+    sha256 arm64_ventura:  "00f964c8f021e758906253670ead429c79f57dfd89ea35d7ba7f66e8be30deae"
+    sha256 arm64_monterey: "ee7a2aec333c215a3f6bace5c3785cf5c09e85f0d4b5a7d2438d7fe067363706"
+    sha256 arm64_big_sur:  "acd3d9cd2ee5ebf337a6052c73a3e5199a96035344f9e55aabd475c74b77980c"
+    sha256 ventura:        "683c632a969b05c6be2d97d5fb58fe1619a46421ecdc3c7705c401d2e653500b"
+    sha256 monterey:       "8ce3dd619faf86166d58107e61d5eae25640b69b4907149caaaa62000f766807"
+    sha256 big_sur:        "e9e480dcdfbe970303bf771d30f1dbf4b44225dae90c0016d7794713c3e60ca9"
+    sha256 x86_64_linux:   "a996a400de1d46836d6499d747e242417f983fb4b79e895d229a3d881bfebd0e"
   end
 
   depends_on "desktop-file-utils" => :build
@@ -24,6 +24,10 @@ class Gucharmap < Formula
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
   depends_on "gtk+3"
+
+  on_linux do
+    depends_on "gettext" => :build
+  end
 
   resource "ucd" do
     url "https://www.unicode.org/Public/15.0.0/ucd/UCD.zip"

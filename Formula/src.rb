@@ -1,8 +1,8 @@
 class Src < Formula
   desc "Simple revision control: RCS reloaded with a modern UI"
   homepage "http://www.catb.org/~esr/src/"
-  url "http://www.catb.org/~esr/src/src-1.29.tar.gz"
-  sha256 "4dcfaa0612ed0bdbb6dc1aea567880a6b015f1885710bbdb327f97c4de414241"
+  url "http://www.catb.org/~esr/src/src-1.31.tar.gz"
+  sha256 "9b4d021bdeb0e68973c62b71cd313644b0109e2526d61847a4599269582f0edd"
   license "BSD-2-Clause"
 
   livecheck do
@@ -11,7 +11,7 @@ class Src < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "1be6e1ab14e7503ebe94f2e896af8c3e9d605232e3ea18f09f7248a2350f90e4"
+    sha256 cellar: :any_skip_relocation, all: "b5f93380d42472047491e3c310effeb87a6f938489fce0875f1bd2ab8c2ee669"
   end
 
   head do
@@ -19,6 +19,7 @@ class Src < Formula
     depends_on "asciidoc" => :build
   end
 
+  depends_on "python@3.11"
   depends_on "rcs"
 
   def install

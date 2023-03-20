@@ -6,6 +6,11 @@ class GoJsonnet < Formula
   license "Apache-2.0"
   head "https://github.com/google/go-jsonnet.git", branch: "master"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a7f8dfba1c4375efe666659690858fa3158dce7d30a6d75ff92a758187ea955e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f887f81f923d669cc0008c821d337da78db1d82062bcd66929cc897fe8eea9ff"

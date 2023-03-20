@@ -3,28 +3,24 @@ class Viennacl < Formula
   homepage "https://viennacl.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/viennacl/1.7.x/ViennaCL-1.7.1.tar.gz"
   sha256 "a596b77972ad3d2bab9d4e63200b171cd0e709fb3f0ceabcaf3668c87d3a238b"
+  revision 1
   head "https://github.com/viennacl/viennacl-dev.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cc8761095e89fe0ba92453ec1697ee2a6cbcf661d203d9ccd71f88b7c0ae7b08"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "09a95ad5ebf44a0b14c98a7b464ca6a3f83c47b8b9d6609b508051faf1ce3a41"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a59335b82a9f92448236ec0278d156f2425995d48fddcef730b906ca63aea6f9"
-    sha256 cellar: :any_skip_relocation, ventura:        "a9a82d01da982124364d829362836bfcba075981bde2cf4be39fb036fd2f0341"
-    sha256 cellar: :any_skip_relocation, monterey:       "c15b7b7033a93664765ef18222701e12adc7f0ef3ca797891aee90e826d87a96"
-    sha256 cellar: :any_skip_relocation, big_sur:        "696235e232844f8af5d062bc9197ab87fcacb012da49304b7cce059b145255cf"
-    sha256 cellar: :any_skip_relocation, catalina:       "6fa1cf4450123da7e4af2910f6a9c41e7005d5591e05d035c06adddff44f25e0"
-    sha256 cellar: :any_skip_relocation, mojave:         "0d2ae6a32779520d35e8194948a0df499bc147743fd54f59fe3c69e833e84f1c"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "7be4bc5f161868a9646a575530acd83034e7af6e39439e262c499b219738e74e"
-    sha256 cellar: :any_skip_relocation, sierra:         "809b0ff014ad6fdae2337ac8dd0cde29c72fe4cb8817a7e7417e9722b7572059"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "cb5cd96fd4c730518b6b0e150fd15386ad71576e444bfbbd5f055e844d4a5976"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5d32afb7f9b444c389613c17f224b510f353c8b82794c84b978ebc0e31a41911"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a55d8851ffa58afce58203d6ed577321fa309f02c63f472794c35e147bbee696"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8088de8835167e42aa0271cd230cea442279337a2108576fd46a1db4610c72c2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "194ed5f169b951284a52fd44858a435b4312abd99f420a9b963823a4736d66c0"
+    sha256 cellar: :any_skip_relocation, ventura:        "39bb6f51bf36fed3df3de63ef1b2ab0c52b2d1ddf9bbded384d9f5fa2591d7d9"
+    sha256 cellar: :any_skip_relocation, monterey:       "c727de7f290a066e697f0bdddc8fb72c544a725f8984872ecc87fe9a3127d377"
+    sha256 cellar: :any_skip_relocation, big_sur:        "edf2e2951bd78f8677614eed708dc5aaf038c520cd270b4ff0ace91ec73b843d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8386a723438da51b3051c19ecc14af8c69f27c6a17f6f7e6b1bdcec6c1c85083"
   end
 
   depends_on "cmake" => :build
 
   on_linux do
     depends_on "opencl-headers" => :build
-    depends_on "ocl-icd"
+    depends_on "opencl-icd-loader"
     depends_on "pocl"
   end
 

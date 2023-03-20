@@ -16,6 +16,10 @@ class Flock < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ca5c17cfc66b0b2589e07c696cfbe385addb1ed8905c5d851d64b2dbbee00940"
   end
 
+  on_linux do
+    conflicts_with "util-linux", because: "both install `flock` binaries"
+  end
+
   def install
     system "./configure", *std_configure_args,
                           "--disable-debug",

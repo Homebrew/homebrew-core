@@ -3,28 +3,32 @@ class SlitherAnalyzer < Formula
 
   desc "Solidity static analysis framework written in Python 3"
   homepage "https://github.com/crytic/slither"
-  url "https://files.pythonhosted.org/packages/7e/35/08f27352ce2d10e65bac7c17085bd74904cfeb9e831b60e71b62fa5a2400/slither-analyzer-0.9.1.tar.gz"
-  sha256 "25a3860309bda599bce69de129620aa5b38c82b87554eafe0eff5117b81bac18"
+  url "https://files.pythonhosted.org/packages/9c/d1/ac5d4b486a1e9528158127630193e874b8b8a7874a9387b6a812d48d2086/slither-analyzer-0.9.2.tar.gz"
+  sha256 "625ef0c18b9484e4be094ea3d2b15649f93d8724f165d4d6f9adc8ccddf6ebcf"
   license "AGPL-3.0-only"
   head "https://github.com/crytic/slither.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ecb80e5ea4a66190e907804d54467bcb7fbcabbc783cf77db626d3546b71e892"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0125106eaa72b73eaf42570755d3efbe07a1cecf3a8d016b85b6deebe791c3a9"
-    sha256 cellar: :any_skip_relocation, ventura:        "8ef8f60cdf022d541e9343cf569e4dfbc56e28c19e30faf8d69679c61541f6cf"
-    sha256 cellar: :any_skip_relocation, monterey:       "c79ddaacdf344efe0ddd684099d79ff633aebf933d87780a39d6ea4af7ee0565"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8c6a9092e992f9c2ba123c1ff2bfcb71435413c3b641eac50caff6a30a730142"
-    sha256 cellar: :any_skip_relocation, catalina:       "3db5c6c6eca7ce3772d088683770e9b47c76a141110e22bcfe1ad81bbfcab136"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3e3c745a9a77043c03658e5781fcff477f5a765001dde1b63ce74d341761c76e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "99181f036b6aac897211d0084a2ae0fa87e362b669262612195fccebca422899"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "180f38830950c001b7924f0916d83486c25be275a323a6801b40829dd6fe899e"
+    sha256 cellar: :any_skip_relocation, ventura:        "ee78fe2ca9144fc925158198a933bcf87f6fc43d6a49d727868cab8885ddb4b6"
+    sha256 cellar: :any_skip_relocation, monterey:       "4fb008d09e32a26c4ebe4fcaa65c496c3d631d7a73c421269ee0edc5e68542c3"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e7864391e19f0f34765ae42f299f0ccdc009beff457fdc6dfef13f47be5f1045"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "16fca5f312118c3c669427b0edb3613baa3e5c2304f6081373c14501c3ac0b9e"
   end
 
   depends_on "crytic-compile"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "solc-select"
 
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/47/d5/aca8ff6f49aa5565df1c826e7bf5e85a6df852ee063600c1efa5b932968c/packaging-23.0.tar.gz"
+    sha256 "b6ad297f8907de0fa2fe1ccbd26fdaf387f5f47c7275fedf8cce89f99446cf97"
+  end
+
   resource "prettytable" do
-    url "https://files.pythonhosted.org/packages/a5/aa/0852b0ee91587a766fbc872f398ed26366c7bf26373d5feb974bebbde8d2/prettytable-3.4.1.tar.gz"
-    sha256 "7d7dd84d0b206f2daac4471a72f299d6907f34516064feb2838e333a4e2567bd"
+    url "https://files.pythonhosted.org/packages/ba/b6/8e78337766d4c324ac22cb887ecc19487531f508dbf17d922b91492d55bb/prettytable-3.6.0.tar.gz"
+    sha256 "2e0026af955b4ea67b22122f310b90eae890738c08cb0458693a49b6221530ac"
   end
 
   resource "wcwidth" do
@@ -34,7 +38,7 @@ class SlitherAnalyzer < Formula
 
   def install
     virtualenv_install_with_resources
-    site_packages = Language::Python.site_packages("python3.10")
+    site_packages = Language::Python.site_packages("python3.11")
     crytic_compile = Formula["crytic-compile"].opt_libexec
     (libexec/site_packages/"homebrew-crytic-compile.pth").write crytic_compile/site_packages
   end

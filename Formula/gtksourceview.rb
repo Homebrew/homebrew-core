@@ -3,24 +3,20 @@ class Gtksourceview < Formula
   homepage "https://projects.gnome.org/gtksourceview/"
   url "https://download.gnome.org/sources/gtksourceview/2.10/gtksourceview-2.10.5.tar.gz"
   sha256 "f5c3dda83d69c8746da78c1434585169dd8de1eecf2a6bcdda0d9925bf857c97"
-  revision 6
-
-  livecheck do
-    url :stable
-    regex(/gtksourceview[._-]v?(2\.([0-8]\d*?)?[02468](?:\.\d+)*?)\.t/i)
-  end
+  revision 7
 
   bottle do
-    sha256 arm64_ventura:  "ee366f1b7a1605ab1fd1a3b5a74cd1b408f2080e1ed0124621542b4319be28cf"
-    sha256 arm64_monterey: "d48d0e57a52b6daa8a36000c39ae377cd4067a6dd2b3895d17bb6719dac8867c"
-    sha256 arm64_big_sur:  "3622986240ea216f4a404ea7e40d2099d94bc0f175bdb0ac0d8b242c29d81514"
-    sha256 ventura:        "1c9f71f01efc5943119902c9e58afd214c41cfffdd046cdfc10865bc88aed495"
-    sha256 monterey:       "1338c7b2359052b1ac5770afac61477898528766e3dff0fa489fdd00f132bd7e"
-    sha256 big_sur:        "146b08e9b6c084de86ed9de2783f50b4c564826f102b0d917579ffa19b60ab94"
-    sha256 catalina:       "633745bd26dcc7d96f3c102002a2cdfb1cb45ff2762a5c2c814d2af787b6a5c5"
-    sha256 mojave:         "e4acd9c34e98b342eac330a7c7393b1199441474be6e3d7523c6b173e609febe"
-    sha256 x86_64_linux:   "d37f90eecf7dbc89d89af0efa8fe6f78d8912dc77fd525dff5d3a181cff9e22e"
+    sha256 arm64_ventura:  "72c810e4c8bec98a46a3cb998149c1f5866818b1bfdfc18ed895cfae3eb07da0"
+    sha256 arm64_monterey: "4751be60ebb27600b1c3e3a5cc1130a8b30fd0c560ccbc9b869c57a41136b894"
+    sha256 arm64_big_sur:  "95cfffbde61e36b9212d7f4d0caa87f523567888d2f2a6304b1a17e67d26338d"
+    sha256 ventura:        "c8b1bfcf2f675036284557c4bdaaff0916fa07cb09126893fb7b719120e10476"
+    sha256 monterey:       "08668cd19c9c124cc636678f0503dbfe80afb61d42d9113fdd681c74eecb73ef"
+    sha256 big_sur:        "a64b1b82ecad5a2c291245237e253ee85f1c6887726b97380e60be733459db1d"
+    sha256 x86_64_linux:   "138535f8db7f04bd9beb9d9dea5762b006b0425662d93397fad10cd88647d0f7"
   end
+
+  # GTK 2 is EOL: https://blog.gtk.org/2020/12/16/gtk-4-0/
+  deprecate! date: "2023-01-18", because: :unmaintained
 
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
@@ -29,8 +25,11 @@ class Gtksourceview < Formula
 
   uses_from_macos "perl" => :build
 
-  on_macos do
-    depends_on "gtk-mac-integration"
+  resource "gtk-mac-integration" do
+    on_macos do
+      url "https://download.gnome.org/sources/gtk-mac-integration/3.0/gtk-mac-integration-3.0.1.tar.xz"
+      sha256 "f19e35bc4534963127bbe629b9b3ccb9677ef012fc7f8e97fd5e890873ceb22d"
+    end
   end
 
   # patches added the ensure that gtk-mac-integration is supported properly instead
@@ -43,10 +42,22 @@ class Gtksourceview < Formula
   end
 
   def install
-    ENV.prepend_path "PERL5LIB", Formula["intltool"].libexec/"lib/perl5" unless OS.mac?
+    if OS.mac?
+      resource("gtk-mac-integration").stage do
+        system "./configure", "--prefix=#{libexec}",
+                              "--disable-dependency-tracking",
+                              "--disable-silent-rules",
+                              "--with-gtk2",
+                              "--without-gtk3",
+                              "--enable-introspection=no"
+        system "make", "install"
+      end
+      ENV.prepend_path "PKG_CONFIG_PATH", libexec/"lib/pkgconfig"
+    else
+      ENV.prepend_path "PERL5LIB", Formula["intltool"].libexec/"lib/perl5"
+    end
 
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make", "install"
   end
 

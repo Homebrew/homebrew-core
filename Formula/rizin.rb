@@ -1,20 +1,19 @@
 class Rizin < Formula
   desc "UNIX-like reverse engineering framework and command-line toolset"
   homepage "https://rizin.re"
-  url "https://github.com/rizinorg/rizin/releases/download/v0.4.1/rizin-src-v0.4.1.tar.xz"
-  sha256 "669d956b997820a36e423cf35d482aa99849254b9658cef6844459912dfdbfb8"
+  url "https://github.com/rizinorg/rizin/releases/download/v0.5.1/rizin-src-v0.5.1.tar.xz"
+  sha256 "f7a1338a909de465f56e4a59217669d595153be39ee2de5b86d8466475159859"
   license "LGPL-3.0-only"
   head "https://github.com/rizinorg/rizin.git", branch: "dev"
 
   bottle do
-    sha256 arm64_ventura:  "8c74fabf96018a03aa29a1362729ca6ed5dbbe787a27b8d7c4d43fb7f1be3c48"
-    sha256 arm64_monterey: "c04c60e8834648bea585014cd5e00a4900a1f41e95ea67adc92e2bf094136c09"
-    sha256 arm64_big_sur:  "c1b7a23fca85bf610789e9f8cf3e50bee631c9e711f4ba1612291a0f35979092"
-    sha256 ventura:        "3c86cb6d5529c3baae5367f4d4d626e9af0792262a2b030ff41057c1110bb8d8"
-    sha256 monterey:       "6127e3bfbf3607835e4894aca4ffcd4c08f56ce2c5e2cbb35511981da3bc760c"
-    sha256 big_sur:        "e1dbdf060e19defa2c3a2e82434387899d37d2ea7276d9dcba538d9a1053c377"
-    sha256 catalina:       "35b645f1e1cb630e38d38b6688c0bb3f644d36c792038f21c6f87eceab83e2a1"
-    sha256 x86_64_linux:   "266f41d8b9df51e7f172707d7b79db9c182529258da301e9d8e66be91d9ff2e9"
+    sha256 arm64_ventura:  "af85de7434c87871d4ec012ebd1d88c4b18bb7d5a46b8de2efd717bfc17ede1a"
+    sha256 arm64_monterey: "1c79e16d6d34e35fd98fbc4f4fd68d49400723e26c1ffbfb2766248de5fe36f9"
+    sha256 arm64_big_sur:  "97972495ae0938c5879fa581c8937f412f7837925ed5d0c1b8bc285c5aad21d4"
+    sha256 ventura:        "d65c985eb91505d8bf62be45efb9b94d7a3e28a5c0cc17d7e727cf2a2b03e1ad"
+    sha256 monterey:       "9930684d08fe7850c72275b57a7d93f29d25e6fc48a8394bc541e6bd0c2e8340"
+    sha256 big_sur:        "fbea8f829e4cd8c58371caafc956d3b46cb2cac18d0226711674ee29ac92ffe5"
+    sha256 x86_64_linux:   "c83d1d539ddbe37fc0775987cd9748d604041b973209e373e20310fa638e293d"
   end
 
   depends_on "meson" => :build
@@ -22,7 +21,6 @@ class Rizin < Formula
   depends_on "pkg-config" => :build
   depends_on "capstone"
   depends_on "libmagic"
-  depends_on "libuv"
   depends_on "libzip"
   depends_on "lz4"
   depends_on "openssl@3"
@@ -40,7 +38,6 @@ class Rizin < Formula
         "-Duse_sys_zlib=enabled",
         "-Duse_sys_lz4=enabled",
         "-Duse_sys_tree_sitter=enabled",
-        "-Duse_sys_libuv=enabled",
         "-Duse_sys_openssl=enabled",
         "-Duse_sys_libzip_openssl=true",
         "-Duse_sys_capstone=enabled",

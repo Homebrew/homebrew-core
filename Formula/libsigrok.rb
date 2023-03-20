@@ -27,12 +27,14 @@ class Libsigrok < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "0059b4748c625a8e8590ac4bd27742f4a47c993040cc2751ba960b624adfafc8"
-    sha256 arm64_big_sur:  "eca861528f8bc6206197610352453e8425654149605909f24629d53b06bd2a1c"
-    sha256 monterey:       "5c03e75f006610869417865c7c806a16c185bb07fcc62c779f19bb13c55b31ad"
-    sha256 big_sur:        "2f9c59d665ce7a58aa6a821f33ace35d2173f30f7fbfab05033928de8ab3625d"
-    sha256 catalina:       "8ad76c73526a5b575d1c3e9cfea57d5bb50d16bfe1afb656d70bfa3255417634"
-    sha256 x86_64_linux:   "23f156f296014fd03d2cb8f2ef7fc7bc302b135df2b1b91094b9889439946477"
+    rebuild 1
+    sha256 arm64_ventura:  "5cb796cad112521c090085f87cda4bafb9855e6c581ff2c04ad8fb41563b46a8"
+    sha256 arm64_monterey: "3f681eb6dd9e9de1062b048c29321600badf0665cb0a0436390dd33808820153"
+    sha256 arm64_big_sur:  "55ad23a50b5831d13e0138262166606c4c63419ae04ab3baa96b329a389ae5f1"
+    sha256 ventura:        "9f5afd85a8349cd773e36975ec1ca76d7081b62cbab0329095580dd2cdbb9fa1"
+    sha256 monterey:       "22b1440ef8e3ff0f8a402645a82240e108817be368a9eab22db5ea831c09aae9"
+    sha256 big_sur:        "15259f84462573558321e31f32c7260d5ab4fb7845706193c9c18036b4dea1f7"
+    sha256 x86_64_linux:   "7f959e18410ea27731bbbc844103f8354f03e8a0ae395b3c7aef9c9a0ffccd86"
   end
 
   head do
@@ -65,16 +67,18 @@ class Libsigrok < Formula
   depends_on "nettle"
   depends_on "numpy"
   depends_on "pygobject3"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   resource "fw-fx2lafw" do
     url "https://sigrok.org/download/binary/sigrok-firmware-fx2lafw/sigrok-firmware-fx2lafw-bin-0.1.7.tar.gz"
     sha256 "c876fd075549e7783a6d5bfc8d99a695cfc583ddbcea0217d8e3f9351d1723af"
   end
 
-  def install
-    python = "python3.10"
+  def python3
+    "python3.11"
+  end
 
+  def install
     resource("fw-fx2lafw").stage do
       if build.head?
         system "./autogen.sh"
@@ -104,7 +108,7 @@ class Libsigrok < Formula
     # We need to use the Makefile to generate all of the dependencies
     # for setup.py, so the easiest way to make the Python libraries
     # work is to adjust setup.py's arguments here.
-    prefix_site_packages = prefix/Language::Python.site_packages(python)
+    prefix_site_packages = prefix/Language::Python.site_packages(python3)
     inreplace "Makefile.am" do |s|
       s.gsub!(/^(setup_py =.*setup\.py .*)/, "\\1 --no-user-cfg")
       s.gsub!(
@@ -120,7 +124,7 @@ class Libsigrok < Formula
     end
 
     mkdir "build" do
-      ENV["PYTHON"] = python
+      ENV["PYTHON"] = python3
       ENV.prepend_path "PKG_CONFIG_PATH", lib/"pkgconfig"
       args = %w[
         --disable-java
@@ -151,9 +155,9 @@ class Libsigrok < Formula
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
 
-    system Formula["python@3.10"].opt_bin/"python3.10", "-c", <<~EOS
+    system python3, "-c", <<~EOS
       import sigrok.core as sr
-      sr.Context_create()
+      sr.Context.create()
     EOS
   end
 end

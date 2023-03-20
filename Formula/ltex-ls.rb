@@ -1,20 +1,19 @@
 class LtexLs < Formula
   desc "LSP for LanguageTool with support for Latex, Markdown and Others"
   homepage "https://valentjn.github.io/ltex/"
-  url "https://github.com/valentjn/ltex-ls/archive/refs/tags/15.2.0.tar.gz"
-  sha256 "59209730cb9cda57756a5d52c6af459f026ca72c63488dee3cfd232e4cfbf70a"
+  url "https://github.com/valentjn/ltex-ls/archive/refs/tags/16.0.0.tar.gz"
+  sha256 "0cd67495ee4695493fc2a0b37d14146325aa6b9f45d767d16c60abdefdd2dc1d"
   license "MPL-2.0"
   head "https://github.com/valentjn/ltex-ls.git", branch: "develop"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "906173952c376218818310b186e60bf8b7d3698f579afed9f967ef3ce0966f2f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "73aa15eb9ccbae4dad9082b36278648f1f2495852c00d149570a810662337d60"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "33f4777677338470e3aa1f9ac0fc8a90f56d68ad0f677467a7092763de511d40"
-    sha256 cellar: :any_skip_relocation, ventura:        "157537c7e8d7833508332982cd95c691664fb5a0790810e2254c0212238984e8"
-    sha256 cellar: :any_skip_relocation, monterey:       "349287b0c61db2ece982339d2749283ada14c4016cae8688bb9393c9883f99dc"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1984213d3c1814418eefbefc2cd313fa234ff1053cef6dfeeb14cdbb705419e4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5999bc49069005daea609d4d7a1298650095f802bc4fdf7efb5c3143c4c99838"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "113e449a798528e7444d99320dbca9177b30c6291d1bb206ef08c0e1451d7a53"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c4fd9432edbbaa67a5c05d2ac81fd56035b97a74917eed44c258e693995445bf"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "70c1dbb0da6a78d0f4688b52b9b44f3516d7e893e8bcd2e71c0922d00dd3476d"
+    sha256 cellar: :any_skip_relocation, ventura:        "be491b7ac074c6ac2f0531023f3e8ad0150f5b1494fec1d8e00883063b4fb589"
+    sha256 cellar: :any_skip_relocation, monterey:       "2f6444470a34752b47e06032f595d3d2265f197991061357cdb39443bc8a777c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f63394d07116dcd045e6bc15f9bf8005a6a897ffa1cbb84fff153dc5d8a0b73d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ff16cbe22c436d3b9043f961279704db676bf7bda1c50435875dc25d0432a156"
   end
 
   depends_on "maven" => :build

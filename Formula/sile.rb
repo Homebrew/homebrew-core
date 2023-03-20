@@ -1,19 +1,18 @@
 class Sile < Formula
   desc "Modern typesetting system inspired by TeX"
   homepage "https://sile-typesetter.org"
-  url "https://github.com/sile-typesetter/sile/releases/download/v0.14.5/sile-0.14.5.tar.xz"
-  sha256 "2f0d6bb49efdf38a44f322ccc7cdb5bb9c2207fdbb44f67aa362ea0963068e07"
+  url "https://github.com/sile-typesetter/sile/releases/download/v0.14.8/sile-0.14.8.tar.xz"
+  sha256 "09ca6ae29bfccae0d028eb3779fb04735859e40b24dce3b08289318fd8d10064"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "b1ec8a69f69bec2fde86d310994642f2b47dbcc7a5523b780b5dd9f5e1a3dd17"
-    sha256 cellar: :any,                 arm64_monterey: "173fa5e31a65fb208bfd27dff30e3bedb7115105679c5f75b1e7d396e68fc437"
-    sha256 cellar: :any,                 arm64_big_sur:  "509e7218127ad380a0ca7628bdca7c200be4134b5b7a7f77a4ccb882052d0343"
-    sha256 cellar: :any,                 ventura:        "0d7bc022a47e22b81845f0b7ca9cca64538a259f8bd68c253c1310d3570464d2"
-    sha256 cellar: :any,                 monterey:       "f1e8cc09a3d2259047ff0922fca9ed595273f01b84f018bd180158a7dbfedc9a"
-    sha256 cellar: :any,                 big_sur:        "5521f377b47e5da50f89dd1fbb59fcfe0ef98d40b9999358359acb31b9566f25"
-    sha256 cellar: :any,                 catalina:       "f592d76567d2a0bd440f3767dbc68e8add9bba65f9ba72be995800099ed8bcf4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "561b25ec149b24c4e094a9f62561a3af055c7abe223c7b509bb0e3cffafaa406"
+    sha256 cellar: :any,                 arm64_ventura:  "5e483e0026e2bbe60203e01e887e738d1e96e6957ab8eafe0250ff297c2cc05f"
+    sha256 cellar: :any,                 arm64_monterey: "ebe48ee2d8103cfa39dd1728c6b5ab9dc4a6cf9eeab5462e3ade6293788578f3"
+    sha256 cellar: :any,                 arm64_big_sur:  "74926bf29cc52a0146f568c4bab216b7a93d089f34a4d2b985e59219d3fb597e"
+    sha256 cellar: :any,                 ventura:        "e8edf4039a6f140ee34b2a26bc08fa9c146ed9c5385411d79e0295ff3821b097"
+    sha256 cellar: :any,                 monterey:       "bc93e3b8e566377dc6303f91d344a68a2072ffd353d5023fb1173a26e349c0e1"
+    sha256 cellar: :any,                 big_sur:        "855679eac9330b8d1362e2de4d8075f3cc3b859da48522029df71f1cb00deb37"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5d392b1f5996bdf20edb73f8040bd2fd2b5d232a03a5e6dfa4332b2e0a1abe50"
   end
 
   head do
@@ -36,11 +35,6 @@ class Sile < Formula
   uses_from_macos "unzip" => :build
   uses_from_macos "expat"
   uses_from_macos "zlib"
-
-  resource "bit32" do
-    url "https://luarocks.org/manifests/siffiejoe/bit32-5.3.5.1-1.src.rock"
-    sha256 "0e273427f2b877270f9cec5642ebe2670242926ba9638d4e6df7e4e1263ca12c"
-  end
 
   resource "linenoise" do
     url "https://luarocks.org/manifests/hoelzro/linenoise-0.9-1.rockspec"
@@ -181,7 +175,8 @@ class Sile < Formula
     end
 
     system "./bootstrap.sh" if build.head?
-    system "./configure", "--disable-debug",
+    system "./configure", "FCMATCH=true",
+                          "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--with-system-luarocks",
@@ -197,6 +192,23 @@ class Sile < Formula
 
     (libexec/"bin").install bin/"sile"
     (bin/"sile").write_env_script libexec/"bin/sile", env
+  end
+
+  def caveats
+    <<~EOS
+      By default SILE uses the font Gentium Plus to render all documents that do not specifically call for something else. If this font is not available on your system you may encounter errors. Of lower priority depending on your use case, the math typesetting package defaults to using Libertinus Math and the default monospace font is Hack.
+
+      Homebrew does not supply any of these font dependencies in default casks, but they can be added by tapping cask-fonts:
+        brew tap homebrew/cask-fonts
+        brew install --cask font-gentium-plus
+        brew install --cask font-libertinus
+        brew install --cask font-hack
+
+      Alternatively you can download and install the fonts yourself:
+        https://software.sil.org/gentium/
+        https://github.com/alerque/libertinus
+        https://sourcefoundry.org/hack/
+    EOS
   end
 
   test do

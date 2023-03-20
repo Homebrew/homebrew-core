@@ -1,10 +1,9 @@
 class Exiv2 < Formula
   desc "EXIF and IPTC metadata manipulation library and tools"
   homepage "https://exiv2.org/"
-  url "https://github.com/Exiv2/exiv2/releases/download/v0.27.5/exiv2-0.27.5-Source.tar.gz"
-  sha256 "35a58618ab236a901ca4928b0ad8b31007ebdc0386d904409d825024e45ea6e2"
+  url "https://github.com/Exiv2/exiv2/releases/download/v0.27.6/exiv2-0.27.6-Source.tar.gz"
+  sha256 "4c192483a1125dc59a3d70b30d30d32edace9e14adf52802d2f853abf72db8a6"
   license "GPL-2.0-or-later"
-  revision 1
   head "https://github.com/Exiv2/exiv2.git", branch: "main"
 
   livecheck do
@@ -13,14 +12,13 @@ class Exiv2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "a0351a235000780baccb6c1ad13868c74c7f66990b70e4fc2c0f8e85ad1bd73b"
-    sha256 cellar: :any,                 arm64_monterey: "df5a064e5e5828cab5d4dace6d467c0880168f2cfe4eff96d95805f4ec0a1090"
-    sha256 cellar: :any,                 arm64_big_sur:  "3de53aea67fdf1b2e0db0d360d4d594c84cfa6e602207764cf69587bbb08ab98"
-    sha256 cellar: :any,                 ventura:        "a243413c30e6d2a8baafb01f9860785e5fc6ce0b91130ffe47062e7b8cc77763"
-    sha256 cellar: :any,                 monterey:       "bc67f1f00301efd37e9c4b69fc174260c95016d751757f099426a33515a85a73"
-    sha256 cellar: :any,                 big_sur:        "3577a686dde0a3441b0aa655dc176cefd3d6897dfb790458c86ba00f5ed12cb9"
-    sha256 cellar: :any,                 catalina:       "78976c980580a1286b077679225902a444dff19a17e392a7d5e2f609f8619f2b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d0e727a5c7cac7fcd2238ab707976c8e049394d166dd2e382898a7bd94d66523"
+    sha256 cellar: :any,                 arm64_ventura:  "b8bf182b90d97afa7440cd1614a51b48c6a1a3b43ac7d5c4ac6013ab80fb1137"
+    sha256 cellar: :any,                 arm64_monterey: "333f89f2cf93031046718a29a228050d431272e818fe1d89687c3e1981b23884"
+    sha256 cellar: :any,                 arm64_big_sur:  "151aeb245e05e2e0a8f46da4979d0233a5820aea34e22fe191913f5499c259db"
+    sha256 cellar: :any,                 ventura:        "22a09bf8a504f1ec3c19c4e7e52c47615c37412a8acdd4ec13dddac767f54b79"
+    sha256 cellar: :any,                 monterey:       "80c73e17a8d67741cf13b02959f1fcbe09c64126c469c465a8fa101907c22b9c"
+    sha256 cellar: :any,                 big_sur:        "878bfea27f1f04e01bbeca7203f26a7732cece76cfebf6d1a2b6a71fade9d13b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d7613f59e7848995120cf631b90509f45628195a9c18882464594a791f311dd2"
   end
 
   depends_on "cmake" => :build

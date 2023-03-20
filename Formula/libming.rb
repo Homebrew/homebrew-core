@@ -16,6 +16,9 @@ class Libming < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "931f5db9f3d83f2997855245bfec7ba545877e79cfaa6d8ff32a9b0067b1f44b"
   end
 
+  # upstream release request, https://github.com/libming/libming/issues/180
+  deprecate! date: "2023-02-06", because: :unmaintained
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build

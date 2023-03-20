@@ -1,9 +1,9 @@
 class Tarlz < Formula
   desc "Data compressor"
   homepage "https://www.nongnu.org/lzip/tarlz.html"
-  url "https://download.savannah.gnu.org/releases/lzip/tarlz/tarlz-0.22.tar.lz"
-  mirror "https://download-mirror.savannah.gnu.org/releases/lzip/tarlz/tarlz-0.22.tar.lz"
-  sha256 "fccf7226fa24b55d326cab13f76ea349bec446c5a8df71a46d343099a05091dc"
+  url "https://download.savannah.gnu.org/releases/lzip/tarlz/tarlz-0.23.tar.lz"
+  mirror "https://download-mirror.savannah.gnu.org/releases/lzip/tarlz/tarlz-0.23.tar.lz"
+  sha256 "3cefb4f889da25094f593b43a91fd3aaba33a02053a51fb092e9b5e8adb660a3"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -12,14 +12,13 @@ class Tarlz < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c2eaea032ffabdc34279af18ab2310f44b2189eab8c4486aafc4ffb11a073928"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4807d9e8a4979583eedf6bb8e561ba705036b1755ce944c3f3274031fdc97c90"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7a4e38f8048c511ee21347bd7cbdf8cee713859157a0823282560dbcf597da01"
-    sha256 cellar: :any_skip_relocation, ventura:        "c457eefb3fad79c6b933be95861bd788ee413f683239d04fc3bac16ac4fcc586"
-    sha256 cellar: :any_skip_relocation, monterey:       "c6be6c9691c1c1efa83e5e360915444815dd7a61dd4fbdda58bf86fe80562887"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2624f5d7d11c9e86385db7ab5b2c467aca81ca9faf5af61e270043d2516baea6"
-    sha256 cellar: :any_skip_relocation, catalina:       "dc15b0f77cf793cc3ab3b74b28587238f069074da674b4b797ff173c5b6ab309"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b54e340cd05fbfc963ea86d42754078249f79e74328f42e178b63d61f5bf4886"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1c7f680ff8a870429c7a98f8bb0edf8b850bfbc0c626b37310b21dca9fb4dc6d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0fcc9cf154b30fea24d72a427df605d4b72ee416f1e84f11ea57a058e0cb37ab"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3b06bcb32d18976af959d11e388647c81d6374aee847bff9b8449176e87fd5bb"
+    sha256 cellar: :any_skip_relocation, ventura:        "66c15f18d1a4bf05abde08bcc1e28622c97ee2be33457c28b6a57c8af53416c1"
+    sha256 cellar: :any_skip_relocation, monterey:       "465b6e8af9bb245935f364856954d6970f4f5f853d1c7d76d65e9e5fcc98285a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "994f2a00cfed90ac4892b1e134d176db4a6cdaea9ceea3b6118988a19ba7d9aa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "caabaeecb23126c911dc1d0cb8e3c677b92818450ee4f3388dfaa558b354a864"
   end
 
   depends_on "lzlib"

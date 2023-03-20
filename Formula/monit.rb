@@ -1,10 +1,9 @@
 class Monit < Formula
   desc "Manage and monitor processes, files, directories, and devices"
   homepage "https://mmonit.com/monit/"
-  url "https://mmonit.com/monit/dist/monit-5.32.0.tar.gz"
-  sha256 "1077052d4c4e848ac47d14f9b37754d46419aecbe8c9a07e1f869c914faf3216"
+  url "https://mmonit.com/monit/dist/monit-5.33.0.tar.gz"
+  sha256 "1ace889c0183473a9d70160df6533bb6e1338dc1354f5928507803e1e2a863b5"
   license "AGPL-3.0-or-later"
-  revision 1
 
   livecheck do
     url "https://mmonit.com/monit/dist/"
@@ -12,20 +11,19 @@ class Monit < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "d96d0558c3c18acd5e6039e444cc6b4c7691f0b3cf33b3a5b9cc2e15b1acb000"
-    sha256 cellar: :any,                 arm64_monterey: "6577cddf4bd40aafdee0089655c5ed177741b5eddbd9a4d1344b8a6029904809"
-    sha256 cellar: :any,                 arm64_big_sur:  "d6a37cfb90af7e29627e67a46830e91c98c249ff10855f4d6fd6a101864a1e8c"
-    sha256 cellar: :any,                 ventura:        "e973a54f3aeef2057101fb9eb39d09133b59362408871ec818a74420705dac2d"
-    sha256 cellar: :any,                 monterey:       "599096912baee50637670137f35a9cf198789aaeee93ccfe6551868a804f09e9"
-    sha256 cellar: :any,                 big_sur:        "00908f29d92ea3837ed418d61f080bffb89b4c7ec01aa36348089d922e02064f"
-    sha256 cellar: :any,                 catalina:       "c6c5818e4668c4cf0383770b19ffa5baef9ce12735cbc3f3fc8d1724125c981a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0b96f96e6d435b0c083593c797e4bb424a683ec6fa13aca4401d7a5a9226b05c"
+    sha256 cellar: :any,                 arm64_ventura:  "f1024bae43bfcca2a3ee00b7187697e5a77a50e23463002c36e82f7132658ba0"
+    sha256 cellar: :any,                 arm64_monterey: "7c7a32d75f6734a2b2a61cac1d0e59b0ad1c3d71620a54224065ac4014f85a12"
+    sha256 cellar: :any,                 arm64_big_sur:  "5d74012f14f185b8629a51a39806c14812c4263b006cb5d0ed9c94d072c5e176"
+    sha256 cellar: :any,                 ventura:        "48f72f14abe8dcf2ddb1098941cd95dc93d12f0edc9f0dca5e14db4ff7f87a43"
+    sha256 cellar: :any,                 monterey:       "90e39aed578138b6aaeb76543ad4cece92eb6dac1df97a76477d1937e55f4515"
+    sha256 cellar: :any,                 big_sur:        "84f5b178be718b9b352a8dcff77050eddfd5ae91b19f995fbd845e785fdab8d8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0a446fd373c8ede9475f583ce8f491cf4b122b7519ca4fb87189af7be3dec345"
   end
 
   depends_on "openssl@3"
 
   uses_from_macos "libxcrypt"
+  uses_from_macos "zlib"
 
   on_linux do
     depends_on "linux-pam"

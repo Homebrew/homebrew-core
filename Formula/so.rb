@@ -6,22 +6,21 @@ class So < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "940ed2042c9c04ee89ea61a0f580eabecd2cfa4c5eea7f63fca11786abcbbb61"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0a48cd7ac2ba8b3289db6920bb611eb051e3711287569331292ab9c4f7652bbc"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "47389e3710448b5bcccfd92eaa3624c347c86e911baf70fb4a5d41580289f696"
-    sha256 cellar: :any_skip_relocation, ventura:        "07d387ae95884f93365478b0969dab6fa6cbe13b36a3f54ab091b0d958ccbeda"
-    sha256 cellar: :any_skip_relocation, monterey:       "abd12b88855ecd1f853a8fb926ef0d1ecc20541a5b4e05f7ef03ef5759f80598"
-    sha256 cellar: :any_skip_relocation, big_sur:        "893ed4998287a50c96a0332700f4c98ec56817c7e6f00423fdf5cbac9ffd3453"
-    sha256 cellar: :any_skip_relocation, catalina:       "72337e5a8cf8a9b8816b9a236f17ee36ca0132c99160bfe0e472351131cd64cf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5a30a6cb07820c5a35331564e09cd7530baa7f976d5bc8648ca9f8aeb1e803fa"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "06d9d49939df633028f759557787975e717b12e496a3d20da54afd375c3967e6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9b94994807aa75017eaec7f76ea78cc80c3fbcf2c0a65dfba043a3ca2d62b663"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8afac14e917fad150dd5b06f28b96c14d49ca5c7b2894e7488f9dedbfcbfb9e8"
+    sha256 cellar: :any_skip_relocation, ventura:        "f845494b286ee5b6301c5a347ca3df396cb071797cdf9fbfadb47d9309acddf1"
+    sha256 cellar: :any_skip_relocation, monterey:       "0feba955d0c7ffc8ce409df43b27831f263f9b1d85c4496ab4c4d31116e43b55"
+    sha256 cellar: :any_skip_relocation, big_sur:        "982259bab8f867dd1387facce0ee77c60610f478214f0579ccc46db24c87cd62"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c36a6333d2954cb49b323520e4e337b81d975c440c440aae10eb4f315cb210fd"
   end
 
   depends_on "rust" => :build
 
   on_linux do
     depends_on "pkg-config" => :build
-    depends_on "openssl@1.1"
+    depends_on "openssl@3"
   end
 
   def install

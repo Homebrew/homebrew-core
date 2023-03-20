@@ -1,10 +1,19 @@
 class Ncdu < Formula
   desc "NCurses Disk Usage"
   homepage "https://dev.yorhel.nl/ncdu"
-  url "https://dev.yorhel.nl/download/ncdu-2.2.1.tar.gz"
-  sha256 "5e4af8f6bcd8cf7ad8fd3d7900dab1320745a0453101e9e374f9a77f72aed141"
   license "MIT"
   head "https://g.blicky.net/ncdu.git", branch: "zig"
+
+  # Remove `stable` block when the patch is no longer needed.
+  stable do
+    url "https://dev.yorhel.nl/download/ncdu-2.2.2.tar.gz"
+    sha256 "90d920024e752318b469776ce57e03b3c702d49329ad9825aeeab36c3babf993"
+
+    # Enable install_name rewriting when bottling.
+    # Remove in next release.
+    # https://code.blicky.net/yorhel/ncdu/commit/07a13d9c7397c3341f430e1127e7287fe53ba8b9
+    patch :DATA
+  end
 
   livecheck do
     url :homepage
@@ -12,12 +21,13 @@ class Ncdu < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "df42cbbe3de7f505f2d12dc32e9a707efe8ae4929d8271863bcc4212d18d8db5"
-    sha256 cellar: :any,                 arm64_big_sur:  "9bc784d085749606963a5eb168ea7302f7a4823d0d893c634ece29f78a655e69"
-    sha256 cellar: :any,                 monterey:       "d9f2c3dc281847f48eff41da255c5a201a45ca0b807abc901f9bf3d64ad031c1"
-    sha256 cellar: :any,                 big_sur:        "6518ea67bbd8867601f3babd06a2b33c3a219784724309cf0b3d17ade9a80bf6"
-    sha256 cellar: :any,                 catalina:       "01527e4ef4f29c9986be963cabc63e80cb4d186f02ce383168c4977ee2c92775"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "12e5b4ab226138e9ccecff88e414a9fd5031ee7440de9f9f9a178fb4705097b4"
+    sha256 cellar: :any, arm64_ventura:  "6e33f53d26ed222046069f2adcfb1085d8b9a554b1d95150554fb5663d70cac0"
+    sha256 cellar: :any, arm64_monterey: "407ef3a5dc0b76d04b42480ab24fb708d0316043f322079621c73e67ccd3bd54"
+    sha256 cellar: :any, arm64_big_sur:  "3489200d1a842fb13e09c41c3b4aee3a23efa495be76769f4217b3c2ed042e2f"
+    sha256 cellar: :any, ventura:        "bceb9e170df5981294a320a027299278b1f5921fb0329b1b52b841014be3856f"
+    sha256 cellar: :any, monterey:       "4719611c107098d06107643b57105c7fc4a9b65a478a9bd5de554e814f38a17a"
+    sha256 cellar: :any, big_sur:        "eb5904a48c0e57d42b9149f95f0fa6ac455d1cee24c19eb05aad4405b61da9a8"
+    sha256               x86_64_linux:   "85a0bf75cf77e3bca24b48653e71603c798c7d8a39195406a6351c2dfbe58e26"
   end
 
   depends_on "pkg-config" => :build
@@ -51,3 +61,20 @@ class Ncdu < Formula
     assert_equal Pathname.pwd.size, output[3][0]["asize"]
   end
 end
+
+__END__
+diff --git a/build.zig b/build.zig
+index 45bd314..aac1b54 100644
+--- a/build.zig
++++ b/build.zig
+@@ -10,6 +10,10 @@ pub fn build(b: *std.build.Builder) void {
+     const exe = b.addExecutable("ncdu", "src/main.zig");
+     exe.setTarget(target);
+     exe.setBuildMode(mode);
++    if (exe.target.isDarwin()) {
++        // useful for package maintainers
++        exe.headerpad_max_install_names = true;
++    }
+     exe.addCSourceFile("src/ncurses_refs.c", &[_][]const u8{});
+     exe.linkLibC();
+     exe.linkSystemLibrary("ncursesw");

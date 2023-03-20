@@ -8,6 +8,7 @@ class Bgpstream < Formula
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "e789878a243b35c33bf72594d808b5528b182b18299231fee79f3a046b766c48"
     sha256 cellar: :any,                 arm64_big_sur:  "5c28bee02acc7bc557119b71bc714a9a505aa91ef58d2e390c6d7f75753d0f25"
+    sha256 cellar: :any,                 ventura:        "dcfa79536b869e246ee73e8e7f645e8fb41ead10578bb472dabd737148b56fe8"
     sha256 cellar: :any,                 monterey:       "ff5d659c719347cfc6ab6208b5341a0a79d457c47dd92f74e4bc44d757608ffa"
     sha256 cellar: :any,                 big_sur:        "950968b0578b8d4131574c5fd985f56a1e10abd2d4aabdeeb408db2b323d6567"
     sha256 cellar: :any,                 catalina:       "a684f4249475c2c0531fda4467adbba15b8e07c4e49b8ffc0366cae16fc76888"

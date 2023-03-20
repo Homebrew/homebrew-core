@@ -1,20 +1,10 @@
 class Flashrom < Formula
   desc "Identify, read, write, verify, and erase flash chips"
   homepage "https://flashrom.org/"
+  url "https://download.flashrom.org/releases/flashrom-v1.3.0.tar.bz2"
+  sha256 "a053234453ccd012e79f3443bdcc61625cf97b7fd7cb4cdd8bfbffbe8b149623"
   license "GPL-2.0-or-later"
-  revision 1
   head "https://review.coreboot.org/flashrom.git", branch: "master"
-
-  stable do
-    url "https://download.flashrom.org/releases/flashrom-v1.2.tar.bz2"
-    sha256 "e1f8d95881f5a4365dfe58776ce821dfcee0f138f75d0f44f8a3cd032d9ea42b"
-
-    # Add https://github.com/flashrom/flashrom/pull/212, to allow flashrom to build on Apple Silicon
-    patch do
-      url "https://github.com/areese/flashrom/commit/0c7b279d78f95083b686f6b1d4ce0f7b91bf0fd0.patch?full_index=1"
-      sha256 "9e1f54f7ae4e67b880df069b419835131f72d166b3893870746fff456b0b7225"
-    end
-  end
 
   livecheck do
     url "https://download.flashrom.org/releases/"
@@ -22,24 +12,40 @@ class Flashrom < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "df1dc0950b4c27eba7ca248b0ec0d8f6b72b3b1db87ad4bc6df85f9df36c62cf"
-    sha256 cellar: :any,                 arm64_monterey: "ce92fbb333453ecfa68d81e86b56cee5890df50f3cf25055feda05b3337943fe"
-    sha256 cellar: :any,                 arm64_big_sur:  "569c926b496c0710fb7ba56741ec71b0907225496be2d0e3f00abb31f6f78753"
-    sha256 cellar: :any,                 ventura:        "8ca8600404eb74166fa69d8f3a7a8fa5ca1fdfdda99eb250b888b37ea8bd89e1"
-    sha256 cellar: :any,                 monterey:       "7880c53527b2b99af980f238cd47973f252472440f80ccb33e850f4e8535c292"
-    sha256 cellar: :any,                 big_sur:        "5f87947474ca85777550cb5223e90c5bc9df115432dac3c16a71ac69f47ab3c8"
-    sha256 cellar: :any,                 catalina:       "3d13587cb5057ef4ca331156e13a235cf25517fe7fe65d9c134394be1c408400"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9943440449dc40ac90fca72ba2d125941d60f5d3395ad555422f754bbe0c768b"
+    sha256 cellar: :any,                 arm64_ventura:  "6d5089b69b8f9d2ccb3da22940ae48d2c4edc09944d4b2be53886e6d8b4929f3"
+    sha256 cellar: :any,                 arm64_monterey: "2f7bfb24f1c0cbbd4d48dfc0ccccaf04970f7c65fbf263273e518ac656909e49"
+    sha256 cellar: :any,                 arm64_big_sur:  "4f7f73b3a916f6987e91be89cf333c212cb77896b51e2b0db3a243bfef6d104c"
+    sha256 cellar: :any,                 ventura:        "4ff89489acba2e2d05a44e2bfd13ba321e97adfe9a75c67c239b48d99fdb189d"
+    sha256 cellar: :any,                 monterey:       "ea25d355f9065255c13e1e76a6575d81a4050bf926ff5f78f4f0faae1216af9a"
+    sha256 cellar: :any,                 big_sur:        "f731416fcea36016d9e33999354a6e83ac81e5772a755847daaf66e1fe8f6067"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1e3fee5b882f6f5d28f9eab9364727ed69ab9938d9e8f087cd96eee494bdedb2"
   end
 
   depends_on "pkg-config" => :build
   depends_on "libftdi"
   depends_on "libusb"
 
+  # no DirectHW framework available
+  on_macos do
+    on_intel do
+      patch :DATA
+    end
+  end
+
+  resource "DirectHW" do
+    url "https://github.com/PureDarwin/DirectHW/archive/refs/tags/DirectHW-1.tar.gz"
+    sha256 "14cc45a1a2c1a543717b1de0892c196534137db177413b9b85bedbe15cbe4563"
+  end
+
   def install
     ENV["CONFIG_RAYER_SPI"] = "no"
     ENV["CONFIG_ENABLE_LIBPCI_PROGRAMMERS"] = "no"
+
+    # install DirectHW for osx x86 builds
+    if OS.mac? && Hardware::CPU.intel?
+      (buildpath/"DirectHW").install resource("DirectHW")
+      ENV.append "CFLAGS", "-I#{buildpath}"
+    end
 
     system "make", "DESTDIR=#{prefix}", "PREFIX=/", "install"
     mv sbin, bin
@@ -47,5 +53,23 @@ class Flashrom < Formula
 
   test do
     system bin/"flashrom", "--version"
+
+    output = shell_output("#{bin}/flashrom --erase --programmer dummy 2>&1", 1)
+    assert_match "No EEPROM/flash device found", output
   end
 end
+
+__END__
+diff --git a/Makefile b/Makefile
+index a8df91f..a178074 100644
+--- a/Makefile
++++ b/Makefile
+@@ -834,7 +834,7 @@ PROGRAMMER_OBJS += hwaccess_physmap.o
+ endif
+
+ ifeq (Darwin yes, $(TARGET_OS) $(filter $(USE_X86_MSR) $(USE_X86_PORT_IO) $(USE_RAW_MEM_ACCESS), yes))
+-override LDFLAGS += -framework IOKit -framework DirectHW
++override LDFLAGS += -framework IOKit
+ endif
+
+ ifeq (NetBSD yes, $(TARGET_OS) $(filter $(USE_X86_MSR) $(USE_X86_PORT_IO), yes))

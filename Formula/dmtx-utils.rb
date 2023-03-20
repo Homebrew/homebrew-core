@@ -4,18 +4,16 @@ class DmtxUtils < Formula
   url "https://github.com/dmtx/dmtx-utils/archive/v0.7.6.tar.gz"
   sha256 "0d396ec14f32a8cf9e08369a4122a16aa2e5fa1675e02218f16f1ab777ea2a28"
   license "LGPL-2.1"
-  revision 4
+  revision 6
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "b37767b9a019c342ae87af9e2734790c1f05a377262c3d0eafe21eb3fda094b2"
-    sha256 cellar: :any,                 arm64_monterey: "c2fb338b5c1accf8ae28a76b962098dfb6fcbccb7835028de99f92de60530537"
-    sha256 cellar: :any,                 arm64_big_sur:  "9db11b5cb18a18e7e02d369353730e2c6e574e2154db95e60fd9a82983d8be83"
-    sha256 cellar: :any,                 ventura:        "42375ec4413000cb3686b2fa717d96e75193c808ad0f665c575b04e925d0ead6"
-    sha256 cellar: :any,                 monterey:       "2cfbd07ad1760cbe66991740574f92a045c59b030699fddb8312fab09d52c7f6"
-    sha256 cellar: :any,                 big_sur:        "0f5cbe20fda6fcc8db3bf57039ced929283a31b666f38da8a64ba5c6c19d76cd"
-    sha256 cellar: :any,                 catalina:       "20b46ae2ba790f10191d8f53c8ce3095222d1b814db72990e7fc48a501fabba9"
-    sha256 cellar: :any,                 mojave:         "810dec06d01994da047123c4169d7398efacd4060adc639fdbcb845f3c6e2606"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "189265385499967b8f5e1c6eb8659f54b388ac013947a211f08607a0aaf95925"
+    sha256 cellar: :any,                 arm64_ventura:  "c147ab73dac9c03562cf06d561a923ba70e30ecb4607d755622d0156805a7892"
+    sha256 cellar: :any,                 arm64_monterey: "81be259b08bd67f4dab389bb326b4adbdd01cd201d5b98c77f4cc72e0f5c669a"
+    sha256 cellar: :any,                 arm64_big_sur:  "f7e90d8cd99bbedb06dffa5338d64e65307fcb4c98095d897a91466a8da86322"
+    sha256 cellar: :any,                 ventura:        "161997f60768bb9798550757f0a01e2e27434934d9ec8a2b47153a52abe10cd7"
+    sha256 cellar: :any,                 monterey:       "7a754c6517fc4a35d07c17a34b3bf98d62d85fa6015f11ecd38d92db4e1c0372"
+    sha256 cellar: :any,                 big_sur:        "fa4722a33d220d1f8cd8740c4b6d938e92f8d9b76ab555762cc8c84c72084573"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cc7f066604465fcaf850671368291a758eec7fa261d6bbdbde892b798fd0daa1"
   end
 
   depends_on "autoconf" => :build

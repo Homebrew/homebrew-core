@@ -1,30 +1,41 @@
 class Tmux < Formula
   desc "Terminal multiplexer"
   homepage "https://tmux.github.io/"
-  url "https://github.com/tmux/tmux/releases/download/3.3a/tmux-3.3a.tar.gz"
-  sha256 "e4fd347843bd0772c4f48d6dde625b0b109b7a380ff15db21e97c11a4dcdf93f"
   license "ISC"
+  revision 1
+
+  stable do
+    # Remove `stable` block in next release.
+    url "https://github.com/tmux/tmux/releases/download/3.3a/tmux-3.3a.tar.gz"
+    sha256 "e4fd347843bd0772c4f48d6dde625b0b109b7a380ff15db21e97c11a4dcdf93f"
+
+    # Patch for CVE-2022-47016. Remove in next release.
+    # Upstream commit does not apply to 3.3a, so we use Nix's patch.
+    # https://github.com/NixOS/nixpkgs/pull/213041
+    patch do
+      url "https://raw.githubusercontent.com/NixOS/nixpkgs/2821a121dc2acf2fe07d9636ee35ff61807087ea/pkgs/tools/misc/tmux/CVE-2022-47016.patch"
+      sha256 "c1284aace9231e736ace52333ec91726d3dfda58d3a3404b67c6f40bf5ed28a4"
+    end
+  end
 
   livecheck do
     url :stable
-    strategy :github_latest
     regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+[a-z]?)["' >]}i)
+    strategy :github_latest
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "6c72c3fbce35b39cb8e4df69cb18c288cd01744f5394c912a8f72539a6700a32"
-    sha256 cellar: :any,                 arm64_monterey: "0ca53c250a3e70d97ca511edd13f2d16660e4e94a41465a8708306e03b231b76"
-    sha256 cellar: :any,                 arm64_big_sur:  "89a9edfec5e665df5b9e2e0f47e1721c1e074725846705819042a9c691683981"
-    sha256 cellar: :any,                 ventura:        "8edbb91fb9e3d7411a8ade0b8417251c17dcf4de295050dcfc5e4e62a144ae71"
-    sha256 cellar: :any,                 monterey:       "c0489c25fa963b14fd5d3c53eb50f681e85bb7a5716883afe77c1efbdea7c882"
-    sha256 cellar: :any,                 big_sur:        "85eb7ec949aad04ad0a550a4a8151bc4453e229d813fda0be724f17fd8cf40e1"
-    sha256 cellar: :any,                 catalina:       "3cb3c779b9e62f0f5f5d9204309d194148ee66e3bc930480cabf7bee1b897623"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b2eed5059099ba7ffeb68260c3163184b5d9b6a09e3b9b80d33ab2bf007513d8"
+    sha256 cellar: :any,                 arm64_ventura:  "8cc7bf6a305cf13149d747cbe6b1d5fcd517e1115ed932dfa84fc40f289493f9"
+    sha256 cellar: :any,                 arm64_monterey: "b10969540ddcdd40490eab6913ee491b4660d769c88ceab7a02e711c88df8488"
+    sha256 cellar: :any,                 arm64_big_sur:  "887b430e1c680b74a6d5c11309aa82bf30e80b2f3c6e6f6e15db649542997b23"
+    sha256 cellar: :any,                 ventura:        "9472318bf4cbc5d2e09ddd562c260f94eaac97229a61e46aeab7022c7e51a9b5"
+    sha256 cellar: :any,                 monterey:       "e0462ce58a2eb5dada1d700510fe75fb148e64b1ae2e80ee0d5d40a498b9e9a8"
+    sha256 cellar: :any,                 big_sur:        "71e85e0f4d20acf5b893e5cfb0cd19041dddd27822c26b5dc2053cbab241c5ec"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "26f29148b3a5fdd0a36d5278f6199a8b413a26dd689ac7b185b54a38e23d1133"
   end
 
   head do
-    url "https://github.com/tmux/tmux.git"
+    url "https://github.com/tmux/tmux.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

@@ -1,31 +1,32 @@
 class Aide < Formula
   desc "File and directory integrity checker"
   homepage "https://aide.github.io/"
-  url "https://github.com/aide/aide/releases/download/v0.17.4/aide-0.17.4.tar.gz"
-  sha256 "c81505246f3ffc2e76036d43a77212ae82895b5881d9b9e25c1361b1a9b7a846"
+  url "https://github.com/aide/aide/releases/download/v0.18.1/aide-0.18.1.tar.gz"
+  sha256 "158e72e2fc7f08cb28b66dd5988294c19b035b5a901d7ad5fee010efeca4c0d2"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "da63a166bd78f49ae0459e96f2f98ceda43ae418c9e5430e3641d3cf37499a6d"
-    sha256 cellar: :any,                 arm64_monterey: "b0c84efe8e1900637012961de81510d4b161add9251fc83614141cc149e0c575"
-    sha256 cellar: :any,                 arm64_big_sur:  "7d5c7b012260f55372992d7e692f53c72d14e8b265db4869af5641f0b44f8435"
-    sha256 cellar: :any,                 ventura:        "81772e8128742974468566cf527a3335495bc5b6c4c8189ad88c80fe33bf200a"
-    sha256 cellar: :any,                 monterey:       "f19c632ec5e607e4fa4687cc3b49f644d678a957e93ab5e74df37c51df97203a"
-    sha256 cellar: :any,                 big_sur:        "c619712d6930437e597f599e5e62f0047fd9ce985aae1ed964d1cc5a03fdf5ef"
-    sha256 cellar: :any,                 catalina:       "aa1ae5486d07a19d0729947adcc180518ad1b6a46fc29c0b450e95868b80a05a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ef25683c89e216c309bd49f0422a83111ca6535e695822b3962cce5ed77bacee"
+    sha256 cellar: :any,                 arm64_ventura:  "8f102f78ad23f15ca288e8b63e1d62d5947c05718035de12b6795c3e56aa23b8"
+    sha256 cellar: :any,                 arm64_monterey: "9a9bfe81defd498fb21cb240f9990a9a91e23e0784e2f8e3a3e78d38fd996b6a"
+    sha256 cellar: :any,                 arm64_big_sur:  "22351539a992708cc2e1163f7458d60d45d01397390ed80e7350d1adee045c4f"
+    sha256 cellar: :any,                 ventura:        "7c2a421c631e48b867f8ffe8a08b0d3a136d0c66d3ab6bd4e7f5b314db0a959c"
+    sha256 cellar: :any,                 monterey:       "05eb9419d868d36ea51a510a8be97a7d8b471b74ae89c0b1bb6bad74be304e1a"
+    sha256 cellar: :any,                 big_sur:        "b02e20164f8a94ee9c77c8122eddffbf0db10cd488d3bf7506f23a32241237f4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c3c6ed7475082453db50fb020e8b98e7aef1d5b9d643a99c2e76446e35b628ec"
   end
 
   head do
-    url "https://github.com/aide/aide.git"
+    url "https://github.com/aide/aide.git", branch: "master"
     depends_on "autoconf" => :build
+    depends_on "autoconf-archive" => :build
     depends_on "automake" => :build
+    depends_on "bison" => :build
   end
 
   depends_on "pkg-config" => :build
   depends_on "libgcrypt"
   depends_on "libgpg-error"
-  depends_on "pcre"
+  depends_on "pcre2"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build

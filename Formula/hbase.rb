@@ -1,20 +1,20 @@
 class Hbase < Formula
   desc "Hadoop database: a distributed, scalable, big data store"
   homepage "https://hbase.apache.org"
-  url "https://www.apache.org/dyn/closer.lua?path=hbase/2.5.2/hbase-2.5.2-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/hbase/2.5.2/hbase-2.5.2-bin.tar.gz"
-  sha256 "9f32b066387f850d4d6d0680f4e77835c3a8c4316da0b5634467b9e0dcc860a8"
+  url "https://www.apache.org/dyn/closer.lua?path=hbase/2.5.3/hbase-2.5.3-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/hbase/2.5.3/hbase-2.5.3-bin.tar.gz"
+  sha256 "874f239c341a6a4a646051c79fda9e838242481b70463bf8daa28ba7239576c2"
   # We bundle hadoop-lzo which is GPL-3.0-or-later
   license all_of: ["Apache-2.0", "GPL-3.0-or-later"]
 
   bottle do
-    sha256 arm64_ventura:  "6e40a58acfbc4ef14b96728e4ac1785ef41c3a7eb48ba214e2dd800a14301c42"
-    sha256 arm64_monterey: "2454df4d5e5f55fdee780aaa4de3ac6f1379a23a5cb2d253fd3b190dcca5ffb3"
-    sha256 arm64_big_sur:  "155543e59c966827e83a924a588818b68c7fd1400cdd2f16f0abaaa59b11c23c"
-    sha256 ventura:        "4b38ba0cadf3101dfec691cd58be94d30ad1206a67672a121a2d5f0492a37cb2"
-    sha256 monterey:       "3cfe153f68194bc4b829bd7c5a9fad488c157db7075918903d142275b498a32c"
-    sha256 big_sur:        "a85407545e9b43c2fd7dec7b00c29db895e563e621315e2969903db697d77534"
-    sha256 x86_64_linux:   "92549de3fe32094a3eacd03d3b81797d1d445134135662da1f8e0c7f70cbb2b3"
+    sha256 arm64_ventura:  "1348b4dbf170964c86e57455346321472dc9b6ef07c79a60fac0b978854f6efe"
+    sha256 arm64_monterey: "3811d27fc4f219b9f8cc990c4d4318aaf29f8ba173d65857eaa1d8c96ea1e256"
+    sha256 arm64_big_sur:  "cdf9158f28f7a0bcab9233d37de15106e755b545a7494ca488d5b444533aef1d"
+    sha256 ventura:        "c1d6741bfb978a942e6126d4bffe4e4eecaf169734549e7b7c7fac60f9ef190b"
+    sha256 monterey:       "bf20de6dd959b6c4667942b292fd39946ddfb710729f5021446e6fa4e5f853f7"
+    sha256 big_sur:        "29ed8d98255b4640660afbd82c158b1e6417dabf522dabfb33d6168a306c1a1d"
+    sha256 x86_64_linux:   "398c0b246e7b6cb0a92fee7742f02d2ef96206fe893d2f19ba85f8d550ee8126"
   end
 
   depends_on "ant" => :build

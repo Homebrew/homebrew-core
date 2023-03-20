@@ -1,20 +1,19 @@
 class Ngs < Formula
   desc "Powerful programming language and shell designed specifically for Ops"
   homepage "https://ngs-lang.org/"
-  url "https://github.com/ngs-lang/ngs/archive/v0.2.14.tar.gz"
-  sha256 "9432377548ef76c57918b020b2abb258137703ff0172016d58d713186fcafed3"
+  url "https://github.com/ngs-lang/ngs/archive/v0.2.15.tar.gz"
+  sha256 "552db7230db858aef7731c4dd31e3d862b5943cb47216e47f59b8dee1de67fe8"
   license "GPL-3.0-only"
   head "https://github.com/ngs-lang/ngs.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "3b4b789230bb3d65b5d4c5b6301efecf14efa396849f452116b148961457f7b7"
-    sha256 cellar: :any,                 arm64_monterey: "7ac61b5c9438473a5f71c38284858266792591132258e22a49430aa15d06e25d"
-    sha256 cellar: :any,                 arm64_big_sur:  "b41e5bc67f4f5bf5a3ccc4d84e59e89097da7e425c3b17417fcb09f064edfbb3"
-    sha256 cellar: :any,                 ventura:        "3a31458abfb58d69d6c1faf9527b294b7fafd017242787db5d74a8fb8b89271c"
-    sha256 cellar: :any,                 monterey:       "2a233c86f9388f3a867954b702e0291ac348c0203f3a343e8b6a0d43422ded68"
-    sha256 cellar: :any,                 big_sur:        "4e5dd77c036e3e9d1abdd16618c547795083cd0f3a28eb652ccf3a3a7227804d"
-    sha256 cellar: :any,                 catalina:       "6347f2636910e87893aa7be12672472f030aba05bdde2445d8ed7d585f98b322"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "144cae041e5e211ec773a0c60c9c3d835ac979d1ebc61cd769339bc5d5f8b632"
+    sha256 cellar: :any,                 arm64_ventura:  "2527ab3e1b8b4db1744be388e3f6644495636b797652ecb895c212da5f4a3c62"
+    sha256 cellar: :any,                 arm64_monterey: "cb5257d54b5587480f67d2e593b366a754ca22617ce9c68631b20334a583b066"
+    sha256 cellar: :any,                 arm64_big_sur:  "e4089e908f058fca3ba576795698b1793bcadcc3cb7de8c1d9c625deeb665b4a"
+    sha256 cellar: :any,                 ventura:        "3a12816791215075769c8309a06e6d6a5a27704ab9b848d1df3658eda87840b9"
+    sha256 cellar: :any,                 monterey:       "dea3af55d05668816864f4a49536ab09f4d6849ba28da52bf142465c356a422e"
+    sha256 cellar: :any,                 big_sur:        "0348b79d22c9a0cb5fd985ef5a26d44b2ea3e4447021c1e92cd6043bff3c577d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bd6620cb3018d88afaa0be4c101ef175e66c24e86b726a951192f7e7e3d03e81"
   end
 
   depends_on "cmake" => :build

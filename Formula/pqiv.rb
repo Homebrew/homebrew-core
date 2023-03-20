@@ -4,18 +4,17 @@ class Pqiv < Formula
   url "https://github.com/phillipberndt/pqiv/archive/2.12.tar.gz"
   sha256 "1538128c88a70bbad2b83fbde327d83e4df9512a2fb560eaf5eaf1d8df99dbe5"
   license "GPL-3.0"
-  revision 4
+  revision 6
   head "https://github.com/phillipberndt/pqiv.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "ea25aebb4644c982eb777eb2458da0eb686ad996a2be1f5a9de62e5f929f8eb8"
-    sha256 cellar: :any,                 arm64_monterey: "8782a71f1737e6809e0bf8e03c1dbacd3822de5bb2b19857ca03c6df7d8a5c1a"
-    sha256 cellar: :any,                 arm64_big_sur:  "0c81274c8d13c19d95d69fdad59ed8fd94e3860f90b0eb2ca83a45435b214769"
-    sha256 cellar: :any,                 ventura:        "ae097f09c899852bd6926dd99c45d73a738b62074e71a4a56ec4b2044600c133"
-    sha256 cellar: :any,                 monterey:       "dba41e09a3ead21456f9d727eb6bede873098b7d0499629264900b618e7eace2"
-    sha256 cellar: :any,                 big_sur:        "6ef9f48897bb6fe32ed7cc51666c35415e7d1c77a1e5d10701c64a69402cdd84"
-    sha256 cellar: :any,                 catalina:       "9983a52d1c8b71c44f2bd435f4336a69c98aa1adf029b0fe72aebc6da23d10b8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "33a23ff2a31d049557d533c50c1a30ab1e8c28d4ff28627e7ddb4ad08dcaeda8"
+    sha256 cellar: :any,                 arm64_ventura:  "bd472d3115ae616771f87e49202dc724acab4fadc1e4160ee482b7732e469a33"
+    sha256 cellar: :any,                 arm64_monterey: "33b25feb413e20e9251f8894a9ed0bfbcf976e9fef69924346abaa6ef5dd9a32"
+    sha256 cellar: :any,                 arm64_big_sur:  "592107c51d103ec69e312593833579975bccbee9b36390fe37f4234340755731"
+    sha256 cellar: :any,                 ventura:        "02dcebc9faa615cb079ca3b471da4e892c780b4e0d2e685c6bae3b1c02f543a2"
+    sha256 cellar: :any,                 monterey:       "7a75809c729c1ec7a3e71a94f26de9976f71142b2998edbe5187797646cb1e5b"
+    sha256 cellar: :any,                 big_sur:        "577abb3ab63808e9080afd934bc99bdb305cefd0ee10494b18a2d95e3c48d960"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d1779c1c2f24884cb7be8cdba82378bee96cf9941a4d51aa7e0268515f489834"
   end
 
   depends_on "pkg-config" => :build

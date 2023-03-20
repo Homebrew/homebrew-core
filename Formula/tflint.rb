@@ -1,25 +1,25 @@
 class Tflint < Formula
   desc "Linter for Terraform files"
   homepage "https://github.com/terraform-linters/tflint"
-  url "https://github.com/terraform-linters/tflint/archive/v0.44.1.tar.gz"
-  sha256 "079e5f25cf18c33f9b3ac69942b5f8b5de917c41dcfd6039ca9faad739a7613e"
+  url "https://github.com/terraform-linters/tflint/archive/v0.45.0.tar.gz"
+  sha256 "74d2852d7f20535458bad329c128c189183c8ba1944deed38c4b820798279b6e"
   license "MPL-2.0"
   head "https://github.com/terraform-linters/tflint.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6b0cab2478fc3d86f52e39c7ca572b89eb9f83dbf27a5d468c437158b1fc8780"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "dda00780c069cd586a5e952f67b6de6864d8162054336dbcb46d67210e083fbe"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e69cac4e4a609b1acf60ff1bd3e022fa517a4627f65568cda39bd05dd245b3ba"
-    sha256 cellar: :any_skip_relocation, ventura:        "a2a7fa30998326c123311379bab3870134ea5b126c50eed3d9d4608128a5141b"
-    sha256 cellar: :any_skip_relocation, monterey:       "199f80835635c05bbed2bde3a2a04dd377655172af7e569cd57c3814018763eb"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0d6d209f8acbd4baf3c23c07528bdc236607eb91d0bd422e3bba3671eb429143"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ecbbfd03bd533369ecee25c70163160e8f2326458fdfad681ad5f338bad32a1a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4f4762de60a251f9fa05119e489bdf1264c989daeba622774626d9c1bc31058e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6b02920e9342417b538f370b96122853395665c3aa3b699ad53dc23bd4453d19"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "24453e9ab7843b872aa3709445ed1b83087bd4e93a228bcb159f525a92ef2334"
+    sha256 cellar: :any_skip_relocation, ventura:        "126e2faaf574878be00df7a2016c7fcc08e503fd98194a1cd7040e2af6452fcf"
+    sha256 cellar: :any_skip_relocation, monterey:       "6527ae50e2dbbaf6c9f66b51a61e45cb263b688de6f09e9a9a49ded243b7a37c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "53fec6689ad9640ee9b71c41b687fb70e86ca2e6c57778ced3091a8786eb3e74"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1aca43705ae7f4c48839879362934c5e84ecdbce2b8276ed11b20da46efce33f"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-ldflags", "-s -w", "-o", bin/"tflint"
+    system "go", "build", *std_go_args(ldflags: "-s -w")
   end
 
   test do

@@ -1,14 +1,9 @@
 class Mpir < Formula
   desc "Multiple Precision Integers and Rationals (fork of GMP)"
-  homepage "https://mpir.org/"
-  url "https://mpir.org/mpir-3.0.0.tar.bz2"
+  homepage "https://web.archive.org/web/20221207200514/https://mpir.org/"
+  url "https://web.archive.org/web/20220224004857/https://mpir.org/mpir-3.0.0.tar.bz2"
   sha256 "52f63459cf3f9478859de29e00357f004050ead70b45913f2c2269d9708675bb"
   license "GPL-3.0-or-later"
-
-  livecheck do
-    url "https://mpir.org/downloads.html"
-    regex(/href=.*?mpir[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
 
   bottle do
     rebuild 2
@@ -22,6 +17,8 @@ class Mpir < Formula
     sha256 cellar: :any,                 mojave:         "1b930468cbd16840c9c689b8b24c91ce45a136b7512ccd06b6c13a14cd5405e2"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "255666a3f9f3520885fba30dbe76714a89a10d914473e6cf834f55caba125a2a"
   end
+
+  deprecate! date: "2023-02-18", because: :unmaintained
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build

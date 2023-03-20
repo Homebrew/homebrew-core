@@ -1,21 +1,19 @@
 class Tuc < Formula
   desc "Text manipulation and cutting tool"
   homepage "https://github.com/riquito/tuc"
-  url "https://github.com/riquito/tuc/archive/refs/tags/v0.11.0.tar.gz"
-  sha256 "e8208e0cb92bd17b36e1d43f0ea9d45f4573222fa40ca576775b4ebbb6442adf"
+  url "https://github.com/riquito/tuc/archive/refs/tags/v1.0.0.tar.gz"
+  sha256 "47848b23268c5d22efcc9f7f6a6da73f27483b336005c2ace350bff575e51d67"
   license "GPL-3.0-or-later"
   head "https://github.com/riquito/tuc.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8e7c00918141e32f21da94288bb29beae137f220517603c888962c19c670413b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "51d443992c134b4a5448a764ce1b9eb972eacf711a06cdac386e64961e1425df"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "058081c832d1526d067cfdf43254106329a5d3c39093afaa73af9c4df1a69092"
-    sha256 cellar: :any_skip_relocation, ventura:        "f5b7b58debecd35210097728e05fdd5ba39f4ae649bca6a9a12f697d43ed7b5f"
-    sha256 cellar: :any_skip_relocation, monterey:       "accd6c100cfe52050f9c67e208d44fb71a1e7aaf6da3f1d9619c5b30f4aaf06c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1013a3c42ad1130863d651b67ae3b46d60effce216480619a817cf8648c1c105"
-    sha256 cellar: :any_skip_relocation, catalina:       "483954735844c7a0958f551d3b2947f569c7d992528db397126323b8bf77c815"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2c5af51e908c788ea4ebf48d4487d520a4e61e94498b38b896f85cebd68010b6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dd5483e0ed21ce3ea3b18578c98c47543f4b741043a06f1a7e21885387d2e02c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "739f513a991ac172b5244dcd424390df770742e8919dc8508332f29cae3fc158"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5cc23018bf7a230eacc43c7ee04c8c6c8a33de6c515500472d1aed089e789b6e"
+    sha256 cellar: :any_skip_relocation, ventura:        "e88c5ecb90e42a978f4ddceef9715495cb5380d2f65526a6d0d68fde04dcddf6"
+    sha256 cellar: :any_skip_relocation, monterey:       "a3bfaaf6eceea2e2c489bc7893ab7a17c09281cea45c124ce3910827fba3e45c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b5b110ad523193b0427466024fbcbf55ddef862278d42f87a3b75c053f1001f3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e098b815ab092bf5cc10908a8ee769d5084f3eb40207ad498b7046cec2ba8b7c"
   end
 
   depends_on "rust" => :build

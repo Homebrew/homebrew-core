@@ -19,6 +19,7 @@ class Pyvim < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "709d795900c4098c90892135c0859c0c93f8aa18868eeeb023bc4357bace19b6"
   end
 
+  depends_on "pygments"
   depends_on "python@3.11"
   depends_on "six"
 
@@ -35,11 +36,6 @@ class Pyvim < Formula
   resource "pyflakes" do
     url "https://files.pythonhosted.org/packages/07/92/f0cb5381f752e89a598dd2850941e7f570ac3cb8ea4a344854de486db152/pyflakes-2.5.0.tar.gz"
     sha256 "491feb020dca48ccc562a8c0cbe8df07ee13078df59813b83959cbdada312ea3"
-  end
-
-  resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/e0/ef/5905cd3642f2337d44143529c941cc3a02e5af16f0f65f81cbef7af452bb/Pygments-2.13.0.tar.gz"
-    sha256 "56a8508ae95f98e2b9bdf93a6be5ae3f7d8af858b43e02c5a2ff083726be40c1"
   end
 
   resource "wcwidth" do

@@ -24,11 +24,12 @@ class Serf < Formula
 
   def install
     ldflags = %W[
+      -s -w
       -X github.com/hashicorp/serf/version.Version=#{version}
       -X github.com/hashicorp/serf/version.VersionPrerelease=
-    ].join(" ")
+    ]
 
-    system "go", "build", *std_go_args, "-ldflags", ldflags, "./cmd/serf"
+    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/serf"
   end
 
   test do

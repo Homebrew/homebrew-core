@@ -1,8 +1,8 @@
 class Ansifilter < Formula
   desc "Strip or convert ANSI codes into HTML, (La)Tex, RTF, or BBCode"
   homepage "http://www.andre-simon.de/doku/ansifilter/ansifilter.html"
-  url "http://www.andre-simon.de/zip/ansifilter-2.18.tar.bz2"
-  sha256 "66cf017d36a43d5f6ae20609ce3b58647494ee6c0e41fc682c598bffce7d7d39"
+  url "http://www.andre-simon.de/zip/ansifilter-2.19.tar.bz2"
+  sha256 "f9c27b1883914a1b1d4965f4c49b2be502e2a9fc9dd3f61123abeae989c354bc"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,15 +11,13 @@ class Ansifilter < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dc395b12e05e924850d9c3140e2df688645dbd3cb6fbe0ee55a85efecfc3a25d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b2b6a8ec1dbee03ec73761e62abdb29e25daf9a5f5cd2339281784e73e35b27f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "604a45cdc202a4cb1ee084a350b8ad989f135e29d1d4153a9c9e20818da8e31e"
-    sha256 cellar: :any_skip_relocation, ventura:        "82beb4fa65191d059c74f556d92b2c2250f676a60fe9ca69fea353b40cc14ec5"
-    sha256 cellar: :any_skip_relocation, monterey:       "a4c13e32789f3e2dc6e8c1c41d7a680e5fad4464ed59cddda4b859de3d669573"
-    sha256 cellar: :any_skip_relocation, big_sur:        "bce4e87b0f16217d84a01e664c6e96c530d561da301912bfd9e39ec7ff584a74"
-    sha256 cellar: :any_skip_relocation, catalina:       "95487d963289a6fbc97a933a492a8f82ae88ad7087ca525d710edea34e100f0a"
-    sha256 cellar: :any_skip_relocation, mojave:         "06193d389cb3f1ba85f07fda25e0f17ac732efd289597a6ea2e6ce440123bb5c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6ef9a31b1b7ad620a2a4166df38aed63399796ebf40e52ba6e52172c49463798"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1f3012c780cd7e6c52eb448bedb46e87e7a8ae1bde12a6098822afbaa0a80af9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "92096687f55371d4b384bf0d933101a9603189709bb737cf135171fadfdda1eb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6a692940ab425a6cba2bf11ac3f494f72ea1ada05bd7fe5057b8b2c972e34171"
+    sha256 cellar: :any_skip_relocation, ventura:        "cb8521b4794278954eb15d5c11ca1809664df3d1a1bbb967fb30641022153481"
+    sha256 cellar: :any_skip_relocation, monterey:       "63e343ea1a8898bde4257990c9ce55d93e3e8a9bd6928c142e477b92e25afc6b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "87ddd673f6e021a4156f9f0f75c08441b2bf30924d2f6a92f2bb706505df66ec"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1935dc618c8975e129fb53ec9f549dd6ed0aa4cc64beca446d7b73771d04568d"
   end
 
   def install

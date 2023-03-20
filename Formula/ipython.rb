@@ -3,24 +3,23 @@ class Ipython < Formula
 
   desc "Interactive computing in Python"
   homepage "https://ipython.org/"
-  url "https://files.pythonhosted.org/packages/82/2b/026af47da09998404f51064d328f5f1f68c78829082d2945be489343fde6/ipython-8.7.0.tar.gz"
-  sha256 "882899fe78d5417a0aa07f995db298fa28b58faeba2112d2e3a4c95fe14bb738"
+  url "https://files.pythonhosted.org/packages/a7/e1/7c277c1dd0b0520bf07070c3921ff1986a2eb3db704ad91f0ac46fb42d8f/ipython-8.11.0.tar.gz"
+  sha256 "735cede4099dbc903ee540307b9171fbfef4aa75cfcacc5a273b2cda2f02be04"
   license "BSD-3-Clause"
   head "https://github.com/ipython/ipython.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "359fd48f88b24aa9c923f57a1011d06989354ca6f9a92911cb71177768c29895"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "bb403185699cdaeacf0ef295c38a89416e5bc1980c050005e4e63f3b4f050868"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b943cff64833f6b3b533bb3359969e89d605c78f0725e27de5a858a452fa1d70"
-    sha256 cellar: :any_skip_relocation, ventura:        "11a67e0e2181be258cfbd618cb9ed9033b6190cf6d3115a4eaec07bab0b75aa3"
-    sha256 cellar: :any_skip_relocation, monterey:       "c2ea6f5a3130dad732927077f541feb4a38f4cd310b37e92608581b32b215a76"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c15371b0547ea850dc339cd43f6a99a39083dbc06cf6b3aef46afdfa593e8082"
-    sha256 cellar: :any_skip_relocation, catalina:       "c86425fd6f908fba08066cf13b36129f196873885c410df4854de33eec43c5d4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e586285226ad8fc26c162c306f608e3188fb747b46ccaa5a8967c98afbad8f01"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "43afeee381d712df163329a8a168c4296d1b36d0e3619ce186925484b74200f9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "34d2d628806f773ffead00a218af592747f9a719f22852ba1e68f63eaee170ed"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5a3377a657b800108e6fcfd7c810798c2da8cd9ecc44bd1764f968acb9c0bcae"
+    sha256 cellar: :any_skip_relocation, ventura:        "8e526b6fe1692897b2e303b1785b645fe19fc79f7c4805c723775f2cfb9d4f92"
+    sha256 cellar: :any_skip_relocation, monterey:       "875085c3afe0287c8a41b4c38a424b66685d9b24d1fd9dd63f444903fc8efe30"
+    sha256 cellar: :any_skip_relocation, big_sur:        "506e2120803eaf19f8d1081564c04e5238f2e8b8b649e26925040e3d824f2b41"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0c661eb6db64f74d394a289611e1b9b451a8b6f8bda2d473434afb7b11116a86"
   end
 
   depends_on "pygments"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "six"
 
   resource "appnope" do
@@ -29,8 +28,8 @@ class Ipython < Formula
   end
 
   resource "asttokens" do
-    url "https://files.pythonhosted.org/packages/ff/b9/40d8b5f23c59def4f4a67a807e899e00200db11f63b4ac9bde5838b709de/asttokens-2.1.0.tar.gz"
-    sha256 "4aa76401a151c8cc572d906aad7aea2a841780834a19d780f4321c0fe1b54635"
+    url "https://files.pythonhosted.org/packages/c8/e3/b0b4f32162621126fbdaba636c152c6b6baec486c99f48686e66343d638f/asttokens-2.2.1.tar.gz"
+    sha256 "4622110b2a6f30b77e1473affaa97e711bc2f07d3f10848420ff1898edbe94f3"
   end
 
   resource "backcall" do
@@ -74,8 +73,8 @@ class Ipython < Formula
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/c4/6e/6ff7938f47981305a801a4c5b8d8ed282b58a28c01c394d43c1fbcfc810b/prompt_toolkit-3.0.33.tar.gz"
-    sha256 "535c29c31216c77302877d5120aef6c94ff573748a5b5ca5b1b1f76f5e700c73"
+    url "https://files.pythonhosted.org/packages/4b/bb/75cdcd356f57d17b295aba121494c2333d26bfff1a837e6199b8b83c415a/prompt_toolkit-3.0.38.tar.gz"
+    sha256 "23ac5d50538a9a38c8bde05fecb47d0b403ecd0662857a86f886f798563d5b9b"
   end
 
   resource "ptyprocess" do
@@ -94,17 +93,17 @@ class Ipython < Formula
   end
 
   resource "traitlets" do
-    url "https://files.pythonhosted.org/packages/dd/a8/278742d17c9e95ccb0dcb86ae216df114d2166d88e72f42b60a7b58b600b/traitlets-5.5.0.tar.gz"
-    sha256 "b122f9ff2f2f6c1709dab289a05555be011c87828e911c0cf4074b85cb780a79"
+    url "https://files.pythonhosted.org/packages/39/c3/205e88f02959712b62008502952707313640369144a7fded4cbc61f48321/traitlets-5.9.0.tar.gz"
+    sha256 "f6cde21a9c68cf756af02035f72d5a723bf607e862e7be33ece505abf4a3bad9"
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/89/38/459b727c381504f361832b9e5ace19966de1a235d73cdbdea91c771a1155/wcwidth-0.2.5.tar.gz"
-    sha256 "c4d647b99872929fdb7bdcaa4fbe7f01413ed3d98077df798530e5b04f116c83"
+    url "https://files.pythonhosted.org/packages/5e/5f/1e4bd82a9cc1f17b2c2361a2d876d4c38973a997003ba5eb400e8a932b6c/wcwidth-0.2.6.tar.gz"
+    sha256 "a5220780a404dbe3353789870978e472cfe477761f06ee55077256e509b156d0"
   end
 
   def install
-    python3 = "python3.10"
+    python3 = "python3.11"
     venv = virtualenv_create(libexec, python3)
     res = resources.reject { |r| r.name == "appnope" && OS.linux? }
     venv.pip_install res

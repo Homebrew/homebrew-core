@@ -1,20 +1,19 @@
 class Eget < Formula
   desc "Easily install prebuilt binaries from GitHub"
   homepage "https://github.com/zyedidia/eget"
-  url "https://github.com/zyedidia/eget/archive/refs/tags/v1.3.1.tar.gz"
-  sha256 "50a54b10a2643b4086588ea06e9f6be210581c7bbad8aa4eca0e513212aaa7a0"
+  url "https://github.com/zyedidia/eget/archive/refs/tags/v1.3.3.tar.gz"
+  sha256 "9b392ecb5db6917283f5186c0bd9eee43c04f8c6a0a139a11bf8dea323f717c7"
   license "MIT"
   head "https://github.com/zyedidia/eget.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c02ef9c05a662375a5d0ebc40e0a23bda97ed074c4f05426ade07daaf96af2fa"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c12b5e607e4d55fb6c65d895b32b22828d58f5b824b3c0a6e67998f989438312"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8cb94b85450d94bd30b303c05a3627a25f19b6827f315f68e18370d924c798b6"
-    sha256 cellar: :any_skip_relocation, ventura:        "4853bd40ba4656ed3922dae58c31679666eca4bc5187581637570043aa76eb75"
-    sha256 cellar: :any_skip_relocation, monterey:       "7e3d445c82f7e3974f1c302f74d9663250826bd082931580d8308e3c155c5d71"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a02c420db63e1a2103d15ae0b9df3037f5ec660dc79ea63701f3f959274dc353"
-    sha256 cellar: :any_skip_relocation, catalina:       "32e90a815abd4608b66ab65eaeb7d02c48ada09dfa82105d50e020a8418c8a55"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "01774653ba4cfa6043211d1e8410e1c41ca75aff7d5d4f8cdbab4e40c301f7a5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d12208bcfb78ab79dbf71d076755a6408b1f2fa2667b1bc50392fd8544fda4e1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d12208bcfb78ab79dbf71d076755a6408b1f2fa2667b1bc50392fd8544fda4e1"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d12208bcfb78ab79dbf71d076755a6408b1f2fa2667b1bc50392fd8544fda4e1"
+    sha256 cellar: :any_skip_relocation, ventura:        "ce1eef77db41af69a43512c68bd3ab588efac186dcc4d1c7d4416fe62b8f66ca"
+    sha256 cellar: :any_skip_relocation, monterey:       "ce1eef77db41af69a43512c68bd3ab588efac186dcc4d1c7d4416fe62b8f66ca"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ce1eef77db41af69a43512c68bd3ab588efac186dcc4d1c7d4416fe62b8f66ca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fb006b82366dcee9f67b47c24b75145d3e3fc714291056927a12bd141e6d4ef9"
   end
 
   depends_on "go" => :build

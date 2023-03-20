@@ -19,7 +19,7 @@ class HaruhiDl < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9d08de7bd41cf3850110950b094166ec4da94703a9bf29529ab1bd78a72c13a0"
   end
 
-  deprecate! date: "2022-01-15", because: :deprecated_upstream
+  disable! date: "2023-01-31", because: :deprecated_upstream
 
   depends_on "python@3.11"
 

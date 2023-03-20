@@ -29,7 +29,7 @@ class Peg < Formula
   def install
     system "make", "all"
     bin.install %w[peg leg]
-    man1.install gzip("src/peg.1")
+    man1.install Utils::Gzip.compress("src/peg.1")
   end
 
   test do

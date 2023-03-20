@@ -1,8 +1,8 @@
 class PythonTkAT310 < Formula
   desc "Python interface to Tcl/Tk"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.10.9/Python-3.10.9.tgz"
-  sha256 "4ccd7e46c8898f4c7862910a1703aa0e63525913a519abb2f55e26220a914d88"
+  url "https://www.python.org/ftp/python/3.10.10/Python-3.10.10.tgz"
+  sha256 "fba64559dde21ebdc953e4565e731573bb61159de8e4d4cedee70fb1196f610d"
   license "Python-2.0"
 
   livecheck do
@@ -10,13 +10,13 @@ class PythonTkAT310 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "daea00f0d9b71d4bbb907a6c4dac1dac9db202742e8ae3ed410a317e813b5b5e"
-    sha256 cellar: :any, arm64_monterey: "1d19d48d0d73b857f08f05be298a947a38f58ea0238d34350d9051497586a0ec"
-    sha256 cellar: :any, arm64_big_sur:  "8a217c67508f3ac5a3ef09697730730a61b81b27c9d46ec4004e53ca58be6e74"
-    sha256 cellar: :any, ventura:        "298225670b560465a5f90d605559f47ae14635c6e5a8524c73ac364db514fa95"
-    sha256 cellar: :any, monterey:       "65ca4f1766f5318a78ba9d3509bd9a04027b53d1e8c54a6ef603476cccc1cb3a"
-    sha256 cellar: :any, big_sur:        "5077e2c4e630e10ba2fd9a9e7867ebf3923f7cde29693ba1b854cc654d604992"
-    sha256               x86_64_linux:   "27ba1fb44bb618d124bd4526073b5d4e9e8271829c02c6551883b8cff7629fb9"
+    sha256 cellar: :any, arm64_ventura:  "09151dcb365ffbd31c371da3ea52f688f68e5e6e34812ee2de0eeb387c6ff25b"
+    sha256 cellar: :any, arm64_monterey: "0af569776354044dcd1c10c9d95690069757cb5ae684572f7d98f536a3b31c20"
+    sha256 cellar: :any, arm64_big_sur:  "4e762708d772fd93792122992d83e99c747ec44f051613026a67731074afc6ba"
+    sha256 cellar: :any, ventura:        "a7289c54d92181d5c50dc2556bdea1ea4c53679b4abf66bc1191d04369aa5e70"
+    sha256 cellar: :any, monterey:       "26e875fa1c76b7be4026f3833a0c37a4ac2fbad889b2ad0474222ca969df79b6"
+    sha256 cellar: :any, big_sur:        "90bedbb1a6fe2c28058ef9114cfad91b4ed6a54d2676ee3d243c3c5a3f506682"
+    sha256               x86_64_linux:   "30f84721267504f85471728e86b9ccc9020d0361b16b25e45ca1858d30686063"
   end
 
   keg_only :versioned_formula

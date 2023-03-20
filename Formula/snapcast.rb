@@ -1,19 +1,17 @@
 class Snapcast < Formula
   desc "Synchronous multiroom audio player"
   homepage "https://github.com/badaix/snapcast"
-  url "https://github.com/badaix/snapcast/archive/refs/tags/v0.26.0.tar.gz"
-  sha256 "166353267a5c461a3a0e7cbd05d78c4bfdaebeda078801df3b76820b54f27683"
+  url "https://github.com/badaix/snapcast/archive/refs/tags/v0.27.0.tar.gz"
+  sha256 "c662c6eafbaa42a4797a4ed6ba4a7602332abf99f6ba6ea88ff8ae59978a86ba"
   license "GPL-3.0-or-later"
-  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "fdc7b6323f142d3bff859224c0849674d908844f6d26cbf5facac011527c5f66"
-    sha256 cellar: :any, arm64_monterey: "43940265aea2debabe717648ef509c98aef3018290f57c4cb05c0e8567be1661"
-    sha256 cellar: :any, arm64_big_sur:  "1a6d23f065fcfc38e6aa7fbfac653dd128b36a50dcc0f8c567e50ee0747bf6b8"
-    sha256 cellar: :any, ventura:        "4e614ef38a5e89086b816510c5e35edf2374f198ea7cbeec78cf6845b6024df2"
-    sha256 cellar: :any, monterey:       "63b3f56b0521da50793dbd77c69075f5de6f7980d2249ddfe8fdf58a89e8a083"
-    sha256 cellar: :any, big_sur:        "35633819e9b126ed8d5bc5508383706c373326be74b7ff1cb3168f27f8b59fcf"
-    sha256 cellar: :any, catalina:       "385ab39a8af598fa27180b3c3d97161f1aad3cdb51aca3ce562366ce0be74928"
+    sha256 cellar: :any, arm64_ventura:  "5f8b48a023b44476b3616388c9b7e307a4faf9cf84c499ddb4a9005e2f0c4bda"
+    sha256 cellar: :any, arm64_monterey: "2ad42c1d88a43a12d762d96edcda0606c5fda5bb70681eda149985697b11ab11"
+    sha256 cellar: :any, arm64_big_sur:  "8588b358091d73a106db67279386ad7be95f3219daba2bfb5f1c9312b953b718"
+    sha256 cellar: :any, ventura:        "2bbbca9b982f1fec1ddb0586432a2422de1a0e0da70aed728acc7b0606653c07"
+    sha256 cellar: :any, monterey:       "618395d8c3fdcb4e12929e7dc9a1157a5c89f62c0ce064fc28866601097a49eb"
+    sha256 cellar: :any, big_sur:        "ba8f8d14a4b66bc87a4158fbd91b6f043566a65be66bfbb8d16322589960d265"
   end
 
   depends_on "boost" => :build

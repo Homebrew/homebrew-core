@@ -1,20 +1,19 @@
 class Restic < Formula
   desc "Fast, efficient and secure backup program"
   homepage "https://restic.net/"
-  url "https://github.com/restic/restic/archive/v0.14.0.tar.gz"
-  sha256 "78cdd8994908ebe7923188395734bb3cdc9101477e4163c67e7cc3b8fd3b4bd6"
+  url "https://github.com/restic/restic/archive/v0.15.1.tar.gz"
+  sha256 "fce382fdcdac0158a35daa640766d5e8a6e7b342ae2b0b84f2aacdff13990c52"
   license "BSD-2-Clause"
   head "https://github.com/restic/restic.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "91228b019a0379c0064dd3a4996614ad3a2374fd0d92a37f04374936166ff4ca"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "76aff7ed4b8952cdad67cbc838025c137f7e7798f8e440ff01a88bac070805b0"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "76aff7ed4b8952cdad67cbc838025c137f7e7798f8e440ff01a88bac070805b0"
-    sha256 cellar: :any_skip_relocation, ventura:        "3ba201ff032c181e8f217138ce4727e92f7a3484a817462cde78a5a7e2e0cf00"
-    sha256 cellar: :any_skip_relocation, monterey:       "030fd47b302cdaef0b04967dd2adcd1600d6a24864a7737947a0d5dad2c50a7b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "030fd47b302cdaef0b04967dd2adcd1600d6a24864a7737947a0d5dad2c50a7b"
-    sha256 cellar: :any_skip_relocation, catalina:       "030fd47b302cdaef0b04967dd2adcd1600d6a24864a7737947a0d5dad2c50a7b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "888fdae2ce2c9344d17ee25bf6412a892b23a542f9584c12084c9ca15c633c41"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "767d2b6fade6fbad2170275c46b01768a071b3c7aa926978d4906c37fcb8a59f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "767d2b6fade6fbad2170275c46b01768a071b3c7aa926978d4906c37fcb8a59f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "767d2b6fade6fbad2170275c46b01768a071b3c7aa926978d4906c37fcb8a59f"
+    sha256 cellar: :any_skip_relocation, ventura:        "7672fc2833ec1a9e0ba6c8358a63b17997dab2f69f21800cd38b9f5b3548e615"
+    sha256 cellar: :any_skip_relocation, monterey:       "7672fc2833ec1a9e0ba6c8358a63b17997dab2f69f21800cd38b9f5b3548e615"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7672fc2833ec1a9e0ba6c8358a63b17997dab2f69f21800cd38b9f5b3548e615"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6ea5e20625a83bb7180031bdbbe8f8c21a61068786f5c39bdf0fa869614c251b"
   end
 
   depends_on "go" => :build

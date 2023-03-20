@@ -1,8 +1,8 @@
 class GnomeAutoar < Formula
   desc "GNOME library for archive handling"
   homepage "https://github.com/GNOME/gnome-autoar"
-  url "https://download.gnome.org/sources/gnome-autoar/0.4/gnome-autoar-0.4.3.tar.xz"
-  sha256 "7bdf0789553496abddc3c963b0ce7363805c0c02c025feddebcaacc787249e88"
+  url "https://download.gnome.org/sources/gnome-autoar/0.4/gnome-autoar-0.4.4.tar.xz"
+  sha256 "c0afbe333bcf3cb1441a1f574cc8ec7b1b8197779145d4edeee2896fdacfc3c2"
   license "LGPL-2.1-or-later"
 
   # gnome-autoar doesn't seem to follow the typical GNOME version format where
@@ -14,18 +14,18 @@ class GnomeAutoar < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "c2d46eb77c19eb1f599cf23a093d81c91e8d66b857d2df834d05200cd52383b5"
-    sha256 cellar: :any, arm64_monterey: "0df6603337a1cff502ba253b8801db07224f32598eb347f94fb5785378520fbc"
-    sha256 cellar: :any, arm64_big_sur:  "cb7cbf77725dfb8c63132595f9328165d05c88ff06bb354c0439b619046ea089"
-    sha256 cellar: :any, ventura:        "9690e11452b96f60b9b9076826a9c65f32909b89ea0deb267d7e0aab16d701c2"
-    sha256 cellar: :any, monterey:       "eb9b26d88d0999f3eda261336868815893a94680dfb59041093ca108a38a278c"
-    sha256 cellar: :any, big_sur:        "a6b34eb24dbdc52a7e616dc1fda7bd10b37428d97a182006da2f6b18b34bbdfb"
-    sha256 cellar: :any, catalina:       "ac757f0f9b548f9a993d6f4f80bcb2b48abbed49189b7c7ebad0b13e9a75ec0d"
-    sha256               x86_64_linux:   "f19b2f3e7c3014bd7e65e2326b2d550ce10add78fc35c09bd6016cce51b98f6d"
+    sha256 cellar: :any, arm64_ventura:  "53caf3329b3d4a54f5031a4456f86eb12eefd0d8dea36df3ce54afeb72e52c02"
+    sha256 cellar: :any, arm64_monterey: "e10db77c19ff115e5995a8692c0920668f02779b766e3ff9017739570554fa82"
+    sha256 cellar: :any, arm64_big_sur:  "bef367c910a48355826f1a68b6559c745ece649aaa5b286ec771143278ab48d1"
+    sha256 cellar: :any, ventura:        "8a94a0c9e9b51afba14c7f66f674200b5cfb5422169b8e2cbba840cb96adc574"
+    sha256 cellar: :any, monterey:       "028851ac6b3a2f4b9bdaadf06b8591867c6e0ea4fd07a3ebb8d06d1743647fde"
+    sha256 cellar: :any, big_sur:        "2ff4820fa4dfc5b43d6ff81d7d20cae54240af35b05f6bbd2538b3e575e85a84"
+    sha256               x86_64_linux:   "106a75d05056cb20a8776d7c72f872e22ee1986aa02c28b26934796aaec01aa7"
   end
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
+  depends_on "pkg-config" => :build
   depends_on "gtk+3"
   depends_on "libarchive"
 

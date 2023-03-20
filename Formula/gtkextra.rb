@@ -18,6 +18,9 @@ class Gtkextra < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "63ff3052d9c03812e4c97cf79786a4395b9cf431588fc7f771331d049bbe6127"
   end
 
+  # https://gtkextra.sourceforge.net/cms/index.php?option=com_content&view=article&id=63:new-maintainer-searched&catid=3:news
+  deprecate! date: "2023-01-18", because: :unmaintained
+
   depends_on "pkg-config" => :build
   depends_on "gtk+"
 

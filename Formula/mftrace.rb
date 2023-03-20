@@ -12,14 +12,14 @@ class Mftrace < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d4db753d66ccd96f7b4272e100d47caa5175111850cc0da364bd452260ef6e31"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b471c3ba39bb586dc5dee6d154faabe0ea06f25fca76dbe48a3f11e884e02b12"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3507622b6f0bf74932c1104a1eb7f66aaa1ab238e28102f42f93186b2ce6d7d1"
-    sha256 cellar: :any_skip_relocation, ventura:        "aaf1973d2c4c5010044951ef5c5743f85b037f654fa6a9a0861137d849fb904c"
-    sha256 cellar: :any_skip_relocation, monterey:       "a353610085452f56bb18ddb4b1c3bff457f156a300f912f9d513cfb7fc6c1838"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2d1e02e4a47afe92b1862173c57b1bcf52ad3e423f59f554d93779340bd7a2a1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "599c1dba64bc6e49ce1ad3a17f3e85d67d233b8a77d399d9e5b11bdae2bcdef8"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fcc7091b7e3aab969e797cbb583d8d8349856433c9452c818c1cc338b53537d9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c9b7d41129a1f83e1c9e84ad20e706ebd3d93e6c7b9801bd90e866d0e07d8234"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "24bae79ec700220fea014de05a63df51c061ecf8817e737c24a00c1fd2b3f6ea"
+    sha256 cellar: :any_skip_relocation, ventura:        "dc53be3197cdb6ee63607d4d9d3e94220953e85ba05c5e698156087382d557de"
+    sha256 cellar: :any_skip_relocation, monterey:       "bae6d024e848e8f7c7a18f8b6d86359f652b7715daa1a11bcdcb6c4e03b5e0b7"
+    sha256 cellar: :any_skip_relocation, big_sur:        "57483c84e1722e4ec6e606c24336a615bd8710c3735bbb1c32e3a3afa64b3b22"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "45f198472e3e64f2ce72fc9425338c791110ac33f1cecde0c77f584b0373fd7e"
   end
 
   head do
@@ -39,13 +39,14 @@ class Mftrace < Formula
   end
 
   def install
+    ENV["PYTHON"] = which("python3.11")
     buildpath.install resource("manpage") if build.stable?
     system "./autogen.sh" if build.head?
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
   test do
-    system "#{bin}/mftrace", "--version"
+    system bin/"mftrace", "--version"
   end
 end

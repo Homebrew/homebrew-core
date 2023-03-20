@@ -1,21 +1,24 @@
 class Mxnet < Formula
   desc "Flexible and efficient library for deep learning"
   homepage "https://mxnet.apache.org"
-  url "https://dlcdn.apache.org/incubator/mxnet/1.9.1/apache-mxnet-src-1.9.1-incubating.tar.gz"
+  url "https://www.apache.org/dyn/closer.lua?path=mxnet/1.9.1/apache-mxnet-src-1.9.1-incubating.tar.gz"
+  mirror "https://archive.apache.org/dist/incubator/mxnet/1.9.1/apache-mxnet-src-1.9.1-incubating.tar.gz"
   sha256 "11ea61328174d8c29b96f341977e03deb0bf4b0c37ace658f93e38d9eb8c9322"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "0809ee3424903bc424a597c64aac5516390713696e86e72967bae1788d56e6fe"
-    sha256 cellar: :any,                 arm64_big_sur:  "7a146f853557f902868dbf26b943776a2556717e106ce68f26dcfaa6236cacfa"
-    sha256 cellar: :any,                 monterey:       "b364fb1791caca2a4b892ad998fe9f7f309509f5695394aaf1379a3f1f477f95"
-    sha256 cellar: :any,                 big_sur:        "133637a0ea33d4526c02a4dfbdb4e5bc32c5d12343cccaef179c59e0b106db23"
-    sha256 cellar: :any,                 catalina:       "136988d22610e7efe67b8574f92adfc196a3d1b67abae10f859bf13e2497dffc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "caaccddea2c9c2d884985ce4837d3915ed0bf8ade7c6bf9c7ab2ca993ac03765"
+    sha256 cellar: :any,                 arm64_ventura:  "f65d788203a541ed82b1dfaa024ff6965e5aee8a84aafc79984d532e9299df79"
+    sha256 cellar: :any,                 arm64_monterey: "72f78cde6aa662400f4ec403c630674fb9cdd8c0f1812c8294c7da7f395a52c5"
+    sha256 cellar: :any,                 arm64_big_sur:  "1c0529a20a2f9bb5e7b0a0d505f7d393e9fc7687900d987162d5f1102dcb8958"
+    sha256 cellar: :any,                 ventura:        "0ccf72880e4ac7c40346c8261d03a1d23330df71c7d41ee9d7f2472574aa2a3a"
+    sha256 cellar: :any,                 monterey:       "5358a09e7f8a3712ff27abc2707470824747d3f1d64c70cb54aecb965724333a"
+    sha256 cellar: :any,                 big_sur:        "a291380b912d157b922e40f9c6b1fa0a4974a81eb7843f32bc54c28c0712c3b0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1b355fcd8bffac727b1a4716228d29e9ebdab0908ce7d8da48511fdf9a5eec6d"
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.10" => :build
+  depends_on "python@3.11" => :build
   depends_on "openblas"
   depends_on "opencv"
 

@@ -6,21 +6,20 @@ class Lablgtk < Formula
   license "LGPL-2.1"
   revision 1
 
-  livecheck do
-    url :stable
-    strategy :github_latest
+  bottle do
+    rebuild 1
+    sha256 cellar: :any, arm64_ventura:  "7cb01bef4d60ce7f596ad6f3adc5923d749ead4b59588b543138b1f66b74a2a6"
+    sha256 cellar: :any, arm64_monterey: "2c21ec6b8830ee50288760db11028d09ae3b044f3c13b88ff994d4216b1f0ed9"
+    sha256 cellar: :any, arm64_big_sur:  "65cfbb0af55509b9b7510f326f5b88f63f9d3a3df0977d93f065d9ef043c7425"
+    sha256 cellar: :any, ventura:        "2201dac36a46692e3528faeb8b13bddbf211bac47751ee78a129292eb6a48e51"
+    sha256 cellar: :any, monterey:       "1e26236878d78e09830714ac7367843aa0de50aaee48946958dbb795e6d27e2e"
+    sha256 cellar: :any, big_sur:        "b934fef88127a297467f7dcb144fe7e3c60d169da70c45e7ac63cccf03dc2a6e"
+    sha256               x86_64_linux:   "1e5f02345d7be4fdfa1ab57097b866248c0e9f8465f751a526909870cbeb926b"
   end
 
-  bottle do
-    sha256 cellar: :any, arm64_ventura:  "b77e7e12785ed1b84c04e2d7f33745b3d63a8aa101c7d3d10189a9a0ffd0956a"
-    sha256 cellar: :any, arm64_monterey: "97abc8b9ca15184d58e73218a5617d417efc94183ae8ff6bb2bb5e6e4dd2efd2"
-    sha256 cellar: :any, arm64_big_sur:  "4cacdcf4beb3a2d2621a2728b816c32b732a76fa48ae5a2db81aa5c2ceb083b3"
-    sha256 cellar: :any, ventura:        "79e1eb9e719529c7d5fb0fd7be0f96017a7409fb9af4c8d6e2ebcc44540eb630"
-    sha256 cellar: :any, monterey:       "3481e18fe254c2bd1933ff9ef091b4d3345635825482540a014645e8b16219ed"
-    sha256 cellar: :any, big_sur:        "4535ca14378ec4580014e81f636cbccd335e03d40de2710cbbc2102cca02c3a3"
-    sha256 cellar: :any, catalina:       "6693d979ec1eba98402d6b5f6747de3ce204567b53e37144231b26731173a620"
-    sha256               x86_64_linux:   "30f9191323a86ef69a1794027fdf8c6ef6b49b97df043732038bb0c9423c1b2e"
-  end
+  # GTK 2 is EOL: https://blog.gtk.org/2020/12/16/gtk-4-0/
+  # GTK 3 supported package is named `lablgtk3` so may be better as separate formula
+  deprecate! date: "2023-01-18", because: :unmaintained
 
   depends_on "pkg-config" => :build
   depends_on "gtk+"

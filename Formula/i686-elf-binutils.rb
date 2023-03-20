@@ -1,9 +1,9 @@
 class I686ElfBinutils < Formula
   desc "GNU Binutils for i686-elf cross development"
   homepage "https://www.gnu.org/software/binutils/"
-  url "https://ftp.gnu.org/gnu/binutils/binutils-2.39.tar.xz"
-  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.39.tar.xz"
-  sha256 "645c25f563b8adc0a81dbd6a41cffbf4d37083a382e02d5d3df4f65c09516d00"
+  url "https://ftp.gnu.org/gnu/binutils/binutils-2.40.tar.bz2"
+  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.40.tar.bz2"
+  sha256 "f8298eb153a4b37d112e945aa5cb2850040bcf26a3ea65b5a715c83afe05e48a"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,14 +11,13 @@ class I686ElfBinutils < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "65a12a7a0fda3fa76164498228ca38199a684e587aeb7191027f062e2c9dcd15"
-    sha256 arm64_monterey: "b165b5ea4d9c0f6c48ae911424b947d0b5fbefe7326a4b08264bcab238adc311"
-    sha256 arm64_big_sur:  "e6fd77d3044070196bcc97994e30103314c202cafbb8d388297b016fe743906a"
-    sha256 ventura:        "d4d611501501328f9de1ca66dc1d9467dc8c5fea3005a8c9ae7f8b60f323439c"
-    sha256 monterey:       "9f98933cb5be01be6656c48b0a6af873d052c0a8d2035764aabacb0aa30f7609"
-    sha256 big_sur:        "770b6be941d02848584d1cde5563ccd28c858016818283ac74e57e5c88026f3b"
-    sha256 catalina:       "de959fa65f1b4ecbf25f0684f652fab3b65fd1112e17a4b92d1295a49dea7c08"
-    sha256 x86_64_linux:   "02f56bd4afbcefb52a060a677150939ccbdb13c19cfa6fc3e99796564c1cb864"
+    sha256 arm64_ventura:  "fab6e87ee627c0f7c69c474c91100423a7ac02ab874f181d2c1817506476990d"
+    sha256 arm64_monterey: "73236de42e1bf543d835f981f3089715cdb1e3d85a5c0bc9dc0b31a675e20267"
+    sha256 arm64_big_sur:  "e35449a94557c283ec4f309e8e7c94e21ce8f0c249d59d1706e703759d45007d"
+    sha256 ventura:        "a84b87b1ba0e93db903a4fd18fc7982c4e99fe6d6c1292a93fc0981a6250a3fe"
+    sha256 monterey:       "ac18dbac512eef87289290143a1987893d2ef178d262d12cf0b6d495374d28d6"
+    sha256 big_sur:        "d48940229bd80020caaf65ba18959095819dba896d60bb8af4014ac85933270f"
+    sha256 x86_64_linux:   "f184ca36b2f1321321fdb73f1521a23d56f292108a6133941e518fbd7f3b3d65"
   end
 
   on_system :linux, macos: :ventura_or_newer do

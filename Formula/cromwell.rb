@@ -1,12 +1,18 @@
 class Cromwell < Formula
   desc "Workflow Execution Engine using Workflow Description Language"
   homepage "https://github.com/broadinstitute/cromwell"
-  url "https://github.com/broadinstitute/cromwell/releases/download/84/cromwell-84.jar"
-  sha256 "faf6e7996e1c2e9e4e71f2256f984e3a7782df9377fd2ccd32546f622d05cb2b"
+  url "https://github.com/broadinstitute/cromwell/releases/download/85/cromwell-85.jar"
+  sha256 "100f6c61df72b4079b3ad0f03e8f73e6e2c0afe99d212ec8d42faf4bd4de1e23"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "2aacb5acac2682c8437112b65935980ead16dfe5344ad0a02395ed9fe7484ce7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "32c1c6f5ba62df9c2fa1ee21ecd00cd71f6e176cf9f481a388602beaaaad1fe2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "32c1c6f5ba62df9c2fa1ee21ecd00cd71f6e176cf9f481a388602beaaaad1fe2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "32c1c6f5ba62df9c2fa1ee21ecd00cd71f6e176cf9f481a388602beaaaad1fe2"
+    sha256 cellar: :any_skip_relocation, ventura:        "32c1c6f5ba62df9c2fa1ee21ecd00cd71f6e176cf9f481a388602beaaaad1fe2"
+    sha256 cellar: :any_skip_relocation, monterey:       "32c1c6f5ba62df9c2fa1ee21ecd00cd71f6e176cf9f481a388602beaaaad1fe2"
+    sha256 cellar: :any_skip_relocation, big_sur:        "32c1c6f5ba62df9c2fa1ee21ecd00cd71f6e176cf9f481a388602beaaaad1fe2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "da037e50ee875bdc82bc99122ea830c6de4a301581ec0286deb4c677de11580c"
   end
 
   head do
@@ -17,8 +23,8 @@ class Cromwell < Formula
   depends_on "openjdk"
 
   resource "womtool" do
-    url "https://github.com/broadinstitute/cromwell/releases/download/84/womtool-84.jar"
-    sha256 "784604988807fb60d0b8336d0731f2bce551358e4211c31458889eec9dbf8ad9"
+    url "https://github.com/broadinstitute/cromwell/releases/download/85/womtool-85.jar"
+    sha256 "53e0d6201933a5c335437dcafd62625e9f241995d450dfd1b5c0ca37a834f89b"
   end
 
   def install

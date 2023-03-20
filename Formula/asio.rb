@@ -1,10 +1,9 @@
 class Asio < Formula
   desc "Cross-platform C++ Library for asynchronous programming"
   homepage "https://think-async.com/Asio"
-  url "https://downloads.sourceforge.net/project/asio/asio/1.24.0%20%28Stable%29/asio-1.24.0.tar.bz2"
-  sha256 "8976812c24a118600f6fcf071a20606630a69afe4c0abee3b0dea528e682c585"
+  url "https://downloads.sourceforge.net/project/asio/asio/1.26.0%20%28Stable%29/asio-1.26.0.tar.bz2"
+  sha256 "858320108a0dfc6504cc1b3403182de8ccda1fb8f1c8a4e980e4cb03a11db34d"
   license "BSL-1.0"
-  head "https://github.com/chriskohlhoff/asio.git", branch: "master"
 
   livecheck do
     url :stable
@@ -12,19 +11,22 @@ class Asio < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "ad623954bd7b57ecca1e10a016d908348648d66226721f05dbf7e9cc0e5663ea"
-    sha256 cellar: :any,                 arm64_monterey: "e20aec9f064477c73792f6803c8e10e26c4cd4ce054b0ce459d6772368921689"
-    sha256 cellar: :any,                 arm64_big_sur:  "a6f2e2deeac5cd08a04b2bee1c526e8edc7c47f32303224ab1071471ed7e0d77"
-    sha256 cellar: :any,                 ventura:        "19eb60a2e7147cd9a7f45411a1f093adecd7bd244ae812891ade850e65f2a0e2"
-    sha256 cellar: :any,                 monterey:       "129fd9c1da610fec3a7a3a2fe12826f627528e105de614af9ca5d52d50a80f2e"
-    sha256 cellar: :any,                 big_sur:        "23ec57ee734521b53c0180751aacf12c44bf81f23767683a194afffd07dd295d"
-    sha256 cellar: :any,                 catalina:       "b8d84401529dd7156387686e552f267474cdebda31786f78320de6e6f6aa5b6e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9ad1851fe6c46fa7440e78f0572eb23698fded2b1d80795a7558126ab7c740da"
+    sha256 cellar: :any,                 arm64_ventura:  "a4c16df47b5b0e4e272cc4d3e5a59145dc1b11b031ffbd5daeda8e1e89317bbf"
+    sha256 cellar: :any,                 arm64_monterey: "204cf96a34629195e3f09f9c1e4b2e896f76a75207122cdb09447e7f66d00ed2"
+    sha256 cellar: :any,                 arm64_big_sur:  "7f81d62e95806c35522ff629c2145721c43efc7605f8e2d2403342150865830a"
+    sha256 cellar: :any,                 ventura:        "9e6e8e7be0a34b9de9769a881fc79ea4668092f2e9183d3622ea3fe66ddf5531"
+    sha256 cellar: :any,                 monterey:       "824e821c1147439f8a9fc22301dab82a4603198f1f5907d804b41fa717c16ca6"
+    sha256 cellar: :any,                 big_sur:        "eb3bacc9a7ce9079fcc4f6d17ecf9af340765aae1c5d45b57fa68deed3222226"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "45090f28798a426d6cbd2e822387a947878ce84a57713f464dde336c89f02a7f"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "openssl@1.1"
+  head do
+    url "https://github.com/chriskohlhoff/asio.git", branch: "master"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
+
+  depends_on "openssl@3"
 
   def install
     ENV.cxx11
@@ -32,14 +34,12 @@ class Asio < Formula
     if build.head?
       cd "asio"
       system "./autogen.sh"
-    else
-      system "autoconf"
     end
 
-    system "./configure", "--disable-dependency-tracking",
+    system "./configure", *std_configure_args,
                           "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--with-boost=no"
+                          "--with-boost=no",
+                          "--with-openssl=#{Formula["openssl@3"].opt_prefix}"
     system "make", "install"
     pkgshare.install "src/examples"
   end

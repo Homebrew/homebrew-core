@@ -1,29 +1,24 @@
 class Hdf5AT18 < Formula
   desc "File format designed to store large amounts of data"
   homepage "https://www.hdfgroup.org/HDF5"
-  # NOTE: 1.8.23 is expected to be the last release for HDF5-1.8
-  # (see: https://portal.hdfgroup.org/display/support/HDF5%201.8.22#HDF51.8.22-futureFutureofHDF5-1.8).
-  url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8/hdf5-1.8.22/src/hdf5-1.8.22.tar.bz2"
-  sha256 "689b88c6a5577b05d603541ce900545779c96d62b6f83d3f23f46559b48893a4"
-  revision 4
-
-  livecheck do
-    url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8/"
-    regex(%r{href=["']?hdf5[._-]v?(\d+(?:\.\d+)+)/?["' >]}i)
-  end
+  url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8/hdf5-1.8.23/src/hdf5-1.8.23.tar.bz2"
+  sha256 "69ac1f7e28de5a96b45fd597f18b2ce1e1c47f4b2b64dc848a64be66722da64e"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "256b29e21285299abcf39b3c30245b7eeec4e35acfd20cbbd41f58f4dccb8f69"
-    sha256 cellar: :any,                 arm64_monterey: "18d3be813aa10a16e33d3d54553480280874c96d94232b7ec348f0382f682267"
-    sha256 cellar: :any,                 arm64_big_sur:  "a8c32359ab98af7cfc8b718c028f051c6002cb01163843f33acf95e1d61a5753"
-    sha256 cellar: :any,                 ventura:        "21269bba79eba8ccfc0038d39c733a97b91ac7e2f52461849fe4cf75adc13674"
-    sha256 cellar: :any,                 monterey:       "454854d48dc24328a5c8b1447412c5e0395d135989790e2e14cb8426586080e8"
-    sha256 cellar: :any,                 big_sur:        "8e4c4ec541b7cc9ac9211bc8517d4ba7ff6c1bf782ef5a25fd4a0188e118fc12"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "64281b1ce5dafd2828f11ace0bff36ee9005aa2e95393e8e1ffe6f4bb9f10c1f"
+    sha256 cellar: :any,                 arm64_ventura:  "2a610ba27c2230a1bb6503d6c8837856e3d732b01f77e3aa4f424764e256f7f0"
+    sha256 cellar: :any,                 arm64_monterey: "cee65157e34fb2bf100ca817d0451140877c4eb2cecb985b6417a88718f17fc0"
+    sha256 cellar: :any,                 arm64_big_sur:  "d4b59b70482874bbcb6fa1b7f8ae70380beef2af30b681e9505e761471025199"
+    sha256 cellar: :any,                 ventura:        "dea8106a00cd493f662522b810e3b621153a1837859eeee0ed89c2000231bb5a"
+    sha256 cellar: :any,                 monterey:       "8fee587dbc90c90c2578b238c823246475571548d73bb7dd0526925e7da7e520"
+    sha256 cellar: :any,                 big_sur:        "d3d4e0b22028848cede7f5b1f7c89f10726a23b49e3f5bf7f9cf9f5dd162cfa5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7e5aad64f5771536c57b07c1edc82a896bdcf61847358ccbee9769e06ea3b0d6"
   end
 
   keg_only :versioned_formula
+
+  # 1.8.23 is the last release for 1.8.x
+  # https://github.com/HDFGroup/hdf5#release-schedule
+  deprecate! date: "2023-02-11", because: :unsupported
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build

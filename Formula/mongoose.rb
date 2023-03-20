@@ -1,21 +1,18 @@
 class Mongoose < Formula
   desc "Web server build on top of Libmongoose embedded library"
   homepage "https://github.com/cesanta/mongoose"
-  url "https://github.com/cesanta/mongoose/archive/7.8.tar.gz"
-  sha256 "55073dcd427ab9475731ad855e417884f4fbfb24b7d5694f6cabadbee1329f16"
+  url "https://github.com/cesanta/mongoose/archive/7.9.tar.gz"
+  sha256 "147d51637c5ea95a592487fc4bc64f9c2a719a8f519d379636f2a8b83cb8e672"
   license "GPL-2.0-only"
-  revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "f8081c830980b8671bb9055574cb20b4e57b09c8447dbb157e86366a9d359ed2"
-    sha256 cellar: :any,                 arm64_monterey: "7998ae2f5baf6f285f64228eb08ceea45ebb1e848a0bc0050a05b670f0d6e486"
-    sha256 cellar: :any,                 arm64_big_sur:  "ee3b2e1a77bcac51e1eb227b6b7cbcd06281090a91b477d8593a98800b6d30ee"
-    sha256 cellar: :any,                 ventura:        "df7a7b6ca96bea712b30c8aad4fda4c2733d8da86976b7133ce89d283f14591f"
-    sha256 cellar: :any,                 monterey:       "9270e8f543e74f31a551a56bec241ba3ca32f4fa4e51066453d65f564631552e"
-    sha256 cellar: :any,                 big_sur:        "7a13be2a2f240e9b61d453d6e8e83561778a5d99501a86a62071b0be8dd4685a"
-    sha256 cellar: :any,                 catalina:       "dd3af2e217dc3b2ff93e2154531503e0b594694e2b94a608473151907544488d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dc4276410eb8f29fac51ffa51a9e1c7c664b45e0742fd51f21bc82568fcc9b59"
+    sha256 cellar: :any,                 arm64_ventura:  "7029cc380ec28d2833b1f44027532fb8251bfb5dff8951888b8f9c30b297ecf5"
+    sha256 cellar: :any,                 arm64_monterey: "3b1d0e208e186dee9208a210f77526490de0e8a2abece1604241ef5b7517f3c2"
+    sha256 cellar: :any,                 arm64_big_sur:  "42ce689b33b6e803a9ac5087e76a21c190343f7332a8abd37cf7e6ff421fb4bb"
+    sha256 cellar: :any,                 ventura:        "7d6acd71843441cca6f7d17c43e63c2e28ccf88fc5e3d4bb6e0bb04b5f0c8342"
+    sha256 cellar: :any,                 monterey:       "71d1229fac95a44ad0427b83f19a4af96e5afe04bdb88512d46aa003a162329a"
+    sha256 cellar: :any,                 big_sur:        "67667f049ea0284e7f4353006db2953b0f5b49e95ec0673ff52bd5ea0b0b7008"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c6146ba2bceb453dc7f21469501518a5f2b4ab505f7e64d834e8b2ba0d19a3c7"
   end
 
   depends_on "openssl@3"

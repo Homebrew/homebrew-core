@@ -1,19 +1,19 @@
 class Sniffnet < Formula
   desc "Cross-platform application to monitor your network traffic"
   homepage "https://github.com/GyulyVGC/sniffnet"
-  url "https://github.com/GyulyVGC/sniffnet/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "c957a372b324aa8349820458202d291f64831b90aeae5b73d822e74e7739876d"
+  url "https://github.com/GyulyVGC/sniffnet/archive/refs/tags/v1.1.2.tar.gz"
+  sha256 "028209240be187c9de94be4da6cd3129d5c2bd2542a929e6d869bfad4d7aa9a5"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/GyulyVGC/sniffnet.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6207bddc411420dc8a3f616960b21e2635c98184451baa8684b4d97b8e314ce1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d9c2438a7a496eacff0f57960701066da0b838b1451345d354734679c37535db"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "51f25c2304b66ffaadb7bd823dec59800bacfb311d3d0ac2fe75ab4475230510"
-    sha256 cellar: :any_skip_relocation, ventura:        "a3022a44ffeb505a713c6c68c26dfa7941443f864dbfe12733bf1b17eae1fce8"
-    sha256 cellar: :any_skip_relocation, monterey:       "18525e3ab8a68b6a9ad0b607eda361ca51a2ae957b414aa985ccf22563d31186"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1d6e0766d38235e9708bf3deae1a8d41144c49324e6953a719678dc49e6c38a4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "afb8aa75c4417b6882dc94a4e1fc036a36c5d32cc91729ecc8e059ff2e601052"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d4d1f6b93705f3f91a15c36ca739c753a8d4a056bf98e530b7eff936c458f950"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "afff24e05223ccf351587230637bac01be37bb0b6a655eaef97981bc09850ca6"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4f5238effbd5f62ee9fb4c6657730e0155e86877e7aa905dd0ffb84a41692728"
+    sha256 cellar: :any_skip_relocation, ventura:        "06a92755bab64adc3714db5a0f3a8abf69d7422a6146f024a912a5d1dd5239c8"
+    sha256 cellar: :any_skip_relocation, monterey:       "c140bd00f861d7e5e7c72692fb3145f7191da3d826873e18ac2821655bb5ba75"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a116e01c90511e62361806407fdeb68db188b16d39d0b421c38e8daf670cbbc9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4fee0d3b10873016b331117eb0e72a78700c6dd3b07c645d9081127698411ed8"
   end
 
   depends_on "rust" => :build
@@ -22,6 +22,7 @@ class Sniffnet < Formula
 
   on_linux do
     depends_on "pkg-config" => :build
+    depends_on "alsa-lib"
     depends_on "fontconfig"
   end
 

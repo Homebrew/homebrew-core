@@ -1,8 +1,8 @@
 class OpenAdventure < Formula
   desc "Colossal Cave Adventure, the 1995 430-point version"
   homepage "http://www.catb.org/~esr/open-adventure/"
-  url "http://www.catb.org/~esr/open-adventure/advent-1.11.tar.gz"
-  sha256 "150880fd47a4b8c98dc7748e62bf3e98839f5384b497057aa91c84e5935dd340"
+  url "http://www.catb.org/~esr/open-adventure/advent-1.14.tar.gz"
+  sha256 "6682b8c45788615d7ed38efe9b24eb8f47c1754047cff8591756ac49c90d7f8f"
   license "BSD-2-Clause"
   head "https://gitlab.com/esr/open-adventure.git", branch: "master"
 
@@ -12,15 +12,13 @@ class OpenAdventure < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0e12500870339890aa4e38adb46743e8cd2459645749f98b985c126a039c26a9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e626a51cb92c97db9628a4dd4f3220b4aaa5fca24b044e9d84b1a27986597e47"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b775593afe027000123bb388f84553f5c2213a566cce24eff46be74e96f000c9"
-    sha256 cellar: :any_skip_relocation, ventura:        "45c2c8b7f32981e7c6be6b4be03c6f076c8fedb0c754f985cac236ceeefa5a04"
-    sha256 cellar: :any_skip_relocation, monterey:       "207d746678eb8bc2d241af54fcd33785cc25066037d4211669321304a6d9dfab"
-    sha256 cellar: :any_skip_relocation, big_sur:        "bf645264db48637a2a60113fd80945feb3048e1b17d6e77bf1c6970bb6f621ba"
-    sha256 cellar: :any_skip_relocation, catalina:       "c49210129ed491e094473e663171f5f6a554b41c3ba319cafc4fdc7d25289c8f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b12d65ac8f76be7b2393bff7eb8672582b840732e3228351e5d8e2fb5b13dafb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d24866563a97c827a30cd7276d0b1b50e0ecdb1b451051da2ab942b03f5cb52a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a0ae14af270aff0879c3286e0213e67dee1b46608a0f2b2243db942e98130d84"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8900df2507d0b7d9e223545d81a32a4dec12ae37f66335b9936f826e48e150c3"
+    sha256 cellar: :any_skip_relocation, ventura:        "ddc7e79e29b06b233c016c463a2da5e4457c2132e33961e64dfa883b6da71f40"
+    sha256 cellar: :any_skip_relocation, monterey:       "7c6856dab0a9d2b00b5592fb37dc3e93225f257f4ea59b8bc4ec62bda9b78742"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7986662fd23757197f6d1b079ea124e010e0c9925e56e1768325e08609062920"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b2d078aa878ae805929303ada0f7c320a1d59ba4b35a0ab2217ddc62020ead35"
   end
 
   depends_on "asciidoc" => :build

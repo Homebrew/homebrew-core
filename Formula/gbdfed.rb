@@ -5,11 +5,6 @@ class Gbdfed < Formula
   sha256 "8042575d23a55a3c38192e67fcb5eafd8f7aa8d723012c374acb2e0a36022943"
   revision 3
 
-  livecheck do
-    url :homepage
-    regex(/href=.*?gbdfed[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "069fa238f937dddf882c41387fd6ff5980226e2bc58b16ba2ca73d4524f2e04d"
     sha256 cellar: :any,                 arm64_monterey: "0424481fee8309a3d8fe8c4a94dc7eba0210cae5a5b7e5ccd9c70412ce2a54b6"
@@ -23,6 +18,10 @@ class Gbdfed < Formula
     sha256 cellar: :any,                 sierra:         "e32f2b72805a1dbe768f85e33ea10c0b603789f9101b21e0fbc750ab077a12e5"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "169641bfd1cbcfdc5303a6eb45e061547095d9fb194f4400ca51cf14b9d70d1b"
   end
+
+  # GTK 2 is EOL: https://blog.gtk.org/2020/12/16/gtk-4-0/
+  # Last release on 2010-04-19
+  deprecate! date: "2023-01-18", because: :unmaintained
 
   depends_on "pkg-config" => :build
   depends_on "gtk+"

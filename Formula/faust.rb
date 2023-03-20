@@ -25,8 +25,8 @@ class Faust < Formula
 
   # upstream patch, https://github.com/grame-cncm/faust/pull/844
   patch do
-    url "https://github.com/chenrui333/faust/commit/7a5e1c65c2d780ca371bf52af58ea0620c363343.patch?full_index=1"
-    sha256 "ff54ab4ed23bc1886a3ceb5403782767ee83b51fc8bd37331493554224a95320"
+    url "https://github.com/grame-cncm/faust/commit/ca013457c9d52bdc0101c9d31fc3621fe3e1b103.patch?full_index=1"
+    sha256 "e2f39b34d744cd79178e9e581f63af9076d04b3c01edc19799e2fe2d5ea18814"
   end
 
   def install

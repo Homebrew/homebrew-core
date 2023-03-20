@@ -1,19 +1,18 @@
 class Ko < Formula
   desc "Build and deploy Go applications on Kubernetes"
-  homepage "https://github.com/google/ko"
-  url "https://github.com/google/ko/archive/v0.12.0.tar.gz"
-  sha256 "cc42e9cde0b4d3380b680cf100c9be9acac67948f3dcfe65d71b87e2da797600"
+  homepage "https://ko.build"
+  url "https://github.com/ko-build/ko/archive/v0.13.0.tar.gz"
+  sha256 "1d29c86e674adb93645857a4e4ae0d18e0dfb404332b6c56466f43edc5185f1a"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9f5be1c322c11fe9003e1a908898d4b8336af27c3f420efcea58b9f72014acb8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1ca6a8771a290689c23a9830ecfbd5723ff41dca9f7c53b08914ee6d0a26de37"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cb8d9890896a0bc104bd3381379464c4b5f16052380fea21b68a953444b60c52"
-    sha256 cellar: :any_skip_relocation, ventura:        "1b338072d4ea82c6aaa9ce133618930a2a6dcd9ee58c7d1e4dcc92138b6fd30f"
-    sha256 cellar: :any_skip_relocation, monterey:       "462972c0504fa68f9fe3a73ef4ad4283909889ed22e9b4ffcdc703c1e8d80bbe"
-    sha256 cellar: :any_skip_relocation, big_sur:        "637db99d7c50a4b0c50eec8c9717e77433c1c58da8aa31429f958d0dedcf6330"
-    sha256 cellar: :any_skip_relocation, catalina:       "848c517e5fce09ca85d667f5597763122eaac99b96f947c68ae96721be6067d9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2cc59404b63b754d2a8f099413daab00bc9fdb140c73aadb5ad4ae2e1cd38fcb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f0ceececc14c0307e9daaff7d8cdf32b58611d323c8fadb39726de1998398880"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f0ceececc14c0307e9daaff7d8cdf32b58611d323c8fadb39726de1998398880"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f0ceececc14c0307e9daaff7d8cdf32b58611d323c8fadb39726de1998398880"
+    sha256 cellar: :any_skip_relocation, ventura:        "afcf29e5d2706c91d0c5c4f1c7d7e2d9ae38c48b755f4ac45f13d559b829d22d"
+    sha256 cellar: :any_skip_relocation, monterey:       "afcf29e5d2706c91d0c5c4f1c7d7e2d9ae38c48b755f4ac45f13d559b829d22d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "afcf29e5d2706c91d0c5c4f1c7d7e2d9ae38c48b755f4ac45f13d559b829d22d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "328f19aa4762680aa39e02380f50e2cd43228dee4198320c75647f81923800c0"
   end
 
   depends_on "go" => :build

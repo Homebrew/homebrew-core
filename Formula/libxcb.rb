@@ -4,16 +4,16 @@ class Libxcb < Formula
   url "https://xcb.freedesktop.org/dist/libxcb-1.15.tar.gz"
   sha256 "1cb65df8543a69ec0555ac696123ee386321dfac1964a3da39976c9a05ad724d"
   license "MIT"
+  revision 1
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_ventura:  "2a2826a150a07d7cb11afc60822d235156f4b0e26fce2b40127aa427c1d702d5"
-    sha256 cellar: :any,                 arm64_monterey: "34c950a057d5ab61955426066cf0b4028aba0d5d8ddd7c556b7d989dce2b0ec2"
-    sha256 cellar: :any,                 arm64_big_sur:  "ce95f3522bad8371d68f1e7aa27f0a88dc884b25eab0cc53f78eb8bcee0e6026"
-    sha256 cellar: :any,                 ventura:        "393ade919790d2f0ce71b512dbc7fe2c130b96583be8134b4979ed2e429b36ec"
-    sha256 cellar: :any,                 monterey:       "1f471c5dbe29f01607bf6ea8002ffd3aa4f8c4cba499b922a0f4934cbec1e8f5"
-    sha256 cellar: :any,                 big_sur:        "7be267fa471ac12bcf57d239da4f50a274752b025387fb5e8e592537cf93dfe0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dbcc3c77c22a8193a29762a400d259b6f7836b31a0b04c2e76ac7fe5e0c83466"
+    sha256 cellar: :any,                 arm64_ventura:  "cf7a5932142b247a4af6b7681ac44b74e16081806e651640e3ae460df08d71a7"
+    sha256 cellar: :any,                 arm64_monterey: "8a0df37f2087ac271ae9780b2db056b4a75f2090a535ac7c9560944d295962db"
+    sha256 cellar: :any,                 arm64_big_sur:  "42b2a0a1eee03d44c137195a485153f4a185bac30f64c5fffe28576fc8bbc611"
+    sha256 cellar: :any,                 ventura:        "9db0c9b29509ebae89d9592d3afe997f12949b3e96ea13661cf2080552aecf59"
+    sha256 cellar: :any,                 monterey:       "668eb7405f2bc6e32007e3c4ee40adb88c1e26db47c3389aa8719bd4b5c7f8f1"
+    sha256 cellar: :any,                 big_sur:        "ba2af806eddb9db3f65ab2c462d749fbadd03dd30d1ee6c5493ee466855dcae2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "37069aebf6799c5799d31ea9b6a25549726260b583cc6657bc858f4cd32c2f55"
   end
 
   depends_on "pkg-config" => :build

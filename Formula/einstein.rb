@@ -16,6 +16,9 @@ class Einstein < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "dc5f796dbd3d7333daab032bea4a1a10cd806713a905c664afeab1bcc2863e95"
   end
 
+  # Last release on 2016-05-04
+  deprecate! date: "2023-02-04", because: "uses deprecated `sdl_mixer` and `sdl_ttf`"
+
   depends_on "sdl12-compat"
   depends_on "sdl_mixer"
   depends_on "sdl_ttf"

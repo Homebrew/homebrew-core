@@ -1,8 +1,8 @@
 class Empty < Formula
   desc "Lightweight Expect-like PTY tool for shell scripts"
   homepage "https://empty.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/empty/empty/empty-0.6.22b/empty-0.6.22b.tgz"
-  sha256 "f581d560e1fa857f5304586e3c2107b5838bcf11dedcccec4a7191fa9e261b69"
+  url "https://downloads.sourceforge.net/project/empty/empty/empty-0.6.23c/empty-0.6.23c.tgz"
+  sha256 "8a7ca8c7099dc6d6743ac7eafc0be3b1f8991d2c8f20cf66ce900c7f08e010bd"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,14 +11,13 @@ class Empty < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "875a0634e5c3b42160d5deea2ccbf1ded28520ad11db9c344fc13c1ca56a9e89"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "84afb04ac997310da37e100d6d50f618d1ee1d293ff11694dc2449b6f65a659d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7264818e54338763ddae29e5c468f717072bc7c6a4752c4318da7a8bc5f144a8"
-    sha256 cellar: :any_skip_relocation, ventura:        "be681aa57268e0dfc14f6e48b0f3e3fe03dbb13d97e7b46f6675146f93f454ab"
-    sha256 cellar: :any_skip_relocation, monterey:       "a7e0b4eecd78ddb0c349b97ab70ad1a8159e3a55b10a5079ba24797fa2933ebd"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d05665ea66efb506651fca79d7f7cdd2cc448b598499ed42b08f19c8928bca26"
-    sha256 cellar: :any_skip_relocation, catalina:       "5ab09ed653c3f767d333aab559471675d68ee366bbc8a9980ccce0f6a5b2efda"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ce8354cfcdb62d269eefbe94c06693758f986d1446fea89b569c0021546a734e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8b22f16579a729968596b00989f62625dd4c9bbcc80b087057f5cfd5d2ecffef"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "85ab1fd9a6ed43ce5d9ad0172d4fe9e62b1f52162e2b99ff7a60fd9d17007511"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "aed303027d0ffbeaa26261bc64f0ccc440d8765d38044dbdd5c9885aac4442a0"
+    sha256 cellar: :any_skip_relocation, ventura:        "3fb2717f273099d9011d8382c033afe8d6b7836dc2223b1ac3a301b683a0aea3"
+    sha256 cellar: :any_skip_relocation, monterey:       "6ba9bd7cdb7d47260f1c5dc600e93514c2222f7b3e5aab9a2ff5dbcadbf81d13"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b8de713e95fe5ac8ffdb15ea679106b41ed858d70d7a96250b9694cfee4fb855"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6e3eeb73345dc8be3472ece5c28260e9592b6acf8cc6bb50abba43376cb10404"
   end
 
   def install

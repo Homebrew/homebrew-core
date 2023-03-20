@@ -2,20 +2,19 @@ class Neatvi < Formula
   desc "Clone of ex/vi for editing bidirectional utf-8 text"
   homepage "https://repo.or.cz/neatvi.git"
   url "https://repo.or.cz/neatvi.git",
-      tag:      "10",
-      revision: "1a5dcfa46dc0770bfe79f8f3ef2e5990b1fe98b9"
+      tag:      "11",
+      revision: "c4d323dc210ae5dcd828b0222b3748c3e1de2abc"
   license "ISC"
   head "https://repo.or.cz/neatvi.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "21431d7cfd1566d44ffac423f8780af05373d865e88c7de59658287d89881ebc"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1885311d215041a7fcbe43af2aad4d243a72db131f59bf16d5e8c38833c420f5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4d02348c64815db38c3e52784dcd444bf926a39f5ec45770e417938760a9574b"
-    sha256 cellar: :any_skip_relocation, ventura:        "c57570242789947c6cf170de16b051ea318442359c8b88bec70f6c87673adccc"
-    sha256 cellar: :any_skip_relocation, monterey:       "51b6ff945536b24119c2bdea08b0b383dedf07a30c8bb383ff5325ee50a47f49"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d91af1b2e27813770c80a8011828654f67835f90bdcc371b8f92ccbef65d9ec5"
-    sha256 cellar: :any_skip_relocation, catalina:       "95e2903443c4855bf5930ff40c082914747bd867bd313d016d17d684b4ec630d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6c0afe01b93c3bfd7e437fa8ceb661fee81c81a4c0c0d198bf21767f4a410ee8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2e7fdbac653c245add71a34e2e6b0b9233a7bcef81950f4bf623ff1f35f97a2e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "883714f144e2c79eda69d2b71fae84815e02c628f9c86367d4f5ff43ccb39b68"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6d4d7ff1f32113f9f33451d6eeccf6d3be561db29330c7c9a25000b7e555bb28"
+    sha256 cellar: :any_skip_relocation, ventura:        "b90a75d82578f361df69fd0a25be7a522c1096ada34428d39da2af1a616a103a"
+    sha256 cellar: :any_skip_relocation, monterey:       "1c34a015946a3eded43b703df0ca43561d22c2d73f0d1fed6de80363cd88f740"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f7d4bf914826b2faa593d07493d7fa4e0179119a7aa80f821627b3f397111f00"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "57ff9d1f12cefb418f24e61797c076c954a3596694ee4bf7868cc57743cf90be"
   end
 
   def install

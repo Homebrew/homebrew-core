@@ -2,25 +2,25 @@ class Hysteria < Formula
   desc "Feature-packed proxy & relay tool optimized for lossy, unstable connections"
   homepage "https://hysteria.network/"
   url "https://github.com/apernet/hysteria.git",
-    tag:      "v1.3.2",
-    revision: "dd4c17972fdfef7517c22d017ec922463fb94350"
+    tag:      "v1.3.4",
+    revision: "b94f8a1eaf939a1f3efb469cbca1c3442db78dbc"
   license "MIT"
   head "https://github.com/apernet/hysteria.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9974a3ab36979c2aeb2fafc6f161f9f3494f114aa38f3afbd86d11e9d4e526fd"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "69339147938a4dad7451c447b7813fa84a72ba1c1aef2a691e0c9883262bd7fe"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ece43c60d3c91a9c978b1e83fd6f90b4c1a334dc1cdd2be9e69d503f39067338"
-    sha256 cellar: :any_skip_relocation, ventura:        "44fddc743d5549a3d878ee4feb5ee4afe059887153fd2b59af2a8053268155cc"
-    sha256 cellar: :any_skip_relocation, monterey:       "b32251960d710a8d4363833f3b8f88b245967b70b8d7d24ece007062b77fd7e1"
-    sha256 cellar: :any_skip_relocation, big_sur:        "cf1628c3a717a673d0b439188c9e43ace882b1e385e25da7973ec00bb1b6d268"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5a401d92d1e430e2d5d87bbbe3302bfaaaaf0bbdf71dff6bae4c4e16c81e6fed"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8de9815a0911b6a3b2f48ca6c782f52dc2fca6d503521c42fcc66b7624893562"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8de9815a0911b6a3b2f48ca6c782f52dc2fca6d503521c42fcc66b7624893562"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8de9815a0911b6a3b2f48ca6c782f52dc2fca6d503521c42fcc66b7624893562"
+    sha256 cellar: :any_skip_relocation, ventura:        "e1fb9faf3c224055957dc81d616fa671ec8212e9f23356a147f3dd13031baf10"
+    sha256 cellar: :any_skip_relocation, monterey:       "e1fb9faf3c224055957dc81d616fa671ec8212e9f23356a147f3dd13031baf10"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e1fb9faf3c224055957dc81d616fa671ec8212e9f23356a147f3dd13031baf10"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d01be1ad5a35916844c9cef51fadeb1d8c79211de8644968d100d3b46ed03ce5"
   end
 
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X main.appVersion=v#{version} -X main.appDate=#{time.rfc3339} -X main.appCommit=#{Utils.git_short_head}"
+    ldflags = "-s -w -X main.appVersion=v#{version} -X main.appDate=#{time.iso8601} -X main.appCommit=#{Utils.git_short_head}"
     system "go", "build", *std_go_args(ldflags: ldflags), "./app/cmd"
   end
 

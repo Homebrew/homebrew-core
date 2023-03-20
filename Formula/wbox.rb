@@ -4,11 +4,6 @@ class Wbox < Formula
   url "http://www.hping.org/wbox/wbox-5.tar.gz"
   sha256 "1589d85e83c8ee78383a491d89e768ab9aab9f433c5f5e035cfb5eed17efaa19"
 
-  livecheck do
-    url :homepage
-    regex(/href=.*?wbox[._-]v?(\d+(?:\.\d+)*)\.t/i)
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1827a6a134cf36e397ab072de38c15f9b8689a50c6018b17adce1ad9a7f50fa3"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e87df4ac144cb716bd7528c15170376927aebc7f50d72dcd704ff4a5d3b45246"
@@ -21,6 +16,8 @@ class Wbox < Formula
     sha256 cellar: :any_skip_relocation, el_capitan:     "0e813a0982d6b9228217f14352812d9e6880cce44757f8af9a0447bf5e4a1e63"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a7b840389d15d72983d68617019bc052ddcea1249468c939f53c70dc3d1dede3"
   end
+
+  deprecate! date: "2023-02-15", because: :repo_removed
 
   def install
     system "make"

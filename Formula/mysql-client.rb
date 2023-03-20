@@ -1,8 +1,8 @@
 class MysqlClient < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/8.0/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.31.tar.gz"
-  sha256 "7867f3fd8ca423d283a6162c819c766863ecffbf9b59b4756dc7bb81184c1d6a"
+  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.32.tar.gz"
+  sha256 "1a83a2e1712a2d20b80369c45cecbfcc7be9178d4fc0e81ffba5c273ce947389"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
 
   livecheck do
@@ -10,14 +10,13 @@ class MysqlClient < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "904fe3369d3c805047ba09ad48a1bce232df4cfcb765a1a989f016b5fa1d4e27"
-    sha256 arm64_monterey: "b565b9a2fb30bd5d4f1698f8942f499b45d31a70f7df08b21461dfecd9f735fb"
-    sha256 arm64_big_sur:  "54a26c071f2945eb906e9c093f84f61421af8439cbc9441138cb28ebc842e067"
-    sha256 ventura:        "3bc026f867b5aaf17181b80e03cf6c32a9afeea9b29eaade1c7e34547618cfbb"
-    sha256 monterey:       "c0c6fa0acae0cd96c7c47c76e9816bcc945517f15080fc9704b9394ba077bc56"
-    sha256 big_sur:        "bd32db39d4bc8d277129968f4bfbf664c8a2ad5844bcfb48d33c2f162c8b974c"
-    sha256 catalina:       "51a429486ee4dec872cc9f8ca1484c0238ec13d8538813a5dc88aac85bd0e9e2"
-    sha256 x86_64_linux:   "97869ddde4569e69dcd162b12cf8fe1c35f348d640630170664d84a2f20a0ecd"
+    sha256 arm64_ventura:  "95dfb958dd64fddd166ad43e8be6694b9078a2482131bf8598ce567ddb558c6c"
+    sha256 arm64_monterey: "42ad933ea6281a8753b2f8b5208c69a8a2a15d1515a9826ce5f58c2c941ecbfd"
+    sha256 arm64_big_sur:  "25065dec8c335290a2102d3e33356105ab43ddb150fd0d3ca43df8458e6dde9a"
+    sha256 ventura:        "a774309a32f2487174cc87ef78322bc3a38b210b2a225c158afee78b65ba59a5"
+    sha256 monterey:       "f59757d710beb675217579a01893ea58f6b41cc3b6af22367c34520f1683c695"
+    sha256 big_sur:        "87e9fd2c04fd42dc66382281a8b7ad2ad17a0ce691e4dee8d9e5c7b9eb8af2cd"
+    sha256 x86_64_linux:   "1bacf303dc7b4a7f14c6076466546acb5fd3bd118e20bcb2d9d2f7ee3b5673da"
   end
 
   keg_only "it conflicts with mysql (which contains client libraries)"

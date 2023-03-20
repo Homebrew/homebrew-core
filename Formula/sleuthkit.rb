@@ -1,23 +1,24 @@
 class Sleuthkit < Formula
   desc "Forensic toolkit"
   homepage "https://www.sleuthkit.org/"
-  url "https://github.com/sleuthkit/sleuthkit/releases/download/sleuthkit-4.11.1/sleuthkit-4.11.1.tar.gz"
-  sha256 "8ad94f5a69b7cd1a401afd882ab6b8e5daadb39dd2a6a3bbd5aecee2a2ea57a0"
+  url "https://github.com/sleuthkit/sleuthkit/releases/download/sleuthkit-4.12.0/sleuthkit-4.12.0.tar.gz"
+  sha256 "0fae8dbcca69316a92212374272b8f81efd0a669fb93d61267cfd855b06ed23b"
   license all_of: ["IPL-1.0", "CPL-1.0", "GPL-2.0-or-later"]
 
   livecheck do
     url :stable
-    strategy :github_latest
     regex(%r{href=.*?/tag/sleuthkit[._-]v?(\d+(?:\.\d+)+)["' >]}i)
+    strategy :github_latest
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "4d6edfce5609c0c8cd5bccfa2791ca42cd8cb10ccdd0cb59de91fdd2bbbdc3a3"
-    sha256 cellar: :any,                 arm64_big_sur:  "85019f9077ffbfec1bd7278531d33a8a033cc7682cc10618e1d9898064f4db9a"
-    sha256 cellar: :any,                 monterey:       "990b3f3baed61d5392ae167d855ab217524ed72e35bdcff550e313ebd39b049f"
-    sha256 cellar: :any,                 big_sur:        "4aaa6a42f0f77b5e8bdcca4e7ddc2e66c72b1bf358ca906409bd4ff5393fce04"
-    sha256 cellar: :any,                 catalina:       "36ab7ad51a701faf2e5e864c8b4a472ea627ff556d07214f0eeda3372559b77b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d6ceaa7245ddf1eb80f694be614c14cae590d19b6418f92e57c914d2e780806f"
+    sha256 cellar: :any,                 arm64_ventura:  "f6709199beef626852ef259609f15a9192982675de5c76c356cfc0f33ea7c015"
+    sha256 cellar: :any,                 arm64_monterey: "5ffcd207bad6e4fce580d3e13a5ecc6f85c544dc6d5247a4cb3ca170091c16fd"
+    sha256 cellar: :any,                 arm64_big_sur:  "76496e3d4cb1c86a0d20bbb3dd80deb2d1aa9a6f994a783b95a851df729f97d3"
+    sha256 cellar: :any,                 ventura:        "90820d426dd226299a6292c77caf086676390b65ec77f19c46cae85f99ad077d"
+    sha256 cellar: :any,                 monterey:       "5495bb5167897236261065b3ab83a6ffbdf324c334fd16db52fecc3a53e6f6bd"
+    sha256 cellar: :any,                 big_sur:        "1797dbb75fdbedf156f385d6110e36edd35a213923c33a12ef15bb99fd766866"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8eb98e1c3fe45a629a4daab34d14b3d1bc3a7e25ecb7d60bf2b588e2ee0c64ff"
   end
 
   depends_on "ant" => :build

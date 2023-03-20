@@ -4,15 +4,15 @@ class Ruby < Formula
   license "Ruby"
 
   stable do
-    url "https://cache.ruby-lang.org/pub/ruby/3.1/ruby-3.1.3.tar.gz"
-    sha256 "5ea498a35f4cd15875200a52dde42b6eb179e1264e17d78732c3a57cd1c6ab9e"
+    url "https://cache.ruby-lang.org/pub/ruby/3.2/ruby-3.2.1.tar.gz"
+    sha256 "13d67901660ee3217dbd9dd56059346bd4212ce64a69c306ef52df64935f8dbd"
 
     # Should be updated only when Ruby is updated (if an update is available).
     # The exception is Rubygem security fixes, which mandate updating this
     # formula & the versioned equivalents and bumping the revisions.
     resource "rubygems" do
-      url "https://rubygems.org/rubygems/rubygems-3.3.26.tgz"
-      sha256 "9b17a53a000a599926cf1ef19e9d2a35f87b436ae6500225eebe55db320dc68c"
+      url "https://rubygems.org/rubygems/rubygems-3.4.6.tgz"
+      sha256 "6a53bdd53495e80cda63a1f393c45bea0d66b3ecf11c34d88fabdacd0704412f"
     end
   end
 
@@ -22,13 +22,13 @@ class Ruby < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "0da05c51acf1a88a1d042de43159efa5ff829e4c0efef169a41b83c910567245"
-    sha256 arm64_monterey: "51db346a102e3985fb4419b5a44a42f081099bd2c2aa559e2c32c3e77415debb"
-    sha256 arm64_big_sur:  "75b245d424a56dc113fdb134ca2a7dcafb9ba1b97fa9662cf71b59d90c70bf0d"
-    sha256 ventura:        "48b781d84b953962d567871957dbfb328a28d9ad6a501f86a5780139097db392"
-    sha256 monterey:       "771ed9066e45a2b6bab6f6fa9bd1a5deb365643be0ca2db83bf317e2d1bed061"
-    sha256 big_sur:        "a2e42d8eada650fc3c6dc4da4be77b6d9ad6c5f2c17f26ca91026a1a4d0cb7ef"
-    sha256 x86_64_linux:   "a58222567efff5c6ad0de722edc0655ceee85f3ecc0bad60a50ae51d158ff109"
+    sha256 arm64_ventura:  "847ffd1c19baa2529b3caa244a86811298697a56da93dd955fe5c28d0f288497"
+    sha256 arm64_monterey: "c9ff8aa4730964478c58972c2237f5ff8dc8d04d93af1104ee320b6bd75de317"
+    sha256 arm64_big_sur:  "134bee6f2ef2301b46cc42ec07d5af577bf1d22f3590be5480f22f4c78a5e742"
+    sha256 ventura:        "067df852d76aec266a429828840242efded9d5345f27abef8b56e0b12efeeba7"
+    sha256 monterey:       "52b35ac566918d22a102f4b37417e534ca23653b050d1264f2b63c90f9e78617"
+    sha256 big_sur:        "7f8fbebe38b5f1e9c8940bc2607a2a71fe04069bb37b36c950e608f44d8c01ba"
+    sha256 x86_64_linux:   "6ef0ae1a01d1949b831c5f52d46a4f45898a6337011a33dbfacca47d1b0c58be"
   end
 
   head do
@@ -40,11 +40,15 @@ class Ruby < Formula
 
   keg_only :provided_by_macos
 
+  depends_on "autoconf" => :build
+  depends_on "bison" => :build
   depends_on "pkg-config" => :build
+  depends_on "rust" => :build
   depends_on "libyaml"
   depends_on "openssl@1.1"
   depends_on "readline"
 
+  uses_from_macos "gperf"
   uses_from_macos "libffi"
   uses_from_macos "libxcrypt"
   uses_from_macos "zlib"

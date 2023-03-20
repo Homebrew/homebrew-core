@@ -1,8 +1,8 @@
 class Mercury < Formula
   desc "Logic/functional programming language"
   homepage "https://mercurylang.org/"
-  url "https://dl.mercurylang.org/release/mercury-srcdist-22.01.4.tar.gz"
-  sha256 "7755a03142002f4a31a73effcca3c9592bba25da38a479789ff45e9cc99353ed"
+  url "https://dl.mercurylang.org/release/mercury-srcdist-22.01.5.tar.gz"
+  sha256 "7e1b2d1b130c0afc65542be3c2e48399cf2c25d7a04ad3c427e022715b098a0f"
   license all_of: ["GPL-2.0-only", "LGPL-2.0-only", "MIT"]
 
   livecheck do
@@ -11,14 +11,13 @@ class Mercury < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "a5db345a7f91984e9453a5eb0ecf8dd607fb94b9a0c223fc468c24de1900d831"
-    sha256 cellar: :any,                 arm64_monterey: "dba557568c01b9133e3468ca27b9a1b64087a21345bc61b1c060e8999f1dc105"
-    sha256 cellar: :any,                 arm64_big_sur:  "ad6fcd4d465d6633392227ea1388d7f7d37df2d51f5f20657b919fa1f8823d9c"
-    sha256 cellar: :any,                 ventura:        "1dcbd0c77ec09e80866a9d28152901b09b9d77bad76926866aac70b83c9e950c"
-    sha256 cellar: :any,                 monterey:       "007f5a1b58e2c6033e3300b0f8241a60de14a63e4c26eba650e823dd59f465e7"
-    sha256 cellar: :any,                 big_sur:        "877d19a286015dcf5ea72d8633022ff83ffe7662b1ced07cdede3d751b7f0fc4"
-    sha256 cellar: :any,                 catalina:       "a294e12fed0a1752bac9f139f47dfe2676dfb871123a32bd03a3fad000a4d52c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9bd92d59afaeb95687bdf12756bf69ca7438ae153b05467961ef789f38aeb941"
+    sha256 cellar: :any,                 arm64_ventura:  "0751d295215f349b480049b531576e69943beb12477ee6b66feb7a816b213c26"
+    sha256 cellar: :any,                 arm64_monterey: "9727730ebd3fa36ac4f44960986364650e1ea06771a7d3356623fc8cce4d4920"
+    sha256 cellar: :any,                 arm64_big_sur:  "c14ccd7d01b08b7613ad00b533f2e894211fc022cdb2430c1b6a253df4b637ba"
+    sha256 cellar: :any,                 ventura:        "7d6067caaba5b3702925281372829d2335032c60d0ba3d5b8c4bb079af41875c"
+    sha256 cellar: :any,                 monterey:       "5a85170167d479402b417a97f546224e1b60bb14703994afadf4564aa812659e"
+    sha256 cellar: :any,                 big_sur:        "66fc23eb80ac2fd0c82ca3dcc375cde9e6be66973576f0ed1312b83630c96fbc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bc7c9dc9c7c47729b296ed1f09073aa1d21169b3552cd784c1c1d287d28ac7db"
   end
 
   depends_on "openjdk"

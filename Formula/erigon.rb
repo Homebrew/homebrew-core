@@ -1,8 +1,8 @@
 class Erigon < Formula
   desc "Implementation of Ethereum (execution client), on the efficiency frontier"
   homepage "https://github.com/ledgerwatch/erigon"
-  url "https://github.com/ledgerwatch/erigon/archive/refs/tags/v2.32.0.tar.gz"
-  sha256 "965dc615d72e81981809e6e8c72e7fa6615962cf1eae7df45668714cc8486f90"
+  url "https://github.com/ledgerwatch/erigon/archive/refs/tags/v2.40.1.tar.gz"
+  sha256 "b75bb7aa82b1eca329adc36800fbfb6277a2a06de7ac59f602f6192034f55cb5"
   license all_of: ["GPL-3.0-or-later", "LGPL-3.0-or-later"]
   head "https://github.com/ledgerwatch/erigon.git", branch: "devel"
 
@@ -12,18 +12,21 @@ class Erigon < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d42726ddc83915e97367ca0f9e874963e1a6ed59a3816550fab93dc83f88b2d7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "73d8551089edd2cabbe70b8aa8141072151e71fe30094de20022f77846314f2c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d865132c211785f6379ba4f11e50d87ee715327956e6e12529376c315113f3ad"
-    sha256 cellar: :any_skip_relocation, ventura:        "18ac2edb5b2945b5f0952dafb867f979751603b9929e0b7ac2575ef225db0cde"
-    sha256 cellar: :any_skip_relocation, monterey:       "39ee99d8048df4b293cd97aae13a3774c3bce16f938b0e37c07c748064eb0cdd"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ac95b4d73b8031fac02ea52d2a74b37617a89d20f30e2cc0561ce1c44cdc55c6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e658376e3869c4759ef17877e40dcd9cc8b36351ea1b0455e182a3fcae81cae1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c83bd51c04011f15497f94eff87606c2eabdf7d61e80f84acc1c398cc829edee"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6071f368502ea87a4eb125fb5fa2bc4298ddc12090e92f9875c3d79472c81da6"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b292c1f6675ef825e445b4a78117e7748161a904a1a884bb491f75a74e267dc3"
+    sha256 cellar: :any_skip_relocation, ventura:        "34b834380d478310c7b93a734dd03dee86466d603bc0e3f3036656706d6790a7"
+    sha256 cellar: :any_skip_relocation, monterey:       "ae2e29d3114f4ca28f504164e36a6ed81ab751a5bacc867d3215ce438d99ce3a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0c80f0183ad8887a9990b2c11b227e38dfe487dfe783b9a9b23d73717cb4f7cc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "806343a0c926896909117ba9f7b261703f282ace7094561d816315673b15228c"
   end
 
   depends_on "gcc" => :build
-  depends_on "go" => :build
+  # Build fails with Go 1.20 on arm64 due to https://github.com/prysmaticlabs/gohashtree/issues/6
+  depends_on "go@1.19" => :build
   depends_on "make" => :build
+
+  conflicts_with "ethereum", because: "both install `evm` binaries"
 
   def install
     unless build.head?

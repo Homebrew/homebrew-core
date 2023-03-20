@@ -1,37 +1,38 @@
 class Verapdf < Formula
   desc "Open-source industry-supported PDF/A validation"
   homepage "https://verapdf.org/home/"
-  url "https://github.com/veraPDF/veraPDF-apps/archive/refs/tags/v1.22.3.tar.gz"
-  sha256 "d5a83444c79870adeb7ebf48aef685943c90458637344342c21f06df0e04ec93"
+  url "https://github.com/veraPDF/veraPDF-apps/archive/refs/tags/v1.23.149.tar.gz"
+  sha256 "ceff053b058114d087360d20e5047f9ca281558b1587d0f5396be397b0b4ea7a"
   license any_of: ["GPL-3.0-or-later", "MPL-2.0"]
   head "https://github.com/veraPDF/veraPDF-apps.git", branch: "integration"
 
-  # Even-numbered minor versions represent stable releases.
   livecheck do
     url :stable
-    regex(/^v?(\d+\.\d*[02468](?:\.\d+)*)$/i)
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "15d9156715d4d1c779886570ce82439240ee9113e5b75e1cf01e023942b0aa9b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "25a43317ec19035cda93042d320432e6bcc05c0b03fb28331f0d8d5b48ddfe37"
-    sha256 cellar: :any_skip_relocation, monterey:       "2026eadc1fff73eb60278bed7d0c159fa07e07f5e99b10d7e82a00155ab07dab"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2978df601e5192ad9a300e28769d3dc1e4e4752228e0e0b278a6c5c25480eb46"
-    sha256 cellar: :any_skip_relocation, catalina:       "0da78a2568b0db05cd5fe75e4c2e05771bc7ecc037ed0284bb4d37a853f93fa7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "add861f4080e09847c2e3b22d5a1f4998c30a63fa7e2ba96ad2079f196c38ee6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b483bda6032cc697bd210252e9e42fe1a39c91e0034f030da8819adf08a46ed0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8ee2d0fee3cdbb8e6febca6504ada1f20388b89dc98b8421611d82dddc513945"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "66cef5530a553ecbf5804ea2eb5d3658cc3c71501acaeb8a657eaafafc9f0df6"
+    sha256 cellar: :any_skip_relocation, ventura:        "157c23c6862078c30b9897f59b6f127ebb75aa3ccc837623d0b03d35746813fe"
+    sha256 cellar: :any_skip_relocation, monterey:       "388edead30bfae3df926bc021e7213768c06e54bdf5ec0d77023dbd6e6a17741"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a270c8d5f60e8adaa3632fd4bc58c9c6b6c9e5f634866c3a63fb36159660efeb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b93f152e0423c2fb0480e6d8d38497bb6534c3d1d38013e5c73eef489d4076a4"
   end
 
   depends_on "maven" => :build
-  depends_on "openjdk"
+  depends_on "openjdk@17"
 
   def install
+    ENV["JAVA_HOME"] = Language::Java.java_home("17")
     system "mvn", "clean", "install"
 
     installer_file = Pathname.glob("installer/target/verapdf-izpack-installer-*.jar").first
     system "java", "-DINSTALL_PATH=#{libexec}", "-jar", installer_file, "-options-system"
 
     bin.install libexec/"verapdf", libexec/"verapdf-gui"
-    bin.env_script_all_files libexec, Language::Java.overridable_java_home_env
+    bin.env_script_all_files libexec, Language::Java.overridable_java_home_env("17")
     prefix.install "tests"
   end
 

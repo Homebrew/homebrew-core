@@ -8,8 +8,8 @@ class Bind < Formula
   # "version_scheme" because someone upgraded to 9.15.0, and required a
   # downgrade.
 
-  url "https://downloads.isc.org/isc/bind9/9.18.10/bind-9.18.10.tar.xz"
-  sha256 "f415a92feb62568b50854a063cb231e257351f8672186d0ab031a49b3de2cac6"
+  url "https://downloads.isc.org/isc/bind9/9.18.13/bind-9.18.13.tar.xz"
+  sha256 "3b06b6390c1012dd3956b1479c73b2097c0b22207817e2e8aae352fd20e578c7"
   license "MPL-2.0"
   version_scheme 1
   head "https://gitlab.isc.org/isc-projects/bind9.git", branch: "main"
@@ -22,13 +22,13 @@ class Bind < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "43eba3418b76653aa170858f63733d45c9930c1e4e72799086cc56b632e9413f"
-    sha256 arm64_monterey: "25ea6590c38696b05bdd980280c9d5ed4e4d799779debc86a57d7676516b8028"
-    sha256 arm64_big_sur:  "95c1ca6f56df52158bdfce7352aa9d9c2a900eaf5cacd688e8ce5246d95941fc"
-    sha256 ventura:        "c85ab574088ce132580471e8479002b36c6d0c654edd8566d67e27acb4677019"
-    sha256 monterey:       "58e9b01cf604962e99d81cdab712e9b1d2075854f796ad2699043d711a32efc4"
-    sha256 big_sur:        "cccac27cd01b5c834ed6606d6b601ebf0f4a514c13aee74a3f9fc59581ae8437"
-    sha256 x86_64_linux:   "3f9328beae0e3dfb1cbc4fecb3abef647da636c025990f8e2d0b44a34071a913"
+    sha256 arm64_ventura:  "a8338d8715c129fd3e83ecf865f64787a895f2727e8009f9b80bf4a456a0c190"
+    sha256 arm64_monterey: "39c82f9b96a451fc71104b32e02a5627b1969ac80cdace1f54af83fff28618f7"
+    sha256 arm64_big_sur:  "0e08d44b2ad69cee34c2a82c4c64294fc31b3767a0261edfd9b4005409108d60"
+    sha256 ventura:        "dd33736c7adbaaca30d44b49f79d16aabef4059857f865343abe434f0f01bf93"
+    sha256 monterey:       "c2c6f2075b72d38eff489cd5502a72f0b75f702a9225df23a7d7947b62d41fb9"
+    sha256 big_sur:        "27b48075f5e0d682e09cb453bc34d47e2a1ef8e04ca98615eec1527dc6398935"
+    sha256 x86_64_linux:   "4fac88ef7928ca2007b6f1a68620dc82898cf1317750efc9815ddf8f8bf621f1"
   end
 
   depends_on "pkg-config" => :build
@@ -37,6 +37,8 @@ class Bind < Formula
   depends_on "libnghttp2"
   depends_on "libuv"
   depends_on "openssl@3"
+
+  uses_from_macos "libxml2"
 
   def install
     args = [

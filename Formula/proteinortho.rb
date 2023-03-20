@@ -1,18 +1,18 @@
 class Proteinortho < Formula
   desc "Detecting orthologous genes within different species"
   homepage "https://gitlab.com/paulklemm_PHD/proteinortho"
-  url "https://gitlab.com/paulklemm_PHD/proteinortho/-/archive/v6.1.6/proteinortho-v6.1.6.tar.gz"
-  sha256 "a533817ce99ce471bce567974090a44a5281055c3aef18e90cb4425d5a877e85"
+  url "https://gitlab.com/paulklemm_PHD/proteinortho/-/archive/v6.2.0/proteinortho-v6.2.0.tar.gz"
+  sha256 "7f363d14f2a74cf972d25bd168c1a711c9e51ba67de2f8071676371565d52f42"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "709f0a0e8cfb46bad2b5f961cc3cfc3e0f7accedaa56d2d2e5afb7929a8f4093"
-    sha256 cellar: :any,                 arm64_monterey: "1be98247696cd02ccef82e717344de1c71f660db2c45cb844a241af70ebae469"
-    sha256 cellar: :any,                 arm64_big_sur:  "8788f84e6bd69759da988fa7d6988bdd3682fe706173ccd1f320d271dce387ce"
-    sha256 cellar: :any,                 ventura:        "4b62c7928b74008decf7ce0836ffcf61f5f6549d53b29f65855dbef70453d766"
-    sha256 cellar: :any,                 monterey:       "a674f6722c9507cd7648c53e9e4f5221aabfe36643dcd91e7cc6a65cadfa3b3c"
-    sha256 cellar: :any,                 big_sur:        "8b97332ab776d0f3c38c5db593ad36b1f88fde442d06d695d2c085db676d9975"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1d767277c5f300d897dcefc8c5c381aecf5fd58012f981a7a7cfd7fe01d95a22"
+    sha256 cellar: :any,                 arm64_ventura:  "73a6e13bb5c2348bd332aeb33817e0a40fcca2fdde79c6d1ee018a09ae13961a"
+    sha256 cellar: :any,                 arm64_monterey: "d999b4ebff18e9af0040230fff670c1228796308ef35f08367fb669c3669dd40"
+    sha256 cellar: :any,                 arm64_big_sur:  "a675618f8e83801cce59fd8b513bf65373ffda7ae7b1f635c0a23ab1a13ee9fc"
+    sha256 cellar: :any,                 ventura:        "44aa940617c21a7629d42483be1762a4527de349eccf980ec26137b0b1e19dd7"
+    sha256 cellar: :any,                 monterey:       "8ba5a4f1d2884b5346fe5283d2150ce6afb2fd917270e29a4165537bb02862ae"
+    sha256 cellar: :any,                 big_sur:        "729011fc4d31d146bee56ca8c6395eff8af9e2352ecb3639be3903c1567967e2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bafd5b21a282f09365a4b9e9a3b5f5cda891d6833df71a0706c251f1151e11d1"
   end
 
   depends_on "diamond"

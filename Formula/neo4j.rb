@@ -1,8 +1,8 @@
 class Neo4j < Formula
   desc "Robust (fully ACID) transactional property graph database"
   homepage "https://neo4j.com/"
-  url "https://neo4j.com/artifact.php?name=neo4j-community-5.3.0-unix.tar.gz"
-  sha256 "b20a3f253c42faccd1d2c37f9cc8bf6d557f0e645dced39e163da5ae12bb8d0a"
+  url "https://neo4j.com/artifact.php?name=neo4j-community-5.5.0-unix.tar.gz"
+  sha256 "3834cf8393f11d02e96e37b15ceeb4319f56cf1d323076ca242a35750c94bd99"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -12,7 +12,13 @@ class Neo4j < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "c5229246faf8a18d1895374e25219a2c76fb1c51fe13eff0feff571f2e85469c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a359114c1418043eb8bc6303890cdbe616bde469a4de9a3d667cc3da9267f8d7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a359114c1418043eb8bc6303890cdbe616bde469a4de9a3d667cc3da9267f8d7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a359114c1418043eb8bc6303890cdbe616bde469a4de9a3d667cc3da9267f8d7"
+    sha256 cellar: :any_skip_relocation, ventura:        "260eb47ae00c3f6fdd95fb1b2e9acffaa548149b3f16f73c5de966a6bad4a155"
+    sha256 cellar: :any_skip_relocation, monterey:       "260eb47ae00c3f6fdd95fb1b2e9acffaa548149b3f16f73c5de966a6bad4a155"
+    sha256 cellar: :any_skip_relocation, big_sur:        "260eb47ae00c3f6fdd95fb1b2e9acffaa548149b3f16f73c5de966a6bad4a155"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a359114c1418043eb8bc6303890cdbe616bde469a4de9a3d667cc3da9267f8d7"
   end
 
   depends_on "openjdk"

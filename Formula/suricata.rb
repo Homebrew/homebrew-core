@@ -1,8 +1,8 @@
 class Suricata < Formula
   desc "Network IDS, IPS, and security monitoring engine"
   homepage "https://suricata.io"
-  url "https://www.openinfosecfoundation.org/download/suricata-6.0.9.tar.gz"
-  sha256 "3225edcbd0277545b7128df7b71652e6816f3b4978347d2f4fe297d55ed070e8"
+  url "https://www.openinfosecfoundation.org/download/suricata-6.0.10.tar.gz"
+  sha256 "59bfd1bf5d9c1596226fa4815bf76643ce59698866c107a26269c481f125c4d7"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,14 +11,13 @@ class Suricata < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_ventura:  "b44b931e92576744d41bcf2d56a032756c0e598df5ec91ad88a41ae802746dba"
-    sha256 arm64_monterey: "54b31e8ed41e4a7b0393ac92756c78071598e375e5d4e05ab12171cc930209fb"
-    sha256 arm64_big_sur:  "aaa09cea15038f44049984def0233c38c4113d429a334e059b03da982b41b5f4"
-    sha256 ventura:        "c92e6b5b13829a4488d28520c387a26954d79e2a9f2cd621c13d4899305d4039"
-    sha256 monterey:       "c61a3c2247d304d022766d9192bccec95823b26852aec2f56580e8555522fa0a"
-    sha256 big_sur:        "4f64f5dbe1acf76afd72edb4ee4cfda8b68f0c9bc37b753172062b9a031e93e8"
-    sha256 x86_64_linux:   "8c802684f70f9164e199797f805fca059bcfd4d69e1d941df9211f76b192db7f"
+    sha256 arm64_ventura:  "d6fb86fc95a8228adb9ba8b38fce0c81b6e700b897ec7ba50225506bc020b3b6"
+    sha256 arm64_monterey: "032abfbeebd3649e359ab2871d791fcdb3646d24cb36cc94705ab5dce55730ae"
+    sha256 arm64_big_sur:  "25d85da00add941ac3b3a2f94d8c034d3f13cb2ca77b545acea5288722c4921a"
+    sha256 ventura:        "709efdf883a679bc020ab7c17a398685c0b1f894f1465e8c3e4b2f2dd6c2550b"
+    sha256 monterey:       "ada66b413ebac219df51d43f55f133ae01e04f83f41e72d0c9729f3cb5d8326f"
+    sha256 big_sur:        "97e1cf955c65d8b12db57afd39e02381666a95088e8173444168bfe2667e93be"
+    sha256 x86_64_linux:   "8adeda897c08b18f856c107ca051755834ad01677ed9bdb670c51a93a396836a"
   end
 
   depends_on "pkg-config" => :build
@@ -68,6 +67,7 @@ class Suricata < Formula
       args << "--with-libpcap-libraries=#{Formula["libpcap"].opt_lib}"
     end
 
+    inreplace "configure", "for ac_prog in python3 ", "for ac_prog in python3.11 "
     system "./configure", *std_configure_args, *args
     system "make", "install-full"
 

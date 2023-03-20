@@ -18,6 +18,13 @@ class LincityNg < Formula
     sha256 x86_64_linux:   "1607207cc36f7e17cff98834551bbcced41b48357376855f2ceafe51883fd491"
   end
 
+  # Still needs deprecated `jam` build system.
+  # Ref: https://github.com/lincity-ng/lincity-ng/issues/36
+  #
+  # Support for SDL 2 in HEAD but upstream hasn't had a stable release since 2009-01-25.
+  # Ref: https://github.com/lincity-ng/lincity-ng/commit/d35c3bee434900deedd610b7b08a9bd8504e4c41
+  deprecate! date: "2023-02-04", because: "depends on `jam` to build and uses deprecated SDL 1.2 formulae"
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "jam" => :build

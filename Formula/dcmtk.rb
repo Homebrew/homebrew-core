@@ -6,19 +6,19 @@ class Dcmtk < Formula
   head "https://git.dcmtk.org/dcmtk.git", branch: "master"
 
   livecheck do
-    url "https://dicom.offis.de/download/dcmtk/release/"
+    url "https://dicom.offis.de/en/dcmtk/dcmtk-software-development/"
     regex(/href=.*?dcmtk[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
-    sha256 arm64_ventura:  "68be02a32bb3b8e2443ddadb18294112eef1be54a9252e001b5382a7ae82c9ae"
-    sha256 arm64_monterey: "59ed5979c3b6334f91a602b2454e32f8edd3366da9d65ede175c0c46d2f72454"
-    sha256 arm64_big_sur:  "00a5b4dd4f3bcd730c25bfac071674217cc69a741ebbf63fe3642825515b8468"
-    sha256 ventura:        "9338fb134d6234f631014a7e61cfcfeedede42d536355dd84147af626448ee79"
-    sha256 monterey:       "3754b8a93a9dad1dcf6af2f63076d5256541b7d38bb15a779683283ce2b68be0"
-    sha256 big_sur:        "3f7866805a74f6d11600ee320e075811325e406e8d56f5725494a64310d484f9"
-    sha256 catalina:       "d7d97969b9c88c913f9e36f17a9069d27ba7c9b19d08b54885b9f3381cc362dd"
-    sha256 x86_64_linux:   "648a5f4514ae6a70061493c43904eb6c699fe954a6fa99547c855223a2af05fe"
+    rebuild 1
+    sha256 arm64_ventura:  "805f52eeba91d0172e8ed683b3de11ad4e73beecb5c920fb11398865870c2b0b"
+    sha256 arm64_monterey: "565fbd4791b791742003351d4ecae98be11cc4f275a57878f091e6bb515919f9"
+    sha256 arm64_big_sur:  "5741131292a6166f82c63315df61f9c36e4f4ffbc65bebdea40596800606ff93"
+    sha256 ventura:        "a446481184f15e119a67f2c5b931bf19caf9c696d2ea9965fc0044ddde75f20f"
+    sha256 monterey:       "df14ac2121da42c2a3cf7a58772c95ceaf8fde5e891b822ccd34267060dab14e"
+    sha256 big_sur:        "f1f870f1cc726934826df5edbc3687cb3d4b4ed9c464bc0c3ddf5922ba5d5380"
+    sha256 x86_64_linux:   "e44445d8fb07d33bf0c979c44a8d17cd82cca337be63a01d58d438bf28dd34ea"
   end
 
   depends_on "cmake" => :build
@@ -29,13 +29,15 @@ class Dcmtk < Formula
   uses_from_macos "libxml2"
 
   def install
-    system "cmake", "-S", ".", "-B", "build/shared", *std_cmake_args,
+    args = std_cmake_args + ["-DDCMTK_WITH_ICU=OFF"]
+
+    system "cmake", "-S", ".", "-B", "build/shared", *args,
                     "-DBUILD_SHARED_LIBS=ON",
                     "-DCMAKE_INSTALL_RPATH=#{rpath}"
     system "cmake", "--build", "build/shared"
     system "cmake", "--install", "build/shared"
 
-    system "cmake", "-S", ".", "-B", "build/static", *std_cmake_args,
+    system "cmake", "-S", ".", "-B", "build/static", *args,
                     "-DBUILD_SHARED_LIBS=OFF"
     system "cmake", "--build", "build/static"
     lib.install Dir["build/static/lib/*.a"]

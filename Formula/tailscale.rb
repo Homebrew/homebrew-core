@@ -2,18 +2,18 @@ class Tailscale < Formula
   desc "Easiest, most secure way to use WireGuard and 2FA"
   homepage "https://tailscale.com"
   url "https://github.com/tailscale/tailscale.git",
-      tag:      "v1.34.1",
-      revision: "331d553a5eb90401c071021bae5dd24ce3993500"
+      tag:      "v1.38.1",
+      revision: "3eeff9e7f76748cc484a8d1f7f4faa71a793bddd"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e274e440183529fc8394f4c2c4d12c54619918b1d4e6d5ce1f781be3e5d24aa2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8a198eca5d3c48425bc521ce20028e1fcd12939098346f36df176b55ca403430"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "68a06e627709c93b921a351593bcc35fa87583c34ef0e320885d1ec0ceb701ae"
-    sha256 cellar: :any_skip_relocation, ventura:        "7d5a73158e38a266c0b685ca3dc943874d0af3e78714dfc9e93c80f0669a78b9"
-    sha256 cellar: :any_skip_relocation, monterey:       "f0e193cc3201cd996a87513e06017dd1c94442d3a8ee6f308e32c41a84c46e3c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a202b7a7518fc5ca05c461bce0f017f801ff4d328163340c85fdd20094cd3490"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "465b70333d94eaa2a0c955649a7c477d4658524a573e9d82b3610bda207d4b89"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cab1a0d83a1ccaa6fdd8273d1d6e928975c4d5b9ebe1c6fd32b6fa5e37707b38"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cab1a0d83a1ccaa6fdd8273d1d6e928975c4d5b9ebe1c6fd32b6fa5e37707b38"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cab1a0d83a1ccaa6fdd8273d1d6e928975c4d5b9ebe1c6fd32b6fa5e37707b38"
+    sha256 cellar: :any_skip_relocation, ventura:        "6b7201e2b8dacf4704d37e809e3c66f3db4991624563a7e4778ca4bcb0648a52"
+    sha256 cellar: :any_skip_relocation, monterey:       "6b7201e2b8dacf4704d37e809e3c66f3db4991624563a7e4778ca4bcb0648a52"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6b7201e2b8dacf4704d37e809e3c66f3db4991624563a7e4778ca4bcb0648a52"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d7e077bd216d421800f20c4371882f786c1578f35b4b5eff6259c40048bb21f4"
   end
 
   depends_on "go" => :build
@@ -22,12 +22,12 @@ class Tailscale < Formula
     vars = Utils.safe_popen_read("./build_dist.sh", "shellvars")
     ldflags = %W[
       -s -w
-      -X tailscale.com/version.Long=#{vars.match(/VERSION_LONG="(.*)"/)[1]}
-      -X tailscale.com/version.Short=#{vars.match(/VERSION_SHORT="(.*)"/)[1]}
-      -X tailscale.com/version.GitCommit=#{vars.match(/VERSION_GIT_HASH="(.*)-dirty"/)[1]}
-    ].join(" ")
-    system "go", "build", *std_go_args(ldflags: ldflags), "tailscale.com/cmd/tailscale"
-    system "go", "build", *std_go_args(ldflags: ldflags), "-o", bin/"tailscaled", "tailscale.com/cmd/tailscaled"
+      -X tailscale.com/version.longStamp=#{vars.match(/VERSION_LONG="(.*)"/)[1]}
+      -X tailscale.com/version.shortStamp=#{vars.match(/VERSION_SHORT="(.*)"/)[1]}
+      -X tailscale.com/version.gitCommitStamp=#{vars.match(/VERSION_GIT_HASH="(.*)"/)[1]}
+    ]
+    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/tailscale"
+    system "go", "build", *std_go_args(ldflags: ldflags, output: bin/"tailscaled"), "./cmd/tailscaled"
   end
 
   service do

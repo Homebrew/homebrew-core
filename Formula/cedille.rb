@@ -18,6 +18,11 @@ class Cedille < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "19ddb3fc4a207d0db02e7c3c661568379821a38c998d784e99344a094f0e1fa2"
   end
 
+  # We have various patches, inreplaces, and workarounds to get current release to build.
+  # Stable uses stackage resolver lts-12.26 (ghc-8.4.4) while HEAD uses lts-13.25 (ghc-8.6.5).
+  # Last release on 2019-12-13
+  deprecate! date: "2023-02-13", because: :unmaintained
+
   depends_on "haskell-stack" => :build
   depends_on "ghc@8.10"
 

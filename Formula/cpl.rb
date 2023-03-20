@@ -1,10 +1,9 @@
 class Cpl < Formula
   desc "ISO-C libraries for developing astronomical data-reduction tasks"
   homepage "https://www.eso.org/sci/software/cpl/"
-  url "ftp://ftp.eso.org/pub/dfs/pipelines/libraries/cpl/cpl-7.2.3.tar.gz"
-  sha256 "0b18ae87786d1f9a3cddd841464a6ec2f3339989eea9d5ef84a4b8a1e4ce68da"
+  url "ftp://ftp.eso.org/pub/dfs/pipelines/libraries/cpl/cpl-7.3.1.tar.gz"
+  sha256 "54546d763e7f75cb679f711c62bc962211328a35064edb6b9455e306458ebe15"
   license "GPL-2.0-or-later"
-  revision 1
 
   livecheck do
     url "https://ftp.eso.org/pub/dfs/pipelines/libraries/cpl/"
@@ -12,13 +11,13 @@ class Cpl < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "3c4457137efca6354a8ea72a9075888a0eea87592c67877a8f05b7c56b233c23"
-    sha256 cellar: :any,                 arm64_monterey: "20f83e505566f0631d7b198893f308b7f043a551f28832ccd5e63ad91c5b4eda"
-    sha256 cellar: :any,                 arm64_big_sur:  "42d6669c08ce7e1d579be68fc963538e594f58760cfb63b7efea66b48ce0b048"
-    sha256 cellar: :any,                 ventura:        "391461d78a67f1ea130b0772eb11dbe9c9ed10a99d4eb906087f5cc1ce0b877a"
-    sha256 cellar: :any,                 monterey:       "690a5653359f54bc206db50b57e152fa5fa7bb0b93440e0598d73ecc18bc3eaa"
-    sha256 cellar: :any,                 big_sur:        "0e7624192f76ac7b3813826f07e0b18e9e638a87128f292ba78b5bbf17d960bc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "69631a7f3deb433997beae6ddee746c36ea0c60d287ce862a097bc4974c9f437"
+    sha256 cellar: :any,                 arm64_ventura:  "cdfe3609dc92d5182e9b326200c82a3114e4f367d9177d57b5b3c1b3e98c0688"
+    sha256 cellar: :any,                 arm64_monterey: "5fd426dfc5de6c429cd02e062cd1bf6b94e6c5f24c8e72e7deef3c65bc745792"
+    sha256 cellar: :any,                 arm64_big_sur:  "d9757db02ceb67dd9f70a3d1db0de863678d44ef9acb58c42d4b343e5d9d1a40"
+    sha256 cellar: :any,                 ventura:        "1e386174aa9fdc9ac4e03e7cd28843b6bb0c908d8b6d87867fa1a1f0992850b5"
+    sha256 cellar: :any,                 monterey:       "88cb133f3f1233c18abf8505a9f68720763800078a2bd2ac5d91d66022ea82fa"
+    sha256 cellar: :any,                 big_sur:        "61e749dcdde769f33f1eacbdfa67afd952184bffde2be756ef45cb60d4058671"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7e1dd5f8e9ae578b52831a6b18f29498e0479dd8f260e6c7dc7e888d2e9e3909"
   end
 
   depends_on "cfitsio"

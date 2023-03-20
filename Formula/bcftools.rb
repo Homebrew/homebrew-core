@@ -1,8 +1,8 @@
 class Bcftools < Formula
   desc "Tools for BCF/VCF files and variant calling from samtools"
   homepage "https://www.htslib.org/"
-  url "https://github.com/samtools/bcftools/releases/download/1.16/bcftools-1.16.tar.bz2"
-  sha256 "90bf647c9ad79e10a243b8058c873de057fd7012e250d5ae6574839787a2ecd6"
+  url "https://github.com/samtools/bcftools/releases/download/1.17/bcftools-1.17.tar.bz2"
+  sha256 "01f75d8e701d85b2c759172412009cc04f29b61616ace2fa75116123de4596cc"
   # The bcftools source code is MIT/Expat-licensed, but when it is configured
   # with --enable-libgsl the resulting executable is GPL-licensed.
   license "GPL-3.0-or-later"
@@ -13,14 +13,13 @@ class Bcftools < Formula
   end
 
   bottle do
-    sha256                               arm64_ventura:  "225a59b2ce3035845071b9b620c3c981bfd9d8185fb18090047b156c1b7105da"
-    sha256                               arm64_monterey: "65a2a78dd8fb87800fc5f46f020a73625cd1ac3a785a60140c473a96bd647ca0"
-    sha256                               arm64_big_sur:  "b8bf1ee7fecde28d1facb2164ff6e398ed33c5ff1095129a2e323affbd0656d2"
-    sha256                               ventura:        "0295cac1bd16a3438f5fc54f76600c81aa8bbc59a18a4c14f719797eee2d01bb"
-    sha256                               monterey:       "82fb878c7e66acbe2e88da18ba11e6555b49d3c7ee857de606a1c7ea554472fe"
-    sha256                               big_sur:        "50a2abedf76288f41c716d9e075712e20b6a1161e96ba0d77ed64f398f0d8df2"
-    sha256                               catalina:       "4f59af51a89cbb746179dd7ce62f04e3d2c58ca1561cf6eeb00ed669d0550c36"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d2a6fd547af1d4e99e747d19c92c1c89a71a63544940581ce9281c0b28f9a5cb"
+    sha256 arm64_ventura:  "cc923b5aeb11a0fcae0f8d705ed9038f5194a222e72ec031912d90e628278e36"
+    sha256 arm64_monterey: "63e1db9175c816b9c07bb4af3fba7b99bf3d59de2f9bd0b6464f2f77b2d1c00e"
+    sha256 arm64_big_sur:  "dc2f2cd5acefc3a0d5f211acf8cad4b207b6eb68c4fdfaa1d2fa24038723c22b"
+    sha256 ventura:        "9d2b813a09bd6b7c172955304cb16babe0780600804cd541d42e7f7f357e779c"
+    sha256 monterey:       "446b45c18e3ecc11fcf32549b45ff8dea489c3661acf3d9dc1b6292a379df778"
+    sha256 big_sur:        "b899bd7074739743cf7862b21606317d96454bf7ab953d2134cf8c5ab6c5c257"
+    sha256 x86_64_linux:   "490576693018307a1deb31182c8f532bd4e1ec749d7c86ca19d99e12c3f68e0d"
   end
 
   depends_on "gsl"

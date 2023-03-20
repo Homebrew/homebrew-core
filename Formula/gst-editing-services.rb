@@ -1,8 +1,8 @@
 class GstEditingServices < Formula
   desc "GStreamer Editing Services"
   homepage "https://gstreamer.freedesktop.org/modules/gst-editing-services.html"
-  url "https://gstreamer.freedesktop.org/src/gst-editing-services/gst-editing-services-1.20.5.tar.xz"
-  sha256 "363f2b13675877b926b4be5259dbbeea8cc976805b40c871fc254bb8f382017d"
+  url "https://gstreamer.freedesktop.org/src/gst-editing-services/gst-editing-services-1.22.0.tar.xz"
+  sha256 "2a23856379af03586b66c193910fa8bb963024580bc2337c7405578dc077aa79"
   license "LGPL-2.0-or-later"
 
   livecheck do
@@ -11,13 +11,13 @@ class GstEditingServices < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "350847754b709bf4a12382c0b739d4f6c7a915a06c04280ffc6217c2f7f316ab"
-    sha256 cellar: :any, arm64_monterey: "b897169bf8e6ab9e216f428728961d7b0416f14a0ab0861ab8e9af2963c76088"
-    sha256 cellar: :any, arm64_big_sur:  "13296adb58f07bfaedfc2e315b9d3f8b5b402dab309e9af0f43eeabdd940bf0b"
-    sha256 cellar: :any, ventura:        "df261d0fda23abe20709ba76ac1695cd0b5baf13f9fa16872f5ffc520fb00e7a"
-    sha256 cellar: :any, monterey:       "1461af3a7870ce419d2a9c00b26fcbee2990493232b5c8d86388a98361d9e310"
-    sha256 cellar: :any, big_sur:        "98ff0425eb459b8086cc85dcca35cb93f684c5fd8309886c7af7a36bd1496e98"
-    sha256               x86_64_linux:   "4cfb586e63168a90365a5b5a4544f1fb5439af135e9f371ecdbbb0e22c9b991a"
+    sha256 cellar: :any, arm64_ventura:  "bb860fbacd097da3a94b520906af0272b4fc8346d08f477d82135a7c4d2b8708"
+    sha256 cellar: :any, arm64_monterey: "ff5a325d28ee8a49d593ae84ef46042fdc866785591a95dab484a467189b807a"
+    sha256 cellar: :any, arm64_big_sur:  "c55d011a7f984073f8f27ff22bc6ebc9a03bd914458c98bb08a8fddd08833f63"
+    sha256 cellar: :any, ventura:        "1c8309c94b7c179b40b02e55a2b5a1d659b704fcd217485d27799b47458a1464"
+    sha256 cellar: :any, monterey:       "94c21e0c4d1656efe224e505459456f788816e9534653f44f1400f670821715c"
+    sha256 cellar: :any, big_sur:        "31537cbec5e63bc5a677e3d2c2f53271476e047d67772946154d0986e789da78"
+    sha256               x86_64_linux:   "b5cb7c011c8d442490c83ea74def78496761b0cda60296f2788d5c11f13303c0"
   end
 
   depends_on "gobject-introspection" => :build

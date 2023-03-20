@@ -4,9 +4,9 @@ class Thrift < Formula
   license "Apache-2.0"
 
   stable do
-    url "https://www.apache.org/dyn/closer.lua?path=thrift/0.17.0/thrift-0.17.0.tar.gz"
-    mirror "https://archive.apache.org/dist/thrift/0.17.0/thrift-0.17.0.tar.gz"
-    sha256 "b272c1788bb165d99521a2599b31b97fa69e5931d099015d91ae107a0b0cc58f"
+    url "https://www.apache.org/dyn/closer.lua?path=thrift/0.18.1/thrift-0.18.1.tar.gz"
+    mirror "https://archive.apache.org/dist/thrift/0.18.1/thrift-0.18.1.tar.gz"
+    sha256 "04c6f10e5d788ca78e13ee2ef0d2152c7b070c0af55483d6b942e29cff296726"
 
     # Fix -flat_namespace being used on Big Sur and later.
     patch do
@@ -16,18 +16,17 @@ class Thrift < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "ee3bde856db5cfd342c2383cb108c8b4d2cd93c82a99fc44d203c34fbad46804"
-    sha256 cellar: :any,                 arm64_monterey: "cab37541e49c9895b900cfbec2ef67fddf240699975bdaa2eea25e5110dc31e1"
-    sha256 cellar: :any,                 arm64_big_sur:  "bb496e6fe3cfdfafc3b2558af33c6008802f157efef43b12c801315c9cd4da45"
-    sha256 cellar: :any,                 ventura:        "cc594cd722d68c7d7bce933eb510cbe2b819e5e7a455ad5398caf00cc236a9ed"
-    sha256 cellar: :any,                 monterey:       "17406f83b600ee211014de055114ba8948ef7802dd3f0de80bb63ed0a33dfd10"
-    sha256 cellar: :any,                 big_sur:        "e446d029f2856a2f9afaccabec4c469abc60330df078e89c773f42e372f9b639"
-    sha256 cellar: :any,                 catalina:       "103df8d65c791c3d3430d8ccf2165e27c30dd9745164a163871333b191338c62"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "771930b8511e07801658fc5b94f374a758a135ae4da0f2ec2b61b990137b954a"
+    sha256 cellar: :any,                 arm64_ventura:  "82591c3d842a3cadcb1b639204e84542de312863b61513a1dd8a72c542a96188"
+    sha256 cellar: :any,                 arm64_monterey: "932ab09d7b343ebc02f0661b305d94dc69770a37b403161256f9ac4778ab5c69"
+    sha256 cellar: :any,                 arm64_big_sur:  "d2f6a0b9cc82d3b72562915947fee1c6b483ffa6b87e57013c3f3438c4e33910"
+    sha256 cellar: :any,                 ventura:        "ebfa59b9d51bd2558445c7bbeb3ca17255718a42ab92ddacd56b5c2dec53a689"
+    sha256 cellar: :any,                 monterey:       "a7831c8263916b6046b2683e1367ca6787e2561c9ce66db090dd7517f2834201"
+    sha256 cellar: :any,                 big_sur:        "20da9a6b17c787d33ecaa1e6960591f60db7afd16237d7ecc1c23bda55788704"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cf0617a356f75b693bac1428c20c96353071ae0f1a4c7c33fab1e884c964469f"
   end
 
   head do
-    url "https://github.com/apache/thrift.git"
+    url "https://github.com/apache/thrift.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -84,7 +83,7 @@ class Thrift < Formula
   end
 
   test do
-    (testpath/"test.thrift").write <<~'EOS'
+    (testpath/"test.thrift").write <<~EOS
       service MultiplicationService {
         i32 multiply(1:i32 x, 2:i32 y),
       }

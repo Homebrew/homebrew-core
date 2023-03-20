@@ -2,9 +2,9 @@ class Libressl < Formula
   desc "Version of the SSL/TLS protocol forked from OpenSSL"
   homepage "https://www.libressl.org/"
   # Please ensure when updating version the release is from stable branch.
-  url "https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-3.6.1.tar.gz"
-  mirror "https://mirrorservice.org/pub/OpenBSD/LibreSSL/libressl-3.6.1.tar.gz"
-  sha256 "acfac61316e93b919c28d62d53037ca734de85c46b4d703f19fd8395cf006774"
+  url "https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-3.6.2.tar.gz"
+  mirror "https://mirrorservice.org/pub/OpenBSD/LibreSSL/libressl-3.6.2.tar.gz"
+  sha256 "4be80fff073746cf50b4a8e5babe2795acae98c6b132a9e02519b445dfbfd033"
   license "OpenSSL"
 
   livecheck do
@@ -13,18 +13,17 @@ class Libressl < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "5d52c80e347fe885c220befda3d0b06ceadb0c69d5d38ea411824e5522984e7f"
-    sha256 arm64_monterey: "e1e190218aef455cd898452faa0940169b778c6aed71da43c52418811a15aea5"
-    sha256 arm64_big_sur:  "4bdc1402b982264a82b00a293ddc06d3689e1aef4705409c04c0b31042e7cdfb"
-    sha256 ventura:        "aa9702299ec81740d7122b70677eaf676670c05115a3e2c2e4fef9abfa11597f"
-    sha256 monterey:       "d53e3985174b4ea5b1b8eef8aada76a2a92da4aa34842c9449968ae5a49b860d"
-    sha256 big_sur:        "0b026cac08005c9536917bbc131fefb01225b622381a372d3bbcac40e135b320"
-    sha256 catalina:       "97468dafe7be4c434641c85ab2679209304905c84761e75b2160877aaacb48ae"
-    sha256 x86_64_linux:   "3e515757befa20efb729f8f9a97d3eaf1647d5de7ba804349d24d2e00bec053d"
+    sha256 arm64_ventura:  "1f9321d2a37b404e8c2f6c519c0d0998337f8256279e37229d4e42637c4e1370"
+    sha256 arm64_monterey: "9e4c978d37f29b6e70b0bd077a23b5d8c2f33f4879697f3fcdba90dd70a01955"
+    sha256 arm64_big_sur:  "c4d1fb08ea250760dbbc22899e562bd228abc6e40857e815c23c48a1feb46932"
+    sha256 ventura:        "f92f70d95e71ebed886f5c5b6b2707ca3c4553b30ddce864b25e19c2c21d852d"
+    sha256 monterey:       "fe5360e4e6b6563f141b2301b3c7de84eff72c218b41c33479866c6de4a9df66"
+    sha256 big_sur:        "28a9e8b1972ff1edbea8515ac1a1802709fa4015b890b5e69a13d6ad6cbf5c20"
+    sha256 x86_64_linux:   "5c9b2db8dd4dd23f921c61c883a2b23d050de82ad1b9a0eaae2d385485b7c609"
   end
 
   head do
-    url "https://github.com/libressl-portable/portable.git"
+    url "https://github.com/libressl-portable/portable.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

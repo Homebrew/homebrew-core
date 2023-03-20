@@ -4,17 +4,16 @@ class Freeling < Formula
   url "https://github.com/TALP-UPC/FreeLing/releases/download/4.2/FreeLing-src-4.2.tar.gz"
   sha256 "f96afbdb000d7375426644fb2f25baff9a63136dddce6551ea0fd20059bfce3b"
   license "AGPL-3.0-only"
-  revision 9
+  revision 11
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "051517f926b0161becac7bd8dbc3f3964839e044de99cefb272e014bf932864a"
-    sha256 cellar: :any,                 arm64_monterey: "526c63df3912ae9541f86bbb1e89a14c23cbc3c2233fb1b24aff9811e7994e23"
-    sha256 cellar: :any,                 arm64_big_sur:  "c6a82a3e57695acc5fa7842cc01035954ae342ad4edaee63c2ec1f58aaf4d7e7"
-    sha256 cellar: :any,                 ventura:        "e506f3d52f1f785bdfd63462f9301268a4447b1edec4f7a9816877dbd3eef909"
-    sha256 cellar: :any,                 monterey:       "dfab507ba6f80dc5985a0d976e66b8780456aa9b39c10d4ac15161e194036ca3"
-    sha256 cellar: :any,                 big_sur:        "7a9a3cc243d0617f4aec9a7b4c756a5b61e252b638200112c211cd66b9b5f3b5"
-    sha256 cellar: :any,                 catalina:       "15c7ddf25814b4a40358824aa3502a7f2f0d8fc4513963ba42e14a9db73e58b4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f40785345e0375efc61af44a27882f266732fc4e22120d4d0e7b6358c3fcd85c"
+    sha256 cellar: :any,                 arm64_ventura:  "4844b0e50fe984cd2fcc747e97a5c97cfe04c36195ba84bf89fa6470a04170e7"
+    sha256 cellar: :any,                 arm64_monterey: "8163443f0345909b198bdf5e3effc1477d139e7e8b91d97fe7e0c9f3996bbba0"
+    sha256 cellar: :any,                 arm64_big_sur:  "16842fcf53dcd9f365cab5d055a84b02d8e102ee72a0eaeb021a29020daf67b0"
+    sha256 cellar: :any,                 ventura:        "ca3f22663c246ab5fe81221eeb787cc2bf18505d1d54ffc04bb6a067e133ba70"
+    sha256 cellar: :any,                 monterey:       "f9720fa166c3374a2cfb03eeaf3231b543e0e4cc28217547da92b0678d8f355f"
+    sha256 cellar: :any,                 big_sur:        "179e4baac021b4ab81f5e1de81887a22679f7a8d90a8607e80eb00602b079214"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "98688f542e190b51a0f81bd4d4dd3202169ccee7dd14813e485574f1f0c78f75"
   end
 
   depends_on "cmake" => :build

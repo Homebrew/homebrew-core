@@ -112,16 +112,14 @@ class Mailhog < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "064eeda058dfb73d1d9c7c80e8cbb057316e3d57df3fc3c8e4a1ff0e59bd16b6"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "fa7cdfaf00181264a52b41a9214a257c3af8194a34e0df28d11315b47ad4ef6c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bfe1d9cc4caa4037812957872b58eb2c350aae7adfac47d5f59c1b487b5bf709"
-    sha256 cellar: :any_skip_relocation, ventura:        "ac7abbff2f54b1f872bddb9d7f1d7e713914e76441515213230cd5c2a8b295b9"
-    sha256 cellar: :any_skip_relocation, monterey:       "bd89b132b8410a723d89ccddd96939453a2233716766c57195af4b6445adcc99"
-    sha256 cellar: :any_skip_relocation, big_sur:        "400e7c11562a81beee0edd8d43a6dc034363e7f75f3dfdee2d478a37582143ec"
-    sha256 cellar: :any_skip_relocation, catalina:       "48bb0d6e01d939b592bfe53cc887ddeb0ff97d7d2fd8e2e1b59636e3ca7fb0c4"
-    sha256 cellar: :any_skip_relocation, mojave:         "a08feb4626c1b13559638f75f2a56e955b38293848de51a08bd672974f8105d9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b70485ab9327cc9193ec21147192f707c550341fac85774bc1e79808c9a31268"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ced5d8a79864ec2e24dd10244c8f8c02ea877f5039cebbc52d67008878a90384"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a5b089cb4b0b631510bd8454442227cc126847626f414c3607bba679aa98f10a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a2cd7cb1b3d603d1696ffe8f6ff7704e7cf5a46fce3989160f66bf552fd1d754"
+    sha256 cellar: :any_skip_relocation, ventura:        "6a45f9cc5d9d2de936cc8d045927ab623c87afbad9616ddf3e6e5b09c6f55dda"
+    sha256 cellar: :any_skip_relocation, monterey:       "0e54558a9977b4e4106dd96395cb854253af643661089c0523cd26dbf77bca65"
+    sha256 cellar: :any_skip_relocation, big_sur:        "427f2af18b97af3d6b99e5d311b663a52ef85f6c2b04a6952ba691247e65df3b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1b66c1a2cbd67663bd1046ec584e8a9fd8518b7b68a3907ded7b6225d55774da"
   end
 
   depends_on "go" => :build
@@ -144,7 +142,15 @@ class Mailhog < Formula
   end
 
   service do
-    run opt_bin/"MailHog"
+    run [
+      opt_bin/"MailHog",
+      "-api-bind-addr",
+      "127.0.0.1:8025",
+      "-smtp-bind-addr",
+      "127.0.0.1:1025",
+      "-ui-bind-addr",
+      "127.0.0.1:8025",
+    ]
     keep_alive true
     log_path var/"log/mailhog.log"
     error_log_path var/"log/mailhog.log"

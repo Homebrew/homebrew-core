@@ -26,7 +26,7 @@ class Toilet < Formula
   end
 
   head do
-    url "https://github.com/cacalabs/toilet.git"
+    url "https://github.com/cacalabs/toilet.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

@@ -5,6 +5,7 @@ class TclTk < Formula
   mirror "https://fossies.org/linux/misc/tcl8.6.13-src.tar.gz"
   sha256 "43a1fae7412f61ff11de2cfd05d28cfc3a73762f354a417c62370a54e2caf066"
   license "TCL"
+  revision 1
 
   livecheck do
     url :stable
@@ -12,17 +13,14 @@ class TclTk < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "53300b4a5e2d7ef71b25b5ecb7b1b20ae435234dd114d2163e643d5857b1de21"
-    sha256 arm64_monterey: "c5878a4780414050c132dfd8cefaf7f009d8809f55ee3049dd7122a54e50dea9"
-    sha256 arm64_big_sur:  "4cab30160b2e7d926c52ad639c53a1471844b114a15cd19b414829615385ad67"
-    sha256 ventura:        "afd13198b0dbcc0eb4352614129f1cb06a614cea6d7417fefea3e62b852c4935"
-    sha256 monterey:       "e175685883ef770c7220b5c0b3058acd61dedddc8bbefae348828b68cbeb6514"
-    sha256 big_sur:        "3d0f9ac84a5a01f5d9d241005b6fa93e1a4f356b329dd56746242ff402649d7f"
-    sha256 catalina:       "9a0d3538f62527944ea7905d32532ad8239f6a6dd45f94742a3b2cb72d9f1c10"
-    sha256 x86_64_linux:   "7183c92a7b716deaf436a4a468c6866936a9f1f2b145516c7e6d83f323369da0"
+    sha256 arm64_ventura:  "04956a3f259e2ac5091b0295ebfaf10566773d0a75182bc9fdcc196896bb14a5"
+    sha256 arm64_monterey: "47e4402ab80129db41a74525ab1f86757300db16b348922768b5e7f888e7a70c"
+    sha256 arm64_big_sur:  "c0dcd820995d197dc5289cddde431d8e3883263f095d88f4d11e5d22e2d50880"
+    sha256 ventura:        "371b2d9a2ed902a1fe83ec8571434d264a528f0f8e7523149c71bd94f5ee9a1f"
+    sha256 monterey:       "90c4841ae76f0dd83ffcd4da560028dcb191b0a33dcb7ccf927f91a5f4ba9e80"
+    sha256 big_sur:        "6237dab643b65a9b0b5a5de571aa6572bcdf7b0230b19929d078ed65d8c8633d"
+    sha256 x86_64_linux:   "252ef7ada74c055ddd55ab4fef5c2eb2a3be91151533fb4566687d95ba9a8c33"
   end
-
-  keg_only :provided_by_macos
 
   depends_on "openssl@1.1"
 
@@ -34,6 +32,8 @@ class TclTk < Formula
     depends_on "libx11"
     depends_on "libxext"
   end
+
+  conflicts_with "page", because: "both install `page` binaries"
 
   resource "critcl" do
     url "https://github.com/andreas-kupries/critcl/archive/3.1.18.1.tar.gz"
@@ -64,6 +64,7 @@ class TclTk < Formula
   def install
     args = %W[
       --prefix=#{prefix}
+      --includedir=#{include}/tcl-tk
       --mandir=#{man}
       --enable-threads
       --enable-64bit

@@ -1,33 +1,31 @@
 class Drill < Formula
   desc "HTTP load testing application written in Rust"
   homepage "https://github.com/fcsonline/drill"
-  url "https://github.com/fcsonline/drill/archive/0.8.1.tar.gz"
-  sha256 "8e31aa4d11898c801b6a47a6808b1545f1145520670971e4d12445ac624ff1af"
+  url "https://github.com/fcsonline/drill/archive/0.8.2.tar.gz"
+  sha256 "6e03fd2e2a80a9eb9a539b7a9ea4f5fe8733ae516687755fd0f8d788301fb83f"
   license "GPL-3.0-or-later"
   head "https://github.com/fcsonline/drill.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "61ab629d780af9ec0e8e6cdd2642f50d6e5c39e51eaa0e8ad65eb280f217c377"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8e4f1a4918a076dc1b7a9c2503f76075dc6e66db028d4db7dded71b9454d6b03"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5328f14dddd1d0f0808ad64034794275643cf902690c745d7a6b11ba73d4008a"
-    sha256 cellar: :any_skip_relocation, ventura:        "b9bcc3775eaea19cf32b923a5a3232c0b05d5d385a82f2a9d8c6029c7c0694e7"
-    sha256 cellar: :any_skip_relocation, monterey:       "94fed7fc60d7554579a78aee13749bf309481b6c35a79a41816438a6db832f07"
-    sha256 cellar: :any_skip_relocation, big_sur:        "37611f137324359d6e8329b520a027468265a225bde909b33bc748a5e72217b8"
-    sha256 cellar: :any_skip_relocation, catalina:       "6f93fbffcef67c34e531975dc653fe45a71a62f020d63265ea069f3c41fc5908"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cdde246989361f99943e1a64bffce747174f54efd654d0f52e6e5a8e59d08956"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b3aab1d5ab31f25ad661667a52ebbecee47b07cdcc583cd64d79bbcecdcbe7ab"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7cda358f38a686ffa01cd83ce24612dbe03b48211a11bfc8c21c2b759f0e1f8a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "07e27776d3d25c4b3af589b6f95f06dbd6cd31cc54aacbc7cec63e6951c98475"
+    sha256 cellar: :any_skip_relocation, ventura:        "14c1d77c991bbd89e8c2d7b2e50d10b770c89a394cc93f40ccf0d3c1f8d25305"
+    sha256 cellar: :any_skip_relocation, monterey:       "c49a9264ad149367b7c8ee1b5fb1fe8797cabad2107962e23c11cb1615592502"
+    sha256 cellar: :any_skip_relocation, big_sur:        "dde4e771d2a7fd8aef40b921433b05e8b20fa3e14686b5bf9d05532564f304cd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a88da29fbd3c641f331399f2575282d6a1feb513620c7300d2f32125595550b5"
   end
 
   depends_on "rust" => :build
 
   on_linux do
-    depends_on "openssl@1.1" # Uses Secure Transport on macOS
+    depends_on "openssl@3" # Uses Secure Transport on macOS
   end
 
   conflicts_with "ldns", because: "both install a `drill` binary"
 
   def install
-    ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix if OS.linux?
+    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix if OS.linux?
     system "cargo", "install", *std_cargo_args
   end
 

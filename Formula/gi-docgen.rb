@@ -3,22 +3,22 @@ class GiDocgen < Formula
 
   desc "Documentation tool for GObject-based libraries"
   homepage "https://gnome.pages.gitlab.gnome.org/gi-docgen/"
-  url "https://files.pythonhosted.org/packages/4d/0d/84d2a72a79ba7874b34680cac5b81019f17d58f2b53d88f341c710f1f3cf/gi-docgen-2022.2.tar.gz"
-  sha256 "fc56df0c7d4ab9e5ed83f35b7483cb07d0bf91761e4f139eed363d7e42ffe0c0"
+  url "https://files.pythonhosted.org/packages/29/72/a319bce143e5d10677bc89b66e750c1511ec005c7a8bb098b415cc68ac68/gi-docgen-2023.1.tar.gz"
+  sha256 "88adeda9cbf882569479701eada009afa5d94fa29d728653ec388c32035f7fa3"
   license any_of: ["Apache-2.0", "GPL-3.0-or-later"]
   head "https://gitlab.gnome.org/GNOME/gi-docgen.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "28fbf04dad49ead32302a60a9e88eaf90115e808e5df9a35e4f90e68ddfd3bd4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2bdc1e61f8f6a8cd066c2debbffa52848930ebce700e2481acbcf111ada1df4c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cbc18cdca02978e370cd4994c97e02bdb9083a12a3b9cc5e6647464426d734c2"
-    sha256 cellar: :any_skip_relocation, ventura:        "3f0d1c663afe3b52787c7b0ca7ecca1f92f2d9e7300377c12dd6a11177d714a5"
-    sha256 cellar: :any_skip_relocation, monterey:       "194f50b12ce008e6c0533b3e658e99e16211edca7eabfc8599eabd742e31eecf"
-    sha256 cellar: :any_skip_relocation, big_sur:        "77f7543d7583217d4092f25743dd70c59f42c75ae3da32f4142c28b2fc33bba5"
-    sha256 cellar: :any_skip_relocation, catalina:       "78d73e32cfc350ea7f501074753dee254854c0c9127955db6377777a9669cd74"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "edd16dfe78250cbdc8ce461aa9a925c2121754539f494ad978bc4c21be77a275"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4457956c9dbdd582c2d8a86e23902226cb0f7de110cc28c2036d616677b588f2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "21b1f4b55bc59063bcfcfa500b3c89440b5b1f7f4a93d5168433fd73b2ec8207"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cf1cdf93e560faf4fbc3dcd6a6d1c00fdf29d9fcba56bba2bec135d58543f22e"
+    sha256 cellar: :any_skip_relocation, ventura:        "d76520359e7bd6d5fa63a0f36354c29676352da054e611966e93fa3c56323597"
+    sha256 cellar: :any_skip_relocation, monterey:       "3e432556d65b23faf4d78216c088dfc1435b6e5c9f7586d2f668b2a2af470743"
+    sha256 cellar: :any_skip_relocation, big_sur:        "77c659d7c8004212417531e491fbb18c40e3dea50740df5c1093f91f68543048"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "90ba3994ae191ef527494dc53d54d92c183c18597f4193ec5cbf221e0ead848c"
   end
 
+  depends_on "pygments"
   depends_on "python@3.11"
 
   # Source for latest version is not available on PyPI, so using GitHub tarball instead.
@@ -41,11 +41,6 @@ class GiDocgen < Formula
   resource "MarkupSafe" do
     url "https://files.pythonhosted.org/packages/1d/97/2288fe498044284f39ab8950703e88abbac2abbdf65524d576157af70556/MarkupSafe-2.1.1.tar.gz"
     sha256 "7f91197cc9e48f989d12e4e6fbc46495c446636dfc81b9ccf50bb0ec74b91d4b"
-  end
-
-  resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/e0/ef/5905cd3642f2337d44143529c941cc3a02e5af16f0f65f81cbef7af452bb/Pygments-2.13.0.tar.gz"
-    sha256 "56a8508ae95f98e2b9bdf93a6be5ae3f7d8af858b43e02c5a2ff083726be40c1"
   end
 
   resource "toml" do

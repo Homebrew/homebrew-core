@@ -1,8 +1,8 @@
 class Scummvm < Formula
   desc "Graphic adventure game interpreter"
   homepage "https://www.scummvm.org/"
-  url "https://downloads.scummvm.org/frs/scummvm/2.6.1/scummvm-2.6.1.tar.xz"
-  sha256 "8fafb9efabdd1bf8adfe39eeec3fc80b22de30ceddd1fadcde180e356cd317e9"
+  url "https://downloads.scummvm.org/frs/scummvm/2.7.0/scummvm-2.7.0.tar.xz"
+  sha256 "444b1ffd61774fe867824e57bb3033c9998ffa8a4ed3a13246b01611d5cf9993"
   license "GPL-3.0-or-later"
   head "https://github.com/scummvm/scummvm.git", branch: "master"
 
@@ -12,14 +12,13 @@ class Scummvm < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "ff90407f9df7e87b88aa6c24b8a052a99dee66f5d6c36a7f7ae3de763a672648"
-    sha256 arm64_monterey: "2b3ba2c5ba922367591b4e79616599d2c2bf6d50c05bfe672513d9fcc90577bf"
-    sha256 arm64_big_sur:  "ad21aa5044d5b4d388e95792905568134d30bba5472ed44e4ecc35093a41ee2f"
-    sha256 ventura:        "071b7610cce26ea2f608d69d91c333d91c04e08b3f7d9a0c2d69d331322a3d43"
-    sha256 monterey:       "0ffb233ace83d6cb367e666bf613d470b517552a0a688c8f11beac58597c1261"
-    sha256 big_sur:        "ccab79afdd3bd4d89d7d67e8e466e5b779a4a2e920d68c1c8be97fcdb3189e7e"
-    sha256 catalina:       "7f638fae6f450586f19ddef3dc430ab0b5df62ec860de3da33b3d4a37ba111cc"
-    sha256 x86_64_linux:   "4c6b6f570d81285892dfedaeae74d7e9081da55d367d6eb6e82f8e188b62888a"
+    sha256 arm64_ventura:  "550a1b394b3ce96aa23f5c06730a9ffb94af558ff5064878af1c4ebeedc5ec94"
+    sha256 arm64_monterey: "6a3e4f2670f4bfe040618dca252120b1946148056c22d9548d5eebdb0fcaa072"
+    sha256 arm64_big_sur:  "f568c1d596748d76b628ed548bbbe8b17edf8fb780eca5deb5099a74841b9db5"
+    sha256 ventura:        "b6b91116e0bc3a6aba9ffcc8ce427d0492bc38277d83c00b3d72c4df4d84f5e8"
+    sha256 monterey:       "9f491464ff065d629b7c355a1c50c21b751d7631c5bcc164fbb8f2be13531078"
+    sha256 big_sur:        "517a01101d6a3c71ce9409433e8ca5f5cf05cc91cc07a2c472d48d4ff6cbb3e8"
+    sha256 x86_64_linux:   "50ba6a89f7ac6eed4f33180a58d19385fb9253f795b5e201056fe84a5c81f84f"
   end
 
   depends_on "a52dec"
@@ -46,9 +45,9 @@ class Scummvm < Formula
   end
 
   test do
-    # Test fails on headless CI: Could not initialize SDL: No available video device
-    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
-
+    # Use dummy driver to avoid issues with headless CI
+    ENV["SDL_VIDEODRIVER"] = "dummy"
+    ENV["SDL_AUDIODRIVER"] = "dummy"
     system bin/"scummvm", "-v"
   end
 end

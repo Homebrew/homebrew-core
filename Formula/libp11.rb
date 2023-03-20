@@ -11,38 +11,43 @@ class Libp11 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "0b843830831f3d40c2bc05cee086209403d332df6e69f6a08ad7bb9b9e86cb3a"
-    sha256 cellar: :any,                 arm64_monterey: "7ff9bf5bc261f57e6396cf4db40d78fe76d8abef845b67bc6000b38b1308f34c"
-    sha256 cellar: :any,                 arm64_big_sur:  "fb06eacdf6bdb6f8af71706a81aa5e70fdaaf6f4b8ca0fe285c0687ef9d4cb6f"
-    sha256 cellar: :any,                 ventura:        "0dc75a7beb4af4db7767365658bc3b657d60548ac684d3ab3d79928150e91694"
-    sha256 cellar: :any,                 monterey:       "58f4862ac40d50e7083ad99703f0302d9ba1269744c82263ea2e6aced957d6a4"
-    sha256 cellar: :any,                 big_sur:        "cc2abf1c58255ebcd610a694e4c45496c6471d31a5fc917c98b15bc6e10fd4d8"
-    sha256 cellar: :any,                 catalina:       "62236e2ad57894cc392306c0e4c1becff52b8054bb88baa65e01431babc8884e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "409cb2e2ff0a554ca1ae763da1065fe9fc499668d305457cd4dc24be09032fbf"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_ventura:  "6af6b0d767af1cb7ec7c3a7265bbdeafb86921fc2e7f5966be2efc9007b8a3d2"
+    sha256 cellar: :any,                 arm64_monterey: "0be4080fadb8580fe8b9618dc2a37670919dc21a0a22d4375d295c3fa40aee98"
+    sha256 cellar: :any,                 arm64_big_sur:  "2c61eab1e9b91d1158a719ca59253a3b65562a7f55c32909319b5359bca5e705"
+    sha256 cellar: :any,                 ventura:        "da2d7d7a89310ef22f4326c9128f491961bff43ded083b1b52e8240076777c44"
+    sha256 cellar: :any,                 monterey:       "0cc69d822cbf9a934c9c72e1ff421958367333a9fa69f060fba581afb58731c5"
+    sha256 cellar: :any,                 big_sur:        "1546eb96b8f270994559dc63591f852ef0f6fbbcf93f92c8e8071a60db2cb9d3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6370c44a401aca7e4f6fe02e2220a1c8b8791d697f8c88dbb5a0a2de0c297349"
   end
 
   head do
-    url "https://github.com/OpenSC/libp11.git"
+    url "https://github.com/OpenSC/libp11.git", branch: "master"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end
 
   depends_on "pkg-config" => :build
   depends_on "libtool"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
+    openssl = deps.find { |d| d.name.match?(/^openssl/) }
+                  .to_formula
+    enginesdir = Utils.safe_popen_read("pkg-config", "--variable=enginesdir", "libcrypto").chomp
+    enginesdir.sub!(openssl.prefix.realpath, prefix)
+
     system "./bootstrap" if build.head?
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--with-enginesdir=#{lib}/engines-1.1"
+    system "./configure", *std_configure_args,
+                          "--disable-silent-rules",
+                          "--with-enginesdir=#{enginesdir}"
     system "make", "install"
     pkgshare.install "examples/auth.c"
   end
 
   test do
-    system ENV.cc, pkgshare/"auth.c", "-I#{Formula["openssl@1.1"].include}",
-                   "-L#{lib}", "-L#{Formula["openssl@1.1"].lib}",
+    system ENV.cc, pkgshare/"auth.c", "-I#{Formula["openssl@3"].include}",
+                   "-L#{lib}", "-L#{Formula["openssl@3"].lib}",
                    "-lp11", "-lcrypto", "-o", "test"
   end
 end

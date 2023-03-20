@@ -1,19 +1,19 @@
 class Nomino < Formula
   desc "Batch rename utility"
   homepage "https://github.com/yaa110/nomino"
-  url "https://github.com/yaa110/nomino/archive/1.3.0.tar.gz"
-  sha256 "826bfa9b17ea1f298cd653ec55016255dbfe2fea4c712dbe1e5af8df4cd674ba"
+  url "https://github.com/yaa110/nomino/archive/1.3.1.tar.gz"
+  sha256 "45e8ed1e3131d4e0bacad2e1f2b4c2780b6db5a2ffaa4b8635cb2aee80bc2920"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/yaa110/nomino.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c673b8643644c72952fa354f4677677e13ab782eb006f088cb0c5b05363fcbc1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6da4cba837b0cd0bb0fef1bba68f43dc7cd75dce0c5482e1fa59264cb07e2567"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "77d909db2b337aa52532367887604eb39001130eb4d76b034dcde22898c599ea"
-    sha256 cellar: :any_skip_relocation, ventura:        "2ea9efa75257a060c83745b3ab840c9b015790f2ce62514cd9b5c99edf66ec3e"
-    sha256 cellar: :any_skip_relocation, monterey:       "98ad2fd3a87ee7be7401e8558ae9560c66a7681fc7f18d1317a41583171380f6"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1cc92cd86b5dbccbb97319e56753c6a4989b4c8486d5d4c4a799fbe03fc3a20f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "db8c1ab3396d603048a23d1b2f8115480154f810b8003a7db52fd92100e7dae3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c14e4132238b567dcefa076e8008748d1f8b49e76f787fa2b677c5dfafdb69c1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2b31bb9f7e07f5c1bb8a3b961c2542a322991beff406362dabacd2c96265896c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2a69b599da29f9f1a39435c03e9f874b856ed059205d9880369b68abee25ca6e"
+    sha256 cellar: :any_skip_relocation, ventura:        "7edb742b84fe15e9408f5a5e9e3f04c6496f7485beb2259a62992aa83f4b89a7"
+    sha256 cellar: :any_skip_relocation, monterey:       "77f6b1e152c6e1210b281e6f22c43f1805753fb5c4aef68c734b0a3035300c1f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ee9c663b8f11c7498ead2f44697dfa82db829bf44be26cfe9ea2bce3c3f1b841"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "90aeb989295f313f9ef0c5881230816939307c1aa9e400cabb632f9660496c2d"
   end
 
   depends_on "rust" => :build

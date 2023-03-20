@@ -2,19 +2,19 @@ class Scorecard < Formula
   desc "Security health metrics for Open Source"
   homepage "https://github.com/ossf/scorecard"
   url "https://github.com/ossf/scorecard.git",
-      tag:      "v4.10.2",
-      revision: "376f465c111c39c6a5ad7408e8896cd790cb5219"
+      tag:      "v4.10.4",
+      revision: "98316298749fdd62d3cc99423baec45ae11af662"
   license "Apache-2.0"
   head "https://github.com/ossf/scorecard.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5e751f55186e98e5418ca1b98fedb501f4221d3ac0f61ac530a776acb5c4681e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5747ad63f0c9dba4f3629264de4799228ab0d34b3bedeec9176a7682f8452922"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f90a1dbcb8cf533958869cad97f4fc7a8a9ad21eb5e2d2fb9aba5e2e0c0b476a"
-    sha256 cellar: :any_skip_relocation, ventura:        "218c7be26778934394f0498868ae2638af67b0d0748c935fe23fdef5987fb4a2"
-    sha256 cellar: :any_skip_relocation, monterey:       "a055b98f6809298b44b6a40f98343a55a57ff9bad0540d8c5e3e9c09631d7b82"
-    sha256 cellar: :any_skip_relocation, big_sur:        "4c50d50fa5344709fd44ef35b4ed709435d2e456c350ed5c57e89d6107e43a7a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "643ffc451b0b5825c31bd300652a6aa620d3032d199e90a061f919b08234c94b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e9db798b45c5c8bba34c518d9ad43c3250a74f98af8d7c8adbcb6111ef9df6fa"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "fc86c5f98c7bcfd3ccd9b5b93ad304a824f2588fbcff23a15e14e96d6604c9d1"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e9f80e4132412bd10efdc5e02f1712a3b5a3d5e0a76a98658e7315793a10d2e7"
+    sha256 cellar: :any_skip_relocation, ventura:        "991757bc14e288f6fc3069aad39ef277325863d6277335bd0367c7e15087eef3"
+    sha256 cellar: :any_skip_relocation, monterey:       "d56454b8933858690c500ce3870f3d92dbf88c8966d6e1e5e1b346352644e325"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6c38a224df59bf76f2a3d24e7b580d06ff6600fa3553c2d3c5cafbc7b3814c2d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b0bcf936fe1fe6cf1258b570d65a4bffc855ba97311d9aa1e9736572d8845689"
   end
 
   depends_on "go" => :build
@@ -38,7 +38,7 @@ class Scorecard < Formula
   test do
     ENV["GITHUB_AUTH_TOKEN"] = "test"
     output = shell_output("#{bin}/scorecard --repo=github.com/kubernetes/kubernetes --checks=Maintained 2>&1", 1)
-    expected_output = "InitRepo: repo unreachable: GET https://api.github.com/repos/google/oss-fuzz: 401"
+    expected_output = "Error: RunScorecard: repo unreachable: GET https://api.github.com/repos/kubernetes/kubernetes"
     assert_match expected_output, output
 
     assert_match version.to_s, shell_output("#{bin}/scorecard version 2>&1")

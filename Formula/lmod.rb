@@ -1,18 +1,18 @@
 class Lmod < Formula
   desc "Lua-based environment modules system to modify PATH variable"
   homepage "https://lmod.readthedocs.io"
-  url "https://github.com/TACC/Lmod/archive/8.7.15.tar.gz"
-  sha256 "93333503797a6e8e5c916003f8280c904d0cd12032ceff890d45fb4a94f2f77c"
+  url "https://github.com/TACC/Lmod/archive/8.7.20.tar.gz"
+  sha256 "c04deff7d2ca354610a362459a7aa9a1c642a095e45a4b0bb2471bb3254e85f4"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b97ed489ae1f50796ce253c58fa69b666e50e88530168f2d50776451e181d020"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "643b3710c17869a74174e5fa115e83fe8a6d7f039e91df89eecde6a83fa4b0b0"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9fd3b1be5afd57a78990e6d5faf8d3fe07688cb1904971b64a604e8d89043e83"
-    sha256 cellar: :any_skip_relocation, ventura:        "98f7b797578bde16c5e9f6be20fd123e7eddafd5e6ea4f7e5e3006eeb60b6eb6"
-    sha256 cellar: :any_skip_relocation, monterey:       "16d98dd7575296c8b62c731243bc6f8de23ce45eb22f3858000b62e9b2694389"
-    sha256 cellar: :any_skip_relocation, big_sur:        "802f1582bafd3f5e0a6b239c9deb7d5f400d656e531d8cc2d2f57cd13ce8dd50"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "57ae73dd9e89f89e36fda1a9c424e01840ba6d926c0a63038cd4d15862becf62"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "410268fad296d99c45ea7e5081b431a4c88efdb9e52b7ec23ab07939eeae1c10"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "52fa0ecabad60ec55cc566fbb3aefacdb443398a400ee17ce966f8c5de2f790f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c759b506b83f1cdaae843c14880ed80e9a4e77c571df9a871a20dcacfab390e7"
+    sha256 cellar: :any_skip_relocation, ventura:        "37cb1caae54821ee7853af2d1d5a6bcbda5296d4845c1c58406aa7a6cef1245f"
+    sha256 cellar: :any_skip_relocation, monterey:       "c5aec214501e4e8bc9d693e6c533554cc89f4f97cced2918eecf1afbd0ad2f7d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "78d21be4c6d6b1e63a5c3049cc6461d75d493fef698a864bcbcf41dbb7e0c37b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d89da1221be67367c50761a38bed26c8d32b8ebe90badf879732bf2c7ab63d84"
   end
 
   depends_on "luarocks" => :build
@@ -29,8 +29,8 @@ class Lmod < Formula
   end
 
   resource "luaposix" do
-    url "https://github.com/luaposix/luaposix/archive/refs/tags/v35.1.tar.gz"
-    sha256 "1b5c48d2abd59de0738d1fc1e6204e44979ad2a1a26e8e22a2d6215dd502c797"
+    url "https://github.com/luaposix/luaposix/archive/refs/tags/v36.1.tar.gz"
+    sha256 "e680ba9b9c7ae28c0598942cb00df7c7fbc70b82863bb55f028ea7dc101e39ac"
   end
 
   def install
@@ -47,6 +47,8 @@ class Lmod < Formula
       end
     end
 
+    # We install `tcl-tk` headers in a subdirectory to avoid conflicts with other formulae.
+    ENV.append_to_cflags "-I#{Formula["tcl-tk"].opt_include}/tcl-tk" if OS.linux?
     system "./configure", "--with-siteControlPrefix=yes", "--prefix=#{prefix}"
     system "make", "install"
   end

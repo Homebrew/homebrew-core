@@ -4,16 +4,17 @@ class Pocl < Formula
   url "http://portablecl.org/downloads/pocl-3.1.tar.gz"
   sha256 "82314362552e050aff417318dd623b18cf0f1d0f84f92d10a7e3750dd12d3a9a"
   license "MIT"
+  revision 1
   head "https://github.com/pocl/pocl.git", branch: "master"
 
   bottle do
-    sha256 arm64_ventura:  "725592ecff117e6a5fc79f7320b1594a0ed47381bc7f10c07b692234404bff82"
-    sha256 arm64_monterey: "43648343bca02bc500617b33ef273b8f09f0f948ba162f09b7d03e2a5681506a"
-    sha256 arm64_big_sur:  "fabea7901cd3581c85a191ecaeba1455e0a472131ed71661ed7b89a0b2b37a7b"
-    sha256 ventura:        "27e4bfb8cc2b3449d7597c47dcfb6aa55a788a5ccaf9c9b076cb67ba5335ba17"
-    sha256 monterey:       "a4b106c0bd8f0b96fd87ea1bd80370c0808266aee56d2113c1f8317ed6691c0a"
-    sha256 big_sur:        "74dc0ea7f41310782790ed1a9e6432f4c361a72b91e14eca5a5adbed41ea47b5"
-    sha256 x86_64_linux:   "76eb5a19e08571701d59405ad080ccefb35bb671f96200a7084bd771918ee304"
+    sha256 arm64_ventura:  "4b2eb686484b8f44b0f14ed8ff3126d100ecca595e931f6cf7848f79af01ce0b"
+    sha256 arm64_monterey: "a585cf0ab10943ba6b1371fe91411dd6d6f60e9972495f8befff33b5689a8323"
+    sha256 arm64_big_sur:  "7f8ccb845709dd1df204500e14770b0a2debc30ea6d81a982fd0a2ea661d5667"
+    sha256 ventura:        "758084ccac11c736aa33b832cf95edd170117334468dfabc34d354bce79b959c"
+    sha256 monterey:       "da53b30483848934bb6be33405e7c41b515c404d798ccecf3ec40ea86a45facd"
+    sha256 big_sur:        "e64b4bbd980a70107064ad17f4f05a4a2236d224a54503c87674ba2dad310635"
+    sha256 x86_64_linux:   "20a9e232705a2ea7315135c6bcc111d767128916ad2904de559f08eb580753d5"
   end
 
   depends_on "cmake" => :build
@@ -21,7 +22,7 @@ class Pocl < Formula
   depends_on "pkg-config" => :build
   depends_on "hwloc"
   depends_on "llvm"
-  depends_on "ocl-icd"
+  depends_on "opencl-icd-loader"
 
   fails_with :clang do
     cause <<-EOS
@@ -59,7 +60,7 @@ class Pocl < Formula
   end
 
   test do
-    ENV["OCL_ICD_VENDORS"] = "pocl.icd" # Ignore any other ICD that may be installed
+    ENV["OCL_ICD_VENDORS"] = "#{opt_prefix}/etc/OpenCL/vendors" # Ignore any other ICD that may be installed
     cp pkgshare/"examples/poclcc/poclcc.cl", testpath
     system bin/"poclcc", "-o", "poclcc.cl.pocl", "poclcc.cl"
     assert_predicate testpath/"poclcc.cl.pocl", :exist?

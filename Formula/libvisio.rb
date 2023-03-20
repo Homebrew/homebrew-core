@@ -4,7 +4,7 @@ class Libvisio < Formula
   url "https://dev-www.libreoffice.org/src/libvisio/libvisio-0.1.7.tar.xz"
   sha256 "8faf8df870cb27b09a787a1959d6c646faa44d0d8ab151883df408b7166bea4c"
   license "MPL-2.0"
-  revision 6
+  revision 7
 
   livecheck do
     url "https://dev-www.libreoffice.org/src/"
@@ -12,14 +12,13 @@ class Libvisio < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "c6ed6d06f96f740d06f6ef0689587262eea573e875af753893c0f5aa807edbf5"
-    sha256 cellar: :any,                 arm64_monterey: "b6914749c1bda7f6796c1f2908dda35f564860830cfc202ed9bb9f1652ce3562"
-    sha256 cellar: :any,                 arm64_big_sur:  "ee945d14878160dba16e983ede8c3fefbc5c82b028d340851d5c8b2ce486e0b9"
-    sha256 cellar: :any,                 ventura:        "435ce0970c018853d9c9fd6c0a5bfe4b2d9c8ca63e3f56c7c65a54e531aebd0c"
-    sha256 cellar: :any,                 monterey:       "9db99dc5397773cd0628ed1ce6c183eea4c0deab7aee30f483eb96941cfa2a24"
-    sha256 cellar: :any,                 big_sur:        "2153b5bd416812b4d5448e5f38554dd93d4baf82cf21672abb24215669f21e5f"
-    sha256 cellar: :any,                 catalina:       "99d2f84618430bdc6a7876512a65a365da8cdeb94aa6198193b2eb933aeb8556"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "728b3e6817c2d78dd463de90ebdbde10d5e8a468357b7d6b66759444da0286ab"
+    sha256 cellar: :any,                 arm64_ventura:  "f94711a3b33d83eddf05c3cbe8eea0d2a6afac3b7306658c336b744df029d1ee"
+    sha256 cellar: :any,                 arm64_monterey: "d6ef766bf3c121d58a6194476d823fd9bfc90561eb21b61899cd4c3ac27f70e6"
+    sha256 cellar: :any,                 arm64_big_sur:  "8820ff95b0aa4116850ef496a48c90bf69f28530947c415a1bb6c7be6b618bfd"
+    sha256 cellar: :any,                 ventura:        "3ab21490d5f4cd061d6007ed81a520ca3a8230e5562e354e6087ae1a0e0f4972"
+    sha256 cellar: :any,                 monterey:       "8de26cd2912b71933a18250e906a002fe68b6454dc61673b02ace0d5e3d1853e"
+    sha256 cellar: :any,                 big_sur:        "6759744fff649e44a3779347dd16510cc71d6afcb6e2a67f2447c2629e763fcf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "82e1fe6538a4513b666871e69ba62cf390916dd8e5f66284a5bbf8c31b15f776"
   end
 
   depends_on "cppunit" => :build

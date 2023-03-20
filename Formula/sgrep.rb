@@ -1,17 +1,17 @@
 class Sgrep < Formula
   desc "Search SGML, XML, and HTML"
   homepage "https://www.cs.helsinki.fi/u/jjaakkol/sgrep.html"
-  url "https://www.cs.helsinki.fi/pub/Software/Local/Sgrep/sgrep-1.94a.tar.gz"
+  url "http://deb.debian.org/debian/pool/main/s/sgrep/sgrep_1.94a.orig.tar.gz"
   mirror "https://fossies.org/linux/misc/old/sgrep-1.94a.tar.gz"
   sha256 "d5b16478e3ab44735e24283d2d895d2c9c80139c95228df3bdb2ac446395faf9"
 
-  # The current formula version (1.94a) is an alpha version, so this regex
-  # has to allow for unstable versions. If/when a new stable version after 0.99
-  # ever appears, the optional `[a-z]?` part of this regex should be removed,
-  # so it will only match stable versions.
+  # The directory listing page where the tarballs were found now gives a 404
+  # (Not Found) response (the FTP referenced on the download page is also
+  # unresponsive). The homepage and download page list 1.92a as the newest
+  # version (from 1998-12-23) instead of 1.94a (from 2004-11-19), as the
+  # website was last updated on 1998-12-22.
   livecheck do
-    url "https://www.cs.helsinki.fi/pub/Software/Local/Sgrep/"
-    regex(/href=.*?sgrep[._-]v?(\d+(?:\.\d+)+[a-z]?)\.t/i)
+    skip "No up-to-date sources to check for versions"
   end
 
   bottle do

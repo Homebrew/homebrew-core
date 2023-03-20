@@ -1,19 +1,18 @@
 class Sdl2Ttf < Formula
   desc "Library for using TrueType fonts in SDL applications"
   homepage "https://github.com/libsdl-org/SDL_ttf"
-  url "https://github.com/libsdl-org/SDL_ttf/releases/download/release-2.20.1/SDL2_ttf-2.20.1.tar.gz"
-  sha256 "78cdad51f3cc3ada6932b1bb6e914b33798ab970a1e817763f22ddbfd97d0c57"
+  url "https://github.com/libsdl-org/SDL_ttf/releases/download/release-2.20.2/SDL2_ttf-2.20.2.tar.gz"
+  sha256 "9dc71ed93487521b107a2c4a9ca6bf43fb62f6bddd5c26b055e6b91418a22053"
   license "Zlib"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "965b06109282c56c513b3836bdced71d34c7b532b42a5a0fad1188cb171f12f1"
-    sha256 cellar: :any,                 arm64_monterey: "0717a73e3b400b75d4c95a1f041405d1e2a51d853084f4f4a2df509a0f5f66b4"
-    sha256 cellar: :any,                 arm64_big_sur:  "3c330912742dc8adec3f1c84d72cd0c6d2042e07668b4e0949dd19a48db93399"
-    sha256 cellar: :any,                 ventura:        "e0801a169bc31d6340a5c6f57b289d92099449a43ae7a2f422356a85ec39a47a"
-    sha256 cellar: :any,                 monterey:       "03664994cfddf5b0dc3c2e17882ac02d01e2f46f0c74b711cdaf8b850e97c721"
-    sha256 cellar: :any,                 big_sur:        "1d882966dfe5f2710325b20c9aaa3dc37e4fdc2698c8fb9f3d4252a62a3799be"
-    sha256 cellar: :any,                 catalina:       "b969e2ec3520ce18c9ab44e05e9fb4e406887c8d879d156c8eedc559ba9bfe30"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "69cd455ca76baafa15a74f4266c6dc5b3531c5146a7d420beeeae2e106ebdfc1"
+    sha256 cellar: :any,                 arm64_ventura:  "5f983f0da784459c3a66961a6fd04e0effc138f97348e1c56ae7cfd212fc8e71"
+    sha256 cellar: :any,                 arm64_monterey: "385e2291198fa3abc69205bdfd94f2fafec6ccfe3feff9a099b9dfb3e1b1d538"
+    sha256 cellar: :any,                 arm64_big_sur:  "6103dbe192fad39f18e2d5a32fc29ed5753990e775aa9c06cd429a9b6eaa03fb"
+    sha256 cellar: :any,                 ventura:        "c7c57b3c4f57695953430d6b0644f941aaee275cc39d299aac6f34b2dad4ecc2"
+    sha256 cellar: :any,                 monterey:       "53f332eeda518a32d032ec9cb4a934cd320b5923c480e6985dc15f4e68b1cce5"
+    sha256 cellar: :any,                 big_sur:        "3c3c04cd964f3372ba28b4fd885e25a6b2f54a0e29f5db936e711691db2a72de"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e6dda4ea5a025a96d47ed5db5537cee2d471042437274c83c9bb97276ac1d84b"
   end
 
   head do

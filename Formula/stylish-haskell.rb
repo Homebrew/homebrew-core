@@ -1,33 +1,19 @@
 class StylishHaskell < Formula
   desc "Haskell code prettifier"
   homepage "https://github.com/haskell/stylish-haskell"
+  url "https://github.com/haskell/stylish-haskell/archive/v0.14.4.0.tar.gz"
+  sha256 "7858b2e5089fb6845d5fa2a92f69626c7275ead7e44ec8c8308f73d1a288fed6"
   license "BSD-3-Clause"
   head "https://github.com/haskell/stylish-haskell.git", branch: "main"
 
-  stable do
-    url "https://github.com/haskell/stylish-haskell/archive/v0.14.3.0.tar.gz"
-    sha256 "27f8b372e5ff18608f1db22598c99bb3d535083a65b02ebc40af5fc0b3b4ed38"
-
-    # Add support for GHC 9.4. Remove in the next release
-    patch do
-      url "https://github.com/haskell/stylish-haskell/commit/256e85c3df06c4458940cc31b56cfd8558571617.patch?full_index=1"
-      sha256 "3515df4af730e897504f170f0846d75a7f8e5eb6bd5a8401a96e291f66e08414"
-    end
-    patch do
-      url "https://github.com/haskell/stylish-haskell/commit/05cc9e18f39ee7d465746d8493832e4012d6674b.patch?full_index=1"
-      sha256 "e908ae961b57a7645e89a07d322219a7d832db75f5e135fbe286ebf07252fbc6"
-    end
-  end
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "945190777d785552525eac8f9cd812f909b806d30002f65dcb98da0cfbba2279"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "51d558bc19d94bf7ce019e4be28fe016e8ca51f80b7f8853b3287f5705f14760"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6171291422a4cf5d2281f6cf0d4f9cfc3aa6c3b68beb38b81bfdee37fc4a60da"
-    sha256 cellar: :any_skip_relocation, ventura:        "66e5d594e32b86480288e83ae9589c754e9796a6148b8b4992c1bb405688c7ef"
-    sha256 cellar: :any_skip_relocation, monterey:       "4b89870742215a1bf3e88b9c5bef2e999b5ec611c8134efbab034c240a6f2846"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6b6506f2723daf41c9ca4f072211b7021b238f16451a41b8345cfa7984dcf674"
-    sha256 cellar: :any_skip_relocation, catalina:       "05bdaee2bff49b3e3853f66a0e9da5c68785e17ba97012e02f0e27a98744982d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a7f9a242e4cde7e144b70997f992e3e40c6f11c83644cd43282c227e06a61b7b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "51d1df764956a621c476236c7ded7ea9477e13d20a6a8a8f107375c0f2d151b6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e69da5d7320067b6d857987c950df3d4349e7bd67f732a787a922a15bd7074a1"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cdc3ad742d0a2c3902529e9bc6296249a17ffb324050f7938b5c5522fb593587"
+    sha256 cellar: :any_skip_relocation, ventura:        "7d05f8709b71519045f85ac9908f51cbb92c61832c1b00dd938ca54dcd430978"
+    sha256 cellar: :any_skip_relocation, monterey:       "83e57499cd7466fcc708497a0f6de97aed56c19edc84813a8d7750700bf5f375"
+    sha256 cellar: :any_skip_relocation, big_sur:        "161ca04c28e5c435286a75f6a1f21a37c78d7c1b2fb48beaef9afe0fa1956e81"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c64cf38932ef91fa6346077bd6751fea32779ec45a9cc279cab380e3e38bab02"
   end
 
   depends_on "cabal-install" => :build

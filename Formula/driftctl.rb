@@ -1,21 +1,19 @@
 class Driftctl < Formula
   desc "Detect, track and alert on infrastructure drift"
   homepage "https://driftctl.com"
-  url "https://github.com/snyk/driftctl/archive/v0.38.1.tar.gz"
-  sha256 "507731116447958ebcee89e3fa5e6c476cd5afdb3c10c7be414f5d55efcff647"
+  url "https://github.com/snyk/driftctl/archive/v0.38.2.tar.gz"
+  sha256 "c78b61495ae0b21cbca8a313fb23c2a76dd297fc8873286e92c5134cdb8d9276"
   license "Apache-2.0"
   head "https://github.com/snyk/driftctl.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0aa1ac5afb8aaeef21dd1b7c43bec238c283bfb6620f4da7c63e92c8fb46c07a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3185e7d1d585f95d92c48ca466140f643058152640814e862d6b26465369d5a8"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1e7d73e037760516643a213e3f1b52ca160cc44cc11a6ab60e1666e8481d16b9"
-    sha256 cellar: :any_skip_relocation, ventura:        "955559191f05c0c9893afaa341dc5615224fb8108c4ce4fac5a9395cb7a99722"
-    sha256 cellar: :any_skip_relocation, monterey:       "66d1d2f0f3e7014249cfcc94d14b030a0714ae771d609d325d4cf82636cbc0d5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5f472a634ee743b42e17237891425ef32099e1e1f2fe252f7490398b5ba1fcda"
-    sha256 cellar: :any_skip_relocation, catalina:       "588b66574960f283bcc2f9ba31fcce5395abb85213c52077c40006b579e27af9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d0616c89cde99c342c357f80a2cd31b12d478d3a6d10cb187355a38b835422e2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6b10f794fdbb5d7074869e8f561677556ad78cc08c4c7f936ecd37d24de671d2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d2b86da9b9c6973d7a2e0c4cd81289f5272a466d81987e4c1b48d5c695355fa6"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "762272e3dd567d9aa7859bcd030c3300fdefbc54366a7427bf75796aebfbfa87"
+    sha256 cellar: :any_skip_relocation, ventura:        "22aec4680ca6547d9e9a100c5194f992e4bd477508eb7b40ee7859b2f09359b7"
+    sha256 cellar: :any_skip_relocation, monterey:       "8b7437f9e1c359aadfebcb1b5a52a26b7f387553c97403030051f5ceb6815e7e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f7a3a03626d617abd1132d079c1e2498785728d1f3e7a8894449ce8178a2485b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "36e9c60b03beda8a6e90ff2139e3d26ffefeb689d0dd7e28f030c4e8ad331ac4"
   end
 
   depends_on "go" => :build

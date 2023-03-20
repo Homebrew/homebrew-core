@@ -13,17 +13,20 @@ class Algernon < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "14e5969ae003e4adede7f1c59bc7813acea79cb19f438796ada77dc621612869"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "343a3153a0af6ad0fc1ad27939eb9a2dbc9f379bd5bf6b4e373b9fd2f87d3ed4"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "401c99640d17d66677f419c8da8719618c499e02e2b6f70b74eefec104378912"
-    sha256 cellar: :any_skip_relocation, ventura:        "aeb0c363d972073a22cfc94844c61c8da268cef9dc68c9316167d28d9c709b66"
-    sha256 cellar: :any_skip_relocation, monterey:       "a0f090b5d513eedc54de13a6f954a33ac0a126ea2b1bd1dde009629bd0854707"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3f25029f7b5dcf462b1b6e3d3a69e246d881201a7f9ab35657cd11dd25916f6a"
-    sha256 cellar: :any_skip_relocation, catalina:       "fff5b9bfa21524d8f9bff2266978dc7dcb4a8a6a35a19eb20397d3993a0e3445"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1fb0615287ba76cf2372cc91154d458c881d175e877b4140eeab7487282a7269"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0847b46518e3a13df5fea6b9f2ce7041ac04783caeb63d0bbfa662cecab98c54"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b3a10d9df74f1d8b83ca5d25baa94b835d8afb8d5aa48e131239a01bd2509ca0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d78426493c03ad68d59c8a8d8a0b404e09654cae38fbce211f68b0c0746ddfd9"
+    sha256 cellar: :any_skip_relocation, ventura:        "64f3fbe6f770b0148199a0a60d9dc8720a799c154addf42da4641c333fa1ac1a"
+    sha256 cellar: :any_skip_relocation, monterey:       "b4da942b8ad07b1887b4d2580f3773a7ac91dd014d8f9a9fde6052966162fda8"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d0a3a8a255f39ea72c98c289f23230016e8ba5492fa6c44437792741d4cb1e24"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3a03f96f82ddf6c79892267dfa6cfb456fdb51d57876bf7f8e2d830540e97637"
   end
 
-  depends_on "go" => :build
+  # Support for go 1.20 is merged upstream but not yet landed in a tag:
+  # https://github.com/xyproto/algernon/commit/00f29f8bcd0da772041a96fa9b57f7e1e21a6654
+  # Remove on next release.
+  depends_on "go@1.19" => :build
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w"), "-mod=vendor"

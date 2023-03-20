@@ -3,20 +3,18 @@ class PythonYq < Formula
 
   desc "Command-line YAML and XML processor that wraps jq"
   homepage "https://kislyuk.github.io/yq/"
-  url "https://files.pythonhosted.org/packages/55/b2/0c4409c0e677ea9e6870538b4cdf4959fad92a8aaa73ee41cf03876bddf9/yq-3.1.0.tar.gz"
-  sha256 "30a84aa22486c749ba269256bd586c0bcd370b7e2a71e76c3924ead4867e74f2"
+  url "https://files.pythonhosted.org/packages/6e/94/e8401c429419a1d5fa8e2996fdcfa564367a29b88f97d8bfef9138ff5f39/yq-3.1.1.tar.gz"
+  sha256 "853f342b1562ddee979038ec8ecee5405cdd9b6a7cb81ed6cdb8018c9e802633"
   license "Apache-2.0"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6dd233dcf2e5b6ed7b1c283fb8c77713a6a38d303e305ede045c5f0b44bbd62c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6dd233dcf2e5b6ed7b1c283fb8c77713a6a38d303e305ede045c5f0b44bbd62c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6dd233dcf2e5b6ed7b1c283fb8c77713a6a38d303e305ede045c5f0b44bbd62c"
-    sha256 cellar: :any_skip_relocation, ventura:        "8388ac02e37b6e1921e87745b7ac2f6e840a37d5c80c200750bda121027eef0c"
-    sha256 cellar: :any_skip_relocation, monterey:       "8388ac02e37b6e1921e87745b7ac2f6e840a37d5c80c200750bda121027eef0c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8388ac02e37b6e1921e87745b7ac2f6e840a37d5c80c200750bda121027eef0c"
-    sha256 cellar: :any_skip_relocation, catalina:       "8388ac02e37b6e1921e87745b7ac2f6e840a37d5c80c200750bda121027eef0c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "53761567742c674ff7ccdf231d34562bb606b76cc4f468283abeb5b10a78bd8a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f39946c75ed346f336025878451f89c050d87e5742db9553d2c15d82f7e94bb5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2adad568d731c2edc2c01749662013a71497c50563e64f723b6372d2b3495d00"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0616b28424ae076d9d69b2122988eb993614d04dce20cdb636f00d3a8b8c9581"
+    sha256 cellar: :any_skip_relocation, ventura:        "7133a60fe44b9ac23c7c2b7f1acdf8b347bd25666baa7cc1559b80bc30ac5399"
+    sha256 cellar: :any_skip_relocation, monterey:       "ff3d26f949489f6bfab593cc57efbd2dd1f9f2f99f08e00754c26008aa97fafa"
+    sha256 cellar: :any_skip_relocation, big_sur:        "3a700884cd22a3caac6ae2eae49f7f64b49a3ae8b378e2fd67435108758a2d08"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c974b566846e4e53eac1735730468cafd789b9b6f8f374a8f2da6a37bc49e9de"
   end
 
   depends_on "jq"

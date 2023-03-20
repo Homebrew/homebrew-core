@@ -1,9 +1,9 @@
 class Mpich < Formula
   desc "Implementation of the MPI Message Passing Interface standard"
   homepage "https://www.mpich.org/"
-  url "https://www.mpich.org/static/downloads/4.0.3/mpich-4.0.3.tar.gz"
-  mirror "https://fossies.org/linux/misc/mpich-4.0.3.tar.gz"
-  sha256 "17406ea90a6ed4ecd5be39c9ddcbfac9343e6ab4f77ac4e8c5ebe4a3e3b6c501"
+  url "https://www.mpich.org/static/downloads/4.1.1/mpich-4.1.1.tar.gz"
+  mirror "https://fossies.org/linux/misc/mpich-4.1.1.tar.gz"
+  sha256 "ee30471b35ef87f4c88f871a5e2ad3811cd9c4df32fd4f138443072ff4284ca2"
   license "mpich2"
 
   livecheck do
@@ -12,18 +12,17 @@ class Mpich < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "3c99cd7ecd50e25a9f6ccb2579376a7aec8709c5752e25e49737e10c29e4ad3f"
-    sha256 cellar: :any,                 arm64_monterey: "7eed76ddb0d62be4221f1ac364d64908ae516ea15e0355fadf225359d2711c91"
-    sha256 cellar: :any,                 arm64_big_sur:  "4b4ec61f4fe50eca769214f8af6dacd7a1490028e106c1569b2f2bdec60c728b"
-    sha256 cellar: :any,                 ventura:        "5680789c31f437df44d463e4107bcf480816570b7757eb9aa0d29c69a5a3416b"
-    sha256 cellar: :any,                 monterey:       "ee2e6de58b6d62320f2a11c81cf02a7a7a9c13f20b773f00362b95b13beb8bcb"
-    sha256 cellar: :any,                 big_sur:        "2645e5ce868792c38f89d349808ce54b0d350dbc8f94d3922b971299fa574ff4"
-    sha256 cellar: :any,                 catalina:       "5d0d4a2f258cc3f6de9bee169e993be158b1e64fad2eb474666cee5c2e5353d4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "823398e970d089080dcf33143f5d0e1467fa7e01304e8ddc439320d1bb3c3720"
+    sha256 cellar: :any,                 arm64_ventura:  "e04effdf4808868b13d7266342f8cf5d623bbf25a75131d9136c5d92161767b9"
+    sha256 cellar: :any,                 arm64_monterey: "0405a53cbd8a5f88d3bba1c3c9b8345a5a6917c275b6d0e8f6bb05ebb7a2b745"
+    sha256 cellar: :any,                 arm64_big_sur:  "2e1a1bb67ee2fabaa2f52016991c20e8f53460827975ba5c1b78b1b63faa1d4c"
+    sha256 cellar: :any,                 ventura:        "56244601d7e600b770c9ddb6f708d28eada16b86d2be6d8221a753cd85a5296c"
+    sha256 cellar: :any,                 monterey:       "b32aed7219b25627e96bf5ef5424f67670fef14faf5e3c6696636347d18d883e"
+    sha256 cellar: :any,                 big_sur:        "2664fedfb37f20ee7d2e678f40cfebb617197bbcf4cc44530380f878c0ced1dc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b87a6065195986091a7ac0b55fc52db1cee70a6af76d48293a791a5f048065b7"
   end
 
   head do
-    url "https://github.com/pmodels/mpich.git"
+    url "https://github.com/pmodels/mpich.git", branch: "main"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

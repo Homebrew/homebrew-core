@@ -1,26 +1,24 @@
 class Openttd < Formula
   desc "Simulation game based upon Transport Tycoon Deluxe"
   homepage "https://www.openttd.org/"
-  url "https://cdn.openttd.org/openttd-releases/12.2/openttd-12.2-source.tar.xz"
-  sha256 "81508f0de93a0c264b216ef56a05f8381fff7bffa6d010121a21490b4dace95c"
+  url "https://cdn.openttd.org/openttd-releases/13.0/openttd-13.0-source.tar.xz"
+  sha256 "339df8e0e0827087c83afe78f8efc6a73b0a3d8a950a0b53137ce6e8aad7ab67"
   license "GPL-2.0-only"
   head "https://github.com/OpenTTD/OpenTTD.git", branch: "master"
 
   livecheck do
-    url :homepage
-    regex(/Download stable \((\d+(\.\d+)+)\)/i)
+    url "https://cdn.openttd.org/openttd-releases/latest.yaml"
+    regex(/version:\s*?v?(\d+(?:\.\d+)+)/i)
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_ventura:  "c0474c89956d999fcdf65ffabc20acc891fe6f553f68dc2dae121e9b1bef8e62"
-    sha256 cellar: :any, arm64_monterey: "b7634c8226eefa527c8c18889b2a1493df76145f81004d137186ff60bc61cefb"
-    sha256 cellar: :any, arm64_big_sur:  "59a846aef200324ba4df723fe712c5dfaa4044f01d34b328839c30ea5b52fb0f"
-    sha256 cellar: :any, ventura:        "8af1ad5e427dbaa1d6068d5deb1af289a7b80ae0cbd8336cbf86ee99a3e705eb"
-    sha256 cellar: :any, monterey:       "686298b62aca61f3215eacca71a457e35c0cb439d334a08a625ce096268cd998"
-    sha256 cellar: :any, big_sur:        "c1ec943c89316af06939cf7e55e9f2d5aa9eb46ad95f91c9d104acbd85dd5b75"
-    sha256 cellar: :any, catalina:       "a884b8a01baef4a90209053ab7ffbae294045afe33273c0b14d04c14640a6f33"
-    sha256               x86_64_linux:   "2629dd5ea308d530b4864cf2c3db1f54c68dda1b171189b1d13f8386e81ee958"
+    sha256 cellar: :any, arm64_ventura:  "3fd9ed8230501fc490d3a27206a1e6e4d49d006582e29870b99bea3f7e70d86c"
+    sha256 cellar: :any, arm64_monterey: "14b6c29186501cfb8d3eea996d3d3bf4ad6c706e779980a837b06e1fd7e6d4ab"
+    sha256 cellar: :any, arm64_big_sur:  "f0e798414d9347466d8577497ade5d63f617ffa547a2cee74039b9e6766c967a"
+    sha256 cellar: :any, ventura:        "e1261566af66651482c25fb6e34bc205b27f64db906538880d091a77d1ea563f"
+    sha256 cellar: :any, monterey:       "bcede2400fb917438083607e7150c483445d54e740743de2cd6441ac603e0852"
+    sha256 cellar: :any, big_sur:        "d3194b95f8f51bbffe198bd91e32187441a6d8fe9ae5cc1ddc74256dac893f83"
+    sha256               x86_64_linux:   "732c3de62d746309b2b5e3dca9ef8f60b6d9a801345a5282ec16f9f7a9618856"
   end
 
   depends_on "cmake" => :build
@@ -29,10 +27,13 @@ class Openttd < Formula
   depends_on macos: :high_sierra # needs C++17
   depends_on "xz"
 
+  uses_from_macos "zlib"
+
   on_linux do
     depends_on "fluid-synth"
     depends_on "fontconfig"
     depends_on "freetype"
+    depends_on "icu4c"
     depends_on "mesa"
     depends_on "mesa-glu"
     depends_on "sdl2"
@@ -43,16 +44,31 @@ class Openttd < Formula
   resource "opengfx" do
     url "https://cdn.openttd.org/opengfx-releases/7.1/opengfx-7.1-all.zip"
     sha256 "928fcf34efd0719a3560cbab6821d71ce686b6315e8825360fba87a7a94d7846"
+
+    livecheck do
+      url "https://cdn.openttd.org/opengfx-releases/latest.yaml"
+      regex(/version:\s*?v?(\d+(?:\.\d+)+)/i)
+    end
   end
 
   resource "openmsx" do
     url "https://cdn.openttd.org/openmsx-releases/0.4.2/openmsx-0.4.2-all.zip"
     sha256 "5a4277a2e62d87f2952ea5020dc20fb2f6ffafdccf9913fbf35ad45ee30ec762"
+
+    livecheck do
+      url "https://cdn.openttd.org/openmsx-releases/latest.yaml"
+      regex(/version:\s*?v?(\d+(?:\.\d+)+)/i)
+    end
   end
 
   resource "opensfx" do
     url "https://cdn.openttd.org/opensfx-releases/1.0.3/opensfx-1.0.3-all.zip"
     sha256 "e0a218b7dd9438e701503b0f84c25a97c1c11b7c2f025323fb19d6db16ef3759"
+
+    livecheck do
+      url "https://cdn.openttd.org/opensfx-releases/latest.yaml"
+      regex(/version:\s*?v?(\d+(?:\.\d+)+)/i)
+    end
   end
 
   def install

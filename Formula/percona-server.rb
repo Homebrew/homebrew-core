@@ -4,7 +4,7 @@ class PerconaServer < Formula
   url "https://downloads.percona.com/downloads/Percona-Server-8.0/Percona-Server-8.0.29-21/source/tarball/percona-server-8.0.29-21.tar.gz"
   sha256 "a54c45b23719d4f6ba1e409bb2916c59dc0c9aaae98e24299ff26f150ad4f735"
   license "BSD-3-Clause"
-  revision 2
+  revision 3
 
   livecheck do
     url "https://www.percona.com/downloads/Percona-Server-LATEST/"
@@ -12,14 +12,13 @@ class PerconaServer < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "1a61fec9e5d4003e9e0c5d9205091ce76f50bd821b0a4500a818593236d419c0"
-    sha256 arm64_monterey: "0133d8fe76dbc77d4d780e377b99ae220e5dd571edad87d421e5fbe2e757da1d"
-    sha256 arm64_big_sur:  "4da7726e3988cf850c41e7a796e6d734d6bf4e06e7829a9e0bf280976d304f3a"
-    sha256 ventura:        "cb4b17cbbc933936a14e16fc304bd5baaa537f7bdfb4fd7df0258b92ce312d66"
-    sha256 monterey:       "0828b310ec01954e21d01a2d1b1e63d168fe2d5f4ddb8252a1541607bc0839b0"
-    sha256 big_sur:        "336ecb45561368ce58b2591f54e52e212b2c2967b123f860e2366a1c6276f981"
-    sha256 catalina:       "6a8b7df8f17f928511a3a257895513f67f76c8916870c14499a0cecfe497d49a"
-    sha256 x86_64_linux:   "5fbb09fa511901a89990c5b87c4408723a7cb32e5766d3d55ddf8a73dde46ff2"
+    sha256 arm64_ventura:  "c2d03d8e4dd0ae1ae636ff1b7683d8e8a1494399fb778eedd204834564f4b938"
+    sha256 arm64_monterey: "1166d85bdd80dcd9b437880f4d32d7ddf69cdbcf9f8fa43afb1ea393586724f2"
+    sha256 arm64_big_sur:  "6d69eb5755ca3c7d0a008017babdf92223bfbc5ba615a81f25c3dc3cf4bfb079"
+    sha256 ventura:        "7dce6314814400498a8bf479b3a44c2e4b7a43ad75e4a71757f5b2e5ae82e401"
+    sha256 monterey:       "09665b01e35b7d8a29febc571d8c69f4e27d5f79ede6861c4c3c245a2d5cfc82"
+    sha256 big_sur:        "e6a9b2b55edb32cd05d6a89270f8bf1f5fb418044722f9b1fd47fb27976f68d2"
+    sha256 x86_64_linux:   "af7cc153112107813c463d05a46a619e6ae8fcc94e9e226e77e0a15010c742cb"
   end
 
   depends_on "cmake" => :build

@@ -1,9 +1,9 @@
 class Mpg123 < Formula
   desc "MP3 player for Linux and UNIX"
   homepage "https://www.mpg123.de/"
-  url "https://www.mpg123.de/download/mpg123-1.31.1.tar.bz2"
-  mirror "https://downloads.sourceforge.net/project/mpg123/mpg123/1.31.1/mpg123-1.31.1.tar.bz2"
-  sha256 "5dcb0936efd44cb583498b6585845206f002a7b19d5066a2683be361954d955a"
+  url "https://www.mpg123.de/download/mpg123-1.31.2.tar.bz2"
+  mirror "https://downloads.sourceforge.net/project/mpg123/mpg123/1.31.2/mpg123-1.31.2.tar.bz2"
+  sha256 "b17f22905e31f43b6b401dfdf6a71ed11bb7d056f68db449d70b9f9ae839c7de"
   license "LGPL-2.1-only"
 
   livecheck do
@@ -12,14 +12,13 @@ class Mpg123 < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "804cb30f0c5bd0adc90ab5f297ec3f8d78db8adec1c8346808bd48faa54a503c"
-    sha256 arm64_monterey: "1cd03ee5a750fe9a6b600c5c3c5f4869ceccbb6fe69043f36c335b7378668775"
-    sha256 arm64_big_sur:  "fd6e9184b63d3c5ce015a26e996d5515ac79adc5854d961757fed86b4cdbfee6"
-    sha256 ventura:        "88721da6d559fb9b5901fa8bc0cbb07cc73408b7dbd1f35eb18636a310e0a599"
-    sha256 monterey:       "8a76894636327da8ada727b1d3462961934bb2f5123eb9361a28e3fc01dbb760"
-    sha256 big_sur:        "bd459f73494f65f4c489620ce83fd8dd445fb028b8d6e7a82fcbea05e8547fd9"
-    sha256 catalina:       "618b1c831f3e92cce81596738b6a1599343903b0a883fa80cc85ec3d282a76c5"
-    sha256 x86_64_linux:   "6b555a1650e90f0480860e5460ee51de2becfff598974f0dbbd491d350889497"
+    sha256 arm64_ventura:  "2f75c25aa671823c45ec2b4b316da18cd49b63efe29f4b7a2e3ebb820aeb673f"
+    sha256 arm64_monterey: "692cef43a4b878816002a5eec1d3c01beed6b08083d429da44cc4cdf6568ff9e"
+    sha256 arm64_big_sur:  "c5fb9542af5abdb02c932fbc19ba30d88dc2b8934d2e9cf4293171966cee71df"
+    sha256 ventura:        "a9b26c05235221b760d960290de3946e320513a56f4a6b940e0dbd6f227ce73c"
+    sha256 monterey:       "8363ac5eca09102a525f9fa1c0edc930beb3e216377cd14667f4dc9d33ff3d83"
+    sha256 big_sur:        "d8e4370e7a3027d9200d8648e8b4e7926d22e07110e018bbcf17e9de3af015ca"
+    sha256 x86_64_linux:   "f7a58a2c6a6a209c08bedfd6d9f11ccf770baefbe6b7779d16d379b4df02328d"
   end
 
   def install

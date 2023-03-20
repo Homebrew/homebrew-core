@@ -1,19 +1,18 @@
 class Llama < Formula
   desc "Terminal file manager"
   homepage "https://github.com/antonmedv/llama"
-  url "https://github.com/antonmedv/llama/archive/refs/tags/v1.2.0.tar.gz"
-  sha256 "cf6fe219f2554c90aadbe4d0ebb961b53fe3296873addab1a3af941646e19ca2"
+  url "https://github.com/antonmedv/llama/archive/refs/tags/v1.4.0.tar.gz"
+  sha256 "301f5dff2b8f27595a08a12626125d28313b5a92e97ccdaf4d0cb89111ebab9a"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3450098c5433d3eb18f6457fa26f1a037c88e583a03b03094b7a55dd2680c0d5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3450098c5433d3eb18f6457fa26f1a037c88e583a03b03094b7a55dd2680c0d5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3450098c5433d3eb18f6457fa26f1a037c88e583a03b03094b7a55dd2680c0d5"
-    sha256 cellar: :any_skip_relocation, ventura:        "7e203ddd4320263525c048c53049baa9a3a70d8eda8c17694d70530003e6f33b"
-    sha256 cellar: :any_skip_relocation, monterey:       "7e203ddd4320263525c048c53049baa9a3a70d8eda8c17694d70530003e6f33b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7e203ddd4320263525c048c53049baa9a3a70d8eda8c17694d70530003e6f33b"
-    sha256 cellar: :any_skip_relocation, catalina:       "7e203ddd4320263525c048c53049baa9a3a70d8eda8c17694d70530003e6f33b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "26f8a283c4f3f18e0e0baae519e1c2d52dabb1b4d6fd0967401cea70ad11655d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4adfa169cb58477fa07b0f806952d966efa0fb9b22495ab9568a64ad71972f74"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4adfa169cb58477fa07b0f806952d966efa0fb9b22495ab9568a64ad71972f74"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4adfa169cb58477fa07b0f806952d966efa0fb9b22495ab9568a64ad71972f74"
+    sha256 cellar: :any_skip_relocation, ventura:        "7d8baa2669497254cbaf91e4b242bf936ef0f22db3e75cda93bd3e4b2ed957fc"
+    sha256 cellar: :any_skip_relocation, monterey:       "7d8baa2669497254cbaf91e4b242bf936ef0f22db3e75cda93bd3e4b2ed957fc"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7d8baa2669497254cbaf91e4b242bf936ef0f22db3e75cda93bd3e4b2ed957fc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8e9487dcbb9f24e79fd6a0b9655716feba82a9996c470756615d3a6ef29bec1d"
   end
 
   depends_on "go" => :build

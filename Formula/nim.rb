@@ -1,8 +1,8 @@
 class Nim < Formula
   desc "Statically typed compiled systems programming language"
   homepage "https://nim-lang.org/"
-  url "https://nim-lang.org/download/nim-1.6.10.tar.xz"
-  sha256 "13d7702f8b57087babe8cd051c13bc56a3171418ba867b49c6bbd09b29d24fea"
+  url "https://nim-lang.org/download/nim-1.6.12.tar.xz"
+  sha256 "acef0b0ab773604d4d7394b68519edb74fb30f46912294b28bc27e0c7b4b4dc2"
   license "MIT"
   head "https://github.com/nim-lang/Nim.git", branch: "devel"
 
@@ -12,20 +12,19 @@ class Nim < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "045fb4b6a185a2777faa36ce9a833f4c22ebc8fb34355aff6109e5895e7e3abb"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b43cd24e520f8e6058eb8a74fc9e32ddc0e63a63b44e3e4066bac9cba1ed4ab0"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e65de919d23c6e3beecbe8def4fdbc895eec6905c2bcfd404e27f97d173ea0ad"
-    sha256 cellar: :any_skip_relocation, ventura:        "90f0c34be299fed5f3c8027ae27c389e1dec70c0616e9d00e79f4262249e2134"
-    sha256 cellar: :any_skip_relocation, monterey:       "77176b57b17ae53e35138a5bc91be98df78f8e7415157f7e89d486816a8d1f55"
-    sha256 cellar: :any_skip_relocation, big_sur:        "709143fff4265d8d95bcd1eeb67a1e5c50b24525e60f1fc0d90c0442db682db2"
-    sha256 cellar: :any_skip_relocation, catalina:       "4f5fc57392c8d04b3d23f19350e6db640689b0ea4ee6caf0646062ef9ca9569d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c133e78268012e5e8295dde39e4861be7f3a84b84f86443dad3d5f34986327ed"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cf36f58ef112d7fe67e6caba6518ad9cf580cdcaf38699c05d4031175067b4f8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ef6f073f3f66083951c182464de7b42ccb7c3f79ee0be81681b2a903c82317f5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9aed521e02999aaf9006697738c8acbbb8467bca753be0622a447632fdd5fb52"
+    sha256 cellar: :any_skip_relocation, ventura:        "5f353709c3a269ca11ff0b75f8ee741072c6ac384b30b82af26624fa93ed6d78"
+    sha256 cellar: :any_skip_relocation, monterey:       "16264b43aedfffc39e7eae39da2c1823cbf4f92b77f9034b166ea76e71ed2a43"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f642ff71fa6ae248f9a29c6135c27e03af3bdbd0e7117a710eef1bd718092cb9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "28d29b6cc6736daf2cddf6a2f1b241229ecbd1d256d9ab5fe724b53c2f6ed095"
   end
 
   depends_on "help2man" => :build
 
   on_linux do
-    depends_on "openssl@1.1"
+    depends_on "openssl@3"
   end
 
   def install

@@ -1,9 +1,18 @@
 class GtkMacIntegration < Formula
   desc "Integrates GTK macOS applications with the Mac desktop"
   homepage "https://wiki.gnome.org/Projects/GTK+/OSX/Integration"
-  url "https://download.gnome.org/sources/gtk-mac-integration/3.0/gtk-mac-integration-3.0.1.tar.xz"
-  sha256 "f19e35bc4534963127bbe629b9b3ccb9677ef012fc7f8e97fd5e890873ceb22d"
   license "LGPL-2.1-only"
+
+  stable do
+    url "https://download.gnome.org/sources/gtk-mac-integration/3.0/gtk-mac-integration-3.0.1.tar.xz"
+    sha256 "f19e35bc4534963127bbe629b9b3ccb9677ef012fc7f8e97fd5e890873ceb22d"
+
+    # Fix -flat_namespace being used on Big Sur and later.
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+    end
+  end
 
   # We use a common regex because gtk-mac-integration doesn't use GNOME's
   # "even-numbered minor is stable" version scheme.
@@ -13,43 +22,38 @@ class GtkMacIntegration < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "41bcc5495f77b99f80a3cbe97fb744b43e5141249d226c6d3da222f7f1eb3e25"
-    sha256 arm64_monterey: "dab3cf5758414f811f6921ba8cd60df24fdd3c93df1c4b3d582e57a0fe27aeb7"
-    sha256 arm64_big_sur:  "f3ab908832ae236c157fcb29c6178a7d0ce0c521990be382270fcb0233351774"
-    sha256 ventura:        "c45af5d6a0da2f60200fcab09074b65159d1ab5f73abbddab698bbb1b3c6e04b"
-    sha256 monterey:       "fe06a5ac783e080a93d5b99c11ac607f9b35a607aa670aaf7afd0918270c093c"
-    sha256 big_sur:        "11cd268c22f0c1e52774fbc4368d953915cf58d0a212719e01dd721f17c89162"
-    sha256 catalina:       "0c2b66f0715a364905ae8d61e1edd06dad96efc0ad72efa90dbdd756397468e0"
-    sha256 mojave:         "a6b21fe6cda9fd1a06aacd818ac646380e878969f95a6964729f950371e68255"
+    rebuild 1
+    sha256 arm64_ventura:  "9074e95f28068dc78a191df93877127a01cf4670bb9ccdfe9146e54a0ff7c0d9"
+    sha256 arm64_monterey: "26d230d66f0a6900e8590fbfa6a6d77fee9b1d42db18a48b457ede3c9fab8485"
+    sha256 arm64_big_sur:  "7151adc39408f9e6b22706c623c2d16f444612e767c6eaba59b0c40f87a0d05d"
+    sha256 ventura:        "3f91d9bc293e808976fee70d4dcaa622a0fdb7b14592679f9b8947c13a741e5b"
+    sha256 monterey:       "802ed17bc9f4420482938c98e2ddcfdcd7b08f77dc56e99d06f1116ac06c974b"
+    sha256 big_sur:        "2cf4342b7faedc47562f7b5a1dc6215b9255833e7bb71e23d6bcddd01deac89d"
   end
 
   head do
-    url "https://gitlab.gnome.org/GNOME/gtk-mac-integration.git"
+    url "https://gitlab.gnome.org/GNOME/gtk-mac-integration.git", branch: "master"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "gtk-doc" => :build
+    depends_on "libtool" => :build
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
   depends_on "gobject-introspection" => :build
-  depends_on "gtk-doc" => :build
-  depends_on "libtool" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkg-config" => [:build, :test]
   depends_on "gettext"
-  depends_on "gtk+"
   depends_on "gtk+3"
   depends_on :macos
 
   def install
-    args = %W[
-      --disable-dependency-tracking
-      --disable-silent-rules
-      --prefix=#{prefix}
-      --with-gtk2
-      --with-gtk3
-      --enable-introspection=yes
-      --enable-python=no
-    ]
-
-    system "./autogen.sh", *args
+    configure = build.head? ? "./autogen.sh" : "./configure"
+    system configure, *std_configure_args,
+                      "--disable-silent-rules",
+                      "--without-gtk2",
+                      "--with-gtk3",
+                      "--enable-introspection=yes",
+                      "--enable-python=no"
     system "make", "install"
   end
 
@@ -62,57 +66,7 @@ class GtkMacIntegration < Formula
         return 0;
       }
     EOS
-    atk = Formula["atk"]
-    cairo = Formula["cairo"]
-    fontconfig = Formula["fontconfig"]
-    freetype = Formula["freetype"]
-    gdk_pixbuf = Formula["gdk-pixbuf"]
-    gettext = Formula["gettext"]
-    glib = Formula["glib"]
-    gtkx = Formula["gtk+"]
-    harfbuzz = Formula["harfbuzz"]
-    libpng = Formula["libpng"]
-    pango = Formula["pango"]
-    pixman = Formula["pixman"]
-    flags = %W[
-      -I#{atk.opt_include}/atk-1.0
-      -I#{cairo.opt_include}/cairo
-      -I#{fontconfig.opt_include}
-      -I#{freetype.opt_include}/freetype2
-      -I#{gdk_pixbuf.opt_include}/gdk-pixbuf-2.0
-      -I#{gettext.opt_include}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
-      -I#{gtkx.opt_include}/gtk-2.0
-      -I#{gtkx.opt_lib}/gtk-2.0/include
-      -I#{harfbuzz.opt_include}/harfbuzz
-      -I#{include}/gtkmacintegration
-      -I#{libpng.opt_include}/libpng16
-      -I#{pango.opt_include}/pango-1.0
-      -I#{pixman.opt_include}/pixman-1
-      -DMAC_INTEGRATION
-      -D_REENTRANT
-      -L#{atk.opt_lib}
-      -L#{cairo.opt_lib}
-      -L#{gdk_pixbuf.opt_lib}
-      -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
-      -L#{gtkx.opt_lib}
-      -L#{lib}
-      -L#{pango.opt_lib}
-      -latk-1.0
-      -lcairo
-      -lgdk-quartz-2.0
-      -lgdk_pixbuf-2.0
-      -lgio-2.0
-      -lglib-2.0
-      -lgobject-2.0
-      -lgtk-quartz-2.0
-      -lgtkmacintegration-gtk2
-      -lintl
-      -lpango-1.0
-      -lpangocairo-1.0
-    ]
+    flags = shell_output("pkg-config --cflags --libs gtk-mac-integration-gtk3").chomp.split
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

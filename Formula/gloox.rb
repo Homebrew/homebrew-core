@@ -1,8 +1,8 @@
 class Gloox < Formula
   desc "C++ Jabber/XMPP library that handles the low-level protocol"
   homepage "https://camaya.net/gloox/"
-  url "https://camaya.net/download/gloox-1.0.24.tar.bz2"
-  sha256 "ae1462be2a2eb8fe5cd054825143617c53c2c9c7195606cb5a5ba68c0f68f9c9"
+  url "https://camaya.net/download/gloox-1.0.26.tar.bz2"
+  sha256 "6b45b390d3b0346a3cf6cc118d5ccafcdf10d51be57a02b0076edf064033ab6f"
   license "GPL-3.0-only" => { with: "openvpn-openssl-exception" }
 
   livecheck do
@@ -11,29 +11,28 @@ class Gloox < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "4d48f51b26619a85c9e5a937f58b076eb3e14caec7882956457a94ecfe7b0a35"
-    sha256 cellar: :any,                 arm64_monterey: "7ec91986b31b93a0271334d280e1838d14bab2af7d62f813f20e7c0df5f4e564"
-    sha256 cellar: :any,                 arm64_big_sur:  "d3a7c4aa4b061fe4dce520662e632bc9983b294cb94e479ea46221f43ea46c9f"
-    sha256 cellar: :any,                 ventura:        "1802ffa3991a20e4c6f4adccc8750577afc47e9a4d3aaa35462eacb4ce082fb6"
-    sha256 cellar: :any,                 monterey:       "fbd2eedb0aa00300684582f8cf54f071e84c05e917ea2360ee29e17d8c767523"
-    sha256 cellar: :any,                 big_sur:        "143b0a77842e9df885799b07e6cfb166c7951841b8b23027db51c9b93a5ba8a7"
-    sha256 cellar: :any,                 catalina:       "decf46b20a794855cf3bd3c06e05111d15fd11de4dec1c5fdf6a1253eb865e7a"
-    sha256 cellar: :any,                 mojave:         "607baeeadc43775af6799d5bc4715239cbe6455ec72d2e14d82523d425fa7799"
-    sha256 cellar: :any,                 high_sierra:    "011c8a88d0f8970c9ad4ed339972b55b56c26120e64ef9d1576b68c03b10f706"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "20accd40e451cec9b2bf58e94be2ff78af6db0d719ec905fa5e2123049e63267"
+    sha256 cellar: :any,                 arm64_ventura:  "aef98b49f8fb8dd432a4829e1d6593296b834a1bfb2d0e30f8da71051a407874"
+    sha256 cellar: :any,                 arm64_monterey: "2678002344c08b7563dfae8ea5fed3d5dee43312497f1a7e1aa75ae5cdca2e3c"
+    sha256 cellar: :any,                 arm64_big_sur:  "44a71f390b48f712f943db5967e41b0652a13a135527575a65a3ecd0222900b6"
+    sha256 cellar: :any,                 ventura:        "9b73dec9102d5c154a90ae3dd93f09d4faf4bbcd2c1721c1f03b50e870f6306d"
+    sha256 cellar: :any,                 monterey:       "0d6c4f0cd746c58aa14df72bc30c2834edd8bcf806e8b3732a3b2dc932f997d1"
+    sha256 cellar: :any,                 big_sur:        "e7e5fe65ca1a55c3f345ac9aac5acfab64f8e9a8ada53dfe3fedab9356beaf0e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b6942ef04f2b7f25a77719fec0c1ae687620a366ea0e9c0475baad6ba00464ca"
   end
 
   depends_on "pkg-config" => :build
   depends_on "libidn"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "zlib"
 
   def install
-    system "./configure", "--prefix=#{prefix}",
+    system "./configure", *std_configure_args,
+                          "--disable-silent-rules",
                           "--with-zlib",
-                          "--disable-debug",
-                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}"
+                          "--with-openssl=#{Formula["openssl@3"].opt_prefix}",
+                          "--without-tests",
+                          "--without-examples"
     system "make", "install"
   end
 

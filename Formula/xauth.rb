@@ -47,6 +47,6 @@ class Xauth < Formula
   end
 
   test do
-    assert_match "unable to open display", shell_output("xauth generate :0 2>&1", 1)
+    assert_match "unable to open display", shell_output("#{bin}/xauth generate :0 2>&1", 1)
   end
 end

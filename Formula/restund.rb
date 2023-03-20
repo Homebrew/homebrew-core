@@ -6,15 +6,6 @@ class Restund < Formula
   license "BSD-3-Clause"
   revision 9
 
-  # The sources.openwrt.org directory listing page is 2+ MB in size and
-  # growing. This alternative check is less ideal but only a few KB. Versions
-  # on the package page can use a format like 1.2.3-4, so we omit any trailing
-  # suffix to match the tarball version.
-  livecheck do
-    url "https://openwrt.org/packages/pkgdata/restund"
-    regex(/<dd [^>]*?class="version"[^>]*?>\s*?v?(\d+(?:\.\d+)+)/im)
-  end
-
   bottle do
     sha256 arm64_ventura:  "b9ba059a6225c2f65e8a9c5e6f6f1e0e697026a5adbd11feebe829bcda207e09"
     sha256 arm64_monterey: "0d6aba84bcbe504021c1fd5add9804830061fcab75ec2fb596645bc50c3f9eae"
@@ -24,6 +15,8 @@ class Restund < Formula
     sha256 big_sur:        "73ad50480e142d78199a62c58557e5235b7ab987447688620314af3a9e692b37"
     sha256 x86_64_linux:   "edc5342cec41fc3fe065907f880cfaafd50dd83258a296c43b1144ed63a7b8d0"
   end
+
+  deprecate! date: "2023-01-11", because: :unmaintained
 
   depends_on "libre"
 

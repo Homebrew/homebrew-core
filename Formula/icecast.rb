@@ -12,16 +12,14 @@ class Icecast < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "2097c7798e9bed9f601d9ab0507042e5104d53f90d5671dc216cb20b009d2b64"
-    sha256 cellar: :any,                 arm64_monterey: "ee9b017f63375783c7bd5444482414a947700b1fd7ac059b9e52068d458d2da5"
-    sha256 cellar: :any,                 arm64_big_sur:  "596b1545aab7c712d069851a2f1b5fa0937d8f429fa9a6590363b172d9d27b2e"
-    sha256 cellar: :any,                 ventura:        "dde7103e52ac835c06dd060de0aed77fc99bc7e131fdd9a931106bfe47cf3750"
-    sha256 cellar: :any,                 monterey:       "d5f4d654c1a377a5b88fea62d1d6eed2de14c166bbc4ac5072272ff48d9920a6"
-    sha256 cellar: :any,                 big_sur:        "170c2fefda083f993451d4a6ccd6349ab6742ed3581c9610730cf88ae7083fb1"
-    sha256 cellar: :any,                 catalina:       "824f7d295c28fbdb17da3015b4e4d6ca76be536f6bf81e98d5312dd7b9a095cd"
-    sha256 cellar: :any,                 mojave:         "3fb3b8c1e995a9c39a56ecd91a42cc0187f3bb2541c1abb4d0b7fc922da9cb95"
-    sha256 cellar: :any,                 high_sierra:    "a498fdc056b3afbb14b3138586f5dca3b0c1bae523c909c0b9383d5c5f4b02ca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e7905f85eaed7f1509bf78ee221c9345176ba7ba6b9e7646829db4db9aa7154f"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "4eb9c107f4b16bdbc9efff532f00aad8f227405ea8000207b7b88cb71e32b8fd"
+    sha256 cellar: :any,                 arm64_monterey: "af7fd9e799b9d6ce1878595e28e21f8faf3c37dd3932fde612526d6e6d49ebe2"
+    sha256 cellar: :any,                 arm64_big_sur:  "b7a6e3a7523fef943c038fe13bbacae2a3a68c7a340ab9eb3e7f3eff9ecb3886"
+    sha256 cellar: :any,                 ventura:        "d342130f38d0e24785ef49eaf4baf9f73b16340f38852ad2cd96f469c00db566"
+    sha256 cellar: :any,                 monterey:       "20fa587a4c56601c9e6c20376eb32b6bb699003bb134dd078d2aaa55ffbbd88c"
+    sha256 cellar: :any,                 big_sur:        "b196a319590c996ce6a95597922df8b20bbf57ccf1accee46f04d0958c89d977"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "118242d50e7fe10915271d3d852c9f0a02f8ccbe4016c0d17e27f04556985666"
   end
 
   depends_on "pkg-config" => :build
@@ -32,10 +30,15 @@ class Icecast < Formula
   uses_from_macos "libxslt"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--sysconfdir=#{etc}",
-                          "--localstatedir=#{var}"
+    args = %W[
+      --disable-silent-rules
+      --sysconfdir=#{etc}
+      --localstatedir=#{var}
+    ]
+    # HACK: Avoid linking brewed `curl` as side effect of `using: :homebrew_curl`
+    args << "--with-curl-config=/usr/bin/curl-config" if OS.mac?
+
+    system "./configure", *std_configure_args, *args
     system "make", "install"
   end
 

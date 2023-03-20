@@ -1,9 +1,9 @@
 class Re2 < Formula
   desc "Alternative to backtracking PCRE-style regular expression engines"
   homepage "https://github.com/google/re2"
-  url "https://github.com/google/re2/archive/refs/tags/2022-12-01.tar.gz"
-  version "20221201"
-  sha256 "665b65b6668156db2b46dddd33405cd422bd611352c5052ab3dae6a5fbac5506"
+  url "https://github.com/google/re2/archive/refs/tags/2023-03-01.tar.gz"
+  version "20230301"
+  sha256 "7a9a4824958586980926a300b4717202485c4b4115ac031822e29aa4ef207e48"
   license "BSD-3-Clause"
   head "https://github.com/google/re2.git", branch: "main"
 
@@ -19,13 +19,13 @@ class Re2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "80993d374f3bbef9856a547c695937a32454f153e5b0ac069aca2d7aaec8aded"
-    sha256 cellar: :any,                 arm64_monterey: "7004cc4a847029684c3ed9bc3c46cca9ddbe7973c553742bef8b84987b137d1c"
-    sha256 cellar: :any,                 arm64_big_sur:  "cb365f2a6137288ebbbd2313dbb78698d68e0c8a2d083b82fc268cdb3336175a"
-    sha256 cellar: :any,                 ventura:        "ebaef84e3cb05be02389fb9d9327c36d5b18559b57138e922cc920fd457a6181"
-    sha256 cellar: :any,                 monterey:       "99f73fbbcce0b9600541c374f9f22ce509f62d087db2f3b8def42836a9a864cd"
-    sha256 cellar: :any,                 big_sur:        "8eed885dba41e2328f1780b383021aba6c90799e8a2bb4c7b14c43254a05dc9d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a4c48e4f8de8471df08782f95333788a0db74a6aa7e8bcb524a49d57662c8904"
+    sha256 cellar: :any,                 arm64_ventura:  "1859e5dda089deee38d6800aa0fe06369011c8f6813767d1ce0794f56f9c59c7"
+    sha256 cellar: :any,                 arm64_monterey: "b9ba6456398e73df6d5fdc6621c6c8817669bc920c98396f3d330962b3ffe34e"
+    sha256 cellar: :any,                 arm64_big_sur:  "7335f87d5d389c982c250978c47810b0e33209c64bbdd47069e2d955fa4903eb"
+    sha256 cellar: :any,                 ventura:        "7f161ab81e64a5a1d018ebc8002a8a428056803bb791dd6158a8c3abe7bc7c11"
+    sha256 cellar: :any,                 monterey:       "b5b2b4c595694947e56db2a4a22f8dfa9e04301f246516a7d48b37cacdb06206"
+    sha256 cellar: :any,                 big_sur:        "5b115fd3a925aabbf9ba972827921e1a75f7fb632a30e3beaa2060be3f457820"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7da984b742fc8d3c88120b14834d59426ec4828aca02628f25819d9ebc5c958b"
   end
 
   depends_on "cmake" => :build
@@ -36,10 +36,15 @@ class Re2 < Formula
     # Run this for pkg-config files
     system "make", "common-install", "prefix=#{prefix}"
 
-    # Run this for the rest of the install
-    system "cmake", ".", "-DBUILD_SHARED_LIBS=ON", "-DRE2_BUILD_TESTING=OFF", *std_cmake_args
-    system "make"
-    system "make", "install"
+    # Build and install static library
+    system "cmake", "-B", "build-static", "-DRE2_BUILD_TESTING=OFF", *std_cmake_args
+    system "make", "-C", "build-static"
+    system "make", "-C", "build-static",  "install"
+
+    # Build and install shared library
+    system "cmake", "-B", "build-shared", "-DBUILD_SHARED_LIBS=ON", "-DRE2_BUILD_TESTING=OFF", *std_cmake_args
+    system "make", "-C", "build-shared"
+    system "make", "-C", "build-shared", "install"
   end
 
   test do

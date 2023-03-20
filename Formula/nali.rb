@@ -1,20 +1,19 @@
 class Nali < Formula
   desc "Tool for querying IP geographic information and CDN provider"
   homepage "https://github.com/zu1k/nali"
-  url "https://github.com/zu1k/nali/archive/refs/tags/v0.7.0.tar.gz"
-  sha256 "42ee4b9fefdae3082e0bda2bb93f65f16d50b4b38679ae11776c8563af561eff"
+  url "https://github.com/zu1k/nali/archive/refs/tags/v0.7.1.tar.gz"
+  sha256 "443bb5d938c2abafd74a0e1d932eb5966b0f6d2aae7a784e4899c152efb818a1"
   license "MIT"
   head "https://github.com/zu1k/nali.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b331c49ecedb1271acde3f0d1759ab85da1707e7addf2d4e02233d999bcbf3f1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4f1d21f8121e9a1ef256626e8e67fe1b0a45f241ab033f6336490c6b41538508"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "23fd50f6782635f134458c84842c2180bd06e5ed62988e9af72b8e794c90c2fa"
-    sha256 cellar: :any_skip_relocation, ventura:        "ad85e9eff12ac51ec158479d29204b6b09f395eb228bb6e0bbfdbb264564cc41"
-    sha256 cellar: :any_skip_relocation, monterey:       "e78ad61d89303d35e38f756c8d8f527dda2db5803de2339494aa2e4a34924e6d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "efcf7ffac197af834a1dc2312307be3f6da99ce7c95a00bc691a8b786c366500"
-    sha256 cellar: :any_skip_relocation, catalina:       "18c0323f0fd366919b5ec4e8e878c612d8dd72f3442908852e601c3d25de60f0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "39e22f9eb5f683f736f32dbfdd4a8c5874d98bc2a18e3a87714348f734fa4c08"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e4ae190e3e81513255adf174d6f916118ce86bea0d4022e280c5d93e110b8183"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8d65055c352867a960b13d35d79e551ec8bd97154c615f7b68d245e771ab5aa3"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "caeed481c2cf84e4a791dddc197863d0348382211284aa81bed8d750b66badcf"
+    sha256 cellar: :any_skip_relocation, ventura:        "69e72992bda65827fd2e4576e5eac0024b8d1ecc0acb56829a707cb23228d1a8"
+    sha256 cellar: :any_skip_relocation, monterey:       "90e9db3f4407880232c09555836bb88760557303bd5c998605ed17011b4ab10a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "400b8d5a4b00c6b275918a588c33094b0e699d56ab149bcfc9771e514741f725"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eaa5207552ac35a6a1a2a7386f5fed9efc08eaa3089e3df569a16a53121bb78d"
   end
 
   depends_on "go" => :build

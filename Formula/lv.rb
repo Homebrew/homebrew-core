@@ -55,7 +55,7 @@ class Lv < Formula
   end
 
   test do
-    system "lv", "-V"
+    system bin/"lv", "-V"
   end
 end
 

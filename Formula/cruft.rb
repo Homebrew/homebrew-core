@@ -9,13 +9,14 @@ class Cruft < Formula
   head "https://github.com/cruft/cruft.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ce4bf956454442e38309c6b5b97d1d48bbc6b6a8efc3d13e767a6b696059a79c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9010104e690059b59131663fdf56f33769809a477cb9a1a506a1799c06e4c89b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a19296a6e5d200386616360e068198a13f90494bec356a5723afe31a9112964d"
-    sha256 cellar: :any_skip_relocation, ventura:        "96bf2cd7c3ecf8aa31009ce56dd81aeedc76fae68bd67f976078c8b183e00ae5"
-    sha256 cellar: :any_skip_relocation, monterey:       "d734ed8c44ea81c655828c3e3bed2362b1ee54ed26fd450ca22f77aa904881d5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0fdbde025ce2e867437f6540197f4a8cbe854dfcfdbb252183a9021d2c414906"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "63b05d7803e18d103dd06ebe74d64ddef52cdaff3be39f50b812771c3afc9f9f"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d845e740b9f1d25ee43e108e904d2a5651e6b43bc6e36296286d2966d3aa721b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b26a63b8acfcb7c3a701abc9fb3ccc46f3c718129c28d2e8694c98658f6e8d4a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ddc567dba14c79e3325932590963a7676696f842c0013e52581966d170e0caf3"
+    sha256 cellar: :any_skip_relocation, ventura:        "cd1f537e849a19f24386742dd40e6c5e61293f3564a67b066b2815406d989eb6"
+    sha256 cellar: :any_skip_relocation, monterey:       "86cb8f565f2f0c98d2a9e9a438eea5ee5f17e0c4429d077bc916beaaffa55b00"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a0610f2abf51203ed9d8d32a3cfcf34032e7c6cd238007d1f89503656bc48f4c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "871be0e45ae6a9309adc7d388eddda17b65f358eff9748b9806a2bd9ea142eb4"
   end
 
   depends_on "cookiecutter"
@@ -28,8 +29,8 @@ class Cruft < Formula
   end
 
   resource "GitPython" do
-    url "https://files.pythonhosted.org/packages/22/ab/3dd8b8a24399cee9c903d5f7600d20e8703d48904020f46f7fa5ac5474e9/GitPython-3.1.29.tar.gz"
-    sha256 "cc36bfc4a3f913e66805a28e84703e419d9c264c1077e537b54f0e1af85dbefd"
+    url "https://files.pythonhosted.org/packages/ef/8d/50658d134d89e080bb33eb8e2f75d17563b5a9dfb75383ea1a78e1df6fff/GitPython-3.1.30.tar.gz"
+    sha256 "769c2d83e13f5d938b7688479da374c4e3d49f71549aaf462b646db9602ea6f8"
   end
 
   resource "smmap" do

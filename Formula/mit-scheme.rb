@@ -1,33 +1,34 @@
 class MitScheme < Formula
   desc "MIT/GNU Scheme development tools and runtime library"
   homepage "https://www.gnu.org/software/mit-scheme/"
-  url "https://ftp.gnu.org/gnu/mit-scheme/stable.pkg/11.2/mit-scheme-11.2.tar.gz"
-  mirror "https://ftpmirror.gnu.org/gnu/mit-scheme/stable.pkg/11.2/mit-scheme-11.2.tar.gz"
-  sha256 "0859cb03a7c841d2dbc67e374cfee2b3ae1f95f6a1ee846d8f5bad39c7e566a1"
+  url "https://ftp.gnu.org/gnu/mit-scheme/stable.pkg/12.1/mit-scheme-12.1.tar.gz"
+  mirror "https://ftpmirror.gnu.org/gnu/mit-scheme/stable.pkg/12.1/mit-scheme-12.1.tar.gz"
+  sha256 "5509fb69482f671257ab4c62e63b366a918e9e04734feb9f5ac588aa19709bc6"
   license "GPL-2.0-or-later"
 
   livecheck do
     url "https://ftp.gnu.org/gnu/mit-scheme/stable.pkg/?C=M&O=D"
-    strategy :page_match
     regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["' >]}i)
+    strategy :page_match
   end
 
   bottle do
-    sha256 monterey:     "5c002d0841ffabfabe64e02901fc9c79815115348fd388da23b9040f04c5ed42"
-    sha256 big_sur:      "2a010afbf69c03bf7da5e45077bf76a1cce13d96748fa6c4c9d4ff74a87674cc"
-    sha256 catalina:     "f1f056a425dddbc394caa899e1eab404163b7404ea07f3673850e5fb2ce78aaa"
-    sha256 mojave:       "f3b91a23b3e924b1cd560b59a87cf64350a232579390adf35661d9d6cec3b4bc"
-    sha256 x86_64_linux: "ed4f56aa490d6965f7de9840277d50ced6e8f1e69a07889af434ccac24d414af"
+    sha256 monterey:     "bae1d2a271efb27c40b785490cb77ae62a2ad2856c49169df4ca4b6fa5d15a77"
+    sha256 big_sur:      "e53230ae27dc40a7b3a4ed54dfe9e905b60a605f5693e5fdbea513f4a5f12b35"
+    sha256 x86_64_linux: "84fc2e7429a15a8a894e39b4edfe042e4ddc404ef517896bcf63c8ee0c97bbed"
   end
 
   # Has a hardcoded compile check for /Applications/Xcode.app
   # Dies on "configure: error: SIZEOF_CHAR is not 1" without Xcode.
   # https://github.com/Homebrew/homebrew-x11/issues/103#issuecomment-125014423
   depends_on xcode: :build
-  depends_on "openssl@1.1"
 
   uses_from_macos "m4" => :build
   uses_from_macos "ncurses"
+
+  on_macos do
+    depends_on arch: :x86_64 # No support for Apple silicon: https://www.gnu.org/software/mit-scheme/#status
+  end
 
   on_system :linux, macos: :ventura_or_newer do
     depends_on "texinfo" => :build
@@ -35,12 +36,12 @@ class MitScheme < Formula
 
   resource "bootstrap" do
     on_intel do
-      url "https://ftp.gnu.org/gnu/mit-scheme/stable.pkg/11.2/mit-scheme-11.2-x86-64.tar.gz"
-      sha256 "7ca848cccf29f2058ab489b41c5b3a101fb5c73dc129b1e366fb009f3414029d"
+      url "https://ftp.gnu.org/gnu/mit-scheme/stable.pkg/12.1/mit-scheme-12.1-x86-64.tar.gz"
+      sha256 "8cfbb21b0e753ab8874084522e4acfec7cadf83e516098e4ab788368b748ae0c"
     end
     on_arm do
-      url "https://ftp.gnu.org/gnu/mit-scheme/stable.pkg/11.2/mit-scheme-11.2-aarch64le.tar.gz"
-      sha256 "49679bcf76c8b5896fda8998239c4dff0721708de4162dcbc21c88d9688faa86"
+      url "https://ftp.gnu.org/gnu/mit-scheme/stable.pkg/12.1/mit-scheme-12.1-aarch64le.tar.gz"
+      sha256 "708ffec51843adbc77873fc18dd3bafc4bd94c96a8ad5be3010ff591d84a2a8b"
     end
   end
 
@@ -77,11 +78,9 @@ class MitScheme < Formula
     inreplace "microcode/configure" do |s|
       s.gsub! "/usr/local", prefix
 
-      if OS.mac?
-        # Fixes "configure: error: No MacOSX SDK for version: 10.10"
-        # Reported 23rd Apr 2016: https://savannah.gnu.org/bugs/index.php?47769
-        s.gsub!(/SDK=MacOSX\$\{MACOS\}$/, "SDK=MacOSX#{MacOS.sdk.version}")
-      end
+      # Fixes "configure: error: No MacOSX SDK for version: 10.10"
+      # Reported 23rd Apr 2016: https://savannah.gnu.org/bugs/index.php?47769
+      s.gsub!(/SDK=MacOSX\$\{MACOS\}$/, "SDK=MacOSX#{MacOS.sdk.version}") if OS.mac?
     end
 
     inreplace "edwin/compile.sh" do |s|

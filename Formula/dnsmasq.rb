@@ -1,8 +1,8 @@
 class Dnsmasq < Formula
   desc "Lightweight DNS forwarder and DHCP server"
   homepage "https://thekelleys.org.uk/dnsmasq/doc.html"
-  url "https://thekelleys.org.uk/dnsmasq/dnsmasq-2.88.tar.gz"
-  sha256 "da9d26aa3f3fc15f3b58b94edbb9ddf744cbce487194ea480bd8e7381b3ca028"
+  url "https://thekelleys.org.uk/dnsmasq/dnsmasq-2.89.tar.gz"
+  sha256 "8651373d000cae23776256e83dcaa6723dee72c06a39362700344e0c12c4e7e4"
   license any_of: ["GPL-2.0-only", "GPL-3.0-only"]
 
   livecheck do
@@ -11,13 +11,13 @@ class Dnsmasq < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "445f0ae7150242555375d80357bfaf5f137fa7d2f11a520b4e4d84d5b4779562"
-    sha256 arm64_monterey: "9feae502fc82390061c40c4ccfdaf25e10a45a41b98a85a7ecb7c15e62ef36a9"
-    sha256 arm64_big_sur:  "dbf19b84941dc8bfa09c5d4458b0fe40c141521017825fdd7463860c48c7840d"
-    sha256 ventura:        "0435be15ad27677b95d6964f8ecebe75ad037cef7f5d5c94625994b1bec9a382"
-    sha256 monterey:       "3beeb1bd136ee4e3d9e50e516cde1ee8c487d9401a53d33a5f6702bc743cb22f"
-    sha256 big_sur:        "9a2a10424ea43e08bfa672f3dc4f91b55e724e5a760540e4d23e60ac02590901"
-    sha256 x86_64_linux:   "93b869ed076e1861091aa24afdb461c0ff5c25192128068cabb9e4e963f02330"
+    sha256 arm64_ventura:  "490265bd8d3e8392380fff3b0fbb4caf65f918366b5cf8c613372d21844860aa"
+    sha256 arm64_monterey: "550f2bc4e841dff11350365deccd14a2ae3977b4a21b499ef25da1658c9aaa9f"
+    sha256 arm64_big_sur:  "6c07ed0ee4e4da7f96b3019a99314db35594950a7e74e00268a1d9653c5f3d63"
+    sha256 ventura:        "1c6667316c0c59f169539b20268526dbd809f1e1d4ff1ff4152230745c958213"
+    sha256 monterey:       "8d208dd2b6b2571b6fe00abc4cea2e3da949ec722c587a7a373c88e6ea385108"
+    sha256 big_sur:        "1790d62200547a99955d7b0cb8925b13343e3b3fd15ee551ebb4d1b1772088df"
+    sha256 x86_64_linux:   "402f77fca452d49f05c63d63bb83dc01cd70e005b4d4f5094706d5b64201560f"
   end
 
   depends_on "pkg-config" => :build

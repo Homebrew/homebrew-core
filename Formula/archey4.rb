@@ -3,20 +3,18 @@ class Archey4 < Formula
 
   desc "Simple system information tool written in Python"
   homepage "https://github.com/HorlogeSkynet/archey4"
-  url "https://files.pythonhosted.org/packages/7e/6b/ccab7e74a8c9cf79a82912508d741bbb78219c307cc0daef219c2dc802c9/archey4-4.14.0.1.tar.gz"
-  sha256 "349e462d530491f17526441261bea3d0cd1b2430b69f5eaa03054961b918e1d1"
+  url "https://files.pythonhosted.org/packages/f7/af/f674dccea083f60f39649de5104bc5e2120d9540b3e136578510407d16a7/archey4-4.14.1.0.tar.gz"
+  sha256 "cb321e67154c730726c3757672a46c3af9b2ffe1af7f295830f9c061fd7a69ea"
   license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e671e4010ac734aeea3a07bd8c73f112e4b7e2ec63c56d0a604e9270897c3f7d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "82e733ff22e9672f4c481ffba502e8b91e3dc417857e5ee004948cdebbe864e7"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8c15c7c4c86f81cb92cafde76dce1bde8887a0b42aecc674ffc5b24603c4efbd"
-    sha256 cellar: :any_skip_relocation, ventura:        "eb70e113b2746752602a8fd3baa347d2aac1760a921b0096b22079ae2c4784a5"
-    sha256 cellar: :any_skip_relocation, monterey:       "e37569399a3494c36af12545a0d11220a772770feb8817b8e93a6e82315b20cb"
-    sha256 cellar: :any_skip_relocation, big_sur:        "351ec9affc5272bf3b4ca9a16f27bd113f61c526f495488aff3c13872b1b6fef"
-    sha256 cellar: :any_skip_relocation, catalina:       "e6fac4e403690a15257ae925992f0b6ce496994de2ad3fc35128b4918598b789"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0d08071b13a32148196c4affa001eb5c9c3684571e09e22b0ebbbc89112994ab"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8313a95885e3e88849580727c3b8c9077373ff48d462eef1d5571b3347708883"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ae692f19361034c48820cbee73476185bba034c6418c816e34a02420e9eb3746"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8c815b2741e778f9cca0d9ba6e08bf4793b2f938b82d15f47e1341c7a5c38c7a"
+    sha256 cellar: :any_skip_relocation, ventura:        "5eed1e7424385b25d06095d70efdef76282c81349ca554daea2fb5e6cac96a4d"
+    sha256 cellar: :any_skip_relocation, monterey:       "7bd96471606b7a7efafd4b55876db1fd9e326b2e435a3d1294d0d4414ddcdac8"
+    sha256 cellar: :any_skip_relocation, big_sur:        "81278aa510c3a73f8f0359c4f0d1367b01ad4f235bc17421b5ccf4004d126535"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e3088805d286b345d9845cc40b6ee1646fd7f74af21647583b68b06e3342cb2f"
   end
 
   depends_on "python@3.11"

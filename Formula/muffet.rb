@@ -1,20 +1,19 @@
 class Muffet < Formula
   desc "Fast website link checker in Go"
   homepage "https://github.com/raviqqe/muffet"
-  url "https://github.com/raviqqe/muffet/archive/v2.6.2.tar.gz"
-  sha256 "d079cf94f791a93f0976bb9aa4296b0f3df27d379e3a2054b8c6a50e193bc6d2"
+  url "https://github.com/raviqqe/muffet/archive/v2.7.0.tar.gz"
+  sha256 "230e0622c07a00956da25b0a79f71056a7cf251aaa2e4714e9a618a237c9b12c"
   license "MIT"
   head "https://github.com/raviqqe/muffet.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "397feee05639034b937542fe808de0c4a82cddb7e7b6cdf177c67d8d257cfdcb"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ca593882662c0ddbd75fdc3ac173e8e1443cd3ded92b082b271078b9638b221a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a4f7692e22960e489ce3c303ddc58ed3042a613a5009793769bc8df4f635c204"
-    sha256 cellar: :any_skip_relocation, ventura:        "1c95f993354c7c20f80321b4c5c5531795500e3e4a48f52958e0d2130a96dfdf"
-    sha256 cellar: :any_skip_relocation, monterey:       "d94463479a35add6f9017cd6195add5d7f770460fbc7affb88cf4cb65b5eda34"
-    sha256 cellar: :any_skip_relocation, big_sur:        "be38d809c1d492133b7dae92ad6cf6a6c88db65020840e493de0655011b28eac"
-    sha256 cellar: :any_skip_relocation, catalina:       "1e7b4be591c708ee6478eba3dc6c344f7e08bc22d0a43eefda4e8cf418eaa785"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7fcdad605b1bf8a3b642cfb0b51a9716a77a2cd210408fec8b714cb1b47777fc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f3399c577fa1d0a2cd9eacf50f44f9e36f5df3ed8d776046f819d8859d28efd6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "dd104eeeb8cd1dd1404380d9956f92d7ce1d6eb8f858b65c7adfc1ae8632d876"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ff448fdf9c8d60ebb5dbdd3eb4db3dc0812f30b6b3b12b910fc5a183468af6d2"
+    sha256 cellar: :any_skip_relocation, ventura:        "5b2e9e4403078581ee0ab01d2f99197d4e1c720f76ba394fa34a867d8fa7aa1e"
+    sha256 cellar: :any_skip_relocation, monterey:       "aaab4287f8dd3a5c41edee89ba6eccea756c71dd78beb59d27f41834ba090a66"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4809499f184b22cf5281af80c0e01e37280fbd5c657c4f61b53fdcd1b90a10ee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b09363a25177f4da7566b2472e6d6e2cd21ef4853fbb4753a7c180f6980950da"
   end
 
   depends_on "go" => :build

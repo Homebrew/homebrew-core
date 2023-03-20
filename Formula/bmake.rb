@@ -1,8 +1,8 @@
 class Bmake < Formula
   desc "Portable version of NetBSD make(1)"
   homepage "https://www.crufty.net/help/sjg/bmake.html"
-  url "https://www.crufty.net/ftp/pub/sjg/bmake-20220928.tar.gz"
-  sha256 "c804b77de3feb8e31dee2a4c9fb1e9ec24c5a34764e7a2815c88b4ed01650e90"
+  url "https://www.crufty.net/ftp/pub/sjg/bmake-20230303.tar.gz"
+  sha256 "e8698724ac68c63f8e6682a93c3154c1d93dc6a9072f13c8cef07ece4ccd0ed6"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,14 +11,13 @@ class Bmake < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e536bcfc52946f631c00183164126e6fd26006acd27b21e7da7b06ab310300d4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6a4b5a42dadc037e158e4cfe5571b3adf9882024be07147431adfe2617a96a31"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "95a14d565b7eec3c2ca6d3ecb793d69cc2a29eddbfa4d8a891afe66e2e2ae945"
-    sha256                               ventura:        "1549aa5b240a604482f5e0b1838abcd88e40670847469d8515f6d66167be603c"
-    sha256                               monterey:       "801cbdcbe3ce5ff1e436b511923e75074a825e7d8e34cc80f7ce151a64cfbcd0"
-    sha256                               big_sur:        "d1e86cb4561374d4fa6d18c5b3e00afd4055640b10061c0c62b564ec8b522975"
-    sha256                               catalina:       "ef5c79a571b508e81a122960f1b3fa11a0640ce315c0595ed3030ea6dce100ee"
-    sha256                               x86_64_linux:   "0997b8c0c53881ead6f629f2a7d06dc88bcd6583c0ce6861d1e2351afe533e82"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bcacd5dfa587c0cba22e61d40b805302066660a0c7b7086dd23fb02ed0d7b36a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4e67c8377cb53e66db6374546c6431ec8006b80db4a8cda475b940c419ee9d0f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "baa4d576e3ebb3cf85ca5e03a15688da8d19a3ec825d558ef5041f3bafaf5f95"
+    sha256                               ventura:        "fac9d449e03eb757f4445501969cd73756996e9cfcceb5927d2787f8db9ba810"
+    sha256                               monterey:       "4c73a7afe3c7b0cf6635c401bbdf20bf0c5b627607f0a449df8be36da2f5b825"
+    sha256                               big_sur:        "2bfa6dd8f333e83d25e6f5e02acb967d6f26d59c1de0ca284e97ed7022a67c9a"
+    sha256                               x86_64_linux:   "1db69029e06d20fead59fd34224da0357c8768bffcad3e7ecb3e38506d15b521"
   end
 
   def install

@@ -1,8 +1,8 @@
 class Mysql < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/8.0/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.31.tar.gz"
-  sha256 "7867f3fd8ca423d283a6162c819c766863ecffbf9b59b4756dc7bb81184c1d6a"
+  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.32.tar.gz"
+  sha256 "1a83a2e1712a2d20b80369c45cecbfcc7be9178d4fc0e81ffba5c273ce947389"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
 
   livecheck do
@@ -11,14 +11,13 @@ class Mysql < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "73a817585b4aa253b0984698b6e2d2fde197332d3de144855d4489969f94fb9f"
-    sha256 arm64_monterey: "3b17e7d3888bf63e7d778e1d38ad363efb92a1a593ee279ce18b3105e3d2e4aa"
-    sha256 arm64_big_sur:  "8fc37f512c9754ecaaacd84503790bddec4ea50f4454cc3335a789d18b452598"
-    sha256 ventura:        "060ac12104e90e62049852f99226424c570624217be883a9115ee7fd388b7290"
-    sha256 monterey:       "92eef344bc3a1687c0463234bad3ac0741d032dd572bb51afecdb1aa8afe3792"
-    sha256 big_sur:        "021f60febd7740d5b1f64b9309a8f3fefc88a0c5ff9f5c97bfb4a3a145124bef"
-    sha256 catalina:       "dac28aca0e336686b213582cb72602da5cef8ab84c55d52728103e82f3c2d630"
-    sha256 x86_64_linux:   "08493b15c16627f848e755eba7a99a8ac0ff5d8a0793b0db4f2c182019d98f92"
+    sha256 arm64_ventura:  "6cca8387c02ad0932892d792711395359df3f14ae62f7968b9ece17ff7f01d6d"
+    sha256 arm64_monterey: "6bcaa04f58dceb28478a81ff49dd2fc9886523270e5aae26ed7b6a433c6ba549"
+    sha256 arm64_big_sur:  "aa3e16c17c365fbcb8ed69d59b529d7abc02d686c8fc23ea529edc8a803002c6"
+    sha256 ventura:        "133aa61d00aeffaa026f5920a41634c7e1f73948582e66cf6dfaac054d41ac2d"
+    sha256 monterey:       "427395db33ab3143886f6c25b0aa28b51ac651037d887bfb4547af7b2e0f8496"
+    sha256 big_sur:        "8678cc4dc2a4881e0b3fbba64ffece73f153254966ed7ae8816ee76cd5e14daa"
+    sha256 x86_64_linux:   "4cfda2a94eec80f35024aa3c80f4ee47c40397869853ebae29571907227c9ae5"
   end
 
   depends_on "cmake" => :build

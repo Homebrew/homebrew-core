@@ -4,27 +4,27 @@ class Unar < Formula
   url "https://github.com/MacPaw/XADMaster/archive/refs/tags/v1.10.7.tar.gz"
   sha256 "3d766dc1856d04a8fb6de9942a6220d754d0fa7eae635d5287e7b1cf794c4f45"
   license "LGPL-2.1-or-later"
-  revision 1
+  revision 2
   head "https://github.com/MacPaw/XADMaster.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "30ef15bfdc14b92683770132d1e5cb30fa88903f6691092387fcecb9c4303fa6"
-    sha256 cellar: :any,                 arm64_monterey: "3ee7ecb5bf0e592b34e76984df2291c333b07d76f8de1c67671999dafc1bfe34"
-    sha256 cellar: :any,                 arm64_big_sur:  "7cb2e8234ef82f9e99012b68fcd2c56e94c119a718295fd1d8504c0b15600663"
-    sha256 cellar: :any,                 ventura:        "5aa697a876187788558268c11f7a365c83afa710fc91fadb917b7157c309fdb2"
-    sha256 cellar: :any,                 monterey:       "617b22cc2ca68b96e186e402bb184f7d8b955b64094e06ad62a1899337fa2a13"
-    sha256 cellar: :any,                 big_sur:        "2fdcc98f12ad2c472e605b1349c9f44d448a89c15131a29290b62fa6f7f263dc"
-    sha256 cellar: :any,                 catalina:       "2b81e91d9b892cb157113df5a4ba3fb32b7cc82a07427a8229458080789b1177"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c7f8013d4754073cd5e70d022bc85b5d39a0fe4ca92c64547d9e5523fa04c234"
+    sha256 cellar: :any,                 arm64_ventura:  "f54bbe066a64757abecc1f684f21210dd00a39fdc3d12c95ccb2fb6f177c1ebb"
+    sha256 cellar: :any,                 arm64_monterey: "a608dbbff3ba80cb81fd4c5c27a258bfd215cca26bfeab85039d4eab7bd1997e"
+    sha256 cellar: :any,                 arm64_big_sur:  "15c3334c72b2f110cceea2376cd7b29cc4b59bf230a996ea921db6ba5506ace2"
+    sha256 cellar: :any,                 ventura:        "f922d535c2c2121a8594ba2e69a8e2644ed07df79d187b0cfe98400df1cb0cdc"
+    sha256 cellar: :any,                 monterey:       "b249c2612975d145ae8fcc6267803a4252c3b9cad1b39047802beccc18838e09"
+    sha256 cellar: :any,                 big_sur:        "9c8f7c554d1fd798f4e1cc35e3137a330e9c31e0282143887fe1cef547392d33"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eaea53f9babb998e847ea51e5a6b41ca910c5f9c2f14c0302fd999a0fbd8b0a0"
   end
 
   depends_on xcode: :build
 
-  uses_from_macos "llvm" => [:build, :test]
+  uses_from_macos "llvm" => :build
   uses_from_macos "bzip2"
 
   on_linux do
     depends_on "gnustep-base"
+    depends_on "icu4c"
     depends_on "wavpack"
   end
 

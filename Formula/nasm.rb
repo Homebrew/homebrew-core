@@ -21,7 +21,7 @@ class Nasm < Formula
   end
 
   head do
-    url "https://github.com/netwide-assembler/nasm.git"
+    url "https://github.com/netwide-assembler/nasm.git", branch: "master"
     depends_on "asciidoc" => :build
     depends_on "autoconf" => :build
     depends_on "automake" => :build
