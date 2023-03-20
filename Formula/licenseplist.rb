@@ -14,7 +14,7 @@ class Licenseplist < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "3091e742927f40c96428935699fe53c4d1e0830e158bfcb77cddb6b1fc9c1235"
   end
 
-  depends_on xcode: ["13.0", :build]
+  depends_on xcode: ["13.3", :build]
   depends_on :macos
   uses_from_macos "swift" => :build
 
