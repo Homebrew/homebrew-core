@@ -18,8 +18,6 @@ class Observerward < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "update", "--package", "prettytable-rs", "--precise", "0.10.0"
-
     system "cargo", "install", *std_cargo_args
   end
 
