@@ -77,12 +77,6 @@ class Sysdig < Formula
     # ld: unaligned pointer(s) for architecture arm64
     inreplace "falcosecurity-libs/driver/ppm_events_public.h", " __attribute__((packed))", "" if Hardware::CPU.arm?
 
-    # These flags are not needed for LuaJIT 2.1 (Ref: https://luajit.org/install.html).
-    # On Apple ARM, the flags results in broken binaries and need to be removed.
-    inreplace "CMakeLists.txt",
-              "set(CMAKE_EXE_LINKER_FLAGS \"-pagezero_size 10000 -image_base 100000000\")",
-              ""
-
     # Keep C++ standard in sync with `abseil.rb`.
     args = %W[
       -DSYSDIG_VERSION=#{version}
