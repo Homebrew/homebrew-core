@@ -96,6 +96,7 @@ jobs:
             --committer="$BREWTESTBOT_NAME_EMAIL" \
             --root-url="https://ghcr.io/v2/homebrew/core" \
             ${{inputs.commit_bottles_to_pr_branch && '--no-autosquash' || ''}} \
+            ${{inputs.commit_bottles_to_pr_branch && '--no-cherry-pick' || ''}} \
             ${{inputs.commit_bottles_to_pr_branch && '--clean' || ''}} \
             ${{github.event.inputs.args}} \
             ${{github.event.inputs.pull_request}}
