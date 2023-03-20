@@ -38,7 +38,7 @@ class Macpine < Formula
 
   def install
     system "make", "install", "PREFIX=#{prefix}"
-    generate_completions_from_executable(bin/"alpine", "completion")
+    generate_completions_from_executable(bin/"alpine", "completion", base_name: "alpine")
   end
 
   test do
