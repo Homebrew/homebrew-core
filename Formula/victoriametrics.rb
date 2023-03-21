@@ -6,7 +6,6 @@ class Victoriametrics < Formula
   license "Apache-2.0"
 
   depends_on "go" => :build
-  depends_on "make" => :build
 
   def install
     system "make", "victoria-metrics"
