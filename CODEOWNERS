@@ -6,15 +6,15 @@
 # To be explicit: we will never accept changes to this file adding people from outside the Homebrew GitHub
 # organisation. If you are not a Homebrew maintainer: you do not personally "own" or "maintain" any formulae.
 
-CODEOWNERS            @MikeMcQuaid @Homebrew/plc @Homebrew/tsc
-CONTRIBUTING.md       @MikeMcQuaid @Homebrew/tsc
-tap_migrations.json   @MikeMcQuaid @Homebrew/tsc
-.github/              @MikeMcQuaid @Homebrew/tsc
-cmd/                  @MikeMcQuaid
+CODEOWNERS                        @Homebrew/tsc @Homebrew/plc @MikeMcQuaid 
+CONTRIBUTING.md                   @Homebrew/tsc @MikeMcQuaid 
+tap_migrations.json               @Homebrew/tsc @MikeMcQuaid 
+.github/ISSUE_TEMPLATE/           @Homebrew/tsc @MikeMcQuaid 
+.github/PULL_REQUEST_TEMPLATE.md  @Homebrew/tsc @MikeMcQuaid 
+LICENSE.txt                       @Homebrew/plc @MikeMcQuaid
+.github/workflows/                @Homebrew/core @MikeMcQuaid 
 
-LICENSE.txt           @Homebrew/plc @MikeMcQuaid
-
-audit_exceptions/permitted_formula_license_mismatches.json              @Homebrew/plc
-audit_exceptions/provided_by_macos_depends_on_allowlist.json            @Homebrew/tsc
-audit_exceptions/universal_binary_allowlist.json                        @carlocab @Homebrew/tsc
-audit_exceptions/versioned_formula_dependent_conflicts_allowlist.json   @Homebrew/tsc
+audit_exceptions/permitted_formula_license_mismatches.json              @Homebrew/plc @MikeMcQuaid
+audit_exceptions/provided_by_macos_depends_on_allowlist.json            @Homebrew/tsc @MikeMcQuaid
+audit_exceptions/universal_binary_allowlist.json                        @Homebrew/tsc @carlocab 
+audit_exceptions/versioned_formula_dependent_conflicts_allowlist.json   @Homebrew/tsc @MikeMcQuaid
