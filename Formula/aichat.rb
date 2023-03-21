@@ -13,7 +13,8 @@ class Aichat < Formula
   end
 
   test do
-    version_out = shell_output("#{bin}/aichat --version")
-    assert_match "aichat #{version}", version_out
+    ENV["AICHAT_API_KEY"] = "sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    output = shell_output("#{bin}/aichat --dry-run math 3.2x4.8")
+    assert_match "math 3.2x4.8", output
   end
 end
