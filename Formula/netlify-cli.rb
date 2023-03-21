@@ -4,8 +4,8 @@ class NetlifyCli < Formula
   desc "Netlify command-line tool"
   homepage "https://www.netlify.com/docs/cli"
   # netlify-cli should only be updated every 5 releases on multiples of 5
-  url "https://registry.npmjs.org/netlify-cli/-/netlify-cli-13.1.5.tgz"
-  sha256 "04f4dc7685e7201b461a4480722fd3f6c0d44e91a78428117737af9616d8d278"
+  url "https://registry.npmjs.org/netlify-cli/-/netlify-cli-13.2.0.tgz"
+  sha256 "b8e1570e784ee871d4b623c58bf725f4cf902f674ab248629da2cbe6ffbce894"
   license "MIT"
   head "https://github.com/netlify/cli.git", branch: "main"
 
