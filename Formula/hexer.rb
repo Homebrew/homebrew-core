@@ -4,6 +4,7 @@ class Hexer < Formula
   url "https://devel.ringlet.net/files/editors/hexer/hexer-1.0.6.tar.gz"
   sha256 "fff00fbb0eb0eee959c08455861916ea672462d9bcc5580207eb41123e188129"
   license "BSD-3-Clause"
+  uses_from_macos "ncurses"
 
   def install
     system "make", "install", "PREFIX=#{prefix}", "MANDIR=#{man1}"
