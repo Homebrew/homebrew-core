@@ -125,6 +125,7 @@ jobs:
           then
             echo "remote=$push_remote" >> "$GITHUB_OUTPUT"
           elif remote="$(git config --local "branch.$branch.remote")"
+          then
             echo "remote=$remote" >> "$GITHUB_OUTPUT"
           else
             echo "::error ::Could not find branch remote!"
