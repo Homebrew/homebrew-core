@@ -157,7 +157,7 @@ jobs:
         run: gh pr merge --auto --${{inputs.merge_strategy}} ${{inputs.pull_request}}
         if: inputs.commit_bottles_to_pr_branch
         env:
-          GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          GH_TOKEN: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
         working-directory: ${{steps.set-up-homebrew.outputs.repository-path}}
 
       - name: Post comment on failure
