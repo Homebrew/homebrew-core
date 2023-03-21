@@ -12,7 +12,15 @@ class Hexer < Formula
   end
 
   test do
-    # no other tests provided because hexer is an interactive tool
-    system "#{bin}/hexer", "-V"
+    script = (testpath/"script.exp")
+    script.write <<~EOS
+      #!/usr/bin/expect -f
+      set timeout 10
+      spawn hexer
+      send -- ":q\n"
+      expect eof
+    EOS
+    script.chmod 0700
+    system "expect", "-f", "script.exp"
   end
 end
