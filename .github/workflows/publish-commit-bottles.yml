@@ -113,7 +113,7 @@ jobs:
         working-directory: ${{steps.set-up-homebrew.outputs.repository-path}}
         run: |
           branch="$(git branch --show-current)"
-          if [[ -n "$branch" ]]
+          if [ -n "$branch" ]
           then
             echo "branch=$branch" >> "$GITHUB_OUTPUT"
           else
