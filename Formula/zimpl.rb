@@ -6,6 +6,11 @@ class Zimpl < Formula
   sha256 "5ad50eb42254c825d96f5747d8f3568dcbff0284dfbd1a727910c5a7c2899091"
   license "LGPL-3.0-only"
 
+  livecheck do
+    url "https://scipopt.org/scipdata.js"
+    regex(/["']name["']:\s*?["']ZIMPL[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   depends_on "cmake" => :build
   depends_on "bison"
   depends_on "gmp"
