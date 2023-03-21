@@ -22,9 +22,6 @@ class Mujs < Formula
     depends_on "readline"
   end
 
-  # patch for finding libmujs.a, remove in next release
-  patch :DATA
-
   def install
     system "make", "release"
     system "make", "prefix=#{prefix}", "install"
@@ -40,29 +37,3 @@ class Mujs < Formula
     assert_equal "104", shell_output("#{bin}/mujs test.js").chomp
   end
 end
-
-__END__
-diff --git a/Makefile b/Makefile
-index 8e6078a..d95576f 100644
---- a/Makefile
-+++ b/Makefile
-@@ -90,15 +90,13 @@ $(OUT)/libmujs.$(SO_EXT): one.c $(HDRS)
- 	@ mkdir -p $(@D)
- 	$(CC) $(CFLAGS) $(CPPFLAGS) -fPIC -shared $(LDFLAGS) -o $@ $< -lm
- 
--libmujs ?= libmujs.a
--
--$(OUT)/mujs: $(OUT)/main.o $(OUT)/$(libmujs)
-+$(OUT)/mujs: $(OUT)/libmujs.o $(OUT)/main.o
- 	@ mkdir -p $(@D)
--	$(CC) $(LDFLAGS) -o $@ $< -L$(OUT) -l:$(libmujs) $(LIBREADLINE) -lm
-+	$(CC) $(LDFLAGS) -o $@ $^ $(LIBREADLINE) -lm
- 
--$(OUT)/mujs-pp: $(OUT)/pp.o $(OUT)/$(libmujs)
-+$(OUT)/mujs-pp: $(OUT)/libmujs.o $(OUT)/pp.o
- 	@ mkdir -p $(@D)
--	$(CC) $(LDFLAGS) -o $@ $< -L$(OUT) -l:$(libmujs) -lm
-+	$(CC) $(LDFLAGS) -o $@ $^ -lm
- 
- .PHONY: $(OUT)/mujs.pc
- $(OUT)/mujs.pc:
