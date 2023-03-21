@@ -3,8 +3,13 @@ class Libbitcoin < Formula
   homepage "https://github.com/libbitcoin/libbitcoin-system"
   url "https://github.com/libbitcoin/libbitcoin-system/archive/v3.6.0.tar.gz"
   sha256 "5bcc4c31b53acbc9c0d151ace95d684909db4bf946f8d724f76c711934c6775c"
-  license "AGPL-3.0"
+  license "AGPL-3.0-or-later"
   revision 8
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "0833776d4e928b8a5bc65df18153d3f8162eaf3ab15b58e0dba8ab6f138319d8"
