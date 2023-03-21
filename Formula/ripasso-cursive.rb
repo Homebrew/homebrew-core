@@ -6,12 +6,13 @@ class RipassoCursive < Formula
   license "GPL-3.0-only"
 
   depends_on "libxcb" => :build
-  depends_on "llvm" => :build
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "gpgme"
   depends_on "libgpg-error"
   depends_on "nettle"
+
+  uses_from_macos "llvm" # for libclang
 
   on_linux do
     depends_on "libxcb"
