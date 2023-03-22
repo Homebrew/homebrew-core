@@ -7,13 +7,8 @@
 # organisation. If you are not a Homebrew maintainer: you do not personally "own" or "maintain" any formulae.
 #
 # Note: @Homebrew/plc does not have write-access to this repository, and therefore cannot be listed in this file.
-# To ensure PLC review for license-related PRs, @Homebrew/plc members who are also @Homebrew/core maintainers
-# should be listed individually for the following files:
-#   - CODEOWNERS
-#   - LICENSE.txt
-#   - audit_exceptions/permitted_formula_license_mismatches.json
 
-CODEOWNERS                        @Homebrew/tsc @MikeMcQuaid @issyl0 @SMillerDev
+CODEOWNERS                        @Homebrew/tsc @MikeMcQuaid
 CONTRIBUTING.md                   @Homebrew/tsc @MikeMcQuaid 
 tap_migrations.json               @Homebrew/tsc @MikeMcQuaid 
 .github/ISSUE_TEMPLATE/           @Homebrew/tsc @MikeMcQuaid 
