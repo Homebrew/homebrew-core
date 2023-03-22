@@ -2,12 +2,11 @@ class Dynare < Formula
   desc "Platform for economic models, particularly DSGE and OLG models"
   homepage "https://www.dynare.org/"
   license "GPL-3.0-or-later"
-  revision 3
 
   # Remove when patch is no longer needed.
   stable do
-    url "https://www.dynare.org/release/source/dynare-5.3.tar.xz"
-    sha256 "bbbbd319f9a1cb7ffd4f7012be105a7c95842ca76d9d96e96305e1fbf8d8b585"
+    url "https://www.dynare.org/release/source/dynare-5.4.tar.xz"
+    sha256 "c174a3ebcaf8c4566b9836abad8c04148011bec2ec610ded234f406bfbdd10f8"
 
     on_arm do
       # Needed since we patch a `Makefile.am` below.
