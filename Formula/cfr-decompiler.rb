@@ -24,15 +24,11 @@ class CfrDecompiler < Formula
   end
 
   depends_on "maven" => :build
-  depends_on "openjdk"
+  depends_on "openjdk@11"
 
   def install
-    # Homebrew's OpenJDK no longer accepts Java 6 source, so:
-    inreplace "pom.xml", "<javaVersion>1.6</javaVersion>", "<javaVersion>1.7</javaVersion>"
-    inreplace "cfr.iml", 'LANGUAGE_LEVEL="JDK_1_6"', 'LANGUAGE_LEVEL="JDK_1_7"'
-
     # build
-    ENV["JAVA_HOME"] = Formula["openjdk"].opt_prefix
+    ENV["JAVA_HOME"] = Formula["openjdk@11"].opt_prefix
     system Formula["maven"].bin/"mvn", "package"
 
     cd "target" do
@@ -50,17 +46,13 @@ class CfrDecompiler < Formula
 
       # install library and binary
       libexec.install lib_jar
-      (bin/"cfr-decompiler").write <<~EOS
-        #!/bin/bash
-        export JAVA_HOME="${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
-        exec "${JAVA_HOME}/bin/java" -jar "#{libexec/lib_jar}" "$@"
-      EOS
+      bin.write_jar_script libexec/lib_jar, "cfr-decompiler", java_version: "11"
 
       # install library docs
       doc.install doc_jar
       mkdir doc/"javadoc"
       cd doc/"javadoc" do
-        system Formula["openjdk"].bin/"jar", "-xf", doc/doc_jar
+        system Formula["openjdk@11"].bin/"jar", "-xf", doc/doc_jar
         rm_rf "META-INF"
       end
     end
@@ -81,7 +73,7 @@ class CfrDecompiler < Formula
       }
     EOS
     (testpath/"T.java").write fixture
-    system Formula["openjdk"].bin/"javac", "T.java"
+    system Formula["openjdk@11"].bin/"javac", "T.java"
     output = pipe_output("#{bin}/cfr-decompiler --comments false T.class")
     assert_match fixture, output
   end
