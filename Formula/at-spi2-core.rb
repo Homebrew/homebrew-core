@@ -19,6 +19,7 @@ class AtSpi2Core < Formula
   depends_on "dbus"
   depends_on "glib"
   depends_on "libx11"
+  depends_on "libxml2"
   depends_on "libxtst"
   depends_on :linux
   depends_on "xorgproto"
