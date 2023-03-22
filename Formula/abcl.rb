@@ -9,8 +9,8 @@ class Abcl < Formula
   head "https://abcl.org/svn/trunk/abcl/", using: :svn
 
   livecheck do
-    url "https://abcl.org/releases/"
-    regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["' >]}i)
+    url :homepage
+    regex(/href=.*?abcl-src[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
