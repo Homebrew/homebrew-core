@@ -19,7 +19,6 @@ class DockerCompose < Formula
   depends_on "go" => :build
 
   def install
-    ENV["CGO_ENABLED"] = "0"
     ldflags = %W[
       -s -w
       -X github.com/docker/compose/v2/internal.Version=#{version}
