@@ -1,9 +1,10 @@
 class Solana < Formula
   desc "Web-Scale Blockchain for decentralized apps and marketplaces"
   homepage "https://solana.com"
-  url "https://github.com/solana-labs/solana/archive/v1.14.16.tar.gz"
-  sha256 "ade55d4178b5918fcf4b98343dc835fc255f23ec9b040913fb64b7551697fa0e"
+  url "https://github.com/solana-labs/solana/archive/v1.13.6.tar.gz"
+  sha256 "b4dc483102cddc683a22ec235af5ceb7f5a3bbe8054a5019648f33367b7e9a92"
   license "Apache-2.0"
+  version_scheme 1
 
   # This formula tracks the stable channel but the "latest" release on GitHub
   # varies between Mainnet and Testnet releases. This identifies versions by
@@ -36,6 +37,11 @@ class Solana < Formula
   end
 
   def install
+    # Fix for error: cannot find derive macro `Deserialize` in this scope.
+    # Can remove if backported to 1.13.x or when 1.14.x has a stable release.
+    # Ref: https://github.com/solana-labs/solana/commit/12e24a90a009d7b8ab1ed5bb5bd42e36a4927deb
+    inreplace "net-shaper/Cargo.toml", /^serde = ("[\d.]+")$/, "serde = { version = \\1, features = [\"derive\"] }"
+
     %w[
       cli
       bench-streamer
