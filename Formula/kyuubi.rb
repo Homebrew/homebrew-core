@@ -7,8 +7,8 @@ class Kyuubi < Formula
   license "Apache-2.0"
   head "https://github.com/apache/kyuubi.git", branch: "master"
 
-  depends_on "apache-spark" => :test
-  depends_on "openjdk@8"
+  depends_on "apache-spark"
+  depends_on "openjdk"
 
   def install
     libexec.install Dir["*"]
@@ -19,6 +19,7 @@ class Kyuubi < Formula
       KYUUBI_LOG_DIR:       "${KYUUBI_LOG_DIR:-#{var}/kyuubi/logs}",
       KYUUBI_PID_DIR:       "${KYUUBI_PID_DIR:-#{var}/kyuubi/pid}",
       KYUUBI_WORK_DIR_ROOT: "${KYUUBI_WORK_DIR_ROOT:-#{var}/kyuubi/work}",
+      SPARK_HOME:           Formula["apache-spark"].opt_libexec.to_s,
     }
     (bin/"kyuubi").write_env_script libexec/"bin/kyuubi", setting
     (bin/"kyuubi-beeline").write_env_script libexec/"bin/beeline", setting
@@ -34,7 +35,6 @@ class Kyuubi < Formula
     ENV.append "_JAVA_OPTIONS", "-Duser.home=#{testpath}"
     ENV.append "_JAVA_OPTIONS", "-Dkyuubi.frontend.bind.host=localhost"
     ENV.append "KYUUBI_WORK_DIR_ROOT", testpath/"work"
-    ENV.append "SPARK_HOME", Formula["apache-spark"].opt_libexec.to_s
 
     fork do
       exec bin/"kyuubi run"
