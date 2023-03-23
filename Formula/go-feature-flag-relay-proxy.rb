@@ -7,6 +7,16 @@ class GoFeatureFlagRelayProxy < Formula
   license "MIT"
   head "https://github.com/thomaspoignant/go-feature-flag.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "13ed64bdf45257ce8a4f4d6c487621ed52c746e48e3393ae9dbed092fd874066"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7144cdbadf47e406620bbeddebaf7f4689ba75b33a055c644627e6e3addcd529"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "13ed64bdf45257ce8a4f4d6c487621ed52c746e48e3393ae9dbed092fd874066"
+    sha256 cellar: :any_skip_relocation, ventura:        "661d4168dbcb812d73adf648439bca3c8e469414643c7c4e8ad1a5492f71cf13"
+    sha256 cellar: :any_skip_relocation, monterey:       "661d4168dbcb812d73adf648439bca3c8e469414643c7c4e8ad1a5492f71cf13"
+    sha256 cellar: :any_skip_relocation, big_sur:        "22f58d275c8a7e43a39f3a9cedb817a40747aac820b8dc416ed0bcfff381e764"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c1bb6e99f2dbea7b7399613f82d7865a5a54d73466207537125f337df63cc061"
+  end
+
   depends_on "go" => :build
 
   def install
