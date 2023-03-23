@@ -132,11 +132,6 @@ class PythonAT311 < Formula
                 "libmpdec_machine=#{ENV["PYTHON_DECIMAL_WITH_MACHINE"] = Hardware::CPU.arm? ? "uint128" : "x64"}"
     end
 
-    # The --enable-optimization and --with-lto flags diverge from what upstream
-    # python does for their macOS binary releases. They have chosen not to apply
-    # these flags because they want one build that will work across many macOS
-    # releases. Homebrew is not so constrained because the bottling
-    # infrastructure specializes for each macOS major release.
     args = %W[
       --prefix=#{prefix}
       --enable-ipv6
@@ -145,12 +140,18 @@ class PythonAT311 < Formula
       --without-ensurepip
       --enable-loadable-sqlite-extensions
       --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
-      --enable-optimizations
       --with-system-expat
       --with-system-ffi
       --with-system-libmpdec
       --with-readline=editline
     ]
+
+    # The --enable-optimization and --with-lto flags diverge from what upstream
+    # python does for their macOS binary releases. They have chosen not to apply
+    # these flags because they want one build that will work across many macOS
+    # releases. Homebrew is not so constrained because the bottling
+    # infrastructure specializes for each macOS major release.
+    args << "--enable-optimizations" if ENV.compiler != :gcc || DevelopmentTools.gcc_version(ENV.cc) >= 5
 
     if OS.mac?
       # Enabling LTO on Linux makes libpython3.*.a unusable for anyone whose GCC
