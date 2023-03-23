@@ -19,7 +19,7 @@ class Qsv < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", *std_cargo_args, "--features", "apply,full"
+    system "cargo", "install", *std_cargo_args, "--features", "apply,luau,full"
   end
 
   test do
