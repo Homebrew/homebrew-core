@@ -3,8 +3,8 @@ class PipAudit < Formula
 
   desc "Audits Python environments and dependency trees for known vulnerabilities"
   homepage "https://pypi.org/project/pip-audit/"
-  url "https://files.pythonhosted.org/packages/a6/93/f404d79564d2f4d43ec512ea2ac47aca8b546c717145d64d6e0f89a110f2/pip_audit-2.5.2.tar.gz"
-  sha256 "7fb2bf95f442abc31498840e62b70b53ba2dafe8eeb6d4cf5c76eaf73f4e967a"
+  url "https://files.pythonhosted.org/packages/aa/39/2b4310b88e3f744b4bd15965d452a47473395f8e4b04c495b3c2035b5ed9/pip_audit-2.5.3.tar.gz"
+  sha256 "6f92558f137621c499928acbcfd0c67f15cc2101bec1b63db187c093dc1c6ce6"
   license "Apache-2.0"
   version_scheme 1
 
@@ -43,8 +43,8 @@ class PipAudit < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/4f/1f/6e1b740698069650b245744957a25957d599b953550a959ab2a584a8825b/filelock-3.10.0.tar.gz"
-    sha256 "3199fd0d3faea8b911be52b663dfccceb84c95949dd13179aa21436d1a79c4ce"
+    url "https://files.pythonhosted.org/packages/f2/5e/b941f8db11ef0cebc50e27702930b1643232843275459ee443ba3d2bdcde/filelock-3.10.2.tar.gz"
+    sha256 "75997740323c5f12e18f10b494bc11c03e42843129f980f17c04352cc7b09d40"
   end
 
   resource "html5lib" do
