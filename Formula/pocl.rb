@@ -23,6 +23,7 @@ class Pocl < Formula
   depends_on "hwloc"
   depends_on "llvm@15"
   depends_on "opencl-icd-loader"
+  uses_from_macos "python" => :build
 
   on_macos do
     depends_on "llvm" => :build # because of `fails_with :clang`
