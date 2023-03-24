@@ -21,18 +21,8 @@ class Htmlcleaner < Formula
 
   def install
     ENV["JAVA_HOME"] = Formula["openjdk"].opt_prefix
-
-    inreplace "pom.xml" do |s|
-      # Homebrew's OpenJDK no longer accepts Java 5 source
-      # Reported upstream at https://sourceforge.net/p/htmlcleaner/bugs/235/
-      s.gsub! "<source>1.5</source>", "<source>1.8</source>"
-      s.gsub! "<target>1.5</target>", "<target>1.8</target>"
-      # OpenJDK >14 doesn't support older maven-javadoc-plugin versions
-      s.gsub! "<version>2.9</version>", "<version>3.2.0</version>"
-    end
-
     system "mvn", "clean", "package", "-DskipTests=true", "-Dmaven.javadoc.skip=true"
-    libexec.install Dir["target/htmlcleaner-*.jar"]
+    libexec.install "target/htmlcleaner-#{version}.jar"
     bin.write_jar_script libexec/"htmlcleaner-#{version}.jar", "htmlcleaner"
   end
 
