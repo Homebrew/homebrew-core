@@ -8,11 +8,10 @@ class Tt < Formula
   depends_on "go" => :build
   depends_on "mage" => :build
   depends_on "pkg-config" => :build
-  depends_on "git"
   depends_on "openssl@3"
-  depends_on "unzip"
   depends_on "wget"
-  depends_on "zip"
+  uses_from_macos "unzip"
+  uses_from_macos "zip"
 
   def install
     ENV["TT_CLI_BUILD_SSL"] = "shared"
