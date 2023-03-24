@@ -3,8 +3,8 @@ class Ford < Formula
 
   desc "Automatic documentation generator for modern Fortran programs"
   homepage "https://github.com/Fortran-FOSS-Programmers/ford"
-  url "https://files.pythonhosted.org/packages/ea/d4/57cd696162d780a6ec717a3b109673d67069d6d43982ee3947e4ab6e2014/FORD-6.2.1.tar.gz"
-  sha256 "5364471dbc01963d1928139177ec67b5d023b92aa56d34c019479ed87fc3dd57"
+  url "https://files.pythonhosted.org/packages/fb/4a/105f47e3d6b918093b2f6eb16916b510933dd3e952e175bd2bf9420f3659/FORD-6.2.2.tar.gz"
+  sha256 "153f6eb44e10fa7689e8882ce9b91c39f503a01fc25831e67168568f5b457b5e"
   license "GPL-3.0-or-later"
   head "https://github.com/Fortran-FOSS-Programmers/ford.git", branch: "master"
 
@@ -40,8 +40,8 @@ class Ford < Formula
   end
 
   resource "Markdown" do
-    url "https://files.pythonhosted.org/packages/66/bf/a7c9e8cc23c105633b74e3280c2b06d13273da0df389e59395188d440017/Markdown-3.4.2.tar.gz"
-    sha256 "e104be388c28462b4e83bd0ddfc68eff6022305cc4b5ab14caf8d235fae132b9"
+    url "https://files.pythonhosted.org/packages/9d/80/cc67bfb7deb973d5ae662ee6454d2dafaa8f7c106feafd0d1572666ebde5/Markdown-3.4.3.tar.gz"
+    sha256 "8bf101198e004dc93e84a12a7395e31aac6a9c9942848ae1d99b9d72cf9b3520"
   end
 
   resource "markdown-include" do
