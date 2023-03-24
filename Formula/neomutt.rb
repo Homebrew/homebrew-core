@@ -20,8 +20,6 @@ class Neomutt < Formula
   depends_on "pkg-config" => :build
   # The build breaks when it tries to use system `tclsh`.
   depends_on "tcl-tk" => :build
-  # FIXME: Should be `uses_from_macos`, but `./configure` can't find system `libsasl2`.
-  depends_on "cyrus-sasl"
   depends_on "gettext"
   depends_on "gpgme"
   depends_on "libidn2"
@@ -30,34 +28,52 @@ class Neomutt < Formula
   depends_on "ncurses"
   depends_on "notmuch"
   depends_on "openssl@1.1"
+  depends_on "pcre2"
   depends_on "tokyo-cabinet"
 
   uses_from_macos "libxslt" => :build # for xsltproc
+  uses_from_macos "cyrus-sasl"
   uses_from_macos "krb5"
   uses_from_macos "zlib"
+
+  # Fix finding macOS `libsasl2`.
+  # https://github.com/neomutt/neomutt/pull/3780
+  patch do
+    url "https://github.com/neomutt/neomutt/commit/6d28a555f52e437e5966e769c5cda82e8b643ad9.patch?full_index=1"
+    sha256 "17d9af6955ba7267d4ed0b2ca5bfacfa01e81b2de96246ff7c885bef1035eb35"
+  end
 
   def install
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
 
     args = %W[
       --prefix=#{prefix}
+      --sysconfdir=#{etc}
+      --autocrypt
       --gss
       --disable-idn
       --idn2
       --lmdb
+      --nls
       --notmuch
+      --pcre2
       --sasl
+      --sqlite
       --tokyocabinet
-      --with-gpgme=#{Formula["gpgme"].opt_prefix}
+      --zlib
       --with-lua=#{Formula["lua"].opt_prefix}
+      --with-ncurses=#{Formula["ncurses"].opt_prefix}
       --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
-      --with-ui=ncurses
+      --with-sqlite=#{Formula["sqlite"].opt_prefix}
     ]
 
     args << "--pkgconf" if OS.linux?
 
     system "./configure", *args
-    system "make", "install"
+    # Do this in separate steps because parallel `make install` fails intermittently.
+    # Reported upstream at https://github.com/neomutt/neomutt/issues/3783
+    system "make"
+    ENV.deparallelize { system "make", "install" }
   end
 
   test do
