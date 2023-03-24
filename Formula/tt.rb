@@ -7,6 +7,7 @@ class Tt < Formula
 
   depends_on "go" => :build
   depends_on "mage" => :build
+  depends_on "pkg-config" => :build
   depends_on "openssl@3"
 
   def install
