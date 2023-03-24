@@ -24,8 +24,9 @@ class Htmlcleaner < Formula
 
     inreplace "pom.xml" do |s|
       # Homebrew's OpenJDK no longer accepts Java 5 source
-      s.gsub! "<source>1.5</source>", "<source>1.7</source>"
-      s.gsub! "<target>1.5</target>", "<target>1.7</target>"
+      # Reported upstream at https://sourceforge.net/p/htmlcleaner/bugs/235/
+      s.gsub! "<source>1.5</source>", "<source>1.8</source>"
+      s.gsub! "<target>1.5</target>", "<target>1.8</target>"
       # OpenJDK >14 doesn't support older maven-javadoc-plugin versions
       s.gsub! "<version>2.9</version>", "<version>3.2.0</version>"
     end
