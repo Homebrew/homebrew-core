@@ -88,8 +88,8 @@ index 369cc8c..6dbac6f 100644
          <configuration>
 -          <source>1.5</source>
 -          <target>1.5</target>
-+          <source>1.7</source>
-+          <target>1.7</target>
++          <source>1.8</source>
++          <target>1.8</target>
          </configuration>
        </plugin>
        
