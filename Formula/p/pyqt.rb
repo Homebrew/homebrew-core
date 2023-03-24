@@ -81,7 +81,7 @@ class Pyqt < Formula
       r.stage do
         inreplace "pyproject.toml", "[tool.sip.project]",
           "[tool.sip.project]\nsip-include-dirs = [\"#{site_packages}/PyQt#{version.major}/bindings\"]\n"
-        system "sip-install", "--target-dir", site_packages
+        system "sip-install", "--verbose", "--target-dir", site_packages
       end
     end
   end
