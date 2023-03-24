@@ -6,7 +6,7 @@ class Umlet < Formula
   license "GPL-3.0-only"
 
   livecheck do
-    url "https://www.umlet.com/changes.htm"
+    url "https://www.umlet.com/changes.html"
     regex(/href=.*?umlet-standalone[._-]v?(\d+(?:\.\d+)+)\.(t|zip)/i)
   end
 
