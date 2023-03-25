@@ -1,8 +1,8 @@
 class Lasso < Formula
   desc "Library for Liberty Alliance and SAML protocols"
   homepage "https://lasso.entrouvert.org/"
-  url "https://dev.entrouvert.org/releases/lasso/lasso-2.8.0.tar.gz"
-  sha256 "ffcbd5851d98586c7e1caf43bad66164211a3b61d12bf860a0598448ff9f2b38"
+  url "https://dev.entrouvert.org/releases/lasso/lasso-2.8.2.tar.gz"
+  sha256 "6a1831bfdbf8f424c7508aba47b045d51341ec0fde9122f38b0b86b096ef533e"
   license "GPL-2.0-or-later"
 
   livecheck do
