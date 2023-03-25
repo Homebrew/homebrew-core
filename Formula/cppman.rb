@@ -3,8 +3,8 @@ class Cppman < Formula
 
   desc "C++ 98/11/14/17/20 manual pages from cplusplus.com and cppreference.com"
   homepage "https://github.com/aitjcize/cppman"
-  url "https://files.pythonhosted.org/packages/1f/d1/96e8ad31e41763743137c3e3eeaee97e999e68af4bf4c270de661344267c/cppman-0.5.4.tar.gz"
-  sha256 "7884783a149a1aceb801e278f85e2e62da89abe910854e6fdf7a99a1e08d94a3"
+  url "https://files.pythonhosted.org/packages/53/d7/e67138a6a1fa199dc1cda6f2c5bb72b2b1d2b0c834ba4a9a58f832c98edf/cppman-0.5.5.tar.gz"
+  sha256 "8436c789b020cb6109b27efe881144588ead4ecc710778b39f0a0c42fc01b604"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -23,8 +23,8 @@ class Cppman < Formula
   depends_on "six"
 
   resource "beautifulsoup4" do
-    url "https://files.pythonhosted.org/packages/e8/b0/cd2b968000577ec5ce6c741a54d846dfa402372369b8b6861720aa9ecea7/beautifulsoup4-4.11.1.tar.gz"
-    sha256 "ad9aa55b65ef2808eb405f46cf74df7fcb7044d5cbc26487f96eb2ef2e436693"
+    url "https://files.pythonhosted.org/packages/c5/4c/b5b7d6e1d4406973fb7f4e5df81c6f07890fa82548ac3b945deed1df9d48/beautifulsoup4-4.12.0.tar.gz"
+    sha256 "c5fceeaec29d09c84970e47c65f2f0efe57872f7cff494c9691a26ec0ff13234"
   end
 
   resource "html5lib" do
@@ -33,8 +33,8 @@ class Cppman < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/f3/03/bac179d539362319b4779a00764e95f7542f4920084163db6b0fd4742d38/soupsieve-2.3.2.post1.tar.gz"
-    sha256 "fc53893b3da2c33de295667a0e19f078c14bf86544af307354de5fcf12a3f30d"
+    url "https://files.pythonhosted.org/packages/1b/cb/34933ebdd6bf6a77daaa0bd04318d61591452eb90ecca4def947e3cb2165/soupsieve-2.4.tar.gz"
+    sha256 "e28dba9ca6c7c00173e34e4ba57448f0688bb681b7c5e8bf4971daafc093d69a"
   end
 
   resource "webencodings" do
