@@ -1,8 +1,8 @@
 class Openvino < Formula
   desc "Open Visual Inference And Optimization toolkit for AI inference"
   homepage "https://docs.openvino.ai"
-  url "https://github.com/openvinotoolkit/openvino/archive/refs/tags/2022.3.0.tar.gz"
-  sha256 "b8dc1880d9ab71bd24aa5b2565724c12fb78172613e23ce312e0b98a6d8a0dd7"
+  url "https://github.com/ilya-lavrenov/openvino/archive/460a00dedd4b63427be8bfb83a2b503f702dea68.tar.gz"
+  sha256 "798266e059add5dd2bf2a6cf620987394b0c727ff4dc3971655840c3c1756933"
   license "Apache-2.0"
   head "https://github.com/ilya-lavrenov/openvino.git", branch: "system-snappy"
 
@@ -24,7 +24,7 @@ class Openvino < Formula
   depends_on "cmake" => [:build, :test]
   depends_on "pkg-config" => [:build, :test]
   depends_on "flatbuffers" => :build
-  depends_on "protobuf" => :build
+  depends_on "protobuf@3" => :build
   depends_on "python@3.11" => :build
   depends_on "pugixml"
   depends_on "snappy"
@@ -48,6 +48,17 @@ class Openvino < Formula
     on_intel do
       url "https://github.com/openvinotoolkit/oneDNN/archive/02857209960e9d91c1b3df90ab4c7ac359bf0973.tar.gz"
       sha256 "7a145b754684824846449cf2cc4633815ea1851ded1bd6653c276b88816a4710"
+    end
+  end
+
+  on_linux do
+    depends_on "opencl-headers"
+    depends_on "opencl-clhpp-headers"
+    depends_on "opencl-icd-loader"
+
+    resource "onednn_gpu" do
+      url "https://github.com/oneapi-src/oneDNN/archive/b52e9cd54df5af92d1d586d435cdd514dd7617fe.tar.gz"
+      sha256 "2c2a89aae84cc359d8ad5cd86cdfd1136405a69054aa413ccf09476241563816"
     end
   end
 
@@ -82,6 +93,7 @@ class Openvino < Formula
       resource("arm_compute").stage buildpath/"openvino_contrib/modules/arm_plugin/thirdparty/ComputeLibrary"
     else
       resource("onednn_cpu").stage buildpath/"src/plugins/intel_cpu/thirdparty/onednn"
+      resource("onednn_gpu").stage buildpath/"src/plugins/intel_gpu/thirdparty/onednn_gpu"
     end
 
     cmake_args = std_cmake_args + %w[
@@ -90,7 +102,6 @@ class Openvino < Formula
       -DENABLE_CPPLINT=OFF
       -DENABLE_CLANG_FORMAT=OFF
       -DENABLE_NCC_STYLE=OFF
-      -DENABLE_INTEL_GPU=OFF
       -DENABLE_TEMPLATE=OFF
       -DENABLE_INTEL_GNA=OFF
       -DENABLE_PYTHON=OFF
@@ -136,6 +147,9 @@ class Openvino < Formula
           char* ret = NULL;
           OV_CALL(ov_core_create(&core));
           OV_CALL(ov_core_get_property(core, "CPU", "AVAILABLE_DEVICES", &ret));
+      #ifndef __APPLE__
+          OV_CALL(ov_core_get_property(core, "GPU", "AVAILABLE_DEVICES", &ret));
+      #endif
           OV_CALL(ov_core_get_property(core, "AUTO", "SUPPORTED_METRICS", &ret));
           OV_CALL(ov_core_get_property(core, "MULTI", "SUPPORTED_METRICS", &ret));
           OV_CALL(ov_core_get_property(core, "HETERO", "SUPPORTED_METRICS", &ret));
