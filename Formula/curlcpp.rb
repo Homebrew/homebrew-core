@@ -1,8 +1,8 @@
 class Curlcpp < Formula
   desc "Object oriented C++ wrapper for CURL (libcurl)"
   homepage "https://josephp91.github.io/curlcpp"
-  url "https://github.com/JosephP91/curlcpp/archive/refs/tags/2.1.tar.gz"
-  sha256 "4640806cdb1aad5328fd38dfbfb40817c64d17e9c7b5176f6bf297a98c6e309c"
+  url "https://github.com/JosephP91/curlcpp/archive/refs/tags/3.0.tar.gz"
+  sha256 "fcb78774c493ca8f7fa51741dd75d43c8a5a04a788b47e44216ca4d9cf672344"
   license "MIT"
 
   bottle do
