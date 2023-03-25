@@ -7,6 +7,11 @@ class ElmFormat < Formula
   license "BSD-3-Clause"
   head "https://github.com/avh4/elm-format.git", branch: "main"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4e30b1ced1e42be3d4f7b2881876f7e2c4f85e4fbb867fba93bc78334c1200e2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "45548670240e259970da0af18431383b0ac2ddb99e0daf4d925eedee9707cdc7"
