@@ -4,7 +4,7 @@ class Openvino < Formula
   url "https://github.com/openvinotoolkit/openvino/archive/refs/tags/2022.3.0.tar.gz"
   sha256 "b8dc1880d9ab71bd24aa5b2565724c12fb78172613e23ce312e0b98a6d8a0dd7"
   license "Apache-2.0"
-  head "https://github.com/openvinotoolkit/openvino.git", branch: "master"
+  head "https://github.com/ilya-lavrenov/openvino.git", branch: "system-snappy"
 
   livecheck do
     url :stable
@@ -22,31 +22,32 @@ class Openvino < Formula
   end
 
   depends_on "cmake" => [:build, :test]
-  depends_on "gflags" => :build
   depends_on "pkg-config" => [:build, :test]
+  depends_on "flatbuffers" => :build
   depends_on "protobuf" => :build
   depends_on "python@3.11" => :build
   depends_on "pugixml"
+  depends_on "snappy"
   depends_on "tbb"
 
   on_arm do
     depends_on "scons" => :build
 
     resource "openvino_contrib" do
-      url "https://github.com/openvinotoolkit/openvino_contrib/archive/refs/tags/2022.3.0.tar.gz"
-      sha256 "245e19b4a2c926aedb764fecbd02c5023deab56eba497e4a3c8194e760e26413"
+      url "https://github.com/openvinotoolkit/openvino_contrib/archive/ddb21dbc62002c2e75abf23e32437fdd62bb6f29.tar.gz"
+      sha256 "6dae34b400041203b1deee192b2bd95e1bce93447a64afaf311b61d414241967"
     end
 
     resource "arm_compute" do
-      url "https://github.com/ARM-software/ComputeLibrary/archive/refs/tags/v22.11.tar.gz"
-      sha256 "e20a060d3c4f803889d96c2f0b865004ba3ef4e228299a44339ea1c1ba827c85"
+      url "https://github.com/ARM-software/ComputeLibrary/archive/refs/tags/v23.02.tar.gz"
+      sha256 "86baaee540e8b5672a425d3f62aa51f240b1a0f63601163d9a5a8f72f6df8b4a"
     end
   end
 
   resource "onednn_cpu" do
     on_intel do
-      url "https://github.com/openvinotoolkit/oneDNN/archive/44de3c3698b687c26e487fc8f0213fa487e8fe2c.tar.gz"
-      sha256 "2c6aa7d787a947aa032224683f216ab38c168de4aed61d0554671774060a3615"
+      url "https://github.com/openvinotoolkit/oneDNN/archive/02857209960e9d91c1b3df90ab4c7ac359bf0973.tar.gz"
+      sha256 "7a145b754684824846449cf2cc4633815ea1851ded1bd6653c276b88816a4710"
     end
   end
 
@@ -56,18 +57,18 @@ class Openvino < Formula
   end
 
   resource "ittapi" do
-    url "https://github.com/intel/ittapi/archive/refs/tags/v3.23.0.tar.gz"
-    sha256 "9af1231808c602c2f7a66924c8798b1741d3aa4b15f3874d82ca7a89b5dbb1b1"
+    url "https://github.com/intel/ittapi/archive/refs/tags/v3.24.0.tar.gz"
+    sha256 "36c42d3f2446ddfaa2d7dfa02dfaa79615933f1a68a72d7e4f1d70de7b56e2c9"
   end
 
   resource "xbyak" do
-    url "https://github.com/herumi/xbyak/archive/refs/tags/v6.63.tar.gz"
-    sha256 "16c60f0682502624115c4dc9fec66782ae68ef32e469946f50cd169179ea92bb"
+    url "https://github.com/herumi/xbyak/archive/refs/tags/v6.69.tar.gz"
+    sha256 "7eb64e2c18527824402b16f26c6118ba82f40f57fe6e3ab05c6e2883246a04f1"
   end
 
   resource "onnx" do
-    url "https://github.com/onnx/onnx/archive/refs/tags/v1.12.0.tar.gz"
-    sha256 "052ad3d5dad358a33606e0fc89483f8150bb0655c99b12a43aa58b5b7f0cc507"
+    url "https://github.com/onnx/onnx/archive/refs/tags/v1.13.1.tar.gz"
+    sha256 "090d3e10ec662a98a2a72f1bf053f793efc645824f0d4b779e0ce47468a0890e"
   end
 
   def install
@@ -92,7 +93,6 @@ class Openvino < Formula
       -DENABLE_INTEL_GPU=OFF
       -DENABLE_TEMPLATE=OFF
       -DENABLE_INTEL_GNA=OFF
-      -DENABLE_INTEL_MYRIAD_COMMON=OFF
       -DENABLE_PYTHON=OFF
       -DENABLE_SAMPLES=OFF
       -DENABLE_COMPILE_TOOL=OFF
@@ -100,6 +100,8 @@ class Openvino < Formula
       -DENABLE_SYSTEM_PUGIXML=ON
       -DENABLE_SYSTEM_TBB=ON
       -DENABLE_SYSTEM_PROTOBUF=ON
+      -DENABLE_SYSTEM_FLATBUFFERS=ON
+      -DENABLE_SYSTEM_SNAPPY=ON
     ]
 
     if Hardware::CPU.arm?
@@ -115,7 +117,7 @@ class Openvino < Formula
 
     components = %w[core core_dev
                     cpu gpu batch multi hetero
-                    ir onnx paddle pytorch tensorflow]
+                    ir onnx paddle pytorch tensorflow tensorflow_lite]
     components.each { |comp| system "cmake", "--install", "#{buildpath}/openvino_build", "--component", comp }
   end
 
@@ -166,6 +168,6 @@ class Openvino < Formula
 
     system "cmake", testpath.to_s
     system "cmake", "--build", testpath.to_s
-    assert_equal "4", shell_output("#{testpath}/openvino_frontends_test").strip
+    assert_equal "6", shell_output("#{testpath}/openvino_frontends_test").strip
   end
 end
