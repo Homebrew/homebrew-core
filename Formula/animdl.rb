@@ -3,8 +3,8 @@ class Animdl < Formula
 
   desc "Anime downloader and streamer"
   homepage "https://github.com/justfoolingaround/animdl"
-  url "https://files.pythonhosted.org/packages/45/8b/63cb40fb2be2af415b90ea0ed16e0cd4c4401bb7d828accdc57793ffffc5/animdl-1.7.11.tar.gz"
-  sha256 "70d2d3e7ba90326c46cb1e5f218f12da9013f95dfd8f050ce8a26cdd86cc268e"
+  url "https://files.pythonhosted.org/packages/cd/e2/9b0333167fbe5fe7fe17c6953a073109703beb3d1974450d7c964f3ebe8f/animdl-1.7.12.tar.gz"
+  sha256 "275b33ba5707c12b94061c325eb176ab6a87a657a64fd4c56785669b5f3880f3"
   license "GPL-3.0-only"
   head "https://github.com/justfoolingaround/animdl.git", branch: "master"
 
