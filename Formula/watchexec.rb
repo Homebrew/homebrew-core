@@ -8,7 +8,7 @@ class Watchexec < Formula
 
   livecheck do
     url :stable
-    regex(/^v(\d+(?:\.\d+)+)$/i)
+    regex(/^(?:cli[._-])?v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
