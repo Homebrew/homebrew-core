@@ -4,6 +4,7 @@ class EtcdCppApiv3 < Formula
   url "https://github.com/etcd-cpp-apiv3/etcd-cpp-apiv3/archive/refs/tags/v0.14.2.tar.gz"
   sha256 "2cd0bab4b1c5e8a50e0c566b26b058512b93799335e8d581b8b5d16b6788cbdc"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "16d55281d9dabacb00d0b7411aaeb8ee163c03784f1892558b64ea24b2b57ed6"
