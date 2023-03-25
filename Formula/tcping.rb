@@ -1,8 +1,8 @@
 class Tcping < Formula
   desc "TCP connect to the given IP/port combo"
   homepage "https://github.com/mkirchner/tcping"
-  url "https://github.com/mkirchner/tcping/archive/2.0.0.tar.gz"
-  sha256 "59f905bb458b9665a34a3cb82899805e77973045f75c382d9b11947d312cafc5"
+  url "https://github.com/mkirchner/tcping/archive/2.1.0.tar.gz"
+  sha256 "b8aa427420fe00173b5a2c0013d78e52b010350f5438bf5903c1942cba7c39c9"
   license "MIT"
   head "https://github.com/mkirchner/tcping.git", branch: "master"
 
