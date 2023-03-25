@@ -21,10 +21,6 @@ class Hexgui < Formula
   depends_on "openjdk"
 
   def install
-    # Target Java 8 or later.
-    # Remove when https://github.com/apetresc/hexgui/issues/3 is resolved.
-    inreplace "build.xml", 'source="1.7" target="1.7"', 'source="1.8" target="1.8"'
-
     system "ant"
     libexec.install Dir["*"]
     env = Language::Java.overridable_java_home_env
