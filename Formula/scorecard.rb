@@ -2,19 +2,19 @@ class Scorecard < Formula
   desc "Security health metrics for Open Source"
   homepage "https://github.com/ossf/scorecard"
   url "https://github.com/ossf/scorecard.git",
-      tag:      "v4.10.4",
-      revision: "98316298749fdd62d3cc99423baec45ae11af662"
+      tag:      "v4.10.5",
+      revision: "27cfe92ed356fdb5a398c919ad480817ea907808"
   license "Apache-2.0"
   head "https://github.com/ossf/scorecard.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e9db798b45c5c8bba34c518d9ad43c3250a74f98af8d7c8adbcb6111ef9df6fa"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "fc86c5f98c7bcfd3ccd9b5b93ad304a824f2588fbcff23a15e14e96d6604c9d1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e9f80e4132412bd10efdc5e02f1712a3b5a3d5e0a76a98658e7315793a10d2e7"
-    sha256 cellar: :any_skip_relocation, ventura:        "991757bc14e288f6fc3069aad39ef277325863d6277335bd0367c7e15087eef3"
-    sha256 cellar: :any_skip_relocation, monterey:       "d56454b8933858690c500ce3870f3d92dbf88c8966d6e1e5e1b346352644e325"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6c38a224df59bf76f2a3d24e7b580d06ff6600fa3553c2d3c5cafbc7b3814c2d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b0bcf936fe1fe6cf1258b570d65a4bffc855ba97311d9aa1e9736572d8845689"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ac00790290a6611cd7759964ef30fb8c191a477df942888adefa3f8ca72ad075"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "75fe8acee3f03745f43ba5fa7f62f4a4a722a956d149e8c28d9a42d7ed75a0f3"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b1ed2b277256147bf83b59a10937bc275535159212d07c927442fb3009b5b951"
+    sha256 cellar: :any_skip_relocation, ventura:        "538e909ff73c8fe2d404b945fc561f0e8900f88f796846d3a3581706b8dc33dc"
+    sha256 cellar: :any_skip_relocation, monterey:       "6ac9e161ed0485e5cd69798ea63cb95db21ccf7555e79d22742c2e2521f7894d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "523611353625e1bf5acde28acf3abe089ef2666031b83cd978f2433d29c69c8b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "064e4a5d7219495bff7088c6bf67d1f46203b5e495c5fee9763cf8c177773a18"
   end
 
   depends_on "go" => :build

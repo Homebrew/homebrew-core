@@ -1,20 +1,19 @@
 class Chapel < Formula
   desc "Programming language for productive parallel computing at scale"
   homepage "https://chapel-lang.org/"
-  url "https://github.com/chapel-lang/chapel/releases/download/1.29.0/chapel-1.29.0.tar.gz"
-  sha256 "f87bc7285c4641ed540f806c63ab904137b650b1e232a11c15f76e874e079804"
+  url "https://github.com/chapel-lang/chapel/releases/download/1.30.0/chapel-1.30.0.tar.gz"
+  sha256 "8d933f4b6e497d9699a14deedd222e18c77c523483957d66201731d0d94285d2"
   license "Apache-2.0"
   head "https://github.com/chapel-lang/chapel.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 arm64_ventura:  "8334d9cce471a9bacfbe8552ead3d28d730e7af0c96c036d47f23679b41aa18a"
-    sha256 arm64_monterey: "8f39f5b62a3c929c9e666279adc377f6f1427e3d17be7fc80a0744a6f061229e"
-    sha256 arm64_big_sur:  "4bc63c52fb948046a29604fdda5b16943c3e3af8de56cb668c1560f2d68b2503"
-    sha256 ventura:        "629240cca25b97de4712b70ca3c12dc2b45cf491f79bf3db76ecdb9e39be6e81"
-    sha256 monterey:       "c13b6f38cc00a193ee94983c3e512e329b4f33358263feaa84a9dec24595015d"
-    sha256 big_sur:        "8170472696b28130225bb6436d07157af4fee7874b4833806a6c0aead3013b73"
-    sha256 x86_64_linux:   "d8c10f52877206a51e095ec1cf3d515b90cdc4c168f34d777e5e7ea154f642eb"
+    sha256 arm64_ventura:  "39f403b38e8a289fa345de2cf0d2a74abb5b3062a50e78053fc663569f1f7af6"
+    sha256 arm64_monterey: "b2ba9767808567e985c6231cf3819cf9c3de9cd548f250540d581780214688c2"
+    sha256 arm64_big_sur:  "b27995700396ba69994c20c98be5f2fffa3b05f3e10c65781e2546fcde4062f3"
+    sha256 ventura:        "452ea26dd572f9f2e0ceaf9bd0bbbdecf5dc1149c81318bee92a8c8837efae19"
+    sha256 monterey:       "65c5d1c6d68a6d62a59ecec2121b30864bb5b02f494c5879994eb6db64f3ba3e"
+    sha256 big_sur:        "e9e3844d08f20b2eae3a6517c15ccc4263d88ffb6a7a94d79ad28bd20e52683f"
+    sha256 x86_64_linux:   "eb599bde89543d9acdd7d9946866450935efb471c0370abe870fd0f34d203897"
   end
 
   depends_on "cmake"
@@ -46,10 +45,6 @@ class Chapel < Formula
     # Chapel uses this ENV to work out where to install.
     ENV["CHPL_HOME"] = libexec
     ENV["CHPL_GMP"] = "system"
-    # This enables a workaround for
-    #   https://github.com/llvm/llvm-project/issues/54438
-    ENV["CHPL_HOST_USE_SYSTEM_LIBCXX"] = "yes"
-
     # don't try to set CHPL_LLVM_GCC_PREFIX since the llvm
     # package should be configured to use a reasonable GCC
     (libexec/"chplconfig").write <<~EOS

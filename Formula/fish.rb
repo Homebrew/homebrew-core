@@ -1,8 +1,8 @@
 class Fish < Formula
   desc "User-friendly command-line shell for UNIX-like operating systems"
   homepage "https://fishshell.com"
-  url "https://github.com/fish-shell/fish-shell/releases/download/3.6.0/fish-3.6.0.tar.xz"
-  sha256 "97044d57773ee7ca15634f693d917ed1c3dc0fa7fde1017f1626d60b83ea6181"
+  url "https://github.com/fish-shell/fish-shell/releases/download/3.6.1/fish-3.6.1.tar.xz"
+  sha256 "55402bb47ca6739d8aba25e41780905b5ce1bce0a5e0dd17dca908b5bc0b49b2"
   license "GPL-2.0-only"
 
   livecheck do
@@ -13,13 +13,13 @@ class Fish < Formula
   pour_bottle? only_if: :default_prefix
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "b7cfa15ddc6d68c2c4c76d7b1c5b1b9925e7c312893cd6495e7e4a55189293db"
-    sha256 cellar: :any,                 arm64_monterey: "059122804525146dc81a24ae04e2f48367f4f6689c7841d3425f7779faec6dfa"
-    sha256 cellar: :any,                 arm64_big_sur:  "2ed86a252b527d7dbd2fa49c9ec50de2840d84d3eb541c9dc7a57a6a6c53865a"
-    sha256 cellar: :any,                 ventura:        "aeb45cbbf3a2651936a2d947e8f88d7dc3b9c967f4240e1bc8db244c96f68af8"
-    sha256 cellar: :any,                 monterey:       "f0264928c8d313c0c2e41421d5c75ff964ca530db324168138441adcd7a0348e"
-    sha256 cellar: :any,                 big_sur:        "d653f23d4037db777262dd1bdf3a1e5710483be080132a56213eaecd98ea995d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3e2476caac96faa299f1b474ad8970ab7bc71c0498e1357ffd7a4ace93e802b1"
+    sha256 cellar: :any,                 arm64_ventura:  "571264d1c65ebb98496384a27239a938098d87f6fd3177394d82b915a0c499fc"
+    sha256 cellar: :any,                 arm64_monterey: "b8eeb9a400c53d767264c7df2aa5174ed52515347e1c47210b2a51dafc086654"
+    sha256 cellar: :any,                 arm64_big_sur:  "d01c4f24ea68d3790664f33d22758fe475f2dd69b547c4dd57d01ba4b2e33594"
+    sha256 cellar: :any,                 ventura:        "2af848db0107a294a3fcb9adb00242ace9428a8ff3d7638998f4a7c3340d64b5"
+    sha256 cellar: :any,                 monterey:       "f2150d371dbb4d63c93a5de2b7179ad219be124d3a33d6ba8c01d1064d209c53"
+    sha256 cellar: :any,                 big_sur:        "f6377a53c4bc817e7655b9f6af6664fd1595043bda7dbde9eca4e16e47a58465"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "67618246603a384573a202679a2b0169601e6011aa110fe96b536dc40fa95e33"
   end
 
   head do

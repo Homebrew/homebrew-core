@@ -1,19 +1,18 @@
 class SpirvLlvmTranslator < Formula
   desc "Tool and a library for bi-directional translation between SPIR-V and LLVM IR"
   homepage "https://github.com/KhronosGroup/SPIRV-LLVM-Translator"
-  url "https://github.com/KhronosGroup/SPIRV-LLVM-Translator/archive/refs/tags/v15.0.0.tar.gz"
-  sha256 "b1bebd77f72988758c00852e78c2ddc545815a612169a0cb377d021e2f846d88"
+  url "https://github.com/KhronosGroup/SPIRV-LLVM-Translator/archive/refs/tags/v16.0.0.tar.gz"
+  sha256 "305fac5bb8efdad9054f0d27b5b765aca8b3349a500e2ba0c927763e42badc2b"
   license "Apache-2.0" => { with: "LLVM-exception" }
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "a7b45cd6bfc64d4577938959ee39dbab00b910340b4ce110c8601827b0542066"
-    sha256 cellar: :any,                 arm64_monterey: "080883216778e904458b872f6bf66a11be2aafa4618e9a09ad67dc4932eca1f8"
-    sha256 cellar: :any,                 arm64_big_sur:  "222a404360350f7f3a498882e74adeac6118c39ab21aff5caeb913d453272581"
-    sha256 cellar: :any,                 ventura:        "ba287facef25b6bb14f7fbb90bdc7ab477a7f7b62bcadf652d147e604d1ec752"
-    sha256 cellar: :any,                 monterey:       "65c90b93e2649a7fa4d28c45902a768f6883068a6f6ad1f7a5713abd9ac1f9bc"
-    sha256 cellar: :any,                 big_sur:        "e1a94df6543392c2679b0d0e9e65201e69d9b9542c72a5d9254c05cbd2805a11"
-    sha256 cellar: :any,                 catalina:       "eab80f7162c66b933b6041934bab45f9aee1aaa53e26e68c777bdec5f993c612"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ec199d4e665b66f9ee4c6d23cc4ec9add293efdb7c3f1a75967d4d9aa50a2308"
+    sha256 cellar: :any,                 arm64_ventura:  "33089120098629f38fc95bf77e546b88621fc17d728a1ac1696e9f3ed0d05990"
+    sha256 cellar: :any,                 arm64_monterey: "8019ed273411a8735364c93f62ee983453b6d6e3537b26e5c1276b6fabc8ee4c"
+    sha256 cellar: :any,                 arm64_big_sur:  "08998820e25b83bc260fb003a804bd1a48d45b8d5d1a59cb7fc855bc4aeaebf8"
+    sha256 cellar: :any,                 ventura:        "452c59b3c06adb9fee5b6994f5ca671e9613b9496f9fb123438232b91accfdda"
+    sha256 cellar: :any,                 monterey:       "7a651c2959c2599b8566672a2a673b3b57fa063aac59c9a52d65346cdff06348"
+    sha256 cellar: :any,                 big_sur:        "b11a428a3045237d0b7208c85e420a6020337004dd07de66ce44804ad3a9a17e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "34b47b6b0a422ea03383704b5fdf61703bcae7f72249f640a478db25780e49d3"
   end
 
   depends_on "cmake" => :build
@@ -23,7 +22,7 @@ class SpirvLlvmTranslator < Formula
   fails_with gcc: "5"
 
   def llvm
-    deps.map(&:to_formula).find { |f| f.name.match? "^llvm" }
+    deps.map(&:to_formula).find { |f| f.name.match?(/^llvm(@\d+)?$/) }
   end
 
   def install

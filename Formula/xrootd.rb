@@ -1,8 +1,8 @@
 class Xrootd < Formula
   desc "High performance, scalable, fault-tolerant access to data"
   homepage "https://xrootd.slac.stanford.edu/"
-  url "https://xrootd.slac.stanford.edu/download/v5.5.3/xrootd-5.5.3.tar.gz"
-  sha256 "703829c2460204bd3c7ba8eaa23911c3c9a310f6d436211ba0af487ef7f6a980"
+  url "https://xrootd.slac.stanford.edu/download/v5.5.4/xrootd-5.5.4.tar.gz"
+  sha256 "41a8557ea2d118b1950282b17abea9230b252aa5ee1a5959173e2534b7d611d3"
   license "LGPL-3.0-or-later"
   head "https://github.com/xrootd/xrootd.git", branch: "master"
 
@@ -12,13 +12,13 @@ class Xrootd < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "bb2343770848bbd54961a62ef494a5238c0785ef36e69ab90202c918f930412c"
-    sha256 cellar: :any,                 arm64_monterey: "87053bf492794e61fe1d18b6057648390323d734b55af8d5f8f5629722b59119"
-    sha256 cellar: :any,                 arm64_big_sur:  "266ebe011cacbba922bdb56ec30c3d3e98b22c5acfd24a1f85f272bbaeb5db59"
-    sha256 cellar: :any,                 ventura:        "1d916822917c4b4ba1363848af848781c83d9937119f315462fce06f10bf2309"
-    sha256 cellar: :any,                 monterey:       "d74ab47104a0c9e5da8fb840f71808ad6f71b4d3b2a5a469cfdcd1b4a0128d59"
-    sha256 cellar: :any,                 big_sur:        "2de48ccdaa7870692c703c236226d3da25c8bb5378f97cccd2e0c62c59863882"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "79ebd4e125dcb7c709f9983283270c97dc092db7dc52ec57551df30a9ca3b855"
+    sha256 cellar: :any,                 arm64_ventura:  "c5937c9f0e16c78dc35b6692808481c54cf51c2c5e82656db691d35be1131325"
+    sha256 cellar: :any,                 arm64_monterey: "4df046cc23f695711375fde5fe00b240cbf121264d4a041d05740488bd75cae2"
+    sha256 cellar: :any,                 arm64_big_sur:  "93576e8c90048cb768f5f50351657f524ada3bc4542f08ff01f44f2ac9188e9f"
+    sha256 cellar: :any,                 ventura:        "73c3baafe5008641a6b2bdbf68e40a3b9fcf622545d2f3682dd1fc3381f5d7d0"
+    sha256 cellar: :any,                 monterey:       "c6e339d4d6a19a5764c064422fd741ccde1f218ff525a5e8e6f1bf97539af17f"
+    sha256 cellar: :any,                 big_sur:        "1df51eaca0cf91ab85498d05210bbfd2b4e19f05b1b96bf69f373d53f0deb94a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "93e9abd6c5e46b9623892cdef2cc721812eeca1b1e3788891a9e8150cc843252"
   end
 
   depends_on "cmake" => :build

@@ -13,13 +13,14 @@ class Go < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "3517ed5d96d5a40cd4c44a35f7799a239b82d9855a6799c6f60193768f9825cd"
-    sha256 arm64_monterey: "3517ed5d96d5a40cd4c44a35f7799a239b82d9855a6799c6f60193768f9825cd"
-    sha256 arm64_big_sur:  "3517ed5d96d5a40cd4c44a35f7799a239b82d9855a6799c6f60193768f9825cd"
-    sha256 ventura:        "ea6a2d446679fd9bc460425f3fce2e1c4a27504c6e6ad2cd9c8f7380fc75988a"
-    sha256 monterey:       "ea6a2d446679fd9bc460425f3fce2e1c4a27504c6e6ad2cd9c8f7380fc75988a"
-    sha256 big_sur:        "ea6a2d446679fd9bc460425f3fce2e1c4a27504c6e6ad2cd9c8f7380fc75988a"
-    sha256 x86_64_linux:   "dabdff435af1ef8289dbfe4313cb190f5c61cb46b3b845b37d79beaf38c2434b"
+    rebuild 1
+    sha256 arm64_ventura:  "c36d24caf8e6427fbc5ee5830ce8ba7162235e8a98f50763bbe8420093b47567"
+    sha256 arm64_monterey: "c36d24caf8e6427fbc5ee5830ce8ba7162235e8a98f50763bbe8420093b47567"
+    sha256 arm64_big_sur:  "c36d24caf8e6427fbc5ee5830ce8ba7162235e8a98f50763bbe8420093b47567"
+    sha256 ventura:        "bd297e9d748d65a8c0229ab8747febe25033d4a154b5f58f581a3e1f760342cb"
+    sha256 monterey:       "bd297e9d748d65a8c0229ab8747febe25033d4a154b5f58f581a3e1f760342cb"
+    sha256 big_sur:        "bd297e9d748d65a8c0229ab8747febe25033d4a154b5f58f581a3e1f760342cb"
+    sha256 x86_64_linux:   "868a2d5c202c7436c193c71c3143bfa464658eacc045cf8c59dedd74fb0d6944"
   end
 
   # Don't update this unless this version cannot bootstrap the new version.
@@ -55,14 +56,15 @@ class Go < Formula
 
     cd "src" do
       ENV["GOROOT_FINAL"] = libexec
-      system "./make.bash"
+      # Set portable defaults for CC/CXX to be used by cgo
+      with_env(CC: "cc", CXX: "c++") { system "./make.bash" }
     end
 
     rm_rf "gobootstrap" # Bootstrap not required beyond compile.
     libexec.install Dir["*"]
     bin.install_symlink Dir[libexec/"bin/go*"]
 
-    system bin/"go", "install", "-race", "std"
+    system bin/"go", "install", "std", "cmd"
 
     # Remove useless files.
     # Breaks patchelf because folder contains weird debug/test files
@@ -81,13 +83,35 @@ class Go < Formula
           fmt.Println("Hello World")
       }
     EOS
+
     # Run go fmt check for no errors then run the program.
     # This is a a bare minimum of go working as it uses fmt, build, and run.
     system bin/"go", "fmt", "hello.go"
     assert_equal "Hello World\n", shell_output("#{bin}/go run hello.go")
 
-    ENV["GOOS"] = "freebsd"
-    ENV["GOARCH"] = "amd64"
-    system bin/"go", "build", "hello.go"
+    with_env(GOOS: "freebsd", GOARCH: "amd64") do
+      system bin/"go", "build", "hello.go"
+    end
+
+    (testpath/"hello_cgo.go").write <<~EOS
+      package main
+
+      /*
+      #include <stdlib.h>
+      #include <stdio.h>
+      void hello() { printf("%s\\n", "Hello from cgo!"); fflush(stdout); }
+      */
+      import "C"
+
+      func main() {
+          C.hello()
+      }
+    EOS
+
+    # Try running a sample using cgo without CC or CXX set to ensure that the
+    # toolchain's default choice of compilers work
+    with_env(CC: nil, CXX: nil) do
+      assert_equal "Hello from cgo!\n", shell_output("#{bin}/go run hello_cgo.go")
+    end
   end
 end

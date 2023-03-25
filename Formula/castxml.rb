@@ -1,8 +1,8 @@
 class Castxml < Formula
   desc "C-family Abstract Syntax Tree XML Output"
   homepage "https://github.com/CastXML/CastXML"
-  url "https://github.com/CastXML/CastXML/archive/v0.6.0.tar.gz"
-  sha256 "3da69bc1e7dd7ba47dada468d0b95e6090f2fda313127bc76fccffda062d542c"
+  url "https://github.com/CastXML/CastXML/archive/v0.6.1.tar.gz"
+  sha256 "7a2e5ae99c66b5b44e682f261248cd874fdd7554f4a24fc31d09ac5b6dcde7e5"
   license "Apache-2.0"
   head "https://github.com/CastXML/castxml.git", branch: "master"
 
@@ -12,13 +12,13 @@ class Castxml < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "ec4420fe2c13d8ec8bb2f1eed90efecbfae34141f53e952eb5c0f81ce2f5ef68"
-    sha256 cellar: :any,                 arm64_monterey: "193cf1a33c31b804797aa31075001318abec848b41a3c9f7adcd0b250559a5bb"
-    sha256 cellar: :any,                 arm64_big_sur:  "804415921c12e80aac8e2ea3a54e4a0df0b68d5c5e8efac8c32753b765c31f6e"
-    sha256 cellar: :any,                 ventura:        "a98a9faea2837d6be196aa26f33bb71f7ff9053ca40f5bf2b842d1cf5d393f52"
-    sha256 cellar: :any,                 monterey:       "6c3d7fea524c0dd2bdd60684693edef40feb85f5ce5206322abc2981d375c603"
-    sha256 cellar: :any,                 big_sur:        "75e03d1fe17f2f10898b6db349bda5c952658ee1719848a3f019dc1509276ffd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a3cb365248f39c523ed710a95952dad301e5bc455fccd316b739ff537edce8f6"
+    sha256 cellar: :any,                 arm64_ventura:  "cbde8d480daa6f0a465e6b8c4eac0f7483bd70e2d82780e60a8cc1809cb9043a"
+    sha256 cellar: :any,                 arm64_monterey: "8ab4dbf83a416c2a7695ff2ded7ae47c5f69c8cb07558943e37d6f8461c59f73"
+    sha256 cellar: :any,                 arm64_big_sur:  "50dbd4f801190597c0064f74a175fb30773458fc677e27922f0f927f49db0242"
+    sha256 cellar: :any,                 ventura:        "df294343a004fbf98ec397b86c08a1b2a35146e8149c554898ed99eaefb45ec8"
+    sha256 cellar: :any,                 monterey:       "83cb5e3f65e4284ccb946552e6b39ab9c8ff7e4ca37326fbf8737932664611a3"
+    sha256 cellar: :any,                 big_sur:        "caf1d2d1f7be99a825368d6129b66e8f468d70468851cb0d1330700ce8ba211c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4186634e02f1efc9f98477ab7d9868c05f277ff584df3b155bab5d7befdfa186"
   end
 
   depends_on "cmake" => :build

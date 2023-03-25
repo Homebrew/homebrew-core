@@ -2,11 +2,12 @@ class Creduce < Formula
   desc "Reduce a C/C++ program while keeping a property of interest"
   homepage "https://embed.cs.utah.edu/creduce/"
   license "BSD-3-Clause"
-  revision 3
+  revision 4
   head "https://github.com/csmith-project/creduce.git", branch: "master"
 
-  # Remove when `head` and `stable` use the same LLVM version.
+  # Remove when patches are no longer needed.
   stable do
+    # TODO: Check if we can use unversioned `llvm` at version bump.
     url "https://embed.cs.utah.edu/creduce/creduce-2.10.0.tar.gz"
     sha256 "db1c0f123967f24d620b040cebd53001bf3dcf03e400f78556a2ff2e11fea063"
 
@@ -35,18 +36,17 @@ class Creduce < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "e9220442570350391b2c0a6202547f1820c6c615770a902e6cd88fa5f0bdb37a"
-    sha256 cellar: :any,                 arm64_monterey: "d0f268739e28f7dd6b50f219e4c73b1c27c7be976ad37ceb2ac8480b8f38d78a"
-    sha256 cellar: :any,                 arm64_big_sur:  "be38688b49f4a4096c0a744cbe2e3db25c6245cb486dcb948b416539e4671d2a"
-    sha256 cellar: :any,                 ventura:        "28083b155caab3dcf9026f0c43596bb19e21a65ed3684bae084242b7521d1722"
-    sha256 cellar: :any,                 monterey:       "e3a479908579cf16b66452afa73dc58643ca66a6ffd4da3b351be9a737ac5c06"
-    sha256 cellar: :any,                 big_sur:        "d0dab5af485ec048a0c0d3c493a46350ab44cf5ed77010e44230a6010ffd777b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "105c73115fa41e44e34883582436b79882ab4f8f74b504a4ad1ebcf4826c1006"
+    sha256 cellar: :any,                 arm64_ventura:  "7237b5dcaa9b242dbf6d802b899055e27464968a8c260843836e266def749f28"
+    sha256 cellar: :any,                 arm64_monterey: "1cea9260c4c9bb7163c3e0892ac5a43d42fe3061bfa3b1d4cf8c27c921b6aa45"
+    sha256 cellar: :any,                 arm64_big_sur:  "01a3f3bf670aa664211b14c98095d555d3a1eaddeae77a4b97beb9244fa73c66"
+    sha256 cellar: :any,                 ventura:        "08f96b6e80c46641a5131c7c2ec1cda64f7837888b2679eff86d33bb5a03382c"
+    sha256 cellar: :any,                 monterey:       "66ab9b7fc1131261676c4993d5a15f324a095016b536592180e30d641aafb257"
+    sha256 cellar: :any,                 big_sur:        "8bdeb52e5688a4cefac68a1c42f8785ff5ac246bb1f11a42b766f9bacf499905"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a4cd8463c7ec4aa2ca405acc8bccb0f7cefed61ea77693fe27d30f1a9160eddf"
   end
 
   depends_on "astyle"
-  depends_on "llvm"
+  depends_on "llvm@15"
 
   uses_from_macos "perl"
 

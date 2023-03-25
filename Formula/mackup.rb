@@ -3,21 +3,19 @@ class Mackup < Formula
 
   desc "Keep your Mac's application settings in sync"
   homepage "https://github.com/lra/mackup"
-  url "https://files.pythonhosted.org/packages/2d/f3/44d0c845a297a15c8a53c69bad2583ba7c18e005c774ed3c8d96285276d0/mackup-0.8.36.tar.gz"
-  sha256 "052d8a46b918d8711fd50f103ad905403466feed6bd3d6676fa9805e8c13661b"
+  url "https://files.pythonhosted.org/packages/a1/9e/3aa16b0ce9de5da853b3c273a4595f607781d649e3c6fe8740eab3b2ff99/mackup-0.8.37.tar.gz"
+  sha256 "7e86c3bc427f4ec4be56b23a225a9f1482fb2aeb917e4240f7fb9f54626f32d6"
   license "GPL-3.0-or-later"
   head "https://github.com/lra/mackup.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6f92f02b53047b2864afddaac52227cef58b9f3b8a79853644a163ff24c755b4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6f92f02b53047b2864afddaac52227cef58b9f3b8a79853644a163ff24c755b4"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6f92f02b53047b2864afddaac52227cef58b9f3b8a79853644a163ff24c755b4"
-    sha256 cellar: :any_skip_relocation, ventura:        "7b5262d630bd84750ef2ad8a23d7e64a2ca538337a74fe51729da07c614efb00"
-    sha256 cellar: :any_skip_relocation, monterey:       "7b5262d630bd84750ef2ad8a23d7e64a2ca538337a74fe51729da07c614efb00"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7b5262d630bd84750ef2ad8a23d7e64a2ca538337a74fe51729da07c614efb00"
-    sha256 cellar: :any_skip_relocation, catalina:       "7b5262d630bd84750ef2ad8a23d7e64a2ca538337a74fe51729da07c614efb00"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9756b171cec55ef691222e4903182ac25593fa13c5e93be68505339682380c4c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "622d8ab1fbca9d7f8a91d500e9cdfda730a20db04f93951a04bb349973d209ef"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "622d8ab1fbca9d7f8a91d500e9cdfda730a20db04f93951a04bb349973d209ef"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "622d8ab1fbca9d7f8a91d500e9cdfda730a20db04f93951a04bb349973d209ef"
+    sha256 cellar: :any_skip_relocation, ventura:        "2040dc49fc1e8ca1ebba28ab8b9d18b6e2c7c5acc6ba9ed54b5ab7a79442a0da"
+    sha256 cellar: :any_skip_relocation, monterey:       "2040dc49fc1e8ca1ebba28ab8b9d18b6e2c7c5acc6ba9ed54b5ab7a79442a0da"
+    sha256 cellar: :any_skip_relocation, big_sur:        "2040dc49fc1e8ca1ebba28ab8b9d18b6e2c7c5acc6ba9ed54b5ab7a79442a0da"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d8a14270ae10d3498bddea759d152b70a333b614f894fcf3d1e23622f2dc695c"
   end
 
   depends_on "python@3.11"

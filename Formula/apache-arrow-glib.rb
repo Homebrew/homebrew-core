@@ -5,7 +5,7 @@ class ApacheArrowGlib < Formula
   mirror "https://archive.apache.org/dist/arrow/arrow-11.0.0/apache-arrow-11.0.0.tar.gz"
   sha256 "2dd8f0ea0848a58785628ee3a57675548d509e17213a2f5d72b0d900b43f5430"
   license "Apache-2.0"
-  head "https://github.com/apache/arrow.git", branch: "master"
+  head "https://github.com/apache/arrow.git", branch: "main"
 
   livecheck do
     formula "apache-arrow"

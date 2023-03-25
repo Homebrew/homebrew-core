@@ -4,7 +4,7 @@ class Xfig < Formula
   url "https://downloads.sourceforge.net/mcj/xfig-3.2.8b.tar.xz"
   sha256 "b2cc8181cfb356f6b75cc28771970447f69aba1d728a2dac0e0bcf1aea7acd3a"
   license "MIT"
-  revision 4
+  revision 5
 
   livecheck do
     url :stable
@@ -12,14 +12,13 @@ class Xfig < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "8574d41d8a47a3627db72b121b9243901b3e36c78f5e24d1a061b6b3e54c55d7"
-    sha256 arm64_monterey: "19e623d10ad5afe8b0dc2aeba0e4f034f04f0419f54aeadef69e0af4a17a4200"
-    sha256 arm64_big_sur:  "caaf9d6a60be127104f5ea789913c07b25ce44505e17136c2b3882a688da7416"
-    sha256 ventura:        "032f71865561c6e8a68bf9e99c13153fb68461419b67a104b905d04ae73b6ccd"
-    sha256 monterey:       "7ad534b38ffc6cfade2018b4e8f85b9d938ade756f048634b8b8dc28d4d3d491"
-    sha256 big_sur:        "023e9468783cfca2a0d534e082e40b394e7f04e4b375cba94223262bb2a1ae5f"
-    sha256 catalina:       "35cf4130db30aa7204f7246e1eaf95f1e311bb605179099ad865dee6e1ccdedb"
-    sha256 x86_64_linux:   "498a522412d4e00411d7f978e881956f9f990a79af2436b045b3900a7b35eec9"
+    sha256 arm64_ventura:  "6370dff6e8be68d328e7d435b42eb5eb9100646e9507ecd04a0e3f21234df3f1"
+    sha256 arm64_monterey: "abc67f4c87043170e4af0cc4ccca8ab6b0d21e1f0a046a90c49a485ed64ca63c"
+    sha256 arm64_big_sur:  "415522b532fe5c1b34a271d737a37f6a2421313a9fd88ba51d05959c40e096df"
+    sha256 ventura:        "c3154a3b6da96286c2467d46820874c74dd552231782e31ba7b3af095187d11e"
+    sha256 monterey:       "4f5aa07456b8655ad92e75c76e5f6cf1df478c4fb534ddf8e7a34e5a1ca15998"
+    sha256 big_sur:        "a5934bd641f906aa2d69cf5fdaa136f274f8fefd8513a7dafe531c0a2903200a"
+    sha256 x86_64_linux:   "24b447641abd85c52a518a997da468f32aaae3b40401f10577e1240abf84d8d5"
   end
 
   depends_on "fig2dev"

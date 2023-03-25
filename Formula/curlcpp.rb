@@ -1,20 +1,18 @@
 class Curlcpp < Formula
   desc "Object oriented C++ wrapper for CURL (libcurl)"
   homepage "https://josephp91.github.io/curlcpp"
-  url "https://github.com/JosephP91/curlcpp/archive/refs/tags/2.1.tar.gz"
-  sha256 "4640806cdb1aad5328fd38dfbfb40817c64d17e9c7b5176f6bf297a98c6e309c"
+  url "https://github.com/JosephP91/curlcpp/archive/refs/tags/3.0.tar.gz"
+  sha256 "fcb78774c493ca8f7fa51741dd75d43c8a5a04a788b47e44216ca4d9cf672344"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "d0cf01ddde03c507a2bd9cd73435ddb94b40af0e2e3ae0d5f7f9703587d42075"
-    sha256 cellar: :any,                 arm64_monterey: "e70c7484aed5b013bbc49a864f87c2d40dd9e676af6d3dc8707ffa5f16dd4939"
-    sha256 cellar: :any,                 arm64_big_sur:  "4952d85cefca84d9560ede7c578e6ce82a154fdd04ac687df176828ed70e2f74"
-    sha256 cellar: :any,                 ventura:        "fe4d6d92c15c7850c6fdb14f2bbb1074dcfb8ce3fa126a0c717672fab75be065"
-    sha256 cellar: :any,                 monterey:       "923737339644b84caf3ac29496322122a4bfd9832917043edb573449e8a1a4e9"
-    sha256 cellar: :any,                 big_sur:        "8aa270f7d78106ccbc7bda731a686bd8eccacc9b39869994d591c17b133a1620"
-    sha256 cellar: :any,                 catalina:       "9906724ad57ab32ba2eae45684a25feb1ce06696ca202563326a9da68fcc5647"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1d4de367f61cc68ad0ed5f74f2504d5ba6097d30b89258f69a6bfdfd9b05b192"
+    sha256 cellar: :any,                 arm64_ventura:  "055289b47dfd3b9a721428a523dc53275ffe62be335fb781842babdadbbb3a8b"
+    sha256 cellar: :any,                 arm64_monterey: "e785e0544a18e69ce91160e8d9aee8cb98c013d0248e525d4d1afe91cdbda7dd"
+    sha256 cellar: :any,                 arm64_big_sur:  "8614c80879657ce43422decf23f60ad618f49c8ba0deab9562923016be6fb438"
+    sha256 cellar: :any,                 ventura:        "1c3aefe7b8079eb121525b56d9a92bcf142f8a9e0c26a74fa77611644f9ab95f"
+    sha256 cellar: :any,                 monterey:       "beeffe3a8998bf761415fdce1769d3759699f4a351c0d176de5efa09403be04f"
+    sha256 cellar: :any,                 big_sur:        "e3e44fe68b423dfab2442f0f9452ee259203a3ad79bf19df6c6a2581bebe08c4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "449926e50c62f027bdb3053e5c5d514c0ef06668fb8541beed40ea0f93d2f381"
   end
 
   depends_on "cmake" => :build

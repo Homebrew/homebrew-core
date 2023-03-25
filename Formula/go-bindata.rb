@@ -1,18 +1,18 @@
 class GoBindata < Formula
   desc "Small utility that generates Go code from any file"
   homepage "https://github.com/kevinburke/go-bindata"
-  url "https://github.com/kevinburke/go-bindata/archive/v3.25.0.tar.gz"
-  sha256 "6b8f0f5e74d54d81f610ecdbc8be597a4ef8bdff9075f4c8c9bb62ef02b68fae"
+  url "https://github.com/kevinburke/go-bindata/archive/v4.0.2.tar.gz"
+  sha256 "ac343c4b316b234b8ea354d86eb3c7ded2da4fe8f40d45f60391d289c66cd950"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6570db41342e68d30388d4850526b3e5e78c67ca85b9b4e23304bdc474eecbab"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6570db41342e68d30388d4850526b3e5e78c67ca85b9b4e23304bdc474eecbab"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6570db41342e68d30388d4850526b3e5e78c67ca85b9b4e23304bdc474eecbab"
-    sha256 cellar: :any_skip_relocation, ventura:        "b086457f57ebb4fb15434d13ceed667719983fa6cd1be7f07c15b59b12a9449e"
-    sha256 cellar: :any_skip_relocation, monterey:       "b086457f57ebb4fb15434d13ceed667719983fa6cd1be7f07c15b59b12a9449e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b086457f57ebb4fb15434d13ceed667719983fa6cd1be7f07c15b59b12a9449e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4f1291b2bbf58d7d0e7977d9ba8b7f50f85e8f43e3d7046a8c737061b73a1ca6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "76617a44d91e752b9bd01f180ae617a0ae71d8109c376162a0a7c7b5a830f135"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "76617a44d91e752b9bd01f180ae617a0ae71d8109c376162a0a7c7b5a830f135"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "76617a44d91e752b9bd01f180ae617a0ae71d8109c376162a0a7c7b5a830f135"
+    sha256 cellar: :any_skip_relocation, ventura:        "e5e4f74424a4bc23bdba3c3bd8b74031b8b7c1c3ebcd46cfec1fdca526fbd1b4"
+    sha256 cellar: :any_skip_relocation, monterey:       "e5e4f74424a4bc23bdba3c3bd8b74031b8b7c1c3ebcd46cfec1fdca526fbd1b4"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e5e4f74424a4bc23bdba3c3bd8b74031b8b7c1c3ebcd46cfec1fdca526fbd1b4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fc06d08b284da8bc9425c70ed2b7d8463799f0ec962c15904a8bb6a84b9eef18"
   end
 
   depends_on "go"

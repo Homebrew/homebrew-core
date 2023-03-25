@@ -3,19 +3,19 @@ class PipAudit < Formula
 
   desc "Audits Python environments and dependency trees for known vulnerabilities"
   homepage "https://pypi.org/project/pip-audit/"
-  url "https://files.pythonhosted.org/packages/a6/93/f404d79564d2f4d43ec512ea2ac47aca8b546c717145d64d6e0f89a110f2/pip_audit-2.5.2.tar.gz"
-  sha256 "7fb2bf95f442abc31498840e62b70b53ba2dafe8eeb6d4cf5c76eaf73f4e967a"
+  url "https://files.pythonhosted.org/packages/aa/39/2b4310b88e3f744b4bd15965d452a47473395f8e4b04c495b3c2035b5ed9/pip_audit-2.5.3.tar.gz"
+  sha256 "6f92558f137621c499928acbcfd0c67f15cc2101bec1b63db187c093dc1c6ce6"
   license "Apache-2.0"
   version_scheme 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b549ff922d22fe21babb25f075bde5f9525066f563ca1602e230fcbe0d90998a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "fc17f5d08fa33f346924900b476fe7d9c0731d956737e92a451451696049cfe9"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "305c0bf13a1324a14e150ec4634837a01508a3b01bc252a6ddfc4b5da6da5088"
-    sha256 cellar: :any_skip_relocation, ventura:        "32fc6cc2a3f463a07142f513988f6a86ceac80e589419225e3433513c5e1f4a7"
-    sha256 cellar: :any_skip_relocation, monterey:       "09a93570e2ade2485ed7b7caef59714cae8e31e461aad166fccd4ff7c6864d0e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "bcfbc75e10426ea3903da90c45407f8139769636ff23ca199c17200af7a7e8b7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e35ed26a3f99e6561f48a91f72bdbd83581f5a001d40bc90976f1be62067c12a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9292732ee383ad975846baea78fe8c2a5b3876ffbb86fb27f8c19d85619e6d86"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "86b6546929d3e25548a3a244769278a08623c54686f4779576095c340fd1ac1b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "52a554163b6b73e66154ea9fb33f6070fb73c3cabafa0ba5fca95def10d44a0c"
+    sha256 cellar: :any_skip_relocation, ventura:        "f585f419239a0ab778c956764ce6ab30759aeda66896d8b26c895700dd22bf2c"
+    sha256 cellar: :any_skip_relocation, monterey:       "df39e1148f2d398260f540bafad311ad13f0c98274c2a16dd851018d2029fa82"
+    sha256 cellar: :any_skip_relocation, big_sur:        "322c6dc9bde35121c9f32385d8cfec4045d6977624ff897bdfd18893bb2cc04f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2cf805f0784009af5c3321c8e45e955abc214c04490ba54e8a418f2882e3e105"
   end
 
   depends_on "pygments"
@@ -43,8 +43,8 @@ class PipAudit < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/4f/1f/6e1b740698069650b245744957a25957d599b953550a959ab2a584a8825b/filelock-3.10.0.tar.gz"
-    sha256 "3199fd0d3faea8b911be52b663dfccceb84c95949dd13179aa21436d1a79c4ce"
+    url "https://files.pythonhosted.org/packages/f2/5e/b941f8db11ef0cebc50e27702930b1643232843275459ee443ba3d2bdcde/filelock-3.10.2.tar.gz"
+    sha256 "75997740323c5f12e18f10b494bc11c03e42843129f980f17c04352cc7b09d40"
   end
 
   resource "html5lib" do

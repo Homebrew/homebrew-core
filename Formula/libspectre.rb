@@ -4,6 +4,7 @@ class Libspectre < Formula
   url "https://libspectre.freedesktop.org/releases/libspectre-0.2.12.tar.gz"
   sha256 "55a7517cd3572bd2565df0cf450944a04d5273b279ebb369a895391957f0f960"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://libspectre.freedesktop.org/releases/"
@@ -11,13 +12,13 @@ class Libspectre < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "9356c5442a8707d6af5b3e90079cf2029bd957700472b1376714fd3c2249ce78"
-    sha256 cellar: :any,                 arm64_monterey: "9ac5d73812cdc5686c83f86bea0b0006144a0632dcee49be757c1c95b4d87e97"
-    sha256 cellar: :any,                 arm64_big_sur:  "d7a5e28e5563333b22a3f85212c6c983cea189954b9f53f9561cab95fc567e5a"
-    sha256 cellar: :any,                 ventura:        "5021dd386f719ca41d8b7a749ce3bee5eb19d82d53b66743f276cdb132b2c36e"
-    sha256 cellar: :any,                 monterey:       "2e41bab718bb8426de64d68c784993e77ab088c9cafd384f23c868c43f88f5ce"
-    sha256 cellar: :any,                 big_sur:        "787acb27716e15096730040512928441e57c337e9a0a543d21f345fc6bf7785c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3514865edd037216507b01a0477484133c13189f04dc33512db7478ffad50d6a"
+    sha256 cellar: :any,                 arm64_ventura:  "982e8f1996c44e7e473a141ffc5cf370405925f9a631c43b4a48da9e575c2b8f"
+    sha256 cellar: :any,                 arm64_monterey: "842d9762ba3438664feea6d163ac837f650ddb2f6f87d7464d90b6de4f070e3e"
+    sha256 cellar: :any,                 arm64_big_sur:  "e7eb36d1be8871a6c1b3442dcf77b0a1f7e0a33d5e4db59853fc603a62f742a0"
+    sha256 cellar: :any,                 ventura:        "ea5c3404dc8e5e55a1f6a386e1e4b7a34718b99a1906f7f3a378df290ad120cd"
+    sha256 cellar: :any,                 monterey:       "7247bdd2974cd294ff3e4139bf5256f0d3c202c023d68a953f8f4491cece3e3e"
+    sha256 cellar: :any,                 big_sur:        "ac90c238075466686c5c6ed59a8b4dd0135f2b3db6fcb19a7cd865f4f11dc156"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "af8f8cdf6315633ce8dfef6a5b0078a786ca06219aa979f2f6f1818033a54203"
   end
 
   depends_on "ghostscript"

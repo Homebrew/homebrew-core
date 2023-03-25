@@ -3,18 +3,18 @@ class GobjectIntrospection < Formula
 
   desc "Generate introspection data for GObject libraries"
   homepage "https://gi.readthedocs.io/en/latest/"
-  url "https://download.gnome.org/sources/gobject-introspection/1.76/gobject-introspection-1.76.0.tar.xz"
-  sha256 "8552ff3a56758b8dba21d421795a52b9a9fbf984565907b83f1c64f4deb8380c"
+  url "https://download.gnome.org/sources/gobject-introspection/1.76/gobject-introspection-1.76.1.tar.xz"
+  sha256 "196178bf64345501dcdc4d8469b36aa6fe80489354efe71cb7cb8ab82a3738bf"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.0-or-later", "MIT"]
 
   bottle do
-    sha256 arm64_ventura:  "19eb0afd6372543ecaeba43cfae24e6e2135b1bc27138ab61dc4756eaec521ff"
-    sha256 arm64_monterey: "ca6f8c3e9465b40b14a1598c8436f2332d59333da54e76df17ffbbffd399f499"
-    sha256 arm64_big_sur:  "35c2a28a8da93cde66a6040815e5eb2ca0d291b3486879e1259982edaacc2129"
-    sha256 ventura:        "7a977d115c88b95662932f60d5033a001b74ea8d2f978cffd02c8fdc3e752869"
-    sha256 monterey:       "69713b82767990747c2013350e369e408c1e27e19cca94492cb96bcd075f50be"
-    sha256 big_sur:        "727cc3e23cc0b1f28eded5c5696a086a6f72e0e8699b66cc7f1d04f034f6b41f"
-    sha256 x86_64_linux:   "81dc49f69463e01b17787abf4854326a8e896d652bb846882a5f16195b51cc02"
+    sha256 arm64_ventura:  "0893c5b8d8dc89d1649c6d72c2d2a29fbe9412a5348a5e1fb28ebc284d46332e"
+    sha256 arm64_monterey: "582383ac2d0f617df8638783bc39223626575e33e8248a5241ec115f576797ca"
+    sha256 arm64_big_sur:  "89eaa90a0ac005b0b0d320b301be097029def2049b44e26361b7bacc2c03dd39"
+    sha256 ventura:        "3382ba757d765b37a4cc62ea56a1954df7e889de9eb876017040afc86ded8fd4"
+    sha256 monterey:       "5e4879812fefd3b8edc8f0ce6c99e876c1c849537510df29305acf1ac9c2ae11"
+    sha256 big_sur:        "17f6ce7c80d81bcb4a125fd2248a89489c71b9080935873c0a7b261facac4337"
+    sha256 x86_64_linux:   "0ba66387b38379e17cf178709bba85e055385192c8596a117ea6ff97fc997574"
   end
 
   depends_on "bison" => :build

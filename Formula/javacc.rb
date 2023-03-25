@@ -1,8 +1,8 @@
 class Javacc < Formula
   desc "Parser generator for use with Java applications"
-  homepage "https://javacc.org/"
-  url "https://github.com/javacc/javacc/archive/javacc-7.0.12.tar.gz"
-  sha256 "1b38fa8c9e8348fe72b46fbdbaed2f05783a796a7417e3d22af18df5833b8850"
+  homepage "https://javacc.github.io/javacc/"
+  url "https://github.com/javacc/javacc/archive/refs/tags/javacc-7.0.12.tar.gz"
+  sha256 "bc007d0afa558778421656d48fc6a50c0899cd03e98362bb309c5b5b0eebc0d8"
   license "BSD-3-Clause"
 
   livecheck do
@@ -12,14 +12,14 @@ class Javacc < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c7466143225c24a1036a193bf7a0762e110c16606993fc427954959318ff35cb"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "39bb12ada55f290fb1c1a78f4d213043085473d98fb807acdd689799da5ded6a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1a83efed645f130bab65f202a0b33b75671988767b9e163d5cb124fe6e6b6743"
-    sha256 cellar: :any_skip_relocation, ventura:        "b006fcc7e7738ad3596c8fd565ed19ba36eaae5efcac77ca1d1e1d8121a07f6c"
-    sha256 cellar: :any_skip_relocation, monterey:       "a9b7638acf530cb10611b394486b16a8f9c411b529e8c954428e84f95aa6cf85"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9a7f5daba6e577455d592eeb3f5da018f6a7479aa60be2872297fe809b19410d"
-    sha256 cellar: :any_skip_relocation, catalina:       "5ebc37d85cd1cac3a449c06d377e62d40e989e1debb3b9c3dd10b0eada6b8ce5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f040860fb051d65ce29f77810fa6babc68b6a067f4bb854995cd73f1f50ba4d7"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "96d07fbe2fbd9654a855f797c80c103fa172fddac617bc80e9e3e7129d4c128b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "39a6299488da65b55988b26892e9f92ff478f998d23b6ba330e989f43a458946"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d664966eabcf84e469bea9750318fa01cef4c90493c4d2aa63c4c374c0e2f906"
+    sha256 cellar: :any_skip_relocation, ventura:        "ee01609b156af2e5bfff30bef4e46e8bc792e127c9b11cfe4af83483fffae792"
+    sha256 cellar: :any_skip_relocation, monterey:       "936c4ab601e2e4275d3ec7d12ae23ea4fa531ed869af73432fd5b851d97334f2"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9841265e02bc93d2a445148c06c3863f555cdefc0014111826b37ad4078f778d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7b649624ca37c000e69273942af4f6c7368e10b51313889ac7ccbc1bdf301c0e"
   end
 
   depends_on "ant" => :build

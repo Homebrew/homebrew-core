@@ -36,8 +36,8 @@ class Mvnvm < Formula
         <artifactId>maven-test</artifactId>
         <version>1.0.0-SNAPSHOT</version>
         <properties>
-         <maven.compiler.source>1.7</maven.compiler.source>
-         <maven.compiler.target>1.7</maven.compiler.target>
+         <maven.compiler.source>1.8</maven.compiler.source>
+         <maven.compiler.target>1.8</maven.compiler.target>
         </properties>
       </project>
     EOS

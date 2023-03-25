@@ -3,20 +3,18 @@ class Networkit < Formula
 
   desc "Performance toolkit for large-scale network analysis"
   homepage "https://networkit.github.io"
-  url "https://github.com/networkit/networkit/archive/10.0.tar.gz"
-  sha256 "77187a96dea59e5ba1f60de7ed63d45672671310f0b844a1361557762c2063f3"
+  url "https://github.com/networkit/networkit/archive/refs/tags/10.1.tar.gz"
+  sha256 "35d11422b731f3e3f06ec05615576366be96ce26dd23aa16c8023b97f2fe9039"
   license "MIT"
-  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "225043994ead9033a8edcdcab33b4b2cd8c911058260432712916f528ddd7d3b"
-    sha256 cellar: :any,                 arm64_monterey: "b3b2832093a52d3d961fe42465e054ed671fe42dd5ed61e8bd60824e726c8ef5"
-    sha256 cellar: :any,                 arm64_big_sur:  "e9e5c140bfb05a6332828086675d8e4bcf068c2c04029ee3d0cc259358c61f23"
-    sha256 cellar: :any,                 ventura:        "e7a30d8fcc8c1c0e2201dc0ccf8f29c29adc6fb83bf5cf379b7defad4edc9821"
-    sha256 cellar: :any,                 monterey:       "481afe37e6d16ced50eae8d67ad9740eaba8f696eef74d14af6fee662b11f4ee"
-    sha256 cellar: :any,                 big_sur:        "216f7679271686d87637ab1ffbba1b785af560e0b5938da6095891d6d79589f0"
-    sha256 cellar: :any,                 catalina:       "3a4d7a959f666b9dfdfa2df033f208de73feb1b08c4f70b72c54ce925760c569"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ef01d0f3dc7aa13b1953783ebabae54a1913e0687212cc8e3e96d59f83d89787"
+    sha256 cellar: :any,                 arm64_ventura:  "6a641907f704a372b44eeb3016fa6f633b48593f8cccdf70245a4fc0a8a0b2ee"
+    sha256 cellar: :any,                 arm64_monterey: "e8c3a17455f14617cf8cf83a8cdd4c1eb97cdf92c495e16aaf43bb05d3c84875"
+    sha256 cellar: :any,                 arm64_big_sur:  "f551e7a38d6578c04e3024c55f47dfe0c355ba0e23f2b203cf2c7475037bfa16"
+    sha256 cellar: :any,                 ventura:        "5df948fc0e43eb9c6a363250a7a5bfefffab863a83d3f1ae7c164d7d6365e836"
+    sha256 cellar: :any,                 monterey:       "ff2a389f6edeec2770801b7a1896e4bbe76d9365d9d15ece252a968dd1d8269b"
+    sha256 cellar: :any,                 big_sur:        "5fe27b2ffa7ecb1ba75b6562b241a9fb9c79827531a08a91fa04e77aa689095e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9080b4e857eced5cf4f15d10d22a9069612f1fbea8a72e99ea7978f484fd5e92"
   end
 
   depends_on "cmake" => :build

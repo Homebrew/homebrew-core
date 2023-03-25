@@ -1,25 +1,27 @@
 class Ispc < Formula
   desc "Compiler for SIMD programming on the CPU"
   homepage "https://ispc.github.io"
+  # TODO: Check if we can use unversioned `llvm` at version bump.
   url "https://github.com/ispc/ispc/archive/v1.19.0.tar.gz"
   sha256 "da1eccb8ead495b22d642340f3bab11fb64dd2223cd9cc92f0492f70b30f34b5"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "73dc26931edbce4a2f9e76fc7c3e11b43de11ff7a333fcb985969374a217217f"
-    sha256 cellar: :any,                 arm64_monterey: "ff58159133be644a8b0677ae391f53201da51d387c680129ab8efa351dd71717"
-    sha256 cellar: :any,                 arm64_big_sur:  "a1d60c32a7f0426a198c30b5b749d6743d81b4855a98d17f771b4a0612d51096"
-    sha256 cellar: :any,                 ventura:        "73362d00ab907d2c26323e5eb8d084926a69c3a827da0d7d10271c08d262ef71"
-    sha256 cellar: :any,                 monterey:       "f440acacee5270ffa3d52735c4b6ffb27964b1f26efa4839c451312c5ed78535"
-    sha256 cellar: :any,                 big_sur:        "500ce070914204913eb8dd87af63336b28d4494d27a31baa0dd13b1adad6a458"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c3d4781c7ae9ca06963145cfaff51bdaa48530de5399abbf6bfee4fdf46f84fb"
+    sha256 cellar: :any,                 arm64_ventura:  "7e661d50f1b5cb0cdfd316b64e0f76654492c034229312a9e781be94b32a931b"
+    sha256 cellar: :any,                 arm64_monterey: "e1bf03b9d3b079e7c10197290aee69703f8674ea927ed48c26287ced7df68283"
+    sha256 cellar: :any,                 arm64_big_sur:  "378e72bec0ee7fb08e5c7604064fbe28118b7b79002126523a9515ef86d7cb4e"
+    sha256 cellar: :any,                 ventura:        "bda3911e8e05c404d558daf52eee06f4ada9a23bc0b9936ec2894c4ab3fed3a4"
+    sha256 cellar: :any,                 monterey:       "37a2c6b42aa2cbe07c4fc2c9ce0fcfba3b3f8589bb5747c81a01099b138a1ca2"
+    sha256 cellar: :any,                 big_sur:        "7693ea70bc6584a6f383611e8600349614c871764fa0962efad2266e9278b618"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5133fec2af99ddb66c1768cb028307f51a9456ffeabe69fc4c2fe1183d661d3d"
   end
 
   depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "flex" => :build
   depends_on "python@3.11" => :build
-  depends_on "llvm"
+  depends_on "llvm@15"
 
   fails_with gcc: "5"
 

@@ -4,8 +4,8 @@ class Sysdig < Formula
   license "Apache-2.0"
 
   stable do
-    url "https://github.com/draios/sysdig/archive/refs/tags/0.31.3.tar.gz"
-    sha256 "31dd35fa37f2505af82ae7976c969f0be3deb3b3e968794003e7b0b466515483"
+    url "https://github.com/draios/sysdig/archive/refs/tags/0.31.4.tar.gz"
+    sha256 "b8f43326506f85e99a3455f51b75ee79bf4db9dc12908ef43af672166274a795"
 
     # Update to value of FALCOSECURITY_LIBS_VERSION found in
     # https://github.com/draios/sysdig/blob/#{version}/cmake/modules/falcosecurity-libs.cmake
@@ -25,13 +25,13 @@ class Sysdig < Formula
   end
 
   bottle do
-    sha256                               arm64_ventura:  "3552df0e2ac4c929b26bd32c9b12fdefa00d4aa6ebc46aa0f7e602c2dd06c9d8"
-    sha256                               arm64_monterey: "b2cd1745f980e2092974bf2ff444b3d325bf33cea9ec08b23b23aba9b8e32937"
-    sha256                               arm64_big_sur:  "9b104068f5a212c98cff9ba65d2d5dd4f1b20d9ef35b5b8983e442d9e48afd04"
-    sha256                               ventura:        "734e873414bcb876fab7b2358bf3ddd3427246c27b7274cea11ccede127df5c9"
-    sha256                               monterey:       "7e2a8dbc6538f6b2b1bc58937f1791227e5f1163803cb15a2105c73d309a0a40"
-    sha256                               big_sur:        "a01b0c8bd11f88e3c18555334bfc6ce67918989f099b00523b46eceeeb80b476"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "96c0b7543f1164f5c297c5a2d2595e1e6af782235903b5c590781c65e49b7079"
+    sha256                               arm64_ventura:  "f22b659cedaf187228ee378ed2c08e79a960d9189e7ec5e747e15fa6beab5344"
+    sha256                               arm64_monterey: "c1968baff4d4382ec466bfc24e6cffa375c69d305848756dd03d9448ab83f6af"
+    sha256                               arm64_big_sur:  "dcb5adf65a421af3502fccd06ad3ef48a26c8ae852973900c484a642b026f2fd"
+    sha256                               ventura:        "61cd689b859777a7e89162bc4baa0bdc1170eb0a1867744874eec7a200eaf8b2"
+    sha256                               monterey:       "704aa201186a81e257cebb885ed5086827954df7387e87a2ed71784f22f81ebc"
+    sha256                               big_sur:        "c09161e55c363b922adb1224fd29e209f8038b9becd3a22e71ef60b6ef212cc1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7fb623d43b905ac8f4b42c60ffca2703e5ab9e7defe66cbfefc779de12cac626"
   end
 
   head do

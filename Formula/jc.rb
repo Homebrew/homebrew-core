@@ -3,18 +3,18 @@ class Jc < Formula
 
   desc "Serializes the output of command-line tools to structured JSON output"
   homepage "https://github.com/kellyjonbrazil/jc"
-  url "https://files.pythonhosted.org/packages/a2/97/de1b98f3b226ca641e72bf1173d89ce9b383a10a60df5cddc0aa228ed2ea/jc-1.23.0.tar.gz"
-  sha256 "b4133f7aabe2b461df5b643a4b618eefaa435c6b2b2ab88900399585465a70e4"
+  url "https://files.pythonhosted.org/packages/67/4f/092f0393f4d9ef95d4601586ee9775a2b8a27993cbec62c010518df968d1/jc-1.23.1.tar.gz"
+  sha256 "a0f3d7bb2f25a186bc80606927b33e55dd0c1fe2ebc3ad4d58b149b7e299b4ba"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4d039bc1c3ec4ec7f1333fcdf6382a3a612f58931be27b53bc118075ee02b8a4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4d039bc1c3ec4ec7f1333fcdf6382a3a612f58931be27b53bc118075ee02b8a4"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4d039bc1c3ec4ec7f1333fcdf6382a3a612f58931be27b53bc118075ee02b8a4"
-    sha256 cellar: :any_skip_relocation, ventura:        "70e55863b01d7c626ea444966b1d68073e35a74c2b5bfb6b242f690abe2f8c1f"
-    sha256 cellar: :any_skip_relocation, monterey:       "70e55863b01d7c626ea444966b1d68073e35a74c2b5bfb6b242f690abe2f8c1f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "70e55863b01d7c626ea444966b1d68073e35a74c2b5bfb6b242f690abe2f8c1f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a23928c1a651336681f7013d1859c30e4e8832b4423e68e14a1cbcc13d78f265"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a36568d697b5b9ab56d0a4d73515f6b32f02462375187d9f257185608be4bc0c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a36568d697b5b9ab56d0a4d73515f6b32f02462375187d9f257185608be4bc0c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a36568d697b5b9ab56d0a4d73515f6b32f02462375187d9f257185608be4bc0c"
+    sha256 cellar: :any_skip_relocation, ventura:        "902a2b14c45903ff8cc225e6d25d1e6258f1f584d4d2de859df3a76d305a26c8"
+    sha256 cellar: :any_skip_relocation, monterey:       "902a2b14c45903ff8cc225e6d25d1e6258f1f584d4d2de859df3a76d305a26c8"
+    sha256 cellar: :any_skip_relocation, big_sur:        "902a2b14c45903ff8cc225e6d25d1e6258f1f584d4d2de859df3a76d305a26c8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c0fc14269a938757cbef7681e032711f2ea8aade7f80c7db8eea5a2f36480287"
   end
 
   depends_on "pygments"

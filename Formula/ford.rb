@@ -3,19 +3,19 @@ class Ford < Formula
 
   desc "Automatic documentation generator for modern Fortran programs"
   homepage "https://github.com/Fortran-FOSS-Programmers/ford"
-  url "https://files.pythonhosted.org/packages/ea/d4/57cd696162d780a6ec717a3b109673d67069d6d43982ee3947e4ab6e2014/FORD-6.2.1.tar.gz"
-  sha256 "5364471dbc01963d1928139177ec67b5d023b92aa56d34c019479ed87fc3dd57"
+  url "https://files.pythonhosted.org/packages/fb/4a/105f47e3d6b918093b2f6eb16916b510933dd3e952e175bd2bf9420f3659/FORD-6.2.2.tar.gz"
+  sha256 "153f6eb44e10fa7689e8882ce9b91c39f503a01fc25831e67168568f5b457b5e"
   license "GPL-3.0-or-later"
   head "https://github.com/Fortran-FOSS-Programmers/ford.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "38ae6a2f6fbd2ddd4a5a1e30c5bf980dcc450d26ab8c5bcd0cbae15038026ebc"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2533032806d0c631e79993d02e5fcd48ac60148d033ac4a4a68eb0dca2a9e196"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d05507632339c6fcc383352749386f1da9345607d67e9613d3c6dd9ce2fe0d5f"
-    sha256 cellar: :any_skip_relocation, ventura:        "c6781519beefdee2c499dc677dc9fb7c705d667a14a65071d7e986a5c60a3154"
-    sha256 cellar: :any_skip_relocation, monterey:       "0b85677c73c7457004bf5c5fe55ee6a05e49dc19c66ccc8c4c63549f414a7493"
-    sha256 cellar: :any_skip_relocation, big_sur:        "86e6bda2495d7219709f09ea71356f278a354bcd8152b8f0dc8babbce31bde65"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "86a79444f8476f2efc7cf221f398b97213938e8076ade6cf90ff38d3c039f0b6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0903f844ee7b429abacd0ecf65f7547390b53a581f2c446e3716de538568e0eb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7ed3ffe5245209c267ba348122b18d787987cb7d0a55dce27f441698c8a2e151"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4d135f1a8e3767a5cd565d96152cce05ee38750bfdc70027e2660fbe4699dc3b"
+    sha256 cellar: :any_skip_relocation, ventura:        "5e825ba5933784f25c699c2a60258c73043e69ef4e3899860938ec21a4ad0592"
+    sha256 cellar: :any_skip_relocation, monterey:       "6df078b8b63867f88d9d4c5adce78efeb55f24b24fc490b073e1307f5f227e32"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a62240652849cb9699ec0df486252ae05b5e91dfcdbbd928793d146d28b87de9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7b0eb36859ea669199dec5c6994bdfff1c1f22b2cc004f17ed40ed1db9b2e473"
   end
 
   depends_on "graphviz"
@@ -40,8 +40,8 @@ class Ford < Formula
   end
 
   resource "Markdown" do
-    url "https://files.pythonhosted.org/packages/66/bf/a7c9e8cc23c105633b74e3280c2b06d13273da0df389e59395188d440017/Markdown-3.4.2.tar.gz"
-    sha256 "e104be388c28462b4e83bd0ddfc68eff6022305cc4b5ab14caf8d235fae132b9"
+    url "https://files.pythonhosted.org/packages/9d/80/cc67bfb7deb973d5ae662ee6454d2dafaa8f7c106feafd0d1572666ebde5/Markdown-3.4.3.tar.gz"
+    sha256 "8bf101198e004dc93e84a12a7395e31aac6a9c9942848ae1d99b9d72cf9b3520"
   end
 
   resource "markdown-include" do

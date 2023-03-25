@@ -8,6 +8,11 @@ class Osc < Formula
   license "GPL-2.0-or-later"
   head "https://github.com/openSUSE/osc.git", branch: "master"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "ca418b649f796d8dd41bd93ec02d3312a85dec5c49daa9604ffd1f4169bb80f6"
     sha256 cellar: :any,                 arm64_monterey: "85db37e2af8a6d1b1530f99bdd9c886c3e77754b8ba194ba7da986a4e0dd4658"

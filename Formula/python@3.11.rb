@@ -12,13 +12,14 @@ class PythonAT311 < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "ecbb2abe321f79eef540a9fa17b53ff56d2df7a4c613f068fe17e1202f2271f2"
-    sha256 arm64_monterey: "cde36624e734632be009e3aa28d9bd07f4fa681c7caa270e7efb416b287c1e72"
-    sha256 arm64_big_sur:  "3276b3fa9177be8ac4a03fc88e49d075357938e39f83fc90694b7cb910ca1a56"
-    sha256 ventura:        "9805bbae47a078119132c57811de8c46ad0cbaed94911b0fe10c98953d0703e7"
-    sha256 monterey:       "1760c64881403847ad39e6df648ff0845fab321b638715734fe0264dfe7bcbda"
-    sha256 big_sur:        "4d07bdab981c17e93cfe71b17719d4218482d62bf2f8607d51577a344af321c9"
-    sha256 x86_64_linux:   "cc1f8647d66f6aa33cbeacf94199f09c40559967e6f4e1fefc0cadc635962c24"
+    rebuild 1
+    sha256 arm64_ventura:  "ac5541e8c7d1c6fa43f5ab87c47906c80bebbbe31ab4bb75ec33aa112cce02af"
+    sha256 arm64_monterey: "f6847de5ca24821e72c27f6515dd51ca39ce7410569c919a06672e84bbdabb97"
+    sha256 arm64_big_sur:  "70141e420bf14f8fa020d2cd924c414f2feb9bc6523bdb827250bdc60c84c8ed"
+    sha256 ventura:        "228565950db8e0b73697fd246dba83e560aa7ca444bec0a79f53323c35471253"
+    sha256 monterey:       "24c3f95885f3eb81ae9668fe2ba61a5d6c797fe71dde11b84fefbd3ac4dab7c4"
+    sha256 big_sur:        "f0696ec651ef0f1dde1035f14deef4c255b16bcd2b8bd55a62ae37da75e36ffd"
+    sha256 x86_64_linux:   "fbb82e5e45a52f66a9c8110f8d1326b13d32a47fc2f9124e4094355a2911ee2a"
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -132,11 +133,6 @@ class PythonAT311 < Formula
                 "libmpdec_machine=#{ENV["PYTHON_DECIMAL_WITH_MACHINE"] = Hardware::CPU.arm? ? "uint128" : "x64"}"
     end
 
-    # The --enable-optimization and --with-lto flags diverge from what upstream
-    # python does for their macOS binary releases. They have chosen not to apply
-    # these flags because they want one build that will work across many macOS
-    # releases. Homebrew is not so constrained because the bottling
-    # infrastructure specializes for each macOS major release.
     args = %W[
       --prefix=#{prefix}
       --enable-ipv6
@@ -145,12 +141,18 @@ class PythonAT311 < Formula
       --without-ensurepip
       --enable-loadable-sqlite-extensions
       --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
-      --enable-optimizations
       --with-system-expat
       --with-system-ffi
       --with-system-libmpdec
       --with-readline=editline
     ]
+
+    # The --enable-optimization and --with-lto flags diverge from what upstream
+    # python does for their macOS binary releases. They have chosen not to apply
+    # these flags because they want one build that will work across many macOS
+    # releases. Homebrew is not so constrained because the bottling
+    # infrastructure specializes for each macOS major release.
+    args << "--enable-optimizations" if ENV.compiler != :gcc || DevelopmentTools.gcc_version(ENV.cc) >= 5
 
     if OS.mac?
       # Enabling LTO on Linux makes libpython3.*.a unusable for anyone whose GCC

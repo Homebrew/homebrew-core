@@ -1,10 +1,10 @@
 class Cmake < Formula
   desc "Cross-platform make"
   homepage "https://www.cmake.org/"
-  url "https://github.com/Kitware/CMake/releases/download/v3.26.0/cmake-3.26.0.tar.gz"
-  mirror "http://fresh-center.net/linux/misc/cmake-3.26.0.tar.gz"
-  mirror "http://fresh-center.net/linux/misc/legacy/cmake-3.26.0.tar.gz"
-  sha256 "4256613188857e95700621f7cdaaeb954f3546a9249e942bc2f9b3c26e381365"
+  url "https://github.com/Kitware/CMake/releases/download/v3.26.1/cmake-3.26.1.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/cmake-3.26.1.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/legacy/cmake-3.26.1.tar.gz"
+  sha256 "f29964290ad3ced782a1e58ca9fda394a82406a647e24d6afd4e6c32e42c412f"
   license "BSD-3-Clause"
   head "https://gitlab.kitware.com/cmake/cmake.git", branch: "master"
 
@@ -16,13 +16,13 @@ class Cmake < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3c39c077ead3f8ccc94727c275ac16af5f75a088844df034d10b34ad85dfb8bf"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6fb143b21a378921ee86e61d0cf77584e42ead38076f92ea1ebb57dcefb6b85d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "714058b6941002393dcadcefb13f5b16ae094724c734977cc6a2dcf2db5484ae"
-    sha256 cellar: :any_skip_relocation, ventura:        "96a930fa2836355c767057f336521113f419f51c2444ec0cb095a6776170997e"
-    sha256 cellar: :any_skip_relocation, monterey:       "ca050ee8541df0df30c3b06bcce0b8be0a37fc16dcfc83fe2c29dd6bf13b8643"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5175a6fee503ce7cd67fd6d23ea589995ac1d0eb8114756315a106b8261affda"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a71c04366f7b5fd26d49bd683ae3a2cab717967085fd60ffa8bc8c802a9f9c48"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c1c7add2f05290393345cca175a85c9a0390d92b9c05c2a9f20c8df609971da5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c2a8ee7ce8329d1a6301b0b8b0354474e8414d2ec68a75d74fb59a6c613dfb9b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5fc868c79f779794f4d61cfabc47862202e52efb0d6526d0ef1bf5a8b5f5e642"
+    sha256 cellar: :any_skip_relocation, ventura:        "cafae4b5997b8e937cf26379bb1e8dab1f1a7d9d319afe47bc0ab01e049cc1ff"
+    sha256 cellar: :any_skip_relocation, monterey:       "98c3087e47aaf9868308669e51c6fbf3ba413d65a61b9f3c33c95d6474718e17"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9e2df9119b8df3a5ef56227ac0b025047194dfe6b89952f6b7f9911514fa4f57"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "460af683247b19a036cd803f12e4232b2fe97c2aa6cf37c01203034252d4e79f"
   end
 
   uses_from_macos "ncurses"

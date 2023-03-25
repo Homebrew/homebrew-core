@@ -6,7 +6,7 @@ class ApacheArrow < Formula
   sha256 "2dd8f0ea0848a58785628ee3a57675548d509e17213a2f5d72b0d900b43f5430"
   license "Apache-2.0"
   revision 1
-  head "https://github.com/apache/arrow.git", branch: "master"
+  head "https://github.com/apache/arrow.git", branch: "main"
 
   bottle do
     sha256 cellar: :any, arm64_ventura:  "3f886898424c4d69047f4e75ea418c13eeabbddb1e8d6d7272981b57d7992aa9"
@@ -20,7 +20,7 @@ class ApacheArrow < Formula
 
   depends_on "boost" => :build
   depends_on "cmake" => :build
-  depends_on "llvm" => :build
+  depends_on "llvm@15" => :build
   depends_on "aws-sdk-cpp"
   depends_on "brotli"
   depends_on "bzip2"
@@ -36,6 +36,7 @@ class ApacheArrow < Formula
   depends_on "utf8proc"
   depends_on "z3"
   depends_on "zstd"
+  uses_from_macos "python" => :build
 
   fails_with gcc: "5"
 

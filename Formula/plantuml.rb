@@ -1,8 +1,8 @@
 class Plantuml < Formula
   desc "Draw UML diagrams"
   homepage "https://plantuml.com/"
-  url "https://github.com/plantuml/plantuml/releases/download/v1.2023.4/plantuml-1.2023.4.jar"
-  sha256 "3a659c3d87ea5ebac7aadb645233176c51d0290777ebc28285dd2a35dc947752"
+  url "https://github.com/plantuml/plantuml/releases/download/v1.2023.5/plantuml-1.2023.5.jar"
+  sha256 "e28fcaf56f685616cfa5a7e03bfa8f1e64a04ac088b0504a3eba343fbb23e657"
   license "GPL-3.0-or-later"
   version_scheme 1
 
@@ -12,13 +12,13 @@ class Plantuml < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "79474cd5a2dfe757efe776e3d31b769fba1e99ffee53385850ee17ee29fbe36d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "79474cd5a2dfe757efe776e3d31b769fba1e99ffee53385850ee17ee29fbe36d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "79474cd5a2dfe757efe776e3d31b769fba1e99ffee53385850ee17ee29fbe36d"
-    sha256 cellar: :any_skip_relocation, ventura:        "79474cd5a2dfe757efe776e3d31b769fba1e99ffee53385850ee17ee29fbe36d"
-    sha256 cellar: :any_skip_relocation, monterey:       "79474cd5a2dfe757efe776e3d31b769fba1e99ffee53385850ee17ee29fbe36d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "79474cd5a2dfe757efe776e3d31b769fba1e99ffee53385850ee17ee29fbe36d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8e06cad42d51381d3ff3d36f742b3bd3d5f1cda62e8f0b3db809b3935ecc0184"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "42de574dda32286501b594587ddc9f509d87154681579f8589704cef0b6fcea9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "42de574dda32286501b594587ddc9f509d87154681579f8589704cef0b6fcea9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "42de574dda32286501b594587ddc9f509d87154681579f8589704cef0b6fcea9"
+    sha256 cellar: :any_skip_relocation, ventura:        "42de574dda32286501b594587ddc9f509d87154681579f8589704cef0b6fcea9"
+    sha256 cellar: :any_skip_relocation, monterey:       "42de574dda32286501b594587ddc9f509d87154681579f8589704cef0b6fcea9"
+    sha256 cellar: :any_skip_relocation, big_sur:        "42de574dda32286501b594587ddc9f509d87154681579f8589704cef0b6fcea9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "afc9ad2e30c6c62241a419e814f38fc9b24511d7bd9ce6b943dec941fb3c63f7"
   end
 
   depends_on "graphviz"

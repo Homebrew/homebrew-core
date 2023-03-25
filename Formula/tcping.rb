@@ -1,8 +1,8 @@
 class Tcping < Formula
   desc "TCP connect to the given IP/port combo"
   homepage "https://github.com/mkirchner/tcping"
-  url "https://github.com/mkirchner/tcping/archive/1.3.6.tar.gz"
-  sha256 "a731f0e48ff931d7b2a0e896e4db40867043740fe901dd225780f2164fdbdcf3"
+  url "https://github.com/mkirchner/tcping/archive/2.1.0.tar.gz"
+  sha256 "b8aa427420fe00173b5a2c0013d78e52b010350f5438bf5903c1942cba7c39c9"
   license "MIT"
   head "https://github.com/mkirchner/tcping.git", branch: "master"
 
@@ -12,16 +12,13 @@ class Tcping < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a3b0ac471cf6c8da0ae0dcc060cb72d3aaf5516f2dd1f35633ed878b276ac846"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8f019bb5c3f6426b42c04db3d47f639b325e7560290bf422c876e292b5642109"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "77f44aef18a3e45cdb8ee8ed377b81173b142496db34666e29df3703ab93dcaf"
-    sha256 cellar: :any_skip_relocation, ventura:        "3f12db115b1a6ae7230a30d0465d75e6182b1383e4cb6f43b299aca6385efe59"
-    sha256 cellar: :any_skip_relocation, monterey:       "c0a4d5db6e0afe0ef2ede16b802c66c45698551b13389b869af6c198fd634037"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ca791764d99fc9e263fbbc3352d1861def26900f099552fcfce866eb25934fe9"
-    sha256 cellar: :any_skip_relocation, catalina:       "2cf829fa6b3feab933a12f8fbc9fc1e8d585a304f31d918f26ba0d502f4772ab"
-    sha256 cellar: :any_skip_relocation, mojave:         "d769f344e5bdda11b8f0ce6c931e865e982166b3b504cdce33d58c9029786c60"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "e0d7d617ac3f98158cd25a08728f9f44cce132101368cae250cced7dbb6a0f7a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e2e1bc088448d840a24128b989b4994400bda0ea994d3c81adddbedae0317b80"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "126f8832750fd4260255814f399ca26fdd109a8bd52cde1737670b3be389213e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8784cccfd9d750f59c8e9437fde962edc453147d4fdc960f34b047cc4b3eb909"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "291b7eae0dc9f77b2df1d10ed1c685ddf48af0b835b4818f96a256a10b0841c3"
+    sha256 cellar: :any_skip_relocation, ventura:        "74dabc6cf5b77e3251cb11ab8fcd1a6bba24e67fb180871833c11919f193c496"
+    sha256 cellar: :any_skip_relocation, monterey:       "90eb918cc445fb97563d157bd1c75ca2abf1a8423c2b83de0d2c101ae13a9c86"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0049f186fb30a2217b7a8fe05eacac7e766f666135d5c898221e6cc25455349a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "16c2e18d02839e6b0e79ac685045de38f37afd44543cd43c82ae1e0cec435282"
   end
 
   def install

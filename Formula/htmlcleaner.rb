@@ -1,19 +1,18 @@
 class Htmlcleaner < Formula
   desc "HTML parser written in Java"
   homepage "https://htmlcleaner.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/htmlcleaner/htmlcleaner/htmlcleaner%20v2.26/htmlcleaner-2.26-src.zip"
-  sha256 "617ddb866530f512c2c6f6f89b40a9ac6e46bf515960c49f47d8d037adaf0e2c"
+  url "https://downloads.sourceforge.net/project/htmlcleaner/htmlcleaner/htmlcleaner%20v2.27/htmlcleaner-2.27-src.zip"
+  sha256 "908a837f55760e8aa72f3ac516b66f2216d2b99b9b3bede56a767966401b75c4"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2288e8a67ed3a00db0d493dc003b2705ae3c56f2e3eda4f6a25413a061b39a56"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b6a287a43392e2a9ea253172a5000ff7da6f898dffda7c3052eda4ecdb91a961"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9db87bc977615b9bb0250f0dc9f735dcd3d20a0799700640afe80c9bb011dd29"
-    sha256 cellar: :any_skip_relocation, ventura:        "137d96ed021338de07f8ea4b98724eef247f557a7cc4397a87be7fe03c19849f"
-    sha256 cellar: :any_skip_relocation, monterey:       "6dd5433406edc84f3e175426793cc788d1edc8cae11bfacfbaf4431f39c631a9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "573b152655d4c622581d6dc5f73229271cfd4307b3dd4d63967d41b2c3da5ae9"
-    sha256 cellar: :any_skip_relocation, catalina:       "03d164b2210190deecac6180af860948b1d4e09a318dce0bbe631b7e98f0d0a0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bc3f63cf7c8a4d264c34fe39dfc265422a15564e04ce5495ab9bc08c91838dbf"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cd72cf3dcc385cb161e665ce3f12ac69903b826a53a48d0fd1589ee856b80c21"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "dfc9b54998f3ae300598bf80cb893c99a9a07692daa917f18ef8cc00519536bc"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d1ac0c73ac0937b77c13445d22d5a37938ac6ebcabb6f7edcc56af00e42dd74c"
+    sha256 cellar: :any_skip_relocation, ventura:        "9517578772834a78da9f419ca4f104a8b30ee8b986a4fe246df6d0d8964763d0"
+    sha256 cellar: :any_skip_relocation, monterey:       "ef5aadaf721830eed7f446ea68dc807559c6fe6409a757171a8fa6878979da4e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f6b01eb50b83f19154955d6934690a72f0b99aaa6202353bab8c97ebb9ebf7e5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7774e9ca1d451d880879b0327d84d531faa2341b987a47e23319fa45a5b3a87b"
   end
 
   depends_on "maven" => :build
@@ -21,17 +20,8 @@ class Htmlcleaner < Formula
 
   def install
     ENV["JAVA_HOME"] = Formula["openjdk"].opt_prefix
-
-    inreplace "pom.xml" do |s|
-      # Homebrew's OpenJDK no longer accepts Java 5 source
-      s.gsub! "<source>1.5</source>", "<source>1.7</source>"
-      s.gsub! "<target>1.5</target>", "<target>1.7</target>"
-      # OpenJDK >14 doesn't support older maven-javadoc-plugin versions
-      s.gsub! "<version>2.9</version>", "<version>3.2.0</version>"
-    end
-
     system "mvn", "clean", "package", "-DskipTests=true", "-Dmaven.javadoc.skip=true"
-    libexec.install Dir["target/htmlcleaner-*.jar"]
+    libexec.install "target/htmlcleaner-#{version}.jar"
     bin.write_jar_script libexec/"htmlcleaner-#{version}.jar", "htmlcleaner"
   end
 

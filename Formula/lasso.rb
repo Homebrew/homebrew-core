@@ -1,8 +1,8 @@
 class Lasso < Formula
   desc "Library for Liberty Alliance and SAML protocols"
   homepage "https://lasso.entrouvert.org/"
-  url "https://dev.entrouvert.org/releases/lasso/lasso-2.8.0.tar.gz"
-  sha256 "ffcbd5851d98586c7e1caf43bad66164211a3b61d12bf860a0598448ff9f2b38"
+  url "https://dev.entrouvert.org/releases/lasso/lasso-2.8.2.tar.gz"
+  sha256 "6a1831bfdbf8f424c7508aba47b045d51341ec0fde9122f38b0b86b096ef533e"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,15 +11,13 @@ class Lasso < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "232452155fca74c8c35ef5a5d0cf4e6f87b4748f53a4f68be375b50390a22852"
-    sha256 cellar: :any,                 arm64_monterey: "1234da53fe66054f3b22628b155ddad4b701e039aef6f648d4233ed0fbba0177"
-    sha256 cellar: :any,                 arm64_big_sur:  "41c8f358f24567d8e813a30362c67e14a66ae7534746aaad23f5b36eaa1c35e6"
-    sha256 cellar: :any,                 ventura:        "74fb574697df10b93d8708cc38d427a24f537cce5c95258c6cf1b6690c505817"
-    sha256 cellar: :any,                 monterey:       "24604ecf58d01e58194a75e57c69237ecf85cceaf544b314cd4a59d4fd5e4f77"
-    sha256 cellar: :any,                 big_sur:        "8a395f2aa86ef1a5f22f23b3bc4b7fbca51e108b0c3afbea149e731932d59033"
-    sha256 cellar: :any,                 catalina:       "149148a36bada2068998128bdccb2887149cb8bbf8da23398546f734a1a8e03b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b5818abda0bcd05f97c6bc342142623a13e70f3b0ae4fe036703b3d2e944f354"
+    sha256 cellar: :any,                 arm64_ventura:  "d81a25668452f78ca788fadeb35a9a2f7f111154b9347f31458e4a66d24c5eb8"
+    sha256 cellar: :any,                 arm64_monterey: "e124dee69556b5ad055366ced3581ccc42ae96690e3d88bc61024a9d45372d45"
+    sha256 cellar: :any,                 arm64_big_sur:  "dbbbf3fcd6709ee6ff2939eb2bbb31ada72521ec8e27054b0c59e6c901dc1b04"
+    sha256 cellar: :any,                 ventura:        "d02a38e57961407a137dbfec82254ac0ed8d68e27894a9c8bcc09b4eecd16ce3"
+    sha256 cellar: :any,                 monterey:       "672f530bf96cd1cb964b4ddf0ef7b637f0da7968b354ee993ad561d37236f5cc"
+    sha256 cellar: :any,                 big_sur:        "c1cd904d2e98cd1b8644f7f58e4a3d9c44ffb11fd6f9f8f41c2c1c6779d2b1d3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3535a93e21796d3db967f183fe18774c70d0062f8f3df2bfee6f5214b8c7615e"
   end
 
   depends_on "pkg-config" => :build
