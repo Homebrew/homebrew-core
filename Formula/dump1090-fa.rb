@@ -7,7 +7,7 @@ class Dump1090Fa < Formula
 
   depends_on "hackrf"
   depends_on "librtlsdr"
-  depends_on "limesuite"
+  # depends_on "limesuite" TODO
 
   def install
     system "make"
