@@ -20,6 +20,7 @@ class Dar < Formula
     sha256               x86_64_linux:   "d662471b6c1d22bbb4388e8256e26d528eb34c4d8496ceb7e7ac1cc9e7078f99"
   end
 
+  depends_on "argon2"
   depends_on "libgcrypt"
   depends_on "lzo"
 
