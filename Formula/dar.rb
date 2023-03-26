@@ -11,13 +11,11 @@ class Dar < Formula
   end
 
   bottle do
-    sha256               arm64_ventura:  "7cbef1d93078441e341963f6d45f98b7548066e3c27c9ec864d8860a81f94a05"
-    sha256               arm64_monterey: "0c3f050775bdb3802d0ca63e819f1d31794d6353e2daa3152a26eb4c26d33b53"
-    sha256               arm64_big_sur:  "3acc199f9fdb2533766a853cc2397a60a79fd8781908748e1a81745fd995c4d1"
-    sha256 cellar: :any, monterey:       "607115ea92bf853dcc42bb82ff5740ae2f921afec71a29f82382a4f34cb4eca2"
-    sha256 cellar: :any, big_sur:        "cf7783da36b47a0bd54dfd8954c01f79b7b1f30eea8eee95f02a79edbba15d89"
-    sha256 cellar: :any, catalina:       "2704638c041551e2f887ed52d5ddae588a5953e8c22ba3184750b51736ae2164"
-    sha256               x86_64_linux:   "d662471b6c1d22bbb4388e8256e26d528eb34c4d8496ceb7e7ac1cc9e7078f99"
+    sha256 arm64_ventura:  "2e1279a73d3d474c2e555d0b751bc2b9a3d477458acc7fb42e36949540b24aa9"
+    sha256 arm64_monterey: "3d906d174e5bde0fc8bbab53c8783096b4a4e2887b5638a844565c1845bf8b92"
+    sha256 arm64_big_sur:  "99411d919bd8f1005ebfe0b9ecace628485263f81ee687545a42b485c798c7e2"
+    sha256 monterey:       "932c401475261bbf614062508b448fb5d7b3bc770a49a9236948b3cc8a8ec2a2"
+    sha256 big_sur:        "9c82b987d80d5f503af0ff1d984852bbec241fd1871e3fcacd71c7bf9bff06e9"
   end
 
   depends_on "argon2"
