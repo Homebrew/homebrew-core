@@ -6,6 +6,12 @@ class Koka < Formula
   license "Apache-2.0"
   head "https://github.com/koka-lang/koka.git", branch: "master"
 
+  livecheck do
+    url :stable
+    regex(%r{href=["']?[^"' >]*?/tag/v?(\d+(?:\.\d+)+)[^"' >]*?["' >]}i)
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "00c395e0e93cdacbedd016a34e1a102674637845ea6297634914341a72cf2af2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e0b38553baeacde3c35f9f15a0e8b965a2339bb869005246a4fadc43f4f439fc"
