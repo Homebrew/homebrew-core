@@ -1,8 +1,9 @@
 class Neomutt < Formula
   desc "E-mail reader with support for Notmuch, NNTP and much more"
   homepage "https://neomutt.org/"
-  url "https://github.com/neomutt/neomutt/archive/20230322.tar.gz"
-  sha256 "47f024d4ae2d976f95b626c5fe6cad6ef22ed187426efbd7cf61435ba1790a48"
+  url "https://github.com/neomutt/neomutt/archive/2c67e8161f1eec703238ebf5e4b61b49900eef30.tar.gz"
+  version "20230322"
+  sha256 "fc57662f36d444ec4d3ce73dec576af8a609993eaf00fe9747e6517195dbddad"
   license "GPL-2.0-or-later"
   head "https://github.com/neomutt/neomutt.git", branch: "main"
 
@@ -39,9 +40,10 @@ class Neomutt < Formula
 
   # Fix finding macOS `libsasl2`.
   # https://github.com/neomutt/neomutt/pull/3780
+  # Remove in next release.
   patch do
-    url "https://github.com/neomutt/neomutt/commit/6d28a555f52e437e5966e769c5cda82e8b643ad9.patch?full_index=1"
-    sha256 "17d9af6955ba7267d4ed0b2ca5bfacfa01e81b2de96246ff7c885bef1035eb35"
+    url "https://github.com/neomutt/neomutt/commit/86b17a56eced0bcd68b72ced6ecf90ac00b6470d.patch?full_index=1"
+    sha256 "fe2beee22c45b4847edb9a3d2f874e76d229b6407e25d6f1405d9475d1d93717"
   end
 
   def install
@@ -71,10 +73,7 @@ class Neomutt < Formula
     args << "--pkgconf" if OS.linux?
 
     system "./configure", *args
-    # Do this in separate steps because parallel `make install` fails intermittently.
-    # Reported upstream at https://github.com/neomutt/neomutt/issues/3783
-    system "make"
-    ENV.deparallelize { system "make", "install" }
+    system "make", "install"
   end
 
   test do
