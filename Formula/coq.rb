@@ -35,9 +35,7 @@ class Coq < Formula
     ENV.prepend_path "OCAMLPATH", Formula["ocaml-findlib"].opt_lib/"ocaml"
     system "./configure", "-prefix", prefix,
                           "-mandir", man,
-                          "-docdir", pkgshare/"latex",
-                          "-coqide", "no",
-                          "-with-doc", "no"
+                          "-docdir", pkgshare/"latex"
     system "make", "world"
     ENV.deparallelize { system "make", "install" }
   end
