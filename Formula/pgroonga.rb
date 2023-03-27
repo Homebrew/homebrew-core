@@ -1,8 +1,8 @@
 class Pgroonga < Formula
   desc "PostgreSQL plugin to use Groonga as index"
   homepage "https://pgroonga.github.io/"
-  url "https://packages.groonga.org/source/pgroonga/pgroonga-2.4.4.tar.gz"
-  sha256 "e5b29bfa4a2321a0ccc14b55d5156c3cb5cc03c08f7ec2d54ccc2212186292a4"
+  url "https://packages.groonga.org/source/pgroonga/pgroonga-2.4.7.tar.gz"
+  sha256 "b116cc3f2c96a23ff197619fd72b46e7b64e39e3fa1cbb1454f483aa1db607e6"
   license "PostgreSQL"
 
   livecheck do
@@ -22,10 +22,10 @@ class Pgroonga < Formula
 
   depends_on "pkg-config" => :build
   depends_on "groonga"
-  depends_on "postgresql@14"
+  depends_on "postgresql@15"
 
   def postgresql
-    Formula["postgresql@14"]
+    Formula["postgresql@15"]
   end
 
   def install
@@ -35,10 +35,12 @@ class Pgroonga < Formula
     mkdir "stage"
     system "make", "install", "DESTDIR=#{buildpath}/stage"
 
-    stage_path = File.join("stage", HOMEBREW_PREFIX)
-    lib.install (buildpath/stage_path/"lib").children
-    share.install (buildpath/stage_path/"share").children
-    include.install (buildpath/stage_path/"include").children
+    relative_pg_opt_lib = postgresql.opt_lib.relative_path_from("/")
+    relative_pg_opt_share = postgresql.opt_share.relative_path_from("/")
+    relative_pg_opt_include = postgresql.opt_include.relative_path_from("/")
+    lib.install (buildpath/"stage"/relative_pg_opt_lib).children
+    share.install (buildpath/"stage"/relative_pg_opt_share).children
+    include.install (buildpath/"stage"/relative_pg_opt_include).children
   end
 
   test do
