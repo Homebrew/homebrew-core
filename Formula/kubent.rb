@@ -7,6 +7,11 @@ class Kubent < Formula
   license "MIT"
   head "https://github.com/doitintl/kube-no-trouble.git", branch: "master"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b253c116737aa11ffe96165128063e0cfd361ebb4b83cecadd4e58cb4a67971a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5cddd6fee8427d67e9261d1cc5cac91245c2564bc20375a7b53a2106b610e921"
