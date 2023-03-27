@@ -4,6 +4,7 @@ class Gobackup < Formula
   url "https://github.com/gobackup/gobackup/archive/refs/tags/v2.0.0.tar.gz"
   sha256 "984504dd85e882fe25c02e09f7fcbefa909da349ce2c16c865c6bff65dbef048"
   license "MIT"
+  head "https://github.com/gobackup/gobackup.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "21569f4657cb427260ba5bb6f796f3a38932840e0cb9570926f868441998c1c5"
@@ -26,8 +27,7 @@ class Gobackup < Formula
       system "yarn", "install"
       system "yarn", "build"
     end
-    system "go", "build", "-o", bin/"gobackup", "-ldflags",
-      "-s -w -X main.version=#{revision}"
+    system "go", "build", "-o", bin/"gobackup", "-ldflags", "-s -w -X main.version=#{revision}"
   end
 
   test do
