@@ -6,13 +6,13 @@ class Primecount < Formula
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "15f0c13e7980239e8f000b08afa6114ac163cdc46a857db0d92de3f661493895"
-    sha256 cellar: :any,                 arm64_monterey: "9acc3e0c6227ebbd76d5e5dc725f4529588d5c687a1bd82fab342daf9d5e25ea"
-    sha256 cellar: :any,                 arm64_big_sur:  "6ed512fbcc7fbd9126cd4683219e836c2b5141ee5ebc806711c18c3aeaecf228"
-    sha256 cellar: :any,                 ventura:        "aff3c843dcc17c7286daea6c4ec29ea3dc4238244f5968e0c7a0e1fff2d97787"
-    sha256 cellar: :any,                 monterey:       "14ed3519e72ad1907dc57ce72390971eae23c5ad0778721da375f28914450460"
-    sha256 cellar: :any,                 big_sur:        "c37f1cc0552553f6f5418f9f3d1b99d80354e0d462fcac6c1762cc768372a157"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a9c770dcbd7e5b19540217738e1a02edb8932642b6c6131e4a8c79323c704816"
+    sha256 cellar: :any,                 arm64_ventura:  "70043fe298e4ecf60c0ed28ffc73f4da65a04b936f8e44b39530327b1c483e89"
+    sha256 cellar: :any,                 arm64_monterey: "df28edbe57fac57724718ffd23b7ab746a21208d69c94c74639184efb7843ae9"
+    sha256 cellar: :any,                 arm64_big_sur:  "110acae614fc855e78a6119c65dd440b52d2781ab4e4b2e74028a8b84b261112"
+    sha256 cellar: :any,                 ventura:        "25eb4c899d0c7811bb1034840edd8f8d8a016e9e0de07c382cbad2304d9740de"
+    sha256 cellar: :any,                 monterey:       "26aee0dbe60b2752bd05b2d00f0ad912eba27882b0b26a2e543b9891af582bb8"
+    sha256 cellar: :any,                 big_sur:        "c05789ac3cfe6e4a010ccc9a50919b202294b41ac380ebedd2a2f16e532f04f4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "488b219fd529f3829058b72c5fcf672c276086acaf7221a8388de6aa26624ab5"
   end
 
   depends_on "cmake" => :build
