@@ -38,7 +38,7 @@ class AwsVault < Formula
   end
 
   test do
-    assert_match("aws-vault: error: login: operation error IAM",
+    assert_match("aws-vault: error: login: argument 'profile' not provided, nor any AWS env vars found. Try --help",
       shell_output("#{bin}/aws-vault --backend=file login 2>&1", 1))
 
     assert_match version.to_s, shell_output("#{bin}/aws-vault --version 2>&1")
