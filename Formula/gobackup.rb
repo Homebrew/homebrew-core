@@ -1,8 +1,8 @@
 class Gobackup < Formula
   desc "CLI tool for backup your databases, files to cloud storages"
   homepage "https://gobackup.github.io"
-  url "https://github.com/gobackup/gobackup/archive/refs/tags/v2.0.0-rc1.tar.gz"
-  sha256 "64576e89cb4f0e882bb9f761fc6beed6a47d8ff7488b7539654c4123075bc721"
+  url "https://github.com/gobackup/gobackup/archive/refs/tags/v2.0.0.tar.gz"
+  sha256 "984504dd85e882fe25c02e09f7fcbefa909da349ce2c16c865c6bff65dbef048"
   license "MIT"
 
   depends_on "go" => :build
@@ -21,7 +21,7 @@ class Gobackup < Formula
   end
 
   test do
-    assert_match revision.to_s, shell_output("#{bin}/gobackup -v")
+    assert_match version.to_s, shell_output("#{bin}/gobackup -v")
 
     config_file = testpath/"gobackup.yml"
 
