@@ -24,7 +24,7 @@ class Lighthouse < Formula
 
   def install
     ENV["PROTOC_NO_VENDOR"] = "1"
-    system "cargo", "install", *std_cargo_args(path: "./lighthouse")
+    system "cargo", "install", "--no-default-features", *std_cargo_args(path: "./lighthouse")
   end
 
   test do
