@@ -25,7 +25,7 @@ permissions:
 
 jobs:
   tap_syntax:
-    if: github.repository == 'Homebrew/homebrew-core' && !(github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'CI-published-bottle-commits'))
+    if: github.repository == 'Homebrew/homebrew-core'
     runs-on: ubuntu-22.04
     container:
       image: ghcr.io/homebrew/ubuntu22.04:master
