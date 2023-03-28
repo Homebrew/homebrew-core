@@ -1,20 +1,10 @@
 class Micromamba < Formula
   desc "Fast Cross-Platform Package Manager"
   homepage "https://github.com/mamba-org/mamba"
+  url "https://github.com/mamba-org/mamba/archive/refs/tags/micromamba-1.4.1.tar.gz"
+  sha256 "4ec974a6fe95666e9e275cd76b8a2ffb26b36bb99957c88eef6c7ffc57fd4317"
   license "BSD-3-Clause"
   head "https://github.com/mamba-org/mamba.git", branch: "main"
-
-  stable do
-    url "https://github.com/mamba-org/mamba/archive/refs/tags/micromamba-1.4.1.tar.gz"
-    sha256 "4ec974a6fe95666e9e275cd76b8a2ffb26b36bb99957c88eef6c7ffc57fd4317"
-
-    # Fix "error: chosen constructor is explicit in copy-initialization".
-    # Remove with `stable` block on next release.
-    patch do
-      url "https://github.com/mamba-org/mamba/commit/bc7fa860c982c796f3c35acaa011304128bb4e62.patch?full_index=1"
-      sha256 "16d1e3052d3a07a8951c918535ea0de8fbba53b7ded1145289253c4f6beb6e5a"
-    end
-  end
 
   livecheck do
     url :stable
