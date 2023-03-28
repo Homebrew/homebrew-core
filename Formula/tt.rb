@@ -19,6 +19,7 @@ class Tt < Formula
   depends_on "mage" => :build
   depends_on "pkg-config" => :build
   depends_on "openssl@3"
+
   uses_from_macos "curl"
   uses_from_macos "unzip"
   uses_from_macos "zip"
@@ -27,10 +28,11 @@ class Tt < Formula
     ENV["TT_CLI_BUILD_SSL"] = "shared"
     system "mage", "build"
     bin.install "tt"
+    (etc/"tarantool").install "tt.yaml.default" => "tt.yaml"
   end
 
   test do
-    system bin/"tt", "create", "cartridge", "--name", "cartridge_app", "-f", "--non-interactive", "-dst", testpath
-    assert_predicate testpath/"st/cartridge_app/init.lua", :exist?
+    system bin/"tt", "create", "cartridge", "--name", "cartridge_app", "-f", "--non-interactive", "-d", testpath
+    assert_path_exists testpath/"cartridge_app/init.lua"
   end
 end
