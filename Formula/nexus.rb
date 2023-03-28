@@ -1,6 +1,6 @@
 class Nexus < Formula
   desc "Repository manager for binary software components"
-  homepage "https://www.sonatype.org/"
+  homepage "https://www.sonatype.com/"
   url "https://github.com/sonatype/nexus-public/archive/refs/tags/release-3.50.0-01.tar.gz"
   sha256 "12aee9e179ce9d2264d29f8890dc54de8094d0431990673b7a7208bbb54467e6"
   license "EPL-1.0"
