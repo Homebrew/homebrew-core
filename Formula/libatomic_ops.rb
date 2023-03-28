@@ -1,8 +1,8 @@
 class LibatomicOps < Formula
   desc "Implementations for atomic memory update operations"
   homepage "https://github.com/ivmai/libatomic_ops/"
-  url "https://github.com/ivmai/libatomic_ops/releases/download/v7.6.14/libatomic_ops-7.6.14.tar.gz"
-  sha256 "390f244d424714735b7050d056567615b3b8f29008a663c262fb548f1802d292"
+  url "https://github.com/ivmai/libatomic_ops/releases/download/v7.8.0/libatomic_ops-7.8.0.tar.gz"
+  sha256 "15676e7674e11bda5a7e50a73f4d9e7d60452271b8acf6fd39a71fefdf89fa31"
   license "GPL-2.0"
 
   livecheck do
