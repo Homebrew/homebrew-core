@@ -5,8 +5,8 @@ class Micromamba < Formula
   head "https://github.com/mamba-org/mamba.git", branch: "main"
 
   stable do
-    url "https://github.com/mamba-org/mamba/archive/refs/tags/micromamba-1.4.0.tar.gz"
-    sha256 "890f37e7f84e81b85976d0a26d171406dbbbb02416efcb95bda9f263e10c21b4"
+    url "https://github.com/mamba-org/mamba/archive/refs/tags/micromamba-1.4.1.tar.gz"
+    sha256 "4ec974a6fe95666e9e275cd76b8a2ffb26b36bb99957c88eef6c7ffc57fd4317"
 
     # Fix "error: chosen constructor is explicit in copy-initialization".
     # Remove with `stable` block on next release.
