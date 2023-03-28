@@ -1,10 +1,17 @@
 class GnustepBase < Formula
   desc "Library of general-purpose, non-graphical Objective C objects"
   homepage "https://github.com/gnustep/libs-base"
-  url "https://github.com/gnustep/libs-base/releases/download/base-1_28_0/gnustep-base-1.28.0.tar.gz"
-  sha256 "c7d7c6e64ac5f5d0a4d5c4369170fc24ed503209e91935eb0e2979d1601039ed"
+  url "https://github.com/gnustep/libs-base/releases/download/base-1_29_0/gnustep-base-1.29.0.tar.gz"
+  sha256 "fa58eda665c3e0b9c420dc32bb3d51247a407c944d82e5eed1afe8a2b943ef37"
   license "GPL-2.0-or-later"
-  revision 2
+
+  livecheck do
+    url :stable
+    regex(%r{href=["']?[^"' >]*?/tag/\D+v?(\d+(?:[._]\d+)+)["' >]}i)
+    strategy :github_latest do |page, regex|
+      page.scan(regex).map { |match| match[0].tr("_", ".") }
+    end
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "8321c4f4c88e7084055ffdd4a47d5f792379d49e662aa6b3d8f586e28ffd1432"
@@ -17,12 +24,13 @@ class GnustepBase < Formula
   end
 
   depends_on "gnustep-make" => :build
+  depends_on "pkg-config" => :build
   depends_on "gmp"
   depends_on "gnutls"
 
   # While libobjc2 is built with clang on Linux, it does not use any LLVM runtime libraries.
   uses_from_macos "llvm" => [:build, :test]
-  uses_from_macos "icu4c"
+  uses_from_macos "icu4c", since: :monterey
   uses_from_macos "libffi"
   uses_from_macos "libxslt"
 
