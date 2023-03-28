@@ -1,6 +1,6 @@
 class Chkrootkit < Formula
   desc "Rootkit detector"
-  homepage "http://www.chkrootkit.org/"
+  homepage "https://www.chkrootkit.org/"
   url "ftp://ftp.chkrootkit.org/pub/seg/pac/chkrootkit-0.57.tar.gz"
   mirror "https://fossies.org/linux/misc/chkrootkit-0.57.tar.gz"
   sha256 "06d1faee151aa3e3c0f91ac807ca92e60b75ed1c18268ccef2c45117156d253c"
