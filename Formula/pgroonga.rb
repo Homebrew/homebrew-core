@@ -35,12 +35,10 @@ class Pgroonga < Formula
     mkdir "stage"
     system "make", "install", "DESTDIR=#{buildpath}/stage"
 
-    relative_pg_opt_lib = postgresql.opt_lib.relative_path_from("/")
-    relative_pg_opt_share = postgresql.opt_share.relative_path_from("/")
-    relative_pg_opt_include = postgresql.opt_include.relative_path_from("/")
-    lib.install (buildpath/"stage"/relative_pg_opt_lib).children
-    share.install (buildpath/"stage"/relative_pg_opt_share).children
-    include.install (buildpath/"stage"/relative_pg_opt_include).children
+    stage_path = File.join("stage", HOMEBREW_PREFIX)
+    lib.install (buildpath/stage_path/"lib").children
+    share.install (buildpath/stage_path/"share").children
+    include.install (buildpath/stage_path/"include").children
   end
 
   test do
