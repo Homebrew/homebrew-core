@@ -1,12 +1,15 @@
 class Mujs < Formula
   desc "Embeddable Javascript interpreter"
   homepage "https://www.mujs.com/"
-  # use tag not tarball so the version in the pkg-config file isn't blank
-  url "https://github.com/ccxvii/mujs.git",
-      tag:      "1.3.3",
-      revision: "57e3f01d5f29c5823be725d96284488edf5f8ae1"
+  url "https://mujs.com/downloads/mujs-1.3.3.tar.gz"
+  sha256 "e2c5ee5416dfda2230c7a0cb7895df9a9b2d5b2065bb18e7e64dec2a796abe1b"
   license "ISC"
   head "https://github.com/ccxvii/mujs.git", branch: "master"
+
+  livecheck do
+    url "https://mujs.com/downloads/"
+    regex(/href=.*?mujs[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     rebuild 1
@@ -41,5 +44,6 @@ class Mujs < Formula
     # test pkg-config setup correctly
     assert_match "-I#{include}", shell_output("pkg-config --cflags mujs")
     assert_match "-L#{lib}", shell_output("pkg-config --libs mujs")
+    system "pkg-config", "--atleast-version=#{version}", "mujs"
   end
 end
