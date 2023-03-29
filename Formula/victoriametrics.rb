@@ -5,6 +5,14 @@ class Victoriametrics < Formula
   sha256 "3c090a8ce399452322ac1718c4bfd878a46c1f17366c0db2587d95cd915c8fd4"
   license "Apache-2.0"
 
+  # There are tags like `pmm-6401-v1.89.1` in the upstream repo. They don't
+  # actually represent releases, despite referring to one in the tag name.
+  # Make sure we only match the ones using the common format.
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7fb47f99a11c3a70f44ae57d39e644f21801ad569d21bd6257801ec934f9e9ab"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "dcf18729329c6c69532b0bd585bdccc51d754025cab6819c7354bf3278cc390d"
