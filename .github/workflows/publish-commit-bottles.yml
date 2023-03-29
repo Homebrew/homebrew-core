@@ -35,6 +35,7 @@ env:
   GH_REPO: ${{github.repository}}
   GH_NO_UPDATE_NOTIFIER: 1
   GH_PROMPT_DISABLED: 1
+  RUN_URL: ${{github.event.repository.html_url}}/actions/runs/${{github.run_id}}
 
 permissions:
   contents: read
@@ -52,8 +53,8 @@ jobs:
         with:
           token: ${{secrets.GITHUB_TOKEN}}
           issue: ${{github.event.inputs.pull_request}}
-          body: ":shipit: @${{github.actor}} has [requested bottles to be published to this PR](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}})."
-          bot_body: ":robot: A scheduled task has [requested bottles to be published to this PR](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}})."
+          body: ":shipit: @${{github.actor}} has [requested bottles to be published to this PR](${{env.RUN_URL}})."
+          bot_body: ":robot: A scheduled task has [requested bottles to be published to this PR](${{env.RUN_URL}})."
           bot: BrewTestBot
 
       - name: Set up Homebrew
@@ -124,6 +125,7 @@ jobs:
           fi
 
       - name: Push commits
+        id: push
         uses: Homebrew/actions/git-try-push@master
         with:
           token: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
@@ -132,10 +134,17 @@ jobs:
           branch: ${{steps.push-configuration.outputs.branch}}
           force: ${{inputs.autosquash}}
           no_lease: ${{inputs.autosquash}}
+          tries: ${{inputs.autosquash && '1' || '5'}}
         env:
           GIT_COMMITTER_NAME: ${{ steps.git-user-config.outputs.name }}
           GIT_COMMITTER_EMAIL: ${{ steps.git-user-config.outputs.email }}
           HOMEBREW_GPG_PASSPHRASE: ${{ secrets.BREWTESTBOT_GPG_SIGNING_SUBKEY_PASSPHRASE }}
+
+      - name: Add CI-published-bottle-commits label
+        run: gh pr edit --add-label CI-published-bottle-commits '${{github.event.inputs.pull_request}}'
+        working-directory: ${{steps.set-up-homebrew.outputs.repository-path}}
+        env:
+          GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
       - name: Post comment on failure
         if: ${{!success()}}
@@ -143,8 +152,8 @@ jobs:
         with:
           token: ${{secrets.GITHUB_TOKEN}}
           issue: ${{github.event.inputs.pull_request}}
-          body: ":warning: @${{github.actor}} bottle publish [failed](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}})."
-          bot_body: ":warning: Bottle publish [failed](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}})."
+          body: ":warning: @${{github.actor}} bottle publish [failed](${{env.RUN_URL}})."
+          bot_body: ":warning: Bottle publish [failed](${{env.RUN_URL}})."
           bot: BrewTestBot
 
       - name: Dismiss approvals on failure
@@ -154,12 +163,6 @@ jobs:
           token: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
           pr: ${{github.event.inputs.pull_request}}
           message: "bottle publish failed"
-
-      - name: Add CI-published-bottle-commits label
-        run: gh pr edit --add-label CI-published-bottle-commits '${{github.event.inputs.pull_request}}'
-        env:
-          GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-        working-directory: ${{steps.set-up-homebrew.outputs.repository-path}}
 
       - name: Wait until pull request branch is in sync with local repository
         working-directory: ${{steps.set-up-homebrew.outputs.repository-path}}
@@ -207,6 +210,86 @@ jobs:
         with:
           token: ${{secrets.GITHUB_TOKEN}}
           issue: ${{github.event.inputs.pull_request}}
-          body: ":warning: @${{github.actor}} [Failed to enable automerge](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}})."
-          bot_body: ":warning: [Failed to enable automerge](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}})."
+          body: ":warning: @${{github.actor}} [Failed to enable automerge](${{env.RUN_URL}})."
+          bot_body: ":warning: [Failed to enable automerge](${{env.RUN_URL}})."
+          bot: BrewTestBot
+
+      - name: Rebase on origin/master for fallback
+        if: failure() && steps.push.conclusion == 'failure'
+        working-directory: ${{steps.set-up-homebrew.outputs.repository-path}}
+        run: |
+          git fetch origin
+          git rebase origin/master || git rebase --abort
+
+      - name: Push commits (fallback)
+        id: push-fallback
+        if: failure() && steps.push.conclusion == 'failure'
+        uses: Homebrew/actions/git-try-push@master
+        with:
+          token: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
+          directory: ${{steps.set-up-homebrew.outputs.repository-path}}
+          branch: ${{steps.push-configuration.outputs.branch}}
+          tries: '5'
+        env:
+          GIT_COMMITTER_NAME: ${{ steps.git-user-config.outputs.name }}
+          GIT_COMMITTER_EMAIL: ${{ steps.git-user-config.outputs.email }}
+          HOMEBREW_GPG_PASSPHRASE: ${{ secrets.BREWTESTBOT_GPG_SIGNING_SUBKEY_PASSPHRASE }}
+
+      - name: Open separate PR with bottle commits after push failure
+        id: fallback-pr
+        if: failure() && steps.push-fallback.conclusion == 'success'
+        working-directory: ${{steps.set-up-homebrew.outputs.repository-path}}
+        env:
+          GH_TOKEN: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
+        run: |
+          name='${{github.workflow}}'
+          url='${{github.server_url}}/${{github.workflow_ref}}'
+          branch='${{steps.push-configuration.outputs.branch}}'
+
+          echo "Created by [$name][$url] after [failed push]($RUN_URL)." > pr_body
+          echo >> pr_body
+          echo 'Closes #${{inputs.pull_request}}' >> pr_body
+
+          gh pr create \
+            --base master \
+            --body-file pr_body \
+            --head "$branch" \
+            --label CI-published-bottle-commits \
+            --title 'Recreation of #${{inputs.pull_request}}'
+
+          pull_number="$(gh pr list --head "$branch" | cut -f1 | tr -d '\n')"
+          gh pr merge --auto --merge "$pull_number"
+          echo "pull_number=$pull_number" >> "$GITHUB_OUTPUT"
+
+      - name: Enable automerge on fallback PR
+        id: replacement-pr
+        if: failure() && steps.fallback-pr.conclusion == 'success'
+        working-directory: ${{steps.set-up-homebrew.outputs.repository-path}}
+        env:
+          GH_TOKEN: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
+        run: |
+          pull_number="$(gh pr list --head "$branch" | cut -f1 | tr -d '\n')"
+          gh pr merge --auto --merge "$pull_number"
+          echo "pull_number=$pull_number" >> "$GITHUB_OUTPUT"
+
+      - name: Post comment for fallback PR
+        if: failure() && steps.fallback-pr.conclusion == 'success'
+        uses: Homebrew/actions/post-comment@master
+        with:
+          token: ${{secrets.GITHUB_TOKEN}}
+          issue: ${{github.event.inputs.pull_request}}
+          body: ":ship: @${{github.actor}} Replacement PR opened at #${{steps.replacement-pr.outputs.pull_number}}."
+          bot_body: ":ship: Replacement PR opened at #${{steps.fallback-pr.outputs.pull_number}}."
+          bot: BrewTestBot
+
+      - name: Post comment on fallback creation
+        if: >
+          failure() &&
+          (steps.push-fallback.conclusion == 'failure' || steps.fallback-pr.conclusion == 'failure')
+        uses: Homebrew/actions/post-comment@master
+        with:
+          token: ${{secrets.GITHUB_TOKEN}}
+          issue: ${{github.event.inputs.pull_request}}
+          body: ":warning: @${{github.actor}} [Failed to create replacement PR](${{env.RUN_URL}})."
+          bot_body: ":warning: [Failed to create replacement PR](${{env.RUN_URL}})."
           bot: BrewTestBot
