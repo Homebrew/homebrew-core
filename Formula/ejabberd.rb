@@ -4,6 +4,7 @@ class Ejabberd < Formula
   url "https://github.com/processone/ejabberd/archive/refs/tags/23.01.tar.gz"
   sha256 "2b83fe036bbf1db8a76b86f718ff13df098fa10c62bfcf06b81e0a64e6f6f9c0"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/processone/ejabberd.git", branch: "master"
 
   bottle do
@@ -21,7 +22,7 @@ class Ejabberd < Formula
   depends_on "erlang"
   depends_on "gd"
   depends_on "libyaml"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   on_linux do
     depends_on "linux-pam"
