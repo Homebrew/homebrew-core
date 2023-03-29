@@ -1,5 +1,5 @@
 class G2s < Formula
-  desc "Toolbox for geostatistical simulations."
+  desc "Toolbox for geostatistical simulations"
   homepage "https://gaia-unil.github.io/G2S/"
   url "https://github.com/GAIA-UNIL/G2S/archive/refs/tags/v0.98.015.tar.gz"
   sha256 "d6074c6c904640e3c69c4f8236e4d8cb3061d4d0c6234437b1803111d33e49d1"
@@ -39,14 +39,12 @@ class G2s < Formula
   end
 
   test do
-    begin
-      pid = fork do
-        exec bin/"g2s", "server"
-      end
-      sleep 3
-    ensure
-      Process.kill("TERM", pid)
-      Process.wait(pid)
+    pid = fork do
+      exec bin/"g2s", "server"
     end
+    sleep 3
+  ensure
+    Process.kill("TERM", pid)
+    Process.wait(pid)
   end
 end
