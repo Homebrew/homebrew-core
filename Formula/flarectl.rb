@@ -1,8 +1,8 @@
 class Flarectl < Formula
   desc "CLI application for interacting with a Cloudflare account"
   homepage "https://github.com/cloudflare/cloudflare-go/tree/master/cmd/flarectl"
-  url "https://github.com/cloudflare/cloudflare-go/archive/v0.63.0.tar.gz"
-  sha256 "9ad4b057b9482f67817f9cf69d70c1160664340138bce9471abaa185119e40cd"
+  url "https://github.com/cloudflare/cloudflare-go/archive/v0.64.0.tar.gz"
+  sha256 "9067e7fee99d697d69d90a9473be27dcc3fe88c871d5c701405501726c936c55"
   license "BSD-3-Clause"
   head "https://github.com/cloudflare/cloudflare-go.git", branch: "master"
 
