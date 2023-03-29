@@ -7,11 +7,11 @@ class G2s < Formula
 
   # Add dependencies
   depends_on "cppzmq"
-  uses_from_macos "curl"
   depends_on "fftw"
   depends_on "jsoncpp"
   depends_on "libomp"
   depends_on "zeromq"
+  uses_from_macos "curl"
   uses_from_macos "zlib"
 
   def install
