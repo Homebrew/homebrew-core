@@ -40,6 +40,7 @@ env:
   GH_REPO: ${{github.repository}}
   GH_NO_UPDATE_NOTIFIER: 1
   GH_PROMPT_DISABLED: 1
+  RUN_URL: ${{github.event.repository.html_url}}/actions/runs/${{github.run_id}}
 
 permissions:
   contents: read
@@ -58,8 +59,8 @@ jobs:
         with:
           token: ${{secrets.GITHUB_TOKEN}}
           issue: ${{github.event.inputs.pull_request}}
-          body: ":shipit: @${{github.actor}} has [triggered a merge](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}})."
-          bot_body: ":robot: A scheduled task has [triggered a merge](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}})."
+          body: ":shipit: @${{github.actor}} has [triggered a merge](${{env.RUN_URL}})."
+          bot_body: ":robot: A scheduled task has [triggered a merge](${{env.RUN_URL}})."
           bot: BrewTestBot
 
       - name: Post comment once started
@@ -68,8 +69,8 @@ jobs:
         with:
           token: ${{secrets.GITHUB_TOKEN}}
           issue: ${{github.event.inputs.pull_request}}
-          body: ":shipit: @${{github.actor}} has [requested bottles to be published to this PR](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}})."
-          bot_body: ":robot: A scheduled task has [requested bottles to be published to this PR](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}})."
+          body: ":shipit: @${{github.actor}} has [requested bottles to be published to this PR](${{env.RUN_URL}})."
+          bot_body: ":robot: A scheduled task has [requested bottles to be published to this PR](${{env.RUN_URL}})."
           bot: BrewTestBot
 
       - name: Set up Homebrew
@@ -154,6 +155,7 @@ jobs:
           echo "force_without_lease=$force_without_lease" >> "$GITHUB_OUTPUT"
 
       - name: Push commits
+        id: push
         uses: Homebrew/actions/git-try-push@master
         with:
           token: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
@@ -167,14 +169,29 @@ jobs:
           GIT_COMMITTER_EMAIL: ${{ steps.git-user-config.outputs.email }}
           HOMEBREW_GPG_PASSPHRASE: ${{ secrets.BREWTESTBOT_GPG_SIGNING_SUBKEY_PASSPHRASE }}
 
+      - name: Open separate PR with bottle commits after push failure
+        if: ${{failure() && steps.push.conclusion == 'failure'}}
+        working-directory: ${{steps.set-up-homebrew.outputs.repository-path}}
+        env:
+          GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        run: |
+          name="${{github.workflow}}"
+          url="${{github.server_url}}/${{github.workflow_ref}}"
+          gh pr create \
+            --base master \
+            --body "Created by [$name]($url) after [failed push]($RUN_URL).\nCloses #${{inputs.pull_request}}" \
+            --head "${{steps.push-configuration.outputs.branch}}" \
+            --label CI-published-bottle-commits \
+            --title "Recreation of #${{inputs.pull_request}}"
+
       - name: Post comment on failure
         if: ${{!success()}}
         uses: Homebrew/actions/post-comment@master
         with:
           token: ${{secrets.GITHUB_TOKEN}}
           issue: ${{github.event.inputs.pull_request}}
-          body: ":warning: @${{github.actor}} bottle publish [failed](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}})."
-          bot_body: ":warning: Bottle publish [failed](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}})."
+          body: ":warning: @${{github.actor}} bottle publish [failed](${{env.RUN_URL}})."
+          bot_body: ":warning: Bottle publish [failed](${{env.RUN_URL}})."
           bot: BrewTestBot
 
       - name: Dismiss approvals on failure
@@ -240,6 +257,6 @@ jobs:
         with:
           token: ${{secrets.GITHUB_TOKEN}}
           issue: ${{github.event.inputs.pull_request}}
-          body: ":warning: @${{github.actor}} [Failed to enable automerge.](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}})"
-          bot_body: ":warning: [Failed to enable automerge.](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}})"
+          body: ":warning: @${{github.actor}} [Failed to enable automerge.](${{env.RUN_URL}})"
+          bot_body: ":warning: [Failed to enable automerge.](${{env.RUN_URL}})"
           bot: BrewTestBot
