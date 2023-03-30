@@ -11,7 +11,7 @@ on:
       timeout:
         description: "Build timeout (in minutes, default: 60 minutes)"
         default: "60"
-        required: true
+        required: false
       issue:
         description: Issue number, where comment on failure would be posted
         required: false
