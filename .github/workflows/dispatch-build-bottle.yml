@@ -67,6 +67,8 @@ jobs:
             });
 
   bottle:
+    permissions:
+      pull-requests: write
     needs: prepare
     strategy:
       matrix:
@@ -81,6 +83,10 @@ jobs:
     env:
       GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
       HOMEBREW_GITHUB_API_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      GH_REPO: ${{github.repository}}
+      GH_NO_UPDATE_NOTIFIER: 1
+      GH_PROMPT_DISABLED: 1
+      BOTTLE_BRANCH: ${{github.actor}}/dispatch/${{inputs.formula}}-${{github.run_id}}
     steps:
       - name: ${{inputs.formula}}
         id: print_details
@@ -100,6 +106,60 @@ jobs:
       - name: Set up Homebrew
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
+
+      - name: Configure Git user
+        id: git-user-config
+        uses: Homebrew/actions/git-user-config@master
+        with:
+          username: BrewTestBot
+
+      - name: Set up commit signing
+        uses: Homebrew/actions/setup-commit-signing@master
+        with:
+          signing_key: ${{ secrets.BREWTESTBOT_GPG_SIGNING_SUBKEY }}
+
+      - name: Checkout branch for bottle commit
+        working-directory: ${{steps.set-up-homebrew.outputs.repository-path}}
+        run: git checkout -b "$BOTTLE_BRANCH"
+
+      - name: Bump formula revision
+        env:
+          HOMEBREW_GPG_PASSPHRASE: ${{ secrets.BREWTESTBOT_GPG_SIGNING_SUBKEY_PASSPHRASE }}
+        run: brew bump-revision --message="for testing" '${{inputs.formula}}'
+
+      - name: Push commits
+        uses: Homebrew/actions/git-try-push@master
+        with:
+          token: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
+          directory: ${{steps.set-up-homebrew.outputs.repository-path}}
+          branch: ${{env.BOTTLE_BRANCH}}
+        env:
+          GIT_COMMITTER_NAME: ${{ steps.git-user-config.outputs.name }}
+          GIT_COMMITTER_EMAIL: ${{ steps.git-user-config.outputs.email }}
+          HOMEBREW_GPG_PASSPHRASE: ${{ secrets.BREWTESTBOT_GPG_SIGNING_SUBKEY_PASSPHRASE }}
+
+      - name: Open PR with bottle commit
+        id: pull-request
+        working-directory: ${{steps.set-up-homebrew.outputs.repository-path}}
+        env:
+          GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        run: |
+          gh pr create \
+            --base master \
+            --fill \
+            --head "$BOTTLE_BRANCH" \
+            --label CI-published-bottle-commits \
+            --reviewer '${{github.actor}}'
+          pr="$(gh pr list --head "$BRANCH" | cut -f1)"
+          echo "PULL_NUMBER=$pr" >> "$GITHUB_ENV"
+
+      - name: Enable automerge
+        run: gh pr merge --auto --merge "$PULL_NUMBER"
+        env:
+          GH_TOKEN: ${{secrets.GITHUB_TOKEN}}}
+
+      - name: Bail out after testing
+        run: exit 1
 
       - run: brew test-bot --only-cleanup-before
 
