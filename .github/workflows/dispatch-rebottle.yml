@@ -70,11 +70,11 @@ jobs:
       - name: ${{inputs.formula}}
         id: print_details
         run: |
-          echo sender="${{sender.login}}"
-          echo formula="${{inputs.formula}}"
-          echo timeout="${{inputs.timeout}}"
-          echo issue="${{inputs.issue}}"
-          echo upload="${{inputs.upload}}"
+          echo sender='${{sender.login}}'
+          echo formula='${{inputs.formula}}'
+          echo timeout='${{inputs.timeout}}'
+          echo issue='${{inputs.issue}}'
+          echo upload='${{inputs.upload}}'
 
       - name: Set environment variables
         if: runner.os == 'macOS'

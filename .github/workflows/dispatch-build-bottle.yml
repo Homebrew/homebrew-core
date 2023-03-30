@@ -85,12 +85,12 @@ jobs:
       - name: ${{inputs.formula}}
         id: print_details
         run: |
-          echo sender="${{github.event.sender.login}}"
-          echo formula="${{inputs.formula}}"
-          echo runner="${{inputs.runner}}"
-          echo timeout="${{inputs.timeout}}"
-          echo issue="${{inputs.issue}}"
-          echo upload="${{inputs.upload}}"
+          echo sender='${{github.event.sender.login}}'
+          echo formula='${{inputs.formula}}'
+          echo runner='${{inputs.runner}}'
+          echo timeout='${{inputs.timeout}}'
+          echo issue='${{inputs.issue}}'
+          echo upload='${{inputs.upload}}'
 
       - name: Set environment variables
         if: runner.os == 'macOS'
