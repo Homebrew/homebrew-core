@@ -8,6 +8,7 @@ class Manim < Formula
   license "MIT"
   head "https://github.com/manimCommunity/manim.git", branch: "main"
 
+  depends_on "cairo" => :build # for cairo.h
   depends_on "ninja" => :build
   depends_on "ffmpeg"
   depends_on "py3cairo"
