@@ -26,6 +26,7 @@ class Hello < Formula
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make", "install"
+    onoe "goodbye"
   end
   test do
     assert_equal "brew", shell_output("#{bin}/hello --greeting=brew").chomp
