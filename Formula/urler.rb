@@ -8,8 +8,7 @@ class Urler < Formula
 
   def install
     system "make"
-    bin.install "urler"
-    man1.install "urler.1"
+    system "make", "BINDIR=#{bin}", "MANDIR=#{man}", "install"
   end
 
   test do
