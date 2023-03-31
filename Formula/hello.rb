@@ -19,6 +19,7 @@ class Hello < Formula
   conflicts_with "perkeep", because: "both install `hello` binaries"
 
   def install
+    ohai "hello"
     ENV.append "LDFLAGS", "-liconv" if OS.mac?
 
     system "./configure", "--disable-dependency-tracking",
