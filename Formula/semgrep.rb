@@ -27,11 +27,11 @@ class Semgrep < Formula
   depends_on "cmake" => :build
   depends_on "coreutils"=> :build
   depends_on "dune" => :build
-  depends_on "gmp"
   depends_on "ocaml" => :build
   depends_on "opam" => :build
   depends_on "pipenv" => :build
   depends_on "pkg-config" => :build
+  depends_on "gmp"
   depends_on "pcre"
   depends_on "python-typing-extensions"
   depends_on "python@3.11"
