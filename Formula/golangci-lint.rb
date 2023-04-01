@@ -17,7 +17,7 @@ class GolangciLint < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "54a47d5b9f34113b26f74887d147f920833cab6ed46d99085b2a8965a9f888a5"
   end
 
-  depends_on "go"
+  depends_on "go" => [:build, :test]
 
   def install
     ldflags = %W[
