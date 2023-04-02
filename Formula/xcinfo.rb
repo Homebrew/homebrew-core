@@ -15,9 +15,8 @@ class Xcinfo < Formula
     sha256 cellar: :any_skip_relocation, catalina:       "4cd605c355e9c18be2219e5b459847673066ada976afee46c49f4b667c91fba5"
   end
 
-  depends_on xcode: ["13.2", :build]
+  depends_on xcode: ["14.2", :build]
   depends_on macos: :ventura
-  depends_on :macos
 
   def install
     system "swift", "build",
