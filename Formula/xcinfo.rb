@@ -1,8 +1,8 @@
 class Xcinfo < Formula
   desc "Tool to get information about and install available Xcode versions"
   homepage "https://github.com/xcodereleases/xcinfo"
-  url "https://github.com/xcodereleases/xcinfo/archive/0.7.0.tar.gz"
-  sha256 "7d5c34c7c4deda28b101c747d89ca6535fd1d50ea26c957e50d18ebeea3da8bb"
+  url "https://github.com/xcodereleases/xcinfo/archive/refs/tags/v1.0.1.tar.gz"
+  sha256 "4776aa5fb94ed7e3d3c2021c31ec5e7ab65b40d54d76d40951e223e5d2218abe"
   license "MIT"
 
   bottle do
