@@ -17,7 +17,7 @@ class Xcinfo < Formula
 
   depends_on xcode: ["14.2", :build]
   depends_on macos: :ventura
-  depends_on macos:
+  depends_on :macos
 
   def install
     system "swift", "build",
