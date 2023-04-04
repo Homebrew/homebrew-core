@@ -30,7 +30,15 @@ class Terraform < Formula
   fails_with gcc: "5"
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    ldflags = %w[-s -w]
+    if build.stable?
+      ldflags += %W[
+        -X github.com/hashicorp/terraform/version.Version=#{version}
+        -X github.com/hashicorp/terraform/version.Prerelease=
+      ]
+    end
+
+    system "go", "build", *std_go_args(ldflags: ldflags)
   end
 
   test do
@@ -64,5 +72,7 @@ class Terraform < Formula
     EOS
     system "#{bin}/terraform", "init"
     system "#{bin}/terraform", "graph"
+
+    assert_match(/^Terraform v#{Regexp.escape(version)}$/, shell_output("#{bin}/terraform version"))
   end
 end
