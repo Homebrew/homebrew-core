@@ -95,16 +95,34 @@ jobs:
           pushable="$(jq .maintainer_can_modify <<< "$pr_data")"
           branch="$(jq --raw-output .head.ref <<< "$pr_data")"
           remote="$(jq --raw-output .head.repo.clone_url <<< "$pr_data")"
+          head_repo="$(jq --raw-output .head.repo.full_name <<< "$pr_data")"
+          head_repo_owner="$(jq --raw-output .head.repo.owner.login <<< "$pr_data")"
           fork_type="$(jq --raw-output .head.repo.owner.type <<< "$pr_data")"
 
-          if [ -z "$pushable" ] || [ -z "$branch" ] || [ -z "$remote" ] || [ -z "$fork_type" ]
+          if [ -z "$pushable" ] ||
+             [ -z "$branch" ] ||
+             [ -z "$remote" ] ||
+             [ -z "$head_repo" ] ||
+             [ -z "$head_repo_owner" ] ||
+             [ -z "$fork_type" ]
           then
             echo "::error ::Failed to get PR data!"
             exit 1
           fi
 
-          echo "branch=$branch" >> "$GITHUB_OUTPUT"
+          if [ "$branch" = "master" ]
+          then
+            echo "branch=$head_repo_owner/master" >> "$GITHUB_OUTPUT"
+          else
+            echo "branch=$branch" >> "$GITHUB_OUTPUT"
+          fi
+          echo "origin_branch=$branch" >> "$GITHUB_OUTPUT"
           echo "remote=$remote" >> "$GITHUB_OUTPUT"
+
+          if [ "$head_repo" = '${{github.repository}}' ]
+          then
+            exit 0
+          fi
 
           if "$pushable" && [ "$fork_type" != "Organization" ]
           then
@@ -153,6 +171,7 @@ jobs:
           directory: ${{steps.set-up-homebrew.outputs.repository-path}}
           remote: ${{steps.pr-branch-check.outputs.remote}}
           branch: ${{steps.pr-branch-check.outputs.branch}}
+          origin_branch: ${{steps.pr-branch-check.outputs.origin_branch}}
           force: ${{inputs.autosquash}}
           no_lease: ${{inputs.autosquash}}
         env:

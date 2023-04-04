@@ -3,19 +3,19 @@ class Awscli < Formula
 
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
-  url "https://github.com/aws/aws-cli/archive/2.11.8.tar.gz"
-  sha256 "4d5f52c4be21c99cdafb61c4f303b057cfb9294e585766080714804fe71da8f4"
+  url "https://github.com/aws/aws-cli/archive/2.11.9.tar.gz"
+  sha256 "45fee6827d4ab0b3866846ceef8aee3ebd3afe499661de2cacff492ec5115d33"
   license "Apache-2.0"
   head "https://github.com/aws/aws-cli.git", branch: "v2"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "6a40b56d8ddd575ccc095c638d96e60e309035c7e84f6d2dec31f035ef5b39eb"
-    sha256 cellar: :any,                 arm64_monterey: "17483ae8761ab1064ff9ca5ae8170528007cfc3f39900d9acbe37a557e9fe177"
-    sha256 cellar: :any,                 arm64_big_sur:  "e2777faccac3ab8325005823d999728006240afe3d91385f9bd0562f5c5b40eb"
-    sha256 cellar: :any,                 ventura:        "1ec551305afce9b2828b3b86df3dd1c544aa91b5e9dd4965cfe5c2b1560cce08"
-    sha256 cellar: :any,                 monterey:       "fbf3d25a755329117a485791bd08d8eabb42dac361169284751bf263dc01790f"
-    sha256 cellar: :any,                 big_sur:        "6d5c7ba20e2159460e00c807aa1fabac1fab4492b3c1ea433407d6fe54d94009"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b9e678c05d76d5a66341d590241dae226ee424cbc374d4afcf723620f75efaed"
+    sha256 cellar: :any,                 arm64_ventura:  "858f207b10951dd3214191689634d594dfd34c12cbdb8251cb913c247dad5725"
+    sha256 cellar: :any,                 arm64_monterey: "9726ca01785c44bfb9d3607db3de92328bed2310e77e23703b40618d65e17a3a"
+    sha256 cellar: :any,                 arm64_big_sur:  "92b4cd6df39d55d586d01a7b5af529a95612cb7ddf48da1bb5e15d2650135f12"
+    sha256 cellar: :any,                 ventura:        "08964f0898139e9129b5c5602a9fcdfdaf19f4ec644664703db447b575443941"
+    sha256 cellar: :any,                 monterey:       "8094436d9ff0463757937db0c8a8687bc4e1d5a843e34ee85c0950c1a71591fc"
+    sha256 cellar: :any,                 big_sur:        "99d8d2e01bde5e77624172ff877f2abf6a5872181c5c8e1312799b57f52c2c1f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a4a3b08537f9695a2222c61937ab4b313e7afeffbb4071f64606468f21866b70"
   end
 
   # `pkg-config`, `rust`, and `openssl@1.1` are for cryptography.
@@ -115,15 +115,10 @@ class Awscli < Formula
       ENV.prepend "LDFLAGS", "-L./build/temp.linux-x86_64-#{python_version}/deps/install/lib"
     end
 
-    # setuptools>=60 prefers its own bundled distutils, which is incompatible with docutils~=0.15
-    # Force the previous behavior of using distutils from the stdlib
-    # Remove when fixed upstream: https://github.com/aws/aws-cli/pull/6011
-    with_env(SETUPTOOLS_USE_DISTUTILS: "stdlib") do
-      virtualenv_install_with_resources
-    end
+    virtualenv_install_with_resources
     pkgshare.install "awscli/examples"
 
-    rm Dir[bin/"{aws.cmd,aws_bash_completer,aws_zsh_completer.sh}"]
+    rm bin.glob("{aws.cmd,aws_bash_completer,aws_zsh_completer.sh}")
     bash_completion.install "bin/aws_bash_completer"
     zsh_completion.install "bin/aws_zsh_completer.sh"
     (zsh_completion/"_aws").write <<~EOS

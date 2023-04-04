@@ -1,20 +1,10 @@
 class ImagemagickAT6 < Formula
   desc "Tools and libraries to manipulate images in many formats"
   homepage "https://legacy.imagemagick.org/"
+  url "https://imagemagick.org/archive/releases/ImageMagick-6.9.12-84.tar.xz"
+  sha256 "48e2422a9463b0fabcb14e8e3be5842d92bbdb57a5a96c0c36fa4b337a0050dc"
   license "ImageMagick"
   head "https://github.com/imagemagick/imagemagick6.git", branch: "main"
-
-  stable do
-    url "https://imagemagick.org/archive/releases/ImageMagick-6.9.12-83.tar.xz"
-    sha256 "73c8764a550f40b23615a749ef20438eb78a426128766bf3f63a705fdac142ed"
-
-    # Fix an undeclared `jps_image` variable.
-    # Remove with `stable` block on next release.
-    patch do
-      url "https://github.com/ImageMagick/ImageMagick6/commit/65692230ba98b5735b911565682010afc67c769f.patch?full_index=1"
-      sha256 "e4d8bb4b34b3604e6a95df4833c301ace9fb4c14797f366e950e3aa04aeeb0d5"
-    end
-  end
 
   livecheck do
     url "https://imagemagick.org/archive/"
@@ -22,13 +12,13 @@ class ImagemagickAT6 < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "04be093764fd8090e25d02d95efcc47468e1fd890153956941b616d3062e6b35"
-    sha256 arm64_monterey: "a9d28b19c12e7493ced9c4eb8eaa4b37ee2575fdbb2f32948cf0d69c39d043f7"
-    sha256 arm64_big_sur:  "93bb606fe140768f0978e3753ed3d54c439a2cb5b6b1729a83f781bc7e56db12"
-    sha256 ventura:        "0edbc9c1b3a39e5cd69802316db427a525c54f3407f1fb98f27fe081638b70db"
-    sha256 monterey:       "2e8f4af82d89b4cd38f7c75a1bdc28e7ecd1c9257e94ee7fe1958a87287d8d84"
-    sha256 big_sur:        "da27e1125156ec0da0065a8b5a3f1d7c3008154a46c1399710a6ca52155cec0d"
-    sha256 x86_64_linux:   "d2e0bb90f135286149bc007fbacc36d7a5342c7993ed822385e2e2377963a378"
+    sha256 arm64_ventura:  "221ddaf10f8076303eb51c1e832e1c68ba7ce39a78e910b61ac2371daa00217e"
+    sha256 arm64_monterey: "eb7aa0dceacbdbabef0c83216369942eac83ae41d9ebc6e76d454923082c0a34"
+    sha256 arm64_big_sur:  "b1cf8a6015216f1e83b2fb97f83f1294ebc60caf01dce551e9699d8e4e980255"
+    sha256 ventura:        "e8179dc1ae4933da6e3bc08480fe8137df59114b14300e05186914baaa62ba1f"
+    sha256 monterey:       "1d9e2dc30c6616a9987d22b4b1efe58a8bc80e18fe4c4bbfbeb748619452bdc6"
+    sha256 big_sur:        "fa9dd75dad467d5ff76503e93f9897d6544c2c4ab4a9beed8c098a11c1733cbb"
+    sha256 x86_64_linux:   "207ac926025e0f529dfd3cf216662f6e21a71f29c1f6e97d04636c4c74ca51e7"
   end
 
   keg_only :versioned_formula

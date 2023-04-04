@@ -1,18 +1,18 @@
 class Scw < Formula
   desc "Command-line Interface for Scaleway"
   homepage "https://github.com/scaleway/scaleway-cli"
-  url "https://github.com/scaleway/scaleway-cli/archive/v2.13.0.tar.gz"
-  sha256 "94e700e487dc14a65d7f00e16198c897e21fbe885d6863cc7c68215a259c471e"
+  url "https://github.com/scaleway/scaleway-cli/archive/v2.14.0.tar.gz"
+  sha256 "d5335cc3638273fce42fad305683e8761e1648f59f93a6c110cc0c74c75d1c36"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "925bdbe657e0546261d8ca063ec2243e6c8e656f00a43d2314fc6317b4adaf6c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "925bdbe657e0546261d8ca063ec2243e6c8e656f00a43d2314fc6317b4adaf6c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "925bdbe657e0546261d8ca063ec2243e6c8e656f00a43d2314fc6317b4adaf6c"
-    sha256 cellar: :any_skip_relocation, ventura:        "a06fe7a3460dfa1cb2fb8487d5a8bb9ff268347ca0d5ce400a2be8ac823934bd"
-    sha256 cellar: :any_skip_relocation, monterey:       "a06fe7a3460dfa1cb2fb8487d5a8bb9ff268347ca0d5ce400a2be8ac823934bd"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a06fe7a3460dfa1cb2fb8487d5a8bb9ff268347ca0d5ce400a2be8ac823934bd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "afa78ffff7b4c1d42e6f0d1aa603b596fd44c1cabb3e635d10e328f6f68f365f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fa2d1e8be3e029f8b97e16ee8e1619346c169ae22c171be22808c04a9dfeb529"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "fa2d1e8be3e029f8b97e16ee8e1619346c169ae22c171be22808c04a9dfeb529"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fa2d1e8be3e029f8b97e16ee8e1619346c169ae22c171be22808c04a9dfeb529"
+    sha256 cellar: :any_skip_relocation, ventura:        "2e42817785b19929757b793cbef2fe35980b79d14b51f487900835c40d56f355"
+    sha256 cellar: :any_skip_relocation, monterey:       "2e42817785b19929757b793cbef2fe35980b79d14b51f487900835c40d56f355"
+    sha256 cellar: :any_skip_relocation, big_sur:        "2e42817785b19929757b793cbef2fe35980b79d14b51f487900835c40d56f355"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e671906950555a1d767dcc5dfd0d8738a69b1b46a77200882d36a9994d9e794f"
   end
 
   depends_on "go" => :build

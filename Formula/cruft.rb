@@ -3,20 +3,19 @@ class Cruft < Formula
 
   desc "Utility that creates projects from templates and maintains the cruft afterwards"
   homepage "https://cruft.github.io/cruft/"
-  url "https://files.pythonhosted.org/packages/1d/a2/e3bfcc5780b9e3cde61940155cd31a4dd9a7432851561239475ada60eaef/cruft-2.12.0.tar.gz"
-  sha256 "57455d33a60684c945d501dcea2b1c57dc0fb200a0090f07c83da1603382cbb1"
+  url "https://files.pythonhosted.org/packages/00/1d/b9f0afed49a884f809fe0bb68bab458e999f22b3c41bbe6b64de2311f560/cruft-2.13.0.tar.gz"
+  sha256 "5b2c15da088126a79fa00be9fc826dadd73498ffb351b5be8af8538e007ed7b6"
   license "MIT"
   head "https://github.com/cruft/cruft.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d845e740b9f1d25ee43e108e904d2a5651e6b43bc6e36296286d2966d3aa721b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b26a63b8acfcb7c3a701abc9fb3ccc46f3c718129c28d2e8694c98658f6e8d4a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ddc567dba14c79e3325932590963a7676696f842c0013e52581966d170e0caf3"
-    sha256 cellar: :any_skip_relocation, ventura:        "cd1f537e849a19f24386742dd40e6c5e61293f3564a67b066b2815406d989eb6"
-    sha256 cellar: :any_skip_relocation, monterey:       "86cb8f565f2f0c98d2a9e9a438eea5ee5f17e0c4429d077bc916beaaffa55b00"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a0610f2abf51203ed9d8d32a3cfcf34032e7c6cd238007d1f89503656bc48f4c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "871be0e45ae6a9309adc7d388eddda17b65f358eff9748b9806a2bd9ea142eb4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a427f1318de63ec1dc0d81a3469cb721fb7f300db3cd667d3042c3fd525b0987"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a8117d132628c206d42f06ae39be6537d46e544a90032edb2122ff272aea9c56"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d1a43d45c9e220c47832b770d2dc535c4668993aba96e23d85dbb781c052906d"
+    sha256 cellar: :any_skip_relocation, ventura:        "caa0251ad91f1f7ccda65b4380fb3a2e252fba86722413f91286b8ab0de41023"
+    sha256 cellar: :any_skip_relocation, monterey:       "e08b781d6b9de0b106ff4091798ddba127bd8ddfa8a2a5ea180b920baede3564"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a226139d94548f7fb2ddd567243687942b76d3b4a69dbb37932e660128134bea"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "729c98ce72ff783164868fec166c68601c3db383d209b62e2a81048ec5debf6b"
   end
 
   depends_on "cookiecutter"
@@ -29,8 +28,8 @@ class Cruft < Formula
   end
 
   resource "GitPython" do
-    url "https://files.pythonhosted.org/packages/ef/8d/50658d134d89e080bb33eb8e2f75d17563b5a9dfb75383ea1a78e1df6fff/GitPython-3.1.30.tar.gz"
-    sha256 "769c2d83e13f5d938b7688479da374c4e3d49f71549aaf462b646db9602ea6f8"
+    url "https://files.pythonhosted.org/packages/5f/11/2b0f60686dbda49028cec8c66bd18a5e82c96d92eef4bc34961e35bb3762/GitPython-3.1.31.tar.gz"
+    sha256 "8ce3bcf69adfdf7c7d503e78fd3b1c492af782d58893b650adb2ac8912ddd573"
   end
 
   resource "smmap" do

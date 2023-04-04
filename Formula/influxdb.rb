@@ -100,7 +100,7 @@ class Influxdb < Formula
   end
 
   service do
-    run bin/"influxd"
+    run opt_bin/"influxd"
     keep_alive true
     working_dir HOMEBREW_PREFIX
     log_path var/"log/influxdb2/influxd_output.log"

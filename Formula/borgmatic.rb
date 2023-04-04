@@ -3,18 +3,18 @@ class Borgmatic < Formula
 
   desc "Simple wrapper script for the Borg backup software"
   homepage "https://torsion.org/borgmatic/"
-  url "https://files.pythonhosted.org/packages/c3/5e/d43bb63a72d684ac472f2adb139e184ae536b66a8dcbb1c0f2f2b4803da7/borgmatic-1.7.10.tar.gz"
-  sha256 "2478217aad68d1c3a52a9abb8ae19e075d4f47a8ed1dacbb360617abfd0ea914"
+  url "https://files.pythonhosted.org/packages/bc/67/1634584d94b6964d401df59673326ddcd35bbf5ab579d3238026d4ac0d14/borgmatic-1.7.11.tar.gz"
+  sha256 "f12871fed27c80b665bb81040198137e0bde7c6047be21cb4484e9698bda20e7"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7838218a16d5aa1405630b3ce04bc40a4d4da3da5ecbb84cc530da6ade9575b7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3a0346f6a52841656f74331b328f5247512da3603068a647e3a6bad60fbaaac9"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cd07387d2f66e121cc3ce8c20f4c91ed38fb262c7423860516f3e140bdbb51d1"
-    sha256 cellar: :any_skip_relocation, ventura:        "2e861cbe15c8402e2918aa9f0649d6fbc5fff63196f1fd585bca5379c0e52e3e"
-    sha256 cellar: :any_skip_relocation, monterey:       "0790c07a47ed7bdab51808fe1df9e06a4eb09d341825cbefdfc1530818a89911"
-    sha256 cellar: :any_skip_relocation, big_sur:        "879bab5780bbbf650a06875a4e6082ae48f618cfee2eb4e5721ed7d160587148"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7cef7d36fe527f6cf15390d75943d62e3a3ab699feca1140f7729c26a3fe4352"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "60705069b7acb517da4847462e0b26a3d300ded144e37766655432d878dcea34"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ff453147d2e3c1b3135a7818ffbc5a96ad7589cbe8ce9ab6f2fb3e46fd6f5895"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "73948c533642c8f271aab2b16f44ab3179622ec2ece61c1957d0c33f14495e47"
+    sha256 cellar: :any_skip_relocation, ventura:        "941bae2822aecb3fe8ef0fa6609c0496495b88a8c240be9a92b039a818b34867"
+    sha256 cellar: :any_skip_relocation, monterey:       "0062e55e33de7fd2b6f2d6a9f90efbad7f2b8f9c7cb2cf0beb7e7d5ec79694b6"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9a7505edd04aaa0889c9858078ffa6f8f6af6cc5d736366c3c3d690be677a6a5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d62a6490ccbf1f451d8778a168dbee7194254f367118502fd5922523d259b285"
   end
 
   depends_on "python@3.11"
@@ -173,13 +173,13 @@ class Borgmatic < Formula
       init --encryption repokey --debug #{repo_path}
       --version
       create #{repo_path}::{hostname}-{now:%Y-%m-%dT%H:%M:%S.%f} /etc /home
-      prune --keep-daily 7 --glob-archives {hostname}-* #{repo_path}
+      prune --keep-daily 7 #{repo_path}
       compact #{repo_path}
       info --json #{repo_path}
-      check --glob-archives {hostname}-* #{repo_path}
+      check #{repo_path}
       --version
       create #{repo_path}::{hostname}-{now:%Y-%m-%dT%H:%M:%S.%f} /etc /home #{testpath}/.borgmatic --json
-      prune --keep-daily 7 --glob-archives {hostname}-* --list #{repo_path}
+      prune --keep-daily 7 --list #{repo_path}
       compact #{repo_path}
       info --json #{repo_path}
     EOS

@@ -1,8 +1,8 @@
 class Hdf5AT110 < Formula
   desc "File format designed to store large amounts of data"
   homepage "https://www.hdfgroup.org/HDF5"
-  url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.10/hdf5-1.10.9/src/hdf5-1.10.9.tar.bz2"
-  sha256 "00c4be7096f36fdcafa4f974e126c6c1412428e38ebc7b181d907459e781f191"
+  url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.10/hdf5-1.10.10/src/hdf5-1.10.10.tar.bz2"
+  sha256 "56bbf9577aea4f07d7ac400b59f169ab23e5887c306a63dd5cf18b49f521d28c"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,13 +11,13 @@ class Hdf5AT110 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "502f5eb29ccdd08e02c28325a13331026a0f2687a363e562a644615e6af01dd1"
-    sha256 cellar: :any,                 arm64_monterey: "5726d7b1ba3e9c1194268ea19e187018f0cd337b979737e9d7b3d2d5c9269660"
-    sha256 cellar: :any,                 arm64_big_sur:  "c05b33617544dabb2a9d55717af37169aa5e6283d168c285e0acb747e9dfd6a7"
-    sha256 cellar: :any,                 ventura:        "ab40b7b5ea69d3de5fca9640c8b5b711b96cf4ca533373caf6b8f134b37c9af9"
-    sha256 cellar: :any,                 monterey:       "57e9b227fa0dd7ded7796018dcd34770214f0be43515f2299be149bcc3a277aa"
-    sha256 cellar: :any,                 big_sur:        "edb29be8de45eb42fabe8016a86d81a79e84ea0cf3f9da2b030aa8fb8d42abe1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "079d2d5c8757d6a330dca3423deeb0cb0dcbcae67d773178570c8e28048d2a00"
+    sha256 cellar: :any,                 arm64_ventura:  "1c31665b4e29c000cb2a7a8d51c419eedf0bebd58b0d82fe3201931d50b4c9b9"
+    sha256 cellar: :any,                 arm64_monterey: "16fd8ed8e1ecea75ca0e008dc26b440d89f2e2c613a884adbb1d9f5045586bc1"
+    sha256 cellar: :any,                 arm64_big_sur:  "d5f2614162252b0ace675a83ad5616e6df6e114b02360fd30a148e74fa70c33a"
+    sha256 cellar: :any,                 ventura:        "e991fd4c2b5e6ab7ad64a88a5b6607dd67b26fb7de559bda0c05c6a65dc367c2"
+    sha256 cellar: :any,                 monterey:       "bdb7eefe3aebfb8f7a52eee200edba78a75c74653426924904a60c082a8e38da"
+    sha256 cellar: :any,                 big_sur:        "d2530f8e2d5fa6208be6c5d6d2447c7494a83aac17df571dbf94f8bafe7a6799"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c54a44fcdc0056728bc16d0b10e871547ff304fba1be123238fc8e9203930adb"
   end
 
   keg_only :versioned_formula

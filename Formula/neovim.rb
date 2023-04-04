@@ -37,13 +37,14 @@ class Neovim < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "c8a5997c58714fb6175d271979b1acb1d11d19e31be524550b07163391838f66"
-    sha256 arm64_monterey: "961d4a54534a2ed39f87c8b8bdac67bdbb4b6116dc5dbbc53baca91192e81634"
-    sha256 arm64_big_sur:  "464b92b856d7c7309e3003099e331a91d44063f1f65802cfa322c72b7a334cef"
-    sha256 ventura:        "a4ec5583a25b7bd9c1db17e77424150df34545dab3698bc14890eb650c315e42"
-    sha256 monterey:       "ed46e61e96fdfdb3921187fc7aa634c0edacd4712b11c284579d6dff1dd5483f"
-    sha256 big_sur:        "21a5aa079253e8d242b1afa7fcd90bbffc52436a38150c664a07ea0a339d32a9"
-    sha256 x86_64_linux:   "595efaa25e5cc775e1a6c51523e6d0aa1a20d851023d2660ffd4e21b4efd9e9c"
+    rebuild 1
+    sha256 arm64_ventura:  "8c2956cf69ac776ee0b692c31905edabc2d8abade6cec970d1eea4df21b7a97c"
+    sha256 arm64_monterey: "a2366c4f266c87490ec078d402525c73a0fc57e0c26aed87d63df41eb34a9f8a"
+    sha256 arm64_big_sur:  "f4c211a6b454d7571b50518a245ba774d74fa2486781fae5a4d3fb708c97c822"
+    sha256 ventura:        "982f143a932b249700ab817904d9aa530298505668413e904aaac0f0911530b3"
+    sha256 monterey:       "a24401e7de9791c5c8a5758037a60cdf47eb12cdbc4ab081f3e1abb1873b048e"
+    sha256 big_sur:        "6b84a687b1a49d52bbb9cc21ea1b37bcea3a0b858b72026f4584e6ba47a060b7"
+    sha256 x86_64_linux:   "c12940d85976d3841f0f1ae4b8cb59e2f7580fda79277835ff2ed243d676c617"
   end
 
   depends_on "cmake" => :build
@@ -130,6 +131,9 @@ class Neovim < Formula
       end
     end
 
+    # Replace `-dirty` suffix in `--version` output with `-Homebrew`.
+    inreplace "cmake/GenerateVersion.cmake", "--dirty", "--dirty=-Homebrew"
+
     system "cmake", "-S", ".", "-B", "build",
                     "-DLIBLUV_LIBRARY=#{Formula["luv"].opt_lib/shared_library("libluv")}",
                     "-DLIBUV_LIBRARY=#{Formula["libuv"].opt_lib/shared_library("libuv")}",
@@ -149,6 +153,7 @@ class Neovim < Formula
   end
 
   test do
+    refute_match "dirty", shell_output("#{bin}/nvim --version")
     (testpath/"test.txt").write("Hello World from Vim!!")
     system bin/"nvim", "--headless", "-i", "NONE", "-u", "NONE",
                        "+s/Vim/Neovim/g", "+wq", "test.txt"

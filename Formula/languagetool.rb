@@ -47,7 +47,7 @@ class Languagetool < Formula
   end
 
   service do
-    run [bin/"languagetool-server", "--port", "8081", "--allow-origin"]
+    run [opt_bin/"languagetool-server", "--port", "8081", "--allow-origin"]
     keep_alive true
     log_path var/"log/languagetool/languagetool-server.log"
     error_log_path var/"log/languagetool/languagetool-server.log"

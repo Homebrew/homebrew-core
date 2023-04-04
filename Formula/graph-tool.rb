@@ -3,8 +3,8 @@ class GraphTool < Formula
 
   desc "Efficient network analysis for Python 3"
   homepage "https://graph-tool.skewed.de/"
-  url "https://downloads.skewed.de/graph-tool/graph-tool-2.48.tar.bz2"
-  sha256 "871336d649c231a667502dec9b871f4e396186760a254877ba010b65b0fd7be6"
+  url "https://downloads.skewed.de/graph-tool/graph-tool-2.49.tar.bz2"
+  sha256 "8a3e943e461d38e0dec1512c4aa0ee02fff4502935a41346c030799eca484990"
   license "LGPL-3.0-or-later"
 
   livecheck do
@@ -13,13 +13,13 @@ class GraphTool < Formula
   end
 
   bottle do
-    sha256                               arm64_ventura:  "4eacc8d767cefb78475ebbc92a90d2a22f30f73ba827b2b0616fe8ab7c2be065"
-    sha256                               arm64_monterey: "2b563d9d88303a2d1df6c869d283db03834618c14fff7016146517111f45a568"
-    sha256                               arm64_big_sur:  "d1f355bb99a11843487745e1c4d38939b986665ed6e9580f81f2b7b8f5124233"
-    sha256                               ventura:        "99d6ff149cbc917eb2f488395cc3f810acb36daa35507b1d7bb1dabf4420a3bf"
-    sha256                               monterey:       "31d7890f95e0fbe8ad2f81d87b7d75670a995f370765ebd91ef951dca41bde04"
-    sha256                               big_sur:        "e8330899e7b9d3b51f91cf3ec59087ca2d1ef87df20bb5dbd9b8d502a3a3fa0f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b956b47fc6c79a8a6b9331665d2a283dee539aab23a6bab7e7278c54fb5e265b"
+    sha256                               arm64_ventura:  "db2fc2cfbbcd57be464cde5ee0e3f4e7d2652cb3476a4386dfe0c27c232325e5"
+    sha256                               arm64_monterey: "85935f0a2b2fa0dbf7ba220e80d3553ccaa25ae04530cf110041f16be54ddb31"
+    sha256                               arm64_big_sur:  "785faa87e9bd48303e865482a7f037a0a9fff760dbc72b1755182e00a41cc9a0"
+    sha256                               ventura:        "7b66512963adf532295b2b598f12da5d2ed7fcdc3edf6b5fa6f6e836a0e67b90"
+    sha256                               monterey:       "7f5e839ae9069e900b3b64d6979bb8638340269675e27c8471098e2d37ea8b19"
+    sha256                               big_sur:        "0b985748fef4877bb3e9313fcaf8d2cee8d9a5c27aaeb70ef1ff00d77b6f8e0b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "993fa1cc75985e4ed0d37cc696cb447bf86f24333d7b2e546e8c838e6f15efdd"
   end
 
   depends_on "autoconf" => :build

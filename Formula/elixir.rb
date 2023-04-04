@@ -1,19 +1,19 @@
 class Elixir < Formula
   desc "Functional metaprogramming aware language built on Erlang VM"
   homepage "https://elixir-lang.org/"
-  url "https://github.com/elixir-lang/elixir/archive/v1.14.3.tar.gz"
-  sha256 "bd464145257f36bd64f7ba8bed93b6499c50571b415c491b20267d27d7035707"
+  url "https://github.com/elixir-lang/elixir/archive/v1.14.4.tar.gz"
+  sha256 "07d66cf147acadc21bd1679f486efd6f8d64a73856ecc83c71b5e903081b45d2"
   license "Apache-2.0"
   head "https://github.com/elixir-lang/elixir.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "610af16d19faccbe2ceb01aa6003a0d5267967602ec831a88f2ef650474750f6"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "91559a7a5e28a5416c0b13d0c13638257b807dcfa67361fb9118df3de6866ab2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "09fd7722ac5f72a3a006d0d4d0676ec13e90b136e4c606e2da1cf8bcf9b27842"
-    sha256 cellar: :any_skip_relocation, ventura:        "a42564f0a3a0b750b44058e8ad9dcde29fbf67e690ea919e704767afa9d7fc41"
-    sha256 cellar: :any_skip_relocation, monterey:       "16915c5b3cc8ed81fb59a383c1892229448748e3451e94230cfc7301c8bf20c0"
-    sha256 cellar: :any_skip_relocation, big_sur:        "76249a7142ec9ca2d171ad82faac3f468bfc95cb9bbcf2a27458a9cb3f8f19ab"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6181457efa0de2642794679e8a090b1fae9da0df6064668dc6b3166ec3963888"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "40dc3f5e01f14437caf4366cf3029e419222038486428d791fcecbbdac3da77d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "528c71dd070f430dbb750b7ad4a66eb2c193c8a2733e0d9e7b66edf11ea33f5f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4958ebbe50e7cf22afbd54cf28d0f80d16cabf9c6301ff3fa580976e9e768aff"
+    sha256 cellar: :any_skip_relocation, ventura:        "d62d189a48ef6b3fcce80e46b9201f840e3d022af8df34663995cac9b7016d2f"
+    sha256 cellar: :any_skip_relocation, monterey:       "bdcc3ce891d77fd7d4a90c68d34f922aa29f52da701671061c78856100b8dd1c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4557eb175b45bb45fe081c17f1fd3c017bcdafe66c34f30e1b16a99e560ccb30"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "31eaed5d6d5eb55c7c880c7bf15c02d791f1a433f4fabd69020eb736bc9d76ca"
   end
 
   depends_on "erlang"

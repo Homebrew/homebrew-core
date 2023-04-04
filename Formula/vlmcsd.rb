@@ -56,7 +56,7 @@ class Vlmcsd < Formula
   end
 
   service do
-    run [bin/"vlmcsd", "-i", etc/"vlmcsd/vlmcsd.ini", "-D"]
+    run [opt_bin/"vlmcsd", "-i", etc/"vlmcsd/vlmcsd.ini", "-D"]
     keep_alive false
   end
 

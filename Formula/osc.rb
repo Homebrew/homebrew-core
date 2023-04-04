@@ -3,8 +3,8 @@ class Osc < Formula
 
   desc "Command-line interface to work with an Open Build Service"
   homepage "https://openbuildservice.org"
-  url "https://github.com/openSUSE/osc/archive/1.0.1.tar.gz"
-  sha256 "c8bba251b1f546fef9a9b0739c6b74df9ecca4ffd832eb9351b651c6c0033755"
+  url "https://github.com/openSUSE/osc/archive/1.1.0.tar.gz"
+  sha256 "ccbeb4a812d2518ec26b2509a54689641346d413fe88ad4f9770768c3016b6a7"
   license "GPL-2.0-or-later"
   head "https://github.com/openSUSE/osc.git", branch: "master"
 
@@ -14,13 +14,13 @@ class Osc < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "ca418b649f796d8dd41bd93ec02d3312a85dec5c49daa9604ffd1f4169bb80f6"
-    sha256 cellar: :any,                 arm64_monterey: "85db37e2af8a6d1b1530f99bdd9c886c3e77754b8ba194ba7da986a4e0dd4658"
-    sha256 cellar: :any,                 arm64_big_sur:  "a228c4f195ff19b177a8682fe50c02aec6037834d8988e67d07cb508be859509"
-    sha256 cellar: :any,                 ventura:        "675da959e16e4cab1991bbcd10b53cd802191728e034d08b7454d2863c54da65"
-    sha256 cellar: :any,                 monterey:       "4b347e1ba73cd6fd73a65a42ff20849ca98340bc54d255f97f649b4823a04ee1"
-    sha256 cellar: :any,                 big_sur:        "8409a54dffd20a0c25cd0a4647c9c39f82985817ebef35c5d617898d52b044d1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "80547b21830a8b09b01b29f1c4d1aef408c624ad67706fc41ccd89f3f6e87515"
+    sha256 cellar: :any,                 arm64_ventura:  "309fd736f90cc58f187491f874f6691ef7f599dd6c3c01f84870c3c0e773a527"
+    sha256 cellar: :any,                 arm64_monterey: "822fcd3c9f405d5c402b349651bcce4f87e43528065fb9114facd9272d2dc1c0"
+    sha256 cellar: :any,                 arm64_big_sur:  "eaffca207a8de6ab8126be74bf2d08d8925da0f72c34468528d95adc99d233a3"
+    sha256 cellar: :any,                 ventura:        "502eab3861654984b50e02f22824523ac747340d21c17ae1807274892bc81a98"
+    sha256 cellar: :any,                 monterey:       "a7ca3be1a5db1091210e4576ee274fd44301863d674a3652bb76af0ba539afd1"
+    sha256 cellar: :any,                 big_sur:        "59379052addcf32df664f4867b6abac870333b387eb8a00fd23eea46d9b23e94"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1a65defe547f75de10287b23ad07f14d8072c643552ce5c72a8e2588c19e3c10"
   end
 
   depends_on "rust" => :build # for cryptography

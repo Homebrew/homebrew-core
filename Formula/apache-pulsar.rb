@@ -57,7 +57,7 @@ class ApachePulsar < Formula
   end
 
   service do
-    run [bin/"pulsar", "standalone"]
+    run [opt_bin/"pulsar", "standalone"]
     log_path var/"log/pulsar/output.log"
     error_log_path var/"log/pulsar/error.log"
   end

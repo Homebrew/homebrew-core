@@ -3,26 +3,26 @@ class PythonLspServer < Formula
 
   desc "Python Language Server for the Language Server Protocol"
   homepage "https://github.com/python-lsp/python-lsp-server"
-  url "https://files.pythonhosted.org/packages/59/c5/fdb678be01f90450cb3c785eba8fbdd80361156c31da96137eb5c31f9a66/python-lsp-server-1.7.1.tar.gz"
-  sha256 "67473bb301f35434b5fa8b21fc5ed5fac27dc8a8446ccec8bae456af52a0aef6"
+  url "https://files.pythonhosted.org/packages/f9/1a/4c8a34472a18df991c75004586625ac1cd145a164dd8e69c1c1a625e09c2/python-lsp-server-1.7.2.tar.gz"
+  sha256 "b2433467d0fcb8fd45828463ff1cc805837c08731fcea5d7d953d9be776881e1"
   license "MIT"
   head "https://github.com/python-lsp/python-lsp-server.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d4d06929be95194167fb4b7a3f2829e00bbea23e11844a8785baef196763fef1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "116eeddee5216dfca5c34148c8d28d7116c38d608b2b7f791e758fa10679b6a9"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "763648951df2e98e4abfc122c5ee12c251bc838adf6fc7337db30a12420e45e5"
-    sha256 cellar: :any_skip_relocation, ventura:        "eeb6cdf8a37eb6a0d8aa6aee0e7cf72faba020d40a8ba7178b74c534c6c79daa"
-    sha256 cellar: :any_skip_relocation, monterey:       "8b422b6602129bfb38b7c8ab4343b724abcd8f0bcb2183ba23dc55afe4ef0bc9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0cf446db386f9fe8de2dd451ae6f2ecc6f7426c76785aa6ea5290c4040f823e2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b957122c8c562a07b6d65b82690890a1063e392ef99f7d938a665fa2046ceb56"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3d5a952976ada23914e8af96d2f4686e2d987fa048cfa6dcde6ffb8191c109d2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5f198f4dfcdd7f683d329bb82cf1391595fc8d0c8b4ef0765df200084ad91e9d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c8ef26143302507619ddc4203c5945924fcda63031537ef1dc23092c563db8f6"
+    sha256 cellar: :any_skip_relocation, ventura:        "55ae3463491a366616fdfb3b4485a288b2f656123df82c4d6146ce21102fe4e5"
+    sha256 cellar: :any_skip_relocation, monterey:       "b4f46b9ff1f9e0fb6b1446055734ee7caea08d19c85b452f55e327c9579a67cf"
+    sha256 cellar: :any_skip_relocation, big_sur:        "daa8c335b33b28e17ac368026017f309768100ceea4d22fc549a2c7bc42169e3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1acd99dbef53162bd063162208ef0d2af8119818198f6d4913ed2d9b3ff710d5"
   end
 
   depends_on "python@3.11"
 
   resource "docstring-to-markdown" do
-    url "https://files.pythonhosted.org/packages/e9/68/cac92c4f3f837fbeba17e8dfcdb7658fac6a1d56c007ed0d407087f1127e/docstring-to-markdown-0.11.tar.gz"
-    sha256 "5b1da2c89d9d0d09b955dec0ee111284ceadd302a938a03ed93f66e09134f9b5"
+    url "https://files.pythonhosted.org/packages/52/c2/6f73c08b97bacd1242835bdca1cfc123b059eb15af9350eb1eb5d58868fc/docstring-to-markdown-0.12.tar.gz"
+    sha256 "40004224b412bd6f64c0f3b85bb357a41341afd66c4b4896709efa56827fb2bb"
   end
 
   resource "jedi" do

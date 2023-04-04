@@ -15,6 +15,15 @@ class Gmime < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "343edd8abff04d84cba81782ee2c447da2be52b2187581d25e989fe107c65b26"
   end
 
+  head do
+    url "https://github.com/jstedfast/gmime.git", branch: "master"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "gtk-doc" => :build
+    depends_on "libtool" => :build
+  end
+
   depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
@@ -28,6 +37,8 @@ class Gmime < Formula
       --enable-crypto
       --enable-introspection
     ]
+
+    system "./autogen.sh" if build.head?
 
     system "./configure", *std_configure_args, *args
     system "make", "install"

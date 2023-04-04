@@ -7,10 +7,14 @@ class Solr < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "3e3ef873e5f986f860403a75246b71871b54ce06d8fd712c250f4f6a8d7e7490"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "95ad367dfd98503a52dc38af2d86ce9539d1b67af764890adcc32779219574fc"
   end
 
-  depends_on "openjdk"
+  # `solr` fails to start on macOS with `openjdk` 20.
+  # TODO: Switch back to `openjdk` when resolved:
+  #   https://issues.apache.org/jira/browse/SOLR-16733
+  depends_on "openjdk@17"
 
   # Fix Java version detection.
   # Extracted from commit below; commit contains changelog updates that can't be applied.
@@ -23,7 +27,7 @@ class Solr < Formula
     prefix.install "licenses", "modules", "server"
     bin.install "bin/solr", "bin/post"
 
-    env = Language::Java.overridable_java_home_env
+    env = Language::Java.overridable_java_home_env("17")
     env["SOLR_HOME"] = "${SOLR_HOME:-#{var}/lib/solr}"
     env["SOLR_LOGS_DIR"] = "${SOLR_LOGS_DIR:-#{var}/log/solr}"
     env["SOLR_PID_DIR"] = "${SOLR_PID_DIR:-#{var}/run/solr}"

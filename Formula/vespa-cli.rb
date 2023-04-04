@@ -1,8 +1,8 @@
 class VespaCli < Formula
   desc "Command-line tool for Vespa.ai"
   homepage "https://vespa.ai"
-  url "https://github.com/vespa-engine/vespa/archive/v8.146.12.tar.gz"
-  sha256 "f875e23de15758ed0d06065f8742744f7f769a268d690e97f05a25faa83a3dfb"
+  url "https://github.com/vespa-engine/vespa/archive/v8.148.14.tar.gz"
+  sha256 "778a66db8ed641e5bd9cb508e61c80824d9170f11aa51530e38d3a2e74d73616"
   license "Apache-2.0"
 
   livecheck do
@@ -12,13 +12,13 @@ class VespaCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8422b13837fa0d5ef02b113a94b59b258373723f49f857359db2bfdcb8f4aee1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1ac28e9266acbebcde40b449a441da52aaec4c29ada3b73560bf3d25f199337c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fa2cc82e90ba40d36813320fbb4e39708210ec9351fea92ce3313825069f6c9e"
-    sha256 cellar: :any_skip_relocation, ventura:        "d4e514269131cb851379ff6b8af0db0f98065ab1b601f45ec36203dec0fe1ef0"
-    sha256 cellar: :any_skip_relocation, monterey:       "30f81db21556e93c70ba73d43887a3f589a863aae1109db1401d46cf1024fbb7"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8c7f39302cbeb1d7d3ec04e878a2786e7159245fbb786e49dfd4854a29e8a68f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "18d6d50b6e1725827f65b5654d635b597fb20d92da2b8ec69701094652654b16"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9141d538bbe756537d9812540b2ef7c1e29fae79177b397fa3da0d18bec8c11b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b2684b915bb803db821522b58926983633b17ac5da50a536cd055b7626c7964a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "73009cbb888511ac996172b54b7a3a36cc9527fdcac854c2a33d9fc5533022b2"
+    sha256 cellar: :any_skip_relocation, ventura:        "fa980b24812ca6e65b5a2f7eb556c50b74996655054e7688d1a194a487a84654"
+    sha256 cellar: :any_skip_relocation, monterey:       "e0fbcddc97144bd3c12c441f93c38df80fdaf494c4cd7394caa2269a6fc7b8b5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a7251c93f3bd04736a6b3f0ae78df7b6055133d8f5676237ecb91e8f06645d85"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9e2ae10cf948de8757f4cef9c917670e403e9d7048a3e928c73bab186757ae1a"
   end
 
   depends_on "go" => :build

@@ -168,7 +168,7 @@ jobs:
               keep_if_no_match: true
 
             - label: CI-linux-self-hosted
-              path: Formula/(freetype|gdbm|llvm|openssl@1.1|python@3.11|qt(@5)?|xz|zstd).rb
+              path: Formula/(envoy|freetype|gdbm|llvm|openssl@1.1|python@3.11|qt(@5)?|xz|zstd).rb
               keep_if_no_match: true
 
             - label: bump-formula-pr

@@ -61,7 +61,7 @@ class V2ray < Formula
   end
 
   service do
-    run [bin/"v2ray", "run", "-config", etc/"v2ray/config.json"]
+    run [opt_bin/"v2ray", "run", "-config", etc/"v2ray/config.json"]
     keep_alive true
   end
 

@@ -1,10 +1,9 @@
 class Openimageio < Formula
   desc "Library for reading, processing and writing images"
   homepage "https://openimageio.org/"
-  url "https://github.com/OpenImageIO/oiio/archive/v2.4.9.0.tar.gz"
-  sha256 "d04c12575d63d13ed64fc037ea37da616224736213d785de9f50337f6eb5a9ed"
+  url "https://github.com/OpenImageIO/oiio/archive/v2.4.10.0.tar.gz"
+  sha256 "59f523a0b9a1014993bedcf7752993af43b348761165f52ea6eb84787f57aed5"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/OpenImageIO/oiio.git", branch: "master"
 
   livecheck do
@@ -14,13 +13,13 @@ class Openimageio < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "d8b2ef86400941388ea0d25bf266239733a82fb6bdecf715a42a4c3c2cdc2c31"
-    sha256 cellar: :any,                 arm64_monterey: "698775daaf34d714e76deee1dc0e7241ab48ccdb704b6f878ea6787e8e7283a3"
-    sha256 cellar: :any,                 arm64_big_sur:  "aae2b9cc8451df5b9efe8cdde1c5f2e65f2360a51a91e0109c10c52ae84b9c7e"
-    sha256 cellar: :any,                 ventura:        "2d9b9ae33c5418ee299c241f52124dc0d73d79a480ab3c5c54b2192d084007a2"
-    sha256 cellar: :any,                 monterey:       "1334cbd6ab68820325e4b2bae183c50a18117147f5a2d5b65bb8a5ce7ec371a3"
-    sha256 cellar: :any,                 big_sur:        "82f2679ec05f6c3fb118602dae305b3fecb335f01c51f66a1728129a8a784e68"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e4fa9e61656096e3a330a0c795663fed6d8f07a76f5170b336695ad419cf8cf8"
+    sha256 cellar: :any,                 arm64_ventura:  "991381655dbd08f6ef811da078269f2c7e587560c5d0f8fb1b76150b2a01a14c"
+    sha256 cellar: :any,                 arm64_monterey: "143842cfb0a4b70b6eac92b236f7939e8e1b205c7ce115b992da8544e6613d5f"
+    sha256 cellar: :any,                 arm64_big_sur:  "0bc68786484e29199a714d8b31bc495ffa76c2b4a0ee1ca68e071fff55ade658"
+    sha256 cellar: :any,                 ventura:        "0734391e9b8cb48e17317951c93a018a9f4a3a241070ea3cf73c75c7e8359309"
+    sha256 cellar: :any,                 monterey:       "c778921815540f2a2aa429d1830dc176d5970a3852cd0c0e0012176f7696b7a9"
+    sha256 cellar: :any,                 big_sur:        "e3f91f55037220c50bb1f65050e0b2dd0b999e8423cebc34d5bd79f861a1ab70"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "822d6c628825f603f3f1f1fc39e447d4b718b67f7d8950566cda4771cbd05205"
   end
 
   depends_on "cmake" => :build

@@ -53,7 +53,7 @@ class Sftpgo < Formula
   end
 
   service do
-    run [bin/"sftpgo", "serve", "--config-file", etc/"sftpgo/sftpgo.json", "--log-file-path",
+    run [opt_bin/"sftpgo", "serve", "--config-file", etc/"sftpgo/sftpgo.json", "--log-file-path",
          var/"sftpgo/log/sftpgo.log"]
     keep_alive true
     require_root true

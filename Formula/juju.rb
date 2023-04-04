@@ -8,9 +8,12 @@ class Juju < Formula
   version_scheme 1
   head "https://github.com/juju/juju.git", branch: "develop"
 
+  # We check the Launchpad download page for Juju because the latest version
+  # listed on the main project page isn't always a stable version.
   livecheck do
-    url :stable
-    regex(/^juju[._-]v?(\d+(?:\.\d+)+)$/i)
+    url "https://launchpad.net/juju/+download"
+    regex(/href=.*?juju-core[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    strategy :page_match
   end
 
   bottle do

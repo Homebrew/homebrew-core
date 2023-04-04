@@ -1,25 +1,26 @@
 class UutilsFindutils < Formula
   desc "Cross-platform Rust rewrite of the GNU findutils"
   homepage "https://github.com/uutils/findutils"
-  url "https://github.com/uutils/findutils/archive/refs/tags/0.3.0.tar.gz"
-  sha256 "0ea77daf31b9740cfecb06a9dbd06fcd50bc0ba55592a12b9f9b74f3302f5c41"
+  url "https://github.com/uutils/findutils/archive/refs/tags/0.4.0.tar.gz"
+  sha256 "080d01a7cd27f7afc342c3d6355ea1eb39ec2558c135744201f2064cffe4225d"
   license "MIT"
   head "https://github.com/uutils/findutils.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d8d18d9857bca2588f382d1bca504abf1f6df144947036c0348e363dc22e2fdb"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ca045c4e12d1d6755a9da9eddf1bd13dde2b0d73ad1e65da54d371669088a6de"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7481db500d7ba0560895918bde9e9e0528a8c5b94f8840d0147c782529c3d49a"
-    sha256 cellar: :any_skip_relocation, ventura:        "c40f19a23c50f9a71af077d37fd11519090bd4d71fb3d393d63e1aabdb86a176"
-    sha256 cellar: :any_skip_relocation, monterey:       "cde20a32a79062807f5c0af35665c19a94a1581620962ebd39f0013ee419b317"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b329e0a3499b2ea64883fcbbd841647dae919bd07a8d540e93bc7fb014665338"
-    sha256 cellar: :any_skip_relocation, catalina:       "20e961b0544246034d484f1b81ebe5058a3b915afa489a8b7c897c49b038952d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8b3394d4fdfe9fe4620892049fe5d27736696416a8ef7c43b007cf418e223ee1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "35bd72e9f6b8b093d202e93087952392888ee0deb214fb3baa128f5e144e4ed9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b3929e14c3bc2f705b57b3d1b8373520d03fec4716a6f866bdb492aa92093ee4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "64b653ea337a20d495af2d73c814580f62e36d37c2f254c97bb69d05f9498f73"
+    sha256 cellar: :any_skip_relocation, ventura:        "6bc17ee18be1de4f46fadc17a35b2bf75df068a03b7b7ab3cf719bcfdaf4be3a"
+    sha256 cellar: :any_skip_relocation, monterey:       "c911271402ebc0148bac30e332325e1d3a50379fc5afee3364262a3aff275c99"
+    sha256 cellar: :any_skip_relocation, big_sur:        "3a0cc1f20bfc100ad910a3eb5a7470bae90ede38d6ee1222e2622341df9166fc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a093eeb22012bc45e4dda4d04bed07c559f4cdb60bad70502f65e9ac65d32090"
   end
 
   depends_on "rust" => :build
-  uses_from_macos "llvm" => :build
+
+  on_linux do
+    depends_on "llvm@15" => :build
+  end
 
   def unwanted_bin_link?(cmd)
     %w[
@@ -28,7 +29,7 @@ class UutilsFindutils < Formula
   end
 
   def install
-    ENV["LIBCLANG_PATH"] = Formula["llvm"].opt_lib.to_s if OS.linux?
+    ENV["LIBCLANG_PATH"] = Formula["llvm@15"].opt_lib.to_s if OS.linux?
     system "cargo", "install", *std_cargo_args(root: libexec)
     mv libexec/"bin", libexec/"uubin"
     Dir.children(libexec/"uubin").each do |cmd|
