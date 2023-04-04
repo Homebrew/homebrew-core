@@ -1,8 +1,8 @@
 class Sniffnet < Formula
   desc "Cross-platform application to monitor your network traffic"
   homepage "https://github.com/GyulyVGC/sniffnet"
-  url "https://github.com/GyulyVGC/sniffnet/archive/refs/tags/v1.1.2.tar.gz"
-  sha256 "028209240be187c9de94be4da6cd3129d5c2bd2542a929e6d869bfad4d7aa9a5"
+  url "https://github.com/GyulyVGC/sniffnet/archive/refs/tags/v1.1.3.tar.gz"
+  sha256 "6e156f99a0b8b6203bf0013d4945011bb2bdeeec00fc9b5c2277ffb35d1d70f0"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/GyulyVGC/sniffnet.git", branch: "main"
 
@@ -17,6 +17,7 @@ class Sniffnet < Formula
   end
 
   depends_on "rust" => :build
+  depends_on "openssl@3"
 
   uses_from_macos "libpcap"
 
@@ -27,7 +28,19 @@ class Sniffnet < Formula
   end
 
   def install
+    # Ensure that the `openssl` crate picks up the intended library.
+    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+    ENV["OPENSSL_NO_VENDOR"] = "1"
+
     system "cargo", "install", *std_cargo_args
+  end
+
+  def check_binary_linkage(binary, library)
+    binary.dynamically_linked_libraries.any? do |dll|
+      next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
+
+      File.realpath(dll) == File.realpath(library)
+    end
   end
 
   test do
@@ -36,6 +49,14 @@ class Sniffnet < Formula
       exec bin/"sniffnet"
     end
     sleep 1
+
+    [
+      Formula["openssl@3"].opt_lib/shared_library("libssl"),
+      Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
+    ].each do |library|
+      assert check_binary_linkage(bin/"sniffnet", library),
+             "No linkage with #{library.basename}! Cargo is likely using a vendored version."
+    end
   ensure
     Process.kill("TERM", pid)
     Process.wait(pid)
