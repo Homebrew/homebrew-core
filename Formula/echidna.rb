@@ -1,3 +1,5 @@
+require "language/node"
+
 class Echidna < Formula
   desc "Ethereum smart contract fuzzer"
   homepage "https://github.com/crytic/echidna"
@@ -25,6 +27,10 @@ class Echidna < Formula
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
+  on_arm do
+    depends_on "node@18" => :test
+  end
+
   def install
     ENV.cxx11
 
@@ -48,9 +54,7 @@ class Echidna < Formula
   end
 
   test do
-    system "solc-select", "install", "0.7.0"
-
-    (testpath/"test.sol").write <<~EOS
+    (testpath/"contracts/test.sol").write <<~EOS
       contract True {
         function f() public returns (bool) {
           return(false);
@@ -61,9 +65,30 @@ class Echidna < Formula
       }
     EOS
 
-    with_env(SOLC_VERSION: "0.7.0") do
+    (testpath/"hardhat.config.js").write <<~EOS
+      /** @type import('hardhat/config').HardhatUserConfig */
+      module.exports = {
+        solidity: "0.8.18",
+      };
+    EOS
+
+    if Hardware::CPU.intel?
+      system "solc-select", "install", "0.8.18"
+
+      target = testpath/"contracts/test.sol"
+    else
+      # Testing with Hardhat invokes npm and npx. Hardhat is only supported on Node LTS
+      ENV.prepend_path "PATH", Formula["node@18"].bin
+      ENV.prepend_path "PATH", Formula["node@18"].libexec/"bin"
+
+      system "npm", "install", *Language::Node.local_npm_install_args, "hardhat@2.13.0"
+
+      target = testpath
+    end
+
+    with_env(SOLC_VERSION: "0.8.18") do
       assert_match(/echidna_true:(\s+)passed!/,
-                   shell_output("#{bin}/echidna --format text #{testpath}/test.sol"))
+                   shell_output("#{bin}/echidna --format text #{target}"))
     end
   end
 end
