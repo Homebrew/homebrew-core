@@ -15,8 +15,6 @@ class ElanInit < Formula
   end
 
   depends_on "rust" => :build
-  # elan-init will run on arm64 Macs, but will fetch Leans that are x86_64.
-  depends_on arch: :x86_64
   depends_on "coreutils"
   depends_on "gmp"
 
