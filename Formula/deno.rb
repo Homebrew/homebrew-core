@@ -1,8 +1,8 @@
 class Deno < Formula
   desc "Secure runtime for JavaScript and TypeScript"
   homepage "https://deno.land/"
-  url "https://github.com/denoland/deno/releases/download/v1.32.2/deno_src.tar.gz"
-  sha256 "9ff0ee1451bf4b543f43ccde6a8d1a53ead8650c1331a92fffee60180900af09"
+  url "https://github.com/denoland/deno/releases/download/v1.32.3/deno_src.tar.gz"
+  sha256 "c0ccbf75108a3f1853bdac9956829fb4aa1eb090c3896f631a09c1c1d53b108c"
   license "MIT"
   head "https://github.com/denoland/deno.git", branch: "main"
 
@@ -79,7 +79,7 @@ class Deno < Formula
     python3 = "python3.11"
     # env args for building a release build with our python3, ninja and gn
     ENV.prepend_path "PATH", Formula["python@3.11"].libexec/"bin"
-    ENV["PYTHON"] = Formula["python@3.11"].opt_bin/python3
+    ENV["PYTHON"] = Formula["python@3.11"].opt_bin/"python3.11"
     ENV["GN"] = buildpath/"gn/out/gn"
     ENV["NINJA"] = Formula["ninja"].opt_bin/"ninja"
     # build rusty_v8 from source
