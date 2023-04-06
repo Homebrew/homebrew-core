@@ -39,13 +39,15 @@ class Marksman < Formula
   test do
     require "open3"
 
+    touch ".marksman.toml"
+
     json = <<~JSON
       {
         "jsonrpc": "2.0",
         "id": 1,
         "method": "initialize",
         "params": {
-          "rootUri": null,
+          "rootUri": "file://#{testpath}",
           "capabilities": {}
         }
       }
