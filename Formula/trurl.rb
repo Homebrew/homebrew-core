@@ -18,6 +18,10 @@ class Trurl < Formula
 
   uses_from_macos "curl", since: :ventura # uses CURLUE_NO_ZONEID, available since curl 7.81.0
 
+  on_system :linux, macos: :monterey_or_older do
+    depends_on "curl" => [:build, ">= 7.81.0"]
+  end
+
   def install
     system "make"
     system "make", "install", "PREFIX=#{prefix}"
