@@ -1,9 +1,8 @@
 class Tnftp < Formula
   desc "NetBSD's FTP client"
   homepage "https://cdn.netbsd.org/pub/NetBSD/misc/tnftp/"
-  url "https://cdn.netbsd.org/pub/NetBSD/misc/tnftp/tnftp-20210827.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.netbsd.org/pub/NetBSD/misc/tnftp/tnftp-20210827.tar.gz"
-  sha256 "101901e90b656c223ec8106370dd0d783fb63d26aa6f0b2a75f40e86a9f06ea2"
+  url "http://cdn.netbsd.org/pub/NetBSD/misc/tnftp/tnftp-20230409.tar.gz"
+  sha256 "c6c631eb43cdeb5be47f8d37fa12b8d991894408b323d39ae753051f4271de2c"
   license "BSD-4-Clause"
 
   livecheck do
