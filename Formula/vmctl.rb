@@ -14,17 +14,6 @@ class Vmctl < Formula
     bin.install "bin/vmctl"
   end
 
-  def caveats
-    <<~EOS
-      For more details, read:
-        https://docs.victoriametrics.com/vmctl.html
-      VictoriaMetrics on Github:
-          https://github.com/VictoriaMetrics/VictoriaMetrics
-      Feel free to ask your question in our communities:
-        https://docs.victoriametrics.com/Single-server-VictoriaMetrics.html#contacts
-    EOS
-  end
-
   test do
     assert_match version.to_s, shell_output("#{bin}/vmctl --version")
   end
