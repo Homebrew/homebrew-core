@@ -23,13 +23,17 @@ class Jdupes < Formula
   resource "libjodycode" do
     url "https://github.com/jbruchon/libjodycode/archive/refs/tags/v1.0.tar.gz"
     sha256 "3849c7a76c46687eafcff8db37477ce31662ac7a0d88cbd7495755b0f9859280"
+
+    patch :DATA
   end
 
   def install
     resource("libjodycode").stage do
-      inreplace "Makefile", /^\tGCCVERSION =.*$/, "\tGCCVERSION = 1" if ENV.compiler == :clang
-      system "make", "install", "PREFIX=#{libexec/"libjodycode"}"
+      system "make", "install", "PREFIX=#{libexec}/libjodycode"
     end
+    ENV.append "CFLAGS", "-I#{libexec}/libjodycode/include"
+    extra_rpath = rpath(target: libexec/"libjodycode/lib").gsub("$", "\\$$")
+    ENV.append "LDFLAGS", "-L#{libexec}/libjodycode/lib -Wl,-rpath,#{extra_rpath}"
     system "make", "install", "PREFIX=#{prefix}", "ENABLE_DEDUPE=1"
   end
 
@@ -41,3 +45,59 @@ class Jdupes < Formula
     assert_equal ["./a", "./b"], dupes
   end
 end
+
+__END__
+--- a/Makefile
++++ b/Makefile
+@@ -23,8 +23,13 @@ COMPILER_OPTIONS += -Wshadow -Wfloat-equal -Waggregate-return -Wcast-qual -Wswit
+ COMPILER_OPTIONS += -std=gnu99 -D_FILE_OFFSET_BITS=64 -fstrict-aliasing -pipe -fPIC
+ 
+ UNAME_S=$(shell uname -s)
+-VERSION=$(shell grep '#define VER ' version.h | sed 's/[^"]*"//;s/".*//')
+-VERSION_MAJOR=$(shell grep '#define VER ' version.h | sed 's/[^"]*"//;s/\..*//')
++VERSION=$(shell grep '\#define VER ' version.h | sed 's/[^"]*"//;s/".*//')
++VERSION_MAJOR=$(shell grep '\#define VER ' version.h | sed 's/[^"]*"//;s/\..*//')
++
++# Shared libraries on macOS use .dylib extension
++ifeq ($(UNAME_S), Darwin)
++	SUFFIX = dylib
++endif
+ 
+ # Don't use unsupported compiler options on gcc 3/4 (Mac OS X 10.5.8 Xcode)
+ ifeq ($(UNAME_S), Darwin)
+@@ -96,27 +101,28 @@ $(PROGRAM_NAME): $(OBJS)
+ #	$(CC) $(CFLAGS) $(LDFLAGS) -o $(PROGRAM_NAME) $(OBJS)
+ 
+ installdirs:
+-	@[ "$(ON_WINDOWS)" = "1" ] && echo "Do not use install rules on Windows" && exit 1
++	@[ "$(ON_WINDOWS)" = "1" ] && echo "Do not use install rules on Windows" && exit 1 || exit 0
+ 	test -e $(DESTDIR)$(LIB_DIR) || $(MKDIR) $(DESTDIR)$(LIB_DIR)
++	test -e $(DESTDIR)$(INC_DIR) || $(MKDIR) $(DESTDIR)$(INC_DIR)
+ 	test -e $(DESTDIR)$(MAN7_DIR) || $(MKDIR) $(DESTDIR)$(MAN7_DIR)
+ 
+ install: sharedlib staticlib installdirs
+-	@[ "$(ON_WINDOWS)" = "1" ] && echo "Do not use install rules on Windows" && exit 1
+-	$(INSTALL_DATA)	$(PROGRAM_NAME).so $(DESTDIR)$(LIB_DIR)/$(PROGRAM_NAME).so.$(VERSION)
+-	$(LN)		$(PROGRAM_NAME).so.$(VERSION) $(DESTDIR)$(LIB_DIR)/$(PROGRAM_NAME).so.$(VERSION_MAJOR)
+-	$(LN)		$(PROGRAM_NAME).so.$(VERSION) $(DESTDIR)$(LIB_DIR)/$(PROGRAM_NAME).so
++	@[ "$(ON_WINDOWS)" = "1" ] && echo "Do not use install rules on Windows" && exit 1 || exit 0
++	$(INSTALL_DATA)	$(PROGRAM_NAME).$(SUFFIX) $(DESTDIR)$(LIB_DIR)/$(PROGRAM_NAME).$(SUFFIX).$(VERSION)
++	$(LN)		$(PROGRAM_NAME).$(SUFFIX).$(VERSION) $(DESTDIR)$(LIB_DIR)/$(PROGRAM_NAME).$(SUFFIX).$(VERSION_MAJOR)
++	$(LN)		$(PROGRAM_NAME).$(SUFFIX).$(VERSION) $(DESTDIR)$(LIB_DIR)/$(PROGRAM_NAME).$(SUFFIX)
+ 	$(INSTALL_DATA)	$(PROGRAM_NAME).a $(DESTDIR)$(LIB_DIR)/$(PROGRAM_NAME).a
+ 	$(INSTALL_DATA)	$(PROGRAM_NAME).h $(DESTDIR)$(INC_DIR)/$(PROGRAM_NAME).h
+ 	$(INSTALL_DATA)	$(PROGRAM_NAME).7 $(DESTDIR)$(MAN7_DIR)/$(PROGRAM_NAME).7
+ 
+ uninstalldirs:
+-	@[ "$(ON_WINDOWS)" = "1" ] && echo "Do not use install rules on Windows" && exit 1
++	@[ "$(ON_WINDOWS)" = "1" ] && echo "Do not use install rules on Windows" && exit 1 || exit 0
+ 	-test -e $(DESTDIR)$(LIB_DIR) && $(RMDIR) $(DESTDIR)$(LIB_DIR)
+ 	-test -e $(DESTDIR)$(INC_DIR) && $(RMDIR) $(DESTDIR)$(INC_DIR)
+ 	-test -e $(DESTDIR)$(MAN7_DIR) && $(RMDIR) $(DESTDIR)$(MAN7_DIR)
+ 
+ uninstall: uninstalldirs
+-	@[ "$(ON_WINDOWS)" = "1" ] && echo "Do not use install rules on Windows" && exit 1
++	@[ "$(ON_WINDOWS)" = "1" ] && echo "Do not use install rules on Windows" && exit 1 || exit 0
+ 	$(RM)	$(DESTDIR)$(LIB_DIR)/$(PROGRAM_NAME).so.$(VERSION)
+ 	$(RM)	$(DESTDIR)$(LIB_DIR)/$(PROGRAM_NAME).so.$(VERSION_MAJOR)
+ 	$(RM)	$(DESTDIR)$(INC_DIR)/$(PROGRAM_NAME).a
