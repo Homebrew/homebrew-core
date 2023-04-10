@@ -31,6 +31,13 @@ class JenkinsLts < Formula
 
   def caveats
     <<~EOS
+      To start the Jenkins service, run "brew services start jenkins-lts"
+      To restart the Jenkins service, run "brew services restart jenkins-lts"
+      To update the Jenkins version, run "brew upgrade jenkins-lts"
+
+      Take a look at the documentation, how to configure Jenkins:
+      https://www.jenkins.io/doc/book/installing/macos/
+     
       Note: When using launchctl the port will be 8080.
     EOS
   end
