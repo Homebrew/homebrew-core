@@ -1,8 +1,8 @@
 class Jdupes < Formula
   desc "Duplicate file finder and an enhanced fork of 'fdupes'"
   homepage "https://github.com/jbruchon/jdupes"
-  url "https://github.com/jbruchon/jdupes/archive/v1.21.3.tar.gz"
-  sha256 "8992d0ff1fe135c685063ce3c9d69d54f1f19f1b32845e84441f888218063cc0"
+  url "https://github.com/jbruchon/jdupes/archive/refs/tags/v1.22.0.tar.gz"
+  sha256 "945b69f1570d058b70c40d144c5dfa9d5769f43e9488e8ac4f47bbb9ac973df7"
   license "MIT"
 
   livecheck do
@@ -20,7 +20,15 @@ class Jdupes < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8df5e09093977d45b08da78175dd18e8f221734d34c95cca11be1fec6beca13d"
   end
 
+  resource "libjodycode" do
+    url "https://github.com/jbruchon/libjodycode/archive/refs/tags/v1.0.tar.gz"
+    sha256 "3849c7a76c46687eafcff8db37477ce31662ac7a0d88cbd7495755b0f9859280"
+  end
+
   def install
+    resource("libjodycode").stage do
+      system "make", "install", "PREFIX=#{libexec/"libjodycode"}"
+    end
     system "make", "install", "PREFIX=#{prefix}", "ENABLE_DEDUPE=1"
   end
 
