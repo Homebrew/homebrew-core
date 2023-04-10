@@ -27,6 +27,7 @@ class Jdupes < Formula
 
   def install
     resource("libjodycode").stage do
+      inreplace "Makefile", /^\tGCCVERSION =.*$/, "\tGCCVERSION = 1" if ENV.compiler == :clang
       system "make", "install", "PREFIX=#{libexec/"libjodycode"}"
     end
     system "make", "install", "PREFIX=#{prefix}", "ENABLE_DEDUPE=1"
