@@ -3,7 +3,7 @@ class Tnftp < Formula
   homepage "https://cdn.netbsd.org/pub/NetBSD/misc/tnftp/"
   url "http://cdn.netbsd.org/pub/NetBSD/misc/tnftp/tnftp-20230409.tar.gz"
   sha256 "c6c631eb43cdeb5be47f8d37fa12b8d991894408b323d39ae753051f4271de2c"
-  license "BSD-3-Clause"
+  license all_of: ["BSD-2-Clause", "BSD-3-Clause"]
 
   livecheck do
     url :homepage
