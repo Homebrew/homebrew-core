@@ -1,8 +1,8 @@
 class Clp < Formula
   desc "Linear programming solver"
   homepage "https://github.com/coin-or/Clp"
-  url "https://github.com/coin-or/Clp/archive/releases/1.17.7.tar.gz"
-  sha256 "c4c2c0e014220ce8b6294f3be0f3a595a37bef58a14bf9bac406016e9e73b0f5"
+  url "https://github.com/coin-or/Clp/archive/releases/1.17.8.tar.gz"
+  sha256 "f9931b5ba44f0daf445c6b48fc2c250dc12e667e59ace8ea7b025f158fe31556"
   license "EPL-2.0"
 
   livecheck do
@@ -32,7 +32,7 @@ class Clp < Formula
   end
 
   def install
-    # Work around https://github.com/coin-or/Clp/issues/109:
+    # Work around for:
     # Error 1: "mkdir: #{include}/clp/coin: File exists."
     mkdir include/"clp/coin"
 
