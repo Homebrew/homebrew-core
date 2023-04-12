@@ -19,16 +19,22 @@ class SingBox < Formula
   depends_on "go" => :build
 
   def install
-    (etc/"sing-box").mkpath
-
     ldflags = "-s -w -X github.com/sagernet/sing-box/constant.Version=#{version} -buildid="
     tags = "with_gvisor,with_quic,with_wireguard,with_utls,with_reality_server,with_clash_api"
     system "go", "build", "-tags", tags, *std_go_args(ldflags: ldflags), "./cmd/sing-box"
   end
 
+  def post_install
+    (etc/"sing-box").mkpath
+    (var/"sing-box").mkpath
+  end
+
   service do
-    run [opt_bin/"sing-box", "run", "-D", etc/"sing-box", "-c", "config.json"]
+    run [opt_bin/"sing-box", "run", "-C", etc/"sing-box"]
     keep_alive true
+    working_dir var/"sing-box"
+    error_log_path var/"log/sing-box.log"
+    log_path var/"log/sing-box.log"
   end
 
   test do
