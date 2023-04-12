@@ -19,6 +19,7 @@ class Metashell < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "python@3.11" => :build
 
   uses_from_macos "zlib"
 
