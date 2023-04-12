@@ -3,8 +3,8 @@ class Dotnet < Formula
   homepage "https://dotnet.microsoft.com/"
   # Source-build tag announced at https://github.com/dotnet/source-build/discussions
   url "https://github.com/dotnet/installer.git",
-      tag:      "v7.0.100-rtm.22521.12",
-      revision: "e12b7af219b96b5e07039ea8e3e268380329d72c"
+      tag:      "v7.0.105",
+      revision: "e1bc5e001c9b8e87d9f99e06eb7dbf04c508f450"
   version "7.0.100"
   license "MIT"
 
@@ -66,14 +66,6 @@ class Dotnet < Formula
   # Upstream only directly supports and tests llvm/clang builds.
   # GCC builds have limited support via community.
   fails_with :gcc
-
-  # Backport fix for error on aspnetcore version while building 'installer in tarball'.
-  # TODO: Remove when available in release.
-  # PR ref: https://github.com/dotnet/installer/pull/14938
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/f206f7a45b330cce79e6bfe9116fccd93b0d3ed8/dotnet/aspnetcore-version.patch"
-    sha256 "00103452e2f52831c04007f1b7f9fcd5ecddf0671943657104f0ac8d3a9ca613"
-  end
 
   # Fix build failure on macOS due to missing bootstrap packages
   # Fix build failure on macOS ARM due to `osx-x64` override
