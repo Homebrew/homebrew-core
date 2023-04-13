@@ -1,10 +1,10 @@
 class SdlMixer < Formula
   desc "Sample multi-channel audio mixer library"
   homepage "https://www.libsdl.org/projects/SDL_mixer/release-1.2.html"
-  url "https://www.libsdl.org/projects/SDL_mixer/release/SDL_mixer-1.2.12.tar.gz"
+  url "https://downloads.sourceforge.net/project/libsdl/SDL/1.2.12/SDL-1.2.12.tar.gz?ts=gAAAAABkOHV-YiKu1-eDj3tQjDNy3l4CS33Wx9vqVvpRAH5f08XUpbJKeUuaGrzLMdIoIfozbnaWQMjXE-xx4hbpNnTc5C5zZA%3D%3D&r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Flibsdl%2Ffiles%2FSDL%2F1.2.12%2FSDL-1.2.12.tar.gz%2Fdownload"
   sha256 "1644308279a975799049e4826af2cfc787cad2abb11aa14562e402521f86992a"
   license "Zlib"
-  revision 6
+  revision 7
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "9011aeb2677555c32d4fbed09977e07faf7b9eea1e12f6a5b9802c504ad8dfe0"
@@ -34,6 +34,8 @@ class SdlMixer < Formula
   depends_on "libogg"
   depends_on "libvorbis"
   depends_on "sdl12-compat"
+  depends_on "libmad"
+  depends_on "smpeg"
 
   # Source file for sdl_mixer example
   resource "playwave" do
@@ -49,10 +51,12 @@ class SdlMixer < Formula
     args = %W[
       --prefix=#{prefix}
       --disable-dependency-tracking
+      --enable-music-mp3
       --enable-music-ogg
       --enable-music-flac
       --disable-music-ogg-shared
       --disable-music-mod-shared
+      --disable-music-fluidsynth-midi
     ]
 
     system "./configure", *args
