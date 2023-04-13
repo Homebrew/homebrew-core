@@ -33,7 +33,7 @@ class Mavsdk < Formula
   depends_on "grpc"
   depends_on "jsoncpp"
   depends_on "openssl@1.1"
-  depends_on "protobuf"
+  depends_on "protobuf@21"
   depends_on "re2"
   depends_on "tinyxml2"
 
