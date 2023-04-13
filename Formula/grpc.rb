@@ -34,7 +34,9 @@ class Grpc < Formula
   depends_on "abseil"
   depends_on "c-ares"
   depends_on "openssl@1.1"
-  depends_on "protobuf"
+  # TODO: When `grpc` supports `protobuf` 22, migrate its dependents to
+  # `protobuf`, if possible.
+  depends_on "protobuf@21"
   depends_on "re2"
 
   uses_from_macos "zlib"
