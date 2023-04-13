@@ -66,7 +66,7 @@ class Sysdig < Formula
     depends_on "elfutils"
     depends_on "grpc"
     depends_on "jq"
-    depends_on "protobuf"
+    depends_on "protobuf@21"
   end
 
   fails_with gcc: "5" # C++17
