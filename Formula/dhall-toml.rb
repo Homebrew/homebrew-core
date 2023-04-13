@@ -18,6 +18,6 @@ class DhallToml < Formula
   end
 
   test do
-    assert_match "1", pipe_output("#{bin}/dhall-to-toml", "1", 0)
+    assert_match "isThisWorking = true", pipe_output("#{bin}/dhall-to-toml", "{ isThisWorking = True }", 0)
   end
 end
