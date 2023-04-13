@@ -21,7 +21,7 @@ class OpentelemetryCpp < Formula
   depends_on "grpc"
   depends_on "nlohmann-json"
   depends_on "prometheus-cpp"
-  depends_on "protobuf"
+  depends_on "protobuf@21"
   depends_on "thrift"
 
   uses_from_macos "curl"
