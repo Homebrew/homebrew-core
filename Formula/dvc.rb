@@ -24,7 +24,7 @@ class Dvc < Formula
   depends_on "cffi"
   depends_on "numpy"
   depends_on "openssl@1.1"
-  depends_on "protobuf"
+  depends_on "protobuf@21"
   depends_on "pycparser"
   depends_on "pygit2"
   depends_on "pygments"
