@@ -23,7 +23,7 @@ class EtcdCppApiv3 < Formula
   depends_on "cpprestsdk"
   depends_on "grpc"
   depends_on "openssl@1.1"
-  depends_on "protobuf"
+  depends_on "protobuf@21"
 
   fails_with gcc: "5"
 
