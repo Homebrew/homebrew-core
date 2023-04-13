@@ -18,7 +18,7 @@ class ProtobufC < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "protobuf"
+  depends_on "protobuf@21"
 
   def install
     ENV.cxx11
