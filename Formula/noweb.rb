@@ -2,8 +2,8 @@ class Noweb < Formula
   desc "WEB-like literate-programming tool"
   homepage "https://www.cs.tufts.edu/~nr/noweb/"
   # new canonical url (for newer versions): http://mirrors.ctan.org/web/noweb.zip
-  url "https://deb.debian.org/debian/pool/main/n/noweb/noweb_2.11b.orig.tar.gz"
-  sha256 "c913f26c1edb37e331c747619835b4cade000b54e459bb08f4d38899ab690d82"
+  url "https://deb.debian.org/debian/pool/main/n/noweb/noweb_2.12.orig.tar.gz"
+  sha256 "34e3903bce9771345ff392b1998f7877389b66c71b3292834e8aaf448837a7f0"
   license "Noweb"
 
   livecheck do
