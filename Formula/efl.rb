@@ -4,7 +4,7 @@ class Efl < Formula
   url "https://download.enlightenment.org/rel/libs/efl/efl-1.26.3.tar.xz"
   sha256 "d9f83aa0fd9334f44deeb4e4952dc0e5144683afac786feebce6030951617d15"
   license all_of: ["GPL-2.0-only", "LGPL-2.1-only", "BSD-2-Clause", "FTL", "zlib-acknowledgement"]
-  revision 2
+  revision 3
 
   livecheck do
     url "https://download.enlightenment.org/rel/libs/efl/"
@@ -12,13 +12,13 @@ class Efl < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "2308441b83185c2d6da3e9cd5347ca912a77a3c147a6e982b1271435c4f0b825"
-    sha256 arm64_monterey: "d37e865d4c4cdc574c331a9d241e59055b618b868de4f02bf2c642418a605e73"
-    sha256 arm64_big_sur:  "8aedee8079107e06012114a044055139b116091aaeb065ebd2acfae61f172a38"
-    sha256 ventura:        "012848c11f48b1ce716a017628285ef205a4126ac650142d18c41bb1f301a49b"
-    sha256 monterey:       "f8fc215bb8dfc4b810ea51a6347ef44f7cddf51c4ae34b7c52ae6754a1ab6281"
-    sha256 big_sur:        "6d7ca4036bc1741a6c9dd0d32faca21283a06a2621cc27d813049c3cec2a1d04"
-    sha256 x86_64_linux:   "b866ef13beba78bcd5b3f0dfb8817d163ae9f23bd96c729e61e82444938a9dfa"
+    sha256 arm64_ventura:  "4d23735bd74fde88b0a6239ed79d6fbf8aa4f2181d7abf8d2dd0f68c34574db9"
+    sha256 arm64_monterey: "7e3ebe4d468f8d9f5dfebc0f6f153ed870abd35979a93085a292e75a7e480d80"
+    sha256 arm64_big_sur:  "88184df81156dce04b72680e09379289728be6fac24be90d38dd44c62967c387"
+    sha256 ventura:        "738b6d7d2b0921837b5874cc973b001336e6e1ae3e592ab7ce377b338d7cd2e7"
+    sha256 monterey:       "866e0851a98dc5fb0a05ab5af78c1fd2f3f5cafa4379320b3db2052a5c88d92c"
+    sha256 big_sur:        "521703fa948cd82d6e45e64dd4872ac14779a3eb921627992fb9217fb4920c6f"
+    sha256 x86_64_linux:   "a8b504933f098d3687819f46a8cbc01a183ff5bcfb897267ee721f3b50402b09"
   end
 
   depends_on "meson" => :build
@@ -32,7 +32,6 @@ class Efl < Formula
   depends_on "gettext"
   depends_on "giflib"
   depends_on "glib"
-  depends_on "gst-plugins-good"
   depends_on "gstreamer"
   depends_on "jpeg-turbo"
   depends_on "libpng"
@@ -52,7 +51,7 @@ class Efl < Formula
   uses_from_macos "zlib"
 
   # Remove LuaJIT 2.0 linker args -pagezero_size and -image_base
-  # to fix ARM build using LuaJIT 2.1+ via `luajit-openresty`
+  # to fix ARM build using LuaJIT 2.1+
   patch :DATA
 
   def install
@@ -77,8 +76,8 @@ class Efl < Formula
     inreplace "dbus-services/meson.build", "dep.get_pkgconfig_variable('session_bus_services_dir')",
                                            "'#{share}/dbus-1/services'"
 
-    system "meson", *std_meson_args, "build", *args
-    system "meson", "compile", "-C", "build", "-v"
+    system "meson", "setup", "build", *args, *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
   end
 

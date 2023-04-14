@@ -6,17 +6,16 @@ class VirtManager < Formula
   url "https://releases.pagure.org/virt-manager/virt-manager-4.1.0.tar.gz"
   sha256 "950681d7b32dc61669278ad94ef31da33109bf6fcf0426ed82dfd7379aa590a2"
   license "GPL-2.0-or-later"
-  revision 3
+  revision 4
   head "https://github.com/virt-manager/virt-manager.git", branch: "main"
 
   bottle do
-    rebuild 4
-    sha256 cellar: :any, arm64_ventura:  "a79fbae40fc9e8dab32fa0608be599d55e9f5c86cf6f18c9f476c6887e31521e"
-    sha256 cellar: :any, arm64_monterey: "25a6d27b4d6bb3f2e277735076cc56df6221165e7ec6e190217684dac758cf6c"
-    sha256 cellar: :any, arm64_big_sur:  "5a4beaf487b9fe8652ba1a49cdc0ed3e614e979df1135b145a59a6c8b8e6f2c5"
-    sha256 cellar: :any, ventura:        "ceac6ee964261015945ae1fc08da5e45be2136d270662fa2c80270b6a6dc7f99"
-    sha256 cellar: :any, monterey:       "02fdc6a7e645a48a6abad8da6b5abbddb35f5f5356069e5cc6b4dff978c2da5b"
-    sha256 cellar: :any, big_sur:        "50375f651e70cfca515a090aa98b0b277232be7b3bdc99995d69595b0c97dd98"
+    sha256 cellar: :any, arm64_ventura:  "b226ccddc5d7ba7ffb72647709317397f55d48e5f2a39e4d6098b58ca86f17c9"
+    sha256 cellar: :any, arm64_monterey: "04faa47b6e83a513a9950ddcc12199419ee54957fccc02b20957c72e9c74ed25"
+    sha256 cellar: :any, arm64_big_sur:  "66dfcc869f7c0c7ea914fed11ea4e8b18ac803cb19b015d3eee703784178ea01"
+    sha256 cellar: :any, ventura:        "9be7f58b136cc51e10bd9b19006b5268248f08499c1dace3a0211f46eede243d"
+    sha256 cellar: :any, monterey:       "49d81141325f0c7d4258cdd9e0edfa8048ba822cd17a96163ee579ffbddac454"
+    sha256 cellar: :any, big_sur:        "a200846995764562d1e1363bd5fe5047d373dd6fcb392398f602200075ad14bc"
   end
 
   depends_on "docutils" => :build

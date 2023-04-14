@@ -4,18 +4,16 @@ class Pdfpc < Formula
   url "https://github.com/pdfpc/pdfpc/archive/v4.4.1.tar.gz"
   sha256 "4adb42fd1844a7e2ab44709dd043ade618c87f2aaec03db64f7ed659e8d3ddad"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 arm64_ventura:  "3bf28b63e9aa3d5823c76aa28a1e62f7b8866c6fd801abebdcae0e80ef91610a"
-    sha256 arm64_monterey: "69fcafdc5492f2c38753aac0d2e146c929eeecefe7f0e7091b3a90d2463cdb46"
-    sha256 arm64_big_sur:  "91b6ccda2deea3571d72dde84a374ef36be20ec5a2641b8f18ac701988e63051"
-    sha256 ventura:        "5eb8accefd6f35ed6990a09aa71f13c3e64bee7f08b7034d6bd444a8bb129297"
-    sha256 monterey:       "7eb9b89630d7285c2b20fa0a131bec86dcf2b6a304fdea6f680949f396cd0397"
-    sha256 big_sur:        "b2de1a251cd401445b171247210e1e3a729cd793eeddfe7e725039b4ea9d272c"
-    sha256 catalina:       "6797e6bfdcff10e4e4b099d28547f608fbbc4aa94c0063d04b0e4d5195924f63"
-    sha256 mojave:         "ceb38afd15133764d031c8abca4aabbd39fb2407bac81e0b0c0d8b9511e249cf"
-    sha256 x86_64_linux:   "7f8c4bf4f879d5785c7c0832ca121e93742d82f7c03a67e3f1648028393a7d55"
+    sha256 arm64_ventura:  "1aace7c3c440270bc84311fe981b884ad25ef95124ff8bb20ad8e1987a0b48b6"
+    sha256 arm64_monterey: "845616bcf0c462c48d7fe8560a990049cce37122a64f146048b2315b0a1c39eb"
+    sha256 arm64_big_sur:  "1460cd4ac02aabc384a1ef9f63b80d39324f20599071b1b30bc658d38b79b97e"
+    sha256 ventura:        "0db9b677c52f7918f1e880e732ab22dab9c497930540358cf8b5bbd1bbe4adaf"
+    sha256 monterey:       "394fdad94e1359040ab98677190efe4088eb7ce722a12a256ac05a76447b14e3"
+    sha256 big_sur:        "e9326d3ea690dc41682ff022c73798e14113b502779e295f737c62b2ccf74233"
+    sha256 x86_64_linux:   "aa2f690eacb00966ce31538971a580c18fabbefd1c222ddc69918c83a396e561"
   end
 
   head do
@@ -33,7 +31,7 @@ class Pdfpc < Formula
 
   depends_on "cmake" => :build
   depends_on "vala" => :build
-  depends_on "gst-plugins-good"
+  depends_on "gstreamer"
   depends_on "gtk+3"
   depends_on "libgee"
   depends_on "librsvg"

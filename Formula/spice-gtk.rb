@@ -6,6 +6,7 @@ class SpiceGtk < Formula
   url "https://www.spice-space.org/download/gtk/spice-gtk-0.42.tar.xz"
   sha256 "9380117f1811ad1faa1812cb6602479b6290d4a0d8cc442d44427f7f6c0e7a58"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later", "BSD-3-Clause"]
+  revision 1
 
   livecheck do
     url "https://www.spice-space.org/download/gtk/"
@@ -13,13 +14,13 @@ class SpiceGtk < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "1befb75e482902215839cf6148532a51e52e1abeb5031e3cb6336682aa33b35b"
-    sha256 arm64_monterey: "052d4242b3edbc13681bd49397cfb60ec52f57d04ed60cb636926f32fa16b88e"
-    sha256 arm64_big_sur:  "fcbbd7bbfc075d5addf210451858fe672b6fd33c055e3237bf7f7b3a64d40373"
-    sha256 ventura:        "bd9a3a48b7dd8b7e922f88ae0b304dedd155f2fbc9fcd46e75a5eb30e148a1cd"
-    sha256 monterey:       "93cb5b7f2b910a204ea3bdb57b7b6bae8709471516776972405a0f77600f6032"
-    sha256 big_sur:        "e2bdf4ad322cc650d11d7fcfd1d2de66fc0a5535f41c6c4f7c9b960932028992"
-    sha256 x86_64_linux:   "512b1f3cb245fc4ce907455c4d3b7ad266afce8a08b96209c6db29c40b7e0cb9"
+    sha256 arm64_ventura:  "f6135938e50f9a3e3234ccc0a07730104989a917405d47145216af50bae70ed7"
+    sha256 arm64_monterey: "36b81c63a26b432ab4f1c9d94e265c2a7786918d9c7ebf93b168e3fcc9f9da36"
+    sha256 arm64_big_sur:  "4d91895f99248d92600da19579d33a72dcacd5146a1d18be1fbb55df44fd1184"
+    sha256 ventura:        "cb0f553c948bac6b6fd383309b1129c201355cd061fda9ae3db69afbb8571f5d"
+    sha256 monterey:       "8e0ede123e4d3e0008b74a76a4c5a98f8c96f3dcc946edfaa8028c2de5e392d6"
+    sha256 big_sur:        "b1eb975de277cebc129d38a49ae4d6ccb4f50c6c59ecc958c3097d2c05569b14"
+    sha256 x86_64_linux:   "11facfacc650bd83c1ef8ee786c1da4692f00f08e35e0786dfe8468bbc0a5585"
   end
 
   depends_on "gobject-introspection" => :build
@@ -37,11 +38,6 @@ class SpiceGtk < Formula
   depends_on "gdk-pixbuf"
   depends_on "gettext"
   depends_on "glib"
-  depends_on "gst-libav"
-  depends_on "gst-plugins-bad"
-  depends_on "gst-plugins-base"
-  depends_on "gst-plugins-good"
-  depends_on "gst-plugins-ugly"
   depends_on "gstreamer"
   depends_on "gtk+3"
   depends_on "jpeg-turbo"
@@ -68,7 +64,7 @@ class SpiceGtk < Formula
     venv.pip_install resources
     ENV.prepend_path "PATH", buildpath/"venv/bin"
 
-    system "meson", "build", *std_meson_args
+    system "meson", "setup", "build", *std_meson_args
     system "meson", "compile", "-C", "build"
     system "meson", "install", "-C", "build"
   end

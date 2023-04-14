@@ -4,6 +4,7 @@ class Webkitgtk < Formula
   url "https://webkitgtk.org/releases/webkitgtk-2.40.0.tar.xz"
   sha256 "a4607ea1bf89669e89b1cb2c63faaec513f93de09b6ae60cc71d6a8aab7ab393"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url "https://webkitgtk.org/releases/"
@@ -11,7 +12,7 @@ class Webkitgtk < Formula
   end
 
   bottle do
-    sha256 x86_64_linux: "9eae32fefd570f137c415fc2989494e0ca12e658d6b62dfeee76140031247581"
+    sha256 x86_64_linux: "140aaa661bae384bda6a686980d3f43b488677f8d836b90fdea6e2fbe07429bb"
   end
 
   depends_on "cmake" => :build
@@ -23,8 +24,6 @@ class Webkitgtk < Formula
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "glib"
-  depends_on "gst-plugins-bad"
-  depends_on "gst-plugins-base"
   depends_on "gstreamer"
   depends_on "gtk+3"
   depends_on "harfbuzz"

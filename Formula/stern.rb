@@ -1,19 +1,19 @@
 class Stern < Formula
   desc "Tail multiple Kubernetes pods & their containers"
   homepage "https://github.com/stern/stern"
-  url "https://github.com/stern/stern/archive/v1.24.0.tar.gz"
-  sha256 "4c75684974935bf90ce939b579c1cd67844e586a189a2a84e1a86165092d7919"
+  url "https://github.com/stern/stern/archive/v1.25.0.tar.gz"
+  sha256 "9742fa8d9c4b75bf0b261c42996d26c0f706400c043f3f83d159238326c717ea"
   license "Apache-2.0"
   head "https://github.com/stern/stern.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "35d8751469ade4a2e3e347f2c2601c16c3650af6793e83baa740338e45509dcf"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7fe3c9495cbb7f82872828aa5fa24555b01baad230bd220d3a68af22b0d37320"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b76ef2a4b0f7753c06a2fd35420652c5788295f70cf68ce3f5e507817cd913d7"
-    sha256 cellar: :any_skip_relocation, ventura:        "db0a2c505c0e054a5d7c643b3f8250fb2048891f74e2028733b05cb7b2de025c"
-    sha256 cellar: :any_skip_relocation, monterey:       "77a2b2c6ebbea558ec3e708f23bfcd1d4b41d39933a8c3b4ecf1fcd37d36db68"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c7fca8edf983654c65640a52aa932a5518b4a352897ee1c7f3f51dbdd57f0c43"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0c280eb0575a75a0c7435bd091eeab263f797fdb384c5fc743598cee66ed6c98"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5d5ba050de4ea6e10111f5c8a25b9097d5eac58d3cdeb989b05332511878fe19"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d1bbb023fffc3bcac63826e86c983bf81e1243c5d2f336602c6c202fbda7dec6"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7de5023ab4f241c2736fe0dbe898d682724d4f599f59412ca589ec0a3b91e86e"
+    sha256 cellar: :any_skip_relocation, ventura:        "b310aca298169454b74d492069e3669034def0eda58d5bf1e8dbcf2263bb3736"
+    sha256 cellar: :any_skip_relocation, monterey:       "e7613bf2a508febed107928edeefe78e5ab9fde666ccb5c974065348f9228dea"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6daeaf2ca920f987afbdfab2af6354704593a974e11b7b869c3559afc714e198"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e1f91547ac37e1567e8d4bd10150878295dd96f4efcf350211ffb0e2a3d170c4"
   end
 
   depends_on "go" => :build

@@ -6,23 +6,20 @@ class Pympress < Formula
   url "https://files.pythonhosted.org/packages/08/3f/9fd254a40155c8f51b52b045f5df16a794d21d4c3dfeb8c5d379671e72f1/pympress-1.8.2.tar.gz"
   sha256 "d9587112ab08b1c97d8f9baccde2f666b4b6291bd22fcb376d27574301b2c179"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/Cimbali/pympress.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a1eeccea821949ac7769026f48017e33d10d4d2a9733050f18e3abef8223c0b9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2272b58efbb36e3f7673c7c2d8e35e92014a8c4b0c693ac3f93847bd5c538bb4"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e8fb791e60461fe3c16881d8fa43f4ba8b4b220472e9e8500ba208fc2b940673"
-    sha256 cellar: :any_skip_relocation, ventura:        "56a8e468bac364046adaa3fe9787584d0fab7b1a7e7b09adb6a3cd4187a275b8"
-    sha256 cellar: :any_skip_relocation, monterey:       "9eb46e615ad64fc0aa56875c0b64cd87122050144ebd851661803d2bde03bdc4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "88ec5a52c69b793ed6fab371180a09e9034929ead3f35a175fc1ae17be9fc2d1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d7f0ab90532660d2f98bc78b80e11d9fa8a77bf809a71cb36a957aa4a3114587"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8d8d24fedbc9224464fc9d917d689c2bb19385ab000a09b09f5ea786dfd994e4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d20d02e3bef56547087422569b32199435a92b750232d8ab4edc8fdad7839ace"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "92c82f00fea337c371715f3b5fe6a15a5884300a96e9ea34081e57d6e3d34dca"
+    sha256 cellar: :any_skip_relocation, ventura:        "010b35a5b0020f1d6779339687acb956b108a02c5191554d91ab2264c5ee2899"
+    sha256 cellar: :any_skip_relocation, monterey:       "63d3825e4e609f26ceab417db71b1a13dc740045f1acaad47f0a73f7f4ce535e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9771e2fe41d256339abe9e1dbf7569ab932cb2aecd1bd34007879779117803a2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2bb664da1b976473e9f1e48769b40f0244b266d3be605d962be979c71e99e169"
   end
 
   depends_on "gobject-introspection"
-  depends_on "gst-plugins-bad"
-  depends_on "gst-plugins-base"
-  depends_on "gst-plugins-good"
-  depends_on "gst-plugins-ugly"
   depends_on "gstreamer"
   depends_on "gtk+3"
   depends_on "libyaml"
