@@ -1,8 +1,8 @@
 class Ser2net < Formula
   desc "Allow network connections to serial ports"
   homepage "https://ser2net.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/ser2net/ser2net/ser2net-4.3.11.tar.gz"
-  sha256 "8f831f11b67538280aa0e8787cb0785ff705cf90749aa175d32c337f29412ae3"
+  url "https://downloads.sourceforge.net/project/ser2net/ser2net/ser2net-4.3.12.tar.gz"
+  sha256 "6101bdf937716be9b019c721b28b45d21efddd1ec19ac935aad351c55bd6f83d"
   license "GPL-2.0-only"
 
   livecheck do
@@ -23,14 +23,8 @@ class Ser2net < Formula
   depends_on "libyaml"
 
   resource "gensio" do
-    url "https://downloads.sourceforge.net/project/ser2net/ser2net/gensio-2.4.1.tar.gz"
-    sha256 "949438b558bdca142555ec482db6092eca87447d23a4fb60c1836e9e16b23ead"
-
-    # Fix -flat_namespace being used on Big Sur and later.
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
-      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
-    end
+    url "https://downloads.sourceforge.net/project/ser2net/ser2net/gensio-2.6.3.tar.gz"
+    sha256 "0220b55c9c4b86d70945cfca620f7a8fe36cfe0fc14308df993b4c4f17a433be"
   end
 
   def install
@@ -39,19 +33,13 @@ class Ser2net < Formula
                             "--prefix=#{libexec}/gensio",
                             "--with-python=no",
                             "--with-tcl=no"
-      system "make", "install"
+      # Work around build failure (cannot find -lgensio: No such file or directory).
+      ENV.deparallelize { system "make", "install" }
     end
 
     ENV.append_path "PKG_CONFIG_PATH", "#{libexec}/gensio/lib/pkgconfig"
     ENV.append_path "CFLAGS", "-I#{libexec}/gensio/include"
     ENV.append_path "LDFLAGS", "-L#{libexec}/gensio/lib"
-
-    if OS.mac?
-      # Patch to fix compilation error
-      # https://sourceforge.net/p/ser2net/discussion/90083/thread/f3ae30894e/
-      # Remove with next release
-      inreplace "addsysattrs.c", "#else", "#else\n#include <gensio/gensio.h>"
-    end
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
