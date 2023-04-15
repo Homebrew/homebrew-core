@@ -1,8 +1,7 @@
 class Noweb < Formula
   desc "WEB-like literate-programming tool"
   homepage "https://www.cs.tufts.edu/~nr/noweb/"
-  # new canonical url (for newer versions): http://mirrors.ctan.org/web/noweb.zip
-  url "https://deb.debian.org/debian/pool/main/n/noweb/noweb_2.12.orig.tar.gz"
+  url "https://github.com/nrnrnr/noweb/archive/refs/tags/v2_12.tar.gz"
   sha256 "34e3903bce9771345ff392b1998f7877389b66c71b3292834e8aaf448837a7f0"
   license any_of: ["Noweb", "BSD-2-Clause"]
 
@@ -26,6 +25,12 @@ class Noweb < Formula
   end
 
   depends_on "icon"
+
+  # add missing `lib/toascii`, remove in next release
+  patch do
+    url "https://github.com/nrnrnr/noweb/commit/7ebfd30f9fbeec9a2744c4dd483bd3d1068da352.patch?full_index=1"
+    sha256 "8f33cacd62b39dd750f577ad496a93b6bfe38400bd79e92ddfcc791cabfb0f5f"
+  end
 
   def texpath
     prefix/"tex/generic/noweb"
