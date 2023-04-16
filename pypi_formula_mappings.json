@@ -365,6 +365,9 @@
   "khard": {
     "exclude_packages": ["six"]
   },
+  "laceworksdk": {
+    "exclude_packages": ["six"]
+  },
   "lexicon": {
     "package_name": "dns-lexicon[full]",
     "exclude_packages": ["six", "PyYAML", "Pygments"]
