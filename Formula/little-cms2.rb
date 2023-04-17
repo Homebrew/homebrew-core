@@ -32,6 +32,9 @@ class LittleCms2 < Formula
   depends_on "libtiff"
 
   def install
+    # `register` was removed in C++17
+    inreplace "include/lcms2.h", %r{// (?=#define CMS_NO_REGISTER_KEYWORD)}, ""
+
     system "./configure", *std_configure_args
     system "make", "install"
   end
