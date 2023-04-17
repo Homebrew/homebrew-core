@@ -76,6 +76,22 @@ jobs:
           TESTING_FORMULAE: ${{ steps.formulae-detect.outputs.testing_formulae }}
         run: brew test-bot --only-bottles-fetch --testing-formulae="$TESTING_FORMULAE"
 
+  record_pull_number:
+    if: github.repository_owner == 'Homebrew' && github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Save pull request number
+        env:
+          PR: ${{github.event.number}}
+        run: |
+          mkdir -p pr
+          echo "$PR" > pr/number
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: pull-number
+          path: pr
+
   setup_tests:
     permissions:
       pull-requests: read
