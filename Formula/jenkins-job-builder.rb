@@ -3,8 +3,8 @@ class JenkinsJobBuilder < Formula
 
   desc "Configure Jenkins jobs with YAML files stored in Git"
   homepage "https://docs.openstack.org/infra/jenkins-job-builder/"
-  url "https://files.pythonhosted.org/packages/bc/e4/fccd5e2d0b8826bc465ea98dab5196bb2f7268619efaa58a04e5527e8739/jenkins-job-builder-4.3.0.tar.gz"
-  sha256 "a6f91af132cc11c973276230e222d2891d62a15ddfaf3412b4bbb6d7e9124872"
+  url "https://files.pythonhosted.org/packages/b3/69/5c52ca511cdedbb95b674b3dacef6e80086efc5924b80a097dea3861b830/jenkins-job-builder-5.0.2.tar.gz"
+  sha256 "5c7b15dcc7f623b83086024a0cfbf709efaef5d72594bbcc19e79e460feadcd1"
   license "Apache-2.0"
 
   bottle do
@@ -27,8 +27,8 @@ class JenkinsJobBuilder < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/96/d7/1675d9089a1f4677df5eb29c3f8b064aa1e70c1251a0a8a127803158942d/charset-normalizer-3.0.1.tar.gz"
-    sha256 "ebea339af930f8ca5d7a699b921106c6e29c617fe9606fa7baa043c1cdae326f"
+    url "https://files.pythonhosted.org/packages/ff/d7/8d757f8bd45be079d76309248845a04f09619a7b17d6dfc8c9ff6433cac2/charset-normalizer-3.1.0.tar.gz"
+    sha256 "34e0a2f9c370eb95597aae63bf85eb5e96826d81e3dcf88b8886012906f509b5"
   end
 
   resource "fasteners" do
@@ -62,8 +62,8 @@ class JenkinsJobBuilder < Formula
   end
 
   resource "python-jenkins" do
-    url "https://files.pythonhosted.org/packages/85/8e/52223d8eebe35a3d86579df49405f096105328a9d80443eaed809f6c374f/python-jenkins-1.7.0.tar.gz"
-    sha256 "deed8fa79d32769a615984a5dde5e01eda04914d3f4091bd9a23d30474695106"
+    url "https://files.pythonhosted.org/packages/93/2e/8120831ac693483e3ac878c2f1c6bb3535dabb247b4a93117bb2da3b09f8/python-jenkins-1.8.0.tar.gz"
+    sha256 "0180a5463f68e2e0110f382b4248d2284bc68481db4a16fcbf61f4f55801c31f"
   end
 
   resource "requests" do
@@ -77,8 +77,8 @@ class JenkinsJobBuilder < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/c5/52/fe421fb7364aa738b3506a2d99e4f3a56e079c0a798e9f4fa5e14c60922f/urllib3-1.26.14.tar.gz"
-    sha256 "076907bf8fd355cde77728471316625a4d2f7e713c125f51953bb5b3eecf4f72"
+    url "https://files.pythonhosted.org/packages/21/79/6372d8c0d0641b4072889f3ff84f279b738cd8595b64c8e0496d4e848122/urllib3-1.26.15.tar.gz"
+    sha256 "8a388717b9476f934a21484e8c8e61875ab60644d29b9b39e11e4b9dc1c6b305"
   end
 
   def install
