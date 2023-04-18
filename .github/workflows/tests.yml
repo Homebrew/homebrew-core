@@ -38,19 +38,6 @@ jobs:
 
       - run: brew test-bot --only-tap-syntax
 
-      - name: Dump merge_group env
-        if: github.event_name != 'pull_request'
-        run: |
-          echo '```' >> "$GITHUB_STEP_SUMMARY"
-          env | grep -Eiv 'token|key|secret' | tee -a "$GITHUB_STEP_SUMMARY"
-          echo '```' >> "$GITHUB_STEP_SUMMARY"
-
-      - name: Show contents of `GITHUB_EVENT_PATH`
-        run: |
-          echo '```' >> "$GITHUB_STEP_SUMMARY"
-          jq . < "$GITHUB_EVENT_PATH" | tee -a "$GITHUB_STEP_SUMMARY"
-          echo '```' >> "$GITHUB_STEP_SUMMARY"
-
   formulae_detect:
     if: github.repository_owner == 'Homebrew' && github.event_name != 'push'
     runs-on: ubuntu-22.04
