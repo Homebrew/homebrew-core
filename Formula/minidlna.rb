@@ -4,17 +4,16 @@ class Minidlna < Formula
   url "https://downloads.sourceforge.net/project/minidlna/minidlna/1.3.0/minidlna-1.3.0.tar.gz"
   sha256 "47d9b06b4c48801a4c1112ec23d24782728b5495e95ec2195bbe5c81bc2d3c63"
   license "GPL-2.0-only"
-  revision 5
+  revision 6
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "f557c99e2c4cffde970fe96d6b2410bdb4f340adff508d2925d196484ca70840"
-    sha256 cellar: :any,                 arm64_monterey: "d6e515b1672040010f55f8b0c10321c1d90ef3923201f724d37878b45eab7f8e"
-    sha256 cellar: :any,                 arm64_big_sur:  "c501682a37f168c7fc6c69e97ff5ef327f95fe478e404199a83027c629a20622"
-    sha256 cellar: :any,                 ventura:        "b20d2959a3e91f24d00339a1fd481e3197f36306b414886479a21d1b6a8118b0"
-    sha256 cellar: :any,                 monterey:       "64a43285b054c1c20b54f02ea18396905d7c75ffec2d9085f8c4dd9ece0f2360"
-    sha256 cellar: :any,                 big_sur:        "527a15ab85b5f20ab0d82d3b25109dcbbb5254c1245df114772dc7e56d4cf6dc"
-    sha256 cellar: :any,                 catalina:       "31a0327514763858e81f17e6de6d63d0a4fcf531704e31d3a834cfc84ad6d6b7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c083e8fa0d622dbcffb47617f1c4acc5a4dad8af098cbe047f680d5224f23d0b"
+    sha256 cellar: :any,                 arm64_ventura:  "7084ce93804a189f7b06791ab9a8fe25b5c5a94c6e2d8772002a899fe8eb0925"
+    sha256 cellar: :any,                 arm64_monterey: "1edd947d1252977df7f73d95afef4c68937e91454cf8cfd2b7b304fbd1a0c334"
+    sha256 cellar: :any,                 arm64_big_sur:  "36072976cbebd7c14eac5400ec5b5495955e980ec922a72732384b830df19674"
+    sha256 cellar: :any,                 ventura:        "713ac9c912faf4cf0b5d7ba9d84b9fd33703c8712d1d88fdbc9d1148143b3ecc"
+    sha256 cellar: :any,                 monterey:       "0ddb7b01d43497351f8daef3aeed5daad168a6ce58c432d5d930f3a14a3858a4"
+    sha256 cellar: :any,                 big_sur:        "390f161b6057e85f58af6be48c388c3ea72b5f168c15becac79ce121f31763de"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9920adc04f7e7b8d9559d32c86e691a0d33d168bd44e5e736306bf17ed1d9bec"
   end
 
   head do

@@ -2,7 +2,7 @@ class Synfig < Formula
   desc "Command-line renderer"
   homepage "https://synfig.org/"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
 
   stable do
     url "https://downloads.sourceforge.net/project/synfig/development/1.5.1/synfig-1.5.1.tar.gz"
@@ -21,13 +21,13 @@ class Synfig < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "d136db3caa766685ad769079c97a4cb2649495f0437144bd9fb813a838760534"
-    sha256 arm64_monterey: "939bee5c13acdc0386b56221ad180acf1976b74d3c7b558e10005f734c1ed12d"
-    sha256 arm64_big_sur:  "c2e3ec290a1c483d7646481e6094680169fa76ae5249f721da68e74d0af16f54"
-    sha256 ventura:        "9e0abccb47c64c573b62d846f9fabab4309ef9c938ebd42e15024f3ba9ea09ef"
-    sha256 monterey:       "5cb1bff82709a2f294a564085bdd739a92e0d84a18bdd3b686bccd88a2636f62"
-    sha256 big_sur:        "df6fd6f633db2414f3fa0c0d0e359044601e6b2d8383cfb468ff195d627962e2"
-    sha256 x86_64_linux:   "31cc4bc2469caee0c643af900adce1d00241b35550a35e44de9db405b689c727"
+    sha256 arm64_ventura:  "aa6bb1f78a51526e1a4c6f4b1acdfdb4c9eaa27922e6ae74771867576d469354"
+    sha256 arm64_monterey: "d018bb41de37b7a41b495819122fe945ab5a1cf692b7fec179e25505525a5eca"
+    sha256 arm64_big_sur:  "8906fb56b4a7e8601b6ed9519b1aa40511cea0c745333018f20d2c72837b7778"
+    sha256 ventura:        "7f152dec709a4ff481ef779ecf1dd8befb420ff4a1ea2fb8bf1a9f7bdddc6846"
+    sha256 monterey:       "83d69ebabc81326fc732939610d55dac94ab44baee2f27ff4926daf1c49154aa"
+    sha256 big_sur:        "3cf1c48e78428abaefca955fd5b1f9136c8f443f27783803ea1bf9b20ec0464c"
+    sha256 x86_64_linux:   "01fea79db2a4183739e12fb0e08d6756aa67add95fac2d2352b025bf3eccdf3e"
   end
 
   head do

@@ -9,6 +9,7 @@ class SlitherAnalyzer < Formula
   head "https://github.com/crytic/slither.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4af28f72ff21dd9b25b7efdb2803d1285fce0f65eee5761c03ac4b4a61549031"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1b7fb2fa8fb2d4c0b383512a25f0f3b9570bcd74904a84860f13670348b20e57"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "de51f4e9e0ca56dddb4a8487addc72b10689995f436982694767b3ba4ffc00ea"
     sha256 cellar: :any_skip_relocation, ventura:        "98993d398e275f8bee428325b6f30ed8192fd683209368aa2f85301ec57884db"
@@ -216,23 +217,16 @@ class SlitherAnalyzer < Formula
   end
 
   test do
-    (testpath/"test.sol").write <<~EOS
-      pragma solidity ^0.8.0;
-      contract Test {
-        function incorrect_shift() internal returns (uint a) {
-          assembly {
-            a := shr(a, 8)
-          }
-        }
-      }
-    EOS
+    resource "testdata" do
+      url "https://github.com/crytic/slither/raw/d0a4f5595d7177b3b7d4bd35e1384bf35ebc22d4/tests/ast-parsing/compile/variable-0.8.0.sol-0.8.15-compact.zip", using: :nounzip
+      sha256 "2f165f629882d0250d03a56cb67a84e9741375349195915a04385b0666394478"
+    end
 
-    system "solc-select", "install", "0.8.0"
-
-    with_env(SOLC_VERSION: "0.8.0") do
+    resource("testdata").stage do
       # slither exits with code 255 if high severity findings are found
-      assert_match("1 result(s) found",
-                   shell_output("#{bin}/slither --detect incorrect-shift --fail-high #{testpath}/test.sol 2>&1", 255))
+      assert_match("5 result(s) found",
+                   shell_output("#{bin}/slither --detect uninitialized-state --fail-high " \
+                                "variable-0.8.0.sol-0.8.15-compact.zip 2>&1", 255))
     end
   end
 end

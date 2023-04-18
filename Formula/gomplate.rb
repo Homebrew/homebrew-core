@@ -1,24 +1,22 @@
 class Gomplate < Formula
   desc "Command-line Golang template processor"
   homepage "https://gomplate.hairyhenderson.ca/"
-  url "https://github.com/hairyhenderson/gomplate/archive/v3.11.4.tar.gz"
-  sha256 "03d2ca995ec470293cbf7446c8f6a79b2a9fa8943fb51025139dca7810f1431b"
+  url "https://github.com/hairyhenderson/gomplate/archive/v3.11.5.tar.gz"
+  sha256 "49d68aef8c0358b5f292444f378bdf40361a71f26ab0292f5468c701367142d8"
   license "MIT"
   head "https://github.com/hairyhenderson/gomplate.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7a12b8b85ece0c764f5e485f6d6c26842e6416ca61e772eb9cd0b82b7bb90b09"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7112808f0a406027e02b1eb397c4c0ff6787e2ee9f68781f220eec0acddfc5ba"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6f7e5bf4e612bebf5a6969e7c2702f21ebd247feb68ae4884b64d6543890f014"
-    sha256 cellar: :any_skip_relocation, ventura:        "cbe982a7167cb3a53bb836b0b63dbf89156a7fb126a0e0012c8eb5deed49fec4"
-    sha256 cellar: :any_skip_relocation, monterey:       "42167eeb85476b4a4f2664e6a91ba20e98cc091d2d9778f9fe0f90567338b8ee"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ac80e544f63db96c8a2dccbebb90af44e9f17276d27af7be6446e5a83394c972"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "621a2a033543fc50ce3ad023d16b1d36949e6acc611ecfe9aeef3c75f9c04217"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0f018acf7fd9b2b2339f2ae757ea4368314fab088f1da247f50db6e443245c82"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e17a2b3ff906f99841e7af1fe1fe408cd35f6a8293547b88f856393bfba77123"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e8af25968009c6d42dc1776df3dc5c63a83a2b2cec471da2539a6b43f0903916"
+    sha256 cellar: :any_skip_relocation, ventura:        "dc8773b5f4cf4cb8e28a30824273b7468b011de581eec2ebadf7ca1f645e5e71"
+    sha256 cellar: :any_skip_relocation, monterey:       "b661975e15ceb6b4fd5560e128cae35190cce686309048e7d629d0b3789d1f4f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0d592cb70865f8a6ef26b1f8c2dc36263e508983a9a944451f759ff5e49255bb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3fc73692e6a399c1b5a2d7d138c75e473ab4b7c977d830f7db0f3561911e1cee"
   end
 
-  # upstream issue report, https://github.com/hairyhenderson/gomplate/issues/1614
-  # update to use go@1.20 when the issue is resolved
-  depends_on "go@1.19" => :build
+  depends_on "go" => :build
 
   def install
     system "make", "build", "VERSION=#{version}"

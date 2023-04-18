@@ -1,8 +1,11 @@
 class Tofrodos < Formula
   desc "Converts DOS <-> UNIX text files, alias tofromdos"
   homepage "https://www.thefreecountry.com/tofrodos/"
-  url "https://tofrodos.sourceforge.io/download/tofrodos-1.7.13.tar.gz"
-  sha256 "3457f6f3e47dd8c6704049cef81cb0c5a35cc32df9fe800b5fbb470804f0885f"
+  # Upstream url does not work anymore
+  # url "https://tofrodos.sourceforge.io/download/tofrodos-1.7.13.tar.gz"
+  url "http://deb.debian.org/debian/pool/main/t/tofrodos/tofrodos_1.7.13+ds.orig.tar.xz"
+  version "1.7.13"
+  sha256 "c1c33f3f0b9e8152aa5790d233e8f1e8de14510433a6143ec582eba0fb6cbfaa"
   license "GPL-2.0"
 
   livecheck do

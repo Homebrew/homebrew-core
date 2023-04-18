@@ -16,6 +16,8 @@ class Ipmitool < Formula
     sha256 x86_64_linux:   "a0a993a436ef12c14707d60293d37233dd90e0e80909c461f262c19874951d32"
   end
 
+  deprecate! date: "2023-02-09", because: :repo_archived
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build

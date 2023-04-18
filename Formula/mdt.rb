@@ -1,12 +1,12 @@
 class Mdt < Formula
   desc "Command-line markdown todo list manager"
   homepage "https://github.com/basilioss/mdt"
-  url "https://github.com/basilioss/mdt/archive/refs/tags/1.2.0.tar.gz"
-  sha256 "fe8d1cb2b5818895cf1b514dd8f76bb28fcb9aab6178acbf4615a07f690c7f15"
+  url "https://github.com/basilioss/mdt/archive/refs/tags/1.2.1.tar.gz"
+  sha256 "aac30cef27791d3fa2adc429ac5a3a805cd6e232bee7b2eb50e5592f90efa153"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "3dcc98427000e57158014eaca28a0d4e71ed84189b4d9027cc4fa463d2db03c9"
+    sha256 cellar: :any_skip_relocation, all: "ed1819515c70d8eb3c2bf778d6a52ce8da1e399527c429257f52ba8dcbc13c25"
   end
 
   depends_on "gum"

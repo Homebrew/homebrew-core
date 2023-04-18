@@ -5,16 +5,17 @@ class Glslviewer < Formula
       tag:      "v3.10.1",
       revision: "2671e0f0b362bfd94ea5160f2ecb7f7363d4991d"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/patriciogonzalezvivo/glslViewer.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "fa2379f7279b8e64880f7685f2a256e104e2fb2b8e57a47ee292cbf5ce475997"
-    sha256 cellar: :any,                 arm64_monterey: "e7fa27cf2e7eeed7429268623e63548db57a1c27f44e37a2a30700adbd1f90b3"
-    sha256 cellar: :any,                 arm64_big_sur:  "c0e1850b1180eab586d3140a64a5a7b75094cc2bae12dbf309656f13e968a737"
-    sha256 cellar: :any,                 ventura:        "b4ab276e1948ddfa3983d228a337ae2fb65555f12645b72af3966e25bd029fde"
-    sha256 cellar: :any,                 monterey:       "d8cb6038670c1a4c353a30af813b854f23c3b7e35fd0386862a19827d706fe3c"
-    sha256 cellar: :any,                 big_sur:        "c5070b326126322ab37af402a9324dc85cf16c683b1e6316c4fe40a902fd6644"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b6b25dff1066f4dd4682b48e7473089d2f710e97efb30460fbff3c1dc15edc7a"
+    sha256 cellar: :any,                 arm64_ventura:  "afa084b82ac989012ba1b7a0be020dc9b3fa53fbad2fde4f29701b355d773ad1"
+    sha256 cellar: :any,                 arm64_monterey: "457b6bff40820346616235932bb39c2105dd6a4a39d1026c09659bd5438a4d63"
+    sha256 cellar: :any,                 arm64_big_sur:  "b05b023270b9c26d122edbe2bf3d742b33620dd770af545b3a043e14c405c790"
+    sha256 cellar: :any,                 ventura:        "1cda06348a524c7d2133299fc628b226172a150eaf96bdd166d5a00ca0b7abee"
+    sha256 cellar: :any,                 monterey:       "ba4ceb36a0e468e37d9eec68e085a02e82a287bda20614900a75368af6f328ab"
+    sha256 cellar: :any,                 big_sur:        "b330de6ce3a5d9609fbc10eeac4c9eeca6d5254328ad3d279b72ad185aff9d25"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f38df03d7a2bf56fdc621cbe257ccd4316ed3ec2f6dcb6c190868db7514f8b28"
   end
 
   depends_on "cmake" => :build

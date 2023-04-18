@@ -4,19 +4,19 @@ class VapoursynthSub < Formula
   url "https://github.com/vapoursynth/subtext/archive/R3.tar.gz"
   sha256 "d0a1cf9bdbab5294eaa2e8859a20cfe162103df691604d87971a6eb541bebd83"
   license "MIT"
+  revision 1
   version_scheme 1
 
   head "https://github.com/vapoursynth/subtext.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "3e41cfe022f1dd9b00d6cb39e1b3667420f6f17c09cdfaf4d95d7f81df3833fa"
-    sha256 cellar: :any,                 arm64_monterey: "598c2f969d228c6aad738f79102fd549d47facea2ebfd8fd25b1f3d7e85edbd2"
-    sha256 cellar: :any,                 arm64_big_sur:  "b279a50abb9df0e703a3ed9edbc2f65146e5ee2cedc0e49fd9d593a8001e1f42"
-    sha256 cellar: :any,                 ventura:        "30aee030ba554779da80c915bda3eb809b6dd9edcc0495b31829a146eaa1cec0"
-    sha256 cellar: :any,                 monterey:       "adeb08c0941dbfb5ade18eb806408659a450c1bc3f0a84501e2bb2e24023c190"
-    sha256 cellar: :any,                 big_sur:        "022a82b6d201fbdf76b421695bd6338fe2c02710f5fae1e17b9d304a9ef228a3"
-    sha256 cellar: :any,                 catalina:       "eaa0081cf6b8569686e3d6405267aa9825e2e1021e63a7128f37c269f4bd4fdc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f74fda462cb23aadfd9c57d0f98dd67980f5dfbd303015a864143def16ebf356"
+    sha256 cellar: :any,                 arm64_ventura:  "eac11e8cab42e2dc20a55b4047847195f96d9d3754b1f07051a7573602a8e22d"
+    sha256 cellar: :any,                 arm64_monterey: "bd049fa76cceba7b8f7106f561e2dfafbac4bc614ce2f84df20eb6d82c5835c4"
+    sha256 cellar: :any,                 arm64_big_sur:  "eb1c664154707e72972d6485fa32b7b2122185364d3733d2e7f6a4a6ff3983c5"
+    sha256 cellar: :any,                 ventura:        "0565ed71fbbd513f943174c1976f6a22b3d11d8c5619e8f03e38d2ed6a015249"
+    sha256 cellar: :any,                 monterey:       "936cfa07b6d8856b0f0e06b32b6768d75da7614be2eed007fa53bff97be73450"
+    sha256 cellar: :any,                 big_sur:        "6e94b0c7086d046c513b9ddf6c1ed1750f7c56b98c55867329fb06ff47c372c1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "191b136d2a97715a7a083d435682be7cd83673a3aeb073d2cf0f9605c9757e7b"
   end
 
   depends_on "cmake" => :build
@@ -31,7 +31,7 @@ class VapoursynthSub < Formula
     # A meson-based install method has been added but is not present
     # in this release. Switch to it in the next release to avoid
     # manually installing the shared library.
-    system "cmake", "-S", ".", "-B", "build"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     (lib/"vapoursynth").install "build/#{shared_library("libsubtext")}"
   end

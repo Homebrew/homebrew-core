@@ -3,18 +3,18 @@ require "language/node"
 class HasuraCli < Formula
   desc "Command-Line Interface for Hasura GraphQL Engine"
   homepage "https://hasura.io"
-  url "https://github.com/hasura/graphql-engine/archive/v2.22.1.tar.gz"
-  sha256 "d8cad28a7b542f69365c91ee77b5dd86e62b166948aefced39aaf377b217aec1"
+  url "https://github.com/hasura/graphql-engine/archive/v2.23.0.tar.gz"
+  sha256 "84527562e97476810c604753b18f9c689bbfd38fb4ead9acd499ed56e3951215"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d7633f00e8752ff4e0271d210fc60855e85056ed86c064a04b25d375d2f86464"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "49b9c194d42ff783836a5eaa46874d1d876900c082fc6e97ce2bbf07f5dd75d8"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "54a3111ff95c70ef534008b00398465f84bfb8520c246699aebdad2b7bfdf58a"
-    sha256 cellar: :any_skip_relocation, ventura:        "5b7795a5995f55fab670733e92cf24967934e78cf8b4a640691c50ea4467b680"
-    sha256 cellar: :any_skip_relocation, monterey:       "82f0f2d86310ddd6da3c162145751d1ae9d260bea635a2ef34f9e5ec845e5a4d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c3591cdea33b0f7ac5ba2faf41fe57190293600895c5a6216df74211aa86d583"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b1377c8aa31ec4b35101c1e6924340930e173505e29f22be2ad4bf1b94a12406"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5b5c0a3a3af591aa846881339074896c973fcd1fab26331d41b11194ce349146"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c9b31fefca434a42f8aa9f4d0c54827afcf4593dccec83cc91cc27f1b9631cfc"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "325ca6c50d962a620f9b641fb49bb099a8c4fcd73a37dcaf8f2579b0bec7c6f8"
+    sha256 cellar: :any_skip_relocation, ventura:        "449112d96ca6e4c8686024fbc85baf2dc56d34936a549585101c9bfcc83f5e9a"
+    sha256 cellar: :any_skip_relocation, monterey:       "a1fcba54bbcef81b18faa690510b19dc60ea586b48966eca7f25570cabb8aa2c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b0e7423873841ec36d12cbd37725ebcceb3fe889e1bf78d581689a1e3265082a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "58c9b73d75e25078163011968e7b8b17036a405d17aed037ecb28c19ac1195ec"
   end
 
   depends_on "go" => :build

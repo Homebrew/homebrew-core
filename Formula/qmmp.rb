@@ -4,6 +4,7 @@ class Qmmp < Formula
   url "https://qmmp.ylsoftware.com/files/qmmp/2.1/qmmp-2.1.3.tar.bz2"
   sha256 "f9b1e7bf05d499d05b41c3b7527c9baa8bbf31981c7fa09786501c06334508d4"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://qmmp.ylsoftware.com/downloads.php"
@@ -11,13 +12,13 @@ class Qmmp < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "d04c50160aaefc8515b299f9c1b5f9845578ccd399b120b41ad8997f6c36eb4d"
-    sha256 arm64_monterey: "585cb07028363d38aaa09b1abbf9e545f749086ef79e95e69eb560a3ed8e8cdd"
-    sha256 arm64_big_sur:  "9b217932ce7127f43ac558fd6e1dafb2298c20819a380c5b2491f5f1af5d7a75"
-    sha256 ventura:        "54e909769db80496186fd34c4ebe43136eeb4cf99ea73c6e00e1c4db1b026f5d"
-    sha256 monterey:       "052f62a309e1a08268591afdbf7384b36c312877a05f3983676a09b13bd62690"
-    sha256 big_sur:        "f83e67f62722c9af7824cd31f31e680f99e1e6e74385e965ad5e1d220221adff"
-    sha256 x86_64_linux:   "62e87cfd305c3dc0c65ceff8f17fb6d1eb3d4c8a8d7ab4f570d0a4cd0bf782e2"
+    sha256 arm64_ventura:  "acf53c486b098b331d55f5a4343cf58e52515d957201cd4df2d27969cfa9528c"
+    sha256 arm64_monterey: "9de77e8c00af8f58d2a5d5b38b636c609e2929db06b4223eb54f2500a3457a06"
+    sha256 arm64_big_sur:  "6b4fb785ee394c04b274bc698f0a3a7ee92a7ecb251d6c513314b82056ea1547"
+    sha256 ventura:        "a7895f9e4025fa2e0fb0f4838cb5145d01b056b705ca0d8c08eccd3b419e327a"
+    sha256 monterey:       "365e8025fdd8832d2351620565274e7b55d8754706324fa0bd7f6b506178faf2"
+    sha256 big_sur:        "ee0e9792fe402328d56cb655fab423e992575fa211bad09a35ecee0255a1419c"
+    sha256 x86_64_linux:   "6611cd62513cc79e0cfb045060e5c424f6e316830908538c858eeaf036f466d0"
   end
 
   depends_on "cmake"      => :build

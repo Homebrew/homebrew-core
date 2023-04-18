@@ -5,9 +5,12 @@ class Brev < Formula
   sha256 "172d190b2d87a7ec3dc3e6e68366a326d1a399f64fdaa57f1518211f9cd78a7c"
   license "MIT"
 
+  # Upstream appears to use GitHub releases to indicate that a version is
+  # released (and some tagged versions don't end up as a release), so it's
+  # necessary to check release versions instead of tags.
   livecheck do
     url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    strategy :github_latest
   end
 
   bottle do

@@ -1,12 +1,11 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-5.1.2.tar.xz"
-  sha256 "619e706d662c8420859832ddc259cd4d4096a48a2ce1eefd052db9e440eef3dc"
+  url "https://ffmpeg.org/releases/ffmpeg-6.0.tar.xz"
+  sha256 "57be87c22d9b49c112b6d24bc67d42508660e6b718b3db89c44e47e289137082"
   # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
   license "GPL-2.0-or-later"
-  revision 6
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
 
   livecheck do
@@ -15,13 +14,13 @@ class Ffmpeg < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "99aacc5cab3b71f132ebaf3e8cbe8235cda3078e9820dfc24135078ec608c5a0"
-    sha256 arm64_monterey: "ac5436368882331110b92f8df01510c0fea993e5084d7b7c395fd3ac5e984093"
-    sha256 arm64_big_sur:  "d380061e143866ca55c483727c88cb50dc11064a7c3d4f888a3c304d7d713c7d"
-    sha256 ventura:        "a6b64aed8704b50a4fd6c029aaf7a30962b910dc5c636edae473977e4ddb2a3f"
-    sha256 monterey:       "4ca7613682e05f9c8c1cdb0f15085798170e3b93df6c9f3baaf57f3090d3b350"
-    sha256 big_sur:        "5de6de2e959bb72a80cfd2d215a583f687a396b523992c852ac63c3323b5cdfb"
-    sha256 x86_64_linux:   "582b9a75bb118b1d7cc518a70e2521d5eaf7f5c4da6957a92d432fa56afd986b"
+    sha256 arm64_ventura:  "2bc7a6242f47c344e31233260416421f643a7da50131305eecc8e1c6cf79f2f7"
+    sha256 arm64_monterey: "846a6c6e7def029977275bf80c194a64c25d21f3dbe85caf9e2d9485c7eadab1"
+    sha256 arm64_big_sur:  "27d5700ec5c3565dc5bba6daee726d3992478f5a5a992bbd69c3d5049bc66fee"
+    sha256 ventura:        "5000a047d8b104df680ba42f567b6a283aabfd4ea4d59b5242ea6436ce263b31"
+    sha256 monterey:       "cbe440ecab83b5737e589422ef3c29999f2827ab52a24a1a2bd5967d48bbf754"
+    sha256 big_sur:        "32184c461d5ed6aa4b15603a21db93484d86d09f0e77805aa9470731668ff5b2"
+    sha256 x86_64_linux:   "d8bd2578043eee0785dfb5eb8c7fd7cf77236d86a36e13d5ee7a5a8bb0316d5b"
   end
 
   depends_on "pkg-config" => :build

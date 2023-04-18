@@ -1,18 +1,20 @@
 class Freerdp < Formula
   desc "X11 implementation of the Remote Desktop Protocol (RDP)"
   homepage "https://www.freerdp.com/"
+  # TODO: Check if this can use unversioned ffmpeg at version bump.
   url "https://github.com/FreeRDP/FreeRDP/archive/2.10.0.tar.gz"
   sha256 "88fa59f8e8338d5cb2490d159480564562a5624f3a3572c89fa3070b9626835c"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256                               arm64_ventura:  "bfdb1fec28d4395805d5cec843c88f0d4164d8f530145b1263cda54764e54cb5"
-    sha256                               arm64_monterey: "6866ca2a058eafd2c034575e5a9974f6e44ecc2ed963740b938c7c6ddfac3a65"
-    sha256                               arm64_big_sur:  "ab11ca21e7cb15ac1982ab192be5069a3a6a9e2760140df051f1e21f66f8c8af"
-    sha256                               ventura:        "01de631c39bd0de0140aa04a3b4a3c4e49a229052ec45b3981b79e834c8e8eb7"
-    sha256                               monterey:       "37695834d8e2ef56aafc50b2d75672c93f5a0487f0d69e93385170bc90554172"
-    sha256                               big_sur:        "3cc55b92aeb0738b86b10a84b3cf5ddc35ff96ed046b100fbe816ddc8480be96"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "56007a1eb1dd9349c7f6fa5eadad2df21ea1dd82906a59dc49582130f743440c"
+    sha256                               arm64_ventura:  "f1db8f50c5fe4ff993c6a6b72d8e6873fe8aff3e9edb6aeab8132a5b90c57604"
+    sha256                               arm64_monterey: "ac9fe6b9270f32b24308a11a1b44e0cc7bdda8fda9e39344f7cb31561fd26e27"
+    sha256                               arm64_big_sur:  "16e00d3b71957ce3a40d297543ae23cd4eca38d8c39c4e741e9b72da2dd3709c"
+    sha256                               ventura:        "555a15ff9e75aa6fd486f4ac9980df93b1344382cf6e5b5cc4c5a70024480083"
+    sha256                               monterey:       "587de54a0cf9a89fe1fc0f153c3fdcf3d0c944917bba62f716602e5b6eb46a4a"
+    sha256                               big_sur:        "2bb947c3e0002c1035dc98dff3a78879107d851837e047f0bf5f31fa21e15203"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0f748f1eab362120a49bb3a6031b614536278819ef09988d3e5b0c5fff7b4e58"
   end
 
   head do
@@ -39,7 +41,7 @@ class Freerdp < Formula
 
   on_linux do
     depends_on "alsa-lib"
-    depends_on "ffmpeg"
+    depends_on "ffmpeg@4"
     depends_on "glib"
     depends_on "systemd"
     depends_on "wayland"

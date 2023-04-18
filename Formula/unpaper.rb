@@ -4,18 +4,17 @@ class Unpaper < Formula
   url "https://www.flameeyes.com/files/unpaper-7.0.0.tar.xz"
   sha256 "2575fbbf26c22719d1cb882b59602c9900c7f747118ac130883f63419be46a80"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/unpaper/unpaper.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "94cb4a3ee882ef6f9ed1f1d08eb323f5152b910e4774d977207e4ecdd98982ae"
-    sha256 cellar: :any,                 arm64_monterey: "3280a9ca24994ce8177a652bd6e6f8aef1b14689877b6f9d390cc298f760bcdd"
-    sha256 cellar: :any,                 arm64_big_sur:  "0d18daf8c6731c254b00ba8a14ae88165fe6c517311c72eded94d1775127aa2e"
-    sha256 cellar: :any,                 ventura:        "47cdec265ecc7ab97ad30d8e22ab49f708588975137f2d5a733860da5b1f69b0"
-    sha256 cellar: :any,                 monterey:       "db689261f4f9c450f13cc531ea7e3554154cfc5ab0a1388f95cb9a59034f8444"
-    sha256 cellar: :any,                 big_sur:        "8547a8225076be35086c103d79133a05f415b73938feeaf2af30a75a340bd76e"
-    sha256 cellar: :any,                 catalina:       "84d445ef496a6e41803c598ace4f6649aabdb6e40a56e6db680cefdd9419617d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "784f4c2c287f116305b77a221dd7ca33fa205c919ca20e432bd8eae35f89da9f"
+    sha256 cellar: :any,                 arm64_ventura:  "03414c349a45717cc5c9269aaece72051676b4a9df0d6ace2adc48a141529e0b"
+    sha256 cellar: :any,                 arm64_monterey: "472966ff01e3c2ded01d802e7ccb51ac067bfbd3936576fde97bc73d9a94e3d0"
+    sha256 cellar: :any,                 arm64_big_sur:  "7cab5bdf86d2b767b01284ee82a012dac07b7e034c2728168a62c6dfa9926d00"
+    sha256 cellar: :any,                 ventura:        "2131b439d88b39b3485030eb54bac1108ed19cad02d7995ee6ed4beb254f3e61"
+    sha256 cellar: :any,                 monterey:       "5617fea75f70878d603fed75df6afbbd3abea7981c41cbe55065c08c2cd26437"
+    sha256 cellar: :any,                 big_sur:        "69636bead34107d0247c5733b6b02b159f8434bf474a6b2c3279f8a8ad2ccd2e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cb3d2e57be1d69497e68cdc3a5fa7628d20dead74eab2c97f34a8d547b52ab68"
   end
 
   depends_on "meson" => :build

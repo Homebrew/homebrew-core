@@ -4,16 +4,17 @@ class Pc6001vx < Formula
   url "https://eighttails.up.seesaa.net/bin/PC6001VX_4.1.3_src.tar.gz"
   sha256 "264f135ad89f443b8b103169ca28e95ba488f2ce627c6dc3791e0230587be0d9"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://github.com/eighttails/PC6001VX.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "7688445abd1ce084ee77872cbae26fe5408530114512e672ba066c416f099c64"
-    sha256 cellar: :any,                 arm64_monterey: "50241349fd575ffdfe56be4888a7f7be5ca39e2b389496f89c28bae5417dff09"
-    sha256 cellar: :any,                 arm64_big_sur:  "b9b4cce0da5b171c57cb1b71d7fbe767e47288c12ae191a47b8ec06452288974"
-    sha256 cellar: :any,                 ventura:        "5cbd8bcf42c097b974f0eef8c16760cf47bb13c32a9f31fba0e8633e249d3536"
-    sha256 cellar: :any,                 monterey:       "758ae3a0f2b407b926d33d2aea57c25770e1313991206911df766a98f5cce49f"
-    sha256 cellar: :any,                 big_sur:        "48407e792ddcfec7b9bee676c8672244afcad0371b8534bbdd4366be5bb321bf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9e32aa2009d5d2052978138a9c82985bf47ed7f754aafc6b4d7a834643f46bd2"
+    sha256 cellar: :any,                 arm64_ventura:  "0ee9f1581e3f9aa34d71b0a6b6e876eb4cc8a5d4da0112b7dc1720066522847e"
+    sha256 cellar: :any,                 arm64_monterey: "67d0d28536684298cd3039c211422983f1a8b9ac5050660fa3c828f7d6cfc51e"
+    sha256 cellar: :any,                 arm64_big_sur:  "9498d150ffac273597ad7efdd01220bc31a90c8a8b62031a5623507b7d82cece"
+    sha256 cellar: :any,                 ventura:        "434cf93c1ee8698062a7123acc56a422d3d5899638808c9bfeb00872d253c32f"
+    sha256 cellar: :any,                 monterey:       "f27093a85a256425a2acac1fa4293da1101cef25f7a74edc693c75cd6bec39c8"
+    sha256 cellar: :any,                 big_sur:        "b8e5990242a9331cda7e78c1b1d3d4117909284f33bb973ab5f1460b7ddbe108"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b212c77721d4e4f67fe1f00b00e64718cf6b859c6a753c54e04139b491c68bf5"
   end
 
   depends_on "pkg-config" => :build

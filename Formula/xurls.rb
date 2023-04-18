@@ -1,19 +1,19 @@
 class Xurls < Formula
   desc "Extract urls from text"
   homepage "https://github.com/mvdan/xurls"
-  url "https://github.com/mvdan/xurls/archive/refs/tags/v2.4.0.tar.gz"
-  sha256 "8c9850c80eff452eeca2fe0f945a33543302dc31df66c3393ed52f6d8e921702"
+  url "https://github.com/mvdan/xurls/archive/refs/tags/v2.5.0.tar.gz"
+  sha256 "552779a765de29e51ff01fe6c85a7d0389faae1b80d354332e7c69db232ee4ad"
   license "BSD-3-Clause"
   head "https://github.com/mvdan/xurls.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3046b20d693d80b4c64bb478db3022889a90184833d45e482b350ff736ff3644"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3046b20d693d80b4c64bb478db3022889a90184833d45e482b350ff736ff3644"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3046b20d693d80b4c64bb478db3022889a90184833d45e482b350ff736ff3644"
-    sha256 cellar: :any_skip_relocation, ventura:        "28ccbea0f49ee55c5ff0cf51aae01ac92b416cf2783da1621e8a64f2dd5a24f6"
-    sha256 cellar: :any_skip_relocation, monterey:       "28ccbea0f49ee55c5ff0cf51aae01ac92b416cf2783da1621e8a64f2dd5a24f6"
-    sha256 cellar: :any_skip_relocation, big_sur:        "28ccbea0f49ee55c5ff0cf51aae01ac92b416cf2783da1621e8a64f2dd5a24f6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8fa5627a447c2260f95c7703f6bfecd823b2a837570da88b831a19226a4f49e4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c450839ae17f188495de308aba6e40980a624c456c0da546879685f527712529"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c450839ae17f188495de308aba6e40980a624c456c0da546879685f527712529"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c450839ae17f188495de308aba6e40980a624c456c0da546879685f527712529"
+    sha256 cellar: :any_skip_relocation, ventura:        "dc19854a4968ff35b25301605dee1a83e2efbc210a6b5029b3f1d28b93a8edb8"
+    sha256 cellar: :any_skip_relocation, monterey:       "dc19854a4968ff35b25301605dee1a83e2efbc210a6b5029b3f1d28b93a8edb8"
+    sha256 cellar: :any_skip_relocation, big_sur:        "dc19854a4968ff35b25301605dee1a83e2efbc210a6b5029b3f1d28b93a8edb8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "09b207fe83c1fbf801cc3270b27234ea6beac64e243ee1d0209292aa54723f1e"
   end
 
   depends_on "go" => :build

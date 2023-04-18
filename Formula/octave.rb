@@ -7,13 +7,14 @@ class Octave < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_ventura:  "94f76da6ebc5a5142e2948da10746bd68e590b867b16c22b748cf1d1540574c1"
-    sha256 arm64_monterey: "978ec7da12cecead8b0f815de6e9e4cac02dfa643be124ca85cf53d17f09c53f"
-    sha256 arm64_big_sur:  "3071bf7637ea50a1aca6e402179671aa80789b92e20cf9cac1a408af1e28e583"
-    sha256 ventura:        "518130db9e73de1ab117fd84821ddd969ed753d98bd4ac1278a34b52e68077c9"
-    sha256 monterey:       "9672ac6e80d7b06fffcfc93f36a7f97d0b06439cb7276ce4b67e186069bf54c7"
-    sha256 big_sur:        "aa9141bf1b6fd68035f94ac6d39b8f1a20a2bc752e1bed892156c8022f17e79b"
-    sha256 x86_64_linux:   "9e6d41ade9fe6964e3f19a48b412736036da3a718e33509364e1cda979daa4af"
+    rebuild 1
+    sha256 arm64_ventura:  "3d23bd82478591f6c214ea580f8a2c46b14a7f90dcbf6dfc6195566af9679ea9"
+    sha256 arm64_monterey: "5bffcfe53423b566747806b2003396f4cd22efa5c1f64493be0dc535326ec04b"
+    sha256 arm64_big_sur:  "46d2e5fa0e50c5623b101d4fde995b6911f76574ead4492902a8092e04774feb"
+    sha256 ventura:        "fcde467d044918f780b89901833c15f89ab1542db9c2fd6368419f6c6c5c9ec5"
+    sha256 monterey:       "87d1334fe1b71d4aa1d67902efbff732feff0f55286d79e6e4c848bf621f9cc0"
+    sha256 big_sur:        "b82b2ce57a24226e81a9dee1dcd6d10542d29855f9c32c77f028f5779860bd29"
+    sha256 x86_64_linux:   "39e3a06e945b54be83b1effe2a29a357d4d61a30804a0ec73c3a38c23a14e3f3"
   end
 
   head do
@@ -47,7 +48,7 @@ class Octave < Formula
   depends_on "libsndfile"
   depends_on "libtool"
   depends_on "openblas"
-  depends_on "pcre"
+  depends_on "pcre2"
   depends_on "portaudio"
   depends_on "pstoedit"
   depends_on "qhull"

@@ -282,6 +282,7 @@ jobs:
           message: "bottle publish failed"
 
       - name: Wait until pull request branch is in sync with local repository
+        id: wait-until-in-sync
         if: fromJson(steps.pr-branch-check.outputs.bottles)
         working-directory: ${{steps.set-up-homebrew.outputs.repository-path}}
         env:
@@ -341,7 +342,10 @@ jobs:
           gh pr review --approve '${{inputs.pull_request}}'
 
       - name: Post comment on failure
-        if: ${{failure() && steps.automerge.conclusion == 'failure'}}
+        if: >
+          failure() &&
+          (steps.wait-until-in-sync.conclusion == 'failure' ||
+           steps.automerge.conclusion == 'failure')
         uses: Homebrew/actions/post-comment@master
         with:
           token: ${{secrets.GITHUB_TOKEN}}

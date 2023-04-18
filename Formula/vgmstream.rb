@@ -6,6 +6,7 @@ class Vgmstream < Formula
       revision: "9f99e742df8115297cc265244f451e769a3ab23b"
   version "r1831"
   license "ISC"
+  revision 1
   version_scheme 1
   head "https://github.com/vgmstream/vgmstream.git", branch: "master"
 
@@ -16,13 +17,13 @@ class Vgmstream < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "bfc0154bb0901adaeda48885c322b9fa9f6d46c921aa996ef62f136ca28782d8"
-    sha256 cellar: :any,                 arm64_monterey: "64442bbfea388d7e93912efe19091c6f7419e360959fb1326a934e1a1f35fe13"
-    sha256 cellar: :any,                 arm64_big_sur:  "bac4d6baa5855ebee547c5d30c4d87061ddd44d81f4e945c9c984ca2503fd96c"
-    sha256 cellar: :any,                 ventura:        "7f85c8ac1858ac624025c4ed78f4e76da7884e46270aaa1cfc4ebfc24f984161"
-    sha256 cellar: :any,                 monterey:       "5cfc66e71191a5084f0d66d8ce278190108d68f019065686ca01840cefd40e30"
-    sha256 cellar: :any,                 big_sur:        "6b91045eeb72b9c7cb010ca83f45e8486f41b450b7d5725c17f074695b9ba63a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aceb7486fd67b49487cd7f596a9541973586bc94b209b59b910700c4c949fe55"
+    sha256 cellar: :any,                 arm64_ventura:  "1134ccec2b0c677468e7ab8f32dbcbd465f488d6a066d9d294d5f47862ea9f9a"
+    sha256 cellar: :any,                 arm64_monterey: "d634c02ad2fd6bc1c75f28f087c22ac1178e7868e2b6baac2233d17b5d1081aa"
+    sha256 cellar: :any,                 arm64_big_sur:  "31409a13ad6259e15d5f247ea4e88b1bceca299f1b7d510458c144c3acb7e90c"
+    sha256 cellar: :any,                 ventura:        "c81414a5b980145f64806a627c92df9426f7f9cb697b3844b02e61fd75631a76"
+    sha256 cellar: :any,                 monterey:       "3404ff129a2abc8938677a448f2b722450850c2a455e2e699eb7627c50a2c9b8"
+    sha256 cellar: :any,                 big_sur:        "529ed4ee62450fcf6e73a4f6cad50ef42a3485013f1796ceff422ebe07efa1bd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "74394f04a07dfce4327609b3a65794601ca4eb7d710f5fdb3e395500a523f538"
   end
 
   depends_on "autoconf" => :build
@@ -40,7 +41,7 @@ class Vgmstream < Formula
 
   def install
     ENV["LIBRARY_PATH"] = HOMEBREW_PREFIX/"lib"
-    system "cmake", "-S", ".", "-B", "build", "-DBUILD_AUDACIOUS:BOOL=OFF", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", "-DBUILD_AUDACIOUS:BOOL=OFF", "-DUSE_CELT=OFF", *std_cmake_args
     system "cmake", "--build", "build"
     bin.install "build/cli/vgmstream-cli", "build/cli/vgmstream123"
     lib.install "build/src/libvgmstream.a"

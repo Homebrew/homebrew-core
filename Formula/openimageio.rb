@@ -4,6 +4,7 @@ class Openimageio < Formula
   url "https://github.com/OpenImageIO/oiio/archive/v2.4.10.0.tar.gz"
   sha256 "59f523a0b9a1014993bedcf7752993af43b348761165f52ea6eb84787f57aed5"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/OpenImageIO/oiio.git", branch: "master"
 
   livecheck do
@@ -13,13 +14,13 @@ class Openimageio < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "991381655dbd08f6ef811da078269f2c7e587560c5d0f8fb1b76150b2a01a14c"
-    sha256 cellar: :any,                 arm64_monterey: "143842cfb0a4b70b6eac92b236f7939e8e1b205c7ce115b992da8544e6613d5f"
-    sha256 cellar: :any,                 arm64_big_sur:  "0bc68786484e29199a714d8b31bc495ffa76c2b4a0ee1ca68e071fff55ade658"
-    sha256 cellar: :any,                 ventura:        "0734391e9b8cb48e17317951c93a018a9f4a3a241070ea3cf73c75c7e8359309"
-    sha256 cellar: :any,                 monterey:       "c778921815540f2a2aa429d1830dc176d5970a3852cd0c0e0012176f7696b7a9"
-    sha256 cellar: :any,                 big_sur:        "e3f91f55037220c50bb1f65050e0b2dd0b999e8423cebc34d5bd79f861a1ab70"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "822d6c628825f603f3f1f1fc39e447d4b718b67f7d8950566cda4771cbd05205"
+    sha256 cellar: :any,                 arm64_ventura:  "7da4746e263136af4ebbbdc16159514f4c939715d0558fea8e18a88a7b4312c3"
+    sha256 cellar: :any,                 arm64_monterey: "41612fecbbe5617bdb41f4ecfc561833fad703c4b4a9b02aded8471674105c92"
+    sha256 cellar: :any,                 arm64_big_sur:  "ff254c510dec55a960ccae9a7dbb0ca1a352b27efaaa8fab5797931fcdb892e7"
+    sha256 cellar: :any,                 ventura:        "f1170f97139ddeb1a64bc3c17729b537ebbc50317dfeebbe937a19d3365a7c8a"
+    sha256 cellar: :any,                 monterey:       "4f96d35a2b4cc90de4536209fdb765db7b3eb24d8f4cd626bd204264514db407"
+    sha256 cellar: :any,                 big_sur:        "93eb6a3fe043ac37e7598af5fa5def8e87a5b33ff89ea0385e8d81875d12353b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d8fdf9a4c7fb9ac023b8720e61d63d19db40ea5ccdd01baa65191de6372a4db4"
   end
 
   depends_on "cmake" => :build

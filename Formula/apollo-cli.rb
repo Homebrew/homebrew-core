@@ -16,7 +16,7 @@ class ApolloCli < Formula
   end
 
   # https://github.com/apollographql/apollo-tooling/issues/2551#issuecomment-1032071672
-  deprecate! date: "2022-01-21", because: :deprecated_upstream
+  disable! date: "2023-04-17", because: :deprecated_upstream
 
   depends_on "node"
 

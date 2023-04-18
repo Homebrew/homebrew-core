@@ -2,6 +2,7 @@ class Audacious < Formula
   desc "Lightweight and versatile audio player"
   homepage "https://audacious-media-player.org/"
   license "BSD-2-Clause"
+  revision 1
 
   stable do
     url "https://distfiles.audacious-media-player.org/audacious-4.3.tar.bz2"
@@ -19,14 +20,13 @@ class Audacious < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_ventura:  "2a756fe8a57417aa55537b2cdd65f2e50664a739ab66d3bd797b31d7f335bac2"
-    sha256 arm64_monterey: "8d4a4740672e229459e2f601e4553b849464ff38461bd1854941b43a4a0931b2"
-    sha256 arm64_big_sur:  "f15b24a6d5a954f502ebbe5030e47d0e400a8b73a9bc7b84e3122cc18dc7263a"
-    sha256 ventura:        "e5855bda267587d3f70fe0ec77a1da489609201ef675e75ad9e93895025e5e0d"
-    sha256 monterey:       "314a9048383b80f71c3182bfd7c161e5709d85cf664fc8a28c5e3dfb2ddb4247"
-    sha256 big_sur:        "a4d1252e7c7517d884bde70b23c330b32101953e453bba182e99995675befe28"
-    sha256 x86_64_linux:   "3d5f0079b4479ed1a50b6f46ef403d99a27b30ea2d23090799d5bd03cf683956"
+    sha256 arm64_ventura:  "e4929eefb82d8314c37c828c9984bf93bc466794037428ea00ef1d3628a39789"
+    sha256 arm64_monterey: "cd47f0af9709cefb718e215c78246db9bc5373bd1bab8c3c3ecec6d57b527eb4"
+    sha256 arm64_big_sur:  "7831956e30eed00b872abb7fa2d2cd601cf5cf9b95c64ab6778adbb37b7fa879"
+    sha256 ventura:        "6fe668042ac57eb2be0354f6d1d25030178c515d52adaa6ea099ad5af9d4fa66"
+    sha256 monterey:       "0cf73a457021285efbb1e280a37bba970a88b194b8c3b9102f168e7773812d28"
+    sha256 big_sur:        "5eeb05a9095f43865dcf5edb43f0f195fb3b6883ba7946286df9380db1d0a857"
+    sha256 x86_64_linux:   "de76769390b18483bcd56119fe63b53f696b6121115f891193f06468465e1125"
   end
 
   head do

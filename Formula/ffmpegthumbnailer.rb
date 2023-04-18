@@ -2,7 +2,7 @@ class Ffmpegthumbnailer < Formula
   desc "Create thumbnails for your video files"
   homepage "https://github.com/dirkvdb/ffmpegthumbnailer"
   license "GPL-2.0-or-later"
-  revision 8
+  revision 9
   head "https://github.com/dirkvdb/ffmpegthumbnailer.git", branch: "master"
 
   stable do
@@ -21,14 +21,13 @@ class Ffmpegthumbnailer < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_ventura:  "e36e590201269de1fec5a9938c4fa60a0176e7187db91e397384a879881802d0"
-    sha256 cellar: :any,                 arm64_monterey: "66cbd49c6b84e8114de030e1eeb7b5a606e9d14f3c65a9b8bcd3ec324cbab0a3"
-    sha256 cellar: :any,                 arm64_big_sur:  "2a61ee9136df3089557379131d74dbc8fa441eed0621acf87b4171a38bc6720a"
-    sha256 cellar: :any,                 ventura:        "1a435517f1c3f026a741d62742c8bac5252527cd111158dadaf328d1ab80d33f"
-    sha256 cellar: :any,                 monterey:       "d61618b8c967b3185b89138c1d738ee9d64b16e543b319c8488c83bdd130e1e4"
-    sha256 cellar: :any,                 big_sur:        "bddd1e1385f4bd432a6ed5b9650d60b9f198d09312a1d7eec24120b650a02062"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "889af5605b11dfe290b17e588d1636dda2e9137bf4b0e99815cc1d89482bbcb0"
+    sha256 cellar: :any,                 arm64_ventura:  "651e4186281c8f77c76519f282e821795ce42b7cb7a11431c4e9e0ca1fb5a10e"
+    sha256 cellar: :any,                 arm64_monterey: "adf8f9ce013151edad436ae7462fd286a9c9bc3c04abe10c5541887c40b6dc94"
+    sha256 cellar: :any,                 arm64_big_sur:  "cb6e19606a94bd012f7890b5cfc59b3f8d18344552b4bd195b7648ab9e1b5abb"
+    sha256 cellar: :any,                 ventura:        "81f5f3ff321630d5ea8f7374716fd7adee4714a78c95af9ded1def1ea483af9c"
+    sha256 cellar: :any,                 monterey:       "e4a182af14a980343f9d45f38e392df82d7640bdbbc12f69670378b815028852"
+    sha256 cellar: :any,                 big_sur:        "2c33a50328d3ba008168f7cd139196d566179f119ae9a780ce5e7a52ef5d5142"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c627f97157285b874faf076adadae31b0b080c64813489227ee669e320ab7f15"
   end
 
   depends_on "cmake" => :build

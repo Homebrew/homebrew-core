@@ -4,16 +4,16 @@ class Notcurses < Formula
   url "https://github.com/dankamongmen/notcurses/archive/v3.0.9.tar.gz"
   sha256 "e5cc02aea82814b843cdf34dedd716e6e1e9ca440cf0f899853ca95e241bd734"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 arm64_ventura:  "081a928b163ca1b17e5bf5031908c4403d1f49d58b37c41caafa8174bbcbe189"
-    sha256 arm64_monterey: "9f759b7d50b4f77e78b0af8bd22bc43fbddc5a81bfc4444f17f023abdefee9a9"
-    sha256 arm64_big_sur:  "2702f7a442a3f6815552c8f3932292722364abe65d5ea9a1fbfb22d4f1b9dbfd"
-    sha256 ventura:        "084f401cfc56e193da5f7ab839c958012ce3ae70bbed31543151b7fb46045566"
-    sha256 monterey:       "2a43e64c4a4caf23442f3370d589db60a594cfe34ad225a9d545fd29d5f03805"
-    sha256 big_sur:        "ce0bd1d49e2b64e2a756e9f25a09358d8adb32ce5de87e54882419ae682c290c"
-    sha256 x86_64_linux:   "536a4aff3145684b136b949af225c36af33b258e9b33ebec5e57570d8ffff8c4"
+    sha256 arm64_ventura:  "e79bcc299bdeb6c17b69be034d770a76a2d0ec223382a53a45e7e112a06d4102"
+    sha256 arm64_monterey: "e3f401e6e601fb82df8a65c05e13e285f026d2b298448e4ee172938229fa34b6"
+    sha256 arm64_big_sur:  "b710c750bb84039f678d31edbe404b127604ee90233e153f921535ffce6b088a"
+    sha256 ventura:        "578b1284c0ea2a18e83091ec220396ec7850035ad7144b68295c02236b75b740"
+    sha256 monterey:       "1634302f1130997990d65d7d9b95fda1bc5c7c00f2e476a51515387b4c113b77"
+    sha256 big_sur:        "48b5c695a7af99908369b2aeae0489b9f4aaf4ec9cb03eddec86d912e05f011f"
+    sha256 x86_64_linux:   "4fcab7c51b5746f29ff6e2ff1e33940e04a8c58006a1543ed0bec6acb2c13708"
   end
 
   depends_on "cmake" => :build

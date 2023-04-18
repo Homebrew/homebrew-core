@@ -9,6 +9,7 @@ class CryticCompile < Formula
   head "https://github.com/crytic/crytic-compile.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "88992b9fd90213acde94f893560f25301e6df5ec97b214181b373714182506c6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7cc3212149488e40aadecc0c5d069d3ef8cbcfbcc2e9094ef2d717e1a9b3f6af"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "38e4afc309ee1ea55eac6040662721681af43eba8220348373f7ef55c2fd984d"
     sha256 cellar: :any_skip_relocation, ventura:        "9529b1a4b634d1b9c4edecf8ad255a34c7b2e3a278bfb1659b5fd1e2e4f726f6"
@@ -38,18 +39,14 @@ class CryticCompile < Formula
   end
 
   test do
-    (testpath/"test.sol").write <<~EOS
-      pragma solidity ^0.8.0;
-      contract Test {
-        function f() public pure returns (bool) {
-          return false;
-        }
-      }
-    EOS
+    resource "testdata" do
+      url "https://github.com/crytic/slither/raw/d0a4f5595d7177b3b7d4bd35e1384bf35ebc22d4/tests/ast-parsing/compile/variable-0.8.0.sol-0.8.15-compact.zip", using: :nounzip
+      sha256 "2f165f629882d0250d03a56cb67a84e9741375349195915a04385b0666394478"
+    end
 
-    system "solc-select", "install", "0.8.0"
-    with_env(SOLC_VERSION: "0.8.0") do
-      system bin/"crytic-compile", testpath/"test.sol", "--export-format=solc", "--export-dir=#{testpath}/export"
+    resource("testdata").stage do
+      system bin/"crytic-compile", "variable-0.8.0.sol-0.8.15-compact.zip", \
+             "--export-format=solc", "--export-dir=#{testpath}/export"
     end
 
     assert_predicate testpath/"export/combined_solc.json", :exist?

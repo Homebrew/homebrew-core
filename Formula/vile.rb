@@ -1,19 +1,23 @@
 class Vile < Formula
   desc "Vi Like Emacs Editor"
   homepage "https://invisible-island.net/vile/"
-  url "https://invisible-island.net/archives/vile/current/vile-9.8w.tgz"
-  sha256 "78253ec3f7ae5f4f9d4799a3c8bc35b85b47d456f2ac172810008a48e4609815"
+  url "https://invisible-island.net/archives/vile/current/vile-9.8y.tgz"
+  sha256 "1b67f1ef34f5f2075722ab46184bb149735e8538fa912fc07c985c92f78fe381"
   license "GPL-2.0-or-later"
 
+  livecheck do
+    url "https://invisible-island.net/archives/vile/current/"
+    regex(/href=.*?vile[._-]v?(\d+(?:\.\d+)+[a-z]*)\.t/i)
+  end
+
   bottle do
-    sha256 arm64_ventura:  "9fea67ad963f8e76ab09fb3e181acd3ae4af71d8413323e01a51521ff6f4c5cf"
-    sha256 arm64_monterey: "0036bd77eb9f1231343f6e21793d6c3b1df01d014411b794aa289e621350a2ac"
-    sha256 arm64_big_sur:  "440c832f9fb4513eea1800a0b1f22a7afae03f48f96d03478d78d731a76a84a0"
-    sha256 ventura:        "47f81791c2d9c46df6adb6241a7965c70970234588822d59409f1ec55cf62f86"
-    sha256 monterey:       "4548060b0cf5731b7f4b6fc0eb95b33ea2a446decd83b5bfc946f354728d703b"
-    sha256 big_sur:        "cda465c26af587b967d18c93061c25adc6cf0e356d5fee5bf172e8b671b47eea"
-    sha256 catalina:       "b7b693bde291c3bdd649bfc2129aaeabf0c2e8edca732a458e427efcffcf3b28"
-    sha256 x86_64_linux:   "bc15ead3a90e2e171890caa044d5279b54a017b7fb1bb7d83eaeccbb3f0e671e"
+    sha256 arm64_ventura:  "007220d4bfc4a658ffe56b9f4b1af2fa13cb8e8c2fe8cedd2d0537cba3efc8af"
+    sha256 arm64_monterey: "38daf7cce4250fb7eb1b679dd1641c5e23706ed039731f95c3587dda288dac2b"
+    sha256 arm64_big_sur:  "43f477324a6b277b54fe2f14d7cd9c3cac2f2d4e110bc9fa53bd611adc1f0cf3"
+    sha256 ventura:        "674ad45785df6e65fd7ff6c23cb685d18bfc69a9efa94c6fc5ad3c7dc3b71f3e"
+    sha256 monterey:       "f40b8db1d54f7bfe59600ab8153f706f12618489f085f232e092d5c771ddb768"
+    sha256 big_sur:        "35ca3b5029b92d685e93e2a965869eb3460663b75d7fd818454f6ad02c887df9"
+    sha256 x86_64_linux:   "cedd8f1889f10d2ce2ae2269963245e0e5e223f6dacc3a539c214cf5eaf0a328"
   end
 
   uses_from_macos "flex" => :build

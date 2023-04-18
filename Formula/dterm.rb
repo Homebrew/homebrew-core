@@ -1,14 +1,9 @@
 class Dterm < Formula
   desc "Terminal emulator for use with xterm and friends"
-  homepage "http://www.knossos.net.nz/resources/free-software/dterm/"
-  url "http://www.knossos.net.nz/downloads/dterm-0.5.tgz"
-  sha256 "94533be79f1eec965e59886d5f00a35cb675c5db1d89419f253bb72f140abddb"
-  license "GPL-2.0"
-
-  livecheck do
-    url :homepage
-    regex(/href=.*?dterm[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
+  homepage "https://web.archive.org/web/20230125064301/http://www.knossos.net.nz/resources/free-software/dterm/"
+  url "https://web.archive.org/web/20230125064301/http://www.knossos.net.nz/downloads/dterm-0.5.tgz"
+  sha256 "1b91db06c4540e58bc926c3b9cd60bb21d7169da8b3595e3b4bf9bfb2c7333c8"
+  license "GPL-2.0-only"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a3ed01df00b32efe7a637e827ae2aec70a6d10063cef2128b7246a58f4f1e7a0"
@@ -24,6 +19,8 @@ class Dterm < Formula
     sha256 cellar: :any_skip_relocation, el_capitan:     "6e18a2f46faa55e99fe070c7fd5e95940d66a5295f694605c9e90b416b577d37"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e32e1bc798fb4622c7fc33cd62f36fad897329075a8f738708fc319c08e82505"
   end
+
+  deprecate! date: "2023-04-16", because: :unsupported
 
   on_linux do
     depends_on "readline"

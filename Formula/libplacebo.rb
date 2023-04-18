@@ -4,6 +4,7 @@ class Libplacebo < Formula
   desc "Reusable library for GPU-accelerated image/video processing primitives"
   homepage "https://code.videolan.org/videolan/libplacebo"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://code.videolan.org/videolan/libplacebo.git", branch: "master"
 
   stable do
@@ -27,13 +28,13 @@ class Libplacebo < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "2c597b7a0957b220b91bc2123abc33a04cdf63710d4a9fa6493be031e57e07f3"
-    sha256 cellar: :any,                 arm64_monterey: "9c80ebfa61ae41fd54c97014db437ff5c17b9bc6a220d0cdd14eff22320c1fd7"
-    sha256 cellar: :any,                 arm64_big_sur:  "f59a1b228f2c720e5889f19799b7de6552b255c77ff820a3634660667b399ca4"
-    sha256 cellar: :any,                 ventura:        "8706776b31155a54db09a06d049673c9667522e5c632fbe167c787a30c17260a"
-    sha256 cellar: :any,                 monterey:       "9bd97a25debddec6f2b8d186945127235c9cbb0951a7361fd7901149ff3e913a"
-    sha256 cellar: :any,                 big_sur:        "b7d363abde8eb1c7ee676089223eef6ca1afa94535ccc3fb1252937e03581d9a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a20c8536a4d5d64c00b01c8a947f30140e79f6ab02c099e4a23bdd9ef41bc3f1"
+    sha256 cellar: :any,                 arm64_ventura:  "9d6423a4c9ff3d326b068f0f10abc389769701e617b15dbd0d38871da16a6155"
+    sha256 cellar: :any,                 arm64_monterey: "39ff9ddf8b2ba333da3bc325645ae99dde829caa0703ed230950d9171eca32d2"
+    sha256 cellar: :any,                 arm64_big_sur:  "2b234b5b0948585ce886cb70fb8c03f6f4539ac72d65cd96323b54643b3890ba"
+    sha256 cellar: :any,                 ventura:        "55383e879f4d04e5a3b742a48516e11483b301becbd7c0f54d4c08a378e887c3"
+    sha256 cellar: :any,                 monterey:       "c7fa2501c6c647d138c1ef8b3a4ca376240e914634718f681f94e7190321f983"
+    sha256 cellar: :any,                 big_sur:        "5ec8ab7ada6f94318d2f036bbfe30ac6323d23957353f1a586ef62d2db6e0847"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "724174e2c690bdad334c6bdaa48e2163c5a44a352d10d980d47f2c6d2879f826"
   end
 
   depends_on "meson" => :build

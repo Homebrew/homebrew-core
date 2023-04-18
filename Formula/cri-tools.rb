@@ -1,19 +1,19 @@
 class CriTools < Formula
   desc "CLI and validation tools for Kubelet Container Runtime Interface (CRI)"
   homepage "https://github.com/kubernetes-sigs/cri-tools"
-  url "https://github.com/kubernetes-sigs/cri-tools/archive/v1.26.1.tar.gz"
-  sha256 "3719689d819b497a1579ea2c605df75f771c7428ca710f37e78ee9396c22f773"
+  url "https://github.com/kubernetes-sigs/cri-tools/archive/v1.27.0.tar.gz"
+  sha256 "bebe1d17217ae6480a9ce8371dd266a96d6289426d5d64a3c3b6f11d6a8d535e"
   license "Apache-2.0"
   head "https://github.com/kubernetes-sigs/cri-tools.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1dbd782b0344cb46ea1b3c0a0b81c2c56e78d79333f0ddf63ab70f2e695f2eed"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "fa260b7cecf38ea6eec580feb8be775429081b1e1878a8dc162a851290b459bd"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1a32bb41079a4388576c93e749cdcd1dab631e8202b124de7c331c0e2acc89a4"
-    sha256 cellar: :any_skip_relocation, ventura:        "5da498bf3f7af2041d9e63bf108ab93af80aef35fecf26a8ba468eeed01301e7"
-    sha256 cellar: :any_skip_relocation, monterey:       "13759573e0946ef8c0a1ac10048bffec020215820583857a18bfa848dcb455b6"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a722b438f90415364265ead00ce633392619b80f41190b41e88ae8d66e9c590f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1a8493b8eb9c123d77f479da21db6d794cd4693b0f345ee43c66a806f160aa85"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8265880cb3555b4c09c4a01f4c5a7726d1c70261e7c82658d4bd3dea8aaead84"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ad700959efa8e4f76f5e51475ee328318bf3efddcb3f6ca189e146a079357a7f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c514f64fb78a7e386aa1384ce6a5bc89853d51b8668906f3efa1aadf43f39e6c"
+    sha256 cellar: :any_skip_relocation, ventura:        "a0e91737f76bf162d084ac9006f6684307af77d5804eebe67f54d529692ae66b"
+    sha256 cellar: :any_skip_relocation, monterey:       "d0a9c3730b5ecf9eb59d59a0fbb60a8497c9c148a8fafb7b932ade5830fca0f7"
+    sha256 cellar: :any_skip_relocation, big_sur:        "75531f29e8d0f29def374157871ed04dd86de26d63b4b4e30cff0b29e4fbc6ed"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "543a8d867994dfc5988e67c75ee132bf34832334ec17a98b4f9f6a62d38cdc62"
   end
 
   depends_on "go" => :build
@@ -34,7 +34,8 @@ class CriTools < Formula
     crictl_output = shell_output(
       "#{bin}/crictl --runtime-endpoint unix:///var/run/nonexistent.sock --timeout 10ms info 2>&1", 1
     )
-    assert_match "Status from runtime service failed", crictl_output
+    error = "transport: Error while dialing dial unix /var/run/nonexistent.sock: connect: no such file or directory"
+    assert_match error, crictl_output
 
     critest_output = shell_output("#{bin}/critest --ginkgo.dryRun 2>&1")
     assert_match "PASS", critest_output

@@ -3,23 +3,26 @@ class Localstack < Formula
 
   desc "Fully functional local AWS cloud stack"
   homepage "https://localstack.cloud/"
-  url "https://files.pythonhosted.org/packages/61/3d/7bdc55b31709b9bbfd82d5e1ab77f3f2f38682ae5371ad3a485260b2abc3/localstack-2.0.1.tar.gz"
-  sha256 "2abd69c46774b21b3cca1f20749c86104f6a6504153d37f5ea46b58333871f86"
+  url "https://files.pythonhosted.org/packages/a6/97/1b6102bdc5b7d4922b73ffd2c7acecf537ba928880abb5207f4610039f97/localstack-2.0.2.tar.gz"
+  sha256 "2f1f8382d3609d47e687340e6a267ffa91a750be05f54d01ad8a90896826bf21"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "314db275abcd1b0ea481b2f9497104851c5134954c54d3f31b255f2a72cfddac"
-    sha256 cellar: :any,                 arm64_monterey: "2544aa1876d690fd4543447eacac59cb0aa1ba0eed6c172c27618b6449c45b4b"
-    sha256 cellar: :any,                 arm64_big_sur:  "22e93bd548abc074a2f77f38a81af5df077866a1ac057ceb7db43af2df673501"
-    sha256 cellar: :any,                 ventura:        "4f562d9cde80ecc575735a47d4d66466dad7be8b460981e1d108837b9d56e9b5"
-    sha256 cellar: :any,                 monterey:       "a1be10ac3d970e5fb3e53ac6b147d42847aa073aae6d4f1c07353e3361a35bf0"
-    sha256 cellar: :any,                 big_sur:        "d81af40abd0db857e473136234904cbaa2fc67c15ce64c808a937c4371608700"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "adbaac087b0d97a7e32b00ae81695a63234cd544a066a45fd06ab8f85a47c2ba"
+    sha256 cellar: :any,                 arm64_ventura:  "6c113ceeb5da60bb6361e9ccc06bd57db10b14ff5e825909363e0e6b2fdcd15a"
+    sha256 cellar: :any,                 arm64_monterey: "292beb5f7147bc76f86498afbd5a1bccd4a867d0adbab8b931463f72b445bf51"
+    sha256 cellar: :any,                 arm64_big_sur:  "198541fea7369ee0f253225d8d552746cb36d2ac100c491bc26eb69a9bc9a759"
+    sha256 cellar: :any,                 ventura:        "9c59516c3b99a1e1df72a7df6d550b781854fb26ea35a14cfe4f0868a4308ff1"
+    sha256 cellar: :any,                 monterey:       "87361316670db21288535e5330eae2df8cd439dff07ed5c7ae6b90b15f9551d1"
+    sha256 cellar: :any,                 big_sur:        "91df964aa2ef00db373686b7f641fa2aba947652f482d31491df8ace4fe76d68"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "db4d8a4c5844edf48211fd7c4350c623076d4b99ac62c5091dd6510eba0e2667"
   end
 
-  depends_on "rust" => :build # for cryptography
+  # `pkg-config`, `rust`, and `openssl@1.1` are for cryptography.
+  depends_on "pkg-config" => :build
+  depends_on "rust" => :build
   depends_on "docker" => :test
   depends_on "cffi"
+  depends_on "openssl@1.1"
   depends_on "pycparser"
   depends_on "pygments"
   depends_on "python-tabulate"
@@ -42,8 +45,8 @@ class Localstack < Formula
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/da/00/141d205c6ebd911414d17263e1da10709c1da87cf1ba9e172fbce7b16e6b/botocore-1.29.108.tar.gz"
-    sha256 "e62154af6771690e4833f6102a5e31fcc3687449e6110ae32919d134394a29ea"
+    url "https://files.pythonhosted.org/packages/0c/3b/37aa84d8a9cd56fdc229257e68c2400bc4fa34d87d46ff16646add03e4f4/botocore-1.29.114.tar.gz"
+    sha256 "aeacb03303d6babb0490247158647346d27900fcf89bfb9713db41f1ce1cc93f"
   end
 
   resource "cachetools" do
@@ -67,8 +70,8 @@ class Localstack < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/15/d9/c679e9eda76bfc0d60c9d7a4084ca52d0631d9f24ef04f818012f6d1282e/cryptography-40.0.1.tar.gz"
-    sha256 "2803f2f8b1e95f614419926c7e6f55d828afc614ca5ed61543877ae668cc3472"
+    url "https://files.pythonhosted.org/packages/f7/80/04cc7637238b78f8e7354900817135c5a23cf66dfb3f3a216c6d630d6833/cryptography-40.0.2.tar.gz"
+    sha256 "c33c0d32b8594fa647d2e01dbccc303478e16fdd7cf98652d5b3ed11aa5e5c99"
   end
 
   resource "dill" do
@@ -107,13 +110,13 @@ class Localstack < Formula
   end
 
   resource "localstack-core" do
-    url "https://files.pythonhosted.org/packages/d4/b0/4679ada496b71109e7dc589f992ae3cabb7e1878c745d80911f68d0526eb/localstack-core-2.0.1.tar.gz"
-    sha256 "a42c047bcff3b7867cbee66f50058f8c7ca7038968f9ef0273a0c0f1d005d2a2"
+    url "https://files.pythonhosted.org/packages/4b/7f/c4d399660eef7ade4550e5ac467d43d210a9de66d56ca6ddaf3f93bad88e/localstack-core-2.0.2.tar.gz"
+    sha256 "3fe3c84d1c5acb22ccf3b6e3c584a11f9ae7d5624f8ed02205652fc7aef19496"
   end
 
   resource "localstack-ext" do
-    url "https://files.pythonhosted.org/packages/cb/5f/cf74f67a324a276e9c53e9d5f304209d67f01743a22f5b1879da28c656e5/localstack-ext-2.0.1.tar.gz"
-    sha256 "0c68411cdfa9c23f4f0c9976afb564816189bafb078598ca2137c7b5f386e79a"
+    url "https://files.pythonhosted.org/packages/f9/91/9acc7005e9e65bb47267ceaab901140e87bbf3f585cbd77cb249f1880be4/localstack-ext-2.0.2.tar.gz"
+    sha256 "eed043fcff2ec4b364cfd1ab960fc8185e1b345df5c475bcf0eda91124002c6e"
   end
 
   resource "markdown-it-py" do
@@ -127,8 +130,8 @@ class Localstack < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/47/d5/aca8ff6f49aa5565df1c826e7bf5e85a6df852ee063600c1efa5b932968c/packaging-23.0.tar.gz"
-    sha256 "b6ad297f8907de0fa2fe1ccbd26fdaf387f5f47c7275fedf8cce89f99446cf97"
+    url "https://files.pythonhosted.org/packages/b9/6c/7c6658d258d7971c5eb0d9b69fa9265879ec9a9158031206d47800ae2213/packaging-23.1.tar.gz"
+    sha256 "a392980d2b6cffa644431898be54b0045151319d1e7ec34f0cfed48767dd334f"
   end
 
   resource "pbr" do
@@ -177,8 +180,8 @@ class Localstack < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/9a/50/672a8d347f92bc752b04c338bbf932fbd0104fbc416c82cc91aa5f7b4b0b/rich-13.3.3.tar.gz"
-    sha256 "dc84400a9d842b3a9c5ff74addd8eb798d155f36c1c91303888e0a66850d2a15"
+    url "https://files.pythonhosted.org/packages/31/3b/2360352760b436f822258396e66ffb6d42585518a9cde2f93f142e64c5eb/rich-13.3.4.tar.gz"
+    sha256 "b5d573e13605423ec80bdd0cd5f8541f7844a0e71a13f74cf454ccb2f490708b"
   end
 
   resource "rsa" do
@@ -212,6 +215,10 @@ class Localstack < Formula
   end
 
   def install
+    # Ensure that the `openssl` crate picks up the intended library.
+    ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
+    ENV["OPENSSL_NO_VENDOR"] = "1"
+
     virtualenv_install_with_resources
     bin.install_symlink libexec/"bin/localstack"
   end
