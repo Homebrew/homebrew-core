@@ -6,11 +6,18 @@ class Hear < Formula
   license "BSD-3-Clause"
 
   depends_on xcode: ["9.3", :build]
-  depends_on macos: :high_sierra
+  depends_on macos: :catalina
 
   def install
-    xcodebuild "SYMROOT=build", "DSTROOT=#{buildpath}/dst", "-project", "hear.xcodeproj", "-target", "hear", "CODE_SIGN_IDENTITY=", "CODE_SIGNING_REQUIRED=NO", "clean", "install"
-    man1.install "hear.1" 
+    mkdir "#{buildpath}/dst"
+    xcodebuild "SYMROOT=build", "DSTROOT=#{buildpath}/dst",
+               "-project", "hear.xcodeproj",
+               "-target", "hear",
+               "CODE_SIGN_IDENTITY=",
+               "CODE_SIGNING_REQUIRED=NO",
+               "CODE_SIGNING_ALLOWED=NO",
+               "clean", "install"
+    man1.install "hear.1"
     bin.install "dst/hear" => "hear"
   end
 
