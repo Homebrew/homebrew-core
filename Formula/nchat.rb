@@ -13,7 +13,7 @@ class Nchat < Formula
   depends_on "help2man"
   depends_on "libmagic"
   depends_on "ncurses"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "readline"
   depends_on "sqlite"
 
