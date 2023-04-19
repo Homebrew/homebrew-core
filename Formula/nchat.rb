@@ -12,10 +12,11 @@ class Nchat < Formula
   depends_on "gperf"
   depends_on "help2man"
   depends_on "libmagic"
-  depends_on "ncurses"
   depends_on "openssl@1.1"
   depends_on "readline"
-  depends_on "sqlite"
+
+  uses_from_macos "ncurses"
+  uses_from_macos "sqlite"
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
