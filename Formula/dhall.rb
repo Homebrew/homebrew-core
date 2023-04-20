@@ -19,6 +19,7 @@ class Dhall < Formula
 
   depends_on "cabal-install" => :build
   depends_on "ghc@9.2" => :build
+  depends_on "pkg-config" => :build
 
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
