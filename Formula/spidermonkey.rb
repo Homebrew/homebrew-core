@@ -49,12 +49,10 @@ class Spidermonkey < Formula
     # https://github.com/Homebrew/homebrew-core/pull/98809
     ENV["SETUPTOOLS_USE_DISTUTILS"] = "stdlib"
 
-    inreplace "old-configure", "-Wl,-executable_path,${DIST}/bin", ""
-
     cd "js/src"
     system "autoconf213"
     mkdir "brew-build" do
-      system "../configure", "--prefix=#{prefix}",
+      system "../configure", *std_configure_args,
                              "--enable-optimize",
                              "--enable-readline",
                              "--enable-release",
