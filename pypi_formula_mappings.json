@@ -421,9 +421,10 @@
     "extra_packages": ["docker-py", "molecule-vagrant", "python-vagrant"],
     "exclude_packages": [
       "six", "PyYAML", "Pygments",
-      "cookiecutter", "arrow", "binaryornot", "certifi", "chardet", "charset-normalizer",
-      "click", "idna", "Jinja2", "jinja2-time", "MarkupSafe", "python-dateutil",
-      "python-slugify", "requests", "text-unidecode", "urllib3"
+      "cookiecutter", "arrow", "binaryornot", "certifi", "cffi", "chardet",
+      "charset-normalizer", "click", "idna", "Jinja2", "jinja2-time", "MarkupSafe",
+      "pycparsing", "python-dateutil", "python-slugify", "requests", "text-unidecode",
+      "urllib3"
     ]
   },
   "mongo-orchestration": {
