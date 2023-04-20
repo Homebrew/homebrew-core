@@ -52,7 +52,7 @@ class Spidermonkey < Formula
     cd "js/src"
     system "autoconf213"
     mkdir "brew-build" do
-      system "../configure", *std_configure_args,
+      system "../configure", *std_configure_args.reject { |s| s["disable-dependency-tracking"] },
                              "--enable-optimize",
                              "--enable-readline",
                              "--enable-release",
