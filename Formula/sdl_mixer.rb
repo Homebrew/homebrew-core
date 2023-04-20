@@ -2,7 +2,6 @@ class SdlMixer < Formula
   desc "Sample multi-channel audio mixer library"
   homepage "https://www.libsdl.org/projects/SDL_mixer/release-1.2.html"
   url "https://www.libsdl.org/projects/SDL_mixer/release/SDL_mixer-1.2.12.tar.gz"
-  mirror "https://downloads.sourceforge.net/project/libsdl/SDL/1.2.12/SDL-1.2.12.tar.gz?ts=gAAAAABkOHV-YiKu1-eDj3tQjDNy3l4CS33Wx9vqVvpRAH5f08XUpbJKeUuaGrzLMdIoIfozbnaWQMjXE-xx4hbpNnTc5C5zZA%3D%3D"
   sha256 "1644308279a975799049e4826af2cfc787cad2abb11aa14562e402521f86992a"
   license "Zlib"
   revision 7
@@ -55,6 +54,7 @@ class SdlMixer < Formula
       --enable-music-mp3
       --enable-music-ogg
       --enable-music-flac
+      --disable-music-mp3-shared
       --disable-music-ogg-shared
       --disable-music-mod-shared
       --disable-music-fluidsynth-midi
