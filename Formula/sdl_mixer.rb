@@ -33,8 +33,8 @@ class SdlMixer < Formula
   depends_on "libmikmod"
   depends_on "libogg"
   depends_on "libvorbis"
+  depends_on "mad"
   depends_on "sdl12-compat"
-  depends_on "libmad"
   depends_on "smpeg"
 
   # Source file for sdl_mixer example
