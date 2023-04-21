@@ -39,6 +39,7 @@ class OpentelemetryCpp < Formula
                     "-DWITH_OTLP_GRPC=ON",
                     "-DWITH_OTLP_HTTP=ON",
                     "-DWITH_PROMETHEUS=ON",
+                    "-DCMAKE_CXX_FLAGS=-std=c++17",
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
