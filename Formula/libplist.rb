@@ -1,9 +1,9 @@
 class Libplist < Formula
   desc "Library for Apple Binary- and XML-Property Lists"
   homepage "https://www.libimobiledevice.org/"
-  url "https://github.com/libimobiledevice/libplist/archive/2.2.0.tar.gz"
-  sha256 "7e654bdd5d8b96f03240227ed09057377f06ebad08e1c37d0cfa2abe6ba0cee2"
-  license "LGPL-2.1"
+  url "https://github.com/libimobiledevice/libplist/archive/refs/tags/2.3.0.tar.gz"
+  sha256 "9be5dbe3985b0b5f2ebff8583c21df30f5e825f9245a803b5ad7560528e0153c"
+  license "LGPL-2.1-only"
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "6d101d1a75fe2859fce732e1a9448053c74707a3cdc7e10e4b67488d978b0796"
@@ -28,16 +28,12 @@ class Libplist < Formula
   depends_on "pkg-config" => :build
 
   def install
+    ENV["RELEASE_VERSION"] = version.to_s
     ENV.deparallelize
 
-    args = %W[
-      --disable-dependency-tracking
-      --disable-silent-rules
-      --prefix=#{prefix}
-      --without-cython
-    ]
-
-    system "./autogen.sh", *args
+    system "./autogen.sh", *std_configure_args,
+                           "--disable-silent-rules",
+                           "--without-cython"
     system "make"
     system "make", "install", "PYTHON_LDFLAGS=-undefined dynamic_lookup"
   end
