@@ -24,6 +24,10 @@ class Mercurial < Formula
 
   depends_on "python@3.11"
 
+  # Fix build failure on macOS
+  # https://bz.mercurial-scm.org/show_bug.cgi?id=6812
+  patch :DATA
+
   def install
     ENV["HGPYTHON3"] = "1"
     ENV["PYTHON"] = python3 = which("python3.11")
@@ -79,3 +83,16 @@ class Mercurial < Formula
     system "#{bin}/hg", "init"
   end
 end
+
+__END__
+--- a/contrib/chg/chg.c
++++ b/contrib/chg/chg.c
+@@ -31,6 +31,8 @@
+ #define PATH_MAX 4096
+ #endif
+
++extern char **environ;
++
+ struct cmdserveropts {
+        char sockname[PATH_MAX];
+        char initsockname[PATH_MAX];
