@@ -4,6 +4,7 @@ class Ideviceinstaller < Formula
   url "https://github.com/libimobiledevice/ideviceinstaller/releases/download/1.1.1/ideviceinstaller-1.1.1.tar.bz2"
   sha256 "deb883ec97f2f88115aab39f701b83c843e9f2b67fe02f5e00a9a7d6196c3063"
   license "GPL-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "fb42f5fc7e6da997dc22dd68fe9c57a711250259c737992eeb162cfe871cce99"
