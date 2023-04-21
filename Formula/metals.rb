@@ -1,8 +1,8 @@
 class Metals < Formula
   desc "Scala language server"
   homepage "https://github.com/scalameta/metals"
-  url "https://github.com/scalameta/metals/archive/refs/tags/v0.11.11.tar.gz"
-  sha256 "99c03bd5f6f6d3aa68d684f016ab6bb09175fa67953ddaa362f8a936bb3da72f"
+  url "https://github.com/scalameta/metals/archive/refs/tags/v0.11.12.tar.gz"
+  sha256 "9e50e557980891b9d24ac8ccb9922886b974d99247d1c0592e2e4385a789f338"
   license "Apache-2.0"
 
   # Some version tags don't become a release, so it's necessary to check the
