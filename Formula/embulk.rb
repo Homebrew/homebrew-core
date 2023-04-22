@@ -4,8 +4,8 @@ class Embulk < Formula
   # https://www.embulk.org/articles/2020/03/13/embulk-v0.10.html
   # v0.10.* is a "development" series, not for your production use.
   # In your production, keep using v0.9.* stable series.
-  url "https://github.com/embulk/embulk/releases/download/v0.9.24/embulk-0.9.24.jar"
-  sha256 "acf204ffa0112ae4fd6757b4557fef6f72e2d5dd163af439f8b13ae98fb9dafd"
+  url "https://github.com/embulk/embulk/releases/download/v0.9.25/embulk-0.9.25.jar"
+  sha256 "5ab084ace299f959fb0bbb43cf46856a8c189ed4f355c30075addd3d2c6b2e8a"
   license "Apache-2.0"
   version_scheme 1
 
