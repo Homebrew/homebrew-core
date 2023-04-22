@@ -27,7 +27,7 @@ class Embulk < Formula
 
   test do
     system bin/"embulk", "example", "./try1"
-    system bin/"embulk", "guess", "./try1/seed.yml", "-o", "config.yml"
+    system bin/"embulk", "guess", "./try1/seed.yml", "-o", "config.yml", "-l", "debug"
     system bin/"embulk", "preview", "config.yml"
     system bin/"embulk", "run", "config.yml"
   end
