@@ -5,8 +5,8 @@ class Perl < Formula
   head "https://github.com/perl/perl5.git", branch: "blead"
 
   stable do
-    url "https://www.cpan.org/src/5.0/perl-5.36.0.tar.xz"
-    sha256 "0f386dccbee8e26286404b2cca144e1005be65477979beb9b1ba272d4819bcf0"
+    url "https://www.cpan.org/src/5.0/perl-5.36.1.tar.xz"
+    sha256 "bd91217ea8a8c8b81f21ebbb6cefdf0d13ae532013f944cdece2cd51aef4b6a7"
 
     # Apply upstream commit to remove nsl from libswanted:
     # https://github.com/Perl/perl5/commit/7e19816aa8661ce0e984742e2df11dd20dcdff18
