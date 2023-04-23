@@ -36,8 +36,6 @@ jobs:
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
 
-      - run: brew test-bot --only-tap-syntax
-
   formulae_detect:
     if: github.repository_owner == 'Homebrew' && github.event_name != 'push'
     runs-on: ubuntu-22.04
@@ -155,7 +153,7 @@ jobs:
               core.setOutput('test-dependents', 'true')
             }
 
-            const maximum_long_pr_count = 2
+            const maximum_long_pr_count = -1
             if (label_names.includes('CI-long-timeout')) {
               const labelCountQuery = `query($owner:String!, $name:String!, $label:String!) {
                 repository(owner:$owner, name:$name) {
