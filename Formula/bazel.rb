@@ -37,6 +37,27 @@ class Bazel < Formula
     # Force Bazel to use Homebrew python
     ENV.prepend_path "PATH", Formula["python@3.11"].opt_libexec/"bin"
 
+    # Work around https://github.com/bazelbuild/bazel/issues/13944.
+    # Remove when java_tools is upgraded to at least v12.0:
+    #   https://github.com/bazelbuild/bazel/blob/#{version}/distdir_deps.bzl#L419
+    if OS.mac? && Hardware::CPU.arm?
+      open("WORKSPACE", "a") do |file|
+        file.write <<~EOS
+          load(
+            "@bazel_tools//tools/jdk:default_java_toolchain.bzl",
+            "default_java_toolchain", "NONPREBUILT_TOOLCHAIN_CONFIGURATION"
+          )
+
+          default_java_toolchain(
+            name = "nonprebuilt_toolchain",
+            configuration = NONPREBUILT_TOOLCHAIN_CONFIGURATION,
+          )
+
+          register_toolchains("nonprebuilt_toolchain")
+        EOS
+      end
+    end
+
     # Bazel clears environment variables other than PATH during build, which
     # breaks Homebrew shim scripts. We don't see this issue on macOS since
     # the build uses a Bazel-specific wrapper for clang rather than the shim;
