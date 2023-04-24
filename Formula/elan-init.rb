@@ -1,20 +1,19 @@
 class ElanInit < Formula
   desc "Lean Theorem Prover installer and version manager"
   homepage "https://github.com/leanprover/elan"
-  url "https://github.com/leanprover/elan/archive/v1.4.2.tar.gz"
-  sha256 "d15dc93575601224b73c4744c27f28cb118655659b20d444e93ed63ba30b7def"
+  url "https://github.com/leanprover/elan/archive/v1.4.4.tar.gz"
+  sha256 "67cbaa4d2c4558fe88d3b13d75862c57150cf503ce9f4942efbdae10f93ac83f"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/leanprover/elan.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b2432326f07e61667f39867c44eac824557379d262c6c140d1600ee0dd937f6d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e52f1a84a49c534d5ff41b9c24416879d66cb55b31fa7d2fd935ce6d566a31a6"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7f778e3306dc0fcbe633acddb7c710808568686e85c41b0699b295f5e627ab0b"
-    sha256 cellar: :any_skip_relocation, ventura:        "65c94821a4ce233c8b19e3363f021eb085048db398cb91d41a20daa3991813d9"
-    sha256 cellar: :any_skip_relocation, monterey:       "36355bf225628abd9a8397e718a58f36b7b89f2b14b2ec590dd3b6a832575a7c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "aeb5d93076e2db77f6494a0eb64ce3b7e029f309ba26e2a53b7af68248daf2d0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d9dd9d9be003ac6a6f9c72ce9f0db18066ea68bcfd87185c01eed0cc5ad9189c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "864aa2f2c6df8bef797fb39f5c8c0610f4180f81c2044ced7ffc8aa17fb65b2a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4aa26ca2700a5c83fa5ef2d88354f73d6f93e78f04d4c077a9d813ccfcf06ffb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2d057b97202834bb417f16a20e281b4058daa789479e37a44e43c7afef9c8ac4"
+    sha256 cellar: :any_skip_relocation, ventura:        "4df1e7a1b6c3f6e30baa020e8a82b7f0c1d405ceb0cee1854047a307717b4267"
+    sha256 cellar: :any_skip_relocation, monterey:       "464b79bb5d98aafb2649f39965def30ee7d8898ab59fd5fbd08b044108ba369d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4a8c29c06658903cc0f7be6ce3980244d0074eade9bf8f997938420d46e164b2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b58ed93a032b09d9e993054a0a40893473bf7a3806764c21d66ee6c5844f717f"
   end
 
   depends_on "rust" => :build

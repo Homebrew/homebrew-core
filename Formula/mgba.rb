@@ -1,10 +1,9 @@
 class Mgba < Formula
   desc "Game Boy Advance emulator"
   homepage "https://mgba.io/"
-  url "https://github.com/mgba-emu/mgba/archive/0.10.1.tar.gz"
-  sha256 "5fc1d7ac139fe51ef71782d5de12d11246563cdebd685354b6188fdc82a84bdf"
+  url "https://github.com/mgba-emu/mgba/archive/0.10.2.tar.gz"
+  sha256 "60afef8fb79ba1f7be565b737bae73c6604a790391c737f291482a7422d675ae"
   license "MPL-2.0"
-  revision 1
   head "https://github.com/mgba-emu/mgba.git", branch: "master"
 
   livecheck do
@@ -13,13 +12,13 @@ class Mgba < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "52e22f1e84765d62cdb8a8820f7bed769627485df252a65fbe8c30d8081466ed"
-    sha256 arm64_monterey: "b59fc12532be713c97cf56ec82a05409b3febd00f2d8b16d37cb203156a19c80"
-    sha256 arm64_big_sur:  "9d97e42e89e9a3d1e3fbdbe039e96493ec4b34bd58b22e1b14d50db22ccabfb1"
-    sha256 ventura:        "05c5764a534131562c5b3c76c091e56c8b65039d0802dd875163c05dd1440333"
-    sha256 monterey:       "0b597f3945cfab3beb96bca90f6196645ab72d42d40fa1085406f4be987d05ea"
-    sha256 big_sur:        "a48c2ea3723b52cc1195d6ad7bd100909bf8c021b81e9c9a61a1e34bdc056952"
-    sha256 x86_64_linux:   "1177e9fe63038f8d9ae84fae05c25d8cdb76a32bf4b64da84343fe249cbba4bd"
+    sha256 arm64_ventura:  "8a01f0e0562af8cb5a58b8b9ef089159002747fdade3a746751b7e7fd44caaa3"
+    sha256 arm64_monterey: "dff0877c59dafa63c99d1735dea2c4ddd09fb564eb8efe19f5d67ba2dda15ba0"
+    sha256 arm64_big_sur:  "3c7f0aaeb426d5b8d593a0d175fcad2757754526086f7794a344420147098dcf"
+    sha256 ventura:        "d6f79090787f191d316913200d1748a3d85b49c1100a252f805468d8f738442f"
+    sha256 monterey:       "af5abb8475e09cbae796e36b092decac955b72acd1e9e00b9f3985cef254e02d"
+    sha256 big_sur:        "3871054a2087992682c50f572355988901f433c18ebeeca7268d1abe8efc377b"
+    sha256 x86_64_linux:   "4e31917f09b4230346e5f06a46de2a0fbdacc417312c68484bc107b2028c3fcc"
   end
 
   depends_on "cmake" => :build
