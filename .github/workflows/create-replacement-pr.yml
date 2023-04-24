@@ -76,17 +76,21 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          reviewers="$(
+          review_data="$(
             gh api \
               --header 'Accept: application/vnd.github+json' \
               --header 'X-GitHub-Api-Version: 2022-11-28' \
-              "repos/$GH_REPO/pulls/$PR/reviews" \
-              --jq '[.[].user.login]'
+              "repos/$GH_REPO/pulls/$PR/reviews"
           )"
+
+          reviewers="$(jq --compact-output '[.[].user.login]' <<< "$review_data")"
+          approved="$(jq --raw-output 'any(.[].state; .== "APPROVED")' <<< "$review_data")"
+
           echo "reviewers=$reviewers" >> "$GITHUB_OUTPUT"
+          echo "approved=$approved" >> "$GITHUB_OUTPUT"
 
       - name: Dismiss approvals
-        if: always()
+        if: fromJson(steps.reviewers.outputs.approved)
         uses: Homebrew/actions/dismiss-approvals@master
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
