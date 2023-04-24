@@ -51,7 +51,7 @@ jobs:
       image: ghcr.io/homebrew/ubuntu22.04:master
     permissions:
       contents: read
-      pull-requests: write # for `post-comment`, `dismiss-approvals`, `gh api`, `gh pr edit`
+      pull-requests: write # for `post-comment`, `gh api`, `gh pr edit`
     defaults:
       run:
         shell: bash
@@ -93,7 +93,7 @@ jobs:
         if: fromJson(steps.reviewers.outputs.approved)
         uses: Homebrew/actions/dismiss-approvals@master
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN }}
           pr: ${{ env.PR }}
           message: Replacement PR dispatched
 
