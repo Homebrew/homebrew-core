@@ -47,6 +47,6 @@ class Macpine < Formula
   end
 
   test do
-    assert_match "NAME OS STATUS SSH PORTS ARCH PID", shell_output("#{bin}/alpine list")
+    assert_match "NAME STATUS SSH PORTS ARCH PID TAGS \n", shell_output("#{bin}/alpine list")
   end
 end
