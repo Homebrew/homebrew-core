@@ -19,7 +19,7 @@ on:
       upload:
         description: >
           Upload bottles built from original pull request? (default: false)
-          :warning: This destroys status check information! :warning:
+          Warning: This destroys status check information!
         type: boolean
         required: false
         default: false
@@ -42,7 +42,7 @@ env:
   GH_NO_UPDATE_NOTIFIER: 1
   GH_PROMPT_DISABLED: 1
   RUN_URL: ${{ github.event.repository.html_url }}/actions/runs/${{ github.run_id }}
-  REPLACEMENT_BRANCH: PR/${{ inputs.pull_request }}
+  REPLACEMENT_BRANCH: PR-${{ inputs.pull_request }}-${{ github.run_id }}
 
 jobs:
   create:
@@ -155,19 +155,21 @@ jobs:
         run: |
           cat <<MESSAGE > body.txt
           Created by [\`create-replacement-pr.yml\`]($RUN_URL)
+
           -----
+
           Closes #$PR
           MESSAGE
 
           gh pr create \
             --base master \
+            --title "Replacement for #$PR"\
             --body-file body.txt \
-            --fill \
             --head "$BOTTLE_BRANCH" \
             --reviewer "$REVIEWERS" \
             --label "$LABELS"
 
-          pull_number="$(gh pr list --head "$BOTTLE_BRANCH" | cut -f1 | tr -d '\n')"
+          pull_number="$(gh pr list --head "$BOTTLE_BRANCH" --limit 1 --json number --jq '.[].number')"
           echo "pull_number=$pull_number" >> "$GITHUB_OUTPUT"
 
       - name: Label PR
