@@ -65,6 +65,12 @@ jobs:
           bot_body: ":robot: An automated task has [requested creation of a replacement PR](${{ env.RUN_URL }})."
           bot: github-actions[bot]
 
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+        with:
+          test-bot: false
+
       - name: Get reviewers
         id: reviewers
         env:
@@ -86,12 +92,6 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           pr: ${{ env.PR }}
           message: Replacement PR dispatched
-
-      - name: Set up Homebrew
-        id: set-up-homebrew
-        uses: Homebrew/actions/setup-homebrew@master
-        with:
-          test-bot: false
 
       - name: Configure Git user
         id: git-user-config
