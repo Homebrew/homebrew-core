@@ -31,6 +31,7 @@ class Glib < Formula
   end
 
   on_linux do
+    depends_on "dbus"
     depends_on "util-linux"
   end
 
