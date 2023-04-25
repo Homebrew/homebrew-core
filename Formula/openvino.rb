@@ -1,10 +1,11 @@
 class Openvino < Formula
   desc "Open Visual Inference And Optimization toolkit for AI inference"
   homepage "https://docs.openvino.ai"
-  url "https://github.com/ilya-lavrenov/openvino/archive/460a00dedd4b63427be8bfb83a2b503f702dea68.tar.gz"
-  sha256 "798266e059add5dd2bf2a6cf620987394b0c727ff4dc3971655840c3c1756933"
+  url "https://github.com/openvinotoolkit/openvino/archive/5533de5dd87b0630daf40be89aa93a6f1db0754e.tar.gz"
+  version "2023.0.0"
+  sha256 "18c76b813c0071e5a60472e7454ae175efd609b9ee794c26dbfc286776bfde5a"
   license "Apache-2.0"
-  head "https://github.com/ilya-lavrenov/openvino.git", branch: "system-snappy"
+  head "https://github.com/openvinotoolkit/openvino.git", branch: "master"
 
   livecheck do
     url :stable
@@ -22,43 +23,31 @@ class Openvino < Formula
   end
 
   depends_on "cmake" => [:build, :test]
-  depends_on "pkg-config" => [:build, :test]
   depends_on "flatbuffers" => :build
+  depends_on "pkg-config" => [:build, :test]
   depends_on "protobuf@3" => :build
   depends_on "python@3.11" => :build
   depends_on "pugixml"
   depends_on "snappy"
   depends_on "tbb"
 
-  on_arm do
-    depends_on "scons" => :build
-
-    resource "openvino_contrib" do
-      url "https://github.com/openvinotoolkit/openvino_contrib/archive/ddb21dbc62002c2e75abf23e32437fdd62bb6f29.tar.gz"
-      sha256 "6dae34b400041203b1deee192b2bd95e1bce93447a64afaf311b61d414241967"
-    end
-
-    resource "arm_compute" do
-      url "https://github.com/ARM-software/ComputeLibrary/archive/refs/tags/v23.02.tar.gz"
-      sha256 "86baaee540e8b5672a425d3f62aa51f240b1a0f63601163d9a5a8f72f6df8b4a"
-    end
-  end
-
-  resource "onednn_cpu" do
-    on_intel do
-      url "https://github.com/openvinotoolkit/oneDNN/archive/02857209960e9d91c1b3df90ab4c7ac359bf0973.tar.gz"
-      sha256 "7a145b754684824846449cf2cc4633815ea1851ded1bd6653c276b88816a4710"
-    end
-  end
-
   on_linux do
-    depends_on "opencl-headers"
     depends_on "opencl-clhpp-headers"
+    depends_on "opencl-headers"
     depends_on "opencl-icd-loader"
 
     resource "onednn_gpu" do
-      url "https://github.com/oneapi-src/oneDNN/archive/b52e9cd54df5af92d1d586d435cdd514dd7617fe.tar.gz"
-      sha256 "2c2a89aae84cc359d8ad5cd86cdfd1136405a69054aa413ccf09476241563816"
+      url "https://github.com/oneapi-src/oneDNN/archive/f27dedbfc093f51032a4580198bb80579440dc15.tar.gz"
+      sha256 "da57c2298a8e001718902f0b65b6d92c4a7897b35467e23bc24996dde43ec47b"
+    end
+  end
+
+  on_arm do
+    depends_on "scons" => :build
+
+    resource "arm_compute" do
+      url "https://github.com/ARM-software/ComputeLibrary/archive/refs/tags/v23.02.1.tar.gz"
+      sha256 "c3a443e26539f866969242e690cf0651ef629149741ee18732f954c734da6763"
     end
   end
 
@@ -77,28 +66,39 @@ class Openvino < Formula
     sha256 "7eb64e2c18527824402b16f26c6118ba82f40f57fe6e3ab05c6e2883246a04f1"
   end
 
+  resource "onednn_cpu" do
+    url "https://github.com/openvinotoolkit/oneDNN/archive/dff21dea14e9557cc86f4073c62f8942ac022fd8.tar.gz"
+    sha256 "143c23f59f6b70f4d1721827d310264fd088e1598f0cc709103b1adcb033f6c9"
+  end
+
   resource "onnx" do
     url "https://github.com/onnx/onnx/archive/refs/tags/v1.13.1.tar.gz"
     sha256 "090d3e10ec662a98a2a72f1bf053f793efc645824f0d4b779e0ce47468a0890e"
   end
 
   def install
+    # Remove git cloned 3rd party to make sure formula dependencies are used
+    dependencies = %w[thirdparty/ade thirdparty/ittapi
+                      thirdparty/xbyak thirdparty/onnx/onnx
+                      src/plugins/intel_cpu/thirdparty/onednn
+                      src/plugins/intel_gpu/thirdparty/onednn_gpu
+                      src/plugins/intel_cpu/thirdparty/ComputeLibrary]
+    dependencies.each { |d| (buildpath/d).rmtree }
+
     resource("ade").stage buildpath/"thirdparty/ade"
     resource("ittapi").stage buildpath/"thirdparty/ittapi/ittapi"
     resource("xbyak").stage buildpath/"thirdparty/xbyak"
     resource("onnx").stage buildpath/"thirdparty/onnx/onnx"
+    resource("onednn_cpu").stage buildpath/"src/plugins/intel_cpu/thirdparty/onednn"
 
     if Hardware::CPU.arm?
-      resource("openvino_contrib").stage buildpath/"openvino_contrib"
-      resource("arm_compute").stage buildpath/"openvino_contrib/modules/arm_plugin/thirdparty/ComputeLibrary"
+      resource("arm_compute").stage buildpath/"src/plugins/intel_cpu/thirdparty/ComputeLibrary"
     else
-      resource("onednn_cpu").stage buildpath/"src/plugins/intel_cpu/thirdparty/onednn"
       resource("onednn_gpu").stage buildpath/"src/plugins/intel_gpu/thirdparty/onednn_gpu"
     end
 
     cmake_args = std_cmake_args + %w[
       -DCMAKE_OSX_DEPLOYMENT_TARGET=
-      -DENABLE_TBBBIND_2_5=OFF
       -DENABLE_CPPLINT=OFF
       -DENABLE_CLANG_FORMAT=OFF
       -DENABLE_NCC_STYLE=OFF
@@ -114,12 +114,6 @@ class Openvino < Formula
       -DENABLE_SYSTEM_FLATBUFFERS=ON
       -DENABLE_SYSTEM_SNAPPY=ON
     ]
-
-    if Hardware::CPU.arm?
-      cmake_args += %W[
-        -DOPENVINO_EXTRA_MODULES=#{buildpath}/openvino_contrib/modules/arm_plugin
-      ]
-    end
 
     system "cmake", "-S", buildpath.to_s, "-B", "#{buildpath}/openvino_build", *cmake_args
     system "cmake", "--build", "#{buildpath}/openvino_build"
