@@ -2,8 +2,8 @@ class Linkerd < Formula
   desc "Command-line utility to interact with linkerd"
   homepage "https://linkerd.io"
   url "https://github.com/linkerd/linkerd2.git",
-      tag:      "stable-2.13.1",
-      revision: "59a40f58c9914939aee49dba85c66592ffd14132"
+      tag:      "stable-2.13.2",
+      revision: "381b37568805399fca4cc041bd4915a98338c1cb"
   license "Apache-2.0"
 
   livecheck do
