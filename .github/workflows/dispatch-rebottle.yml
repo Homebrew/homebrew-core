@@ -108,7 +108,6 @@ jobs:
         if: always()
         uses: Homebrew/actions/failures-summary-and-bottle-result@master
         with:
-          workdir: ${{ env.BOTTLES_DIR }}
           result_path: steps_output.txt
           step_name: 'Build summary on ${{ matrix.runner }}'
 
@@ -116,7 +115,6 @@ jobs:
         if: always()
         uses: Homebrew/actions/failures-summary-and-bottle-result@master
         with:
-          workdir: ${{ env.BOTTLES_DIR }}
           result_path: linkage_output.txt
           step_name: '`brew linkage` output on ${{ matrix.runner }}'
 
@@ -124,7 +122,6 @@ jobs:
         if: always()
         uses: Homebrew/actions/failures-summary-and-bottle-result@master
         with:
-          workdir: ${{ env.BOTTLES_DIR }}
           result_path: bottle_output.txt
           step_name: '`brew bottle` output on ${{ matrix.runner }}'
 
