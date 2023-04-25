@@ -1,8 +1,8 @@
 class Macpine < Formula
   desc "Lightweight Linux VMs on MacOS"
   homepage "https://beringresearch.github.io/macpine/"
-  url "https://github.com/beringresearch/macpine/archive/refs/tags/v0.10.tar.gz"
-  sha256 "bca9075958cb76a79cb66f848a44f6ff8f2c1493d6af0b79e871b4457f1fe4d1"
+  url "https://github.com/beringresearch/macpine/archive/refs/tags/v1.0.1.tar.gz"
+  sha256 "7015f76d2db5a8645558c946dbb1cdf7a257d1078c4ae5678a35a1bff4cee36c"
   license "Apache-2.0"
   head "https://github.com/beringresearch/macpine.git", branch: "main"
 
@@ -47,6 +47,6 @@ class Macpine < Formula
   end
 
   test do
-    assert_match "NAME OS STATUS SSH PORTS ARCH PID", shell_output("#{bin}/alpine list")
+    assert_match "NAME STATUS SSH PORTS ARCH PID TAGS \n", shell_output("#{bin}/alpine list")
   end
 end
