@@ -3,8 +3,8 @@ class Prowler < Formula
 
   desc "Open Source Security tool to perform Cloud Security best practices"
   homepage "https://prowler.pro/"
-  url "https://files.pythonhosted.org/packages/88/43/2fdad40fe533eed761bcb88d23bc2725a2d71d899873ac759cb6785b41c8/prowler-3.4.0.tar.gz"
-  sha256 "9f7572c4ff42408d84edd93e84b94893e192322791b3326bcc00a44f3f8755fa"
+  url "https://files.pythonhosted.org/packages/75/dd/c63f8b507a76264ef73dd19871ddba29d090de2067396f7ff768e4caf445/prowler-3.4.1.tar.gz"
+  sha256 "fa596822f0eddf45feb113e043fc67a1cec63192fcb9533a21bd7a79afdecf88"
   license "Apache-2.0"
 
   bottle do
@@ -70,8 +70,8 @@ class Prowler < Formula
   end
 
   resource "azure-mgmt-security" do
-    url "https://files.pythonhosted.org/packages/e0/31/6ea1353196d6dc23d66d8e9b1b753c3cdcdbcdf3a40188dd31278ce4e317/azure-mgmt-security-4.0.0.zip"
-    sha256 "551102127f2b798c1a373003e8877fbe78e58c5d3e04e875805b06d6facea8e7"
+    url "https://files.pythonhosted.org/packages/ee/ba/a3ac088d30e0179df32e0a4981e670e96138b6141d4be821ccfd9ea5951b/azure-mgmt-security-5.0.0.zip"
+    sha256 "38b03efe82c2344cea203fda95e6d00b7ac22782fa1c0b585cd0ea2c8ff3e702"
   end
 
   resource "azure-mgmt-storage" do
@@ -90,8 +90,8 @@ class Prowler < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/12/4f/1b46b6bee208ca96c36bcbdea19475b6efc2c0aecd895fabc8f1e1ad690a/boto3-1.26.105.tar.gz"
-    sha256 "2914776e0138530ec6464d0e2f05b4aa18e9212ac920c48472f8a93650feaed2"
+    url "https://files.pythonhosted.org/packages/78/a8/b07686bd9a56e2556708d562c6b8ade423f3cf4cb1b7c3cbc9ed6c24d022/boto3-1.26.115.tar.gz"
+    sha256 "2272a060005bf8299f7342cbf1344304eb44b7060cddba6784f676e3bc737bb8"
   end
 
   resource "botocore" do
