@@ -1,8 +1,8 @@
 class FlowCli < Formula
   desc "Command-line interface that provides utilities for building Flow applications"
   homepage "https://onflow.org"
-  url "https://github.com/onflow/flow-cli/archive/v0.49.0.tar.gz"
-  sha256 "de5326427c0c9c7daca29f904f41229567e2fd8075dca24c5e2422dfd94b0808"
+  url "https://github.com/onflow/flow-cli/archive/v1.0.1.tar.gz"
+  sha256 "54b8a4a2a1524a7611019fbd8676298f60b0e7d098cc629ee9cc7eecb7784f7c"
   license "Apache-2.0"
   head "https://github.com/onflow/flow-cli.git", branch: "master"
 
@@ -22,6 +22,12 @@ class FlowCli < Formula
   end
 
   depends_on "go" => :build
+
+  # Add gitignore'd sources. Remove on next release.
+  patch do
+    url "https://github.com/onflow/flow-cli/commit/0b4665d873d1d732771cd79d96815552e6210b51.patch?full_index=1"
+    sha256 "9bac156bd65773270ad140a721b019b0f77eb4ee773b9d0f70a68bf0916d4106"
+  end
 
   def install
     system "make", "cmd/flow/flow", "VERSION=v#{version}"
