@@ -2,19 +2,23 @@ class Usbutils < Formula
   desc "List detailed info about USB devices"
   # Homepage for multiple Linux USB tools, 'usbutils' is one of them.
   homepage "http://www.linux-usb.org/"
-  url "https://mirrors.edge.kernel.org/pub/linux/utils/usb/usbutils/usbutils-014.tar.gz"
-  sha256 "59398ab012888dfe0fd12e447b45f36801e9d7b71d9a865fc38e2f549afdb9d0"
+  url "https://mirrors.edge.kernel.org/pub/linux/utils/usb/usbutils/usbutils-015.tar.gz"
+  sha256 "2b8140664578f39c3f6f0166a1b950f8655304e63e3d7f89899acb99bc5cb8e7"
   license any_of: ["GPL-2.0-only", "GPL-3.0-only"]
 
+  livecheck do
+    url "https://mirrors.edge.kernel.org/pub/linux/utils/usb/usbutils/"
+    regex(/href=.*?usbutils[._-]v?(\d+(?:\.\d+)*)\.t/i)
+  end
+
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "f20cbfbd81aa504ca6f9f5f9c22bc07c25aba128cb661daa0e5b7216460850a4"
-    sha256 cellar: :any,                 arm64_monterey: "b92a68d48cfd148d424c9e856b58a6f35409f39943ec03571647454b1f5e951a"
-    sha256 cellar: :any,                 arm64_big_sur:  "4348cacea6a03dd09f24fb6b81d9c81db1d5b2e7b4aacf72aa23e90e8c4e4d44"
-    sha256 cellar: :any,                 ventura:        "7da257ddc8e3b4fe04d6a7ca660703b2c3396e41e2051c3d136714ca26482491"
-    sha256 cellar: :any,                 monterey:       "d906f5f22f4cea31c8e4ba89f734639fbbd5719da4312c146c801980214cad3f"
-    sha256 cellar: :any,                 big_sur:        "67d46074026c0a78518a2d5b00e0a3d96a64b4b33d256b1bddfe9c0d9bceda89"
-    sha256 cellar: :any,                 catalina:       "8f0724c218cc91cfbb9da1a69db8c67962f296581aaaaa1305fc8af77f569f3b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9cb9055ef6f7e14c7ada67c07f72e85ee24399e87fb4ad67dd67811616679e1c"
+    sha256 cellar: :any,                 arm64_ventura:  "0e99cf12fb0f563a2b3d1989c9d48a1e32b50929698adce3b55ec987cfebd7bf"
+    sha256 cellar: :any,                 arm64_monterey: "c67a9bb88a9cd63c920331a86db072da46957021de78c4a6f3d8283978b85473"
+    sha256 cellar: :any,                 arm64_big_sur:  "947ef6a6c17f7874a41d3c2320f91fa494ca29ff9c61e23c8de1964407853d7e"
+    sha256 cellar: :any,                 ventura:        "f8adae8b13b1fbf6df63cd14b9f0da8449c6cbbbece3ced1e11ede87b7f46070"
+    sha256 cellar: :any,                 monterey:       "df6424c3b6aedb0cb484679980e452ea4af24cd65ac94f674084f209f19f0915"
+    sha256 cellar: :any,                 big_sur:        "d1a3c62a690bf4bf4697ce22690468495a97e79bece17d464a6b961de8fa7c7f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ada2b7a26c837e0cc24b81aec12a29d5bbff51366a4222a6b14ae5013e102b27"
   end
 
   depends_on "autoconf" => :build

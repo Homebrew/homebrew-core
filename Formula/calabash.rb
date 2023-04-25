@@ -1,12 +1,28 @@
 class Calabash < Formula
   desc "XProc (XML Pipeline Language) implementation"
   homepage "https://xmlcalabash.com/"
-  url "https://github.com/ndw/xmlcalabash1/releases/download/1.5.3-110/xmlcalabash-1.5.3-110.zip"
-  sha256 "e599484bc95b1dc2086a04c4be24e15da9eada8139b3e6a35d3636e2a8be18d7"
+  url "https://github.com/ndw/xmlcalabash1/releases/download/1.5.4-120/xmlcalabash-1.5.4-120.zip"
+  sha256 "f50d132d0c55a363fdcb4e7541d77558d700e8235853908f2925d45ad55c4334"
   license any_of: ["GPL-2.0-only", "CDDL-1.0"]
 
+  # According to ndw/xmlcalabash1#342, each release comes in "flavours" that
+  # target different `saxon` versions. For example, 1.5.4-110 targets `saxon`
+  # 11.x. Make sure the release we ship matches our `saxon` version.
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:[.-]\d+)+)$/i)
+    strategy :git do |tags, regex|
+      saxon_suffix = "-#{Formula["saxon"].version.major}0"
+
+      tags.map do |tag|
+        version = tag[regex, 1]
+        version.end_with?(saxon_suffix) ? version : nil
+      end
+    end
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "a94df53dffca513f8708a4c8ece8fc520eb431a30c15af964d46f7385d2cf4b5"
+    sha256 cellar: :any_skip_relocation, all: "987d80a656f9d416b87f30ac3306e5b1bd3d4ed525770643ae569b9210e18041"
   end
 
   depends_on "openjdk"

@@ -1,20 +1,19 @@
 class Libchamplain < Formula
   desc "ClutterActor for displaying maps"
   homepage "https://wiki.gnome.org/Projects/libchamplain"
-  url "https://download.gnome.org/sources/libchamplain/0.12/libchamplain-0.12.20.tar.xz"
-  sha256 "0232b4bfcd130a1c5bda7b6aec266bf2d06e701e8093df1886f1e26bc1ba3066"
-  license "LGPL-2.1"
-  revision 3
+  url "https://download.gnome.org/sources/libchamplain/0.12/libchamplain-0.12.21.tar.xz"
+  sha256 "a915cd172a0c52944c5579fcb4683f8a878c571bf5e928254b5dafefc727e5a7"
+  license "LGPL-2.1-only"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_ventura: "da5655b6623f754f33d3b47d6eee772353f0bbe59a3cd5ebfeed8113aa6e83f5"
-    sha256 cellar: :any, arm64_big_sur: "4c338a3a4dbeec5732e73a531aecaaf1cb862ed9e87030fc05e2c25ed9a1f585"
-    sha256 cellar: :any, ventura:       "906af9a5b433a6732e4863005961549f3972fb2292d10a10f9146eb14c9ef7ae"
-    sha256 cellar: :any, monterey:      "be1d7594f805bd7c358011a1669f5eb479c04157330cca2434392fc46eaefa9c"
-    sha256 cellar: :any, big_sur:       "492db68c8120ff8435f6d96b87cdc4db83afe2d47b0da7b1bc164bbb60af015b"
-    sha256 cellar: :any, catalina:      "2b4c4d1e01b47b3598b56d92b27a42b944a56c83b73f1e175e6854210dfe465e"
-    sha256               x86_64_linux:  "292cd694f9167c38d48b8aba733960db987135857f6954bfff79908a57878413"
+    sha256 cellar: :any, arm64_ventura:  "5178bf3638a2027f1d5664fa78e2347879e0882d7a3181166dbad9b49121dab9"
+    sha256 cellar: :any, arm64_monterey: "2f252ae4637021bb9f29636cfc2b20d3dab10b04207d06152b4a47d812c52058"
+    sha256 cellar: :any, arm64_big_sur:  "33c868d4bc619d31a4938952dece38e447aee5e4c18f89994b29d41eb3dd411d"
+    sha256 cellar: :any, ventura:        "9962bd6ca9db0599c17a63e2f207342e88d7cdafc6230a982c2e91cfc26ac92d"
+    sha256 cellar: :any, monterey:       "c5c68414f285b6ffc0ce1c3f2cf160083d45596ad64454e7260bb266812730c3"
+    sha256 cellar: :any, big_sur:        "2945d61373d9f1d984c48b40be8718b79defe25033f65d8ad70662a143328b01"
+    sha256 cellar: :any, catalina:       "2b4c4d1e01b47b3598b56d92b27a42b944a56c83b73f1e175e6854210dfe465e"
+    sha256               x86_64_linux:   "5a616be881e0a1a0cd3a9c1064006c14f5e909df6366abbf5527523b380ef3e3"
   end
 
   # It needs deprecated `cogl` and `clutter`. There isn't a plan to rewrite and homepage says:
@@ -32,7 +31,7 @@ class Libchamplain < Formula
   depends_on "clutter"
   depends_on "clutter-gtk"
   depends_on "gtk+3"
-  depends_on "libsoup@2"
+  depends_on "libsoup"
   depends_on "sqlite" # try to change to uses_from_macos after python is not a dependency
 
   on_linux do
@@ -40,11 +39,9 @@ class Libchamplain < Formula
   end
 
   def install
-    mkdir "build" do
-      system "meson", *std_meson_args, ".."
-      system "ninja"
-      system "ninja", "install"
-    end
+    system "meson", "setup", "build", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do
@@ -71,7 +68,7 @@ class Libchamplain < Formula
     json_glib = Formula["json-glib"]
     libepoxy = Formula["libepoxy"]
     libpng = Formula["libpng"]
-    libsoup = Formula["libsoup@2"]
+    libsoup = Formula["libsoup"]
     pango = Formula["pango"]
     pixman = Formula["pixman"]
     flags = %W[
@@ -92,7 +89,7 @@ class Libchamplain < Formula
       -I#{json_glib.opt_include}/json-glib-1.0
       -I#{libepoxy.opt_include}
       -I#{libpng.opt_include}/libpng16
-      -I#{libsoup.opt_include}/libsoup-2.4
+      -I#{libsoup.opt_include}/libsoup-3.0
       -I#{pango.opt_include}/pango-1.0
       -I#{pixman.opt_include}/pixman-1
       -D_REENTRANT

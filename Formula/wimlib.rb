@@ -1,8 +1,8 @@
 class Wimlib < Formula
   desc "Library to create, extract, and modify Windows Imaging files"
   homepage "https://wimlib.net/"
-  url "https://wimlib.net/downloads/wimlib-1.13.6.tar.gz"
-  sha256 "0a0f9c1c0d3a2a76645535aeb0f62e03fc55914ca65f3a4d5599bb8b0260dbd9"
+  url "https://wimlib.net/downloads/wimlib-1.14.0.tar.gz"
+  sha256 "7a5d84ff5a4626ac03de18a7222293f579cd7061b0159d024a9b315aef23ed4c"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,14 +11,13 @@ class Wimlib < Formula
   end
 
   bottle do
-    sha256                               arm64_ventura:  "9c9fa0796708c4abda9a4f319fea21949fa087bfd55fef5a3afb85810540e462"
-    sha256                               arm64_monterey: "511b7f7dd4a2f604c79b77e4730df771a72c0d42ff9a0d75016aadef18bfea02"
-    sha256                               arm64_big_sur:  "8987877ff4c56d34096c3cb7b34447b55296ee443205b535edbb1e304642acd3"
-    sha256 cellar: :any,                 ventura:        "bf7b4fdb7aa71fcaa04efe8dcd716d969c418a1544f763b0542045938e7b6c09"
-    sha256 cellar: :any,                 monterey:       "2eaa7b1ad62ecee16880f8e12bbce465b2ffaaa43e446758f19390daf00d1450"
-    sha256 cellar: :any,                 big_sur:        "da2511a595e4c203f2f2ea20f543011acbe7a95cbdc5372206616d7589ea17d8"
-    sha256 cellar: :any,                 catalina:       "a59ad26171c1affffdc53d90a63802ffe973d74b593ae85c582f10c940767b6e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "befcc8cb24bcb7b41af8e8d85cb0e0f14b23abc713ca5004c8a5c9d52da14dca"
+    sha256 cellar: :any,                 arm64_ventura:  "95e398be941a4eb36e3cec7d96641d4fdeb299eaa46fd2cdc04bc13a1a7a6471"
+    sha256 cellar: :any,                 arm64_monterey: "6b638476d0614c319f96ce7413a9c35500e720bf2ec6aa075d11343ca5e059af"
+    sha256 cellar: :any,                 arm64_big_sur:  "a3154433054da5a97c7117c3f51dddc99972a9dbd11e33c038942021f5b56971"
+    sha256 cellar: :any,                 ventura:        "6244ffd1bb8c4bc3bf6cf09afd506b28534c0492067e3a83554950557ac0de4c"
+    sha256 cellar: :any,                 monterey:       "24803c738ba5f6a2441e10781e147620e372d747fa9db916cf6292e344dda356"
+    sha256 cellar: :any,                 big_sur:        "9b7a7213ed05e7b2915d8bc037b9225c295cd8eed9927b848112c5c69bf0ef94"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3b81d33222bc32c874cae8dac2eafdbc6dbb20ce96e8c593806fd4203621adb5"
   end
 
   depends_on "pkg-config" => :build

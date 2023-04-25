@@ -42,11 +42,8 @@ class ZlibNg < Formula
 
     system ENV.cc, "zpipe.c", "-I#{include}", "-L#{lib}", "-lz-ng", "-o", "zpipe"
 
-    content = "Hello, Homebrew!\n"
-    (testpath/"foo.txt").write content
-
-    system "./zpipe < foo.txt > foo.txt.z"
-    assert_predicate testpath/"foo.txt.z", :exist?
-    assert_equal content, shell_output("./zpipe -d < foo.txt.z")
+    content = "Hello, Homebrew!"
+    compressed = pipe_output("./zpipe", content)
+    assert_equal content, pipe_output("./zpipe -d", compressed)
   end
 end

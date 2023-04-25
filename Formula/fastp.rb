@@ -6,6 +6,7 @@ class Fastp < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 ventura:      "05294379785725788fafbd01f513e3dd81e4793749be803754fea7c5d43159d0"
     sha256 cellar: :any,                 monterey:     "a25a7b96a04b70f8bd042cbf38ca9d4e5bbb1fbc0bbb0be17c9069be3d518c47"
     sha256 cellar: :any,                 big_sur:      "db588e8e3e6c9cb627ace623b0c88118077909b48ee187107aeef9f7ab33c2e3"
     sha256 cellar: :any,                 catalina:     "c037b7e75a95093f79f6cf5efc4f99c712d301e246d06854dcf3a972edc5b3f7"

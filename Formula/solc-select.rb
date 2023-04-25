@@ -9,6 +9,7 @@ class SolcSelect < Formula
   head "https://github.com/crytic/solc-select.git", branch: "dev"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "20feef6767426974c7df2833b9490c51c2466ae918ae6d7dc50b9e31b2388f70"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e03cbce68b09330067837d9d10c4ff73bfb26ef450d98c08c8aa30be8459fb88"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5792ae00a342be21cccee47d416f6b491b51136724fa9f4982989d093e51ac60"
     sha256 cellar: :any_skip_relocation, ventura:        "fc801e674d1a651b5410248bb80451bd51f589ead811fb5defcdc73def05f535"
@@ -37,6 +38,11 @@ class SolcSelect < Formula
     system bin/"solc-select", "install", "0.5.7"
     system bin/"solc-select", "install", "0.8.0"
     system bin/"solc-select", "use", "0.5.7"
+
+    assert_match(/0\.5\.7.*current/, shell_output("#{bin}/solc-select versions"))
+
+    # running solc itself requires an Intel system or Rosetta
+    return if Hardware::CPU.arm?
 
     assert_match("0.5.7", shell_output("#{bin}/solc --version"))
     with_env(SOLC_VERSION: "0.8.0") do

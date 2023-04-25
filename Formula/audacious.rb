@@ -1,7 +1,8 @@
 class Audacious < Formula
-  desc "Free and advanced audio player based on GTK+"
+  desc "Lightweight and versatile audio player"
   homepage "https://audacious-media-player.org/"
   license "BSD-2-Clause"
+  revision 1
 
   stable do
     url "https://distfiles.audacious-media-player.org/audacious-4.3.tar.bz2"
@@ -19,13 +20,13 @@ class Audacious < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "d0dedeae2538b361776268675cd15b6d31bb447baf5292f0a6553bb0a2d0b0fd"
-    sha256 arm64_monterey: "0bce7dffa93cc7ed89b1a498916964ec77b2d2d60d91f3fd37f260590c35ffe9"
-    sha256 arm64_big_sur:  "aaaae3e21e0006eb92147032b2a2e7352cec6e1a218fdbef64850fece604a162"
-    sha256 ventura:        "3e42f001f3b6b8f5d534bdbee468fbd65487b2326eef311e309ecfcfb207411e"
-    sha256 monterey:       "c71da6067a089b7e74c847fdc31d2c58f49adf7e7287d31521ea73aa7f648885"
-    sha256 big_sur:        "dce962afa17a17605baaed5931780aed01a7fb4f40831e178684c61ac3a8566b"
-    sha256 x86_64_linux:   "daac98ed40d90ec2e11f305e706417b998c5211f4291e6542ad7baac464fcfe3"
+    sha256 arm64_ventura:  "e4929eefb82d8314c37c828c9984bf93bc466794037428ea00ef1d3628a39789"
+    sha256 arm64_monterey: "cd47f0af9709cefb718e215c78246db9bc5373bd1bab8c3c3ecec6d57b527eb4"
+    sha256 arm64_big_sur:  "7831956e30eed00b872abb7fa2d2cd601cf5cf9b95c64ab6778adbb37b7fa879"
+    sha256 ventura:        "6fe668042ac57eb2be0354f6d1d25030178c515d52adaa6ea099ad5af9d4fa66"
+    sha256 monterey:       "0cf73a457021285efbb1e280a37bba970a88b194b8c3b9102f168e7773812d28"
+    sha256 big_sur:        "5eeb05a9095f43865dcf5edb43f0f195fb3b6883ba7946286df9380db1d0a857"
+    sha256 x86_64_linux:   "de76769390b18483bcd56119fe63b53f696b6121115f891193f06468465e1125"
   end
 
   head do
@@ -56,7 +57,8 @@ class Audacious < Formula
   depends_on "libvorbis"
   depends_on "mpg123"
   depends_on "neon"
-  depends_on "qt@5"
+  depends_on "opusfile"
+  depends_on "qt"
   depends_on "sdl2"
   depends_on "wavpack"
 
@@ -65,38 +67,31 @@ class Audacious < Formula
   fails_with gcc: "5"
 
   def install
-    args = std_meson_args + %w[
+    args = %w[
       -Dgtk=false
-      -Dqt=true
+      -Dqt6=true
     ]
 
-    mkdir "build" do
-      system "meson", *args, "-Ddbus=false", ".."
-      system "ninja", "-v"
-      system "ninja", "install", "-v"
-    end
+    system "meson", "setup", "build", *std_meson_args, *args, "-Ddbus=false"
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
 
     resource("plugins").stage do
       args += %w[
-        -Dcoreaudio=false
         -Dmpris2=false
         -Dmac-media-keys=true
-        -Dcpp_std=c++14
       ]
 
       ENV.prepend_path "PKG_CONFIG_PATH", lib/"pkgconfig"
-      mkdir "build" do
-        system "meson", *args, ".."
-        system "ninja", "-v"
-        system "ninja", "install", "-v"
-      end
+      system "meson", "setup", "build", *std_meson_args, *args
+      system "meson", "compile", "-C", "build", "--verbose"
+      system "meson", "install", "-C", "build"
     end
   end
 
   def caveats
     <<~EOS
       audtool does not work due to a broken dbus implementation on macOS, so it is not built.
-      Core Audio output has been disabled as it does not work (fails to set audio unit input property).
       GTK+ GUI is not built by default as the Qt GUI has better integration with macOS, and the GTK GUI would take precedence if present.
     EOS
   end

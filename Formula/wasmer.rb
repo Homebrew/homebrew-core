@@ -1,19 +1,19 @@
 class Wasmer < Formula
   desc "🚀 The Universal WebAssembly Runtime"
   homepage "https://wasmer.io"
-  url "https://github.com/wasmerio/wasmer/archive/refs/tags/v3.1.1.tar.gz"
-  sha256 "84b4dce118f7903412672069b52c4046cbbda136889d2d2f7d2bbaa52c91f90d"
+  url "https://github.com/wasmerio/wasmer/archive/refs/tags/v3.2.1.tar.gz"
+  sha256 "fe4258f4456c2b5743cfddfa9f9743c2c0982f21637ac204ef62e0223f2f4c2a"
   license "MIT"
   head "https://github.com/wasmerio/wasmer.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8014dec59b468b3277f7e3c3e8021e2d37b5f24f605a608f16ecc5f4d8a45073"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6fc38f83809150efdda1de7f2b2423d5d72908ec138338b18f730067cf214451"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bf4824a938c7fff9cfe950815ba58fa34e00d8874f1d811b24b05e8b702c2ab9"
-    sha256 cellar: :any_skip_relocation, ventura:        "dc0359d8e8c0ed116dc27a31299bb945df4d8808d74e246af84d66a5ed840a84"
-    sha256 cellar: :any_skip_relocation, monterey:       "cc9926ff308006cb6635f7833e21f81a64c9c8e8c386b6193e95557a3303cdbd"
-    sha256 cellar: :any_skip_relocation, big_sur:        "fb4c9d3732920af1db5bed201a0421126d2f4cb01ebea299f1b0958cc9558d90"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5dc3be9feb01902a85a6e5f63da001cc41c64452039bc5327699926ec0d849f3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ca452f2fb245058db28d9c235f81a225cfe73c63ff993073ea05876f13fcccb7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7347b3b47ee3c7996db603ee0139ca979150ba24d91b32e82bfe2e6130496c76"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "38d6bd0d6bbf6c0ee0ffcdaf622861b7c993de05369fd8c6b5a463caf71308d1"
+    sha256 cellar: :any_skip_relocation, ventura:        "fa0525f65041a9f22cae22ab5ce4aa9b43bf1980420c10c06836df8c401f3724"
+    sha256 cellar: :any_skip_relocation, monterey:       "1a7a37995c91628caeee09449eadb1655651c3b0a7faca28bfaf422eb3315d49"
+    sha256 cellar: :any_skip_relocation, big_sur:        "05252a9af3a7313bf1e3e28938bd280b3320ce93023ebeaf4a46a1e0e41a3845"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e00bcf4239c0d986156bc3120e286f855ba095782d4b383c03dcae0016de6b37"
   end
 
   depends_on "cmake" => :build

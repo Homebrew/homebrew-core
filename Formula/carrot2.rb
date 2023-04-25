@@ -7,14 +7,14 @@ class Carrot2 < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "69de3f82e3f515bbae8b9f324516cff276e44fb59414f6d85cf9b8ca7f164f31"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "58c34ba802ae45ae5405161254d3f7cb31dc5cc47877f1f05ab48e39b5192f89"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b24fbd77bb2566fc819c610b88a41423c4e0e9b3278615f593e42d57904b74e8"
-    sha256 cellar: :any_skip_relocation, ventura:        "fdad86891cf9b2ef01c6196639b31346fb97092d3605aa879939f8364760e49d"
-    sha256 cellar: :any_skip_relocation, monterey:       "14b073501ea49f89cc20262478b4021a6b07290711202b66305d193930947d2f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d35c892c8a4f486aed827acb7b760e44303a2d7e7abc4b4087a3e520432dd684"
-    sha256 cellar: :any_skip_relocation, catalina:       "9c66b1e35b1c4eb718c3abae642c34666ea00a223b447b0d02fb81cd7f0183d7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "357fb923776eb79ecc87788189897165bf733fd35d0fdd3a94e37cb73333b8d9"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "467de1d1579ebfe1971aaf839c7b7e4edc41160c29aaefb9b15bf9f723651954"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a7c56bcc050c1d7d4e1f1449790e903947076f95eb7cdaf31597702fc1ff8429"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7f6033e34079c44b323e8b1adf5d9abd0c4170e21f79e07045a7efa9cbd8ae9f"
+    sha256 cellar: :any_skip_relocation, ventura:        "d1c7f08c90eadf7c82301cd7511b30ec3b15daa5d8e3555e0b88579144b8a28d"
+    sha256 cellar: :any_skip_relocation, monterey:       "7648fa1f8f16a8a1fad02bc03307f704db37e6ca0df56a7afba11410c2c2d74d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "80623d35329d07a22074eb202bf33a7d720b7db3a7e22f3bde60b8b43d2d41cb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bd0e863984e0d449b62d5a7b80005956bb5b87570d0959bacf781ac09432b9f4"
   end
 
   depends_on "gradle@7" => :build
@@ -34,6 +34,16 @@ class Carrot2 < Formula
       s.gsub! "node: '16.13.0'", "node: '#{Formula["node@18"].version}'"
       s.gsub! "yarn: '1.22.15'", "yarn: '#{Formula["yarn"].version}'"
     end
+
+    # Fix `jflex` dependency resolution.
+    jflex_regex = /^de\.jflex:jflex=(.*?)\r?$/
+    jflex_version = (buildpath/"versions.props").read
+                                                .lines
+                                                .grep(jflex_regex)
+                                                .first[jflex_regex, 1]
+    inreplace "gradle/jflex.gradle",
+      'jflex "de.jflex:jflex"',
+      "jflex \"de.jflex:jflex:#{jflex_version}\""
 
     system "gradle", "assemble", "--no-daemon"
 

@@ -1,12 +1,12 @@
 class Jadx < Formula
   desc "Dex to Java decompiler"
   homepage "https://github.com/skylot/jadx"
-  url "https://github.com/skylot/jadx/releases/download/v1.4.6/jadx-1.4.6.zip"
-  sha256 "1ee8772071095d9393b64031773ea546d85d2196e04626aa212aa651c3e9001c"
+  url "https://github.com/skylot/jadx/releases/download/v1.4.7/jadx-1.4.7.zip"
+  sha256 "a13d2be02ed640de54df937ead680f31ea06f4b8efd01860b9f0cf18a7d40e34"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "fdb37bd932d2cfc29073f9cae7aed203ec0a764bd98fca23b488e4052ae14410"
+    sha256 cellar: :any_skip_relocation, all: "035de90325e1e3b294a15302ef229b1f26cd8c255d2fa4b8ce335b59afca6c48"
   end
 
   head do
@@ -16,9 +16,9 @@ class Jadx < Formula
 
   depends_on "openjdk"
 
-  resource "homebrew-sample.apk" do
-    url "https://github.com/downloads/stephanenicolas/RoboDemo/robodemo-sample-1.0.1.apk"
-    sha256 "bf3ec04631339538c8edb97ebbd5262c3962c5873a2df9022385156c775eb81f"
+  resource "homebrew-test.apk" do
+    url "https://raw.githubusercontent.com/facebook/redex/fa32d542d4074dbd485584413d69ea0c9c3cbc98/test/instr/redex-test.apk"
+    sha256 "7851cf2a15230ea6ff076639c2273bc4ca4c3d81917d2e13c05edcc4d537cc04"
   end
 
   def install
@@ -34,8 +34,8 @@ class Jadx < Formula
   end
 
   test do
-    resource("homebrew-sample.apk").stage do
-      system "#{bin}/jadx", "-d", "out", "robodemo-sample-1.0.1.apk"
+    resource("homebrew-test.apk").stage do
+      system "#{bin}/jadx", "-d", "out", "redex-test.apk"
     end
   end
 end

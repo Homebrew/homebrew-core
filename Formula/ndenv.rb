@@ -23,7 +23,7 @@ class Ndenv < Formula
   def install
     inreplace "libexec/ndenv" do |s|
       if HOMEBREW_PREFIX.to_s != "/usr/local"
-        s.gsub! ":/usr/local/etc/ndenv.d", \
+        s.gsub! ":/usr/local/etc/ndenv.d",
             ":#{HOMEBREW_PREFIX}/etc/ndenv.d\\0"
       end
     end

@@ -46,13 +46,6 @@ class Luvit < Formula
         tag:      "v2.12.0",
         revision: "5d1052f11e813ff9edc3ec75b5282b3e6cb0f3bf"
 
-    # Remove outdated linker flags that break the ARM build.
-    # https://github.com/luvit/luvi/pull/261
-    patch do
-      url "https://github.com/luvit/luvi/commit/b2e501deb407c44a9a3e7f4d8e4b5dc500e7a196.patch?full_index=1"
-      sha256 "be3315f7cf8a9e43f1db39d0ef55698f09e871bea0f508774d0135c6375f4291"
-    end
-
     livecheck do
       url "https://raw.githubusercontent.com/luvit/luvit/#{LATEST_VERSION}/Makefile"
       regex(/LIT_VERSION=["']?(\d+(?:\.\d+)+)["']?$/i)
@@ -67,6 +60,13 @@ class Luvit < Formula
 
         get_lit_page[:content][/LUVI_VERSION:-v?(\d+(?:\.\d+)+)/i, 1]
       end
+    end
+
+    # Remove outdated linker flags that break the ARM build.
+    # https://github.com/luvit/luvi/pull/261
+    patch do
+      url "https://github.com/luvit/luvi/commit/b2e501deb407c44a9a3e7f4d8e4b5dc500e7a196.patch?full_index=1"
+      sha256 "be3315f7cf8a9e43f1db39d0ef55698f09e871bea0f508774d0135c6375f4291"
     end
   end
 

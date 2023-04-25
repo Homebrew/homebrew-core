@@ -3,7 +3,7 @@ class Standardese < Formula
   homepage "https://standardese.github.io"
   # TODO: use resource blocks for vendored deps
   license "MIT"
-  revision 11
+  revision 12
   head "https://github.com/standardese/standardese.git", branch: "master"
 
   # Remove stable block when patch is no longer needed.
@@ -21,13 +21,13 @@ class Standardese < Formula
   end
 
   bottle do
-    sha256                               arm64_ventura:  "a2308582350d4749a86fa522853149c0ba390448648474f1d50e327dc20c17e7"
-    sha256                               arm64_monterey: "33e5a19cf23a5194ed3aa586db6ef844dd3029d51c13031e0817e4bcc21ff528"
-    sha256                               arm64_big_sur:  "b714fb554c342b17688af3a60851dc5684a1bbdd9bef46e422c10e8c733bf49d"
-    sha256                               ventura:        "d4b3f22846934bbdca43d18596e4a1e931c8f70a937867917565443a81af5017"
-    sha256                               monterey:       "27bc5a09300ca56d02a0f0b576fad1784123fdced84801ba5592a930220e9a54"
-    sha256                               big_sur:        "4ebb3338033391933e6a4d79469bb16c7d0474c36bbe8f68a9b18841324e717b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5acd5b2967da6029f48db8551f389dd6988633a4b3468749eb2f6a26385cc316"
+    sha256                               arm64_ventura:  "eed1e35edbb1bfbf262b417e5aab37bec67a4077cc79c1f967163486b207ae1b"
+    sha256                               arm64_monterey: "2723cd4c0704b8569c2dabf4c5c860fe0264188f594584b5f6a143d0f37cf328"
+    sha256                               arm64_big_sur:  "7001995e73c41472c599e85047ca80ec445bf0364fb08e8da191c6d36f82c5c2"
+    sha256                               ventura:        "6006f0128f61000170c22e6d577220cf26d856961f38d04c893be92e3659b401"
+    sha256                               monterey:       "f03e71ef92a18a6576c0e7582d2b684392445d0f6345198d10abbc4a522c2b10"
+    sha256                               big_sur:        "5b6ab5b58db83a13b1e485be3cf557aec4d3a0df6649f8bb934d5140bcead72b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2a5f76d445bd817a56c5c60bcded105096536fe4db4067d851a15479bcafbb95"
   end
 
   depends_on "cmake" => :build

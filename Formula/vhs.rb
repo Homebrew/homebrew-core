@@ -1,19 +1,19 @@
 class Vhs < Formula
   desc "Your CLI home video recorder"
   homepage "https://github.com/charmbracelet/vhs"
-  url "https://github.com/charmbracelet/vhs/archive/v0.3.0.tar.gz"
-  sha256 "ff26b9a0079c07fde8f5b68636724acccdaef88729f43d4780bac460bbb1b41f"
+  url "https://github.com/charmbracelet/vhs/archive/v0.4.0.tar.gz"
+  sha256 "4192ac0f52961ffa83fa56407b130f493cccde7d9904cff280e48aec807ac579"
   license "MIT"
   head "https://github.com/charmbracelet/vhs.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7997be66ed2e76cca94170f4a8cce426d332db646e01ac3bfb83c8c2dcf8efe9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7997be66ed2e76cca94170f4a8cce426d332db646e01ac3bfb83c8c2dcf8efe9"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7997be66ed2e76cca94170f4a8cce426d332db646e01ac3bfb83c8c2dcf8efe9"
-    sha256 cellar: :any_skip_relocation, ventura:        "c40968b56ad8e396672d6c48468f58d35a9541e8ee2022c64645aef7974028b7"
-    sha256 cellar: :any_skip_relocation, monterey:       "c40968b56ad8e396672d6c48468f58d35a9541e8ee2022c64645aef7974028b7"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c40968b56ad8e396672d6c48468f58d35a9541e8ee2022c64645aef7974028b7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a7ce358ee25e9cf4ad5b300d63f1f51c019f5fc39e42a7916c40b50b343a6f29"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "31c9c02f43f1e6b778169bf5661082d4b6c8a35885806da725318c217b37ea18"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "31c9c02f43f1e6b778169bf5661082d4b6c8a35885806da725318c217b37ea18"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "31c9c02f43f1e6b778169bf5661082d4b6c8a35885806da725318c217b37ea18"
+    sha256 cellar: :any_skip_relocation, ventura:        "1068bbbbb1a63fec1cf8a544fd0f4853500057333030dda506c3345d6858cb65"
+    sha256 cellar: :any_skip_relocation, monterey:       "1068bbbbb1a63fec1cf8a544fd0f4853500057333030dda506c3345d6858cb65"
+    sha256 cellar: :any_skip_relocation, big_sur:        "1068bbbbb1a63fec1cf8a544fd0f4853500057333030dda506c3345d6858cb65"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fc9c6cb39612162468d91047345e30e88d3a786069c66a4145dbfdb86d863b71"
   end
 
   depends_on "go" => :build

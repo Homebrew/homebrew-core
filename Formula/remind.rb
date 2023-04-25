@@ -1,8 +1,8 @@
 class Remind < Formula
   desc "Sophisticated calendar and alarm"
   homepage "https://dianne.skoll.ca/projects/remind/"
-  url "https://dianne.skoll.ca/projects/remind/download/remind-04.02.04.tar.gz"
-  sha256 "e8d8ccd9441d94bb277c71efaf35a87ce2025bbed9954107a5c62fd7e47711c3"
+  url "https://dianne.skoll.ca/projects/remind/download/remind-04.02.05.tar.gz"
+  sha256 "9ce105855c19be052877e8ffe627e59458134bb23cfa138078c4839511f8f808"
   license "GPL-2.0-only"
   head "https://git.skoll.ca/Skollsoft-Public/Remind.git", branch: "master"
 
@@ -12,13 +12,13 @@ class Remind < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "67fcaad3473d70462f08225c0cbc7e608a82b0051f5d50943fa9902b2b59b5c1"
-    sha256 arm64_monterey: "ad9ae323b171a4c9ff7c2f978319782ef7d681cd593ee8d2339ee2f71576d05b"
-    sha256 arm64_big_sur:  "11751814e48fb1506af7115908528516d48bb1de1ae4e238ac236d8b55ce7862"
-    sha256 ventura:        "3f338a5d51958cf6ec97029fac9e4abf24bb81bb17940e172d73f4da09f8ba45"
-    sha256 monterey:       "7b38066dd20e1f4fb02a2e70c3368265d361d042e345edcd40e2efe95c010dd8"
-    sha256 big_sur:        "d8b60a4406f4993ae212faf2e16cb275790032b41f3a162b7149683e7b5252ed"
-    sha256 x86_64_linux:   "1a4082452ff001c22b68bdcefe6e28ef71de3f5ebcb2806cbf0d8d567c6e135a"
+    sha256 arm64_ventura:  "5bb71ecc55b554a235983bb2cd741edcda11fd4538c3447cdaf265d6586ec54e"
+    sha256 arm64_monterey: "28d65fb187d408d886d75e7a2a7908a25154868d71152c99db6606e51e8d5c72"
+    sha256 arm64_big_sur:  "17af51232e21084f5ad6c7cf9f7392bf0077d758106fc675bca315b84a601c58"
+    sha256 ventura:        "84bddb98941ebfa77ef4959c17bee80f6120630a7313e8fc970edae5252aed78"
+    sha256 monterey:       "55b6f9e927c170169e2f2c45a43b5000630697111c878511353d74ebd176207b"
+    sha256 big_sur:        "901068868681c343d6a31f3b5a75fef3b1527738fc8749824436f55be183ff74"
+    sha256 x86_64_linux:   "a8095347b8e72958a2d38470ac12da627b507fc6e6e38c4527beb3f6a57c43c3"
   end
 
   conflicts_with "rem", because: "both install `rem` binaries"

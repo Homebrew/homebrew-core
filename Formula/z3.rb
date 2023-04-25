@@ -13,13 +13,14 @@ class Z3 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "de7a906ffaca85ea45dd539fa56699d29daaf5acb734b93cf4ff737203376e24"
-    sha256 cellar: :any,                 arm64_monterey: "41357aed8d69b68eeb823a4b1ae603a384c2c104c789411d222909bb09265071"
-    sha256 cellar: :any,                 arm64_big_sur:  "01a528ad6cd584216f682f6a05a9bc413d96fb881b87e9ec2a15a56efb08d166"
-    sha256 cellar: :any,                 ventura:        "9918c8a891562b14bb69d7642a5f3cf5a79767baf78970710fd9c67e405a2f37"
-    sha256 cellar: :any,                 monterey:       "5707278f339e55a64b1dfcd2ccad204be4352d0326b370f7f3af94b88652d3b8"
-    sha256 cellar: :any,                 big_sur:        "59b19f0d8232e43f61a942ca91a91d8c1f2b47874c0118e31517a6ef27659d14"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d8039fa032a059b5dfc7b61412dc6a446b1f16839e5efaf52b3e61428ea613a2"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "25ffba5dac94b2d5d8070bd3235f28e6e064ed9a36370ffe68740319a6809549"
+    sha256 cellar: :any,                 arm64_monterey: "677562f0bb1ab8b025e12bd01d3fb6e377d7cedae20675a4bcdc2cee7671d2b8"
+    sha256 cellar: :any,                 arm64_big_sur:  "04f835bb74186dc32df020d2214bfaf463877ec0f73e211597f6b3ec61749d29"
+    sha256 cellar: :any,                 ventura:        "d60a684faa6ff2050adba2a8880441ff47b54a41be752e6cda61f305437bd112"
+    sha256 cellar: :any,                 monterey:       "f2dc9b5807fbc14942bd69e2a01a88ce53d05d97180815f47f77f2b8fe3cc4e7"
+    sha256 cellar: :any,                 big_sur:        "d151616255d71fa901e27307fe8a52a7238c6caadf16f2a56040eec1fe82edcb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6fd343ef4547fc890489f6eb49d35bf2ea9530b43e8c2b3a3f991212501992b0"
   end
 
   depends_on "cmake" => :build
@@ -34,11 +35,8 @@ class Z3 < Formula
   end
 
   def install
-    # LTO on Intel Monterey produces segfaults.
-    # https://github.com/Z3Prover/z3/issues/6414
-    do_lto = MacOS.version < :monterey || Hardware::CPU.arm?
     args = %W[
-      -DZ3_LINK_TIME_OPTIMIZATION=#{do_lto ? "ON" : "OFF"}
+      -DZ3_LINK_TIME_OPTIMIZATION=ON
       -DZ3_INCLUDE_GIT_DESCRIBE=OFF
       -DZ3_INCLUDE_GIT_HASH=OFF
       -DZ3_INSTALL_PYTHON_BINDINGS=ON

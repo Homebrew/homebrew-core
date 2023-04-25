@@ -8,21 +8,25 @@ concurrency:
 
 permissions:
   contents: read
+  issues: write
+  pull-requests: write
+  statuses: write
 
 jobs:
   triage:
     runs-on: ubuntu-22.04
     steps:
       - name: Check commit format
+        if: ${{!contains(github.event.pull_request.labels.*.name, 'CI-published-bottle-commits')}}
         uses: Homebrew/actions/check-commit-format@master
         with:
-          token: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
+          token: ${{secrets.GITHUB_TOKEN}}
 
       - name: Label pull request
         uses: Homebrew/actions/label-pull-requests@master
         if: always()
         with:
-          token: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
+          token: ${{secrets.GITHUB_TOKEN}}
           def: |
             - label: workflows
               path: .github/workflows/.+
@@ -152,7 +156,7 @@ jobs:
               content: system "swift", "build"
 
             - label: long build
-              path: Formula/(agda|arangodb|aws-sdk-cpp|boost|deno|dotnet|dvc|emscripten|envoy|freetype|gcc|ghc|libomp|libtensorflow|llvm|node|pango|ponyc|rust|suite-sparse|swift|texlive|qt|v8|vtk|xz|zstd)(@[0-9]+)?.rb
+              path: Formula/(agda|arangodb|boost|deno|dotnet|dvc|emscripten|envoy|freetype|gcc|ghc|graph-tool|libomp|libtensorflow|llvm|node|pango|ponyc|rav1e|rust|suite-sparse|swift|texlive|qt|v8|vtk|xz|zstd)(@[0-9]+)?.rb
               keep_if_no_match: true
 
             - label: CI-build-dependents-from-source
@@ -164,7 +168,7 @@ jobs:
               keep_if_no_match: true
 
             - label: CI-linux-self-hosted
-              path: Formula/(freetype|gdbm|llvm|openssl@1.1|python@3.11|qt(@5)?|xz|zstd).rb
+              path: Formula/(envoy|freetype|gdbm|llvm|openssl@1.1|python@3.11|qt(@5)?|xz|zstd).rb
               keep_if_no_match: true
 
             - label: bump-formula-pr

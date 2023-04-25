@@ -71,7 +71,7 @@
     "exclude_packages": ["six"]
   },
   "bandit": {
-    "exclude_packages": ["PyYAML"]
+    "exclude_packages": ["PyYAML", "pygments"]
   },
   "beancount": {
     "exclude_packages": ["six"]
@@ -104,7 +104,7 @@
   },
   "certbot": {
     "extra_packages": ["certbot-apache", "certbot-nginx"],
-    "exclude_packages": ["six"]
+    "exclude_packages": ["cffi", "pycparser", "six"]
   },
   "cffi": {
     "exclude_packages": ["pycparser"]
@@ -139,6 +139,9 @@
   "charm-tools": {
     "exclude_packages": ["six"],
     "extra_packages": ["wheel"]
+  },
+  "chatblade": {
+    "exclude_packages": ["PyYAML", "pygments"]
   },
   "checkov": {
     "exclude_packages": ["six", "tabulate", "PyYAML", "typing-extensions"]
@@ -259,6 +262,9 @@
   "fobis": "fobis-py",
   "fonttools": {
     "extra_packages": ["Brotli"]
+  },
+  "ford": {
+    "exclude_packages": ["pygments"]
   },
   "gcalcli": {
     "exclude_packages": ["six"]
@@ -385,7 +391,7 @@
     "exclude_packages": ["six", "tabulate", "Pygments"]
   },
   "localstack": {
-    "exclude_packages": ["six", "tabulate", "PyYAML", "Pygments"]
+    "exclude_packages": ["cffi", "six", "tabulate", "pycparser", "PyYAML", "Pygments"]
   },
   "locust": {
     "exclude_packages": ["six", "typing-extensions"]
@@ -408,6 +414,11 @@
     "package_name": "mdv[yaml]",
     "exclude_packages": ["tabulate", "PyYAML", "Pygments"],
     "extra_packages": ["Markdown==2.6.11"]
+  },
+  "meta-package-manager": {
+    "exclude_packages": [
+      "docutils", "Pygments", "PyYAML", "tabulate", "typing-extensions"
+    ]
   },
   "mkdocs": {
     "exclude_packages": ["six", "PyYAML"]
@@ -526,7 +537,7 @@
     "exclude_packages": ["six"]
   },
   "prowler": {
-    "exclude_packages": ["six", "tabulate", "typing-extensions", "PyYAML"]
+    "exclude_packages": ["cffi", "pycparser", "six", "tabulate", "typing-extensions", "PyYAML"]
   },
   "ptpython": {
     "exclude_packages": ["Pygments"]
@@ -638,7 +649,7 @@
     "exclude_packages": ["six"]
   },
   "search-that-hash": {
-    "exclude_packages": ["typing-extensions", "Pygments"]
+    "exclude_packages": ["typing-extensions", "Pygments", "name-that-hash", "click", "commonmark", "rich"]
   },
   "semgrep": {
     "package_name": "semgrep",
@@ -698,6 +709,9 @@
   },
   "todoman": {
     "exclude_packages": ["six", "tabulate"]
+  },
+  "touca": {
+    "exclude_packages": ["pygments"]
   },
   "trailscraper": {
     "exclude_packages": ["six"]

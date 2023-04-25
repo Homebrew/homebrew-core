@@ -123,14 +123,14 @@ class QtAT5 < Formula
   # Fix build for GCC 11
   patch do
     url "https://invent.kde.org/qt/qt/qtbase/commit/ee7aed5e1020fa88f86777701948c8a236db4fc5.patch"
-    sha256 "ed082ed3cac51158ede4a0f4236eedf99c0981b3451c69f34e116fa8487fa333"
+    sha256 "70b87c38dee827b36ea853e602edeb2df1eec5d098646e3dc1a3d3f2ab2e6459"
     directory "qtbase"
   end
 
   # https://download.qt.io/official_releases/qt/5.15/CVE-2022-25255-qprocess5-15.diff
   patch do
     url "https://invent.kde.org/qt/qt/qtbase/commit/12df089a0095645daae4f932c495258751d881fc.patch"
-    sha256 "43ba11c26de2fa57bf541be02d3078bde4e8fecabda97e28e35e1f9252c4264b"
+    sha256 "325178702d0cf30c96ab83f279c3f4db666d8fdc2be193ef944311e144caba0d"
     directory "qtbase"
   end
 

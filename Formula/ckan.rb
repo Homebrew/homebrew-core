@@ -1,8 +1,8 @@
 class Ckan < Formula
   desc "Comprehensive Kerbal Archive Network"
   homepage "https://github.com/KSP-CKAN/CKAN/"
-  url "https://github.com/KSP-CKAN/CKAN/releases/download/v1.31.2/ckan.exe"
-  sha256 "c5b55c19bce750ea302101ec3f5a54b69c07794f2fcc80b06244687d54480cf4"
+  url "https://github.com/KSP-CKAN/CKAN/releases/download/v1.32.0/ckan.exe"
+  sha256 "703f12e54712e6d049a16d48131ae6b68627f24fcfed18c2440c7b0448405869"
   license "MIT"
 
   livecheck do
@@ -11,7 +11,12 @@ class Ckan < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "5d26320d7220f4e6282c9f1b6190edfcd183a81930fbeb89365e4832c9ae2e62"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "baa3fca56ff2fa9b9a0e50e06ae746731108be8770d16575a1af43f0a507eb6c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "baa3fca56ff2fa9b9a0e50e06ae746731108be8770d16575a1af43f0a507eb6c"
+    sha256 cellar: :any_skip_relocation, ventura:        "baa3fca56ff2fa9b9a0e50e06ae746731108be8770d16575a1af43f0a507eb6c"
+    sha256 cellar: :any_skip_relocation, monterey:       "baa3fca56ff2fa9b9a0e50e06ae746731108be8770d16575a1af43f0a507eb6c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "baa3fca56ff2fa9b9a0e50e06ae746731108be8770d16575a1af43f0a507eb6c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5b4484b936329c4a7c01b520336949b246a7beedfb8d6b0624ebeec6bd933564"
   end
 
   depends_on "mono"

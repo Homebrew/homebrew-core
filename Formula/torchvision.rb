@@ -3,8 +3,8 @@ class Torchvision < Formula
 
   desc "Datasets, transforms, and models for computer vision"
   homepage "https://github.com/pytorch/vision"
-  url "https://github.com/pytorch/vision/archive/refs/tags/v0.14.1.tar.gz"
-  sha256 "ced67e1cf1f97e168cdf271851a4d0b6d382ab7936e7bcbb39aaa87239c324b6"
+  url "https://github.com/pytorch/vision/archive/refs/tags/v0.15.1.tar.gz"
+  sha256 "689d23d4ebb0c7e54e8651c89b17155b64341c14ae4444a04ca7dc6f2b6a0a43"
   license "BSD-3-Clause"
 
   livecheck do
@@ -13,13 +13,11 @@ class Torchvision < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "105fefd0fba873baa04bb18d258764f2c19381f8df4898275f4f011bb3cc5093"
-    sha256 cellar: :any,                 arm64_monterey: "1535824bd57631ff8233c97973adf6e5aa580d0480f1075a1abeff42a6a824f4"
-    sha256 cellar: :any,                 arm64_big_sur:  "64468c7a188dc9e582ffbaa84f7676c0ab4429364ae0a4ff839c3b97666d5beb"
-    sha256 cellar: :any,                 ventura:        "ab654adfe800fb5651a631818801a603b942ff24b691ec1d48cf03b88e4b8a22"
-    sha256 cellar: :any,                 monterey:       "92dbfc9b11c8b410b8f3adfb3bff5bd1468865179e10ede6154a74be8d12bab2"
-    sha256 cellar: :any,                 big_sur:        "d494ddeddff9c94d692dc0bbc65881ca5a6ecb544884d8122b0aa100e427f90e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7ee8ead5885d4f0e4cb5c4b9d1155e72111eb651998000cd8a5ab51654de055a"
+    sha256 cellar: :any,                 arm64_ventura:  "735349685ae524165144dd5a09a95f18b6a52d3b5a13a7fa125c39ca641c8d6b"
+    sha256 cellar: :any,                 arm64_monterey: "8e73afd6cb21a3e3f150019692f0d15f73ed6cdfdb761c9db991a253f550ee35"
+    sha256 cellar: :any,                 ventura:        "c10438faefe4981f7e0e6f810912dd50a377edb079a98b2e9c00780a00d7942c"
+    sha256 cellar: :any,                 monterey:       "b940f3823c61c90bc43973c2bcb715e7b340774d636292415e4169abfc756b8c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9dbae25770408ecd4d8049423dec2d1a5c4d4bfbe07f74b568c6305487cd5c80"
   end
 
   depends_on "cmake" => :build
@@ -42,8 +40,8 @@ class Torchvision < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/96/d7/1675d9089a1f4677df5eb29c3f8b064aa1e70c1251a0a8a127803158942d/charset-normalizer-3.0.1.tar.gz"
-    sha256 "ebea339af930f8ca5d7a699b921106c6e29c617fe9606fa7baa043c1cdae326f"
+    url "https://files.pythonhosted.org/packages/ff/d7/8d757f8bd45be079d76309248845a04f09619a7b17d6dfc8c9ff6433cac2/charset-normalizer-3.1.0.tar.gz"
+    sha256 "34e0a2f9c370eb95597aae63bf85eb5e96826d81e3dcf88b8886012906f509b5"
   end
 
   resource "idna" do
@@ -52,13 +50,13 @@ class Torchvision < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/a5/61/a867851fd5ab77277495a8709ddda0861b28163c4613b011bc00228cc724/requests-2.28.1.tar.gz"
-    sha256 "7c5599b102feddaa661c826c56ab4fee28bfd17f5abca1ebbe3e7f19d7c97983"
+    url "https://files.pythonhosted.org/packages/9d/ee/391076f5937f0a8cdf5e53b701ffc91753e87b07d66bae4a09aa671897bf/requests-2.28.2.tar.gz"
+    sha256 "98b1b2782e3c6c4904938b84c0eb932721069dfdb9134313beff7c83c2df24bf"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/c2/51/32da03cf19d17d46cce5c731967bf58de9bd71db3a379932f53b094deda4/urllib3-1.26.13.tar.gz"
-    sha256 "c083dd0dce68dbfbe1129d5271cb90f9447dea7d52097c6e0126120c521ddea8"
+    url "https://files.pythonhosted.org/packages/21/79/6372d8c0d0641b4072889f3ff84f279b738cd8595b64c8e0496d4e848122/urllib3-1.26.15.tar.gz"
+    sha256 "8a388717b9476f934a21484e8c8e61875ab60644d29b9b39e11e4b9dc1c6b305"
   end
 
   def install
@@ -71,11 +69,17 @@ class Torchvision < Formula
       "(jpeg_found, jpeg_conda, jpeg_include, jpeg_lib) = find_library(\"jpeglib\", vision_include)",
       "(jpeg_found, jpeg_conda, jpeg_include, jpeg_lib) = (True, False, \"#{jpeg.include}\", \"#{jpeg.lib}\")"
 
-    inreplace "pyproject.toml",
-      'requires = ["setuptools", "torch", "wheel"]',
-      'requires = ["setuptools", "wheel"]'
+    python3 = "python3.11"
+    venv = virtualenv_create(libexec, python3)
+    venv.pip_install resources
 
-    virtualenv_install_with_resources using: "python@3.11"
+    # We depend on pytorch, but that's a separate formula, so install a `.pth` file to link them.
+    # This needs to happen _before_ we try to install torchvision.
+    site_packages = Language::Python.site_packages(python3)
+    pytorch = Formula["pytorch"].opt_libexec
+    (libexec/site_packages/"homebrew-pytorch.pth").write pytorch/site_packages
+
+    venv.pip_install_and_link(buildpath, build_isolation: false)
 
     pkgshare.install "examples"
   end

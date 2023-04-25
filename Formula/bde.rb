@@ -1,8 +1,8 @@
 class Bde < Formula
   desc "Basic Development Environment: foundational C++ libraries used at Bloomberg"
   homepage "https://github.com/bloomberg/bde"
-  url "https://github.com/bloomberg/bde/archive/3.112.0.0.tar.gz"
-  sha256 "e6dfade0a1d9a1b9554b8a94e359169dab492162ffa956cb889817033daf5405"
+  url "https://github.com/bloomberg/bde/archive/3.117.0.0.tar.gz"
+  sha256 "7dcea8f13105df27f2207fc80e271f97314e763ee573ad936f9b8d7f076b57bb"
   license "Apache-2.0"
 
   livecheck do
@@ -11,13 +11,13 @@ class Bde < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "95a5affd84fe492b0cffcd4eacae5135384bd43c22734a548a8d09efb9c9f3bc"
-    sha256 cellar: :any,                 arm64_monterey: "eeaaf4793e96719f25a4886fd6e7af6b9cbe425771f2d8de8e6a6409bf70df84"
-    sha256 cellar: :any,                 arm64_big_sur:  "2ea70b99f5f12f7923908a955437c81b490956e094417dda7110acbbe9f4bbda"
-    sha256 cellar: :any,                 ventura:        "ee465031a946e91f985f71e40d9083b7926ee97fb59d07f91d9e7a20e06907b8"
-    sha256 cellar: :any,                 monterey:       "5a97b17eb3ae97f812e6f150d50198e495d8c3a29a56fba4fea38b694a07900c"
-    sha256 cellar: :any,                 big_sur:        "516457fc0ee244818d00973fc1862b9a261d1c7a80f8ca81b35b08e582939d25"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d8964001110baab7e5f9333e8fb5c99f60e84d97a9517363e95fd75bfaeca273"
+    sha256 cellar: :any,                 arm64_ventura:  "6ca88d6a3cb310b366c419f699a8a811b8742906c4d66d0655fc30c1b2a3bb5c"
+    sha256 cellar: :any,                 arm64_monterey: "28a9d3bbc353dccd450607ab0592d43645954b2d52dc388928e032925fdfe1f5"
+    sha256 cellar: :any,                 arm64_big_sur:  "65686e68e713323b90c22118ada6590cb176b4cf83d2e1b6a44265e22625d4e9"
+    sha256 cellar: :any,                 ventura:        "436e18f57b3bc003471e3f8c0e021671bf65a03067087c2eb3ecb599a9a0459d"
+    sha256 cellar: :any,                 monterey:       "24cdc824e5f45852dbd7b8a39f231ace7a0fb0ae1bc0833ac2ffb2cb49b1b5ba"
+    sha256 cellar: :any,                 big_sur:        "ada9edb55e92eda3952efafbe87d91a904d44e2f3df3431353cc9311e990a123"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8ff35f52c38e498cbfb8d45a1ae4c6e66fa51d3580d2c8499fb963803f718600"
   end
 
   depends_on "cmake" => :build
@@ -26,8 +26,8 @@ class Bde < Formula
   depends_on "pcre2"
 
   resource "bde-tools" do
-    url "https://github.com/bloomberg/bde-tools/archive/3.112.0.0.tar.gz"
-    sha256 "4588c478f995f65fbd805cbe102f4440b602504d2cbd4937b79b3e49b06da0f4"
+    url "https://github.com/bloomberg/bde-tools/archive/3.117.0.0.tar.gz"
+    sha256 "9f92f4c2cf1fc96d483743a367ed42f929dc0f41a6c0a8a8b7f72099bd52f28b"
   end
 
   def install

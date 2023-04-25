@@ -22,6 +22,7 @@
   "lua@5.1",
   "numpy@1.16",
   "openssl@1.1",
+  "openssl@3.0",
   "openssl@3",
   "pangomm@2.46",
   "postgresql@14",

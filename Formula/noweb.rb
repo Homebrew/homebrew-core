@@ -6,6 +6,11 @@ class Noweb < Formula
   sha256 "c913f26c1edb37e331c747619835b4cade000b54e459bb08f4d38899ab690d82"
   license "Noweb"
 
+  livecheck do
+    url "https://deb.debian.org/debian/pool/main/n/noweb/"
+    regex(/href=.*?noweb[._-]v?(\d+(?:\.\d+)+[a-z]?)\.orig\.t/i)
+  end
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "445837953be37e6f291e346a9469b445cacdf9a0ef4d7da96dbe6c779b62f9a3"

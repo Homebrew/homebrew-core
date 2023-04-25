@@ -15,7 +15,7 @@ class Liblunar < Formula
   end
 
   # Replaced by lunar-date
-  deprecate! date: "2022-07-02", because: :deprecated_upstream
+  disable! date: "2023-04-17", because: :deprecated_upstream
 
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build

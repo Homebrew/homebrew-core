@@ -6,26 +6,27 @@ class Epinio < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "47f2b7176f148d2de36604f84e2ccea7171320af6455d5396f1c788b1bfdc0eb"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c5d77c7dc055d802805f3f76a9fd9b8557651abddd0d4f93d8a589290ec4ef4f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "65dcb228f5ea0aecb2c3ba1d85624eac98d76e8c15cf87b2209683f1e7896dce"
-    sha256 cellar: :any_skip_relocation, ventura:        "05b4a6d9fd078f09afdd3f037a7b3bd420c25ea25b4e4282a9d90ee711f95165"
-    sha256 cellar: :any_skip_relocation, monterey:       "8d1474f7f9b47570521502580304b3f00cb6ea4b21d4a0683c3a52eba22ce89a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d05de4f6b6c43da844db409e8c907d10144259498f559b19ed1364981fbd8e3c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fbb9bd723cf1ad7bee7889ad495ead2ae4d1f30fedc721f7c6993361ffa9ce0c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a03f3cddb27ff713c3275ff8f51f9a28eb3ee6cef10d05a3d87d989141f35de6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f84c430a10e92100b07cf02cfcdff8f7c5acf608e49ca97da9730f115c89b132"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d297d2ba42a746f0efd15be2525761bcedfada7954a759d9db9601e074838b9a"
+    sha256 cellar: :any_skip_relocation, ventura:        "a688b853670210fbff58b29667c86b21141a9308663d17a33d29772af468a35d"
+    sha256 cellar: :any_skip_relocation, monterey:       "e1b13fe45a24f64311336674aa944780ad8273c425a813b71e73755436ee5b5d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8c15844f6b95aea295f35a671af57cdb610fe0719db1549f0d4829fadd3c883b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6f2145cf395903ba817b23fc42fc3c83c00b03c8b2236ca7d43c3671f26ab16a"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X github.com/epinio/epinio/internal/version.Version=#{version}")
+    system "go", "build", *std_go_args(ldflags: "-s -w -X github.com/epinio/epinio/internal/version.Version=v#{version}")
 
     generate_completions_from_executable(bin/"epinio", "completion")
   end
 
   test do
     output = shell_output("#{bin}/epinio version 2>&1")
-    assert_match "Epinio Version: #{version}", output
+    assert_match "Epinio Version: v#{version}", output
 
     output = shell_output("#{bin}/epinio settings update-ca 2>&1")
     assert_match "failed to get kube config", output

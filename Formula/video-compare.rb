@@ -4,15 +4,16 @@ class VideoCompare < Formula
   url "https://github.com/pixop/video-compare/archive/refs/tags/20230311.tar.gz"
   sha256 "83f5bb685e511f8faa9eb482f5f3a724a612d2012eaa58e780d454d58df75f39"
   license "GPL-2.0-only"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "c01be1a066dc0440322413a909e8ece4bc9c4be686bfc52e8e12356c80312754"
-    sha256 cellar: :any,                 arm64_monterey: "ff717128674515b53eb342beb5d11afdd5bb419450cd84753dea25c9e106bae9"
-    sha256 cellar: :any,                 arm64_big_sur:  "bce04f6386ddb06067604c7a6ae1acace835e7505dd60d0b52c67cfd590564d5"
-    sha256 cellar: :any,                 ventura:        "c6e9ff5293f1cff468016469ee679d943e7d8c8b357b86ced850dc46d86fd5e3"
-    sha256 cellar: :any,                 monterey:       "c1a555b42dc25787ae9665dfdc9e64ea401c590359a32ec1bcb4f70638d660bf"
-    sha256 cellar: :any,                 big_sur:        "f0649243205c01e4487c97a46180470b12e86ef3bde5f650e7146ed20d28fac1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "84609aa054ff9f6670300c341737b0a81b05e4d5ec2b545dd6cb2d68a6fb4bd0"
+    sha256 cellar: :any,                 arm64_ventura:  "66d9d2a8ff4324ff0c9ac32954b64f3649bfc5238ba76765b65cdfb2aa28da66"
+    sha256 cellar: :any,                 arm64_monterey: "29629c968d82cbcee9064c90fbe6e17adf81fe16dce39dc98a24bde41ead2361"
+    sha256 cellar: :any,                 arm64_big_sur:  "966532b582c48f3a330ffeef727c0b80b296acc5567461a96b7be5f09d579c82"
+    sha256 cellar: :any,                 ventura:        "c89baa9423d869fe47127add90e16bb4ece8bba611a6358d6b3b80ac1e5a7842"
+    sha256 cellar: :any,                 monterey:       "682172978b65374db480c07453a51702d8e4f66fa871a9c07ee10ee880681474"
+    sha256 cellar: :any,                 big_sur:        "3835f77ce21116b5e9fc8f61a99a256253fc1601124ea83b1bc0fe58974e5ba6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6f13bb83562dc0625c8629ec263d7e9f1c0e27476ff7432365515dbe36c89ceb"
   end
 
   depends_on "ffmpeg"

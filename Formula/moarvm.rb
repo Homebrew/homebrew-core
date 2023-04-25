@@ -1,8 +1,8 @@
 class Moarvm < Formula
   desc "VM with adaptive optimization and JIT compilation, built for Rakudo"
   homepage "https://moarvm.org"
-  url "https://github.com/MoarVM/MoarVM/releases/download/2023.02/MoarVM-2023.02.tar.gz"
-  sha256 "67e214d44d5f626787ca7f04424043a639308a43a7777b6fa41926b7240e0dc5"
+  url "https://github.com/MoarVM/MoarVM/releases/download/2023.04/MoarVM-2023.04.tar.gz"
+  sha256 "8e83e894a3e04a213adb340552520f30181d4d280c77a576b5c1ee2214a03364"
   license "Artistic-2.0"
 
   livecheck do
@@ -11,13 +11,13 @@ class Moarvm < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "25ef89f366c23e4ee1466e54b833699756210957d599d124f8bdb8f941d221a2"
-    sha256 arm64_monterey: "810a8b90e384ebafc3129c442fc8011ff15bfbc8a402ee112f1234be7fe971cd"
-    sha256 arm64_big_sur:  "1f48684d345d051d79e5e8077d055ec0349517aed2a22e43bc0e7b02355b2184"
-    sha256 ventura:        "d5e27c13c55d2a0b6cd8aeb2679f61aef40f7bd5257621d60b601710b85778b7"
-    sha256 monterey:       "f8e2a42f8d00a8abc07d80dc844d8ed09fdbe6f1f186c3b8ec3fdb3d25fbdd6d"
-    sha256 big_sur:        "3c002e9a027d4b8b585243e4217d23d96bf7e0d27d503780fa6a57196b684afa"
-    sha256 x86_64_linux:   "52b1fbdd24828845cc4ffbe62a230f8479d3df49c1e996ba742a9a1177440ff3"
+    sha256 arm64_ventura:  "affe4e7a3bb56e5d3f364b44937f4d6909188ee0866b4fcf4961882b8caea577"
+    sha256 arm64_monterey: "ea66d469fa62b2d44d00e59b68a506887d330de9953df22358e49e19a985dda9"
+    sha256 arm64_big_sur:  "4dd6d37bc64321dcac4c363072fc9f90ea83ad6c864108d20915a922d6d9d9c5"
+    sha256 ventura:        "9691e18940b7ebac50254897457f34a624c4f09003aedeb334148e6cf4711feb"
+    sha256 monterey:       "52fd840b6b3ce8c587955adbc3c92703ba612807d9bcbe8a505cbe5029503029"
+    sha256 big_sur:        "2beb85eb150999eb40ca2aba830dbfeaa842093fcb9d50157a87f569b665e3d6"
+    sha256 x86_64_linux:   "15030842248e39212b4f1e4464b01e1599ccaed2a5f9f482204744eefd8cf5a2"
   end
 
   depends_on "pkg-config" => :build

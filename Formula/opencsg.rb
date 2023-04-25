@@ -11,24 +11,23 @@ class Opencsg < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "7d4d196ed149e1eb1e0fd705629cb9f076297e47aed98f1b9eef05e9b6f85db0"
-    sha256 cellar: :any,                 arm64_big_sur:  "955c5a67864ff4eff48adab2af92c82d75df66c79c8c2341159975f3971c64bf"
-    sha256 cellar: :any,                 monterey:       "304288ec34c1d0033d741d88d34647ffcfdf868f06ca211250b6a838e3e323ea"
-    sha256 cellar: :any,                 big_sur:        "e179bb1855e3b3f65a32165ceb840334a5100e8c066b2e41a2ef9e084a877e8d"
-    sha256 cellar: :any,                 catalina:       "79b0a215f6d86cfcdf071f5c7058bcbf12bb4f18fe1894fb4ecea4a6a81d7fe8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7e7c5cd017e6c1e637bdc9d2fb797fcf0a3f9f348263b8685f25a3e60377fd8e"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "d81b7b99ecf0f9005bb7ad7e5d620a69bd616e26149acbe75f5a93207e54ebbe"
+    sha256 cellar: :any,                 arm64_monterey: "d81b7b99ecf0f9005bb7ad7e5d620a69bd616e26149acbe75f5a93207e54ebbe"
+    sha256 cellar: :any,                 arm64_big_sur:  "c25ed441e4839673e8e498fa668876dee9f969f47a0ced101bbb0657aa7e2b08"
+    sha256 cellar: :any,                 ventura:        "e1a7e587d9b66b0a23184e0ab3d3e9df41424fe7a9615bd13432affd89a133fd"
+    sha256 cellar: :any,                 monterey:       "e1a7e587d9b66b0a23184e0ab3d3e9df41424fe7a9615bd13432affd89a133fd"
+    sha256 cellar: :any,                 big_sur:        "065b62d0dd08a2dd656ca87a615465efd114ee2a758d3a31d4c387888b356fbb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3c66be0ffb9e3fee24f1942092ef33340e92af64a71a170cbdb2ee7f599af2c5"
   end
 
   depends_on "qt@5" => :build
   depends_on "glew"
 
-  # This patch disabling building examples
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/990b9bb/opencsg/disable-examples.diff"
-    sha256 "12cc799a6352eda4a18706eeefea059d14e23605a627dc12ed2a809f65328d69"
-  end
-
   def install
+    # Disable building examples
+    inreplace "opencsg.pro", "src example", "src"
+
     qt5 = Formula["qt@5"].opt_prefix
     system "#{qt5}/bin/qmake", "-r", "INSTALLDIR=#{prefix}",
       "INCLUDEPATH+=#{Formula["glew"].opt_include}",

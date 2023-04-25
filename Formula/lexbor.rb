@@ -1,20 +1,18 @@
 class Lexbor < Formula
   desc "Fast embeddable web browser engine written in C with no dependencies"
   homepage "https://lexbor.com/"
-  url "https://github.com/lexbor/lexbor/archive/refs/tags/v2.1.0.tar.gz"
-  sha256 "f3aeeb0c47d9d34b7b32411ce6a8fe833b825fa21730a593c32f53c9834a3f0d"
+  url "https://github.com/lexbor/lexbor/archive/refs/tags/v2.2.0.tar.gz"
+  sha256 "0583bad09620adea71980cff7c44b61a90019aa151d66d2fe298c679b554c57d"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "4c774414ad87eed57d9cfc6acdf3fbdefd1f79e2aa32606ba8647986403d857d"
-    sha256 cellar: :any,                 arm64_monterey: "049e9dcce3ab4f13d659346cd8e437df6fa1436835148cd77b9a692c892247a5"
-    sha256 cellar: :any,                 arm64_big_sur:  "7ff7b35d9f6c4eb4ed63a7dde659430d17ca5c48564d6702dc9b4e1ea955592c"
-    sha256 cellar: :any,                 ventura:        "b07d98d4d1af57d0306f87201a7732e4dc2e134b496ea9d61f433fbb09d2d0a4"
-    sha256 cellar: :any,                 monterey:       "f6d5df6a5a8b4a0c68276927883bcf9950d79e0c8534671345be60abb8cf5eda"
-    sha256 cellar: :any,                 big_sur:        "e553e88f89c5fb07eb2e5da0950888f1f8e60a6c23c05999119f5fdc50acc9a2"
-    sha256 cellar: :any,                 catalina:       "717a39abae12061410e36356219b4f44a31d4ca6c050966d48a5cf941ac13421"
-    sha256 cellar: :any,                 mojave:         "d6ad60202c6e4b55b3a88fedd550a87c644592ff42d391f322d177ca7bbbf829"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "352ac6adcbff469c1f691015b623f41f864ab4425225a0606a333a47e66d137c"
+    sha256 cellar: :any,                 arm64_ventura:  "ceb8da66d0a103914aaaad881d59463c08cabc2ad4f203cf4be2d471f3abeb07"
+    sha256 cellar: :any,                 arm64_monterey: "fd3d8997a6c9ff59c8a0b43a394a96e6b7abf28ac4e2620e04207d6d6cb86fd8"
+    sha256 cellar: :any,                 arm64_big_sur:  "a07d0bbee8d40b4fd3c6786ae121f8ba4ef2952b0f63efbe4542869965e8eab1"
+    sha256 cellar: :any,                 ventura:        "0058757c572e04dc5ed0d4306de5d9ff07eb10a4f1e623fba23fd25960bde1f0"
+    sha256 cellar: :any,                 monterey:       "6f7654be0b373cbe6302adec80bb2b27507d6bb5cc14c8085768213f396a2a96"
+    sha256 cellar: :any,                 big_sur:        "49f8426e919a81a80e3a57f5eb7560552dd3d1c74b334e0ce1b36f43cc9fa2d1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "169819d83011bfbe7e967db30cab777fe073dfd7bba09bcff0ca9d81887ffb85"
   end
 
   depends_on "cmake" => :build

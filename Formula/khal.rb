@@ -3,21 +3,19 @@ class Khal < Formula
 
   desc "CLI calendar application"
   homepage "https://lostpackets.de/khal/"
-  url "https://files.pythonhosted.org/packages/d8/99/6ef24e33472b343800ffb7300e9702faa715ccd986a0a0706f01e44d8cb6/khal-0.10.5.tar.gz"
-  sha256 "4eefb7ac302a26d8606db392817587a4ed94c27a15bf2ea211614a464fcf0c76"
+  url "https://files.pythonhosted.org/packages/15/4f/c547cff823256abbbc4810b1c19bbe0813e1e58cca6f05eb51478920ef36/khal-0.11.1.tar.gz"
+  sha256 "0314487cb733f54a832a813d71160bb1004606dce3b847a6832ef5e99663601e"
   license "MIT"
   head "https://github.com/pimutils/khal.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "41010c69b75e8e649c349fdace2f2e345f9fa7f9cb25460efa04fc57c819c19a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b4f8f8a8a400d24cb5702fbaf7076fe383ba03b7ee1ea718606dc149a9fba221"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c8a6f533b2b2692ce73028a34d1951a1032ac921b898178331680c44f36f9b32"
-    sha256 cellar: :any_skip_relocation, ventura:        "270cfbed9cc45ba8db1aa0594eacddeed49a6b9474d9f9fbf7d576bbd9c76321"
-    sha256 cellar: :any_skip_relocation, monterey:       "0709137f58479a579f3518ab7a3429ead4a1efac8b693dedde5ebb10a34c9e27"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a6e7510ca67ad147afd0c3e1bb9fb58ff25b0c2c0cdbe15291b47c5681e2596c"
-    sha256 cellar: :any_skip_relocation, catalina:       "a7e5046f31842243aba85c1ec6a82af21d0e90e885e5b8876f67249b8adee64a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "49cf46720e4a7c20298638dc4c1b9dfd6323521b534cc53c0180d7ad606c8003"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dde755ac811116ce9b7a8c668c0788a2fa930a574c95322d408e3543452739a3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "909546c503d943ce70f3ff9b966cc3f9c3120d1494d12f2bb6cb52c2dd578bba"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c44c7ba0d229f8e4e991c79fbf8e2662e5b8b3825e965823b3cbad644402a473"
+    sha256 cellar: :any_skip_relocation, ventura:        "e0003cc283c10e4726aec3ae4d0ef1dfd4778d5c6f1de2c52dc2dc6bac00816d"
+    sha256 cellar: :any_skip_relocation, monterey:       "beadac8473532d8c0c55b5655c71c2e623f9ed862552155fd9dd6fb933aac335"
+    sha256 cellar: :any_skip_relocation, big_sur:        "020c66bfec0964cd55fb7709c690ab08c75e1048b8a36a76cc0b3de30c661e61"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e11366b3706d243700db825b37d28bf7623b7e9f2c81e2e03136e0387e04afc0"
   end
 
   depends_on "python@3.11"
@@ -39,13 +37,13 @@ class Khal < Formula
   end
 
   resource "configobj" do
-    url "https://files.pythonhosted.org/packages/64/61/079eb60459c44929e684fa7d9e2fdca403f67d64dd9dbac27296be2e0fab/configobj-5.0.6.tar.gz"
-    sha256 "a2f5650770e1c87fb335af19a9b7eb73fc05ccf22144eb68db7d00cd2bcb0902"
+    url "https://files.pythonhosted.org/packages/cb/87/17d4c6d634c044ab08b11c0cd2a8a136d103713d438f8792d7be2c5148fb/configobj-5.0.8.tar.gz"
+    sha256 "6f704434a07dc4f4dc7c9a745172c1cad449feb548febd9f7fe362629c627a97"
   end
 
   resource "icalendar" do
-    url "https://files.pythonhosted.org/packages/8b/e2/17bae067d82e71ba56f09346cb76aa84ca0bbbee2df54eaa102f93f733bf/icalendar-5.0.2.tar.gz"
-    sha256 "edc635fd9334102d409f4571fb953ef0f84ce01dd15ff83cac6afafe89c8e56a"
+    url "https://files.pythonhosted.org/packages/42/cb/7b7d090a7e3e962f3ec0a2a75f65e04f74013cfab434b4bcefab882beee7/icalendar-5.0.5.tar.gz"
+    sha256 "ee76771d4eccebae3683beeb9c24c24feb2f8cceade72b92e4437f0144f81584"
   end
 
   resource "python-dateutil" do
@@ -54,8 +52,8 @@ class Khal < Formula
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/76/63/1be349ff0a44e4795d9712cc0b2d806f5e063d4d34631b71b832fac715a8/pytz-2022.6.tar.gz"
-    sha256 "e89512406b793ca39f5971bc999cc538ce125c0e51c27941bef4568b460095e2"
+    url "https://files.pythonhosted.org/packages/5e/32/12032aa8c673ee16707a9b6cdda2b09c0089131f35af55d443b6a9c69c1d/pytz-2023.3.tar.gz"
+    sha256 "1d8ce29db189191fb55338ee6d0387d82ab59f3d00eac103412d64e0ebd0c588"
   end
 
   resource "pytz-deprecation-shim" do
@@ -69,13 +67,13 @@ class Khal < Formula
   end
 
   resource "tzdata" do
-    url "https://files.pythonhosted.org/packages/5e/9f/63f7187ffd6d01dd5b5255b8c0b1c4f05ecfe79d940e0a243a6198071832/tzdata-2022.6.tar.gz"
-    sha256 "91f11db4503385928c15598c98573e3af07e7229181bee5375bd30f1695ddcae"
+    url "https://files.pythonhosted.org/packages/70/e5/81f99b9fced59624562ab62a33df639a11b26c582be78864b339dafa420d/tzdata-2023.3.tar.gz"
+    sha256 "11ef1e08e54acb0d4f95bdb1be05da659673de4acbd21bf9c69e94cc5e907a3a"
   end
 
   resource "tzlocal" do
-    url "https://files.pythonhosted.org/packages/7d/b9/164d5f510e0547ae92280d0ca4a90407a15625901afbb9f57a19d9acd9eb/tzlocal-4.2.tar.gz"
-    sha256 "ee5842fa3a795f023514ac2d801c4a81d1743bbe642e3940143326b3a00addd7"
+    url "https://files.pythonhosted.org/packages/39/97/b15b711a10d0774390404bec9712b2647b0b53a4da50a08acf7d7e51e284/tzlocal-4.3.tar.gz"
+    sha256 "3f21d09e1b2aa9f2dacca12da240ca37de3ba5237a93addfd6d593afe9073355"
   end
 
   resource "urwid" do

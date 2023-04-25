@@ -1,18 +1,18 @@
 class XorgServer < Formula
   desc "X Window System display server"
   homepage "https://www.x.org"
-  url "https://www.x.org/releases/individual/xserver/xorg-server-21.1.7.tar.xz"
-  sha256 "d9c60b2dd0ec52326ca6ab20db0e490b1ff4f566f59ca742d6532e92795877bb"
+  url "https://www.x.org/releases/individual/xserver/xorg-server-21.1.8.tar.xz"
+  sha256 "38aadb735650c8024ee25211c190bf8aad844c5f59632761ab1ef4c4d5aeb152"
   license all_of: ["MIT", "APSL-2.0"]
 
   bottle do
-    sha256 arm64_ventura:  "313bde5b6faa8b9b87240c0d8ce1533d4bf7391079118eb8489f7248ff7d9ec0"
-    sha256 arm64_monterey: "ddcc9171cb4c11aa5518a7bd179ee7fffb928a139da91e0be41c57127bfa0f99"
-    sha256 arm64_big_sur:  "b1aa11dea515f42e5ed072c01f9980e9b1c55ec3b9c52ffe55079776196bde29"
-    sha256 ventura:        "fabee79e383d0a5064626e84a3da482e77b31129f171405fac6f34ea0bed681e"
-    sha256 monterey:       "48762ec62d5763cd08fafabcb3ad0dd1a4b41ca47d321d093347bc75f936759f"
-    sha256 big_sur:        "651de08efd7a472133b7a575e0ba13120335e777821a6e91e0cd2a455334865f"
-    sha256 x86_64_linux:   "0ab9b9e95eda83bcebed750b79e6506d1c3c534e7e6c7ac88db5a93f2c26b854"
+    sha256 arm64_ventura:  "77506a5df91ca3eaa991d68060c232b54c3aa78fc3500162aeaa4fe4bfbed163"
+    sha256 arm64_monterey: "45de52db3e6e9a8871eeed0c8a1a5a8fcef6f250d6f99210824622f9d9782121"
+    sha256 arm64_big_sur:  "a624bff243047fb0352f600f5f8499011fce78280625f822a7c2b83868c094e2"
+    sha256 ventura:        "dd130824f5c1e8009f49cd9fe3b15ffb9a45eaf946feb9682ac6fa0e2ef552cc"
+    sha256 monterey:       "53ff360b65045bf3a9e2303d9ba5d7682c3c0efa4e9604407f4ecaf296a306cd"
+    sha256 big_sur:        "d82fedcdf8500321e21547d84838a2de795e647f3b69e8fe9c869bcb22218131"
+    sha256 x86_64_linux:   "2f25d8e98c5266c2a14c371008e198adc038f1627543b91a5a7b8669f55b7430"
   end
 
   depends_on "font-util"   => :build
@@ -45,6 +45,7 @@ class XorgServer < Formula
     depends_on "dbus"
     depends_on "libdrm"
     depends_on "libepoxy"
+    depends_on "libtirpc"
     depends_on "libxcvt"
     depends_on "libxshmfence"
     depends_on "nettle"

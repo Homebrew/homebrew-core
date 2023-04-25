@@ -9,23 +9,23 @@ class Litani < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "840aab2ed7faddc6a460dbd6779d0dd57a671782d6124c1e265bc69bb325c80e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "38bcc7f59fb4e09286c802393ee3a0cab1e13168e050e250cb7b3705ca966d1b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b965cba710b82f93033c8dfcbc3955242f63d32394722abec7723c58a2f66e28"
-    sha256 cellar: :any_skip_relocation, ventura:        "dec2d86f60dfc8065829d314d62b45e5d6a6df39dcae7850407a876e43cce781"
-    sha256 cellar: :any_skip_relocation, monterey:       "c2b7a57c397359998446bea9d32e2c9f3ca6fdfff9143350f3a39a449c4d4703"
-    sha256 cellar: :any_skip_relocation, big_sur:        "28eb692342a74464d4a1dbac3211f02882324255cc195a1b9ce91fcefcafa6dd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "593989e982ac9c52813f316298d6605f81ca1b743c95847c5d1bca2b73e7b978"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1c7fd77b08d05387bfbb288f3ecaa9abfd71b0a937b6f66632fbf7bd9b16c107"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b3412256f752e8dc3228bbab0034edbf90180795e746ba91fbf6433762607614"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bc565ff6b94663f669f8ccbf3f0384842fa7b8c40f1dea86248f1923e83fce4e"
+    sha256 cellar: :any_skip_relocation, ventura:        "9890059ce83d9d7e7b1106beea0e0424c266a90e4a069df8f8ee44091ae1cb90"
+    sha256 cellar: :any_skip_relocation, monterey:       "0cae52fa2028e9a1056b603bb9d34d55e69495f4668bba9e5bfff09ebf576052"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6f1e1ded52a763a982d3c0935fbd307f272370f09cdd13358b93968e7221482b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3e9f6aac3af7a5f13b15f695ccd8460e1c85d50dea3081697c06a8eceebe43fb"
   end
 
   depends_on "coreutils" => :build
   depends_on "mandoc" => :build
   depends_on "scdoc" => :build
-
   depends_on "gnuplot"
   depends_on "graphviz"
   depends_on "ninja"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "pyyaml"
 
   resource "Jinja2" do
@@ -38,9 +38,20 @@ class Litani < Formula
     sha256 "abcabc8c2b26036d62d4c746381a6f7cf60aafcc653198ad678306986b09450d"
   end
 
+  # Support Python 3.11, remove on next release
+  patch do
+    url "https://github.com/awslabs/aws-build-accumulator/commit/632b58cbbcffec0f0b57fdb6ca92fa67d1e5656d.patch?full_index=1"
+    sha256 "6fb6d8fe2c707691513cbaaba5b3ed582775fee567458d1b08b719d1fe0a768e"
+  end
+
+  patch do
+    url "https://github.com/awslabs/aws-build-accumulator/commit/d189541fcbaad28649f489e6823c2c4ca2c6aa33.patch?full_index=1"
+    sha256 "f3d79ea8ccf5ff8524a4da3495c8ffd0a2bd1099aaab1d8c52785ca80e13aee7"
+  end
+
   def install
     ENV.prepend_path "PATH", libexec/"vendor/bin"
-    venv = virtualenv_create(libexec/"vendor", "python3.10")
+    venv = virtualenv_create(libexec/"vendor", "python3.11")
     venv.pip_install resources
 
     libexec.install Dir["*"] - ["test", "examples"]

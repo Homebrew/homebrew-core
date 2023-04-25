@@ -2,36 +2,42 @@ name: Publish and commit bottles
 
 run-name: "Publish PR #${{ inputs.pull_request }}"
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.inputs.pull_request }}
+  cancel-in-progress: false
+
 on:
   workflow_dispatch:
     inputs:
       pull_request:
         description: Pull request number
         required: true
-      args:
-        description: "Extra arguments to `brew pr-pull`"
-        default: ""
-      merge_strategy:
-        type: choice
-        description: "Merge strategy to use for `gh pr merge`"
-        options:
-          - merge
-          - rebase
-          - squash
-        default: merge
-        required: false
       large_runner:
-        description: "Whether to run the upload job on a large runner (default: false)"
+        description: "Run the upload job on a large runner? (default: false)"
         type: boolean
         required: false
         default: false
-      commit_bottles_to_pr_branch:
-        description: "Whether to push bottle commits to the pull request branch (default: false)"
+      autosquash:
+        description: "Squash pull request commits according to Homebrew style? (default: false)"
         type: boolean
         required: false
         default: false
+      warn_on_upload_failure:
+        description: "Pass `--warn-on-upload-failure` to `brew pr-pull`? (default: false)"
+        type: boolean
+        required: false
+        default: false
+      message:
+        description: "Message to include when autosquashing revision bumps, deletions, and rebuilds (requires autosquash)"
+        required: false
+      retry_bottle_merge:
+        description: "Retry a failed bottle merge? (default: true)"
+        type: boolean
+        required: false
+        default: true
 
 env:
+  PR: ${{inputs.pull_request}}
   GNUPGHOME: /tmp/gnupghome
   HOMEBREW_DEVELOPER: 1
   HOMEBREW_NO_AUTO_UPDATE: 1
@@ -39,53 +45,186 @@ env:
   GH_REPO: ${{github.repository}}
   GH_NO_UPDATE_NOTIFIER: 1
   GH_PROMPT_DISABLED: 1
-
-permissions:
-  contents: read
+  RUN_URL: ${{github.event.repository.html_url}}/actions/runs/${{github.run_id}}
+  NON_PUSHABLE_MESSAGE: ":no_entry: It looks like @BrewTestBot cannot push to your PR branch. Please [allow maintainers to edit your PR](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork) so that it can be merged."
+  ORG_FORK_MESSAGE: ":no_entry: It looks like @BrewTestBot cannot push to your PR branch. Please open a new pull request from a non-organization fork so that it can be merged."
 
 jobs:
+  check:
+    runs-on: ubuntu-latest
+    outputs:
+      bottles: ${{steps.pr-branch-check.outputs.bottles}}
+      head_sha: ${{steps.pr-branch-check.outputs.head_sha}}
+      branch: ${{steps.pr-branch-check.outputs.branch}}
+      origin_branch: ${{steps.pr-branch-check.outputs.origin_branch}}
+      remote: ${{steps.pr-branch-check.outputs.remote}}
+    permissions:
+      contents: read
+      pull-requests: write # for `gh pr edit|comment|review`
+    steps:
+      - name: Check PR approval
+        env:
+          GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        run: |
+          approved=false
+          changes_requested=false
+          while IFS='' read -r review
+          do
+            if [[ "$review" = "APPROVED" ]]
+            then
+              approved=true
+            fi
+
+            if [[ "$review" = "CHANGES_REQUESTED" ]]
+            then
+              changes_requested=true
+            fi
+          done < <(
+            gh api \
+              --header 'Accept: application/vnd.github+json' \
+              --header 'X-GitHub-Api-Version: 2022-11-28' \
+              "repos/$GH_REPO/pulls/$PR/reviews" \
+              --jq '.[].state'
+          )
+
+          if [[ "$approved" != "true" ]] || [[ "$changes_requested" = "true" ]]
+          then
+            echo "::error ::PR #$PR is not approved!"
+            exit 1
+          fi
+
+      - name: Check PR branch for mergeability
+        id: pr-branch-check
+        env:
+          GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        run: |
+          pr_data="$(
+            gh api \
+              --header 'Accept: application/vnd.github+json' \
+              --header 'X-GitHub-Api-Version: 2022-11-28' \
+              "repos/$GH_REPO/pulls/$PR"
+          )"
+
+          pushable="$(jq .maintainer_can_modify <<< "$pr_data")"
+          branch="$(jq --raw-output .head.ref <<< "$pr_data")"
+          remote="$(jq --raw-output .head.repo.clone_url <<< "$pr_data")"
+          head_repo="$(jq --raw-output .head.repo.full_name <<< "$pr_data")"
+          head_repo_owner="$(jq --raw-output .head.repo.owner.login <<< "$pr_data")"
+          head_sha="$(jq --raw-output .head.sha <<< "$pr_data")"
+          fork_type="$(jq --raw-output .head.repo.owner.type <<< "$pr_data")"
+          state="$(jq --raw-output .state <<< "$pr_data")"
+          merged="$(jq --raw-output .merged <<< "$pr_data")"
+          automerge_data="$(jq --raw-output '.auto_merge | type' <<< "$pr_data")"
+
+          if [[ -z "$pushable" ]] ||
+             [[ -z "$branch" ]] ||
+             [[ -z "$remote" ]] ||
+             [[ -z "$head_repo" ]] ||
+             [[ -z "$head_repo_owner" ]] ||
+             [[ -z "$head_sha" ]] ||
+             [[ -z "$fork_type" ]] ||
+             [[ -z "$state" ]] ||
+             [[ -z "$merged" ]] ||
+             [[ -z "$automerge_data" ]]
+          then
+            echo "::error ::Failed to get PR data!"
+            exit 1
+          fi
+
+          if [[ "$state" = "closed" ]]
+          then
+            echo "::error ::PR #$PR is closed!"
+            exit 1
+          fi
+
+          bottles=true
+          while IFS='' read -r label
+          do
+            if [[ "$label" = "CI-syntax-only" ]] ||
+               [[ "$label" = "CI-no-bottles" ]] ||
+               [[ "$label" = "CI-published-bottle-commits" ]]
+            then
+              echo '::notice ::No bottles to publish according to PR labels.'
+              bottles=false
+              break
+            fi
+          done < <(jq --raw-output '.labels[].name' <<< "$pr_data")
+
+          if [[ "$merged" = "true" ]] || [[ "$automerge_data" = "object" ]]
+          then
+            bottles=false
+          fi
+
+          if [[ "$branch" = "master" ]]
+          then
+            branch="$head_repo_owner/master"
+            origin_branch="master"
+          else
+            origin_branch="$branch"
+          fi
+
+          {
+            echo "bottles=$bottles"
+            echo "head_sha=$head_sha"
+            echo "branch=$branch"
+            echo "origin_branch=$origin_branch"
+            echo "remote=$remote"
+          } >> "$GITHUB_OUTPUT"
+
+          if "$pushable" && [[ "$fork_type" != "Organization" ]] ||
+             [[ "$head_repo" = "$GH_REPO" ]] ||
+             [[ "$bottles" = "false" ]]
+          then
+            exit 0
+          elif "$pushable"
+          then
+            MESSAGE="$ORG_FORK_MESSAGE"
+          else
+            MESSAGE="$NON_PUSHABLE_MESSAGE"
+          fi
+
+          gh pr comment "$PR" --body "$MESSAGE"
+          gh pr edit --add-label 'no push access' "$PR"
+          exit 1
+
+      - name: Post comment on failure
+        if: ${{!success()}}
+        uses: Homebrew/actions/post-comment@master
+        with:
+          token: ${{secrets.GITHUB_TOKEN}}
+          issue: ${{inputs.pull_request}}
+          body: ":warning: @${{github.actor}} pre-merge checks [failed](${{env.RUN_URL}}). CC @carlocab"
+          bot_body: ":warning: Pre-merge checks [failed](${{env.RUN_URL}}). CC @carlocab"
+          bot: github-actions[bot]
+
   upload:
+    needs: check
+    if: fromJson(needs.check.outputs.bottles)
     runs-on: ${{inputs.large_runner && 'homebrew-large-bottle-upload' || 'ubuntu-22.04'}}
     container:
       image: ghcr.io/homebrew/ubuntu22.04:master
     permissions:
-      pull-requests: write
+      contents: read
+      actions: write # for `gh workflow run`
+      pull-requests: write # for `gh pr edit|review`
+    defaults:
+      run:
+        shell: bash
     steps:
-      - name: Post comment once started (legacy)
-        if: ${{!inputs.commit_bottles_to_pr_branch}}
-        uses: Homebrew/actions/post-comment@master
-        with:
-          token: ${{secrets.GITHUB_TOKEN}}
-          issue: ${{github.event.inputs.pull_request}}
-          body: ":shipit: @${{github.actor}} has [triggered a merge](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}})."
-          bot_body: ":robot: A scheduled task has [triggered a merge](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}})."
-          bot: BrewTestBot
-
       - name: Post comment once started
-        if: inputs.commit_bottles_to_pr_branch
         uses: Homebrew/actions/post-comment@master
         with:
           token: ${{secrets.GITHUB_TOKEN}}
-          issue: ${{github.event.inputs.pull_request}}
-          body: ":shipit: @${{github.actor}} has [requested bottles to be published to this PR](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}})."
-          bot_body: ":robot: A scheduled task has [requested bottles to be published to this PR](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}})."
-          bot: BrewTestBot
+          issue: ${{inputs.pull_request}}
+          body: ":shipit: @${{github.actor}} has [requested bottles to be published to this PR](${{env.RUN_URL}})."
+          bot_body: ":robot: An automated task has [requested bottles to be published to this PR](${{env.RUN_URL}})."
+          bot: github-actions[bot]
 
       - name: Set up Homebrew
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
         with:
           test-bot: false
-
-      - name: Cache gems
-        uses: actions/cache@v3
-        with:
-          path: ${{steps.set-up-homebrew.outputs.gems-path}}
-          key: ${{runner.os}}-rubygems-v2-${{steps.set-up-homebrew.outputs.gems-hash}}
-          restore-keys: ${{runner.os}}-rubygems-v2-
-
-      - name: Install gems
-        run: brew install-bundler-gems
 
       - name: Configure Git user
         id: git-user-config
@@ -99,110 +238,106 @@ jobs:
           signing_key: ${{ secrets.BREWTESTBOT_GPG_SIGNING_SUBKEY }}
 
       - name: Checkout PR branch
-        run: gh pr checkout ${{github.event.inputs.pull_request}}
-        if: inputs.commit_bottles_to_pr_branch
+        working-directory: ${{steps.set-up-homebrew.outputs.repository-path}}
         env:
           GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-        working-directory: ${{steps.set-up-homebrew.outputs.repository-path}}
+        run: gh pr checkout "$PR"
 
       - name: Pull and upload bottles to GitHub Packages
+        id: pr-pull
+        working-directory: ${{steps.set-up-homebrew.outputs.repository-path}}
         env:
           BREWTESTBOT_NAME_EMAIL: "${{ steps.git-user-config.outputs.name }} <${{ steps.git-user-config.outputs.email }}>"
           HOMEBREW_GPG_PASSPHRASE: ${{ secrets.BREWTESTBOT_GPG_SIGNING_SUBKEY_PASSPHRASE }}
           HOMEBREW_GITHUB_API_TOKEN: ${{secrets.HOMEBREW_CORE_PUBLIC_REPO_EMAIL_TOKEN}}
           HOMEBREW_GITHUB_PACKAGES_USER: brewtestbot
           HOMEBREW_GITHUB_PACKAGES_TOKEN: ${{secrets.HOMEBREW_CORE_GITHUB_PACKAGES_TOKEN}}
+          EXPECTED_SHA: ${{needs.check.outputs.head_sha}}
         run: |
+          local_git_head="$(git rev-parse HEAD)"
+          remote_git_head="$(git ls-remote origin "pull/$PR/head" | cut -f1)"
+
+          if [ "$local_git_head" != "$EXPECTED_SHA" ] ||
+             [ "$remote_git_head" != "$EXPECTED_SHA" ]
+          then
+            echo "::error ::Unexpected change in target branch."
+            echo "::error ::Expected SHA1    $EXPECTED_SHA"
+            echo "::error ::Checked out SHA1 $local_git_head"
+            echo "::error ::PR branch SHA1   $remote_git_head"
+            exit 1
+          fi
+
+          # Don't quote arguments that might be empty; this causes errors.
           brew pr-pull \
             --debug \
+            --no-cherry-pick \
             --workflows=tests.yml \
             --committer="$BREWTESTBOT_NAME_EMAIL" \
             --root-url="https://ghcr.io/v2/homebrew/core" \
-            ${{inputs.commit_bottles_to_pr_branch && '--no-autosquash' || ''}} \
-            ${{inputs.commit_bottles_to_pr_branch && '--no-cherry-pick' || ''}} \
-            ${{inputs.commit_bottles_to_pr_branch && '--clean' || ''}} \
-            ${{github.event.inputs.args}} \
-            ${{github.event.inputs.pull_request}}
+            '${{inputs.autosquash && '--autosquash' || '--clean'}}' \
+            ${{inputs.warn_on_upload_failure && '--warn-on-upload-failure' || ''}} \
+            ${{inputs.message && format('--message="{0}"', inputs.message) || ''}} \
+            "$PR"
 
-      - name: Add CI-published-bottle-commits label
-        run: gh pr edit --add-label CI-published-bottle-commits ${{github.event.inputs.pull_request}}
-        if: inputs.commit_bottles_to_pr_branch
-        env:
-          GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-        working-directory: ${{steps.set-up-homebrew.outputs.repository-path}}
-
-      - name: Get current branch and remote
-        id: branch-and-remote-info
-        working-directory: ${{steps.set-up-homebrew.outputs.repository-path}}
-        run: |
-          echo "HEAD=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
-          branch="$(git branch --show-current)"
-          if [ -n "$branch" ]
-          then
-            echo "branch=$branch" >> "$GITHUB_OUTPUT"
-          else
-            echo "::error ::Not on a branch!"
-            exit 1
-          fi
-
-          if push_remote="$(git config --local "branch.$branch.pushRemote")"
-          then
-            echo "remote=$push_remote" >> "$GITHUB_OUTPUT"
-          elif remote="$(git config --local "branch.$branch.remote")"
-          then
-            echo "remote=$remote" >> "$GITHUB_OUTPUT"
-          else
-            echo "::error ::Could not find branch remote!"
-            exit 1
-          fi
+          echo "head_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
       - name: Push commits
         uses: Homebrew/actions/git-try-push@master
         with:
           token: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
           directory: ${{steps.set-up-homebrew.outputs.repository-path}}
-          remote: ${{steps.branch-and-remote-info.outputs.remote}}
-          branch: ${{steps.branch-and-remote-info.outputs.branch}}
+          remote: ${{needs.check.outputs.remote}}
+          branch: ${{needs.check.outputs.branch}}
+          origin_branch: ${{needs.check.outputs.origin_branch}}
+          force: ${{inputs.autosquash}}
+          no_lease: ${{inputs.autosquash}}
         env:
           GIT_COMMITTER_NAME: ${{ steps.git-user-config.outputs.name }}
           GIT_COMMITTER_EMAIL: ${{ steps.git-user-config.outputs.email }}
           HOMEBREW_GPG_PASSPHRASE: ${{ secrets.BREWTESTBOT_GPG_SIGNING_SUBKEY_PASSPHRASE }}
+
+      - name: Add CI-published-bottle-commits label
+        run: gh pr edit --add-label CI-published-bottle-commits "$PR"
+        env:
+          GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        working-directory: ${{steps.set-up-homebrew.outputs.repository-path}}
 
       - name: Post comment on failure
         if: ${{!success()}}
         uses: Homebrew/actions/post-comment@master
         with:
           token: ${{secrets.GITHUB_TOKEN}}
-          issue: ${{github.event.inputs.pull_request}}
-          body: ":warning: @${{github.actor}} bottle publish [failed](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}})."
-          bot_body: ":warning: Bottle publish [failed](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}})."
-          bot: BrewTestBot
+          issue: ${{inputs.pull_request}}
+          body: ":warning: @${{github.actor}} bottle publish [failed](${{env.RUN_URL}}). CC @carlocab"
+          bot_body: ":warning: Bottle publish [failed](${{env.RUN_URL}}). CC @carlocab"
+          bot: github-actions[bot]
 
       - name: Dismiss approvals on failure
-        if: ${{!success()}}
+        if: ${{!success() && !inputs.retry_bottle_merge}}
         uses: Homebrew/actions/dismiss-approvals@master
         with:
-          token: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
-          pr: ${{github.event.inputs.pull_request}}
+          token: ${{secrets.GITHUB_TOKEN}}
+          pr: ${{inputs.pull_request}}
           message: "bottle publish failed"
 
       - name: Wait until pull request branch is in sync with local repository
-        if: inputs.commit_bottles_to_pr_branch
+        id: wait-until-in-sync
         working-directory: ${{steps.set-up-homebrew.outputs.repository-path}}
+        env:
+          EXPECTED_SHA: ${{steps.pr-pull.outputs.head_sha}}
         run: |
-          local_head="${{steps.branch-and-remote-info.outputs.HEAD}}"
-          echo "::notice ::Local repository HEAD: $local_head"
+          echo "::notice ::Local repository HEAD: $EXPECTED_SHA"
 
           attempt=0
           max_attempts=10
           timeout=1
 
           # Wait (with exponential backoff) until the PR branch is in sync
-          while [ "$attempt" -lt "$max_attempts" ]
+          while [[ "$attempt" -lt "$max_attempts" ]]
           do
-            remote_head="$(git ls-remote origin pull/${{inputs.pull_request}}/head | cut -f1)"
+            remote_head="$(git ls-remote origin "pull/$PR/head" | cut -f1)"
             echo "::notice ::Pull request HEAD: $remote_head"
-            if [ "$local_head" = "$remote_head" ]
+            if [[ "$EXPECTED_SHA" = "$remote_head" ]]
             then
               success=1
               break
@@ -214,26 +349,67 @@ jobs:
           done
 
           # One last check...
-          if [ -z "$success" ] && [ "$local_head" != "$(git ls-remote origin pull/${{inputs.pull_request}}/head | cut -f1)" ]
+          if [[ -z "$success" ]] && [[ "$EXPECTED_SHA" != "$(git ls-remote origin "pull/$PR/head" | cut -f1)" ]]
           then
             echo "::error ::No attempts remaining. Giving up."
             exit 1
           fi
 
-      # TODO: uncomment this once automerge is enabled again.
-      # - name: Enable PR automerge
-      #   if: inputs.commit_bottles_to_pr_branch
-      #   env:
-      #     GH_TOKEN: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
-      #   working-directory: ${{steps.set-up-homebrew.outputs.repository-path}}
-      #   run: gh pr merge --auto --${{inputs.merge_strategy}} ${{inputs.pull_request}}
+      - run: gh pr review --approve "$PR"
+        id: approve
+        env:
+          GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+      - name: Enable automerge
+        id: automerge
+        env:
+          GH_TOKEN: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
+          EXPECTED_SHA: ${{steps.pr-pull.outputs.head_sha}}
+        working-directory: ${{steps.set-up-homebrew.outputs.repository-path}}
+        run: |
+          local_git_head="$(git rev-parse HEAD)"
+          remote_git_head="$(git ls-remote origin "pull/$PR/head" | cut -f1)"
+
+          if [[ "$local_git_head" != "$EXPECTED_SHA" ]] ||
+             [[ "$remote_git_head" != "$EXPECTED_SHA" ]]
+          then
+            echo "::error ::Unexpected change in target branch."
+            echo "::error ::Expected SHA1    $EXPECTED_SHA"
+            echo "::error ::Checked out SHA1 $local_git_head"
+            echo "::error ::PR branch SHA1   $remote_git_head"
+            exit 1
+          fi
+
+          gh pr merge "$PR" \
+            --auto \
+            --merge \
+            --delete-branch \
+            --match-head-commit "$EXPECTED_SHA"
 
       - name: Post comment on failure
-        if: ${{failure() && inputs.commit_bottles_to_pr_branch}}
+        if: >
+          failure() &&
+          (steps.approve.conclusion == 'failure' ||
+           steps.wait-until-in-sync.conclusion == 'failure' ||
+           steps.automerge.conclusion == 'failure')
         uses: Homebrew/actions/post-comment@master
         with:
           token: ${{secrets.GITHUB_TOKEN}}
-          issue: ${{github.event.inputs.pull_request}}
-          body: ":warning: @${{github.actor}} [Failed to enable automerge.](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}})"
-          bot_body: ":warning: [Failed to enable automerge.](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}})"
-          bot: BrewTestBot
+          issue: ${{inputs.pull_request}}
+          body: ":warning: @${{github.actor}} [Failed to enable automerge](${{env.RUN_URL}}). CC @carlocab"
+          bot_body: ":warning: [Failed to enable automerge](${{env.RUN_URL}}). CC @carlocab"
+          bot: github-actions[bot]
+
+      - name: Retry
+        if: failure() && inputs.retry_bottle_merge
+        env:
+          GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        run: |
+          gh workflow run publish-commit-bottles.yml \
+            --ref "$GITHUB_REF_NAME" \
+            --field pull_request="$PR" \
+            --field large_runner='${{inputs.large_runner}}' \
+            --field autosquash='${{inputs.autosquash}}' \
+            --field warn_on_upload_failure=true \
+            --field message='${{inputs.message}}' \
+            --field retry_bottle_merge=false

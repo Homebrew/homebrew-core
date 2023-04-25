@@ -28,8 +28,8 @@ class Docbook < Formula
 
   resource "xml412" do
     url "https://docbook.org/xml/4.1.2/docbkx412.zip"
-    sha256 "30f0644064e0ea71751438251940b1431f46acada814a062870f486c772e7772"
     version "4.1.2"
+    sha256 "30f0644064e0ea71751438251940b1431f46acada814a062870f486c772e7772"
   end
 
   resource "xml42" do

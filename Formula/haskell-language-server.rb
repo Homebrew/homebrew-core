@@ -1,10 +1,9 @@
 class HaskellLanguageServer < Formula
   desc "Integration point for ghcide and haskell-ide-engine. One IDE to rule them all"
   homepage "https://github.com/haskell/haskell-language-server"
-  url "https://github.com/haskell/haskell-language-server/archive/1.9.1.0.tar.gz"
-  sha256 "d8426defbbcf910fb706f7d4e8d03a6721e262148ecf25811bfce9ba80c76aed"
+  url "https://github.com/haskell/haskell-language-server/archive/1.10.0.0.tar.gz"
+  sha256 "8b9bca5583243b647e230eb5b1e50980145a496a1927b4c3fbceb52590ff1d4b"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/haskell/haskell-language-server.git", branch: "master"
 
   # we need :github_latest here because otherwise
@@ -15,13 +14,13 @@ class HaskellLanguageServer < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "74e193c8a97cce17043c3446ad3161dd8ea3bf1f89978b422a460e5f3ad94008"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d6c82e0ccbee0a428ddadf6069d7883876379cf04b996fb9bb8538cc6f3bb0a9"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "586ed47ef238ced2c6dcce32e261b58645f366dcccd2a9dbf97ca4d63dc2bf78"
-    sha256 cellar: :any_skip_relocation, ventura:        "113fb5844ab6d62e57b09ad77dbb038add2cb03c56408a0af92484ca2dc7fc41"
-    sha256 cellar: :any_skip_relocation, monterey:       "b4512b54b70b7d61be72e50efd5643b48e6825c11db3891ece12a9d3f5f3f50f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8ad009e8b9964bdfb050bbaff456318d835fc35276fcfd9aae025562cb815f8b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ea900ac2606a3fc30534c63f2820399b3e5aae6d057d208b6d5ea3fb0bf3dbc0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "567b2e0ad359d8c893ac32b9fb7679a0121f6dac055ee21d4e8b4b8bbf6f3c4e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c6840c8c478839081f72675751b2acaaf522701af337a74cacc36f074b1178e1"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "73b5efcc583708eec704f0ef3226a9ed83676907a053cb0d85a2a981cdb7744f"
+    sha256 cellar: :any_skip_relocation, ventura:        "675652b6532f3fb9599fe6662d64b768e7c5ff1c90a8584e11ea590b910e4f83"
+    sha256 cellar: :any_skip_relocation, monterey:       "5e04fa42fb324f4aa4de2184144bf874ef9055e6119af04ece009e15b50ad2ef"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c7b97e59f95159ec18f24c151eb6f0a3fa66712c7125c28345cb6d8902ff3e10"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d259caefe5f37ab7106714f46d649f653a9b5d0d4cf82dd1069402b78888aa56"
   end
 
   depends_on "cabal-install" => [:build, :test]
@@ -47,7 +46,7 @@ class HaskellLanguageServer < Formula
       hls = "haskell-language-server"
       bin.install bin/hls => "#{hls}-#{ghc.version}"
       bin.install_symlink "#{hls}-#{ghc.version}" => "#{hls}-#{ghc.version.major_minor}"
-      (bin/"#{hls}-wrapper").unlink unless ghc == ghcs.last
+      (bin/"#{hls}-wrapper").unlink if ghc != ghcs.last
     end
   end
 

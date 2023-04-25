@@ -7,17 +7,18 @@ class Keystone < Formula
   head "https://github.com/keystone-engine/keystone.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "743215d19932a0fe1e4f806efa17149fff3a0b9c3b391733284204f73ea750f5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "26b09a5083cf57b1004ad52ce590d1a6a0a4208d59176d40ec39d1be65377353"
-    sha256 cellar: :any_skip_relocation, monterey:       "7dacd24322aefed03a8537dc60cda57f5d164e801367ba942588fc9d862c3a50"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2274b6cf90bf0b1b49d3aa6e0a527911e71438903c228bfd37644d58ac3ad22d"
-    sha256 cellar: :any_skip_relocation, catalina:       "84cdef2aa8a5697ce2fc62e6ae1316f2dcca6fcd0f92d2bba68b399af9c48440"
-    sha256 cellar: :any_skip_relocation, mojave:         "814feeee85e111a21fdd287fbed3fca3e1cd86be396dcba7612c3e1aec7dd4d3"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "77740af9b9e48baaf0a7d1dc4d74b883c1babbaab6a7e9bf65a00035b59c546d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bf07b840547fc8884f1bca89610cd0012fcb29390d6556acaa2ead6b5be0a256"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "41e04237bdb7b026db2bfdff26829a6c6ecba95b6b23ee496c3b0cc6d374e22c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cbb19b4292aa9bdeca592d7d775423bb8a9f9c1547199e205659fdb8f653e0bc"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f504af4a278854b6a67b72d1f4eac96c2966cdcaf81b36aee6fd72aa6ac25e2d"
+    sha256 cellar: :any_skip_relocation, ventura:        "3ca2d31e7f57a69792e963c4bd09a0eaa5a4b70bfa3faffe9fe5832139e1be4b"
+    sha256 cellar: :any_skip_relocation, monterey:       "97781c17cfa261a887cb9f38e5f89f52917e289e812b63c131e0c036dce5facb"
+    sha256 cellar: :any_skip_relocation, big_sur:        "060a77b372c27c2084589b99408ff19b3d0254a3aafe3f98bd33e25c031065cf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e353d535d1cf5700d78bf12b09ed1d462a7e4d3d4349eed1b38cb3fcbdad8105"
   end
 
   depends_on "cmake" => :build
+  depends_on "python@3.11" => :build
 
   def install
     system "cmake", ".", *std_cmake_args

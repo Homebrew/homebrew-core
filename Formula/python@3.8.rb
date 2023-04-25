@@ -120,10 +120,6 @@ class PythonAT38 < Formula
       args << "--with-dtrace"
     else
       args << "--enable-shared"
-
-      # Required for the _ctypes module
-      # see https://github.com/Linuxbrew/homebrew-core/pull/1007#issuecomment-252421573
-      args << "--with-system-ffi"
     end
 
     # Python re-uses flags when building native modules.
@@ -146,7 +142,7 @@ class PythonAT38 < Formula
     # Avoid linking to libgcc https://mail.python.org/pipermail/python-dev/2012-February/116205.html
     args << "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
 
-    args << "--with-tcltk-includes=-I#{Formula["tcl-tk"].opt_include}"
+    args << "--with-tcltk-includes=-I#{Formula["tcl-tk"].opt_include/"tcl-tk"}"
     args << "--with-tcltk-libs=-L#{Formula["tcl-tk"].opt_lib} -ltcl8.6 -ltk8.6"
 
     # We want our readline! This is just to outsmart the detection code,
@@ -326,7 +322,7 @@ class PythonAT38 < Formula
 
     # Help distutils find brewed stuff when building extensions
     include_dirs = [HOMEBREW_PREFIX/"include", Formula["openssl@1.1"].opt_include,
-                    Formula["sqlite"].opt_include], Formula["tcl-tk"].opt_include
+                    Formula["sqlite"].opt_include], Formula["tcl-tk"].opt_include/"tcl-tk"
     library_dirs = [HOMEBREW_PREFIX/"lib", Formula["openssl@1.1"].opt_lib,
                     Formula["sqlite"].opt_lib], Formula["tcl-tk"].opt_lib
 

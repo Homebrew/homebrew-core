@@ -1,20 +1,18 @@
 class Diffr < Formula
   desc "LCS based diff highlighting tool to ease code review from your terminal"
   homepage "https://github.com/mookid/diffr"
-  url "https://github.com/mookid/diffr/archive/v0.1.4.tar.gz"
-  sha256 "2613b57778df4466a20349ef10b9e022d0017b4aee9a47fb07e78779f444f8cb"
+  url "https://github.com/mookid/diffr/archive/v0.1.5.tar.gz"
+  sha256 "6c5861e5b8f5d798e027fe69cc186452848dc4ae5641326b41b5c160d3e91654"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f7a2201cc3f5028be6c18b5ddc25f04330bc7839100ec339a937619f4af77d73"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "173967f25b9a31abea026ec8407772ad49342790d788a310ec236089d3de78b7"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "758130aee49d62c9e306cb7d918e3159e2171e81983b2e29c8703a88324eed73"
-    sha256 cellar: :any_skip_relocation, ventura:        "ac6c7b87bd5d0ed9f82fdce3f6e36cd88c2b449b33a2faabd6d3180cf44193fe"
-    sha256 cellar: :any_skip_relocation, monterey:       "777f831f84ac617912b6986abe746e6fed8f7281977481f304d1c3e55440bb37"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6d34f32e85384bc92262c412c8a91ee01bb3e81a2430deb248db2b175a4ec125"
-    sha256 cellar: :any_skip_relocation, catalina:       "278533a0a51eb1952eb4f95b7f7d68a3fe7cff3ae5968d5a91605f1b91c0a04c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "70d4a6dca4a3bf8a4bba5b08c804e97ad97fb133c2e11190539da4409d7dc737"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "234e4932d849bec1ee31bc0caa455070caf78aa3839836ee15cce08546c72995"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "661cd6dd97c93e60266a8cf7a99240595b25dbf911efb143c4c5a60eb2c7d483"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d29fa319b7d851b24c147046018da33c98363de7439cee89b5eae6bfd13982c1"
+    sha256 cellar: :any_skip_relocation, ventura:        "6d3a1af07c576b6db1522a77560bbe540a567a7339838dc5c660e7781a2302bb"
+    sha256 cellar: :any_skip_relocation, monterey:       "d4d630b6e9973149bd9eb76134f9953ec0630274592ee4f5c1bce2d38de0b10e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "de79ded7a7f2b81026d2c8d5c9148ddc19815a953c10120b52874e52af9d25b4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6340e51e0dd0f436f0cf3450d125f3a16b652cadf4b7de0fe9127ea7d90007b1"
   end
 
   depends_on "rust" => :build

@@ -1,20 +1,18 @@
 class Navi < Formula
   desc "Interactive cheatsheet tool for the command-line"
   homepage "https://github.com/denisidoro/navi"
-  url "https://github.com/denisidoro/navi/archive/v2.20.1.tar.gz"
-  sha256 "92644677dc46e13aa71b049c5946dede06a22064b3b1834f52944d50e3fdb950"
+  url "https://github.com/denisidoro/navi/archive/refs/tags/v2.22.1.tar.gz"
+  sha256 "a728ad6b6e18abe27ca2190983bedca719e46462007e61bedbc50fc9d15b89a5"
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "763fd30ffdba5cf9ed61b50c2f1d7e04773442b30ebe6dd8fa70ef2c7e8d3883"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6a809f73efd4e6cbdfddc844dfb284363e3031e2e20c8e442f50b6845abf8761"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "22dc945109faa0692af5c79c1db7173cef89c67eaab1700ed6c7c5e125f16bf2"
-    sha256 cellar: :any_skip_relocation, ventura:        "84c66c44f1b8ac726c36e8f86d8457523b131ae14feb12f56ac342efdd935eee"
-    sha256 cellar: :any_skip_relocation, monterey:       "7d8a47501f686c61c1ceffb057c8ed4c3366ee1e7944aa67edffa174c1730286"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9acea618a7b032bf5d123661b9ab7f6c7268a632adb627b52db66169b378db9b"
-    sha256 cellar: :any_skip_relocation, catalina:       "25ecd84c6671431950dbc914f5b6dac4cbb1a08d48e9fc906aa267a4ec39d771"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "edf0da79bdc799528664dec37ea7e7eb5378304c34c775a1678c081a90b9ea02"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "11fb063a8feb7479c1c8e027b418fe4eeb2ce0c6533e9e1fcb8f0bb6b3e51184"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7b298bac9d3585536f184768eaf6a6553d66c4ba8ffcca2a477e5d5dc8cb95d9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "00928858c1656fb7d2c4c914537d280b519705f64c363c8e2f8be2834cb2348e"
+    sha256 cellar: :any_skip_relocation, ventura:        "8c80e5544f78032c082085ec62c684f118d1eedeaa8ed221a29de30fb9622638"
+    sha256 cellar: :any_skip_relocation, monterey:       "521bfbff2d18d71ffbad13f779db5fdd3c7845979056b3b971764b75666cc4be"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e7365c1f4a1aeed3d144c6e4ef71deb5a0d0e5339338cf62adedb205098f0c81"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6dcaf2e3ed8224a9f16d1366c2718829d473ca7829ff1682a3a965883b6807ef"
   end
 
   depends_on "rust" => :build

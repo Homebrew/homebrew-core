@@ -1,18 +1,18 @@
 class SpirvTools < Formula
   desc "API and commands for processing SPIR-V modules"
   homepage "https://github.com/KhronosGroup/SPIRV-Tools"
-  url "https://github.com/KhronosGroup/SPIRV-Tools/archive/v2023.1.tar.gz"
-  sha256 "f3d8245aeb89f098c01dddaa566f9c0f2aab4a3d62a9020afaeb676b5e7e64d4"
+  url "https://github.com/KhronosGroup/SPIRV-Tools/archive/v2023.2.tar.gz"
+  sha256 "7416cc8a98a10c32bacc36a39930b0c5b2a484963df5d68f388ed7ffee1faad3"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "916d8dad376b992a828381434fa0ddd15b3a9ffc400faad24ee94c39d120f5f6"
-    sha256 cellar: :any,                 arm64_monterey: "1a0442fe06ce023a264efa6130737aaeb8c85f7494ffb075e0f2ad0eb2d658d2"
-    sha256 cellar: :any,                 arm64_big_sur:  "f2615f4bdc222feba22ede47a25e982dbf67772563d04ed35a9e04a147a749cf"
-    sha256 cellar: :any,                 ventura:        "aee6553cf98dccdca9e6a44c429fe898fe75439210c8a246e482bd2a582aae44"
-    sha256 cellar: :any,                 monterey:       "7ec4ade9e0d39b04c0bfa3603aa711aee8d3b29efbcd3b4e8d87b09eeb676085"
-    sha256 cellar: :any,                 big_sur:        "e1ca07f84e15f2064973039018353e9ebd7b3bfd14b97bec653a47173a80e463"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d241e865c471ada045b338a345d4a62bebed2e9b263859d5cf4a03de3a5bf7ae"
+    sha256 cellar: :any,                 arm64_ventura:  "cd86ec4dadaf9a5df724b5e8e2d0b3434e9dece5f1d0f693171e2b3b49614e31"
+    sha256 cellar: :any,                 arm64_monterey: "0637ae77abc11f9ba1677119426ce011fb2e5f6580abcda1d6a6c44503127a69"
+    sha256 cellar: :any,                 arm64_big_sur:  "ee408e7ebba7faf63f468dbc17addff81d36a1d056abdacb070c5cf542b178b3"
+    sha256 cellar: :any,                 ventura:        "4bc22b444e909a223e10dd78a4769dc610f5d81bc115d3baf4f047c11af9b5c6"
+    sha256 cellar: :any,                 monterey:       "058ed9c4f4104887ae3a57458ee1d4e5b13f82b7303f114b4db5920aa25389d8"
+    sha256 cellar: :any,                 big_sur:        "b212c0450234482cbf842614c8c8c82cbc2fa00eb6e4f63aae88aeeb47e05841"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4b0f52bb57518a8cd11a581164b724b2585c0b63753aabe2263027c1ab1bde5c"
   end
 
   depends_on "cmake" => :build
@@ -23,25 +23,25 @@ class SpirvTools < Formula
   resource "re2" do
     # revision number could be found in ./DEPS
     url "https://github.com/google/re2.git",
-        revision: "954656f47fe8fb505d4818da1e128417a79ea500"
+        revision: "b059ae85c83ca6b1f29dba20e92e4acb85cb5b29"
   end
 
   resource "effcee" do
     # revision number could be found in ./DEPS
     url "https://github.com/google/effcee.git",
-        revision: "c7b4db79f340f7a9981e8a484f6d5785e24242d1"
+        revision: "66edefd2bb641de8a2f46b476de21f227fc03a28"
   end
 
   resource "spirv-headers" do
     # revision number could be found in ./DEPS
     url "https://github.com/KhronosGroup/SPIRV-Headers.git",
-        revision: "d13b52222c39a7e9a401b44646f0ca3a640fbd47"
+        revision: "1feaf4414eb2b353764d01d88f8aa4bcc67b60db"
   end
 
   def install
-    (buildpath/"external/re2").install resource("re2")
-    (buildpath/"external/effcee").install resource("effcee")
-    (buildpath/"external/SPIRV-Headers").install resource("spirv-headers")
+    resources.each do |res|
+      (buildpath/"external"/res.name).install res
+    end
 
     mkdir "build" do
       system "cmake", "..", *std_cmake_args,

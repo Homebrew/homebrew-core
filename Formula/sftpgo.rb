@@ -1,18 +1,18 @@
 class Sftpgo < Formula
   desc "Fully featured SFTP server with optional HTTP/S, FTP/S and WebDAV support"
   homepage "https://github.com/drakkan/sftpgo"
-  url "https://github.com/drakkan/sftpgo/releases/download/v2.4.4/sftpgo_v2.4.4_src_with_deps.tar.xz"
-  sha256 "9e248dea64e5738ddcb9b10ed47645887665c8adfe0d5554052fb31088fce665"
+  url "https://github.com/drakkan/sftpgo/releases/download/v2.4.5/sftpgo_v2.4.5_src_with_deps.tar.xz"
+  sha256 "30cc3d3c7dffd9fb760d66e0d9bb030fab61b76a59d2d63f9c383674042eddef"
   license "AGPL-3.0-only"
 
   bottle do
-    sha256 arm64_ventura:  "f57fe765321a4334d7d0d0e6a741142b1a1fc1cefbed575d3d5ca67990c2c673"
-    sha256 arm64_monterey: "c39cec67f7dd00d3080c30985c4b77f1e7930bea659ac7f9a4b188b5839358f6"
-    sha256 arm64_big_sur:  "c3dd4284782638426badf49b0903d21a3425d126bc0a405a0332879023f8e8aa"
-    sha256 ventura:        "5960f069c36bb49390e0de70488090f1021223ae8f78e7fb4a8d60d5db075e82"
-    sha256 monterey:       "2a17ff52f9420c5e166ce023f665124bc5fe4ced8c0ae80a6b3815a00a97dd29"
-    sha256 big_sur:        "ce545ee899c7f65ea25fa1dec364a5d45dd3bc2f8b01b786a4311aa818ca6977"
-    sha256 x86_64_linux:   "764d0840d3f1cefed059e1c47a0cf7ce86d6ec670c426e0d3d6f958038b7f89b"
+    sha256 arm64_ventura:  "fba44752221e15d23273a47e32c6535cbb9e8318e45a04a58250dcd7e10864f8"
+    sha256 arm64_monterey: "89cb550b1236e2fbe8878b69bdda148ced9c297762c6d548506f52ad37174dce"
+    sha256 arm64_big_sur:  "f08c1ac90298976b81d8897a3eb1b13106779e9753100c9c87fbe666ffcf6212"
+    sha256 ventura:        "90f36725ca572ac71f14127f87855453321224dacef0cd935acf58369d226ac9"
+    sha256 monterey:       "e9759e53c23153c1e5c528843e57927cb15f5f57c01f2ac73bec9277ef5f64d7"
+    sha256 big_sur:        "94eea8e85c3f9cef11a58fe10dc7cfce20694f626c3a156e00de973eb8fcd107"
+    sha256 x86_64_linux:   "17b942956eef66b48cbf758484ac492607ffdf338eefa567703f500efb0941bf"
   end
 
   depends_on "go" => :build
@@ -53,7 +53,7 @@ class Sftpgo < Formula
   end
 
   service do
-    run [bin/"sftpgo", "serve", "--config-file", etc/"sftpgo/sftpgo.json", "--log-file-path",
+    run [opt_bin/"sftpgo", "serve", "--config-file", etc/"sftpgo/sftpgo.json", "--log-file-path",
          var/"sftpgo/log/sftpgo.log"]
     keep_alive true
     require_root true

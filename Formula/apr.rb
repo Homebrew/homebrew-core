@@ -1,19 +1,20 @@
 class Apr < Formula
   desc "Apache Portable Runtime library"
   homepage "https://apr.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=apr/apr-1.7.2.tar.bz2"
-  mirror "https://archive.apache.org/dist/apr/apr-1.7.2.tar.bz2"
-  sha256 "75e77cc86776c030c0a5c408dfbd0bf2a0b75eed5351e52d5439fa1e5509a43e"
+  # TODO: Remove `libexec` symlinks in `install` when we no longer have a Big Sur bottle.
+  url "https://www.apache.org/dyn/closer.lua?path=apr/apr-1.7.4.tar.bz2"
+  mirror "https://archive.apache.org/dist/apr/apr-1.7.4.tar.bz2"
+  sha256 "fc648de983f3a2a6c9e78dea1f180639bd2fad6c06d556d4367a701fe5c35577"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "43d7a315b75512c306abc9d3c4b565f6055aaf74d4dd76ca5ef4982510a8dfe2"
-    sha256 cellar: :any,                 arm64_monterey: "933669452ddcd56ad2de33b066886f5619701d24bdf25fb9851627a6f6383211"
-    sha256 cellar: :any,                 arm64_big_sur:  "0de897019d6d6bb016d736ddb8abd030ced05199b12296191df368887cd15a52"
-    sha256 cellar: :any,                 ventura:        "bd5e75c1eb97d724b1e3379882ea039648c07410e43d14b9b63f1114e9640054"
-    sha256 cellar: :any,                 monterey:       "ad643047773efb61fea049f450e93ec8235681d7bb8e5038346d5412afe17232"
-    sha256 cellar: :any,                 big_sur:        "5a31bfc312dbc46708437cceec41482dd73d14a65475f7b1317429365d1f509c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bb12d8b8b2e4691cc2be81032892f11bd9a8e279cc183238d78a9893e3ab7bc5"
+    sha256 cellar: :any,                 arm64_ventura:  "55701a760762df4b13e8ea020e3b9f3cbab2bc98c4e454ebc8da6e1e732c6019"
+    sha256 cellar: :any,                 arm64_monterey: "cdf180eedc873e0be54f957c15db9f9e3f9fa31bae241177a5fea10712cec4e7"
+    sha256 cellar: :any,                 arm64_big_sur:  "68c28d40b2d94452663cc4f73a5f63ec4b4e3fa41df52e427808a7b560108ae7"
+    sha256 cellar: :any,                 ventura:        "f12547e5dda5a279d9e179b177ba268a8f9d8bde75fd27e239d6a6c0b2badeba"
+    sha256 cellar: :any,                 monterey:       "f8167e19ca4a4d6e60f134800aef9db00386049600ef1ddb5a1d57666fd15cba"
+    sha256 cellar: :any,                 big_sur:        "5364e94a85ef867608891ff3de3a616ce285c67bb4bb9dd24c15b6726c28c528"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "46ee2796d8449bb3af0ddddceef945f64e25a28fead1e5b7661e430e8e81275a"
   end
 
   keg_only :provided_by_macos, "Apple's CLT provides apr"
@@ -33,7 +34,7 @@ class Apr < Formula
     system "make", "install"
 
     # Install symlinks so that linkage doesn't break for reverse dependencies.
-    # Remove at version/revision bump from version 1.7.0 revision 2.
+    # Remove when we no longer have a Big Sur bottle.
     (libexec/"lib").install_symlink lib.glob(shared_library("*"))
 
     rm lib.glob("*.{la,exp}")

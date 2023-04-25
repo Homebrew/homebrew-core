@@ -24,6 +24,7 @@ class Less < Formula
   head do
     url "https://github.com/gwsw/less.git", branch: "master"
     depends_on "autoconf" => :build
+    depends_on "groff" => :build
     uses_from_macos "perl" => :build
   end
 

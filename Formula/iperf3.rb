@@ -5,6 +5,11 @@ class Iperf3 < Formula
   sha256 "bee427aeb13d6a2ee22073f23261f63712d82befaa83ac8cb4db5da4c2bdc865"
   license "BSD-3-Clause"
 
+  livecheck do
+    url "https://downloads.es.net/pub/iperf/"
+    regex(/href=.*?iperf[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "1854ac074c5197baded5ee4264abeea79b925b5ca5a814c8d06a4f6419ca5b6f"
     sha256 cellar: :any,                 arm64_monterey: "69ce7edd9c141540e3de9bb8ddcd244f21c5cec1df2a83bdc62a5caa9cbdd3b8"

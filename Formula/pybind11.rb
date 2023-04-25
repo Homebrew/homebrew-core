@@ -46,7 +46,7 @@ class Pybind11 < Formula
       pyversion = Language::Python.major_minor_version(python_exe)
       bin.install libexec/"bin/pybind11-config" => "pybind11-config-#{pyversion}"
 
-      next unless python == pythons.max_by(&:version)
+      next if python != pythons.max_by(&:version)
 
       # The newest one is used as the default
       bin.install_symlink "pybind11-config-#{pyversion}" => "pybind11-config"
@@ -92,7 +92,7 @@ class Pybind11 < Formula
       test_script = shell_output("#{bin}/pybind11-config-#{pyversion} --includes")
       assert_match test_module, test_script
 
-      next unless python == pythons.max_by(&:version)
+      next if python != pythons.max_by(&:version)
 
       test_module = shell_output("#{python_exe} -m pybind11 --includes")
       test_script = shell_output("#{bin}/pybind11-config --includes")

@@ -21,8 +21,9 @@ class DockerMachineDriverXhyve < Formula
   depends_on "docker-machine"
 
   def install
-    (buildpath/"gopath/src/github.com/zchee/docker-machine-driver-xhyve").install \
-      Dir["{*,.git,.gitignore,.gitmodules}"]
+    (buildpath/"gopath/src/github.com/zchee/docker-machine-driver-xhyve").install(
+      Dir["{*,.git,.gitignore,.gitmodules}"],
+    )
 
     ENV["GOPATH"] = "#{buildpath}/gopath"
     build_root = buildpath/"gopath/src/github.com/zchee/docker-machine-driver-xhyve"
@@ -53,7 +54,8 @@ class DockerMachineDriverXhyve < Formula
   end
 
   test do
-    assert_match "xhyve-memory-size",
-    shell_output("#{Formula["docker-machine"].bin}/docker-machine create --driver xhyve -h")
+    assert_match "xhyve-memory-size", shell_output(
+      "#{Formula["docker-machine"].bin}/docker-machine create --driver xhyve -h",
+    )
   end
 end

@@ -3,18 +3,18 @@ class Woob < Formula
 
   desc "Web Outside of Browsers"
   homepage "https://woob.tech/"
-  url "https://files.pythonhosted.org/packages/fe/f3/3d620ccce60c1dbe91b4489034049433bb532b7720d54265c1989f2b3d20/woob-3.4.tar.gz"
-  sha256 "9de0fa3e713c67dfda33f99ad8f8ef7b468b4e01b7aa5d36759ba6d9a8a91258"
+  url "https://files.pythonhosted.org/packages/bc/6b/007a19a00f8156c8c4d18abbe4d0a81bc2669b564f37e69152cdc73db72a/woob-3.5.tar.gz"
+  sha256 "2fd14125cca51ffbdf9a9bd32a7a1f7e8241e5a264b732e7e4ca1b4358734d9d"
   license "LGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0ae273ab982b2405564d288924a208637c4362164511c7d620c6d458a060542c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "686ea92778bdbb364c0d041c633282e7756949e0c793acc6553a6a8e2f63ca16"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1902bd757157749d4f6e75a21dda2c0d021edc281606459ad090083b8c87a605"
-    sha256 cellar: :any_skip_relocation, ventura:        "7016be41ba8905f89a45edb99c8c0d0d6d8cf7cefdb9350f6afacb23803c044d"
-    sha256 cellar: :any_skip_relocation, monterey:       "d8101955b43bdefd77f9d8b2adae0c4e4d971d44f3c2c9ffaedb24cf3785ae2c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c757b1690f85312ca62d6974cf56465fd51b7123cc96cab87c9789ceaaa5283a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "288d8105a811e3460fdacfa26fb46fca342c417b27826b42763205248a1fa048"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e42804a3b5700181fe1c3e02388cc4e54877daf87836ebb8d5a70e2f7c45d297"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "613ef659cc4e9a4eee32e17677e484b563f230214c1dc079b30d41ec9e101578"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ca788b9db92f8cfa4bcc44b54475b282bc50a1f6eed540e9875a1984f5d4c63e"
+    sha256 cellar: :any_skip_relocation, ventura:        "17f44bf0331b1e7a35a3fc885d8b6138c0f65208a9bf8e859c9dcca4b6caae54"
+    sha256 cellar: :any_skip_relocation, monterey:       "6cbefb4a195bae0451f5aac48043f8dcbbbcbc30346c58ad4e9c0b08f543d4ef"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0d456d40f9d7d2ad30ea64be0862a3b2b56e9b188e52c77e900611a967d8d037"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c4a6876ba4b9560bc002b0f2336df8d1111e77f8c410923b2784eb69c983e602"
   end
 
   depends_on "gnupg"
@@ -37,8 +37,8 @@ class Woob < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/96/d7/1675d9089a1f4677df5eb29c3f8b064aa1e70c1251a0a8a127803158942d/charset-normalizer-3.0.1.tar.gz"
-    sha256 "ebea339af930f8ca5d7a699b921106c6e29c617fe9606fa7baa043c1cdae326f"
+    url "https://files.pythonhosted.org/packages/ff/d7/8d757f8bd45be079d76309248845a04f09619a7b17d6dfc8c9ff6433cac2/charset-normalizer-3.1.0.tar.gz"
+    sha256 "34e0a2f9c370eb95597aae63bf85eb5e96826d81e3dcf88b8886012906f509b5"
   end
 
   resource "colorama" do
@@ -66,6 +66,11 @@ class Woob < Formula
     sha256 "b6ad297f8907de0fa2fe1ccbd26fdaf387f5f47c7275fedf8cce89f99446cf97"
   end
 
+  resource "pycountry" do
+    url "https://files.pythonhosted.org/packages/33/24/033604d30f6cf82d661c0f9dfc2c71d52cafc2de516616f80d3b0600cb7c/pycountry-22.3.5.tar.gz"
+    sha256 "b2163a246c585894d808f18783e19137cb70a0c18fb36748dc01fc6f109c1646"
+  end
+
   resource "python-dateutil" do
     url "https://files.pythonhosted.org/packages/4c/c4/13b4776ea2d76c115c1d1b84579f3764ee6d57204f6be27119f13a61d0a9/python-dateutil-2.8.2.tar.gz"
     sha256 "0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"
@@ -82,8 +87,8 @@ class Woob < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/c5/52/fe421fb7364aa738b3506a2d99e4f3a56e079c0a798e9f4fa5e14c60922f/urllib3-1.26.14.tar.gz"
-    sha256 "076907bf8fd355cde77728471316625a4d2f7e713c125f51953bb5b3eecf4f72"
+    url "https://files.pythonhosted.org/packages/21/79/6372d8c0d0641b4072889f3ff84f279b738cd8595b64c8e0496d4e848122/urllib3-1.26.15.tar.gz"
+    sha256 "8a388717b9476f934a21484e8c8e61875ab60644d29b9b39e11e4b9dc1c6b305"
   end
 
   def python3

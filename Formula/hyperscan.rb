@@ -1,15 +1,15 @@
 class Hyperscan < Formula
   desc "High-performance regular expression matching library"
   homepage "https://www.hyperscan.io/"
-  url "https://github.com/intel/hyperscan/archive/v5.4.1.tar.gz"
-  sha256 "6798202350ecab5ebe5063fbbb6966c33d43197b39ce7ddfbca2e61ac5ecb54a"
+  url "https://github.com/intel/hyperscan/archive/v5.4.2.tar.gz"
+  sha256 "32b0f24b3113bbc46b6bfaa05cf7cf45840b6b59333d078cc1f624e4c40b2b99"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 ventura:      "f0105513ef5f4258bea80ce4d66fdc58870ade37549098c5a7ef695c02e2c21a"
-    sha256 cellar: :any,                 monterey:     "38d912db872b46ddd8242f543e343b4a8a47c98d2900e6dc7b9a1e80fc8f9141"
-    sha256 cellar: :any,                 big_sur:      "4d712c27745f4c175051fc4b753b990b70f2108858ff3620f1e928aee8666753"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "01a5210d8c7b25dc9029a3f3b97fee837c22f4fdfa53d41e94d5d258d9180550"
+    sha256 cellar: :any,                 ventura:      "a5866b950b8b18122c144b6b6ff2ca64705861d59917a1762bef1faff1cc7b8a"
+    sha256 cellar: :any,                 monterey:     "d67efe0abd515b90c2fe9e10694c99f62e708ac507395aa232bbb54eac0470b6"
+    sha256 cellar: :any,                 big_sur:      "f000309c80201f6a1ced867c4d36d45a51ea980cd3ee116e853cf03625efcc77"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "45406945a7c9c98bb01d8dc90ad045746bbe7b0146a522badbc8925dd03d0fd5"
   end
 
   depends_on "boost" => :build

@@ -2,8 +2,8 @@ class Zbctl < Formula
   desc "Zeebe CLI client"
   homepage "https://docs.camunda.io/docs/apis-clients/cli-client/index/"
   url "https://github.com/camunda/zeebe.git",
-      tag:      "8.1.9",
-      revision: "6d0999a27969dea3603d8ec43d838eabbcbf42f9"
+      tag:      "8.2.3",
+      revision: "25bdd43aba09d8189b8a60c3def3e6ed14984c4b"
   license "Apache-2.0"
   head "https://github.com/camunda/zeebe.git", branch: "develop"
 
@@ -16,13 +16,13 @@ class Zbctl < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5e06616c4c86ea50fe57159ffbb0d21d8edb2c96e8e7f54c37efadb80d68f51d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5e06616c4c86ea50fe57159ffbb0d21d8edb2c96e8e7f54c37efadb80d68f51d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5e06616c4c86ea50fe57159ffbb0d21d8edb2c96e8e7f54c37efadb80d68f51d"
-    sha256 cellar: :any_skip_relocation, ventura:        "062b2690b551441d3b8c3c0487c1ddf7f0fedc188b414114a917c5ec5444cd5a"
-    sha256 cellar: :any_skip_relocation, monterey:       "062b2690b551441d3b8c3c0487c1ddf7f0fedc188b414114a917c5ec5444cd5a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "062b2690b551441d3b8c3c0487c1ddf7f0fedc188b414114a917c5ec5444cd5a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3fb9490bc4fdea59ef2b038076b0cbc843b995029d3fe4e76df2d7180783bc6b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "17f64b68b7e763f1402651030f26bee82815ca0e8ec417cf846f39f4643646d2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "17f64b68b7e763f1402651030f26bee82815ca0e8ec417cf846f39f4643646d2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "17f64b68b7e763f1402651030f26bee82815ca0e8ec417cf846f39f4643646d2"
+    sha256 cellar: :any_skip_relocation, ventura:        "f2a31e45562437c27c1951f6229f6af4c0e2b49862c779776d71e8bc46bd1a8a"
+    sha256 cellar: :any_skip_relocation, monterey:       "f2a31e45562437c27c1951f6229f6af4c0e2b49862c779776d71e8bc46bd1a8a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f2a31e45562437c27c1951f6229f6af4c0e2b49862c779776d71e8bc46bd1a8a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9d5404bb161eadb7b6569c258297e0e6d7b28d25863b28a65038acebad8c4f0f"
   end
 
   depends_on "go" => :build

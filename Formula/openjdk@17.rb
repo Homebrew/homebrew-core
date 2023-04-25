@@ -1,8 +1,8 @@
 class OpenjdkAT17 < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.java.net/"
-  url "https://github.com/openjdk/jdk17u/archive/jdk-17.0.6-ga.tar.gz"
-  sha256 "f1d1c29ff5ac8254dc81d1635d60f658b6f2b790476acab836ddcb488c8c7fbe"
+  url "https://github.com/openjdk/jdk17u/archive/jdk-17.0.7-ga.tar.gz"
+  sha256 "8024cc0c1e516870b8407bce60c1e67e6572a736518baa3682178937af3fe5a7"
   license "GPL-2.0-only" => { with: "Classpath-exception-2.0" }
 
   livecheck do
@@ -11,13 +11,13 @@ class OpenjdkAT17 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "aea96c54a5b8ca246bf78c973875468e16c5c3f4f5bd33ec10cc0a60df266351"
-    sha256 cellar: :any, arm64_monterey: "b0e627aab96ed8386ba6b491a1d106d75aad6e308c08cc2508f221a328dbd142"
-    sha256 cellar: :any, arm64_big_sur:  "26f64efbd24285f57fa865ca2d6191ca1f32a91ccebbb1059a6215d210955988"
-    sha256 cellar: :any, ventura:        "65498361fe3061ca11035b4eab6ced3b5b357c930e2b8433149e0a3081cecd3d"
-    sha256 cellar: :any, monterey:       "53f26e134fcaae7fe55d5c3e479a8d0131dc39e71f8e19023bcf8ace1367f85a"
-    sha256 cellar: :any, big_sur:        "c271123715c7d281b2e39e9f2586caf177350a8dc5380d334fc81be53066e895"
-    sha256               x86_64_linux:   "f7dd141cfe0d740cfbf302d94dd4a3329cccdf16678c5110638efe4eb5930a02"
+    sha256 cellar: :any, arm64_ventura:  "37f22688a6ce94ed1e9e21329148dc275f4c41979df1daea7ab3ca530f1a07eb"
+    sha256 cellar: :any, arm64_monterey: "3dd4608a90d379371d94abc4de2f77582cca337e48813303977a83a44d9b8c80"
+    sha256 cellar: :any, arm64_big_sur:  "2a0028decef4e7a2d9d5411182f9c57e2cd45680de6b048cf5a90150dce0dbf5"
+    sha256 cellar: :any, ventura:        "c7a273ba9b3ab6dd4c90713dfce6e8df5be6ebdc5c900caaacb61c3cbefa7ac8"
+    sha256 cellar: :any, monterey:       "09e33ee17c32707474d073c4d89f429419903164e8df80a63c7a1f513e7f54ce"
+    sha256 cellar: :any, big_sur:        "207dfc267065e413c974b66dae3902204563939aa661d4864ce65ba718be9b2b"
+    sha256               x86_64_linux:   "61d319a01d323685bdaf89a48c816cae46a434ab8b46a066e5ab32c0631317b8"
   end
 
   keg_only :versioned_formula

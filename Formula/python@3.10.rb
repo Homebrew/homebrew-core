@@ -1,10 +1,9 @@
 class PythonAT310 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.10.10/Python-3.10.10.tgz"
-  sha256 "fba64559dde21ebdc953e4565e731573bb61159de8e4d4cedee70fb1196f610d"
+  url "https://www.python.org/ftp/python/3.10.11/Python-3.10.11.tgz"
+  sha256 "f3db31b668efa983508bd67b5712898aa4247899a346f2eb745734699ccd3859"
   license "Python-2.0"
-  revision 1
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -12,13 +11,13 @@ class PythonAT310 < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "8901fd702a2bba8c37514beab8a3c44bf13a5443d4478ee75ddbaaf124ccab4e"
-    sha256 arm64_monterey: "6655163e389898197777099b8e8b463fa3ef914654d64e6cc6ec5d017fca0920"
-    sha256 arm64_big_sur:  "b4cbbac05a433478499340df196f201e0a00152643126985f0cd1458c92bcc3a"
-    sha256 ventura:        "39b7f883d92f4093862c1eecac37b14dd800a75950a1011bf63fc5ebd74a126f"
-    sha256 monterey:       "a62a75c24c0cd82d342ae59ea12686b0938dbc57f3c23ae4d458d66e5dd6dfb8"
-    sha256 big_sur:        "c03d868ab5d46ff2fde13c9be9395bca7eba492002d04a299e9514068ee6508b"
-    sha256 x86_64_linux:   "f01aa14bb2ae227a242290438e91f12d07812a84beb744b0b33e5f1f9ee70f2f"
+    sha256 arm64_ventura:  "7821f3b8dbbdc4bbf523dfdd4f6c64fb6b0ef9520656128f6628b1eeca90a62c"
+    sha256 arm64_monterey: "4b062ce32d6d430ef63492097aa79c715a004010cdd43ef3766a2c8cb21e01af"
+    sha256 arm64_big_sur:  "9ca45ff4895c95cf72e89254e1c9db6a26f9de00de22567eba0fef10b3e85215"
+    sha256 ventura:        "6ad2d171570c2b38e99d58ffc4c1d0321b45698e90bfdfde64f3fc8fc6769b6d"
+    sha256 monterey:       "6093c0e2490a28a6f1d4e06569f9a71b2c8919190ee9bae800a71238aedfbb87"
+    sha256 big_sur:        "8155f10c07c1bf8fa552033f2db980c2f415314ba578f037a1a586d9e587de0c"
+    sha256 x86_64_linux:   "92ca5c8c341835d5af8f4a94bb86bdd73b99239b7977430911cec4e86f226e20"
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -50,19 +49,24 @@ class PythonAT310 < Formula
               "bin/easy_install-3.7", "bin/easy_install-3.8", "bin/easy_install-3.9"
 
   # Always update to latest release
-  resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/5f/36/7374297692bb9dbd7569a0f84887c7e5e314c41d5d9518cb76fbb130620d/setuptools-67.2.0.tar.gz"
-    sha256 "b440ee5f7e607bb8c9de15259dba2583dd41a38879a7abc1d43a71c59524da48"
+  resource "flit-core" do
+    url "https://files.pythonhosted.org/packages/10/e5/be08751d07b30889af130cec20955c987a74380a10058e6e8856e4010afc/flit_core-3.8.0.tar.gz"
+    sha256 "b305b30c99526df5e63d6022dd2310a0a941a187bd3884f4c8ef0418df6c39f3"
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/b5/16/5e24bf63cff51dcc169f43bd43b86b005c49941e09cc3482a5b370db239e/pip-23.0.tar.gz"
-    sha256 "aee438284e82c8def684b0bcc50b1f6ed5e941af97fa940e83e2e8ef1a59da9b"
+    url "https://files.pythonhosted.org/packages/6b/8b/0b16094553ecc680e43ded8f920c3873b01b1da79a54274c98f08cb29fca/pip-23.0.1.tar.gz"
+    sha256 "cd015ea1bfb0fcef59d8a286c1f8bebcb983f6317719d415dc5351efb7cd7024"
+  end
+
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/cb/46/22ec35f286a77e6b94adf81b4f0d59f402ed981d4251df0ba7b992299146/setuptools-67.6.1.tar.gz"
+    sha256 "257de92a9d50a60b8e22abfcbb771571fde0dbf3ec234463212027a4eeecbe9a"
   end
 
   resource "wheel" do
-    url "https://files.pythonhosted.org/packages/a2/b8/6a06ff0f13a00fc3c3e7d222a995526cbca26c1ad107691b6b1badbbabf1/wheel-0.38.4.tar.gz"
-    sha256 "965f5259b566725405b05e7cf774052044b1ed30119b5d586b2703aafe8719ac"
+    url "https://files.pythonhosted.org/packages/fc/ef/0335f7217dd1e8096a9e8383e1d472aa14717878ffe07c4772e68b6e8735/wheel-0.40.0.tar.gz"
+    sha256 "cd1196f3faee2b31968d626e1731c94f99cbdb67cf5a46e4f5656cbee7738873"
   end
 
   # Modify default sysconfig to match the brew install layout.
@@ -129,7 +133,6 @@ class PythonAT310 < Formula
       --with-dbmliborder=gdbm:ndbm
       --enable-optimizations
       --with-system-expat
-      --with-system-ffi
       --with-system-libmpdec
     ]
 
@@ -281,6 +284,9 @@ class PythonAT310 < Formula
     ]
     whl_build = buildpath/"whl_build"
     system python3, "-m", "venv", whl_build
+    resource("flit-core").stage do
+      system whl_build/"bin/pip3", "install", *common_pip_args, "."
+    end
     resource("wheel").stage do
       system whl_build/"bin/pip3", "install", *common_pip_args, "."
       system whl_build/"bin/pip3", "wheel", *common_pip_args,

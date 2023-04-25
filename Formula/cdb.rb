@@ -3,6 +3,7 @@ class Cdb < Formula
   homepage "https://cr.yp.to/cdb.html"
   url "https://cr.yp.to/cdb/cdb-0.75.tar.gz"
   sha256 "1919577799a50c080a8a05a1cbfa5fa7e7abc823d8d7df2eeb181e624b7952c5"
+  license :public_domain
 
   livecheck do
     url "https://cr.yp.to/cdb/install.html"

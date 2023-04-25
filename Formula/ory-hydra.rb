@@ -2,8 +2,8 @@ class OryHydra < Formula
   desc "OpenID Certified OAuth 2.0 Server and OpenID Connect Provider"
   homepage "https://www.ory.sh/hydra/"
   url "https://github.com/ory/hydra.git",
-      tag:      "v2.0.3",
-      revision: "16831c55c41e64dd73637e8e2ca8f22202fc7d87"
+      tag:      "v2.1.1",
+      revision: "6efae7cfa7430cecaa145e2e71958699a2394115"
   license "Apache-2.0"
 
   livecheck do
@@ -12,13 +12,13 @@ class OryHydra < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "61571ebfd7601dd05cfe0f3e5e9f5dc470ed88c37212ae13ef9ffd1c443e1275"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f12b8a5e6f594c6308dfdfbeaa02c22d9e52a805241afb55726512c13d25c80a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0e8ebcb43ee967b5a9a5af9588f67cd415cbbeff8c907a936ebfeccfd2ce191d"
-    sha256 cellar: :any_skip_relocation, ventura:        "9672ab575aac913f6ffdd299835cc6c61288d03c58dd5f3675bb6cc44e80e55b"
-    sha256 cellar: :any_skip_relocation, monterey:       "eb368d75f979b0a59c8149ab07b2ddaace682b6b43e59e9183a8861776e2e649"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7d8851259d9c64bc8204f78d87f922c7307a71c570cd606ebda396d1a21bbe4e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ebe6a980bd7f7ecd82b8eb12244c2484eeee7713c355cf251f41aa3186101e41"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ee77ae06108e3a9c25c4f44b4b0dac3e9a1fb397c9f0c79626f147ac2e161f25"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "fd6d77c1c350154e814375ae9b5c41a6af8d05e6900c8aef4fadf52579c84715"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2be8c5285255ddcaab6a5b7f61c26a4c0f052aa7b3ed979e8a1781f4faff5094"
+    sha256 cellar: :any_skip_relocation, ventura:        "5e063bd3350c4a5451b7f24e153720647597236aa9dcda16940e63676ca50eba"
+    sha256 cellar: :any_skip_relocation, monterey:       "0cdae9c3ea5f31888827a7ff07f18ec6a908f203f8b9c4fe2bf674ec67999af4"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9291c6fc70a8f9c3bd5e8aef795b1f6bdc6fd23faa108cfa32e07b5015a53375"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "706bba9bcc870f85c649c852d945029d51384eb8e3139d53bb4ca89972d9af03"
   end
 
   depends_on "go" => :build
@@ -28,9 +28,9 @@ class OryHydra < Formula
   def install
     ldflags = %W[
       -s -w
-      -X github.com/ory/hydra/driver/config.Version=v#{version}
-      -X github.com/ory/hydra/driver/config.Date=#{time.iso8601}
-      -X github.com/ory/hydra/driver/config.Commit=#{Utils.git_head}
+      -X github.com/ory/hydra/v2/driver/config.Version=v#{version}
+      -X github.com/ory/hydra/v2/driver/config.Date=#{time.iso8601}
+      -X github.com/ory/hydra/v2/driver/config.Commit=#{Utils.git_head}
     ].join(" ")
     system "go", "build", *std_go_args(ldflags: ldflags), "-tags", "sqlite", "-o", bin/"hydra"
   end

@@ -1,8 +1,8 @@
 class Nuget < Formula
   desc "Package manager for Microsoft development platform including .NET"
   homepage "https://www.nuget.org/"
-  url "https://dist.nuget.org/win-x86-commandline/v6.4.0/nuget.exe" # make sure libexec.install below matches case
-  sha256 "26730829b240581a3e6a4e276b9ace088930032df0c680d5591beccf6452374e"
+  url "https://dist.nuget.org/win-x86-commandline/v6.5.0/nuget.exe" # make sure libexec.install below matches case
+  sha256 "d5fce5185de92b7356ea9264b997a620e35c6f6c3c061e471e0dc3a84b3d74fd"
   license "MIT"
 
   livecheck do
@@ -11,7 +11,12 @@ class Nuget < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "bd1dc2993c170db6b5d6e80a21c75c9e96e6fbbb92054ad346a522b4b9caf5ec"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1e2d8ab4f8fc85dd381657e02af4aa7dfea4a1e527fcd79a164f5e5297be3338"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1e2d8ab4f8fc85dd381657e02af4aa7dfea4a1e527fcd79a164f5e5297be3338"
+    sha256 cellar: :any_skip_relocation, ventura:        "1e2d8ab4f8fc85dd381657e02af4aa7dfea4a1e527fcd79a164f5e5297be3338"
+    sha256 cellar: :any_skip_relocation, monterey:       "1e2d8ab4f8fc85dd381657e02af4aa7dfea4a1e527fcd79a164f5e5297be3338"
+    sha256 cellar: :any_skip_relocation, big_sur:        "1e2d8ab4f8fc85dd381657e02af4aa7dfea4a1e527fcd79a164f5e5297be3338"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "11616721cea5ce9d7707e7c2965ead699197edc7eb55c54ee7e659d5192379dc"
   end
 
   depends_on "mono"

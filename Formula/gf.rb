@@ -1,22 +1,22 @@
 class Gf < Formula
   desc "App development framework of Golang"
   homepage "https://goframe.org"
-  url "https://github.com/gogf/gf/archive/refs/tags/v2.3.3.tar.gz"
-  sha256 "973c0582b933f9dc575aeff8ef93fb78dfa8e0c8179c9bff247f8051c0abc133"
+  url "https://github.com/gogf/gf/archive/refs/tags/v2.4.0.tar.gz"
+  sha256 "ebff69bb1edfb8828fbe2ebcf10314c2571faee88923ab687e46e78127cf8c6e"
   license "MIT"
   head "https://github.com/gogf/gf.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "84419c7e39efa8c0bdef6d7be36eef6981aeaa4179a78ac0b69a548df452d832"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3ed48fa2aca387594f93061d60f14a1eb2f182ee5a21adb86413eaa16ddf9dd4"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "eb66bccd7bb54efcf11dcb7adb1c93bb11da87d9ee9e58fb732ab2783c8cac1e"
-    sha256 cellar: :any_skip_relocation, ventura:        "fd5968ee211472e1b8b94aa8bc99541003644416790db4a84a64d6fac6700acf"
-    sha256 cellar: :any_skip_relocation, monterey:       "5dc42f224b8762f5da8e6308119dfcba855585f481baeb9c0e214d2f2063bc8b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "95fa1e631dd49723a69f25c38a44834550a419b5037d1ba8717f4e02bd49f3e1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fbb5568ad408f2dbe307a65a990b861513b3e077d004e526bf67798f9ff5ecad"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5c6533889ac03111b3f8a0c34612f07762bca17e9af5b1e9a40875f6ee8f199a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7e2072b80438b007e47b5c6f79796e435d69b7aed134c76b3480f2dadd6ccac0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8a75db4143216346daa9ee9a2434671b054cd64a9babd0820414ad40889df773"
+    sha256 cellar: :any_skip_relocation, ventura:        "8efc9abc316f204d4bfbafc37801b81226f38d37c2ee30f3be2fc483b815b0b8"
+    sha256 cellar: :any_skip_relocation, monterey:       "62da0926bd045dd9d986618ce4924b50625e67004055c935ea0b046aba5f6a12"
+    sha256 cellar: :any_skip_relocation, big_sur:        "94069132c7fdae7c6b4358fab779c5a1fda146aeee7cb72e0ae18cee56ff6837"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "31d0dc8542472f92b618129d50ea5d07b63ce01ad35291dbcca7dc95e65ee235"
   end
 
-  depends_on "go" => :build
+  depends_on "go" => [:build, :test]
 
   def install
     cd "cmd/gf" do

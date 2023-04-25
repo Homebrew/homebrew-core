@@ -1,18 +1,18 @@
 class Clash < Formula
   desc "Rule-based tunnel in Go"
   homepage "https://github.com/Dreamacro/clash"
-  url "https://github.com/Dreamacro/clash/archive/v1.14.0.tar.gz"
-  sha256 "991ab58797d315d471cbafcbb665e3af4021654c88b6f916821290895956bb39"
+  url "https://github.com/Dreamacro/clash/archive/v1.15.1.tar.gz"
+  sha256 "c340f30a244599692bd8c726ece292184ef9cd8910c622cdd41bbe695b283136"
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d0021201ec908439e83a295528480ad9d3e10ed1fe39b55d8c2149e093d3c3b7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d0021201ec908439e83a295528480ad9d3e10ed1fe39b55d8c2149e093d3c3b7"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d0021201ec908439e83a295528480ad9d3e10ed1fe39b55d8c2149e093d3c3b7"
-    sha256 cellar: :any_skip_relocation, ventura:        "fa5a675d54ff5ef1fccb9a0467a1f0dbd7feb9435e02e28f73ff0a8a88ef860c"
-    sha256 cellar: :any_skip_relocation, monterey:       "fa5a675d54ff5ef1fccb9a0467a1f0dbd7feb9435e02e28f73ff0a8a88ef860c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "fa5a675d54ff5ef1fccb9a0467a1f0dbd7feb9435e02e28f73ff0a8a88ef860c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b59715a76118efef9fac43e5c75de5b83c1ac305addd23c5b769559e015bd2e3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "677e0826505a064d7c05a2a214fcb48b18efd4e243aa38fed1f99712d400a3fb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "677e0826505a064d7c05a2a214fcb48b18efd4e243aa38fed1f99712d400a3fb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "677e0826505a064d7c05a2a214fcb48b18efd4e243aa38fed1f99712d400a3fb"
+    sha256 cellar: :any_skip_relocation, ventura:        "175e7522bb8d6fba1dfc41fdc76d14afdb7d3683bfc53d77a3f219ac11ab74da"
+    sha256 cellar: :any_skip_relocation, monterey:       "175e7522bb8d6fba1dfc41fdc76d14afdb7d3683bfc53d77a3f219ac11ab74da"
+    sha256 cellar: :any_skip_relocation, big_sur:        "175e7522bb8d6fba1dfc41fdc76d14afdb7d3683bfc53d77a3f219ac11ab74da"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e4de5de37873c81f4e1f834109211f7d68096b5e7de4afacd68ed9855b8b5c49"
   end
 
   depends_on "go" => :build

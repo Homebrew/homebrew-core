@@ -7,6 +7,11 @@ class Gel < Formula
   revision 1
   head "https://github.com/gel-rb/gel.git", branch: "main"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "fb512904278f1fb90fb064290a2b3b3c798be172138f79fe99dc5b0127c31a79"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7910ae14c724757ceed042871c75c799e112dc0f96ba7b72ca7ce105c14c2b23"

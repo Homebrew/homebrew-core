@@ -2,7 +2,7 @@ class Tmux < Formula
   desc "Terminal multiplexer"
   homepage "https://tmux.github.io/"
   license "ISC"
-  revision 1
+  revision 2
 
   stable do
     # Remove `stable` block in next release.
@@ -25,13 +25,13 @@ class Tmux < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "8cc7bf6a305cf13149d747cbe6b1d5fcd517e1115ed932dfa84fc40f289493f9"
-    sha256 cellar: :any,                 arm64_monterey: "b10969540ddcdd40490eab6913ee491b4660d769c88ceab7a02e711c88df8488"
-    sha256 cellar: :any,                 arm64_big_sur:  "887b430e1c680b74a6d5c11309aa82bf30e80b2f3c6e6f6e15db649542997b23"
-    sha256 cellar: :any,                 ventura:        "9472318bf4cbc5d2e09ddd562c260f94eaac97229a61e46aeab7022c7e51a9b5"
-    sha256 cellar: :any,                 monterey:       "e0462ce58a2eb5dada1d700510fe75fb148e64b1ae2e80ee0d5d40a498b9e9a8"
-    sha256 cellar: :any,                 big_sur:        "71e85e0f4d20acf5b893e5cfb0cd19041dddd27822c26b5dc2053cbab241c5ec"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "26f29148b3a5fdd0a36d5278f6199a8b413a26dd689ac7b185b54a38e23d1133"
+    sha256 cellar: :any,                 arm64_ventura:  "cf149268a57056eaa65e5c238668fc818caf5850a604b02e019ca3017184e731"
+    sha256 cellar: :any,                 arm64_monterey: "e5b94436fc6bb4b2b60b9ccb8b0dfa7dc66429a148a68afd8250f1af4d963544"
+    sha256 cellar: :any,                 arm64_big_sur:  "c7ceb9e78083537f4c7fcf3a22e620c1f0f03bea65573cb7660ecacd61d91004"
+    sha256 cellar: :any,                 ventura:        "5d9f6bfa55bd892f0d79acd5d8513e31553493267add167b0f195354ed0bd0ab"
+    sha256 cellar: :any,                 monterey:       "a24369c3d46641aa541f6a791bb23aa3e2fb91f3768086be6e9934af7bca5e74"
+    sha256 cellar: :any,                 big_sur:        "48055e1e39515db54922c2068d4da9800724727786763f9b4af198e13a44a75d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aec481263694618cf74e6c9b7e7208d828a46f45071226e7a6ac6af62f46a036"
   end
 
   head do
@@ -50,7 +50,7 @@ class Tmux < Formula
 
   # Old versions of macOS libc disagree with utf8proc character widths.
   # https://github.com/tmux/tmux/issues/2223
-  on_high_sierra :or_newer do
+  on_system :linux, macos: :sierra_or_newer do
     depends_on "utf8proc"
   end
 
@@ -73,7 +73,7 @@ class Tmux < Formula
     # tools that link with the very old ncurses provided by macOS.
     # https://github.com/Homebrew/homebrew-core/issues/102748
     args << "--with-TERM=screen-256color" if OS.mac?
-    args << "--enable-utf8proc" if MacOS.version >= :high_sierra
+    args << "--enable-utf8proc" if MacOS.version >= :high_sierra || OS.linux?
 
     ENV.append "LDFLAGS", "-lresolv"
     system "./configure", *args

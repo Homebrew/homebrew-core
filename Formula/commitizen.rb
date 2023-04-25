@@ -3,19 +3,19 @@ class Commitizen < Formula
 
   desc "Defines a standard way of committing rules and communicating it"
   homepage "https://commitizen-tools.github.io/commitizen/"
-  url "https://files.pythonhosted.org/packages/1d/bf/8c90125fe1610f5530b55372b834562d67535f14db6637e1643714944233/commitizen-2.42.1.tar.gz"
-  sha256 "eac18c7c65587061aac6829534907aeb208405b8230bfd35ec08503c228a7f17"
+  url "https://files.pythonhosted.org/packages/b1/1a/0e5ff7131d0f3378c1b99479754d81203738d9dbb594d2c23f02275df4f4/commitizen-3.0.1.tar.gz"
+  sha256 "ca917109412afcf21fd95831b01b444133764f337db1cbd9e2cf33ebaf2f8b2f"
   license "MIT"
   head "https://github.com/commitizen-tools/commitizen.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "98f2817efbb8d2d649ed1b2a09b0f121f42e1d786a6ca9a5832c83ca2adad4e3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "dbe409dcb9e41bd5282972697ad333677003e2ac22218f9513aee78a5b327248"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a0b30e6f4b39ce76963642f6d1d1832d75d0c5f58f348b03f942a1bbd4a1d22b"
-    sha256 cellar: :any_skip_relocation, ventura:        "2730664db0d186592f41a394191c9954fbff5a21e3b92114f75833cb4734d60a"
-    sha256 cellar: :any_skip_relocation, monterey:       "01c7b69b276752e6c13e4db199121d65c3698791789dfeab7b5627ea38879c97"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ba0dd99f13ed2dab7cc81230ccb5bd883a67c11db3249ea0c85bd16ba023b536"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7ac19523de87fb697e091d7874daedd694601dea854ce1e42b44e59bfdc9ac97"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "22656c66ae0925b47c36425de0dba5003cb91d382bcb5b8a7963b821de9797be"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1ed0b5d28236b9de95774897b905305e99aa0e989d49a83dac5c72a5aefcd089"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "71b0537979f4f04c82337fc8f23da74c6e5058eb8a181537e16e548923cc840f"
+    sha256 cellar: :any_skip_relocation, ventura:        "b52e1db1c2e39a505e7fc6137a11d6859ad281eeafa13a60223e0b6ed6602751"
+    sha256 cellar: :any_skip_relocation, monterey:       "1e9fae407dcedae3ba707c0e7f0590ecf8c5eb5a3ea1f505ce37ff8a7a5f3cba"
+    sha256 cellar: :any_skip_relocation, big_sur:        "21358bd9c1cbc20677ceef2c2f1c1dc253b2c1b684c2dbf5847b0979dadb863a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b44b7c445e3cce1be7baa2743b8d9749d65712850532f891a0421a079499b687"
   end
 
   depends_on "python-typing-extensions"
@@ -23,13 +23,13 @@ class Commitizen < Formula
   depends_on "pyyaml"
 
   resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/05/f8/67851ae4fe5396ba6868c5d84219b81ea6a5d53991a6853616095c30adc0/argcomplete-2.0.0.tar.gz"
-    sha256 "6372ad78c89d662035101418ae253668445b391755cfe94ea52f1b9d22425b20"
+    url "https://files.pythonhosted.org/packages/85/b9/e2bef848f79fce1e70d048b4de873424fde918c54ac2e6b8638cca887243/argcomplete-2.1.2.tar.gz"
+    sha256 "fc82ef070c607b1559b5c720529d63b54d9dcf2dcfc2632b10e6372314a34457"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/a1/34/44964211e5410b051e4b8d2869c470ae8a68ae274953b1c7de6d98bbcf94/charset-normalizer-2.1.1.tar.gz"
-    sha256 "5a3d016c7c547f69d6f81fb0db9449ce888b418b5b9952cc5e6e66843e9dd845"
+    url "https://files.pythonhosted.org/packages/ff/d7/8d757f8bd45be079d76309248845a04f09619a7b17d6dfc8c9ff6433cac2/charset-normalizer-3.1.0.tar.gz"
+    sha256 "34e0a2f9c370eb95597aae63bf85eb5e96826d81e3dcf88b8886012906f509b5"
   end
 
   resource "colorama" do
@@ -40,6 +40,11 @@ class Commitizen < Formula
   resource "decli" do
     url "https://files.pythonhosted.org/packages/9f/30/064f53ca7b75c33a892dcc4230f78a1e01bee4b5b9b49c0be1a61601c9bd/decli-0.5.2.tar.gz"
     sha256 "f2cde55034a75c819c630c7655a844c612f2598c42c21299160465df6ad463ad"
+  end
+
+  resource "importlib-metadata" do
+    url "https://files.pythonhosted.org/packages/55/12/ab288357b884ebc807e3f4eff63ce5ba6b941ba61499071bf19f1bbc7f7f/importlib_metadata-4.13.0.tar.gz"
+    sha256 "dd0173e8f150d6815e098fd354f6414b0f079af4644ddfe90c71e2fc6174346d"
   end
 
   resource "Jinja2" do
@@ -53,13 +58,13 @@ class Commitizen < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/47/d5/aca8ff6f49aa5565df1c826e7bf5e85a6df852ee063600c1efa5b932968c/packaging-23.0.tar.gz"
-    sha256 "b6ad297f8907de0fa2fe1ccbd26fdaf387f5f47c7275fedf8cce89f99446cf97"
+    url "https://files.pythonhosted.org/packages/b9/6c/7c6658d258d7971c5eb0d9b69fa9265879ec9a9158031206d47800ae2213/packaging-23.1.tar.gz"
+    sha256 "a392980d2b6cffa644431898be54b0045151319d1e7ec34f0cfed48767dd334f"
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/20/58/bbc8510ed1774ea2879b9996d2783d461c3c612904e230ff6954ce23c694/prompt_toolkit-3.0.37.tar.gz"
-    sha256 "d5d73d4b5eb1a92ba884a88962b157f49b71e06c4348b417dd622b25cdd3800b"
+    url "https://files.pythonhosted.org/packages/4b/bb/75cdcd356f57d17b295aba121494c2333d26bfff1a837e6199b8b83c415a/prompt_toolkit-3.0.38.tar.gz"
+    sha256 "23ac5d50538a9a38c8bde05fecb47d0b403ecd0662857a86f886f798563d5b9b"
   end
 
   resource "questionary" do
@@ -73,13 +78,18 @@ class Commitizen < Formula
   end
 
   resource "tomlkit" do
-    url "https://files.pythonhosted.org/packages/ff/04/58b4c11430ed4b7b8f1723a5e4f20929d59361e9b17f0872d69681fd8ffd/tomlkit-0.11.6.tar.gz"
-    sha256 "71b952e5721688937fb02cf9d354dbcf0785066149d2855e44531ebdd2b65d73"
+    url "https://files.pythonhosted.org/packages/4d/4e/6cb8a301134315e37929763f7a45c3598dfb21e8d9b94e6846c87531886c/tomlkit-0.11.7.tar.gz"
+    sha256 "f392ef70ad87a672f02519f99967d28a4d3047133e2d1df936511465fbb3791d"
   end
 
   resource "wcwidth" do
     url "https://files.pythonhosted.org/packages/5e/5f/1e4bd82a9cc1f17b2c2361a2d876d4c38973a997003ba5eb400e8a932b6c/wcwidth-0.2.6.tar.gz"
     sha256 "a5220780a404dbe3353789870978e472cfe477761f06ee55077256e509b156d0"
+  end
+
+  resource "zipp" do
+    url "https://files.pythonhosted.org/packages/00/27/f0ac6b846684cecce1ee93d32450c45ab607f65c2e0255f0092032d91f07/zipp-3.15.0.tar.gz"
+    sha256 "112929ad649da941c23de50f356a2b5570c954b65150642bccdd66bf194d224b"
   end
 
   def install

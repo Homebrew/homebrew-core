@@ -6,34 +6,23 @@ class Sslyze < Formula
   license "AGPL-3.0-only"
 
   stable do
-    url "https://files.pythonhosted.org/packages/6d/88/78873e6c157ba91a3427ca319f9f82dad708d2531908d90e6bb7f0840b35/sslyze-5.1.2.tar.gz"
-    sha256 "2ca25629f038010134d62a65627c91b0041cba836533947989176ad97c5b4285"
+    url "https://files.pythonhosted.org/packages/13/00/bacbb04d7d3e0d7db3cedec0b7a450a6ee9543aa4929b020a329f184daae/sslyze-5.1.3.tar.gz"
+    sha256 "247eeed21e57cb5bfe8bd5565f83a35988cfad5c8294120fa7b729bd5e5cf949"
 
     resource "nassl" do
-      url "https://github.com/nabla-c0d3/nassl/archive/5.0.0.tar.gz"
-      sha256 "b1529de53e1017a4b69ad656bcef762633aec54c86c9ec016879d657bf463297"
-
-      # type fix patch, remove in next release
-      patch do
-        url "https://github.com/nabla-c0d3/nassl/commit/377a85b32d6914ddba3913389f0a5a3cfbb9f20c.patch?full_index=1"
-        sha256 "c225f9cad6a2bcd4d5e8acbce64ea77cad5408644d53036a65ba8deb43f78a37"
-      end
-      # patch to support arm builds, remove in next release
-      patch do
-        url "https://github.com/nabla-c0d3/nassl/commit/95f466aff36ef553429df2e95a974b3281df7709.patch?full_index=1"
-        sha256 "47af75c41d028ab777781f0f3942570c221e88fc607cd476846346b6b257838f"
-      end
+      url "https://github.com/nabla-c0d3/nassl/archive/refs/tags/5.0.1.tar.gz"
+      sha256 "53302410923e5c1afd54c7f48051f15459eeacbd7005b719d2a5db12ede83042"
     end
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "51e6f2193028406f4f111ce14ea70d4cf7799d5465e2e47f333268f3891bc5d6"
-    sha256 cellar: :any,                 arm64_monterey: "d876ac135e6290c369e340f574dd0bbd7d305eac4d4862c8c2baa7bad2acc8e5"
-    sha256 cellar: :any,                 arm64_big_sur:  "fbb20963d11b5897e019ad433414d5e15c1638db6a6e7fb67eb1d51ad8d73fb2"
-    sha256 cellar: :any,                 ventura:        "02ab0fa2d54edb2f1db60177434aea2daf175214ae38e00809ac9d9e375868cc"
-    sha256 cellar: :any,                 monterey:       "5b21d05496524c033be6c49a662a1611a4dfa5ad99b462418c5d06fa68458019"
-    sha256 cellar: :any,                 big_sur:        "30e5dd1d57c1ccd843192e286f389fc49b762c5d952efeeeb179e79f143f78e2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "96cf2ee7f54a8474e7be42964a4574b8bd0392d3a35ea650ba69a993198e1818"
+    sha256 cellar: :any,                 arm64_ventura:  "4b78c64baa9288800f6d3724d61680822215ac119c914fcfe88d0d07cb42e96b"
+    sha256 cellar: :any,                 arm64_monterey: "2bce9a22e71eca7501b53978f4c790bfe0ea918bc769815fc39db0c913949766"
+    sha256 cellar: :any,                 arm64_big_sur:  "e6db8bf038025808d83b3e44957fc1c7ae5b613b26f375181287c824c5409b35"
+    sha256 cellar: :any,                 ventura:        "cfe2b486e6dc00fc6afa98f69eb7a077cff149589f049bfb452c3b43d2d9fbb3"
+    sha256 cellar: :any,                 monterey:       "8a99c6e0c67b86b0e7095bc09253aab161e467be036c7803c2bf109922876baf"
+    sha256 cellar: :any,                 big_sur:        "c4ea5beb7f8ddfaf0f563f7f9e2015d75f475547af1aaccc79d69cf6422b09fc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "31a88b8fcedda31ee10e6d6ab51f1693187fcecb929331896d28b64241aa73ac"
   end
 
   head do

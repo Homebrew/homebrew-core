@@ -1,21 +1,19 @@
 class Epeg < Formula
   desc "JPEG/JPG thumbnail scaling"
   homepage "https://github.com/mattes/epeg"
-  url "https://github.com/mattes/epeg/archive/v0.9.2.tar.gz"
-  sha256 "f8285b94dd87fdc67aca119da9fc7322ed6902961086142f345a39eb6e0c4e29"
+  url "https://github.com/mattes/epeg/archive/v0.9.3.tar.gz"
+  sha256 "efcd7e72c530c3ff46f9efd86ec1dbb042e4a55fc5a7ea75e6ade9f83cf77ba3"
   license "MIT-enna"
-  revision 2
   head "https://github.com/mattes/epeg.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "7e359c49c31d7cad1ef88f8089d77f7f7c979d8c26972b32cdbdb6651b92e37e"
-    sha256 cellar: :any,                 arm64_monterey: "54f06cba442c80a7df90e99c50b1b681863c740f6c653c7583f36a09be729674"
-    sha256 cellar: :any,                 arm64_big_sur:  "70a4ef28e4d14c9f48219b1b8e10ce674a6e6539a28fba655bcbc5cdda2ce546"
-    sha256 cellar: :any,                 ventura:        "fc256542930e4eb3278ba65dceccf2c3e79882d1cc76f7c04681fc4d414e1d7f"
-    sha256 cellar: :any,                 monterey:       "e9a1cfb10c35553fabf7c39994dc1524da44b75c6370c00176734907d74b7380"
-    sha256 cellar: :any,                 big_sur:        "4fdf88f8b37fbf5bd56460d0c6ef3e73483c7c13f31ff8e979ae6022666efe0c"
-    sha256 cellar: :any,                 catalina:       "328f79a3a50d8d834870a26de6ce4913525151c3e814529a10416d93927f8433"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "02d2b6f8ef99528282cfa0f547b42f66c9e0b890321a9f6d527477f94769316e"
+    sha256 cellar: :any,                 arm64_ventura:  "dc12942fff332ba2c9848f81f18fc7841f6eaacf577fa5fbdd1614dd0ca2d830"
+    sha256 cellar: :any,                 arm64_monterey: "1f3486392ac95bb6bf814dc349c22e0fc7dcbe5152db567862545fc3d1ead791"
+    sha256 cellar: :any,                 arm64_big_sur:  "8846517d51a4753177fb10b45bf3e2998952203ae8c4c6f7fa320d852f870e94"
+    sha256 cellar: :any,                 ventura:        "2b416c133f210e7dfe26b7aa956b5bbc13a1549d229b5b35a6961f1ce93abaea"
+    sha256 cellar: :any,                 monterey:       "0cbf899c73a395d1a7dcc165231cf0153cfefffd59b3cab5920b13fcf82821b9"
+    sha256 cellar: :any,                 big_sur:        "17c7e940618bf68ed137078379b02217676fbda4131688cfee6a4e970715174d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f45862529530f078589482b8f997ca5e2c7028ab1efd32c193eb9244bcc042a9"
   end
 
   depends_on "autoconf" => :build

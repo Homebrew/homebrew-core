@@ -1,8 +1,8 @@
 class Duck < Formula
   desc "Command-line interface for Cyberduck (a multi-protocol file transfer tool)"
   homepage "https://duck.sh/"
-  url "https://dist.duck.sh/duck-src-8.5.5.39213.tar.gz"
-  sha256 "df0abbcda59649bd49852b5e084d2c8137796728f96fe5456b79afd9f9919621"
+  url "https://dist.duck.sh/duck-src-8.5.9.39636.tar.gz"
+  sha256 "c05f42ee791a1e8f774d2fedf03f955c3d100dda6c973f12ae00fc5c39a7a2f7"
   license "GPL-3.0-only"
   head "https://github.com/iterate-ch/cyberduck.git", branch: "master"
 
@@ -12,13 +12,13 @@ class Duck < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "232b3ce0f7afbaae93f6eae2d0d5de79df2ac420e8c8ffd6b867218b8b1ad121"
-    sha256 cellar: :any, arm64_monterey: "5fb6d3f285ca530f861531caca17c50ffbc943b536c527d42d3e242830275540"
-    sha256 cellar: :any, arm64_big_sur:  "e6321affc8d4105b89aaeac2e2561c8cceacede6c2e7706d2f8ff6de680d7ab2"
-    sha256 cellar: :any, ventura:        "3a468791fc996ce2899a393ed9e3b6abf868ac863284ad6b72226f5be04b4f51"
-    sha256 cellar: :any, monterey:       "af9150ff07cdc341784a50a2b5b7d55b597a5c90a9909f29e8ac7de08bc58009"
-    sha256 cellar: :any, big_sur:        "574d74fc370cd39e2461c3c2b688a0d704261fdc97ff5c255efd9afdf446d0b5"
-    sha256               x86_64_linux:   "9884dbc85d6c0f7d7ff602ab9e439c999aed121848a2ab5a2a9ab164c9281b5c"
+    sha256 cellar: :any, arm64_ventura:  "02fe98a2d36acf886983c2d7f280f8a28618e624a6a77486505bec656e8e7190"
+    sha256 cellar: :any, arm64_monterey: "ec42ec56f9907feed723abf55c17af0f8f5c300336b005d45eb095274ed0f0a2"
+    sha256 cellar: :any, arm64_big_sur:  "74eeb36f5c3d64bf72f5ff1e2b45c175d3ffae83593754e6b9759ed302b4a474"
+    sha256 cellar: :any, ventura:        "250d5fa8c311ed4c9ff735e19ad2d3dfec964e047ca47ebeacaf42c9b2f6c896"
+    sha256 cellar: :any, monterey:       "8e40cfad7d247501187f2e2e5e280a16aaac4603c959aebd2bb3e85bf21afeb7"
+    sha256 cellar: :any, big_sur:        "4cbe56a6f8646eb3ac576e786aeae9280224ce2988d0e0acf4e551b35399e928"
+    sha256               x86_64_linux:   "970d5058c1f1b85ea24b4cfcda066c3781d2bc6d4086d73d7169dddd7d963279"
   end
 
   depends_on "ant" => :build
@@ -110,10 +110,21 @@ class Duck < Formula
       next unless OS.mac?
 
       cd "apple/JavaNativeFoundation" do
-        xcodebuild "VALID_ARCHS=#{Hardware::CPU.arch}", "-project", "JavaNativeFoundation.xcodeproj"
+        xcodebuild "VALID_ARCHS=#{Hardware::CPU.arch}",
+                   "OTHER_CFLAGS=-Wno-strict-prototypes", # Workaround for Xcode 14.3
+                   "-project", "JavaNativeFoundation.xcodeproj"
         buildpath.install "build/Release/JavaNativeFoundation.framework"
       end
     end
+
+    # Set MACOSX_DEPLOYMENT_TARGET to avoid linker errors when building rococoa.
+    xcconfig = buildpath/"Overrides.xcconfig"
+    xcconfig.write <<~EOS
+      OTHER_LDFLAGS = -headerpad_max_install_names
+      VALID_ARCHS=#{Hardware::CPU.arch}
+      MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}
+    EOS
+    ENV["XCODE_XCCONFIG_FILE"] = xcconfig
 
     resource("rococoa").stage do
       next unless OS.mac?
@@ -125,13 +136,6 @@ class Duck < Formula
     end
 
     os = if OS.mac?
-      xcconfig = buildpath/"Overrides.xcconfig"
-      xcconfig.write <<~EOS
-        OTHER_LDFLAGS = -headerpad_max_install_names
-        VALID_ARCHS=#{Hardware::CPU.arch}
-      EOS
-      ENV["XCODE_XCCONFIG_FILE"] = xcconfig
-
       "osx"
     else
       OS.kernel_name.downcase

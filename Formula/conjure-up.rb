@@ -276,7 +276,7 @@ class ConjureUp < Formula
 
     venv = virtualenv_create(libexec, "python3.10")
     venv.pip_install resource("cffi") # needs to be installed prior to bcrypt
-    res = resources.map(&:name).to_set - ["cffi"]
+    res = resources.to_set(&:name) - ["cffi"]
 
     res.each do |r|
       venv.pip_install resource(r)

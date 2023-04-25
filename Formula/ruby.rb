@@ -4,15 +4,15 @@ class Ruby < Formula
   license "Ruby"
 
   stable do
-    url "https://cache.ruby-lang.org/pub/ruby/3.2/ruby-3.2.1.tar.gz"
-    sha256 "13d67901660ee3217dbd9dd56059346bd4212ce64a69c306ef52df64935f8dbd"
+    url "https://cache.ruby-lang.org/pub/ruby/3.2/ruby-3.2.2.tar.gz"
+    sha256 "96c57558871a6748de5bc9f274e93f4b5aad06cd8f37befa0e8d94e7b8a423bc"
 
     # Should be updated only when Ruby is updated (if an update is available).
     # The exception is Rubygem security fixes, which mandate updating this
     # formula & the versioned equivalents and bumping the revisions.
     resource "rubygems" do
-      url "https://rubygems.org/rubygems/rubygems-3.4.6.tgz"
-      sha256 "6a53bdd53495e80cda63a1f393c45bea0d66b3ecf11c34d88fabdacd0704412f"
+      url "https://rubygems.org/rubygems/rubygems-3.4.10.tgz"
+      sha256 "55f1c67fa2ae96c9751b81afad5c0f2b3792c5b19cbba6d54d8df9fd821460d3"
     end
   end
 
@@ -22,13 +22,13 @@ class Ruby < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "847ffd1c19baa2529b3caa244a86811298697a56da93dd955fe5c28d0f288497"
-    sha256 arm64_monterey: "c9ff8aa4730964478c58972c2237f5ff8dc8d04d93af1104ee320b6bd75de317"
-    sha256 arm64_big_sur:  "134bee6f2ef2301b46cc42ec07d5af577bf1d22f3590be5480f22f4c78a5e742"
-    sha256 ventura:        "067df852d76aec266a429828840242efded9d5345f27abef8b56e0b12efeeba7"
-    sha256 monterey:       "52b35ac566918d22a102f4b37417e534ca23653b050d1264f2b63c90f9e78617"
-    sha256 big_sur:        "7f8fbebe38b5f1e9c8940bc2607a2a71fe04069bb37b36c950e608f44d8c01ba"
-    sha256 x86_64_linux:   "6ef0ae1a01d1949b831c5f52d46a4f45898a6337011a33dbfacca47d1b0c58be"
+    sha256 arm64_ventura:  "8605fd6364df2e65a4b285bef68b59a5d7d60c256b2dc2bc5284bd6db9bc68cf"
+    sha256 arm64_monterey: "80775f986835e01bd26c82ef2ebc480a34a4122b84a97aa4440b322734c02aff"
+    sha256 arm64_big_sur:  "088b81299ff5123e9c11d2e0403824f0f8353f2c7ff19fd70174369044258a14"
+    sha256 ventura:        "a4ac080688e871def04469fa335a13ded970d03dd4be662f39f4dba0ecdbab94"
+    sha256 monterey:       "65e0eff7671c89a1800cea2026ac31b9f43339ef9947388c36e4af499e2108f0"
+    sha256 big_sur:        "5e538570263f5650199682bb19ced5bb7370a7969f7986fbde104f371b0d10f4"
+    sha256 x86_64_linux:   "9c74262574ef244b241c2709dac2d10150d9bafe328e497830cbf0398ab79750"
   end
 
   head do

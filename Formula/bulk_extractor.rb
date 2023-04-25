@@ -1,18 +1,9 @@
 class BulkExtractor < Formula
   desc "Stream-based forensics tool"
   homepage "https://github.com/simsong/bulk_extractor/wiki"
+  url "https://github.com/simsong/bulk_extractor/releases/download/v2.0.3/bulk_extractor-2.0.3.tar.gz"
+  sha256 "3967225075164f7dc5a0326e594cad4da5a49d4f091cfeaade447cc305541e32"
   license "MIT"
-
-  stable do
-    url "https://github.com/simsong/bulk_extractor/releases/download/v2.0.0/bulk_extractor-2.0.0.tar.gz"
-    sha256 "6b3c7d36217dd9e374f4bb305e27cbed0eb98735b979ad0a899f80444f91c687"
-
-    # Fix --disable-rar build. Remove in the next release.
-    patch do
-      url "https://github.com/simsong/bulk_extractor/commit/1a9fde225aad0fe2ffd634bdc741b4c65586297c.patch?full_index=1"
-      sha256 "1c3cd2c87bae46d3163fe526def879d0e057fb700b3909362b8356be2ba2318e"
-    end
-  end
 
   livecheck do
     url :stable
@@ -20,15 +11,13 @@ class BulkExtractor < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "0e4c5fa631e3536a5cda7b5b2a477e8dd84b622ef253012afbb82fc22cac5165"
-    sha256 cellar: :any,                 arm64_monterey: "32ae091e7841c49c69054b14641d8f15b7491a756e551cb55fc869987e33456f"
-    sha256 cellar: :any,                 arm64_big_sur:  "d42fc09b77698d26fe4a35f20351eb36198f00137ea2061759416e2c45c79d99"
-    sha256 cellar: :any,                 ventura:        "1cd9cafb5452a5898174407298a736715c765b22bd7dab81883411d4e2f1ab68"
-    sha256 cellar: :any,                 monterey:       "e68a559ff002d7db26b525160507f1378b8138b6105b8e37490d6cb51f29dda3"
-    sha256 cellar: :any,                 big_sur:        "078510f412106492ddc667f09790e97bd3970e8957bf68b55f3c287c840bf1fb"
-    sha256 cellar: :any,                 catalina:       "7c59c4f7040000abbd02e67eaa7d5cf26bed57105505312bbe8820357f479c4a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c522598f34ceb123e976e75a994f5ba2c05ac05729c025c021f6ee10a1dba0b3"
+    sha256 cellar: :any,                 arm64_ventura:  "59b5564f8ab61ad7fb8d6c4fba343a1444ae10c641e4664047a67322de8c25c2"
+    sha256 cellar: :any,                 arm64_monterey: "0cedcba83153c8af3575d054576e40feace0356ca6d0ab08f5219ef11eb915dc"
+    sha256 cellar: :any,                 arm64_big_sur:  "d103c4b7af058908703d66745fb5381f4f9a23e43679fbdeb7128074a55e939e"
+    sha256 cellar: :any,                 ventura:        "a78899f8e22c873078181c2b6d22adb29a0906e699c59a468e41e30e87a4666a"
+    sha256 cellar: :any,                 monterey:       "f075b4a1369dfbe5eca7449c5a4b5510506a0394e9f74af2989ac5d7b864c354"
+    sha256 cellar: :any,                 big_sur:        "f17f70d4dd78ac6360c5cf2ed17fe5d06193caebfe1a87c836c62d0e22de79ef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "80ce4ad58e9c5d89b61973ddef9ba95ece3be3058bac97cf93c559bcdc5a4691"
   end
 
   head do

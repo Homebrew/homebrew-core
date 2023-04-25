@@ -7,19 +7,20 @@ class Libkml < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "4d706cf51e6e9b850bba757a87810f659786a9ecde9caa9c954ea0a961c06db5"
-    sha256 cellar: :any,                 arm64_monterey: "f7eab34add1f413ba5c0064e7e25cbfb998d2661546d6dc333010c9aad8ae3b7"
-    sha256 cellar: :any,                 arm64_big_sur:  "49627d8a08d0204887b6aaf9504f96d445baa432e2d4194f10165b207325075d"
-    sha256 cellar: :any,                 ventura:        "40b963c5f6126f16d16531ffcb0b63ff36c75a7e4ccfa606a7adc373d9efa0e5"
-    sha256 cellar: :any,                 monterey:       "3e4d4a663b1fdf137b7e9347776b0f58b447124a39e0271fd9dd90b5209beb9c"
-    sha256 cellar: :any,                 big_sur:        "8a2252b7f4e4ea322abbd86f9af02780d838c22103f9b562d64c03136e1549a8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "81a8cdd08aa6620f894eae9b3bd37184bb08f25800aba660c234320e4b51ef75"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "ee02b6adeccc3033cc99a2e8a45f8d21a4df7c487c0be1f05f623a7d3ac6ffa1"
+    sha256 cellar: :any,                 arm64_monterey: "39b02cd2375b13cf321a80d04bdd90e07139bd99bd9e0f8b0ac816b96ec5920e"
+    sha256 cellar: :any,                 arm64_big_sur:  "4c4e7310b060e79a58f209a910a56f7b9e5535305e81127afa0540ddb33c9d58"
+    sha256 cellar: :any,                 ventura:        "8c1aad6dd48f07f59db92056f984a4ea23de92a1f5103b39314e6995d7c7e43a"
+    sha256 cellar: :any,                 monterey:       "8fea3543dfb5a38bcc28fdf049d30657ce12b20ab4435b41d0d4634856b28bd9"
+    sha256 cellar: :any,                 big_sur:        "19bf29c790ba047803ce5ac8f33192d1bfd281458026870d74f18ee91c732203"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b827ac73d49a0fb2d3d0073ef374d6c9a54688698daf7600670594aa10ea6149"
   end
 
+  depends_on "boost" => [:build, :test]
   depends_on "cmake" => :build
   depends_on "googletest" => :test
   depends_on "pkg-config" => :test
-  depends_on "boost"
   depends_on "minizip"
   depends_on "uriparser"
 
@@ -30,6 +31,12 @@ class Libkml < Formula
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
+  end
+
+  def caveats
+    <<~EOS
+      libkml uses boost headers. To develop with libkml, install boost.
+    EOS
   end
 
   test do

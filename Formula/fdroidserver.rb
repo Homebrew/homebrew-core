@@ -239,7 +239,7 @@ class Fdroidserver < Formula
     venv.pip_install resource("cffi") # or bcrypt fails to build
     venv.pip_install resource("wheel") # or kiwisolver fails to build
 
-    res = resources.map(&:name).to_set - %w[cffi lxml ptyprocess wheel]
+    res = resources.to_set(&:name) - %w[cffi lxml ptyprocess wheel]
 
     res.each do |r|
       venv.pip_install resource(r)

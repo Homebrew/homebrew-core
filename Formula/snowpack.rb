@@ -8,19 +8,21 @@ class Snowpack < Formula
   license "MIT"
 
   bottle do
-    sha256                               arm64_monterey: "a58108194a509b22ed1f173f6bd1d5debd8a877d5cd536f280d06df5d6f906c8"
-    sha256                               arm64_big_sur:  "424c198450962b4be8cf4314d570ff7e8febc23308b22430a47b8aaf0d4f3531"
-    sha256                               monterey:       "91948373b19aad386bab35fb3cd536b7973c57a4ce0e363c2a035617ed02b1d9"
-    sha256                               big_sur:        "fb13d64f32a7d9bdc58cf4dfd6776bf1254b09029b2778c6b6ae8aa1f3af5897"
-    sha256                               catalina:       "abed65f5debef77a9380822f5612b17933df211375766e800fb9e481f2829178"
-    sha256                               mojave:         "76e0af8a4e5f7fbc2d2095e8c6524c80a8e03ac2c9f9cbc2b8b319fff3dd7056"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "78baacecc857f50f7a6fbe7643c4edad620c4e2c09a0f31e336fcfa52f0576e6"
+    rebuild 1
+    sha256                               arm64_ventura:  "c70bc6af65ffe1e7a64affd8f4746eec356ea5ab75099ffbe1ca9fc4990dc967"
+    sha256                               arm64_monterey: "664c54d473633b9ed2c4054deba8b04c30b753f938183c0c6781174806643d74"
+    sha256                               arm64_big_sur:  "4923f5146a642c4e2b697ddbcc37506c072897c0cbf34dc9242c150acfc3349a"
+    sha256                               ventura:        "07fea8b685008cf30fd14b9fe940e3edcce911eddd477d29555fa5b129e780c1"
+    sha256                               monterey:       "94762b004ce3f84d1ffa533a78ccf935478cd4a5fedc201cdb6f05bce180426d"
+    sha256                               big_sur:        "f6b3e81c3969067b7c8d360b2844093632046d583dcef6a709b17821369c2f67"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dd5deee0b0428290e67b488012e522e2570a77aa21f71db54e04f7c5d00ec68b"
   end
 
-  depends_on "node"
+  depends_on "node@18"
+  depends_on "python@3.10"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *Language::Node.std_npm_install_args(libexec), "--python=python3.10"
     bin.install_symlink Dir[libexec/"bin/*"]
 
     # Remove incompatible pre-built binaries
@@ -36,6 +38,7 @@ class Snowpack < Formula
   end
 
   test do
+    ENV.prepend_path "PATH", Formula["node@18"].bin
     mkdir "work" do
       system "npm", "init", "-y"
       system bin/"snowpack", "init"

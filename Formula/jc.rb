@@ -38,7 +38,7 @@ class Jc < Formula
   end
 
   test do
-    assert_equal "[{\"header1\":\"data1\",\"header2\":\"data2\"}]\n", \
+    assert_equal "[{\"header1\":\"data1\",\"header2\":\"data2\"}]\n",
                   pipe_output("#{bin}/jc --csv", "header1, header2\n data1, data2")
   end
 end

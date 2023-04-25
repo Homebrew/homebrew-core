@@ -127,10 +127,6 @@ class PythonAT37 < Formula
       args << "--with-dtrace"
     else
       args << "--enable-shared"
-
-      # Required for the _ctypes module
-      # see https://github.com/Linuxbrew/homebrew-core/pull/1007#issuecomment-252421573
-      args << "--with-system-ffi"
     end
 
     cflags   = []

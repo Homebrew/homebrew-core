@@ -3,6 +3,7 @@ class GupnpAv < Formula
   homepage "https://wiki.gnome.org/GUPnP/"
   url "https://download.gnome.org/sources/gupnp-av/0.14/gupnp-av-0.14.1.tar.xz"
   sha256 "b79ce0cc4b0c66d9c54bc22183a10e5709a0011d2af272025948efcab33a3e4f"
+  license "LGPL-2.1-or-later"
 
   bottle do
     sha256 arm64_ventura:  "33af0c7369b538b76818cbbb1df0fc5bd698036cd1a6e30d7c12d307defa0540"

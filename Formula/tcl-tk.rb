@@ -5,7 +5,7 @@ class TclTk < Formula
   mirror "https://fossies.org/linux/misc/tcl8.6.13-src.tar.gz"
   sha256 "43a1fae7412f61ff11de2cfd05d28cfc3a73762f354a417c62370a54e2caf066"
   license "TCL"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -13,13 +13,13 @@ class TclTk < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "04956a3f259e2ac5091b0295ebfaf10566773d0a75182bc9fdcc196896bb14a5"
-    sha256 arm64_monterey: "47e4402ab80129db41a74525ab1f86757300db16b348922768b5e7f888e7a70c"
-    sha256 arm64_big_sur:  "c0dcd820995d197dc5289cddde431d8e3883263f095d88f4d11e5d22e2d50880"
-    sha256 ventura:        "371b2d9a2ed902a1fe83ec8571434d264a528f0f8e7523149c71bd94f5ee9a1f"
-    sha256 monterey:       "90c4841ae76f0dd83ffcd4da560028dcb191b0a33dcb7ccf927f91a5f4ba9e80"
-    sha256 big_sur:        "6237dab643b65a9b0b5a5de571aa6572bcdf7b0230b19929d078ed65d8c8633d"
-    sha256 x86_64_linux:   "252ef7ada74c055ddd55ab4fef5c2eb2a3be91151533fb4566687d95ba9a8c33"
+    sha256 arm64_ventura:  "cfaaa962201282d27868ef10154b58b0da1e384c51dd5840f8aacb39494bfdfd"
+    sha256 arm64_monterey: "09869232f5179bc2e091975bdd50236bd9380ed951f6f106f1cd567614877b6b"
+    sha256 arm64_big_sur:  "3ad8857935360e19938383c3e79279165a776d91228b3d6671819b44c80affc3"
+    sha256 ventura:        "be57540682f3a049112b387673e10f0224b8b9be5d79441de5c5f532a6155610"
+    sha256 monterey:       "9d7f1d99f291bc333831b92751aee8dc3b36bc7d3c2d45af6615a50271adc64b"
+    sha256 big_sur:        "46ecb4df42daa830fcf8ba0f89b7a629a88c31a8e8506fefd5dfe437408ac641"
+    sha256 x86_64_linux:   "203cb94d30f94b19e6ca47beca843e83c31c0f07c87847c842b5cab6e85bab37"
   end
 
   depends_on "openssl@1.1"
@@ -36,8 +36,8 @@ class TclTk < Formula
   conflicts_with "page", because: "both install `page` binaries"
 
   resource "critcl" do
-    url "https://github.com/andreas-kupries/critcl/archive/3.1.18.1.tar.gz"
-    sha256 "51bc4b099ecf59ba3bada874fc8e1611279dfd30ad4d4074257084763c49fd86"
+    url "https://github.com/andreas-kupries/critcl/archive/refs/tags/3.2.tar.gz"
+    sha256 "20061944e28dda4ab2098b8f77682cab77973f8961f6fa60b95bcc09a546789e"
   end
 
   resource "tcllib" do

@@ -1,18 +1,18 @@
 class Aide < Formula
   desc "File and directory integrity checker"
   homepage "https://aide.github.io/"
-  url "https://github.com/aide/aide/releases/download/v0.18.1/aide-0.18.1.tar.gz"
-  sha256 "158e72e2fc7f08cb28b66dd5988294c19b035b5a901d7ad5fee010efeca4c0d2"
+  url "https://github.com/aide/aide/releases/download/v0.18.2/aide-0.18.2.tar.gz"
+  sha256 "758ff586c703930129e0a1e8c292ff5127e116fc10d0ffdbea8bf2c1087ca7e4"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "8f102f78ad23f15ca288e8b63e1d62d5947c05718035de12b6795c3e56aa23b8"
-    sha256 cellar: :any,                 arm64_monterey: "9a9bfe81defd498fb21cb240f9990a9a91e23e0784e2f8e3a3e78d38fd996b6a"
-    sha256 cellar: :any,                 arm64_big_sur:  "22351539a992708cc2e1163f7458d60d45d01397390ed80e7350d1adee045c4f"
-    sha256 cellar: :any,                 ventura:        "7c2a421c631e48b867f8ffe8a08b0d3a136d0c66d3ab6bd4e7f5b314db0a959c"
-    sha256 cellar: :any,                 monterey:       "05eb9419d868d36ea51a510a8be97a7d8b471b74ae89c0b1bb6bad74be304e1a"
-    sha256 cellar: :any,                 big_sur:        "b02e20164f8a94ee9c77c8122eddffbf0db10cd488d3bf7506f23a32241237f4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c3c6ed7475082453db50fb020e8b98e7aef1d5b9d643a99c2e76446e35b628ec"
+    sha256 cellar: :any,                 arm64_ventura:  "171e10bfebd4fd1a8fc99fa342d13e827655adddef337227e09c4d10b297e0bd"
+    sha256 cellar: :any,                 arm64_monterey: "f61823b4de2a03ae26bfd06f46bcf56f0301db56517e944b5acd1281ac9a0262"
+    sha256 cellar: :any,                 arm64_big_sur:  "069c56f58a38a8221d49245087c9cb0c1b3c01964b4231e652f7e7422d4fb691"
+    sha256 cellar: :any,                 ventura:        "f696d2c3cd3746034c25b58bcf7fb36ecb3da8e2b2a89d493ba2f152e4ba0e82"
+    sha256 cellar: :any,                 monterey:       "f89ad08612238984e94760dad56ec3da4df1a27277b31fe4bf3d9ccecb5a7f0e"
+    sha256 cellar: :any,                 big_sur:        "c0a9200dd91e91d2a754791b1a80ef1f6439d1f76ef503c2a48bf2a52cc9ed97"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c5c3072663278ebd03c6c1df85fa269c83254dd3397f48acf087a2167ccb397b"
   end
 
   head do

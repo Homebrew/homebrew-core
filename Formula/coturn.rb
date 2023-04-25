@@ -1,8 +1,8 @@
 class Coturn < Formula
   desc "Free open source implementation of TURN and STUN Server"
   homepage "https://github.com/coturn/coturn"
-  url "https://github.com/coturn/coturn/archive/refs/tags/4.6.1.tar.gz"
-  sha256 "8fba86e593ed74adc46e002e925cccff2819745371814f42465fbe717483f1d8"
+  url "https://github.com/coturn/coturn/archive/refs/tags/4.6.2.tar.gz"
+  sha256 "13f2a38b66cffb73d86b5ed24acba4e1371d738d758a6039e3a18f0c84c176ad"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,13 +11,13 @@ class Coturn < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "1dfbdbf3aefad9142ce2edec95d448ff9cd2fed007b52a648f3f1e922fab70e8"
-    sha256 arm64_monterey: "2501eebd1bafcb385aa6bd29251d154b5c923784c87153feed01d4c4004f692b"
-    sha256 arm64_big_sur:  "58ca95c9237a7214aed41ad8e316d7ce7598dc6b1a0b2760ca351411780bff6a"
-    sha256 ventura:        "cab7f10155f0805b455f92951adbd72c909a95157faf0512f9f0c6538e55435c"
-    sha256 monterey:       "ce8cce8014048c034e99d04c44f17715dc6c5910a49d35fdb0d5f2f6ce909e78"
-    sha256 big_sur:        "58f29be2f2ca8c8fbc24c94b5d78f81e5d70d01ff415444f3922ac04840f2425"
-    sha256 x86_64_linux:   "b84409e324a79a3eabdf937aa21369851ae533f2d4dfa7544480757e9bbdca74"
+    sha256                               arm64_ventura:  "ccfc967fa50ea4a44c5afa39a766d76c4ad4642b0b0816360f31073bd2d2b48a"
+    sha256                               arm64_monterey: "e61a8f61698a7c219d4ccab689aa4f8cf7770679c4d620383447fb16e091dd92"
+    sha256                               arm64_big_sur:  "4cdb0da4161adbdd9550f5873f0b61f0007a1db3714f59bea82be2d29fc5ae94"
+    sha256                               ventura:        "89bf30786ce50cccd1e87cdc48e4a723a22b172bd17892e6fe3bb967da8130fc"
+    sha256                               monterey:       "5ecf51760ebf6d83069f7951bce5e7dbc6abbf77b0b7124310dfa14afeb3837b"
+    sha256                               big_sur:        "b63f52f5b0d1b1dde6ed412294c22a91b3e916cc2d8dfaaa52abd1452688db89"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1f2398fe6d68335ff161675f62eccd2178da9e78f602be5a8a2810e44625bbbf"
   end
 
   depends_on "pkg-config" => :build

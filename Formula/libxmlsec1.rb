@@ -1,8 +1,8 @@
 class Libxmlsec1 < Formula
   desc "XML security library"
   homepage "https://www.aleksey.com/xmlsec/"
-  url "https://www.aleksey.com/xmlsec/download/xmlsec1-1.2.37.tar.gz"
-  sha256 "5f8dfbcb6d1e56bddd0b5ec2e00a3d0ca5342a9f57c24dffde5c796b2be2871c"
+  url "https://www.aleksey.com/xmlsec/download/xmlsec1-1.3.0.tar.gz"
+  sha256 "df3ad2548288411fc3d44c20879e4c4e90684a1a4fb76a06ae444f957171c9a6"
   license "MIT"
 
   livecheck do
@@ -11,14 +11,13 @@ class Libxmlsec1 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "26d6ebddf4e97431819583ad699228360886d81786b332084693d0ad34aa2c72"
-    sha256 cellar: :any,                 arm64_monterey: "66646e0a3c47fe21b5d6257d2940c1cbaddd68fd71845ae21eb34275b2913db4"
-    sha256 cellar: :any,                 arm64_big_sur:  "6520bff7f714071fc7a5925dc2335c5482ce59383386500e1f51680bf3e69850"
-    sha256 cellar: :any,                 ventura:        "15faa359429f324b4d18e49c70b0832cf93eb052ad0ef74ccddf1a2db0a4aad5"
-    sha256 cellar: :any,                 monterey:       "dfc4528593b38556559a49053f7b5e3a46ae07d844ad3412a65c22214624a932"
-    sha256 cellar: :any,                 big_sur:        "d428a24cc5c8165e84718292cd4a7a21519b1ce1f46c82ffff0bc27216b8a573"
-    sha256 cellar: :any,                 catalina:       "b67b572409b3d79387f621c9f28338d0ec99342477f50643ff3a6032b58133c6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a52005111565d460c6774d5c5be9c8a0db05e0a06dc8715b7c1f59ab4a66fcb0"
+    sha256 cellar: :any,                 arm64_ventura:  "899b14359bba10cb924d80d8d21fa68ccf5c54dd2a87a8bf64a6e030c2136bd1"
+    sha256 cellar: :any,                 arm64_monterey: "48914d710bcdf4c5b2223a8a1350b40c149739ab1d736dabdbf351b3ab5f3011"
+    sha256 cellar: :any,                 arm64_big_sur:  "3f0791efbb7487f113d04704829ffc678a6211b8b42f59e2f5631154432b905c"
+    sha256 cellar: :any,                 ventura:        "5ff39681bcdfb5fbd866fcef08032fa5c01be8627a503caccdb2b7de26f66c17"
+    sha256 cellar: :any,                 monterey:       "ce5f5e74aee8fe4e23a3bf446335640fd98b84227fb3ec8ffbd9beb5d609025d"
+    sha256 cellar: :any,                 big_sur:        "5dda6666a22cf4bed103d0bd100d73cd061d7fe67348c64d665e22bccd34683b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d139084e4b1f193910e144da1bf8d40ec3c2c815faed705b0b96d76efee6b5a4"
   end
 
   depends_on "pkg-config" => :build
@@ -34,12 +33,6 @@ class Libxmlsec1 < Formula
 
   # Add HOMEBREW_PREFIX/lib to dl load path
   patch :DATA
-
-  # Fix -flat_namespace being used on Big Sur and later.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
-    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
-  end
 
   def install
     args = ["--disable-dependency-tracking",

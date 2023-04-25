@@ -2,19 +2,19 @@ class Podman < Formula
   desc "Tool for managing OCI containers and pods"
   homepage "https://podman.io/"
   url "https://github.com/containers/podman.git",
-      tag:      "v4.4.2",
-      revision: "74afe26887f814d1c39925a1624851ef3590e79c"
+      tag:      "v4.5.0",
+      revision: "75e3c12579d391b81d871fd1cded6cf0d043550a"
   license all_of: ["Apache-2.0", "GPL-3.0-or-later"]
   head "https://github.com/containers/podman.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ab4807026c0d21ae9b98bff0358013af1b13c2fce99e6be2f158cc3b2953ff74"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e2f5b42a41ccac78911cc64fdb32c5aecf760d5d12090f7ae8a98d8bb2724744"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "65cab4e0ce28d1903717ef4fa322c1c841d87131dc9f5fb0b71313e4a48b3124"
-    sha256 cellar: :any_skip_relocation, ventura:        "489dfb06464fe6b0f6cb9019c1dce47ad02089ad079702acdf1255bd2db703d6"
-    sha256 cellar: :any_skip_relocation, monterey:       "9b0f979ddc3b1a6a517517160cbfd8f62eeb9541cc88e52b8900dfe74aee72d7"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5788a48890a43f06265f7534d605733fc87e28182f1efb78107bfa1a3cbed2a9"
-    sha256                               x86_64_linux:   "6128b273ce2149dfd2549edda00afa1f32c935b9980a891697d9d43892b2edab"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7116c6e2c34207c67b98a7a6196bb037709591b0e99517a4073484bdc9b5ef1c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0790437d459ced451898744154a469756d2dfccf1834357292766fb370d2a435"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "948c651dc096b35b61f032ea5a76ebb88f434f71e28e318cc712fcc2fe267059"
+    sha256 cellar: :any_skip_relocation, ventura:        "5dea6e2fca0428a750ac1778b30ead93ae80e7457be032bca791e735418228fd"
+    sha256 cellar: :any_skip_relocation, monterey:       "fe71fa878de5f9e2a6c739dbd090e73468e8f357165aea57576f3c1aac68b08d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "58c693652938b21dc4d35235dd762d24a14021b44b32277a9d4c46e430f27061"
+    sha256                               x86_64_linux:   "34d09d1ddec838e4640f135ead490f945b1cfdb8ea161e880e02eace53d92bc8"
   end
 
   depends_on "go" => :build
@@ -43,8 +43,8 @@ class Podman < Formula
 
   resource "gvproxy" do
     on_macos do
-      url "https://github.com/containers/gvisor-tap-vsock/archive/v0.5.0.tar.gz"
-      sha256 "8048f4f5faa2722547d1854110c2347f817b2f47ec51d39b2a7b308f52a7fe59"
+      url "https://github.com/containers/gvisor-tap-vsock/archive/refs/tags/v0.6.1.tar.gz"
+      sha256 "3be16fd732724f7b65f3629cdc4cdad3e069b3f137f9a1c4bb40105082bc5740"
     end
   end
 
@@ -63,15 +63,15 @@ class Podman < Formula
 
   resource "netavark" do
     on_linux do
-      url "https://github.com/containers/netavark/archive/refs/tags/v1.5.0.tar.gz"
-      sha256 "303fbcf3fc645b0e8e8fc1759626c92082f85f49b9d07672918aebd496a24d34"
+      url "https://github.com/containers/netavark/archive/refs/tags/v1.6.0.tar.gz"
+      sha256 "3bec9e9b0f3f8f857370900010fb2125ead462d43998ad8f43e4387a5b06f9d6"
     end
   end
 
   resource "aardvark-dns" do
     on_linux do
-      url "https://github.com/containers/aardvark-dns/archive/refs/tags/v1.5.0.tar.gz"
-      sha256 "b7e7ca1b94c1a62c8800f49befb803ec37cc5caf7656352537343a8fb654e4a6"
+      url "https://github.com/containers/aardvark-dns/archive/refs/tags/v1.6.0.tar.gz"
+      sha256 "f3a2ff2d7baf07d8bf2785b6f1c9618db8aa188bd738b7f5cf1b0a31848232f5"
     end
   end
 
@@ -92,8 +92,7 @@ class Podman < Formula
         (libexec/"podman").install "bin/gvproxy"
       end
 
-      # Remove the "-j1" flag at next release
-      system "make", "-j1", "podman-remote-darwin-docs"
+      system "make", "podman-remote-darwin-docs"
       man1.install Dir["docs/build/remote/darwin/*.1"]
 
       bash_completion.install "completions/bash/podman"
@@ -133,13 +132,13 @@ class Podman < Formula
       end
 
       resource("netavark").stage do
-        system "cargo", "install", *std_cargo_args
-        mv bin/"netavark", libexec/"podman/"
+        system "make"
+        mv "bin/netavark", libexec/"podman/"
       end
 
       resource("aardvark-dns").stage do
-        system "cargo", "install", *std_cargo_args
-        mv bin/"aardvark-dns", libexec/"podman/"
+        system "make"
+        mv "bin/aardvark-dns", libexec/"podman/"
       end
     end
   end

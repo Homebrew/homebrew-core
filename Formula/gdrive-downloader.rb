@@ -15,7 +15,7 @@ class GdriveDownloader < Formula
   end
 
   test do
-    assert_match "No valid arguments provided, use -h/--help flag to see usage.", \
+    assert_match "No valid arguments provided, use -h/--help flag to see usage.",
       shell_output("#{bin}/gdl")
   end
 end

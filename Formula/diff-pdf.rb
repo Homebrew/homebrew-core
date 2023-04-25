@@ -1,21 +1,18 @@
 class DiffPdf < Formula
   desc "Visually compare two PDF files"
   homepage "https://vslavik.github.io/diff-pdf/"
-  url "https://github.com/vslavik/diff-pdf/releases/download/v0.5/diff-pdf-0.5.tar.gz"
-  sha256 "e7b8414ed68c838ddf6269d11abccdb1085d73aa08299c287a374d93041f172e"
+  url "https://github.com/vslavik/diff-pdf/releases/download/v0.5.1/diff-pdf-0.5.1.tar.gz"
+  sha256 "017d52cb7ddabdbf63c6a47f39b2e5a1790022b95295b0d047817904e093245c"
   license "GPL-2.0-only"
-  revision 5
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "a0977dfd009954ba4428e60a954efa92eaa3202eb2061e6a60aaa3c16faf2fc4"
-    sha256 cellar: :any,                 arm64_monterey: "0616440421b45bca4494c5eaf90640d61b4f70ef77fb4a811fcebda766f07957"
-    sha256 cellar: :any,                 arm64_big_sur:  "0e01c107b0949a6d3baeefaf15899461a8b7ac886efdba9d2960a52a3e62d59a"
-    sha256 cellar: :any,                 ventura:        "234055d5afe5c54ac619aa3a14d802507fa771d3f6c9cf8856f1ddcb7e937c4e"
-    sha256 cellar: :any,                 monterey:       "439c5722731ba71ccff2e07de2c7b38262c47f8532c9949f606e9e12419682ea"
-    sha256 cellar: :any,                 big_sur:        "2e11ac7650d5cfe77922aa0deb7c036b708d370e5c748688b1538bfe3606ca54"
-    sha256 cellar: :any,                 catalina:       "aa5bfc82668e41fb44c6a5ed7e83b9c1a59ecd7ce4c76a67530713767e95902f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b3b271e5a61d685e2fd6357b90e62f4849daae2de3759f58aa9a85563b3d4e94"
+    sha256 cellar: :any,                 arm64_ventura:  "9fc1ea109410089a83a21c5770ea6cefbbe762959b0178d48d62e4e6bb508023"
+    sha256 cellar: :any,                 arm64_monterey: "b7704e32dfe82cb80b0a578fe941ec061b57f4c15687688205ac4ae4a38f00da"
+    sha256 cellar: :any,                 arm64_big_sur:  "5a608fdeff544f69792c006b8f037f5f8d7dc2d4d892dba6b32cd6bd74359fc8"
+    sha256 cellar: :any,                 ventura:        "42d8c52bc1a90264e14765db5d8e88ef955e67d16e83c19d66a0fee413cb6687"
+    sha256 cellar: :any,                 monterey:       "9dfa37086b2fe582102413702f8c6f32cc5f34e6ceb444701bdda93dca3358b4"
+    sha256 cellar: :any,                 big_sur:        "14ff56d93303382cf6969c50bd772a0b142379ae3f0261441fa4fb8e8dff4095"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c0d010012f000f666a8e5f398333f8e5ea4f6db43a3f6cb8bebbca3c9c94e66f"
   end
 
   depends_on "autoconf" => :build

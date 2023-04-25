@@ -26,6 +26,7 @@ class Purescript < Formula
   def install
     # Use ncurses in REPL, providing an improved experience when editing long
     # lines in the REPL.
+    # See https://github.com/purescript/purescript/issues/3696#issuecomment-657282303.
     inreplace "stack.yaml", "terminfo: false", "terminfo: true"
 
     system "stack", "install", "--system-ghc", "--no-install-ghc", "--skip-ghc-check", "--local-bin-path=#{bin}"

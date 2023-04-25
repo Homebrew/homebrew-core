@@ -3,19 +3,19 @@ class GalleryDl < Formula
 
   desc "Command-line downloader for image-hosting site galleries and collections"
   homepage "https://github.com/mikf/gallery-dl"
-  url "https://files.pythonhosted.org/packages/23/c8/456af8aa7c6910412407ffd2e4240b3439398aa8da5fe3cf5d765334410d/gallery_dl-1.25.0.tar.gz"
-  sha256 "5b1987eae00c9db9976563a42e1e01eab47a455db17d254167bbf8ec0c25c116"
+  url "https://files.pythonhosted.org/packages/ac/86/022e5c3a31072a57080ab01e791b82e6746562a0a3b0819053f33626e6e7/gallery_dl-1.25.2.tar.gz"
+  sha256 "4fd3f3be339d70b68eee24f1059c6e71076200f569935fbdc037dca5284805d3"
   license "GPL-2.0-only"
   head "https://github.com/mikf/gallery-dl.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b149a6c95d204d2e8028bcaf2c78bbb7615902b47b8d5b94c0cebf09d40f2ca0"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e418b38f3d8588cd42d24ae6b942e08f538c0a45dc29beeebb173cab56843585"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fd6afbb56eb2360c36290f6f60e1324c254dcf29c69e6fcb709019b0adfa3483"
-    sha256 cellar: :any_skip_relocation, ventura:        "391de40c9124799dde69529c30b8e29e7cf0f204e2549a0549cdcd927090d500"
-    sha256 cellar: :any_skip_relocation, monterey:       "f162e6424e8960d416d71777f349663ba8866cb67937fbc00c889c23c19bac8e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "24056c38bb0dd728990feb2e7b5684d458edb020cebeda0c4e58c403e051624e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a3756ea87544131d2ff7e2696279413b6195b572f03d23b93c55cf44ebcd7c7c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "501a58d14f9347437502ca93e0e12aa5273954150e718d685e5e07bff657601a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8c5425529c0a3aaad07ecbd8a7bec30b5b33acfea8c35696c64f469962ab9c4e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e02a74abc713bd873fd6518cc8560e09e6ba940dc64c6493904e73ec9755f268"
+    sha256 cellar: :any_skip_relocation, ventura:        "10f3ba3a7f1f3352277807d35548f7210fc2da4fe2ee3a1278abd521f963f691"
+    sha256 cellar: :any_skip_relocation, monterey:       "d5675ce0d5f0a2ec73ec8b12fbffb44e648ea986ce1c60f437021703d7a160dd"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4c89c7be527971cea33536a7d2a3772e882b93058eaf7ef5cc454b944514d329"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "91136249404be7be655b872a5ae58d11daf0f96ca6333100b367ee643a60904c"
   end
 
   depends_on "python@3.11"

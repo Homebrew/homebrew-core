@@ -1,9 +1,11 @@
 class Pytorch < Formula
+  include Language::Python::Virtualenv
+
   desc "Tensors and dynamic neural networks"
   homepage "https://pytorch.org/"
   url "https://github.com/pytorch/pytorch.git",
-      tag:      "v1.13.1",
-      revision: "49444c3e546bf240bed24a101e747422d1f8a0ee"
+      tag:      "v2.0.0",
+      revision: "c263bd43e8e8502d4726643bc6fd046f0130ac0e"
   license "BSD-3-Clause"
 
   livecheck do
@@ -12,20 +14,20 @@ class Pytorch < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "5139d39a8bc2e721af73787687fd57e2f39017960191f22de88038f4820bdd55"
-    sha256 cellar: :any,                 arm64_monterey: "7b04d178d047d55137f46cc164b47901699fcde6357b74f03334d02dc44d8c5a"
-    sha256 cellar: :any,                 arm64_big_sur:  "a29db0d739aa9849fbc4857b2847d1bc2e037fad7ac6fbfeae2a988d5f0d28ab"
-    sha256 cellar: :any,                 ventura:        "029a733db1b0c93e777abeca9f52c36727173d02be6b5d74e00c382566c47141"
-    sha256 cellar: :any,                 monterey:       "1a31ca6185596ee605c15ecfe00e2511c6e0391043905ca92b134cb0b07da1e6"
-    sha256 cellar: :any,                 big_sur:        "31cfa153c51968a39140ff49dc9944b3c6c86d7bcc6ba17b53cb0fc74cc1c8ed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f176777a132f2a4130808106f812d620694cd89b5ee49036f8826a9eeba4bbff"
+    sha256 cellar: :any,                 arm64_ventura:  "84c92920a975f10018036fe317f6e5f769c1808cb3830f8b6703466d1de36b16"
+    sha256 cellar: :any,                 arm64_monterey: "865be2629122148a2255efe8a91509aa08077538671af6f5ad0414c9ec0d510d"
+    sha256 cellar: :any,                 ventura:        "6f18ba97503ae41b3fe200edd20676d0dff3c31a0687c15cd2982f41b157a978"
+    sha256 cellar: :any,                 monterey:       "5d44adc32a12d071ac534ecf2d69e7b7b55e68f580160c80faf69d1886646991"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "efba91ed3399ef15b48808adfa00a95b76b15ffb8e2094e175748d1dab95a258"
   end
 
   depends_on "cmake" => :build
   depends_on "ninja" => :build
   depends_on "python@3.11" => [:build, :test]
+  depends_on xcode: :build
   depends_on "eigen"
   depends_on "libuv"
+  depends_on macos: :monterey  # MPS backend only supports 12.3 and above
   depends_on "numpy"
   depends_on "openblas"
   depends_on "openssl@1.1"
@@ -36,6 +38,36 @@ class Pytorch < Formula
 
   on_macos do
     depends_on "libomp"
+  end
+
+  resource "filelock" do
+    url "https://files.pythonhosted.org/packages/4f/1f/6e1b740698069650b245744957a25957d599b953550a959ab2a584a8825b/filelock-3.10.0.tar.gz"
+    sha256 "3199fd0d3faea8b911be52b663dfccceb84c95949dd13179aa21436d1a79c4ce"
+  end
+
+  resource "Jinja2" do
+    url "https://files.pythonhosted.org/packages/7a/ff/75c28576a1d900e87eb6335b063fab47a8ef3c8b4d88524c4bf78f670cce/Jinja2-3.1.2.tar.gz"
+    sha256 "31351a702a408a9e7595a8fc6150fc3f43bb6bf7e319770cbc0db9df9437e852"
+  end
+
+  resource "mpmath" do
+    url "https://files.pythonhosted.org/packages/e0/47/dd32fa426cc72114383ac549964eecb20ecfd886d1e5ccf5340b55b02f57/mpmath-1.3.0.tar.gz"
+    sha256 "7a28eb2a9774d00c7bc92411c19a89209d5da7c4c9a9e227be8330a23a25b91f"
+  end
+
+  resource "networkx" do
+    url "https://files.pythonhosted.org/packages/99/f9/d45c9ecf50a6b67a200e0bbd324201b5cd777dfc0e6c8f6d1620ce5a7ada/networkx-3.0.tar.gz"
+    sha256 "9a9992345353618ae98339c2b63d8201c381c2944f38a2ab49cb45a4c667e412"
+  end
+
+  resource "opt-einsum" do
+    url "https://files.pythonhosted.org/packages/7d/bf/9257e53a0e7715bc1127e15063e831f076723c6cd60985333a1c18878fb8/opt_einsum-3.3.0.tar.gz"
+    sha256 "59f6475f77bbc37dcf7cd748519c0ec60722e91e63ca114e68821c0c54a46549"
+  end
+
+  resource "sympy" do
+    url "https://files.pythonhosted.org/packages/5a/36/4667b08bc45131fe655a27b1a112c1730f3244343c53a338f44d730bd6ba/sympy-1.11.1.tar.gz"
+    sha256 "e32380dce63cb7c0108ed525570092fd45168bdae2faa17e528221ef72e88658"
   end
 
   def install
@@ -59,8 +91,7 @@ class Pytorch < Formula
       -DUSE_SYSTEM_EIGEN_INSTALL=ON
       -DUSE_SYSTEM_PYBIND11=ON
     ]
-    # Remove when https://github.com/pytorch/pytorch/issues/67974 is addressed
-    args << "-DUSE_SYSTEM_BIND11=ON"
+    args << "-DUSE_MPS=ON" if OS.mac?
 
     ENV["LDFLAGS"] = "-L#{buildpath}/build/lib"
 
@@ -78,7 +109,9 @@ class Pytorch < Formula
     # Avoid references to Homebrew shims
     inreplace "build/caffe2/core/macros.h", Superenv.shims_path/ENV.cxx, ENV.cxx
 
-    system python_exe, *Language::Python.setup_install_args(prefix, python_exe)
+    venv = virtualenv_create(libexec, "python3.11")
+    venv.pip_install resources
+    venv.pip_install_and_link(buildpath, build_isolation: false)
   end
 
   test do
@@ -97,11 +130,20 @@ class Pytorch < Formula
                     "-L#{lib}", "-ltorch", "-ltorch_cpu", "-lc10"
     system "./test"
 
-    # test that `torch` Python module is available
-    python = Formula["python@3.11"]
-    system python.opt_libexec/"bin/python", "-c", <<~EOS
+    # test that the `torch` Python module is available
+    system libexec/"bin/python", "-c", <<~EOS
       import torch
-      torch.rand(5, 3)
+      t = torch.rand(5, 3)
+      assert isinstance(t, torch.Tensor), "not a tensor"
+      assert torch.distributed.is_available(), "torch.distributed is unavailable"
     EOS
+
+    if OS.mac?
+      # test that we have the MPS backend
+      system libexec/"bin/python", "-c", <<~EOS
+        import torch
+        assert torch.backends.mps.is_built(), "MPS backend is not built"
+      EOS
+    end
   end
 end

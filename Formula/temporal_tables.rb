@@ -1,44 +1,26 @@
 class TemporalTables < Formula
   desc "Temporal Tables PostgreSQL Extension"
   homepage "https://pgxn.org/dist/temporal_tables/"
-  url "https://github.com/arkhipov/temporal_tables/archive/v1.2.0.tar.gz"
-  sha256 "e6d1b31a124e8597f61b86f08b6a18168f9cd9da1db77f2a8dd1970b407b7610"
+  url "https://github.com/arkhipov/temporal_tables/archive/v1.2.1.tar.gz"
+  sha256 "e3711797aa5def8f4974215bb5557204b2bc8e5e94201167eb95246a112b8138"
   license "BSD-2-Clause"
-  revision 4
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e6f13354123d9d5c6119271e3e665b1a852c063eee2464c70f89e63677091779"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ac10885f89785fae6e75daacfc3853918967d4fbb871ef4930e5ac1be8a51ec7"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e55f5d41a2f00473e7c17b6d17afe2e06c2f7a878df83983fa6039678058712a"
-    sha256 cellar: :any_skip_relocation, ventura:        "31c30c17e0b64fc24092c1fbd4e37e55e27d32e53d1eb703b216ea9587a8c964"
-    sha256 cellar: :any_skip_relocation, monterey:       "00646b0b31c19f0b7d3e3fc79838b22bf13594ce596f1730dda2bdd436b830eb"
-    sha256 cellar: :any_skip_relocation, big_sur:        "392580073077794d58fa80f777822db79e3f611f7182dc6d6f647b904ede124d"
-    sha256 cellar: :any_skip_relocation, catalina:       "25a7565d7644729e8bd0fa1a2626f0a8bb6193d03328295b5fd57791f908a9d6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "65e9ba4630fb2c0db0d7296fec147daa643ec2ab8dad19a56107c1f41637a0fe"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "25de5d67758c7f706666c46b444f41d90750c34154f37818996e7a8e587fed24"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0c598c7ce24e74d75192a0f288e6999f9469a39cdbd527200cd49f148ac6212c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bde5bd8f74dcb385b456d8b3b41cd091ec2c3c8b14bd547673e15b88fbc98d8e"
+    sha256 cellar: :any_skip_relocation, ventura:        "0f95f0a9ac21073ff6b19cb755107230557c219049d616fe06bcce3bbcdc661b"
+    sha256 cellar: :any_skip_relocation, monterey:       "b927ea034755f45d616ede60bee3143b2f99eb73aed0a59b56bd678f2604e372"
+    sha256 cellar: :any_skip_relocation, big_sur:        "59a11c3b8ab038ce163126367041ff0e36ccfa34feb0c2069b4ac2518fac45cc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ebd8118d7b3a00ead2834ac1dde9550553606e004b2fb02fc53e61438260da6b"
   end
 
   depends_on "postgresql@14"
-
-  # Fix for postgresql 11 compatibility:
-  # https://github.com/arkhipov/temporal_tables/issues/38
-  patch do
-    url "https://github.com/mlt/temporal_tables/commit/24906c44.patch?full_index=1"
-    sha256 "bb2a8b507b6e6a42a25c8da694f889ee55f40b6ae621190348155b5e9198244d"
-  end
-
-  # Fix for postgresql 12 compatibility:
-  # https://github.com/arkhipov/temporal_tables/issues/47
-  patch do
-    url "https://github.com/mlt/temporal_tables/commit/a6772d195946f3a14e73b7d3aff200ab872753f4.patch?full_index=1"
-    sha256 "c15d7fa8a4ad7a047304c430e039776f6214a40bcc71f9a9ae627cb5cf73647e"
-  end
-
-  # Fix for postgresql 13 compatibility:
-  # https://github.com/arkhipov/temporal_tables/issues/55
-  patch do
-    url "https://github.com/bbernhard/temporal_tables/commit/23284c2a593d3e01f7b4918c0aaa8459de84c4d8.patch?full_index=1"
-    sha256 "c1e63befec23efbeff26492a390264cbc7875eaa3992aa98f3e3a53a9612d0e0"
-  end
 
   def postgresql
     Formula["postgresql@14"]

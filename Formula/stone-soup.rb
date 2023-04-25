@@ -59,7 +59,7 @@ class StoneSoup < Formula
       end
 
       # FSF GCC doesn't support the -rdynamic flag
-      args << "NO_RDYNAMIC=y" unless ENV.compiler == :clang
+      args << "NO_RDYNAMIC=y" if ENV.compiler != :clang
 
       # The makefile has trouble locating the developer tools for
       # CLT-only systems, so we set these manually. Reported upstream:

@@ -19,7 +19,7 @@ class Fsh < Formula
 
   # Requires Python 2.
   # https://github.com/Homebrew/homebrew-core/issues/93940
-  deprecate! date: "2022-03-10", because: :unsupported
+  disable! date: "2023-04-19", because: :unsupported
 
   def install
     # FCNTL was deprecated and needs to be changed to fcntl

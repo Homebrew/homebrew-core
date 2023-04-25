@@ -2,27 +2,27 @@ class Grayskull < Formula
   include Language::Python::Virtualenv
 
   desc "Recipe generator for Conda"
-  homepage "https://github.com/conda-incubator/grayskull"
-  url "https://files.pythonhosted.org/packages/af/ff/c54c06b43f96be00e6ff47ee87091795a4e988a5791d6b1f51dbea31559f/grayskull-2.2.2.tar.gz"
-  sha256 "ae97e60742f779ab93888ab074533eddbe2db5ad96792fe8d9748217400de0d8"
+  homepage "https://github.com/conda/grayskull"
+  url "https://files.pythonhosted.org/packages/8f/83/c684c8fc47cd777391a417627920d9d0d9177dec03ae97d92db207bad181/grayskull-2.3.0.tar.gz"
+  sha256 "826702c4165731c044d30af49230a761ffc753bda8f6be38be9be642fd367037"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "18b3eb349ceb7b83535db64afd522618c6e42cfc36018dd8730b47e01a4da00e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "48c5bdfdb0ee63085a46c3e33c492cf59d75ad5fccb25176c038dffc6a552f53"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7cd9bc14986e6ad753cf11c4ed0b3f76ad217c52a8dd149888a5a2141a4bfc8d"
-    sha256 cellar: :any_skip_relocation, ventura:        "676f597d470e6d4e2c1a8d1b7cda7b4c3c9c44c3020372a1e1e8f627f9462920"
-    sha256 cellar: :any_skip_relocation, monterey:       "6d6980d97bba1952f42d5bd611237a701f740a586f1221df64280ed6133e6dd6"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0ed72a21a5bdc9dda6bc18f0b9e0597397d11b4fc0721af59a60d5c75f679004"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "20975a04ecf99e27460276968dc0691601d0288ab929662ac0c7ec99b03b3d53"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dac48b18c8bd850b63ebc2a2d272149646ae1ad7efe1c1cd753a32c45e5b9358"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "236d024e9eedd8363d8bfa8eb78704044d627b7a4dc584699dbad20f5e84ed2c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "80f8d963aa56559de87e14c7df938a1458001292eb195d3873cf24fc510eca26"
+    sha256 cellar: :any_skip_relocation, ventura:        "597dbed6ef298eede3228e15576a58f4c35e3f7cf70c62095bacaab2b49e01c0"
+    sha256 cellar: :any_skip_relocation, monterey:       "aab0f9cba955e85846e38834de83e955e0a025b695b6bd43d5d2fd3104f131bf"
+    sha256 cellar: :any_skip_relocation, big_sur:        "38c9d99bbb44fbb8aafd4a6b01c081dd42e7c1c9ba281c6250230ff43751ba48"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "36f0c7e505bdbda2960d5379f8f16f8a0ed2b6a9089ba9a5fdaf94f07edb36bd"
   end
 
   depends_on "cmake" => :build
   depends_on "python@3.11"
 
   resource "beautifulsoup4" do
-    url "https://files.pythonhosted.org/packages/75/f8/de84282681c5a8307f3fff67b64641627b2652752d49d9222b77400d02b8/beautifulsoup4-4.11.2.tar.gz"
-    sha256 "bc4bdda6717de5a2987436fb8d72f45dc90dd856bdfd512a1314ce90349a0106"
+    url "https://files.pythonhosted.org/packages/c5/4c/b5b7d6e1d4406973fb7f4e5df81c6f07890fa82548ac3b945deed1df9d48/beautifulsoup4-4.12.0.tar.gz"
+    sha256 "c5fceeaec29d09c84970e47c65f2f0efe57872f7cff494c9691a26ec0ff13234"
   end
 
   resource "certifi" do
@@ -31,8 +31,8 @@ class Grayskull < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/96/d7/1675d9089a1f4677df5eb29c3f8b064aa1e70c1251a0a8a127803158942d/charset-normalizer-3.0.1.tar.gz"
-    sha256 "ebea339af930f8ca5d7a699b921106c6e29c617fe9606fa7baa043c1cdae326f"
+    url "https://files.pythonhosted.org/packages/ff/d7/8d757f8bd45be079d76309248845a04f09619a7b17d6dfc8c9ff6433cac2/charset-normalizer-3.1.0.tar.gz"
+    sha256 "34e0a2f9c370eb95597aae63bf85eb5e96826d81e3dcf88b8886012906f509b5"
   end
 
   resource "colorama" do
@@ -66,8 +66,8 @@ class Grayskull < Formula
   end
 
   resource "python-utils" do
-    url "https://files.pythonhosted.org/packages/2f/cc/3f70c1e4b290712ac5ea16609e23cb5473f4aeeafc0d4f149a4da70e63cb/python-utils-3.4.5.tar.gz"
-    sha256 "7e329c427a6d23036cfcc4501638afb31b2ddc8896f25393562833874b8c6e0a"
+    url "https://files.pythonhosted.org/packages/b5/58/6960ee22450cd006375c5f36f15acf7e82688d25c091efba05362d682b9e/python-utils-3.5.2.tar.gz"
+    sha256 "68198854fc276bc4b2403b261703c218e01ef564dcb072a7096ed9ea7aa5130c"
   end
 
   resource "rapidfuzz" do
@@ -90,9 +90,14 @@ class Grayskull < Formula
     sha256 "8449be29d9a157fa92d1648adc161d718e469f0d38a6b21e0eabb76fd5b3e663"
   end
 
+  resource "semver" do
+    url "https://files.pythonhosted.org/packages/31/a9/b61190916030ee9af83de342e101f192bbb436c59be20a4cb0cdb7256ece/semver-2.13.0.tar.gz"
+    sha256 "fa0fe2722ee1c3f57eac478820c3a5ae2f624af8264cbdf9000c980ff7f75e3f"
+  end
+
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/f3/03/bac179d539362319b4779a00764e95f7542f4920084163db6b0fd4742d38/soupsieve-2.3.2.post1.tar.gz"
-    sha256 "fc53893b3da2c33de295667a0e19f078c14bf86544af307354de5fcf12a3f30d"
+    url "https://files.pythonhosted.org/packages/1b/cb/34933ebdd6bf6a77daaa0bd04318d61591452eb90ecca4def947e3cb2165/soupsieve-2.4.tar.gz"
+    sha256 "e28dba9ca6c7c00173e34e4ba57448f0688bb681b7c5e8bf4971daafc093d69a"
   end
 
   resource "stdlib-list" do
@@ -111,8 +116,8 @@ class Grayskull < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/c5/52/fe421fb7364aa738b3506a2d99e4f3a56e079c0a798e9f4fa5e14c60922f/urllib3-1.26.14.tar.gz"
-    sha256 "076907bf8fd355cde77728471316625a4d2f7e713c125f51953bb5b3eecf4f72"
+    url "https://files.pythonhosted.org/packages/21/79/6372d8c0d0641b4072889f3ff84f279b738cd8595b64c8e0496d4e848122/urllib3-1.26.15.tar.gz"
+    sha256 "8a388717b9476f934a21484e8c8e61875ab60644d29b9b39e11e4b9dc1c6b305"
   end
 
   def install

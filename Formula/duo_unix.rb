@@ -1,20 +1,18 @@
 class DuoUnix < Formula
   desc "Two-factor authentication for SSH"
   homepage "https://www.duosecurity.com/docs/duounix"
-  url "https://github.com/duosecurity/duo_unix/archive/duo_unix-2.0.0.tar.gz"
-  sha256 "d1c761ce63eee0c35a57fc6b966096cac1fd52c9387c6112c6e56ec51ee1990b"
+  url "https://github.com/duosecurity/duo_unix/archive/duo_unix-2.0.1.tar.gz"
+  sha256 "7ad340531d2305002e3a1994709f08f8434ef0eed711229c419b8b879ed5e7b1"
   license "GPL-2.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 arm64_ventura:  "a9f128f7fe11324bc828e24c2dee60bffd69ab9b50d2d678c55ef02fc35ccd87"
-    sha256 arm64_monterey: "08bce85c82251dead2bf052f6ce1fef322d1b6f7c2faf485625a2e5dcedc536b"
-    sha256 arm64_big_sur:  "2ab1b40f96e8b1e6f23b05e56f0f403b619c3e9888bf874f80e9fc5fc76a9574"
-    sha256 ventura:        "f6b61bed0039797c7ea218552cb4106c173399ac8878f998912a9ab0db0c6111"
-    sha256 monterey:       "e55cb39233e2291cfc2470d3efb3e3e801d4ca60458c3cce4b29928689db7d54"
-    sha256 big_sur:        "85ccdfae0db6736bb4637065a1b94dbce891bac3fc1c0af87cd6a8f853ace742"
-    sha256 catalina:       "b1f3ab30a252a64d64301fb4d09b78d57702037b763015732ddeb5e62818c4e5"
-    sha256 x86_64_linux:   "54c6ffd4d7d342fe985ae8d39f0131444125f45b18c210e56501dd266f992160"
+    sha256 arm64_ventura:  "af0a04b8864501ff6f852cb7f8f462383cd7527525164b9512044e6139ab34b3"
+    sha256 arm64_monterey: "b905e7433cfc7d870ffffd4579d960cf05d4671c00cffedbf2661fb9851d717c"
+    sha256 arm64_big_sur:  "f6e00dc4e20035f76b5f7b80622ca89d1a7e24b371ce6bab146d35af8b29bcd0"
+    sha256 ventura:        "d4add2e21d424b0a3272b7b41323fcbce7f7ef024d9379733bbbf396a2797fe3"
+    sha256 monterey:       "1e2f7306463c95d57aacbf92ce1b7395e6f34119ef76d18656dcb9bc76f113c7"
+    sha256 big_sur:        "e253446512ea477b4b75f1a89b1db74911853710f99a07787fd62aaf9e5bb73a"
+    sha256 x86_64_linux:   "2876aba8b4daf740e443174f197b43ea2dc867c29057089e0f255ce9c97f0868"
   end
 
   depends_on "autoconf" => :build

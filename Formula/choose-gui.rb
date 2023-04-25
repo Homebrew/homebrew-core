@@ -1,20 +1,17 @@
 class ChooseGui < Formula
   desc "Fuzzy matcher that uses std{in,out} and a native GUI"
   homepage "https://github.com/chipsenkbeil/choose"
-  url "https://github.com/chipsenkbeil/choose/archive/1.2.1.tar.gz"
-  sha256 "cab6083be6429e9c67bd0026aedf8bd76675a2dea045d235a973fb61b106aeaf"
+  url "https://github.com/chipsenkbeil/choose/archive/refs/tags/1.3.1.tar.gz"
+  sha256 "63d69aa24eca3e397ca5d6ca8da57921c1f1ed02c34e6ef351b999bc208861e4"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "15d2bee79fda8a6f9e569558bd549f0bdb14cb61c681a887d5caf461a8ea265c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "37b3b5778df9ba0fc55ff277bb2ab4a6d920ba21875460c6e7ab4d944411e21a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e8abc11fca77fb82fc0cbf01c8a4a36a0abdd490f63066bd490ca1ff23af8ccf"
-    sha256 cellar: :any_skip_relocation, ventura:        "2526b5a830c8e2057fe9a2d06d060e84e4d0d4d479f5ec2003d854bb76202330"
-    sha256 cellar: :any_skip_relocation, monterey:       "11f10c376ce467c5cee44f5dd22db0970ebd5bc2c5a3959995a3846fed39166b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "83c49f5cf2fd316b1dac396341921547b7a6db1b33710d0a5413cb53ba100d8b"
-    sha256 cellar: :any_skip_relocation, catalina:       "8df952db2e54267c80dadb67f0da6a249fb0e3d58c92e1d7ac9e791ab8157f76"
-    sha256 cellar: :any_skip_relocation, mojave:         "0f045585cc3cfb9308e79156e9fbdcea273f7a6ec14da690d3000b445cf82689"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "327a21c741b66cc4484dfba8dcdf3cdd1c4d6f30b8f9e15cd4dbd59b87501e66"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ea87b1a590c751e812b4fada4882951b3cda17c489ab4f6a1fd4398acbe262aa"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "630408a8095e21ae5a7f25892d49edd0936e0bc397d85af335f898d3d8c45508"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d742aa98d6c503e953531bcaac5807254e820a2f0c4888faa06a791f292365a3"
+    sha256 cellar: :any_skip_relocation, ventura:        "051c460b229a5650d4acf03b9ab5c5627b50b5dd82285ff6d203ad611f7eaedb"
+    sha256 cellar: :any_skip_relocation, monterey:       "3fb160658f91298dbebbdca13ddd30c01565dd41146d07bc739f27a868a240a2"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8bebb256288062b620e845055833832c14a98f835b330e3c1fa866390a880e24"
   end
 
   depends_on xcode: :build

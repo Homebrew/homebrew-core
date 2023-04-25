@@ -1,8 +1,9 @@
 class PysideAT2 < Formula
   desc "Official Python bindings for Qt"
   homepage "https://wiki.qt.io/Qt_for_Python"
-  url "https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.15.8-src/pyside-setup-opensource-src-5.15.8.tar.xz"
-  sha256 "23436302c8deb5b4cbc769b205d09604e38ba83b40708efccb7bd8c9af6f6b5d"
+  # TODO: Check if we can use unversioned `llvm` at version bump.
+  url "https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.15.9-src/pyside-setup-opensource-src-5.15.9.tar.xz"
+  sha256 "2ea5917652036a9007d66ba4dc0aa75f381a3a25ccf0fa70fa2d9e9c8c9dacae"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-3.0-only"]
 
   livecheck do
@@ -11,18 +12,18 @@ class PysideAT2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "af03e39fc3732733d5628c8276260b7875c24408acecc8c4c39d4e9a82430385"
-    sha256 cellar: :any, arm64_monterey: "1636dfa790e8b3019b4184f93a4299c3b154d144d2d3059cc5ec0e7493c99f9c"
-    sha256 cellar: :any, arm64_big_sur:  "cfc721047693259d09e97cbd7f4ca38a8aa80cc27304089a00ba793384a5139d"
-    sha256 cellar: :any, ventura:        "fc342a0cbf305f7d746ff6fe9a0db9d8cac2c07995a1a13205749931ee15b87a"
-    sha256 cellar: :any, monterey:       "6078faee4e1023d527faf7c116827a5d40ab5ebba768925ce7eed9c14c784a1c"
-    sha256 cellar: :any, big_sur:        "fd5e818a3a5b0038f683e7514cf6a2cde626700b42fbcf63f642d930b7e486cc"
+    sha256 cellar: :any, arm64_ventura:  "e0ae9f352fd9ec27e50e92209de5d24b4017c5e499d453d2fe968676f38d1e6f"
+    sha256 cellar: :any, arm64_monterey: "df42f30ff0f073c11e81cdb08746a31b663a9f31ab1b3109f9fb5aadb8ae4003"
+    sha256 cellar: :any, arm64_big_sur:  "afbe9f3d564b2e315085fdc0df2c1687e91e9fd7946be9c2513dd064a688a4e4"
+    sha256 cellar: :any, ventura:        "68560b96de5e903a2dbdef79493d553dd26152b8c641a8d2fbe023b2d3ab931e"
+    sha256 cellar: :any, monterey:       "a00024acc6eb301afae573139743b97ba9f391c8d2845eb220e76198988f291a"
+    sha256 cellar: :any, big_sur:        "efeb7dcc1dba741a62a93558eb59461e2ddd73ab27a8c44d03bfe9c6e081eeaa"
   end
 
   keg_only :versioned_formula
 
   depends_on "cmake" => :build
-  depends_on "llvm"
+  depends_on "llvm@15" # Upstream issue ref: https://bugreports.qt.io/browse/PYSIDE-2268
   depends_on "python@3.10"
   depends_on "qt@5"
 
@@ -56,7 +57,7 @@ class PysideAT2 < Formula
   # Ref: https://bugreports.qt.io/browse/PYSIDE-2035
   patch :p3 do
     url "https://code.qt.io/cgit/pyside/pyside-setup.git/patch/sources/shiboken6/libshiboken/sbknumpyarrayconverter.cpp?id=1422cf4a7f277fb13fd209f24a90d6c02641497d"
-    sha256 "8f80bc04be1e22cf3279f8893159d8e7d6f86a6b1021808ff8942549944df40c"
+    sha256 "2148af37249932be15ca417076baa9539d487b38a434ec901a67fa9ede724f52"
     directory "sources/shiboken2"
   end
 

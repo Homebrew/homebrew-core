@@ -3,21 +3,19 @@ class Awscurl < Formula
 
   desc "Curl like simplicity to access AWS resources"
   homepage "https://github.com/okigan/awscurl"
-  url "https://files.pythonhosted.org/packages/6e/95/74209c24ac099c109109229bee14886c210edefb3f6bd73096e3a2277a93/awscurl-0.26.tar.gz"
-  sha256 "5cb14aa948160e8fda1e1285ab4824ee0f54b0af87f9bd169ee49fab0c09cb6c"
+  url "https://files.pythonhosted.org/packages/18/9a/e7aba1d520d7f212e75a942ecfb9316b3589d5aff82e18b7e78b3ae4e41e/awscurl-0.27.tar.gz"
+  sha256 "0fc4c4b59a7cb5d0d70158c795aa7fe72a2ee5095337b453ef897959613ec9d7"
   license "MIT"
-  revision 1
   head "https://github.com/okigan/awscurl.git", branch: "master"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any,                 arm64_ventura:  "4c06e64adceed3e052bf45ef198d53bd8b0758eab2f48b0510a428dbde34ef31"
-    sha256 cellar: :any,                 arm64_monterey: "04c39ea14acb6a0943ea9a40405bc32f46a96825a847132de573550ca861283c"
-    sha256 cellar: :any,                 arm64_big_sur:  "5355b486a5d907c00c147a05215674df08259c3e5da74518ad272af2fe302d87"
-    sha256 cellar: :any,                 ventura:        "6edd7bbc6bf2e828ddd0608819bfb1cd60fc88235c98dc245577a388de5a1e63"
-    sha256 cellar: :any,                 monterey:       "8d6895ca9c2746cce80029e911adf30e2c38d240705b89fb4633ed0233dc08ab"
-    sha256 cellar: :any,                 big_sur:        "5544323f22f99ef6bdc64391161f8f3ce7c787952315dacfb5058c1b3bd54a16"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0d15f2ba11089e18a8415fa62e27640db9746b2d314a7c82bb5ee3ecb1a346df"
+    sha256 cellar: :any,                 arm64_ventura:  "0c89dfc9f795587044072d82740488e92d18dde4a53431c16084fca63323144a"
+    sha256 cellar: :any,                 arm64_monterey: "4bdd2580f9de424ed9d2dd11194b87f73cea44872cb2ed0a0fc50b797387448c"
+    sha256 cellar: :any,                 arm64_big_sur:  "3804c6fba93cc19f1a7d078b618c65682e2d0bf760e8a04d71d5ef666b964f3d"
+    sha256 cellar: :any,                 ventura:        "ba7ddaddd3dbdda9bef263fa793050e2dac62923611435f6f11672eca207641f"
+    sha256 cellar: :any,                 monterey:       "f68251f0826720fd8c8865edbdd6b689623972419d8bf2dcbb99ec21e25169e5"
+    sha256 cellar: :any,                 big_sur:        "cdfb476d98a36f7b15b8be6bd2e3320cbdc4d78eb08a28a655869f6fd1da7a35"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f83d5ef5b6df50010cd040053c97de43135c91596b0140112be83fc3d9ca50f3"
   end
 
   depends_on "rust" => :build
@@ -41,8 +39,8 @@ class Awscurl < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/96/d7/1675d9089a1f4677df5eb29c3f8b064aa1e70c1251a0a8a127803158942d/charset-normalizer-3.0.1.tar.gz"
-    sha256 "ebea339af930f8ca5d7a699b921106c6e29c617fe9606fa7baa043c1cdae326f"
+    url "https://files.pythonhosted.org/packages/ff/d7/8d757f8bd45be079d76309248845a04f09619a7b17d6dfc8c9ff6433cac2/charset-normalizer-3.1.0.tar.gz"
+    sha256 "34e0a2f9c370eb95597aae63bf85eb5e96826d81e3dcf88b8886012906f509b5"
   end
 
   resource "ConfigArgParse" do
@@ -56,8 +54,8 @@ class Awscurl < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/6a/f5/a729774d087e50fffd1438b3877a91e9281294f985bda0fd15bf99016c78/cryptography-39.0.1.tar.gz"
-    sha256 "d1f6198ee6d9148405e49887803907fe8962a23e6c6f83ea7d98f1c0de375695"
+    url "https://files.pythonhosted.org/packages/f7/80/04cc7637238b78f8e7354900817135c5a23cf66dfb3f3a216c6d630d6833/cryptography-40.0.2.tar.gz"
+    sha256 "c33c0d32b8594fa647d2e01dbccc303478e16fdd7cf98652d5b3ed11aa5e5c99"
   end
 
   resource "idna" do
@@ -71,8 +69,8 @@ class Awscurl < Formula
   end
 
   resource "pyOpenSSL" do
-    url "https://files.pythonhosted.org/packages/af/6e/0706d5e0eac08fcff586366f5198c9bf0a8b46f0f45b1858324e0d94c295/pyOpenSSL-23.0.0.tar.gz"
-    sha256 "c1cc5f86bcacefc84dada7d31175cae1b1518d5f60d3d0bb595a67822a868a6f"
+    url "https://files.pythonhosted.org/packages/8f/72/f1d9e92f5d3a58aba3b71ad512de19eb9f82e7b98795662bf7b796be71e5/pyOpenSSL-23.1.1.tar.gz"
+    sha256 "841498b9bec61623b1b6c47ebbc02367c07d60e0e195f19790817f10cc8db0b7"
   end
 
   resource "requests" do
@@ -81,8 +79,8 @@ class Awscurl < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/c5/52/fe421fb7364aa738b3506a2d99e4f3a56e079c0a798e9f4fa5e14c60922f/urllib3-1.26.14.tar.gz"
-    sha256 "076907bf8fd355cde77728471316625a4d2f7e713c125f51953bb5b3eecf4f72"
+    url "https://files.pythonhosted.org/packages/21/79/6372d8c0d0641b4072889f3ff84f279b738cd8595b64c8e0496d4e848122/urllib3-1.26.15.tar.gz"
+    sha256 "8a388717b9476f934a21484e8c8e61875ab60644d29b9b39e11e4b9dc1c6b305"
   end
 
   resource "urllib3-secure-extra" do

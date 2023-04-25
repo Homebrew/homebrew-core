@@ -1,8 +1,8 @@
 class OpenalSoft < Formula
   desc "Implementation of the OpenAL 3D audio API"
   homepage "https://openal-soft.org/"
-  url "https://openal-soft.org/openal-releases/openal-soft-1.23.0.tar.bz2"
-  sha256 "057dcf96c3cdfcf40159800a93f57740fe79c2956f76247bee10e436b6657183"
+  url "https://openal-soft.org/openal-releases/openal-soft-1.23.1.tar.bz2"
+  sha256 "796f4b89134c4e57270b7f0d755f0fa3435b90da437b745160a49bd41c845b21"
   license "LGPL-2.0-or-later"
   head "https://github.com/kcat/openal-soft.git", branch: "master"
 
@@ -12,13 +12,13 @@ class OpenalSoft < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "fe33fe2321dc3a56d93e66a1885fa2b4bbab01d7d05e033dcc6263ab0ac6ddf5"
-    sha256 cellar: :any,                 arm64_monterey: "73884d531330330ed69f01b98a9ee2db0040f83760de6030b485fcc4bc0d2f62"
-    sha256 cellar: :any,                 arm64_big_sur:  "15f6a0fce29c7f22b0107c17a80c47a70c41a5c944489ee28feb4ae7ec7b0b97"
-    sha256 cellar: :any,                 ventura:        "c96fbbe7765c3ba2cb425916b24ac34eb955781d2f843edda9c2b8494469b6c0"
-    sha256 cellar: :any,                 monterey:       "8f5104ada051d551e7248d5f47d9b36973725a737f75fb593cf4f38948b93445"
-    sha256 cellar: :any,                 big_sur:        "b9fddf543c46a83df8c15744e0ae53430bc3ed51bb98eccf5010e8a647abceab"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "70642bf18753fe50fb27330f27822a076dfbd322851a280da2d60e2e432d0e3c"
+    sha256 cellar: :any,                 arm64_ventura:  "43fb6822edf9040a20c291059d8c5058a2eb8e128cca5b5fb17a6cda796ed568"
+    sha256 cellar: :any,                 arm64_monterey: "483d541fed84fa7a29cc2669acc996590b78fc7558a62fe99c9c3fd99248ec68"
+    sha256 cellar: :any,                 arm64_big_sur:  "9c6778d6789405495ae5cc3f8c2226f9fac82736a1d948f91e7a323184cc342e"
+    sha256 cellar: :any,                 ventura:        "975412df0025e6e37f31342e1a39d14e5a72a04eb5bb35cdd886d6d8ce55e0cf"
+    sha256 cellar: :any,                 monterey:       "7a66d48e90256c5677080dc62c66e289847ec61da6642ad76bfc137ad6157307"
+    sha256 cellar: :any,                 big_sur:        "60cbe54e4ca2e7b4f459530d42c0e81090dddfad468b412309b1b38f8b687d08"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "70d7bab320cf18eec623f5ec1602d92a4f303b0c82371b62ebc47327768752ed"
   end
 
   keg_only :shadowed_by_macos, "macOS provides OpenAL.framework"

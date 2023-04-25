@@ -26,6 +26,8 @@ class Rmw < Formula
   depends_on "pkg-config" => :build
   depends_on "canfigger"
   depends_on "gettext"
+  # Slightly buggy with system ncurses
+  # https://github.com/theimpossibleastronaut/rmw/issues/205
   depends_on "ncurses"
 
   def install

@@ -3,18 +3,18 @@ class Polynote < Formula
 
   desc "Polyglot notebook with first-class Scala support"
   homepage "https://polynote.org/"
-  url "https://github.com/polynote/polynote/releases/download/0.5.0/polynote-dist.tar.gz"
-  sha256 "173feb74da99c87e7b658b6f5a6400b0ee8a7da9a5975cde196a3285f471e152"
+  url "https://github.com/polynote/polynote/releases/download/0.5.1/polynote-dist.tar.gz"
+  sha256 "e7715dd7e044cdf4149a1178b42a506c639a31bcb9bf97d08cec4d1fe529bf18"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "0af542d492d91b4215463fa08cacbe3ed2e042b214ace807f73d49ec0ec83053"
-    sha256 cellar: :any, arm64_monterey: "25288879b2bb601cf95384ae5ae01bd3b7734f28ea06f3627afed1c116f85f99"
-    sha256 cellar: :any, arm64_big_sur:  "88c81ed22651a67114ddc8af9ec4307e45f31ac642d296896ded5295793ed424"
-    sha256 cellar: :any, ventura:        "d2bc6efa2010a4be9dfcf0265ceb016e69863ae8ca91eb1ff483d1ea7d532feb"
-    sha256 cellar: :any, monterey:       "ccf759d29c2dc1cb8365f26ad24595b9413af5df63b02b5b1370562a2dc7371a"
-    sha256 cellar: :any, big_sur:        "e9682de198d26ec46ec3529f481bff0fbab6fb14821591206b21fadccc9641cb"
-    sha256               x86_64_linux:   "80431ae7bf4b8ea682af60831efa18dcec859388734899b198b8773bb4919230"
+    sha256 cellar: :any, arm64_ventura:  "17484d27531470d57c182ea117f90f905e6f337892d77bd540aae7ff835acd44"
+    sha256 cellar: :any, arm64_monterey: "2ae123b944f380cbaac774768c300ba24ed641e9577b3b3a440962bcfcab4806"
+    sha256 cellar: :any, arm64_big_sur:  "d977082f5ced92ddf993fa0646c334143cc7a0366342b13e0f7955d969716fee"
+    sha256 cellar: :any, ventura:        "2850dbf9d6ef7358f20a23f4d8fc50d630cfbd798764119a57c91d6f2ab9a619"
+    sha256 cellar: :any, monterey:       "d8afbfd0f181b1b427fd6826949b5c84a16d0ac8c2481894d328b5a2fd4c857b"
+    sha256 cellar: :any, big_sur:        "fa4305ad30d2da3d531e0965357dbf78053a3710f8d6ceeddaa7d7fc277ecf0c"
+    sha256               x86_64_linux:   "4727c9959271464c8193c106a68aa1748e9af1044686553e63993b7960970281"
   end
 
   depends_on "numpy" # used by `jep` for Java primitive arrays

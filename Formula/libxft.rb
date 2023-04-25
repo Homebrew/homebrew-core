@@ -1,19 +1,18 @@
 class Libxft < Formula
   desc "X.Org: X FreeType library"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/lib/libXft-2.3.7.tar.xz"
-  sha256 "79f0b37c45007381c371a790c2754644ad955166dbf2a48e3625032e9bdd4f71"
+  url "https://www.x.org/archive/individual/lib/libXft-2.3.8.tar.xz"
+  sha256 "5e8c3c4bc2d4c0a40aef6b4b38ed2fb74301640da29f6528154b5009b1c6dd49"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "8175c1f034681b3ad8f88c049e592a75dd7ed74da468e4b4abd7b0c6b92fa6b0"
-    sha256 cellar: :any,                 arm64_monterey: "f564c302672356b6c5ff8748310527503b8586c4c62214f5ea6bfd37d072eb9a"
-    sha256 cellar: :any,                 arm64_big_sur:  "2d3b436bec612143dd68c2d76e70f8193c4400ca0df95cbf4d29f19b1e6162dc"
-    sha256 cellar: :any,                 ventura:        "d78514cadc16473ef16d6c2a3cf654f7435782b08720f965cb03c56f45f57f6c"
-    sha256 cellar: :any,                 monterey:       "f0cc586372a1a2b67afb81965d741ab50453ba4d6dba97d73d701289a3d71e4f"
-    sha256 cellar: :any,                 big_sur:        "2f40db6e5dc23843e700fa8b0ee995c7dfaa6ad1b2a2478fe5f834eaa796058d"
-    sha256 cellar: :any,                 catalina:       "5724a911f3d4f07de517aee6da949f5705e8ecb8ad77e2bf2d64587cc8c7ca5c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c64c26f48726bcf50db5be2e2b89d3a387f7ed08d840f48fd84e30210ed77386"
+    sha256 cellar: :any,                 arm64_ventura:  "5818956cf6b0385d6e8b56f7e2e07b4677e75146015644eb76c3b0f60a1cc313"
+    sha256 cellar: :any,                 arm64_monterey: "21e2ea56dd4cf339e625262a1e159228ed73b5bf5876fa00417f6b4f4ed9e240"
+    sha256 cellar: :any,                 arm64_big_sur:  "4b79cdbc8fe2c488ca301e86c87c6fe1b18fb5e196d3e26faa054601b7ebdecd"
+    sha256 cellar: :any,                 ventura:        "a2400a944b29cb80f349678138be4879a772313c3c54dc6f467f8fad30ac54b1"
+    sha256 cellar: :any,                 monterey:       "c0c78d9cfee85691f6441eaa06f0962ef2220d0d0133561eb834890636a17f17"
+    sha256 cellar: :any,                 big_sur:        "9998b2dcd6f3248a13e9b9a8d74c9efe66c45b7528d09867d5b24e144baba315"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5279042fda36daaee45abd6bbe34b5eb675fe34a745755e8b1cae29b299830e3"
   end
 
   depends_on "pkg-config" => :build

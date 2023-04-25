@@ -1,19 +1,19 @@
 class Terrascan < Formula
   desc "Detect compliance and security violations across Infrastructure as Code"
   homepage "https://github.com/tenable/terrascan"
-  url "https://github.com/tenable/terrascan/archive/v1.18.0.tar.gz"
-  sha256 "b6cf06567d2a9ea5b059dadf65845d1d7c390c26e6d07c726a18ed7dc7c1b8b3"
+  url "https://github.com/tenable/terrascan/archive/v1.18.1.tar.gz"
+  sha256 "6539b5c9cd3b6498deaa7d9f714ead3453f6ed7a510bef82a70b146fe5a3d97d"
   license "Apache-2.0"
   head "https://github.com/tenable/terrascan.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f5ea1da0393ff61166237004d2182e8a29a54db16b20962cb11ff5de8e5c76d7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "75c2c08957a8fea97d0f88b1339d47238f350518cdafdffcda1e2bfe23fe5f5e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1c9752562cd0245f362dd3de22e884739cc16b99dab7183fd21be4f641c6a6e7"
-    sha256 cellar: :any_skip_relocation, ventura:        "d02cac2280bca0322a18d12da96804044ee9545519bc1e8a219a66d281939bf1"
-    sha256 cellar: :any_skip_relocation, monterey:       "c795912b9a3aae9b6201aa7473cee37d8b2c0e72b45dba92071c75a791921854"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2b48497fc06d21f201b38cc0965077778a8b83ae87fc78aed94451e2c8cdee61"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7a0dce8700551a079f75a281ee1cedff91dc248b758e9c9946fe1d71b2d4be41"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b83e4fa3218a7028777cc0ed708a7562a8e0878552c997bd963350060cd26678"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ace80c63b2adeb12d310a63ed46b09d7b82be0120b064db48839f01e38699bf7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4d19b23bfd04b19efa101788f675260aa68e9e604b41c1546bd746cb18ad2018"
+    sha256 cellar: :any_skip_relocation, ventura:        "9cbfb664f5e0d9dc394525d3cd7ac0341cd5e49371c10815a9838117cde19d5f"
+    sha256 cellar: :any_skip_relocation, monterey:       "ad4a60d3275a3788c2c468ee750cddc3bc29a7e73ddd1cb6cd452c4ccc7e02f5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f99f49317bb90215405bcd1a2bc36ac8fe9bf71c7933fa5d67f971e8a3534426"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3754490c6f58639b9b54517f308433b7e4075549ec0ef2897eb1c1c5d1303e29"
   end
 
   depends_on "go" => :build

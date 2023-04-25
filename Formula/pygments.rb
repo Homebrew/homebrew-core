@@ -1,15 +1,14 @@
 class Pygments < Formula
-  include Language::Python::Virtualenv
-
   desc "Generic syntax highlighter"
   homepage "https://pygments.org/"
-  url "https://files.pythonhosted.org/packages/da/6a/c427c06913204e24de28de5300d3f0e809933f376e0b7df95194b2bb3f71/Pygments-2.14.0.tar.gz"
-  sha256 "b3ed06a9e8ac9a9aae5a6f5dbe78a8a58655d17b43b93c078f094ddc476ae297"
+  url "https://files.pythonhosted.org/packages/89/6b/2114e54b290824197006e41be3f9bbe1a26e9c39d1f5fa20a6d62945a0b3/Pygments-2.15.1.tar.gz"
+  sha256 "8ace4d3c1dd481894b2005f560ead0f9f19ee64fe983366be1a21e171d12775c"
   license "BSD-2-Clause"
   head "https://github.com/pygments/pygments.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "d4b2214521e36150b21673e1e3b3e627a22919a98274bebeaa1fb8daa0ec086d"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "4f9ad4f7947192121e59a218ef21d9416eb2162a936945c60335778fbce3939a"
   end
 
   depends_on "python@3.10" => [:build, :test]
@@ -26,16 +25,17 @@ class Pygments < Formula
 
     pythons.each do |python|
       python_exe = python.opt_libexec/"bin/python"
-      system python_exe, *Language::Python.setup_install_args(libexec, python_exe)
-
-      site_packages = Language::Python.site_packages(python_exe)
-      pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
-      (prefix/site_packages/"homebrew-pygments.pth").write pth_contents
+      system python_exe, "-m", "pip", "install", "--prefix=#{prefix}", "--no-deps", "."
 
       pyversion = Language::Python.major_minor_version(python_exe)
-      bin.install libexec/"bin/pygmentize" => "pygmentize-#{pyversion}"
+      bin.install bin/"pygmentize" => "pygmentize-#{pyversion}"
 
-      next unless python == pythons.max_by(&:version)
+      # Get rid of the `dist-info` directory to ensure uniform checksums across builds.
+      # This directory only contains metadata that aren't useful for us.
+      site_packages = Language::Python.site_packages(python_exe)
+      (prefix/site_packages/"Pygments-#{version}.dist-info").rmtree
+
+      next if python != pythons.max_by(&:version)
 
       # The newest one is used as the default
       bin.install_symlink "pygmentize-#{pyversion}" => "pygmentize"
@@ -57,7 +57,7 @@ class Pygments < Formula
 
       (testpath/"test.html").unlink
 
-      next unless python == pythons.max_by(&:version)
+      next if python != pythons.max_by(&:version)
 
       system bin/"pygmentize", "-f", "html", "-o", "test.html", testpath/"test.py"
       assert_predicate testpath/"test.html", :exist?

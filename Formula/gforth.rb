@@ -3,6 +3,7 @@ class Gforth < Formula
   homepage "https://www.gnu.org/software/gforth/"
   url "https://ftp.gnu.org/gnu/gforth/gforth-0.7.3.tar.gz"
   sha256 "2f62f2233bf022c23d01c920b1556aa13eab168e3236b13352ac5e9f18542bb0"
+  license "GPL-3.0-or-later"
   revision 3
 
   bottle do

@@ -8,7 +8,7 @@ class Git < Formula
   head "https://github.com/git/git.git", branch: "master"
 
   livecheck do
-    url "https://www.kernel.org/pub/software/scm/git/"
+    url "https://mirrors.edge.kernel.org/pub/software/scm/git/"
     regex(/href=.*?git[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 

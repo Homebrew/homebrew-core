@@ -3,20 +3,18 @@ class Mapproxy < Formula
 
   desc "Accelerating web map proxy"
   homepage "https://mapproxy.org/"
-  url "https://files.pythonhosted.org/packages/db/98/d8805c5434d4b636cd2b71d613148b2096d36ded5b6f6ba0e7325d03ba2b/MapProxy-1.15.1.tar.gz"
-  sha256 "4952990cb1fc21f74d0f4fc1163fe5aeaa7b04d6a7a73923b93c6548c1a3ba26"
+  url "https://files.pythonhosted.org/packages/65/0e/f3ecc15f1f9dbd95ecdf1cd3246712ae13920d9665c3dbed089cd5d12d3b/MapProxy-1.16.0.tar.gz"
+  sha256 "a11157be4729d1ab40680af2ce543fffcfebd991a5fa676e3a307a93fbc56d6b"
   license "Apache-2.0"
-  revision 1
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any,                 arm64_ventura:  "f9e6be821df823ed62ddb8c022e62760d9ef6933fbf9c54740a7165115120eb4"
-    sha256 cellar: :any,                 arm64_monterey: "f756f95ac4a65fcbba1179adcccf2928d74be7c80d2af251efa9155c8d2c4c74"
-    sha256 cellar: :any,                 arm64_big_sur:  "023bc9bc6c397305e5c314e84e13258dc1de81c98c00b9f0136dd6e891a920b8"
-    sha256 cellar: :any,                 ventura:        "c72b39b57fdee50f70a6724ed7beaf2c6cecdaab54b77d02d3117808b091b400"
-    sha256 cellar: :any,                 monterey:       "7d43175248c2a3a3c3f744a843b4f0142c6f744aa40a5bbbd5c309e0cdee2753"
-    sha256 cellar: :any,                 big_sur:        "88307378320958deeaaf06888cc3ab9d529c794539df3e77a259733c0c696cc2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2802c2cbede2f32c152de789c1904f8c29cf55eea2ae095cc7292390f21b7ca3"
+    sha256 cellar: :any,                 arm64_ventura:  "357409c42e963452eee917aba714c327e90935208f8c2ac20fdaa885a68e4362"
+    sha256 cellar: :any,                 arm64_monterey: "4a52631dabb041f43107d324effb5d7853cae5723d6a108aaf2dfa401205cb8e"
+    sha256 cellar: :any,                 arm64_big_sur:  "6ffbb7b6840855a29e3772f3738bbf898783c6834d0d11de53fcf4897c97ecfe"
+    sha256 cellar: :any,                 ventura:        "2f8bf785d7b627f7ba12ada9b4d027b6db862f24f064c41c0111f44f1608a82d"
+    sha256 cellar: :any,                 monterey:       "14d624c9231313e60d5641a386e15cd867ca2956efd81c82035cac1de9209b29"
+    sha256 cellar: :any,                 big_sur:        "678b2bb6e1f292dc6837b7707e04d58894c320aa472e3871b607b9222c293377"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bd316d989e802fcc2d717e0705ee7d4a51eaa03007b649be89b630e4d7ede241"
   end
 
   depends_on "pillow"
@@ -31,8 +29,8 @@ class Mapproxy < Formula
   end
 
   resource "pyproj" do
-    url "https://files.pythonhosted.org/packages/c0/fc/fd53e45d2ad5862d32ab8614e70c3c1f52a8e0d8bd243ee6a23b6a481b4a/pyproj-3.4.1.tar.gz"
-    sha256 "261eb29b1d55b1eb7f336127344d9b31284d950a9446d1e0d1c2411f7dd8e3ac"
+    url "https://files.pythonhosted.org/packages/9c/f5/cd9371194d3c939dffddff9e118a018bb7c2f560549bea4c6bc21b24eadd/pyproj-3.5.0.tar.gz"
+    sha256 "9859d1591c1863414d875ae0759e72c2cffc01ab989dc64137fbac572cc81bf6"
   end
 
   def install

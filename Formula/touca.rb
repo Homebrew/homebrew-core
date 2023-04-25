@@ -7,15 +7,17 @@ class Touca < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ec705c52f0e6ba524accc758207a88c318a253684ea6f263bf8fa5ee4441d968"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c984a912eaafcf41197c61f46ad77a813850b7d7d61457813e2296da75359ce8"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "421ddaa43f82c1f016839d4244651e8bad83e7fbc2cd6c6a27c7d8d0b3adabfb"
-    sha256 cellar: :any_skip_relocation, ventura:        "d08d72bb9fa83fdd66e0e95acbe6893b8ec1b77b7126f04318c180ee4edeeaf5"
-    sha256 cellar: :any_skip_relocation, monterey:       "82a55a409520005663f80a747c9a3a2e6c1e338cd4640e10fd2b30724b6dc27a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "444eaa7c72956bff42d5e615fd9faa719b24cfc007df94c545e347fc38ef67cf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c7e7ca51c66bf0bea069149bbbec11cecc77b0fc834dfb031c1714db914002ad"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4f6057a0e4b7fc1fae5105cc99eb15b47cf70e1793dc7664bf2f6ab2519569d8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f0d903c48ed65bcb6580f0c2223abf1710c30cb2f329acf7b7e633a9c3453790"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "525bf5a8b5d825c83cad85be83b418173d8d2bc2f8a0bd950fbfe8d4009ead86"
+    sha256 cellar: :any_skip_relocation, ventura:        "31acc1a8ae469925b4555e146de700dd612c1b488b7252e70cd9acb7ba1c49ba"
+    sha256 cellar: :any_skip_relocation, monterey:       "7b50520d18dd920ed51d67d8a6b71ca17866258469dca70c861479875017979a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "5221cd4b5e154162ae2d89f417c1d715fe922aca8c78593ee04ae7d60112788b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a62089e7e03a625d2c693d5bed87a3aae9cde5af927ba468dd203ca9be920fee"
   end
 
+  depends_on "pygments"
   depends_on "python@3.11"
 
   resource "certifi" do
@@ -31,11 +33,6 @@ class Touca < Formula
   resource "flatbuffers" do
     url "https://files.pythonhosted.org/packages/0d/0a/2e88943de46df2d69a037427099323a973489d4697058043e99ace188f3b/flatbuffers-23.1.21.tar.gz"
     sha256 "a948913bbb5d83c43a1193d7943c90e6c0ab732e7f2983111104250aeb61ff85"
-  end
-
-  resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/59/0f/eb10576eb73b5857bc22610cdfc59e424ced4004fe7132c8f2af2cc168d3/Pygments-2.12.0.tar.gz"
-    sha256 "5eb116118f9612ff1ee89ac96437bb6b49e8f04d8a13b514ba26f620208e26eb"
   end
 
   resource "rich" do

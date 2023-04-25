@@ -22,7 +22,7 @@ class Vapor < Formula
   uses_from_macos "swift", since: :big_sur
 
   def install
-    system "swift", "build", "--disable-sandbox", "-c", "release", "-Xswiftc", \
+    system "swift", "build", "--disable-sandbox", "-c", "release", "-Xswiftc",
       "-cross-module-optimization", "--enable-test-discovery"
     mv ".build/release/vapor", "vapor"
     bin.install "vapor"

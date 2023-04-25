@@ -1,18 +1,18 @@
 class SignalCli < Formula
   desc "CLI and dbus interface for WhisperSystems/libsignal-service-java"
   homepage "https://github.com/AsamK/signal-cli"
-  url "https://github.com/AsamK/signal-cli/archive/refs/tags/v0.11.7.tar.gz"
-  sha256 "ea799b60c7919b51e23228404b078e000b06bb617fd994e92c2d08df6af3c977"
+  url "https://github.com/AsamK/signal-cli/archive/refs/tags/v0.11.9.1.tar.gz"
+  sha256 "6010493063949f037cca14c4351d7270e757de4cd4fbed5b44af1448928f2e04"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "18d6e0253db2d197371523de2b6e3fa1becd550ac8d829811f27b2c8ce121a50"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6b01e6d089f7b14df21a8ce052518c93f8bb03f94d7bdcad0332907e43f3fe50"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2c3eeebcbedf56e457be1394d8bfb836c3244170cf2109f9ae5412d0ba17aa4d"
-    sha256 cellar: :any_skip_relocation, ventura:        "4d6ed436058fccad29e4a41de7b72d86a1ff695f62bba9ff1999a93f59727517"
-    sha256 cellar: :any_skip_relocation, monterey:       "ea78849187a5aa9c48909e6468a8946343248856dc6800431e0e5b9d828bfe1c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "97e2824244c809d4e12e8efe654f7735a111925072fbd716aca7f288c8495218"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "48a8701ad17a06a8b7d8506c1b99c186002c39ef828fecd378474632970ae8af"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "09ed23eeb16a81b0f9244254521115a70974e12bdb31579930d1d05a3281204f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "08116d85ebf9ea220e52125aad7ed58d96341cc6672126f2931dc7eb719109a5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3734f20ccde248793435a45bf6fc64e1faa7aa1d4e62da6b9e1a8644aec1a0b3"
+    sha256 cellar: :any_skip_relocation, ventura:        "0b9d2a96e926587571005eaf8d48e8a6730339463049abd44a948b9b02373f79"
+    sha256 cellar: :any_skip_relocation, monterey:       "2c717fced32485e5455e4a5a9e33119776f934eb3379f63561e8003a3ed16df7"
+    sha256 cellar: :any_skip_relocation, big_sur:        "5112be9e99c297ec84bac97bd02c6ab1e01265e0a2dd17ead4782897460f9ac0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "883a77e7c45bad098d86ef53720feca790b319ac6082385934d917cf3a3c9644"
   end
 
   depends_on "cmake" => :build # For `boring-sys` crate in `libsignal-client`
@@ -26,8 +26,15 @@ class SignalCli < Formula
 
   depends_on "openjdk"
 
-  uses_from_macos "llvm" => :build # For `libclang`, used by `boring-sys` crate
   uses_from_macos "zip" => :build
+
+  # Use `llvm@15` to work around build failure with Clang 16 described in
+  # rust-lang/rust-bindgen#2312.
+  # TODO: Switch back to `uses_from_macos "llvm" => :build` when `libsignal`
+  # crate's dependency `boring-sys` uses `bindgen` v0.62.0 or newer.
+  on_linux do
+    depends_on "llvm@15" => :build # For `libclang`, used by `boring-sys` crate
+  end
 
   # per https://github.com/AsamK/signal-cli/wiki/Provide-native-lib-for-libsignal#libsignal-client
   # we want the specific libsignal-client version from 'signal-cli-#{version}/lib/libsignal-client-X.X.X.jar'
@@ -52,7 +59,7 @@ class SignalCli < Formula
 
       libsignal_client_jar = libexec.glob("lib/libsignal-client-*.jar").first
       embedded_jar_version = Version.new(libsignal_client_jar.to_s[/libsignal-client-(.*)\.jar$/, 1])
-      odie "#{r.name} needs to be updated to #{embedded_jar_version}!" unless embedded_jar_version == r.version
+      odie "#{r.name} needs to be updated to #{embedded_jar_version}!" if embedded_jar_version != r.version
 
       # rm originally-embedded libsignal_jni lib
       system "zip", "-d", libsignal_client_jar, "libsignal_jni.so", "libsignal_jni.dylib", "signal_jni.dll"

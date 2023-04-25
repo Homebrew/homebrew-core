@@ -1,8 +1,8 @@
 class Sentencepiece < Formula
   desc "Unsupervised text tokenizer and detokenizer"
   homepage "https://github.com/google/sentencepiece"
-  url "https://github.com/google/sentencepiece/archive/v0.1.97.tar.gz"
-  sha256 "41c3a07f315e3ac87605460c8bb8d739955bc8e7f478caec4017ef9b7d78669b"
+  url "https://github.com/google/sentencepiece/archive/v0.1.98.tar.gz"
+  sha256 "e8e09beffacd9667ed40c4652306f7e7990100164dfa26d8bd8a66b097471cb2"
   license "Apache-2.0"
   head "https://github.com/google/sentencepiece.git", branch: "master"
 
@@ -12,15 +12,13 @@ class Sentencepiece < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "a26dad273b288318b7c23ed4a4796055fd59bd5c14cbb9df354160f028816582"
-    sha256 cellar: :any,                 arm64_monterey: "6595fbab298f93719142bd70c3bac237641487025035ff6848c397272a6c5edc"
-    sha256 cellar: :any,                 arm64_big_sur:  "a5b6bb58a27e411450031bc2360a7bf6c3430e3f648e974bf40f9e5234c2dc51"
-    sha256 cellar: :any,                 ventura:        "ae7486b41835b97ef45c3e1e9a91b017cabaa6a4fdcd260f34f744f2cb27550c"
-    sha256 cellar: :any,                 monterey:       "74c92c3a643c7742cd7d29b5b1bd57f13a92f362108f6a63c57a27451711dfec"
-    sha256 cellar: :any,                 big_sur:        "5bb87653c65a19cd69df12fc8c790bf53569be7138774705b77c34b56c291851"
-    sha256 cellar: :any,                 catalina:       "8e44940c9a90d847c96f96b6a83dbdf72320c1790dd08ab9175bf9a9c5d498c0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4a8d7bbde801110c585f23f468a347b9c5d24e1aa7f0941ee1afa62bf3a5e6ce"
+    sha256 cellar: :any,                 arm64_ventura:  "9b36a3c0fc29d90ec426644be41399640d6c9706d1b497f22a36b08dd8dc7fc5"
+    sha256 cellar: :any,                 arm64_monterey: "686225ddaf22ba07f1fe7f3acd55452e92d38043bbd6fa38101ebf12ca9d6b8e"
+    sha256 cellar: :any,                 arm64_big_sur:  "fd8e5145036602da24eb35eabca6282e905670d28fb69940a46322672f80918d"
+    sha256 cellar: :any,                 ventura:        "735344bd583fe161fd5e5776d35cdd5e42a1011a2d23cc0348ec4e9c04832d51"
+    sha256 cellar: :any,                 monterey:       "9b20edccc7a7ae3a3c51d3ac8d11fd7f1ff5749edcc62e6e277d3f409094f5f1"
+    sha256 cellar: :any,                 big_sur:        "0d3bd5bbace4a103ff57b80d65cb678f1cb99bf670376423a31ad0335db713e4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "25beba2a3a3b0e376f588fd5057986eec5446340d2c29e76f076e5d33ce7c97f"
   end
 
   depends_on "cmake" => :build

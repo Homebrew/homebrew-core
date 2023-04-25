@@ -15,17 +15,19 @@ class Macvim < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "5f6f4d5b4c3992cfd29768219247c549934b9916a618e69fa91a0e45c820a51e"
-    sha256 arm64_monterey: "27e1a597702320e3fd77e5b07c76076b9520d34822d86d7bb85605232ca87a59"
-    sha256 arm64_big_sur:  "ef35ccc4db58f560b8dd8f64fb45da71f9519fcc2b3e03e8f510bc7913e53b86"
-    sha256 ventura:        "0b7c6adfdcbe8ac0fdd5682c055da621d31424ab4a997208345d882d6f4770c4"
-    sha256 monterey:       "6a218196af8bac6a528d7e9dfa8b0f2dd1fa2357da8bd47887cd0af2026eb7b6"
-    sha256 big_sur:        "bd6018f7a3e608fc6f143c4e79c3388e05284cc8a689b2ee39a6035ce14eeb0b"
+    rebuild 1
+    sha256 cellar: :any, arm64_ventura:  "6bb6a8a82b9bb7ace5eb9f34f1571d7b36d4bf553f50941ce147ca41cd8f85d8"
+    sha256 cellar: :any, arm64_monterey: "e889d6c32cffdcc33f2bfe6ca04146c5d96ba9553cb2b50db8837007960494c1"
+    sha256 cellar: :any, arm64_big_sur:  "b2849fff6142ba20264b21ac9fad8f55487cbae05b64fe750d14f223f454594a"
+    sha256 cellar: :any, ventura:        "82f5456d5dce39f23dcd1cf317e9f652eb19bdd0989f9aaee088df7d49364aca"
+    sha256 cellar: :any, monterey:       "3ffeaf80f4fa63c0589526538fae88986550113e356f820868c65416ed9d060e"
+    sha256 cellar: :any, big_sur:        "1fedbf1fb207c159c977f331b6be5aad689fd7551287840a066fe94bda73efea"
   end
 
+  depends_on "gettext" => :build
+  depends_on "libsodium" => :build
   depends_on xcode: :build
   depends_on "cscope"
-  depends_on "gettext"
   depends_on "lua"
   depends_on :macos
   depends_on "python@3.11"
@@ -80,6 +82,7 @@ class Macvim < Formula
     output = shell_output("#{bin}/mvim --version")
     assert_match "+ruby", output
     assert_match "+gettext", output
+    assert_match "+sodium", output
 
     # Simple test to check if MacVim was linked to Homebrew's Python 3
     py3_exec_prefix = shell_output(Formula["python@3.11"].opt_libexec/"bin/python-config --exec-prefix")

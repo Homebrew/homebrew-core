@@ -1,7 +1,7 @@
 class Cln < Formula
   desc "Class Library for Numbers"
   homepage "https://www.ginac.de/CLN/"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   stable do
     url "https://www.ginac.de/CLN/cln-1.3.6.tar.bz2"
@@ -35,6 +35,10 @@ class Cln < Formula
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "wget" => :build
+
+    on_system :linux, macos: :ventura_or_newer do
+      depends_on "texinfo" => :build
+    end
   end
 
   depends_on "gmp"

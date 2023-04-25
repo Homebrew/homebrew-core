@@ -3,6 +3,7 @@ class Bsdsfv < Formula
   homepage "https://bsdsfv.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/bsdsfv/bsdsfv/1.18/bsdsfv-1.18.tar.gz"
   sha256 "577245da123d1ea95266c1628e66a6cf87b8046e1a902ddd408671baecf88495"
+  license "BSD-3-Clause"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "81531b6407c9081e4118d7abd4ed94f9f84899e349b6785141874bd0fd375390"

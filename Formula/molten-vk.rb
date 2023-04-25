@@ -63,7 +63,7 @@ class MoltenVk < Formula
   end
 
   head do
-    url "https://github.com/KhronosGroup/MoltenVK.git", branch: "master"
+    url "https://github.com/KhronosGroup/MoltenVK.git", branch: "main"
 
     resource "cereal" do
       url "https://github.com/USCiLab/cereal.git", branch: "master"
@@ -74,23 +74,23 @@ class MoltenVk < Formula
     end
 
     resource "SPIRV-Cross" do
-      url "https://github.com/KhronosGroup/SPIRV-Cross.git", branch: "master"
+      url "https://github.com/KhronosGroup/SPIRV-Cross.git", branch: "main"
     end
 
     resource "glslang" do
-      url "https://github.com/KhronosGroup/glslang.git", branch: "master"
+      url "https://github.com/KhronosGroup/glslang.git", branch: "main"
     end
 
     resource "SPIRV-Tools" do
-      url "https://github.com/KhronosGroup/SPIRV-Tools.git", branch: "master"
+      url "https://github.com/KhronosGroup/SPIRV-Tools.git", branch: "main"
     end
 
     resource "SPIRV-Headers" do
-      url "https://github.com/KhronosGroup/SPIRV-Headers.git", branch: "master"
+      url "https://github.com/KhronosGroup/SPIRV-Headers.git", branch: "main"
     end
 
     resource "Vulkan-Tools" do
-      url "https://github.com/KhronosGroup/Vulkan-Tools.git", branch: "master"
+      url "https://github.com/KhronosGroup/Vulkan-Tools.git", branch: "main"
     end
   end
 

@@ -1,27 +1,25 @@
 class Neomutt < Formula
   desc "E-mail reader with support for Notmuch, NNTP and much more"
   homepage "https://neomutt.org/"
-  url "https://github.com/neomutt/neomutt/archive/20230322.tar.gz"
-  sha256 "47f024d4ae2d976f95b626c5fe6cad6ef22ed187426efbd7cf61435ba1790a48"
+  url "https://github.com/neomutt/neomutt/archive/20230407.tar.gz"
+  sha256 "9c1167984337d136368fbca56be8c04a550060a2fdd33c96538910ea13ba6d4f"
   license "GPL-2.0-or-later"
   head "https://github.com/neomutt/neomutt.git", branch: "main"
 
   bottle do
-    sha256 arm64_ventura:  "4b3c8c61fde2d7de2b71820d092d2ed608b57e3bd6ece5cb90e329db0673922a"
-    sha256 arm64_monterey: "b14f7dbe38dfa60b5917ebd28d5ff1f423643d172f34b12ce80cbf5ccdf6db89"
-    sha256 arm64_big_sur:  "94adec37ccdcd843b9ef06fb317181b9bc7a73c1c924cdd539aad9de7317f5b6"
-    sha256 ventura:        "280654d534129e77c803df3736faa51b65bec962ea076f612c7281403cf4bf3a"
-    sha256 monterey:       "bf490308b5e20353c6497811d78e9e2b07a918c00027b27d61b6bbe25c3f5687"
-    sha256 big_sur:        "398a157054e175b0eff40e4112ee859202819760d25cd31469c9e71f570faa4f"
-    sha256 x86_64_linux:   "44e72c18326ed9d3d9d3f997bcfa696b93d16ac629660a296f35de3860a59cd6"
+    sha256 arm64_ventura:  "5d1d75187c259fe4736cae143fa000716260e5a371f8cf768631157883d977aa"
+    sha256 arm64_monterey: "86c587c0dec446c9d808087c90d017f19ab0b0880e040707969aefeae55d0637"
+    sha256 arm64_big_sur:  "28c466ffe01de9f7f56a8b5308282e8a29fbe68f2fa767c8fabcf3eb99f464e4"
+    sha256 ventura:        "ae7c3cb919267cdeec06fc0343a239b6ba315e9ff8db949ddbd4c1a076518dbe"
+    sha256 monterey:       "f190f82b685d2b957825c0de0a11e8fe9aec81437664fa5008763e28949d358e"
+    sha256 big_sur:        "e65b85fb0d87bd7ccd2c2225d8f0aad786b92b62943e3f3c9c83067e8041edfd"
+    sha256 x86_64_linux:   "fdc45ba2883a200404e01e73150b7441a2de7333ef90e7bf2e97d2b54b26e9a0"
   end
 
   depends_on "docbook-xsl" => :build
   depends_on "pkg-config" => :build
   # The build breaks when it tries to use system `tclsh`.
   depends_on "tcl-tk" => :build
-  # FIXME: Should be `uses_from_macos`, but `./configure` can't find system `libsasl2`.
-  depends_on "cyrus-sasl"
   depends_on "gettext"
   depends_on "gpgme"
   depends_on "libidn2"
@@ -30,9 +28,11 @@ class Neomutt < Formula
   depends_on "ncurses"
   depends_on "notmuch"
   depends_on "openssl@1.1"
+  depends_on "pcre2"
   depends_on "tokyo-cabinet"
 
   uses_from_macos "libxslt" => :build # for xsltproc
+  uses_from_macos "cyrus-sasl"
   uses_from_macos "krb5"
   uses_from_macos "zlib"
 
@@ -41,20 +41,24 @@ class Neomutt < Formula
 
     args = %W[
       --prefix=#{prefix}
+      --sysconfdir=#{etc}
+      --autocrypt
       --gss
       --disable-idn
       --idn2
       --lmdb
+      --nls
       --notmuch
+      --pcre2
       --sasl
+      --sqlite
       --tokyocabinet
-      --with-gpgme=#{Formula["gpgme"].opt_prefix}
+      --zlib
       --with-lua=#{Formula["lua"].opt_prefix}
+      --with-ncurses=#{Formula["ncurses"].opt_prefix}
       --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
-      --with-ui=ncurses
+      --with-sqlite=#{Formula["sqlite"].opt_prefix}
     ]
-
-    args << "--pkgconf" if OS.linux?
 
     system "./configure", *args
     system "make", "install"

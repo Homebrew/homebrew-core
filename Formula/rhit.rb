@@ -1,21 +1,19 @@
 class Rhit < Formula
   desc "Nginx log explorer"
   homepage "https://dystroy.org/rhit/"
-  url "https://github.com/Canop/rhit/archive/refs/tags/v1.7.1.tar.gz"
-  sha256 "51cec0ec3addaeb69904e5929ff4d3f8421f4b8630ec772151ef3a475c0a7aa8"
+  url "https://github.com/Canop/rhit/archive/refs/tags/v1.7.2.tar.gz"
+  sha256 "a5381d88bc434a4a3db75ef39a86e9351b21b778eb54e7a264bd04863a48bad7"
   license "MIT"
   head "https://github.com/Canop/rhit.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2dfde40e1010bed71f65705183f02c82d6123d3396cbe415ea2005d0dc077606"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "acc2568759d68ee8fe6f6025d9ba6aa862c82ef7e3998d6721eac3659896f780"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d726e22f8e9d5f4a015415b5cc62ceefca2323f12b2b5d664711dfeb93791730"
-    sha256 cellar: :any_skip_relocation, ventura:        "2b634462bcf0f8b21c7beb4936081403636d128f532cbc6b0628b4e32ed05c29"
-    sha256 cellar: :any_skip_relocation, monterey:       "fed23fc40c646b81ffb88646b4db108c9fa8a12c172d8511c5675380a9760189"
-    sha256 cellar: :any_skip_relocation, big_sur:        "065efb5cce2cbfabccc0229aec870d3456740c89e4c1516e50237337afcb05ef"
-    sha256 cellar: :any_skip_relocation, catalina:       "d2c6a293442c7270de27df91fc562f2f49a4c3ed681faa0cc1bea60b85a37285"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bd3b5255f4ae00a70c62a93017ae41a2147892d002a1a774070f4708012c7cd3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5c4d5986998c13973c41b570465f978123fc899337b6ee6accb54d7b4fd87b7e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d7423336d8a61032802ef01b6117624b517b788f1f7e969957eb69e2e2825fea"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7be5b5ed2c7e863bf884cf43c5d0b0eb6e126e787e352d0f94cb35cf8ee3b86e"
+    sha256 cellar: :any_skip_relocation, ventura:        "6902048697acb0e8b2ae11cd40c065fe210f921ab03025fd9873123882c839d7"
+    sha256 cellar: :any_skip_relocation, monterey:       "158b929d890de826935bde583c3a6775f6ffaa4b4e3bb0a34c7f9a5c4de2ae05"
+    sha256 cellar: :any_skip_relocation, big_sur:        "3b5326ab1996014ae1442270f76435f157a0da1df05477eedecab614cb60cd09"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d99fc8a4eee321381a3fcae9b9704a39a246c2281b67c6b9c0ba4ee218a97fb9"
   end
 
   depends_on "rust" => :build

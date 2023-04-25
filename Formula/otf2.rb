@@ -1,8 +1,8 @@
 class Otf2 < Formula
   desc "Open Trace Format 2 file handling library"
   homepage "https://www.vi-hps.org/projects/score-p/"
-  url "https://perftools.pages.jsc.fz-juelich.de/cicd/otf2/tags/otf2-3.0.2/otf2-3.0.2.tar.gz", using: :homebrew_curl
-  sha256 "ae3a7ad83055d8f873738fee5031470652d31b9bcbf223dd556aea41f5f62303"
+  url "https://perftools.pages.jsc.fz-juelich.de/cicd/otf2/tags/otf2-3.0.3/otf2-3.0.3.tar.gz", using: :homebrew_curl
+  sha256 "18a3905f7917340387e3edc8e5766f31ab1af41f4ecc5665da6c769ca21c4ee8"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,13 +11,13 @@ class Otf2 < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "0e81939c9d785d6bb311495275795138c6f7c93e4964519b7c24c547d27ec29c"
-    sha256 arm64_monterey: "e5fffba2265304195226eb70368ce45ac5344ded0db9e3ec4ef2da8d6f882cac"
-    sha256 arm64_big_sur:  "4476aae927b41d23196fc37bb42b915e75676cc0adec356c50a925151ce1c35d"
-    sha256 ventura:        "48b0c402498bad68d9a41556d6a83f4c7412327f320d7383a42a71c15cfb257f"
-    sha256 monterey:       "4f677ed96138f801ccb4298d91e5e708b37b8b74d9ac282088f47933c9d6b155"
-    sha256 big_sur:        "3b452ecba67d54fe3a178ce9250d96b30007f51a39fc44f249784cb29144bfe1"
-    sha256 x86_64_linux:   "8595efc2302f6733b74a9938abb81f1d69dc184714a3689089b9a5e9dd9fe84d"
+    sha256 arm64_ventura:  "9b2a09caa4efd128380e4b5d870878754aa4ada4205494c138bccec60dac635a"
+    sha256 arm64_monterey: "ab5062bed5e22479fb0f1e9509fc4bf81b15f90f4df39184cf31e9f4d13b116f"
+    sha256 arm64_big_sur:  "11ec92983795ffaa61edda9c9199d36a945313dec3d8a530859245f235959d28"
+    sha256 ventura:        "2edda30befcbcb77def5d9fac6276efd42e232f48110d4b126f8683071333d21"
+    sha256 monterey:       "b45008e32dd91aadf228147e790db44b28fbf3d6ffff5b352a1e9cdf1f2bf738"
+    sha256 big_sur:        "91a62f5bd3d8498cd703a7a2470d06bf4d0eb64e56de59aa0a5e50b40b2d2af3"
+    sha256 x86_64_linux:   "c0cf9c4054eca7d9c45aa5adce3579532ea373b02afff6d664420c2fc83d06cf"
   end
 
   depends_on "sphinx-doc" => :build
@@ -53,9 +53,6 @@ class Otf2 < Formula
     cp_r share/"doc/otf2/examples", testpath
     workdir = testpath/"examples"
     chdir "#{testpath}/examples" do
-      # Use -std=gnu99 to work around Linux error when compiling with -std=c99, which
-      # requires _POSIX_C_SOURCE >= 199309L in order to use POSIX time functions/macros.
-      inreplace "Makefile", "-std=c99", "-std=gnu99" if OS.linux?
       # build serial tests
       system "make", "serial", "mpi", "pthread"
       %w[

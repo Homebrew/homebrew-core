@@ -1,8 +1,9 @@
 class Openjdk < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.java.net/"
-  url "https://github.com/openjdk/jdk19u/archive/refs/tags/jdk-19.0.2-ga.tar.gz"
-  sha256 "c297c9d0a09721e84c420e7893ff9ba2e0c4e27370507dec4b356b59e6c8e7a2"
+  url "https://github.com/openjdk/jdk20u/archive/refs/tags/jdk-20+36.tar.gz"
+  version "20"
+  sha256 "215767be88a18af00440d5241960a3937237e77b938db4485bdb1c9bb414972e"
   license "GPL-2.0-only" => { with: "Classpath-exception-2.0" }
 
   livecheck do
@@ -11,13 +12,13 @@ class Openjdk < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "c576dc5ee012c98010595cecfd9373050e9a48000291201c9f057cb0fa7eaf43"
-    sha256 cellar: :any, arm64_monterey: "f0d33cdc95ee66471146865dd98092c92b0ef97598fe1ea57d4cb31f859851b5"
-    sha256 cellar: :any, arm64_big_sur:  "05f317a736e6d6e2d4d20cc39cabbc69708d45b77ead5767ed082a3ead23aa89"
-    sha256 cellar: :any, ventura:        "de86351713f22cf37148d2def9002e8126a60d2f37540da28ea7c6a0edb8ff46"
-    sha256 cellar: :any, monterey:       "77f0d28cc4f5c8bd5907b5080fd760930326f1b12e7afbf2361b2527f960d6e9"
-    sha256 cellar: :any, big_sur:        "826d60202fa869103d4b35312555da0ccee5247f3875423836cc70ef93b46cd0"
-    sha256               x86_64_linux:   "46f18654dc8f56ea1a5b2d17e973d76faf517f394758c79b6e87a0b2ecaada6a"
+    sha256 cellar: :any, arm64_ventura:  "8231b18feb2a2e6262171fbb9dd0e474ad8583399237d753f5816cb7290bc72f"
+    sha256 cellar: :any, arm64_monterey: "9a01e8c42f9ead0cd3740fa3f148f1edb134352c13c1dd96ebd6bfd982b2a771"
+    sha256 cellar: :any, arm64_big_sur:  "be6d2886035b169756c3e60044c4d178ed1b10bb31b170bce4fd9c0ad2bec7a7"
+    sha256 cellar: :any, ventura:        "09913cb9615d007e4b4960769556ce8a10245a86d962f2ee89cd1c873e93ba73"
+    sha256 cellar: :any, monterey:       "085356e91e88af6399e740abfeb7e8cd56abf4ac3a2a012ace5d08a36dac7bd9"
+    sha256 cellar: :any, big_sur:        "1ce686a25bdcb889cb83629fe7e68bb4bc2a89505bfccd1fdbc9c76df01c9409"
+    sha256               x86_64_linux:   "555dc1ccaa302680a47bdfa71da5c2c9a9a9f86221d31082a46e4b6847c55772"
   end
 
   keg_only :shadowed_by_macos
@@ -55,22 +56,22 @@ class Openjdk < Formula
   resource "boot-jdk" do
     on_macos do
       on_arm do
-        url "https://download.java.net/java/GA/jdk18.0.2.1/db379da656dc47308e138f21b33976fa/1/GPL/openjdk-18.0.2.1_macos-aarch64_bin.tar.gz"
-        sha256 "c05aec589f55517b8bedd01463deeba80f666da3fb193be024490c9d293097a8"
+        url "https://download.java.net/java/GA/jdk19.0.1/afdd2e245b014143b62ccb916125e3ce/10/GPL/openjdk-19.0.1_macos-aarch64_bin.tar.gz"
+        sha256 "915054b18fc17216410cea7aba2321c55b82bd414e1ef3c7e1bafc7beb6856c8"
       end
       on_intel do
-        url "https://download.java.net/java/GA/jdk18.0.2.1/db379da656dc47308e138f21b33976fa/1/GPL/openjdk-18.0.2.1_macos-x64_bin.tar.gz"
-        sha256 "604ba4b3ccb594973a3a73779a367363c53dd91e5a9de743f4fbfae89798f93a"
+        url "https://download.java.net/java/GA/jdk19.0.1/afdd2e245b014143b62ccb916125e3ce/10/GPL/openjdk-19.0.1_macos-x64_bin.tar.gz"
+        sha256 "469af195906979f96c1dc862c2f539a5e280d0daece493a95ebeb91962512161"
       end
     end
     on_linux do
       on_arm do
-        url "https://download.java.net/java/GA/jdk18.0.2.1/db379da656dc47308e138f21b33976fa/1/GPL/openjdk-18.0.2.1_linux-aarch64_bin.tar.gz"
-        sha256 "79900237a5912045f8c9f1065b5204a474803cbbb4d075ab9620650fb75dfc1b"
+        url "https://download.java.net/java/GA/jdk19.0.1/afdd2e245b014143b62ccb916125e3ce/10/GPL/openjdk-19.0.1_linux-aarch64_bin.tar.gz"
+        sha256 "88cadc91d5c7c540ea9df5d23678bb65dc2092fe4e00650b39d87f24f2328e17"
       end
       on_intel do
-        url "https://download.java.net/java/GA/jdk18.0.2.1/db379da656dc47308e138f21b33976fa/1/GPL/openjdk-18.0.2.1_linux-x64_bin.tar.gz"
-        sha256 "3bfdb59fc38884672677cebca9a216902d87fe867563182ae8bc3373a65a2ebd"
+        url "https://download.java.net/java/GA/jdk19.0.1/afdd2e245b014143b62ccb916125e3ce/10/GPL/openjdk-19.0.1_linux-x64_bin.tar.gz"
+        sha256 "7a466882c7adfa369319fe4adeb197ee5d7f79e75d641e9ef94abee1fc22b1fa"
       end
     end
   end

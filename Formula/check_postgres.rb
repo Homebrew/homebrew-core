@@ -1,10 +1,9 @@
 class CheckPostgres < Formula
   desc "Monitor Postgres databases"
   homepage "https://bucardo.org/wiki/Check_postgres"
-  url "https://bucardo.org/downloads/check_postgres-2.25.0.tar.gz"
-  sha256 "11b52f86c44d6cc26e9a4129e67c2589071dbe1b8ac1f8895761517491c6e44b"
+  url "https://bucardo.org/downloads/check_postgres-2.26.0.tar.gz"
+  sha256 "a3b135c1a205179410ee7b694e528704ebc12358781c98d3763d835872366995"
   license "BSD-2-Clause"
-  revision 2
   head "https://github.com/bucardo/check_postgres.git", branch: "master"
 
   livecheck do
@@ -13,14 +12,13 @@ class CheckPostgres < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9e960bf564777b225109a65302d5f7ca36a11831ae9bc7ba9765168e191c37e4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9e960bf564777b225109a65302d5f7ca36a11831ae9bc7ba9765168e191c37e4"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ce72f3c88ea89aa7fd974e400d36e1ffe72531a2903476776680208d0e26a916"
-    sha256 cellar: :any_skip_relocation, ventura:        "ceae380da1a94e242438fb48bfe0db455a22abdea4ee86132779bcb337b931b3"
-    sha256 cellar: :any_skip_relocation, monterey:       "ceae380da1a94e242438fb48bfe0db455a22abdea4ee86132779bcb337b931b3"
-    sha256 cellar: :any_skip_relocation, big_sur:        "057605346ab18b273061dd719c70ff02ffb232416a19ad93ededf31170bafe3e"
-    sha256 cellar: :any_skip_relocation, catalina:       "1e5d5939f4e5fe39416e7ca38959cf0898c437247df83c27c90ceb12612b6182"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9a1cbba8fe70c4f97e918ddbd8e5ab5c9fadc30e57080941d896a67dc79aa1ba"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "af79787c77281d36ab2852d98a020ed94c4360e494ad58ac8fff38852c0f9cab"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "af79787c77281d36ab2852d98a020ed94c4360e494ad58ac8fff38852c0f9cab"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b229c41507d787d0783e608304dedc416e9a5b7b343fd2cce91a12c9aa92d4b4"
+    sha256 cellar: :any_skip_relocation, ventura:        "f4023f4278d08648ad51b4c531a72e961e648736578efb14e6d44296af328496"
+    sha256 cellar: :any_skip_relocation, monterey:       "f4023f4278d08648ad51b4c531a72e961e648736578efb14e6d44296af328496"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b37868aa190bf21cf2272f588d4e815b0621c873d824e1a13ab15bea6ceb2d4e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "15350f09487ed7fd501105b3abd217be8287cfdb4075b71673e179b1ba24cacc"
   end
 
   depends_on "libpq"

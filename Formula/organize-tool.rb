@@ -87,7 +87,7 @@ class OrganizeTool < Formula
 
   def install
     venv = virtualenv_create(libexec, "python3.11")
-    dependencies = resources.map(&:name).to_set
+    dependencies = resources.to_set(&:name)
     if OS.linux?
       # `macos-tags` and its dependencies are only needed on macOS
       # TODO: Currently requires manual check to confirm PyPI dependency tree

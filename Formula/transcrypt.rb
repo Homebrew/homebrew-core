@@ -7,7 +7,8 @@ class Transcrypt < Formula
   head "https://github.com/elasticdog/transcrypt.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "91739e9b8372695c5ae46f5757cd8faa8b9cc36969942710e1d9ae565a2e1580"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "9225e648b7de3cb419e614fba90da064d60da9e980d1e85556fe4a4985fc3e69"
   end
 
   on_linux do
@@ -17,7 +18,7 @@ class Transcrypt < Formula
 
   def install
     bin.install "transcrypt"
-    man.install "man/transcrypt.1"
+    man1.install "man/transcrypt.1"
     bash_completion.install "contrib/bash/transcrypt"
     zsh_completion.install "contrib/zsh/_transcrypt"
   end

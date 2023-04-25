@@ -1,19 +1,19 @@
 class BoshCli < Formula
   desc "Cloud Foundry BOSH CLI v2"
   homepage "https://bosh.io/docs/cli-v2/"
-  url "https://github.com/cloudfoundry/bosh-cli/archive/v7.2.0.tar.gz"
-  sha256 "35d1f3d276c6a0e9d48be39f910408e6c2e391d93c2df7f6c1d6a2e6912102a4"
+  url "https://github.com/cloudfoundry/bosh-cli/archive/v7.2.2.tar.gz"
+  sha256 "41b5b50b6687a851b712d6a8d64cca1ea42f3f68a215967e8d8512405733588f"
   license "Apache-2.0"
   head "https://github.com/cloudfoundry/bosh-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "50f8825886e046a53f80886272c66b9c42254cec57141e0ad2974c372d020612"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "50f8825886e046a53f80886272c66b9c42254cec57141e0ad2974c372d020612"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "50f8825886e046a53f80886272c66b9c42254cec57141e0ad2974c372d020612"
-    sha256 cellar: :any_skip_relocation, ventura:        "81a6602675606287a1fc3c7bee64d465aa01c96305b2b652f5c7c8dd08c8fa70"
-    sha256 cellar: :any_skip_relocation, monterey:       "81a6602675606287a1fc3c7bee64d465aa01c96305b2b652f5c7c8dd08c8fa70"
-    sha256 cellar: :any_skip_relocation, big_sur:        "81a6602675606287a1fc3c7bee64d465aa01c96305b2b652f5c7c8dd08c8fa70"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "499fb0e6a18905c0fa276b6a14ea6e788fdae46baea64c327381238cb97d3d1a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "25e3329beab9d376f1d70e82798938120ad5f6d3c04099f2b459a35aacf25627"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "25e3329beab9d376f1d70e82798938120ad5f6d3c04099f2b459a35aacf25627"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "25e3329beab9d376f1d70e82798938120ad5f6d3c04099f2b459a35aacf25627"
+    sha256 cellar: :any_skip_relocation, ventura:        "83093c3a49d50e99d8cfc2d65043ea063b1258b68c463f8b57ae30f9cb461887"
+    sha256 cellar: :any_skip_relocation, monterey:       "83093c3a49d50e99d8cfc2d65043ea063b1258b68c463f8b57ae30f9cb461887"
+    sha256 cellar: :any_skip_relocation, big_sur:        "83093c3a49d50e99d8cfc2d65043ea063b1258b68c463f8b57ae30f9cb461887"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f3b7ef77bf89437e09d52886017e19ebcd1286096652424c9a182a1a109f9abf"
   end
 
   depends_on "go" => :build

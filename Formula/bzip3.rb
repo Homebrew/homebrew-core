@@ -1,18 +1,18 @@
 class Bzip3 < Formula
   desc "Better and stronger spiritual successor to BZip2"
   homepage "https://github.com/kspalaiologos/bzip3"
-  url "https://github.com/kspalaiologos/bzip3/releases/download/1.2.3/bzip3-1.2.3.tar.gz"
-  sha256 "18e23bb09ebb9e8a2f7b09351aad1770277383461e9d36311d575b9cf373653a"
+  url "https://github.com/kspalaiologos/bzip3/releases/download/1.3.0/bzip3-1.3.0.tar.gz"
+  sha256 "29eb1d552b49aa04a13cb153bfb5b751f8e9e1bad7e80dcbd16359d87a7c531f"
   license "LGPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "d680e7d31b3081d1d34b3bd7f26bb6a62c5da5d280b244295a76fff67294d5a1"
-    sha256 cellar: :any,                 arm64_monterey: "f929812795c45d2e3ea1f0412b0abfc2944bc0788fe1e9ab95a56b37b23fbe61"
-    sha256 cellar: :any,                 arm64_big_sur:  "9c2516649a92ef622fcd2eed128fbf32df859df90d8a2c64eb323300cac254a2"
-    sha256 cellar: :any,                 ventura:        "45a20b2dc4f0fb730fd5cb6261d2aa442fff39c8495006425167613dd6c6ab7e"
-    sha256 cellar: :any,                 monterey:       "fef4f572b3f92408cff6fe5c1d7400464ac40633fc544f447e774aad4801d99f"
-    sha256 cellar: :any,                 big_sur:        "85da6d16e655325c5c911aa2e3878c22ff08ebe3000fe7cdbdf0cff96a0573fb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "be2a3aa600d6a39c8021183883f068789da2157a4837d0235dcc97e9b74d7bd1"
+    sha256 cellar: :any,                 arm64_ventura:  "8a38ada616dd2f9d56a58c2a17c1bd239dfc43fc4177db0eabf7f93c4921a66a"
+    sha256 cellar: :any,                 arm64_monterey: "f410bfeca6fd6f2fc67f47ac606054744526e721d0242994886b2e6ca041d853"
+    sha256 cellar: :any,                 arm64_big_sur:  "218ebf805cb4bbb1061e28fcf8093c44f4dcb89f08b93c7b05cb8dd83e0ed122"
+    sha256 cellar: :any,                 ventura:        "acac58e037205bfa0bbf67a49104c14471abafa3957fd2bae12ded508782e52b"
+    sha256 cellar: :any,                 monterey:       "fdb8dd766b87ee91e9a47d383250f96930076e6f860d08cacd19a7acf2eea580"
+    sha256 cellar: :any,                 big_sur:        "a6aa3a13d001b728b5a677dfcbe1afccd21e2c1ed50adf32cd28ba99e689a652"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1b0f996e3ace8701a4e9a5855db89ccacc1acd7255395a7da658269efcf725aa"
   end
 
   def install

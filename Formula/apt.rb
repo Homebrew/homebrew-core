@@ -114,7 +114,7 @@ class Apt < Formula
       (buildpath/"bin").install "triehash.pl" => "triehash"
     end
 
-    cpan_resources = resources.map(&:name).to_set - ["triehash"]
+    cpan_resources = resources.to_set(&:name) - ["triehash"]
     cpan_resources.each do |r|
       resource(r).stage do
         if File.exist?("Build.PL") && r != "Module::Build"

@@ -1,8 +1,8 @@
 class Hledger < Formula
   desc "Easy plain text accounting with command-line, terminal and web UIs"
   homepage "https://hledger.org/"
-  url "https://github.com/simonmichael/hledger/archive/refs/tags/1.29.1.tar.gz"
-  sha256 "3dab4557d0c25ff05ef62f33e5f13b8c13f4060c370530997a379b3096ecdb67"
+  url "https://github.com/simonmichael/hledger/archive/refs/tags/1.29.2.tar.gz"
+  sha256 "9172e8cd4780a1157d18d6cbc5cd765b1b8f873f167dc4033f2c042a778bef45"
   license "GPL-3.0-or-later"
   head "https://github.com/simonmichael/hledger.git", branch: "master"
 
@@ -15,12 +15,12 @@ class Hledger < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "17755b3e57a9ad5620f0133c7435f71398d4ee343582e9cecf41d813cf7bc213"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1b76b47a390696429b59016ca872f6c14b236d6117724a7c0968ee8a36e11c0e"
-    sha256 cellar: :any_skip_relocation, ventura:        "02186fbedcefef4b3d8850874212c580b4e8653c37afe3cecd878e2287d4f307"
-    sha256 cellar: :any_skip_relocation, monterey:       "612bdfc24f618a7e2a064c892d34409a07131f71c95c30e93dccfd1da9bba66b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b145dda43d4ed9c937d1a0b14a470dae9d2dba6dd360fa266532808c36803473"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ba763d9366811f02b5dc0e73c2a8d651cab0dd9c71e7a0e782e02bc56c8cd0a3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a529847091cae975547ec712729c2bd300b5e2c13a301387f69f7b1051665190"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d8c08780312b4db3d92d22be49c70219487fb4e5bc765c1391e95c6436236d02"
+    sha256 cellar: :any_skip_relocation, ventura:        "57a01f8ef1504d300e9b710bfb4d7360b181ef27d331a7ec3ab4f60cbcb019d5"
+    sha256 cellar: :any_skip_relocation, monterey:       "6e4afd87eb083afcdb99bf31e4016967b2ffa31cb93d4316b80284ae8569e170"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a205930832d266d6a80dfb014e5386687eb6b2a8d5c685866b84822582ced358"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e8982ef44832bd18545bd093ba4fd59a2f771572b84e0e42a87082041a183b45"
   end
 
   depends_on "ghc@9.2" => :build

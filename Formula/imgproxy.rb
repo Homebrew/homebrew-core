@@ -1,19 +1,19 @@
 class Imgproxy < Formula
   desc "Fast and secure server for resizing and converting remote images"
   homepage "https://imgproxy.net"
-  url "https://github.com/imgproxy/imgproxy/archive/v3.14.0.tar.gz"
-  sha256 "b7cba8fa6dc1bf0ec5c5ab0b791877bbe9037cc474657c2bd8c7d2ab21fa220e"
+  url "https://github.com/imgproxy/imgproxy/archive/v3.16.0.tar.gz"
+  sha256 "44a06428f37a271852738bcdbb8d8cdb662cf5ee23876b1aca1c61872ad10f87"
   license "MIT"
   head "https://github.com/imgproxy/imgproxy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "023ffaeee304f7e371deab0bd751b0166b45a4e754ce7f46f0b6ca462c4c4aea"
-    sha256 cellar: :any,                 arm64_monterey: "5b2894ab02349a681d4a50e7764aa639ec5ed52a401d055cf89fa1d2ac2562ae"
-    sha256 cellar: :any,                 arm64_big_sur:  "38e969d2e5508a33a7c51237a831f39e8f46a6bc7dd33425c1bbc0bd911ba2d9"
-    sha256 cellar: :any,                 ventura:        "fa2f60ecef8469ccdaa39eb52b6dbff6ef9ba5889f2dc68821477b537fb372ad"
-    sha256 cellar: :any,                 monterey:       "37e26bde9033916321dee998c40e48ac8366d73f61d032ce6c4ed8b193ac983c"
-    sha256 cellar: :any,                 big_sur:        "2290f430f8f772bac1890df529116283c12ef173bf90dbcad162f1898675fdc0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "308606ea34cd0af87ff2532e32103c7f656fa9052044845eb5044505aa3afb8d"
+    sha256 cellar: :any,                 arm64_ventura:  "10f174d1b4a05a742ecd2baea02abafc0edb0524a06b8f533cfaef3efec8a772"
+    sha256 cellar: :any,                 arm64_monterey: "a92078716ab7cc014081c6efa84c5c9a832dbcb957ed2588b84536f6964442fb"
+    sha256 cellar: :any,                 arm64_big_sur:  "77ee40defbca3918b95aff28a5efea34b2e05f2f56c1d9671b1e034a8f62018e"
+    sha256 cellar: :any,                 ventura:        "ba2917c12dcdf19136a91cb937df4a0fcfe6875bd60feea03bb9a2d495d0d725"
+    sha256 cellar: :any,                 monterey:       "e64b59c0d5feacaa48012dfaf77407fc6901b81a435462bf65555adf1c3e13ec"
+    sha256 cellar: :any,                 big_sur:        "24e9606c0bf3aa567a6d42cfe209def45d0a2dc83a8a349bd0c6854f7d9202c9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bcda7d22199a7e6bb2cfcec47a1749492ef724e7d2b23bfd954dad572af7d432"
   end
 
   depends_on "go" => :build

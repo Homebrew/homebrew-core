@@ -1,19 +1,19 @@
 class Rocksdb < Formula
   desc "Embeddable, persistent key-value store for fast storage"
   homepage "https://rocksdb.org/"
-  url "https://github.com/facebook/rocksdb/archive/refs/tags/v8.0.0.tar.gz"
-  sha256 "05ff6b0e89bffdf78b5a9d6fca46cb06bde6189f5787b9eeaef0511b782c1033"
+  url "https://github.com/facebook/rocksdb/archive/refs/tags/v8.1.1.tar.gz"
+  sha256 "9102704e169cfb53e7724a30750eeeb3e71307663852f01fa08d5a320e6155a8"
   license any_of: ["GPL-2.0-only", "Apache-2.0"]
   head "https://github.com/facebook/rocksdb.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "fe05c7d81d5074817ba49abce2704c36db3bef8dfbe18cf00cf9b8b365aced71"
-    sha256 cellar: :any,                 arm64_monterey: "c8b9f3dca00e9ddfad3a3dd2aeb328332a4f052eecaa04ffa66dbfb9c24b5507"
-    sha256 cellar: :any,                 arm64_big_sur:  "c37391d8d4f8ac62eb1e1c2e43ab4b8490ff3482770ffd863a9952585b9c5337"
-    sha256 cellar: :any,                 ventura:        "9bd025a165defbc5da91af0b5ab9607dbd938e796ff9d44c22e55da8a3522f96"
-    sha256 cellar: :any,                 monterey:       "107af422100f72cde60b2757ba3aed34f9260ae8ceefb1ca32f4ab21f0e58784"
-    sha256 cellar: :any,                 big_sur:        "a01c31730380ab8e335590d992bf3977a851dcb5281608deb69926c8e9567e2c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3039a97f91eda048bcb5366e8e0f2fef83121fa93fdd78bcc83ea0cc016988ba"
+    sha256 cellar: :any,                 arm64_ventura:  "8142e0aaf7ed07325651ce2ea6c081c71de4a961f3d6c93976d23deb5e6602a6"
+    sha256 cellar: :any,                 arm64_monterey: "0dc5c424f109dc4453ba43b54f5df7dbcb8a30e0f826e133d7db95faec51d3e3"
+    sha256 cellar: :any,                 arm64_big_sur:  "a8f7b3d3b63da9fe293c28a05ad510cc60159beae3d094af1ba774f379b767cf"
+    sha256 cellar: :any,                 ventura:        "6421981a99f81665dbc5b1a19d02a5726db7eb20c1477d30684fa1f65c7edf3e"
+    sha256 cellar: :any,                 monterey:       "4679f2f7e83c4c6cf1a6fb24a24dc82cb5744e12c1ca98865b5995ef75517bec"
+    sha256 cellar: :any,                 big_sur:        "8215273cff94ff5c6a20d2ba87ba5fdfd9bcc6a2849e6625b01b911143761e4b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "da353b3e37a98ed503cebf8e72b91fd82d931bcbb9c57c88cbc820d834c7df42"
   end
 
   depends_on "cmake" => :build
@@ -27,7 +27,7 @@ class Rocksdb < Formula
 
   fails_with :gcc do
     version "6"
-    cause "Requires C++17 compatible compiler."
+    cause "Requires C++17 compatible compiler. See https://github.com/facebook/rocksdb/issues/9388"
   end
 
   def install

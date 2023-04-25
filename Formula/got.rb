@@ -1,8 +1,8 @@
 class Got < Formula
   desc "Version control system"
   homepage "https://gameoftrees.org/"
-  url "https://gameoftrees.org/releases/portable/got-portable-0.86.tar.gz"
-  sha256 "1478cb124c6cbe4633e2d2b593fa4451f0d3f6b7ef37e2baf2045cf1f3d5a7b0"
+  url "https://gameoftrees.org/releases/portable/got-portable-0.87.tar.gz"
+  sha256 "7c6f148a13570b17348f4d48980008dcdd1588daddf609d352144ab3b225e51e"
   license "ISC"
 
   livecheck do
@@ -11,13 +11,13 @@ class Got < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "50b641fff2107b8de4b0e4cccaed053c249b72239f20abc0f849f8c334c34995"
-    sha256 arm64_monterey: "fadb9264e692e027d98ca8e19dae4730df1a06bcb8921837ab38f61eb52c5d96"
-    sha256 arm64_big_sur:  "861d6a4c5773a0291bcf908120552cc17b68943d53ef89beb9b6fb8f533819d4"
-    sha256 ventura:        "fedc5283c67903b13c3179b2e4f028a0ee2607de5ea348cead64adccc68abe29"
-    sha256 monterey:       "7b78ebc651efb8178eaf3baf49a8549b874187f4eda717737685513457995bc4"
-    sha256 big_sur:        "286c8e5373691559b492c873152d857a37bf7d0f70c552ece315069aa8cc6d9f"
-    sha256 x86_64_linux:   "bdfaf34a35a338c02cea202dc5294089a0b326e515a623e6b92d34d9a968909f"
+    sha256 arm64_ventura:  "5fe7072b91c4f2350e97a9c050684530e5b58d98ce4145601ba12ab5289c6806"
+    sha256 arm64_monterey: "23f00eb09c6687fd4c84f758b3a08fe04c91a2b4303a5ad9e8ee603facf80898"
+    sha256 arm64_big_sur:  "52a26b025c0838152eaaa33b9c6c78fa151b6b2da175bdc89936adc1a2076513"
+    sha256 ventura:        "f47872fd31f21367bcb4494b8267078c01bddcaf7b2a37d30f836c9b2c934ce1"
+    sha256 monterey:       "155ddce2a6dd7a77dcec8a0ed3b66cf0c889dde437bad4b5929aaf8d47a96156"
+    sha256 big_sur:        "fc352227830dab09539449e6e8ff2b5532e3e9ae1cc5a18d27f7d2fba8de8a2c"
+    sha256 x86_64_linux:   "f23f47f085e7b95860b661f07cfb204ec35356e8de2b31358b29e3ca6fa4aa39"
   end
 
   depends_on "bison" => :build
@@ -32,11 +32,6 @@ class Got < Formula
     depends_on "libmd"
     depends_on "util-linux" # for libuuid
   end
-
-  # Avoid the `compat/getopt.c` placeholder and use the system's version.
-  # Reported to the upstream mailing list at
-  #   https://lists.openbsd.org/cgi-bin/mj_wwwusr?func=lists-long-full&extra=gameoftrees
-  patch :DATA
 
   def install
     # The `configure` script hardcodes our `openssl@3`, but we can't use it due to `libevent`.
@@ -54,18 +49,3 @@ class Got < Formula
     system bin/"got", "checkout", "repo.git", "src"
   end
 end
-
-__END__
-diff --git a/include/got_compat2.h b/include/got_compat2.h
-index ec546e4b..54e01a99 100644
---- a/include/got_compat2.h
-+++ b/include/got_compat2.h
-@@ -390,7 +390,7 @@ int scan_scaled(char *, long long *);
- #define FMT_SCALED_STRSIZE	7  /* minus sign, 4 digits, suffix, null byte */
- #endif
- 
--#ifndef HAVE_LIBBSD
-+#if !defined(HAVE_LIBBSD) && !defined(__APPLE__)
- /* getopt.c */
- extern int	BSDopterr;
- extern int	BSDoptind;

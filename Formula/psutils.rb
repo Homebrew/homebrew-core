@@ -1,55 +1,50 @@
 class Psutils < Formula
-  desc "Collection of PostScript document handling utilities"
-  homepage "http://knackered.org/angus/psutils/"
-  url "ftp://ftp.knackered.org/pub/psutils/psutils-p17.tar.gz"
-  mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/psutils/psutils-p17.tar.gz"
-  version "p17"
-  sha256 "3853eb79584ba8fbe27a815425b65a9f7f15b258e0d43a05a856bdb75d588ae4"
-  license "psutils"
-
-  # This regex is open-ended (i.e., it doesn't contain a trailing delimiter like
-  # `\.t`), since the homepage only links to an unversioned archive file
-  # (`psutils.tar.gz`) or a versioned archive file with additional trailing text
-  # (`psutils-p17-a4-nt.zip`). Relying on the trailing text of the versioned
-  # archive file remaining the same could make this check liable to break, so
-  # we'll simply leave it looser until/unless it causes a problem.
-  livecheck do
-    url :homepage
-    regex(/href=.*?psutils[._-](p\d+)/i)
-  end
+  desc "Utilities for manipulating PostScript documents"
+  homepage "https://github.com/rrthomas/psutils"
+  url "https://github.com/rrthomas/psutils/releases/download/v2.10/psutils-2.10.tar.gz"
+  sha256 "6f8339fd5322df5c782bfb355d9f89e513353220fca0700a5a28775404d7e98b"
+  license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bb268fd6eb5dd600ae0c81387e8a88a074f68a1ffde072a3e2ac387e142449e4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8d31594cd841f9c3fab5b2d57b7562f27614e91b88c0021f2d6132d4100f3133"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "02cd6e56f1a40d01069ee8d59ceafdab15e0c9ec6c75873f845f2588df87d31c"
-    sha256 cellar: :any_skip_relocation, ventura:        "8046101881e3fb43865364afc706a0b75283f83fc312414d8f9b5a2cdaa8fbb1"
-    sha256 cellar: :any_skip_relocation, monterey:       "5531ac88d24275129272f8e0c14f185ff06cd114f4c530624d1d436bd4e4df54"
-    sha256 cellar: :any_skip_relocation, big_sur:        "229bde3f399638b21570063c1586fce976f4498475901f28bce30546a4e60220"
-    sha256 cellar: :any_skip_relocation, catalina:       "c2aed2811e263c3e3abcf66eb27d6fdd1b622ca033fa2e3bf4e8095c733df08a"
-    sha256 cellar: :any_skip_relocation, mojave:         "d2ba48c88116be774d989d71c791ef97f8eac3723e63a0924e08ea48f4b3ab39"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "d9408c8f70db105a621195339f357107d6f234c75be581b1ca8365d0e82e62c2"
-    sha256 cellar: :any_skip_relocation, sierra:         "1319662888a509ceee3993bf17e7fb2f9dfaea5ce25c983c0bcda13283b5d612"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "def5b3fc8cef9b4c532cc26ae216d1c6b0dae54da5a39acbdb818d53a04bf697"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3596c25429993fbcfa470fae16bafaa3da785fb610cacf9063d2b8ee26300d42"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b9b89051d48565b81d2ae01efa3828ce26407bc69f5f29a8a6a4060fa7621731"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "556b035c68743567c8187540e71921c2f465f28c123ccb65e2c28887f51e35e8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "eb8fd5d28221639fc520c12e6461aae0d6bc483af2a5271c56759f6317972aa4"
+    sha256 cellar: :any_skip_relocation, ventura:        "0aa8f7945faa119806042db4a106bd7f13371ce1449480e3937c4c67d2bb9c88"
+    sha256 cellar: :any_skip_relocation, monterey:       "4869d257409949b9da3f7c5fa3b965cb568d25d15459d9c45f08c651359d0d6a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "82ec97f61109e089e1f5fec652a5f968a94fa8ce8f71760a6d2cba9e80d44b0e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "19f1a95f218ba372f80656b83ba4b1ff3103eedf6abc6050a3f692ce5473e2a3"
+  end
+
+  depends_on "libpaper"
+
+  uses_from_macos "perl"
+
+  resource "IPC::Run3" do
+    on_linux do
+      url "https://cpan.metacpan.org/authors/id/R/RJ/RJBS/IPC-Run3-0.048.tar.gz"
+      sha256 "3d81c3cc1b5cff69cca9361e2c6e38df0352251ae7b41e2ff3febc850e463565"
+    end
   end
 
   def install
-    # This is required, because the makefile expects that its man folder exists
-    man1.mkpath
-    system "make", "-f", "Makefile.unix",
-                         "PERL=/usr/bin/perl",
-                         "BINDIR=#{bin}",
-                         "INCLUDEDIR=#{pkgshare}",
-                         "MANDIR=#{man1}",
-                         "install"
+    if OS.linux?
+      ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
+      resource("IPC::Run3").stage do
+        system "perl", "Makefile.PL", "INSTALLSITELIB=#{pkgshare}"
+        system "make"
+        system "make", "install"
+      end
+    end
+
+    system "./configure", *std_configure_args
+    system "make", "install"
+    pkgshare.install "tests/psbook-3-input.ps"
   end
 
   test do
-    system "sh", "-c", "#{bin}/showchar Palatino B > test.ps"
-    system "#{bin}/psmerge", "-omulti.ps", "test.ps", "test.ps",
-      "test.ps", "test.ps"
-    system "#{bin}/psnup", "-n", "2", "multi.ps", "nup.ps"
-    system "#{bin}/psselect", "-p1", "multi.ps", "test2.ps"
+    test_ps = pkgshare/"psbook-3-input.ps"
+    system bin/"psbook", test_ps, "test.ps"
+    system bin/"psnup", "-n", "2", test_ps, "nup.ps"
+    system bin/"psselect", "-p1", test_ps, "test2.ps"
   end
 end

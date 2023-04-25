@@ -1,8 +1,11 @@
 class Tofrodos < Formula
   desc "Converts DOS <-> UNIX text files, alias tofromdos"
   homepage "https://www.thefreecountry.com/tofrodos/"
-  url "https://tofrodos.sourceforge.io/download/tofrodos-1.7.13.tar.gz"
-  sha256 "3457f6f3e47dd8c6704049cef81cb0c5a35cc32df9fe800b5fbb470804f0885f"
+  # Upstream url does not work anymore
+  # url "https://tofrodos.sourceforge.io/download/tofrodos-1.7.13.tar.gz"
+  url "http://deb.debian.org/debian/pool/main/t/tofrodos/tofrodos_1.7.13+ds.orig.tar.xz"
+  version "1.7.13"
+  sha256 "c1c33f3f0b9e8152aa5790d233e8f1e8de14510433a6143ec582eba0fb6cbfaa"
   license "GPL-2.0"
 
   livecheck do
@@ -13,6 +16,7 @@ class Tofrodos < Formula
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "14175b3d27a7498f9efd5d9b1f582d0d961cc59ce8507a555f8cf2d24916c821"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "abd0c2470073c169d8fdbca2f0f65fe458da25456a8ace5758d394988d0f5ed7"
+    sha256 cellar: :any_skip_relocation, ventura:        "34578bc9c2442a699ee9e4c45d6156ab574aa17d2a5fb7aca5487206adba1e5a"
     sha256 cellar: :any_skip_relocation, monterey:       "da302a65bf5663a98627baef883a7a8c50413c7cc02e58be009d414f78011292"
     sha256 cellar: :any_skip_relocation, big_sur:        "11f0293ead8b99af5173c84b0e80cb63b3aefbddc6b411ce222f841383e8a4d8"
     sha256 cellar: :any_skip_relocation, catalina:       "da493ab6311aa1363533c8958c93ab919bee5ba26dbdcfa6f0a5978a6e512d9d"

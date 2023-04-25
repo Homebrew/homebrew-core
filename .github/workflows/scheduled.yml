@@ -29,9 +29,14 @@ jobs:
 
       - id: matrix
         run: |
-          formula=$(find  $(brew --repo "${TAP}")/Formula |  shuf -n "${TEST_COUNT}" | xargs -I{} basename {} .rb)
-          json=$(brew info --json=v2 $formula | jq --compact-output '[.formulae[] | select(.deprecated == false and .disabled == false) | .name]')
-          echo "json=${json}" >> $GITHUB_OUTPUT
+          formula="$(find "$(brew --repo "${TAP}")/Formula" | shuf -n "${TEST_COUNT}" | xargs -I{} basename {} .rb)"
+          # shellcheck disable=SC2086
+          json="$(
+            brew info --json=v2 $formula | 
+              jq --compact-output '[.formulae[] | select(.deprecated == false and .disabled == false) | .name]'
+          )"
+          echo "json=${json}" >> "$GITHUB_OUTPUT"
+
   audit_online:
     if: startsWith( github.repository, 'Homebrew/' )
     runs-on: ubuntu-22.04

@@ -4,15 +4,16 @@ class Spek < Formula
   url "https://github.com/alexkay/spek/releases/download/v0.8.5/spek-0.8.5.tar.xz"
   sha256 "1bccf85a14a01af8f2f30476cbad004e8bf6031f500e562bbe5bbd1e5eb16c59"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "86675392f6f5a6ef0678fbf46924a7dacb688e527c69bde9af332a59c6679d0e"
-    sha256 cellar: :any,                 arm64_monterey: "d6df033b0ab8875c8679e5193a2bdc9f660cbe9c652f66fc60b30f5b03a93dce"
-    sha256 cellar: :any,                 arm64_big_sur:  "ed7a768fdd3a7e71b741cf1ccc74dc4d38b75ce51dda388d7f34d8a5e6640a78"
-    sha256 cellar: :any,                 ventura:        "c7497d09dc179fddca4548834a60e0210d2600167741a707c0a9771977f9b1b1"
-    sha256 cellar: :any,                 monterey:       "fa3cfdf04d333186c6f9d182dfc252b542dc5f404f48d0d72a76d786c0bd5af8"
-    sha256 cellar: :any,                 big_sur:        "49dc0f6ec1fd74ab89d29229307d6c5107d1fd4f2a1004395a0e6dbe2696b394"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "65d0a8fdf69183d1d6ff08d907d5cb370017529c7697d34036ac1faa03854baa"
+    sha256 cellar: :any,                 arm64_ventura:  "39176b97ea98a6edb88925e271320df91b0f57dc3b2f2293fe36b2638d140d9a"
+    sha256 cellar: :any,                 arm64_monterey: "952d652ec58560d90f9fee28bf09013eb9e2d4eea9466deb9eaa2263e6e6ede5"
+    sha256 cellar: :any,                 arm64_big_sur:  "1a189684ff30213183297bc59a0abce362c535a4ce2c24be30ac9867c83a5b6c"
+    sha256 cellar: :any,                 ventura:        "c49d3ca280606b9383b2241308ee6c481a0357c98287df2597425b3f19d4f5d1"
+    sha256 cellar: :any,                 monterey:       "da428a679cd0ee4e0f8c9bf2fcaf58e7a0197ab4889950f30627d7739442745b"
+    sha256 cellar: :any,                 big_sur:        "631d9448dd6c9e5bcc6c8115156690ebc5040e25168020a07b187e7ebbf98605"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d1121d4f3e8c45223903db81de0d9c42258d7d4e44cc122a0a7d19dced845acb"
   end
 
   depends_on "pkg-config" => :build

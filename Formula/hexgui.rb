@@ -1,31 +1,25 @@
 class Hexgui < Formula
   desc "GUI for playing Hex over Hex Text Protocol"
   homepage "https://sourceforge.net/p/benzene/hexgui/"
-  url "https://github.com/apetresc/hexgui/archive/v0.9.3.tar.gz"
-  sha256 "e7bf9daebe39c4efb06d758c5634c6fa25e97031ffa98592c378af89a03e9e8d"
+  url "https://github.com/apetresc/hexgui/archive/refs/tags/v0.9.4.tar.gz"
+  sha256 "902ebcdf46ac9b90fec6ebd2e24e8d12f2fb291ea4ef711abe407f13c4301eb8"
   license "GPL-3.0-or-later"
-  revision 2
   head "https://github.com/apetresc/hexgui.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8a8c3b10c268fd780f0f29ed33e89ec46bee8ca8a5732024d378171a0ba88c9d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "982759e2c16c75e166f420fad5d05c2a4a2ee5a376d50ed840e534205cd57bb3"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6cbc67d8f62272f043cc9c141ad8bdacd82ae60c8c804570e9ce1b8315cd2777"
-    sha256 cellar: :any_skip_relocation, ventura:        "fe877b232747acc39aa34dc044d37147ed088122761c506c3c5573507c0b0c34"
-    sha256 cellar: :any_skip_relocation, monterey:       "74d56724b46e6ba13000a4d422591076feb7f8034a04f6dad16f43a52006e23c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "de3d1882c2e6c01233169d3e346f2c8f044ea3c91f4431ec594d5356f31014ad"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e2a426caf77e7ce888641b2eec2a4112b491bc15c6997bf19bd4a4c3897a0e9c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "28d9d6d7ec542660e6760f7fbce2101b2259e096cd5ba57aaee7c39cd7399ba6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "fd4e9603173284cc9b7c066832fccc7e175f6bbad1b1e4fbee348fe658c1695a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "67b948cd8592fa945919c0c3817e7fc4ef946c63f0eea2ce6eff0948a4d7b391"
+    sha256 cellar: :any_skip_relocation, ventura:        "d8e8fd7679f0f5a55f8c2221049542ac4241c1c0ac3bbd2a05401bdf4b702401"
+    sha256 cellar: :any_skip_relocation, monterey:       "d81898239d18db373e084173879a20bb068b5addb64e197cb89eea039aacd487"
+    sha256 cellar: :any_skip_relocation, big_sur:        "604a0d381b523b54292f65b3e9ab20b3085e5a8f0c84065516c74bd38ce1245b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7f3482e21058facf382c8920f29980679e4b168d2a5380ca9f995bb8e6383f4b"
   end
 
   depends_on "ant" => :build
   depends_on "openjdk"
 
   def install
-    # Target Java 8 or later.
-    # Remove when https://github.com/apetresc/hexgui/issues/3 is resolved.
-    inreplace "build.xml", 'source="1.7" target="1.7"', 'source="1.8" target="1.8"'
-
     system "ant"
     libexec.install Dir["*"]
     env = Language::Java.overridable_java_home_env

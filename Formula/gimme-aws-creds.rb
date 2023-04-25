@@ -199,7 +199,7 @@ class GimmeAwsCreds < Formula
 
   def install
     venv = virtualenv_create(libexec, "python3.11")
-    res = resources.map(&:name).to_set
+    res = resources.to_set(&:name)
     if OS.mac?
       res -= ["jeepney", "SecretStorage"]
     else

@@ -6,21 +6,22 @@ class Asciidoctor < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "966b2a1a8e474335aaee4a1514b60798cd228460e2fd16ca361b34cc5327050b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "966b2a1a8e474335aaee4a1514b60798cd228460e2fd16ca361b34cc5327050b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "acdef05b142ea26ac82e9bbf814e7caeeb2e91c34c73d028470c19ab49170bca"
-    sha256 cellar: :any_skip_relocation, ventura:        "838217c6bd960cab0b8cee9f32b2b668c6744b52f7bf3302b788d067a0ff9861"
-    sha256 cellar: :any_skip_relocation, monterey:       "838217c6bd960cab0b8cee9f32b2b668c6744b52f7bf3302b788d067a0ff9861"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9ebc210dafcb38de14b1481019e74ad092bbe68cd4165418dd6724b706edf534"
-    sha256 cellar: :any_skip_relocation, catalina:       "9ebc210dafcb38de14b1481019e74ad092bbe68cd4165418dd6724b706edf534"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f2fbcfc2cb751e46aff2a4f1cdd67501a479f0f8e780e15dca7bbc30cc6a286c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "069f1cbf25162d559b175ba51c56136ef8dfbe9eaa33b1448a27523e05ccf4c5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "069f1cbf25162d559b175ba51c56136ef8dfbe9eaa33b1448a27523e05ccf4c5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "069f1cbf25162d559b175ba51c56136ef8dfbe9eaa33b1448a27523e05ccf4c5"
+    sha256 cellar: :any_skip_relocation, ventura:        "4be9e6805e72a2fdffd8e68b51ead783834e81d10ebf3fe9652a57a09625c953"
+    sha256 cellar: :any_skip_relocation, monterey:       "4be9e6805e72a2fdffd8e68b51ead783834e81d10ebf3fe9652a57a09625c953"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4be9e6805e72a2fdffd8e68b51ead783834e81d10ebf3fe9652a57a09625c953"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d0842aaa19a6475f3c21e2127cd45723d79e18200920734810a9c14a025e2896"
   end
 
   uses_from_macos "ruby", since: :catalina
 
-  # All of these resources are for the asciidoctor-pdf, coderay and rouge gems. To update the asciidoctor-pdf
-  # resources, check https://rubygems.org/gems/asciidoctor-pdf for the latest dependency versions. Make sure to select
-  # the correct version of each dependency gem because the allowable versions can differ between versions.
+  # All of these resources are for the asciidoctor-pdf, coderay, rouge and pygments.rb gems. To update the
+  # asciidoctor-pdf resources, check https://rubygems.org/gems/asciidoctor-pdf for the latest dependency versions.
+  # Make sure to select the correct version of each dependency gem because the allowable versions can differ between
+  # versions.
   # To help, click on "Show all transitive dependencies" for a tree view of all dependencies. I've added comments
   # above each resource to make updating them easier, but please update those comments as the dependencies change.
 
@@ -146,6 +147,16 @@ class Asciidoctor < Formula
   resource "treetop" do
     url "https://rubygems.org/gems/treetop-1.6.11.gem"
     sha256 "102e13adf065fc916eae60b9539a76101902a56e4283c847468eaea9c2c72719"
+  end
+
+  # asciidoctor supports the Python 3 pygments syntax highlighter via pygments.rb ~> 2.0.0
+  # Unless pygments.rb is installed in the asciidoctor libexec gems folder, asciidoctor will
+  # not be able to find the gem. Installing the pygment.rb gem as part of the main asciidoctor
+  # formula ensures it's available if users choose to install and enable the Pygments syntax
+  # highlighter.
+  resource "pygments.rb" do
+    url "https://rubygems.org/gems/pygments.rb-2.3.1.gem"
+    sha256 "8736ff83122bb13dc61b43fc9bffbe9c672cce48c8abdcb9222399e7bcd278fd"
   end
 
   resource "asciidoctor-pdf" do

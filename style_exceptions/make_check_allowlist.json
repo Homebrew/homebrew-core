@@ -15,6 +15,7 @@
   "nettle",
   "open-mpi",
   "openssl@1.1",
+  "openssl@3.0",
   "openssl@3",
   "p11-kit",
   "pcre",

@@ -3,21 +3,18 @@ class PodmanCompose < Formula
 
   desc "Alternative to docker-compose using podman"
   homepage "https://github.com/containers/podman-compose"
-  url "https://files.pythonhosted.org/packages/c7/aa/0997e5e387822e80fb19627b2d4378db065a603c4d339ae28440a8104846/podman-compose-1.0.3.tar.gz"
-  sha256 "9c9fe8249136e45257662272ade33760613e2d9ca6153269e1e970400ea14675"
+  url "https://files.pythonhosted.org/packages/65/a8/d77d2eaa85414d013047584d3aa10fac47edb328f5180ca54a13543af03a/podman-compose-1.0.6.tar.gz"
+  sha256 "2db235049fca50a5a4ffd511a917808c960dacb8defd5481dd8b36a77d4da2e5"
   license "GPL-2.0-only"
-  revision 1
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b8a3150b796d0691711da117dde78a8438cc2391206709dd0558506ac1a5cbe5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b8a3150b796d0691711da117dde78a8438cc2391206709dd0558506ac1a5cbe5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b8a3150b796d0691711da117dde78a8438cc2391206709dd0558506ac1a5cbe5"
-    sha256 cellar: :any_skip_relocation, ventura:        "1d695df8b43c37c854857464661f929488002ad7bf745483b5e4fd081803b5dc"
-    sha256 cellar: :any_skip_relocation, monterey:       "1d695df8b43c37c854857464661f929488002ad7bf745483b5e4fd081803b5dc"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1d695df8b43c37c854857464661f929488002ad7bf745483b5e4fd081803b5dc"
-    sha256 cellar: :any_skip_relocation, catalina:       "1d695df8b43c37c854857464661f929488002ad7bf745483b5e4fd081803b5dc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "be33e397146ed2ab7795786284cbeb1fda7fe45ca235925c075bd69f19c3f299"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7eab4f78ae279cecaadcbe69296c9494f4d4f82fce5690066b5717f0be00aec0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7eab4f78ae279cecaadcbe69296c9494f4d4f82fce5690066b5717f0be00aec0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7eab4f78ae279cecaadcbe69296c9494f4d4f82fce5690066b5717f0be00aec0"
+    sha256 cellar: :any_skip_relocation, ventura:        "b9d8b85155552c42aba788d8e55e17d3a5273fecd8edba8316b40225d265f720"
+    sha256 cellar: :any_skip_relocation, monterey:       "b9d8b85155552c42aba788d8e55e17d3a5273fecd8edba8316b40225d265f720"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b9d8b85155552c42aba788d8e55e17d3a5273fecd8edba8316b40225d265f720"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "09d1fb4ed1aa41b889adef793317a754c49d5ce088e4dae33ec16c3fedbbf8df"
   end
 
   depends_on "podman"
@@ -25,8 +22,8 @@ class PodmanCompose < Formula
   depends_on "pyyaml"
 
   resource "python-dotenv" do
-    url "https://files.pythonhosted.org/packages/87/8d/ab7352188f605e3f663f34692b2ed7457da5985857e9e4c2335cd12fb3c9/python-dotenv-0.21.0.tar.gz"
-    sha256 "b77d08274639e3d34145dfa6c7008e66df0f04b7be7a75fd0d5292c191d79045"
+    url "https://files.pythonhosted.org/packages/31/06/1ef763af20d0572c032fa22882cfbfb005fba6e7300715a37840858c919e/python-dotenv-1.0.0.tar.gz"
+    sha256 "a8df96034aae6d2d50a4ebe8216326c61c3eb64836776504fcca410e5937a3ba"
   end
 
   def install

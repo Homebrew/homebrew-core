@@ -2,8 +2,8 @@ class Vlang < Formula
   desc "V programming language"
   homepage "https://vlang.io"
   # NOTE: Keep this in sync with V compiler below when updating
-  url "https://github.com/vlang/v/archive/0.2.4.tar.gz"
-  sha256 "8cdbc32fb928051ce7959dd943af3efee26bddc4ed3700a1cb365be73a306bf9"
+  url "https://github.com/vlang/v/archive/refs/tags/0.3.3.tar.gz"
+  sha256 "6f0fc24a941b766ad34fb0a5a64e076a0a88e3f91cac0520790b2a53676dd08a"
   license "MIT"
 
   livecheck do
@@ -12,30 +12,38 @@ class Vlang < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c081325dfa17516e4d8bc5cfca8c610208c15e5d84938ca5a3a75c72a0bbca80"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "bd921f6a5fececa1d04ad1361ba19c1da4ae361b88d3862fa02f7747bb87b0cb"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9fc0d5fea246584518fc01c59483f07ad89274c78606a70cb4623be28380f7d0"
-    sha256 cellar: :any_skip_relocation, ventura:        "664f602968c98de14dfa5f92f106c2016dc8a0517c2928336ad38e3404502940"
-    sha256 cellar: :any_skip_relocation, monterey:       "4fcb57b3de12ecd576bc4495d7446872ae68218200ec3e32c7889f59f1e8e2c2"
-    sha256 cellar: :any_skip_relocation, big_sur:        "19266863aa98b5a45d9b423db1924fd03470453ed9e5b8ca958fc4abecf6f88c"
-    sha256 cellar: :any_skip_relocation, catalina:       "60e0f440e473d751fdc8ad1704105f8c1ac870a742740d7f7335e39c47a8929f"
-    sha256 cellar: :any_skip_relocation, mojave:         "03d594231e0e381fe454dfde377062e9b1d77f1845e3863896027fc856455829"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6a9db9337867f25273de9744c53e8956245e6c17531fde5cc57bf39520ef4763"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "db37c4b868fa3931945eaec6c00857fff1f7e988be75484e8312bfb006e6baed"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0adde1c97a886f43a27de8e3d384d5dc59820a9b9bb9e704d492e77e438262dd"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c46567536b07e0198a6ffc97e8c621f668c2a188bd19939bbdde9b779f7f6d7a"
+    sha256 cellar: :any_skip_relocation, ventura:        "cf91b254e3ad5c67ef31c11f5d626e9df36f1b6239dca93432b27f2ee38ff6d5"
+    sha256 cellar: :any_skip_relocation, monterey:       "9c2f3bb27bb25ad03ee9e821a21a897aab6c2fa50e9c51bde910b8432ba59983"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b1fdeb24e25896919c8aa604978fe15f67bde3f0922634ccd42d8f835c8fc41a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4795b32eaa5d86770ab2722fe1564296678b2c0995604baf960132b015429088"
   end
+
+  depends_on "bdw-gc"
 
   resource "vc" do
     # For every vlang release there is a matching commit of the V compiler in the format
     # "[v:master] {short SHA of the vlang release commit} - {vlang version number}".
     # The sources of this V compiler commit need to be used here
     url "https://github.com/vlang/vc.git",
-        revision: "fd5f57740ff6d7a8566b774318df54c2fa460f92"
+        revision: "1f7f0244f352d41122bb306446d98ae3de4e6b02"
   end
 
+  # upstream discussion, https://github.com/vlang/v/issues/16776
+  # macport patch commit, https://github.com/macports/macports-ports/commit/b3e0742a
+  patch :DATA
+
   def install
+    inreplace "vlib/builtin/builtin_d_gcboehm.c.v", "@PREFIX@", Formula["bdw-gc"].opt_prefix
+
     resource("vc").stage do
-      system ENV.cc, "-std=gnu11", "-w", "-o", buildpath/"v", "v.c", "-lm"
+      system ENV.cc, "-std=gnu11", "-w", "-o", buildpath/"v1", "v.c", "-lm"
     end
-    system "./v", "self"
+    system "./v1", "-no-parallel", "-o", buildpath/"v2", "cmd/v"
+    system "./v2", "-o", buildpath/"v", "cmd/v"
+    rm ["./v1", "./v2"]
     libexec.install "cmd", "thirdparty", "v", "v.mod", "vlib"
     bin.install_symlink libexec/"v"
     pkgshare.install "examples"
@@ -47,3 +55,25 @@ class Vlang < Formula
     assert_equal "Hello, World!", shell_output("./test").chomp
   end
 end
+
+__END__
+diff --git a/vlib/builtin/builtin_d_gcboehm.c.v b/vlib/builtin/builtin_d_gcboehm.c.v
+index 0a13b64..23fca2b 100644
+--- a/vlib/builtin/builtin_d_gcboehm.c.v
++++ b/vlib/builtin/builtin_d_gcboehm.c.v
+@@ -31,12 +31,12 @@ $if dynamic_boehm ? {
+ } $else {
+ 	$if macos || linux {
+ 		#flag -DGC_BUILTIN_ATOMIC=1
+-		#flag -I @VEXEROOT/thirdparty/libgc/include
+-		$if (prod && !tinyc && !debug) || !(amd64 || arm64 || i386 || arm32) {
++		#flag -I @PREFIX@/include
++		$if (!macos && prod && !tinyc && !debug) || !(amd64 || arm64 || i386 || arm32) {
+ 			// TODO: replace the architecture check with a `!$exists("@VEXEROOT/thirdparty/tcc/lib/libgc.a")` comptime call
+ 			#flag @VEXEROOT/thirdparty/libgc/gc.o
+ 		} $else {
+-			#flag @VEXEROOT/thirdparty/tcc/lib/libgc.a
++			#flag @PREFIX@/lib/libgc.a
+ 		}
+ 		$if macos {
+ 			#flag -DMPROTECT_VDB=1

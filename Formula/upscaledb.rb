@@ -29,7 +29,7 @@ class Upscaledb < Formula
   end
 
   livecheck do
-    url "http://files.upscaledb.com/dl/"
+    url "https://files.upscaledb.com/dl/"
     regex(/href=.*?upscaledb[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 

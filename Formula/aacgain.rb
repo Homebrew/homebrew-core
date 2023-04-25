@@ -21,7 +21,7 @@ class Aacgain < Formula
     sha256 cellar: :any_skip_relocation, el_capitan:     "b97aaaf19fee69734b4a29e22c498becaa94b3025a192a7ef8f1ecfb0a2ce87c"
   end
 
-  deprecate! date: "2022-09-26", because: :unmaintained
+  disable! date: "2023-04-17", because: :unmaintained
 
   def install
     system "./configure", "--disable-debug",

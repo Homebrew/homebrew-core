@@ -4,10 +4,10 @@ class Antiword < Formula
   url "http://www.winfield.demon.nl/linux/antiword-0.37.tar.gz"
   mirror "https://fossies.org/linux/misc/old/antiword-0.37.tar.gz"
   sha256 "8e2c000fcbc6d641b0e6ff95e13c846da3ff31097801e86702124a206888f5ac"
+  license "GPL-2.0-or-later"
 
   livecheck do
-    url "http://www.winfield.demon.nl/linux/"
-    regex(/href=.*?antiword[._-]v?(\d+(?:\.\d+)+)\.t[a-z]+(?:\.[a-z]+)?["' >]/i)
+    skip "Not actively developed or maintained"
   end
 
   bottle do

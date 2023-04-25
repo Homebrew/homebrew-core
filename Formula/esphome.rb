@@ -3,20 +3,21 @@ class Esphome < Formula
 
   desc "Make creating custom firmwares for ESP32/ESP8266 super easy"
   homepage "https://github.com/esphome/esphome"
-  url "https://files.pythonhosted.org/packages/5e/e1/cce52a6a9ee9f82e37e881b4e5fc846cb708c6e002e15e3675d553b5dab0/esphome-2023.3.1.tar.gz"
-  sha256 "bd2c74c4e19061f55d32d410c2dbf4dcef40ad9510c2a29d0531027423fdbc53"
+  url "https://files.pythonhosted.org/packages/ac/c9/6539d2e988eb8aabc7714654ce02292c94d4f5d4f9aedc8a13cf9a2555a6/esphome-2023.4.1.tar.gz"
+  sha256 "f51961175324f01e89ad49878a8c2e3e51893becbd2909c3d0a2579596acf44f"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "1ebb7e14f7c2e636075161439baf026a0df69f5e81c862bdbfd44e4f11550878"
-    sha256 cellar: :any,                 arm64_monterey: "9e9305a97e5571d041854f8104e6ccda8942ce1b6c3af329ae595ceb1b9a887b"
-    sha256 cellar: :any,                 arm64_big_sur:  "a22ce7bfdf28112b4a606dfcc79bbaa432ad96d03b1d626e137346cef03a89e9"
-    sha256 cellar: :any,                 ventura:        "14ee316342a68c2fd6de7c3d60aaf1d15dba46e70dd74fd1bb5d65acc0df6dae"
-    sha256 cellar: :any,                 monterey:       "2fd3db4275313c7cd7c6e031152c353ab719ba35ba7129d2f62ab35884ecf53b"
-    sha256 cellar: :any,                 big_sur:        "109804b2731bea02cd3b113bf8954cfa96b495b869b057c7d54a8665470adc63"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4bddf4963e9b6e598b69d3d9119a8a0c6680b328c38422b0ee709375313f6b42"
+    sha256 cellar: :any,                 arm64_ventura:  "0c3d031b9261cf2b5ff96adffa60a935a554154b24d271ec357203334909bd43"
+    sha256 cellar: :any,                 arm64_monterey: "5ef6a4381e63774e66b7b58b4f9be4c5cffbdbdcd2b7a94fb642cc2bfd672ccc"
+    sha256 cellar: :any,                 arm64_big_sur:  "a700535281b4e749a25f17fc80eea93d5c72c5ca00a4f3255617cdf299ff63c4"
+    sha256 cellar: :any,                 ventura:        "f2d18614168acc7e5e87067d61b39cfdc8621821e8b3485f66fc43f4c1e19bcb"
+    sha256 cellar: :any,                 monterey:       "ef93376a15ace958b8c8ab2a558149fe7318869c1549c380a59a85b1231e07d8"
+    sha256 cellar: :any,                 big_sur:        "5475dc085fa0838d032bbc3f5d65ca2212fa503b1c5acbfb82907d8625c75dbf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eaef441bcf4a2ac92a272392260610758261b4f246b68aac999ca0212a6a1b77"
   end
 
+  depends_on "pkg-config" => :build
   depends_on "rust" => :build # for cryptography
   depends_on "protobuf"
   depends_on "python-tabulate"
@@ -25,8 +26,8 @@ class Esphome < Formula
   depends_on "six"
 
   resource "aioesphomeapi" do
-    url "https://files.pythonhosted.org/packages/0e/ba/ef43e009ae0a1f759ebb5fdc2e59253538ae80c13017e3cfa4ad7b81df82/aioesphomeapi-13.5.0.tar.gz"
-    sha256 "c0b8745048d45a3056181197ae015775a2f2166b72afd9ab1e4f93489d523d74"
+    url "https://files.pythonhosted.org/packages/48/9c/78673a9c75e25727bf2bd577b46983e77f68aa909f83d7e269cf814182fc/aioesphomeapi-13.5.1.tar.gz"
+    sha256 "cf91462ccb5e88db2158816bfeb3e9a987aab8223a321cd41870502eaf5a272c"
   end
 
   resource "aiofiles" do
@@ -50,8 +51,8 @@ class Esphome < Formula
   end
 
   resource "bitstring" do
-    url "https://files.pythonhosted.org/packages/d2/64/e733b18349be383a4b7859c865d6c9e5ccc5845e9b4258504055607ec1cb/bitstring-4.0.1.tar.gz"
-    sha256 "7719f08f6df89ce28453a5e580d4a8ec1d1bda892dbb033466da0ccd9bdcb706"
+    url "https://files.pythonhosted.org/packages/b5/f1/f55f568ef587fe7a74f46a9ae869dbbda10575b2a404c831d2bc0567b7de/bitstring-4.0.2.tar.gz"
+    sha256 "a391db8828ac4485dd5ce72c80b27ebac3e7b989631359959e310cd9729723b2"
   end
 
   resource "bottle" do
@@ -85,8 +86,8 @@ class Esphome < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/fa/f3/f4b8c175ea9a1de650b0085858059050b7953a93d66c97ed89b93b232996/cryptography-39.0.2.tar.gz"
-    sha256 "bc5b871e977c8ee5a1bbc42fa8d19bcc08baf0c51cbf1586b0e87a2694dde42f"
+    url "https://files.pythonhosted.org/packages/f7/80/04cc7637238b78f8e7354900817135c5a23cf66dfb3f3a216c6d630d6833/cryptography-40.0.2.tar.gz"
+    sha256 "c33c0d32b8594fa647d2e01dbccc303478e16fdd7cf98652d5b3ed11aa5e5c99"
   end
 
   resource "ecdsa" do
@@ -135,8 +136,8 @@ class Esphome < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/47/d5/aca8ff6f49aa5565df1c826e7bf5e85a6df852ee063600c1efa5b932968c/packaging-23.0.tar.gz"
-    sha256 "b6ad297f8907de0fa2fe1ccbd26fdaf387f5f47c7275fedf8cce89f99446cf97"
+    url "https://files.pythonhosted.org/packages/b9/6c/7c6658d258d7971c5eb0d9b69fa9265879ec9a9158031206d47800ae2213/packaging-23.1.tar.gz"
+    sha256 "a392980d2b6cffa644431898be54b0045151319d1e7ec34f0cfed48767dd334f"
   end
 
   resource "paho-mqtt" do
@@ -200,8 +201,8 @@ class Esphome < Formula
   end
 
   resource "tzdata" do
-    url "https://files.pythonhosted.org/packages/5b/30/b7abfb11be6642d26de1c1840d25e8d90333513350ad0ebc03101d55e13b/tzdata-2022.7.tar.gz"
-    sha256 "fe5f866eddd8b96e9fcba978f8e503c909b19ea7efda11e52e39494bad3a7bfa"
+    url "https://files.pythonhosted.org/packages/70/e5/81f99b9fced59624562ab62a33df639a11b26c582be78864b339dafa420d/tzdata-2023.3.tar.gz"
+    sha256 "11ef1e08e54acb0d4f95bdb1be05da659673de4acbd21bf9c69e94cc5e907a3a"
   end
 
   resource "tzlocal" do
@@ -230,8 +231,8 @@ class Esphome < Formula
   end
 
   resource "zeroconf" do
-    url "https://files.pythonhosted.org/packages/da/9c/7bfd88a90cc6dfc592fb19ebaa938fef86b7d2b1b519ed5681592076fee9/zeroconf-0.47.3.tar.gz"
-    sha256 "eb6ad7fdf3ef542c99416c4a5de60c6a4d16d82b336522e0ef6e7d2d2ddca603"
+    url "https://files.pythonhosted.org/packages/ba/1b/7b94a73e33b648be5884319da1d0e6c164ac26d30fa902dced3339cbe923/zeroconf-0.56.0.tar.gz"
+    sha256 "d21916e98de8d4cb822134b25746dcf321531b8662757a7da402798ba627062e"
   end
 
   def install

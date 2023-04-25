@@ -1,9 +1,12 @@
+# Please don't update this formula until the release is official via
+# mailing list or blog post. There's a history of GitHub tags moving around.
+# https://github.com/hashicorp/vault/issues/1051
 class Vault < Formula
   desc "Secures, stores, and tightly controls access to secrets"
   homepage "https://vaultproject.io/"
   url "https://github.com/hashicorp/vault.git",
-      tag:      "v1.13.0",
-      revision: "a4cf0dc4437de35fce4860857b64569d092a9b5a"
+      tag:      "v1.13.1",
+      revision: "4472e4a3fbcc984b7e3dc48f5a8283f3efe6f282"
   license "MPL-2.0"
   head "https://github.com/hashicorp/vault.git", branch: "main"
 
@@ -13,14 +16,13 @@ class Vault < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f0ab46d056d76a5fdbc093400ac4b711f5e0c3bc53487181d6ea737c94f18016"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "43ea4b9235deb691b2b993802072ebf63dca789b6a2bee539147227c8b810517"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0c0db75816520d3bc8d72f2192e5f13c46e0ae6cb946e9ec28408b5cdb447ea2"
-    sha256 cellar: :any_skip_relocation, ventura:        "caaa90952a983daa65c2509791fbc2d599d0c30eb3dddb06dda66b125f92dcd3"
-    sha256 cellar: :any_skip_relocation, monterey:       "b9f7655499eb8b6e2dacbfde911b7f6e8a3ab667a1f8c8d4fc9b2948a277a3d1"
-    sha256 cellar: :any_skip_relocation, big_sur:        "fb0028c775d22728e6112e89c2bb63618ac14acead4e28015c6387aca7b7481f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "687e9eaab2c25653904fc1590d1a8ede63472de49eed2d7305e32ec0b51833db"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "baba4a8b5325142f7ef5833e4cf074c2d81681c4c810b9f86fcaa582d7369867"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "739c1eeedb7f95e9dc1391fce3b2ae65e7eae0c9c7e94c8a9692bb823a36cfa1"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "abaf2ad9b4bc134758c845520996d97e1b10c85b56f52955b515250de496970b"
+    sha256 cellar: :any_skip_relocation, ventura:        "7a1ac30045fd5c8f6ed881e57b416a6e0da2e59e71301fb3b44733ef3574837e"
+    sha256 cellar: :any_skip_relocation, monterey:       "1c8372e3021e297c231085f1ebb06446db1ac0162e7c2125ab44c8e985905fa1"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7b285f3284af554be971ef4f7d45af791ebd0423bfeacb3be9bab0d85c56cb71"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0de2417ffe5cb7a0223f929d8778baec078e864350e93fb0b982c00f5a251b2e"
   end
 
   depends_on "go" => :build

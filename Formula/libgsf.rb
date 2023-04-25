@@ -3,7 +3,7 @@ class Libgsf < Formula
   homepage "https://gitlab.gnome.org/GNOME/libgsf"
   url "https://download.gnome.org/sources/libgsf/1.14/libgsf-1.14.50.tar.xz"
   sha256 "6e6c20d0778339069d583c0d63759d297e817ea10d0d897ebbe965f16e2e8e52"
-  license all_of: ["GPL-2.0-or-later", "LGPL-2.1-only"]
+  license "LGPL-2.1-only"
 
   bottle do
     sha256 arm64_ventura:  "a9499ac50e2f6e22c1c41839e30c9ee35b8d26283a3d6bea9245d07733d36218"

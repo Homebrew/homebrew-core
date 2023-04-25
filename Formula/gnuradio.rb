@@ -3,10 +3,9 @@ class Gnuradio < Formula
 
   desc "SDK for signal processing blocks to implement software radios"
   homepage "https://gnuradio.org/"
-  url "https://github.com/gnuradio/gnuradio/archive/refs/tags/v3.10.5.1.tar.gz"
-  sha256 "85d90147f7f28450bff75eeefd2b44adc88b231d29fe8e86cc3a65437dba6d9f"
+  url "https://github.com/gnuradio/gnuradio/archive/refs/tags/v3.10.6.0.tar.gz"
+  sha256 "c1a8c09f975d224b27dad9c8e2e7fed1f7cde9bc04d30b004afe8e28bb3f45c6"
   license "GPL-3.0-or-later"
-  revision 3
   head "https://github.com/gnuradio/gnuradio.git", branch: "main"
 
   livecheck do
@@ -15,13 +14,13 @@ class Gnuradio < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "3f5a10e67ac517e9b07b54f73a2a72385d0fc83881cee7cabb93140c139ec839"
-    sha256 cellar: :any,                 arm64_monterey: "173bd51b1b96ad23e5a1a9b666605d6b4a82ec212fd45ada78422de7c56807d9"
-    sha256 cellar: :any,                 arm64_big_sur:  "f427847136a3c1e42c62b0ebac7b66f43cdf2af422e560c2d5c3d45d580a6bd3"
-    sha256 cellar: :any,                 ventura:        "e4b3f1ebb08696652ed01a297c77b126f84d72fd3a21f83d54bef967aee176d3"
-    sha256 cellar: :any,                 monterey:       "9d940bff0a0560b4ba6c5f166acf6c3ebbf8dc6b083aa00cf8ac72bccb3710ef"
-    sha256 cellar: :any,                 big_sur:        "eee97e69df8363afd6017ecdc60479fedfe06e695019deef9a5c2a7370137ec5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3c401d1987ebc9170291fb7e4cd36daa098601ee9cda87b36488ccb738a4b828"
+    sha256 cellar: :any,                 arm64_ventura:  "21ec6d8ffb89878c176bd53f3c42e7735baf9fe0b04852bb55a8aae810571582"
+    sha256 cellar: :any,                 arm64_monterey: "b6d3dba0920c7bf9a6ff0edeb9efaa2410e330629fda6b0df030339aff19bba5"
+    sha256 cellar: :any,                 arm64_big_sur:  "0ba5721affa4f9a64d2f2a7e292be8adbe8161039f71f7ae5a2cf80c963d7c42"
+    sha256 cellar: :any,                 ventura:        "28341e62f1d653db07474e63b3ca10173df5c862978714bc4a37eebd0d320eb6"
+    sha256 cellar: :any,                 monterey:       "b65600181e916abcb9042893352bdf192beb7b5d42566f7361789e6d6074269b"
+    sha256 cellar: :any,                 big_sur:        "8e88e34a827c2edc81dbce43bedfcf32f19d441e74a8f0e78c64805f096e5170"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8e7be880643cdad2de225305022ea3ba3d5d3cf9c195423aacba87603c2cfc9b"
   end
 
   depends_on "cmake" => :build

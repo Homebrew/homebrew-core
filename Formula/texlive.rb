@@ -4,11 +4,10 @@ class Texlive < Formula
 
   desc "Free software distribution for the TeX typesetting system"
   homepage "https://www.tug.org/texlive/"
-  url "https://ftp.math.utah.edu/pub/tex/historic/systems/texlive/2022/texlive-20220321-source.tar.xz"
-  mirror "https://ftp.tu-chemnitz.de/pub/tug/historic/systems/texlive/2022/texlive-20220321-source.tar.xz"
-  sha256 "5ffa3485e51eb2c4490496450fc69b9d7bd7cb9e53357d92db4bcd4fd6179b56"
+  url "https://ftp.math.utah.edu/pub/tex/historic/systems/texlive/2023/texlive-20230313-source.tar.xz"
+  mirror "https://ftp.tu-chemnitz.de/pub/tug/historic/systems/texlive/2023/texlive-20230313-source.tar.xz"
+  sha256 "3878aa0e1ed0301c053b0e2ee4e9ad999c441345f4882e79bdd1c8f4ce9e79b9"
   license :public_domain
-  revision 4
   head "https://github.com/TeX-Live/texlive-source.git", branch: "trunk"
 
   livecheck do
@@ -34,13 +33,13 @@ class Texlive < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "dbbefb35066d5b3f3ff05b0dfaf6f8f693e6b5c0b9ee3cac1faad142f9dc15f1"
-    sha256 arm64_monterey: "d1d7174ad04b40bd8af96cccdd05a7ec2a0968b098d4c2b1fc4075ce4aba6c5c"
-    sha256 arm64_big_sur:  "1072e81065a9939ec8083e2f4bd867cac27eab3616ccdd1cd854c57e22d6db07"
-    sha256 ventura:        "6e3c96256e0a3cf02a853fae9f37b449ef0d1684c6a68df90aa26699a81509ea"
-    sha256 monterey:       "b3a94d0983d4228f376b9422965d1194997ce3e46aff4f03d7c24b28c905185f"
-    sha256 big_sur:        "0b724744053580e9e443558589489f7aca8dec7246a831170d09345ad4a35a7b"
-    sha256 x86_64_linux:   "ecc061a0f1fd4e947df3dd141473d28f2413a1e0e4d21a4b430b1fa5de7442b0"
+    sha256 arm64_ventura:  "ab662077f258cf6143dbe8d0e0cf380fe9dd5dfe8edcd8b045ddf0a4d299cdcc"
+    sha256 arm64_monterey: "ba2d158e0f50f7e09133b3c90ce860d27a393c6ba9234a20e2521a398e532028"
+    sha256 arm64_big_sur:  "7a33aa76a3dd29d8dbd223be02410bc62a7dcd21bccb2444638dffb4c1c737e2"
+    sha256 ventura:        "d85fef11ee4100a266d3c75402a09365b3116314fe0a0f72238d8ef14b0879e6"
+    sha256 monterey:       "a8d16dc28b735403c220c0564043a7a135ce28c22504f44701a3b8a6742c3ed2"
+    sha256 big_sur:        "d10c836b5471b21748e669c2340d72fceff64d0ff3427205e38181ff230c58eb"
+    sha256 x86_64_linux:   "a7402899f8f34b59940e040eaabd2374ca0bd9f4f7a9a016c301463001d6cc15"
   end
 
   depends_on "pkg-config" => :build
@@ -92,21 +91,21 @@ class Texlive < Formula
   fails_with gcc: "5"
 
   resource "texlive-extra" do
-    url "https://ftp.math.utah.edu/pub/tex/historic/systems/texlive/2022/texlive-20220321-extra.tar.xz"
-    mirror "https://ftp.tu-chemnitz.de/pub/tug/historic/systems/texlive/2022/texlive-20220321-extra.tar.xz"
-    sha256 "0284cf368947be8cc7becd61c816432a7d301db3c1e682ddc0a180bd3b6d9296"
+    url "https://ftp.math.utah.edu/pub/tex/historic/systems/texlive/2023/texlive-20230313-extra.tar.xz"
+    mirror "https://ftp.tu-chemnitz.de/pub/tug/historic/systems/texlive/2023/texlive-20230313-extra.tar.xz"
+    sha256 "80a676facc174e6853550c87898a982c96dfc63ac30de19e6fcaa7635edb38c2"
   end
 
   resource "install-tl" do
-    url "https://ftp.math.utah.edu/pub/tex/historic/systems/texlive/2022/install-tl-unx.tar.gz"
-    mirror "https://ftp.tu-chemnitz.de/pub/tug/historic/systems/texlive/2022/install-tl-unx.tar.gz"
-    sha256 "e67edec49df6b7c4a987a7d5a9b31bcf41258220f9ac841c7a836080cd334fb5"
+    url "https://ftp.math.utah.edu/pub/tex/historic/systems/texlive/2023/install-tl-unx.tar.gz"
+    mirror "https://ftp.tu-chemnitz.de/pub/tug/historic/systems/texlive/2023/install-tl-unx.tar.gz"
+    sha256 "d97bdb3b1903428e56373e70861b24db448243d74d950cdff96f4e888f008605"
   end
 
   resource "texlive-texmf" do
-    url "https://ftp.math.utah.edu/pub/tex/historic/systems/texlive/2022/texlive-20220321-texmf.tar.xz"
-    mirror "https://ftp.tu-chemnitz.de/pub/tug/historic/systems/texlive/2022/texlive-20220321-texmf.tar.xz"
-    sha256 "372b2b07b1f7d1dd12766cfc7f6656e22c34a5a20d03c1fe80510129361a3f16"
+    url "https://ftp.math.utah.edu/pub/tex/historic/systems/texlive/2023/texlive-20230313-texmf.tar.xz"
+    mirror "https://ftp.tu-chemnitz.de/pub/tug/historic/systems/texlive/2023/texlive-20230313-texmf.tar.xz"
+    sha256 "4c4dc77a025acaad90fb6140db2802cdb7ca7a9a2332b5e3d66aa77c43a81253"
   end
 
   resource "Module::Build" do
@@ -387,11 +386,6 @@ class Texlive < Formula
     inreplace share/"texmf-dist/web2c/texmfcnf.lua",
               "selfautoparent:texmf", "selfautodir:share/texmf"
 
-    # Fix build failure due to conflicting config.h files.  Reported upstream here:
-    # https://www.tug.org/pipermail/tex-live/2022-May/048183.html
-    inreplace buildpath/"texk/web2c/Makefile.in", "$(DEFAULT_INCLUDES) $(INCLUDES) $(libmfluapotrace_a_CPPFLAGS)",
-              "$(libmfluapotrace_a_CPPFLAGS) $(DEFAULT_INCLUDES) $(INCLUDES)"
-
     args = std_configure_args + [
       "--disable-dvisvgm", # needs its own formula
       "--disable-missing",
@@ -520,7 +514,9 @@ class Texlive < Formula
     # Initialize texlive environment
     ENV.prepend_path "PATH", bin
     system "fmtutil-sys", "--all"
-    system "mtxrun", "--generate"
+    with_env(LUATEXDIR: share/"texmf-dist/scripts/context/lua") do
+      system "luatex", "--luaonly", "mtxrun.lua", "--generate"
+    end
     system "mktexlsr"
   end
 

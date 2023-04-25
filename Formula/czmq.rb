@@ -23,12 +23,14 @@ class Czmq < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "2e98cdc427523e0b6557dee75c9c7e02243e6deca7f154511de816a363380ae3"
-    sha256 cellar: :any,                 arm64_big_sur:  "f038de51f9c505a739ca6d35804e800908e3180684516cd5df36e261207eb1e9"
-    sha256 cellar: :any,                 monterey:       "659fd630f7a622c2e0677c74c43d0dffb0d6e000c3fd623f154f14534c71dd85"
-    sha256 cellar: :any,                 big_sur:        "3adaa226cebf483c1f84a58dbc57ba6b75c51213216506d11b7dba6fde9f5ebb"
-    sha256 cellar: :any,                 catalina:       "b7641290a58b85221b10754a16819de04db2258f852e0debc2e5a3b6581e6f6d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6567f78da8a3aec0856b30c7892a69933062b96b16a26170915ebfa86ce60bc5"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "e51e2cc5ccca8943ab12a1587eb9b6aa533603ea2575db6928827bdaa0d807d1"
+    sha256 cellar: :any,                 arm64_monterey: "47bd6d29801b9d1a33d2d1e0655192e500e8c2a7698083d0838b178c068d5cd4"
+    sha256 cellar: :any,                 arm64_big_sur:  "f1fd8af878b29414140b01fd729603d328a6f3ed3a520c967db05a231361c9bf"
+    sha256 cellar: :any,                 ventura:        "67d8bb3b5214620f2e55a65b779e4d92affde8d6468ac25eccc5b4d1ac504ee8"
+    sha256 cellar: :any,                 monterey:       "300244e12b2cc498876e3b6a346f8ad24ccf1a256d8dc84c4e00b594c71c4bce"
+    sha256 cellar: :any,                 big_sur:        "d5abd045c165de80872c22ecf503132110c26e35d05b0b50c78dec97fd31e628"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "376bc4229fd95f09cf0fed87437a5b7ede0698f2846abd1199cde96aae7a86fe"
   end
 
   head do
@@ -42,6 +44,7 @@ class Czmq < Formula
   depends_on "asciidoc" => :build
   depends_on "pkg-config" => :build
   depends_on "xmlto" => :build
+  depends_on "lz4"
   depends_on "zeromq"
 
   def install

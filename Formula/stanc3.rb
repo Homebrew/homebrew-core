@@ -3,19 +3,18 @@ class Stanc3 < Formula
   homepage "https://github.com/stan-dev/stanc3"
   # git is needed for dune subst
   url "https://github.com/stan-dev/stanc3.git",
-      tag:      "v2.31.0",
-      revision: "554a2ab9aa2c1d3afbd450a93aa19a587d8ed5f1"
+      tag:      "v2.32.0",
+      revision: "2081cb65f00081dc98cbf0431dcce24462deb23c"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b15f1dc3e954473aa8568dfceb4fd4dc07ec47cff7e6fd43135520039e0c8653"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "866e9100eb80851e0af28ee3e9fca945e1077abc5b6d9a7fc663407f5cddb03a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fbe9f4dadd5549fb10a479b2c4288b39e2f78d20cbf1f978fca935c852acb6e1"
-    sha256 cellar: :any_skip_relocation, ventura:        "8c7d917c01b2ba4b2c2dafc953a5f41ec08f4f98906205ec40304654bd57da90"
-    sha256 cellar: :any_skip_relocation, monterey:       "b787b1138d0dc3ae0e0374e7a73931d0d0d412e11c1ed906e1b3c8e845780bb1"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a851b62a300f00fe97c52ba92e369b1f587cc7a40ff3e9a7a30e74fe271647db"
-    sha256 cellar: :any_skip_relocation, catalina:       "9fe673c94fe2c1323ae1218aab6fad68d42a996afd5b20c10829f0d6eb2b3556"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5418bfff61951b04e00ffd6391106ebc8657fffe3cf4bfe24a737eeaee3d5cfb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4d3f9ac79619f0663aee34bc427086b48c6d060d894e12365db9dde89c3382cc"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0f02da1df49645af3403c0572265411a8a6063a565311edf6a3a351f37f82192"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c3d65804fc6a69c205c24cd1cd40d90929982a5dad9b51be039f279a0dbd103c"
+    sha256 cellar: :any_skip_relocation, ventura:        "10d8bffab87d61b3f8a1b2fc27d58b2f45471f6358deaebb1d3556f54122ab2d"
+    sha256 cellar: :any_skip_relocation, monterey:       "8beb9d933dac060e2956986cb85c2124d7ae1c7fbe7be434e5f8fc470a50b96f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "982530ee53dc94bcebed29e1c7a4c06bf62670149521f2bd0c81be1a8b2c8004"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "39d53715494145e17a9ab8ad642d8cea7e4df6d32d0de0fb45c1852e03cbceaf"
   end
 
   depends_on "ocaml" => :build

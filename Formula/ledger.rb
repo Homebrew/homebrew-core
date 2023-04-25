@@ -1,8 +1,8 @@
 class Ledger < Formula
   desc "Command-line, double-entry accounting tool"
   homepage "https://ledger-cli.org/"
-  url "https://github.com/ledger/ledger/archive/v3.3.1.tar.gz"
-  sha256 "c18341020552fa221203afdf0c0eade1bfa9aa4b7e1ab82a0e456c06b56d1ce4"
+  url "https://github.com/ledger/ledger/archive/v3.3.2.tar.gz"
+  sha256 "555296ee1e870ff04e2356676977dcf55ebab5ad79126667bc56464cb1142035"
   license "BSD-3-Clause"
   head "https://github.com/ledger/ledger.git", branch: "master"
 
@@ -12,13 +12,13 @@ class Ledger < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "a6f3413f2d7744acb0bd47e8f4f76b8583820ff402bf38d734ad3275937d79ec"
-    sha256 cellar: :any,                 arm64_monterey: "8f4e12b945482680ece472ac84e46ae54050b30720a54db051bb32eca7029446"
-    sha256 cellar: :any,                 arm64_big_sur:  "feed005bae77fa8c671aca7d15939e8e7f6aee6b897704c1e1bee29fd925d007"
-    sha256 cellar: :any,                 ventura:        "998cd8552eddb2b4f78d4639e94be3db548bf107fabce69cf6a9afc1a1115920"
-    sha256 cellar: :any,                 monterey:       "aba672590c63e0296eb97414872a2408d4005b3a0ca9dd44f0d59ac00aae627e"
-    sha256 cellar: :any,                 big_sur:        "76e1aea98f3a4ca3f3f73e05008a44f4a3db795d3191cb744b74a003a9a22c81"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "02309c63e6a5068a1ee9aa9009563683fb09c24072852dbc30971a883ddc874f"
+    sha256 cellar: :any,                 arm64_ventura:  "649dc9b2c1c2731080718bd70fbd868dc27c40c805b98180efe7b29b75411d90"
+    sha256 cellar: :any,                 arm64_monterey: "83145c30791376d865638bb4d773389e455d76c5a15ec149b325053188d0c1a3"
+    sha256 cellar: :any,                 arm64_big_sur:  "67b305d4dae1ac2c15dbd4e9eea464afcd39eb9b7dead40f006555c9cd50a2eb"
+    sha256 cellar: :any,                 ventura:        "e651f550d6a31c22a43efd53019de2ff3c9f7b232040e9361894fc720d7738bd"
+    sha256 cellar: :any,                 monterey:       "35f6f93b07dd0a7dc4293f501ceab1a0c2391a9067f9a1e298466daf2c755c2c"
+    sha256 cellar: :any,                 big_sur:        "497dcb6ac6315a37b60b08935953cff4a1fa5675ad5f4c002f1ec98097438f01"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ead2468163999abde0e5a22e57d98f20ac3cd7d4cfb5230b4572cb0e8dc3026"
   end
 
   depends_on "cmake" => :build

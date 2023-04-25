@@ -2,8 +2,9 @@ class Rinetd < Formula
   desc "Internet TCP redirection server"
   homepage "https://github.com/samhocevar/rinetd"
   url "https://github.com/samhocevar/rinetd/releases/download/v0.73/rinetd-0.73.tar.bz2"
-  sha256 "24dd6ec1c4d353c33ced775a37566af9565b27e65f3e59939a8b2913a92c81d2"
+  sha256 "39180d31b15f059b2e876496286356e40183d1567c2e2aec41aacad8721ecc44"
   license "GPL-2.0-or-later"
+  revision 1
   # NOTE: Original (unversioned) tool is at https://github.com/boutell/rinetd
   #       Debian tracks the "samhocevar" fork so we follow suit
   head "https://github.com/samhocevar/rinetd.git", branch: "main"
@@ -14,13 +15,13 @@ class Rinetd < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ef5f8967db4460b4c330a1b53488b7ac0a2777c06b9120be0dc24f78f25d8825"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e4f668d5feb5299fa1de94c4b0335ab3e36b5ac1238ccb4519cff25be103dea5"
-    sha256 cellar: :any_skip_relocation, monterey:       "c1f9f4491c8a64cb38e72705a74b0ea0eb4b66ab49f80b253cf6ec6b7b6c5aa5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b73d5f5a82ad3371107eab67403b888e7e9e6f19f3c99909c8c72401a680c396"
-    sha256 cellar: :any_skip_relocation, catalina:       "f2f6a19fcfc01cfde67148410a6bcf81c861fb373e860210e32294cb9df4fbcc"
-    sha256 cellar: :any_skip_relocation, mojave:         "6a6f22a6081ac2dff01ca89a256a21c991a6f2171f2703b08e2acbd0d8c177a7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fadcdad114c33040c9ca301f74a84d301eecf67b3ff722ddce9b8fbfac395399"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8de3030cc0499320d112d4d07a4379a4068efab0c5b7e027d7f4a45be33d1d6a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "35efe356153b47c973f2548d1b02c27c503dbc6cc360bec5eaa60a94049b5dbd"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3be0837da2a86dc6453bbb3ca1169d3ba321cf04190128215f3b6ce6aba4cb21"
+    sha256 cellar: :any_skip_relocation, ventura:        "a3ab75f17f3d2d80dc139d9ed8a380cef57fe6c759520ec31056d0d60a84054d"
+    sha256 cellar: :any_skip_relocation, monterey:       "28ee184db1c28e98eecca90ae1e2df0bf8af20c1810675a4298d31d803f6053c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "90b5e423280f7ed15989bcea13980ec6bbc5ba2071958236f2b5a52ee55d24c6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c938efa3c89e08edc1063d301e41ec8fb026e28da8b956f7e9fde90efa4ff835"
   end
 
   def install

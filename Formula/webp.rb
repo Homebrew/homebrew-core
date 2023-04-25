@@ -4,38 +4,35 @@ class Webp < Formula
   url "https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-1.3.0.tar.gz"
   sha256 "64ac4614db292ae8c5aa26de0295bf1623dbb3985054cb656c55e67431def17c"
   license "BSD-3-Clause"
+  head "https://chromium.googlesource.com/webm/libwebp.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "fb2edf5a9f207f41aa11ff72efb0822da454f3a15e633738df8afdf69c40857d"
-    sha256 cellar: :any,                 arm64_monterey: "b184d1461126f09e2129f67cbc2025c3fc576f87a76a14bd7b5d76fd1d96a2d0"
-    sha256 cellar: :any,                 arm64_big_sur:  "edfeee19efb9e30eb99400eec5017d162ee70fb5d69346fec6f716a5f12c822b"
-    sha256 cellar: :any,                 ventura:        "f3f98d19c9ee4f773a937a0d5b44f504710c9f8af29cae6665820a18e2498e97"
-    sha256 cellar: :any,                 monterey:       "a07ca47cda0829022148d2b248972f3c37fd53bfbee6b767f8cbbd1a73e5fafe"
-    sha256 cellar: :any,                 big_sur:        "84ccd490c545a02910d950ba4b06027685939bec03256abbfbaf012fa02e7a1d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "89347c4622e958013b7977a06178766cf00d5a98e67acc03163d0c27595cf18f"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_ventura:  "bb5fb8f745151f8a79d54b7217d9e4fcf50d035bbec852e4f4bcef3987e52bdb"
+    sha256 cellar: :any,                 arm64_monterey: "9318abd9810e6f1e74739da95508fc72d752c4faf2ff8721582f27d819380c48"
+    sha256 cellar: :any,                 arm64_big_sur:  "4e4fdc09b03666abe0aa11b796bb7f69745118573f649d186bb460f9dbe1028c"
+    sha256 cellar: :any,                 ventura:        "de25d6fbb1d52c3f070e27c2f06c9a4a4bcedc1117081225d1741f489037d3d7"
+    sha256 cellar: :any,                 monterey:       "c46189d9662044e2a7614ffc0d6a47b69708da24be499e26a65b7c83faae5b56"
+    sha256 cellar: :any,                 big_sur:        "dc0ff932a09933b65121932bc6e14f4ff97e4c6a29a0148fd161ba81244a5a6e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "370e9fd6f9649f93f0f29d284ae492a4770e8bd7be811ff7a596e32ce982ee4e"
   end
 
-  head do
-    url "https://chromium.googlesource.com/webm/libwebp.git", branch: "main"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
+  depends_on "cmake" => :build
   depends_on "giflib"
   depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"
 
   def install
-    system "./autogen.sh" if build.head?
-    system "./configure", "--prefix=#{prefix}",
-                          "--disable-dependency-tracking",
-                          "--disable-gl",
-                          "--enable-libwebpdecoder",
-                          "--enable-libwebpdemux",
-                          "--enable-libwebpmux"
-    system "make", "install"
+    args = %W[
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+    ]
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DBUILD_SHARED_LIBS=ON", *args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
+    system "cmake", "-S", ".", "-B", "static", *std_cmake_args, "-DBUILD_SHARED_LIBS=OFF", *args
+    system "cmake", "--build", "static"
+    lib.install buildpath.glob("static/*.a")
   end
 
   test do

@@ -48,13 +48,15 @@ class Dump1090Mutability < Formula
     J/k4CRfpVyj3mNdplbj2aAd4Njgm19hnlwdWdxd21zbnRufWw="
     plain = Base64.decode64(enc)
     (testpath/"input.bin").write plain
-    result="*5d4d20237a55a6;\n\
-CRC: 000000\nRSSI: -14.3 dBFS\n\
-Score: 750\nTime: 206.33us\n\
-DF:11 AA:4D2023 IID:0 CA:5\n\
- All Call Reply\n\
-  ICAO Address:  4D2023 (Mode S / ADS-B)\n\
-  Air/Ground:    airborne"
+    result = <<~EOS
+      *5d4d20237a55a6;
+      CRC: 000000\nRSSI: -14.3 dBFS
+      Score: 750\nTime: 206.33us
+      DF:11 AA:4D2023 IID:0 CA:5
+      All Call Reply
+        ICAO Address:  4D2023 (Mode S / ADS-B)
+        Air/Ground:    airborne
+    EOS
     assert_equal result, shell_output("dump1090 --ifile input.bin 2>/dev/null").strip
   end
 end

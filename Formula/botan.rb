@@ -1,8 +1,8 @@
 class Botan < Formula
   desc "Cryptographic algorithms and formats library in C++"
   homepage "https://botan.randombit.net/"
-  url "https://botan.randombit.net/releases/Botan-2.19.3.tar.xz"
-  sha256 "dae047f399c5a47f087db5d3d9d9e8f11ae4985d14c928d71da1aff801802d55"
+  url "https://botan.randombit.net/releases/Botan-3.0.0.tar.xz"
+  sha256 "5da552e00fa1c047a90c22eb5f0247ec27e7432b68b78e10a7ce0955269ccad7"
   license "BSD-2-Clause"
   head "https://github.com/randombit/botan.git", branch: "master"
 
@@ -12,14 +12,13 @@ class Botan < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "a2ab8e2e8bc1f2f2b0d2c5c9a6e70db7dbf6d8da0f59d7877ae65d0f3e080dac"
-    sha256 arm64_monterey: "f8e217c1f88a3eda865ba873cf7ecde4054a9d03736bc3dbd8e5a447c5ad3750"
-    sha256 arm64_big_sur:  "7af675db93c0d3d31a3fc732640932bdefe5bb871359bfdfef6bf487e9910804"
-    sha256 ventura:        "b29a58fa7e9b7663d5640fd4930e0beb28a14db52cb7e6657f6c087f85fc486c"
-    sha256 monterey:       "6129e49f6502200987dc9f7e0439e1c0ef51a0fe806048ebd6ddce27744f095e"
-    sha256 big_sur:        "580e1e95815e36d9a7faad7201b6f65f3938485bb6c9058c1369fdb37cfee08e"
-    sha256 catalina:       "392dac3351b9e32ceaf9f7e8fa40e6fb5a87be7bb76894f469fd25a7e19ca95e"
-    sha256 x86_64_linux:   "7c5b47bf0f430903a03e71cf065010af7095c30ce8a55421759130a1c11572ce"
+    sha256 arm64_ventura:  "0638e55c5840c54d22f4d2bc346b70fb52cea1d28ea567ea49b9337a32c94452"
+    sha256 arm64_monterey: "217cfcf31670c98e77203c6f9bad5f16dc5f2432cb8620ec50ebd2e7c110361e"
+    sha256 arm64_big_sur:  "28f4b38a5ae6813302c846252c72ead5c7a63612ef951cf21e858fd26eb13d08"
+    sha256 ventura:        "bddea6bc8adad44734dc3223fb86414a396b07d3d13c8139c0306bc326893f73"
+    sha256 monterey:       "859aab2d6e57dcbd9671d61b4f6e6bba8b4c3ab3a51d4e8eb55359623aef64a1"
+    sha256 big_sur:        "9695bfc605fc5db484b42948ee0b93fe49efd2502fc2ec0cae8bd96b58c53071"
+    sha256 x86_64_linux:   "a01b782a7d5c8fb3ac8caa546fa18bca15e2b52440fce3241f4a314e7a81deb6"
   end
 
   depends_on "pkg-config" => :build
@@ -29,10 +28,20 @@ class Botan < Formula
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
 
+  on_macos do
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1315
+  end
+
+  fails_with :clang do
+    build 1315
+    cause "requires Xcode 13.3"
+  end
+
   fails_with gcc: "5"
 
   def install
     ENV.cxx11
+    ENV.llvm_clang if OS.mac? && DevelopmentTools.clang_build_version <= 1315
 
     args = %W[
       --prefix=#{prefix}

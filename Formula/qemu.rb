@@ -1,25 +1,26 @@
 class Qemu < Formula
   desc "Emulator for x86 and PowerPC"
   homepage "https://www.qemu.org/"
-  url "https://download.qemu.org/qemu-7.2.0.tar.xz"
-  sha256 "5b49ce2687744dad494ae90a898c52204a3406e84d072482a1e1be854eeb2157"
+  url "https://download.qemu.org/qemu-8.0.0.tar.xz"
+  sha256 "bb60f0341531181d6cc3969dd19a013d0427a87f918193970d9adb91131e56d0"
   license "GPL-2.0-only"
   head "https://git.qemu.org/git/qemu.git", branch: "master"
 
   bottle do
-    sha256 arm64_ventura:  "fa987f9dc770812c58333c910cb0f5c4e730d513a1568cc4d6a215dfa3ac82d1"
-    sha256 arm64_monterey: "62bea721ff6fa3ee15ed53ee8215fea42b2cd07e8fb39b77ce8e39f30287576f"
-    sha256 arm64_big_sur:  "9b2c3aa359719358370901d00a1b9323459ec9af3add371d212fd98071418e6b"
-    sha256 ventura:        "b4ae1b25edf4276936ad69d9399cf117a28cd49e212b0467c4cb6c22a7074f86"
-    sha256 monterey:       "6a32684edc7ed07358a8b9b602198d69a45902ec7c72230caf5c9b9b8b5e7f10"
-    sha256 big_sur:        "c327dffc16102993ab7fb81a2bbad0035af6af3e550a4095db72fcb8aff56ae8"
-    sha256 x86_64_linux:   "05ece9acbbb003a7e8035f18f5193ae7c9caffacd60a744eac629de4a545aea4"
+    sha256 arm64_ventura:  "96cbfa24487fdbc9209fc475004af99a63d620e4967c335691010e0dde751404"
+    sha256 arm64_monterey: "fd190819d9a85685f70d3a6ea8723b9d6a43c0ed4f1d1f5e1949815603ae5834"
+    sha256 arm64_big_sur:  "00f300eb8f11cc99a731b208032393bb08edca1a445c55cefa4cf5d410695986"
+    sha256 ventura:        "81c092e53e6702027e90d077ef2207b2fa2c2f5a5a0a86f0fb0c2d5846df5330"
+    sha256 monterey:       "f77c4a4739bc990ad5190c09bbab3e2c667530116e1f7761e1c8fda003e4f4c1"
+    sha256 big_sur:        "23d01ff7f83a2e403cc8d57e5cd9d3def2dee1ce245de4443dc78979f5a8ce8f"
+    sha256 x86_64_linux:   "3fd4fb068a4d69e9130a31d2f4ff0397f51c5461053a4e1f849cf07de7c60a05"
   end
 
   depends_on "libtool" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
+  depends_on "spice-protocol" => :build
 
   depends_on "capstone"
   depends_on "glib"
@@ -36,6 +37,9 @@ class Qemu < Formula
   depends_on "snappy"
   depends_on "vde"
   depends_on "zstd"
+
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
 
   on_linux do
     depends_on "attr"

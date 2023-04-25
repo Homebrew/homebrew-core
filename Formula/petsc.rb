@@ -1,8 +1,8 @@
 class Petsc < Formula
   desc "Portable, Extensible Toolkit for Scientific Computation (real)"
   homepage "https://petsc.org/"
-  url "https://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.18.5.tar.gz"
-  sha256 "df73ae13a4c5758325a9d69350cac423742657d8a8fc5782504b0e469ce46499"
+  url "https://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.19.0.tar.gz"
+  sha256 "8ced753e4d2fb6565662b2b1fbba75a426cbf8438203f82717ce270f0591322c"
   license "BSD-2-Clause"
 
   livecheck do
@@ -11,13 +11,13 @@ class Petsc < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "5d9f0d9eeb9f8ce7dccc33980bef360bb7547ee87f1703388ffc269c162eada4"
-    sha256 arm64_monterey: "98e849fd60ef492fc91706e1819a9deb1d84253c48d2234bd339321a3d375b35"
-    sha256 arm64_big_sur:  "7f95d7d10b61f237ee80e28d414eaae55f7009a84a7a4717d4350afe672d10b0"
-    sha256 ventura:        "d8523fab76c08390796b051bd3abd7e63117e0c673fbd6d9dfa8b7100dd91a27"
-    sha256 monterey:       "4aae2e1ef99f51536684bf24490e6bbdc8e9215aa3864c4890f24fd04323d1e6"
-    sha256 big_sur:        "fef9acfba634f244c0d5811bbc58c7715d1696047a2bb95e831dd49ec1cf0cef"
-    sha256 x86_64_linux:   "833288bf3861b998c8b76b01bdaf2dd1e58ed704d2d6e617cecbfa5bbb471728"
+    sha256 arm64_ventura:  "0af5e9f6dd4b58351f778e97ffb3b40fa740ac4b4c1a80a8e5f03a38eed6a1c0"
+    sha256 arm64_monterey: "f1b994801662beecd15960f03da97bb8f19856fe7b52d0d683b442fc8191cf16"
+    sha256 arm64_big_sur:  "6a0e3b336915f93deae16da21af04ff48ec90a6582d511b8d054c2c2d790b2c6"
+    sha256 ventura:        "a20da19799aef40c5f8ed99d0610d4a6f7f14815c2841dfdab089f9b50a3642f"
+    sha256 monterey:       "b642061853423df02962545d221e1b1f295cc643e0e6c880771cc5993ed0b6f2"
+    sha256 big_sur:        "88a4a42d9206e830d6305cdbc1b5974755be8b03966bf5b1de4d30c2e8b58bf7"
+    sha256 x86_64_linux:   "2b0563775c7e964be4b3e0504303f1165d7935e2b7ed8ba7399737b494e8e60b"
   end
 
   depends_on "hdf5"
@@ -43,6 +43,11 @@ class Petsc < Formula
                           "--F77=mpif77",
                           "--FC=mpif90",
                           "MAKEFLAGS=$MAKEFLAGS"
+
+    # Avoid references to Homebrew shims (perform replacement before running `make`, or else the shim
+    # paths will still end up in compiled code)
+    inreplace "arch-#{OS.kernel_name.downcase}-c-opt/include/petscconf.h", "#{Superenv.shims_path}/", "" if OS.mac?
+
     system "make", "all"
     system "make", "install"
 

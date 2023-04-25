@@ -35,7 +35,7 @@ class Cgit < Formula
   # git version is mandated by cgit: see GIT_VER variable in Makefile
   # https://git.zx2c4.com/cgit/tree/Makefile?h=v1.2#n17
   resource "git" do
-    url "https://www.kernel.org/pub/software/scm/git/git-2.25.1.tar.gz"
+    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.25.1.tar.gz"
     sha256 "4999ae0ee6cc7dfb280d7051e39a82a5630b00c1d8cd54890f07b4b7193d25aa"
   end
 

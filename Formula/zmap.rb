@@ -7,6 +7,11 @@ class Zmap < Formula
   revision 2
   head "https://github.com/zmap/zmap.git", branch: "main"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     rebuild 1
     sha256 arm64_ventura:  "379a8920b68618ff9daeaedb12c0653e55d4f231d9d00c77e37251cb4d9a2706"

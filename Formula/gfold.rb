@@ -1,19 +1,19 @@
 class Gfold < Formula
   desc "Help keep track of your Git repositories, written in Rust"
   homepage "https://github.com/nickgerace/gfold"
-  url "https://github.com/nickgerace/gfold/archive/refs/tags/4.3.2.tar.gz"
-  sha256 "95b3694f4906f737447a787e2d367ae74cf97f27f74150312bcfb1381badb3cf"
+  url "https://github.com/nickgerace/gfold/archive/refs/tags/4.3.3.tar.gz"
+  sha256 "27f99702221229dfce343c6aa2d80105fdad24f200628c36005d51cbb6242b04"
   license "Apache-2.0"
   head "https://github.com/nickgerace/gfold.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "f193e526daa6a3d3f7785018e13b7634d53b41aaaf0a1cf983f9c2ebcaf992b3"
-    sha256 cellar: :any,                 arm64_monterey: "dcb81bf8ed789456810d7e63e014f8a4cb0f6c178329351ff2fc072ad22bdd3e"
-    sha256 cellar: :any,                 arm64_big_sur:  "93aab312ef8a1bf53044f4dde89a33c54d07180f6c1f8784c154d858400c3484"
-    sha256 cellar: :any,                 ventura:        "53d22eab5499f6ee9048211817de6ba8d19ed0d36310df33fd9efb7728b2de7f"
-    sha256 cellar: :any,                 monterey:       "2ab7117ac324b40dd2bba7218f5961a26e3589cd5a31777971eff10f27edec2a"
-    sha256 cellar: :any,                 big_sur:        "29b8f4ff9f7879e3cae6aff89eaf1a80992dd8dbff5e7f9c41e9c5b73ffb90d6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c09f89c69fa031e2a26d9f8e0bf5e50ff4cdc4aa125d0c1d590c64b92801edaf"
+    sha256 cellar: :any,                 arm64_ventura:  "c303cd443586ad57a7a02ebd07efc88e12cc2e02fa1c5b83ec9f51e0cdd21830"
+    sha256 cellar: :any,                 arm64_monterey: "dbf555f733fb833945f6a3338d61080001da743696628941999c98d3d8bff1ff"
+    sha256 cellar: :any,                 arm64_big_sur:  "5a0b837f7cbe091537217a5457371dbd660e49e3ea70b2cfadc6a9cd5bf3465d"
+    sha256 cellar: :any,                 ventura:        "4ef464414e19b27071a36340a878e0461e38dcaf882252696fa231ff740e7b3d"
+    sha256 cellar: :any,                 monterey:       "db5d7c02c13366ac3cb81540c9596813bd665bfde19b957b98acfdbc6e96443f"
+    sha256 cellar: :any,                 big_sur:        "fbb261477b51b2d2a177c7d802fd637a620f733e1902f52760269ce004bc9cfc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3a80da02ed65e6085050397801b9d6ff9a6975dbee8276b4bcd34b96ecfec8be"
   end
 
   depends_on "pkg-config" => :build

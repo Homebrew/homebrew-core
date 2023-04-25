@@ -1,19 +1,19 @@
 class Texinfo < Formula
   desc "Official documentation format of the GNU project"
   homepage "https://www.gnu.org/software/texinfo/"
-  url "https://ftp.gnu.org/gnu/texinfo/texinfo-7.0.2.tar.xz"
-  mirror "https://ftpmirror.gnu.org/texinfo/texinfo-7.0.2.tar.xz"
-  sha256 "f211ec3261383e1a89e4555a93b9d017fe807b9c3992fb2dff4871dae6da54ad"
+  url "https://ftp.gnu.org/gnu/texinfo/texinfo-7.0.3.tar.xz"
+  mirror "https://ftpmirror.gnu.org/texinfo/texinfo-7.0.3.tar.xz"
+  sha256 "74b420d09d7f528e84f97aa330f0dd69a98a6053e7a4e01767eed115038807bf"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_ventura:  "85b1f14167d0b7eaf65a5be395f5d3a75d27e3182243c775d9cd1929c96a36df"
-    sha256 arm64_monterey: "054152111b0a771c4da4b68c02515e0177e5b5e958392446fd35336088cf7378"
-    sha256 arm64_big_sur:  "b1dbf9951b12ad2dcd7d7737cfb1e4eb3415f0c8f2b2c9c3f7d347838cb69543"
-    sha256 ventura:        "236e5a03b4e41c71e08d3e7f8be76ff8ac2fdde19fcae03bae9b16e77d5ce432"
-    sha256 monterey:       "21884b42af2e3e3018242c3334c180dcb5642798833bda3b4168d7a59a5c2407"
-    sha256 big_sur:        "f6745b887f400b3031d9c5e051b7f1f946c3c3063f2ed3fd8f8d7ef72bd2f7ff"
-    sha256 x86_64_linux:   "93a9e18b2b736e5c78eb7f2b8708982e2ad8ca5861af07b2d179e8514115a0bc"
+    sha256 arm64_ventura:  "203015ceba1fbf1093a5c011e19fbabe6b1dca05ad045e19758e11c6a7e9877c"
+    sha256 arm64_monterey: "00989e546b03f7c1166d8fec31c138216d73ef736e30a89769dae381f8d05f45"
+    sha256 arm64_big_sur:  "484f330054be1bbc8ff6d06a497d48e765f95eec7937dfb3658b8b3d86ac21d7"
+    sha256 ventura:        "c94c964e9df885f6782b2d6e8abbc6ff6b2ec7a9106fb07c706294422226dbdf"
+    sha256 monterey:       "b31a476410d5171a4424e3423f788f9e1438b7c2d1d79761562221b44a449c14"
+    sha256 big_sur:        "1596b0ef4f2e713712d39c704688b5138ca68c4f8000be1866903f88859eb610"
+    sha256 x86_64_linux:   "fcf98f2adea8e5d4347516345023398105476a73a87ebd47015c9030f08d6ea9"
   end
 
   uses_from_macos "ncurses"
@@ -34,6 +34,14 @@ class Texinfo < Formula
                           "--prefix=#{prefix}"
     system "make", "install"
     doc.install Dir["doc/refcard/txirefcard*"]
+  end
+
+  def post_install
+    info_dir = HOMEBREW_PREFIX/"share/info/dir"
+    info_dir.delete if info_dir.exist?
+    info_dir.dirname.glob("*.info") do |f|
+      quiet_system("#{bin}/install-info", "--quiet", f, info_dir)
+    end
   end
 
   test do

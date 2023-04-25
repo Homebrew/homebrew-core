@@ -1,9 +1,15 @@
 class Sparse < Formula
   desc "Static C code analysis tool"
   homepage "https://sparse.wiki.kernel.org/"
-  url "https://www.kernel.org/pub/software/devel/sparse/dist/sparse-0.6.4.tar.xz"
+  url "https://mirrors.edge.kernel.org/pub/software/devel/sparse/dist/sparse-0.6.4.tar.xz"
   sha256 "6ab28b4991bc6aedbd73550291360aa6ab3df41f59206a9bde9690208a6e387c"
+  license "MIT"
   head "https://git.kernel.org/pub/scm/devel/sparse/sparse.git", branch: "master"
+
+  livecheck do
+    url "https://mirrors.edge.kernel.org/pub/software/devel/sparse/dist/"
+    regex(/href=.*?sparse[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c1c53b9ca28fe2ce54ff72f0f9642289704ccae97868a2a90e2cb02095e8d7df"

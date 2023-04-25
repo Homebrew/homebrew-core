@@ -7,7 +7,7 @@ class SonarqubeLts < Formula
 
   livecheck do
     url "https://www.sonarsource.com/page-data/products/sonarqube/downloads/page-data.json"
-    regex(/Version\s+v?\d+(?:\.\d+)+\s+LTS.*?sonarqube[._-]v?(\d+(?:\.\d+)+)\.zip/im)
+    regex(/SonarQube\s+v?\d+(?:\.\d+)+\s+LTS.*?sonarqube[._-]v?(\d+(?:\.\d+)+)\.zip/im)
   end
 
   bottle do

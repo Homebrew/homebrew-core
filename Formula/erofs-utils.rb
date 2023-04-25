@@ -4,7 +4,7 @@ class ErofsUtils < Formula
   url "https://git.kernel.org/pub/scm/linux/kernel/git/xiang/erofs-utils.git/snapshot/erofs-utils-1.6.tar.gz"
   sha256 "dbf1adaeff1bb8532b29a72c8a9e191938c9389946770dc763d3c59e6f320571"
   license "GPL-2.0-or-later"
-  head "git://git.kernel.org/pub/scm/linux/kernel/git/xiang/erofs-utils.git", branch: "master"
+  head "https://git.kernel.org/pub/scm/linux/kernel/git/xiang/erofs-utils.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "f69f0cd0038c11fb2aea11bcc4ea64efea05a9bd59dc7cd11a3cd0391643e9c1"

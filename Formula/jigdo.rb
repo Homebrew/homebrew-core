@@ -1,13 +1,10 @@
-# Jigdo is dead upstream. It consists of two components: Jigdo, a GTK+ using GUI,
-# which is LONG dead and completely unfunctional, and jigdo-lite, a command-line
-# tool that has been on life support and still works. Only build the CLI tool.
 class Jigdo < Formula
   desc "Tool to distribute very large files over the internet"
   homepage "https://www.einval.com/~steve/software/jigdo/"
-  url "http://atterer.org/sites/atterer/files/2009-08/jigdo/jigdo-0.7.3.tar.bz2"
-  sha256 "875c069abad67ce67d032a9479228acdb37c8162236c0e768369505f264827f0"
+  url "https://www.einval.com/~steve/software/jigdo/download/jigdo-0.8.1.tar.xz"
+  sha256 "b1f08c802dd7977d90ea809291eb0a63888b3984cc2bf4c920ecc2a1952683da"
   license "GPL-2.0-only" => { with: "openvpn-openssl-exception" }
-  revision 8
+  head "https://git.einval.com/git/jigdo.git", branch: "upstream"
 
   livecheck do
     url "https://www.einval.com/~steve/software/jigdo/download/"
@@ -15,14 +12,13 @@ class Jigdo < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "2a7d61d39591e962966019d3d3925e6ea7799233805253deefa92a531f648cd5"
-    sha256 arm64_monterey: "87d951b1c24be108f740eae7378dde28ba28dd7994bfd6758161a6d0bc8bb15d"
-    sha256 arm64_big_sur:  "bc9b2ee804e6a0f51b5317ee21f7692b38fe6129b6319037e5bb6069ba80a0f3"
-    sha256 ventura:        "39868f6ad957c0a31296e9d82243a905bba103d54f8cd8334acdcd5a17bb29ef"
-    sha256 monterey:       "ee860a28d3dc2f0c9c51dbe5e245a048b11cb5fef3b4e71f7846f0c5e014cb4e"
-    sha256 big_sur:        "af5dd0ccfda2a1e1e7355c9dd3fab85c4b7024bb8d95b29aa3e0ca84c5d25458"
-    sha256 catalina:       "12f14d188a937f63899fd28c436597f15867440d952538f0bc73ee9d9628852d"
-    sha256 x86_64_linux:   "fd0973ae7891e7ea56eaffd85a57afd00688c035586fe00856b5b34544a5f3d4"
+    sha256 arm64_ventura:  "7f40b31d3cbf93164a64189389a044f453c780696768bfc8003b8ab991dbcbce"
+    sha256 arm64_monterey: "6e9590cc36dc2f0f3d75d565a1c5f99582c25ee41297d8ef67b04480c56e4bf5"
+    sha256 arm64_big_sur:  "2a751d087e93881f023139a101fc21e7c9ee3d54fa24d0b210d64128271b3ad0"
+    sha256 ventura:        "0b5a19248f88195a2c8b260d2c6645b2b9036f70de0270079b596c640bc982f7"
+    sha256 monterey:       "500f02c729d51da1d7e1515111efc02adf900638c70980cfdadcd693f9c41726"
+    sha256 big_sur:        "f57af0993dfde16f88d148b15f22fae331798b82a518515d9b8f4e53f93aabe8"
+    sha256 x86_64_linux:   "132117193141114c71df0b3f4c0c193c754b9b70865190237b65424c79b30f50"
   end
 
   depends_on "pkg-config" => :build
@@ -32,31 +28,39 @@ class Jigdo < Formula
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
 
-  # Use MacPorts patch for compilation on 10.9. Remove when updating to 0.8+.
-  patch :p0 do
-    on_macos do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/e101570/jigdo/patch-src-compat.hh.diff"
-      sha256 "a21aa8bcc5a03a6daf47e0ab4e04f16e611e787a7ada7a6a87c8def738585646"
-    end
-  end
-
-  # Use Fedora patch for compilation with GCC. Remove when updating to 0.8+.
-  patch do
-    on_linux do
-      url "https://src.fedoraproject.org/rpms/jigdo/raw/27c01e27168b62157e98c7ffad1aa0b4aad405e9/f/jigdo-0.7.3-gcc43.patch"
-      sha256 "57e13ca6c283cb086d1c5ceb5ed3562fab548fa19e1d14ecc045c3a23fa7d44a"
-    end
+  on_linux do
+    depends_on "gettext" => :build # for msgfmt
   end
 
   def install
-    system "./configure", *std_configure_args,
-                          "--disable-x11",
-                          "--mandir=#{man}"
+    # Find our docbook catalog
+    ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
+    system "./configure", *std_configure_args, "--mandir=#{man}"
+
+    # replace non-existing function
+    inreplace "src/compat.hh", "return truncate64(path, length);", "return truncate(path, length);" if OS.mac?
+
+    # disable documentation building
+    (buildpath/"doc/Makefile").atomic_write "all:\n\techo hello"
+
+    # disable documentation installing
+    inreplace "Makefile", "$(INSTALL) \"$$x\" $(DESTDIR)$(mandir)/man1", "echo \"$$x\""
+
     system "make"
     system "make", "install"
   end
 
   test do
-    assert_match "version #{version}", shell_output("#{bin}/jigdo-file -v")
+    system bin/"jigdo-file", "make-template", "--image=#{test_fixtures("test.png")}",
+                                              "--template=#{testpath}/template.tmp",
+                                              "--jigdo=#{testpath}/test.jigdo"
+
+    assert_path_exists testpath/"test.jigdo"
+    assert_path_exists testpath/"template.tmp"
+    system bin/"jigdo-file", "make-image", "--image=#{testpath/"test.png"}",
+                                           "--template=#{testpath}/template.tmp",
+                                           "--jigdo=#{testpath}/test.jigdo"
+    system bin/"jigdo-file", "verify", "--image=#{testpath/"test.png"}",
+                                       "--template=#{testpath}/template.tmp"
   end
 end

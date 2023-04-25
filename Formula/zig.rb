@@ -1,26 +1,33 @@
 class Zig < Formula
   desc "Programming language designed for robustness, optimality, and clarity"
   homepage "https://ziglang.org/"
-  url "https://ziglang.org/download/0.10.1/zig-0.10.1.tar.xz"
-  sha256 "69459bc804333df077d441ef052ffa143d53012b655a51f04cfef1414c04168c"
   license "MIT"
-  head "https://github.com/ziglang/zig.git", branch: "master"
+
+  stable do
+    url "https://ziglang.org/download/0.10.1/zig-0.10.1.tar.xz"
+    sha256 "69459bc804333df077d441ef052ffa143d53012b655a51f04cfef1414c04168c"
+    depends_on "llvm@15" => :build
+  end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "8a4d9ff9954cc5653d7ee911bdb1763d391782ec9a238045ff56ba5f86bf2e1a"
-    sha256 cellar: :any,                 arm64_monterey: "39edbad109f049325e58dbc101a748c02c175be1f0a40174b2e896e4bef3ccdc"
-    sha256 cellar: :any,                 arm64_big_sur:  "0b51293590c234eeb6719160a14e4b613bf72881485e5d0e232cf780db76d3b9"
-    sha256 cellar: :any,                 ventura:        "b4ae05a9335758b47c4d9bb9c71ce455aff7449bb975f4996f4d92c32e407701"
-    sha256 cellar: :any,                 monterey:       "03372943e1f2b037452fef537f19114af3953f945eb30c5f8cb04b9335fe34c1"
-    sha256 cellar: :any,                 big_sur:        "237021c926ad9b3ae44112d1e34d7ba615d940ff28c29170915cd68af84b2b87"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f17973e872f1ea8de838d540cb1b8092a6a4091e41f2d08822a0431bbd970080"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_ventura:  "f9fba5a3f6ce5a3005d6f5c91f06a2630237747eb98bbf7be39b885856f7a064"
+    sha256 cellar: :any,                 arm64_monterey: "5bb3325fbf88ed5d129b289bb53d7d56184bd89708398521bf5ae5275ba4fde8"
+    sha256 cellar: :any,                 arm64_big_sur:  "e148c22748a77f420327bdc267ad8dcc1fcaa4cdd307fba435693ce02d9242f9"
+    sha256 cellar: :any,                 ventura:        "1e7f133b829d858de19d5bc60a581ebccae19fcb2cf4b7dfbef36cae27705aa6"
+    sha256 cellar: :any,                 monterey:       "d89854a3bdc7bfefaa695c6369ee708151fe3f0ec70dc38b30c92c981b6f58c0"
+    sha256 cellar: :any,                 big_sur:        "eb4a6e0dd5714db1d682ac049eed6e92993badc9d5a9e9d593248820c5ca0070"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eefd8e8b1a71b27ce3b5a9c9c3ea8bcb4cf0f74221035d5da84b11d31fa33569"
+  end
+
+  head do
+    url "https://github.com/ziglang/zig.git", branch: "master"
+    depends_on "llvm" => :build
+    depends_on "z3"
   end
 
   depends_on "cmake" => :build
-  depends_on "llvm" => :build
   depends_on macos: :big_sur # https://github.com/ziglang/zig/issues/13313
-  depends_on "z3"
   depends_on "zstd"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"

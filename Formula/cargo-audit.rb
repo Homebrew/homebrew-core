@@ -1,8 +1,8 @@
 class CargoAudit < Formula
   desc "Audit Cargo.lock files for crates with security vulnerabilities"
   homepage "https://rustsec.org/"
-  url "https://github.com/RustSec/rustsec/archive/cargo-audit/v0.17.4.tar.gz"
-  sha256 "c2e8a742d55c1e257df25f38adb47b46ecc7b56b9e5ce03f03b2d371d9530195"
+  url "https://github.com/RustSec/rustsec/archive/cargo-audit/v0.17.5.tar.gz"
+  sha256 "7fe9998fe5ec6c45c44cc05a07d266f4ef5cdebfdb71a8445dcb337df5778b57"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/RustSec/rustsec.git", branch: "main"
 
@@ -12,14 +12,13 @@ class CargoAudit < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "a25978fc10c6e5a866c65e5499bac99afbfdbc6040a55a6a77feb5a91329f229"
-    sha256 cellar: :any,                 arm64_monterey: "1f77289a447bd70ee44f130390252c796a5ff106be47d8f6902234e15607aef3"
-    sha256 cellar: :any,                 arm64_big_sur:  "90a241cec355f4a7605e7966bf9e724bbd820d3d01bc23f1c2f59002c1bbc0c5"
-    sha256 cellar: :any,                 ventura:        "ca69389acf8f6fc29460a13b3f08c9f8d198f4e140f6785a5f6127618057f8e3"
-    sha256 cellar: :any,                 monterey:       "208722f6bd8ba55a8f364ddb2192c426805bf474718552273f20da7b32aa34ce"
-    sha256 cellar: :any,                 big_sur:        "302d943e65d921a9ba71302cdef3eb25d0f4940b78d28e05b7e7c80bc8055bba"
-    sha256 cellar: :any,                 catalina:       "c85985bb7aaff3603202fb4ab8eaa7fead50c532e2f009fc283f8e612974c638"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ae1f56ad622ee53b91637c56b93f0eb027b680397561516d0b170e069d565635"
+    sha256 cellar: :any,                 arm64_ventura:  "e6516db9d317d34e4ad684eff9562c01462ee8ad191d024cb93657b8ac43c80c"
+    sha256 cellar: :any,                 arm64_monterey: "e57446927559666a5d71619c9ed850d8c8335608c11b7909c36cd619b55af383"
+    sha256 cellar: :any,                 arm64_big_sur:  "d3e18b9a3a26f2c77617652a68a8949732deac2388a04d145ead5cec4a072ab4"
+    sha256 cellar: :any,                 ventura:        "78fbc39088406151ff674489897cfae9c0d4714552c1a826f50482b68e48d611"
+    sha256 cellar: :any,                 monterey:       "0250fd5762c3f97b023cf4e29cc924ff74bec59224c0da39685b88c55e57e0ed"
+    sha256 cellar: :any,                 big_sur:        "0048040a6c8273edb46378acc0d0ab67117bb8c50e4debd339af72ddf5f034da"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "51574735ae3e10950bfb66eda16ba247533a59783f9bea82dbc26edbe1acbec6"
   end
 
   depends_on "rust" => :build

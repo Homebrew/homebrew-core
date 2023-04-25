@@ -1,19 +1,18 @@
 class Ahoy < Formula
   desc "Creates self documenting CLI programs from commands in YAML files"
   homepage "https://ahoy-cli.readthedocs.io/"
-  url "https://github.com/ahoy-cli/ahoy/archive/refs/tags/2.0.2.tar.gz"
-  sha256 "74125750452c751ec62966d0bea8646b2f8d883095892d3dad641ff65df6bf9b"
+  url "https://github.com/ahoy-cli/ahoy/archive/refs/tags/v2.1.1.tar.gz"
+  sha256 "38189a92e39e3ae3a34be491dd2cd010928debe46b112ad82336fafa852556b9"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "53baeb4480be481ee214d7999ec81103af8e4bf17c35538da47f5a044000294c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8a783f4261bfd14a620550e7676dfa45ef7ea840175591948d1fa6ade1fb0d2a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8a783f4261bfd14a620550e7676dfa45ef7ea840175591948d1fa6ade1fb0d2a"
-    sha256 cellar: :any_skip_relocation, ventura:        "509b219ef6d167a4d74fb8f3cc1d5f204a659831d46840c2138ac5c601a418e4"
-    sha256 cellar: :any_skip_relocation, monterey:       "c1260aa580c7499faec17a305e2e1667843a3c71fa5e93601b579c2c13eb789f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c1260aa580c7499faec17a305e2e1667843a3c71fa5e93601b579c2c13eb789f"
-    sha256 cellar: :any_skip_relocation, catalina:       "c1260aa580c7499faec17a305e2e1667843a3c71fa5e93601b579c2c13eb789f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eb55ed63e1324d556cb9cfffebd3001460b23e455fa9c4c3f5d591ff3306b856"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "af46c291ed8074770313676100c783c09f3e89f8513cf0772c49e2fa577fb684"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "af46c291ed8074770313676100c783c09f3e89f8513cf0772c49e2fa577fb684"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "af46c291ed8074770313676100c783c09f3e89f8513cf0772c49e2fa577fb684"
+    sha256 cellar: :any_skip_relocation, ventura:        "50400846fb4102aa87185c75b2b962e1fe8c2a2ed4a5ba59dcff3c7a48427feb"
+    sha256 cellar: :any_skip_relocation, monterey:       "50400846fb4102aa87185c75b2b962e1fe8c2a2ed4a5ba59dcff3c7a48427feb"
+    sha256 cellar: :any_skip_relocation, big_sur:        "50400846fb4102aa87185c75b2b962e1fe8c2a2ed4a5ba59dcff3c7a48427feb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "14b0c30a235c3f027727b48728ff36daaf63489df699cd99c04281270b01ae98"
   end
 
   depends_on "go" => :build

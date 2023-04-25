@@ -2,18 +2,18 @@ class TrezorBridge < Formula
   desc "Trezor Communication Daemon"
   homepage "https://github.com/trezor/trezord-go"
   url "https://github.com/trezor/trezord-go.git",
-      tag:      "v2.0.32",
-      revision: "9aa6576af6fabd557bc298d1a12b73170f467a07"
+      tag:      "v2.0.33",
+      revision: "2680d5e6f7b02f06aefac1c2a9fef2c6052685de"
   license "LGPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "464cb3ea9e6f6e2c621df01a0ee1a4c06914a97f972818b84fe84f58f806f011"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "50f3201ea207a6ca5554018ef16a574866a5b207f5646cc4373a38a7ace5df41"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ffb43f934abbcdab466a049a02eb6b1931d8c232ef53dd6ad62d489be7215cb4"
-    sha256 cellar: :any_skip_relocation, ventura:        "3031a38ca271f26f3e6d948f8bdd2d10d77e6eb9c1beb9bad3e8aa4f14b36c7f"
-    sha256 cellar: :any_skip_relocation, monterey:       "0dde76f3050a020bcfc4e9b02586e4ad03414a16997ff328ff3577a60280aacd"
-    sha256 cellar: :any_skip_relocation, big_sur:        "135b5e71c548f7995da5ea8c43059e4527f2e08f38c15715b387a54b6e993426"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "454855de505930c7876421c843d13ddf6e9c34fb67e8c33955b79e6189475411"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "759841e8ae02dfd9e248af122d4ff1ea86fa431213b2254ca403b37fd19a7994"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0527558397468aeb0f38d77106bf49654531cdd55fc0127d64f033b9b67a3cb8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e059630a7d145f304753624e8f5de997028cfbe2fcc601f80d55d0e8f61bd0f4"
+    sha256 cellar: :any_skip_relocation, ventura:        "4d220b2bec0444f0e31f013ac437f404a970f4faa494f231f45b421b48aa7e7f"
+    sha256 cellar: :any_skip_relocation, monterey:       "6a3f7a962d8470a1630bdc814454f71276685e7dbb4e13ccf1ec3308c5cf26c0"
+    sha256 cellar: :any_skip_relocation, big_sur:        "03d3b125c3864a6522166f6450eb0f91511f8ff38283bbd8def9b63b4e7922a2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "16bde2e78f260089f05327efb87cd2e287bd3d4f84cd164d45f883bb10e434d5"
   end
 
   depends_on "go" => :build

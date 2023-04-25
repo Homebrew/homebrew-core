@@ -1,8 +1,8 @@
 class Groonga < Formula
   desc "Fulltext search engine and column store"
   homepage "https://groonga.org/"
-  url "https://packages.groonga.org/source/groonga/groonga-13.0.0.tar.gz"
-  sha256 "5c59bec3eb04eb77051b956ddde3411d3be25175cd39a4f952ff46596ca14632"
+  url "https://packages.groonga.org/source/groonga/groonga-13.0.1.tar.gz"
+  sha256 "1c2d1a6981c1ad3f02a11aff202b15ba30cb1c6147f1fa9195b519a2b728f8ba"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -11,13 +11,13 @@ class Groonga < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "ae08e73d1a04391f6c29ef7dacaea7b4feddd8b3581c2990d550fc78dead2827"
-    sha256 arm64_monterey: "7e247b6955c4b8f4fb9e3f3ae538d0286ffb265c0d21214def84694e8ce621eb"
-    sha256 arm64_big_sur:  "b2c2236a8197e513bfc114e26584cc2b4de447686015194169945f3fefc29eac"
-    sha256 ventura:        "32491f40ccc9cc6177f1270951cfc9065928cb6e481c1969d742b327c3ec54f2"
-    sha256 monterey:       "404bf81fe9e74a0ce20c0842e494a92922fa89851983758e532b83de200f6d0b"
-    sha256 big_sur:        "e834e8ffe165e71b64c5feefb56f8662bd666080dc0852980b4ba8a56e7e4c21"
-    sha256 x86_64_linux:   "d46f10219807ad48de1fc90e9bb8937cfbf1e411fd43b52617c48ec399536f82"
+    sha256 arm64_ventura:  "2d2e2ced3d7bfb99541d05ddba5c935a08af3d332195235b95bb5d91c5f3e2da"
+    sha256 arm64_monterey: "985c4d3038c932727374d52e6ac7878c665776717c296bb418a1f3fa97b2d21a"
+    sha256 arm64_big_sur:  "2129eb13dc82d031f0e24d49729f005f6b47817748adab6b4af46e956c6505c5"
+    sha256 ventura:        "1781fbd25a952c6c202256ea13a8cfa99188c6da80f2d4adca42276dee0f5241"
+    sha256 monterey:       "3bd06f323501689aab8b8e0f8dde30c25a44ab5df1bda007ed2879ab0c8b7c77"
+    sha256 big_sur:        "0d77bc5e64d0a1ea5fc5a3a7e70a23d0755d4b5bca00aa3d75dd706d752a714a"
+    sha256 x86_64_linux:   "40f50140e933bdd52467891ec1ffc59e4dfb70f979f36bcb620d0cbe3275a1ac"
   end
 
   head do
@@ -50,11 +50,9 @@ class Groonga < Formula
   end
 
   def install
-    args = %W[
-      --prefix=#{prefix}
+    args = %w[
       --disable-zeromq
       --disable-apache-arrow
-      --enable-mruby
       --with-luajit=no
       --with-ssl
       --with-zlib
@@ -62,17 +60,10 @@ class Groonga < Formula
       --with-mecab
     ]
 
-    # Temporary workaround for `msgpack` rename. Remove when resolved:
-    # https://github.com/groonga/groonga/issues/1536
-    args << "--with-message-pack=#{Formula["msgpack"].opt_prefix}"
-
-    if build.head?
-      args << "--with-ruby"
-      system "./autogen.sh"
-    end
+    system "./autogen.sh" if build.head?
 
     mkdir "builddir" do
-      system "../configure", *args
+      system "../configure", *args, *std_configure_args
       system "make", "install"
     end
 

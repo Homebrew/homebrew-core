@@ -6,18 +6,17 @@ class Salt < Formula
   url "https://files.pythonhosted.org/packages/c1/8b/f21efb024adbb6929cba84040882bf9fd6427fd786dd0596e7e23a9cf717/salt-3005.tar.gz"
   sha256 "1d200c45b88046178ea56fb5a75726dc620cc5e51411076a04df80ff52f79cd4"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/saltstack/salt.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "de5632a0d7015906cd66bf68464e111ca04eeecff996f612decbd68b211032f8"
-    sha256 cellar: :any,                 arm64_monterey: "22ef48638590f598cb5e36170d734628fdc857b9c4643e43b5c40205051b27da"
-    sha256 cellar: :any,                 arm64_big_sur:  "85fb71da5cb85e826a96eaca6407bd7b61ba894e5a37d400185ff0c62993318b"
-    sha256 cellar: :any,                 ventura:        "de9c71cc4e4df6bc9fe4341213a177725ff1dd6cf6121ab359ea37d0576389e9"
-    sha256 cellar: :any,                 monterey:       "1931d3fd72880afc48f6d7b0f061b5ff4a0b9cec8ceea1a220a6cc4357bcec77"
-    sha256 cellar: :any,                 big_sur:        "607355368f7d24304972c9ef7586abdb17d295c73647a93c7d7d3d41533afddf"
-    sha256 cellar: :any,                 catalina:       "50a30853d58429d88aec3b6e28903ed506820d99ecda61ec3520be6884ad4ec7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "571660eef0587e9347f72453ae4204ba064120d27e70a8df15929d8e5b15493f"
+    sha256 cellar: :any,                 arm64_ventura:  "a7addf5bc79c11c9b5944c039d064392806f0b0ad7d0cddba033c96ad26322ab"
+    sha256 cellar: :any,                 arm64_monterey: "f811d8add12e556a54c0e27d8b25d019a69481b23b068b156a2dac53076bd570"
+    sha256 cellar: :any,                 arm64_big_sur:  "27660adc895587a9d476b8013df604420547abd0b4cb4c47089561e425f87efb"
+    sha256 cellar: :any,                 ventura:        "fcbe74f142c8035e6309431b896eb69be2af38e44f38604101e548b7ddc17445"
+    sha256 cellar: :any,                 monterey:       "933faaa7cb3f32f469b003da6e7c594ba1a91b2089233e93493c7c12e42cc46a"
+    sha256 cellar: :any,                 big_sur:        "b4c2029b2be1ef510934e1d9816c4de32157b0c12f5bb3eac56ae8b6a2b94d93"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ea0be43d0b8c5f8d55ce12e8840541e96effd37cd1817fa358e6c7a91835a389"
   end
 
   deprecate! date: "2022-08-31", because: "next version will require a vendored python"
@@ -186,8 +185,8 @@ class Salt < Formula
   end
 
   resource "pygit2" do
-    url "https://files.pythonhosted.org/packages/e7/8a/e52a1c8b9878e9d9743089393f8289bb9c8a81eaab722df22df46a38b9e9/pygit2-1.10.0.tar.gz"
-    sha256 "7c751eee88c731b922e4e487ee287e2e40906b2bd32d0bfd2105947f63e867de"
+    url "https://files.pythonhosted.org/packages/7f/00/075f21ae474fcef679ba1f71b9ecd534493792b508b1919021fb2be67eba/pygit2-1.12.0.tar.gz"
+    sha256 "e9440d08665e35278989939590a53f37a938eada4f9446844930aa2ee30d73be"
   end
 
   resource "pyOpenSSL" do

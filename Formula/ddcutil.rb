@@ -31,7 +31,7 @@ class Ddcutil < Formula
   end
 
   test do
-    assert_match "The following tests probe the runtime environment using \
-multiple overlapping methods.", shell_output("#{bin}/ddcutil environment")
+    assert_match "The following tests probe the runtime environment using multiple overlapping methods.",
+      shell_output("#{bin}/ddcutil environment")
   end
 end

@@ -7,13 +7,14 @@ class LtexLs < Formula
   head "https://github.com/valentjn/ltex-ls.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "113e449a798528e7444d99320dbca9177b30c6291d1bb206ef08c0e1451d7a53"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c4fd9432edbbaa67a5c05d2ac81fd56035b97a74917eed44c258e693995445bf"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "70c1dbb0da6a78d0f4688b52b9b44f3516d7e893e8bcd2e71c0922d00dd3476d"
-    sha256 cellar: :any_skip_relocation, ventura:        "be491b7ac074c6ac2f0531023f3e8ad0150f5b1494fec1d8e00883063b4fb589"
-    sha256 cellar: :any_skip_relocation, monterey:       "2f6444470a34752b47e06032f595d3d2265f197991061357cdb39443bc8a777c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f63394d07116dcd045e6bc15f9bf8005a6a897ffa1cbb84fff153dc5d8a0b73d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ff16cbe22c436d3b9043f961279704db676bf7bda1c50435875dc25d0432a156"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4b244f07079c6aaab1a65f648d6ee13266fb1164f7f82f6003a9284e9976d2cb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "11567aa4c9ea7b6d0516329dc5d527cd1f212b1869a0473456c8a2ec0a902907"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cb3a024aedddbde888b77821f76b8c48e4a2648358f669a16881dde500315094"
+    sha256 cellar: :any_skip_relocation, ventura:        "baa9c3e2989c2664dc853b71bf1b3ccad9b78add83dc44f7bbb6ea9983278c67"
+    sha256 cellar: :any_skip_relocation, monterey:       "5e837641af16e424a784e9392f1df5fff22984fd561666e060c6bb4131c9cd0a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d69b0d4ba11e0c48d1d7719b126f6240ec15765077cd84be560010bc88b355e6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4adccf31620d7eab220663889b631f5b33e52ab7c1e96d1b91dafd732b450baa"
   end
 
   depends_on "maven" => :build
@@ -21,6 +22,10 @@ class LtexLs < Formula
   depends_on "openjdk"
 
   def install
+    # Fix build with `openjdk` 20.
+    # Reported upstream at https://github.com/valentjn/ltex-ls/issues/244.
+    inreplace "pom.xml", "<arg>-Werror</arg>", ""
+
     ENV.prepend_path "PATH", Formula["python@3.11"].opt_libexec/"bin"
     ENV["JAVA_HOME"] = Formula["openjdk"].opt_prefix
     ENV["TMPDIR"] = buildpath

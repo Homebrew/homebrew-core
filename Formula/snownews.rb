@@ -1,20 +1,18 @@
 class Snownews < Formula
   desc "Text mode RSS newsreader"
   homepage "https://sourceforge.net/projects/snownews/"
-  url "https://downloads.sourceforge.net/project/snownews/snownews-1.9.tar.gz"
-  sha256 "f5a16b92254848ca465d578db3ed98af2323b1800ff27bb8c410e20e521bf485"
+  url "https://downloads.sourceforge.net/project/snownews/snownews-1.11.tar.gz"
+  sha256 "afd4db7c770f461a49e78bc36e97711f3066097b485319227e313ba253902467"
   license "GPL-3.0-only"
 
   bottle do
-    sha256 arm64_ventura:  "76a8f61191b0267babf19c288256f5cc3c00d6f1da6aefa86f86d48ed96db82e"
-    sha256 arm64_monterey: "f3f130a39bd4c89ba0c1315cc94bd631dcbcfb6de37670b5beefb12262d18c39"
-    sha256 arm64_big_sur:  "e33470f154aa0ac91be4e22fc07fbe038109fe6e528f024b1886a21c09cb118d"
-    sha256 ventura:        "fa70cbbbc0b7bc2c2fff3995f01a38500ffe8afc6624b4a9027e7e5e76211e7b"
-    sha256 monterey:       "0df289333512883cc93e2c314575f73f7a0d4099b67299f8942daf22611ba9f4"
-    sha256 big_sur:        "ae91430f56cf66c0c9926bef6b0bd2134e68730cfacac0db1dd8456a976a53f7"
-    sha256 catalina:       "bd3a4094a8b1e6a5ea21d0d1f3215d9b97480600b41b72278ca492f1b36ffd9c"
-    sha256 mojave:         "47d68cd32e932522a59536319a6dc56717925d15a137924c0a5ff374b12b2223"
-    sha256 x86_64_linux:   "d9e3e43ead0b9f28bf3967c7c7c4da67264429171125a04fa44dad43c7aa5369"
+    sha256 arm64_ventura:  "7a2a22e0fd4e57c97784498a3cdb5918480cecf33beb5e2d0b660e515804e80c"
+    sha256 arm64_monterey: "dbcc03abc9caace2f29b52c841686192e4298b60609c5f730f7b919db0c509bd"
+    sha256 arm64_big_sur:  "555b6b9b49f2e34cfc457704d70b529a1d8344462a2320edd05f0cdbea5fd8ba"
+    sha256 ventura:        "825119e4c619bb2369313fd47c9b73f4df2172a15647e401e7da4528ad8e9e51"
+    sha256 monterey:       "944f14a89a33da5de2bc0d3808b09732b69b6ffbdc35e1f35c178b2f0fd4f49b"
+    sha256 big_sur:        "d1bf3631b3f0c65e4b08c6b2042a7306cc6d1e8902403dda961add6c417c2837"
+    sha256 x86_64_linux:   "bb1dccb514e53eb56a08d681c219c9632547f4798c80de3dbfbec23e8074f0fc"
   end
 
   depends_on "coreutils" => :build
@@ -25,12 +23,6 @@ class Snownews < Formula
 
   uses_from_macos "curl"
   uses_from_macos "libxml2"
-
-  # remove in next release
-  patch do
-    url "https://github.com/msharov/snownews/commit/a43c1811c2bd2921b7e44fd4b28b852915b45072.patch?full_index=1"
-    sha256 "cd64cd6d9493019496b100a71a8e6c10f33b63fb3d29b7863434bc2eee7cdd00"
-  end
 
   def install
     system "./configure", "--prefix=#{prefix}"

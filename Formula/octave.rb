@@ -1,19 +1,20 @@
 class Octave < Formula
   desc "High-level interpreted language for numerical computing"
   homepage "https://www.gnu.org/software/octave/index.html"
-  url "https://ftp.gnu.org/gnu/octave/octave-8.1.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/octave/octave-8.1.0.tar.xz"
-  sha256 "9bbe1963e650dfc45da704ac0d9824c378b28f66e483bf6dda232cdd50d09102"
+  url "https://ftp.gnu.org/gnu/octave/octave-8.2.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/octave/octave-8.2.0.tar.xz"
+  sha256 "b7b9d6e5004ff039450cfedd2a59ddbe2a3c22296df927a8af994182eb2670de"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_ventura:  "b05627affc9afefe142fa69564d15c7004b4dd4a318493131ee33eeb856b4e0f"
-    sha256 arm64_monterey: "ce8812199f63c50aeba78cc8cce4a8c5a58f5b16b16ac84a57075b2d2e0deb1b"
-    sha256 arm64_big_sur:  "ba1f02854e4a13b8e2029d7ad2615469762d8b9e8346560cf1951f8178c7939f"
-    sha256 ventura:        "c3e9df6607768e43adc1e811eec46971024e400c3ff57ce9e8ad9dc93166ff46"
-    sha256 monterey:       "9a0977f77e1ba12c64624917c1f32db3e1b8265ad68277c801a79f844a73ae57"
-    sha256 big_sur:        "28fb61a497cba5c04aa85aa190108c5158d52b15e0b1743e3e5367729353fa03"
-    sha256 x86_64_linux:   "5e895fe63c31304ba61c8045457f40c37453cc43f0b13f42c791af4c14de0597"
+    rebuild 1
+    sha256 arm64_ventura:  "3d23bd82478591f6c214ea580f8a2c46b14a7f90dcbf6dfc6195566af9679ea9"
+    sha256 arm64_monterey: "5bffcfe53423b566747806b2003396f4cd22efa5c1f64493be0dc535326ec04b"
+    sha256 arm64_big_sur:  "46d2e5fa0e50c5623b101d4fde995b6911f76574ead4492902a8092e04774feb"
+    sha256 ventura:        "fcde467d044918f780b89901833c15f89ab1542db9c2fd6368419f6c6c5c9ec5"
+    sha256 monterey:       "87d1334fe1b71d4aa1d67902efbff732feff0f55286d79e6e4c848bf621f9cc0"
+    sha256 big_sur:        "b82b2ce57a24226e81a9dee1dcd6d10542d29855f9c32c77f028f5779860bd29"
+    sha256 x86_64_linux:   "39e3a06e945b54be83b1effe2a29a357d4d61a30804a0ec73c3a38c23a14e3f3"
   end
 
   head do
@@ -47,7 +48,7 @@ class Octave < Formula
   depends_on "libsndfile"
   depends_on "libtool"
   depends_on "openblas"
-  depends_on "pcre"
+  depends_on "pcre2"
   depends_on "portaudio"
   depends_on "pstoedit"
   depends_on "qhull"

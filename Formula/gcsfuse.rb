@@ -1,8 +1,8 @@
 class Gcsfuse < Formula
   desc "User-space file system for interacting with Google Cloud"
   homepage "https://github.com/googlecloudplatform/gcsfuse"
-  url "https://github.com/GoogleCloudPlatform/gcsfuse/archive/v0.42.2.tar.gz"
-  sha256 "33e1bcf52786489efb6e2f8973d0e502597dcfbe539a4826d5c0076cc39666c5"
+  url "https://github.com/GoogleCloudPlatform/gcsfuse/archive/v0.42.4.tar.gz"
+  sha256 "31bc5fc1539d6b30898c6b7278ea44b4cee7e8e0848ebc4d4e890364e67521f6"
   license "Apache-2.0"
   head "https://github.com/GoogleCloudPlatform/gcsfuse.git", branch: "master"
 
@@ -12,7 +12,7 @@ class Gcsfuse < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "ff6857def51e176a7054a2cd446b7969b89a82da51abdcbea40395ea727962ff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "7c18d2a2927b1ea646a130d09ff37f159a9fe66f070f13b6993acc0d0bb03004"
   end
 
   # gcc-11: The build tool has reset ENV; --env=std required.

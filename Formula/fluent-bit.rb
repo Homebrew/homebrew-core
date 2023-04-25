@@ -1,8 +1,8 @@
 class FluentBit < Formula
   desc "Fast and Lightweight Logs and Metrics processor"
   homepage "https://github.com/fluent/fluent-bit"
-  url "https://github.com/fluent/fluent-bit/archive/v2.0.10.tar.gz"
-  sha256 "aad5176cb4dcadacacd379ca43160074c6690012d37c4749536ac3b977d50495"
+  url "https://github.com/fluent/fluent-bit/archive/v2.1.1.tar.gz"
+  sha256 "0d9fabe9385bec7eb9744157907b5ff44e1a064ea48ec12ade1008bf5873e138"
   license "Apache-2.0"
   head "https://github.com/fluent/fluent-bit.git", branch: "master"
 
@@ -12,13 +12,13 @@ class FluentBit < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "d68ecfe166abef4cc9548640dc48624a982edfc91419213981c00e1a9059de7d"
-    sha256 arm64_monterey: "1cd96f4aabb8ba0393b2107e36e51595b41f9a6694e5c6b1016c4d0204aeb4d8"
-    sha256 arm64_big_sur:  "9e11246c6cc06ce7ba3e128bb2d8a8d24133b81292c06cce4c9aae8f5c58d920"
-    sha256 ventura:        "f36d123f6ffc3c6b4ad4a750bfdb423ec473f85f06580824853411755cef18d2"
-    sha256 monterey:       "91333877eaa87d476f01c3a57739123b18ef7dd8bfc4b4e7a48a1df9e0c6bf7c"
-    sha256 big_sur:        "5049cad2ae1f6859d6c6fa7aee3184f74efbd3c7159aea84b81eb1c07599bc65"
-    sha256 x86_64_linux:   "98b5251dc93ddb30aadb2182801a1b02744e0a28b3f31d36ebca8734b29172c5"
+    sha256 arm64_ventura:  "f0ecc727d634d4b73415bf0ef4bab58a4b110961e8afab354f718fb93ca3038c"
+    sha256 arm64_monterey: "00b5186d46dedc558fc6d5fa68de66ea507bd41ad6daf7685ae8e77d9a676861"
+    sha256 arm64_big_sur:  "566a7fa2f1c8b956d4d94abf5396e8884e1672ac925958f0251c2ec125988edb"
+    sha256 ventura:        "a6fa690319ebd075c9f6ea99de7dc7b4a52ab4c8bbecfa4487409f350ad4a5aa"
+    sha256 monterey:       "fb9e803dba6051ef44897525ddb877ae60ccd1e5eca4a371d03c55e774dc4d70"
+    sha256 big_sur:        "f9c971e42c71376eb7664f77ee924f0c19ddfc53d9344ca94ec964e656b66be6"
+    sha256 x86_64_linux:   "a9393ff06375283ba85777e9c7f2798fbd66389f4ceeacd3ec743a25d48ee25c"
   end
 
   depends_on "bison" => :build
@@ -31,8 +31,8 @@ class FluentBit < Formula
 
   def install
     # Prevent fluent-bit to install files into global init system
-    # For more information see fluent/fluent-bit#3393
-    inreplace "src/CMakeLists.txt", "if(IS_DIRECTORY /lib/systemd/system)", "if(False)"
+    # For more information see https://github.com/fluent/fluent-bit/issues/3393
+    inreplace "src/CMakeLists.txt", "if(NOT SYSTEMD_UNITDIR AND IS_DIRECTORY /lib/systemd/system)", "if(False)"
     inreplace "src/CMakeLists.txt", "elseif(IS_DIRECTORY /usr/share/upstart)", "elif(False)"
 
     # Per https://luajit.org/install.html: If MACOSX_DEPLOYMENT_TARGET

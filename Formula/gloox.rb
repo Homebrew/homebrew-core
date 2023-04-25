@@ -1,8 +1,8 @@
 class Gloox < Formula
   desc "C++ Jabber/XMPP library that handles the low-level protocol"
   homepage "https://camaya.net/gloox/"
-  url "https://camaya.net/download/gloox-1.0.26.tar.bz2"
-  sha256 "6b45b390d3b0346a3cf6cc118d5ccafcdf10d51be57a02b0076edf064033ab6f"
+  url "https://camaya.net/download/gloox-1.0.27.tar.bz2"
+  sha256 "0b8b7371439bc58d9e51384b616c964b18b7b41b87af1b7855104380eda86ffb"
   license "GPL-3.0-only" => { with: "openvpn-openssl-exception" }
 
   livecheck do
@@ -11,13 +11,13 @@ class Gloox < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "aef98b49f8fb8dd432a4829e1d6593296b834a1bfb2d0e30f8da71051a407874"
-    sha256 cellar: :any,                 arm64_monterey: "2678002344c08b7563dfae8ea5fed3d5dee43312497f1a7e1aa75ae5cdca2e3c"
-    sha256 cellar: :any,                 arm64_big_sur:  "44a71f390b48f712f943db5967e41b0652a13a135527575a65a3ecd0222900b6"
-    sha256 cellar: :any,                 ventura:        "9b73dec9102d5c154a90ae3dd93f09d4faf4bbcd2c1721c1f03b50e870f6306d"
-    sha256 cellar: :any,                 monterey:       "0d6c4f0cd746c58aa14df72bc30c2834edd8bcf806e8b3732a3b2dc932f997d1"
-    sha256 cellar: :any,                 big_sur:        "e7e5fe65ca1a55c3f345ac9aac5acfab64f8e9a8ada53dfe3fedab9356beaf0e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b6942ef04f2b7f25a77719fec0c1ae687620a366ea0e9c0475baad6ba00464ca"
+    sha256 cellar: :any,                 arm64_ventura:  "9b5ae7d3e5cc7ab20100263a57907d0f6ff9b063bd274b20bc7cdc36a11ba229"
+    sha256 cellar: :any,                 arm64_monterey: "aa39740f823cbbc7ecfe70d586d3c4cbe003d34c4aca76043a9c4e8c32e78a23"
+    sha256 cellar: :any,                 arm64_big_sur:  "e56fbbd9d07dcbc0ed3f8b3d4ca2bf91f7dc6aa1252d0d657ebdc35a8758de49"
+    sha256 cellar: :any,                 ventura:        "706aeddbbdfa5b77edb5374df2a5f43205bc061195e1eb716da6331a500fa038"
+    sha256 cellar: :any,                 monterey:       "8e12926af004ce4865588035703d4bbce12fbc5a17613f3cc0df03921ddec964"
+    sha256 cellar: :any,                 big_sur:        "5b052e56a2286f755a3517f6a0897befa74788af8821f2dd0c52a038c81859a0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f2b0b46f102fc8d3d0ae4d6398110cce8ab5c1310a64babe1f8944131cfd9966"
   end
 
   depends_on "pkg-config" => :build

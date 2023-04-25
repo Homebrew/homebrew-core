@@ -5,6 +5,11 @@ class Tetra < Formula
   sha256 "99c3c758c4bd9e9b95100d0ff0eab9b6788e70c44a0edc026d3331982fd1754e"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5631195aaacbab0ae96f0a73db7a2a1f014b03f8575861b71cf7a090a78117b9"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5631195aaacbab0ae96f0a73db7a2a1f014b03f8575861b71cf7a090a78117b9"

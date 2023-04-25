@@ -38,7 +38,7 @@ class Zlib < Formula
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
 
-    # Avoid rebuilds of dependants that hardcode this path.
+    # Avoid rebuilds of dependents that hardcode this path.
     inreplace lib/"pkgconfig/zlib.pc", prefix, opt_prefix
   end
 
@@ -46,9 +46,8 @@ class Zlib < Formula
     testpath.install resource("test_artifact")
     system ENV.cc, "zpipe.c", "-I#{include}", "-L#{lib}", "-lz", "-o", "zpipe"
 
-    touch "foo.txt"
-    output = "./zpipe < foo.txt > foo.txt.z"
-    system output
-    assert_predicate testpath/"foo.txt.z", :exist?
+    text = "Hello, Homebrew!"
+    compressed = pipe_output("./zpipe", text)
+    assert_equal text, pipe_output("./zpipe -d", compressed)
   end
 end

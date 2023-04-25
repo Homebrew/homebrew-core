@@ -120,7 +120,6 @@ class PythonAT39 < Formula
       --enable-optimizations
       --with-lto
       --with-system-expat
-      --with-system-ffi
       --with-system-libmpdec
     ]
 

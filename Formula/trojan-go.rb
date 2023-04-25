@@ -70,7 +70,7 @@ class TrojanGo < Formula
   end
 
   service do
-    run [bin/"trojan-go", "-config", etc/"trojan-go/config.json"]
+    run [opt_bin/"trojan-go", "-config", etc/"trojan-go/config.json"]
     run_type :immediate
     keep_alive true
   end

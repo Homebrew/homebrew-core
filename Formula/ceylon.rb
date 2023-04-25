@@ -1,21 +1,15 @@
 class Ceylon < Formula
   desc "Programming language for writing large programs in teams"
-  homepage "https://ceylon-lang.org/"
-  url "https://ceylon-lang.org/download/dist/1_3_3"
+  homepage "https://projects.eclipse.org/projects/technology.ceylon"
+  url "https://web.archive.org/web/20200623041941/https://downloads.ceylon-lang.org/cli/ceylon-1.3.3.zip"
   sha256 "4ec1f1781043ee369c3e225576787ce5518685f2206eafa7d2fd5cfe6ac9923d"
   revision 3
-
-  livecheck do
-    url "https://ceylon-lang.org/download/"
-    regex(%r{href=.*?/download/dist/v?(\d+(?:[._]\d+)+)["' >]}i)
-    strategy :page_match do |page, regex|
-      page.scan(regex).map { |match| match&.first&.gsub("_", ".") }
-    end
-  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "c9e8be2d72811dcc4310d1633801fa34e38a7e2bbc779e945ce732ff03172dc2"
   end
+
+  deprecate! date: "2023-04-17", because: :deprecated_upstream
 
   depends_on "openjdk@8"
 

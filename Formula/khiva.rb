@@ -8,6 +8,7 @@ class Khiva < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_ventura:  "79129c3668a37ad0c60c3225717337bd43e5bd453d8ada10ca36edc3eb0a6efd"
     sha256 cellar: :any,                 arm64_monterey: "520d5879468b0454190fce7fa890fb98cc169c917c0f72975fd97e5d2a5f1a77"
     sha256 cellar: :any,                 arm64_big_sur:  "9ff14629f60e6ed2f278774c30ed9348d3965e8bfbe90cc31ea605bf475c747a"
     sha256 cellar: :any,                 ventura:        "c3eefd4690eadad3ec6286d3ae1a95d354ed008612ffabbbbfcd82a1970794c4"
@@ -42,6 +43,9 @@ class Khiva < Formula
                     "-L#{Formula["arrayfire"].opt_lib}", "-laf",
                     "-L#{lib}", "-lkhiva",
                     "-o", "test"
+    # OpenCL does not work on ephemeral ARM CI.
+    return if Hardware::CPU.arm? && OS.mac? && ENV["HOMEBREW_GITHUB_ACTIONS"].present?
+
     system "./test"
   end
 end

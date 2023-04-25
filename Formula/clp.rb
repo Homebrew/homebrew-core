@@ -1,8 +1,8 @@
 class Clp < Formula
   desc "Linear programming solver"
   homepage "https://github.com/coin-or/Clp"
-  url "https://github.com/coin-or/Clp/archive/releases/1.17.7.tar.gz"
-  sha256 "c4c2c0e014220ce8b6294f3be0f3a595a37bef58a14bf9bac406016e9e73b0f5"
+  url "https://github.com/coin-or/Clp/archive/releases/1.17.8.tar.gz"
+  sha256 "f9931b5ba44f0daf445c6b48fc2c250dc12e667e59ace8ea7b025f158fe31556"
   license "EPL-2.0"
 
   livecheck do
@@ -11,14 +11,13 @@ class Clp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "b933a8e00e77e296fac88f9e9f4df486684b9af8329fba8d016f8b2359469ebc"
-    sha256 cellar: :any,                 arm64_monterey: "17d872a7aa2ec5f8f1cb3759bd69139e100c13000fbe11a5fad9aaf6dc8317f2"
-    sha256 cellar: :any,                 arm64_big_sur:  "cec830295042bd72147eda6e79e1c0a54f1fca05af181ab34f719fb3fd55f06b"
-    sha256 cellar: :any,                 ventura:        "5379a136549d8a2631262c43425399f1a9d708a56cb1c2ab66637e7cf5cabfa7"
-    sha256 cellar: :any,                 monterey:       "b3e651293949113d80f1156bfc5a13c50f65f7e8019471995f80b95f16227276"
-    sha256 cellar: :any,                 big_sur:        "0f6eed77fe4689ca6c0c1765a57bca96aa02b032df3efb614b8be6efb93efac1"
-    sha256 cellar: :any,                 catalina:       "565b7866cfc9dd3866a7fd0212408fe35951e3ffdadf9c4e2360a7b0388b6e48"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a3dad68c532f478c9bf2299a8babfdf18b84db64ac6810130998804a86ab9757"
+    sha256 cellar: :any,                 arm64_ventura:  "efe170c0bf8394a5db5fab7fe2eacd52471337cd7cb2d144b39c8ad621e7ff2e"
+    sha256 cellar: :any,                 arm64_monterey: "9d2980cc39519cf78053c951cafee4b0fb11f900a6cef87eaff3c50f3612dcfc"
+    sha256 cellar: :any,                 arm64_big_sur:  "6dc3cc5e3b85420d45d610f7743e45541b3bf62511040d5046092fd9361a73b3"
+    sha256 cellar: :any,                 ventura:        "88d6a80f4da99110a34a5b37cf44324e7cad52c063db6d7fac5ae48d753b4f82"
+    sha256 cellar: :any,                 monterey:       "6e458f50c974e968c541288ae791a70768caacc4f03819a0ac886edf86e6c25d"
+    sha256 cellar: :any,                 big_sur:        "0562833cfb1dac1a446690e0633b64421920628f9df7dbfa0f8ce9071efabe99"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e784d51dc920a31d3134473c8d92cd5ead97e34fa90d8bf1a205abe31586f4c4"
   end
 
   depends_on "pkg-config" => [:build, :test]

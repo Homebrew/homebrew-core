@@ -2,8 +2,8 @@ class Flyctl < Formula
   desc "Command-line tools for fly.io services"
   homepage "https://fly.io"
   url "https://github.com/superfly/flyctl.git",
-      tag:      "v0.0.499",
-      revision: "10c95df6dd1203ad8161a1f85e198be40f0e6c9b"
+      tag:      "v0.0.541",
+      revision: "7b4798af43e01a354916bc4cee63e0842851d68a"
   license "Apache-2.0"
   head "https://github.com/superfly/flyctl.git", branch: "master"
 
@@ -13,13 +13,13 @@ class Flyctl < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d6920d935cc5bf694450cf5e799c9a7a573c1fe92781a92ea70e567be2606120"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d6920d935cc5bf694450cf5e799c9a7a573c1fe92781a92ea70e567be2606120"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d6920d935cc5bf694450cf5e799c9a7a573c1fe92781a92ea70e567be2606120"
-    sha256 cellar: :any_skip_relocation, ventura:        "b367a17ccbbf3e518599e851cc95912dd040c3aec83e5859ba41c9ca960a6286"
-    sha256 cellar: :any_skip_relocation, monterey:       "b367a17ccbbf3e518599e851cc95912dd040c3aec83e5859ba41c9ca960a6286"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b367a17ccbbf3e518599e851cc95912dd040c3aec83e5859ba41c9ca960a6286"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eceb8835343b7cb87e44437154d1d921fb86487e05c8b8ed880da9beb8de6d47"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "097d12bb890ce2d86031a9e27071228df565c47e319903e9f4e45e162d1fdf4f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "097d12bb890ce2d86031a9e27071228df565c47e319903e9f4e45e162d1fdf4f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "097d12bb890ce2d86031a9e27071228df565c47e319903e9f4e45e162d1fdf4f"
+    sha256 cellar: :any_skip_relocation, ventura:        "027eff18fbbf0b8ca411223d3490517898dda0ee3dacb79a38e2e9a22ed1bbd6"
+    sha256 cellar: :any_skip_relocation, monterey:       "027eff18fbbf0b8ca411223d3490517898dda0ee3dacb79a38e2e9a22ed1bbd6"
+    sha256 cellar: :any_skip_relocation, big_sur:        "027eff18fbbf0b8ca411223d3490517898dda0ee3dacb79a38e2e9a22ed1bbd6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "11e405c21004f8f8d0af7fd055b9dd0177c7851c09d92e94071d2254903bcb1a"
   end
 
   depends_on "go" => :build
@@ -44,6 +44,6 @@ class Flyctl < Formula
     assert_match "flyctl v#{version}", shell_output("#{bin}/flyctl version")
 
     flyctl_status = shell_output("#{bin}/flyctl status 2>&1", 1)
-    assert_match "Error No access token available. Please login with 'flyctl auth login'", flyctl_status
+    assert_match "Error: No access token available. Please login with 'flyctl auth login'", flyctl_status
   end
 end

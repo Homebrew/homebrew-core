@@ -4,7 +4,12 @@ class Patchutils < Formula
   url "http://cyberelk.net/tim/data/patchutils/stable/patchutils-0.4.2.tar.xz"
   mirror "https://deb.debian.org/debian/pool/main/p/patchutils/patchutils_0.4.2.orig.tar.xz"
   sha256 "8875b0965fe33de62b890f6cd793be7fafe41a4e552edbf641f1fed5ebbf45ed"
-  license "GPL-2.0"
+  license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
+
+  livecheck do
+    url "http://cyberelk.net/tim/data/patchutils/stable/"
+    regex(/href=.*?patchutils[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e49dcfa14b90a261ebaa265f80d2eb895c419457ca4fa26ff0fb4cb11b921e9c"

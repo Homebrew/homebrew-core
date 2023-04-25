@@ -7,6 +7,11 @@ class Chipmunk < Formula
   license "MIT"
   head "https://github.com/slembcke/Chipmunk2D.git", branch: "master"
 
+  livecheck do
+    url "https://chipmunk-physics.net/downloads.php"
+    regex(/>\s*Chipmunk2D\s+v?(\d+(?:\.\d+)+)\s*</i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "41cbccebde6b4a35fe046c12cef11eafa6e5ed1e096837a490ca4c6d0bc67a9d"
     sha256 cellar: :any,                 arm64_monterey: "544c8185e3366a6b067ad4cafb6272610014f0b5787b0c35a735b2c6bc3c7588"

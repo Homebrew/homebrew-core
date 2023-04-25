@@ -1,19 +1,19 @@
 class KymaCli < Formula
   desc "Kyma command-line interface"
   homepage "https://kyma-project.io"
-  url "https://github.com/kyma-project/cli/archive/2.12.1.tar.gz"
-  sha256 "577897078e50521287705075bbdcc5a567442407ac4b393a7b66cf58834e587d"
+  url "https://github.com/kyma-project/cli/archive/2.13.1.tar.gz"
+  sha256 "70654f250e57996339f8b3627b4cd27529a1554131c19db8a90fead5dc2e870b"
   license "Apache-2.0"
   head "https://github.com/kyma-project/cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "59d727b28cb5f7ecf98eeac3359051daed4f61f130dc06c55d1d1f0fdaf01f50"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a095f939f81e7f804ea7caa3f7d12dec9e3d651e975c7c83d294e9817bfeed5e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0a4f1a8ebd97116aae8c8c1cd704ef5fa0f6d976f4ce32f4d0cf80bc4c680b27"
-    sha256 cellar: :any_skip_relocation, ventura:        "5bcb1373574090b243ecc82ff41d563a5de1032f99f46e7304c017d3ccee2dd5"
-    sha256 cellar: :any_skip_relocation, monterey:       "1e5508c2a1bcc50e74736b67abf8fe0191912932583b986e689b4dbc48127827"
-    sha256 cellar: :any_skip_relocation, big_sur:        "73081e5a12bcaa256330c0bcf91928cec7487c3f46cab3a7840ad61ed81ca9ca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1c3984be51000f6d21c1eb9f858bc27bd28afdfc09542baf0c3935fcc97edb53"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a20226e0a03cf8d4db770c923fb88d294e8680558bb08b1b2684fe4aa6d8d4fb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8c77079db219cd74862492adfa5fcb1a6d258161f95f2d5fa902dd566b58c0c7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e2929a611b36746e41b04295f3b73594adb6ffbc9671625550eca6df4573fb96"
+    sha256 cellar: :any_skip_relocation, ventura:        "cf8453a951c7f268e9e05c3e49869eb2ff07cbe5fd971fcb877c1445b1abe57b"
+    sha256 cellar: :any_skip_relocation, monterey:       "26fd8eca2455a150901832b13f77fc2f04ace1854450bedc625552a82b47bff3"
+    sha256 cellar: :any_skip_relocation, big_sur:        "98a5974f5292fbd1b93a41a43eff29ce30d4ab9f052513cbcbe37e6a006580ad"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "63b2efde1b1bb53216349c6cc84a5250d76afb7c6f6d66b80e55f36b024d41d1"
   end
 
   depends_on "go" => :build

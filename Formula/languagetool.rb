@@ -2,8 +2,8 @@ class Languagetool < Formula
   desc "Style and grammar checker"
   homepage "https://www.languagetool.org/"
   url "https://github.com/languagetool-org/languagetool.git",
-      tag:      "v6.0",
-      revision: "e44dbb08fb820b622e6639c8877d1f240c3f638e"
+      tag:      "v6.1",
+      revision: "a6449c3b940c4c8d869cc3212ee7cda9da83dd87"
   license "LGPL-2.1-or-later"
   head "https://github.com/languagetool-org/languagetool.git", branch: "master"
 
@@ -13,13 +13,13 @@ class Languagetool < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0e94268e46fd9a0a001c855dbc00f2e587500402e4aee4dbdb94393192b0ac26"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7f1d47cd942c138fc11fcd970dd761f59ddae34b203746285dfced9b2f44ca75"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "77029a607129545ce00dc766d9bbc71c4c277a47020c8acf63885b77732fb05f"
-    sha256 cellar: :any_skip_relocation, ventura:        "dc46ea4e847850e466ae444e5cfc2b42500a17fe14a612cc9a541edfaa8746b1"
-    sha256 cellar: :any_skip_relocation, monterey:       "7f60ac5f015348ca22386b4d08969882e21357efe2150788dbeb9f17af543246"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9e7995c3081e984420641a7ea25d21a03dadeca5d9d2d47d4dad201d896cd0ea"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "200948cb33c554c3d38139e23ea4c4d2765aba3a0f904f4824683a05dd787ac3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bab759e7b1e1509d6692e707f84de39c4e5cac69e8522ef082d4a39c41b08209"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2425a86ddd0d84b4e93aa80b01a309dac298bce3b113d694247ced9aeb6f0990"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "61c9951a86f989f968cfa3474b1482f204d6a998f32255424735a454433f86bc"
+    sha256 cellar: :any_skip_relocation, ventura:        "149c5997d45de0316974f96858a35e4b91e325ff61a1799feb70d7c19ea8d7ed"
+    sha256 cellar: :any_skip_relocation, monterey:       "970fcb23d317984e58afb673eb3193c6df5fbad4a1e4ba98fb25d043b6415bf8"
+    sha256 cellar: :any_skip_relocation, big_sur:        "91b2edfba72b7e182a8c7cdbd5f07dff0faf37d0fda46cc96780f52d53296c03"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dad7511ae7685d600e96c19fd0c2a2f42deefb982bb9423055e4c7a3e1e44cbb"
   end
 
   depends_on "maven" => :build
@@ -47,7 +47,7 @@ class Languagetool < Formula
   end
 
   service do
-    run [bin/"languagetool-server", "--port", "8081", "--allow-origin"]
+    run [opt_bin/"languagetool-server", "--port", "8081", "--allow-origin"]
     keep_alive true
     log_path var/"log/languagetool/languagetool-server.log"
     error_log_path var/"log/languagetool/languagetool-server.log"

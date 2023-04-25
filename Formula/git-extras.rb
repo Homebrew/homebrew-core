@@ -1,13 +1,19 @@
 class GitExtras < Formula
   desc "Small git utilities"
   homepage "https://github.com/tj/git-extras"
-  url "https://github.com/tj/git-extras/archive/6.5.0.tar.gz"
-  sha256 "eace7a0659749c72abf1cee68c03ea0a77715870d5e321c729e4a231ee359b61"
+  url "https://github.com/tj/git-extras/archive/7.0.0.tar.gz"
+  sha256 "3adcbc247d6cb78dc58cace22e9ad789cd6f5061522516660dfb59cc6ec08def"
   license "MIT"
   head "https://github.com/tj/git-extras.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "59dcbbb3d96e0aa5bb4fd5e7bb6e86383b9bbd5b3e752f1366fd70ba42b2e884"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "59d95f1583bfadaf3d3088fda40871c703668e8acc9592f544e49de5341956ec"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "59d95f1583bfadaf3d3088fda40871c703668e8acc9592f544e49de5341956ec"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "59d95f1583bfadaf3d3088fda40871c703668e8acc9592f544e49de5341956ec"
+    sha256 cellar: :any_skip_relocation, ventura:        "59d95f1583bfadaf3d3088fda40871c703668e8acc9592f544e49de5341956ec"
+    sha256 cellar: :any_skip_relocation, monterey:       "59d95f1583bfadaf3d3088fda40871c703668e8acc9592f544e49de5341956ec"
+    sha256 cellar: :any_skip_relocation, big_sur:        "59d95f1583bfadaf3d3088fda40871c703668e8acc9592f544e49de5341956ec"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "57de92d7366e7b2f23d2d767bf43bb82c7710a745074eaf7a166a40ac091ea68"
   end
 
   on_linux do

@@ -1,18 +1,18 @@
 class Scriptisto < Formula
   desc "Language-agnostic \"shebang interpreter\" to write scripts in compiled languages"
   homepage "https://github.com/igor-petruk/scriptisto"
-  url "https://github.com/igor-petruk/scriptisto/archive/refs/tags/v2.0.1.tar.gz"
-  sha256 "893a06d5349d2462682021f1e053488b07a608eee138dfcc9e68853223d48b81"
+  url "https://github.com/igor-petruk/scriptisto/archive/refs/tags/v2.1.1.tar.gz"
+  sha256 "0d96b54589e9efe6b2994ebd66b8c2a6b0971baaec66798da53b0978bdce6d28"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a5ebbf7af4d2b00e8ab3096dca55dbe031c74f7e59dcf06421584dcd851a5862"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1ad843e920b8bb4abdb8ab53120952c9e9c4dd63a1dafcc599daa102e55cf12e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4e945e6fd4037fdd52d72c34ca383be631b5a3bb87dad4e9165b63590b272d91"
-    sha256 cellar: :any_skip_relocation, ventura:        "0a36cd8392e6db538f39381d08757d2b1618cab7471029508b8dd40aed35579b"
-    sha256 cellar: :any_skip_relocation, monterey:       "43e6db419727d10fe03742a11f9cdf998f0ce09cec9906b1989f9fd8a7f74b0b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d1a452e563ab6946bca6be8666bb793ba34255c690243cc4cdcd4aa9a6646d34"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "19f409e45a80582afc370744deed2477ce3f222b35edd485d10105fcfaffafde"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "925d24e6cd29a5240be55a4cde9b783003742e7b2ea16164870ece16d8ab1c65"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "22db05ed07bac30043e313e8d564635e6273bcbd67f22daf392f8b3b1f7a00f8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c9febde14d2fe86bc88342b4cb51d4bee4fc4b9df757e454d27b886ff25534d4"
+    sha256 cellar: :any_skip_relocation, ventura:        "d6e2330d8ee92fbde9a16c5a5d85bdfd48b1fee92bab04c7c4bfb5abc9390377"
+    sha256 cellar: :any_skip_relocation, monterey:       "f207151397102480f07eaaedd0fb97782fda6e8fe947a846eb219e73ab96e71b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "deedfc1ef677ac7134d0eff3832f726e4260d8c51e1eb11e8459bde63af5698d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d018f86f84775751e42073177fa38feb0d492f252a24846b7eb4fc8a0719bfaf"
   end
 
   depends_on "pkg-config" => :build

@@ -6,6 +6,7 @@ class Arrayfire < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_ventura:  "40756d94bfe610e0a5d1c8f959f20535da69e3658d3cf88748eca2f1e230a6cc"
     sha256 cellar: :any,                 arm64_monterey: "695ade6b6f60c3ca0fd664c473b5739741986954cdd8df4e981d8eef331b3b85"
     sha256 cellar: :any,                 arm64_big_sur:  "7c5141c82083935c882f942bfd6ccbab6b9ead0983d0e212c60c7b92fd47e8d2"
     sha256 cellar: :any,                 ventura:        "0dbf7247ae4f2b26c2dc02d6a301d809bc391f498c7610cccfe9bce5a1a31630"
@@ -51,6 +52,9 @@ class Arrayfire < Formula
   test do
     cp pkgshare/"examples/helloworld/helloworld.cpp", testpath/"test.cpp"
     system ENV.cxx, "-std=c++11", "test.cpp", "-L#{lib}", "-laf", "-lafcpu", "-o", "test"
+    # OpenCL does not work in CI.
+    return if Hardware::CPU.arm? && MacOS.version >= :monterey && ENV["HOMEBREW_GITHUB_ACTIONS"].present?
+
     assert_match "ArrayFire v#{version}", shell_output("./test")
   end
 end

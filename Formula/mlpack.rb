@@ -29,14 +29,14 @@ class Mlpack < Formula
 
   resource "stb_image" do
     url "https://raw.githubusercontent.com/nothings/stb/e140649c/stb_image.h"
-    sha256 "8e5b0d717dfc8a834c97ef202d20e78d083d009586e1731c985817d0155d568c"
     version "2.26"
+    sha256 "8e5b0d717dfc8a834c97ef202d20e78d083d009586e1731c985817d0155d568c"
   end
 
   resource "stb_image_write" do
     url "https://raw.githubusercontent.com/nothings/stb/314d0a6f/stb_image_write.h"
-    sha256 "51998500e9519a85be1aa3291c6ad57deb454da98a1693ab5230f91784577479"
     version "1.15"
+    sha256 "51998500e9519a85be1aa3291c6ad57deb454da98a1693ab5230f91784577479"
   end
 
   def install

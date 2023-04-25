@@ -1,8 +1,8 @@
 class PythonTkAT310 < Formula
   desc "Python interface to Tcl/Tk"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.10.10/Python-3.10.10.tgz"
-  sha256 "fba64559dde21ebdc953e4565e731573bb61159de8e4d4cedee70fb1196f610d"
+  url "https://www.python.org/ftp/python/3.10.11/Python-3.10.11.tgz"
+  sha256 "f3db31b668efa983508bd67b5712898aa4247899a346f2eb745734699ccd3859"
   license "Python-2.0"
 
   livecheck do
@@ -10,13 +10,13 @@ class PythonTkAT310 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "09151dcb365ffbd31c371da3ea52f688f68e5e6e34812ee2de0eeb387c6ff25b"
-    sha256 cellar: :any, arm64_monterey: "0af569776354044dcd1c10c9d95690069757cb5ae684572f7d98f536a3b31c20"
-    sha256 cellar: :any, arm64_big_sur:  "4e762708d772fd93792122992d83e99c747ec44f051613026a67731074afc6ba"
-    sha256 cellar: :any, ventura:        "a7289c54d92181d5c50dc2556bdea1ea4c53679b4abf66bc1191d04369aa5e70"
-    sha256 cellar: :any, monterey:       "26e875fa1c76b7be4026f3833a0c37a4ac2fbad889b2ad0474222ca969df79b6"
-    sha256 cellar: :any, big_sur:        "90bedbb1a6fe2c28058ef9114cfad91b4ed6a54d2676ee3d243c3c5a3f506682"
-    sha256               x86_64_linux:   "30f84721267504f85471728e86b9ccc9020d0361b16b25e45ca1858d30686063"
+    sha256 cellar: :any,                 arm64_ventura:  "9a0a8ec94e95c50e6342759ad8131e05cfaafcc58375bfce7004b0ee00a4ebb0"
+    sha256 cellar: :any,                 arm64_monterey: "ee5f6b97d7c9744c883c6301c7a378b0fff3d626eb8ff4557b802844f30479a1"
+    sha256 cellar: :any,                 arm64_big_sur:  "52446c28e01104e2579b9eb02b68de842189de48dd15afc522eaf79dd6ce1eb0"
+    sha256 cellar: :any,                 ventura:        "fbfa94200e5faae888a080afa58578aba1c169e97c842651193fbcd46d86face"
+    sha256 cellar: :any,                 monterey:       "83ff7db648a67c4c99990452ad04eacea7219ec009f0a3f0231ba79389932b00"
+    sha256 cellar: :any,                 big_sur:        "301ea15e7625db0144fed03dacc59c16c1ce2ecac39fa473aec2e6416c04978c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ec79ec9ac475f29de278876dd600ae4738a38797529a9bcb771a820191deb32c"
   end
 
   keg_only :versioned_formula
@@ -40,7 +40,7 @@ class PythonTkAT310 < Formula
               ext_modules = [
                 Extension("_tkinter", ["_tkinter.c", "tkappinit.c"],
                           define_macros=[("WITH_APPINIT", 1)],
-                          include_dirs=["#{Formula["tcl-tk"].opt_include}"],
+                          include_dirs=["#{Formula["tcl-tk"].opt_include/"tcl-tk"}"],
                           libraries=["tcl#{tcltk_version}", "tk#{tcltk_version}"],
                           library_dirs=["#{Formula["tcl-tk"].opt_lib}"])
               ]
@@ -48,7 +48,7 @@ class PythonTkAT310 < Formula
       EOS
       system python3, *Language::Python.setup_install_args(libexec, python3),
                       "--install-lib=#{libexec}"
-      rm_r Dir[libexec/"*.egg-info"]
+      rm_r libexec.glob("*.egg-info")
     end
   end
 

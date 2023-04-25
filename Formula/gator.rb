@@ -1,19 +1,19 @@
 class Gator < Formula
   desc "CLI Utility for Open Policy Agent Gatekeeper"
   homepage "https://open-policy-agent.github.io/gatekeeper/website/docs/gator"
-  url "https://github.com/open-policy-agent/gatekeeper/archive/refs/tags/v3.11.0.tar.gz"
-  sha256 "cccdd43e1414a32acb6569e79747e66bb296db28a82f48303c878b797c742cb9"
+  url "https://github.com/open-policy-agent/gatekeeper/archive/refs/tags/v3.12.0.tar.gz"
+  sha256 "085e6ece06fe122f7c9df3b750fe0d3ef9c8c9f3a182460a0b59fbe8b14fdde0"
   license "Apache-2.0"
   head "https://github.com/open-policy-agent/gatekeeper.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6f1f847f0d8fc3e0087583ecbe86541fb04ca2f9d8eef3d6a9c8ccf24be90677"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "da0794ab3624824f643fc76c5268e98a073c7004e85310c5fd65caf6f7d31d01"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9dce7bc4b45efb10074737396e01e7621f68281e599caa4aaf2b355af5dbe20e"
-    sha256 cellar: :any_skip_relocation, ventura:        "cfab20e488566d51c7e32ef1e4f0c93de623c5074583135272b75146ac2cdb84"
-    sha256 cellar: :any_skip_relocation, monterey:       "abe8e639c2b221fc96adeaeb278d32995f974b895dbb76a20669d020a98237fb"
-    sha256 cellar: :any_skip_relocation, big_sur:        "68e67566d353b61de34e7d0ebae2e534f0ee7108563ac1c06d1b91a323ce20da"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cd8934c4ecc1ef78e2cb100fe2d1f52971bf127355ca7d87d21fef51baaaee63"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "54d22304deb041f3b3f3841b8ffd76cfae6034e0cede64c698016d175f038181"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "39a3c87cc44ba2d019177bef3fb47194eb06040e712823b63165363bf64466ae"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "39a3c87cc44ba2d019177bef3fb47194eb06040e712823b63165363bf64466ae"
+    sha256 cellar: :any_skip_relocation, ventura:        "17f775056d58ceb3301c3009688eab629ec100b6d0a468e53f83f41f1e9436a7"
+    sha256 cellar: :any_skip_relocation, monterey:       "d601ac580a7e56cfa747b8b25c0132c26edea462b5d543e3983e1509bc0ca5a1"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d601ac580a7e56cfa747b8b25c0132c26edea462b5d543e3983e1509bc0ca5a1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f36882b3106607196ac528a2c8305cbcb08e4eefa36e98b779ad8ff203988c0d"
   end
 
   depends_on "go" => :build

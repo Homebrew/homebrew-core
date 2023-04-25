@@ -1,20 +1,19 @@
 class Cfssl < Formula
   desc "CloudFlare's PKI toolkit"
   homepage "https://cfssl.org/"
-  url "https://github.com/cloudflare/cfssl/archive/v1.6.3.tar.gz"
-  sha256 "501e44601baabfac0a4f3431ff989b6052ce5b715e0fe4586eaf5e1ecac68ed3"
+  url "https://github.com/cloudflare/cfssl/archive/v1.6.4.tar.gz"
+  sha256 "652b8c50882035e7dc13e937729c84217259838ba80ce089048b96795389482e"
   license "BSD-2-Clause"
   head "https://github.com/cloudflare/cfssl.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8eec84f1596edabb713888989797d9e5b5dd0ecc7e0294c94633b3f6f825098f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "28d0e6236486aa126f772d7032ecabdf328fc47868732986d583bbe306fee46f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3017502bbc93892c0745141349353acb3bc9e332fba7877a96a72174c75248b4"
-    sha256 cellar: :any_skip_relocation, ventura:        "8bfbfe4d4a3b0780943092c99e1e3118920795f0913c48eee1abb17bd1c4493c"
-    sha256 cellar: :any_skip_relocation, monterey:       "9f1fcc16f9eb7529cd885cd00f98ce85b85538c965580e2fd339efb7565c1543"
-    sha256 cellar: :any_skip_relocation, big_sur:        "23cdd69e2098cd6fcf2d7bcad7c82d631616d93d2e96cec9f8bede446adc7d6d"
-    sha256 cellar: :any_skip_relocation, catalina:       "2c4b8d46567c449c0e728fdb459ac5e0b327e8d5093655d3b5b7eef18f099abd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b5a93664ec06633cd8566a1acdb576c500dc57cf7e47e70e1bc6ab018a964d80"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "13eec81639a2f2b7410d7bbc82b8eee6f5d154c97dfeece7556e464a7d350ecb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "509d715fcb6c46394d74e4475f9755656b4dc129251d81f9f18658f994af3b0f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "21d5f13dabd1641e6c1507da0b5c55930595e51f6bc89d28dc64dc43f9efe113"
+    sha256 cellar: :any_skip_relocation, ventura:        "d121eae6acb5ac4ee9b2f931d20ff534904931de37a239f0eea67e5e5d919a55"
+    sha256 cellar: :any_skip_relocation, monterey:       "b14fd6d83726ae06b3062b682055b174fe31c73c0983a9e2a040f063aaea46a2"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0c388e257623007107d6b5ffe192c759e1a03055eb632357b90cf1c2b32669f5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "38ce3de9fbc732613b2825b7c01106fb566a236afce1d1ee4855f341146e8339"
   end
 
   depends_on "go" => :build

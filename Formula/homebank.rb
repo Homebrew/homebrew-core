@@ -2,9 +2,9 @@ class Homebank < Formula
   desc "Manage your personal accounts at home"
   homepage "http://homebank.free.fr"
   # A mirror is used as primary URL because the official one is unstable.
-  url "https://ftp.openbsd.org/pub/OpenBSD/distfiles/homebank-5.6.2.tar.gz"
-  mirror "http://homebank.free.fr/public/sources/homebank-5.6.2.tar.gz"
-  sha256 "12ebde58e04d3c18496f95496067c4e8841b0d111668d1f47c239292b15316f1"
+  url "https://ftp.openbsd.org/pub/OpenBSD/distfiles/homebank-5.6.3.tar.gz"
+  mirror "http://homebank.free.fr/public/sources/homebank-5.6.3.tar.gz"
+  sha256 "419475f564bbd9be7f4101b1197ce53ea21e8374bcf0505391406317ed823828"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -13,13 +13,13 @@ class Homebank < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "9a0f7a9a1b22bc24230b9d13b21d724fdd78f65bfe0d43a84c86089a262e2344"
-    sha256 arm64_monterey: "846dc3e50b9f85dd1f525a488cf9ad4d58922e0c1bb376a7ca509e2ac01f03dc"
-    sha256 arm64_big_sur:  "6c07c9571cefcf76e40bfe32ea8df396d3feb25c86b5e665d6d44b9a71f6022b"
-    sha256 ventura:        "170ee9eba82ce1fbd4b5287b2b60126463a605697f4b06e22349067a89dc9f26"
-    sha256 monterey:       "80d205842c5137922d0616f98347373127e36fef67b66d14466f5ff4779f5a59"
-    sha256 big_sur:        "fd2d6680b33b81b81342ca779c356dcb6a784fe4006ac4bb8e5f243dcbd3c12b"
-    sha256 x86_64_linux:   "babd749b1e63009cfd724165ebb465fb2507d8c1e8895f8eccc77a4894c319a4"
+    sha256 arm64_ventura:  "8137d3e7f623c9a6a35eeaa4bfe68d23d25da9a9867c2894feda6debcc2b1ebc"
+    sha256 arm64_monterey: "e556fb2203454cedcb4a6a198170ebbfa06f24a966c2644f3238d1cd0bd2a49b"
+    sha256 arm64_big_sur:  "e6d1f0d465c5bb0187ee2df56772577a05a712f75d441ffd8d60b33fea930455"
+    sha256 ventura:        "8110f5df28dd966d24d6a580eea69b244e8cea52b9769cd129e2baa7e3d2e9b6"
+    sha256 monterey:       "84b9065b87f5320daf6b5b2777557330965d187fb2439184d9489463f998f5cb"
+    sha256 big_sur:        "e3f007a111e9c2b0b4e2fe5beee8d7292cc37af57546b9b6f2585b84116f1c46"
+    sha256 x86_64_linux:   "3470b8d8f9d650a3ad8da55830d9ae5de162262dfba3c75dcdafeb800b2aa1a8"
   end
 
   depends_on "intltool" => :build

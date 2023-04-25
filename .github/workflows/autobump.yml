@@ -193,7 +193,6 @@ env:
     dnscontrol
     dnscrypt-proxy
     dnsx
-    docfx
     docker
     docker-compose
     docker-credential-helper
@@ -844,7 +843,7 @@ jobs:
           username: ${{ (github.event_name == 'workflow_dispatch' && github.actor) || 'BrewTestBot' }}
 
       - name: Bump formulae
-        uses: Homebrew/actions/bump-formulae@master
+        uses: Homebrew/actions/bump-packages@master
         continue-on-error: true
         with:
           token: ${{ secrets.HOMEBREW_CORE_REPO_WORKFLOW_TOKEN }}

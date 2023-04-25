@@ -32,7 +32,7 @@ class Nsq < Formula
   end
 
   service do
-    run [bin/"nsqd", "-data-path=#{var}/nsq"]
+    run [opt_bin/"nsqd", "-data-path=#{var}/nsq"]
     keep_alive true
     working_dir var/"nsq"
     log_path var/"log/nsqd.log"

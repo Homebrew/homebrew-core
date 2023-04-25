@@ -1,8 +1,8 @@
 class Flix < Formula
   desc "Statically typed functional, imperative, and logic programming language"
   homepage "https://flix.dev/"
-  url "https://github.com/flix/flix/archive/refs/tags/v0.34.0.tar.gz"
-  sha256 "437293fce5f401587f0ebbcea743781627869c1363727deb8e36a206daab373a"
+  url "https://github.com/flix/flix/archive/refs/tags/v0.35.0.tar.gz"
+  sha256 "08065fabb782dc417ce1b76591810ed5f20e3748d24d1e7453992b72f4d264dd"
   license "Apache-2.0"
   head "https://github.com/flix/flix.git", branch: "master"
 
@@ -12,14 +12,13 @@ class Flix < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bd1908131c8e3c5acd1845ba2b0e21ec0c2ee220d9274b2335038688d9e2b296"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e874be50191d4db0d2899007b810284f785d4c1f9d5902f76cb57c6519e62cc4"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ab017cdd20c4d7871191cfe24dfdf6f925452a72328852f52c70729d094e4b87"
-    sha256 cellar: :any_skip_relocation, ventura:        "3afdf1ea1f8c672f53c2b25b8d503b55bc1778cd5d1dd66c72b0ff1b78e0f601"
-    sha256 cellar: :any_skip_relocation, monterey:       "55f5b4fe2d1ad356a1ee9122f923c6ce811ada766b0990902b7d6a74ab572ef8"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a610f73a366538a8d2b8404d5c86c3b37693332da44e2e9c0096d92151747406"
-    sha256 cellar: :any_skip_relocation, catalina:       "a1ce694f41aec6c11379c1953080b2f7849fe67f701bbe8a8aee9c0c331fa913"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1384d92519febc995bd9bc6a9a21f4dd2f854536e30cc53b3c4221cc7e250066"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cfc7a9952aa1461251c7109f6a0d0fa9d0307260f1efafbba1877e591464b579"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "736762e6f9d3802f0cd90a9848282c56bb03f6fbf6d5da89b5f2be5414c71b3e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ef20e4f6aa582044bb5d36345ac8d2e7a868a1ddcfa3e86c1e2227ad6d326e49"
+    sha256 cellar: :any_skip_relocation, ventura:        "a660a92fdcaae1a494c0b0348a067e2f4e3fb8e55587dde60ec858c1ea0a5856"
+    sha256 cellar: :any_skip_relocation, monterey:       "06ffccb4deee3d8be0765a4455c5e9531eff65266c5691457c1ba2873eaf919e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0a1a845ce32117c8f9e33220e9aa54e71be46bbb60f018ab224a9a350d622c64"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8192b78068864f6d8205ad5f6ef82877da87714932f0cfa7b315d24153b3bbd0"
   end
 
   depends_on "gradle" => :build

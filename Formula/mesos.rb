@@ -35,7 +35,7 @@ class Mesos < Formula
     # CXXFLAGS via environment variables. Since compiler flags are passed via
     # environment variables the Mesos build will silently ignore flags like
     # `--[disable|enable]-optimize`.
-    ENV.O0 unless DevelopmentTools.clang_build_version >= 900
+    ENV.O0 if DevelopmentTools.clang_build_version < 900
 
     ENV.cxx11
 

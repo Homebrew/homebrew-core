@@ -1,8 +1,8 @@
 class RubyAT30 < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  url "https://cache.ruby-lang.org/pub/ruby/3.0/ruby-3.0.5.tar.xz"
-  sha256 "cf7cb5ba2030fe36596a40980cdecfd79a0337d35860876dc2b10a38675bddde"
+  url "https://cache.ruby-lang.org/pub/ruby/3.0/ruby-3.0.6.tar.xz"
+  sha256 "b5cbee93e62d85cfb2a408c49fa30a74231ae8409c2b3858e5f5ea254d7ddbd1"
   license "Ruby"
 
   livecheck do
@@ -11,13 +11,13 @@ class RubyAT30 < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "7c79af1c3008a6f73f3dd3a696488d7cbc86f64530e8341f5e42e247d895156a"
-    sha256 arm64_monterey: "dd27d5f6f9d3dbe0d0b742b9db51c61a5bb56352c376848215fa3e2522ed9e99"
-    sha256 arm64_big_sur:  "d941db797cc5d907c48e9f6db68eb44847c9bfae512daf662835d40638b4c0f8"
-    sha256 ventura:        "e8ac2fcc51edef52f25479eb0d245de0943ed3de5c47854cc87771f644de84bd"
-    sha256 monterey:       "f5a6f87f173276ffa19d59471ad744cf3ca27c053e041a31013f20ff9c439738"
-    sha256 big_sur:        "4875aa79081eed703482085a09f3041f54cf1ff398feccd6b50a36b657b13ff1"
-    sha256 x86_64_linux:   "87b44a4efb564b4f427d7228947c8a79f0d4d02221f064ffd322c09e18ac6cde"
+    sha256 arm64_ventura:  "619b5db1867ebac069c239a6ba09244bd0c4fc32e7b0d02e87296531f3d4d6ed"
+    sha256 arm64_monterey: "cc941991a48b39ff5af49ef0e3953784bbeb7e3c1e9bec636ab4b7479c7c118f"
+    sha256 arm64_big_sur:  "28a13673eaa1a8973c38edf2cbc96426406c087658a56f1a22347982703609b6"
+    sha256 ventura:        "f2947a2641586fa3e54ea335eddd2fddd1358904ef84843cf53fac452e659b86"
+    sha256 monterey:       "ccd50d3e4a07f6771ebdbb1200f2cfecd9905da50cf0087038db96a3e34d5c03"
+    sha256 big_sur:        "64182c873df8450182304ca4c57d35ce31e70ac940eb155f2c05005ed1c018a6"
+    sha256 x86_64_linux:   "071f2463ab19fa16b4ced7eebf04ef0e4d8077736299625c65676be9c0793056"
   end
 
   keg_only :versioned_formula
@@ -34,8 +34,8 @@ class RubyAT30 < Formula
   # The exception is Rubygem security fixes, which mandate updating this
   # formula & the versioned equivalents and bumping the revisions.
   resource "rubygems" do
-    url "https://rubygems.org/rubygems/rubygems-3.3.26.tgz"
-    sha256 "9b17a53a000a599926cf1ef19e9d2a35f87b436ae6500225eebe55db320dc68c"
+    url "https://rubygems.org/rubygems/rubygems-3.4.10.tgz"
+    sha256 "55f1c67fa2ae96c9751b81afad5c0f2b3792c5b19cbba6d54d8df9fd821460d3"
   end
 
   def api_version

@@ -1,20 +1,19 @@
 class Checkmake < Formula
   desc "Linter/analyzer for Makefiles"
   homepage "https://github.com/mrtazz/checkmake"
-  url "https://github.com/mrtazz/checkmake/archive/refs/tags/0.2.1.tar.gz"
-  sha256 "6e0d5237bc1de2a42ba1cf1a5c1da7d783bd9da06755e0c7faba6c3ba77ab1ee"
+  url "https://github.com/mrtazz/checkmake/archive/refs/tags/0.2.2.tar.gz"
+  sha256 "4e5914f1ee3e5f384d605406f30799bf556a06b9785d5b0e555fd88b43daf19c"
   license "MIT"
   head "https://github.com/mrtazz/checkmake.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b9da4cafb1456751efcaeea6f5e8d4997ed630cc50f62fbdabe5350c87dfa440"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9b44ebba9cd231360d1ce26bf267d1de798ba46749de675754e53d45db4c32da"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "24ce2c8ae0ac84bd82f2d9fcca62b79e2fe189ebbf41b502292f620e8d02d75c"
-    sha256 cellar: :any_skip_relocation, ventura:        "4f8fcee18124ddc734503023d1b7ce71a0ada763fbe5f88eda23802efd7b2529"
-    sha256 cellar: :any_skip_relocation, monterey:       "62cfef18de480939e07625149342472987f67bd90b1178af336ba0b4fc0bcb68"
-    sha256 cellar: :any_skip_relocation, big_sur:        "4a74120f70f175c06024f27e623d17f6a832add7396b1d938d53260cf2c53453"
-    sha256 cellar: :any_skip_relocation, catalina:       "31a3acccf4806de261ea299a45e07e733d376d5adc77bc8f04941d4c1cbda25f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b6fa0c4144a7bae1f4dc990a13eaf4a0970ff7b84ea3afdb30ae6a3cfe90b491"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d48a73b85de9be214bafa9ab4cf9712cf1934f898d3fc7b3b6160507a788e3b7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4ddd0a9fa6c9c4e9ba3cd4b04986f6f34f55e3787bd6c6e9dde0dee30a577937"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "56a6b97b1e5c3dc5b6a589e0d52b526eb2a0529dfce6a9b8a4a85b93a9bd9da3"
+    sha256 cellar: :any_skip_relocation, ventura:        "836d536fe0255fc744a2fa630572e54477f8e59ab19006ddfebb09be51fd14c0"
+    sha256 cellar: :any_skip_relocation, monterey:       "16692c95f5e36286cfeedfe914b239200d428b7ed64c1ae61c931c1568dcdbdd"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e8f88660a76082b44e64c8485238aaf46d5e18575ea11ce47c93a2466af24bcd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "920aea0127e9224ec538e4c4f1f1e4fafec0f6e10610687e60c20d053cc02f0e"
   end
 
   depends_on "go" => :build

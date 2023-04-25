@@ -14,6 +14,7 @@ class Libntlm < Formula
     sha256 cellar: :any,                 arm64_ventura:  "d8d6009fd8f61ed5c328f0dc175769f814070d7df24e112c13c4a41852eff77b"
     sha256 cellar: :any,                 arm64_monterey: "2f27227db0e6572c8332911e61888cbbc0cf223426de87191f97b35164ef20fa"
     sha256 cellar: :any,                 arm64_big_sur:  "0b3b553a37a15dd0ffd396e8d07b295197e39f8f4e8670dc49a5ae214ded1cc1"
+    sha256 cellar: :any,                 ventura:        "0f53829f0f54569250c5e698e582ec9caeb48ab8c0f7b43c729f2778e5e248e1"
     sha256 cellar: :any,                 monterey:       "77de0ff9606d4701c26356065cc8ee0f6bbe9ca13b12e3494addf1b0e41f4c01"
     sha256 cellar: :any,                 big_sur:        "c8662388829c4cacb52f1c948b8ae2ba19ad8c28ef53cda651b0e5cf8c0529fe"
     sha256 cellar: :any,                 catalina:       "7e34bd216191b40a86075d825c98c929d4f61842be989b605caba169ac68c999"

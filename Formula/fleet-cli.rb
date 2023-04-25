@@ -2,8 +2,8 @@ class FleetCli < Formula
   desc "Manage large fleets of Kubernetes clusters"
   homepage "https://github.com/rancher/fleet"
   url "https://github.com/rancher/fleet.git",
-      tag:      "v0.5.3",
-      revision: "b90a1d37a79da99a273ec67f7127eb657bf5f5ea"
+      tag:      "v0.6.0",
+      revision: "26bdd9326b0238bb2fb743f863d9380c3c5d43e0"
   license "Apache-2.0"
   head "https://github.com/rancher/fleet.git", branch: "master"
 
@@ -13,13 +13,13 @@ class FleetCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "752e257f208258ab3d66ae6c151ca9a80c15d1e46a423e9444d2c6b66ce0e693"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "81bbb2f39268eb89e9fd9bd50d91b69bbb46b86094d2483c9baca4d3884f0fae"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6d65c26fa246ba4f7744315c3d02015bac07c023715ad983eb1e054ea6bf7c45"
-    sha256 cellar: :any_skip_relocation, ventura:        "929756fa39c7a422dc4ef2ad77b6ea7634516ae8516469468ca77d866c30a894"
-    sha256 cellar: :any_skip_relocation, monterey:       "aaec9d03f270e06be771c81cbd5adabee430ae9f643757c55366cd677b530bf6"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8b43fbd5f9f2f2f65c62a5033cbd1e87398bfa3b8ddd8e2b6d468cc6cc4e75a0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f664c868548385d5c1862dc9af3fec363c0d869bed6e96080ea05b62548bad4a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "923d11053d357c0b6087cd8fe29ec9b1050a0962c6a3dbb0988e511d36e0019d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8d4158f6690e7ba4c1df39bc1454886a4eeef9e9a3056aeaa249c866bf49e7ce"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "724f06a916ef4be66c176bdd831b3c3513743c8739df8114ea3fb5f3d558e7d8"
+    sha256 cellar: :any_skip_relocation, ventura:        "5828e6576b28ec53bbebee4fedc1ba80cd98b37eea352b4d16aa04b683afaf85"
+    sha256 cellar: :any_skip_relocation, monterey:       "5f9e87274ab1734a4f24e57853eed76ebff83af319e0d0446b8033f9e8e18303"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4a8d713fd4e3c029c6bec7ce334323e889d7e38a7de57210d35805024e42ce65"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3eca51737e3dda51d45826b858815ab80a3e015bbc21f1951d4c9f9b08cf0734"
   end
 
   depends_on "go" => :build

@@ -1,8 +1,8 @@
 class Ice < Formula
   desc "Comprehensive RPC framework"
   homepage "https://zeroc.com"
-  url "https://github.com/zeroc-ice/ice/archive/v3.7.8.tar.gz"
-  sha256 "f2ab6b151ab0418fab30bafc2524d9ba4c767a1014f102df88d735fc775f9824"
+  url "https://github.com/zeroc-ice/ice/archive/v3.7.9.tar.gz"
+  sha256 "960b51bb14a0c89d60c0e65cb1d4c6b09fe94d4e4c033c50254f7cc9c862d3c0"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,15 +11,13 @@ class Ice < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "49d742e66f44d924bc3b625847a4845f6edeab5ea687e257d4cb235044650401"
-    sha256 cellar: :any,                 arm64_monterey: "6650cecd9095c96c494edf121678aa8e89566f8d0bdfe4d5540c7222b951179e"
-    sha256 cellar: :any,                 arm64_big_sur:  "8afe5f234ae949865fddca70ab16e15e33319f286075089f752f6b146abeba5f"
-    sha256 cellar: :any,                 ventura:        "7c81d01ea748e908519004fdfa3c3bc7b52ddd75c9c911a8f9eb76d9c2377baf"
-    sha256 cellar: :any,                 monterey:       "aa346abe07a352e4ea23803bc9c7bf73a95e6f2efa026d5ca47ea8d109f6dfae"
-    sha256 cellar: :any,                 big_sur:        "1e078df1a92a1cd953d2d6ec66363ea8ca52e731c73bd650bc4156eee6f45d9f"
-    sha256 cellar: :any,                 catalina:       "80efcfad8576c1357f1932dce4b5d46910839018fba3f006e433cb29f228ca23"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f73974710d6af39e7bca7ada86590b5be72aa9304bc4ee6af062fdf6e20203d4"
+    sha256 cellar: :any,                 arm64_ventura:  "8abb7a70ae78940a3d1b09ee06459393186dca1311ee722d7da1a8045ddebed7"
+    sha256 cellar: :any,                 arm64_monterey: "e9b1b953bac6ed187face9857452f19996f45731f8bb02ae6d51e3cb03834de3"
+    sha256 cellar: :any,                 arm64_big_sur:  "62654e3d059ad2a1193577026f1d284bb19f851c9abe1951bf521f56c3bc6260"
+    sha256 cellar: :any,                 ventura:        "4fb4b35bc9661033888f56a07f283bd15d550cb3499fca1664ad55b999659b11"
+    sha256 cellar: :any,                 monterey:       "171f77778ff19662d9f51eaa6b7b211643d12c5be55d5fea148290f2997f6d6c"
+    sha256 cellar: :any,                 big_sur:        "cee34743d6cb58200cfdaf51efbe81e0e757a76a84857b1b8bbf2b20db087d5b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "23b6142583b6ffc1cb0535926ef60acf1e2329df32910d8d814ffe71654acee5"
   end
 
   depends_on "lmdb"

@@ -4,15 +4,16 @@ class Libplacebo < Formula
   desc "Reusable library for GPU-accelerated image/video processing primitives"
   homepage "https://code.videolan.org/videolan/libplacebo"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://code.videolan.org/videolan/libplacebo.git", branch: "master"
 
   stable do
-    url "https://code.videolan.org/videolan/libplacebo/-/archive/v5.264.0/libplacebo-v5.264.0.tar.bz2"
-    sha256 "361c2936b0c9d18ca4a56a7aee63f91f3024c3206f72d42205ca58ed941e0c6b"
+    url "https://code.videolan.org/videolan/libplacebo/-/archive/v5.264.1/libplacebo-v5.264.1.tar.bz2"
+    sha256 "99ebcf90f3d3c6c4e5b9364091575b9b75d5a1a7d2356a60d8cf67d4fd93b5da"
 
     resource "glad" do
-      url "https://files.pythonhosted.org/packages/e5/5f/a88837847083930e289e1eee93a9376a0a89a2a373d148abe7c804ad6657/glad2-2.0.2.tar.gz"
-      sha256 "c2d1c51139a25a36dbadeef08604347d1c8d8cc1623ebed88f7eb45ade56379e"
+      url "https://files.pythonhosted.org/packages/8b/b3/191508033476b6a409c070c6166b1c41ebb547cc6136260e9157343e6a2b/glad2-2.0.4.tar.gz"
+      sha256 "ede1639f69f2ba08f1f498a40a707f34a609d24eb2ea0d6c9364689a798cf7d0"
     end
 
     resource "jinja" do
@@ -21,19 +22,19 @@ class Libplacebo < Formula
     end
 
     resource "markupsafe" do
-      url "https://files.pythonhosted.org/packages/1d/97/2288fe498044284f39ab8950703e88abbac2abbdf65524d576157af70556/MarkupSafe-2.1.1.tar.gz"
-      sha256 "7f91197cc9e48f989d12e4e6fbc46495c446636dfc81b9ccf50bb0ec74b91d4b"
+      url "https://files.pythonhosted.org/packages/95/7e/68018b70268fb4a2a605e2be44ab7b4dd7ce7808adae6c5ef32e34f4b55a/MarkupSafe-2.1.2.tar.gz"
+      sha256 "abcabc8c2b26036d62d4c746381a6f7cf60aafcc653198ad678306986b09450d"
     end
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "1b05f2f221207a72eb0aeff0e9e37b8d1f4e835e159a0a2bb36d7acddfe9c2ef"
-    sha256 cellar: :any,                 arm64_monterey: "c0e4a6375bc8fd2d89247a4bbc6c61dbf48253610d02e3ddc1d5c12668c84724"
-    sha256 cellar: :any,                 arm64_big_sur:  "ad4989d3cbbce00f7e8bcd9fc83ee2c7251e7badba15d488871d70736e962867"
-    sha256 cellar: :any,                 ventura:        "246b9d7683c435ba28de917fb9de6fbce3f21922a4a3654ddd8baac1bb925dec"
-    sha256 cellar: :any,                 monterey:       "bb3746c338f7c079f537167689761fd626dbee20fa668625e2729e56f3cbe876"
-    sha256 cellar: :any,                 big_sur:        "67b2935367bd5517deea483e4a1289240e5a1ec47c46ecf788ae95a0819cac00"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1b5a9b11c0861b7bd23b547dcaf36648194ab4062d639428ba7500791653deac"
+    sha256 cellar: :any,                 arm64_ventura:  "9d6423a4c9ff3d326b068f0f10abc389769701e617b15dbd0d38871da16a6155"
+    sha256 cellar: :any,                 arm64_monterey: "39ff9ddf8b2ba333da3bc325645ae99dde829caa0703ed230950d9171eca32d2"
+    sha256 cellar: :any,                 arm64_big_sur:  "2b234b5b0948585ce886cb70fb8c03f6f4539ac72d65cd96323b54643b3890ba"
+    sha256 cellar: :any,                 ventura:        "55383e879f4d04e5a3b742a48516e11483b301becbd7c0f54d4c08a378e887c3"
+    sha256 cellar: :any,                 monterey:       "c7fa2501c6c647d138c1ef8b3a4ca376240e914634718f681f94e7190321f983"
+    sha256 cellar: :any,                 big_sur:        "5ec8ab7ada6f94318d2f036bbfe30ac6323d23957353f1a586ef62d2db6e0847"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "724174e2c690bdad334c6bdaa48e2163c5a44a352d10d980d47f2c6d2879f826"
   end
 
   depends_on "meson" => :build

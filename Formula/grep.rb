@@ -16,10 +16,24 @@ class Grep < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b0ab17147739106c7bd0360ddce18374025f37ea5e8badf2df1010774046def8"
   end
 
+  head do
+    url "https://git.savannah.gnu.org/git/grep.git", branch: "master"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "gettext" => :build
+    depends_on "texinfo" => :build
+    depends_on "wget" => :build
+
+    uses_from_macos "gperf" => :build
+  end
+
   depends_on "pkg-config" => :build
   depends_on "pcre2"
 
   def install
+    system "./bootstrap" if build.head?
+
     args = %W[
       --disable-dependency-tracking
       --disable-nls

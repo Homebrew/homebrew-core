@@ -22,6 +22,10 @@ class PythonTkAT39 < Formula
   depends_on "python@3.9"
   depends_on "tcl-tk"
 
+  def python3
+    "python3.9"
+  end
+
   def install
     cd "Modules" do
       tcltk_version = Formula["tcl-tk"].any_installed_version.major_minor
@@ -34,22 +38,22 @@ class PythonTkAT39 < Formula
               ext_modules = [
                 Extension("_tkinter", ["_tkinter.c", "tkappinit.c"],
                           define_macros=[("WITH_APPINIT", 1)],
-                          include_dirs=["#{Formula["tcl-tk"].opt_include}"],
+                          include_dirs=["#{Formula["tcl-tk"].opt_include/"tcl-tk"}"],
                           libraries=["tcl#{tcltk_version}", "tk#{tcltk_version}"],
                           library_dirs=["#{Formula["tcl-tk"].opt_lib}"])
               ]
         )
       EOS
-      system "python3.9", *Language::Python.setup_install_args(libexec), "--install-lib=#{libexec}"
+      system python3, *Language::Python.setup_install_args(libexec), "--install-lib=#{libexec}"
       rm_r libexec.glob("*.egg-info")
     end
   end
 
   test do
-    system "python3.9", "-c", "import tkinter"
+    system python3, "-c", "import tkinter"
 
     return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
 
-    system "python3.9", "-c", "import tkinter; root = tkinter.Tk()"
+    system python3, "-c", "import tkinter; root = tkinter.Tk()"
   end
 end

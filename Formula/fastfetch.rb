@@ -1,19 +1,19 @@
 class Fastfetch < Formula
   desc "Like neofetch, but much faster because written in C"
   homepage "https://github.com/LinusDierheimer/fastfetch"
-  url "https://github.com/LinusDierheimer/fastfetch/archive/refs/tags/1.10.3.tar.gz"
-  sha256 "55385feb4f4d7c16b3e8555afb20b030f3dbf446e225b09f1dcae163702225b6"
+  url "https://github.com/LinusDierheimer/fastfetch/archive/refs/tags/1.11.0.tar.gz"
+  sha256 "900b3c19f56fca59fd90ae2a033f40fec00185f2a0078dabdcc13a27635dd989"
   license "MIT"
   head "https://github.com/LinusDierheimer/fastfetch.git", branch: "dev"
 
   bottle do
-    sha256 arm64_ventura:  "75b8ed1f9d6a49ea1151f745a56d8f384d7832031309980042873289b4ca98ae"
-    sha256 arm64_monterey: "7abb0c38ed062cae9180a470d148a98e1066cf091b3fa6a1174aa8d6e16257d7"
-    sha256 arm64_big_sur:  "d2dc385192cd11cbf0e93c5abb96604f2a6c54297cd64f129d841d9cd3214bd9"
-    sha256 ventura:        "8f5bebea27207fcaae807df3d4713eac87574b22e09132c9dea2047dfaf82f9b"
-    sha256 monterey:       "9a0cd67b337ca945fb6f9992ba77610bacda8147f510c5ece7a8c65011bb148e"
-    sha256 big_sur:        "0b2ea1e43b573495aae25c57ca1d3576461edb954ae3643010015cb7d05a0285"
-    sha256 x86_64_linux:   "3431af9bb1988a8fec76e570a4c7b12c4dc6aad6f8a42a6f07521f91dc39369b"
+    sha256 arm64_ventura:  "15b7187ea861c2110c3ed01c56dcecdcbee58b60dc50ef892ab99746c31abedf"
+    sha256 arm64_monterey: "c84c166bba95c675ec36402b5704207d8881763194cf4736b1dcd95cc8a19a45"
+    sha256 arm64_big_sur:  "0cef9df1b1c671094488989ec99b953eb1d2231d753a3ece48aad97c9b85d9f4"
+    sha256 ventura:        "2b43cb3177edb281da601fa7413b8166a229618a2be243acee5d6f6d5fb33298"
+    sha256 monterey:       "448be07a44648cdd3f637bf0956f0a7f2e3a48c61beef21a834e32ff2f641ceb"
+    sha256 big_sur:        "6491d5c1e62fdd4d121a42462b694fbb37cd43e3ace99e2ab7b21bee1753a9bd"
+    sha256 x86_64_linux:   "baae2fe968ce7c455c24baf17fd222e95cd56bf3708bddbea4e25fc68878fc26"
   end
 
   depends_on "chafa" => :build
@@ -25,10 +25,25 @@ class Fastfetch < Formula
 
   uses_from_macos "zlib" => :build
 
+  on_linux do
+    depends_on "dbus" => :build
+    depends_on "json-c" => :build
+    depends_on "libx11" => :build
+    depends_on "libxcb" => :build
+    depends_on "libxrandr" => :build
+    depends_on "mesa" => :build
+    depends_on "opencl-icd-loader" => :build
+    depends_on "pulseaudio" => :build
+    depends_on "rpm" => :build
+    depends_on "sqlite" => :build
+    depends_on "wayland" => :build
+  end
+
   def install
     system "cmake", "-S", ".", "-B", "build", "-DCMAKE_INSTALL_SYSCONFDIR=#{etc}", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
+    bash_completion.install share/"bash-completion/completions/fastfetch"
   end
 
   test do

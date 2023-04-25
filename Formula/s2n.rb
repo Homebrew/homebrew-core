@@ -1,8 +1,8 @@
 class S2n < Formula
   desc "Implementation of the TLS/SSL protocols"
   homepage "https://github.com/aws/s2n-tls"
-  url "https://github.com/aws/s2n-tls/archive/v1.3.41.tar.gz"
-  sha256 "46d68a57094f2671809d43263996d4ba36457a79e856cbcd721748a7b13c60ab"
+  url "https://github.com/aws/s2n-tls/archive/v1.3.42.tar.gz"
+  sha256 "b1287f71753cd3812fd3d6cfa91c458840f98c891fae6d5585a0ee09477cb8ff"
   license "Apache-2.0"
   head "https://github.com/aws/s2n-tls.git", branch: "main"
 
@@ -12,13 +12,13 @@ class S2n < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "9227c7ab25a701640b7a4572643d380e5e3751133e33e1ac915159a5f8d65c19"
-    sha256 cellar: :any,                 arm64_monterey: "aab0912603019b4bdaa7bb4cb4ed6ea8c67df81e3028fdee4a44f6ab8a5095e5"
-    sha256 cellar: :any,                 arm64_big_sur:  "7e6145f5fa563f462344a1d8d05ce4922003e47a8c93dcd9ae1375c4e906765f"
-    sha256 cellar: :any,                 ventura:        "e19778030d50c5240e5d05aeda47ab1d56c3413700b47aa064024aaea6efcb13"
-    sha256 cellar: :any,                 monterey:       "cc564e55cbb22070619e4ec3953beb47c31421de22c30ee6e770ed760746621c"
-    sha256 cellar: :any,                 big_sur:        "8caf191e5f993de55fc6ca24ff936e551542020c7fe7b7cd29614d0084e39cac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9aadce9fb8eda980bdae6d3765c3ecd63d1971a0176091f8b66d415cb0002c00"
+    sha256 cellar: :any,                 arm64_ventura:  "746183550d00edc8ffadae61904e58e2fc06a7f37b4908b5195e17fa8c0a9abd"
+    sha256 cellar: :any,                 arm64_monterey: "15a7d688b34be100e48ab9e661026db9b82d5656ec466452352c553122acd626"
+    sha256 cellar: :any,                 arm64_big_sur:  "9a7b60968c633d89276ec1a6a72932f5da0bda6ec907154253742eec1e33c0ef"
+    sha256 cellar: :any,                 ventura:        "3dee359f94360a41181c34d50bce2363f6a589e8870004295c493e214bfc097f"
+    sha256 cellar: :any,                 monterey:       "e66e7d3cd91695576ae0171b415b6b5c590343e7fe9f9a2fb54c58ea2229a383"
+    sha256 cellar: :any,                 big_sur:        "e801771fe88a627a1b8845d00d99ba91eb6c8b99630b37026c124193271bf249"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "42836fef0a85dbc58253f4ab7b082116411d7048ef4bf7cb12a4e129ae0fa6d9"
   end
 
   depends_on "cmake" => :build

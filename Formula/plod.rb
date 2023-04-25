@@ -1,9 +1,10 @@
 class Plod < Formula
   desc "Keep an online journal of what you're working on"
-  homepage "https://www.deer-run.com/~hal/"
-  url "https://www.deer-run.com/~hal/plod/plod.shar"
+  homepage "https://deer-run.com/users/hal/"
+  url "https://deer-run.com/~hal/plod/plod.shar"
   version "1.9"
   sha256 "1b7b8267c41b11c2f5413a8d6850099e0547b7506031b0c733121ed5e8d182f5"
+  license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8361343544ac10cdf1c2c6b37b4a8a4882d199c2d49ac22fc35b776199527fbf"

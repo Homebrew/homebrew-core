@@ -1,19 +1,19 @@
 class Nfdump < Formula
   desc "Tools to collect and process netflow data on the command-line"
   homepage "https://github.com/phaag/nfdump"
-  url "https://github.com/phaag/nfdump/archive/v1.7.1.tar.gz"
-  sha256 "b06e0a7cee1dc641f67f404049ecee9b4d0ee1113542798d7df022ed9f2f4609"
+  url "https://github.com/phaag/nfdump/archive/v1.7.2.tar.gz"
+  sha256 "0545b792e81f5edd51a2fdfbfcc4eac7ba8087005811ab41c34bfac4d78fe926"
   license "BSD-3-Clause"
   head "https://github.com/phaag/nfdump.git", branch: "master"
 
   bottle do
-    sha256 arm64_ventura:  "33d314eb90a08878c4927d898921c4e557d2bc0aae178df91718712d10643256"
-    sha256 arm64_monterey: "04a337383fd09716347584defd8819acf51095c843b069c71da5f88d48dbc306"
-    sha256 arm64_big_sur:  "381c5df4fa3d79a5a83fd92f0f602de69aff600c5362960abc7b395e2a8d6fc0"
-    sha256 ventura:        "5b727480768cd59a8934f9fb38be56be4b8a76cc6e8053e07cb39f15109362f9"
-    sha256 monterey:       "0b81418475dc2e43da513d46c4468684c35a878473e7fe3f3a54b7f08270a1b8"
-    sha256 big_sur:        "6df9332674504139124d53b39ee60e2d137295c83147f4206137472f2de7f5a5"
-    sha256 x86_64_linux:   "7c364ac45075497983aa264b557237b4d78311cc845cf13fef190ac7a0044e65"
+    sha256 arm64_ventura:  "bcd7a9b774976dbb97d73fb1a93b36b7c5abc8579d7a303ccd78f86bd2fa7790"
+    sha256 arm64_monterey: "40f2b32ea38db9b88c01d83ee1bcc6ff70528abd3e0097120a3396674d7e03ab"
+    sha256 arm64_big_sur:  "3e25963361c30a566a9bc39b67d69621509685a8878e91e01c442fd6cd397479"
+    sha256 ventura:        "10ef900bfcd6602875c14281ead4b3d6c7c745b775a748cfe3a9b692a3606dac"
+    sha256 monterey:       "11493b60f774efe3499cf527745f82761ee3eead78d9dc0d1af49a48ecf2bd70"
+    sha256 big_sur:        "52933a62e14d28198597e492ae63dae43e5b32ee00fbbdf4981a8356afce9cc9"
+    sha256 x86_64_linux:   "d848913d75859dd4811c2ae6e608a249a5d3872c23058113fb7ea1dfdbb64486"
   end
 
   depends_on "autoconf" => :build

@@ -2,14 +2,11 @@ class IncludeWhatYouUse < Formula
   desc "Tool to analyze #includes in C and C++ source files"
   homepage "https://include-what-you-use.org/"
   license "NCSA"
-  revision 1
 
   stable do
-    # TODO: Check if we can use unversioned `llvm` at version bump.
-    #       Remove `stable` block then.
-    url "https://include-what-you-use.org/downloads/include-what-you-use-0.19.src.tar.gz"
-    sha256 "2b10157b60ea08adc08e3896b4921c73fcadd5ec4eb652b29a34129d501e5ee0"
-    depends_on "llvm@15"
+    url "https://include-what-you-use.org/downloads/include-what-you-use-0.20.src.tar.gz"
+    sha256 "75fce1e6485f280f8f13f4c2d090b11d2fd2102b50857507c8413a919b7af899"
+    depends_on "llvm"
   end
 
   # This omits the 3.3, 3.4, and 3.5 versions, which come from the older
@@ -22,13 +19,13 @@ class IncludeWhatYouUse < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "97afb67e1bdc3713f0137737b04eadf8a45bb6b4e25058b056577af1a616d7d2"
-    sha256 cellar: :any,                 arm64_monterey: "16e069b481eca22c550599f948e516d599d3c29ebbae7afbeb696c88811dc31d"
-    sha256 cellar: :any,                 arm64_big_sur:  "4d04411ff28a7b5ad7d203e40a5da110fd76cc2ccd44bce4d3b3d2400d0eb6c4"
-    sha256 cellar: :any,                 ventura:        "dc798220c37a480677a7eccba91d690e7ee62318f71ed1d7b99e836ecbcb26b7"
-    sha256 cellar: :any,                 monterey:       "fb12dce263b6a9f18cbe59f5060b7d0745ac328b757d85da0907040fc3d06a08"
-    sha256 cellar: :any,                 big_sur:        "484fb429ffd3d2e12dce3dddb4195b239511843c52320b96aab53cb0495af02a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "70e62d920e44fefd26048bd9320e142de63b136e1cf8eb300dba86449144538f"
+    sha256 cellar: :any,                 arm64_ventura:  "8918358c35d6ed83fd69341673082bd01e4ab9acfd7cb1122419cfc5f67508f6"
+    sha256 cellar: :any,                 arm64_monterey: "4cb45fa8a071aeadca70a16f73d47a932a4ce724610f82ece15085bc6c690b1d"
+    sha256 cellar: :any,                 arm64_big_sur:  "51b47c1d0b805af1b7b662f5a84e0c1e03a451d3cd1e2a27eee6c65e59d3bace"
+    sha256 cellar: :any,                 ventura:        "259f6b1fe808104d1b3f34864cb4cc9087ff5a22be0cfdc883d042fc2b289fbf"
+    sha256 cellar: :any,                 monterey:       "09db32abec4f0ff8ae1be3c49a46a7211b172d41b241b1e1f9bef88b38e97395"
+    sha256 cellar: :any,                 big_sur:        "c59a3a2e24917baa8c964ff26dba554806ada6f837bacdfb1184045889acf0e0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c640f19b35c91e79733fae1ef63235eb6caf16a3fb30f58ad8f198b04b1f1171"
   end
 
   head do
@@ -56,6 +53,7 @@ class IncludeWhatYouUse < Formula
     system "cmake", "--install", "build"
 
     bin.write_exec_script libexec.glob("bin/*")
+    man1.install_symlink libexec.glob("share/man/man1/*")
 
     # include-what-you-use needs a copy of the clang and libc++ headers to be
     # located in specific folders under its resource path. These may need to be

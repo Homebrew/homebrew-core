@@ -1,19 +1,18 @@
 class Libmtp < Formula
   desc "Implementation of Microsoft's Media Transfer Protocol (MTP)"
   homepage "https://libmtp.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/libmtp/libmtp/1.1.20/libmtp-1.1.20.tar.gz"
-  sha256 "c9191dac2f5744cf402e08641610b271f73ac21a3c802734ec2cedb2c6bc56d0"
+  url "https://downloads.sourceforge.net/project/libmtp/libmtp/1.1.21/libmtp-1.1.21.tar.gz"
+  sha256 "c4ffa5ab8c8f48c91b0047f2e253c101c418d5696a5ed65c839922a4280872a7"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "118e7f397a4f0cce6ec3ec22b0f881a29db2ac1dc7cedf6b6efc15aef00b8727"
-    sha256 cellar: :any,                 arm64_monterey: "5f786718e8113e58a7f194e32748f3bd6b07899514e7e2190d8262c0843ca3ce"
-    sha256 cellar: :any,                 arm64_big_sur:  "c4b3e59f86dae97b5fc0774e384ad4ad5e6f13fab5e9b03ab586b0de8774e0ad"
-    sha256 cellar: :any,                 ventura:        "98613b0977d4fe565700e6b07ae7f7b63f57fcd9ab50bf0af0d5b4ec6dc2c2f9"
-    sha256 cellar: :any,                 monterey:       "822134a5c60cfcfd2781d2c897b06b790aec731c996ba081d032477008ab793c"
-    sha256 cellar: :any,                 big_sur:        "97fa5291b656454e4ac9c174fc08e93045ecd33f8d02a69d103c33a6e1e4a669"
-    sha256 cellar: :any,                 catalina:       "76e0242398cee340b4d1d693ddf2d855bb6e4dfa04e5f8d7f420cac8ccf54ccc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2d96f04445b409a18583b8ad5bd316a36d38c7904eda472a2d0a038071ac058f"
+    sha256 cellar: :any,                 arm64_ventura:  "e410f7a6dab05b9bf74a0c179450d8e563f60802a2789da986841dcefd493f56"
+    sha256 cellar: :any,                 arm64_monterey: "f0127838120cb34a56434b2ff8b267f4f280cbb2d06ab48fb959d0f641e92f13"
+    sha256 cellar: :any,                 arm64_big_sur:  "a247cada4841c6a16d507ab969cf60f31dab5cd91f94d10a8a390be3b02df110"
+    sha256 cellar: :any,                 ventura:        "af43ad4feaf03b0c822219131261fb5d24a2bebf39c198778229d9488c1040cd"
+    sha256 cellar: :any,                 monterey:       "330cb763b3a708340527235e892a0b45e086bdc559021ad7b06b6e9c230be21c"
+    sha256 cellar: :any,                 big_sur:        "65dff5ee98c8f7701e2b2e646509ac37a2420d07f384f762e4653c6f526f0ecd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b2c0baeb49e12c024050db966e3e8f9562131eed2a378ff29c0ed04e51ba812e"
   end
 
   depends_on "pkg-config" => :build

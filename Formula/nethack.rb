@@ -39,6 +39,7 @@ class Nethack < Formula
   def install
     # Build everything in-order; no multi builds.
     ENV.deparallelize
+    # Fixes https://github.com/NetHack/NetHack/issues/274
     # see https://github.com/Homebrew/brew/issues/14763.
     ENV.O0
 

@@ -244,7 +244,7 @@ class Latexml < Formula
     end
 
     # Install runtime resources into libexec
-    runtime_resources = resources.map(&:name).to_set - build_resources - ["File::Which"]
+    runtime_resources = resources.to_set(&:name) - build_resources - ["File::Which"]
     runtime_resources.each do |r|
       resource(r).stage do
         perl_build(libexec)

@@ -1,19 +1,19 @@
 class QuickLintJs < Formula
   desc "Find bugs in your JavaScript code"
   homepage "https://quick-lint-js.com/"
-  url "https://c.quick-lint-js.com/releases/2.12.0/source/quick-lint-js-2.12.0.tar.gz"
-  sha256 "202c5f55bdc1ae0f4065292a942de7957775cdd02ad200963bffe644ca7ae670"
+  url "https://c.quick-lint-js.com/releases/2.13.0/source/quick-lint-js-2.13.0.tar.gz"
+  sha256 "ee262f6a6bc45e869393f4bfb7e0410fadb7a73d68e64c96ac984e3433c0800b"
   license "GPL-3.0-or-later"
   head "https://github.com/quick-lint/quick-lint-js.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "1045131e0b7c7d5a04393933ac1d04b8e4a4286250740d6c1aa37bf4f93aad8c"
-    sha256 cellar: :any,                 arm64_monterey: "00cc306f2b5c5802a9d981a364eee39e814f538ced393aef1516736fe3c463c4"
-    sha256 cellar: :any,                 arm64_big_sur:  "9e3e073470d705ab0bc152e22e9b899a095b26720897f0de8c0118ff5bab3866"
-    sha256 cellar: :any,                 ventura:        "c4cffd5055b5944e5cb849a52b816c31212fab0292ba9f172cf58013cbaa107e"
-    sha256 cellar: :any,                 monterey:       "46b26b514e9dcbee9cfe2d4cb6595dc5886151a47abdb01d04695478b2223346"
-    sha256 cellar: :any,                 big_sur:        "ec8f2dc97abb3d5d2a311b7d9b9514a7e15313884eda6b038d619818a7fdb419"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f4202d7ff2142ef4b719f4db7174bcaac5781c748d511e9658be7b5de66b2c99"
+    sha256 cellar: :any,                 arm64_ventura:  "4e64fa48368c02605fe2b58c6e3d4fee1c57dd0f4ff5e584a28d51dcb2a5c3bd"
+    sha256 cellar: :any,                 arm64_monterey: "e5acd4a77b3db8c854ca6644f938c513d8c04b9c92322dd6b761abeec76cfca2"
+    sha256 cellar: :any,                 arm64_big_sur:  "bcedb003eb72951f23df8397be413de4f8d761162ae8a1e10959f9a95609ab0f"
+    sha256 cellar: :any,                 ventura:        "1b07a52564bec228d2ccc6cdfeeccb187f6a0fc0c891c4bcfd0a57d8a21cf6ae"
+    sha256 cellar: :any,                 monterey:       "bb1228cabad810257b05a8aee64d481bb9522ade52e9fa50e23139a24dfffb27"
+    sha256 cellar: :any,                 big_sur:        "44a1d3abd86303d45cc018aa46acd64fa15c65e6c484ed21ce3217086582c232"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "222f25821240cc21a6d7412566c31dc07cdc7893b504e2b510f020d4a77fb0f7"
   end
 
   depends_on "cmake" => :build

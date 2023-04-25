@@ -1,25 +1,19 @@
 class Libuvc < Formula
   desc "Cross-platform library for USB video devices"
   homepage "https://github.com/libuvc/libuvc"
-  url "https://github.com/libuvc/libuvc/archive/v0.0.6.tar.gz"
-  sha256 "42175a53c1c704365fdc782b44233925e40c9344fbb7f942181c1090f06e2873"
+  url "https://github.com/libuvc/libuvc/archive/v0.0.7.tar.gz"
+  sha256 "7c6ba79723ad5d0ccdfbe6cadcfbd03f9f75b701d7ba96631eb1fd929a86ee72"
   license "BSD-3-Clause"
   head "https://github.com/libuvc/libuvc.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "4b9154f39788c2368a311ba87d4027d4cc9832d3159e7cafefcd64e3d9e99694"
-    sha256 cellar: :any,                 arm64_monterey: "619dc091b52aaf2461b8f6935d9be9bf5b30fe99ac40545458761a8879dd4e61"
-    sha256 cellar: :any,                 arm64_big_sur:  "51c899af95c83a96799af845463826cd9c4a939c030bfa1fa7597603f3470dd5"
-    sha256 cellar: :any,                 ventura:        "49b9d13d86ac72c08e3238848776fca2784443b4791e95400a1e4b5cd609a645"
-    sha256 cellar: :any,                 monterey:       "66d3c4e163006cbe0d76765ee075b7ef2e5eec8c1e6f720051b0ac4f56abeb85"
-    sha256 cellar: :any,                 big_sur:        "1bb47911fa2b70dabe09cb9520498700ff75d0349991f36460b28d762c5cf03d"
-    sha256 cellar: :any,                 catalina:       "4051cd7aa8dbf7a5e940a85f8c38900829e66cabfb00be22a592dd3a421e3cca"
-    sha256 cellar: :any,                 mojave:         "1ff736e2499c4da037ff74ea31ebe2be23defd7e316ad974ff57cd9a712c7445"
-    sha256 cellar: :any,                 high_sierra:    "c0ec2076095af1c5154bc43d18a5869b5678f026f1b3c76964f136e4ada07717"
-    sha256 cellar: :any,                 sierra:         "1888941024fe1b8ca44f15b98e51390872286c0145806fbd0a61999bab225905"
-    sha256 cellar: :any,                 el_capitan:     "4defbab7e171c20da065eb5e4f2b11b5b27165efbd850e742674be281f3a0fcd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fcbf0e7bb705d1d54bdc5d50be6a7d38793bd1f01148ee13805d4131c7753e95"
+    sha256 cellar: :any,                 arm64_ventura:  "6708c80f52e02d433eb7bc74ff598b8c6cc4a7963fb70f3757252abe94b021be"
+    sha256 cellar: :any,                 arm64_monterey: "ad6af8f029ad6050565a30a2215b2e0a831d1acc0927cc032ba7b25754aa788b"
+    sha256 cellar: :any,                 arm64_big_sur:  "110f3c38356127a1109273f022bedb51c4ee5a7df8845c4940db9a203a131627"
+    sha256 cellar: :any,                 ventura:        "3463a43797458c0e8d63446c9b54c2e8df213ca290f5a8bc08e3a071e7dad884"
+    sha256 cellar: :any,                 monterey:       "e4dd5f0473e5f0f3a4d2b78f6b2b6fa556436055ef8a3d68d176a5b3afd3ca11"
+    sha256 cellar: :any,                 big_sur:        "d974f8a7c94e5c106fa9c8bff6f85c0237ee1396d3dc672969d2279840cc0fac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e5adfe4cf8c0151495c6d82c4a1efba89a92a8d43e3d32803d6c88d015e894cf"
   end
 
   depends_on "cmake" => :build

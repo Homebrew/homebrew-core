@@ -1,18 +1,18 @@
 class Velero < Formula
   desc "Disaster recovery for Kubernetes resources and persistent volumes"
   homepage "https://velero.io/"
-  url "https://github.com/vmware-tanzu/velero/archive/v1.10.2.tar.gz"
-  sha256 "01de9610a55019c798245cbff1bbee1477e5d53f055125b3c7045cddc091444c"
+  url "https://github.com/vmware-tanzu/velero/archive/v1.11.0.tar.gz"
+  sha256 "b7b3f5e21b3d665d5fcf483047ef5646d9bd755c219116cb9c4a979dd0908028"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "50143a4670e6334ada59d2cad209212a725ba10ae52cb5cc435803559e98ca09"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "50143a4670e6334ada59d2cad209212a725ba10ae52cb5cc435803559e98ca09"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "50143a4670e6334ada59d2cad209212a725ba10ae52cb5cc435803559e98ca09"
-    sha256 cellar: :any_skip_relocation, ventura:        "879d1d16619f4278f2fa75c729d1d5340f5a5936314dda055c2c58c01204bb97"
-    sha256 cellar: :any_skip_relocation, monterey:       "879d1d16619f4278f2fa75c729d1d5340f5a5936314dda055c2c58c01204bb97"
-    sha256 cellar: :any_skip_relocation, big_sur:        "879d1d16619f4278f2fa75c729d1d5340f5a5936314dda055c2c58c01204bb97"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ec1b5eb3853845fefcdae9b58b2fdf2072176ded98d2026d7e975baca3c67065"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ce43630ae4daca32b245a613a50bc8f55103a9743e18c04ed920688d77ff0057"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ce43630ae4daca32b245a613a50bc8f55103a9743e18c04ed920688d77ff0057"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ce43630ae4daca32b245a613a50bc8f55103a9743e18c04ed920688d77ff0057"
+    sha256 cellar: :any_skip_relocation, ventura:        "434b9e477b0fa3ab97a883d9b9827e56b72efd9862faae12e7c3edabdc335bb8"
+    sha256 cellar: :any_skip_relocation, monterey:       "434b9e477b0fa3ab97a883d9b9827e56b72efd9862faae12e7c3edabdc335bb8"
+    sha256 cellar: :any_skip_relocation, big_sur:        "434b9e477b0fa3ab97a883d9b9827e56b72efd9862faae12e7c3edabdc335bb8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cb1834fac107afa1ff80f79199a80e0c7ce1081402e1582961a2e7945fd36c8a"
   end
 
   depends_on "go" => :build

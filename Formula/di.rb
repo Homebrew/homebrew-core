@@ -1,8 +1,8 @@
 class Di < Formula
   desc "Advanced df-like disk information utility"
   homepage "https://gentoo.com/di/"
-  url "https://downloads.sourceforge.net/project/diskinfo-di/di-4.51.tar.gz"
-  sha256 "79b2129c4aff27428695441175940a1717fa0fe2ec2f46d1b886ebb4921461bb"
+  url "https://downloads.sourceforge.net/project/diskinfo-di/di-4.52.tar.gz"
+  sha256 "b775ea8acb089c3440a8621da684fa8f98f6551c06e705593b79d4fe82b57a1f"
   license "Zlib"
 
   livecheck do
@@ -11,14 +11,13 @@ class Di < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0fe76ffb07cc8e29f57a247c138a888384fb3d8610dcddd29fab93c9aca547ee"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2f0155678e6e44db1dbfbc24fff96aaee23c22a69d553457dd8ac1f9de13b527"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4fc57febb3e9e00603674540b9c90fff49df3f9b376149fd3ed37ed72d3c29b8"
-    sha256 cellar: :any_skip_relocation, ventura:        "a2f171a92a951fe16ac39c70720257ea80e2d75312eb9ebd98c07138f8363566"
-    sha256 cellar: :any_skip_relocation, monterey:       "0ec56fe7507f200c983d2bbc2ade6465b8bf26c7714bf2626513312afa2b6568"
-    sha256 cellar: :any_skip_relocation, big_sur:        "388ffea5e8416c1703aa07e2594ace704424987b1d99ee31718ef3cf6e9819d8"
-    sha256 cellar: :any_skip_relocation, catalina:       "73122a618e0a2f834311d93ba4f8d11be103ea2bd8e8616af8690c34607104e3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "58af16241c8439553918521e731d4164a6e570487179d65d50897f66ce932a61"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "74e40f8f265d838cd1ec9a08cf7e32ff11557425549c8dff1b673753885bcdbd"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ac45da534fcc3269043919dbab98503fcae309a163efab1648267f011af6b332"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "95f73bb88a66c30a12e5f099cd22795b75b4920fb60be36aacda9e4a1b9ad537"
+    sha256 cellar: :any_skip_relocation, ventura:        "4308fe40740ad7417c7a354862474df107479800fa869fb10f8d43e394652992"
+    sha256 cellar: :any_skip_relocation, monterey:       "128bb07860843d8219d3a3ea7062904ab09e549d567217c6ed887840ed9d02b0"
+    sha256 cellar: :any_skip_relocation, big_sur:        "aa7f7ea4570b52e2dfd987a587856f931eb8c0db98b625fb10c4e7a8f5dccbeb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "68964c84277dc1365199a0838e3d238c243c1e4acfff7966516d2bd388c15e19"
   end
 
   def install

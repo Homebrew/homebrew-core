@@ -1,18 +1,18 @@
 class Goctl < Formula
   desc "Generates server-side and client-side code for web and RPC services"
   homepage "https://go-zero.dev"
-  url "https://github.com/zeromicro/go-zero/archive/refs/tags/tools/goctl/v1.5.0.tar.gz"
-  sha256 "0ab93f8fb0e0bd4a628fe1b1dd13194847c90b26355616c3a26cb349418a6b1f"
+  url "https://github.com/zeromicro/go-zero/archive/refs/tags/tools/goctl/v1.5.2.tar.gz"
+  sha256 "79c23e42b98ee76f9593da6e69ba55ec1453a3cc1895b7751de68a8c270a70ec"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cc5fbfe8662e7b79549a9e6a2ae4b1a89bf8f096796d51e542e495ff4c5d5f44"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cc5fbfe8662e7b79549a9e6a2ae4b1a89bf8f096796d51e542e495ff4c5d5f44"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cc5fbfe8662e7b79549a9e6a2ae4b1a89bf8f096796d51e542e495ff4c5d5f44"
-    sha256 cellar: :any_skip_relocation, ventura:        "8693a8adc18e5b705626c84492223193e593bb85d4e084ce24dadae1583fe497"
-    sha256 cellar: :any_skip_relocation, monterey:       "8693a8adc18e5b705626c84492223193e593bb85d4e084ce24dadae1583fe497"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8693a8adc18e5b705626c84492223193e593bb85d4e084ce24dadae1583fe497"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fe5ad2841170cbb77b846053280b20b852eed7fffa4197dfadd77440392e31e9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9e6785834ac60846dbfd016597e649e5b229c0aecced702e5e390fb7fea45411"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9e6785834ac60846dbfd016597e649e5b229c0aecced702e5e390fb7fea45411"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9e6785834ac60846dbfd016597e649e5b229c0aecced702e5e390fb7fea45411"
+    sha256 cellar: :any_skip_relocation, ventura:        "973276ca58e543a4f8410945bac69aafcaed0f96ca5a2a709d50b9cfb163bedb"
+    sha256 cellar: :any_skip_relocation, monterey:       "973276ca58e543a4f8410945bac69aafcaed0f96ca5a2a709d50b9cfb163bedb"
+    sha256 cellar: :any_skip_relocation, big_sur:        "973276ca58e543a4f8410945bac69aafcaed0f96ca5a2a709d50b9cfb163bedb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3b90d41a857e7ac0e41a20bd2e98302a0b5644b16ecad6df9a45ff0c5444d828"
   end
 
   depends_on "go" => :build

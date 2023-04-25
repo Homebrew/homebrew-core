@@ -1,19 +1,19 @@
 class Packmol < Formula
   desc "Packing optimization for molecular dynamics simulations"
   homepage "https://www.ime.unicamp.br/~martinez/packmol/"
-  url "https://github.com/m3g/packmol/archive/v20.14.0.tar.gz"
-  sha256 "dc39d3c8676c48cf4999a864e902532b664063c616aeecae1962d37478c5a30c"
+  url "https://github.com/m3g/packmol/archive/v20.14.2.tar.gz"
+  sha256 "9b7647179bb3780f0df7bad866ada346d7cb3f67576199f95b654fe833e728a4"
   license "MIT"
   head "https://github.com/m3g/packmol.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "8ef5d522841904d35802844f09307b3dd43d8eb72d9e1239f2ff37520be9d429"
-    sha256 cellar: :any,                 arm64_monterey: "f2f6651bda8acf282a8fe240cd7368d7829f19d6c0e9483c38b08653c9f7e04f"
-    sha256 cellar: :any,                 arm64_big_sur:  "a3caacce15e4fec8a95641d25f5137283d638232fdc7f078a81e14e3f77454fb"
-    sha256                               ventura:        "7caa65f7d3cc7b13bdd7f27e73dd0e72e781ce346760865900cec3ca421bc50c"
-    sha256                               monterey:       "ae8246364dd7f986d7a71ae1f5552b1bf443a9333645a386acf2e7106eac10e1"
-    sha256                               big_sur:        "268cad2039cab724ed5b3281380c130f98795eb664a68e813bda48a03c3cd2ec"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d578c3a1209866299ba2e8a0679e149ae7055f352524df10f3f7d1462e78ede6"
+    sha256 cellar: :any,                 arm64_ventura:  "d3b983af8b2e95b1382462ffe464718147f43ee0a589962ec59c3e40ee99a37f"
+    sha256 cellar: :any,                 arm64_monterey: "e69c747e0218728e6db1857e70ed872ccb40382ba6767fbc452afd9ca1aeb891"
+    sha256 cellar: :any,                 arm64_big_sur:  "c2e07dd1f235047d3bb96d27afe8065c33f0d117d614cf983d824bcc4c1c225d"
+    sha256                               ventura:        "7ae04b000294196fa456309860aa8a608a6ebd1984623eaf2bd6d2da4b3c6755"
+    sha256                               monterey:       "f97bcaeb053fc51f43ee3e12c0fd931150fa6cc764401bdc61cefcc8279d53f2"
+    sha256                               big_sur:        "3561870306303c91c377f240cc754a1f0dc362c3495e8bd44d0629550dd9c066"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3c5a1a48a91c5c51e5cca78f64da59cd75cb440beae29608354072558b9e59c2"
   end
 
   depends_on "gcc" # for gfortran

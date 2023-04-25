@@ -1,12 +1,12 @@
 class Gcem < Formula
   desc "C++ compile-time math library"
   homepage "https://gcem.readthedocs.io/en/latest/"
-  url "https://github.com/kthohr/gcem/archive/refs/tags/v1.16.0.tar.gz"
-  sha256 "119c742b9371c0adc7d9cd710c3cbc575459a98fb63f6be4c636215dcf8404ce"
+  url "https://github.com/kthohr/gcem/archive/refs/tags/v1.17.0.tar.gz"
+  sha256 "74cc499e2db247c32f1ce82fc22022d22e0f0a110ecd19281269289a9e78a6f8"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "edc22a130753830373e43d97d82aafe6bcf72501d5fa1bdc6f06be10aaacc5ce"
+    sha256 cellar: :any_skip_relocation, all: "023923521a9f89f3669d45a1b7662805266e93d167de9e222e64121214948005"
   end
 
   depends_on "cmake" => :build

@@ -1,8 +1,8 @@
 class WildflyAs < Formula
   desc "Managed application runtime for building applications"
   homepage "https://www.wildfly.org/"
-  url "https://github.com/wildfly/wildfly/releases/download/27.0.1.Final/wildfly-27.0.1.Final.tar.gz"
-  sha256 "c72892c996b05bfa78c6c632f1a5d4680523d3efb4c0321fa8485f052e15fba9"
+  url "https://github.com/wildfly/wildfly/releases/download/28.0.0.Final/wildfly-28.0.0.Final.tar.gz"
+  sha256 "2a5f05ae5ecbd7bfe81e45925265b0a3b7a20ac692353674ab636ee06b95edf5"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -11,12 +11,12 @@ class WildflyAs < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "bacff9366a013036e47f094f94efd8c6993ba5548855bf136f97d0aa16bf2164"
-    sha256 cellar: :any, arm64_monterey: "bacff9366a013036e47f094f94efd8c6993ba5548855bf136f97d0aa16bf2164"
-    sha256 cellar: :any, arm64_big_sur:  "bacff9366a013036e47f094f94efd8c6993ba5548855bf136f97d0aa16bf2164"
-    sha256 cellar: :any, ventura:        "33c281724887da7773db8819c3aecaa09c58084863cb07ccc3c29ed0a14d5548"
-    sha256 cellar: :any, monterey:       "33c281724887da7773db8819c3aecaa09c58084863cb07ccc3c29ed0a14d5548"
-    sha256 cellar: :any, big_sur:        "33c281724887da7773db8819c3aecaa09c58084863cb07ccc3c29ed0a14d5548"
+    sha256 cellar: :any, arm64_ventura:  "e2e3788c11c9cd8b00ccac090920e6bd3e0898cf9a3d882ce5b3e9794ae71532"
+    sha256 cellar: :any, arm64_monterey: "e2e3788c11c9cd8b00ccac090920e6bd3e0898cf9a3d882ce5b3e9794ae71532"
+    sha256 cellar: :any, arm64_big_sur:  "e2e3788c11c9cd8b00ccac090920e6bd3e0898cf9a3d882ce5b3e9794ae71532"
+    sha256 cellar: :any, ventura:        "b75417c171458f69c15981e31470785cbc7c348f2f202fa2ee08dc841fae3024"
+    sha256 cellar: :any, monterey:       "b75417c171458f69c15981e31470785cbc7c348f2f202fa2ee08dc841fae3024"
+    sha256 cellar: :any, big_sur:        "b75417c171458f69c15981e31470785cbc7c348f2f202fa2ee08dc841fae3024"
   end
 
   # Installs a pre-built `libartemis-native-64.so` file with linkage to libaio.so.1

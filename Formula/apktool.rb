@@ -11,9 +11,9 @@ class Apktool < Formula
 
   depends_on "openjdk"
 
-  resource "homebrew-sample.apk" do
-    url "https://github.com/downloads/stephanenicolas/RoboDemo/robodemo-sample-1.0.1.apk"
-    sha256 "bf3ec04631339538c8edb97ebbd5262c3962c5873a2df9022385156c775eb81f"
+  resource "homebrew-test.apk" do
+    url "https://raw.githubusercontent.com/facebook/redex/fa32d542d4074dbd485584413d69ea0c9c3cbc98/test/instr/redex-test.apk"
+    sha256 "7851cf2a15230ea6ff076639c2273bc4ca4c3d81917d2e13c05edcc4d537cc04"
   end
 
   def install
@@ -22,9 +22,9 @@ class Apktool < Formula
   end
 
   test do
-    resource("homebrew-sample.apk").stage do
-      system bin/"apktool", "d", "robodemo-sample-1.0.1.apk"
-      system bin/"apktool", "b", "robodemo-sample-1.0.1"
+    resource("homebrew-test.apk").stage do
+      system bin/"apktool", "d", "redex-test.apk"
+      system bin/"apktool", "b", "redex-test"
     end
   end
 end

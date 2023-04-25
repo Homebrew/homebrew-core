@@ -1,24 +1,15 @@
 class Isl < Formula
+  # NOTE: Always use tarball instead of git tag for stable version.
+  #
+  # Currently isl detects its version using source code directory name
+  # and update isl_version() function accordingly.  All other names will
+  # result in isl_version() function returning "UNKNOWN" and hence break
+  # package detection.
   desc "Integer Set Library for the polyhedral model"
   homepage "https://libisl.sourceforge.io/"
+  url "https://libisl.sourceforge.io/isl-0.26.tar.xz"
+  sha256 "a0b5cb06d24f9fa9e77b55fabbe9a3c94a336190345c2555f9915bb38e976504"
   license "MIT"
-
-  stable do
-    # NOTE: Always use tarball instead of git tag for stable version.
-    #
-    # Currently isl detects its version using source code directory name
-    # and update isl_version() function accordingly.  All other names will
-    # result in isl_version() function returning "UNKNOWN" and hence break
-    # package detection.
-    url "https://libisl.sourceforge.io/isl-0.25.tar.xz"
-    sha256 "be7b210647ccadf90a2f0b000fca11a4d40546374a850db67adb32fad4b230d9"
-
-    # Fix -flat_namespace being used on Big Sur and later.
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
-      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
-    end
-  end
 
   livecheck do
     url :homepage
@@ -26,14 +17,13 @@ class Isl < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "93e737d38d526bb8e78379124c237b3a532c2c8a77562dcf178baa955b193a97"
-    sha256 cellar: :any,                 arm64_monterey: "764bde8aa0d015c13cbf53891489f3ef56a5951f617ad9906aea34382dc1f4d1"
-    sha256 cellar: :any,                 arm64_big_sur:  "24f86a50eea8a2d4dbc24ecb5f8b8ded61f6f7cd7054886b5dafcb82854b28ed"
-    sha256 cellar: :any,                 ventura:        "0c2e7a06a69bdd03db2e32aa437cb83b6152b7cd00893b2d4b737abb75d8f67b"
-    sha256 cellar: :any,                 monterey:       "568dd08209728ad3a036cf45287ff8384b9ed821460a216a9a79fa80fdcfbf52"
-    sha256 cellar: :any,                 big_sur:        "be6456799bb670c16115d89feacf72cee9b444fe87aca6b1bd350bfb89ff6247"
-    sha256 cellar: :any,                 catalina:       "c2ccd96c92ab0bbfdb775ccd7c8f20c2057cbe976769cf078e728b6f5f5938bc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c0244c95ed9cc89b826868de83bec3150fcc120add1265017176770150757083"
+    sha256 cellar: :any,                 arm64_ventura:  "1814fe867c61b34cd5c763cf2ebda99d7883db78348c8b663f98cc95a1348d16"
+    sha256 cellar: :any,                 arm64_monterey: "0a3e83c458420e4b469ad7464d16d6c9cd26a888059358eb5f1f9d3cff54bbd7"
+    sha256 cellar: :any,                 arm64_big_sur:  "a68a647249ad644cd8d1e1057bac65e5b4e1e08f9adaf15a07121853b0ed40cc"
+    sha256 cellar: :any,                 ventura:        "0301489db7b26967657be0f6c89f11ea7e1e5fb50631686f86c597b01c00dc85"
+    sha256 cellar: :any,                 monterey:       "0dcc555fd2517c6c93bca8999c741029bbdd821bfeb397505ec1f98deb79c551"
+    sha256 cellar: :any,                 big_sur:        "91965ce2f54c7d1b16747ed05de989a3a122f5dbee67546bbf9bf065873b13c5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "db14ba1e4ea23ab41e06930dcf25ae9023c5e395c88602da2a9b6a98d54c92d3"
   end
 
   head do

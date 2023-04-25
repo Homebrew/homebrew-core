@@ -1,8 +1,8 @@
 class GitSubrepo < Formula
   desc "Git Submodule Alternative"
   homepage "https://github.com/ingydotnet/git-subrepo"
-  url "https://github.com/ingydotnet/git-subrepo/archive/0.4.5.tar.gz"
-  sha256 "bb2f139222cfecb85fe9983cd8f9d572942f60097d6d736e2e6b01d1292e0a8a"
+  url "https://github.com/ingydotnet/git-subrepo/archive/0.4.6.tar.gz"
+  sha256 "6dcfce781007e7a755444c59e3622eb436e5671c197b8031eaf69fdbaea2b189"
   license "MIT"
   head "https://github.com/ingydotnet/git-subrepo.git", branch: "master"
 
@@ -12,14 +12,13 @@ class GitSubrepo < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1a39768821ddd16240f8a467ef1a90b4e59ad609ae14f36ea4dedc81438ac8cf"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1a39768821ddd16240f8a467ef1a90b4e59ad609ae14f36ea4dedc81438ac8cf"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1a39768821ddd16240f8a467ef1a90b4e59ad609ae14f36ea4dedc81438ac8cf"
-    sha256 cellar: :any_skip_relocation, ventura:        "1980304e4b65652e9ffd9b211844698ecf19b5a963819616681733fb98302b3a"
-    sha256 cellar: :any_skip_relocation, monterey:       "1980304e4b65652e9ffd9b211844698ecf19b5a963819616681733fb98302b3a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1980304e4b65652e9ffd9b211844698ecf19b5a963819616681733fb98302b3a"
-    sha256 cellar: :any_skip_relocation, catalina:       "1980304e4b65652e9ffd9b211844698ecf19b5a963819616681733fb98302b3a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1a39768821ddd16240f8a467ef1a90b4e59ad609ae14f36ea4dedc81438ac8cf"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "198e49f8a5a9df95401bdb6b04e5cdf172ff2fc72cb224bc4c015b3d6f0e127d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "198e49f8a5a9df95401bdb6b04e5cdf172ff2fc72cb224bc4c015b3d6f0e127d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "198e49f8a5a9df95401bdb6b04e5cdf172ff2fc72cb224bc4c015b3d6f0e127d"
+    sha256 cellar: :any_skip_relocation, ventura:        "e070c11eb2fcffba7113d08541dbc52a43cc0171e59a2227adaf158a4378d3d8"
+    sha256 cellar: :any_skip_relocation, monterey:       "e070c11eb2fcffba7113d08541dbc52a43cc0171e59a2227adaf158a4378d3d8"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e070c11eb2fcffba7113d08541dbc52a43cc0171e59a2227adaf158a4378d3d8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "198e49f8a5a9df95401bdb6b04e5cdf172ff2fc72cb224bc4c015b3d6f0e127d"
   end
 
   depends_on "bash"

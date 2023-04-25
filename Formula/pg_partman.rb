@@ -1,18 +1,18 @@
 class PgPartman < Formula
   desc "Partition management extension for PostgreSQL"
   homepage "https://github.com/pgpartman/pg_partman"
-  url "https://github.com/pgpartman/pg_partman/archive/refs/tags/v4.7.2.tar.gz"
-  sha256 "8ca9cf2a56bde591b0d0526cf5db54a2c9691fcfa514eebb419f8c394eb9d17a"
+  url "https://github.com/pgpartman/pg_partman/archive/refs/tags/v4.7.3.tar.gz"
+  sha256 "f6b376da1ddfbf9482b3a10f3e2bb414e546e67bec32acca5a9eb7d39719036e"
   license "PostgreSQL"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "973279863324b0d0641e18b884ba6a44ec88c96f560e60342695a75a96ffbe32"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e1e9f7fc116c5f3f692ed16a5937ff0c1fc2d586e0c07284fa3e708eeba9e52c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "827b1cf57561a64f0142fc5404f8977074715c6ad5f64bc9c413a1aa2b870565"
-    sha256 cellar: :any_skip_relocation, ventura:        "76470f9294c0a8a0c6e409c15a0e1859d84ea842dea5c69b2087e7d81d2c0e40"
-    sha256 cellar: :any_skip_relocation, monterey:       "f9a6b0880e48a584c60b634507422c5946181d2337bbd826406d8d0d511c744f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "cad072844166a607243801f7e0ad622c80fbaf729d72d7f36e5f2f73323c8e8c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5bd167cc98893ee9ad7e30cd1b84b7939b3bde26ae4c53c2d5f44b72c4ce3de0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "869fb42b1ac9a6d917259110801f02a82efcfca36b410f54a2c50fadb805ab65"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "dac312d8723156e49f4869f527cb633b843c207352b25fa927ce08ee13439e78"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "88c6dff46f92163128a10bcfe5bd3207f7244e841e7c7f54442b0bb06ecef88c"
+    sha256 cellar: :any_skip_relocation, ventura:        "45b4fcb754025acb9eb6ee056dcbee64d5eb88cf83a901b6f8d31bd0b5839e04"
+    sha256 cellar: :any_skip_relocation, monterey:       "d6beea5f6fac3a953e706bb1d83f18058b43b0fb2ebefc8e6b2bb54f9d5594c3"
+    sha256 cellar: :any_skip_relocation, big_sur:        "cf345bc7792b4a246a241a95e3420a3571f839e0a4364ae6885247908732ca23"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "877472dc45361b9e0caa7a031b8acd78a03e6b20c575953b78df48f6c490949c"
   end
 
   depends_on "postgresql@14"

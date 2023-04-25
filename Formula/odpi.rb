@@ -1,19 +1,18 @@
 class Odpi < Formula
   desc "Oracle Database Programming Interface for Drivers and Applications"
   homepage "https://oracle.github.io/odpi/"
-  url "https://github.com/oracle/odpi/archive/v4.6.0.tar.gz"
-  sha256 "fdb07c734c59b807787b5677ef23edd52766bd2d3cf075d285994793edeb40c5"
+  url "https://github.com/oracle/odpi/archive/v4.6.1.tar.gz"
+  sha256 "30a50f831436528dcd5c8409e0c5e493838e0626c7718c8ec2c8f3e4f2e4b4ab"
   license any_of: ["Apache-2.0", "UPL-1.0"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "8dd43b72e0d1945818be0256dbc4e077fac5a8a75daaf9489fdb9f325f0e57b6"
-    sha256 cellar: :any,                 arm64_monterey: "a9cc873c661724322d03bcaea830790ca64a9ae25939989945f90b7a912ac17a"
-    sha256 cellar: :any,                 arm64_big_sur:  "f6ee3453a6b5c559702039fc82791a5401926c1d8cb0f583227ece09fb3e892f"
-    sha256 cellar: :any,                 ventura:        "15f0a1fee109531af8be769b2855dd083a7ac1603602ddabf681b24f34a14a6d"
-    sha256 cellar: :any,                 monterey:       "bf9c773514668087b579a17f821fdb57de75f150cf2bcc78e1eedf5d3c4a2634"
-    sha256 cellar: :any,                 big_sur:        "fab05b206080566c121e15dcf01c8611ea89ff15ef482d4cf7f0e177a57dcaf7"
-    sha256 cellar: :any,                 catalina:       "fd24291c44b33e9cfa376b41c14a4fd914d30c20c147a0551ddbbf79ea17fe2c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6f6d424058b8def1ae140613e19dca697b8211768c3d2a996b979977ef265f5e"
+    sha256 cellar: :any,                 arm64_ventura:  "29c0aefa5550a599fc2547e5a2fa78be214880e84fc9e5a9b4c4cdab27009426"
+    sha256 cellar: :any,                 arm64_monterey: "e113d66087633f040ea6196f00674ffd0973ff033b2bdcef2bf322df1d6abda0"
+    sha256 cellar: :any,                 arm64_big_sur:  "5bd09af65c636f9f5ce46116e3dfabc8fe1d5533c72fbd479598146a4c8723fc"
+    sha256 cellar: :any,                 ventura:        "5a658bfc7ef147112a666391048fb3be2a546316df8662d3df025f99ebc2c006"
+    sha256 cellar: :any,                 monterey:       "05dfb6bfaa79212ec76f959aeeccd05aa721157431fcad4509a790f8dbf90916"
+    sha256 cellar: :any,                 big_sur:        "f4d457db5ebecd652759d18b3a050e1b76606a6515c2d9578071a32a08dac826"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5acc9a1232a419c84587cb40dcd8b5e1adc86d2415294cb7cbba03fe4773a830"
   end
 
   def install

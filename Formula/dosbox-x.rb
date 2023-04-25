@@ -1,8 +1,8 @@
 class DosboxX < Formula
   desc "DOSBox with accurate emulation and wide testing"
   homepage "https://dosbox-x.com/"
-  url "https://github.com/joncampbell123/dosbox-x/archive/refs/tags/dosbox-x-v2022.12.26.tar.gz"
-  sha256 "39fb1ed19ea31e11883aa57655493b3100ac6b328ef59c799b840b9bfdfacb7b"
+  url "https://github.com/joncampbell123/dosbox-x/archive/refs/tags/dosbox-x-v2023.03.31.tar.gz"
+  sha256 "233f487a90654b03f32b290579f24d5b188a65361b8a7787154f5c4cd8f5f144"
   license "GPL-2.0-or-later"
   version_scheme 1
   head "https://github.com/joncampbell123/dosbox-x.git", branch: "master"
@@ -14,13 +14,13 @@ class DosboxX < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "c7be8befe2e5bda8174eda6eb438c5881d486cfb1e69a1d797d7b08085339404"
-    sha256 arm64_monterey: "70a6c5635e729309c2d7c10fb2e3cfaa7b2fc5d3d37a806e8c9d9c948dbca184"
-    sha256 arm64_big_sur:  "90604f59a07a685de25b5e6d0f5d9c3b48b5cd78e779ffedb7e8788ccc34529a"
-    sha256 ventura:        "ea87e7596faa4d3f1118e467316ec9d82c2989ea64addf092688d7414c3fb11d"
-    sha256 monterey:       "808eeb990657c9ebd14b9fe39a8110e6fe224591aba88c8b98e65581a3de41eb"
-    sha256 big_sur:        "cbbf7b78a0423a11537634696f66441cc2ad1fff60bd833ebbb260833a874871"
-    sha256 x86_64_linux:   "a5cfcd3a81bf420eb2b0bc4ddf421b1be94deb98a90485043578723f9448955d"
+    sha256 arm64_ventura:  "00c26ae6b3e97d06df10b334ad193abc75466b91c6d527c6aff5aab92b58a4e1"
+    sha256 arm64_monterey: "a169031430a88bad5312283238b080e0ee2dfbcf284941058ea0bdce31fe8813"
+    sha256 arm64_big_sur:  "b303d6e812501804ba5caf6d1fd364a1fb2a62a963cacf09ee2f9aafeb13c839"
+    sha256 ventura:        "458904df51fc377a6a278811c234103e0e496e9ff75e58a89a7a5d74f28b4a34"
+    sha256 monterey:       "ca8d44dd42b5fac944fc1abad07869f22525d99693320af4e9c50e30a4c804ce"
+    sha256 big_sur:        "7bd26791e1fda10eca74df923d73e13e84330b38293abe1a744d546ac1f149d1"
+    sha256 x86_64_linux:   "8cec915aab35a629cc7e32388f36a86feae9d12dcfda6ce75184536bf24b29a1"
   end
 
   depends_on "autoconf" => :build

@@ -11,14 +11,14 @@ class BdwGc < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "8f459fdcd689018081c07cab95c6e2517a84a5751bff1d47c8e220fd2f757b49"
-    sha256 cellar: :any,                 arm64_monterey: "01693d25c01c27b4ae2fc7c176f57c1c46849c24440f1da484df9a2e99074594"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "0d49ed54da084483ddf742707bf206475f423dff3fa6e8d7b8c0c7d34a42bf70"
+    sha256 cellar: :any,                 arm64_monterey: "7977dd204f6ea7d0b8438db5fecb8ceed6807788ba8e9b7e20d4a8886b6dce6a"
     sha256 cellar: :any,                 arm64_big_sur:  "162892760401052a1a6d6cb183bb6683c18905377489b9bf50151a80c816f967"
-    sha256 cellar: :any,                 ventura:        "6efb9e3ce48ce40a1072a4e8b7acb318450ac09e44483f859b83c2f9b132c772"
-    sha256 cellar: :any,                 monterey:       "706ba9acedc825db1634868bc7be96ee5c919091e8481ecd2267f62b1cd3d803"
+    sha256 cellar: :any,                 ventura:        "4f108e3270a93578914a3e3ef03ff57b2cb37637b068b43cc69efa81f54d6979"
+    sha256 cellar: :any,                 monterey:       "4b2f9d80d7f7d5471c875c3254d933234f782f80b862ea69708a054ba33e5a52"
     sha256 cellar: :any,                 big_sur:        "a55727cc7d7a7dbc8f7e61aca70a94dc07dcaccbfbffc5f92fcdc77dec64eaa7"
-    sha256 cellar: :any,                 catalina:       "68e76db2edce7a83e900ff4152317eeee7ebf1deb2780cc134d003f01774f248"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bf417b645bd80dee68a64b42624218531754802db112e4f08570bb881692c1d6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e15d359d4a51607a8751eef4e7f213477f4d04fed463acbd0accc5d793e7178f"
   end
 
   head do

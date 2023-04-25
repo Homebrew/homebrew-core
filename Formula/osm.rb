@@ -2,8 +2,8 @@ class Osm < Formula
   desc "Open Service Mesh (OSM)"
   homepage "https://openservicemesh.io/"
   url "https://github.com/openservicemesh/osm.git",
-      tag:      "v1.2.3",
-      revision: "899fdb8e283aeca124c85c7a752e7b9534eea86e"
+      tag:      "v1.2.4",
+      revision: "82651008921837b2f21113e4604a807c3f68a97c"
   license "Apache-2.0"
   head "https://github.com/openservicemesh/osm.git", branch: "main"
 
@@ -13,13 +13,13 @@ class Osm < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "be9c4a1654d87af5b7fd4eeff862a4f7e2397d6f4dc6273c7c89b6212579d49e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ea1b1b791f6c8039db5330d64f887bc03d7eea0a77f3f154d1cf1d0bd4cd656c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b4e80e41e888d3f7e97ecdbeec24f315095b81d8f78db9b4f58c55f00349fdaa"
-    sha256 cellar: :any_skip_relocation, ventura:        "53f6f7ff024c9a7e77e49cc55ae7303ecd4af76129872d907037fadcddde1799"
-    sha256 cellar: :any_skip_relocation, monterey:       "f8dbd01637b4cb0371c81c99fcb87f588871ac55575a474b40ac12f24615982e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a8ed806a17e503c1bcbceed00fa1af69c363e31c7bff33a18b7f01968ec1aa8d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eee3a9b49d178f1613c73705f562dc58fc61c8ec8058e4e210fed94a5719468e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6f9fc9b20e79dbd991464f6226b5d3d06ec6831cb3def39ba96604f7570875fb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5eef76b97e7a512dd02b7e29a699cc570b25e7e2f91ee6ea9032cc8d4f4cd197"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fbe85ec87c4c92d790300149d14e518f0936ce6170d7fc0bb9594aedd736a013"
+    sha256 cellar: :any_skip_relocation, ventura:        "986a024863165c46cb4a73f66ea216e40ac1c2c9502dd368a9cf7e8cf5cd4e30"
+    sha256 cellar: :any_skip_relocation, monterey:       "f1efcb2f65f52dee57e1b2544694b00201f45bb36dd391c55e807a2f4b71b8f2"
+    sha256 cellar: :any_skip_relocation, big_sur:        "88a968fa2368ec0f1729747d0eead01c22a24cecb8689a8bc639a9a1cb22931e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c331213fde50a3f23b9e668571aa173120210ade4b7768e29c17b167584f49a1"
   end
 
   depends_on "go" => :build

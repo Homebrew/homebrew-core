@@ -9,13 +9,14 @@ class Ncurses < Formula
   license "MIT"
 
   bottle do
-    sha256 arm64_ventura:  "7f6ef060a13afca7fbd510a95b8f687e9a44f2c06ab18a68ee0037f60abebb67"
-    sha256 arm64_monterey: "103cc4576dbcb2f907f07f612671d221c3a30ac4e0e30ac92232c1149734abd5"
-    sha256 arm64_big_sur:  "89fba020401221224c789911e14ab04cef29610e247166e8536d7434993d978e"
-    sha256 ventura:        "1460ee1a2732cde79771a8c22960897e9aa3e57da0410ddcc0560bc5fc113d9a"
-    sha256 monterey:       "2ba0f33a4a8578f779f3dc5dbbc53aede3fa2c7f2c79b97ccfc71b34e4c4da53"
-    sha256 big_sur:        "7e99f031d087a9662bf4c74d662a30b832a951349cab876b7652c0d0240509f0"
-    sha256 x86_64_linux:   "abfe09d33077a2181c9802f34a8a71cd059b324663559b9853fd775d215c2ea6"
+    rebuild 1
+    sha256 arm64_ventura:  "8afdd105a6b1d9ec6c567edfe5a08dd3eff5bece58fc29894ff64ae3851c4ddb"
+    sha256 arm64_monterey: "b841fae8df4143be3b7e5d0cf711f0514b0ef45592c0737c1bf416ee972283d4"
+    sha256 arm64_big_sur:  "18dd7acd5aad938bf0d7d27bd930fe6d846161aa0dad148b086eceb392eeb67d"
+    sha256 ventura:        "f31d17ab8166110d3dd0337b240c616acf33a3582c0ded2fbe4db61fbdda1b5d"
+    sha256 monterey:       "cd6258524addc5ac1fdbbd92e7e2c46b240cae5d0c4fa771c0976da861f7198f"
+    sha256 big_sur:        "b5e8d53b2860f5c778ac99d01417a0596c66ebab670169e8a472d65c253870ba"
+    sha256 x86_64_linux:   "58970126fed5ca09650b60c453e2b911a85f038b45af9091b5b2ef2b61d7d40e"
   end
 
   keg_only :provided_by_macos
@@ -50,8 +51,10 @@ class Ncurses < Formula
     system "make", "install"
     make_libncurses_symlinks
 
-    prefix.install "test"
-    (prefix/"test").install "install-sh", "config.sub", "config.guess"
+    # Avoid hardcoding Cellar paths in client software.
+    inreplace bin/"ncursesw6-config", prefix, opt_prefix
+    pkgshare.install "test"
+    (pkgshare/"test").install "install-sh", "config.sub", "config.guess"
   end
 
   def make_libncurses_symlinks
@@ -90,12 +93,14 @@ class Ncurses < Formula
   end
 
   test do
+    refute_match prefix.to_s, shell_output("#{bin}/ncursesw6-config --prefix")
+    refute_match share.to_s, shell_output("#{bin}/ncursesw6-config --terminfo-dirs")
+
     ENV["TERM"] = "xterm"
 
-    system prefix/"test/configure", "--prefix=#{testpath}/test",
-                                    "--with-curses-dir=#{prefix}"
+    system pkgshare/"test/configure", "--prefix=#{testpath}",
+                                      "--with-curses-dir=#{prefix}"
     system "make", "install"
-
-    system testpath/"test/bin/ncurses-examples"
+    system testpath/"bin/ncurses-examples"
   end
 end

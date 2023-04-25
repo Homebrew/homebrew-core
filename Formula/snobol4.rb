@@ -5,6 +5,11 @@ class Snobol4 < Formula
   sha256 "91244d67d4e29d2aadce5655bd4382ffab44c624a7ea4ad6411427f3abf17535"
   license "BSD-2-Clause"
 
+  livecheck do
+    url "https://ftp.regressive.org/snobol/"
+    regex(/href=.*?snobol4[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 arm64_ventura:  "505e0a672763a6722cdac5f45129c79172a17b62cc2ca8e16166c00e39ae28e6"

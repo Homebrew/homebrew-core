@@ -3,18 +3,18 @@ require "language/node"
 class Fanyi < Formula
   desc "Chinese and English translate tool in your command-line"
   homepage "https://github.com/afc163/fanyi"
-  url "https://registry.npmjs.org/fanyi/-/fanyi-8.0.0.tgz"
-  sha256 "0b946e98f7a3d7607c08f836d884be76f24cae0976874e891c5f484e222f4900"
+  url "https://registry.npmjs.org/fanyi/-/fanyi-8.0.3.tgz"
+  sha256 "5798b84e26584878024fa5038defe3d1a33d5d600c95290b6c54d1dd8cdef421"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f3b97798cae69975e27a061f026054f8cd6dfa1757cafc053452acfcd833fe5e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f3b97798cae69975e27a061f026054f8cd6dfa1757cafc053452acfcd833fe5e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f3b97798cae69975e27a061f026054f8cd6dfa1757cafc053452acfcd833fe5e"
-    sha256 cellar: :any_skip_relocation, ventura:        "e7f08ad398efd288f8a694566cd41a1d5ebb72a1fa325857e2914bddb8d39c66"
-    sha256 cellar: :any_skip_relocation, monterey:       "e7f08ad398efd288f8a694566cd41a1d5ebb72a1fa325857e2914bddb8d39c66"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e7f08ad398efd288f8a694566cd41a1d5ebb72a1fa325857e2914bddb8d39c66"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "37d6287df9410efbbc1ce7af8d7af3b42fa1218867557ee0a6d5cefe8201ec97"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b7728af46fdeeff0990e400a0bdecc76239094a19a4e0589ab1e88394fa3ce6d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b7728af46fdeeff0990e400a0bdecc76239094a19a4e0589ab1e88394fa3ce6d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b7728af46fdeeff0990e400a0bdecc76239094a19a4e0589ab1e88394fa3ce6d"
+    sha256 cellar: :any_skip_relocation, ventura:        "4f43524726f3d282299f7a68b1c436f3d70f6be419cd8d4c9d41c1d58ee51b20"
+    sha256 cellar: :any_skip_relocation, monterey:       "4f43524726f3d282299f7a68b1c436f3d70f6be419cd8d4c9d41c1d58ee51b20"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4f43524726f3d282299f7a68b1c436f3d70f6be419cd8d4c9d41c1d58ee51b20"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "41e9d42993b45b6c5912408b174e2f520c3ed244da434e3c4e0d566ed3aceeba"
   end
 
   depends_on "node"

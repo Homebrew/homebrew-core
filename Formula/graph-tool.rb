@@ -3,8 +3,8 @@ class GraphTool < Formula
 
   desc "Efficient network analysis for Python 3"
   homepage "https://graph-tool.skewed.de/"
-  url "https://downloads.skewed.de/graph-tool/graph-tool-2.48.tar.bz2"
-  sha256 "871336d649c231a667502dec9b871f4e396186760a254877ba010b65b0fd7be6"
+  url "https://downloads.skewed.de/graph-tool/graph-tool-2.54.tar.bz2"
+  sha256 "3481ce1ac06b1e770bf7c869819e1470924d49b99ee7a1d3ecdf26503c81f5a7"
   license "LGPL-3.0-or-later"
 
   livecheck do
@@ -13,13 +13,13 @@ class GraphTool < Formula
   end
 
   bottle do
-    sha256                               arm64_ventura:  "4eacc8d767cefb78475ebbc92a90d2a22f30f73ba827b2b0616fe8ab7c2be065"
-    sha256                               arm64_monterey: "2b563d9d88303a2d1df6c869d283db03834618c14fff7016146517111f45a568"
-    sha256                               arm64_big_sur:  "d1f355bb99a11843487745e1c4d38939b986665ed6e9580f81f2b7b8f5124233"
-    sha256                               ventura:        "99d6ff149cbc917eb2f488395cc3f810acb36daa35507b1d7bb1dabf4420a3bf"
-    sha256                               monterey:       "31d7890f95e0fbe8ad2f81d87b7d75670a995f370765ebd91ef951dca41bde04"
-    sha256                               big_sur:        "e8330899e7b9d3b51f91cf3ec59087ca2d1ef87df20bb5dbd9b8d502a3a3fa0f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b956b47fc6c79a8a6b9331665d2a283dee539aab23a6bab7e7278c54fb5e265b"
+    sha256                               arm64_ventura:  "6cd262a983e609c37416f094fe09b88e20a5f9a0036eb6bb1caf4a77eeb60d65"
+    sha256                               arm64_monterey: "4866941350d613c58f8bc890cfb92030f207e58caf16899bac182c7b830232f9"
+    sha256                               arm64_big_sur:  "c596b713e36735a8e2cdcd82c70bb803fe01cc0c5262a0d386168d5024d1510a"
+    sha256                               ventura:        "e7ebecf57590440e62ccf3bbe88b50cc6d90cfd63aa054721a5be177ae9c47b5"
+    sha256                               monterey:       "1d958a8b37d14a1f2b0ccfeadaf753cba67dd5e3eddb13448564915410e3b6ce"
+    sha256                               big_sur:        "b1668eee4be69d4290c13d8d0da5c2b38a00ccfe5bea2dc7553b4acda7aaf823"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "706cbc581fadd978980bb1faedd5d481537bd15c01087ce882fbd2c53496714f"
   end
 
   depends_on "autoconf" => :build
@@ -74,8 +74,8 @@ class GraphTool < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/47/d5/aca8ff6f49aa5565df1c826e7bf5e85a6df852ee063600c1efa5b932968c/packaging-23.0.tar.gz"
-    sha256 "b6ad297f8907de0fa2fe1ccbd26fdaf387f5f47c7275fedf8cce89f99446cf97"
+    url "https://files.pythonhosted.org/packages/b9/6c/7c6658d258d7971c5eb0d9b69fa9265879ec9a9158031206d47800ae2213/packaging-23.1.tar.gz"
+    sha256 "a392980d2b6cffa644431898be54b0045151319d1e7ec34f0cfed48767dd334f"
   end
 
   resource "pyparsing" do

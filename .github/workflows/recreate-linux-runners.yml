@@ -1,22 +1,71 @@
-name: Recreate Linux self-hosted runners on schedule
+name: Recreate Linux self-hosted runners
 
 on:
   workflow_dispatch:
   schedule:
     # Once each 24 hours, at 1 during the night
     - cron: "0 1 * * *"
+  workflow_run:
+    workflows:
+      - CI
+    types:
+      - completed
 
 concurrency:
-  group: recreate-linux-runners
+  group: recreate-linux-runners-${{ github.event.workflow_run.id || github.ref }}
   cancel-in-progress: true
 
 permissions:
   contents: read
 
+env:
+  GH_REPO: ${{github.repository}}
+  GH_NO_UPDATE_NOTIFIER: 1
+  GH_PROMPT_DISABLED: 1
+
 jobs:
+  check:
+    if: >
+      github.repository_owner == 'Homebrew' &&
+      (github.event_name != 'workflow_run' || github.event.workflow_run.event == 'pull_request')
+    runs-on: ubuntu-latest
+    outputs:
+      recreate: ${{ steps.check.outputs.recreate }}
+    permissions:
+      actions: read # for `gh run download`
+      pull-requests: read # for `gh api`
+    steps:
+      - name: Check if runner needs to be recreated
+        id: check
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WORKFLOW_ID: ${{ github.event.workflow_run.id }}
+        run: |
+          recreate=true
+
+          if [[ "$GITHUB_EVENT_NAME" = "workflow_run" ]]
+          then
+            gh run download --name pull-number "$WORKFLOW_ID"
+            PR="$(cat number)"
+
+            recreate="$(
+              gh api \
+                --header 'Accept: application/vnd.github+json' \
+                --header 'X-GitHub-Api-Version: 2022-11-28' \
+                "repos/$GH_REPO/pulls/$PR" \
+                --jq 'any(.labels[].name; .== "CI-linux-self-hosted")'
+            )"
+          fi
+
+          echo "recreate=$recreate" >> "$GITHUB_OUTPUT"
+
   recreate:
-    if: github.repository == 'Homebrew/homebrew-core'
-    runs-on: ubuntu-22.04
+    needs: check
+    if: >
+      github.repository_owner == 'Homebrew' &&
+      (github.event_name != 'workflow_run' || github.event.workflow_run.event == 'pull_request') &&
+      fromJson(needs.check.outputs.recreate)
+    runs-on: ubuntu-latest
     env:
       # TODO agree on one label for all runners
       RUNNER_LABEL: TODO

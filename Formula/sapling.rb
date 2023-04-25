@@ -1,9 +1,9 @@
 class Sapling < Formula
   desc "Source control client"
   homepage "https://sapling-scm.com"
-  url "https://github.com/facebook/sapling/archive/refs/tags/0.2.20230228-144002-h9440b05e.tar.gz"
-  version "0.2.20230228-144002-h9440b05e"
-  sha256 "70483afad6d0b437cb755447120a34b1996ec09a7e835b40ac8cccdfe44e4b90"
+  url "https://github.com/facebook/sapling/archive/refs/tags/0.2.20230330-193452-h69692651.tar.gz"
+  version "0.2.20230330-193452-h69692651"
+  sha256 "d02130197dcc4be07e3697a55e298a1178c71d2255019287ea25f451f9f42541"
   license "GPL-2.0-or-later"
   head "https://github.com/facebook/sapling.git", branch: "main"
 
@@ -14,13 +14,13 @@ class Sapling < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "81ce8fbe45bff3a224f222721285cfca47fd1242450794177ba89c26990b73b6"
-    sha256 cellar: :any,                 arm64_monterey: "bf9fff95329e7566b8e360d3e97502e1c28da451e092384f8f92690b91020292"
-    sha256 cellar: :any,                 arm64_big_sur:  "d62418cf83a04d4f9f697c4ca9a118b9fb47ca2759960e076ecd6adf364063d0"
-    sha256 cellar: :any,                 ventura:        "0a0658ab70813bc55303f4a0500a930b91097e85e4e462d9b444092e4957b912"
-    sha256 cellar: :any,                 monterey:       "3c07d812648bd8c15d8c2da0310749885b8f5ce059b44f9ecd06a982225c29c9"
-    sha256 cellar: :any,                 big_sur:        "cce358b4e7fe42b350d9e1286708f4e2f91a12b247921dea522da9b6e733a3cf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "65eb643584f621fc71758c063d1f59c4750e054cf935fe16832054a606e62188"
+    sha256 cellar: :any,                 arm64_ventura:  "7e2204fdf4beddf1cc2eb9fb70c01a5ca995c5e8a78510e6868dc6a67b84392b"
+    sha256 cellar: :any,                 arm64_monterey: "6a0802017e3629f2936454c1889adf4231191d4b6d34f134bb8f503e6c3814c1"
+    sha256 cellar: :any,                 arm64_big_sur:  "17ba88bfd7dfb0a2886c14bfb61ef5fdef15a6fb0f717083222c7d460ed1f8ac"
+    sha256 cellar: :any,                 ventura:        "5b4b19caba1027393e1ca51542275381c7d96d4cca3150f759384982feca7ac5"
+    sha256 cellar: :any,                 monterey:       "b8905e95b9f827f16dcd669698241c8650de7dd7fdae6c8475a960bdf18d7b72"
+    sha256 cellar: :any,                 big_sur:        "8c7378e9a7027c9473bb7c469fd4fab3f6b7ead402a901c39ee7fbef0d04939f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "df64f25f00dc7f3f08ef6fc729703acaac8fe1750d26a22a0229e58a8e6049fc"
   end
 
   depends_on "cmake" => :build
@@ -31,11 +31,26 @@ class Sapling < Formula
   depends_on "openssl@1.1"
   depends_on "python@3.11"
 
+  # `setuptools` 66.0.0+ only supports PEP 440 conforming version strings.
+  # Modify the version string to make `setuptools` happy.
+  def modified_version
+    # If installing through `brew install sapling --HEAD`, version will be HEAD-<hash>, which
+    # still doesn't make `setuptools` happy. However, since installing through this method
+    # will get a git repo, we can use the ci/tag-name.sh script for determining the version no.
+    build_version = if version.to_s.start_with?("HEAD")
+      Utils.safe_popen_read("ci/tag-name.sh").chomp + ".dev"
+    else
+      version
+    end
+    segments = build_version.to_s.split(/[-+]/)
+    "#{segments.take(2).join("-")}+#{segments.last}"
+  end
+
   def install
     python3 = "python3.11"
 
     ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
-    ENV["SAPLING_VERSION"] = version.to_s
+    ENV["SAPLING_VERSION"] = modified_version
 
     # Don't allow the build to break our shim configuration.
     inreplace "eden/scm/distutils_rust/__init__.py", '"HOMEBREW_CCCFG"', '"NONEXISTENT"'
@@ -43,7 +58,7 @@ class Sapling < Formula
   end
 
   test do
-    assert_equal("Sapling #{version}", shell_output("#{bin}/sl --version").chomp)
+    assert_equal("Sapling #{modified_version}", shell_output("#{bin}/sl --version").chomp)
     system "#{bin}/sl", "config", "--user", "ui.username", "Sapling <sapling@sapling-scm.com>"
     system "#{bin}/sl", "init", "--git", "foobarbaz"
     cd "foobarbaz" do

@@ -1,10 +1,9 @@
 class Adios2 < Formula
   desc "Next generation of ADIOS developed in the Exascale Computing Program"
   homepage "https://adios2.readthedocs.io"
-  url "https://github.com/ornladios/ADIOS2/archive/v2.8.3.tar.gz"
-  sha256 "4906ab1899721c41dd918dddb039ba2848a1fb0cf84f3a563a1179b9d6ee0d9f"
+  url "https://github.com/ornladios/ADIOS2/archive/v2.9.0.tar.gz"
+  sha256 "69f98ef58c818bb5410133e1891ac192653b0ec96eb9468590140f2552b6e5d1"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/ornladios/ADIOS2.git", branch: "master"
 
   livecheck do
@@ -13,14 +12,13 @@ class Adios2 < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "86949939af368f21ba0637540fa28395b597a7ad5f0bfc2852faa16e27ad4672"
-    sha256 arm64_monterey: "dd6c2120b4b480f41ed467eb288b7df6ad5c87a12fde5cb4d5b02c90098f2441"
-    sha256 arm64_big_sur:  "b4c89ff59b0ed1b9c0bfe323baa1125955d07bfe64fa7dfdaf7a53d077a0b22e"
-    sha256 ventura:        "3240624d9596ea6f0dc5dfcae7a2b9fff81e5bd170ead385ec25522be3434254"
-    sha256 monterey:       "5240e042cad078b840fe117bdd706f47786cbf3cc0db1eb91f9d26237de28d24"
-    sha256 big_sur:        "1bef95f698fa1d53a16c66fcfe0b60543b5257554f9fee86041f415a3b73a8f1"
-    sha256 catalina:       "dfb2ed4262187889d97bd41581c4642399d6e0544c9def52542d75e4e937e8ca"
-    sha256 x86_64_linux:   "aca7267638aaf558da97c828901c791a6698fe4c789882ac97b4f8860c53be99"
+    sha256 arm64_ventura:  "e46326d9b93f258f510d31544553cc46a0e9ded8737d95e89af5425521bea981"
+    sha256 arm64_monterey: "1e28a0fa8db8adabd7404943c2bf01fdb66534a3d328a44b449f0c593e7538fa"
+    sha256 arm64_big_sur:  "9a950000b778dea1ea323a766f10c7add640972ebd41b40f7bd02f6e21b2b984"
+    sha256 ventura:        "219066abe62b0a1f142b4da3cc89cc5dd64801ac152a20a5f6a923a3cdf75e92"
+    sha256 monterey:       "d58ebb2d86f98d8729dc76a79f141bf18e4ee26de82d7ae92167202868ca49de"
+    sha256 big_sur:        "6fb9906e4cd36ce26a8051ec388ed2ab865d02ada9d0a2cf7667e26bb51413b7"
+    sha256 x86_64_linux:   "de9ce9ec642fe0ab16b83490d88f525fdc83fd21999c74b97cd46d25d31a4b11"
   end
 
   depends_on "cmake" => :build
@@ -55,11 +53,6 @@ class Adios2 < Formula
 
   def install
     ENV.llvm_clang if DevelopmentTools.clang_build_version == 1400
-
-    # Fix for newer CMake
-    # https://github.com/ornladios/ADIOS2/issues/3309
-    inreplace "CMakeLists.txt", "cmake_minimum_required(VERSION 3.12)",
-                                "cmake_minimum_required(VERSION 3.12...3.23)"
 
     # fix `include/adios2/common/ADIOSConfig.h` file audit failure
     inreplace "source/adios2/common/ADIOSConfig.h.in" do |s|

@@ -1,8 +1,8 @@
 class OpenjdkAT11 < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.java.net/"
-  url "https://github.com/openjdk/jdk11u/archive/refs/tags/jdk-11.0.18-ga.tar.gz"
-  sha256 "c0560c3480e7ded2a59d783ddf2cb624a44ece9d3036f4a7a7575d597b18fb2e"
+  url "https://github.com/openjdk/jdk11u/archive/refs/tags/jdk-11.0.19-ga.tar.gz"
+  sha256 "5077e9713e59ccf92fbe58b9bb63e18294fb2110df644f476638e1528e5dfd46"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,13 +11,13 @@ class OpenjdkAT11 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "05cd692e583b4fccba04c814b6304531c9bd1476996333392fd104fe8f96538a"
-    sha256 cellar: :any,                 arm64_monterey: "eb17ac97ee266055cfb1cef51a19913146ccba76cde635c7c505b6f898bc3ab9"
-    sha256 cellar: :any,                 arm64_big_sur:  "2d24c9d7959a2a7dcce671a8abc2b7a95b68a25434072e4e8f9c739290d3c43d"
-    sha256 cellar: :any,                 ventura:        "5a4ddc71e8adacdad1c0a56be7eff2cf9edf951523610ea4bc1fd9a9dc55f228"
-    sha256 cellar: :any,                 monterey:       "617fa70e78ead6459d1eb810fba7636a1fbfc045b256d1e2ca1ce1786303c9e8"
-    sha256 cellar: :any,                 big_sur:        "3a2110878daf46b2bbbebc28fb8ab6a76652490c8fc97ef293b275c5faa57f83"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5138ec9740b3faa6dd8c8e50ea80b027f62f3a256a6b989970f2944a3ffd5e27"
+    sha256 cellar: :any,                 arm64_ventura:  "1bca4101ca2dc3aedfd920c05ffe5c574836a192ffffdcdf7474d97c818f819a"
+    sha256 cellar: :any,                 arm64_monterey: "bdd02ba57b1fef869bca1f123c273b34dbe1984eb8d8e95962eb90dacd5d556f"
+    sha256 cellar: :any,                 arm64_big_sur:  "929a29a68609b62ac5373245f13ff766a8148ceaccc0ce61a421e1bf7632116e"
+    sha256 cellar: :any,                 ventura:        "24d306338e44c638d980a9d028514025a5ccae7970bc473afef0417405b5eaf5"
+    sha256 cellar: :any,                 monterey:       "d5a6dfc55086acfc311c0151114286358bf6bd3a66d1437cbacfd0a97e5a5e02"
+    sha256 cellar: :any,                 big_sur:        "bd53dfd5ee78e1083bb9f9468f7556b1b6c18a5d7e3204a16a3b9c31bc8ba8c5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b331e6cb6f09444c013faa2a51aab34bbc4774aa9cd75ded199eac2eca0fe36f"
   end
 
   keg_only :versioned_formula

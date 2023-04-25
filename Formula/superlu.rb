@@ -1,8 +1,8 @@
 class Superlu < Formula
   desc "Solve large, sparse nonsymmetric systems of equations"
   homepage "https://portal.nersc.gov/project/sparse/superlu/"
-  url "https://github.com/xiaoyeli/superlu/archive/v5.3.0.tar.gz"
-  sha256 "3e464afa77335de200aeb739074a11e96d9bef6d0b519950cfa6684c4be1f350"
+  url "https://github.com/xiaoyeli/superlu/archive/v6.0.0.tar.gz"
+  sha256 "5c199eac2dc57092c337cfea7e422053e8f8229f24e029825b0950edd1d17e8e"
   license "BSD-3-Clause-LBNL"
 
   livecheck do
@@ -11,14 +11,13 @@ class Superlu < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "3f6b4dbf526e0617cce7676aa335838964d2cde06f0a898d85f4775ef04673da"
-    sha256 cellar: :any,                 arm64_monterey: "9f4ff68d59c8d6fa46ee8dec38a16d132b768f0774bde07ce47382df778f157f"
-    sha256 cellar: :any,                 arm64_big_sur:  "8ce0014c1d671eb0666d67f7955b949e64cfa4832bb4866a3d21c7969b437253"
-    sha256 cellar: :any,                 ventura:        "6296bd9709682fe5306fbc41211779c731699144c5ef3199d50058d52c7000c7"
-    sha256 cellar: :any,                 monterey:       "6c7230e94eb371e7246b0072cde205acff5bc1005269e35de715261ef3c62c94"
-    sha256 cellar: :any,                 big_sur:        "222e4aa99af82d75fea366fe28228913b6f8590d973b836cf2f8244a61bd1079"
-    sha256 cellar: :any,                 catalina:       "032023b04d6ded07dabc261fe7dc90960e7c2f0eff162a5827c475f926f4c483"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6e89b55953dc32b96d18eb672895262206bb97e648b6d226b9d10741fc7eb78e"
+    sha256 cellar: :any,                 arm64_ventura:  "c3027acd72b215b30fe0037f2899aa7cdfcca6d343311007271ed87d96d80312"
+    sha256 cellar: :any,                 arm64_monterey: "4995ceb2466ac63227cddfcd518c50ca044756746444f44998df047aa096d05c"
+    sha256 cellar: :any,                 arm64_big_sur:  "e6935b2430b89b733c87e7d408a388ad0c73f2d0971485e571191b405451cf7f"
+    sha256 cellar: :any,                 ventura:        "2b977f459bcdff15d7e6a696f7bd048de3d45977c8f28f547e4062f2d430550b"
+    sha256 cellar: :any,                 monterey:       "878371ffa8e773c0a39742b496f25eb314905b48a266adc20a0267d936f5fc93"
+    sha256 cellar: :any,                 big_sur:        "f52d8d7888d9a12a19dc8e320f6a610f9ed71a18de2849c86adf42e5dd58879f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4bcfd31a895f26353078a7c78b80041bcc75f07f1c1774e728fa45c4739a5284"
   end
 
   depends_on "cmake" => :build

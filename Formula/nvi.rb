@@ -6,6 +6,11 @@ class Nvi < Formula
   license "BSD-3-Clause"
   revision 6
 
+  livecheck do
+    url "https://deb.debian.org/debian/pool/main/n/nvi/"
+    regex(/href=.*?nvi[._-]v?(\d+(?:\.\d+)+)\.orig\.t/i)
+  end
+
   bottle do
     sha256                               arm64_ventura:  "aa6ba856388d331dce1cec171db093a6846d349d3b0013bd08c3331d9d6f09f1"
     sha256                               arm64_monterey: "4172bb7673685b0e0f569ad84edbe4d568c152b419678e6146f539accd243c80"

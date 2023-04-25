@@ -1,24 +1,22 @@
 class Waffle < Formula
   desc "C library for selecting an OpenGL API and window system at runtime"
   homepage "https://waffle.freedesktop.org/"
-  url "https://gitlab.freedesktop.org/mesa/waffle/-/raw/website/files/release/waffle-1.7.0/waffle-1.7.0.tar.xz"
-  sha256 "69e42d15d08f63e7a54a8b8770295a6eb04dfd1c6f86c328b6039dbe7de28ef3"
+  url "https://waffle.freedesktop.org/files/release/waffle-1.7.2/waffle-1.7.2.tar.xz"
+  sha256 "f676195cfea58cc75ef2441c5616b2f1d5565a7d371a6aa655aff3cc67c7c2c9"
   license "BSD-2-Clause"
   head "https://gitlab.freedesktop.org/mesa/waffle.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "6ea98899df47ceb529895748932fd08dfabbd53a34ff8e153279aa59b1ee8e37"
-    sha256 cellar: :any,                 arm64_big_sur:  "2978050a3df20c384641d00498cc83255c945999ed249d9d7d2e33d24998e387"
-    sha256 cellar: :any,                 monterey:       "5c022615ff6bcd7d59cd1fc8147ebb26ae12bff7dc104db3178bd1d5655eca0d"
-    sha256 cellar: :any,                 big_sur:        "a382e396564e8eda224154272ab33584cdedc1978d096e0989aef1bf8aea4edc"
-    sha256 cellar: :any,                 catalina:       "f7a2dfc36d15d76318ee9e22277675818b75311f442792c2c979121df7fdd1af"
-    sha256 cellar: :any,                 mojave:         "2f865431b367967e1ec77232813930923f3435332972334933cb4a0173a061b6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e2b0bf74c8eed8e3a8b3f85f62d4bb01172916808acc31ee74878833632e7825"
+    sha256 cellar: :any,                 arm64_monterey: "c49b293a55d1fc03a49c27f2932fedab240aaae603bf6de8c713a3f4472575b5"
+    sha256 cellar: :any,                 arm64_big_sur:  "44e6ed255b8ddafc5572f25b1f65cc59477e2961176eda549aa558e54a6b44f6"
+    sha256 cellar: :any,                 monterey:       "2f6bb76c9f4c50e79c627b6e2c2e954f128df89ff86ac3bda0a9007948290ae1"
+    sha256 cellar: :any,                 big_sur:        "9753062a77bcff11767245914b40ba773844a58f0991cb0487c8b76d07a34cec"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9d8a1781ff86d13b723a635387f6a47c67c2133e0a786ada9e4b4233dedcdd19"
   end
 
   depends_on "cmake" => :build
   depends_on "docbook-xsl" => :build
-  depends_on "pkg-config" => :test
+  depends_on "pkg-config" => [:build, :test]
 
   uses_from_macos "libxslt" => :build
 
@@ -28,12 +26,6 @@ class Waffle < Formula
     depends_on "mesa-glu"
     depends_on "systemd"
     depends_on "wayland"
-  end
-
-  # Apply upstream commit to fix build with wayland 1.20.  Remove with next release.
-  patch do
-    url "https://gitlab.freedesktop.org/mesa/waffle/-/commit/2c33597245bb74f19104f0a858cd40e80b26991d.diff"
-    sha256 "739b2699349535c7f9fbc0efc7ca880c59cc8208fbf4ffacb5050dcfdf7c753c"
   end
 
   def install

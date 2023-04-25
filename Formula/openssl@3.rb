@@ -44,6 +44,20 @@ class OpensslAT3 < Formula
     end
   end
 
+  # fix build on macOS pre-10.14; remove in 3.1.1; see openssl/openssl#19361
+  patch do
+    url "https://github.com/openssl/openssl/commit/96f1dbea67247b79b1e7b3f83f2964dc626d86ce.patch?full_index=1"
+    sha256 "95d662ce38c84bb7e4ca1f78420815360f6254e95854915b067739db23e4df20"
+  end
+  patch do
+    url "https://github.com/openssl/openssl/commit/d4765408c705f704f7cf33bd32bfb713061954a7.patch?full_index=1"
+    sha256 "fe79b4bfe1daf2995b49b3a57bc1d4f07d615871300424ce9091096e3bb1501b"
+  end
+  patch do
+    url "https://github.com/openssl/openssl/commit/110dac578358014c29b86cf18d9a4bfe5561e3bc.patch?full_index=1"
+    sha256 "27da17844cb47fbeaac237ad8082d2e2c8ace523fd93b07a5a7fde6d6ad05c62"
+  end
+
   # SSLv2 died with 1.1.0, so no-ssl2 no longer required.
   # SSLv3 & zlib are off by default with 1.1.0 but this may not
   # be obvious to everyone, so explicitly state it for now to

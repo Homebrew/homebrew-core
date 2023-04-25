@@ -3,7 +3,12 @@ class Wv < Formula
   homepage "https://wvware.sourceforge.io/"
   url "https://abisource.com/downloads/wv/1.2.9/wv-1.2.9.tar.gz"
   sha256 "4c730d3b325c0785450dd3a043eeb53e1518598c4f41f155558385dd2635c19d"
+  license "GPL-2.0-or-later"
   revision 1
+
+  livecheck do
+    skip "Not actively developed or maintained"
+  end
 
   bottle do
     sha256 arm64_ventura:  "af7ed2ef919eb856fd37e52bce5d7d5ff8ed39785969aeb565b07c62160807c9"

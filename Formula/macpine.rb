@@ -1,8 +1,8 @@
 class Macpine < Formula
   desc "Lightweight Linux VMs on MacOS"
   homepage "https://beringresearch.github.io/macpine/"
-  url "https://github.com/beringresearch/macpine/archive/refs/tags/v0.9.tar.gz"
-  sha256 "fbbed218de0037d0fc82bc675fbe89b44202f757f12a5ab53f32ff70345ee1c2"
+  url "https://github.com/beringresearch/macpine/archive/refs/tags/v0.10.tar.gz"
+  sha256 "bca9075958cb76a79cb66f848a44f6ff8f2c1493d6af0b79e871b4457f1fe4d1"
   license "Apache-2.0"
   head "https://github.com/beringresearch/macpine.git", branch: "main"
 
@@ -21,14 +21,14 @@ class Macpine < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "df84e98cc98f316b8fc2ac8850cfd05048bcce9decb5c6fbb15cbf97f04fe520"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8bb9051ac566113476a2e3386f9417bfa0b11f263332476b0f70a0116862baa9"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b0d9dacd246f201cf51fe9033be7032d2485430ede7b41edb58923acbd2a03f8"
-    sha256 cellar: :any_skip_relocation, ventura:        "9662303141c80aeb07bc28821701c8a8d88121dd3a0771d531ce3991fcc656f2"
-    sha256 cellar: :any_skip_relocation, monterey:       "761d4a26cd28778a902f5687c50173490027b6d94c172d732e5d850eac32795d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c3d1ae59c1b3ddb9c7d69beaeea2fb5060cea9e8e6f87e3baa26d938a171838d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4e8e56a36cb50a31021a405272ed01dff9aeb8cab3d16956291b80ee382673b5"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "82062b8a62560a6f67e219470a71d9b8c691dacac142db8e311395568ff6fd26"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "18568343b55dcb447a407b243c273a3c164d51660dfa74f815087a760549b4ad"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a0cc0b5a8ecbf2e2838dd7973ff36920baed9c3ed9ad58b14bba1c679852bbe7"
+    sha256 cellar: :any_skip_relocation, ventura:        "f56f3e31394cd96580e1ce0958b57a353c840c7395bcb0e111db213a3ae74761"
+    sha256 cellar: :any_skip_relocation, monterey:       "7906166750c87a2b1374dbc0bc60bfb8e2e25ac090350beca43ebc70eefec21d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "bcf0dc7bf0b3854f15270bb7b132287750ad8eb2b8e150369e78d19ff4fac48c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c92bbb2fe8da1bd5a071007fb4f897504aa5afe327c46fd870a4d32b5a91f43a"
   end
 
   depends_on "go" => :build
@@ -39,6 +39,11 @@ class Macpine < Formula
   def install
     system "make", "install", "PREFIX=#{prefix}"
     generate_completions_from_executable(bin/"alpine", "completion", base_name: "alpine")
+  end
+
+  service do
+    run macos: [opt_bin/"alpine", "start", "+launchctl-autostart"]
+    environment_variables PATH: std_service_path_env
   end
 
   test do

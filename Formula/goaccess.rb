@@ -1,8 +1,8 @@
 class Goaccess < Formula
   desc "Log analyzer and interactive viewer for the Apache Webserver"
   homepage "https://goaccess.io/"
-  url "https://tar.goaccess.io/goaccess-1.7.1.tar.gz"
-  sha256 "3d6876d91d02816a93ad86e179369942d914a82bf09d6a6c02964ed7de48610d"
+  url "https://tar.goaccess.io/goaccess-1.7.2.tar.gz"
+  sha256 "0e9aaba29c021d1c6a187130a91404730183ee8ab81cd31381854b47149d126b"
   license "MIT"
   head "https://github.com/allinurl/goaccess.git", branch: "master"
 
@@ -12,13 +12,13 @@ class Goaccess < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "d14f81e03f3b089a8ce0b59c98f3f50ab819e2200d7fc427864bf4b380663f25"
-    sha256 arm64_monterey: "98b8012a9b63def036ed7a7a51b584e31310481dca4c4a101e2eadb41d0e25cd"
-    sha256 arm64_big_sur:  "ef8fae78f4a509331d385a38ec9f2db55a920ff78a94290a51475ed3556b9a58"
-    sha256 ventura:        "b47af49b7f0e0d1e51a8567ad38fa12ba9171d4b2590f2d129ca741af9e857ef"
-    sha256 monterey:       "06fbda41d5ca2565ab782d05dac0e27c352fe2f8a7304a85b872042529ecc34c"
-    sha256 big_sur:        "a070f300e7e4ee283799a56fc0dfc79254446679fb1b61e9bceebb8c23078af4"
-    sha256 x86_64_linux:   "3eda57c20f276bda6e156ad3e3ad1c1a17efa527c5e517151acd5c2d97221db2"
+    sha256 arm64_ventura:  "b1656c93e860df3b682846424b89323686e705c81da13e4410d3da55b47081b4"
+    sha256 arm64_monterey: "fceb54935327c32a8587fec995c5612c9eef90da739a11d7c7bfcb16f20ff800"
+    sha256 arm64_big_sur:  "8cf6cfea6018669b432c551db0da39e69e1bb9a51d67681228012c8e2f2e7293"
+    sha256 ventura:        "6b3dde77c64d7605605b728b9b7a6ac467aafaef336349e1379556c9d2e6addb"
+    sha256 monterey:       "17c49f013cf3a115288e9d96bf572f1a90db329f4d72a3039d12d57ae4c29eb5"
+    sha256 big_sur:        "4005e002ced7953941736a720a093cc79a39b3667b07e61a779cd50ed823fb3b"
+    sha256 x86_64_linux:   "c7cfe0fd3aa92bb69ea7d645478ea654af460e953e7e2395e24f1d0652b81f4c"
   end
 
   depends_on "autoconf" => :build
@@ -46,15 +46,17 @@ class Goaccess < Formula
   end
 
   test do
-    (testpath/"access.log").write \
+    (testpath/"access.log").write(
       '127.0.0.1 - - [04/May/2015:15:48:17 +0200] "GET / HTTP/1.1" 200 612 "-" ' \
       '"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) ' \
-      'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36"'
+      'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36"',
+    )
 
-    output = shell_output \
+    output = shell_output(
       "#{bin}/goaccess --time-format=%T --date-format=%d/%b/%Y " \
       "--log-format='%h %^[%d:%t %^] \"%r\" %s %b \"%R\" \"%u\"' " \
-      "-f access.log -o json 2>/dev/null"
+      "-f access.log -o json 2>/dev/null",
+    )
 
     assert_equal "Chrome", JSON.parse(output)["browsers"]["data"].first["data"]
   end

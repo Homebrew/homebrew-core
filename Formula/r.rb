@@ -1,8 +1,8 @@
 class R < Formula
   desc "Software environment for statistical computing"
   homepage "https://www.r-project.org/"
-  url "https://cran.r-project.org/src/base/R-4/R-4.2.3.tar.gz"
-  sha256 "55e4a9a6d43be314e2c03d0266a6fa5444afdce50b303bfc3b82b3979516e074"
+  url "https://cran.r-project.org/src/base/R-4/R-4.3.0.tar.gz"
+  sha256 "45dcc48b6cf27d361020f77fde1a39209e997b81402b3663ca1c010056a6a609"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,14 +11,13 @@ class R < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_ventura:  "8fddffaa4abdecb4b26f268bb5c8e8fe9143233c339875fdc3aab1e83f88f7ec"
-    sha256 arm64_monterey: "9ce3e455299d7b7f47346095048d5e52d2771518246705e3d40ec7ddaf6ceb01"
-    sha256 arm64_big_sur:  "1452f23a94bd96024b4562ce3d612f7bc995e9d62c8e26d9137f811fea13c358"
-    sha256 ventura:        "dcc35767b27f6f913964967a0c7d0f44f985444a490e68449b9840b335a14f9f"
-    sha256 monterey:       "8ebf1e9538cdc150027109b2ef696d493a6b8f872477e721c1ff68cb92af1326"
-    sha256 big_sur:        "1f0e25cbf70b64a30a274eb6a97b13d1f4e110b75fded05ba3fa3e22aa8335a9"
-    sha256 x86_64_linux:   "004ae103b311a569b9c541578ba3614089cf7873d2783d19a3115679c6ba9624"
+    sha256 arm64_ventura:  "628d0b70c00823e47613aa5e28faa62fcc1452f9480ce727780592b63d562a93"
+    sha256 arm64_monterey: "39cf1714a684aa8c63479e10b84e2abebfa9cebce9827c6bf523b59c3552352e"
+    sha256 arm64_big_sur:  "97c8fe2ecf6fed72ae7c1c556c57595d6eb12f6fafbcf12614197e6e8470f927"
+    sha256 ventura:        "2ecb93040f887c673e18b70509a47b31efd61693c9f0c3c2b7bb01f85f02ced0"
+    sha256 monterey:       "deb22a63a2dcac1349c2d6c70f07da730338d0781cf8b75e148cd0ba14b8b311"
+    sha256 big_sur:        "c5922d37de4cf08dc98df794ffafbaaa565397b8da4ceb4ef560023b2e8b555b"
+    sha256 x86_64_linux:   "8c64e9569d4a1aad2183bf89f5575f12cf351468c3858719ec072d89bb695490"
   end
 
   depends_on "pkg-config" => :build
@@ -51,15 +50,6 @@ class R < Formula
   fails_with :gcc do
     version "11"
     cause "Unknown. FIXME."
-  end
-
-  # Patch to fix build on macOS Ventura, remove in next release
-  # https://bugs.r-project.org/show_bug.cgi?id=18426
-  patch do
-    on_ventura :or_newer do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/1b1104166dc06444e691dd1b2bec3606b095e382/r/ventura.diff"
-      sha256 "de146793532e4498480014f824bf2446e02aa70206284851127561f6c37108bf"
-    end
   end
 
   def install
@@ -142,7 +132,9 @@ class R < Formula
     site_library = HOMEBREW_PREFIX/"lib/R"/short_version/"site-library"
     site_library.mkpath
     touch site_library/".keepme"
-    ln_s site_library, lib/"R/site-library"
+    site_library_cellar = lib/"R/site-library"
+    site_library_cellar.unlink if site_library_cellar.exist?
+    site_library_cellar.parent.install_symlink site_library
   end
 
   test do

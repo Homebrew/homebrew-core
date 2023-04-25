@@ -1,19 +1,18 @@
 class Mbw < Formula
   desc "Memory Bandwidth Benchmark"
   homepage "https://github.com/raas/mbw/"
-  url "https://github.com/raas/mbw/archive/refs/tags/v1.5.tar.gz"
-  sha256 "3c396ce09bb78c895e4d45e99b1ae07f80e3ea5eee59d78ed2048a7f2ae591ae"
-  license "LGPL-2.1-only"
+  url "https://github.com/raas/mbw/archive/refs/tags/v2.0.tar.gz"
+  sha256 "557f670e13ff663086fe239e4184d8ca6154b004bd5fde2b0a748e5aa543c87f"
+  license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "84b2b28f7a45137c8aeab4f923b75e6f2e24c582094f2ef5fc74c971c272c06d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "eb3f19dae68400aeca4d6c7c8f3498c0a50c20cbfe3d6db4ce170f890c99c0f0"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4bdecad6854dc81fea65dd87d0f4fe137e7b5108ba5863987220026cf7930194"
-    sha256 cellar: :any_skip_relocation, ventura:        "98c403986c2028490eb8235a103f3b84a7489ba3dbc28cccd50226cf40f4409e"
-    sha256 cellar: :any_skip_relocation, monterey:       "beefccd2c0589e3fcb8abb2460871cc5a032ba16d36f3ae7e2112c0b69b69a48"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1a777bd097548852a2ce0d30a05698ff01f59e41b1f036d88f063891bad79cd7"
-    sha256 cellar: :any_skip_relocation, catalina:       "43c11abe8ec4602f220dbf9a7142564a9cb619f93e454811c4d9845a33054649"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0b99cadb3aba3da2c9487c872eb613fb5b64cdb7ce9c910a2951d9e36967082f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8d8c490ebba8f65126392a3a5c15ecbd7531217b5f87a7e7f4c3de239d794c34"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c508f7394113b7bbfa8d128c8a67321a8539e212cca8384f63d16688a98c52dd"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "15ee30ee71405b25533e14618bd3541da3f13e310754e39278cef4a1f06eb6d9"
+    sha256 cellar: :any_skip_relocation, ventura:        "0e7ba7c958e2386d613322712c44a50c3f3aaf22ec663fb550c84b3d2537ce09"
+    sha256 cellar: :any_skip_relocation, monterey:       "356d3527bf46cd56f25f2f8ed5e6150115fb3ec175100493c98ffbbafefa1344"
+    sha256 cellar: :any_skip_relocation, big_sur:        "63a8ba9a5eb2ffaf44f1535b8c3bcac2bd3ebc912a6daceae2ee01df6c89b13b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "07ba5ff41d1031bc549c646c8d7bfc9082ce02b0572d437cb0c840855814ebf0"
   end
 
   depends_on "cmake" => :build

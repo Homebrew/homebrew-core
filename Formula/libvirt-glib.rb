@@ -1,13 +1,13 @@
 class LibvirtGlib < Formula
   desc "Libvirt API for glib-based programs"
   homepage "https://libvirt.org/"
-  url "https://libvirt.org/sources/glib/libvirt-glib-4.0.0.tar.xz"
+  url "https://download.libvirt.org/glib/libvirt-glib-4.0.0.tar.xz"
   sha256 "8423f7069daa476307321d1c11e2ecc285340cd32ca9fc05207762843edeacbd"
   license "LGPL-2.1-or-later"
   revision 1
 
   livecheck do
-    url "https://libvirt.org/sources/glib/"
+    url "https://download.libvirt.org/glib/"
     regex(/href=.*?libvirt-glib[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 

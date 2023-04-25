@@ -1,19 +1,19 @@
 class Quill < Formula
   desc "C++17 Asynchronous Low Latency Logging Library"
   homepage "https://github.com/odygrd/quill"
-  url "https://github.com/odygrd/quill/archive/refs/tags/v2.7.0.tar.gz"
-  sha256 "10b8912e4c463a3a86b809076b95bec49aa08393d9ae6b92196cd46314236b87"
+  url "https://github.com/odygrd/quill/archive/refs/tags/v2.8.0.tar.gz"
+  sha256 "0461a6c314e3d882f3b9ada487ef1bf558925272509ee41a9fd25f7776db6075"
   license "MIT"
   head "https://github.com/odygrd/quill.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ec474fcf3f8632d844e49d18cd75832a0216770a6fd31c300a9e7210ca963fd0"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3b443b9da056a57e35b6282292098759bb61f4ab6e5f183f04df4cfe55e01b81"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f4abd2e2295a479e626e0cdbdff23aab77be58e345cff6a18b4f82a443805d56"
-    sha256 cellar: :any_skip_relocation, ventura:        "8f17a6fd1271d5a1b93d4d64d5c0a20c9d20fd58319c7c3384b285f3ea7bdd8a"
-    sha256 cellar: :any_skip_relocation, monterey:       "bf441cdd5e415b432d1df767461becc228194bd4f2d23b4fd6735658b9fb92f9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5769ce2aa6deedea4bf6c4935f84933d408b18d66d739f2173ab5eb5cf877cf9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "326dd6450340908ed3b45e28f86f8d9fe4dcfed6c9dbebafba01e9fe32f9c1cd"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "99bea4bded36ab57bf49acc8c8f4ca6d9edd1f696ceedcf753313b3f41bc21a3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8bd2bf86fe0720d83915ffaf55c3fd9261b784a9b6a50065dc632bfd3c172ee1"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e16a551ccfc4c193ce7b58ef34cf791f27903b2e31337aaf907fb281ad514314"
+    sha256 cellar: :any_skip_relocation, ventura:        "084ec31959f128529179bd7b56199de657225c24a269be7747bcf34d6ddcf324"
+    sha256 cellar: :any_skip_relocation, monterey:       "a67514752fb88b59ef8c0976d15fa0f985c7af33e09094658b26cf58d0ff30bc"
+    sha256 cellar: :any_skip_relocation, big_sur:        "2cf0c875a39e26b2945f2bf13632a2f32584aa890ad7f197385c736447065c76"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "50cc80d203cb7f2e3d2dab58c02ed79f1ef30e5f1b9094500d66af70c766254b"
   end
 
   depends_on "cmake" => :build
@@ -22,12 +22,9 @@ class Quill < Formula
   fails_with gcc: "5"
 
   def install
-    mkdir "quill-build" do
-      args = std_cmake_args
-      args << ".."
-      system "cmake", *args
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
@@ -36,8 +33,8 @@ class Quill < Formula
       int main()
       {
         quill::start();
-        quill::Handler* file_handler = quill::file_handler("#{testpath}/basic-log.txt", "w");
-        quill::Logger* logger = quill::create_logger("logger_bar", file_handler);
+        std::shared_ptr< quill::Handler > file_handler = quill::file_handler("#{testpath}/basic-log.txt", "w");
+        quill::Logger* logger = quill::create_logger("logger_bar", std::move(file_handler));
         LOG_INFO(logger, "Test");
       }
     EOS

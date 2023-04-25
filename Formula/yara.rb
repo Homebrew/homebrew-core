@@ -1,19 +1,19 @@
 class Yara < Formula
   desc "Malware identification and classification tool"
   homepage "https://github.com/VirusTotal/yara/"
-  url "https://github.com/VirusTotal/yara/archive/refs/tags/v4.3.0.tar.gz"
-  sha256 "67bc0a5d58d9080a0981da116d65817d27b87dad7e402c7ece25372b38401e12"
+  url "https://github.com/VirusTotal/yara/archive/refs/tags/v4.3.1.tar.gz"
+  sha256 "f64538279c018bcf7cda368c51b9c660556108ab2e7eb24de043738df2271d92"
   license "BSD-3-Clause"
   head "https://github.com/VirusTotal/yara.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "1e68bbbff1d6b0985ac877c39e3def2bc693a7c789ff6cfd4ed95463c96fe346"
-    sha256 cellar: :any,                 arm64_monterey: "571fbb18d3f429d9a4da15ce38a191f48a7827ba718d96554102201b849bc16c"
-    sha256 cellar: :any,                 arm64_big_sur:  "a49314c4a062d1a63964fb96586da9e2742bd26a3abe3a5074e763056c03c05f"
-    sha256 cellar: :any,                 ventura:        "b5e212e91ba2d051e88d6d21fbecbbfbb6aa8903f3319d7c732ecbf77a6f2618"
-    sha256 cellar: :any,                 monterey:       "7b529da6ef62ca3c31fbd05fe10b4d858ef36f56ce61d5779397317338a8b0d8"
-    sha256 cellar: :any,                 big_sur:        "4f17f6054a32fdc702ddee1830f435cf29d09feeda6be431e38b81a8b943b58f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "78976934e54635e6bedb07287e17cce26025429891e017e7e73010d1d8295c57"
+    sha256 cellar: :any,                 arm64_ventura:  "41098827bb8f533733e1b53f3abb7a5adf85d14969dc59f47141099ebd101285"
+    sha256 cellar: :any,                 arm64_monterey: "9f7f659cbc48f2aa5845da712bc46438f2fdfc5cbf48b3677c83a72311464f3c"
+    sha256 cellar: :any,                 arm64_big_sur:  "f1f39e8a513a51f9b033a465c8f4f4773c91e7950a30c051a2fa248a018ae9b8"
+    sha256 cellar: :any,                 ventura:        "577cb028da6f08bd6e166f558100a3c6fad41922103062cfa6c6f3963923e9cc"
+    sha256 cellar: :any,                 monterey:       "9b4dd56c3741b021cd9f2b23b5a8cb5f84893c2cdc38fc3dd0a55a8949ff7ec5"
+    sha256 cellar: :any,                 big_sur:        "e54858cd983f911dcd7b05a63a8ad1613e538e1661f20b8bdf19b010761a6217"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d79d82b783c86bb08ba2ffd83f42e7936256b0f0bd1454b94351941e3d755f79"
   end
 
   depends_on "autoconf" => :build

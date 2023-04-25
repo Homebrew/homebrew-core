@@ -1,9 +1,14 @@
 class Kmod < Formula
   desc "Linux kernel module handling"
   homepage "https://git.kernel.org/pub/scm/utils/kernel/kmod/kmod.git"
-  url "https://www.kernel.org/pub/linux/utils/kernel/kmod/kmod-30.tar.xz"
+  url "https://mirrors.edge.kernel.org/pub/linux/utils/kernel/kmod/kmod-30.tar.xz"
   sha256 "f897dd72698dc6ac1ef03255cd0a5734ad932318e4adbaebc7338ef2f5202f9f"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
+
+  livecheck do
+    url "https://mirrors.edge.kernel.org/pub/linux/utils/kernel/kmod/"
+    regex(/href=.*?kmod[._-]v?(\d+(?:\.\d+)*)\.t/i)
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, x86_64_linux: "fd2381a295cd23ad7ed2c8ea088d4a23b48071cc71c8c385418fb80ee822cb1a"

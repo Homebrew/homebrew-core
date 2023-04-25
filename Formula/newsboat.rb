@@ -1,19 +1,19 @@
 class Newsboat < Formula
   desc "RSS/Atom feed reader for text terminals"
   homepage "https://newsboat.org/"
-  url "https://newsboat.org/releases/2.30.1/newsboat-2.30.1.tar.xz"
-  sha256 "413ffdb44a2c348eb22491dc85ac73e1ca2489925f7cf59e96c62b1b0755602f"
+  url "https://newsboat.org/releases/2.31/newsboat-2.31.tar.xz"
+  sha256 "4baf7de25cf569924eebb63a5ddc467cd58dd3f0e7190b327b49d0c1e454c1da"
   license "MIT"
   head "https://github.com/newsboat/newsboat.git", branch: "master"
 
   bottle do
-    sha256 arm64_ventura:  "f68bb7f6d850e20d8411886f0a73b9c3d010d4676037129c07ff3e20c1d6ccf7"
-    sha256 arm64_monterey: "2ae3dafc04a261f7690206eaa44fbbae7a2c81a41d80b840df689dd4b399665a"
-    sha256 arm64_big_sur:  "71df7598b0d1b98cc67de2db2fb3fb1e1c7b987bb0f85ad00233da22c7e8f6ac"
-    sha256 ventura:        "494bce5b1b367bcf971a38be2b7b715375cfbf50f15f7fdc3b6c2de170982d8e"
-    sha256 monterey:       "4f1c91e330807fb0122fd2b64cb93fd76bac1b6f8a33e956178ac3df4fc45da8"
-    sha256 big_sur:        "f96a6a5fe762be8e62c170a3840a7ee2b1be8dac30443a0a1fb07cc2fc7eee73"
-    sha256 x86_64_linux:   "4735dc6b63c1f8d5e4d741f45aed39aaa04966049dda14d60f9f40f905c8c393"
+    sha256 arm64_ventura:  "9086fd4e67f1996a09184cea5c9f599e46113664e38477f9e1da040debb26779"
+    sha256 arm64_monterey: "0a68b75adb0ebff44a607edc8654e6d3946a28e06977e1801a9c5ba067b92c5b"
+    sha256 arm64_big_sur:  "c21b1d949767a29e08356f4f8585984f42af77b27750af41a1afc958e3f65fd3"
+    sha256 ventura:        "dd3a709f55bf8e02620d350621b0b243dd70eec142ba5d47b5c4e15b1333e7fa"
+    sha256 monterey:       "80ea34fcdeecec18c9bbd02018109c7ef1e57601915421691ff46ac515945a83"
+    sha256 big_sur:        "cc56fa48fd27139a6c8906721255a0695baf8c54bb5108f7a1ceaf5ff370c367"
+    sha256 x86_64_linux:   "74e61cc78a02702eaf6f8342d22bc2e44e15b1cfd1c6ddd4bf7fb184d8ffa23c"
   end
 
   depends_on "asciidoctor" => :build
@@ -37,7 +37,7 @@ class Newsboat < Formula
   # https://github.com/Homebrew/homebrew-core/pull/89981
   # They do not want to be the new upstream, but use that fork as a temporary
   # workaround until they migrate to some rust crate
-  # https://github.com/newsboat/newsboat/issues/1881
+  # https://github.com/newsboat/newsboat/issues/232
   resource("libstfl") do
     url "https://github.com/newsboat/stfl.git",
         revision: "c2c10b8a50fef613c0aacdc5d06a0fa610bf79e9"

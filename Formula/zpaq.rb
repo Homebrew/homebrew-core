@@ -11,6 +11,7 @@ class Zpaq < Formula
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "fe862e92dd0fc348e0a93891fb863075443841d64aaee4ee5ac56b36ad49e3dc"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "743d0714aa93446980dbb496709e64415234c335c8399e55054d1f85ac6b074a"
+    sha256 cellar: :any_skip_relocation, ventura:        "e57ff78853946a1310bc0c6ee62d98f3d2c42d5ce52cc597d6f0ce3bf47329f6"
     sha256 cellar: :any_skip_relocation, monterey:       "a0da31ebe030b392ea21c7d3339becb134b041b8e72ffd2e013e20630dbf2f5d"
     sha256 cellar: :any_skip_relocation, big_sur:        "2ca2aa378add42b28e3a4513e4176740e013ff9189b7d5d091c998c6ba8ec16f"
     sha256 cellar: :any_skip_relocation, catalina:       "6bedfd3bff1fa1e98b6a41eedf02aa1f7600943f9081624fb9811e69fd3d9ffa"

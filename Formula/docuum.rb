@@ -1,20 +1,19 @@
 class Docuum < Formula
   desc "Perform least recently used (LRU) eviction of Docker images"
   homepage "https://github.com/stepchowfun/docuum"
-  url "https://github.com/stepchowfun/docuum/archive/v0.21.1.tar.gz"
-  sha256 "6327d5e587460fb6cb10bfc10a7430b77a61926b49c919b2026e46592df2e0ac"
+  url "https://github.com/stepchowfun/docuum/archive/v0.22.0.tar.gz"
+  sha256 "dea91f697115ce15aeafaca3cf824ae2730947a8dae84b89815b1254c11ceff3"
   license "MIT"
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cfc8e89ee290a93ceb44807aff1ccaa40770aa2f8095b2a723af5265150f220c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ab2c74a8e347a168c2ab256fb9a1ab4550ec154512dd97eee0692f073539f48a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a582881590f643d644ff1e68c4ccc2fa8eb4b430ddb1a09d10ed21b03daddf56"
-    sha256 cellar: :any_skip_relocation, ventura:        "f0c696d0a4cf219e903ef3e748c147dc59fcf779e35001a9f6383db03609fd86"
-    sha256 cellar: :any_skip_relocation, monterey:       "89deb0bfd52a63954a6793693226ca5e03a66d93e2e4a5c257313288939ae7dd"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5d4de732d806069a55a3e18e1adf2bbf5bb7ea0902f55edf28c9d11ade41586a"
-    sha256 cellar: :any_skip_relocation, catalina:       "37eef51176fe6f4d5fca96fa86e6a36a329524011b73ea2e72af6d7c80f20c1a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3209f1b1d5763c42b610fe2fe07f265341d1440e4718db2d053f109e407a6c49"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "71e6cb49a4074e577fb6e4e9d04c68ba76e3dd3355f369f6a73ae450b1b00d92"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "fd78c93868f7328ad6dbfe2aeaba6b18b64e0c72a3b5eb140b8acd39f42bb415"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e6e4b77f6386090d9662830ffa760e1ceb628cb1fbdcdf41b5cc2db757a71f97"
+    sha256 cellar: :any_skip_relocation, ventura:        "0db3836b3063d8d028b27de730c2d41656f30781285a720c3694fbb535771263"
+    sha256 cellar: :any_skip_relocation, monterey:       "e1b546c6b6b65d86ffbfefd87394b1de6888be914293a3e20a418c8a13699aa6"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f4ee4a38cea124be1aab6dab28bfa4dc449fc6e4225b7a25b24719e69eed2f93"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1960ba1a0373201d1252e3b15aa86003c26d900969bebb12a6b8f505aea81ac7"
   end
 
   depends_on "rust" => :build
@@ -29,7 +28,7 @@ class Docuum < Formula
     keep_alive true
     log_path var/"log/docuum.log"
     error_log_path var/"log/docuum.log"
-    environment_variables PATH: std_service_path_env
+    environment_variables PATH: "#{std_service_path_env}:/usr/local/bin"
   end
 
   test do

@@ -1,8 +1,8 @@
 class Treefrog < Formula
   desc "High-speed C++ MVC Framework for Web Application"
   homepage "https://www.treefrogframework.org/"
-  url "https://github.com/treefrogframework/treefrog-framework/archive/v2.7.0.tar.gz"
-  sha256 "fee114160986a656ee39edcd97a4ee7d346f596fb682c8c9bdfae1df59d4a9e9"
+  url "https://github.com/treefrogframework/treefrog-framework/archive/v2.7.1.tar.gz"
+  sha256 "c7d2cb55a8796d7d0710af62068471dfb606fc5fdcdbaf7c91ec4b2c31a63a26"
   license "BSD-3-Clause"
   head "https://github.com/treefrogframework/treefrog-framework.git", branch: "master"
 
@@ -12,13 +12,13 @@ class Treefrog < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "9ba098cef4a0a1ee9e901c6ab44a479343b05c38cc98c7ae5b7d5d8aedcd0db9"
-    sha256 arm64_monterey: "8e5d64fd8623d052ea4b0b1c317a38c19bcac70e3e6eb50a57127e0ab9ae4afd"
-    sha256 arm64_big_sur:  "69eab49c877b06af9e356373ce8b3025c1784f3a84c5f683a809e02016876ed1"
-    sha256 ventura:        "9123956bfecd0df7ade211892c4758b9e8d6ac5f8abd10371a3479e000cc3f40"
-    sha256 monterey:       "a68d5e4caef66e2c55a4fb5896c3d11d9203fc8bc663905ff65139de12cf01fd"
-    sha256 big_sur:        "b2e570d00817bc9cc46b85092835411e1d6b4423d22455082ef062648aae09a1"
-    sha256 x86_64_linux:   "2c39ccce700b3156a6da3dbe18062234c0fae2601fd0ae0ec4b9c2b70aebe6b1"
+    sha256 arm64_ventura:  "24ff7d1885a2facb2ebab3e44e57a46204e9da4f3081a68a7c06d3c56a11d458"
+    sha256 arm64_monterey: "8689db039ecb5c5e995633167686066bf5b8c647eb2c5aa09aca37f2f6a5f816"
+    sha256 arm64_big_sur:  "8e22e6d22821a946a7dee1998e9c2454ab2d1328c9fd4034573cf686d87cc18c"
+    sha256 ventura:        "61374c291147748e5d05cd4d260e2943eb5062343233958de37548e74dd2ba7a"
+    sha256 monterey:       "e4dc9e48620c52d7c897c5ea2d0a8895e75d7c3aa7e91a6f42fd9ef4eb307ae6"
+    sha256 big_sur:        "61761bf0d4017491a07436d5270a8a97427ac378a52ca4cd1c6ec6304042332b"
+    sha256 x86_64_linux:   "f5c91db15d91d8f992c7c59f6c890e50d6664e6ae87ce4390e862b266248ddd6"
   end
 
   depends_on "cmake" => :build

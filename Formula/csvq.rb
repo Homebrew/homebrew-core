@@ -1,8 +1,8 @@
 class Csvq < Formula
   desc "SQL-like query language for csv"
   homepage "https://mithrandie.github.io/csvq"
-  url "https://github.com/mithrandie/csvq/archive/v1.17.11.tar.gz"
-  sha256 "0186d1571af9cebb4c0d3c5e733c0a96bb735c7988f9c148b0a852301fcc89ba"
+  url "https://github.com/mithrandie/csvq/archive/v1.18.1.tar.gz"
+  sha256 "69f98d0d26c055cbe4ebfe2cedf79c744bebafac604ea55fb0081826b1ac7b74"
   license "MIT"
 
   livecheck do
@@ -11,14 +11,13 @@ class Csvq < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a0f594dea7558e10769d03492995a408b5c6520a75e92eb1345cdce5af3aaced"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5e179acb21c6cf614717d6227cbf3f0815036ed68307c976a353271feb98d306"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1e6bd7e2afde2eeb690bbf4d30b4c5f81a12f1923d7e9a373e3f5746e90b6ae2"
-    sha256 cellar: :any_skip_relocation, ventura:        "3acf6913cceb2978481481b2c78efd33bb129f77101811ed4fd74e0825a726cc"
-    sha256 cellar: :any_skip_relocation, monterey:       "efcca045d162053b5d15bc5725c535cade60d18c06378fc59ec61bc50a22c30b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "aff68d822e0ef5d7acfb27141886a9f2d2e5742cf9f00bd17983b91f1443ca2c"
-    sha256 cellar: :any_skip_relocation, catalina:       "ac0227a0cbb471d5b30bb322168f4dcc2c11039098228aea3b120798e2037bd4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4c054f4e356cef7abc322b4beacea894ebb98ccac5830b6dc7e0bec37b2a0272"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4da92f08fc5206cb67e4748463b1d29289da9630dd5e3b5e394063ff48e465da"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "16b40bdb339f355cea536c697d0f1990c20e6ec3bf9f606d50a3c494b56ef23a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "adcd391cbcc84b77d0ada56fd670bd511eb7c8adf2b516ed185809595b4bcfb9"
+    sha256 cellar: :any_skip_relocation, ventura:        "3062a442b7fbdfe309ca430277257a6f9a86a6b98e4f3558f6342d56278e2a37"
+    sha256 cellar: :any_skip_relocation, monterey:       "39141ce5a0342df70a2546b77a1800f9e4e4e71763d4464a53095009b07dc96d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f2ab039ef6309cf727c9b908609c64d555539649c051baa792ccdfef3cc9d5b7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d32956ca38f3f9d768739765fc3f7f3449e0c8f67d45dc2d55981e93fcc8edeb"
   end
 
   depends_on "go" => :build

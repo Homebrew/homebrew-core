@@ -1,8 +1,8 @@
 class Xmrig < Formula
   desc "Monero (XMR) CPU miner"
   homepage "https://github.com/xmrig/xmrig"
-  url "https://github.com/xmrig/xmrig/archive/v6.19.0.tar.gz"
-  sha256 "772f947058e5b89ca9bf34128487def47796870b547439a9b0524ddd1899420c"
+  url "https://github.com/xmrig/xmrig/archive/v6.19.2.tar.gz"
+  sha256 "84b7d1cc0bb818d471d47a5e663839ae8ba8b8a3b641e227b03903125446e12c"
   license "GPL-3.0-or-later"
   head "https://github.com/xmrig/xmrig.git", branch: "dev"
 
@@ -12,27 +12,34 @@ class Xmrig < Formula
   end
 
   bottle do
-    sha256                               arm64_ventura:  "d6cec80eb30c7a7ff4f99978423bcb7d03eb26c55d66e2ce012dc90c051324de"
-    sha256                               arm64_monterey: "a8b9c6d7c268f933d72968c2cee3137059540ce01be053dd312c344c9cd4f717"
-    sha256                               arm64_big_sur:  "1356c2658808854823655eb92519a81d23596c42941bc8823ee7150bc85b8112"
-    sha256                               ventura:        "6623a97cbd00eb0534dac7c9123ea6c2c23edd0095aabfb8ed8543afe8ef446f"
-    sha256                               monterey:       "79832403da7a03ecdfbd1d25319cfd872dca6dac2a887001edf728eb83098876"
-    sha256                               big_sur:        "19481861a3288ba44192afa33f9937badfb348a4c6c2544c263645186ad482d2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "556978b294fe2ca556d8319fab08371b515d51504abcd92c24acdfab4f751324"
+    sha256 cellar: :any,                 arm64_ventura:  "b994a4bcc04f7309bea30bb6ca72d7d0f534a2f6d84720475d17a37097cbaf44"
+    sha256 cellar: :any,                 arm64_monterey: "5efaa6fcf2b619e5cd581c945abc91ebe94a5ad6c194fc341d89e71706b979e8"
+    sha256 cellar: :any,                 arm64_big_sur:  "95fe3233a324020543df2230620a047d032016740af89e752990b6118041c282"
+    sha256 cellar: :any,                 ventura:        "c76500afda52b2c6b7fe9362ad0f81c4db2eddfd2dc9361050b6d888129cdb09"
+    sha256 cellar: :any,                 monterey:       "3ce8658db29a71c4ec68d3a9d103f81d8b4510a323b16a6b02937919665df158"
+    sha256 cellar: :any,                 big_sur:        "23ccd266c2c645f9dc9c37bd03b0eb778028a78b906a67ad18c8e7053c1fbf30"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fa50d527b1ac0d9cc014c2003c57805bc8d44830e2cc8781744d66511db41d14"
   end
 
   depends_on "cmake" => :build
   depends_on "hwloc"
-  depends_on "libmicrohttpd"
   depends_on "libuv"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
-    mkdir "build" do
-      system "cmake", "..", "-DWITH_CN_GPU=OFF", *std_cmake_args
-      system "make"
-      bin.install "xmrig"
-    end
+    # Use shared OpenSSL on macOS. In cmake/OpenSSL.cmake:
+    # elseif (APPLE)
+    #   set(OPENSSL_USE_STATIC_LIBS TRUE)
+    # endif()
+    inreplace "cmake/OpenSSL.cmake", "OPENSSL_USE_STATIC_LIBS TRUE", "OPENSSL_USE_STATIC_LIBS FALSE"
+
+    # Allow using shared libuv. In cmake/FindUV.cmake:
+    # find_library(UV_LIBRARY NAMES libuv.a uv libuv ...)
+    inreplace "cmake/FindUV.cmake", "libuv.a", ""
+
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    bin.install "build/xmrig"
     pkgshare.install "src/config.json"
   end
 

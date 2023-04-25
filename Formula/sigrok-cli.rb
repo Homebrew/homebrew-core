@@ -11,11 +11,14 @@ class SigrokCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "176086043c5408747b737bf7f8984b966cc23f409977ebd4d01b4f127d7fb580"
-    sha256 cellar: :any,                 monterey:      "c66c8195acaf4a1865d2df389b0295f9ccf6cca5f4cf6db78b3ad686c35bc3fd"
-    sha256 cellar: :any,                 big_sur:       "5a02c04e5b3148c70995ca652850eb8146ab436d102c19f5c96b39a578c5b31e"
-    sha256 cellar: :any,                 catalina:      "79af0118b674614921744d9f9a29c929e95ec0a5b60613ddbd31fa27f3fa18af"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9b58556d1098376a5d2f261f7e437a18bfa72b6cf8ba63deec1595422ee63c4f"
+    sha256 cellar: :any,                 arm64_ventura:  "c829705552edd7e001c393e73954a4f95a3b50319994943897c05858e3734998"
+    sha256 cellar: :any,                 arm64_monterey: "f097768e26c50de6aafacfb8e1e1db78837620683d42dd1cca848c0797794bd0"
+    sha256 cellar: :any,                 arm64_big_sur:  "176086043c5408747b737bf7f8984b966cc23f409977ebd4d01b4f127d7fb580"
+    sha256 cellar: :any,                 ventura:        "57ec56b4589b3801668bb98fd0c83298ec5958e111bec41a5294f48257db7769"
+    sha256 cellar: :any,                 monterey:       "c66c8195acaf4a1865d2df389b0295f9ccf6cca5f4cf6db78b3ad686c35bc3fd"
+    sha256 cellar: :any,                 big_sur:        "5a02c04e5b3148c70995ca652850eb8146ab436d102c19f5c96b39a578c5b31e"
+    sha256 cellar: :any,                 catalina:       "79af0118b674614921744d9f9a29c929e95ec0a5b60613ddbd31fa27f3fa18af"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9b58556d1098376a5d2f261f7e437a18bfa72b6cf8ba63deec1595422ee63c4f"
   end
 
   head do

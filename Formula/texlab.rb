@@ -1,25 +1,25 @@
 class Texlab < Formula
   desc "Implementation of the Language Server Protocol for LaTeX"
   homepage "https://texlab.netlify.com/"
-  url "https://github.com/latex-lsp/texlab/archive/v5.4.0.tar.gz"
-  sha256 "3c9596c95f70c0170655791877fbe2869639ecf71f3c6a033a760452cec6c9f7"
+  url "https://github.com/latex-lsp/texlab/archive/v5.5.0.tar.gz"
+  sha256 "5b3d9bb13f4a4dcae615a8f656558cd3fa512c8b9bf1bfe413fd1d8ae6d2f649"
   license "GPL-3.0-only"
   head "https://github.com/latex-lsp/texlab.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "02fe85d08707a536df2c3eb245e2cf4a6753781ceb60d3a2ec24deca57c9b61e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2643a9ca1c291ba53f6f64ded5374526a56c3aeea86281eb72dc63a457c3314e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6a08c83a7ca6c521d6673bba3770801fbf9e20b488e564df4d92f192781e7846"
-    sha256 cellar: :any_skip_relocation, ventura:        "c8ade9e607a6df3c6d4c3b5395d5c9b23f55e9e0ee8711fcd994255a6477a21f"
-    sha256 cellar: :any_skip_relocation, monterey:       "cfd61f2098e6953f5b6f3e80cd3c558a79d1b64dcb788b5dd14f6d91e04e3367"
-    sha256 cellar: :any_skip_relocation, big_sur:        "91124bf34c137482acbd492863f2fa03cf9c64f7ff005692c098268cb4858522"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8032ce002bbc1866720320a7bb6e83b0dec1e113a04c0f297c18c4c5346c648c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "86a34c628d9dbfcd30fdb74ae6a71bbe87d71026089d61124e97df5a9bdac22d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b2ca34a6dccf854e4d1fc48f1287cff9061c35e2323c24bd2a126c0af214d654"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "666357c873598804c6cb6dbcb66d67cc1373c9e8b4d8936c076cd6674cfa7e0f"
+    sha256 cellar: :any_skip_relocation, ventura:        "99025f7d0fe5e62bc256258d1417cd680daaa686aa9a2f3250f1a31c627e4a89"
+    sha256 cellar: :any_skip_relocation, monterey:       "3dd75f8c1f652d3292e3264133e3d9d8acc36b29ef36953899f9afe0783953c7"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8c5b62f2ddce834d2f59cc4a3a1150ca9a80dccba98a2184a07131a617bae69b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "00828c6763025b01e30324793c9e953880e70a7b3a907bd440fc6c6904685aa2"
   end
 
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", *std_cargo_args
+    system "cargo", "install", *std_cargo_args(path: "crates/texlab")
   end
 
   def rpc(json)

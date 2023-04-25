@@ -6,6 +6,15 @@ class Leetup < Formula
   license "MIT"
   head "https://github.com/dragfire/leetup.git", branch: "master"
 
+  # This repository also contains tags with a trailing letter (e.g., `0.1.5-d`)
+  # but it's unclear whether these are stable. If this situation clears up in
+  # the future, we may need to modify this to use a regex that also captures
+  # the trailing text (i.e., `/^v?(\d+(?:\.\d+)+(?:[._-][a-z])?)$/i`).
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "41a9023a6049c718d5dee32895523ef4b0bbbbee4c8e7813866bc8b612d9c427"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "107829578091e8b06dec794713b0754517d470849430501f85b2bac9eb551ef6"

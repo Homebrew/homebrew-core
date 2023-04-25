@@ -1,8 +1,8 @@
 class KyotoCabinet < Formula
   desc "Library of routines for managing a database"
   homepage "https://dbmx.net/kyotocabinet/"
-  url "https://dbmx.net/kyotocabinet/pkg/kyotocabinet-1.2.79.tar.gz"
-  sha256 "67fb1da4ae2a86f15bb9305f26caa1a7c0c27d525464c71fd732660a95ae3e1d"
+  url "https://dbmx.net/kyotocabinet/pkg/kyotocabinet-1.2.80.tar.gz"
+  sha256 "4c85d736668d82920bfdbdb92ac3d66b7db1108f09581a769dd9160a02def349"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,15 +11,13 @@ class KyotoCabinet < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "3f3bda6747d743ddd1300f8df99662734395466240c46ac835648c3e38fc5526"
-    sha256 arm64_monterey: "56224898ed5bf4ceecccd79901b90191180b89d4bf48e7cc218dbeff28fecc9d"
-    sha256 arm64_big_sur:  "fa9322ae66dc8295d2f60365999a371c6602bcfd98f050e0897992e745c53d93"
-    sha256 ventura:        "cbf9dd9b70f76c786714ab690d6a381fd9cd73d187b1bcae3f805331768cb43f"
-    sha256 monterey:       "5aee992a2c97e53568a06313204e83e795debab5260ca564fa846e982db8ed10"
-    sha256 big_sur:        "8a7873835b5790ece37b54d398daf834e7aa75570202cd7a174ba7e5ebecf6a3"
-    sha256 catalina:       "c78b84f7dc1e82f12a8bdbeb934abeb9858968fa8c53dee9a405b1e55b49155d"
-    sha256 mojave:         "214ade984ae17b36058ceca13c37fb5612da6daa0c7cbd919e635c1c714a4a1b"
-    sha256 x86_64_linux:   "4e6693149609f558bf30685031113391e230fab20a738ab0ad98c08ef8bc1545"
+    sha256 arm64_ventura:  "3f771335b64a4362f2b48aba77a2599e342725aee13c066830a713cd19dd1bcd"
+    sha256 arm64_monterey: "dc57e5dd4befc2604e975c32e31387b892ac9a1d328ef20d15bbc2c7020c45bd"
+    sha256 arm64_big_sur:  "48787ff1ea4af71c49229e67fe4e147229f8bac86376f1f54057edde098020db"
+    sha256 ventura:        "90c2584ed35710ac0d4827dd373f533e313b1c562057aa76a727d2c1d963f772"
+    sha256 monterey:       "362b63259bb9f6d81d8320f741b8d4238cfbd1800bb7c4b1a7653abdba172bcb"
+    sha256 big_sur:        "c6572ef13f91e704d480f0a4ad4353168160a3b8d33d05b299e97c4c9f5399b7"
+    sha256 x86_64_linux:   "e5da4592e6cd893f7c1955a3d07b28e1ab97fc39ef1a41ea0550cdd4f84d3d0f"
   end
 
   uses_from_macos "zlib"

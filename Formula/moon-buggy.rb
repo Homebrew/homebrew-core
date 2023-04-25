@@ -3,7 +3,7 @@ class MoonBuggy < Formula
   homepage "https://www.seehuhn.de/pages/moon-buggy.html"
   url "https://m.seehuhn.de/programs/moon-buggy-1.0.tar.gz"
   sha256 "f8296f3fabd93aa0f83c247fbad7759effc49eba6ab5fdd7992f603d2d78e51a"
-  license "GPL-3.0"
+  license "GPL-2.0-or-later"
 
   bottle do
     sha256 arm64_ventura:  "b7dd2c4414457a17a2f548554fb1f2c97d2eab161732ec769b893c7c5f6183d5"
@@ -25,6 +25,9 @@ class MoonBuggy < Formula
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end
+
+  # Last stable release was on 2004-12-27
+  deprecate! date: "2023-04-19", because: :unmaintained
 
   uses_from_macos "ncurses"
 

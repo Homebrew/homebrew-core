@@ -1,20 +1,18 @@
 class Cobalt < Formula
   desc "Static site generator written in Rust"
   homepage "https://cobalt-org.github.io/"
-  url "https://github.com/cobalt-org/cobalt.rs/archive/v0.18.3.tar.gz"
-  sha256 "32350ef91a0c1dd81b75e8eb94f5a591ca91bd35d1a6d97622996b1086d5ced2"
+  url "https://github.com/cobalt-org/cobalt.rs/archive/v0.18.4.tar.gz"
+  sha256 "82e87aaf0664fb1447b84b9f1a6b55f33f54c5a64d25dc6d8e64fc28bde66223"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2a09a290ada2f823546c64ee1fdea75cd5ad8837d8756c22a5251dbed714e4eb"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e0dda7dc3c9a126d01aa1311fc1707cb7b3659a1c7db8018385805e33c1bf93e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2da76763978a241499e834b64cd426e4ca433b3bb788b8d2cb63abd11dc79dd6"
-    sha256 cellar: :any_skip_relocation, ventura:        "fe7635679364c2f6f8ee3c9b63c82ff977e7fd4567691415b30437e1f3197892"
-    sha256 cellar: :any_skip_relocation, monterey:       "752ade1ce839efa00159f712a04af7ee87ffdb14b972be3cd1e8b63621e75bba"
-    sha256 cellar: :any_skip_relocation, big_sur:        "bad62b23d320b35889ae0d95abb8837efc135e04d4910a0a2cf1b6ee7cddf33c"
-    sha256 cellar: :any_skip_relocation, catalina:       "b9f9a00ecbed764a7069accb681f8e6a4cb443f45374f964db0b123b460e75b8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b5c6c9824431659a097830b65fd1b8f812d8268eef9464a1e1201ebcd6940d4b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1d80fb9752976dbb7269b2fdbcf927431ffddda6784c418bf1b6366c4c145894"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "af5057524986872dd201e5e8ace2702a3e12dfbaf5370b2ca482b4fb9ef950a6"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2dc0157631e4a0e5127b0c473a3348af074927bb8bab9ad136c419afb31482c9"
+    sha256 cellar: :any_skip_relocation, ventura:        "68035dd86e1f64b12b7cc0884e8ea83a80f24d1629a52ff5711ba37ce8f72701"
+    sha256 cellar: :any_skip_relocation, monterey:       "acd07821f8c42ec3bce292585368ee8ff7182afa55ee5b8d2f160f119c4c0bbc"
+    sha256 cellar: :any_skip_relocation, big_sur:        "27ed41da4fc0c6c8585553cbb5ac85ed4278ca2f7c3112b656a5e9cd8ac8ac41"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "045fc0e33774d21929ab127e97aa3b5b84b001a292aa4d5dfb0b5cff1d347a1f"
   end
 
   depends_on "rust" => :build

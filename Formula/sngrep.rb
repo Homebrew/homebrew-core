@@ -1,19 +1,18 @@
 class Sngrep < Formula
   desc "Command-line tool for displaying SIP calls message flows"
   homepage "https://github.com/irontec/sngrep"
-  url "https://github.com/irontec/sngrep/archive/v1.6.0.tar.gz"
-  sha256 "fd80964d6560f2ff57b4f5bef2353d1a6f7c48d2f1a5f0a167c854bd2e801999"
+  url "https://github.com/irontec/sngrep/archive/v1.7.0.tar.gz"
+  sha256 "2e5ba3a4d6486ea00bd73d2cceff383ba162dcd6d0170ae74cfa3b1c206e2cb1"
   license "GPL-3.0-or-later" => { with: "openvpn-openssl-exception" }
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "791eed53070a6547cb7edae0bfc4d874538812183b9b11759ba050b5ee2eb4e3"
-    sha256 cellar: :any,                 arm64_monterey: "090b38f6af7d6768d3b8816186ce8db5f1678f8576513f63bfece2664ed521ea"
-    sha256 cellar: :any,                 arm64_big_sur:  "84c553de370ed38fc5775b108fb4aef65da63234c3a2f983bf32f32904926d48"
-    sha256                               ventura:        "7b01851336139959d3523cffd9aca8981529fc8cfaa0eff27d9a56264ef8a526"
-    sha256                               monterey:       "4d695f06ed5a14c400a0fc2415e84827de36d62f3d4889af7c71447ca7d085b8"
-    sha256                               big_sur:        "f8f72fe53910b2ee8557f3e5e954fa759fad39aa3b8ce171b4673e0b6f8eb6a4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8f1379a3381f77310dbdba9239c8e05678b69239dcaf495fb8f96940366fdfc3"
+    sha256 cellar: :any,                 arm64_ventura:  "e8f6d7da1a5362d2056f0e49430026ad83098ce813331c3c32caa7c495b3da64"
+    sha256 cellar: :any,                 arm64_monterey: "d9835ceb28b18b5e8f4141423b1dd4de5c436cceedaa85ee1490497863667c70"
+    sha256 cellar: :any,                 arm64_big_sur:  "c2455f214c1d24c99643320842f12ea63d79f59631ca334ff2d341e2e8fbddc8"
+    sha256                               ventura:        "aa7dfb7bd3a5eb2e9882475f6fbc7b77a08d25d67c988c6c405911ea727ad3ab"
+    sha256                               monterey:       "308a7206a0c6fccb75965cabc4051183b7b849c06771640742e5ca2c24bbbcab"
+    sha256                               big_sur:        "771bc6dd65f0594fcf163c0409365bf216eabe0d4d33e4e675645b3fc34ce350"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8f37d6459d16e6d983ff4e52af07d38b354b4fa0d5855ed0a34bf3968e3f1a39"
   end
 
   depends_on "autoconf" => :build

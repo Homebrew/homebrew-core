@@ -1,20 +1,19 @@
 class Mycorrhiza < Formula
   desc "Lightweight wiki engine with hierarchy support"
   homepage "https://mycorrhiza.wiki"
-  url "https://github.com/bouncepaw/mycorrhiza/archive/refs/tags/v1.13.0.tar.gz"
-  sha256 "f2b4d2f9ccb610b73b854580a7147706481247f62a6e11ab8e1a488fed2162c1"
+  url "https://github.com/bouncepaw/mycorrhiza/archive/refs/tags/v1.14.0.tar.gz"
+  sha256 "6448fe7fa6198cb3346f63d0857d5f364d0aa8fafbdc95f56ef39fbe774bbabc"
   license "AGPL-3.0-only"
   head "https://github.com/bouncepaw/mycorrhiza.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "50bfa59b8aa982aff43a1c00eca109da5b86504f84b7faf35eaea22bb32188a7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cd52032b2851d3e9559ca4a3468547f3707788a5e83a0297be42e3691a272723"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d76f4f141b6a275a4770992cda4c691168154d56efb9379dc7a91353f4b54271"
-    sha256 cellar: :any_skip_relocation, ventura:        "fdd5566d4655d980217061919491edc0dfe894c6cab74f874a88c884b37732d8"
-    sha256 cellar: :any_skip_relocation, monterey:       "5a7755dd442a050781cf8ede035969b303bd7f9c12c19e713e3bf8a625de0073"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1898fbba1e922a85c0037cb03d50daac27a3169748b67c66c076e3e08e0a42d9"
-    sha256 cellar: :any_skip_relocation, catalina:       "7658845872ea924c08a3a7c03bd26e54893f12b4755b07c52f30626e9d0140ff"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7499f837d94adf4d92b40d8b83c6fe3db2c7692a5c630862159f061b09fb4ed0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a764a6c7bedfe24668b9e58f06038971b3894eacf65cc9957984b3de68d0bfeb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "146772e8ec9484112fddc8f855259d8eda45de1aa1bad71350668e1e2cfcf221"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fc21b6672244098dc8dfb6ccde5d40193c1b2deb7903c27e040c58f0b9386c36"
+    sha256 cellar: :any_skip_relocation, ventura:        "a2d9ea795d54f472db53b27195f85ecf14ed542876b1bb165c546d256011f5d4"
+    sha256 cellar: :any_skip_relocation, monterey:       "9b6a1d405d5e20e68ceefc6c04105853e10ea7dd1fc1262edd2a72787f471eb2"
+    sha256 cellar: :any_skip_relocation, big_sur:        "14b094f251e1568925e66101c9769accdc26c92aacc9b3b4aac86f60568b4130"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "21ae4bcb8b6bdf669d6d5ed49727759bd104e4156c8d60a9dd20a1b996ef4966"
   end
 
   depends_on "go" => :build

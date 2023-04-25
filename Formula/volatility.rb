@@ -3,21 +3,20 @@ class Volatility < Formula
 
   desc "Advanced memory forensics framework"
   homepage "https://github.com/volatilityfoundation/volatility3"
-  url "https://files.pythonhosted.org/packages/5f/81/72ad1b892e6c71d6f868af90f2df9505c29c393eb822c175f30f4ed5a18c/volatility3-2.4.0.tar.gz"
-  sha256 "61cd695d0aa826e9b655c1abe88b46356088e367b0eadf33cc08075c1203f244"
+  url "https://files.pythonhosted.org/packages/d6/e5/b9a3c053dcca7688477ac004a9d6e700cd1a29272ddee4188f09f1bc0d62/volatility3-2.4.1.tar.gz"
+  sha256 "6ba2735a6d77727a8b038286e55a24e7048fc68b1d7a306183938b940d64c029"
   license :cannot_represent
   version_scheme 1
   head "https://github.com/volatilityfoundation/volatility3.git", branch: "develop"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_ventura:  "8e525e6512b5c1bc66ef23b00e1b5ae9c0de811141e320a144d3aa59d78e14e0"
-    sha256 cellar: :any,                 arm64_monterey: "05fee3aaadf580980a8fa78d2aa6c5ecb70e4c21aff0f8fc490eb78e0b825cfc"
-    sha256 cellar: :any,                 arm64_big_sur:  "a81affb49870e7495882b2fa8c36cf98e511178caab8786e04479c311c1230b8"
-    sha256 cellar: :any,                 ventura:        "e9a9339ca07327e7692eb5740cf5d528fdcda6dde362e11c5222e6c379cd11a1"
-    sha256 cellar: :any,                 monterey:       "b8353e0c75ca7b56cfffb77c6fe2fedf6c863f1efc434f16e3681d716d92e3aa"
-    sha256 cellar: :any,                 big_sur:        "42de8340b95a5fb2c35863dd6f52db5db2ddf543a8e5ff265eb68d183da20941"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4d80141455f26ffff4cdf47524e25818f37870f64ef715b3cab67e470c86eaca"
+    sha256 cellar: :any,                 arm64_ventura:  "1fa039336e38821e645584ccae38ad51514bcea2dd02b4d3419838505fe02849"
+    sha256 cellar: :any,                 arm64_monterey: "4decff0d16a9e5dc29b9d946224bcda5e7797a8e9d3d1c533365aa1fa068c8d9"
+    sha256 cellar: :any,                 arm64_big_sur:  "3ed0f450b171d6733279bb0cf0e04f9644acb3d0bbd4c3965bdf1c80e299d6d1"
+    sha256 cellar: :any,                 ventura:        "0b9a410cdf5aa7e12a484ad6f1b6b24b4098460b0823f59c621b366f94a8387f"
+    sha256 cellar: :any,                 monterey:       "c24df8576566141c165a0a1f667c22027ad6fb4645437c392c8cf5c7ece39573"
+    sha256 cellar: :any,                 big_sur:        "233292623e9af2c933d679012ec4865effbb4643eae4973c609a2927bc6054bc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "25d5a90d0ca18a4422b5663cf00a6316539c1ce7e58f3aa3280a144b87d17a74"
   end
 
   depends_on "python@3.11"
@@ -30,8 +29,8 @@ class Volatility < Formula
   end
 
   resource "capstone" do
-    url "https://files.pythonhosted.org/packages/0d/25/3496d5e23573bce9c1b753c215b80615e7b557680fcf4f1f804ac7defc97/capstone-5.0.0.tar.gz"
-    sha256 "6e18ee140463881c627b7ff7fd655752ddf37d9036295d3dba7b130408fbabaf"
+    url "https://files.pythonhosted.org/packages/f2/ae/21dbb3ccc30d5cc9e8cdd8febfbf5d16d93b8c10e595280d2aa4631a0d1f/capstone-4.0.2.tar.gz"
+    sha256 "2842913092c9b69fd903744bc1b87488e1451625460baac173056e1808ec1c66"
   end
 
   resource "future" do
@@ -45,8 +44,8 @@ class Volatility < Formula
   end
 
   resource "pefile" do
-    url "https://files.pythonhosted.org/packages/48/30/4559d06bad5bb627733dac1ef28c34f5e35f1461247ba63e5f6366901277/pefile-2022.5.30.tar.gz"
-    sha256 "a5488a3dd1fd021ce33f969780b88fe0f7eebb76eb20996d7318f307612a045b"
+    url "https://files.pythonhosted.org/packages/78/c5/3b3c62223f72e2360737fd2a57c30e5b2adecd85e70276879609a7403334/pefile-2023.2.7.tar.gz"
+    sha256 "82e6114004b3d6911c77c3953e3838654b04511b8b66e8583db70c65998017dc"
   end
 
   resource "pycryptodome" do
@@ -60,8 +59,8 @@ class Volatility < Formula
   end
 
   resource "yara-python" do
-    url "https://files.pythonhosted.org/packages/a4/2b/d36b6399027bb888faed23e3393f4efc3568996a5c386233b364d9e701d5/yara-python-4.2.3.tar.gz"
-    sha256 "31f6f6f2fdca4c5ddfeed7cc6d29afad6af7dc259dde284df2d7ea5ae15ee69a"
+    url "https://files.pythonhosted.org/packages/47/c5/23148d89227e8f2fa01d3b65094cddd36689c2aba9d6f63f8baff633138d/yara-python-4.3.0.tar.gz"
+    sha256 "3f85ec4730e4a337c217f96227307e625aa47fc3b5aaaa54da996f6d35c9bc42"
   end
 
   def install

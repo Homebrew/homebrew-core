@@ -3,20 +3,19 @@ class Dooit < Formula
 
   desc "TUI todo manager"
   homepage "https://github.com/kraanzu/dooit"
-  url "https://files.pythonhosted.org/packages/1e/d3/657415da14582454b080ca29f22596c4a3502362d14ea835d82cb8e27312/dooit-1.0.0.tar.gz"
-  sha256 "7a983a83385d15469ddff463b84b53048866dfb1a4481c5878ee277c7ebb27dc"
+  url "https://files.pythonhosted.org/packages/c8/02/544c784e390748ed2bbb593e7e2d7d1f124b7e747c26885a11b92a2f7db8/dooit-1.0.1.tar.gz"
+  sha256 "ef7309545a1e7278acff9eaa3b9d938df73a34da8cf0c19bbce9ac1886c79734"
   license "MIT"
   head "https://github.com/kraanzu/dooit.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "035d06a2e93e252d8c53c36358a45f7ce39b4b542ba2c124647e52913337f460"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "52c9e8cd815f612e72f95a79accc2e4d7ddea3dde387d69ee38c901d2f1495e5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "38ec05ea79a4e8377e427f273a3316d9e9f95be60c4ec7af167cb61b53aad60e"
-    sha256 cellar: :any_skip_relocation, ventura:        "79b8b80743de2be501695cd24343e6a90e0057b886c8bd2f0a94a4c1cbe8f8a4"
-    sha256 cellar: :any_skip_relocation, monterey:       "9d80c52b2bdc1bf4897f1a4a4c4f44b852f491086f1f2441c37caeb1d79e12c2"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b3e14ffc72497ebde79fd4618dd454653d13db77f231792b77ed9241214356ef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "10badf2519275c4c0f9a65012122b7a97c6e871716fbb82de011e27925276ba6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1c8fc7b7c2b5eb69899114bc3c647321358750961d00c0170f26f7b766ccce39"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "17bb622b568b3210a6b0eb4179492a132b920c9f98fdea7e288c44ea87245494"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e49130c382b4161fe3e063a8a0c3a15aea5b393003813f79739ddcb2c1f48ffa"
+    sha256 cellar: :any_skip_relocation, ventura:        "31504804554493ffd3a9028d0bcd23bba35036020250637c5671b3fc79160d64"
+    sha256 cellar: :any_skip_relocation, monterey:       "352e119092ed7f77531fb32956b88021fb5b8bcb6b9b5ae9d4f086f1dd7559e7"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9ee1d0fe1f116fac4d75f7f30e9d3246c2e02b30be9cbec2b3f00f764ff798f3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ca320e93a5b1d109874adf5c96539fc1d08ea2f88e0d75a961c32ebba65bbf14"
   end
 
   depends_on "cmake" => :build
@@ -38,8 +37,8 @@ class Dooit < Formula
   end
 
   resource "dateparser" do
-    url "https://files.pythonhosted.org/packages/44/ea/cbf18a84d7b97261ec8f2d5d6ef5e1c44101189d33aca22a18bd52c4e73a/dateparser-1.1.7.tar.gz"
-    sha256 "ff047d9cffad4d3113ead8ec0faf8a7fc43bab7d853ac8715e071312b53c465a"
+    url "https://files.pythonhosted.org/packages/7e/16/e95f1d2f8014bac38e00d037e192222e52de7db7c71268ed3b2e12d4893c/dateparser-1.1.8.tar.gz"
+    sha256 "86b8b7517efcc558f085a142cdb7620f0921543fcabdb538c8a4c4001d8178e3"
   end
 
   resource "ghp-import" do
@@ -78,8 +77,8 @@ class Dooit < Formula
   end
 
   resource "mdit-py-plugins" do
-    url "https://files.pythonhosted.org/packages/25/f5/5b9caa98f480ba38f15236a4049ff7d7a803735081d83d4997b2b12b27d3/mdit-py-plugins-0.3.4.tar.gz"
-    sha256 "3278aab2e2b692539082f05e1243f24742194ffd92481f48844f057b51971283"
+    url "https://files.pythonhosted.org/packages/49/e7/cc2720da8a32724b36d04c6dba5644154cdf883a1482b3bbb81959a642ed/mdit-py-plugins-0.3.5.tar.gz"
+    sha256 "eee0adc7195e5827e17e02d2a258a2ba159944a0748f59c5099a4a27f78fcf6a"
   end
 
   resource "mdurl" do
@@ -118,8 +117,8 @@ class Dooit < Formula
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/03/3e/dc5c793b62c60d0ca0b7e58f1fdd84d5aaa9f8df23e7589b39cc9ce20a03/pytz-2022.7.1.tar.gz"
-    sha256 "01a0681c4b9684a28304615eba55d1ab31ae00bf68ec157ec3708a8182dbbcd0"
+    url "https://files.pythonhosted.org/packages/55/71/cb1b0a0035cf479eaf05109ea830323af66d48197bfc759a018f94acc3c4/pytz-2023.2.tar.gz"
+    sha256 "a27dcf612c05d2ebde626f7d506555f10dfc815b3eddccfaadfc7d99b11c9a07"
   end
 
   resource "pyyaml_env_tag" do
@@ -128,13 +127,13 @@ class Dooit < Formula
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/27/b5/92d404279fd5f4f0a17235211bb0f5ae7a0d9afb7f439086ec247441ed28/regex-2022.10.31.tar.gz"
-    sha256 "a3a98921da9a1bf8457aeee6a551948a83601689e5ecdd736894ea9bbec77e83"
+    url "https://files.pythonhosted.org/packages/d8/29/bd8de07107bc952e0e2783243024e1c125e787fd685725a622e4ac7aeb3c/regex-2023.3.23.tar.gz"
+    sha256 "dc80df325b43ffea5cdea2e3eaa97a44f3dd298262b1c7fe9dbb2a9522b956a7"
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/68/31/b8934896818c885001aeb7df388ba0523ea3ec88ad31805983d9b0480a50/rich-13.3.1.tar.gz"
-    sha256 "125d96d20c92b946b983d0d392b84ff945461e5a06d3867e9f9e575f8697b67f"
+    url "https://files.pythonhosted.org/packages/9a/50/672a8d347f92bc752b04c338bbf932fbd0104fbc416c82cc91aa5f7b4b0b/rich-13.3.3.tar.gz"
+    sha256 "dc84400a9d842b3a9c5ff74addd8eb798d155f36c1c91303888e0a66850d2a15"
   end
 
   resource "textual" do
@@ -153,8 +152,8 @@ class Dooit < Formula
   end
 
   resource "watchdog" do
-    url "https://files.pythonhosted.org/packages/a5/17/a31fc6b90ff861a27debd0650bfbca17e074fdc3e037f392872fad76c726/watchdog-2.3.1.tar.gz"
-    sha256 "d9f9ed26ed22a9d331820a8432c3680707ea8b54121ddcc9dc7d9f2ceeb36906"
+    url "https://files.pythonhosted.org/packages/95/a6/d6ef450393dac5734c63c40a131f66808d2e6f59f6165ab38c98fbe4e6ec/watchdog-3.0.0.tar.gz"
+    sha256 "4d98a320595da7a7c5a18fc48cb633c2e73cda78f93cac2ef42d42bf609a33f9"
   end
 
   resource "zipp" do

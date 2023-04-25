@@ -1,36 +1,24 @@
 class Ansilove < Formula
   desc "ANSI/ASCII art to PNG converter"
   homepage "https://www.ansilove.org"
-  url "https://github.com/ansilove/ansilove/releases/download/4.1.6/ansilove-4.1.6.tar.gz"
-  sha256 "acc3d6431cdb53e275e5ddfc71de5f27df2f2c5ecc46dc8bb62be9e6f15a1cd0"
+  url "https://github.com/ansilove/ansilove/releases/download/4.1.7/ansilove-4.1.7.tar.gz"
+  sha256 "6f8e2f6248775d6f8aca23b197b372ca7f8df8ade589ca4d5fc9a813a5d32655"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "ac2f9a170946699ea94dfdefd3e2871f7d29ab8edb0164eea5e8662ce4f6c649"
-    sha256 cellar: :any,                 arm64_monterey: "d132cbebe0b7721ff99b005736e156fda26d3c00f6b30237082e94b998235e90"
-    sha256 cellar: :any,                 arm64_big_sur:  "50bf2d107f2f652d5001663abb0093c81b2097df35debfc9a6bffabb18b66058"
-    sha256 cellar: :any,                 ventura:        "89a74f1d220239c3ca8d70635faf01cca65dccfa98c35fe0d835165d72f91ff7"
-    sha256 cellar: :any,                 monterey:       "55dc300fa60aa6c07ceca616d721d37fd8bb80f1a0089a629193c78c5ee3cbb7"
-    sha256 cellar: :any,                 big_sur:        "def7370b111a3bab2d6fcfc5642ddef272b3384d7a38d129b5a06252d271bcfa"
-    sha256 cellar: :any,                 catalina:       "23311433311e4ac5df9d720d0f54903188b98cf08dc243be5e4c5984876d4e10"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1f6e591444c9d1288a71cc45904bb9bd1de75d878b44c3898cdeacdfae0834e7"
+    sha256 cellar: :any,                 arm64_ventura:  "68af4a3eaedf130505f266c9b4f78b97aaff261d1a069b1a2bb78d923a433004"
+    sha256 cellar: :any,                 arm64_monterey: "44c6977c4141f47172e2874c1d211c3e51c280ec66af678ada1a77c99947e1a5"
+    sha256 cellar: :any,                 arm64_big_sur:  "3d6490fe5f97b1e5fc9010cbb20288f40122fc1d03e3a26e4dcb6763643c7b86"
+    sha256 cellar: :any,                 ventura:        "f0ebe089e435b4be65ab45e037bd86b0f49c902ae11e266527b63a54faaed5f5"
+    sha256 cellar: :any,                 monterey:       "1b570a5760065890e889d474b7a3b96fcced5e88b7e77cb1bb72e90abe37afc9"
+    sha256 cellar: :any,                 big_sur:        "a290f8dce50bb7356da325d3eca325f49549a79c9f59093806a4165ad2c89741"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b52975d669e7e0db90b48e14540beb8f41a7603927330ec9338cc613fdfff148"
   end
 
   depends_on "cmake" => :build
-  depends_on "gd"
-
-  resource "libansilove" do
-    url "https://github.com/ansilove/libansilove/releases/download/1.2.9/libansilove-1.2.9.tar.gz"
-    sha256 "88057f7753bf316f9a09ed15721b9f867ad9f5654c0b49af794d8d98b9020a66"
-  end
+  depends_on "libansilove"
 
   def install
-    resource("libansilove").stage do
-      system "cmake", "-S", ".", "-B", "build", *std_cmake_args
-      system "cmake", "--build", "build"
-      system "cmake", "--install", "build"
-    end
-
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"

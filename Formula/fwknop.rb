@@ -6,11 +6,6 @@ class Fwknop < Formula
   license "GPL-2.0-or-later"
   head "https://github.com/mrash/fwknop.git", branch: "master"
 
-  livecheck do
-    url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
-  end
-
   bottle do
     rebuild 1
     sha256 arm64_monterey: "1855b9dc8ff17dbc1cc3c07512d3ebb81f80b5e45b5ab918da8df3ac48cd86d5"
@@ -20,6 +15,8 @@ class Fwknop < Formula
     sha256 catalina:       "2c2faa8fc9328c53553c4b5bee81c4b8b6e8a43ed54f49d9ab6646bea0529e5e"
     sha256 x86_64_linux:   "370466dcba3753ce5cd890395d91fae86f13d656b97bb1a379cccd774ace12d1"
   end
+
+  deprecate! date: "2022-10-01", because: :unmaintained
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build

@@ -14,6 +14,9 @@ class ZshCompletions < Formula
 
   def install
     inreplace "src/_ghc", "/usr/local", HOMEBREW_PREFIX
+    # We install this into `pkgshare` to avoid conflicts
+    # with completions installed by other formulae. See:
+    #   https://github.com/Homebrew/homebrew-core/pull/126586
     pkgshare.install Dir["src/_*"]
   end
 

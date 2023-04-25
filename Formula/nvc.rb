@@ -1,20 +1,18 @@
 class Nvc < Formula
   desc "VHDL compiler and simulator"
   homepage "https://github.com/nickg/nvc"
-  # TODO: Check if we can use unversioned `llvm` at version bump.
-  url "https://github.com/nickg/nvc/releases/download/r1.8.2/nvc-1.8.2.tar.gz"
-  sha256 "d2fee04dbf5b08f3f39f535482ecb9d92c0dd09e7fa11588a9e57ac07ee5ef77"
+  url "https://github.com/nickg/nvc/releases/download/r1.9.1/nvc-1.9.1.tar.gz"
+  sha256 "0767c845ed7f93d29bd9cd9c5e75c788787a3515112a6fb335ed82b6b3d3378c"
   license "GPL-3.0-or-later"
-  revision 1
 
   bottle do
-    sha256 arm64_ventura:  "34c4b550fcb19d2596b214224ae1c97bfa0cf0bc466e9e097a2f9e7b1c6beb21"
-    sha256 arm64_monterey: "97cfdca98cb1fffb8c472155d1a206953478d7688af83c8944c20aa695fad350"
-    sha256 arm64_big_sur:  "7979834d7dea36670fae20e2cc8bb1bf78c4b569f67f4a650d563d0306811d67"
-    sha256 ventura:        "7beec8540b188879225fecc213735506226437bb83e50ea638c1342e417fdd81"
-    sha256 monterey:       "baf7cbbb043c5a9556935baee3ea2c00a901b512d96dfdada30a6dfed65ba3c3"
-    sha256 big_sur:        "ce9a5f7563cef3cecda8e3df332f4019a08e73424b4ceb8864285bb48c73cd44"
-    sha256 x86_64_linux:   "270a62c488bae6c3108e1730259542a25ffa479ae1fe125753c6cd44d2e15533"
+    sha256 arm64_ventura:  "bca63ee6a5c0a1cf82822ae1cf7f8f551aab0b7fe2e6fc5a762bd43f445cbb07"
+    sha256 arm64_monterey: "93d603260b867a00dac496c6463cc30b722092f745d34bdcd1757a9ccad16da2"
+    sha256 arm64_big_sur:  "3ee9313f3c58074a068710f8bbfc0dd85aa57bc494b559895b000ca6a5cbef1f"
+    sha256 ventura:        "405cd98ce649b0bb3d5d5a43c46aea7cb7560bd8001b909c7538b821795e2254"
+    sha256 monterey:       "10c444fe690af8208d7b4c7e9297b09b7f8315bd54fddfe47ebcac8e6edb0a3b"
+    sha256 big_sur:        "a212c4205318c5bc4299fd9e5489f676f62042c1c39b08f54b22467f0cd4870a"
+    sha256 x86_64_linux:   "93e558e42d7fa14d19eb0147778d1620cbbc44ea5b683b05814cc4f36ce55023"
   end
 
   head do
@@ -26,15 +24,15 @@ class Nvc < Formula
 
   depends_on "check" => :build
   depends_on "pkg-config" => :build
-  depends_on "llvm@15"
+  depends_on "llvm"
 
   uses_from_macos "flex" => :build
 
   fails_with gcc: "5" # LLVM is built with GCC
 
   resource "homebrew-test" do
-    url "https://github.com/suoto/vim-hdl-examples.git",
-        revision: "fcb93c287c8e4af7cc30dc3e5758b12ee4f7ed9b"
+    url "https://raw.githubusercontent.com/suoto/vim-hdl-examples/fcb93c287c8e4af7cc30dc3e5758b12ee4f7ed9b/basic_library/very_common_pkg.vhd"
+    sha256 "42560455663d9c42aaa077ca635e2fdc83fda33b7d1ff813da6faa790a7af41a"
   end
 
   def install
@@ -45,7 +43,7 @@ class Nvc < Formula
 
     # In-tree builds are not supported.
     mkdir "build" do
-      system "../configure", "--with-llvm=#{Formula["llvm@15"].opt_bin}/llvm-config",
+      system "../configure", "--with-llvm=#{Formula["llvm"].opt_bin}/llvm-config",
                              "--prefix=#{prefix}",
                              "--with-system-cc=#{ENV.cc}",
                              "--disable-silent-rules"
@@ -54,10 +52,13 @@ class Nvc < Formula
       system "make", "V=1"
       system "make", "V=1", "install"
     end
+
+    (pkgshare/"examples").install "test/regress/wait1.vhd"
   end
 
   test do
-    resource("homebrew-test").stage testpath
-    system bin/"nvc", "-a", testpath/"basic_library/very_common_pkg.vhd"
+    testpath.install resource("homebrew-test")
+    system bin/"nvc", "-a", testpath/"very_common_pkg.vhd"
+    system bin/"nvc", "-a", pkgshare/"examples/wait1.vhd", "-e", "wait1", "-r"
   end
 end

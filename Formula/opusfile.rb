@@ -6,6 +6,11 @@ class Opusfile < Formula
   sha256 "118d8601c12dd6a44f52423e68ca9083cc9f2bfe72da7a8c1acb22a80ae3550b"
   license "BSD-3-Clause"
 
+  livecheck do
+    url "https://www.opus-codec.org/downloads/"
+    regex(/href=.*?opusfile[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "36711acb9ef28f156240cf9844801ed8a6bdafa517ba75cc88f3e00d4b8e4bd1"
     sha256 cellar: :any,                 arm64_monterey: "0cdc27b38be83f9e0e7a2ca87d2b5605d597f702b8ae0e6b9f7470b203debf94"

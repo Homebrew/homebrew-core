@@ -3,23 +3,26 @@ class Yapf < Formula
 
   desc "Formatter for python code"
   homepage "https://github.com/google/yapf"
-  url "https://files.pythonhosted.org/packages/c2/cd/d0d1e95b8d78b8097d90ca97af92f4af7fb2e867262a2b6e37d6f48e612a/yapf-0.32.0.tar.gz"
-  sha256 "a3f5085d37ef7e3e004c4ba9f9b3e40c54ff1901cd111f05145ae313a7c67d1b"
+  url "https://files.pythonhosted.org/packages/83/6e/72395cbbd59eedc48913f8694d445acbdba699c50312001b702c5ff46001/yapf-0.33.0.tar.gz"
+  sha256 "da62bdfea3df3673553351e6246abed26d9fe6780e548a5af9e70f6d2b4f5b9a"
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "950d8ab709fa1abe814841604705099fd1a668025a1ec5c903b59f7f53c9a4ef"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "950d8ab709fa1abe814841604705099fd1a668025a1ec5c903b59f7f53c9a4ef"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "950d8ab709fa1abe814841604705099fd1a668025a1ec5c903b59f7f53c9a4ef"
-    sha256 cellar: :any_skip_relocation, ventura:        "1b0f150f316f291060663c5cd8872844c2f127c875f63f67f054a585c87bf0c5"
-    sha256 cellar: :any_skip_relocation, monterey:       "1b0f150f316f291060663c5cd8872844c2f127c875f63f67f054a585c87bf0c5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1b0f150f316f291060663c5cd8872844c2f127c875f63f67f054a585c87bf0c5"
-    sha256 cellar: :any_skip_relocation, catalina:       "1b0f150f316f291060663c5cd8872844c2f127c875f63f67f054a585c87bf0c5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "03c422cc9a467113710a17a468443733350d8f330932b03d77c7a98d11d3e68e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "231981acae588f6bfe8fbb434609c00a985d8e1d57fefa12debd9965fe7f82e9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3402f5d670fa80ecbc1a6afca035b796bce209411b56aa3ca3dcc99a52311e31"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "be9fd597d3052e65bc35ff92f5abac0e63f0854361364b7cbf318f8e786a160e"
+    sha256 cellar: :any_skip_relocation, ventura:        "87164b623df7a3e536e404b5183b68b499655387ee65872a46a8b26f810de206"
+    sha256 cellar: :any_skip_relocation, monterey:       "4dc3753f25ecd807fe3226141d86e7f1dbe67b8045b8c458a517413aed24a4db"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0a9d42d1e2d7f88c6ca9fe9489d18013efa70186dad5b365ad50f84f8f924882"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2741a25f9a4f7d99c66aaad53f5d71a7a875d2bd05dacee831a25d43194ec650"
   end
 
   depends_on "python@3.11"
+
+  resource "tomli" do
+    url "https://files.pythonhosted.org/packages/c0/3f/d7af728f075fb08564c5949a9c95e44352e23dee646869fa104a3b2060a3/tomli-2.0.1.tar.gz"
+    sha256 "de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f"
+  end
 
   def install
     virtualenv_install_with_resources

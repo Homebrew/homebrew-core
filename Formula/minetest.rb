@@ -4,17 +4,17 @@ class Minetest < Formula
   license "LGPL-2.1-or-later"
 
   stable do
-    url "https://github.com/minetest/minetest/archive/5.6.1.tar.gz"
-    sha256 "1440603e19dca70e2691e86a74c822ee2c4a36fceee32b2d85ae74772149e9a3"
+    url "https://github.com/minetest/minetest/archive/5.7.0.tar.gz"
+    sha256 "0cd0fd48a97f76e337a2e1284599a054f8f92906a84a4ef2122ed321e1b75fa7"
 
     resource "irrlichtmt" do
-      url "https://github.com/minetest/irrlicht/archive/refs/tags/1.9.0mt8.tar.gz"
-      sha256 "27594242da8c7cc1e5ef45922e1dfdd130c37d77719b5d927359eb47992051e0"
+      url "https://github.com/minetest/irrlicht/archive/refs/tags/1.9.0mt10.tar.gz"
+      sha256 "6d00348d8ff513f6a7cee5c930908ef67428ff637e6a9e4d5688409bdb6d547d"
     end
 
     resource "minetest_game" do
-      url "https://github.com/minetest/minetest_game/archive/refs/tags/5.6.1.tar.gz"
-      sha256 "5dc857003d24bb489f126865fcd6bf0d9c0cb146ca4c1c733570699d15abd0e3"
+      url "https://github.com/minetest/minetest_game/archive/refs/tags/5.7.0.tar.gz"
+      sha256 "0787b24cf7b340a8a2be873ca3744cec60c2683011f1d658350a031d1bd5976d"
     end
   end
 
@@ -24,14 +24,13 @@ class Minetest < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "9e2ac2626be9b51ccc399acf6015e5fe5c1145ed39b3f87054c3aa3b8ed30c3c"
-    sha256 cellar: :any, arm64_monterey: "44204d306faf6661f5cca1b9fa31ab19bb6dbe95843acdaad989029cfd3a0a11"
-    sha256 cellar: :any, arm64_big_sur:  "7f9985b9a6437dd26301c72b8a0315309e7be24eef7a55378cf4d118d4471b45"
-    sha256 cellar: :any, ventura:        "a9ba0a5ec4d8a0a2f3fded68567ed3987034991e55292b5dabb6937b5009554c"
-    sha256 cellar: :any, monterey:       "2797dece689806632a0c7015e336a21155bb367555afa77c5b5890b61ae7110d"
-    sha256 cellar: :any, big_sur:        "7a85c4ffc2d2a3460c6e4f2ce000cafe69b75530c24741bf77f16474e7ba0d96"
-    sha256 cellar: :any, catalina:       "6778f81afea196d5c31727cee99a5498d012ba6c3dfb54f1b658cd4e1ddce543"
-    sha256               x86_64_linux:   "fb6eb17f2af2e32de0c32588d93336cba026324ed12890c444411faf0b34c75f"
+    sha256 cellar: :any, arm64_ventura:  "32246b9a68c1cc58d353a7e1e472f440f01712d7baf90f4724b3e75c3a9cd824"
+    sha256 cellar: :any, arm64_monterey: "ff695caf85fac277c0e966adfb545c42647087dba289f1a587c5afba016d8c00"
+    sha256 cellar: :any, arm64_big_sur:  "b8ca9d49163a9b20fcaeec0f179d5095e509a1ef8a9b7955214e2d3751a1c1ee"
+    sha256 cellar: :any, ventura:        "11877f115e82a11a88775d106c433107d5b1f68d966a56963a16cd6e613693af"
+    sha256 cellar: :any, monterey:       "14224d8d6ed9f0ae02b838423436b736b4eea64e7d44395ac00132d548e45c69"
+    sha256 cellar: :any, big_sur:        "9faec3d05ba52ed4363013f0e39734c8dbc947d18e449e19a28174ae36c7ce6c"
+    sha256               x86_64_linux:   "a57cbf410ed1abfa8e381715b327a2b154a6cec9d008ba880efc6b25591e5436"
   end
 
   head do
@@ -47,8 +46,8 @@ class Minetest < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "gettext" => :build
   depends_on "freetype"
+  depends_on "gettext"
   depends_on "gmp"
   depends_on "jpeg-turbo"
   depends_on "jsoncpp"
@@ -72,13 +71,8 @@ class Minetest < Formula
   end
 
   def install
-    inreplace "src/CMakeLists.txt" do |s|
-      # These flags are not needed for LuaJIT 2.1 (Ref: https://luajit.org/install.html).
-      # On Apple ARM, the flags results in broken binaries and need to be removed.
-      s.gsub! " -pagezero_size 10000 -image_base 100000000\"", "\""
-      # Disable CMake fixup_bundle to prevent copying dylibs into app bundle
-      s.gsub! "fixup_bundle(", "# \\0"
-    end
+    # Disable CMake fixup_bundle to prevent copying dylibs into app bundle
+    inreplace "src/CMakeLists.txt", "fixup_bundle(", "# \\0"
 
     # Remove bundled libraries to prevent fallback
     %w[lua gmp jsoncpp].each { |lib| (buildpath/"lib"/lib).rmtree }

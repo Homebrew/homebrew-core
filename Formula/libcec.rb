@@ -3,19 +3,17 @@ class Libcec < Formula
   homepage "http://libcec.pulse-eight.com/"
   url "https://github.com/Pulse-Eight/libcec/archive/libcec-6.0.2.tar.gz"
   sha256 "090696d7a4fb772d7acebbb06f91ab92e025531c7c91824046b9e4e71ecb3377"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "8f1be1bc0bd2e1d6612b6b080d2ce33c2c9658f6af25bca73ca8eafc73c65a25"
-    sha256 cellar: :any,                 arm64_monterey: "e4f3ba0cb7eef028a29ce8b6473873925e7f1fde5c0363262a1c61873cf27eb6"
-    sha256 cellar: :any,                 arm64_big_sur:  "56ba06a96084c73cc8bd5bec4be5aff675702cadeb91b9aba710de25aeb20e2e"
-    sha256 cellar: :any,                 ventura:        "153faa4104189cefaead9bdec8d3ea390c4f19a174ef54849ef4aa9ae777d2a7"
-    sha256 cellar: :any,                 monterey:       "0282c32692e3295299fe656d19d50fe7aa52d9d5d945db35f9c23045c195ccd9"
-    sha256 cellar: :any,                 big_sur:        "1a9bd5bc7213eef94c4bb9c1c3cfeffeb6dba606f0cbd227de515c04968bbc8f"
-    sha256 cellar: :any,                 catalina:       "eef61bc6c5647a5b26f8949b53973e02ec44640d82ceff633183da7b20eac212"
-    sha256 cellar: :any,                 mojave:         "c64dda68a5e5d00d6867aff92b576a71b8550d7250bbe7f86d0c1a9b1b861613"
-    sha256 cellar: :any,                 high_sierra:    "2d7d295151c68aeaea3a269d66156b2d29f08a619d60079e79386d100c0adc1c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9176ee164819109787720e7e67537b18ff52363f7d4ac41b3ef5fd936aed74c3"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "c7aff3833ac339327e1881340d289cae6864dddca9ed4237d50c401856a9bf56"
+    sha256 cellar: :any,                 arm64_monterey: "b888e7cd72aaa5312697203f0146f4352e42439fc625c4e6798ef90e930c3402"
+    sha256 cellar: :any,                 arm64_big_sur:  "d3c6c1ef0af67ec3bcc8d2357e2c3a937b79cc8298e2a09f462870a0b0efed8a"
+    sha256 cellar: :any,                 ventura:        "1cfe634b03237f5e68cc4c3586c73fd5f22c7ab16a4e21bda0ab71c66673c9aa"
+    sha256 cellar: :any,                 monterey:       "763e6237d21c4a4b637256e192c17676b7f2466b66ce446a2f22732497e66558"
+    sha256 cellar: :any,                 big_sur:        "8dfef5759341d551a996bbcedcbef9a8876e12c046dd3d4b40bbc4c72bbaa9a5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a26708626f2907713d38286ccb552b68514c44bc08e21761db8736db19b6956c"
   end
 
   depends_on "cmake" => :build
@@ -40,21 +38,17 @@ class Libcec < Formula
     end
 
     resource("p8-platform").stage do
-      mkdir "build" do
-        system "cmake", "..", *cmake_args
-        system "make"
-        system "make", "install"
-      end
+      system "cmake", "-S", ".", "-B", "build", "-DCMAKE_INSTALL_RPATH=#{rpath}", *cmake_args
+      system "cmake", "--build", "build"
+      system "cmake", "--install", "build"
     end
 
-    mkdir "build" do
-      system "cmake", "..", *cmake_args
-      system "make"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_INSTALL_RPATH=#{rpath}", *cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
-    system "#{bin}/cec-client", "--info"
+    assert_match "libCEC version: #{version}", shell_output("#{bin}/cec-client --info")
   end
 end

@@ -1,20 +1,19 @@
 class Nnn < Formula
   desc "Tiny, lightning fast, feature-packed file manager"
   homepage "https://github.com/jarun/nnn"
-  url "https://github.com/jarun/nnn/archive/v4.7.tar.gz"
-  sha256 "81ccccc045bfd7ee3f1909cc443158ea0d1833f77d6342fd19c33864a2ab71d1"
+  url "https://github.com/jarun/nnn/archive/v4.8.tar.gz"
+  sha256 "0a744e67a0ce8b5e1e04961f542d2c33ddb6ceed46ba760dd35c4922b21f1146"
   license "BSD-2-Clause"
   head "https://github.com/jarun/nnn.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "b094737033cd0233f38f8e41a7456845476254d28f1f09f99a00c7137febb2d5"
-    sha256 cellar: :any,                 arm64_monterey: "a8606857ab2c09c190e646eab0293f9719ffc99e1621a461ca9626d0cd615469"
-    sha256 cellar: :any,                 arm64_big_sur:  "8c95d96c404d49745917163ecb0f32b7d5bf9d40b57a937e445c2b641bacdf10"
-    sha256 cellar: :any,                 ventura:        "f98ea7c028bdb177be92a9723043f06b9ed76f0aada9874bf26867d8f6e7df08"
-    sha256 cellar: :any,                 monterey:       "cba73b2adad9140050a6c979f616f9c82c53429d6180a5c6586cef7dfe7e376d"
-    sha256 cellar: :any,                 big_sur:        "4ca5efbe940a5776bf6d5ba5834f7012c80076879bc3c4be5f5e24f95c1e129b"
-    sha256 cellar: :any,                 catalina:       "20c3bb236113c28d9c6cc9a96cf1440e66ee58278f97af0e908c32cc6595e537"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "43f2d21629ca07752e91f59a504f6890ac8abac000d82f3448c2b7c6bc82710f"
+    sha256 cellar: :any,                 arm64_ventura:  "d5f557981513afab9592ea456b58bf6a4ba752cc7e2ce79e0fa53b21a2fa21da"
+    sha256 cellar: :any,                 arm64_monterey: "91c6071b99b909d7b9e05e13bbd46db7e936456952a2e78da0fc8d387bddf0b9"
+    sha256 cellar: :any,                 arm64_big_sur:  "bf095fffb53cfdc30866b394a01c683bf2bf29792fa7ef3a315fd7897e50fe66"
+    sha256 cellar: :any,                 ventura:        "6975527088a5fedfd9b8b848aafa73ceefe100a2971d2c7f12fdcfd3f04f4aa1"
+    sha256 cellar: :any,                 monterey:       "da5c72abb656d4bb508393d3a8ad2ae02d65115b3108b85bfbb2f18be10920b6"
+    sha256 cellar: :any,                 big_sur:        "5336ef7d41f43071e8538af0fb94ac16521f51fbc0385faecce9b63e733148a2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9f02c735de7f1d4e3a483244eebf4170a5482c0b76f7dfbf5bb9c16fe30cf316"
   end
 
   depends_on "gnu-sed"

@@ -1,19 +1,18 @@
 class Cgif < Formula
   desc "GIF encoder written in C"
   homepage "https://github.com/dloebl/cgif"
-  url "https://github.com/dloebl/cgif/archive/refs/tags/V0.3.0.tar.gz"
-  sha256 "c4f70bbae4c6afee3a524e65be31ae495201fd26687cb8429d7aded8be96306a"
+  url "https://github.com/dloebl/cgif/archive/refs/tags/V0.3.1.tar.gz"
+  sha256 "74a56ddd07b0a28938918f9d566012d4324fd183d3783a075f656520e79d82fb"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "740dfb0dd502132849420bdc0ef6fa7fee7b0b3e90d8bcff7f1443294503c5d6"
-    sha256 cellar: :any,                 arm64_monterey: "0da861374a98aa9131d04e84178c244f5ac60d76cd7773c15a47c2418e54a79b"
-    sha256 cellar: :any,                 arm64_big_sur:  "54a86cf41b5388fec523e5995af70ce8bd764781a544b135f82c925bbe82cf17"
-    sha256 cellar: :any,                 ventura:        "7e3bc30cf9061df0236e0d80d2fef20dd2a3126ff88367100effce28b3bc5419"
-    sha256 cellar: :any,                 monterey:       "716cf5539f2d766ee948f1517d3df0289fd19067adf471b278734d0c73ceda3b"
-    sha256 cellar: :any,                 big_sur:        "6220f016ff8d01dd3f5f2113633c4959f9fcbeb8ecfe789cc1cb548ab04992bd"
-    sha256 cellar: :any,                 catalina:       "5f666ec88e04fd67350425eb60360f2bb850ab9b231283a57c6910cc54cf054a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ab1f1081301700d61a5b07417e0b908b92c79cd2ddffc43312779f60168385da"
+    sha256 cellar: :any,                 arm64_ventura:  "0988cc00c20a6cf83021e8f06fb8c2f075ef87107f07b29906dfcc45ca40c17e"
+    sha256 cellar: :any,                 arm64_monterey: "a2b754f882aa2a2540d1bba387ac07c02e5e0e7c7a097490af3f3db7494228d2"
+    sha256 cellar: :any,                 arm64_big_sur:  "89458e228d8532e93a88dcad85b8dba5c4d64143be4a0a6d33e9ded1b02bb712"
+    sha256 cellar: :any,                 ventura:        "e32bb231e04b725cfd0ea857e7a2a783de26fd3ba62c75da59dadb391d5eb0fc"
+    sha256 cellar: :any,                 monterey:       "50b1cbf79278e276f4c6b7d3a2618584e6ce73894b09ab256c4a322056aeefd6"
+    sha256 cellar: :any,                 big_sur:        "2c4297e13eaf55ac3f4d76800f1f264a2bbf4c466a318c9dbafc344b0efb1f81"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b0bb225118b9a12955e97d401af3e86d95f89b7082f8ed6f42e289eb92e6fbe4"
   end
 
   depends_on "meson" => :build

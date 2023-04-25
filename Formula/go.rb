@@ -1,9 +1,9 @@
 class Go < Formula
   desc "Open source programming language to build simple/reliable/efficient software"
   homepage "https://go.dev/"
-  url "https://go.dev/dl/go1.20.2.src.tar.gz"
-  mirror "https://fossies.org/linux/misc/go1.20.2.src.tar.gz"
-  sha256 "4d0e2850d197b4ddad3bdb0196300179d095bb3aefd4dfbc3b36702c3728f8ab"
+  url "https://go.dev/dl/go1.20.3.src.tar.gz"
+  mirror "https://fossies.org/linux/misc/go1.20.3.src.tar.gz"
+  sha256 "e447b498cde50215c4f7619e5124b0fc4e25fb5d16ea47271c47f278e7aa763a"
   license "BSD-3-Clause"
   head "https://go.googlesource.com/go.git", branch: "master"
 
@@ -13,14 +13,13 @@ class Go < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_ventura:  "c36d24caf8e6427fbc5ee5830ce8ba7162235e8a98f50763bbe8420093b47567"
-    sha256 arm64_monterey: "c36d24caf8e6427fbc5ee5830ce8ba7162235e8a98f50763bbe8420093b47567"
-    sha256 arm64_big_sur:  "c36d24caf8e6427fbc5ee5830ce8ba7162235e8a98f50763bbe8420093b47567"
-    sha256 ventura:        "bd297e9d748d65a8c0229ab8747febe25033d4a154b5f58f581a3e1f760342cb"
-    sha256 monterey:       "bd297e9d748d65a8c0229ab8747febe25033d4a154b5f58f581a3e1f760342cb"
-    sha256 big_sur:        "bd297e9d748d65a8c0229ab8747febe25033d4a154b5f58f581a3e1f760342cb"
-    sha256 x86_64_linux:   "868a2d5c202c7436c193c71c3143bfa464658eacc045cf8c59dedd74fb0d6944"
+    sha256 arm64_ventura:  "771302acc4a2dbdedfd822e0a0fd0747fe2457891ab5bbc3bcf7dd177de66c68"
+    sha256 arm64_monterey: "771302acc4a2dbdedfd822e0a0fd0747fe2457891ab5bbc3bcf7dd177de66c68"
+    sha256 arm64_big_sur:  "771302acc4a2dbdedfd822e0a0fd0747fe2457891ab5bbc3bcf7dd177de66c68"
+    sha256 ventura:        "c011832c003ec5c8ea31bd548935362ca99b3d1abe4244830fdc802bb9b424aa"
+    sha256 monterey:       "c011832c003ec5c8ea31bd548935362ca99b3d1abe4244830fdc802bb9b424aa"
+    sha256 big_sur:        "c011832c003ec5c8ea31bd548935362ca99b3d1abe4244830fdc802bb9b424aa"
+    sha256 x86_64_linux:   "a58a644000147352a8f0d745a4505aa4098af6328d905b18bbf06ad78212dbd5"
   end
 
   # Don't update this unless this version cannot bootstrap the new version.
@@ -32,22 +31,28 @@ class Go < Formula
       "linux-amd64"  => "4cdd2bc664724dc7db94ad51b503512c5ae7220951cac568120f64f8e94399fc",
     }
 
-    arch = "arm64"
-    platform = "darwin"
+    version "1.17.13"
 
+    on_arm do
+      on_macos do
+        url "https://storage.googleapis.com/golang/go#{version}.darwin-arm64.tar.gz"
+        sha256 checksums["darwin-arm64"]
+      end
+      on_linux do
+        url "https://storage.googleapis.com/golang/go#{version}.linux-arm64.tar.gz"
+        sha256 checksums["linux-arm64"]
+      end
+    end
     on_intel do
-      arch = "amd64"
+      on_macos do
+        url "https://storage.googleapis.com/golang/go#{version}.darwin-amd64.tar.gz"
+        sha256 checksums["darwin-amd64"]
+      end
+      on_linux do
+        url "https://storage.googleapis.com/golang/go#{version}.linux-amd64.tar.gz"
+        sha256 checksums["linux-amd64"]
+      end
     end
-
-    on_linux do
-      platform = "linux"
-    end
-
-    boot_version = "1.17.13"
-
-    url "https://storage.googleapis.com/golang/go#{boot_version}.#{platform}-#{arch}.tar.gz"
-    version boot_version
-    sha256 checksums["#{platform}-#{arch}"]
   end
 
   def install

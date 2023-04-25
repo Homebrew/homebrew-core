@@ -1,21 +1,19 @@
 class Wgcf < Formula
   desc "Generate WireGuard profile from Cloudflare Warp account"
   homepage "https://github.com/ViRb3/wgcf"
-  url "https://github.com/ViRb3/wgcf/archive/v2.2.15.tar.gz"
-  sha256 "b12971018c40d0a04492a9da9e9fea393394291044045e0117ec292364de1b57"
+  url "https://github.com/ViRb3/wgcf/archive/v2.2.17.tar.gz"
+  sha256 "04320b13b766bf8a89af55441c119c78814aadd7170592aaa724ca9c59b2a1a8"
   license "MIT"
   head "https://github.com/ViRb3/wgcf.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7a427a9556174eb77f404b02b335614b01433a261a5ba0dccc2db05789beade1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ea6a7f6b4e419a4d40eb206e4e315e453419dd1a30a8e9c14559317a6153c26a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "138f63fd7b77d2d544da1994b121254656a5575473eab98d58f51886195cc69f"
-    sha256 cellar: :any_skip_relocation, ventura:        "259a17979ea66edcde33804c225c7395d785e4a6537e6c84f21013b138102257"
-    sha256 cellar: :any_skip_relocation, monterey:       "ffc1d0b6cdf73841f546cc6aca5e293ad9513388cbcd271876fd6c38276c585f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1596717bc3872063cc4a72a0eb8688e77f73d21e113bfc741004466735313f52"
-    sha256 cellar: :any_skip_relocation, catalina:       "b59e53c9b0ea5261159b57c0b4378b9dfb5dbb2302b3b394cad893fcf08746af"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "40cd6e8e0bb51b09d1c9fd9fa3adbb497938af3759dbf53fbd00b00e4a38279c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0bcb5fed9aaee000c14d431083b677cf826a088bff0725d386d71b4fe3beba92"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0bcb5fed9aaee000c14d431083b677cf826a088bff0725d386d71b4fe3beba92"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0bcb5fed9aaee000c14d431083b677cf826a088bff0725d386d71b4fe3beba92"
+    sha256 cellar: :any_skip_relocation, ventura:        "550146c79ff31e6d6a77388b1300892ca85ed0e98c029e880906f81305411d99"
+    sha256 cellar: :any_skip_relocation, monterey:       "550146c79ff31e6d6a77388b1300892ca85ed0e98c029e880906f81305411d99"
+    sha256 cellar: :any_skip_relocation, big_sur:        "550146c79ff31e6d6a77388b1300892ca85ed0e98c029e880906f81305411d99"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "47359f427ff529fb4df0d66a6c015fb6b88edc465607c2f14cf3b6d6261259ee"
   end
 
   depends_on "go" => :build

@@ -1,8 +1,8 @@
 class Libpcap < Formula
   desc "Portable library for network traffic capture"
   homepage "https://www.tcpdump.org/"
-  url "https://www.tcpdump.org/release/libpcap-1.10.3.tar.gz"
-  sha256 "2a8885c403516cf7b0933ed4b14d6caa30e02052489ebd414dc75ac52e7559e6"
+  url "https://www.tcpdump.org/release/libpcap-1.10.4.tar.gz"
+  sha256 "ed19a0383fad72e3ad435fd239d7cd80d64916b87269550159d20e47160ebe5f"
   license "BSD-3-Clause"
   head "https://github.com/the-tcpdump-group/libpcap.git", branch: "master"
 
@@ -12,13 +12,13 @@ class Libpcap < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "3df35be270b8bd17d0cd91e43c10b66870c45034e75707d6b6cdf7d5dd38a72b"
-    sha256 cellar: :any,                 arm64_monterey: "0483ea9943b771c1844e3e889b09bd786b796e615905516f28a20fab44bb41e7"
-    sha256 cellar: :any,                 arm64_big_sur:  "04e430f3cac412855961560d189ff362e089de0800849a5bcc89ca195a292337"
-    sha256 cellar: :any,                 ventura:        "e13d617d00b48e6f37bbf66e50f99d02f3770373456c4c4a16422c1eb84474b3"
-    sha256 cellar: :any,                 monterey:       "8809d53d2864fead641bffa8183b51166a25a177b88fc555fe0176f2e1d3afc9"
-    sha256 cellar: :any,                 big_sur:        "0b4f05d3e0fd1b56de4e31f7f5f66f3e1ddbf62d779d4bbadce5d19f39eaff51"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "62b980944a6b87ca058b5dd77fccb7032b3762df6bf64d2311a93365a581e2ce"
+    sha256 cellar: :any,                 arm64_ventura:  "c9ab92960280af2f6677af5adac6400c0fcbc989e10c82539abd5e6fa07ace6c"
+    sha256 cellar: :any,                 arm64_monterey: "57cf3e889d51c5fb5b7a9337080efcae4580f6903c2c6bfe428da8f3149d9da3"
+    sha256 cellar: :any,                 arm64_big_sur:  "8229a0d02cb1294ca286d70aa197c439b60270a64b08985127b2c85e28c34062"
+    sha256 cellar: :any,                 ventura:        "b9e4f0cfacd43b79b0966420ec5306920847ffca235efc22cdf566765b2fb37a"
+    sha256 cellar: :any,                 monterey:       "f7883aecab73688e915f71f86d1c0def30f8ed2b316a557412761dc106d65652"
+    sha256 cellar: :any,                 big_sur:        "28ce01f0924dc297d43fb493929d9dd0ecc8235f7e1fe5797652a4f14be9b60d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ecc72e233bad9575bf92185d05b526ecae130e0598cf47613ce472fd3dc73aa"
   end
 
   keg_only :provided_by_macos

@@ -1,20 +1,10 @@
 class Micromamba < Formula
   desc "Fast Cross-Platform Package Manager"
   homepage "https://github.com/mamba-org/mamba"
+  url "https://github.com/mamba-org/mamba/archive/refs/tags/micromamba-1.4.2.tar.gz"
+  sha256 "dce034908d02d991c5e9aadeb9d01f139d027ba199aaeb1d47d543e3f24895d1"
   license "BSD-3-Clause"
   head "https://github.com/mamba-org/mamba.git", branch: "main"
-
-  stable do
-    url "https://github.com/mamba-org/mamba/archive/refs/tags/micromamba-1.4.0.tar.gz"
-    sha256 "890f37e7f84e81b85976d0a26d171406dbbbb02416efcb95bda9f263e10c21b4"
-
-    # Fix "error: chosen constructor is explicit in copy-initialization".
-    # Remove with `stable` block on next release.
-    patch do
-      url "https://github.com/mamba-org/mamba/commit/bc7fa860c982c796f3c35acaa011304128bb4e62.patch?full_index=1"
-      sha256 "16d1e3052d3a07a8951c918535ea0de8fbba53b7ded1145289253c4f6beb6e5a"
-    end
-  end
 
   livecheck do
     url :stable
@@ -22,13 +12,13 @@ class Micromamba < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "d214fa090a7a00e9fa657b33caa9bf2c17cbe77aa2f500c2710758930d899e91"
-    sha256 cellar: :any,                 arm64_monterey: "13bf833247cbdeb405278f7246df12fe9068989d890552db7f7a733d4866500f"
-    sha256 cellar: :any,                 arm64_big_sur:  "c7bf3df72364c9cbed2c9f31587307a4bdd1adae9994fe47f72ee9160a51709b"
-    sha256 cellar: :any,                 ventura:        "43e247ef66ba6bc2084dfe207aa6efadfcab8bcffa6db7c5526e3c8aeb94e7f4"
-    sha256 cellar: :any,                 monterey:       "37a3d874465ef1afe1d57c6f8a764a926a0225a7afa715af24954fa8b0bcd0fc"
-    sha256 cellar: :any,                 big_sur:        "326bfd5f58df2c76d11952ffaa64b6e9e9e2f08ee6b37941d5ad0fded9f58c03"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ae05efcd71519e59eaa4ac78159b8f2c7224a684028b0f4a7921210858271440"
+    sha256 cellar: :any,                 arm64_ventura:  "e1c27038823628bd723d23bf02c1002dc70e18f599728fbe81e3a9c737d3b3c6"
+    sha256 cellar: :any,                 arm64_monterey: "2b44218ec7c111382c68e3229b5ae97ff639f99eb1a731243fdfe9b8e87deb04"
+    sha256 cellar: :any,                 arm64_big_sur:  "3cbab593cf69fe78d3e6318cd8964a91f65f89a3ecf7151b3ef16de3d64dbee7"
+    sha256 cellar: :any,                 ventura:        "e69749479ad0f6da36927965842c2d976ff7bb0e813a4666edeade4c85eedeb6"
+    sha256 cellar: :any,                 monterey:       "4acc27c69b5442264d48e1c4e3370398d82e28f5a2f1d546c67e2bd28f7fe3bc"
+    sha256 cellar: :any,                 big_sur:        "e5b302bfac834bc8c1a647ac5a98d50566e64ef5b63d20f12e4dc7bb01b2b628"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5b6082f9002e2d0efff17df022e4a8d1c53261c2f52970724280eecd8d6d98aa"
   end
 
   depends_on "cli11" => :build

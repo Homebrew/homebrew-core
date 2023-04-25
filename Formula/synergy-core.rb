@@ -1,8 +1,8 @@
 class SynergyCore < Formula
   desc "Synergy, the keyboard and mouse sharing tool"
   homepage "https://symless.com/synergy"
-  url "https://github.com/symless/synergy-core/archive/refs/tags/1.14.5.17.tar.gz"
-  sha256 "ed48717ad664773aa3492e34f085873cab43fb84e8fe3717db485588b67ae1d1"
+  url "https://github.com/symless/synergy-core/archive/refs/tags/1.14.6.18-stable.tar.gz"
+  sha256 "7f1bbf457f7134ff6110269e63740fb6346660a229adaf1e1bf2f1ee735271c1"
 
   # The synergy-core/LICENSE file contains the following preamble:
   #   This program is released under the GPL with the additional exemption
@@ -31,14 +31,13 @@ class SynergyCore < Formula
   end
 
   bottle do
-    sha256                               arm64_ventura:  "1b4a2490a8037d024db0d276cae2e8bc285aee8a103db5342ccbe10771199e3c"
-    sha256                               arm64_monterey: "725f0f1fa1dfe02c9a1c7263475e56ea7ddd1851db82f7105713e722ac8a8420"
-    sha256                               arm64_big_sur:  "4029385d37cae098379287bf401afdcfd0e7255956644ca9698066997ac8e662"
-    sha256                               ventura:        "1e8ef42fdc16ec61502ddc2e505fb3068cf3676d1f5139bf33c820cc732d6f2c"
-    sha256                               monterey:       "24f862db876c623f46ad44fcc14350586783e84c1f0dd79bd17e37b2ab861280"
-    sha256                               big_sur:        "f125834a8999cb0a9392e4a4f7085b9168b206e8b596929981426eb92a658036"
-    sha256                               catalina:       "9d82863c4c7c1bb6dcd62d9cfb5eeb4abd05d9c360bf08b0b5408b2e90dde516"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cac6f9f95676a8ec29f97d17612c1e523ddb912f36c23ded04330b1c2a73a371"
+    sha256                               arm64_ventura:  "3ec5b29ab967ddba356f47ba10d19bd67b3782ea7d7a2930a5865cace48a273e"
+    sha256                               arm64_monterey: "c2c1f0cab39a26359b21dd4d0634e14ff87ea84860acb2c065222b7a1dd3e419"
+    sha256                               arm64_big_sur:  "1248f8e053a13f764325db5edab37a9c50a6747495b2708a56c62dee6c702b02"
+    sha256                               ventura:        "9fddff02c34fc1b21a245d60ac513b6cda88d904e65aaf44d14fbe38f26339f1"
+    sha256                               monterey:       "8d2d76f8808c5f38cc55c2fb1142a9fbc2447daf8f9f7497849cfba9d25c7884"
+    sha256                               big_sur:        "6ad5793b1e2077ea952fb1163c9f406a7bb2497a4cb4ecec9af656b6b7f16d87"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3d38c91e320559dc5f6d5cf789cb045afa53e6685001335efdc921d97adb1ee1"
   end
 
   depends_on "cmake" => :build

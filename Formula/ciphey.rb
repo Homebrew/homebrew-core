@@ -196,7 +196,7 @@ class Ciphey < Formula
       end
     end
 
-    res = resources.map(&:name).to_set - ["cipheycore"]
+    res = resources.to_set(&:name) - ["cipheycore"]
     res.each do |r|
       venv.pip_install resource(r)
     end

@@ -3,19 +3,19 @@ class Poetry < Formula
 
   desc "Python package management tool"
   homepage "https://python-poetry.org/"
-  url "https://files.pythonhosted.org/packages/10/7d/8014383fafeb34f0e8791b2c4a36781460f0deada75baaa2a925fbe3a2c3/poetry-1.4.1.tar.gz"
-  sha256 "9a0c9f5f862678d475ac2fd2451ea612facd02efb054bb758763893f7d85053e"
+  url "https://files.pythonhosted.org/packages/b2/8f/664c5d6fb391421606f2641b22542fecc1a785b508b6618c8726c2eb0a79/poetry-1.4.2.tar.gz"
+  sha256 "0bd580a42482579635e774c5286ef73b8df3427567123cdb128b286cec671b3c"
   license "MIT"
   head "https://github.com/python-poetry/poetry.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7e6a51504e3164a017d39a5c708252a965bcb6bb4a82cadfe8e9debe899c0406"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "48e3e6eba09693d07761f437c7dcc91b78a29d479757f1b1f44d14dd88f3118c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "247f781e2e68d3d6f9cbe843f3415029171c627b9faedef2935a77f8d72a703f"
-    sha256 cellar: :any_skip_relocation, ventura:        "bdd0b53ebc4999b6036d6c2b5275b8cdea4e33b0bb65c5d96c300239aecbfb69"
-    sha256 cellar: :any_skip_relocation, monterey:       "d7e9be25d833b67123d55c3ab0ed2db21702dd333d2792707b6ecf9ee7e9c8dc"
-    sha256 cellar: :any_skip_relocation, big_sur:        "cd69393e62e46cfb224d25e80d1f6b6f56d62912d007966cad364905f71bd0c4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "63513a44fa823335fc025b586d78589c76be0ccdb06cc6cd676645ac887c8da8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0ce0efbf455e6ff29488a9f13bf7cb8674f6901c682901ca896e027c96d0d9ac"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "67608e40b337826f82280ec76b7cf599fef543da2c21f31d37523b8498e72a62"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "13cff85a3647b6ae252ef088a6c9bcc0041cbad867f096fb513a22f96fc71821"
+    sha256 cellar: :any_skip_relocation, ventura:        "36a049ba4a398a0281b2d40c719c74615c4537fe8430eb218159aba18f12279c"
+    sha256 cellar: :any_skip_relocation, monterey:       "2834a2ac59e5b6e365465c9e8b7f5a4bedb6c377a10cbab3655cafedcfa34b60"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4a3dfa88ef593e0cf467bf721b9179977a9e37c38a2bea03d78168a02a2ef063"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f151e4857f0e130e266e83c7c0fde65a56d9a3d27ebab02788323ac71edd8596"
   end
 
   # `rapidfuzz` requires `cmake` to build
@@ -74,8 +74,8 @@ class Poetry < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/4f/1f/6e1b740698069650b245744957a25957d599b953550a959ab2a584a8825b/filelock-3.10.0.tar.gz"
-    sha256 "3199fd0d3faea8b911be52b663dfccceb84c95949dd13179aa21436d1a79c4ce"
+    url "https://files.pythonhosted.org/packages/5b/65/5dfde43d5e4d7d31a2392bf4aa20e464b8aa0601f34fd9b050781291f666/filelock-3.10.7.tar.gz"
+    sha256 "892be14aa8efc01673b5ed6589dbccb95f9a8596f0507e232626155495c18105"
   end
 
   resource "html5lib" do
@@ -179,8 +179,8 @@ class Poetry < Formula
   end
 
   resource "rapidfuzz" do
-    url "https://files.pythonhosted.org/packages/15/e5/2ab8375be6955aff1925b69c41429cbe54e32a67461c0b59f94c9b8b1cc5/rapidfuzz-2.13.7.tar.gz"
-    sha256 "8d3e252d4127c79b4d7c2ae47271636cbaca905c8bb46d80c7930ab906cf4b5c"
+    url "https://files.pythonhosted.org/packages/01/8c/cad170708243488e2b2a2e727eb40f30018231efa7fa1a9a3a3dc82d9f42/rapidfuzz-2.15.0.tar.gz"
+    sha256 "1c7e439d1428882d297bdd0db5626fc4626cdebe50d3fbbf4ed898f775ca56d5"
   end
 
   resource "requests" do
@@ -199,8 +199,8 @@ class Poetry < Formula
   end
 
   resource "tomlkit" do
-    url "https://files.pythonhosted.org/packages/ff/04/58b4c11430ed4b7b8f1723a5e4f20929d59361e9b17f0872d69681fd8ffd/tomlkit-0.11.6.tar.gz"
-    sha256 "71b952e5721688937fb02cf9d354dbcf0785066149d2855e44531ebdd2b65d73"
+    url "https://files.pythonhosted.org/packages/4d/4e/6cb8a301134315e37929763f7a45c3598dfb21e8d9b94e6846c87531886c/tomlkit-0.11.7.tar.gz"
+    sha256 "f392ef70ad87a672f02519f99967d28a4d3047133e2d1df936511465fbb3791d"
   end
 
   resource "trove-classifiers" do

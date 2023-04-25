@@ -11,6 +11,11 @@ class Pce < Formula
     depends_on "sdl12-compat"
   end
 
+  livecheck do
+    url "http://www.hampa.ch/pce/download.html"
+    regex(/href=.*?pce[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "f4bcc186e10297c857c01a2c1f49f38dd8abe2324de512253fef924664b41dc5"
     sha256 cellar: :any,                 arm64_monterey: "e91060cfda85a63fee4413b7eb726714f8775e0cd452edd0957eba43c578fdd4"

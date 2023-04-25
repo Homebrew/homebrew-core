@@ -1,20 +1,18 @@
 class Libxfixes < Formula
   desc "X.Org: Header files for the XFIXES extension"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/lib/libXfixes-6.0.0.tar.bz2"
-  sha256 "a7c1a24da53e0b46cac5aea79094b4b2257321c621b258729bc3139149245b4c"
+  url "https://www.x.org/archive/individual/lib/libXfixes-6.0.1.tar.xz"
+  sha256 "b695f93cd2499421ab02d22744458e650ccc88c1d4c8130d60200213abc02d58"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "538a4e96e9cfcfe82377be06fed103c8d5fa2649240ec89c70cd587e40d68eb9"
-    sha256 cellar: :any,                 arm64_monterey: "c7f7012b751ab6c83a41cec7c95f6628a2c1d3e2a9f2f1271ee7a8a5844c1a5d"
-    sha256 cellar: :any,                 arm64_big_sur:  "9668a973a8a220609add6d2af60547745b81cb198936930fcd05bfd6b9aca47c"
-    sha256 cellar: :any,                 ventura:        "1474745f823f6d7cfc2cb2ae17fe54543e01cad3fa78f8f9e447b7794017bf57"
-    sha256 cellar: :any,                 monterey:       "7325a129c439a5239c04b469d456ca5ec3ca6d93bc444aa25be30973b61f5cfd"
-    sha256 cellar: :any,                 big_sur:        "a0317884b16dfd0e391d9ab48b4a9785fa2c4fdf3fd5dca857be98b1ae6fded2"
-    sha256 cellar: :any,                 catalina:       "916d95deb297ee98b57a87586a90a5a880792efab259c511230844a6ab94d06e"
-    sha256 cellar: :any,                 mojave:         "5c560e7ae60a53ea414c34a7d5159da0e4fc04a9159baa4ce9d67d942d05b9a4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b10945be16e84b8e7cd08c600d64408e1332574f1fa8e33a44aadb3bf5e06d68"
+    sha256 cellar: :any,                 arm64_ventura:  "b087b60e125d6e348292f14f9d692693a0dca7894975002fa29f754c25395bbc"
+    sha256 cellar: :any,                 arm64_monterey: "515bbc38f06c142ff7cdb65b9f1401fe187241b64186b0670f4809787e288c2a"
+    sha256 cellar: :any,                 arm64_big_sur:  "5f5221e3a5687ea308dd4e0200617cbba63289476df92e6addc3928597033c3b"
+    sha256 cellar: :any,                 ventura:        "ade02ac4b73db0272d8bdb95bd05f8c8c11683daa944c66a10f1e72740bac364"
+    sha256 cellar: :any,                 monterey:       "bae672517d9d8a3af7481ecb71dc13d835231b51917b6848d069550a725a09f9"
+    sha256 cellar: :any,                 big_sur:        "5fb3942149518881721a07646cb045b3dd0478e6333617409d3cf25a8254740e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dd98561e1f625057b34be07c81541d7759f29756d5d7272b59bd9e86af0d7d22"
   end
 
   depends_on "pkg-config" => :build

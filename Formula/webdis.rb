@@ -1,19 +1,18 @@
 class Webdis < Formula
   desc "Redis HTTP interface with JSON output"
   homepage "https://webd.is/"
-  url "https://github.com/nicolasff/webdis/archive/0.1.20.tar.gz"
-  sha256 "1f0c8e8e8b68486fb7ccfc68a2c0d28167f7b243004b8a521c2552d0f9bbbe84"
+  url "https://github.com/nicolasff/webdis/archive/0.1.21.tar.gz"
+  sha256 "092ff00252d3cf589221f3b5ddcf3ab45a32c9a836ff9326cc3171cc3af76f30"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "72a5b658a3adfe30bceb5e169d3739c0241f19d92358b4adf670dbc265791c0e"
-    sha256 cellar: :any,                 arm64_monterey: "01d68d884586fcc671ac5db5ee136eab325c122791193fae278ad6542f793ec7"
-    sha256 cellar: :any,                 arm64_big_sur:  "e214f9eb12345cc5998c5e30930eb18b67751540e9be07c7cad9b466f91d147d"
-    sha256 cellar: :any,                 ventura:        "e1b7ec93e73942bd6fa46bf5cb1eabb2dd14f54d55aacaca9a38a09d1fccd020"
-    sha256 cellar: :any,                 monterey:       "25c756e3714e87f34fb9ba04f03c1ac06a905291a2d67460067f0c43c5965716"
-    sha256 cellar: :any,                 big_sur:        "8121d9e66429ec5b2c94683c7781cbabfdde8c71a90e7a4b986f02bcc451ad53"
-    sha256 cellar: :any,                 catalina:       "ec7bd136523ac94e2644d8d6f8e7e4d9f0163e733af9504ae0e7769906550835"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cd85baa15e4d7f640c83712d2e507683307fbd8df46257e8c38a59f6967263c5"
+    sha256 cellar: :any,                 arm64_ventura:  "136cb001fd37ba6099dfedb34ca4333e27d6f0a309fe7a9aeab1a08ab4c855fa"
+    sha256 cellar: :any,                 arm64_monterey: "21314ccecf5bd171cb2c8e9ddf64534f2afd713225956953c510dc9bc6e7f173"
+    sha256 cellar: :any,                 arm64_big_sur:  "68729233fb56d1b9143d666e85cfc7f8bad9c4346fd250180c1b8af3145b5134"
+    sha256 cellar: :any,                 ventura:        "61da2c25a08d74d6f5da6469c7733093da61e633ba10957ac2864c8611392d03"
+    sha256 cellar: :any,                 monterey:       "293b50fdf8ac6e6ee4d03a5c250b79f494a12d11a2588f85fb8ad8b10084b9b0"
+    sha256 cellar: :any,                 big_sur:        "2675e00c484ac2ea9467b6ce5590abd552a108ebd270c4c65c946cc9ba38cf1c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e68b417a2d1a98fd90f2f9036aaea81254d488801348770a3e8f0805e8c9e60e"
   end
 
   depends_on "libevent"

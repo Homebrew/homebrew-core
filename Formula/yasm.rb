@@ -6,6 +6,11 @@ class Yasm < Formula
   sha256 "3dce6601b495f5b3d45b59f7d2492a340ee7e84b5beca17e48f862502bd5603f"
   revision 2
 
+  livecheck do
+    url "https://yasm.tortall.net/Download.html"
+    regex(/href=.*?yasm[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b59763588b57923ad20c8090a7382aa361efc2503ad788dae648c95f24f410a4"

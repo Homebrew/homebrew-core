@@ -1,9 +1,9 @@
 class Wireshark < Formula
   desc "Graphical network analyzer and capture tool"
   homepage "https://www.wireshark.org"
-  url "https://www.wireshark.org/download/src/all-versions/wireshark-4.0.4.tar.xz"
-  mirror "https://1.eu.dl.wireshark.org/src/all-versions/wireshark-4.0.4.tar.xz"
-  sha256 "a4a09f6564f00639036ffe5064ac4dc2176adfa3e484c539c9c73f835436e74b"
+  url "https://www.wireshark.org/download/src/all-versions/wireshark-4.0.5.tar.xz"
+  mirror "https://1.eu.dl.wireshark.org/src/all-versions/wireshark-4.0.5.tar.xz"
+  sha256 "71b67346935fea4968c68efcae0371c06b30770d6396419c10bc443aac196b29"
   license "GPL-2.0-or-later"
   head "https://gitlab.com/wireshark/wireshark.git", branch: "master"
 
@@ -13,13 +13,13 @@ class Wireshark < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "40ff9c2bf1f2e88ce4e08c2f4ec1e4402eeee3ecc3a605cd03ab8cd58c35d42b"
-    sha256 arm64_monterey: "529c4be5b86deb78b886d450b1d4374a011e925bf82fd9933243c4cf9e38f20b"
-    sha256 arm64_big_sur:  "db35a1acfc71d429db258e1108b6a42b2a265fa3486f090becab608d01d62607"
-    sha256 ventura:        "bdf6ee39d2607dbb4d64d9a1c4e4e3665640d8a2e68356cc0f005d15ea76c73a"
-    sha256 monterey:       "00f8fcbcd0d77094a022115052a075afe6329fd0c352e61dd965b0779456ae0c"
-    sha256 big_sur:        "1909bb2787d8fffdb0140c0c72baf61beb464c28f39aa1bb13b96f9e54eddf9d"
-    sha256 x86_64_linux:   "8b831cb4b63c8b5176d62f96ae424fcb58408b657b02ffd36547fa4330bd7bee"
+    sha256                               arm64_ventura:  "501878dde2283280d7723a2a4db812dc98ca9806ed072380e296f0aa5789b1e0"
+    sha256                               arm64_monterey: "174859375029b800bb49175ba824973117342b6e07985c91b05d2f485baa791a"
+    sha256                               arm64_big_sur:  "2d65d633cce0f9b053bdb040683fdac1433e8465b59385df963c3880846f9b5f"
+    sha256                               ventura:        "c4605f19f7d03b885510715a4e4e9518aae0e34180239167e153de3b4fcd8a0a"
+    sha256                               monterey:       "c68dfa861521cfbe8c839bb79d18777db77f16c425d8fa7b9e1b71c002ac7acb"
+    sha256                               big_sur:        "2f12f6f31030e796ba05335a3514426ec43dd03578f9ee69a4171a9a1b779a96"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c2d608465a73fb7a865f6cf2cf9ca6c692ee36e9dbb981a92609cfd2cc1215ed"
   end
 
   depends_on "cmake" => :build

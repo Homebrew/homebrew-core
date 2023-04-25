@@ -34,8 +34,8 @@ class Unisonlang < Formula
 
   resource "local-ui" do
     url "https://github.com/unisonweb/unison-local-ui/archive/refs/tags/release/M4h.tar.gz"
-    sha256 "cac7ddd1cbac628e54dbf56d879cb0a22f2b70ef3e711cf51b9e05cd5e409e44"
     version "M4h"
+    sha256 "cac7ddd1cbac628e54dbf56d879cb0a22f2b70ef3e711cf51b9e05cd5e409e44"
   end
 
   def install

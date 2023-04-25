@@ -1,19 +1,19 @@
 class Httpd < Formula
   desc "Apache HTTP server"
   homepage "https://httpd.apache.org/"
-  url "https://dlcdn.apache.org/httpd/httpd-2.4.56.tar.bz2"
-  mirror "https://downloads.apache.org/httpd/httpd-2.4.56.tar.bz2"
-  sha256 "d8d45f1398ba84edd05bb33ca7593ac2989b17cb9c7a0cafe5442d41afdb2d7c"
+  url "https://dlcdn.apache.org/httpd/httpd-2.4.57.tar.bz2"
+  mirror "https://downloads.apache.org/httpd/httpd-2.4.57.tar.bz2"
+  sha256 "dbccb84aee95e095edfbb81e5eb926ccd24e6ada55dcd83caecb262e5cf94d2a"
   license "Apache-2.0"
 
   bottle do
-    sha256 arm64_ventura:  "fdc6ea637f57d92baada33735ae01bffe3b36b92053d357fb3d69b3aa5c7616d"
-    sha256 arm64_monterey: "a9071b03ce4d21cad421d17de72edcf7908ab7ed26ce93eaa43b40bd7e947805"
-    sha256 arm64_big_sur:  "212256a9bc7b005a30dfe27900026fbf2f672dc0b20d0b0cc5a9a0f8640ad30e"
-    sha256 ventura:        "7824d21ac0c62bff2c2b8f9753472ed1c4f7ac1eddd0e3e23b3bae734d762f59"
-    sha256 monterey:       "e599bf76ce7a1bdafd4b186dcdfb8e4413718234feb0b9aa431c40cbad902009"
-    sha256 big_sur:        "bb3deab22143bc90353926ae22fd0adc81b328d8179cb929855899510759edb2"
-    sha256 x86_64_linux:   "b72e692b66ce41e526c43bb48a1e8f67eae6addf34b60912d6650a5c021ef87f"
+    sha256 arm64_ventura:  "ba972757b289bcc09c73f7221624910a5b18ec83459526e4ffe641f7bdaae06a"
+    sha256 arm64_monterey: "db92c01ac8495e80e0022c97ff38152c91ea7773e7563fecfe6f771f9cb7b97d"
+    sha256 arm64_big_sur:  "66993af7e4a1fa1444013426c5b3a3d711dde9a33654374caaa82e52b61d3385"
+    sha256 ventura:        "d2eeeff2bcc29824d480cee7249de2dc67a6325a39ca5626a352c068f1cdc63f"
+    sha256 monterey:       "c27bcbf9251c507895facb4d2561878f7dd8425a3f260c87f6ce9334e937749b"
+    sha256 big_sur:        "5d27a43db5303836f0ba51dd713a4cfdef7be3c7c828f01c6bc1031fb379f9f1"
+    sha256 x86_64_linux:   "ca1f357e88273c01e7c16e2577c0d791b90f087eb9fd6d4630aa50eb0f6d2024"
   end
 
   depends_on "apr"

@@ -1,10 +1,9 @@
 class PythonAT311 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.11.2/Python-3.11.2.tgz"
-  sha256 "2411c74bda5bbcfcddaf4531f66d1adc73f247f529aee981b029513aefdbf849"
+  url "https://www.python.org/ftp/python/3.11.3/Python-3.11.3.tgz"
+  sha256 "1a79f3df32265d9e6625f1a0b31c28eb1594df911403d11f3320ee1da1b3e048"
   license "Python-2.0"
-  revision 1
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -12,14 +11,13 @@ class PythonAT311 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_ventura:  "ac5541e8c7d1c6fa43f5ab87c47906c80bebbbe31ab4bb75ec33aa112cce02af"
-    sha256 arm64_monterey: "f6847de5ca24821e72c27f6515dd51ca39ce7410569c919a06672e84bbdabb97"
-    sha256 arm64_big_sur:  "70141e420bf14f8fa020d2cd924c414f2feb9bc6523bdb827250bdc60c84c8ed"
-    sha256 ventura:        "228565950db8e0b73697fd246dba83e560aa7ca444bec0a79f53323c35471253"
-    sha256 monterey:       "24c3f95885f3eb81ae9668fe2ba61a5d6c797fe71dde11b84fefbd3ac4dab7c4"
-    sha256 big_sur:        "f0696ec651ef0f1dde1035f14deef4c255b16bcd2b8bd55a62ae37da75e36ffd"
-    sha256 x86_64_linux:   "fbb82e5e45a52f66a9c8110f8d1326b13d32a47fc2f9124e4094355a2911ee2a"
+    sha256 arm64_ventura:  "a6f7dd653b6c5904629effbfff359da0aa9903786b38abc0840c595e281a278e"
+    sha256 arm64_monterey: "270d1f7c56978757922b246dfd8bccead979c3d30a8e95d77a7b7b644050e6cd"
+    sha256 arm64_big_sur:  "13a7123b4e99f4bd574ec38e0a48d80ae6bbc36527cf9e158679f045d21160f4"
+    sha256 ventura:        "59844694b2bb56614623c8ede1679689fa32e8becf296108716de31ff3db6807"
+    sha256 monterey:       "e86210ffc0380bf4ccff3e3081e4dbd9c9ee3c2f72574d41498a817050f1ef86"
+    sha256 big_sur:        "af625209f6474e67aa4cc911c972425631d4e7ef343235b25bdf8ef11b761303"
+    sha256 x86_64_linux:   "e2df7e7b96ec43663841c3dfc8bc28d15087d39be147fde3d0dd1ba564be7a95"
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -68,19 +66,24 @@ class PythonAT311 < Formula
   link_overwrite "Frameworks/Python.framework/Versions/Current"
 
   # Always update to latest release
+  resource "flit-core" do
+    url "https://files.pythonhosted.org/packages/10/e5/be08751d07b30889af130cec20955c987a74380a10058e6e8856e4010afc/flit_core-3.8.0.tar.gz"
+    sha256 "b305b30c99526df5e63d6022dd2310a0a941a187bd3884f4c8ef0418df6c39f3"
+  end
+
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/b6/21/cb9a8d0b2c8597c83fce8e9c02884bce3d4951e41e807fc35791c6b23d9a/setuptools-65.6.3.tar.gz"
-    sha256 "a7620757bf984b58deaf32fc8a4577a9bbc0850cf92c20e1ce41c38c19e5fb75"
+    url "https://files.pythonhosted.org/packages/cb/46/22ec35f286a77e6b94adf81b4f0d59f402ed981d4251df0ba7b992299146/setuptools-67.6.1.tar.gz"
+    sha256 "257de92a9d50a60b8e22abfcbb771571fde0dbf3ec234463212027a4eeecbe9a"
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/a3/50/c4d2727b99052780aad92c7297465af5fe6eec2dbae490aa9763273ffdc1/pip-22.3.1.tar.gz"
-    sha256 "65fd48317359f3af8e593943e6ae1506b66325085ea64b706a998c6e83eeaf38"
+    url "https://files.pythonhosted.org/packages/6b/8b/0b16094553ecc680e43ded8f920c3873b01b1da79a54274c98f08cb29fca/pip-23.0.1.tar.gz"
+    sha256 "cd015ea1bfb0fcef59d8a286c1f8bebcb983f6317719d415dc5351efb7cd7024"
   end
 
   resource "wheel" do
-    url "https://files.pythonhosted.org/packages/a2/b8/6a06ff0f13a00fc3c3e7d222a995526cbca26c1ad107691b6b1badbbabf1/wheel-0.38.4.tar.gz"
-    sha256 "965f5259b566725405b05e7cf774052044b1ed30119b5d586b2703aafe8719ac"
+    url "https://files.pythonhosted.org/packages/fc/ef/0335f7217dd1e8096a9e8383e1d472aa14717878ffe07c4772e68b6e8735/wheel-0.40.0.tar.gz"
+    sha256 "cd1196f3faee2b31968d626e1731c94f99cbdb67cf5a46e4f5656cbee7738873"
   end
 
   # Modify default sysconfig to match the brew install layout.
@@ -133,6 +136,11 @@ class PythonAT311 < Formula
                 "libmpdec_machine=#{ENV["PYTHON_DECIMAL_WITH_MACHINE"] = Hardware::CPU.arm? ? "uint128" : "x64"}"
     end
 
+    # The --enable-optimization and --with-lto flags diverge from what upstream
+    # python does for their macOS binary releases. They have chosen not to apply
+    # these flags because they want one build that will work across many macOS
+    # releases. Homebrew is not so constrained because the bottling
+    # infrastructure specializes for each macOS major release.
     args = %W[
       --prefix=#{prefix}
       --enable-ipv6
@@ -141,18 +149,11 @@ class PythonAT311 < Formula
       --without-ensurepip
       --enable-loadable-sqlite-extensions
       --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
+      --enable-optimizations
       --with-system-expat
-      --with-system-ffi
       --with-system-libmpdec
       --with-readline=editline
     ]
-
-    # The --enable-optimization and --with-lto flags diverge from what upstream
-    # python does for their macOS binary releases. They have chosen not to apply
-    # these flags because they want one build that will work across many macOS
-    # releases. Homebrew is not so constrained because the bottling
-    # infrastructure specializes for each macOS major release.
-    args << "--enable-optimizations" if ENV.compiler != :gcc || DevelopmentTools.gcc_version(ENV.cc) >= 5
 
     if OS.mac?
       # Enabling LTO on Linux makes libpython3.*.a unusable for anyone whose GCC
@@ -292,6 +293,9 @@ class PythonAT311 < Formula
     ]
     whl_build = buildpath/"whl_build"
     system python3, "-m", "venv", whl_build
+    resource("flit-core").stage do
+      system whl_build/"bin/pip3", "install", *common_pip_args, "."
+    end
     resource("wheel").stage do
       system whl_build/"bin/pip3", "install", *common_pip_args, "."
       system whl_build/"bin/pip3", "wheel", *common_pip_args,

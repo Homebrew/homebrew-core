@@ -1,8 +1,8 @@
 class Patchelf < Formula
   desc "Modify dynamic ELF executables"
   homepage "https://github.com/NixOS/patchelf"
-  url "https://github.com/NixOS/patchelf/releases/download/0.17.2/patchelf-0.17.2.tar.bz2"
-  sha256 "bae2ea376072e422c196218dd9bdef0548ccc08da4de9f36b4672df84ea2d8e2"
+  url "https://github.com/NixOS/patchelf/releases/download/0.18.0/patchelf-0.18.0.tar.bz2"
+  sha256 "1952b2a782ba576279c211ee942e341748fdb44997f704dd53def46cd055470b"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,13 +11,13 @@ class Patchelf < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0df237f718647a8c248b2112f0b989ffdf5ac1d3261354cef4b5d0fef9425696"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "bb45ccc30e36a71c817a3c2729300193830cb1dacd7ec169008421290a4d2c15"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ff06f5e48778635bb7376d3f1f331f21a656dfa450d374fdd608cf0d759ee6ce"
-    sha256 cellar: :any_skip_relocation, ventura:        "7c3ccbd8364e10beb8fc36547fe9464f647301e2aea2d47754e6cbcf56b9f0c7"
-    sha256 cellar: :any_skip_relocation, monterey:       "0c4b905a8aa52108d722867b528317001a2cc70a81661ee0f4828a5be6c260d4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "26a100a5ed000ffa714c4c8442e5d2786014b7ece03d30be1564fa00b2e4eacd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "39f33251bdcfc18e7cd0113bd8c1080c6f868e64f10f9bb5d0a9afb3f66c64e5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "37888c994e481e2b6a3a212c689195e2ca6dbeb681779845bbeda5a52262c1b5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "bd75a287bcecfb33a2ca07c92225435571804a8e73f30ecc4769a6a7443dc2d0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ef4527c4a98121dd6fabcef87f00b3a8dbbd6b9cbd24d49d972a057f49ee4080"
+    sha256 cellar: :any_skip_relocation, ventura:        "6b230c2ad0a046653bb8f2b5652d069f4f9e7c6f17bdb4d4e9b6dc35a94a3693"
+    sha256 cellar: :any_skip_relocation, monterey:       "37bd9ca1e04a76f8b160fdaf1f1f76c2f396a264f5d3af88670d3338c577638b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0c12fe3723bc1b72e6635713ff2f6c12cf7f13e8e9533fb58360a2c163187d4f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fe8a76cdde4a5666cccbcdfc328bfb77f5d05b63a52ce103b487166be696ac6b"
   end
 
   head do

@@ -100,7 +100,7 @@ class Kpcli < Formula
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
     ENV.prepend_path "PERL5LIB", libexec/"lib"
 
-    res = resources.map(&:name).to_set - ["Clipboard", "Term::Readline::Gnu"]
+    res = resources.to_set(&:name) - ["Clipboard", "Term::Readline::Gnu"]
     res.each do |r|
       resource(r).stage do
         system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"

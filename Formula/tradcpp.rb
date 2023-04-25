@@ -1,9 +1,14 @@
 class Tradcpp < Formula
   desc "K&R-style C preprocessor"
-  homepage "https://www.netbsd.org/~dholland/tradcpp"
+  homepage "https://www.netbsd.org/~dholland/tradcpp/"
   url "https://cdn.netbsd.org/pub/NetBSD/misc/dholland/tradcpp-0.5.3.tar.gz"
   sha256 "e17b9f42cf74b360d5691bc59fb53f37e41581c45b75fcd64bb965e5e2fe4c5e"
   license "BSD-2-Clause"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?tradcpp[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     rebuild 1

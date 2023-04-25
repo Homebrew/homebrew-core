@@ -1,20 +1,19 @@
 class Fblog < Formula
   desc "Small command-line JSON log viewer"
   homepage "https://github.com/brocode/fblog"
-  url "https://github.com/brocode/fblog/archive/v4.2.0.tar.gz"
-  sha256 "de7e7e012301eec9df891a4bbc27088e43a7fdbf8066532fc35e85a38edde5f1"
+  url "https://github.com/brocode/fblog/archive/v4.3.0.tar.gz"
+  sha256 "8c7c74a91fcb53c4d71abc78a3bba9a9fb496481be531a96e526b1bd54ddd41e"
   license "WTFPL"
   head "https://github.com/brocode/fblog.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6d04993d81da88cabeec38f9d9df24864e990f29b032683452e93b675377f422"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3088629c9a095488e5552344936f0c68c6a9a268b3ff63598a962f93aad14499"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5e5ad3d4e789259423bb7ae925cef056d2782ba7826d313501f76ab14bc52c54"
-    sha256 cellar: :any_skip_relocation, ventura:        "7240cec6d6655f265ae1bbd05c2c79233b236829f7def25da528ad62130fc9a9"
-    sha256 cellar: :any_skip_relocation, monterey:       "cb8ffaa8fc6904afa6af235422c9f995f5df6d7b5a9e9e2ee86d8736f12d53bb"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7170652b1db3877a9af8a14c1fbc19f8e391ebfcb3d74a7befcbeef291b99717"
-    sha256 cellar: :any_skip_relocation, catalina:       "e4ad5c34818a46e526deb93cdfe167ec1f66a05130cf5271c1e20cd610bde77c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bee91c7619b1403655f893d7a1fe5c954fe8ac5b5771c7aa4fc386bafc9b6cbc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "17ab6960bc7602b6173bf0078a51ec426573de55de4bccfa1e29b54c145ba31a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cc7563b871037da57ce1ae8842c11727bedca27217ec1b89c3ddaa5889c57985"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e65861ac9804a3a753edd6b2ab58363d7b06bcca53fa7a9267ff65cc832e6230"
+    sha256 cellar: :any_skip_relocation, ventura:        "b24f61161ce28af8ea9caad09e36955c26c08530fdc1dcd57f044ddb5bd3c5e0"
+    sha256 cellar: :any_skip_relocation, monterey:       "d7e82f373dd9abe5ba520fcb065311ca6592fb5f73c65c16e2318601d14aa911"
+    sha256 cellar: :any_skip_relocation, big_sur:        "00b95a8100b27a036db958bd80d014520a6631d6256e6487d284d6cbb39dc309"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b76b38f34e9346c99782bf3d55f66e5a440ce213f5632b36fb42ddc756433ee1"
   end
 
   depends_on "rust" => :build

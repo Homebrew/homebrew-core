@@ -3,18 +3,18 @@ class Johnnydep < Formula
 
   desc "Display dependency tree of Python distribution"
   homepage "https://github.com/wimglenn/johnnydep"
-  url "https://files.pythonhosted.org/packages/31/d3/38a7a2727610ca1b128997419acca1f25225fa2472517aea6b9f465dfc1c/johnnydep-1.17.5.tar.gz"
-  sha256 "edc6c95e2ee1ab433d69afddaa85af4e4ffc040ff607bdb579b72c4e35d15b8f"
+  url "https://files.pythonhosted.org/packages/b7/12/8fbc18d41ca9b0d19334f2748a67d150e6eb21277ff58e829f8a71636f71/johnnydep-1.18.0.tar.gz"
+  sha256 "e18ea3dfe5be21ff194e28155f0188f4aaefeb54ba83485ef2b387f22d577ce7"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cb81b2dc320d3c3f1bf5a91cde07ee5b962c51ceb9e01fad8c796cd4b8668e7a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d98351267c04a3214887cd27cb913af31b6fbc2244ab280ff0f24139c76c81f8"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "67a079bd1d0c8003b8d1ec913310c23e311a521e14e66eaa0cc9ae8ad5c9c613"
-    sha256 cellar: :any_skip_relocation, ventura:        "79fe2488c6f0fe737687b8a82e53b2c7a2da28185ef54e4fdac818f415f3af79"
-    sha256 cellar: :any_skip_relocation, monterey:       "f9b2085be14a69c3b812fde38a6433ce840d91fe3b2e5a86b622d0fd11687a4f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e2ac9d56c4ecc02ed60cdc46f5aad898f070a447382cfa99f0e3f7ca1751b6cd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "752768769097065128c953e0bcfb099285ab7cc78af84729d3d595c09f48ddb9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "caedee0307c8887d8d094908ba0a0fedf3202b98462343225473f480aea69947"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "75833888c50e239c98635cb01be3ca4f3666864504685684b42f40c66d792d77"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ba6474180514c77357c54a4d16c123f773d8979e465c8f44b73c785f81ca5edf"
+    sha256 cellar: :any_skip_relocation, ventura:        "8c40c733cd0b9c3a8703e0097b4fd911be179ae90de9e71e12d3bd2808c0c01d"
+    sha256 cellar: :any_skip_relocation, monterey:       "a5b863dd2808a73538989c22db54b33eead318caf5f8c58c9cd946f86f9d931f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c104d0707b1c6dd48663a326be10c59bd38e5d9b8540137bbf573fbf6edce616"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5103caf76bb4db7f318dc2badf9f331cc07344bdebba512b0ee6332133625ba7"
   end
 
   depends_on "python-tabulate"
@@ -32,19 +32,14 @@ class Johnnydep < Formula
     sha256 "13dfddc7b8df938c21a940dfa6557ce6e94a2f1cdfa58eb90c805721d58f2c14"
   end
 
-  resource "colorama" do
-    url "https://files.pythonhosted.org/packages/d8/53/6f443c9a4a8358a93a6792e2acffb9d9d5cb0a5cfd8802644b7b1c9a02e4/colorama-0.4.6.tar.gz"
-    sha256 "08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44"
-  end
-
   resource "oyaml" do
     url "https://files.pythonhosted.org/packages/00/71/c721b9a524f6fe6f73469c90ec44784f0b2b1b23c438da7cc7daac1ede76/oyaml-1.0.tar.gz"
     sha256 "ed8fc096811f4763e1907dce29c35895d6d5936c4d0400fe843a91133d4744ed"
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/47/d5/aca8ff6f49aa5565df1c826e7bf5e85a6df852ee063600c1efa5b932968c/packaging-23.0.tar.gz"
-    sha256 "b6ad297f8907de0fa2fe1ccbd26fdaf387f5f47c7275fedf8cce89f99446cf97"
+    url "https://files.pythonhosted.org/packages/b9/6c/7c6658d258d7971c5eb0d9b69fa9265879ec9a9158031206d47800ae2213/packaging-23.1.tar.gz"
+    sha256 "a392980d2b6cffa644431898be54b0045151319d1e7ec34f0cfed48767dd334f"
   end
 
   resource "pkginfo" do
@@ -53,8 +48,8 @@ class Johnnydep < Formula
   end
 
   resource "structlog" do
-    url "https://files.pythonhosted.org/packages/a9/9b/4236af056671ba03c788b7398785912b741fb47b6683feab96501f66fc5b/structlog-22.3.0.tar.gz"
-    sha256 "e7509391f215e4afb88b1b80fa3ea074be57a5a17d794bd436a5c949da023333"
+    url "https://files.pythonhosted.org/packages/9e/c4/688d14600f3a8afa31816ac95220f2548648e292c3ff2262057aa51ac2fb/structlog-23.1.0.tar.gz"
+    sha256 "270d681dd7d163c11ba500bc914b2472d2b50a8ef00faa999ded5ff83a2f906b"
   end
 
   resource "toml" do
@@ -63,8 +58,8 @@ class Johnnydep < Formula
   end
 
   resource "wheel" do
-    url "https://files.pythonhosted.org/packages/a2/b8/6a06ff0f13a00fc3c3e7d222a995526cbca26c1ad107691b6b1badbbabf1/wheel-0.38.4.tar.gz"
-    sha256 "965f5259b566725405b05e7cf774052044b1ed30119b5d586b2703aafe8719ac"
+    url "https://files.pythonhosted.org/packages/fc/ef/0335f7217dd1e8096a9e8383e1d472aa14717878ffe07c4772e68b6e8735/wheel-0.40.0.tar.gz"
+    sha256 "cd1196f3faee2b31968d626e1731c94f99cbdb67cf5a46e4f5656cbee7738873"
   end
 
   resource "wimpy" do

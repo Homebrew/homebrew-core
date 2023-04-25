@@ -81,14 +81,14 @@ class Mold < Formula
     else odie "unexpected compiler"
     end
 
-    extra_flags = []
+    extra_flags = %w[-fPIE -pie]
     extra_flags += %w[--target=x86_64-unknown-linux-gnu -nostdlib] unless OS.linux?
 
     system ENV.cc, linker_flag, *extra_flags, "test.c"
     if OS.linux?
       system "./a.out"
     else
-      assert_match "ELF 64-bit LSB executable, x86-64", shell_output("file a.out")
+      assert_match "ELF 64-bit LSB pie executable, x86-64", shell_output("file a.out")
     end
 
     return unless OS.linux?

@@ -1,9 +1,9 @@
 class GoAT119 < Formula
   desc "Open source programming language to build simple/reliable/efficient software"
   homepage "https://go.dev/"
-  url "https://go.dev/dl/go1.19.7.src.tar.gz"
-  mirror "https://fossies.org/linux/misc/go1.19.7.src.tar.gz"
-  sha256 "775bdf285ceaba940da8a2fe20122500efd7a0b65dbcee85247854a8d7402633"
+  url "https://go.dev/dl/go1.19.8.src.tar.gz"
+  mirror "https://fossies.org/linux/misc/go1.19.8.src.tar.gz"
+  sha256 "1d7a67929dccafeaf8a29e55985bc2b789e0499cb1a17100039f084e3238da2f"
   license "BSD-3-Clause"
 
   livecheck do
@@ -12,47 +12,21 @@ class GoAT119 < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "a46a8456370252e6977c98f3b4381f4583d66d53db472958e5e418bc75521891"
-    sha256 arm64_monterey: "b68913931e339e827fe3d3c7af2ee2274d748c0ac4d4df4733b558878dc2532d"
-    sha256 arm64_big_sur:  "cb70d673492be6ee2c97ddb15ebcb493dd354240603a323adfe405c32e3d1939"
-    sha256 ventura:        "996727c3658a85fc6ae6e8ec6d5aa3f8c7116f72e5cf656591f653a97b7a3113"
-    sha256 monterey:       "dbd832dc3de1803281181da47d0c14b5c806b2bfd42c50695c294526002c40ff"
-    sha256 big_sur:        "54ecdc3adbb41da5300a70a514fed7007785a57f7d032038fd5b3af205ac50e0"
-    sha256 x86_64_linux:   "885365c7290af0fe48e9afe6226cd8ce68d208def902706ea84d174276f57962"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ba379c73d3a29b6e29ddba23a378650f9a1e53af58adf0f704013e3733461b91"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c67f18a1e1488fee98fb1403c90c9ead935696737ca3f54b089a01adbac3385c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "313ce10eed6843963d860a3e668cc9d7d8c994921f2575f5ffc5e51dbe47fa2c"
+    sha256 cellar: :any_skip_relocation, ventura:        "73a6ce2ebe92780950d2e7f84bac870c6a38fe7a49708d3a7aab610b7832dc80"
+    sha256 cellar: :any_skip_relocation, monterey:       "52120e29f83c9e0634383e7cc03e2243c65851d6841148a85557d95901984aa6"
+    sha256 cellar: :any_skip_relocation, big_sur:        "39f12d34fe7667476b28139a4ad1a79920eb33468196b6c3a178c0e212a72a6f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d82edfbe59a7f589e3373fd3ce8d0e68142ac56c0191d454d7a6084ecc216542"
   end
 
   keg_only :versioned_formula
 
-  # Don't update this unless this version cannot bootstrap the new version.
-  resource "gobootstrap" do
-    checksums = {
-      "darwin-arm64" => "4dac57c00168d30bbd02d95131d5de9ca88e04f2c5a29a404576f30ae9b54810",
-      "darwin-amd64" => "6000a9522975d116bf76044967d7e69e04e982e9625330d9a539a8b45395f9a8",
-      "linux-arm64"  => "3770f7eb22d05e25fbee8fb53c2a4e897da043eb83c69b9a14f8d98562cd8098",
-      "linux-amd64"  => "013a489ebb3e24ef3d915abe5b94c3286c070dfe0818d5bca8108f1d6e8440d2",
-    }
-
-    arch = "arm64"
-    platform = "darwin"
-
-    on_intel do
-      arch = "amd64"
-    end
-
-    on_linux do
-      platform = "linux"
-    end
-
-    boot_version = "1.16"
-
-    url "https://storage.googleapis.com/golang/go#{boot_version}.#{platform}-#{arch}.tar.gz"
-    version boot_version
-    sha256 checksums["#{platform}-#{arch}"]
-  end
+  depends_on "go" => :build
 
   def install
-    (buildpath/"gobootstrap").install resource("gobootstrap")
-    ENV["GOROOT_BOOTSTRAP"] = buildpath/"gobootstrap"
+    ENV["GOROOT_BOOTSTRAP"] = Formula["go"].opt_libexec
 
     cd "src" do
       ENV["GOROOT_FINAL"] = libexec
@@ -60,7 +34,6 @@ class GoAT119 < Formula
     end
 
     (buildpath/"pkg/obj").rmtree
-    rm_rf "gobootstrap" # Bootstrap not required beyond compile.
     libexec.install Dir["*"]
     bin.install_symlink Dir[libexec/"bin/go*"]
 

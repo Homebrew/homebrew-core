@@ -3,18 +3,18 @@ class Internetarchive < Formula
 
   desc "Python wrapper for the various Internet Archive APIs"
   homepage "https://github.com/jjjake/internetarchive"
-  url "https://files.pythonhosted.org/packages/5c/8b/d3dce4a7fef92b7ccdc49ac34110a59e6c53b35e2fa4f36ccc0f3fc7172f/internetarchive-3.3.0.tar.gz"
-  sha256 "3cb7fe3cc21795aa0bf7be1eedca10090287e9c54160e0cf8640f16b6be14c1d"
+  url "https://files.pythonhosted.org/packages/da/24/4b6b9d812a4ef77d69d2ffa7587c26ab6e1e5eb0109021cdb2e2c337450a/internetarchive-3.4.0.tar.gz"
+  sha256 "bebbe4b40ba28c12a8dc8b0c43352ce44c9fc050851a6bd7678902be56de1961"
   license "AGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fb582c722bdc36c0c1659d6f0c97dbc69fee58c06c86cc405d610596915a26ea"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "29343eae6523b7b4ad6b86eacd657b4599ca7d12ea4808168c212a5b2d30212c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5def012fb77da3e537f77cd4000f27bedaca91c1952f2c352c6556171fa0a2e0"
-    sha256 cellar: :any_skip_relocation, ventura:        "b24512762ab8a0e40ba238c48d35b108547ce2ffd6af3639904bd87f7b4ab74f"
-    sha256 cellar: :any_skip_relocation, monterey:       "b7d50d80150d1bb846cc617a5d6dffdcd1b289a842dfea6311069841c014e23d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3ce1b320ff6d91ce9604b21facdc972830a70266481ba5a0978bd921649367d8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bb8ab607994409074f8530cdcdb49af50c0192ab6b1bec9113263026012cf5de"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cadd8c1791e6880c0790e954e0ec7e6d7bd516053518b0b17f66d8577bb4dc58"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "23f3ad41ec2541e05318dca52e571e3e4c387d733b9ec6eb8790afe93b52a34f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a9313d2d0dac856180a2f1f0e7461045e9c7ba9de0da282430964f00169411e8"
+    sha256 cellar: :any_skip_relocation, ventura:        "6c6c1a7efa6558dae94c8044e00f9d77fbe6db70fe2a8053417add76bbfd13a9"
+    sha256 cellar: :any_skip_relocation, monterey:       "94d3b09cd976eed7a100dcee4f982af7e78637144d2c09234996b044d22940a0"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c6037c038d4c788b7a03fff91cd08eb07554c63aac7ac83a3d4900b9d75f20bd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "11fb4374e7fbd3d21d180e6ee799ae4a304270150615119ff037bc8e1a868fee"
   end
 
   depends_on "python@3.11"
@@ -25,8 +25,8 @@ class Internetarchive < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/96/d7/1675d9089a1f4677df5eb29c3f8b064aa1e70c1251a0a8a127803158942d/charset-normalizer-3.0.1.tar.gz"
-    sha256 "ebea339af930f8ca5d7a699b921106c6e29c617fe9606fa7baa043c1cdae326f"
+    url "https://files.pythonhosted.org/packages/ff/d7/8d757f8bd45be079d76309248845a04f09619a7b17d6dfc8c9ff6433cac2/charset-normalizer-3.1.0.tar.gz"
+    sha256 "34e0a2f9c370eb95597aae63bf85eb5e96826d81e3dcf88b8886012906f509b5"
   end
 
   resource "contextlib2" do
@@ -65,13 +65,13 @@ class Internetarchive < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/c1/c2/d8a40e5363fb01806870e444fc1d066282743292ff32a9da54af51ce36a2/tqdm-4.64.1.tar.gz"
-    sha256 "5f4f682a004951c1b450bc753c710e9280c5746ce6ffedee253ddbcbf54cf1e4"
+    url "https://files.pythonhosted.org/packages/3d/78/81191f56abb7d3d56963337dbdff6aa4f55805c8afd8bad64b0a34199e9b/tqdm-4.65.0.tar.gz"
+    sha256 "1871fb68a86b8fb3b59ca4cdd3dcccbc7e6d613eeed31f4c332531977b89beb5"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/c5/52/fe421fb7364aa738b3506a2d99e4f3a56e079c0a798e9f4fa5e14c60922f/urllib3-1.26.14.tar.gz"
-    sha256 "076907bf8fd355cde77728471316625a4d2f7e713c125f51953bb5b3eecf4f72"
+    url "https://files.pythonhosted.org/packages/21/79/6372d8c0d0641b4072889f3ff84f279b738cd8595b64c8e0496d4e848122/urllib3-1.26.15.tar.gz"
+    sha256 "8a388717b9476f934a21484e8c8e61875ab60644d29b9b39e11e4b9dc1c6b305"
   end
 
   def install
