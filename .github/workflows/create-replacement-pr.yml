@@ -162,7 +162,7 @@ jobs:
           MESSAGE
 
           gh pr create \
-            --base master \
+            --base "$GITHUB_REF" \
             --title "Replacement for #$PR"\
             --body-file body.txt \
             --head "$BOTTLE_BRANCH" \
