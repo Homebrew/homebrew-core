@@ -1,8 +1,8 @@
 class Trurl < Formula
   desc "Command-line tool for URL parsing and manipulation"
   homepage "https://curl.se/trurl/"
-  url "https://github.com/curl/trurl/archive/refs/tags/trurl-0.5.tar.gz"
-  sha256 "b5c5600cd3533e208b720f13aa06de724270d1750406b41a22f48ce95c51844d"
+  url "https://github.com/curl/trurl/archive/refs/tags/trurl-0.6.tar.gz"
+  sha256 "4564dff7441d33a29aa02fe64bea7ef0809d9fabc1609ac5b50ca5503e81caa6"
   license "curl"
   head "https://github.com/curl/trurl.git", branch: "master"
 
@@ -17,13 +17,6 @@ class Trurl < Formula
   end
 
   uses_from_macos "curl", since: :ventura # uses CURLUE_NO_ZONEID, available since curl 7.81.0
-
-  # Makefile: fix build with GNU Make 3.x
-  # Remove on next release.
-  patch do
-    url "https://github.com/curl/trurl/commit/017f91cd4e89a6df4fca32602680e785149ad9c2.patch?full_index=1"
-    sha256 "0fabbb8f377b4a7a7535fac1dad8a7ffb1b86ddfdf716a72f5dd636afb2fdb98"
-  end
 
   def install
     system "make"
