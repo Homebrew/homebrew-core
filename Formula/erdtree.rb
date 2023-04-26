@@ -23,6 +23,6 @@ class Erdtree < Formula
 
   test do
     touch "test.txt"
-    assert_match "test.txt", shell_output("#{bin}/et")
+    assert_match "test.txt", shell_output("#{bin}/erd")
   end
 end
