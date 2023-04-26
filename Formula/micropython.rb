@@ -2,10 +2,9 @@ class Micropython < Formula
   desc "Python implementation for microcontrollers and constrained systems"
   homepage "https://www.micropython.org/"
   url "https://github.com/micropython/micropython.git",
-      tag:      "v1.19.1",
-      revision: "9b486340da22931cde82872f79e1c34db959548b"
+      tag:      "v1.20.0",
+      revision: "294baf52b346e400e2255c6c1e82af5b978b18f7"
   license "MIT"
-  revision 1
 
   bottle do
     rebuild 1
