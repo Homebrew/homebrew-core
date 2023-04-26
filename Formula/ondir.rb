@@ -6,6 +6,13 @@ class Ondir < Formula
   license "GPL-2.0-or-later"
   head "https://github.com/alecthomas/ondir.git", branch: "master"
 
+  # Homepage doesn't list current versions, `/files/ondir/` isn't checkable
+  # (403 Forbidden), and the GitHub repository hasn't been updated since 2014
+  # (and doesn't tag versions anyway).
+  livecheck do
+    skip "Not actively developed or maintained"
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "cacbe89a3130e52ca8f9ab87a8f4b304c0f6e190dc925fdd4d71c2adffe4ddfa"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1e71b07b9b9b4d79d26f3d44e04da4e81e2600ce278706d687ff7050f5355382"
