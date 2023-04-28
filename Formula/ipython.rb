@@ -3,8 +3,8 @@ class Ipython < Formula
 
   desc "Interactive computing in Python"
   homepage "https://ipython.org/"
-  url "https://files.pythonhosted.org/packages/32/38/123155a40a0837c7627114995bf5f7a0d0b469cb903b9a27051198fad222/ipython-8.12.0.tar.gz"
-  sha256 "a950236df04ad75b5bc7f816f9af3d74dc118fd42f2ff7e80e8e60ca1f182e2d"
+  url "https://files.pythonhosted.org/packages/96/af/2fa34691b249cd6c54d0e20a5a542bc20c05228ae8af3e3c9c96dea62638/ipython-8.12.1.tar.gz"
+  sha256 "2442915417763b62181009259782975fa50bb5eedb97ae97fb614204bf6ecc21"
   license "BSD-3-Clause"
   head "https://github.com/ipython/ipython.git", branch: "master"
 
@@ -21,11 +21,6 @@ class Ipython < Formula
   depends_on "pygments"
   depends_on "python@3.11"
   depends_on "six"
-
-  resource "appnope" do
-    url "https://files.pythonhosted.org/packages/6a/cd/355842c0db33192ac0fc822e2dcae835669ef317fe56c795fb55fcddb26f/appnope-0.1.3.tar.gz"
-    sha256 "02bd91c4de869fbb1e1c50aafc4098827a7a54ab2f39d9dcba6c9547ed920e24"
-  end
 
   resource "asttokens" do
     url "https://files.pythonhosted.org/packages/c8/e3/b0b4f32162621126fbdaba636c152c6b6baec486c99f48686e66343d638f/asttokens-2.2.1.tar.gz"
