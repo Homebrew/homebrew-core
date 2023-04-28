@@ -25,7 +25,10 @@ class Gromacs < Formula
   depends_on "gcc" # for OpenMP
   depends_on "openblas"
 
-  fails_with :clang
+  on_macos do
+    depends_on "libomp"
+  end
+
   fails_with gcc: "5"
   fails_with gcc: "6"
 
@@ -35,24 +38,20 @@ class Gromacs < Formula
                                         "CMAKE_INSTALL_DATADIR"
 
     # Avoid superenv shim reference
-    gcc = Formula["gcc"]
-    cc = gcc.opt_bin/"gcc-#{gcc.any_installed_version.major}"
-    cxx = gcc.opt_bin/"g++-#{gcc.any_installed_version.major}"
     inreplace "src/gromacs/gromacs-hints.in.cmake" do |s|
       s.gsub! "@CMAKE_LINKER@", "/usr/bin/ld"
-      s.gsub! "@CMAKE_C_COMPILER@", cc
-      s.gsub! "@CMAKE_CXX_COMPILER@", cxx
+      s.gsub! "@CMAKE_C_COMPILER@", ENV.cc
+      s.gsub! "@CMAKE_CXX_COMPILER@", ENV.cxx
     end
 
     inreplace "src/buildinfo.h.cmakein" do |s|
-      s.gsub! "@BUILD_C_COMPILER@", cc
-      s.gsub! "@BUILD_CXX_COMPILER@", cxx
+      s.gsub! "@BUILD_C_COMPILER@", ENV.cc
+      s.gsub! "@BUILD_CXX_COMPILER@", ENV.cxx
     end
 
-    inreplace "src/gromacs/gromacs-config.cmake.cmakein", "@GROMACS_CXX_COMPILER@", cxx
+    inreplace "src/gromacs/gromacs-config.cmake.cmakein", "@GROMACS_CXX_COMPILER@", ENV.cxx
 
     args = %W[
-      -DGROMACS_CXX_COMPILER=#{cxx}
       -DGMX_VERSION_STRING_OF_FORK=#{tap.user}
       -DGMX_INSTALL_LEGACY_API=ON
     ]
