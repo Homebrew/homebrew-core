@@ -342,7 +342,7 @@ jobs:
         if: ${{!success() && !inputs.retry_bottle_merge}}
         uses: Homebrew/actions/dismiss-approvals@master
         with:
-          token: ${{secrets.GITHUB_TOKEN}}
+          token: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
           pr: ${{inputs.pull_request}}
           message: "bottle publish failed"
 
