@@ -1,4 +1,4 @@
-class PrqlCompiler < Formula
+class Prqlc < Formula
   desc "Simple, powerful, pipelined SQL replacement"
   homepage "https://prql-lang.org"
   url "https://github.com/prql/prql/archive/refs/tags/0.8.0.tar.gz"
