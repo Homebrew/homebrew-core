@@ -28,10 +28,16 @@ class Gcal < Formula
   end
 
   def install
-    # @setshortcontentsaftertitlepage was removed in Texinfo 6.3
-    inreplace "doc/en/gcal.texi", "@setshortcontentsaftertitlepage\n", "" if OS.linux?
-
     system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking"
+
+    if OS.linux? || MacOS.version >= :ventura
+      # @setshortcontentsaftertitlepage was removed in Texinfo 6.3
+      inreplace "doc/en/gcal.texi", "@setshortcontentsaftertitlepage\n", ""
+
+      # Workaround for Xcode 14.3.
+      ENV.append_to_cflags "-Wno-implicit-function-declaration"
+    end
+
     system "make", "install"
     system "make", "-C", "doc/en", "html"
     doc.install "doc/en/gcal.html"
