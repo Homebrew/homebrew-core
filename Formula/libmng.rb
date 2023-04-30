@@ -1,10 +1,7 @@
 class Libmng < Formula
   desc "MNG/JNG reference library"
-  # Use Homebrew curl to work around audit failure from TLS 1.3-only homepage.
-  # TODO: The `using: :homebrew_curl` can be removed once default curl on all
-  # CI runners support TLS 1.3 or if there is a way to skip homepage audit in CI.
   homepage "https://sourceforge.net/projects/libmng/"
-  url "https://downloads.sourceforge.net/project/libmng/libmng-devel/2.0.3/libmng-2.0.3.tar.gz", using: :homebrew_curl
+  url "https://downloads.sourceforge.net/project/libmng/libmng-devel/2.0.3/libmng-2.0.3.tar.gz"
   sha256 "cf112a1fb02f5b1c0fce5cab11ea8243852c139e669c44014125874b14b7dfaa"
   license "Zlib"
   revision 1
