@@ -16,7 +16,8 @@ class Vapor < Formula
     sha256                               x86_64_linux:   "c387415dafc0eba81409dfd847786ec3c56284308f7289c0280b4b9cc8cc6b22"
   end
 
-  depends_on xcode: "11.4"
+  # vapor requires Swift 5.6.0
+  depends_on xcode: "13.3"
 
   uses_from_macos "swift", since: :big_sur
 
