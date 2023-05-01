@@ -1,9 +1,9 @@
 class Solr < Formula
   desc "Enterprise search platform from the Apache Lucene project"
   homepage "https://solr.apache.org/"
-  url "https://dlcdn.apache.org/solr/solr/9.2.0/solr-9.2.0.tgz"
-  mirror "https://archive.apache.org/dist/solr/solr/9.2.0/solr-9.2.0.tgz"
-  sha256 "8b134a13a3e7598f68565b01e755a47e24b37a88141cd2f489fc2812c96f21af"
+  url "https://dlcdn.apache.org/solr/solr/9.2.1/solr-9.2.1.tgz"
+  mirror "https://archive.apache.org/dist/solr/solr/9.2.1/solr-9.2.1.tgz"
+  sha256 "5fe6499daf083655cd1c577c90ab07c50b4858dcfbba0a5c479efdcbd591c624"
   license "Apache-2.0"
 
   bottle do
@@ -15,11 +15,6 @@ class Solr < Formula
   # TODO: Switch back to `openjdk` when resolved:
   #   https://issues.apache.org/jira/browse/SOLR-16733
   depends_on "openjdk@17"
-
-  # Fix Java version detection.
-  # Extracted from commit below; commit contains changelog updates that can't be applied.
-  # https://github.com/apache/solr/commit/f7fe594cdadeadd1e0061075a55a529793e72462.patch?full_index=1
-  patch :DATA
 
   def install
     pkgshare.install "bin/solr.in.sh"
@@ -65,16 +60,3 @@ class Solr < Formula
     shell_output(bin/"solr stop -p #{port}", 1)
   end
 end
-
-__END__
---- a/bin/solr
-+++ b/bin/solr
-@@ -163,7 +163,7 @@ if [[ $? -ne 0 ]] ; then
-   echo >&2 "${PATH}"
-   exit 1
- else
--  JAVA_VER_NUM=$(echo "$JAVA_VER" | head -1 | awk -F '"' '/version/ {print $2}' | sed -e's/^1\.//' | sed -e's/[._-].*$//')
-+  JAVA_VER_NUM=$(echo "$JAVA_VER" | grep -v '_OPTIONS' | head -1 | awk -F '"' '/version/ {print $2}' | sed -e's/^1\.//' | sed -e's/[._-].*$//')
-   if [[ "$JAVA_VER_NUM" -lt "$JAVA_VER_REQ" ]] ; then
-     echo >&2 "Your current version of Java is too old to run this version of Solr."
-     echo >&2 "We found major version $JAVA_VER_NUM, using command '${JAVA} -version', with response:"
