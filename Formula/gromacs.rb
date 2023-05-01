@@ -75,6 +75,6 @@ class Gromacs < Formula
   end
 
   test do
-    system "#{bin}/gmx", "help"
+    system "#{bin}/gmx", "-version"
   end
 end
