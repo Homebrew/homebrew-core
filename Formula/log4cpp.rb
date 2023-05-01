@@ -1,9 +1,9 @@
 class Log4cpp < Formula
   desc "Configurable logging for C++"
   homepage "https://log4cpp.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/log4cpp/log4cpp-1.1.x%20%28new%29/log4cpp-1.1/log4cpp-1.1.3.tar.gz"
-  sha256 "2cbbea55a5d6895c9f0116a9a9ce3afb86df383cd05c9d6c1a4238e5e5c8f51d"
-  license "LGPL-2.1"
+  url "https://downloads.sourceforge.net/project/log4cpp/log4cpp-1.1.x%20%28new%29/log4cpp-1.1/log4cpp-1.1.4.tar.gz"
+  sha256 "696113659e426540625274a8b251052cc04306d8ee5c42a0c7639f39ca90c9d6"
+  license "LGPL-2.1-only"
 
   livecheck do
     url :stable
@@ -26,14 +26,40 @@ class Log4cpp < Formula
   end
 
   # Fix -flat_namespace being used on Big Sur and later.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
-    sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
-  end
+  # Our normal patch doesn't apply cleanly.
+  patch :DATA
 
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
+    system "make"
+    system "make", "check"
     system "make", "install"
   end
 end
+
+__END__
+diff --git a/configure b/configure
+index 21e9738..a55f0fc 100755
+--- a/configure
++++ b/configure
+@@ -7506,16 +7506,11 @@ $as_echo "$lt_cv_ld_force_load" >&6; }
+       _lt_dar_allow_undefined='$wl-undefined ${wl}suppress' ;;
+     darwin1.*)
+       _lt_dar_allow_undefined='$wl-flat_namespace $wl-undefined ${wl}suppress' ;;
+-    darwin*) # darwin 5.x on
+-      # if running on 10.5 or later, the deployment target defaults
+-      # to the OS version, if on x86, and 10.4, the deployment
+-      # target defaults to 10.4. Don't you love it?
+-      case ${MACOSX_DEPLOYMENT_TARGET-10.0},$host in
+-	10.0,*86*-darwin8*|10.0,*-darwin[91]*)
+-	  _lt_dar_allow_undefined='$wl-undefined ${wl}dynamic_lookup' ;;
+-	10.[012][,.]*)
++    darwin*)
++      case ${MACOSX_DEPLOYMENT_TARGET},$host in
++	10.[012],*|,*powerpc*)
+ 	  _lt_dar_allow_undefined='$wl-flat_namespace $wl-undefined ${wl}suppress' ;;
+-	10.*)
++	*)
+ 	  _lt_dar_allow_undefined='$wl-undefined ${wl}dynamic_lookup' ;;
+       esac
+     ;;
