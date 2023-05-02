@@ -1,8 +1,8 @@
 class Lazygit < Formula
   desc "Simple terminal UI for git commands"
   homepage "https://github.com/jesseduffield/lazygit/"
-  url "https://github.com/jesseduffield/lazygit/archive/v0.37.0.tar.gz"
-  sha256 "8545f3cffe110de80c88859cd11b42eaccb71f4c239c5bc2bff841f623438296"
+  url "https://github.com/jesseduffield/lazygit/archive/v0.38.1.tar.gz"
+  sha256 "144f55267df7d51be9ae1dc3313707a7f6bcdf0c42eb330667c1fd661dec01b8"
   license "MIT"
   head "https://github.com/jesseduffield/lazygit.git", branch: "master"
 
@@ -23,12 +23,13 @@ class Lazygit < Formula
     system "go", "build", "-mod=vendor", *std_go_args(ldflags: ldflags)
   end
 
-  # lazygit is a terminal GUI, but it can be run in 'client mode' for example to write to git's todo file
+  # lazygit is a terminal GUI, but it can be run in 'client mode' to do certain tasks
   test do
     (testpath/"git-rebase-todo").write ""
-    ENV["LAZYGIT_DAEMON_KIND"] = "INTERACTIVE_REBASE"
-    ENV["LAZYGIT_REBASE_TODO"] = "foo"
+    ENV["LAZYGIT_DAEMON_KIND"] = "2" # cherry pick commit
+    ENV["LAZYGIT_DAEMON_INSTRUCTION"] = "{\"Todo\":\"pick 401a0c3\"}"
     system "#{bin}/lazygit", "git-rebase-todo"
-    assert_match "foo", (testpath/"git-rebase-todo").read
+    assert_match "pick 401a0c3", (testpath/"git-rebase-todo").read
   end
 end
+
