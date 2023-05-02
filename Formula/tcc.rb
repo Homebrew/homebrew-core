@@ -3,7 +3,6 @@ class Tcc < Formula
   homepage "https://bellard.org/tcc/"
   license "LGPL-2.0-or-later"
   revision 1
-  head "https://repo.or.cz/tinycc.git", branch: "mob"
 
   stable do
     url "https://download.savannah.nongnu.org/releases/tinycc/tcc-0.9.27.tar.bz2"
@@ -25,6 +24,11 @@ class Tcc < Formula
     sha256 high_sierra:  "1ad7de1b974ca3e16668dec9cbef2accb29ecedb8f3f5819c06a2f77c8f3f2d1"
     sha256 sierra:       "c2949f3a99d1efb600137e4bb617ebd8a385697038f9cb8136c681033a7a636e"
     sha256 x86_64_linux: "053f79a5752554e18ecba168184e48481bce8a2db418a3f9b0de094f9e6d0e4d"
+  end
+
+  head do
+    url "https://repo.or.cz/tinycc.git", branch: "mob"
+    mirror "https://github.com/TinyCC/tinycc.git", branch: "mob"
   end
 
   def install
