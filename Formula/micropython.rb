@@ -30,7 +30,6 @@ class Micropython < Formula
     end
 
     cd "ports/unix" do
-      system "make", "axtls"
       system "make", "install", "PREFIX=#{prefix}"
     end
 
