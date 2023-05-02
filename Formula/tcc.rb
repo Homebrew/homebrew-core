@@ -28,7 +28,7 @@ class Tcc < Formula
 
   head do
     url "https://repo.or.cz/tinycc.git", branch: "mob"
-    mirror "https://github.com/TinyCC/tinycc.git", branch: "mob"
+    mirror "https://github.com/TinyCC/tinycc.git"
   end
 
   def install
