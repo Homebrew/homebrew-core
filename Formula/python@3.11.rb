@@ -331,6 +331,22 @@ class PythonAT311 < Formula
     }.each do |short_name, long_name|
       (libexec/"bin").install_symlink (bin/long_name).realpath => short_name
     end
+
+    # Mark Homebrew python as externally managed: https://peps.python.org/pep-0668/#marking-an-interpreter-as-using-an-external-package-manager
+    (HOMEBREW_PREFIX/"lib/python#{version.major_minor}/EXTERNALLY-MANAGED").write <<~EOS
+      [externally-managed]
+      Error=To install Python packages system-wide, try brew install
+      xyz, where xyz is the package you are trying to
+      install.
+
+      If you wish to install a non-brew-packaged Python package,
+      create a virtual environment using python3 -m venv path/to/venv.
+      Then use path/to/venv/bin/python and path/to/venv/bin/pip.
+
+      If you wish to install a non-brew packaged Python application,
+      it may be easiest to use pipx install xyz, which will manage a
+      virtual environment for you. Make sure you have pipx installed.
+    EOS
   end
 
   def post_install
