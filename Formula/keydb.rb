@@ -18,12 +18,12 @@ class Keydb < Formula
 
   depends_on "pkg-config" => :build
   depends_on "openssl@3"
-  depends_on "snappy"
   depends_on "zstd"
   uses_from_macos "bzip2"
   uses_from_macos "curl"
 
   on_linux do
+    depends_on "snappy"
     depends_on "util-linux"
   end
 
