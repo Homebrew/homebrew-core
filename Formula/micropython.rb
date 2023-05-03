@@ -1,9 +1,8 @@
 class Micropython < Formula
   desc "Python implementation for microcontrollers and constrained systems"
   homepage "https://www.micropython.org/"
-  url "https://github.com/micropython/micropython.git",
-      tag:      "v1.20.0",
-      revision: "294baf52b346e400e2255c6c1e82af5b978b18f7"
+  url "https://github.com/micropython/micropython/releases/download/v1.20.0/micropython-1.20.0.zip"
+  sha256 "6a2ce86e372ee8c5b9310778fff7fca1daa580afa28ea755f1a303675a8612b7"
   license "MIT"
 
   bottle do
@@ -23,17 +22,8 @@ class Micropython < Formula
   uses_from_macos "libffi", since: :catalina # Requires libffi v3 closure API
 
   def install
-    # Build mpy-cross before building the rest of micropython. Build process expects executable at
-    # path buildpath/"mpy-cross/mpy-cross", so build it and leave it here for now, install later.
-    cd "mpy-cross" do
-      system "make"
-    end
-
-    cd "ports/unix" do
-      system "make", "install", "PREFIX=#{prefix}"
-    end
-
-    bin.install "mpy-cross/mpy-cross"
+    system "make", "-C", "ports/unix", "install", "PREFIX=#{prefix}"
+    bin.install "mpy-cross/build/mpy-cross"
   end
 
   test do
