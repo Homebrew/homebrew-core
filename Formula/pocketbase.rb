@@ -15,12 +15,12 @@ class Pocketbase < Formula
 
   test do
     assert_match "pocketbase version #{version}", shell_output("#{bin}/pocketbase --version")
-    
+
     system "#{bin}/pocketbase", "--dir", testpath/"pb_data"
 
     assert_predicate testpath/"pb_data", :exist?, "pb_data directory should exist"
     assert_predicate testpath/"pb_data", :directory?, "pb_data should be a directory"
-    
+
     assert_predicate testpath/"pb_data/data.db", :exist?, "pb_data/data.db should exist"
     assert_predicate testpath/"pb_data/data.db", :file?, "pb_data/data.db should be a file"
 
