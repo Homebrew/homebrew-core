@@ -52,9 +52,6 @@ class Virtualfish < Formula
   end
 
   test do
-    ENV["VIRTUALFISH_HOME"] = testpath/".virtualenvs"
-    ENV["VIRTUALFISH_PYTHON"] = bin/"python3.11"
-
     # Pre-create .virtualenvs to avoid interactive prompt
     (testpath/".virtualenvs").mkpath
 
