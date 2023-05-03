@@ -48,7 +48,13 @@ class Virtualfish < Formula
 
   def install
     virtualenv_install_with_resources
-    system bin/"vf", "install"
+  end
+
+  def caveats
+    <<~EOS
+      To activate virtualfish, run the following in a fish shell:
+        vf install
+    EOS
   end
 
   test do
