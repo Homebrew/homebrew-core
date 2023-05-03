@@ -16,12 +16,14 @@ class Keydb < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e586d4eab07319cddbce1a92270f31950caf3a3f45b573f5425c6f80a4025a87"
   end
 
+  depends_on "pkg-config" => :build
   depends_on "openssl@3"
   depends_on "snappy"
   depends_on "zstd"
   uses_from_macos "curl"
 
   on_linux do
+    depends_on "bzip2"
     depends_on "util-linux"
   end
 
