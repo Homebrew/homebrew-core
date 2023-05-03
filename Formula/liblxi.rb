@@ -1,14 +1,10 @@
 class Liblxi < Formula
   desc "Simple C API for communicating with LXI compatible instruments"
   homepage "https://github.com/lxi-tools/liblxi"
+  url "https://github.com/lxi-tools/liblxi/archive/refs/tags/v1.19.tar.gz"
+  sha256 "94496b32fd544019dbca40b3f19fb03d186daf3b96857fb9cebed9124b4051d6"
   license "BSD-3-Clause"
   head "https://github.com/lxi-tools/liblxi.git", branch: "master"
-
-  stable do
-    url "https://github.com/lxi-tools/liblxi/archive/refs/tags/v1.18.tar.gz"
-    sha256 "ebeb8cb51f1024e198b3672aadaba113849d20b26199ae6e4ee679e555e9f274"
-    depends_on :linux
-  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, x86_64_linux: "997b6e87729a9b05f5cbefce050d43f223e881f07ac7ff395e316bd32014f36b"
@@ -40,9 +36,10 @@ class Liblxi < Formula
       }
     EOS
 
-    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-llxi",
-                   "-L#{Formula["libtirpc"].opt_lib}", "-ltirpc",
-                   "-o", "test"
+    args = %W[-I#{include} -L#{lib} -llxi]
+    args += %W[-L#{Formula["libtirpc"].opt_lib} -ltirpc] if OS.linux?
+
+    system ENV.cc, "test.c", *args, "-o", "test"
     system "./test"
   end
 end
