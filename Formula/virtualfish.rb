@@ -8,11 +8,6 @@ class Virtualfish < Formula
   license "MIT"
   head "https://github.com/justinmayer/virtualfish.git", branch: "main"
 
-  livecheck do
-    url :stable
-    regex(%r{href=.*?/packages.*?/virtualfish[._-]v?(\d+(?:\.\d+)*(?:[a-z]\d+)?)\.t}i)
-  end
-
   depends_on "fish"
   depends_on "python@3.11"
 
