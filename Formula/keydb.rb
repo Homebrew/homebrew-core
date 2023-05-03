@@ -17,6 +17,7 @@ class Keydb < Formula
   end
 
   depends_on "openssl@3"
+  depends_on "zstd"
   uses_from_macos "curl"
 
   on_linux do
