@@ -5,7 +5,7 @@ class Tepl < Formula
       tag:      "6.4.0",
       revision: "d1e9cc2e4a0738f68d9002f13724b7239f075844"
   license "LGPL-2.1-or-later"
-  revision 2
+  revision 3
   version_scheme 1
 
   # https://gitlab.gnome.org/swilmet/tepl/-/blob/main/docs/more-information.md
