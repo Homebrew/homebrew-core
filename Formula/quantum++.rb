@@ -14,10 +14,8 @@ class Quantumxx < Formula
   depends_on "eigen"
 
   def install
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args
-      system "cmake", "--install", "."
-    end
+    system "cmake", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
   end
 
   test do
@@ -39,10 +37,8 @@ class Quantumxx < Formula
           std::cout << disp(transpose(0_ket)) << std::endl;
       }
     EOS
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args
-      system "make"
-      assert_equal "1 0", shell_output("./qpp_test").squish
-    end
+    system "cmake", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    assert_equal "1 0", shell_output("./build/qpp_test").squish
   end
 end
