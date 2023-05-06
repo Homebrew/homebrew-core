@@ -23,7 +23,12 @@ class Iozone < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ce1ad65c55a81789572e6ce23fa2b089a52771615849cc7b4443f564f090a92b"
   end
 
+  # fix `error: conflicting types for 'async_init'` error
+  patch :DATA
+
   def install
+    ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
+
     cd "src/current" do
       target = OS.mac? ? "macosx" : OS.kernel_name.downcase
       system "make", "clean"
@@ -41,3 +46,18 @@ class Iozone < Formula
       shell_output("#{bin}/iozone -I -s 16M")
   end
 end
+
+__END__
+diff --git a/src/current/iozone.c b/src/current/iozone.c
+index 7218aa6..d53c135 100644
+--- a/src/current/iozone.c
++++ b/src/current/iozone.c
+@@ -10701,8 +10701,6 @@ printf("Read_Stride\n");
+ 		}
+ 		else
+ 		{
+-			if(async_flag)
+-				async_init(&gc,fd,direct_flag);
+ 			if(async_flag)
+ 			{
+ 			    if(no_copy_flag)
