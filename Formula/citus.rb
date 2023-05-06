@@ -4,6 +4,7 @@ class Citus < Formula
   url "https://github.com/citusdata/citus/archive/v11.3.0.tar.gz"
   sha256 "e377981eda41a0c3defaafc3e7471e9f102482df70eda25dac912fcf7c24df16"
   license "AGPL-3.0-only"
+  revision 1
   head "https://github.com/citusdata/citus.git", branch: "main"
 
   bottle do
@@ -17,14 +18,14 @@ class Citus < Formula
   end
 
   depends_on "lz4"
-  depends_on "postgresql@14"
+  depends_on "postgresql@15"
   depends_on "readline"
   depends_on "zstd"
 
   uses_from_macos "curl"
 
   def postgresql
-    Formula["postgresql@14"]
+    Formula["postgresql@15"]
   end
 
   def install
