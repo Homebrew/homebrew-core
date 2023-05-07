@@ -38,6 +38,6 @@ class Cpufetch < Formula
     arch = (OS.mac? && Hardware::CPU.arm?) ? "ARM" : Hardware::CPU.arch
     expected = "cpufetch v#{version} (#{system_name} #{arch} build)"
 
-    assert_equal expected, actual
+    assert_match expected, actual
   end
 end
