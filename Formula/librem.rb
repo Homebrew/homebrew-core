@@ -15,6 +15,10 @@ class Librem < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "17184b4ef23c26a8786392aabc829373e154f51915961761fc57a13140d76206"
   end
 
+  # `librem` has been merged into `libre`
+  # https://github.com/baresip/baresip/pull/2442
+  deprecate! date: "2023-05-06", because: :repo_archived
+
   depends_on "cmake" => :build
   depends_on "libre"
 
