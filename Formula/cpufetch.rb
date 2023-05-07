@@ -23,7 +23,7 @@ class Cpufetch < Formula
 
   test do
     ephemeral_arm = ENV["HOMEBREW_GITHUB_ACTIONS"].present? &&
-                    Hardware::CPU.arm?
+                    Hardware::CPU.arm? &&
                     MacOS.version > :big_sur
     expected_result, line = if ephemeral_arm
       [1, 1]
