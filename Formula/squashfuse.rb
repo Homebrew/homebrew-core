@@ -9,6 +9,9 @@ class Squashfuse < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "b55b7786381a508c76bfe3d278e2a669d28755ec59d458a728fd12b760802d2a"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "libfuse"
   depends_on :linux # on macOS, requires closed-source macFUSE
@@ -19,6 +22,7 @@ class Squashfuse < Formula
   depends_on "zstd"
 
   def install
+    system "./autogen.sh"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
