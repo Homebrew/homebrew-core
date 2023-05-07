@@ -20,11 +20,8 @@ class Ueberzugpp < Formula
 
   def install
     system "cmake", "-S", ".", "-B", "build",
-      "-DCMAKE_BUILD_TYPE=Release", "-Wno-dev",
-      "-DCMAKE_INSTALL_PREFIX='#{ENV["prefix"]}'",
-      "-DENABLE_X11=OFF", "-DENABLE_OPENCV=OFF",
-      "-DOPENSSL_ROOT_DIR=#{ENV["HOMEBREW_PREFIX"]}/opt/openssl",
-      *std_cmake_args
+      *std_cmake_args, "-Wno-dev",
+      "-DENABLE_X11=OFF", "-DENABLE_OPENCV=OFF"
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
     bin.install "build/ueberzug" => "ueberzugpp"
