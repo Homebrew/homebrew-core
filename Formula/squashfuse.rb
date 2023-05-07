@@ -23,9 +23,7 @@ class Squashfuse < Formula
 
   def install
     system "./autogen.sh"
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
