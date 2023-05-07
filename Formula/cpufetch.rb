@@ -22,15 +22,18 @@ class Cpufetch < Formula
   end
 
   test do
-    actual = shell_output("#{bin}/cpufetch -d").each_line.first.strip
-
-    expected = if OS.linux?
-      "cpufetch v#{version} (Linux #{Hardware::CPU.arch} build)"
-    elsif Hardware::CPU.arm?
-      "cpufetch v#{version} (macOS ARM build)"
+    expected_result, line = if ENV["HOMEBREW_GITHUB_ACTIONS"].present? && Hardware::CPU.arm?
+      [1, 1]
+    elsif OS.mac? && Hardware::CPU.intel?
+      [0, 1]
     else
-      "cpufetch is computing APIC IDs, please wait..."
+      [0, 0]
     end
+    actual = shell_output("#{bin}/cpufetch --debug", expected_result).lines[line].strip
+
+    system_name = OS.mac? ? "macOS" : OS.kernel_name
+    arch = (OS.mac? && Hardware::CPU.arm?) ? "ARM" : Hardware::CPU.arch
+    expected = "cpufetch v#{version} (#{system_name} #{arch} build)"
 
     assert_equal expected, actual
   end
