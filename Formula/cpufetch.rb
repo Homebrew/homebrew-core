@@ -22,14 +22,17 @@ class Cpufetch < Formula
   end
 
   test do
-    expected_result, line = if ENV["HOMEBREW_GITHUB_ACTIONS"].present? && Hardware::CPU.arm?
+    ephemeral_arm = ENV["HOMEBREW_GITHUB_ACTIONS"].present? &&
+                    Hardware::CPU.arm?
+                    MacOS.version > :big_sur
+    expected_result, line = if ephemeral_arm
       [1, 1]
     elsif OS.mac? && Hardware::CPU.intel?
       [0, 1]
     else
       [0, 0]
     end
-    actual = shell_output("#{bin}/cpufetch --debug", expected_result).lines[line].strip
+    actual = shell_output("#{bin}/cpufetch --debug 2>&1", expected_result).lines[line].strip
 
     system_name = OS.mac? ? "macOS" : OS.kernel_name
     arch = (OS.mac? && Hardware::CPU.arm?) ? "ARM" : Hardware::CPU.arch
