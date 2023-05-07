@@ -17,6 +17,9 @@ class Dump1090Mutability < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "51cef04d99c6aeec12b2a1ae03cfcc84059d6fd0060026fc590ef93a3c172e91"
   end
 
+  # Last release on 2021-01-26
+  deprecate! date: "2023-05-06", because: :unmaintained
+
   depends_on "pkg-config" => :build
   depends_on "librtlsdr"
 
