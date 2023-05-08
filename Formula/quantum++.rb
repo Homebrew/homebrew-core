@@ -15,7 +15,7 @@ class Quantumxx < Formula
 
   def install
     system "cmake", "-B", "build", *std_cmake_args
-    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
