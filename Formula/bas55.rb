@@ -1,8 +1,8 @@
 class Bas55 < Formula
   desc "Minimal BASIC programming language interpreter as defined by ECMA-55"
   homepage "https://jorgicor.niobe.org/bas55/"
-  url "https://jorgicor.niobe.org/bas55/bas55-1.19.tar.gz"
-  sha256 "566097e216dab029d51afefdacf7806f249d57d117ca3e875e27c6cf61098ee0"
+  url "https://jorgicor.niobe.org/bas55/bas55-2.0.tar.gz"
+  sha256 "640b296df2ee22c2e14e90b23e0edad646682c80b3226652772847fa0614f293"
   license "MIT"
 
   livecheck do
@@ -11,15 +11,13 @@ class Bas55 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cc53e9763ae7d94d6ea55e4677812f25224667715a0272beea5269f943ec83fe"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7789ffd65c9afc8d415385c439205a62e369c598bd6cc7b9133e306cff8a5be2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ab48670d6620654c1e88b8076d9c9805e6f6b2fde8f1d8773ac96fd5bd234789"
-    sha256 cellar: :any_skip_relocation, ventura:        "13e4a822761b94be8b4f617a318fe41d0f96a54cb6e54589c3d4f36ca38d9c56"
-    sha256 cellar: :any_skip_relocation, monterey:       "2696588487bbff56058e0370ec09b63143f5e12c1206490066d7b213d57260db"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c9a50cf6904cafd3a75cbb762ea68d3545eadc832be0b2c0313aaadf03dfe453"
-    sha256 cellar: :any_skip_relocation, catalina:       "7eaaf506f35bbc8f2149028c7b379f3b5fc7d5bd7899d021b016f94272e9441e"
-    sha256 cellar: :any_skip_relocation, mojave:         "1c7f697e391226ba6ba292cdb80801b2b221ed355918fa6ef14deb61abbb73ac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e8fc36f305cced35e0845d73296dc55d8a6dd8ef7a645c0e9fe74f4a926564af"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "99f0e68f265df21972857f7978cf48f771eae5196bc1ba27b929ccb75b650b3a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d0104191f7a019cf4e94d968da26e46fd477e4c4e147a690ed890ff7b37b93ef"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9cfc62a8faca260dc7c8f3616083b30792b5fc453a5f082bfc2b7a6ac2b0b42a"
+    sha256 cellar: :any_skip_relocation, ventura:        "44d2a192051128129fefc7940affd20c3328a7a0585c7af897e1046acccb6fea"
+    sha256 cellar: :any_skip_relocation, monterey:       "088b046993c5070926efaca3e3768c724571e788192532fe0647e23d5807c83a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "3ad23d069a17c47de857d1247335e5372b702da82a9d888c2f4cd46d4d0e96ab"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "687aa791b5bece0576dbe003bc84a50fd8aa65a4ec639b0ee8a16fa8b6702f39"
   end
 
   def install

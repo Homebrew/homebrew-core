@@ -23,6 +23,8 @@ class Visitors < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e7972a8d75cf0a378f385be3ac2ae794e205876ade271ec018ffc7746657f8ad"
   end
 
+  deprecate! date: "2023-05-07", because: :repo_removed
+
   def install
     system "make"
 

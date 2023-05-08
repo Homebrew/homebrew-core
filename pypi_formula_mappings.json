@@ -58,6 +58,9 @@
   "awscli@1": {
     "exclude_packages": ["six", "PyYAML", "docutils"]
   },
+  "awscurl": {
+    "exclude_packages": ["cffi", "pycparser"]
+  },
   "awslogs": {
     "exclude_packages": ["six"]
   },
@@ -205,7 +208,7 @@
     "exclude_packages": ["six", "PyYAML", "virtualenv", "Pygments", "typing-extensions"]
   },
   "dstack": {
-    "exclude_packages": ["six", "PyYAML", "typing-extensions"]
+    "exclude_packages": ["cffi", "six", "pycparser", "PyYAML", "typing-extensions"]
   },
   "duplicity": {
     "extra_packages": [

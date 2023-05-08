@@ -9,6 +9,9 @@ class Chrpath < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "00a03fa6ee632a4c0dbba7e0b581501b3e6118fd1cc6cfe1c0e6f53b900dca68"
   end
 
+  # Upstream is gone. Last change on 2016-04-15.
+  deprecate! date: "2023-05-05", because: :unmaintained
+
   depends_on :linux
 
   def install

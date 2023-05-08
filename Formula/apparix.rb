@@ -5,6 +5,10 @@ class Apparix < Formula
   sha256 "211bb5f67b32ba7c3e044a13e4e79eb998ca017538e9f4b06bc92d5953615235"
   license "GPL-3.0-or-later"
 
+  livecheck do
+    skip "No version information available"
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "185b92258d1ca2a1aeb6cb068f1fc1fdd13415aa3f730fac1eaa998fef099653"

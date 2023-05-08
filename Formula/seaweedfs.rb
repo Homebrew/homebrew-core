@@ -2,19 +2,19 @@ class Seaweedfs < Formula
   desc "Fast distributed storage system"
   homepage "https://github.com/seaweedfs/seaweedfs"
   url "https://github.com/seaweedfs/seaweedfs.git",
-      tag:      "3.48",
-      revision: "42766bccc8db3eb3570b8bf802ddc28a03338527"
+      tag:      "3.49",
+      revision: "59f55c1a661516033e05f6cc306cdb92e885117c"
   license "Apache-2.0"
   head "https://github.com/seaweedfs/seaweedfs.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "38824c90565432310289755d70ed0908af3bc9ddc7923154b685e757ca034f03"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d7e3dc68d91d77047058ad3b375b51ef222649d4ce5f88867317471abd876591"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "497415b86d8e477a520c85736cfe0e2f45e8b15e63fea13ffd14362c598a7798"
-    sha256 cellar: :any_skip_relocation, ventura:        "72861127ec1beddf7a266f0504840bcee7397974dffde3cf1eedc6139d9433c6"
-    sha256 cellar: :any_skip_relocation, monterey:       "72682ef6056e2e1fafba27a8a7b2e8c12250a7f7d36ece8f83a007672a17bde3"
-    sha256 cellar: :any_skip_relocation, big_sur:        "bbfdeb8e422c382d75ef8abf7f55b653bc6940ae7646dd13c0bff67624761ecb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d15c32091813699641246fddb79c3192526b06419af0939b0aadf2c4a4a97e71"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a1ee4e1b4fd8f42add24233da6bd7353a83b71fe14c9eb1b576a1eb4168377d5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3b02876bdc36a4aa05358a6787a11a71013b9f5f0cfad5330c8dbca90818d20b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "311268632b3ebd2b3f4ae6de22dffc159d6310baf64d5a6ea99779193a462738"
+    sha256 cellar: :any_skip_relocation, ventura:        "452c5e8a358a925cfad2c9e0e760ea32f4fc1db06968b7bbd6928bbe3c4f4d08"
+    sha256 cellar: :any_skip_relocation, monterey:       "49e44428a617cd0fd5c12af1f9000cc0a26d838ad987e51431b19289269a5d87"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e4d5063a76adf395a923702d06139a1cbe0bf618c044c30f1ad40c79d3861c2d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aa48f8a2511aae0da443b2292ae1547548801b54682fbd56e90e2c7393c4ad15"
   end
 
   depends_on "go" => :build

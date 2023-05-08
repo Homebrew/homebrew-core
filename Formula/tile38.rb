@@ -2,19 +2,19 @@ class Tile38 < Formula
   desc "In-memory geolocation data store, spatial index, and realtime geofence"
   homepage "https://tile38.com/"
   url "https://github.com/tidwall/tile38.git",
-      tag:      "1.30.2",
-      revision: "ae3e549cfc5ead8cdd792c14d553e21401c36cbb"
+      tag:      "1.31.0",
+      revision: "b96322a0428c55373d22d0c118ee03decb95a4fc"
   license "MIT"
   head "https://github.com/tidwall/tile38.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3d704bf89b40b03a39643ac2276799fd274b142f716345bbdf0e6e4afbf539dc"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d74675562141e2f890de61f7f38a052d7bbd8da302632d3cbf74c277ea3d76cb"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b2a9717eb8c5a30eccc46514452c601652b44024476b6f0a7d764cc83bd17391"
-    sha256 cellar: :any_skip_relocation, ventura:        "f8dc85420680aba11af689e1cbe0c1b8d1771814bf0931257ab10cf80e56584f"
-    sha256 cellar: :any_skip_relocation, monterey:       "4117611ebf34c732be2de2498aa14b3276c59da737179d3de16966db3845603b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1b02c2a508b38e4ce9d1d329873e12921880899a06c5841ebec7157de730ad0b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7eef6ef6c541a5740e63661b0c0d44b358ec82a5582bd97a7da3d99308870e5e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6942b1619df8086ad53b886f4d7a4381a9d98c3db0f0c8bede71aa241f120bf4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6942b1619df8086ad53b886f4d7a4381a9d98c3db0f0c8bede71aa241f120bf4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6942b1619df8086ad53b886f4d7a4381a9d98c3db0f0c8bede71aa241f120bf4"
+    sha256 cellar: :any_skip_relocation, ventura:        "165ee1e18d9b4c1bfbbd8af011a912787ad4a6bde1b492d312c9f63f96dee8fa"
+    sha256 cellar: :any_skip_relocation, monterey:       "165ee1e18d9b4c1bfbbd8af011a912787ad4a6bde1b492d312c9f63f96dee8fa"
+    sha256 cellar: :any_skip_relocation, big_sur:        "165ee1e18d9b4c1bfbbd8af011a912787ad4a6bde1b492d312c9f63f96dee8fa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "09d89571b41aa4f393adff401db4c2da989d7bbae4c1c95aa8f9dc61b062ab19"
   end
 
   depends_on "go" => :build

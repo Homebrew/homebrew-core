@@ -5,8 +5,8 @@ class Perl < Formula
   head "https://github.com/perl/perl5.git", branch: "blead"
 
   stable do
-    url "https://www.cpan.org/src/5.0/perl-5.36.0.tar.xz"
-    sha256 "0f386dccbee8e26286404b2cca144e1005be65477979beb9b1ba272d4819bcf0"
+    url "https://www.cpan.org/src/5.0/perl-5.36.1.tar.xz"
+    sha256 "bd91217ea8a8c8b81f21ebbb6cefdf0d13ae532013f944cdece2cd51aef4b6a7"
 
     # Apply upstream commit to remove nsl from libswanted:
     # https://github.com/Perl/perl5/commit/7e19816aa8661ce0e984742e2df11dd20dcdff18
@@ -23,14 +23,13 @@ class Perl < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "060d846955f6c1263f550709f425b02b232a9f61adc755af6a4749fac8250f13"
-    sha256 arm64_monterey: "aef200b8035eb1fbf5b6aa219c053df7f73d9c07da10f503f08889ae70e2e92a"
-    sha256 arm64_big_sur:  "f0f893e0ceb2e9855bfcec2ceafaaaa8202df3477d11f39b88722eb776ee4f34"
-    sha256 ventura:        "5363b1a09291d6e4b4d87b263f3692b535e1426192bf13cca62264f0ea34e807"
-    sha256 monterey:       "5b63dfe448c0b7a69cb8a3d0b4220074848ae0680a2f245080a8f4cfd1be3baf"
-    sha256 big_sur:        "b8371ca58bdc89bd17ba3bd0a0f6d151fb0bbd1544e47357ad474507f4ca5f28"
-    sha256 catalina:       "3f0a9bae1a11de46f3cb19e9f1d64e63b6af957a771bcab0663ab18f2a6822b3"
-    sha256 x86_64_linux:   "64131980cdcecfdee05b10ab5878f3152f6f661fd779358b4d658d7d23f36d36"
+    sha256 arm64_ventura:  "95806fc97a4d19f592e9fc265e2a79a3183463306c41b665cea9f69d0d748d41"
+    sha256 arm64_monterey: "4ab6b71b6068bf7efa35d9ec0c175b2de73917b9fe3bc2e47c25f4975c102c06"
+    sha256 arm64_big_sur:  "6046f055d4e8c188726e73a5c6961618d6796c41b0f5b8ccbf874618fe546342"
+    sha256 ventura:        "12a8c480c692775bf24c4ba802103982299e899c9d949ec4bc288ecab661a42d"
+    sha256 monterey:       "624ccf8b182aabb60ec7bf1ded9177e4085253c53eab3cdecb30b694efc5ca97"
+    sha256 big_sur:        "61baac39c1834ec0f7a026d639b6008eaf893090ebb57f947068e143e29ee556"
+    sha256 x86_64_linux:   "db9590fceed0e461c2d01977d0d314f3d1696147dd1489c775e9ca415e2aee9a"
   end
 
   depends_on "berkeley-db"

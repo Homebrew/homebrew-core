@@ -1,28 +1,27 @@
 class Genders < Formula
   desc "Static cluster configuration database for cluster management"
   homepage "https://github.com/chaos/genders"
-  url "https://github.com/chaos/genders/archive/genders-1-27-3.tar.gz"
-  version "1.27.3"
-  sha256 "c176045a7dd125313d44abcb7968ded61826028fe906028a2967442426229894"
-  license "GPL-2.0"
+  url "https://github.com/chaos/genders/archive/genders-1-28-1.tar.gz"
+  version "1.28.1"
+  sha256 "3ca8b4771b2bf39383a3c383d36d308fa113de5c481e16fdef9cabd643359d09"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url :stable
-    regex(%r{href=.*?/tag/genders[._-]v?(\d+(?:[.-]\d+)+)["' >]}i)
-    strategy :github_latest
+    regex(/^genders[._-]v?(\d+(?:[.-]\d+)+)$/i)
+    strategy :git do |tags, regex|
+      tags.map { |tag| tag[regex, 1]&.tr("-", ".") }
+    end
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "6ebb2e4ef5220af8459fca62e9181e9c0dea1392476dd99ab76c63e281dc6de4"
-    sha256 cellar: :any,                 arm64_monterey: "8979f90c79fcf64e0edb58eb16afeadae1a525a7ae7116ed5ad191d3be93c83f"
-    sha256 cellar: :any,                 arm64_big_sur:  "36d036a70a6833bdfd9dd86289c5c97c90ac54e10fdf7fdddb9438410ae556e4"
-    sha256 cellar: :any,                 ventura:        "d9a533d3e77e4108ff79c4c23dfe6af9d434629318c4ffa9ef0018538f82f74e"
-    sha256 cellar: :any,                 monterey:       "c93e0650faa66822115dac4284f9af726b9704ceb01bc92cfb5ce9df852fed81"
-    sha256 cellar: :any,                 big_sur:        "9134738efeeeee06bdf84158390bdb848bf92c3b6099f7e9ca66756a3e268b9e"
-    sha256 cellar: :any,                 catalina:       "e1bbeeb4bc32d8655ea35718825175dc1293a1cebd059437cf2fcc9001d159e2"
-    sha256 cellar: :any,                 mojave:         "353ba0eda08b2c75c72e72c2782fb72becb095b2a2875406651c48837dde4223"
-    sha256 cellar: :any,                 high_sierra:    "31a726904f22c156b763a8bc95bd3db6e85b8bc0cf7d8a82d584bb8684241f6c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "839398584f1b2b194e905587e8b40cc59d14e42ae11516335cb693f99d14a4a3"
+    sha256 cellar: :any,                 arm64_ventura:  "4afbf91d200629d7de4d997001f1257ad288f3c9dcb3b1c267189d55ce47115d"
+    sha256 cellar: :any,                 arm64_monterey: "f01d9982f8779d112b416c036e0f0179e1b0f9d4a7a19fb7b9901029f42f2b20"
+    sha256 cellar: :any,                 arm64_big_sur:  "c006a6102181fe3e5ab3739497a8262d097a85697cd4e723bc0ec5d0729c5950"
+    sha256 cellar: :any,                 ventura:        "e6cb4a85978c83c60d9d16cc1a7c204cdf4e8978cc34cf100514b225836e39b9"
+    sha256 cellar: :any,                 monterey:       "2f39ce129041a6b85659bea7b9e928d3930054a4a7a5c6203b8a93fa09e74cfa"
+    sha256 cellar: :any,                 big_sur:        "9b83b2e1ff95368310d065d3d2ca2866511a03bd32ca160b556b7b0c34b00908"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "acc1b66d1ec7f76ca49fa929b7909bd7058ba0c4e4c6fd741d1cb3843c8f37b5"
   end
 
   uses_from_macos "bison" => :build

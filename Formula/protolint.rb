@@ -2,19 +2,19 @@ class Protolint < Formula
   desc "Pluggable linter and fixer to enforce Protocol Buffer style and conventions"
   homepage "https://github.com/yoheimuta/protolint"
   url "https://github.com/yoheimuta/protolint.git",
-      tag:      "v0.43.2",
-      revision: "b5befc0ea3b1e0ab3eb602ae878ed103079e93b1"
+      tag:      "v0.44.0",
+      revision: "b0ef834b9654ce29d56098ff3a253fa1cf79e451"
   license "MIT"
   head "https://github.com/yoheimuta/protolint.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "569592d3e173193cec7e321bbd6d550c338703c29c0cfea9e1a35070d7c253da"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "569592d3e173193cec7e321bbd6d550c338703c29c0cfea9e1a35070d7c253da"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "569592d3e173193cec7e321bbd6d550c338703c29c0cfea9e1a35070d7c253da"
-    sha256 cellar: :any_skip_relocation, ventura:        "5fed478937d58231ca78eaeb90e1426c780165405ceb490c5fd26cf924f194a8"
-    sha256 cellar: :any_skip_relocation, monterey:       "5fed478937d58231ca78eaeb90e1426c780165405ceb490c5fd26cf924f194a8"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5fed478937d58231ca78eaeb90e1426c780165405ceb490c5fd26cf924f194a8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0733a0cf47928abd073bcb7bafb3f5ace6c29826ac826ac555b4136dbe1197c4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b4edf71927eb7eac004fdcd6a02e73ffed0a682afb18588b2c6e443e10c77f45"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b4edf71927eb7eac004fdcd6a02e73ffed0a682afb18588b2c6e443e10c77f45"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b4edf71927eb7eac004fdcd6a02e73ffed0a682afb18588b2c6e443e10c77f45"
+    sha256 cellar: :any_skip_relocation, ventura:        "322a0dbf094db56cd0c049edee878a71cae9884e4da206a49af5dea610aee74e"
+    sha256 cellar: :any_skip_relocation, monterey:       "322a0dbf094db56cd0c049edee878a71cae9884e4da206a49af5dea610aee74e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "322a0dbf094db56cd0c049edee878a71cae9884e4da206a49af5dea610aee74e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "34bbb55c455e4a2470b0a6eca71a40b2ebbf3fd4545005986d3fa81aeb63c940"
   end
 
   depends_on "go" => :build

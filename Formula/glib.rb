@@ -8,13 +8,14 @@ class Glib < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 arm64_ventura:  "627ec199c4716e35fafdfb6f4c280ccf028b50bd0a64ac3c6ad8c3005a501920"
-    sha256 arm64_monterey: "f0bba83b2609678f2b15ec8f7b9bfe6da3a223c4206b1c0a35e12554322554d5"
-    sha256 arm64_big_sur:  "a62074c3796f5e4ad567d05c91433e450ec0206078761f5e9cafc2c10f397e89"
-    sha256 ventura:        "58a52e8cf40ed5c562f7a917ab2c24ae950d4da22cf4f44d5602233d96c2c81b"
-    sha256 monterey:       "a73ca2a1e19716430b4368573f8ea7636f53e8aaa69ed82de0d82d61d166fef6"
-    sha256 big_sur:        "4f0e147809741799d78a8ba1b54c351bb9cdb45d7ab1b8efe692398520805166"
-    sha256 x86_64_linux:   "e9dc6e1ef6663d45d14c55d1d8575838339b60b589a93da2c49f23fcd3224fa3"
+    rebuild 1
+    sha256 arm64_ventura:  "482507b64d76d8955f7d73ae831708e304e2522080ac3ee1796cc32d4675f530"
+    sha256 arm64_monterey: "e972a8b91967a917c101fc64d86ff87a7b572cee0d14aeed36d1d67043a01997"
+    sha256 arm64_big_sur:  "9da3dc5912ba1d743a117bdd9367832be3da6b5ad75a73312870b501599ed55a"
+    sha256 ventura:        "403585258e06445dcc4b847067f8112ff9f0528b27fd1073ec205a9058c32999"
+    sha256 monterey:       "c98fcf819c1ef42ce006da17525141927daf74075745671f1f6eeb4dc6cf8149"
+    sha256 big_sur:        "ee58d5211672ac179e051024ddde95764092695c469e8d8c9ad704a8db59abfa"
+    sha256 x86_64_linux:   "7a8d770727f2249949352241c4fb743eb1f307e29221e7f81e6f550ddccf59c8"
   end
 
   depends_on "gettext" => :build
@@ -31,6 +32,7 @@ class Glib < Formula
   end
 
   on_linux do
+    depends_on "dbus"
     depends_on "util-linux"
   end
 

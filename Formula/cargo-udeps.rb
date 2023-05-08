@@ -1,18 +1,18 @@
 class CargoUdeps < Formula
   desc "Find unused dependencies in Cargo.toml"
   homepage "https://github.com/est31/cargo-udeps"
-  url "https://github.com/est31/cargo-udeps/archive/refs/tags/v0.1.38.tar.gz"
-  sha256 "bb52aacf72b0943a82d51b4fd8c0d7e07649e7f655a6b3d467980f90631a0ae9"
+  url "https://github.com/est31/cargo-udeps/archive/refs/tags/v0.1.39.tar.gz"
+  sha256 "6542c2fed71ac8b416a0f41f94ec1402785d8ade34bfe5f228bb7ea76aed6b5a"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "cdd879fdf95d9fac95123cd76ad9f0a368127b0207a17f3a20aaffa39a166290"
-    sha256 cellar: :any,                 arm64_monterey: "1f73e0cb517d17cc63f225623ae8d3574df73401e8fa6ca01214dabbae8dd0b0"
-    sha256 cellar: :any,                 arm64_big_sur:  "058c89d0da9e6ad8615bc1cb43c372411d95bcc8a4a2e788bdc55c2a51c95bc7"
-    sha256 cellar: :any,                 ventura:        "24a79eebf54c29e6963af46edec483fd919d0e1c26adc74bb954536f276010dc"
-    sha256 cellar: :any,                 monterey:       "d705dcb650db2ec9d44a46174ddcf23c5b95c04a058dca4008d16d021868f2a7"
-    sha256 cellar: :any,                 big_sur:        "170b48c898a8009947dfdeeaead52655ed8f0ffdc0ae9d473574e4a8c8aae53d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3869bb8adecfb42cbebb43309db8cf979d14a3230fe3dbe5e1c80b36951db794"
+    sha256 cellar: :any,                 arm64_ventura:  "f07f9ba44956f3bf9eb2c21d5ce40f1565ddad0d0b891edfab3768b5ac7af6be"
+    sha256 cellar: :any,                 arm64_monterey: "8e8d2c9a5ba0432ced6ef51853b7562949c0b6a85a8e1bc348fbf7e10436e8c6"
+    sha256 cellar: :any,                 arm64_big_sur:  "7f2b4df0655507eef94a916db530820fa20d08106db8e0ee4fde3341a31e1d0a"
+    sha256 cellar: :any,                 ventura:        "4c1b8d82814f4afcc3986d6db97fab8250609d107d2145d53c7c8f1b59112b18"
+    sha256 cellar: :any,                 monterey:       "f0136fde49ed8a8ed59d7a229e227a04496ce4e0b9783dfecfbfffbfe574a92a"
+    sha256 cellar: :any,                 big_sur:        "5b32838889e1b801326583c3ba0cf723827f93f5543862f6bdb4a5fdd03aae9c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7e6160f1c819a77b18b6e943fa5b27392ec5e56da405b5d4442b502821b87a75"
   end
 
   depends_on "rust" => [:build, :test]

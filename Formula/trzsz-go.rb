@@ -1,18 +1,18 @@
 class TrzszGo < Formula
   desc "Simple file transfer tools, similar to lrzsz (rz/sz), and compatible with tmux"
   homepage "https://trzsz.github.io"
-  url "https://github.com/trzsz/trzsz-go/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "28714b3c0715796935cec8bb20e98a3ae06e91c5817fdc735bdc4d1f55dee78c"
+  url "https://github.com/trzsz/trzsz-go/archive/refs/tags/v1.1.0.tar.gz"
+  sha256 "54f8038e55ea92ded8246cc564d0733a39a5a180202f79ccf3870f570ce8b7fe"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "24918d6a5d1d736baa4f465e1ee46ad38e50ca0fb2dd4566821e3952732560bb"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "160e3e935dd35f53d29ac8da911d8e3c3cc50338a722becd9ae22f442fe0a429"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "68466d29ab1a193545f0e3b55108d2bdd51921e4293feb38dff71cf114f2d624"
-    sha256 cellar: :any_skip_relocation, ventura:        "5d1cefe99e950a6a85e17dc68b4fb918a80a6b35005833041a940e3f64feb6c5"
-    sha256 cellar: :any_skip_relocation, monterey:       "47f4abde1eae9aa0f8b92c9bdfc4fbcdcd2bb8c23795b2d6723b0a82028fc693"
-    sha256 cellar: :any_skip_relocation, big_sur:        "71ec72570caa68a61ead80c167f5d56bbf10532d7a3bbcb4c98875a363c85074"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "20695b59fa9b52f9fa16f0c56a04a9e1897b77ed1411ffa87544baddf8e14895"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2dff98a795eec07c33250e6eeb114727b6d18feef226142ccb3f0cd6d598300c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2dff98a795eec07c33250e6eeb114727b6d18feef226142ccb3f0cd6d598300c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2dff98a795eec07c33250e6eeb114727b6d18feef226142ccb3f0cd6d598300c"
+    sha256 cellar: :any_skip_relocation, ventura:        "28074ea108a9bafe7bcf4ba86698245405429521e0eb12c2fb54077bc5218752"
+    sha256 cellar: :any_skip_relocation, monterey:       "28074ea108a9bafe7bcf4ba86698245405429521e0eb12c2fb54077bc5218752"
+    sha256 cellar: :any_skip_relocation, big_sur:        "28074ea108a9bafe7bcf4ba86698245405429521e0eb12c2fb54077bc5218752"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5ac815f946813e420d1fbc7569db602c362aa0710ccc15649e9ebcfee9319724"
   end
 
   depends_on "go" => :build

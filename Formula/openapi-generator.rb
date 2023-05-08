@@ -11,13 +11,14 @@ class OpenapiGenerator < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cf5a1b9838752ba22cea753f4e37f1cb655686d5ce60ffc914feeef47c21e316"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cf5a1b9838752ba22cea753f4e37f1cb655686d5ce60ffc914feeef47c21e316"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cf5a1b9838752ba22cea753f4e37f1cb655686d5ce60ffc914feeef47c21e316"
-    sha256 cellar: :any_skip_relocation, ventura:        "cf5a1b9838752ba22cea753f4e37f1cb655686d5ce60ffc914feeef47c21e316"
-    sha256 cellar: :any_skip_relocation, monterey:       "cf5a1b9838752ba22cea753f4e37f1cb655686d5ce60ffc914feeef47c21e316"
-    sha256 cellar: :any_skip_relocation, big_sur:        "cf5a1b9838752ba22cea753f4e37f1cb655686d5ce60ffc914feeef47c21e316"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0394b01e2e74d74251ab76e0994b2deead4b01a2988442a66c94b340b5187329"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6989f8677b4459488d2070c54b714f750443fa15f7c6936075c4a9d93a77e875"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6989f8677b4459488d2070c54b714f750443fa15f7c6936075c4a9d93a77e875"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6989f8677b4459488d2070c54b714f750443fa15f7c6936075c4a9d93a77e875"
+    sha256 cellar: :any_skip_relocation, ventura:        "6989f8677b4459488d2070c54b714f750443fa15f7c6936075c4a9d93a77e875"
+    sha256 cellar: :any_skip_relocation, monterey:       "6989f8677b4459488d2070c54b714f750443fa15f7c6936075c4a9d93a77e875"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6989f8677b4459488d2070c54b714f750443fa15f7c6936075c4a9d93a77e875"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "889ab72bd7dd515482d8db5438720eec9e5ae463051185f2d81ee885fb074ca3"
   end
 
   head do
@@ -26,7 +27,7 @@ class OpenapiGenerator < Formula
     depends_on "maven" => :build
   end
 
-  depends_on "openjdk"
+  depends_on "openjdk@11"
 
   def install
     if build.head?
@@ -36,31 +37,39 @@ class OpenapiGenerator < Formula
       libexec.install "openapi-generator-cli-#{version}.jar" => "openapi-generator-cli.jar"
     end
 
-    (bin/"openapi-generator").write <<~EOS
-      #!/bin/bash
-      exec "#{Formula["openjdk"].opt_bin}/java" $JAVA_OPTS -jar "#{libexec}/openapi-generator-cli.jar" "$@"
-    EOS
+    bin.write_jar_script libexec/"openapi-generator-cli.jar", "openapi-generator", java_version: "11"
   end
 
   test do
+    # From the OpenAPI Spec website
+    # https://web.archive.org/web/20230505222426/https://swagger.io/docs/specification/basic-structure/
     (testpath/"minimal.yaml").write <<~EOS
       ---
-      swagger: '2.0'
+      openapi: 3.0.3
       info:
         version: 0.0.0
-        title: Simple API
-      host: localhost
-      basePath: /v2
-      schemes:
-        - http
+        title: Sample API
+      servers:
+        - url: http://api.example.com/v1
+          description: Optional server description, e.g. Main (production) server
+        - url: http://staging-api.example.com
+          description: Optional server description, e.g. Internal staging server for testing
       paths:
-        /:
+        /users:
           get:
-            operationId: test_operation
+            summary: Returns a list of users.
             responses:
-              200:
-                description: OK
+              '200':
+                description: A JSON array of user names
+                content:
+                  application/json:
+                    schema:
+                      type: array
+                      items:
+                        type: string
     EOS
     system bin/"openapi-generator", "generate", "-i", "minimal.yaml", "-g", "openapi", "-o", "./"
+    # Python is broken for (at least) Java 20
+    system bin/"openapi-generator", "generate", "-i", "minimal.yaml", "-g", "python", "-o", "./"
   end
 end

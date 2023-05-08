@@ -3,19 +3,19 @@ class LinodeCli < Formula
 
   desc "CLI for the Linode API"
   homepage "https://www.linode.com/products/cli/"
-  url "https://files.pythonhosted.org/packages/b8/15/d9aaea64ea509cf17cb441b7dfe8c1df8c919eec1e42b5bc2e3b4e2ca201/linode-cli-5.36.0.tar.gz"
-  sha256 "ff93095d7e906c789af0a449ca04ab3ac7bd3a1a65f1c7e772e6d00e01f66b6d"
+  url "https://files.pythonhosted.org/packages/62/d6/84a279b17e4dea68a7d83309e70b835c754f7aa4325b259f847b24bfc22c/linode-cli-5.37.0.tar.gz"
+  sha256 "12be4353f962b72a59f3042e06401b77846b8f43576fa279f49f7393cad11c6f"
   license "BSD-3-Clause"
   head "https://github.com/linode/linode-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0ee41f0472dea07f970a85fca1acce8b092123174457053c1811d1a40041a311"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e0eb445a57680df4488dd1fcbeab933936fc3560a1f52ad77b284dd0b6586bc0"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "17f6c167339c6753fafb77c0934cf61f76e530fb75280beb7c9d019f24980d91"
-    sha256 cellar: :any_skip_relocation, ventura:        "8eac7e50eb0f01f86e03c1241bc8f08f7c85cee0ece947500863b99a4a07595d"
-    sha256 cellar: :any_skip_relocation, monterey:       "9062be3ba33cd213ba8b3f3f408d9654b1ef7a867e60f944ec77f5c0f51d640f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "cc645c838f2a4d2c61c009a78c5d1b56ec2bc023a5723f998c28a3e689d3660d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5cac290e96db9ad68b9db14c7e46f40ad9e10bcdc4a1ebc9aca44cbb85605695"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b06728e1628c2b03243cb8f26d698b41beb2a8d325734b243a40a2cc32678396"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9dad19f75de38cd15d25379c305208ad4004119c23c2e872cd336231ba4eeef4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7f9815f556823a2447e22dd64a34dd99f7ae585e935514255ece09091d80b24a"
+    sha256 cellar: :any_skip_relocation, ventura:        "f21b06a91ae8384bc4e4e8528f2dc8f33eef8ae9200c66de2ff583df5404d26a"
+    sha256 cellar: :any_skip_relocation, monterey:       "c97f722b26bcd45129df5065dacc592769fa71baada076781f8d23b68f1cf0cc"
+    sha256 cellar: :any_skip_relocation, big_sur:        "aabe7ad3420b49984bc269a0725f71f727ca3ae16def2e866812a1e9952b00ad"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e24b2a2f067c71f3564c96217c757d78eb70090427d78ad63c7c52c82fb63726"
   end
 
   depends_on "openssl@1.1"
@@ -42,42 +42,45 @@ class LinodeCli < Formula
     sha256 "814f528e8dead7d329833b91c5faa87d60bf71824cd12a7530b5526063d02cb4"
   end
 
+  resource "markdown-it-py" do
+    url "https://files.pythonhosted.org/packages/e4/c0/59bd6d0571986f72899288a95d9d6178d0eebd70b6650f1bb3f0da90f8f7/markdown-it-py-2.2.0.tar.gz"
+    sha256 "7c9a5e412688bc771c67432cbfebcdd686c93ce6484913dccf06cb5a0bea35a1"
+  end
+
+  resource "mdurl" do
+    url "https://files.pythonhosted.org/packages/d6/54/cfe61301667036ec958cb99bd3efefba235e65cdeb9c84d24a8293ba1d90/mdurl-0.1.2.tar.gz"
+    sha256 "bb413d29f5eea38f31dd4754dd7377d4465116fb207585f97bf925588687c1ba"
+  end
+
   resource "packaging" do
     url "https://files.pythonhosted.org/packages/b9/6c/7c6658d258d7971c5eb0d9b69fa9265879ec9a9158031206d47800ae2213/packaging-23.1.tar.gz"
     sha256 "a392980d2b6cffa644431898be54b0045151319d1e7ec34f0cfed48767dd334f"
   end
 
-  resource "requests" do
-    url "https://files.pythonhosted.org/packages/9d/ee/391076f5937f0a8cdf5e53b701ffc91753e87b07d66bae4a09aa671897bf/requests-2.28.2.tar.gz"
-    sha256 "98b1b2782e3c6c4904938b84c0eb932721069dfdb9134313beff7c83c2df24bf"
+  resource "pygments" do
+    url "https://files.pythonhosted.org/packages/89/6b/2114e54b290824197006e41be3f9bbe1a26e9c39d1f5fa20a6d62945a0b3/Pygments-2.15.1.tar.gz"
+    sha256 "8ace4d3c1dd481894b2005f560ead0f9f19ee64fe983366be1a21e171d12775c"
   end
 
-  resource "terminaltables" do
-    url "https://files.pythonhosted.org/packages/f5/fc/0b73d782f5ab7feba8d007573a3773c58255f223c5940a7b7085f02153c3/terminaltables-3.1.10.tar.gz"
-    sha256 "ba6eca5cb5ba02bba4c9f4f985af80c54ec3dccf94cfcd190154386255e47543"
+  resource "requests" do
+    url "https://files.pythonhosted.org/packages/e0/69/122171604bcef06825fa1c05bd9e9b1d43bc9feb8c6c0717c42c92cc6f3c/requests-2.30.0.tar.gz"
+    sha256 "239d7d4458afcb28a692cdd298d87542235f4ca8d36d03a15bfc128a6559a2f4"
+  end
+
+  resource "rich" do
+    url "https://files.pythonhosted.org/packages/3d/0b/8dd34d20929c4b5e474db2e64426175469c2b7fea5ba71c6d4b3397a9729/rich-13.3.5.tar.gz"
+    sha256 "2d11b9b8dd03868f09b4fffadc84a6a8cda574e40dc90821bd845720ebb8e89c"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/21/79/6372d8c0d0641b4072889f3ff84f279b738cd8595b64c8e0496d4e848122/urllib3-1.26.15.tar.gz"
-    sha256 "8a388717b9476f934a21484e8c8e61875ab60644d29b9b39e11e4b9dc1c6b305"
+    url "https://files.pythonhosted.org/packages/fb/c0/1abba1a1233b81cf2e36f56e05194f5e8a0cec8c03c244cab56cc9dfb5bd/urllib3-2.0.2.tar.gz"
+    sha256 "61717a1095d7e155cdb737ac7bb2f4324a858a1e2e6466f6d03ff630ca68d3cc"
   end
 
   def install
     venv = virtualenv_create(libexec, "python3.11", system_site_packages: false)
-    non_pip_resources = %w[terminaltables linode-api-spec requirements]
-    venv.pip_install resources.reject { |r| non_pip_resources.include? r.name }
-
-    # Switch build-system to poetry-core to avoid rust dependency on Linux.
-    # Remove on next release: https://github.com/matthewdeanmartin/terminaltables/commit/9e3dda0efb54fee6934c744a13a7336d24c6e9e9
-    resource("terminaltables").stage do
-      inreplace "pyproject.toml", 'requires = ["poetry>=0.12"]', 'requires = ["poetry-core>=1.0"]'
-      inreplace "pyproject.toml", 'build-backend = "poetry.masonry.api"', 'build-backend = "poetry.core.masonry.api"'
-      venv.pip_install_and_link Pathname.pwd
-    end
-
-    resource("linode-api-spec").stage do
-      buildpath.install "openapi.yaml"
-    end
+    venv.pip_install resources.reject { |r| r.name == "linode-api-spec" }
+    buildpath.install resource("linode-api-spec")
 
     # The bake command creates a pickled version of the linode-cli OpenAPI spec
     system libexec/"bin/python3", "-m", "linodecli", "bake", "./openapi.yaml", "--skip-config"

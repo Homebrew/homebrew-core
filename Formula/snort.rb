@@ -1,9 +1,9 @@
 class Snort < Formula
   desc "Flexible Network Intrusion Detection System"
   homepage "https://www.snort.org"
-  url "https://github.com/snort3/snort3/archive/3.1.60.0.tar.gz"
-  mirror "https://fossies.org/linux/misc/snort3-3.1.60.0.tar.gz"
-  sha256 "295bbeea93ead7835379d9c9332b1f82f9ecdd3741aeed267caf85bb887126a1"
+  url "https://github.com/snort3/snort3/archive/3.1.61.0.tar.gz"
+  mirror "https://fossies.org/linux/misc/snort3-3.1.61.0.tar.gz"
+  sha256 "207963ece2eddd3c85ad90c9e2dabe33dc67eaa485ba9576e2b244f7ac45fc5d"
   license "GPL-2.0-only"
   head "https://github.com/snort3/snort3.git", branch: "master"
 
@@ -13,13 +13,13 @@ class Snort < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "082abd246e1e65e3570edddc1fceab9cd016e8ed22d9cd0d26e64319efb96d60"
-    sha256 cellar: :any, arm64_monterey: "cab460513439077f3d079fd1147b986f4c956b9b1ac2801f2215c28d7c19f469"
-    sha256 cellar: :any, arm64_big_sur:  "1098a6f4ad80abe5357ab8afde570949239f31c031ed9d462ec0237eb21d13ff"
-    sha256 cellar: :any, ventura:        "7ba7463edccc08a654d6bd5c2e5ae7192befd98fe0174a8b0e4c4c7e37e73647"
-    sha256 cellar: :any, monterey:       "6b870f9a47b208bf363241635781d7d87f86831e1dcc1537b5271840854d12e3"
-    sha256 cellar: :any, big_sur:        "d2fb7f6659a2ad4e9161a654b04ad71b3ec34439d93d2a4f80b27d65e2128afd"
-    sha256               x86_64_linux:   "15735796b647555cce221b12fe28576d4b005acff538aaaa33d71498536962d4"
+    sha256 cellar: :any, arm64_ventura:  "7967a24f7881ebd00f79805db7c78319923cfd37eaa7c7e17ebccd0f81ea2ef3"
+    sha256 cellar: :any, arm64_monterey: "fdb056e7b6c723e55dc1e887421714b0d59203472f72c6b99cab638e5768ad74"
+    sha256 cellar: :any, arm64_big_sur:  "f4b162d6fa5d1ea595408e7f2877a48d06a205ec9f0ec6f1d41f5ab3ab5a71cb"
+    sha256 cellar: :any, ventura:        "8eea1eb77ba33731f1481c2593d73125a593f41e3ab5f099e414eda37c58c4c0"
+    sha256 cellar: :any, monterey:       "553010e9f68d21ab788353874ca84557c60fe16f85d74834e723f03ab7101a8a"
+    sha256 cellar: :any, big_sur:        "2305efd0642b724b82ee09f1c0372f058be17fa38ce8a6592d860bd45cb0ce5e"
+    sha256               x86_64_linux:   "dc08497b5fc7cfe180b8a209ed5dabcdfe5aa899b77638d6e905e76ff42488eb"
   end
 
   depends_on "cmake" => :build
@@ -50,13 +50,6 @@ class Snort < Formula
   end
 
   fails_with gcc: "5"
-
-  # build patch, remove when it is available
-  # upstream PR ref, https://github.com/snort3/snort3/pull/286
-  patch do
-    url "https://github.com/snort3/snort3/commit/02e60e50d1a4a18d27643d5f4474bfc0c4709e14.patch?full_index=1"
-    sha256 "25fcf002f9613a1fcc06127c72ed2315c93580a6da2c0afd2e82e081f35dd9fc"
-  end
 
   def install
     # These flags are not needed for LuaJIT 2.1 (Ref: https://luajit.org/install.html).

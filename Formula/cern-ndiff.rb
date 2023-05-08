@@ -1,9 +1,10 @@
 class CernNdiff < Formula
   desc "Numerical diff tool"
-  # NOTE: ndiff is a sub-project of Mad-X at the moment..
+  # NOTE: ndiff is a sub-project of Mad-X at the moment.
   homepage "https://mad.web.cern.ch/mad/"
-  url "https://github.com/MethodicalAcceleratorDesign/MAD-X/archive/5.08.01.tar.gz"
-  sha256 "89c943fcb474344a4f7d28de98e8eae0aec40f779bf908daff79043bf3520555"
+  url "https://github.com/MethodicalAcceleratorDesign/MAD-X/archive/5.09.00.tar.gz"
+  sha256 "fc2823cdb90a53c1422cca93a48b003c97c1e72641d9e925cd8f59b08f795c7a"
+  license :cannot_represent
   head "https://github.com/MethodicalAcceleratorDesign/MAD-X.git", branch: "master"
 
   livecheck do
@@ -12,14 +13,13 @@ class CernNdiff < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4021d6710141f31de9224732b1d3196d1dd315c86a13fcbc8213564a5390b743"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ef87f0ce60ad2f81011942a949a3e70b32ee45322c435cd860e406ad61e7f52c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6c850063e8050b34b933757634a4b1119608e1afaee4f01e159c5c07f15da399"
-    sha256 cellar: :any_skip_relocation, ventura:        "018149df6762d7886e66649ef2f75d422a460635f98550dafc26a99c9092034a"
-    sha256 cellar: :any_skip_relocation, monterey:       "c6b90768ba05a796a504a47ed93c62c617a2340f5cfc5716c74b9282225d56a6"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d17efd81d490ed73468eaf41dc2e64061fd01ba049c7ea1a22647b3c981cd0c2"
-    sha256 cellar: :any_skip_relocation, catalina:       "06c3c33a9d470f3466dec139945861748aadf3c78a697d458004f14a503614d3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8a63d894f310616820d5e31d87c9e6d131694976e3b26a4f4cc7061d288bb50d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "92113f5cfdd408e3e6d144aa5290709a691cae486aacdc513af10be0160d484d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "84e1a138bfa3f3c1dc254beafe791f8b0748a0cef867bf127fa980731299075a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7ce91e3f3bb0bdcab6babe3bba385d18d65d6cf6f24de23c71fd39cd8157a7f6"
+    sha256 cellar: :any_skip_relocation, ventura:        "26c731438e58d46fcfb04b356e6d3cb9a83de2e5588a027827b04611a3df514c"
+    sha256 cellar: :any_skip_relocation, monterey:       "718fb107f6b55a696da01252ce562855c164f53046d0734fc7f7b81c2fed377d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "456dda19013d2ffa8d889ccf5fa29920e9b2168d15d315e1160ee207c798bcd3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "45481fce67f3760a63d6659bb562b78766511881b8b16c9ba46436e5ce6b638d"
   end
 
   depends_on "cmake" => :build

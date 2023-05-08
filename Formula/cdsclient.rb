@@ -16,6 +16,9 @@ class Cdsclient < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0c83214a0f91da5650dd051e619e4d10fc7a22517073cfbbb47506ab567f5659"
   end
 
+  # Last release on 2017-03-09
+  deprecate! date: "2023-05-05", because: :unmaintained
+
   def install
     system "./configure", "--prefix=#{prefix}", "--libdir=#{lib}"
     man.mkpath

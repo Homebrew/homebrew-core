@@ -22,6 +22,9 @@ class Iprint < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "581a57b43314eb6fb95034df6b36ece5a5ef1b4dfc03554b57fb40a8a4cc9de7"
   end
 
+  # Debian does not ship this as a package anymore
+  deprecate! date: "2023-05-06", because: :repo_removed
+
   patch do
     url "https://deb.debian.org/debian/pool/main/i/iprint/iprint_1.3-9.diff.gz"
     sha256 "3a1ff260e6d639886c005ece754c2c661c0d3ad7f1f127ddb2943c092e18ab74"

@@ -21,6 +21,9 @@ class Dbxml < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "bb0abe86852f38edf93fe495c3d2644f63bdfd1ebe51eee71f75c8c6d977eb1e"
   end
 
+  # Last release on 2017-05-01
+  deprecate! date: "2023-05-06", because: :unmaintained
+
   depends_on "berkeley-db"
   depends_on "xerces-c"
   depends_on "xqilla"

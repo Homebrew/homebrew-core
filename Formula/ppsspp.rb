@@ -2,19 +2,19 @@ class Ppsspp < Formula
   desc "PlayStation Portable emulator"
   homepage "https://ppsspp.org/"
   url "https://github.com/hrydgard/ppsspp.git",
-      tag:      "v1.14.4",
-      revision: "cd535263c1ad65fd03869591a8bd706680cbf04b"
+      tag:      "v1.15.3",
+      revision: "6d619201bdd6d46a3e3d4b2a82a00148eb9ebc5a"
   license all_of: ["GPL-2.0-or-later", "BSD-3-Clause"]
   head "https://github.com/hrydgard/ppsspp.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "12eb34a29c2d4dca85b14d53e0143315d9721f46eb48d2ca04b489fba7d546a1"
-    sha256 cellar: :any,                 arm64_monterey: "6c2e98b136aeac198bb244e74d14028d53931b1c1c0e411dbff4fa18c8c1ea69"
-    sha256 cellar: :any,                 arm64_big_sur:  "71257d8d85c12d5d095ce55f3465cb66ccc2dd9432b8b707c661766d45d0d7ed"
-    sha256 cellar: :any,                 ventura:        "a2ff1c001e74f000159f7cc2d2016c827dee9f5339eb3d43d1c91392238ffbe6"
-    sha256 cellar: :any,                 monterey:       "d6bddfb72e3568f424c3f0d4237fd444b52d03b921ecf292cd5cf62fe45a4863"
-    sha256 cellar: :any,                 big_sur:        "e3221b806f94a9a1d3cd447342d6862035075e1055eef040c47ddba6a7a31688"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cfecd0667593b18ddcac5726a42e5ad6229d1e5ee1ebcacdc943241c5d028a5b"
+    sha256 cellar: :any,                 arm64_ventura:  "4c71a1284ab98893487f0ebe3830b1bb3ed2586aff78434b6ffa864fb106d1f8"
+    sha256 cellar: :any,                 arm64_monterey: "e6658ce223beb8fa2511c5dd0c59e69dadff9090c3368fdd8cdee9988ee12f3b"
+    sha256 cellar: :any,                 arm64_big_sur:  "24a31ea25215c02718f3d517431d6e15e408c5743680a401046d896cbbc92069"
+    sha256 cellar: :any,                 ventura:        "df24f41c86b76d451fcb147c33ad784868634951bbbc34794696943c9697fe4d"
+    sha256 cellar: :any,                 monterey:       "e8e24c4ff72f8e419fe01ab05d5c93c3f7cbc30f56805325675e21df229a6e9a"
+    sha256 cellar: :any,                 big_sur:        "0ce90071ceb3a6adf770cd941599e86c0a5c617bea95986b7f99db5cf9ee249d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "32510ff7e55572172f12fccdbf19b969cd907b8ca3412b2a39f6c1e52c3dde96"
   end
 
   depends_on "cmake" => :build
@@ -84,7 +84,6 @@ class Ppsspp < Formula
         # Replace app bundles with symlinks to allow dependencies to be updated
         app_frameworks = prefix/"PPSSPPSDL.app/Contents/Frameworks"
         ln_sf (Formula["molten-vk"].opt_lib/"libMoltenVK.dylib").relative_path_from(app_frameworks), app_frameworks
-        ln_sf (Formula["sdl2"].opt_lib/"libSDL2-2.0.0.dylib").relative_path_from(app_frameworks), app_frameworks
       else
         bin.install "PPSSPPSDL" => "ppsspp"
       end
@@ -96,7 +95,6 @@ class Ppsspp < Formula
     if OS.mac?
       app_frameworks = prefix/"PPSSPPSDL.app/Contents/Frameworks"
       assert_predicate app_frameworks/"libMoltenVK.dylib", :exist?, "Broken linkage with `molten-vk`"
-      assert_predicate app_frameworks/"libSDL2-2.0.0.dylib", :exist?, "Broken linkage with `sdl2`"
     end
   end
 end

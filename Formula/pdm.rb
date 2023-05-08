@@ -3,19 +3,19 @@ class Pdm < Formula
 
   desc "Modern Python package and dependency manager supporting the latest PEP standards"
   homepage "https://pdm.fming.dev"
-  url "https://files.pythonhosted.org/packages/ab/6c/ee79e47fde243fc7af0e88e5548b3ce1d71f80b66456a4ac85ef46522977/pdm-2.5.5.tar.gz"
-  sha256 "7386691ded52f7761109396316baf7058d30adc226cbd7bf07a7d6163f21c181"
+  url "https://files.pythonhosted.org/packages/c1/2e/6f292b67f61a1019e50b30cd3ee977f4cb3a3a0692dc2712bdd998c595a0/pdm-2.5.6.tar.gz"
+  sha256 "441a75d7085945330adeb9361c3457b27417d07e120be4f21622f428d5bda340"
   license "MIT"
   head "https://github.com/pdm-project/pdm.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "020da474dfce31fc870eab5951e9a590175fcd031ae57faaca6ef6743008d2d1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ef77483bfdda4f56f25646b1f9f36e77b431c8666f2f36614d23e1d263dfe27c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "50db6f9f745548d522def83e98875618dfc68a10a0265d36a1058bbdc1dc091d"
-    sha256 cellar: :any_skip_relocation, ventura:        "215abe45ef0cecec8a3beb0132b276cd92fbd5347c8f48b78fd21e82a483d02d"
-    sha256 cellar: :any_skip_relocation, monterey:       "8eed7f36d5124f158761b3db5c940d890f0006f640639c33da88b39f47610719"
-    sha256 cellar: :any_skip_relocation, big_sur:        "111e54cfe9f1930ccf27aa0da73bb3a7b89a1a03a823963ae7dc147da592a203"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "05aa6b5fa0fb8464c9514e076e2eeb84edfb90c96b1a2664130a8039d8c0b1a6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7768ec0e56b136490ef3d727158f89b40a27d849f5e32a3a06a0b8ea37fbabe8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ac405a3f6926b37fc0d813d8cf5b07cb22691b71136d49198a79b7acbc64d7f4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "93a21a7407fe05928f6596cf06eaacbec683ce9e6cf930ca3d3ec5b2b6a40a86"
+    sha256 cellar: :any_skip_relocation, ventura:        "2ef8493072683649df1903fcc39320539ac3a829c2c45d64bcd08ef3eac94fdb"
+    sha256 cellar: :any_skip_relocation, monterey:       "174cad7c0196c823872a7028dba85eab66ad36c95cebe2f355d5f50436409642"
+    sha256 cellar: :any_skip_relocation, big_sur:        "2b6b4222a5712e6ad874be7f2c571cf31068cf567924f808f2ad776f173516c8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2020dc9c719f61cf7121d7bedce163ab087255a79ef7da915bddcdc8f22ac003"
   end
 
   depends_on "pygments"
@@ -32,8 +32,8 @@ class Pdm < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/37/f7/2b1b0ec44fdc30a3d31dfebe52226be9ddc40cd6c0f34ffc8923ba423b69/certifi-2022.12.7.tar.gz"
-    sha256 "35824b4c3a97115964b408844d64aa14db1cc518f6562e8d7261699d1350a9e3"
+    url "https://files.pythonhosted.org/packages/93/71/752f7a4dd4c20d6b12341ed1732368546bc0ca9866139fe812f6009d9ac7/certifi-2023.5.7.tar.gz"
+    sha256 "0f0d56dc5a6ad56fd4ba36484d6cc34451e1c6548c61daad8c320169f91eddc7"
   end
 
   resource "charset-normalizer" do

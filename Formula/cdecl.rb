@@ -4,6 +4,10 @@ class Cdecl < Formula
   url "https://cdecl.org/files/cdecl-blocks-2.5.tar.gz"
   sha256 "9ee6402be7e4f5bb5e6ee60c6b9ea3862935bf070e6cecd0ab0842305406f3ac"
 
+  livecheck do
+    skip "No version information available"
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "36acc58f38ee551b35a2c531d9bdfb8113aee61cbb4bdb9d43646ddcfeba9053"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8dcff021c0d0078666c5a4781d738e8958fc52222bb2062b447f581d1b398971"

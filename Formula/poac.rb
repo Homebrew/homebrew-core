@@ -1,20 +1,19 @@
 class Poac < Formula
   desc "Package Manager for C++"
   homepage "https://github.com/poac-dev/poac"
-  url "https://github.com/poac-dev/poac/archive/refs/tags/0.5.1.tar.gz"
-  sha256 "439ce4f3be89e33abbafe5ef5bef53e2c6209c0cc0a8e718698675c247fb2ca4"
+  url "https://github.com/poac-dev/poac/archive/refs/tags/0.6.0.tar.gz"
+  sha256 "40f55553f7cca3bdad39599ce8c9049aeecf8f6140cfebac28c51d7d9abbbb78"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/poac-dev/poac.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "4d63abba6a9a99a27e6cc9d9143699dd4bc8f13aab8f2baf47c05dfe79ed678b"
-    sha256 cellar: :any,                 arm64_monterey: "249261a831ae6f8892891282fee03b0b3482a931f3f956e4788b25c2ecb7d389"
-    sha256 cellar: :any,                 arm64_big_sur:  "caf395cd6a2b2d3987c5b92346fcad60dc4b819782fb119ebbe0b456280923ee"
-    sha256 cellar: :any,                 ventura:        "4f890dbda15ea80c6b89187aa249dc4d0739014d9037f4152b1bd4d391895418"
-    sha256 cellar: :any,                 monterey:       "65526a5b66e26c8ae5593dd0b22afeb42865cd8bd32bf3eb7de8a2e94fa5d7b7"
-    sha256 cellar: :any,                 big_sur:        "327487d16905a2f449532451acbebcd4830d89a73b6ce47cad972cea9197dace"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bcc3bf8b380ad1df27e423b25c9815288c41098b66d37e268720445f5509c8a6"
+    sha256 cellar: :any,                 arm64_ventura:  "bc5422c06923b50a42e1eca8fc8f20bd37647387353372eff1b14839ab30aa92"
+    sha256 cellar: :any,                 arm64_monterey: "6f7c5bce5c3c51b0ad95c6e7d8cc2f4aabef63ba81426f5b58edcb06c3eb1028"
+    sha256 cellar: :any,                 arm64_big_sur:  "6c1e8f8cace9630e557ff342bc2a871e95b320b3d0a8ea40d7251f19a6a6d940"
+    sha256 cellar: :any,                 ventura:        "9758130ced37e0367b26b99350848b8b73d44cf6647bf87130c7b69b53133b09"
+    sha256 cellar: :any,                 monterey:       "dddb54db771ea64d6bb0c0842788bab5c5c9c63b52c2116c60c6e73cf089b634"
+    sha256 cellar: :any,                 big_sur:        "5187305ade9bd3dfc7ccfb92bfd9a0045aba9a029e5f62536b3e557ea1a01cf4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "59336f07faf85623a5ad69a70056e2ceeee5dd4ee0838229c8592b75407feda4"
   end
 
   depends_on "cmake" => :build

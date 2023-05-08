@@ -1,8 +1,8 @@
 class Babl < Formula
   desc "Dynamic, any-to-any, pixel format translation library"
   homepage "https://www.gegl.org/babl/"
-  url "https://download.gimp.org/pub/babl/0.1/babl-0.1.104.tar.xz"
-  sha256 "22e38e1d19c5391abc8ccf936033a9d035e8a8ec7523e5cd76a4c01137d7160c"
+  url "https://download.gimp.org/pub/babl/0.1/babl-0.1.106.tar.xz"
+  sha256 "d325135d3304f088c134cc620013acf035de2e5d125a50a2d91054e7377c415f"
   license "LGPL-3.0-or-later"
   # Use GitHub instead of GNOME's git. The latter is unreliable.
   head "https://github.com/GNOME/babl.git", branch: "master"
@@ -13,13 +13,13 @@ class Babl < Formula
   end
 
   bottle do
-    sha256                               arm64_ventura:  "decf2d3420b1da9497afbc4ed04cedcdb2f02ecc21f7a570d771ed80d2691c86"
-    sha256                               arm64_monterey: "8a7a0593384b7f92c9b35f7982b042280108dfda3535cc4aab45b7ea86ac42c0"
-    sha256                               arm64_big_sur:  "11a1de58fad3b2cb1d13f08aaa15403b02197dfffb38aef9ca5916181849bdfd"
-    sha256                               ventura:        "6b638401453355aea82785998720e5a27e67ccfae274467e1411c05060a2e981"
-    sha256                               monterey:       "f94d6046b09e055a3717b605dc885e7b760e94e3dc0c07d6decb3b044953afad"
-    sha256                               big_sur:        "eb7bf4458da2ce0a3a07db3885c4b66823112926636fcd24e6a7a675f1e68982"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "39b934cc07da68f7c7812f7b015a81a9a21299a647c51493d9df1e2534955ddf"
+    sha256                               arm64_ventura:  "d2262c448da0fbd1483282bf7978d537381608d10e98778a6a7e3dfb332b797b"
+    sha256                               arm64_monterey: "1a436ea903c5eeb2cdfa524171c8976ac0047ea0fc48c3daacc8f814f367b723"
+    sha256                               arm64_big_sur:  "fe7ce007039e7d52fb050c0581b179c339f2dbec696d84a584c30a39bc2490e5"
+    sha256                               ventura:        "86ad27203bd7e18d035a1c1f089fdfe336e5ae4fef112615b6961a225cf12e03"
+    sha256                               monterey:       "cc27752609a03322409dea058eb438cd198a785fbbc541e31b08cc671d73bd97"
+    sha256                               big_sur:        "3aae805b1aee8eb7462a31e95db66c0d2e1b2cd9fdbecf06ac947f32ac57e74e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "324b6d7f0de8ab3568a9f3ce0a3197199c2a098ea1abbee970d471de866b30b1"
   end
 
   depends_on "glib" => :build # to add to PKG_CONFIG_PATH for gobject-introspection

@@ -20,7 +20,8 @@ jobs:
     runs-on: ubuntu-latest
     if: >
       github.repository_owner == 'Homebrew' &&
-      contains(fromJson('["pull_request", "pull_request_target"]'), github.event.workflow_run.event)
+      contains(fromJson('["pull_request", "pull_request_target"]'), github.event.workflow_run.event) &&
+      github.event.workflow_run.conclusion != 'skipped'
     outputs:
       pull-number: ${{ steps.pr.outputs.number }}
       long-timeout: ${{ steps.check.outputs.long-timeout }}

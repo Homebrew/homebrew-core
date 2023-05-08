@@ -4,6 +4,7 @@ class Nushell < Formula
   url "https://github.com/nushell/nushell/archive/0.79.0.tar.gz"
   sha256 "cbabc26ce509c672db943f3ac6d44d1e3efbafc3b5929411ac209afe14848ef7"
   license "MIT"
+  revision 1
   head "https://github.com/nushell/nushell.git", branch: "main"
 
   livecheck do
@@ -13,13 +14,13 @@ class Nushell < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "e228c97488b1e02c64819fdf0423332ce35737b69d28a58f6c41c63b0cd3f9b0"
-    sha256 cellar: :any,                 arm64_monterey: "0faa862792c6a8bcb0d89ffd66af3da1f3e906f45029348f160af9cd8e5772a7"
-    sha256 cellar: :any,                 arm64_big_sur:  "daf90a0b2b78d278edf1d588eac58d1c32674d41bb986c114634bb7282e2dca0"
-    sha256 cellar: :any,                 ventura:        "a4eafae968a0176b12c7feb7fcd94a38a73a359a42d7e5ce5522c83c237a05f2"
-    sha256 cellar: :any,                 monterey:       "7a7900ea23ca0c210b73383eda64199bac45804fa4509d2d6ce4449512d13a03"
-    sha256 cellar: :any,                 big_sur:        "40e8bc03760621182254cb277eaf1da0860d13d83a95b7ba67e2667374ddbcc8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "36869d8d78ea88b1c69dcc26d4e860e2a08023ff278c2cbb9c1ed9af8c888968"
+    sha256 cellar: :any,                 arm64_ventura:  "50cf7a00c864da78104c244cb81b9588f8b1249cb2575db0f7319211430fa8ac"
+    sha256 cellar: :any,                 arm64_monterey: "48222d6bd0fcc62dc9d0bf707737d064a194de291e6e06560b27f2950424fa51"
+    sha256 cellar: :any,                 arm64_big_sur:  "3e029f99711609ab065ef5ec214b9df1223ed67fdc66b5f9220db36595c60856"
+    sha256 cellar: :any,                 ventura:        "18523d29cd9d6957fe37fe46731756d30bf1e1ac7ca95799450700a189ec7de3"
+    sha256 cellar: :any,                 monterey:       "50e22b31f55d491ebccefad8877841660f654ae51cfa1e0e4dd600ada737d28d"
+    sha256 cellar: :any,                 big_sur:        "ef5e2e7b9be92bd0bb5c84636451ce0c786f3cfb152b325211879724b20c2550"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "06c33909fae91b4058a644f06aa2935abef2802eef11a2093fc60f5f31b22c6a"
   end
 
   depends_on "rust" => :build
@@ -34,7 +35,7 @@ class Nushell < Formula
   end
 
   def install
-    system "cargo", "install", "--features", "extra", *std_cargo_args
+    system "cargo", "install", "--features", "dataframe", *std_cargo_args
 
     buildpath.glob("crates/nu_plugin_*").each do |plugindir|
       next unless (plugindir/"Cargo.toml").exist?

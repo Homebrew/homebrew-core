@@ -7,6 +7,10 @@ class C2048 < Formula
   license "MIT"
   head "https://github.com/mevdschee/2048.c.git", branch: "main"
 
+  livecheck do
+    skip "No version information available"
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e42083282cbcd84c2806771527e8fd9c9204d2dd2d48c55b19eac81481d56fe9"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "aa6a9009c2300a5ecb2dcde91e5c416363d5293e2e166a715eb4792c33e188a2"

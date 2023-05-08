@@ -2,7 +2,7 @@ class Subversion < Formula
   desc "Version control system designed to be a better CVS"
   homepage "https://subversion.apache.org/"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   stable do
     url "https://www.apache.org/dyn/closer.lua?path=subversion/subversion-1.14.2.tar.bz2"
@@ -17,14 +17,13 @@ class Subversion < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 arm64_ventura:  "2a9a5e70f1fbaa17eeef6bb50376371c3a851b7a9a4b4603221c1fd14c54fc7f"
-    sha256 arm64_monterey: "da10671ff8bd10ab4032572c40963d60ddaa57feae1b6f09df6d9626bfd8496d"
-    sha256 arm64_big_sur:  "8944bdee4668b9750e8a1aa250eab73033ecbd1870d12e492637de25dd6251cc"
-    sha256 ventura:        "de4cc446ee4d782f3a1c44e078fd8644bbe321e6cbf275b7db78eed22a122448"
-    sha256 monterey:       "a29ab2cecb13316b6dc44e3ce0f9f3dc9bcc9484abaca2aac2984d1d89e2fc17"
-    sha256 big_sur:        "d24d68286d208a2294bf6e4e722aae60bed9574d827ca25354b12dccd8ef8ed7"
-    sha256 x86_64_linux:   "f3b735902067cdd7733ceac8310689236b4fe403205787bcbbc9ee7bced85968"
+    sha256 arm64_ventura:  "3bcbf68fa0d9ac280ccb8e4f99f3adfae51e03159375f9a423f1f85e2d1b2a7e"
+    sha256 arm64_monterey: "92228d98c4bb2dcbbe0330c18ec1fbf92489b55eb2656e1508405cc61b14f1c5"
+    sha256 arm64_big_sur:  "09a3d7a535e71aeddf74165fbda423616e398ce4802122f89ff0ff76a0768592"
+    sha256 ventura:        "275c55dd67ea3fdf79bb617c5e4a2f8d491208e16d4780a0b8cef4153c8ae8ad"
+    sha256 monterey:       "cb013b4827080de7a0c52f6419f1bef1b6e2e1e9e90e42965e18a60f8cd0ef47"
+    sha256 big_sur:        "5620a6783cbd9082a83a9ef2ccea7f53bdf7eb40e96a45b2f2dbaca0bde5dbb9"
+    sha256 x86_64_linux:   "e49be8ddb0ec7fab245f94c33aae7a8289613ab3e61dd9905f5cef53a959a9e8"
   end
 
   head do

@@ -1,19 +1,18 @@
 class Libjwt < Formula
   desc "JSON Web Token C library"
   homepage "https://github.com/benmcollins/libjwt"
-  url "https://github.com/benmcollins/libjwt/releases/download/v1.15.2/libjwt-1.15.2.tar.gz"
-  sha256 "787c9fa6ad0b542980b78517173e06c68d04c7e1d2f7ae91caf125951cb242e2"
+  url "https://github.com/benmcollins/libjwt/releases/download/v1.15.3/libjwt-1.15.3.tar.gz"
+  sha256 "6775095bcd417d375faddc1f17cdd7706ad8aa9b9b02404990c4b0ee218ee379"
   license "MPL-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "671566bd4853fccc55bce01897f5ba50b96e99af507595650735997235eee6cf"
-    sha256 cellar: :any,                 arm64_monterey: "3cdd891f9b77b16dfe5fe3e33d21bb6cef6871a7d4e61d38212af30748bdf71a"
-    sha256 cellar: :any,                 arm64_big_sur:  "78c42d88ed939f07f1a0dcec5d02700bf3216549fd580dcebfdc9715ff6bf538"
-    sha256 cellar: :any,                 ventura:        "b21ccbe1d31add80d9c1284d246f3bf7dacbfded9c7d64ffb37a58a257090372"
-    sha256 cellar: :any,                 monterey:       "9ec0adfcbf694aa8f51d5c82b4bcd47e1a1bdf814e56c4caa8c4418d08182aee"
-    sha256 cellar: :any,                 big_sur:        "c017f3f8d42d2f97e2c8503e036b312e89e14f1858c4d9a63fcac198ad3db557"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "264745cd986ae67a0a6cf48c4da86e0906ec410afdd8c3b58602f9931fa22193"
+    sha256 cellar: :any,                 arm64_ventura:  "f0dab7b04493c0e5153fc17a0b672dd323321c9bdb49ec9daaa512c4bb432e98"
+    sha256 cellar: :any,                 arm64_monterey: "42d06ded1180f824db3a490a5c343941a2703931361bec1bf49b5d2a35d8bbb8"
+    sha256 cellar: :any,                 arm64_big_sur:  "4cfaf8c62ff186564b62a8498d3c39866ad17f0710e9ea4a97002fedea1a2c93"
+    sha256 cellar: :any,                 ventura:        "3f2d008733adee0ef2a972b8bc0ed4871826eb53c3c43074f7e31a9451bf48d7"
+    sha256 cellar: :any,                 monterey:       "e7eb0838d2020ec1ad60092c67396054ce2b9db5fba1eb6ea1b15c255dd41fd8"
+    sha256 cellar: :any,                 big_sur:        "97357f9ffb6e1e8c16eb2cec37e9657d70a67a014be3ce727533a65607d54227"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0d71ab6776202034f9e1e9323e520762af18d901c572105d231665a3df34a837"
   end
 
   head do

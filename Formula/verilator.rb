@@ -7,13 +7,14 @@ class Verilator < Formula
   head "https://github.com/verilator/verilator.git", branch: "master"
 
   bottle do
-    sha256 arm64_ventura:  "dc55e6bf368d49b4a7d74724d40cf391c6b5851c990eb09038b3bf1c5ca4b5f2"
-    sha256 arm64_monterey: "cab7366ce717706d1f2d7561d7f3d33aeeb8b6970d8935705d6ea5887ebc4903"
-    sha256 arm64_big_sur:  "8e8592064ed92f1ef2ae1366d4b7d5d4577ee9ed9a17e904b3d552968094c3fd"
-    sha256 ventura:        "b0005019a659e484ed1764e7409193a433fb37238afb03f1474b0a58136b80a9"
-    sha256 monterey:       "dfbfb7e4fad62af9d10c2dd04899415e76b4a024f3478bea5354cb165b7b17ab"
-    sha256 big_sur:        "9e5217141d3bc5b9dbcbeaaa3e50eb8f2424a800bfeefa3f39e900eaa7aa3e4d"
-    sha256 x86_64_linux:   "c1f7bd3051e2f0da6ffab35981d45ba0c2e7731a5c99b61097425cd266ca1f5c"
+    rebuild 1
+    sha256 arm64_ventura:  "3a1c4cda58ea2ee8c3b763a9202f5112f819c228ec76139a7e9435f5aad9c3e0"
+    sha256 arm64_monterey: "96c1bdf44d72f1184e7e01e2e184f11103ab93b3da74a75edfd60a81c28d0699"
+    sha256 arm64_big_sur:  "18395654d07e9dd8b503cca3c69ddade45c52317a2e2a1c1cf1dfb96eb587a1c"
+    sha256 ventura:        "b4f9b946bde9be75abd527c0395544b73ad7db8b6092eca8626ca76925d40e30"
+    sha256 monterey:       "b47286cc3c1ed2a8b549e7badaf764bf138aade042e4bb97643d04a3940fd4de"
+    sha256 big_sur:        "3c6bc909344d5778f65ff4d4a769c69b7298e154efc86acb29877f997fd47ca9"
+    sha256 x86_64_linux:   "932cc156cb8845ea254cf843b64f0f4468f83b9cc08ad7246cc302959d1c80fd"
   end
 
   depends_on "autoconf" => :build
@@ -36,6 +37,14 @@ class Verilator < Formula
     # `make` and `make install` need to be separate for parallel builds
     system "make"
     system "make", "install"
+
+    # Avoid hardcoding build-time references that may not be valid at runtime.
+    inreplace pkgshare/"include/verilated.mk" do |s|
+      s.change_make_var! "CXX", "c++"
+      s.change_make_var! "LINK", "c++"
+      s.change_make_var! "PERL", "perl"
+      s.change_make_var! "PYTHON3", "python3"
+    end
   end
 
   test do

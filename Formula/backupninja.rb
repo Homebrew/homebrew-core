@@ -1,25 +1,23 @@
 class Backupninja < Formula
   desc "Backup automation tool"
-  homepage "https://0xacab.org/riseuplabs/backupninja"
-  url "https://sourcearchive.raspbian.org/main/b/backupninja/backupninja_1.2.1.orig.tar.gz"
-  mirror "https://debian.ethz.ch/ubuntu/ubuntu/pool/universe/b/backupninja/backupninja_1.2.1.orig.tar.gz"
-  sha256 "833277d36993ddf684b164b581a504b38bbcff16221e416428c90aaf63ed85d4"
-  license "GPL-2.0"
+  homepage "https://0xacab.org/liberate/backupninja"
+  url "https://0xacab.org/liberate/backupninja/-/archive/backupninja_upstream/1.2.2/backupninja-backupninja_upstream-1.2.2.tar.gz"
+  sha256 "93ddc72f085d46145b289d35dac1d72e998c15bec1833db78e474b53c9768774"
+  license "GPL-2.0-or-later"
 
   livecheck do
-    url "https://sourcearchive.raspbian.org/main/b/backupninja/"
-    regex(/href=.*?backupninja[._-]v?(\d+(?:\.\d+)+)\.orig\.t/i)
+    url "https://0xacab.org/liberate/backupninja/-/tags"
+    regex(/href=.*?backupninja[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c8f559e4cb9deca4861b7beff6083a5da8d70597d99b4ec6d2c447e57d5331c6"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c8f559e4cb9deca4861b7beff6083a5da8d70597d99b4ec6d2c447e57d5331c6"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c8f559e4cb9deca4861b7beff6083a5da8d70597d99b4ec6d2c447e57d5331c6"
-    sha256 cellar: :any_skip_relocation, ventura:        "3e0f3c562e13469570fa3852a72b05745f4ebc4154e306fdf152d33d3b79c0a5"
-    sha256 cellar: :any_skip_relocation, monterey:       "3e0f3c562e13469570fa3852a72b05745f4ebc4154e306fdf152d33d3b79c0a5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3e0f3c562e13469570fa3852a72b05745f4ebc4154e306fdf152d33d3b79c0a5"
-    sha256 cellar: :any_skip_relocation, catalina:       "3e0f3c562e13469570fa3852a72b05745f4ebc4154e306fdf152d33d3b79c0a5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c8f559e4cb9deca4861b7beff6083a5da8d70597d99b4ec6d2c447e57d5331c6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3ce80b2e23b07df75d4d11651c7c819c27ab5673189114aa72da8f28f96e2732"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3ce80b2e23b07df75d4d11651c7c819c27ab5673189114aa72da8f28f96e2732"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3ce80b2e23b07df75d4d11651c7c819c27ab5673189114aa72da8f28f96e2732"
+    sha256 cellar: :any_skip_relocation, ventura:        "36e98005281874b8a396b799357be9631e3a698e433fbe26ff4812711ae487a5"
+    sha256 cellar: :any_skip_relocation, monterey:       "36e98005281874b8a396b799357be9631e3a698e433fbe26ff4812711ae487a5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "36e98005281874b8a396b799357be9631e3a698e433fbe26ff4812711ae487a5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "00f801dcd347b92d24d6f2dca281b464e6c627d62003dacf6d74a9595c2c4a0d"
   end
 
   depends_on "bash"
@@ -29,8 +27,8 @@ class Backupninja < Formula
   skip_clean "etc/backup.d"
 
   def install
-    system "./configure", "--disable-silent-rules",
-                          "--prefix=#{prefix}",
+    system "./configure", *std_configure_args,
+                          "--disable-silent-rules",
                           "--sysconfdir=#{etc}",
                           "--localstatedir=#{var}",
                           "BASH=#{Formula["bash"].opt_bin}/bash"

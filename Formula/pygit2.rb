@@ -1,19 +1,19 @@
 class Pygit2 < Formula
   desc "Bindings to the libgit2 shared library"
   homepage "https://github.com/libgit2/pygit2"
-  url "https://files.pythonhosted.org/packages/7f/00/075f21ae474fcef679ba1f71b9ecd534493792b508b1919021fb2be67eba/pygit2-1.12.0.tar.gz"
-  sha256 "e9440d08665e35278989939590a53f37a938eada4f9446844930aa2ee30d73be"
+  url "https://files.pythonhosted.org/packages/48/6b/1c20d9adf9906e699bdb505322b27c71e12d7250d8454ae88dcecdf10296/pygit2-1.12.1.tar.gz"
+  sha256 "8218922abedc88a65d5092308d533ca4c4ed634aec86a3493d3bdf1a25aeeff3"
   license "GPL-2.0-only" => { with: "GCC-exception-2.0" }
   head "https://github.com/libgit2/pygit2.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "b2b96dcbe80938a2382dadfb4ed9cd1649c35528726bf39c7b367dbe5112e568"
-    sha256 cellar: :any,                 arm64_monterey: "05c60afd25b816156104f00894705815cd6426537cb4f086dbfae82933c36d7f"
-    sha256 cellar: :any,                 arm64_big_sur:  "fd617c0c992d48c8d76da8569cd6ba7cc6dc0dc057f79aed317499761893da98"
-    sha256 cellar: :any,                 ventura:        "32820e2afdc3ff8d1d9977aedb2d5db01ea5d4ead43466815bde73013c238db3"
-    sha256 cellar: :any,                 monterey:       "885096ae148dd74f628ef65abf3d0ad9253dd78a5fc46d808fb813ee0f86b8b8"
-    sha256 cellar: :any,                 big_sur:        "606f25eabf149ad5929e1e3362d0e0eff9934a119323b2938a43288fd43e29e3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bfacdf57f9dca19a6defcdbe9367ef6cb160c98a75bfe852e3be1c3a59b0d665"
+    sha256 cellar: :any,                 arm64_ventura:  "15e55049b89b3b7212d98d8f097d4e9c47a22fd9b89b25de852c9d263078bb57"
+    sha256 cellar: :any,                 arm64_monterey: "62b29d6296c928aa758cb7c470d85923b815078d8bbfab443e7fa756fcd89a4d"
+    sha256 cellar: :any,                 arm64_big_sur:  "b6952ca08e0838388028f10f26193bbeabf063ee30ae7a2b2e991f3a9434ae96"
+    sha256 cellar: :any,                 ventura:        "930abb3ed0e772042caebf23be133d4a9464aea4f0e4c58c8becf141a1bfc7e8"
+    sha256 cellar: :any,                 monterey:       "6ef228c24296c7d08926ce05cdadb2664f5c71dacc81df498d59fb54b4dccfe8"
+    sha256 cellar: :any,                 big_sur:        "65c20ba4d1e18a85fcd087f0f3feaad5c0599e6a25fc74bd7b4e62fc4d7a25a7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0dfade523e3bf42761a6e26e5fb94b3bf2acb3699d70ee9dca7f1cf9489eab36"
   end
 
   depends_on "cffi"

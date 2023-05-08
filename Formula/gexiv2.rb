@@ -1,20 +1,18 @@
 class Gexiv2 < Formula
   desc "GObject wrapper around the Exiv2 photo metadata library"
   homepage "https://wiki.gnome.org/Projects/gexiv2"
-  url "https://download.gnome.org/sources/gexiv2/0.14/gexiv2-0.14.0.tar.xz"
-  sha256 "e58279a6ff20b6f64fa499615da5e9b57cf65ba7850b72fafdf17221a9d6d69e"
+  url "https://download.gnome.org/sources/gexiv2/0.14/gexiv2-0.14.1.tar.xz"
+  sha256 "ec3ee3ec3860b9c78958a55da89cf76ae2305848e12f41945b7b52124d8f6cf9"
   license "GPL-2.0-or-later"
-  revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_ventura:  "4acc296cbfbf2c39288b0bb622910e5e2f03ca0ad68e5d5f3af4fb503ae5bf68"
-    sha256 cellar: :any, arm64_monterey: "b6300eb15acf22cac3466956e449484911db0f9b67427829504216dcf39514f0"
-    sha256 cellar: :any, arm64_big_sur:  "a0506d0841fd0ce639b3a25d6f4fb4f822c9380cb79cc144b91f007249abe702"
-    sha256 cellar: :any, ventura:        "f5329234f64886acb9aad2e3fdbf01b774c6ae2b7a9f18cf88cfa3a57ad721da"
-    sha256 cellar: :any, monterey:       "5a8be246495cd20807578417ecbd8d9d758e234f1bd441e23acc1f52606eb2b4"
-    sha256 cellar: :any, big_sur:        "0a57239cb2d1492d0769602ce43b1b847bf0609443fe8666cf7ebd1e64bdc779"
-    sha256               x86_64_linux:   "d23162496ce910b7d2f4cd2f1e5721b75cd4346e5f6c77235ae549820a338164"
+    sha256 cellar: :any, arm64_ventura:  "0ad8f1ab36aba81270108f1e0efd0f1cbf52071e8728dfd3c84e4ff6d290ec6f"
+    sha256 cellar: :any, arm64_monterey: "4956e81fab4afe0d14d499c5ff1b9426f98a8333e5f3a53851f09101d55c845a"
+    sha256 cellar: :any, arm64_big_sur:  "a6d044f982057d83aa4d897ced3b05df07235ab0d588a5b828806df89a1b5eea"
+    sha256 cellar: :any, ventura:        "a3258b5851f29bfe3fe07a6bdc411da5f82e662f9bd11e4d55f2f39dd747490f"
+    sha256 cellar: :any, monterey:       "c0f322b7db018e2d59cc805b9c324310f9a9463edee5cf48f23d8ae114c8f5d3"
+    sha256 cellar: :any, big_sur:        "95ac2d7d2cf9412107765bd9b932fc8cbe54b21d01569423fb450b3d50e7ad01"
+    sha256               x86_64_linux:   "328c1222b8af6349b919fc13253e390cf3b8ee51aeb37d7db52e8a53094e2e17"
   end
 
   depends_on "gobject-introspection" => :build
@@ -28,9 +26,8 @@ class Gexiv2 < Formula
   depends_on "glib"
 
   def install
-    site_packages = prefix/Language::Python.site_packages("python3.11")
-
-    system "meson", *std_meson_args, "build", "-Dpython3_girdir=#{site_packages}/gi/overrides"
+    # Update to use c++17 when `exiv2` is updated to use c++17
+    system "meson", *std_meson_args, "build", "-Dcpp_std=c++11"
     system "meson", "compile", "-C", "build", "-v"
     system "meson", "install", "-C", "build"
   end

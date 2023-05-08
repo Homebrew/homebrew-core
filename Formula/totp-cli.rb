@@ -1,19 +1,19 @@
 class TotpCli < Formula
   desc "Authy/Google Authenticator like TOTP CLI tool written in Go"
   homepage "https://yitsushi.github.io/totp-cli/"
-  url "https://github.com/yitsushi/totp-cli/archive/v1.3.1.tar.gz"
-  sha256 "b0e13d073717ac220b4000de0fefe01d48aaeea703887fd47c6d83eb7e0f4462"
+  url "https://github.com/yitsushi/totp-cli/archive/v1.3.3.tar.gz"
+  sha256 "089e8e5cf8666a52e1318cc640d8885910593840d8965bd3d445ff7bede6be8c"
   license "MIT"
   head "https://github.com/yitsushi/totp-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fbf99c1bb1c7017d973c62c6256b5c9d0cecb78116772d793f2041ce849e36c2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "fbf99c1bb1c7017d973c62c6256b5c9d0cecb78116772d793f2041ce849e36c2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fbf99c1bb1c7017d973c62c6256b5c9d0cecb78116772d793f2041ce849e36c2"
-    sha256 cellar: :any_skip_relocation, ventura:        "d6a7856f1603c19e3fcef51e3b1a49fec3802b9a14d7363d6c057244f5e45026"
-    sha256 cellar: :any_skip_relocation, monterey:       "d6a7856f1603c19e3fcef51e3b1a49fec3802b9a14d7363d6c057244f5e45026"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d6a7856f1603c19e3fcef51e3b1a49fec3802b9a14d7363d6c057244f5e45026"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6300169c633f0981c1db2dbfe054e53e9860833b72b664e0b151872276b96ed5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "81c57fed7a750a9b0d32b6a6649b0048b71b167036893a54b9e6dcd6af4cafea"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "81c57fed7a750a9b0d32b6a6649b0048b71b167036893a54b9e6dcd6af4cafea"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "81c57fed7a750a9b0d32b6a6649b0048b71b167036893a54b9e6dcd6af4cafea"
+    sha256 cellar: :any_skip_relocation, ventura:        "887f5cbb5855606f7d020c44c44118835492f832b8e984bdb98ece7557a741c3"
+    sha256 cellar: :any_skip_relocation, monterey:       "887f5cbb5855606f7d020c44c44118835492f832b8e984bdb98ece7557a741c3"
+    sha256 cellar: :any_skip_relocation, big_sur:        "887f5cbb5855606f7d020c44c44118835492f832b8e984bdb98ece7557a741c3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3f0d747e1ecdcb1b56896b608aff1b019a554799ce75bb0268a34d53d30030b1"
   end
 
   depends_on "go" => :build

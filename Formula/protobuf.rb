@@ -21,14 +21,14 @@ class Protobuf < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_ventura:  "09fdc2fccabd91f0d73ffd8226103dac311967d5ebad48b84ea1fd6a6cbb78eb"
-    sha256 cellar: :any,                 arm64_monterey: "c4c1fdb19df1fbb57cad3b625133b3f2fe6b35247ac95ebfef9b0e029224eaa6"
-    sha256 cellar: :any,                 arm64_big_sur:  "d01fc51afbb4217d6e2631af2a31723998e1f1c17c3e08d5c3650e3bf25ceb3a"
-    sha256 cellar: :any,                 ventura:        "a9ff1abd6d7cb46a2b6e4e57104eec1e37649fd67b8c7cb5e404408a8b707ac6"
-    sha256 cellar: :any,                 monterey:       "577987b80fc473c72bdada210d6097f66385cf1d5b685c58b7532cff2aa6b499"
-    sha256 cellar: :any,                 big_sur:        "919e2c99d9378da69ff8ea0a293787e5111cac258d58397901578d3c7b59db17"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1b816d47da681c53338553ca2deb18c647539d66a8dcfac8afc92bafcc285428"
+    rebuild 3
+    sha256 cellar: :any,                 arm64_ventura:  "1f239e8ef2f5a5e28123ab34e9d8fb909f7a0495f296a7fbdd734751afb5150b"
+    sha256 cellar: :any,                 arm64_monterey: "8cf9ff7c773a6bcf16a18328c5337d0488795b292d24bdc3e2d7d3313d988c27"
+    sha256 cellar: :any,                 arm64_big_sur:  "dbbfa2c402ab0551e6d7adc70be7e600e44b104db1453a8d9031bb7045ff6193"
+    sha256 cellar: :any,                 ventura:        "a36fb3face5989e81d7385f7e6099dcf21a6f3aa85bab22d7427849f36484a31"
+    sha256 cellar: :any,                 monterey:       "0443caf078d379396097e5f9786dab3da5b925fb5ec02da68e5383fda7dcc155"
+    sha256 cellar: :any,                 big_sur:        "6ac6c0e00be578a155a05cdce3c9afc206e7b2a418c61ec9caa80ceb2d61f8c6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b915e53de62350858e1aa087cbf753a01655704b1e2991ec8098fc4c017be9f7"
   end
 
   depends_on "cmake" => :build
@@ -72,6 +72,7 @@ class Protobuf < Formula
 
     system "cmake", "-S", ".", "-B", "static",
                     "-Dprotobuf_BUILD_SHARED_LIBS=OFF",
+                    "-DCMAKE_POSITION_INDEPENDENT_CODE=ON",
                     "-DWITH_PROTOC=#{bin}/protoc",
                     *cmake_args
     system "cmake", "--build", "static"

@@ -19,7 +19,7 @@ class Statik < Formula
   end
 
   # pystache requirement sets use_2to3 which was removed in setuptools 58.
-  deprecate! date: "2022-08-09", because: :does_not_build
+  disable! date: "2023-05-07", because: :does_not_build
 
   depends_on "libpq"
   depends_on "python@3.9"

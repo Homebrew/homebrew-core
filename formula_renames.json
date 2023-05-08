@@ -138,6 +138,7 @@
   "prest": "prestd",
   "presto": "prestodb",
   "prestosql": "trino",
+  "prql-compiler": "prqlc",
   "pyqt5": "pyqt@5",
   "qt5": "qt@5",
   "racket": "minimal-racket",
