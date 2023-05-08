@@ -10,7 +10,7 @@ class Quantumxx < Formula
     strategy :github_latest
   end
 
-  depends_on "cmake" => :build
+  depends_on "cmake" => [:build, :test]
   depends_on "eigen"
 
   def install
