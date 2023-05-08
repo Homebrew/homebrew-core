@@ -28,7 +28,7 @@ class Ueberzugpp < Formula
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
-    bin.install "build/ueberzug" => "ueberzugpp"
+    bin.install_symlink "ueberzug" => "ueberzugpp"
   end
 
   test do
