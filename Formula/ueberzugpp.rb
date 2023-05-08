@@ -32,6 +32,7 @@ class Ueberzugpp < Formula
   end
 
   test do
+    ENV["TMPDIR"] = testpath
     master, slave = PTY.open
     read, write = IO.pipe
     pid = spawn("#{bin}/ueberzugpp layer -o iterm2", :in=>read, :out=>slave)
