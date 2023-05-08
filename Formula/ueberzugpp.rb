@@ -1,3 +1,6 @@
+require 'pty'
+require 'tmpdir'
+
 class Ueberzugpp < Formula
   desc "Drop in replacement for ueberzug written in C++"
   homepage "https://github.com/jstkdng/ueberzugpp"
@@ -20,14 +23,26 @@ class Ueberzugpp < Formula
 
   def install
     system "cmake", "-S", ".", "-B", "build",
-      *std_cmake_args, "-Wno-dev",
-      "-DENABLE_X11=OFF", "-DENABLE_OPENCV=OFF"
+                    "-DENABLE_X11=OFF",
+                    "-DENABLE_OPENCV=OFF",
+                    *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
     bin.install "build/ueberzug" => "ueberzugpp"
   end
 
   test do
-    system "#{bin}/ueberzugpp", "-V"
+    master, slave = PTY.open
+    read, write = IO.pipe
+    pid = spawn("#{bin}/ueberzugpp layer -o iterm2", :in=>read, :out=>slave)
+    sleep(0.1)
+    read.close
+    slave.close
+    Process.kill('TERM', pid)
+
+    temp = Dir.tmpdir()
+    File.readlines("#{temp}/ueberzugpp-#{ENV["USER"]}.log").each do |line|
+      puts(line)
+    end
   end
 end
