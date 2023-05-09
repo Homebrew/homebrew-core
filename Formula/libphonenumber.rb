@@ -2,10 +2,9 @@ class Libphonenumber < Formula
   desc "C++ Phone Number library by Google"
   homepage "https://github.com/google/libphonenumber"
   # TODO: Check if we can use unversioned `protobuf` at version bump
-  url "https://github.com/google/libphonenumber/archive/v8.13.13.tar.gz"
-  sha256 "5722d25b41ef621849f765121233dcedeb4bca7df87355a21053f893ba7a9a69"
+  url "https://github.com/google/libphonenumber/archive/v8.13.14.tar.gz"
+  sha256 "65aa0c7d6da4b070794fb1d7d34f7322e613708c3f10ddd90fe3725e049f1fb0"
   license "Apache-2.0"
-  revision 2
 
   livecheck do
     url :stable
