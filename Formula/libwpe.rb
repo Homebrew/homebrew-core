@@ -6,6 +6,11 @@ class Libwpe < Formula
   license "BSD-2-Clause"
   head "https://github.com/WebPlatformForEmbedded/libwpe.git", branch: "master"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, x86_64_linux: "7f69a6299280b9afffd0a13f2bbe1eeab9fb654d867ae33733adefe3a0e381f9"
   end

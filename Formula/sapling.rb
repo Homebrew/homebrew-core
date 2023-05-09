@@ -9,7 +9,7 @@ class Sapling < Formula
 
   livecheck do
     url :stable
-    regex(%r{href=["']?[^"' >]*?/tag/([^"' >]+?)["' >]}i)
+    regex(/^v?(\d+(?:[.-]\d+)+[+-]\h+)$/i)
     strategy :github_latest
   end
 

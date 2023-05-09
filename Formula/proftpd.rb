@@ -12,7 +12,7 @@ class Proftpd < Formula
   # beta respectively. Prerelease versions use a format like `1.2.3rc1`.
   livecheck do
     url :stable
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+[a-z]?)["' >]}i)
+    regex(/v?(\d+(?:\.\d+)+[a-z]?)/i)
     strategy :github_latest
   end
 

@@ -20,7 +20,7 @@ class Augeas < Formula
 
   livecheck do
     url :stable
-    regex(%r{href=["']?[^"' >]*?/tag/\D*?(\d+(?:\.\d+)+)["' >]}i)
+    regex(/\D*?(\d+(?:\.\d+)+)/i)
     strategy :github_latest
   end
 

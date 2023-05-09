@@ -1,8 +1,8 @@
 class Qbs < Formula
   desc "Build tool for developing projects across multiple platforms"
   homepage "https://wiki.qt.io/Qbs"
-  url "https://download.qt.io/official_releases/qbs/2.0.0/qbs-src-2.0.0.tar.gz"
-  sha256 "d78555691ea732949346860e56f68c7c44e9384011359722b032a49b52dfccfd"
+  url "https://download.qt.io/official_releases/qbs/2.0.1/qbs-src-2.0.1.tar.gz"
+  sha256 "475a170fc4a117c2a93b30356f3c884eb73059b2cb06fed9f090a5f679aa5555"
   license :cannot_represent
   head "https://code.qt.io/qbs/qbs.git", branch: "master"
 
@@ -12,23 +12,23 @@ class Qbs < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "18d2fbd79783a3ba44d4447edffdc6fe7616137b36f5bc88a0e2cf6b4e4cc390"
-    sha256 cellar: :any,                 arm64_monterey: "e73d01152f0ceedf382cdd76362f9c042d6cfaf18020a3be643f60350539c446"
-    sha256 cellar: :any,                 arm64_big_sur:  "bbc4bed754f479d535ebef992c10efee77ed5138f2d85577cafe88e8746799ac"
-    sha256 cellar: :any,                 ventura:        "32d62ed2dcd5ad235a30d50a0641e09dff7ead681c01f21156dbae54e940aa86"
-    sha256 cellar: :any,                 monterey:       "67247217f821318fedcae83bd973c2ece4a83834206fe6536c0f968dc5e7d0a8"
-    sha256 cellar: :any,                 big_sur:        "a45cccc55f10b4522391b5b836f2687886516a82047ab3c990a1e49f689daf14"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ced3c8a4949c0123cd21fa5c9cbd4515eb1befdae06df9a77ab75c18dc857762"
+    sha256 cellar: :any,                 arm64_ventura:  "ddffb52b4417d93db9e9b64d9e5162b552e9057f55a07dfe277ba722936b0b01"
+    sha256 cellar: :any,                 arm64_monterey: "f49f5cec2a71308d379a9c2187223d2c196df8a846797a8cb8a1d2f5d6227343"
+    sha256 cellar: :any,                 arm64_big_sur:  "63afc02ca094e8e50f9c30312457aa7e615da9a4667152c4bf3a1d479cd81bff"
+    sha256                               ventura:        "3cf228abbd3489f67239d139b699684f19f66f9b9108845cc0cd35c6a29bd261"
+    sha256                               monterey:       "adfe5878e0cf05b624f3dee18af7fd71cea3baf6e32cbb59b06c47784150b6a9"
+    sha256                               big_sur:        "b34e41f31b10ab6f91757f79b2ff7d5d96e46bfc314be8168cf76b4484263da2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0e835374a96be2d53675949ac41ad2cc12a7d68ff196e25d1a2808822ea35bb4"
   end
 
   depends_on "cmake" => :build
-  depends_on "qt@5"
+  depends_on "qt"
 
   fails_with gcc: "5"
 
   def install
-    qt5 = Formula["qt@5"].opt_prefix
-    system "cmake", ".", "-DQt5_DIR=#{qt5}/lib/cmake/Qt5", "-DQBS_ENABLE_RPATH=NO",
+    qt = Formula["qt"].opt_prefix
+    system "cmake", ".", "-DQt6_DIR=#{qt}/lib/cmake/Qt6", "-DQBS_ENABLE_RPATH=NO",
                          *std_cmake_args
     system "cmake", "--build", "."
     system "cmake", "--install", "."

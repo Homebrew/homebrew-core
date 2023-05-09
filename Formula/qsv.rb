@@ -1,22 +1,26 @@
 class Qsv < Formula
   desc "Ultra-fast CSV data-wrangling toolkit"
   homepage "https://github.com/jqnatividad/qsv"
-  url "https://github.com/jqnatividad/qsv/archive/refs/tags/0.101.0.tar.gz"
-  sha256 "fcdf757ea71939cd4774b7e94d126ff1d4340c34bd8c96060624357d26788b0a"
+  url "https://github.com/jqnatividad/qsv/archive/refs/tags/0.102.0.tar.gz"
+  sha256 "f75265ee44473ad5ff287e5009f818d3ef06702fe4b238b1ea3eea3d973a5166"
   license any_of: ["MIT", "Unlicense"]
   head "https://github.com/jqnatividad/qsv.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7686f721da5b83b65fa75c0fc8fd93dca7788a0b323053fa056ab2988370e5a6"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2c32df5e9e6eceb6ea38a35b364dd3e7e6e3713885c511274e9bf4295c8ba1ef"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e5e8a933ae91a7e86f019ef29787bc5639b79961113313f0ca9e40f0a5d14455"
-    sha256 cellar: :any_skip_relocation, ventura:        "e91b7f766c99aec6b605f63e3ec36b819f64a7f8218f7ee58531132743e8cf69"
-    sha256 cellar: :any_skip_relocation, monterey:       "01dbd564a621a001f90d551e5d755d73a580bf1c116bfa58ace5ff2ddff82462"
-    sha256 cellar: :any_skip_relocation, big_sur:        "23af1e25c173c0c5aa98423b8bddbc8c7a32cca61147f12987d66fce830fc459"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2b862f00d1e5d75961ed0e05184d2525440f3de63fd5a0fd2591a8c9f8b318f0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dc67bbe364cb153816226069d8dbef557ae163be815464032e2bbc2d512b8572"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6e9c62a29004bdecc780e9ebe5fc82e87d6caeb1514727e56c4905a2a0fe548a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6928ddfd0e925ad1b64366ad4f3a2897b1332e717cfeb67f19c4c8f203f53bd0"
+    sha256 cellar: :any_skip_relocation, ventura:        "690cb661a8d77a69204313b148338380e1fd129ef6c3bc9c269819760388bdfc"
+    sha256 cellar: :any_skip_relocation, monterey:       "1a44310211980b33ea87ed31d9709a7b8c70e9e7edfc3d5fb084a6949f2f58a9"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f600575de55483620b3484bfa02f73741f56dd8ad8f09652cd77780c4ff3e9ba"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0daed3c0d4a2ee8d023c3d677e5dc782361bd41f63cc4b33075a652794c14b9e"
   end
 
   depends_on "rust" => :build
+
+  on_linux do
+    depends_on "libmagic"
+  end
 
   def install
     system "cargo", "install", *std_cargo_args, "--features", "apply,luau,feature_capable"

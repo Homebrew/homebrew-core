@@ -7,7 +7,7 @@ class Heimdal < Formula
 
   livecheck do
     url :stable
-    regex(%r{href=.*?/tag/heimdal[._-]v?(\d+(?:\.\d+)+)["' >]}i)
+    regex(/heimdal[._-]v?(\d+(?:\.\d+)+)/i)
     strategy :github_latest
   end
 

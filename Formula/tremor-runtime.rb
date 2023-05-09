@@ -7,23 +7,29 @@ class TremorRuntime < Formula
   head "https://github.com/tremor-rs/tremor-runtime.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "96864c51d8cade85a5f41fa383e58b2536291ccd548e30f429dd331744c8c6b1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b0d58f90918cf00d4adca64e53935ba29e5c0fb0ff08d6f2a6ce8ebc8bc6df12"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6f8c977361698fecc8d63b749f54ebdd482c82af98ca72b3678e365e74c5a54a"
-    sha256 cellar: :any_skip_relocation, ventura:        "56253e033b958ad4d7d0e8e3ae4f38e02379c4e8c073ce83700a282b9c6d504e"
-    sha256 cellar: :any_skip_relocation, monterey:       "53fdb05b8cd063bc63223cde126aa0ec5452c69fcd7b94ccd1afac215912e396"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7383fe3a97615a0723f4726f66c3d399ee62dbd5d48e63fe49fa4a8a3734a344"
-    sha256 cellar: :any_skip_relocation, catalina:       "049f89157dadffbe38688c1b60a422f1befccd6ab1625cc7bb5a9a9345ed330c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "12c9d851db248e68c21e1a0f016d1c18ce965d39be48a17bf3420ffe860c4977"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_ventura:  "efa5826b0b470f692379f07d5d1303ceb0fbf1dd8d5062185042461bcd390a71"
+    sha256 cellar: :any,                 arm64_monterey: "4f373f2849cdb89dedf4edd77ba6742ecd4963cfcc104227ac54485822befe69"
+    sha256 cellar: :any,                 arm64_big_sur:  "37a3edd0351331d3bdc1bebe3337cd37000cff71819d3345a748613a93cedb4a"
+    sha256 cellar: :any,                 ventura:        "48cf6ebc8f669c2e4e888483b1bf798c736335efc1d94929238eb52b9b912fb9"
+    sha256 cellar: :any,                 monterey:       "7764dfa50f3ceaa361799ea9f576e77f9d809a9bbc541688f331e605ade4109d"
+    sha256 cellar: :any,                 big_sur:        "a6ab5749ffcfefc98be00158795203b8b99f17fee2c0c6985ee404082454ffb0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "df88e4137f9eb13a7f8c26324f7e97031335464d8505448131a8c6f1542352ac"
   end
 
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
   depends_on "rust" => :build
+  depends_on "librdkafka"
+  depends_on "oniguruma"
+  depends_on "xz" # for liblzma
 
   on_linux do
-    depends_on "pkg-config" => :build
-    depends_on "llvm"
+    # Use `llvm@15` to work around build failure with Clang 16 described in
+    # https://github.com/rust-lang/rust-bindgen/issues/2312.
+    # TODO: Switch back to `uses_from_macos "llvm" => :build` when `bindgen` is
+    # updated to 0.62.0 or newer. There is a check in the `install` method.
+    depends_on "llvm@15" => :build
     depends_on "openssl@1.1"
   end
 
@@ -33,7 +39,26 @@ class TremorRuntime < Formula
   fails_with gcc: "7"
   fails_with gcc: "8"
 
+  # Fix invalid usage of `macro_export`.
+  # Remove on next release.
+  patch do
+    url "https://github.com/tremor-rs/tremor-runtime/commit/986fae5cf1022790e60175125b848dc84f67214f.patch?full_index=1"
+    sha256 "ff772097264185213cbea09addbcdacc017eda4f90c97d0dad36b0156e3e9dbc"
+  end
+
   def install
+    ENV["CARGO_FEATURE_DYNAMIC_LINKING"] = "1" # for librdkafka
+    ENV["RUSTONIG_DYNAMIC_LIBONIG"] = "1"
+
+    bindgen_version = Version.new(
+      (buildpath/"Cargo.lock").read
+                              .match(/name = "bindgen"\nversion = "(.*)"/)[1],
+    )
+    if bindgen_version >= "0.62.0"
+      odie "`bindgen` crate is updated to 0.62.0 or newer! Please remove " \
+           'this check and try switching to `uses_from_macos "llvm" => :build`.'
+    end
+
     inreplace ".cargo/config", "+avx,+avx2,", ""
 
     system "cargo", "install", *std_cargo_args(path: "tremor-cli")

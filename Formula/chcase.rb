@@ -9,10 +9,6 @@ class Chcase < Formula
     sha256 cellar: :any_skip_relocation, all: "c1ac32a52434724c8df47fe8ba642f69f58b55c8df2dd3a5a8bc62b4cdb07758"
   end
 
-  # Homepage is gone. No meaningful updates since the
-  # formula was added in 2010.
-  deprecate! date: "2023-05-05", because: :unmaintained
-
   # add a shebang so that brew properly sets it executable
   patch :DATA
 

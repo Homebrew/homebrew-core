@@ -31,10 +31,10 @@ jobs:
       pull-requests: read # for `gh api`
     steps:
       - name: Download `pull-number` artifact
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          WORKFLOW_ID: ${{ github.event.workflow_run.id }}
-        run: gh run download --name pull-number "$WORKFLOW_ID"
+        uses: Homebrew/actions/gh-try-download@master
+        with:
+          artifact-name: pull-number
+          workflow-id: ${{ github.event.workflow_run.id }}
 
       - run: echo "number=$(cat number)" >> "$GITHUB_OUTPUT"
         id: pr

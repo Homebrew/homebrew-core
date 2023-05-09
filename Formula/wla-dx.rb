@@ -7,7 +7,7 @@ class WlaDx < Formula
 
   livecheck do
     url :stable
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)(?:-fix)*["' >]}i)
+    regex(/v?(\d+(?:\.\d+)+)(?:-fix)*/i)
     strategy :github_latest
   end
 

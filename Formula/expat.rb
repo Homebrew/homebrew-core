@@ -7,9 +7,9 @@ class Expat < Formula
 
   livecheck do
     url :stable
-    regex(%r{href=["']?[^"' >]*?/tag/\D*?(\d+(?:[._]\d+)*)["' >]}i)
-    strategy :github_latest do |page, regex|
-      page.scan(regex).map { |match| match[0].tr("_", ".") }
+    regex(/^\D*?(\d+(?:[._]\d+)*)$/i)
+    strategy :github_latest do |json, regex|
+      json["tag_name"]&.scan(regex)&.map { |match| match[0].tr("_", ".") }
     end
   end
 
@@ -37,9 +37,9 @@ class Expat < Formula
   def install
     cd "expat" if build.head?
     system "autoreconf", "-fiv" if build.head?
-    args = ["--prefix=#{prefix}", "--mandir=#{man}"]
+    args = ["--mandir=#{man}"]
     args << "--with-docbook" if build.head?
-    system "./configure", *args
+    system "./configure", *std_configure_args, *args
     system "make", "install"
   end
 

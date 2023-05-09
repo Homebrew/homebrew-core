@@ -10,10 +10,6 @@ class Archivemount < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "ac01adc4cf171af9509390a108469579aaaccb9eada8a57e54c10419ad239b3e"
   end
 
-  # Homepage certificate is expired
-  # Last commit on GitHub on 2020-04-20
-  deprecate! date: "2023-05-05", because: :unmaintained
-
   depends_on "pkg-config" => :build
   depends_on "libarchive"
   depends_on "libfuse@2"

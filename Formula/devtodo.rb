@@ -19,8 +19,9 @@ class Devtodo < Formula
     sha256 x86_64_linux:   "3e73efa42394be4e0be78fe83c13b693f42a84d743fbc8e9248cdcaea13da1c2"
   end
 
+  # Superseded by devtodo2
   # Last release on 2007-09-06
-  deprecate! date: "2023-05-06", because: :unmaintained
+  deprecate! date: "2023-05-06", because: :deprecated_upstream
 
   depends_on "readline"
 

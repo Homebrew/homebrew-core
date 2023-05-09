@@ -8,7 +8,7 @@ class Chamber < Formula
 
   livecheck do
     url :stable
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+(?:-ci\d)?)["' >]}i)
+    regex(/v?(\d+(?:\.\d+)+(?:-ci\d)?)/i)
     strategy :github_latest
   end
 

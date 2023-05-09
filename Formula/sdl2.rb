@@ -7,7 +7,7 @@ class Sdl2 < Formula
 
   livecheck do
     url :stable
-    regex(%r{href=["']?[^"' >]*?/tag/release[._-](\d+(?:\.\d+)+)["' >]}i)
+    regex(/release[._-](\d+(?:\.\d+)+)/i)
     strategy :github_latest
   end
 

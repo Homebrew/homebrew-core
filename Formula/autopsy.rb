@@ -6,7 +6,7 @@ class Autopsy < Formula
 
   livecheck do
     url "https://github.com/sleuthkit/autopsy.git"
-    regex(%r{href=.*?/tag/autopsy[._-]v?(\d+(?:\.\d+)+)["' >]}i)
+    regex(/autopsy[._-]v?(\d+(?:\.\d+)+)/i)
     strategy :github_latest
   end
 

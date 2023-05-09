@@ -9,7 +9,7 @@ class Wolfssl < Formula
 
   livecheck do
     url :stable
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)[._-]stable["' >]}i)
+    regex(/v?(\d+(?:\.\d+)+)[._-]stable/i)
     strategy :github_latest
   end
 

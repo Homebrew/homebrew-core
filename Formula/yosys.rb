@@ -1,19 +1,19 @@
 class Yosys < Formula
   desc "Framework for Verilog RTL synthesis"
   homepage "https://yosyshq.net/yosys/"
-  url "https://github.com/YosysHQ/yosys/archive/yosys-0.28.tar.gz"
-  sha256 "36048ef3493ab43cfaac0bb89fa405715b22acd3927bf7fd3c4b25f8ad541c22"
+  url "https://github.com/YosysHQ/yosys/archive/yosys-0.29.tar.gz"
+  sha256 "475ba8cd06eec9050ebfd63a01e7a7c894d8f06c838b35459b7e29bbc89f4a22"
   license "ISC"
   head "https://github.com/YosysHQ/yosys.git", branch: "master"
 
   bottle do
-    sha256 arm64_ventura:  "92f9308b3a34a9f6428e6ebc39a62353990646d663cb4862f4d00a6da5f83ad1"
-    sha256 arm64_monterey: "407050dbd42aeb86ed98c9dc0b573e08f40920d336ad38e589d9479cd09eb971"
-    sha256 arm64_big_sur:  "7facf0f980e5b65032f116a27c2ea29e6f357e3cd93612b26205ff98fa09cd5c"
-    sha256 ventura:        "cc6c62bdccfb3a41ead49e31c27ca62700b658ce3f2fbacc574fd479885bbfdc"
-    sha256 monterey:       "1c61e5355051a115ce471beb769c83e493815c2d69cf70b9b5f1fa3655294d6d"
-    sha256 big_sur:        "175585e3f31042894308661430fc0a89264837cd2776c306c45afba0a433a4e9"
-    sha256 x86_64_linux:   "4086e95dc334cf5c5ea4343f31d0de9b0df8c0cd1d4e6cfd32a8a4079f20f978"
+    sha256 arm64_ventura:  "2a87c254bd15c695a71ce11739508c3d0698a85b76b3382c1850f9c9751d7369"
+    sha256 arm64_monterey: "d8e315649f41163accb4c0617c4a044f6ba51cb69df507f98f77e78198b191e9"
+    sha256 arm64_big_sur:  "107970a050ded329f9caba26c6472116fe8bb41ac5e6dcd1ead1fc2fafde7c48"
+    sha256 ventura:        "fc6bfbc4a2b301242a7e080872c1fed78e2e7c3dcf30fd02e08fee8d99b43c9a"
+    sha256 monterey:       "70fa58f0a458e96b4c83777e030447b085a99b39e0e438fc4b95852717d12346"
+    sha256 big_sur:        "519852a3268fcc6cbfb6880efe936779a3dcad45ebef1bad39aa20041a3d5577"
+    sha256 x86_64_linux:   "6a92ad7749002dea14caffcfa8cbd0336c3464f419e1ab141d3829b67c3c9d38"
   end
 
   depends_on "bison" => :build

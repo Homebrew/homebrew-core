@@ -19,6 +19,8 @@ class Ntp < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "16137579ea8978ef71a1222071cd9e44a42eeeaa8d83ed83bdbf0fd048e6178c"
   end
 
+  # Does not build with `openssl@3`
+  # Last release on 2020-06-23
   deprecate! date: "2022-12-26", because: :unmaintained
 
   depends_on "openssl@1.1"

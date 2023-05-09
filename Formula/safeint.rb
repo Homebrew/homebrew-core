@@ -11,7 +11,7 @@ class Safeint < Formula
   # version numbering so that 3.0.26 follows 3.24.
   livecheck do
     url :stable
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+[a-z]?)["' >]}i)
+    regex(/v?(\d+(?:\.\d+)+[a-z]?)/i)
     strategy :github_latest
   end
 

@@ -8,7 +8,7 @@ class Uuu < Formula
 
   livecheck do
     url :stable
-    regex(%r{href=["']?[^"' >]*?/tag/(?:uuu[._-])?v?(\d+(?:\.\d+)+)["' >]}i)
+    regex(/(?:uuu[._-])?v?(\d+(?:\.\d+)+)/i)
     strategy :github_latest
   end
 

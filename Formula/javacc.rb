@@ -7,7 +7,7 @@ class Javacc < Formula
 
   livecheck do
     url :stable
-    regex(%r{href=.*?/tag/javacc[._-]v?(\d+(?:\.\d+)+)["' >]}i)
+    regex(/javacc[._-]v?(\d+(?:\.\d+)+)/i)
     strategy :github_latest
   end
 

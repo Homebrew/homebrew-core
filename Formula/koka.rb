@@ -8,7 +8,7 @@ class Koka < Formula
 
   livecheck do
     url :stable
-    regex(%r{href=["']?[^"' >]*?/tag/v?(\d+(?:\.\d+)+)[^"' >]*?["' >]}i)
+    regex(/v?(\d+(?:\.\d+)+)/i)
     strategy :github_latest
   end
 

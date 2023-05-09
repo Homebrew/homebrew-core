@@ -1,20 +1,20 @@
 class Hbase < Formula
   desc "Hadoop database: a distributed, scalable, big data store"
   homepage "https://hbase.apache.org"
-  url "https://www.apache.org/dyn/closer.lua?path=hbase/2.5.3/hbase-2.5.3-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/hbase/2.5.3/hbase-2.5.3-bin.tar.gz"
-  sha256 "874f239c341a6a4a646051c79fda9e838242481b70463bf8daa28ba7239576c2"
+  url "https://www.apache.org/dyn/closer.lua?path=hbase/2.5.4/hbase-2.5.4-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/hbase/2.5.4/hbase-2.5.4-bin.tar.gz"
+  sha256 "ffb929d1ffcaf0309e1617833f3b36645a9c9d9c10b47d6baccc7e50c6d0ed33"
   # We bundle hadoop-lzo which is GPL-3.0-or-later
   license all_of: ["Apache-2.0", "GPL-3.0-or-later"]
 
   bottle do
-    sha256 arm64_ventura:  "1348b4dbf170964c86e57455346321472dc9b6ef07c79a60fac0b978854f6efe"
-    sha256 arm64_monterey: "3811d27fc4f219b9f8cc990c4d4318aaf29f8ba173d65857eaa1d8c96ea1e256"
-    sha256 arm64_big_sur:  "cdf9158f28f7a0bcab9233d37de15106e755b545a7494ca488d5b444533aef1d"
-    sha256 ventura:        "c1d6741bfb978a942e6126d4bffe4e4eecaf169734549e7b7c7fac60f9ef190b"
-    sha256 monterey:       "bf20de6dd959b6c4667942b292fd39946ddfb710729f5021446e6fa4e5f853f7"
-    sha256 big_sur:        "29ed8d98255b4640660afbd82c158b1e6417dabf522dabfb33d6168a306c1a1d"
-    sha256 x86_64_linux:   "398c0b246e7b6cb0a92fee7742f02d2ef96206fe893d2f19ba85f8d550ee8126"
+    sha256 arm64_ventura:  "b3f4b3be8cdbe147bd57e0e5157448b3827fa53bbb4af3edb25e54f2ad460bc1"
+    sha256 arm64_monterey: "8974b87c3a128502f0a2597d96882b0632b4ba61d6244d8abed7bc356c07b7e7"
+    sha256 arm64_big_sur:  "fc8e59bac317bc956a1a7a1e280aa8b3b5879ec90a7ee5bbeed042b3523abb5a"
+    sha256 ventura:        "c09fa0ca7df35700bf49095f6984ab691986c82e6ebe99fe6ca09e7a62586fb8"
+    sha256 monterey:       "cb749b2d414dd370faf95fe41d9e0ff38888ec1d94c25bc0ae9fdbfd3c079890"
+    sha256 big_sur:        "2a94eaddbf977d50786fbc6bb10f0a5164c491c2b5d7d052ff5885445e33885d"
+    sha256 x86_64_linux:   "f8238ae8b1c4af9beb50b5c48db3df7e9a0085bade04833d937bcc278bd04e53"
   end
 
   depends_on "ant" => :build
@@ -61,7 +61,8 @@ class Hbase < Formula
 
       # Fixed upstream: https://github.com/cloudera/hadoop-lzo/blob/HEAD/build.xml#L235
       ENV["CLASSPATH"] = Dir["#{libexec}/lib/hadoop-common-*.jar"].first
-      ENV["CFLAGS"] = "-m64"
+      # Workaround for Xcode 14.3.
+      ENV["CFLAGS"] = "-m64 -Wno-implicit-function-declaration"
       ENV["CXXFLAGS"] = "-m64"
       ENV["CPPFLAGS"] = "-I#{Formula["openjdk@11"].include}"
       system "ant", "compile-native", "tar"

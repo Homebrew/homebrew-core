@@ -7,7 +7,7 @@ class Jsonschema2pojo < Formula
 
   livecheck do
     url :stable
-    regex(%r{href=.*?/tag/jsonschema2pojo[._-]v?(\d+(?:\.\d+)+)["' >]}i)
+    regex(/jsonschema2pojo[._-]v?(\d+(?:\.\d+)+)/i)
     strategy :github_latest
   end
 

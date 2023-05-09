@@ -10,9 +10,9 @@ class MinioMc < Formula
 
   livecheck do
     url :stable
-    regex(%r{href=.*?/tag/(?:RELEASE[._-]?)?([\dTZ-]+)["' >]}i)
-    strategy :github_latest do |page, regex|
-      page.scan(regex).map { |match| match&.first&.gsub(/\D/, "") }
+    regex(/^(?:RELEASE[._-]?)?([\dTZ-]+)$/i)
+    strategy :github_latest do |json, regex|
+      json["tag_name"]&.scan(regex)&.map { |match| match[0].tr("TZ-", "") }
     end
   end
 

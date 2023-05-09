@@ -26,9 +26,6 @@ class MoonBuggy < Formula
     depends_on "automake" => :build
   end
 
-  # Last stable release was on 2004-12-27
-  deprecate! date: "2023-04-19", because: :unmaintained
-
   uses_from_macos "ncurses"
 
   def install

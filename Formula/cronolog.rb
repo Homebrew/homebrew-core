@@ -22,10 +22,6 @@ class Cronolog < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5b7e0546314cd92d44b009de1894f4739f75865da5f95d425e305cf6ffeac10d"
   end
 
-  # Upstream is gone.
-  # Last release on 2004-02-07
-  deprecate! date: "2023-05-06", because: :unmaintained
-
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",

@@ -8,7 +8,7 @@ class Pkcs11Helper < Formula
 
   livecheck do
     url :stable
-    regex(%r{href=.*?/tag/pkcs11-helper[._-]v?(\d+(?:\.\d+)+)["' >]}i)
+    regex(/pkcs11-helper[._-]v?(\d+(?:\.\d+)+)/i)
     strategy :github_latest
   end
 

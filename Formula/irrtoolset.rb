@@ -8,7 +8,7 @@ class Irrtoolset < Formula
 
   livecheck do
     url :stable
-    regex(%r{href=.*?/tag/[^"' >]*?v?(\d+(?:[._-]\d+)+)["' >]}i)
+    regex(/v?(\d+(?:[._-]\d+)+)/i)
     strategy :github_latest
   end
 

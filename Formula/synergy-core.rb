@@ -26,7 +26,7 @@ class SynergyCore < Formula
   # to worry about missing a new 2.0.0 version in the future.
   livecheck do
     url :stable
-    regex(%r{href=["']?[^"' >]*?/tag/[^"' >]*?v?(\d+(?:\.\d+)+)[^"' >]*?["' >]}i)
+    regex(/[^"' >]*?v?(\d+(?:\.\d+)+)[^"' >]*?/i)
     strategy :github_latest
   end
 

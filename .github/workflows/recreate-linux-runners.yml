@@ -35,17 +35,22 @@ jobs:
       actions: read # for `gh run download`
       pull-requests: read # for `gh api`
     steps:
+      - name: Download `pull-number` artifact
+        if: github.event_name == 'workflow_run'
+        uses: Homebrew/actions/gh-try-download@master
+        with:
+          artifact-name: pull-number
+          workflow-id: ${{ github.event.workflow_run.id }}
+
       - name: Check if runner needs to be recreated
         id: check
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          WORKFLOW_ID: ${{ github.event.workflow_run.id }}
         run: |
           recreate=true
 
           if [[ "$GITHUB_EVENT_NAME" = "workflow_run" ]]
           then
-            gh run download --name pull-number "$WORKFLOW_ID"
             PR="$(cat number)"
 
             recreate="$(

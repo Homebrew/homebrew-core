@@ -13,8 +13,9 @@ class Mame < Formula
   # (e.g., 0.226).
   livecheck do
     url :stable
-    regex(/>\s*MAME v?(\d+(?:\.\d+)+)/im)
-    strategy :github_latest
+    strategy :github_latest do |json, regex|
+      json["name"]&.scan(regex)&.map { |match| match[0] }
+    end
   end
 
   bottle do

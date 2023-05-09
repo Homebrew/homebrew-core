@@ -12,7 +12,7 @@ class Swift < Formula
   # created several days before the version is officially released.
   livecheck do
     url :stable
-    regex(%r{href=["']?[^"' >]*?/tag/swift[._-]v?(\d+(?:\.\d+)+)[^"' >]*?["' >]}i)
+    regex(/swift[._-]v?(\d+(?:\.\d+)+)/i)
     strategy :github_latest
   end
 

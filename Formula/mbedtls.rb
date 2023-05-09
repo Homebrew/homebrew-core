@@ -8,7 +8,7 @@ class Mbedtls < Formula
 
   livecheck do
     url :stable
-    regex(%r{href=.*?/tag/(?:mbedtls[._-])?v?(\d+(?:\.\d+)+)["' >]}i)
+    regex(/(?:mbedtls[._-])?v?(\d+(?:\.\d+)+)/i)
     strategy :github_latest
   end
 

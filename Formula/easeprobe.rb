@@ -2,19 +2,19 @@ class Easeprobe < Formula
   desc "Simple, standalone, and lightWeight tool that can do health/status checking"
   homepage "https://github.com/megaease/easeprobe"
   url "https://github.com/megaease/easeprobe.git",
-      tag:      "v2.0.1",
-      revision: "787b337a77186503092c238ea9600e20fdf8c50c"
+      tag:      "v2.1.0",
+      revision: "c4e27709607bd8dc4945df273ef274a8ecd569d2"
   license "Apache-2.0"
   head "https://github.com/megaease/easeprobe.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ab7df1004a6fbfe2988ad730e7bb7d51d21fe0d3ea536aafc80cc12b37550c67"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "54bdfde14ea9fea0274644df8bbfe63f481584a979ecc7a616ca01bcc767e92f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "276ae30824b83d44e531a114bb1475b5c3528a483192823b7d6c4f0aa5e46345"
-    sha256 cellar: :any_skip_relocation, ventura:        "6a661096756c4b496f9a509c094ecbbd362459f140f8efd933b92482a87e0ad5"
-    sha256 cellar: :any_skip_relocation, monterey:       "fb33d13137839a028ae88c853a025b3f344b76892309b178049976953037c4b1"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d0da63ad87099e1d441d6cb5063ba049aa32a5f8b08fca9e51cd795e15b5528a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7338d935db5a9ed52667034699d2a9c65ec774a08f2624007b8e660e940c779b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9bb97f44af5c03a97995ce7e514ea161749463a5e52d11bad2d3a6eab7e592e9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9bb97f44af5c03a97995ce7e514ea161749463a5e52d11bad2d3a6eab7e592e9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9bb97f44af5c03a97995ce7e514ea161749463a5e52d11bad2d3a6eab7e592e9"
+    sha256 cellar: :any_skip_relocation, ventura:        "da22e6db84a51adf9150d7d73a33d8d1dfba2f8a6e5ed034766f0d464b5a29e1"
+    sha256 cellar: :any_skip_relocation, monterey:       "da22e6db84a51adf9150d7d73a33d8d1dfba2f8a6e5ed034766f0d464b5a29e1"
+    sha256 cellar: :any_skip_relocation, big_sur:        "da22e6db84a51adf9150d7d73a33d8d1dfba2f8a6e5ed034766f0d464b5a29e1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6520fddcf5e30170e34c63f760e28eb962fdfad3fc9ab7e84de196a88287c7ca"
   end
 
   depends_on "go" => :build

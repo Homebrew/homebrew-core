@@ -10,7 +10,7 @@ class Gperftools < Formula
 
   livecheck do
     url :stable
-    regex(%r{href=.*?/tag/gperftools[._-]v?(\d+(?:\.\d+)+)["' >]}i)
+    regex(/gperftools[._-]v?(\d+(?:\.\d+)+)/i)
     strategy :github_latest
   end
 

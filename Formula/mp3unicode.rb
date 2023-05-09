@@ -7,7 +7,7 @@ class Mp3unicode < Formula
 
   livecheck do
     url :stable
-    regex(%r{href=.*?/tag/(?:mp3unicode[._-])?v?(\d+(?:\.\d+)+)["' >]}i)
+    regex(/(?:mp3unicode[._-])?v?(\d+(?:\.\d+)+)/i)
     strategy :github_latest
   end
 

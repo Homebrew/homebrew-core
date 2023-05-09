@@ -64,9 +64,9 @@ class Fastnetmon < Formula
   test do
     cp etc/"fastnetmon.conf", testpath
 
-    inreplace testpath/"fastnetmon.conf", "/tmp/fastnetmon.dat", testpath/"fastnetmon.dat"
+    inreplace testpath/"fastnetmon.conf", "/tmp/fastnetmon.dat", (testpath/"fastnetmon.dat").to_s
 
-    inreplace testpath/"fastnetmon.conf", "/tmp/fastnetmon_ipv6.dat", testpath/"fastnetmon_ipv6.dat"
+    inreplace testpath/"fastnetmon.conf", "/tmp/fastnetmon_ipv6.dat", (testpath/"fastnetmon_ipv6.dat").to_s
 
     fastnetmon_pid = fork do
       exec opt_sbin/"fastnetmon",

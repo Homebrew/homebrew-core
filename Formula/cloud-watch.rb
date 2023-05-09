@@ -11,7 +11,8 @@ class CloudWatch < Formula
   end
 
   # No longer supported as of 2017-11-07
-  deprecate! date: "2023-05-06", because: :unmaintained
+  # https://docs.aws.amazon.com/AmazonCloudWatch/latest/cli/SetupCLI.html
+  deprecate! date: "2023-05-06", because: :deprecated_upstream
 
   depends_on "openjdk"
 

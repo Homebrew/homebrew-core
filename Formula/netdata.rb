@@ -1,8 +1,8 @@
 class Netdata < Formula
   desc "Diagnose infrastructure problems with metrics, visualizations & alarms"
   homepage "https://netdata.cloud/"
-  url "https://github.com/netdata/netdata/releases/download/v1.38.1/netdata-v1.38.1.tar.gz"
-  sha256 "e32a5427f0c00550210dbbf0046c2621313955256edf836db686e2bc270b8d10"
+  url "https://github.com/netdata/netdata/releases/download/v1.39.0/netdata-v1.39.0.tar.gz"
+  sha256 "77f4ff42adadad2bd3cc71078e3e2daea8f990983ed79d54c9812c8f364fdb3e"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,20 +11,22 @@ class Netdata < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "6c4471013a25cf3b17b96359a0e44f51cadc9ae2159a58b155b51ae423279d76"
-    sha256 arm64_monterey: "98a7ae423f287a8dd518a1c2f28f6fa297748ecfc5183728771eb12d997f31b9"
-    sha256 arm64_big_sur:  "232e854704a19b540ecb042202c6ff809835e5b50da52eb92bc93bf03c799ba1"
-    sha256 ventura:        "4bbdf98716571dff3f3a1c63c3deba38c4337c7b9106c155a6ac58d1a4b91d25"
-    sha256 monterey:       "fed0e06f3fbcae40148c2eca52ad227e0d74fec75ed3b565dee2d4c669b99517"
-    sha256 big_sur:        "6a68b1b73614760ca24472199ccf79bc1b355c68d2b45c3ed8087f2a5676cc8f"
-    sha256 x86_64_linux:   "70d09aa0d1c9c88612f8d8d8962e3afe0856f042bb81719a5ba0c0533caff01e"
+    sha256 arm64_ventura:  "66d7723f8c02c5e413c7f6c3963de2d0379313ef934af1ef0e23c1e535351388"
+    sha256 arm64_monterey: "bec5632af21a7832879e19b79b923705e0f214a8d56192ae9806d13e0ae76cdf"
+    sha256 arm64_big_sur:  "e9899fa833c39c30e8e2161dad55ce089bba2581ae3addb50bf8d9f908038248"
+    sha256 ventura:        "0171e3f5330d761787019806e2efd162e6f33aea9f5177b617dbdc5f9059fdc3"
+    sha256 monterey:       "d7e31ff35f26ccf6ac3f47277b1e23eb050edf4e9576d897dbb99ca9dfa1cb09"
+    sha256 big_sur:        "5a4dd480a894ca93e0ef62709181b683def32c6705c817bffc4c72ba2c5f4469"
+    sha256 x86_64_linux:   "b6fd227b7d89cb5426502aaaf551651f5015d6900963fb34d74c9f945dc6a878"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "m4" => :build
   depends_on "pkg-config" => :build
   depends_on "json-c"
   depends_on "libuv"
+  depends_on "libyaml"
   depends_on "lz4"
   depends_on "openssl@3"
   depends_on "protobuf-c"

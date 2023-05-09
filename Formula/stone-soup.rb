@@ -1,19 +1,18 @@
 class StoneSoup < Formula
   desc "Dungeon Crawl Stone Soup: a roguelike game"
   homepage "https://crawl.develz.org/"
-  url "https://github.com/crawl/crawl/archive/0.29.1.tar.gz"
-  sha256 "e8ff1d09718ab3cbff6bac31651185b584c9eea2c9b6f42f0796127ca5599997"
+  url "https://github.com/crawl/crawl/archive/0.30.0.tar.gz"
+  sha256 "a4ba0d5a6fcf9bb1ad57b6a116f5d577b7ee9dac33d90448525a1061207a6abf"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_ventura:  "c37530a95dbd1b4df7d64f35a3e4ccd4e9d5e53565d956f0e6d7f9ffbc1d73d7"
-    sha256 arm64_monterey: "cf6ca59c6899897889fb1dd675513941085da9832c565009a33f35d0eaa8d983"
-    sha256 arm64_big_sur:  "e68f79cdfbee9e2c50c26785becab8a8e5060105657f7ea2ed1ceaf5efef83e5"
-    sha256 ventura:        "c489db41e3f4125f332060238b1d349315aac3e436f77416e308e2f6733c6dc7"
-    sha256 monterey:       "7772ce20e270a7bfbc0cf3838aa780a5679eb7733987835606d7596ab64d8846"
-    sha256 big_sur:        "fdc9152a3b611d3c905f86e07073bb871d2fe93f69c1940b0ab6a907c8403fd7"
-    sha256 catalina:       "edbc05d07621b8424656f6d997cfce5cdae087fd4fc2f624fcd85e6f61fd8c27"
-    sha256 x86_64_linux:   "eef057937a3400fbf577121fd0a8567d0295b6d1c0dd5985ee202f11a59bee57"
+    sha256 arm64_ventura:  "4228564c6c264ed39799173c14522277bfefaea30ba9d09aad5c11840f26c090"
+    sha256 arm64_monterey: "3e8dc08e1e0b50830ce072617766ae2c98a0370b035914a148d0cffd566f5e07"
+    sha256 arm64_big_sur:  "9f6c0948dc573f602ec842e6396c0a2a577aea1966c076fedf0e482ee208ba29"
+    sha256 ventura:        "4737ec8e0cebccfa4e1fc6b45dc776bed95458458401d1f1c71b257d9cbfb1e6"
+    sha256 monterey:       "0f18f8e878b7cb52dfe622c39669e7c08324a409d9b9b0a1afc400604a5dfdcc"
+    sha256 big_sur:        "a9adf20df5a66ef15305604bd4eb6d10e136bc599993bf74f027910939c0b75c"
+    sha256 x86_64_linux:   "24eedc5bc310a9e589acde126734c8eb51be741321d2ff5210b90dc61c52fa71"
   end
 
   # Only supports Lua 5.1 and doesn't work with LuaJIT 2.1 (needs older 2.0).

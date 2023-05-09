@@ -7,7 +7,7 @@ class Sleuthkit < Formula
 
   livecheck do
     url :stable
-    regex(%r{href=.*?/tag/sleuthkit[._-]v?(\d+(?:\.\d+)+)["' >]}i)
+    regex(/sleuthkit[._-]v?(\d+(?:\.\d+)+)/i)
     strategy :github_latest
   end
 

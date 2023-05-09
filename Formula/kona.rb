@@ -8,7 +8,7 @@ class Kona < Formula
 
   livecheck do
     url :stable
-    regex(%r{href=.*?/tag/(?:Win(?:64)?[._-])?v?(\d+(?:\.\d+)*)[^"' >]*["' >]}i)
+    regex(/(?:Win(?:64)?[._-])?v?(\d+(?:\.\d+)*)/i)
     strategy :github_latest
   end
 

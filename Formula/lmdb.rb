@@ -13,14 +13,17 @@ class Lmdb < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "f1ea55a9f4f7a3565d6c61bf21eeac9c13a575689bfd9e98dd42f04d042ae62d"
-    sha256 cellar: :any,                 arm64_monterey: "912f1cf80f6cf814f346e5856a67665c7017d64697aa12c10e6777e25e041f01"
-    sha256 cellar: :any,                 arm64_big_sur:  "ef12324f72c48750b37bd7a46d150c386d4d672fd19cc2771b8a60a8795fde32"
-    sha256 cellar: :any,                 ventura:        "b054857dc8192666dd874b658ef29da7d20b6478404198122baa73837298b43a"
-    sha256 cellar: :any,                 monterey:       "fab2dedfe00c4310e0969d5e8ba6bb23a3833c7b0d51de06e4e23b171b9db3ec"
-    sha256 cellar: :any,                 big_sur:        "11661f90b4de7844fb35144b40430f6678f34b4f4dc44184680d1b3a2d5aab97"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7e38babc366e6564e3c0971db2df8a09d9d71225c5f90c924a43c2f6b8c0bc87"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "3cf7eaae03029dc419ee5172b80ea09c8f334ad0ae842e28624795ca2b0542c5"
+    sha256 cellar: :any,                 arm64_monterey: "87acfdfcd7e9644da38feae8e8b7434c22c7ccbfbcb3fb01864c1f3eff459cb0"
+    sha256 cellar: :any,                 arm64_big_sur:  "4ad4a63e3b410490adf55ce927745ceab1c3fe4ce63aaf77dba30453f6b6dc8c"
+    sha256 cellar: :any,                 ventura:        "a848af0b02d21dd8d86fc4f65ae45e240d3f867c4bd26741254499dd4469f374"
+    sha256 cellar: :any,                 monterey:       "0faef96a914e892880affd464c01557ebacb89e0b9dd4d7bf1b4a246899f315d"
+    sha256 cellar: :any,                 big_sur:        "e79218ff65d869ed134dd605a606ac291b41ca67e249729b53042086000f76eb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c8e883cdef787fad7081cfbcda65af6824ef838210b4d6db73355920dd0e6ad8"
   end
+
+  depends_on "pkg-config" => :test
 
   def install
     cd "libraries/liblmdb" do
@@ -29,9 +32,31 @@ class Lmdb < Formula
       system "make", *args
       system "make", "install", *args, "prefix=#{prefix}"
     end
+
+    (lib/"pkgconfig/lmdb.pc").write pc_file
+    (lib/"pkgconfig").install_symlink "lmdb.pc" => "liblmdb.pc"
+  end
+
+  def pc_file
+    <<~EOS
+      prefix=#{opt_prefix}
+      exec_prefix=${prefix}
+      libdir=${prefix}/lib
+      includedir=${prefix}/include
+
+      Name: lmdb
+      Description: #{desc}
+      URL: #{homepage}
+      Version: #{version}
+      Libs: -L${libdir} -llmdb
+      Cflags: -I${includedir}
+    EOS
   end
 
   test do
     assert_match version.to_s, shell_output("#{bin}/mdb_dump -V")
+
+    # Make sure our `lmdb.pc` can be read by `pkg-config`.
+    system "pkg-config", "lmdb"
   end
 end
