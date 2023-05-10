@@ -28,6 +28,7 @@ on:
 
 permissions:
   contents: read
+  pull-requests: write
 
 env:
   HOMEBREW_DEVELOPER: 1
