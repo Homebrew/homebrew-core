@@ -33,7 +33,7 @@ class Dafny < Formula
 
     (bin/"dafny").write <<~EOS
       #!/bin/bash
-      exec dotnet "#{libexec}/Dafny.dll" "$@"
+      exec "#{Formula["dotnet"].opt_bin}/dotnet" "#{libexec}/Dafny.dll" "$@"
     EOS
   end
 
