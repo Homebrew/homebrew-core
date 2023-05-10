@@ -1,8 +1,7 @@
 class Nebula < Formula
   desc "Scalable overlay networking tool for connecting computers anywhere"
   homepage "https://github.com/slackhq/nebula"
-  url "https://github.com/slackhq/nebula/archive/v#{version}.tar.gz"
-  version "1.6.1"
+  url "https://github.com/slackhq/nebula/archive/v1.6.1.tar.gz"
   sha256 "9c343d998d2eab9473c3bf73d434b8a382d90b1f73095dd1114ecaf2e1c0970f"
   license "MIT"
 
