@@ -46,8 +46,8 @@ class Dafny < Formula
       }
     EOS
     assert_equal "\nDafny program verifier finished with 1 verified, 0 errors\n",
-                  shell_output("#{bin}/dafny /compile:0 #{testpath}/test.dfy")
-    assert_equal "\nDafny program verifier finished with 1 verified, 0 errors\nRunning...\n\nhello, Dafny\n",
-                  shell_output("#{bin}/dafny /compile:3 #{testpath}/test.dfy")
+                  shell_output("#{bin}/dafny verify #{testpath}/test.dfy")
+    assert_equal "\nDafny program verifier finished with 1 verified, 0 errors\nhello, Dafny\n",
+                  shell_output("#{bin}/dafny run #{testpath}/test.dfy")
   end
 end
