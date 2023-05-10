@@ -21,6 +21,10 @@ class Dafny < Formula
   end
 
   depends_on "dotnet"
+  # We use the latest Java version that is compatible with gradlew version in `dafny`.
+  # https://github.com/dafny-lang/dafny/blob/v#{version}/Source/DafnyRuntime/DafnyRuntimeJava/gradle/wrapper/gradle-wrapper.properties
+  # https://docs.gradle.org/current/userguide/compatibility.html
+  depends_on "openjdk@17"
   depends_on "z3"
 
   def install
