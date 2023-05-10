@@ -9,12 +9,12 @@ class Staq < Formula
     url :stable
     strategy :github_latest
   end
-  
+
   depends_on "cmake" => :build
 
   def install
     system "cmake", "-B", "build", *std_cmake_args
-    system "cmake" , "--build", "build"
+    system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
 
@@ -30,7 +30,7 @@ class Staq < Formula
       h q[0];
       measure q->c;
     EOS
-    assert_equal "OPENQASM 2.0; include \"qelib1.inc\"; qreg q[1]; creg c[1]; measure q[0] -> c[0];", 
-    shell_output("staq -O3 ./input.qasm").squish
+    assert_equal "OPENQASM 2.0; include \"qelib1.inc\"; qreg q[1]; creg c[1]; measure q[0] -> c[0];",
+    shell_output("#{bin}/staq -O3 ./input.qasm").squish
   end
 end
