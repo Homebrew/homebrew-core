@@ -2,19 +2,19 @@ class Cmctl < Formula
   desc "Command-line tool to manage cert-manager"
   homepage "https://cert-manager.io"
   url "https://github.com/cert-manager/cert-manager.git",
-      tag:      "v1.11.1",
-      revision: "e3a2a803e8ed7f8a88d5f535d6e9a061c1571194"
+      tag:      "v1.11.2",
+      revision: "4767427a40e0e193c976fd6bc228f50de8950572"
   license "Apache-2.0"
   head "https://github.com/cert-manager/cert-manager.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "80b3aea65af325a04b3314bb16295ef07cb0e78c57560194154e970f4f5b5a1a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6d438e23281a97bb2aeb1541b4fcc3f1c34edb4256f05f7a83ab6f6c0df99097"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "99830c791ab34469c8fe46db6573b2b8ef148ff4005944a6791997c268919e09"
-    sha256 cellar: :any_skip_relocation, ventura:        "524dfda3f2adb9fc6f59bd7574183e9b5cc31f2c15aca89752b4954651cf5259"
-    sha256 cellar: :any_skip_relocation, monterey:       "a11df920b2d5869e7bae9ea4e6d03082956b038735325fc1febbba3d4c0cca00"
-    sha256 cellar: :any_skip_relocation, big_sur:        "fe69b6133aa6615c9560c73b9f5deeb1f087491a8d38227bed0db6788f625ae9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0eb55d65432fa5591867e7b809fc64105cf87c73c51dc1db71ccf4a9f9908d59"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "39d2595778e72a390dfb63130b7d9947ffefdd67141693d6db30e01fbfe58af4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e2cc43ef960204c6fa5243f1aa93b234f09cc3000aaf5586505e0aa914faacdd"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a0a416a2bd5f5093c39626be0227b73bb15a28ad79c9f9f6ba0206e64b8bb859"
+    sha256 cellar: :any_skip_relocation, ventura:        "63e964ede32c0952f7d98ef22bdfe40a38d95213c1716b164289f6ddab5e1fa7"
+    sha256 cellar: :any_skip_relocation, monterey:       "78805013daf4cb03f07a557baf46a23fa1e4ba175d767689251402e2f640d3ae"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c40a2050f76b23da20d70c34c2721dd579ce508554955611d8d88626619d516b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5fba711369e6d661ea6bb68b0fb47c749ed2e1e758f5b84ce17810cc7dbf9f8d"
   end
 
   depends_on "go" => :build

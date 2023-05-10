@@ -14,6 +14,9 @@ class Alerter < Formula
     sha256 cellar: :any_skip_relocation, mojave:         "894f1e5649ce05f1413d4bab20b9faf97dc19800698472535907811b930fc498"
   end
 
+  # https://github.com/vjeantet/alerter/issues/53
+  deprecate! date: "2023-05-09", because: :does_not_build
+
   depends_on xcode: :build
   depends_on :macos
 

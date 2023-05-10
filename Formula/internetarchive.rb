@@ -3,25 +3,25 @@ class Internetarchive < Formula
 
   desc "Python wrapper for the various Internet Archive APIs"
   homepage "https://github.com/jjjake/internetarchive"
-  url "https://files.pythonhosted.org/packages/da/24/4b6b9d812a4ef77d69d2ffa7587c26ab6e1e5eb0109021cdb2e2c337450a/internetarchive-3.4.0.tar.gz"
-  sha256 "bebbe4b40ba28c12a8dc8b0c43352ce44c9fc050851a6bd7678902be56de1961"
+  url "https://files.pythonhosted.org/packages/7a/6a/ce5deecc9a65709e48367bf949874551fee5f4f595141b7fd0d4426b0d95/internetarchive-3.5.0.tar.gz"
+  sha256 "2a9625e1dcbe431e5b898402273a4345bf5cb46012599cbe92e664ffdc36e881"
   license "AGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cadd8c1791e6880c0790e954e0ec7e6d7bd516053518b0b17f66d8577bb4dc58"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "23f3ad41ec2541e05318dca52e571e3e4c387d733b9ec6eb8790afe93b52a34f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a9313d2d0dac856180a2f1f0e7461045e9c7ba9de0da282430964f00169411e8"
-    sha256 cellar: :any_skip_relocation, ventura:        "6c6c1a7efa6558dae94c8044e00f9d77fbe6db70fe2a8053417add76bbfd13a9"
-    sha256 cellar: :any_skip_relocation, monterey:       "94d3b09cd976eed7a100dcee4f982af7e78637144d2c09234996b044d22940a0"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c6037c038d4c788b7a03fff91cd08eb07554c63aac7ac83a3d4900b9d75f20bd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "11fb4374e7fbd3d21d180e6ee799ae4a304270150615119ff037bc8e1a868fee"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "625d91489683a2e0968628b43c0ebc9869a2c7ca8f06091e8629c7be2ee7f94d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "68674e3de3058bb5632a33a190cf239672dd447c6a87d9ff9596b1309cedd50d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "153aff0daab82634b7e794770441be6bf25dedca46728cdd2712700cd0fb32f1"
+    sha256 cellar: :any_skip_relocation, ventura:        "6bf13f1d5a64d2fff1cbe95f4b9b4c2598914004c4cff77afe3e0b153e85326d"
+    sha256 cellar: :any_skip_relocation, monterey:       "0a7220531b36f14740abc671d49765f8fa580a1336e03b39c6a1d96c51decaca"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c5b6e788f2e8e4dc8e6f0ea7acaf0535a04f0843fde5a31ea2c0bec8747fb15a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "309312cd0f7c38bd094e5645b7daa41599cb86f880dfe4c88af91862c1098b9e"
   end
 
   depends_on "python@3.11"
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/37/f7/2b1b0ec44fdc30a3d31dfebe52226be9ddc40cd6c0f34ffc8923ba423b69/certifi-2022.12.7.tar.gz"
-    sha256 "35824b4c3a97115964b408844d64aa14db1cc518f6562e8d7261699d1350a9e3"
+    url "https://files.pythonhosted.org/packages/93/71/752f7a4dd4c20d6b12341ed1732368546bc0ca9866139fe812f6009d9ac7/certifi-2023.5.7.tar.gz"
+    sha256 "0f0d56dc5a6ad56fd4ba36484d6cc34451e1c6548c61daad8c320169f91eddc7"
   end
 
   resource "charset-normalizer" do
@@ -55,8 +55,8 @@ class Internetarchive < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/9d/ee/391076f5937f0a8cdf5e53b701ffc91753e87b07d66bae4a09aa671897bf/requests-2.28.2.tar.gz"
-    sha256 "98b1b2782e3c6c4904938b84c0eb932721069dfdb9134313beff7c83c2df24bf"
+    url "https://files.pythonhosted.org/packages/e0/69/122171604bcef06825fa1c05bd9e9b1d43bc9feb8c6c0717c42c92cc6f3c/requests-2.30.0.tar.gz"
+    sha256 "239d7d4458afcb28a692cdd298d87542235f4ca8d36d03a15bfc128a6559a2f4"
   end
 
   resource "schema" do
@@ -70,8 +70,8 @@ class Internetarchive < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/21/79/6372d8c0d0641b4072889f3ff84f279b738cd8595b64c8e0496d4e848122/urllib3-1.26.15.tar.gz"
-    sha256 "8a388717b9476f934a21484e8c8e61875ab60644d29b9b39e11e4b9dc1c6b305"
+    url "https://files.pythonhosted.org/packages/fb/c0/1abba1a1233b81cf2e36f56e05194f5e8a0cec8c03c244cab56cc9dfb5bd/urllib3-2.0.2.tar.gz"
+    sha256 "61717a1095d7e155cdb737ac7bb2f4324a858a1e2e6466f6d03ff630ca68d3cc"
   end
 
   def install

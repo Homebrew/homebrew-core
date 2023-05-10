@@ -1,20 +1,19 @@
 class MathComp < Formula
   desc "Mathematical Components for the Coq proof assistant"
   homepage "https://math-comp.github.io/math-comp/"
-  url "https://github.com/math-comp/math-comp/archive/mathcomp-1.16.0.tar.gz"
-  sha256 "36fe4f5487f4685db9c6e6affa92abb47248440e6d4dfaaa01ab31df5fd4b513"
+  url "https://github.com/math-comp/math-comp/archive/mathcomp-1.17.0.tar.gz"
+  sha256 "1779bcdac5d23d90997627364a5943ef4883c6eb54d67ddbb1dfbe6b7795a188"
   license "CECILL-B"
-  revision 3
   head "https://github.com/math-comp/math-comp.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ace12cde40f2db32630a1ff753610edc8bcb342d26a9d10950b5fd6f98f2c25a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "db32dee17e571106f2ec790dda283c73fc35125584f79cd48b4c385673dc972d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3c8df168f2dd02eebf73a5c0b9e07c05a7e6ddf2920cac2972b6dc161607483a"
-    sha256 cellar: :any_skip_relocation, ventura:        "008e294ef785cd25162d2b8330995ff3efdc7a550f290649c847b215b785467a"
-    sha256 cellar: :any_skip_relocation, monterey:       "4be2eef559fb8201c7e9aae3583332b1e964d876a75ee55b809e1bdc34d35214"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d09925860278d2ffb8e5df2463757b6b2f3e9809a3eb2b4385ee620bb67dec0a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0cd07c39a4bd148ad1f8644088869a67291af294e58553c58a1367dfeaa70261"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "68de27822d84b9d5fa23b61ce280873cb8f65f7008616f1e4da31f2ad0f5b8da"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "681a7a76afc6fd1ff8a893c8ec1f2f0db74371043ff6092912d8f5089a67e59e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "77842dae981a926fbd83700a69823334ba15ec2ef6880499e44ee6dc895a83fe"
+    sha256 cellar: :any_skip_relocation, ventura:        "3f19f012f400da65bcc7377063486efabc8d9bd4342c8d0652a9fd74f830420d"
+    sha256 cellar: :any_skip_relocation, monterey:       "1252a413c869db92405fe787e324d0943aeb498c143ff168c6fbca4b3e4a91b7"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e5d4cae57450c921d23c7b1bf401437b129af605442ebf82a76b685b3c4f0217"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "80d712cb4d8fb1dd868e406c89c8e71d2bd57e374b50b553c53a47c3037fb54c"
   end
 
   depends_on "ocaml" => :build

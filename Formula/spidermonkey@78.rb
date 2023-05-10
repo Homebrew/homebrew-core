@@ -15,7 +15,7 @@ class SpidermonkeyAT78 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "6f0c131fa78090c6d5a4c731b9edc5b32581a62b26fd6c6a3345afde40e71af1"
   end
 
-  deprecate! date: "2022-04-02", because: :unsupported
+  disable! date: "2023-05-09", because: :unsupported
 
   depends_on "autoconf@2.13" => :build
   depends_on "pkg-config" => :build

@@ -57,6 +57,7 @@ jobs:
   bottle:
     permissions:
       contents: read
+      pull-requests: read # for Homebrew/actions/post-comment
       issues: write # for Homebrew/actions/post-comment
     needs: setup
     strategy:

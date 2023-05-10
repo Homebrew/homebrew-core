@@ -20,6 +20,9 @@ class Swimat < Formula
     sha256 cellar: :any_skip_relocation, mojave:         "6b9a5174b6050250d0dfe5721102c5455997f2abcef1f2dc6a82686af11117fd"
   end
 
+  # https://github.com/Jintin/Swimat/issues/244
+  deprecate! date: "2023-05-09", because: :unmaintained
+
   depends_on xcode: ["10.2", :build]
   depends_on :macos
 

@@ -3,18 +3,18 @@ class Censys < Formula
 
   desc "Command-line interface for the Censys APIs (censys.io)"
   homepage "https://github.com/censys/censys-python"
-  url "https://files.pythonhosted.org/packages/0b/39/d9e82da6b0777a9b825ed6680eb129fa635b0c0f74e963b92e767a8d5b0f/censys-2.2.1.tar.gz"
-  sha256 "49f1785f655de1882384633c9b4244ee369359939cacb5bb8aa347c36d1966f2"
+  url "https://files.pythonhosted.org/packages/b5/ac/8ed03674e06b7a15c08695ef1addbfa09c75e7cccecd988d07fc0a67cb17/censys-2.2.2.tar.gz"
+  sha256 "3099c91db4a97018a000265a2279a8e413bf40664f0cdd6c6eee1b550d4bf9d5"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1d8b0dc71de6198de0d3baf8bad74f00725d9dfcb02a417e8d250ef16a0abfa2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d84fd31812fdc9835d3a31944b24061a5abac1791c2d0c60d9c5fd5981ba5757"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d4922fa159fbda72b7a34d99e8a97f7a0c41e13c8a9a574fd489d10927cccee7"
-    sha256 cellar: :any_skip_relocation, ventura:        "1f9b9b616353b0182ec2fc683dab441ab296438ea162f44bc8385691c4de9337"
-    sha256 cellar: :any_skip_relocation, monterey:       "d271cf2441664cbf32b97349063f83cc6377c0e8fd1f6f2265b04143dcc75f40"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5e1372ded9e79b8b02acdcdfd945ae046e48410ccec688324085ef6417e3f5d0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "616b7731b3e46674e83921a442c68fbbe3de39fdb2c27c9d409821a2b7bd844d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b6c2cc26e6efcb182507edd737493dd262b1d13089544f0c99cff0152f642b3a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6ecf82222126d5789b398dbf2dacd846b7a622ddf928c85a446f32bad3780101"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a19615e3af74c66ce1333e9b7b81bbfcadea8dcdb5e47dc65055ac64be917d7c"
+    sha256 cellar: :any_skip_relocation, ventura:        "3f05f5925be4c978f4c0f47ac1b46f94b90619f84f50b31d5836760823d8457e"
+    sha256 cellar: :any_skip_relocation, monterey:       "586b8aa914297d615e65f10e5930e5b28dc360a404512a9a4b2c41977b7390ba"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0ca5d4f9e39f537152d002fd5ad76a94b0336aa65a465d185400d5246a001384"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "517a69bd394f5d94ef07a4a035073b23db78d41c49ed659bc47f912fc3996aa6"
   end
 
   depends_on "pygments"
@@ -66,8 +66,8 @@ class Censys < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/fb/c0/1abba1a1233b81cf2e36f56e05194f5e8a0cec8c03c244cab56cc9dfb5bd/urllib3-2.0.2.tar.gz"
-    sha256 "61717a1095d7e155cdb737ac7bb2f4324a858a1e2e6466f6d03ff630ca68d3cc"
+    url "https://files.pythonhosted.org/packages/21/79/6372d8c0d0641b4072889f3ff84f279b738cd8595b64c8e0496d4e848122/urllib3-1.26.15.tar.gz"
+    sha256 "8a388717b9476f934a21484e8c8e61875ab60644d29b9b39e11e4b9dc1c6b305"
   end
 
   def install

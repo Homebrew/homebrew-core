@@ -21,7 +21,7 @@ class Subliminal < Formula
   end
 
   # https://github.com/Diaoul/subliminal/issues/1046
-  deprecate! date: "2022-04-07", because: :unmaintained
+  disable! date: "2023-05-09", because: :unmaintained
 
   depends_on "python@3.9"
 

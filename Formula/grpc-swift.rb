@@ -1,8 +1,8 @@
 class GrpcSwift < Formula
   desc "Swift language implementation of gRPC"
   homepage "https://github.com/grpc/grpc-swift"
-  url "https://github.com/grpc/grpc-swift/archive/1.15.0.tar.gz"
-  sha256 "cfe6dd36859a56f3430a2a19a799891e797e66f16452d765263749c0a05eba87"
+  url "https://github.com/grpc/grpc-swift/archive/1.16.0.tar.gz"
+  sha256 "58b60431d0064969f9679411264b82e40a217ae6bd34e17096d92cc4e47556a5"
   license "Apache-2.0"
   head "https://github.com/grpc/grpc-swift.git", branch: "main"
 
@@ -12,16 +12,14 @@ class GrpcSwift < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "19aa73a2fbef5dd1d00facf9dfa6496809ca60969bd49ee7da88905e220073f1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2de2172dd708c201c8ad810a7238c854c0254921b273afe3121901cee2d68cf4"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "79bcbeb723973b3c6f3b56ea4c78ac56407717d9cc96b35a47835e993f1040ef"
-    sha256 cellar: :any_skip_relocation, ventura:        "497c6eee4b73ecabb5de4dc6bfc4f1f94919083ccc266ac7fa7685e6aa44559a"
-    sha256 cellar: :any_skip_relocation, monterey:       "381e1b61e24493c218b8c08961e1c63816b21d23f45a1505a0f76349a554ca5a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9cb8175bc102157c32a3c6445337b69e3850f51423aa04051cf440ccaebc04ed"
-    sha256                               x86_64_linux:   "5286379e75b4f9e50038c95b791f7e611f5e1dcc186bd7abea14d85a1cfce484"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "abc775bf3f71856aa38de43a0cb7d94e1ffaff325d4a97a9bf7e48b0da09c4ea"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "df7938cd80edd5796cdba69fb7c1b48bc30c740c84819546c6f226ef801209ac"
+    sha256 cellar: :any_skip_relocation, ventura:        "a8819db425b3b1d6e2ecc2a9f2b5d31a8071d0dbbaca5f7c294ef61c8468365c"
+    sha256 cellar: :any_skip_relocation, monterey:       "0025a6144637cab502b11aae570622d3ace44e2d85e8ce5a2832ca16cd547809"
+    sha256                               x86_64_linux:   "a6be8f1ac88e92897ac1c10cff395447d8b38b1e7f31a808273e68b398d8f74e"
   end
 
-  depends_on xcode: ["12.5", :build]
+  depends_on xcode: ["13.3", :build]
   depends_on "protobuf"
   depends_on "swift-protobuf"
 

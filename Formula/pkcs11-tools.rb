@@ -1,19 +1,18 @@
 class Pkcs11Tools < Formula
   desc "Tools to manage objects on PKCS#11 crypotographic tokens"
   homepage "https://github.com/Mastercard/pkcs11-tools"
-  url "https://github.com/Mastercard/pkcs11-tools/releases/download/v2.5.0/pkcs11-tools-2.5.0.tar.gz"
-  sha256 "4e2933ba19eef64a4448dfee194083a1db1db5842cd043edb93bbf0a62a63970"
+  url "https://github.com/Mastercard/pkcs11-tools/releases/download/v2.5.1/pkcs11-tools-2.5.1.tar.gz"
+  sha256 "d7d30438cbdaeae208040b3f04c8f984cfb6af43b69b53206c6c23a2b6c0d29f"
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "0745f7e6f38190263957a3e110eba0e1019824a8e45f80a97b486b09ae976ebd"
-    sha256 cellar: :any,                 arm64_monterey: "81f2281b90d03c95730ca77ab40be136a2d4d4536b4b548dc19c53050353419c"
-    sha256 cellar: :any,                 arm64_big_sur:  "f8890ce23a1b904f23242b226ba11b646aa09e33550f2da22abc27b258d42a7c"
-    sha256 cellar: :any,                 ventura:        "fbf21d6143981827d9ee88fcaf4d6d0d8090c20fcb04716a3e70255dedbdc90b"
-    sha256 cellar: :any,                 monterey:       "ab0728b88903cab23dff9a9cb8220649dffe62386435b12682c8b5ab53def285"
-    sha256 cellar: :any,                 big_sur:        "9894a2f01f24d23cc1403f81ebf6b0c8e3497da5064116b8c9710b4ee889bc93"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "14db1a21d1813e2583e49c0700c3e8384b943fa5b341c1b7a98752752de88e5c"
+    sha256 cellar: :any,                 arm64_ventura:  "b71254c54ea4890b0c691b05be545227350a59ee679a115bfbe0859c4295782c"
+    sha256 cellar: :any,                 arm64_monterey: "65105e177195b12190544277d9b4e1ed7e19abde77f3168b7df8926184809eda"
+    sha256 cellar: :any,                 arm64_big_sur:  "64b9fdd8ef72d54bbfb856eed8444a3b590f7e7a350aa326ab7e962eccbd916c"
+    sha256 cellar: :any,                 ventura:        "5d70386c6097b1ff5ef952a03b351957a5978c63b28635ff48ce55091049f743"
+    sha256 cellar: :any,                 monterey:       "37e702aaa2e30c62f1a3c9f3e2ad40a555b47f63032418824fab51e21ff3f817"
+    sha256 cellar: :any,                 big_sur:        "a9a7df48c8a96c6e270f2e4598a0a454b9a592a2f97cd109597639028d3dda00"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "70ea2cf8efd46b5673a204aabc8aa5f2780082df120f2b78289fd7127e48c251"
   end
 
   depends_on "pkg-config" => :build
@@ -58,8 +57,8 @@ class Pkcs11Tools < Formula
     ENV["PKCS11PASSWORD"] = "0000"
 
     system "softhsm2-util", "--init-token", "--slot", "0", "--label", "test", "--pin", "0000", "--so-pin", "0000"
-    system "p11keygen", "-i", "test", "-k", "aes", "-b", "128", "encrypt"
-    system "p11kcv", "seck/test"
-    system "p11ls"
+    system "#{bin}/p11keygen", "-i", "test", "-k", "aes", "-b", "128", "encrypt"
+    system "#{bin}/p11kcv", "seck/test"
+    system "#{bin}/p11ls"
   end
 end

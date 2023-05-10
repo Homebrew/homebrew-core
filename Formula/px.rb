@@ -4,18 +4,18 @@ class Px < Formula
   desc "Ps and top for human beings (px / ptop)"
   homepage "https://github.com/walles/px"
   url "https://github.com/walles/px.git",
-      tag:      "3.3.0",
-      revision: "2a870a22ee3d6b952d5aa90acd18caab5f6ce91c"
+      tag:      "3.3.1",
+      revision: "74162d39a483599686d8d002f89657d5d6fb452f"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "11617f1510ad69d0e6d8ef4b8b6193b89f3fc9f41711a8aa8b3ac899dbb8e68f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "dc068dab7c90b25bbfbbd2d941c96812943184cb4a1f663f88127b2fc5cf5d6d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2d651c79ac931aa209864e2739088cd181bd8b0ecb27922165099fb03d5ab97d"
-    sha256 cellar: :any_skip_relocation, ventura:        "032215b142845175119f37b6a23c886bea978eacbc774cfabeb8c6c9512ef0b3"
-    sha256 cellar: :any_skip_relocation, monterey:       "a747b10d8d6fbd8976555a237766f02da3d6eb0367a0b457f8bca21d2b45d3f9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "faf39c160c1b707907d565724674e3d0c1587ef1ca0b24ecc448be8ae5fc07d2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "67fc30475d52901b3a3ab8a1934bcb2f688d9fe8df6722a9534428b20102525b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0537c8e90f41b5ebbdc27a32b9f0aedda74a7f96822e2ae904031a86b924ff37"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3e3885d71f00bcf5c1860efd6e42f395e43048daf9f190864f511c92abfbc9d9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f0d89830877ea97aac7a53de9e188b2d53e8646a2d06211193cc95eb99775ddf"
+    sha256 cellar: :any_skip_relocation, ventura:        "28bae00c3fa433d437bb43d78d68d59c9e605edb28bd08445d80aae84eee3401"
+    sha256 cellar: :any_skip_relocation, monterey:       "d16c70a1e8b35ff38c5eb465e904db7a72b1d0c913d8618a18fbdc118fc4acb1"
+    sha256 cellar: :any_skip_relocation, big_sur:        "82dba60a8a8f212928320d5a11245b848eb86d7358361665b65ac8425c4bd3d5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d28d919bba7bfe9e7ef3ec42774fe64fabb50c0f6eeafd52793226fcb581428d"
   end
 
   depends_on "python@3.11"

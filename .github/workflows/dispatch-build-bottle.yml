@@ -76,6 +76,7 @@ jobs:
     timeout-minutes: ${{fromJson(github.event.inputs.timeout)}}
     permissions:
       contents: read
+      pull-requests: read # for Homebrew/actions/post-comment
       issues: write # for Homebrew/actions/post-comment
     defaults:
       run:

@@ -32,6 +32,7 @@
   },
   "ansible-lint": {
     "exclude_packages": [
+      "cffi", "pycparser",
       "PyYAML", "yamllint", "pathspec",
       "ansible-core", "cryptography", "Jinja2", "MarkupSafe", "resolvelib",
       "Pygments", "black", "click", "mypy-extensions", "platformdirs"

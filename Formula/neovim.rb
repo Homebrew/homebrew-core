@@ -2,11 +2,13 @@ class Neovim < Formula
   desc "Ambitious Vim-fork focused on extensibility and agility"
   homepage "https://neovim.io/"
   license "Apache-2.0"
-  head "https://github.com/neovim/neovim.git", branch: "master"
 
   stable do
     url "https://github.com/neovim/neovim/archive/v0.9.0.tar.gz"
     sha256 "39d79107c54d2f3babcad2cd157c399241c04f6e75e98c18e8afaf2bb5e82937"
+
+    # Remove when `mpack` resource is removed.
+    depends_on "luarocks" => :build
 
     # Remove in 0.10.
     resource "mpack" do
@@ -51,17 +53,25 @@ class Neovim < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "ff3d6f3ff38e711f6b008e588fd98a10c30d0e4ccc89c6707ca2f037dbee9377"
-    sha256 arm64_monterey: "3d7cdb361401f9a6a8fb05cd432362db2eb3e7493267dc1ab6bfa2fe2e73ecbb"
-    sha256 arm64_big_sur:  "a4eb3318a46725d5ab69cc735c7ec88bbe6d41fa888f023f5f21c52985d4dbbc"
-    sha256 ventura:        "48266f0c7be9338047bb36e7b27674735e68feb7334902d5631f973ea49909eb"
-    sha256 monterey:       "7d39f239db202219465165d2a569911fec080e8db0f72d5fca1586231e87a6ee"
-    sha256 big_sur:        "d6e83332af39562ce86df8473e586d9e541490df8217e84c5040b787c4d0f1ce"
-    sha256 x86_64_linux:   "37bf617a5181b052e12224f8c3dd9ffbc2001acabfdc838ffaf9cbcf334d22b7"
+    rebuild 1
+    sha256 arm64_ventura:  "84d9037402952ec4a6ab76806ee93952dc53b3feb9cf04c139d4164084e50233"
+    sha256 arm64_monterey: "9a7b3659523a6bce08707cb9116aa6000ee59c5c6caa9d4724b98f7a05503aa9"
+    sha256 arm64_big_sur:  "c5225e16b4767ac13a3e3c02527a6d4b9ffbb11f5d8243657ddd8e3008d11bb0"
+    sha256 ventura:        "309b04ac35d93eb58f0d119256b12af5b8b61f712abd0297b3fbd3c47751cf81"
+    sha256 monterey:       "7e391bb77c1bc35c36ed8ca2c842f103836bcbfef18e87c07cc0003f8f2065dc"
+    sha256 big_sur:        "15fc913e95ae512f1213809fb5733fcb26c7d67a635da6666f5e42217a6c054d"
+    sha256 x86_64_linux:   "0a1386b4f6aa06a5f3ca9a5906827e17b170b6892e6e1bc3c6af3d50d78593d9"
+  end
+
+  # TODO: Replace with single-line `head` when `lpeg`
+  #       is no longer a head-only dependency in 0.10.0.
+  head do
+    url "https://github.com/neovim/neovim.git", branch: "master"
+    depends_on "lpeg"
   end
 
   depends_on "cmake" => :build
-  depends_on "luarocks" => :build
+  depends_on "lpeg" => :build # needed at runtime in 0.10.0
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "libtermkey"
@@ -79,55 +89,35 @@ class Neovim < Formula
     depends_on "libnsl"
   end
 
-  # TODO: Switch this to a tarball and drop `luarocks` for 0.10. Consider shipping as a formula.
-  resource "lpeg" do
-    url "https://luarocks.org/manifests/gvvaughan/lpeg-1.0.2-1.src.rock"
-    sha256 "e0d0d687897f06588558168eeb1902ac41a11edd1b58f1aa61b99d0ea0abbfbc"
-  end
-
   def install
     resources.each do |r|
       r.stage(buildpath/"deps-build/build/src"/r.name)
     end
 
-    deps_build = buildpath/"deps-build"
-    luajit = Formula["luajit"]
-    ENV.append_path "CMAKE_PREFIX_PATH", deps_build
-    ENV.append_to_cflags "-I#{luajit.opt_include}/luajit-2.1"
+    if build.stable?
+      cd "deps-build/build/src" do
+        # TODO: Remove `mpack` build block in 0.10.0.
+        cd "mpack" do
+          luajit = Formula["luajit"]
+          lua_path = "--lua-dir=#{luajit.opt_prefix}"
+          deps_build = buildpath/"deps-build"
 
-    # The path separator for `LUA_PATH` and `LUA_CPATH` is `;`.
-    ENV.prepend "LUA_PATH", deps_build/"share/lua/5.1/?.lua", ";"
-    ENV.prepend "LUA_CPATH", deps_build/"lib/lua/5.1/?.so", ";"
-    # Don't clobber the default search path
-    ENV.append "LUA_PATH", ";", ";"
-    ENV.append "LUA_CPATH", ";", ";"
-    lua_path = "--lua-dir=#{luajit.opt_prefix}"
+          # The path separator for `LUA_PATH` and `LUA_CPATH` is `;`.
+          ENV.prepend "LUA_PATH", deps_build/"share/lua/5.1/?.lua", ";"
+          ENV.prepend "LUA_CPATH", deps_build/"lib/lua/5.1/?.so", ";"
+          # Don't clobber the default search path
+          ENV.append "LUA_PATH", ";", ";"
+          ENV.append "LUA_CPATH", ";", ";"
 
-    cd "deps-build/build/src" do
-      %w[
-        mpack/mpack-1.0.10-0.rockspec
-        lpeg/lpeg-1.0.2-1.src.rock
-      ].each do |rock|
-        dir, rock = rock.split("/")
-        next if build.head? && dir == "mpack"
-
-        cd dir do
-          output = Utils.safe_popen_read("luarocks", "unpack", lua_path, rock, "--tree=#{buildpath}/deps-build")
+          rock = "mpack-1.0.10-0.rockspec"
+          output = Utils.safe_popen_read("luarocks", "unpack", lua_path, rock, "--tree=#{deps_build}")
           unpack_dir = output.split("\n")[-2]
+
           cd unpack_dir do
-            if build.stable?
-              system "luarocks", "make", lua_path, "--tree=#{buildpath}/deps-build"
-            else
-              cp buildpath/"cmake.deps/cmake/LpegCMakeLists.txt", "CMakeLists.txt"
-              system "cmake", "-S", ".", "-B", "build", *std_cmake_args(install_prefix: deps_build)
-              system "cmake", "--build", "build"
-              system "cmake", "--install", "build"
-            end
+            system "luarocks", "make", lua_path, "--tree=#{deps_build}"
           end
         end
-      end
 
-      if build.stable?
         Dir["tree-sitter-*"].each do |ts_dir|
           cd ts_dir do
             cp buildpath/"cmake.deps/cmake/TreesitterParserCMakeLists.txt", "CMakeLists.txt"

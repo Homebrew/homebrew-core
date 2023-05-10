@@ -12,13 +12,14 @@ class Duck < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "02fe98a2d36acf886983c2d7f280f8a28618e624a6a77486505bec656e8e7190"
-    sha256 cellar: :any, arm64_monterey: "ec42ec56f9907feed723abf55c17af0f8f5c300336b005d45eb095274ed0f0a2"
-    sha256 cellar: :any, arm64_big_sur:  "74eeb36f5c3d64bf72f5ff1e2b45c175d3ffae83593754e6b9759ed302b4a474"
-    sha256 cellar: :any, ventura:        "250d5fa8c311ed4c9ff735e19ad2d3dfec964e047ca47ebeacaf42c9b2f6c896"
-    sha256 cellar: :any, monterey:       "8e40cfad7d247501187f2e2e5e280a16aaac4603c959aebd2bb3e85bf21afeb7"
-    sha256 cellar: :any, big_sur:        "4cbe56a6f8646eb3ac576e786aeae9280224ce2988d0e0acf4e551b35399e928"
-    sha256               x86_64_linux:   "970d5058c1f1b85ea24b4cfcda066c3781d2bc6d4086d73d7169dddd7d963279"
+    rebuild 1
+    sha256 cellar: :any, arm64_ventura:  "30261cff783729f9a7222c652d62ffa87f912d5aa2d1150b1b73d024b0f78a75"
+    sha256 cellar: :any, arm64_monterey: "1c3b8831f0e4aa56b46a59ee1119c51a20c1dedcd60c5ab94166eca0df99bf58"
+    sha256 cellar: :any, arm64_big_sur:  "0565afbb1ad94cc536b23184cd8c6ae941c084496296cdefc68b3f230e7da052"
+    sha256 cellar: :any, ventura:        "d42cf56c9ae7a518d5f816e3bfdd2585370dfb64305d6bfd6df490c2420856ee"
+    sha256 cellar: :any, monterey:       "436646794c44c52a5620aeffbfc8b38f57b06eda0e89b39936a246d7525d3fea"
+    sha256 cellar: :any, big_sur:        "c59a5026f0e1d43deaf80e4c32f4a7ce0b062bfdd012931f4e12ea7938cf011b"
+    sha256               x86_64_linux:   "9b730338600af1e75c7777fa6ba10828d780d84d86c60a767097ea1a4c64e420"
   end
 
   depends_on "ant" => :build
@@ -142,7 +143,7 @@ class Duck < Formula
     end
 
     revision = version.to_s.rpartition(".").last
-    system "mvn", "-DskipTests", "-Dgit.commitsCount=#{revision}",
+    system "mvn", "-DskipTests", "-Dconfiguration=default", "-Dgit.commitsCount=#{revision}",
                   "--projects", "cli/#{os}", "--also-make", "verify"
 
     libdir, bindir = if OS.mac?
@@ -166,7 +167,7 @@ class Duck < Formula
       rm_r libexec/"Contents/PlugIns/Runtime.jre"
       ln_s Formula["openjdk"].libexec/"openjdk.jdk", libexec/"Contents/PlugIns/Runtime.jre"
     else
-      libexec.install Dir["cli/linux/target/release/duck/*"]
+      libexec.install Dir["cli/linux/target/default/duck/*"]
     end
 
     rm libdir/shared_library("libjnidispatch")

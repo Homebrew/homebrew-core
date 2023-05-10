@@ -1,8 +1,11 @@
 class Reminiscence < Formula
   desc "Flashback engine reimplementation"
   homepage "http://cyxdown.free.fr/reminiscence/"
-  url "http://cyxdown.free.fr/reminiscence/REminiscence-0.4.9.tar.bz2"
-  sha256 "320463e629c38f2e3aaaa510febacc0c5d88a59f5e906b0500a1dcb9c7e1e935"
+  # A mirror is used as the primary URL because the official one rate limits
+  # too heavily that CI almost always fails.
+  url "https://pkg.freebsd.org/ports-distfiles/REminiscence-0.5.1.tar.bz2"
+  mirror "http://cyxdown.free.fr/reminiscence/REminiscence-0.5.1.tar.bz2"
+  sha256 "6b02b8568a75af5fbad3b123d2efe033614091d83f128bc7f3b8b533db6e4b29"
 
   livecheck do
     url :homepage
@@ -10,14 +13,13 @@ class Reminiscence < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "7bb3a7ba7f08c9aadd9a95eb5f1ed7936ec593f50f14070627c060d30b58a5cc"
-    sha256 cellar: :any,                 arm64_monterey: "71f92aa98545a961759a62af80f7ca5f83f5fe2c0d933811421c63b846517fd0"
-    sha256 cellar: :any,                 arm64_big_sur:  "65baa88dd4251db9f003eda17b92c9b730eaa3592577944bf0c3cd1ee931eb74"
-    sha256 cellar: :any,                 ventura:        "3e8f935a4eec174be5f37cb71745060e1238ca6f14231edea2d0d4f3a1dfbeba"
-    sha256 cellar: :any,                 monterey:       "0263ce7602723fbf4205670cb0d7125eca9c24b5301d732d1a102c6788510a77"
-    sha256 cellar: :any,                 big_sur:        "2ffac4bed71ad59f04e9d2c124d9cc1f46be04b228aed0636278bec4dcf10380"
-    sha256 cellar: :any,                 catalina:       "f849d254d724d242cd41d0338ab7e7da9e04bce1a2dab4a2f3147a867ede36c4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b41cc4ad29e482719f7e9bb900ffc01cb54200408c8a9f7c59f28a83dc96939d"
+    sha256 cellar: :any,                 arm64_ventura:  "887a653149cd8f77383f4f3ffdac106f8dcba9c52987c4a1c17157db04c33b32"
+    sha256 cellar: :any,                 arm64_monterey: "98ebed8348cdac56e1a8d02070321635fce264f93934d1f1b3f26489e7a72c05"
+    sha256 cellar: :any,                 arm64_big_sur:  "51074efe55bd91ca2d558dee1aa8e981d10ab4701c1a6a8aabbe405805694a8e"
+    sha256 cellar: :any,                 ventura:        "31bcc080a553f05b51ed717d28d351018f4923e72c94e0fad630147b2f9be6ed"
+    sha256 cellar: :any,                 monterey:       "44157f3569ca1271e725be5627e8518fe6c07087045dc1a5455f5d67b2a0e9ee"
+    sha256 cellar: :any,                 big_sur:        "ebeeb228a43e965ea400a36fd035b515e6b648854bbf96159042d95299173ba0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "55b09c3a5ffbfc0bd191c3290731350a1a341b6e48065bf60ac2c5b805a035dd"
   end
 
   depends_on "autoconf" => :build
