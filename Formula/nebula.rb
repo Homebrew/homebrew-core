@@ -1,10 +1,15 @@
 class Nebula < Formula
   desc "Scalable overlay networking tool for connecting computers anywhere"
   homepage "https://github.com/slackhq/nebula"
-  version "1.6.1"
   url "https://github.com/slackhq/nebula/archive/v#{version}.tar.gz"
+  version "1.6.1"
   sha256 "9c343d998d2eab9473c3bf73d434b8a382d90b1f73095dd1114ecaf2e1c0970f"
   license "MIT"
+
+  livecheck do
+    url :url
+    strategy :github_latest
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6ec2ba6c97c77457798bd69f5f4d9b178f8b33195b0060d15e84141150d01f8c"
@@ -15,11 +20,6 @@ class Nebula < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "4fe9ad97db34803d1f950d3b5a574139b3978e9fca493e305d3852752d38dcfc"
     sha256 cellar: :any_skip_relocation, catalina:       "4fe9ad97db34803d1f950d3b5a574139b3978e9fca493e305d3852752d38dcfc"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "df756d919c35f94f9fc8ed6080e908466b55dcb0b246478b329f613994867aa1"
-  end
-
-  livecheck do
-    url :url
-    strategy :github_latest
   end
 
   depends_on "go" => :build
