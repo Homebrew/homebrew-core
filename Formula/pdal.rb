@@ -1,10 +1,21 @@
 class Pdal < Formula
   desc "Point data abstraction library"
   homepage "https://www.pdal.io/"
-  url "https://github.com/PDAL/PDAL/releases/download/2.5.3/PDAL-2.5.3-src.tar.bz2"
-  sha256 "1d193e9cf11766a394722e1899d6a7d1fb81387af113250beff58e6325851b13"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/PDAL/PDAL.git", branch: "master"
+
+  # Remove stable block when patch is no longer needed.
+  stable do
+    url "https://github.com/PDAL/PDAL/releases/download/2.5.3/PDAL-2.5.3-src.tar.bz2"
+    sha256 "1d193e9cf11766a394722e1899d6a7d1fb81387af113250beff58e6325851b13"
+
+    # Fix build with GDAL 3.7+
+    patch do
+      url "https://github.com/PDAL/PDAL/commit/516e33ad7f40e54affd5754617fbe26d70ef2dd4.patch?full_index=1"
+      sha256 "f434773b1454766df3213be46312f7712c5b6ec74fe12986f77fa3d2f393cc6d"
+    end
+  end
 
   # The upstream GitHub repository sometimes creates tags that only include a
   # major/minor version (`1.2`) and then uses major/minor/patch (`1.2.0`) for
@@ -33,8 +44,6 @@ class Pdal < Formula
   depends_on "laszip"
   depends_on "libpq"
   depends_on "numpy"
-
-  fails_with gcc: "5" # gdal is compiled with GCC
 
   def install
     system "cmake", ".", *std_cmake_args,
