@@ -40,7 +40,7 @@ class Dafny < Formula
   test do
     (testpath/"test.dfy").write <<~EOS
       method Main() {
-        var i: nat;
+        var i: nat :| true;
         assert i as int >= -1;
         print "hello, Dafny\\n";
       }
