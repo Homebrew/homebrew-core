@@ -23,11 +23,13 @@ class TigerVnc < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "ffmpeg"
   depends_on "fltk"
   depends_on "gettext"
   depends_on "gnutls"
   depends_on "jpeg-turbo"
   depends_on "pixman"
+  depends_on "pkg-config" => :build
 
   on_linux do
     depends_on "libx11"
@@ -49,6 +51,7 @@ class TigerVnc < Formula
     args = std_cmake_args + %W[
       -DJPEG_INCLUDE_DIR=#{turbo.include}
       -DJPEG_LIBRARY=#{turbo.lib}/#{shared_library("libjpeg")}
+      -DENABLE_H264=on
       .
     ]
     system "cmake", *args
