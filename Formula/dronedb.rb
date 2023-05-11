@@ -5,7 +5,7 @@ class Dronedb < Formula
        tag:      "v1.0.12",
        revision: "849e92fa94dc7cf65eb756ecf3824f0fe9dbb797"
   license "MPL-2.0"
-  revision 3
+  revision 4
   head "https://github.com/DroneDB/DroneDB.git", branch: "master"
 
   bottle do
