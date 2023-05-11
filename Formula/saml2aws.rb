@@ -7,13 +7,14 @@ class Saml2aws < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "67b747b0b9ede4a2e8b59e3412c5b80da25a54e65bfb2afa01cdbbd424acaf6e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8ced2e1f0851a98dfe442c0d9cea994858719d8d1c1b458ef7463b45d7bd867c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c8a559f2278c6717de902892bed57c54c65c2a31aedaf0be8cd6e5d610102497"
-    sha256 cellar: :any_skip_relocation, ventura:        "6185ee10651d8ab4bc66952b924479c4ca16d7998ee87d129efad18db5d177b3"
-    sha256 cellar: :any_skip_relocation, monterey:       "963f703319e0635a805d39040c9f2d962fc059fbf65870dd2fe2e202f9505824"
-    sha256 cellar: :any_skip_relocation, big_sur:        "45ad5658f64a39e6bcfc208f5fccd6abe81f8f1f298fef26425e39539bee9867"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c0a29929a5cac740a42bee590ac646d46888eb3e3cf3574fba61ed4110ad0b82"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "913496fd2a31afa3aad6f03e9ed25e15a94f42b87a9cb42fa8e7a4faf8dd7870"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b02db242bd620d0131c6b3e40f9e6739cdc090bb870ae16bae35d30a415c2fe7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "47a2c68ac142b0f4cdd2a1648eba9e68f322a5ecc3b9fd7ab1af0c6bf85609e6"
+    sha256 cellar: :any_skip_relocation, ventura:        "b50cb0f53a4536e1f19e62e6bf90631a3562ca3f1b3bc108e4d8b2943ae89a38"
+    sha256 cellar: :any_skip_relocation, monterey:       "5992b69086cb51be84ecb6f6b66c20dfebb88a00cf11744c9199f9020a19eb63"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a720069cb8d59feff1ccaab23d25a21a85452aa9e51f5b9e72f15ccd28a4c3f8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1a957cc7c82d24bc03cf628564de70b97209d8fa5ced2672a23be05db5dd84d0"
   end
 
   depends_on "go" => :build
@@ -21,6 +22,19 @@ class Saml2aws < Formula
   def install
     ldflags = "-s -w -X main.Version=#{version}"
     system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/saml2aws"
+    (zsh_completion/"_saml2aws").write <<~EOS
+      #compdef saml2aws
+
+      _saml2aws_bash_autocomplete() {
+          local cur prev opts base
+          COMPREPLY=()
+          cur="${COMP_WORDS[COMP_CWORD]}"
+          opts=$( ${COMP_WORDS[0]} --completion-bash ${COMP_WORDS[@]:1:$COMP_CWORD} )
+          COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+          return 0
+      }
+      complete -F _saml2aws_bash_autocomplete saml2aws
+    EOS
   end
 
   test do
