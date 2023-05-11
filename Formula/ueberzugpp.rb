@@ -1,11 +1,10 @@
 require 'pty'
-require 'tmpdir'
 
 class Ueberzugpp < Formula
   desc "Drop in replacement for ueberzug written in C++"
   homepage "https://github.com/jstkdng/ueberzugpp"
-  url "https://github.com/jstkdng/ueberzugpp/archive/refs/tags/v2.8.0.tar.gz"
-  sha256 "3f7e21052c3c218c436b1d2d8aedc1f02573ad83046be00b05069bfdc29bf4e2"
+  url "https://github.com/jstkdng/ueberzugpp/archive/refs/tags/v2.8.1.tar.gz"
+  sha256 "c19bf5f1f29dae1fe2134bcd7e47a9b488a4125b411a92e48538ccda0d54b912"
   license "GPL-3.0-or-later"
 
   depends_on "cli11" => :build
@@ -41,9 +40,6 @@ class Ueberzugpp < Formula
     slave.close
     Process.kill('TERM', pid)
 
-    temp = Dir.tmpdir()
-    File.readlines("#{temp}/ueberzugpp-#{ENV["USER"]}.log").each do |line|
-      puts(line)
-    end
+    assert_predicate testpath/"ueberzugpp-#{ENV["USER"]}.log", :exist?
   end
 end
