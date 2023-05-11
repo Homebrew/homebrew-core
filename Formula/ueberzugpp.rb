@@ -1,4 +1,4 @@
-require 'pty'
+require "pty"
 
 class Ueberzugpp < Formula
   desc "Drop in replacement for ueberzug written in C++"
@@ -14,7 +14,7 @@ class Ueberzugpp < Formula
   depends_on "pkg-config" => :build
   depends_on "fmt"
   depends_on "libsixel"
-  depends_on "openssl@3"
+  depends_on "openssl@1.1"
   depends_on "spdlog"
   depends_on "tbb"
   depends_on "vips"
@@ -32,13 +32,13 @@ class Ueberzugpp < Formula
 
   test do
     ENV["TMPDIR"] = testpath
-    master, slave = PTY.open
-    read, write = IO.pipe
-    pid = spawn("#{bin}/ueberzugpp layer -o iterm2", :in=>read, :out=>slave)
+    __, secondary = PTY.open
+    read, __ = IO.pipe
+    pid = spawn("#{bin}/ueberzugpp layer -o iterm2", in: read, out: secondary)
     sleep(0.1)
     read.close
-    slave.close
-    Process.kill('TERM', pid)
+    secondary.close
+    Process.kill("TERM", pid)
 
     assert_predicate testpath/"ueberzugpp-#{ENV["USER"]}.log", :exist?
   end
