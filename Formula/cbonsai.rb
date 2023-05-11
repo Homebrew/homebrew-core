@@ -18,4 +18,3 @@ class Cbonsai < Formula
     system bin/"cbonsai", "-p"
   end
 end
-
