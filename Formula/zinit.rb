@@ -20,6 +20,7 @@ class Zinit < Formula
 
   def install
     prefix.install Dir["*"]
+    man1.install_symlink prefix/"doc/zinit.1"
   end
 
   def caveats
