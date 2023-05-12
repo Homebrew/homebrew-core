@@ -19,7 +19,6 @@ class Zinit < Formula
   uses_from_macos "zsh"
 
   def install
-    man1.install "doc/zinit.1"
     prefix.install Dir["*"]
   end
 
