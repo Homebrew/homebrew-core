@@ -1,8 +1,8 @@
 class Dnscontrol < Formula
   desc "It is system for maintaining DNS zones"
   homepage "https://github.com/StackExchange/dnscontrol"
-  url "https://github.com/StackExchange/dnscontrol/archive/v3.31.4.tar.gz"
-  sha256 "d33274bc8007c902b9cb4315e06837b8b1d58ddde609277c8f3347d2cf196145"
+  url "https://github.com/StackExchange/dnscontrol/archive/v3.31.5.tar.gz"
+  sha256 "372814eaff7141b7f8d52cc027eb4bffcce7bcdd77e27529bc77245140be4bbd"
   license "MIT"
   version_scheme 1
 
