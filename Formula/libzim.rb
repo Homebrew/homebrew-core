@@ -4,6 +4,7 @@ class Libzim < Formula
   url "https://download.openzim.org/release/libzim/libzim-8.2.0.tar.xz"
   sha256 "611f816a5f3cc725210f0b4d9676c203394b92a00d1a9f2b3934897cc364fd59"
   license "GPL-2.0-only"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_ventura:  "3efd0f8dd8c236c60b4db6bf506ee4b9319c9837d68f79c1b9de2dfaa6f56034"
