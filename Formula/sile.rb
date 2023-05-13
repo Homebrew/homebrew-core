@@ -4,6 +4,7 @@ class Sile < Formula
   url "https://github.com/sile-typesetter/sile/releases/download/v0.14.9/sile-0.14.9.tar.xz"
   sha256 "9a719a490a2bb71136d25d665536fb9ff2a17123fc2cee48d05ce418cb404814"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "e3c9b1772ab8a84e5c1f7a6822e0c046fdf52e0ac6fab319834c50365617d98d"
