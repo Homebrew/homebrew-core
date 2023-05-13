@@ -4,6 +4,7 @@ class Liblcf < Formula
   url "https://easyrpg.org/downloads/player/0.8/liblcf-0.8.tar.xz"
   sha256 "6b0d8c7fefe3d66865336406f69ddf03fe59e52b5601687265a4d1e47a25c386"
   license "MIT"
+  revision 1
   head "https://github.com/EasyRPG/liblcf.git", branch: "master"
 
   bottle do
