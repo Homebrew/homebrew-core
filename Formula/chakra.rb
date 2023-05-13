@@ -4,7 +4,7 @@ class Chakra < Formula
   url "https://github.com/chakra-core/ChakraCore/archive/v1.11.24.tar.gz"
   sha256 "b99e85f2d0fa24f2b6ccf9a6d2723f3eecfe986a9d2c4d34fa1fd0d015d0595e"
   license "MIT"
-  revision 5
+  revision 6
 
   bottle do
     sha256 cellar: :any,                 ventura:      "055068057b76dc9d1162efbc643e875ac98b0984f452a00a25d021c6cb2998d1"
