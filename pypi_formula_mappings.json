@@ -478,7 +478,7 @@
     "exclude_packages": ["six"]
   },
   "ocrmypdf": {
-    "exclude_packages": ["pillow", "pycparser"]
+    "exclude_packages": ["cffi", "pillow", "pycparser", "pycairo"]
   },
   "onlykey-agent": {
     "exclude_packages": ["six", "Cython"]
