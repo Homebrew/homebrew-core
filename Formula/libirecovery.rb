@@ -25,17 +25,17 @@ class Libirecovery < Formula
     depends_on "libtool" => :build
   end
 
+  depends_on "pkg-config" => :build
+
   on_linux do
-    depends_on "pkg-config" => :build
     depends_on "libusb"
     depends_on "readline"
   end
 
   def install
     system "./autogen.sh" if build.head?
-    system "./configure", "--disable-dependency-tracking",
+    system "./configure", *std_configure_args.reject { |arg| arg == "--disable-debug" },
                           "--disable-silent-rules",
-                          "--prefix=#{prefix}",
                           "--enable-debug-code"
     system "make", "install"
   end
