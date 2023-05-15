@@ -21,15 +21,13 @@ class Xmake < Formula
   end
 
   def install
-    ENV["XMAKE_ROOT"] = "y" if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
-
     system "./configure"
     system "make"
     system "make", "install", "PREFIX=#{prefix}"
   end
 
   test do
-    ENV["XMAKE_ROOT"] = "y" if OS.linux? && (ENV["HOMEBREW_GITHUB_ACTIONS"])
+    ENV.delete "CPATH"
     system bin/"xmake", "create", "test"
     cd "test" do
       system bin/"xmake"
