@@ -19,11 +19,11 @@ class Vmctl < Formula
 
   test do
     output = shell_output("#{bin}/vmctl vm-native --s \
-        --vm-native-src-addr=https://play.victoriametrics.com/select/accounting/1/6a716b0f-38bc-4856-90ce-448fd713e3fe/prometheus \
-        --vm-native-dst-addr=https://play.victoriametrics.com/insert/accounting/1/6a716b0f-38bc-4856-90ce-448fd713e3fe/prometheus \
-        --vm-native-filter-match='{__name__!=\"\"}' \
-        --vm-native-filter-time-start='2023-05-08T11:30:30Z'")
-    sleep 90
+    --vm-native-src-addr=https://play.victoriametrics.com/select/accounting/1/6a716b0f-38bc-4856-90ce-448fd713e3fe/prometheus \
+    --vm-native-dst-addr=https://play.victoriametrics.com/insert/accounting/1/6a716b0f-38bc-4856-90ce-448fd713e3fe/prometheus \
+    --vm-native-filter-match='{__name__!=\"\"}' \
+    --vm-native-filter-time-start='2023-05-08T11:30:30Z'")
+    sleep 60
     assert_match "Requests to make", output
   end
 end
