@@ -5,6 +5,6 @@
   "llvm",
   "openblas",
   "openssl@1.1",
-  "openssl@3.0",
-  "openssl@3"
+  "openssl@3",
+  "openssl@3.1"
 ]
