@@ -179,6 +179,15 @@ jobs:
           bottles-directory: ${{ env.BOTTLES_DIR }}
           cleanup: ${{ matrix.cleanup }}
 
+      - name: Checkout PR branches for testing
+        run: |
+          cd "$(brew --repository)"
+          git fetch origin pull/15440/head:github-artifact-download
+          git checkout github-artifact-download
+          cd "$(brew --repository homebrew/test-bot)"
+          git fetch origin pull/922/head:github-artifact-download
+          git checkout github-artifact-download
+
       - run: brew test-bot ${{ needs.setup_tests.outputs.test-bot-formulae-args }}
         id: brew-test-bot-formulae
         working-directory: ${{ env.BOTTLES_DIR }}
