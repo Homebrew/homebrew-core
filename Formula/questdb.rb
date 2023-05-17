@@ -38,12 +38,14 @@ class Questdb < Formula
 
   test do
     mkdir_p testpath/"data"
+    port = free_port
+    ENV["QDB_HTTP_BIND_TO"] = "127.0.0.1:#{port}"
     begin
       fork do
         exec "#{bin}/questdb start -d #{testpath}/data"
       end
-      sleep 30
-      output = shell_output("curl -Is localhost:9000/index.html")
+      sleep 40
+      output = shell_output("curl -Is 127.0.0.1:#{port}/index.html")
       sleep 4
       assert_match "questDB", output
     ensure
