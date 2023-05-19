@@ -23,6 +23,6 @@ class Observerward < Formula
 
   test do
     system bin/"observer_ward", "-u"
-    assert_match "swagger", shell_output("#{bin}/observer_ward -t https://httpbin.org")
+    assert_match "0example", shell_output("#{bin}/observer_ward -t https://www.example.com/")
   end
 end
