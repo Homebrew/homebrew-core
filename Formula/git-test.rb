@@ -9,6 +9,8 @@ class GitTest < Formula
     sha256 cellar: :any_skip_relocation, all: "fee9ffb3bdf734e1fdbc4d6b5348ee774af974bf214a778944651231d13b5d55"
   end
 
+  deprecate! date: "2023-05-19", because: :repo_archived
+
   def install
     bin.install "git-test"
     man1.install "git-test.1"
