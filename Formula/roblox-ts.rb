@@ -16,7 +16,7 @@ class RobloxTs < Formula
   end
 
   test do
-    system "#{bin}/rbxtsc", "init", "game", "-y"
+    system bin/"rbxtsc", "init", "game", "-y"
     assert_predicate testpath/"package.json", :exist?
     assert_predicate testpath/"package-lock.json", :exist?
   end
