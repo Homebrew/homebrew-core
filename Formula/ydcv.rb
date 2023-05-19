@@ -21,6 +21,8 @@ class Ydcv < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "52f466e847bf7841d0108b5bdb3e034ea2412d9d8d354088d270c088e784482e"
   end
 
+  deprecate! date: "2023-05-19", because: :repo_archived
+
   depends_on "python@3.11"
 
   def install
