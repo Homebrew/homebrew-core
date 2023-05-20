@@ -7,6 +7,7 @@ class Pytorch < Formula
       tag:      "v2.0.0",
       revision: "c263bd43e8e8502d4726643bc6fd046f0130ac0e"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -31,7 +32,7 @@ class Pytorch < Formula
   depends_on "numpy"
   depends_on "openblas"
   depends_on "openssl@1.1"
-  depends_on "protobuf"
+  depends_on "protobuf@21"
   depends_on "pybind11"
   depends_on "python-typing-extensions"
   depends_on "pyyaml"
