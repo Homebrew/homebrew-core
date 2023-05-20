@@ -4,7 +4,7 @@ class OsmPbf < Formula
   url "https://github.com/openstreetmap/OSM-binary/archive/v1.5.0.tar.gz"
   sha256 "2abf3126729793732c3380763999cc365e51bffda369a008213879a3cd90476c"
   license "LGPL-3.0-or-later"
-  revision 4
+  revision 5
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "83186e7dc2a8237fb480072b716ca0a3d274002bef9f1cda3bbaa00917324b78"
@@ -23,7 +23,9 @@ class OsmPbf < Formula
   uses_from_macos "zlib"
 
   def install
-    system "cmake", ".", *std_cmake_args
+    # Keep C++ standard in sync with abseil.rb
+    inreplace "CMakeLists.txt", "CMAKE_CXX_STANDARD 11", "CMAKE_CXX_STANDARD 17"
+    system "cmake", ".", "-DCMAKE_CXX_STANDARD=17", *std_cmake_args
     system "make", "install"
     pkgshare.install "resources/sample.pbf"
   end
