@@ -5,6 +5,7 @@ class ApacheArrow < Formula
   mirror "https://archive.apache.org/dist/arrow/arrow-12.0.0/apache-arrow-12.0.0.tar.gz"
   sha256 "ddd8347882775e53af7d0965a1902b7d8fcd0a030fd14f783d4f85e821352d52"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/apache/arrow.git", branch: "main"
 
   bottle do
@@ -24,10 +25,10 @@ class ApacheArrow < Formula
   depends_on "brotli"
   depends_on "bzip2"
   depends_on "glog"
-  depends_on "grpc"
+  depends_on "grpc@1.54"
   depends_on "lz4"
   depends_on "openssl@1.1"
-  depends_on "protobuf"
+  depends_on "protobuf@21"
   depends_on "rapidjson"
   depends_on "re2"
   depends_on "snappy"
@@ -42,7 +43,9 @@ class ApacheArrow < Formula
     # https://github.com/Homebrew/homebrew-core/issues/76537
     ENV.runtime_cpu_detection if Hardware::CPU.intel?
 
+    # Keep C++ standard in synch with abseil.rb
     args = %W[
+      -DCMAKE_CXX_STANDARD=17
       -DCMAKE_INSTALL_RPATH=#{rpath}
       -DARROW_ACERO=ON
       -DARROW_COMPUTE=ON
