@@ -4,6 +4,7 @@ class EtcdCppApiv3 < Formula
   url "https://github.com/etcd-cpp-apiv3/etcd-cpp-apiv3/archive/refs/tags/v0.14.3.tar.gz"
   sha256 "5faf1ca697f9889c269a2a0cb2237d8121959f72bf6eca4f61dffdcb9c6d9d46"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "a66eb265d53f20608fb1eb5667d94c78d45d3ecda60644327695dabe553f4700"
@@ -20,9 +21,9 @@ class EtcdCppApiv3 < Formula
 
   depends_on "boost"
   depends_on "cpprestsdk"
-  depends_on "grpc"
+  depends_on "grpc@1.54"
   depends_on "openssl@1.1"
-  depends_on "protobuf"
+  depends_on "protobuf@21"
 
   fails_with gcc: "5"
 
