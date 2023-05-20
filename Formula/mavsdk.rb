@@ -7,6 +7,7 @@ class Mavsdk < Formula
       tag:      "v1.4.14",
       revision: "04ce811dbb89c4c2fa4a5e1ca62909942f041bb3"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -29,10 +30,10 @@ class Mavsdk < Formula
   depends_on "abseil"
   depends_on "c-ares"
   depends_on "curl"
-  depends_on "grpc"
+  depends_on "grpc@1.54"
   depends_on "jsoncpp"
   depends_on "openssl@1.1"
-  depends_on "protobuf"
+  depends_on "protobuf@21"
   depends_on "re2"
   depends_on "tinyxml2"
 
@@ -90,12 +91,13 @@ class Mavsdk < Formula
       PATH:        "#{venv_dir}/bin:#{ENV["PATH"]}",
     ) do
       system "tools/generate_from_protos.sh"
-
+      # Keep C++ standard in sync with abseil.rb
       # Source build adapted from
       # https://mavsdk.mavlink.io/develop/en/contributing/build.html
       system "cmake", *std_cmake_args,
                       "-Bbuild/default",
                       "-DSUPERBUILD=OFF",
+                      "-DCMAKE_CXX_STANDARD=17",
                       "-DBUILD_SHARED_LIBS=ON",
                       "-DBUILD_MAVSDK_SERVER=ON",
                       "-DBUILD_TESTS=OFF",
