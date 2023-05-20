@@ -5,6 +5,7 @@ class Libpulsar < Formula
   mirror "https://archive.apache.org/dist/pulsar/pulsar-client-cpp-3.2.0/apache-pulsar-client-cpp-3.2.0.tar.gz"
   sha256 "e1d007d140906e4e7fc2b47414d551f3c7024bd9d35c8be1bbde3078dc2bddbc"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "08ede2fa1b7e6995c97083b329757c147144b3d46534e174f191a89010048f52"
@@ -27,8 +28,11 @@ class Libpulsar < Formula
   uses_from_macos "curl"
 
   def install
+    # Keep C++ standard in sync with abseil.rb
+    inreplace "CMakeLists.txt", "CMAKE_CXX_STANDARD 11", "CMAKE_CXX_STANDARD 17"
     system "cmake", ".", *std_cmake_args,
                     "-DBUILD_TESTS=OFF",
+                    "-DCMAKE_CXX_STANDARD=17",
                     "-DBoost_INCLUDE_DIRS=#{Formula["boost"].include}",
                     "-DProtobuf_INCLUDE_DIR=#{Formula["protobuf"].include}",
                     "-DProtobuf_LIBRARIES=#{Formula["protobuf"].lib/shared_library("libprotobuf")}"
