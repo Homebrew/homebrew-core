@@ -4,7 +4,7 @@ class OpencvAT3 < Formula
   url "https://github.com/opencv/opencv/archive/3.4.16.tar.gz"
   sha256 "5e37b791b2fe42ed39b52d9955920b951ee42d5da95f79fbc9765a08ef733399"
   license "BSD-3-Clause"
-  revision 7
+  revision 8
 
   bottle do
     sha256 arm64_ventura:  "db7ecf45b5f00ecd3bb10e83f952776462ef52085378084b4bd0bb66406bad15"
@@ -30,7 +30,7 @@ class OpencvAT3 < Formula
   depends_on "libtiff"
   depends_on "numpy"
   depends_on "openexr"
-  depends_on "protobuf"
+  depends_on "protobuf@21"
   depends_on "python@3.10"
   depends_on "tbb"
   depends_on "webp"
@@ -66,8 +66,6 @@ class OpencvAT3 < Formula
   end
 
   def install
-    ENV.cxx11
-
     resource("contrib").stage buildpath/"opencv_contrib"
 
     # Reset PYTHONPATH, workaround for https://github.com/Homebrew/homebrew-science/pull/4885
@@ -78,6 +76,7 @@ class OpencvAT3 < Formula
     libdirs.each { |l| (buildpath/"3rdparty"/l).rmtree }
 
     args = std_cmake_args + %W[
+      -DCMAKE_CXX_STANDARD=11
       -DCMAKE_OSX_DEPLOYMENT_TARGET=
       -DBUILD_JASPER=OFF
       -DBUILD_JPEG=OFF
