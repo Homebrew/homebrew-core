@@ -6,6 +6,7 @@ class Vineyard < Formula
   url "https://github.com/v6d-io/v6d/releases/download/v0.14.6/v6d-0.14.6.tar.gz"
   sha256 "2b524cf52c6366d4ffe9caddcead4902ad7e69d7a3f11b5e45b7bbc94cc39190"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 arm64_ventura:  "35b3fcb548a46cd5fbf4b0d27e7bbf97057756a6c8d8e56a2a2a5833f79a8d74"
@@ -39,8 +40,9 @@ class Vineyard < Formula
     # LLVM is keg-only.
     ENV.prepend_path "PYTHONPATH", Formula["llvm"].opt_prefix/Language::Python.site_packages(python)
 
+    # Keep C++ standard in sync with abseil.rb
     system "cmake", "-S", ".", "-B", "build",
-                    "-DCMAKE_CXX_STANDARD=14",
+                    "-DCMAKE_CXX_STANDARD=17",
                     "-DCMAKE_CXX_STANDARD_REQUIRED=TRUE",
                     "-DPYTHON_EXECUTABLE=#{which(python)}",
                     "-DUSE_EXTERNAL_ETCD_LIBS=ON",
