@@ -4,6 +4,7 @@ class Mosh < Formula
   url "https://github.com/mobile-shell/mosh/releases/download/mosh-1.4.0/mosh-1.4.0.tar.gz"
   sha256 "872e4b134e5df29c8933dff12350785054d2fd2839b5ae6b5587b14db1465ddd"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     rebuild 2
@@ -38,6 +39,8 @@ class Mosh < Formula
 
     # https://github.com/protocolbuffers/protobuf/issues/9947
     ENV.append_to_cflags "-DNDEBUG"
+    # Keep C++ standard in sync with abseil.rb
+    ENV.append "CXXFLAGS", "-std=c++17"
 
     # teach mosh to locate mosh-client without referring
     # PATH to support launching outside shell e.g. via launcher
