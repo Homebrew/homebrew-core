@@ -4,6 +4,7 @@ class Brpc < Formula
   url "https://dlcdn.apache.org/brpc/1.5.0/apache-brpc-1.5.0-src.tar.gz"
   sha256 "8afa1367d0c0ddb471decc8660ab7bdbfd45a027f7dfb6d18303990954f70105"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/apache/brpc.git", branch: "master"
 
   bottle do
@@ -23,7 +24,10 @@ class Brpc < Formula
   depends_on "protobuf"
 
   def install
+    # Keep C++ standard in sync with abseil.rb
+    inreplace "CMakeLists.txt", "CMAKE_CXX_STANDARD 11", "CMAKE_CXX_STANDARD 17"
     args = %w[
+      -DCMAKE_CXX_STANDARD=17
       -DBUILD_SHARED_LIBS=ON
       -DBUILD_UNIT_TESTS=OFF
       -DDOWNLOAD_GTEST=OFF
