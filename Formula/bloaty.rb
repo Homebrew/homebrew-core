@@ -4,7 +4,7 @@ class Bloaty < Formula
   url "https://github.com/google/bloaty/releases/download/v1.1/bloaty-1.1.tar.bz2"
   sha256 "a308d8369d5812aba45982e55e7c3db2ea4780b7496a5455792fb3dcba9abd6f"
   license "Apache-2.0"
-  revision 10
+  revision 11
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "485449be09072bf5044e7a8252cf4385d3f1b4365a7907fb5cea4646dbfae409"
@@ -25,7 +25,9 @@ class Bloaty < Formula
   def install
     # https://github.com/protocolbuffers/protobuf/issues/9947
     ENV.append_to_cflags "-DNDEBUG"
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    # Keep C++ standard in sync with abseil.rb
+    inreplace "CMakeLists.txt", "CMAKE_CXX_STANDARD 11", "CMAKE_CXX_STANDARD 17"
+    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_CXX_STANDARD=17", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
