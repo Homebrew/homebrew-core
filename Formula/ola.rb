@@ -4,6 +4,7 @@ class Ola < Formula
   url "https://github.com/OpenLightingProject/ola/releases/download/0.10.9/ola-0.10.9.tar.gz"
   sha256 "44073698c147fe641507398253c2e52ff8dc7eac8606cbf286c29f37939a4ebf"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
+  revision 1
   head "https://github.com/OpenLightingProject/ola.git", branch: "master"
 
   bottle do
@@ -24,7 +25,7 @@ class Ola < Formula
   depends_on "libmicrohttpd"
   depends_on "libusb"
   depends_on "numpy"
-  depends_on "protobuf"
+  depends_on "protobuf@21"
   depends_on "python@3.11"
 
   uses_from_macos "bison" => :build
