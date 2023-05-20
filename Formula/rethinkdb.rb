@@ -4,6 +4,7 @@ class Rethinkdb < Formula
   url "https://download.rethinkdb.com/repository/raw/dist/rethinkdb-2.4.3.tgz"
   sha256 "c3788c7a270fbb49e3da45787b6be500763c190fb059e39b7def9454f9a4674f"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/rethinkdb/rethinkdb.git", branch: "next"
 
   livecheck do
@@ -23,7 +24,7 @@ class Rethinkdb < Formula
 
   depends_on "boost" => :build
   depends_on "openssl@1.1"
-  depends_on "protobuf"
+  depends_on "protobuf@21"
 
   uses_from_macos "python" => :build
   uses_from_macos "curl"
