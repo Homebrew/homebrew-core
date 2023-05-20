@@ -4,7 +4,7 @@ class ProtobufC < Formula
   url "https://github.com/protobuf-c/protobuf-c/releases/download/v1.4.1/protobuf-c-1.4.1.tar.gz"
   sha256 "4cc4facd508172f3e0a4d3a8736225d472418aee35b4ad053384b137b220339f"
   license "BSD-2-Clause"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "51daa29261e512d3a61089e74942c0d085f6bbccfbf8c4e8828856344b797fb2"
@@ -18,7 +18,7 @@ class ProtobufC < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "protobuf"
+  depends_on "protobuf@21"
 
   def install
     ENV.cxx11
@@ -42,6 +42,6 @@ class ProtobufC < Formula
       }
     EOS
     (testpath/"test.proto").write testdata
-    system Formula["protobuf"].opt_bin/"protoc", "test.proto", "--c_out=."
+    system Formula["protobuf@21"].opt_bin/"protoc", "test.proto", "--c_out=."
   end
 end
