@@ -20,6 +20,8 @@ class GumboParser < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7ae8a4b287fcbedb1cd48eeb3c26a257b2829401e23c0026dafb04461dcf07ae"
   end
 
+  deprecate! date: "2023-05-19", because: :repo_archived
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
