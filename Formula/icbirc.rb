@@ -5,11 +5,6 @@ class Icbirc < Formula
   sha256 "6839344d93c004da97ec6bb5d805a1db7e0a79efc3870445788043627162bbb1"
   license "BSD-2-Clause"
 
-  livecheck do
-    url :homepage
-    regex(/href=.*?icbirc[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7117691853b4646f4697aa6d8392d7f96a1528f417090b0fa2bca8bb0ed8e10e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9aa9c813f70949fb1d7784cba81133d726fb9b32aca1bc057680e92003b67640"
@@ -23,6 +18,8 @@ class Icbirc < Formula
     sha256 cellar: :any_skip_relocation, sierra:         "cbec4e472c640a63081f12723fc9d144f00aa00c9229ce5bfc2edd99199aee74"
     sha256 cellar: :any_skip_relocation, el_capitan:     "2f943e4af7a9c1e2524d9583b0ef5539988f68f56a8f8c483b2c2d1990fff21d"
   end
+
+  deprecate! date: "2023-05-19", because: :repo_removed
 
   depends_on "bsdmake" => :build
 
