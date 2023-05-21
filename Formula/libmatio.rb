@@ -17,6 +17,7 @@ class Libmatio < Formula
   end
 
   depends_on "hdf5"
+  depends_on "zlib"
 
   resource "homebrew-test_mat_file" do
     url "https://web.uvic.ca/~monahana/eos225/poc_data.mat.sfx"
@@ -29,7 +30,7 @@ class Libmatio < Formula
       --enable-extended-sparse=yes
       --enable-mat73=yes
       --with-hdf5=#{Formula["hdf5"].opt_prefix}
-      --with-zlib=/usr
+      --with-zlib=#{Formula["zlib"].opt_prefix}
     ]
 
     system "./configure", *args
