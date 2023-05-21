@@ -25,7 +25,6 @@ class OpenjdkAT8 < Formula
 
   depends_on "autoconf" => :build
   depends_on "pkg-config" => :build
-  depends_on arch: :x86_64
   depends_on "freetype"
   depends_on "giflib"
 
@@ -48,16 +47,28 @@ class OpenjdkAT8 < Formula
     depends_on "libxtst"
   end
 
-  # Oracle doesn't serve JDK 7 downloads anymore, so we use Zulu JDK 7 for bootstrapping.
-  # https://www.azul.com/downloads/?version=java-7-lts&package=jdk
+  # Zulu JDK 8 offers x86 and ARM64, so we use it for bootstrapping.
+  # https://www.azul.com/downloads/?version=java-8-lts&package=jdk
   resource "boot-jdk" do
     on_macos do
-      url "https://cdn.azul.com/zulu/bin/zulu7.56.0.11-ca-jdk7.0.352-macosx_x64.tar.gz"
-      sha256 "31909aa6233289f8f1d015586825587e95658ef59b632665e1e49fc33a2cdf06"
+      on_arm do
+        url "https://cdn.azul.com/zulu/bin/zulu8.70.0.23-ca-jdk8.0.372-macosx_aarch64.tar.gz"
+        sha256 "ae68ae6a93d1d9952e5ff096f6612eea486846a8506e30dec3dd3b3e52b9d005"
+      end
+      on_intel do
+        url "https://cdn.azul.com/zulu/bin/zulu8.70.0.23-ca-jdk8.0.372-macosx_x64.tar.gz"
+        sha256 "d35a7bedfb3dde69701d27b7df6100143c5617d5fee746acb3d845311a9573af"
+      end
     end
     on_linux do
-      url "https://cdn.azul.com/zulu/bin/zulu7.56.0.11-ca-jdk7.0.352-linux_x64.tar.gz"
-      sha256 "8a7387c1ed151474301b6553c6046f865dc6c1e1890bcf106acc2780c55727c8"
+      on_arm do
+        url "https://cdn.azul.com/zulu-embedded/bin/zulu8.70.0.23-ca-jdk8.0.372-linux_aarch64.tar.gz"
+        sha256 "c76da27e2cd5c396d72633baf27edd17031d87e5cb6c8620255dcd0384e61afa"
+      end
+      on_intel do
+        url "https://cdn.azul.com/zulu/bin/zulu8.70.0.23-ca-jdk8.0.372-linux_x64.tar.gz"
+        sha256 "afcda0f08cd05efd3bd60b021618931595ab03689f1c1fefcd46ef7761276d10"
+      end
     end
   end
 
