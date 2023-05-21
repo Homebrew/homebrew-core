@@ -68,5 +68,8 @@ class Libmatio < Formula
     EOS
     system ENV.cc, "mat.c", "-o", "mat", "-I#{include}", "-L#{lib}", "-lmatio"
     system "./mat", "poc_data.mat.sfx"
+
+    flags = IO.popen(["pkg-config", "--cflags", "matio"]).read
+    refute_includes(flags, "-I/usr/include")
   end
 end
