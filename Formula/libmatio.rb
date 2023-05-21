@@ -17,7 +17,7 @@ class Libmatio < Formula
   end
 
   depends_on "hdf5"
-  depends_on "zlib"
+  uses_from_macos "zlib"
 
   resource "homebrew-test_mat_file" do
     url "https://web.uvic.ca/~monahana/eos225/poc_data.mat.sfx"
@@ -26,14 +26,13 @@ class Libmatio < Formula
 
   def install
     args = %W[
-      --prefix=#{prefix}
       --enable-extended-sparse=yes
       --enable-mat73=yes
       --with-hdf5=#{Formula["hdf5"].opt_prefix}
-      --with-zlib=#{Formula["zlib"].opt_prefix}
     ]
+    args << "--with-zlib=#{Formula["zlib"].opt_prefix}" unless OS.mac?
 
-    system "./configure", *args
+    system "./configure", *std_configure_args, *args
     system "make", "install"
   end
 
