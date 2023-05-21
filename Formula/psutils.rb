@@ -1,8 +1,8 @@
 class Psutils < Formula
   desc "Utilities for manipulating PostScript documents"
   homepage "https://github.com/rrthomas/psutils"
-  url "https://github.com/rrthomas/psutils/releases/download/v2.10/psutils-2.10.tar.gz"
-  sha256 "6f8339fd5322df5c782bfb355d9f89e513353220fca0700a5a28775404d7e98b"
+  url "https://github.com/rrthomas/psutils/releases/download/v3.0/psutils-3.0.tar.gz"
+  sha256 "0d223fa15661d4ea76ec3e22e28d2126ed71e5e4a53e8ef246aaa21cf8f76aa5"
   license "GPL-3.0-or-later"
 
   bottle do
