@@ -18,6 +18,8 @@ class Gdrive < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2d687e4d537911f156c2f5cfd0a88fe8c44793eef89c497849e2130ab138d70e"
   end
 
+  deprecate! date: "2023-05-19", because: :repo_archived
+
   depends_on "go" => :build
 
   patch do
