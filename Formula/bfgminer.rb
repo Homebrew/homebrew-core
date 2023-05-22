@@ -1,7 +1,7 @@
 class Bfgminer < Formula
   desc "Modular CPU/GPU/ASIC/FPGA miner written in C"
-  homepage "http://bfgminer.org"
-  url "http://bfgminer.org/files/latest/bfgminer-5.5.0.txz"
+  homepage "https://web.archive.org/web/20200130224355/http://bfgminer.org/"
+  url "https://web.archive.org/web/20190221120056/http://bfgminer.org/files/latest/bfgminer-5.5.0.txz"
   sha256 "ac254da9a40db375cb25cacdd2f84f95ffd7f442e31d2b9a7f357a48d32cc681"
   license "GPL-3.0-or-later"
   head "https://github.com/luke-jr/bfgminer.git", branch: "bfgminer"
@@ -16,6 +16,8 @@ class Bfgminer < Formula
     sha256 catalina:       "c0a7446badb4b9c392d616a73e48035632a28f4f34adb45052ab022b6856d9ec"
     sha256 x86_64_linux:   "9f81c9ed9c2d32a0296fb74aa46b592b02e60fc08224d103c9c6ba73bedff86b"
   end
+
+  deprecate! date: "2023-05-19", because: :repo_archived
 
   depends_on "hidapi" => :build
   depends_on "libgcrypt" => :build
