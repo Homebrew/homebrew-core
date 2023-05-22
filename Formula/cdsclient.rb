@@ -1,9 +1,16 @@
 class Cdsclient < Formula
   desc "Tools for querying CDS databases for astronomical data"
   homepage "https://cdsarc.u-strasbg.fr/doc/cdsclient.html"
-  url "http://cdsarc.u-strasbg.fr/ftp/pub/sw/cdsclient-3.84.tar.gz"
+  url "https://cdsarc.u-strasbg.fr/ftp/pub/sw/cdsclient-3.84.tar.gz"
   sha256 "09eb633011461b9261b923e1d0db69d3591d376b447f316eb1994aaea8919700"
   license "GPL-3.0-only"
+
+  # This directory listing page also links to `python-cdsclient` tarballs, so
+  # we have to use a stricter regex (instead of the usual `href=.*?`).
+  livecheck do
+    url "https://cdsarc.u-strasbg.fr/ftp/pub/sw/"
+    regex(/href=["']?cdsclient[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f027d41b9f8e25215f9babe4a1a577852e362d31faf12b69b2fe72d9b8378138"

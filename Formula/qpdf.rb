@@ -1,18 +1,18 @@
 class Qpdf < Formula
   desc "Tools for and transforming and inspecting PDF files"
   homepage "https://github.com/qpdf/qpdf"
-  url "https://github.com/qpdf/qpdf/releases/download/v11.3.0/qpdf-11.3.0.tar.gz"
-  sha256 "547cee67de77b5c4ef4917e57d2db9c848cfe3aa950361f68d36367a3a03936e"
+  url "https://github.com/qpdf/qpdf/releases/download/v11.4.0/qpdf-11.4.0.tar.gz"
+  sha256 "b0180971cc1b79b2dfe02ffe28e2c88c47f735888a3a2543dd42b9054ef146e1"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "a4529c932fbece58c7e9f724a8509a1c1b1d60981f0a5d00c5e4470e786eccd9"
-    sha256 cellar: :any,                 arm64_monterey: "e1fe188290f9e218bdd20f52ea0d1a0d394adb2c67d886c89d359a610a683b76"
-    sha256 cellar: :any,                 arm64_big_sur:  "fd9162c3ae0bca6c8b6b13bd820a8f05597bfe42c34226d86279608b442f0ba5"
-    sha256 cellar: :any,                 ventura:        "e5c6e6ca73f18b9a0c18ab5624d12936788e8ec0498aaecc4d3982d5faefd669"
-    sha256 cellar: :any,                 monterey:       "591917b6c49a5884be4fd3dbdceb576c24d23feab4d06153d079fad0ccc8f66f"
-    sha256 cellar: :any,                 big_sur:        "d93fdf642414b2d8a4a3e48e6a088add5a42c1453710a8ca05759b892fedf4fe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c157b9f90eda69e4c346c57e72edd536e3e6e5d75861fd696e7a18085478b99f"
+    sha256 cellar: :any,                 arm64_ventura:  "34e2ceaaf019a3fb80a48aecdeab6b48ce435736977693550c39fb27c31c82e5"
+    sha256 cellar: :any,                 arm64_monterey: "2a34387b75ccea96198d6f417a873090f63d785642ce6402302af6f13de14653"
+    sha256 cellar: :any,                 arm64_big_sur:  "bea5263585bcf9b2d7fbd7e5a04ff6a54e73045483b7344436fc485862615da8"
+    sha256 cellar: :any,                 ventura:        "37ff089f607aac1eda31027e8417e6cac44ceefe81f5799a137ac0f464a74ec9"
+    sha256 cellar: :any,                 monterey:       "c8733c45d7fc671f026561d50a1f53ec503c81bc4a1d845faf2530fdd5b43649"
+    sha256 cellar: :any,                 big_sur:        "caeeaf4915f477f4044e907cb87ba010acf6f790c5de94503eb394a5fc62f576"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "71c11a3741c026217c2afe06f1b1a5b3c90f954d9754b643ea7fbca0e7ca249c"
   end
 
   depends_on "cmake" => :build

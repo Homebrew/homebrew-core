@@ -1,8 +1,8 @@
 class Antlr < Formula
   desc "ANother Tool for Language Recognition"
   homepage "https://www.antlr.org/"
-  url "https://www.antlr.org/download/antlr-4.12.0-complete.jar"
-  sha256 "88f18a2bfac0dde1009eda5c7dce358a52877faef7868f56223a5bcc15329e43"
+  url "https://www.antlr.org/download/antlr-4.13.0-complete.jar"
+  sha256 "bc6f4abc0d225a27570126c51402569f000a8deda3487b70e7642840e570e4a6"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,13 +11,13 @@ class Antlr < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dd6e0a5741418c4d07644dbe6697a79f5d98a07d1396d009caad04dcb1ea5e3f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "dd6e0a5741418c4d07644dbe6697a79f5d98a07d1396d009caad04dcb1ea5e3f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "dd6e0a5741418c4d07644dbe6697a79f5d98a07d1396d009caad04dcb1ea5e3f"
-    sha256 cellar: :any_skip_relocation, ventura:        "dd6e0a5741418c4d07644dbe6697a79f5d98a07d1396d009caad04dcb1ea5e3f"
-    sha256 cellar: :any_skip_relocation, monterey:       "dd6e0a5741418c4d07644dbe6697a79f5d98a07d1396d009caad04dcb1ea5e3f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "dd6e0a5741418c4d07644dbe6697a79f5d98a07d1396d009caad04dcb1ea5e3f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "80bb154cc36537be68ae865ff52bdf9988a2a2a1c66a63adb96eff8a560c946f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "95ba0df129985acbf0514ce3c98ac9d4ed5e95fba9aabc8cc153e5e714f5e597"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "95ba0df129985acbf0514ce3c98ac9d4ed5e95fba9aabc8cc153e5e714f5e597"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "95ba0df129985acbf0514ce3c98ac9d4ed5e95fba9aabc8cc153e5e714f5e597"
+    sha256 cellar: :any_skip_relocation, ventura:        "95ba0df129985acbf0514ce3c98ac9d4ed5e95fba9aabc8cc153e5e714f5e597"
+    sha256 cellar: :any_skip_relocation, monterey:       "95ba0df129985acbf0514ce3c98ac9d4ed5e95fba9aabc8cc153e5e714f5e597"
+    sha256 cellar: :any_skip_relocation, big_sur:        "95ba0df129985acbf0514ce3c98ac9d4ed5e95fba9aabc8cc153e5e714f5e597"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b1a4884ec0c11d31a3c36344dcae35a33d761a9fade4bc779c93caebd1450545"
   end
 
   depends_on "openjdk"
