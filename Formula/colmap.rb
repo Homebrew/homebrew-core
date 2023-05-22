@@ -15,6 +15,7 @@ class Colmap < Formula
   depends_on "gflags"
   depends_on "glew"
   depends_on "glog"
+  depends_on :macos
   depends_on "metis"
   depends_on "qt@5"
   depends_on "suite-sparse"
