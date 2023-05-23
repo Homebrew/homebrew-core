@@ -10,14 +10,14 @@ class HttpPrompt < Formula
   head "https://github.com/httpie/http-prompt.git", branch: "master"
 
   bottle do
-    rebuild 4
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0c5fc200bb098b5e09f0acbbd12fea3723290cb3273236880a73e79dbb365738"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "134c454f0a4c4801343e81472c3d7baab1082a9e13596c6536190b2da8d225e8"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "04f139e1965769af1d02fc6fb355193358923f61284e2a35834395c48c46ba14"
-    sha256 cellar: :any_skip_relocation, ventura:        "2be943ef04f173cca6b0872b06cc268e8ce8a0730b34d351e04fef450a0e811d"
-    sha256 cellar: :any_skip_relocation, monterey:       "305ca267b3c55e58a1b700298f7ad57cd03aaf76cb588f32d4acbae5652e0a93"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b6ffac70b8d5f6fbd59f1e5fd6d3aad5d07ae07ddc23496b6864e25689b74ed2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "569a8dc48963d771cf14a41135eac5beee7b4265ee5f23110cf45af93883450d"
+    rebuild 5
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ab4b3971ca605c9f52c5df60955ad604de236d74cb26a7db72cff81b28e5bc9e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a1065335966512e36471fdbcdcebbd6ae97dacc01fae2e05e6553e87eda35cba"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a0bfab97c88d284e7e6a6b9f4a7d8cc3c226949f2dfd8bdda427f4f46f98941e"
+    sha256 cellar: :any_skip_relocation, ventura:        "3a915cdea46f71f1a71383003c5326f8d901b168db1fa2688e1dc4a4c9604e78"
+    sha256 cellar: :any_skip_relocation, monterey:       "0fe64d6a6ee1761233f81c97a9821006ba06d689e94f719133eed9b5d68d6a3e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "fb66b542c821c02ed271278f52149d93526ebc7f2683e618d552ba6a5cc31e62"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "631b03d12e981ac5e90149ac858644e35513844859d129d6691c86a0103280a2"
   end
 
   depends_on "pygments"
@@ -26,8 +26,8 @@ class HttpPrompt < Formula
   depends_on "six"
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/37/f7/2b1b0ec44fdc30a3d31dfebe52226be9ddc40cd6c0f34ffc8923ba423b69/certifi-2022.12.7.tar.gz"
-    sha256 "35824b4c3a97115964b408844d64aa14db1cc518f6562e8d7261699d1350a9e3"
+    url "https://files.pythonhosted.org/packages/93/71/752f7a4dd4c20d6b12341ed1732368546bc0ca9866139fe812f6009d9ac7/certifi-2023.5.7.tar.gz"
+    sha256 "0f0d56dc5a6ad56fd4ba36484d6cc34451e1c6548c61daad8c320169f91eddc7"
   end
 
   resource "charset-normalizer" do
@@ -46,8 +46,8 @@ class HttpPrompt < Formula
   end
 
   resource "httpie" do
-    url "https://files.pythonhosted.org/packages/e9/38/e94dac67b61f4dab49c1d26dd47e0b13be8c69c8c1c4fad5a4a87de1d647/httpie-3.2.1.tar.gz"
-    sha256 "c9c0032ca3a8d62492b7231b2dd83d94becf3b71baf8a4bbcd9ed1038537e3ec"
+    url "https://files.pythonhosted.org/packages/09/e0/11680a5c0d94742122835330b3250f91a3a5066970872e111cb3ac5ce204/httpie-3.2.2.tar.gz"
+    sha256 "8bfb671f0b39505c197fdef3367f7f99af5d0e81a4e22289bb4c1f0e72251c90"
   end
 
   resource "idna" do
@@ -86,18 +86,18 @@ class HttpPrompt < Formula
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/d8/29/bd8de07107bc952e0e2783243024e1c125e787fd685725a622e4ac7aeb3c/regex-2023.3.23.tar.gz"
-    sha256 "dc80df325b43ffea5cdea2e3eaa97a44f3dd298262b1c7fe9dbb2a9522b956a7"
+    url "https://files.pythonhosted.org/packages/77/5d/98efc9cf46d60f3704cf00f8b3bd81319493639fd4367efb5d02fd29ffc1/regex-2023.5.5.tar.gz"
+    sha256 "7d76a8a1fc9da08296462a18f16620ba73bcbf5909e42383b253ef34d9d5141e"
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/4c/d2/70fc708727b62d55bc24e43cc85f073039023212d482553d853c44e57bdb/requests-2.29.0.tar.gz"
-    sha256 "f2e34a75f4749019bb0e3effb66683630e4ffeaf75819fb51bebef1bf5aef059"
+    url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
+    sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
   end
 
   resource "requests-toolbelt" do
-    url "https://files.pythonhosted.org/packages/0c/4c/07f01c6ac44f7784fa399137fbc8d0cdc1b5d35304e8c0f278ad82105b58/requests-toolbelt-0.10.1.tar.gz"
-    sha256 "62e09f7ff5ccbda92772a29f394a49c3ad6cb181d568b1337626b2abb628a63d"
+    url "https://files.pythonhosted.org/packages/f3/61/d7545dafb7ac2230c70d38d31cbfe4cc64f7144dc41f6e4e4b78ecd9f5bb/requests-toolbelt-1.0.0.tar.gz"
+    sha256 "7681a0a3d047012b5bdc0ee37d7f8f07ebe76ab08caeccfc3921ce23c88d5bc6"
   end
 
   resource "rich" do
@@ -106,8 +106,8 @@ class HttpPrompt < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/21/79/6372d8c0d0641b4072889f3ff84f279b738cd8595b64c8e0496d4e848122/urllib3-1.26.15.tar.gz"
-    sha256 "8a388717b9476f934a21484e8c8e61875ab60644d29b9b39e11e4b9dc1c6b305"
+    url "https://files.pythonhosted.org/packages/fb/c0/1abba1a1233b81cf2e36f56e05194f5e8a0cec8c03c244cab56cc9dfb5bd/urllib3-2.0.2.tar.gz"
+    sha256 "61717a1095d7e155cdb737ac7bb2f4324a858a1e2e6466f6d03ff630ca68d3cc"
   end
 
   resource "wcwidth" do
