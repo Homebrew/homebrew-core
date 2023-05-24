@@ -20,6 +20,7 @@ class Mathlibtools < Formula
 
   depends_on "rust" => :build
   depends_on "lean" => :test
+  depends_on "openssl@1.1"
   depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "six"
@@ -140,6 +141,10 @@ class Mathlibtools < Formula
   end
 
   def install
+    # Ensure that the `openssl` crate picks up the intended library.
+    ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
+    ENV["OPENSSL_NO_VENDOR"] = "1"
+
     virtualenv_install_with_resources
   end
 
