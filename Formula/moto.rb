@@ -8,19 +8,24 @@ class Moto < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "60d2097823ce6a5897d829f3ee2722fc04b77238e706b71e58b721d97f6d44c6"
-    sha256 cellar: :any,                 arm64_monterey: "0f3ce2198fb663b9e8e234e4b2db6d03fe4314dbe5f3ced078b49b0d98c51e87"
-    sha256 cellar: :any,                 arm64_big_sur:  "c1b7426a93f4fc9256596f487ed8f30178f1f93723cdf693e3929867bf50607f"
-    sha256 cellar: :any,                 ventura:        "b2f0d819c94b4178fb7d7fc2e5a77f3abcb2d5bbf359c17b9506eddee4c46b9a"
-    sha256 cellar: :any,                 monterey:       "ca5df3cd83d746767ab4b9b556f115b95f3c628ed57e179678c3fcefe12418d0"
-    sha256 cellar: :any,                 big_sur:        "8dd35ed811267be6c2cc425ac95afc05bcd3d96db72b5a1d563d76b1630d9f38"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cd7422210ab487efa3d498af54fcc82742c02668604d57cb8caf85c80571ad46"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "42623a5afcfebd9c73bd2939133433b302df4cd2bdee62ec31a239f0a599f2d6"
+    sha256 cellar: :any,                 arm64_monterey: "4a7131c0a6a5591e2837ded0078981db3c5cc6ce3a272fc89c30e8cd09cb609b"
+    sha256 cellar: :any,                 arm64_big_sur:  "9e0fe803f3fbd4fb9470a699192d57cd216979b90402a2b20d3101e7017007d6"
+    sha256 cellar: :any,                 ventura:        "16dd9c69672c8d7991c3fbbf94b76b6fabc01c641639002a30378a7bd0ceb16d"
+    sha256 cellar: :any,                 monterey:       "2c4f8c74ad3fa267b46178058f231c0bfafbdbeb5492ecceb88304049ae6590d"
+    sha256 cellar: :any,                 big_sur:        "49c27da1a2eadd48769bb0839c6cc992a3c263acd73e67b67c234cd6079771c9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7943f0594b26077082d382571a2cf8487b930e19524d631db404609b61c75593"
   end
 
   # `pkg-config`, `rust`, and `openssl@1.1` are for cryptography.
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
+
+  depends_on "cffi"
+  depends_on "cfn-lint"
   depends_on "openssl@1.1"
+  depends_on "pycparser"
   depends_on "python-typing-extensions"
   depends_on "python@3.11"
   depends_on "pyyaml"
@@ -47,28 +52,18 @@ class Moto < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/57/e9/b2e32fbf241c9846d16f2d72b6071586d81ad718397b20b03a617438989c/boto3-1.26.137.tar.gz"
-    sha256 "cac699fc46b43c10ca12aa6ea087c0b979613c5e3570aea11d86891652cb581e"
+    url "https://files.pythonhosted.org/packages/7f/17/595fa7f8a7782e5b76cee89b12cb44c767fc439a0a4a5177e45087e49f96/boto3-1.26.139.tar.gz"
+    sha256 "fe19d287bc8ede385e1b9136f135ee8f93eab81404ad1445b1a70cabfe3f7087"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/d2/24/6c40bb116a9aaab8f359f54487b78d389fc0c87b8a94af6591fd9f2783df/botocore-1.29.137.tar.gz"
-    sha256 "1909fe368c08b4879d52ac1e3963f8bfcbebe3a84366c3f2000a45bd4510b027"
+    url "https://files.pythonhosted.org/packages/85/e0/32053bd0dc53a495013fb76d1cdd9b03d9da8dde9bba14dae6c36785c7ac/botocore-1.29.139.tar.gz"
+    sha256 "acc62710bdf11e47f4f26fb290a9082ff00377d7e93a16e1f080f9c789898114"
   end
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/93/71/752f7a4dd4c20d6b12341ed1732368546bc0ca9866139fe812f6009d9ac7/certifi-2023.5.7.tar.gz"
     sha256 "0f0d56dc5a6ad56fd4ba36484d6cc34451e1c6548c61daad8c320169f91eddc7"
-  end
-
-  resource "cffi" do
-    url "https://files.pythonhosted.org/packages/2b/a8/050ab4f0c3d4c1b8aaa805f70e26e84d0e27004907c5b8ecc1d31815f92a/cffi-1.15.1.tar.gz"
-    sha256 "d400bfb9a37b1351253cb402671cea7e89bdecc294e8016a707f6d1d8ac934f9"
-  end
-
-  resource "cfn-lint" do
-    url "https://files.pythonhosted.org/packages/0b/dd/1dd6cfcc1113b839910afc679ed4a780ed58d36b9df76e532d91dbcf9991/cfn-lint-0.77.5.tar.gz"
-    sha256 "4282d13ffe76a5dee6431b1f56e3641d87c28b1ef5be663afe7d8dbf13f28bdb"
   end
 
   resource "charset-normalizer" do
@@ -226,14 +221,9 @@ class Moto < Formula
     sha256 "97b7290ca68e62a832558ec3976f15cbf911bf5d7c7039d8b861c2a0ece69fde"
   end
 
-  resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/5e/0b/95d387f5f4433cb0f53ff7ad859bd2c6051051cebbb564f139a999ab46de/pycparser-2.21.tar.gz"
-    sha256 "e644fdec12f7872f86c58ff790da456218b10f863970249516d60a5eaca77206"
-  end
-
   resource "pydantic" do
-    url "https://files.pythonhosted.org/packages/43/5f/e53a850fd32dddefc998b6bfcbda843d4ff5b0dcac02a92e414ba6c97d46/pydantic-1.10.7.tar.gz"
-    sha256 "cfc83c0678b6ba51b0532bea66860617c4cd4251ecf76e9846fa5a9f3454e97e"
+    url "https://files.pythonhosted.org/packages/23/65/2aa13873e9e0084ecaec00fbe6c6096b65e1ab99ba66bdbf7e4e7c4cc915/pydantic-1.10.8.tar.gz"
+    sha256 "1410275520dfa70effadf4c21811d755e7ef9bb1f1d077a21958153a92c8d9ca"
   end
 
   resource "pyparsing" do
@@ -262,8 +252,8 @@ class Moto < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/e0/69/122171604bcef06825fa1c05bd9e9b1d43bc9feb8c6c0717c42c92cc6f3c/requests-2.30.0.tar.gz"
-    sha256 "239d7d4458afcb28a692cdd298d87542235f4ca8d36d03a15bfc128a6559a2f4"
+    url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
+    sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
   end
 
   resource "responses" do
@@ -302,13 +292,13 @@ class Moto < Formula
   end
 
   resource "types-pyyaml" do
-    url "https://files.pythonhosted.org/packages/05/6f/f19081de5ba81864f89e354560a60637822f7d6d54d9a2a907785e9b5cc4/types-PyYAML-6.0.12.9.tar.gz"
-    sha256 "c51b1bd6d99ddf0aa2884a7a328810ebf70a4262c292195d3f4f9a0005f9eeb6"
+    url "https://files.pythonhosted.org/packages/1e/1f/b94c24cd38507a94efb8bd95682a27fbcda543e5afbd11a018305f552a11/types-PyYAML-6.0.12.10.tar.gz"
+    sha256 "ebab3d0700b946553724ae6ca636ea932c1b0868701d4af121630e78d695fc97"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/21/79/6372d8c0d0641b4072889f3ff84f279b738cd8595b64c8e0496d4e848122/urllib3-1.26.15.tar.gz"
-    sha256 "8a388717b9476f934a21484e8c8e61875ab60644d29b9b39e11e4b9dc1c6b305"
+    url "https://files.pythonhosted.org/packages/e2/7d/539e6f0cf9f0b95b71dd701a56dae89f768cd39fd8ce0096af3546aeb5a3/urllib3-1.26.16.tar.gz"
+    sha256 "8f135f6502756bde6b2a9b28989df5fbe87c9970cecaa69041edcce7f0589b14"
   end
 
   resource "websocket-client" do

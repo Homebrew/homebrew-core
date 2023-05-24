@@ -8,13 +8,14 @@ class HuggingfaceCli < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "aba2fb4f11abd05e7ab2f0e189f96f5f982705adf125a10f1b04d85f086b5f5a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1752c1349b30bfc90e6ff40ddec946949ee359bd2485cde4752efa0a793bb57e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ebef02c9c4ce5545d2dc6a52a47a7d9e40135bb0fd2540fd4cf94eb6479178ff"
-    sha256 cellar: :any_skip_relocation, ventura:        "4fd72ece6493561b0c7efc90ecc48ecfe2004c64f477aa3406970b55a0c3ba74"
-    sha256 cellar: :any_skip_relocation, monterey:       "cf591ac69f185851688ccb2f01a91017a7dd540835a5538a57ee9c67211af136"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ed9ddfccb0694f2e967cded8a0320f3450d04e35ee8c54dd3fffd8bc52ef4541"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a97207cf17d6c5023343e9ead3d3db923dab6a9fd067a86e236c9425b02222b5"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "191c075193291542368e2132605c62fed644ec50edb890fa0bba1ae68f41b9e1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "bef4762d903ac608ab84d82f7732d81becb65d853cca8ad3fabb797f0f04acce"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "08760d745c55f93fde75afd58b52db6feb47a9637dd4497dcd018c28fc5d7aba"
+    sha256 cellar: :any_skip_relocation, ventura:        "a0a9bc17dc05c05580eca7599b21086f5f2ebc8ff63a099ab375589a9d49cf33"
+    sha256 cellar: :any_skip_relocation, monterey:       "0e442d743472d7a7bcc9a9956c7240cf557cc7db9433db5dd88b230d122fd7d6"
+    sha256 cellar: :any_skip_relocation, big_sur:        "83aba98de466319d61b34155299314f381ee8b808023d239a6ce0080a918e71b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d6d461167ba51841fe564f783841c2267a3389ba69717bcff54038a0d661b67f"
   end
 
   depends_on "git-lfs"
@@ -23,8 +24,8 @@ class HuggingfaceCli < Formula
   depends_on "pyyaml"
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/37/f7/2b1b0ec44fdc30a3d31dfebe52226be9ddc40cd6c0f34ffc8923ba423b69/certifi-2022.12.7.tar.gz"
-    sha256 "35824b4c3a97115964b408844d64aa14db1cc518f6562e8d7261699d1350a9e3"
+    url "https://files.pythonhosted.org/packages/93/71/752f7a4dd4c20d6b12341ed1732368546bc0ca9866139fe812f6009d9ac7/certifi-2023.5.7.tar.gz"
+    sha256 "0f0d56dc5a6ad56fd4ba36484d6cc34451e1c6548c61daad8c320169f91eddc7"
   end
 
   resource "charset-normalizer" do
@@ -38,8 +39,8 @@ class HuggingfaceCli < Formula
   end
 
   resource "fsspec" do
-    url "https://files.pythonhosted.org/packages/d8/c3/7eb5ace7aac24890fd6f3dbf49d547305237bd4002903f19b524061ce8ae/fsspec-2023.4.0.tar.gz"
-    sha256 "bf064186cd8808f0b2f6517273339ba0a0c8fb1b7048991c28bc67f58b8b67cd"
+    url "https://files.pythonhosted.org/packages/4e/5f/faee1c6261997e5b0782f48db9d01dc8ce7aa817d2016dd5cd64c60b1d86/fsspec-2023.5.0.tar.gz"
+    sha256 "b3b56e00fb93ea321bc9e5d9cf6f8522a0198b20eb24e02774d329e9c6fb84ce"
   end
 
   resource "idna" do
@@ -53,8 +54,8 @@ class HuggingfaceCli < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/9d/ee/391076f5937f0a8cdf5e53b701ffc91753e87b07d66bae4a09aa671897bf/requests-2.28.2.tar.gz"
-    sha256 "98b1b2782e3c6c4904938b84c0eb932721069dfdb9134313beff7c83c2df24bf"
+    url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
+    sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
   end
 
   resource "tqdm" do
@@ -63,8 +64,8 @@ class HuggingfaceCli < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/21/79/6372d8c0d0641b4072889f3ff84f279b738cd8595b64c8e0496d4e848122/urllib3-1.26.15.tar.gz"
-    sha256 "8a388717b9476f934a21484e8c8e61875ab60644d29b9b39e11e4b9dc1c6b305"
+    url "https://files.pythonhosted.org/packages/fb/c0/1abba1a1233b81cf2e36f56e05194f5e8a0cec8c03c244cab56cc9dfb5bd/urllib3-2.0.2.tar.gz"
+    sha256 "61717a1095d7e155cdb737ac7bb2f4324a858a1e2e6466f6d03ff630ca68d3cc"
   end
 
   def install

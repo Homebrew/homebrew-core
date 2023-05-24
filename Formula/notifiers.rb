@@ -8,31 +8,31 @@ class Notifiers < Formula
   license "MIT"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "295cfd0f624e296ac079e7410da5bedab818f4091d294ce213c9f78efe606002"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d8b94589ce11442d8231760b0c7b1b56838adf2b819a54e575c56fc3f233eed8"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2d84614d4a64a2938ddd72a6f0cee4a2f0a28e42cb4d919438b4fa97b1c7705e"
-    sha256 cellar: :any_skip_relocation, ventura:        "69a30dc2b73c45d40123d67466e90fc104fc6c7950756510209dc1acc7c2fda7"
-    sha256 cellar: :any_skip_relocation, monterey:       "76ba8ae8a0a02944bcc2712f90b9465ec951fe06f33b662fc3a3cdc933c3efbb"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1c719d31fd2217db6fd726aca4d2be8d47dcc722155598bc000fce0bc9cb33fb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "75e0fbc16a418e05b4317edb4abe1c1c35d4e2da3413933e97f3e8f5eb7bdada"
+    rebuild 4
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a83a8b4de0b32b6ea1a0f53aeef2305d3e0dc479ce207b3063d02e453232e769"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c01f454e53a900be95bf6401ac51fc13d13f20e1a31265e57deb484fe93193af"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a1a426430f1f23ce4f61df5bcf745e78c6cddc8174d5c7cb9072c14fd721afb4"
+    sha256 cellar: :any_skip_relocation, ventura:        "23d0eb394d00cbee07595d32af57fde4773f845684034feadc982323b159ae5f"
+    sha256 cellar: :any_skip_relocation, monterey:       "345dc270955936403c402dfa0c0becfb1bf0c1b8571493afbb255b45fd5b30a9"
+    sha256 cellar: :any_skip_relocation, big_sur:        "fed678efa0927f1adb14bd637fa90667c56529d4da48a37ac5cab20fee53ad91"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bbc916288cd03e16aa310843bce74e00f3a606be1862b125b46eb416c3179b94"
   end
 
   depends_on "python@3.11"
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/21/31/3f468da74c7de4fcf9b25591e682856389b3400b4b62f201e65f15ea3e07/attrs-22.2.0.tar.gz"
-    sha256 "c9227bfc2f01993c03f68db37d1d15c9690188323c067c641f1a35ca58185f99"
+    url "https://files.pythonhosted.org/packages/97/90/81f95d5f705be17872843536b1868f351805acf6971251ff07c1b8334dbb/attrs-23.1.0.tar.gz"
+    sha256 "6279836d581513a26f1bf235f9acd333bc9115683f14f7e8fae46c98fc50e015"
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/37/f7/2b1b0ec44fdc30a3d31dfebe52226be9ddc40cd6c0f34ffc8923ba423b69/certifi-2022.12.7.tar.gz"
-    sha256 "35824b4c3a97115964b408844d64aa14db1cc518f6562e8d7261699d1350a9e3"
+    url "https://files.pythonhosted.org/packages/93/71/752f7a4dd4c20d6b12341ed1732368546bc0ca9866139fe812f6009d9ac7/certifi-2023.5.7.tar.gz"
+    sha256 "0f0d56dc5a6ad56fd4ba36484d6cc34451e1c6548c61daad8c320169f91eddc7"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/96/d7/1675d9089a1f4677df5eb29c3f8b064aa1e70c1251a0a8a127803158942d/charset-normalizer-3.0.1.tar.gz"
-    sha256 "ebea339af930f8ca5d7a699b921106c6e29c617fe9606fa7baa043c1cdae326f"
+    url "https://files.pythonhosted.org/packages/ff/d7/8d757f8bd45be079d76309248845a04f09619a7b17d6dfc8c9ff6433cac2/charset-normalizer-3.1.0.tar.gz"
+    sha256 "34e0a2f9c370eb95597aae63bf85eb5e96826d81e3dcf88b8886012906f509b5"
   end
 
   resource "click" do
@@ -56,13 +56,13 @@ class Notifiers < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/9d/ee/391076f5937f0a8cdf5e53b701ffc91753e87b07d66bae4a09aa671897bf/requests-2.28.2.tar.gz"
-    sha256 "98b1b2782e3c6c4904938b84c0eb932721069dfdb9134313beff7c83c2df24bf"
+    url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
+    sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/c5/52/fe421fb7364aa738b3506a2d99e4f3a56e079c0a798e9f4fa5e14c60922f/urllib3-1.26.14.tar.gz"
-    sha256 "076907bf8fd355cde77728471316625a4d2f7e713c125f51953bb5b3eecf4f72"
+    url "https://files.pythonhosted.org/packages/fb/c0/1abba1a1233b81cf2e36f56e05194f5e8a0cec8c03c244cab56cc9dfb5bd/urllib3-2.0.2.tar.gz"
+    sha256 "61717a1095d7e155cdb737ac7bb2f4324a858a1e2e6466f6d03ff630ca68d3cc"
   end
 
   def install

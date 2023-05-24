@@ -9,27 +9,27 @@ class DetectSecrets < Formula
   head "https://github.com/Yelp/detect-secrets.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6c6177e1d8bc674be4ab6b73c7e9643efcc2e70f10ac5e3dbc245327efe13d09"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b387eaa1e377705fd5c010d7b88b754d95932dbc935c74df1215870c8fa7135a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "54520e1021ad0f40eee0904d4e85d24b4b5898c16386d6be6c794667a006db0d"
-    sha256 cellar: :any_skip_relocation, ventura:        "4e4df008031d270b25826dae5ee64bb2cfabf391d1e14d880d54c225690b8989"
-    sha256 cellar: :any_skip_relocation, monterey:       "52816f078e0e8f5c254148bb9b41040cdb4d800e1194ee31e31828e5aedbcbff"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b960952cd63ec5589e2e1da1fb0bd8960455e0db7b532385aaae632c1c44ca97"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "425076b4ff0e2f81bf11a87138b62077db7f5bf549072431185122dd0e7bc254"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "de4b70a22941600b1f87b6fe5fe17534d0a45a9a030eeca2b565f8e3147bdb1b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f034e9a4b22ca1b30e2ef906426f96cbd3b609b01254ccd7b5753452c31deeea"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d74eb12b14e123ca491e37c7e54799380a2f81fab2a4a3f4ef014ed5c200e217"
+    sha256 cellar: :any_skip_relocation, ventura:        "7da772f3875a6ca146b70d629602d47ca4b299797393c320e1bde027579e4869"
+    sha256 cellar: :any_skip_relocation, monterey:       "10e8b8a2ce76f34ffea8ab1c792a16444aa085ed2e8967cc76531ffceba441c5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e5824cd7fadb65f820165dbf8df965ce9470f08230cfa75918a2b0d7d342f600"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a6cb5375435e90bfce5ef956e05341bc22508d3e35c29584cd324807527ce216"
   end
 
   depends_on "python@3.11"
   depends_on "pyyaml"
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/37/f7/2b1b0ec44fdc30a3d31dfebe52226be9ddc40cd6c0f34ffc8923ba423b69/certifi-2022.12.7.tar.gz"
-    sha256 "35824b4c3a97115964b408844d64aa14db1cc518f6562e8d7261699d1350a9e3"
+    url "https://files.pythonhosted.org/packages/93/71/752f7a4dd4c20d6b12341ed1732368546bc0ca9866139fe812f6009d9ac7/certifi-2023.5.7.tar.gz"
+    sha256 "0f0d56dc5a6ad56fd4ba36484d6cc34451e1c6548c61daad8c320169f91eddc7"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/96/d7/1675d9089a1f4677df5eb29c3f8b064aa1e70c1251a0a8a127803158942d/charset-normalizer-3.0.1.tar.gz"
-    sha256 "ebea339af930f8ca5d7a699b921106c6e29c617fe9606fa7baa043c1cdae326f"
+    url "https://files.pythonhosted.org/packages/ff/d7/8d757f8bd45be079d76309248845a04f09619a7b17d6dfc8c9ff6433cac2/charset-normalizer-3.1.0.tar.gz"
+    sha256 "34e0a2f9c370eb95597aae63bf85eb5e96826d81e3dcf88b8886012906f509b5"
   end
 
   resource "idna" do
@@ -38,13 +38,13 @@ class DetectSecrets < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/9d/ee/391076f5937f0a8cdf5e53b701ffc91753e87b07d66bae4a09aa671897bf/requests-2.28.2.tar.gz"
-    sha256 "98b1b2782e3c6c4904938b84c0eb932721069dfdb9134313beff7c83c2df24bf"
+    url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
+    sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/c5/52/fe421fb7364aa738b3506a2d99e4f3a56e079c0a798e9f4fa5e14c60922f/urllib3-1.26.14.tar.gz"
-    sha256 "076907bf8fd355cde77728471316625a4d2f7e713c125f51953bb5b3eecf4f72"
+    url "https://files.pythonhosted.org/packages/fb/c0/1abba1a1233b81cf2e36f56e05194f5e8a0cec8c03c244cab56cc9dfb5bd/urllib3-2.0.2.tar.gz"
+    sha256 "61717a1095d7e155cdb737ac7bb2f4324a858a1e2e6466f6d03ff630ca68d3cc"
   end
 
   def install

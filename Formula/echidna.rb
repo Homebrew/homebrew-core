@@ -6,6 +6,11 @@ class Echidna < Formula
   license "AGPL-3.0-only"
   head "https://github.com/crytic/echidna.git", branch: "master"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "ff308506a12501cf3467b215f107cf548cafe72e7aaa8f28c672b6511b6473b9"
     sha256 cellar: :any,                 arm64_monterey: "aba914ef3501bd026051ba3ea47873358d12ad730660367ae44da126c8cb552b"

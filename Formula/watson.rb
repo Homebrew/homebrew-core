@@ -9,14 +9,14 @@ class Watson < Formula
   head "https://github.com/TailorDev/Watson.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "06371cfae253042603d91c62b7e938fabd0697d0db4718dcaa44959e044937c2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "95386e23ea6f1b4876af2b87d196255aa307e6a8090d5aeebcab02d986062577"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "47ad6fbb3e57adb4e58ef03bb164e277670ac61e2da32ebadb2446bf1438e0a1"
-    sha256 cellar: :any_skip_relocation, ventura:        "76566a7a1587286ada92441587a0c12f177d80ddfd69b212b331712b28d725a2"
-    sha256 cellar: :any_skip_relocation, monterey:       "10618e9c5018e2e12e59a995e21f14b0455e27bba8f1dcffd4b9d5dcd7b094dc"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d81ac3575281d13010eee894825249042bce14f6e93e4a09aa01d79ffc9b620a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6064b698f6abe3aba0dba7027ed40a022dc6d484b362e4388dd391c0aa3db228"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "eb3c54f1697682c72663ca4eeee9c5f450f2c51e43d5c9af21d9b6a93b7094ce"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b4c21baf63301087ea884c9a01a6cf68d7d213fe8bf096cb4663b6f4b0bc08d9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "289b6ce8daf5c791ff70967f925b73ce9e1521881ae817b7494ca883970d2f4e"
+    sha256 cellar: :any_skip_relocation, ventura:        "047b1f8e67b517133b6039ceaef0da3d804306878d0a8ea8fcb1a3bc4b5a21f7"
+    sha256 cellar: :any_skip_relocation, monterey:       "0db4f5cbc82f21d0f723d5a2c3935a829efacdda16cf14c49e3be896afd07b90"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f7028a4ad5bf80236b5320ab8a14b1dcf98189675bcb2df81002c4f278187664"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7dafe03a9aef2ea5450abce544396966c93e9f993043a111ae6a41001c9e7dcc"
   end
 
   depends_on "python@3.11"
@@ -28,13 +28,13 @@ class Watson < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/37/f7/2b1b0ec44fdc30a3d31dfebe52226be9ddc40cd6c0f34ffc8923ba423b69/certifi-2022.12.7.tar.gz"
-    sha256 "35824b4c3a97115964b408844d64aa14db1cc518f6562e8d7261699d1350a9e3"
+    url "https://files.pythonhosted.org/packages/93/71/752f7a4dd4c20d6b12341ed1732368546bc0ca9866139fe812f6009d9ac7/certifi-2023.5.7.tar.gz"
+    sha256 "0f0d56dc5a6ad56fd4ba36484d6cc34451e1c6548c61daad8c320169f91eddc7"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/96/d7/1675d9089a1f4677df5eb29c3f8b064aa1e70c1251a0a8a127803158942d/charset-normalizer-3.0.1.tar.gz"
-    sha256 "ebea339af930f8ca5d7a699b921106c6e29c617fe9606fa7baa043c1cdae326f"
+    url "https://files.pythonhosted.org/packages/ff/d7/8d757f8bd45be079d76309248845a04f09619a7b17d6dfc8c9ff6433cac2/charset-normalizer-3.1.0.tar.gz"
+    sha256 "34e0a2f9c370eb95597aae63bf85eb5e96826d81e3dcf88b8886012906f509b5"
   end
 
   resource "click" do
@@ -58,13 +58,13 @@ class Watson < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/9d/ee/391076f5937f0a8cdf5e53b701ffc91753e87b07d66bae4a09aa671897bf/requests-2.28.2.tar.gz"
-    sha256 "98b1b2782e3c6c4904938b84c0eb932721069dfdb9134313beff7c83c2df24bf"
+    url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
+    sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/c5/52/fe421fb7364aa738b3506a2d99e4f3a56e079c0a798e9f4fa5e14c60922f/urllib3-1.26.14.tar.gz"
-    sha256 "076907bf8fd355cde77728471316625a4d2f7e713c125f51953bb5b3eecf4f72"
+    url "https://files.pythonhosted.org/packages/fb/c0/1abba1a1233b81cf2e36f56e05194f5e8a0cec8c03c244cab56cc9dfb5bd/urllib3-2.0.2.tar.gz"
+    sha256 "61717a1095d7e155cdb737ac7bb2f4324a858a1e2e6466f6d03ff630ca68d3cc"
   end
 
   def install

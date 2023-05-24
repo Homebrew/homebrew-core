@@ -1,8 +1,8 @@
 class Fits < Formula
   desc "File Information Tool Set"
   homepage "https://projects.iq.harvard.edu/fits"
-  url "https://github.com/harvard-lts/fits/releases/download/1.5.5/fits-1.5.5.zip"
-  sha256 "48be7ad9f27d9cc0b52c63f1aea1a3814e1b6996ca4e8467e77772c187ac955c"
+  url "https://github.com/harvard-lts/fits/releases/download/1.6.0/fits-1.6.0.zip"
+  sha256 "32e436effe7251c5b067ec3f02321d5baf4944b3f0d1010fb8ec42039d9e3b73"
   license "LGPL-2.1-only"
 
   livecheck do
@@ -11,18 +11,23 @@ class Fits < Formula
   end
 
   bottle do
-    sha256 cellar: :any, all: "cd4ac00bed12a2221f0f5b43e13c6605bb53c8cbcb4f518beec8eebb8bef820f"
+    sha256 cellar: :any, arm64_ventura:  "83066fb495a516bd75b4d36e08b5861a0b1520d3803e650a111db6a235f73b12"
+    sha256 cellar: :any, arm64_monterey: "83066fb495a516bd75b4d36e08b5861a0b1520d3803e650a111db6a235f73b12"
+    sha256 cellar: :any, arm64_big_sur:  "9285f4607050a49b97d5a76565d75e706b5b376967eda49516e40aa0d8b1bdfe"
+    sha256 cellar: :any, ventura:        "6113f4769d039c7e57371e31ddaf5acf0382a0f65d37232ae2aecb35ca3ec269"
+    sha256 cellar: :any, monterey:       "6113f4769d039c7e57371e31ddaf5acf0382a0f65d37232ae2aecb35ca3ec269"
+    sha256 cellar: :any, big_sur:        "6113f4769d039c7e57371e31ddaf5acf0382a0f65d37232ae2aecb35ca3ec269"
   end
 
-  # Installs pre-built x86_64 binaries
-  depends_on arch: :x86_64
+  depends_on "exiftool"
+  depends_on "libmediainfo"
   # Installs pre-built .so files linking to system zlib
   depends_on :macos
   depends_on "openjdk"
 
   def install
     # Remove Windows, PPC, and 32-bit Linux binaries
-    %w[macho elf exe].each do |ext|
+    %w[macho elf exe dylib].each do |ext|
       (buildpath/"tools/exiftool/perl/t/images/EXE.#{ext}").unlink
     end
 
@@ -47,6 +52,9 @@ class Fits < Formula
     (libexec/"bin").install %w[fits.sh fits-ngserver.sh]
     (bin/"fits").write_env_script libexec/"bin/fits.sh", Language::Java.overridable_java_home_env
     (bin/"fits-ngserver").write_env_script libexec/"bin/fits.sh", Language::Java.overridable_java_home_env
+
+    # Replace universal binaries with their native slices (for `libmediainfo.dylib`)
+    deuniversalize_machos
   end
 
   test do

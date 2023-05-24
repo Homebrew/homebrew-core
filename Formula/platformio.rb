@@ -9,13 +9,14 @@ class Platformio < Formula
   head "https://github.com/platformio/platformio-core.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "00b643d5619932b1239e46d0eeb7d823284757779a2eae8d5f142c86bf7ad474"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "67084c514f8f621d6fcd9ece2ecba06e7daf29b01bdd25498d8a8fad43a13ac1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7d9ae59c7772fc8643b4c822831ca75cafe6b130b9b9dd641c40c096fd05e77c"
-    sha256 cellar: :any_skip_relocation, ventura:        "7e4fa750c0d1a0bc61befb034d67de855b5b3dd89ba071f922d3cde06248b7c5"
-    sha256 cellar: :any_skip_relocation, monterey:       "8734ff4a541bfcc085622e33adb16e466437a451642e036b6f49974e54e80b34"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0d046081400a238abe7e89c600e642d3f4a1aac197fd0e3f29cb94fc45b7c0ff"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cf62646c76e31e58052eea6c3a433593a273b8de87c43f973e53bfb1bb33e14b"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "775cfa4f10d3af005fd1a2fb05a73d9c9aa003cda7a9a7ee954b27e9ebf6ca53"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2c37cba13a2d8bb6d7be41010b7a3fc6f4f5c152a3415d01ccde1971fa2a7943"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b5c4ade1d4b5746c7ed4173bd18c505564a2af11073345c024b84b4f94f776ce"
+    sha256 cellar: :any_skip_relocation, ventura:        "60a6fc8cd8e6edfdf4722ffa2a6ba435a0e98f4fbfd135bed458f32abe8b9061"
+    sha256 cellar: :any_skip_relocation, monterey:       "92a98652f70fd418fa54eb19251d24a38136fbbfdb15e7b65fb7404fa01212e9"
+    sha256 cellar: :any_skip_relocation, big_sur:        "1da96c464f0dcadcddbb1a8757520e9378ca35453b3b685431fa842c78eca3ea"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "59dd7a4e1ed7c9c801ffcb67e477ebff555cd17d2786395c5cee467560644f4a"
   end
 
   depends_on "python-tabulate"
@@ -92,8 +93,8 @@ class Platformio < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/e0/69/122171604bcef06825fa1c05bd9e9b1d43bc9feb8c6c0717c42c92cc6f3c/requests-2.30.0.tar.gz"
-    sha256 "239d7d4458afcb28a692cdd298d87542235f4ca8d36d03a15bfc128a6559a2f4"
+    url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
+    sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
   end
 
   resource "semantic-version" do
@@ -112,8 +113,8 @@ class Platformio < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/21/79/6372d8c0d0641b4072889f3ff84f279b738cd8595b64c8e0496d4e848122/urllib3-1.26.15.tar.gz"
-    sha256 "8a388717b9476f934a21484e8c8e61875ab60644d29b9b39e11e4b9dc1c6b305"
+    url "https://files.pythonhosted.org/packages/e2/7d/539e6f0cf9f0b95b71dd701a56dae89f768cd39fd8ce0096af3546aeb5a3/urllib3-1.26.16.tar.gz"
+    sha256 "8f135f6502756bde6b2a9b28989df5fbe87c9970cecaa69041edcce7f0589b14"
   end
 
   resource "uvicorn" do

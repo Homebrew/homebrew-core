@@ -9,14 +9,14 @@ class Instalooter < Formula
   revision 3
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cad091558eb5bd1495501dbe9fb6669b5a3088cf9f20f6e442495b9b7aeace6f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9c8b6da2922c02e21f0613254e52e13d404bcc0c093244d25129bb38bc5a2be7"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "35873f81fdf70dcf619ce044f18ef7ae6a48d8817fe642267f8da6a22d0a0f87"
-    sha256 cellar: :any_skip_relocation, ventura:        "b6609bcc7bcc08a5962bfd8809ed70cb431580869d4c137ec62d996a4d6cb6d8"
-    sha256 cellar: :any_skip_relocation, monterey:       "7b400055f5c71f707e93959e80f215de2b90fc4ea342b705579c7ddffa30a7f5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d75ca6a5dd22ae2e15554c99d1a55d54774530ebf10d4c8cf872c1170465c0e4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cdeed01b88f0a29560bcc057bc8efa93961b9a15c83077d4e10e7d6345294fd9"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "019f5945414b810b570669b65bf52d05b0a2d95d36585e07f5134f3f4022e8c4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d36170a08dade8ca347e3b5296996db678be9519343ee6a57d1a0941ea60023c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3d3117d7ad5ea5b9e40ed7890854a071dec68698a8812afbe110fa4358b539c7"
+    sha256 cellar: :any_skip_relocation, ventura:        "23981ae9c3f511260db72e093b4afa919678b39fc5688049445e6ca63a27c0a5"
+    sha256 cellar: :any_skip_relocation, monterey:       "95ee8f03d4dc982a238bbfec275a452b518f09c6618f537b301cd929c2e82999"
+    sha256 cellar: :any_skip_relocation, big_sur:        "296229e788621fa5f010accc86c867651bf9b15e8f9c10f6355321e686b31be2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ca8ca2e6adcf139c4f4790c95bd9ef40422fd659989c97735939cb456255819b"
   end
 
   depends_on "python@3.11"
@@ -28,13 +28,13 @@ class Instalooter < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/37/f7/2b1b0ec44fdc30a3d31dfebe52226be9ddc40cd6c0f34ffc8923ba423b69/certifi-2022.12.7.tar.gz"
-    sha256 "35824b4c3a97115964b408844d64aa14db1cc518f6562e8d7261699d1350a9e3"
+    url "https://files.pythonhosted.org/packages/93/71/752f7a4dd4c20d6b12341ed1732368546bc0ca9866139fe812f6009d9ac7/certifi-2023.5.7.tar.gz"
+    sha256 "0f0d56dc5a6ad56fd4ba36484d6cc34451e1c6548c61daad8c320169f91eddc7"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/96/d7/1675d9089a1f4677df5eb29c3f8b064aa1e70c1251a0a8a127803158942d/charset-normalizer-3.0.1.tar.gz"
-    sha256 "ebea339af930f8ca5d7a699b921106c6e29c617fe9606fa7baa043c1cdae326f"
+    url "https://files.pythonhosted.org/packages/ff/d7/8d757f8bd45be079d76309248845a04f09619a7b17d6dfc8c9ff6433cac2/charset-normalizer-3.1.0.tar.gz"
+    sha256 "34e0a2f9c370eb95597aae63bf85eb5e96826d81e3dcf88b8886012906f509b5"
   end
 
   resource "coloredlogs" do
@@ -68,8 +68,8 @@ class Instalooter < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/9d/ee/391076f5937f0a8cdf5e53b701ffc91753e87b07d66bae4a09aa671897bf/requests-2.28.2.tar.gz"
-    sha256 "98b1b2782e3c6c4904938b84c0eb932721069dfdb9134313beff7c83c2df24bf"
+    url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
+    sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
   end
 
   resource "tenacity" do
@@ -78,13 +78,13 @@ class Instalooter < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/c1/c2/d8a40e5363fb01806870e444fc1d066282743292ff32a9da54af51ce36a2/tqdm-4.64.1.tar.gz"
-    sha256 "5f4f682a004951c1b450bc753c710e9280c5746ce6ffedee253ddbcbf54cf1e4"
+    url "https://files.pythonhosted.org/packages/3d/78/81191f56abb7d3d56963337dbdff6aa4f55805c8afd8bad64b0a34199e9b/tqdm-4.65.0.tar.gz"
+    sha256 "1871fb68a86b8fb3b59ca4cdd3dcccbc7e6d613eeed31f4c332531977b89beb5"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/c5/52/fe421fb7364aa738b3506a2d99e4f3a56e079c0a798e9f4fa5e14c60922f/urllib3-1.26.14.tar.gz"
-    sha256 "076907bf8fd355cde77728471316625a4d2f7e713c125f51953bb5b3eecf4f72"
+    url "https://files.pythonhosted.org/packages/fb/c0/1abba1a1233b81cf2e36f56e05194f5e8a0cec8c03c244cab56cc9dfb5bd/urllib3-2.0.2.tar.gz"
+    sha256 "61717a1095d7e155cdb737ac7bb2f4324a858a1e2e6466f6d03ff630ca68d3cc"
   end
 
   resource "verboselogs" do

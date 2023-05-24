@@ -8,13 +8,14 @@ class CyralGimmeDbToken < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "9e9021e5c05e9990270b4037be273de8a53102869e3c74cef11809a18d8cee53"
-    sha256 cellar: :any,                 arm64_monterey: "639872db8cb4b62482872ecc97a3090150ea7f02a912d0af816d2aa6512a4872"
-    sha256 cellar: :any,                 arm64_big_sur:  "53d9bcee3b002f984b9bd22c9198872b46427211aebb14495ff7b84dd8563b3e"
-    sha256 cellar: :any,                 ventura:        "2f86a2b049a321038b82ec7fc400c65d35c34aafdcf685e197c1c0fed474ab41"
-    sha256 cellar: :any,                 monterey:       "91f5229fc4195e193b6268c4e5537ed9a26f4e656da0b36d4a7a1725b5c67b6d"
-    sha256 cellar: :any,                 big_sur:        "c9f848e6b1be82a004bfb137fbfa192ced6ad99f8144a0a906f842232bb82469"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3b7a1232edff2dc566c1f1a63a8ec1a5bb0bd8cb9de7e71b2822d22b26dcc685"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "2268cda3ce2d85381422e896cbd1bb8f958417f9f423edeecc58e4380f67e938"
+    sha256 cellar: :any,                 arm64_monterey: "7cccb8bfb9478b8a8b71c6d885d673ae99c21f3bd7df72ea7091c0ae2c382bcc"
+    sha256 cellar: :any,                 arm64_big_sur:  "50d0233e2e0d605846e89b0a5d193322a4866cd2a9a34c4d80642556c97a800b"
+    sha256 cellar: :any,                 ventura:        "a09c36517d1c5d38e8708cb80f5eaa5a0a1fa2d45c8297306aadc594209c121b"
+    sha256 cellar: :any,                 monterey:       "df58ea91e0c19e119093b80320f16d7318fc50dda0381815efba369dca7ac602"
+    sha256 cellar: :any,                 big_sur:        "0ff15496c53fbb9337011ec4763361cfe247b180ab1c195e4be70deb1d66e0a4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "93e773ff0421286f290c9e4565aaafbabbe444b0eaa47da87c509c40d6897ab5"
   end
 
   depends_on "rust" => :build # for cryptography
@@ -29,18 +30,18 @@ class CyralGimmeDbToken < Formula
   end
 
   resource "awscli" do
-    url "https://files.pythonhosted.org/packages/ff/cc/a07ca67ea894ab556d4b705d584163aa3c046c96f4899762ac9d8ee80386/awscli-1.27.125.tar.gz"
-    sha256 "4ef04564a4f6d10e9f2c07bb485a482183b6a2aabb7f7797b61b64159b340672"
+    url "https://files.pythonhosted.org/packages/88/30/340f473dbdc4ce5e347eb5c5c5c4864cc7a9b14cfa69bafbaebf3917f6cd/awscli-1.27.138.tar.gz"
+    sha256 "3a1fcf1a4d687c485b55d751e82307e51f5ced7e98147224858b896cddb40b3e"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/81/f9/31fd079836f54470e5aa7c53f8487653d0720304b592e168f51c516a08b9/botocore-1.29.125.tar.gz"
-    sha256 "3005a7ffee083315e69938acdf1bfeaf9e21fe1fe1643d6573ee817721f4ffcd"
+    url "https://files.pythonhosted.org/packages/6d/f4/07a2ad9a3ba8e393616ad9401ca2f73d22a4144f893c2e6735a37a212fe1/botocore-1.29.138.tar.gz"
+    sha256 "31edc237088c104f7a05887646bbec31d7459dd2e108fd90cbffa315902817e2"
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/37/f7/2b1b0ec44fdc30a3d31dfebe52226be9ddc40cd6c0f34ffc8923ba423b69/certifi-2022.12.7.tar.gz"
-    sha256 "35824b4c3a97115964b408844d64aa14db1cc518f6562e8d7261699d1350a9e3"
+    url "https://files.pythonhosted.org/packages/93/71/752f7a4dd4c20d6b12341ed1732368546bc0ca9866139fe812f6009d9ac7/certifi-2023.5.7.tar.gz"
+    sha256 "0f0d56dc5a6ad56fd4ba36484d6cc34451e1c6548c61daad8c320169f91eddc7"
   end
 
   resource "cffi" do
@@ -104,8 +105,8 @@ class CyralGimmeDbToken < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/4c/d2/70fc708727b62d55bc24e43cc85f073039023212d482553d853c44e57bdb/requests-2.29.0.tar.gz"
-    sha256 "f2e34a75f4749019bb0e3effb66683630e4ffeaf75819fb51bebef1bf5aef059"
+    url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
+    sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
   end
 
   resource "rsa" do
@@ -114,8 +115,8 @@ class CyralGimmeDbToken < Formula
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/e1/eb/e57c93d5cd5edf8c1d124c831ef916601540db70acd96fa21fe60cef1365/s3transfer-0.6.0.tar.gz"
-    sha256 "2ed07d3866f523cc561bf4a00fc5535827981b117dd7876f036b0c1aca42c947"
+    url "https://files.pythonhosted.org/packages/49/bd/def2ab4c04063a5e114963aae90bcd3e3aca821a595124358b3b00244407/s3transfer-0.6.1.tar.gz"
+    sha256 "640bb492711f4c0c0905e1f62b6aaeb771881935ad27884852411f8e9cacbca9"
   end
 
   resource "urllib3" do

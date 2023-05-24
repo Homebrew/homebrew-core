@@ -3,18 +3,18 @@ class Vineyard < Formula
 
   desc "In-memory immutable data manager. (Project under CNCF)"
   homepage "https://v6d.io"
-  url "https://github.com/v6d-io/v6d/releases/download/v0.14.5/v6d-0.14.5.tar.gz"
-  sha256 "b8f6c7b148f86a3d68bf7c49282dacf00f1811c1313a1c18b557347cf3359485"
+  url "https://github.com/v6d-io/v6d/releases/download/v0.14.6/v6d-0.14.6.tar.gz"
+  sha256 "2b524cf52c6366d4ffe9caddcead4902ad7e69d7a3f11b5e45b7bbc94cc39190"
   license "Apache-2.0"
 
   bottle do
-    sha256 arm64_ventura:  "63435e03f7367b4ebf8cc8441d18a89d9ab5e1675e084d31be7425120c30057c"
-    sha256 arm64_monterey: "888f6600c54fea3242a234bb7173cd3be9d7f64aa23c8b0f3fb514e086620119"
-    sha256 arm64_big_sur:  "f8771c7f769707ab159f10aded6b4e0b7438d6a4fc3a939cc6bcea98651be841"
-    sha256 ventura:        "5c7a0930cd9a057e04e724728e862d2e719f55b71cf3070a44b182c3010622f5"
-    sha256 monterey:       "184b8d39f932cd3ae24417f91a810cfcce4ecdf29ec888fd5a7120140f3516b9"
-    sha256 big_sur:        "0e5a14a49c0caaaa6bded0b199d98a11a1704015b8367d61647a74299587f53f"
-    sha256 x86_64_linux:   "9eb58aee342dc76e834407267034fc5b37e9046a81a55ff9980bde47fbf21075"
+    sha256 arm64_ventura:  "35b3fcb548a46cd5fbf4b0d27e7bbf97057756a6c8d8e56a2a2a5833f79a8d74"
+    sha256 arm64_monterey: "41f3155807421f58998c33cae801e8fe97dbf8d494672d734823033d0452c096"
+    sha256 arm64_big_sur:  "2373e84b4ef3a511140b9af796d352610e2bc77f00665f0dc9987c667828d10d"
+    sha256 ventura:        "7c2f79e032bca2355f4dc9a15614127ebebef6e114e1ad80eeec12dc97036a03"
+    sha256 monterey:       "00e64bb83cddbee051a53c7c52d5efa65ed83bfab67440be85dd9b1c1a06e2b4"
+    sha256 big_sur:        "5b7b2de6458cb82d96ff99948f2ffd025047a42fef5f4f941169e2f888d1e2c4"
+    sha256 x86_64_linux:   "2f5d862abba101c8d6d1660578a9043253ac7b99fdc9e9a200ae796909e63e85"
   end
 
   depends_on "cmake" => :build
@@ -26,9 +26,11 @@ class Vineyard < Formula
   depends_on "etcd-cpp-apiv3"
   depends_on "gflags"
   depends_on "glog"
+  depends_on "hiredis"
   depends_on "libgrape-lite"
   depends_on "open-mpi"
   depends_on "openssl@1.1"
+  depends_on "redis"
 
   fails_with gcc: "5"
 
@@ -42,8 +44,11 @@ class Vineyard < Formula
                     "-DCMAKE_CXX_STANDARD_REQUIRED=TRUE",
                     "-DPYTHON_EXECUTABLE=#{which(python)}",
                     "-DUSE_EXTERNAL_ETCD_LIBS=ON",
+                    "-DUSE_EXTERNAL_REDIS_LIBS=ON",
+                    "-DUSE_EXTERNAL_HIREDIS_LIBS=ON",
                     "-DBUILD_VINEYARD_TESTS=OFF",
                     "-DUSE_LIBUNWIND=OFF",
+                    "-DLIBGRAPELITE_INCLUDE_DIRS=#{Formula["libgrape-lite"].opt_include}",
                     "-DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}",
                     *std_cmake_args
     system "cmake", "--build", "build"

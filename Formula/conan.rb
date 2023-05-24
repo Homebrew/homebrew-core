@@ -9,13 +9,14 @@ class Conan < Formula
   head "https://github.com/conan-io/conan.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3bac54f5c1e8afe22cb3bd0b10936f96d28eb65b338291bb00ddf0c2c4cbfe59"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cf14c62154d55bf6afe240babf72c4f6ea69b9be9e1847bf3e8e31bb30b94008"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "82af3b6aa201f87883487d3066e2778dddc6a2e8a031ee5ad127f0b4599a3f1c"
-    sha256 cellar: :any_skip_relocation, ventura:        "447ed580e096a8ac9bb40bfd0ef908f88c55eb934e9eac01c025a277f7af1dc9"
-    sha256 cellar: :any_skip_relocation, monterey:       "502157125ea9407338a68ca3cc25bfec9e98f264fab386e38d1d4407f4428343"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5790beb744e7b2ec84029f3c3b05a5eb0b7d3c0771656a5815e5da9233bb4f4d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "46c04f0d2cb83291763c39fba958646f62c1f2a6dfa663041bd742c51e1130bb"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d1e4735ac6d254a8d2df695616479e8d9c7667050972f7ed74ab1f0dd32a228e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "974ccd849b09f6899dd15cbf05fdf54928adf5fb7669a9c2a320bb7a01a7cdee"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4248b07f362c3f6ed700eb1220ec2b450be702762ca1a39e6bb12cf420f9d902"
+    sha256 cellar: :any_skip_relocation, ventura:        "2c48353eda073ec97fffead9d4814273eca82fb692ad08beb96685ce57c46937"
+    sha256 cellar: :any_skip_relocation, monterey:       "9b85d1581d0e4ad90c938fd5d708763e7ad51588c2414679bcbc540e89d5fbf1"
+    sha256 cellar: :any_skip_relocation, big_sur:        "62ca0050039844e558158c62dd1db78471bd9d71d47206bbd408b01f77a664f4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a365444dcad0bf6e44bceddb7a5c9808b2158b09547a603d1a457e4cc38b6f18"
   end
 
   depends_on "pkg-config" => :build
@@ -77,8 +78,8 @@ class Conan < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/e0/69/122171604bcef06825fa1c05bd9e9b1d43bc9feb8c6c0717c42c92cc6f3c/requests-2.30.0.tar.gz"
-    sha256 "239d7d4458afcb28a692cdd298d87542235f4ca8d36d03a15bfc128a6559a2f4"
+    url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
+    sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
   end
 
   resource "urllib3" do

@@ -3,26 +3,29 @@ class Rbtools < Formula
 
   desc "CLI and API for working with code and document reviews on Review Board"
   homepage "https://www.reviewboard.org/downloads/rbtools/"
-  url "https://files.pythonhosted.org/packages/d2/ce/363101545b7a61dac2ab94f5a718ac9e2120d1dda3b2bc5acb40f8034eef/RBTools-4.0.tar.gz"
-  sha256 "67556ba8ce2e9977c4a4a5e14c4785cbe9215be56d04f8167fd703a4ae0f266f"
+  url "https://files.pythonhosted.org/packages/19/ef/8900501b1af41d2485ee1eabb9f3e309f80fdae911c97927d8917ae99f9f/RBTools-4.1.tar.gz"
+  sha256 "24efb20346b905c9be0464e747ee1bdee7967d1b94175697ea0c830d929475ff"
   license "MIT"
   head "https://github.com/reviewboard/rbtools.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b0c78646c9b3f5bf3901902122d0835e00c8adbeb34886d765888a34c6505960"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "259be5e7eac1be107f3ab7f0cd97e39a48376ab4ebb6f4e08f0e56b6d21a01ba"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "57bc64193f6c2b156e719f5d60779693a487060279542274b4142ae33251eb1c"
-    sha256 cellar: :any_skip_relocation, ventura:        "3e19b6d11c68dce31cac490b0c41c366eb7f2fbe76cd1bae0fcf6fa86a0fc07b"
-    sha256 cellar: :any_skip_relocation, monterey:       "2f2aac7ec3b8ee6cb675a780d4d75e758f302948c7ab72a335969d356d5f683c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5ad603c0a25683d3350949e6796beab8f558138bd31521d04617df17ad542203"
-    sha256 cellar: :any_skip_relocation, catalina:       "e6616acfb3f1df1b2896644a3c5f9e9bdd9e41e12ce9a8d977a15630861b424a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e9a2e1211ddb4c3a444602a0977e6d00cc7b9acad2a0676c5771cbaae8ad89c0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5e975997b40ab9dc103ee682f0833c038d42e2e9ee8940a1f0949c467ce7414d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "69012845e651178a9e85e50cf8d0e168b77e76c7984519deb2f354831b1d8014"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "36d4cf877244f1cc2fb24a751ad235e4bef79d889501c757fd10f1fa14974ed6"
+    sha256 cellar: :any_skip_relocation, ventura:        "4d2c2867e1eedc50b0f68789afffd43f0485f98f43e7ced05f2d611b383172ba"
+    sha256 cellar: :any_skip_relocation, monterey:       "395d556690693f09ebee1783966f5b02de18bb95cc7b0d3de80488244028e2d8"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4db34762cde42858275f0c85a9b948bb46f976b747455f3f21aadee64426404f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2387a79a508fb0503e7271cea7ae635323f01aeb208adc37cc06b34fc251eb23"
   end
 
   depends_on "python-typing-extensions"
   depends_on "python@3.11"
   depends_on "six"
+
+  resource "certifi" do
+    url "https://files.pythonhosted.org/packages/93/71/752f7a4dd4c20d6b12341ed1732368546bc0ca9866139fe812f6009d9ac7/certifi-2023.5.7.tar.gz"
+    sha256 "0f0d56dc5a6ad56fd4ba36484d6cc34451e1c6548c61daad8c320169f91eddc7"
+  end
 
   resource "colorama" do
     url "https://files.pythonhosted.org/packages/d8/53/6f443c9a4a8358a93a6792e2acffb9d9d5cb0a5cfd8802644b7b1c9a02e4/colorama-0.4.6.tar.gz"
@@ -35,13 +38,13 @@ class Rbtools < Formula
   end
 
   resource "texttable" do
-    url "https://files.pythonhosted.org/packages/d5/78/dbc2a5eab57a01fedaf975f2c16f04e76f09336dbeadb9994258aa0a2b1a/texttable-1.6.4.tar.gz"
-    sha256 "42ee7b9e15f7b225747c3fa08f43c5d6c83bc899f80ff9bae9319334824076e9"
+    url "https://files.pythonhosted.org/packages/e4/84/4686ee611bb020038375c5f11fe7b6b3bb94ee78614a1faba45effe51591/texttable-1.6.7.tar.gz"
+    sha256 "290348fb67f7746931bcdfd55ac7584ecd4e5b0846ab164333f0794b121760f2"
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/c1/c2/d8a40e5363fb01806870e444fc1d066282743292ff32a9da54af51ce36a2/tqdm-4.64.1.tar.gz"
-    sha256 "5f4f682a004951c1b450bc753c710e9280c5746ce6ffedee253ddbcbf54cf1e4"
+    url "https://files.pythonhosted.org/packages/3d/78/81191f56abb7d3d56963337dbdff6aa4f55805c8afd8bad64b0a34199e9b/tqdm-4.65.0.tar.gz"
+    sha256 "1871fb68a86b8fb3b59ca4cdd3dcccbc7e6d613eeed31f4c332531977b89beb5"
   end
 
   def install

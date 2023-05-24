@@ -9,13 +9,14 @@ class YleDl < Formula
   head "https://github.com/aajanki/yle-dl.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a915609561d83e2b04c9a9bc77b8262033d26b5fc5306cb53ce4c87d1e997ad2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3238f0a712c2b2190b0d0f3c572bf5a0b5003e936bfedbc9604951c61a937883"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "529e6492483d8c6234f46f6903d019cd22b4eba515003a86a39f280a3c67d9e6"
-    sha256 cellar: :any_skip_relocation, ventura:        "8958cb2f415651ab5b090999277c84a9478299684cea259a12dd02a7acc3b2a1"
-    sha256 cellar: :any_skip_relocation, monterey:       "5b2b54b91a9095054a9298fea293f735043b0d1e16f17785a7a8efb88036ae77"
-    sha256 cellar: :any_skip_relocation, big_sur:        "bfb289c85b8e7b8d03f7fec0b8681c642d8764359057f99d7c25cb18aac923fe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "57065dd17ba06f5e2119e273186565bf91b00a748b98d1e3b19856d86190b70d"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b8f566d97107e3a1e685cac7b57fc294bcd5b57f88b0ced3e4df6d2dec1944e5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ced60fa5837bc73fe25b1e8125cb1caa5c63ee9a880ea6f49377442c9728919f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "51ba93e7606205fa1f95a00e02bda9365ca7dd98ccc28f967093e19f590055f1"
+    sha256 cellar: :any_skip_relocation, ventura:        "c9bf9559fc1bcedf2da1823e191fc8005c7570f46f8c6af50fe0e5ae20f83981"
+    sha256 cellar: :any_skip_relocation, monterey:       "f15157599a1a59f4eb011b10472e50bd0ebd1e8aab9ae1d99dd5dd094715393b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f30dbf83d97ec53ae4053caa7a0577332ba713ddd0b46c6de0bc8a988e87e5ff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "890f01161a09f56a82aafa19821defcc30e6c794c00274c00e7d5945be6a5900"
   end
 
   depends_on "ffmpeg"
@@ -25,13 +26,13 @@ class YleDl < Formula
   uses_from_macos "libxslt"
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/21/31/3f468da74c7de4fcf9b25591e682856389b3400b4b62f201e65f15ea3e07/attrs-22.2.0.tar.gz"
-    sha256 "c9227bfc2f01993c03f68db37d1d15c9690188323c067c641f1a35ca58185f99"
+    url "https://files.pythonhosted.org/packages/97/90/81f95d5f705be17872843536b1868f351805acf6971251ff07c1b8334dbb/attrs-23.1.0.tar.gz"
+    sha256 "6279836d581513a26f1bf235f9acd333bc9115683f14f7e8fae46c98fc50e015"
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/37/f7/2b1b0ec44fdc30a3d31dfebe52226be9ddc40cd6c0f34ffc8923ba423b69/certifi-2022.12.7.tar.gz"
-    sha256 "35824b4c3a97115964b408844d64aa14db1cc518f6562e8d7261699d1350a9e3"
+    url "https://files.pythonhosted.org/packages/93/71/752f7a4dd4c20d6b12341ed1732368546bc0ca9866139fe812f6009d9ac7/certifi-2023.5.7.tar.gz"
+    sha256 "0f0d56dc5a6ad56fd4ba36484d6cc34451e1c6548c61daad8c320169f91eddc7"
   end
 
   resource "cffi" do
@@ -40,11 +41,11 @@ class YleDl < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/a1/34/44964211e5410b051e4b8d2869c470ae8a68ae274953b1c7de6d98bbcf94/charset-normalizer-2.1.1.tar.gz"
-    sha256 "5a3d016c7c547f69d6f81fb0db9449ce888b418b5b9952cc5e6e66843e9dd845"
+    url "https://files.pythonhosted.org/packages/ff/d7/8d757f8bd45be079d76309248845a04f09619a7b17d6dfc8c9ff6433cac2/charset-normalizer-3.1.0.tar.gz"
+    sha256 "34e0a2f9c370eb95597aae63bf85eb5e96826d81e3dcf88b8886012906f509b5"
   end
 
-  resource "ConfigArgParse" do
+  resource "configargparse" do
     url "https://files.pythonhosted.org/packages/16/05/385451bc8d20a3aa1d8934b32bd65847c100849ebba397dbf6c74566b237/ConfigArgParse-1.5.3.tar.gz"
     sha256 "1b0b3cbf664ab59dada57123c81eff3d9737e0d11d8cf79e3d6eb10823f1739f"
   end
@@ -65,13 +66,13 @@ class YleDl < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/a5/61/a867851fd5ab77277495a8709ddda0861b28163c4613b011bc00228cc724/requests-2.28.1.tar.gz"
-    sha256 "7c5599b102feddaa661c826c56ab4fee28bfd17f5abca1ebbe3e7f19d7c97983"
+    url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
+    sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/c2/51/32da03cf19d17d46cce5c731967bf58de9bd71db3a379932f53b094deda4/urllib3-1.26.13.tar.gz"
-    sha256 "c083dd0dce68dbfbe1129d5271cb90f9447dea7d52097c6e0126120c521ddea8"
+    url "https://files.pythonhosted.org/packages/fb/c0/1abba1a1233b81cf2e36f56e05194f5e8a0cec8c03c244cab56cc9dfb5bd/urllib3-2.0.2.tar.gz"
+    sha256 "61717a1095d7e155cdb737ac7bb2f4324a858a1e2e6466f6d03ff630ca68d3cc"
   end
 
   resource "xattr" do

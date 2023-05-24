@@ -8,13 +8,14 @@ class Datalad < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0c87d72b15e714b2d1f99bdd6a61fc974d6554a1c64a982c8132baffba90c2d3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "34da7bb9472e57fcf29c59dd1bcc0210aefc41b3405462f3788d2f934204caa1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3a18e95d7467a2bb66fb4eae9e687aca9c777d3b71dffbb55f414f7113da6327"
-    sha256 cellar: :any_skip_relocation, ventura:        "31da68ec7c12a08f582b455e44ca083e201124c2bb1523a124945750e3d119b3"
-    sha256 cellar: :any_skip_relocation, monterey:       "26a1ca7acaad0050f7ff52958d8f6e1e49e72fc4d050d2e00279b3545997ac67"
-    sha256 cellar: :any_skip_relocation, big_sur:        "04cff96705162b1dd421ccdfc43b220caed10f3ccae642feed538d90c85eeb23"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c18c651a29bee29cd244fc0af11630a6cbfbe0b75abf565d3f64f14ec3b09cb2"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fcaa6cacc34815a8e2d7096b0123ea650ac6bba92f95d443fc7de8b078242752"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "419d1032aeb11f7c5e08d453fb1a1da7c7d040f112c2ab2d7e3ea37c7c47b776"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "48f8330db7c5efcf496b2c0324c38afb1775db0ed6c625fbfed197851eda9677"
+    sha256 cellar: :any_skip_relocation, ventura:        "c55f1659ad8e37a27fa952ed1ceadd7e867f814c72bd978efc3efba8d3748c07"
+    sha256 cellar: :any_skip_relocation, monterey:       "a1139eba8e77184fb88b8541cd4e4323b1baa25d98368735cd1092f21586de08"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9e32616d16b179d2325166780fb363575973063f0975802bddcf73f1c351ba29"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c97a603a45c91039aaba8b0a0debbd840e0738bb8c3cff44ad1a6d031121d835"
   end
 
   depends_on "rust" => :build # for cryptography
@@ -128,8 +129,8 @@ class Datalad < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/e0/69/122171604bcef06825fa1c05bd9e9b1d43bc9feb8c6c0717c42c92cc6f3c/requests-2.30.0.tar.gz"
-    sha256 "239d7d4458afcb28a692cdd298d87542235f4ca8d36d03a15bfc128a6559a2f4"
+    url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
+    sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
   end
 
   resource "requests-toolbelt" do

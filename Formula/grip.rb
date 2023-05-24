@@ -9,14 +9,14 @@ class Grip < Formula
   revision 1
 
   bottle do
-    rebuild 4
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8652d9fbd389745caadc11cfa985d1a613bf264828faf044bd30bb4a4cb96439"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f3bb107098a255b6fca4d49d0e899591ba33c5305cafff7356958d98ef561ea0"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ae55eeea1a721fda973b11eaebdf1367ebb63c83606fcb024db420de5352ca8e"
-    sha256 cellar: :any_skip_relocation, ventura:        "b671f56502bd1f7a19881bedda3f734f31ca3336ab980cf2fcc60db8da4dfade"
-    sha256 cellar: :any_skip_relocation, monterey:       "ba64ca91415952b62cf8ab1535321f7ee681cdfef482982b20b92ab1e78aa6e2"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7a4070857927cbb9a24a98e78b7a1e0554035449d9fbd93d6f782959b8cf0309"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2feb13e6190e93ed633808f8320c680e16366839577fe320179ae3f6e378879f"
+    rebuild 5
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "24e616dd8e1e92d0fbcc38cb1aae01812a2f6d9594410e8ebf3430bf9c9b19f6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1bc06cc1ba096b03a18980cc1f38c5a2102e8c63db38d9107a547be6ac1feae8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "55a9264c82276fc867c41c27e513fa76f90cd473d72adf9e4af8dda2cbb8e8eb"
+    sha256 cellar: :any_skip_relocation, ventura:        "af0bd3f60ed2e93f309dc63b2f5b75ff205bea5a9f0e988cce0050e486933422"
+    sha256 cellar: :any_skip_relocation, monterey:       "d121810d02efdb6aed1d2b49962314fd943745c7d0cc2b8337969a826715041c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "508b9c53cd2c145ad479034488fd6374a0d8a1b0192c1959db33cb45a1f5040f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "db6c2bb24185cf03503e4ad739dadab92a3a4cff5f358ca8ab6d1f34e472496c"
   end
 
   depends_on "pygments"
@@ -28,8 +28,8 @@ class Grip < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/37/f7/2b1b0ec44fdc30a3d31dfebe52226be9ddc40cd6c0f34ffc8923ba423b69/certifi-2022.12.7.tar.gz"
-    sha256 "35824b4c3a97115964b408844d64aa14db1cc518f6562e8d7261699d1350a9e3"
+    url "https://files.pythonhosted.org/packages/93/71/752f7a4dd4c20d6b12341ed1732368546bc0ca9866139fe812f6009d9ac7/certifi-2023.5.7.tar.gz"
+    sha256 "0f0d56dc5a6ad56fd4ba36484d6cc34451e1c6548c61daad8c320169f91eddc7"
   end
 
   resource "charset-normalizer" do
@@ -83,18 +83,18 @@ class Grip < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/4c/d2/70fc708727b62d55bc24e43cc85f073039023212d482553d853c44e57bdb/requests-2.29.0.tar.gz"
-    sha256 "f2e34a75f4749019bb0e3effb66683630e4ffeaf75819fb51bebef1bf5aef059"
+    url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
+    sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/21/79/6372d8c0d0641b4072889f3ff84f279b738cd8595b64c8e0496d4e848122/urllib3-1.26.15.tar.gz"
-    sha256 "8a388717b9476f934a21484e8c8e61875ab60644d29b9b39e11e4b9dc1c6b305"
+    url "https://files.pythonhosted.org/packages/fb/c0/1abba1a1233b81cf2e36f56e05194f5e8a0cec8c03c244cab56cc9dfb5bd/urllib3-2.0.2.tar.gz"
+    sha256 "61717a1095d7e155cdb737ac7bb2f4324a858a1e2e6466f6d03ff630ca68d3cc"
   end
 
   resource "werkzeug" do
-    url "https://files.pythonhosted.org/packages/52/82/bc77d22189679940b9f73685451167221ec5348e08c6d2594f1070767124/Werkzeug-2.3.3.tar.gz"
-    sha256 "a987caf1092edc7523edb139edb20c70571c4a8d5eed02e0b547b4739174d091"
+    url "https://files.pythonhosted.org/packages/2d/bf/5a00bb4a70028f7c6000bc9394492154fa9ae3f5226187e3ddcd0aa5eca1/Werkzeug-2.3.4.tar.gz"
+    sha256 "1d5a58e0377d1fe39d061a5de4469e414e78ccb1e1e59c0f5ad6fa1c36c52b76"
   end
 
   def install

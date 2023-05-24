@@ -9,17 +9,20 @@ class Pwntools < Formula
   head "https://github.com/Gallopsled/pwntools.git", branch: "dev"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "14085a7794ad7dc8a028a11910af14f9fee7f94b365fd904815c1a45eb3ba9b6"
-    sha256 cellar: :any,                 arm64_monterey: "5e15daa828e68fce9190971bcf02a83d47fd41464d0617c5ac6aba712e33deb3"
-    sha256 cellar: :any,                 arm64_big_sur:  "1d6199a1ea3fa445d49a8a152ebf83d2c24aa029a0cd0c823735a97e2a2db342"
-    sha256 cellar: :any,                 ventura:        "54dc9c290a7cf77c15c59afdc2fd84f6ccc621680885991a24f54ed57f3575ca"
-    sha256 cellar: :any,                 monterey:       "ea743ff6a36bda224560b10039f70242b058c566ae4ce7242c71893ac6e01308"
-    sha256 cellar: :any,                 big_sur:        "2af203239ec191b9eb786e6590b63cec20b8ba9c498478d3614546e2a3df087f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3880cc9d6bf573bd526ba26e83ff3e5aed08d10d3ada4b385536fc545d679b98"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "78877c2faedf3d8b52a0cdfc44b3b31f6cb0e8627e739bdd314474e44a518f68"
+    sha256 cellar: :any,                 arm64_monterey: "ca344ac62a6bee0138aede9c6344430bf1ed8a5b74e49772d3aeca95d94a7e85"
+    sha256 cellar: :any,                 arm64_big_sur:  "38b2b01b336e4539772637a90884f7a6fb0d49fcf24cd9578cc29bad0d8c2122"
+    sha256 cellar: :any,                 ventura:        "4483deb485956a6c8b51bd1aa11589a499539d50fc7ba66af9ceb0a976abbadf"
+    sha256 cellar: :any,                 monterey:       "599040d53abe961a13076aa3ac7632a24fff260bb4739417d96594bdeb0ab505"
+    sha256 cellar: :any,                 big_sur:        "a856e58523684e2be5047f7aa07851f668bfd751f6dd0f726c22dc8d788bd51e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "65bb063987a6cc7464fcf1b5e8101a162e31145265b886b7a134e57dc524843c"
   end
 
   depends_on "rust" => :build
+  depends_on "cffi"
   depends_on "openssl@1.1"
+  depends_on "pycparser"
   depends_on "pygments"
   depends_on "python@3.11"
   depends_on "six"
@@ -46,11 +49,6 @@ class Pwntools < Formula
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/93/71/752f7a4dd4c20d6b12341ed1732368546bc0ca9866139fe812f6009d9ac7/certifi-2023.5.7.tar.gz"
     sha256 "0f0d56dc5a6ad56fd4ba36484d6cc34451e1c6548c61daad8c320169f91eddc7"
-  end
-
-  resource "cffi" do
-    url "https://files.pythonhosted.org/packages/2b/a8/050ab4f0c3d4c1b8aaa805f70e26e84d0e27004907c5b8ecc1d31815f92a/cffi-1.15.1.tar.gz"
-    sha256 "d400bfb9a37b1351253cb402671cea7e89bdecc294e8016a707f6d1d8ac934f9"
   end
 
   resource "charset-normalizer" do
@@ -108,11 +106,6 @@ class Pwntools < Formula
     sha256 "5410638e4df39c54d957fc51ce03048acd8e6d60abc0f5107af51e5fb566eb3c"
   end
 
-  resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/5e/0b/95d387f5f4433cb0f53ff7ad859bd2c6051051cebbb564f139a999ab46de/pycparser-2.21.tar.gz"
-    sha256 "e644fdec12f7872f86c58ff790da456218b10f863970249516d60a5eaca77206"
-  end
-
   resource "pyelftools" do
     url "https://files.pythonhosted.org/packages/0e/35/e76da824595452a5ad07f289ea1737ca0971fc6cc7b6ee9464279be06b5e/pyelftools-0.29.tar.gz"
     sha256 "ec761596aafa16e282a31de188737e5485552469ac63b60cfcccf22263fd24ff"
@@ -139,8 +132,8 @@ class Pwntools < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/e0/69/122171604bcef06825fa1c05bd9e9b1d43bc9feb8c6c0717c42c92cc6f3c/requests-2.30.0.tar.gz"
-    sha256 "239d7d4458afcb28a692cdd298d87542235f4ca8d36d03a15bfc128a6559a2f4"
+    url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
+    sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
   end
 
   resource "ropgadget" do

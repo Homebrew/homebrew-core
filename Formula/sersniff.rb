@@ -3,7 +3,12 @@ class Sersniff < Formula
   homepage "https://www.earth.li/projectpurple/progs/sersniff.html"
   url "https://www.earth.li/projectpurple/files/sersniff-0.0.5.tar.gz"
   sha256 "8aa93f3b81030bcc6ff3935a48c1fd58baab8f964b1d5e24f0aaecbd78347209"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?sersniff[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     rebuild 1

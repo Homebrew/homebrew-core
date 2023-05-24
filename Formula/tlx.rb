@@ -1,18 +1,18 @@
 class Tlx < Formula
   desc "Collection of Sophisticated C++ Data Structures, Algorithms and Helpers"
   homepage "https://tlx.github.io"
-  url "https://github.com/tlx/tlx/archive/v0.6.0.tar.gz"
-  sha256 "273fec7d7d184f6836f2a043e79144a09b8424989d37c7bad7383070154c6509"
+  url "https://github.com/tlx/tlx/archive/v0.6.1.tar.gz"
+  sha256 "24dd1acf36dd43b8e0414420e3f9adc2e6bb0e75047e872a06167961aedad769"
   license "BSL-1.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f6d27c8864a5bd1fd5237b2cb0bd7f676913773fc817fedc951f437649988800"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "393caa8be67be807697c182e79c630b6b5d86fa4dd5aff2a29e8099f3aa1eefa"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "677430a5fbc565403459f36535112aa72448a853c339436dde3d815a1ef747f3"
-    sha256 cellar: :any_skip_relocation, ventura:        "7fd593870ebc5a83373f685a07a05ad6a56141b8ceacf6b96e25d8bfd489c5d3"
-    sha256 cellar: :any_skip_relocation, monterey:       "f0ae18b1b73a421ad4e4aa6770757ba87efcbd156ed6cf50e0a6e3c558d412b5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "106333715fb6307902a75ef30a13f9f08962507e0eb62a203f10a36ac3fadcde"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d670608e9556afeceb31188f54decc6e4c9d9cd47e8c7bcf418aecb91e935f9e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c5bf4de79e505634d807afd511f8c30b43e1f770a0d727549f8428fa504308f2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4d67f614d8877c5fc1796c9e7c4d913fe085890e2556908fb7d0ee767c7bbdd3"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "14ad8d90c73c62b2e9b1332ed5ffbe59487cfbcf36d0157390fd9e59327ec6c5"
+    sha256 cellar: :any_skip_relocation, ventura:        "1fa9c67739a557c7faba1bf0a20352d8ecef8e79f32ba8caf2ef293fdc098dcd"
+    sha256 cellar: :any_skip_relocation, monterey:       "0065add2f25b25eeb527aeb48625e34563d0afb702a496c67223ee78f3570547"
+    sha256 cellar: :any_skip_relocation, big_sur:        "00ee92b029c92c9ac1f8326e9b039970097b802fe6ab79c2b8cf33251e3e7f60"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e67f35bf407415cf0ab4f5afba211439f82b8da3495a6a52b0301c3a76f099b8"
   end
 
   depends_on "cmake" => :build

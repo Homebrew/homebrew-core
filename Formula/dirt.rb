@@ -3,29 +3,30 @@ class Dirt < Formula
   homepage "https://github.com/tidalcycles/Dirt"
   url "https://github.com/tidalcycles/Dirt/archive/1.1.tar.gz"
   sha256 "bb1ae52311813d0ea3089bf3837592b885562518b4b44967ce88a24bc10802b6"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
   revision 1
   head "https://github.com/tidalcycles/Dirt.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "220df28058cee1be0e8326c1bc8b0aad2e916b98ab3e4754b8695823f3de5cb5"
-    sha256 cellar: :any,                 arm64_monterey: "82bbbe42458acf9ec7e5f628eae3aaa8e8c9df057e083ff45e044e0a64339c88"
-    sha256 cellar: :any,                 arm64_big_sur:  "c011771c2775cdbf313084355baf6734da930ad9fae75326775cfb27481482a4"
-    sha256 cellar: :any,                 ventura:        "70cbf8ba9111cbc64540966e1b52bdd9ed2705b785be0b22f81039fe524eeb1e"
-    sha256 cellar: :any,                 monterey:       "dc6f8629d3cbdd9157fa9445ad7bcab0058cc286d042f7830c42c6c28e90190a"
-    sha256 cellar: :any,                 big_sur:        "ac69059e87e5682411a7442619985d95d79ee67af88366bcea28cc89e35ef46a"
-    sha256 cellar: :any,                 catalina:       "2e9cf5a28852453f9ec5394bb2218fe3366e2cc6ef133e2dda847fbfa71ee968"
-    sha256 cellar: :any,                 mojave:         "f90972cf61d77071fec9ab429f8a88a03738699b7e223b30c8655d5c64fede74"
-    sha256 cellar: :any,                 high_sierra:    "b889891f8186b244161241e9c81d20afad20c31bd592fbf6860658334f314d39"
-    sha256 cellar: :any,                 sierra:         "63847bffb4de9fa0cf57a1aea8a6bc1d713b8b0a1243ada27e6dd9d4aa21ccc1"
-    sha256 cellar: :any,                 el_capitan:     "96b6e1e120bb8be5a051cdca4534d569afe5cae61abdcaf808cdef7af94042af"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ae8da7d6294c241c81702c67c387d3f8cd53f60a9cb352f185cffbd12d4eded3"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "7b0e123381c73cf489c38368999dcf0886843f8223562f83db6b6a5fde4dcaf7"
+    sha256 cellar: :any,                 arm64_monterey: "6ac9e97def1a071fda1e4fc145450cdafed11444358537d2824cea8d77e73155"
+    sha256 cellar: :any,                 arm64_big_sur:  "ed0c1c48b840abfd9336d6b292e1e08896bddc3663164815fd6fc489b0d3495e"
+    sha256 cellar: :any,                 ventura:        "5ff0f05492f68f79315dd99ce136a09cfb3455b030bf1a12d9164f4dee70b43c"
+    sha256 cellar: :any,                 monterey:       "f4c8eaef7bd081e9c346af24400410671665836820077afdcc13e68c676903bd"
+    sha256 cellar: :any,                 big_sur:        "bb32869ee985043d05056f89254e369dcc8be8cfaaedaa1427787fc5e04fa62c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8ea04b1e39b56f30179c50763b52314bb909285924d3229a68c35905e6b9b0f6"
   end
 
   depends_on "jack"
   depends_on "liblo"
+  depends_on "libsndfile"
 
   def install
+    # Work around failure from GCC 10+ using default of `-fno-common`
+    # multiple definition of `...'; ....o:(.bss+0x0): first defined here
+    ENV.append_to_cflags "-fcommon" if OS.linux?
+
     system "make", "PREFIX=#{prefix}", "install"
   end
 

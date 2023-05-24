@@ -8,13 +8,14 @@ class Internetarchive < Formula
   license "AGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "625d91489683a2e0968628b43c0ebc9869a2c7ca8f06091e8629c7be2ee7f94d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "68674e3de3058bb5632a33a190cf239672dd447c6a87d9ff9596b1309cedd50d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "153aff0daab82634b7e794770441be6bf25dedca46728cdd2712700cd0fb32f1"
-    sha256 cellar: :any_skip_relocation, ventura:        "6bf13f1d5a64d2fff1cbe95f4b9b4c2598914004c4cff77afe3e0b153e85326d"
-    sha256 cellar: :any_skip_relocation, monterey:       "0a7220531b36f14740abc671d49765f8fa580a1336e03b39c6a1d96c51decaca"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c5b6e788f2e8e4dc8e6f0ea7acaf0535a04f0843fde5a31ea2c0bec8747fb15a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "309312cd0f7c38bd094e5645b7daa41599cb86f880dfe4c88af91862c1098b9e"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6979a8df04c2b96c717645c1d91bb05474df7c29ddd58895728dd3285de215a8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "11035230c4642dab1260f9a0022afda655231254fbacfd20afd038ba3871471e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0b0148792c427b8a7a2f4a0f509c8ecc34f8ac20778e7a124054af66ca80bb75"
+    sha256 cellar: :any_skip_relocation, ventura:        "a1eb62ac62ddc76be53668850be62b2c4a51cfdf4a1cda7d7f6abe66bd832b20"
+    sha256 cellar: :any_skip_relocation, monterey:       "2b481ac7d22167236b8120fd7b1b8e656294aea7148e43b5d44f8fc6d15c7fe9"
+    sha256 cellar: :any_skip_relocation, big_sur:        "061070cf622192c81f1944aee5fcd0509e6b7ecd5c9a68556a23b57816214c3a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c7504f713f18bae737c47a262eaf15f3ed4f9cd8847df676ad221b4a041afa0a"
   end
 
   depends_on "python@3.11"
@@ -55,8 +56,8 @@ class Internetarchive < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/e0/69/122171604bcef06825fa1c05bd9e9b1d43bc9feb8c6c0717c42c92cc6f3c/requests-2.30.0.tar.gz"
-    sha256 "239d7d4458afcb28a692cdd298d87542235f4ca8d36d03a15bfc128a6559a2f4"
+    url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
+    sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
   end
 
   resource "schema" do

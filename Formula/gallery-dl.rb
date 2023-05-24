@@ -9,13 +9,13 @@ class GalleryDl < Formula
   head "https://github.com/mikf/gallery-dl.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "eb9b056e9e3a7dd7e327d3970f9fa7e6f4ea366c9a6a0a1f0e44c88b88bacd25"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b291638b1116b9b09ebf3016026f415ab56c360011244ed00af19af8ee730e3e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4e418f4cd04a2f467492451c27595e80f18e39167fb96edc6aaa13bdb6b99078"
-    sha256 cellar: :any_skip_relocation, ventura:        "11d7db20597d54c605b867430f00512fcd7932a316be750d9614db844b117253"
-    sha256 cellar: :any_skip_relocation, monterey:       "0131fa6b979aca40506eb681a6f822f8cd61f50811e4630e9fc1b860a13c7d4c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ee2c6d704b2c442e030cffc3c666b781e24f5124a1b3cad3f163c535522f9e58"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "11daf22ca6802b3f259703d218560c3f5d52abd5d2deeb05955c81f11dcd7004"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3575d68f890f51954f2e2ba199ae1f691789850807cd73fcee0eda11ad7756fa"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ff77673f461ba29dbdc06418a241227ffb8e6a1b8de90c40f7465ad6a2f15937"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "286789a98b9c22acac56fcf8499067d63d0e88609af68da2dd81b939894e659f"
+    sha256 cellar: :any_skip_relocation, ventura:        "74e5ca4f65a776703bd749d108af76ab85f510bbdeed1d0dc97c7bf812a12a43"
+    sha256 cellar: :any_skip_relocation, monterey:       "bb5239c307d7098edafb6781035617fec959ca112d1739119cc07e7e1b248a8b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8bf8c0fa55501968c104978291672ff067a3a7e84446d116f54f7f1293733214"
   end
 
   depends_on "python@3.11"
@@ -36,8 +36,8 @@ class GalleryDl < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/e0/69/122171604bcef06825fa1c05bd9e9b1d43bc9feb8c6c0717c42c92cc6f3c/requests-2.30.0.tar.gz"
-    sha256 "239d7d4458afcb28a692cdd298d87542235f4ca8d36d03a15bfc128a6559a2f4"
+    url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
+    sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
   end
 
   resource "urllib3" do

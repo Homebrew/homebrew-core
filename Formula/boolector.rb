@@ -5,6 +5,11 @@ class Boolector < Formula
   sha256 "9a5bdbacf83f2dd81dbed1e1a9f923766807470afa29b73729c947ae769d42b9"
   license "MIT"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "cb8385667d296041aabcc2aaef2d7568db50906aba76e0f7dc6f99edf81e0232"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6301f56a8dde1141da48935c21c3854dcf9011eccc26caae953f46b6c63bd66d"

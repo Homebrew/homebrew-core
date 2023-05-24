@@ -8,13 +8,14 @@ class Prowler < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "17a4aa6516a47330fe4faa918005112ff610d8beaeba11b41d914727d807d92b"
-    sha256 cellar: :any,                 arm64_monterey: "e39ad42bbfdfb59d193e4b3599e64136b7727f12c2556ec70973aec4c2a182dd"
-    sha256 cellar: :any,                 arm64_big_sur:  "923248b59e4ad3af7458b4da4aaf4324a220ddcfe67c254456abf5cc0abea622"
-    sha256 cellar: :any,                 ventura:        "e5792b93e0a9d8b0739b7ccd8d26c11845c511f921e9f947d786d578dfd8f71f"
-    sha256 cellar: :any,                 monterey:       "1d27cf91b0faf80ce68be0626b3ec691fb2678b4ec7490f71d17573b3da92710"
-    sha256 cellar: :any,                 big_sur:        "a36849af01625c8cb72fdcd36808db713ac7840a40c914015c8bbda7b796228f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c9935e0d8a5185b4cc43e5ac60fb5e8d9cb2a9ba7d0bd2a55bf7f8b7859e92cf"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "2a6b144c027e77b09dd850af5a132ac3f2f0419b7a613dfb9736d7406055e3ac"
+    sha256 cellar: :any,                 arm64_monterey: "3fc46569191b390c54ce533564163fed17aa262884d27f5b0e7a1c567e9ef7b5"
+    sha256 cellar: :any,                 arm64_big_sur:  "1dd714b60821e82d50d72882740df476b16a9f1aadc45d5158ecdb953dd5c471"
+    sha256 cellar: :any,                 ventura:        "a3fba15b680175c62f1e63860ad0d16b3b0d1ceacc8a38462cde95f3e4d5520e"
+    sha256 cellar: :any,                 monterey:       "8cdbd1455e4c3732f1ddc8b8cb0be9c5ae76e61fa301623d388cb4f90a8c1e1e"
+    sha256 cellar: :any,                 big_sur:        "8319af045fc5c59a6b1380e7f90b6e0fce29c5df09e36721a48743bf264e3a86"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bf77a6be21e8d043af685ab927cfc7627150865d778fdb60cf16dd7a27ef56c4"
   end
 
   # `pkg-config`, `rust`, and `openssl@1.1` are for cryptography.
@@ -255,8 +256,8 @@ class Prowler < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/e0/69/122171604bcef06825fa1c05bd9e9b1d43bc9feb8c6c0717c42c92cc6f3c/requests-2.30.0.tar.gz"
-    sha256 "239d7d4458afcb28a692cdd298d87542235f4ca8d36d03a15bfc128a6559a2f4"
+    url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
+    sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
   end
 
   resource "requests-oauthlib" do
@@ -295,13 +296,13 @@ class Prowler < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/21/79/6372d8c0d0641b4072889f3ff84f279b738cd8595b64c8e0496d4e848122/urllib3-1.26.15.tar.gz"
-    sha256 "8a388717b9476f934a21484e8c8e61875ab60644d29b9b39e11e4b9dc1c6b305"
+    url "https://files.pythonhosted.org/packages/e2/7d/539e6f0cf9f0b95b71dd701a56dae89f768cd39fd8ce0096af3546aeb5a3/urllib3-1.26.16.tar.gz"
+    sha256 "8f135f6502756bde6b2a9b28989df5fbe87c9970cecaa69041edcce7f0589b14"
   end
 
   resource "xlsxwriter" do
-    url "https://files.pythonhosted.org/packages/17/00/b99c915fa2118b9a1dd061a5bf82094c843ab481c714c6d826668df834ad/XlsxWriter-3.1.0.tar.gz"
-    sha256 "02913b50b74c00f165933d5da3e3a02cab4204cb4932722a1b342c5c71034122"
+    url "https://files.pythonhosted.org/packages/e1/6e/954f509c86b65706c0eb7b6d26723a993c84c8ca5e1ee482c77adeaa8b9e/XlsxWriter-3.1.1.tar.gz"
+    sha256 "03459ee76f664470c4c63a8977cab624fb259d0fc1faac64dc9cc6f3cc08f945"
   end
 
   def install

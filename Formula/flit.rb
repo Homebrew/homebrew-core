@@ -9,13 +9,14 @@ class Flit < Formula
   head "https://github.com/pypa/flit.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1aa14bf6c56f01c1ea9ae8c7a3acc9491c1a29a79857e247af0a60434eb1a656"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1299fd59c36959159404df7e2da6158323c9c62b6c65ddba75df685d0ca07da1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7500f06123545db522632ff1b133b9d9346dbdd993b120740e2e6add97ad1a15"
-    sha256 cellar: :any_skip_relocation, ventura:        "d03d6bed46c9023fc8a09ab8398e0a2c257574cfcc48eb1689e1b5ed0e6bfcc0"
-    sha256 cellar: :any_skip_relocation, monterey:       "87fc80516f89a7c8d47ce3429dbaa2333377191014ea0a1ac3244403776f3230"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8c125bddfb1ded9e34c3a0dc45aa6846dfaedd3e2345d691e31fe01533fc675d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ca336136d70c153ca3386ef7446ca8bdf630376539fc7e9d5be330a7234e1a00"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b3749f481761230887245fa34776f2888bdf41860c9476816e759c8422557826"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e0601ad06fe8d7450472d64a45ebceeb2b1e5387aa5070c9e926daeb27b4d9b1"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "914a575246a18032fc84552ef33a7f841c1f659c70d5fb6a4d84d5d7bf462999"
+    sha256 cellar: :any_skip_relocation, ventura:        "a1b30929ec9f4363c9f17493011682560611b6344815a5617dad3eef11de7fcb"
+    sha256 cellar: :any_skip_relocation, monterey:       "598e9aefccd95b60303855913829d67d39e13231032884129fe498fb790ffe22"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0177a4db2b93b135368ac49d97286b97a4154057a35e6ba32a616e050cd6246a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "daaa307fadd0dc1332bd156b402471f14d3c8b5c47483af5afa5ce28de70d92d"
   end
 
   depends_on "docutils"
@@ -42,8 +43,8 @@ class Flit < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/e0/69/122171604bcef06825fa1c05bd9e9b1d43bc9feb8c6c0717c42c92cc6f3c/requests-2.30.0.tar.gz"
-    sha256 "239d7d4458afcb28a692cdd298d87542235f4ca8d36d03a15bfc128a6559a2f4"
+    url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
+    sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
   end
 
   resource "tomli-w" do

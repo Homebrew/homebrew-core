@@ -5,30 +5,31 @@ class Goolabs < Formula
   homepage "https://pypi.python.org/pypi/goolabs"
   url "https://files.pythonhosted.org/packages/ce/86/2d3b5bd85311ee3a7ae7a661b3619095431503cd0cae03048c646b700cad/goolabs-0.4.0.tar.gz"
   sha256 "4f768a5b98960c507f5ba4e1ca14d45e3139388669148a2750d415c312281527"
+  license "MIT"
   revision 5
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f7234d5813a08707fb06104379dd8b19247e8582334514847e9d6a5e9ec8226b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ff511d21670576540eb0ff2edac6e4b2112897d0d3e0f57fe6fe3b944a945336"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0e2e2ff10c0490f9f7c80481fce350b43a01edd749ef8a6b47a1248801df34f8"
-    sha256 cellar: :any_skip_relocation, ventura:        "b0a07c5adae4d54a7fb5f4f69d36743ff940c8d14dde79c76326c7123179b840"
-    sha256 cellar: :any_skip_relocation, monterey:       "0f7574fe2846be244376b5ef8c47e68fb73d7e8131c3c47eefa5af7719167e90"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b9500f78a17b7408f4ce68abd3d70f52d4955d9ffc1db2ff47dbd89a0ec321f2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "82f5bf0303201726a66fd956d1fbe5d4bb0e6e570134a07030e5e659ae716af9"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "687e077ba9a88d2cc337d117c73983aa52eba1f74e1a70ce8eed5e4c257682ab"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ce92832e501841a0047e37925789d48ef2d01748cf9530d6bf6f97fca81fa555"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0b71cccba9bd028e2491025264b9316d6d676ccd3356be799a81fdf379afdab9"
+    sha256 cellar: :any_skip_relocation, ventura:        "a6740d2f4f7ee02c00b0cebe378e1441fcbc6f2d841212fd0d62f886431d404f"
+    sha256 cellar: :any_skip_relocation, monterey:       "37dcb53e2cd1886c7d519ac99b2320ad4a3f9bc9cdb41c8908ed77be068232f2"
+    sha256 cellar: :any_skip_relocation, big_sur:        "bb5a896d144cf1031293a477f2ac0f4a0e58afbc2219a8bb1818757022dca95c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8f949c309cad72a04621998ea1946297f3593b7e2ca2804d983d62cd10a47c84"
   end
 
   depends_on "python@3.11"
   depends_on "six"
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/37/f7/2b1b0ec44fdc30a3d31dfebe52226be9ddc40cd6c0f34ffc8923ba423b69/certifi-2022.12.7.tar.gz"
-    sha256 "35824b4c3a97115964b408844d64aa14db1cc518f6562e8d7261699d1350a9e3"
+    url "https://files.pythonhosted.org/packages/93/71/752f7a4dd4c20d6b12341ed1732368546bc0ca9866139fe812f6009d9ac7/certifi-2023.5.7.tar.gz"
+    sha256 "0f0d56dc5a6ad56fd4ba36484d6cc34451e1c6548c61daad8c320169f91eddc7"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/96/d7/1675d9089a1f4677df5eb29c3f8b064aa1e70c1251a0a8a127803158942d/charset-normalizer-3.0.1.tar.gz"
-    sha256 "ebea339af930f8ca5d7a699b921106c6e29c617fe9606fa7baa043c1cdae326f"
+    url "https://files.pythonhosted.org/packages/ff/d7/8d757f8bd45be079d76309248845a04f09619a7b17d6dfc8c9ff6433cac2/charset-normalizer-3.1.0.tar.gz"
+    sha256 "34e0a2f9c370eb95597aae63bf85eb5e96826d81e3dcf88b8886012906f509b5"
   end
 
   resource "click" do
@@ -42,13 +43,13 @@ class Goolabs < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/9d/ee/391076f5937f0a8cdf5e53b701ffc91753e87b07d66bae4a09aa671897bf/requests-2.28.2.tar.gz"
-    sha256 "98b1b2782e3c6c4904938b84c0eb932721069dfdb9134313beff7c83c2df24bf"
+    url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
+    sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/c5/52/fe421fb7364aa738b3506a2d99e4f3a56e079c0a798e9f4fa5e14c60922f/urllib3-1.26.14.tar.gz"
-    sha256 "076907bf8fd355cde77728471316625a4d2f7e713c125f51953bb5b3eecf4f72"
+    url "https://files.pythonhosted.org/packages/fb/c0/1abba1a1233b81cf2e36f56e05194f5e8a0cec8c03c244cab56cc9dfb5bd/urllib3-2.0.2.tar.gz"
+    sha256 "61717a1095d7e155cdb737ac7bb2f4324a858a1e2e6466f6d03ff630ca68d3cc"
   end
 
   def install

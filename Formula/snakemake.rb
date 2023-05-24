@@ -9,13 +9,14 @@ class Snakemake < Formula
   head "https://github.com/snakemake/snakemake.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a7436ccbdc1e2007fb003747297320753cfbd41645f2211a024d58c9b151856d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5f9b0b1aebed2ce8668d2bc9e57c8a6d311109257b9bc8daf89b88cca6d3e284"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5d444a3f8e32c29dc7f3075da364a7a0e37f21857eab1bd44e8d8fda6f42c618"
-    sha256 cellar: :any_skip_relocation, ventura:        "5baef6f373fdeb3691ffd8e88ad95c0b9f7b5f0991c7bbf8781f656a04e72bc2"
-    sha256 cellar: :any_skip_relocation, monterey:       "c47a6be784bb3a8f1170864312b19751a57b3d8e399eee796f9b4ffcbe542898"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e7640898c5174e70215be5a9f92fd1d9bb90496516237fde398bb34e7327c8ef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "88b2e5d8086a9f5d5354204b47ca6265ca3d1ce69de545868194772d982f1fda"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7c99ab445131e38974c6a5ac81d5fd1c9cc9aab2a4de5025cae7fe429781dc82"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ca21a2957d7c17afd6ad4b8313153ee41d6d68997ff4b5977b317d4698c11da8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4c99d79bae39dcca076cc6e1a4b51bcf70941535d0c63329fb5a39673749878b"
+    sha256 cellar: :any_skip_relocation, ventura:        "c0d33612de2a5ef8e153aefa24f1d821fd29fd48630ab8eee70a81726b66e147"
+    sha256 cellar: :any_skip_relocation, monterey:       "cd12f05987a904bb041076226cb7a459e792613e4f4affcb1126c125e2a16680"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e0b9042db77642bc78e1b48573950095433725253d13de21c13e09e3d440bd19"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c0bb837aa9b5d9ca59d91d0226c98c97aa5bc09abeae1ef8a4844f3ab7ef64a5"
   end
 
   depends_on "cbc"
@@ -140,8 +141,8 @@ class Snakemake < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/e0/69/122171604bcef06825fa1c05bd9e9b1d43bc9feb8c6c0717c42c92cc6f3c/requests-2.30.0.tar.gz"
-    sha256 "239d7d4458afcb28a692cdd298d87542235f4ca8d36d03a15bfc128a6559a2f4"
+    url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
+    sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
   end
 
   resource "reretry" do

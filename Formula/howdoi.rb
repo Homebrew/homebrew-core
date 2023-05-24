@@ -8,14 +8,14 @@ class Howdoi < Formula
   license "MIT"
 
   bottle do
-    rebuild 4
-    sha256 cellar: :any,                 arm64_ventura:  "414db7a6911daf8d5fa0fed006bfdfdf77b5d25d05e6c08f716ed425d3404424"
-    sha256 cellar: :any,                 arm64_monterey: "e48fb32db462425d2a1f865211204e3b21f91ab3bd15031f995da64adb070f25"
-    sha256 cellar: :any,                 arm64_big_sur:  "e2551cea4f2b004adff4c453f2ad49db8777212ff119acd1d31faef825c997f6"
-    sha256 cellar: :any,                 ventura:        "e41b5590c354dc78ba61d9361b47eb3679c1c75a0c7d000fcffd5c6bcfe2a5d8"
-    sha256 cellar: :any,                 monterey:       "3e23e425053e86b37a4ed79f3593fad184ad2420b90ba07c2ed88e1ee9dfb769"
-    sha256 cellar: :any,                 big_sur:        "7d0017e01da82b94a67a064f326d7e5b01709bfb4df43e37c20df2bd9e8d8933"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "11e17bde898468684d16f7fcbf76dc9610e2e42ae69777729d3bc007fd5adc6b"
+    rebuild 5
+    sha256 cellar: :any,                 arm64_ventura:  "c4252290a1a8d1941e29c92dfd0ce8e5018e4a7f4e45ecec011b5c0bdd12d5d6"
+    sha256 cellar: :any,                 arm64_monterey: "c381137d751a13748e01f5ed87568413ad092aa9cf51a6907019147a28ee0b63"
+    sha256 cellar: :any,                 arm64_big_sur:  "b7b2a8410e5cb7205a655bbc0df87a8e7ddfaa9d967d14c8e00f0b8b910cae03"
+    sha256 cellar: :any,                 ventura:        "26f099385af489a9ae4b9b23aae9524be4a19ab173ce4ad939fc8ce0335c9021"
+    sha256 cellar: :any,                 monterey:       "dda3660b7308dacdbba0ee4d25080407659ccef038499bc3e22e90fa9c6912a6"
+    sha256 cellar: :any,                 big_sur:        "c95eac197c2f42ade12bf3b2fbadb5159a389097c9503bbe5ee1cab932e41f61"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e629b53565c0640825f3617986ffe00e3f2c894587c68a4ff55970d17312be48"
   end
 
   # `pkg-config`, `rust`, and `openssl@1.1` are for cryptography.
@@ -45,8 +45,8 @@ class Howdoi < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/37/f7/2b1b0ec44fdc30a3d31dfebe52226be9ddc40cd6c0f34ffc8923ba423b69/certifi-2022.12.7.tar.gz"
-    sha256 "35824b4c3a97115964b408844d64aa14db1cc518f6562e8d7261699d1350a9e3"
+    url "https://files.pythonhosted.org/packages/93/71/752f7a4dd4c20d6b12341ed1732368546bc0ca9866139fe812f6009d9ac7/certifi-2023.5.7.tar.gz"
+    sha256 "0f0d56dc5a6ad56fd4ba36484d6cc34451e1c6548c61daad8c320169f91eddc7"
   end
 
   resource "cffi" do
@@ -115,13 +115,13 @@ class Howdoi < Formula
   end
 
   resource "pygithub" do
-    url "https://files.pythonhosted.org/packages/20/6c/de921918c2b3e23057813d14edec87593798c9977b341ebb7d16ec1fb2b2/PyGithub-1.58.1.tar.gz"
-    sha256 "7d528b4ad92bc13122129fafd444ce3d04c47d2d801f6446b6e6ee2d410235b3"
+    url "https://files.pythonhosted.org/packages/ba/9e/7dcb97cb7c4e4656b704ae78ea9c0846d2d8f471a66a495214da586bb593/PyGithub-1.58.2.tar.gz"
+    sha256 "1e6b1b7afe31f75151fb81f7ab6b984a7188a852bdb123dbb9ae90023c3ce60f"
   end
 
   resource "pyjwt" do
-    url "https://files.pythonhosted.org/packages/75/65/db64904a7f23e12dbf0565b53de01db04d848a497c6c9b87e102f74c9304/PyJWT-2.6.0.tar.gz"
-    sha256 "69285c7e31fc44f68a1feb309e948e0df53259d579295e6cfe2b1792329f05fd"
+    url "https://files.pythonhosted.org/packages/e0/f0/9804c72e9a314360c135f42c434eb42eaabb5e7ebad760cbd8fc7023be38/PyJWT-2.7.0.tar.gz"
+    sha256 "bd6ca4a3c4285c1a2d4349e5a035fdf8fb94e04ccd0fcbe6ba289dae9cc3e074"
   end
 
   resource "pynacl" do
@@ -135,8 +135,8 @@ class Howdoi < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/4c/d2/70fc708727b62d55bc24e43cc85f073039023212d482553d853c44e57bdb/requests-2.29.0.tar.gz"
-    sha256 "f2e34a75f4749019bb0e3effb66683630e4ffeaf75819fb51bebef1bf5aef059"
+    url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
+    sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
   end
 
   resource "rich" do
@@ -150,8 +150,8 @@ class Howdoi < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/21/79/6372d8c0d0641b4072889f3ff84f279b738cd8595b64c8e0496d4e848122/urllib3-1.26.15.tar.gz"
-    sha256 "8a388717b9476f934a21484e8c8e61875ab60644d29b9b39e11e4b9dc1c6b305"
+    url "https://files.pythonhosted.org/packages/fb/c0/1abba1a1233b81cf2e36f56e05194f5e8a0cec8c03c244cab56cc9dfb5bd/urllib3-2.0.2.tar.gz"
+    sha256 "61717a1095d7e155cdb737ac7bb2f4324a858a1e2e6466f6d03ff630ca68d3cc"
   end
 
   resource "wrapt" do

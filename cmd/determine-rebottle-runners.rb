@@ -72,7 +72,7 @@ module Homebrew
           end
           { runner: runner }
         end
-      rescue MacOSVersionError
+      rescue MacOSVersion::Error
         if tag.system == :linux && tag.arch == :x86_64
           linux_runner_spec
         elsif tag.system == :all

@@ -8,21 +8,22 @@ class Twarc < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "be381e564fe8a41d073f86c05d4190a39f8abe821c65ff8b228b56fb07a5c531"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7bd4c8ac22ad7b97030f7e09653c0bdf84b71ef8b0e472f3e49bdfdf95165210"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1476b96fc03d3c39535a750fffdafe8aa152abbae7da7fef9de7931d655ac339"
-    sha256 cellar: :any_skip_relocation, ventura:        "5ad09859985c29e6984f59ce49a01b1ae4c7b691c376cd73599381d750c46032"
-    sha256 cellar: :any_skip_relocation, monterey:       "14e581c1d26f3b6d718678ae91cf80084534bb061f41e18b59b8410ab4b2416a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "547f35ac402b1e356c96d1f1bc540224a067b49ea73e064ffb4ceead49cb1b56"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7f47ae733f4bf63695a3f3db31167a5c1540e8bff68ba43254edf8ad09b071fd"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9b9db60345f503ed55a7ab80ed56d47589e71f7dc031f1ccf06ccd6e0d26378e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9e8bcf1fac344588231dc5e840627d77958400f72d666644d7b8b45686cf81bf"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cbace454d82208cabdf06bec04fb9f22e52f6fe4b8727a7f388a5c97d84b4b2f"
+    sha256 cellar: :any_skip_relocation, ventura:        "052c5896527a1a739b3514e75d9e14d5686e0b7e52b1fd2762c944c5ebc51bdd"
+    sha256 cellar: :any_skip_relocation, monterey:       "ac7f17410a51c5958afd6ae7f89dacaf14bedf29b46716e18ffbc72132df2346"
+    sha256 cellar: :any_skip_relocation, big_sur:        "cf62a06f721c0e1853d5e327cfc337135c14b11308232a7b7f37369265ceef58"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8d5252b4f4d4628331207cf174e96a11af7be44c19eb53c6be75192fbda70703"
   end
 
   depends_on "python@3.11"
   depends_on "six"
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/37/f7/2b1b0ec44fdc30a3d31dfebe52226be9ddc40cd6c0f34ffc8923ba423b69/certifi-2022.12.7.tar.gz"
-    sha256 "35824b4c3a97115964b408844d64aa14db1cc518f6562e8d7261699d1350a9e3"
+    url "https://files.pythonhosted.org/packages/93/71/752f7a4dd4c20d6b12341ed1732368546bc0ca9866139fe812f6009d9ac7/certifi-2023.5.7.tar.gz"
+    sha256 "0f0d56dc5a6ad56fd4ba36484d6cc34451e1c6548c61daad8c320169f91eddc7"
   end
 
   resource "charset-normalizer" do
@@ -71,8 +72,8 @@ class Twarc < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/9d/ee/391076f5937f0a8cdf5e53b701ffc91753e87b07d66bae4a09aa671897bf/requests-2.28.2.tar.gz"
-    sha256 "98b1b2782e3c6c4904938b84c0eb932721069dfdb9134313beff7c83c2df24bf"
+    url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
+    sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
   end
 
   resource "requests-oauthlib" do
@@ -86,8 +87,8 @@ class Twarc < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/21/79/6372d8c0d0641b4072889f3ff84f279b738cd8595b64c8e0496d4e848122/urllib3-1.26.15.tar.gz"
-    sha256 "8a388717b9476f934a21484e8c8e61875ab60644d29b9b39e11e4b9dc1c6b305"
+    url "https://files.pythonhosted.org/packages/fb/c0/1abba1a1233b81cf2e36f56e05194f5e8a0cec8c03c244cab56cc9dfb5bd/urllib3-2.0.2.tar.gz"
+    sha256 "61717a1095d7e155cdb737ac7bb2f4324a858a1e2e6466f6d03ff630ca68d3cc"
   end
 
   def install

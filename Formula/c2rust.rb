@@ -1,25 +1,23 @@
 class C2rust < Formula
   desc "Migrate C code to Rust"
   homepage "https://github.com/immunant/c2rust"
-  # TODO: Check if we can use unversioned `llvm` at version bump.
-  url "https://github.com/immunant/c2rust/archive/refs/tags/v0.17.0.tar.gz"
-  sha256 "7a178ad0f858e6169aa5c0edc85e04c754b954de4d0c3336d90a98ec8f583512"
+  url "https://github.com/immunant/c2rust/archive/refs/tags/v0.18.0.tar.gz"
+  sha256 "cf72bd59cac5ff31553c5d1626f130167d4f72eaabcffc27630dee2a95f4707e"
   license "BSD-3-Clause"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "46c07e6c24ff13a0a1296c80f20e3d1c44b19b95029ed9b538a9b69554c3e525"
-    sha256 cellar: :any,                 arm64_monterey: "e0bd2e8a6d8bcbc4e0d8bea0c8d4674e4fc5eb5998a8a97cffb82d8cb0106594"
-    sha256 cellar: :any,                 arm64_big_sur:  "d10d074a2e1379acec56e169d05c3792e3495749de6b261ef232d60c409d6842"
-    sha256 cellar: :any,                 ventura:        "942f08195a3e4867b299dac5977a430b0cc46691470adb67555cf72ca564cf09"
-    sha256 cellar: :any,                 monterey:       "8883927388f86cf067cc7554899334a4bdbae7390317d81e3cb1ba9dbd431243"
-    sha256 cellar: :any,                 big_sur:        "2610850989d5233b3e6afdfda23ba9308cace598e78edd5ba7d77b9307aff8ff"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f8edc14b3220e57f45d22393a71f2578beade7da4e2af7bb1225fce0eadd9b97"
+    sha256 cellar: :any,                 arm64_ventura:  "98a206d507f2da3996fd319e341de81c76254d98b3a5d607db5403b1cf6ac711"
+    sha256 cellar: :any,                 arm64_monterey: "85ad71fbc83acf2e5c6828e71d1d8490767c825652eeffe14c8bde8daa46f57d"
+    sha256 cellar: :any,                 arm64_big_sur:  "7f2009a3a0edd49c972c3466b5914439e4b13510a041c4b250729d574fa26bed"
+    sha256 cellar: :any,                 ventura:        "615d64b0907a80653c3a86072fa94fe70bc9fa9918d1c7a42bc09e8902e8b724"
+    sha256 cellar: :any,                 monterey:       "eec3bde1181c4dac28702aea6fdf9b8c520394a60e1db26c19af660868eb624f"
+    sha256 cellar: :any,                 big_sur:        "de6199fff18618ea3e68a913387508b167cd62defe60b939184cee2cdb9819a7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5740665ba6822fd9287c3ce2516b5ab95a714962ea7a738b597bde7d7297a667"
   end
 
   depends_on "cmake" => [:build, :test]
   depends_on "rust" => :build
-  depends_on "llvm@15"
+  depends_on "llvm"
 
   fails_with gcc: "5"
 

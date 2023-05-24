@@ -3,22 +3,23 @@ class Woob < Formula
 
   desc "Web Outside of Browsers"
   homepage "https://woob.tech/"
-  url "https://files.pythonhosted.org/packages/bc/6b/007a19a00f8156c8c4d18abbe4d0a81bc2669b564f37e69152cdc73db72a/woob-3.5.tar.gz"
-  sha256 "2fd14125cca51ffbdf9a9bd32a7a1f7e8241e5a264b732e7e4ca1b4358734d9d"
+  url "https://files.pythonhosted.org/packages/cf/10/3eb104a43ab4ff3109109883382bdfee663412e8fda2967d0ab220479240/woob-3.6.tar.gz"
+  sha256 "3765f4c54baeb4a837053f6d0ce82e54cee851aa3c8707a72aa8cd63d4304a76"
   license "LGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e42804a3b5700181fe1c3e02388cc4e54877daf87836ebb8d5a70e2f7c45d297"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "613ef659cc4e9a4eee32e17677e484b563f230214c1dc079b30d41ec9e101578"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ca788b9db92f8cfa4bcc44b54475b282bc50a1f6eed540e9875a1984f5d4c63e"
-    sha256 cellar: :any_skip_relocation, ventura:        "17f44bf0331b1e7a35a3fc885d8b6138c0f65208a9bf8e859c9dcca4b6caae54"
-    sha256 cellar: :any_skip_relocation, monterey:       "6cbefb4a195bae0451f5aac48043f8dcbbbcbc30346c58ad4e9c0b08f543d4ef"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0d456d40f9d7d2ad30ea64be0862a3b2b56e9b188e52c77e900611a967d8d037"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c4a6876ba4b9560bc002b0f2336df8d1111e77f8c410923b2784eb69c983e602"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b8891d8e8d0cafaa1918a16a25f2251052c968348acf80de16cb33350199a3ed"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e5fbcf4571978fb80c6eef310fa11d09af2f4717f1b11f05f3b2c843e9a0caab"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6b993d52907a9d90f857138de4c67778e170108d725f7ffd2f8ba5dc12bba603"
+    sha256 cellar: :any_skip_relocation, ventura:        "3792d76bc168a6c45636f07ba48980f2b09c67ca17780cf2ea7f4c4dcaf86e7e"
+    sha256 cellar: :any_skip_relocation, monterey:       "d9013b01c8b232f1a0969525ccaf7577ef2245492c9ced58f41f8b7fb43ae718"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ce3aa42a0332f99e86ee4fc6f2ca83515a726f67da6cbe84a416e446552db968"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "acdcf1c2a8383bb0b51b141a079c743ac9462111f6823aa5745e0896724842f1"
   end
 
   depends_on "gnupg"
   depends_on "pillow"
+  depends_on "pygments"
   depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "six"
@@ -26,14 +27,14 @@ class Woob < Formula
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
 
-  resource "Babel" do
+  resource "babel" do
     url "https://files.pythonhosted.org/packages/ba/42/54426ba5d7aeebde9f4aaba9884596eb2fe02b413ad77d62ef0b0422e205/Babel-2.12.1.tar.gz"
     sha256 "cc2d99999cd01d44420ae725a21c9e3711b3aadc7976d6147f622d8581963455"
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/37/f7/2b1b0ec44fdc30a3d31dfebe52226be9ddc40cd6c0f34ffc8923ba423b69/certifi-2022.12.7.tar.gz"
-    sha256 "35824b4c3a97115964b408844d64aa14db1cc518f6562e8d7261699d1350a9e3"
+    url "https://files.pythonhosted.org/packages/93/71/752f7a4dd4c20d6b12341ed1732368546bc0ca9866139fe812f6009d9ac7/certifi-2023.5.7.tar.gz"
+    sha256 "0f0d56dc5a6ad56fd4ba36484d6cc34451e1c6548c61daad8c320169f91eddc7"
   end
 
   resource "charset-normalizer" do
@@ -61,9 +62,19 @@ class Woob < Formula
     sha256 "2455cfaeb7ac70338b3257f41e21f0724f4b5b0c0e7702da67ee6c3640835b67"
   end
 
+  resource "markdown-it-py" do
+    url "https://files.pythonhosted.org/packages/e4/c0/59bd6d0571986f72899288a95d9d6178d0eebd70b6650f1bb3f0da90f8f7/markdown-it-py-2.2.0.tar.gz"
+    sha256 "7c9a5e412688bc771c67432cbfebcdd686c93ce6484913dccf06cb5a0bea35a1"
+  end
+
+  resource "mdurl" do
+    url "https://files.pythonhosted.org/packages/d6/54/cfe61301667036ec958cb99bd3efefba235e65cdeb9c84d24a8293ba1d90/mdurl-0.1.2.tar.gz"
+    sha256 "bb413d29f5eea38f31dd4754dd7377d4465116fb207585f97bf925588687c1ba"
+  end
+
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/47/d5/aca8ff6f49aa5565df1c826e7bf5e85a6df852ee063600c1efa5b932968c/packaging-23.0.tar.gz"
-    sha256 "b6ad297f8907de0fa2fe1ccbd26fdaf387f5f47c7275fedf8cce89f99446cf97"
+    url "https://files.pythonhosted.org/packages/b9/6c/7c6658d258d7971c5eb0d9b69fa9265879ec9a9158031206d47800ae2213/packaging-23.1.tar.gz"
+    sha256 "a392980d2b6cffa644431898be54b0045151319d1e7ec34f0cfed48767dd334f"
   end
 
   resource "pycountry" do
@@ -77,18 +88,23 @@ class Woob < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/9d/ee/391076f5937f0a8cdf5e53b701ffc91753e87b07d66bae4a09aa671897bf/requests-2.28.2.tar.gz"
-    sha256 "98b1b2782e3c6c4904938b84c0eb932721069dfdb9134313beff7c83c2df24bf"
+    url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
+    sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
   end
 
-  resource "Unidecode" do
+  resource "rich" do
+    url "https://files.pythonhosted.org/packages/3d/0b/8dd34d20929c4b5e474db2e64426175469c2b7fea5ba71c6d4b3397a9729/rich-13.3.5.tar.gz"
+    sha256 "2d11b9b8dd03868f09b4fffadc84a6a8cda574e40dc90821bd845720ebb8e89c"
+  end
+
+  resource "unidecode" do
     url "https://files.pythonhosted.org/packages/0b/25/37c77fc07821cd06592df3f18281f5e716bc891abd6822ddb9ff941f821e/Unidecode-1.3.6.tar.gz"
     sha256 "fed09cf0be8cf415b391642c2a5addfc72194407caee4f98719e40ec2a72b830"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/21/79/6372d8c0d0641b4072889f3ff84f279b738cd8595b64c8e0496d4e848122/urllib3-1.26.15.tar.gz"
-    sha256 "8a388717b9476f934a21484e8c8e61875ab60644d29b9b39e11e4b9dc1c6b305"
+    url "https://files.pythonhosted.org/packages/fb/c0/1abba1a1233b81cf2e36f56e05194f5e8a0cec8c03c244cab56cc9dfb5bd/urllib3-2.0.2.tar.gz"
+    sha256 "61717a1095d7e155cdb737ac7bb2f4324a858a1e2e6466f6d03ff630ca68d3cc"
   end
 
   def python3

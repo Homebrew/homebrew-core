@@ -3,18 +3,18 @@ require "language/node"
 class SpectralCli < Formula
   desc "JSON/YAML linter and support OpenAPI v3.1/v3.0/v2.0, and AsyncAPI v2.x"
   homepage "https://stoplight.io/open-source/spectral"
-  url "https://registry.npmjs.org/@stoplight/spectral-cli/-/spectral-cli-6.6.0.tgz"
-  sha256 "be10eda3f272cd2cab3f6a43a24826b1c1f99ac22e46303695c88820ca5655f3"
+  url "https://registry.npmjs.org/@stoplight/spectral-cli/-/spectral-cli-6.8.0.tgz"
+  sha256 "f06a4497b9e7a142f587e1da095857937929e72f602be66ec3d3947a0f254237"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8094984ad27a565eba603823f4ab1ad2b5c715b6779d00732ad8898000887f32"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8094984ad27a565eba603823f4ab1ad2b5c715b6779d00732ad8898000887f32"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8094984ad27a565eba603823f4ab1ad2b5c715b6779d00732ad8898000887f32"
-    sha256 cellar: :any_skip_relocation, ventura:        "8fadf7da982609f149bf3ce4ab4d848c2631adfd6f49defd83f417cec3d7b93c"
-    sha256 cellar: :any_skip_relocation, monterey:       "8fadf7da982609f149bf3ce4ab4d848c2631adfd6f49defd83f417cec3d7b93c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8fadf7da982609f149bf3ce4ab4d848c2631adfd6f49defd83f417cec3d7b93c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "475a7ec50de3503a4639f8dc7ff036cd79c171400a806cfe7b88dcaa2437b029"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "738477e11c7d3c550dafe59db021cd3b8853a1256af12ec1dbcc8e63c53ccbda"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "738477e11c7d3c550dafe59db021cd3b8853a1256af12ec1dbcc8e63c53ccbda"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "738477e11c7d3c550dafe59db021cd3b8853a1256af12ec1dbcc8e63c53ccbda"
+    sha256 cellar: :any_skip_relocation, ventura:        "dc38f8556133e756a104594e3f9e167eedf4a70097a8a7eaa5936de1d0229426"
+    sha256 cellar: :any_skip_relocation, monterey:       "dc38f8556133e756a104594e3f9e167eedf4a70097a8a7eaa5936de1d0229426"
+    sha256 cellar: :any_skip_relocation, big_sur:        "dc38f8556133e756a104594e3f9e167eedf4a70097a8a7eaa5936de1d0229426"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "811894897aad9f4d2f7ccbd47c53e26df4a36217501f562138dc8ee53792fba9"
   end
 
   depends_on "node"
@@ -25,8 +25,8 @@ class SpectralCli < Formula
   end
 
   resource "homebrew-streetlights-mqtt.yml" do
-    url "https://raw.githubusercontent.com/asyncapi/spec/1e3ec47f/examples/streetlights-mqtt.yml"
-    sha256 "e32f08644e3af724a9bc7ea622e6a6285a93dc4b8ee1be2b7c957c460a3182ba"
+    url "https://raw.githubusercontent.com/asyncapi/spec/1824379b/examples/streetlights-mqtt.yml"
+    sha256 "7e17c9b465437a5a12decd93be49e37ca7ecfc48ff6f10e830d8290e9865d3af"
   end
 
   def install

@@ -1,19 +1,19 @@
 class Arttime < Formula
   desc "Clock, timer, time manager and ASCII+ text-art viewer for the terminal"
   homepage "https://github.com/poetaman/arttime"
-  url "https://github.com/poetaman/arttime/archive/refs/tags/v2.0.0.tar.gz"
-  sha256 "385c8ddf39653ab52c1c1ea8edca14c19cb3eb05c8d1e6627201ccb2cc191755"
+  url "https://github.com/poetaman/arttime/archive/refs/tags/v2.1.0.tar.gz"
+  sha256 "14be3e59e327dd4f0dd4d41cedbdbb3ba31b9df3b7a414895cbaf2a9f636baca"
   license "GPL-3.0-only"
   head "https://github.com/poetaman/arttime.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "57fab6fd2022c7a37b5f2b2480d869cdd65647e44f08a3c0c5d058022c77e498"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "57fab6fd2022c7a37b5f2b2480d869cdd65647e44f08a3c0c5d058022c77e498"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "57fab6fd2022c7a37b5f2b2480d869cdd65647e44f08a3c0c5d058022c77e498"
-    sha256 cellar: :any_skip_relocation, ventura:        "336374db660ef5ebbce3f02192e1a38b450b3fca36b7420fec55c95f023109af"
-    sha256 cellar: :any_skip_relocation, monterey:       "336374db660ef5ebbce3f02192e1a38b450b3fca36b7420fec55c95f023109af"
-    sha256 cellar: :any_skip_relocation, big_sur:        "336374db660ef5ebbce3f02192e1a38b450b3fca36b7420fec55c95f023109af"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "57fab6fd2022c7a37b5f2b2480d869cdd65647e44f08a3c0c5d058022c77e498"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5f01b76f9d08e8e6a80d4bb1924be5308f119792253a1939000427c428ce1993"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5f01b76f9d08e8e6a80d4bb1924be5308f119792253a1939000427c428ce1993"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5f01b76f9d08e8e6a80d4bb1924be5308f119792253a1939000427c428ce1993"
+    sha256 cellar: :any_skip_relocation, ventura:        "1bbbb67e6d6a8825b973166cd47be7dad207f059704d875ce31f5633e5c61794"
+    sha256 cellar: :any_skip_relocation, monterey:       "1bbbb67e6d6a8825b973166cd47be7dad207f059704d875ce31f5633e5c61794"
+    sha256 cellar: :any_skip_relocation, big_sur:        "1bbbb67e6d6a8825b973166cd47be7dad207f059704d875ce31f5633e5c61794"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5f01b76f9d08e8e6a80d4bb1924be5308f119792253a1939000427c428ce1993"
   end
 
   depends_on "fzf"

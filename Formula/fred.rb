@@ -8,26 +8,26 @@ class Fred < Formula
   license "MIT"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "038ca87b76b039b96be59f8f9ae72585ac799d2f4b42a3e1b9f446b6eeb28cb8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "39d0c4f2992db1875e63d03385089c01e2cf6c239488de716cebc20dd5f81e04"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e6de56dd9cf992ef2ed40952365734342ba8610ade484205389554bc20a22e31"
-    sha256 cellar: :any_skip_relocation, ventura:        "c96afd270d08daa6597e97adce15bc43b112388136fc072d87e3f493a95a272f"
-    sha256 cellar: :any_skip_relocation, monterey:       "ec23bad1c855b198b2db782dbf2188cf317a4c326bd9f5969fa7a71f46e7442d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "574a7f99f6f1cb236ecc18f98b9131ddcfd64e2e16adbc3b7e8329f116b84eff"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4e60c8acab0afe882a01c26ec1d48f4a079fb6f2f2bd3ebd5808b65b62d2fbf6"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b3f36d4c497653085a0f88e542f33a7d3ebabf99adfae8dc309c6d163ba7de0e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5b8e1944a1bc922e64375abbeac2145779af2a8691ffa7167ebbcbbc9861f6d0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7a630bd6b53d0a546174a39692ee745f37f07fb162903289dc9afd64922d92a5"
+    sha256 cellar: :any_skip_relocation, ventura:        "c07764ba04eb212838e4a0de55defe2dbf9dee16547979f9e652394aa7c361a4"
+    sha256 cellar: :any_skip_relocation, monterey:       "e4e45c40bfe45aae3fb00137258e4cade406bbb2b382992c86bb5ec38a60f735"
+    sha256 cellar: :any_skip_relocation, big_sur:        "dd40f63b88752a31cae4fcefc1c268b320043e42d8fc616a8861652d2f9a96cb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d2315d1074ee72c9243bc216047c2d017334e7351099c27a150158403453ae50"
   end
 
   depends_on "python@3.11"
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/37/f7/2b1b0ec44fdc30a3d31dfebe52226be9ddc40cd6c0f34ffc8923ba423b69/certifi-2022.12.7.tar.gz"
-    sha256 "35824b4c3a97115964b408844d64aa14db1cc518f6562e8d7261699d1350a9e3"
+    url "https://files.pythonhosted.org/packages/93/71/752f7a4dd4c20d6b12341ed1732368546bc0ca9866139fe812f6009d9ac7/certifi-2023.5.7.tar.gz"
+    sha256 "0f0d56dc5a6ad56fd4ba36484d6cc34451e1c6548c61daad8c320169f91eddc7"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/96/d7/1675d9089a1f4677df5eb29c3f8b064aa1e70c1251a0a8a127803158942d/charset-normalizer-3.0.1.tar.gz"
-    sha256 "ebea339af930f8ca5d7a699b921106c6e29c617fe9606fa7baa043c1cdae326f"
+    url "https://files.pythonhosted.org/packages/ff/d7/8d757f8bd45be079d76309248845a04f09619a7b17d6dfc8c9ff6433cac2/charset-normalizer-3.1.0.tar.gz"
+    sha256 "34e0a2f9c370eb95597aae63bf85eb5e96826d81e3dcf88b8886012906f509b5"
   end
 
   resource "click" do
@@ -41,13 +41,13 @@ class Fred < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/9d/ee/391076f5937f0a8cdf5e53b701ffc91753e87b07d66bae4a09aa671897bf/requests-2.28.2.tar.gz"
-    sha256 "98b1b2782e3c6c4904938b84c0eb932721069dfdb9134313beff7c83c2df24bf"
+    url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
+    sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/c5/52/fe421fb7364aa738b3506a2d99e4f3a56e079c0a798e9f4fa5e14c60922f/urllib3-1.26.14.tar.gz"
-    sha256 "076907bf8fd355cde77728471316625a4d2f7e713c125f51953bb5b3eecf4f72"
+    url "https://files.pythonhosted.org/packages/fb/c0/1abba1a1233b81cf2e36f56e05194f5e8a0cec8c03c244cab56cc9dfb5bd/urllib3-2.0.2.tar.gz"
+    sha256 "61717a1095d7e155cdb737ac7bb2f4324a858a1e2e6466f6d03ff630ca68d3cc"
   end
 
   def install

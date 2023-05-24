@@ -1,18 +1,18 @@
 class Bundletool < Formula
   desc "Command-line tool to manipulate Android App Bundles"
   homepage "https://github.com/google/bundletool"
-  url "https://github.com/google/bundletool/releases/download/1.15.0/bundletool-all-1.15.0.jar"
-  sha256 "14e7b268e175c1a832d1695a1cf46c5c7e06949093e6efb7a83c64d7a252f7f8"
+  url "https://github.com/google/bundletool/releases/download/1.15.1/bundletool-all-1.15.1.jar"
+  sha256 "aec9dc64fb25acc64eb668b45c0ec6a0ebba30db4a2e084b61b7af0a7380a0e1"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e1833145a45256ec6fee17c57acc8ff46ad2f7164a8af5b9c33f92e45a0999b6"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e1833145a45256ec6fee17c57acc8ff46ad2f7164a8af5b9c33f92e45a0999b6"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e1833145a45256ec6fee17c57acc8ff46ad2f7164a8af5b9c33f92e45a0999b6"
-    sha256 cellar: :any_skip_relocation, ventura:        "e1833145a45256ec6fee17c57acc8ff46ad2f7164a8af5b9c33f92e45a0999b6"
-    sha256 cellar: :any_skip_relocation, monterey:       "e1833145a45256ec6fee17c57acc8ff46ad2f7164a8af5b9c33f92e45a0999b6"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e1833145a45256ec6fee17c57acc8ff46ad2f7164a8af5b9c33f92e45a0999b6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7e82dccd51eff3e8929fa6b17d8b94e415d029392ea4be0e3275ff108b8f62b7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "36433c7af483baf649eb67e5a3b568c7be4a03088993564a809f8e79eb562ed9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "36433c7af483baf649eb67e5a3b568c7be4a03088993564a809f8e79eb562ed9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "36433c7af483baf649eb67e5a3b568c7be4a03088993564a809f8e79eb562ed9"
+    sha256 cellar: :any_skip_relocation, ventura:        "36433c7af483baf649eb67e5a3b568c7be4a03088993564a809f8e79eb562ed9"
+    sha256 cellar: :any_skip_relocation, monterey:       "36433c7af483baf649eb67e5a3b568c7be4a03088993564a809f8e79eb562ed9"
+    sha256 cellar: :any_skip_relocation, big_sur:        "36433c7af483baf649eb67e5a3b568c7be4a03088993564a809f8e79eb562ed9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "48c3e13ffeb2efdee10921278c557a6315b6e54743776786248c64ef97f49c9f"
   end
 
   depends_on "openjdk"

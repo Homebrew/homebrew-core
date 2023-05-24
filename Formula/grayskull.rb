@@ -8,26 +8,27 @@ class Grayskull < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dac48b18c8bd850b63ebc2a2d272149646ae1ad7efe1c1cd753a32c45e5b9358"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "236d024e9eedd8363d8bfa8eb78704044d627b7a4dc584699dbad20f5e84ed2c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "80f8d963aa56559de87e14c7df938a1458001292eb195d3873cf24fc510eca26"
-    sha256 cellar: :any_skip_relocation, ventura:        "597dbed6ef298eede3228e15576a58f4c35e3f7cf70c62095bacaab2b49e01c0"
-    sha256 cellar: :any_skip_relocation, monterey:       "aab0f9cba955e85846e38834de83e955e0a025b695b6bd43d5d2fd3104f131bf"
-    sha256 cellar: :any_skip_relocation, big_sur:        "38c9d99bbb44fbb8aafd4a6b01c081dd42e7c1c9ba281c6250230ff43751ba48"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "36f0c7e505bdbda2960d5379f8f16f8a0ed2b6a9089ba9a5fdaf94f07edb36bd"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ea6c195382e7211390011cdc89ca8d5b44e95e2a9a1d2e697e60d2ace0eea242"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1bc0b1799b1adf1224c5b0f8613b4d033a206adaecb7e6a08ecec945db78f060"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e7b2b9d20096a4628b8a66c1f0a4820db49f015feac605a02ecbd5bbf0dbc037"
+    sha256 cellar: :any_skip_relocation, ventura:        "fc68849e0f733e524dbf165b7352f978f51d6528baa517ef7147132d79444e4e"
+    sha256 cellar: :any_skip_relocation, monterey:       "4375ae23342d1e44d7fc94387933ca691e3b64697d8596d489fd4ac35085ba2f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8760856a37fc8bf16d610b422d23d7239273ba121caca406ba4f2ebe0f9c1b43"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "95d4892c39e422362903c0e85ff2c6ab6b8c6aecc6d1b4761aac3eccc6aa5759"
   end
 
   depends_on "cmake" => :build
   depends_on "python@3.11"
 
   resource "beautifulsoup4" do
-    url "https://files.pythonhosted.org/packages/c5/4c/b5b7d6e1d4406973fb7f4e5df81c6f07890fa82548ac3b945deed1df9d48/beautifulsoup4-4.12.0.tar.gz"
-    sha256 "c5fceeaec29d09c84970e47c65f2f0efe57872f7cff494c9691a26ec0ff13234"
+    url "https://files.pythonhosted.org/packages/af/0b/44c39cf3b18a9280950ad63a579ce395dda4c32193ee9da7ff0aed547094/beautifulsoup4-4.12.2.tar.gz"
+    sha256 "492bbc69dca35d12daac71c4db1bfff0c876c00ef4a2ffacce226d4638eb72da"
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/37/f7/2b1b0ec44fdc30a3d31dfebe52226be9ddc40cd6c0f34ffc8923ba423b69/certifi-2022.12.7.tar.gz"
-    sha256 "35824b4c3a97115964b408844d64aa14db1cc518f6562e8d7261699d1350a9e3"
+    url "https://files.pythonhosted.org/packages/93/71/752f7a4dd4c20d6b12341ed1732368546bc0ca9866139fe812f6009d9ac7/certifi-2023.5.7.tar.gz"
+    sha256 "0f0d56dc5a6ad56fd4ba36484d6cc34451e1c6548c61daad8c320169f91eddc7"
   end
 
   resource "charset-normalizer" do
@@ -51,8 +52,8 @@ class Grayskull < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/47/d5/aca8ff6f49aa5565df1c826e7bf5e85a6df852ee063600c1efa5b932968c/packaging-23.0.tar.gz"
-    sha256 "b6ad297f8907de0fa2fe1ccbd26fdaf387f5f47c7275fedf8cce89f99446cf97"
+    url "https://files.pythonhosted.org/packages/b9/6c/7c6658d258d7971c5eb0d9b69fa9265879ec9a9158031206d47800ae2213/packaging-23.1.tar.gz"
+    sha256 "a392980d2b6cffa644431898be54b0045151319d1e7ec34f0cfed48767dd334f"
   end
 
   resource "pkginfo" do
@@ -71,21 +72,26 @@ class Grayskull < Formula
   end
 
   resource "rapidfuzz" do
-    url "https://files.pythonhosted.org/packages/15/e5/2ab8375be6955aff1925b69c41429cbe54e32a67461c0b59f94c9b8b1cc5/rapidfuzz-2.13.7.tar.gz"
-    sha256 "8d3e252d4127c79b4d7c2ae47271636cbaca905c8bb46d80c7930ab906cf4b5c"
+    url "https://files.pythonhosted.org/packages/70/05/4030a8a7aa42d3e40ba7abf902de8e7e94ddcb61abda23f6a3ec5daf36df/rapidfuzz-3.0.0.tar.gz"
+    sha256 "4c1d895d16f62e9ac88d303eb918d90a390bd712055c849e01c558b7ae0fa908"
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/9d/ee/391076f5937f0a8cdf5e53b701ffc91753e87b07d66bae4a09aa671897bf/requests-2.28.2.tar.gz"
-    sha256 "98b1b2782e3c6c4904938b84c0eb932721069dfdb9134313beff7c83c2df24bf"
+    url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
+    sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
   end
 
-  resource "ruamel.yaml" do
-    url "https://files.pythonhosted.org/packages/46/a9/6ed24832095b692a8cecc323230ce2ec3480015fbfa4b79941bd41b23a3c/ruamel.yaml-0.17.21.tar.gz"
-    sha256 "8b7ce697a2f212752a35c1ac414471dc16c424c9573be4926b56ff3f5d23b7af"
+  resource "ruamel-yaml" do
+    url "https://files.pythonhosted.org/packages/8c/0d/32f86bfad2755763b926f988252f57f4edbba32f876cb5e6d6f5c57b5f05/ruamel.yaml-0.17.26.tar.gz"
+    sha256 "baa2d0a5aad2034826c439ce61c142c07082b76f4791d54145e131206e998059"
   end
 
-  resource "ruamel.yaml.jinja2" do
+  resource "ruamel-yaml-clib" do
+    url "https://files.pythonhosted.org/packages/d5/31/a3e6411947eb7a4f1c669f887e9e47d61a68f9d117f10c3c620296694a0b/ruamel.yaml.clib-0.2.7.tar.gz"
+    sha256 "1f08fd5a2bea9c4180db71678e850b995d2a5f4537be0e94557668cf0f5f9497"
+  end
+
+  resource "ruamel-yaml-jinja2" do
     url "https://files.pythonhosted.org/packages/91/e0/ad199ab894f773551fc352541ce3305b9e7c366a4ae8c44ab1bc9ca3abff/ruamel.yaml.jinja2-0.2.7.tar.gz"
     sha256 "8449be29d9a157fa92d1648adc161d718e469f0d38a6b21e0eabb76fd5b3e663"
   end
@@ -96,8 +102,8 @@ class Grayskull < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/1b/cb/34933ebdd6bf6a77daaa0bd04318d61591452eb90ecca4def947e3cb2165/soupsieve-2.4.tar.gz"
-    sha256 "e28dba9ca6c7c00173e34e4ba57448f0688bb681b7c5e8bf4971daafc093d69a"
+    url "https://files.pythonhosted.org/packages/47/9e/780779233a615777fbdf75a4dee2af7a345f4bf74b42d4a5f836800b9d91/soupsieve-2.4.1.tar.gz"
+    sha256 "89d12b2d5dfcd2c9e8c22326da9d9aa9cb3dfab0a83a024f05704076ee8d35ea"
   end
 
   resource "stdlib-list" do
@@ -116,8 +122,8 @@ class Grayskull < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/21/79/6372d8c0d0641b4072889f3ff84f279b738cd8595b64c8e0496d4e848122/urllib3-1.26.15.tar.gz"
-    sha256 "8a388717b9476f934a21484e8c8e61875ab60644d29b9b39e11e4b9dc1c6b305"
+    url "https://files.pythonhosted.org/packages/fb/c0/1abba1a1233b81cf2e36f56e05194f5e8a0cec8c03c244cab56cc9dfb5bd/urllib3-2.0.2.tar.gz"
+    sha256 "61717a1095d7e155cdb737ac7bb2f4324a858a1e2e6466f6d03ff630ca68d3cc"
   end
 
   def install

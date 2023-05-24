@@ -9,32 +9,36 @@ class OnlykeyAgent < Formula
   revision 1
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any,                 arm64_ventura:  "e3a75311e00fd26a36aca0f0652016b49510ee79f60fd4b73921fcaed368a66d"
-    sha256 cellar: :any,                 arm64_monterey: "f9d2a26b325eb55337dd1397c6772d3eca95ca797f771862e3f045afe18ccc34"
-    sha256 cellar: :any,                 arm64_big_sur:  "92dd0caa3ae58fb1b68de5e01b3a746be2a04c97653b3918a9284dbb3398409e"
-    sha256 cellar: :any,                 ventura:        "2feadbc4ac694e79e9c31acc88de51b0531c5ea1082d6e295b80280f554a9d61"
-    sha256 cellar: :any,                 monterey:       "15e7737d43c436ae9e560988d7b91555ab2793710f1a8df2f4218733741cae55"
-    sha256 cellar: :any,                 big_sur:        "53b299868f6180585a7e316da8dec39b79e3e914df0c1904e32efef97d1e98f8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9b925815505ff5273264385bfcfdd13c5a6c0906f086f3fe552490ba28aa85ca"
+    rebuild 4
+    sha256 cellar: :any,                 arm64_ventura:  "9b631682be9dad2d61d3b5ccfbf93dc27cc6ee79b4655ed0ba4b12b2c33b24b0"
+    sha256 cellar: :any,                 arm64_monterey: "1ed4a49fb373a8f79e49321bdf90c8b3dc75e496b6cf0e29c955b2c03b19155d"
+    sha256 cellar: :any,                 arm64_big_sur:  "2ddf251cd336f2dd7bafa6f69b74f59527b85ca4d652209e51689504ef9e294f"
+    sha256 cellar: :any,                 ventura:        "555508e6b5d2edec05e9f310d6b9d9d57ade813eef8ae5eaa6865bd9978e91f9"
+    sha256 cellar: :any,                 monterey:       "3b23f9477adad5f24027ad127e9c213cf1464a1502de55e87a0c53242098ab3c"
+    sha256 cellar: :any,                 big_sur:        "92e6c78e7283b1894ec7de44696020c0c181e804686b2ac6b82a956c81bb8359"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5598d8d272755bdb2a089fae8a7a037021eba17db1054e3d0838ea2fcaf9a96f"
   end
 
-  # https://docs.crp.to/onlykey-agent.html#installation
-  depends_on "rust" => :build # for cryptography
+  # `pkg-config`, `rust`, and `openssl@1.1` are for cryptography.
+  depends_on "pkg-config" => :build
+  depends_on "rust" => :build
+
+  depends_on "cffi"
   depends_on "gnupg"
   depends_on "hidapi"
   depends_on "libcython"
   depends_on "libusb"
-  depends_on "openssl@1.1" # for cryptography
+  depends_on "openssl@1.1"
+  depends_on "pycparser"
   depends_on "python@3.11"
   depends_on "six"
 
   resource "aenum" do
-    url "https://files.pythonhosted.org/packages/63/6c/a71e18de7c651f384b328be6bccadbbd472aca62f547c1a307b9388d03ca/aenum-3.1.11.tar.gz"
-    sha256 "aed2c273547ae72a0d5ee869719c02a643da16bf507c80958faadc7e038e3f73"
+    url "https://files.pythonhosted.org/packages/95/52/2e14cc189a4fde1e6e7f8f9039f3818f4be86fa772a2397235f01ed4ba1c/aenum-3.1.12.tar.gz"
+    sha256 "3e531c91860a81f885f7e6e97d219ae9772cb899580084788935dad7d9742ef0"
   end
 
-  resource "backports.shutil_which" do
+  resource "backports-shutil-which" do
     url "https://files.pythonhosted.org/packages/a0/22/51b896a4539f1bff6a7ab8514eb031b9f43f12bff23f75a4c3f4e9a666e5/backports.shutil_which-3.5.2.tar.gz"
     sha256 "fe39f567cbe4fad89e8ac4dbeb23f87ef80f7fe8e829669d0221ecdb0437c133"
   end
@@ -45,18 +49,13 @@ class OnlykeyAgent < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/37/f7/2b1b0ec44fdc30a3d31dfebe52226be9ddc40cd6c0f34ffc8923ba423b69/certifi-2022.12.7.tar.gz"
-    sha256 "35824b4c3a97115964b408844d64aa14db1cc518f6562e8d7261699d1350a9e3"
-  end
-
-  resource "cffi" do
-    url "https://files.pythonhosted.org/packages/2b/a8/050ab4f0c3d4c1b8aaa805f70e26e84d0e27004907c5b8ecc1d31815f92a/cffi-1.15.1.tar.gz"
-    sha256 "d400bfb9a37b1351253cb402671cea7e89bdecc294e8016a707f6d1d8ac934f9"
+    url "https://files.pythonhosted.org/packages/93/71/752f7a4dd4c20d6b12341ed1732368546bc0ca9866139fe812f6009d9ac7/certifi-2023.5.7.tar.gz"
+    sha256 "0f0d56dc5a6ad56fd4ba36484d6cc34451e1c6548c61daad8c320169f91eddc7"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/96/d7/1675d9089a1f4677df5eb29c3f8b064aa1e70c1251a0a8a127803158942d/charset-normalizer-3.0.1.tar.gz"
-    sha256 "ebea339af930f8ca5d7a699b921106c6e29c617fe9606fa7baa043c1cdae326f"
+    url "https://files.pythonhosted.org/packages/ff/d7/8d757f8bd45be079d76309248845a04f09619a7b17d6dfc8c9ff6433cac2/charset-normalizer-3.1.0.tar.gz"
+    sha256 "34e0a2f9c370eb95597aae63bf85eb5e96826d81e3dcf88b8886012906f509b5"
   end
 
   resource "click" do
@@ -64,19 +63,19 @@ class OnlykeyAgent < Formula
     sha256 "7682dc8afb30297001674575ea00d1814d808d6a36af415a82bd481d37ba7b8e"
   end
 
-  resource "ConfigArgParse" do
+  resource "configargparse" do
     url "https://files.pythonhosted.org/packages/16/05/385451bc8d20a3aa1d8934b32bd65847c100849ebba397dbf6c74566b237/ConfigArgParse-1.5.3.tar.gz"
     sha256 "1b0b3cbf664ab59dada57123c81eff3d9737e0d11d8cf79e3d6eb10823f1739f"
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/6a/f5/a729774d087e50fffd1438b3877a91e9281294f985bda0fd15bf99016c78/cryptography-39.0.1.tar.gz"
-    sha256 "d1f6198ee6d9148405e49887803907fe8962a23e6c6f83ea7d98f1c0de375695"
+    url "https://files.pythonhosted.org/packages/f7/80/04cc7637238b78f8e7354900817135c5a23cf66dfb3f3a216c6d630d6833/cryptography-40.0.2.tar.gz"
+    sha256 "c33c0d32b8594fa647d2e01dbccc303478e16fdd7cf98652d5b3ed11aa5e5c99"
   end
 
   resource "docutils" do
-    url "https://files.pythonhosted.org/packages/6b/5c/330ea8d383eb2ce973df34d1239b3b21e91cd8c865d21ff82902d952f91f/docutils-0.19.tar.gz"
-    sha256 "33995a6753c30b7f577febfc2c50411fec6aac7f7ffeb7c4cfe5991072dcf9e6"
+    url "https://files.pythonhosted.org/packages/1f/53/a5da4f2c5739cf66290fac1431ee52aff6851c7c8ffd8264f13affd7bcdd/docutils-0.20.1.tar.gz"
+    sha256 "f08a4e276c3a1583a86dce3e34aba3fe04d02bba2dd51ed16106244e8a923e3b"
   end
 
   resource "ecdsa" do
@@ -130,26 +129,21 @@ class OnlykeyAgent < Formula
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/fb/93/180be2342f89f16543ec4eb3f25083b5b84eba5378f68efff05409fb39a9/prompt_toolkit-3.0.36.tar.gz"
-    sha256 "3e163f254bef5a03b146397d7c1963bd3e2812f0964bb9a24e6ec761fd28db63"
-  end
-
-  resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/5e/0b/95d387f5f4433cb0f53ff7ad859bd2c6051051cebbb564f139a999ab46de/pycparser-2.21.tar.gz"
-    sha256 "e644fdec12f7872f86c58ff790da456218b10f863970249516d60a5eaca77206"
+    url "https://files.pythonhosted.org/packages/4b/bb/75cdcd356f57d17b295aba121494c2333d26bfff1a837e6199b8b83c415a/prompt_toolkit-3.0.38.tar.gz"
+    sha256 "23ac5d50538a9a38c8bde05fecb47d0b403ecd0662857a86f886f798563d5b9b"
   end
 
   resource "pycryptodome" do
-    url "https://files.pythonhosted.org/packages/b8/2e/cf9cfd1ae6429381d3d9c14c8df79d91ae163929972f245a76058ea9d37d/pycryptodome-3.17.tar.gz"
-    sha256 "bce2e2d8e82fcf972005652371a3e8731956a0c1fbb719cc897943b3695ad91b"
+    url "https://files.pythonhosted.org/packages/b9/05/0e7547c445bbbc96c538d870e6c5c5a69a9fa5df0a9df3e27cb126527196/pycryptodome-3.18.0.tar.gz"
+    sha256 "c9adee653fc882d98956e33ca2c1fb582e23a8af7ac82fee75bd6113c55a0413"
   end
 
-  resource "PyMsgBox" do
+  resource "pymsgbox" do
     url "https://files.pythonhosted.org/packages/7d/ff/4c6f31a4f08979f12a663f2aeb6c8b765d3bd592e66eaaac445f547bb875/PyMsgBox-1.0.9.tar.gz"
     sha256 "2194227de8bff7a3d6da541848705a155dcbb2a06ee120d9f280a1d7f51263ff"
   end
 
-  resource "PyNaCl" do
+  resource "pynacl" do
     url "https://files.pythonhosted.org/packages/a7/22/27582568be639dfe22ddb3902225f91f2f17ceff88ce80e4db396c8986da/PyNaCl-1.5.0.tar.gz"
     sha256 "8ac7448f09ab85811607bdd21ec2464495ac8b7c66d146bf545b0f08fb9220ba"
   end
@@ -160,8 +154,8 @@ class OnlykeyAgent < Formula
   end
 
   resource "python-daemon" do
-    url "https://files.pythonhosted.org/packages/d9/3c/727b06abb46fead341a2bdad04ba4a4db5395c44c45d8ba0aa82b517e462/python-daemon-2.3.2.tar.gz"
-    sha256 "3deeb808e72b6b89f98611889e11cc33754f5b2c1517ecfa1aaf25f402051fb5"
+    url "https://files.pythonhosted.org/packages/84/50/97b81327fccbb70eb99f3c95bd05a0c9d7f13fb3f4cfd975885110d1205a/python-daemon-3.0.1.tar.gz"
+    sha256 "6c57452372f7eaff40934a1c03ad1826bf5e793558e87fef49131e6464b4dae5"
   end
 
   resource "pyusb" do
@@ -170,23 +164,23 @@ class OnlykeyAgent < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/9d/ee/391076f5937f0a8cdf5e53b701ffc91753e87b07d66bae4a09aa671897bf/requests-2.28.2.tar.gz"
-    sha256 "98b1b2782e3c6c4904938b84c0eb932721069dfdb9134313beff7c83c2df24bf"
+    url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
+    sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
   end
 
   resource "semver" do
-    url "https://files.pythonhosted.org/packages/31/a9/b61190916030ee9af83de342e101f192bbb436c59be20a4cb0cdb7256ece/semver-2.13.0.tar.gz"
-    sha256 "fa0fe2722ee1c3f57eac478820c3a5ae2f624af8264cbdf9000c980ff7f75e3f"
+    url "https://files.pythonhosted.org/packages/9f/93/b7389cdd7e573e70cfbeb4b0bbe101af1050a6681342f5d2bc6f1bf2d150/semver-3.0.0.tar.gz"
+    sha256 "94df43924c4521ec7d307fc86da1531db6c2c33d9d5cdc3e64cca0eb68569269"
   end
 
-  resource "Unidecode" do
+  resource "unidecode" do
     url "https://files.pythonhosted.org/packages/0b/25/37c77fc07821cd06592df3f18281f5e716bc891abd6822ddb9ff941f821e/Unidecode-1.3.6.tar.gz"
     sha256 "fed09cf0be8cf415b391642c2a5addfc72194407caee4f98719e40ec2a72b830"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/c5/52/fe421fb7364aa738b3506a2d99e4f3a56e079c0a798e9f4fa5e14c60922f/urllib3-1.26.14.tar.gz"
-    sha256 "076907bf8fd355cde77728471316625a4d2f7e713c125f51953bb5b3eecf4f72"
+    url "https://files.pythonhosted.org/packages/fb/c0/1abba1a1233b81cf2e36f56e05194f5e8a0cec8c03c244cab56cc9dfb5bd/urllib3-2.0.2.tar.gz"
+    sha256 "61717a1095d7e155cdb737ac7bb2f4324a858a1e2e6466f6d03ff630ca68d3cc"
   end
 
   resource "wcwidth" do
@@ -195,8 +189,8 @@ class OnlykeyAgent < Formula
   end
 
   resource "wheel" do
-    url "https://files.pythonhosted.org/packages/a2/b8/6a06ff0f13a00fc3c3e7d222a995526cbca26c1ad107691b6b1badbbabf1/wheel-0.38.4.tar.gz"
-    sha256 "965f5259b566725405b05e7cf774052044b1ed30119b5d586b2703aafe8719ac"
+    url "https://files.pythonhosted.org/packages/fc/ef/0335f7217dd1e8096a9e8383e1d472aa14717878ffe07c4772e68b6e8735/wheel-0.40.0.tar.gz"
+    sha256 "cd1196f3faee2b31968d626e1731c94f99cbdb67cf5a46e4f5656cbee7738873"
   end
 
   def install

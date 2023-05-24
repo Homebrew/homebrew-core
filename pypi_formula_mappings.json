@@ -7,11 +7,12 @@
   },
   "ansible": {
     "extra_packages": [
-      "apache-libcloud", "boto3", "dnspython", "docker", "junos-eznc", "jxmlease", "kerberos", "ntc-templates",
-      "openshift", "passlib", "pexpect", "proxmoxer", "pysphere3", "python-consul", "python-neutronclient",
-      "pywinrm", "requests-credssp", "shade", "zabbix-api"
+      "apache-libcloud", "boto3", "dnspython", "docker",
+      "junos-eznc", "jxmlease", "kerberos", "ntc-templates", "openshift",
+      "passlib", "pexpect", "proxmoxer", "pysphere3", "python-consul",
+      "python-neutronclient", "pywinrm", "requests-credssp", "shade", "zabbix-api"
     ],
-    "exclude_packages": ["six", "PyYAML"]
+    "exclude_packages": ["cffi", "pycparser", "PyYAML", "six"]
   },
   "ansible@2.8": false,
   "ansible@2.9": {
@@ -444,7 +445,7 @@
   },
   "moto": {
     "package_name": "moto[all,server]",
-    "exclude_packages": ["six", "PyYAML", "typing-extensions"]
+    "exclude_packages": ["cffi", "cfn-lint", "pycparser", "PyYAML", "six", "typing-extensions"]
   },
   "mycli": {
     "exclude_packages": ["six", "tabulate", "Pygments"]
@@ -481,7 +482,7 @@
     "exclude_packages": ["pillow", "pycparser"]
   },
   "onlykey-agent": {
-    "exclude_packages": ["six", "Cython"]
+    "exclude_packages": ["cffi", "six", "Cython", "pycparser"]
   },
   "openai-whisper": {
     "exclude_packages": ["torch", "numpy", "PyYAML", "huggingface_hub"]
@@ -491,7 +492,7 @@
     "exclude_packages": ["six", "PyYAML"]
   },
   "organize-tool": {
-    "exclude_packages": ["six", "PyYAML", "Pygments"]
+    "exclude_packages": ["cffi", "pycparser", "Pygments", "PyYAML", "six"]
   },
   "osc-cli": {
     "exclude_packages": ["six", "typing-extensions"]
@@ -550,7 +551,7 @@
     "exclude_packages": ["Pygments"]
   },
   "pwntools": {
-    "exclude_packages": ["six", "pygments"]
+    "exclude_packages": ["cffi", "pycparser", "pygments", "six"]
   },
   "pydocstyle": "pydocstyle[toml]",
   "pygitup": {
@@ -699,7 +700,7 @@
     "exclude_packages": ["six"]
   },
   "svtplay-dl": {
-    "exclude_packages": ["PyYAML"]
+    "exclude_packages": ["cffi", "pycparser", "PyYAML"]
   },
   "tarsnapper": {
     "exclude_packages": ["six", "PyYAML"]
@@ -769,7 +770,7 @@
     "exclude_packages": ["six", "PyYAML"]
   },
   "woob": {
-    "exclude_packages": ["pillow", "six", "PyYAML"],
+    "exclude_packages": ["pillow", "Pygments", "PyYAML", "six"],
     "extra_packages": ["colorama"]
   },
   "wxpython": {

@@ -9,25 +9,26 @@ class Toot < Formula
   head "https://github.com/ihabunek/toot.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "70eb86c57018f0b281d15675b9716fbf40f733ad09ec0e206f2b945eb0b90bdb"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f9cbd7a3d5b151f550124553e1a58ebc94c67bae27561ab99e527eabbd5ad854"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "68cfa6808d9acf021b4aea15608d850da1d449961f66f28fa1539ba0ffba6e58"
-    sha256 cellar: :any_skip_relocation, ventura:        "589016788da55a341a74ab3091102d86c225821c1d250bd63195f18fc7f459db"
-    sha256 cellar: :any_skip_relocation, monterey:       "6bfe513499989608bfffca6dc84a2dc801a81beb74503bf1eb68ce1084b6acdb"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3cde799b5c07bff05558ccc63b9463ea6982fb87a782bdd18eeac4a61dce3b64"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f24ab0b6016f2b5c96d06094004b29e266f2f5e624abd0a0d4c63bc74900b87d"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8f4dd655f1e1c1ba409ccd005ab08df036d5617d6bf40e272f3e02ab5d909af8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e31454d0c851114bda1abc802cd69475dde4d96a2f99fb49cc1caf4fd1c91f36"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ff249be6d8f8edbd0e4ea488a2b937f0bbf93cce30b6c4874466a14fc8785b80"
+    sha256 cellar: :any_skip_relocation, ventura:        "74ccd7b0a01d855c1631cd02b442f85a1ca352ba233ad55e551f701222f6ecc1"
+    sha256 cellar: :any_skip_relocation, monterey:       "2d983118a72d852fbb36b8ef14101be4b8c4fffbd8d4ec12a766dc4d243ee7f2"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f2c69ffeb560c52268ef9273d831b2e543b53d003444bddeb83126e94e06997d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6d801b5b494cc2ae1448a5249cca3ed45841998b948adaded1cdbb72ddc2b043"
   end
 
   depends_on "python@3.11"
 
   resource "beautifulsoup4" do
-    url "https://files.pythonhosted.org/packages/75/f8/de84282681c5a8307f3fff67b64641627b2652752d49d9222b77400d02b8/beautifulsoup4-4.11.2.tar.gz"
-    sha256 "bc4bdda6717de5a2987436fb8d72f45dc90dd856bdfd512a1314ce90349a0106"
+    url "https://files.pythonhosted.org/packages/af/0b/44c39cf3b18a9280950ad63a579ce395dda4c32193ee9da7ff0aed547094/beautifulsoup4-4.12.2.tar.gz"
+    sha256 "492bbc69dca35d12daac71c4db1bfff0c876c00ef4a2ffacce226d4638eb72da"
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/37/f7/2b1b0ec44fdc30a3d31dfebe52226be9ddc40cd6c0f34ffc8923ba423b69/certifi-2022.12.7.tar.gz"
-    sha256 "35824b4c3a97115964b408844d64aa14db1cc518f6562e8d7261699d1350a9e3"
+    url "https://files.pythonhosted.org/packages/93/71/752f7a4dd4c20d6b12341ed1732368546bc0ca9866139fe812f6009d9ac7/certifi-2023.5.7.tar.gz"
+    sha256 "0f0d56dc5a6ad56fd4ba36484d6cc34451e1c6548c61daad8c320169f91eddc7"
   end
 
   resource "charset-normalizer" do
@@ -41,18 +42,18 @@ class Toot < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/9d/ee/391076f5937f0a8cdf5e53b701ffc91753e87b07d66bae4a09aa671897bf/requests-2.28.2.tar.gz"
-    sha256 "98b1b2782e3c6c4904938b84c0eb932721069dfdb9134313beff7c83c2df24bf"
+    url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
+    sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/1b/cb/34933ebdd6bf6a77daaa0bd04318d61591452eb90ecca4def947e3cb2165/soupsieve-2.4.tar.gz"
-    sha256 "e28dba9ca6c7c00173e34e4ba57448f0688bb681b7c5e8bf4971daafc093d69a"
+    url "https://files.pythonhosted.org/packages/47/9e/780779233a615777fbdf75a4dee2af7a345f4bf74b42d4a5f836800b9d91/soupsieve-2.4.1.tar.gz"
+    sha256 "89d12b2d5dfcd2c9e8c22326da9d9aa9cb3dfab0a83a024f05704076ee8d35ea"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/c5/52/fe421fb7364aa738b3506a2d99e4f3a56e079c0a798e9f4fa5e14c60922f/urllib3-1.26.14.tar.gz"
-    sha256 "076907bf8fd355cde77728471316625a4d2f7e713c125f51953bb5b3eecf4f72"
+    url "https://files.pythonhosted.org/packages/fb/c0/1abba1a1233b81cf2e36f56e05194f5e8a0cec8c03c244cab56cc9dfb5bd/urllib3-2.0.2.tar.gz"
+    sha256 "61717a1095d7e155cdb737ac7bb2f4324a858a1e2e6466f6d03ff630ca68d3cc"
   end
 
   resource "urwid" do

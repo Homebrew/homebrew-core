@@ -9,13 +9,14 @@ class Httpie < Formula
   head "https://github.com/httpie/httpie.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "340d5ac928a168ba035f8fc8acca49f60694b9f232c091095c98ffedf80d888d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b22b2f91fec301b8fa6da85cded5b73efe7efd675e84c28d2d5b0cab8a624953"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c9c80efd505655b99d6c51c900fd6be73a856b08fe3af0e13422f9fa43bd9f00"
-    sha256 cellar: :any_skip_relocation, ventura:        "2782bcbe7bd7805bdd7c9d7e954c78371af9e52a4dc79389a2335f64fe0d6691"
-    sha256 cellar: :any_skip_relocation, monterey:       "410618a23947af7c2b308a54ba173e9a3aa8e39a74fe223ced118e800e8a7bc3"
-    sha256 cellar: :any_skip_relocation, big_sur:        "03c5a725120748a9ee6a1345f9f29ffd60d42058937744447039c9ff7cc3c94d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5385c6a22178325a9f9efcca985c5ac23aee2403f6304b90108166e1ff11fba9"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "be36542cc0d026171b996e2aa4d1f8453a9275194b8472f8b4b12dda72d20f10"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "79b7aaf54cfd60c24bb12f75668825653a70794721b6841eb1dfbc2774eecb4b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0924e9314ec42bfaca665563f97fd3bdf0701b5219d4647df73094c1695f7220"
+    sha256 cellar: :any_skip_relocation, ventura:        "bbb109564de7a20084c2691e10d92c3f5107de4ded0e8fb9c34fe2a57f9504a6"
+    sha256 cellar: :any_skip_relocation, monterey:       "2fc2f69d4fdec71c103e900d6b1a46e995ce3080bb279cee6a882179ebbeed44"
+    sha256 cellar: :any_skip_relocation, big_sur:        "54f091cadb457879a24b32ff36457717d1e08aa3b10196cb9e9ed3da21a43092"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ef50a4289978c932d539e35859a50d6f511bda7e8f85e71b91fa8f57ca88a478"
   end
 
   depends_on "pygments"
@@ -62,8 +63,8 @@ class Httpie < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/e0/69/122171604bcef06825fa1c05bd9e9b1d43bc9feb8c6c0717c42c92cc6f3c/requests-2.30.0.tar.gz"
-    sha256 "239d7d4458afcb28a692cdd298d87542235f4ca8d36d03a15bfc128a6559a2f4"
+    url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
+    sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
   end
 
   resource "requests-toolbelt" do

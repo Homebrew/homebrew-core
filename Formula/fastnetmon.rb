@@ -1,19 +1,18 @@
 class Fastnetmon < Formula
   desc "DDoS detection tool with sFlow, Netflow, IPFIX and port mirror support"
   homepage "https://github.com/pavel-odintsov/fastnetmon/"
-  url "https://github.com/pavel-odintsov/fastnetmon/archive/refs/tags/v1.2.4.tar.gz"
-  sha256 "84cd5db0e270f6c268923592eabd5cb0d1689293d9d9f6f0634af548b29f9bb4"
+  url "https://github.com/pavel-odintsov/fastnetmon/archive/refs/tags/v1.2.5.tar.gz"
+  sha256 "d92a1f16e60b6ab6f5c5e023a215570e9352ce9d0c9a9d7209416f8cd0227ae6"
   license "GPL-2.0-only"
-  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "8be6c0d421aa58f9ce3373050d9f946d0dd5487e37312a12d5f8c5daaa1eaaf1"
-    sha256 cellar: :any,                 arm64_monterey: "4ce200d84d0a28bac3073c6be8eb084382732238a99fe9cbd2c0094ef7b7826f"
-    sha256 cellar: :any,                 arm64_big_sur:  "e18037e32e58e0d23edc0f59804dc52c1ee0006149facfebf0f20c7ec59f1cef"
-    sha256 cellar: :any,                 ventura:        "84f0ad256f7c8265c0ee15d355e2fd3ebb6c422d13588a6ff8fc65c8f6d92bc7"
-    sha256 cellar: :any,                 monterey:       "8b7cde1d1a39987caf6ed51359309c937bfff25a9839a3198d34b3520d4a6e3d"
-    sha256 cellar: :any,                 big_sur:        "2a735e77fd27bc3c0a06acd5cb2c82e1144565a46e6634860c4ae6ca5ab35dc2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e55038ba9fd79ef65de4695d744a8796f7cce3f4e745832273cd7c9fa853bcb9"
+    sha256 cellar: :any,                 arm64_ventura:  "43e1dcf0484a87c3db4a424bac3e2965b22290b7a3178532f803584e479fb20a"
+    sha256 cellar: :any,                 arm64_monterey: "6deebc385d74a2ba2859e99990542a97b4444af96fd46bf993d11e82ad2d7f2e"
+    sha256 cellar: :any,                 arm64_big_sur:  "82518226cbafbdeae623d4da79167ae1640333019118e77978b3e611b342fd96"
+    sha256 cellar: :any,                 ventura:        "641731f22269ae6b6fddc9d9ffe3f5206b5a2ad731b7129ad79912c19b7454d5"
+    sha256 cellar: :any,                 monterey:       "ab08938beedc3e5009295df1ab54ad0b55819fcda7174c2ed71b3eae75e833d3"
+    sha256 cellar: :any,                 big_sur:        "00743ebd3a2956810999f4c6c80e364703ff462497af91d7fdcb16632211d109"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c6c73f1cff009733f76e39e5861cc8f0aa510b29e1cc24a53d38dbd36500ddb5"
   end
 
   depends_on "cmake" => :build

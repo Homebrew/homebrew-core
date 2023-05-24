@@ -1,8 +1,8 @@
 class Leetup < Formula
   desc "Command-line tool to solve Leetcode problems"
   homepage "https://github.com/dragfire/leetup"
-  url "https://github.com/dragfire/leetup/archive/v1.1.0.tar.gz"
-  sha256 "33e4be4278c72d09a8f20615aa4dbf272ea3087750c3ba31bdaadada4cf57bc1"
+  url "https://github.com/dragfire/leetup/archive/v1.2.0.tar.gz"
+  sha256 "d4c424d994531ed034c264611774ae258f499ee9819061c49ece1321bb96434d"
   license "MIT"
   head "https://github.com/dragfire/leetup.git", branch: "master"
 
@@ -16,13 +16,13 @@ class Leetup < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "41a9023a6049c718d5dee32895523ef4b0bbbbee4c8e7813866bc8b612d9c427"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "107829578091e8b06dec794713b0754517d470849430501f85b2bac9eb551ef6"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7574be5dfd85a7ea0683ae5bd375e77b5719e11937ee5b08b960b59097a2f919"
-    sha256 cellar: :any_skip_relocation, ventura:        "1a94fbca1569c4195b1441183cfdf30f627dd81e3ac8da99beeec1e84e1320f2"
-    sha256 cellar: :any_skip_relocation, monterey:       "3e3d406b4709ddb79c546ea28a08ccf9151554137bfd2ca60d0d7d7249c891a5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "79e784c0455508d672184a13892c029ee6db1f284180b7694eb0cea13f2e7fbd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3020c24a7fa83d25381b06aa6537e9f4c3b39405517a3b0f0f5c8b990a2d272f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4cb6b79c2c9a64149f91a259d62c7e327f30c523385db8c8d7dbc572cdf24332"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "723100f866721b6c8fb7417084e2496e1d68f3fc09ad2b26382781efc11fb82b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9690647835bfade04169b89f477dc310a872487cd32836706f6bc37d83788a47"
+    sha256 cellar: :any_skip_relocation, ventura:        "f393756f6886ec72181eadfb0f546e520d613dc897a658d3c50b9c88614c4c8d"
+    sha256 cellar: :any_skip_relocation, monterey:       "931ee49f796084d159b3e92ac3c1a2bc9b38bc1fce76fd99e4c77c1c7a8dc5f1"
+    sha256 cellar: :any_skip_relocation, big_sur:        "1c0137b2499d6c3c13af9bfd17aa1c77d7640244b447632d1072d937bd3ae2bb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a88fa3418b7ded7a3f3b3e23cef5265e75d0b1e94baab86d2796ada55a3656bd"
   end
 
   depends_on "rust" => :build

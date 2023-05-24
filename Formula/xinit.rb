@@ -92,15 +92,15 @@ class Xinit < Formula
                    "bindir=#{bin}", "install"
   end
 
-  def plist_name
-    "homebrew.mxcl.startx"
-  end
-
   def caveats
     <<~EOS
       To start privileged xinit now and restart at login:
         sudo brew services start xinit --file=#{opt_prefix}/#{plist_name.chomp "startx"}privileged_startx.plist
     EOS
+  end
+
+  service do
+    name macos: "homebrew.mxcl.startx"
   end
 
   test do
