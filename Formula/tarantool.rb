@@ -32,6 +32,10 @@ class Tarantool < Formula
   uses_from_macos "curl"
   uses_from_macos "ncurses"
 
+  on_linux do
+    depends_on "libunwind"
+  end
+
   def install
     # Avoid keeping references to Homebrew's clang/clang++ shims
     inreplace "src/trivia/config.h.cmake",
@@ -65,6 +69,7 @@ class Tarantool < Formula
       args << "-DCURSES_NCURSES_LIBRARY=#{sdk}/usr/lib/libncurses.#{lib_suffix}"
       args << "-DICONV_INCLUDE_DIR=#{sdk}/usr/include"
     else
+      args << "-DENABLE_BUNDLED_LIBUNWIND=OFF"
       args << "-DCURL_ROOT=#{Formula["curl"].opt_prefix}"
     end
 
