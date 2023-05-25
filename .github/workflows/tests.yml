@@ -179,6 +179,12 @@ jobs:
           bottles-directory: ${{ env.BOTTLES_DIR }}
           cleanup: ${{ matrix.cleanup }}
 
+      - name: Checkout PR for testing
+        run: |
+          cd "$(brew --repository homebrew/test-bot)"
+          git fetch origin newest-tests-results
+          git checkout newest-tests-results
+
       - run: brew test-bot ${{ needs.setup_tests.outputs.test-bot-formulae-args }}
         id: brew-test-bot-formulae
         working-directory: ${{ env.BOTTLES_DIR }}
