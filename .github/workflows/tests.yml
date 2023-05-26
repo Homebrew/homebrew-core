@@ -179,13 +179,19 @@ jobs:
           bottles-directory: ${{ env.BOTTLES_DIR }}
           cleanup: ${{ matrix.cleanup }}
 
+      - name: Checkout PR branch for testing WIP
+        run: |
+          cd "$(brew --repository homebrew/test-bot)"
+          git fetch origin cache-dependent-tests
+          git checkout cache-dependent-tests
+
       - run: brew test-bot ${{ needs.setup_tests.outputs.test-bot-formulae-args }}
         id: brew-test-bot-formulae
         working-directory: ${{ env.BOTTLES_DIR }}
 
       - name: Post-build steps
         if: always()
-        uses: Homebrew/actions/post-build@master
+        uses: Homebrew/actions/post-build@dependent-cache
         with:
           runner: ${{ matrix.runner }}
           cleanup: ${{ matrix.cleanup }}
@@ -348,12 +354,18 @@ jobs:
           cleanup: ${{ matrix.cleanup }}
           download-bottles: true
 
+      - name: Checkout PR branch for testing WIP
+        run: |
+          cd "$(brew --repository homebrew/test-bot)"
+          git fetch origin cache-dependent-tests
+          git checkout cache-dependent-tests
+
       - run: brew test-bot ${{ needs.setup_dep_tests.outputs.test-bot-dependents-args }}
         working-directory: ${{ env.BOTTLES_DIR }}
 
       - name: Steps summary and cleanup
         if: always()
-        uses: Homebrew/actions/post-build@master
+        uses: Homebrew/actions/post-build@dependent-cache
         with:
           runner: ${{ matrix.runner }}
           cleanup: ${{ matrix.cleanup }}
