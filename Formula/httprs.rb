@@ -11,7 +11,7 @@ class Httprs < Formula
   
   def install
     system "cargo", "install", "--path", "./"
-    system "mv", "~/.cargo/bin/http-server", HOMEBREW_PREFIX/"bin/httprs
+    system "mv", "~/.cargo/bin/http-server", HOMEBREW_PREFIX/"bin/httprs"
   end
   
   test do
