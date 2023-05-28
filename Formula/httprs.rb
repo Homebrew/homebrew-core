@@ -4,14 +4,13 @@ class Httprs < Formula
   url "https://github.com/http-server-rs/http-server.git",
        tag:      "v0.8.5",
        revision: "2374c3281e53f7e98c17079728e6bf70b8c8241d"
-  version "0.8.5"
   license any_of: ["Apache-2.0", "MIT"]
   
   depends_on "rust" => :build
   
   def install
     system "cargo", "install", "--path", "./"
-    system "mv", "~/.cargo/bin/http-server", HOMEBREW_PREFIX/"bin/httprs"
+    mv "~/.cargo/bin/http-server", HOMEBREW_PREFIX/"bin/httprs"
   end
   
   test do
