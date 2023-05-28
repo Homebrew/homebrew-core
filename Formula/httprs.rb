@@ -9,4 +9,10 @@ class Httprs < Formula
     system "mv", "http-server_macos-latest", "httprs"
     bin.install "httprs"
   end
+  
+  test do
+    assert_equal which("httprs"), opt_bin/"httprs"
+    assert_predicate HOMEBREW_PREFIX/"bin/httprs", :exist?, "httprs is not pesent"
+    assert_predicate HOMEBREW_PREFIX/"bin/httprs", :executable?, "httprs is not executable"
+  end
 end
