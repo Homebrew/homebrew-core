@@ -3,8 +3,8 @@ class Ocrmypdf < Formula
 
   desc "Adds an OCR text layer to scanned PDF files"
   homepage "https://ocrmypdf.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/a0/0a/b32ca31bda41098df211fff0634d0cfb53be47e90e65ffbf20c209613976/ocrmypdf-14.1.0.tar.gz"
-  sha256 "3f69d24febb94b31b61b0a82d2a82f7af1e4876f2162c095ae0e49e1bc2a4653"
+  url "https://files.pythonhosted.org/packages/a2/d0/8201d2727065087d5263322d284c2de6f89a38bf38e1d0abba8ef7fbacef/ocrmypdf-14.2.1.tar.gz"
+  sha256 "ebe0fb54e3174b49e53f823a27b191fa7a53862c94b6ee3c005f8a6528a4126c"
   license "MPL-2.0"
 
   bottle do
@@ -63,6 +63,11 @@ class Ocrmypdf < Formula
     sha256 "72b3bde64e5d778694b0cf68178aed03d15e15477116add3fb773e581f9518ff"
   end
 
+  resource "freetype-py" do
+    url "https://files.pythonhosted.org/packages/5d/77/341e6c61795a827390f394c7d5f682561c9fd79cc0b650937d3d5885e3cc/freetype-py-2.3.0.zip"
+    sha256 "f9b64ce3272a5c358dcee824800a32d70997fb872a0965a557adca20fce7a5d0"
+  end
+
   resource "humanfriendly" do
     url "https://files.pythonhosted.org/packages/cc/3f/2c29224acb2e2df4d2046e4c73ee2662023c58ff5b113c4c1adac0886c43/humanfriendly-10.0.tar.gz"
     sha256 "6b0b831ce8f15f7300721aa49829fc4e83921a9a301cc7f606be6686a2288ddc"
@@ -83,7 +88,7 @@ class Ocrmypdf < Formula
     sha256 "a392980d2b6cffa644431898be54b0045151319d1e7ec34f0cfed48767dd334f"
   end
 
-  resource "pdfminer.six" do
+  resource "pdfminer-six" do
     url "https://files.pythonhosted.org/packages/ac/6e/89c532d108e362cbaf76fdb972e7a5e85723c225f08e1646fb86878d4f7f/pdfminer.six-20221105.tar.gz"
     sha256 "8448ab7b939d18b64820478ecac5394f482d7a79f5f7eaa7703c6c959c175e1d"
   end
@@ -98,9 +103,19 @@ class Ocrmypdf < Formula
     sha256 "4224373bacce55f955a878bf9cfa763c1e360858e330072059e10bad68531159"
   end
 
+  resource "pycairo" do
+    url "https://files.pythonhosted.org/packages/69/ca/9e9fa2e8be0876a9bbf046a1be7ee33e61d4fdfbd1fd25c76c1bdfddf8c4/pycairo-1.23.0.tar.gz"
+    sha256 "9b61ac818723adc04367301317eb2e814a83522f07bbd1f409af0dada463c44c"
+  end
+
   resource "reportlab" do
-    url "https://files.pythonhosted.org/packages/b8/ac/10d68a650b321bd8c4d8cbefd9994e7727d57b381c9bdb0a013273011e62/reportlab-3.6.12.tar.gz"
-    sha256 "b13cebf4e397bba14542bcd023338b6ff2c151a3a12aabca89eecbf972cb361a"
+    url "https://files.pythonhosted.org/packages/af/cc/032b5069fd7ebec7dbb33a36d0041b8b283981c649f57eaea9a2b7481f12/reportlab-4.0.0.tar.gz"
+    sha256 "3ea3b2954cb434b024dac61e9f270f2a4c0f9e0cc8b2cf2e310273307b2ba05c"
+  end
+
+  resource "rlpycairo" do
+    url "https://files.pythonhosted.org/packages/41/1c/92b68514640869e554252a1c454b654abea8f9a58567062b96ea254bd7ad/rlPyCairo-0.2.0.tar.gz"
+    sha256 "7cd1eac30fe69d98f75d67a54892f9c10534a047b9a959ef17bb3926a196e50a"
   end
 
   resource "tqdm" do
