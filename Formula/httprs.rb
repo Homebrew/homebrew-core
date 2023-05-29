@@ -9,8 +9,7 @@ class Httprs < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--path", "./"
-    mv "~/.cargo/bin/http-server", HOMEBREW_PREFIX/"bin/httprs"
+    system "cargo", "install", *std_cargo_args
   end
 
   test do
