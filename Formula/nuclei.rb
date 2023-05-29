@@ -18,11 +18,6 @@ class Nuclei < Formula
 
   depends_on "go" => :build
 
-  # Fix kIOMasterPortDefault symbol rename.
-  # Remove when github.com/shoenig/go-m1cpu is bumped to v0.1.5 or newer.
-  # Check: https://github.com/projectdiscovery/nuclei/blob/v#{version}/v2/go.mod
-  patch :DATA
-
   def install
     cd "v2/cmd/nuclei" do
       system "go", "build", *std_go_args(ldflags: "-s -w"), "main.go"
@@ -53,33 +48,3 @@ class Nuclei < Formula
     system bin/"nuclei", "-target", "google.com", "-t", "test.yaml", "-config-directory", testpath
   end
 end
-
-__END__
-diff --git a/v2/go.mod b/v2/go.mod
-index ae37aaa..fe3048f 100644
---- a/v2/go.mod
-+++ b/v2/go.mod
-@@ -126,7 +126,7 @@ require (
- 	github.com/projectdiscovery/cdncheck v1.0.1 // indirect
- 	github.com/projectdiscovery/freeport v0.0.4 // indirect
- 	github.com/sashabaranov/go-openai v1.8.0 // indirect
--	github.com/shoenig/go-m1cpu v0.1.4 // indirect
-+	github.com/shoenig/go-m1cpu v0.1.5 // indirect
- 	github.com/skeema/knownhosts v1.1.0 // indirect
- 	github.com/smartystreets/assertions v1.0.0 // indirect
- 	github.com/tidwall/btree v1.6.0 // indirect
-diff --git a/v2/go.sum b/v2/go.sum
-index fa2367e..c470cd3 100644
---- a/v2/go.sum
-+++ b/v2/go.sum
-@@ -473,8 +473,9 @@ github.com/sergi/go-diff v1.2.0 h1:XU+rvMAioB0UC3q1MFrIQy4Vo5/4VsRDQQXHsEya6xQ=
- github.com/sergi/go-diff v1.2.0/go.mod h1:STckp+ISIX8hZLjrqAeVduY0gWCT9IjLuqbuNXdaHfM=
- github.com/shirou/gopsutil/v3 v3.23.3 h1:Syt5vVZXUDXPEXpIBt5ziWsJ4LdSAAxF4l/xZeQgSEE=
- github.com/shirou/gopsutil/v3 v3.23.3/go.mod h1:lSBNN6t3+D6W5e5nXTxc8KIMMVxAcS+6IJlffjRRlMU=
--github.com/shoenig/go-m1cpu v0.1.4 h1:SZPIgRM2sEF9NJy50mRHu9PKGwxyyTTJIWvCtgVbozs=
- github.com/shoenig/go-m1cpu v0.1.4/go.mod h1:Wwvst4LR89UxjeFtLRMrpgRiyY4xPsejnVZym39dbAQ=
-+github.com/shoenig/go-m1cpu v0.1.5 h1:LF57Z/Fpb/WdGLjt2HZilNnmZOxg/q2bSKTQhgbrLrQ=
-+github.com/shoenig/go-m1cpu v0.1.5/go.mod h1:Wwvst4LR89UxjeFtLRMrpgRiyY4xPsejnVZym39dbAQ=
- github.com/shoenig/test v0.6.3 h1:GVXWJFk9PiOjN0KoJ7VrJGH6uLPnqxR7/fe3HUPfE0c=
- github.com/shoenig/test v0.6.3/go.mod h1:byHiCGXqrVaflBLAMq/srcZIHynQPQgeyvkvXnjqq0k=
- github.com/sirupsen/logrus v1.3.0/go.mod h1:LxeOpSwHxABJmUn/MG1IvRgCAasNZTLOkJPxbbu5VWo=
