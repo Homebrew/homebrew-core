@@ -53,6 +53,8 @@ class Trino < Formula
       inreplace libexec/"etc/node.properties", "docker", tap.user.downcase
       inreplace libexec/"etc/node.properties", "/data/trino", var/"trino/data"
       inreplace libexec/"etc/jvm.config", %r{^-agentpath:/usr/lib/trino/bin/libjvmkill.so$\n}, ""
+
+      inreplace libexec/"etc/log.properties", "#io.trino=", "io.trino="
     end
 
     rewrite_shebang detected_python_shebang, libexec/"bin/launcher.py"
@@ -90,6 +92,9 @@ class Trino < Formula
                                       "--config", testpath/"config.properties"
     end
     sleep 45
+
+    system "cat", testpath/"var/log/launcher.log"
+    system "cat", testpath/"var/log/server.log"
 
     query = "SELECT state FROM system.runtime.nodes"
     output = shell_output(bin/"trino --debug --server localhost:#{port} --execute '#{query}'")
