@@ -4,6 +4,7 @@ class Postgis < Formula
   url "https://download.osgeo.org/postgis/source/postgis-3.3.3.tar.gz"
   sha256 "74eb356e3f85f14233791013360881b6748f78081cc688ff9d6f0f673a762d13"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://download.osgeo.org/postgis/source/"
