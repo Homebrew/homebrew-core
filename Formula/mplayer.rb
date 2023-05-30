@@ -1,10 +1,21 @@
 class Mplayer < Formula
   desc "UNIX movie player"
   homepage "https://mplayerhq.hu/"
-  url "https://mplayerhq.hu/MPlayer/releases/MPlayer-1.5.tar.xz"
-  sha256 "650cd55bb3cb44c9b39ce36dac488428559799c5f18d16d98edb2b7256cbbf85"
   license all_of: ["GPL-2.0-only", "GPL-2.0-or-later"]
   revision 1
+  head "svn://svn.mplayerhq.hu/mplayer/trunk"
+
+  stable do
+    url "https://mplayerhq.hu/MPlayer/releases/MPlayer-1.5.tar.xz"
+    sha256 "650cd55bb3cb44c9b39ce36dac488428559799c5f18d16d98edb2b7256cbbf85"
+
+    # Backports to fix build with FFmpeg 6:
+    # - r38361 (configure, av_helpers.c: Fix compilation against latest FFmpeg) to fix:
+    #   av_helpers.c:57:34: error: no member named 'decode' in 'struct AVCodec'
+    # - r38411 (ad_spdif.c: Use proper way to set avformat option) to fix:
+    #   libmpcodecs/ad_spdif.c:115:57: error: no member named 'priv_data_size' in 'struct AVOutputFormat'
+    patch :p0, :DATA
+  end
 
   livecheck do
     url "https://mplayerhq.hu/MPlayer/releases/"
@@ -23,16 +34,9 @@ class Mplayer < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "897462e9d760c8737c08878e1dbbf8afec17c9dfec0fc09d2992e4f56a5e935d"
   end
 
-  head do
-    url "svn://svn.mplayerhq.hu/mplayer/trunk"
-
-    # When building SVN, configure prompts the user to pull FFmpeg from git.
-    # Don't do that.
-    patch :DATA
-  end
-
   depends_on "pkg-config" => :build
   depends_on "yasm" => :build
+  depends_on "ffmpeg"
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "jpeg-turbo"
@@ -41,6 +45,9 @@ class Mplayer < Formula
   uses_from_macos "libxml2"
 
   def install
+    # Remove bundled FFmpeg
+    (buildpath/"ffmpeg").rmtree if build.stable?
+
     # we disable cdparanoia because homebrew's version is hacked to work on macOS
     # and mplayer doesn't expect the hacks we apply. So it chokes. Only relevant
     # if you have cdparanoia installed.
@@ -48,12 +55,14 @@ class Mplayer < Formula
     args = %W[
       --cc=#{ENV.cc}
       --host-cc=#{ENV.cc}
-      --disable-cdparanoia
       --prefix=#{prefix}
+      --confdir=#{pkgetc}
+      --disable-cdparanoia
+      --disable-ffmpeg_a
+      --disable-libbs2b
       --disable-x11
       --enable-caca
       --enable-freetype
-      --disable-libbs2b
     ]
     system "./configure", *args
     system "make"
@@ -66,16 +75,121 @@ class Mplayer < Formula
 end
 
 __END__
-diff --git a/configure b/configure
-index addc461..3b871aa 100755
---- a/configure
-+++ b/configure
-@@ -1517,8 +1517,6 @@ if test -e ffmpeg/mp_auto_pull ; then
- fi
+Index: av_helpers.c
+===================================================================
+--- av_helpers.c	(revision 38360)
++++ av_helpers.c	(revision 38361)
+@@ -51,11 +51,9 @@
+             AVCodecContext *s= ptr;
+             if(s->codec){
+                 if(s->codec->type == AVMEDIA_TYPE_AUDIO){
+-                    if(s->codec->decode)
+-                        type= MSGT_DECAUDIO;
++                    type= MSGT_DECAUDIO;
+                 }else if(s->codec->type == AVMEDIA_TYPE_VIDEO){
+-                    if(s->codec->decode)
+-                        type= MSGT_DECVIDEO;
++                    type= MSGT_DECVIDEO;
+                 }
+                 //FIXME subtitles, encoders (what msgt for them? there is no appropriate ...)
+             }
+Index: configure
+===================================================================
+--- configure	(revision 38360)
++++ configure	(revision 38361)
+@@ -1591,8 +1591,8 @@
+ }
 
- if test "$ffmpeg_a" != "no" && ! test -e ffmpeg ; then
--    echo "No FFmpeg checkout, press enter to download one with git or CTRL+C to abort"
--    read tmp
-     if ! git clone -b $FFBRANCH --depth 1 git://source.ffmpeg.org/ffmpeg.git ffmpeg ; then
-         rm -rf ffmpeg
-         echo "Failed to get a FFmpeg checkout"
+ echocheck "ffmpeg/libavcodec/allcodecs.c"
+-libavdecoders_all=$(list_subparts_extern  AVCodec       decoder  codec/allcodecs.c)
+-libavencoders_all=$(list_subparts_extern  AVCodec       encoder  codec/allcodecs.c)
++libavdecoders_all=$(list_subparts_extern  FFCodec       decoder  codec/allcodecs.c)
++libavencoders_all=$(list_subparts_extern  FFCodec       encoder  codec/allcodecs.c)
+ libavparsers_all=$(list_subparts_extern   AVCodecParser parser   codec/parsers.c)
+ test $? -eq 0 && _list_subparts=found || _list_subparts="not found"
+ echores "$_list_subparts"
+@@ -1610,7 +1610,7 @@
+ echores "$_list_subparts"
+
+ echocheck "ffmpeg/libavcodec/bitsteram_filters.c"
+-libavbsfs_all=$(list_subparts_extern AVBitStreamFilter bsf codec/bitstream_filters.c)
++libavbsfs_all=$(list_subparts_extern FFBitStreamFilter bsf codec/bitstream_filters.c)
+ test $? -eq 0 && _list_subparts_extern=found || _list_subparts_extern="not found"
+ echores "$_list_subparts_extern"
+
+@@ -9812,9 +9812,9 @@
+     cp $TMPH ffmpeg/$file
+ }
+
+-print_enabled_components libavcodec/codec_list.c AVCodec codec_list $libavdecoders $libavencoders
++print_enabled_components libavcodec/codec_list.c FFCodec codec_list $libavdecoders $libavencoders
+ print_enabled_components libavcodec/parser_list.c AVCodecParser parser_list $libavparsers
+-print_enabled_components libavcodec/bsf_list.c AVBitStreamFilter bitstream_filters $libavbsfs
++print_enabled_components libavcodec/bsf_list.c FFBitStreamFilter bitstream_filters $libavbsfs
+ print_enabled_components libavdevice/indev_list.c AVInputFormat indev_list ""
+ print_enabled_components libavdevice/outdev_list.c AVOutputFormat outdev_list ""
+ print_enabled_components libavformat/demuxer_list.c AVInputFormat demuxer_list $libavdemuxers
+Index: libmpcodecs/ad_spdif.c
+===================================================================
+--- libmpcodecs/ad_spdif.c	(revision 38410)
++++ libmpcodecs/ad_spdif.c	(revision 38411)
+@@ -79,7 +79,7 @@
+ 
+ static int init(sh_audio_t *sh)
+ {
+-    int i, x, in_size, srate, bps, *dtshd_rate, res;
++    int i, x, in_size, srate, bps, res;
+     unsigned char *start;
+     double pts;
+     static const struct {
+@@ -97,6 +97,7 @@
+     AVStream            *stream    = NULL;
+     const AVOption      *opt       = NULL;
+     struct spdifContext *spdif_ctx = NULL;
++    AVDictionary *opts = NULL;
+ 
+     spdif_ctx = av_mallocz(sizeof(*spdif_ctx));
+     if (!spdif_ctx)
+@@ -112,9 +113,6 @@
+     lavf_ctx->oformat = av_guess_format(FILENAME_SPDIFENC, NULL, NULL);
+     if (!lavf_ctx->oformat)
+         goto fail;
+-    lavf_ctx->priv_data = av_mallocz(lavf_ctx->oformat->priv_data_size);
+-    if (!lavf_ctx->priv_data)
+-        goto fail;
+     lavf_ctx->pb = avio_alloc_context(spdif_ctx->pb_buffer, OUTBUF_SIZE, 1, spdif_ctx,
+                             read_packet, write_packet, seek);
+     if (!lavf_ctx->pb)
+@@ -130,12 +128,17 @@
+             break;
+         }
+     }
+-    if ((res = avformat_write_header(lavf_ctx, NULL)) < 0) {
++    // FORCE USE DTS-HD
++    if (lavf_ctx->streams[0]->codecpar->codec_id == AV_CODEC_ID_DTS)
++        av_dict_set(&opts, "dtshd_rate", "768000" /* 192000*4 */, 0);
++    if ((res = avformat_write_header(lavf_ctx, opts)) < 0) {
++        av_dict_free(&opts);
+         if (res == AVERROR_PATCHWELCOME)
+             mp_msg(MSGT_DECAUDIO,MSGL_INFO,
+                "This codec is not supported by spdifenc.\n");
+         goto fail;
+     }
++    av_dict_free(&opts);
+     spdif_ctx->header_written = 1;
+ 
+     // get sample_rate & bitrate from parser
+@@ -177,13 +180,6 @@
+         sh->i_bps                       = bps;
+         break;
+     case AV_CODEC_ID_DTS: // FORCE USE DTS-HD
+-        opt = av_opt_find(&lavf_ctx->oformat->priv_class,
+-                          "dtshd_rate", NULL, 0, 0);
+-        if (!opt)
+-            goto fail;
+-        dtshd_rate                      = (int*)(((uint8_t*)lavf_ctx->priv_data) +
+-                                          opt->offset);
+-        *dtshd_rate                     = 192000*4;
+         spdif_ctx->iec61937_packet_size = 32768;
+         sh->sample_format               = AF_FORMAT_IEC61937_LE;
+         sh->samplerate                  = 192000; // DTS core require 48000
