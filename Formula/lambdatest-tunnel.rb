@@ -16,17 +16,17 @@ class LambdatestTunnel < Formula
     system "unzip", "Lt_mac", "-d", bin.to_s
 
     mv "#{bin}/LT", "#{bin}/lambdatest-tunnel"
-  
+
     # Making binary executable
     chmod "+x", "#{bin}/lambdatest-tunnel"
-  
+
     # Installation success message
     ohai "LambdaTest Tunnel is installed!"
     puts "To run the tunnel, use the following command:"
     puts "lambdatest-tunnel --user <name> -key <accesskey>"
   end
-  
+
   test do
-   assert_match version.to_s, shell_output("#{bin}/lambdatest-tunnel --version")
+    assert_match version.to_s, shell_output("#{bin}/lambdatest-tunnel --version")
   end
 end
