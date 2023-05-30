@@ -3,8 +3,8 @@ class Trino < Formula
 
   desc "Distributed SQL query engine for big data"
   homepage "https://trino.io"
-  url "https://search.maven.org/remotecontent?filepath=io/trino/trino-server/412/trino-server-412.tar.gz", using: :nounzip
-  sha256 "9e02a8be2034664eaa97dc3d83e11b41df9c9d573c1b20f564e2fc3d1cd4a95f"
+  url "https://search.maven.org/remotecontent?filepath=io/trino/trino-server/418/trino-server-418.tar.gz", using: :nounzip
+  sha256 "f12f936fafdbac05b85c752eb7d648ce577b9ec629ceb778d3ecbe95c1eef747"
   license "Apache-2.0"
 
   livecheck do
@@ -23,17 +23,17 @@ class Trino < Formula
   end
 
   depends_on "gnu-tar" => :build
-  depends_on "openjdk"
+  depends_on "openjdk@17"
   depends_on "python@3.11"
 
   resource "trino-src" do
-    url "https://github.com/trinodb/trino/archive/refs/tags/412.tar.gz", using: :nounzip
-    sha256 "20474865f2426048019c981d5bbefe18583549de4bc9b6cfbc2d6403283bc3b5"
+    url "https://github.com/trinodb/trino/archive/refs/tags/418.tar.gz", using: :nounzip
+    sha256 "d358a3cdbe18bcf9c8298b5865cf93a0518438055ef123ba0fa87fa50044ab30"
   end
 
   resource "trino-cli" do
-    url "https://search.maven.org/remotecontent?filepath=io/trino/trino-cli/412/trino-cli-412-executable.jar"
-    sha256 "8d5cf8563942573b8a3926bdf6f8668aef2fd08488a0253d56ff6d450e6f717e"
+    url "https://search.maven.org/remotecontent?filepath=io/trino/trino-cli/418/trino-cli-418-executable.jar"
+    sha256 "2152d01becb652fa61fb4584f811366de0d2086cdf82439d7251128beb337193"
   end
 
   def install
@@ -56,7 +56,7 @@ class Trino < Formula
     end
 
     rewrite_shebang detected_python_shebang, libexec/"bin/launcher.py"
-    (bin/"trino-server").write_env_script libexec/"bin/launcher", Language::Java.overridable_java_home_env
+    (bin/"trino-server").write_env_script libexec/"bin/launcher", Language::Java.overridable_java_home_env("17")
 
     resource("trino-cli").stage do
       libexec.install "trino-cli-#{version}-executable.jar"
@@ -89,7 +89,7 @@ class Trino < Formula
                                       "--data-dir", testpath,
                                       "--config", testpath/"config.properties"
     end
-    sleep 30
+    sleep 45
 
     query = "SELECT state FROM system.runtime.nodes"
     output = shell_output(bin/"trino --debug --server localhost:#{port} --execute '#{query}'")
