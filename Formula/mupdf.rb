@@ -23,7 +23,6 @@ class Mupdf < Formula
 
   depends_on "pkg-config" => :build
   depends_on "freetype"
-  depends_on "gumbo-parser"
   depends_on "harfbuzz"
   depends_on "jbig2dec"
   depends_on "jpeg-turbo"
@@ -45,7 +44,7 @@ class Mupdf < Formula
 
   def install
     # Remove bundled libraries excluding `extract` and "strongly preferred" `lcms2mt` (lcms2 fork)
-    keep = %w[extract lcms2]
+    keep = %w[extract lcms2 gumbo]
     (buildpath/"thirdparty").each_child { |path| path.rmtree if keep.exclude? path.basename.to_s }
 
     args = %W[
@@ -61,7 +60,6 @@ class Mupdf < Formula
     if OS.mac?
       [
         ["FREETYPE", "freetype2"],
-        ["GUMBO", "gumbo"],
         ["HARFBUZZ", "harfbuzz"],
         ["LIBJPEG", "libjpeg"],
         ["OPENJPEG", "libopenjp2"],
@@ -77,6 +75,11 @@ class Mupdf < Formula
     man1.install_symlink man1/"mutool.1" => "mudraw.1"
 
     lib.install_symlink lib/shared_library("libmupdf") => shared_library("libmupdf-third")
+  end
+
+  # see https://bugs.ghostscript.com/show_bug.cgi?id=706736
+  def caveats
+    "MuPDF ships with a deprecated gumbo-parser library that they have no intention of updating, use at your own risk"
   end
 
   test do
