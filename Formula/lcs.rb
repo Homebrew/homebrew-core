@@ -1,17 +1,10 @@
 class Lcs < Formula
   desc "Satirical console-based political role-playing/strategy game"
-  homepage "https://sourceforge.net/projects/lcsgame/"
-  url "https://svn.code.sf.net/p/lcsgame/code/trunk", revision: "738"
-  version "4.07.4b"
+  homepage "https://github.com/King-Drake/Liberal-Crime-Squad"
+  url "https://github.com/King-Drake/Liberal-Crime-Squad/archive/refs/tags/v4.12.66.tar.gz"
+  sha256 "185dfd260b0747a7a55742e744a353eb05c9d59d58935faa8f5e94e98853346a"
   license "GPL-2.0"
-  head "https://svn.code.sf.net/p/lcsgame/code/trunk"
-
-  # This formula is using an unstable trunk version and we can't reliably
-  # identify new versions in this case, so we skip it unless/until it's updated
-  # to use a stable version in the future.
-  livecheck do
-    skip "Formula uses an unstable trunk version"
-  end
+  head "https://github.com/King-Drake/Liberal-Crime-Squad.git"
 
   bottle do
     sha256 arm64_ventura:  "af4b1c073592ae9b4f5f168b00c13fd02fddd09be18938c0d392812ae36a507b"
@@ -34,9 +27,12 @@ class Lcs < Formula
   uses_from_macos "ncurses"
 
   def install
-    system "./bootstrap"
     libs = OS.mac? ? "-liconv" : ""
-    system "./configure", "LIBS=#{libs}", "--prefix=#{prefix}"
+    system "./configure", "LIBS=#{libs}", *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    system bin/"lcs"
   end
 end
