@@ -1,7 +1,8 @@
 class Jsign < Formula
   desc "Tool for signing Windows executable files, installers and scripts"
   homepage "https://ebourg.github.io/jsign/"
-  url "https://github.com/ebourg/jsign.git", tag: "4.2", revision: "e44d2474f7773cbade092362cd4a6a63810f0c95"
+  url "https://github.com/ebourg/jsign/archive/refs/tags/4.2.tar.gz"
+  sha256 "653ce9626969ddcbf3365dee54c25c53586bdf3f5d9a067991e07121dd127bee"
   license "Apache-2.0"
 
   depends_on "maven" => :build
