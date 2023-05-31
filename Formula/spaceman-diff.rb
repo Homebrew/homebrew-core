@@ -27,6 +27,6 @@ class SpacemanDiff < Formula
     else
       ["script", "-q", "/dev/null", bin/"spaceman-diff"]
     end
-    system(*cmd, png, "a190ba", "100644", png, "000000", "100644")
+    system(*cmd, "'#{png} a190ba 100644 #{png} 000000 100644'")
   end
 end
