@@ -1,8 +1,8 @@
 class Dasel < Formula
   desc "JSON, YAML, TOML, XML, and CSV query and modification tool"
   homepage "https://github.com/TomWright/dasel"
-  url "https://github.com/TomWright/dasel/archive/v2.3.1.tar.gz"
-  sha256 "e242359621b30e56c1af6feb0a99ef4ef7f5aade324f923360095d5bf811e848"
+  url "https://github.com/TomWright/dasel/archive/v2.3.2.tar.gz"
+  sha256 "7df1932a885ecd20987db75ffe64cd4f1e91feec953ebaaaa23a21e5f9025574"
   license "MIT"
   head "https://github.com/TomWright/dasel.git", branch: "master"
 
