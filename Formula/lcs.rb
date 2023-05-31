@@ -23,10 +23,12 @@ class Lcs < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "libtool" => :build
 
   uses_from_macos "ncurses"
 
   def install
+    system "autoreconf", "--force", "--install", "--verbose"
     libs = OS.mac? ? "-liconv" : ""
     system "./configure", "LIBS=#{libs}", *std_configure_args
     system "make", "install"
