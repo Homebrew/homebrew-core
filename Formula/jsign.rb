@@ -4,6 +4,7 @@ class Jsign < Formula
   url "https://github.com/ebourg/jsign/archive/refs/tags/4.2.tar.gz"
   sha256 "653ce9626969ddcbf3365dee54c25c53586bdf3f5d9a067991e07121dd127bee"
   license "Apache-2.0"
+  head "https://github.com/ebourg/jsign.git", branch: "master"
 
   depends_on "maven" => :build
   depends_on "openjdk@17"
@@ -17,6 +18,11 @@ class Jsign < Formula
     ENV["JAVA_HOME"] = Formula["openjdk@17"].opt_prefix
     system("mvn", "--batch-mode", "package", "--projects", "jsign-core,jsign-cli,jsign-ant,jsign", "-DskipTests",
            "-Djdeb.skip", "-Dmaven.javadoc.skip")
+
+    # Fetch the version from the pom (required to build from HEAD)
+    require "rexml/document"
+    pom = REXML::Document.new(File.new("pom.xml"))
+    version = REXML::XPath.first(pom, "string(/pom:project/pom:version)", "pom" => "http://maven.apache.org/POM/4.0.0")
 
     libexec.install Dir["jsign/target/jsign-#{version}.jar"]
     bin.write_jar_script libexec/"jsign-#{version}.jar", "jsign", "-Djava.net.useSystemProxies=true -Dbasename=jsign -Dlog4j2.loggerContextFactory=net.jsign.log4j.simple.SimpleLoggerContextFactory"
