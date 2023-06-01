@@ -9,6 +9,7 @@ class Teleport < Formula
   # As of writing, two major versions of `teleport` are being maintained
   # side by side and the "latest" tag can point to a release from the older major version.
   livecheck do
+    url :stable
     strategy :github_release
   end
 
