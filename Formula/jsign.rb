@@ -7,7 +7,7 @@ class Jsign < Formula
   head "https://github.com/ebourg/jsign.git", branch: "master"
 
   depends_on "maven" => :build
-  depends_on "openjdk@17"
+  depends_on "openjdk@17" # The build fails with more recent JDKs
 
   resource "testdata" do
     url "https://github.com/ebourg/jsign/archive/refs/tags/4.2.tar.gz"
