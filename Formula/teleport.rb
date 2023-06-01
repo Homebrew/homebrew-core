@@ -6,13 +6,10 @@ class Teleport < Formula
   license "Apache-2.0"
   head "https://github.com/gravitational/teleport.git", branch: "master"
 
-  # We check the Git tags instead of using the `GithubLatest` strategy, as the
-  # "latest" version can be incorrect. As of writing, two major versions of
-  # `teleport` are being maintained side by side and the "latest" tag can point
-  # to a release from the older major version.
+  # As of writing, two major versions of `teleport` are being maintained
+  # side by side and the "latest" tag can point to a release from the older major version.
   livecheck do
-    url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    strategy :github_release
   end
 
   bottle do
