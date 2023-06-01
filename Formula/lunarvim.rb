@@ -5,11 +5,7 @@ class Lunarvim < Formula
   version "1.3.0"
   sha256 "4b63e968655d9a71ff32fdca653a56bd560555c1780d704669df578048b5f808"
   license "GPL-3.0-or-later"
-
-  head do
-    url "https://github.com/LunarVim/LunarVim-mono/archive/refs/tags/master.tar.gz"
-    sha256 "b1a5e6474ea3fad3ac41866c7616a63f4fe649b5f68979a6a7a5fa8066016128"
-  end
+  head "https://github.com/LunarVim/LunarVim-mono.git", branch: "master"
 
   depends_on "cmake" => :build
   depends_on "fd"
@@ -20,17 +16,13 @@ class Lunarvim < Formula
   depends_on "tree-sitter"
 
   def install
-    system "cmake", "-B", "build", *std_cmake_args
-
-    cd "build" do
-      system "cpack || :"
-    end
-
-    prefix.install Dir["build/_CPack_Packages/Darwin/TGZ/lvim-macos/*"]
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
-    assert_equal true, shell_output("#{bin}/lvim -v").start_with?("NVIM")
+    assert shell_output("#{bin}/lvim -v").start_with?("NVIM")
     assert_equal "lmao", pipe_output("#{bin}/lvim -Es +%print", "lmao\n").strip
   end
 end
