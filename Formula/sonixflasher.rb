@@ -1,18 +1,19 @@
 class Sonixflasher < Formula
   desc "CLI-based Flasher for Sonix 24x/26x MCUs"
   homepage "https://github.com/SonixQMK/SonixFlasherC"
-  # Use the tag instead of the tarball to get submodules
-  url "https://github.com/SonixQMK/SonixFlasherC.git",
-     tag: "1.0.0", revision: "41ae51cef5021a340016d95372e08f2f6c94863a"
+  url "https://github.com/SonixQMK/SonixFlasherC/archive/refs/tags/1.1.0.tar.gz"
+  sha256 "899beef48ca8eca0d8037794870f9f58f7cb463e3a3ddfeb2b5c446edbffbef9"
   license "GPL-3.0-only"
 
+  depends_on "hidapi"
+
   def install
-    system "make", "sonixflasher"
+    system "make", "clean", "sonixflasher"
     bin.install "sonixflasher"
   end
 
   test do
-    output = shell_output("#{bin}/sonixflasher -f test.bin 2>&1", 139)
-    assert_match "ERROR: Could not open file (Does the file exist?).\n", output
+    output = shell_output("#{bin}/sonixflasher -V 2>&1", 1)
+    assert_match "sonixflasher 1.1.0\n", output
   end
 end
