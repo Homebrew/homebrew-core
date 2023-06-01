@@ -3,8 +3,8 @@ class Cups < Formula
   homepage "https://github.com/OpenPrinting/cups"
   # This is the author's fork of CUPS. Debian have switched to this fork:
   # https://lists.debian.org/debian-printing/2020/12/msg00006.html
-  url "https://github.com/OpenPrinting/cups/releases/download/v2.4.2/cups-2.4.2-source.tar.gz"
-  sha256 "f03ccb40b087d1e30940a40e0141dcbba263f39974c20eb9f2521066c9c6c908"
+  url "https://github.com/OpenPrinting/cups/releases/download/v2.4.3/cups-2.4.3-source.tar.gz"
+  sha256 "9ddeb98f20e9c9f4af121c2b1053e7420b79bd6770f1aded2866303d27526f6f"
   license "Apache-2.0"
   head "https://github.com/OpenPrinting/cups.git", branch: "master"
 
@@ -35,11 +35,9 @@ class Cups < Formula
   end
 
   def install
-    system "./configure", "--disable-debug",
+    system "./configure", *std_configure_args,
                           "--with-components=core",
-                          "--without-bundledir",
-                          "--prefix=#{prefix}",
-                          "--libdir=#{lib}"
+                          "--without-bundledir"
     system "make", "install"
   end
 
