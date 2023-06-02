@@ -11,6 +11,7 @@ class Ice9BluetoothSniffer < Formula
   depends_on "libbladerf"
   depends_on "liquid-dsp"
   depends_on "uhd"
+  depends_on "vim" => :build
 
   on_linux do
     depends_on "fftw"
