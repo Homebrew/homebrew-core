@@ -2,7 +2,7 @@ class Ice9BluetoothSniffer < Formula
   desc "Wireshark-compatible all-channel BLE sniffer for bladeRF, HackRF, and USRP"
   homepage "https://github.com/mikeryan/ice9-bluetooth-sniffer"
   url "https://github.com/mikeryan/ice9-bluetooth-sniffer/archive/refs/tags/v23.06.0.tar.gz"
-  sha256 "2fc322c18b775cb0d6101efb24d09aea80f758f26e0772820a4595a7d8313e99"
+  sha256 "1bb5ffa6494513406c5c482bb0a427c5e1012b103602f325d24827abbc82d6c1"
   license "GPL-2.0-or-later"
 
   depends_on "cmake" => :build
