@@ -6,12 +6,12 @@ class Ice9BluetoothSniffer < Formula
   license "GPL-2.0-or-later"
 
   depends_on "cmake" => :build
+  depends_on "vim" => :build
   depends_on "coreutils" => :test
   depends_on "hackrf"
   depends_on "libbladerf"
   depends_on "liquid-dsp"
   depends_on "uhd"
-  depends_on "vim" => :build
 
   on_linux do
     depends_on "fftw"
