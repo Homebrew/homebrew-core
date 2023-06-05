@@ -64,6 +64,7 @@ class Llvm < Formula
     projects = %w[
       clang
       clang-tools-extra
+      flang
       lld
       lldb
       mlir
