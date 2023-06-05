@@ -9,11 +9,6 @@ class Jsign < Formula
   depends_on "maven" => :build
   depends_on "openjdk@17" # The build fails with more recent JDKs
 
-  resource "testdata" do
-    url "https://github.com/ebourg/jsign/archive/refs/tags/4.2.tar.gz"
-    sha256 "653ce9626969ddcbf3365dee54c25c53586bdf3f5d9a067991e07121dd127bee"
-  end
-
   def install
     ENV["JAVA_HOME"] = Formula["openjdk@17"].opt_prefix
     system("mvn", "--batch-mode", "package", "--projects", "jsign-core,jsign-cli,jsign-ant,jsign", "-DskipTests",
@@ -31,6 +26,11 @@ class Jsign < Formula
   end
 
   test do
+    resource "testdata" do
+      url "https://github.com/ebourg/jsign/archive/refs/tags/4.2.tar.gz"
+      sha256 "653ce9626969ddcbf3365dee54c25c53586bdf3f5d9a067991e07121dd127bee"
+    end
+
     resource("testdata").stage testpath
     res = "jsign-core/src/test/resources"
 
