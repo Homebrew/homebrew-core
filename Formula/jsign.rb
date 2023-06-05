@@ -33,7 +33,6 @@ class Jsign < Formula
   test do
     resource("testdata").stage testpath
     res = "jsign-core/src/test/resources"
-    system "#{bin}/jsign", "--help"
 
     system "#{bin}/jsign", "--keystore", "#{res}/keystores/keystore.p12",
                            "--storepass", "password",
