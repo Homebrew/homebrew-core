@@ -1,8 +1,8 @@
 class Jsign < Formula
   desc "Tool for signing Windows executable files, installers and scripts"
   homepage "https://ebourg.github.io/jsign/"
-  url "https://github.com/ebourg/jsign/archive/refs/tags/4.2.tar.gz"
-  sha256 "653ce9626969ddcbf3365dee54c25c53586bdf3f5d9a067991e07121dd127bee"
+  url "https://github.com/ebourg/jsign/archive/refs/tags/5.0.tar.gz"
+  sha256 "7b77a12aaea4f404e7b243bd58cfde485eb03b44219e128338c9fe6617ad1fa1"
   license "Apache-2.0"
   head "https://github.com/ebourg/jsign.git", branch: "master"
 
@@ -27,8 +27,8 @@ class Jsign < Formula
 
   test do
     resource "testdata" do
-      url "https://github.com/ebourg/jsign/archive/refs/tags/4.2.tar.gz"
-      sha256 "653ce9626969ddcbf3365dee54c25c53586bdf3f5d9a067991e07121dd127bee"
+      url "https://github.com/ebourg/jsign/archive/refs/tags/5.0.tar.gz"
+      sha256 "7b77a12aaea4f404e7b243bd58cfde485eb03b44219e128338c9fe6617ad1fa1"
     end
 
     resource("testdata").stage testpath
