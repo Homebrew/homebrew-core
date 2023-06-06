@@ -24,7 +24,7 @@ class Jsign < Formula
 
     libexec.install Dir["jsign/target/jsign-#{version}.jar"]
     bin.write_jar_script libexec/"jsign-#{version}.jar", "jsign", "-Djava.net.useSystemProxies=true -Dbasename=jsign -Dlog4j2.loggerContextFactory=net.jsign.log4j.simple.SimpleLoggerContextFactory"
-    bash_completion.install "jsign/src/deb/data/usr/share/bash-completion/completions/jsign" => "jsign"
+    bash_completion.install "jsign/src/deb/data/usr/share/bash-completion/completions/jsign"
     man1.install "jsign/src/deb/data/usr/share/man/man1/jsign.1"
   end
 
