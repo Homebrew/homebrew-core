@@ -18,12 +18,10 @@ class Abseil < Formula
 
   depends_on "cmake" => :build
 
-  fails_with gcc: "5" # C++17
-
   def install
     system "cmake", "-S", ".", "-B", "build",
                     "-DCMAKE_INSTALL_RPATH=#{rpath}",
-                    "-DCMAKE_CXX_STANDARD=17",
+                    "-DCMAKE_CXX_STANDARD=14",
                     "-DBUILD_SHARED_LIBS=ON",
                     "-DABSL_PROPAGATE_CXX_STD=ON",
                     *std_cmake_args
@@ -52,7 +50,7 @@ class Abseil < Formula
         std::cout << "Joined string: " << s << "\\n";
       }
     EOS
-    system ENV.cxx, "-std=c++17", "-I#{include}", "-L#{lib}", "-labsl_strings",
+    system ENV.cxx, "-std=c++14", "-I#{include}", "-L#{lib}", "-labsl_strings",
                     "test.cc", "-o", "test"
     assert_equal "Joined string: foo-bar-baz\n", shell_output("#{testpath}/test")
   end
