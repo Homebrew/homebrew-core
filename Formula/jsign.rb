@@ -11,8 +11,11 @@ class Jsign < Formula
 
   def install
     ENV["JAVA_HOME"] = Formula["openjdk@17"].opt_prefix
-    system("mvn", "--batch-mode", "package", "--projects", "jsign-core,jsign-cli,jsign-ant,jsign", "-DskipTests",
-           "-Djdeb.skip", "-Dmaven.javadoc.skip")
+    system "mvn", "--batch-mode", "package",
+                  "--projects", "jsign-core,jsign-cli,jsign-ant,jsign",
+                  "-DskipTests",
+                  "-Djdeb.skip",
+                  "-Dmaven.javadoc.skip"
 
     # Fetch the version from the pom (required to build from HEAD)
     require "rexml/document"
