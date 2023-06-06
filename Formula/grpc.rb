@@ -5,6 +5,7 @@ class Grpc < Formula
       tag:      "v1.55.0",
       revision: "0bf4a618b17a3f0ed61c22364913c7f66fc1c61a"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/grpc/grpc.git", branch: "master"
 
   # The "latest" release on GitHub is sometimes for an older major/minor and
