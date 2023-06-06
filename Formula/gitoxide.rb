@@ -2,8 +2,8 @@ class Gitoxide < Formula
   desc "Idiomatic, lean, fast & safe pure Rust implementation of Git"
   homepage "https://github.com/Byron/gitoxide"
   # TODO: Update `features` array in install at version bump.
-  url "https://github.com/Byron/gitoxide/archive/refs/tags/v0.25.0.tar.gz"
-  sha256 "098bb18e1cae42ab7597b6b442538d3f51b57935a848ea121e20e2921d6a4693"
+  url "https://github.com/Byron/gitoxide/archive/refs/tags/gix-v0.45.1.tar.gz"
+  sha256 "a044317c4673dd663a90def6af64da99136aa818c8e9d27de8ec2564542967ba"
   license "Apache-2.0"
   head "https://github.com/Byron/gitoxide.git", branch: "main"
 
