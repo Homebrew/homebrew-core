@@ -23,7 +23,12 @@ class Jsign < Formula
     version = REXML::XPath.first(pom, "string(/pom:project/pom:version)", "pom" => "http://maven.apache.org/POM/4.0.0")
 
     libexec.install Dir["jsign/target/jsign-#{version}.jar"]
-    bin.write_jar_script libexec/"jsign-#{version}.jar", "jsign", "-Djava.net.useSystemProxies=true -Dbasename=jsign -Dlog4j2.loggerContextFactory=net.jsign.log4j.simple.SimpleLoggerContextFactory"
+    args = %w[
+      -Djava.net.useSystemProxies=true
+      -Dbasename=jsign
+      -Dlog4j2.loggerContextFactory=net.jsign.log4j.simple.SimpleLoggerContextFactory
+    ]
+    bin.write_jar_script libexec/"jsign-#{version}.jar", "jsign", args.join(" ")
     bash_completion.install "jsign/src/deb/data/usr/share/bash-completion/completions/jsign"
     man1.install "jsign/src/deb/data/usr/share/man/man1/jsign.1"
   end
