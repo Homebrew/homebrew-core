@@ -22,7 +22,7 @@ class Jsign < Formula
     pom = REXML::Document.new(File.new("pom.xml"))
     version = REXML::XPath.first(pom, "string(/pom:project/pom:version)", "pom" => "http://maven.apache.org/POM/4.0.0")
 
-    libexec.install Dir["jsign/target/jsign-#{version}.jar"]
+    libexec.install "jsign/target/jsign-#{version}.jar"
     args = %w[
       -Djava.net.useSystemProxies=true
       -Dbasename=jsign
