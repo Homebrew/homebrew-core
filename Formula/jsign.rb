@@ -31,20 +31,28 @@ class Jsign < Formula
     bin.write_jar_script libexec/"jsign-#{version}.jar", "jsign", args.join(" ")
     bash_completion.install "jsign/src/deb/data/usr/share/bash-completion/completions/jsign"
     man1.install "jsign/src/deb/data/usr/share/man/man1/jsign.1"
-
-    # Install the test files
-    pkgshare.install "jsign-core/src/test/resources/keystores/keystore.p12"
-    pkgshare.install "jsign-core/src/test/resources/wineyes.exe"
-    pkgshare.install "jsign-core/src/test/resources/minimal.msi"
   end
 
   test do
-    system "#{bin}/jsign", "--keystore", pkgshare/"keystore.p12",
-                           "--storepass", "password",
-                           pkgshare/"wineyes.exe"
+    resource "testdata" do
+      url "https://github.com/ebourg/jsign/archive/refs/tags/5.0.tar.gz"
+      sha256 "7b77a12aaea4f404e7b243bd58cfde485eb03b44219e128338c9fe6617ad1fa1"
+    end
 
-    system "#{bin}/jsign", "--keystore", pkgshare/"keystore.p12",
+    resource("testdata").stage testpath
+    res = "jsign-core/src/test/resources"
+
+    system "#{bin}/jsign", "--keystore", "#{res}/keystores/keystore.p12",
                            "--storepass", "password",
-                           pkgshare/"minimal.msi"
+                           "#{res}/wineyes.exe"
+
+    system "#{bin}/jsign", "--keystore", "#{res}/keystores/keystore.jks",
+                           "--storepass", "password",
+                           "#{res}/minimal.msi"
+
+    system "#{bin}/jsign", "--keyfile", "#{res}/keystores/privatekey.pvk",
+                           "--certfile", "#{res}/keystores/jsign-test-certificate-full-chain.spc",
+                           "--storepass", "password",
+                           "#{res}/hello-world.vbs"
   end
 end
