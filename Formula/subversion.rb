@@ -70,9 +70,9 @@ class Subversion < Formula
   end
 
   resource "serf" do
-    url "https://www.apache.org/dyn/closer.lua?path=serf/serf-1.3.9.tar.bz2"
-    mirror "https://archive.apache.org/dist/serf/serf-1.3.9.tar.bz2"
-    sha256 "549c2d21c577a8a9c0450facb5cca809f26591f048e466552240947bdf7a87cc"
+    url "https://www.apache.org/dyn/closer.lua?path=serf/serf-1.3.10.tar.bz2"
+    mirror "https://archive.apache.org/dist/serf/serf-1.3.10.tar.bz2"
+    sha256 "be81ef08baa2516ecda76a77adf7def7bc3227eeb578b9a33b45f7b41dc064e6"
   end
 
   def python3
@@ -93,8 +93,6 @@ class Subversion < Formula
       end
 
       inreplace "SConstruct" do |s|
-        s.gsub! "print 'Warning: Used unknown variables:', ', '.join(unknown.keys())",
-        "print('Warning: Used unknown variables:', ', '.join(unknown.keys()))"
         s.gsub! "match = re.search('SERF_MAJOR_VERSION ([0-9]+).*'",
         "match = re.search(b'SERF_MAJOR_VERSION ([0-9]+).*'"
         s.gsub! "'SERF_MINOR_VERSION ([0-9]+).*'",
