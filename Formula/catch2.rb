@@ -4,6 +4,7 @@ class Catch2 < Formula
   url "https://github.com/catchorg/Catch2/archive/v3.3.2.tar.gz"
   sha256 "8361907f4d9bff3ae7c1edb027f813659f793053c99b67837a0c0375f065bae2"
   license "BSL-1.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "15f5edc179c4627d31eb25a0628eaa7b9d6807afb874e363a1fc6e6ae7161146"
@@ -17,11 +18,9 @@ class Catch2 < Formula
 
   depends_on "cmake" => :build
 
-  fails_with gcc: "5"
-
   def install
     mkdir "build" do
-      system "cmake", "..", "-DBUILD_TESTING=OFF", *std_cmake_args
+      system "cmake", "..", "-DBUILD_TESTING=OFF", "-DCMAKE_CXX_STANDARD=17", *std_cmake_args
       system "cmake", "--build", ".", "--target", "install"
     end
   end
