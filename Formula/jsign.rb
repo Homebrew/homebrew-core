@@ -34,12 +34,7 @@ class Jsign < Formula
   end
 
   test do
-    resource "testdata" do
-      url "https://github.com/ebourg/jsign/archive/refs/tags/5.0.tar.gz"
-      sha256 "7b77a12aaea4f404e7b243bd58cfde485eb03b44219e128338c9fe6617ad1fa1"
-    end
-
-    resource("testdata").stage testpath
+    stable.stage testpath
     res = "jsign-core/src/test/resources"
 
     system "#{bin}/jsign", "--keystore", "#{res}/keystores/keystore.p12",
