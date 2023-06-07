@@ -93,12 +93,6 @@ class Subversion < Formula
       end
 
       inreplace "SConstruct" do |s|
-        s.gsub! "match = re.search('SERF_MAJOR_VERSION ([0-9]+).*'",
-        "match = re.search(b'SERF_MAJOR_VERSION ([0-9]+).*'"
-        s.gsub! "'SERF_MINOR_VERSION ([0-9]+).*'",
-        "b'SERF_MINOR_VERSION ([0-9]+).*'"
-        s.gsub! "'SERF_PATCH_VERSION ([0-9]+)'",
-        "b'SERF_PATCH_VERSION ([0-9]+)'"
         s.gsub! "variables=opts,",
         "variables=opts, RPATHPREFIX = '-Wl,-rpath,',"
       end
