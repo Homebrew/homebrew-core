@@ -14,6 +14,7 @@ class Qt < Formula
     { "GPL-3.0-only" => { with: "Qt-GPL-exception-1.0" } },
     "LGPL-3.0-only",
   ]
+  revision 1
   head "https://code.qt.io/qt/qt5.git", branch: "dev"
 
   # The first-party website doesn't make version information readily available,
@@ -134,6 +135,14 @@ class Qt < Formula
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/c363f0edf9e90598d54bc3f4f1bacf95abbda282/qt/qt_internal_check_if_path_has_symlinks.patch"
     sha256 "1afd8bf3299949b2717265228ca953d8d9e4201ddb547f43ed84ac0d7da7a135"
+    directory "qtbase"
+  end
+
+  # Fix a Qt 6.5.1 QTabBar regression, certain tabbars are unusable because all tab items above the last selected tab
+  # is missing.
+  patch do
+    url "https://code.qt.io/cgit/qt/qtbase.git/patch/?id=9177dbd87991ff277fd77a25c3464e259d11b998"
+    sha256 "1730b675ede24d80c2e73a2f662cc73718f3060c0b8a707784d188bb11297c4e"
     directory "qtbase"
   end
 
