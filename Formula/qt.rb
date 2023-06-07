@@ -137,6 +137,14 @@ class Qt < Formula
     directory "qtbase"
   end
 
+  # Fix a Qt 6.5.1 QTabBar regression, certain tabbars are unusable because all tab items above the last selected tab
+  # is missing.
+  patch do
+    url "https://code.qt.io/cgit/qt/qtbase.git/patch/?id=9177dbd87991ff277fd77a25c3464e259d11b998"
+    sha256 "1730b675ede24d80c2e73a2f662cc73718f3060c0b8a707784d188bb11297c4e"
+    directory "qtbase"
+  end
+
   def install
     # Allow -march options to be passed through, as Qt builds
     # arch-specific code with runtime detection of capabilities:
