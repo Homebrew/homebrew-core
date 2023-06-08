@@ -3,8 +3,8 @@
 class Mercurial < Formula
   desc "Scalable distributed version control system"
   homepage "https://mercurial-scm.org/"
-  url "https://www.mercurial-scm.org/release/mercurial-6.4.tar.gz"
-  sha256 "e88bfbcb9911e76904a31b972e57f86da8e6ce5892b98c39dd51d3b9599c1347"
+  url "https://www.mercurial-scm.org/release/mercurial-6.4.4.tar.gz"
+  sha256 "bb985397cb7470ee0158bee237097e2fddffad327e645a49497a33471e78a910"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -22,6 +22,8 @@ class Mercurial < Formula
     sha256 x86_64_linux:   "83250c8d367fc96f0cad602e2cd0c581d2b404ff70763491f527a4593f3be071"
   end
 
+  depends_on "gettext" => :build # for msgfmt
+  depends_on "pkg-config" => :build
   depends_on "python@3.11"
 
   def install
