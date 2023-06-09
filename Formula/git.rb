@@ -22,6 +22,7 @@ class Git < Formula
     sha256 x86_64_linux:   "d30b3a4a08df3e70ffd1eaf3e2b4046bf3a25e744ae3cdea89544849e3db4bb7"
   end
 
+  depends_on "bash"
   depends_on "gettext"
   depends_on "pcre2"
 
@@ -86,7 +87,7 @@ class Git < Formula
     ]
 
     args += if OS.mac?
-      %w[NO_OPENSSL=1 APPLE_COMMON_CRYPTO=1]
+      %W[NO_OPENSSL=1 APPLE_COMMON_CRYPTO=1 SHELL_PATH=#{HOMEBREW_PREFIX}/bin/bash]
     else
       openssl_prefix = Formula["openssl@1.1"].opt_prefix
 
