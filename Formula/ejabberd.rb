@@ -28,6 +28,7 @@ class Ejabberd < Formula
   end
 
   conflicts_with "couchdb", because: "both install `jiffy` lib"
+  conflicts_with "eturnal", because: "both install e.g. `p1_utils-x.x.x` lib"
 
   def install
     ENV["TARGET_DIR"] = ENV["DESTDIR"] = "#{lib}/ejabberd/erlang/lib/ejabberd-#{version}"

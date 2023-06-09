@@ -16,6 +16,8 @@ class Eturnal < Formula
     depends_on "zlib"
   end
 
+  conflicts_with "ejabberd", because: "both install e.g. `p1_utils-x.x.x` lib"
+
   def install
     # Patches
     ## change default install dir, epmd address
