@@ -8,9 +8,8 @@ class GitTools < Formula
   license "GPL-3.0-only"
   head "https://github.com/MestreLion/git-tools.git", branch: "main"
 
-  depends_on "python@3.11" => :test
+  depends_on "python@3.11"
   uses_from_macos "bash"
-  uses_from_macos "python"
 
   def install
     rewrite_shebang detected_python_shebang, "git-restore-mtime"
