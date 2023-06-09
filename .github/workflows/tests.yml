@@ -45,6 +45,8 @@ jobs:
     env:
       HOMEBREW_SIMULATE_MACOS_ON_LINUX: 1
     steps:
+      - run: jq .pull_request.head.ref "$GITHUB_EVENT_PATH"
+
       - name: Set up Homebrew
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
