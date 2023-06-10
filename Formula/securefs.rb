@@ -2,8 +2,8 @@ class Securefs < Formula
   desc "Filesystem with transparent authenticated encryption"
   homepage "https://github.com/netheril96/securefs"
   url "https://github.com/netheril96/securefs.git",
-      tag:      "0.13.1",
-      revision: "bb7088e3fe43cd5978ec6b09b4cd9615a4ab654c"
+      tag:      "0.14.1",
+      revision: "4a57f0342d1f0f71f6b8833abf4a6bafc0e6c187"
   license "MIT"
   head "https://github.com/netheril96/securefs.git", branch: "master"
 
@@ -12,11 +12,21 @@ class Securefs < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
+  depends_on "abseil"
+  depends_on "argon2"
+  depends_on "jsoncpp"
   depends_on "libfuse@2"
   depends_on :linux # on macOS, requires closed-source macFUSE
+  depends_on "utf8proc"
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    args = std_cmake_args + %w[
+      -DSECUREFS_ENABLE_BUILD_TEST=OFF
+      -DSECUREFS_USE_VCPKG=OFF
+    ]
+
+    system "cmake", "-S", ".", "-B", "build", *args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
