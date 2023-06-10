@@ -28,7 +28,8 @@ class GitTools < Formula
     output = shell_output("#{bin}/git-restore-mtime . 2>&1")
     assert_match "1 files to be processed in work dir", output
     assert_match "1 files updated", output
-    assert_match "master -> test", shell_output("#{bin}/git-branches-rename -n -v master test")
+    system "git", "checkout", "-b", "testrename"
+    assert_match "testrename -> test", shell_output("#{bin}/git-branches-rename -n -v testrename test")
     touch "aaa"
     assert_equal ".", shell_output("#{bin}/git-find-uncommitted-repos -u .").chomp
     assert_match "Cloning into 'test'...", shell_output(
