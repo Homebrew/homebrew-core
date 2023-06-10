@@ -4,6 +4,7 @@ class Lfe < Formula
   url "https://github.com/lfe/lfe/archive/v2.1.1.tar.gz"
   sha256 "e5abacd57dc2f357dda46d8336a40046be806f5c6776f95612676c4b45f6d56b"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/lfe/lfe.git", branch: "develop"
 
   bottle do
@@ -17,7 +18,7 @@ class Lfe < Formula
   end
 
   depends_on "emacs" => :build
-  depends_on "erlang"
+  depends_on "erlang@25"
 
   def install
     system "make"
