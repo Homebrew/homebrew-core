@@ -12,8 +12,8 @@ class GitTools < Formula
 
   def install
     rewrite_shebang detected_python_shebang(use_python_from_path: true), "git-restore-mtime"
-    bin.install Dir["git-*"]
-    man1.install Dir["man1/*.1"]
+    bin.install buildpath.glob("git-*")
+    man1.install buildpath.glob("man1/*.1")
   end
 
   test do
