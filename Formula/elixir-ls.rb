@@ -4,6 +4,7 @@ class ElixirLs < Formula
   url "https://github.com/elixir-lsp/elixir-ls/archive/refs/tags/v0.14.6.tar.gz"
   sha256 "a048e8b2fa1fab1ec34d6d99ffd2295762f8c5c3f9fd0aa0aab916b0f2e99629"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2069fdc5e25396179c19442b5f304245900ae2fb7b989791c90dd31cbe4754c3"
