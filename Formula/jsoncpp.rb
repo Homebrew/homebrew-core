@@ -22,15 +22,14 @@ class Jsoncpp < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e00ec8c187ad0787b392125e31b23d0c2b0dcbb4e9f66cfd34570ca813146ab9"
   end
 
-  depends_on "meson" => :build
-  depends_on "ninja" => :build
+  depends_on "cmake" => [:build, :test]
 
   def install
-    mkdir "build" do
-      system "meson", *std_meson_args, ".."
-      system "ninja", "-v"
-      system "ninja", "install", "-v"
-    end
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DBUILD_SHARED_LIBS=ON",
+                    *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
@@ -50,5 +49,19 @@ class Jsoncpp < Formula
                   "-L#{lib}",
                   "-ljsoncpp"
     system "./test"
+
+    # simple cmake test for jsoncpp
+    (testpath/"CMakeLists.txt").write <<~EOS
+      cmake_minimum_required(VERSION 3.6)
+      project(jsoncpp-test LANGUAGES CXX)
+      find_package(jsoncpp REQUIRED)
+      add_executable(jsoncpp-test test.cpp)
+      target_link_libraries(jsoncpp-test PRIVATE jsoncpp_lib)
+    EOS
+
+    # Test cmake build
+    system "cmake", "-B", "build"
+    system "cmake", "--build", "build"
+    system "./build/jsoncpp-test"
   end
 end
