@@ -4,6 +4,7 @@ class Elixir < Formula
   url "https://github.com/elixir-lang/elixir/archive/v1.14.5.tar.gz"
   sha256 "2ea249566c67e57f8365ecdcd0efd9b6c375f57609b3ac2de326488ac37c8ebd"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/elixir-lang/elixir.git", branch: "main"
 
   bottle do
@@ -16,7 +17,7 @@ class Elixir < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ee0f60e888cf726d9693472c775378fdbd65eadb8ff3ad7407d6ece3e50b587b"
   end
 
-  depends_on "erlang"
+  depends_on "erlang@25"
 
   def install
     system "make"
@@ -31,6 +32,7 @@ class Elixir < Formula
   end
 
   test do
-    assert_match(%r{(compiled with Erlang/OTP 25)}, shell_output("#{bin}/elixir -v"))
+    assert_match(%r{(compiled with Erlang/OTP #{Formula["erlang@25"].version.major})},
+                  shell_output("#{bin}/elixir -v"))
   end
 end
