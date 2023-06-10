@@ -8,11 +8,10 @@ class GitTools < Formula
   license "GPL-3.0-only"
   head "https://github.com/MestreLion/git-tools.git", branch: "main"
 
-  depends_on "python@3.11"
-  uses_from_macos "bash"
+  uses_from_macos "python", since: :catalina
 
   def install
-    rewrite_shebang detected_python_shebang, "git-restore-mtime"
+    rewrite_shebang detected_python_shebang(use_python_from_path: true), "git-restore-mtime"
     bin.install Dir["git-*"]
     man1.install Dir["man1/*.1"]
   end
