@@ -48,6 +48,7 @@ class Questdb < Formula
       assert_match "questDB", output
     ensure
       system "#{bin}/questdb", "stop"
+      sleep 4
     end
   end
 end
