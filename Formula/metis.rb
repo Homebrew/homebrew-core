@@ -1,14 +1,9 @@
 class Metis < Formula
   desc "Programs that partition graphs and order matrices"
-  homepage "http://glaros.dtc.umn.edu/gkhome/views/metis"
-  url "http://glaros.dtc.umn.edu/gkhome/fetch/sw/metis/metis-5.1.0.tar.gz"
-  sha256 "76faebe03f6c963127dbb73c13eab58c9a3faeae48779f049066a21c087c5db2"
+  homepage "https://github.com/KarypisLab/METIS"
+  url "https://github.com/KarypisLab/METIS/archive/refs/tags/v5.2.1.tar.gz"
+  sha256 "1a4665b2cd07edc2f734e30d7460afb19c1217c2547c2ac7bf6e1848d50aff7a"
   license "Apache-2.0"
-
-  livecheck do
-    url "http://glaros.dtc.umn.edu/gkhome/metis/metis/download"
-    regex(%r{href=.*?/metis[._-]v?(\d+(?:\.\d+)+)\.t}i)
-  end
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "5bea2beeae9e3394cc675df14dc30e078b6ed575f0bad4c05717ee3f75ed4aee"
@@ -27,8 +22,18 @@ class Metis < Formula
 
   depends_on "cmake" => :build
 
+  resource "gklib" do
+    url "https://github.com/KarypisLab/GKLib.git", revision: "8bd6bad750b2b0d90800c632cf18e8ee93ad72d7"
+  end
+
   def install
-    system "make", "config", "prefix=#{prefix}", "shared=1"
+    args = %W[prefix=#{prefix} shared=1 cc=#{ENV.cc}]
+    resource("gklib").stage do
+      system "make", "config", *args
+      system "make", "install"
+    end
+
+    system "make", "config", *args, "gklib_path=#{prefix}"
     system "make", "install"
 
     pkgshare.install "graphs"
