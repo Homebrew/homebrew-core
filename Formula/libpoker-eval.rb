@@ -22,6 +22,8 @@ class LibpokerEval < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "723cc1e71146dbe997acaacd71fd71f46266de3977b0ee24f3cf54fae280d208"
   end
 
+  deprecate! date: "2023-06-12", because: :repo_removed
+
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--disable-debug",
