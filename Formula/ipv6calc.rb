@@ -5,8 +5,8 @@ class Ipv6calc < Formula
 
   desc "Small utility for manipulating IPv6 addresses"
   homepage "https://www.deepspace6.net/projects/ipv6calc.html"
-  url "https://github.com/pbiering/ipv6calc/archive/4.0.2.tar.gz"
-  sha256 "f96a89bdce201ec313f66514ee52eeab5f5ead3d2ba9efe5ed9f757632cd01a1"
+  url "https://github.com/pbiering/ipv6calc/archive/4.1.0.tar.gz"
+  sha256 "9c42edd9998f13465d275a3124cfdf72c93fd793d38f6d732124ac3f4b84e36e"
   license "GPL-2.0-only"
 
   bottle do
@@ -23,16 +23,16 @@ class Ipv6calc < Formula
 
   on_linux do
     resource "URI::Escape" do
-      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/URI-5.17.tar.gz"
-      sha256 "5f7e42b769cb27499113cfae4b786c37d49e7c7d32dbb469602cd808308568f8"
+      url "https://cpan.metacpan.org/authors/id/S/SI/SIMBABQUE/URI-5.19.tar.gz"
+      sha256 "8fed5f819905c8a8e18f4447034322d042c3536b43c13ac1f09ba92e1a50a394"
     end
 
     resource "HTML::Entities" do
-      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTML-Parser-3.80.tar.gz"
-      sha256 "63411db03016747e37c2636db11b05f8cc71608ef5bff36d04ddb0dc92f7835b"
+      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTML-Parser-3.81.tar.gz"
+      sha256 "c0910a5c8f92f8817edd06ccfd224ba1c2ebe8c10f551f032587a1fc83d62ff2"
     end
 
-    resource "DIGEST::Sha1" do
+    resource "Digest::SHA1" do
       url "https://cpan.metacpan.org/authors/id/G/GA/GAAS/Digest-SHA1-2.13.tar.gz"
       sha256 "68c1dac2187421f0eb7abf71452a06f190181b8fc4b28ededf5b90296fb943cc"
     end
