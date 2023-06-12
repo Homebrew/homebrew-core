@@ -18,10 +18,6 @@ class Xorriso < Formula
 
   uses_from_macos "zlib"
 
-  # Submit the patch into the upstream, see:
-  # https://lists.gnu.org/archive/html/bug-xorriso/2023-06/msg00000.html
-  patch :DATA
-
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
@@ -39,17 +35,3 @@ class Xorriso < Formula
     assert_match version.to_s, shell_output("#{bin}/xorriso -version")
   end
 end
-
-__END__
-diff --git a/libisofs/rockridge.h b/libisofs/rockridge.h
-index 5649eb7..01c4224 100644
---- a/libisofs/rockridge.h
-+++ b/libisofs/rockridge.h
-@@ -41,6 +41,8 @@
-
- #include "ecma119.h"
-
-+/* For ssize_t */
-+#include <unistd.h>
-
- #define SUSP_SIG(entry, a, b) ((entry->sig[0] == a) && (entry->sig[1] == b))
