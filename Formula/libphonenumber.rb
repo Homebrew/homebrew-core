@@ -1,7 +1,6 @@
 class Libphonenumber < Formula
   desc "C++ Phone Number library by Google"
   homepage "https://github.com/google/libphonenumber"
-  # TODO: Check if we can use unversioned `protobuf` at version bump
   url "https://github.com/google/libphonenumber/archive/v8.13.14.tar.gz"
   sha256 "65aa0c7d6da4b070794fb1d7d34f7322e613708c3f10ddd90fe3725e049f1fb0"
   license "Apache-2.0"
@@ -27,7 +26,7 @@ class Libphonenumber < Formula
   depends_on "abseil"
   depends_on "boost"
   depends_on "icu4c"
-  depends_on "protobuf@21"
+  depends_on "protobuf"
   depends_on "re2"
 
   fails_with gcc: "5" # For abseil and C++17
@@ -67,8 +66,7 @@ class Libphonenumber < Formula
         }
       }
     EOS
-    system ENV.cxx, "-std=c++17", "-I#{Formula["protobuf@21"].opt_include}", "test.cpp",
-                    "-L#{lib}", "-lphonenumber", "-o", "test"
+    system ENV.cxx, "-std=c++17", "test.cpp", "-L#{lib}", "-lphonenumber", "-o", "test"
     system "./test"
   end
 end
