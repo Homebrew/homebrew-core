@@ -1,8 +1,8 @@
 class Wandio < Formula
   desc "Transparently read from and write to zip, bzip2, lzma or zstd archives"
   homepage "https://github.com/LibtraceTeam/wandio"
-  url "https://github.com/LibtraceTeam/wandio/archive/refs/tags/4.2.4-1.tar.gz"
-  sha256 "6e1f36edfc3b814d62f91b09cee906e28cd811881da51544acf2ace5e6e5b13f"
+  url "https://github.com/LibtraceTeam/wandio/archive/refs/tags/4.2.5-1.tar.gz"
+  sha256 "349d2ac8f3c889a241ff6a85d47b36269de8352b761da8ff9cfa6940244066e2"
   license "LGPL-3.0-or-later"
 
   bottle do
