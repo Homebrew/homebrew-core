@@ -206,6 +206,9 @@
   "datasette": {
     "exclude_packages": ["six", "PyYAML", "typing-extensions"]
   },
+  "ddqa": {
+    "exclude_packages": ["pillow", "Pygments", "typing-extensions"]
+  },
   "detect-secrets": {
     "exclude_packages": ["PyYAML"]
   },
