@@ -5,6 +5,7 @@ class Bigloo < Formula
   version "4.5a-1"
   sha256 "d8f04e889936187dc519719b749ad03fe574165a0b6d318e561f1b3bce0d5808"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://www-sop.inria.fr/indes/fp/Bigloo/download.html"
@@ -29,7 +30,7 @@ class Bigloo < Formula
   depends_on "libunistring"
   depends_on "libuv"
   depends_on "openjdk"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pcre2"
 
   on_linux do
