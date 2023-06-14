@@ -5,7 +5,7 @@ class PerconaXtrabackup < Formula
   url "https://downloads.percona.com/downloads/Percona-XtraBackup-LATEST/Percona-XtraBackup-8.0.32-26/source/tarball/percona-xtrabackup-8.0.32-26.tar.gz"
   sha256 "2a1c23497ffd5905d6dc20bdb5a801d1b8baeb3245ec11ed115dee0d78b7a5e2"
   license "GPL-2.0-only"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://www.percona.com/downloads/Percona-XtraBackup-LATEST/"
