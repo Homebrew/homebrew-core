@@ -3,8 +3,8 @@ require "language/node"
 class CubejsCli < Formula
   desc "Cube.js command-line interface"
   homepage "https://cube.dev/"
-  url "https://registry.npmjs.org/cubejs-cli/-/cubejs-cli-0.33.25.tgz"
-  sha256 "dcdbeb3eab1aaa4e40454f1053185045ca56be7f4cf28533794f65c6fa92c040"
+  url "https://registry.npmjs.org/cubejs-cli/-/cubejs-cli-0.33.28.tgz"
+  sha256 "f079defdb23772d3d9c0244a4ad33e056e22464f44f34d0e5b98ade1582aab90"
   license "Apache-2.0"
 
   bottle do
@@ -18,6 +18,8 @@ class CubejsCli < Formula
   end
 
   depends_on "node"
+
+  uses_from_macos "zlib"
 
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
