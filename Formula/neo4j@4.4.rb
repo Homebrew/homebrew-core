@@ -22,6 +22,8 @@ class Neo4jAT44 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "cdaf734d6f5a77464ebf9a7752d2f362640bcf15f657bedeb1664977c7358b55"
   end
 
+  keg_only :versioned_formula
+
   depends_on "openjdk@11"
 
   def install
@@ -64,7 +66,7 @@ class Neo4jAT44 < Formula
   test do
     ENV["NEO4J_HOME"] = libexec
     ENV["NEO4J_LOG"] = testpath/"libexec/data/log/neo4j.log"
-    ENV["NEO4J_PIDFILE"] = testpath/"libexec/data/neo4j-service.pid"
+    ENV["NEO4J_PIDFILE"] = testpath/"run/neo4j.pid"
     mkpath testpath/"libexec/data/log"
     assert_match(/Neo4j .*is not running/i, shell_output("#{bin}/neo4j status 2>&1", 3))
   end
