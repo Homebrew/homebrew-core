@@ -6,7 +6,7 @@ class Cryptominisat < Formula
   # Everything that's needed to run/build/install/link the system is MIT licensed. This allows
   # easy distribution and running of the system everywhere.
   license "MIT"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -14,13 +14,13 @@ class Cryptominisat < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "ebe5f3d813bd94d6366080733cd6a8b61ae2dc1bf243ee57dca8678b551d7bd6"
-    sha256 cellar: :any,                 arm64_monterey: "caf7fa1899076b2d98333f253505d802ec14b834f9915fdfbea51a4d525444e3"
-    sha256 cellar: :any,                 arm64_big_sur:  "31f3b36598745c142f428451dde74430228e23c737222de2b5e743ab8f163d44"
-    sha256 cellar: :any,                 ventura:        "1f223253304a9c846df31077bce73ed3451c000f96acefcd3a51cf52840c9ed9"
-    sha256 cellar: :any,                 monterey:       "a790c4ddfe4eeda555979d5a89e05ac976881287698613aa8b966a108503533e"
-    sha256 cellar: :any,                 big_sur:        "1ed4e6fef5258653335a460ef1d8aa9c6d4c8fd03b507ac7dc9ce8b985a9d53c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fbbfec94567e6c6a80f7670eae3b4838d8a90d955a92f58325fcece79212dac9"
+    sha256 cellar: :any,                 arm64_ventura:  "3e762fc5a4d34e358a0abec31558a1aab5651632b3852f86d9545bf8ae3c704c"
+    sha256 cellar: :any,                 arm64_monterey: "8ffedf88208e509f3832ce06711251cb6caf2c27077764a6180f23595d78d17d"
+    sha256 cellar: :any,                 arm64_big_sur:  "0a763bb8c43d659b7c759e2c0541034de578db868d596061769a7c77f19d8aa5"
+    sha256 cellar: :any,                 ventura:        "223b6fcf79841ed9df9d89e27719e0fdbd4a385fe5ba65296aa10ed0b4cb45ea"
+    sha256 cellar: :any,                 monterey:       "19df0c2c95d31d90c7fe2ca014497521128e1b767d7ec0ea99e4622107385e4f"
+    sha256 cellar: :any,                 big_sur:        "6906877f5c64fc3a93d5a0a52e07b1c7b1a17c0d07d2fff71eb341b401ef78ae"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aefdbafc5a3e4c71964f6750ff6911503c98bc671176d0d8130ce5396036111e"
   end
 
   depends_on "cmake" => :build

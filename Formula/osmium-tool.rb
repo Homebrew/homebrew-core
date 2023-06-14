@@ -4,15 +4,16 @@ class OsmiumTool < Formula
   url "https://github.com/osmcode/osmium-tool/archive/v1.15.0.tar.gz"
   sha256 "0b3be2f07d60dfb93f65d6a9f1af1fc9cf6ef68e5a460997d841c93079c3377b"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "f06d9f6ae6a228b1fca37fad1bab9721760632c5f3f287d8b4c192beccbce372"
-    sha256 cellar: :any,                 arm64_monterey: "0cecfdad7eb06bdf718e7472ab6e40ad691a2733d79379b8b3114203b269a6d4"
-    sha256 cellar: :any,                 arm64_big_sur:  "a776cc479cb4a220b7179814464714f69e0dc7f60c96b21eb7807fb2906a6ae2"
-    sha256 cellar: :any,                 ventura:        "22a8add357c9ca575aed1d729942f7aee33d664029a19869edffe71c45006c51"
-    sha256 cellar: :any,                 monterey:       "c9a15aed4b8af602c9fa1131f63f1dbfd1bd056bac9e0d8d5b7261eb04771220"
-    sha256 cellar: :any,                 big_sur:        "fd6e881f2ff097715732c8e1904dc799da8ab7e78dae7bc67a9b9247ac7a6de7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0c82ba0a54458beefdff33686c3248ebeec6117f91f852520ecc2e51a47fd221"
+    sha256 cellar: :any,                 arm64_ventura:  "f782b2826a0f45e4e5ec8f1caadde19de246c7ac93c0bed055f501461d7f07e9"
+    sha256 cellar: :any,                 arm64_monterey: "932f82cfc739211c09b1fbfdbbf33bb3f4af7ee353dc25912fb9c495da3651f8"
+    sha256 cellar: :any,                 arm64_big_sur:  "9f30edea5da6046ed3e55f87b2bf83ab9e7590a88d0d77768b643b639611327d"
+    sha256 cellar: :any,                 ventura:        "8dfb0c03cf98a7d641dad804457c6592cd2bd604062c24d0e5f659672232bcb2"
+    sha256 cellar: :any,                 monterey:       "39cad6166336a30d45105a7082495861df9239db625f2ecafa7b1c8ca1c4ef34"
+    sha256 cellar: :any,                 big_sur:        "88947b3e84566348f662dc3676a624e0e4a8153e3157d9b3990960e3f23d6d3b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fd9d7ee47c1fc8f70bf6e611d83ff3e3db6762e18abdc92c1dcde5cad6d26884"
   end
 
   depends_on "cmake" => :build

@@ -2,6 +2,7 @@ class Burp < Formula
   desc "Network backup and restore"
   homepage "https://burp.grke.org/"
   license "AGPL-3.0-only" => { with: "openvpn-openssl-exception" }
+  revision 1
 
   stable do
     url "https://github.com/grke/burp/releases/download/2.4.0/burp-2.4.0.tar.bz2"
@@ -19,14 +20,13 @@ class Burp < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "bcdb7b1ba0bc260b156b7a981694ece3695bb5d4a56936009e317e2cb56bc655"
-    sha256 arm64_monterey: "5b49f738c6755ed1661d0f4d17b2cfd5543316f775d6a17eac32bed217c6b84a"
-    sha256 arm64_big_sur:  "b61e5e1920d691c06ef16e4fd2ec8a9ccca26c305bd9e8403c6d25a95327403b"
-    sha256 ventura:        "c2f02eb0dbd7fa42452392ca27aafdda72ede38e6917aea3fef4efcc7d57bcbe"
-    sha256 monterey:       "6917c1084a60abd9e9f3c4b598550364d0e48ec834794ae874628535fa9b49f1"
-    sha256 big_sur:        "d542ee4aede6d4fb0d651b9888cac192fde50285889fd716b224d62ccd3b0cf2"
-    sha256 catalina:       "7dda2191539b4da970fcab02ff231b13a897bb809972f7a505fa74f676ec026d"
-    sha256 x86_64_linux:   "f0e3b60c6274bca19bfa073972a4f5eafc4d961f2024d975be6ddc9808d9c552"
+    sha256 arm64_ventura:  "e1360b199ce42bba04f10443f26954d9c3dafe03b7565b571382f6baaad21bd2"
+    sha256 arm64_monterey: "c69b19653c7d88ecb561c6116e50208b79834dc5e547396630b2c9fe6a873153"
+    sha256 arm64_big_sur:  "91a2441ee60e0cbacc3e6707be43725a65fc161e24e66cbf67dbd1255aea1ff1"
+    sha256 ventura:        "9a7d37e6cbe57a298cd83d7ab19960895329906bcf828113a98e159ac5baf8d0"
+    sha256 monterey:       "a1aeb87a73af8ecf56631e3a3ac97732cc391afbe4d3651e05b390f0777f91de"
+    sha256 big_sur:        "bde32d67b881d607349d196ecd79aac7cc92256e3ce94731bf27f90eb99ace53"
+    sha256 x86_64_linux:   "3e0b7b18c51c5e0bd4160c6c9feba24bae0a4a3b1dad8c91e5c9f5f77736a113"
   end
 
   head do
@@ -43,7 +43,7 @@ class Burp < Formula
 
   depends_on "pkg-config" => :build
   depends_on "librsync"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "libxcrypt"
   uses_from_macos "ncurses"

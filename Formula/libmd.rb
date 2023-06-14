@@ -1,8 +1,8 @@
 class Libmd < Formula
   desc "BSD Message Digest library"
   homepage "https://www.hadrons.org/software/libmd/"
-  url "https://libbsd.freedesktop.org/releases/libmd-1.0.4.tar.xz"
-  sha256 "f51c921042e34beddeded4b75557656559cf5b1f2448033b4c1eec11c07e530f"
+  url "https://libbsd.freedesktop.org/releases/libmd-1.1.0.tar.xz"
+  sha256 "1bd6aa42275313af3141c7cf2e5b964e8b1fd488025caf2f971f43b00776b332"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,26 +11,17 @@ class Libmd < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "159d4661e6477b40c07ad7fd1b9832b8bfd1dfa0664a137b4ff7160c360e0c36"
-    sha256 cellar: :any,                 arm64_monterey: "176db8960cd4ac83cf0f5145c3b1f7560ac239c867a2b3b41127e5badd238a38"
-    sha256 cellar: :any,                 arm64_big_sur:  "4251c8ad6b6962dddba3270630943a53779af7eaf7b7963be34f5f3de7b14667"
-    sha256 cellar: :any,                 ventura:        "897b410369a68b9a2db954519ace1d396cac501669d1890534754cb6a7e6f77b"
-    sha256 cellar: :any,                 monterey:       "051da8fdcf3a6907760fd2983e9351d529a1a28d4f48ab32a942a232a9fe7fdf"
-    sha256 cellar: :any,                 big_sur:        "1aa4b3d7c3fe5ad30d0711d045ca94e05a6fed6f928cdf11ac80acfc1fb31928"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "10df9063da043dc8dc8a2b5b0018f2fc7f4f055fe9ee5d7ad2640c26472e877f"
-  end
-
-  # build patch, https://github.com/macports/macports-ports/blob/master/devel/libmd/files/patch-symbol-alias.diff
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/62ea945/libmd/patch-symbol-alias.diff"
-    sha256 "a9bb67cbc2243d12fe81b6c9f998dddbe2f58f11570749f98ee23b07d9a02d53"
+    sha256 cellar: :any,                 arm64_ventura:  "02f452242f49ca67f98dff20e769e290db1d99c6d5874c067dafd8be7bfa0a92"
+    sha256 cellar: :any,                 arm64_monterey: "fc0d8c70408cacab6b3b1f2567582ab2281fd308d7e2ce704042705dabe40241"
+    sha256 cellar: :any,                 arm64_big_sur:  "bfd3a5595f509f3ebb3970c0c2a0e3b08569573ca1f406a8047565d26fb652dd"
+    sha256 cellar: :any,                 ventura:        "e81790c66cb480c6b411fca1e2adfded0e5c20ab12ec02e57e450bdb589539c3"
+    sha256 cellar: :any,                 monterey:       "36a5e1ef679b99d090814f2fde15e9fb45d73afa26fc5ef75618c4ff85bf48dd"
+    sha256 cellar: :any,                 big_sur:        "603212a43a289d57d2b541a3775d9a2c036b3813f2ca68640651b659f8dda490"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c07679b6d5141498eaaab977d8501cf12219feb13a7ae040044561d5abece9af"
   end
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make", "install"
   end
 

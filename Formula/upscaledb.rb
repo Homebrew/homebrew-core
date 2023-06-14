@@ -2,7 +2,7 @@ class Upscaledb < Formula
   desc "Database for embedded devices"
   homepage "https://upscaledb.com/"
   license "Apache-2.0"
-  revision 3
+  revision 4
   head "https://github.com/cruppstahl/upscaledb.git", branch: "master"
 
   stable do
@@ -34,13 +34,13 @@ class Upscaledb < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "3e53df8a01216c9fb312eea599fa6a4ce5aa996476b3618157c613baa7631973"
-    sha256 cellar: :any,                 arm64_monterey: "4165747c590e3fa385edb3ca82572e61c6d7d46fab5ab0653506113af584ad54"
-    sha256 cellar: :any,                 arm64_big_sur:  "4d2ffbcb757f65413634d50556cb8be81871c3915cb5b173d60b146428843504"
-    sha256 cellar: :any,                 ventura:        "b77dd8e5fccacf9fb9f3e89fc62005afeea0bcca6d0682ad22ed412d7222068a"
-    sha256 cellar: :any,                 monterey:       "fe6720fa4fef28905e48926764bd350eb9cb7ef86a8cf3ebb17f5fd320f50a15"
-    sha256 cellar: :any,                 big_sur:        "23a345451fc0f2ba05ad1b84e3eaa58efb8deb84096d084c0550c0751e7bfd03"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9388aed680e2927f5953ae803bffd0bc0bf6a239efbed1e9ea06ccb3144d0653"
+    sha256 cellar: :any,                 arm64_ventura:  "4facbf55c8d3b3219086d4b55cb9cd73232a357661a774dbfbbe8efd8ef45701"
+    sha256 cellar: :any,                 arm64_monterey: "34e184c0d5af342ba3e4d5a0624b0f38e1461dc5d620bac46725fe8e5f0cd92a"
+    sha256 cellar: :any,                 arm64_big_sur:  "e580660670e526bc6d893614cb5eaf4afe4968b2951e8fcc13960c454e8e2854"
+    sha256 cellar: :any,                 ventura:        "abf2fa403bacb77cf03041cc6d317342291e8a5b141efc264e6da602ce081f6f"
+    sha256 cellar: :any,                 monterey:       "fae9bd3cd94fed44b2610f78c1071a112610dc130dd75da78eccc89bb798a1b5"
+    sha256 cellar: :any,                 big_sur:        "8f39751ea366f4aa0adb741e4c6fa3017af5921701888b37231d7294215b3968"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6d3bfbdf22530a65027115e771a013f348cbc990f6a679877f0cceb4abdf5839"
   end
 
   depends_on "autoconf" => :build

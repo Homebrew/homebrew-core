@@ -5,15 +5,16 @@ class Nghttp2 < Formula
   mirror "http://fresh-center.net/linux/www/nghttp2-1.54.0.tar.gz"
   sha256 "890cb0761d2fac570f0aa7bce085cd7d3c77bcfd56510456b6ea0278cde812f0"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 arm64_ventura:  "aafcfbd2131f0d6c6db4015306122db9b93304ee2563da0f6470647995b9e31d"
-    sha256 arm64_monterey: "50e9ae860fab877716039201276bff9df2270ee813732861a060eaa628f8affc"
-    sha256 arm64_big_sur:  "2de8035dd8b004c81f6ede728c474060ec25a0494f9958810e9a0f62f17821b1"
-    sha256 ventura:        "c6d8ffd0fcbee23825b132db4d1a49f3b09b15b16578b239de9107f4ce7078d5"
-    sha256 monterey:       "c11d1d6c3ce3cb593e80f038e2372c9e02032163aeae5ac171ba75241297c1f3"
-    sha256 big_sur:        "a716f768f76d740319d65cc70833be36dcad72005e849c0dd145c6f657891cbd"
-    sha256 x86_64_linux:   "4f3977206572dfcbc0fb037776b9cc6a0dcb0d924344890d5333dbf3302cb93e"
+    sha256 arm64_ventura:  "890634f1d69a36e62202197a07eddf858e9f391403a6ba993a245f73b321f714"
+    sha256 arm64_monterey: "da60a4c84f1701c825d1db9b3760ed2b1c31511d54fdce8976f7cf86912a3c9c"
+    sha256 arm64_big_sur:  "13d12d740d2a824f627ea3a76293d038394793ce19661f7ad41a5d9ab98b4e7e"
+    sha256 ventura:        "dfffb690be35c18a17d33ae3a22fdf6cdecf07210384a1bd6cd6ae6fb604f3aa"
+    sha256 monterey:       "e27b6ed67cc86a82908c2ffe52ec7061f956932f0a181325440d62f7df352ebb"
+    sha256 big_sur:        "342b1aa84a0c7446c4c64d844d3df8f97937fac780a5181baab149c7f97f57bb"
+    sha256 x86_64_linux:   "50a8b54e04e58404b71f5672f447375011c26b00796ab533ab590ba45e99bb9b"
   end
 
   head do
@@ -29,7 +30,7 @@ class Nghttp2 < Formula
   depends_on "jemalloc"
   depends_on "libev"
   depends_on "libnghttp2"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "libxml2"
   uses_from_macos "zlib"

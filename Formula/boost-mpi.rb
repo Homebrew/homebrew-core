@@ -1,8 +1,8 @@
 class BoostMpi < Formula
   desc "C++ library for C++/MPI interoperability"
   homepage "https://www.boost.org/"
-  url "https://boostorg.jfrog.io/artifactory/main/release/1.81.0/source/boost_1_81_0.tar.bz2"
-  sha256 "71feeed900fbccca04a3b4f2f84a7c217186f28a940ed8b7ed4725986baf99fa"
+  url "https://github.com/boostorg/boost/releases/download/boost-1.82.0/boost-1.82.0.tar.xz"
+  sha256 "fd60da30be908eff945735ac7d4d9addc7f7725b1ff6fcdcaede5262d511d21e"
   license "BSL-1.0"
   head "https://github.com/boostorg/boost.git", branch: "master"
 
@@ -11,13 +11,13 @@ class BoostMpi < Formula
   end
 
   bottle do
-    sha256                               arm64_ventura:  "ac780b010068ba52bb103ac2adbd49b408cb02378c24d3f7ca5af627135085f6"
-    sha256                               arm64_monterey: "29c78834506d33bc6daf07018a89b2206a41b6837eb806c39269627b276a8cde"
-    sha256                               arm64_big_sur:  "1e0aa79477135831cf471875af7156feb6b0f88a8243b1502f4e67c722592d97"
-    sha256                               ventura:        "05ee3d29d40ab36e162caab0c41f93e0668bb0cccf8e0bd122a69b386d2db051"
-    sha256                               monterey:       "2267f5818e4faf68cddfac386bf10a7d5e64f27c4945e045da909033fc681626"
-    sha256                               big_sur:        "2a7addd646eab90da685d7115eecd927f7696da18f9f840b3bada9931c8e95de"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fe5baf414b08d992a092ac2d6cf966d992a3ad8a45b669c116573ebc70c002e4"
+    sha256                               arm64_ventura:  "2fadb6b3e273c30ceef188f465175432be8ffa097227f4e7f220e578badd23c6"
+    sha256                               arm64_monterey: "a91ccbcc149a0e9a63b1e35a19430fe270f97ab2f188c7546e1383fd168bbf95"
+    sha256                               arm64_big_sur:  "2bb95f88ca16455df8605835cffbf190e0d341a3f90ceca2b7868da58b326b1e"
+    sha256                               ventura:        "8943122b533bfc1b9eac87018626bf6721282618d935c974c8e7950efdd63c05"
+    sha256                               monterey:       "be43b7b2025bf01376b34c220d7cecae67d4bc69decb7a1afd498e551ca38b99"
+    sha256                               big_sur:        "50304ea86b434e855dbf014b9cf1ac55a932a21da911d735ba9d71be9108f62e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b46177052f005c857caa1430c501f668c585d93242fce1a31d8602fed7617ec9"
   end
 
   # Test with cmake to avoid issues like:

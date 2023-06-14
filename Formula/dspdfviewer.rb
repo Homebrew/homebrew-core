@@ -4,17 +4,17 @@ class Dspdfviewer < Formula
   url "https://github.com/dannyedel/dspdfviewer/archive/v1.15.1.tar.gz"
   sha256 "c5b6f8c93d732e65a27810286d49a4b1c6f777d725e26a207b14f6b792307b03"
   license "GPL-2.0-or-later"
-  revision 16
+  revision 17
   head "https://github.com/dannyedel/dspdfviewer.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "7ee081442cc15d6b6cb3c1c8791db4e1ac99caddf9e19b9a3e7da8f42c3fd6cd"
-    sha256 cellar: :any,                 arm64_monterey: "1720055b7850161f0ff6b09a678d597b9357ae0bea2db05d2651f0c46d80197b"
-    sha256 cellar: :any,                 arm64_big_sur:  "5d53db9ce37e910f71a0aaad82d1b26344d08decce5485751632cd05601f8c76"
-    sha256 cellar: :any,                 ventura:        "834c422d0aa8a96cc77d1036e4793d3f8fdfdc79fcbf6c6a7da79f0c269459fe"
-    sha256 cellar: :any,                 monterey:       "586e860f2c06b995132b35653a6c14403c012421cd9cf32baa1b379824e27015"
-    sha256 cellar: :any,                 big_sur:        "0b551ba47aa6287fb0a94750a9ab85afa3e1d715d22d602dc98cdef34ac1b8f9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "940e18745c5787e8ec2ce8a961283e44d148b45b4fc7370480057b6c15c3df6b"
+    sha256 cellar: :any,                 arm64_ventura:  "0c72cae389342fa29a7bab30aff4e61bd8cd991e8dbe810076aec9040cd13b49"
+    sha256 cellar: :any,                 arm64_monterey: "eb36dddf65861dcd008c48b9f519e8dbccc0be8cce76bc399d16b5fc37c673f6"
+    sha256 cellar: :any,                 arm64_big_sur:  "113767585b61d4fe7d8f1525001194f71f9edfef3aa01fd24692ef1e5d21aa58"
+    sha256 cellar: :any,                 ventura:        "39e2c9e2a9078ec120477744c713d22351dc78685253f1ad885493ce679c8077"
+    sha256 cellar: :any,                 monterey:       "732580c265f2c6c20534ebce228a7f2f874473015071748b2b54390b8babbbdf"
+    sha256 cellar: :any,                 big_sur:        "389d8bc7e483440a56daf3b9b7681765689180799268a6774e3371dfdde7d876"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "07884b2723e104df33c4345e4a93aa37ab94c1ff95ecb41c3c7516ba667b30bc"
   end
 
   depends_on "cmake" => :build

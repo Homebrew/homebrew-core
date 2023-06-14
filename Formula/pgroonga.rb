@@ -1,8 +1,8 @@
 class Pgroonga < Formula
   desc "PostgreSQL plugin to use Groonga as index"
   homepage "https://pgroonga.github.io/"
-  url "https://github.com/pgroonga/pgroonga/releases/download/3.0.6/pgroonga-3.0.6.tar.gz"
-  sha256 "d35779a47ed02bbda8aedb5b7a54f3ab0a43052f7ea986209fb71cf6a199fd12"
+  url "https://packages.groonga.org/source/pgroonga/pgroonga-3.0.7.tar.gz"
+  sha256 "885ff3878cc30e9030e5fc56d561bc8b66df3ede1562c9d802bc0ea04fe5c203"
   license "PostgreSQL"
 
   livecheck do
@@ -11,13 +11,13 @@ class Pgroonga < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "d71ba728059fb6f4427857e76ca2b182e47bce2e5eb526c5effab404c1e99b41"
-    sha256 cellar: :any,                 arm64_monterey: "41a847a945af7c21935dba1b0314ce5e81a1934945c3cae5ddc3d1c1c1c40904"
-    sha256 cellar: :any,                 arm64_big_sur:  "c52dada123330f7144fcb91bc04c30640460611f20f47433ccaf9721cf126547"
-    sha256 cellar: :any,                 ventura:        "49c6e21e7a9acccfb063711f769036b2bcbb8479984e4acf535e136158027123"
-    sha256 cellar: :any,                 monterey:       "5aa81a0de5910c90049414cef9007ef4b67af16e23f297043b7eac2df027a378"
-    sha256 cellar: :any,                 big_sur:        "37576f653c00b469dc7e6c2a744f1b8fb3f7184b647165bc702c59f1de7eaeb4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fd4c8e2fa5e667c9fa0f4fca437b2d097ceba7fb58aa68d86a44554728b82185"
+    sha256 cellar: :any,                 arm64_ventura:  "671996744d342ad2c2ffe9985db7580c4fc556514afbd3b87974e3f508e4f539"
+    sha256 cellar: :any,                 arm64_monterey: "7dcbb4748f7ceaeba5a2f019e71ef34ab2ed8ce6edb3c15e233b09d392528a2e"
+    sha256 cellar: :any,                 arm64_big_sur:  "7459e39ce50d33906f6be67b9be99cde49518f42461540a5e65ff0c13b243e9d"
+    sha256 cellar: :any,                 ventura:        "b9f79eb4dd55bb1caf2d9162f35cbd8608f87ddcca502528cf929129fc3a3e4f"
+    sha256 cellar: :any,                 monterey:       "19eef6356f96f61064aa7e8f2d1cb1accf2bc1195aa806aa26e6bb93be6b18cf"
+    sha256 cellar: :any,                 big_sur:        "9eb6e9be96f588b905ba5ab542f0a18b80352b0404e1cdc34682ea105bd981c8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ba62b0c89879395ab02bc3a869ffc84458a9821be7c8e60ae5fae028a72917ac"
   end
 
   depends_on "pkg-config" => :build
@@ -48,8 +48,6 @@ class Pgroonga < Formula
 
     system pg_ctl, "initdb", "-D", testpath/"test"
     (testpath/"test/postgresql.conf").write <<~EOS, mode: "a+"
-
-      shared_preload_libraries = 'pgroonga'
       port = #{port}
     EOS
     system pg_ctl, "start", "-D", testpath/"test", "-l", testpath/"log"

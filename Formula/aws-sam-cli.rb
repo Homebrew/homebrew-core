@@ -8,17 +8,18 @@ class AwsSamCli < Formula
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "9849be387cd480ffeded2f664a7f3612b503bc0460d4eb1221ac63459c2a1975"
-    sha256 cellar: :any,                 arm64_monterey: "f085ac97da84296a72e7ce6083c5bdf311ea507a8d63c10b1f85e74d78e3ee96"
-    sha256 cellar: :any,                 arm64_big_sur:  "725980e1295ca869cb8e28277607d4f2e02c183d4aa9af0e6d1c5b9b1d8dece0"
-    sha256 cellar: :any,                 ventura:        "4f5e3f45305bf7a57111f538ab4337bf0b384f37475c765a011479d2d64dfdaf"
-    sha256 cellar: :any,                 monterey:       "4a1429e6304a172300959a40dfaf83ce1ec04c0aa0c9c1e4d2aa4f0c5e7fda36"
-    sha256 cellar: :any,                 big_sur:        "96f569811c4268c71627cbfe01ffbfe3e762c9004d2c46fbc9f2bbe1c05d741d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "49999b5b403ad0c60e9b0526fd2d71a0c5f8d86b3411a97646b0f930046742e5"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_ventura:  "2d6d743f9a05a8f8bf46e9fa8950e89cfe96dc3597555ddefa1d77cb1712467b"
+    sha256 cellar: :any,                 arm64_monterey: "d9813051eab1fb256f0861cbfec52cbb17950401d59ab7bac9a5141dfb05efc1"
+    sha256 cellar: :any,                 arm64_big_sur:  "348ae8dc21ee933ab38cd0272e8b959a67c97bceb47371719ea8f4029b2e412e"
+    sha256 cellar: :any,                 ventura:        "0c40fd09d87d45a6c1df68efc4a561287e5a2cfae40c3f43ad2bd70994855e2a"
+    sha256 cellar: :any,                 monterey:       "b9c64bf79747d970458b3b423e722673b884ed46eb1fee91e3965d65a1f9f2dd"
+    sha256 cellar: :any,                 big_sur:        "8e9a413292a47f95fb7188bfda96a731d6b37c79df07debf59cea0af12406d03"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "909d46399672c55546f5f65dbb706e16c07c3d69f59aed2784e75997b5e5a08c"
   end
 
   depends_on "rust" => :build # for cryptography
+  depends_on "cffi"
   depends_on "pygments"
   depends_on "python-typing-extensions"
   depends_on "python@3.11"
@@ -62,11 +63,6 @@ class AwsSamCli < Formula
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/93/71/752f7a4dd4c20d6b12341ed1732368546bc0ca9866139fe812f6009d9ac7/certifi-2023.5.7.tar.gz"
     sha256 "0f0d56dc5a6ad56fd4ba36484d6cc34451e1c6548c61daad8c320169f91eddc7"
-  end
-
-  resource "cffi" do
-    url "https://files.pythonhosted.org/packages/2b/a8/050ab4f0c3d4c1b8aaa805f70e26e84d0e27004907c5b8ecc1d31815f92a/cffi-1.15.1.tar.gz"
-    sha256 "d400bfb9a37b1351253cb402671cea7e89bdecc294e8016a707f6d1d8ac934f9"
   end
 
   resource "cfn-lint" do

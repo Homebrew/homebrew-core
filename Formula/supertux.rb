@@ -4,7 +4,7 @@ class Supertux < Formula
   url "https://github.com/SuperTux/supertux/releases/download/v0.6.3/SuperTux-v0.6.3-Source.tar.gz"
   sha256 "f7940e6009c40226eb34ebab8ffb0e3a894892d891a07b35d0e5762dd41c79f6"
   license "GPL-3.0-or-later"
-  revision 4
+  revision 5
   head "https://github.com/SuperTux/supertux.git", branch: "master"
 
   livecheck do
@@ -13,13 +13,13 @@ class Supertux < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "d35e3d1d9acf5f26cefb4c089f3d509350c6884f59376f087d05cb99118fbf2c"
-    sha256 cellar: :any,                 arm64_monterey: "6f65c4732bb3f808e4a0812942e3a867854f4497cfa571f041cd6ec781fe16e0"
-    sha256 cellar: :any,                 arm64_big_sur:  "c7b14370edd788d14e52ec8dbb612de78f51ae48f9127a453a4cae27a6c81785"
-    sha256 cellar: :any,                 ventura:        "f4f9be28f737619879675198532cf0eae31bc06b441789faf4089aa731786b99"
-    sha256 cellar: :any,                 monterey:       "b0ab1302d8de0bf3a90e8e29c5f16ab470d0dd07066f0cfda36fc7e8d467781c"
-    sha256 cellar: :any,                 big_sur:        "df90443cb1320609aae4b62a1f3e525ffb9e27faae3d7fa1e5d1108a893cf48d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b79f3e71041f84e843777e9e916f36df6d93e08ba61cca3974e9732456251260"
+    sha256 cellar: :any,                 arm64_ventura:  "10c0c7d82c4febfe1f5b5bbc6b0211c2059dd88f06deec4a49ba66714db4178a"
+    sha256 cellar: :any,                 arm64_monterey: "e5c784e30f00052d68f402ac8de525ce4c7af69099eee823d04ee3efc4e52cd5"
+    sha256 cellar: :any,                 arm64_big_sur:  "32425f5048b29966d32a6c864b69bde8fff548e490c4a21ce5c26506885abb1f"
+    sha256 cellar: :any,                 ventura:        "99daaa4aa45da2c7e8df9ab09522294bbc2791529b86d61ff587225a3ff62cc3"
+    sha256 cellar: :any,                 monterey:       "ab0f2f0bc71f37dbd6743f5a7de71649ddd013ad34add68a4ad9b256466e374e"
+    sha256 cellar: :any,                 big_sur:        "8544df6656d9e2cc0414c4cf9ba14e5e459e84ab01ea828a00dd41c77c55e9cf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6c9a51832d4daac56cff59ead774f542a2c25de35a7a7294b80e3c357c159921"
   end
 
   depends_on "cmake" => :build

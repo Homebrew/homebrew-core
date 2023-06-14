@@ -53,11 +53,14 @@
   "athenacli": {
     "exclude_packages": ["six", "tabulate"]
   },
+  "aws-elasticbeanstalk": {
+    "exclude_packages": ["cffi"]
+  },
   "aws-google-auth": {
     "exclude_packages": ["pillow", "six", "tabulate"]
   },
   "aws-sam-cli" : {
-    "exclude_packages": ["six", "typing-extensions", "Pygments"]
+    "exclude_packages": ["six", "typing-extensions", "Pygments", "cffi"]
   },
   "aws-shell" : {
     "exclude_packages": ["six", "Pygments", "docutils"]
@@ -102,7 +105,7 @@
   },
   "buku": {
     "package_name": "buku[server]",
-    "exclude_packages": ["six"]
+    "exclude_packages": ["six", "cffi"]
   },
   "bzt": {
     "exclude_packages": ["numpy", "six", "Cython", "PyYAML"]

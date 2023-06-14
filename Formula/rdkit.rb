@@ -4,6 +4,7 @@ class Rdkit < Formula
   url "https://github.com/rdkit/rdkit/archive/refs/tags/Release_2023_03_1.tar.gz"
   sha256 "db346afbd0ba52c843926a2a62f8a38c7b774ffab37eaf382d789a824f21996c"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/rdkit/rdkit.git", branch: "master"
 
   livecheck do
@@ -15,13 +16,13 @@ class Rdkit < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "c80b611887f75ce2d065c5c9e9a1b24beca2d90d8e5c4fafb465ff244f19629f"
-    sha256 cellar: :any,                 arm64_monterey: "2f287b59609a5d608f6de8885e217a37f3bdd84041ed68cc3aef5d1c7cf233cc"
-    sha256 cellar: :any,                 arm64_big_sur:  "f128b5eb71680bf11fc20f42155bcaa2b792d028fc6268f0e9a84ff0521eb370"
-    sha256 cellar: :any,                 ventura:        "0c1e5c0e8966f498d9f13932bddd022c25aa44005424f77e9bec9200b45da70f"
-    sha256 cellar: :any,                 monterey:       "277e6a95188201d1d45bad737583aa33624ebc94f5378208a02e04e0c0cff2cf"
-    sha256 cellar: :any,                 big_sur:        "d283960533b78804af3bda64b21881b535d01ba94864f9aa308b31b0b3e4c871"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e49e3d564c7c0a2c6dc66c270d850ca64e8db2fde1b5745ea8a1f6d4a5722434"
+    sha256 cellar: :any,                 arm64_ventura:  "049d0e5b0da9a8580f728843e6d9df8089ed1ab56b136d04733e28a9476fd63b"
+    sha256 cellar: :any,                 arm64_monterey: "22ae9a23a3badf137675126bd671498f56b0a31ec59ee4d936edbf32bceea881"
+    sha256 cellar: :any,                 arm64_big_sur:  "1bc72fa035d4dc7045b0dd9150928dd6c06708632e78695dcdbc3456892c11a1"
+    sha256 cellar: :any,                 ventura:        "df20c61009fc57fa449bca412cfc89d1195519aa903f32123286f4bb092ef98e"
+    sha256 cellar: :any,                 monterey:       "bf5165e52709d3356e4caf4a10f5056785cc5b5ff54772d8abdeb7a909efe711"
+    sha256 cellar: :any,                 big_sur:        "f0d6b8130b55f4ab48d893a6e5a0b27893dc0766bc4a8b494e0a4573df7ce047"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4dc411e2bff15d861007f820f427e6c52c8fb5044f955d2215cafaa3f66b1075"
   end
 
   depends_on "cmake" => :build

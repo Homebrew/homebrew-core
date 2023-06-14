@@ -3,19 +3,19 @@ class Pdm < Formula
 
   desc "Modern Python package and dependency manager supporting the latest PEP standards"
   homepage "https://pdm.fming.dev"
-  url "https://files.pythonhosted.org/packages/3b/9e/5667d571c876cb81904bf292206086a8f9c7c8ef98bb9539bc50ae818d97/pdm-2.7.2.tar.gz"
-  sha256 "45fbf0298b687ced906459da2ac4315ab2306b1bf1f42d91e873bf6da8ab175e"
+  url "https://files.pythonhosted.org/packages/b0/6a/63263a1c32fcf9ea1b004b594580400d3af113b593ae8966f92539809994/pdm-2.7.4.tar.gz"
+  sha256 "c77f8df1ccb7d701f005e3a430da4b8a196a2824e23e69d2d5abebafaf6e50ce"
   license "MIT"
   head "https://github.com/pdm-project/pdm.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1afbd6ab1a0533ea7ec7302d2323cbd761f71552b27479c06990cfc5c7c2a42f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cd30a767869845b9f7b82bfcf8544afaa9facf66331ef39ca866fd69c6916349"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "676dd052d70117c1375be431547c607db9f6251582612a008667807132331a19"
-    sha256 cellar: :any_skip_relocation, ventura:        "248a59d3e32f400a613a713df5b4282b8afd43a19f6a8f6295832120df0ff8ea"
-    sha256 cellar: :any_skip_relocation, monterey:       "f2fd80138f4257847a3791875472d4ce306bbf45fb2cd033cb88c1fbf8d39d10"
-    sha256 cellar: :any_skip_relocation, big_sur:        "15adb2eb2b6cc2fea419c8973b522c9fc08cddcee0cde714330ae519ae8e06f5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c735495f053d2402e0210306d9012f2a764b5761d05b2cb4b4872d33a559ee88"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "06210984bb4f394fdf91608adc7401ff56c11183e3915a599640b56baad1260e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "da989d5b711131185a3d6f318a7a769d7b9a21077acacf73ea454e0abdd670dd"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f1df80bd054a53d766db37068cdf3762d8ea7542369816b083ad70bcb2e931a4"
+    sha256 cellar: :any_skip_relocation, ventura:        "29c0c54cf5200a5ccc153abdf512c1287e864ddb5e16fdbde57482128ed6fdc7"
+    sha256 cellar: :any_skip_relocation, monterey:       "e50fe59596ef5301ca6bf7944a2918391bd84fc74de6d2a965329a81c2c5708b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9d1f57f17bf8c75f2441c1d8294aa642d2261fa9f4a29153dddf17247cfaad20"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f7aab40198d14c2d93c2a5e2dfe1d6f72c4e097068d2242fd9159f1e20f023bc"
   end
 
   depends_on "pygments"
@@ -47,8 +47,8 @@ class Pdm < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/31/73/5b47f2a0b8543c105f26f74e2a680ea74799379cf53802f0f979e9be9b7a/filelock-3.12.1.tar.gz"
-    sha256 "82b1f7da46f0ae42abf1bc78e548667f484ac59d2bcec38c713cee7e2eb51e83"
+    url "https://files.pythonhosted.org/packages/00/0b/c506e9e44e4c4b6c89fcecda23dc115bf8e7ff7eb127e0cb9c114cbc9a15/filelock-3.12.2.tar.gz"
+    sha256 "002740518d8aa59a26b0c76e10fb8c6e15eae825d34b6fdf670333fd7b938d81"
   end
 
   resource "findpython" do
@@ -67,8 +67,8 @@ class Pdm < Formula
   end
 
   resource "markdown-it-py" do
-    url "https://files.pythonhosted.org/packages/e4/c0/59bd6d0571986f72899288a95d9d6178d0eebd70b6650f1bb3f0da90f8f7/markdown-it-py-2.2.0.tar.gz"
-    sha256 "7c9a5e412688bc771c67432cbfebcdd686c93ce6484913dccf06cb5a0bea35a1"
+    url "https://files.pythonhosted.org/packages/38/71/3b932df36c1a044d397a1f92d1cf91ee0a503d91e470cbd670aa66b07ed0/markdown-it-py-3.0.0.tar.gz"
+    sha256 "e3f60a94fa066dc52ec76661e37c851cb232d92f9886b15cb560aaada2df8feb"
   end
 
   resource "mdurl" do
@@ -117,8 +117,8 @@ class Pdm < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/02/97/0046b5e3c6a5057b5817e5e6c51a776d410b953e6a9c67ae249dafdd2999/rich-13.4.1.tar.gz"
-    sha256 "76f6b65ea7e5c5d924ba80e322231d7cb5b5981aa60bfc1e694f1bc097fe6fe1"
+    url "https://files.pythonhosted.org/packages/e3/12/67d0098eb77005f5e068de639e6f4cfb8f24e6fcb0fd2037df0e1d538fee/rich-13.4.2.tar.gz"
+    sha256 "d653d6bccede5844304c605d5aac802c7cf9621efd700b46c7ec2b51ea914898"
   end
 
   resource "shellingham" do

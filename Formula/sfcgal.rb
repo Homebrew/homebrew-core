@@ -4,16 +4,16 @@ class Sfcgal < Formula
   url "https://gitlab.com/Oslandia/SFCGAL/-/archive/v1.4.1/SFCGAL-v1.4.1.tar.gz"
   sha256 "1800c8a26241588f11cddcf433049e9b9aea902e923414d2ecef33a3295626c3"
   license "LGPL-2.0-or-later"
-  revision 4
+  revision 5
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "02b4121d8d7ea923e879dab8a93fd4039127c036edb5c192f744da0197386eaa"
-    sha256 cellar: :any,                 arm64_monterey: "4153f69b3ef306d23ed9d4619c9d38b253179caf52b0a208678795c6dacdd4fc"
-    sha256 cellar: :any,                 arm64_big_sur:  "428f6abdaab0d531c518f7781a6c1eef8764be9565a51f677dcb4a850489ebbe"
-    sha256 cellar: :any,                 ventura:        "3621f7ffb66ecbfd8d0293c5c002a10faec05507b083af6ded4f2d31ca084532"
-    sha256 cellar: :any,                 monterey:       "935fd461fcbf1570394f454b920a9ba443a32d092e85f659ee42d6241d8ee768"
-    sha256 cellar: :any,                 big_sur:        "513a796ef52c1f5c72312ec0aade227d33a06fadb7844f5c14ba63560f9f8441"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "08541be2cb505a3c32fb99269f19e2eb98f22575933bc62fb2e2aa915b78b536"
+    sha256 cellar: :any,                 arm64_ventura:  "d2986bd33428614aed8fd61d52e81331003178532ac7749914429786432b1b75"
+    sha256 cellar: :any,                 arm64_monterey: "679e76ea188a7c9aa039dcb762b7ca8375e35009f4b1ac49dd787100ef3705f0"
+    sha256 cellar: :any,                 arm64_big_sur:  "b10a871b2372aeb03c36b2fe9d2b7d45518b2b4ad0d27b5a10e3a133632c6acb"
+    sha256 cellar: :any,                 ventura:        "bf5a5e7d0a59f52e41dd2c6e5137f8ce684fa7b44f1d5dd803ad9a59f3050d76"
+    sha256 cellar: :any,                 monterey:       "bca215c4596244f5de554e14d68774950e8ca9d7f5f0aa1d66da5ef0ee960da8"
+    sha256 cellar: :any,                 big_sur:        "aee4b0a1b0ce8ac96413f603ced79d4139476938eda9ca5caffbce8bd0f90935"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "97ab272a0db9c4e22fa4df1df5d8e78bcf72ea02923b485babfd843b97e8002b"
   end
 
   depends_on "cmake" => :build
