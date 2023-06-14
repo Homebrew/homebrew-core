@@ -5,6 +5,7 @@ class ErlangAT23 < Formula
   url "https://github.com/erlang/otp/releases/download/OTP-23.3.4.19/otp_src_23.3.4.19.tar.gz"
   sha256 "b830af3d9fcb0be88d1d358ee8d5db6dbc51554329053b7dfdc17d4335c81302"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -23,7 +24,7 @@ class ErlangAT23 < Formula
 
   keg_only :versioned_formula
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "unixodbc"
   depends_on "wxwidgets" # for GUI apps like observer
 
@@ -50,7 +51,7 @@ class ErlangAT23 < Formula
       --enable-threads
       --enable-wx
       --with-odbc=#{Formula["unixodbc"].opt_prefix}
-      --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
+      --with-ssl=#{Formula["openssl@3"].opt_prefix}
       --without-javac
     ]
 
