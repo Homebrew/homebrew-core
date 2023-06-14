@@ -11,17 +11,6 @@ class Neo4jAT44 < Formula
           |href=.*?release=v?(\d+(?:\.\d+)+)[^"' >]+edition=community/ix)
   end
 
-  bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cdaf734d6f5a77464ebf9a7752d2f362640bcf15f657bedeb1664977c7358b55"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cdaf734d6f5a77464ebf9a7752d2f362640bcf15f657bedeb1664977c7358b55"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cdaf734d6f5a77464ebf9a7752d2f362640bcf15f657bedeb1664977c7358b55"
-    sha256 cellar: :any_skip_relocation, ventura:        "637239bbbcb9aba412e1b0eb40745e2a70743bfb4c17fc37877954d6cda4d8dc"
-    sha256 cellar: :any_skip_relocation, monterey:       "637239bbbcb9aba412e1b0eb40745e2a70743bfb4c17fc37877954d6cda4d8dc"
-    sha256 cellar: :any_skip_relocation, big_sur:        "637239bbbcb9aba412e1b0eb40745e2a70743bfb4c17fc37877954d6cda4d8dc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cdaf734d6f5a77464ebf9a7752d2f362640bcf15f657bedeb1664977c7358b55"
-  end
-
   keg_only :versioned_formula
 
   depends_on "openjdk@11"
