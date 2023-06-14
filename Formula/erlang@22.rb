@@ -5,6 +5,7 @@ class ErlangAT22 < Formula
   url "https://github.com/erlang/otp/releases/download/OTP-22.3.4.26/otp_src_22.3.4.26.tar.gz"
   sha256 "ee281e4638c8d671dd99459a11381345ee9d70f1f8338f5db31fc082349a370e"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "d26db2560ad641c9aa425db4a43e2d7193cacd601b850c386df742c84b2baedb"
@@ -22,7 +23,7 @@ class ErlangAT22 < Formula
   # EOL with OTP-25 release
   deprecate! date: "2022-09-20", because: :unsupported
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "wxwidgets" # for GUI apps like observer
 
   resource "man" do
@@ -50,7 +51,7 @@ class ErlangAT22 < Formula
       --enable-smp-support
       --enable-threads
       --enable-wx
-      --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
+      --with-ssl=#{Formula["openssl@3"].opt_prefix}
       --without-javac
     ]
 
