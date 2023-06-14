@@ -5,7 +5,7 @@ class TclTk < Formula
   mirror "https://fossies.org/linux/misc/tcl8.6.13-src.tar.gz"
   sha256 "43a1fae7412f61ff11de2cfd05d28cfc3a73762f354a417c62370a54e2caf066"
   license "TCL"
-  revision 3
+  revision 4
 
   livecheck do
     url :stable
@@ -126,7 +126,9 @@ class TclTk < Formula
         --prefix=#{prefix}
         --exec-prefix=#{prefix}
         --with-tcl=#{lib}
+        --with-tclinclude=#{include}/tcl-tk
         --with-tk=#{lib}
+        --with-tkinclude=#{include}/tcl-tk
         --with-itcl=#{itcl_dir}
       ]
       system "./configure", *args
