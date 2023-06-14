@@ -35,6 +35,8 @@ class Libphonenumber < Formula
 
   def install
     ENV.append_to_cflags "-Wno-sign-compare" # Avoid build failure on Linux.
+    # https://github.com/protocolbuffers/protobuf/commit/4329fde9cf3fab7d1b3a9abe0fbeee1ad8a8b111
+    ENV.append_to_cflags "-DPROTOBUF_USE_DLLS"
     system "cmake", "-S", "cpp", "-B", "build",
                     "-DCMAKE_CXX_STANDARD=17", # keep in sync with C++ standard in abseil.rb
                     "-DGTEST_INCLUDE_DIR=#{Formula["googletest"].opt_include}",
@@ -66,7 +68,7 @@ class Libphonenumber < Formula
         }
       }
     EOS
-    system ENV.cxx, "-std=c++17", "test.cpp", "-L#{lib}", "-lphonenumber", "-o", "test"
+    system ENV.cxx, "-std=c++17", "-DPROTOBUF_USE_DLLS", "test.cpp", "-L#{lib}", "-lphonenumber", "-o", "test"
     system "./test"
   end
 end
