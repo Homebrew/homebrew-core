@@ -1,20 +1,20 @@
 class Passenger < Formula
   desc "Server for Ruby, Python, and Node.js apps via Apache/NGINX"
   homepage "https://www.phusionpassenger.com/"
-  url "https://github.com/phusion/passenger/releases/download/release-6.0.17/passenger-6.0.17.tar.gz"
-  sha256 "385559ed1d78eb83165222d568721dcc4222bb57c1939811ecd2c4ef33937ba7"
+  url "https://github.com/phusion/passenger/releases/download/release-6.0.18/passenger-6.0.18.tar.gz"
+  sha256 "dfcd9bcae364ce09b6ae59ea598f9dcad3e27a980b12c4b245acd336fa02c5a2"
   license "MIT"
-  revision 2
+  revision 1
   head "https://github.com/phusion/passenger.git", branch: "stable-6.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "dc0eb3d3754fb0c43a724d54de94ca3d1af0fe90dea838b9d1595a08e0d23cfa"
-    sha256 cellar: :any,                 arm64_monterey: "da72db721c2c040a4549c5cd1a64faa28542374b35b99986420a51dd060902cc"
-    sha256 cellar: :any,                 arm64_big_sur:  "2d790af382b9e8f83e8e00e3b4adfd4ecb9ca9c03f59c38310d54068905dfa83"
-    sha256 cellar: :any,                 ventura:        "a5aaa846330c89c6ef4d3cf35818f429c2e2beeea4aada067e3c4076fe73a806"
-    sha256 cellar: :any,                 monterey:       "18abce356f47f72d518ffa3611243458cb94e6f5d77189c92a867829cd72d3fe"
-    sha256 cellar: :any,                 big_sur:        "c5b1292bc1e1e6ce82b896273e7e39c13114847dfb8ab6b68f0e559358bbbb8c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "274ea966b6d4a39383ed6db1da9de4a3f6905c7cc16ac80d7fa3322c3dcaee51"
+    sha256 cellar: :any,                 arm64_ventura:  "026763819d0820e48b421f29a0cdfc0b54ba84620232f6da28dd64e6aa1d2961"
+    sha256 cellar: :any,                 arm64_monterey: "8d51f5cee1bb90e32de9cf6c9ede0475579a9234147c90357e093fd37691d998"
+    sha256 cellar: :any,                 arm64_big_sur:  "20b5a5cb14c6868cc234bb96c2da8ab59aa4ab3f521cbd85b7423e95ee8ad28d"
+    sha256 cellar: :any,                 ventura:        "732cdc417d62b917f9a76d7366bcec3888c5e1c36da89c6550f2829281452a08"
+    sha256 cellar: :any,                 monterey:       "e374599bbe3a7e912c1f85c3dce2c7282426434dc4922f1ded9ecf7f524416f5"
+    sha256 cellar: :any,                 big_sur:        "7fc9b039f4f75f0d77241d4d9a810884da29b126683c78d733228c9200012785"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b1326b2814764afe7752a52b7cf9560eba8137a7416523e61e77e25f614410df"
   end
 
   depends_on "httpd" => :build # to build the apache2 module

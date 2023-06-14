@@ -4,26 +4,24 @@ class Catch2 < Formula
   url "https://github.com/catchorg/Catch2/archive/v3.3.2.tar.gz"
   sha256 "8361907f4d9bff3ae7c1edb027f813659f793053c99b67837a0c0375f065bae2"
   license "BSL-1.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "15f5edc179c4627d31eb25a0628eaa7b9d6807afb874e363a1fc6e6ae7161146"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cdc9171cd7d1f78de34a24198987227de6e1e6990f63ad6062f023b8cd2e984a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7f37e7ddecc17a7107591174f3352b4f5aa45a48302f344b211982516255aeee"
-    sha256 cellar: :any_skip_relocation, ventura:        "c0fe0bb14f91032ddc90536277c53a128063b722f6ee9bef3a172ede7dd69a6a"
-    sha256 cellar: :any_skip_relocation, monterey:       "2fc451692500a6b53f07266abc14c6a6560e2d7b1cda4f2686f951c4296a46c1"
-    sha256 cellar: :any_skip_relocation, big_sur:        "af6936b0349e3d88dfa8f9c3589f0cabc8ec5a29225ec89dab7d67c0bc77fcb7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ca1b233b4a688a9d20edf2df43065fa4338b3789b29c5ca60792be2689603afe"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d8d0e51ee2f9522ac93fcc5693004dc90474f507ca08ce01483b00d5f5e65c61"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d56e29c74d3da754b8d5690995cb3e100e2202934be795b51aea4db9605165b1"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f2d8f335ca14ee64987dedb7ac200d820b9c61e7255482b2c4b3b0e5dace2b4f"
+    sha256 cellar: :any_skip_relocation, ventura:        "7d42b219a5d9fc1008f1385a23ae52a47f5bf67cbefd526a71f795e797f84d25"
+    sha256 cellar: :any_skip_relocation, monterey:       "3c4eea1374ffa26f3117b4ca48f5d3126bcca08441aaddf5cda4085bbc34409c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0d4ec3ddd321176a4c6a062f4862eb51510d37b585d9438b65ea3d8c2a87da56"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c29405a8638ef96696b9fd2351551f6c07d6502660c057be8d183f6df0fe6b05"
   end
 
   depends_on "cmake" => :build
 
-  fails_with gcc: "5"
-
   def install
-    mkdir "build" do
-      system "cmake", "..", "-DBUILD_TESTING=OFF", *std_cmake_args
-      system "cmake", "--build", ".", "--target", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_CXX_STANDARD=17", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

@@ -2,9 +2,9 @@ class Php < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
-  url "https://www.php.net/distributions/php-8.2.6.tar.xz"
-  mirror "https://fossies.org/linux/www/php-8.2.6.tar.xz"
-  sha256 "10b796f0ed45574229851212b30a596a76e70ae365322bcaaaf9c00fa7d58cca"
+  url "https://www.php.net/distributions/php-8.2.7.tar.xz"
+  mirror "https://fossies.org/linux/www/php-8.2.7.tar.xz"
+  sha256 "4b9fb3dcd7184fe7582d7e44544ec7c5153852a2528de3b6754791258ffbdfa0"
   license "PHP-3.01"
 
   livecheck do
@@ -13,13 +13,13 @@ class Php < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "ba6fd5ffe5eb9c4065f42e4dc206b8a1e07137a04ce505aa6342e25acb611264"
-    sha256 arm64_monterey: "08cc974c221bbcad96d33e4c9baa3f26e2d9e26bacefb4cdc4d3055403bc9ac9"
-    sha256 arm64_big_sur:  "997f3bd73612614e7708a3e9e4c8343ade1c1b71939c970bf63b6ef4bd0990d8"
-    sha256 ventura:        "c41fe1323fdc0b523a31d692a896a67e31ee5b071ba4a6ea909e6fb153c73b05"
-    sha256 monterey:       "9c7b40b6885462c4b0737b10214d6d34e8435806b3eb7ef4f4b40189e19278f5"
-    sha256 big_sur:        "a1fb53be9ab0d2ae3a54a84c67853e14f7edea02b200f7f3993cd4d16f44c969"
-    sha256 x86_64_linux:   "a40fba4703cac9668d4e19d2b47c6baffc6a4c911bdf5a7ebf2451a87a089a9d"
+    sha256 arm64_ventura:  "eac9104f863f59b95dc6755d46c80f4f48c472ded231d1d7d81bbff691af7c9f"
+    sha256 arm64_monterey: "29ceac4cd267ae3153921ed2dbdab6521e90eef994504ad6ebbe46873a145231"
+    sha256 arm64_big_sur:  "9ee6e1d1ca6ce319c2dbf7e89e6c607caa858eb8b254ebe215887a7f7d7f3f6c"
+    sha256 ventura:        "69bb8bc439fc8f0d0967b8d1f8031a877320e0c4eac087b9d979a47245ba111d"
+    sha256 monterey:       "a81046127c35541eaf35f2cdcb6a465620562080516dd340521dfba0c4057fd0"
+    sha256 big_sur:        "f0de71362d28a70f7562db633b82f7e2bce887ff7a55226b78ef6a4ffb59f62b"
+    sha256 x86_64_linux:   "ac5a90d549a84eb67f3a3854a81c94ab129f7b7f181915cff11704b189dfc5a1"
   end
 
   head do

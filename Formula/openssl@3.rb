@@ -3,6 +3,10 @@ class OpensslAT3 < Formula
   homepage "https://openssl.org/"
   url "https://www.openssl.org/source/openssl-3.1.1.tar.gz"
   mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-3.1.1.tar.gz"
+  mirror "https://www.openssl.org/source/old/3.1/openssl-3.1.1.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/old/3.1/openssl-3.1.1.tar.gz"
+  mirror "http://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-3.1.1.tar.gz"
+  mirror "http://www.mirrorservice.org/sites/ftp.openssl.org/source/old/3.1/openssl-3.1.1.tar.gz"
   sha256 "b3aa61334233b852b63ddb048df181177c2c659eb9d4376008118f9c08d07674"
   license "Apache-2.0"
 

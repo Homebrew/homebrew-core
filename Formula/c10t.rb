@@ -4,16 +4,16 @@ class C10t < Formula
   url "https://github.com/udoprog/c10t/archive/1.7.tar.gz"
   sha256 "0e5779d517105bfdd14944c849a395e1a8670bedba5bdab281a0165c3eb077dc"
   license "BSD-3-Clause"
-  revision 4
+  revision 5
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "87bfb448e0461b3f6854ca2d35216fcc949cd652935bf4f9ebdf60ea717a3351"
-    sha256 cellar: :any,                 arm64_monterey: "235dd40d5d9aa664635c59efe22d054bdf6cc687a1e4a1e0ca43254b2325288b"
-    sha256 cellar: :any,                 arm64_big_sur:  "9461253ad226e1b367b25a36f311dc2d05e0d3df58920723b98007c8f0b4debd"
-    sha256 cellar: :any,                 ventura:        "2dea1e71d21eb4dbd242bfe9f210702c42345b1ee2e27818731827d5ee136136"
-    sha256 cellar: :any,                 monterey:       "1b4a0b97ff0ba51123c5f5c31d5105e7d3965a57e056e35ce17dd6330eb19360"
-    sha256 cellar: :any,                 big_sur:        "9f4137cb46c4712d4fa2f9f4af3d640e0469fe12bb24aa402cdec42ea328ad91"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "109fe3090ead8cd3194473afa380872eae1f88e72304741d8b1c3340251fe044"
+    sha256 cellar: :any,                 arm64_ventura:  "144e7ec64d19feedfe7e3854a0897f5a5b2da0eb048fb548f1fbcdd4efa65b47"
+    sha256 cellar: :any,                 arm64_monterey: "9ef90eca2b3e0ff042a64f03512ca48a48f6ed32202b01ac9600446d9ccd49ff"
+    sha256 cellar: :any,                 arm64_big_sur:  "2fd469a1817d4d374970f452cdeaeec7ae048b113a32acffda510207c3c8f407"
+    sha256 cellar: :any,                 ventura:        "9129f50c43f2d6740aa081c9746c86c6ff83b8c61ee02b2f684e5843237f5421"
+    sha256 cellar: :any,                 monterey:       "c97f2ee507b1e1dbe0ce3349644c061ba512bae6fe47c4de50b70d5f928eb1d1"
+    sha256 cellar: :any,                 big_sur:        "f3eebbb5b5e070925ac4b1e353e21b977b57a64b40565e4aea59b2b534e66f46"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2c6bc31979972be1e242d28708be6a0041fb48417dd4078f0075e52eacaa2226"
   end
 
   depends_on "cmake" => :build

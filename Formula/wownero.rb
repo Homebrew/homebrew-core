@@ -6,7 +6,7 @@ class Wownero < Formula
       tag:      "v0.11.0.3",
       revision: "e921c3b8a35bc497ef92c4735e778e918b4c4f99"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   # The `strategy` code below can be removed if/when this software exceeds
   # version 10.0.0. Until then, it's used to omit a malformed tag that would
@@ -25,13 +25,13 @@ class Wownero < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "2bf3e20f48c0b92b2bfc74feaee831b3849c56239a0d9e1da6a54f49e36da19b"
-    sha256 cellar: :any,                 arm64_monterey: "deb50ecc4a6e3bc42672a7ebd5ed49fef415d2590735fc9cef2e883627f3a669"
-    sha256 cellar: :any,                 arm64_big_sur:  "face536fbc52d85877bd7a680e37b45488e79b8f5be491a89846ca78157eb88d"
-    sha256 cellar: :any,                 ventura:        "7952e31288138949ede6b78adce699ccee81cf289ac0e4854da9f6eab8fefd4e"
-    sha256 cellar: :any,                 monterey:       "8d9ae5c1457454103f82e0c25f8748dd18e3b1cfc4200cb8e286104690696b41"
-    sha256 cellar: :any,                 big_sur:        "88f65079dab113125350e18dff96884cf3d00502cad966debd73e1a002520975"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "414dc04013fed7567286ef00d8c066dca39c37404c06d7d7863cfb798dddf8a4"
+    sha256 cellar: :any,                 arm64_ventura:  "13dfbac1e1886d4f362b4c7978e263a3aeeed05fdc87bbf3d4a826f047a68c76"
+    sha256 cellar: :any,                 arm64_monterey: "0ac3c34a1d4f2125b73a3afe6577d9e37c1af20cf1773ff00918895190989d22"
+    sha256 cellar: :any,                 arm64_big_sur:  "25e7160ff0375be8f0e6b014ebe96fd31284dc10f39c0021fbd840c1635e2d85"
+    sha256 cellar: :any,                 ventura:        "e91b177bf2f7bb4ee525f3bac9babcbbea08d764599ff2b4b5feb2e66015352c"
+    sha256 cellar: :any,                 monterey:       "ebbb514291c711c1424467581470a1ba2308f22fea361418218221e752d2b5d5"
+    sha256 cellar: :any,                 big_sur:        "817b6597ab089f6530ffd716bf43d8a473a183c9c7f2e97565ccad18c4e259eb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "03741a450a51a2ae8adeb68deae1f58343dd3ad9e106cebc636868ee23e3568b"
   end
 
   depends_on "cmake" => :build

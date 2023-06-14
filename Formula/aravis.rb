@@ -1,19 +1,18 @@
 class Aravis < Formula
   desc "Vision library for genicam based cameras"
   homepage "https://wiki.gnome.org/Projects/Aravis"
-  url "https://github.com/AravisProject/aravis/releases/download/0.8.26/aravis-0.8.26.tar.xz"
-  sha256 "cb866cbcf4de2ab8fedf5d6a1213dd714347adf25d9e1812df2283230f065f80"
+  url "https://github.com/AravisProject/aravis/releases/download/0.8.27/aravis-0.8.27.tar.xz"
+  sha256 "30db6b03f2a49088746b8f709a690d6819a31ba3a95ad2131ffae6698bd11f55"
   license "LGPL-2.1-or-later"
-  revision 1
 
   bottle do
-    sha256 arm64_ventura:  "9f657a5a59e310fda730e6e9f2db6aa0468269f1e3abce5c9c02b2fad655d429"
-    sha256 arm64_monterey: "ddd783d0729912a53b0e81399f4a51682b77fa6fb33abb13b3c52e930850220d"
-    sha256 arm64_big_sur:  "48e5efa2bbffd8a2fff4af276e664f8d270d73912ee791ab85533ec5a257584f"
-    sha256 ventura:        "6489b5c0799136db0276806841f87b1f4d69508dc5c4accee636a7dbedae28e9"
-    sha256 monterey:       "55818feb3907fbb78f965ba67458b1c2ccfd1653a68d5447ecdb544fd1801878"
-    sha256 big_sur:        "f70efa75be67e6e0149404bce69cc252adc5177b70ce692247f9f04bda4c308b"
-    sha256 x86_64_linux:   "e467f4494ffd91c4a54636f9dfe2be758aa0b724628b88ac47f7d322d122154b"
+    sha256 arm64_ventura:  "a5614635c314ac3c71628882a0a1cfc067f32addb8c67f8625804c0ebb8632fa"
+    sha256 arm64_monterey: "ef9fe6ce8007b693f6e6b3f57eec3a2db06b4eda4de83203c451fd4aefc1aea7"
+    sha256 arm64_big_sur:  "fa445c11f63f753fdebd0317255460e20c1e802f1167d00e9a984c92c28f771c"
+    sha256 ventura:        "89d2cf74f0d0c54f6507502372c678a514dd36427c751bd933e51f3fd0946784"
+    sha256 monterey:       "7e83225c97981430f8b87c2d9bf171c6a08825b9bf4e7fb3fb7009ca11cb9017"
+    sha256 big_sur:        "ab720d0976c4a97d2baace3c814255d5a462ac830e6021b34ea485db93f2d8d1"
+    sha256 x86_64_linux:   "81eeffa0522b65381daa82bdff35a4ce99e5059ee5e7e2077c4e040dbdbf9b8b"
   end
 
   depends_on "gobject-introspection" => :build

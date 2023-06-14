@@ -4,19 +4,18 @@ class Litani < Formula
   desc "Metabuild system"
   homepage "https://awslabs.github.io/aws-build-accumulator/"
   url "https://github.com/awslabs/aws-build-accumulator.git",
-      tag:      "1.28.0",
-      revision: "00e2dda4e8ce2c6fb11e3904861e986af228099e"
+      tag:      "1.29.0",
+      revision: "8002c240ef4f424039ed3cc32e076c0234d01768"
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1c7fd77b08d05387bfbb288f3ecaa9abfd71b0a937b6f66632fbf7bd9b16c107"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b3412256f752e8dc3228bbab0034edbf90180795e746ba91fbf6433762607614"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bc565ff6b94663f669f8ccbf3f0384842fa7b8c40f1dea86248f1923e83fce4e"
-    sha256 cellar: :any_skip_relocation, ventura:        "9890059ce83d9d7e7b1106beea0e0424c266a90e4a069df8f8ee44091ae1cb90"
-    sha256 cellar: :any_skip_relocation, monterey:       "0cae52fa2028e9a1056b603bb9d34d55e69495f4668bba9e5bfff09ebf576052"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6f1e1ded52a763a982d3c0935fbd307f272370f09cdd13358b93968e7221482b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3e9f6aac3af7a5f13b15f695ccd8460e1c85d50dea3081697c06a8eceebe43fb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "43d0934af6a646890e091f7e81f3d42af5eafbbf9f97844643e1df7533407112"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7c3e02201c216f5c2eff2672663a3d3c3b45296a9d2a869da82befd903c4b234"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "da931fdeb2a22f86a9149101b1483e6c8d2120ed831ed8e2a76b3bc551a0958b"
+    sha256 cellar: :any_skip_relocation, ventura:        "b3b022cb6e3626b9c9cd7ece12d6117aa328689a0f3bc0841e95f8e1094e4fae"
+    sha256 cellar: :any_skip_relocation, monterey:       "441eb8324c4037d3621471a4d4b7ce6e8028b85ba474f7e359f428b6660c795b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "bdf62a5e11bb9bfb3b036129c875d2721193392157546ab2c3b4030a711fa014"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3fad432d35e3bd83d0fbc53e2fb2c181e4361d5a14f5e2b0e217bb5571e737e1"
   end
 
   depends_on "coreutils" => :build
@@ -28,25 +27,14 @@ class Litani < Formula
   depends_on "python@3.11"
   depends_on "pyyaml"
 
-  resource "Jinja2" do
+  resource "jinja2" do
     url "https://files.pythonhosted.org/packages/7a/ff/75c28576a1d900e87eb6335b063fab47a8ef3c8b4d88524c4bf78f670cce/Jinja2-3.1.2.tar.gz"
     sha256 "31351a702a408a9e7595a8fc6150fc3f43bb6bf7e319770cbc0db9df9437e852"
   end
 
-  resource "MarkupSafe" do
-    url "https://files.pythonhosted.org/packages/95/7e/68018b70268fb4a2a605e2be44ab7b4dd7ce7808adae6c5ef32e34f4b55a/MarkupSafe-2.1.2.tar.gz"
-    sha256 "abcabc8c2b26036d62d4c746381a6f7cf60aafcc653198ad678306986b09450d"
-  end
-
-  # Support Python 3.11, remove on next release
-  patch do
-    url "https://github.com/awslabs/aws-build-accumulator/commit/632b58cbbcffec0f0b57fdb6ca92fa67d1e5656d.patch?full_index=1"
-    sha256 "6fb6d8fe2c707691513cbaaba5b3ed582775fee567458d1b08b719d1fe0a768e"
-  end
-
-  patch do
-    url "https://github.com/awslabs/aws-build-accumulator/commit/d189541fcbaad28649f489e6823c2c4ca2c6aa33.patch?full_index=1"
-    sha256 "f3d79ea8ccf5ff8524a4da3495c8ffd0a2bd1099aaab1d8c52785ca80e13aee7"
+  resource "markupsafe" do
+    url "https://files.pythonhosted.org/packages/6d/7c/59a3248f411813f8ccba92a55feaac4bf360d29e2ff05ee7d8e1ef2d7dbf/MarkupSafe-2.1.3.tar.gz"
+    sha256 "af598ed32d6ae86f1b747b82783958b1a4ab8f617b06fe68795c7f026abbdcad"
   end
 
   def install

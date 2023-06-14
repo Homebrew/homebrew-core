@@ -4,16 +4,16 @@ class AzureStorageCpp < Formula
   url "https://github.com/Azure/azure-storage-cpp/archive/v7.5.0.tar.gz"
   sha256 "446a821d115949f6511b7eb01e6a0e4f014b17bfeba0f3dc33a51750a9d5eca5"
   license "Apache-2.0"
-  revision 4
+  revision 5
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "c561c69b4cf3677a619b4177651a9901bd8c37f6e00841ee7dfa779b0d2d610d"
-    sha256 cellar: :any,                 arm64_monterey: "69077c839b19801a078f90fc5e75a51f7f8302095c6d90bdf91132e98192a94e"
-    sha256 cellar: :any,                 arm64_big_sur:  "877bad6536d1b893d2aa4c54d09abdca4c97bbae3ddfdadbcfb412e2dedec05b"
-    sha256 cellar: :any,                 ventura:        "9399d2818488907a12615aa6363cee42fb6951309feef2c9d84537368c01ecd1"
-    sha256 cellar: :any,                 monterey:       "f0a9ef4475c97ca1b250efb8bcd7ea9b16b1468abe3aceaee24051e1ea3ce213"
-    sha256 cellar: :any,                 big_sur:        "6b29bb83c1c4a15539ea3a138a9eeac481d02e9ba621868da1260b2083376a73"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f9b09b5689f380ae2ba7070ba02e59af7e370b31cc56a07ec18094e597f8af95"
+    sha256 cellar: :any,                 arm64_ventura:  "d69bfaf5663a06d56e6a5543f8a969d520a46c5e09e8c40fc22cc1141a97e91d"
+    sha256 cellar: :any,                 arm64_monterey: "3abe006019c8b247ae815c9c9d363bd54e005b6c9455b49ca6ef9796009923bb"
+    sha256 cellar: :any,                 arm64_big_sur:  "3fe374b2484e3a954c9433889e24a04136ad0744b041838dd33ca6b6aed75fdf"
+    sha256 cellar: :any,                 ventura:        "27c77976b99290796c83280f60e374073191f3dc8a6278ecb8ef939c6606b92d"
+    sha256 cellar: :any,                 monterey:       "0b0e9560976766c7cf159a68d28bc11726831b59e2e0900a3840e7a02514d6e0"
+    sha256 cellar: :any,                 big_sur:        "b80230b855850c0958ca8987a3a05f361c3b567973e228c2356dd8871442432c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b2c55f652a04448f4d98f5db1386ee99b2235cbc27c59171bc141597f7e8b0a7"
   end
 
   depends_on "cmake" => :build

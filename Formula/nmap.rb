@@ -1,4 +1,6 @@
 class Nmap < Formula
+  include Language::Python::Shebang
+
   desc "Port scanning utility for large networks"
   homepage "https://nmap.org/"
   license :cannot_represent
@@ -22,13 +24,14 @@ class Nmap < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "32837a1f36a15fc942c681f200617aea268718f160b17142eee6a56618130d8a"
-    sha256 arm64_monterey: "8b8a608eca65894cea2eb5fcce4a03077d6d19f12e36756b495c348bab46c1dd"
-    sha256 arm64_big_sur:  "7151c4c2e2bdc0a1cf92512a6c6ac0bd186fe354d34be8d9e46fd0f3345a76df"
-    sha256 ventura:        "96921fe7b2582895c84814d4d2c6898ecbed9d955f2afc68aaa1b564d4c05c7d"
-    sha256 monterey:       "49003440cc34f92ad987fc529d166599c0facbd0955387e40ff8adbdf8542c2e"
-    sha256 big_sur:        "53beae7109ad5e702bcc0bd810642d039f2d414f263f7874554d9a27b45ce2ad"
-    sha256 x86_64_linux:   "62193145e556d35212fff9dde188e99183df8c40acfee8a8d7955b47ba72347b"
+    rebuild 1
+    sha256 arm64_ventura:  "b7ebbfb35120ebf567c3e022edf5cfcfa500859be1c985a0fc1aec9bd8c3fd29"
+    sha256 arm64_monterey: "5f50b15612375e48007d70a646ad4d19436929d875dc6536d94d1c83b8eca448"
+    sha256 arm64_big_sur:  "ff49e2d26c535ea8c146fc4d4dea8d6ebeb0798e404b7c501c836e9c0c3d0ef5"
+    sha256 ventura:        "722752a91b928c957cdeadedea68300617f5f84e99aae3f3df6ea34f2b76cf8b"
+    sha256 monterey:       "4a1b956d9b12ea5b6c957ceedc71d3ff77911d4759ccf9cdfb3f1e828f21bcb3"
+    sha256 big_sur:        "ba29aa64ba09d5e8faefb4e29d616f50ab26449c15dcd8a163d1ea7ef75f959b"
+    sha256 x86_64_linux:   "0fecd65a60b067340fd9b0d47e4bc73344719fc8f5cb6f4d6662a68a4e6f5568"
   end
 
   depends_on "liblinear"
@@ -62,6 +65,18 @@ class Nmap < Formula
     system "make", "install"
 
     bin.glob("uninstall_*").map(&:unlink) # Users should use brew uninstall.
+    return unless (bin/"ndiff").exist? # Needs Python
+
+    rewrite_shebang detected_python_shebang(use_python_from_path: true), bin/"ndiff"
+  end
+
+  def caveats
+    on_macos do
+      <<~EOS
+        To use `ndiff`, you must do:
+          chmod go-w #{HOMEBREW_CELLAR}
+      EOS
+    end
   end
 
   test do

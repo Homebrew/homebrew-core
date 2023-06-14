@@ -1,31 +1,30 @@
 class Noweb < Formula
   desc "WEB-like literate-programming tool"
   homepage "https://www.cs.tufts.edu/~nr/noweb/"
-  # new canonical url (for newer versions): http://mirrors.ctan.org/web/noweb.zip
-  url "https://deb.debian.org/debian/pool/main/n/noweb/noweb_2.11b.orig.tar.gz"
-  sha256 "c913f26c1edb37e331c747619835b4cade000b54e459bb08f4d38899ab690d82"
-  license "Noweb"
-
-  livecheck do
-    url "https://deb.debian.org/debian/pool/main/n/noweb/"
-    regex(/href=.*?noweb[._-]v?(\d+(?:\.\d+)+[a-z]?)\.orig\.t/i)
-  end
+  url "https://github.com/nrnrnr/noweb/archive/refs/tags/v2_12.tar.gz"
+  sha256 "34e3903bce9771345ff392b1998f7877389b66c71b3292834e8aaf448837a7f0"
+  license "BSD-2-Clause"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "445837953be37e6f291e346a9469b445cacdf9a0ef4d7da96dbe6c779b62f9a3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cf0e3c32a2c45886fcf808941a29332aefaa8c619b89866a55f34d478054ae1a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "58c550c2b55a37c6377eada0ffd5d3db747ebf46ddeef1f9803534ce58ea6c59"
-    sha256 cellar: :any_skip_relocation, ventura:        "1f16976e58f41d239d9029f6e3d649fda7d63f14d7cc2835847f088485fcb9f7"
-    sha256 cellar: :any_skip_relocation, monterey:       "e22a1ef8495089090d3e274f1f80c42baad63749cd564213f21c97c3b6eaa332"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3d78bc1dfb0c7d4175744b013ea9aeafb6992824ec079d7218960512e551e8c4"
-    sha256 cellar: :any_skip_relocation, catalina:       "b52d3febc8494ae943db6f99e0734b61333f95d67994b6b609d4c5129d52f788"
-    sha256 cellar: :any_skip_relocation, mojave:         "17439b95ee2d05eacf81c621aa76645e5bfd9a3c5b5ad61ffd98e1438bb69264"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "f3ca23f070a74c5e499232667ef64e73d68943d13f6344e70b74426feccca524"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "62301f6bc93e64de80a0eb63a862fcbd6580d25a7355303a2b70ac6a95a92ae7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0068cf8061ae3a7cb18121fd2ebfdc4acf8b7637a53ba827b8510b3dc0bdf714"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a1300e280c5bf6bffb9ea37a6840265d7645db9aae1a39fa1a423c1649bd606a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "203d5c7e72a0b556c08745473c80b516b842d9a70f345fb29d9e12ef2c056d32"
+    sha256 cellar: :any_skip_relocation, ventura:        "bc6bb8e8e542cf8f0dd2630b8f79cf5f478a17fe422c8b05a2d2c209d445f859"
+    sha256 cellar: :any_skip_relocation, monterey:       "65bc66014cc8a65cf32b9fa09167330a166cee389f9bda2e9cd02eb27982082b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "56341492c694961e3f86baa4bc2ffe3dd175d59b2a6417e345ddd545877da83e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e23dc34b6972b5a2b771c1a73444efd8c0c6a035a96437057ba52124433ea8a3"
   end
 
   depends_on "icon"
+
+  # add missing `lib/toascii`, remove in next release
+  patch do
+    url "https://github.com/nrnrnr/noweb/commit/7ebfd30f9fbeec9a2744c4dd483bd3d1068da352.patch?full_index=1"
+    sha256 "8f33cacd62b39dd750f577ad496a93b6bfe38400bd79e92ddfcc791cabfb0f5f"
+  end
+
+  # remove pdcached ops, see discussions in https://github.com/nrnrnr/noweb/issues/31
+  patch :DATA
 
   def texpath
     prefix/"tex/generic/noweb"
@@ -103,3 +102,32 @@ class Noweb < Formula
                  pipe_output("#{bin}/htmltoc", shell_output("#{bin}/noweave -filter l2h -index -html test.nw"))
   end
 end
+
+__END__
+diff --git a/src/icon/Makefile b/src/icon/Makefile
+index 7d9b8db..dbda2eb 100644
+--- a/src/icon/Makefile
++++ b/src/icon/Makefile
+@@ -10,11 +10,11 @@ LIBEXECS=totex disambiguate noidx tohtml elide l2h docs2comments \
+ 	autodefs.promela autodefs.lrtl autodefs.asdl autodefs.mmix xchunks pipedocs
+ LIBSPECIAL=autodefs.cee
+ BINEXECS=noindex sl2h htmltoc
+-EXECS=$(LIBEXECS) $(BINEXECS) $(LIBSPECIAL) pdcached
++EXECS=$(LIBEXECS) $(BINEXECS) $(LIBSPECIAL)
+ SRCS=totex.icn disambiguate.icn noidx.icn texdefs.icn icondefs.icn \
+         yaccdefs.icn noindex.icn smldefs.icn tohtml.icn cdefs.icn elide.icn \
+ 	l2h.icn sl2h.icn pascaldefs.icn promeladefs.icn lrtldefs.icn asdldefs.icn \
+-	mmixdefs.icn htmltoc.icn xchunks.icn docs2comments.icn pipedocs.icn pdcached.icn
++	mmixdefs.icn htmltoc.icn xchunks.icn docs2comments.icn pipedocs.icn
+
+ .SUFFIXES: .nw .icn .html .tex .dvi
+ .nw.icn:
+@@ -141,9 +141,6 @@ elide: elide.icn
+ pipedocs: pipedocs.icn
+ 	$(ICONT) pipedocs.icn
+
+-pdcached: pdcached.icn
+-	$(ICONT) pdcached.icn
+-
+ disambiguate: disambiguate.icn
+ 	$(ICONT) disambiguate.icn

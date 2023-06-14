@@ -1,24 +1,26 @@
 class Xorriso < Formula
   desc "ISO9660+RR manipulation tool"
   homepage "https://www.gnu.org/software/xorriso/"
-  url "https://ftp.gnu.org/gnu/xorriso/xorriso-1.5.4.tar.gz"
-  mirror "https://ftpmirror.gnu.org/xorriso/xorriso-1.5.4.tar.gz"
-  sha256 "3ac155f0ca53e8dbeefacc7f32205a98f4f27d2d348de39ee0183ba8a4c9e392"
+  url "https://ftp.gnu.org/gnu/xorriso/xorriso-1.5.6.tar.gz"
+  mirror "https://ftpmirror.gnu.org/xorriso/xorriso-1.5.6.tar.gz"
+  sha256 "d4b6b66bd04c49c6b358ee66475d806d6f6d7486e801106a47d331df1f2f8feb"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "34c3f5f4e2083387b0b98c8b33cc360070ad04a81fcc0357ca0146b2b0557edb"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "521d0487cdb0635a13a2c44014518db085743a03d9ef19b4cd09ddd7d1ac4ed1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ad2d5c7472a70aedf02d2bb91f518b72ab2f3df0068eec13b2edf0ba2ab5af50"
-    sha256 cellar: :any_skip_relocation, ventura:        "b4a25bea1608c3794a364dc61cd5a4adbb44293e5ff654907d69a6d0e4377efe"
-    sha256 cellar: :any_skip_relocation, monterey:       "ac9ad05ef928432e181b339881782678864108f1421ef5a66d01f3cfbc70646c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b54ce0eca9d92f9ffa571edf065baf3212cc1584ca20dbf1cbbf23f51f4ce5f7"
-    sha256 cellar: :any_skip_relocation, catalina:       "e8282de999460c934b95defa41efd358c93da2d62ca38ce2829c8185eb49b4db"
-    sha256 cellar: :any_skip_relocation, mojave:         "dc5357e7efc3bd95ef0c5e69c8320bd6bbfdf24fad9314beda71cce5445a5b7c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5435d8e359d0a0de51cf398a53322d1de3d9f86d8e836564323c9719da171fea"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3e64ea078ab6659f5892db71cf6d2c72825cbefb80956ee88a8aaf5d0080594d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0c7004800a9d909e5cbe3373dbb2d8fb71a943d022901f8a5b950c34c52215b5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b6a4f6c99d783a4c6c7b32438aae079f7d769b34ad831310868309fe275ff585"
+    sha256 cellar: :any_skip_relocation, ventura:        "3865faab160986fdaa7e94f37056a15a1b790a32501118e4d6ab91abeb9543ce"
+    sha256 cellar: :any_skip_relocation, monterey:       "b0d7600730ba18eab8cdc658ddeb80f849906fbd505694a7603e57650568b392"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b69459a4b5cbf28b29730e7b79ee89f1fd916d2c7f05c4de83826296c576a79f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "af398fe111c552f7c70837d0179cd5f42784a79444fb9dc913c4fdf4b0eb8da6"
   end
 
   uses_from_macos "zlib"
+
+  # Submit the patch into the upstream, see:
+  # https://lists.gnu.org/archive/html/bug-xorriso/2023-06/msg00000.html
+  patch :DATA
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
@@ -33,6 +35,21 @@ class Xorriso < Formula
   end
 
   test do
-    system bin/"xorriso", "--help"
+    assert_match "List of xorriso extra features", shell_output("#{bin}/xorriso -list_extras")
+    assert_match version.to_s, shell_output("#{bin}/xorriso -version")
   end
 end
+
+__END__
+diff --git a/libisofs/rockridge.h b/libisofs/rockridge.h
+index 5649eb7..01c4224 100644
+--- a/libisofs/rockridge.h
++++ b/libisofs/rockridge.h
+@@ -41,6 +41,8 @@
+
+ #include "ecma119.h"
+
++/* For ssize_t */
++#include <unistd.h>
+
+ #define SUSP_SIG(entry, a, b) ((entry->sig[0] == a) && (entry->sig[1] == b))

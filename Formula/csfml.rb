@@ -2,21 +2,19 @@ class Csfml < Formula
   # Don't update CSFML until there's a corresponding SFML release
   desc "SMFL bindings for C"
   homepage "https://www.sfml-dev.org/"
-  url "https://github.com/SFML/CSFML/archive/2.5.1.tar.gz"
-  sha256 "0c6693805b700c53552565149405a041a00dbe898c2efb828e91999ab8b6b1d4"
+  url "https://github.com/SFML/CSFML/archive/2.5.2.tar.gz"
+  sha256 "2671f1cd2a4e54e86f7483c4683132466c01a6ca90fa010bc4964a8820c36f06"
   license "Zlib"
   head "https://github.com/SFML/CSFML.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "0b5c92332e9fc998f9c548de0706f4d7bc230b582691789c19830ee44fd0bfa2"
-    sha256 cellar: :any,                 arm64_monterey: "c4fea6bf57896674c9c9abe693aa48edc8fb265607acbb6eb296d7c9bb75937f"
-    sha256 cellar: :any,                 arm64_big_sur:  "5da07203f213b3cd0f89cf61d454ee5fdcc0579fa033185b5b7bb4d28265c867"
-    sha256 cellar: :any,                 ventura:        "dede71e2be0599798a98e6887ae7a729d9c79e393dc516c4411fcea2e7458402"
-    sha256 cellar: :any,                 monterey:       "0e28a1870c7025c51e561274a2623e259813fb0754fd81406d379e3bbd31b360"
-    sha256 cellar: :any,                 big_sur:        "0b05f5e20a8a84a0343da2ef5a0ac7ea33cc45359b57fb15d5265ec019baf048"
-    sha256 cellar: :any,                 catalina:       "b77291facbded3e67f15271030cd251fd3f59e6a79f6ac4012ae55f77e8e2032"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fb64c718f75186bd5df094255eaedf3ace73edc718b1505a1a031551e8c5a37a"
+    sha256 cellar: :any,                 arm64_ventura:  "405f5c73f97dab9728f3fd2d30b8c09ee719cc103b6cd824bd6abcee950dc171"
+    sha256 cellar: :any,                 arm64_monterey: "9a05d663003abb8405850793d3894b3b9d57cc19c72937a97926fde63820cf10"
+    sha256 cellar: :any,                 arm64_big_sur:  "16615a5ca01e664fe1b43064a098ecb9bee80ee4f04435b74aa4bc0ceb42a60f"
+    sha256 cellar: :any,                 ventura:        "c9936c9d1ffa653e22e02f81edfa08d08780f36cf768823d50760492b6e12fce"
+    sha256 cellar: :any,                 monterey:       "a4e01b96aa6a3eb3ef492cfe560f1816cca2b04275e7bb06924f3b0cc1c90973"
+    sha256 cellar: :any,                 big_sur:        "01153456025704d35a306a890a685cb40750cd81804ba4f304c7718addf049a1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2816dc23c34b54f2a3a0d43ec83a9db9a7ec537ddbc45ac5e5e4bd4db16d95ff"
   end
 
   depends_on "cmake" => :build

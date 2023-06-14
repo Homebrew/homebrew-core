@@ -4,15 +4,16 @@ class Pagmo < Formula
   url "https://github.com/esa/pagmo2/archive/v2.19.0.tar.gz"
   sha256 "701ada528de7d454201e92a5d88903dd1c22ea64f43861d9694195ddfef82a70"
   license any_of: ["LGPL-3.0-or-later", "GPL-3.0-or-later"]
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "310df884da16bdb83fc9d1d890f4badfeafbfcc5d26e3182b516b8816ddb50f7"
-    sha256 cellar: :any,                 arm64_monterey: "765c33daf58fb08fcb240bd60c3bd6c72d7a16ce83da175c9693f766107e5592"
-    sha256 cellar: :any,                 arm64_big_sur:  "6298767893209c1e81b3c6ded53f84581c30a1b288b5c9d2ca27d1cd3a97c9d5"
-    sha256 cellar: :any,                 ventura:        "dd5652d55e5c58c22e93fbf8b895b6cb8563c109f1a0f58c9293a97e899bfc9d"
-    sha256 cellar: :any,                 monterey:       "eab152f7b7620d1afb8db53642f7da540a656cd13e742a241ca658c9928deecd"
-    sha256 cellar: :any,                 big_sur:        "afe5a7c7f449f3bcbae91a9d23d9548828ea3ebaaf992c4a6e9152283c58406e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a4b1be604b7367a9719ce437d12f6bd72f8c821bdb5e639ed6f7cc921d4bb7fe"
+    sha256 cellar: :any,                 arm64_ventura:  "0d699efa58477387d7144cf25c91c1809d3c95e8e4eff135dd5d3385ceb8fb35"
+    sha256 cellar: :any,                 arm64_monterey: "967930e4a14276c3159edf5e8d3dac7ad6cf39b8727b5f5479ddf7677c1ec366"
+    sha256 cellar: :any,                 arm64_big_sur:  "da4daa92ea36eafc36a7eeb0895add7a8a28f35780e4856e2c90f3709d85645c"
+    sha256 cellar: :any,                 ventura:        "e87448b08bb3eef888de8becfda13b7d3b02353320a3cdcb7d0e18a307cbdca2"
+    sha256 cellar: :any,                 monterey:       "a87d2af510454417523cce4c4d0566d160ab396fed05bc90161ddb9df3d286ca"
+    sha256 cellar: :any,                 big_sur:        "760c2abca386c2cee9121af707f3eec8ffdba239e75da6a8b8e0fed1ba14f782"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e8550690a470ee13f5418de7841be6aab0672cf5847f04eaa39189e84bae45ea"
   end
 
   depends_on "cmake" => :build

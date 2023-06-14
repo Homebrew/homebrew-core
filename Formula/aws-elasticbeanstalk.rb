@@ -8,19 +8,20 @@ class AwsElasticbeanstalk < Formula
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "f4525260b61ba715a9c988dcee0750867cf65cfe1a9e1eac81e11ac18581c9f9"
-    sha256 cellar: :any,                 arm64_monterey: "b7bcf4b486fd25374eb5ffa5131527c67ce2275bc106e982ec3782207ee9ad99"
-    sha256 cellar: :any,                 arm64_big_sur:  "166515cd87e5142bbeae12b158ed4d36f23f179578630775e824237bf8d7f865"
-    sha256 cellar: :any,                 ventura:        "33bf20935929ab98f0d26eb426eeb14c23f3b706dffdaa584af5978bf1970a9f"
-    sha256 cellar: :any,                 monterey:       "1e3b314a04e70a4fec69e69812cb6f8ae68473640613f1c2ce2ec34f42d17343"
-    sha256 cellar: :any,                 big_sur:        "fb14c8fba96a14eeaf7fcec68d6b19003722b123e395545b82518cf75b9d2c3e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6dfc02d68750a2c4a89c9b2669a4cb179a4ffad8906477eea61b672217639b4c"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_ventura:  "1c5f6b8727e8d30c3947c5ec27e0817eab80daace6d08ae529bd849197c8a603"
+    sha256 cellar: :any,                 arm64_monterey: "aaa1f806dc056d37d68b67abf2d9eb8093c0959e2483cdc232d0c2312df710bd"
+    sha256 cellar: :any,                 arm64_big_sur:  "84ce9a7a6e34ee4d41384afb670597bd88a0e310b56ab1f859ac28d488182c41"
+    sha256 cellar: :any,                 ventura:        "d378fce8cfc3ed6a2911e99bafb16cc0905327d59ae1840753a6b4dd9c6afb4d"
+    sha256 cellar: :any,                 monterey:       "53eb352b8caed0e947f946168794d666ed85c5b0c23346ff14109bcc1dda2afd"
+    sha256 cellar: :any,                 big_sur:        "98100da41eedd214dce941435d99052d4714a63f0fc7f0088b3da55454db7940"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "58821e212c067ef0469041ef2e67379080fb86bca1b70e412c44e43c9569f013"
   end
 
   # `pkg-config`, `rust`, and `openssl@1.1` are for cryptography.
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
+  depends_on "cffi"
   depends_on "openssl@1.1"
   depends_on "python@3.11"
 
@@ -59,11 +60,6 @@ class AwsElasticbeanstalk < Formula
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/93/71/752f7a4dd4c20d6b12341ed1732368546bc0ca9866139fe812f6009d9ac7/certifi-2023.5.7.tar.gz"
     sha256 "0f0d56dc5a6ad56fd4ba36484d6cc34451e1c6548c61daad8c320169f91eddc7"
-  end
-
-  resource "cffi" do
-    url "https://files.pythonhosted.org/packages/2b/a8/050ab4f0c3d4c1b8aaa805f70e26e84d0e27004907c5b8ecc1d31815f92a/cffi-1.15.1.tar.gz"
-    sha256 "d400bfb9a37b1351253cb402671cea7e89bdecc294e8016a707f6d1d8ac934f9"
   end
 
   resource "charset-normalizer" do

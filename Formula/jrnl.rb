@@ -8,17 +8,18 @@ class Jrnl < Formula
   license "GPL-3.0-only"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "39cceb8a67b8b59676b2b7a7704fd35b7b1089e72933228f74b6de1cad96a8f5"
-    sha256 cellar: :any,                 arm64_monterey: "9bfc2c9072d8f9d0c48dd5292c58b3074d66fa7957698f55cb628f9e29b4edd4"
-    sha256 cellar: :any,                 arm64_big_sur:  "d15aee707762751560357a198cb59210c3afe194aa3d8980622f4d3c01ba7aaf"
-    sha256 cellar: :any,                 ventura:        "96ba2bd58ffeedff958fd9bdecec75436a286230fddbffa1be8565b8f386429e"
-    sha256 cellar: :any,                 monterey:       "33f7d5be9081cb0abf8c65a66df524865d19dadfadec4de32e8191e1ee79f45f"
-    sha256 cellar: :any,                 big_sur:        "5b04afceea4f049485489c28fd02b2005fb1da748c712ae8e40184f3612944fa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d7f2f6bb96aa1c3846c6b894c6a63af2c1bd8f6fc5b01f8bc8e3774b812200ff"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_ventura:  "304200a0e8bd8063ef41e63507432fd3d64f240718187313c603ecfe02779304"
+    sha256 cellar: :any,                 arm64_monterey: "5d78a3b38d11ffd3750e1a77497d1fafecc173e3cea502ccec772d3587edc656"
+    sha256 cellar: :any,                 arm64_big_sur:  "aab65932ba23d37f057c614b6da7dbe821254e8cf29e01a40f297c81d1cd0ba0"
+    sha256 cellar: :any,                 ventura:        "1dbb9f2a2fba16fd946d2903a2345b9063259c5136c9daca7da03bdb094bc036"
+    sha256 cellar: :any,                 monterey:       "6a014337f145b940e1f12f78f8f445a5bad441704e5f197751aa6fe0e1ef4bce"
+    sha256 cellar: :any,                 big_sur:        "1a063ee739d15bd873726d0ea2ba3b448614a5de8ecb74165d0922e82a834601"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aa58b83ba3a450fe3563aae1f630108aa86531be7223be9939bbff6b17018d11"
   end
 
   depends_on "rust" => :build
+  depends_on "cffi"
   depends_on "pygments"
   depends_on "python@3.11"
   depends_on "six"
@@ -32,11 +33,6 @@ class Jrnl < Formula
   resource "ansiwrap" do
     url "https://files.pythonhosted.org/packages/7c/45/2616341cfcace37d4619d5106a85fcc24f2170d1a161bc5f7fdb81772fbc/ansiwrap-0.8.4.zip"
     sha256 "ca0c740734cde59bf919f8ff2c386f74f9a369818cdc60efe94893d01ea8d9b7"
-  end
-
-  resource "cffi" do
-    url "https://files.pythonhosted.org/packages/2b/a8/050ab4f0c3d4c1b8aaa805f70e26e84d0e27004907c5b8ecc1d31815f92a/cffi-1.15.1.tar.gz"
-    sha256 "d400bfb9a37b1351253cb402671cea7e89bdecc294e8016a707f6d1d8ac934f9"
   end
 
   resource "colorama" do
@@ -82,11 +78,6 @@ class Jrnl < Formula
   resource "parsedatetime" do
     url "https://files.pythonhosted.org/packages/a8/20/cb587f6672dbe585d101f590c3871d16e7aec5a576a1694997a3777312ac/parsedatetime-2.6.tar.gz"
     sha256 "4cb368fbb18a0b7231f4d76119165451c8d2e35951455dfee97c62a87b04d455"
-  end
-
-  resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/5e/0b/95d387f5f4433cb0f53ff7ad859bd2c6051051cebbb564f139a999ab46de/pycparser-2.21.tar.gz"
-    sha256 "e644fdec12f7872f86c58ff790da456218b10f863970249516d60a5eaca77206"
   end
 
   resource "python-dateutil" do

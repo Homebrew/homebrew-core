@@ -1,8 +1,8 @@
 class Mx < Formula
   desc "Command-line tool used for the development of Graal projects"
   homepage "https://github.com/graalvm/mx"
-  url "https://github.com/graalvm/mx/archive/refs/tags/6.25.0.tar.gz"
-  sha256 "a5971417a061abd3bc0424a238e2a7cb7cac7e8ec1543c969e5164aee81edae8"
+  url "https://github.com/graalvm/mx/archive/refs/tags/6.26.4.tar.gz"
+  sha256 "cf301cca12e2591e5477ac6b112ed6f35309fdf0b5d67c123068ed96ed585f7b"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,16 +11,11 @@ class Mx < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "ab69ed526a188f7887cf437dd10cdca52dd43964cb4352e0e8c4fe5d07df3893"
+    sha256 cellar: :any_skip_relocation, all: "123df4fe23844d51014c1ba3b97d11be98552a631fb1cba125b4847d566215dd"
   end
 
   depends_on "openjdk" => :test
   depends_on "python@3.11"
-
-  resource "homebrew-testdata" do
-    url "https://github.com/oracle/graal/archive/refs/tags/vm-22.3.2.tar.gz"
-    sha256 "77c7801038f0568b3c2ef65924546ae849bd3bf2175e2d248c35ba27fd9d4967"
-  end
 
   def install
     libexec.install Dir["*"]
@@ -36,6 +31,11 @@ class Mx < Formula
   end
 
   test do
+    resource "homebrew-testdata" do
+      url "https://github.com/oracle/graal/archive/refs/tags/vm-22.3.2.tar.gz"
+      sha256 "77c7801038f0568b3c2ef65924546ae849bd3bf2175e2d248c35ba27fd9d4967"
+    end
+
     ENV["JAVA_HOME"] = Language::Java.java_home
     ENV["MX_ALT_OUTPUT_ROOT"] = testpath
 

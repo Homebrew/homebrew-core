@@ -8,18 +8,19 @@ class Fdroidserver < Formula
   license "AGPL-3.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "935e42e3ed2f8d83f5039deb3cc935c223bf034187b0224b3a1e2a56f41628af"
-    sha256 cellar: :any,                 arm64_monterey: "5abf98afd49ed6ed99f30e8477c5806f71c8714d1d6062b603f24be2c627950a"
-    sha256 cellar: :any,                 arm64_big_sur:  "7c7f3be23cc9d40dacfdb813cfe28ee1de1bef2980b4cbb8797bb12f44883d16"
-    sha256 cellar: :any,                 ventura:        "952cbee02b6ebcb28cc950b25126a63653148f2a2ad9c02eb999adf3a4b3dc1a"
-    sha256 cellar: :any,                 monterey:       "eb293c1404481aa748a640f0b7a9aba3999af8ca377b28df44a4116929f91283"
-    sha256 cellar: :any,                 big_sur:        "b989fc28601e4d2d1803df438f8ea34e66e75d7274b6d14133df3e1fd4c3a83e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a5af6197d91865e442d73f5bd9b7d39e04bb29acc176f58519640181a5a7453e"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_ventura:  "41c7c7e59e09dd45fb2c8d82ebf5e98996dd0500c9805cef7cec7987e4a080e2"
+    sha256 cellar: :any,                 arm64_monterey: "4fa6cdf4321b59c4bf22176d3a475052c85ab6959adaa1f03664d067c8783e23"
+    sha256 cellar: :any,                 arm64_big_sur:  "6e110c0ab777ac2d946f6c09a0deab27c2c8a18c97cebe5750714ee6bf65ce6a"
+    sha256 cellar: :any,                 ventura:        "024c7d34c2c60c7732540e4091b3e10dfb010f56d5f527808fc385bf93ce94a8"
+    sha256 cellar: :any,                 monterey:       "8b7a70880b49128c44d93e56ad811fe7539c48a98bf95a206186c23bd2e1780f"
+    sha256 cellar: :any,                 big_sur:        "c423213e871f8d7d133958ba546956a8ec9749521a6d2d5190c2d806f94cb9b8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "122c29f601b78e206d32c82aa79d68daf494e6f404f2a03b92e1d2965491566b"
   end
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
+  depends_on "cffi"
   depends_on "fonttools"
   depends_on "ipython"
   depends_on "numpy"
@@ -65,11 +66,6 @@ class Fdroidserver < Formula
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/37/f7/2b1b0ec44fdc30a3d31dfebe52226be9ddc40cd6c0f34ffc8923ba423b69/certifi-2022.12.7.tar.gz"
     sha256 "35824b4c3a97115964b408844d64aa14db1cc518f6562e8d7261699d1350a9e3"
-  end
-
-  resource "cffi" do
-    url "https://files.pythonhosted.org/packages/2b/a8/050ab4f0c3d4c1b8aaa805f70e26e84d0e27004907c5b8ecc1d31815f92a/cffi-1.15.1.tar.gz"
-    sha256 "d400bfb9a37b1351253cb402671cea7e89bdecc294e8016a707f6d1d8ac934f9"
   end
 
   resource "charset-normalizer" do
@@ -167,11 +163,6 @@ class Fdroidserver < Formula
     sha256 "905f84c712230b2c592c19470d3ca8d552de726050d1d1716282a1f6146be65e"
   end
 
-  resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/5e/0b/95d387f5f4433cb0f53ff7ad859bd2c6051051cebbb564f139a999ab46de/pycparser-2.21.tar.gz"
-    sha256 "e644fdec12f7872f86c58ff790da456218b10f863970249516d60a5eaca77206"
-  end
-
   resource "pydot" do
     url "https://files.pythonhosted.org/packages/13/6e/916cdf94f9b38ae0777b254c75c3bdddee49a54cc4014aac1460a7a172b3/pydot-1.4.2.tar.gz"
     sha256 "248081a39bcb56784deb018977e428605c1c758f10897a339fce1dd728ff007d"
@@ -236,10 +227,9 @@ class Fdroidserver < Formula
     venv = virtualenv_create(libexec, "python3.11")
 
     venv.pip_install resource("lxml")
-    venv.pip_install resource("cffi") # or bcrypt fails to build
     venv.pip_install resource("wheel") # or kiwisolver fails to build
 
-    res = resources.to_set(&:name) - %w[cffi lxml ptyprocess wheel]
+    res = resources.to_set(&:name) - %w[lxml ptyprocess wheel]
 
     res.each do |r|
       venv.pip_install resource(r)

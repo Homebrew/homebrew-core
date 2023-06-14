@@ -1,13 +1,13 @@
 class Xkeyboardconfig < Formula
   desc "Keyboard configuration database for the X Window System"
   homepage "https://www.freedesktop.org/wiki/Software/XKeyboardConfig/"
-  url "https://xorg.freedesktop.org/archive/individual/data/xkeyboard-config/xkeyboard-config-2.38.tar.xz"
-  sha256 "0690a91bab86b18868f3eee6d41e9ec4ce6894f655443d490a2184bfac56c872"
+  url "https://xorg.freedesktop.org/archive/individual/data/xkeyboard-config/xkeyboard-config-2.39.tar.xz"
+  sha256 "5ac5f533eff7b0c116805fe254fd79b2c9882700a4f9f2c070f8c4eae5aaa682"
   license "MIT"
   head "https://gitlab.freedesktop.org/xkeyboard-config/xkeyboard-config.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "43d80f736530836b6c1dae447959ede2b1cdd30e3f0273d145dc6f098de2408c"
+    sha256 cellar: :any_skip_relocation, all: "3f10d7bfec3687d3f5b5a9f00db931377a8fed009461c7822f20d5c8066bff3d"
   end
 
   depends_on "gettext" => :build

@@ -4,17 +4,17 @@ class Pcb2gcode < Formula
   url "https://github.com/pcb2gcode/pcb2gcode/archive/v2.5.0.tar.gz"
   sha256 "96f1b1b4fd58e86f152b691202a15593815949dc9250fab9ab02f2346f5c2c52"
   license "GPL-3.0-or-later"
-  revision 2
+  revision 3
   head "https://github.com/pcb2gcode/pcb2gcode.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "41ee077ad873fa09513b7acf48f7371ad10ff1090e70cbb41a1d5821a8a08bb7"
-    sha256 cellar: :any,                 arm64_monterey: "aed173e2abea2a17c9752522ea184df44f105b848055caeecfcdacb5e882a115"
-    sha256 cellar: :any,                 arm64_big_sur:  "1ddd17e10af11ae52aed1a7cc9ce9712d5d0574f361d1d8b66bd87369f971231"
-    sha256 cellar: :any,                 ventura:        "d0a3481c48fb8a419906776c0facee2b596bd7f2b18a636d18cce01b9466ae1b"
-    sha256 cellar: :any,                 monterey:       "669e3b8e956e5181f563a88025db9352665d409213d24a3e92b09405f1a83669"
-    sha256 cellar: :any,                 big_sur:        "52bb94aec6e947d03ab5e76606c19bfbf24f3e6f496966f341ad9327fa9b30ae"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9bbe8640a6fe185e179184aa2095d67b7c88649c45aca57c121b20e0230a262d"
+    sha256 cellar: :any,                 arm64_ventura:  "83adb12d503b158b1437a8f2acf404de7884a2379fbbb4cc1ae1813ed9e6a6c5"
+    sha256 cellar: :any,                 arm64_monterey: "c99e0090428ea8fa639cc81e16c15afcd8b735b9d562fc60198369111367a31d"
+    sha256 cellar: :any,                 arm64_big_sur:  "9d3f240c3005a34a168920fa133b4b5412b136fce769760eabf5379fd91affbc"
+    sha256 cellar: :any,                 ventura:        "e9b5ea8ab2529a05d2f748fccc374ab04c4d24a8aab632c5176f80fdf1bb6697"
+    sha256 cellar: :any,                 monterey:       "4325f231ce7a6f35db794bcb8c9f1b3acb768c45a46cd8ab8e3e488bc62a325d"
+    sha256 cellar: :any,                 big_sur:        "f05095ba713b3ca3b7834a5c9e3ec9d9059e8bc80f87c79f2e3254f9847a598f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7fef49896da1220fe507c68ea63b675c0bd183f372c66b38257cfca449977c0c"
   end
 
   # Release 2.0.0 doesn't include an autoreconfed tarball

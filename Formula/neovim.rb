@@ -104,9 +104,6 @@ class Neovim < Formula
           # The path separator for `LUA_PATH` and `LUA_CPATH` is `;`.
           ENV.prepend "LUA_PATH", deps_build/"share/lua/5.1/?.lua", ";"
           ENV.prepend "LUA_CPATH", deps_build/"lib/lua/5.1/?.so", ";"
-          # Don't clobber the default search path
-          ENV.append "LUA_PATH", ";", ";"
-          ENV.append "LUA_CPATH", ";", ";"
 
           rock = "mpack-1.0.10-0.rockspec"
           output = Utils.safe_popen_read("luarocks", "unpack", lua_path, rock, "--tree=#{deps_build}")
@@ -143,8 +140,14 @@ class Neovim < Formula
     # Replace `-dirty` suffix in `--version` output with `-Homebrew`.
     inreplace "cmake/GenerateVersion.cmake", "--dirty", "--dirty=-Homebrew"
 
+    # Needed to find `lpeg` in non-default prefixes.
+    ENV.prepend "LUA_CPATH", Formula["lpeg"].opt_lib/"lua/5.1/?.so", ";"
+    # Don't clobber the default search path
+    ENV.append "LUA_PATH", ";", ";"
+    ENV.append "LUA_CPATH", ";", ";"
+
     system "cmake", "-S", ".", "-B", "build",
-                    "-DLIBLUV_LIBRARY=#{Formula["luv"].opt_lib/shared_library("libluv")}",
+                    "-DLUV_LIBRARY=#{Formula["luv"].opt_lib/shared_library("libluv")}",
                     "-DLIBUV_LIBRARY=#{Formula["libuv"].opt_lib/shared_library("libuv")}",
                     *std_cmake_args
 

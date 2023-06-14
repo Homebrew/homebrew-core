@@ -9,17 +9,18 @@ class KeepkeyAgent < Formula
   revision 6
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any,                 arm64_ventura:  "3983b7d20aad972674546462570a7c71941cb8ddd61c16166c734db18a9bef82"
-    sha256 cellar: :any,                 arm64_monterey: "e144ca0ac858a79005dabb6a4e6491ba3f34c591913f2efb5e3644e8acd2900b"
-    sha256 cellar: :any,                 arm64_big_sur:  "eb7583865ab9a0fba5aa6191b4e2a36faa961876d8d7049ccfabbd4e78464e52"
-    sha256 cellar: :any,                 ventura:        "1537296c7fe07468dda605be5329de2b3ce1145248facc5699d5f43c9554f454"
-    sha256 cellar: :any,                 monterey:       "6f24016477b3c2070b0d1babc092bbca20e6d00685b9adb8110dc8af767f10f4"
-    sha256 cellar: :any,                 big_sur:        "f1c7b8d78b56f533db209e6d90cf860f8b8f66ba54a96e77999f15f93e3a38c7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "42c261167823f24f350b981c7778d63f2287dab3cc3ed20275646d09104333ad"
+    rebuild 4
+    sha256 cellar: :any,                 arm64_ventura:  "1cda61e10e3d0dd65b358d0bd1bd5c647747ffcdd4fd25ac2e0740eb03f03e26"
+    sha256 cellar: :any,                 arm64_monterey: "0e20fab5b3e29e5af967a877452b85657207293e306c6d3e0c8065693a736457"
+    sha256 cellar: :any,                 arm64_big_sur:  "016757dc0089cac5a3224c82768bab1814651bc8661d1fa469067a05e301b654"
+    sha256 cellar: :any,                 ventura:        "3915f6317e939ab6348e3fcce4a220a72f666d9653badbd73dba31af1e84b664"
+    sha256 cellar: :any,                 monterey:       "2d0bb161ba37b1f674495c8d6069502530e18d5d3a732b18919ddef8d7717707"
+    sha256 cellar: :any,                 big_sur:        "5a64a75089fe060dde17bdfa8c9950578b8024db999959fa4760bdade9a28d82"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6218ae8d8e92b49e620e4ebd58e63a825515c2b7157646654cb7c5c4ce580a2c"
   end
 
   depends_on "rust" => :build
+  depends_on "cffi"
   depends_on "docutils"
   depends_on "libusb"
   depends_on "python@3.11"
@@ -33,11 +34,6 @@ class KeepkeyAgent < Formula
   resource "bech32" do
     url "https://files.pythonhosted.org/packages/ab/fe/b67ac9b123e25a3c1b8fc3f3c92648804516ab44215adb165284e024c43f/bech32-1.2.0.tar.gz"
     sha256 "7d6db8214603bd7871fcfa6c0826ef68b85b0abd90fa21c285a9c5e21d2bd899"
-  end
-
-  resource "cffi" do
-    url "https://files.pythonhosted.org/packages/2b/a8/050ab4f0c3d4c1b8aaa805f70e26e84d0e27004907c5b8ecc1d31815f92a/cffi-1.15.1.tar.gz"
-    sha256 "d400bfb9a37b1351253cb402671cea7e89bdecc294e8016a707f6d1d8ac934f9"
   end
 
   resource "ConfigArgParse" do
@@ -88,11 +84,6 @@ class KeepkeyAgent < Formula
   resource "protobuf" do
     url "https://files.pythonhosted.org/packages/ba/dd/f8a01b146bf45ac12a829bbc599e6590aa6a6849ace7d28c42d77041d6ab/protobuf-4.21.12.tar.gz"
     sha256 "7cd532c4566d0e6feafecc1059d04c7915aec8e182d1cf7adee8b24ef1e2e6ab"
-  end
-
-  resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/5e/0b/95d387f5f4433cb0f53ff7ad859bd2c6051051cebbb564f139a999ab46de/pycparser-2.21.tar.gz"
-    sha256 "e644fdec12f7872f86c58ff790da456218b10f863970249516d60a5eaca77206"
   end
 
   resource "PyMsgBox" do

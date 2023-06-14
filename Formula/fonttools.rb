@@ -3,19 +3,19 @@ class Fonttools < Formula
 
   desc "Library for manipulating fonts"
   homepage "https://github.com/fonttools/fonttools"
-  url "https://files.pythonhosted.org/packages/2f/7c/20b9289a88e35c2015541ab869c999178d5e4ad2c9dec49544ed0e34ae01/fonttools-4.39.4.zip"
-  sha256 "dba8d7cdb8e2bac1b3da28c5ed5960de09e59a2fe7e63bb73f5a59e57b0430d2"
+  url "https://files.pythonhosted.org/packages/eb/dd/0e1ab46e90938057fff61438a19fa45e0e857200f7408e3c816424fd1ef9/fonttools-4.40.0.tar.gz"
+  sha256 "337b6e83d7ee73c40ea62407f2ce03b07c3459e213b6f332b94a69923b9e1cb9"
   license "MIT"
   head "https://github.com/fonttools/fonttools.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8a0ad3d46dd308dd9573d8c8c28251be79091e548a570dc0b0b3bc992f780b51"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "209516977111ac8d8fb65ce6dab6692b8cf5590642aae8c927c2a66c7dbd6570"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4b51f5710639fc03980811338550bcb2fa1b4966c8b4900e8d6ebe6763d9cfef"
-    sha256 cellar: :any_skip_relocation, ventura:        "9af02d7e43c7c7a6277b7bc00e2d417a4d223b0f45ba400b964d5d1a34d0464e"
-    sha256 cellar: :any_skip_relocation, monterey:       "efc8761ac37f3f8d07244a9f9e862fe0da1182d099bcbae7e6a904f966a4d33b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "fcda857bc7629f07931b923be9b4fefd564da0eb3bdb4000ff0ebc492b818997"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4d7c58859eb3e04133f7aad6bea6d385e0fdbf3f7c4270bdcbc872e2d1df44bf"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ebd971d7bb20ca00ab49eee08d90fc24892e538b4f4c1435fe08e8d7e5e83ed6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "57fc15409b1d7895f6c0adca5a1f989dd718bf54d610f030f0e7057a91f6ffca"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4b7c8af30ca69ccc71366fbe7cb8a70a7552fbd8b309c4333ac8adbee473eea1"
+    sha256 cellar: :any_skip_relocation, ventura:        "28d28e8a40568bb1215c6954e4d0ea724f60f12305d4beb85eeed47831ed5aaa"
+    sha256 cellar: :any_skip_relocation, monterey:       "d8b0d9ce8cee712686cdd66e0d56784be4d597d537de5ea234e6234f018c704d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9b848931be78d2c6d8db1db3dc062a42db7e7d083b7f9b995b9c50106fb903ea"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3a7e56b0017980b8868469c40027331b2429b7d711a6a31bc9c68e67ef57915d"
   end
 
   depends_on "python@3.11"

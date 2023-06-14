@@ -3,20 +3,19 @@ class RobotFramework < Formula
 
   desc "Open source test framework for acceptance testing"
   homepage "https://robotframework.org/"
-  url "https://files.pythonhosted.org/packages/8e/08/018fa8662f17ae912debcb939f8279fc40c4cf0bf172fdd1875532997e41/robotframework-6.0.2.zip"
-  sha256 "6a9c06deb220099990f190c6e4e772675f625e4d5d84640fca6f0ad46ff538d0"
+  url "https://files.pythonhosted.org/packages/b8/70/050b0a5bb51c754ad521d6f1b51c17c293efe65ec72ac955d3686e1afa1d/robotframework-6.1.zip"
+  sha256 "a94e0b3c4f8ae08c0a4dc7bff6fa8a51730565103f8c682a2d8391da9a4697f5"
   license "Apache-2.0"
   head "https://github.com/robotframework/robotframework.git", branch: "master"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any,                 arm64_ventura:  "8e40e69b5fb744f53d0a7c71b931a4df5532392e67bfb44a839430126ca20050"
-    sha256 cellar: :any,                 arm64_monterey: "baf5eba283fa491398704c284782978cdca0e1ae65b9c665b116e4cd3b6f9632"
-    sha256 cellar: :any,                 arm64_big_sur:  "bdcca60113677edea7bc5ffc89d299771431ebb71b485435cdda52020776946b"
-    sha256 cellar: :any,                 ventura:        "4d98c6e85662b2eeb9bf762c1dcb01354cf29e9e74eb0a7b0cb69d26ee36bcc9"
-    sha256 cellar: :any,                 monterey:       "29b1d05deb78c81a48ba2745cf5b5f6f833c5466eb78ecc69941ebf4f7cf196d"
-    sha256 cellar: :any,                 big_sur:        "4e14d2e527c6e2d5fb99a4d85b5d9fc792e053e1d96c9152ff6b77ed94390de3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "110869f5c8b27a88cc5ea749f1b04e086119f16aa15bda0d95fbe7a122a39cbc"
+    sha256 cellar: :any,                 arm64_ventura:  "53c7c18ff9d8b4de016ea397eca0f21364f4bc9bf070cdd94e04fbf8918939fc"
+    sha256 cellar: :any,                 arm64_monterey: "bd94b9d77e209eba5fdf961c757072c781ccdd67b226dc59058012aa1adc335e"
+    sha256 cellar: :any,                 arm64_big_sur:  "068fad34fede9609fbb786a98433dbb9e78a851fe24196f77994f46ac0505dfe"
+    sha256 cellar: :any,                 ventura:        "5c13ad158eacaaef9597136ecc470dd0379957a62ac472ecc22c844ec59f6dfd"
+    sha256 cellar: :any,                 monterey:       "df5250201291be5789d6b8fe9cd09359e420028cf3f01e44849c386438a3cc9f"
+    sha256 cellar: :any,                 big_sur:        "5d0eac4ac605882c4614316c1f082e8f65b898879a43008c449a0fd1f74c93c0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f1bdee7f686d8621bdcb65a2b841991642067f09ae00bc7fd58d0f841b16a063"
   end
 
   depends_on "pkg-config" => :build
@@ -126,8 +125,8 @@ class RobotFramework < Formula
   end
 
   resource "selenium" do
-    url "https://files.pythonhosted.org/packages/fd/e2/0e5bee6762a7bf7852b47a79c5b12f9e526e6962958dbb9719fa490ba24c/selenium-4.9.1.tar.gz"
-    sha256 "3444f4376321530c36ce8355b6b357d8cf4a7d588ce5cf772183465930bbed0e"
+    url "https://files.pythonhosted.org/packages/86/d3/7fd6820e441550a4d0dae621c02f75339c6fafd98352f2727dd68e6e4cda/selenium-4.10.0.tar.gz"
+    sha256 "871bf800c4934f745b909c8dfc7d15c65cf45bd2e943abd54451c810ada395e3"
   end
 
   resource "sniffio" do
@@ -146,13 +145,13 @@ class RobotFramework < Formula
   end
 
   resource "trio-websocket" do
-    url "https://files.pythonhosted.org/packages/ea/56/33f46c824c43493de52d62842e569a8c3db6b0e965825257a0684a608580/trio-websocket-0.10.2.tar.gz"
-    sha256 "af13e9393f9051111300287947ec595d601758ce3d165328e7d36325135a8d62"
+    url "https://files.pythonhosted.org/packages/07/ee/fcc7708dd5c8667caf3579c45067821d8e03a560faef9d53d46af7d7c851/trio-websocket-0.10.3.tar.gz"
+    sha256 "1a748604ad906a7dcab9a43c6eb5681e37de4793ba0847ef0bc9486933ed027b"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/fb/c0/1abba1a1233b81cf2e36f56e05194f5e8a0cec8c03c244cab56cc9dfb5bd/urllib3-2.0.2.tar.gz"
-    sha256 "61717a1095d7e155cdb737ac7bb2f4324a858a1e2e6466f6d03ff630ca68d3cc"
+    url "https://files.pythonhosted.org/packages/d6/af/3b4cfedd46b3addab52e84a71ab26518272c23c77116de3c61ead54af903/urllib3-2.0.3.tar.gz"
+    sha256 "bee28b5e56addb8226c96f7f13ac28cb4c301dd5ea8a6ca179c0b9835e032825"
   end
 
   resource "wsproto" do

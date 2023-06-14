@@ -4,6 +4,7 @@ class Tealdeer < Formula
   url "https://github.com/dbrgn/tealdeer/archive/v1.6.1.tar.gz"
   sha256 "d42db25a56a72faec173c86192656c5381281dc197171f385fccffd518930430"
   license any_of: ["Apache-2.0", "MIT"]
+  head "https://github.com/dbrgn/tealdeer.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "03ed6d8a46dfaaad1f0f4198fa9479d6925f6bfd58f6d3c95b2d21f832360c00"

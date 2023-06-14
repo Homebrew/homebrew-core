@@ -19,7 +19,7 @@ on:
       upload:
         description: >
           Upload bottles built from original pull request? (default: false)
-          Warning: This destroys status check information!
+          Warning: This destroys status check information when used with autosquash!
         type: boolean
         required: false
         default: false
@@ -72,23 +72,6 @@ jobs:
         with:
           test-bot: false
 
-      - name: Configure Git user
-        id: git-user-config
-        uses: Homebrew/actions/git-user-config@master
-        with:
-          username: BrewTestBot
-
-      - name: Checkout replacement PR branch
-        working-directory: ${{ steps.set-up-homebrew.outputs.repository-path }}
-        run: |
-          if git ls-remote --exit-code --heads origin "$REPLACEMENT_BRANCH"
-          then
-            echo "::error ::Branch $REPLACEMENT_BRANCH already exists!"
-            exit 1
-          fi
-
-          git checkout -b "$REPLACEMENT_BRANCH" origin/master
-
       - name: Get reviewers
         id: reviewers
         env:
@@ -98,7 +81,7 @@ jobs:
             gh api \
               --header 'Accept: application/vnd.github+json' \
               --header 'X-GitHub-Api-Version: 2022-11-28' \
-              "repos/$GH_REPO/pulls/$PR/reviews"
+              "repos/{owner}/{repo}/pulls/$PR/reviews"
           )"
 
           reviewers="$(jq --compact-output '[.[].user.login]' <<< "$review_data")"
@@ -106,6 +89,37 @@ jobs:
 
           echo "reviewers=$reviewers" >> "$GITHUB_OUTPUT"
           echo "approved=$approved" >> "$GITHUB_OUTPUT"
+
+      - name: Check approval if needed
+        if: inputs.upload && !fromJson(steps.reviewers.outputs.approved)
+        run: |
+          echo "::error ::Refusing to upload bottles because PR #$PR is not approved!"
+          exit 1
+
+      - name: Configure Git user
+        id: git-user-config
+        uses: Homebrew/actions/git-user-config@master
+        with:
+          username: BrewTestBot
+
+      - name: Checkout PR branch
+        if: ${{ !inputs.autosquash }}
+        working-directory: ${{steps.set-up-homebrew.outputs.repository-path}}
+        env:
+          GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        run: gh pr checkout "$PR"
+
+      - name: Checkout replacement PR branch
+        working-directory: ${{ steps.set-up-homebrew.outputs.repository-path }}
+        env:
+          START_POINT: ${{ inputs.autosquash && 'origin/master' || 'HEAD' }}
+        run: |
+          if git ls-remote --exit-code --heads origin "$REPLACEMENT_BRANCH"
+          then
+            echo "::error ::Branch $REPLACEMENT_BRANCH already exists!"
+            exit 1
+          fi
+          git checkout -b "$REPLACEMENT_BRANCH" "$START_POINT"
 
       - name: Dismiss approvals
         if: fromJson(steps.reviewers.outputs.approved)
@@ -137,7 +151,7 @@ jobs:
             --workflows=tests.yml \
             --committer="$BREWTESTBOT_NAME_EMAIL" \
             --root-url="https://ghcr.io/v2/homebrew/core" \
-            "${{ inputs.autosquash && '--autosquash' || '--clean' }}" \
+            ${{ inputs.autosquash && '--autosquash' || '--clean --no-cherry-pick' }} \
             ${{ inputs.upload && '' || '--no-upload' }} \
             ${{ inputs.warn_on_upload_failure && '--warn-on-upload-failure' || '' }} \
             ${{ inputs.message && '--message="$MESSAGE"' || '' }} \
@@ -181,10 +195,15 @@ jobs:
           pull_number="$(gh pr list --head "$REPLACEMENT_BRANCH" --limit 1 --json number --jq '.[].number')"
           echo "pull_number=$pull_number" >> "$GITHUB_OUTPUT"
 
-      - name: Label PR
+      - name: Label replaced PR
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: gh pr edit --add-label automerge-skip --add-label superseded "$PR"
+
+      - name: Mark replaced PR as draft
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh pr ready --undo "$PR"
 
       - name: Post comment on success
         uses: Homebrew/actions/post-comment@master

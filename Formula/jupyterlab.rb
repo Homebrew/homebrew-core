@@ -3,8 +3,8 @@ class Jupyterlab < Formula
 
   desc "Interactive environments for writing and running code"
   homepage "https://jupyter.org/"
-  url "https://files.pythonhosted.org/packages/e0/f6/de750c178fca4d41086470cd09ec2d7fa258cd1f032e064b6cb6e6fbb781/jupyterlab-4.0.1.tar.gz"
-  sha256 "4dc3901f7bbfd4704c994b7a893a49955256abf57dba9831f4825e3f3165b8bb"
+  url "https://files.pythonhosted.org/packages/ed/30/72352660bbb4f4f46da15ead0fcb02bbd2e45bacbaba86b5c0fddaa9ea0d/jupyterlab-4.0.2.tar.gz"
+  sha256 "0a77898aebb55da391e5f57022774c089fb075e98803ff3d514a79b727dc934d"
   license "BSD-3-Clause"
   license all_of: [
     "BSD-3-Clause",
@@ -12,13 +12,13 @@ class Jupyterlab < Formula
   ]
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "3eb1420ba8ef5efb670b42dde7d797917626ccdf6db42cd556321ae6e468ac3b"
-    sha256 cellar: :any,                 arm64_monterey: "3da56bc34ff3e42a3d4b47fdca8639a2cca82161c30d285004782dd2b7e92d47"
-    sha256 cellar: :any,                 arm64_big_sur:  "2351f187bbba011c7322473047bdbcb5765b2979b1726f0c437dd6b89ff8b935"
-    sha256 cellar: :any,                 ventura:        "6f23d8139697fd16becafba5e4775bbd106c3feca6900a6164d13d5e4bbc11e9"
-    sha256 cellar: :any,                 monterey:       "e74992ce63c1c63de2f349a8b3a932ee377001f508f6cfe339713818a7688455"
-    sha256 cellar: :any,                 big_sur:        "ea14e61f30ec89c7c8b766eeaf0d5ef2a7457015f6367de786f22c233e31be0f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c5b4b18e3830cfa6e21bfdbbeeb1ec0dda78aa3d361d81239be1229581b047ed"
+    sha256 cellar: :any,                 arm64_ventura:  "6530f97f9eb7b2ffe22e66ecb146dbaba3c2c97386d9e046c75834de98fd4f2b"
+    sha256 cellar: :any,                 arm64_monterey: "bc80171e3ed74fca66fa63cd823ac5fcc9bec285ecdfea18ff525639302bb583"
+    sha256 cellar: :any,                 arm64_big_sur:  "2aed006138ac098679ca167bdb3c2f5c8c1a28190f4ab0e322780a92ad18ed2b"
+    sha256 cellar: :any,                 ventura:        "a505218c57da3006a26b8898e77575c1446de8d4101af083dfac871dac58ad00"
+    sha256 cellar: :any,                 monterey:       "265405564fc5b46e0c01b0f5b6719f9e99cd0f67db86fea3bc65d14cde203b84"
+    sha256 cellar: :any,                 big_sur:        "bcdce3a5b154a5fab80060bd5dbeb7c10054891b09291b097c9ef6e4d2728039"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "df349927115e40aa88b7d9008d2b78acfeb8f2e823a135192ddba8b2edc9a081"
   end
 
   depends_on "hatch" => :build
@@ -206,8 +206,8 @@ class Jupyterlab < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/95/7e/68018b70268fb4a2a605e2be44ab7b4dd7ce7808adae6c5ef32e34f4b55a/MarkupSafe-2.1.2.tar.gz"
-    sha256 "abcabc8c2b26036d62d4c746381a6f7cf60aafcc653198ad678306986b09450d"
+    url "https://files.pythonhosted.org/packages/6d/7c/59a3248f411813f8ccba92a55feaac4bf360d29e2ff05ee7d8e1ef2d7dbf/MarkupSafe-2.1.3.tar.gz"
+    sha256 "af598ed32d6ae86f1b747b82783958b1a4ab8f617b06fe68795c7f026abbdcad"
   end
 
   resource "mistune" do
@@ -231,8 +231,8 @@ class Jupyterlab < Formula
   end
 
   resource "nbformat" do
-    url "https://files.pythonhosted.org/packages/08/b7/8b964e977438037b57de31d312d67046e215295899107576e3708b0ea223/nbformat-5.8.0.tar.gz"
-    sha256 "46dac64c781f1c34dfd8acba16547024110348f9fc7eab0f31981c2a3dc48d1f"
+    url "https://files.pythonhosted.org/packages/73/b0/7dcb4288e9096fc544e4c511253c5720210748dd37c23f0486541d145a0a/nbformat-5.9.0.tar.gz"
+    sha256 "e98ebb6120c3efbafdee2a40af2a140cadee90bb06dd69a2a63d9551fcc7f976"
   end
 
   resource "nest-asyncio" do
@@ -354,8 +354,8 @@ class Jupyterlab < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/fb/c0/1abba1a1233b81cf2e36f56e05194f5e8a0cec8c03c244cab56cc9dfb5bd/urllib3-2.0.2.tar.gz"
-    sha256 "61717a1095d7e155cdb737ac7bb2f4324a858a1e2e6466f6d03ff630ca68d3cc"
+    url "https://files.pythonhosted.org/packages/d6/af/3b4cfedd46b3addab52e84a71ab26518272c23c77116de3c61ead54af903/urllib3-2.0.3.tar.gz"
+    sha256 "bee28b5e56addb8226c96f7f13ac28cb4c301dd5ea8a6ca179c0b9835e032825"
   end
 
   resource "webcolors" do

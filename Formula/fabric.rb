@@ -9,19 +9,20 @@ class Fabric < Formula
   head "https://github.com/fabric/fabric.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "ac2915235a565fac06db88bcdf7d33d926b825ed641babe056d5f837520e884e"
-    sha256 cellar: :any,                 arm64_monterey: "05124202110f6a1c893d20bb425df00b68d56fdd2d38fb26f35102c0791b237c"
-    sha256 cellar: :any,                 arm64_big_sur:  "0ef853648086fb8bd5a22b37e3568d119d082a6322df520d4b1879ae7c86a0e2"
-    sha256 cellar: :any,                 ventura:        "567e8888e01a9ab3554fd8bbe4b6cc4519f3550474ce4759ea03c0d98d9f5fde"
-    sha256 cellar: :any,                 monterey:       "21cc0f5c40c8c8925b9890bd7d0e7b50a216cab73b280d0405a470b25daa2622"
-    sha256 cellar: :any,                 big_sur:        "ab424d19f7d879374110a15453f2f9ce8903946b2bc77ca4f70f92290f07955b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7a42e54abc6ca47e1b5321f78160f1987ed43b49dfe95f868ac0ec6d161b3c9c"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_ventura:  "fa01790164654edb0d3b66579d928205d7ea51b665f2b7e77f3d058c96cf48fb"
+    sha256 cellar: :any,                 arm64_monterey: "e19e957096ae4b8610cb7799dad1c60072c6e095fbf7ff4664d6688140f5ce3c"
+    sha256 cellar: :any,                 arm64_big_sur:  "e7662eff867501555464f0ebaed35de929e8ab043a88e71fbf483358e03b452a"
+    sha256 cellar: :any,                 ventura:        "de749efa37198bb558a627c0c483318071ccb574917572cd804371651c1910d5"
+    sha256 cellar: :any,                 monterey:       "b23d5e3d08795428874f03de390ec2da45f35d507148aee4f11935f6d37b67d7"
+    sha256 cellar: :any,                 big_sur:        "8f05aef6359c66a0091edea5c5b9bb8178d7b613ec5a12fef31ee2e50da3eba2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "51e888e33e6aebca684acc61fb2e2805a9a3ea114680d98cd1285594d8f75dd9"
   end
 
   # `pkg-config`, `rust`, and `openssl@1.1` are for cryptography.
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
+  depends_on "cffi"
   depends_on "openssl@1.1"
   depends_on "pyinvoke"
   depends_on "python@3.11"
@@ -29,11 +30,6 @@ class Fabric < Formula
   resource "bcrypt" do
     url "https://files.pythonhosted.org/packages/8c/ae/3af7d006aacf513975fd1948a6b4d6f8b4a307f8a244e1a3d3774b297aad/bcrypt-4.0.1.tar.gz"
     sha256 "27d375903ac8261cfe4047f6709d16f7d18d39b1ec92aaf72af989552a650ebd"
-  end
-
-  resource "cffi" do
-    url "https://files.pythonhosted.org/packages/2b/a8/050ab4f0c3d4c1b8aaa805f70e26e84d0e27004907c5b8ecc1d31815f92a/cffi-1.15.1.tar.gz"
-    sha256 "d400bfb9a37b1351253cb402671cea7e89bdecc294e8016a707f6d1d8ac934f9"
   end
 
   resource "cryptography" do
@@ -49,11 +45,6 @@ class Fabric < Formula
   resource "paramiko" do
     url "https://files.pythonhosted.org/packages/87/62/cee9551811c846e9735f749dbdf05d4f9f0dbcecd66eae35b5daacf9a117/paramiko-3.2.0.tar.gz"
     sha256 "93cdce625a8a1dc12204439d45033f3261bdb2c201648cfcdc06f9fd0f94ec29"
-  end
-
-  resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/5e/0b/95d387f5f4433cb0f53ff7ad859bd2c6051051cebbb564f139a999ab46de/pycparser-2.21.tar.gz"
-    sha256 "e644fdec12f7872f86c58ff790da456218b10f863970249516d60a5eaca77206"
   end
 
   resource "pynacl" do

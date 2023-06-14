@@ -9,16 +9,18 @@ class Tern < Formula
   head "https://github.com/tern-tools/tern.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c62f3c3547a824fe5afb8beaece0a68e0a32f7015dba6af558a353afe0914b5a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d7a8b9abcf0a3a54da3ee63384ebebade882f31b91a4eb81ccb42e4f5c8db3c1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2811c75b416bf57f11ccb28c968d4c75a08e5aa0cd86e7b05998d9bf2ec54855"
-    sha256 cellar: :any_skip_relocation, ventura:        "7e1864f9445360314d46bdba43ab48fcad32f932ae3b7c391a34b02b5df94c60"
-    sha256 cellar: :any_skip_relocation, monterey:       "a6bd644df3852024bdacf644c3ce7fc992e29ee6b6ad436ae257e35bfd2efe10"
-    sha256 cellar: :any_skip_relocation, big_sur:        "38af31f47abe3b76d6819ca9817348f4aaedb5aba8fda72eef25c23ad043ebfb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "80826de5fa482cc65a83e7f610eaf9e20fc715cd8cb50d3dfc670c6ab847f720"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5a3b6f8860e6e74ddb12effdf187dea219be9af73a183960ffa5c5d5d6437654"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3fea37300435ec7ef306b7fc3eaaa3472e9ad13782a0f69dfd9846e4432ffa2f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e198f016fba1e1afecf19615915dd07990e58881e93f7e2fd9b8751a98da12cc"
+    sha256 cellar: :any_skip_relocation, ventura:        "2a2d92aaba6403a5cb1cd55125ec266194f8d7e05dac72265eb565e73de1a96a"
+    sha256 cellar: :any_skip_relocation, monterey:       "c1bf6b4cf66e484818ce31eee7c918e4f1c0e62ef7e5d3a6dea6619f7f68b5d1"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8276f4efbeb05388ed0330604f3215f4dcf4940da2f2743f587b17966259d3be"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c2bfcb0c0607a308bc4cf95b8bbc18ee5beee08836de1e1cfa344841484ba062"
   end
 
   depends_on "python@3.11"
+  depends_on "pyyaml"
 
   on_linux do
     depends_on "attr" # for `getfattr`
@@ -102,11 +104,6 @@ class Tern < Formula
   resource "prettytable" do
     url "https://files.pythonhosted.org/packages/ba/b6/8e78337766d4c324ac22cb887ecc19487531f508dbf17d922b91492d55bb/prettytable-3.6.0.tar.gz"
     sha256 "2e0026af955b4ea67b22122f310b90eae890738c08cb0458693a49b6221530ac"
-  end
-
-  resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/36/2b/61d51a2c4f25ef062ae3f74576b01638bebad5e045f747ff12643df63844/PyYAML-6.0.tar.gz"
-    sha256 "68fb519c14306fec9720a2a5b45bc9f0c8d1b9c72adf45c37baedfcd949c35a2"
   end
 
   resource "regex" do

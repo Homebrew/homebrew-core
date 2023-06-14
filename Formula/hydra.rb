@@ -1,20 +1,19 @@
 class Hydra < Formula
   desc "Network logon cracker which supports many services"
   homepage "https://github.com/vanhauser-thc/thc-hydra"
-  url "https://github.com/vanhauser-thc/thc-hydra/archive/v9.4.tar.gz"
-  sha256 "c906e2dd959da7ea192861bc4bccddfed9bc1799826f7600255f57160fd765f8"
+  url "https://github.com/vanhauser-thc/thc-hydra/archive/v9.5.tar.gz"
+  sha256 "9dd193b011fdb3c52a17b0da61a38a4148ffcad731557696819d4721d1bee76b"
   license "AGPL-3.0-only"
   head "https://github.com/vanhauser-thc/thc-hydra.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "637217ccfe6c7d1e52784ad6f2b1503e93fcb31fe9aba8cbc926c5d8f1d5daf0"
-    sha256 cellar: :any,                 arm64_monterey: "6c76b09ffc546df4bab7824046c8d94217f3f634c2df00aafe488f4d4e8474f8"
-    sha256 cellar: :any,                 arm64_big_sur:  "1cefde616d5eed48679e20dbd7159784904eddb175503216ddbb07dcb64f4e87"
-    sha256 cellar: :any,                 ventura:        "cb2307c3b37e16b4b66a3cef11d8e2047b037c41db4eed4b1e64a460bcef58cd"
-    sha256 cellar: :any,                 monterey:       "151d5a41a45193154a178726b54c2d23b1a3f4ec2837db9b90d2d6ed078aaca7"
-    sha256 cellar: :any,                 big_sur:        "8b4aaaf394f78719f98023f0ef840a4d6c47c5cf02a209c368b4648eed627c8c"
-    sha256 cellar: :any,                 catalina:       "9fc26bf7f2ffdd333595d9b5b18d199ea5146b43b79e50859be316ef1a4b57f3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cf7f3d55d430cd0decc4ab9cfd4b194f15d49c3276fadd8027f908634c5dc366"
+    sha256 cellar: :any,                 arm64_ventura:  "d3599aadf0811fad47f7f7b1d4971186c71ad4cd4e66ada47186281719c6d6c5"
+    sha256 cellar: :any,                 arm64_monterey: "5bafa12886bbaf89e78c5d0a85597d12eeddcbf721439fac1c5399c941a80f8f"
+    sha256 cellar: :any,                 arm64_big_sur:  "3d55edf004a94b138a0a3c453a774d0f9876ad6e6ac286210008399f50f9e045"
+    sha256 cellar: :any,                 ventura:        "e706864437e9b1e995c991616fcaba4d35b0dabb91bbd615d28b8ea3b3c9628a"
+    sha256 cellar: :any,                 monterey:       "48bee24f5a7687f354c6f5a385b49dede529c1ab5d0f29b815de4e7bc27f2e7e"
+    sha256 cellar: :any,                 big_sur:        "830702b6eaa0e22e83ff92b4a1b0dca79633969b2c535ae9b73d8bf162322206"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a17ee21be0401deebaf16c0bc18cbacdd0f3e441fd60f6bdc3713a27d931e392"
   end
 
   depends_on "pkg-config" => :build

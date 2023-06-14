@@ -1,8 +1,8 @@
 class Metabase < Formula
   desc "Business intelligence report server"
   homepage "https://www.metabase.com/"
-  url "https://downloads.metabase.com/v0.46.4/metabase.jar"
-  sha256 "b16997d64e7cd6decec23b7692c134c67a34abcb035bd5a048b9a38da75fe506"
+  url "https://downloads.metabase.com/v0.46.5/metabase.jar"
+  sha256 "e45f01438da1ba7faa524ebf5f57524e58511970443eaf61d087c91c0efb38ec"
   license "AGPL-3.0-only"
 
   livecheck do
@@ -11,13 +11,13 @@ class Metabase < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f35ecc3f118e1edfbed17a9720819f8822252d52d727fbd445bdeecf77b9bbe5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f35ecc3f118e1edfbed17a9720819f8822252d52d727fbd445bdeecf77b9bbe5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f35ecc3f118e1edfbed17a9720819f8822252d52d727fbd445bdeecf77b9bbe5"
-    sha256 cellar: :any_skip_relocation, ventura:        "f35ecc3f118e1edfbed17a9720819f8822252d52d727fbd445bdeecf77b9bbe5"
-    sha256 cellar: :any_skip_relocation, monterey:       "f35ecc3f118e1edfbed17a9720819f8822252d52d727fbd445bdeecf77b9bbe5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f35ecc3f118e1edfbed17a9720819f8822252d52d727fbd445bdeecf77b9bbe5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "59f34c4b298aa6b86e9300832c869846cfd14964d707c0c25fffe5ccf6e08011"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "926e953bcc670f3e8392f00b3406062930a3ae1d38cf201cf5356d6d74c557bf"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "926e953bcc670f3e8392f00b3406062930a3ae1d38cf201cf5356d6d74c557bf"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "926e953bcc670f3e8392f00b3406062930a3ae1d38cf201cf5356d6d74c557bf"
+    sha256 cellar: :any_skip_relocation, ventura:        "926e953bcc670f3e8392f00b3406062930a3ae1d38cf201cf5356d6d74c557bf"
+    sha256 cellar: :any_skip_relocation, monterey:       "926e953bcc670f3e8392f00b3406062930a3ae1d38cf201cf5356d6d74c557bf"
+    sha256 cellar: :any_skip_relocation, big_sur:        "926e953bcc670f3e8392f00b3406062930a3ae1d38cf201cf5356d6d74c557bf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "61792ee42e5c239c2304854c9295e381a7763f043e5175251445bef988b861cb"
   end
 
   head do

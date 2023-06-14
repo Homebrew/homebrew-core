@@ -8,19 +8,20 @@ class GimmeAwsCreds < Formula
   license "Apache-2.0"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_ventura:  "9fe7df2d5aa6368459899dac2ec6301b48fc6b70f929cc7dbf0069528ff5068a"
-    sha256 cellar: :any,                 arm64_monterey: "8cfa7791b63aaf69aeebe668e630042d6bdd576f092a5ae12c6ec6622a91da4f"
-    sha256 cellar: :any,                 arm64_big_sur:  "2d30a039af2ad6e148539acf7d8c3b3271c27223ec9eeb649e179cefb6fcfc21"
-    sha256 cellar: :any,                 ventura:        "1210e447e8e5d296d5ab199cfafbf63a5a9ef607b23b0bbd9484b8fea1b18466"
-    sha256 cellar: :any,                 monterey:       "756de508f0fb56a0f4d8f6ccf25cc7195ff92a132834741e464a700a4bbfcb22"
-    sha256 cellar: :any,                 big_sur:        "e5408888a6eff320a2eb0fef3fddc1a6dc8e260765bb44e4683fa6766d65b714"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "363886e1794d69a64d5da6c2a7593b3928b6d3d260fdf6547dbc2c9933e1055c"
+    rebuild 3
+    sha256 cellar: :any,                 arm64_ventura:  "b8fbd0231aa7cce017f399faa9360bf55d0f28a6f7a65b2ec6aab7b74d3f3efc"
+    sha256 cellar: :any,                 arm64_monterey: "6cb08aa07da0e12582026c0a8e030a369ef95a8fd01c78b0ee82ba04affd96bf"
+    sha256 cellar: :any,                 arm64_big_sur:  "0d7d400bcbb6a83311fe848a4962d14df27c8c84738b3c862438b30be1a07dac"
+    sha256 cellar: :any,                 ventura:        "06253b087048a32f811a9fb4cc4a4525a79837c6595cbca5567c20ff6c47e712"
+    sha256 cellar: :any,                 monterey:       "a67a7ac2ea1c525290bcb76f8f4c9298ac6303ad36435d933a2b3b1a09a0871f"
+    sha256 cellar: :any,                 big_sur:        "c50787b8f1608b00c6286077beeec642fad1f5e5447cff4616a5ef099df97c03"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1ad26e6f8eb0b8eacdffd572fb828591ca370feafe99b25b777049b1ed1d5511"
   end
 
   # `pkg-config`, `rust`, and `openssl@1.1` are for cryptography.
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
+  depends_on "cffi"
   depends_on "openssl@1.1"
   depends_on "python@3.11"
   depends_on "six"
@@ -68,11 +69,6 @@ class GimmeAwsCreds < Formula
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/93/71/752f7a4dd4c20d6b12341ed1732368546bc0ca9866139fe812f6009d9ac7/certifi-2023.5.7.tar.gz"
     sha256 "0f0d56dc5a6ad56fd4ba36484d6cc34451e1c6548c61daad8c320169f91eddc7"
-  end
-
-  resource "cffi" do
-    url "https://files.pythonhosted.org/packages/2b/a8/050ab4f0c3d4c1b8aaa805f70e26e84d0e27004907c5b8ecc1d31815f92a/cffi-1.15.1.tar.gz"
-    sha256 "d400bfb9a37b1351253cb402671cea7e89bdecc294e8016a707f6d1d8ac934f9"
   end
 
   resource "charset-normalizer" do
@@ -138,11 +134,6 @@ class GimmeAwsCreds < Formula
   resource "okta" do
     url "https://files.pythonhosted.org/packages/e8/2a/1c1bae7ed0b429cfe04caaff4ec06383669b651b315328b15f87ab67d347/okta-0.0.4.tar.gz"
     sha256 "53e792c68d3684ff4140b4cb1c02af3821090368f8110fde54c0bdb638449332"
-  end
-
-  resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/5e/0b/95d387f5f4433cb0f53ff7ad859bd2c6051051cebbb564f139a999ab46de/pycparser-2.21.tar.gz"
-    sha256 "e644fdec12f7872f86c58ff790da456218b10f863970249516d60a5eaca77206"
   end
 
   resource "pyjwt" do

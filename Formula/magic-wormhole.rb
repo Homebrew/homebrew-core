@@ -9,17 +9,18 @@ class MagicWormhole < Formula
   revision 7
 
   bottle do
-    rebuild 4
-    sha256 cellar: :any,                 arm64_ventura:  "f04789a14cac6efe90534f2744c1e175e92f75486b5454262871b6c021daa2f2"
-    sha256 cellar: :any,                 arm64_monterey: "e2f0a119fa754b6a4c2a107c167316c8289b93e78be41849667cac7b1538cf2d"
-    sha256 cellar: :any,                 arm64_big_sur:  "c3e58e97a8c2c240c8858d29ee4f783ea383d81616b510501afd4128a88d45fa"
-    sha256 cellar: :any,                 ventura:        "7abbfed21778c5f8b6d08543b058ecb0e3cc35ff8f8f27ed02701e37a36dc60f"
-    sha256 cellar: :any,                 monterey:       "1b1afca1e611fb82149a20f9d23a432b6b08182a4c1e2d89220fd88484c424e2"
-    sha256 cellar: :any,                 big_sur:        "a231698215e34de421eb6fc22d52623647805c2401348e82ec54f34b71e9a715"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "64da379eda4731ba2cbbd4fc578ba4260da15960d913d08c90f12e89cd563313"
+    rebuild 5
+    sha256 cellar: :any,                 arm64_ventura:  "fd06d9d26ed10085f54b9baccbaaadd25e48f2af52c09e9676706d12d41d6856"
+    sha256 cellar: :any,                 arm64_monterey: "68d31947b71b0ad41a18133a074318729669cea86ed62c5dd43c2d7794ebd7ce"
+    sha256 cellar: :any,                 arm64_big_sur:  "1bf596cd00864d086b27fc4e80276826e70da4925868001a9cbf952647d88f0d"
+    sha256 cellar: :any,                 ventura:        "4a6710aeb7e68d408835e67fbb1005ec9845cbb79a41cac0841c887ef609a0cc"
+    sha256 cellar: :any,                 monterey:       "ed0dc6665e8793c56922b9ad51c53c7b73765e9e66108ee769c41a0fd95c5484"
+    sha256 cellar: :any,                 big_sur:        "880acc1f6f6e9eb5cc51d85c2a346c2e7022eba3c05bb2b979fc54d26ee3edf6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "919346a5ea77cb671565d8813a53827128b059d012f2df9f4c1db4153e995fa4"
   end
 
   depends_on "rust" => :build
+  depends_on "cffi"
   depends_on "libsodium"
   depends_on "openssl@1.1"
   depends_on "python-typing-extensions"
@@ -45,11 +46,6 @@ class MagicWormhole < Formula
   resource "automat" do
     url "https://files.pythonhosted.org/packages/7a/7b/9c3d26d8a0416eefbc0428f168241b32657ca260fb7ef507596ff5c2f6c4/Automat-22.10.0.tar.gz"
     sha256 "e56beb84edad19dcc11d30e8d9b895f75deeb5ef5e96b84a467066b3b84bb04e"
-  end
-
-  resource "cffi" do
-    url "https://files.pythonhosted.org/packages/2b/a8/050ab4f0c3d4c1b8aaa805f70e26e84d0e27004907c5b8ecc1d31815f92a/cffi-1.15.1.tar.gz"
-    sha256 "d400bfb9a37b1351253cb402671cea7e89bdecc294e8016a707f6d1d8ac934f9"
   end
 
   resource "click" do
@@ -100,11 +96,6 @@ class MagicWormhole < Formula
   resource "pyasn1-modules" do
     url "https://files.pythonhosted.org/packages/3b/e4/7dec823b1b5603c5b3c51e942d5d9e65efd6ff946e713a325ed4146d070f/pyasn1_modules-0.3.0.tar.gz"
     sha256 "5bd01446b736eb9d31512a30d46c1ac3395d676c6f3cafa4c03eb54b9925631c"
-  end
-
-  resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/5e/0b/95d387f5f4433cb0f53ff7ad859bd2c6051051cebbb564f139a999ab46de/pycparser-2.21.tar.gz"
-    sha256 "e644fdec12f7872f86c58ff790da456218b10f863970249516d60a5eaca77206"
   end
 
   resource "pynacl" do

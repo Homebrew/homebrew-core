@@ -1,18 +1,18 @@
 class Menhir < Formula
   desc "LR(1) parser generator for the OCaml programming language"
   homepage "http://cristal.inria.fr/~fpottier/menhir"
-  url "https://gitlab.inria.fr/fpottier/menhir/-/archive/20230428/menhir-20230428.tar.bz2"
-  sha256 "52fca6e346e468aaf3bce38359550c99665d8037dd36e113fb35d3b4d6a7b385"
+  url "https://gitlab.inria.fr/fpottier/menhir/-/archive/20230608/menhir-20230608.tar.bz2"
+  sha256 "6fff24b0e1bca2143a774357dcda17ba367a6d23fadd9d7df52774f904dae2a9"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "f7867e3c9be6f618a5050d843ee6ef0495b0707630bac51ef780f80835ef1230"
-    sha256 cellar: :any,                 arm64_monterey: "50f450cf57bbe5b177e14551c4cb2cd25220baf879cfac6d46cd82dc5420c585"
-    sha256 cellar: :any,                 arm64_big_sur:  "b96985bc14cfa6690e80a58fbb594467cfe57a973800555cc4f4dbf2087c9fa5"
-    sha256 cellar: :any,                 ventura:        "e1ea495ccf269b15a2c2681d07e15c53c31ca3426cb556d00cbe5a835da88350"
-    sha256 cellar: :any,                 monterey:       "89b5c3cb37c70b8ec7491fb81d12db122c6fb2e6fa45213c0779269b8a349179"
-    sha256 cellar: :any,                 big_sur:        "793c412efebafc9a43852839017cd6f4f46905250fab10d55ee489d4813d3e2c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "11364f255f6ef37a6a1d5fcb55a66b6d5c4372d23295e16a593ef4a80970190f"
+    sha256 cellar: :any,                 arm64_ventura:  "b5f3471fdeedef8360e4ef1a220787993578205fdf64b34bfe52eaf426ad40a0"
+    sha256 cellar: :any,                 arm64_monterey: "b092e36031f47030e59839d5fd05d321317ace2cd20a83f0ed952a416bd0a90e"
+    sha256 cellar: :any,                 arm64_big_sur:  "14f19b612756c58d8c935598f6f6a8f7b11f405a1cb3b7dbad0fe6063e941f3f"
+    sha256 cellar: :any,                 ventura:        "03f6d47c1c894c0892a536dc0abcf744039b747bbe707880024d491c16e8a9ac"
+    sha256 cellar: :any,                 monterey:       "17a7165e6c26f622e431953ab5a9723b36035d31dc2296768dda298f5b0995e0"
+    sha256 cellar: :any,                 big_sur:        "d1cace7fa759e156a78d1e3f2e71723bb0971e549a64c16dbea5f206ee028aea"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8aba8e33a8f0746020d10440af25b25eda2d83a414bdcda1ffabb51fa5b5ec0b"
   end
 
   depends_on "dune" => :build

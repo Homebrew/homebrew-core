@@ -2,8 +2,8 @@ class Wolfssl < Formula
   desc "Embedded SSL Library written in C"
   homepage "https://www.wolfssl.com"
   url "https://github.com/wolfSSL/wolfssl.git",
-      tag:      "v5.6.0-stable",
-      revision: "979707380c677dfa65e3ba48f19e149773a4a32d"
+      tag:      "v5.6.2-stable",
+      revision: "9ffa9faecda87a7c0ce7521c83996c65d4e86943"
   license "GPL-2.0-or-later"
   head "https://github.com/wolfSSL/wolfssl.git", branch: "master"
 
@@ -14,13 +14,13 @@ class Wolfssl < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "b5d6adad9bb984aca7e12e88af41bb99cadb3e74e5805a7e50af7a61145b0f36"
-    sha256 cellar: :any,                 arm64_monterey: "70629f41e2988b2d303568653bf0d4e7f33c44119c8dd935d471c253280c15f2"
-    sha256 cellar: :any,                 arm64_big_sur:  "966192b56b361b794716cc995d4fa94f115a94cb04bb286cca75e8d25b0c3555"
-    sha256 cellar: :any,                 ventura:        "b8ea4838eb281b5e68334d5114563afc1226e6e20fe86eabea4db48102336be9"
-    sha256 cellar: :any,                 monterey:       "a0b755c2ecc1f169b40e4d7fc627474a8e3ec65176aa41a4d050ba06949ad142"
-    sha256 cellar: :any,                 big_sur:        "6d9006e9f0b140a091bd5d288bd2b64dfd14f4966cfcf5aef1f1cecd62cc6c5d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "42f146fdfeeab0e3882fb52b24049886dbe47321cc6c5ba7c7cfaa61aab1e26e"
+    sha256 cellar: :any,                 arm64_ventura:  "622f2b50c5d5c68d5f3f41e4466035be3556a29e04c4dbc0cf1abb4a15a03b6b"
+    sha256 cellar: :any,                 arm64_monterey: "f83310a16dc36e4b97d63ea3e45e6bc897ffcd7c5ce7a4e8508860399f56d95c"
+    sha256 cellar: :any,                 arm64_big_sur:  "3230f93af4bba82a7a7d01f6db810e1a2fb7a562bcdf43186f694e12dfdab34a"
+    sha256 cellar: :any,                 ventura:        "842ec365333b2e349a190152187522503aacff5c74cf0d63e5e4488aa4bf2924"
+    sha256 cellar: :any,                 monterey:       "f40b2bce76d49636908e059254c57d1b5a4e56da77e3aec667b98430560ef403"
+    sha256 cellar: :any,                 big_sur:        "c0127b85eef6d63e6828a89b19deb1dc9b94f611269aae3ab6ace4ef3b461499"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8547460115d3b39dcd74a23dc890566931f2b17069c4bf41e07ff7b6a8bcdecf"
   end
 
   depends_on "autoconf" => :build

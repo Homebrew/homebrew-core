@@ -1,37 +1,24 @@
 class Julia < Formula
   desc "Fast, Dynamic Programming Language"
   homepage "https://julialang.org/"
+  # Use the `-full` tarball to avoid having to download during the build.
+  url "https://github.com/JuliaLang/julia/releases/download/v1.9.1/julia-1.9.1-full.tar.gz"
+  sha256 "a13ce716b63d3e46d9108395e1ffc8a1de712e6a848a603ac592bcf080ea0139"
   license all_of: ["MIT", "BSD-3-Clause", "Apache-2.0", "BSL-1.0"]
   head "https://github.com/JuliaLang/julia.git", branch: "master"
 
-  # TODO: Remove stable block when patch is no longer needed.
-  stable do
-    # Use the `-full` tarball to avoid having to download during the build.
-    #
-    # TODO: Use system `suite-sparse` when `julia` supports v7.
-    # Issue ref: https://github.com/JuliaLang/julia/issues/47884
-    url "https://github.com/JuliaLang/julia/releases/download/v1.9.0/julia-1.9.0-full.tar.gz"
-    sha256 "222eb533c9dc54734949eb3a4169f54aefa1bc20be385fc1cf798c8219fe6400"
-
-    # Fix printing of BigFloats with new MPFR.
-    # https://github.com/Homebrew/homebrew-core/issues/131422
-    patch do
-      url "https://github.com/JuliaLang/julia/commit/5d43397ee52323f1c015513b2be3909078b646ef.patch?full_index=1"
-      sha256 "15f9f2a7b6ae21aa5de8655970c673a953e1d46018e901f7fff98aead8e4a929"
-    end
-  end
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_ventura:  "b41974b6aaa14c109906f794e5034029ab317f3ccc78761faa027521e3c0b890"
-    sha256 cellar: :any, arm64_monterey: "50d51e910e5d119e5930dbe7bb4bf6a36473f49a6d5a35c99765223d07944c25"
-    sha256 cellar: :any, arm64_big_sur:  "85f03281e67b24a57f077cfd28138ce3e1ed9c8a7ce1695a9919ddbc3508840a"
-    sha256 cellar: :any, ventura:        "c823fd8e2921da2a3d92e734036600261b6e52f66e49ab1aa6a2f6638d6836db"
-    sha256 cellar: :any, monterey:       "accaca15b37d74416130bfbec1b2d864ac38f5bee3c22bc7438348b1476c60ed"
-    sha256 cellar: :any, big_sur:        "abca585d388288ca9e279b32199a3fd9ae2c3384ccf7ff2bd582d13ba73ec705"
+    sha256 cellar: :any, arm64_ventura:  "7400ec27ec7cb699f8c4593b482b836fa719fa9fb5ddc43bc7a85df5e1faff0d"
+    sha256 cellar: :any, arm64_monterey: "b9a4ac358305ce58a611b8a16b48c5f91d6ca38452506be8d2b6071655bb57db"
+    sha256 cellar: :any, arm64_big_sur:  "dd66cd13a011bc55310030ce05697d9893935a0301a9307b78c5c23ca5023c66"
+    sha256 cellar: :any, ventura:        "6484d4cf411d1b575a9e92eefed35552fd1662c61bb55706325447d9bc7626d5"
+    sha256 cellar: :any, monterey:       "a63c749a460d9ecbe351b2f04795079fd267492af85660b83d494186af04a67e"
+    sha256 cellar: :any, big_sur:        "64956829acc5251f422d01a11109e93c13d42c14939e9c777012c83c4da22a2b"
   end
 
   depends_on "cmake" => :build # Needed to build LLVM
+  # TODO: Use system `suite-sparse` when `julia` supports v7.
+  # PR ref: https://github.com/JuliaLang/julia/pull/48977
   depends_on "suite-sparse" => :test # Check bundled copy is used
   depends_on "ca-certificates"
   depends_on "curl"

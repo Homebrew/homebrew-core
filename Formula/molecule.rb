@@ -8,18 +8,19 @@ class Molecule < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "2a7ad12ab8d2a2b39480a48fb44b412c19fdaa99ca004b7836e662c377aee500"
-    sha256 cellar: :any,                 arm64_monterey: "337313693ac80d9430aec3f11ed779c5fd121ac47bdc67cedba86f7b9975ae2f"
-    sha256 cellar: :any,                 arm64_big_sur:  "78294b5e6597e0b8b1545be4793f12be71034bec6e427ec9a93a4ca654f3da91"
-    sha256 cellar: :any,                 ventura:        "b49d120c8af481824bd60b659840d9b26acefc7a626f76fc946c379f4239d64a"
-    sha256 cellar: :any,                 monterey:       "3731c5b5e1a2817d75543836f3172cff6856b217a5a25fe4a0ebad16285bb1c8"
-    sha256 cellar: :any,                 big_sur:        "dd5583d30fc473c4f068a7d478211b26677f195c75c16358b0893f409db354e2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7c0077d68c7026ef4518698d475332684c8b796373bf2d95817464f823929871"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_ventura:  "5535be3d3ac87c1acb4eb8c1d097d497dad22a545b1632aa996548a73ad75e50"
+    sha256 cellar: :any,                 arm64_monterey: "3cf6f9dfa62831454b8793cd9e5d7758775280a9eb2acb1dd5938fabd8e3ca73"
+    sha256 cellar: :any,                 arm64_big_sur:  "9ae75d1c2fc95928a3a66ce4758a39b5be24b43aac3b97dffe0511ed7a9e4258"
+    sha256 cellar: :any,                 ventura:        "1611bf1cc11f70779734741cae1413c0e96bd72cada4309c7c8277bd2759f50d"
+    sha256 cellar: :any,                 monterey:       "819d27b1a6e9beabb15ec964c8965d2400c4102f2c8cfa4e402d898defca4c08"
+    sha256 cellar: :any,                 big_sur:        "65192eb93daeae6f8a46c72ad59afbeff3547d9ff588df9add15234fa96a63c8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e56a3388ee3141c03b42150bfd4b192d3761a8d78da227a919a99d3b4337dcda"
   end
 
   depends_on "rust" => :build
   depends_on "ansible"
+  depends_on "cffi"
   depends_on "cookiecutter"
   depends_on "openssl@1.1"
   depends_on "pygments"
@@ -47,11 +48,6 @@ class Molecule < Formula
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/97/90/81f95d5f705be17872843536b1868f351805acf6971251ff07c1b8334dbb/attrs-23.1.0.tar.gz"
     sha256 "6279836d581513a26f1bf235f9acd333bc9115683f14f7e8fae46c98fc50e015"
-  end
-
-  resource "cffi" do
-    url "https://files.pythonhosted.org/packages/2b/a8/050ab4f0c3d4c1b8aaa805f70e26e84d0e27004907c5b8ecc1d31815f92a/cffi-1.15.1.tar.gz"
-    sha256 "d400bfb9a37b1351253cb402671cea7e89bdecc294e8016a707f6d1d8ac934f9"
   end
 
   resource "click-help-colors" do
@@ -112,11 +108,6 @@ class Molecule < Formula
   resource "pluggy" do
     url "https://files.pythonhosted.org/packages/a1/16/db2d7de3474b6e37cbb9c008965ee63835bba517e22cdb8c35b5116b5ce1/pluggy-1.0.0.tar.gz"
     sha256 "4224373bacce55f955a878bf9cfa763c1e360858e330072059e10bad68531159"
-  end
-
-  resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/5e/0b/95d387f5f4433cb0f53ff7ad859bd2c6051051cebbb564f139a999ab46de/pycparser-2.21.tar.gz"
-    sha256 "e644fdec12f7872f86c58ff790da456218b10f863970249516d60a5eaca77206"
   end
 
   resource "pyrsistent" do

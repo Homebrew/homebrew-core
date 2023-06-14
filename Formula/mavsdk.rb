@@ -7,6 +7,7 @@ class Mavsdk < Formula
       tag:      "v1.4.16",
       revision: "a14d604c2baa950dab1510448bce7c0b490a4f1a"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -14,13 +15,13 @@ class Mavsdk < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "2ac6d7e2bf71c52e0a59eabcd34c0fc34654b392b2e29c92ba980403f4e31337"
-    sha256 cellar: :any,                 arm64_monterey: "49bb6934d40af7b7f7f89f6b9e0a28a9eaf50cc2a60fafff9c9b623d29fac9c0"
-    sha256 cellar: :any,                 arm64_big_sur:  "455ba57928dc6b89656557d239135b9284dc06b8ab687915a12b28cf6d16cc47"
-    sha256 cellar: :any,                 ventura:        "7139ee78dd3109aaa659f2c28f53398c5d2f8bb5dc7dec23b52530abc5bc6f0f"
-    sha256 cellar: :any,                 monterey:       "7cee91c0775be6e7f69bd9b1376e40cf3f74b0151289bd9e734301a73371503a"
-    sha256 cellar: :any,                 big_sur:        "2193c0db1ec9a3af6ad7dd8b0023e5448ce738c1e64388f4620b7827db49ac13"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2a130d1ccbaac791eacf4d21590e40f919ce72120cbb94106e3458e1af4fb8d9"
+    sha256 cellar: :any,                 arm64_ventura:  "bc2417225796784e99a4bb8bafe5ade03fbb361dff19de5bcd59c04e29817904"
+    sha256 cellar: :any,                 arm64_monterey: "aacc0883d72fd5a15f7816c292c5d9379850cf5d2b2c8a67c02ced2fafcef666"
+    sha256 cellar: :any,                 arm64_big_sur:  "475f7485575396daaca46e5c55beacc07f0fe40e2327401358ff876e0fb8152c"
+    sha256 cellar: :any,                 ventura:        "982475db272022d74592425e83a0a0c365ba9d5b00aa99c509a43bd2187adf7d"
+    sha256 cellar: :any,                 monterey:       "8fe2aa1ab92d01ce991ae77689b415bfc6cdbfd552f7428ac8f2bfa2dbdac513"
+    sha256 cellar: :any,                 big_sur:        "5cd7e2606918827467f0f9eeabe429d8e17cebbc5eb838344015427f504258ad"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ce09fa7188fbc41ce784df2196bb54566f2e2aa13d60ce8ea839527d26c87d4"
   end
 
   depends_on "cmake" => :build

@@ -1,13 +1,13 @@
 class Liburing < Formula
   desc "Helpers to setup and teardown io_uring instances"
   homepage "https://github.com/axboe/liburing"
-  url "https://github.com/axboe/liburing/archive/refs/tags/liburing-2.3.tar.gz"
-  sha256 "60b367dbdc6f2b0418a6e0cd203ee0049d9d629a36706fcf91dfb9428bae23c8"
+  url "https://github.com/axboe/liburing/archive/refs/tags/liburing-2.4.tar.gz"
+  sha256 "2398ec82d967a6f903f3ae1fd4541c754472d3a85a584dc78c5da2fabc90706b"
   license any_of: ["MIT", "LGPL-2.1-only"]
   head "https://github.com/axboe/liburing.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "c9e7e81e663c3aa8c61489a3f9eac9f3d48ff9d90a8d3d309030d26814e67b03"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "ec174e48971a9620626df860e7adc952fa4d5cb395fde8c0ccd9ea6a665d01ac"
   end
 
   depends_on :linux

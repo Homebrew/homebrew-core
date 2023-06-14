@@ -1,19 +1,20 @@
 class Nghttp2 < Formula
   desc "HTTP/2 C Library"
   homepage "https://nghttp2.org/"
-  url "https://github.com/nghttp2/nghttp2/releases/download/v1.53.0/nghttp2-1.53.0.tar.gz"
-  mirror "http://fresh-center.net/linux/www/nghttp2-1.53.0.tar.gz"
-  sha256 "f5f3f18b377d1e7658e4655a32d9a7ce6fef39fa13f600fe920f5f77c60fc34b"
+  url "https://github.com/nghttp2/nghttp2/releases/download/v1.54.0/nghttp2-1.54.0.tar.gz"
+  mirror "http://fresh-center.net/linux/www/nghttp2-1.54.0.tar.gz"
+  sha256 "890cb0761d2fac570f0aa7bce085cd7d3c77bcfd56510456b6ea0278cde812f0"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 arm64_ventura:  "587adb383b8ae0c6ef1b006b703d1266ebc0d4928ac0055f100531f77b88a909"
-    sha256 arm64_monterey: "9f0415e4e7c2a8cae6ed2c0d18ef4588f1ca731fde290e9bcfb86825c7061698"
-    sha256 arm64_big_sur:  "d296890ad6965394f81cd53c04f089abccd0b26e2322102ec98850c7e9d0b4ec"
-    sha256 ventura:        "246d595db48c4a388637329dfac565cf570a887e61dd4779da6a7eda8f1f3048"
-    sha256 monterey:       "924cf7826f4005b43ba4ef1c29a82579affbf2fba804bb6f9dd4eb77e4a019c0"
-    sha256 big_sur:        "81f479d4379c24c2b5d8f41297cb3b0345c761a65957817f919231d08483b806"
-    sha256 x86_64_linux:   "4269c9334af6ca30a2640f0ec1441dd4a6c17c32a76e7e25c0990b7727dae451"
+    sha256 arm64_ventura:  "890634f1d69a36e62202197a07eddf858e9f391403a6ba993a245f73b321f714"
+    sha256 arm64_monterey: "da60a4c84f1701c825d1db9b3760ed2b1c31511d54fdce8976f7cf86912a3c9c"
+    sha256 arm64_big_sur:  "13d12d740d2a824f627ea3a76293d038394793ce19661f7ad41a5d9ab98b4e7e"
+    sha256 ventura:        "dfffb690be35c18a17d33ae3a22fdf6cdecf07210384a1bd6cd6ae6fb604f3aa"
+    sha256 monterey:       "e27b6ed67cc86a82908c2ffe52ec7061f956932f0a181325440d62f7df352ebb"
+    sha256 big_sur:        "342b1aa84a0c7446c4c64d844d3df8f97937fac780a5181baab149c7f97f57bb"
+    sha256 x86_64_linux:   "50a8b54e04e58404b71f5672f447375011c26b00796ab533ab590ba45e99bb9b"
   end
 
   head do
@@ -29,7 +30,7 @@ class Nghttp2 < Formula
   depends_on "jemalloc"
   depends_on "libev"
   depends_on "libnghttp2"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "libxml2"
   uses_from_macos "zlib"
