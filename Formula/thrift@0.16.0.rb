@@ -6,15 +6,14 @@ class ThriftAT0160 < Formula
   sha256 "df2931de646a366c2e5962af679018bca2395d586e00ba82d09c0379f14f8e7b"
   license "Apache-2.0"
 
-  keg_only :versioned_formula
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "bison" => :build
+  depends_on "boost" => [:build, :test]
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "boost"
   depends_on "openssl@1.1"
+  uses_from_macos "zlib"
 
   def install
     system "./bootstrap.sh"
@@ -55,10 +54,22 @@ class ThriftAT0160 < Formula
 
     system "./configure", *args
     ENV.deparallelize
+    system "make"
     system "make", "install"
   end
 
   test do
-    assert_match "Thrift", shell_output("#{bin}/thrift --version")
+    (testpath/"test.thrift").write <<~EOS
+      service MultiplicationService {
+        i32 multiply(1:i32 x, 2:i32 y),
+      }
+    EOS
+
+    system "#{bin}/thrift", "-r", "--gen", "cpp", "test.thrift"
+
+    system ENV.cxx, "-std=c++11", "gen-cpp/MultiplicationService.cpp",
+      "gen-cpp/MultiplicationService_server.skeleton.cpp",
+      "-I#{include}/include",
+      "-L#{lib}", "-lthrift"
   end
 end
