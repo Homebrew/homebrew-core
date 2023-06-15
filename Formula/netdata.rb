@@ -42,6 +42,13 @@ class Netdata < Formula
     sha256 "d2704089f85fdb6f2cd7e77be21170ced4b4375c03ef1ad4cf1075bd414a63eb"
   end
 
+  # Remove when https://github.com/netdata/netdata/pull/15195 is merged and
+  # included in a release.
+  patch do
+    url "https://github.com/netdata/netdata/commit/1189341615b642c27faee459b015059778247a8f.patch?full_index=true"
+    sha256 "61befe96c549f1428eeb8773864c36bcb825b21854f36a6433112ea9f80dc91d"
+  end
+
   def install
     # https://github.com/protocolbuffers/protobuf/issues/9947
     ENV.append_to_cflags "-DNDEBUG"
