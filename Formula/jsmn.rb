@@ -6,7 +6,6 @@ class Jsmn < Formula
   license "MIT"
 
   def install
-    system "make"
     include.install "jsmn.h"
   end
 
@@ -85,8 +84,7 @@ class Jsmn < Formula
         return EXIT_SUCCESS;
       }
     EOS
-    system ENV.cc, "test.c",
-                    "-o", "test"
+    system ENV.cc, "test.c", "-o", "test"
     system "./test"
   end
 end
