@@ -6,6 +6,8 @@ class ThriftAT0160 < Formula
   sha256 "df2931de646a366c2e5962af679018bca2395d586e00ba82d09c0379f14f8e7b"
   license "Apache-2.0"
 
+  keg_only :versioned_formula
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "bison" => :build
