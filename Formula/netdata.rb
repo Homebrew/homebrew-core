@@ -25,6 +25,7 @@ class Netdata < Formula
   depends_on "m4" => :build
   depends_on "pkg-config" => :build
   depends_on "json-c"
+  depends_on "judy"
   depends_on "libuv"
   depends_on "libyaml"
   depends_on "lz4"
@@ -35,11 +36,6 @@ class Netdata < Formula
 
   on_linux do
     depends_on "util-linux"
-  end
-
-  resource "judy" do
-    url "https://downloads.sourceforge.net/project/judy/judy/Judy-1.0.5/Judy-1.0.5.tar.gz"
-    sha256 "d2704089f85fdb6f2cd7e77be21170ced4b4375c03ef1ad4cf1075bd414a63eb"
   end
 
   # Remove when https://github.com/netdata/netdata/pull/15195 is merged and
@@ -53,25 +49,12 @@ class Netdata < Formula
     # https://github.com/protocolbuffers/protobuf/issues/9947
     ENV.append_to_cflags "-DNDEBUG"
 
-    # We build judy as static library, so we don't need to install it
-    # into the real prefix
-    judyprefix = "#{buildpath}/resources/judy"
-
-    resource("judy").stage do
-      system "./configure", "--disable-debug", "--disable-dependency-tracking",
-          "--disable-shared", "--prefix=#{judyprefix}"
-
-      # Parallel build is broken
-      ENV.deparallelize do
-        system "make", "-j1", "install"
-      end
-    end
-
     ENV["PREFIX"] = prefix
-    ENV.append "CFLAGS", "-I#{judyprefix}/include"
-    ENV.append "LDFLAGS", "-L#{judyprefix}/lib"
+    judy = Formula["judy"]
+    ENV.append "CFLAGS", "-I#{judy.opt_include}"
+    ENV.append "LDFLAGS", "-L#{judy.opt_lib}"
+    system "autoreconf", "--force", "--install", "--verbose"
 
-    system "autoreconf", "-ivf"
     args = %W[
       --disable-dependency-tracking
       --disable-silent-rules
