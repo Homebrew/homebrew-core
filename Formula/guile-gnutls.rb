@@ -1,18 +1,19 @@
 class GuileGnutls < Formula
   desc "Guile bindings for the GnuTLS library"
   homepage "https://gitlab.com/gnutls/guile"
-  url "https://gitlab.com/gnutls/guile/uploads/56e18069ab63ca67d61aecb6b2697ec1/guile-gnutls-3.7.11.tar.gz"
-  sha256 "058eaa5c763e19fbf93e8b4eefc11280f8070535c138c99be11f00cd685613df"
+  url "https://gitlab.com/gnutls/guile/uploads/3fe12c208bdc6155c5116cf5eac7a2ad/guile-gnutls-3.7.12.tar.gz"
+  sha256 "5d3af11573093de59f258415872e2c5b14cca9dd251a8b2ec1643d6e97fee336"
   license "LGPL-2.1-or-later"
+  head "https://gitlab.com/gnutls/guile.git", branch: "master"
 
   bottle do
-    sha256 arm64_ventura:  "b6d7ac219f5e8d56837e23ddc464c52b2b67ac2882299bfa701aaa8031b67e91"
-    sha256 arm64_monterey: "7210aee9ee2a18efc75c467c68acbcf55efd3800e4332fdb5df65730823557b3"
-    sha256 arm64_big_sur:  "3ac57390d3bf3ef51aac3d4f467605f40b0c19d2148335ee6bb2cd71b404602c"
-    sha256 ventura:        "c3b01474a5c7290941eca2f804f020b64f9ceb8fef11620a0049b850c6f42433"
-    sha256 monterey:       "cf51af65c57ab9b8678119b54c1e55a4decb0e35f1106653e8a9956b1d96cf51"
-    sha256 big_sur:        "a510c4971d1fe13d53912027a0266ebd721ab33b39cce0463c2ec3d4b9492cde"
-    sha256 x86_64_linux:   "40cd417f6ffe15e1f74d85f6c23753a2eff3ac704be74d470e326ededf2f4581"
+    sha256 arm64_ventura:  "76be86539dd101e571939d85f367753cf5b9feffd8715ddbacfa143d94111765"
+    sha256 arm64_monterey: "ccfbe1ae554ba7f66c516136a9e20a913508bb8682dc168aee2715c55fb5bd8f"
+    sha256 arm64_big_sur:  "e1cbf1d1781e4c7943850015a31ea4ef3d68575c1752bf9ebffb112f1e92d470"
+    sha256 ventura:        "e500ac41113618a01c642a717636d67caa91886dc5d7c9b55309a883c2a7d626"
+    sha256 monterey:       "e7cf8cb70219f51bd3842c7c5d8e16e4167c087427eb2cc6932906b697508078"
+    sha256 big_sur:        "f3223f2e41070c82d040edf761da2efb2bff7a92e6c6b2b00fd3d3c8f93e917a"
+    sha256 x86_64_linux:   "67d4876372fd6c76eed08ebce6df6dac0f571b586e1d07b091f64d34ad575b37"
   end
 
   depends_on "gnutls"

@@ -3,8 +3,8 @@ class Clarinet < Formula
   homepage "https://github.com/hirosystems/clarinet"
   # pull from git tag to get submodules
   url "https://github.com/hirosystems/clarinet.git",
-      tag:      "v1.5.4",
-      revision: "3b741691b0417d06f03b3a83935dc13808363d4c"
+      tag:      "v1.7.0",
+      revision: "63fb4d0fd670bba0f687f6b86e67c4ac0f6f3dd6"
   license "GPL-3.0-only"
   head "https://github.com/hirosystems/clarinet.git", branch: "main"
 
@@ -14,12 +14,11 @@ class Clarinet < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "742cde6cfd4d462818aa5e40b77f0b0488290cd29534583c6252abb6fd9c7165"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c1f2fb65d1419187eaaf07ea3b273557557b08a6e80da367e064892813672d82"
-    sha256 cellar: :any_skip_relocation, ventura:        "653bb041ea32fe58b4777c394f7cce7752e6fd95cd25951fb59ad856f8a92f23"
-    sha256 cellar: :any_skip_relocation, monterey:       "d4e0ecb677d687e24a82d20e5071e3da85b4fc40fdde3e474c59ea5a6ea06e3b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "261a42872ac93fa95d39de00654187b0882d3df3b695e83a7f526183c41f8f2d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "86c2dec6123ee9842d7aeb32a5ff2b068d8d542b19aaf9611ba00f574a3a0d73"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ab0f31facd7eed3f0fc13256f7bb6e5fca0e5a0010311f02ae95218606f8af9c"
+    sha256 cellar: :any_skip_relocation, ventura:       "097f6087fc02430cedab153893661e97df4375f73fe5abed03c4d13bbbde4b34"
+    sha256 cellar: :any_skip_relocation, monterey:      "690780b26af223e359fc1ffc18bd10257932712937d97ea269a8dc7f55106fd3"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c53d055910f11755afcbe31e9d49ff328cb013e353caba25b19de990abdbc2ca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ded4b86277aa926a4133e5169e5b062c57c6af7d79ef0d60a629813bd0784b7b"
   end
 
   depends_on "rust" => :build

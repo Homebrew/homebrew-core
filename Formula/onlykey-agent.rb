@@ -9,14 +9,14 @@ class OnlykeyAgent < Formula
   revision 1
 
   bottle do
-    rebuild 5
-    sha256 cellar: :any,                 arm64_ventura:  "13d27bb743b79149b19371997b8d3b399e358b90ad9cd29fa63ec28629e009aa"
-    sha256 cellar: :any,                 arm64_monterey: "14aa2bb187769e1e048132e45a295dd9eca45d68f91bd041573b97e0bba69a5d"
-    sha256 cellar: :any,                 arm64_big_sur:  "dff01c096446c80d7849c7dc738a3d2c802662d2612152d922336b7cad300277"
-    sha256 cellar: :any,                 ventura:        "3edccc11f1d5bf63a217660c1aaaa53d6353ff53a13d51bea845b032c6d433d0"
-    sha256 cellar: :any,                 monterey:       "793d18fae6593aae9450afc56f6f35c5ab4a55944a7201ebf07f5293d3d4163a"
-    sha256 cellar: :any,                 big_sur:        "a9ae472485fc3dcc99c76367e00d89caa6be4b678a5bd184f4a33424f23c756b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ae4a7c4571dbc7c4daa13459967f1f5783132bd4defd47bf240e4cfde5e6bdbb"
+    rebuild 6
+    sha256 cellar: :any,                 arm64_ventura:  "b16705252b74e08ed03ca1f924d42f2a882a552411aec3f9c7feb28e41384bbf"
+    sha256 cellar: :any,                 arm64_monterey: "0f70ed4e47a9638a4b7396d01878bb5cc7149f7fdce094f9bfb2ae34216c7efe"
+    sha256 cellar: :any,                 arm64_big_sur:  "27b76219d6e64d1ad1d29393d47e502c34c113fed5813f7ff83c68f2b2238dcf"
+    sha256 cellar: :any,                 ventura:        "0981967c4d55adcffdf1e1a281020117ab6432a4cf4f84fe469fdb750735a98a"
+    sha256 cellar: :any,                 monterey:       "992902a1b93d497709f6ca8161f062464dea28a753f425a472c1f0300adb5584"
+    sha256 cellar: :any,                 big_sur:        "f3bd7c0d8ae03f768d12ef0f40c40c9ca3050a3d1a070f2861001a98cb04c6fe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cd924475dfdfe25091805a7bc70423df579fa3033e200b2f4a7ae5bce9ef67ab"
   end
 
   # `pkg-config`, `rust`, and `openssl@1.1` are for cryptography.
@@ -24,6 +24,7 @@ class OnlykeyAgent < Formula
   depends_on "rust" => :build
 
   depends_on "cffi"
+  depends_on "docutils"
   depends_on "gnupg"
   depends_on "hidapi"
   depends_on "libcython"
@@ -71,11 +72,6 @@ class OnlykeyAgent < Formula
   resource "cryptography" do
     url "https://files.pythonhosted.org/packages/19/8c/47f061de65d1571210dc46436c14a0a4c260fd0f3eaf61ce9b9d445ce12f/cryptography-41.0.1.tar.gz"
     sha256 "d34579085401d3f49762d2f7d6634d6b6c2ae1242202e860f4d26b046e3a1006"
-  end
-
-  resource "docutils" do
-    url "https://files.pythonhosted.org/packages/1f/53/a5da4f2c5739cf66290fac1431ee52aff6851c7c8ffd8264f13affd7bcdd/docutils-0.20.1.tar.gz"
-    sha256 "f08a4e276c3a1583a86dce3e34aba3fe04d02bba2dd51ed16106244e8a923e3b"
   end
 
   resource "ecdsa" do

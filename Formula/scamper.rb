@@ -1,8 +1,8 @@
 class Scamper < Formula
   desc "Advanced traceroute and network measurement utility"
   homepage "https://www.caida.org/catalog/software/scamper/"
-  url "https://www.caida.org/catalog/software/scamper/code/scamper-cvs-20230605.tar.gz"
-  sha256 "63bb36e33cc22649c88cdfab1041b461ee8b3f29ab48714943ee4a17c1d0766b"
+  url "https://www.caida.org/catalog/software/scamper/code/scamper-cvs-20230614.tar.gz"
+  sha256 "26f11ea025a4fdb0d07ef76c5c3b850f9a0a93c1e1aa88d352d600a907259276"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,13 +11,13 @@ class Scamper < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "aeb1d9f7d60745d06e0baced1f5d0d532c337976616a62f07f9ae281252c0fa2"
-    sha256 cellar: :any,                 arm64_monterey: "15ededff2d13cea0bb7c7a2f835000f06b7cd9f5d33fec9b53b409db58668da9"
-    sha256 cellar: :any,                 arm64_big_sur:  "15058a943285b8caf451d4f92938d3b405e617bc685b07bc789cdc2e3cb5d16e"
-    sha256 cellar: :any,                 ventura:        "2a120d81b9c48b2c9e48086bdc8703177bc850d8f050a3f615cb807de1dcfe7b"
-    sha256 cellar: :any,                 monterey:       "63ca6ffc54fb39bafaae8be782592e8003613aa35718e4f49969ca028984a6a3"
-    sha256 cellar: :any,                 big_sur:        "379e2ddedf8a92282a27b767a91617ac5df334bd69664b4a910665ce64e333e8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "000ab9f473cd65f23eba31fa3a0d59bb66693f76bf7ee4ec702c396cb969b327"
+    sha256 cellar: :any,                 arm64_ventura:  "7d25ce6712db5339fa205bd7b095a760c17136ce1e063f87add43c27a7e72790"
+    sha256 cellar: :any,                 arm64_monterey: "1fc30741fb5e4c6bda8252d0ce3180ce1402bdf79894b63d8b7f9de0b7e881e5"
+    sha256 cellar: :any,                 arm64_big_sur:  "8535af57bf89a1c4e28c6c79c1aac83fa9a52cd81282a7bddd878e57f882e5c7"
+    sha256 cellar: :any,                 ventura:        "068065067b28a18e1084fcca64560317ee1658dc05830b53dff2b86f50ad3e9e"
+    sha256 cellar: :any,                 monterey:       "77286a15076ba5831e185ad99e55c5bbc25bcdab5f0a0ab4d177cabefc68e14c"
+    sha256 cellar: :any,                 big_sur:        "6db574a1956ec6ee6ddfbe6150a636502afb8966dede5f3da0627de05bc0c43a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f3af3d5050c884e8a7c7ba3ae60dc7344be15619fc4ef0f5ce94931032a222af"
   end
 
   depends_on "pkg-config" => :build
@@ -32,6 +32,12 @@ class Scamper < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/scamper -v 2>&1", 255)
+    expected = if OS.mac?
+      "dl_bpf_open_dev"
+    else
+      "scamper_privsep_init"
+    end
+    assert_match expected, shell_output("#{bin}/scamper -i 127.0.0.1 2>&1", 255)
+    assert_match version.to_s, shell_output("#{bin}/scamper -v")
   end
 end

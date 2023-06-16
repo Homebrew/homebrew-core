@@ -1,8 +1,8 @@
 class Threadweaver < Formula
   desc "Helper for multithreaded programming"
   homepage "https://api.kde.org/frameworks/threadweaver/html/index.html"
-  url "https://download.kde.org/stable/frameworks/5.106/threadweaver-5.106.0.tar.xz"
-  sha256 "78433646a26f2ea6cab82ccf8e177a46089c77306026ef36a25caea20a161ef6"
+  url "https://download.kde.org/stable/frameworks/5.107/threadweaver-5.107.0.tar.xz"
+  sha256 "c6c4faaf3c2b2197d43fddae39d752c4ad32febee039eb8048f8d705c1393af2"
   license "LGPL-2.0-or-later"
   head "https://invent.kde.org/frameworks/threadweaver.git", branch: "master"
 
@@ -14,13 +14,13 @@ class Threadweaver < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "f84222344074d83a89a5059b279d51155430e31eaa7353bd4140535cbbda3928"
-    sha256 cellar: :any,                 arm64_monterey: "1d51aafa66339c2623239e3b488f106ba672531cc1e90860970328d00f0864e6"
-    sha256 cellar: :any,                 arm64_big_sur:  "41e3d93608fae5fdafff35f06aa78f0843327b5d3dcf21ca11686065d2884af2"
-    sha256 cellar: :any,                 ventura:        "a8d822b5a629105a7873655c63316629592eb3ceeb281261d1cc685644ce3678"
-    sha256 cellar: :any,                 monterey:       "45cf6f83b16ad8789c34250c4b3e2b474f887466419ba822133b524feb409d08"
-    sha256 cellar: :any,                 big_sur:        "e0f7ce1ac6c8a1ccbabeb11c0ade378a7869ee3f13bc4f31ec61b437e52b58d4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "266b0cd9234bd2f5d73fd6e56dbf94c6b5985971d944971f370eab2d600f5407"
+    sha256 cellar: :any,                 arm64_ventura:  "7220ec2c72acbb3dc25ef889607551abb3a43b7e365e638563f051bce174187f"
+    sha256 cellar: :any,                 arm64_monterey: "e5daa768afb479487e6240630d5b06766ff161f611b5ffcbfb8e63750f1e2d29"
+    sha256 cellar: :any,                 arm64_big_sur:  "c01825d546e0ef276c0602c23666a7dfa0d793fee7a53898b2262b98b6ceb4c1"
+    sha256 cellar: :any,                 ventura:        "e2476d878b29ed3c3fa07da65834915f03a32ca8abe9fb9c989cde89e4b1d18b"
+    sha256 cellar: :any,                 monterey:       "9d8e21eb574657f0db38359646468f5d17f2fe4de7626b69dd67614ca2ea68b7"
+    sha256 cellar: :any,                 big_sur:        "70352bdb043bb4c2badae076497158df0981cf39402a2ad1b68b8cca35740b9e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8c0869675996e0bcf33d42b5c71c07d8751fea21630eb4047b7e9b2817b42435"
   end
 
   depends_on "cmake" => [:build, :test]

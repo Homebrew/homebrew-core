@@ -2,8 +2,8 @@ class Codec2 < Formula
   desc "Open source speech codec"
   homepage "https://www.rowetel.com/?page_id=452"
   # Linked from https://freedv.org/
-  url "https://github.com/drowe67/codec2/archive/refs/tags/v1.1.0.tar.gz"
-  sha256 "d56ba661008a780b823d576a5a2742c94d0b0507574643a7d4f54c76134826a3"
+  url "https://github.com/drowe67/codec2/archive/refs/tags/v1.1.1.tar.gz"
+  sha256 "44015b071968d98ee326012c498db6a8308bed1a7a914ecb6d4d8e2a354a4611"
   license "LGPL-2.1-only"
 
   livecheck do
@@ -20,13 +20,13 @@ class Codec2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "02d4522b90c874aad3d55af2efd968359005209c903104265855bd59f0b06b4c"
-    sha256 cellar: :any,                 arm64_monterey: "45be98845a1daa7ca5e7a9626efadec9e2eb45e9c829fce7f922c401923fcace"
-    sha256 cellar: :any,                 arm64_big_sur:  "868538ca5662c5248d4c1db617afd22474f9895fc8b87dc47dc6f48ee40aaa01"
-    sha256 cellar: :any,                 ventura:        "b5b097c1c53685f38ef77cfa3d64846bd6920b0bf37ff36d96c5a1d50f70ae73"
-    sha256 cellar: :any,                 monterey:       "ccecd90ae6dfeefa887bad6536dc88fc917490b527d877267a3aff685911f19c"
-    sha256 cellar: :any,                 big_sur:        "f2ce7a60268a3402b82ac09453dd91c83c0f93fb9c6022f9678dddd2f4e167fa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "debecd75054aaade3720afb552f848862b9e78e967364fa877aa3a6d56ad9d08"
+    sha256 cellar: :any,                 arm64_ventura:  "3d0226dbc941097d1554f40399690d89655adc3e4a361e170cb45717e8b4b09d"
+    sha256 cellar: :any,                 arm64_monterey: "046221b84ad4d9770b96bcf87c62ea7123d76e32e0cd622d76b068f0fb3d1539"
+    sha256 cellar: :any,                 arm64_big_sur:  "d06bc35e4cbfc1418bf6709d1dcf53a092bd39e2e127cf9beeb44225c96f3002"
+    sha256 cellar: :any,                 ventura:        "c7b63dae461ae5d78879db06544dd5030f4c6c619da51a16557b1f7b4c11e6b6"
+    sha256 cellar: :any,                 monterey:       "de8cbeea525065c01d2e85f0cdb34f25fc6c023ddc7d6cd0dba1df4534a9f3e9"
+    sha256 cellar: :any,                 big_sur:        "a24e31b0172897469cd051c74ac57b6a020b63f82e5c58fa9f38695ea05f392a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b34aaf3e12ca3b6dc82f03180ae17bf0e42c40adf2d9052a19380e9b4ec2ca96"
   end
 
   depends_on "cmake" => :build

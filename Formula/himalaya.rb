@@ -1,18 +1,18 @@
 class Himalaya < Formula
   desc "CLI email client written in Rust"
   homepage "https://pimalaya.org/himalaya/"
-  url "https://github.com/soywod/himalaya/archive/v0.8.0.tar.gz"
-  sha256 "c9bf62c802b05d3c98e105513042eafbbcbed4c5ed61aec7addae185accc5b40"
+  url "https://github.com/soywod/himalaya/archive/v0.8.1.tar.gz"
+  sha256 "0a4d6325f541e0eb1b23c2f9b6b47eb01feaf78a0eb3fd5a29624990d9ca0e23"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4a106821ad8ac1a398f2f06a1b694874a12143330c319e49f8b7fd14c2878fff"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4332673b3e739f709f691f484c0650f2f53191c7da05830295ac8bf70a150313"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3b72caab5bbcff703bc746a92ca7af8c9b6ac858e73623ae25ffef512627fa80"
-    sha256 cellar: :any_skip_relocation, ventura:        "336d88072ee281dc06862a5d1763c986e62bbfdb4995834d25f4e36b3c8ddc46"
-    sha256 cellar: :any_skip_relocation, monterey:       "7ab02e1d0b86dbd4ed7d6773335d234028864df4e669787e5f1fd0c646ad2a51"
-    sha256 cellar: :any_skip_relocation, big_sur:        "27d7f2bc3b56ef69081052e6bf177c5b5ac035d784f5cc93abc6fa5fe100c4a0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "81585e75f83cadb692e56cae5475d7574107e215f6c3e47105da9c0a906f744b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7a554dd030c86ee0ebf3b1691bea099642fb5a3146e1adcaa936cc4a7dced061"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f4db629ab1c3aab236cc8bfe4dee9c745da810831c4a56cafaf515ba81e19c38"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c13c09ee27a53541f721452a193e3462a5832934a1a58c2d274a5626bea5f38a"
+    sha256 cellar: :any_skip_relocation, ventura:        "11882cef069954fc34067d97c65e7a874d6bb6fa7777f44a39eabf9dc6805b9f"
+    sha256 cellar: :any_skip_relocation, monterey:       "0f3cdecbecdf094929be4f841d5606a82374d93292049e20b39a3ddd0010c9d2"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f8aef6816fbf42e4983155e406484cfff96d4ee1a393b1bfae863deab78747c4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "59dfbbbc9002fd9b47889a08b1b26e10685dac4163e8b2dea003f32be729fcb8"
   end
 
   depends_on "rust" => :build

@@ -198,7 +198,7 @@
     "exclude_packages": ["six"]
   },
   "cyral-gimme-db-token": {
-    "exclude_packages": ["six"]
+    "exclude_packages": ["six", "cffi", "pycparser"]
   },
   "datasette": {
     "exclude_packages": ["six", "PyYAML", "typing-extensions"]
@@ -273,7 +273,7 @@
     "extra_packages": ["wheel"]
   },
   "flintrock": {
-    "exclude_packages": ["six"]
+    "exclude_packages": ["six", "cffi", "pycparser"]
   },
   "flit": {
     "exclude_packages": ["docutils"]
@@ -393,7 +393,7 @@
   },
   "lexicon": {
     "package_name": "dns-lexicon[full]",
-    "exclude_packages": ["six", "PyYAML", "Pygments"]
+    "exclude_packages": ["cffi", "pycparser", "Pygments", "PyYAML", "six"]
   },
   "legit": {
     "exclude_packages": ["six"]
@@ -428,7 +428,7 @@
     "extra_packages": ["pyproj"]
   },
   "mathlibtools": {
-    "exclude_packages": ["PyYAML"]
+    "exclude_packages": ["PyYAML", "cffi", "pycparser"]
   },
   "mdv": {
     "package_name": "mdv[yaml]",
@@ -488,7 +488,7 @@
   },
   "nvchecker": "nvchecker[pypi]",
   "oci-cli": {
-    "exclude_packages": ["six", "PyYAML"]
+    "exclude_packages": ["six", "PyYAML", "cffi", "pycparser"]
   },
   "ocrmypdf": {
     "exclude_packages": ["pillow", "cffi", "pycparser"]
@@ -497,7 +497,7 @@
     "exclude_packages": ["six"]
   },
   "onlykey-agent": {
-    "exclude_packages": ["cffi", "six", "Cython", "pycparser"]
+    "exclude_packages": ["cffi", "six", "Cython", "pycparser", "docutils"]
   },
   "openai-whisper": {
     "exclude_packages": ["torch", "numpy", "PyYAML", "huggingface_hub"]
@@ -545,7 +545,8 @@
     "exclude_packages": ["PyYAML"]
   },
   "pocsuite3": {
-    "exclude_packages": ["six", "PyYAML"]
+    "exclude_packages": ["cffi", "pycparser", "PyYAML", "six"],
+    "extra_packages": ["pyOpenSSL", "jq"]
   },
   "poetry": {
     "exclude_packages": ["cffi", "pycparser", "six", "virtualenv"]
@@ -631,7 +632,7 @@
   },
   "robot-framework": {
     "extra_packages": ["robotframework-archivelibrary", "robotframework-selenium2library", "robotframework-sshlibrary"],
-    "exclude_packages": ["six"]
+    "exclude_packages": ["six", "cffi", "pycparser"]
   },
   "rst-lint": {
     "exclude_packages": ["docutils"]

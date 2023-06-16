@@ -1,30 +1,23 @@
 class Cloog < Formula
   desc "Generate code for scanning Z-polyhedra"
   homepage "https://github.com/periscop/cloog"
-  url "https://github.com/periscop/cloog/releases/download/cloog-0.20.0/cloog-0.20.0.tar.gz"
-  sha256 "835c49951ff57be71dcceb6234d19d2cc22a3a5df84aea0a9d9760d92166fc72"
+  url "https://github.com/periscop/cloog/releases/download/cloog-0.21.0/cloog-0.21.0.tar.gz"
+  sha256 "7bdd1bcfca1f9157186ea837e9b111bae7a595b24435e63099bac7c6763b376d"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "31099d80dbf2e419acd64dcb95e1c22e703a55088c8704e77bc91e34dc0e5e59"
-    sha256 cellar: :any,                 arm64_monterey: "e6e5952ded447b71b8742c7110512d9afc91b7399a900ec8f7b3317c47731f49"
-    sha256 cellar: :any,                 arm64_big_sur:  "7e9717c9f378f51c40282abd7defb978d0a0edd960eb84410f493bd96a27e222"
-    sha256 cellar: :any,                 ventura:        "72351d437a0b2e31a7941888fa1aeb946bf268573728fc5de5c7416be2913bfd"
-    sha256 cellar: :any,                 monterey:       "7238821fcae5761ac240e91f19287ac119eab3db509b7f1b040ba7f9e5b562ff"
-    sha256 cellar: :any,                 big_sur:        "d5e21a7bc40be89004c107f89e49c8dbda04cc1b9fb54e15d4225823562b8b19"
-    sha256 cellar: :any,                 catalina:       "52c35562f93176d8f3e5216f5f2867aa857e3f0b8b238eb036dea9dbc077595e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b700274e30904d1827d5ec5eacd0809b13183ca532305437a15592dc61167bc0"
+    sha256 cellar: :any,                 arm64_ventura:  "595b6549ffe14d8846d10e3bf9962ebef7dbe3f1f5745b3444d4c3b7e05f76fb"
+    sha256 cellar: :any,                 arm64_monterey: "f884aa1f8578a533508676ee3a1bc0db7c59e2a4376d6503e140a9ab87136850"
+    sha256 cellar: :any,                 arm64_big_sur:  "2ed6822fd8111355d87859bca2297fd3ad6f0714672a8e419c470f273ef8c05e"
+    sha256 cellar: :any,                 ventura:        "5357619a36d333934b8ddce16bad3785b886d9835a9a5524a1ec49e26216a7ed"
+    sha256 cellar: :any,                 monterey:       "58a114afff3716a7918da518e4082f8cb8c11a9c988506f20629141e7ecb6d3f"
+    sha256 cellar: :any,                 big_sur:        "19c1a6cbd9aa0149cf1e443a99e4cf41f83f6a37f85cda0b737c9203a1a70c32"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "640f2b803875a4b71a3a390b8a852dcbe938016af60e873440a62f986dbaa930"
   end
 
   depends_on "pkg-config" => :build
   depends_on "gmp"
   depends_on "isl"
-
-  # Fix -flat_namespace being used on Big Sur and later.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
-    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
-  end
 
   def install
     # Avoid doc build.

@@ -15,22 +15,24 @@ class Dnscontrol < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "eca81dac3262fbb4333628cad05ad4bed9086b0f7017f4664973d610a3d129a4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "eca81dac3262fbb4333628cad05ad4bed9086b0f7017f4664973d610a3d129a4"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "eca81dac3262fbb4333628cad05ad4bed9086b0f7017f4664973d610a3d129a4"
-    sha256 cellar: :any_skip_relocation, ventura:        "259ef847964715de87066cdeee3a0a543342555ac6cf85eed947c9f66497bb24"
-    sha256 cellar: :any_skip_relocation, monterey:       "259ef847964715de87066cdeee3a0a543342555ac6cf85eed947c9f66497bb24"
-    sha256 cellar: :any_skip_relocation, big_sur:        "259ef847964715de87066cdeee3a0a543342555ac6cf85eed947c9f66497bb24"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8068133544c1762c1524cc4be9219b1cceabd2a0706a8948661e3ba6ab16a655"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "480ed963bcd201fe04fff3bb87ccb605070f59bcadae10d9cd8e224fcffa4211"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "480ed963bcd201fe04fff3bb87ccb605070f59bcadae10d9cd8e224fcffa4211"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "480ed963bcd201fe04fff3bb87ccb605070f59bcadae10d9cd8e224fcffa4211"
+    sha256 cellar: :any_skip_relocation, ventura:        "a7575d6939f3857c49a4ac7fb89e7757f02d1f798e62627e4457ef47224f032e"
+    sha256 cellar: :any_skip_relocation, monterey:       "a7575d6939f3857c49a4ac7fb89e7757f02d1f798e62627e4457ef47224f032e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a7575d6939f3857c49a4ac7fb89e7757f02d1f798e62627e4457ef47224f032e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "489175ff34ac402f94a59c63c1f7e2521c4013e035f4c1b567f13508f9475097"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    system "go", "build", *std_go_args(ldflags: "-s -w -X main.SHA=#{version}")
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/dnscontrol version")
     (testpath/"dnsconfig.js").write <<~EOS
       var namecom = NewRegistrar("name.com", "NAMEDOTCOM");
       var r53 = NewDnsProvider("r53", "ROUTE53")

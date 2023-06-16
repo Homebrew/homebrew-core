@@ -13,13 +13,14 @@ class TclTk < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "0de1c3c1f25739878cbadef30ba863df8f9bce201e0f0b7c376ccf0e4cacf1b7"
-    sha256 arm64_monterey: "c7bf2b4868b158482f130e64f793f584092dab9a0c9e00e1974bb10d3baa7797"
-    sha256 arm64_big_sur:  "3e5ab4844ab88dc48f0e3db96f8ca4fb46879a4806587bd0f987dd00d1f95ceb"
-    sha256 ventura:        "bff158cf7c5acaae2a21bacb38f5cf97a52b6596c3f7297c5744afc579c708f0"
-    sha256 monterey:       "d10e96ab6902403a27ecf85516d53bd77f5c54524829a404d158386c382879cc"
-    sha256 big_sur:        "f7717e69a6772382875e29c56b0f092cb6437772dd21b188e80d79783c4a9cc2"
-    sha256 x86_64_linux:   "321d13b9b1e3e33d60be95834d7d14c591de51dc267841ccb52a748f65005978"
+    rebuild 1
+    sha256 arm64_ventura:  "f40d605c127e7a7895cd2b1506ef1ac0e59e6f8ad671a7f4e802c4726ef21595"
+    sha256 arm64_monterey: "11aec0c476a122789baf08f760224055b39478392d8f6d0ca6e38f4710ef48fa"
+    sha256 arm64_big_sur:  "2797baea8eabe4fa73fca4992f7506fc48882842d250b24622f1fe8eb6049613"
+    sha256 ventura:        "15cade8287fb43f440cbd2de43b49942034bb75104180add1768baa155e3f6b1"
+    sha256 monterey:       "24d780810fc9c75c78993418cf864c5d2591ea40512be0975f7f4ade8a3c4dc6"
+    sha256 big_sur:        "cdd86c3d4ba95617c09d39791dc48cf2c33885f4e6a36b6936298bc362b3f78d"
+    sha256 x86_64_linux:   "2dc6ae424056b9bcc423c8be83c0115df96cd0aa85d3bc45b82196136e1a57f4"
   end
 
   depends_on "openssl@1.1"
@@ -126,7 +127,9 @@ class TclTk < Formula
         --prefix=#{prefix}
         --exec-prefix=#{prefix}
         --with-tcl=#{lib}
+        --with-tclinclude=#{include}/tcl-tk
         --with-tk=#{lib}
+        --with-tkinclude=#{include}/tcl-tk
         --with-itcl=#{itcl_dir}
       ]
       system "./configure", *args

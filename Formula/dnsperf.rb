@@ -1,8 +1,8 @@
 class Dnsperf < Formula
   desc "Measure DNS performance by simulating network conditions"
   homepage "https://www.dns-oarc.net/tools/dnsperf"
-  url "https://www.dns-oarc.net/files/dnsperf/dnsperf-2.12.0.tar.gz"
-  sha256 "1ff94f71ac8b6274042ba9ee62402bdd57d7fc4795c5d7135bcce1660584cd43"
+  url "https://www.dns-oarc.net/files/dnsperf/dnsperf-2.13.0.tar.gz"
+  sha256 "a31caa1899c67f35f28b970abe1f31f1d9c6b1f8b20ea24187ca1a82baac53cb"
   license "Apache-2.0"
 
   livecheck do
@@ -11,13 +11,13 @@ class Dnsperf < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "07255e48c7b4dcecedeaee68c30d02b40b6a99732b3e585a012ee29aea47ead5"
-    sha256 cellar: :any,                 arm64_monterey: "5d2aa2d54126bc683851bee9a8a9114ce21904e9ea162b91bdb28dd49b56f777"
-    sha256 cellar: :any,                 arm64_big_sur:  "325cbb48fda4a3807b7418d919fd37b21f375cd2f02f3959484dbeeec605dde2"
-    sha256 cellar: :any,                 ventura:        "43af4673c22817a9c02523f06d910b645fe793acbf1f206980dbd649da6f43c6"
-    sha256 cellar: :any,                 monterey:       "ca73035b70767b822b9c69cc3f7121ea0820b9c8fdefa2098c2e39035420c30a"
-    sha256 cellar: :any,                 big_sur:        "fd1aaada106bf29fd8b4fb24f103b72b0b2b0ace1d81161d7721f65c592b3c1f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "09b42aee67155fe82691368c304e1b0089aa221ad87637f37781684cfe9a8a24"
+    sha256 cellar: :any,                 arm64_ventura:  "62d7cf53e9c51b4edcf612ac73297fcb44e4160c85513f15fed30ded784861cc"
+    sha256 cellar: :any,                 arm64_monterey: "4f5bf82bc29895eda6ab68fee366e04cc3946b14163839608fa790dd88f9eca4"
+    sha256 cellar: :any,                 arm64_big_sur:  "1df5187c9fdebe7c44640fab835062e33b29cc52b24e0e865983f42c88d245a4"
+    sha256 cellar: :any,                 ventura:        "f99502a6c819d007012ba51266896130edfc477866bb356b3ef83923ca370045"
+    sha256 cellar: :any,                 monterey:       "bfca7728a02e2267d40310de79cc53b388c48de73106385bf46eaef6fdc3d2f9"
+    sha256 cellar: :any,                 big_sur:        "bee361fbf3f07ff4e4ef1349496dc2a347514e1edfbbab6c0eef9b017f4821f6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3dfa2edc4a4d189e3611c757fd91b9fd1f4f583799c79a146b8e536c72f3915c"
   end
 
   depends_on "pkg-config" => :build

@@ -1,8 +1,8 @@
 class Teleport < Formula
   desc "Modern SSH server for teams managing distributed infrastructure"
   homepage "https://gravitational.com/teleport"
-  url "https://github.com/gravitational/teleport/archive/v13.1.0.tar.gz"
-  sha256 "2cbc15d2e4032bb40a32a6b586c6fabe2d06fe5f7d4024d1a9135b2037183b5e"
+  url "https://github.com/gravitational/teleport/archive/v13.1.1.tar.gz"
+  sha256 "385aa94568019b05e3e8249e91aac1e2c196a000de91508312ce166633501379"
   license "Apache-2.0"
   head "https://github.com/gravitational/teleport.git", branch: "master"
 
@@ -14,13 +14,13 @@ class Teleport < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "8a0387fb80ace5145e04c563dc48a1ffc6e7e59fc7214b71473982e9758594ac"
-    sha256 cellar: :any,                 arm64_monterey: "6c1a7258c41648c16926eb89dacc4c30736e88636febeb12c6a6203cd034e358"
-    sha256 cellar: :any,                 arm64_big_sur:  "76b45240b5725094eea724c9c9b4076e96d6d3c9d6f5cb06ac907c18c41fedce"
-    sha256 cellar: :any,                 ventura:        "05f6d60a579d88c51ac4cf0194202b27ccd0d702daa34318c6355ba1b1b86d23"
-    sha256 cellar: :any,                 monterey:       "77a78c89b52f513805fecf1c9b92178cb92c85c373f7f2e67ee9da7e9c66660a"
-    sha256 cellar: :any,                 big_sur:        "c5b8d070078c37b229c5090809065c7bd36dd95b95f77a97f11eb10b8610ad06"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bbbbf85b851c1c5f8de27ecf47576442680dd3810e522975e383cc7fceb2819d"
+    sha256 cellar: :any,                 arm64_ventura:  "c9627a4a448bb0b735fd53ba940d6d3e7e94e73455c90ff2825a4048f2adaa75"
+    sha256 cellar: :any,                 arm64_monterey: "7f1678b48c16935d06d27ac1641e7d276439bd3d27bc3dd4ec06b396b360d59e"
+    sha256 cellar: :any,                 arm64_big_sur:  "745a9dbdbfab1e77ba450a43a8b4b335fcc1edf5977c395256a3a386e8cb144f"
+    sha256 cellar: :any,                 ventura:        "8d661d0321ac2b0247c886912a8e0f8c663b79eac6a36dab70dd24067d0afb9e"
+    sha256 cellar: :any,                 monterey:       "26a396b4eb04037576922926f8ccec87b73c1619912d755ae31bf74a01dc801b"
+    sha256 cellar: :any,                 big_sur:        "504c34af7e60d74c34bbbf1d3030c48740beb4d93ccb8f249464583b00fed246"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "25512ee729cc81abbf08435d1036aac6cc76c300218cdef91c5372db49eaf23e"
   end
 
   depends_on "go" => :build

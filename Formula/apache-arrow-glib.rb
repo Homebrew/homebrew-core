@@ -1,9 +1,9 @@
 class ApacheArrowGlib < Formula
   desc "GLib bindings for Apache Arrow"
   homepage "https://arrow.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-12.0.0/apache-arrow-12.0.0.tar.gz"
-  mirror "https://archive.apache.org/dist/arrow/arrow-12.0.0/apache-arrow-12.0.0.tar.gz"
-  sha256 "ddd8347882775e53af7d0965a1902b7d8fcd0a030fd14f783d4f85e821352d52"
+  url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-12.0.1/apache-arrow-12.0.1.tar.gz"
+  mirror "https://archive.apache.org/dist/arrow/arrow-12.0.1/apache-arrow-12.0.1.tar.gz"
+  sha256 "3481c411393aa15c75e88d93cf8315faf7f43e180fe0790128d3840d417de858"
   license "Apache-2.0"
   head "https://github.com/apache/arrow.git", branch: "main"
 
@@ -12,13 +12,13 @@ class ApacheArrowGlib < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "4121a728b70540a2047f4d081aa56bd2195c21e9ed6f97f3de9647c4b2c030ee"
-    sha256 cellar: :any, arm64_monterey: "efb013b1c97156f6a9631ea5b588c80915cdd9d3a54835363e49714d560b1671"
-    sha256 cellar: :any, arm64_big_sur:  "4567dd09c781014602bb95a245b489f2e8e4464f1199e3f5e79f07ae5795cbff"
-    sha256 cellar: :any, ventura:        "2661ee45379086c83e807db22b2c40e4a749a1687bed56ac74f9bb090297ec0d"
-    sha256 cellar: :any, monterey:       "774c2527ca724f6cd33cd8d92acf43e5349b04366e99a36af02a869f0f5f5914"
-    sha256 cellar: :any, big_sur:        "9878a666fb3454fb7edef21a9e99c5392fd1c3e722b5d06d50538bf51bfd81a2"
-    sha256               x86_64_linux:   "e223d3f112867975e8284f0ff61ce947b5058ad0ab07cc8ce8e4aabad69237c0"
+    sha256 cellar: :any, arm64_ventura:  "a6adf9bcdacacc197e0a7f133b9d60bd9f7dfee6e01ee922340109cd23e04480"
+    sha256 cellar: :any, arm64_monterey: "6bd32f1271fe76064db9d7aa2ea17490232d32f6cac10154485293fa54086107"
+    sha256 cellar: :any, arm64_big_sur:  "3692e580cc146b6234e03fc2b458441c9f352652b9c6a740d8d19edda867ad00"
+    sha256 cellar: :any, ventura:        "1ef649611b358abb8b13420614077482f4c96229285fd0a32cb40578a92a0aba"
+    sha256 cellar: :any, monterey:       "095a82a7c0aaf064beec224455a22b7534685d6b3f433266fa72889e7a007bbc"
+    sha256 cellar: :any, big_sur:        "f540a87468492fb34873e5707710a89d81ea7cf588350ca22e8fb18cabfbc8fc"
+    sha256               x86_64_linux:   "7a5217162da3d065ca4089a16f18804eff00ba52f381130607b704bdd931f097"
   end
 
   depends_on "gobject-introspection" => :build

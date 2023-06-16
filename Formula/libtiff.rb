@@ -12,27 +12,28 @@ class Libtiff < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "cc6d07767e6e0536eec3ac5243194362d3b0a858221a3c3cb3639e4f7b0be34a"
-    sha256 cellar: :any,                 arm64_monterey: "74f7135659b8204c8e672bf175a976b68da51cdf96d7efa3f5871c22db78c1c4"
-    sha256 cellar: :any,                 arm64_big_sur:  "66d1c7e7453aba5775da8d024cda9427774bbb4acc2a0c09fe29575990467343"
-    sha256 cellar: :any,                 ventura:        "05d54a1996c40e4454755e6c556f07cc88f80c31cca1eb603b644fe9ed35c80e"
-    sha256 cellar: :any,                 monterey:       "0f326fe10765b62306181dfc1f3f947b6027ab571addd4eb0abffbf44c9e60f2"
-    sha256 cellar: :any,                 big_sur:        "eee74ff95a0ce4df7891ff93b75a234724191a56368b2dcf650fbd3d91e31ccc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "279580bf022a892c617fa7682224b60b164b23b3112226ff169f3f809e1a4225"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "a01418573c4dbf4ac60650c7fab3900127e8471e4fce6ee0cbfc33ec74cc04db"
+    sha256 cellar: :any,                 arm64_monterey: "62a47b8372cd44881fd42ae569a24e54ce586a8f08fd5001b01e06598afcaafd"
+    sha256 cellar: :any,                 arm64_big_sur:  "19a48db80f239f0053784cec21a56ac53d14ac087aa22e11d635e438a1f562c2"
+    sha256 cellar: :any,                 ventura:        "3cf444bc3b46ad0df9ca926dc096df241ee1f61cd91c4e5ef847b24bd90e6920"
+    sha256 cellar: :any,                 monterey:       "d76edd707b0e7b4a2f9f50f972081894d14bbbbee73ef2cfa4c944ac2f334597"
+    sha256 cellar: :any,                 big_sur:        "a5d977aa7b41797ba50d7a9d4be3965fae8839a1b66e90b29fc7a23dd2017633"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "391ea7224b48f2f336d92fe6cf45b7d0651e2e5916257de223f7a85536ca3a65"
   end
 
   depends_on "jpeg-turbo"
+  depends_on "xz"
   depends_on "zstd"
-
   uses_from_macos "zlib"
 
   def install
     args = %W[
       --prefix=#{prefix}
-      --enable-zstd
       --disable-dependency-tracking
-      --disable-lzma
       --disable-webp
+      --enable-zstd
+      --enable-lzma
       --with-jpeg-include-dir=#{Formula["jpeg-turbo"].opt_include}
       --with-jpeg-lib-dir=#{Formula["jpeg-turbo"].opt_lib}
       --without-x

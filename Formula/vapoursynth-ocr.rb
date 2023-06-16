@@ -1,23 +1,21 @@
 class VapoursynthOcr < Formula
   desc "VapourSynth filters - Tesseract OCR filter"
   homepage "https://www.vapoursynth.com"
-  url "https://github.com/vapoursynth/vs-ocr/archive/R1.tar.gz"
-  sha256 "a551354c78fdbe9bcaf29f9a29ee9a7d257ed74d1b6a8403049fcd57855fa0f4"
+  url "https://github.com/vapoursynth/vs-ocr/archive/R2.tar.gz"
+  sha256 "64ee82a6c9c59ab2aa0f5ab54224e42b027e39ea44be9784861d9e11c8532fb0"
   license "MIT"
-  revision 1
   version_scheme 1
 
   head "https://github.com/vapoursynth/vs-ocr.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "fa0a957b191e6e7213154c74a10f628f91163df23bf725f5cad95bc2061ef728"
-    sha256 cellar: :any, arm64_monterey: "55ae2c3a8f8bf67d64d2346254daf47e219cfbc6d9614b116501f5d55133ef33"
-    sha256 cellar: :any, arm64_big_sur:  "03340882c45e954d15c563d411e2ceb2404bc0ea7fed0eb05104a9ce6630236b"
-    sha256 cellar: :any, ventura:        "1e0fbd10dbf99ffc491c4efabf1334a122680e77c7d9b3db65472775d67615d6"
-    sha256 cellar: :any, monterey:       "e40bc92d88cc7ff8aa3954bf35d53c79a4ec30d1c4ee0ab2daecebde31a83c2e"
-    sha256 cellar: :any, big_sur:        "8e66e52b80e58b395be03091c5db3fa3425a04ef75be84ec7ef9cd076424fd95"
-    sha256 cellar: :any, catalina:       "aba262d2cf52d59e3e434ccba8172bd356a27f593057fabc5d2bd576ff7552e1"
-    sha256               x86_64_linux:   "def0dfdcb4b66e5dca864366768dc2992acf72bad181de0a7feaee789ba0544d"
+    sha256 cellar: :any, arm64_ventura:  "9b635d6c1b56a97d6cdafef0470e26769486e19418400c56defdfa81d0577c9e"
+    sha256 cellar: :any, arm64_monterey: "e8e11e248289747ce1cd57caed559dcd959c531a65b3151ff3bf04d638edc26b"
+    sha256 cellar: :any, arm64_big_sur:  "20ad8e7a483b069cadc169f356006403b6ba10731b4f6f4bbd8848e4b9c72c63"
+    sha256 cellar: :any, ventura:        "ed2c569fba05a3f3abd0b54f877326afa63bca120eefe0f3758c46fec20e96eb"
+    sha256 cellar: :any, monterey:       "e2ccadae92be39e3f424c1b80629c4c80354b3ccf7228dd41575c71e04d1e1ca"
+    sha256 cellar: :any, big_sur:        "26cc8b76d5f94632f73933cc9893f317f878c20e4e9156b3133e37df1c1c06ce"
+    sha256               x86_64_linux:   "5da3243e4db078a215fc1cbacabc33538d2fc757a08812bc7839c76636785409"
   end
 
   depends_on "meson" => :build
@@ -25,13 +23,6 @@ class VapoursynthOcr < Formula
   depends_on "pkg-config" => :build
   depends_on "tesseract"
   depends_on "vapoursynth"
-
-  # Upstream has added a build system, but it's not present in the current release.
-  # Remove patch on next update.
-  patch do
-    url "https://github.com/vapoursynth/vs-ocr/commit/d1e80c6a9d6efe7921300c01ffc0f311927ba443.patch?full_index=1"
-    sha256 "6d4ec06e2d3dd5a2b071035775e76475e108cd191f9302ee89b3973420d69925"
-  end
 
   def install
     # Upstream build system wants to install directly into vapoursynth's libdir and does not respect

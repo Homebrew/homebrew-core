@@ -5,7 +5,7 @@ class GitTools < Formula
   homepage "https://github.com/MestreLion/git-tools"
   url "https://github.com/MestreLion/git-tools/archive/v2022.12.tar.gz"
   sha256 "b01e3b8de268ee07854e6cc66d78db6ed6cbc3e71dfeded8456138881bdf97f1"
-  license "GPL-3.0-only"
+  license "GPL-3.0-or-later"
   head "https://github.com/MestreLion/git-tools.git", branch: "main"
 
   bottle do

@@ -8,17 +8,18 @@ class CyralGimmeDbToken < Formula
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "2268cda3ce2d85381422e896cbd1bb8f958417f9f423edeecc58e4380f67e938"
-    sha256 cellar: :any,                 arm64_monterey: "7cccb8bfb9478b8a8b71c6d885d673ae99c21f3bd7df72ea7091c0ae2c382bcc"
-    sha256 cellar: :any,                 arm64_big_sur:  "50d0233e2e0d605846e89b0a5d193322a4866cd2a9a34c4d80642556c97a800b"
-    sha256 cellar: :any,                 ventura:        "a09c36517d1c5d38e8708cb80f5eaa5a0a1fa2d45c8297306aadc594209c121b"
-    sha256 cellar: :any,                 monterey:       "df58ea91e0c19e119093b80320f16d7318fc50dda0381815efba369dca7ac602"
-    sha256 cellar: :any,                 big_sur:        "0ff15496c53fbb9337011ec4763361cfe247b180ab1c195e4be70deb1d66e0a4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "93e773ff0421286f290c9e4565aaafbabbe444b0eaa47da87c509c40d6897ab5"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_ventura:  "c3c0fde3c78485f7b4ba707b1660253fd13eaf6b8a8ca2349f620922a68bbdca"
+    sha256 cellar: :any,                 arm64_monterey: "d4d3d1d8eb80e3a8e1d88f26758520a39892a8ea7ce67f1bbafef26d31c06387"
+    sha256 cellar: :any,                 arm64_big_sur:  "296b280ae89ff56c317128dc041397051202e5658ac30d660fd4426d0766ee60"
+    sha256 cellar: :any,                 ventura:        "e6f77c07e53da11b563c0ca2f6c32fdceaf773c13032c4854f9dd6272e8396a4"
+    sha256 cellar: :any,                 monterey:       "b4047999c71d0ab9a6a3fc97635a307bb27a89841732987662dc6c2bcad094ca"
+    sha256 cellar: :any,                 big_sur:        "e8e22bba84d1922903ef6dde7de0555693f4dc073197aa7bca186759a30f872e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a2b2b9c4896e7d0fdafb0e02cc53aec821ccdc22605191af24266c318129cf0d"
   end
 
   depends_on "rust" => :build # for cryptography
+  depends_on "cffi"
   depends_on "openssl@1.1"
   depends_on "python@3.11"
   depends_on "six"
@@ -42,11 +43,6 @@ class CyralGimmeDbToken < Formula
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/93/71/752f7a4dd4c20d6b12341ed1732368546bc0ca9866139fe812f6009d9ac7/certifi-2023.5.7.tar.gz"
     sha256 "0f0d56dc5a6ad56fd4ba36484d6cc34451e1c6548c61daad8c320169f91eddc7"
-  end
-
-  resource "cffi" do
-    url "https://files.pythonhosted.org/packages/2b/a8/050ab4f0c3d4c1b8aaa805f70e26e84d0e27004907c5b8ecc1d31815f92a/cffi-1.15.1.tar.gz"
-    sha256 "d400bfb9a37b1351253cb402671cea7e89bdecc294e8016a707f6d1d8ac934f9"
   end
 
   resource "charset-normalizer" do
@@ -87,11 +83,6 @@ class CyralGimmeDbToken < Formula
   resource "pyasn1" do
     url "https://files.pythonhosted.org/packages/61/ef/945a8bcda7895717c8ba4688c08a11ef6454f32b8e5cb6e352a9004ee89d/pyasn1-0.5.0.tar.gz"
     sha256 "97b7290ca68e62a832558ec3976f15cbf911bf5d7c7039d8b861c2a0ece69fde"
-  end
-
-  resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/5e/0b/95d387f5f4433cb0f53ff7ad859bd2c6051051cebbb564f139a999ab46de/pycparser-2.21.tar.gz"
-    sha256 "e644fdec12f7872f86c58ff790da456218b10f863970249516d60a5eaca77206"
   end
 
   resource "python-dateutil" do

@@ -29,16 +29,13 @@ class Dtools < Formula
     #
     # Skip building dman as it requires getting and building the DMD
     # and dlang.org source trees.
-    tools = %w[ddemangle rdmd]
+    tools = %w[ddemangle rdmd dustmite]
     system "dub", "add-local", buildpath
 
     tools.each do |tool|
       system "dub", "build", "--build=release", ":#{tool}"
       bin.install "dtools_#{tool}" => tool
     end
-
-    # DustMite is not provided as a dub target
-    system "ldc2", "-O", "--release", *Dir.glob("DustMite/*.d"), "-od=build", "-of=#{bin}/dustmite"
 
     man1.install "man/man1/rdmd.1"
   end
