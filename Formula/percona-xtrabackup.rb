@@ -1,11 +1,10 @@
 class PerconaXtrabackup < Formula
   desc "Open source hot backup tool for InnoDB and XtraDB databases"
   homepage "https://www.percona.com/software/mysql-database/percona-xtrabackup"
-  # TODO: Check if we can use unversioned `protobuf` at version bump
   url "https://downloads.percona.com/downloads/Percona-XtraBackup-LATEST/Percona-XtraBackup-8.0.32-26/source/tarball/percona-xtrabackup-8.0.32-26.tar.gz"
   sha256 "2a1c23497ffd5905d6dc20bdb5a801d1b8baeb3245ec11ed115dee0d78b7a5e2"
   license "GPL-2.0-only"
-  revision 2
+  revision 3
 
   livecheck do
     url "https://docs.percona.com/percona-xtrabackup/latest/"
@@ -40,7 +39,7 @@ class PerconaXtrabackup < Formula
   depends_on "lz4"
   depends_on "mysql"
   depends_on "openssl@1.1"
-  depends_on "protobuf@21"
+  depends_on "protobuf"
   depends_on "zstd"
 
   uses_from_macos "vim" => :build # needed for xxd
@@ -125,6 +124,9 @@ class PerconaXtrabackup < Formula
 
     # Remove conflicting manpages
     rm (Dir["man/*"] - ["man/CMakeLists.txt"])
+
+    # These are needed because our Protobuf links with Abseil, but `mysql` doesn't know that.
+    ENV.append "LDFLAGS", Utils.safe_popen_read("pkg-config", "--libs", "protobuf")
 
     system "cmake", "-S", ".", "-B", "build", *cmake_args, *std_cmake_args
     system "cmake", "--build", "build"
