@@ -1,8 +1,8 @@
 class Mono < Formula
   desc "Cross platform, open source .NET development framework"
   homepage "https://www.mono-project.com/"
-  url "https://download.mono-project.com/sources/mono/mono-6.12.0.182.tar.xz"
-  sha256 "57366a6ab4f3b5ecf111d48548031615b3a100db87c679fc006e8c8a4efd9424"
+  url "https://download.mono-project.com/sources/mono/preview/mono-6.12.0.199.tar.xz"
+  sha256 "c0850d545353a6ba2238d45f0914490c6a14a0017f151d3905b558f033478ef5"
   license "MIT"
 
   livecheck do
@@ -297,6 +297,6 @@ index 48bcfad..58273a5 100644
  @DISABLE_LIBRARIES_FALSE@@DISABLE_PROFILER_FALSE@@ENABLE_COOP_SUSPEND_FALSE@@HOST_WIN32_FALSE@check_targets = run-test
 -@BITCODE_FALSE@@HOST_DARWIN_TRUE@prof_ldflags = -Wl,-undefined -Wl,suppress -Wl,-flat_namespace
 +@BITCODE_FALSE@@HOST_DARWIN_TRUE@prof_ldflags = -Wl,-undefined -Wl,dynamic_lookup
- 
+
  # On Apple hosts, we want to allow undefined symbols when building the
  # profiler modules as, just like on Linux, we don't link them to libmono,
