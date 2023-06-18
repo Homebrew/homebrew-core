@@ -35,10 +35,7 @@ class Pinocchio < Formula
   end
 
   def install
-    if build.head?
-      system "git", "submodule", "update", "--init"
-      system "git", "pull", "--unshallow", "--tags"
-    end
+    system "git", "submodule", "update", "--init", "--recursive" if build.head?
 
     system "cmake", "-S", ".", "-B", "build",
                     "-DPYTHON_EXECUTABLE=#{which(python3)}",
