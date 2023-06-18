@@ -1,9 +1,9 @@
 class Opencascade < Formula
   desc "3D modeling and numerical simulation software for CAD/CAM/CAE"
   homepage "https://dev.opencascade.org/"
-  url "https://git.dev.opencascade.org/gitweb/?p=occt.git;a=snapshot;h=refs/tags/V7_7_0;sf=tgz"
-  version "7.7.0"
-  sha256 "075ca1dddd9646fcf331a809904925055747a951a6afd07a463369b9b441b445"
+  url "https://git.dev.opencascade.org/gitweb/?p=occt.git;a=snapshot;h=refs/tags/V7_7_1;sf=tgz"
+  version "7.7.1"
+  sha256 "f413d30a8a06d6164e94860a652cbc96ea58fe262df36ce4eaa92a9e3561fd12"
   license "LGPL-2.1-only"
 
   # The first-party download page (https://dev.opencascade.org/release)
@@ -41,12 +41,6 @@ class Opencascade < Formula
 
   on_linux do
     depends_on "mesa" # For OpenGL
-  end
-
-  # Fix a missing <limits> header. Try removing on next release.
-  patch do
-    url "https://git.dev.opencascade.org/gitweb/?p=occt.git;a=patch;h=2a8c5ad46cfef8114b13c3a33dcd88a81e522c1e;hp=7ea3eff4f88640ca23e5b1a6dad82ab4fda4a8c6"
-    sha256 "3aff4835faf75d7d48aaa53db88e00df527b65b0a930746e1b8d1534c9b368b1"
   end
 
   def install
