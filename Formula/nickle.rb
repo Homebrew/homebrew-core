@@ -1,8 +1,8 @@
 class Nickle < Formula
   desc "Desk calculator language"
   homepage "https://www.nickle.org/"
-  url "https://deb.debian.org/debian/pool/main/n/nickle/nickle_2.91.tar.xz"
-  sha256 "a27a063d4cb93701d2d05a5fb2895b51b28fa7a2b32463a829496fb5f63833b6"
+  url "https://deb.debian.org/debian/pool/main/n/nickle/nickle_2.92.tar.xz"
+  sha256 "51f1ae85a17acc0d8736ab73f4ec2478cd3358c0911b498ef9382c0438437d72"
   license "MIT"
   head "https://keithp.com/cgit/nickle.git", branch: "master"
 
@@ -26,13 +26,16 @@ class Nickle < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "flex" => :build # conflicting types for 'yyget_leng'
+  depends_on "pkg-config" => :build
   depends_on "readline"
 
   uses_from_macos "bison" => :build
 
-  # Fix build on Apple Silicon
-  # Reported by email on 2022-11-09
-  patch :DATA
+  # Add math-tables.c to fix build issue, remove in next release
+  patch do
+    url "https://keithp.com/cgit/nickle.git/patch/?id=ecddca204fd83d2a7a3af76accf57d77d8b9fd64"
+    sha256 "3459fef502825faeadd8fde120ee4c22c8f6ad52fd0c3a1e026b02d21ba89c4a"
+  end
 
   def install
     system "./autogen.sh", *std_configure_args
@@ -43,17 +46,3 @@ class Nickle < Formula
     assert_equal "4", shell_output("#{bin}/nickle -e '2+2'").chomp
   end
 end
-
-__END__
-diff -pur nickle-2.91/float.c nickle-2.91-new/float.c
---- nickle-2.91/float.c	2021-08-18 19:01:45
-+++ nickle-2.91-new/float.c	2022-11-09 14:33:15
-@@ -1122,7 +1122,7 @@ NewDoubleFloat (double d)
-     double_digit    dd;
-     if (d == 0.0) RETURN (Zero);
-     e = ilogb (d);
--    m = significand (d);
-+    m = scalb(d, (double) -e);
-     ms = Positive;
-     if (m < 0)
-     {
