@@ -1,8 +1,8 @@
 class Ipmitool < Formula
   desc "Utility for IPMI control with kernel driver or LAN interface"
-  homepage "https://github.com/ipmitool/ipmitool"
-  url "https://github.com/ipmitool/ipmitool/archive/refs/tags/IPMITOOL_1_8_19.tar.gz"
-  sha256 "48b010e7bcdf93e4e4b6e43c53c7f60aa6873d574cbd45a8d86fa7aaeebaff9c"
+  homepage "https://codeberg.org/IPMITool/ipmitool"
+  url "https://codeberg.org/IPMITool/ipmitool/archive/IPMITOOL_1_8_19.tar.gz"
+  sha256 "ce13c710fea3c728ba03a2a65f2dd45b7b13382b6f57e25594739f2e4f20d010"
   license "BSD-3-Clause"
   revision 1
 
@@ -16,8 +16,6 @@ class Ipmitool < Formula
     sha256 x86_64_linux:   "a0a993a436ef12c14707d60293d37233dd90e0e80909c461f262c19874951d32"
   end
 
-  deprecate! date: "2023-02-09", because: :repo_archived
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
@@ -25,20 +23,6 @@ class Ipmitool < Formula
 
   on_linux do
     depends_on "readline"
-  end
-
-  # fix enterprise-number URL due to IANA URL scheme change
-  # remove in next release
-  patch do
-    url "https://github.com/ipmitool/ipmitool/commit/1edb0e27e44196d1ebe449aba0b9be22d376bcb6.patch?full_index=1"
-    sha256 "c7df82eeb6abf76439ca9012afdcef2e9e5ab5b44d4a80c58c7c5f2d8337bc83"
-  end
-
-  # Patch to fix build on ARM
-  # https://github.com/ipmitool/ipmitool/issues/332
-  patch do
-    url "https://github.com/ipmitool/ipmitool/commit/a45da6b4dde21a19e85fd87abbffe31ce9a8cbe6.patch?full_index=1"
-    sha256 "98787263c33fe11141a6b576d52f73127b223394c3d2c7b1640d4adc075f14d5"
   end
 
   def install
