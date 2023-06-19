@@ -38,6 +38,7 @@ class MscGenerator < Formula
   depends_on "tinyxml2"
 
   on_macos do
+    depends_on "gnu-sed" => :build
     depends_on "gcc"
   end
 
@@ -53,6 +54,9 @@ class MscGenerator < Formula
   end
 
   def install
+    # sed: 1: "msc_parser_csh.cpp": invalid command code m
+    ENV.prepend_path "PATH", Formula["gnu-sed"].libexec/"gnubin" if OS.mac?
+
     # Brew uses shims to ensure that the project is built with a single compiler.
     # However, gcc cannot compile our Objective-C++ sources (clipboard.mm), while
     # clang++ cannot compile the rest of the project. As a workaround, we set gcc
