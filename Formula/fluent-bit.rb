@@ -29,6 +29,9 @@ class FluentBit < Formula
   depends_on "libyaml"
   depends_on "openssl@3"
 
+  # test out libz linkage issue on linux build
+  patch :DATA
+
   def install
     # Prevent fluent-bit to install files into global init system
     # For more information see https://github.com/fluent/fluent-bit/issues/3393
@@ -50,3 +53,16 @@ class FluentBit < Formula
     assert_match "Fluent Bit v#{version}", output
   end
 end
+
+__END__
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index d5c9dde..cfe3047 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -89,7 +89,6 @@ include(ExternalProject)
+ include(cmake/FindJournald.cmake)
+ include(cmake/FindMonkey.cmake)
+ include(cmake/macros.cmake)
+-include(cmake/platform_feature_checks.cmake)
+ set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake/sanitizers-cmake/cmake" ${CMAKE_MODULE_PATH})
+ find_package(Sanitizers)
