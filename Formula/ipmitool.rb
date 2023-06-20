@@ -4,7 +4,7 @@ class Ipmitool < Formula
   url "https://codeberg.org/IPMITool/ipmitool/archive/IPMITOOL_1_8_19.tar.gz"
   sha256 "ce13c710fea3c728ba03a2a65f2dd45b7b13382b6f57e25594739f2e4f20d010"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   bottle do
     sha256 arm64_ventura:  "a3862eb5a4f8f401f21f61585a6a51fd5c08a6825876122179c3286b68843943"
@@ -23,6 +23,20 @@ class Ipmitool < Formula
 
   on_linux do
     depends_on "readline"
+  end
+
+  # fix enterprise-number URL due to IANA URL scheme change
+  # remove in next release
+  patch do
+    url "https://codeberg.org/IPMITool/ipmitool/commit/1edb0e27e44196d1ebe449aba0b9be22d376bcb6.patch?full_index=1"
+    sha256 "044363a930cf6a9753d8be2a036a0ee8c4243ce107eebc639dcb93e1e412e0ed"
+  end
+
+  # Patch to fix build on ARM
+  # https://github.com/ipmitool/ipmitool/issues/332
+  patch do
+    url "https://codeberg.org/IPMITool/ipmitool/commit/206dba615d740a31e881861c86bcc8daafd9d5b1.patch?full_index=1"
+    sha256 "86eba5d0000b2d1f3ce3ba4a23ccb5dd762d01fec0f9910a95e756c5399d7fb8"
   end
 
   def install
