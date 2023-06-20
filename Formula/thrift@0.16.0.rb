@@ -12,6 +12,7 @@ class ThriftAT0160 < Formula
   depends_on "automake" => :build
   depends_on "bison" => :build
   depends_on "boost" => [:build, :test]
+  depends_on "flex" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "openssl@1.1"
