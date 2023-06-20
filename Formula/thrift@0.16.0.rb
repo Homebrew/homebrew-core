@@ -71,7 +71,7 @@ class ThriftAT0160 < Formula
 
     system ENV.cxx, "-std=c++11", "gen-cpp/MultiplicationService.cpp",
       "gen-cpp/MultiplicationService_server.skeleton.cpp",
-      "-I#{include}/include",
+      "-I#{include}/",
       "-L#{lib}", "-lthrift"
   end
 end
