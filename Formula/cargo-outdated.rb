@@ -4,6 +4,7 @@ class CargoOutdated < Formula
   url "https://github.com/kbknapp/cargo-outdated/archive/v0.13.1.tar.gz"
   sha256 "571910b0c44f0bcf0b6e5c24184247e4603f474c7bde5f0eaa1203ce802b4a4a"
   license "MIT"
+  revision 1
   head "https://github.com/kbknapp/cargo-outdated.git", branch: "master"
 
   bottle do
@@ -20,11 +21,11 @@ class CargoOutdated < Formula
   depends_on "rust" => :build
   depends_on "rustup-init" => :test
   depends_on "libgit2"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     ENV["OPENSSL_NO_VENDOR"] = "1"
-    ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
+    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
     system "cargo", "install", *std_cargo_args
   end
 
@@ -67,8 +68,8 @@ class CargoOutdated < Formula
 
     [
       Formula["libgit2"].opt_lib/shared_library("libgit2"),
-      Formula["openssl@1.1"].opt_lib/shared_library("libssl"),
-      Formula["openssl@1.1"].opt_lib/shared_library("libcrypto"),
+      Formula["openssl@3"].opt_lib/shared_library("libssl"),
+      Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
     ].each do |library|
       assert check_binary_linkage(bin/"cargo-outdated", library),
              "No linkage with #{library.basename}! Cargo is likely using a vendored version."
