@@ -1,10 +1,9 @@
 class SimpleTiles < Formula
   desc "Image generation library for spatial data"
   homepage "https://github.com/propublica/simple-tiles"
-  url "https://github.com/propublica/simple-tiles/archive/v0.6.1.tar.gz"
-  sha256 "2391b2f727855de28adfea9fc95d8c7cbaca63c5b86c7286990d8cbbcd640d6f"
+  url "https://github.com/e-n-f/simple-tiles/archive/refs/tags/v0.7.0.tar.gz"
+  sha256 "3ca93241a8ce0f5f2933335be215ddd687c966c138893c5f9f5c4ca77b52de11"
   license "MIT"
-  revision 18
   head "https://github.com/propublica/simple-tiles.git", branch: "master"
 
   bottle do
@@ -22,17 +21,6 @@ class SimpleTiles < Formula
   depends_on "cairo"
   depends_on "gdal"
   depends_on "pango"
-
-  # Apply upstream commits for waf to work with Python 3.
-  patch do
-    url "https://github.com/propublica/simple-tiles/commit/556b25682afab595ad467761530a34a26bee225b.patch?full_index=1"
-    sha256 "410c9b82e54365ded6f06b5f72b0eb8b25ec0eb1e015f39b1b54ebfa6114aab2"
-  end
-
-  patch do
-    url "https://github.com/propublica/simple-tiles/commit/2dba11101d5de7be239e07b1f31c08e18cc055a7.patch?full_index=1"
-    sha256 "138365fa0c5efd3b8e92fa86bc1ce08c3802e59947dff82f003dfe8a82e5eda6"
-  end
 
   def install
     ENV.prepend_path "PATH", Formula["python@3.11"].libexec/"bin"
