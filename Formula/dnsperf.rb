@@ -4,6 +4,7 @@ class Dnsperf < Formula
   url "https://www.dns-oarc.net/files/dnsperf/dnsperf-2.13.0.tar.gz"
   sha256 "a31caa1899c67f35f28b970abe1f31f1d9c6b1f8b20ea24187ca1a82baac53cb"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :homepage
@@ -24,7 +25,7 @@ class Dnsperf < Formula
   depends_on "concurrencykit"
   depends_on "ldns"
   depends_on "libnghttp2"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "./configure", "--prefix=#{prefix}"
