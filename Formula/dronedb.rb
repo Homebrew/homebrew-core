@@ -5,7 +5,7 @@ class Dronedb < Formula
        tag:      "v1.0.12",
        revision: "849e92fa94dc7cf65eb756ecf3824f0fe9dbb797"
   license "MPL-2.0"
-  revision 3
+  revision 4
   head "https://github.com/DroneDB/DroneDB.git", branch: "master"
 
   bottle do
@@ -23,6 +23,12 @@ class Dronedb < Formula
   depends_on "libspatialite"
   depends_on "libzip"
   depends_on "pdal"
+
+  # To fix gdal-3.7.0
+  patch do
+    url "https://github.com/e-n-f/DroneDB/commit/28aa869dee5920c2d948e1b623f2f9d518bdcb1e.patch?full_index=1"
+    sha256 "50e581aad0fd3226fe5999cc91f9a61fdcbc42c5ba2394d9def89b70183f9c96"
+  end
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
