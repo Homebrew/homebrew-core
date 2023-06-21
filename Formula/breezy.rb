@@ -6,6 +6,7 @@ class Breezy < Formula
   url "https://files.pythonhosted.org/packages/f8/31/0777685b4093d5a8e42aa181da6450cc37ee4eb9e8a84900adcaff35515a/breezy-3.3.3.tar.gz"
   sha256 "5ab5e6c69eb7ba36b995f3c83e33e7be1d5dfcac2b9283888e1e0c61e47030e7"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "c8d7d685fa6c2a0596ffc08cb1bc11331fd33289bdd837b0e263609b07ab2db6"
@@ -19,7 +20,7 @@ class Breezy < Formula
 
   depends_on "gettext" => :build
   depends_on "rust" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "six"
