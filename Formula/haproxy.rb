@@ -22,16 +22,24 @@ class Haproxy < Formula
 
   depends_on "openssl@3"
   depends_on "pcre2"
+  depends_on "lua"
 
   uses_from_macos "libxcrypt"
   uses_from_macos "zlib"
 
   def install
-    args = %w[
+    lua = Formula["lua"]
+    args = %W[
       USE_PCRE2=1
       USE_PCRE2_JIT=1
       USE_OPENSSL=1
       USE_ZLIB=1
+      USE_THREAD=1
+      USE_LUA=1
+      LUA_LIB_NAME=lua
+      LUA_LIB=#{lua.opt_lib}
+      LUA_INC=#{lua.opt_include}/lua
+      LUA_LD_FLAGS=-L#{lua.opt_lib}
     ]
 
     target = if OS.mac?
