@@ -3,7 +3,8 @@ class GlibOpenssl < Formula
   homepage "https://launchpad.net/glib-networking"
   url "https://download.gnome.org/sources/glib-openssl/2.50/glib-openssl-2.50.8.tar.xz"
   sha256 "869f08e4e9a719c1df411c2fb5554400f6b24a9db0cb94c4359db8dad18d185f"
-  revision 3
+  license "LGPL-2.0-only"
+  revision 4
 
   bottle do
     sha256 arm64_ventura:  "ad209d0b9a8612f54f34a611ac3d634edf3187bdf04cdf6e4301b8b468208e24"
@@ -20,7 +21,7 @@ class GlibOpenssl < Formula
 
   depends_on "pkg-config" => :build
   depends_on "glib"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     # Install files to `lib` instead of `HOMEBREW_PREFIX/lib`.
@@ -29,7 +30,7 @@ class GlibOpenssl < Formula
                           "--disable-silent-rules",
                           "--disable-static",
                           "--prefix=#{prefix}",
-                          "--with-ca-certificates=#{Formula["openssl@1.1"].pkgetc}/cert.pem"
+                          "--with-ca-certificates=#{Formula["openssl@3"].pkgetc}/cert.pem"
     system "make", "install"
 
     # Delete the cache, will regenerate it in post_install
