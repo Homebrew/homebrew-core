@@ -4,6 +4,7 @@ class Arangodb < Formula
   url "https://download.arangodb.com/Source/ArangoDB-3.10.4.tar.bz2"
   sha256 "bc9cfaac5747995a6185d2cfea452b9fea8461bf91d2996dd75af75eef3cfddd"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/arangodb/arangodb.git", branch: "devel"
 
   livecheck do
@@ -25,7 +26,7 @@ class Arangodb < Formula
   depends_on "go" => :build
   depends_on "python@3.11" => :build
   depends_on macos: :mojave
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   on_macos do
     depends_on "llvm" => :build
@@ -103,7 +104,7 @@ class Arangodb < Formula
       -DCMAKE_INSTALL_LOCALSTATEDIR=#{var}
       -DCMAKE_INSTALL_SYSCONFDIR=#{etc}
       -DCMAKE_OSX_DEPLOYMENT_TARGET=#{MacOS.version}
-      -DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}
+      -DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}
       -DTARGET_ARCHITECTURE=#{arch}
       -DUSE_GOOGLE_TESTS=OFF
       -DUSE_JEMALLOC=OFF
