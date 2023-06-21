@@ -6,6 +6,7 @@ class Zookeeper < Formula
   sha256 "ccc16850c8ab2553583583234d11c813061b5ea5f3b8ff1d740cde6c1fd1e219"
   license "Apache-2.0"
   head "https://gitbox.apache.org/repos/asf/zookeeper.git", branch: "master"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "a8742d575ac53677c5d55b073de3e91ad816b5469b491cb0b646a8ee6c4ff5de"
@@ -25,7 +26,7 @@ class Zookeeper < Formula
   depends_on "pkg-config" => :build
 
   depends_on "openjdk"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   resource "default_logback_xml" do
     url "https://raw.githubusercontent.com/apache/zookeeper/release-3.8.1/conf/logback.xml"
