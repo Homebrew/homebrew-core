@@ -23,7 +23,6 @@ class Haproxy < Formula
   depends_on "openssl@3"
   depends_on "pcre2"
   depends_on "lua"
-
   uses_from_macos "libxcrypt"
   uses_from_macos "zlib"
 
