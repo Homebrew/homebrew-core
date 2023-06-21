@@ -4,6 +4,7 @@ class MysqlAT57 < Formula
   url "https://cdn.mysql.com/Downloads/MySQL-5.7/mysql-boost-5.7.42.tar.gz"
   sha256 "7e1a7d45e7ca382eb3a992f63631c380904dd49c89f3382ec950aef01997524f"
   license "GPL-2.0-only"
+  revision 1
 
   livecheck do
     url "https://dev.mysql.com/downloads/mysql/5.7.html?tpl=files&os=src&version=5.7"
@@ -28,7 +29,7 @@ class MysqlAT57 < Formula
   depends_on "cmake" => :build
   depends_on "libevent"
   depends_on "lz4"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "protobuf"
 
   uses_from_macos "curl"
@@ -48,15 +49,19 @@ class MysqlAT57 < Formula
   patch :DATA
 
   def install
-    if OS.linux?
-      # Fix libmysqlgcs.a(gcs_logging.cc.o): relocation R_X86_64_32
-      # against `_ZN17Gcs_debug_options12m_debug_noneB5cxx11E' can not be used when making
-      # a shared object; recompile with -fPIC
-      ENV.append_to_cflags "-fPIC"
-    end
+    # Fix libmysqlgcs.a(gcs_logging.cc.o): relocation R_X86_64_32
+    # against `_ZN17Gcs_debug_options12m_debug_noneB5cxx11E' can not be used when making
+    # a shared object; recompile with -fPIC
+    ENV.append_to_cflags "-fPIC" if OS.linux?
 
     # Fixes loading of VERSION file; used in conjunction with patch
     File.rename "VERSION", "MYSQL_VERSION"
+
+    # Support OpenSSL 3.
+    inreplace "cmake/ssl.cmake" do |s|
+      s.gsub! 'OPENSSL_MAJOR_VERSION STREQUAL "1"', 'OPENSSL_MAJOR_VERSION STREQUAL "3"'
+      s.gsub! "openssl@1.1", "openssl@3"
+    end
 
     # -DINSTALL_* are relative to `CMAKE_INSTALL_PREFIX` (`prefix`)
     args = %W[
@@ -73,7 +78,7 @@ class MysqlAT57 < Formula
       -DSYSCONFDIR=#{etc}
       -DWITH_BOOST=boost
       -DWITH_EDITLINE=system
-      -DWITH_SSL=yes
+      -DWITH_SSL=#{Formula["openssl@3"].opt_prefix}
       -DWITH_NUMA=OFF
       -DWITH_UNIT_TESTS=OFF
       -DWITH_EMBEDDED_SERVER=ON
