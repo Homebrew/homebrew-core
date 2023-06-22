@@ -6,6 +6,7 @@ class AnsibleAT6 < Formula
   url "https://files.pythonhosted.org/packages/f5/8c/a4e46c1621e6f95559bb59a28cd62f817581c3d591db1353496f6a80eebd/ansible-6.7.0.tar.gz"
   sha256 "c188f3ac8a8583794aadcff0bea87895ead58c19d6f244cd0c342562706e176c"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "4eef44d32ee4a9bf33589d86636eba0d32cec5827f601bda54abc9f4b2de5279"
@@ -24,7 +25,7 @@ class AnsibleAT6 < Formula
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "python@3.10"
   depends_on "pyyaml"
   depends_on "six"
