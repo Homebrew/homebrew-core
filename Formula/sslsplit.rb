@@ -4,7 +4,7 @@ class Sslsplit < Formula
   url "https://github.com/droe/sslsplit/archive/0.5.5.tar.gz"
   sha256 "3a6b9caa3552c9139ea5c9841d4bf24d47764f14b1b04b7aae7fa2697641080b"
   license "BSD-2-Clause"
-  revision 1
+  revision 2
   head "https://github.com/droe/sslsplit.git", branch: "develop"
 
   bottle do
@@ -25,7 +25,7 @@ class Sslsplit < Formula
   depends_on "libevent"
   depends_on "libnet"
   depends_on "libpcap"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     ENV["LIBNET_BASE"] = Formula["libnet"].opt_prefix
