@@ -3,9 +3,10 @@ class DotnetAT6 < Formula
   homepage "https://dotnet.microsoft.com/"
   # Source-build tag announced at https://github.com/dotnet/source-build/discussions
   url "https://github.com/dotnet/installer.git",
-      tag:      "v6.0.114",
-      revision: "346c0065dd9540261ec07e938b808833446d2a9e"
+      tag:      "v6.0.120",
+      revision: "d63b17be66f766a5381950bce677884e4e3bb5b6"
   license "MIT"
+  revision 1
 
   # https://github.com/dotnet/source-build/#support
   livecheck do
@@ -40,7 +41,7 @@ class DotnetAT6 < Formula
   depends_on "pkg-config" => :build
   depends_on "python@3.11" => :build
   depends_on "icu4c"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "llvm" => :build
   uses_from_macos "krb5"
@@ -55,25 +56,8 @@ class DotnetAT6 < Formula
   # GCC builds have limited support via community.
   fails_with :gcc
 
-  # Apple Silicon build fails due to latest dotnet-install.sh downloading x64 dotnet-runtime.
-  # We work around the issue by using an older working copy of dotnet-install.sh script.
-  # Bug introduced with https://github.com/dotnet/install-scripts/pull/314
-  # TODO: Remove once script is fixed.
-  # Issue ref: https://github.com/dotnet/install-scripts/issues/318
-  resource "dotnet-install.sh" do
-    url "https://raw.githubusercontent.com/dotnet/install-scripts/dac53157fcb7e02638507144bf5f8f019c1d23a8/src/dotnet-install.sh"
-    sha256 "e96eabccea61bbbef3402e23f1889d385a6ae7ad84fe1d8f53f2507519ad86f7"
-  end
-
-  # Fixes race condition in MSBuild.
-  # TODO: Remove with 6.0.3xx or later.
-  resource "homebrew-msbuild-patch" do
-    url "https://github.com/dotnet/msbuild/commit/64edb33a278d1334bd6efc35fecd23bd3af4ed48.patch?full_index=1"
-    sha256 "5870bcdd12164668472094a2f9f1b73a4124e72ac99bbbe43028370be3648ccd"
-  end
-
   # Backport fix for error on aspnetcore version while building 'installer in tarball'.
-  # TODO: Remove once backport PR is merged and available in a release
+  # This PR won't be merged into 6.0 LTS
   # PR ref: https://github.com/dotnet/installer/pull/14816
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/f206f7a45b330cce79e6bfe9116fccd93b0d3ed8/dotnet/aspnetcore-version.patch"
