@@ -2,6 +2,7 @@ class SpotifyTui < Formula
   desc "Terminal-based client for Spotify"
   homepage "https://github.com/Rigellute/spotify-tui"
   license "MIT"
+  revision 1
   head "https://github.com/Rigellute/spotify-tui.git", branch: "master"
 
   stable do
@@ -32,7 +33,7 @@ class SpotifyTui < Formula
   on_linux do
     depends_on "pkg-config" => :build
     depends_on "libxcb"
-    depends_on "openssl@1.1"
+    depends_on "openssl@3"
   end
 
   # Fix build with Rust 1.64+ by updating socket2 using open dependabot PR.
@@ -43,6 +44,12 @@ class SpotifyTui < Formula
   end
 
   def install
+    if OS.linux?
+      # Ensure that the `openssl` crate picks up the intended library.
+      ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+      ENV["OPENSSL_NO_VENDOR"] = "1"
+    end
+
     system "cargo", "install", *std_cargo_args
   end
 
