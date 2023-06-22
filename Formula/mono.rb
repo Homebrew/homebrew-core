@@ -4,6 +4,7 @@ class Mono < Formula
   url "https://download.mono-project.com/sources/mono/mono-6.12.0.182.tar.xz"
   sha256 "57366a6ab4f3b5ecf111d48548031615b3a100db87c679fc006e8c8a4efd9424"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://www.mono-project.com/download/stable/"
@@ -29,7 +30,7 @@ class Mono < Formula
   uses_from_macos "zlib"
 
   on_linux do
-    depends_on "openssl@1.1" => :build
+    depends_on "openssl@3" => :build
     depends_on "ca-certificates"
   end
 
@@ -174,7 +175,7 @@ class Mono < Formula
       # Help .NET SDK run by providing path to libraries or disabling features
       if OS.linux?
         ENV["DOTNET_SYSTEM_GLOBALIZATION_INVARIANT"] = "1"
-        ENV["LD_LIBRARY_PATH"] = "#{Formula["openssl@1.1"].opt_lib}:#{HOMEBREW_PREFIX}/lib"
+        ENV["LD_LIBRARY_PATH"] = "#{Formula["openssl@3"].opt_lib}:#{HOMEBREW_PREFIX}/lib"
       end
 
       with_env(version: "") do
