@@ -7,6 +7,7 @@ class Dotnet < Formula
       revision: "e12b7af219b96b5e07039ea8e3e268380329d72c"
   version "7.0.100"
   license "MIT"
+  revision 1
 
   # https://github.com/dotnet/source-build/#support
   livecheck do
@@ -52,7 +53,7 @@ class Dotnet < Formula
   depends_on "pkg-config" => :build
   depends_on "python@3.11" => :build
   depends_on "icu4c"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "llvm" => :build
   uses_from_macos "krb5"
