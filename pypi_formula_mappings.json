@@ -676,6 +676,9 @@
   "scour": {
     "exclude_packages": ["six"]
   },
+  "scrapy": {
+    "exclude_packages": ["pycparser, six, typing-extensions"]
+  },
   "search-that-hash": {
     "exclude_packages": ["typing-extensions", "Pygments", "name-that-hash", "click", "commonmark", "rich"]
   },
