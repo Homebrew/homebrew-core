@@ -67,10 +67,9 @@ class ApachePulsar < Formula
     zk_id_file = File.new("#{testpath}/zk/myid", "w")
     zk_id_file.puts("1")
     zk_id_file.close
-    
     fork do
       exec(bin/"pulsar", "standalone", "--zookeeper-dir", "#{testpath}/zk", " --bookkeeper-dir", "#{testpath}/bk",
-              "--metadata-dir", "#{testpath}/md", "-nss") 
+              "--metadata-dir", "#{testpath}/md", "-nss")
     end
     # The daemon takes some time to start; pulsar-client will retry until it gets a connection, but emit confusing
     # errors until that happens, so sleep to reduce log spam.
