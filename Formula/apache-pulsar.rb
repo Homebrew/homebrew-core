@@ -63,8 +63,14 @@ class ApachePulsar < Formula
   test do
     ENV["PULSAR_GC_LOG"] = "-Xlog:gc*:#{testpath}/pulsar_gc_%p.log:time,uptime:filecount=10,filesize=20M"
     ENV["PULSAR_LOG_DIR"] = testpath
+    (var/"#{testpath}/zk").mkpath
+    zk_id_file = File.new("#{testpath}/zk/myid", "w")
+    zk_id_file.puts("1")
+    zk_id_file.close
+    
     fork do
-      exec bin/"pulsar", "standalone", "--metadata-dir", "#{testpath}/metadata", " --bookkeeper-dir", "#{testpath}/bk"
+      exec(bin/"pulsar", "standalone", "--zookeeper-dir", "#{testpath}/zk", " --bookkeeper-dir", "#{testpath}/bk",
+              "--metadata-dir", "#{testpath}/md", "-nss") 
     end
     # The daemon takes some time to start; pulsar-client will retry until it gets a connection, but emit confusing
     # errors until that happens, so sleep to reduce log spam.
