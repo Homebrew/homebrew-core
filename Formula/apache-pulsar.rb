@@ -1,9 +1,9 @@
 class ApachePulsar < Formula
   desc "Cloud-native distributed messaging and streaming platform"
   homepage "https://pulsar.apache.org/"
-  url "https://www.apache.org/dyn/mirrors/mirrors.cgi?action=download&filename=pulsar/pulsar-2.10.3/apache-pulsar-2.10.3-src.tar.gz"
-  mirror "https://archive.apache.org/dist/pulsar/pulsar-2.10.3/apache-pulsar-2.10.3-src.tar.gz"
-  sha256 "4fca38025c6059b0cb1b8c8ca7526a6c525769529c270a0172e2294d311b8f96"
+  url "https://www.apache.org/dyn/mirrors/mirrors.cgi?action=download&filename=pulsar/pulsar-3.0.0/apache-pulsar-3.0.0-src.tar.gz"
+  mirror "https://archive.apache.org/dist/pulsar/pulsar-3.0.0/apache-pulsar-3.0.0-src.tar.gz"
+  sha256 "5a441eb7ed24a8c020957f667ccb182d1cfb680f1fab975f9185ccaa2cdb3e06"
   license "Apache-2.0"
   head "https://github.com/apache/pulsar.git", branch: "master"
 
@@ -21,7 +21,6 @@ class ApachePulsar < Formula
   depends_on "maven" => :build
   depends_on "pkg-config" => :build
   depends_on "protobuf" => :build
-  depends_on arch: :x86_64
   depends_on "openjdk@17"
 
   def install
@@ -40,8 +39,7 @@ class ApachePulsar < Formula
     binpfx = "apache-pulsar-#{built_version}"
     system "tar", "-xf", "distribution/server/target/#{binpfx}-bin.tar.gz"
     libexec.install "#{binpfx}/bin", "#{binpfx}/lib", "#{binpfx}/instances", "#{binpfx}/conf"
-    (libexec/"lib/presto/bin/procname/Linux-ppc64le").rmtree
-    pkgshare.install "#{binpfx}/examples", "#{binpfx}/licenses"
+    pkgshare.install "#{binpfx}/examples"
     (etc/"pulsar").install_symlink libexec/"conf"
 
     libexec.glob("bin/*") do |path|
@@ -66,7 +64,7 @@ class ApachePulsar < Formula
     ENV["PULSAR_GC_LOG"] = "-Xlog:gc*:#{testpath}/pulsar_gc_%p.log:time,uptime:filecount=10,filesize=20M"
     ENV["PULSAR_LOG_DIR"] = testpath
     fork do
-      exec bin/"pulsar", "standalone", "--zookeeper-dir", "#{testpath}/zk", " --bookkeeper-dir", "#{testpath}/bk"
+      exec bin/"pulsar", "standalone", "--metadata-dir", "#{testpath}/metadata", " --bookkeeper-dir", "#{testpath}/bk"
     end
     # The daemon takes some time to start; pulsar-client will retry until it gets a connection, but emit confusing
     # errors until that happens, so sleep to reduce log spam.
