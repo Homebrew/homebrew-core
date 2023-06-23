@@ -4,7 +4,7 @@ class Sphinx < Formula
   url "https://sphinxsearch.com/files/sphinx-2.2.11-release.tar.gz"
   sha256 "6662039f093314f896950519fa781bc87610f926f64b3d349229002f06ac41a9"
   license "GPL-2.0-or-later"
-  revision 4
+  revision 5
   head "https://github.com/sphinxsearch/sphinx.git", branch: "master"
 
   bottle do
@@ -22,7 +22,7 @@ class Sphinx < Formula
   deprecate! date: "2022-08-15", because: "is using unsupported v2 and source for v3 is not publicly available"
 
   depends_on "mysql@5.7"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "zlib"
 
