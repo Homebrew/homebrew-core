@@ -11,6 +11,7 @@
   "cockatrice": "homebrew/cask",
   "crystax-ndk": "homebrew/cask",
   "corelocationcli": "homebrew/cask",
+  "devspace": "homebrew/cask",
   "dwarf-fortress": "homebrew/cask",
   "geany": "homebrew/cask",
   "gearboy": "homebrew/cask",
