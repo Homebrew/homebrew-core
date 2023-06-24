@@ -1,8 +1,8 @@
 class Weechat < Formula
   desc "Extensible IRC client"
   homepage "https://www.weechat.org"
-  url "https://weechat.org/files/src/weechat-3.8.tar.xz"
-  sha256 "f7cb65c200f8c090c56f2cf98c0b184051e516e5f7099a4308cacf86f174bf28"
+  url "https://weechat.org/files/src/weechat-4.0.0.tar.xz"
+  sha256 "5bd75ee15f3392a0ad174ee7c54518daece3878477670c07f10d6ebf988240f9"
   license "GPL-3.0-or-later"
   head "https://github.com/weechat/weechat.git", branch: "master"
 
@@ -28,10 +28,10 @@ class Weechat < Formula
   depends_on "perl"
   depends_on "python@3.11"
   depends_on "ruby"
+  depends_on "tcl-tk"
   depends_on "zstd"
 
   uses_from_macos "curl"
-  uses_from_macos "tcl-tk"
 
   def install
     python3 = "python3.11"
@@ -45,6 +45,8 @@ class Weechat < Formula
       -DCA_FILE=#{Formula["gnutls"].pkgetc}/cert.pem
       -DENABLE_JAVASCRIPT=OFF
       -DENABLE_PHP=OFF
+      -DTCL_INCLUDE_PATH=#{Formula["tcl-tk"].opt_include}/tcl-tk
+      -DTK_INCLUDE_PATH=#{Formula["tcl-tk"].opt_include}/tcl-tk
     ]
 
     # Fix system gem on Mojave
