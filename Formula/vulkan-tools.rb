@@ -1,8 +1,8 @@
 class VulkanTools < Formula
   desc "Vulkan utilities and tools"
   homepage "https://github.com/KhronosGroup/Vulkan-Tools"
-  url "https://github.com/KhronosGroup/Vulkan-Tools/archive/refs/tags/v1.3.250.tar.gz"
-  sha256 "a1cd4f7d8d58bec26efb1e5ea73f82dcf36a9662d55401b81a783071b211a35a"
+  url "https://github.com/KhronosGroup/Vulkan-Tools/archive/refs/tags/v1.3.255.tar.gz"
+  sha256 "ccd9175eec671b9ebff2486d1fb3e3d2f318028bbc873378ff9e1382b432abc6"
   license "Apache-2.0"
   head "https://github.com/KhronosGroup/Vulkan-Tools.git", branch: "main"
 
@@ -54,6 +54,7 @@ class VulkanTools < Formula
       "-DBUILD_ICD=ON",
       "-DBUILD_CUBE=ON",
       "-DBUILD_VULKANINFO=ON",
+      "-DTOOLS_CODEGEN=ON", # custom codegen
       "-DINSTALL_ICD=OFF", # we will manually place it in a nonconflicting location
       "-DGLSLANG_INSTALL_DIR=#{Formula["glslang"].opt_prefix}",
       "-DVULKAN_HEADERS_INSTALL_DIR=#{Formula["vulkan-headers"].opt_prefix}",
@@ -70,7 +71,6 @@ class VulkanTools < Formula
       ]
     end
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
-    system "cmake", "--build", "build", "--target", "VulkanTools_generated_source"
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
