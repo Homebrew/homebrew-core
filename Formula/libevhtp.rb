@@ -4,7 +4,7 @@ class Libevhtp < Formula
   url "https://github.com/Yellow-Camper/libevhtp/archive/1.2.18.tar.gz"
   sha256 "316ede0d672be3ae6fe489d4ac1c8c53a1db7d4fe05edaff3c7c853933e02795"
   license "BSD-3-Clause"
-  revision 3
+  revision 4
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "74d01b65e01f09e30dbde389981531716691c8c10c0f0694f5cc4edf365d948a"
@@ -22,7 +22,7 @@ class Libevhtp < Formula
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
   depends_on "libevent"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "cmake", "-DEVHTP_BUILD_SHARED=ON",
@@ -53,9 +53,9 @@ class Libevhtp < Formula
 
     system ENV.cc, "test.c",
                    "-I#{include}",
-                   "-I#{Formula["openssl@1.1"].opt_include}",
+                   "-I#{Formula["openssl@3"].opt_include}",
                    "-I#{Formula["libevent"].opt_include}",
-                   "-L#{Formula["openssl@1.1"].opt_lib}",
+                   "-L#{Formula["openssl@3"].opt_lib}",
                    "-L#{Formula["libevent"].opt_lib}",
                    "-L#{lib}",
                    "-levhtp",
