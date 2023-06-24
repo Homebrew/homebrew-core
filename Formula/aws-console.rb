@@ -1,8 +1,8 @@
 class AwsConsole < Formula
   desc "Command-line to use AWS CLI credentials to launch the AWS console in a browser"
   homepage "https://github.com/aws-cloudformation/rain"
-  url "https://github.com/aws-cloudformation/rain/archive/v1.4.2.tar.gz"
-  sha256 "fead74b5e0663ca598887d44f0c681e9a2501eccc8f7f1d816041c1b2531deb8"
+  url "https://github.com/aws-cloudformation/rain/archive/v1.4.3.tar.gz"
+  sha256 "b77b985ee964f794030b3c1ed0b16f65680fffba1e24054e02cffb0e1fb91602"
   license "Apache-2.0"
 
   livecheck do
@@ -10,13 +10,13 @@ class AwsConsole < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "427060cff493c7e8d9580443b64c7233f088f46e37f914d506eec29dee007909"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "427060cff493c7e8d9580443b64c7233f088f46e37f914d506eec29dee007909"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "427060cff493c7e8d9580443b64c7233f088f46e37f914d506eec29dee007909"
-    sha256 cellar: :any_skip_relocation, ventura:        "8dc10767966305bd598675699f598a1b74f7710a54ae6bb36a10f1d6d7990bde"
-    sha256 cellar: :any_skip_relocation, monterey:       "8dc10767966305bd598675699f598a1b74f7710a54ae6bb36a10f1d6d7990bde"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8dc10767966305bd598675699f598a1b74f7710a54ae6bb36a10f1d6d7990bde"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8817020a6acaeccc06870e85302a79f9c43bafb93891a4796f9193d18c2b0d21"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3b74b15c8e5d5185fb9649348e7e16914266fda3d5af54a8eb66afe8018644e8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3b74b15c8e5d5185fb9649348e7e16914266fda3d5af54a8eb66afe8018644e8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3b74b15c8e5d5185fb9649348e7e16914266fda3d5af54a8eb66afe8018644e8"
+    sha256 cellar: :any_skip_relocation, ventura:        "f921d11893cbace9f6ca8bd761f21d79c4d9f12a370a117ec49945842e6ad5d4"
+    sha256 cellar: :any_skip_relocation, monterey:       "f921d11893cbace9f6ca8bd761f21d79c4d9f12a370a117ec49945842e6ad5d4"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f921d11893cbace9f6ca8bd761f21d79c4d9f12a370a117ec49945842e6ad5d4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "849556f9454bacafa6cbce4f75508f7b045a26981af449446fe617135434b4fd"
   end
 
   depends_on "go" => :build
