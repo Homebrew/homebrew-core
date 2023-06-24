@@ -31,7 +31,6 @@ class Pytorch < Formula
   depends_on macos: :monterey # MPS backend only supports 12.3 and above
   depends_on "numpy"
   depends_on "openblas"
-  depends_on "openssl@1.1"
   depends_on "protobuf@21"
   depends_on "pybind11"
   depends_on "python-typing-extensions"
@@ -72,7 +71,6 @@ class Pytorch < Formula
   end
 
   def install
-    openssl_root = Formula["openssl@1.1"].opt_prefix
     python_exe = Formula["python@3.11"].opt_libexec/"bin/python"
     args = %W[
       -GNinja
@@ -81,7 +79,6 @@ class Pytorch < Formula
       -DBUILD_PYTHON=ON
       -DCMAKE_CXX_COMPILER=#{ENV.cxx}
       -DCMAKE_C_COMPILER=#{ENV.cc}
-      -DOPENSSL_ROOT_DIR=#{openssl_root}
       -DPYTHON_EXECUTABLE=#{python_exe}
       -DUSE_CUDA=OFF
       -DUSE_DISTRIBUTED=ON
