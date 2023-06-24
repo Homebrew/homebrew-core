@@ -22,6 +22,9 @@ class Mytop < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d9e6242116e773721a6a5e8beb39c5936d6f986043118f3216a750cd3d777dfc"
   end
 
+  # https://tracker.debian.org/news/1400605/removed-191-5-from-unstable/
+  disable! date: "2023-06-24", because: "debian patches no longer applied"
+
   depends_on "mysql-client"
   depends_on "openssl@1.1"
 
