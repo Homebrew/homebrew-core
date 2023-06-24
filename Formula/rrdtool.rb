@@ -15,6 +15,7 @@ class Rrdtool < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "7cac8f10e7b7703388331525508b84cf05530fb61670efaa279563e61c1f7471"
     sha256 arm64_monterey: "86844a9bf1e4ef7777fb31f2fb99b093807d16c0fb998a9cf809c381aad45b71"
     sha256 arm64_big_sur:  "06f81e4c0eda98dee8c68d858b1fcc8bfa19c22d72f6aec9c31536b97f225da5"
     sha256 ventura:        "4224f6d01a6b043d025b85f59226bdf369807334de28b63a56df2ea97c2def51"

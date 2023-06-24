@@ -1,18 +1,18 @@
 class Clive < Formula
   desc "Automates terminal operations"
   homepage "https://github.com/koki-develop/clive"
-  url "https://github.com/koki-develop/clive/archive/refs/tags/v0.12.6.tar.gz"
-  sha256 "5808a8f3e80446f5517d8d24b7a1190bdfe2274b1340d2a65ee825e87c09a211"
+  url "https://github.com/koki-develop/clive/archive/refs/tags/v0.12.7.tar.gz"
+  sha256 "808d05ba49c827a449117fc80082bf7df7708e9c46db630364fc292f239165b1"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1018fcbe05c5af9589fca2f96cdcdb3e3f3fc3556d2a4eef8ec6800f4f0a6021"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1018fcbe05c5af9589fca2f96cdcdb3e3f3fc3556d2a4eef8ec6800f4f0a6021"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1018fcbe05c5af9589fca2f96cdcdb3e3f3fc3556d2a4eef8ec6800f4f0a6021"
-    sha256 cellar: :any_skip_relocation, ventura:        "1e05f356e1da43cdd8b698829f9683ad81b47cd901e3de25ada6ea82f05eda31"
-    sha256 cellar: :any_skip_relocation, monterey:       "1e05f356e1da43cdd8b698829f9683ad81b47cd901e3de25ada6ea82f05eda31"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1e05f356e1da43cdd8b698829f9683ad81b47cd901e3de25ada6ea82f05eda31"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1706f314f64029dca9927962d9c53765d149b0ae9fdb715a12a804f02b4f4b57"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b7992bc1cfebdd02d7c0251f115485d9bc11f7062dc2eb91c3f48199bd3120e7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b7992bc1cfebdd02d7c0251f115485d9bc11f7062dc2eb91c3f48199bd3120e7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b7992bc1cfebdd02d7c0251f115485d9bc11f7062dc2eb91c3f48199bd3120e7"
+    sha256 cellar: :any_skip_relocation, ventura:        "61a1ab51613a33005f9ae8c097687c1d3c4eea6794825b45653504f987284e31"
+    sha256 cellar: :any_skip_relocation, monterey:       "61a1ab51613a33005f9ae8c097687c1d3c4eea6794825b45653504f987284e31"
+    sha256 cellar: :any_skip_relocation, big_sur:        "61a1ab51613a33005f9ae8c097687c1d3c4eea6794825b45653504f987284e31"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1384d4c49fd10647b17d95dc22fd4f38358de2b5d1f7da5c20101cf94aabb0c7"
   end
 
   depends_on "go" => :build

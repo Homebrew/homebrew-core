@@ -1,8 +1,8 @@
 class WlaDx < Formula
   desc "Yet another crossassembler package"
   homepage "https://github.com/vhelin/wla-dx"
-  url "https://github.com/vhelin/wla-dx/archive/v10.4.tar.gz"
-  sha256 "421af537097f4afef4b1b2357a28072dba392597d97572ad751250b98d7ea62d"
+  url "https://github.com/vhelin/wla-dx/archive/v10.5.tar.gz"
+  sha256 "b2d093c3c46caa399ed3a8e5f18f1f0eb7aefa958755bec752f2806bad3af802"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -12,14 +12,13 @@ class WlaDx < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "be3cdd93a0f78c02acc8ac279afa23a0d075b7d4139f86838333dfbccc21395b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4a7e583aa16af9fa4a98ea1f655b8f5572ca24822919f0ac591cbbf9c1e08c10"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8fd6821a07e38ef4ccb90410bbcddb3344f4fd8c6641bd0eeda7f749c33de69b"
-    sha256 cellar: :any_skip_relocation, ventura:        "6dda1329ee7ac4d58cc260c972c1cce92d3f4fa0b649bec13e30c229510fc2c6"
-    sha256 cellar: :any_skip_relocation, monterey:       "68c89844890eba4f05779678572e095e02e6747f1189c5906918f2c0975070f1"
-    sha256 cellar: :any_skip_relocation, big_sur:        "52e9230b232698ef8cf0737848b62cdc7b76da8c4d675e427e1d6dd91e0a25c9"
-    sha256 cellar: :any_skip_relocation, catalina:       "3ef932aee92aaeaf5655ee785ab28a926b0b276b8aefab293d5c11248bb7d84d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "908498831e2ce6f1ecf36bb83122ee986f479440fe760d1470f2dc574fdee3be"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0a57579303e021b9166138b11fcf0491ad8c87bcaea0d5f0dd8d498468b685d3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c7e70e4cc97cdecd269d28f3e59516e85d4a86c3fa523555d4c5bc2c9e486c69"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2ffdf36dc32cc35cca6f7ba63f60457fb6fcca206394f8aeb757f20bb259a2e6"
+    sha256 cellar: :any_skip_relocation, ventura:        "24a9223c1db8e91d1955700d3c7a1bca0884f840ff3f5c544decdccedf340bd9"
+    sha256 cellar: :any_skip_relocation, monterey:       "d14bedd366731a95c1c6cc97bef89948dd480cc5406325137c9e32f9c540db40"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d0ac6385b89dc578b155af3aac5eff0c135a64b4def3b679a33c44e6e3ea5e82"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7ecc3e3dcc4955bc7245365bf0836acd7498eead3549061e57fae55c27df48ca"
   end
 
   depends_on "cmake" => :build

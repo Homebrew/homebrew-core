@@ -1,10 +1,9 @@
 class Libphonenumber < Formula
   desc "C++ Phone Number library by Google"
   homepage "https://github.com/google/libphonenumber"
-  url "https://github.com/google/libphonenumber/archive/v8.13.14.tar.gz"
-  sha256 "65aa0c7d6da4b070794fb1d7d34f7322e613708c3f10ddd90fe3725e049f1fb0"
+  url "https://github.com/google/libphonenumber/archive/v8.13.15.tar.gz"
+  sha256 "ac7082eb679d1b68f4877a8f9407c9a729aa3eef0e018b3e95dbbb10d7a69e29"
   license "Apache-2.0"
-  revision 1
 
   livecheck do
     url :stable
@@ -12,13 +11,13 @@ class Libphonenumber < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "e5501b59baacd8110cc85f080e587d4d359cdf29e8f16fc0088bc2f91972cf73"
-    sha256 cellar: :any,                 arm64_monterey: "4eba0d35e4665fe2905780aab743bf98e1dea10703cc2d85e3c91e26ec58b5c0"
-    sha256 cellar: :any,                 arm64_big_sur:  "233e821a15a63c9bad5ef0994d4a23e64a5bdca1c12db2200a49c982d0449f51"
-    sha256 cellar: :any,                 ventura:        "e18788518ebac22684ceb9a4a7fc853303b342db3d9e3ce82a272ca45cd6bf06"
-    sha256 cellar: :any,                 monterey:       "5530471d4f90ab81018c9d9b9dbf2a8d4b6efe1ffca7f268c755b233c6e7d850"
-    sha256 cellar: :any,                 big_sur:        "b3af2ff77da65256521793bb498a3396c6485496f8a85c3e32e71de713294cf7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3a8c3548fdd5bbc279145b8d6293d1d7e10216a650e8513e3a90f104a99b35db"
+    sha256 cellar: :any,                 arm64_ventura:  "9b59b6e07644c99926a450b22a3442f80128933de9da5636db6c7253267e7702"
+    sha256 cellar: :any,                 arm64_monterey: "cb107f01a7c769a142218e9075c9653cc82faa75b18ecacaed7268efc4964ab0"
+    sha256 cellar: :any,                 arm64_big_sur:  "a0ba7278747e6cba4361ea8d6a041cf3c09fe3a863f9c82201034c0853d6ab2e"
+    sha256 cellar: :any,                 ventura:        "c86e9c7eff3ae121fd8dc22b7e2e9971f17d395b1153e4fbfd83ac6e535d79cc"
+    sha256 cellar: :any,                 monterey:       "9bd73f04d98e879fd3d345c93a9848b72829b5fa5d6933b6fc33c12c94a472d5"
+    sha256 cellar: :any,                 big_sur:        "b15e2491ad7f410a8ed0b0002152017df36dce224ebe264d4ccbf99442f1f64e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9460fdc1fde60b6a791e943ad07fcf55e5ff7c3f6b69a266820d495896c2c090"
   end
 
   depends_on "cmake" => :build

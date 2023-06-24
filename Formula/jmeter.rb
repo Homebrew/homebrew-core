@@ -1,27 +1,26 @@
 class Jmeter < Formula
   desc "Load testing and performance measurement application"
   homepage "https://jmeter.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=jmeter/binaries/apache-jmeter-5.5.tgz"
-  mirror "https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.5.tgz"
-  sha256 "60e89c7c4523731467fdb717f33d614086c10f0316369cbaa45650ae1c402e1f"
+  url "https://www.apache.org/dyn/closer.lua?path=jmeter/binaries/apache-jmeter-5.6.tgz"
+  mirror "https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.6.tgz"
+  sha256 "019690e2f352077e35f1f2715cb3c05f8ef6967b3204c098065b5d16ac123f9e"
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "469626a586f678b34806c015702bb700ed837df7b0a1a939d21446e27ea95eed"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "469626a586f678b34806c015702bb700ed837df7b0a1a939d21446e27ea95eed"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "469626a586f678b34806c015702bb700ed837df7b0a1a939d21446e27ea95eed"
-    sha256 cellar: :any_skip_relocation, ventura:        "469626a586f678b34806c015702bb700ed837df7b0a1a939d21446e27ea95eed"
-    sha256 cellar: :any_skip_relocation, monterey:       "469626a586f678b34806c015702bb700ed837df7b0a1a939d21446e27ea95eed"
-    sha256 cellar: :any_skip_relocation, big_sur:        "469626a586f678b34806c015702bb700ed837df7b0a1a939d21446e27ea95eed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ca9c9fb73567d2e499f983247d57f955a8a71044626aaffcc4ed4364d59610b8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9d44aae5226facb04a83b4b5548663ed60f67cc0813010571a7bd3cf56ed4674"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9d44aae5226facb04a83b4b5548663ed60f67cc0813010571a7bd3cf56ed4674"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9d44aae5226facb04a83b4b5548663ed60f67cc0813010571a7bd3cf56ed4674"
+    sha256 cellar: :any_skip_relocation, ventura:        "9d44aae5226facb04a83b4b5548663ed60f67cc0813010571a7bd3cf56ed4674"
+    sha256 cellar: :any_skip_relocation, monterey:       "9d44aae5226facb04a83b4b5548663ed60f67cc0813010571a7bd3cf56ed4674"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9d44aae5226facb04a83b4b5548663ed60f67cc0813010571a7bd3cf56ed4674"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d28fe8aad4125bc4bcf68f2c2da465060c8adfa5ba7dfcae9227fb35564a8704"
   end
 
   depends_on "openjdk@17"
 
   resource "jmeter-plugins-manager" do
-    url "https://search.maven.org/remotecontent?filepath=kg/apc/jmeter-plugins-manager/1.7/jmeter-plugins-manager-1.7.jar"
-    sha256 "2ae43743c5bc73d557e08e79fb9b137d301626bb393c2c03aa381b1dc8fc40ed"
+    url "https://search.maven.org/remotecontent?filepath=kg/apc/jmeter-plugins-manager/1.9/jmeter-plugins-manager-1.9.jar"
+    sha256 "b74ea9f498ec90cb48ea2de4c19b71007f2b33a9c2808febaf7c32b35412c13d"
   end
 
   def install

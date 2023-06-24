@@ -689,6 +689,9 @@
   "shallow-backup": {
     "exclude_packages": ["six"]
   },
+  "shub": {
+    "exclude_packages": ["pyyaml", "six"]
+  },
   "snakefmt": {
     "exclude_packages": [
       "pathspec", "black", "click", "mypy-extensions", "platformdirs"

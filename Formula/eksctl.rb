@@ -2,19 +2,19 @@ class Eksctl < Formula
   desc "Simple command-line tool for creating clusters on Amazon EKS"
   homepage "https://eksctl.io"
   url "https://github.com/weaveworks/eksctl.git",
-      tag:      "0.145.0",
-      revision: "7863d0ef2df6ab2c537a3de0496ba9c371014875"
+      tag:      "0.146.0",
+      revision: "5894af8988be4906c78faa48f81412f7be4bb98f"
   license "Apache-2.0"
   head "https://github.com/weaveworks/eksctl.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "80ba0d66aff571ee1b0e4585d0dba024b990138f858e972a7b90d56574993313"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5e993471828aae4a77ab3a1b442e36ef86dd8aeae7fcc779ad79e72016c525cf"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "62aff0be3e0a77f6c06def7ffc058bba90f639dce182ee7d141ef97162168925"
-    sha256 cellar: :any_skip_relocation, ventura:        "f78e0902a41bce149387cb3be407f2afe6282bcfe3ef0f9209f73620466da8d8"
-    sha256 cellar: :any_skip_relocation, monterey:       "bb6e3b1669e6be32c9583363c48b3524c25e6d6ebbd860e27ba6b5bbf8feff12"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3be5672ed78504c30e81e63612ea34d997a7c679d81eb5abe1c38b081f4cdf90"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bb9644a82b0e5eabbd52135e2db57f94d6339dc6eee898d5bdbf838b313574b3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2f6824cd1ba2e8d0c0ae3f3ec3145428d4a930393a5616b4e7dc1991ea568952"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "21cd298de8ac9863430450da920f85c7107b449ef1af4ed1a2677f2850b06660"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ccaa58410a83bf93b0fad1ebbe90bdfde81d695cbbb5a58a250c2c98adabb765"
+    sha256 cellar: :any_skip_relocation, ventura:        "9192ad6ab69436107f1733075e4299896c323216517ddb08cbd2e6d00347e244"
+    sha256 cellar: :any_skip_relocation, monterey:       "4346343a3573005f5352c8f8dd2b316740faffe48a6e57e10a3c398dd038bd34"
+    sha256 cellar: :any_skip_relocation, big_sur:        "64c3420ce44de8c4262cf810b517b27d9f6735eb73155bcd13dffd60a97e35db"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eb29a80498e7af6a0fbe9fe865986d07efbc33c56d2c10589c81a5bc2afc9765"
   end
 
   depends_on "counterfeiter" => :build

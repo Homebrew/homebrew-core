@@ -1,20 +1,19 @@
 class Gauge < Formula
   desc "Test automation tool that supports executable documentation"
   homepage "https://gauge.org"
-  url "https://github.com/getgauge/gauge/archive/v1.5.0.tar.gz"
-  sha256 "133204df58f028bf51cac75a3afc9fdfcb6f4e8046f53e8d7fa0387825d0f054"
+  url "https://github.com/getgauge/gauge/archive/v1.5.1.tar.gz"
+  sha256 "8e8814266b3a38a9fe2141a58882a8216999a23029808c590c8107eb03c7211c"
   license "Apache-2.0"
   head "https://github.com/getgauge/gauge.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2b0574318d0c3e5b86f0e48d4c18b2ff5bac3419f208ee66725fd83dd9beb9a7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d5e15f251272b6c5b55eaa09bd89cca9cb8c6f71d85e80d2444e934f4f30f5ea"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "652872f85e66b596e505969a79a3b76c862161a9e70595276e8a1bc974bb2d07"
-    sha256 cellar: :any_skip_relocation, ventura:        "34e3d4b7abb0d2de76c480a59372628e468787f5892826a8b0283f7d6f1e9783"
-    sha256 cellar: :any_skip_relocation, monterey:       "350ae8644977647faf57912cee7f306bfa0b0d3f4efab800ed330ea0b5a4003d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2207b2686f2ae1d35d100e8ff201a386ce54fe34f09e4935a22156534b8b1967"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d3c14497317c81b2364229d68636a8115bebd92736bdb8224a47f539990463c9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ca75605b11a0e28b84fa0ef8a1788628e9e73693ca5a9aedf0f72018d8a7dd66"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ad93ab13aaf7f53c98394c6734e5bddbcf6407e8d5887d038cbe8edf71db68d7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7349e4d895939c4cd445d4874ce7722d0fac4ba39e017762b86af8a02685be17"
+    sha256 cellar: :any_skip_relocation, ventura:        "22ce13be472c109b7cb15b60171e3ec03bda5875d07025830f71b9ce276532bc"
+    sha256 cellar: :any_skip_relocation, monterey:       "018f4cdb000bb71af0b9b40a455813b291b2ae2aa03f48e712e2249e8590092c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e7e7b44f0569d1555a73dae025168e125387d5ce91f0b93452600a1362f1f222"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ece87fc128173f5052f89ec1e004ae7e77525dbb613b4d2ce77c8966f77d358e"
   end
 
   depends_on "go" => :build

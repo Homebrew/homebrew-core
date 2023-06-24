@@ -1,8 +1,8 @@
 class Gifsicle < Formula
   desc "GIF image/animation creator/editor"
   homepage "https://www.lcdf.org/gifsicle/"
-  url "https://www.lcdf.org/gifsicle/gifsicle-1.93.tar.gz"
-  sha256 "92f67079732bf4c1da087e6ae0905205846e5ac777ba5caa66d12a73aa943447"
+  url "https://www.lcdf.org/gifsicle/gifsicle-1.94.tar.gz"
+  sha256 "4bc97005c0789620de75f89997d3c2f70758c72c61aa0a2ef04f7a671a2ff89b"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,15 +11,13 @@ class Gifsicle < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a217620aa3cf3c906a71e1d4c59e630e50150fa98968a9bf937abc60afb00bd8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1e566d5e1a954201d5adf69c8eceba9c9bb037e8bc84a9fc36afc63b099c5e2e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ad499b676a6a5e433964de6303f658838239c09b69e02ce2db62b6c5ffc1a017"
-    sha256 cellar: :any_skip_relocation, ventura:        "da4a2920c8c761b708e58d9386be92da6a18b57bf9d5215fd0c17e95c7ac98c9"
-    sha256 cellar: :any_skip_relocation, monterey:       "1dd2da2246eef8dcbd3297adc1db453906e22cf08b07e6007b2ba3293eeb3051"
-    sha256 cellar: :any_skip_relocation, big_sur:        "75b269e600f8b3446694828d579f4425cfc1c49142e05441a902cdc48c39e143"
-    sha256 cellar: :any_skip_relocation, catalina:       "88ac00c8f5e523b04db223a555a0094c62e30c05760ed9abcc5d0f3aef676686"
-    sha256 cellar: :any_skip_relocation, mojave:         "383bac8506db87f8b84afc628ceac00fb168f2d1bb062d4aa77f7644e2c21c27"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9b528fa87110fdcb96e4557409a1c4cccc507e9b4d87288f280a0828b874b27e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c105096a7b6e2fe2b8e1e68f33b5fd9fb1439383f92cc9469c00434ae36eaf36"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "dd69deb29df96f9327a72edbac71fc719006787ae8630ff3e7d67ba056187dfe"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e983d19c371eab70ca7dad2fe50067ff5450affd6ce1dc803a972fecd85b9519"
+    sha256 cellar: :any_skip_relocation, ventura:        "3e391689dd86d9910efd00ab6524102285b5c805fba4cdc4e9c4fcc01881adf3"
+    sha256 cellar: :any_skip_relocation, monterey:       "d55bd5ebf7e9ba6c7e59979b881399977e8b504cb89dc5fda8c4b17f61758add"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e8af233917b64be70b99004d42d1781e3d2af4073814cab62d36cc50ca1a68f3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "af1ed4002d85c1a874ba73365cf5f1bccf366bd9a4a5fce7edd01ad5eb7461d8"
   end
 
   head do
