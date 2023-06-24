@@ -5,7 +5,7 @@ class ErlangAT21 < Formula
   url "https://github.com/erlang/otp/releases/download/OTP-21.3.8.24/otp_src_21.3.8.24.tar.gz"
   sha256 "a82de871d7ba40fd256558b23a3b4c1539e6c7ece7507d6eb2b00330c6135012"
   license "Apache-2.0"
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any,                 ventura:      "9a63e37bcd7aa3fb9f20454aece99b5010e8e1f37c9317c1fb862a8bd295028c"
@@ -24,7 +24,7 @@ class ErlangAT21 < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on arch: :x86_64
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "wxwidgets" # for GUI apps like observer
 
   resource "man" do
@@ -61,7 +61,7 @@ class ErlangAT21 < Formula
       --enable-smp-support
       --enable-threads
       --enable-wx
-      --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
+      --with-ssl=#{Formula["openssl@3"].opt_prefix}
       --without-javac
     ]
 
