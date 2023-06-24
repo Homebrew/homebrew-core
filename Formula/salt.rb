@@ -6,7 +6,7 @@ class Salt < Formula
   url "https://files.pythonhosted.org/packages/c1/8b/f21efb024adbb6929cba84040882bf9fd6427fd786dd0596e7e23a9cf717/salt-3005.tar.gz"
   sha256 "1d200c45b88046178ea56fb5a75726dc620cc5e51411076a04df80ff52f79cd4"
   license "Apache-2.0"
-  revision 2
+  revision 3
   head "https://github.com/saltstack/salt.git", branch: "master"
 
   bottle do
@@ -24,7 +24,7 @@ class Salt < Formula
   depends_on "swig" => :build
   depends_on "libgit2"
   depends_on "libyaml"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "python@3.10"
   depends_on "six"
   depends_on "zeromq"
@@ -260,7 +260,7 @@ class Salt < Formula
   end
 
   def install
-    ENV["SWIG_FEATURES"]="-I#{Formula["openssl@1.1"].opt_include}"
+    ENV["SWIG_FEATURES"]="-I#{Formula["openssl@3"].opt_include}"
 
     virtualenv_install_with_resources
 
