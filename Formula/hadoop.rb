@@ -5,6 +5,7 @@ class Hadoop < Formula
   mirror "https://archive.apache.org/dist/hadoop/common/hadoop-3.3.4/hadoop-3.3.4.tar.gz"
   sha256 "6a483d1a0b123490ebd8df3f71b64eb39f333f78b95f090aeb58e433cbc2416d"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     rebuild 3
@@ -19,6 +20,7 @@ class Hadoop < Formula
 
   # WARNING: Check https://cwiki.apache.org/confluence/display/HADOOP/Hadoop+Java+Versions before updating JDK version
   depends_on "openjdk@11"
+  depends_on "openssl@3"
 
   conflicts_with "corepack", because: "both install `yarn` binaries"
   conflicts_with "yarn", because: "both install `yarn` binaries"
