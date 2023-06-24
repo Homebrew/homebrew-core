@@ -4,7 +4,7 @@ class Root < Formula
   url "https://root.cern.ch/download/root_v6.26.06.source.tar.gz"
   sha256 "b1f73c976a580a5c56c8c8a0152582a1dfc560b4dd80e1b7545237b65e6c89cb"
   license "LGPL-2.1-or-later"
-  revision 2
+  revision 3
   head "https://github.com/root-project/root.git", branch: "master"
 
   livecheck do
@@ -39,7 +39,7 @@ class Root < Formula
   depends_on "mysql-client"
   depends_on "numpy" # for tmva
   depends_on "openblas"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pcre"
   depends_on "python@3.10"
   depends_on "sqlite"
@@ -65,7 +65,8 @@ class Root < Formula
   def install
     python = Formula["python@3.10"].opt_bin/"python3.10"
 
-    ENV.append "LDFLAGS", "-Wl,-rpath,#{lib}/root"
+    ENV["SDKROOT"] = ENV["HOMEBREW_SDKROOT"]
+    ENV.append "LDFLAGS", "-Wl,-rpath,#{rpath(target: lib/"root")}"
 
     inreplace "cmake/modules/SearchInstalledSoftware.cmake" do |s|
       # Enforce secure downloads of vendored dependencies. These are
