@@ -1,8 +1,8 @@
 class Fb303 < Formula
   desc "Thrift functions for querying information from a service"
   homepage "https://github.com/facebook/fb303"
-  url "https://github.com/facebook/fb303/archive/refs/tags/v2023.06.12.00.tar.gz"
-  sha256 "f9cdc2f6631e09707ed5f9afe8b3b9acb94b9a3c04dc896d7570a07290024292"
+  url "https://github.com/facebook/fb303/archive/refs/tags/v2023.06.26.00.tar.gz"
+  sha256 "416103e9e4188c84e1d47fe65d79e2ab5fdc56df908c6b0e12803389871518a9"
   license "Apache-2.0"
   head "https://github.com/facebook/fb303.git", branch: "main"
 
@@ -23,7 +23,7 @@ class Fb303 < Formula
   depends_on "folly"
   depends_on "gflags"
   depends_on "glog"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "wangle"
 
   fails_with gcc: "5" # C++17
@@ -56,7 +56,7 @@ class Fb303 < Formula
 
     ENV.append "CXXFLAGS", "-std=c++17"
     system ENV.cxx, *ENV.cxxflags.split, "test.cpp", "-o", "test",
-                    "-I#{include}", "-I#{Formula["openssl@1.1"].opt_include}",
+                    "-I#{include}", "-I#{Formula["openssl@3"].opt_include}",
                     "-L#{lib}", "-lfb303_thrift_cpp",
                     "-L#{Formula["folly"].opt_lib}", "-lfolly",
                     "-L#{Formula["glog"].opt_lib}", "-lglog",
