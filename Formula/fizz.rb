@@ -1,20 +1,10 @@
 class Fizz < Formula
   desc "C++14 implementation of the TLS-1.3 standard"
   homepage "https://github.com/facebookincubator/fizz"
+  url "https://github.com/facebookincubator/fizz/releases/download/v2023.06.26.00/fizz-v2023.06.26.00.tar.gz"
+  sha256 "e7e53634bfa277b65503bfb21947d09aedde0470124f68ed6782126f943bbdb6"
   license "BSD-3-Clause"
   head "https://github.com/facebookincubator/fizz.git", branch: "main"
-
-  # Remove stable block when the patch is no longer needed.
-  stable do
-    url "https://github.com/facebookincubator/fizz/releases/download/v2023.06.12.00/fizz-v2023.06.12.00.tar.gz"
-    sha256 "609f053d3b0cd1d1f1ff83852af29e812de66aff2b488e5697f744e4c6f7040d"
-
-    # Fix build failure. Remove in next release.
-    patch do
-      url "https://github.com/facebookincubator/fizz/commit/0dc415e2e7dade586b445946a939d4f8ff15e8d2.patch?full_index=1"
-      sha256 "8d75a960bd1087ed776842fb539f87ec38ed2bad9d18aaea01231172c2386c45"
-    end
-  end
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "2014c9349557f0b3acec6022e1b1afbca56f27208c68d7ce66f58506b54a62d2"
@@ -36,7 +26,7 @@ class Fizz < Formula
   depends_on "libevent"
   depends_on "libsodium"
   depends_on "lz4"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "snappy"
   depends_on "zstd"
 
@@ -64,14 +54,14 @@ class Fizz < Formula
     EOS
     system ENV.cxx, "-std=c++14", "test.cpp", "-o", "test",
                     "-I#{include}",
-                    "-I#{Formula["openssl@1.1"].opt_include}",
+                    "-I#{Formula["openssl@3"].opt_include}",
                     "-L#{lib}", "-lfizz",
                     "-L#{Formula["folly"].opt_lib}", "-lfolly",
                     "-L#{Formula["gflags"].opt_lib}", "-lgflags",
                     "-L#{Formula["glog"].opt_lib}", "-lglog",
                     "-L#{Formula["libevent"].opt_lib}", "-levent",
                     "-L#{Formula["libsodium"].opt_lib}", "-lsodium",
-                    "-L#{Formula["openssl@1.1"].opt_lib}", "-lcrypto", "-lssl"
+                    "-L#{Formula["openssl@3"].opt_lib}", "-lcrypto", "-lssl"
     assert_match "TLS", shell_output("./test")
   end
 end
