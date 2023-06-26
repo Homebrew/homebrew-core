@@ -1,8 +1,8 @@
 class Folly < Formula
   desc "Collection of reusable C++ library artifacts developed at Facebook"
   homepage "https://github.com/facebook/folly"
-  url "https://github.com/facebook/folly/archive/refs/tags/v2023.06.12.00.tar.gz"
-  sha256 "cb7d075f5610dcc50084d727ee675daad51733b049f0b07cc112b160e468599d"
+  url "https://github.com/facebook/folly/archive/refs/tags/v2023.06.26.00.tar.gz"
+  sha256 "e7b58bf4eda24e2069b301e27533deb7c171dac57925cb90fe344595522772f3"
   license "Apache-2.0"
   head "https://github.com/facebook/folly.git", branch: "main"
 
@@ -25,7 +25,7 @@ class Folly < Formula
   depends_on "glog"
   depends_on "libevent"
   depends_on "lz4"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "snappy"
   depends_on "xz"
   depends_on "zstd"
