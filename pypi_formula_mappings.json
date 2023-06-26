@@ -218,6 +218,9 @@
   "datasette": {
     "exclude_packages": ["six", "PyYAML", "typing-extensions"]
   },
+  "ddev": {
+    "exclude_packages": ["black", "Cython", "ipython", "pillow", "Pygments", "PyYAML", "six", "typing-extensions", "virtualenv"]
+  },
   "detect-secrets": {
     "exclude_packages": ["PyYAML"]
   },
