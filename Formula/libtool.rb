@@ -5,6 +5,7 @@ class Libtool < Formula
   mirror "https://ftpmirror.gnu.org/libtool/libtool-2.4.7.tar.xz"
   sha256 "4f7f217f057ce655ff22559ad221a0fd8ef84ad1fc5fcb6990cecc333aa1635d"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "924534e0a6c2f0562d3b6d033be241bfb0554211103daa14c46790803b9a8b9e"
