@@ -1,10 +1,10 @@
 class Wangle < Formula
   desc "Modular, composable client/server abstractions framework"
   homepage "https://github.com/facebook/wangle"
-  url "https://github.com/facebook/wangle/releases/download/v2023.06.12.00/wangle-v2023.06.12.00.tar.gz"
-  sha256 "ad9225e810967f023af93376cc8484f66c0a7a0a9687f47e07a1ea7bef2662a1"
+  url "https://github.com/facebook/wangle/releases/download/v2023.06.26.00/wangle-v2023.06.26.00.tar.gz"
+  sha256 "9a5d83874c36d4937fe711d210fbcf8a92ad45d21dda0e21e7613183f1082257"
   license "Apache-2.0"
-  head "https://github.com/facebook/wangle.git", branch: "master"
+  head "https://github.com/facebook/wangle.git", branch: "main"
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "5b476bc5208a738c8b2d4722aa9832a0b311adbdd49f2cf1fa0cc140dc89af0f"
@@ -27,7 +27,7 @@ class Wangle < Formula
   depends_on "libevent"
   depends_on "libsodium"
   depends_on "lz4"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "snappy"
   depends_on "zstd"
 
@@ -53,7 +53,7 @@ class Wangle < Formula
     cxx_flags = %W[
       -std=c++17
       -I#{include}
-      -I#{Formula["openssl@1.1"].opt_include}
+      -I#{Formula["openssl@3"].opt_include}
       -L#{Formula["gflags"].opt_lib}
       -L#{Formula["glog"].opt_lib}
       -L#{Formula["folly"].opt_lib}
