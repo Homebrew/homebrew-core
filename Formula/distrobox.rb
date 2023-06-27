@@ -11,6 +11,7 @@ class Distrobox < Formula
   end
 
   depends_on :linux
+  depends_on "podman"
 
   def install
     system "./install", "--prefix", prefix
@@ -18,5 +19,6 @@ class Distrobox < Formula
 
   test do
     system bin/"distrobox-create", "--dry-run"
+    system bin/"distrobox", "ls"
   end
 end
