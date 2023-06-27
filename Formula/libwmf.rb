@@ -1,10 +1,9 @@
 class Libwmf < Formula
   desc "Library for converting WMF (Window Metafile Format) files"
-  homepage "https://wvware.sourceforge.io/libwmf.html"
-  url "https://downloads.sourceforge.net/project/wvware/libwmf/0.2.8.4/libwmf-0.2.8.4.tar.gz"
-  sha256 "5b345c69220545d003ad52bfd035d5d6f4f075e65204114a9e875e84895a7cf8"
-  license "LGPL-2.1-only" # http://wvware.sourceforge.net/libwmf.html#download
-  revision 3
+  homepage "https://github.com/caolanm/libwmf"
+  url "https://github.com/caolanm/libwmf/archive/refs/tags/v0.2.13.tar.gz"
+  sha256 "18ba69febd2f515d98a2352de284a8051896062ac9728d2ead07bc39ea75a068"
+  license "LGPL-2.0-or-later" # http://wvware.sourceforge.net/libwmf.html#download
 
   livecheck do
     url :stable
@@ -24,17 +23,54 @@ class Libwmf < Formula
 
   depends_on "pkg-config" => :build
   depends_on "freetype"
-  depends_on "gd"
   depends_on "jpeg-turbo"
   depends_on "libpng"
+  depends_on "libx11"
+
+  uses_from_macos "expat"
+  uses_from_macos "zlib"
+
+  # Fix macOS compile.
+  # https://github.com/caolanm/libwmf/pull/9
+  patch :DATA
 
   def install
     system "./configure", *std_configure_args,
                           "--with-png=#{Formula["libpng"].opt_prefix}",
                           "--with-freetype=#{Formula["freetype"].opt_prefix}",
-                          "--with-jpeg=#{Formula["jpeg-turbo"].opt_prefix}"
+                          "--with-jpeg=#{Formula["jpeg-turbo"].opt_prefix}",
+                          "--with-gs-fontdir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts",
+                          "--with-expat=yes"
     system "make"
-    ENV.deparallelize # yet another rubbish Makefile
     system "make", "install"
+    pkgshare.install "examples"
+  end
+
+  test do
+    assert_includes shell_output("#{bin}/wmf2svg #{pkgshare}/examples/formula1.wmf"), ">D</text>"
   end
 end
+
+__END__
+diff --git a/src/extra/gd/gd.c b/src/extra/gd/gd.c
+index dc6a9a7..a3395d6 100644
+--- a/src/extra/gd/gd.c
++++ b/src/extra/gd/gd.c
+@@ -1,4 +1,5 @@
+ #include <stdio.h>
++#include <limits.h>
+ #include <math.h>
+ #include <string.h>
+ #include <stdlib.h>
+diff --git a/src/extra/gd/gd_gd2.c b/src/extra/gd/gd_gd2.c
+index 05d8dcb..e5c5d32 100644
+--- a/src/extra/gd/gd_gd2.c
++++ b/src/extra/gd/gd_gd2.c
+@@ -12,6 +12,7 @@
+ 
+ #include <stdio.h>
+ #include <errno.h>
++#include <limits.h>
+ #include <math.h>
+ #include <string.h>
+ #include <stdlib.h>
