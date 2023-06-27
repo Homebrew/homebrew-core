@@ -68,13 +68,9 @@ class Openssh < Formula
       # Ensure sandbox profile prefix is correct.
       # We introduce this issue with patching, it's not an upstream bug.
       inreplace "sandbox-darwin.c", "@PREFIX@/share/openssh", etc/"ssh"
-
-      # FIXME: `ssh-keygen` errors out when this is built with optimisation.
-      # Reported upstream at https://bugzilla.mindrot.org/show_bug.cgi?id=3584
-      ENV.O0 if Hardware::CPU.intel? && MacOS.version == :ventura && version == Version.new("9.3p1")
     end
 
-    args = *std_configure_args + %W[
+    args = %W[
       --sysconfdir=#{etc}/ssh
       --with-ldns
       --with-libedit
@@ -84,9 +80,16 @@ class Openssh < Formula
       --with-security-key-builtin
     ]
 
-    args << "--with-privsep-path=#{var}/lib/sshd" if OS.linux?
+    args << if OS.mac? && Hardware::CPU.intel? && MacOS.version == :ventura
+      odie "Check if Intel Ventura workaround is still needed!" if version > "9.3p1"
+      # FIXME: `ssh-keygen` segfaults when built with `-Os`.
+      # Reported upstream at https://bugzilla.mindrot.org/show_bug.cgi?id=3584
+      "--without-hardening"
+    elsif OS.linux?
+      "--with-privsep-path=#{var}/lib/sshd"
+    end
 
-    system "./configure", *args
+    system "./configure", *args, *std_configure_args
     system "make"
     ENV.deparallelize
     system "make", "install"
