@@ -4,7 +4,6 @@ class Libmediainfo < Formula
   url "https://mediaarea.net/download/source/libmediainfo/23.06/libmediainfo_23.06.tar.xz"
   sha256 "c6b1ae8b2bbcf403340518b3c94f2ae75c8eb00682bfbbd18b22442e42dccfcd"
   license "BSD-2-Clause"
-  revision 1
   head "https://github.com/MediaArea/MediaInfoLib.git", branch: "master"
 
   bottle do
