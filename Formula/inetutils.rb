@@ -5,6 +5,7 @@ class Inetutils < Formula
   mirror "https://ftpmirror.gnu.org/inetutils/inetutils-2.4.tar.xz"
   sha256 "1789d6b1b1a57dfe2a7ab7b533ee9f5dfd9cbf5b59bb1bb3c2612ed08d0f68b2"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_ventura:  "872275661200b6f4372aee795840075b23dd2c4862ded07f4000d706ba37409e"
@@ -78,7 +79,6 @@ class Inetutils < Formula
       (libexec/"gnubin").install_symlink bin/"g#{cmd}" => cmd
       (libexec/"gnuman"/"man1").install_symlink man1/"g#{cmd}.1" => "#{cmd}.1"
     end
-    libexec.install_symlink "gnuman" => "man"
 
     no_conflict -= linux_conflicts if OS.linux?
     # Symlink binaries that are not shadowing macOS utils or are
@@ -87,34 +87,32 @@ class Inetutils < Formula
       bin.install_symlink "g#{cmd}" => cmd
       man1.install_symlink "g#{cmd}.1" => "#{cmd}.1"
     end
+
+    if OS.mac?
+      libexec.install_symlink "gnubin" => "bin"
+      libexec.install_symlink "gnuman" => "man"
+    end
   end
 
   def caveats
-    s = ""
-    on_macos do
-      s += <<~EOS
-        Only the following commands have been installed without the prefix 'g'.
-
-            #{noshadow.sort.join("\n    ")}
-
-        If you really need to use other commands with their normal names,
-      EOS
-    end
+    cmds = noshadow
+    bin_path = "bin"
+    bin_desc = "libexec/bin"
     on_linux do
-      s += <<~EOS
-        The following commands have been installed with the prefix 'g'.
-
-            #{linux_conflicts.sort.join("\n    ")}
-
-        If you really need to use these commands with their normal names,
-      EOS
+      cmds = linux_conflicts
+      bin_path = "gnubin"
+      bin_desc = "gnubin"
     end
-    s += <<~EOS
-      you can add a "gnubin" directory to your PATH from your bashrc like:
+    <<~EOS
+      Only the following commands have been installed without the prefix 'g'.
 
-          PATH="#{opt_libexec}/gnubin:$PATH"
+          #{cmds.sort.join("\n    ")}
+
+      If you really need to use other commands with their normal names,
+      you can add a "#{bin_desc}" directory to your PATH from your bashrc like:
+
+          PATH="#{opt_libexec}/#{bin_path}:$PATH"
     EOS
-    s
   end
 
   test do
