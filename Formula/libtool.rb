@@ -5,6 +5,7 @@ class Libtool < Formula
   mirror "https://ftpmirror.gnu.org/libtool/libtool-2.4.7.tar.xz"
   sha256 "4f7f217f057ce655ff22559ad221a0fd8ef84ad1fc5fcb6990cecc333aa1635d"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     rebuild 1
@@ -36,6 +37,8 @@ class Libtool < Formula
         (libexec/"gnubin").install_symlink bin/"g#{prog}" => prog
         (libexec/"gnuman/man1").install_symlink man1/"g#{prog}.1" => "#{prog}.1"
       end
+
+      libexec.install_symlink "gnubin" => "bin"
       libexec.install_symlink "gnuman" => "man"
     end
 
@@ -53,8 +56,8 @@ class Libtool < Formula
       <<~EOS
         All commands have been installed with the prefix "g".
         If you need to use these commands with their normal names, you
-        can add a "gnubin" directory to your PATH from your bashrc like:
-          PATH="#{opt_libexec}/gnubin:$PATH"
+        can add a "libexec/bin" directory to your PATH from your bashrc like:
+          PATH="#{opt_libexec}/bin:$PATH"
       EOS
     end
   end
