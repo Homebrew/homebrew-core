@@ -5,6 +5,7 @@ class Make < Formula
   mirror "https://ftpmirror.gnu.org/make/make-4.4.1.tar.lz"
   sha256 "8814ba072182b605d156d7589c19a43b89fc58ea479b9355146160946f8cf6e9"
   license "GPL-3.0-only"
+  revision 1
 
   bottle do
     sha256 arm64_ventura:  "23e26446ffdefd2b7fe44c559e11ab6bc127abd32233847f4e73bb3de87d98c6"
@@ -29,19 +30,20 @@ class Make < Formula
     if OS.mac?
       (libexec/"gnubin").install_symlink bin/"gmake" =>"make"
       (libexec/"gnuman/man1").install_symlink man1/"gmake.1" => "make.1"
-    end
 
-    libexec.install_symlink "gnuman" => "man"
+      libexec.install_symlink "gnubin" => "bin"
+      libexec.install_symlink "gnuman" => "man"
+    end
   end
 
   def caveats
     on_macos do
       <<~EOS
         GNU "make" has been installed as "gmake".
-        If you need to use it as "make", you can add a "gnubin" directory
+        If you need to use it as "make", you can add a "libexec/bin" directory
         to your PATH from your bashrc like:
 
-            PATH="#{opt_libexec}/gnubin:$PATH"
+            PATH="#{opt_libexec}/bin:$PATH"
       EOS
     end
   end
