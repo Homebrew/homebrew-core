@@ -5,6 +5,7 @@ class Grep < Formula
   mirror "https://ftpmirror.gnu.org/grep/grep-3.11.tar.xz"
   sha256 "1db2aedde89d0dea42b16d9528f894c8d15dae4e190b59aecc78f5a951276eab"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "9c67868f89e03cc3ad77d4bf39c0593cf7c59d453ad8224e9c7007b800642f53"
@@ -53,9 +54,10 @@ class Grep < Formula
         (libexec/"gnubin").install_symlink bin/"g#{prog}" => prog
         (libexec/"gnuman/man1").install_symlink man1/"g#{prog}.1" => "#{prog}.1"
       end
-    end
 
-    libexec.install_symlink "gnuman" => "man"
+      libexec.install_symlink "gnubin" => "bin"
+      libexec.install_symlink "gnuman" => "man"
+    end
   end
 
   def caveats
@@ -63,8 +65,8 @@ class Grep < Formula
       <<~EOS
         All commands have been installed with the prefix "g".
         If you need to use these commands with their normal names, you
-        can add a "gnubin" directory to your PATH from your bashrc like:
-          PATH="#{opt_libexec}/gnubin:$PATH"
+        can add a "libexec/bin" directory to your PATH from your bashrc like:
+          PATH="#{opt_libexec}/bin:$PATH"
       EOS
     end
   end
