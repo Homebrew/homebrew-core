@@ -6,6 +6,7 @@ class GnuWhich < Formula
   mirror "https://ftpmirror.gnu.org/which/which-2.21.tar.gz"
   sha256 "f4a245b94124b377d8b49646bf421f9155d36aa7614b6ebf83705d3ffc76eaad"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     rebuild 3
@@ -35,19 +36,20 @@ class GnuWhich < Formula
     if OS.mac?
       (libexec/"gnubin").install_symlink bin/"gwhich" => "which"
       (libexec/"gnuman/man1").install_symlink man1/"gwhich.1" => "which.1"
-    end
 
-    libexec.install_symlink "gnuman" => "man"
+      libexec.install_symlink "gnubin" => "bin"
+      libexec.install_symlink "gnuman" => "man"
+    end
   end
 
   def caveats
     on_macos do
       <<~EOS
         GNU "which" has been installed as "gwhich".
-        If you need to use it as "which", you can add a "gnubin" directory
+        If you need to use it as "which", you can add a "libexec/bin" directory
         to your PATH from your bashrc like:
 
-            PATH="#{opt_libexec}/gnubin:$PATH"
+            PATH="#{opt_libexec}/bin:$PATH"
       EOS
     end
   end
