@@ -5,6 +5,7 @@ class Coreutils < Formula
   mirror "https://ftpmirror.gnu.org/coreutils/coreutils-9.3.tar.xz"
   sha256 "adbcfcfe899235b71e8768dcf07cd532520b7f54f9a8064843f8d199a904bbaa"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_ventura:  "cbc188426bc245864378bb96620243cfade681ebb64beb9149717bcb04a55b0a"
@@ -86,7 +87,6 @@ class Coreutils < Formula
     coreutils_filenames(man1).each do |cmd|
       (libexec/"gnuman"/"man1").install_symlink man1/"g#{cmd}" => cmd
     end
-    libexec.install_symlink "gnuman" => "man"
 
     no_conflict -= breaks_macos_users if OS.mac?
     # Symlink non-conflicting binaries
@@ -94,17 +94,26 @@ class Coreutils < Formula
       bin.install_symlink "g#{cmd}" => cmd
       man1.install_symlink "g#{cmd}.1" => "#{cmd}.1"
     end
+
+    if OS.mac?
+      libexec.install_symlink "gnubin" => "bin"
+      libexec.install_symlink "gnuman" => "man"
+    end
   end
 
   def caveats
     msg = "Commands also provided by macOS and the commands #{breaks_macos_users.join(", ")}"
+    bin_path = "bin"
+    bin_desc = "libexec/bin"
     on_linux do
       msg = "All commands"
+      bin_path = "gnubin"
+      bin_desc = "gnubin"
     end
     <<~EOS
       #{msg} have been installed with the prefix "g".
-      If you need to use these commands with their normal names, you can add a "gnubin" directory to your PATH with:
-        PATH="#{opt_libexec}/gnubin:$PATH"
+      If you need to use these commands with their normal names, you can add a "#{bin_desc}" directory to your PATH with:
+        PATH="#{opt_libexec}/#{bin_path}:$PATH"
     EOS
   end
 
