@@ -5,6 +5,7 @@ class GnuSed < Formula
   mirror "https://ftpmirror.gnu.org/sed/sed-4.9.tar.xz"
   sha256 "6e226b732e1cd739464ad6862bd1a1aba42d7982922da7a53519631d24975181"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5abaf39c16d02125db97d14cd36a96cf1a20a87821199cb38a55134fd4e0aaef"
@@ -36,19 +37,20 @@ class GnuSed < Formula
     if OS.mac?
       (libexec/"gnubin").install_symlink bin/"gsed" =>"sed"
       (libexec/"gnuman/man1").install_symlink man1/"gsed.1" => "sed.1"
-    end
 
-    libexec.install_symlink "gnuman" => "man"
+      libexec.install_symlink "gnubin" => "bin"
+      libexec.install_symlink "gnuman" => "man"
+    end
   end
 
   def caveats
     on_macos do
       <<~EOS
         GNU "sed" has been installed as "gsed".
-        If you need to use it as "sed", you can add a "gnubin" directory
+        If you need to use it as "sed", you can add a "libexec/bin" directory
         to your PATH from your bashrc like:
 
-            PATH="#{opt_libexec}/gnubin:$PATH"
+            PATH="#{opt_libexec}/bin:$PATH"
       EOS
     end
   end
