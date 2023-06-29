@@ -5,6 +5,7 @@ class GnuUnits < Formula
   mirror "https://ftpmirror.gnu.org/units/units-2.22.tar.gz"
   sha256 "5d13e1207721fe7726d906ba1d92dc0eddaa9fc26759ed22e3b8d1a793125848"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_ventura:  "513874dc0676da8124c51c057b940752ed76663c6d290c11b33fc7767a84b2cb"
@@ -33,8 +34,10 @@ class GnuUnits < Formula
       (libexec/"gnubin").install_symlink bin/"gunits" => "units"
       (libexec/"gnubin").install_symlink bin/"gunits_cur" => "units_cur"
       (libexec/"gnuman/man1").install_symlink man1/"gunits.1" => "units.1"
+
+      libexec.install_symlink "gnubin" => "bin"
+      libexec.install_symlink "gnuman" => "man"
     end
-    libexec.install_symlink "gnuman" => "man"
   end
 
   def caveats
@@ -42,8 +45,8 @@ class GnuUnits < Formula
       <<~EOS
         All commands have been installed with the prefix "g".
         If you need to use these commands with their normal names, you
-        can add a "gnubin" directory to your PATH from your bashrc like:
-          PATH="#{opt_libexec}/gnubin:$PATH"
+        can add a "libexec/bin" directory to your PATH from your bashrc like:
+          PATH="#{opt_libexec}/bin:$PATH"
       EOS
     end
   end
