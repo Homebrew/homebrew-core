@@ -18,7 +18,7 @@ class Cacli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9bf9422e0ae9c895130c789b2261af291f1cb4126c72a299bb2c850ecc6266fc"
   end
 
-  deprecate! date: "2022-03-16", because: :unsupported
+  disable! date: "2023-06-19", because: :unsupported
 
   depends_on "go@1.17" => :build
 

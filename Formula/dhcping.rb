@@ -29,4 +29,9 @@ class Dhcping < Formula
     system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
     system "make", "install"
   end
+
+  test do
+    output = shell_output("#{bin}/dhcping -c 10.0.0.2 -s 10.0.0.1 -h 34:e6:d7:0f:a9:83", 1)
+    assert_match "This program should only be ran by root or be installed as setuid root.", output
+  end
 end

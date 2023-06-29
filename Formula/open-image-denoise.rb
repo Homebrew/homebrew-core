@@ -1,18 +1,18 @@
 class OpenImageDenoise < Formula
   desc "High-performance denoising library for ray tracing"
   homepage "https://openimagedenoise.github.io"
-  url "https://github.com/OpenImageDenoise/oidn/releases/download/v2.0.0/oidn-2.0.0.src.tar.gz"
-  sha256 "7860c79e3768c79f158c9ca05cea7d3d0f4be1241a0b11e254cb9372934c37ed"
+  url "https://github.com/OpenImageDenoise/oidn/releases/download/v2.0.1/oidn-2.0.1.src.tar.gz"
+  sha256 "328eeb9809d18e835dca7203224af3748578794784c026940c02eea09c695b90"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "9d0eba5add7290aefaf12c7e1413fd95fdebf5d58eb9122e6854ba95dd60b60e"
-    sha256 cellar: :any,                 arm64_monterey: "31f06fee0d1bdf5dc0b3e68758cd86590e717af28821ee893b26d077a8cd231f"
-    sha256 cellar: :any,                 arm64_big_sur:  "67d8b9d6275175ed6688842c0a5b9fd191743df77df296bc5609546c6848d061"
-    sha256 cellar: :any,                 ventura:        "0ae0862c72500054ba3e5cc32dadaed3f78361deca3fc05b3cdf191b28b4f2fc"
-    sha256 cellar: :any,                 monterey:       "c10a342699068d99ccf8a41fc883668dc91646477925056d4b747a6df27aaa97"
-    sha256 cellar: :any,                 big_sur:        "e30cb9e9071291f9cbb03872c1a6e60be4c8d7a7440990c60b8e38248760e2a5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f646d5c303116234d8a01165bcfc3ddfcbb4e6327dc5a3026c4422a5a10d6abf"
+    sha256 cellar: :any,                 arm64_ventura:  "bdaf6403a929f235b0ff6da19baba1c951ac94e8cbf9ba09a0394a7ef322ee24"
+    sha256 cellar: :any,                 arm64_monterey: "ea08619a2c5659543660997d7bcf3f39e94d34b4ad6b4dfefd0a8a94922a97af"
+    sha256 cellar: :any,                 arm64_big_sur:  "35736aee28ab714cf7709dc2c537db39d05ebd77e223718224f222466ef057b7"
+    sha256 cellar: :any,                 ventura:        "e1d90b853cc0b39eb5e7b4bda9a2a6dcfd10a07691583bfd371e9968fcc63b73"
+    sha256 cellar: :any,                 monterey:       "7ac3e7ef40abca3755ff98de4de0b8da25ce17526da61f4ed21682e1a601d992"
+    sha256 cellar: :any,                 big_sur:        "24c6e0b8efbdd9b888c2190ba1d1380c40002957993d10bd8bf2362552f0aa12"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5fae9536588c4cc4d1528bf42df82faaf756d3230690d6b51444a23b01083551"
   end
 
   depends_on "cmake" => :build

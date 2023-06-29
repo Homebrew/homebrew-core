@@ -6,24 +6,24 @@ class Localstack < Formula
   url "https://files.pythonhosted.org/packages/f0/54/7266381dd6404021a73cb4d3b80f75116622ef01a9ee8f970524ff7039f0/localstack-2.1.0.tar.gz"
   sha256 "49213fa70ebcd9c9d40414a89c2cd5d0fe9a9a8e8e24cc6c9e917bdfbebe464c"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "f801083f140953fb704a1b02b8fb682e2832dec71d1fc2516fa082268b8f740b"
-    sha256 cellar: :any,                 arm64_monterey: "9c1e0a9df7859a60034fdde06c30b23cdf2705667aed549cf1e5ba7c279e1755"
-    sha256 cellar: :any,                 arm64_big_sur:  "dca9eab3b5e37869ce2ce68e41d1464c5de007393e0029ab7a5ee0b704e410e3"
-    sha256 cellar: :any,                 ventura:        "0ac6e6ad93c1b15da0aebc75600a670fef0b9530a7d5c4190df09ee08a7887a9"
-    sha256 cellar: :any,                 monterey:       "e22fa5ccea6e4a3af4a78655d5f416f6b889d9abbfeb039b38cd40edf6fd0e06"
-    sha256 cellar: :any,                 big_sur:        "5fdee76d326d97eff390e8196c6307f1dbbd85c27fc55223254966792fe41732"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "79c9b4ca76838c98a2ec2218f17694d3bc9563fe3ac24a4ba37d058a1e5785b1"
+    sha256 cellar: :any,                 arm64_ventura:  "a642bc4ebe21563ba5cc0947013021a06eb43706d84027b1ea7d554ac0523752"
+    sha256 cellar: :any,                 arm64_monterey: "41283aee5c4687e7d6fc43279461a1b96efe6a353f74b9ec89e9f6264996ee2f"
+    sha256 cellar: :any,                 arm64_big_sur:  "c6100a94004db9a0b44519bb7319c71911b44da179325a8348e987ff5b79e725"
+    sha256 cellar: :any,                 ventura:        "fbaf26f78d45c8bac262f7f667c1f9fc25ac20ede4758f75617b82b6f4ada289"
+    sha256 cellar: :any,                 monterey:       "cbfe755584c9bd4226b109a2b25de7a70af8f452803898d57ae6d36cf9794680"
+    sha256 cellar: :any,                 big_sur:        "fb38d28a45e849956975500aa3d8ca337629992ccd92f96fd54f347fe463cbf1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "413508d6fb95d6416d655ae1fc309d7738a1374f41ad33cd5aa59c82f10b210d"
   end
 
-  # `pkg-config`, `rust`, and `openssl@1.1` are for cryptography.
+  # `pkg-config`, `rust`, and `openssl@3` are for cryptography.
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "docker" => :test
   depends_on "cffi"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pycparser"
   depends_on "pygments"
   depends_on "python-tabulate"
@@ -173,7 +173,7 @@ class Localstack < Formula
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.
-    ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
+    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
     ENV["OPENSSL_NO_VENDOR"] = "1"
 
     virtualenv_install_with_resources

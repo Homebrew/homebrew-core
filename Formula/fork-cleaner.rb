@@ -1,28 +1,24 @@
 class ForkCleaner < Formula
   desc "Cleans up old and inactive forks on your GitHub account"
   homepage "https://github.com/caarlos0/fork-cleaner"
-  url "https://github.com/caarlos0/fork-cleaner/archive/v2.2.1.tar.gz"
-  sha256 "24397ec0ad89738aee48b77e80033a2e763941e67e67b673b6ff86ab04367283"
+  url "https://github.com/caarlos0/fork-cleaner/archive/v2.3.0.tar.gz"
+  sha256 "66e19adee6e1120e084ea3e5631842207a7c3177d7292b97cbdc2643c2f284df"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3bde0e2723b9702064f844e1041af6bb5817461d070279349f974946b93b3d82"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7bb9884000c308e93182a1a3fd85f5763085e2dcfce62a33ae123bc06fdda42d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "83f76a38e1962eeb871e00a3171791e70af5f3f0ab5d134fa6437b875f577bc6"
-    sha256 cellar: :any_skip_relocation, ventura:        "f4311b35b368af916f35d4f5536a803d240847b1ee09c0c0cbbfb2257e0c7458"
-    sha256 cellar: :any_skip_relocation, monterey:       "fadca52e9366303de45eb299a8d79b7032d77216eccae4a575dc866c5be7ba35"
-    sha256 cellar: :any_skip_relocation, big_sur:        "4d89ad868b65bb6375a39376ff4470e435df3250d5b6295d7c27040814bf9876"
-    sha256 cellar: :any_skip_relocation, catalina:       "5f369eaafb9f81888458504d90b0cb5a3f6f822c3617168031c183310350a579"
-    sha256 cellar: :any_skip_relocation, mojave:         "48a456d3a6483c5b4b5200c5e08d2e3093ae7dc4adf265d56042a80f35f19da3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c4a4d8ca76c6c6f33697a07a3486f9518f782c6b841789fb8e641ee0edf204c0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bf3900e65f1f05650e054e01bd16c14d750158eae9e4281ec93c35337e7baff8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "bf3900e65f1f05650e054e01bd16c14d750158eae9e4281ec93c35337e7baff8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bf3900e65f1f05650e054e01bd16c14d750158eae9e4281ec93c35337e7baff8"
+    sha256 cellar: :any_skip_relocation, ventura:        "b77141019e89422926351eea9395ae80fa4d5b4fe972f2c9d9226b0ead392c52"
+    sha256 cellar: :any_skip_relocation, monterey:       "b77141019e89422926351eea9395ae80fa4d5b4fe972f2c9d9226b0ead392c52"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b77141019e89422926351eea9395ae80fa4d5b4fe972f2c9d9226b0ead392c52"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5ebfe8c10c7fe8fc734f7ccda5bded62741879ad3a8ad0000da779a9ba0671d4"
   end
 
   depends_on "go" => :build
 
   def install
-    system "make"
-    bin.install "fork-cleaner"
-    prefix.install_metafiles
+    system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}"), "./cmd/fork-cleaner"
   end
 
   test do

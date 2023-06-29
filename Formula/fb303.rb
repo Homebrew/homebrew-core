@@ -1,19 +1,19 @@
 class Fb303 < Formula
   desc "Thrift functions for querying information from a service"
   homepage "https://github.com/facebook/fb303"
-  url "https://github.com/facebook/fb303/archive/refs/tags/v2023.05.22.00.tar.gz"
-  sha256 "6d4f4ae4534c2a15c05410d4925e764db9c3321fed39abc78b6a728a6c1a9aca"
+  url "https://github.com/facebook/fb303/archive/refs/tags/v2023.06.26.00.tar.gz"
+  sha256 "416103e9e4188c84e1d47fe65d79e2ab5fdc56df908c6b0e12803389871518a9"
   license "Apache-2.0"
   head "https://github.com/facebook/fb303.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "e925ca22ab0859e79e6b21a07f04f672638d351715abebf5373095611341c95d"
-    sha256 cellar: :any,                 arm64_monterey: "6b4e532a8d4be0647ebe3352044fea832a6f13d27c09eec2249d7b8b06863d23"
-    sha256 cellar: :any,                 arm64_big_sur:  "9305cf5f0a0fed2b49bcc1f112f7227ecc31932518cfa393592eec0295047f23"
-    sha256 cellar: :any,                 ventura:        "1e0526947ad3433ae724a88412c0c314dade6fdcc7ff09b226b033526fbdf4db"
-    sha256 cellar: :any,                 monterey:       "77298b76e1ddb34d8a1a7fe4467710e038ad417f36ebb64e335295dd7ccfd9ac"
-    sha256 cellar: :any,                 big_sur:        "36196a6ed6efe91a971fe11604510cd69b8fe0cce322d8169e9dda72c42d28b0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c638ff56d0278dcbfa1e6c8b92e21513054848d1e06ea1dc65172c6ea7bde47b"
+    sha256 cellar: :any,                 arm64_ventura:  "ea5ea865b746a1664553acd0f88922618c6f5031db0a7379e75485588e5b2bc8"
+    sha256 cellar: :any,                 arm64_monterey: "8e6071bbaf97d7cb0932b20946f5dcd3d0a506c4600083b8e5622d081d8628a7"
+    sha256 cellar: :any,                 arm64_big_sur:  "07e54796e4b76f99d3bb5a207d863cff8986521091137b2764ed23d6a760ea1f"
+    sha256 cellar: :any,                 ventura:        "f3285885ee9e0999ba71fc21a6eb84649e80b51e5f08d34ad732997c6db2090b"
+    sha256 cellar: :any,                 monterey:       "937ddf9969a1acb60c6eeefdc36ef7d3ef6c93b8e13b4685c1138b8107dc6b81"
+    sha256 cellar: :any,                 big_sur:        "a814a01c76590698ea64a56e5e07969bbc3ebb7c8cf5160c399c9dd874a3a4d3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bee82d9767d6732ee0b65b8a83f67b353fcc000185707e48d68b61bc09414752"
   end
 
   depends_on "cmake" => :build
@@ -23,7 +23,7 @@ class Fb303 < Formula
   depends_on "folly"
   depends_on "gflags"
   depends_on "glog"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "wangle"
 
   fails_with gcc: "5" # C++17
@@ -56,7 +56,7 @@ class Fb303 < Formula
 
     ENV.append "CXXFLAGS", "-std=c++17"
     system ENV.cxx, *ENV.cxxflags.split, "test.cpp", "-o", "test",
-                    "-I#{include}", "-I#{Formula["openssl@1.1"].opt_include}",
+                    "-I#{include}", "-I#{Formula["openssl@3"].opt_include}",
                     "-L#{lib}", "-lfb303_thrift_cpp",
                     "-L#{Formula["folly"].opt_lib}", "-lfolly",
                     "-L#{Formula["glog"].opt_lib}", "-lglog",

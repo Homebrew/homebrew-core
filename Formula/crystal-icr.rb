@@ -4,22 +4,22 @@ class CrystalIcr < Formula
   url "https://github.com/crystal-community/icr/archive/v0.9.0.tar.gz"
   sha256 "2530293e94b60d69919a79b49e83270f1462058499ad37a762233df8d6e5992c"
   license "MIT"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 arm64_ventura:  "b58c044412b4da53700db5e4626eb6ddb89d311e85b115a2f9d0a7f5d1f39006"
-    sha256 arm64_monterey: "3ba98afa66a8f387d858371e3b201c05b7f8d27f90d09a40fc09c8062b291097"
-    sha256 arm64_big_sur:  "0b5e88e36a88de2b9088fc19bfc6541088e3c9cbefdf925d31dd71e0a671c09b"
-    sha256 ventura:        "71e6ef38ccc87c98bdeb0270c0dac7288b7f04071c0a10ab41fd81a58ef02699"
-    sha256 monterey:       "d6de676dcd2da4d83a87c5048b3a5e696ad29807e311fee3751c20f220e11eee"
-    sha256 big_sur:        "d1759c54fe2ebe6be91efc03e45ed67f9a549a3725943c31c62499135d0f19d5"
-    sha256 x86_64_linux:   "ccfa6a169b35abb5e61ea1938a366cc3e75b8c4098dc1352068c288b21358873"
+    sha256 arm64_ventura:  "edde5bd51d5bb2b03570b20e45ebc53ce09832920f75a3e50cbac956f661c215"
+    sha256 arm64_monterey: "bc8b1981630d79dc3e135ad87f1ddedee260a92c1a5a19b31fc681fe2b596ad4"
+    sha256 arm64_big_sur:  "13ef5cc2c563f77416cb551e301c9819e3948f736828fe87129f8a24bfebe399"
+    sha256 ventura:        "72683ff057900f8a0a07858f0b1087674c535897c4e6f43faadd4675f658e4af"
+    sha256 monterey:       "10adec2a41f666a46c7e1095b95f8d3016dbf11f4087a1e222b69f3f18658041"
+    sha256 big_sur:        "7e4e298588d34c599657ef4d62d2fe4e44e5ec80a982b656eba12b2d7c8e416a"
+    sha256 x86_64_linux:   "d348dfeedacb2bb47173d3435fabe2862281d072bbe706ba00ef7a92e79520d1"
   end
 
   depends_on "crystal"
   depends_on "libevent"
   depends_on "libyaml"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "readline"
 
   def install

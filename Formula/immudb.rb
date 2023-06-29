@@ -1,8 +1,8 @@
 class Immudb < Formula
   desc "Lightweight, high-speed immutable database"
   homepage "https://www.codenotary.io"
-  url "https://github.com/codenotary/immudb/archive/v1.4.1.tar.gz"
-  sha256 "0530e49f7c494408615468d16abf1dc7cce3613290442613de06c75da2cf0fee"
+  url "https://github.com/codenotary/immudb/archive/v1.5.0.tar.gz"
+  sha256 "273e35b5c83923b21ea09cbe1b7d5a8ed58e62a17565d1f6b37bb5d1034deb9b"
   license "Apache-2.0"
 
   livecheck do
@@ -11,14 +11,13 @@ class Immudb < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0b7307129ab0d59d3d59552982302f7f216c61400fc1dcbbf4517d41667a59ad"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "75140b5233891e8de7b28ca9c1c619e947c6929bb296f54545e1b9348447bec2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "627415c161d24643b62527b7d0c61e8a7da4ac9cc8d8baadf8a6c152f0bd0ea7"
-    sha256 cellar: :any_skip_relocation, ventura:        "59c47db568fae530b2a98df9a641615157a655baf3439f130247f0129e77ba8c"
-    sha256 cellar: :any_skip_relocation, monterey:       "fa19bdc637ec2e47fcea01014edd89d42e6c50fd160d68d5031377c94200beec"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d93eeb424e0fe7f26ef6c6628e07f2bc5f5f111caff169a67b7beb01227788a1"
-    sha256 cellar: :any_skip_relocation, catalina:       "5bcae81f2c054c1c4a334720cbe62a4de9653f0d010915e2a40e8a77ab6db04c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "92dcddc1d897b8df590bda7bc310b8ba882fde86b9a4852162c47f34f44a5aa9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7031a7c18e82336d7d43b30f726193092b01969a50155a3f5b39efd090ae6cf2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9c3d0ddbf7cea4795f770b088edd3353c88ea462efb9f6c48ba9f57d3ac8f33f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bb5616d77b7e632e6937a8e788fb4577a64be5da2194bc140504ab3f4833c9c8"
+    sha256 cellar: :any_skip_relocation, ventura:        "fd6039539880414d746650a57545d2ec325fd7ed04f2cc0af32057f44ece8b66"
+    sha256 cellar: :any_skip_relocation, monterey:       "5552a13143bec98d81d4b9358be10266b5b350cb22d4a1006fa1aaa5687678a1"
+    sha256 cellar: :any_skip_relocation, big_sur:        "979f2e49fe74ccc11da42ac9687ed2d79e266a2d458b45b1ec7f873427367a8b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3416a095de4ee0a7aed417fcf74225a1369729e5f80ad62a24f4153b1e8da07a"
   end
 
   depends_on "go" => :build

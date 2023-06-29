@@ -2,18 +2,18 @@ class Xgboost < Formula
   desc "Scalable, Portable and Distributed Gradient Boosting Library"
   homepage "https://xgboost.ai/"
   url "https://github.com/dmlc/xgboost.git",
-      tag:      "v1.7.5",
-      revision: "21d95f3d8f23873a76f8afaad0fee5fa3e00eafe"
+      tag:      "v1.7.6",
+      revision: "36eb41c960483c8b52b44082663c99e6a0de440a"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "67b7e5b22b31201c172219942a09618c34fb1fba2c75e9d5e3fd21fe227d9b58"
-    sha256 cellar: :any,                 arm64_monterey: "4ca99905fe694f136261f9688ef17c810c54742eef298c3cf7fa530f6bd863e0"
-    sha256 cellar: :any,                 arm64_big_sur:  "6a3110716c6a497ab5a293f89f05b8dc20d810a82a7613b930ea7f1e1766c519"
-    sha256 cellar: :any,                 ventura:        "f30a72140f291fdb15b028ddfd69f11e82e169a70ec4c7287f4fa018f1078a86"
-    sha256 cellar: :any,                 monterey:       "e9555ecd503a0e305911f26d4936e576595465f50e3aff4b35755b11db082027"
-    sha256 cellar: :any,                 big_sur:        "7a4f66fc2b499a24e18a6a4ecdfcde8d58c3ded162bce7424e437fe656d6a862"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7455a514aea38251662464ea22f40b5da5e021714e69e276941d23fe9a465b2e"
+    sha256 cellar: :any,                 arm64_ventura:  "04d72cbe85a1a802e07408742e5b64b9312a7320789118413a29103438474dd1"
+    sha256 cellar: :any,                 arm64_monterey: "97bc38d310ed1c56c1e6058913444c43f5283a8a35130312a8606802e9d63672"
+    sha256 cellar: :any,                 arm64_big_sur:  "0431d0005d51463623548e8113b7b8f926606b160d69459fc6c4879fd890293f"
+    sha256 cellar: :any,                 ventura:        "12df562c167a27ba5e678a50a2ab72a4e786013387bf9403f6b82983eaf45a56"
+    sha256 cellar: :any,                 monterey:       "0d2664d8ce124545e28c1af5bb03dd05836fb9f39c25ad3fc67287563173add8"
+    sha256 cellar: :any,                 big_sur:        "48b3579a36401fa6611fe6de895754807f7eda9e3a1a7872723fa92782d549d5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e91c0a44dbc2c19678aa481e1e1077007a56098c3a8beb2d7bf5d31437e0187d"
   end
 
   depends_on "cmake" => :build

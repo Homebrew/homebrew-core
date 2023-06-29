@@ -6,7 +6,7 @@ class SpiceGtk < Formula
   url "https://www.spice-space.org/download/gtk/spice-gtk-0.42.tar.xz"
   sha256 "9380117f1811ad1faa1812cb6602479b6290d4a0d8cc442d44427f7f6c0e7a58"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later", "BSD-3-Clause"]
-  revision 1
+  revision 2
 
   livecheck do
     url "https://www.spice-space.org/download/gtk/"
@@ -14,13 +14,13 @@ class SpiceGtk < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "f6135938e50f9a3e3234ccc0a07730104989a917405d47145216af50bae70ed7"
-    sha256 arm64_monterey: "36b81c63a26b432ab4f1c9d94e265c2a7786918d9c7ebf93b168e3fcc9f9da36"
-    sha256 arm64_big_sur:  "4d91895f99248d92600da19579d33a72dcacd5146a1d18be1fbb55df44fd1184"
-    sha256 ventura:        "cb0f553c948bac6b6fd383309b1129c201355cd061fda9ae3db69afbb8571f5d"
-    sha256 monterey:       "8e0ede123e4d3e0008b74a76a4c5a98f8c96f3dcc946edfaa8028c2de5e392d6"
-    sha256 big_sur:        "b1eb975de277cebc129d38a49ae4d6ccb4f50c6c59ecc958c3097d2c05569b14"
-    sha256 x86_64_linux:   "11facfacc650bd83c1ef8ee786c1da4692f00f08e35e0786dfe8468bbc0a5585"
+    sha256 arm64_ventura:  "2a6e8931ad271174c6f0ed8db774939cdde78d024c3ecdda9f9f2035e2536547"
+    sha256 arm64_monterey: "500b53e19c783d9a5267dc2ca98a195e2d434f2bb65493d114036365bcb1a39c"
+    sha256 arm64_big_sur:  "26ba9072a37ada8a8ffe4b7fc72ce5e818ac285e43e9c3d313bb3a67c00b97e6"
+    sha256 ventura:        "c7bc533bf415ffdda9cbf3129bff469457c84e266c1ee88ddac5be721e66431d"
+    sha256 monterey:       "cb802775855bc572d85b75a854cb4ad1eab6fa558a72c8b208c9963c2c326862"
+    sha256 big_sur:        "8988ac006388c1c9992ee19b844d108cbca3fc8c6642f67e623b4781cba3e6a7"
+    sha256 x86_64_linux:   "b68695adcd56e47248083082f0a09b9aa2c9cb80a78d684c2cc644bd5ecad469"
   end
 
   depends_on "gobject-introspection" => :build
@@ -44,7 +44,7 @@ class SpiceGtk < Formula
   depends_on "json-glib"
   depends_on "libusb"
   depends_on "lz4"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "opus"
   depends_on "pango"
   depends_on "pixman"

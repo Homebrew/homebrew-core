@@ -24,6 +24,9 @@ class Dockward < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "fab443a8e40b159ebd527d32138314a928589a52dd5fbfd69c52406ad3162ad9"
   end
 
+  # https://github.com/abiosoft/dockward/issues/3
+  deprecate! date: "2023-06-27", because: :unmaintained
+
   depends_on "go" => :build
 
   go_resource "github.com/Sirupsen/logrus" do

@@ -6,21 +6,24 @@ class Mathlibtools < Formula
   url "https://files.pythonhosted.org/packages/ae/6a/815d7f65dc853973b13be082fefe797074e633407ef1262a62bc0be84203/mathlibtools-1.3.2.tar.gz"
   sha256 "9a49f4cb7355fda72792a5738bcc5df927b1e102efc719adfbe16db199a0ac6b"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any,                 arm64_ventura:  "a4bd3c63885268a1bc2c399a2d0e6150356444b2860640b1fc36987679b4b01e"
-    sha256 cellar: :any,                 arm64_monterey: "931851fd9ffede580ea44ebdb35cbf67921885851654050a552fe4e6140d389d"
-    sha256 cellar: :any,                 arm64_big_sur:  "83f4479a24f0a2373fcdfdd9b5959778ad270353b11fbdf6fe66653f45fdbd66"
-    sha256 cellar: :any,                 ventura:        "b61c6b20f959e0d0402ece75251179c57ea3a5bd8c4dc94af165cef15f331084"
-    sha256 cellar: :any,                 monterey:       "25696fe95f9445a914387a62da9a2d5ac99db2fb366930e15be96c0b6ed27796"
-    sha256 cellar: :any,                 big_sur:        "fef63b4c99d265eb5e920e12a5fa8b5988d017cb4056dd3161b8865890279e5e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5e8d66ec042a4f93640872eec0cc6657588b3382bef80c79492ecbb9ae54a985"
+    sha256 cellar: :any,                 arm64_ventura:  "12b5a2eb457ed3a563399c9cc04b3f28863c90b1cfb7ae89c32a5a7adc8f832a"
+    sha256 cellar: :any,                 arm64_monterey: "4b9c72525778ebe158f13fffd09abe37fd6b7445bc44ee0d096d19e1e7ac6e3c"
+    sha256 cellar: :any,                 arm64_big_sur:  "6d424707f7841d1509eb70564bef3fbb24ee727af53936e388e6880b28a1b316"
+    sha256 cellar: :any,                 ventura:        "1c3d2fcd0ecd73ec130b32c43208a815dd45d0511da8b7ac807f67ea11fdf9c0"
+    sha256 cellar: :any,                 monterey:       "1fcbec21ab0c572bfd397b5c5455def59db3291b2effe9af2d3a82af37cb01e7"
+    sha256 cellar: :any,                 big_sur:        "6014ce2a9837276d3838e9a3ed716ddbded8f82f789ca290d93ae20423bdc4df"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5fb1a082f5ef50a7db747868d9aa938d31165b8e0f2d9fe351c5a62e5cd1446e"
   end
 
+  # `pkg-config`, `rust`, and `openssl@3` are for cryptography.
+  depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "lean" => :test
-  depends_on "openssl@1.1"
+  depends_on "cffi"
+  depends_on "openssl@3"
   depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "six"
@@ -33,11 +36,6 @@ class Mathlibtools < Formula
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/93/71/752f7a4dd4c20d6b12341ed1732368546bc0ca9866139fe812f6009d9ac7/certifi-2023.5.7.tar.gz"
     sha256 "0f0d56dc5a6ad56fd4ba36484d6cc34451e1c6548c61daad8c320169f91eddc7"
-  end
-
-  resource "cffi" do
-    url "https://files.pythonhosted.org/packages/2b/a8/050ab4f0c3d4c1b8aaa805f70e26e84d0e27004907c5b8ecc1d31815f92a/cffi-1.15.1.tar.gz"
-    sha256 "d400bfb9a37b1351253cb402671cea7e89bdecc294e8016a707f6d1d8ac934f9"
   end
 
   resource "charset-normalizer" do
@@ -78,11 +76,6 @@ class Mathlibtools < Formula
   resource "networkx" do
     url "https://files.pythonhosted.org/packages/fd/a1/47b974da1a73f063c158a1f4cc33ed0abf7c04f98a19050e80c533c31f0c/networkx-3.1.tar.gz"
     sha256 "de346335408f84de0eada6ff9fafafff9bcda11f0a0dfaa931133debb146ab61"
-  end
-
-  resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/5e/0b/95d387f5f4433cb0f53ff7ad859bd2c6051051cebbb564f139a999ab46de/pycparser-2.21.tar.gz"
-    sha256 "e644fdec12f7872f86c58ff790da456218b10f863970249516d60a5eaca77206"
   end
 
   resource "pydot" do
@@ -142,7 +135,7 @@ class Mathlibtools < Formula
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.
-    ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
+    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
     ENV["OPENSSL_NO_VENDOR"] = "1"
 
     virtualenv_install_with_resources

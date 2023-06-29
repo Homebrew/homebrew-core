@@ -4,22 +4,21 @@ class H2o < Formula
   url "https://github.com/h2o/h2o/archive/v2.2.6.tar.gz"
   sha256 "f8cbc1b530d85ff098f6efc2c3fdbc5e29baffb30614caac59d5c710f7bda201"
   license "MIT"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 arm64_ventura:  "c03e1941f5138d1601fb16511c1a709086fe70d20b49b031e93c93cc581239f2"
-    sha256 arm64_monterey: "2dbad9aa8ba17951616a2b93dfc52b707ab0e7515cb9ec6efa43fc260edd1786"
-    sha256 arm64_big_sur:  "c58c917d16ff1fcdde97c6bbf8c2bf5337120dc6c8a233f23be20096e9546af8"
-    sha256 ventura:        "ad6c689ce2b91644f70266d392fe570b5aef350b41eea2c33117af4289adab9f"
-    sha256 monterey:       "f4d194b0192c88a258becd40eff437c36991fad0013afdec891e4c8fbcb5edba"
-    sha256 big_sur:        "63efa37625758c8df46dfe344b8010d8117b687d62cb2ee9ed0973d609116d85"
-    sha256 catalina:       "a60e3af7351adeebc4b93d0ae14229890734398c1b65b4198e4d6263a16d918d"
-    sha256 x86_64_linux:   "7c1a3647fc3cbe91331bc2d320b405fddeb4228a5685e6cadd499e326abd8473"
+    sha256 arm64_ventura:  "1227fcbf6a078a4448106c6e60af24e1bb271823a50590bf201e4887784b8edb"
+    sha256 arm64_monterey: "df4235fa62ee97877317730f405c523eb091f32ec9bf3ad433b9a72596a60fe3"
+    sha256 arm64_big_sur:  "08434131f8e46623e330dbfe07d4d2010cd9c55d28b308c04a93efb6a5cfb4a2"
+    sha256 ventura:        "4d046c5d98b9a75b8f53bdc068f2246c7c1958e8f4863ed2f8f2610ee6674934"
+    sha256 monterey:       "bd75d169a42961123cc4791aa219572cf9181185ae0cb8679a3a10e7705a688c"
+    sha256 big_sur:        "d54fbb44713fa39e3172e0e70a224fbd67e7657357c8179a2c257b510a9bf167"
+    sha256 x86_64_linux:   "ec3f7d26e8df24768cf2953db461dcff9a5713bb79a23c553cd30016b6a7fba6"
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "zlib"
 
@@ -30,7 +29,7 @@ class H2o < Formula
 
     args = std_cmake_args + %W[
       -DWITH_BUNDLED_SSL=OFF
-      -DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}
+      -DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}
     ]
 
     # Build shared library.

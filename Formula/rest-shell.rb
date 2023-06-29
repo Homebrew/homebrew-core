@@ -13,7 +13,7 @@ class RestShell < Formula
     sha256 cellar: :any_skip_relocation, all: "153d1bc5b10e1be1bb2775eaa53e2eafee9e392489e45082c4db383d468cc041"
   end
 
-  deprecate! date: "2022-05-08", because: :repo_archived
+  disable! date: "2023-06-19", because: :repo_archived
 
   depends_on "openjdk@11"
 

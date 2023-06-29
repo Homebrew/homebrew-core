@@ -4,7 +4,7 @@ class Hashpump < Formula
   url "https://github.com/bwall/HashPump/archive/v1.2.0.tar.gz"
   sha256 "d002e24541c6604e5243e5325ef152e65f9fcd00168a9fa7a06ad130e28b811b"
   license "MIT"
-  revision 6
+  revision 7
 
   livecheck do
     url :stable
@@ -12,18 +12,16 @@ class Hashpump < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "a382b6faa37c6c30e61262117c1424e8c5741a6eb6b47983c6fcb0514183b8f4"
-    sha256 cellar: :any,                 arm64_monterey: "ea7d1f3e10bce4da2575a4f160f9b804112b81bf57a6d067585c84e8695295b0"
-    sha256 cellar: :any,                 arm64_big_sur:  "1b2be6981dcbddf90e59a282397d40595a2d700568e9b851dec82332912e1711"
-    sha256 cellar: :any,                 ventura:        "237f29e79a732cdfc95ff6ee9604b404a55b07a9f025f9c35286ee75a6a68ced"
-    sha256 cellar: :any,                 monterey:       "c9db19459ea6cc25bc9be7169c3c827f2bf53b8c43152d700393dfedd2dace0e"
-    sha256 cellar: :any,                 big_sur:        "4885a0d89a07daa8e5140362c9dddf9071cf2b58ee17735bf840a28f99cee53f"
-    sha256 cellar: :any,                 catalina:       "4b1676a599df7800b79a8c3bcd1d7c2685d7ff26343b02c98f930af4988bea71"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f30f81ac73fcf6ff773ba955c3c445afb03c6ed5acb13dc85071541272b9921c"
+    sha256 cellar: :any,                 arm64_ventura:  "ee4e8e386dbf585e9672aabb460e44e0a3ba40486d71443200912c1e39e95ad5"
+    sha256 cellar: :any,                 arm64_monterey: "63cf0b6889738999549fbaec92d5a6659c7e67243e6c1d8c6de327a625aec770"
+    sha256 cellar: :any,                 arm64_big_sur:  "462e0b0b6d802d8b63a5179525830a7a2b653e508447c3a3c6c1e49fa644e173"
+    sha256 cellar: :any,                 ventura:        "4719aeb4e527d69dec4a39e3ebd572f5e3a75997771fa7bdb7b95d8ef1a0d52c"
+    sha256 cellar: :any,                 monterey:       "c947cdf5337bf9b01d58bfab17640121972ecda945c19142296d94738a7a637a"
+    sha256 cellar: :any,                 big_sur:        "680680ea8ab91083953e359b7fb74bd8195e4d9c94fdb3c351741d90983f72c8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "542fd495cbe83aed52b7766926946f923d1e395f46cb4245b6ac6387cbeb0276"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "python@3.11"
 
   # Remove on next release

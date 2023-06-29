@@ -18,7 +18,7 @@ class Mergepbx < Formula
 
   # Requires Python2.
   # https://github.com/Homebrew/homebrew-core/issues/93940
-  deprecate! date: "2022-03-09", because: :unsupported
+  disable! date: "2023-06-19", because: :unsupported
 
   resource "dummy_base" do
     url "https://raw.githubusercontent.com/simonwagner/mergepbx/a9bd9d8f4a732eff989ea03fbc0d78f6f6fb594f/test/fixtures/merge/dummy/dummy1/project.pbxproj.base"

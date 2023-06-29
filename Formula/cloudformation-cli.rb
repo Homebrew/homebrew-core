@@ -8,16 +8,18 @@ class CloudformationCli < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2a2ed9ab0e9613bd469950044869e881879b27b6f45fc53d28ff26407b3acf6d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c276e94a1383f8110119a80415cb6f3185a017ad171b0c506d4a77a429059c61"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a8d339393860c46ba0196dcc166c6f167eb9a3932e00efb61aea59443755cada"
-    sha256 cellar: :any_skip_relocation, ventura:        "eeff1aeff89e98e05624aaeb0487ab70d22ff485417759d31856ab7e1319e947"
-    sha256 cellar: :any_skip_relocation, monterey:       "df4e342b17c1525f60254a645fe0743544e1e3799079faa545f7aa0350e84036"
-    sha256 cellar: :any_skip_relocation, big_sur:        "12c525da3d86bc8b00cb9a33406972c39e37df6c7fe3e0fe20ec2fc990f52f25"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2c8d4a8fa0df2395f08e7e673758681d936957d6adce6ebfdeadf09b677831a7"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4d3600be37d98cca08b8dcca42b321b803b79484f477eb9b6c0f8ee81f99f231"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8d7dae031eb438805c42060beb42aa03c09c363137008df9162874c574c0f003"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a17b2b676c6684e36c28104707ebb0b6fe3ed3d9ba935087c5afdc3ffbee4e97"
+    sha256 cellar: :any_skip_relocation, ventura:        "8151fc71b063da3ef1e2d05f961181e00797c2d86b1f9f4a9a879a1cc42eac32"
+    sha256 cellar: :any_skip_relocation, monterey:       "1021db629a5f343a1dace27c5348e4726a44dd3a49f4ee43ac891e13ddc3ab8b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9de585353026176ad6f0aff6758f342b1d5cd94117aa9ef172f5f84dbbe3909a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "424f3e2eb3bfdfe55c60baabe2faa3a10a74e034800cb296328e333c62e19a06"
   end
 
   depends_on "go" => :test
+  depends_on "python-typing-extensions"
   depends_on "python@3.11"
   depends_on "six"
 
@@ -246,11 +248,6 @@ class CloudformationCli < Formula
   resource "types-dataclasses" do
     url "https://files.pythonhosted.org/packages/4b/6a/dec8fbc818b1e716cb2d9424f1ea0f6f3b1443460eb6a70d00d9d8527360/types-dataclasses-0.6.6.tar.gz"
     sha256 "4b5a2fcf8e568d5a1974cd69010e320e1af8251177ec968de7b9bb49aa49f7b9"
-  end
-
-  resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/42/56/cfaa7a5281734dadc842f3a22e50447c675a1c5a5b9f6ad8a07b467bffe7/typing_extensions-4.6.3.tar.gz"
-    sha256 "d91d5919357fe7f681a9f2b5b4cb2a5f1ef0a1e9f59c4d8ff0d3491e05c0ffd5"
   end
 
   resource "urllib3" do

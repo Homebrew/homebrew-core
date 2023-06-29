@@ -1,9 +1,9 @@
 class IcarusVerilog < Formula
   desc "Verilog simulation and synthesis tool"
   homepage "http://iverilog.icarus.com/"
-  url "https://github.com/steveicarus/iverilog/archive/v11_0.tar.gz"
-  mirror "https://deb.debian.org/debian/pool/main/i/iverilog/iverilog_11.0.orig.tar.gz"
-  sha256 "6327fb900e66b46803d928b7ca439409a0dc32731d82143b20387be0833f1c95"
+  url "https://github.com/steveicarus/iverilog/archive/v12_0.tar.gz"
+  mirror "https://deb.debian.org/debian/pool/main/i/iverilog/iverilog_12.0.orig.tar.gz"
+  sha256 "a68cb1ef7c017ef090ebedb2bc3e39ef90ecc70a3400afb4aa94303bc3beaa7d"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
   head "https://github.com/steveicarus/iverilog.git", branch: "master"
 
@@ -14,22 +14,16 @@ class IcarusVerilog < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "52298d2d1e74ee12ccb8d97fead6ec405a2dfd9a2f2bc60d228b6277d606ae8d"
-    sha256 arm64_monterey: "2ac5133198143cad8b5b04e6eabc60b0e5d9b124881b2d07531c7a4fa1e1eab3"
-    sha256 arm64_big_sur:  "8c5b344e8564ddd8834922e65bb6ed4fd3951bfdbab3a80064cb8a40f53fc643"
-    sha256 ventura:        "94d87eb98d2d2b3bcacdc84c0618ddc039b521ff2ba7092ef6d7cb7e8e344f43"
-    sha256 monterey:       "e7fc5ea4149ccff8b4187eab05be448d1b1cc1f5ece057e9c441d8f3882390a4"
-    sha256 big_sur:        "e4f89cc6c8f66d90e45af4357c496ec2ba49ea48ca04e552ca318ff31e825489"
-    sha256 catalina:       "99791a3fd0891487586c49112fa3293e65320e651bbf9c03f15a58b456e96e6e"
-    sha256 mojave:         "92851adfb43caad0826da2bf74706c15e6fffc2e32b2b003e19659b0e6a4542b"
-    sha256 high_sierra:    "a92f6fe981238a8c2b9f47b99d77c1e8596bc74235b8f6601835aae8f9ad70a1"
-    sha256 x86_64_linux:   "edee1d331189156e7929b50aa7c7515ad15e8721650d936028905aade9e8fccb"
+    sha256 arm64_ventura:  "0c963a73d69e2c0ad3c6813dd9d03ac4b5a880052bf9ecb28a8918adc9384b4e"
+    sha256 arm64_monterey: "968e2d0ca44b96920ad0806c19101a4dbd888ae8f5d3f6ede6395b13ee84c35b"
+    sha256 arm64_big_sur:  "af49151647a5194225563412267b0dacb3da1d3fe3777802f13788ebf098d50d"
+    sha256 ventura:        "f8d395f182e8788ae9720421d2c8ba5ab90fad839e0071ed871c8a8b23484d58"
+    sha256 monterey:       "f6fea867f86a544671ff8d074da509d2997f545df8fa2d47cbb118aa7029fcfa"
+    sha256 big_sur:        "b5c5e18bfcdadfcc54a69954b71bf4c56f6e9c223823f65c798c442c4ec61e79"
+    sha256 x86_64_linux:   "ee0b7b46d11a76808cebc2140d83fc615ae4bec40aa3cfbc346560532caf3cdb"
   end
 
-  # support for autoconf >= 2.70 was added after the current release
-  # switch to `autoconf` in the next release
-  # ref: https://github.com/steveicarus/iverilog/commit/4b3e1099e5517333dd690ba948bce1236466a395
-  depends_on "autoconf@2.69" => :build
+  depends_on "autoconf" => :build
   # parser is subtly broken when processed with an old version of bison
   depends_on "bison" => :build
 
@@ -45,8 +39,6 @@ class IcarusVerilog < Formula
   def install
     system "autoconf"
     system "./configure", "--prefix=#{prefix}"
-    # https://github.com/steveicarus/iverilog/issues/85
-    ENV.deparallelize
     system "make", "install", "BISON=#{Formula["bison"].opt_bin}/bison"
   end
 
@@ -60,12 +52,20 @@ class IcarusVerilog < Formula
           end
       endmodule
     EOS
-    system bin/"iverilog", "-otest", "test.v"
-    assert_equal "Boop", shell_output("./test").chomp
+    system bin/"iverilog", "-o", "test", "test.v"
+
+    expected = <<~EOS
+      Boop
+      test.v:5: $finish called at 0 (1s)
+    EOS
+    assert_equal expected, shell_output("./test")
 
     # test syntax errors do not cause segfaults
     (testpath/"error.v").write "error;"
-    assert_equal "-:1: error: variable declarations must be contained within a module.",
-      shell_output("#{bin}/iverilog error.v 2>&1", 1).chomp
+    expected = <<~EOS
+      error.v:1: syntax error
+      I give up.
+    EOS
+    assert_equal expected, shell_output("#{bin}/iverilog error.v 2>&1", 2)
   end
 end

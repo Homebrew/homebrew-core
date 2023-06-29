@@ -1,11 +1,10 @@
 class Vcpkg < Formula
   desc "C++ Library Manager"
   homepage "https://github.com/microsoft/vcpkg"
-  url "https://github.com/microsoft/vcpkg-tool/archive/2023-04-07.tar.gz"
-  version "2023.04.07"
-  sha256 "3ded5bf84ce56fc8e9e179a333eaa343cc1f4ac9246d20251a47efcfbc1fd101"
+  url "https://github.com/microsoft/vcpkg-tool/archive/2023-06-22.tar.gz"
+  version "2023.06.22"
+  sha256 "f05f76c80825171d776e592fa660b1667f3e09cd43dcb05cb3e8ebf7aedafb23"
   license "MIT"
-  revision 1
   head "https://github.com/microsoft/vcpkg-tool.git", branch: "main"
 
   # The source repository has pre-release tags with the same
@@ -17,13 +16,13 @@ class Vcpkg < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "c5da4fea18bbff56b7c43152cbac5a1ec9e73e86e6768f9395ecb333552814a0"
-    sha256 cellar: :any,                 arm64_monterey: "cf289178571c9b8dadb8177e59de4e16de5e96acddbcf21b298d7497186ba6cd"
-    sha256 cellar: :any,                 arm64_big_sur:  "95e01f2255756ac7516a79ed85b2387efb8d68d1943bee7300fea7a4a244acc5"
-    sha256 cellar: :any,                 ventura:        "97074e07204363257217a4453ecafc59a9d348fa2623b4fb81593b7180fe33b0"
-    sha256 cellar: :any,                 monterey:       "fae1c55fd129150320de7eff5f71e4794e4b5557d52505b2bfeba17815b94b7c"
-    sha256 cellar: :any,                 big_sur:        "b1f30666f55ac7260a3c5764dd005df1caed67a2465b912955599e3ef6e78e16"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "37832f423089537b3a758048e721d4c75f264502a548617b70c882b7ae99e852"
+    sha256 cellar: :any,                 arm64_ventura:  "cfd3a04ceee72d8ed98c2ba72c188e60d6ec6980897e4d0a574661fcb631cf0a"
+    sha256 cellar: :any,                 arm64_monterey: "43c3814d93286a9e576afcedf1c99c647438ad1908bc60ada05307134eb92153"
+    sha256 cellar: :any,                 arm64_big_sur:  "b73b86a37ab2843c1bc7a1ad91427ce084cd0d15376e0fd801ff4cd1d20a8fe6"
+    sha256 cellar: :any,                 ventura:        "3eef0930b2b1585a8320abac5868e69aa28cb0413fe6296fb01d0221758890dd"
+    sha256 cellar: :any,                 monterey:       "cb37c25b3e0a0531c2e836d1e4b69c18a29d387274c354aa45afe2f691ad43b7"
+    sha256 cellar: :any,                 big_sur:        "726fe960fc425a79d0098be01f5c5259a1f086f2ce2d64eac3386828daee2815"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "322e52578b44364618b63f32205a9a5e799eefbdf5b7f1086ef729505fece2cf"
   end
 
   depends_on "cmake" => :build
@@ -31,13 +30,6 @@ class Vcpkg < Formula
   depends_on "ninja" # This will install its own copy at runtime if one isn't found.
 
   fails_with gcc: "5"
-
-  # Add support for fmt 10
-  # See https://github.com/microsoft/vcpkg-tool/pull/1063
-  patch do
-    url "https://github.com/microsoft/vcpkg-tool/commit/f147c75eaa3570310a586eed8d313797f7d3f110.patch?full_index=1"
-    sha256 "0d253e653115298aefbbf7165dcb3204eef243bca59fae3540cc2544ea5fcae4"
-  end
 
   def install
     # Improve error message when user fails to set `VCPKG_ROOT`.

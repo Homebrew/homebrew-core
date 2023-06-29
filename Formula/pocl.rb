@@ -8,6 +8,11 @@ class Pocl < Formula
   revision 2
   head "https://github.com/pocl/pocl.git", branch: "master"
 
+  livecheck do
+    url "http://portablecl.org/download.html"
+    regex(/href=.*?pocl[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 arm64_ventura:  "a889cde4e1f855f90ccc3e9afcb0839c3f2cd63ac4788c3b6ae109fdf69e3b01"
     sha256 arm64_monterey: "b102e21ee22fb6da243b672735d26d75aacceb79cb2628d5cb6897dc7709423d"

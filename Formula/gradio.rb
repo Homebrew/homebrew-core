@@ -24,8 +24,6 @@ class Gradio < Formula
   depends_on "cairo"
   depends_on "gettext"
   depends_on "glib"
-  depends_on "gst-libav"
-  depends_on "gst-plugins-base"
   depends_on "gstreamer"
   depends_on "gtk+3"
   depends_on "hicolor-icon-theme"

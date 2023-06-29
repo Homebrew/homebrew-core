@@ -5,22 +5,28 @@ class Licensed < Formula
       tag:      "4.4.0",
       revision: "0f5e5a1d289665e8a3d7133cba6c6f3a15359ecb"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "6417ed7bde589bce4de644c62e1833e406efbf11ff9ae7a07d0050d5be80380a"
-    sha256 cellar: :any, arm64_monterey: "6d4a2baf2d802a452d052cb40c27cae5501049335cfe789290f948a6a23600ce"
-    sha256 cellar: :any, arm64_big_sur:  "cee1304e35be0b6097bfc2019a40319114506e56922e64ee4fb472df466f9a30"
-    sha256 cellar: :any, ventura:        "b0e63c1698aa4d9ff0d23e158244c704330c8a379bdf78c9ee84184f83c49793"
-    sha256 cellar: :any, monterey:       "25847954c4a96e3b0b224df9d5ad7da3ddc4c053d275ce6dc3bda99ef378842f"
-    sha256 cellar: :any, big_sur:        "2cb74d5eab64fe5372df980b64ec4771bfd09dd81b7b1d2237dbd7515d89f25f"
-    sha256               x86_64_linux:   "39363683cbf50a8338d0b25fe730127a92f17b72e0de6315704d911b7fd5e903"
+    sha256 cellar: :any,                 arm64_ventura:  "e29a894119212da640f791ca9549c8e0f287748555bd061ba03aee8a70c1b6a1"
+    sha256 cellar: :any,                 arm64_monterey: "37443d189f124d38d0b6eedab9faa1bc867f2e3a188d28f08127eeb9e4e73dc5"
+    sha256 cellar: :any,                 arm64_big_sur:  "3ead2b4adf3be289685403b317be482d00bf0818f566afb449be4de75e15c022"
+    sha256 cellar: :any,                 ventura:        "b3f32e768216de09fa52dd2fe0a0b9f2bacb752809e2b53397e020c2f1a53295"
+    sha256 cellar: :any,                 monterey:       "423470bea18004c09b236e8f4e8d044ee3d472ad481ec609f3e95867b99fc1cd"
+    sha256 cellar: :any,                 big_sur:        "e1e5c8de404141168428d94c4e6ad62be08d4cb865041de59333cb95f97e2511"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3251f273f72710bb10ce577d1009df603b743eab3b00a198173d164791a9301f"
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "ruby"
   depends_on "xz"
+
   uses_from_macos "libffi"
+
+  on_linux do
+    depends_on "openssl@3"
+  end
 
   # Runtime dependencies of licensed
   # https://rubygems.org/gems/licensed/versions/4.4.0/dependencies

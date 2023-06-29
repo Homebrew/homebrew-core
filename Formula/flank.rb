@@ -1,8 +1,8 @@
 class Flank < Formula
   desc "Massively parallel Android and iOS test runner for Firebase Test Lab"
   homepage "https://github.com/Flank/flank"
-  url "https://github.com/Flank/flank/releases/download/v23.06.0/flank.jar"
-  sha256 "f7d25407aabafc0af701a3d456f1580abeb42bb8e5692cd88afd02049cd3446c"
+  url "https://github.com/Flank/flank/releases/download/v23.06.2/flank.jar"
+  sha256 "64b69c79ccc44e8bb3c1ab8c442871e3e1b7251f2fdf36343b7375fbe72430b0"
   license "Apache-2.0"
 
   livecheck do
@@ -11,13 +11,13 @@ class Flank < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ae3211685f5a410140f89908ce7c623e5e46ee8d2bb9fa964459550e84f951b3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ae3211685f5a410140f89908ce7c623e5e46ee8d2bb9fa964459550e84f951b3"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ae3211685f5a410140f89908ce7c623e5e46ee8d2bb9fa964459550e84f951b3"
-    sha256 cellar: :any_skip_relocation, ventura:        "ae3211685f5a410140f89908ce7c623e5e46ee8d2bb9fa964459550e84f951b3"
-    sha256 cellar: :any_skip_relocation, monterey:       "ae3211685f5a410140f89908ce7c623e5e46ee8d2bb9fa964459550e84f951b3"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ae3211685f5a410140f89908ce7c623e5e46ee8d2bb9fa964459550e84f951b3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a29213f3cbeab6886c9b143c2d26014705a167deb8cd67db9aa6708aed860bf5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "900668858605c5d4c1ff1b758cf497bf85478af8903eaadf64d5ad9d392a3908"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "900668858605c5d4c1ff1b758cf497bf85478af8903eaadf64d5ad9d392a3908"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "900668858605c5d4c1ff1b758cf497bf85478af8903eaadf64d5ad9d392a3908"
+    sha256 cellar: :any_skip_relocation, ventura:        "900668858605c5d4c1ff1b758cf497bf85478af8903eaadf64d5ad9d392a3908"
+    sha256 cellar: :any_skip_relocation, monterey:       "900668858605c5d4c1ff1b758cf497bf85478af8903eaadf64d5ad9d392a3908"
+    sha256 cellar: :any_skip_relocation, big_sur:        "900668858605c5d4c1ff1b758cf497bf85478af8903eaadf64d5ad9d392a3908"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "24ca1d30ebf6c9561a291bd790df8703897b578bb002dd40090bee9f00752d1d"
   end
 
   depends_on "openjdk"

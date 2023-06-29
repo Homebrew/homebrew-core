@@ -5,22 +5,23 @@ class Httpd < Formula
   mirror "https://downloads.apache.org/httpd/httpd-2.4.57.tar.bz2"
   sha256 "dbccb84aee95e095edfbb81e5eb926ccd24e6ada55dcd83caecb262e5cf94d2a"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 arm64_ventura:  "ba972757b289bcc09c73f7221624910a5b18ec83459526e4ffe641f7bdaae06a"
-    sha256 arm64_monterey: "db92c01ac8495e80e0022c97ff38152c91ea7773e7563fecfe6f771f9cb7b97d"
-    sha256 arm64_big_sur:  "66993af7e4a1fa1444013426c5b3a3d711dde9a33654374caaa82e52b61d3385"
-    sha256 ventura:        "d2eeeff2bcc29824d480cee7249de2dc67a6325a39ca5626a352c068f1cdc63f"
-    sha256 monterey:       "c27bcbf9251c507895facb4d2561878f7dd8425a3f260c87f6ce9334e937749b"
-    sha256 big_sur:        "5d27a43db5303836f0ba51dd713a4cfdef7be3c7c828f01c6bc1031fb379f9f1"
-    sha256 x86_64_linux:   "ca1f357e88273c01e7c16e2577c0d791b90f087eb9fd6d4630aa50eb0f6d2024"
+    sha256 arm64_ventura:  "cd1df761f081f37617aa370ae5eb5920b9498f407e3b5fd13ce4292064f6e040"
+    sha256 arm64_monterey: "9328555b146535a63b4e824793379ee2347165e13c9f9d06aa0a8898c1afd156"
+    sha256 arm64_big_sur:  "64f4a71eaa38d9df9223c6b28100539dbd14adfa94be12e83a11e06e56bfbb11"
+    sha256 ventura:        "cdee36e9d429a55c9e2f590c1dc63b776ac7c9c3f8b72e5ae3512822668ac2a9"
+    sha256 monterey:       "0f8e42d107b4292af18eb2f32fe12a92f5c67aa1642be0cec768144298df3402"
+    sha256 big_sur:        "ec117d9e9cec8268195476b1426ac25100a3267eda333fb3cb75569a6288b219"
+    sha256 x86_64_linux:   "aff4fd796b8e88fd96dcc9737a83735f4d49c4811226af9de50a7e1085f2a3c2"
   end
 
   depends_on "apr"
   depends_on "apr-util"
   depends_on "brotli"
   depends_on "libnghttp2"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pcre2"
 
   uses_from_macos "libxml2"
@@ -77,7 +78,7 @@ class Httpd < Formula
                           "--with-libxml2=#{libxml2}",
                           "--with-mpm=prefork",
                           "--with-nghttp2=#{Formula["libnghttp2"].opt_prefix}",
-                          "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}",
+                          "--with-ssl=#{Formula["openssl@3"].opt_prefix}",
                           "--with-pcre=#{Formula["pcre2"].opt_prefix}/bin/pcre2-config",
                           "--with-z=#{zlib}",
                           "--disable-lua",

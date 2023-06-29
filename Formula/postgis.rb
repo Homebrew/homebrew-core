@@ -4,6 +4,7 @@ class Postgis < Formula
   url "https://download.osgeo.org/postgis/source/postgis-3.3.3.tar.gz"
   sha256 "74eb356e3f85f14233791013360881b6748f78081cc688ff9d6f0f673a762d13"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://download.osgeo.org/postgis/source/"
@@ -11,13 +12,13 @@ class Postgis < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "13543625f4bac3990bd3bf64db15e2d6f1108041c4fb83cddd2c4c1f232d4fab"
-    sha256 cellar: :any,                 arm64_monterey: "4ec1b45082f5c2f84419e082cc6df5942b8a426ad0265e79e58f9034d6d12485"
-    sha256 cellar: :any,                 arm64_big_sur:  "8fa5e5e66f4e67df913bad4990197609f6193dee28aae5804734d1224d093deb"
-    sha256 cellar: :any,                 ventura:        "a2a874e10af70aa171bc3043745894069a8ffb67a28faadca611dfaa516c2dd6"
-    sha256 cellar: :any,                 monterey:       "006009051abca9807f765625836b37bea8f1f6c78dfca855aa09d5c392d27163"
-    sha256 cellar: :any,                 big_sur:        "d70d955e0f86b67f1e911a78bd013073fe0413977c718a7c89f87058edb72d00"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9d9aa3198c0a946bc3206276b030f07cd542c0d1196ce53efe4344f45778c152"
+    sha256 cellar: :any,                 arm64_ventura:  "0f500f289c4e2a770a024debb7a68604eb7c1b40fc22f694ac6bc5eb13eb7e21"
+    sha256 cellar: :any,                 arm64_monterey: "b72bb340fb0c5205358897cc3065ae26967b5ff77f24f045f648670ad36ae18f"
+    sha256 cellar: :any,                 arm64_big_sur:  "84e6d4d24c1e62554c86b554ec25b3e0316fe8435882516c5c8970382d07fb81"
+    sha256 cellar: :any,                 ventura:        "7d147291489a177a0b4e137ed170d4cf4433f6c1eb61101be2059bf15615cd7b"
+    sha256 cellar: :any,                 monterey:       "ae6d028d4f98e9909230b9ed64df1922196be789e5b9b45b7f8de5e4c4f73460"
+    sha256 cellar: :any,                 big_sur:        "0656cc7e74fecc5c569f5970cdfffe072c4af3ec392e809a7a64c3d965355cf8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "38942e724c4a0d520332ccbdae0fa0cce214dc1aff916d6381a7cfb68378f98b"
   end
 
   head do
@@ -32,6 +33,7 @@ class Postgis < Formula
   depends_on "pkg-config" => :build
   depends_on "gdal" # for GeoJSON and raster handling
   depends_on "geos"
+  depends_on "icu4c"
   depends_on "json-c" # for GeoJSON and raster handling
   depends_on "pcre2"
   depends_on "postgresql@14"

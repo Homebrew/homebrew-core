@@ -4,6 +4,7 @@ class SstpClient < Formula
   url "https://downloads.sourceforge.net/project/sstp-client/sstp-client/sstp-client-1.0.18.tar.gz"
   sha256 "d879f4f35ab7eae87486edc48b50f99a9af65f5eb6fb4427993ca578bb0e0dc8"
   license "GPL-2.0-or-later"
+  revision 1
   version_scheme 1
 
   livecheck do
@@ -12,19 +13,18 @@ class SstpClient < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "18956eda0cbafea76d29ee0c4b034920afcacb9f8c9438dd6c3cb13254ff53e8"
-    sha256 arm64_monterey: "59425f64ba486b7fe9aa011d73214e3f8c5f452d70a098e4ff9560521b8b4c12"
-    sha256 arm64_big_sur:  "2bd6c22406a9926c697f92201aeb89c3ee2dc659a1b7f9fa6397ef06f8ca2005"
-    sha256 ventura:        "54669c7c4c5ce414f4deceb5cf6e34a1a57c539ff540490163703889206f3452"
-    sha256 monterey:       "ff0d745140fe3ae5b017e2101bc53c23a4f19c3130eca5aef6b045f4a1791a96"
-    sha256 big_sur:        "27e2a8d50c546f3c3b8ca42f2f4db9e9df556054b311337e5b95dd2c3cc10e29"
-    sha256 catalina:       "dc8cb72d30cccb2fbfe9300d1041107599b986d80d595970a8906acf5f7a742e"
-    sha256 x86_64_linux:   "c1b4f3fbd1d7e4391353c06bf09d48d9fcd9c5741aac9e58c1e5eb222a74cb1c"
+    sha256 arm64_ventura:  "4150a77157b10963596842ea5c257b70363cfaba28ac3bfff1f9f6074a47ed9a"
+    sha256 arm64_monterey: "6ff8857979b82f4b97457f03a665043bb224e5ad592367146598f66cac391f04"
+    sha256 arm64_big_sur:  "1fe3ed11b72387045483883c2924d15b5a25729edec8dc80a3ddab008d8d4887"
+    sha256 ventura:        "132b0a1692c51b79a389c0795fcc228fe980a095dcb5d5679fd0b5e106f3951c"
+    sha256 monterey:       "53b5a095eae90346d602fd869d866e51ae802996e5e709d48155546896e53ff6"
+    sha256 big_sur:        "32ac6352f38629719436d17b75fc28e03d8ddbb9f27710034858da21cc1bd4cd"
+    sha256 x86_64_linux:   "5f415ec7085cc1b3a82a5a5746ca5e27417b003753ed7bde514e6ccef9631404"
   end
 
   depends_on "pkg-config" => :build
   depends_on "libevent"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "./configure", "--disable-dependency-tracking",

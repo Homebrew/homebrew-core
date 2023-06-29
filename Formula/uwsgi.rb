@@ -4,21 +4,21 @@ class Uwsgi < Formula
   url "https://files.pythonhosted.org/packages/b3/8e/b4fb9f793745afd6afcc0d2443d5626132e5d3540de98f28a8b8f5c753f9/uwsgi-2.0.21.tar.gz"
   sha256 "35a30d83791329429bc04fe44183ce4ab512fcf6968070a7bfba42fc5a0552a9"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/unbit/uwsgi.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 arm64_ventura:  "7f14aa760665a509bf46d1abb5639cac6174ed616047c7f372bdadae6312f465"
-    sha256 arm64_monterey: "5453ff8bcb1637f404c16fa05aeb016a7343254ea1327253336207394ca65918"
-    sha256 arm64_big_sur:  "025fca9344cb4240ff9bf8e2bf50970af379abe9f05bb483f8a4f69c204e6b87"
-    sha256 ventura:        "27a8c1cc7e4ab54604ff3d02e6e29cb47874d04c2895e2b3085d621253d2614e"
-    sha256 monterey:       "e3c7683d1359132dd1186de5617abc382f44a40fba22baf78c3b2b76800b7cb1"
-    sha256 big_sur:        "b55da7aab455f3e3521686e99f2ba5261d798c0364fd346498879944a0ab40e0"
-    sha256 x86_64_linux:   "3d32743d10ebefde4fdb6f4c7d2ae171de4d322da53fc9f8732d593cd43d6092"
+    sha256 arm64_ventura:  "b28c9d037f4c185b1104deb950274bf10e2b2cd20da14e8e1a1ab98008a730f9"
+    sha256 arm64_monterey: "b0d8ceaef5da714dab88bb9b15669abe348a081e8d4cdf90d7f446c70f91e2fe"
+    sha256 arm64_big_sur:  "e5d9c4b40defd7690579f7e4229fdeed689e7f1d89fd20aa224eaee3bfd906ad"
+    sha256 ventura:        "c5689a1fac003060742263dff7f40985f7f62b0c724f6f42c0a61ab4c2e56642"
+    sha256 monterey:       "880a052cb9f304815db7ff085c957b07257036d3609908f466325833aac864cb"
+    sha256 big_sur:        "43d8fd1d5c42c128a9ac189ef7659f57df1da2703dea0c46ce486e55b35645b2"
+    sha256 x86_64_linux:   "1eea101f6821a7fa4a8c06164a7a6cff283f4b698ba9625b4cf7dfc2749a85df"
   end
 
   depends_on "pkg-config" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pcre" # PCRE2 issue: https://github.com/unbit/uwsgi/issues/2486
   depends_on "python@3.11"
   depends_on "yajl"
@@ -34,7 +34,7 @@ class Uwsgi < Formula
   end
 
   def install
-    openssl = Formula["openssl@1.1"]
+    openssl = Formula["openssl@3"]
     ENV.prepend "CFLAGS", "-I#{openssl.opt_include}"
     ENV.prepend "LDFLAGS", "-L#{openssl.opt_lib}"
 

@@ -35,50 +35,18 @@ jobs:
       actions: read # for `gh run download`
       pull-requests: read # for `gh api`
     steps:
-      - name: Get triage workflow run ID from CI run ID
+      - uses: Homebrew/actions/find-related-workflow-run-id@master
         if: github.event_name == 'workflow_run'
-        id: set-up-gh
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          WORKFLOW_RUN_URL: ${{ github.event.repository.html_url }}/actions/runs/${{ github.event.workflow_run.id }}
-          QUERY: >-
-            query($url: URI!) {
-              resource(url: $url) {
-                ... on WorkflowRun {
-                  checkSuite {
-                    commit {
-                      checkSuites(last: 100) {
-                        nodes {
-                          workflowRun {
-                            databaseId
-                            workflow {
-                              name
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-        run: |
-          run_id="$(
-            gh api graphql \
-              --field url="$WORKFLOW_RUN_URL" \
-              --raw-field query="$QUERY" \
-              --jq '.data.resource.checkSuite.commit.checkSuites.nodes |
-                      map(select(.workflowRun.workflow.name == "Triage tasks")) |
-                      last | .workflowRun.databaseId'
-          )"
-          echo "run-id=$run_id" >> "$GITHUB_OUTPUT"
+        with:
+          run-id: ${{ github.event.workflow_run.id }}
+          workflow-name: Triage tasks
 
       - name: Download `event_payload` artifact
         if: github.event_name == 'workflow_run'
         uses: Homebrew/actions/gh-try-download@master
         with:
           artifact-name: event_payload
-          workflow-id: ${{ steps.set-up-gh.outputs.run-id }}
+          workflow-id: ${{ env.workflow_run_id }}
 
       - name: Check if runner needs to be recreated
         id: check

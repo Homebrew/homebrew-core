@@ -4,15 +4,16 @@ class SofiaSip < Formula
   url "https://github.com/freeswitch/sofia-sip/archive/v1.13.15.tar.gz"
   sha256 "846b3d5eef57702e8d18967070b538030252116af1500f4baa78ad068c5fdd64"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "432a4566b511529e97cfdb3ce395e8e2c07e96c893fa270a9e455485e4561bf9"
-    sha256 cellar: :any,                 arm64_monterey: "687f4ba6cdad9ba9c4a690158d532b5f6fb7b0b09c3902ef1abe25bcc8363416"
-    sha256 cellar: :any,                 arm64_big_sur:  "72e2019aaa7418023be2b17b3bdbfdcaf1fd3866526916f10963bc61f7b4b8cc"
-    sha256 cellar: :any,                 ventura:        "77c9010033914895789fa3d941ef588b8d8d8484189d84710640982a0ce211ac"
-    sha256 cellar: :any,                 monterey:       "95d5e50f6e32da6c7aa4da21c1a485d5fd8ceae9a42c6c4c2c6df551a1dada1a"
-    sha256 cellar: :any,                 big_sur:        "4d6a220779a2ae2e74083453ddbe6033ffaaae74602eb7671081f34810c0d43b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7f688c6391245a0628cda90274daaa1cbc28fe5b4af7e9c6b8d9adec169a5b11"
+    sha256 cellar: :any,                 arm64_ventura:  "7bddb4c86e7ebba63fb28a1b28c58063765b2db268a6de5cb791488ddf4d63bd"
+    sha256 cellar: :any,                 arm64_monterey: "617aeaedf2b8f9948198815950668ff13a5701e6b3ccc0531e16a27e6fa8ce4b"
+    sha256 cellar: :any,                 arm64_big_sur:  "b3466a50ad11dae9dc53136e57eace7d511a7ea935dee5a0022bcae874d5fa14"
+    sha256 cellar: :any,                 ventura:        "168dbd8adf7da0cd86e401c30146f27c6671f78c0c6af4e3c03554bc07f6c35b"
+    sha256 cellar: :any,                 monterey:       "27c3a031519104338ace57c8c5e2ecd5a7cab74e624cd1f32d82ad0cecb2f3dd"
+    sha256 cellar: :any,                 big_sur:        "c2274f89b8f065b42a300806366a6dc8f516f1b01037bd1caa16cbd7d2d4f9ba"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3cdbe7c8838184d52e61ba15923fc00b7e0b88f502f4d18ed316ee42dad822e5"
   end
 
   depends_on "autoconf" => :build
@@ -20,7 +21,7 @@ class SofiaSip < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "./bootstrap.sh"

@@ -2,7 +2,7 @@ class W3m < Formula
   desc "Pager/text based browser"
   homepage "https://w3m.sourceforge.io/"
   license "w3m"
-  revision 7
+  revision 8
   head "https://github.com/tats/w3m.git", branch: "master"
 
   stable do
@@ -28,20 +28,18 @@ class W3m < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "f851decc9866c5d1b0f36e10238e5e6902df0ebf6e782973156b73c178de100d"
-    sha256 arm64_monterey: "471292d0ec7637d96304cbb61301909681057dfdf78172ca13f94c2a6f6fc173"
-    sha256 arm64_big_sur:  "ca603325cc6d0904d5d709f6e9407b26fd22e3eeb3984d38e11c21d8f45e7b3a"
-    sha256 ventura:        "10c3e54ffe89466494165ebaba21b691778cd14e10e40a49550034dde9de7b57"
-    sha256 monterey:       "5e8f410d2f2942a76602d88a71eee516e43d21164e0e1e41855827ae6f226fa0"
-    sha256 big_sur:        "9865fb7a43e8732bb7d309502c3de3410d05aeb093ba8916462b5aab36563a5a"
-    sha256 catalina:       "5b752461983a608c684bae9efa13a0a5e37a456def0b368c8b0706b35fd480a3"
-    sha256 mojave:         "a77f9a7ceee4dbb2a7288ecfad9c903c489ce4a60ff10056cd735433986df901"
-    sha256 x86_64_linux:   "425cc2d1f5e1c4dff0f4f70c916322e55e95d50b18a003c9ff065cb982fc90e9"
+    sha256 arm64_ventura:  "fc4a77c30411f61b24a69be7ac380d6f79d3e9617c47f18f9c26e9c7a5ae11ef"
+    sha256 arm64_monterey: "f987092472928a6f55bc65930ca911de4415f312cf9c9b8f3662baf4058b4b05"
+    sha256 arm64_big_sur:  "d777d1b1193a49785df6150d908e38db8b2de415432f4acc55a635be32e69f64"
+    sha256 ventura:        "9403514e48aabc3e5ed768524465eafa7bb5b5f1f67f3a128fe98a1fbae4aaa8"
+    sha256 monterey:       "9e6a1fc7660ebab1bce04646cc625d107b43e0a5cba52c5b1f9868f56b4e4825"
+    sha256 big_sur:        "3e32fcd2f971f88a8dcac24702147ff5847afb329d9c54cadd40e9c102bcb3c5"
+    sha256 x86_64_linux:   "1835ec7faed90c796e7290a5b6271dda1ac6b2bdb15ce577367852ad92681c39"
   end
 
   depends_on "pkg-config" => :build
   depends_on "bdw-gc"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
@@ -57,7 +55,7 @@ class W3m < Formula
 
     system "./configure", "--prefix=#{prefix}",
                           "--disable-image",
-                          "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}"
+                          "--with-ssl=#{Formula["openssl@3"].opt_prefix}"
     system "make", "install"
   end
 

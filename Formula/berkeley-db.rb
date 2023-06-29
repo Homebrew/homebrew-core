@@ -5,7 +5,7 @@ class BerkeleyDb < Formula
   mirror "https://fossies.org/linux/misc/db-18.1.40.tar.gz"
   sha256 "0cecb2ef0c67b166de93732769abdeba0555086d51de1090df325e18ee8da9c8"
   license "AGPL-3.0-only"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://www.oracle.com/database/technologies/related/berkeleydb-downloads.html"
@@ -13,19 +13,18 @@ class BerkeleyDb < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "9f95fac93b53a02ecf42f3abf60c5657f74aea8fccd7b8077c1b567a959bf750"
-    sha256 cellar: :any,                 arm64_monterey: "8da7ddbf86ba57c94235796b4acddefba7a67b20cef9c4955e5601f80f8a0e23"
-    sha256 cellar: :any,                 arm64_big_sur:  "5a9de497a3fb74b8b7fd3b1be77fcd0b808361a3adf228c04132106a16f03aa5"
-    sha256 cellar: :any,                 ventura:        "c121a9b0cb9b715f535f650ad37435866862a9211923ab7d9d20cc74db3bb814"
-    sha256 cellar: :any,                 monterey:       "923b8995be6b3da9742b8c283d18dbf3142f73b478b60f85f76db97c37e9b280"
-    sha256 cellar: :any,                 big_sur:        "eca9cf2bbc656225f096789d5e5f5f73fc62e82aae70233835a7bb29e0e8220c"
-    sha256 cellar: :any,                 catalina:       "8b868ae69e708c22e04ba3d7ab6164d31d9de5611458f6aae0a0c636b1bf6dc5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ed8bbe73f3996dce31e082f325cb5230e6026d2067824e6ceaaceeafc146ff0c"
+    sha256 cellar: :any,                 arm64_ventura:  "67fed25d26cb987106b346ee4088959b71306db6a016cb6f58cca9da9350c36d"
+    sha256 cellar: :any,                 arm64_monterey: "e5416a45caf56653c4691f5d939df58d9da2254807efd6ab5425cfa63a472ac9"
+    sha256 cellar: :any,                 arm64_big_sur:  "a68f9cf2daa3a03ea5c9c9e072955d2dec43aff19859ef2c40888b7b85ea379f"
+    sha256 cellar: :any,                 ventura:        "a6b04772ee3978ec98f1e3e79fec872c9dc5476b49b7d70218e5c850af6ecf79"
+    sha256 cellar: :any,                 monterey:       "6db05f803f05820f25cdd5936a8d23615ef886f0a409946d40d966cf5f35f023"
+    sha256 cellar: :any,                 big_sur:        "5f4917a225a5986f682c85dbcfb6503024738d6eadb637161210ae621c26f457"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ba948d2977fbfcc865086fab6d6567b4f3972fcc46e327817fb7600f64d4312"
   end
 
   keg_only :provided_by_macos
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do

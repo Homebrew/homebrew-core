@@ -20,7 +20,7 @@ class BrewPip < Formula
   end
 
   # Repository is not maintained in 9+ years
-  deprecate! date: "2022-04-16", because: :unmaintained
+  disable! date: "2023-06-19", because: :unmaintained
 
   depends_on "python@3.11"
 

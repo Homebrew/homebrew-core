@@ -18,7 +18,7 @@ class YoutubeDlc < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1628852cf9f8a86297420a1aa6d1f17789fa630f4eeef4c3cf017f6ac9f10611"
   end
 
-  deprecate! date: "2022-03-21", because: :unmaintained
+  disable! date: "2023-06-19", because: :unmaintained
 
   depends_on "pandoc" => :build
   depends_on "python@3.11"

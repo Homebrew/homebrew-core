@@ -3,6 +3,7 @@ class GlibOpenssl < Formula
   homepage "https://launchpad.net/glib-networking"
   url "https://download.gnome.org/sources/glib-openssl/2.50/glib-openssl-2.50.8.tar.xz"
   sha256 "869f08e4e9a719c1df411c2fb5554400f6b24a9db0cb94c4359db8dad18d185f"
+  license "LGPL-2.0-only"
   revision 3
 
   bottle do
@@ -17,6 +18,9 @@ class GlibOpenssl < Formula
     sha256 high_sierra:    "04107ac3e021e4dd11feb50a3ac4024f3c73dd2b805f171ccfc22c1d7e3a665e"
     sha256 x86_64_linux:   "4b583a88e518cdf39efb461edfd35d58fa8d549859a3cb112fee7beffb4705e0"
   end
+
+  # See: https://gitlab.gnome.org/Archive/glib-openssl/
+  deprecate! date: "2019-04-25", because: :repo_archived
 
   depends_on "pkg-config" => :build
   depends_on "glib"

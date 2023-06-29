@@ -21,7 +21,7 @@ class Pkcrack < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7166064fd3c5a549df696d4d889b4de6c5d2596f70c598de71a3d975a42a8f3c"
   end
 
-  deprecate! date: "2022-03-30", because: :unmaintained # and upstream site is gone
+  disable! date: "2023-06-19", because: :unmaintained # and upstream site is gone
 
   conflicts_with "csound", because: "both install `extract` binaries"
   conflicts_with "libextractor", because: "both install `extract` binaries"

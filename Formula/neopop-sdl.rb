@@ -26,7 +26,7 @@ class NeopopSdl < Formula
   end
 
   # Homepage says: "Development on this project has stopped. It will no longer be updated."
-  deprecate! date: "2022-04-02", because: :unmaintained
+  disable! date: "2023-06-19", because: :unmaintained
 
   # Added automake as a build dependency to update config files for ARM support.
   depends_on "automake" => :build

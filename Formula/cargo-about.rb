@@ -16,13 +16,21 @@ class CargoAbout < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "89a4332e514b820eef4087bcd2d985d17f633f03d35c97b2ffda12cf82368f34"
   end
 
-  depends_on "rust" # uses `cargo` at runtime
+  depends_on "rust" => :build
+  depends_on "rustup-init" => :test
 
   def install
     system "cargo", "install", *std_cargo_args
   end
 
   test do
+    # Show that we can use a different toolchain than the one provided by the `rust` formula.
+    # https://github.com/Homebrew/homebrew-core/pull/134074#pullrequestreview-1484979359
+    ENV["RUSTUP_INIT_SKIP_PATH_CHECK"] = "yes"
+    system "#{Formula["rustup-init"].bin}/rustup-init", "-y", "--no-modify-path"
+    ENV.prepend_path "PATH", HOMEBREW_CACHE/"cargo_cache/bin"
+    system "rustup", "default", "beta"
+
     crate = testpath/"demo-crate"
     mkdir crate do
       (crate/"src/main.rs").write <<~EOS

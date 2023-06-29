@@ -5,19 +5,20 @@ class XmlSecurityC < Formula
   mirror "https://archive.apache.org/dist/santuario/c-library/xml-security-c-2.0.4.tar.bz2"
   sha256 "c83ed1b7c0189cce27a49caa81986938e76807bf35597e6056259af30726beca"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "44e619c0775264474da5fac0a3b7a76c169b9440654e8ce206f77e4a89e22d41"
-    sha256 cellar: :any,                 arm64_monterey: "8c02de297010d750925ab642739e56c514af13100a6d4893923ea074e389a876"
-    sha256 cellar: :any,                 arm64_big_sur:  "f9006574dd2cf981840b09296014164bda200753726c46f946483dacbb015042"
-    sha256 cellar: :any,                 ventura:        "1b7278375b07bc250e636698e4acbb2bf49011b49886f87afb41cfa38e253029"
-    sha256 cellar: :any,                 monterey:       "74905e5b09e2f9c88206c2d4a967018e9424a54cd67e7734f7d87f385e1477eb"
-    sha256 cellar: :any,                 big_sur:        "53f03034f650807fa91a96153c82854582aef1eef8caeab601703c46d354a752"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f7c52a6310c4a117dbde92b4486d20434b644524daf533a259697ee125bd8bad"
+    sha256 cellar: :any,                 arm64_ventura:  "fdb50f5de05f8d23f82c401d5e2a7bd948d66805c443fffcc13db9abce41d558"
+    sha256 cellar: :any,                 arm64_monterey: "56b183bc43fcb0b7b06c5a8ef52ee47134bdc46c254bcc5a28582d7c6036762e"
+    sha256 cellar: :any,                 arm64_big_sur:  "4becfaae51067f844587b674f6bb46653f1923e723acc3f3ac8b6d1993d7d4a5"
+    sha256 cellar: :any,                 ventura:        "bbf7e9efb91480a35ff315ba9dc7126ff77b6091b32d5037867a2e02984cf866"
+    sha256 cellar: :any,                 monterey:       "91834747f036480abdf6df45bdbafd5eac50e4ad18c8abf4dfdfbd2f7d731f07"
+    sha256 cellar: :any,                 big_sur:        "32d2ddd61821d3b0f9327f8a7c21154889b15ee74e599e6f9e88896ce9e2f14b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "401bcb0a42250c10513897bb2b53412ec82d5f8cdebe16c3780d7c1f835f40d9"
   end
 
   depends_on "pkg-config" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "xerces-c"
 
   # Fix -flat_namespace being used on Big Sur and later.
@@ -30,7 +31,7 @@ class XmlSecurityC < Formula
     ENV.cxx11
 
     system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking",
-                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}"
+                          "--with-openssl=#{Formula["openssl@3"].opt_prefix}"
     system "make", "install"
   end
 

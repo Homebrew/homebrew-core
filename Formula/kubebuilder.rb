@@ -2,19 +2,19 @@ class Kubebuilder < Formula
   desc "SDK for building Kubernetes APIs using CRDs"
   homepage "https://github.com/kubernetes-sigs/kubebuilder"
   url "https://github.com/kubernetes-sigs/kubebuilder.git",
-      tag:      "v3.10.0",
-      revision: "0fa57405d4a892efceec3c5a902f634277e30732"
+      tag:      "v3.11.0",
+      revision: "3a3d1d9573f5b8fe7252bf49cec6e67ba87c88e7"
   license "Apache-2.0"
   head "https://github.com/kubernetes-sigs/kubebuilder.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0522d956eb078e975b5f7aa561decd7e440c299f0ad93416adce1a4a200bed6a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ce11e727a70a2d91e013e931ef4c14b3066cc31ae81aff1994636dabcb13d032"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8c7489f6f674a0af0af849ca8aa75d623e9f1e0d5980520a77bc590c65736566"
-    sha256 cellar: :any_skip_relocation, ventura:        "4ffd5507d8efc437589d924195a8490157bf3ec3b270b782527acb3f4bd4fec0"
-    sha256 cellar: :any_skip_relocation, monterey:       "102f512b6d7203ec0d83b0ea118527429604bc0a70925a85d45a2bc576657991"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5b5959b58568ddcaee108867b214c6ca28ff8930fc1c19cbacaab4101e166dc3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "557f964712ef420a5b873e7c25ab461ed91ea52c11145895f9a0fd2326dfa56d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "710ec8bb200b8f04b604d4b36b9b703c5a3292b5c566904b127f6cad4d2fe593"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5615d27e73644a8c83463fe82072eef840701951f7e1991215f2dcfc66c768ce"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "258c3bbbe41e1adf12d2f5bd63f5ee490b46f4c3b9677c288a7552d3504eb8a3"
+    sha256 cellar: :any_skip_relocation, ventura:        "04bbcde6da62414749a68729be2fd34136b88c50418cdca51ab7bf617b139e01"
+    sha256 cellar: :any_skip_relocation, monterey:       "5bfea4b4fb8e41cb01d22c1fe950359859d74754a556993b9e4fe8f70a4011a2"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e4eeb35bb676bfd01d002f7d016ae2392d6e4136bbfee88f511637dfafcc8faf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b51f569d3d30b7285eb704806500115154eeeb4041a4ab10401bc5b60ba86247"
   end
 
   depends_on "go"

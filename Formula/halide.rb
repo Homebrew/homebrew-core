@@ -1,9 +1,8 @@
 class Halide < Formula
   desc "Language for fast, portable data-parallel computation"
   homepage "https://halide-lang.org"
-  # TODO: Check if we can use unversioned `llvm` at version bump.
-  url "https://github.com/halide/Halide/archive/v15.0.1.tar.gz"
-  sha256 "0bc440df8d7b4e09bf73636371573701dee6ba3d5df9334df1048ea2dd34c788"
+  url "https://github.com/halide/Halide/archive/v16.0.0.tar.gz"
+  sha256 "a0cccee762681ea697124b8172dd65595856d0fa5bd4d1af7933046b4a085b04"
   license "MIT"
   head "https://github.com/halide/Halide.git", branch: "main"
 
@@ -13,20 +12,20 @@ class Halide < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "2a0574fc23f4e798aff3efb68b732acd087a422479f7b14a78474ddae4c6bd0c"
-    sha256 cellar: :any,                 arm64_monterey: "3ef776c45f877bd3364c9ef60d024e5d323b70b417eee50a26dfb57e87c9687b"
-    sha256 cellar: :any,                 arm64_big_sur:  "53fbd263dbfb79a699b2b24b2cf2203923e96f4a35d25bdc354be0d05c6c60da"
-    sha256 cellar: :any,                 ventura:        "bdb836ae39cf5a333e9a7170be1b9448de207275316be65c5cd90eedd0e49127"
-    sha256 cellar: :any,                 monterey:       "32aed6e417e9bb15f56bdcb16125eae6fc07d1bd0d7434ab5522df37c0857447"
-    sha256 cellar: :any,                 big_sur:        "a6781014b6f6209a3d3f91b85b9a6e04c6264cd5a01b80f7c7c5125ed63b0abb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "74a2b94973ea91eda308ef9560bc5839d59fb1ce03d11becc92f0fd08fe4e649"
+    sha256 cellar: :any,                 arm64_ventura:  "1dc8e72c88d4765ca1a4c4fa0aa587be9d4791c252cb570374e902a2f402086e"
+    sha256 cellar: :any,                 arm64_monterey: "d81f24d816d895b0f10755771bfee33a0c03ac895fc1e2a7399849c794eccb37"
+    sha256 cellar: :any,                 arm64_big_sur:  "f356585914ef921814333752a006d9e4033163372aa50c65929c6645a344431e"
+    sha256 cellar: :any,                 ventura:        "0f5126b08161572979ed23b87a1ce7623ee0971dd7a57f44acaebc76578936a0"
+    sha256 cellar: :any,                 monterey:       "95166cdc80500c57799c052f255065b7fb8499c25f5f7a732587c7b8da1563da"
+    sha256 cellar: :any,                 big_sur:        "727ee7167d0f2026de4f7ce5654a601e71485c56573cc766593a748b71849b70"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8ff3882c4b82e3a44a92670c8579b6817447ae304efb6d27c176684e04e9200b"
   end
 
   depends_on "cmake" => :build
   depends_on "pybind11" => :build
   depends_on "jpeg-turbo"
   depends_on "libpng"
-  depends_on "llvm@15"
+  depends_on "llvm"
   depends_on "python@3.11"
 
   fails_with :gcc do

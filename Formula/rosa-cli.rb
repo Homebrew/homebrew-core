@@ -1,8 +1,8 @@
 class RosaCli < Formula
   desc "RedHat OpenShift Service on AWS (ROSA) command-line interface"
   homepage "https://www.openshift.com/products/amazon-openshift"
-  url "https://github.com/openshift/rosa/archive/refs/tags/v1.2.22.tar.gz"
-  sha256 "fa628316f5ccd6073e8e85fc31d2427304d41d24105d5d053af67c72bd558ec8"
+  url "https://github.com/openshift/rosa/archive/refs/tags/v1.2.23.tar.gz"
+  sha256 "3266546d67209d5d8e43434fc7c5b6bf554d25d33050639ce3ff8486f37bf408"
   license "Apache-2.0"
   head "https://github.com/openshift/rosa.git", branch: "master"
 
@@ -12,13 +12,13 @@ class RosaCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ef43dd7cc342b1d8724f25d7425125527aafff7ed929de9b47d9755d17b7ba31"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ef43dd7cc342b1d8724f25d7425125527aafff7ed929de9b47d9755d17b7ba31"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ef43dd7cc342b1d8724f25d7425125527aafff7ed929de9b47d9755d17b7ba31"
-    sha256 cellar: :any_skip_relocation, ventura:        "8d0d4a42adea79b3fdcf21dee911f3792d4d154e2e274a5b6453b9528f8a1913"
-    sha256 cellar: :any_skip_relocation, monterey:       "8d0d4a42adea79b3fdcf21dee911f3792d4d154e2e274a5b6453b9528f8a1913"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8d0d4a42adea79b3fdcf21dee911f3792d4d154e2e274a5b6453b9528f8a1913"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "81efcc03d4111afe1481e4603593d17a74a377401504f2a9e7779efad83e4e19"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "19d71a487b02c1f460ca6e93367754ad37880d0611aec8cb6cefa52b2f6ff1d6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "19d71a487b02c1f460ca6e93367754ad37880d0611aec8cb6cefa52b2f6ff1d6"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "19d71a487b02c1f460ca6e93367754ad37880d0611aec8cb6cefa52b2f6ff1d6"
+    sha256 cellar: :any_skip_relocation, ventura:        "d9c37ad925647298fcabe1a9725919c93cb8ed3482a14cc416465dc3d8d3f500"
+    sha256 cellar: :any_skip_relocation, monterey:       "d9c37ad925647298fcabe1a9725919c93cb8ed3482a14cc416465dc3d8d3f500"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d9c37ad925647298fcabe1a9725919c93cb8ed3482a14cc416465dc3d8d3f500"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a558b9cfdb223bb199102b551923712f2bc11c74a26e413443b687cbaf381cd6"
   end
 
   depends_on "go" => :build

@@ -4,6 +4,7 @@ class MariadbAT106 < Formula
   url "https://downloads.mariadb.com/MariaDB/mariadb-10.6.14/source/mariadb-10.6.14.tar.gz"
   sha256 "450437c74a8e44c76b3c0b343b9347eb903201545851565d78d9a624676ab202"
   license "GPL-2.0-only"
+  revision 1
 
   # This uses a placeholder regex to satisfy the `PageMatch` strategy
   # requirement. In the future, this will be updated to use a `Json` strategy
@@ -23,13 +24,13 @@ class MariadbAT106 < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "0a5c38b3cee3830beb42714ee813d3b0b39d04027464fbc77f989506e52d371c"
-    sha256 arm64_monterey: "a3c60276ba79d890fe4329107a86df23e8d8d4b167c9f726e8982c2ceafcf832"
-    sha256 arm64_big_sur:  "c09d394843d4f2550b3f6f369f3a9eed875d5456c4feb3aa465f8595ed3d09c9"
-    sha256 ventura:        "0fd02a924491eff1b4d5d7e2861212fd9c11d8b7e4fca22c888c1b87e328c7bc"
-    sha256 monterey:       "b5d2ea13706094a6fda450f7bab20b764ca46f403d14620680dd286d011de616"
-    sha256 big_sur:        "4059783da668511209ce4e5ac0842f949402854d2d6ae70145223727a19b1d24"
-    sha256 x86_64_linux:   "36f54a05dc75b450a1e899fd6de960a5433b483a6c7f47d7b83ad8ae962ae7dc"
+    sha256 arm64_ventura:  "b3f2a665ca66b5f214c95a0f5d1bc6d2632515bee4b95c78263a4f59cd6e918c"
+    sha256 arm64_monterey: "3634784f93fbf243137803c079d7f901bbe701588a44678c40ecd5fa0159ba37"
+    sha256 arm64_big_sur:  "a64ab67a7181c75460b5300625a38c1092750712fbec542cc58cfeccb268d0d5"
+    sha256 ventura:        "35f54fb91ecae36e74535b4d7723d52bc70c2d84eee6889cacaa86b9171ebd4b"
+    sha256 monterey:       "ebd3f46cd79b4271f4c0db4232602f75a609ea2fc91256a0afb8093f62581217"
+    sha256 big_sur:        "89d76be314347e5a1037c86a77058691b2da423c482941d483545b9b63925023"
+    sha256 x86_64_linux:   "d93b794535b0ca9943a99349644f1fbfcb41c70e2c0e6a510c0555fad1008d28"
   end
 
   keg_only :versioned_formula
@@ -41,7 +42,7 @@ class MariadbAT106 < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "groonga"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pcre2"
 
   uses_from_macos "bzip2"

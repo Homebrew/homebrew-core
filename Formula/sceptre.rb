@@ -3,18 +3,18 @@ class Sceptre < Formula
 
   desc "Build better AWS infrastructure"
   homepage "https://docs.sceptre-project.org/"
-  url "https://files.pythonhosted.org/packages/1e/67/9b11178fe2eac3920a87b1be50e769ad93d96412d83fa8b5d453a0be994c/sceptre-4.2.0.tar.gz"
-  sha256 "22de72698ca143d033202f6a4ad21f2413eb1af8ed03bdd938e2673409d5df87"
+  url "https://files.pythonhosted.org/packages/ff/ec/c2266893154a31c012dd2d1170306dbfab2410898319d412da7e2da249cf/sceptre-4.2.1.tar.gz"
+  sha256 "5fc7783e16935abca382713c9caea03bc176891d35066017c3ffcebf79674710"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "2161988b2859530f3b79dd7305c3018df97735d8f99461f22e34c2d9ec5fdb4a"
-    sha256 cellar: :any,                 arm64_monterey: "99ef398c6a7c4c8c19d1f31add9bff47a5331f8f06c55e41168bafc8d7f0f24b"
-    sha256 cellar: :any,                 arm64_big_sur:  "35db8194cad9bc48cdc2ee1d6b0a3ac8a7ad7d43bf9b2190e1ee8298e364e2ea"
-    sha256 cellar: :any,                 ventura:        "b94d4b0cb658cd52d27f22968d581663a5a4adca0174e7bc0e87df89ff71f955"
-    sha256 cellar: :any,                 monterey:       "ca31a32211aceb6f318b99e860a84b0fa8de014a225b37a2bf6705276d783f31"
-    sha256 cellar: :any,                 big_sur:        "047be83e8f6e6fda3f9e955cd50bdb698219ee1c85b1dcc3a7b436d3056b1e3e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d16193b7e00196427df0e897d5028f6c46df33aadc3c380a43573c65d2658bec"
+    sha256 cellar: :any,                 arm64_ventura:  "e8b75e195414e009a9248075af2ab27f9d20cfa3413b1baa6616800286ee501e"
+    sha256 cellar: :any,                 arm64_monterey: "7921303c69dc32d4d028675eeb60a7b51b6ff405dec836ef9a3cc13f0d82ad68"
+    sha256 cellar: :any,                 arm64_big_sur:  "040c4c35fd7000c56a37f91a131a4daaa67ad0ae7b4813009daef3ecf6318dbf"
+    sha256 cellar: :any,                 ventura:        "587b0d531f1fbb32c7ebfdeffeab5dc6b0f4cfa4fb283eb47c5c99cc5e880ae3"
+    sha256 cellar: :any,                 monterey:       "ffb2685f5249544772e2cd1920c990456a38c2f8475c9d0651ed0bb199ac04f9"
+    sha256 cellar: :any,                 big_sur:        "e7cb282cf3c6a12eccda0318da81adbd55178877fd8445a5d05a7dcbd6445308"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a692203da0e6b8331ed4493aa39a2cfc65eef77a0af89cdc6c9e138ca48b9da7"
   end
 
   depends_on "libyaml"
@@ -27,13 +27,13 @@ class Sceptre < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/06/70/9ffc65f8930b23f035f6797a5508eb0e991a638dd794161c8ca9077ac2d9/boto3-1.26.141.tar.gz"
-    sha256 "152def2fcc9854dcc42383d2b53e2ed2c9ccb5ff6cc0f3ada20f1ab54418ede4"
+    url "https://files.pythonhosted.org/packages/28/0d/4f2ae3cb2f62332a314eeff2011bd31db4ecb77a562f6b80cef627082df0/boto3-1.26.153.tar.gz"
+    sha256 "92de7eec15adda76abff0580b1e8ca70646470fba4c807934062456d0c5c9171"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/dd/c9/92fdc5d97a9936cd72a95148bc99cf050a492a6a110482953d4dd1f0c985/botocore-1.29.141.tar.gz"
-    sha256 "e86e1633f98838317b9e1b5c874c4d85339b77f6b7e55c2a4d83913f6166f9ad"
+    url "https://files.pythonhosted.org/packages/1f/99/f6f8384dc170cfc1b1ea9c3922226afe6e3d517af2a56ce0bcbdbb201398/botocore-1.29.153.tar.gz"
+    sha256 "d59b8e87138581a339b9f84a9e90bc4c1a152cf8ca2adbaad7792a4c4125bffa"
   end
 
   resource "certifi" do
@@ -92,8 +92,8 @@ class Sceptre < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/95/7e/68018b70268fb4a2a605e2be44ab7b4dd7ce7808adae6c5ef32e34f4b55a/MarkupSafe-2.1.2.tar.gz"
-    sha256 "abcabc8c2b26036d62d4c746381a6f7cf60aafcc653198ad678306986b09450d"
+    url "https://files.pythonhosted.org/packages/6d/7c/59a3248f411813f8ccba92a55feaac4bf360d29e2ff05ee7d8e1ef2d7dbf/MarkupSafe-2.1.3.tar.gz"
+    sha256 "af598ed32d6ae86f1b747b82783958b1a4ab8f617b06fe68795c7f026abbdcad"
   end
 
   resource "networkx" do

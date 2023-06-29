@@ -6,16 +6,17 @@ class Lanraragi < Formula
   url "https://github.com/Difegue/LANraragi/archive/v.0.8.90.tar.gz"
   sha256 "290bd2299962f14667a279dd8e40a1f93d1e9e338c08342af5830a1ce119c93e"
   license "MIT"
+  revision 1
   head "https://github.com/Difegue/LANraragi.git", branch: "dev"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "7dd9f43321105969313ca666d7906cce798ac4120cbb8d3c0db4c9eba550bd32"
-    sha256 cellar: :any,                 arm64_monterey: "2f126f77c83d76ec7d7f72fa287db55bf84f7e37fabe586335f89ba19fa47934"
-    sha256 cellar: :any,                 arm64_big_sur:  "87a54c094ebb8307310643ccb794531510226b08fa885e22b8d861179fd68ae6"
-    sha256 cellar: :any,                 ventura:        "b25da858f3a316fe59f18dba0a23e9ab388e9c55031fb1e785315a68586397f8"
-    sha256 cellar: :any,                 monterey:       "9acd30fa0a98975762cd0127e117d5d5a6b8f3229601be9d0cbae54417b28345"
-    sha256 cellar: :any,                 big_sur:        "dac62d7aa895ad2310b77dc7be80eaefaf48ec87d3a01536db7524d1fa4ea71a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5b1daae188327477fcb091c622a06797e6f502d37c8861f028d213e2a411b061"
+    sha256 cellar: :any,                 arm64_ventura:  "acfebac85db427ee57f85ff766fcde3beb1998d5ab0d1fc068005240d5bcecb5"
+    sha256 cellar: :any,                 arm64_monterey: "2a91a1f7b24fe399ebeb0cd778482e3b565efc549806a8b388be04e597b2535e"
+    sha256 cellar: :any,                 arm64_big_sur:  "b88ce15fc0bee771b32cf2756055223ec938ffdb283dea002e6b863eb9391f4c"
+    sha256 cellar: :any,                 ventura:        "7443f0e124560311ad902beafa77b2f3227ee8534621445ba49e475a1fa4ee78"
+    sha256 cellar: :any,                 monterey:       "62f7edd68fec57a1e42fe09d62442da2c6a30cf9afad9b6b2ab46b47781770d3"
+    sha256 cellar: :any,                 big_sur:        "c9e70d4b8caa235b5fc061db4f8fa89662cdf981f2594fe9d459fe300b0296d1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d10b27225caa01cc0635d3a99f78b5e3f3423e315bf028d37e1d65f437ce0a80"
   end
 
   depends_on "nettle" => :build
@@ -27,7 +28,7 @@ class Lanraragi < Formula
   depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "node"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "perl"
   depends_on "redis"
   depends_on "zstd"
@@ -57,7 +58,7 @@ class Lanraragi < Formula
       "-I#{Formula["libarchive"].opt_include}"
     end
 
-    ENV["OPENSSL_PREFIX"] = Formula["openssl@1.1"].opt_prefix
+    ENV["OPENSSL_PREFIX"] = Formula["openssl@3"].opt_prefix
 
     imagemagick = Formula["imagemagick"]
     resource("Image::Magick").stage do

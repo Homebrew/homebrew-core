@@ -4,6 +4,7 @@ class EcflowUi < Formula
   url "https://confluence.ecmwf.int/download/attachments/8650755/ecFlow-5.11.0-Source.tar.gz"
   sha256 "d18acd93d42f8ccdff9fc3f07d5a9667ff4861e53c40af35de36ce77ab100bb8"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url "https://confluence.ecmwf.int/display/ECFLOW/Releases"
@@ -11,18 +12,18 @@ class EcflowUi < Formula
   end
 
   bottle do
-    sha256                               arm64_ventura:  "7b5f30648b60fa21563dbaa926867f4fa560bf2f965b24099b3543365104083a"
-    sha256                               arm64_monterey: "2878586322e881e8231286e1443d3948a0a2eda8ca8215101605e4fe943b0a61"
-    sha256                               arm64_big_sur:  "8de3b610be831d5868d8d68bfaddfbac93e6e8543daba5f9e82ca0787c95bcd2"
-    sha256                               ventura:        "33c59699c83697615518a178e7f886957bde19a96515dc17588ca72391a5d9d9"
-    sha256                               monterey:       "8ec4de95774eda12d4123092a6139fbdbe2e955ceb42de73a0773706ab265a6c"
-    sha256                               big_sur:        "7ba839b29c0ae547962020e828b67a3cbb930f6fc2b5e521c95e590a78e90299"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "85438e5ee6b2223102af6db37d08b1a21f00496345bb9894e9d43da068c85c31"
+    sha256                               arm64_ventura:  "176f0ea869b4f49cb95c65c97abad6c012759331774c7dbc5c0b06985b109a1e"
+    sha256                               arm64_monterey: "47055f6b23ab30b05f91d23d9024ce2ecd98f01d8d3d0fdbefc51259d5c4a68d"
+    sha256                               arm64_big_sur:  "e402eafb5b13759796863d13d0c14d6f62a30cd0f1ab735fbd3d89f7fdb1705b"
+    sha256                               ventura:        "d87caf4ac7293d6cb705a245d162652a2a04627d477d8c8d755747224f5bf234"
+    sha256                               monterey:       "8a97bad509b615a56c9732e075bea11a1b7a8d374b46a2bb22f11e09c3c17043"
+    sha256                               big_sur:        "89d1ede97daa14910828d4cbe4b4f9a520229d54d3457abae365cd99a2ffe233"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0f74a9408d4d345c6fa29e8eb0326f4ea154beff494fe5366fde78b7c5da4952"
   end
 
   depends_on "boost" => :build
   depends_on "cmake" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "qt"
 
   # requires C++17 compiler to build with Qt

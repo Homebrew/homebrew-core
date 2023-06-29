@@ -1,8 +1,8 @@
 class Ansifilter < Formula
   desc "Strip or convert ANSI codes into HTML, (La)Tex, RTF, or BBCode"
   homepage "http://www.andre-simon.de/doku/ansifilter/ansifilter.html"
-  url "http://www.andre-simon.de/zip/ansifilter-2.19.tar.bz2"
-  sha256 "f9c27b1883914a1b1d4965f4c49b2be502e2a9fc9dd3f61123abeae989c354bc"
+  url "http://www.andre-simon.de/zip/ansifilter-2.20.tar.bz2"
+  sha256 "35ec9d71a7f4e5601337937c7734b32a6e346c0f054f4d316376823cfe679067"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,13 +11,13 @@ class Ansifilter < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1f3012c780cd7e6c52eb448bedb46e87e7a8ae1bde12a6098822afbaa0a80af9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "92096687f55371d4b384bf0d933101a9603189709bb737cf135171fadfdda1eb"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6a692940ab425a6cba2bf11ac3f494f72ea1ada05bd7fe5057b8b2c972e34171"
-    sha256 cellar: :any_skip_relocation, ventura:        "cb8521b4794278954eb15d5c11ca1809664df3d1a1bbb967fb30641022153481"
-    sha256 cellar: :any_skip_relocation, monterey:       "63e343ea1a8898bde4257990c9ce55d93e3e8a9bd6928c142e477b92e25afc6b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "87ddd673f6e021a4156f9f0f75c08441b2bf30924d2f6a92f2bb706505df66ec"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1935dc618c8975e129fb53ec9f549dd6ed0aa4cc64beca446d7b73771d04568d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "99c03b9d91a8df245d7e35173068bb82ad1791b6e94ff0a598261218b449be06"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "52e7516c49bc36f2e50bbef6b0048ca045fbf1c44d81ac30dd9928e1d4760bfb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "29440dc9ad145465cd96401712501adc03e0ff43edcf8b86a1dc330b335f94b3"
+    sha256 cellar: :any_skip_relocation, ventura:        "121ae4e270a9a3c845404c2aea06f736f2f6a3fb96cb2b9d4961142039f6ea03"
+    sha256 cellar: :any_skip_relocation, monterey:       "b7813ee4d579827f53e7853a54acde239b1ab29478699b292b8b5862bb5d13df"
+    sha256 cellar: :any_skip_relocation, big_sur:        "fa9881fef27218402726e95b0128aaeede6f47f78fdc5806577de90081cbf9c5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6f621d1e0aebb309bf2afccbec0d347c64e8ac976f15fe2b9a0cda6f3b737d93"
   end
 
   def install

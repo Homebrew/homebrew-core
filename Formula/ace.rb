@@ -1,8 +1,8 @@
 class Ace < Formula
   desc "ADAPTIVE Communication Environment: OO network programming in C++"
   homepage "https://www.dre.vanderbilt.edu/~schmidt/ACE.html"
-  url "https://github.com/DOCGroup/ACE_TAO/releases/download/ACE%2BTAO-7_1_0/ACE+TAO-7.1.0.tar.bz2"
-  sha256 "90d642b7a67445da89cb73d2c091b169b373c63d2db78cf498d930864b382d43"
+  url "https://github.com/DOCGroup/ACE_TAO/releases/download/ACE%2BTAO-7_1_1/ACE+TAO-7.1.1.tar.bz2"
+  sha256 "cfcc4fee4a9875224f2a847dbb1d4e09df8446311311036d346b6373e3439d8b"
   license "DOC"
 
   livecheck do
@@ -14,13 +14,13 @@ class Ace < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "a44e54f72c986ac00a0d69f0c29d4210c15a8e388633f048572a61a72e8f08ec"
-    sha256 cellar: :any,                 arm64_monterey: "70de46a1f01f56b30aeb025c6e614ffcc5b57fc1b8ab75ec9977ba6ccdd949bb"
-    sha256 cellar: :any,                 arm64_big_sur:  "74c0543862954a143e3c416b3882212b6236bc4f57d16083921926410923ee35"
-    sha256 cellar: :any,                 ventura:        "194c265bb2c944f55f6d2b25b7b3a027ab77c8991d3466f274af458db1f11d57"
-    sha256 cellar: :any,                 monterey:       "2d5398e1c4eb90a7bb2c23803f3e45d91f13ec9378550660da9ce3500f17c1a3"
-    sha256 cellar: :any,                 big_sur:        "3a81bf75bfec8c9f4f0d867e6eb94b50bbbff0a8b2ee4ce26e5824f11ec37cad"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b2c94b653f0d51707ea554fd420d64fc12455bf8142d19aaedf41ccfb2f1a422"
+    sha256 cellar: :any,                 arm64_ventura:  "908c990507cb957da3d30b35a84de3265c6ec726a710984c506260afab221634"
+    sha256 cellar: :any,                 arm64_monterey: "dc660ba8b021a08a64513ba724342dd3e0535d66715fa429f32b4a8ae5be869e"
+    sha256 cellar: :any,                 arm64_big_sur:  "36c13f42ac4c2802db195a7fe6ab5fd6a57b64ce5610662b00ea81bc31a32051"
+    sha256 cellar: :any,                 ventura:        "094c6cb6e9696e8ef8ad2f4c101584dc283515263162e32c0f1fa8618e1fb09c"
+    sha256 cellar: :any,                 monterey:       "1eb509ad6ff9cb45929683fe2297c09d6cb3ae428bd4d5abfa4aa275d6dbf1fc"
+    sha256 cellar: :any,                 big_sur:        "16280055ab1dd1cebecddb1f89eac455765061ce04cfab7618b82e2c6dd50ebb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "01ef8de1c51d1ada01aa8fadf4e9231545493460a609175e2c6601e7870d760c"
   end
 
   def install

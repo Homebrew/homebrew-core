@@ -4,24 +4,24 @@ class Poac < Formula
   url "https://github.com/poac-dev/poac/archive/refs/tags/0.6.0.tar.gz"
   sha256 "40f55553f7cca3bdad39599ce8c9049aeecf8f6140cfebac28c51d7d9abbbb78"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/poac-dev/poac.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "8d2bd4df9517df982ebef65b067c5a960a78636a84daeaa7ccc3fd759cbaf0f5"
-    sha256 cellar: :any,                 arm64_monterey: "c56f7321951827a413cf0b9f6766e061548c85151982c33e326e035c8f0284d4"
-    sha256 cellar: :any,                 arm64_big_sur:  "fb3d115ba3762d2e95d970f8fbb6d5094d4ee0724f45b2030a45f88a6768df76"
-    sha256 cellar: :any,                 ventura:        "e0c53dc913f3c6cccbbb26775c8f0c80cf0ec50ae4b07b66a82871d26562a73c"
-    sha256 cellar: :any,                 monterey:       "a239df62224581ca511761de3cf3c749342a8db1c52146eea500bc6bc4daad5c"
-    sha256 cellar: :any,                 big_sur:        "d0831700475599594650c2e396b85e2e7e276d8915b82fe767c669a8ca462cd6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "807a84029fcc57eb7fe82ee23b841fc2fd56c1cfdfa7d539ec99d5c065b633f3"
+    sha256 cellar: :any,                 arm64_ventura:  "8abf849fc0be2706971419c582d1f6fe2ab17ec706cc672a1ec2d587b89e7452"
+    sha256 cellar: :any,                 arm64_monterey: "9ca391a863ec65ff50d06cce7f82f884ffc8626a5e85584628800a79ca5f484a"
+    sha256 cellar: :any,                 arm64_big_sur:  "3954502fecf09e7778d64c662422fadc2460d7b3e0d11e24b05467325a02c8a9"
+    sha256 cellar: :any,                 ventura:        "44ed05fd38b73073e30f90a48f8ff39e107075f1b9d76e17ac1cc3adc326033e"
+    sha256 cellar: :any,                 monterey:       "b9cdc6b2fe6fee492cefc64e1ceef84219674bd65ae7298c2fe618da4d21f713"
+    sha256 cellar: :any,                 big_sur:        "3ccc08272b158ef81194795ebd7dccdbc734b3bc07f6de4ec9bf9f1ff54fe4f3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1d8177b5fd13dcec22369931eb0256a1a35f7932a15fa66dfcde2fa9e82cbe4d"
   end
 
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "fmt"
   depends_on "libgit2"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "spdlog"
 
   uses_from_macos "libarchive"

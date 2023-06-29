@@ -4,17 +4,16 @@ class Libpsl < Formula
   url "https://github.com/rockdaboot/libpsl/releases/download/0.21.2/libpsl-0.21.2.tar.gz"
   sha256 "e35991b6e17001afa2c0ca3b10c357650602b92596209b7492802f3768a6285f"
   license "MIT"
-  revision 1
+  revision 2
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "7518afd0130f15500f4fd4d5c8ed43cee3b0e3c8c237a12bb3e9adbc4a6ec4cb"
-    sha256 cellar: :any,                 arm64_monterey: "7cb1d77973b8fdfa4a2804ae69434ec3cf4248a906d3a46b66e29f9920843f48"
-    sha256 cellar: :any,                 arm64_big_sur:  "5050c1c715b46f55ed6c96fcc00cebb682847c714bf225aadb18fe6b4c3f84f6"
-    sha256 cellar: :any,                 ventura:        "7c48120e1842b1ef8909e1f0310e613aadc67ca2799f216b1a88603964a815e1"
-    sha256 cellar: :any,                 monterey:       "6a021e3c659939c49c53d04a7f4ad7b9333b37c9f05587731c5a1024c15c71da"
-    sha256 cellar: :any,                 big_sur:        "95a808735dbfb307e8e3ab1a747fd8ecd82ab57bd31a72c8c2b40d71047c05b9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a7cd47ce99f50e717ef2af9c82964912cac03e3e0659e818d689294604094ba2"
+    sha256 cellar: :any,                 arm64_ventura:  "54e6c05ff0b41c160db7087ee741d616c899c63a74e157e4a74007be055bc4b4"
+    sha256 cellar: :any,                 arm64_monterey: "29b19583775b9a640685e24bd453f16a3e5be86546b828561a6ecd338a662e80"
+    sha256 cellar: :any,                 arm64_big_sur:  "f6f58b4348f12016325eb53fa4e1cfd35dc558a42147c16498560c7337ef24e0"
+    sha256 cellar: :any,                 ventura:        "cc6122f645807aaa12528f23f94a006e2cc0f826a0640ec05c1fd5549fa48f49"
+    sha256 cellar: :any,                 monterey:       "d37094a8cd209afbab03e05ce8cd0e0300639a1ac368317a2cd1f50a09edffd5"
+    sha256 cellar: :any,                 big_sur:        "ba7c45172edcb181c9865cb0f607945f8f01905aa8b01e36d83930141873f461"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9eea17163910178315e7448318bb74b70fc69eec179c44dbdbb64183b32f777d"
   end
 
   depends_on "meson" => :build

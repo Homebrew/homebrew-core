@@ -1,19 +1,18 @@
 class LiquidDsp < Formula
   desc "Digital signal processing library for software-defined radios"
   homepage "https://liquidsdr.org/"
-  url "https://github.com/jgaeddert/liquid-dsp/archive/v1.5.0.tar.gz"
-  sha256 "93003edb6e74090b41009b1fae6f273a3e711dc4c8c56a0cca3e89167b765953"
+  url "https://github.com/jgaeddert/liquid-dsp/archive/v1.6.0.tar.gz"
+  sha256 "6ee6a5dfb48e047b118cf613c0b9f43e34356a5667a77a72a55371d2c8c53bf5"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "824e640ecb98dba3eacd1e310d2aa91cd6a9fdbc7d19d54c58ec3d12e70c76e7"
-    sha256 cellar: :any,                 arm64_monterey: "c2824a45af2851ce70f2bd1abede9ec974a5c60d7ccd10265a2ec874fd5edbb7"
-    sha256 cellar: :any,                 arm64_big_sur:  "4a8dd743e29c5704a0ef697f1c88b67d9373b246c5b18447b2be2264331f45d1"
-    sha256 cellar: :any,                 ventura:        "2b57763c8e8e322e08ef7e5cbd3cf91fe06053a7b79c100c1f5dba50bf10c43a"
-    sha256 cellar: :any,                 monterey:       "f588d707c472176a2299a83ae4a5be4c6650cffad836fac944b6b3e5af37ebf2"
-    sha256 cellar: :any,                 big_sur:        "e9c254a3a7769a511ee63e1424c4236e2e47c129cb013e9669ce66045a7a6e82"
-    sha256 cellar: :any,                 catalina:       "9c4aaa2b4e3750fef350ec92bd05d1e18eba2b3709fd4b3b8c78df7279cc1da5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c24b3940c77bb064ce4769a3bc18cf2b78b79b9ce4c71f170c0f194460047f75"
+    sha256 cellar: :any,                 arm64_ventura:  "85cec9c7750eaad377d06d956da6dfdcb6534e2c5f9af1f21e361facbe4e4132"
+    sha256 cellar: :any,                 arm64_monterey: "c86833a699c1b9d9959690b89487d5837efb089c4d15b5242f477380bb817406"
+    sha256 cellar: :any,                 arm64_big_sur:  "9e197584353048f6a5a4e0758ec8954dcab3aa38c47c3e15d44370c06cdbb4ef"
+    sha256 cellar: :any,                 ventura:        "3fa3ac40a8a63f6992f0850783471f41cd83278948ff2db41070af513563e5bb"
+    sha256 cellar: :any,                 monterey:       "fc61c2f3f2bf3012d8ea3d5e7b90c9df1386c658752b469b2bebf0c02b9d0d79"
+    sha256 cellar: :any,                 big_sur:        "79aa0163d2a7ccb9acdd491b4b80600a7e65624bdda7000460d88684163188ae"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a10eed9b58eb7c8106232e2d954f5c05de72b60d1b967f7ff703e97f9636e27c"
   end
 
   depends_on "autoconf" => :build

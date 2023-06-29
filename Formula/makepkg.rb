@@ -5,17 +5,17 @@ class Makepkg < Formula
       tag:      "v6.0.2",
       revision: "c2d4568d35173f92c17b6b93222bc101a63c9928"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://gitlab.archlinux.org/pacman/pacman.git", branch: "master"
 
   bottle do
-    sha256 arm64_ventura:  "5e5d9de1d83fb49b3fd36165683c954895dc035719c737841b4edf5d79ad14f9"
-    sha256 arm64_monterey: "f0c7743fdf8bfe0deb368c352cb5a219f42ac0febcdf7c3c30ce0a788a518798"
-    sha256 arm64_big_sur:  "e9f0e5e5b90d6fece072a301079ba6c742e546449df60cba7e02fc539e63d74f"
-    sha256 ventura:        "235a0ff1a77016a1fd2c4bc9bedf97b0a8ef7e56df90d3afec7b795c9f56f59a"
-    sha256 monterey:       "5415bbb41478428b88286fd67233c8186d99d037a17806d5bba06cb30092cead"
-    sha256 big_sur:        "76a202cee610d899d609489c1350fd1d29b70979f3acb11744528fe7bea6e078"
-    sha256 catalina:       "34b6a994323eac1b2daa873577c45df38af97867dee31ae7195bd4fb934d6b2a"
-    sha256 x86_64_linux:   "2ecea508e50743b2aedb42a64d026a0481ff16374a55ee18d619ee3761cfc407"
+    sha256 arm64_ventura:  "011744cbb816a05814602965407c8ac925a9be34a6171fe42e31c6666a8493b2"
+    sha256 arm64_monterey: "4a4742a7f5f753516099e046b0b1c3b879f89831c354e944dc585ba1a9a9c349"
+    sha256 arm64_big_sur:  "6552ccbd2e4f17df87f76c47279cf0559c2337ec468a082c29cc0b4234d6db87"
+    sha256 ventura:        "5e85ee58f8aa02dee02ea59a2f4541bfb09e58eec62738e530a523645b1a9361"
+    sha256 monterey:       "32e5c652bea73bee42c11336be0470b85158283379e98f36f67495ad471baa73"
+    sha256 big_sur:        "08dd5419b09e11c7229e6ae578b44aec8697e4c9d421e35836d8bda115f6a1e5"
+    sha256 x86_64_linux:   "3997babcd7a7b6937c55722f821713d77a7b7864f1f52756b2711e756190deca"
   end
 
   depends_on "meson" => :build
@@ -24,7 +24,7 @@ class Makepkg < Formula
   depends_on "bash"
   depends_on "fakeroot"
   depends_on "libarchive"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "m4" => :build
   uses_from_macos "python" => :build

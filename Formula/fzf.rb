@@ -1,19 +1,19 @@
 class Fzf < Formula
   desc "Command-line fuzzy finder written in Go"
   homepage "https://github.com/junegunn/fzf"
-  url "https://github.com/junegunn/fzf/archive/0.41.1.tar.gz"
-  sha256 "982682eaac377c8a55ae8d7491fcd0e888d6c13915d01da9ebb6b7c434d7f4b5"
+  url "https://github.com/junegunn/fzf/archive/0.42.0.tar.gz"
+  sha256 "743c1bfc7851b0796ab73c6da7db09d915c2b54c0dd3e8611308985af8ed3df2"
   license "MIT"
   head "https://github.com/junegunn/fzf.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bb689b5ce95152b1c03f87d0eba08578cbe4cec0a2f6310a6ee868cee42f80d6"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "bb689b5ce95152b1c03f87d0eba08578cbe4cec0a2f6310a6ee868cee42f80d6"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bb689b5ce95152b1c03f87d0eba08578cbe4cec0a2f6310a6ee868cee42f80d6"
-    sha256 cellar: :any_skip_relocation, ventura:        "9b6861079f3591465ac6e112c65cc29a79f1b52634a929fc6ff4d26ff2a15fa0"
-    sha256 cellar: :any_skip_relocation, monterey:       "9b6861079f3591465ac6e112c65cc29a79f1b52634a929fc6ff4d26ff2a15fa0"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9b6861079f3591465ac6e112c65cc29a79f1b52634a929fc6ff4d26ff2a15fa0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "42b6b5086ff66dae5c201bac0dd4d0d5f9450186a4858371e2aab4011b298391"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "007ac5ffcfa1cbf733393fe35d5daf3647e07865f04d31d6c442fb8de936d219"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "007ac5ffcfa1cbf733393fe35d5daf3647e07865f04d31d6c442fb8de936d219"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "007ac5ffcfa1cbf733393fe35d5daf3647e07865f04d31d6c442fb8de936d219"
+    sha256 cellar: :any_skip_relocation, ventura:        "5cd9be92ee93dd44fecaaec2528656d609ef968ca1529fbf01720afbff5dfdcd"
+    sha256 cellar: :any_skip_relocation, monterey:       "5cd9be92ee93dd44fecaaec2528656d609ef968ca1529fbf01720afbff5dfdcd"
+    sha256 cellar: :any_skip_relocation, big_sur:        "5cd9be92ee93dd44fecaaec2528656d609ef968ca1529fbf01720afbff5dfdcd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2c7586893fbacc5e1755ecb44dae017b283bd45a6a28017409396ea950116dd3"
   end
 
   depends_on "go" => :build

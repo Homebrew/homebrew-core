@@ -4,6 +4,7 @@ class Libslax < Formula
   url "https://github.com/Juniper/libslax/releases/download/0.22.1/libslax-0.22.1.tar.gz"
   sha256 "4da6fb9886e50d75478d5ecc6868c90dae9d30ba7fc6e6d154fc92e6a48d9a95"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/Juniper/libslax.git", branch: "master"
 
   livecheck do
@@ -12,22 +13,19 @@ class Libslax < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "25abcd8291903ee58e0ec2b1d8ef1d8fca64c8dfb0468727cf5b4c2dd3dc99d9"
-    sha256 arm64_monterey: "2353ab7cd0966b2b227bb148a56296d596ce17891d602f5d5171d658aa725813"
-    sha256 arm64_big_sur:  "c75218d25fb9630e5925ac7d83cf2a087fbad12d5cac213bc6c31193245b8e24"
-    sha256 ventura:        "547c315cdbbd82fa4fcd970e3e2ee43561aad77c948e186054f67a2a3300a6ce"
-    sha256 monterey:       "8a675ef7730a28f0179f368890940f407ee80f33f40af68634ebe0f20bb624a4"
-    sha256 big_sur:        "e155b74af4563cfc2236a8c473154275118b978bf068329e941f3f6ecf58fea5"
-    sha256 catalina:       "8b4506f10c72d75425ad849f17918a6574c349ebdf29ab740ad323811d1a4d02"
-    sha256 mojave:         "5e024a22f8a47c0a11724d7543cd50141e8246b3669155cd734854ee74ec9d71"
-    sha256 high_sierra:    "95e8b6bdc7010103110d8c7a92c33dd8e2e04228e037ca81c3a5cb69ea955ab2"
-    sha256 x86_64_linux:   "d6408934888b53ea175db0ee882e2ad40df936739df4d3fddabbcf1d1795ad68"
+    sha256 arm64_ventura:  "fbcd1b639ddfc45b2dde2c0889a959fda82c0aedf88cbb7fcc7496c14cce0cef"
+    sha256 arm64_monterey: "0777ecc30f69e7ae8a57c089b1fb6c36819c2781b62514faaa26949ba1ee6adf"
+    sha256 arm64_big_sur:  "2e09965e5c95fe93264cce82f9d32a9a046d11fd787829830a41822f0a2d7120"
+    sha256 ventura:        "345525711533004f5390450cfc300552307bf0aeefbb940f69031099b10d8d12"
+    sha256 monterey:       "c323e5e9423cd0201f46342bf7ce05c3e6623367f3f3f9f2db880a6fe59ccea3"
+    sha256 big_sur:        "30ab59f88a09b6e5238585a3c00299733c721b6533355629e58a99275916fc25"
+    sha256 x86_64_linux:   "433ed00d6104bc49ff4dc3bac740c7854e12e54d5c9f52c4db160f1673398f48"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "bison" => :build
   uses_from_macos "curl"

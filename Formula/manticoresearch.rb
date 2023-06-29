@@ -4,6 +4,7 @@ class Manticoresearch < Formula
   url "https://github.com/manticoresoftware/manticoresearch/archive/refs/tags/6.0.4.tar.gz"
   sha256 "5081f4f60152d041f14fdaf993f4cc67b127e76c970b58db9bc9532cd1325d8a"
   license "GPL-2.0-only"
+  revision 2
   version_scheme 1
   head "https://github.com/manticoresoftware/manticoresearch.git", branch: "master"
 
@@ -14,13 +15,13 @@ class Manticoresearch < Formula
   end
 
   bottle do
-    sha256                               arm64_ventura:  "9d942bac332ab6731dc65f71a3697875c77bcbf3c33da5af797d7dab28b254b7"
-    sha256                               arm64_monterey: "f0d4f4ac7b07abbec462d16a77c139141a0d3583d6e46adad9b13a7e0e2e1fac"
-    sha256                               arm64_big_sur:  "697856677e5350d8f7a62befca38925ce654c2c843902e2a374cdfbb139bbee4"
-    sha256                               ventura:        "12884230a47a854da7b8453689d2b27e366b3605171cc165eeb5e7c303f860f5"
-    sha256                               monterey:       "21a4056a272818d77b6c6dbeaa68c9fc8e3a451eb960557e9f57df9aa3c5da7d"
-    sha256                               big_sur:        "e797d050985a35591d9964f84de1743c7203ef88efa309e2fb0653b547745d92"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5797b9a3fd944385a79bcb3ccab860a34b189ca31bfdbb3221a99ece75f31e28"
+    sha256 arm64_ventura:  "382659914489e64dd2771386eec177c354dae58fe39d1079c412449129945a58"
+    sha256 arm64_monterey: "b56a169ed02a580e6ee0db4ce5733dd4834d2f2222b3f467516a674ccf5db566"
+    sha256 arm64_big_sur:  "3304df12246dc8a9f6d42326314d15a6b53868e861d19199b5fe03d0c7678a44"
+    sha256 ventura:        "f61a87c738bff32816b0603dfb4c436315460b67dbde81e2e59be44267167b6a"
+    sha256 monterey:       "f5ee8de69414f39de8115ee0c03a1b01b642a3de66e7bf2708f3d53dc0f6c637"
+    sha256 big_sur:        "4725718f3048471a5fb43c797896818e24a89b63b91ca719a5f04b6a202f8f23"
+    sha256 x86_64_linux:   "1f42805be6d88b8bff08136540e27bfd593115698506fa79e257f97ff3375725"
   end
 
   depends_on "boost" => :build
@@ -28,7 +29,7 @@ class Manticoresearch < Formula
   depends_on "icu4c"
   depends_on "libpq"
   depends_on "mysql-client"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "unixodbc"
   depends_on "zstd"
 

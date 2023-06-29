@@ -1,5 +1,5 @@
 class Act < Formula
-  desc "Run your GitHub Actions locally 🚀"
+  desc "Run your GitHub Actions locally"
   homepage "https://github.com/nektos/act"
   url "https://github.com/nektos/act/archive/v0.2.46.tar.gz"
   sha256 "ca3f27316b0a0cf0f86203124d685dc13da090577ad459f3cd61840a66f2bcde"

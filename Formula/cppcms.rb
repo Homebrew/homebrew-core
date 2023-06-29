@@ -5,6 +5,7 @@ class Cppcms < Formula
   homepage "http://cppcms.com/wikipp/en/page/main"
   url "https://downloads.sourceforge.net/project/cppcms/cppcms/1.2.1/cppcms-1.2.1.tar.bz2"
   sha256 "10fec7710409c949a229b9019ea065e25ff5687103037551b6f05716bf6cac52"
+  revision 1
 
   livecheck do
     url :stable
@@ -12,18 +13,17 @@ class Cppcms < Formula
   end
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any,                 arm64_ventura:  "04c25a7fa717d8459910082d31c4c77592a948580c74c76fe6f8acb6cfc750e5"
-    sha256 cellar: :any,                 arm64_monterey: "9dde91368e8aa365794b238db7ea2b81a813e2c1cef36c3653b0cf20eff64491"
-    sha256 cellar: :any,                 arm64_big_sur:  "45d52949a574fb1c9f469fe8fbf7da863d471c4ebd29b11a4c9097e38dbffba3"
-    sha256 cellar: :any,                 ventura:        "abf6190b7e7e38b72f96e5ec2f08f55f5f5ebbaf89f994c5b2abacfdde805157"
-    sha256 cellar: :any,                 monterey:       "aa3cfee1882aacf75885cddcb9d78511a6d467f3afd8b674702accbbe738cbd2"
-    sha256 cellar: :any,                 big_sur:        "a13712969212fcca72e270d7490512782d6cce2da6112c916e11b4c0c7520ea1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fd8b215d1f648697073f7c1e84d6cccb5f9d22330a8f13038bf82bcc64742270"
+    sha256 cellar: :any,                 arm64_ventura:  "1e231383932392067c2f82db565e7c89fdf262257dc18ae3c7069b661b7e37ad"
+    sha256 cellar: :any,                 arm64_monterey: "fbe7cecff46a4e2bc8f799354a4fe510d195721e56c769f077a0573e54d71739"
+    sha256 cellar: :any,                 arm64_big_sur:  "4bd9653322f70e9300800e2b221af694d228667967a6ee8df6069bc3496344af"
+    sha256 cellar: :any,                 ventura:        "ae8964621f8e24d7494a9f7370dbbf4369a36e3dc0533632e101a6eb37adf4e1"
+    sha256 cellar: :any,                 monterey:       "295e57a50103781f5f6d9d00f0693f8fa23802068fd53ee1fa0964bb1c9e556a"
+    sha256 cellar: :any,                 big_sur:        "91451434afc317d71cee36e03047d170f453efcf4bcd61487750b353da4bb303"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3abf8511c89ef7221ef752f3bc3bca222b89babd25605b33dae88d1584a0050b"
   end
 
   depends_on "cmake" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pcre"
   depends_on "python@3.11"
 

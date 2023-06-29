@@ -1,18 +1,18 @@
 class Psalm < Formula
   desc "PHP Static Analysis Tool"
   homepage "https://psalm.dev"
-  url "https://github.com/vimeo/psalm/releases/download/5.12.0/psalm.phar"
-  sha256 "6a305c9df0bd6fed146239671e10fb2f67bd5b75d3ad3f594b523648d167f8c1"
+  url "https://github.com/vimeo/psalm/releases/download/5.13.1/psalm.phar"
+  sha256 "90c34be3831ad00dd1058c4b50697a917bcea6967c14ab761136f665aaac3ac6"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6cb9050f5a626176f38d08a4ab1b524ec1257330aa19fff5ebfcfc8f413ac8ff"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6cb9050f5a626176f38d08a4ab1b524ec1257330aa19fff5ebfcfc8f413ac8ff"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6cb9050f5a626176f38d08a4ab1b524ec1257330aa19fff5ebfcfc8f413ac8ff"
-    sha256 cellar: :any_skip_relocation, ventura:        "1f2c2ac6d5593f12eb0e579696ad945392ba6473fee1da48dce767cbdc01f0e7"
-    sha256 cellar: :any_skip_relocation, monterey:       "1f2c2ac6d5593f12eb0e579696ad945392ba6473fee1da48dce767cbdc01f0e7"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1f2c2ac6d5593f12eb0e579696ad945392ba6473fee1da48dce767cbdc01f0e7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6cb9050f5a626176f38d08a4ab1b524ec1257330aa19fff5ebfcfc8f413ac8ff"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d07c1f4b179f5e94e02abe2e01bd1312b6359160a836c1142bea57f78b027f48"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d07c1f4b179f5e94e02abe2e01bd1312b6359160a836c1142bea57f78b027f48"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d07c1f4b179f5e94e02abe2e01bd1312b6359160a836c1142bea57f78b027f48"
+    sha256 cellar: :any_skip_relocation, ventura:        "77b36603304bf2336bb0741a915ce6af7fde2724663c9f8b66ed880a30234d78"
+    sha256 cellar: :any_skip_relocation, monterey:       "77b36603304bf2336bb0741a915ce6af7fde2724663c9f8b66ed880a30234d78"
+    sha256 cellar: :any_skip_relocation, big_sur:        "77b36603304bf2336bb0741a915ce6af7fde2724663c9f8b66ed880a30234d78"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d07c1f4b179f5e94e02abe2e01bd1312b6359160a836c1142bea57f78b027f48"
   end
 
   depends_on "composer" => :test
@@ -36,7 +36,7 @@ class Psalm < Formula
         "description": "Testing if Psalm has been installed properly.",
         "type": "project",
         "require": {
-          "php": ">=7.1.3"
+          "php": ">=8.1"
         },
         "license": "MIT",
         "autoload": {
@@ -65,6 +65,9 @@ class Psalm < Formula
           $this->email = $email;
         }
 
+        /**
+        * @psalm-suppress PossiblyUnusedMethod
+        */
         public static function fromString(string $email): self
         {
           return new self($email);

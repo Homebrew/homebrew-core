@@ -21,7 +21,7 @@ class MrubyCli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "826d12cb63bd84483619ef0c51ebbd4cd90a7becb3e3110ed661ba20a4be2f61"
   end
 
-  deprecate! date: "2022-04-28", because: :unmaintained
+  disable! date: "2023-06-19", because: :unmaintained
 
   uses_from_macos "bison" => :build
 

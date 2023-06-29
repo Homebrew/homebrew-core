@@ -5,6 +5,7 @@ class Clamav < Formula
   mirror "https://fossies.org/linux/misc/clamav-1.1.0.tar.gz"
   sha256 "a30020d99cd467fa5ea0efbd6f4f182efebf62a9fc62fc4a3a7b2cc3f55e6b74"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/Cisco-Talos/clamav-devel.git", branch: "main"
 
   livecheck do
@@ -13,20 +14,20 @@ class Clamav < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "8927fbb21915aec3cd3eac32a43af1d6192811e27ecc1b5bbbb04256917fd13f"
-    sha256 arm64_monterey: "5030360c38eeaa22c37b4eb18b4de60469f152208d608230281a9d13b07abd8e"
-    sha256 arm64_big_sur:  "9db7eb15021e5cebda5cfe6c96011030ee254c0a1171e54c8896dbc03b7edb96"
-    sha256 ventura:        "03a3f6297a60233b5e094472e33e0532d27048742bc8a006dbbbc371eed80993"
-    sha256 monterey:       "04edd920c0a672a4c8f15b8265dcf25a4e2d05a8fff01dbba40465dfdece9669"
-    sha256 big_sur:        "00630322cf6bd096f280dfbf629f8888e60453113b8f50d0c380afbad5e5e626"
-    sha256 x86_64_linux:   "25e55ff251c13ad5cac8f8eadc4e6190920af91606697f7ed46083d50e8fa9b0"
+    sha256 arm64_ventura:  "9ae2e6e79a10ac3eb7d08d5386e9b8a99500d6a92909304b479c6c910374afd6"
+    sha256 arm64_monterey: "efb65f1eb739aecd178693e7ed9e82d449a03648ac90bc78f3a77270c1c5d884"
+    sha256 arm64_big_sur:  "e247eddf9a09fc2da4a2b7a335473d63204fcde035f095f001481757d8033764"
+    sha256 ventura:        "1f4fad01de3a3663309ac8cc76eb18f242260c8f8e93b4984f01745c62af6eb7"
+    sha256 monterey:       "b45c9d78705826e199fc4bb2e3e3aa96bb80011244380743c8c4484cd6c2a1b5"
+    sha256 big_sur:        "39b20d42f011de92f8f230077bbe62fba5ffc0947563828f20805f7bb9502fd1"
+    sha256 x86_64_linux:   "b44199d0e01d0c25c54dae2ebdc44a3eec9506adc55cfdd83c895b67fea3a1d8"
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "json-c"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pcre2"
   depends_on "yara"
 

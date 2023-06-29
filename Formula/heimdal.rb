@@ -4,6 +4,7 @@ class Heimdal < Formula
   url "https://github.com/heimdal/heimdal/releases/download/heimdal-7.8.0/heimdal-7.8.0.tar.gz"
   sha256 "fd87a207846fa650fd377219adc4b8a8193e55904d8a752c2c3715b4155d8d38"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -12,13 +13,13 @@ class Heimdal < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "2a26a718345cbf16201908464eabc918470312b9490b411160d044ca91fffeda"
-    sha256 arm64_monterey: "469605c086a6f466b383c621b9696a01f506be578c47a89f8afb6627ab799979"
-    sha256 arm64_big_sur:  "817169ac078417ff4cb1e3a6f2c8b06f0d13033ac8498416125db75eaed29d9d"
-    sha256 ventura:        "1a6f53d8e4629ef7b0cf5b73797e0c2121e7b7cfcc8d8c86028d990d3a6831cc"
-    sha256 monterey:       "083a6661b4cb4c6d121b5627f440bfa733d5b0b86d4ff547d648888eaa2a4da2"
-    sha256 big_sur:        "34fb4389ad538efbbf671e42b20a9aafd503ce2cdc38ca8437d87d42bdac0127"
-    sha256 x86_64_linux:   "239f40e6405e0ac3231537a89872a94610d07e6c8e6324a593b55404b3c52e55"
+    sha256 arm64_ventura:  "3cc28db88f119ee29956332ee3bb187c3aa7b8248ff1a455a85575568bf0118f"
+    sha256 arm64_monterey: "e9afb91c49a8763636ee2ba0e278dc41137cd0ebe94d7b33893d9ee4cebb0277"
+    sha256 arm64_big_sur:  "0919ca038055abca1ed8454d85b394dd0448c7a8822605bdec25e67d3f620de8"
+    sha256 ventura:        "13c389d268721a6b423b6c0aea6e5d9a97b5037171cc72452f59e78ae961e453"
+    sha256 monterey:       "bea74d1460429c73745f8d2459fda3788d628fa5a819185e6d41cc93b55b37d9"
+    sha256 big_sur:        "e14aaa2d7953fae00c33ea0fb8faf17f87b35a0ca9158436b7bb327e7a23dc02"
+    sha256 x86_64_linux:   "399e2dc4b8832a8c28b967f5bb24cb9809c5bbcc60b816f1c5c23c0853c32bae"
   end
 
   keg_only "conflicts with Kerberos"
@@ -28,7 +29,7 @@ class Heimdal < Formula
   depends_on "flex"
   depends_on "lmdb"
   depends_on "openldap"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "libxcrypt"
   uses_from_macos "perl"
@@ -67,7 +68,7 @@ class Heimdal < Formula
       --disable-ndbm-db
       --disable-heimdal-documentation
       --with-openldap=#{Formula["openldap"].opt_prefix}
-      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
+      --with-openssl=#{Formula["openssl@3"].opt_prefix}
       --with-hcrypto-default-backend=ossl
       --with-berkeley-db
       --with-berkeley-db-include=#{Formula["berkeley-db"].opt_include}

@@ -5,6 +5,7 @@ class Zeek < Formula
       tag:      "v5.2.2",
       revision: "a6f825b81da389bb2deb1cf389dbd7e88efd4a1c"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/zeek/zeek.git", branch: "master"
 
   livecheck do
@@ -13,13 +14,13 @@ class Zeek < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "1f4b6233fd029ce7810d682732facffd59bf8a1c94a4a78a7f5e49637e7605cb"
-    sha256 arm64_monterey: "eb12e63c23f7592a36a2e49b4bb5387e513f0c9bcbb90a23218c6e1f14171171"
-    sha256 arm64_big_sur:  "f2924aae8a602bb50ccf4a7a98d045a08cd653bc474d1b4c42db786d180b535a"
-    sha256 ventura:        "57dd22348584869422e0b7c73899d7526012483ab6964dc4e5aa5f3994364979"
-    sha256 monterey:       "12785b535477ee855e67c2faf9aee03a0cafb3131bcd267efec973007dc09eaf"
-    sha256 big_sur:        "54a2474f17b1f04485fcbfe41994e3dc3e9226094b74f6a953f3e1cfa2bdd42f"
-    sha256 x86_64_linux:   "09285f45fb4123952737b1f49fab4d8eea0739d72b11f0e7a683a4c67dd0912d"
+    sha256 arm64_ventura:  "2147729674a13e36581811343ef3880380f6f1cbff54ac6f3d6df09ef894ca3d"
+    sha256 arm64_monterey: "5a5194f11c64daacbea20752a86627e61614bc51a3687d2e1a56418351bdef90"
+    sha256 arm64_big_sur:  "d35effe61620bda186fd6c39924e686dd3fa09460b49d45fe3aba0624525b979"
+    sha256 ventura:        "9f54a2848fd06cf4eecc86a29f695f42d6be011c8df62a0d14a377096444bcbc"
+    sha256 monterey:       "c2b90ef76a0603d18cf9bc34ddf890f2e1d931fb560895e200ec7fcdf92bee49"
+    sha256 big_sur:        "9ee867f78cac0ef8ab99774907ad934f02377fbb0472add072167c599908cfae"
+    sha256 x86_64_linux:   "17821b640c05caa7758779020d4cc896216a6ac3b40cfaa5fd979fe528e8d7e0"
   end
 
   depends_on "bison" => :build
@@ -29,7 +30,7 @@ class Zeek < Formula
   depends_on "c-ares"
   depends_on "libmaxminddb"
   depends_on macos: :mojave
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "python@3.11"
 
   uses_from_macos "libpcap"
@@ -59,7 +60,7 @@ class Zeek < Formula
                     "-DCARES_ROOT_DIR=#{Formula["c-ares"].opt_prefix}",
                     "-DCARES_LIBRARIES=#{Formula["c-ares"].opt_lib/shared_library("libcares")}",
                     "-DLibMMDB_LIBRARY=#{Formula["libmaxminddb"].opt_lib/shared_library("libmaxminddb")}",
-                    "-DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}",
+                    "-DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}",
                     "-DPYTHON_EXECUTABLE=#{which("python3.11")}",
                     "-DZEEK_ETC_INSTALL_DIR=#{etc}",
                     "-DZEEK_LOCAL_STATE_DIR=#{var}",

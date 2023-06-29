@@ -9,6 +9,14 @@ class Ipv6calc < Formula
   sha256 "f96a89bdce201ec313f66514ee52eeab5f5ead3d2ba9efe5ed9f757632cd01a1"
   license "GPL-2.0-only"
 
+  # Upstream creates stable version tags (e.g., `v1.2.3`) before a release but
+  # the version isn't considered to be released until a corresponding release
+  # is created on GitHub, so it's necessary to use the `GithubLatest` strategy.
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ec95bedb2ffc3314f59eabfb03c15e3d2df693cbf6d12751ea6ceb9f303e8a20"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6fcdc8e16f2afbca82bed3e603ebb43909bcc606e18a8d272ead9265c5a29e3b"

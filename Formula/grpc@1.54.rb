@@ -6,6 +6,7 @@ class GrpcAT154 < Formula
       tag:      "v1.54.2",
       revision: "8871dab19b4ab5389e28474d25cfeea61283265c"
   license "Apache-2.0"
+  revision 1
 
   # The "latest" release on GitHub is sometimes for an older major/minor and
   # there's sometimes a notable gap between when a version is tagged and
@@ -17,13 +18,13 @@ class GrpcAT154 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "709ef74670286413abda1811a0ad355dbcbf0acdad9bfc6b9ca18961b2d1eb15"
-    sha256 cellar: :any,                 arm64_monterey: "9192db44aa60c8cdc1a9d64418f4eeea3c229dc152ab9cf370628ed5d567583b"
-    sha256 cellar: :any,                 arm64_big_sur:  "0fd8c82f65fcd972b9112af1afab693bb98b412aeed694f772fd9557b25bdd77"
-    sha256 cellar: :any,                 ventura:        "b511af9c7d1a114532e1b95926ec9a82736872a938aff47badafb3dd915b1190"
-    sha256 cellar: :any,                 monterey:       "f0772015864308bd9a33d4398d2d4cce79f89665dd4ea6242886e6fd3520bd2e"
-    sha256 cellar: :any,                 big_sur:        "b9a371b3579217575d6350a15a95739b7e3ff5d6bdfaf2fa5d1c5b8febf7358b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b45a0c6157ade4f84545f06e6531a686634e20d47459a526293da06fc5d5f6d8"
+    sha256 cellar: :any,                 arm64_ventura:  "cdd38c180de5156b3ddff3f58932ae408d962710170581981b9b7d0caabfa8a8"
+    sha256 cellar: :any,                 arm64_monterey: "31a6c49471af22ab85d90fbf881773799eed0d6bfd564061784e33330dd2ac10"
+    sha256 cellar: :any,                 arm64_big_sur:  "5e4e1d64f486491dec1d500fd585aeb9ca81fbcdd9b44d1e8cda1b8c450e6a62"
+    sha256 cellar: :any,                 ventura:        "41029e83ea9dd9ef3e4e6616afb99e7773c1119d2f110e24f82dfe3c33fdb5ec"
+    sha256 cellar: :any,                 monterey:       "15a17731f3d2b8ca94b6b8c9b9489f1d3ef65c871d6a5a64b7d46fda19b1c1c8"
+    sha256 cellar: :any,                 big_sur:        "2b5248c85e9cc36c712b7238f0a8efbc43aa665e930142617cc7294aa4c92024"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ede82f22c5a937a7cac07625aded7af933bb709af1a805e5fc28b5d90f6b328"
   end
 
   keg_only :versioned_formula
@@ -35,7 +36,7 @@ class GrpcAT154 < Formula
   depends_on "pkg-config" => :test
   depends_on "abseil"
   depends_on "c-ares"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "protobuf@21"
   depends_on "re2"
 
@@ -104,7 +105,7 @@ class GrpcAT154 < Formula
     EOS
     ENV.prepend_path "PKG_CONFIG_PATH", lib/"pkgconfig"
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["protobuf@21"].opt_lib/"pkgconfig"
-    ENV.prepend_path "PKG_CONFIG_PATH", Formula["openssl@1.1"].opt_lib/"pkgconfig"
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["openssl@3"].opt_lib/"pkgconfig"
     pkg_config_flags = shell_output("pkg-config --cflags --libs libcares protobuf re2 grpc++").chomp.split
     system ENV.cc, "test.cpp", "-L#{Formula["abseil"].opt_lib}", *pkg_config_flags, "-o", "test"
     system "./test"

@@ -1,20 +1,18 @@
 class LibxmpLite < Formula
   desc "Lite libxmp"
   homepage "https://xmp.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/xmp/libxmp/4.5.0/libxmp-lite-4.5.0.tar.gz"
-  sha256 "19a019abd5a3ddf449cd20ca52cfe18970f6ab28abdffdd54cff563981a943bb"
+  url "https://downloads.sourceforge.net/project/xmp/libxmp/4.6.0/libxmp-lite-4.6.0.tar.gz"
+  sha256 "71a93eb0119824bcc56eca95db154d1cdf30304b33d89a4732de6fef8a2c6f38"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "ef306919a426ff7cb4bbeb9ee62191ea08539b25776fbb386f501c7cf7de3a07"
-    sha256 cellar: :any,                 arm64_monterey: "026c3cdd675caf62652f8f2a1c5c4b6183565d1ac9bc0aa8f439926e496fa865"
-    sha256 cellar: :any,                 arm64_big_sur:  "3e5ad6d3a6c5e8f8e78055aa92d7b92bcc28faf2ae4904154b28d8d5cc83426e"
-    sha256 cellar: :any,                 ventura:        "e3b45143abda1714c0a13c2d061582bc16857da21b4281a6f8f646d3a18d87ca"
-    sha256 cellar: :any,                 monterey:       "ecd2af08822aa07e9b7a2a3b872a368979de55b8d359a22fbd6f4826175e24d2"
-    sha256 cellar: :any,                 big_sur:        "da41c0decc2231fc35a884c1bfa61240261958e6cde77d863c3d62dd34830d5f"
-    sha256 cellar: :any,                 catalina:       "2fd028d14695096bcb8fb8839758fb962c36d3edfd83e959a652bd735d4684b4"
-    sha256 cellar: :any,                 mojave:         "457442a50a49ab9267dfa586d7abeb3e3bebcdf1860a0d9ee0d0b34e341bf71a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3f603edfccc033acfd35d3b207a43d91a5e57ae4ddc019d2422a880137d5f5ac"
+    sha256 cellar: :any,                 arm64_ventura:  "9500723abc3c75d1b85b4673344bf7ef874a6374883042fc8ec9cfe5f8064412"
+    sha256 cellar: :any,                 arm64_monterey: "fcfcc41e351cc97fc54a8c47fc958ac4c140fcfca85efbe4dc59d6c4768dc4e0"
+    sha256 cellar: :any,                 arm64_big_sur:  "6569f2687511dbc55c47854deda2bacac26e6e27b431da225b508814c720500e"
+    sha256 cellar: :any,                 ventura:        "7f9ac879b3cd5e9b67cac75a79c5f25b53165986444edcefaf8149f1c0f00c33"
+    sha256 cellar: :any,                 monterey:       "165bc02b01f381bd122b421490245ade0b277d4e0051dc4498b8354edb811488"
+    sha256 cellar: :any,                 big_sur:        "56c37651e4a234b8796895786eccc4aacc03eb22c8aa3d30e16598856c4462a6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1cf6c9f842c6d2c80e98c6731e0707ea6f9c8ac9b89dc8c3b5a1d396d81ce46c"
   end
 
   def install

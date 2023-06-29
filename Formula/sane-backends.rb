@@ -37,7 +37,6 @@ class SaneBackends < Formula
   depends_on "libtiff"
   depends_on "libusb"
   depends_on "net-snmp"
-  depends_on "openssl@1.1"
 
   uses_from_macos "python" => :build
   uses_from_macos "libxml2"

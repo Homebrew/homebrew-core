@@ -4,6 +4,7 @@ class Yaz < Formula
   url "https://ftp.indexdata.com/pub/yaz/yaz-5.34.0.tar.gz"
   sha256 "bcbea894599a13342910003401c17576f0fb910092aecb51cb54065d0cd2d613"
   license "BSD-3-Clause"
+  revision 1
 
   # The latest version text is currently omitted from the homepage for this
   # software, so we have to check the related directory listing page.
@@ -13,13 +14,13 @@ class Yaz < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "ad1057911cf5bf3954e78d4807b13829a7daf90cabc936453f1c5070cafbb529"
-    sha256 cellar: :any,                 arm64_monterey: "36cba59af3b87ef77791ab04d465a34a5004502463f5d05d7f4db6d08507e328"
-    sha256 cellar: :any,                 arm64_big_sur:  "361091099ac41e01950f3a7e6df619fd488db6e8d72b656a3bc77631ea2a6257"
-    sha256 cellar: :any,                 ventura:        "d1233260cd3189dd112832516beeb89800b5a3a810d991717eaa6420912ec664"
-    sha256 cellar: :any,                 monterey:       "a765ed1270122a317013b5e58094f1fb6e98302bd800de11eee16f426695c8ec"
-    sha256 cellar: :any,                 big_sur:        "a15d451af53f2f05d4092059ad76136998a82f366c09114765f99ba4df999200"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "08bfcbf0170d38b6a6b87eee613dfb7ef70ada5ab140f15936bfedbe4e94c4a7"
+    sha256 cellar: :any,                 arm64_ventura:  "5dbb63de0d67f15fdfcff25147b3509b473776b06a0c9ca900a04fa3126083be"
+    sha256 cellar: :any,                 arm64_monterey: "259dbc67e9ab37dd225a2ce7606386ad5965cfb4f4aea23b7b74181dfcb9eada"
+    sha256 cellar: :any,                 arm64_big_sur:  "ca4e44d1099e84555de5025954533d588eaaea51677c5c8c865bb2c11e5e542a"
+    sha256 cellar: :any,                 ventura:        "2d2ea4097b54057d5fddfec177d9bc61a2b9101d9d189caba5084048c4e1aea1"
+    sha256 cellar: :any,                 monterey:       "205f35ed6f999edd61ed575183b103ac8dff9dac0e49a560215b51eeb784594e"
+    sha256 cellar: :any,                 big_sur:        "036c02f8aa3efa9715d8e948781a41b67d5c937530bd57649650f7e9b952a253"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bae7bc3dc941e1cb1b180ed3d4aa8c2d91a70cfe8d41114e39c5dac9b09c46bd"
   end
 
   head do

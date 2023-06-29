@@ -1,52 +1,69 @@
 class OpenshiftCli < Formula
   desc "OpenShift command-line interface tools"
   homepage "https://www.openshift.com/"
-  url "https://github.com/openshift/oc.git",
-      tag:      "openshift-clients-4.13.0-202304190216",
-      revision: "92b1a3d0e5d092430b523f6541aa0c504b2222b3"
+  url "https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4.13.3/openshift-client-src.tar.gz"
+  sha256 "3a1431859b3261f8a53dcf3be861520dc19d61c93bcea482bff5364d4f594211"
   license "Apache-2.0"
-  head "https://github.com/openshift/oc.git", branch: "master"
+  head "https://github.com/openshift/oc.git", shallow: false, branch: "master"
 
   livecheck do
-    url :stable
-    regex(/^openshift-clients[._-](\d+(?:\.\d+)+(?:[._-]p?\d+)?)$/i)
+    url "https://mirror.openshift.com/pub/openshift-v4/clients/ocp/stable/"
+    regex(/href=.*?openshift-client-mac-(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "20a3d4e7f03160e043806ef767e7d2b5f19657a478ec57456e7ace460b1e837f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8b535c22b6ef4dc0613f49eac6a0fe13d87208f8a2102ec7d2e5e17f6a1645bf"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "82941a60de1cb6b02f35748691af4b5530a3c5469ccb5fe4bbd1bbdb13323b67"
-    sha256 cellar: :any_skip_relocation, ventura:        "d0b081ff8112879d85f42516ef70b41a63fb6bb8dc6330f91dba943f40ffdd5e"
-    sha256 cellar: :any_skip_relocation, monterey:       "764a6b96667c0e548e63626bbbfccff1d82cbe83f24e818a62e573ee6a76799c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a7c7ebce7efd0c7bf005cdec410a73df80a0fa78a91f58c9aac76e2a465bb739"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9cdefea95d7c9c3529c625e5a00b50214abbed58985419877a6d53a4b4f7623d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "51d581ad832e1d115896fb9ca1e026e8adbcafbe446930de0d2a5f1befdadc4b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4b6c06659ae94c146e6299bad5d64b0809fda26620c4f7edfa290c7438465877"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e77a4a82e374134419e73ee7d0e14241cdec0438c156151edd4e173a8d17a961"
+    sha256 cellar: :any_skip_relocation, ventura:        "5ec61c9cedb614d23ad3c2425e78aa57b036cf004780cd51a4f1c353c4937b04"
+    sha256 cellar: :any_skip_relocation, monterey:       "71f000160467d5455bb2008f015b89eb12779f6eb0ae19d1efffba4d01a64308"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7994d373c8d06df7b740f8dbe3853281e0a28af9f95facd6ef1cdaa586833a43"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "41c6a63976a76ba145f8b19d2189a7e151e3c9c39db457c4770ecf356c6a2e34"
   end
 
-  depends_on "coreutils" => :build
   depends_on "go" => :build
-  depends_on "socat"
-
   uses_from_macos "krb5"
 
   def install
     arch = Hardware::CPU.intel? ? "amd64" : Hardware::CPU.arch.to_s
     os = OS.kernel_name.downcase
+    revision = build.head? ? Utils.git_head : Pathname.pwd.basename.to_s.delete_prefix("oc-")
 
-    # See https://github.com/golang/go/issues/26487
+    # See https://github.com/Homebrew/brew/issues/14763
     ENV.O0 if OS.linux?
 
-    system "make", "cross-build-#{os}-#{arch}", "OS_GIT_VERSION=#{version}", "SHELL=/bin/bash"
+    system "make", "cross-build-#{os}-#{arch}", "OS_GIT_VERSION=#{version}", "SOURCE_GIT_COMMIT=#{revision}", "SHELL=/bin/bash"
     bin.install "_output/bin/#{os}_#{arch}/oc"
-
-    bash_completion.install "contrib/completions/bash/oc"
-    zsh_completion.install "contrib/completions/zsh/oc" => "_oc"
+    generate_completions_from_executable(bin/"oc", "completion", base_name: "oc")
   end
 
   test do
+    # Grab version details from built client
+    version_raw = shell_output("#{bin}/oc version --client --output=json")
+    version_json = JSON.parse(version_raw)
+
+    # Ensure that we had a clean build tree
+    assert_equal "clean", version_json["clientVersion"]["gitTreeState"]
+
+    if stable?
+      # Verify the built artifact matches the formula
+      assert_match version_json["clientVersion"]["gitVersion"], "v#{version}"
+
+      # Get remote release details
+      release_raw = shell_output("#{bin}/oc adm release info #{version} --output=json")
+      release_json = JSON.parse(release_raw)
+
+      # Verify the formula matches the release data for the version
+      assert_match version_json["clientVersion"]["gitCommit"],
+        release_json["references"]["spec"]["tags"].find { |tag|
+          tag["name"]=="cli"
+        } ["annotations"]["io.openshift.build.commit.id"]
+
+    end
+
+    # Test that we can generate and write a kubeconfig
     (testpath/"kubeconfig").write ""
     system "KUBECONFIG=#{testpath}/kubeconfig #{bin}/oc config set-context foo 2>&1"
-    context_output = shell_output("KUBECONFIG=#{testpath}/kubeconfig #{bin}/oc config get-contexts -o name")
-
-    assert_match "foo", context_output
+    assert_match "foo", shell_output("KUBECONFIG=#{testpath}/kubeconfig #{bin}/oc config get-contexts -o name")
   end
 end

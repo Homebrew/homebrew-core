@@ -4,22 +4,23 @@ class Libfido2 < Formula
   url "https://github.com/Yubico/libfido2/archive/1.13.0.tar.gz"
   sha256 "51d43727e2a1c4544c7fd0ee47786f443e39f1388ada735a509ad4af0a2459ca"
   license "BSD-2-Clause"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "7b5d3c0959fed640408631f685d51ec26704455241ef6e04d375514d7b941563"
-    sha256 cellar: :any,                 arm64_monterey: "c881e6791d6ee3e3f2b4c1f4f83ece33119522a782d6e47473f388144744d52b"
-    sha256 cellar: :any,                 arm64_big_sur:  "01acb36bc6fc4090efd2b4a3d4466a317e7590b330255bc8e0608d1adde5a828"
-    sha256 cellar: :any,                 ventura:        "73b745804c6746c64cf6d893d6ce79d8dcdcd61b12d0dc1ea661e44bb8df7821"
-    sha256 cellar: :any,                 monterey:       "cf58469b1f43448949602faeb760108b13b4ca9749ab4c1d2ba054d96c602182"
-    sha256 cellar: :any,                 big_sur:        "6bd137a882ad45647044ba1cc6f4c9ac582a2d0383e7ed7d071ac9acde3d38d2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "98b05a5da57c807f92bf4a689991556fc25b58df95de4a065368bfde80d35fc6"
+    sha256 cellar: :any,                 arm64_ventura:  "92ec60d842d0f283bf1d5f3e063aee439cbe1bfdb3b458556caa0dabeed3d0e1"
+    sha256 cellar: :any,                 arm64_monterey: "ad03ed8928436cf37260a365287c0f5fc0b82379a31ebf59b2500e7ef04aa0ec"
+    sha256 cellar: :any,                 arm64_big_sur:  "62bc2844dfe47bd9c5a05b61b4e8e6d4ca765c5ae15679406fa21f1c17aae031"
+    sha256 cellar: :any,                 ventura:        "e3f26a2f2a3ed809d521960ab19f6cd7165a6c8ef634dafec625f4574f692365"
+    sha256 cellar: :any,                 monterey:       "965c77b9c1fa018c00421affc54cf9e291733a7f945044977c1118e7f984c060"
+    sha256 cellar: :any,                 big_sur:        "fbc2977a46a8a2cd67003d6481c124407eb154f477f5b1bd558a71673319739f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "54a0268ea3f24f5d9f0c4bfbe997d425d7f2f133c4df6f8ebe8c87bf7e76372f"
   end
 
   depends_on "cmake" => :build
   depends_on "mandoc" => :build
   depends_on "pkg-config" => :build
   depends_on "libcbor"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   on_linux do
     depends_on "systemd" # for libudev
@@ -58,7 +59,7 @@ class Libfido2 < Formula
       fido_dev_info_free(&devlist, max_devices);
     }
     EOF
-    system ENV.cc, "test.c", "-I#{include}", "-I#{Formula["openssl@1.1"].include}", "-o", "test",
+    system ENV.cc, "test.c", "-I#{include}", "-I#{Formula["openssl@3"].include}", "-o", "test",
                    "-L#{lib}", "-lfido2"
     system "./test"
   end

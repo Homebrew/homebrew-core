@@ -25,6 +25,9 @@ class Termshare < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8e6403e077b20a2b771cc2d7e20407fc0f121688182ea2c6c660dd42f9cf118c"
   end
 
+  # https://github.com/progrium/termshare/issues/15
+  deprecate! date: "2023-06-27", because: :unmaintained
+
   depends_on "go" => :build
 
   go_resource "golang.org/x/net" do

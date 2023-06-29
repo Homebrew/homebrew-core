@@ -2,19 +2,19 @@ class Ntfy < Formula
   desc "Send push notifications to your phone or desktop via PUT/POST"
   homepage "https://ntfy.sh/"
   url "https://github.com/binwiederhier/ntfy.git",
-      tag:      "v2.5.0",
-      revision: "df8b18bbb18f6140414351d7237f5caafde8290b"
+      tag:      "v2.6.1",
+      revision: "5784b07f149c9a7df706af3925196d39f9ce8d26"
   license any_of: ["Apache-2.0", "GPL-2.0-only"]
   head "https://github.com/binwiederhier/ntfy.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "93fae6f3486fd1154860a6be5222cd63511962f05ef90e15bfa97d0b72549de5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "93fae6f3486fd1154860a6be5222cd63511962f05ef90e15bfa97d0b72549de5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "93fae6f3486fd1154860a6be5222cd63511962f05ef90e15bfa97d0b72549de5"
-    sha256 cellar: :any_skip_relocation, ventura:        "3191fa65e5ca832a7e877f993a40db4efd24fd0b3134c0bfb3344c1e0b8693a8"
-    sha256 cellar: :any_skip_relocation, monterey:       "3191fa65e5ca832a7e877f993a40db4efd24fd0b3134c0bfb3344c1e0b8693a8"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3191fa65e5ca832a7e877f993a40db4efd24fd0b3134c0bfb3344c1e0b8693a8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "216120390f130eec8b6c6dcf602989edcdf8cdc8a9003919ebd47406ff32ef58"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4b6eeb544f8fb13471a8c38c9cd861eb99744ad158fe1c0a9345332ed0bff4c7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4b6eeb544f8fb13471a8c38c9cd861eb99744ad158fe1c0a9345332ed0bff4c7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4b6eeb544f8fb13471a8c38c9cd861eb99744ad158fe1c0a9345332ed0bff4c7"
+    sha256 cellar: :any_skip_relocation, ventura:        "856d87568a9c52991ed923fae2567f607c47871424f0f421fdba1ec60fb07414"
+    sha256 cellar: :any_skip_relocation, monterey:       "856d87568a9c52991ed923fae2567f607c47871424f0f421fdba1ec60fb07414"
+    sha256 cellar: :any_skip_relocation, big_sur:        "856d87568a9c52991ed923fae2567f607c47871424f0f421fdba1ec60fb07414"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c38fedb6d53571fc9c898bfd254523d2f8a1ff9308627c9f19070ed18c5e8629"
   end
 
   depends_on "go" => :build

@@ -4,15 +4,16 @@ class Vte3 < Formula
   url "https://download.gnome.org/sources/vte/0.72/vte-0.72.2.tar.xz"
   sha256 "f7966fd185a6981f53964162b71cfef7e606495155d6f5827b72aa0dd6741c9e"
   license "LGPL-2.0-or-later"
+  revision 1
 
   bottle do
-    sha256 arm64_ventura:  "aedeceec737ac3b40eb3a2c7dde0043dd014e2d83959dbbb22fe315793b665bf"
-    sha256 arm64_monterey: "83df44ebc09f6a9e890c15d1e31747f396b8c3fa1dec79c190db14daf9079c80"
-    sha256 arm64_big_sur:  "25ae8cdeb12419c3167b2e3e1b2ce3063e289b22a54c9612e6e27e9a0432f58e"
-    sha256 ventura:        "9d19b994aea76394c37698c47c71f1c7071a92d2e20db5acb6cd7a4e58682dee"
-    sha256 monterey:       "464db088f38bbd8cb08123d57f44e4c2df8b7e8d8ea1c2e137aeac5c84c8cd9d"
-    sha256 big_sur:        "4640372aadd40053510bb2a48636d99a96c9b34d8742dfda36380b8a5389d3e5"
-    sha256 x86_64_linux:   "4b6c146791d7d70771865e46cb24bf37341bc83291c0858b485267072988d6a8"
+    sha256 arm64_ventura:  "8ac37e59af06d50f530848e554a278cfb2af1a04823f3bb8630f6b61db183e81"
+    sha256 arm64_monterey: "25d1323a48a52738ae37258600e4b0a3c6a511eac5efd154838966737b24fcbc"
+    sha256 arm64_big_sur:  "ea57a67d22d29bc7e17de3c6f7f9f2a2e3b8bca7bc9d3a58064885dfdabddcc7"
+    sha256 ventura:        "a388dcaafcaca40a829db250af0cf8bf5fe09a2e1a38d5127b18b1fc6a0e9b3f"
+    sha256 monterey:       "b583d22e70408a36ea745b2f0d53bc99b318b93ff833c129623c159655950072"
+    sha256 big_sur:        "f78cc65316c1b53a5029ad836092bb702dddff1e9d9ce01f99df34aee773bd05"
+    sha256 x86_64_linux:   "cfa286e9d1b16a34b7199cb532d7a4d668e6ef6310b1f593c4d1d63348df375a"
   end
 
   depends_on "gettext" => :build

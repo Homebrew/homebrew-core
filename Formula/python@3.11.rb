@@ -1,9 +1,10 @@
 class PythonAT311 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.11.3/Python-3.11.3.tgz"
-  sha256 "1a79f3df32265d9e6625f1a0b31c28eb1594df911403d11f3320ee1da1b3e048"
+  url "https://www.python.org/ftp/python/3.11.4/Python-3.11.4.tgz"
+  sha256 "85c37a265e5c9dd9f75b35f954e31fbfc10383162417285e30ad25cc073a0d63"
   license "Python-2.0"
+  revision 1
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -11,13 +12,13 @@ class PythonAT311 < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "a6f7dd653b6c5904629effbfff359da0aa9903786b38abc0840c595e281a278e"
-    sha256 arm64_monterey: "270d1f7c56978757922b246dfd8bccead979c3d30a8e95d77a7b7b644050e6cd"
-    sha256 arm64_big_sur:  "13a7123b4e99f4bd574ec38e0a48d80ae6bbc36527cf9e158679f045d21160f4"
-    sha256 ventura:        "59844694b2bb56614623c8ede1679689fa32e8becf296108716de31ff3db6807"
-    sha256 monterey:       "e86210ffc0380bf4ccff3e3081e4dbd9c9ee3c2f72574d41498a817050f1ef86"
-    sha256 big_sur:        "af625209f6474e67aa4cc911c972425631d4e7ef343235b25bdf8ef11b761303"
-    sha256 x86_64_linux:   "e2df7e7b96ec43663841c3dfc8bc28d15087d39be147fde3d0dd1ba564be7a95"
+    sha256 arm64_ventura:  "014abdd7f97a02a42a6fdfe8ee527d359b24901903480628212489a5f570b09f"
+    sha256 arm64_monterey: "5458959e262a06738bee89023d404a35a03fbde1c682255e33d4e32f8eb6a570"
+    sha256 arm64_big_sur:  "eb3fbd888d2a2683cb07eb5d5176812d9e26370a0e422584fa663b4eec98dacf"
+    sha256 ventura:        "c97986e611c3c5e092be2ad70876fe99c7c7c23c8e7e63caaac6274512fbf657"
+    sha256 monterey:       "fa258abf25b4f4bd6dcb7586a04faee606e07e6e480ff3dd2f04afc3db4c7a9f"
+    sha256 big_sur:        "aeaf5d77ce1aad2cd39e7acebb78076bd0417459ff4825e1377a3bcee1f4b098"
+    sha256 x86_64_linux:   "7e8892393a9df0437e1ada50c011df549867348fe12e998d8d659da77379aa07"
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -26,7 +27,7 @@ class PythonAT311 < Formula
 
   depends_on "pkg-config" => :build
   depends_on "mpdecimal"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "sqlite"
   depends_on "xz"
 
@@ -148,7 +149,7 @@ class PythonAT311 < Formula
       --datadir=#{share}
       --without-ensurepip
       --enable-loadable-sqlite-extensions
-      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
+      --with-openssl=#{Formula["openssl@3"].opt_prefix}
       --enable-optimizations
       --with-system-expat
       --with-system-libmpdec
@@ -214,7 +215,7 @@ class PythonAT311 < Formula
     # `brew install enchant && pip install pyenchant`
     inreplace "./Lib/ctypes/macholib/dyld.py" do |f|
       f.gsub! "DEFAULT_LIBRARY_FALLBACK = [",
-              "DEFAULT_LIBRARY_FALLBACK = [ '#{HOMEBREW_PREFIX}/lib', '#{Formula["openssl@1.1"].opt_lib}',"
+              "DEFAULT_LIBRARY_FALLBACK = [ '#{HOMEBREW_PREFIX}/lib', '#{Formula["openssl@3"].opt_lib}',"
       f.gsub! "DEFAULT_FRAMEWORK_FALLBACK = [", "DEFAULT_FRAMEWORK_FALLBACK = [ '#{HOMEBREW_PREFIX}/Frameworks',"
     end
 
@@ -445,7 +446,7 @@ class PythonAT311 < Formula
           if os.path.realpath(sys.base_exec_prefix).startswith('#{rack}'):
               new_exec_prefix = cellar_prefix.sub('#{opt_prefix}/', sys.base_exec_prefix)
               if sys.exec_prefix == sys.base_exec_prefix:
-                  site.PREFIXES[:] = [new_prefix if x == sys.exec_prefix else x for x in site.PREFIXES]
+                  site.PREFIXES[:] = [new_exec_prefix if x == sys.exec_prefix else x for x in site.PREFIXES]
                   sys.exec_prefix = new_exec_prefix
               sys.base_exec_prefix = new_exec_prefix
       # Check for and add the prefix of split Python formulae.

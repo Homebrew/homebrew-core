@@ -18,7 +18,7 @@ class Antibody < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "87285c55995d80af9cd4d1bd71a5879290bb67b2f08a7a492b4d94ddabb58455"
   end
 
-  deprecate! date: "2022-03-16", because: :repo_archived
+  disable! date: "2023-06-19", because: :repo_archived
 
   depends_on "go@1.17" => :build
 

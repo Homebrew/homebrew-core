@@ -1,8 +1,8 @@
 class GhzWeb < Formula
   desc "Web interface for ghz"
   homepage "https://ghz.sh"
-  url "https://github.com/bojand/ghz/archive/v0.115.0.tar.gz"
-  sha256 "ca752eb323f973f7e987d5a51e0d5427d753e4376873bd81c23889d6321b231a"
+  url "https://github.com/bojand/ghz/archive/v0.117.0.tar.gz"
+  sha256 "33014936ee67f8f139e89e342756d8415880b65c6bb6acb9fbf97132745a1528"
   license "Apache-2.0"
 
   livecheck do
@@ -10,13 +10,13 @@ class GhzWeb < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bfdfa6fd806e5bb37bac3afac2dfee4e44cbf62795eff4bea5811c830a726d60"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9e1ecc9270c6c0ae41c4c399a66a3027d8de903471e9982a0a0a8e585898378c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "73210d7786f6c8270b27c555f3d5486166d529abc46c261506af4c4e4a6ec72e"
-    sha256 cellar: :any_skip_relocation, ventura:        "e610d6b15f2425b65121bfb17234b6e7e30456cc3b09d3869f58150ddf0756b4"
-    sha256 cellar: :any_skip_relocation, monterey:       "569b999a1c359a7ef0614fdd46b570b0f0f9bf550df23a8380dad9332c15c3aa"
-    sha256 cellar: :any_skip_relocation, big_sur:        "fec4f34fbfaca70dab721bf9d8c0245c2e1030a2d19650112245a2ec83c9c9e1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7ca7c5e2534062f9e1aa849c7c8ee36fc00922da080a453bb1ffbf28fec99227"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "48fb5f73011676dedd16c117da5489c4601bd9a10f3d686121f851de582eb1d6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f7d7d5ff5fefbb11464876bf6a032cd48eb2ebd67a863896f161605e981b9472"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f763ec11a9044333f3a0e01f3930b61376a15d0489cc02dbcfcf6e76bf928449"
+    sha256 cellar: :any_skip_relocation, ventura:        "f596d94dd82c2acd8dd41a68e049a7b9bf1403d053fb63dc0bfe27d8258d61da"
+    sha256 cellar: :any_skip_relocation, monterey:       "a6aec1ae6a60a2e6f8ab4119e0dddcb5654b6ce66c0fae717975b2bd71fa2e78"
+    sha256 cellar: :any_skip_relocation, big_sur:        "cfbdcf04415099cf3a26db7e155089debc508f4cfaabea2a2d978553ea37d2aa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fef80789a23ab266fd6feac2223692d77df555d730f5132d1e002bb3e83a7333"
   end
 
   depends_on "go" => :build

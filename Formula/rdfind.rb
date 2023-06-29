@@ -1,8 +1,8 @@
 class Rdfind < Formula
   desc "Find duplicate files based on content (NOT file names)"
   homepage "https://rdfind.pauldreik.se/"
-  url "https://rdfind.pauldreik.se/rdfind-1.5.0.tar.gz"
-  sha256 "4150ed1256f7b12b928c65113c485761552b9496c433778aac3f9afc3e767080"
+  url "https://rdfind.pauldreik.se/rdfind-1.6.0.tar.gz"
+  sha256 "7a406e8ef1886a5869655604618dd98f672f12c6a6be4926d053be65070f3279"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,15 +11,13 @@ class Rdfind < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "1e511a54185e09734f4e323553bd4d9288e44d756783b3eedca75afa1bcd3354"
-    sha256 cellar: :any,                 arm64_monterey: "aeb9e48531e6c0207c520039fb19151044deaffeea109f4be6c2cba0163d4cb1"
-    sha256 cellar: :any,                 arm64_big_sur:  "0231ca8fc326ec9888c3da9f07eef767ce69efd947614a0d19b3d4f1e4051192"
-    sha256 cellar: :any,                 ventura:        "384460d6465afccd76df187724c63f374cf31b0caff4b7f5271c93f7590c33ee"
-    sha256 cellar: :any,                 monterey:       "ab2c2353c248e27831c942c7e369e3402c5d6df6f49a02080b1f4903c32e91ba"
-    sha256 cellar: :any,                 big_sur:        "db5e30a0195c38a79630c88cc32a37e0f837ece980dd039a042c4879d9365c4b"
-    sha256 cellar: :any,                 catalina:       "b25d141342e3ebb09d42f528fd2dcb253c6f729665bc39f58ff1fbe4ca757c72"
-    sha256 cellar: :any,                 mojave:         "d704696e7f9ab9c095ce6f59db3725576ea7ac4a540e115a3928feca3cb75b28"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "787feec863b81e78f378a46b60505051c4b8b29b25c19e3d41b5c94c8ce88562"
+    sha256 cellar: :any,                 arm64_ventura:  "ac61318405080ae930560042e69a95081d0ef43bc78fe6f7e197af8739242924"
+    sha256 cellar: :any,                 arm64_monterey: "3beae55c25f4c3e1b0b8167baf0b627527666563a38cd3f5fe4f880a3a2de69d"
+    sha256 cellar: :any,                 arm64_big_sur:  "d857d69934703cbe1b03e9ff6e8d6fcbdb005f80494f12826fea7d2f4ad84645"
+    sha256 cellar: :any,                 ventura:        "d3d563d4bb4a22d77747cf8885aec7c6d0a80d5eeca9913fc84f85388f729b9f"
+    sha256 cellar: :any,                 monterey:       "a07aa01be6a114670e2e58e052d286cb15bf82ab70ceaf112884a16d99f8eaea"
+    sha256 cellar: :any,                 big_sur:        "19afda77102d68f9f15b821fe67c9f2fb43220924fbe3ae900bae6269d4667e2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d8ac064985f32311bb3a467b0d5c8dee97896164a2a877d8eda74d02a133e4d5"
   end
 
   depends_on "nettle"

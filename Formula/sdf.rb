@@ -13,7 +13,7 @@ class Sdf < Formula
     sha256 cellar: :any, high_sierra:   "e4229bab3c8cfda42089e5371aef014a0fea214be9b7c8a99537077268fec106"
   end
 
-  deprecate! date: "2022-03-23", because: :unmaintained
+  disable! date: "2023-06-19", because: :unmaintained
 
   depends_on "pkg-config" => :build
   depends_on "aterm"

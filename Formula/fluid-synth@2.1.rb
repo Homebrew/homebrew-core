@@ -19,7 +19,7 @@ class FluidSynthAT21 < Formula
 
   keg_only :versioned_formula
 
-  deprecate! date: "2022-08-15", because: :versioned_formula
+  disable! date: "2023-06-22", because: :versioned_formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build

@@ -2,19 +2,19 @@ class Cmctl < Formula
   desc "Command-line tool to manage cert-manager"
   homepage "https://cert-manager.io"
   url "https://github.com/cert-manager/cert-manager.git",
-      tag:      "v1.12.1",
-      revision: "3f5dbe1a5f06906b509c6c1032856612cde7f0e5"
+      tag:      "v1.12.2",
+      revision: "a662045c2a7ec0d9118176965028113230fa9735"
   license "Apache-2.0"
   head "https://github.com/cert-manager/cert-manager.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0f294d8a927dd0253266b1977cd9ba12dee6ea1229e322f8dbff4dce78550425"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b9bec12bdc5878f60134ee733aa5bc74a080190f5bcfa7bfdabf8f20ec674234"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3937366b6cd12eeca17d19b26e9abbe1caa571cd73f7f6b5a0221038439d417a"
-    sha256 cellar: :any_skip_relocation, ventura:        "18415bd3ecefb8b389fb8815bb20512b6416baec238edba5c21b59adff2eeb94"
-    sha256 cellar: :any_skip_relocation, monterey:       "70604c0ea5f9170f4b03def1fb3687df82735f663f9109dbb5b24b1d45c27590"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e0d24b8a76bf9b670f6150736c34f71f7983f644b80bb0dd40444cf183863a62"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "180007717e69bb5f81a9c27797aae45af0c7847ab25c474a85ec960955ef5a97"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "edf43d262cfd080ee98f6851c6d84928c77a85a005118036fe9cd47342cb7e5a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a1d67399b9896035eb28f065dcdaac0002de86ccc3a82a3c79d1a0b45aad3ad4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5fb0b2881b7d8238a6c8dd93749260c13f26643c074c5efbb243c224efc8f818"
+    sha256 cellar: :any_skip_relocation, ventura:        "667e69177a89f2d68408f8d9f9dc9fe46c8835045a652f5f8653a1791ac53197"
+    sha256 cellar: :any_skip_relocation, monterey:       "7bb6734bef6e5de077b06c37893b0508e6090a3352c47c4899bc6422300e2432"
+    sha256 cellar: :any_skip_relocation, big_sur:        "318c7dac1ca202e3e18a412a73368d4c07de7c644853a0c50fe467e57c45354c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7fc1616c0cb3c90136425bf7f56c086508f69f77987ddb42ad107afccbeda3ed"
   end
 
   depends_on "go" => :build
@@ -41,7 +41,7 @@ class Cmctl < Formula
     assert_match "cmctl", shell_output("#{bin}/cmctl help")
     # We can't make a Kuberntes cluster in test, so we check that when we use a remote command
     # we find the error about connecting
-    assert_empty shell_output("#{bin}/cmctl check api 2>&1", 1)
+    assert_match "Not ready: error finding the scope of the object", shell_output("#{bin}/cmctl check api 2>&1", 1)
     # The convert command *can* be tested locally.
     (testpath/"cert.yaml").write <<~EOF
       apiVersion: cert-manager.io/v1beta1

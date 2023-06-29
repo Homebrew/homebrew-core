@@ -6,29 +6,29 @@ class OnlykeyAgent < Formula
   url "https://files.pythonhosted.org/packages/02/c1/27c6cfbc5ee63fca91e37915d0182c0bfb988ca12362f01bcd5451e0ee10/onlykey-agent-1.1.14.tar.gz"
   sha256 "096f20580ae112f57c1b9b279ed17728dc8e6f0fca301be586b9d976177f1523"
   license "LGPL-3.0-only"
-  revision 1
+  revision 2
 
   bottle do
-    rebuild 5
-    sha256 cellar: :any,                 arm64_ventura:  "13d27bb743b79149b19371997b8d3b399e358b90ad9cd29fa63ec28629e009aa"
-    sha256 cellar: :any,                 arm64_monterey: "14aa2bb187769e1e048132e45a295dd9eca45d68f91bd041573b97e0bba69a5d"
-    sha256 cellar: :any,                 arm64_big_sur:  "dff01c096446c80d7849c7dc738a3d2c802662d2612152d922336b7cad300277"
-    sha256 cellar: :any,                 ventura:        "3edccc11f1d5bf63a217660c1aaaa53d6353ff53a13d51bea845b032c6d433d0"
-    sha256 cellar: :any,                 monterey:       "793d18fae6593aae9450afc56f6f35c5ab4a55944a7201ebf07f5293d3d4163a"
-    sha256 cellar: :any,                 big_sur:        "a9ae472485fc3dcc99c76367e00d89caa6be4b678a5bd184f4a33424f23c756b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ae4a7c4571dbc7c4daa13459967f1f5783132bd4defd47bf240e4cfde5e6bdbb"
+    sha256 cellar: :any,                 arm64_ventura:  "c75294a78228ccde3d6a87e36c8df863055f740681dab89cdd56b6d93e346db5"
+    sha256 cellar: :any,                 arm64_monterey: "689993ee022c2b24b910aff662e66dd0d70be6d921fa345b2151193e35560225"
+    sha256 cellar: :any,                 arm64_big_sur:  "9bcbdbbc193922ced18bbd190b62f4f043768b28b8fea7c26c083db38a41d4fd"
+    sha256 cellar: :any,                 ventura:        "b0cbb1f89f97dc522a6845da8a6cdd5e8258bedfd74bc9359b5a66ba51503625"
+    sha256 cellar: :any,                 monterey:       "209a3a9bc204159c9fb45cac96c2c5a5cbeb05de5314a61f1f1c965458143d6f"
+    sha256 cellar: :any,                 big_sur:        "2a6bb86454c75287cc27f9ef9c912d1114e627f77312686f8ae016256558fe24"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ffa9bfca86c7b5c5302d5a2ba27917d210048aa0328a933aa8242b7f7cd7f753"
   end
 
-  # `pkg-config`, `rust`, and `openssl@1.1` are for cryptography.
+  # `pkg-config`, `rust`, and `openssl@3` are for cryptography.
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
 
   depends_on "cffi"
+  depends_on "docutils"
   depends_on "gnupg"
   depends_on "hidapi"
   depends_on "libcython"
   depends_on "libusb"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pycparser"
   depends_on "python@3.11"
   depends_on "six"
@@ -71,11 +71,6 @@ class OnlykeyAgent < Formula
   resource "cryptography" do
     url "https://files.pythonhosted.org/packages/19/8c/47f061de65d1571210dc46436c14a0a4c260fd0f3eaf61ce9b9d445ce12f/cryptography-41.0.1.tar.gz"
     sha256 "d34579085401d3f49762d2f7d6634d6b6c2ae1242202e860f4d26b046e3a1006"
-  end
-
-  resource "docutils" do
-    url "https://files.pythonhosted.org/packages/1f/53/a5da4f2c5739cf66290fac1431ee52aff6851c7c8ffd8264f13affd7bcdd/docutils-0.20.1.tar.gz"
-    sha256 "f08a4e276c3a1583a86dce3e34aba3fe04d02bba2dd51ed16106244e8a923e3b"
   end
 
   resource "ecdsa" do
@@ -194,6 +189,10 @@ class OnlykeyAgent < Formula
   end
 
   def install
+    # Ensure that the `openssl` crate picks up the intended library.
+    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+    ENV["OPENSSL_NO_VENDOR"] = "1"
+
     python3 = "python3.11"
     # prevent "fatal error: libusb.h: No such file or directory" when building hidapi on linux
     ENV.append_to_cflags "-I#{Formula["libusb"].include}/libusb-1.0"

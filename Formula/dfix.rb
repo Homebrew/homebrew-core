@@ -22,6 +22,9 @@ class Dfix < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "dc5f77825702b1aada0824cb46ea1b8575d9b101c4a7aec7e49381bef1f7f045"
   end
 
+  # https://github.com/dlang-community/dfix/issues/60
+  deprecate! date: "2023-06-25", because: :unmaintained
+
   on_arm do
     depends_on "ldc" => :build
   end

@@ -21,7 +21,7 @@ class Delta < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e7b9fd96832e66748aaa61cf7a9b735275931a80c9f46a714b347889de5cc332"
   end
 
-  deprecate! date: "2022-04-30", because: :unmaintained
+  disable! date: "2023-06-19", because: :unmaintained
 
   conflicts_with "git-delta", because: "both install a `delta` binary"
 

@@ -4,6 +4,7 @@ class PureFtpd < Formula
   url "https://download.pureftpd.org/pub/pure-ftpd/releases/pure-ftpd-1.0.51.tar.gz"
   sha256 "4160f66b76615eea2397eac4ea3f0a146b7928207b79bc4cc2f99ad7b7bd9513"
   license all_of: ["BSD-2-Clause", "BSD-3-Clause", "BSD-4-Clause", "ISC"]
+  revision 1
 
   livecheck do
     url "https://download.pureftpd.org/pub/pure-ftpd/releases/"
@@ -11,19 +12,17 @@ class PureFtpd < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "fe468fefa19fc750c5051d20d4c6d9a92652a5092aae7fa04eb8f7b5420216c3"
-    sha256 cellar: :any,                 arm64_monterey: "5e9abb79554e46ed02c642d430202db07368e5c7ac8148abf78bc8b3cc315d6c"
-    sha256 cellar: :any,                 arm64_big_sur:  "34c0a150261bce1eef864d73033e583efefa5829d5301723f2acd7f839c1c5ce"
-    sha256 cellar: :any,                 ventura:        "995f0f60518511f25a75d4bc3c03bb538ef5d1471ef8ab5d54796fc0747865cb"
-    sha256 cellar: :any,                 monterey:       "46c89155e8910f6b8c9f6834f31d383c7d6fdf5c72ff6dc64474a9c57f1e9907"
-    sha256 cellar: :any,                 big_sur:        "3af1b813b093423c66ab1d7c5d5ef192562d6eeb0754ad0ce68f05afa17dd091"
-    sha256 cellar: :any,                 catalina:       "5083006d58cd0f7e6824e95998c299cb7d090fc2d049b8e797ddf0b27ac90207"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1800a3342d761db7a85e0d482f52c0b689835713dd15a5bba90a617a43160151"
+    sha256 cellar: :any,                 arm64_ventura:  "a6f41d0fbf23150cdab22ddd9afbdeebb099f4e53537182d9980f06f9b26dbac"
+    sha256 cellar: :any,                 arm64_monterey: "1b67abcc9edd60aead2142a140209ae6697e4e229785d86de09c596c31488bff"
+    sha256 cellar: :any,                 arm64_big_sur:  "3bc73b3496165c30c7ab46f68794336afd1da8979a9213d7e4a05d536b7e60a9"
+    sha256 cellar: :any,                 ventura:        "544c26284f46449f9ccdf4a2ae18e9906c83a5387e9e6c7ef86a35e909ce8c97"
+    sha256 cellar: :any,                 monterey:       "a528d655c319b209b6b5791ec9f29730f45dd84d0cee608cab3be611b17f210a"
+    sha256 cellar: :any,                 big_sur:        "1e5868c9218be8b930ef9f32992ef3f87c180faf03acb58387429b99a6b79e5d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "633b0bb81436b00c8701ce9db2c560a7b43a8277b0482cc66c26ff9dbb4350ec"
   end
 
   depends_on "libsodium"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "libxcrypt"
 

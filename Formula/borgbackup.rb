@@ -6,21 +6,22 @@ class Borgbackup < Formula
   url "https://files.pythonhosted.org/packages/6e/9e/e7a116401ef0c6c2766e4e49e5a3aafaa725ba0ea827305f016339c6c496/borgbackup-1.2.4.tar.gz"
   sha256 "a4bd54e9469e81b7a30a6711423115abc818d9cd844ecb1ca0e6104bc5374da8"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "ef1c21082202041276792bcc4bb0f674eff80eeed6a391eaac6c92504a04fbf4"
-    sha256 cellar: :any,                 arm64_monterey: "15e7fae87378f9f7537adc2cf6cac2c98f67cf9be62c93e099b5dd20dd4346a5"
-    sha256 cellar: :any,                 arm64_big_sur:  "7f8a4c4decc7d31394da8e565f29314d8c305515ec2c6c2eff644e35a8f89e9a"
-    sha256 cellar: :any,                 ventura:        "ab1c9c35aa99bf53f4e76cfe4edcda7d814a1ea564b906518575691737d25bd0"
-    sha256 cellar: :any,                 monterey:       "a9622cb9a364a55095384b62fa8305b61285d998620a84f7a2197f99e7e0d8b6"
-    sha256 cellar: :any,                 big_sur:        "9da365d568230d288d70db8a4640827cae614073bfc6e5aa7249cb112bad0833"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ec49169b386d06b1e7614ff7561ebe296c8ad78f00d2d012826480f9689c0547"
+    sha256 cellar: :any,                 arm64_ventura:  "a80057da725304e83b9e7da142aa27079b3b77e691886f2e2df3c5d5279d56ed"
+    sha256 cellar: :any,                 arm64_monterey: "1e0103426f4cd4c7f433514ef828a32b0cebf7cae11ed526a7017d2c6a46cdb5"
+    sha256 cellar: :any,                 arm64_big_sur:  "05f2643c635826b53bb6692e040dd2f5dd1e1c34bfad740340cf109e77488160"
+    sha256 cellar: :any,                 ventura:        "3ce8161421a316a41699519f4cbada586d6194f70492ec5a5dbb6f4aec09fe95"
+    sha256 cellar: :any,                 monterey:       "e2470014c09b792fa424738aac53189a5b9233071144495b7b0708cc68caecb0"
+    sha256 cellar: :any,                 big_sur:        "3a8cc0298578af2d0815819ab805a364e113485c1036f313d03e23c5a926919b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "350dc1537f9fe4ea846e61bbac8605997e41d7e3e581fc1e0b4369d2dd55be99"
   end
 
   depends_on "pkg-config" => :build
   depends_on "libb2"
   depends_on "lz4"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "python@3.11"
   depends_on "xxhash"
   depends_on "zstd"
@@ -49,7 +50,7 @@ class Borgbackup < Formula
     ENV["BORG_LIBLZ4_PREFIX"] = Formula["lz4"].prefix
     ENV["BORG_LIBXXHASH_PREFIX"] = Formula["xxhash"].prefix
     ENV["BORG_LIBZSTD_PREFIX"] = Formula["zstd"].prefix
-    ENV["BORG_OPENSSL_PREFIX"] = Formula["openssl@1.1"].prefix
+    ENV["BORG_OPENSSL_PREFIX"] = Formula["openssl@3"].prefix
     virtualenv_install_with_resources
 
     man1.install Dir["docs/man/*.1"]

@@ -26,10 +26,7 @@ class Proxsuite < Formula
   depends_on "simde"
 
   def install
-    if build.head?
-      system "git", "submodule", "update", "--init"
-      system "git", "pull", "--unshallow", "--tags"
-    end
+    system "git", "submodule", "update", "--init", "--recursive" if build.head?
 
     ENV.prepend_path "PYTHONPATH", Formula["eigenpy"].opt_prefix/Language::Python.site_packages
 

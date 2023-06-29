@@ -3,19 +3,18 @@ class Chatblade < Formula
 
   desc "CLI Swiss Army Knife for ChatGPT"
   homepage "https://github.com/npiv/chatblade"
-  url "https://files.pythonhosted.org/packages/fc/f0/8b80162015ec3ac16ddba5003ae9bf6633b1f2051aea52c14a4649a65b85/chatblade-0.3.0.tar.gz"
-  sha256 "ee3dac50e358198e8d1990aa2bf85beb46e3a04ebfe2f784344cd264cef7ed42"
+  url "https://files.pythonhosted.org/packages/02/bc/c3dd9e46eaeae6218909b2a13b79a71b8b6ad30fe7ede8f9dc2dba530d5b/chatblade-0.3.1.tar.gz"
+  sha256 "401511bcf7c305b845f80850d12b07627673af944ddfa0aa6b60eb010656d205"
   license "GPL-3.0-only"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "e29518d2fff70e922b38e6a01290dad911e61701d3d58ec4e5881aac7e63ef07"
-    sha256 cellar: :any,                 arm64_monterey: "32c0ed5e457561826ec3f5d10fe4bf099e16410a9a885022c4a5f00927d70a68"
-    sha256 cellar: :any,                 arm64_big_sur:  "3d3dbdb8b80586be8878a136753d6025377210da5f392ad940ce6f10768878dd"
-    sha256 cellar: :any,                 ventura:        "92c9a2c5e49cd792544e5289e649274ca98e0a8eb793fd81c4c589a928d60dd0"
-    sha256 cellar: :any,                 monterey:       "87d61fd60a0bbe51463121bdc5232c42572407f80b4e6b7f3dabfb1303fafe6e"
-    sha256 cellar: :any,                 big_sur:        "3fda0a5fc71a721e3de37232d6fa49316781cbad8a58fa3dc5c3cf9a523da6ab"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6356eb8b1188a175c19a8e7f8702f023e04388df5756afc804239587498d69c3"
+    sha256 cellar: :any,                 arm64_ventura:  "2a4734965a065a527df6255fe5b376ef6d0e4cb5e949e9b6e12156e864c17d8b"
+    sha256 cellar: :any,                 arm64_monterey: "0e0cb38b82e6467b68b60df4f1b02b1a87388df49ed4ceb8077c7c1fed70217c"
+    sha256 cellar: :any,                 arm64_big_sur:  "ad46a057392f5a6693982a869120935bfd70eb11984dc1424f185f8980d7e089"
+    sha256 cellar: :any,                 ventura:        "7bdd2c098121999d517c21aba9dd37dd9ea24f183662539d9972d2776a01ddd9"
+    sha256 cellar: :any,                 monterey:       "6b75f1372a09594d8471a193923bfe7db99bad840529a94f3d26c50ee4c71254"
+    sha256 cellar: :any,                 big_sur:        "e378410a1567fdf643a553ea339a9b8f7372dbda39a4cf01e4b1f82c7af2194a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7cfec841a1cdff6a3aff0c4b81ec117a1ecaf08e36baf5c3dd18debf42aed25f"
   end
 
   depends_on "rust" => :build
@@ -64,8 +63,8 @@ class Chatblade < Formula
   end
 
   resource "markdown-it-py" do
-    url "https://files.pythonhosted.org/packages/e4/c0/59bd6d0571986f72899288a95d9d6178d0eebd70b6650f1bb3f0da90f8f7/markdown-it-py-2.2.0.tar.gz"
-    sha256 "7c9a5e412688bc771c67432cbfebcdd686c93ce6484913dccf06cb5a0bea35a1"
+    url "https://files.pythonhosted.org/packages/38/71/3b932df36c1a044d397a1f92d1cf91ee0a503d91e470cbd670aa66b07ed0/markdown-it-py-3.0.0.tar.gz"
+    sha256 "e3f60a94fa066dc52ec76661e37c851cb232d92f9886b15cb560aaada2df8feb"
   end
 
   resource "mdurl" do
@@ -79,18 +78,18 @@ class Chatblade < Formula
   end
 
   resource "openai" do
-    url "https://files.pythonhosted.org/packages/ce/52/9e5b78fe0897815521cf803b3310d861923cea9dccb70349d39d47ff3d02/openai-0.27.7.tar.gz"
-    sha256 "bca95fd4c3054ef38924def096396122130454442ec52005915ecf8269626b1d"
+    url "https://files.pythonhosted.org/packages/89/ee/84bbd0161090f0f24e8a2ac175e6b6a936289ee02e9d5da414ce14d3d332/openai-0.27.8.tar.gz"
+    sha256 "2483095c7db1eee274cebac79e315a986c4e55207bb4fa7b82d185b3a2ed9536"
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/9c/0e/ae9ef1049d4b5697e79250c4b2e72796e4152228e67733389868229c92bb/platformdirs-3.5.1.tar.gz"
-    sha256 "412dae91f52a6f84830f39a8078cecd0e866cb72294a5c66808e74d5e88d251f"
+    url "https://files.pythonhosted.org/packages/d2/5d/29eed8861e07378ef46e956650615a9677f8f48df7911674f923236ced2b/platformdirs-3.5.3.tar.gz"
+    sha256 "e48fabd87db8f3a7df7150a4a5ea22c546ee8bc39bc2473244730d4b56d2cc4e"
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/77/5d/98efc9cf46d60f3704cf00f8b3bd81319493639fd4367efb5d02fd29ffc1/regex-2023.5.5.tar.gz"
-    sha256 "7d76a8a1fc9da08296462a18f16620ba73bcbf5909e42383b253ef34d9d5141e"
+    url "https://files.pythonhosted.org/packages/18/df/401fd39ffd50062ff1e0344f95f8e2c141de4fd1eca1677d2f29609e5389/regex-2023.6.3.tar.gz"
+    sha256 "72d1a25bf36d2050ceb35b517afe13864865268dfb45910e2e17a84be6cbfeb0"
   end
 
   resource "requests" do
@@ -99,8 +98,8 @@ class Chatblade < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/3d/0b/8dd34d20929c4b5e474db2e64426175469c2b7fea5ba71c6d4b3397a9729/rich-13.3.5.tar.gz"
-    sha256 "2d11b9b8dd03868f09b4fffadc84a6a8cda574e40dc90821bd845720ebb8e89c"
+    url "https://files.pythonhosted.org/packages/e3/12/67d0098eb77005f5e068de639e6f4cfb8f24e6fcb0fd2037df0e1d538fee/rich-13.4.2.tar.gz"
+    sha256 "d653d6bccede5844304c605d5aac802c7cf9621efd700b46c7ec2b51ea914898"
   end
 
   resource "tiktoken" do
@@ -114,8 +113,8 @@ class Chatblade < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/fb/c0/1abba1a1233b81cf2e36f56e05194f5e8a0cec8c03c244cab56cc9dfb5bd/urllib3-2.0.2.tar.gz"
-    sha256 "61717a1095d7e155cdb737ac7bb2f4324a858a1e2e6466f6d03ff630ca68d3cc"
+    url "https://files.pythonhosted.org/packages/d6/af/3b4cfedd46b3addab52e84a71ab26518272c23c77116de3c61ead54af903/urllib3-2.0.3.tar.gz"
+    sha256 "bee28b5e56addb8226c96f7f13ac28cb4c301dd5ea8a6ca179c0b9835e032825"
   end
 
   resource "yarl" do

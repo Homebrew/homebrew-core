@@ -2,9 +2,10 @@ class Grpc < Formula
   desc "Next generation open source RPC library and framework"
   homepage "https://grpc.io/"
   url "https://github.com/grpc/grpc.git",
-      tag:      "v1.55.1",
-      revision: "12161ee3aa7c216741cd7c406573abc0df1d0926"
+      tag:      "v1.56.0",
+      revision: "6e85620c7e258df79666a4743f862f2f82701c2d"
   license "Apache-2.0"
+  revision 2
   head "https://github.com/grpc/grpc.git", branch: "master"
 
   # The "latest" release on GitHub is sometimes for an older major/minor and
@@ -17,14 +18,13 @@ class Grpc < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "c9cbf699ef9422af574b4a3eaff6e43958b936e620d33c2118d1099124bf881a"
-    sha256 cellar: :any,                 arm64_monterey: "2550d3ac489444f679868d122be5951bbfa603160fa3cc51a4dd55e1e4864d43"
-    sha256 cellar: :any,                 arm64_big_sur:  "a281ec107dd99fd7e488e8f720fe99cee975948a3d7ec60b29e7146d02e5ce43"
-    sha256 cellar: :any,                 ventura:        "924651fcf82225f52ea8f55bd5f23a1760e2417c3840524eff41a8d7637aa4ed"
-    sha256 cellar: :any,                 monterey:       "eb73167dfe5d7c12892806a61f28ee03416685932c54bd709d711559fb45201c"
-    sha256 cellar: :any,                 big_sur:        "6eb5b14e669b77191f8efa41f9bb67ef040e1b7d838a75bcb4363a987065067f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "821e4e7fa581bb34be7575d2b3a51491f95f6db92b9bbc697ace00086a151689"
+    sha256 cellar: :any,                 arm64_ventura:  "92e1da8bc605adee4e1057719b69984dfd81dbfc64317ecfe0d366c54218b8ad"
+    sha256 cellar: :any,                 arm64_monterey: "0f88f8cea5988e71ceb987ad3b658774d45bcb383bf809163cca3a87f13eefed"
+    sha256 cellar: :any,                 arm64_big_sur:  "0ee770b285f3d576e89a151944da948ab92db662832b20751ef43a2479109c9b"
+    sha256 cellar: :any,                 ventura:        "326b5ca1baa7572ce0095939ff8f55fed3e2e2a199040d4a62a928a5ec161db4"
+    sha256 cellar: :any,                 monterey:       "2d7161a6f50b4dc4671e85ab128f97b48d49079c2e0a19b1450cb4836d861f0a"
+    sha256 cellar: :any,                 big_sur:        "d6e892096406f8080efc8c36af37bbe021eb93b4aa019bb0e55682edd9f2f12d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "55f5a4e1a23f8a0f4ebd4a7f251d8789ca6fadc0e34cfdf7b541756771198562"
   end
 
   depends_on "autoconf" => :build
@@ -34,7 +34,7 @@ class Grpc < Formula
   depends_on "pkg-config" => :test
   depends_on "abseil"
   depends_on "c-ares"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "protobuf"
   depends_on "re2"
 
@@ -108,7 +108,7 @@ class Grpc < Formula
         return GRPC_STATUS_OK;
       }
     EOS
-    ENV.prepend_path "PKG_CONFIG_PATH", Formula["openssl@1.1"].opt_lib/"pkgconfig"
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["openssl@3"].opt_lib/"pkgconfig"
     pkg_config_flags = shell_output("pkg-config --cflags --libs libcares protobuf re2 grpc++").chomp.split
     system ENV.cc, "test.cpp", "-L#{Formula["abseil"].opt_lib}", *pkg_config_flags, "-o", "test"
     system "./test"

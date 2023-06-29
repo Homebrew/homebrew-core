@@ -1,8 +1,8 @@
 class Modules < Formula
   desc "Dynamic modification of a user's environment via modulefiles"
   homepage "https://modules.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/modules/Modules/modules-5.3.0/modules-5.3.0.tar.bz2"
-  sha256 "70c165082e42e4faeaf9e18590ff0652b2fccb2184d873459700adfbff4f753e"
+  url "https://downloads.sourceforge.net/project/modules/Modules/modules-5.3.1/modules-5.3.1.tar.bz2"
+  sha256 "171f7faebc1363c8738a6905b31074636dd81d303098002b1c25801ee5483d86"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,13 +11,13 @@ class Modules < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "4d43be4aae15dd968db359e226545bf4fb75147169378f90f022b0a460d5717f"
-    sha256 cellar: :any,                 arm64_monterey: "673188ba40af9a15e68cf6b37edfe0c1dbeaa7becf5b421f19ddb099c60fd18e"
-    sha256 cellar: :any,                 arm64_big_sur:  "5b05635803f14caec308f4780561f93f76b286acc3cbe7243489b77068917328"
-    sha256 cellar: :any,                 ventura:        "00c3a1d7d9f27d9ba164e3c27090d63798a9a66402e25a0f19fc18fc0c9e62a1"
-    sha256 cellar: :any,                 monterey:       "30bff55cd3084c9c2f663ca90c7511d50cdef72989761c502c667cc4dfe6878c"
-    sha256 cellar: :any,                 big_sur:        "ead17215b2a49b6307bb91c30dbcc5edc308f71cea8379cec80bca408ea75413"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fa1f73c6df4a996cd4c8c250809341848c65db760b9fe23888c5063aa6081b0d"
+    sha256 cellar: :any,                 arm64_ventura:  "539114dd953441f82633f0f5ce201719c7d5ffda9613ec94702997a08e774e84"
+    sha256 cellar: :any,                 arm64_monterey: "82afee11869c89ee190f3fc6980f2c3acb543f4020ef49389f444948f8ae3146"
+    sha256 cellar: :any,                 arm64_big_sur:  "1943734262bd565d5a170208a3aa3a14945342a440043e63051ddf66e1597a91"
+    sha256 cellar: :any,                 ventura:        "343d1394d56a919042afad951b2e43c18687d6b0132844e2d5ac07269211b3e0"
+    sha256 cellar: :any,                 monterey:       "fe91df353c52b0456323d366f55fb9d6eda624b868439bcf28407453412b1b6f"
+    sha256 cellar: :any,                 big_sur:        "cfc7cf47d087751ed1fe11735ad56ae11d0cf61f64bea4d39ba12c3fca74046a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d96274b4f7ea6077d0d72bfee2c769ef0cc455cda316c321b522825936d57da5"
   end
 
   depends_on "tcl-tk"

@@ -5,6 +5,7 @@ class Metview < Formula
   version "5.19.1"
   sha256 "2cdeeda7579f1465fb6d1f2c3e7424777e34a19f3f72c445874f99b292d49146"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url "https://confluence.ecmwf.int/display/METV/The+Metview+Source+Bundle"
@@ -12,13 +13,13 @@ class Metview < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "492b261c87b522949f11e68438c25a46b76774fd2a7a3423d2eb73cd85611737"
-    sha256 arm64_monterey: "eac83996c6d7a809afa8ca610a4286f646ec5fafb7c643d0122092d9cc01196e"
-    sha256 arm64_big_sur:  "e1a7de326ff5023c878bc240de8e77e7244f03cf02afd899b506c59fbdfaefd8"
-    sha256 ventura:        "463c35d5923c660e81b5623a96194e5179367968dcb76e0f3cb6ef43ad6be155"
-    sha256 monterey:       "9d2114fca3842de72462dcd93e8c4ec9090eb0a83f4ecdec9169f5ae5b7ae99f"
-    sha256 big_sur:        "f12df8cb2fd3dbbc362cb8d2ed78aab535711b157debff17f4cc374f65121a6e"
-    sha256 x86_64_linux:   "38ac26b4630d0b902e5447e12371641806b0ba0cf50aa82942df52f31b8443cb"
+    sha256 arm64_ventura:  "4ba1eb25cbca847ab62feceab826c0ca7b9f9433c61f949355dc225dfb6aa1c6"
+    sha256 arm64_monterey: "9e76643dbd7d0199b8c4e2568e7ce94b12cbfa9a3704a1a011d3638cbe82710b"
+    sha256 arm64_big_sur:  "afc0f412117beab71d9177a04e31386621ed2a131373df1cd7386ad2152c1670"
+    sha256 ventura:        "f0b8f79b3edc9d046877abe27a9be43250f4f7dbed9f86c1da4508ede0cc8d29"
+    sha256 monterey:       "c8d0cc71b8c7ad96e1e49f2f248e34a093256974fea1473ce83287aface56b7c"
+    sha256 big_sur:        "0cb71fb9770740140c2457876bba26b149bf9c04a31763ff0776f2f64eac74ba"
+    sha256 x86_64_linux:   "f6384b130df24d980f8f80b52970b1159ca2efd4aaae3458d6733ad2130a307b"
   end
 
   depends_on "cmake" => :build
@@ -29,6 +30,7 @@ class Metview < Formula
   depends_on "fftw"
   depends_on "gdbm"
   depends_on "netcdf"
+  depends_on "openssl@3"
   depends_on "pango"
   depends_on "proj"
   depends_on "qt"
@@ -41,21 +43,22 @@ class Metview < Formula
   end
 
   def install
-    ENV["RPC_PATH"] = HOMEBREW_PREFIX
-    cmake_rpc_flags = if OS.linux?
-      "-DCMAKE_CXX_FLAGS=-I#{HOMEBREW_PREFIX}/include/tirpc"
-    else
-      ""
-    end
-
-    args = %w[
+    args = %W[
       -DBUNDLE_SKIP_ECCODES=1
       -DENABLE_MIR_DOWNLOAD_MASKS=OFF
       -DENABLE_BUILD_TOOLS=OFF
       -DENABLE_ECKIT_CMD=OFF
-      -DFFTW_PATH=#{HOMEBREW_PREFIX}
+      -DFFTW_PATH=#{Formula["fftw"].opt_prefix}
     ]
-    system "cmake", "-S", ".", "-B", "build", *args, *cmake_rpc_flags, *std_cmake_args
+
+    if OS.linux?
+      args += [
+        "-DRPC_PATH=#{Formula["libtirpc"].opt_prefix}",
+        "-DRPC_INCLUDE_DIR=#{Formula["libtirpc"].opt_include}/tirpc",
+      ]
+    end
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 

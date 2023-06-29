@@ -1,19 +1,19 @@
 class Wangle < Formula
   desc "Modular, composable client/server abstractions framework"
   homepage "https://github.com/facebook/wangle"
-  url "https://github.com/facebook/wangle/releases/download/v2023.05.22.00/wangle-v2023.05.22.00.tar.gz"
-  sha256 "da277062a3ec1a1901bf10cef61d3778949efae94bcef6de628e621ce2790ea1"
+  url "https://github.com/facebook/wangle/releases/download/v2023.06.26.00/wangle-v2023.06.26.00.tar.gz"
+  sha256 "9a5d83874c36d4937fe711d210fbcf8a92ad45d21dda0e21e7613183f1082257"
   license "Apache-2.0"
-  head "https://github.com/facebook/wangle.git", branch: "master"
+  head "https://github.com/facebook/wangle.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "9397937bfc972e7f08dcd7cd49821a8b168b1bf95e0a107d047b4b5c571ddca1"
-    sha256 cellar: :any,                 arm64_monterey: "85e387ca258ce4b9033040835da1932d0b2a99254763010cd538586ec5cf37ab"
-    sha256 cellar: :any,                 arm64_big_sur:  "37b11483a11bbeb58afd0f73d334235611fce24b0bf381d2e00867bb4e709247"
-    sha256 cellar: :any,                 ventura:        "d8b99218a6b7f08f19188a2f6f1a73f0e41b43c727133eaf1517515531f25c74"
-    sha256 cellar: :any,                 monterey:       "6d7f0cfed95dccb8b5c8d3cb54514245298246f532d5e2f2017597f661030db0"
-    sha256 cellar: :any,                 big_sur:        "cfd7d49e33985432445759c8a969b4d185ab4836860354337d27d0a9f8531b63"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f2bd64cf1922a160afb0411596e5827a7c611b32d223f57109636bf58add1075"
+    sha256 cellar: :any,                 arm64_ventura:  "42c81899dd8cd89b67d6b82f5a426d2ddac091b8436e30398f961aa3b6c72e61"
+    sha256 cellar: :any,                 arm64_monterey: "f8a0c7f3ba513503437f28cbc1c3db29d29bfa04ba6a32f5f99b75584b0375f2"
+    sha256 cellar: :any,                 arm64_big_sur:  "e0232d839e4710ab1d2c0d1c8d2d51c3a559ef8abc015e862ac2a5b874fa99c1"
+    sha256 cellar: :any,                 ventura:        "3af5185b919268d3228c0cfeae3d5c5c2e4cc23744161fe691b11ed959d641a2"
+    sha256 cellar: :any,                 monterey:       "a27ef2621bcb0f9b3e9514971632765d99e3074ec9116fa84129518676df0827"
+    sha256 cellar: :any,                 big_sur:        "3b47fb565ad69321b4266ba434acf6aeab577123e3a3ac9d2c3d6222ed0501fa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f6b91361a768323d3dabc948232545383842c7042c5593feeb659b57f5b0a079"
   end
 
   depends_on "cmake" => :build
@@ -27,7 +27,7 @@ class Wangle < Formula
   depends_on "libevent"
   depends_on "libsodium"
   depends_on "lz4"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "snappy"
   depends_on "zstd"
 
@@ -53,7 +53,7 @@ class Wangle < Formula
     cxx_flags = %W[
       -std=c++17
       -I#{include}
-      -I#{Formula["openssl@1.1"].opt_include}
+      -I#{Formula["openssl@3"].opt_include}
       -L#{Formula["gflags"].opt_lib}
       -L#{Formula["glog"].opt_lib}
       -L#{Formula["folly"].opt_lib}

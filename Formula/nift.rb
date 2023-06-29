@@ -1,18 +1,18 @@
 class Nift < Formula
   desc "Cross-platform open source framework for managing and generating websites"
   homepage "https://nift.dev/"
-  url "https://github.com/nifty-site-manager/nsm/archive/refs/tags/v3.0.0.tar.gz"
-  sha256 "9e89a6cdfd65d8db582f5d6a60c7265db5fd67dc582ed24deaac4ccca8ca5737"
+  url "https://github.com/nifty-site-manager/nsm/archive/v3.0.1.tar.gz"
+  sha256 "c7dcac1cb56fbc5ff4ddca2eea3fa91bfa5c37a14627bac6fe638b5fde52850a"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "03670252b9a588208fe3548182f2b146abc37490f4a2a9a7adda4b0f32ccd7a9"
-    sha256 cellar: :any,                 arm64_monterey: "4748104dbafa321de0ae87db393518c07a5f2137437a54ea166f7839724007f4"
-    sha256 cellar: :any,                 arm64_big_sur:  "d4e79b6bff45450716498dad1a80d9dfafdbddfe9883735712a58b9f68538780"
-    sha256 cellar: :any,                 ventura:        "6a43fdd81446c475588f957a7662c95ada67e98bb88662740364d63744ae7330"
-    sha256 cellar: :any,                 monterey:       "de975fd25204c1a2dc45c9bb8af410512e26caddfa64104d54e7c0a31faabba4"
-    sha256 cellar: :any,                 big_sur:        "8c7f81dcdd14387357e8b960426c41a847c23b66bcc3b0279baf29ae4bad6028"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "64b865e61959278aa2fc2fea67d3c8dea84c5f2ee44abd1532d4cc1ac8b979b3"
+    sha256 cellar: :any,                 arm64_ventura:  "bc48fe41d74e53cce7dcf79559e23f80fb8a56e1fc87655f6f17cd0acdfaba36"
+    sha256 cellar: :any,                 arm64_monterey: "166f4770d67984385d7daa9df13ec02d5a6d0fe8bb9d497b0ae219875fda86e2"
+    sha256 cellar: :any,                 arm64_big_sur:  "9a842dfd3876f5f6920823cdfe985606e6c66c0488104ff7d7815106bdca6f4c"
+    sha256 cellar: :any,                 ventura:        "cd80d6f99954fb2a21e37f12a27edda0967c7e190fc5e2dac3ea5a01166929e8"
+    sha256 cellar: :any,                 monterey:       "8d31e774deaa806c99b4d50df531652d3b658c2f4c74aec6f054590f271f9a52"
+    sha256 cellar: :any,                 big_sur:        "43ccefc3b626745ec54436451c4f99a04d4c8726a529c89480183944e29adfaa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "860fd9e6c0275437b9376c2d8a9a9ecbad18c84b56cb23f57cd86927e87746f9"
   end
 
   depends_on "luajit"

@@ -1,19 +1,19 @@
 class Mlpack < Formula
   desc "Scalable C++ machine learning library"
   homepage "https://www.mlpack.org"
-  url "https://mlpack.org/files/mlpack-4.1.0.tar.gz"
-  sha256 "e0c760baf15fd0af5601010b7cbc536e469115e9dd45f96712caa3b651b1852a"
+  url "https://mlpack.org/files/mlpack-4.2.0.tar.gz"
+  sha256 "f780df984a71029e62eeecdd145fb95deb71b133cefc7840de0ec706d116dd60"
   license all_of: ["BSD-3-Clause", "MPL-2.0", "BSL-1.0", "MIT"]
   head "https://github.com/mlpack/mlpack.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "0c4a23609ba6ef874dcbda937f71ef97c4c48d7a001f504f39be09dde28e42f5"
-    sha256 cellar: :any,                 arm64_monterey: "f1eeacec19c1a01b7ba0e27c8aeba78019d0f0d0c19d450b6903becd8a408312"
-    sha256 cellar: :any,                 arm64_big_sur:  "964ad616cfe1fa3d4845e5588ef5f5b5908c563e3a18bd2549ef5f95fb19ee4c"
-    sha256 cellar: :any,                 ventura:        "c1591a839d37ba8fd5c53c02c92f11012d05a9743dac5f19216ac5e2f35af198"
-    sha256 cellar: :any,                 monterey:       "cb66cc43d903722b0615b0303a59f57b98694db3c22fe7655126a31ec8b492ed"
-    sha256 cellar: :any,                 big_sur:        "dd846f2505b8b2bb83ed5fe1d9de4f380507f55a02b0d23481d09516018c284b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "15d8636c83c58455a3f0e8797fa361e10bb61c64485d27fe4a080d2fb413793d"
+    sha256 cellar: :any,                 arm64_ventura:  "6b7bb9296ce668c681abc7b124a3f7e43db04ac518fc734174a6182d3000a02e"
+    sha256 cellar: :any,                 arm64_monterey: "61f246b70bc7a71ce08f401a4c45ea0c0fb367ad24434886dd366f2d5164b792"
+    sha256 cellar: :any,                 arm64_big_sur:  "815a02a35f0a843d1c74e1146dcff088bcc6843460d738312a42dc8770c6c045"
+    sha256 cellar: :any,                 ventura:        "afa0360aaef101846a80b27118abbbf82828859b2c71cece4ee33c0ef6059c15"
+    sha256 cellar: :any,                 monterey:       "750e0468a64dbf22163db8a346215e07cd4e7fc26e6fe7ed08413d3110d2e56d"
+    sha256 cellar: :any,                 big_sur:        "6879303fb18f5f69f5c6ed3c4c524b6a31998b3ac4521ad96cbf9179d7a49af3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "71fa55c6229435c86fb2fcdc73c4e84f4ddd2c5c4d8e052a84421ebee0e3425b"
   end
 
   depends_on "cmake" => :build

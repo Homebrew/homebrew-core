@@ -4,6 +4,7 @@ class MecabJumandic < Formula
   url "https://www.mirrorservice.org/sites/distfiles.macports.org/mecab/mecab-jumandic-7.0-20130310.tar.gz"
   mirror "https://mirrors.ustc.edu.cn/macports/distfiles/mecab/mecab-jumandic-7.0-20130310.tar.gz"
   sha256 "eaf216758edee9a159bc3d02507007318686b9537943268c4565cc1f9ef07f15"
+  license "BSD-3-Clause"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f033d5c87f53c348ad60a9de9e2f332248cc06d7c7bdfb32736ff86f2a9e080f"

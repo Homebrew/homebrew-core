@@ -1,5 +1,5 @@
 class GpgTui < Formula
-  desc "Manage your GnuPG keys with ease! 🔐"
+  desc "Manage your GnuPG keys with ease!"
   homepage "https://github.com/orhun/gpg-tui"
   url "https://github.com/orhun/gpg-tui/archive/v0.9.6.tar.gz"
   sha256 "ee07347b1a354b39449ed2c1c97acb719c7d35d914002ba1ebaee0ab6e49bc85"

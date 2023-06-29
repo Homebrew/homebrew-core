@@ -28,7 +28,7 @@ class Udpxy < Formula
   # not been extended or supported for 4+ years, having been replaced by
   # Gigapxy - a superior enterprise-oriented product. Please see more info at
   # http://gigapxy.com, thank you."
-  deprecate! date: "2022-05-03", because: :unsupported
+  disable! date: "2023-06-19", because: :unsupported
 
   def install
     system "make"

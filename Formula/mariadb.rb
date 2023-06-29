@@ -4,6 +4,7 @@ class Mariadb < Formula
   url "https://downloads.mariadb.com/MariaDB/mariadb-11.0.2/source/mariadb-11.0.2.tar.gz"
   sha256 "3c71576cad0ea416882270e383f94cc89693b7fbcce1fa4f306fe3e931e464ae"
   license "GPL-2.0-only"
+  revision 1
 
   # This uses a placeholder regex to satisfy the `PageMatch` strategy
   # requirement. In the future, this will be updated to use a `Json` strategy
@@ -20,13 +21,13 @@ class Mariadb < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "c3a4483c6534ce8a8e4612adffa742e1779991b8b24b8ae81bdea18d21566823"
-    sha256 arm64_monterey: "5f755105c556362ccf5fac31a98bd1ef698880f061334f52ac2d008b3c45155a"
-    sha256 arm64_big_sur:  "0515f8a5f7705a3f440bfc6433c2313be42a32237d7b38ead018a6272fda09ef"
-    sha256 ventura:        "8a2c9fc2ec347613b61c1710dcce8a6cc0d903dee88f7c9f00357d3c0c8b002b"
-    sha256 monterey:       "3ba162a14632a47f1e024bb311de76442796723aa59d6bb32346e63a61be467a"
-    sha256 big_sur:        "5b8f3197b27c9b86404fc002556e8aa5ef76427170dc41b9ea0900577f1167d7"
-    sha256 x86_64_linux:   "6cecebb3ec428e9b152fb08440bcdbfdde5f5065a02ed7b6904146be1e430fc4"
+    sha256 arm64_ventura:  "54b6a346be44df2ab7e540a7d4f3df3a285487f78101644156052fa7fae031f5"
+    sha256 arm64_monterey: "8227798c0b9b37d4bbb7f2b4bd491cb5d1dbbf58cf0b1cc3bf7bb048ce2e3c23"
+    sha256 arm64_big_sur:  "d4d5f3f211e2d6f7566ab50625f2f2469b90cccdb93fea5d1c541d1f80582882"
+    sha256 ventura:        "1047fa5cdd5b83ca7658eeaefd40461179f48e6954527b008979e90788e40b9d"
+    sha256 monterey:       "ac9b7064867c2be79242bbb0d15a74a73ec5d7a1a8e38f50cdcf1c268128c69b"
+    sha256 big_sur:        "8243e8c52f5b7f52879dbeb38f7773a887b0c29485aa0f3ddfe567837cfeaed8"
+    sha256 x86_64_linux:   "70b1adfb3322f50196b820cfdea6f0b38c431488ec41681f0ea29ac29bd6a73a"
   end
 
   depends_on "bison" => :build
@@ -34,7 +35,7 @@ class Mariadb < Formula
   depends_on "fmt" => :build
   depends_on "pkg-config" => :build
   depends_on "groonga"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pcre2"
   depends_on "zstd"
 

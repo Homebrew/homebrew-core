@@ -1,19 +1,19 @@
 class Rocksdb < Formula
   desc "Embeddable, persistent key-value store for fast storage"
   homepage "https://rocksdb.org/"
-  url "https://github.com/facebook/rocksdb/archive/refs/tags/v8.1.1.tar.gz"
-  sha256 "9102704e169cfb53e7724a30750eeeb3e71307663852f01fa08d5a320e6155a8"
+  url "https://github.com/facebook/rocksdb/archive/refs/tags/v8.3.2.tar.gz"
+  sha256 "b55d6da6f562eb79bad7fdc9c368efc9ea4bfa239e69cead37923fc845a43fba"
   license any_of: ["GPL-2.0-only", "Apache-2.0"]
   head "https://github.com/facebook/rocksdb.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "8142e0aaf7ed07325651ce2ea6c081c71de4a961f3d6c93976d23deb5e6602a6"
-    sha256 cellar: :any,                 arm64_monterey: "0dc5c424f109dc4453ba43b54f5df7dbcb8a30e0f826e133d7db95faec51d3e3"
-    sha256 cellar: :any,                 arm64_big_sur:  "a8f7b3d3b63da9fe293c28a05ad510cc60159beae3d094af1ba774f379b767cf"
-    sha256 cellar: :any,                 ventura:        "6421981a99f81665dbc5b1a19d02a5726db7eb20c1477d30684fa1f65c7edf3e"
-    sha256 cellar: :any,                 monterey:       "4679f2f7e83c4c6cf1a6fb24a24dc82cb5744e12c1ca98865b5995ef75517bec"
-    sha256 cellar: :any,                 big_sur:        "8215273cff94ff5c6a20d2ba87ba5fdfd9bcc6a2849e6625b01b911143761e4b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "da353b3e37a98ed503cebf8e72b91fd82d931bcbb9c57c88cbc820d834c7df42"
+    sha256 cellar: :any,                 arm64_ventura:  "adc6f78047a616fdaadd381b560a28592a7f6829ee8ee34351e856427b7616b1"
+    sha256 cellar: :any,                 arm64_monterey: "b286127a21e6a24d344bb04da19200eec96035d8f200859370cc943e3b52e505"
+    sha256 cellar: :any,                 arm64_big_sur:  "ce8eb83803c18b9d8f0dbace02787755ef3a91d0f633bc7967c0eba53898cecc"
+    sha256 cellar: :any,                 ventura:        "7ccf91b60643fd48103f59c39ccfa3bc20626b5ba15c1048800965bcfc4957e7"
+    sha256 cellar: :any,                 monterey:       "d99545fe721049dd2dabcfcde5bc4cdf6d69c8b672d9b9c138e982fbf4876e89"
+    sha256 cellar: :any,                 big_sur:        "0e3d3d1121b20220c3e04251e26b8ef49b998189aa94a2debdcaca943cc98a16"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3d07a2eba47b26126375ad5a92d0cfaa16de64418497fcbca9e8bcc8325bdf9f"
   end
 
   depends_on "cmake" => :build

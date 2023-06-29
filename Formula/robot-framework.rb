@@ -3,25 +3,27 @@ class RobotFramework < Formula
 
   desc "Open source test framework for acceptance testing"
   homepage "https://robotframework.org/"
-  url "https://files.pythonhosted.org/packages/8e/08/018fa8662f17ae912debcb939f8279fc40c4cf0bf172fdd1875532997e41/robotframework-6.0.2.zip"
-  sha256 "6a9c06deb220099990f190c6e4e772675f625e4d5d84640fca6f0ad46ff538d0"
+  url "https://files.pythonhosted.org/packages/b8/70/050b0a5bb51c754ad521d6f1b51c17c293efe65ec72ac955d3686e1afa1d/robotframework-6.1.zip"
+  sha256 "a94e0b3c4f8ae08c0a4dc7bff6fa8a51730565103f8c682a2d8391da9a4697f5"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/robotframework/robotframework.git", branch: "master"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any,                 arm64_ventura:  "8e40e69b5fb744f53d0a7c71b931a4df5532392e67bfb44a839430126ca20050"
-    sha256 cellar: :any,                 arm64_monterey: "baf5eba283fa491398704c284782978cdca0e1ae65b9c665b116e4cd3b6f9632"
-    sha256 cellar: :any,                 arm64_big_sur:  "bdcca60113677edea7bc5ffc89d299771431ebb71b485435cdda52020776946b"
-    sha256 cellar: :any,                 ventura:        "4d98c6e85662b2eeb9bf762c1dcb01354cf29e9e74eb0a7b0cb69d26ee36bcc9"
-    sha256 cellar: :any,                 monterey:       "29b1d05deb78c81a48ba2745cf5b5f6f833c5466eb78ecc69941ebf4f7cf196d"
-    sha256 cellar: :any,                 big_sur:        "4e14d2e527c6e2d5fb99a4d85b5d9fc792e053e1d96c9152ff6b77ed94390de3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "110869f5c8b27a88cc5ea749f1b04e086119f16aa15bda0d95fbe7a122a39cbc"
+    sha256 cellar: :any,                 arm64_ventura:  "e860054a99f1bc656200f371b2bcafea6e6c97e5de5fd57c2faf66df40eaab0f"
+    sha256 cellar: :any,                 arm64_monterey: "18ad0e2e643888b53a68391213112672ecad9ef42604408d39d17eb6b665a6a7"
+    sha256 cellar: :any,                 arm64_big_sur:  "b6d105d527864470759215926afee8514b628b8cc58e2b21fe6176696d2db8ed"
+    sha256 cellar: :any,                 ventura:        "659c5ca552111a0611d649e8e197f29547e84eb55cce664b4cd39af99cfb997e"
+    sha256 cellar: :any,                 monterey:       "ec992c7f76f3e14b853f3a16f876312bb97a947cc1a92b4375ed1812d39b0d04"
+    sha256 cellar: :any,                 big_sur:        "0cc75b230d70b1e2727a2c90c558fa7149cdbad697f00ea37f6e987283a365a8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "28f15cc4d61e177aecfa9e2264396c5f2e7cb46d337fea336a3cdad8c060bd6f"
   end
 
+  # `pkg-config`, `rust`, and `openssl@3` are for cryptography.
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
-  depends_on "openssl@1.1"
+  depends_on "cffi"
+  depends_on "openssl@3"
   depends_on "python@3.11"
   depends_on "six"
 
@@ -43,11 +45,6 @@ class RobotFramework < Formula
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/93/71/752f7a4dd4c20d6b12341ed1732368546bc0ca9866139fe812f6009d9ac7/certifi-2023.5.7.tar.gz"
     sha256 "0f0d56dc5a6ad56fd4ba36484d6cc34451e1c6548c61daad8c320169f91eddc7"
-  end
-
-  resource "cffi" do
-    url "https://files.pythonhosted.org/packages/2b/a8/050ab4f0c3d4c1b8aaa805f70e26e84d0e27004907c5b8ecc1d31815f92a/cffi-1.15.1.tar.gz"
-    sha256 "d400bfb9a37b1351253cb402671cea7e89bdecc294e8016a707f6d1d8ac934f9"
   end
 
   resource "cryptography" do
@@ -78,11 +75,6 @@ class RobotFramework < Formula
   resource "paramiko" do
     url "https://files.pythonhosted.org/packages/87/62/cee9551811c846e9735f749dbdf05d4f9f0dbcecd66eae35b5daacf9a117/paramiko-3.2.0.tar.gz"
     sha256 "93cdce625a8a1dc12204439d45033f3261bdb2c201648cfcdc06f9fd0f94ec29"
-  end
-
-  resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/5e/0b/95d387f5f4433cb0f53ff7ad859bd2c6051051cebbb564f139a999ab46de/pycparser-2.21.tar.gz"
-    sha256 "e644fdec12f7872f86c58ff790da456218b10f863970249516d60a5eaca77206"
   end
 
   resource "pynacl" do
@@ -126,8 +118,8 @@ class RobotFramework < Formula
   end
 
   resource "selenium" do
-    url "https://files.pythonhosted.org/packages/fd/e2/0e5bee6762a7bf7852b47a79c5b12f9e526e6962958dbb9719fa490ba24c/selenium-4.9.1.tar.gz"
-    sha256 "3444f4376321530c36ce8355b6b357d8cf4a7d588ce5cf772183465930bbed0e"
+    url "https://files.pythonhosted.org/packages/86/d3/7fd6820e441550a4d0dae621c02f75339c6fafd98352f2727dd68e6e4cda/selenium-4.10.0.tar.gz"
+    sha256 "871bf800c4934f745b909c8dfc7d15c65cf45bd2e943abd54451c810ada395e3"
   end
 
   resource "sniffio" do
@@ -146,13 +138,13 @@ class RobotFramework < Formula
   end
 
   resource "trio-websocket" do
-    url "https://files.pythonhosted.org/packages/ea/56/33f46c824c43493de52d62842e569a8c3db6b0e965825257a0684a608580/trio-websocket-0.10.2.tar.gz"
-    sha256 "af13e9393f9051111300287947ec595d601758ce3d165328e7d36325135a8d62"
+    url "https://files.pythonhosted.org/packages/07/ee/fcc7708dd5c8667caf3579c45067821d8e03a560faef9d53d46af7d7c851/trio-websocket-0.10.3.tar.gz"
+    sha256 "1a748604ad906a7dcab9a43c6eb5681e37de4793ba0847ef0bc9486933ed027b"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/fb/c0/1abba1a1233b81cf2e36f56e05194f5e8a0cec8c03c244cab56cc9dfb5bd/urllib3-2.0.2.tar.gz"
-    sha256 "61717a1095d7e155cdb737ac7bb2f4324a858a1e2e6466f6d03ff630ca68d3cc"
+    url "https://files.pythonhosted.org/packages/d6/af/3b4cfedd46b3addab52e84a71ab26518272c23c77116de3c61ead54af903/urllib3-2.0.3.tar.gz"
+    sha256 "bee28b5e56addb8226c96f7f13ac28cb4c301dd5ea8a6ca179c0b9835e032825"
   end
 
   resource "wsproto" do
@@ -161,8 +153,10 @@ class RobotFramework < Formula
   end
 
   def install
+    # Ensure that the `openssl` crate picks up the intended library.
+    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
     ENV["OPENSSL_NO_VENDOR"] = "1"
-    ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
+
     virtualenv_install_with_resources
   end
 

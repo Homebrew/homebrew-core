@@ -15,7 +15,7 @@ class CfTool < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "81f6a2ad160f2f30cb4f0de13b0055581ebb55601297925c337da6efb3cd4205"
   end
 
-  deprecate! date: "2022-03-16", because: :unmaintained
+  disable! date: "2023-06-19", because: :unmaintained
 
   depends_on "go@1.17" => :build
   # https://github.com/shirou/gopsutil/issues/1000

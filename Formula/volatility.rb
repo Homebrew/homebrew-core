@@ -6,19 +6,21 @@ class Volatility < Formula
   url "https://files.pythonhosted.org/packages/d6/e5/b9a3c053dcca7688477ac004a9d6e700cd1a29272ddee4188f09f1bc0d62/volatility3-2.4.1.tar.gz"
   sha256 "6ba2735a6d77727a8b038286e55a24e7048fc68b1d7a306183938b940d64c029"
   license :cannot_represent
+  revision 1
   version_scheme 1
   head "https://github.com/volatilityfoundation/volatility3.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "1fa039336e38821e645584ccae38ad51514bcea2dd02b4d3419838505fe02849"
-    sha256 cellar: :any,                 arm64_monterey: "4decff0d16a9e5dc29b9d946224bcda5e7797a8e9d3d1c533365aa1fa068c8d9"
-    sha256 cellar: :any,                 arm64_big_sur:  "3ed0f450b171d6733279bb0cf0e04f9644acb3d0bbd4c3965bdf1c80e299d6d1"
-    sha256 cellar: :any,                 ventura:        "0b9a410cdf5aa7e12a484ad6f1b6b24b4098460b0823f59c621b366f94a8387f"
-    sha256 cellar: :any,                 monterey:       "c24df8576566141c165a0a1f667c22027ad6fb4645437c392c8cf5c7ece39573"
-    sha256 cellar: :any,                 big_sur:        "233292623e9af2c933d679012ec4865effbb4643eae4973c609a2927bc6054bc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "25d5a90d0ca18a4422b5663cf00a6316539c1ce7e58f3aa3280a144b87d17a74"
+    sha256 cellar: :any,                 arm64_ventura:  "84169fb0c2f5256739a5efbaacc20afdd6a2520d8a1fc75566bbea54aabe276f"
+    sha256 cellar: :any,                 arm64_monterey: "278ef9645c21d5e6216c3ef14378a9ce948e08ecb73e7b35a7895443df4a1a69"
+    sha256 cellar: :any,                 arm64_big_sur:  "28aa39120fd031bec31651009a78e57546067a4f97d033f72e7cafea9e97d765"
+    sha256 cellar: :any,                 ventura:        "c1e75daf12354e2b7d76c0caf9715f6a6b606944a9ae5c3fa6868d116b7b03cb"
+    sha256 cellar: :any,                 monterey:       "63eb9b1ee8ac526599759a7fbfc076f5a261439b06a1d62d814ad59ba259a9e5"
+    sha256 cellar: :any,                 big_sur:        "dcb494ef9063ff0e44c1d893238526663555523b8a7aefeddc3853375e8fe49b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8764ec7aee8a099ef2bdb19c7d97220bd0e0f4ed469ffd17faf76b6c3c8cbcc9"
   end
 
+  depends_on "openssl@3"
   depends_on "python@3.11"
   depends_on "yara"
 

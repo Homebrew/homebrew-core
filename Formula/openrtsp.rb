@@ -1,10 +1,10 @@
 class Openrtsp < Formula
   desc "Command-line RTSP client"
   homepage "http://www.live555.com/openRTSP"
-  url "http://www.live555.com/liveMedia/public/live.2023.06.08.tar.gz"
-  mirror "https://download.videolan.org/pub/videolan/testing/contrib/live555/live.2023.06.08.tar.gz"
+  url "http://www.live555.com/liveMedia/public/live.2023.06.14.tar.gz"
+  mirror "https://download.videolan.org/pub/videolan/testing/contrib/live555/live.2023.06.14.tar.gz"
   # Keep a mirror as upstream tarballs are removed after each version
-  sha256 "db0485b1c3f8d62771db56be43c58f90708b19df9f2e7c30a534e83ad8b0c5bf"
+  sha256 "3da5d2270cfc2f07b381759581af60d92e642be60f491567ae1687ff9513d261"
   license "LGPL-3.0-or-later"
 
   livecheck do
@@ -13,23 +13,16 @@ class Openrtsp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "b204dd2936ac4f0db85e2e10d5ed6f174aedf77157d377861f4df1c77e089905"
-    sha256 cellar: :any,                 arm64_monterey: "6d860fb40727be4359828adbb59950bf9bc53c46da768a477cc3cda21f613e26"
-    sha256 cellar: :any,                 arm64_big_sur:  "af66e9114276e22ae241aa79c0cc07fb1c2489cd641d472b15b7c35a977bf070"
-    sha256 cellar: :any,                 ventura:        "2fe7af00fa83f97cc2a10bdec33a95f67893de3f7caa7d9d04f3dc2ac84045c6"
-    sha256 cellar: :any,                 monterey:       "56a3ae3ce1b47468991c2c09315cb5ada7d6a67f230111ed8bdd0442f47db439"
-    sha256 cellar: :any,                 big_sur:        "3547ac548dd5f416c7f88f4fdc320c618fe6fb534659073cf554efe7238be781"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1c399adab322dc5a796d2349bc7d86f4ee7097728e29384a3c41a19dca274abc"
+    sha256 cellar: :any,                 arm64_ventura:  "b5a661a89f11061cd3b887fa351212f5bfaa623133e85420834e4856bb50a864"
+    sha256 cellar: :any,                 arm64_monterey: "8c0e705a475b25bf2c1c6333f903bc2869bfda03ee7f9d5b660c138b20cf9c17"
+    sha256 cellar: :any,                 arm64_big_sur:  "4432b8ca614758aaf2b1b6d7dad1da6b8cfada9fd2c71ea3d7f3da3df45586e3"
+    sha256 cellar: :any,                 ventura:        "1a14443c123b7526655c9d831c119b375d8e277e3d390e64e1cfb472631f3186"
+    sha256 cellar: :any,                 monterey:       "9b56d8d4af62f85344b2834fdab21d698c725413df916071dd8d76d0e4ae80ea"
+    sha256 cellar: :any,                 big_sur:        "97e90b0438f310018295712e1e9b189dd877b061c12e8bd6a1c48e57f3f208f6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5554f3ed7255f9487391ec3a4fd1c1428b5c726d2643b852c48c89ed33aa2299"
   end
 
   depends_on "openssl@3"
-
-  # Fix usage of IN6ADDR_ANY_INIT macro (error: expected expression). See:
-  # https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/netinet_in.h.html
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/2eabc6f/openrtsp/openrtsp.2022.11.19.patch"
-    sha256 "33f6b852b2673e59cce7dedb1e6d5461a23d352221236c5964de077d137120cd"
-  end
 
   def install
     ENV.cxx11

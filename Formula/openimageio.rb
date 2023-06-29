@@ -4,7 +4,7 @@ class Openimageio < Formula
   url "https://github.com/OpenImageIO/oiio/archive/v2.4.12.0.tar.gz"
   sha256 "1576eb9b805998e684014688528c8e63958edba3a8b01073a10266b999f4c674"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://github.com/OpenImageIO/oiio.git", branch: "master"
 
   livecheck do
@@ -14,13 +14,13 @@ class Openimageio < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "225d83e780ed84211130a22283939339a4cbabb9aee3f0ae98581a0b3495ab7d"
-    sha256 cellar: :any,                 arm64_monterey: "713a4ce1392c3419e58e0cab78045b2b1168fd649e3fefe681d37e6d738b699b"
-    sha256 cellar: :any,                 arm64_big_sur:  "11c6d5a077454e1b74f35da230d75537ae02f9378e2897ee3b4ccaf98ef82cab"
-    sha256 cellar: :any,                 ventura:        "f22dc38d4784e75f8a9c7877e0142dc1e6b32cd03c9a0419fc37762e7fe99bcb"
-    sha256 cellar: :any,                 monterey:       "44edd849062bf1f746bf5293725f78f8a12b79ff70dd0679bbc1a66581c150dd"
-    sha256 cellar: :any,                 big_sur:        "29d36b48c7e5d47cedd9c9c4b83faa7337f9619b95f44a24725d9605f16768c5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "babd92420e0cb1f6afcad6558b5f228addaa0e991f5866f89a506a017ea75a6d"
+    sha256 cellar: :any,                 arm64_ventura:  "c05d3b5b55bd09ceaa75ddf57c021a3aa1f08492327b37af74698cf4844ebdc1"
+    sha256 cellar: :any,                 arm64_monterey: "e3a5bc12de8796ebb11ae1139d475c712e55e31cbc92825a37c5b271647a6d6f"
+    sha256 cellar: :any,                 arm64_big_sur:  "c54c78306a97e05d13f78ed95355fdbf1b06c0763ba7b858e0a619a069a4ab90"
+    sha256 cellar: :any,                 ventura:        "a91ed705e10fc2c5553e00e3eebe1bf485dd67156ab48866fc35e7cf68a58eb7"
+    sha256 cellar: :any,                 monterey:       "e8954a22150f166412e7c50c864cfd8430044d6e2d5b62f442369b964b846aab"
+    sha256 cellar: :any,                 big_sur:        "9c2b501aa406ab69be9e89fd15a4e93cfbab9a9dd6cf4402bb2f9119e1870eea"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0245372229034ef1bda55ab0dc60c3b843fa0d7fb794e91b60ed9f64809bd01c"
   end
 
   depends_on "cmake" => :build

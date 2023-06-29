@@ -4,20 +4,20 @@ class MysqlClient < Formula
   url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.33.tar.gz"
   sha256 "ae31e6368617776b43c82436c3736900067fada1289032f3ac3392f7380bcb58"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
+  revision 1
 
   livecheck do
     formula "mysql"
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_ventura:  "27cd85ec0a5cf8d00a64c8dfceae894ff2ac138284d9967159b34efd6b91d15e"
-    sha256 arm64_monterey: "1895fb9f0a864e340a4f178f1f6162abdc1472c6666af28137f8a204cfd2a985"
-    sha256 arm64_big_sur:  "f2ea8be3f38265df6b813b8e224e2def5879ae443ae8c2c7a5d68dcf0d2a2aa2"
-    sha256 ventura:        "304080fdb9a01f41452df3282ebf968b3413f39b7778ae10ac760b9cb6974a86"
-    sha256 monterey:       "58b64053b989ecd5e39e3ba5e6b3b39bd63fdae22942867e2879ca850de3e58b"
-    sha256 big_sur:        "1a4f285a8ad20a74abb599c373ea055c0d1a1c3460c7ee356f94fde2b1a2fb31"
-    sha256 x86_64_linux:   "76782b3bedda025fff0b2d2a3216b8a28d37980695a7d90f3043bd9532242d5c"
+    sha256 arm64_ventura:  "739aa338fbc7a8d004fc9cdf4ea6712df345ad626fe42b72eaf5e01b29e0f006"
+    sha256 arm64_monterey: "cb7626e6e691ca3187ab3f2af7e28ef026b8c238a751dfcae0a1841434abb2b5"
+    sha256 arm64_big_sur:  "c0ba3142b8b12c06e83ea7ad4b1b2dfe80e25e762cc09c5cdb0861b58acce9f1"
+    sha256 ventura:        "02903af4450a4f15849a5bda4527116dceeea140dc07e1657f491cf4fb3360c4"
+    sha256 monterey:       "f6a2ead14b54c2e1e6698e234a0e6fe4fb4a0708b1a61960dd7d0e18757b354b"
+    sha256 big_sur:        "276c813d9fa84651857e8bfd8e0da52d90685fc4176dfb86129603c325d5d723"
+    sha256 x86_64_linux:   "0f2127165a0da522a771a6d52cee9b91204cc8db12c01c18eca03eddc73e6bae"
   end
 
   keg_only "it conflicts with mysql (which contains client libraries)"
@@ -28,7 +28,7 @@ class MysqlClient < Formula
   depends_on "libfido2"
   # GCC is not supported either, so exclude for El Capitan.
   depends_on macos: :sierra if DevelopmentTools.clang_build_version < 900
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "zlib" # Zlib 1.2.12+
   depends_on "zstd"
 
@@ -84,7 +84,7 @@ index 460d87a..36fbd60 100644
 @@ -50,7 +50,7 @@ FUNCTION(FIND_ZLIB_VERSION ZLIB_INCLUDE_DIR)
    MESSAGE(STATUS "ZLIB_INCLUDE_DIR ${ZLIB_INCLUDE_DIR}")
  ENDFUNCTION(FIND_ZLIB_VERSION)
- 
+
 -FUNCTION(FIND_SYSTEM_ZLIB)
 +MACRO(FIND_SYSTEM_ZLIB)
    FIND_PACKAGE(ZLIB)
@@ -96,6 +96,6 @@ index 460d87a..36fbd60 100644
    ENDIF()
 -ENDFUNCTION(FIND_SYSTEM_ZLIB)
 +ENDMACRO(FIND_SYSTEM_ZLIB)
- 
+
  MACRO (RESET_ZLIB_VARIABLES)
    # Reset whatever FIND_PACKAGE may have left behind.

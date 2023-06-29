@@ -6,7 +6,7 @@ class Rtmpdump < Formula
   version "2.4+20151223"
   sha256 "5c032f5c8cc2937eb55a81a94effdfed3b0a0304b6376147b86f951e225e3ab5"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
-  revision 1
+  revision 2
   head "https://git.ffmpeg.org/rtmpdump.git", branch: "master"
 
   livecheck do
@@ -15,20 +15,16 @@ class Rtmpdump < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "6a1838baea154e65800058df58a36adcbb2e153337803503b7b1bed5989fd6f1"
-    sha256 cellar: :any,                 arm64_monterey: "f0787745f3b2ac7c173b3582b7079a2f30ad82dcad69a34fb79edf76e804dbb2"
-    sha256 cellar: :any,                 arm64_big_sur:  "67c47ecf95d2f4367685fb0ab04c913d55743e5bafccce721f665c6579f3b599"
-    sha256 cellar: :any,                 ventura:        "eb50329d49a5795f9048dd7052785afa713af2eb1df00536dfbf6144e3783593"
-    sha256 cellar: :any,                 monterey:       "f85231e41536d97be7e733be388641ddc32e7c3fd32d07437760ea69a0298778"
-    sha256 cellar: :any,                 big_sur:        "b9e42bf8023a8634a741402f7f902bbd0083e663b2e0d36d3e70dec657f1dd07"
-    sha256 cellar: :any,                 catalina:       "f39d714005d28ed61728832877433a68dd256796bc225bac68b505b2c1d97ef4"
-    sha256 cellar: :any,                 mojave:         "97cf25d61d474c2115f6448940f924324d630b60776396398662b1368b4544da"
-    sha256 cellar: :any,                 high_sierra:    "7e95dc18fc03a6c1f19385e1507448f23e2e570c9b3ad60bd3fbc05c65295fb8"
-    sha256 cellar: :any,                 sierra:         "2118d007922d98ae71169be417106f594636e6ff979611b9e51dd2cf09c002b7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c1d50c3dc8938a0e69c86d29046c924c3e9f7d80c567c8bd848fe368ae0a992e"
+    sha256 cellar: :any,                 arm64_ventura:  "572f37c44c4f32aa13dcd2bbf4770ec3e95ac469301044e61b1e36504c272f4e"
+    sha256 cellar: :any,                 arm64_monterey: "9485c20cdb3af897739b7f96d1277b067f8942ec56319d63723f553c9bba83b2"
+    sha256 cellar: :any,                 arm64_big_sur:  "296c88c93a14ef83e9423e17c6a68ab4433b40f52c298a638fad8b04d8a47d00"
+    sha256 cellar: :any,                 ventura:        "d55211ce185ffec9901ae510de102b69e210e2b978e0cef81e0ea4e7de9f8266"
+    sha256 cellar: :any,                 monterey:       "92ff849dd16c09569ede4c04e8cab4679366c4d3fabe47dc97733ae89aee24bb"
+    sha256 cellar: :any,                 big_sur:        "898c06791665ad0c74e4b7ba99451b47402b3a22c02f98166ffb7d2258d77a35"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d051297b563e80fbcff1a9006ae9fa0ce66280716322fa58a669298d73407e6f"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "zlib"
 

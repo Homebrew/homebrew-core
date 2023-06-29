@@ -5,7 +5,7 @@ class Rethinkdb < Formula
   url "https://download.rethinkdb.com/repository/raw/dist/rethinkdb-2.4.3.tgz"
   sha256 "c3788c7a270fbb49e3da45787b6be500763c190fb059e39b7def9454f9a4674f"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/rethinkdb/rethinkdb.git", branch: "next"
 
   livecheck do
@@ -14,17 +14,17 @@ class Rethinkdb < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "72b8273491916ba72470b87d1c720ba14ecf911217d611bd178c33acec60da6e"
-    sha256 cellar: :any,                 arm64_monterey: "c5c84f69aa7d97dd781577b3cb1b4485380ef78fe38b2706dfb8009b8903af1f"
-    sha256 cellar: :any,                 arm64_big_sur:  "0a2b28e9debc607035bb95f0560d89566eea2e802da8332910a23daef0565cca"
-    sha256 cellar: :any,                 ventura:        "48e426908edc78f998b71065b928795dcba3139df4dfd50bc7a7ab13e703c07e"
-    sha256 cellar: :any,                 monterey:       "f214cf1e1218a07ee4a2656cddfd1e51648a876c1f152ecd1b27943a880cc31b"
-    sha256 cellar: :any,                 big_sur:        "0bf444d7ad09a8625effecb7ebe807def916f4a55f82eeff34221cdf71f14e5e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "759fd09fa49fc269b4ee299c9bdd1e446c669e5f8d12a7be4a7217cb4cccf4c6"
+    sha256 cellar: :any,                 arm64_ventura:  "ac93c27bbe23258d83f6c1898523e5854288cbdb791f6e56eee209d0d971d19f"
+    sha256 cellar: :any,                 arm64_monterey: "1f148716b53dc578b1c8b7f038a6eebe1cf90cb0c6c89f471fb3d5a124b88f3d"
+    sha256 cellar: :any,                 arm64_big_sur:  "2a2c3b1ad26019faf4d38dfac453d903c53aadf09c3afe01883875044b19d097"
+    sha256 cellar: :any,                 ventura:        "b2468e75a2aecb02655945f06506777f77caa5e885cef5aa7bec84374e1cb59c"
+    sha256 cellar: :any,                 monterey:       "5af7b252bfb89953457377aaa4e2c6436d5dcdc92cc1bb0b9ccc48ae935c72af"
+    sha256 cellar: :any,                 big_sur:        "86ddd338419a615b2cfae24713003aa6ac38d4fc49d98f436d7bc3f89e9c6552"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fa1206df51e0b22eaf0afbdd862e61fe7966990f951bfd77bf3afe47b53b6b09"
   end
 
   depends_on "boost" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "protobuf@21"
 
   uses_from_macos "python" => :build

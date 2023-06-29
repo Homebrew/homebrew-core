@@ -3,21 +3,24 @@ class Dxpy < Formula
 
   desc "DNAnexus toolkit utilities and platform API bindings for Python"
   homepage "https://github.com/dnanexus/dx-toolkit"
-  url "https://files.pythonhosted.org/packages/56/b0/89185209a36f3c628910008edcd2446fcefca71b10abc35bd4c7f6b2714d/dxpy-0.348.0.tar.gz"
-  sha256 "83b9e271121bdc581ffec433f00ac0794b43d154a8df1e7561d7f23cd9d88590"
+  url "https://files.pythonhosted.org/packages/25/9a/274a76dbf0a74fc65d5ade6607020969e2a180e15c44bd439185639fefd9/dxpy-0.350.1.tar.gz"
+  sha256 "3378a233454beaefb8d291ed4a4450a784917347e3056812e4fd709be09aace4"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "6e721f7e49719c3453580f98220ad3735c33ebb27c801c413d0ad5195030569d"
-    sha256 cellar: :any,                 arm64_monterey: "5644ed94dcd2068b7856f19454318dbe13d1efb20f360b54ce78dfa96ef92674"
-    sha256 cellar: :any,                 arm64_big_sur:  "a2d748fafe1f0d27ff0e2ed47e291fafa6a9eb4e5ab71d9debf4ab99a565bb97"
-    sha256 cellar: :any,                 ventura:        "c2fa714102e74264a3a8cecd1cf9d27f060f73a534b5edb0495848fb22e7e144"
-    sha256 cellar: :any,                 monterey:       "b2cd166673870491b7d31f152326a8def01d86ef86877f767914370f52b49df1"
-    sha256 cellar: :any,                 big_sur:        "c675cb4568e1dc297f726278aa2a60d5a6091c75cda02d16705c2014338b0bab"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b604f9a5f477522cafa17ef38c2cc02122d995cd4a4376df17ad0cc1b1639b62"
+    sha256 cellar: :any,                 arm64_ventura:  "9b34106e03fd6cc181e7a3cfacf167a7246f75c1f51f5ff6a4c8b6086b8234c6"
+    sha256 cellar: :any,                 arm64_monterey: "6660d519017ec509efbcb963d04bcdee37b6394ca5b0643e7f9abe092e5bcbad"
+    sha256 cellar: :any,                 arm64_big_sur:  "9738f340e140110af1867364939bdfe89a8345a896d2afd723735b3822394974"
+    sha256 cellar: :any,                 ventura:        "e0c6187b2512df2a033120a4d1a296116d4bc64f7eea4eb5dddaf8d10c1d2655"
+    sha256 cellar: :any,                 monterey:       "b5309cf09856c068044408bf5d5f7eb51402074f766d008e1de45c04060f0f17"
+    sha256 cellar: :any,                 big_sur:        "502c088dd5c6211a6899fc8a94e05b1837b05cbe5d3603b1545bbb235d14b83b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cffc33548ba088f0a599e0aa98edc72ace0dbea21959b40b66e4fa7fd3a5f6d2"
   end
 
+  depends_on "pkg-config" => :build
   depends_on "rust" => :build # for cryptography
+  depends_on "cffi"
+  depends_on "openssl@3"
   depends_on "python@3.11"
   depends_on "six"
 
@@ -27,23 +30,14 @@ class Dxpy < Formula
     depends_on "readline"
   end
 
-  on_linux do
-    depends_on "pkg-config" => :build
-  end
-
   resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/42/cd/fdb872d826b76b65b23147e83b1ca4c033445bbff59f8836a118657dd050/argcomplete-3.0.8.tar.gz"
-    sha256 "b9ca96448e14fa459d7450a4ab5a22bbf9cee4ba7adddf03e65c398b5daeea28"
+    url "https://files.pythonhosted.org/packages/54/c9/41c4dfde7623e053cbc37ac8bc7ca03b28093748340871d4e7f1630780c4/argcomplete-3.1.1.tar.gz"
+    sha256 "6c4c563f14f01440aaffa3eae13441c5db2357b5eec639abe7c0b15334627dff"
   end
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/93/71/752f7a4dd4c20d6b12341ed1732368546bc0ca9866139fe812f6009d9ac7/certifi-2023.5.7.tar.gz"
     sha256 "0f0d56dc5a6ad56fd4ba36484d6cc34451e1c6548c61daad8c320169f91eddc7"
-  end
-
-  resource "cffi" do
-    url "https://files.pythonhosted.org/packages/2b/a8/050ab4f0c3d4c1b8aaa805f70e26e84d0e27004907c5b8ecc1d31815f92a/cffi-1.15.1.tar.gz"
-    sha256 "d400bfb9a37b1351253cb402671cea7e89bdecc294e8016a707f6d1d8ac934f9"
   end
 
   resource "charset-normalizer" do
@@ -64,11 +58,6 @@ class Dxpy < Formula
   resource "psutil" do
     url "https://files.pythonhosted.org/packages/d6/0f/96b7309212a926c1448366e9ce69b081ea79d63265bde33f11cc9cfc2c07/psutil-5.9.5.tar.gz"
     sha256 "5410638e4df39c54d957fc51ce03048acd8e6d60abc0f5107af51e5fb566eb3c"
-  end
-
-  resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/5e/0b/95d387f5f4433cb0f53ff7ad859bd2c6051051cebbb564f139a999ab46de/pycparser-2.21.tar.gz"
-    sha256 "e644fdec12f7872f86c58ff790da456218b10f863970249516d60a5eaca77206"
   end
 
   resource "python-dateutil" do
@@ -92,6 +81,10 @@ class Dxpy < Formula
   end
 
   def install
+    # Ensure that the `openssl` crate picks up the intended library.
+    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+    ENV["OPENSSL_NO_VENDOR"] = "1"
+
     virtualenv_install_with_resources
   end
 

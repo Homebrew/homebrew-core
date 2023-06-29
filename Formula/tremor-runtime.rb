@@ -30,7 +30,6 @@ class TremorRuntime < Formula
     # TODO: Switch back to `uses_from_macos "llvm" => :build` when `bindgen` is
     # updated to 0.62.0 or newer. There is a check in the `install` method.
     depends_on "llvm@15" => :build
-    depends_on "openssl@1.1"
   end
 
   # gcc9+ required for c++20

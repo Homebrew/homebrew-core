@@ -22,6 +22,9 @@ class GxGo < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "692e3553ebcc2909c27897f5fc6c74a7937af1e8cee2819daab8c6573e0bf8b5"
   end
 
+  # https://github.com/whyrusleeping/gx-go/issues/63
+  deprecate! date: "2023-06-27", because: :unmaintained
+
   depends_on "go" => :build
 
   go_resource "github.com/agl/ed25519" do

@@ -20,7 +20,7 @@ class Armor < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "506a0b09767c4cd594f3b4e3d2d46d04c36ff95d46f318911bf72d95e88e20ed"
   end
 
-  deprecate! date: "2022-03-16", because: :unmaintained
+  disable! date: "2023-06-19", because: :unmaintained
 
   depends_on "go@1.17" => :build
 

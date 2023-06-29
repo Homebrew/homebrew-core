@@ -6,22 +6,23 @@ class Sgr < Formula
   url "https://github.com/splitgraph/sgr/archive/refs/tags/v0.3.12.tar.gz"
   sha256 "e5153944383a0160efe4d56a2c4a6d11f74bb1a04d097df95806ddcbc1ab5618"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "8c1b3cdad5a8929e729d19e01ec396532e4eb5744ca6728cab1f31ef43165424"
-    sha256 cellar: :any,                 arm64_monterey: "138ce113025e2c5f653170e25cf8465d6b892c2efd126fc1b5da2477cbb8a56c"
-    sha256 cellar: :any,                 arm64_big_sur:  "5b9736c66c5b33a2804b7edd05b2e07c2f85c278a619e1e7d79fb6e68127122e"
-    sha256 cellar: :any,                 ventura:        "77aa3ec88fb23e71026d182e9c490c1956b1d08e6d02b25fa948e28b604c4d0a"
-    sha256 cellar: :any,                 monterey:       "49097472ad80b5862c90bb8d0a8d502915d8c569ad5c60f0fe50d379e386451a"
-    sha256 cellar: :any,                 big_sur:        "67aef300fb9502bddae5bca4739d4ce11e0cbd96d68cd9d72cae7a1f98a9ed88"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "90d51ba0c11eaf95cec87f5a8069b2fff71e6288a2442c0a64ad73955da99098"
+    sha256 cellar: :any,                 arm64_ventura:  "f22040a83d7f4022f73166f7948d54ce3859e976b64a2c4f9e70ecebda11ec97"
+    sha256 cellar: :any,                 arm64_monterey: "515449197e1632d5ba7084a1f4797b014402afbbfaacee53cca74d84cc4dc16f"
+    sha256 cellar: :any,                 arm64_big_sur:  "ebaa2862f20643e6f1692655556f8c287ad76cf8fe5307dae509eceaf549fb98"
+    sha256 cellar: :any,                 ventura:        "42196d0ebfb5cc585c715ef822997eaca10b1fc3cd9cd810163eb6ddc3ade456"
+    sha256 cellar: :any,                 monterey:       "5b9d80a676430936de90a73f2f79221755d5f4331e505a7a0849a4b3e02f7102"
+    sha256 cellar: :any,                 big_sur:        "266f6fc77d4cf03b668ededc0007de14a2b41483a4149b849f740e3ec5800aef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "83fa962a1ed1780c070e3a0594b17d26e82ebdd18c07bd3d35779b17626916c9"
   end
 
+  depends_on "pkg-config" => :build
   depends_on "poetry" => :build
   depends_on "rust" => :build # for cryptography
   depends_on "libpq" # for psycopg2-binary
+  depends_on "openssl@3"
   depends_on "python-tabulate"
   depends_on "python-typing-extensions"
   depends_on "python@3.11"
@@ -187,6 +188,10 @@ class Sgr < Formula
   end
 
   def install
+    # Ensure that the `openssl` crate picks up the intended library.
+    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+    ENV["OPENSSL_NO_VENDOR"] = "1"
+
     venv = virtualenv_create(libexec, "python3.11")
     venv.pip_install resources
     poetry = Formula["poetry"].opt_bin/"poetry"

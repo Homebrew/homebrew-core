@@ -6,29 +6,36 @@ class CharmTools < Formula
   url "https://files.pythonhosted.org/packages/0f/ea/5fa9e1a11e560314e119765b9c7c32a9ffa85caf51769f3d8f812cbc9237/charm-tools-3.0.6.tar.gz"
   sha256 "e783d701d1e32d7b3b356d48238381d0f1f8aa2891d8548d48a921e778825b69"
   license "GPL-3.0-only"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "c7cf914b7fa8871bb1a99e32d41a907123115b697f3016e4764d2369a031fafb"
-    sha256 cellar: :any,                 arm64_monterey: "0666d2f252e0bba055fb70242657eb1c0a3ed8f069761b8c1532b86564c0bcaf"
-    sha256 cellar: :any,                 arm64_big_sur:  "8cc2a52c8ac5667f0b1f91702ffd8cecf4647eb06b4388f65e0e9971c90b935d"
-    sha256 cellar: :any,                 ventura:        "1fd5f11dc1ce46ec0db4cf3123e5bd7acceeb2baf09c94d60b27acbb56c4676a"
-    sha256 cellar: :any,                 monterey:       "2154d2f1476fc92a752b340e1dc87911040278f8825fc7ad5e351e5f2090fa64"
-    sha256 cellar: :any,                 big_sur:        "9fa563d3e66e60f89c48a71b31a2e81eaab763d1f07f306ae2679bf96dadbce3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6c9dcfa6e8f45aea421281409adff7bf578666bbbcb1969b32a7e95af262a8ac"
+    sha256 cellar: :any,                 arm64_ventura:  "32415c06c9b9bd8d47e2658ca59b3422105dd771b9ab665ba043d3a9972551a5"
+    sha256 cellar: :any,                 arm64_monterey: "ce9703e29d205a290bd71dfc43d29bcf4f1c374d3536d7fda65328ae81560f6f"
+    sha256 cellar: :any,                 arm64_big_sur:  "789976b84e79c5e2855678df01cc8d26e937245b8f11a0cfba9a13495123f208"
+    sha256 cellar: :any,                 ventura:        "f6df81b103cc8e5438786e14c60914906c6ceeeab736abdd8c57f078260c38a9"
+    sha256 cellar: :any,                 monterey:       "af849850d7f2bd731fbc8c06499af784266680b676cc7f27ecccf0419b6a3c53"
+    sha256 cellar: :any,                 big_sur:        "dab8d6adf8f90722157e9eb45f241ce9e002686e64f2fb339bfbadb2244b763d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3a892262f91cc25da97c7e2284fa447e923e5bdedba85dfbcb1f7b4465307735"
   end
 
+  depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "charm"
   depends_on "libyaml"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "python@3.11"
   depends_on "six"
 
   uses_from_macos "libffi"
 
   on_linux do
-    depends_on "pkg-config" => :build
     depends_on "gmp"
+  end
+
+  # Needs pip<23
+  resource "pip" do
+    url "https://files.pythonhosted.org/packages/a3/50/c4d2727b99052780aad92c7297465af5fe6eec2dbae490aa9763273ffdc1/pip-22.3.1.tar.gz"
+    sha256 "65fd48317359f3af8e593943e6ae1506b66325085ea64b706a998c6e83eeaf38"
   end
 
   resource "attrs" do
@@ -237,6 +244,10 @@ class CharmTools < Formula
   end
 
   def install
+    # Ensure that the `openssl` crate picks up the intended library.
+    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+    ENV["OPENSSL_NO_VENDOR"] = "1"
+
     virtualenv_install_with_resources
   end
 

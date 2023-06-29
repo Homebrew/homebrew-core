@@ -27,7 +27,6 @@ class ClutterGst < Formula
   depends_on "pkg-config" => :build
   depends_on "clutter"
   depends_on "gdk-pixbuf"
-  depends_on "gst-plugins-base"
   depends_on "gstreamer"
 
   # Fix -flat_namespace being used on Big Sur and later.

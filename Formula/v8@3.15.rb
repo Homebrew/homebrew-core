@@ -18,7 +18,7 @@ class V8AT315 < Formula
 
   keg_only :versioned_formula
 
-  deprecate! date: "2022-05-18", because: "depends on Python 2 to build"
+  disable! date: "2023-06-19", because: "depends on Python 2 to build"
 
   resource "gyp" do
     url "https://chromium.googlesource.com/external/gyp.git",

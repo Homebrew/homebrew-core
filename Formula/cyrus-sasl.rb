@@ -4,23 +4,22 @@ class CyrusSasl < Formula
   url "https://github.com/cyrusimap/cyrus-sasl/releases/download/cyrus-sasl-2.1.28/cyrus-sasl-2.1.28.tar.gz"
   sha256 "7ccfc6abd01ed67c1a0924b353e526f1b766b21f42d4562ee635a8ebfc5bb38c"
   license "BSD-3-Clause-Attribution"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 arm64_ventura:  "07b4c2870d17ea1e775451a698f0f15a72c845fb9eee0a1db44704369cc5d5ab"
-    sha256 arm64_monterey: "772af12ab7d41dc3cd360e150b49383c924b287c2d8a7685d470148b45edca37"
-    sha256 arm64_big_sur:  "b591c166cbec1fe3a23691af96fd1ea4b6ddb9e91647f90a204f6cbe772d586b"
-    sha256 ventura:        "be6d3b66ca4286799944f8ec7adaf2e9f4206dc4fa387fe363adec972aac368e"
-    sha256 monterey:       "976c512f27f0fda9e9066e7ab16191491a0d08732ebc19d65421fa4f768e1e0e"
-    sha256 big_sur:        "b09ca52ec3ffff6b1ee6463415fe537a0220ca42a754192580e381bf325c35e6"
-    sha256 catalina:       "8a55bdf584c7f033270bcf1a99f47432b9729f57c7a4f65af51c3ab131923778"
-    sha256 x86_64_linux:   "f9f5e1a67d77b02174bfa5ec72f756b8350840fed3aa0da75c0a16d280e64382"
+    sha256 arm64_ventura:  "a842b727db6d438e03d495a94f5dd63e2f7a6634809cbe3b621195e180d56f64"
+    sha256 arm64_monterey: "ac7a6ac5d43047181241674de948c84e57fd26e2ae070dcb2bad243f57ffb0db"
+    sha256 arm64_big_sur:  "dfa2cf772e87d85128b4ae58ed7f6d85ff078d673e5a49496fcad0b17af7b3e4"
+    sha256 ventura:        "b0ad0b2d1e4394623692dd7c32014677dcc364c32bae2a9a27913485ca07f91d"
+    sha256 monterey:       "1e9df5f50cc72d9561b8f8985d3a7520db0de782c45a8d32530c1cd5bf9e9db5"
+    sha256 big_sur:        "abf53f0d9551994232096d88a1e312c50ec2f9465730e734c3af75db46016103"
+    sha256 x86_64_linux:   "f1bc6d528c1c0e53c2eecb599e5127070654a7bdfb9acb0232cfd08bfaf38efd"
   end
 
   keg_only :provided_by_macos
 
   depends_on "krb5"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "libxcrypt"
 

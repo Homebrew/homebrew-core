@@ -1,22 +1,22 @@
 class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
-  # TODO: Check if we can use unversioned `grpc` and `protobuf` at version bump
-  url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-12.0.0/apache-arrow-12.0.0.tar.gz"
-  mirror "https://archive.apache.org/dist/arrow/arrow-12.0.0/apache-arrow-12.0.0.tar.gz"
-  sha256 "ddd8347882775e53af7d0965a1902b7d8fcd0a030fd14f783d4f85e821352d52"
+  url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-12.0.1/apache-arrow-12.0.1.tar.gz"
+  mirror "https://archive.apache.org/dist/arrow/arrow-12.0.1/apache-arrow-12.0.1.tar.gz"
+  sha256 "3481c411393aa15c75e88d93cf8315faf7f43e180fe0790128d3840d417de858"
   license "Apache-2.0"
   revision 1
   head "https://github.com/apache/arrow.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "3bb8574e52dd8e94c636d09aab08174a5822ea14927917f4a400a7e00b48fdd2"
-    sha256 cellar: :any, arm64_monterey: "8c19f90473b224648a25b1d23e974f039f621495d9f18ca991ea7673f402ec10"
-    sha256 cellar: :any, arm64_big_sur:  "1889a94c0ca7010102563ab31f1a8ec9375fa55f00ca219f8612d3b739f8a3a9"
-    sha256 cellar: :any, ventura:        "56567213d0de5e3e81c4793021104b014664369bcf4aa29307a402fb5ec2dd1c"
-    sha256 cellar: :any, monterey:       "4e134c301e0535fc4b59d7d4b6bc33a4d791c838f5d3feb52ce6bedbd366f917"
-    sha256 cellar: :any, big_sur:        "00dfa2cef14924fa86ffeb6b14044faa9036227e046d6cfb3ef6387b01096d5b"
-    sha256               x86_64_linux:   "bcded666d0bc385253af82203b23386c2d589446bbc9cfe02e7e237f0f508ba9"
+    rebuild 1
+    sha256 cellar: :any, arm64_ventura:  "0192449aa561b21a44a7e0144b541f64c5251e320203f538f263c7b0499d3c81"
+    sha256 cellar: :any, arm64_monterey: "98efaf9e6d5e985bc7b85cae41de91abbf989f6b90541b9a17c975a06c9852fd"
+    sha256 cellar: :any, arm64_big_sur:  "42050efb89839a021865afd2540ad9a902c2a474819aa07235c4f0c5b274fb8a"
+    sha256 cellar: :any, ventura:        "f38c39e30d5612c0ce27c146ab8a21af8d5037077ab5dea7a85a6e1d18a26513"
+    sha256 cellar: :any, monterey:       "b93773b25d859d9c610df3b7570975e3b941fd3a48fe0d45553bbc6b508dfa31"
+    sha256 cellar: :any, big_sur:        "bfddf0c1da9bf696b20403c1bc402cd6ccdd975e472df8c91fdf8e5c18915dfe"
+    sha256               x86_64_linux:   "3cd3ea9fbc43b5ab9120db38d32a8737904496ad3c5cffc41bc76a9357d9773d"
   end
 
   depends_on "boost" => :build
@@ -26,10 +26,10 @@ class ApacheArrow < Formula
   depends_on "brotli"
   depends_on "bzip2"
   depends_on "glog"
-  depends_on "grpc@1.54"
+  depends_on "grpc"
   depends_on "lz4"
-  depends_on "openssl@1.1"
-  depends_on "protobuf@21"
+  depends_on "openssl@3"
+  depends_on "protobuf"
   depends_on "rapidjson"
   depends_on "re2"
   depends_on "snappy"

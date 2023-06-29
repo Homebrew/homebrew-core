@@ -5,23 +5,24 @@ class QpidProton < Formula
   mirror "https://archive.apache.org/dist/qpid/proton/0.39.0/qpid-proton-0.39.0.tar.gz"
   sha256 "41f3a8d910ba96dda79f405a35e943465d9869cd075346650c7d6c0dc33a6459"
   license "Apache-2.0"
+  revision 1
   head "https://gitbox.apache.org/repos/asf/qpid-proton.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "953b06e1664db1037f65d82d0225879391cd01c08075ee17a4c2528aa5f854c2"
-    sha256 cellar: :any,                 arm64_monterey: "8fcadc267d94328c330744a638bf0bd128e20aff069003ce4714c65499cd58ba"
-    sha256 cellar: :any,                 arm64_big_sur:  "f52d8f54fe7c9c33f39cdb98f87a72dcda803f17656185f69c7c6233fe55cf86"
-    sha256 cellar: :any,                 ventura:        "996a21749cdb9788fde89fe32c4164cbb99d7049a91f1c40622f0df0d5d6898e"
-    sha256 cellar: :any,                 monterey:       "9a42451725bfb6be00b161d7d494578c20ad00bb426986295ec4b5908b3eb326"
-    sha256 cellar: :any,                 big_sur:        "19b7eef40cd1ff2ca3faf9b74d70190e235f9f30e7670902c64082be58f3a55b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1d091954fae7eb26140850f961f258634fda03eab4273d0fcc06905aa2f2f708"
+    sha256 cellar: :any,                 arm64_ventura:  "bc2035cdab5e0195df720092370e11a02e8db25476a374cfd9a90bd5c6243149"
+    sha256 cellar: :any,                 arm64_monterey: "b5e3877a2bae6bfff13261522c578baffcf130864319f2adfc5aee83c523a825"
+    sha256 cellar: :any,                 arm64_big_sur:  "b855d44527bca4b1ff1923c11a65d31f4309b268b9d8fe8f7d00d8501a17692d"
+    sha256 cellar: :any,                 ventura:        "5411c7230909b5197a2265ca6c27662f4f3bf2ef4d43f51d0295e6ba048424ac"
+    sha256 cellar: :any,                 monterey:       "d12e7ba83a3f1801c1c760706f20bb30e55b3d956758500bdee5ecd70646923c"
+    sha256 cellar: :any,                 big_sur:        "322ef68983826e6c99be79b961a463d4d44023472594ab23643c2f03a7651fb4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c2fa26294b6a1a0bcd926744a98d23b582ddec574ea75012d287667dff6921e7"
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "python@3.11" => :build
   depends_on "libuv"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "cmake", "-S", ".", "-B", "build",

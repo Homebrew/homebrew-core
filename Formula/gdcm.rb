@@ -4,6 +4,7 @@ class Gdcm < Formula
   url "https://github.com/malaterre/GDCM/archive/v3.0.22.tar.gz"
   sha256 "2ee9bf6787046a508ec3fe38e3cf85ab074e11de2e503bdaf8f30f00cbeff386"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,13 +12,13 @@ class Gdcm < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "11a3b577bfe6626cb2a375ff0d14d28063d5c70dc8419d3471263c30b1ecbace"
-    sha256 arm64_monterey: "60f719c0514148ed0f65f66ab78b3be2d155481317d4f681cae992a985cede4c"
-    sha256 arm64_big_sur:  "2553052de81706c15462995f85b04bc9947653c09381f07063d016b6f2bfc656"
-    sha256 ventura:        "ec1b2699bbd05d39cddb5f3190454bcd4d870860f0bbdf7798012856c6f6cda1"
-    sha256 monterey:       "a9becba7dc5197de70d73412e6bee769f491c1086cefec2924bf50cbe8827d1c"
-    sha256 big_sur:        "ef5650dd94821a9c2a4593d23ff20432724aa7db17a0e3631a973809749976a3"
-    sha256 x86_64_linux:   "33b3cd7f0a2a9721f24c5a36636112287ada48159bedd649565bc8eece6e5849"
+    sha256 arm64_ventura:  "f88e00083894931c70ca5615d1f9121e25974a98c2790bd2d5736b5c2717c899"
+    sha256 arm64_monterey: "890350c5ccc9f071ec406cdb13a1ad853e2c0b3c1a9398b4f5507f23f0a001c2"
+    sha256 arm64_big_sur:  "abf95208b5648a166cec0a8e8595f67e5e76b9320bd9e05d14c6eb0207d46fa5"
+    sha256 ventura:        "015fc368cc727537c6fa4b53b47371a5fb475ced6c833ffdc33e48ea4d0d87b8"
+    sha256 monterey:       "f1c979f2946d54a371246cfc6f7f8f491d489c3e311aaf7c77c7e0fea996a04b"
+    sha256 big_sur:        "655a89dd712212d3eaae854ddbfc2f45a328dcff16667f88305b8ab73500e938"
+    sha256 x86_64_linux:   "4bef238f56d20cbb8c70ee6fa9e5fe632be5bca470423009b548cb1a1043539e"
   end
 
   depends_on "cmake" => :build
@@ -25,7 +26,7 @@ class Gdcm < Formula
   depends_on "pkg-config" => :build
   depends_on "swig" => :build
   depends_on "openjpeg"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "python@3.11"
 
   uses_from_macos "expat"

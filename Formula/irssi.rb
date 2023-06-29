@@ -4,7 +4,7 @@ class Irssi < Formula
   url "https://github.com/irssi/irssi/releases/download/1.2.3/irssi-1.2.3.tar.xz"
   sha256 "a647bfefed14d2221fa77b6edac594934dc672c4a560417b1abcbbc6b88d769f"
   license "GPL-2.0-or-later" => { with: "openvpn-openssl-exception" }
-  revision 3
+  revision 4
 
   # This formula uses a file from a GitHub release, so we check the latest
   # release version instead of Git tags.
@@ -14,14 +14,13 @@ class Irssi < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "143107760ded6982897869477d2c79aaa13775d05e25356f2fd5002865a9fccb"
-    sha256 arm64_monterey: "69731184fcfe2677b6d24cf3b3c3901e2aace975ed99242b7b706182aef01cd3"
-    sha256 arm64_big_sur:  "743b316af037b0756de7b405a6f29cd70c99f213ad03cd02aed56ede6a8c8654"
-    sha256 ventura:        "eb5da9b3fb7c1e827ff88483ae81676ddf8687be82c109c5db3fc727071eccb0"
-    sha256 monterey:       "b7df6b4e9dd65d526127e8c0b243a32c80d33ac3c04456c63f3a24953f149c75"
-    sha256 big_sur:        "ebc2daf02eae062170378d2995a42a643bb3d64f5f10ebeccdecf0446c7e0401"
-    sha256 catalina:       "5c9239da0b6620df1e8bba3f315d35a6e41884bd107aab393c46434bd17fa920"
-    sha256 x86_64_linux:   "3b1dc215132892ba386ff95486231a50e367b1866bcb6dc330811d4f5cf765f3"
+    sha256 arm64_ventura:  "576bb2c88cfb864583baceea72d246f5489ee0f2d17a4b2cedefa76253e2c46a"
+    sha256 arm64_monterey: "d83017d9cda2ad73f077be22ffd08f157155d34968ba6eecf58a7b0e4c4c6d6e"
+    sha256 arm64_big_sur:  "66f1399d3bd85d0b76916ec1e0d4a6a97a9964ca3b045c6763b9c348aa35a5df"
+    sha256 ventura:        "0daaf3870649fe1ce73f9fe31c817b9a4f04f2a52dd84b14ff0d77c135dde74c"
+    sha256 monterey:       "c75221cd7c3d4110f9661357d00ced37fc649bfac71408910a77fcd16260ce30"
+    sha256 big_sur:        "5b3ee4f68f6126a3daf7a1c1c5867b8ae9c401f7796b416944c2f1d36cb33976"
+    sha256 x86_64_linux:   "7f06f06ed9c12a97f710a690865d0b549fd88ab346c49876bdfe7f56fea1c27c"
   end
 
   head do
@@ -34,7 +33,7 @@ class Irssi < Formula
 
   depends_on "pkg-config" => :build
   depends_on "glib"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "ncurses"
   uses_from_macos "perl"

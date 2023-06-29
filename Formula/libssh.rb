@@ -4,20 +4,21 @@ class Libssh < Formula
   url "https://www.libssh.org/files/0.10/libssh-0.10.5.tar.xz"
   sha256 "b60e2ff7f367b9eee2b5634d3a63303ddfede0e6a18dfca88c44a8770e7e4234"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://git.libssh.org/projects/libssh.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "90f69ef4b8bbece825066be8f7eb60ef912119f37b243aff6a7552e140a61227"
-    sha256 cellar: :any,                 arm64_monterey: "26a43b44df01e95acd715a58285b86f37d4e619beaad61b5b8e25ea2b8fc27f1"
-    sha256 cellar: :any,                 arm64_big_sur:  "93872a55892377fbb96747e16652b2eaf32bb23efce922c5857e5376e549534d"
-    sha256 cellar: :any,                 ventura:        "507c82edd04f248d2486ec9ceb906886fecdf1fa87dcaf678e0e0b5f00e14180"
-    sha256 cellar: :any,                 monterey:       "9b8d872b9e7d40ebafcf634ecb0071a99b9799603141f67777c4d248533a30c5"
-    sha256 cellar: :any,                 big_sur:        "85758a853bc5ab1fb7c5464bc361db49827d0741e7cc0b2966784cd2c63dfa66"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8c042612efdc39d06a44d5695761feabb3a3f2ff561c1252bd1bf0e7d2251725"
+    sha256 cellar: :any,                 arm64_ventura:  "5b5925ae5e0d31dd7b2c508eb1f6a19585a87cb66310d5a658e772666500191d"
+    sha256 cellar: :any,                 arm64_monterey: "e8d6d4cf9ef824ef9c47b5dacaf636e608a8ab4cf7af9c8c3431e63ada511564"
+    sha256 cellar: :any,                 arm64_big_sur:  "05d9667dd5fefbbea27e2424dd12ed80ee88126f07341a1616ff057d9c204889"
+    sha256 cellar: :any,                 ventura:        "d3c33e1e13a0ce529aa1cb61242357f8c2ae90931402e9248f86178aab458bb3"
+    sha256 cellar: :any,                 monterey:       "fe5e6d7ee3178a0cbe8b92ca686fab9e8c410359200e359e724a2dcef9a9bfae"
+    sha256 cellar: :any,                 big_sur:        "9caf4d93dc7fd37ba7b9acb0288341365fbe5a4d87b3f687e72b1aae29606ef6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9b0cce35866646c7e66a4752cf4b4cd1c2e7ab7846c49fb5d711ad90bfc3bb03"
   end
 
   depends_on "cmake" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "zlib"
 

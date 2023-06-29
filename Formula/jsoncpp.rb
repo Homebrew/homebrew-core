@@ -22,15 +22,16 @@ class Jsoncpp < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e00ec8c187ad0787b392125e31b23d0c2b0dcbb4e9f66cfd34570ca813146ab9"
   end
 
+  # NOTE: Do not change this to use CMake, because the CMake build is deprecated.
+  # See: https://github.com/open-source-parsers/jsoncpp/wiki/Building#building-and-testing-with-cmake
+  #      https://github.com/Homebrew/homebrew-core/pull/103386
   depends_on "meson" => :build
   depends_on "ninja" => :build
 
   def install
-    mkdir "build" do
-      system "meson", *std_meson_args, ".."
-      system "ninja", "-v"
-      system "ninja", "install", "-v"
-    end
+    system "meson", "setup", "build", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do

@@ -1,27 +1,37 @@
 class Libtrace < Formula
   desc "Library for trace processing supporting multiple inputs"
-  homepage "https://research.wand.net.nz/software/libtrace.php"
-  url "https://research.wand.net.nz/software/libtrace/libtrace-4.0.19.tar.bz2"
-  sha256 "d1a2d756d744c4ffad480f6d4b0bdaca05a9966c87e491992c42007a22317e5a"
+  homepage "https://github.com/LibtraceTeam/libtrace"
+  url "https://github.com/LibtraceTeam/libtrace/archive/refs/tags/4.0.22-1.tar.gz"
+  version "4.0.22"
+  sha256 "5d2c76afef6b882dc8df1a8d73164f2b646068f10187731fb86f2a46df46ff0d"
   license "GPL-3.0-or-later"
 
   livecheck do
-    url :homepage
-    regex(/href=.*?libtrace[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url :stable
+    regex(/^v?(\d+(?:[.-]\d+)+)$/i)
+    strategy :git do |tags, regex|
+      tags.map { |tag| tag[regex, 1]&.gsub(/-1$/, "") }.compact
+    end
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "f9edccc796e56af2f95bbbcffa1e791f7a17192e010ca4034b45ffa2427a0ae1"
-    sha256 cellar: :any,                 arm64_big_sur:  "1726bfafd1b98709f408d17495827e1884f5e0bdc3a1933c80da04116dfd9bca"
-    sha256 cellar: :any,                 monterey:       "a7a4f93a72e61b050f64ba94ca1074c4e0da466914755abe87c9d66894ec9fcb"
-    sha256 cellar: :any,                 big_sur:        "beba5d290b00bd42eafec29d80b05460da03da8f00e1c4e1ef58c47e602c1312"
-    sha256 cellar: :any,                 catalina:       "9aa10a0c52d0f1e3929cd8c4fffd0a1c65f12c4527d95d8854c1139cffb1dcc4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3dde6596eb8e6501379c201dd115de9e1f106dbc39e5705a56f07055249ed8c2"
+    sha256 cellar: :any,                 arm64_ventura:  "2bae67051ee7cec69652213c62c02a9219a2cd05ccb4cbd92252a3a398e58b6a"
+    sha256 cellar: :any,                 arm64_monterey: "13daeca99adeb0ffc229465a1a370cfbe7ded11c69868c969511900e07b4c4bf"
+    sha256 cellar: :any,                 arm64_big_sur:  "063a3ede9479821a19c3b0f7b3f988fac492f649979c08087eadc2edbbdc1060"
+    sha256 cellar: :any,                 ventura:        "56e631af061897eea8dd5d2643d1b14843ba72b3d59fec4aed023f2035489153"
+    sha256 cellar: :any,                 monterey:       "215cfb17b05d093e0303a6e02cfc933f88d7d3be54c13aaa0d95389206bf47da"
+    sha256 cellar: :any,                 big_sur:        "3f3da8d3a83c9661a871fc8b0396f50a3b5c5c94bda9021fa2ee7c844983964a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ad18e807fbf96a4f0d7d3585bcdabfa3aa2a2faa9b2e5f1d452ee1e67efe4c72"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
+  depends_on "openssl@3"
   depends_on "wandio"
 
+  uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
   uses_from_macos "libpcap"
 
@@ -30,14 +40,10 @@ class Libtrace < Formula
     sha256 "aa036e997d7bec2fa3d387e3ad669eba461036b9a89b79dcf63017a2c4dac725"
   end
 
-  # Fix -flat_namespace being used on Big Sur and later.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
-    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
-  end
-
   def install
+    system "./bootstrap.sh"
     system "./configure", *std_configure_args
+    system "make"
     system "make", "install"
   end
 

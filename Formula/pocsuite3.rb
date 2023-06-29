@@ -6,19 +6,24 @@ class Pocsuite3 < Formula
   url "https://files.pythonhosted.org/packages/98/9c/ea5c93f0cff8ffbe776ae138569219c2f0c7e43d94c002fe21e607d186e6/pocsuite3-2.0.4.tar.gz"
   sha256 "57dd1e565595bd705667a4e0df72e288321640f938e1fefcc83b02a70dda099d"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/knownsec/pocsuite3.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "4d3ae40d4ec45caf09d74d1aaef1667911bb91a142914fd57e3b9d0a88ee1155"
-    sha256 cellar: :any,                 arm64_monterey: "acd61884c3d228a78bf4af25d01cac011378c75557a9c9fb2d647714b4576cc7"
-    sha256 cellar: :any,                 arm64_big_sur:  "55c1010d18ccb49535ce06a4f05e1a980adc5ca70aba066c38ebf400c43fa89e"
-    sha256 cellar: :any,                 ventura:        "71db28b65fef2a7ff8b8ab02e377052e8144cb2ecc576347f5282d3ec89600b3"
-    sha256 cellar: :any,                 monterey:       "f3cf115708033ba62801c87faf9b1772ce602eaa0ab7a43dab5b1b64ad72bd06"
-    sha256 cellar: :any,                 big_sur:        "9e24e155f2026edda0f0413d10cde8e88ebf27b33e414d0d9de91cf02b30cf49"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0cce290d9e6f892492a837c735dfd4a4d1b9526e75741f20d8ead75cca8cc41e"
+    sha256 cellar: :any,                 arm64_ventura:  "520878c4da7317db9d0a7698b8debf5d06026dd7970d9deef354cad598123d46"
+    sha256 cellar: :any,                 arm64_monterey: "a771c89568e999130e87de2b23865fa818b925459dd64797228fb26246174c51"
+    sha256 cellar: :any,                 arm64_big_sur:  "6cc6f48519d3d53780821dd240e42fdad1d3f85e3e7ec7006d73ce16f6a98e30"
+    sha256 cellar: :any,                 ventura:        "1e5ee34380daa06a6af9852e4b8cb7fc9ba824256ffec2faa9a954d622dff015"
+    sha256 cellar: :any,                 monterey:       "d861d372254895eefcfd2deb5aa7f8c62a792771a2b3a3979d3a1bd63ff18ad8"
+    sha256 cellar: :any,                 big_sur:        "76f728721c7d8a2211f7994174ae34f061420f5c26f50c094f5753d25478b2a4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "083b30108ec388eff6978928cedbf1ce739bf3600dd8042b198a41a657eaeca6"
   end
 
+  depends_on "pkg-config" => :build
   depends_on "rust" => :build # for cryptography
+  depends_on "cffi"
+  depends_on "openssl@3"
+  depends_on "pycparser"
   depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "six"
@@ -32,13 +37,8 @@ class Pocsuite3 < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/37/f7/2b1b0ec44fdc30a3d31dfebe52226be9ddc40cd6c0f34ffc8923ba423b69/certifi-2022.12.7.tar.gz"
-    sha256 "35824b4c3a97115964b408844d64aa14db1cc518f6562e8d7261699d1350a9e3"
-  end
-
-  resource "cffi" do
-    url "https://files.pythonhosted.org/packages/2b/a8/050ab4f0c3d4c1b8aaa805f70e26e84d0e27004907c5b8ecc1d31815f92a/cffi-1.15.1.tar.gz"
-    sha256 "d400bfb9a37b1351253cb402671cea7e89bdecc294e8016a707f6d1d8ac934f9"
+    url "https://files.pythonhosted.org/packages/93/71/752f7a4dd4c20d6b12341ed1732368546bc0ca9866139fe812f6009d9ac7/certifi-2023.5.7.tar.gz"
+    sha256 "0f0d56dc5a6ad56fd4ba36484d6cc34451e1c6548c61daad8c320169f91eddc7"
   end
 
   resource "chardet" do
@@ -62,8 +62,8 @@ class Pocsuite3 < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/f7/80/04cc7637238b78f8e7354900817135c5a23cf66dfb3f3a216c6d630d6833/cryptography-40.0.2.tar.gz"
-    sha256 "c33c0d32b8594fa647d2e01dbccc303478e16fdd7cf98652d5b3ed11aa5e5c99"
+    url "https://files.pythonhosted.org/packages/19/8c/47f061de65d1571210dc46436c14a0a4c260fd0f3eaf61ce9b9d445ce12f/cryptography-41.0.1.tar.gz"
+    sha256 "d34579085401d3f49762d2f7d6634d6b6c2ae1242202e860f4d26b046e3a1006"
   end
 
   resource "dacite" do
@@ -72,8 +72,8 @@ class Pocsuite3 < Formula
   end
 
   resource "faker" do
-    url "https://files.pythonhosted.org/packages/22/cd/72893a69f7382a0d8459d6aaa643c8c1da1a47e19beb8f467edbf2929229/Faker-18.6.0.tar.gz"
-    sha256 "ac903ba8cb5adbce2cdd15e5536118d484bbe01126f3c774dd9f6df77b61232d"
+    url "https://files.pythonhosted.org/packages/00/40/1b5fa558c4445b1e11361af1407b6ed78130893f65abdcb301bf913cf706/Faker-18.10.1.tar.gz"
+    sha256 "d9f363720c4a6cf9884c6c3e26e2ce26266ffe5d741a9bc7cb9256779bc62190"
   end
 
   resource "idna" do
@@ -92,28 +92,23 @@ class Pocsuite3 < Formula
   end
 
   resource "mmh3" do
-    url "https://files.pythonhosted.org/packages/73/65/33dce4b13a77ed6aeb1f41994240cc4d3c49fb79b3acdac9a502ae6e254d/mmh3-3.1.0.tar.gz"
-    sha256 "9b0f2b2ab4a915333c9d1089572e290a021ebb5b900bb7f7114dccc03995d732"
+    url "https://files.pythonhosted.org/packages/76/d4/2aae33efebe5e40862e8346774bc2559b2967465d5ee58895d17b05589cf/mmh3-4.0.0.tar.gz"
+    sha256 "056b83d04e595547d0407cc8e5aa5d8ba8802a8afa417b64c1c30235b5389e30"
   end
 
   resource "prettytable" do
-    url "https://files.pythonhosted.org/packages/95/8d/f6b4448e386eb1382a99cbceabe3899f3aa431992582cc90496843548303/prettytable-3.7.0.tar.gz"
-    sha256 "ef8334ee40b7ec721651fc4d37ecc7bb2ef55fde5098d994438f0dfdaa385c0c"
-  end
-
-  resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/5e/0b/95d387f5f4433cb0f53ff7ad859bd2c6051051cebbb564f139a999ab46de/pycparser-2.21.tar.gz"
-    sha256 "e644fdec12f7872f86c58ff790da456218b10f863970249516d60a5eaca77206"
+    url "https://files.pythonhosted.org/packages/18/fa/82e719efc465238383f099c08b5284b974f5002dbe12050bcbbc912366eb/prettytable-3.8.0.tar.gz"
+    sha256 "031eae6a9102017e8c7c7906460d150b7ed78b20fd1d8c8be4edaf88556c07ce"
   end
 
   resource "pycryptodomex" do
-    url "https://files.pythonhosted.org/packages/3d/07/cfd8f52b9068877801317d26dc7225e19421bc659e1395d2cd6933b1a351/pycryptodomex-3.17.tar.gz"
-    sha256 "0af93aad8d62e810247beedef0261c148790c52f3cd33643791cc6396dd217c1"
+    url "https://files.pythonhosted.org/packages/40/92/efd675dba957315d705f792b28d900bddc36f39252f6713961b4221ee9af/pycryptodomex-3.18.0.tar.gz"
+    sha256 "3e3ecb5fe979e7c1bb0027e518340acf7ee60415d79295e5251d13c68dde576e"
   end
 
   resource "pyopenssl" do
-    url "https://files.pythonhosted.org/packages/8f/72/f1d9e92f5d3a58aba3b71ad512de19eb9f82e7b98795662bf7b796be71e5/pyOpenSSL-23.1.1.tar.gz"
-    sha256 "841498b9bec61623b1b6c47ebbc02367c07d60e0e195f19790817f10cc8db0b7"
+    url "https://files.pythonhosted.org/packages/be/df/75a6525d8988a89aed2393347e9db27a56cb38a3e864314fac223e905aef/pyOpenSSL-23.2.0.tar.gz"
+    sha256 "276f931f55a452e7dea69c7173e984eb2a4407ce413c918aa34b55f82f9b8bac"
   end
 
   resource "pysocks" do
@@ -127,13 +122,13 @@ class Pocsuite3 < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/4c/d2/70fc708727b62d55bc24e43cc85f073039023212d482553d853c44e57bdb/requests-2.29.0.tar.gz"
-    sha256 "f2e34a75f4749019bb0e3effb66683630e4ffeaf75819fb51bebef1bf5aef059"
+    url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
+    sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
   end
 
   resource "requests-toolbelt" do
-    url "https://files.pythonhosted.org/packages/0c/4c/07f01c6ac44f7784fa399137fbc8d0cdc1b5d35304e8c0f278ad82105b58/requests-toolbelt-0.10.1.tar.gz"
-    sha256 "62e09f7ff5ccbda92772a29f394a49c3ad6cb181d568b1337626b2abb628a63d"
+    url "https://files.pythonhosted.org/packages/f3/61/d7545dafb7ac2230c70d38d31cbfe4cc64f7144dc41f6e4e4b78ecd9f5bb/requests-toolbelt-1.0.0.tar.gz"
+    sha256 "7681a0a3d047012b5bdc0ee37d7f8f07ebe76ab08caeccfc3921ce23c88d5bc6"
   end
 
   resource "scapy" do
@@ -147,8 +142,8 @@ class Pocsuite3 < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/21/79/6372d8c0d0641b4072889f3ff84f279b738cd8595b64c8e0496d4e848122/urllib3-1.26.15.tar.gz"
-    sha256 "8a388717b9476f934a21484e8c8e61875ab60644d29b9b39e11e4b9dc1c6b305"
+    url "https://files.pythonhosted.org/packages/d6/af/3b4cfedd46b3addab52e84a71ab26518272c23c77116de3c61ead54af903/urllib3-2.0.3.tar.gz"
+    sha256 "bee28b5e56addb8226c96f7f13ac28cb4c301dd5ea8a6ca179c0b9835e032825"
   end
 
   resource "wcwidth" do
@@ -157,6 +152,10 @@ class Pocsuite3 < Formula
   end
 
   def install
+    # Ensure that the `openssl` crate picks up the intended library.
+    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+    ENV["OPENSSL_NO_VENDOR"] = "1"
+
     virtualenv_install_with_resources
   end
 

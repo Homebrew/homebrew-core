@@ -1,18 +1,18 @@
 class GnuGetopt < Formula
   desc "Command-line option parsing utility"
   homepage "https://github.com/util-linux/util-linux"
-  url "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.39/util-linux-2.39.tar.xz"
-  sha256 "32b30a336cda903182ed61feb3e9b908b762a5e66fe14e43efb88d37162075cb"
+  url "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.39/util-linux-2.39.1.tar.xz"
+  sha256 "890ae8ff810247bd19e274df76e8371d202cda01ad277681b0ea88eeaa00286b"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2a25a9ee12cceed43085d92626a1268619c7198ef38add73abd873237b754de9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6df9bdc36257e33dc33c6f3785d1594cde0aac1e81806b9b7e2659d2e7b4feb2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cd9665ac14b832407a6ea353a5a0142491848417b3198b6871038a29ebcf50f4"
-    sha256 cellar: :any_skip_relocation, ventura:        "dd9c73190ef0b2af8fcfe7107f8e99df44d4fd7cdb16c2428775e2a1abee02d7"
-    sha256 cellar: :any_skip_relocation, monterey:       "b3db35769d97b8f07431fbb83777e423d15ce9471d97a60ce0a4f1ebabadcbbd"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e1b3803d0efe078bc4dbe1f2817b2e8f9b6301a291dbc599089eb5a5c03888a2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ab20209c18ea3fb93140b90a43740129d3f3edb385c5745489a7a2fea58df65d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8b1d5a34f4173e378efff2e2d2f77d9a817259548558bfe40bd4c18740f99ed6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ad2d4903fae9b13cbacb8091fdd2555c8ee2bf9ff4d665b92a7eb4242b7c139d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "375e7abe811e322fd6db77e27dcd732daa081908affc1ffad72a972bf94d9968"
+    sha256 cellar: :any_skip_relocation, ventura:        "d103ac1b953fae8d9edb145aa1a22d0599f32b38591adc613da26da02ad450a9"
+    sha256 cellar: :any_skip_relocation, monterey:       "22d5eca1331582a051a5370c093969d219880641c5f1501b96b76f592fc422ab"
+    sha256 cellar: :any_skip_relocation, big_sur:        "cd9962ac153ce0142d90c46e0add261fe01927377b7e803bf606a64809237620"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1466fbd1137ebc2d3c58f2c2256501400b94bf2aad6fb4cf23bfe6b1cea16348"
   end
 
   keg_only :provided_by_macos

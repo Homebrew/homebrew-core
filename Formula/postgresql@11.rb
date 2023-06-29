@@ -4,6 +4,7 @@ class PostgresqlAT11 < Formula
   url "https://ftp.postgresql.org/pub/source/v11.20/postgresql-11.20.tar.bz2"
   sha256 "3d7c8882f64a7e98534a044257dfee7abad77a5b7da12508d85d722b98b5acce"
   license "PostgreSQL"
+  revision 2
 
   livecheck do
     url "https://ftp.postgresql.org/pub/source/"
@@ -11,13 +12,13 @@ class PostgresqlAT11 < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "6ee1db605ed2b29346b9f688bd3621cb6a12b473cc4574bc82f6fafdafab2e97"
-    sha256 arm64_monterey: "ab119c17defbfa6de88a2fdc56913cfcd2e1548157f62016031d82dfd31e0308"
-    sha256 arm64_big_sur:  "a088f6b8c357bfa387c4cda01e38d89c378395d5f3bc679beaec15d963b41d53"
-    sha256 ventura:        "c2783fd207da8e839356ffb8ab5a0d1b2ac1be2f92dc9190d9a746fc239ce6ef"
-    sha256 monterey:       "4b39398338cc760273c4fb2ef94dd7ba05314a24e25e82134bfc5cfff352c597"
-    sha256 big_sur:        "5b4e52da494033022f357529f3a957cb99a4d89004c0f5add6968ecb4cda87f9"
-    sha256 x86_64_linux:   "a69135b0b3b6c6c095d7b2b524aee00f23139e3dfae8b35345a4210b6e43e648"
+    sha256 arm64_ventura:  "65929e21f94be88468c58a8da3e2d7da704cae32384a8cdf31ef142300d56ae2"
+    sha256 arm64_monterey: "2622b4582fbde5cbd0a5483d9ea30717faa5b0acf67184196fd43e3e2969001d"
+    sha256 arm64_big_sur:  "83455ebc0e6557b5cb8cf66b599729ec9422d16a0c2dc72882899ecdcfe1e4b8"
+    sha256 ventura:        "7a506041037dbb08bca934e28429578db9b2c59402f3c1d29d02c1b8d8c5fac3"
+    sha256 monterey:       "780842f5606685bbd54295573499d5ea5f906a7d932ebab8e7cd66e014b957ac"
+    sha256 big_sur:        "80ea0e774af91b2b0b4448d53f88f23c8068e69abd359628c0f78c23b35e0976"
+    sha256 x86_64_linux:   "f72e6206402fdcc9fa84cc0163a0ddbf895080105daaeed4b42079da0055ecfd"
   end
 
   keg_only :versioned_formula
@@ -27,7 +28,7 @@ class PostgresqlAT11 < Formula
 
   depends_on "pkg-config" => :build
   depends_on "icu4c"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "readline"
 
   uses_from_macos "krb5"
@@ -42,8 +43,8 @@ class PostgresqlAT11 < Formula
   end
 
   def install
-    ENV.prepend "LDFLAGS", "-L#{Formula["openssl@1.1"].opt_lib} -L#{Formula["readline"].opt_lib}"
-    ENV.prepend "CPPFLAGS", "-I#{Formula["openssl@1.1"].opt_include} -I#{Formula["readline"].opt_include}"
+    ENV.prepend "LDFLAGS", "-L#{Formula["openssl@3"].opt_lib} -L#{Formula["readline"].opt_lib}"
+    ENV.prepend "CPPFLAGS", "-I#{Formula["openssl@3"].opt_include} -I#{Formula["readline"].opt_include}"
 
     args = %W[
       --disable-debug

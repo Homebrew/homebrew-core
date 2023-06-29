@@ -13,13 +13,14 @@ class Ddclient < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6894c0f9e8a341551e1ea396768d584da17a2aacf0da34018d54f22ab3bd4d00"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6894c0f9e8a341551e1ea396768d584da17a2aacf0da34018d54f22ab3bd4d00"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6894c0f9e8a341551e1ea396768d584da17a2aacf0da34018d54f22ab3bd4d00"
-    sha256 cellar: :any_skip_relocation, ventura:        "6894c0f9e8a341551e1ea396768d584da17a2aacf0da34018d54f22ab3bd4d00"
-    sha256 cellar: :any_skip_relocation, monterey:       "6894c0f9e8a341551e1ea396768d584da17a2aacf0da34018d54f22ab3bd4d00"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6894c0f9e8a341551e1ea396768d584da17a2aacf0da34018d54f22ab3bd4d00"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f6baa3bce12ee03d891e9761ceaaac4396c171c312c5552f5de50e4c2e9e08b5"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4d7b4313f149190585d9acdb4f0cc0c4457d7cf907c0b78c3d6351fa72d1a6e8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4d7b4313f149190585d9acdb4f0cc0c4457d7cf907c0b78c3d6351fa72d1a6e8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4d7b4313f149190585d9acdb4f0cc0c4457d7cf907c0b78c3d6351fa72d1a6e8"
+    sha256 cellar: :any_skip_relocation, ventura:        "4d7b4313f149190585d9acdb4f0cc0c4457d7cf907c0b78c3d6351fa72d1a6e8"
+    sha256 cellar: :any_skip_relocation, monterey:       "4d7b4313f149190585d9acdb4f0cc0c4457d7cf907c0b78c3d6351fa72d1a6e8"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4d7b4313f149190585d9acdb4f0cc0c4457d7cf907c0b78c3d6351fa72d1a6e8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "71744d2abf1d487d7749ab508eee5786e62adffc9f6f81f7f81c53ac1c76e223"
   end
 
   depends_on "autoconf" => :build
@@ -51,7 +52,7 @@ class Ddclient < Formula
     if OS.linux?
       ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
       ENV["PERL_MM_USE_DEFAULT"] = "1"
-      ENV["OPENSSL_PREFIX"] = Formula["openssl@1.1"].opt_prefix
+      ENV["OPENSSL_PREFIX"] = Formula["openssl@3"].opt_prefix
 
       resources.each do |r|
         r.stage do

@@ -1,7 +1,7 @@
 require "language/node"
 
 class Postgraphile < Formula
-  desc "GraphQL schema created by reflection over a PostgreSQL schema 🐘"
+  desc "GraphQL schema created by reflection over a PostgreSQL schema"
   homepage "https://www.graphile.org/postgraphile/"
   url "https://registry.npmjs.org/postgraphile/-/postgraphile-4.13.0.tgz"
   sha256 "bdf6c3047b16fd7bddc2eabd74939b986bc2fa0f56383f409fa3d7d95418cf77"

@@ -7,16 +7,19 @@ class Libmatio < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "d4a44ba92a017b7f44ae69bd42cfafe09a04d20f47934a7ec201af2fa65d20e5"
-    sha256 cellar: :any,                 arm64_monterey: "c6eb8fbcd5aee94c1ffb93fb393d4b27d6bce72f80876a6660b86c02c94c3049"
-    sha256 cellar: :any,                 arm64_big_sur:  "5034eb49bfcc7c0a480e0f37d16877a9af2ead576f92c21e56b4ba5dbf2dc952"
-    sha256 cellar: :any,                 ventura:        "18ad56b84938aaed596846c02f281ff107f8bf807effb0c8fa6075c43b1af9be"
-    sha256 cellar: :any,                 monterey:       "3763f2836ab720551802912fcb5f54d9afbe50d8578883faa3c3484c142e39af"
-    sha256 cellar: :any,                 big_sur:        "9e37c57537177229ecea33a3392b7c1c3799e3917ca2b5327fdbba3bb2818e00"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "97948be20c34c6b824647b45d7a301576a04b301b605164221e951e11a6f75f6"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "692ff91102a1882368444eaffb2b4134f25550f2792698d1fd36337f318e8465"
+    sha256 cellar: :any,                 arm64_monterey: "779a488063e24d4d9ab188be23f94f53155d5014a478d55500ef27c26fb2911b"
+    sha256 cellar: :any,                 arm64_big_sur:  "0a0c9260534dfe974fa4bd9ca28c26e321db5b2e36c53494c1e56a6f79c00ee4"
+    sha256 cellar: :any,                 ventura:        "7b6ded7eaa0c7e18c0e4a3835a0bcfde53878416ac82d816adba21a622911d61"
+    sha256 cellar: :any,                 monterey:       "e93c4b9479da91da21e25673bd9ca8f6d752cafd65c302fa37477e1ed6743465"
+    sha256 cellar: :any,                 big_sur:        "b0d10fef3792de609e10b14720f5c632e4c179273de51de3da07a13d2ae7ae3d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "93c7c6f5e6fff8637b9e7fd5467057e1662546e7e44a00db08743f12eab6b838"
   end
 
+  depends_on "pkg-config" => :test
   depends_on "hdf5"
+  uses_from_macos "zlib"
 
   resource "homebrew-test_mat_file" do
     url "https://web.uvic.ca/~monahana/eos225/poc_data.mat.sfx"
@@ -25,14 +28,13 @@ class Libmatio < Formula
 
   def install
     args = %W[
-      --prefix=#{prefix}
       --enable-extended-sparse=yes
       --enable-mat73=yes
       --with-hdf5=#{Formula["hdf5"].opt_prefix}
-      --with-zlib=/usr
     ]
+    args << "--with-zlib=#{Formula["zlib"].opt_prefix}" unless OS.mac?
 
-    system "./configure", *args
+    system "./configure", *std_configure_args, *args
     system "make", "install"
   end
 
@@ -68,5 +70,7 @@ class Libmatio < Formula
     EOS
     system ENV.cc, "mat.c", "-o", "mat", "-I#{include}", "-L#{lib}", "-lmatio"
     system "./mat", "poc_data.mat.sfx"
+
+    refute_includes shell_output("pkg-config --cflags matio"), "-I/usr/include"
   end
 end

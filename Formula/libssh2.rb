@@ -6,6 +6,7 @@ class Libssh2 < Formula
   mirror "http://download.openpkg.org/components/cache/libssh2/libssh2-1.11.0.tar.gz"
   sha256 "3736161e41e2693324deb38c26cfdc3efe6209d634ba4258db1cecff6a5ad461"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url "https://www.libssh2.org/download/"
@@ -13,13 +14,13 @@ class Libssh2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "cf0e735085285723dc4a43160c97e73c65c2758127ad18cb1c6f57689a3f567f"
-    sha256 cellar: :any,                 arm64_monterey: "86675a61931e93ee3b0451ec80d61b0675981cefa6a25c74485cb0e193a08b6e"
-    sha256 cellar: :any,                 arm64_big_sur:  "1e846fb3154b08e1796258e1ef63c861a6fa054f6d93b1fdceb775588dc7c7c6"
-    sha256 cellar: :any,                 ventura:        "037e14a2a1c76d5019ab96264574e72e652864da0e01f373e4183c893108f064"
-    sha256 cellar: :any,                 monterey:       "9cc91506152ea4a400ff971923e7fab6ad3149c1162cf3baf721d059188fb040"
-    sha256 cellar: :any,                 big_sur:        "7ea74deaf8385acc677419003a9a19342b41b278cd44be65a6dc1ae0c81458e0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "95cbc23269e7b6d5ceb5663731d1f5b09a3fdea56464e6941c3fee6e6fc63e86"
+    sha256 cellar: :any,                 arm64_ventura:  "41e860bcf96b8e86bb5f2c321fb1ca14b620adce510cec881eeac2f432e00e5e"
+    sha256 cellar: :any,                 arm64_monterey: "cc09eb9988f274f2f923aa1d047a6df28fc5fe5d5301f9bde8e0df44167dbb29"
+    sha256 cellar: :any,                 arm64_big_sur:  "80ec45fff392d1ea106aaceaf6f35fb96847a59ad378ae9e83aecc9470a384a9"
+    sha256 cellar: :any,                 ventura:        "71b9199fd292ab344d388051629500329315e37c20e7329b5c1c6772beed42be"
+    sha256 cellar: :any,                 monterey:       "9a4b09c1a5b50b847b0104a0976c8d6359de9f567928f57c1a4eae84e6f7134a"
+    sha256 cellar: :any,                 big_sur:        "41dbed0ea860e38eb76d1a5fb0b68c06d86035a386e138bb50df03dd61803794"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "57746d26d6d96b0ba3a7b7021b8f13a466685e8a2172fa49bf4cb44d91d24429"
   end
 
   head do
@@ -30,7 +31,7 @@ class Libssh2 < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "zlib"
 
@@ -40,7 +41,7 @@ class Libssh2 < Formula
       --disable-examples-build
       --with-openssl
       --with-libz
-      --with-libssl-prefix=#{Formula["openssl@1.1"].opt_prefix}
+      --with-libssl-prefix=#{Formula["openssl@3"].opt_prefix}
     ]
 
     system "./buildconf" if build.head?

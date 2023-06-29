@@ -4,20 +4,21 @@ class QtAT5 < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
   # NOTE: Use *.diff for GitLab/KDE patches to avoid their checksums changing.
-  url "https://download.qt.io/official_releases/qt/5.15/5.15.9/single/qt-everywhere-opensource-src-5.15.9.tar.xz"
-  mirror "https://mirrors.dotsrc.org/qtproject/archive/qt/5.15/5.15.9/single/qt-everywhere-opensource-src-5.15.9.tar.xz"
-  mirror "https://mirrors.ocf.berkeley.edu/qt/archive/qt/5.15/5.15.9/single/qt-everywhere-opensource-src-5.15.9.tar.xz"
-  sha256 "26d5f36134db03abe4a6db794c7570d729c92a3fc1b0bf9b1c8f86d0573cd02f"
+  url "https://download.qt.io/official_releases/qt/5.15/5.15.10/single/qt-everywhere-opensource-src-5.15.10.tar.xz"
+  mirror "https://mirrors.dotsrc.org/qtproject/archive/qt/5.15/5.15.10/single/qt-everywhere-opensource-src-5.15.10.tar.xz"
+  mirror "https://mirrors.ocf.berkeley.edu/qt/archive/qt/5.15/5.15.10/single/qt-everywhere-opensource-src-5.15.10.tar.xz"
+  sha256 "b545cb83c60934adc9a6bbd27e2af79e5013de77d46f5b9f5bb2a3c762bf55ca"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "96f2ff9a6db2d2fefb7e0a2b21ef9471f6293270db4db2816976f271a6de50d7"
-    sha256 cellar: :any,                 arm64_monterey: "38744f3ec6c707da08724ddf0c8b728dfe999023d4012a44f0b6601b844d5c79"
-    sha256 cellar: :any,                 arm64_big_sur:  "3c8774198b053b6bdf76a9a55c0d588e3139c0b1128ce8d097b2d7982b9483ae"
-    sha256 cellar: :any,                 ventura:        "dacff23d86dc9c925ef12ee8ef991c2df5d1de677abdda026ca9669aedf3f784"
-    sha256 cellar: :any,                 monterey:       "69fcd6838d4daa83ce17a5345238fbbaecd2655a21f280a230af89a8d16acfcf"
-    sha256 cellar: :any,                 big_sur:        "fdd0ce12b7edc9d4156c6786e6219985a51a4141a64f781dfc1d01f27d8cdd1a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1dfa3d3e03bf7e1736fecdd94ba0b16ec54fa0097c7e09d401794c78377a24cd"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "8caeb580012da1742aa9d2ce0b06ebd69a14d1e2cb1c5f8452de5bf351eb38a0"
+    sha256 cellar: :any,                 arm64_monterey: "82d9c11e66478d53c106a9b6cf827e15ed3d9f985191a39b9d50f2273a31f093"
+    sha256 cellar: :any,                 arm64_big_sur:  "9bfa378a951e54e0b557d72fd9c73c6ca6d35c914ddab249573987ed289fe8c9"
+    sha256 cellar: :any,                 ventura:        "74d8d57fc5e31ef60565e74d421f1b80fa68f67adf41663d30922b68bc4ccfbd"
+    sha256 cellar: :any,                 monterey:       "f0beebfcdc5eafa89b84cc6ffa15f0359be50969efb706688168f94647c8077c"
+    sha256 cellar: :any,                 big_sur:        "ada5a2bd5fb44eb222e8b99a06cd075bc7d78e146291acbf905922482acf3914"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3cefabf81e57004029003a2fc31e836487c51695f261071d318f9c2f74d776c3"
   end
 
   keg_only :versioned_formula
@@ -120,13 +121,6 @@ class QtAT5 < Formula
     revision: "5eedfe23148a234211ba477f76fc2ea2e8529189"
   end
 
-  # Fix build for GCC 11
-  patch do
-    url "https://invent.kde.org/qt/qt/qtbase/-/commit/ee7aed5e1020fa88f86777701948c8a236db4fc5.diff"
-    sha256 "41df4232666363f63d87a0165ec05e835f4c730c270a52137fbc53bdaf4e5f20"
-    directory "qtbase"
-  end
-
   # Fix build with Xcode 14.3.
   patch do
     url "https://invent.kde.org/qt/qt/qtlocation-mapboxgl/-/commit/5a07e1967dcc925d9def47accadae991436b9686.diff"
@@ -218,6 +212,39 @@ class QtAT5 < Formula
       include.install_symlink path => path.parent.basename(".framework")
     end
 
+    # Install a qtversion.xml to ease integration with QtCreator
+    # As far as we can tell, there is no ability to make the Qt buildsystem
+    # generate this and it's in the Qt source tarball at all.
+    # Multiple people on StackOverflow have asked for this and it's a pain
+    # to add Qt to QtCreator (the official IDE) without it.
+    # Given Qt upstream seems extremely unlikely to accept this: let's ship our
+    # own version.
+    # If you read this and you can eliminate it or upstream it: please do!
+    # More context in https://github.com/Homebrew/homebrew-core/pull/124923
+    qtversion_xml = share/"qtcreator/QtProject/qtcreator/qtversion.xml"
+    qtversion_xml.dirname.mkpath
+    qtversion_xml.write <<~XML
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE QtCreatorQtVersions>
+      <qtcreator>
+      <data>
+        <variable>QtVersion.0</variable>
+        <valuemap type="QVariantMap">
+        <value type="int" key="Id">1</value>
+        <value type="QString" key="Name">Qt %{Qt:Version} (#{opt_prefix})</value>
+        <value type="QString" key="QMakePath">#{opt_bin}/qmake</value>
+        <value type="QString" key="QtVersion.Type">Qt4ProjectManager.QtVersion.Desktop</value>
+        <value type="QString" key="autodetectionSource"></value>
+        <value type="bool" key="isAutodetected">false</value>
+        </valuemap>
+      </data>
+      <data>
+        <variable>Version</variable>
+        <value type="int">1</value>
+      </data>
+      </qtcreator>
+    XML
+
     # Move `*.app` bundles into `libexec` to expose them to `brew linkapps` and
     # because we don't like having them in `bin`.
     # (Note: This move breaks invocation of Assistant via the Help menu
@@ -234,6 +261,11 @@ class QtAT5 < Formula
     <<~EOS
       We agreed to the Qt open source license for you.
       If this is unacceptable you should uninstall.
+
+      You can add Homebrew's Qt to QtCreator's "Qt Versions" in:
+        Preferences > Qt Versions > Link with Qt...
+      pressing "Choose..." and selecting as the Qt installation path:
+        #{opt_prefix}
     EOS
   end
 

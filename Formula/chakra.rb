@@ -4,13 +4,13 @@ class Chakra < Formula
   url "https://github.com/chakra-core/ChakraCore/archive/v1.11.24.tar.gz"
   sha256 "b99e85f2d0fa24f2b6ccf9a6d2723f3eecfe986a9d2c4d34fa1fd0d015d0595e"
   license "MIT"
-  revision 5
+  revision 6
 
   bottle do
-    sha256 cellar: :any,                 ventura:      "055068057b76dc9d1162efbc643e875ac98b0984f452a00a25d021c6cb2998d1"
-    sha256 cellar: :any,                 monterey:     "c49facef4ad763a4a676b199079826f67a63990a500177f599da389f02ad83ec"
-    sha256 cellar: :any,                 big_sur:      "a76493a11e4ba47f12ca0b159e12dc0d11351f91308aa196e077136d1d99b099"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "4aa30379663c11bee733e7c204bf4147a4019e952f0ccc2c73cc9ed6a061f4a1"
+    sha256 cellar: :any,                 ventura:      "f7b87e1a5e8df971a1a70d83cce648a0c8099d9353859035896c882323af0a4b"
+    sha256 cellar: :any,                 monterey:     "26401fbd6570cfd5e5581a707f61cacbc917674dd3d35d7ae48418c20e852580"
+    sha256 cellar: :any,                 big_sur:      "09e445d4df2da3d80e3245bebb269b4f893fab9e600fd08653c065fe313ead0d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "a1033b83b4ba7b914ab67d205e83bc70600d7585a958d0fb4e1ff438d058dee1"
   end
 
   depends_on "cmake" => :build
@@ -18,10 +18,10 @@ class Chakra < Formula
   depends_on arch: :x86_64 # https://github.com/chakra-core/ChakraCore/issues/6860
   depends_on "icu4c"
 
-  uses_from_macos "llvm" => [:build, :test]
-
-  # Currently requires Clang.
-  fails_with :gcc
+  on_linux do
+    # Currently requires Clang, but fails with LLVM 16.
+    depends_on "llvm@15" => :build
+  end
 
   # Fix build with modern compilers.
   # Remove with 1.12.
@@ -38,9 +38,11 @@ class Chakra < Formula
   end
 
   def install
+    ENV.clang if OS.linux? # Currently fails to build with LLVM 16.
+
     args = %W[
-      --icu=#{Formula["icu4c"].opt_include}
-      -j=#{ENV.make_jobs}
+      --custom-icu=#{Formula["icu4c"].opt_include}
+      --jobs=#{ENV.make_jobs}
       -y
     ]
     # LTO requires ld.gold, but Chakra has no way to specify to use that over regular ld.

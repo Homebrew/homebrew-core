@@ -4,6 +4,7 @@ class Unbound < Formula
   url "https://nlnetlabs.nl/downloads/unbound/unbound-1.17.1.tar.gz"
   sha256 "ee4085cecce12584e600f3d814a28fa822dfaacec1f94c84bfd67f8a5571a5f4"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/NLnetLabs/unbound.git", branch: "master"
 
   # We check the GitHub repo tags instead of
@@ -15,18 +16,18 @@ class Unbound < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "caedc25a2a2bf62d012984269575ca48adf7cfbabcb3aeb993e337c42bf0b373"
-    sha256 arm64_monterey: "c870e90be341227604999ffa9b66bac97bb193a9088fe09ad2ad5a0471dbbd6b"
-    sha256 arm64_big_sur:  "fee17cf7d52a3cd3d7a1767eee35984bbf5b70bb4c0d649240be8c7acc1967c1"
-    sha256 ventura:        "8c8633701f58288a23e8b78734584b69354ba48af404ee0cac7cd6dfb97e29d9"
-    sha256 monterey:       "9f0b67ee5dd9d83cba390ad705a6f3b434ea364b2b4930e04f0215827c1883a9"
-    sha256 big_sur:        "55e865da9441e948209a775239c4217bd7d67aa6be6f18d1e794d078af7be1c7"
-    sha256 x86_64_linux:   "bf896de5292674b98a0056d6efc383c8b3b40f2114386a1ec74f4e81166c2c62"
+    sha256 arm64_ventura:  "987c9200c5657ef18b7e81ba89981be152fd10bad97d4475870af1837b7eac9f"
+    sha256 arm64_monterey: "3d73fae5e1fbda041be0837c2b6e7e943fd15bb49ce66abde3e3b10472b77cb3"
+    sha256 arm64_big_sur:  "f256714d356be7fb1943560a43cd56136b28bea815b34b1b7440933f0d68f0ca"
+    sha256 ventura:        "519d202d9febdc31f4a1828f0702502f49ac130fbc613aa67e6a5ae974011438"
+    sha256 monterey:       "33ca879d0730f0334b20813e68e79d35db8d58e35b06ec275f04d02d49b0f722"
+    sha256 big_sur:        "2164a225e8230588b15bf58add99ce28ffeae2393d861b5af29263be64bdc4c0"
+    sha256 x86_64_linux:   "d1c97adb75bb839c008a26eab4cf421c461dcb130524106a1569a5a2b6159b11"
   end
 
   depends_on "libevent"
   depends_on "libnghttp2"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "expat"
 
@@ -39,7 +40,7 @@ class Unbound < Formula
       --enable-tfo-server
       --with-libevent=#{Formula["libevent"].opt_prefix}
       --with-libnghttp2=#{Formula["libnghttp2"].opt_prefix}
-      --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
+      --with-ssl=#{Formula["openssl@3"].opt_prefix}
     ]
 
     args << "--with-libexpat=#{MacOS.sdk_path}/usr" if OS.mac? && MacOS.sdk_path_if_needed

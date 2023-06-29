@@ -6,16 +6,16 @@ class Zurl < Formula
   url "https://github.com/fanout/zurl/releases/download/v1.11.1/zurl-1.11.1.tar.bz2"
   sha256 "39948523ffbd0167bc8ba7d433b38577156e970fe9f3baa98f2aed269241d70c"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_ventura:  "a6cae5932ecc6e54b3874c5c0ffd3fd42938a5cc73858647941f50e669326eea"
-    sha256 cellar: :any,                 arm64_monterey: "3e64b28ec36eb751cf1eedc05403644f751e6833ee0ab4ffb4543adb005fb42a"
-    sha256 cellar: :any,                 arm64_big_sur:  "9a86510d8ffb9c0550c7dcfc14fe92cd20b876c4ded19db26f1ca14b81657bc7"
-    sha256 cellar: :any,                 ventura:        "34e3faccba5108af712ee514615b60bfcdaf10968e04860559c8c80a25a85b2f"
-    sha256 cellar: :any,                 monterey:       "43b4a966a87dc863c364b4c48ebf6de61fd82599bfa85b64a5e715d367d30de5"
-    sha256 cellar: :any,                 big_sur:        "80bb1d4733e032fdc64bb18f08edac44eca3095f290f8f74216662cab66313c4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "19c6ed0468ae2c6b2fbfb73cd4bc2f83e3f625494040a0e34177faca58ec4849"
+    sha256 cellar: :any,                 arm64_ventura:  "d61f6c9edd6c3dde53d2d27e60601facce836bdee497c72335143695da6ebfc3"
+    sha256 cellar: :any,                 arm64_monterey: "2efcee057b489a77051a02f057aea00f0834817816adb4d2142fef391d32054e"
+    sha256 cellar: :any,                 arm64_big_sur:  "97675f8113bb55f7580ea2486545460768a82116a593947fff9966ce6bdd32e4"
+    sha256 cellar: :any,                 ventura:        "9cc2298a117300f4763b2de6a4952c4792e04af85321ae25002eedb7eee81f59"
+    sha256 cellar: :any,                 monterey:       "d5cf6cd530015d455a5f58dbf1dfe4a539e11130fee073391cbd46783f0230d4"
+    sha256 cellar: :any,                 big_sur:        "44482bd90787c77de93a589265ca0eb139c21dfb9c375307041146f88a6750f9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7b317aaefababd9955137556a3a246368fd4724370532013be9759bd39ed1501"
   end
 
   depends_on "pkg-config" => :build
@@ -24,6 +24,10 @@ class Zurl < Formula
   depends_on "zeromq"
 
   uses_from_macos "curl"
+
+  on_linux do
+    depends_on "openssl@3"
+  end
 
   fails_with gcc: "5"
 

@@ -4,15 +4,17 @@ class Stubby < Formula
   url "https://github.com/getdnsapi/stubby/archive/v0.4.3.tar.gz"
   sha256 "99291ab4f09bce3743000ed3ecbf58961648a35ca955889f1c41d36810cc4463"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/getdnsapi/stubby.git", branch: "develop"
 
   bottle do
-    sha256 arm64_monterey: "9505f36ee4654adb527badc196224a2ea8969b0ed984b6e06732ef5c25571dce"
-    sha256 arm64_big_sur:  "b2492e874a5dc3c235cde5dff8eb7c6e10dfb3eb52bcb12d86cc36fc8865ce92"
-    sha256 ventura:        "5017e46ff77e7233c6514c99c21867af459cad30231aca16bd6311bdddb7b32b"
-    sha256 monterey:       "bd4eadc1f1ffd5675c17c038ffc02202cfc024e3cb1da5ae27b67bb98479b5ea"
-    sha256 big_sur:        "47c88d9d9bfac6b2cff05fad0f9a94883e4dfe7f7eacfad5c32ed6a425038478"
-    sha256 x86_64_linux:   "7dd5aef38ee748eb4ea4fd8b29cda8f67becb8a2679932f0126b5a443709e23d"
+    sha256 arm64_ventura:  "ade3c36ec956feefe503081cabbb3eefb02e4dc45cb333433866e6bb46db49ac"
+    sha256 arm64_monterey: "31e36e04775bf9c033db8519d2a893ee10f7a0b9fd55f394d1d6d9593a28bffa"
+    sha256 arm64_big_sur:  "846901b552ae3f6146d058453b16094860e4cb330857b96dc5eb0d96e11ead0e"
+    sha256 ventura:        "9b09af1e56899b9069fa5141af931ca86086891d3dc434ea217f1ae2418f07f3"
+    sha256 monterey:       "a215b86f3bd4cfcf9684b056db2ead9d59b76de0b9cc4ab6d08a218e4ab69f07"
+    sha256 big_sur:        "f68065895579d27cda75d2d5b1635749502205922ff260524e5e47e62c01bab2"
+    sha256 x86_64_linux:   "9be25773bc7f384a70943d6edf294174a59d901c17f497e3dc91c855cb00733e"
   end
 
   depends_on "cmake" => :build

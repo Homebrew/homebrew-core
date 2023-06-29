@@ -6,30 +6,29 @@ class Cpprestsdk < Formula
       tag:      "2.10.18",
       revision: "122d09549201da5383321d870bed45ecb9e168c5"
   license "MIT"
+  revision 1
   head "https://github.com/Microsoft/cpprestsdk.git", branch: "development"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "6f3b89784f29fa1d269a336135b4e2d60f92dcf248fe5083f0b80897a2a54da3"
-    sha256 cellar: :any,                 arm64_monterey: "e19ac91eefbd583d66f0b0fe37b6d416bbb650570546804948eca22c63900e5f"
-    sha256 cellar: :any,                 arm64_big_sur:  "ac66587bc353b3358ff11606ca3952fa57f7dc57a5f59414ed8bfa62e90ff858"
-    sha256 cellar: :any,                 ventura:        "e748eea56489a6b0767a8deae219dd598128da9151e691f49779a0e215961ead"
-    sha256 cellar: :any,                 monterey:       "32c6be3ba57c08c2832f91a6003464acef7d21427b9ac8a817580faa2df9e998"
-    sha256 cellar: :any,                 big_sur:        "c65b7f42fed4091750be219a60774854de46903c74ef99def1b73f905bb0728f"
-    sha256 cellar: :any,                 catalina:       "f89613fba00d0feaa3e55508f3fb122dc8f4126b679e55c22fd228ed44d0c1c4"
-    sha256 cellar: :any,                 mojave:         "6805fd31638651ef090d68e07cdea155d70b23365828cd1adbfd60fc132eedc3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a50ae9413de519a390c5864972bd19432a203cdea200158e1110671e969385c1"
+    sha256 cellar: :any,                 arm64_ventura:  "ecebaabee208c5c7337b1336b710505b865f6f01e45a8c94d2683b29c446bfa4"
+    sha256 cellar: :any,                 arm64_monterey: "fbb03884dcf8e1a9206e753e6a0c6d3acfe89d12f6087981bc94c1166ed0ca94"
+    sha256 cellar: :any,                 arm64_big_sur:  "fbf9e57e1d1af52cd599dc4888f5183532df41a408384c9025d7d70c45903328"
+    sha256 cellar: :any,                 ventura:        "1ba3472004cb4a9ed97ac4ab28cde451ccbc2e3013b229a1ce6d02d049d780d1"
+    sha256 cellar: :any,                 monterey:       "aecde5f4fc4863f8ec372744514954850c4adc3138b3d1ea1270d70b662dd7e7"
+    sha256 cellar: :any,                 big_sur:        "e4b01652b3928771031ddd5fd36dfb960cc5fcee2e449239ddd9abb6e4d538e8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "70d83163b9b544a0e89f5b45d1cf6e08a103e1e873384bfb3fc6e5164febffd4"
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "boost"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "zlib"
 
   def install
     system "cmake", "-DBUILD_SAMPLES=OFF", "-DBUILD_TESTS=OFF",
-                    "-DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"]}.opt_prefix",
+                    "-DOPENSSL_ROOT_DIR=#{Formula["openssl@3"]}.opt_prefix",
                     "Release", *std_cmake_args
     system "make", "install"
   end
@@ -44,8 +43,8 @@ class Cpprestsdk < Formula
       }
     EOS
     system ENV.cxx, "test.cc", "-std=c++11",
-                    "-I#{Formula["boost"].include}", "-I#{Formula["openssl@1.1"].include}", "-I#{include}",
-                    "-L#{Formula["boost"].lib}", "-L#{Formula["openssl@1.1"].lib}", "-L#{lib}",
+                    "-I#{Formula["boost"].include}", "-I#{Formula["openssl@3"].include}", "-I#{include}",
+                    "-L#{Formula["boost"].lib}", "-L#{Formula["openssl@3"].lib}", "-L#{lib}",
                     "-lssl", "-lcrypto", "-lboost_random-mt", "-lboost_chrono-mt", "-lboost_thread-mt",
                     "-lboost_system-mt", "-lboost_filesystem-mt", "-lcpprest",
                     "-o", "test_cpprest"

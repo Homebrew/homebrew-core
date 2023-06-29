@@ -4,30 +4,31 @@ class SpotifyPlayer < Formula
   url "https://github.com/aome510/spotify-player/archive/refs/tags/v0.14.1.tar.gz"
   sha256 "bf4c71d7942c2c660e06a95ecebefa312404ef84c36af894eedaef7ec39a7b41"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "92150363d4939204ccf8ea481a484eae52934b24ad63f82e3f687794aad6f6cd"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "71d3add997b990591fcfd531726b2c268495190670f249ea1e612fd73c91b4aa"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f70ad4dee1ba60eb02d2b4fff9d260787acdeb1c1a44eb48c89058e240d47b65"
-    sha256 cellar: :any_skip_relocation, ventura:        "3c3e4c653b65c198ae7eb590d5042973a8871c5242e7cdcd03dc1ea0f2104d40"
-    sha256 cellar: :any_skip_relocation, monterey:       "def72d530e6227dccf9734895bd5cf480b6924547e129d94331203047e6e2f97"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e421271b7c87d03331f786cadee40150786bd88d60c216fddf128c2b1e2a3a0e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "69af7c8188d98f4dadd07f9acfc9c519bf5be9b6567ee95ccda9e772f53ed76e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "196ce340c6f58bb7034b06bf0b306ee038c9c21ee82c6870ff4cbea24d813ccf"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "df9ecc3b58f1ec556586f0ac2e01dde3090dcf92e5c618cd10bc1430af4c2858"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b16aafa97a32a56f44425154d6bbeefc852a2d9fc22f971781f985a816ee8b9d"
+    sha256 cellar: :any_skip_relocation, ventura:        "40e04929614c395eeea74d6339d34baa78d1c220b9bd571205c89597b669145e"
+    sha256 cellar: :any_skip_relocation, monterey:       "76edf4e5997fc28a5e2618d5eb714c485bd7be391248460522b6b318c010b5b2"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6469ec7ccce8f04866ebb5c8274a6bc6e741a667fce4cffbc7e49d51a0e15cc4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8866ee18a90757fe4a9e100ec0c9a7b839d7904a8379cdf7c541fdcae1b778ce"
   end
 
   depends_on "rust" => :build
-  depends_on "openssl@1.1"
   uses_from_macos "expect" => :test
 
   on_linux do
     depends_on "pkg-config" => :build
     depends_on "alsa-lib"
     depends_on "dbus"
+    depends_on "openssl@3"
   end
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.
-    ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
+    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
     ENV["OPENSSL_NO_VENDOR"] = "1"
 
     system "cargo", "install", "--features", "image,lyric-finder,notify", *std_cargo_args(path: "spotify_player")

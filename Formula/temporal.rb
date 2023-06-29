@@ -1,19 +1,19 @@
 class Temporal < Formula
   desc "Command-line interface for running and interacting with Temporal Server and UI"
   homepage "https://temporal.io/"
-  url "https://github.com/temporalio/cli/archive/refs/tags/v0.9.0.tar.gz"
-  sha256 "d136f0f338176ba61e804f110d2ee26cecb389cf1232e73dd0209941c09b3d36"
+  url "https://github.com/temporalio/cli/archive/refs/tags/v0.10.0.tar.gz"
+  sha256 "eafec28a4e1941f9ce416605b6022e34e9e2559dfdd4b27d1c11afdee5612128"
   license "MIT"
   head "https://github.com/temporalio/cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8035a8ba2f1ae24ac60b864e8c24d6d8a0f012cd1b45c0ee8554d21586bf7922"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8035a8ba2f1ae24ac60b864e8c24d6d8a0f012cd1b45c0ee8554d21586bf7922"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8035a8ba2f1ae24ac60b864e8c24d6d8a0f012cd1b45c0ee8554d21586bf7922"
-    sha256 cellar: :any_skip_relocation, ventura:        "ba98efc8a3ad098ff3e6e81b325d0455fedeec0d529b3385e801ca02b0dcc678"
-    sha256 cellar: :any_skip_relocation, monterey:       "ba98efc8a3ad098ff3e6e81b325d0455fedeec0d529b3385e801ca02b0dcc678"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ba98efc8a3ad098ff3e6e81b325d0455fedeec0d529b3385e801ca02b0dcc678"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5f890376e0436b95af058cbf44e8fd0c72056d834a5ce4ca1e526c832c6b0506"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a0dc48c9afb265bb086e9ce03e0339d77338a98caf3c1509e64de2ab6438e267"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a0dc48c9afb265bb086e9ce03e0339d77338a98caf3c1509e64de2ab6438e267"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a0dc48c9afb265bb086e9ce03e0339d77338a98caf3c1509e64de2ab6438e267"
+    sha256 cellar: :any_skip_relocation, ventura:        "895b05c8239fc5fa9c9e81f699ed3856eaca05f20e89a3775e21b21d4e83dbf5"
+    sha256 cellar: :any_skip_relocation, monterey:       "895b05c8239fc5fa9c9e81f699ed3856eaca05f20e89a3775e21b21d4e83dbf5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "895b05c8239fc5fa9c9e81f699ed3856eaca05f20e89a3775e21b21d4e83dbf5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3f30315344fcdc6fbaf57769fb5d0d7380c393e363e83ae2c3c9b1d2f2255ca7"
   end
 
   depends_on "go" => :build

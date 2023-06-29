@@ -4,10 +4,11 @@ class Overdrive < Formula
   url "https://github.com/chbrown/overdrive/archive/2.3.3.tar.gz"
   sha256 "ebd1ddb07fbf8a0fa7961eeb37f13a4a9d15857dae5426cb087e9ecc77a4d452"
   license "MIT"
+  revision 1
   head "https://github.com/chbrown/overdrive.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "c4425d8175d084f1710699325007c550621e67198e2faa369eb87687cbea0442"
+    sha256 cellar: :any_skip_relocation, all: "7dccf8e85a0bac71098738482cbdd9977475d7ff59eeb16bad4f650e535c9ac6"
   end
 
   depends_on "tidy-html5"
@@ -16,7 +17,7 @@ class Overdrive < Formula
   uses_from_macos "libxml2"
 
   on_linux do
-    depends_on "openssl@1.1" # for openssl (non keg-only)
+    depends_on "openssl@3" # for openssl (non keg-only)
     depends_on "util-linux" # for uuidgen
   end
 

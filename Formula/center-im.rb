@@ -4,7 +4,7 @@ class CenterIm < Formula
   url "https://web.archive.org/web/20191105151123/https://www.centerim.org/download/releases/centerim-4.22.10.tar.gz"
   sha256 "93ce15eb9c834a4939b5aa0846d5c6023ec2953214daf8dc26c85ceaa4413f6e"
   license "GPL-2.0-or-later"
-  revision 2
+  revision 3
 
   # Modify this to use `url :stable` if/when the formula is updated to use an
   # archive from GitHub in the future.
@@ -14,23 +14,18 @@ class CenterIm < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_ventura:  "0fbbf6b91eaf4783884988fdef23ba0536e7ad137fc8b76d3e16ba963278204b"
-    sha256 arm64_monterey: "d91b8376deaa1aaaca8720dd9a45dbbd9dd2ea22035b308c5e798eb5cca62c8e"
-    sha256 arm64_big_sur:  "182513b7096a23e8888d0d76858ad1c1d2ef92648f8f3d4140e291c41224ccbb"
-    sha256 ventura:        "3c8834167cae2d254301add133969e70547e6b2420b9f8d995ed796eff057b77"
-    sha256 monterey:       "1a230141b53d9e46c63f7619e353ab00e8eeb7c42d106a0af646361d2fb1b246"
-    sha256 big_sur:        "2b44902a2be528a4d9cae18e3b402691dc54a4c2241e72827a74bafe422d85cf"
-    sha256 catalina:       "11a339b812d7fa164fce8e873e837d1ab07256e73ce0c4e483eeb60327ef6fa6"
-    sha256 mojave:         "42a8b8f09b9530139c5d9eaf7c83a435962c61631eea00a13bf70a670044c7a2"
-    sha256 high_sierra:    "9b40fc34ba5177765f01bdd821bec40377f44828421509491d90fb7a329ba400"
-    sha256 sierra:         "7e9f2db21d3ceec8ad7d3a59e5bf600d5d145aa0a88f676d803c1feea307f687"
-    sha256 x86_64_linux:   "b2b4a48005426f9dcd13b1594c3ed631b2212ee2448ab511af7bde7a076e0bb1"
+    sha256 arm64_ventura:  "06ea3b5f68d56428232fe118e9acd8991bc874339e4a871cc353090f8fd35279"
+    sha256 arm64_monterey: "1a7055bb3ef5921a9a7879b1d5a6b1c1e208e10e74775118aa266e60fdc1b0b4"
+    sha256 arm64_big_sur:  "da6277844c78cbc85d849be46094d4a67e3ab57cc6bf41d2cb5332a36db0ca7c"
+    sha256 ventura:        "eaac6faf7415659261e938587b564ee5190fe7df96ef1a7b9cd7e946a21a5c63"
+    sha256 monterey:       "5647b6358b2c0c1b95fef613b5dd9818a584b2e127bbd85ee1dd329b698c4ebc"
+    sha256 big_sur:        "d8b97d13db945bc0a2fe883bfa8394c70496f1cdd4bc8624c3fdf43dab824ccd"
+    sha256 x86_64_linux:   "da7275cf3357b6ba3b363fc938f80e4639ebf5e0732b0f5705a1c467093d5567"
   end
 
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "curl"
 
@@ -44,6 +39,11 @@ class CenterIm < Formula
   end
 
   def install
+    # Workaround for Xcode 14.3
+    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version == 1403
+    # Uses `auto` as a variable name.
+    ENV.append "CXXFLAGS", "-std=gnu++03"
+
     # Work around for C++ version header picking up VERSION file on
     # case-insensitive systems. Can be removed on next update.
     (buildpath/"intl/VERSION").unlink if OS.mac?
@@ -51,7 +51,7 @@ class CenterIm < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--disable-msn",
-                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}"
+                          "--with-openssl=#{Formula["openssl@3"].opt_prefix}"
     system "make", "install"
 
     # /bin/gawk does not exist on macOS

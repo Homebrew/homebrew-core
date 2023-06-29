@@ -17,7 +17,7 @@ class Libgaiagraphics < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9b71c3137ca5d17cf2e9196d8d5d08dd3ff0b991efcde56426e81eef48cb954a"
   end
 
-  deprecate! date: "2022-03-05", because: :deprecated_upstream
+  disable! date: "2023-06-19", because: :deprecated_upstream
 
   depends_on "pkg-config" => :build
   depends_on "cairo"

@@ -9,18 +9,17 @@ class OpenaiWhisper < Formula
   head "https://github.com/openai/whisper.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "8e55f29ffb480b3d336c1e0df5677c7c9f9b150356d163104df6714812fac6ba"
-    sha256 cellar: :any,                 arm64_monterey: "346e26316c84235b7e5e0c83d3e88811dc847dda7a533af7e82a20b1050fe0f9"
-    sha256 cellar: :any,                 ventura:        "e11c16308c6ac161369b864b4f8703a1c997cc884b876ef6ef2e7b74dfd5b662"
-    sha256 cellar: :any,                 monterey:       "9a660fc47b0552be99050abcc00016c47dee5f3a25ceb69c4e65806b3b0615e5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e1105584b502ae67f2820492fd402dd10040df9c7db16dd7c90df67273e31036"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_ventura:  "2b50faf647c94306e10382f23edc5e417d1ea2729981adc5794dbeb726e7112c"
+    sha256 cellar: :any,                 arm64_monterey: "e65e96ce611455d093548ebe8470677e9dd5adb7736a670e5658f86a65bc94af"
+    sha256 cellar: :any,                 monterey:       "987fb47740fd27b3501570f99d7f22ce1b5454713d9fbf31ae81c43c0eacfe6b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "71780b5c1f8bed96dd915f1a37434831ecca2ac472a444d79e5a44d716292f71"
   end
 
   depends_on "rust" => :build # for tiktoken
   depends_on "ffmpeg"
   depends_on "huggingface-cli"
   depends_on "llvm@14"
-  depends_on "numpy"
   depends_on "python@3.11"
   depends_on "pytorch"
   depends_on "pyyaml"
@@ -45,8 +44,14 @@ class OpenaiWhisper < Formula
   end
 
   resource "numba" do
-    url "https://files.pythonhosted.org/packages/1c/b4/7fbe9b83c8b6b132527c62f7e97c15fc135a7f0e1c4c73432c2e43e8a5f7/numba-0.57.0rc1.tar.gz"
-    sha256 "3cd0510f3557524010338e65e395eeb035345fa4bf8cd2375023145334ddcf00"
+    url "https://files.pythonhosted.org/packages/f0/51/cc9d67b9357ac04e7c838dfa880acbfee0c15e02ca5a35b3e064a36131f7/numba-0.57.1.tar.gz"
+    sha256 "33c0500170d213e66d90558ad6aca57d3e03e97bb11da82e6d87ab793648cb17"
+  end
+
+  # numba needs to support numpy 1.25, https://github.com/numba/numba/issues/8698
+  resource "numpy" do
+    url "https://files.pythonhosted.org/packages/2c/d4/590ae7df5044465cc9fa2db152ae12468694d62d952b1528ecff328ef7fc/numpy-1.24.3.tar.gz"
+    sha256 "ab344f1bf21f140adab8e47fdbc7c35a477dc01408791f8ba00d018dd0bc5155"
   end
 
   resource "regex" do

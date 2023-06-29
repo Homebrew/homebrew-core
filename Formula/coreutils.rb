@@ -42,7 +42,6 @@ class Coreutils < Formula
   conflicts_with "aardvark_shell_utils", because: "both install `realpath` binaries"
   conflicts_with "b2sum", because: "both install `b2sum` binaries"
   conflicts_with "ganglia", because: "both install `gstat` binaries"
-  conflicts_with "gdu", because: "both install `gdu` binaries"
   conflicts_with "gfold", because: "both install `gfold` binaries"
   conflicts_with "idutils", because: "both install `gid` and `gid.1`"
   conflicts_with "md5sha1sum", because: "both install `md5sum` and `sha1sum` binaries"

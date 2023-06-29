@@ -17,8 +17,8 @@ class Wdc < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "openssl@3" => :build
   depends_on "boost"
-  depends_on "openssl@1.1"
   depends_on "pugixml"
 
   uses_from_macos "curl"
@@ -53,7 +53,6 @@ class Wdc < Formula
       }
     EOS
     pugixml = Formula["pugixml"]
-    openssl = Formula["openssl@1.1"]
     curl_args = ["-lcurl"]
     if OS.linux?
       curl = Formula["curl"]
@@ -62,8 +61,6 @@ class Wdc < Formula
     end
     system ENV.cxx, "test.cpp", "-o", "test", "-std=c++11", "-pthread",
                    "-L#{lib}", "-lwdc", "-I#{include}",
-                   "-L#{openssl.opt_lib}", "-lssl", "-lcrypto",
-                   "-I#{openssl.opt_include}",
                    "-L#{pugixml.opt_lib}", "-lpugixml",
                    "-I#{pugixml.opt_include}",
                    *curl_args

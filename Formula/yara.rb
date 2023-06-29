@@ -1,19 +1,20 @@
 class Yara < Formula
   desc "Malware identification and classification tool"
   homepage "https://github.com/VirusTotal/yara/"
-  url "https://github.com/VirusTotal/yara/archive/refs/tags/v4.3.1.tar.gz"
-  sha256 "f64538279c018bcf7cda368c51b9c660556108ab2e7eb24de043738df2271d92"
+  url "https://github.com/VirusTotal/yara/archive/refs/tags/v4.3.2.tar.gz"
+  sha256 "a9587a813dc00ac8cdcfd6646d7f1c172f730cda8046ce849dfea7d3f6600b15"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/VirusTotal/yara.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "41098827bb8f533733e1b53f3abb7a5adf85d14969dc59f47141099ebd101285"
-    sha256 cellar: :any,                 arm64_monterey: "9f7f659cbc48f2aa5845da712bc46438f2fdfc5cbf48b3677c83a72311464f3c"
-    sha256 cellar: :any,                 arm64_big_sur:  "f1f39e8a513a51f9b033a465c8f4f4773c91e7950a30c051a2fa248a018ae9b8"
-    sha256 cellar: :any,                 ventura:        "577cb028da6f08bd6e166f558100a3c6fad41922103062cfa6c6f3963923e9cc"
-    sha256 cellar: :any,                 monterey:       "9b4dd56c3741b021cd9f2b23b5a8cb5f84893c2cdc38fc3dd0a55a8949ff7ec5"
-    sha256 cellar: :any,                 big_sur:        "e54858cd983f911dcd7b05a63a8ad1613e538e1661f20b8bdf19b010761a6217"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d79d82b783c86bb08ba2ffd83f42e7936256b0f0bd1454b94351941e3d755f79"
+    sha256 cellar: :any,                 arm64_ventura:  "ef3e280e87b7607f3eea94508e8fa9a628009f60676fccdce22340809a70cb36"
+    sha256 cellar: :any,                 arm64_monterey: "3ca150ac17fc10bed27eff89094ec9ebd2e70abed402fc091874f8677e7abff2"
+    sha256 cellar: :any,                 arm64_big_sur:  "02ba0c77f44d762e4fb0fa670549be58a67269eb0af48aa8155e40b8361d40c4"
+    sha256 cellar: :any,                 ventura:        "41bb56c91fb8eaf533d7e8786d95aee23c94f71ae95ef9a241e0e5b87497cba7"
+    sha256 cellar: :any,                 monterey:       "5a1ac4f8d742aa6046755a14a08b57a7c4c1aa1ee2f27127ec45a7aef05ffde6"
+    sha256 cellar: :any,                 big_sur:        "26ede9206b84edfb30d9c0554211e3c683722bd0bb917b639f7a05f652a51104"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "05503944946a647cf21c2c92a9ceaa9e6559e5050773b89146de5c8aaa847105"
   end
 
   depends_on "autoconf" => :build
@@ -22,7 +23,7 @@ class Yara < Formula
   depends_on "pkg-config" => :build
   depends_on "jansson"
   depends_on "libmagic"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "protobuf-c"
 
   def install

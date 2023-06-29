@@ -4,30 +4,26 @@ class Aria2 < Formula
   url "https://github.com/aria2/aria2/releases/download/release-1.36.0/aria2-1.36.0.tar.xz"
   sha256 "58d1e7608c12404f0229a3d9a4953d0d00c18040504498b483305bcb3de907a5"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 arm64_ventura:  "cb572370ae31983f3cb7933f52ac2011c4f2f41858106c9abd1b22c83ba3114a"
-    sha256 arm64_monterey: "b0ec32121f2f4c94afce1cf43101d0441176e4d3de2461160cf220b4c4c2a89f"
-    sha256 arm64_big_sur:  "89db8d96ab739c0ebcc8a800169d7001c18fae4d3fce8217b8ffa5455d1f46cf"
-    sha256 ventura:        "90e6ffc911cf05a056a6a19ac4169cba8f315c6d740ee02892ecb57cbab74ba8"
-    sha256 monterey:       "410b790649fe92ac3c146aa394a6ff1d70411303e68b7c4ff5c5e4ce82435b30"
-    sha256 big_sur:        "cebab5dd720d1b80d429c50b7e84944912a2e2c25f471d6f379fbb5670080026"
-    sha256 catalina:       "2be60bad723be29d33143d487e6bc0c32e0a37de083043bb2fa5c31e586ad37e"
-    sha256 x86_64_linux:   "04dc2fd6656aae3435205cb9c8e4c43c902d02a2e639e61c100c0125e19f62e2"
+    sha256 arm64_ventura:  "731a149db13b22d75a8b83822eabefabe3242208db9e683f5124cdd0d0c72411"
+    sha256 arm64_monterey: "1c89b3ecb3198cb66b0ee42205f237380115ee593c7af6c13d977f79c4c2ba9d"
+    sha256 arm64_big_sur:  "565453d34817d8a867db81957c96bbcc810e3fa3837926aa170ff11f03dfe001"
+    sha256 ventura:        "b81e1f4fd082425ded765ee045a5c398d3fb8dc2ed2419938ce4c6ae2f58e376"
+    sha256 monterey:       "ac0d8d8b627ff85c9aae7b56dc26cde0bae0c5641e4fe6b7381b9205b3e84b6a"
+    sha256 big_sur:        "43bdd51855a48f06ee8d8c891575ca7cf5329147c706a0c8f70db6c6f45680b3"
+    sha256 x86_64_linux:   "2a6786075c3cfb617e3691f193a7a8450b10b211022326b56d0aebc42f44d22f"
   end
 
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "libssh2"
+  depends_on "openssl@3"
   depends_on "sqlite"
 
   uses_from_macos "libxml2"
   uses_from_macos "zlib"
-
-  on_linux do
-    depends_on "openssl@1.1"
-  end
 
   def install
     ENV.cxx11

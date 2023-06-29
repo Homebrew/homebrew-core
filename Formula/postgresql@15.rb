@@ -4,6 +4,7 @@ class PostgresqlAT15 < Formula
   url "https://ftp.postgresql.org/pub/source/v15.3/postgresql-15.3.tar.bz2"
   sha256 "ffc7d4891f00ffbf5c3f4eab7fbbced8460b8c0ee63c5a5167133b9e6599d932"
   license "PostgreSQL"
+  revision 2
 
   livecheck do
     url "https://ftp.postgresql.org/pub/source/"
@@ -11,13 +12,13 @@ class PostgresqlAT15 < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "d33af6bc9aa297bdfb1f95bc82365cc158f1d208ee073ac24e390a0455f29fc3"
-    sha256 arm64_monterey: "781df37962e7ebea079b66dd0560537d946a25605c40bef723a08daf9e58c97b"
-    sha256 arm64_big_sur:  "b4aa1d925e3b711b1b15b716a6eac1cdf7f90691a1aebf1fe7519a047218e4ad"
-    sha256 ventura:        "0e100c9f018727d95d1188387b4b5456562c26466c8a9497f92244a67009653d"
-    sha256 monterey:       "7f8c17922d04ee85bcd038a91de418784e8c217bdd4e0f59c8d75432e0a9d803"
-    sha256 big_sur:        "13f296fb84e4d47de6760f95cf0a2226979c8b532ee97560757c0cecd36b6c97"
-    sha256 x86_64_linux:   "f6a0b3f94b3f4957c33c714b350f42a6f100b1f7ba88abf4381b77a6ad89a342"
+    sha256 arm64_ventura:  "b9da8f2232ce30598a6f48ea2ab04993161dbdf577949496be158ec14b2bbf76"
+    sha256 arm64_monterey: "f9b1414a2d3e40a9aafbaedeaa88a18e0848f1c37698558e4f160c4133d189bf"
+    sha256 arm64_big_sur:  "50eb9b7436b66a2d2827e75422192b4ba72c5ad090413f795be50ecfe41d5d2b"
+    sha256 ventura:        "34a2974dcf3cde79b0e39cb4a536002fc2182dcc94e4e79d69558870ff2e277c"
+    sha256 monterey:       "663c4916d9fb87ad344e8a2f60ff2a1a39f8503e572ad87698028c78fc722f3e"
+    sha256 big_sur:        "7f3afb7d50091950e9ce1599871b92d23d294296bf7f87a2c677d26964786593"
+    sha256 x86_64_linux:   "939eb56654bae7df55af034a981bb91a6019415fde9978924eec8df74153ec99"
   end
 
   keg_only :versioned_formula
@@ -34,7 +35,7 @@ class PostgresqlAT15 < Formula
   depends_on "krb5"
 
   depends_on "lz4"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "readline"
 
   uses_from_macos "libxml2"
@@ -49,8 +50,8 @@ class PostgresqlAT15 < Formula
 
   def install
     ENV.delete "PKG_CONFIG_LIBDIR"
-    ENV.prepend "LDFLAGS", "-L#{Formula["openssl@1.1"].opt_lib} -L#{Formula["readline"].opt_lib}"
-    ENV.prepend "CPPFLAGS", "-I#{Formula["openssl@1.1"].opt_include} -I#{Formula["readline"].opt_include}"
+    ENV.prepend "LDFLAGS", "-L#{Formula["openssl@3"].opt_lib} -L#{Formula["readline"].opt_lib}"
+    ENV.prepend "CPPFLAGS", "-I#{Formula["openssl@3"].opt_include} -I#{Formula["readline"].opt_include}"
 
     # Fix 'libintl.h' file not found for extensions
     ENV.prepend "LDFLAGS", "-L#{Formula["gettext"].opt_lib}"

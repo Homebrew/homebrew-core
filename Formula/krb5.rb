@@ -4,6 +4,7 @@ class Krb5 < Formula
   url "https://kerberos.org/dist/krb5/1.21/krb5-1.21.tar.gz"
   sha256 "69f8aaff85484832df67a4bbacd99b9259bd95aab8c651fbbe65cdc9620ea93b"
   license :cannot_represent
+  revision 1
 
   livecheck do
     url :homepage
@@ -11,18 +12,18 @@ class Krb5 < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "04d9621acc5c85d802c53f99fedc7ee97280a305aa928c03c5d18226a0c94aa7"
-    sha256 arm64_monterey: "2ff7ea53c1536a9d27d12795886f39aa2a2c973a8ddf81124e944b1f3e622f0e"
-    sha256 arm64_big_sur:  "5b1e3938c4adb7cfa0125f9921125231136f950a3ee987c9fb5403c8be6fa10f"
-    sha256 ventura:        "dfc056001cd7d62d3278e27a6912a6925a9b3ff835e4e925a2ec76e5519e6f7f"
-    sha256 monterey:       "2b7d8a77c5648deef7698f566df05fc37c4ad95426a9c2e5ae3e0b2a965791fd"
-    sha256 big_sur:        "8ab26079cf70829a91d9d69d84c847c9a1480022c19dfb68b456e29d00ef2d2c"
-    sha256 x86_64_linux:   "7013912b0901686da682ce541a0f57ef10039919add96e5a0106b9825b5d8fcf"
+    sha256 arm64_ventura:  "e30a7486acd5cabf97978ff19f1b4e96eb22213660327acce2e74f8dd9d0c57d"
+    sha256 arm64_monterey: "6b4885b818ff579345175438fbde3fc405c0fc7dd89a28faf444167634d4236c"
+    sha256 arm64_big_sur:  "80b7d73ae2cf6efa84e4b3b0cbeed44b612e6553f3821c96474a03a71cb98b06"
+    sha256 ventura:        "614ce16b48d832e29bb3bb4c3807f377ff8c8be88dbad5ce6b5f60a983767daa"
+    sha256 monterey:       "0b96bced75f5cfe6ebc4a6da143189c945d09eea433506e6694c6430a7662fc7"
+    sha256 big_sur:        "9f4d2185d1ab6a88483b3611bc1821d2448852127c6e4e5c6c168162c61373da"
+    sha256 x86_64_linux:   "cb324a8c5a6c8f60143a4e24f235c0955183a7262c5a2fc6c08a3a9408645f99"
   end
 
   keg_only :provided_by_macos
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "bison" => :build
   uses_from_macos "libedit"

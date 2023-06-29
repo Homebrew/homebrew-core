@@ -19,6 +19,8 @@ class Tth < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c446bed3720c8c0492ecf875b8b14069e32d593b887ba5ccd956dc604e4a913e"
   end
 
+  deprecate! date: "2023-06-26", because: :repo_removed
+
   def install
     system ENV.cc, "-o", "tth", "tth.c"
     bin.install %w[tth latex2gif ps2gif ps2png]

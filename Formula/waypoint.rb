@@ -1,19 +1,19 @@
 class Waypoint < Formula
   desc "Tool to build, deploy, and release any application on any platform"
   homepage "https://www.waypointproject.io/"
-  url "https://github.com/hashicorp/waypoint/archive/v0.11.1.tar.gz"
-  sha256 "8615d9333f9ee3c94a55d2594deac7a9c9fa4fb44cf83540be190a17eda19a5a"
+  url "https://github.com/hashicorp/waypoint/archive/v0.11.2.tar.gz"
+  sha256 "45d38bf222ed7d3b1e5eba4499e2513b6d04e4b26cb77acd1272f4258e1a9822"
   license "MPL-2.0"
   head "https://github.com/hashicorp/waypoint.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "379ba729215bafe99e7199b7900ede5d287614f8d01538a734e3da503365991d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1f5003ee88a79966b22591c3bfd498abe6f24f88f8c52e5a6562bfdd915ff157"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "850d7779f3615fc6e31a82268a5cc8b1d4ffc67ca51224c87f2e1ef5c6dba84a"
-    sha256 cellar: :any_skip_relocation, ventura:        "5649310b049310cd18b61cf23711a5b428fb91d2bfa0de737ecd2f80cfc296f0"
-    sha256 cellar: :any_skip_relocation, monterey:       "33c3c003811440075d9754e8952511abeb33990981606625bd41d28845c07bf3"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a5396553fca6f28614ca1c792743ef28b363139f936add38e5097913e2e990d7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8a720cf9fc7700031bc47dec592cc9e3a6942bfd72274e7d0bb0bc33f2ce5a78"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "14c2dcddba43df4295c626ad709e5b6de24dc5b6ea90523b75f6129bd4dde84b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "25094deb76ef254ae10c092d96fae4f8a3a86a1aa2497082a05d9cecae4e2051"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6c5fb972d0b988b2bfa0ca3a496ce4241d3d93971c2b4a912a7ca0ccada6d975"
+    sha256 cellar: :any_skip_relocation, ventura:        "252e6ca4c272088507ebe8a74de249514a7941af4b59f2df995c6e2f1e85b2be"
+    sha256 cellar: :any_skip_relocation, monterey:       "c899199d5a7c1220ea793d1e9b50ce6ad5735bd4875fd8f50b0ff6b11ccb3b3c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "30fb65f8ef33bb2d303e235e084c149efcf2e5a775e7378419fc4761c0ce153e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ea3d5e916168a4be9341a2c098cd00d75997b5fe746d5e41e4d2ae542bf272ea"
   end
 
   depends_on "go" => :build

@@ -6,6 +6,7 @@ class Osc < Formula
   url "https://github.com/openSUSE/osc/archive/1.1.4.tar.gz"
   sha256 "8407ccdcaa6089601e3b9f42c03c015d938ba756b1553f65e2eb122ff00b83e5"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/openSUSE/osc.git", branch: "master"
 
   livecheck do
@@ -14,28 +15,28 @@ class Osc < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "a29dcae921021ebf9ca73382c82ab3e96d9bdb5ffac01c1aa22c791f7857871c"
-    sha256 cellar: :any,                 arm64_monterey: "034d31db53d2019a38bfff6731335e0fbab6faa37f0b1080d29dbda8a0e27ad8"
-    sha256 cellar: :any,                 arm64_big_sur:  "45ab47113b9a0f4a109ca20d2d98712eeb10baec2e16dfc460391df7e654b8ca"
-    sha256 cellar: :any,                 ventura:        "91129a29427f6369753195ea08c28ab1ff7a9c70e1482cf9794a81cb2511b054"
-    sha256 cellar: :any,                 monterey:       "07e5b8bb2faa604502cb536bfacbda1de79f34f978a6ba6e8d6a3c5616658c60"
-    sha256 cellar: :any,                 big_sur:        "81d59e925f84e1becb59fb220f21a62adf4d9c11dbb4cefc4d8cb77ac213216c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cd06377a65518600dc3d97468c1405134d08adecfe68ce083b3011bc713609b9"
+    sha256 cellar: :any,                 arm64_ventura:  "17972241c9dbd00b619bbc0e0e595525b30b170f653a4b8dc43d4ff5e38672cb"
+    sha256 cellar: :any,                 arm64_monterey: "b4f05310448c2be7183062ee6d174924ca3fd8ebf0bafbef8dd04ce9488a3cb9"
+    sha256 cellar: :any,                 arm64_big_sur:  "8f8c7cb826990dbb63ec67ea4243243928618e7f0cb43605163ead667131dcf6"
+    sha256 cellar: :any,                 ventura:        "f9d5ac6c9d0f8f76a00c292d170b8b3c3a8e2489fed95263630a9950d5d044f2"
+    sha256 cellar: :any,                 monterey:       "ef31f868a24ae2c9b20879693782af599d81bcbf461949f2d9e3fb44332c2895"
+    sha256 cellar: :any,                 big_sur:        "76c7326b5cec95c1b94349a997a350c45bc503afa1d68c25330bb46d3aee91b6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8ea82dec671ead769b0f867cab239a6ace5d0b5fde31ffb0f1ef17a785b8ca90"
   end
 
   # `pkg-config` and `rust` are for cryptography.
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "cffi"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pycparser"
   depends_on "python@3.11"
 
   uses_from_macos "curl"
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/f7/80/04cc7637238b78f8e7354900817135c5a23cf66dfb3f3a216c6d630d6833/cryptography-40.0.2.tar.gz"
-    sha256 "c33c0d32b8594fa647d2e01dbccc303478e16fdd7cf98652d5b3ed11aa5e5c99"
+    url "https://files.pythonhosted.org/packages/19/8c/47f061de65d1571210dc46436c14a0a4c260fd0f3eaf61ce9b9d445ce12f/cryptography-41.0.1.tar.gz"
+    sha256 "d34579085401d3f49762d2f7d6634d6b6c2ae1242202e860f4d26b046e3a1006"
   end
 
   resource "rpm" do
@@ -44,13 +45,13 @@ class Osc < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/fb/c0/1abba1a1233b81cf2e36f56e05194f5e8a0cec8c03c244cab56cc9dfb5bd/urllib3-2.0.2.tar.gz"
-    sha256 "61717a1095d7e155cdb737ac7bb2f4324a858a1e2e6466f6d03ff630ca68d3cc"
+    url "https://files.pythonhosted.org/packages/d6/af/3b4cfedd46b3addab52e84a71ab26518272c23c77116de3c61ead54af903/urllib3-2.0.3.tar.gz"
+    sha256 "bee28b5e56addb8226c96f7f13ac28cb4c301dd5ea8a6ca179c0b9835e032825"
   end
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.
-    ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
+    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
     ENV["OPENSSL_NO_VENDOR"] = "1"
 
     virtualenv_install_with_resources

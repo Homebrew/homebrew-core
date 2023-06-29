@@ -6,18 +6,17 @@ class AwsGoogleAuth < Formula
   url "https://files.pythonhosted.org/packages/32/4c/3a1dd1781c9d3bb4a85921b3d3e6e32fc0f0bad61ace6a8e1bd1a59c5ba0/aws-google-auth-0.0.38.tar.gz"
   sha256 "7a044636df2f0ce6ceb01f8f57aba0b6a79ae58a91bef788b0ccc6474914e8ee"
   license "MIT"
-  revision 3
+  revision 4
   head "https://github.com/cevoaustralia/aws-google-auth.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4a57e84d164567249462d38bc2876d86de6022cccedd3cbc66c3c56da9a25bfc"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4cb230c70cb80d52f441445dd39e609f9d8ad10f06781c08e9201d1b248217b7"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6a23c5acd401df154c25067e703156afce103af99101fcb8fab5086a504fc52b"
-    sha256 cellar: :any_skip_relocation, ventura:        "ef1a8770c8e0445a51e8ad4906ff36bc2f3d392111b4151c4cb3c453050f61d3"
-    sha256 cellar: :any_skip_relocation, monterey:       "9c6045e2dcdd3c0f8d208476885afaa69763fb3c6d297c5af89f7f3f9ab94e4d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6606327698855833d76d940c5d5d36fe34d0c1f4d2bcdd6d839283ba311429a9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "133ef37f65ccbf69b81707978543b3fd7aad737eafa621d203dc2f895aaff684"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "34413548ad5d570a871e1d12d94e49dbb49d6681a1fc20daa081bccc2ef848bd"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "366bb95814b9608b6b454e09fe54064fd9ab121baabdc6c7ba5559a6472e3c36"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9a4f565eae729973c7c5a97eb91ea051d750aef07a09a9db692082ce67b93987"
+    sha256 cellar: :any_skip_relocation, ventura:        "d4a9c13151b1abfee6538980113f0dc36f503a71d92675d998809f37f802f853"
+    sha256 cellar: :any_skip_relocation, monterey:       "8034d83475a1a551871860c714701bd1ae40524c074ac813b325b8237a7daae4"
+    sha256 cellar: :any_skip_relocation, big_sur:        "3e81834950fc6bcd362ca70c4e91cdb92592fe2d699ee6c84a4d24c0ac5d3056"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "50a828c09b42a602e7c3988c07d6c5c40e3bc2043b9b37ba0885c0f641b0cc8a"
   end
 
   depends_on "pillow"
@@ -32,6 +31,8 @@ class AwsGoogleAuth < Formula
   on_linux do
     depends_on "pkg-config" => :build
     depends_on "rust" => :build
+    depends_on "cffi"
+    depends_on "openssl@3"
   end
 
   resource "beautifulsoup4" do
@@ -142,20 +143,6 @@ class AwsGoogleAuth < Formula
   resource "zipp" do
     url "https://files.pythonhosted.org/packages/00/27/f0ac6b846684cecce1ee93d32450c45ab607f65c2e0255f0092032d91f07/zipp-3.15.0.tar.gz"
     sha256 "112929ad649da941c23de50f356a2b5570c954b65150642bccdd66bf194d224b"
-  end
-
-  resource "pycparser" do
-    on_linux do
-      url "https://files.pythonhosted.org/packages/5e/0b/95d387f5f4433cb0f53ff7ad859bd2c6051051cebbb564f139a999ab46de/pycparser-2.21.tar.gz"
-      sha256 "e644fdec12f7872f86c58ff790da456218b10f863970249516d60a5eaca77206"
-    end
-  end
-
-  resource "cffi" do
-    on_linux do
-      url "https://files.pythonhosted.org/packages/2b/a8/050ab4f0c3d4c1b8aaa805f70e26e84d0e27004907c5b8ecc1d31815f92a/cffi-1.15.1.tar.gz"
-      sha256 "d400bfb9a37b1351253cb402671cea7e89bdecc294e8016a707f6d1d8ac934f9"
-    end
   end
 
   resource "cryptography" do

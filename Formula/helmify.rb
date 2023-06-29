@@ -2,19 +2,19 @@ class Helmify < Formula
   desc "Create Helm chart from Kubernetes yaml"
   homepage "https://github.com/arttor/helmify"
   url "https://github.com/arttor/helmify.git",
-      tag:      "v0.4.3",
-      revision: "03f8524d60a2517902506646d07cf2acac2dfa3a"
+      tag:      "v0.4.4",
+      revision: "de2e663fe7146cbb41fb2d80a610805368d5ba00"
   license "MIT"
   head "https://github.com/arttor/helmify.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5e224ce66d9e1f35e8771d55aec732dfe4279d56289d6503a47d536e014d2884"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5e224ce66d9e1f35e8771d55aec732dfe4279d56289d6503a47d536e014d2884"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5e224ce66d9e1f35e8771d55aec732dfe4279d56289d6503a47d536e014d2884"
-    sha256 cellar: :any_skip_relocation, ventura:        "b5afe24eb93d1acc3bd5a65b46ef177808d4376b8040ae5ed154441ca7b336a6"
-    sha256 cellar: :any_skip_relocation, monterey:       "b5afe24eb93d1acc3bd5a65b46ef177808d4376b8040ae5ed154441ca7b336a6"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b5afe24eb93d1acc3bd5a65b46ef177808d4376b8040ae5ed154441ca7b336a6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0737e86ad4b413661d076554039f9f64d2575feb0cadea2ff88265eaa313991f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9f7df6d49acacd74789b9b3e4fa6e789c7868274cb5cb7612bfe8fbb5438b3c7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9f7df6d49acacd74789b9b3e4fa6e789c7868274cb5cb7612bfe8fbb5438b3c7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9f7df6d49acacd74789b9b3e4fa6e789c7868274cb5cb7612bfe8fbb5438b3c7"
+    sha256 cellar: :any_skip_relocation, ventura:        "e711f0b0cc89ab7a41d1d1703803192b4af65543d47a345363801b3a39af4c43"
+    sha256 cellar: :any_skip_relocation, monterey:       "e711f0b0cc89ab7a41d1d1703803192b4af65543d47a345363801b3a39af4c43"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e711f0b0cc89ab7a41d1d1703803192b4af65543d47a345363801b3a39af4c43"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a4cfc02a3a4e7a4fc211764574d571d2d99a418bf7f63ed67416d7a54d0faed7"
   end
 
   depends_on "go" => :build

@@ -1,12 +1,9 @@
 class Cadaver < Formula
   desc "Command-line client for DAV"
-  homepage "https://directory.fsf.org/wiki/Cadaver"
-  url "https://mirrorservice.org/sites/download.salixos.org/i486/extra-14.2/source/network/cadaver/cadaver-0.23.3.tar.gz"
-  mirror "https://src.fedoraproject.org/repo/pkgs/cadaver/cadaver-0.23.3.tar.gz/502ecd601e467f8b16056d2acca39a6f/cadaver-0.23.3.tar.gz"
-  mirror "https://web.archive.org/web/20170629224036/www.webdav.org/cadaver/cadaver-0.23.3.tar.gz"
-  sha256 "fd4ce68a3230ba459a92bcb747fc6afa91e46d803c1d5ffe964b661793c13fca"
-  license "GPL-2.0-or-later"
-  revision 5
+  homepage "https://notroj.github.io/cadaver/"
+  url "https://notroj.github.io/cadaver/cadaver-0.24.tar.gz"
+  sha256 "46cff2f3ebd32cd32836812ca47bcc75353fc2be757f093da88c0dd8f10fd5f6"
+  license "GPL-2.0-only"
   head "https://github.com/notroj/cadaver.git", branch: "master"
 
   livecheck do
@@ -15,33 +12,27 @@ class Cadaver < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_ventura:  "f31ec5eb5056e09d4b8a22a2323fb2bbe3c8c15ea89be69429382c00ec534d3c"
-    sha256 arm64_monterey: "4ffec4d1167cb17f80cb63c4142909b6f208cc653518cee7f46fb7c1f270e192"
-    sha256 arm64_big_sur:  "859215276f7fda671ceee3b7908772d84fccd12873e6bb6cac0f90c50982cbcc"
-    sha256 ventura:        "276617de9ff7b225421e56658cba86766a180a42f6458586b7e0903be7945c2e"
-    sha256 monterey:       "72eea3f287da7f77740b72db463cdf967c355a4044d0730150d637145d6be312"
-    sha256 big_sur:        "240a41ea5b71aa144bea0fdb28b6233130d5368e8a221171eaa7bee24f5075a6"
-    sha256 catalina:       "da94dea10afd90e1d0e41f24d4319ea006bf909381de2c2379c3144374c3feff"
-    sha256 mojave:         "a232491b47135718f6cf65d00954099d92a43f5fcc6b01838a676faa77f2ed13"
-    sha256 x86_64_linux:   "03a8734a293f551585c100ce10389aa2a66222ab711d9c80b7300d139eb8546b"
+    sha256 cellar: :any,                 arm64_ventura:  "c48264ae39d915f8cdb905a8b8807d39205edc892f40163cfc07d09ed8f7be75"
+    sha256 cellar: :any,                 arm64_monterey: "7b80acb805a75e568a23999803cba218418d30fcf686e81226b8922adad0d4be"
+    sha256 cellar: :any,                 arm64_big_sur:  "42fd4197b8eb2bc2e6d6dc3dd0864c497c697bcc497fd4e5994f7a55880f7629"
+    sha256 cellar: :any,                 ventura:        "69364af64cd35d26b327788d6a6851f3bef4adccb62a4ee2de0b2925f2fd03c9"
+    sha256 cellar: :any,                 monterey:       "43eab9ac0dcb4d73e38f20d79989613b30f075af20b2496728362c82a37c82c0"
+    sha256 cellar: :any,                 big_sur:        "d10e0968b5b4402e13db9871b9e26d34fd923f926e1f3d6cd89342dd9ca32fe4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b1833b0bdb9598c89320a80dd6c92137c2b3dacae8622e60b60782883d031d32"
   end
 
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "neon"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "readline"
 
-  # enable build with the latest neon
-  patch :DATA
-
   def install
-    system "./configure", "--prefix=#{prefix}",
+    system "./configure", *std_configure_args,
                           "--with-ssl=openssl",
-                          "--with-libs=#{Formula["openssl@1.1"].opt_prefix}",
+                          "--with-libs=#{Formula["openssl@3"].opt_prefix}",
                           "--with-neon=#{Formula["neon"].opt_prefix}"
-    system "make", "-C", "lib/intl"
+    system "make"
     system "make", "install"
   end
 
@@ -49,27 +40,3 @@ class Cadaver < Formula
     assert_match "cadaver #{version}", shell_output("#{bin}/cadaver -V", 255)
   end
 end
-
-__END__
---- cadaver-0.23.3-orig/configure	2009-12-16 01:36:26.000000000 +0300
-+++ cadaver-0.23.3/configure	2013-11-04 22:44:00.000000000 +0400
-@@ -10328,7 +10328,7 @@
- $as_echo "$ne_cv_lib_neon" >&6; }
-     if test "$ne_cv_lib_neon" = "yes"; then
-        ne_cv_lib_neonver=no
--       for v in 27 28 29; do
-+       for v in 27 28 29 30 31 32; do
-           case $ne_libver in
-           0.$v.*) ne_cv_lib_neonver=yes ;;
-           esac
-@@ -10975,8 +10975,8 @@
-     fi
- 
- else
--    { $as_echo "$as_me:$LINENO: incompatible neon library version $ne_libver: wanted 0.27 28 29" >&5
--$as_echo "$as_me: incompatible neon library version $ne_libver: wanted 0.27 28 29" >&6;}
-+    { $as_echo "$as_me:$LINENO: incompatible neon library version $ne_libver: wanted 0.27 28 29 30 31 32" >&5
-+$as_echo "$as_me: incompatible neon library version $ne_libver: wanted 0.27 28 29 30 31 32" >&6;}
-     neon_got_library=no
- fi
- 

@@ -6,6 +6,7 @@ class Php < Formula
   mirror "https://fossies.org/linux/www/php-8.2.7.tar.xz"
   sha256 "4b9fb3dcd7184fe7582d7e44544ec7c5153852a2528de3b6754791258ffbdfa0"
   license "PHP-3.01"
+  revision 2
 
   livecheck do
     url "https://www.php.net/downloads"
@@ -13,13 +14,13 @@ class Php < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "eac9104f863f59b95dc6755d46c80f4f48c472ded231d1d7d81bbff691af7c9f"
-    sha256 arm64_monterey: "29ceac4cd267ae3153921ed2dbdab6521e90eef994504ad6ebbe46873a145231"
-    sha256 arm64_big_sur:  "9ee6e1d1ca6ce319c2dbf7e89e6c607caa858eb8b254ebe215887a7f7d7f3f6c"
-    sha256 ventura:        "69bb8bc439fc8f0d0967b8d1f8031a877320e0c4eac087b9d979a47245ba111d"
-    sha256 monterey:       "a81046127c35541eaf35f2cdcb6a465620562080516dd340521dfba0c4057fd0"
-    sha256 big_sur:        "f0de71362d28a70f7562db633b82f7e2bce887ff7a55226b78ef6a4ffb59f62b"
-    sha256 x86_64_linux:   "ac5a90d549a84eb67f3a3854a81c94ab129f7b7f181915cff11704b189dfc5a1"
+    sha256 arm64_ventura:  "e20d8d88cf40dee639fb5068d8add9d6abca9e8205c952c5c0b92f0ed3818f71"
+    sha256 arm64_monterey: "5ee84f90e12d24437ed29b3d9b4522c82e1eb73bd7ba8461f7a509f13cc5eed9"
+    sha256 arm64_big_sur:  "1ddb210121d2d8539d2dfe33fb4d2281ef42171a129e21ccf7345b0aa67a5796"
+    sha256 ventura:        "23793016aca7314c3977017898fb6a9b6c894353d7582c0c3d4b5a708678de00"
+    sha256 monterey:       "b18b974b9d176ef27927bc3beab51c46320c092d46db01ea5b86dba011f5693c"
+    sha256 big_sur:        "584c1602fd928008dbdf5d99351b4fff8aac8c24169761712e9927fc4ce2a896"
+    sha256 x86_64_linux:   "cb3c7dec8605ba28967e7d019633ba5fd032964332f75ff35fd43fb26d85ac14"
   end
 
   head do
@@ -48,7 +49,7 @@ class Php < Formula
   depends_on "libzip"
   depends_on "oniguruma"
   depends_on "openldap"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pcre2"
   depends_on "sqlite"
   depends_on "tidy-html5"
@@ -211,7 +212,7 @@ class Php < Formula
     end
 
     # Use OpenSSL cert bundle
-    openssl = Formula["openssl@1.1"]
+    openssl = Formula["openssl@3"]
     %w[development production].each do |mode|
       inreplace "php.ini-#{mode}", /; ?openssl\.cafile=/,
         "openssl.cafile = \"#{openssl.pkgetc}/cert.pem\""

@@ -18,7 +18,7 @@ class Fargatecli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6878839aa708ebabc144e18b0b77f0d1e7754eeaad8634741338fa2c921c6de0"
   end
 
-  deprecate! date: "2022-03-16", because: :unsupported
+  disable! date: "2023-06-19", because: :unsupported
 
   depends_on "go@1.17" => :build
 

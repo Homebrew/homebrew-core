@@ -1,19 +1,19 @@
 class Pueue < Formula
   desc "Command-line tool for managing long-running shell commands"
   homepage "https://github.com/Nukesor/pueue"
-  url "https://github.com/Nukesor/pueue/archive/v3.1.2.tar.gz"
-  sha256 "653eac9b7fc111cc4b9bddacbbf514932a8d273a059b20b1cc66af74e500eb5e"
+  url "https://github.com/Nukesor/pueue/archive/v3.2.0.tar.gz"
+  sha256 "0c3126579661f894fb02a0d8c0e138ab23b277e97cea2d85e48d3d2b9fb1c372"
   license "MIT"
   head "https://github.com/Nukesor/pueue.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3b146c279514a18330872212302d773470987a00383dd7239cf60f750c9bd157"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2331274bfefbfcaf6dbd3af496190c8786cea160a45bb0ec5edfb737fe19a48b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b081160d0afec619c665538b6346025f81871bbff8e8061e74a1a5e68de5f60a"
-    sha256 cellar: :any_skip_relocation, ventura:        "0b0ba43fe613ce279cd8ae1e729b97b6593be82027b5d1d9f9a4e702edaeef14"
-    sha256 cellar: :any_skip_relocation, monterey:       "424dd3a80516e6f4677570b123f1ff75d3cd0761475417b954e28969c0a79db2"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d0d3b7bb8ef35e559eff43ba45ca77e6aa2239b434200dfd94680e8be6c48c62"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9cc8f5696d76226da75ba317edbfa7d3aef1aac9d1c3f33eab6d06ce95a13cd0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d612702eaf7cc670053c14af44e74ca539a94dbdef270baf7b28542666a8549d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6cfffb4cf17d5617281a587028b66e405706f823a285de215065115d79b948cd"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "26804d5d570fd4c44b7c998bca31596ea66a06395c3c36524e241d6d744765c1"
+    sha256 cellar: :any_skip_relocation, ventura:        "cf1b43118a462384d3183faf04c6d36f83f672f4b976a28c1d77f69ce565df6e"
+    sha256 cellar: :any_skip_relocation, monterey:       "2fdf39cab40d98865c4ae01985393f5107d784e87be606057ca1b4bc461150dd"
+    sha256 cellar: :any_skip_relocation, big_sur:        "eb9b4ffa5ac44581147f51586601cb1da7214c48cdbcd810b0973ee905d0cc92"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5385b14fb0da4505c8a30586b7171421c7949442b4043472cba5ab14c16f991f"
   end
 
   depends_on "rust" => :build
@@ -63,7 +63,7 @@ class Pueue < Formula
       Process.kill("TERM", pid)
     end
 
-    assert_match "Pueue daemon #{version}", shell_output("#{bin}/pueued --version")
-    assert_match "Pueue client #{version}", shell_output("#{bin}/pueue --version")
+    assert_match "pueued #{version}", shell_output("#{bin}/pueued --version")
+    assert_match "pueue #{version}", shell_output("#{bin}/pueue --version")
   end
 end

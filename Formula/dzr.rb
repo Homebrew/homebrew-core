@@ -13,7 +13,6 @@ class Dzr < Formula
   depends_on "dialog"
   depends_on "jq"
   depends_on "mpv"
-  depends_on "openssl@1.1" # to match curl one
   uses_from_macos "curl"
 
   def install

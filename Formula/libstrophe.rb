@@ -4,24 +4,24 @@ class Libstrophe < Formula
   url "https://github.com/strophe/libstrophe/archive/0.12.2.tar.gz"
   sha256 "049232e3968ad65c65e08601cb3de171d3a25d154b6f14332c35a7bf961e2c9d"
   license all_of: ["GPL-3.0-only", "MIT"]
+  revision 1
   head "https://github.com/strophe/libstrophe.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "f9ae71b8f0ae88f3de87811b61d325ba1a986c1ceaceaf891fd47e3c71f1c164"
-    sha256 cellar: :any,                 arm64_monterey: "da9690a4006d8011fffc155eda0e6860f2c76296b24ffcebf99bda9005d901f7"
-    sha256 cellar: :any,                 arm64_big_sur:  "7898879a8407daf35cebacaee1f9bd9a282596bdf5497f49dc25f8211d9afa66"
-    sha256 cellar: :any,                 ventura:        "471537873386ed1e4a6df9f37eb6040d6ab7a113f4aa27a11580058d099ec9bc"
-    sha256 cellar: :any,                 monterey:       "4be10d525522a176fdc10d37c4206eef981ecd326c4717ac43e929a0ecdbe99c"
-    sha256 cellar: :any,                 big_sur:        "7da045515977c9457f38384687bc1e3a0b271b228aa8f5f5dc737dc42aea46fa"
-    sha256 cellar: :any,                 catalina:       "a6bb42211705f771de89f0f89d007eeaabb7aa61bd41650b5e40f6add8f43027"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a2bc04a0aa1e2189519bd9d9b6840dc2c22176106984f60d1a0dfae5cfe4160d"
+    sha256 cellar: :any,                 arm64_ventura:  "a2e4f7481a6fee674b2cd5d74c6d2fb1848b222106d59b56ac78bc88564e1d86"
+    sha256 cellar: :any,                 arm64_monterey: "1091f61c3ad62fa4aebfb5658c5b9dcab1913d5c09514ecaef3477f4cd100d5a"
+    sha256 cellar: :any,                 arm64_big_sur:  "5d0f77a6228c90b8740956c2f203293b0c1fb102676b2ef38b4dbae02f7c9795"
+    sha256 cellar: :any,                 ventura:        "30c016a5fe015f25f60524d42ee6ef9630991f2baa1009d156ac2627b446d8fe"
+    sha256 cellar: :any,                 monterey:       "b1163cbab169374c58ad0ff39796911c85dcb5b666681401afde209e9c72dd5e"
+    sha256 cellar: :any,                 big_sur:        "d128f84cac8858210c28e52deef8eaf0f06a47e22617d2c521c573205269316e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8ea4cff76b0c850862b56afc610d3721fbb3464e998652ac6689ec01148cc225"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "expat"
   uses_from_macos "libxml2"

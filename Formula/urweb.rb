@@ -4,16 +4,16 @@ class Urweb < Formula
   url "https://github.com/urweb/urweb/releases/download/20200209/urweb-20200209.tar.gz"
   sha256 "ac3010c57f8d90f09f49dfcd6b2dc4d5da1cdbb41cbf12cb386e96e93ae30662"
   license "BSD-3-Clause"
-  revision 7
+  revision 8
 
   bottle do
-    sha256 arm64_ventura:  "82e320ad81556f0dbacdd1c4b6f0e5889916a007999e321ed14bae4229c0223f"
-    sha256 arm64_monterey: "c61ed88655ea20cd8ba60360a6714f7c6e1a0c3545d7db09795ed4518e81e98d"
-    sha256 arm64_big_sur:  "694565c03481269805e258f66a627c4a9f44edeb4c5a76dd0c287d98d1032b65"
-    sha256 ventura:        "98cf98bfe452be1eb929cf3777fb9f5d8ad55078795f1f3b0ab2495bc29fdc7c"
-    sha256 monterey:       "acab43be30ea6fd2cd2c54df953a58b867ad727fb75212b24be1d00642d7ae61"
-    sha256 big_sur:        "d94f93d07f4c8c0ec50fd312b068b35f559f1deb381b8e5bf0c50a05dbfc1908"
-    sha256 x86_64_linux:   "4a5c86f665bfc69b300959de3c6e7fcd57316489659020c861c56542ce484de1"
+    sha256 arm64_ventura:  "f357cdf31351b0fc786625edd3eaa79479d84b804dd88e457f26973c5a393a8f"
+    sha256 arm64_monterey: "9f265070a97162748e9a31b24d5b00fc98addeae4b43f4adc2f439e9d008af92"
+    sha256 arm64_big_sur:  "cfd07853704d8ae2dc9c7a484ca35703b337adb71e0aaf24cd9e4d5ebea3fb91"
+    sha256 ventura:        "aed8a3f4c7dde5770c52add44e411e91b1b3c0971cda9ecb88ce41cccb0ce079"
+    sha256 monterey:       "1e5c0ddb80231c37f7c2543caa3b817877e6bacece964669e5de73e7d03d4969"
+    sha256 big_sur:        "df61314f1285c3614690eef04aa483981278c7519efad267ad4032978d6f5ff9"
+    sha256 x86_64_linux:   "71ea50d73c6a06d67bf9500d0c8bc55fc5a3db67fdf5a9a72997e3b7f86fa2ce"
   end
 
   depends_on "autoconf" => :build

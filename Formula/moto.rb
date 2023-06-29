@@ -3,27 +3,28 @@ class Moto < Formula
 
   desc "Mock AWS services"
   homepage "http://getmoto.org/"
-  url "https://files.pythonhosted.org/packages/59/a4/94e5f7d521bfe916361dfa4a738b40fb496f7cc1f3f8531fc2ee93cd01a5/moto-4.1.11.tar.gz"
-  sha256 "f3e966ba1460751e19eab5356545813b29c05478b47eb0da445d688949339be2"
+  url "https://files.pythonhosted.org/packages/2b/6b/85f00b5da885b6ca023868a420062c46fef0dc31e971f4bfe0cf9572e32a/moto-4.1.12.tar.gz"
+  sha256 "25577e4cf55f05235f4efe78bcfeb5a7704fb75c16b426a5de2fc1e6b7b8545b"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "88c3ebb08dfcab8e05495daa801b50ded40534eaf6c420877bf1fd8b07deb9c9"
-    sha256 cellar: :any,                 arm64_monterey: "fd1ee20d90fd9bc16b175c20d0fd324fdf0158a9ff54887bec5dfcdc6f1bb655"
-    sha256 cellar: :any,                 arm64_big_sur:  "ef7d4ec52d52628d7dee446b09938216dce7107bf2f5cb721c91c412b9e018f0"
-    sha256 cellar: :any,                 ventura:        "81fa49b06bd2abf728cf804264d9e8f44be43ab98202e91f2c06f1fb7672b8d7"
-    sha256 cellar: :any,                 monterey:       "5b4d6bcc0ed38b9e99bcb8f4941d834f1a6f933348f42d45da1c5417b556d814"
-    sha256 cellar: :any,                 big_sur:        "a575b62239889c9fffdc7b2a85f29eb4266da655a70ff2b9a2b7c784aa075dba"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "81606aa920cabfc0063e5fcdd75b671fd06a8d50cb7adc88965e3813b9d819a4"
+    sha256 cellar: :any,                 arm64_ventura:  "be0047f86ddba9fc61a504063e260399bc9c369a2764a106d81a9e5207a1f294"
+    sha256 cellar: :any,                 arm64_monterey: "f8f477363b39275bba945d867e51b7bf52999a8c29828d20752f802aede86276"
+    sha256 cellar: :any,                 arm64_big_sur:  "d1c6415b898ed32b370b57b2befd5857184e10e6cb8c7ba779bb50ecd9adad75"
+    sha256 cellar: :any,                 ventura:        "a6324510a45765d2e2b28f11c977b17dbf6e70eacdc7ac8e4397a91680f8acb7"
+    sha256 cellar: :any,                 monterey:       "49715d4c34a5ccca6867d1e44311190c75a2be1bb4fa0535c54ed32d413bb89f"
+    sha256 cellar: :any,                 big_sur:        "9cb19077d1fb009afd03b4b42f1e1632c726db99faa323177709ea619b733f94"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "636c2cf49cacbefb2430c063a9e77e1f25c44e2d6bfe66af87899e1c3899203b"
   end
 
-  # `pkg-config`, `rust`, and `openssl@1.1` are for cryptography.
+  # `pkg-config`, `rust`, and `openssl@3` are for cryptography.
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
 
   depends_on "cffi"
   depends_on "cfn-lint"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pycparser"
   depends_on "python-typing-extensions"
   depends_on "python@3.11"
@@ -36,8 +37,8 @@ class Moto < Formula
   end
 
   resource "aws-sam-translator" do
-    url "https://files.pythonhosted.org/packages/43/a8/875568f33b41a461927f5e12b0a366d5155c202f0d3f7645b82a176e3221/aws-sam-translator-1.68.0.tar.gz"
-    sha256 "d12a7bb3909142d32458f76818cb96a5ebc5f50fbd5943301d552679a893afcc"
+    url "https://files.pythonhosted.org/packages/c2/c1/b5fbee830ab33a89422bb2f5b941318947ea31b178a31dce2fef4a41a5e8/aws-sam-translator-1.70.0.tar.gz"
+    sha256 "753288eda07b057e5350773b7617076962b59404d49cd05e2259ac96a7694436"
   end
 
   resource "aws-xray-sdk" do
@@ -51,13 +52,13 @@ class Moto < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/6f/d9/7fffa68720d8d1a255fc8a8635d9d5a7673ffc7ab6fabdc4f7f023f78c10/boto3-1.26.146.tar.gz"
-    sha256 "3d7f1b43d2e5a10ee29d4940e714d72a2f6f1a6f6ba856c82ba9328d83062605"
+    url "https://files.pythonhosted.org/packages/e7/d7/f1be1f98c6b983febb37916837086b5a40a9accb6aa517cc6a196ff15e85/boto3-1.26.160.tar.gz"
+    sha256 "5218869eddeeb70efead1dd01037c3553dc7b268de3b80a0c3a2baeec2b97fc9"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/61/6f/f124fbf71d9a327bf1abbca92b7809010224a381fb740226477bac7d6c88/botocore-1.29.146.tar.gz"
-    sha256 "77f7793cb36074eb84d606a23ad6e1d57c20f7a2eeab7d9136d3e63c584e0504"
+    url "https://files.pythonhosted.org/packages/f2/fe/8c5a585898af94e8a7aacb7cbebd41212e0cd85d0eb02bb153f8cc961e5d/botocore-1.29.160.tar.gz"
+    sha256 "dacf41787978c0d550321d334e0001a488145200f8a6c9bd893fb8e281b25cf7"
   end
 
   resource "certifi" do
@@ -156,8 +157,8 @@ class Moto < Formula
   end
 
   resource "jsonschema-spec" do
-    url "https://files.pythonhosted.org/packages/e9/02/7f9a208cde31dfc728f02b4bb5210944fed6dae68d8b6872eacef10ac363/jsonschema_spec-0.1.4.tar.gz"
-    sha256 "824c743197bbe2104fcc6dce114a4082bf7f7efdebf16683510cb0ec6d8d53d0"
+    url "https://files.pythonhosted.org/packages/a3/d5/b1c6171af26a3086189c45fcc7145cb40cdb7ab6779806e9e321501f5251/jsonschema_spec-0.1.6.tar.gz"
+    sha256 "90215863b56e212086641956b20127ccbf6d8a3a38343dad01d6a74d19482f76"
   end
 
   resource "junit-xml" do
@@ -170,7 +171,7 @@ class Moto < Formula
     sha256 "659fb5809fa4629b8a1ac5106f669cfc7bef26fbb389dda53b3e010d1ac4ebae"
   end
 
-  resource "markupsafe" do
+  resource "MarkupSafe" do
     url "https://files.pythonhosted.org/packages/6d/7c/59a3248f411813f8ccba92a55feaac4bf360d29e2ff05ee7d8e1ef2d7dbf/MarkupSafe-2.1.3.tar.gz"
     sha256 "af598ed32d6ae86f1b747b82783958b1a4ab8f617b06fe68795c7f026abbdcad"
   end
@@ -191,8 +192,8 @@ class Moto < Formula
   end
 
   resource "openapi-spec-validator" do
-    url "https://files.pythonhosted.org/packages/95/aa/2d7e69a06bf8680b358df0c2ad9f4a757bbd388ef5b8f249576457b5a171/openapi_spec_validator-0.5.6.tar.gz"
-    sha256 "1189d0618ae0678ccf6c883cc1266d381454eece6f21fcf330cc7caea5fc25eb"
+    url "https://files.pythonhosted.org/packages/27/e5/9fe67dfd403777d500abb5cd650c16ef9d4918a6c12e87731c3a4feeb4ff/openapi_spec_validator-0.5.7.tar.gz"
+    sha256 "6c2d42180045a80fd6314de848b94310bdb0fa4949f4b099578b69f79d9fa5ac"
   end
 
   resource "packaging" do
@@ -221,13 +222,13 @@ class Moto < Formula
   end
 
   resource "pydantic" do
-    url "https://files.pythonhosted.org/packages/23/65/2aa13873e9e0084ecaec00fbe6c6096b65e1ab99ba66bdbf7e4e7c4cc915/pydantic-1.10.8.tar.gz"
-    sha256 "1410275520dfa70effadf4c21811d755e7ef9bb1f1d077a21958153a92c8d9ca"
+    url "https://files.pythonhosted.org/packages/ec/0a/cf955f8bb3b9498d554522cfe7cb9b019ba9f8b86e2879009f604207b72c/pydantic-1.10.9.tar.gz"
+    sha256 "95c70da2cd3b6ddf3b9645ecaa8d98f3d80c606624b6d245558d202cd23ea3be"
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/71/22/207523d16464c40a0310d2d4d8926daffa00ac1f5b1576170a32db749636/pyparsing-3.0.9.tar.gz"
-    sha256 "2b020ecf7d21b687f219b71ecad3631f644a47f01403fa1d1036b0c6416d70fb"
+    url "https://files.pythonhosted.org/packages/4f/13/28e88033cab976721512e7741000fb0635fa078045e530a91abb25aea0c0/pyparsing-3.1.0.tar.gz"
+    sha256 "edb662d6fe322d6e990b1594b5feaeadf806803359e3d4d42f11e295e588f0ea"
   end
 
   resource "pyrsistent" do
@@ -301,13 +302,13 @@ class Moto < Formula
   end
 
   resource "websocket-client" do
-    url "https://files.pythonhosted.org/packages/3f/f2/2624e12ef854ee667d92ac5dc7815932095e0852e5ff2b2bf57feda8a11b/websocket-client-1.5.2.tar.gz"
-    sha256 "c7d67c13b928645f259d9b847ab5b57fd2d127213ca41ebd880de1f553b7c23b"
+    url "https://files.pythonhosted.org/packages/b1/34/3a5cae1e07d9566ad073fa6d169bf22c03a3ba7b31b3c3422ec88d039108/websocket-client-1.6.1.tar.gz"
+    sha256 "c951af98631d24f8df89ab1019fc365f2227c0892f12fd150e935607c79dd0dd"
   end
 
   resource "werkzeug" do
-    url "https://files.pythonhosted.org/packages/2d/bf/5a00bb4a70028f7c6000bc9394492154fa9ae3f5226187e3ddcd0aa5eca1/Werkzeug-2.3.4.tar.gz"
-    sha256 "1d5a58e0377d1fe39d061a5de4469e414e78ccb1e1e59c0f5ad6fa1c36c52b76"
+    url "https://files.pythonhosted.org/packages/d1/7e/c35cea5749237d40effc50ed1a1c7518d9f2e768fcf30b4e9ea119e74975/Werkzeug-2.3.6.tar.gz"
+    sha256 "98c774df2f91b05550078891dee5f0eb0cb797a522c757a2452b9cee5b202330"
   end
 
   resource "wrapt" do
@@ -322,7 +323,7 @@ class Moto < Formula
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.
-    ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
+    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
     ENV["OPENSSL_NO_VENDOR"] = "1"
 
     virtualenv_install_with_resources

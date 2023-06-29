@@ -20,7 +20,7 @@ class Teapot < Formula
     sha256 cellar: :any_skip_relocation, el_capitan:     "84673e8886e1f24250116d8c423383d0babbc53e1cb669ba46b45a37a2344399"
   end
 
-  deprecate! date: "2022-05-14", because: "Upstream website has disappeared"
+  disable! date: "2023-06-19", because: "Upstream website has disappeared"
 
   depends_on "cmake" => :build
 

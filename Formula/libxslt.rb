@@ -4,6 +4,7 @@ class Libxslt < Formula
   url "https://download.gnome.org/sources/libxslt/1.1/libxslt-1.1.38.tar.xz"
   sha256 "1f32450425819a09acaff2ab7a5a7f8a2ec7956e505d7beeb45e843d0e1ecab1"
   license "X11"
+  revision 1
 
   # We use a common regex because libxslt doesn't use GNOME's "even-numbered
   # minor is stable" version scheme.
@@ -13,13 +14,13 @@ class Libxslt < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "4d865d7bc0e0aded29f5d64d0ee62cca485971ab659758c4cb13414dc67f4a57"
-    sha256 cellar: :any,                 arm64_monterey: "40e875895ea4ad049d0b3112f9df9176fc3b21b1686f117fa327586c7c78e3e3"
-    sha256 cellar: :any,                 arm64_big_sur:  "ea8f6e2449b1be6bc30ec7322b762933ef2c57634579fc02442a2dc170e68d0f"
-    sha256 cellar: :any,                 ventura:        "861855483278b668cfb905c7a54140ba602aaa765f98e6bf9c7bc2bd5d6e7a1e"
-    sha256 cellar: :any,                 monterey:       "74207471f760ee5b2fd3a9ec293f729a226a712c056d4a263634ffde01f0dfd8"
-    sha256 cellar: :any,                 big_sur:        "3af50421f2fb62f33e3d49be4f78757164c81838c7c83f28eadf3b3123c25948"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9de9ab6fc29079326654cbf1b0bb8119f4dcf717b5418bf8c65ea1346b3f09b3"
+    sha256 cellar: :any,                 arm64_ventura:  "35d88548858fbda1b24792cd42c06393cac959deead4dc75dce6da512b1148a1"
+    sha256 cellar: :any,                 arm64_monterey: "c0d279287ad596dc0f645c26a2395122dcc11d2ade608b6f5550ab8cbac5fafd"
+    sha256 cellar: :any,                 arm64_big_sur:  "0e787304a2bbc5159bdd73eee1a10eb5f72bad6ffb7adc2d3a13548e680c0107"
+    sha256 cellar: :any,                 ventura:        "607d4cb7bbbad12f0b2008ee1f696881335ea1560f02b559b2dae8ad3a895437"
+    sha256 cellar: :any,                 monterey:       "5b000778f50c467c9f28e882ef5b3e0c9711d8c4e42083f59d0e5bd716127c44"
+    sha256 cellar: :any,                 big_sur:        "bd8e4f4cb5883bee9cdc2aeab754a679b9166a2f80f2ec013b7f3bcd9b395387"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "32f5991ea5c42e4f76e859e4ba4406da9183e621dd09bc0c955be5fe865b7df9"
   end
 
   head do

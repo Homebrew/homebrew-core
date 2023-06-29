@@ -4,6 +4,7 @@ class Aqbanking < Formula
   url "https://www.aquamaniac.de/rdm/attachments/download/499/aqbanking-6.5.4.tar.gz"
   sha256 "0d16ceae76f0718e466638f4547a8b14927f1d8d98322079cd6481adde30ac99"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://www.aquamaniac.de/rdm/projects/aqbanking/files"
@@ -11,13 +12,13 @@ class Aqbanking < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "86a10700be19457e9de426d1a517fff81d88f0c968edbb4422c4999b645d2db7"
-    sha256 arm64_monterey: "c03595358b762a435f0e23e4302de71da6f2a4d8444ef81b83723da5626bbbd5"
-    sha256 arm64_big_sur:  "5dd8f7f35e641a3b84243698b5d52e858e4c3c9bf6157386607ffc0b0d9a0ddd"
-    sha256 ventura:        "135b86a8abe352be9781d0e47d34bb7daafca2dc15e2050e454a7e672cbe6308"
-    sha256 monterey:       "edbeea160afd61148e15cf3d66729c6a79c5ca371fca10713112e50d7e0520ba"
-    sha256 big_sur:        "970f57f5314f055f7f9b8fc72ac37bbc74d62128912da29f3428cc76c5c27082"
-    sha256 x86_64_linux:   "601804c5ff8f4966834f1e1d9c8cabea7fe3a9e73081e0779b6ae26f59ad3bdd"
+    sha256 arm64_ventura:  "b9a8f344467a7d69267d994da860fade6dda407510eed4398db47f2fd3206408"
+    sha256 arm64_monterey: "fcbf229d4ea7dcde5d788e088e4ff30d6f2a1a62ab2498f2e0c2913b0cda32b5"
+    sha256 arm64_big_sur:  "60da3b01e9cfeef3b9d47673d8353afec5bdfa87fec21c3df9635c41492861fd"
+    sha256 ventura:        "c912b990acd3cc02ead0f7619bce81e9feb78f41caa1654b4778569b3050ba2e"
+    sha256 monterey:       "b989a7cb5bf36df5b829828f8452a3661d5d370d02bdce63b266fbf10ef38601"
+    sha256 big_sur:        "9ab40d81b08b2d798d3dc69a6c7557bb72e07a0891338c92bb972457c0998549"
+    sha256 x86_64_linux:   "f7586074ec396a050c9f210d05ae733b9697c0f9f2d366940b6937927f2cd215"
   end
 
   depends_on "gettext"
@@ -27,6 +28,7 @@ class Aqbanking < Formula
   depends_on "libxml2"
   depends_on "libxmlsec1"
   depends_on "libxslt" # Our libxslt links with libgcrypt
+  depends_on "openssl@3"
   depends_on "pkg-config" # aqbanking-config needs pkg-config for execution
 
   def install

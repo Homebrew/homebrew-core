@@ -5,7 +5,7 @@ class Freeswitch < Formula
       tag:      "v1.10.9",
       revision: "a615e85afcdc5f3ca438e86fefc7ca21ee6b3a06"
   license "MPL-1.1"
-  revision 1
+  revision 2
   head "https://github.com/signalwire/freeswitch.git", branch: "master"
 
   livecheck do
@@ -14,13 +14,13 @@ class Freeswitch < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "957baa2092161ec01623cbe4cad4250692046e170f63a0d7fb6931b61b0f30e7"
-    sha256 arm64_monterey: "c696a14b9798a0f64acaab754c47b9e1f36c6f0dd164be6fc84e8444a86a66fb"
-    sha256 arm64_big_sur:  "6c37f1e1ee50345841e640661c1ab6bb25c5a900b78ab35dc348aa7c155de222"
-    sha256 ventura:        "ddec2f7cfa25ca0c48883ad1a740f0d8ef24adf1616686cc3bfc195117e80644"
-    sha256 monterey:       "34dd666d452f37faafbf9ccf26da11a15b9419a710082e111596dd8d57ed1844"
-    sha256 big_sur:        "32989ac42b613250dbfcf3ad00e2c9e465c99fd456f9046ddcf080076043a5f9"
-    sha256 x86_64_linux:   "c90d5190ce19e7352bdd858fa08b7094bdc3854792e27988ac1f397ea6d8087e"
+    sha256 arm64_ventura:  "63774550d80386ca14976a5d56c0e4d8bf3f6ad0cc60608233941d172aedf4f8"
+    sha256 arm64_monterey: "94f0b2d598552e4283bb9acb3aed5785db86462844b0c7e5782d220698a84837"
+    sha256 arm64_big_sur:  "7f67c4a6c3c28df7e1cedfb4aa2ded3b3e5682db21d84489e5c789487a1bf47e"
+    sha256 ventura:        "480ddce68db22b97dc398206ae1c0d55c1aa1b7811c3377f160de496a2f6a908"
+    sha256 monterey:       "36bb1565a4496245c5c56194e82944b0a28529e8259faa59525445ec05898bb3"
+    sha256 big_sur:        "c560f0f82664037c7132a06c20db3d32629522d79aa101f48f3f8d7e7d30af2f"
+    sha256 x86_64_linux:   "d36012bc99586f33f56d29f0c19356ba06b4f8984f6644e9f9dbfaab5317176f"
   end
 
   depends_on "autoconf" => :build
@@ -36,7 +36,7 @@ class Freeswitch < Formula
   depends_on "libsndfile"
   depends_on "libtiff"
   depends_on "lua"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "opus"
   depends_on "pcre"
   depends_on "sofia-sip"

@@ -2,6 +2,7 @@ class Ruby < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
   license "Ruby"
+  revision 1
 
   stable do
     url "https://cache.ruby-lang.org/pub/ruby/3.2/ruby-3.2.2.tar.gz"
@@ -22,20 +23,19 @@ class Ruby < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "8605fd6364df2e65a4b285bef68b59a5d7d60c256b2dc2bc5284bd6db9bc68cf"
-    sha256 arm64_monterey: "80775f986835e01bd26c82ef2ebc480a34a4122b84a97aa4440b322734c02aff"
-    sha256 arm64_big_sur:  "088b81299ff5123e9c11d2e0403824f0f8353f2c7ff19fd70174369044258a14"
-    sha256 ventura:        "a4ac080688e871def04469fa335a13ded970d03dd4be662f39f4dba0ecdbab94"
-    sha256 monterey:       "65e0eff7671c89a1800cea2026ac31b9f43339ef9947388c36e4af499e2108f0"
-    sha256 big_sur:        "5e538570263f5650199682bb19ced5bb7370a7969f7986fbde104f371b0d10f4"
-    sha256 x86_64_linux:   "9c74262574ef244b241c2709dac2d10150d9bafe328e497830cbf0398ab79750"
+    sha256 arm64_ventura:  "dd4528e4e2faddab7c90f7a1849b465d190c5d06f2c95a96ec779aca69da9d16"
+    sha256 arm64_monterey: "6730d64d415526ef41f3a2911be1ca901295cbd37ddc7efb243b3568e5620b01"
+    sha256 arm64_big_sur:  "7a297337dfa9a2afc204e8b3302dc5a25823653fed95c49120b9c87241600e91"
+    sha256 ventura:        "cc9b5b6ccc54d8182f0ab699b23cb810fd7cc323a1c8a1aa7c257aa93313cc4c"
+    sha256 monterey:       "8cf820914f34d82f6ae5b80a2eae7b75c133a5263e6ca34338a161542878c413"
+    sha256 big_sur:        "937d024ebfab8a3f43ec18a24a626ae2a29a4127c6712b138cea786aaf2c413c"
+    sha256 x86_64_linux:   "c93cfb32aa6168aefa19725dfbe005491fad4ad304c5a2181ce110d291850d42"
   end
 
   head do
     url "https://github.com/ruby/ruby.git", branch: "master"
     depends_on "autoconf" => :build
     depends_on "bison" => :build
-    depends_on "rust" => :build
   end
 
   keg_only :provided_by_macos
@@ -45,7 +45,7 @@ class Ruby < Formula
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "libyaml"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "readline"
 
   uses_from_macos "gperf"
@@ -72,7 +72,7 @@ class Ruby < Formula
 
     system "./autogen.sh" if build.head?
 
-    paths = %w[libyaml openssl@1.1 readline].map { |f| Formula[f].opt_prefix }
+    paths = %w[libyaml openssl@3 readline].map { |f| Formula[f].opt_prefix }
     args = %W[
       --prefix=#{prefix}
       --enable-shared

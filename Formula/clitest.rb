@@ -1,13 +1,13 @@
 class Clitest < Formula
   desc "Command-Line Tester"
   homepage "https://github.com/aureliojargas/clitest"
-  url "https://github.com/aureliojargas/clitest/archive/refs/tags/0.4.0.tar.gz"
-  sha256 "e889fb1fdaae44f0911461cc74849ffefb1fef9b200584e1749b355e4f9a3997"
+  url "https://github.com/aureliojargas/clitest/archive/refs/tags/0.5.0.tar.gz"
+  sha256 "4005de0bc27e4676e418ab1e1e64861272aa74af1212c73a1173760fc449b049"
   license "MIT"
   head "https://github.com/aureliojargas/clitest.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "b9badcbac8548cafe8e0eadb7ec8b90a48c52d97ae1d437c068edd950476d647"
+    sha256 cellar: :any_skip_relocation, all: "3a334de308496969553a04f02121d467c8d4ac05eaa028260096d87b0a9b9e1d"
   end
 
   def install

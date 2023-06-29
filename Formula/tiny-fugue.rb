@@ -5,25 +5,22 @@ class TinyFugue < Formula
   version "5.0b8"
   sha256 "3750a114cf947b1e3d71cecbe258cb830c39f3186c369e368d4662de9c50d989"
   license "GPL-2.0-or-later"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 arm64_ventura:  "f1018454baaa50f76a0fcf885e400d42ab6eb5352f1436a34676b2090bc6c65b"
-    sha256 arm64_monterey: "efbd40e8291c53ca89d75dc25c15b18e3cbbba58e1da3b99b200a8458128609e"
-    sha256 arm64_big_sur:  "de2a1d16b807c1cede3b8f574a1dbaa5a8bda47b4c65307b33b975b9eec665f7"
-    sha256 ventura:        "819d0189551a3ae5bd9d75e483308de4f058c1561529a09f1c5c3c6a556619f1"
-    sha256 monterey:       "00c01c6ebfccc7d525bd0d901771f3b459fc62e28537be27c275976bed22fb4c"
-    sha256 big_sur:        "c7e39f8d3cf009ff749208b5b2efa718a802a2ca82368273b1076a0607a10e76"
-    sha256 catalina:       "d10777dd98ae76a048caed1179f7a65f8ee59256dcb94cfcd89ac1da0e135209"
-    sha256 mojave:         "ea162f2b1644a44d95a2847ec34133661008fff66306e3eda790a25f253f2165"
-    sha256 high_sierra:    "b1ddefa5c2a52f3399f5a90c0586d65e5e7ccc9940715cbe682a1a30e8dc6e76"
-    sha256 x86_64_linux:   "c92a44ad82e402fb01b555a22f7e276a344d799b1b666ef76286a3397617770c"
+    sha256 arm64_ventura:  "cdc8362ec9ee41a8c97c4c6360065a880011b97baf5e383e4d613267f96e57f1"
+    sha256 arm64_monterey: "b426a9fd58d23982e8659a204f9daa3e18c1853ac8fc7dbcc21817e16dfcbfb5"
+    sha256 arm64_big_sur:  "af3018b2720b6a40af09543d2353b19b9a1124795a5d1f51af893de62d136ae5"
+    sha256 ventura:        "e96231ee3e1f846935d2b0f05b850b89124f650d7a3365d89caa1611da0b8b51"
+    sha256 monterey:       "456970a772014d46c0d0ca76b0231c66a4ce8550c305a38aa2127c7f9ec6bce9"
+    sha256 big_sur:        "1776efc11b784517a363b5a40091a6c36e177905d90271c20264c7aa0e05b933"
+    sha256 x86_64_linux:   "aa2b100ca650f52a73104c238ae09e6cfffc59a7a94436733d128ce82f0b5844"
   end
 
   deprecate! date: "2022-10-25", because: :unmaintained
 
   depends_on "libnet"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pcre"
 
   uses_from_macos "ncurses"
@@ -38,6 +35,13 @@ class TinyFugue < Formula
   end
 
   def install
+    # Work around failure from GCC 10+ using default of `-fno-common`
+    # multiple definition of `world_decl'
+    ENV.append_to_cflags "-fcommon" if OS.linux?
+
+    # Workaround for Xcode 14.3.
+    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--enable-getaddrinfo",

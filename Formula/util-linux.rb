@@ -1,8 +1,8 @@
 class UtilLinux < Formula
   desc "Collection of Linux utilities"
   homepage "https://github.com/util-linux/util-linux"
-  url "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.39/util-linux-2.39.tar.xz"
-  sha256 "32b30a336cda903182ed61feb3e9b908b762a5e66fe14e43efb88d37162075cb"
+  url "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.39/util-linux-2.39.1.tar.xz"
+  sha256 "890ae8ff810247bd19e274df76e8371d202cda01ad277681b0ea88eeaa00286b"
   license all_of: [
     "BSD-3-Clause",
     "BSD-4-Clause-UC",
@@ -24,13 +24,13 @@ class UtilLinux < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "a4373e2e2ae7bbac3cb1a438fd6e1060c8946546bd9e29a2895ac58eb649e47a"
-    sha256 arm64_monterey: "f4e0cea186b075296b029cfc79db6eb1ccf7212b0c14d8b3343870dce97cdc4f"
-    sha256 arm64_big_sur:  "f85e6dbb933044802b756ef0aa2840ec22a3d061df97ce45dd20ea1c43f71e9e"
-    sha256 ventura:        "36546268d5754a3fba6eb82e5fedcb2eb72ee8dee68605ae165717f577c6dcac"
-    sha256 monterey:       "6e1ad1639e256a73c96d79b6d91660744693d5d9a12600aa60ca10f498856d82"
-    sha256 big_sur:        "6c99d5affbfd0dc4850eb6b302624b2183aaa016138ed7a5aeef05f5b2d4f508"
-    sha256 x86_64_linux:   "74f536ca720c942aa944c4bca645e6446b19bec1f65e41b2cf78b9fb1eec5655"
+    sha256 arm64_ventura:  "787858de2dbf1a9e70b34cb214a1e2bcea78956d66ec48fc2269d4dc298d5cc0"
+    sha256 arm64_monterey: "3dc196981c4f5a365dce73b2bdc2db63ac8d3c4c346668fde95b18ce4fb1e6b1"
+    sha256 arm64_big_sur:  "ac346347e235e1794febabacbb3ee532050ed03ffbf0283c46547ee0ba08d003"
+    sha256 ventura:        "469c8797e9e9fd36e797513005c4ff5e79ed64b35a2eedacb2df995e8d3c0a93"
+    sha256 monterey:       "cf96a78ccd4bdfcbaca3d6eb34eddcf28a73b4196705e5748c5271480fe2e4b6"
+    sha256 big_sur:        "f38b58e76ce1975773a2b2c076813d8ab60b8219d28b5c426c592ce85a8d42e2"
+    sha256 x86_64_linux:   "3e38d81b856507fb126b26eaba4d20459dbe06993e26e798786954de730052ab"
   end
 
   keg_only :shadowed_by_macos, "macOS provides the uuid.h header"

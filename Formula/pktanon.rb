@@ -1,7 +1,7 @@
 class Pktanon < Formula
   desc "Packet trace anonymization"
-  homepage "https://www.tm.uka.de/software/pktanon/index.html"
-  url "https://www.tm.uka.de/software/pktanon/download/pktanon-1.4.0-dev.tar.gz"
+  homepage "https://www.tm.kit.edu/software/pktanon/index.html"
+  url "https://www.tm.kit.edu/software/pktanon/download/pktanon-1.4.0-dev.tar.gz"
   sha256 "db3f437bcb8ddb40323ddef7a9de25a465c5f6b4cce078202060f661d4b97ba3"
   license "GPL-2.0-or-later"
   revision 4
@@ -10,7 +10,7 @@ class Pktanon < Formula
   # available. If stable versions appear in the future, we should modify the
   # regex to omit development versions (i.e., remove `(?:[._-]dev)?`).
   livecheck do
-    url "https://www.tm.uka.de/software/pktanon/download/index.html"
+    url "https://www.tm.kit.edu/software/pktanon/download/index.html"
     regex(/href=.*?pktanon[._-]v?(\d+(?:\.\d+)+)(?:[._-]dev)?\.t/i)
   end
 

@@ -4,6 +4,7 @@ class ShairportSync < Formula
   url "https://github.com/mikebrady/shairport-sync/archive/4.2.tar.gz"
   sha256 "649d95eede8b9284b2e8b9c97d18c1c64cffae0a6c75bc4f03e3ae494a3e25b6"
   license "MIT"
+  revision 1
   head "https://github.com/mikebrady/shairport-sync.git", branch: "master"
 
   livecheck do
@@ -12,13 +13,13 @@ class ShairportSync < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "10902fdcd0c2e74bc13695748c7f087630219e9ee1ca41f9631201102a07fee7"
-    sha256 arm64_monterey: "c1b199585c9f43044e3c6795d01d2465a4b1a769257e298d8e5bb7d4ffd4ad54"
-    sha256 arm64_big_sur:  "955c2f30e7d81645fdd85eab9ca811ffd8150889430891127a193d5555da81ee"
-    sha256 ventura:        "80369077d79dcf9978d7b74eaf64539e698c1c2359aa09e1dd6e216ed9086494"
-    sha256 monterey:       "c2902684373f65bc618aa3fbdd632c6803f6aa316e91dc8ea31e0e1f71878502"
-    sha256 big_sur:        "5ccd47b1cbd87e9209ae3ff1e2494932bc23784ea10a13570593a3f173ba3c07"
-    sha256 x86_64_linux:   "adce7a83286b69ce53d26fca7dc07290c4cc98dcb64d9e876dd029b379605011"
+    sha256 arm64_ventura:  "02af2fdef1c90aff5e30b840d57634287b7909a02b4b2c5f54c63a044c549030"
+    sha256 arm64_monterey: "0cfbcf05b63c13426bb961dee8bf9804ce684dfc38f1d27ed43bb9861063f1a3"
+    sha256 arm64_big_sur:  "fc6fa4449dff305a72e037805682e41ce4d002ceb965d680b3b2357456a5dacd"
+    sha256 ventura:        "b691cf9ace12fdd87ef2cee18d16d51b404432bc9e8bbf8570571da5e9b1731d"
+    sha256 monterey:       "eba80c010d90826bad8eb4bf849eb3a9f52cd3718acbe47f7bcdf628127328a2"
+    sha256 big_sur:        "5752154c7630d643d76fccee165a09e12ed817cff6014bf4581a72bf2b5af006"
+    sha256 x86_64_linux:   "7d4de3b05ac115645ef2dda082508b540d468de7532a9dd6ce09fe326201405f"
   end
 
   depends_on "autoconf" => :build
@@ -28,7 +29,7 @@ class ShairportSync < Formula
   depends_on "libconfig"
   depends_on "libdaemon"
   depends_on "libsoxr"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "popt"
   depends_on "pulseaudio"
 

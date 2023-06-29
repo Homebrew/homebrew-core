@@ -1,18 +1,18 @@
 class Checkstyle < Formula
   desc "Check Java source against a coding standard"
   homepage "https://checkstyle.sourceforge.io/"
-  url "https://github.com/checkstyle/checkstyle/releases/download/checkstyle-10.12.0/checkstyle-10.12.0-all.jar"
-  sha256 "a40d4ae7c901677959560ce0d0d158b7ebc0d491ce5bec96e35b7401196abc91"
+  url "https://github.com/checkstyle/checkstyle/releases/download/checkstyle-10.12.1/checkstyle-10.12.1-all.jar"
+  sha256 "2baa508dcbe87f26c612d473d6c4d584fe77e12a09b02860da9b27815308cab6"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "da0412240f09de4e6af3e0b6816cd998335b056f6ca41b5b9ce7d49e00dc07f1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "da0412240f09de4e6af3e0b6816cd998335b056f6ca41b5b9ce7d49e00dc07f1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "da0412240f09de4e6af3e0b6816cd998335b056f6ca41b5b9ce7d49e00dc07f1"
-    sha256 cellar: :any_skip_relocation, ventura:        "da0412240f09de4e6af3e0b6816cd998335b056f6ca41b5b9ce7d49e00dc07f1"
-    sha256 cellar: :any_skip_relocation, monterey:       "da0412240f09de4e6af3e0b6816cd998335b056f6ca41b5b9ce7d49e00dc07f1"
-    sha256 cellar: :any_skip_relocation, big_sur:        "da0412240f09de4e6af3e0b6816cd998335b056f6ca41b5b9ce7d49e00dc07f1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5299f07fa7295d1889d84f9e815b9c5c21e155ffb173f83a08422428a34214a4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c1fc4fbc4dd5b02de1c1a0bb364245204bb7562aea69ca52825eaa924e17a177"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c1fc4fbc4dd5b02de1c1a0bb364245204bb7562aea69ca52825eaa924e17a177"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c1fc4fbc4dd5b02de1c1a0bb364245204bb7562aea69ca52825eaa924e17a177"
+    sha256 cellar: :any_skip_relocation, ventura:        "c1fc4fbc4dd5b02de1c1a0bb364245204bb7562aea69ca52825eaa924e17a177"
+    sha256 cellar: :any_skip_relocation, monterey:       "c1fc4fbc4dd5b02de1c1a0bb364245204bb7562aea69ca52825eaa924e17a177"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c1fc4fbc4dd5b02de1c1a0bb364245204bb7562aea69ca52825eaa924e17a177"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7e21a504ea10defba361514a1a6dcf330e99275245afab7ea4ed7e675ac2e1e3"
   end
 
   depends_on "openjdk"

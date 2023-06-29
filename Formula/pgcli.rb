@@ -20,7 +20,6 @@ class Pgcli < Formula
   end
 
   depends_on "libpq"
-  depends_on "openssl@1.1"
   depends_on "pygments"
   depends_on "python-tabulate"
   depends_on "python-typing-extensions"

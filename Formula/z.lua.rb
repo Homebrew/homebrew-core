@@ -17,6 +17,16 @@ class ZLua < Formula
     doc.install "README.md", "LICENSE"
   end
 
+  def caveats
+    <<~EOS
+      Zsh users: add line below to your ~/.zshrc
+        eval "$(lua $(brew --prefix z.lua)/share/z.lua/z.lua --init zsh)"
+
+      Bash users: add line below to your ~/.bashrc
+        eval "$(lua $(brew --prefix z.lua)/share/z.lua/z.lua --init bash)"
+    EOS
+  end
+
   test do
     system "lua", "#{opt_pkgshare}/z.lua", "."
   end

@@ -1,19 +1,19 @@
 class Janet < Formula
   desc "Dynamic language and bytecode vm"
   homepage "https://janet-lang.org"
-  url "https://github.com/janet-lang/janet/archive/v1.28.0.tar.gz"
-  sha256 "d78a4c367f1b2c9f95897fa13fc788b36ce49cfcc18083b0810e86b2dd1285bb"
+  url "https://github.com/janet-lang/janet/archive/v1.29.1.tar.gz"
+  sha256 "2ac3f69842f3e805a8d072a9e36f207f6287f063654c51cb3cd2b6e73b1cadf6"
   license "MIT"
   head "https://github.com/janet-lang/janet.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "0f35915d5eb7725572b2620a82e6bed64ce46adc9313580cfa40aac85705432b"
-    sha256 cellar: :any,                 arm64_monterey: "34069ccaacaa9269b619cdf7a28d772fc45e2094fdc0594fc0a3484f02cec320"
-    sha256 cellar: :any,                 arm64_big_sur:  "95e3de956a2faa0def45d11e2b20bef42d8d9daa0aa3bacf765ee80cb6a630e2"
-    sha256 cellar: :any,                 ventura:        "e4c212e67a9c606e64c98dfacf8605b25caa10c526ba03e8349cd78e123eb3ac"
-    sha256 cellar: :any,                 monterey:       "a4beb1a9caab3380f7eca07432c52136c860c6826a1d3db7d778bf8f489bf727"
-    sha256 cellar: :any,                 big_sur:        "64ac1bb0845b0415304cb6b7a9d1bd2b192b682e7cdb5b02a782b3f27d7836ca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c3a91618b0db044d864a6819f7a44a34d2e013a9b0d2137384dc26bf78cf5128"
+    sha256 cellar: :any,                 arm64_ventura:  "85238a0eebe12cb132e6385b907b0f9c895f855df7adfd25aadbcdff416842f6"
+    sha256 cellar: :any,                 arm64_monterey: "9c964283f3e45c25f67dbc39f09c2526a73341f1420f942332ab22cd46c81e77"
+    sha256 cellar: :any,                 arm64_big_sur:  "09a906e24ff2419a85829415d6e1da77afd5b547cf3a086348f66d17548f6886"
+    sha256 cellar: :any,                 ventura:        "2b9bcec0aef6f6523eea4d0ed272647cf82b9fe4a46e8536fc68d91f1cca2671"
+    sha256 cellar: :any,                 monterey:       "31146e83d552743d3de9bdd30ebac4d7d3af0fa1971159b2da53c45e911d64d2"
+    sha256 cellar: :any,                 big_sur:        "be180d693876cac89076bce8397dafaab516f9299372c44765e4481fd02e1b44"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "91929ac01087561ba5590bfa41e7ee49fa430d431d1678025bd801e204257acb"
   end
 
   depends_on "meson" => :build

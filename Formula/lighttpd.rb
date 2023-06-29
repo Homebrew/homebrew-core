@@ -4,6 +4,7 @@ class Lighttpd < Formula
   url "https://download.lighttpd.net/lighttpd/releases-1.4.x/lighttpd-1.4.71.tar.xz"
   sha256 "b8b6915da20396fdc354df3324d5e440169b2e5ea7859e3a775213841325afac"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url "https://www.lighttpd.net/download/"
@@ -11,13 +12,13 @@ class Lighttpd < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "c9a8b3ad43ebd077a9e2ef51dc52e50e2dbca78468340e6769a2cc5f3a006d27"
-    sha256 arm64_monterey: "b32ad4c9fdcb80497361718ad46c42c2d26a9dd704159c92eb454139fda54c09"
-    sha256 arm64_big_sur:  "541f413d74bfea8ca4cc794237dd24be90bead94d460b42905430275c8281461"
-    sha256 ventura:        "c61b2600c2f327984d51c6773ff5e6202baa1739d114cb22a34dfdfb2f35f38e"
-    sha256 monterey:       "a7431db701333aff7677035b63336e77d4f91552d649d6f215efc50b0330231c"
-    sha256 big_sur:        "f51d79cd116ea818230c791024b3b3ce87e2093ddeef81b9d0f36bd9a40ab97b"
-    sha256 x86_64_linux:   "e67057595a63e3035b04da040e1aa8b455fa59130f4cdacacb06a0aa9fc87b47"
+    sha256 arm64_ventura:  "5d75c80e3c1b918421036f68cd3c30a1f38d677e4bbd13241de2182af220a08b"
+    sha256 arm64_monterey: "7b0ef833b3bf03ec7d1e79e39d18eda73a5436f332d8c556ef6b32f617fadaaa"
+    sha256 arm64_big_sur:  "63aab8d14f51c8748615f36035c64388f514e4e6737f9ef84ad02683967ce5c2"
+    sha256 ventura:        "dcbc9e0efa4707442a6e9a0f867aaf41b38308e316574af6199a9834899e5570"
+    sha256 monterey:       "9f6d257aab5a322ff70f296acae96dfda370e509562edf0e878080472a304150"
+    sha256 big_sur:        "ec55560b7a38ee01f6481092f429da93189c080a2a66249354a37577e25ea1ab"
+    sha256 x86_64_linux:   "4c8f0c18617cb50aca3caa112390ee1b6971cfe60fcd5e0a7f24ad66f0ce9a3b"
   end
 
   depends_on "autoconf" => :build
@@ -25,7 +26,7 @@ class Lighttpd < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "openldap"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pcre2"
 
   uses_from_macos "libxcrypt"

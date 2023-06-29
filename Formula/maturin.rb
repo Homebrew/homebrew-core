@@ -1,19 +1,19 @@
 class Maturin < Formula
   desc "Build and publish Rust crates as Python packages"
   homepage "https://github.com/PyO3/maturin"
-  url "https://github.com/PyO3/maturin/archive/refs/tags/v1.0.1.tar.gz"
-  sha256 "c4141615078313a5afbb581fefc4b3673c24466d37c939dc44a816a265067c74"
+  url "https://github.com/PyO3/maturin/archive/refs/tags/v1.1.0.tar.gz"
+  sha256 "57b990348a9182897d64e7bc2b7be6e323912500c10a56174090fa8008173ad0"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/PyO3/maturin.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "551058dc7b2bbc0d2832fe70c23f16000a1f8df30427e4da7871d3e5c4f5dbe5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "435644d34b26bb12d4aa35e5da2c2b5a97d74da8db807add00c798a77e8fb730"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a5564f902a0803146ac708c63f76566299df2f4d001e57629ef9c32acc83e5b9"
-    sha256 cellar: :any_skip_relocation, ventura:        "2b03e28ff2ddc747acefc3b782bafac5b93ea9d596218eac0f7c0dab3c31bdce"
-    sha256 cellar: :any_skip_relocation, monterey:       "6eddc20ccd58d79259e59e88f12af515187565689187a14fda6545148a28a9fb"
-    sha256 cellar: :any_skip_relocation, big_sur:        "38da5e2dbe59ff88a638517d592f1e11e26be456ebebf0dda161fe86a46dc63c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1e4efb4316846ac8af38dbad860d9e955a0e04672b9f44aa544ea8a907d4f3d6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "75670dbb11b657b02ca4eb3aae14d795eec9025d1351fb56fee6b1db6809a116"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9c650f71e1efac6fe6b40f898a3dfd1b89337b567460beffb7662c8e7c71fcd5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6f9c6f4d91df7e604d7e1c2e92ae851b3db3a4aa0acd90a2dcea1cc1f06fc0ee"
+    sha256 cellar: :any_skip_relocation, ventura:        "946a65187c03c845cd6d27678b5241f6e202ecc928a456deeeb198d087137323"
+    sha256 cellar: :any_skip_relocation, monterey:       "e0484a06d454588b4bfec11ad31fdb3e59c40cff68252d38ec0b3b8392b6db06"
+    sha256 cellar: :any_skip_relocation, big_sur:        "3697fb5a060e94c1169dc245a937b88d3ede8f483033b4e58908acf7ded5c911"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aeaf6dc363a32173db5523f334ffb8d3b702bb64def1179a5f2bf40bf874710c"
   end
 
   depends_on "python@3.11" => :test

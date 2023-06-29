@@ -2,9 +2,10 @@ class Nut < Formula
   desc "Network UPS Tools: Support for various power devices"
   homepage "https://networkupstools.org/"
   license "GPL-2.0-or-later"
+  revision 1
 
   stable do
-    url "https://github.com/networkupstools/nut/releases/download/v2.8.0/nut-2.8.0.tar.gz"
+    url "https://github.com/networkupstools/nut/releases/download/v2.8.0-signed/nut-2.8.0.tar.gz"
     sha256 "c3e5a708da797b7c70b653d37b1206a000fcb503b85519fe4cdf6353f792bfe5"
 
     # fix build failure
@@ -21,14 +22,13 @@ class Nut < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "8b0272e6d6de21561ad76576e0c5a6817ece3d8a9667921f19c578cc5daff96e"
-    sha256 arm64_monterey: "d4aca71123a29f19c2ef454498d9c42fa2e82f87cab985470f8245a6f0528247"
-    sha256 arm64_big_sur:  "21a4e51be5f36088e2e1c1b882453de2b2ea367f6a5e477e58d28d4a0a842a78"
-    sha256 ventura:        "987f9f114ec7d1d903b014552516b3bb6554b7c2e180c107819673ad936423ac"
-    sha256 monterey:       "9bf13b79acc02f161664ae7995f427470a7e853abef9a8a0d1ca6aa6655fca12"
-    sha256 big_sur:        "bc77e15ea9074a9f3c555f30f1eb60c2a8e718ae40290c47648493e771d7cb84"
-    sha256 catalina:       "cd132007fa7178a543f11136afc85ae46dd98af743a23ed625d03c070b57f211"
-    sha256 x86_64_linux:   "97499d28a03419960360fcf6445e5a1f7778d94d5072daf7b426af6d802d39f8"
+    sha256 arm64_ventura:  "2076a6fec70930a198b1ffc95372b783a953d893ed2531a704b8146014f6dda6"
+    sha256 arm64_monterey: "95970abbffadbffea2a7135b6650179c35fdf6896188c8e4e2b426052521f506"
+    sha256 arm64_big_sur:  "28d8de023cedfb15015a87d4bf8616ccff59b61c00918e652e82e55f4740bffc"
+    sha256 ventura:        "191e4df438c669eed832fcdce481e3a527d835699431b757ed4dd29c81ae19ce"
+    sha256 monterey:       "aa98d42f442ac810c3bb34341eefffa7893e5993934c57f4a95a43e9ac3fc001"
+    sha256 big_sur:        "d41f1ed095ccbf5efc17b1710d8f222bb0f0b7cf343e411eae2cc58f3e3d26fc"
+    sha256 x86_64_linux:   "da2d1bee4c97ef56f91023288452df6f5ea7744a0a9a75d907494c001aeea97a"
   end
 
   head do
@@ -41,7 +41,7 @@ class Nut < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "libusb-compat"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   conflicts_with "rhino", because: "both install `rhino` binaries"
 

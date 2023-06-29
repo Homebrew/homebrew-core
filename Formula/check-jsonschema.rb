@@ -3,19 +3,19 @@ class CheckJsonschema < Formula
 
   desc "JSON Schema CLI"
   homepage "https://github.com/python-jsonschema/check-jsonschema"
-  url "https://files.pythonhosted.org/packages/ca/7c/c1332d40b2744edc7aa70a120902896331c8549d4e63a92629d98d91d6e2/check-jsonschema-0.23.1.tar.gz"
-  sha256 "45266a6c5fcbbc981ee6f0755b5675f9d6b8e761b2e48a652c782e19a5459545"
+  url "https://files.pythonhosted.org/packages/55/d3/be930c0c484dbf4d3ba28359fc91a8345f47e2d8809e74055cc305727837/check-jsonschema-0.23.2.tar.gz"
+  sha256 "26c22f506979f59cfa52da0038b8f3ff29e96947e9376a629cc3262516d843ef"
   license "Apache-2.0"
   head "https://github.com/python-jsonschema/check-jsonschema.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "574630fc0201e613e988e1d3ef0d5341f7bd93024c21e617ddde5ca8756ca128"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "25b5a8872aaa4bb3fbb3a06eb2477fe64deb4da7fafbfa24b0845cf07365c9a6"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4c3e556eb4725ac27aa3526f5e62af881bed2a1e8abbaba197abe58b617d8489"
-    sha256 cellar: :any_skip_relocation, ventura:        "eb7bd22d9211cf957ccac029604eb49848a1fb27d2352b025565de2f5ae7b59e"
-    sha256 cellar: :any_skip_relocation, monterey:       "e48d1e7256a5dd411505a3f9717c9c89e719b441452b257cd3669cee1afdd432"
-    sha256 cellar: :any_skip_relocation, big_sur:        "67b7f85ac04557c7f37585ad7e3905b8c19b06b4b097bc6b9d408c3d09ca832b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6964a5f420373c2748c8cc89bcfbd204cd3699340b4ee1f1191c5506709d46e8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "790dbf375a5a3f670c51926d9946967db27c43ccefe4f24539f102443cae4e44"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2a3fdde92077cf627018542b9e317e9387279fb72fd948b110a93556d74b4b7f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e9ce09c35d38a6ef1cfa4c7ccf79abfcfaef4c6457c3ac4fe4c3fe4a952aa6a1"
+    sha256 cellar: :any_skip_relocation, ventura:        "01f659610db385e697cec5b8dbdb1116ad9a5ff9533980fe6e57f177e3c7396b"
+    sha256 cellar: :any_skip_relocation, monterey:       "d0b29fd90d469a02b230828f6aa4ad238ec7779d89dadf8100fce47163fba757"
+    sha256 cellar: :any_skip_relocation, big_sur:        "27a282131223ff248bc40e6b2ad9bee2ae56efb836eb966f5745145e8201dd66"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d79cc6e15e8bffc017d0a3f8d72156961b3df1e1de5f71b338e58090c31f5731"
   end
 
   depends_on "python@3.11"
@@ -97,8 +97,13 @@ class CheckJsonschema < Formula
   end
 
   resource "ruamel-yaml" do
-    url "https://files.pythonhosted.org/packages/eb/a4/e056a6f778bfc01d653dd777e5ff57c1f1b48fcaa889d75bac0ef9650768/ruamel.yaml-0.17.22.tar.gz"
-    sha256 "c22ec58aaca5105f771cb8f7ac45ad631b5e8b00454ebe1822d442fb696e9e62"
+    url "https://files.pythonhosted.org/packages/39/97/03674459c459b9b69ef71eba039205a72867e5c6c409df3136858f6836f3/ruamel.yaml-0.17.31.tar.gz"
+    sha256 "098ed1eb6d338a684891a72380277c1e6fc4d4ae0e120de9a447275056dda335"
+  end
+
+  resource "ruamel-yaml-clib" do
+    url "https://files.pythonhosted.org/packages/d5/31/a3e6411947eb7a4f1c669f887e9e47d61a68f9d117f10c3c620296694a0b/ruamel.yaml.clib-0.2.7.tar.gz"
+    sha256 "1f08fd5a2bea9c4180db71678e850b995d2a5f4537be0e94557668cf0f5f9497"
   end
 
   resource "uri-template" do
@@ -107,8 +112,8 @@ class CheckJsonschema < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/fb/c0/1abba1a1233b81cf2e36f56e05194f5e8a0cec8c03c244cab56cc9dfb5bd/urllib3-2.0.2.tar.gz"
-    sha256 "61717a1095d7e155cdb737ac7bb2f4324a858a1e2e6466f6d03ff630ca68d3cc"
+    url "https://files.pythonhosted.org/packages/d6/af/3b4cfedd46b3addab52e84a71ab26518272c23c77116de3c61ead54af903/urllib3-2.0.3.tar.gz"
+    sha256 "bee28b5e56addb8226c96f7f13ac28cb4c301dd5ea8a6ca179c0b9835e032825"
   end
 
   resource "webcolors" do

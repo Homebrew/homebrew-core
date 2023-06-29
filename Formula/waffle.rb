@@ -29,6 +29,11 @@ class Waffle < Formula
   end
 
   def install
+    # https://gitlab.freedesktop.org/mesa/waffle/-/issues/115
+    # Fix: Library/Developer/CommandLineTools/SDKs/MacOSX13.sdk/usr/include/netinet/ip.h:102:2:
+    # error: unknown type name 'u_char'; did you mean 'char'?
+    ENV.append_to_cflags "-D_DARWIN_C_SOURCE" if OS.mac?
+
     args = std_cmake_args + %w[
       -Dwaffle_build_examples=1
       -Dwaffle_build_htmldocs=1

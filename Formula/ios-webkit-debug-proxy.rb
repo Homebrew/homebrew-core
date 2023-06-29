@@ -4,15 +4,16 @@ class IosWebkitDebugProxy < Formula
   url "https://github.com/google/ios-webkit-debug-proxy/archive/v1.9.0.tar.gz"
   sha256 "ba9bb2feaa976ad999e9e405d8cd8794cdf3546130a79f4785235200ead3c96c"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/google/ios-webkit-debug-proxy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "8783920760b38ffec7eea45645d85fb055ff3c48483d7c1e7831c1c290c92ee4"
-    sha256 cellar: :any, arm64_monterey: "ccce3a0260dd84e9dad0a39837e96c0c0c84f486b670fb8751db60089c6b490a"
-    sha256 cellar: :any, arm64_big_sur:  "d4fc36ed1066af71fdb0834630f1815f4b22700548fdb7a481d9d1752545586a"
-    sha256 cellar: :any, ventura:        "3d4a7c7f689dd22806bb649bb89ba947e12eb16cb036374d31159061786f76b5"
-    sha256 cellar: :any, monterey:       "7ce5286b7e4e2814d154f4e1d4d0d3ba29df745035d7a4cffcc35a9a95bd7154"
-    sha256 cellar: :any, big_sur:        "454295ce0a0bd3142ac16c758a8d923db079177357734ee47f717135f6864519"
+    sha256 cellar: :any, arm64_ventura:  "98a52dee813f9b7cc3bb923f01229d5b11641e18562f22ef52e96e2b248bbb6b"
+    sha256 cellar: :any, arm64_monterey: "5268a6ef7b32c2cd9d88e35e9e5667a7127258dd23c22a824e74bd4487e686fb"
+    sha256 cellar: :any, arm64_big_sur:  "3d693f91e25d8b165037afcbc36e14d8d54c8317bd01c770e5077a0ea4a0e72d"
+    sha256 cellar: :any, ventura:        "777efb32172aa98ef7cde6fd34107cd7fb42f132e12c8595bc2d5ad1c674e217"
+    sha256 cellar: :any, monterey:       "e17aec779a16ba66f75eb9bbbc76db078192ee15b5f87490e2ccfc54f699d4c8"
+    sha256 cellar: :any, big_sur:        "df411040e0e3babe6a487de5930b3ed7387610d1673ee42679780a34f72f3557"
   end
 
   depends_on "autoconf" => :build
@@ -21,7 +22,7 @@ class IosWebkitDebugProxy < Formula
   depends_on "pkg-config" => :build
   depends_on "libimobiledevice"
   depends_on "libplist"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "./autogen.sh"

@@ -4,19 +4,16 @@ class Mfterm < Formula
   url "https://github.com/4ZM/mfterm/releases/download/v1.0.7/mfterm-1.0.7.tar.gz"
   sha256 "b6bb74a7ec1f12314dee42973eb5f458055b66b1b41316ae0c5380292b86b248"
   license "GPL-3.0"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "ee1ad361ba6eea6cfa57fa1aefa01c81978dd1e24e2abddb7513cf177494732f"
-    sha256 cellar: :any,                 arm64_monterey: "7c66e15be8f86726fe114bb9c0be3684386f62819af22e7892876634b22b4d8d"
-    sha256 cellar: :any,                 arm64_big_sur:  "e7dffabd037eaff9a07ef2adb7c5731bd6270f04e5f3590280293fc25d478ddb"
-    sha256 cellar: :any,                 ventura:        "24e08b523879e081c905ff1bff99640f2959c917a575dfd538302559a36d4d90"
-    sha256 cellar: :any,                 monterey:       "375cd87233c4faea0360d7b840ff7ebd7769a455429f70c8b60305bef1b32299"
-    sha256 cellar: :any,                 big_sur:        "18cc9c42960d0accd760293232f236ad1d35e0fc1e7e8f44061b72db2c2acf64"
-    sha256 cellar: :any,                 catalina:       "1c9230a17ab7102f4b171e37a972ade6c7e2d5708102a17ea5494be0b1d1a42e"
-    sha256 cellar: :any,                 mojave:         "2b4c61222b70b25c523c6083efd85ff53f1187a6afd7d88115f12cb788fa6b13"
-    sha256 cellar: :any,                 high_sierra:    "c481733fcc5f8057aac9fa38d5445a88e6faf54a016533bcc72eba2335d9754b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "39fc6b17d7d53406b021389245015114195ec47f11787faafa1b60d92100e8da"
+    sha256 cellar: :any,                 arm64_ventura:  "d6700be1830322a6b2c164cecdfcdbeb2285c4ab2db1518a0782f820e842b63b"
+    sha256 cellar: :any,                 arm64_monterey: "a8910ab8b9320d26fb258e95f1d2d8a1d5d8dfcbed739464c916e6f0b6b8b896"
+    sha256 cellar: :any,                 arm64_big_sur:  "d8ebffdc37a5ab667c1e7c969d66bf2407c820ade96701806fc149f8e95ffe78"
+    sha256 cellar: :any,                 ventura:        "bf979c85bd74aef426a7d1911fb54ec6e9d3e187c2fba1b692dc502020b832cc"
+    sha256 cellar: :any,                 monterey:       "524e0778d1d15de19bbb7e5f052c338542f2fd4684f4f1cae018cf662bbb1f81"
+    sha256 cellar: :any,                 big_sur:        "4f1976bef27bb44358dfb064726b666b3b7e08a7e2670d0964423fa78b8afa1f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "84f878e049935d495a6621ac26fb0757f6a936c4e85fa2f6ba1058feb4e7d844"
   end
 
   head do
@@ -28,14 +25,14 @@ class Mfterm < Formula
 
   depends_on "libnfc"
   depends_on "libusb"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
 
   def install
-    ENV.prepend "CPPFLAGS", "-I#{Formula["openssl@1.1"].opt_include}"
-    ENV.prepend "LDFLAGS", "-L#{Formula["openssl@1.1"].opt_lib}"
+    ENV.prepend "CPPFLAGS", "-I#{Formula["openssl@3"].opt_include}"
+    ENV.prepend "LDFLAGS", "-L#{Formula["openssl@3"].opt_lib}"
 
     if build.head?
       chmod 0755, "./autogen.sh"

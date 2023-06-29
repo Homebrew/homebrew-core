@@ -1,9 +1,10 @@
 class Memcached < Formula
   desc "High performance, distributed memory object caching system"
   homepage "https://memcached.org/"
-  url "https://www.memcached.org/files/memcached-1.6.20.tar.gz"
-  sha256 "8f604f8e3a175637dc1f069de6fa2739116850c9f81e3764f2fac9a3b27be307"
+  url "https://www.memcached.org/files/memcached-1.6.21.tar.gz"
+  sha256 "c788980efc417dd5d93c442b1c8b8769fb2018896c29de3887d22a2f143da2ee"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/memcached/memcached.git", branch: "master"
 
   livecheck do
@@ -12,16 +13,17 @@ class Memcached < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "920f927eea05edc5eb395d1098f53ae610d9ca9697487f22be2d843beca58c6f"
-    sha256 cellar: :any,                 arm64_monterey: "aead80e56eb7297841768124c26301dab5b0f8995fb5907cf22cf5994a7c5d98"
-    sha256 cellar: :any,                 arm64_big_sur:  "d3578fb4c204a793a251b93ad1f4e75e214e985ae543bb2a122b6c6e53c37638"
-    sha256 cellar: :any,                 ventura:        "d8de6ef52a2f77f8ece303155ae338ffd9615e92e14690fcfcf53a4d6227c631"
-    sha256 cellar: :any,                 monterey:       "b0c48eeddcb510dfc6995f01198a5787c1ec0165d6aba081b0832e9cabd8b611"
-    sha256 cellar: :any,                 big_sur:        "c3f19f92020de53a073aba00225736502459902699a65266c2aa9a60baf0224d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4629cef58a560449d42a60be38c13a65094a83ba13886660feabeabe5e23f0ac"
+    sha256 cellar: :any,                 arm64_ventura:  "cc1ab78905c228a49f6564e517bbcb3be54000e76d783d8127e9b9779aa4be0f"
+    sha256 cellar: :any,                 arm64_monterey: "57119b41b85fe6a0186fb673378aecfccc10d2209ac14dc44387e3b58a1d7a9b"
+    sha256 cellar: :any,                 arm64_big_sur:  "44a0aa54ce84212a71eb9812f476d6c9747253e4bfef6952bcdcb45e0e340cd1"
+    sha256 cellar: :any,                 ventura:        "7693b1ab9d0a4ffe29e8c8459fcd018f08212a996d7d337fe31478d894c039f6"
+    sha256 cellar: :any,                 monterey:       "ebd2e253fa9bb28e846ef072e00c5b6ebb1ef191d800a675dafec791d94b9eb3"
+    sha256 cellar: :any,                 big_sur:        "8a3c748a9bd1b918b7b29a6759af7ba7c1e6e2aba499d6966e35adf5cc5c1d12"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cb6962039b1ac6b1ba933ab0be65a2dca3a993814c7c6732d01d96cb3ad5a837"
   end
 
   depends_on "libevent"
+  depends_on "openssl@3"
 
   def install
     system "./configure", "--prefix=#{prefix}", "--disable-coverage", "--enable-tls"

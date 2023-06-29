@@ -23,6 +23,9 @@ class Gdm < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a0f0a95d921a3fe45e5f7eb32d5132f56d429475118c43e46de3e767edb9eeb0"
   end
 
+  # https://github.com/sparrc/gdm/issues/29
+  deprecate! date: "2023-06-27", because: :unmaintained
+
   depends_on "go"
 
   go_resource "golang.org/x/tools" do

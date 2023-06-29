@@ -9,7 +9,7 @@ class EasyGit < Formula
     sha256 cellar: :any_skip_relocation, all: "4f1bd257689c7102a91799fdb7ca4a1e64638aa08ec1dad92070c875e6021a04"
   end
 
-  deprecate! date: "2022-04-12", because: :unmaintained
+  disable! date: "2023-06-19", because: :unmaintained
 
   def install
     bin.install "eg"

@@ -4,6 +4,7 @@ class PamU2f < Formula
   url "https://developers.yubico.com/pam-u2f/Releases/pam_u2f-1.3.0.tar.gz"
   sha256 "72360c6875485eb4df409da8f8f52b17893f05e4d998529c238814480e115220"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/Yubico/pam-u2f.git", branch: "master"
 
   livecheck do
@@ -12,13 +13,13 @@ class PamU2f < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "08d5272e545eb1fc86967363057ef008685ce1a34b704b10d2006c4edacca774"
-    sha256 cellar: :any,                 arm64_monterey: "539a1e0ef3705c964b3946f1ddca73e9f834eb5656753d15066e9d68dc44d78f"
-    sha256 cellar: :any,                 arm64_big_sur:  "6ccac9b5556ad25d997c0799e8e1e799d47dd0e3b9c2484cf3fea92e6bfb2475"
-    sha256 cellar: :any,                 ventura:        "bf542f0d79daa165a64a01189c9756ce19414409d7f17a9b2123e44b284dbb3e"
-    sha256 cellar: :any,                 monterey:       "be90e18ce3777c55e242903b4cc7bfae2d0a992061f627d87686c88a77f67f9c"
-    sha256 cellar: :any,                 big_sur:        "320adb231803477099263432f31a30c32191daaddb208fd4491e8c12e1cddddf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ab3a86141ac2cd53b924b18732abb7a97c55892c537928667c05fba133d1f549"
+    sha256 cellar: :any,                 arm64_ventura:  "45630c8a3a007708310edd878ce19476d8424244f90275748dde69ca059a8e38"
+    sha256 cellar: :any,                 arm64_monterey: "a276d4e8b21f4b15c46e8d27fb84ba42076aa280a20e3b19ce8cae7c45eedb3d"
+    sha256 cellar: :any,                 arm64_big_sur:  "f8dc0e2ba0fb4fa6e1724e6503a3d553bf2e377d0f7da9ae340e59424c097b82"
+    sha256 cellar: :any,                 ventura:        "20e00da7179d67f0bac63ca36ecc33962dcc087632e0bc98844ad105122f6dd1"
+    sha256 cellar: :any,                 monterey:       "a43bfbe53c8da19aa1f4f24e99af78ffd20855fadbd8cc12fd2e66890e527daf"
+    sha256 cellar: :any,                 big_sur:        "8bb7a56a9a0d3e6547b6d9aa572863e53916bd64fa2cacb2ce7921cc26b56459"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8d56386b58f24ea34caaa018b2c91c3d6f80b2e83d1c025b929553e5ae73738f"
   end
 
   depends_on "asciidoc" => :build
@@ -27,6 +28,7 @@ class PamU2f < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "libfido2"
+  depends_on "openssl@3"
 
   on_linux do
     depends_on "linux-pam"

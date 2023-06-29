@@ -4,16 +4,17 @@ class Zk < Formula
   url "https://github.com/mickael-menu/zk/archive/refs/tags/v0.14.0.tar.gz"
   sha256 "bd96f93d50e2e72ce05f36c3dab5b7942ae205756f26d4c68ba2a7ccc783abc8"
   license "GPL-3.0-only"
+  revision 1
   head "https://github.com/mickael-menu/zk.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "dea76ba6edebc030a5d5239f4419424c1519fe8ccda23a3bf64a8acc211d7879"
-    sha256 cellar: :any,                 arm64_monterey: "7ed439e7cb1a98ffb8123235bc657927fc007af5be8dbc5ffa37a669d128c6cb"
-    sha256 cellar: :any,                 arm64_big_sur:  "700f8f4556d7b49b43ef3f8b68fc1f11a51b6bd9c6e1d8b039542db0f069e017"
-    sha256 cellar: :any,                 ventura:        "ef912631df644a06afc70217a570705d6e06b64d12adbced6d924f48ee65e9ca"
-    sha256 cellar: :any,                 monterey:       "ce9199ba18f7024260c5a292bb9b8a49be4fd8a54f091caf3c3d25a6ac308dbc"
-    sha256 cellar: :any,                 big_sur:        "523b252953a9346d11a720450275345197e897229313ac5da11e1b299de9fed3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0523713d258b463e9ef81ac1009ef36f43225411ba8621fc6cc80b738fad69fc"
+    sha256 cellar: :any,                 arm64_ventura:  "4971122839654adbff8642e44ba166117cbb09f53a4ee35cb3bd73c1c32625dc"
+    sha256 cellar: :any,                 arm64_monterey: "fa87223acb14ee1d33b5493498b19380b0b4a94c3bebdf2faa64e0bf3335026e"
+    sha256 cellar: :any,                 arm64_big_sur:  "ba7dec1077c88ec64205cba25cdae02518ba69507ee9acea84358a130b25858a"
+    sha256 cellar: :any,                 ventura:        "a1e96b6d47ff1ce7316d12f0d659db84885c7b9c9f752186d6ab875d78884f2d"
+    sha256 cellar: :any,                 monterey:       "83b294c1fd7da4e5976129741a8abc9d8fb8d8a96ddec7d4d8e473b2c79d0720"
+    sha256 cellar: :any,                 big_sur:        "59becb9aa1e9296c69a713b57c2fa4567170bf00fc0c77ea2b33525be8d90f63"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "92e8999c69b2a43d1ce03a54a0cc2c6cc87e2741419c9bff24d96b4fc9075afd"
   end
 
   depends_on "go" => :build

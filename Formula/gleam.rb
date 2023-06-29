@@ -1,5 +1,5 @@
 class Gleam < Formula
-  desc "✨ A statically typed language for the Erlang VM"
+  desc "Statically typed language for the Erlang VM"
   homepage "https://gleam.run"
   url "https://github.com/gleam-lang/gleam/archive/v0.29.0.tar.gz"
   sha256 "74376782e7d68535107bb616270b5aa0f5eb7fe44e59516891727f6b33c10656"

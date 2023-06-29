@@ -5,6 +5,7 @@ class Opusfile < Formula
   mirror "https://ftp.osuosl.org/pub/xiph/releases/opus/opusfile-0.12.tar.gz"
   sha256 "118d8601c12dd6a44f52423e68ca9083cc9f2bfe72da7a8c1acb22a80ae3550b"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url "https://www.opus-codec.org/downloads/"
@@ -12,16 +13,13 @@ class Opusfile < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "36711acb9ef28f156240cf9844801ed8a6bdafa517ba75cc88f3e00d4b8e4bd1"
-    sha256 cellar: :any,                 arm64_monterey: "0cdc27b38be83f9e0e7a2ca87d2b5605d597f702b8ae0e6b9f7470b203debf94"
-    sha256 cellar: :any,                 arm64_big_sur:  "4274c0f9758385bbf30fabde125317dcf4934e5188d86b791cb1292efb9e26fd"
-    sha256 cellar: :any,                 ventura:        "73c8b6c9dd81e8b3a8d33498659757468c29bc3c255318287eed5dd0b40690fe"
-    sha256 cellar: :any,                 monterey:       "2b33775ddb195a0de0ae029b833c425db68ae92ed0228f2f508a202ef620823d"
-    sha256 cellar: :any,                 big_sur:        "0e6dc752d650542ea8ae4b67182700724ae32ffd5dfa9323d5c2563ed267dd0f"
-    sha256 cellar: :any,                 catalina:       "c43c50e65738c25ef72af85e5509577314764c3dad0fb4c122704591d6f3a515"
-    sha256 cellar: :any,                 mojave:         "8754dfcc9abec5de74e8cd7af31614c06e8208bd623f9ad5446048ad14218a97"
-    sha256 cellar: :any,                 high_sierra:    "ff718107c425123a06270b62aa9a7bd3fee4f785d03dac21a58f7059720be22b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9279801d0c9111e570f0e095f738d68a3eae182b8d9d6cb0cd6343a25b787644"
+    sha256 cellar: :any,                 arm64_ventura:  "d2d8a06a9cf6bae410e9112ec383e928b69986c8f6d1b91cde5961008e1ec077"
+    sha256 cellar: :any,                 arm64_monterey: "cd2de61cdf56792c4d6e03d5af1c1319b028d7c0227bbeb8b221f85c6928c301"
+    sha256 cellar: :any,                 arm64_big_sur:  "c82b83a7d1a4847695a7667de5537fa2b75fc737d0caedf3562891019b7e8c37"
+    sha256 cellar: :any,                 ventura:        "3f71655f0ae4529bbe68cdf389f44b835130e77078758674f0f433327aa7341f"
+    sha256 cellar: :any,                 monterey:       "fa8d9e078297d10e650883b4c259d46bf955031174af802849e4151ef3b5dccc"
+    sha256 cellar: :any,                 big_sur:        "f97ed204769d1f151372469bc4364076add0c7e15035bdba1a9aa630c2ee2063"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f4b0a03f7494d92eb31cdc658c7aca5d971a1c9482ad899a2fe6643715d887f4"
   end
 
   head do
@@ -34,7 +32,7 @@ class Opusfile < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libogg"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "opus"
 
   resource "sample" do

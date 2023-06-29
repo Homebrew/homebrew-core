@@ -10,18 +10,16 @@ class Awsume < Formula
   head "https://github.com/trek10inc/awsume.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f056197ace94877daffe14c98bc4f859469da266ba8efd654fd29197e6687cfe"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "70a9d107be4299cb989de3e359fe84118624136dee1ec1060da5bbe7983201ff"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a46f5464bcbe5aed88954a839c66a97acb596e503f90b7cdfc7f4d1735b73422"
-    sha256 cellar: :any_skip_relocation, ventura:        "14e558f3fb2713cfeed9ce44f8559c2b184a1e41366384a5ae78f819c52bddde"
-    sha256 cellar: :any_skip_relocation, monterey:       "27b7235a94d3f74816ddf545fe443aa4b24d2f7931c5f1ffd01a5dfff124249f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2d7589975a41dfdd6175c5e5a82c8aa1e69e624331b6337d8394d1731caf252e"
-    sha256 cellar: :any_skip_relocation, catalina:       "43bdff06f5c9fbe95560e9b7c812cbf6becbc93b41a5bcdfdff1e5f57da28abf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d72339357538a9627e59de64b83c6eb22526e4d16847ff4c5b0560ccf863ceb1"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "34cc433dbf4dd082d192a7862cb3e67b04552e55b3ebc14543b74d87833af34b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1ed015b727191d782e1c4141b4c7daf098df5a0ad09d106db91890b725c8ed78"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "eb9b656e36b784a100ab2271b8c1a749cff32f50b74cacfabf165134145e6af6"
+    sha256 cellar: :any_skip_relocation, ventura:        "cf65963314679dfb6443327920402a9b63d23474a9a29a036addcb2a0bc09a7c"
+    sha256 cellar: :any_skip_relocation, monterey:       "e29cbf8fed2726d1f43723ab239d9892b0ff129b182e40c287e52b49bbdd6cf2"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9e09f9f12828086b892e57cc1295aa84bdc74bb4b1182757ba48639ff0873f5e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9ab02ad5f98ce499784d7601b8cf4304544a17247f286764c14a3919d3688037"
   end
 
-  depends_on "openssl@1.1"
   depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "six"

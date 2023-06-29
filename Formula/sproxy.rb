@@ -4,6 +4,7 @@ class Sproxy < Formula
   url "https://download.joedog.org/sproxy/sproxy-1.02.tar.gz"
   sha256 "29b84ba66112382c948dc8c498a441e5e6d07d2cd5ed3077e388da3525526b72"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://download.joedog.org/sproxy/"
@@ -11,19 +12,13 @@ class Sproxy < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8265d1a1a4f6eb021aac708b5d9b68b470c618389a6cc71131752e40da0f6123"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "73f13338cbd96aee85706f30ab752d6c7ea338b9876eb43444fbaf2c8523a09e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2558b7f1308c8bc08667c8e51d40b1c8df05280fa8c5f003f6dec07561089c2e"
-    sha256 cellar: :any_skip_relocation, ventura:        "80c73db42dd8c97ae2513f9965295f62f5eb8bcabeacfa8ab2d55d2df89fc9b3"
-    sha256 cellar: :any_skip_relocation, monterey:       "f810e4c841a81313b77f81dec82b1cdd1b4952d6625d8590aadb581e388edafb"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0feb23f8381e7e40ce846974be822ba97d42658a721582320468355193dc4851"
-    sha256 cellar: :any_skip_relocation, catalina:       "ee0bff8062b0d007a9b762d35af1879e8abcf7203dae265d1a70ade53047af90"
-    sha256 cellar: :any_skip_relocation, mojave:         "2d689087925622e4f7e2c2572c2339c62a6c2b891bce7093bcd664f1a15c28d9"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "326b01fa9a1370c54929ae4c11d1b67b2238875eca8188365486b9c2a374264f"
-    sha256 cellar: :any_skip_relocation, sierra:         "8d57317644b76b465adc5caf984f1e3cf57f9486f642705eee66128adbcf3589"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "4ed786b0b05ca3c88d5904e3119d84725a9f9bedf5d952c055f22a81661a825c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "713ebc755ddb821e5e0bd17a13dc0a274645c7478f5682cd9407ddadb3e93c31"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bf109934bc851cb45e6d6a9c24caff018e3ad0d1ebf45fa45d3c27291f7bcddd"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "bf109934bc851cb45e6d6a9c24caff018e3ad0d1ebf45fa45d3c27291f7bcddd"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b8c092d79cd0096d0d626cb9df9712e213e6fb6a814969c408feb2714e04917a"
+    sha256 cellar: :any_skip_relocation, ventura:        "ba5b54502dcbb781c47640129208bfbd794770262afbcc2909773f01f2938687"
+    sha256 cellar: :any_skip_relocation, monterey:       "ba5b54502dcbb781c47640129208bfbd794770262afbcc2909773f01f2938687"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a0bbfcf15c625d3fc022b0d1960f05a05bbd2e0a7f21458f92dbd537cd0a614a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4eefc2816eb2f502c05a7713f2d34efc56f81016e9fdef5c86299c04f69bd734"
   end
 
   # Only needed due to the change to "Makefile.am"
@@ -34,7 +29,7 @@ class Sproxy < Formula
   uses_from_macos "perl"
 
   on_linux do
-    depends_on "openssl@1.1"
+    depends_on "openssl@3"
 
     resource "File::Remove" do
       url "https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/File-Remove-1.60.tar.gz"
@@ -102,7 +97,7 @@ class Sproxy < Formula
       ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
       ENV.prepend_create_path "PERL5LIB", lib/"sproxy"
       ENV["PERL_MM_USE_DEFAULT"] = "1"
-      ENV["OPENSSL_PREFIX"] = Formula["openssl@1.1"].opt_prefix
+      ENV["OPENSSL_PREFIX"] = Formula["openssl@3"].opt_prefix
 
       resources.each do |r|
         r.stage do

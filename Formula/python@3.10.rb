@@ -4,6 +4,7 @@ class PythonAT310 < Formula
   url "https://www.python.org/ftp/python/3.10.12/Python-3.10.12.tgz"
   sha256 "a43cd383f3999a6f4a7db2062b2fc9594fefa73e175b3aedafa295a51a7bb65c"
   license "Python-2.0"
+  revision 1
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -11,13 +12,13 @@ class PythonAT310 < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "def8497af3ae058eb9c30c2a5f99c878bdc21ef7ceb976c87ba9908f44135cde"
-    sha256 arm64_monterey: "6b582718aebc641554ebd11f0030e9f244d24f47ea3f202df130a21ed65fb129"
-    sha256 arm64_big_sur:  "d224a3c87c6a367eed7c024631118f792e542acc530b5421599b9424d4f06adc"
-    sha256 ventura:        "9ff1027548d103e245591d445f7479e69f9d232ecd06caf3f64fe16c440b3524"
-    sha256 monterey:       "ee98b018f44a71049c0101436b5c8899629b297fa8808b9ed31ac87d9c71f3ae"
-    sha256 big_sur:        "87ea84a89ebd5231c7c8bbeeb2f68a5d3cd354425baf55ababfdc51e036c0de9"
-    sha256 x86_64_linux:   "beb0dcad081536c180e4d9c85e4753a5d69a8b7e0dee8c9c8695d3359eb1e524"
+    sha256 arm64_ventura:  "b18fd992122bb09859ffc555958d03de495915a48e6ac9f65aa151f4ff7ce182"
+    sha256 arm64_monterey: "91b9011f598b72dfe412c689ffa0d3b7be2cfa0e51726016eca008346aebffb5"
+    sha256 arm64_big_sur:  "789982954a336b5e25b8bb4ccc3a0d15e010acb5eeb8bd75c9a231070bdec54e"
+    sha256 ventura:        "5529cfcd4eea11a32ce35b0e25e7954ba0a8013392d14727d48d75308362c22e"
+    sha256 monterey:       "ea7a8c7de0e138420f115b16cfd573c3d99c804cff97eab286bda3af37337c3a"
+    sha256 big_sur:        "eb23a46fa1910a960db4535277a97aae635469f90ceb7af309ab361c43c7d81a"
+    sha256 x86_64_linux:   "5ff1a560ec8a188daeb2e4f26d2da93ca6c6b528fbc177f49ae3afdf9dce7543"
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -27,7 +28,7 @@ class PythonAT310 < Formula
   depends_on "pkg-config" => :build
   depends_on "gdbm"
   depends_on "mpdecimal"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "readline"
   depends_on "sqlite"
   depends_on "xz"
@@ -129,7 +130,7 @@ class PythonAT310 < Formula
       --datadir=#{share}
       --without-ensurepip
       --enable-loadable-sqlite-extensions
-      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
+      --with-openssl=#{Formula["openssl@3"].opt_prefix}
       --with-dbmliborder=gdbm:ndbm
       --enable-optimizations
       --with-system-expat
@@ -200,7 +201,7 @@ class PythonAT310 < Formula
     # `brew install enchant && pip install pyenchant`
     inreplace "./Lib/ctypes/macholib/dyld.py" do |f|
       f.gsub! "DEFAULT_LIBRARY_FALLBACK = [",
-              "DEFAULT_LIBRARY_FALLBACK = [ '#{HOMEBREW_PREFIX}/lib', '#{Formula["openssl@1.1"].opt_lib}',"
+              "DEFAULT_LIBRARY_FALLBACK = [ '#{HOMEBREW_PREFIX}/lib', '#{Formula["openssl@3"].opt_lib}',"
       f.gsub! "DEFAULT_FRAMEWORK_FALLBACK = [", "DEFAULT_FRAMEWORK_FALLBACK = [ '#{HOMEBREW_PREFIX}/Frameworks',"
     end
 
@@ -441,7 +442,7 @@ class PythonAT310 < Formula
           if os.path.realpath(sys.base_exec_prefix).startswith('#{rack}'):
               new_exec_prefix = cellar_prefix.sub('#{opt_prefix}/', sys.base_exec_prefix)
               if sys.exec_prefix == sys.base_exec_prefix:
-                  site.PREFIXES[:] = [new_prefix if x == sys.exec_prefix else x for x in site.PREFIXES]
+                  site.PREFIXES[:] = [new_exec_prefix if x == sys.exec_prefix else x for x in site.PREFIXES]
                   sys.exec_prefix = new_exec_prefix
               sys.base_exec_prefix = new_exec_prefix
       # Check for and add the python-tk prefix.

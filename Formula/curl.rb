@@ -8,6 +8,7 @@ class Curl < Formula
   mirror "http://fresh-center.net/linux/www/legacy/curl-8.1.2.tar.bz2"
   sha256 "b54974d32fd610acace92e3df1f643144015ac65847f0a041fdc17db6f43f243"
   license "curl"
+  revision 1
 
   livecheck do
     url "https://curl.se/download/"
@@ -15,13 +16,13 @@ class Curl < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "98f19a2478157214cf70a9464d053f4d3cbb584b9674ca0caa0f6a498427b5e2"
-    sha256 cellar: :any,                 arm64_monterey: "53b672721b3bd01810249d8c1fc38d81be55919a5cdc5aeae47a5270f727ae5a"
-    sha256 cellar: :any,                 arm64_big_sur:  "7578d993a314c082bc2d41e38a94f717c6fc8e651114382a023a9ee9c4cc7788"
-    sha256 cellar: :any,                 ventura:        "fc1fddfaadaa7ee02e512a066be385cf4ae9a2b97d6bdfcf7f022dd58354c76b"
-    sha256 cellar: :any,                 monterey:       "83f545ac579a8252bc425774a50d0ad3030e86c0493c070fc9147ae9b3cfbeb0"
-    sha256 cellar: :any,                 big_sur:        "6df6d9bdfdcf0e13fe715a0b1828f621ed9291b0a7b5f6274c2edb81070f1761"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "880183e3784201ce34a77374785a83ba39599e91dffe1a54c183d524bf79ed51"
+    sha256 cellar: :any,                 arm64_ventura:  "9bd5703ca8717e141933b2a99ceca383f6f9c89dde495161063fc0b9be0b3289"
+    sha256 cellar: :any,                 arm64_monterey: "d10b95b4831a80162e63e95321ea743a07c48567f07d200b8f8d9e755aec4385"
+    sha256 cellar: :any,                 arm64_big_sur:  "903965a1ff4f348d29400360895c7e80cfdc409a58ab9baa181920becf3982f0"
+    sha256 cellar: :any,                 ventura:        "c5b69e6af1635b0884a654e91dc707b352a691a43bd79c774706aabc273d331d"
+    sha256 cellar: :any,                 monterey:       "b20e0b0d54d1629c6fc09979572a83db734c6eb6b611d71d12f814275a486238"
+    sha256 cellar: :any,                 big_sur:        "7577bb988799c0959bf7a766519cbd08a4b80c6d4c68768a2ccfba1de8bb385b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "02b3b8dde04541f3fe2e0cd4c996909597cf9dd3473a1e298d21e25853529082"
   end
 
   head do
@@ -40,7 +41,7 @@ class Curl < Formula
   depends_on "libnghttp2"
   depends_on "libssh2"
   depends_on "openldap"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "rtmpdump"
   depends_on "zstd"
 
@@ -55,7 +56,7 @@ class Curl < Formula
       --disable-dependency-tracking
       --disable-silent-rules
       --prefix=#{prefix}
-      --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
+      --with-ssl=#{Formula["openssl@3"].opt_prefix}
       --without-ca-bundle
       --without-ca-path
       --with-ca-fallback

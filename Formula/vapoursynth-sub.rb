@@ -1,22 +1,21 @@
 class VapoursynthSub < Formula
   desc "VapourSynth filters - Subtitling filter"
   homepage "https://www.vapoursynth.com"
-  url "https://github.com/vapoursynth/subtext/archive/R3.tar.gz"
-  sha256 "d0a1cf9bdbab5294eaa2e8859a20cfe162103df691604d87971a6eb541bebd83"
+  url "https://github.com/vapoursynth/subtext/archive/R4.tar.gz"
+  sha256 "75b43db67062bf98e31c4e98138fe8d7fd328619216ad0444423efc3d6bc1398"
   license "MIT"
-  revision 1
   version_scheme 1
 
   head "https://github.com/vapoursynth/subtext.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "eac11e8cab42e2dc20a55b4047847195f96d9d3754b1f07051a7573602a8e22d"
-    sha256 cellar: :any,                 arm64_monterey: "bd049fa76cceba7b8f7106f561e2dfafbac4bc614ce2f84df20eb6d82c5835c4"
-    sha256 cellar: :any,                 arm64_big_sur:  "eb1c664154707e72972d6485fa32b7b2122185364d3733d2e7f6a4a6ff3983c5"
-    sha256 cellar: :any,                 ventura:        "0565ed71fbbd513f943174c1976f6a22b3d11d8c5619e8f03e38d2ed6a015249"
-    sha256 cellar: :any,                 monterey:       "936cfa07b6d8856b0f0e06b32b6768d75da7614be2eed007fa53bff97be73450"
-    sha256 cellar: :any,                 big_sur:        "6e94b0c7086d046c513b9ddf6c1ed1750f7c56b98c55867329fb06ff47c372c1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "191b136d2a97715a7a083d435682be7cd83673a3aeb073d2cf0f9605c9757e7b"
+    sha256 cellar: :any,                 arm64_ventura:  "18df66402b5b0612d575766fefadc18f40d8fe7aed14ff7a6ec97c1a05e94bff"
+    sha256 cellar: :any,                 arm64_monterey: "0be08d3ca56d404588d61badae14e9930f1abe0df0eae0c6b69ac6eff85d1db3"
+    sha256 cellar: :any,                 arm64_big_sur:  "b01b9b7977bdbf1e5ff744e6f4bf91f0c5f659cbad4054bb72aabe1ab801e169"
+    sha256 cellar: :any,                 ventura:        "ef507c8bd5dbbbeb8e330bcec90cf01f3a8a974baeb3aea0b8b68a834b15032a"
+    sha256 cellar: :any,                 monterey:       "65a9159a7dd44be6977ee0fc089db43e182024e7fd4080daee108c39bd185b02"
+    sha256 cellar: :any,                 big_sur:        "a943de850d54d3bec2297cad3aa6031bf80d9f002994af268741314122fb3a08"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5eee1c9ffd626de825ad7b1cb66a1db3985c0b9faf7f87480c2ae67d73f8aa39"
   end
 
   depends_on "cmake" => :build

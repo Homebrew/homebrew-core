@@ -6,22 +6,23 @@ class Flintrock < Formula
   url "https://files.pythonhosted.org/packages/dc/ad/6e3871a510f0d053aa49caee2140a2f64f2d3fa584d3b70408043295fa57/Flintrock-2.0.0.tar.gz"
   sha256 "ccbbc912823772ea733802ca3f9751c98dacda8c67518683a3dc4ec8b1de38dd"
   license "Apache-2.0"
-  revision 5
+  revision 6
 
   bottle do
-    rebuild 5
-    sha256 cellar: :any,                 arm64_ventura:  "36560f0b9afd77a1bd97686815ac54f5c425ef86370515b78cfe25be8772a17e"
-    sha256 cellar: :any,                 arm64_monterey: "95f444bb871e27788b1b09e0f4b1e87b97d28e0a7d10f926bc9ca5ce65531675"
-    sha256 cellar: :any,                 arm64_big_sur:  "83347e3a66d9afab4603f4cc18bb5a19cb41d001dc92c00d5ea3da844684e919"
-    sha256 cellar: :any,                 ventura:        "1470b05e7c38f10637b83cdb01034d27215b73e37201e20adde4cd14ff0c44ec"
-    sha256 cellar: :any,                 monterey:       "120cd649f76dd4aaf4764aba197a88ffa489baaa1234ace058fc0d44cfc4ee05"
-    sha256 cellar: :any,                 big_sur:        "981bf34e695348ddc51777a58cadc69250bccc8038b1cde205d5cf678476aee9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "924b67e22d521042893e281e3143d645d218ff864db4d1671ee3cfa08b10a104"
+    sha256 cellar: :any,                 arm64_ventura:  "d7c5d2eb99d1e9b4640eaa2f9ebe9b375a388f0ed3b8b02cbc5cc3f3e980c720"
+    sha256 cellar: :any,                 arm64_monterey: "b86dea485f1fbec309437a2869793f4a4b422c5b88fc5f580d005f07e9f39d01"
+    sha256 cellar: :any,                 arm64_big_sur:  "3552dcf13179969cb828c9813537277eeffbabb57cbf1ebc3c703e5aa3860fec"
+    sha256 cellar: :any,                 ventura:        "f3d733660f29be0b777c371541839cebdf9b1435e7be5fada2c13da3f8e06e46"
+    sha256 cellar: :any,                 monterey:       "3c18d648b233b40cfe518c7919ed155ffa9a3aea1806f88170a231d9ece0b5d3"
+    sha256 cellar: :any,                 big_sur:        "e9de626dfe7c839dee58c8c9c545ed831258f2ed34fe7aaf73390f1be0f89eb7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "177198a01a28b27ab6de657158a0f9ce56e77787d45387b8b26ae6257b66a1a1"
   end
 
-  depends_on "pkg-config" => :build # for `cryptography`
-  depends_on "rust" => :build # for `cryptography`
-  depends_on "openssl@1.1" # for `cryptography`
+  # `pkg-config`, `rust`, and `openssl@3` are for cryptography.
+  depends_on "pkg-config" => :build
+  depends_on "rust" => :build
+  depends_on "cffi"
+  depends_on "openssl@3"
   depends_on "python@3.11"
   depends_on "six"
 
@@ -38,11 +39,6 @@ class Flintrock < Formula
   resource "botocore" do
     url "https://files.pythonhosted.org/packages/d4/a4/ef715db7192535688fae0130714fde5dce91ce2ed8e521aad55a213a5820/botocore-1.20.90.tar.gz"
     sha256 "b301810c4bd6cab1b6eaf6bfd9f25abb27959b586c2e1689bbce035b3fb8ae66"
-  end
-
-  resource "cffi" do
-    url "https://files.pythonhosted.org/packages/2b/a8/050ab4f0c3d4c1b8aaa805f70e26e84d0e27004907c5b8ecc1d31815f92a/cffi-1.15.1.tar.gz"
-    sha256 "d400bfb9a37b1351253cb402671cea7e89bdecc294e8016a707f6d1d8ac934f9"
   end
 
   resource "click" do
@@ -63,11 +59,6 @@ class Flintrock < Formula
   resource "paramiko" do
     url "https://files.pythonhosted.org/packages/cf/a1/20d00ce559a692911f11cadb7f94737aca3ede1c51de16e002c7d3a888e0/paramiko-2.7.2.tar.gz"
     sha256 "7f36f4ba2c0d81d219f4595e35f70d56cc94f9ac40a6acdf51d6ca210ce65035"
-  end
-
-  resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/5e/0b/95d387f5f4433cb0f53ff7ad859bd2c6051051cebbb564f139a999ab46de/pycparser-2.21.tar.gz"
-    sha256 "e644fdec12f7872f86c58ff790da456218b10f863970249516d60a5eaca77206"
   end
 
   resource "pynacl" do
@@ -97,7 +88,7 @@ class Flintrock < Formula
 
   def install
     ENV["OPENSSL_NO_VENDOR"] = "1"
-    ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
+    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
     virtualenv_install_with_resources
   end
 

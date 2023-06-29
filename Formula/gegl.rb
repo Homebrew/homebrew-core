@@ -1,10 +1,9 @@
 class Gegl < Formula
   desc "Graph based image processing framework"
   homepage "https://www.gegl.org/"
-  url "https://download.gimp.org/pub/gegl/0.4/gegl-0.4.44.tar.xz"
-  sha256 "0a4cdb41635e406a0849cd0d3f03caf7d97cab8aa13d28707d532d0089d56126"
+  url "https://download.gimp.org/pub/gegl/0.4/gegl-0.4.46.tar.xz"
+  sha256 "d0b3b2481bc8774c5f3d0a487611910166d18eef823a859fb91e781ab7b1e892"
   license all_of: ["LGPL-3.0-or-later", "GPL-3.0-or-later", "BSD-3-Clause", "MIT"]
-  revision 1
   head "https://gitlab.gnome.org/GNOME/gegl.git", branch: "master"
 
   livecheck do
@@ -13,14 +12,13 @@ class Gegl < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_ventura:  "6798a639e63b3e609631ef1d252f7a275d3eb99c9f2a024c6e584170ebd08127"
-    sha256 arm64_monterey: "62603414a7f4763475dc6fda87437e062271bf46e285c7f74e88a078386e6c4e"
-    sha256 arm64_big_sur:  "08f3c21fa28b0fd57adc795c56a0ff1383ac57bf495e08a3ad813ddd41d3d04b"
-    sha256 ventura:        "41352847b91a36d1e1bf2bc3a249c102173ca098a782e450893616f9f5bb3282"
-    sha256 monterey:       "92c2b18e7bc6fa8abaa4203a70d8ab5041683f71b1b0ecd999861128767392c7"
-    sha256 big_sur:        "6b73bac09505dc9790a5667ab2cda5980048c7695c6a09110c10b9b2b0dcedbf"
-    sha256 x86_64_linux:   "430ca21b53a615a2c053f24194155b03654773b1df8dd7b272616baa99024faf"
+    sha256 arm64_ventura:  "70e73227ab3babf88c3b92a755c4077eac31e59cf894eb2ba56d7b85ce8da046"
+    sha256 arm64_monterey: "8e05cf9e7284b79287d42375a3ad0deb0297062082fb7535aa17022399fb65cd"
+    sha256 arm64_big_sur:  "0676101111c243167d9826e3d0d2b1ce896469459e8210530b804d2603218253"
+    sha256 ventura:        "004b97b7d7b24739a87565265dadb12dfa06c35ab23b6fa2447d4aa4a4307432"
+    sha256 monterey:       "c9528587fa729a1205b6fa8e255832c31078fb1048e615e71542420bc5be2e36"
+    sha256 big_sur:        "d3b1dc1229ce6306c8ae0c88fd2f1a17c832ce071c9375750025f577d4892a46"
+    sha256 x86_64_linux:   "886706bdf73a47733567e36d8d10abbf3627278be026dcc7e66f44b4f1e444df"
   end
 
   depends_on "gobject-introspection" => :build

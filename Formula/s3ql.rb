@@ -6,19 +6,21 @@ class S3ql < Formula
   url "https://github.com/s3ql/s3ql/releases/download/release-3.8.1/s3ql-3.8.1.tar.gz"
   sha256 "d4731ebaacadca38a677bb18a99446c19d4f5b573628d55371f715acace11c4c"
   license "GPL-3.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "b8cbd4e1467afc2b01ee93e45bed64baca9a0cd9915b57873e647bcf6927a99a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "5a9dbc30a57887057a7898f1fe5843b3bba02936698e494c81ecaa2999161d4e"
   end
 
   deprecate! date: "2022-11-07", because: :repo_archived
 
+  # `pkg-config`, `rust`, and `openssl@3` are for cryptography.
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "libffi"
   depends_on "libfuse"
   depends_on :linux # on macOS, requires closed-source macFUSE
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "python@3.9"
 
   resource "apsw" do
@@ -107,6 +109,10 @@ class S3ql < Formula
   end
 
   def install
+    # Ensure that the `openssl` crate picks up the intended library.
+    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+    ENV["OPENSSL_NO_VENDOR"] = "1"
+
     venv = virtualenv_create(libexec, "python3")
     resources.each do |r|
       venv.pip_install r

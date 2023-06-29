@@ -6,6 +6,7 @@ class FbClient < Formula
   url "https://paste.xinu.at/data/client/fb-2.3.0.tar.gz"
   sha256 "1164eca06eeacb4210d462c4baf1c4004272a6197d873d61166e7793539d1983"
   license "GPL-3.0-only"
+  revision 1
   head "https://git.server-speed.net/users/flo/fb", using: :git, branch: "master"
 
   livecheck do
@@ -14,19 +15,18 @@ class FbClient < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "d46a63ecf65fd97065166fcab2f4386d4c15ae430a49570d645d5744ef594846"
-    sha256 cellar: :any,                 arm64_monterey: "4dadf3cfa163f2a583c73c4fa73084d36962566876994c1363d7d779a9654238"
-    sha256 cellar: :any,                 arm64_big_sur:  "717e43653007dd176bd23a11099b809d1244d7637aeb1847bfba05bfcfbc78a3"
-    sha256 cellar: :any,                 ventura:        "2b862bdfdce5f2a7b6c167fc96c905b951fc1335669d8b297fdc873449cd7703"
-    sha256 cellar: :any,                 monterey:       "6bdf26e1eefe758a492a24c686986513cf79e6db8f3ce36c2116b915b7e3657b"
-    sha256 cellar: :any,                 big_sur:        "c0904d61b7d29333c7d2c9d5736c3562506a5500400bf336668b5573864d8b3e"
-    sha256 cellar: :any,                 catalina:       "8489f0e39c1ccb91dd6bb54ecddc2c124b3f943587d08e4616d2342a48f3662c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "00077814d4fef6e1a34653443474be95bdd395d86a1b72a9acc492c6a924ac6e"
+    sha256 cellar: :any,                 arm64_ventura:  "537eda37cb3bd26c4873ce83bdb9dbc8c41caeb392d2c0ade6507e1c44695c76"
+    sha256 cellar: :any,                 arm64_monterey: "320fa43c7cabdf9f3014db7ffc0145ecf187b5e4bf915202ba74e0298eaf6590"
+    sha256 cellar: :any,                 arm64_big_sur:  "de361b1fbff71a9042ae403b5e4305ef85d09b4f4f546e3ab1184954150c3f45"
+    sha256 cellar: :any,                 ventura:        "7634d244c93543f5ab6a05e4f730ba67ee79917695b324e9d4b7bfa77819fcb4"
+    sha256 cellar: :any,                 monterey:       "b2e427fce34347a147339ca1475d88c276c5200ce3a20592ba84abe2d56e9f64"
+    sha256 cellar: :any,                 big_sur:        "3d4d6131f828be8e190b5c41a07fb43fd136c638198575f73fa42c4fd4782772"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ae2fb8b3cbe02544d90f47ec3cfdccfe6e524df67285a9969ff7356f61ae85a6"
   end
 
   depends_on "pkg-config" => :build
   depends_on "curl"
+  depends_on "openssl@3"
   depends_on "python@3.11"
 
   conflicts_with "spotbugs", because: "both install a `fb` binary"

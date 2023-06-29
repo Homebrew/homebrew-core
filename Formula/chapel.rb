@@ -1,19 +1,19 @@
 class Chapel < Formula
   desc "Programming language for productive parallel computing at scale"
   homepage "https://chapel-lang.org/"
-  url "https://github.com/chapel-lang/chapel/releases/download/1.30.0/chapel-1.30.0.tar.gz"
-  sha256 "8d933f4b6e497d9699a14deedd222e18c77c523483957d66201731d0d94285d2"
+  url "https://github.com/chapel-lang/chapel/releases/download/1.31.0/chapel-1.31.0.tar.gz"
+  sha256 "4b861c9a354f6fcf66081256f7ec703d6dd2cd68ea363b400d10ac00bf308679"
   license "Apache-2.0"
   head "https://github.com/chapel-lang/chapel.git", branch: "main"
 
   bottle do
-    sha256 arm64_ventura:  "39f403b38e8a289fa345de2cf0d2a74abb5b3062a50e78053fc663569f1f7af6"
-    sha256 arm64_monterey: "b2ba9767808567e985c6231cf3819cf9c3de9cd548f250540d581780214688c2"
-    sha256 arm64_big_sur:  "b27995700396ba69994c20c98be5f2fffa3b05f3e10c65781e2546fcde4062f3"
-    sha256 ventura:        "452ea26dd572f9f2e0ceaf9bd0bbbdecf5dc1149c81318bee92a8c8837efae19"
-    sha256 monterey:       "65c5d1c6d68a6d62a59ecec2121b30864bb5b02f494c5879994eb6db64f3ba3e"
-    sha256 big_sur:        "e9e3844d08f20b2eae3a6517c15ccc4263d88ffb6a7a94d79ad28bd20e52683f"
-    sha256 x86_64_linux:   "eb599bde89543d9acdd7d9946866450935efb471c0370abe870fd0f34d203897"
+    sha256 arm64_ventura:  "8563f116d96b3c89a6de8316020ab25fd27be13f7641d8f223c7c79770eba8ca"
+    sha256 arm64_monterey: "6f6da8d43cd744b9e6a8f0026962dcb66c86fe4ffb5dc684e5302a58fbd01247"
+    sha256 arm64_big_sur:  "d8e8968e2a6a885e54ae793a64f3c04808325bd9b35544605f39a4402c827a53"
+    sha256 ventura:        "fd44d28f8b6a382bda9e5674751b6a0033b9f5a42ab836ac7b305a9a3ba43167"
+    sha256 monterey:       "5a446383b71d0ceb4dec422970758814f42f938ead19691797cfb8a549e82fcf"
+    sha256 big_sur:        "d0ec7384c879c36473cd676307d4364d4275d3a9153975c1fa0a1c6057bedcec"
+    sha256 x86_64_linux:   "dfbcffa1fa5acc1f8ff983b47a3617c8cdaa40c7a218ab8db24e4b165eeef431"
   end
 
   depends_on "cmake"

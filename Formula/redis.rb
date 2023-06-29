@@ -4,6 +4,7 @@ class Redis < Formula
   url "https://download.redis.io/releases/redis-7.0.11.tar.gz"
   sha256 "ce250d1fba042c613de38a15d40889b78f7cb6d5461a27e35017ba39b07221e3"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/redis/redis.git", branch: "unstable"
 
   livecheck do
@@ -12,16 +13,16 @@ class Redis < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "2ee771665ac7828c3dfc6632bb5c0ba3fb8f147a0d5014736a6a980d4b056940"
-    sha256 cellar: :any,                 arm64_monterey: "d2972b71501b16174b8afffa1625056dfe5c7775d3065568f25f55260e9ea53e"
-    sha256 cellar: :any,                 arm64_big_sur:  "2acd9296c0e29d313155d4b44f5f52ebe1cad602b8cf21d8bb91578f4e780ca2"
-    sha256 cellar: :any,                 ventura:        "4b207ed6d0aeed11120ee04869f1261ca792801e39954d4ea124ef60c2275bbc"
-    sha256 cellar: :any,                 monterey:       "d31b1b0230a0600aaca17e55bb162100bb49812b6393de22678067994df421b9"
-    sha256 cellar: :any,                 big_sur:        "62e51fb4fd26b03a1d9e3241f47515da9c3e7e98114b8bdb06aed4148f9b6b80"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a54eeb6cfe5062a0ed47568b59b9fe2bcb23b3328389b7d72e8f2fefb960c7d5"
+    sha256 cellar: :any,                 arm64_ventura:  "e1f9daea7221b9e6cf8e728091768d48dad76c9eba895dcef7b23346682f1958"
+    sha256 cellar: :any,                 arm64_monterey: "147a61d803cf58b1c7487a9d6e55527d95b1dbe7c1b1c209d8620ae5fcd844a6"
+    sha256 cellar: :any,                 arm64_big_sur:  "6361bc1693f1001576201a6297da2af66f128a6f14dd5f76798fb02d4fbbbb89"
+    sha256 cellar: :any,                 ventura:        "cc44b00cf2c241f0e13f59932dc1c223b5b597d8235b7e225c25fce4488b7fce"
+    sha256 cellar: :any,                 monterey:       "75b61d43ae1fda800a66bf901d3bd3bcacd6fecb0b29b3ae73662a4a5d46f959"
+    sha256 cellar: :any,                 big_sur:        "e0636286f7d4a8975ae68aedfe6c44e28aaff66ae4886558388edc162e031a40"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dd959690bdaa25ca6fe66e6e1150f5ffa981408c025812743c217016bdcf341e"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "make", "install", "PREFIX=#{prefix}", "CC=#{ENV.cc}", "BUILD_TLS=yes"

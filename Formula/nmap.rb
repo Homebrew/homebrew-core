@@ -4,6 +4,7 @@ class Nmap < Formula
   desc "Port scanning utility for large networks"
   homepage "https://nmap.org/"
   license :cannot_represent
+  revision 1
   head "https://svn.nmap.org/nmap/"
 
   # TODO: Remove stable block in next release.
@@ -24,21 +25,20 @@ class Nmap < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_ventura:  "b7ebbfb35120ebf567c3e022edf5cfcfa500859be1c985a0fc1aec9bd8c3fd29"
-    sha256 arm64_monterey: "5f50b15612375e48007d70a646ad4d19436929d875dc6536d94d1c83b8eca448"
-    sha256 arm64_big_sur:  "ff49e2d26c535ea8c146fc4d4dea8d6ebeb0798e404b7c501c836e9c0c3d0ef5"
-    sha256 ventura:        "722752a91b928c957cdeadedea68300617f5f84e99aae3f3df6ea34f2b76cf8b"
-    sha256 monterey:       "4a1b956d9b12ea5b6c957ceedc71d3ff77911d4759ccf9cdfb3f1e828f21bcb3"
-    sha256 big_sur:        "ba29aa64ba09d5e8faefb4e29d616f50ab26449c15dcd8a163d1ea7ef75f959b"
-    sha256 x86_64_linux:   "0fecd65a60b067340fd9b0d47e4bc73344719fc8f5cb6f4d6662a68a4e6f5568"
+    sha256 arm64_ventura:  "1fb5366d5ff0a6dff4aca4854b35138eefe8f447b89e63cd6bacf709747cb7b9"
+    sha256 arm64_monterey: "fcbded0558154451e4d2bf9dc0526b1e6eafbfd00cfee631071b875058c8ff05"
+    sha256 arm64_big_sur:  "bb0cddc6143f47f80f51cc055da7fea7124ba56c06c541bb166d98806d611904"
+    sha256 ventura:        "5b384ad6e81ff105b5530aaee7ddf2b8f75dd171d5601c4b58e9951a28b6c19d"
+    sha256 monterey:       "28593488b9872c097b031b1ee7d4be30935a61068e5c26fd55e664008674874b"
+    sha256 big_sur:        "1fcfff20b13972811c7d3cc33cd6e3a6dd01f1a4fad0fed3ebb4432dbeb5b765"
+    sha256 x86_64_linux:   "8be3c481551f967c24ad48945f33d1da0b305ab78a8d09d45142ba73c3b9ae93"
   end
 
   depends_on "liblinear"
   depends_on "libssh2"
   # Check supported Lua version at https://github.com/nmap/nmap/tree/master/liblua.
   depends_on "lua"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pcre"
 
   uses_from_macos "bison" => :build
@@ -54,7 +54,7 @@ class Nmap < Formula
       --prefix=#{prefix}
       --with-liblua=#{Formula["lua"].opt_prefix}
       --with-libpcre=#{Formula["pcre"].opt_prefix}
-      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
+      --with-openssl=#{Formula["openssl@3"].opt_prefix}
       --without-nmap-update
       --disable-universal
       --without-zenmap

@@ -7,6 +7,7 @@ class Swift < Formula
   url "https://github.com/apple/swift/archive/refs/tags/swift-5.8.1-RELEASE.tar.gz"
   sha256 "f65381a9dfea4579323e5aff04d4224f2d8f505fcc6e3e83022e734d4f54575f"
   license "Apache-2.0"
+  revision 1
 
   # This uses the `GithubLatest` strategy because a `-RELEASE` tag is often
   # created several days before the version is officially released.
@@ -17,13 +18,13 @@ class Swift < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "3ab1ede793351d42da9292f793ca9265a0c485a30eec47c75bdde31d99b23716"
-    sha256 cellar: :any,                 arm64_monterey: "495ac1e380f9fe7a9bf2d0b40dca16fa0142588d63832982d46375f72fa25371"
-    sha256 cellar: :any,                 arm64_big_sur:  "2d10c6756efd0e3264643cf388e09c9158159442dcdb71bcf035e246d45b13f8"
-    sha256 cellar: :any,                 ventura:        "224644f2f41851ee586fd89a1cad1cb6f638f1f48001443175fd1d15dcefc0cb"
-    sha256 cellar: :any,                 monterey:       "81cdac6a0a14c549cc3c5225977cb6233aaedd7af8222ff7c443af042c8b1f5b"
-    sha256 cellar: :any,                 big_sur:        "c408aee527af3418c7ae256114c246776fbd806fa56e02cde3e4356039b774a3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "16f0cedfeaa6a4d9f1d8213cdc96735565fb011a12edcb12a04f7aa9a7b425a0"
+    sha256 cellar: :any,                 arm64_ventura:  "35b2ce7246acacfeea4a7a377c865c9185e059eeb0d5a3d39133cbf13021963c"
+    sha256 cellar: :any,                 arm64_monterey: "914cd349b8f0cb6f0c2c984f606a744a431f874f22a670f4d04b8249ed3819f7"
+    sha256 cellar: :any,                 arm64_big_sur:  "2e165fd763a602bce118aaae3a92d7edf719c61de8ad41aeccad553d6df8da73"
+    sha256 cellar: :any,                 ventura:        "b89f0ae6fc3736acb146fc6f91e500c1a044d6ee0947475c20b22326abdacbe5"
+    sha256 cellar: :any,                 monterey:       "dc265ad2bdf088e34bd9d0ca826ccf59ede6a5538d4fd485908e3e7ec467b728"
+    sha256 cellar: :any,                 big_sur:        "6db009f0cedd51ed5355046870ec843b2c9a71eb5c37b41d0b4bfcb23cc024f8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5856963e79848044fa78280760a45bfb494a868fb21dd9d1d06d7a19564cf7e8"
   end
 
   keg_only :provided_by_macos

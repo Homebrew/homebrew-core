@@ -1,19 +1,19 @@
 class WasmPack < Formula
   desc "Your favorite rust -> wasm workflow tool!"
   homepage "https://rustwasm.github.io/wasm-pack/"
-  url "https://github.com/rustwasm/wasm-pack/archive/v0.11.1.tar.gz"
-  sha256 "a566b51717bb905a52511a18c1538e83efa81b2b0698c097917b3e62c22fd670"
+  url "https://github.com/rustwasm/wasm-pack/archive/v0.12.1.tar.gz"
+  sha256 "afa164fec0b119e2c47e38aad9e83351cb414e8ca3c062de292ec8008a45ac09"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/rustwasm/wasm-pack.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5ca7ad2586cdaea9c2c24a8deeb90fceb76f892035fc01129582cf7f18e0abff"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "517ca883b5067835edbe808eecdbcfaa2b7001b242aba3dc28bd9ed0dd7177ca"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bb5b684a6e5c8bb89c34d94361f8cf567ce32f767a8ab4bcbb3ccc561f7ea4d4"
-    sha256 cellar: :any_skip_relocation, ventura:        "6b0a5bfb7b266dc4833cb1dc082e33bbbf17a3bbb0e05638cbf0ddafbc45466b"
-    sha256 cellar: :any_skip_relocation, monterey:       "9c7a72b9c37858a0cad496c637484a6a75d5fafd6197864a772dfd0674eb022f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "de900691d6f8be8fb3dd1e41b537e997fa2281e0897cb038ae8f305272aef8c5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "26d1b4f9ae53cb7bd95d550a2d7d7661ce1e1bfa81b830f9c9a2da6d4b0bb451"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4e205a97851b7166c70355e63b166541b44e6b419db5483ace1fc0ed2d1b87ba"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d1f73a1e067a8bc27645fdbe009a5b2bb3aa289ee88ba541cc0c6964f64add76"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "13dac57eb2b6b269013ddf52a2dc0adf890a75ac511d1a347c9d0753c926c149"
+    sha256 cellar: :any_skip_relocation, ventura:        "6c884e28455fec249ae4fd0d64ce9c653699a1f42e4d9df2cb21b3b4a283c077"
+    sha256 cellar: :any_skip_relocation, monterey:       "bd3838f43dd5f2d1fece3ea22d597a019f127ea757625f946193463418c361d4"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7540592385c24534fbc9223f65a2361f26082a52f3f717dc40debfe7ae2d250d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e0a69f2bb774de2289f5f3bf2fb151d168f1ad07c7e17c2891b4cc85f53948c2"
   end
 
   depends_on "rust" => :build

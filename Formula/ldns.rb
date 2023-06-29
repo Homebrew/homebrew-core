@@ -4,6 +4,7 @@ class Ldns < Formula
   url "https://nlnetlabs.nl/downloads/ldns/ldns-1.8.3.tar.gz"
   sha256 "c3f72dd1036b2907e3a56e6acf9dfb2e551256b3c1bbd9787942deeeb70e7860"
   license "BSD-3-Clause"
+  revision 1
 
   # https://nlnetlabs.nl/downloads/ldns/ since the first-party site has a
   # tendency to lead to an `execution expired` error.
@@ -13,18 +14,17 @@ class Ldns < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "e0d0acfb1f7f199ce05fe11177adf2db2492911a0f2d51aed693f4127b477604"
-    sha256 cellar: :any,                 arm64_monterey: "46ef12897880d4f3d53508ea397362762d6f97c68259ec67041bbd12b35edbbd"
-    sha256 cellar: :any,                 arm64_big_sur:  "251b84cfda5e8e24ca2e1dcc8bba380beb7edca524ab09b188fa2c5fbe18fa05"
-    sha256 cellar: :any,                 ventura:        "b2c4a095c0c4eb850537697ba51153c285033cb3f597ac4739a7167277ceb5bc"
-    sha256 cellar: :any,                 monterey:       "a3185a8decca00ced7e56098d8e6897e3cecf4f6a5db970d8d7dcceb24178c5d"
-    sha256 cellar: :any,                 big_sur:        "0faa2e9fc9c0fb46cfa52d539838875ffcec82e886977d0d23d91e111f29efed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c6bc1207ee00802b2bd19648ea2da9dae3eee6da0236092c9c398f51b4fa56f1"
+    sha256 cellar: :any,                 arm64_ventura:  "91cefcb3326fd36c21f26f0f905543bb75626ef382eda949c892a8bd8ebfb659"
+    sha256 cellar: :any,                 arm64_monterey: "1bf12612f2a1fa6837f4360c3965f0cb568c920f28ce3e5c2d783e31ff480800"
+    sha256 cellar: :any,                 arm64_big_sur:  "9fde4555b1801467eb72663a602b265e423fa85d12fd5ad878fc242852e08e60"
+    sha256 cellar: :any,                 ventura:        "08d75bc74a4667defb24c4ed92bd13da55317e836592c2e5851ea7132424551f"
+    sha256 cellar: :any,                 monterey:       "a6443e00af46421f902df8ce0e4cebb6d01a48d4532275d5321e4fa547b41c3f"
+    sha256 cellar: :any,                 big_sur:        "74adc13f57040a1f3ee99f147e57f457abc54b9c3c68071cc0f6e4f4784419cf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c6401729572e7c28d1d691e47a8bbcd7cfb88b9e1a2e1a2df0e6a3ec066286ff"
   end
 
   depends_on "swig" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "python@3.11"
 
   conflicts_with "drill", because: "both install a `drill` binary"
@@ -34,7 +34,7 @@ class Ldns < Formula
     args = *std_configure_args + %W[
       --with-drill
       --with-examples
-      --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
+      --with-ssl=#{Formula["openssl@3"].opt_prefix}
       --with-pyldns
       PYTHON_SITE_PKG=#{prefix/Language::Python.site_packages(python3)}
       --disable-dane-verify

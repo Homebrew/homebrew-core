@@ -5,6 +5,7 @@ class Git < Formula
   url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.41.0.tar.xz"
   sha256 "e748bafd424cfe80b212cbc6f1bbccc3a47d4862fb1eb7988877750478568040"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/git/git.git", branch: "master"
 
   livecheck do
@@ -13,13 +14,13 @@ class Git < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "c3cb2197ef143929e3c044b2a9bf6182de624ad067a094d550d089bf7f9cf727"
-    sha256 arm64_monterey: "331de6e6a714392d47129ce51f52543004e06ef45bdd57150ad80857b4f1414e"
-    sha256 arm64_big_sur:  "ed7fcbf16e665ffe3a376d44512e782e5e66c300a73ef5cfceb35dbb0b9969ec"
-    sha256 ventura:        "f486fed52baac759597ab8939e95faf93862aa31666a88bca015957c853935ed"
-    sha256 monterey:       "b22088cd62a13220dee5d3c763afc4359e5e1a6cf0daa0410a360d6746096069"
-    sha256 big_sur:        "96f7ecab0bcd9ab2c89fcfa7a23001b1e0d8298eca8c5371a0d91ba6f53ef5f8"
-    sha256 x86_64_linux:   "d30b3a4a08df3e70ffd1eaf3e2b4046bf3a25e744ae3cdea89544849e3db4bb7"
+    sha256 arm64_ventura:  "96443562c1f0d820f159fbe897d4e1b8a83a26585a73e74e742c0f9270ff3cb6"
+    sha256 arm64_monterey: "147ebdd97e787a2335a5978a8bcda6a85b64d2fae67aec9446b997cdcae85949"
+    sha256 arm64_big_sur:  "389bf22054ba2eec09b2f8acd705f67f24343cfdee8ad7e8a75be5be647e37fd"
+    sha256 ventura:        "6b23e127ff57cb08b6e610bf9805cc5ba8169a3ff55c8cc79bb00e3aa0507856"
+    sha256 monterey:       "508c29a6ad703a30c60fd79f077ca67d5e358d10b6c575da65cd31bf3dab47ec"
+    sha256 big_sur:        "6b821e82625bc1402818a707cd4813af3e9264875c3bc828f096b67fcd800a82"
+    sha256 x86_64_linux:   "a259c7996de4fc4d18a5842a2b40728f8a8911fe39b9a9fb425ef7b2b1d6d73e"
   end
 
   depends_on "gettext"
@@ -31,7 +32,7 @@ class Git < Formula
 
   on_linux do
     depends_on "linux-headers@5.15" => :build
-    depends_on "openssl@1.1" # Uses CommonCrypto on macOS
+    depends_on "openssl@3" # Uses CommonCrypto on macOS
   end
 
   resource "html" do

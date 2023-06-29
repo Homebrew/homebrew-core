@@ -4,16 +4,17 @@ class Ejabberd < Formula
   url "https://github.com/processone/ejabberd/archive/refs/tags/23.04.tar.gz"
   sha256 "6ff1d41a1ff6261a0c846193647d8ec143e82142859bf1cfdc62299022ceb2ad"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/processone/ejabberd.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "6c8c5f22707e22da9b8e35ef4aa8571e37cf8c3b0398b4f0e6fababb33597a58"
-    sha256 cellar: :any,                 arm64_monterey: "85bb55f4d66995b5b9d0bfe9f45f5de651c12bef81f67922e209ed79ce3f3040"
-    sha256 cellar: :any,                 arm64_big_sur:  "9d05ae8d35adb90245aa012b13afc413ed90de4ebf6d4284e4cdbfcec149c7e1"
-    sha256 cellar: :any,                 ventura:        "3be78bfbb812e8fdf1d58dd1029e2d8cca8f7e51ec94356481e1f91bd747a493"
-    sha256 cellar: :any,                 monterey:       "b5711831bc1552cc20b4db8ed51ce8a0a4ccb112b73b14ef3fd8cf1338d7b34c"
-    sha256 cellar: :any,                 big_sur:        "bdb207db5ad5bbad2bc8204ad205a62d2bd79176acf0e94648d0198337397e27"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "959d76634a02d0de06a82a6f81ba773a11cefc229cbc82fdf8b804ac4f8a4b7e"
+    sha256 cellar: :any,                 arm64_ventura:  "036f0e2d4def5984d21c0f88383cad4bbac2788aaac7297eece2c5439bcec510"
+    sha256 cellar: :any,                 arm64_monterey: "21f63aa97ffaffdacbdf41bd0a5dc13ab2f1295f5b1c6ab0a74619da0f49fe6a"
+    sha256 cellar: :any,                 arm64_big_sur:  "d1d6f94b9fb6e4288512e769410a9e94bb094e8badf4854e0f3ea63d63621ef5"
+    sha256 cellar: :any,                 ventura:        "7107a594996d7113a855607f0411002a456692cbf29b688b3438a7f9efe6e503"
+    sha256 cellar: :any,                 monterey:       "281a28e55f2d028ebc1c448acd8bb033e76615cd0e5c88efd31fabdec73b9ad6"
+    sha256 cellar: :any,                 big_sur:        "7223e13c94f09c133ba7af5ac2151101443d1a1a2437ba20e73df89ce4d96a9d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b01c59f4459ec7a85894e30d0519d532ec65f9657129fabb5f4e2499cf7403a4"
   end
 
   depends_on "autoconf" => :build
@@ -21,7 +22,7 @@ class Ejabberd < Formula
   depends_on "erlang"
   depends_on "gd"
   depends_on "libyaml"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   on_linux do
     depends_on "linux-pam"

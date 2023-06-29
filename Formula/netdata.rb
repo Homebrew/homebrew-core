@@ -1,10 +1,9 @@
 class Netdata < Formula
   desc "Diagnose infrastructure problems with metrics, visualizations & alarms"
   homepage "https://netdata.cloud/"
-  url "https://github.com/netdata/netdata/releases/download/v1.39.1/netdata-v1.39.1.tar.gz"
-  sha256 "92eaca53211cacc866a4d2a9c00a431d8e212399d15f15bdd819c8f1a0c1e8dd"
+  url "https://github.com/netdata/netdata/releases/download/v1.40.1/netdata-v1.40.1.tar.gz"
+  sha256 "cc86172acd5e6ec05bc0fa86a50d967502a264d8adf7f79293923ccd8febb251"
   license "GPL-3.0-or-later"
-  revision 1
 
   livecheck do
     url :stable
@@ -12,13 +11,13 @@ class Netdata < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "00b8ad57eadb73b6d47562088d95bce37d452166f6c0848e028565b304553e47"
-    sha256 arm64_monterey: "20a1103ef17f0e65c24c26c7242aedf8248df90193e5009e24dabe60202ab817"
-    sha256 arm64_big_sur:  "c14020ba33c3666582a41eedb205c7ee0cabf8a6265c6d4f3095a5210988d2fb"
-    sha256 ventura:        "d47c43dba07e6d9a65c20224176e688ed2cca3f8fbc56c4ced5dd3ea63650605"
-    sha256 monterey:       "3b959dc540f77de5da88306bad9f62034ea6a8a0370616ee8cf5b67d2d0a1375"
-    sha256 big_sur:        "1bda435003f2ed3c5040fe7bc6adc137b97f51bfd3632c1cce26c333021fef5b"
-    sha256 x86_64_linux:   "06c08720b1be2243edfbb79bdd75ded1d85f2756ed704dd481664d53d7d27d55"
+    sha256 arm64_ventura:  "a93495f0fbf5d97c9aa3c7fce80174057bebd25a3fa4d4be21f91a8778f07b41"
+    sha256 arm64_monterey: "b9633338a93272404561f897c2193bbf7a74b2c78c1e90c91449c17dd68de46b"
+    sha256 arm64_big_sur:  "0ff692a54d906591a5cc7add5cdaab1ff7bad80034e583d003796a7b9a6e7b77"
+    sha256 ventura:        "2d19de1fd8e726b489c62e30a2fc994a5deba8cfb01cbd348d03b7e11ee1afcd"
+    sha256 monterey:       "214864b31ed2deac6f0e66df527a992d21829a088d7b2a299653803357b34c1e"
+    sha256 big_sur:        "a622e55fe0da8e07f0d8181a3aef8298b28d4174aa89ce8c93c5b699b1dc9d55"
+    sha256 x86_64_linux:   "526b72dd20ad7f3728b66ac9ed9053159b0d6cb78bc7742422fbd0d5890e89a0"
   end
 
   depends_on "autoconf" => :build
@@ -30,6 +29,7 @@ class Netdata < Formula
   depends_on "libyaml"
   depends_on "lz4"
   depends_on "openssl@3"
+  depends_on "protobuf"
   depends_on "protobuf-c"
 
   uses_from_macos "zlib"
@@ -41,6 +41,13 @@ class Netdata < Formula
   resource "judy" do
     url "https://downloads.sourceforge.net/project/judy/judy/Judy-1.0.5/Judy-1.0.5.tar.gz"
     sha256 "d2704089f85fdb6f2cd7e77be21170ced4b4375c03ef1ad4cf1075bd414a63eb"
+  end
+
+  # Support Protobuf 22+.
+  # https://github.com/netdata/netdata/pull/15266
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/5e3398d5a5a67447d86867581ee4a7df3dee98cb/netdata/protobuf-22.patch"
+    sha256 "b8b60037786d77aff0ef1c15bada5c929de01b370f9bae1e52c6f5f707780eb6"
   end
 
   def install
@@ -57,7 +64,7 @@ class Netdata < Formula
 
       # Parallel build is broken
       ENV.deparallelize do
-        system "make", "-j1", "install"
+        system "make", "install"
       end
     end
 
@@ -65,7 +72,11 @@ class Netdata < Formula
     ENV.append "CFLAGS", "-I#{judyprefix}/include"
     ENV.append "LDFLAGS", "-L#{judyprefix}/lib"
 
-    system "autoreconf", "-ivf"
+    # We need C++17 for protobuf.
+    inreplace "configure.ac", "# AX_CXX_COMPILE_STDCXX(17, noext, optional)",
+                              "AX_CXX_COMPILE_STDCXX(17, noext, mandatory)"
+
+    system "autoreconf", "--force", "--install", "--verbose"
     args = %W[
       --disable-dependency-tracking
       --disable-silent-rules

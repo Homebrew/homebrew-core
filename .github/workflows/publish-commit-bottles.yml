@@ -59,6 +59,7 @@ jobs:
       remote_branch: ${{steps.pr-branch-check.outputs.remote_branch}}
       remote: ${{steps.pr-branch-check.outputs.remote}}
       replace: ${{steps.pr-branch-check.outputs.replace}}
+      requires_merge: ${{steps.pr-branch-check.outputs.requires_merge}}
     permissions:
       contents: read
       actions: write # for `gh workflow run`
@@ -100,9 +101,9 @@ jobs:
           head_sha="$(jq --raw-output .head.sha <<< "$pr_data")"
           fork_type="$(jq --raw-output .head.repo.owner.type <<< "$pr_data")"
           state="$(jq --raw-output .state <<< "$pr_data")"
-          merged="$(jq --raw-output .merged <<< "$pr_data")"
           node_id="$(jq --raw-output .node_id <<< "$pr_data")"
-          automerge_data="$(jq --raw-output '.auto_merge | type' <<< "$pr_data")"
+          merged="$(jq --raw-output .merged <<< "$pr_data")"
+          automerge_enabled="$(jq --raw-output '.auto_merge != null' <<< "$pr_data")"
 
           if [[ -z "$pushable" ]] ||
              [[ -z "$branch" ]] ||
@@ -114,7 +115,7 @@ jobs:
              [[ -z "$state" ]] ||
              [[ -z "$merged" ]] ||
              [[ -z "$node_id" ]] ||
-             [[ -z "$automerge_data" ]]
+             [[ -z "$automerge_enabled" ]]
           then
             echo "::error ::Failed to get PR data!"
             exit 1
@@ -139,10 +140,11 @@ jobs:
             fi
           done < <(jq --raw-output '.labels[].name' <<< "$pr_data")
 
-          if [[ "$merged" = "true" ]] || [[ "$automerge_data" = "object" ]]
+          requires_merge=true
+          if [[ "$merged" = "true" || "$automerge_enabled" = "true" ]]
           then
             echo '::notice ::Pull request is either already merged or queued to merge.'
-            bottles=false
+            requires_merge=false
           fi
 
           if [[ "$branch" = "master" ]]
@@ -160,6 +162,7 @@ jobs:
             echo "remote_branch=$remote_branch"
             echo "remote=$remote"
             echo "node_id=$node_id"
+            echo "requires_merge=$requires_merge"
             echo "replace=${{ inputs.autosquash }}"
           } >> "$GITHUB_OUTPUT"
 
@@ -182,7 +185,8 @@ jobs:
       - name: Dispatch replacement pull request
         if: >
           fromJson(steps.pr-branch-check.outputs.replace) &&
-          fromJson(steps.pr-branch-check.outputs.bottles)
+          fromJson(steps.pr-branch-check.outputs.bottles) &&
+          fromJson(steps.pr-branch-check.outputs.requires_merge)
         env:
           GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
         run: |
@@ -205,10 +209,14 @@ jobs:
           bot: github-actions[bot]
 
       - name: Enqueue PR for merge
-        if: (!fromJson(steps.pr-branch-check.outputs.bottles) && !inputs.autosquash)
+        if: >
+          fromJson(steps.pr-branch-check.outputs.requires_merge) &&
+          !fromJson(steps.pr-branch-check.outputs.bottles) &&
+          !inputs.autosquash
         env:
           GH_TOKEN: ${{ secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN }}
           ID: ${{ steps.pr-branch-check.outputs.node_id }}
+          EXPECTED_SHA: ${{ steps.pr-branch-check.outputs.head_sha }}
           MUTATION: |-
             mutation ($input: EnqueuePullRequestInput!) {
               enqueuePullRequest(input: $input) {
@@ -220,11 +228,13 @@ jobs:
           #   https://github.com/cli/cli/issues/7213
           gh api graphql \
             --field "input[pullRequestId]=$ID" \
+            --field "input[expectedHeadOid]=$EXPECTED_SHA" \
             --raw-field query="$MUTATION"
 
   upload:
     needs: check
     if: >
+      fromJson(needs.check.outputs.requires_merge) &&
       fromJson(needs.check.outputs.bottles) &&
       !fromJson(needs.check.outputs.replace)
     runs-on: ${{inputs.large_runner && 'homebrew-large-bottle-upload' || 'ubuntu-22.04'}}

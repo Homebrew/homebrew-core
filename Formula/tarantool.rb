@@ -4,6 +4,7 @@ class Tarantool < Formula
   url "https://download.tarantool.org/tarantool/src/tarantool-2.11.0.tar.gz"
   sha256 "4506e7208cd20f3c1858d14b9b40fe388083592faac5c79ec30aa751e095f1f2"
   license "BSD-2-Clause"
+  revision 1
   version_scheme 1
   head "https://github.com/tarantool/tarantool.git", branch: "master"
 
@@ -13,13 +14,13 @@ class Tarantool < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "11152eaee7759cc4d7cc917a4d356a42352b472602d2427674a99f55dea81c5e"
-    sha256 cellar: :any,                 arm64_monterey: "b928d6f26e62ed1fc6e0d416ed8a84b3a787021ea2ff377691e763ccc97888da"
-    sha256 cellar: :any,                 arm64_big_sur:  "3d1c9250ed110f52d9fd8b09f9034a588ca714a3d1a178039bd33193f666f12c"
-    sha256 cellar: :any,                 ventura:        "9c949e43f530c508f3a829d00d526446832767df0cd6574b77b9930068ded204"
-    sha256 cellar: :any,                 monterey:       "9c4875ded456ce92755eee667279391e4d9b7fd11dd0731c14bd93a75a4683ee"
-    sha256 cellar: :any,                 big_sur:        "77613de1e3382f1458a9d92dfca7e9e6519855b528c5f37e33d9b4d6655be642"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "11a95cb38f2b389a8031fc50836ba8c5bfcf1253d59a6ddca6bf7ca59865ef9f"
+    sha256 cellar: :any,                 arm64_ventura:  "9573662f5901674abfee4a9e6a55c814f87f81977d48d99834e8b904e177f94e"
+    sha256 cellar: :any,                 arm64_monterey: "39b89da13f08b294352a0bd0a54a8de1d6991ab7c53931b372d6ebc0eeb9847e"
+    sha256 cellar: :any,                 arm64_big_sur:  "e6609006b16d4846f5d050a892c4cfad6f774c6991ce11c90823ccc4f553ed83"
+    sha256 cellar: :any,                 ventura:        "5891fb6baa4c38b332e754a675246b31cbf5462b33b748e5e597834cbf821fe1"
+    sha256 cellar: :any,                 monterey:       "cf076349a68ac9f4281d6c3a1aae4778304e88750081fab85c61000912185f90"
+    sha256 cellar: :any,                 big_sur:        "f942215edd1bd3290894d2d193adbdc7ac76c391440c1c78b2ae6f130012ef2e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "137380a34ba96428d88498ba7b66adcffd92de550ef3854c2154e6b2c618b50f"
   end
 
   depends_on "cmake" => :build

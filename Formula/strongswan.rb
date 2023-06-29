@@ -1,18 +1,9 @@
 class Strongswan < Formula
   desc "VPN based on IPsec"
   homepage "https://www.strongswan.org"
+  url "https://download.strongswan.org/strongswan-5.9.11.tar.bz2"
+  sha256 "ddf53f1f26ad26979d5f55e8da95bd389552f5de3682e35593f9a70b2584ed2d"
   license "GPL-2.0-or-later"
-
-  stable do
-    url "https://download.strongswan.org/strongswan-5.9.10.tar.bz2"
-    sha256 "3b72789e243c9fa6f0a01ccaf4f83766eba96a5e5b1e071d36e997572cf34654"
-
-    # Fix -flat_namespace being used on Big Sur and later.
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
-      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
-    end
-  end
 
   livecheck do
     url "https://download.strongswan.org/"
@@ -20,13 +11,12 @@ class Strongswan < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_ventura:  "a4d2de1acc7e1aa6caf1a05afd32754b54aa8b813d06d8ccd51297e51604125d"
-    sha256 arm64_monterey: "2eae78bb4794a0a8f98474db0682df5a701ebfbeb7060630160949011c3f8ce9"
-    sha256 arm64_big_sur:  "2c37898d4819ed9bd2eb3b738f5701b8c893361610e0b09e772901a3270ef8ca"
-    sha256 ventura:        "a34c8e83cfa2d6f455fa0ac65426617def9eda97e62c059ca6244638b83f9f7a"
-    sha256 monterey:       "f8f3d931112bced8b776907d95dd0d15b73d1e060eceedf02dcf7ca492ae8dc9"
-    sha256 big_sur:        "66965a075e7b58ff0e031539182298dc4c1cf85072a7327b25031e0660d7d4ec"
+    sha256 arm64_ventura:  "2b1219062863292dbef4f3f933e16d7aa3feabbf56b079ead071cf56e7053845"
+    sha256 arm64_monterey: "b04332084ea2af50fe70147a08e982b79796855dcc8307388fe705b12d1108cf"
+    sha256 arm64_big_sur:  "9a5d7e064037e45a0c757c7bf6bef071bb67e49535a378b435cc94aa9cf1d237"
+    sha256 ventura:        "d032b3fd78f264a263df8a727fcf3fa295367f1ff6e9a390744ce3b6d82d91b9"
+    sha256 monterey:       "493f85fc3ad7ef41e3b4204c4b531630fd4b68c3c33fb27bdb8d6bbccea17df0"
+    sha256 big_sur:        "6e5e0ef6136512f86b4bb94b39b5444149efabe8cea354654f6ba15e0544290a"
   end
 
   head do

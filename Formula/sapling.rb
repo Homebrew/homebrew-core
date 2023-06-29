@@ -5,6 +5,7 @@ class Sapling < Formula
   version "0.2.20230523-092610+f12b7eee"
   sha256 "57a04327052f900d95d0dd3800d8b13a411b08222307bb141109afca1d1d0eaf"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/facebook/sapling.git", branch: "main"
 
   livecheck do
@@ -14,13 +15,13 @@ class Sapling < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "5263595411b35494a7609d0d9fac0056ad64e889b944a1bee2d4b0bdd1607dfe"
-    sha256 cellar: :any,                 arm64_monterey: "d75b9b4220c5ad4b3cccd4fd483c8a8db44c91183c94fcf2505f4c5c40cc9d7f"
-    sha256 cellar: :any,                 arm64_big_sur:  "ba08f0f87d29db6dabfad158c070ded79a5f284030670bcbba3bca969621a226"
-    sha256 cellar: :any,                 ventura:        "1449138a1e9a7af6363e2be04c0cf62c39b4d8454b546468f866487b2c66b9ed"
-    sha256 cellar: :any,                 monterey:       "73c792f77b09b961ab5c955ebaddd0a4441e263af0263ad199781814f8307b78"
-    sha256 cellar: :any,                 big_sur:        "9ee679317da2645941f34cecafd6d906931c557737dcce80fbab949ea70b9158"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a294936462fb98ac095eedf9fd80dbc1c2680489085234cdf3682a106bef949f"
+    sha256 cellar: :any,                 arm64_ventura:  "748a832b6fc9303b9488ffa419eede0a11f213601d628dafe6e4036ef49411d2"
+    sha256 cellar: :any,                 arm64_monterey: "6e22574bc80d85053a8b9cd006c81dcad636030b1a553040d812070c6f717e89"
+    sha256 cellar: :any,                 arm64_big_sur:  "de6bbe1417ece08160a301761cf9e5b89850a31e7ece5d7e37bf2ff29df0fb8a"
+    sha256 cellar: :any,                 ventura:        "834be18db23a6d79822165626ea0940eb6cb69926b4f0a5a2d69b68cf1fcb453"
+    sha256 cellar: :any,                 monterey:       "2b2eeb0531b0d8134845f15ebd193edff8a97f271e85419d4fe07a5c6a19d34a"
+    sha256 cellar: :any,                 big_sur:        "21ec5396066114414ae3c587cbcf1a501d3aa16b34f4b24ef645678d9b9034bc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8e043c11958e614bfb4d74f65c4e1f3549e4942c7c52d5b2222af0b1ccdcc600"
   end
 
   depends_on "cmake" => :build
@@ -28,7 +29,7 @@ class Sapling < Formula
   depends_on "yarn" => :build
   depends_on "gh"
   depends_on "node"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "python@3.11"
 
   # `setuptools` 66.0.0+ only supports PEP 440 conforming version strings.
@@ -49,7 +50,7 @@ class Sapling < Formula
   def install
     python3 = "python3.11"
 
-    ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
+    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
     ENV["SAPLING_VERSION"] = modified_version
 
     # Don't allow the build to break our shim configuration.

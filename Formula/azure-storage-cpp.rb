@@ -4,23 +4,23 @@ class AzureStorageCpp < Formula
   url "https://github.com/Azure/azure-storage-cpp/archive/v7.5.0.tar.gz"
   sha256 "446a821d115949f6511b7eb01e6a0e4f014b17bfeba0f3dc33a51750a9d5eca5"
   license "Apache-2.0"
-  revision 4
+  revision 6
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "c561c69b4cf3677a619b4177651a9901bd8c37f6e00841ee7dfa779b0d2d610d"
-    sha256 cellar: :any,                 arm64_monterey: "69077c839b19801a078f90fc5e75a51f7f8302095c6d90bdf91132e98192a94e"
-    sha256 cellar: :any,                 arm64_big_sur:  "877bad6536d1b893d2aa4c54d09abdca4c97bbae3ddfdadbcfb412e2dedec05b"
-    sha256 cellar: :any,                 ventura:        "9399d2818488907a12615aa6363cee42fb6951309feef2c9d84537368c01ecd1"
-    sha256 cellar: :any,                 monterey:       "f0a9ef4475c97ca1b250efb8bcd7ea9b16b1468abe3aceaee24051e1ea3ce213"
-    sha256 cellar: :any,                 big_sur:        "6b29bb83c1c4a15539ea3a138a9eeac481d02e9ba621868da1260b2083376a73"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f9b09b5689f380ae2ba7070ba02e59af7e370b31cc56a07ec18094e597f8af95"
+    sha256 cellar: :any,                 arm64_ventura:  "ab552ebf3bdc993fc9e579e2a6b75759c9da2ae1be66951caf8f9e609d7a1800"
+    sha256 cellar: :any,                 arm64_monterey: "46cd609d6586555b067f95d24cf0de532e40db79b0b3367c290d51cab751ce41"
+    sha256 cellar: :any,                 arm64_big_sur:  "be9e3706cc237d12e7285ca3184b45681784905855e0f12e71457fdde06e980d"
+    sha256 cellar: :any,                 ventura:        "30ff16a364d78d4ff1b0478c79262628c42f614a585be85649cdb6dd1ef9d37c"
+    sha256 cellar: :any,                 monterey:       "412a2a4bc2bb9a1e8e350fc906b43bc1f6461efc36bc21246358b4ee0cea2c4f"
+    sha256 cellar: :any,                 big_sur:        "cf309d60aec3a7898cb09864286a950332cda74e165f7c8d741ef8f74b1cdd3a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cc25900db6d940de570b1196d2680d440be510bbadf5310208e3728b6b55ebed"
   end
 
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "cpprestsdk"
   depends_on "gettext"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   on_linux do
     depends_on "util-linux"
@@ -50,11 +50,11 @@ class AzureStorageCpp < Formula
     EOS
     flags = ["-std=c++11", "-I#{include}",
              "-I#{Formula["boost"].include}",
-             "-I#{Formula["openssl@1.1"].include}",
+             "-I#{Formula["openssl@3"].include}",
              "-I#{Formula["cpprestsdk"].include}",
              "-L#{Formula["boost"].lib}",
              "-L#{Formula["cpprestsdk"].lib}",
-             "-L#{Formula["openssl@1.1"].lib}",
+             "-L#{Formula["openssl@3"].lib}",
              "-L#{lib}",
              "-lcpprest", "-lboost_system-mt", "-lssl", "-lcrypto", "-lazurestorage"]
     flags << "-stdlib=libc++" if OS.mac?

@@ -24,6 +24,10 @@ class Guile < Formula
     depends_on "automake" => :build
     depends_on "gettext" => :build
     uses_from_macos "flex" => :build
+
+    on_system :linux, macos: :ventura_or_newer do
+      depends_on "texinfo" => :build
+    end
   end
 
   depends_on "gnu-sed" => :build

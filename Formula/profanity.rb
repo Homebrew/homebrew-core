@@ -33,7 +33,6 @@ class Profanity < Formula
   depends_on "libotr"
   depends_on "libsignal-protocol-c"
   depends_on "libstrophe"
-  depends_on "openssl@1.1"
   depends_on "python@3.11"
   depends_on "readline"
 

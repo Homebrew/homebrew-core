@@ -5,6 +5,7 @@ class MariadbConnectorOdbc < Formula
   mirror "https://fossies.org/linux/misc/mariadb-connector-odbc-3.1.18-src.tar.gz/"
   sha256 "a06c11b40cf1edcfe69c206eec32caf58e25fadcf53da63d65fae26437bbad7e"
   license "LGPL-2.1-or-later"
+  revision 1
 
   # https://mariadb.org/download/ sometimes lists an older version as newest,
   # so we check the JSON data used to populate the mariadb.com downloads page
@@ -15,18 +16,18 @@ class MariadbConnectorOdbc < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "14949a62da2a2ce7d2cd7aefec31138f8dd125130d4bfce4a24535e69a275a7f"
-    sha256 cellar: :any,                 arm64_monterey: "c98c4467ae397029d3436af6c8ae9758ae84af8248eda33abcccb2b4bd769b82"
-    sha256 cellar: :any,                 arm64_big_sur:  "d212b429637cf77c8a8c4da0d781ce9e27c216920c2e8e4e12e96437ec3dbbd9"
-    sha256 cellar: :any,                 ventura:        "dd3909020b76536e2a6fc28d6bca781dada59294758c801dc90268c1423e5d38"
-    sha256 cellar: :any,                 monterey:       "4831fc2816c02814ba217c49e428c41c538599dc58cd033eb32bfee72f1998fe"
-    sha256 cellar: :any,                 big_sur:        "fcd4a3e2dce3d5b40450b99e6e56576d7268ae8aa0c7c631fc65f9b507b96d90"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7f10dcafbc59db923b25057cb0294ca7b1a071ffd8f2ef81752027c849da8ab9"
+    sha256 cellar: :any,                 arm64_ventura:  "e1a335fbec0b838a2c367aa492ea737cc74821d115dec421aa880c983366dd97"
+    sha256 cellar: :any,                 arm64_monterey: "31b055622f6590924da20bb79343778f91fa64f813cb7c26e4b63b5986a23034"
+    sha256 cellar: :any,                 arm64_big_sur:  "eeab98e0fdb458bf0d89e1a6eee6c12624f7636f79cbecb98146ea892dc91bc1"
+    sha256 cellar: :any,                 ventura:        "132d4a20a5d33990f63eac81603d0b4802fe7d98e75f5424dd075ad18b092e82"
+    sha256 cellar: :any,                 monterey:       "d5c0e36c8e084eefd289c9bf0f74d98b9af176ecf38deacb71eb4a5139eeb170"
+    sha256 cellar: :any,                 big_sur:        "3fbaa5c55258ebe0dcd2a15e3f8163a16b5f06f3d5a0e66f7d040c8304625f77"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ad93cc1ce064a3d6674051901c4f76b70df6917094b6fd972871e360eab1ba10"
   end
 
   depends_on "cmake" => :build
   depends_on "mariadb-connector-c"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "unixodbc"
 
   def install

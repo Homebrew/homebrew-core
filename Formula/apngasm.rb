@@ -4,17 +4,17 @@ class Apngasm < Formula
   url "https://github.com/apngasm/apngasm/archive/3.1.10.tar.gz"
   sha256 "8171e2c1d37ab231a2061320cb1e5d15cee37642e3ce78e8ab0b8dfc45b80f6c"
   license "Zlib"
-  revision 5
+  revision 7
   head "https://github.com/apngasm/apngasm.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "4acdb6cff6fa9d01338279fc4dac97218cb8aa028ed3863373d4e5209fb86ae7"
-    sha256 cellar: :any,                 arm64_monterey: "68e7bfc9f0857f455da553dd6cd470c58ba27d7b9b583dffbf45d26b55615cc6"
-    sha256 cellar: :any,                 arm64_big_sur:  "042c64d0af4c1ba61312ab78e6b605889890b0b71ea6e5826e1e8a24b63aaf78"
-    sha256 cellar: :any,                 ventura:        "6dd843425e4346b0dfd4715609e7f5566ed614929eab0f040ca94badfe83e64f"
-    sha256 cellar: :any,                 monterey:       "0680cc57600f7c28acd73c11a4563378876f89b8541cf8c3662fb04f27ea55c1"
-    sha256 cellar: :any,                 big_sur:        "d7fe15f3a3c4f723b7c1ed5324eb300d75c5cfca0b7d8ab0e8e48af104c91cd8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "af638cd0b4172b7afbf389201171c25307405f5e6e93b50b22f249f68aa3d3e1"
+    sha256 cellar: :any,                 arm64_ventura:  "3f9da6cc06a428bf332a05d0e37f24b8ef58d3367d387f3d0e0b055a88865cc8"
+    sha256 cellar: :any,                 arm64_monterey: "5da7148c96b13c85f4ff8cdb1b3f3a309be19b0a07ebb5711eaa7d2037158d19"
+    sha256 cellar: :any,                 arm64_big_sur:  "38878c113cd01abe132818b6e50b48382c221390c5aca0d118d35a4f49c58066"
+    sha256 cellar: :any,                 ventura:        "7c0293ed4c217e252bb34875f4ae70d0bfdfa139a1b52ff2668140358d39c54f"
+    sha256 cellar: :any,                 monterey:       "10b52f74ab62f801c62f1b78614eba2e4e21f080eee53c3aea2e9c9718d24a62"
+    sha256 cellar: :any,                 big_sur:        "e5becfcec0027d6cd8752e4d8382040877d34fa36099dbd558e554801029fced"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0315fdfade74e9d14cffb22a4f2fd7d8647cda3b2c4b32058de119db301f75ba"
   end
 
   depends_on "cmake" => :build

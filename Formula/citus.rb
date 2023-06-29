@@ -4,19 +4,21 @@ class Citus < Formula
   url "https://github.com/citusdata/citus/archive/v11.3.0.tar.gz"
   sha256 "e377981eda41a0c3defaafc3e7471e9f102482df70eda25dac912fcf7c24df16"
   license "AGPL-3.0-only"
+  revision 1
   head "https://github.com/citusdata/citus.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "398549449b04a28c1302605dd4621b5493b258972eb1d5f16a8bdce6ecff1436"
-    sha256 cellar: :any,                 arm64_monterey: "fbb309c3fde5c222885c7d007a83110eef1960b68d254c0e198461f2a062e768"
-    sha256 cellar: :any,                 arm64_big_sur:  "351424c803b9b8a5d62d66ce6a9d4fb95086480fde4371626be0341b672c4d34"
-    sha256 cellar: :any,                 ventura:        "470eeb16f8cbc805f227a48fc99b38eb63c07297b56a43dac3ae3d723c1cf71d"
-    sha256 cellar: :any,                 monterey:       "dcf27b85c3827edfb59329b8a8e6cd83f86eba2499cc2a9a8dc68cef85c0bab3"
-    sha256 cellar: :any,                 big_sur:        "154a86d90a01ca12df25b98f01db3665e857356894e4b8078d0cc05a2399055c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "472c0b3636fd438fe56dd77b29786dc3a3c1a8a505ccfccd392e2090e4d7ffb3"
+    sha256 cellar: :any,                 arm64_ventura:  "cb2768b85bbc74fd8e5d4c5613301946efb283899aa5e5e4cee712dcd737e0b0"
+    sha256 cellar: :any,                 arm64_monterey: "99b57fb7539a450df57cff81185473b752ba380848249b5fd74c18824dfe9bb1"
+    sha256 cellar: :any,                 arm64_big_sur:  "f88a18a40b331102780016712ab85454993522a13f86dcd5505ac87e5e2a4824"
+    sha256 cellar: :any,                 ventura:        "dfc1c08a9f84a7d7eb98e7822fd2b8c3c70c917377324779ea4bce5b3debbfb3"
+    sha256 cellar: :any,                 monterey:       "af27fecd06f6d8a26d544059cf6f99ab97d648f1cf107b98e49d4fec25ef4cb5"
+    sha256 cellar: :any,                 big_sur:        "91ac1faa65d40b7627782b8e26de26d718fe8534c8ce9d5a2346379c10fe2808"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "16ed248f6656850119e3b500d06ff0f487cf2dc563ff8114c7df151bbb8e5c34"
   end
 
   depends_on "lz4"
+  depends_on "openssl@3"
   depends_on "postgresql@14"
   depends_on "readline"
   depends_on "zstd"

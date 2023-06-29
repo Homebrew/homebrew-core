@@ -13,7 +13,7 @@ class Javarepl < Formula
 
   # The GitHub README.md says: NOT MAINTAINED: Since Java is now
   # released with REPL this project will no longer be maintained.
-  deprecate! date: "2022-03-08", because: :unmaintained
+  disable! date: "2023-06-19", because: :unmaintained
 
   depends_on "openjdk@8"
 

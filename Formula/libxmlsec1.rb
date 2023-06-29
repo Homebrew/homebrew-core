@@ -4,6 +4,7 @@ class Libxmlsec1 < Formula
   url "https://www.aleksey.com/xmlsec/download/xmlsec1-1.3.1.tar.gz"
   sha256 "10f48384d4fd1afc05fea545b74fbf7c152582f0a895c189f164d55270400c63"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://www.aleksey.com/xmlsec/download/"
@@ -11,25 +12,22 @@ class Libxmlsec1 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "9af6a43ca5ff567b4b7f0dce7bdb8612d3dac9de8d77c3d33b480b7d32684c61"
-    sha256 cellar: :any,                 arm64_monterey: "823fd3c54e2eb29ae5462c7b60bba93f9825b5a2d35f39ca50a4828a69902325"
-    sha256 cellar: :any,                 arm64_big_sur:  "6290e5004f0d9b28cd60c840f1d023b2d142e55fa158e9cd9c716cdd93f3737e"
-    sha256 cellar: :any,                 ventura:        "3f6a404f4531bdb59a570fcde1a4131ac9a846db0c263610d43c7ab12ac73f78"
-    sha256 cellar: :any,                 monterey:       "73782af36219a7d463d868b78c7981e5a1ab4a0dc69892f2c037b7772a7b43ae"
-    sha256 cellar: :any,                 big_sur:        "449f2276cb3d4a582cfb9f330903e7d7fa166a7cd17907cbbc5571cdde236ec0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ccf53ccd427848e24ebf6b2df7d57e9efcc9d3f2f715de9e9926c3bb728405b3"
+    sha256 cellar: :any,                 arm64_ventura:  "84885abab4b76878e7d54faa368f1739e67f1851f76fdeb95f58a90ccdeefe10"
+    sha256 cellar: :any,                 arm64_monterey: "594f5d42459172e49c90d37cc78e52981288aa10c400c3cdafd870ff36a7fcd2"
+    sha256 cellar: :any,                 arm64_big_sur:  "8a585dcd1bb0ea9c552eb2e62ac3149f099979eabf9e3d63678d5615d9910875"
+    sha256 cellar: :any,                 ventura:        "a8cfbb4816047952db369fb4048c145aa71776c57b23d557dec835600cd38852"
+    sha256 cellar: :any,                 monterey:       "f09549465cb0d1471a0f754a3fa80bf0482c471eebe6f4791e2213833395abf4"
+    sha256 cellar: :any,                 big_sur:        "1cb5ce8f22460be220613f0bc543197fe395e261e2e34f1f0ef2cb8c98467f66"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ea32b3ff9330f1230c0366c2e266149180d69afbbddf6fb20372e8dbd7694b14"
   end
 
   depends_on "pkg-config" => :build
+  depends_on xcode: :build
   depends_on "gnutls" # Yes, it wants both ssl/tls variations
   depends_on "libgcrypt"
   depends_on "libxml2"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   uses_from_macos "libxslt"
-
-  on_macos do
-    depends_on xcode: :build
-  end
 
   # Add HOMEBREW_PREFIX/lib to dl load path
   patch :DATA
@@ -43,7 +41,7 @@ class Libxmlsec1 < Formula
             "--with-nspr=no",
             "--enable-mscrypto=no",
             "--enable-mscng=no",
-            "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}"]
+            "--with-openssl=#{Formula["openssl@3"].opt_prefix}"]
 
     system "./configure", *args
     system "make", "install"

@@ -10,23 +10,20 @@ class Awslogs < Formula
   head "https://github.com/jorgebastida/awslogs.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2e6c01c7db955f53c3dcc18b3a24fac169f5a3778a7c5df6c302edb9ef024c81"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "29129ede0efa5097cf53f57f0affafa5f2ec960b1fa81c5fd896aa7e3278af05"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "311a561ec79b832015fbef9b52c15533c3bbe006104cdd999d43f70b9860bd2d"
-    sha256 cellar: :any_skip_relocation, ventura:        "9317592b5b6dad41d08b859a03fa952bb2fcc12300436c2c774badf65b775659"
-    sha256 cellar: :any_skip_relocation, monterey:       "633cbe72406fbb4afa1920f8bdd082e662300e7d5293afc2dcd776b09fe2f96b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ec87edb19c90a6235b5d61d57266c032c7db15dc5bc28edabf4d870f8df23e8b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "16a5665bea7425a24e1a8c73a99e5e6268c5394498da4f18d2cbe8cf0297f809"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9d903b045b2d7f2b6240eefd864cccfe0438c2ad36018d2d61079d9254203575"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1efe03135ba5ff520a19fbe02d27510b7c1a04b77052a00994407a2e04ef3553"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cb58f1336ed1a9d4c8b393390e00e9ff85f01ec99d6ae561cf6103e2171d6a6d"
+    sha256 cellar: :any_skip_relocation, ventura:        "050eb23a706b239e08b4ca6e8cbcec2d158351aebfb7e17d771f163dffc9ae16"
+    sha256 cellar: :any_skip_relocation, monterey:       "e0546faa28ea19e19406712f90f96e7f4e9a5205383825f0f634106e782b3574"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e9c85e3d53f2f3a715cfaa91165b4e722cf57197d09b2fc0341833ba6307221c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "355a36b81ab65751d6c9b9389b7e3e86c2506bae285916fab7ac61bf84b3575c"
   end
 
   depends_on "python@3.11"
   depends_on "six"
 
   uses_from_macos "zlib"
-
-  on_linux do
-    depends_on "openssl@1.1"
-  end
 
   resource "boto3" do
     url "https://files.pythonhosted.org/packages/2d/ae/7a28ce6d8eb6b4e5ae1c7cf302179a6ef78c11f7a54e818df5dd7b237724/boto3-1.26.73.tar.gz"
@@ -64,6 +61,8 @@ class Awslogs < Formula
   end
 
   def install
+    inreplace "setup.py", ">=3.5.*", ">=3.5"
+
     virtualenv_install_with_resources
   end
 

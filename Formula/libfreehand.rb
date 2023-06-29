@@ -25,7 +25,6 @@ class Libfreehand < Formula
 
   depends_on "boost" => :build
   depends_on "pkg-config" => :build
-  depends_on "icu4c"
   depends_on "librevenge"
   depends_on "little-cms2"
 

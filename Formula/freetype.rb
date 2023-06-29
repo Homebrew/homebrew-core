@@ -1,11 +1,10 @@
 class Freetype < Formula
   desc "Software library to render fonts"
   homepage "https://www.freetype.org/"
-  url "https://downloads.sourceforge.net/project/freetype/freetype2/2.13.0/freetype-2.13.0.tar.xz"
-  mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.13.0.tar.xz"
-  sha256 "5ee23abd047636c24b2d43c6625dcafc66661d1aca64dec9e0d05df29592624c"
+  url "https://downloads.sourceforge.net/project/freetype/freetype2/2.13.1/freetype-2.13.1.tar.xz"
+  mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.13.1.tar.xz"
+  sha256 "ea67e3b019b1104d1667aa274f5dc307d8cbd606b399bc32df308a77f1a564bf"
   license "FTL"
-  revision 1
 
   livecheck do
     url :stable
@@ -13,13 +12,13 @@ class Freetype < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "9dec5b349d68fd2925b84cda39af7842c29cb709bce44fb4b3e3cc0ed425eea5"
-    sha256 cellar: :any,                 arm64_monterey: "731770a82dfaa0512945bf4cdb9d0743c7c1ef54653eecaefb6163a5539c828e"
-    sha256 cellar: :any,                 arm64_big_sur:  "2d2bcd3700a55319f106453c64a5060424596b2a17c5d920362d3400a8fcb3f1"
-    sha256 cellar: :any,                 ventura:        "264dd24274c2399e6739ffe0fdff53183caa3ca6d7f42835a87db8478a904f35"
-    sha256 cellar: :any,                 monterey:       "66b68bbcebf4606d1e7e132b21b19b23ba934a5bbb01d88113303ec2662111b1"
-    sha256 cellar: :any,                 big_sur:        "398c840ef5e6c901ab5fcd7ca7b129c7673cac64d22008f7296d948b7e542cf5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "590c8b0e9e3c5866a92537fcad41b235da504af96de11e945c64f110f0e6b436"
+    sha256 cellar: :any,                 arm64_ventura:  "87a44e9a361f9dcc531514c9e34b6da2893a4650c60419eed7331d8a92daa8a1"
+    sha256 cellar: :any,                 arm64_monterey: "99f7cb3ebf9309e1734391611c7fab4b2dfe48fe2b0dc484f2e0476b913e958e"
+    sha256 cellar: :any,                 arm64_big_sur:  "5aad113162129820c2926641a203db43139f0bf9dc2d7ae1b8f090ab29fb7011"
+    sha256 cellar: :any,                 ventura:        "872745894238fce7dba35a0add31b49b7c53150d9b7ee22a010104f0795895d2"
+    sha256 cellar: :any,                 monterey:       "57eae05744e50fab0dd3860af6b683bce245a65721e11d745c771432c5df0629"
+    sha256 cellar: :any,                 big_sur:        "ae5f6d23acb94cd01039a950cdcc99917641fbdb1171f5aa3c78bafc5317c3c4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "07fec4ca74409c33e6d572a7027040a4acbd72527b4eb0a21e5d7e734fbcb7f0"
   end
 
   depends_on "pkg-config" => :build
@@ -27,19 +26,6 @@ class Freetype < Formula
 
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
-
-  # Earlier versions of Apple Clang don't recognise the `fallthrough` attribute.
-  # The following patches make it possible to build with them.
-  # Remove both on next release.
-  patch do
-    url "https://gitlab.freedesktop.org/freetype/freetype/-/commit/2257f9abf6e12daf7c3e1bfe28fa88de85e45785.diff"
-    sha256 "64f41363467c455ccfeb3350bc3bea0c028fa5d108821e2e81cd8475675b7926"
-  end
-
-  patch do
-    url "https://gitlab.freedesktop.org/freetype/freetype/-/commit/d874ffa96ccad7dd122cdc369a284d171e221809.diff"
-    sha256 "aff06e28afc48cd96d7ea4321069046db8ba0f512bf965ef475c1cdbcdc2635f"
-  end
 
   def install
     # This file will be installed to bindir, so we want to avoid embedding the

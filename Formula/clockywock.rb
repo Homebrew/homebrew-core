@@ -20,7 +20,7 @@ class Clockywock < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6645c5e005c3d94fb8474f181190058c87e64ddbd26196c300f2cd8b6f67caa8"
   end
 
-  deprecate! date: "2022-03-30", because: :unmaintained
+  disable! date: "2023-06-19", because: :unmaintained
 
   uses_from_macos "ncurses"
 

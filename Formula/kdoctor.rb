@@ -1,18 +1,18 @@
 class Kdoctor < Formula
   desc "Environment diagnostics for Kotlin Multiplatform Mobile app development"
   homepage "https://github.com/kotlin/kdoctor"
-  url "https://github.com/Kotlin/kdoctor/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "6c65a454ddb0258122f8dc4ab0cce5dff21425da770a07685eada13f78c8df65"
+  url "https://github.com/Kotlin/kdoctor/archive/refs/tags/v1.0.1.tar.gz"
+  sha256 "7d19d3ee1d15ec15fd953a412f8e699b0d2d91f83eb87b36a8603709d64866b4"
   license "Apache-2.0"
   head "https://github.com/Kotlin/kdoctor.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "eba7ca9905740f040831ef93f51aa0ff89df1de0f0505e212705ae913fbcd9fb"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "82601392dd0af59e203244553d423b07621bd310bd63adae4134686259138385"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0f1cb7722c1bcf843f2648903fb7f7a8832437e0ee6b038312be067f1a50afdc"
-    sha256 cellar: :any_skip_relocation, ventura:        "2384ae968cbd575c65c0d9ea152ed83da0712796bb90256671dae8a1e0b349de"
-    sha256 cellar: :any_skip_relocation, monterey:       "2384ae968cbd575c65c0d9ea152ed83da0712796bb90256671dae8a1e0b349de"
-    sha256 cellar: :any_skip_relocation, big_sur:        "731d3da8ed8c1497b5b305031560f545890930f37b53c36e816a1e0fc3f0ac2d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c1fd2173136a43a08d794e4eb94ad7e1f8aa271436d4c1e199aae47b7290f26c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "93adcaab04918588fef66fd5bd0bbadf9752dcefea386017430b49143eb0bf4f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "00a9a58e91adbf50dbd69e9f039e392ed8471646d951ef94bfd5561c0ab72e31"
+    sha256 cellar: :any_skip_relocation, ventura:        "88b80453404bea546b8ad6e6881d2d2e9eddc646f10e91de9ba92549c1461a09"
+    sha256 cellar: :any_skip_relocation, monterey:       "d17a193320cae7962d1b53e3892be3103e0ccab32107f808139fad117a0c376e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "185d2f5b00e61693a7f7328a9f22eac9e90ea8ace31730183aeefd476a490112"
   end
 
   depends_on "gradle" => :build

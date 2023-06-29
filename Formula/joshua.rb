@@ -19,7 +19,7 @@ class Joshua < Formula
   end
 
   # Moved into the Attic in 2021-11: https://attic.apache.org/projects/joshua.html
-  deprecate! date: "2022-06-05", because: :deprecated_upstream
+  disable! date: "2023-06-19", because: :deprecated_upstream
 
   depends_on "openjdk"
 

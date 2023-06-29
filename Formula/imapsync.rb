@@ -5,7 +5,7 @@ class Imapsync < Formula
   # NOTE: The mirror will return 404 until the version becomes outdated.
   sha256 "553ce6d6535b954987a859fa0c3c74da446df74157d398ab09159c7f8ed8043d"
   license "NLPL"
-  revision 1
+  revision 2
   head "https://github.com/imapsync/imapsync.git", branch: "master"
 
   livecheck do
@@ -14,14 +14,13 @@ class Imapsync < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "74d91189843fd80348a4c934962a1fb622edea57ff439abc4757d14b1f65cab6"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4b5c95f09e1cc6660aa7885567f6170a5d16e98b077949b42de9fe8331526460"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d05561847d9721ab0fc85de4e73393dbc50228533946df8033297b24ebf46f4d"
-    sha256 cellar: :any_skip_relocation, ventura:        "7561f0c572dda9f4cdb2cf91214b33aad955e0ce705610045686e937d80f1f84"
-    sha256 cellar: :any_skip_relocation, monterey:       "6f033299713beb002954a98b66442b27c2cb59dc5142d910010025ed0242f226"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3ada5a5214478fcc0dee5dd7eabaeb84beedc4145fe7dca0ce5af0fded86b2b9"
-    sha256 cellar: :any_skip_relocation, catalina:       "b586245299d6146f1ae7e7066b675e540f5a862de7389b394537cdadcd24791d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e4476fe8162bf3f4a56b22e855461ec934a8652056249a640d30641c02fcbb92"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fd2f78cab0c17b917645842bedfead04ea5b8786a41e6102b71c7e162d98de9b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c02cc184275db94574d26e0c8161e0e95fc826bccfd9b79be4bc936a1b7e9b2e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b6ae8bc4307c7bd1d66be4a833701a2058965770cb636babf11b611a6cd18267"
+    sha256 cellar: :any_skip_relocation, ventura:        "65302ef772b8e18ad83702079504a69f58c53ffb6c5b69c2451f5846c0fde0ce"
+    sha256 cellar: :any_skip_relocation, monterey:       "b119b2f55d364f6ade085a7bdb4b9011c1ce32261daf27008222c6225e2cbd3e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "1cda240322bbc0a82d0ddee72c0ce7121931f5db909198f96d07b3e9db278add"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b260c61a02c6265f27a7e57451d28a0a5c97ce57b4e80e6c393b78c1fe31f9e9"
   end
 
   depends_on "pod2man" => :build
@@ -29,6 +28,8 @@ class Imapsync < Formula
   uses_from_macos "perl"
 
   on_linux do
+    depends_on "openssl@3"
+
     resource "Digest::HMAC_SHA1" do
       url "https://cpan.metacpan.org/authors/id/G/GA/GAAS/Digest-HMAC-1.03.tar.gz"
       sha256 "3bc72c6d3ff144d73aefb90e9a78d33612d58cf1cd1631ecfb8985ba96da4a59"

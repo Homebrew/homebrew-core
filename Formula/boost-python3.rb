@@ -1,8 +1,8 @@
 class BoostPython3 < Formula
   desc "C++ library for C++/Python3 interoperability"
   homepage "https://www.boost.org/"
-  url "https://boostorg.jfrog.io/artifactory/main/release/1.81.0/source/boost_1_81_0.tar.bz2"
-  sha256 "71feeed900fbccca04a3b4f2f84a7c217186f28a940ed8b7ed4725986baf99fa"
+  url "https://github.com/boostorg/boost/releases/download/boost-1.82.0/boost-1.82.0.tar.xz"
+  sha256 "fd60da30be908eff945735ac7d4d9addc7f7725b1ff6fcdcaede5262d511d21e"
   license "BSL-1.0"
   head "https://github.com/boostorg/boost.git", branch: "master"
 
@@ -11,13 +11,13 @@ class BoostPython3 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "1898b5b144d8601769c33067adfaca9de7b06a01afad5d1610d525ae9ed7744c"
-    sha256 cellar: :any,                 arm64_monterey: "bc037802ffa479a8c8ffd6e771c1c05e73e50995473b3307e07b4291755bfb71"
-    sha256 cellar: :any,                 arm64_big_sur:  "86caa3439cb90a2b72a5d32b7e8489d62581f0051f2f713acd21d540f8fa6be9"
-    sha256 cellar: :any,                 ventura:        "da0e18c720706cd1398c9aa43bcec0fda463984c01241f3ff970888285b6572d"
-    sha256 cellar: :any,                 monterey:       "84c9f7d1327f4eb84512e4987c9829b363631c1a18eda153cd48fbde96c053e0"
-    sha256 cellar: :any,                 big_sur:        "b7a356d9961abfe44e3ddb7bccb99572ef3ee43610fa99b3fa89016825d2478a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "55f12f8c41cc8b0b463d8f5283097ff193e0effbf03f9531a703c1ff0690094f"
+    sha256 cellar: :any,                 arm64_ventura:  "54a07f5f3d5babda43d7adb2af3cb46b3f756ec3e2b67fe50f6da2aff81c7b41"
+    sha256 cellar: :any,                 arm64_monterey: "518fa733ea9fd88e320a9bdd12c259e76c29f2dd1dae0368ca7016830c0c7b1e"
+    sha256 cellar: :any,                 arm64_big_sur:  "a1a6fe4845cc1fb97e50c408a11a84d1a09fe0163e973d15a6320db83b19a156"
+    sha256 cellar: :any,                 ventura:        "c5222b373a4b2f5b5c7e1f9b9012bd34f70a28b56bf9a691426650a8825a0659"
+    sha256 cellar: :any,                 monterey:       "b097a520137dcc5360df7998b7468b12cb33147cdae3c10ab1270f1e36749aaa"
+    sha256 cellar: :any,                 big_sur:        "65864416a8314dc2669890da5bc0246aa4ea5c73985773ed1cea3082b03d1711"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5129320e1bb52a1c69204df65c31f283c9a0caf8a2b6515833c9d689bd4594cd"
   end
 
   depends_on "numpy" => :build

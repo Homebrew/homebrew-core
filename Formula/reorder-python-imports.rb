@@ -3,21 +3,19 @@ class ReorderPythonImports < Formula
 
   desc "Rewrites source to reorder python imports"
   homepage "https://github.com/asottile/reorder_python_imports"
-  url "https://files.pythonhosted.org/packages/23/98/f2c8c5ee8cc406e1352b5aaad7b2f927b9a5a081ee2050eb302f5ec1b780/reorder_python_imports-3.9.0.tar.gz"
-  sha256 "49292ed537829a6bece9fb3746fc1bbe98f52643be5de01a4e13680268a5b0ec"
+  url "https://files.pythonhosted.org/packages/47/74/f70eb17c5e8e9bee19879df5069cd749b646a29cdfe374b5b0dafd39151c/reorder_python_imports-3.10.0.tar.gz"
+  sha256 "52bf76318bcfde5c6001f442c862ccf94dcdff42c0f9ec43a2ac6f23560c60bf"
   license "MIT"
   head "https://github.com/asottile/reorder_python_imports.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e845aa0e5a6c2883566796d00f932350f988968c04ba4980e594408d811a374b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e845aa0e5a6c2883566796d00f932350f988968c04ba4980e594408d811a374b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e845aa0e5a6c2883566796d00f932350f988968c04ba4980e594408d811a374b"
-    sha256 cellar: :any_skip_relocation, ventura:        "b4f03287329d4021b1dddc22c05e0424c357ec794fbe9899fa66c8d35781db25"
-    sha256 cellar: :any_skip_relocation, monterey:       "b4f03287329d4021b1dddc22c05e0424c357ec794fbe9899fa66c8d35781db25"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b4f03287329d4021b1dddc22c05e0424c357ec794fbe9899fa66c8d35781db25"
-    sha256 cellar: :any_skip_relocation, catalina:       "b4f03287329d4021b1dddc22c05e0424c357ec794fbe9899fa66c8d35781db25"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d95bd5815215402bf15e21cf741e8979cb0d45a288ab165b3fa4cb96f11739d6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c9c3df83f20c8c01a78a494654afdc4f47776bbcc56721f84517246a8c05d100"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c9c3df83f20c8c01a78a494654afdc4f47776bbcc56721f84517246a8c05d100"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c9c3df83f20c8c01a78a494654afdc4f47776bbcc56721f84517246a8c05d100"
+    sha256 cellar: :any_skip_relocation, ventura:        "5a17930cc930633dfa9f3e339b89cad78202d6d11203cd65ec15ddf8e6b30175"
+    sha256 cellar: :any_skip_relocation, monterey:       "5a17930cc930633dfa9f3e339b89cad78202d6d11203cd65ec15ddf8e6b30175"
+    sha256 cellar: :any_skip_relocation, big_sur:        "5a17930cc930633dfa9f3e339b89cad78202d6d11203cd65ec15ddf8e6b30175"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8067554dc71b272cdde9f527693ed329c5b77692d1ffd52de12b1c74eee7fa4c"
   end
 
   depends_on "python@3.11"

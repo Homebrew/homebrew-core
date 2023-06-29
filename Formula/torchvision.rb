@@ -3,10 +3,9 @@ class Torchvision < Formula
 
   desc "Datasets, transforms, and models for computer vision"
   homepage "https://github.com/pytorch/vision"
-  url "https://github.com/pytorch/vision/archive/refs/tags/v0.15.1.tar.gz"
-  sha256 "689d23d4ebb0c7e54e8651c89b17155b64341c14ae4444a04ca7dc6f2b6a0a43"
+  url "https://github.com/pytorch/vision/archive/refs/tags/v0.15.2.tar.gz"
+  sha256 "1efcb80e0a6e42c54f07ee16167839b4d302aeeecc12839cc47c74b06a2c20d4"
   license "BSD-3-Clause"
-  revision 1
 
   livecheck do
     url :stable
@@ -14,10 +13,10 @@ class Torchvision < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "7a548e74f474b3e0abf348d4310e5378d7c94dd9d619ed0e29d1cfdd75b18069"
-    sha256 cellar: :any,                 arm64_monterey: "55abcc4df58d879e5c37e1d93c4477a85f6374146d4f8172bd59c0f252b9dc20"
-    sha256 cellar: :any,                 monterey:       "b008fcf1d9e255b7262731c596caa6de6a0d0101db1592daa7658204c21616d1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "761810f80255cee80f2f99e23349104f3b96bf4f6a8ccd936cac024ef6c301da"
+    sha256 cellar: :any,                 arm64_ventura:  "75440708f8608b93654b6b1eddf6e6bd3ec6d0470a3aa74068c5c96c92df4b3e"
+    sha256 cellar: :any,                 arm64_monterey: "10a6de636adbe6f57091bfbe6718fa0cc674b135f413f5e38a97a4c70bb419c9"
+    sha256 cellar: :any,                 monterey:       "12e2137577e16fc6cf6d846833af321e6d37ba66eda44cbc4956bd4636716c2c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7dcbbd35107bd23179d27706c716c8d0d3bf256b353aef9add91f92ad50f98ae"
   end
 
   depends_on "cmake" => :build
@@ -35,8 +34,8 @@ class Torchvision < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/37/f7/2b1b0ec44fdc30a3d31dfebe52226be9ddc40cd6c0f34ffc8923ba423b69/certifi-2022.12.7.tar.gz"
-    sha256 "35824b4c3a97115964b408844d64aa14db1cc518f6562e8d7261699d1350a9e3"
+    url "https://files.pythonhosted.org/packages/93/71/752f7a4dd4c20d6b12341ed1732368546bc0ca9866139fe812f6009d9ac7/certifi-2023.5.7.tar.gz"
+    sha256 "0f0d56dc5a6ad56fd4ba36484d6cc34451e1c6548c61daad8c320169f91eddc7"
   end
 
   resource "charset-normalizer" do
@@ -50,13 +49,13 @@ class Torchvision < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/9d/ee/391076f5937f0a8cdf5e53b701ffc91753e87b07d66bae4a09aa671897bf/requests-2.28.2.tar.gz"
-    sha256 "98b1b2782e3c6c4904938b84c0eb932721069dfdb9134313beff7c83c2df24bf"
+    url "https://files.pythonhosted.org/packages/e0/69/122171604bcef06825fa1c05bd9e9b1d43bc9feb8c6c0717c42c92cc6f3c/requests-2.30.0.tar.gz"
+    sha256 "239d7d4458afcb28a692cdd298d87542235f4ca8d36d03a15bfc128a6559a2f4"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/21/79/6372d8c0d0641b4072889f3ff84f279b738cd8595b64c8e0496d4e848122/urllib3-1.26.15.tar.gz"
-    sha256 "8a388717b9476f934a21484e8c8e61875ab60644d29b9b39e11e4b9dc1c6b305"
+    url "https://files.pythonhosted.org/packages/fb/c0/1abba1a1233b81cf2e36f56e05194f5e8a0cec8c03c244cab56cc9dfb5bd/urllib3-2.0.2.tar.gz"
+    sha256 "61717a1095d7e155cdb737ac7bb2f4324a858a1e2e6466f6d03ff630ca68d3cc"
   end
 
   def install

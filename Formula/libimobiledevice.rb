@@ -4,18 +4,16 @@ class Libimobiledevice < Formula
   url "https://github.com/libimobiledevice/libimobiledevice/releases/download/1.3.0/libimobiledevice-1.3.0.tar.bz2"
   sha256 "53f2640c6365cd9f302a6248f531822dc94a6cced3f17128d4479a77bd75b0f6"
   license "LGPL-2.1"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "011e027433848f23cd9d96aee9f46531f48f8462bd763fe799e09b36eeaa4851"
-    sha256 cellar: :any,                 arm64_monterey: "f3c97e567f59c4a8ab79f8a3d66a32d109fc9a7c22891589b998edb6a4e5ba28"
-    sha256 cellar: :any,                 arm64_big_sur:  "41a64c9856f7845bb4c21bba4f42eb55c640301b59c032eb4db416db19ecf97d"
-    sha256 cellar: :any,                 ventura:        "3db04118fec82077bd2b1a3e137f3a6a6037aeaa094865fc3d1187d7f795a308"
-    sha256 cellar: :any,                 monterey:       "2cde67c8eef4e971ce74428a9162e9680d7a9ab542571f438602efe431d3a121"
-    sha256 cellar: :any,                 big_sur:        "0fe21433f470130b972354d411d05f43ab37d82198565bb6b947734a95e98c5d"
-    sha256 cellar: :any,                 catalina:       "eb7f28d86797461d5ef859d00629176e1ce3234790ef17b9ee3f9c9990a664e2"
-    sha256 cellar: :any,                 mojave:         "5143eaf34011a22dd1951f10495a7568e77a2e862fb9f4dbae9bab2f784f926e"
-    sha256 cellar: :any,                 high_sierra:    "072d224a0fa2a77bccde27eee39b65300a387613b41f07fc677108a7812ec003"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d3a744d1aa95788a31c40fa0029e5f70631e81b040375bf92f18c845371a7f4a"
+    sha256 cellar: :any,                 arm64_ventura:  "8b0bc526c6c835d2520e0639f3d69878d36924ff027cdf37079b4e13c1c3c811"
+    sha256 cellar: :any,                 arm64_monterey: "fbb4fb23c2748673e31c493b5e0cf96d95004e6ab5dd68be83a6544153499ba7"
+    sha256 cellar: :any,                 arm64_big_sur:  "a65ec432835dd253158a5044dfd7fafaab256467973b8a01f066fd6e29cedba7"
+    sha256 cellar: :any,                 ventura:        "9f4d061e7b5acbc2b923417015ace4bd8612a5c15da38e0499ae6835b449b890"
+    sha256 cellar: :any,                 monterey:       "d896a569b513227dae0b0db4a2b2ae3117b1a7330be096bc9a2d791a925c232b"
+    sha256 cellar: :any,                 big_sur:        "62ea023e2c7fa38577a731e0d19e97d7e0a109beb6da1ea9b1a3c5baee6f034e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eb10c484ec49f216384ad7e80d309e026178359df395892b28400f24cb7fedf5"
   end
 
   head do
@@ -29,7 +27,7 @@ class Libimobiledevice < Formula
   depends_on "libplist"
   depends_on "libtasn1"
   depends_on "libusbmuxd"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "./autogen.sh" if build.head?

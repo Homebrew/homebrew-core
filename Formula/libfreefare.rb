@@ -3,25 +3,22 @@ class Libfreefare < Formula
   homepage "https://github.com/nfc-tools/libfreefare"
   url "https://github.com/nfc-tools/libfreefare/releases/download/libfreefare-0.4.0/libfreefare-0.4.0.tar.bz2"
   sha256 "bfa31d14a99a1247f5ed49195d6373de512e3eb75bf1627658b40cf7f876bc64"
-  license "LGPL-3.0"
-  revision 3
+  license "LGPL-3.0-or-later"
+  revision 4
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "ea57dd54087cbe7d6f7ecc2d0904313d36b363cd97394bf435c987974e3b7b33"
-    sha256 cellar: :any,                 arm64_monterey: "98d9ca4fb60da8d0a45f4119f7a7fc9dba952ccaa9b931e535ae2a520da4d982"
-    sha256 cellar: :any,                 arm64_big_sur:  "c66fe7ad412745ebd9c10784f9ef7de563a5c1ef7582a72915ad7b50324a65c5"
-    sha256 cellar: :any,                 ventura:        "c1cec9a4091a7fe7a160dba236177a9a233570daf8683e384b2fafe8ec90a44e"
-    sha256 cellar: :any,                 monterey:       "c94fd35b13b13e392bb56bb79d745feada34674100d02f67ab0abf9d17678b11"
-    sha256 cellar: :any,                 big_sur:        "bcc9bf9b7c9ee53de79b4784264c0923587b48933d2a6c1f57730fd359f8646d"
-    sha256 cellar: :any,                 catalina:       "5019ddb58b52c0ef766c331273c73ca4a374e87d5288d7357cd7e965150b43c4"
-    sha256 cellar: :any,                 mojave:         "a039acfcd35d2763313e47dd0175474975ffdecba60f6c6af714f7b0f0630144"
-    sha256 cellar: :any,                 high_sierra:    "5ae1a6b59880a6ae25ce53cfe9727be4cdf5a9cd5fe28c06f7bbc0e3d1342939"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7ae1a1c73009d57d49c65f86b402dfeb94aaffabbe1a29cd7b7752595fdf05fd"
+    sha256 cellar: :any,                 arm64_ventura:  "6d9f13777430e1e406a80bb919603e2e1f823a84628ff9a6c27786e97077015b"
+    sha256 cellar: :any,                 arm64_monterey: "dd6a7123a899f9ea2e0f2f1bb96ee61510d384db5dcda776968e5f642cdb3b1a"
+    sha256 cellar: :any,                 arm64_big_sur:  "07bb6816871ab4f86df23f9929b7f5830b3203ee8573c61c1162155665be1cf6"
+    sha256 cellar: :any,                 ventura:        "9bdc20fc20c01740f5e5c9f038e475f5ca940bf53f106884c5efa2a8b9bf78f5"
+    sha256 cellar: :any,                 monterey:       "e88a2a0561e9bd91bcdda69fdec347abfa715876a540da3f5e12d71488ad4921"
+    sha256 cellar: :any,                 big_sur:        "caf07c0af324770ece19c45f53697c88cedc651cad24c66e257fbb7b87391fc7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d3837eb7894980557e16a097e05bc2fa8d42429177f30359166820cca640cc52"
   end
 
   depends_on "pkg-config" => :build
   depends_on "libnfc"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   # Upstream commit for endianness-related functions, fixes
   # https://github.com/nfc-tools/libfreefare/issues/55

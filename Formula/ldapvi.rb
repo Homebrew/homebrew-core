@@ -5,7 +5,7 @@ class Ldapvi < Formula
   mirror "https://deb.debian.org/debian/pool/main/l/ldapvi/ldapvi_1.7.orig.tar.gz"
   sha256 "6f62e92d20ff2ac0d06125024a914b8622e5b8a0a0c2d390bf3e7990cbd2e153"
   license "GPL-2.0-or-later"
-  revision 8
+  revision 9
 
   livecheck do
     url :homepage
@@ -13,21 +13,20 @@ class Ldapvi < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "b62ea0b0de6085ea21a9415ff7983d2d78c5406f8d17296d306279e1a926a33c"
-    sha256 cellar: :any,                 arm64_monterey: "36ca8c1e3ed87aebd980c3b188104f74120756d6719eec55ec6376cc622717c4"
-    sha256 cellar: :any,                 arm64_big_sur:  "321c4e8a2ca63fd24cd5a5f719e989296df2be64df6afd65ab6c995af77681ca"
-    sha256 cellar: :any,                 ventura:        "bf09e4a29ad53d7b734b8cfd6c2ef1a094e1cc6188cf1a1335171af193eedc8a"
-    sha256 cellar: :any,                 monterey:       "63c5ade32f9583ee28609efbcb7109a37c4e39ab4a28ab970644f6b619800bdc"
-    sha256 cellar: :any,                 big_sur:        "be1aaa9c7dcef2c7f65552c6668c4837cbe645503bf75c552dafc11eb1daf8ed"
-    sha256 cellar: :any,                 catalina:       "39eb0b3f2a5438046de3f5722a65fcf8f386f317c051afe944a61dea359600e5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6a7abb1090c2fd96f680aad167a48c7dd631ec7f3342fe4403c73e413d3c6571"
+    sha256 cellar: :any,                 arm64_ventura:  "a3ad41b60a3da8e819b1abec997f49b3912addab32ffde4c5e12b7b747c5e86f"
+    sha256 cellar: :any,                 arm64_monterey: "63919baa17c57b8a12fa108dbfe0f4c8dbf3c591be3b8fad01f0750cca17be95"
+    sha256 cellar: :any,                 arm64_big_sur:  "5489222c138f0e9d354ab8aa153d30baa870a2c15410bb18a134a396563c1645"
+    sha256 cellar: :any,                 ventura:        "2f876c4180027df3eb3f619f62a72b46969292b348f8c8944d3adb99117746ea"
+    sha256 cellar: :any,                 monterey:       "d0a155ea5d43cf0f5917acd48cccd30383cab9b9dd7754eeca465da2b15da8dc"
+    sha256 cellar: :any,                 big_sur:        "e7738f50126f4a4b5890215ddb63e85d246729a31e1cd8a260e7dfc45251db9d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3b2deb6f280d0b64a18c53e61aa77b2e46d0907ffe56f30ca81e71ae4447e3a5"
   end
 
   depends_on "pkg-config" => :build
   depends_on "xz" => :build # Homebrew bug. Shouldn't need declaring explicitly.
   depends_on "gettext"
   depends_on "glib"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "popt"
   depends_on "readline"
 
@@ -45,6 +44,9 @@ class Ldapvi < Formula
   end
 
   def install
+    # Workaround for Xcode 14.3.
+    ENV.append_to_cflags "-Wno-implicit-function-declaration"
+
     # Fix compilation with clang by changing `return` to `return 0`.
     inreplace "ldapvi.c", "if (lstat(sasl, &st) == -1) return;",
                           "if (lstat(sasl, &st) == -1) return 0;"

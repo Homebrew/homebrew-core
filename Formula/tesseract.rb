@@ -4,6 +4,7 @@ class Tesseract < Formula
   url "https://github.com/tesseract-ocr/tesseract/archive/5.3.1.tar.gz"
   sha256 "3761768c02b99358e5118bfabfecc979fa84a399da5fa54c49dd477d926fef43"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/tesseract-ocr/tesseract.git", branch: "main"
 
   livecheck do
@@ -12,13 +13,13 @@ class Tesseract < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "a0aa29a3713906da4506b01ef906677f4260a43a1fa3599e6d4bfb7f5938c36b"
-    sha256 cellar: :any,                 arm64_monterey: "f6639cf35ffa30a2dcf91cbabe4b2a6db6bad549ab591fa4b883373d19250992"
-    sha256 cellar: :any,                 arm64_big_sur:  "fb9d6e59b0ea3b83cbf7dda831b25f16166f558c2dcb3042aeff7543c226137c"
-    sha256 cellar: :any,                 ventura:        "6796bd560b8af5f7f1911d9e94e8a248594c828fc0daef4924e8870dd2a2a6a3"
-    sha256 cellar: :any,                 monterey:       "b5ca86707fb25223d832c71e23201013c7d58c99849b3b379d6c4978c7f3e2bb"
-    sha256 cellar: :any,                 big_sur:        "a58f59cf96a8a8be1bfc53c4bf16f244c0ac8294fabb1685757a1e6b1025a79f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "59151d6442f499c570c2f6df9407376e14bebae3c9addd6eb7a3e08d7da87834"
+    sha256 cellar: :any,                 arm64_ventura:  "920e633ece7cfe00a7df90f9dfce8fc8349e6de6494c87a9e814865c221cefe3"
+    sha256 cellar: :any,                 arm64_monterey: "060c5e81b7731d5180e094c7d7173c27959c6b59bbf4c4df9318b213f4602913"
+    sha256 cellar: :any,                 arm64_big_sur:  "92c508f2c9c5591d30cdeeae7463d5b6054add597fb50dfa7301ccd0eb6287b9"
+    sha256 cellar: :any,                 ventura:        "4259cd9df9589653a012c67c051a296ed1899014d218a020f204d5336a2da152"
+    sha256 cellar: :any,                 monterey:       "46ac62910f0f1bf32c82f632916c2c57b354b7b911cfd1e980359ae1027304b6"
+    sha256 cellar: :any,                 big_sur:        "6613c2ef5de2a1a17233f5eead08bc9f2428b2b17995e9649868e47bc95f54b2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ea6c8d18031330394dae1377c76b8e006e38d7ff5f898735febb6421360adfe2"
   end
 
   depends_on "autoconf" => :build

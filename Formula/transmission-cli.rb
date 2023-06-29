@@ -4,6 +4,7 @@ class TransmissionCli < Formula
   url "https://github.com/transmission/transmission/releases/download/4.0.3/transmission-4.0.3.tar.xz"
   sha256 "b6b01fd58e42bb14f7aba0253db932ced050fcd2bba5d9f8469d77ddd8ad545a"
   license any_of: ["GPL-2.0-only", "GPL-3.0-only"]
+  revision 1
 
   livecheck do
     url :stable
@@ -11,24 +12,27 @@ class TransmissionCli < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "3c86f43d0a7ed493583a9e02991cdf797ccb95b2427dd6e220ab19189e628795"
-    sha256 arm64_monterey: "2d9e2b36c818bbb771e5d3a16bf97688766f2af0f6f4a2b54d9c056e99d80bdd"
-    sha256 arm64_big_sur:  "5c4174d5fcba66fc24e5db9519a2a71c32046a221d4bcfe11744d2faceb6dcc0"
-    sha256 ventura:        "86f5a1daacc2da1a0dc0a84856a2dd39abb6af0a1764ecf320e96fab5fdbd8fc"
-    sha256 monterey:       "f95f169b4f5207d352fa7a9b0ab3c74010a624846e7568f2000f7249235766d4"
-    sha256 big_sur:        "0659655e456ffa00d68cea154f38c2821f058c3ef896725856c7742eb69f8ea4"
-    sha256 x86_64_linux:   "4a7775ae15acbcf3c612da6222021b54834a2ce5b753ed117e17de6406882c4d"
+    sha256 arm64_ventura:  "8f00b6d3a0b7823ed90dece482d139221b3708e6342a5091d4aba579fd5c607d"
+    sha256 arm64_monterey: "387124cbfc9e7be99a56af09d6fea73d8b50bf65cb43eec8c9d431f5baf47343"
+    sha256 arm64_big_sur:  "79cc4c6812b55afeb60080090543512960f5c871f99522230cac172df0a2054d"
+    sha256 ventura:        "f1a2ff5ce58fe4f8014f6b5adf3b28db638ce5324ebf1a9e04f59b5c4e921b03"
+    sha256 monterey:       "43ed6b1befc09da93f0263e2cb704d1988a040ef0866850f63386a0b2d5310b2"
+    sha256 big_sur:        "1ce80c38dea2fb6e02cd58ff0e7283bcf87a4a8eb456aae20107b484a01b3d04"
+    sha256 x86_64_linux:   "11c6a5a7b5399edb5d1cd175b6c57fde40baf5f2a366d76b994afc97ece0e781"
   end
 
   depends_on "cmake" => :build
   depends_on "gettext" => :build
   depends_on "pkg-config" => :build
   depends_on "libevent"
-  depends_on "openssl@1.1"
 
   uses_from_macos "python" => :build
   uses_from_macos "curl"
   uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "openssl@3" # Uses CommonCrypto on macOS
+  end
 
   def install
     args = %w[

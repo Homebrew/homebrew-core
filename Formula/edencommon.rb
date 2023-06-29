@@ -1,19 +1,19 @@
 class Edencommon < Formula
   desc "Shared library for Watchman and Eden projects"
   homepage "https://github.com/facebookexperimental/edencommon"
-  url "https://github.com/facebookexperimental/edencommon/archive/refs/tags/v2023.05.22.00.tar.gz"
-  sha256 "5475d55ed7dcae87b51c7f9581d69cf979ae7993ecdb09589b2059a8aa7f7356"
+  url "https://github.com/facebookexperimental/edencommon/archive/refs/tags/v2023.06.26.00.tar.gz"
+  sha256 "0b6987a55c7c57a2b22fa40ffcbcafe4421a0fb9bb1bc0b38d6f7df731f1921f"
   license "MIT"
   head "https://github.com/facebookexperimental/edencommon.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "ad58e9a6314667bc29194f6f587d3d26800369f6ab288072aaaafc5d6adcc767"
-    sha256 cellar: :any,                 arm64_monterey: "916db4a486c39a9bb021a180f66831a1542214e219967886845f62a3505d7c20"
-    sha256 cellar: :any,                 arm64_big_sur:  "667782352149fa6a46b0635fe18d18bb7bcec486c9176ab804de6c7644650e30"
-    sha256 cellar: :any,                 ventura:        "541240001ab542c478de42e92cae3cebe71fbd7c773298506aed6b37e54a7cbf"
-    sha256 cellar: :any,                 monterey:       "940b9bb23c51d303eaa78fdbdf6aff0e8b6e13972e5db6a18dd9b92eade2241e"
-    sha256 cellar: :any,                 big_sur:        "c75ecf457f2df595899597b07504a3d205f4e1157ec7fe55f47cdd00316c51dc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9fc9e6e39e0270b16f8d46897e393f589b5056ccfa3012a506bafea9f2592989"
+    sha256 cellar: :any,                 arm64_ventura:  "5dd313a6103c0cd023441cf7f99e4ef8285f3f54b3b2db74ec6666b09402daab"
+    sha256 cellar: :any,                 arm64_monterey: "39165ef97161cc9f123719ac6721272b7f642b334d281d42d56f304996bba1a2"
+    sha256 cellar: :any,                 arm64_big_sur:  "17cf0589c46946978f03905f8f79eee73ed38fb54a326b89c410e4f0c9ad7e93"
+    sha256 cellar: :any,                 ventura:        "5c0f1913a6d1c2646eb1047382eca968d788eed3028d7f6fbe6096c54677d4d3"
+    sha256 cellar: :any,                 monterey:       "717f62779803a7a14ba43b2c82eb1cfcd805c957fe5df094f69f99f2f40b51b7"
+    sha256 cellar: :any,                 big_sur:        "fb7b7738a74e98a9366c693984df05aa61376ddc1aee9c8443f2e4b548986e58"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e7267cce265cbea5b961e084ae787d8c58967808fea105d5d7d2a3b06d5645d2"
   end
 
   depends_on "cmake" => :build
@@ -21,6 +21,7 @@ class Edencommon < Formula
   depends_on "folly"
   depends_on "gflags"
   depends_on "glog"
+  depends_on "openssl@3"
 
   def install
     # Fix "Process terminated due to timeout" by allowing a longer timeout.

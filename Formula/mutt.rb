@@ -13,15 +13,16 @@ class Mutt < Formula
   url "https://bitbucket.org/mutt/mutt/downloads/mutt-2.2.10.tar.gz"
   sha256 "4d773f22422f79096f7b94b57bee45654ad9a25165dbb36463c58295b4cd3d88"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
-    sha256 arm64_ventura:  "2d57c5e98a83b23e613e4871845182047ec32a46fbd9847ea50de33631b42f95"
-    sha256 arm64_monterey: "8d1cc8bba3bccfcc430446b4dedefdf76867aafb78fb5f7849d43bb4231fd89d"
-    sha256 arm64_big_sur:  "de0c21972cb6d4b83ff817a44591b5d5c170f3d397c3c94d983bfd6a10ad3328"
-    sha256 ventura:        "14e95a2c9d663cef182df117a0fb97e06c970b9704f4889a852e7f404a26e613"
-    sha256 monterey:       "5108f22bcb31232a43ecef02a277a8ccaa7f9ceb09f26563eaa7aac2402dbb4a"
-    sha256 big_sur:        "8d12a3966163a54102298a45dcb6b36ab9d35197a969c9c92330f9eb4653fc46"
-    sha256 x86_64_linux:   "3404125e6762680bdcf3b13fbb675901d1981c6d25e15cc93efb9089121f9dc1"
+    sha256 arm64_ventura:  "84c9fb99a748ea2ba9802cb5a3045dbc48dc4db4130fb440ba21887a3f1f73d6"
+    sha256 arm64_monterey: "7a7d134940105af10f2ab19f906af3db5279e796d554da49276894bf12b86169"
+    sha256 arm64_big_sur:  "8d274ef46f219d9f1d962cea42b09a709f806224548929d2c0381276f4289ef8"
+    sha256 ventura:        "0af7138ecfcc4583634cb89a2d8ae5c306c7703634c60d0f52a8582bc03661e0"
+    sha256 monterey:       "f60835d5396bdadfe9c90c43d5ff276d34199b8ba1197238237dd570ab9eae23"
+    sha256 big_sur:        "4bea848f974ae99a98096c462e5bc1c597d56322ff7fb3687a5b4291b57843a2"
+    sha256 x86_64_linux:   "bd874113ef66637acd6fd628345a910345854689745eb003afa174af525fe5b5"
   end
 
   head do
@@ -36,7 +37,7 @@ class Mutt < Formula
   depends_on "automake" => :build
   depends_on "gpgme"
   depends_on "libidn2"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "tokyo-cabinet"
 
   uses_from_macos "bzip2"
@@ -65,7 +66,7 @@ class Mutt < Formula
       --with-gss
       --with-idn2
       --with-sasl
-      --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
+      --with-ssl=#{Formula["openssl@3"].opt_prefix}
       --with-tokyocabinet
     ]
 

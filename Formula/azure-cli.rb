@@ -6,6 +6,7 @@ class AzureCli < Formula
   url "https://github.com/Azure/azure-cli/archive/azure-cli-2.49.0.tar.gz"
   sha256 "acac10ca3d9c3e6f507d92859cb805bd14c1f73512be35ebe8041be1d32cb310"
   license "MIT"
+  revision 1
   head "https://github.com/Azure/azure-cli.git", branch: "dev"
 
   livecheck do
@@ -15,17 +16,19 @@ class AzureCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "9d52b7d647782d2f6b5531e9fb5171e38830dbe38378a0fb854d43a2803eabaa"
-    sha256 cellar: :any,                 arm64_monterey: "584c3cd6c6cb15a4d9d32ca15950a37a04b54debeb66166dbd46a2dc3b03fd45"
-    sha256 cellar: :any,                 arm64_big_sur:  "a9b2267f66c3dd438d988e503a47807908549393448177493433b6b07e51299d"
-    sha256 cellar: :any,                 ventura:        "ed481f1a1bc4365af6bf96e9aaccd88ffc8adbf24e0f75bcc2ca8c9c464b9673"
-    sha256 cellar: :any,                 monterey:       "b960a3aca101f0bbb2e2243fd197f2e95fd66313a74ed389fdd6993933d5e3bf"
-    sha256 cellar: :any,                 big_sur:        "ce3c67e4a1001c3f5e0a7b8c3aa37ec145d2e50f3428fc4f0976b6007bb9efb8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fb881c8ae780f52d227bb2e3d11997f0a48709b207ddac3d024e180b667c83df"
+    sha256 cellar: :any,                 arm64_ventura:  "afef1169b01c45a76517845a19249b4b19608a95a98635c8080ce5aae9b53324"
+    sha256 cellar: :any,                 arm64_monterey: "c991bd4a237649576d74c04c7e5dcd846f095ddbc03c89a8024644139f06df95"
+    sha256 cellar: :any,                 arm64_big_sur:  "c3c8ba46b5063a650a641f75efcdd15fc5f86bc047e3f1f96176956e0b13cd7e"
+    sha256 cellar: :any,                 ventura:        "eb5d0919817c538c9dfd4f07cdcd71c2bebd26bc7ae585b3dbac32a9373cd544"
+    sha256 cellar: :any,                 monterey:       "33a45a72c02f644b0a650493b0af5085448e5104740880aabea341e228e7aace"
+    sha256 cellar: :any,                 big_sur:        "8fd5d5a4fd739fb4fddda9946d29608ed8b1f8e716c85e0afc91a290cc9f7128"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c393cec553a987de6e0852d9d8f7ec20824826ef48c1eac6954a42069ba4d39c"
   end
 
-  depends_on "rust" => :build # for cryptography
-  depends_on "openssl@1.1"
+  # `pkg-config`, `rust`, and `openssl@3` are for cryptography.
+  depends_on "pkg-config" => :build
+  depends_on "rust" => :build
+  depends_on "openssl@3"
   depends_on "python@3.10"
 
   uses_from_macos "libffi"
@@ -745,6 +748,10 @@ class AzureCli < Formula
   end
 
   def install
+    # Ensure that the `openssl` crate picks up the intended library.
+    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+    ENV["OPENSSL_NO_VENDOR"] = "1"
+
     venv = virtualenv_create(libexec, "python3.10", system_site_packages: false)
     venv.pip_install resources
 

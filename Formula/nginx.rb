@@ -3,9 +3,10 @@ class Nginx < Formula
   homepage "https://nginx.org/"
   # Use "mainline" releases only (odd minor version number), not "stable"
   # See https://www.nginx.com/blog/nginx-1-12-1-13-released/ for why
-  url "https://nginx.org/download/nginx-1.25.0.tar.gz"
-  sha256 "5ed44d45943272a4e8a5bcf4434237210f2de31b903fca5e381c1bbd7eee1e8c"
+  url "https://nginx.org/download/nginx-1.25.1.tar.gz"
+  sha256 "f09071ac46e0ea3adc0008ef0baca229fc6b4be4533baef9bbbfba7de29a8602"
   license "BSD-2-Clause"
+  revision 1
   head "https://hg.nginx.org/nginx/", using: :hg
 
   livecheck do
@@ -14,17 +15,16 @@ class Nginx < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_ventura:  "ebb2f76b4c2ed45d03acf4acd3851a3b7130533dcd9bd45f658180c8cfe4ffc1"
-    sha256 arm64_monterey: "4d9de04387c69695766b93cf6d4d915e86bbf61aa2f47a55630fde28922efa28"
-    sha256 arm64_big_sur:  "6ade92320c23223697a4a880b41d24adbe0aecc9238e1619b32b37073e0bb281"
-    sha256 ventura:        "66257c67b29ae699bba11adb08473eff95c4e978c676bd6e575ec744b61f445e"
-    sha256 monterey:       "cec57297ccd2180ffc8755d0b1952d5b5794bd7e4ebf3db56cbff68bef27d40e"
-    sha256 big_sur:        "356d2973d4e0a851248f15ee0db859f574124fb8a2d3188202be336268913c8f"
-    sha256 x86_64_linux:   "726b9214e54cef4c3858edb5367101c98b1304242cc9ede8469b9f45da6a077f"
+    sha256 arm64_ventura:  "29aa5568ae9d9f0e021c2624740b57fcd570f1225e1b86be6b108a217ec71357"
+    sha256 arm64_monterey: "f62d70584d2f83b1f29b7c94b12c7969e3ac13aa348e9352490e3d81d6652709"
+    sha256 arm64_big_sur:  "5024b4a8407d5f4cd231697ed7fa09f1ebf23c52e8a893f9ca6698a75620281f"
+    sha256 ventura:        "fdec83c8c5b3aaeefdeaddb9d320d6f4d6348976fb9e63f069d38a9f3bde6016"
+    sha256 monterey:       "453e9f63fd027084d7b61f78fedaac1b5db5a6735454fb99972fa105312e2cdb"
+    sha256 big_sur:        "275da3fa0f5948ae79fee364ed9f3b39a3640490cd88a26a3d89c8779d9fff67"
+    sha256 x86_64_linux:   "d787d092728485358fe2e969986aec2d9c05d790b570cbba1c5c27b911016ae0"
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pcre2"
 
   uses_from_macos "xz" => :build
@@ -41,7 +41,7 @@ class Nginx < Formula
       s.gsub! "    #}\n\n}", "    #}\n    include servers/*;\n}"
     end
 
-    openssl = Formula["openssl@1.1"]
+    openssl = Formula["openssl@3"]
     pcre = Formula["pcre2"]
 
     cc_opt = "-I#{pcre.opt_include} -I#{openssl.opt_include}"

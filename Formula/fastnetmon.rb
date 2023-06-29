@@ -5,16 +5,16 @@ class Fastnetmon < Formula
   url "https://github.com/pavel-odintsov/fastnetmon/archive/refs/tags/v1.2.5.tar.gz"
   sha256 "d92a1f16e60b6ab6f5c5e023a215570e9352ce9d0c9a9d7209416f8cd0227ae6"
   license "GPL-2.0-only"
-  revision 1
+  revision 3
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "766d36f3912a3cee0e95d22b5e97fc813f3484fc145c180cfc7eaa150ab30cf5"
-    sha256 cellar: :any,                 arm64_monterey: "f399e55f4f1dfbee466c82f27128cbc37aa2df1164491afc34af2e87d6908116"
-    sha256 cellar: :any,                 arm64_big_sur:  "1bf91512a6addb3b71d57879bb0439baa15d8a6c704e60fb5070d238b003224a"
-    sha256 cellar: :any,                 ventura:        "10a9772b6dba1cd001609150c112c469da2859258b34b6922887b5309782bdac"
-    sha256 cellar: :any,                 monterey:       "5631cf00a21e09c5d6f82e51597cd64e82fb16073cfe9f46d4573b2e95668511"
-    sha256 cellar: :any,                 big_sur:        "ed20ea53d33be8086144019a0aca53493eb97a49b90b9a1100eec8ca1bd8f419"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f16861d43e05722b63ff4acc2257893bdd584cd5ca0cadbca684abf72ae934e2"
+    sha256 cellar: :any,                 arm64_ventura:  "81c83f3712b5a056ed190b0639225066fcf08b4c84e219df309f43e71f24f734"
+    sha256 cellar: :any,                 arm64_monterey: "fe4f2d1805139c1e7c0d2b5b4431870d55972ebd0412ae05e9b8f5ee12208ccc"
+    sha256 cellar: :any,                 arm64_big_sur:  "17800806bc4e52dbf11d661059495d5cfd7850ad1ad950eaed52b089cfcb3b84"
+    sha256 cellar: :any,                 ventura:        "1a108e5de92055568e1fe092a779bec815f08da43345e4db6a574e38e49ecdc8"
+    sha256 cellar: :any,                 monterey:       "393c75e0894d4804d5f8d08896e1022c6992a5d24679dc4aa6a5a45577e8246e"
+    sha256 cellar: :any,                 big_sur:        "c085f7a2d3a8d6e91d697de4afdc5268694448a8d7b05642f1b13815cdadbeb0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f028e8ae77dec6ae789aa1ee6598cb38aa4cfa28f970f8287d6ed7eaab0c50c4"
   end
 
   depends_on "cmake" => :build
@@ -26,7 +26,7 @@ class Fastnetmon < Formula
   depends_on "log4cpp"
   depends_on macos: :big_sur # We need C++ 20 available for build which is available from Big Sur
   depends_on "mongo-c-driver"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   uses_from_macos "ncurses"
 
   on_linux do

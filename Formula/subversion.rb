@@ -2,7 +2,7 @@ class Subversion < Formula
   desc "Version control system designed to be a better CVS"
   homepage "https://subversion.apache.org/"
   license "Apache-2.0"
-  revision 2
+  revision 3
 
   stable do
     url "https://www.apache.org/dyn/closer.lua?path=subversion/subversion-1.14.2.tar.bz2"
@@ -17,14 +17,13 @@ class Subversion < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_ventura:  "7205394ef4f7ab0bd925f8976f2ca099211505c1d1480973374aca9aae089be5"
-    sha256 arm64_monterey: "795da21bb95f6737f89c33de2cad4c4a1ca6bf74707b38e7956c27c6723f53a6"
-    sha256 arm64_big_sur:  "75a3712a82a7f4283045710d9f9142bda611e65f0671fefd3be1d780792b2c64"
-    sha256 ventura:        "b83a333d9bd503f20ced6ba2d40677c57fa5a4193f785dfe6dfb982eed9479f6"
-    sha256 monterey:       "8772dba3615530d6e9e9302320c9481469ae7984eb224fbffc23071a5ecd06f5"
-    sha256 big_sur:        "af2a3daad4f43f5728a5e8330f9db7e7e1802735c477d91d6cae71b9a58cfe24"
-    sha256 x86_64_linux:   "c30a3ca4396953256f5a60e60943d671657526dbc61298330c7e3b93400ff302"
+    sha256 arm64_ventura:  "a1944d2503dc470e05a476b5ee92311f3429580ca76e12047b0767be3f800252"
+    sha256 arm64_monterey: "8b25a02d63873fac081173d33bdf6470909c67d20312afd99dd8a63e2aaa8876"
+    sha256 arm64_big_sur:  "88709a23df567166aa8a77778c062d31a25dd72cb3acf34e3c022ca970213798"
+    sha256 ventura:        "8e15088554e65c305691a63e11a211eacd2baa3c85ccda4f2febc16c54f3d609"
+    sha256 monterey:       "2ef69fa39e874278419d3e48e73048a5a3a75a25854e397f6074db2f75fe8575"
+    sha256 big_sur:        "efe17cc852974f2c4ef4ad6c793f4ee879b5a6443d46aea91b9d58122138d192"
+    sha256 x86_64_linux:   "85843632d86ff2bb2a8307d7834f61b434ce1c4ac7fb8a0c6c5ef09b6dd98453"
   end
 
   head do
@@ -46,7 +45,7 @@ class Subversion < Formula
   # gettext, lz4 and utf8proc for consistency
   depends_on "gettext"
   depends_on "lz4"
-  depends_on "openssl@1.1" # For Serf
+  depends_on "openssl@3" # For Serf
   depends_on "utf8proc"
 
   uses_from_macos "expat"
@@ -108,7 +107,7 @@ class Subversion < Formula
       args = %W[
         PREFIX=#{serf_prefix} GSSAPI=#{krb5} CC=#{ENV.cc}
         CFLAGS=#{ENV.cflags} LINKFLAGS=#{ENV.ldflags}
-        OPENSSL=#{Formula["openssl@1.1"].opt_prefix}
+        OPENSSL=#{Formula["openssl@3"].opt_prefix}
         APR=#{Formula["apr"].opt_prefix}
         APU=#{Formula["apr-util"].opt_prefix}
       ]
@@ -212,7 +211,7 @@ class Subversion < Formula
     system "make", "install-swig-pl-lib"
     cd "subversion/bindings/swig/perl/native" do
       system perl, "Makefile.PL", "PREFIX=#{prefix}", "INSTALLSITEMAN3DIR=#{man3}"
-      system "make", "install"
+      ENV.deparallelize { system "make", "install" }
     end
 
     # This is only created when building against system Perl, but it isn't

@@ -4,6 +4,7 @@ class Libgit2 < Formula
   url "https://github.com/libgit2/libgit2/archive/v1.6.4.tar.gz"
   sha256 "d25866a4ee275a64f65be2d9a663680a5cf1ed87b7ee4c534997562c828e500d"
   license "GPL-2.0-only" => { with: "GCC-exception-2.0" }
+  revision 1
   head "https://github.com/libgit2/libgit2.git", branch: "main"
 
   livecheck do
@@ -12,18 +13,19 @@ class Libgit2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "a4fe32eb5c124ff3de7175ada725fa5f79e6eb565135a68e460e5cc5b8e8c3d1"
-    sha256 cellar: :any,                 arm64_monterey: "85b4e126e155ea395e1a9f75bb9beb157739c28255e32ffbeb21a488fcf46fac"
-    sha256 cellar: :any,                 arm64_big_sur:  "6783efc1c351b475a3f6a01d17cc1c44dbb5d187fa0b35e0808dfa316937a6d4"
-    sha256 cellar: :any,                 ventura:        "feb4cf7c15be1d00fbe832fa759bb7b204d186576ad7b97449f30088411a7554"
-    sha256 cellar: :any,                 monterey:       "7527a7793167c87d83564f22acebcdb7b82a0a6dc1d203d978ce21a2186d8541"
-    sha256 cellar: :any,                 big_sur:        "8d126f48f163fd729c73dca2309c502f790b81fd0f908de368a0e8d58b02b774"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d66f66487f9ce0597a357f8a099c0578d9954100825761db6720bf8c099a53e9"
+    sha256 cellar: :any,                 arm64_ventura:  "2397abb72e01e08acec420aa55b787459fbf678ffdd13d4d9f4728eda818f800"
+    sha256 cellar: :any,                 arm64_monterey: "ac8d4365e5934eefa014be623fa5a93f52b5106221f1a71f8ed31ce36ad18cd6"
+    sha256 cellar: :any,                 arm64_big_sur:  "0e835df6e63b9368ecf71f757df0bc71f87e6488b833757136f4bbe98a74ca5f"
+    sha256 cellar: :any,                 ventura:        "d0942b923c027438c776298fe388e595d8bbf87daf3db1aa82e2927ffef2785d"
+    sha256 cellar: :any,                 monterey:       "d9a5acf3df857605f5dd7814760062a0bca3f5877eb67786c5f6d3e8a8081c26"
+    sha256 cellar: :any,                 big_sur:        "5e897e058041e1c9b947883c750911f90727f851545d8dd92c2e20eac3d34cf2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7f6702df8184a73fed8ea3568ece9d96bc3bc1a8faef13c457bbf1be5f014210"
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "libssh2"
+  depends_on "openssl@3"
 
   def install
     args = %w[-DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF -DUSE_SSH=ON]

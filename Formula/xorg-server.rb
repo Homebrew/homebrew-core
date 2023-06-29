@@ -6,13 +6,14 @@ class XorgServer < Formula
   license all_of: ["MIT", "APSL-2.0"]
 
   bottle do
-    sha256 arm64_ventura:  "77506a5df91ca3eaa991d68060c232b54c3aa78fc3500162aeaa4fe4bfbed163"
-    sha256 arm64_monterey: "45de52db3e6e9a8871eeed0c8a1a5a8fcef6f250d6f99210824622f9d9782121"
-    sha256 arm64_big_sur:  "a624bff243047fb0352f600f5f8499011fce78280625f822a7c2b83868c094e2"
-    sha256 ventura:        "dd130824f5c1e8009f49cd9fe3b15ffb9a45eaf946feb9682ac6fa0e2ef552cc"
-    sha256 monterey:       "53ff360b65045bf3a9e2303d9ba5d7682c3c0efa4e9604407f4ecaf296a306cd"
-    sha256 big_sur:        "d82fedcdf8500321e21547d84838a2de795e647f3b69e8fe9c869bcb22218131"
-    sha256 x86_64_linux:   "2f25d8e98c5266c2a14c371008e198adc038f1627543b91a5a7b8669f55b7430"
+    rebuild 1
+    sha256 arm64_ventura:  "6bb00eac2b812c4b5976e3e01560fa7146e68bf259a6286a428b906b6c6fb205"
+    sha256 arm64_monterey: "b4c11cd4d503fcb2201d2c8d1633917357b5a8c5146a0fae47d9904039707df3"
+    sha256 arm64_big_sur:  "0eb0e18b02dad58e8f7f07f1165051127cbf9d8bdb043bcdf2e161a8d8348368"
+    sha256 ventura:        "b0d9e8ca4de101b4eb6b350994181168a9aa7234d9fc0d8ff8b968a06fec01b6"
+    sha256 monterey:       "ca801c81f81f4ba98a565d18cc532a0e49f4b921bb88105e4feaf3c96d5f0527"
+    sha256 big_sur:        "aeda4c28fc95f6879ecf0a0e7e355edca5a502342c98b0a2a9b3ce1635a1c700"
+    sha256 x86_64_linux:   "5e7848438cd22f634e689249799db39f66b949a48f8dd1f1173e72791e404374"
   end
 
   depends_on "font-util"   => :build
@@ -65,7 +66,7 @@ class XorgServer < Formula
   def install
     # ChangeLog contains some non relocatable strings
     rm "ChangeLog"
-    meson_args = std_meson_args.reject { |s| s["prefix"] } + %W[
+    meson_args = std_meson_args.map { |s| s.sub prefix, HOMEBREW_PREFIX } + %W[
       -Dxephyr=true
       -Dxf86bigfont=true
       -Dxcsecurity=true
@@ -85,7 +86,7 @@ class XorgServer < Formula
 
     # X11.app need startx etc. in the same directory
     destdir = buildpath/"dest"
-    system "meson", "build", *meson_args
+    system "meson", "setup", *meson_args, "build"
     system "meson", "compile", "-C", "build"
     system "meson", "install", "-C", "build", "--destdir", destdir
     prefix.install Dir["#{destdir}#{HOMEBREW_PREFIX}/*"]

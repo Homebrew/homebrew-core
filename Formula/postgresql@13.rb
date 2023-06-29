@@ -4,6 +4,7 @@ class PostgresqlAT13 < Formula
   url "https://ftp.postgresql.org/pub/source/v13.11/postgresql-13.11.tar.bz2"
   sha256 "4992ff647203566b670d4e54dc5317499a26856c93576d0ea951bdf6bee50bfb"
   license "PostgreSQL"
+  revision 2
 
   livecheck do
     url "https://ftp.postgresql.org/pub/source/"
@@ -11,13 +12,13 @@ class PostgresqlAT13 < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "e5ea0afbc2159aae155f11f27bab33b9050b67a66697743b8e16a0a4b8341b96"
-    sha256 arm64_monterey: "d90b7e1d29336bb950aee402db7a6dc68b21e0b7d4e2d611db431e5ee50bbdee"
-    sha256 arm64_big_sur:  "080438498da03db3c2c48fc4e37cafb12d7a4d005c19f5ee2dae5110a8d4d73a"
-    sha256 ventura:        "eddf62e70d5174787a48fa9b27a00b27d96bac903a675bbebb18ef6840354142"
-    sha256 monterey:       "0dcc983ced8519c39c0e1dc49670ede5625df9b7b64ecb8d7dcb3fe1cd59a693"
-    sha256 big_sur:        "4d824e55dc1b80adc4357e97ec68f932c2ed6af86633814dac5b70ae5434c878"
-    sha256 x86_64_linux:   "b9c581bd63cd96fab5ad59d22320df611e11e78d63d62bf93bff4d0d4724f638"
+    sha256 arm64_ventura:  "5734dbe0b54eae911dfdfc863162a903dbc60377aa58c51573edc3e3ed15155f"
+    sha256 arm64_monterey: "2e20526ca972aa143f8da81dabe4c4077d13fc9a97e89d0f3df339cbe47d44f4"
+    sha256 arm64_big_sur:  "8021201bd07d8b5837e2d730c2c26c2e3d4e85a0000a5c966009eaad58f8a590"
+    sha256 ventura:        "993cdd48d0cbc27f663dd0d8c82bb8e05048bc506194f29694e1c6b05e942955"
+    sha256 monterey:       "190b401b2f0ae3357b46d792e0daba925e0bbea5175df13609ca19459691aaed"
+    sha256 big_sur:        "1f5ddb770cbe68cdd0166e2244f9f2d4f27615fc0e1b46e76f7d61478b33a77a"
+    sha256 x86_64_linux:   "6d00626ec1af03aa04e16dc13794e057eed39d0508ffda60711a443752482761"
   end
 
   keg_only :versioned_formula
@@ -32,7 +33,7 @@ class PostgresqlAT13 < Formula
   # See https://github.com/Homebrew/homebrew-core/issues/47494.
   depends_on "krb5"
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "readline"
 
   uses_from_macos "libxml2"
@@ -47,8 +48,8 @@ class PostgresqlAT13 < Formula
 
   def install
     ENV.delete "PKG_CONFIG_LIBDIR" if MacOS.version == :catalina
-    ENV.prepend "LDFLAGS", "-L#{Formula["openssl@1.1"].opt_lib} -L#{Formula["readline"].opt_lib}"
-    ENV.prepend "CPPFLAGS", "-I#{Formula["openssl@1.1"].opt_include} -I#{Formula["readline"].opt_include}"
+    ENV.prepend "LDFLAGS", "-L#{Formula["openssl@3"].opt_lib} -L#{Formula["readline"].opt_lib}"
+    ENV.prepend "CPPFLAGS", "-I#{Formula["openssl@3"].opt_include} -I#{Formula["readline"].opt_include}"
 
     args = %W[
       --disable-debug

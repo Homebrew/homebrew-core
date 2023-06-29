@@ -2,11 +2,10 @@ class Ghostscript < Formula
   desc "Interpreter for PostScript and PDF"
   homepage "https://www.ghostscript.com/"
   license "AGPL-3.0-or-later"
-  revision 1
 
   stable do
-    url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs10011/ghostpdl-10.01.1.tar.xz"
-    sha256 "e6a6c39a36e6b6ffe4960f4e2bfb85420ed157ac14a202ccdd0df4e4e2a7e392"
+    url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs10012/ghostpdl-10.01.2.tar.xz"
+    sha256 "b535600c968f672b4f6750e7eac57623fc7f80eb8c00a0175a46010942cf0e9c"
 
     on_macos do
       # 1. Make sure shared libraries follow platform naming conventions.
@@ -28,13 +27,13 @@ class Ghostscript < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "1bd4fd5100425061e0425d356c8d26da61d7212377224a0309dc0c7863cb0826"
-    sha256 arm64_monterey: "ac5146c0e4c626dacdb9bd086dbcc25f6a4f4b586c44594e72316b1911485f32"
-    sha256 arm64_big_sur:  "96c74a74f35fd3ef0d700fb8985bd70631e8c24b9486b915d715817523db745d"
-    sha256 ventura:        "956311e2e8356fe1b5ab433b49ee46573f02ab32e8572167bcefd4230866b755"
-    sha256 monterey:       "35cbca9d51e8f4fe41f8c714c7cbb97dd7290283f3fca27905de132bcb07edce"
-    sha256 big_sur:        "198942d83eb2f76c1066396b53ea7b9e0a215b2b68e3b2622c4c156bc9e26832"
-    sha256 x86_64_linux:   "b95a7d4fe0b0fe77d5c1d41e006d4efab4f757d24f5c6118c28fb38efb3ebea8"
+    sha256 arm64_ventura:  "290522bb038d5db01e9cd834274e196400c37bdfb2c1ba8ed8a82816650c70b1"
+    sha256 arm64_monterey: "f9ead5cafe7569cc3b34c4d8c228700edb0cf3d3f58506e25c1299fe0eb47612"
+    sha256 arm64_big_sur:  "1dc38aea6fd4bc9c9e5b6d6465459384d8b1a2025a0d1a1997c01b920b8f1667"
+    sha256 ventura:        "2ebfb45d30096d1c6ddf5842f7217a80f0f7cd1709fabbc0658a012a3120a71f"
+    sha256 monterey:       "6df60d383c7b1560ccd1e55e9ec2800c9bc565e704ed112feba29efc908d21ac"
+    sha256 big_sur:        "a52592ba7398d8ddd6d9e174c5547b282294bcf5fe15d6685e97428be13d46d1"
+    sha256 x86_64_linux:   "68d6d77c2776b7c64aacb6a0c0f4e6ef838090c831f0f8a6ec91f60c2792a28e"
   end
 
   head do

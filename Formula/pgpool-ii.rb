@@ -12,15 +12,17 @@ class PgpoolIi < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "235dc70c704b788d49206e4a1deadff5a0d58498237e2ce83b281728e6567600"
-    sha256 arm64_monterey: "acd26bdaf1c533c86ef58212eab3f56b421ef754d6c88687dab5b0eb9bf735ae"
-    sha256 arm64_big_sur:  "963be0b64f64f58288375b06151e469554ac2d08b412d2ea80feb4b86e5c9eb9"
-    sha256 ventura:        "c6d84c3bbf033dee5a4c0d90d4cbd08d7938e1de2053e3e8f988289bff7cf8a4"
-    sha256 monterey:       "3c2408df6ab19d06bd7c5b41d75e5413d2cad58d793df65bfb352666ecbd3668"
-    sha256 big_sur:        "830a2744c52714dcef82d2a74c8b4bc642c5e86d3d6f245013a650593ddd14a2"
-    sha256 x86_64_linux:   "917dc27d2774739b6ece0eed30b6a341af9ebf19e4e04067fa5820b23d34b3b1"
+    rebuild 1
+    sha256 arm64_ventura:  "7ecca17847fff3e7bf251286ff0ad84af40a1b05b602a0e4013589412761f716"
+    sha256 arm64_monterey: "6fb793d67ffcd9ffff510da1914323826b90bbb9b69b713648a415d6b7c66c1f"
+    sha256 arm64_big_sur:  "3f52e2954fcc4b66dda006cfa9e13c0a55018710b69a403cc9ac1aaaad285c70"
+    sha256 ventura:        "c15bf808ece779126cd6b08b6108e585daee4eb61fb5e53ac6d963c911bdbab2"
+    sha256 monterey:       "508da5f337474e5dd92e29096387959533f95acdc33ba736bf5a34801bf8bd4c"
+    sha256 big_sur:        "c1f722260821a3573e282fcc4c32b9eb818f7f76254e5ffa02ab76991739a559"
+    sha256 x86_64_linux:   "a4c554eaa0e0a91076e188a2fc7080d3f535eab1739b07234010b27de396a915"
   end
 
+  depends_on "libmemcached"
   depends_on "libpq"
 
   uses_from_macos "libxcrypt"
@@ -32,13 +34,35 @@ class PgpoolIi < Formula
   end
 
   def install
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}",
-                          "--sysconfdir=#{etc}"
+    system "./configure", *std_configure_args,
+                          "--sysconfdir=#{etc}",
+                          "--with-memcached=#{Formula["libmemcached"].opt_include}"
     system "make", "install"
+
+    # Install conf file with low enough memory limits for default `memqcache_method = 'shmem'`
+    inreplace etc/"pgpool.conf.sample" do |s|
+      s.gsub! "#pid_file_name = '/var/run/pgpool/pgpool.pid'", "pid_file_name = '#{var}/pgpool-ii/pgpool.pid'"
+      s.gsub! "#logdir = '/tmp'", "logdir = '#{var}/log'"
+      s.gsub! "#memqcache_total_size = 64MB", "memqcache_total_size = 1MB"
+      s.gsub! "#memqcache_max_num_cache = 1000000", "memqcache_max_num_cache = 1000"
+    end
+    etc.install etc/"pgpool.conf.sample" => "pgpool.conf"
+  end
+
+  def post_install
+    (var/"log").mkpath
+    (var/"pgpool-ii").mkpath
+  end
+
+  service do
+    run [opt_bin/"pgpool", "-nf", etc/"pgpool.conf"]
+    keep_alive true
+    log_path var/"log/pgpool-ii.log"
+    error_log_path var/"log/pgpool-ii.log"
   end
 
   test do
-    cp etc/"pgpool.conf.sample", testpath/"pgpool.conf"
+    cp etc/"pgpool.conf", testpath/"pgpool.conf"
     system bin/"pg_md5", "--md5auth", "pool_passwd", "--config-file", "pgpool.conf"
   end
 end

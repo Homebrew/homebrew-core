@@ -1,9 +1,9 @@
 class Sevenzip < Formula
   desc "7-Zip is a file archiver with a high compression ratio"
   homepage "https://7-zip.org"
-  url "https://7-zip.org/a/7z2201-src.tar.xz"
-  version "22.01"
-  sha256 "393098730c70042392af808917e765945dc2437dee7aae3cfcc4966eb920fbc5"
+  url "https://7-zip.org/a/7z2301-src.tar.xz"
+  version "23.01"
+  sha256 "356071007360e5a1824d9904993e8b2480b51b570e8c9faf7c0f58ebe4bf9f74"
   license all_of: ["LGPL-2.1-or-later", "BSD-3-Clause"]
 
   livecheck do
@@ -12,14 +12,13 @@ class Sevenzip < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "336a287e74813695435ba7726123db50672bc6c03379a72c4044c59b024a9797"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0b9131e0986339f9986c7248c3101776279ddb390d287098ea5be1c84d6408d9"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "15f4157398fdb03a9fc9ffa66eaf08abc72987d471b23ea22f5ab6700d7ba1a7"
-    sha256 cellar: :any_skip_relocation, ventura:        "0f86a22b685653e831bf61c9c046422cb7754bcec41b17c92e943d92fef15b6e"
-    sha256 cellar: :any_skip_relocation, monterey:       "64f2ea16a7c0f8591701914621b8ada21ecd6caa3ecf2568c8d4bc470edfae00"
-    sha256 cellar: :any_skip_relocation, big_sur:        "22a8c3aa0647a1f8829c7e180cb2d6ac78b071925e8c06be361716626487fd6a"
-    sha256 cellar: :any_skip_relocation, catalina:       "3ac4e9978c71f2452ded1a8ee0983b0710cc66d127ff2a95dc603b6211ed9df4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4dc467f705977b3a7d390a1248c691b9f4cee3c98d21647d55ef7c57afe28b3c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "827903d5393cf2a7133ef1f77ffddbd9b6a2965a3cfa4184e58c9c70830645ac"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1316330166099a51f2378e50e35e5b459e961864e6b87a86bad3d327c378c61a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d9de3c95cad8ee9623c11c49032ff3b46f1a96bf5f8ea135d5e6c68f5910390f"
+    sha256 cellar: :any_skip_relocation, ventura:        "3b505d473a2e42e31a1af5a18979da017bbdd513c82f61c0a50ec290848c9a9a"
+    sha256 cellar: :any_skip_relocation, monterey:       "d9c9012ba656543db5561303a09b080a2ece88053c4c8a14a90ff061825bcc02"
+    sha256 cellar: :any_skip_relocation, big_sur:        "2a6f73420c63aa119439a9bd7fe0e60a487a815f4292fcca34a79f78e67c98bf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1a51b075cae0430ec542d5a8fee6b5866777a03f0f8238b0ad46b0e34c72af55"
   end
 
   def install

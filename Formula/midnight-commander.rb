@@ -5,7 +5,7 @@ class MidnightCommander < Formula
   mirror "https://ftp.osuosl.org/pub/midnightcommander/mc-4.8.29.tar.xz"
   sha256 "01d8a3b94f58180cca5bf17257b5078d1fd6fd27a9b5c0e970ec767549540ad4"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://ftp.osuosl.org/pub/midnightcommander/"
@@ -13,13 +13,13 @@ class MidnightCommander < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "abd054157405602e35a08c7bdcd678ef298cf33476ad099ca9ef3c7d50b7090d"
-    sha256 arm64_monterey: "80adee8c4275ad0d78a9b78428a14bd7f420a6a2275b216598e00ee776cccd4e"
-    sha256 arm64_big_sur:  "fc3e4af13d343ed85f9c299ad5da26966d7ab4d6e7d2d4bc62e3219a785671c3"
-    sha256 ventura:        "5df32a68a42f7151cd86e57a8b655b5ce6ac22be8cd339dda85ec975c8eb90bd"
-    sha256 monterey:       "fd50dbec2047e44060b8c0b9563ad8be71288f58e657bc42c3ba211a21f44e01"
-    sha256 big_sur:        "d35fba9416fdcc566de28e58b8d10cc197609b3f4c9e3ffe239fba86e6277ff6"
-    sha256 x86_64_linux:   "e22475a7648e1d7a545ff4a410d7a3abcaedd9b8e1e9307a0d1ec3b57e5fbd67"
+    sha256 arm64_ventura:  "84c4c8b9f0f1d7ac87e4f72edaf82a98208043bd82fab1dff79bdd4f3c8170de"
+    sha256 arm64_monterey: "570da292695980caeabf0c8728bca6b5eab9a11abcd19370700f024221a743cf"
+    sha256 arm64_big_sur:  "e9d0b1f60c480e3351fc94002f3d5743b57d8d3098d2f84a527392618bb4ede6"
+    sha256 ventura:        "c8ce411cb9c92f791b2e2b516e782369196ecc75541991ca6a4c8dc66d485cdd"
+    sha256 monterey:       "615f4220d50caef801d175e06e0fc4e3e1db459217e76c97b8d685e0447a4321"
+    sha256 big_sur:        "840c554ece6e30ea97d153a27df21bd207b534ec3893eda7fc4711e200c0ae6d"
+    sha256 x86_64_linux:   "9c43af90de0768cb38771de82d38e88ab2aac764b57bf440dc33bb7c5e82835d"
   end
 
   head do
@@ -33,7 +33,7 @@ class MidnightCommander < Formula
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "libssh2"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "s-lang"
 
   conflicts_with "minio-mc", because: "both install an `mc` binary"

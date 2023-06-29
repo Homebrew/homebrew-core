@@ -3,18 +3,18 @@ require "language/node"
 class Gitmoji < Formula
   desc "Interactive command-line tool for using emoji in commit messages"
   homepage "https://gitmoji.dev"
-  url "https://registry.npmjs.org/gitmoji-cli/-/gitmoji-cli-8.3.0.tgz"
-  sha256 "1d1f6348eb693219792cdd42036ad26413e6609d7a237b083947aa189a92d88f"
+  url "https://registry.npmjs.org/gitmoji-cli/-/gitmoji-cli-8.4.0.tgz"
+  sha256 "cf42f321756afc8a8eb2dfc93af59e5c16090fab98d5b7bd101e9a0f8434102a"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2dddcc6663e00383bdb7b3f89c190df99766c69a6a36557a48ca3e2302627076"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2dddcc6663e00383bdb7b3f89c190df99766c69a6a36557a48ca3e2302627076"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2dddcc6663e00383bdb7b3f89c190df99766c69a6a36557a48ca3e2302627076"
-    sha256 cellar: :any_skip_relocation, ventura:        "79ec1d01be11a87936138a891b956bc0b56525e89645ff53aaf86afc22a215e2"
-    sha256 cellar: :any_skip_relocation, monterey:       "79ec1d01be11a87936138a891b956bc0b56525e89645ff53aaf86afc22a215e2"
-    sha256 cellar: :any_skip_relocation, big_sur:        "79ec1d01be11a87936138a891b956bc0b56525e89645ff53aaf86afc22a215e2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2dddcc6663e00383bdb7b3f89c190df99766c69a6a36557a48ca3e2302627076"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "70af19c0e731b24406a88dd0b7f8a07c9e3e757887e5e7930983a984e819235d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "70af19c0e731b24406a88dd0b7f8a07c9e3e757887e5e7930983a984e819235d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "70af19c0e731b24406a88dd0b7f8a07c9e3e757887e5e7930983a984e819235d"
+    sha256 cellar: :any_skip_relocation, ventura:        "de98d0de1d724dc7fa7a5c16ce6f7201c5251d6baff93d17151ec4401555c564"
+    sha256 cellar: :any_skip_relocation, monterey:       "de98d0de1d724dc7fa7a5c16ce6f7201c5251d6baff93d17151ec4401555c564"
+    sha256 cellar: :any_skip_relocation, big_sur:        "de98d0de1d724dc7fa7a5c16ce6f7201c5251d6baff93d17151ec4401555c564"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "70af19c0e731b24406a88dd0b7f8a07c9e3e757887e5e7930983a984e819235d"
   end
 
   depends_on "node"

@@ -4,6 +4,7 @@ class NodeAT14 < Formula
   url "https://nodejs.org/dist/v14.21.3/node-v14.21.3.tar.xz"
   sha256 "458ec092e60ad700ddcf079cb63d435c15da4c7bb3d3f99b9a8e58a99e54075e"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://nodejs.org/dist/"
@@ -11,13 +12,13 @@ class NodeAT14 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "9cf6e626a2a7cebf2b7182782946963719ecbe3a1d29942bd2f40b027dc463be"
-    sha256 cellar: :any,                 arm64_monterey: "1305a15b95715115ea3f5e9b48fa266cf2dcdb8d4db2910fc8cd10c2f551a520"
-    sha256 cellar: :any,                 arm64_big_sur:  "9cfcb5691a03459e9ea1b6bf84d2b190649aea1b8814fc3d5267eaf383f0141b"
-    sha256 cellar: :any,                 ventura:        "b1392b23ec3f0b13aaa30791c76268542957423a4b43e13f9db4305a27b26008"
-    sha256 cellar: :any,                 monterey:       "a996d688aa6cfc7475427a1f1806fa33d6f727096ad3715b7cfd5afbab7d48d6"
-    sha256 cellar: :any,                 big_sur:        "9ab1d20189bda9d2912eda3fc6f94c1f6a832a8f6cc730f95c7c9fd9552a926d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "500ecad09e5bc920689152ca9082657f32d223543cc46af0ee91c4f84fafdef1"
+    sha256 cellar: :any,                 arm64_ventura:  "375c56e159dae0a184d80538f902025b58f04264e9d95e461801383ab6b7b815"
+    sha256 cellar: :any,                 arm64_monterey: "b795f035c842b8c1650606233931d489dbf9263cc9ddd42f2ef1bf462ec76ff8"
+    sha256 cellar: :any,                 arm64_big_sur:  "c4518d76463598df942c8c38d46a2d7b712ae3aafcdbbd834333ba8fd71f6766"
+    sha256 cellar: :any,                 ventura:        "ffac9ca4317a5e848f983670d79d79cc928359747e407e505a3e4d8dbcbe6c68"
+    sha256 cellar: :any,                 monterey:       "4f487720c73e34e8a90bd68e0ddce2f6353e87f8a766bf4f51e85fe6b63fabac"
+    sha256 cellar: :any,                 big_sur:        "96cb95fa7924ca1ccea5c58417764b932d479cc419a5f6dbdce24a82ac94823f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f3deff33f7481043999a739ec048b71a30c6bf7fd1179d8c58c6d2bf4eec1456"
   end
 
   keg_only :versioned_formula

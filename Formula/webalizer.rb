@@ -18,7 +18,7 @@ class Webalizer < Formula
     sha256 x86_64_linux:   "575d679a701bc2255e511318c0bec1c7099ca836d9b89b31f49a2c90e886b2d9"
   end
 
-  deprecate! date: "2022-05-29", because: :unmaintained
+  disable! date: "2023-06-19", because: :unmaintained
 
   depends_on "berkeley-db@5"
   depends_on "gd"

@@ -6,29 +6,28 @@ class Awscurl < Formula
   url "https://files.pythonhosted.org/packages/80/f4/95935ad7041ba008221ce81b698963c8be0c5c97e6fcfd86e0e2009ebacd/awscurl-0.29.tar.gz"
   sha256 "5e1ecd0ab7b014de697a1e161fa483c2263d16c3e156a81bdc8b9a9c2d0ba3f3"
   license "MIT"
+  revision 1
   head "https://github.com/okigan/awscurl.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_ventura:  "dc5381b076c01ede8d018ec711ea6f1abbcf4d12cacb333883c6abf59bb7b2bb"
-    sha256 cellar: :any,                 arm64_monterey: "f6b7c0184301018dd769a28ac76e096c20a0960847b6debe9ced8d846005c0b8"
-    sha256 cellar: :any,                 arm64_big_sur:  "bdf3cf6f8e7230d3ed5fa7c307e800d7d65aba4294af8e01f40d2c555d8e9b80"
-    sha256 cellar: :any,                 ventura:        "a6dd0224c8f180309205e03fa5c15c389e83235e2f51e4f97643f48b553b7cbd"
-    sha256 cellar: :any,                 monterey:       "422a68123255f559f86e47c24b4337d9cee695e3d4f8d42cbd00c19840f5d87c"
-    sha256 cellar: :any,                 big_sur:        "d72b3f5805e85a19c209f592c68a564f128f6e15cbb2871c6006dcf341e7a4a0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b0cb13826b28199aafff8566f289b035f4c69e5e739328ae508b33d5652ae2ad"
+    sha256 cellar: :any,                 arm64_ventura:  "c1f57460088a2b68ab130148253816352249ce5a95cf582a17dbc95aec58e0be"
+    sha256 cellar: :any,                 arm64_monterey: "ae3c3e1853c8614945d5524279595c4a1e115b595aa659cd800c14bf709dc8fe"
+    sha256 cellar: :any,                 arm64_big_sur:  "ff925bc5dee6ce74b364124dc41d8acbc8c74cfc18da02f6b14e02d10120b0e2"
+    sha256 cellar: :any,                 ventura:        "c2210b2a6dee7bd1e7dc02a47578774ad5ef69f0f00b337c410db5360ab06b10"
+    sha256 cellar: :any,                 monterey:       "42b9447e0348f6e220e27906e272d9cd5b5f65700d77419c6e7b87d86a20f44c"
+    sha256 cellar: :any,                 big_sur:        "ac01fc5702ec2231de6f86f1eb382d521bcd19e0754d2f7baa0d30944cd2abbf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "38f102b41fbe5dc337f5c6b1788ca347e58bcd76379ee222c1c2cc818623e156"
   end
 
+  # `pkg-config`, `rust` and `openssl@3` are for cryptography.
+  depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "cffi"
+  depends_on "openssl@3"
   depends_on "pycparser"
   depends_on "python@3.11"
 
   uses_from_macos "libffi"
-
-  on_linux do
-    depends_on "pkg-config" => :build
-  end
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/93/71/752f7a4dd4c20d6b12341ed1732368546bc0ca9866139fe812f6009d9ac7/certifi-2023.5.7.tar.gz"
@@ -81,6 +80,10 @@ class Awscurl < Formula
   end
 
   def install
+    # Ensure that the `openssl` crate picks up the intended library.
+    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+    ENV["OPENSSL_NO_VENDOR"] = "1"
+
     virtualenv_install_with_resources
   end
 

@@ -33,18 +33,18 @@ class Drill < Formula
     (testpath/"benchmark.yml").write <<~EOS
       ---
       concurrency: 4
-      base: 'http://httpbin.org'
+      base: 'https://dummyjson.com'
       iterations: 5
       rampup: 2
 
       plan:
-        - name: Introspect headers
+        - name: Http status
           request:
-            url: /headers
+            url: /http/200
 
-        - name: Introspect ip
+        - name: Check products API
           request:
-            url: /ip
+            url: /products/1
     EOS
 
     assert_match "Total requests            10",

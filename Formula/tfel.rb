@@ -4,17 +4,17 @@ class Tfel < Formula
   url "https://github.com/thelfer/tfel/archive/refs/tags/TFEL-4.1.0.tar.gz"
   sha256 "7505c41da9df5fb3c281651ff29b58a18fd4d91b92f839322f0267269c5f1375"
   license "GPL-1.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/thelfer/tfel.git", using: :git, branch: "master"
 
   bottle do
-    sha256 arm64_ventura:  "7f9faf03cb651a5a537f142f4888b2e35f334ff3be73c7fb052ad7e0cd8c7987"
-    sha256 arm64_monterey: "8bf742def68aa4dff762e70d4233ca444bb322729c5e6fff712c459df8406c42"
-    sha256 arm64_big_sur:  "fc16133e08021a0d31be63b2b9baa03adabcca71b1f9910dd265659c77997e6c"
-    sha256 ventura:        "53911120787bc37d8420ff9d6aafba53ce687b41bc869e298dc11fc9a4046be2"
-    sha256 monterey:       "b91b8c62831b55fa2d7dddda65c643141f37de14e4125422c6897a4a8254509f"
-    sha256 big_sur:        "7b2b4837da1a949b8ed0d216222eb8aea028908ddf6ad2b74c182c08b8188772"
-    sha256 x86_64_linux:   "591bde34d7eb5c1fa0d2b160a4a4a4de610762c1cf6e57c81c57c532aa1351f5"
+    sha256 arm64_ventura:  "e7a36c0e5e16ea86948fac8e6dbe5154280e92762d005c502ae67d78c2266752"
+    sha256 arm64_monterey: "e2bacd1722df002e836c893028af2ba0a2889f09809eb494243f6c63f1dd7eb2"
+    sha256 arm64_big_sur:  "14369581648f19f2c106dc318180182b6bae6334e31976cfc21f4ce5c13e8769"
+    sha256 ventura:        "d461a7949788f856112f39cec75dfb45c71e76c194eadf3d58a08d092aa87a57"
+    sha256 monterey:       "a9041744c78a7c6d157979493cf8685b55b2a0ed5ad0e246664c8e67cb53d586"
+    sha256 big_sur:        "bdf5e24ae4870225ac84ffeff3fd3891711b40837dc0c8c0180928f83041ffa7"
+    sha256 x86_64_linux:   "bd95038005351e47768c896557df3e8c95bdc75fe764a3d3badec12af9f01ef9"
   end
 
   depends_on "cmake" => :build
@@ -72,7 +72,7 @@ class Tfel < Formula
         fp -= dt*A*pow(seq,m) ;
       }
     EOS
-    system "mfront", "--obuild", "--interface=generic", "test.mfront"
+    system bin/"mfront", "--obuild", "--interface=generic", "test.mfront"
     assert_predicate testpath/"src"/shared_library("libBehaviour"), :exist?
   end
 end

@@ -4,7 +4,7 @@ class Libcdr < Formula
   url "https://dev-www.libreoffice.org/src/libcdr/libcdr-0.1.7.tar.xz"
   sha256 "5666249d613466b9aa1e987ea4109c04365866e9277d80f6cd9663e86b8ecdd4"
   license "MPL-2.0"
-  revision 4
+  revision 5
 
   livecheck do
     url "https://dev-www.libreoffice.org/src/"
@@ -12,13 +12,13 @@ class Libcdr < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "b0d7e609ceda67e4c8df6fc2fc61bcd47b8a874a805d8fdca10525ee022c41b5"
-    sha256 cellar: :any,                 arm64_monterey: "dbe18c90f1987ac364bd541650a29dcaba04e220550ad0e3b185b70994cb7fca"
-    sha256 cellar: :any,                 arm64_big_sur:  "4ecd9ad95970ab523ad97f724573b90534943707483dbb90af9df2f767914411"
-    sha256 cellar: :any,                 ventura:        "1976a8e4860ced6f1212c5f38de970b76fc6b55bb5aab760ad5fd34848f0b755"
-    sha256 cellar: :any,                 monterey:       "263089b625f484be81c8038238e6ca6478eeec4b611d591796bebe4dd575128c"
-    sha256 cellar: :any,                 big_sur:        "068d2f5b409b998461d9ffbc1a26fab58eb4862dd63180273af6ced1c26cebe2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7ccf6e946f06db3d774196ab65816d460dba2f3a241050c9886fd2e0b5f3d72b"
+    sha256 cellar: :any,                 arm64_ventura:  "6141888d52c7b3936088755ed90952ad1991f0994b5f7390b2611cdfd92e8031"
+    sha256 cellar: :any,                 arm64_monterey: "3e81b65399b22fb51dd5f2a519fd5b5cfafaa9a2d42b57c0d2d2194c5223c611"
+    sha256 cellar: :any,                 arm64_big_sur:  "b6a97482a83ea524eb47c9995661e907c23f569ed1d5166f83143ef3f3d6841c"
+    sha256 cellar: :any,                 ventura:        "867cb6c4edf171df1224bd9a6740e96f78e4116f18f253d499c3c85e1247ec34"
+    sha256 cellar: :any,                 monterey:       "ab27a9457704979bb0e33c59d03649725f2c421dfac3c13a54034a8bc007430e"
+    sha256 cellar: :any,                 big_sur:        "a363205ee91eff85e566a8d162353d1f7201b468300a438d7ccc2937d49b117c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7fa8dbae78687968b16b4425783b258ede49b11daa75a0ac6107d577cef142cf"
   end
 
   depends_on "cppunit" => :build

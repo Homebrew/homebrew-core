@@ -5,6 +5,7 @@ class Nmh < Formula
   mirror "https://download-mirror.savannah.gnu.org/releases/nmh/nmh-1.8.tar.gz"
   sha256 "366ce0ce3f9447302f5567009269c8bb3882d808f33eefac85ba367e875c8615"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url "https://download.savannah.gnu.org/releases/nmh/"
@@ -12,13 +13,13 @@ class Nmh < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "b19ca14a98f0e0d57410ab8657327d8bacb06fdf298c43f629dce4e2a7dc8e48"
-    sha256 arm64_monterey: "d80d7dcbe30bbbf4caab0171bfab9699e4617302b03f965ea4bfe400ec9a88e7"
-    sha256 arm64_big_sur:  "f9b055924ae29046bce486620efd1fee6ce619538da3ed0c2abd7eaf159e250d"
-    sha256 ventura:        "b46e2faf510ed02b0bf422ef23c05cfcf47ec1365cc3f4e54cf2ff17f7548ac7"
-    sha256 monterey:       "6a5e9dd3ea5b6afac624973fcbbb71e0affceffe69fa05c96c400cc99268f11a"
-    sha256 big_sur:        "6143ca12870b982d30f5603af14e9f1ab6c00ff2f29e0cb2cc93833aee319941"
-    sha256 x86_64_linux:   "803dd671f3de823a42b001242a1239280b828b5714018662774e320f7bfa61cd"
+    sha256 arm64_ventura:  "ca1326e5695a86d075a90e0b1e86916a748df6a376bd851f0d6d8432853660d5"
+    sha256 arm64_monterey: "89888db63666acb8fc7e909a9e681194506cd51806d1b33c70ccb07802c93dcc"
+    sha256 arm64_big_sur:  "61a5e6e21ff29746bef4ae4d89e86d7bf8f1d625a311c6d0203b8d4aa9eb12c1"
+    sha256 ventura:        "3d599eb842fd242bc921500512f6dd79273dac4de44fd1e9b5b3e2178c974f99"
+    sha256 monterey:       "1baa3243548fd2b34f59d1d5352602ee0a197ef0d91000de5d0aca382eb1cea8"
+    sha256 big_sur:        "f2203024b91015dcc3c00fc690fbf253361ea12f443c97f7290985ea4e0f62c5"
+    sha256 x86_64_linux:   "b53a0fb7791c968e762ac99a4ed0bc708ba6f0e3c39a7963cb3b29edb3b77845"
   end
 
   head do
@@ -28,7 +29,7 @@ class Nmh < Formula
     depends_on "automake" => :build
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "w3m"
 
   uses_from_macos "cyrus-sasl"

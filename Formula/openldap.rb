@@ -6,6 +6,7 @@ class Openldap < Formula
   mirror "http://fresh-center.net/linux/misc/legacy/openldap-2.6.4.tgz"
   sha256 "d51704e50178430c06cf3d8aa174da66badf559747a47d920bb54b2d4aa40991"
   license "OLDAP-2.8"
+  revision 1
 
   livecheck do
     url "https://www.openldap.org/software/download/OpenLDAP/openldap-release/"
@@ -13,19 +14,18 @@ class Openldap < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_ventura:  "f503cb37d9419959e0739bfe7b960c91d50f644b29d76b153902a015cd751f14"
-    sha256 arm64_monterey: "ede5c0fe3c1c9f534a50c07ad3063c2b213761f33a34b8c118cc6d38201b46d4"
-    sha256 arm64_big_sur:  "02e3369d6fc602fe71a253c331b8e22c3c0b0c2fbcb369cddb24c75fef8f4167"
-    sha256 ventura:        "b4a9a392b4fd8ca05a07f9558191959117c4b4f0016bb5b80d0d7b045cb062f6"
-    sha256 monterey:       "aac550094125b342a299887415d17f9009a9c4219a2fd9f0e4a059ad8e920003"
-    sha256 big_sur:        "032b7cd95fc2e055df75a235c987b24d7ce3b104eef8938a56c620d8fc677634"
-    sha256 x86_64_linux:   "0b678bbcef3879aa05a4f84c3997a18fccc3a083a9ccb036fbc69fe3ecc3e8cd"
+    sha256 arm64_ventura:  "c3f63569a2f1b69f309900e1121203bb8d9dcd4ce74c919fe866bcbe501b03c4"
+    sha256 arm64_monterey: "379aad8019a12a749d42b373a58dec45aec5f1dfb7263ef741f10ab4f9e20d38"
+    sha256 arm64_big_sur:  "1d348d5dd41704b97454d209792841f9734345bce7c4e3c0c3a9c07cd7216071"
+    sha256 ventura:        "7e93a3f5357cf20fd71d98611a68a1225303705f61882be3ab04386deae30495"
+    sha256 monterey:       "b5eddf6a15187aa0a289e50f75b3448fabd37790d7b02b75bde690ad0a314114"
+    sha256 big_sur:        "e05a924272d44ac5a23b47188a8082f0622e0baa9819756e4dc9f750ac84e6d4"
+    sha256 x86_64_linux:   "2ddc12af9582a9c13100d43e4de58dda1fa462ac333f85261952f218ed07cae7"
   end
 
   keg_only :provided_by_macos
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   on_linux do
     depends_on "util-linux"
@@ -81,8 +81,11 @@ class Openldap < Formula
     chmod 0755, etc.glob("openldap/*")
     chmod 0755, etc.glob("openldap/schema/*")
 
-    # Don't embed prefix references in files installed in `etc`.
-    inreplace etc.glob("openldap/slapd.{conf,ldif}"), prefix, opt_prefix
+    # Don't embed Cellar references in files installed in `etc`.
+    # Passing `build.bottle?` ensures that inreplace failures result in build failures
+    # only when building a bottle. This helps avoid problems for users who build from source
+    # and may have an old version of these files in `etc`.
+    inreplace etc.glob("openldap/slapd.{conf,ldif}"), prefix, opt_prefix, build.bottle?
   end
 
   test do

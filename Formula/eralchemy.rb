@@ -6,23 +6,22 @@ class Eralchemy < Formula
   url "https://files.pythonhosted.org/packages/87/40/07b58c29406ad9cc8747e567e3e37dd74c0a8756130ad8fd3a4d71c796e3/ERAlchemy-1.2.10.tar.gz"
   sha256 "be992624878278195c3240b90523acb35d97453f1a350c44b4311d4333940f0d"
   license "Apache-2.0"
-  revision 6
+  revision 7
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "90c54e151e6f6a65d761bc571c32ef9add975cff7503efa7a24a725e8fd3da8d"
-    sha256 cellar: :any,                 arm64_monterey: "ecbfa57048711bf1cbfd0f67f55e1bd7f8b13fae8302826dcd794a8c4010ec01"
-    sha256 cellar: :any,                 arm64_big_sur:  "0a9a6d6ce98d3d19315ec3cb0e810a14aba6feff359c3ae54e83c9b93caa94e0"
-    sha256 cellar: :any,                 ventura:        "c3b0e88597a3e45526fde52fa0f819b6394ccc40d205a9b3ce23e09069addaaa"
-    sha256 cellar: :any,                 monterey:       "65b851f69ab987e5d8cc2182c136fdfc39b45fcc2ceaa9dbcf5eec84e2267edc"
-    sha256 cellar: :any,                 big_sur:        "0cbb8202c92ed769fc0ad59c2355ecafaa5a07e3b1d2c98394f2af55c76fd4cc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1360dcd9c43951db50971b9942b62043d45165a7dddc8c5205c57d1490170665"
+    sha256 cellar: :any,                 arm64_ventura:  "d9a7e039613efb2f43aef46a1a5dbcfaa023492980669033c499f1a131fc1fdd"
+    sha256 cellar: :any,                 arm64_monterey: "fb737dbe25a1db5c7a9753b46accbb874e19e9c72aa8a7eecc265d87b4f8bdd2"
+    sha256 cellar: :any,                 arm64_big_sur:  "faf8dbcd53995a42dcefa37734951a6f406f394b682ee453c273634664977009"
+    sha256 cellar: :any,                 ventura:        "3536df041f23e0ba8c2c83d8bf35c579985ef5bdbe748e056e84a684d31d1930"
+    sha256 cellar: :any,                 monterey:       "7b4299e2e6c576debd6b58fee020da258fe500829cf34c681b3840997f137c51"
+    sha256 cellar: :any,                 big_sur:        "4fd5a115f664cc215f443d1e6e5744c558579595bfa8b6bd8de9b56a684cde00"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "272c801bd1fd6068dd1e9899ba3c08233c95d38e631e328b607fac4bb36af430"
   end
 
   depends_on "pkg-config" => :build
   depends_on "graphviz"
   depends_on "libpq"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "python@3.11"
 
   resource "psycopg2" do

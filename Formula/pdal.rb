@@ -1,9 +1,10 @@
 class Pdal < Formula
   desc "Point data abstraction library"
   homepage "https://www.pdal.io/"
-  url "https://github.com/PDAL/PDAL/releases/download/2.5.4/PDAL-2.5.4-src.tar.bz2"
-  sha256 "db9231cfe3d5199075aca6e479a3b9fced1d090a300bddc938717398d3e58c4b"
+  url "https://github.com/PDAL/PDAL/releases/download/2.5.5/PDAL-2.5.5-src.tar.bz2"
+  sha256 "b32b16475619a6bdfaee5a07a9b859206e18de5acff2a4447502fd0a9c6538d6"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/PDAL/PDAL.git", branch: "master"
 
   # The upstream GitHub repository sometimes creates tags that only include a
@@ -17,13 +18,13 @@ class Pdal < Formula
   end
 
   bottle do
-    sha256                               arm64_ventura:  "d3d23e30886504c10586abcc4c9e15211a6f62b4a38f76231a3435c8e49b451d"
-    sha256                               arm64_monterey: "ac705dcadcdc57641afbb38184f587e18ea160a5da3ef7f7c39139dfcdb6b0d1"
-    sha256                               arm64_big_sur:  "8db64da44073ca9c59bf8e3f4a6ef9451da2e43fc91764edcc02b1f864d54fc3"
-    sha256                               ventura:        "f31e5b71c57ce8b08dfcc1652065d535605fd738cbfb2e93c1eaf652d941abee"
-    sha256                               monterey:       "7ce7d8a42978dfa8759a59f94e4d68007e0aebbcbb64985e29b74dbf0ad37962"
-    sha256                               big_sur:        "6ba8e735533d4cd026cc12f51c765d6cdf5628c2a77bc3ce5aa20bd94e3b3f0f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bcee17ab98c8fc7837149cc2eb181a06029a86f1a55c964ca89b54b2205eee00"
+    sha256                               arm64_ventura:  "f981ddf7b857dab47c9f442e82f35a3412ac2777177c3a7c2265cb93a9a4635c"
+    sha256                               arm64_monterey: "5a2c82cec3f85e2209ffbebc50443b17f3beb271fca736e6650b240c736774bb"
+    sha256                               arm64_big_sur:  "b231f6b2efab96a6b427f4f6bf15f3c98e79493d76a53f4b55d4c5b77a9e0384"
+    sha256                               ventura:        "62d13386e761fc30876ffec0b0465df084075e86f500e385ad7bacad286d9d35"
+    sha256                               monterey:       "bd3cc32bb5b6ac7c038418243e0b068f0097d7b97e6868eb0f0c4ece73aed246"
+    sha256                               big_sur:        "24df412bcd84c58f61f36f51bdbbbe8a2ca8d361c4ff6ae7fd5e3b8e9f14ecac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3537bb96f559c55153245920a67173513435401f505a26d05b70df0e74ac49ba"
   end
 
   depends_on "cmake" => :build
@@ -33,6 +34,7 @@ class Pdal < Formula
   depends_on "laszip"
   depends_on "libpq"
   depends_on "numpy"
+  depends_on "openssl@3"
 
   fails_with gcc: "5" # gdal is compiled with GCC
 

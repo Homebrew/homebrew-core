@@ -4,16 +4,16 @@ class Znc < Formula
   url "https://znc.in/releases/archive/znc-1.8.2.tar.gz"
   sha256 "ff238aae3f2ae0e44e683c4aee17dc8e4fdd261ca9379d83b48a7d422488de0d"
   license "Apache-2.0"
-  revision 7
+  revision 9
 
   bottle do
-    sha256 arm64_ventura:  "ed4a634c5c2c63205e7266a19c6d685d0aa68edddcb7ee337073d5ad3c028b73"
-    sha256 arm64_monterey: "ed52dfc980e89f83ce8d96038e9123e4bf4074d458b7205772406e2e03c2180b"
-    sha256 arm64_big_sur:  "272d6a5fcfd50861b6bdcde9b3100966bfc4ab4cdf2c5263c351d62f24cccaca"
-    sha256 ventura:        "c298279b0e0dd9a7db7c23bd73da4e5520b7ffb945085774b04ee7a2744a6632"
-    sha256 monterey:       "88007325bf3297291131273e6b504deb990e5fd2650163177d81cdf45c3b37fd"
-    sha256 big_sur:        "7964958863be063aa002f7998e4477a18c028ff61550c9501bb564293c89046b"
-    sha256 x86_64_linux:   "88497ca54899330c2add08f3ba87d4e4d75d508eb90da2afdb135bd523e17786"
+    sha256 arm64_ventura:  "9d22b6e33c6538bab946604ba4317459e185897e2f2ae491cc7b66076073e065"
+    sha256 arm64_monterey: "ed9dcc7af9880176e7a29ef421c4acd240160ddd67920bd6649aa158b9e37bc7"
+    sha256 arm64_big_sur:  "1868c389351fd86e5c9c5847974b57007fd794819213f864d1854fa5d4139db0"
+    sha256 ventura:        "b553390d14bff7112a6bc0adae40d427cccd0a1ba3a01f69ad8a5dea698bc5e2"
+    sha256 monterey:       "5365f2987a95d6a84b0e7e1137903f25d8b8f20d69003c9ddbbee1bcd92d4a9a"
+    sha256 big_sur:        "ad659f597cbbed3de79d83d580d4f65608ff342b18a95bf971f4cc3818470ec6"
+    sha256 x86_64_linux:   "4b7acf8d5d88524f8091a79a19cbfd2b8ac1ba89cb0245f4cac579fad82d7961"
   end
 
   head do
@@ -25,7 +25,7 @@ class Znc < Formula
 
   depends_on "pkg-config" => :build
   depends_on "icu4c"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "python@3.11"
 
   uses_from_macos "zlib"
@@ -60,7 +60,7 @@ class Znc < Formula
       # Replace dependencies' Cellar paths with opt paths
       inreplace [bin/"znc-buildmod", lib/"pkgconfig/znc.pc"] do |s|
         s.gsub! Formula["icu4c"].prefix.realpath, Formula["icu4c"].opt_prefix
-        s.gsub! Formula["openssl@1.1"].prefix.realpath, Formula["openssl@1.1"].opt_prefix
+        s.gsub! Formula["openssl@3"].prefix.realpath, Formula["openssl@3"].opt_prefix
       end
     end
   end

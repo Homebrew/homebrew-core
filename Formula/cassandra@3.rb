@@ -14,7 +14,7 @@ class CassandraAT3 < Formula
 
   keg_only :versioned_formula
 
-  deprecate! date: "2022-04-01", because: :deprecated_upstream
+  disable! date: "2023-06-19", because: :deprecated_upstream
 
   depends_on "cython" => :build
   depends_on arch: :x86_64 # openjdk@8 doesn't support ARM

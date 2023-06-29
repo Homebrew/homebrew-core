@@ -1,18 +1,18 @@
 class Opensearch < Formula
   desc "Open source distributed and RESTful search engine"
   homepage "https://github.com/opensearch-project/OpenSearch"
-  url "https://github.com/opensearch-project/OpenSearch/archive/2.6.0.tar.gz"
-  sha256 "977c26b153146bee8295d439ee064fc5d4b9af4687e6b986da948cea8681fe7b"
+  url "https://github.com/opensearch-project/OpenSearch/archive/2.8.0.tar.gz"
+  sha256 "4ce1ab09853d58b382762093fe7804d2ddb051a420701f36c1fa2c0000496524"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d467a57ed11600107ca6f952d58b9d8eff81c9fa0e663fafa7ae9da6e327c930"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "297c52739486a92bf8dc832b38b666908a801464ac67cff433b7a8b9e065a430"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "362092684e6929d58deefd60986d24b717fe3cfa12ee5c8fda9b633ef0be6c2f"
-    sha256 cellar: :any_skip_relocation, ventura:        "a2a0fe3283ec3eb8eaf084823499d70ca7a47890475b55e8c43083a62c14d4e3"
-    sha256 cellar: :any_skip_relocation, monterey:       "93c6603092ace54608b76bfeeba40e4d7841f7d4b098d531e23bfa00343a0487"
-    sha256 cellar: :any_skip_relocation, big_sur:        "029ef4e524b7f4bd8720459720941e78cbf39e6f19aaf4da6124da956634da07"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "df8ab78559e1284f27fa2e1e56b2c047ddd90ef9604037b6e935c25a3f51bb19"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "676a1e754eb5208b119187b04f306a0c319317fb4c5bcafd0de5adcbeded1ff1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8a200919ee4784cd971b4406c2a86c5a56117627c881a94892e80e7d72d6aea8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6d3a5b4193f5c36cb966e2a75e0fa06e418d9910c22953c5725e04ca27b4af3a"
+    sha256 cellar: :any_skip_relocation, ventura:        "af3d294756ce6fd7fe85c23eb5d68ac5d303af646529847a08240e5ff1f28952"
+    sha256 cellar: :any_skip_relocation, monterey:       "e38d4c3e64dcb71fbd80fa42b08e19bfc8d87e01b107de68a2ffee609b251c59"
+    sha256 cellar: :any_skip_relocation, big_sur:        "bf2054b28d2b42728ef916f1cdfe2fbfaa42e575c6b1bbacd54d4880b033fe08"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "13450d5d586141ee0ba83ff8bf07f8178bbc90f1b814aaeb17b6c81b44f013f9"
   end
 
   depends_on "gradle" => :build
@@ -68,6 +68,8 @@ class Opensearch < Formula
     ln_s etc/"opensearch", libexec/"config" unless (libexec/"config").exist?
     (var/"opensearch/plugins").mkpath
     ln_s var/"opensearch/plugins", libexec/"plugins" unless (libexec/"plugins").exist?
+    (var/"opensearch/extensions").mkpath
+    ln_s var/"opensearch/extensions", libexec/"extensions" unless (libexec/"extensions").exist?
     # fix test not being able to create keystore because of sandbox permissions
     system bin/"opensearch-keystore", "create" unless (etc/"opensearch/opensearch.keystore").exist?
   end

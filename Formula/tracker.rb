@@ -4,7 +4,7 @@ class Tracker < Formula
   url "https://download.gnome.org/sources/tracker/3.4/tracker-3.4.2.tar.xz"
   sha256 "4e6df142a4f704878fca98ebb5a224750e5ea546aa2aaabaa726a73540bd1731"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
-  revision 1
+  revision 2
 
   # Tracker doesn't follow GNOME's "even-numbered minor is stable" version scheme.
   livecheck do
@@ -13,13 +13,13 @@ class Tracker < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "e342d63c43edfa31a3b8a50cb911b6997ab397f13284d1000df7ed9907fc195a"
-    sha256 arm64_monterey: "37836c628dbe2454bf45f25cff7ca2d04b0bbc898fb2b2816fce0b8d10e10b9e"
-    sha256 arm64_big_sur:  "70da64159075343b79ac5b79d2b08813cd4433aff0a9fd4e6160b9ab027009ad"
-    sha256 ventura:        "83418c8ceec2f3f6e44401b968f1f56666c1c29d460674a9a13e05eab0660a4b"
-    sha256 monterey:       "96b41d7fbcbf5666283e6253264b2400f97528fd4d712deb3eb1d5225e05aa52"
-    sha256 big_sur:        "9dff729210dd10853993448f7fb5373af65b5fa5aae3b8b3a4d974fc445965da"
-    sha256 x86_64_linux:   "0fc8435e75ae39d0d617349f6ab4aaa24fe98fc7b65bd4090e4d9ee7f87a8433"
+    sha256 arm64_ventura:  "862475e57b9555c8a51d07644d70e853b615b777910dd74acfa4989b43241df2"
+    sha256 arm64_monterey: "b67fdb99fefe3db73ba4d2910ad1d52143904a3a47e00ebf39a70fa93b137f63"
+    sha256 arm64_big_sur:  "b590c4b4004f3f6b18a3200733a758fbefc2bcf47e419ed43d96379d59dc1eef"
+    sha256 ventura:        "9cddcfd7d9d46072a9a84b2d4bcfb170ed01d5f4166966eea897e50680add8b8"
+    sha256 monterey:       "b7bee6306879806dc623dcc61d38c5e78d6f1d459f7f9e83854ee79ff88ded5d"
+    sha256 big_sur:        "56a6c4203c7ecff7324e56c398fb61adc360a9a1a066290e794b9a0054738af6"
+    sha256 x86_64_linux:   "28bf2f5d9e19ef524e45475bc9ce0a0dd5af36711855ff4fb81c852023f0965a"
   end
 
   depends_on "gobject-introspection" => :build

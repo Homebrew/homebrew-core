@@ -1,10 +1,9 @@
 class Imagemagick < Formula
   desc "Tools and libraries to manipulate images in many formats"
   homepage "https://imagemagick.org/index.php"
-  url "https://imagemagick.org/archive/releases/ImageMagick-7.1.1-11.tar.xz"
-  sha256 "4a8b0fb3a498bd7ac294e4f6f463597d19267a012d38e48c8d6a822735bf797e"
+  url "https://imagemagick.org/archive/releases/ImageMagick-7.1.1-12.tar.xz"
+  sha256 "a761aa8c3b0690910600ba838d15379b676820f1ed912382d31c9b5da1ca1878"
   license "ImageMagick"
-  revision 1
   head "https://github.com/ImageMagick/ImageMagick.git", branch: "main"
 
   livecheck do
@@ -13,13 +12,14 @@ class Imagemagick < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "5f4d2a4f0b390f06cd86afc61e0068b4c7f95064c18eae004a24210ccf9c124d"
-    sha256 arm64_monterey: "fe4a819ac209ad3a1a048321d1b7b092dd84e9f7bac139ebebfb6d25b480471f"
-    sha256 arm64_big_sur:  "e20a58cc1ebe5a0ed4c894627e23132434f04e2356aa8833bd194c8261aeaebc"
-    sha256 ventura:        "f7a480bcc2e4f665866337c66ada02e656f0151e88e172af918f19d4b8ee91e9"
-    sha256 monterey:       "1e4324bd6d91c39d16854eb9fdff82e58b98762985a97788cbc7cc6651129671"
-    sha256 big_sur:        "548575948b928fc874d657d9610b931bb8f2149a451f1f9b31cbb71ae7dbc2ba"
-    sha256 x86_64_linux:   "44e9f413056da682b8b579673171fc91035e56a13dc3fc11609742e2127a879e"
+    rebuild 1
+    sha256 arm64_ventura:  "15d02dcbd3985de383959fb7a6a93269f219c07af873a3ef207e7982cd5a1fb8"
+    sha256 arm64_monterey: "0efe330cfc3a5ebe4b7bc5544a9ceedbfb63b14b04c37a449b2a6b985dc60b96"
+    sha256 arm64_big_sur:  "6841ee4c986948854523328fb6ff0ca1b98e33c7f7139190edcb7ebb95c9db79"
+    sha256 ventura:        "8c4ea8aa55ea819de577a4002288f990305506a193c2656a84085725530a8273"
+    sha256 monterey:       "2387d22bc219a356f5958735391c7c8c044f0f69eac0019d6c76b6e7e2e24a02"
+    sha256 big_sur:        "44dfa459f260a1829e7e9bd2d814086115259df6b4e21afd02dc30b1957bc638"
+    sha256 x86_64_linux:   "65053b2119fea05c30c5a9503f12cae5b3fd783476d94567584d0fecb9557bb4"
   end
 
   depends_on "pkg-config" => :build

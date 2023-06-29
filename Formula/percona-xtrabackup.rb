@@ -2,24 +2,31 @@ class PerconaXtrabackup < Formula
   desc "Open source hot backup tool for InnoDB and XtraDB databases"
   homepage "https://www.percona.com/software/mysql-database/percona-xtrabackup"
   # TODO: Check if we can use unversioned `protobuf` at version bump
-  url "https://downloads.percona.com/downloads/Percona-XtraBackup-LATEST/Percona-XtraBackup-8.0.32-26/source/tarball/percona-xtrabackup-8.0.32-26.tar.gz"
-  sha256 "2a1c23497ffd5905d6dc20bdb5a801d1b8baeb3245ec11ed115dee0d78b7a5e2"
+  url "https://downloads.percona.com/downloads/Percona-XtraBackup-LATEST/Percona-XtraBackup-8.0.33-27/source/tarball/percona-xtrabackup-8.0.33-27.tar.gz"
+  sha256 "64b3b0ecaab5a5ee50af02ec40f12664bfe4c94f929ff0c189705ae886da0b12"
   license "GPL-2.0-only"
   revision 1
 
   livecheck do
-    url "https://www.percona.com/downloads/Percona-XtraBackup-LATEST/"
-    regex(/value=.*?Percona-XtraBackup[._-]v?(\d+(?:\.\d+)+-\d+)["' >]/i)
+    url "https://docs.percona.com/percona-xtrabackup/latest/"
+    regex(/href=.*?v?(\d+(?:[.-]\d+)+)\.html/i)
+    strategy :page_match do |page, regex|
+      page.scan(regex).map do |match|
+        # Convert a version like 1.2.3-4.0 to 1.2.3-4 (but leave a version like
+        # 1.2.3-4.5 as-is).
+        match[0].sub(/(-\d+)\.0$/, '\1')
+      end
+    end
   end
 
   bottle do
-    sha256 arm64_ventura:  "773fe388c6889bd73c9bc9e4f1d7412ecc5275e8be206784e8516fa840852d8a"
-    sha256 arm64_monterey: "a08039d4a3e0c5ea1ae17b23769f8e2ead1798669fd8fff1b91e4356f11297bb"
-    sha256 arm64_big_sur:  "3638453f0c6cedec4953ab325480f15805b215c2bfddf3a3c7d0ca5facb90a60"
-    sha256 ventura:        "4a12748dbff1f7766d5ab717384961b35a1580307dda71ac1853187a349a299c"
-    sha256 monterey:       "0466a6a332683d146a316a174dd21dbcde2c657eefe8bc30e3c5ef03d9b4d3a0"
-    sha256 big_sur:        "826b289bdc606752354383079e7664f97134928693d35d9f2919a039c621d466"
-    sha256 x86_64_linux:   "29af2876a9ec091f4e03fb045b12cfb23647a5d50d8546c56cb4dbd1fa7f43af"
+    sha256 arm64_ventura:  "937b353dad9a7cbb1893c15b01bb411662c11a69f1520ed5b33fc51b90090bc6"
+    sha256 arm64_monterey: "8cca0a8263716a5fd9f1502aca39c0f83ff58e36b8e0306e6ef3c764e4d8f0ae"
+    sha256 arm64_big_sur:  "6e6bffe23a6f800997c1e32713dbe10dbaab51d5a618b889932476b408b35653"
+    sha256 ventura:        "1a5fa290c4a6fe1d2e990733a0874cb281b654cd9850dea2d5cb927a3895347d"
+    sha256 monterey:       "6143bb6eac718724597c360520643acfb9c550649b8f71b9d0ae73be93ad7eef"
+    sha256 big_sur:        "4539220cae43a98599d8b3fb5d8f1c83ede9029fa34a2f7457214fe6fef477cd"
+    sha256 x86_64_linux:   "f50ba6d78343cb94d3ac956454024bae7c49e0432858d12fd10bed3d8ed7af82"
   end
 
   depends_on "cmake" => :build
@@ -32,7 +39,7 @@ class PerconaXtrabackup < Formula
   depends_on "libgcrypt"
   depends_on "lz4"
   depends_on "mysql"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "protobuf@21"
   depends_on "zstd"
 
@@ -59,8 +66,8 @@ class PerconaXtrabackup < Formula
 
   # Should be installed before DBD::mysql
   resource "Devel::CheckLib" do
-    url "https://cpan.metacpan.org/authors/id/M/MA/MATTN/Devel-CheckLib-1.14.tar.gz"
-    sha256 "f21c5e299ad3ce0fdc0cb0f41378dca85a70e8d6c9a7599f0e56a957200ec294"
+    url "https://cpan.metacpan.org/authors/id/M/MA/MATTN/Devel-CheckLib-1.16.tar.gz"
+    sha256 "869d38c258e646dcef676609f0dd7ca90f085f56cf6fd7001b019a5d5b831fca"
   end
 
   # This is not part of the system Perl on Linux and on macOS since Mojave
@@ -89,6 +96,14 @@ class PerconaXtrabackup < Formula
     sha256 "af27e4b82c84f958f91404a9661e999ccd1742f57853978d8baec2f993b51153"
   end
 
+  # Fix for "Cannot find system zlib libraries" even though they are installed.
+  # https://bugs.mysql.com/bug.php?id=110745
+  # https://bugs.mysql.com/bug.php?id=111467
+  patch do
+    url "https://bugs.mysql.com/file.php?id=32361&bug_id=111467"
+    sha256 "3fe1ebb619583fc1778b249042184ef48a4f85555c573fb3618697cf024d19cc"
+  end
+
   def install
     # Disable ABI checking
     inreplace "cmake/abi_check.cmake", "RUN_ABI_CHECK 1", "RUN_ABI_CHECK 0" if OS.linux?
@@ -108,7 +123,7 @@ class PerconaXtrabackup < Formula
       -DWITH_LZ4=system
       -DWITH_PROTOBUF=system
       -DWITH_SSL=system
-      -DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}
+      -DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}
       -DWITH_ZLIB=system
       -DWITH_ZSTD=system
     ]

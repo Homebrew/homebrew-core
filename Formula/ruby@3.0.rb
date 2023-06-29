@@ -4,6 +4,7 @@ class RubyAT30 < Formula
   url "https://cache.ruby-lang.org/pub/ruby/3.0/ruby-3.0.6.tar.xz"
   sha256 "b5cbee93e62d85cfb2a408c49fa30a74231ae8409c2b3858e5f5ea254d7ddbd1"
   license "Ruby"
+  revision 1
 
   livecheck do
     url "https://www.ruby-lang.org/en/downloads/"
@@ -11,20 +12,20 @@ class RubyAT30 < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "619b5db1867ebac069c239a6ba09244bd0c4fc32e7b0d02e87296531f3d4d6ed"
-    sha256 arm64_monterey: "cc941991a48b39ff5af49ef0e3953784bbeb7e3c1e9bec636ab4b7479c7c118f"
-    sha256 arm64_big_sur:  "28a13673eaa1a8973c38edf2cbc96426406c087658a56f1a22347982703609b6"
-    sha256 ventura:        "f2947a2641586fa3e54ea335eddd2fddd1358904ef84843cf53fac452e659b86"
-    sha256 monterey:       "ccd50d3e4a07f6771ebdbb1200f2cfecd9905da50cf0087038db96a3e34d5c03"
-    sha256 big_sur:        "64182c873df8450182304ca4c57d35ce31e70ac940eb155f2c05005ed1c018a6"
-    sha256 x86_64_linux:   "071f2463ab19fa16b4ced7eebf04ef0e4d8077736299625c65676be9c0793056"
+    sha256 arm64_ventura:  "52953d12f76fe563c57615b4e84b236fe7a27ec1fcfd52981dd26dd8d5235c42"
+    sha256 arm64_monterey: "4926d6df56a8426bf6fac8eb35c08797c499e3c31ee74105e3ace0db2e323ca0"
+    sha256 arm64_big_sur:  "cfb4c748ea9d6d8d93e7dba7c579648388925076e55cb2f2682af992cfdf247e"
+    sha256 ventura:        "dd9ea7b06117f1833d32b713f1d6e910a4faffa901defa9dde9caca4f8f6100f"
+    sha256 monterey:       "d65fe8a1b8f789524510c3de2063e3cad8e406bde945f1ab976ee04de551f391"
+    sha256 big_sur:        "35a8757d94631d28ed89d2ba9e5d2e072d6abcd707dd275585e08cb145a189ed"
+    sha256 x86_64_linux:   "d04b41e0aeb4155e22d69dc8fabc8d6fbf09703476b552b3de2de88322ec0654"
   end
 
   keg_only :versioned_formula
 
   depends_on "pkg-config" => :build
   depends_on "libyaml"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "readline"
 
   uses_from_macos "libxcrypt"
@@ -36,6 +37,12 @@ class RubyAT30 < Formula
   resource "rubygems" do
     url "https://rubygems.org/rubygems/rubygems-3.4.10.tgz"
     sha256 "55f1c67fa2ae96c9751b81afad5c0f2b3792c5b19cbba6d54d8df9fd821460d3"
+  end
+
+  # Update the bundled openssl gem for compatibility with OpenSSL 3.
+  resource "openssl" do
+    url "https://github.com/ruby/openssl/archive/refs/tags/v3.1.0.tar.gz"
+    sha256 "3f099acd0b3bea791cbdde520f2d332a709bbd9144abcbe22189a20bac12c6de"
   end
 
   def api_version
@@ -50,7 +57,16 @@ class RubyAT30 < Formula
     # otherwise `gem` command breaks
     ENV.delete("SDKROOT")
 
-    paths = %w[libyaml openssl@1.1 readline].map { |f| Formula[f].opt_prefix }
+    resource("openssl").stage do
+      odie "Check if `openssl` resource is still needed!" if version > "3.0.6"
+
+      %w[ext/openssl test/openssl].map { |path| (buildpath/path).rmtree }
+      (buildpath/"ext").install "ext/openssl"
+      (buildpath/"ext/openssl").install "lib", "History.md", "openssl.gemspec"
+      (buildpath/"test").install "test/openssl"
+    end
+
+    paths = %w[libyaml openssl@3 readline].map { |f| Formula[f].opt_prefix }
     args = %W[
       --prefix=#{prefix}
       --enable-shared

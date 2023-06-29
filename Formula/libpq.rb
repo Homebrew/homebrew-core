@@ -4,6 +4,7 @@ class Libpq < Formula
   url "https://ftp.postgresql.org/pub/source/v15.3/postgresql-15.3.tar.bz2"
   sha256 "ffc7d4891f00ffbf5c3f4eab7fbbced8460b8c0ee63c5a5167133b9e6599d932"
   license "PostgreSQL"
+  revision 1
 
   livecheck do
     url "https://ftp.postgresql.org/pub/source/"
@@ -11,13 +12,13 @@ class Libpq < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "222625b518651724851680282b269f164366bc06220ee66ce4da9360f0df1443"
-    sha256 arm64_monterey: "5456b75374097b6558eb2e7d7c2f0ed7a67418e93688d44d22aad92c2aa64102"
-    sha256 arm64_big_sur:  "4bc7811549397cb67bac052753f468411942dba347136ae138ca4414333cef35"
-    sha256 ventura:        "a0731fabb26973dc162f66f4a5741c1548416f7f9bf9e7d8a8eb7911d19af65a"
-    sha256 monterey:       "b27eb40da814e12cd8dba2e768bc740afac91f354baee0017c93f373e26ca926"
-    sha256 big_sur:        "21f6879e39fd4121da6902a11f2945dad8859611118190ff4d50848d75811ec2"
-    sha256 x86_64_linux:   "3c09f46b21cc274155e26f406c6fdd82ac4d658f9b2781f00975e5a9988f0b5b"
+    sha256 arm64_ventura:  "5c212c4a2ed21cfe75a18e319e5586f3cd959ad0a578308f167e0b3f38e5321c"
+    sha256 arm64_monterey: "aa7e5fb59c2358c77faded217e99350c0efe46b8b35d5cc836f783f79e73f526"
+    sha256 arm64_big_sur:  "72818938ff45316befe30678f60c806d1f84d3836e84cca4a80aa42c6af9f8bc"
+    sha256 ventura:        "2e96f0ba51e6aea46ce23fecfc028a7fd561e30b36310307ed6ef8e6608d31fe"
+    sha256 monterey:       "b350a20184976f9130aec1b5af0d13a91b8331e9e745b1f9652e435f17a0a19a"
+    sha256 big_sur:        "8da370c2a046ab56329a2e82964f702dbf9ddff57319fba7be500c38d3f78abb"
+    sha256 x86_64_linux:   "c43e007488f9b2de539ae8c1f0a7a58e2fa34c73c42aebe269dc79fab0d8cc52"
   end
 
   keg_only "conflicts with postgres formula"
@@ -26,7 +27,7 @@ class Libpq < Formula
   # See https://github.com/Homebrew/homebrew-core/issues/47494.
   depends_on "krb5"
 
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "zlib"
 

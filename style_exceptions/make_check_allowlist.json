@@ -11,6 +11,7 @@
   "google-sparsehash",
   "jemalloc",
   "jpeg-turbo",
+  "mosh",
   "mpfr",
   "nettle",
   "open-mpi",

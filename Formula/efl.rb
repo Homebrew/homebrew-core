@@ -4,7 +4,7 @@ class Efl < Formula
   url "https://download.enlightenment.org/rel/libs/efl/efl-1.26.3.tar.xz"
   sha256 "d9f83aa0fd9334f44deeb4e4952dc0e5144683afac786feebce6030951617d15"
   license all_of: ["GPL-2.0-only", "LGPL-2.1-only", "BSD-2-Clause", "FTL", "zlib-acknowledgement"]
-  revision 4
+  revision 5
 
   livecheck do
     url "https://download.enlightenment.org/rel/libs/efl/"
@@ -12,13 +12,13 @@ class Efl < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "17f54a75833716c678a21281f6258b205609f4e162d9a92ab252d0287b1eaa45"
-    sha256 arm64_monterey: "bc6fb96a4936171ff935ea2b31e914b5a71f5649c776238a74fd99a79ed0a8b5"
-    sha256 arm64_big_sur:  "e23c8364a8d1da20ff9dfe19e04590c9d520e46a499828858a7484486e215328"
-    sha256 ventura:        "5d841949786f27116f2a2c843ccb3dd0fac0119dbeb22545a36c193d66681608"
-    sha256 monterey:       "af1055d9596b6c0ee601a4366ef6f9ae2f5bab354920a85dc345cb41c1d280cd"
-    sha256 big_sur:        "8b7b90ef0754765e6378765c1fc7bb0aecc161770432999bc72fe7d7da2ef794"
-    sha256 x86_64_linux:   "8ca1e8ce8b88539ff5f1ed354462b8282fdc858a608a4043777079ba26ebb5b5"
+    sha256 arm64_ventura:  "2b653b7a4bfdead4b6567f9633dc1d0ec851e2678920236ad57463eea369f9a4"
+    sha256 arm64_monterey: "a7144e491351f8475a5dfe051112f150df09ff410bcc963b182aef50106a2381"
+    sha256 arm64_big_sur:  "b444bced3c8b20c19df34893a3760c9e3f8bcf9a2fa84fd912111c07645df52b"
+    sha256 ventura:        "de13653096d6456aff03cc84c8c728db8214ba25b97f92967005b3ae071469d9"
+    sha256 monterey:       "9daaffaab0f55f68f13594599e7738ae7a36e351b903e133ad76ec64fe52024a"
+    sha256 big_sur:        "3b8df4569420168d8b8055f2edfbfb91da6c85807bf4c8b87895a17ab43f2354"
+    sha256 x86_64_linux:   "3b909487cffe75b106ae5ce4741dd4be864852831609536404a47c7e181a6a84"
   end
 
   depends_on "meson" => :build
@@ -42,7 +42,7 @@ class Efl < Formula
   depends_on "libtiff"
   depends_on "luajit"
   depends_on "lz4"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "poppler"
   depends_on "pulseaudio"
   depends_on "shared-mime-info"

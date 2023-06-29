@@ -14,6 +14,7 @@ class Qt < Formula
     { "GPL-3.0-only" => { with: "Qt-GPL-exception-1.0" } },
     "LGPL-3.0-only",
   ]
+  revision 2
   head "https://code.qt.io/qt/qt5.git", branch: "dev"
 
   # The first-party website doesn't make version information readily available,
@@ -24,13 +25,13 @@ class Qt < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "4e9d0be2bd045fb4045eb445ebb5df64ee8bfcc98217741740ef7b57005fde32"
-    sha256 cellar: :any,                 arm64_monterey: "57130bb785729ace6dbe8eb1e844b4b261a51bc2c606e145f43f0bafc997fd30"
-    sha256 cellar: :any,                 arm64_big_sur:  "0929d812b85fe99b06e39176e11d5fda0f899877165ee5379bef1226f52e062d"
-    sha256 cellar: :any,                 ventura:        "6916422b15dfce0917a7a88da8e1c9568292248c33f500e2f876bf5c00bc91c1"
-    sha256 cellar: :any,                 monterey:       "b8fdda4b008fef1cef8039105447f981bc6336683eb488022f36056fd1443fb1"
-    sha256 cellar: :any,                 big_sur:        "c4011b0fcfbae5255b4ea98403a7c5e8caf87aeee2c79b7d38b5563b96fe5494"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f893fbd39122207e15b6c8bdd0b10143acb156a550257404f38ae64ccc50f6b2"
+    sha256 cellar: :any,                 arm64_ventura:  "c1fc723dbeb8b2b4df104fcf1a10653109419cfeee9f3016f9edd68ba6bedb07"
+    sha256 cellar: :any,                 arm64_monterey: "0109c8fb307b0768aa088b6d1163e25712806a8b2b8ab3695d0c8839973bbba7"
+    sha256 cellar: :any,                 arm64_big_sur:  "83298bf40b2605b6d911507ce861560039f709f6a845b47c8855af49f2e6065b"
+    sha256 cellar: :any,                 ventura:        "629cbb76ad5fca32d4d200da98bf0f8f1cd39dd570949b4ba9069ed74ccf4356"
+    sha256 cellar: :any,                 monterey:       "0c425e63eebfd5447dd200bf3225eb0ba6d005b14fccc8e295d9b2ff112d4d68"
+    sha256 cellar: :any,                 big_sur:        "18b8143094a304749f2b189f1a8d22a90254b2dae0652089dd4d1549cec73d26"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "895270278802c816e92eae4c461ba095f7848e867bde074412f40d6103b632df"
   end
 
   depends_on "cmake"      => [:build, :test]
@@ -59,7 +60,7 @@ class Qt < Formula
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "md4c"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pcre2"
   depends_on "sqlite"
   depends_on "webp"
@@ -134,6 +135,14 @@ class Qt < Formula
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/c363f0edf9e90598d54bc3f4f1bacf95abbda282/qt/qt_internal_check_if_path_has_symlinks.patch"
     sha256 "1afd8bf3299949b2717265228ca953d8d9e4201ddb547f43ed84ac0d7da7a135"
+    directory "qtbase"
+  end
+
+  # Fix a Qt 6.5.1 QTabBar regression, certain tabbars are unusable because all tab items above the last selected tab
+  # is missing.
+  patch do
+    url "https://code.qt.io/cgit/qt/qtbase.git/patch/?id=9177dbd87991ff277fd77a25c3464e259d11b998"
+    sha256 "1730b675ede24d80c2e73a2f662cc73718f3060c0b8a707784d188bb11297c4e"
     directory "qtbase"
   end
 

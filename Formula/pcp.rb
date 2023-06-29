@@ -1,5 +1,5 @@
 class Pcp < Formula
-  desc "📦 Command-line peer-to-peer data transfer tool based on libp2p"
+  desc "Command-line peer-to-peer data transfer tool based on libp2p"
   homepage "https://github.com/dennis-tra/pcp"
   url "https://github.com/dennis-tra/pcp.git",
       tag:      "v0.4.0",

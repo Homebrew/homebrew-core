@@ -1,20 +1,19 @@
 class Terraformer < Formula
   desc "CLI tool to generate terraform files from existing infrastructure"
   homepage "https://github.com/GoogleCloudPlatform/terraformer"
-  url "https://github.com/GoogleCloudPlatform/terraformer/archive/0.8.22.tar.gz"
-  sha256 "61dd6d3015dd8a791deb7e356ef0adb6d3f7ad861a3bce9a35cb7b678ac19a37"
+  url "https://github.com/GoogleCloudPlatform/terraformer/archive/0.8.24.tar.gz"
+  sha256 "d366476777b31149738b8e5f916e080d54403fb4ca7a6e97edc885d3623a5f19"
   license "Apache-2.0"
   head "https://github.com/GoogleCloudPlatform/terraformer.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "791d91ff928ebfba76d5357b22b376c7405fba8b3721da22fda4906c2c9be5ac"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a1d473c3dd1e12a37b35c7b2c2832ec63371e8eafe322dbed3ed1c6256f8ba96"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6a168fc9bd68c9b9ff836ec1d49bc42131decad4d86169d4642227870153ddca"
-    sha256 cellar: :any_skip_relocation, ventura:        "870ecb9bfc3dd9bea31a7628cd1ef6f72b5335faa058225cf51474f871491688"
-    sha256 cellar: :any_skip_relocation, monterey:       "b52f410f80017bdf9d601a3a53b6dbf3251a828e7c77e71d9edb69930b0d1a9c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "dc373b94ffcaa575c83f390273fd12dd258e1989c990c2b09ae86cd268a3e153"
-    sha256 cellar: :any_skip_relocation, catalina:       "64d7ddbb8c44c6864c77d15b3627a3f686d8736e93090b19a7ba10abe558b1e1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2b5696802c7ec0ad4293051037fdd625f1a7d4d0ebed84307ea997b47ae74031"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "df018b019428be95a8d6c65a919c9c55d886e7f4824cda47ab436431ae97acce"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5fa2ea9f7724c5049821dc933c4f3ea7294a284bcdeb48d557dcdc87174b1b1c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "94d5886c4a51100252320605c5c325d1887d567ce544f4561f3b66c98c812c61"
+    sha256 cellar: :any_skip_relocation, ventura:        "e37409d64ec97c2d9fb4875e4dc972bd5a721f31519a4d801f7c10df6e0769f7"
+    sha256 cellar: :any_skip_relocation, monterey:       "1134403c3c57f14169abc8e4ce5623141bf156740af30aa27230df8b0ee99781"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d2add2d2853942105421257b897d2ac86445edd26b521da08ea8a2470ffa48e7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6b1e541f2a8f8b3cd4c811a531d879e2ce60d99672cc49e1e8c1e83c7e669076"
   end
 
   depends_on "go" => :build

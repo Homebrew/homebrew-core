@@ -1,8 +1,8 @@
 class Libksba < Formula
   desc "X.509 and CMS library"
   homepage "https://www.gnupg.org/related_software/libksba/"
-  url "https://gnupg.org/ftp/gcrypt/libksba/libksba-1.6.3.tar.bz2"
-  sha256 "3f72c68db30971ebbf14367527719423f0a4d5f8103fc9f4a1c01a9fa440de5c"
+  url "https://gnupg.org/ftp/gcrypt/libksba/libksba-1.6.4.tar.bz2"
+  sha256 "bbb43f032b9164d86c781ffe42213a83bf4f2fee91455edfa4654521b8b03b6b"
   license any_of: ["LGPL-3.0-or-later", "GPL-2.0-or-later"]
 
   livecheck do
@@ -11,13 +11,14 @@ class Libksba < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "0829951404543f9d9a6072f53c116accf7ad7265f5bad77d3e5aeb350a655bac"
-    sha256 cellar: :any,                 arm64_monterey: "62b24304adae5bfa956619c08dc2374a7ea32fac01e7e61752ce092248cfd492"
-    sha256 cellar: :any,                 arm64_big_sur:  "e241f911ebb383762bfdc069e7c6ba8c918cd4cb480450dcdb3adcf34de91f40"
-    sha256 cellar: :any,                 ventura:        "1eac027cf29220a012d336ee078a3ebe539402cd468c9b6dbeb5b5c4669d14c2"
-    sha256 cellar: :any,                 monterey:       "bd26b1d6a289ed0c534f5fdf0e8784a6e1c2a17b1306c28488b2679806c8d4a8"
-    sha256 cellar: :any,                 big_sur:        "50f9fee0ebafae230e2305dd4b5a4a0d48575f831ee05b1c169e6ede9235ccf0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "763d7323bba76405c4bed96b18c86ad20569d6699f16965ecc74cf9ddcb857fa"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "f83e2fdcb19bbb649615de9a13082c20811602a4d89f4bea8adf604ab235718e"
+    sha256 cellar: :any,                 arm64_monterey: "d216e2f0a59b37e1e32d3434d277ba48416651628fd44c9c2e97ed6633e9d4ea"
+    sha256 cellar: :any,                 arm64_big_sur:  "7a5e34d7d70656bc1ccd283608df4ccdb6229d68b7b67cb0f52bfeda3e962e37"
+    sha256 cellar: :any,                 ventura:        "dc6d96b61291f653a7639b3febeb732cd98c0ed0f7e38c24445d466be79ed451"
+    sha256 cellar: :any,                 monterey:       "7d9bdc88d94a25558e7c4c577090156cc339e644ca074f587a82a89187b579a5"
+    sha256 cellar: :any,                 big_sur:        "b2c80c0ee6dab8eb5562a92e10efa2b538debd5398cd473cbb3e7234b8a4ce57"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "74942c849eae904fee71dc704a301fd3bd9450b3222299e81c166a9aafd716f1"
   end
 
   depends_on "libgpg-error"
@@ -26,13 +27,27 @@ class Libksba < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
+    system "make", "check"
     system "make", "install"
 
     # avoid triggering mandatory rebuilds of software that hard-codes this path
-    inreplace bin/"ksba-config", prefix, opt_prefix
+    inreplace [bin/"ksba-config", lib/"pkgconfig/ksba.pc"], prefix, opt_prefix
   end
 
   test do
-    system "#{bin}/ksba-config", "--libs"
+    (testpath/"ksba-test.c").write <<~C
+      #include "ksba.h"
+      #include <stdio.h>
+      int main() {
+        printf("%s", ksba_check_version(NULL));
+        return 0;
+      }
+    C
+
+    ENV.append_to_cflags shell_output("#{bin}/ksba-config --cflags").strip
+    ENV.append "LDLIBS", shell_output("#{bin}/ksba-config --libs").strip
+
+    system "make", "ksba-test"
+    assert_equal version.to_s, shell_output("./ksba-test")
   end
 end

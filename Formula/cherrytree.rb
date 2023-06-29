@@ -1,10 +1,9 @@
 class Cherrytree < Formula
   desc "Hierarchical note taking application featuring rich text and syntax highlighting"
   homepage "https://www.giuspen.com/cherrytree/"
-  url "https://www.giuspen.com/software/cherrytree_0.99.55.tar.xz"
-  sha256 "7daa4358463eb41c133d9b4b742df18f68f47fa5bf398fc2e0801fc4c8381e84"
+  url "https://www.giuspen.com/software/cherrytree_0.99.56.tar.xz"
+  sha256 "d98717b0b04bc989c86b50d33d4d5a31e8cb5750d4f913f9390373d43e542bbf"
   license "GPL-3.0-or-later"
-  revision 1
 
   livecheck do
     url :homepage
@@ -12,13 +11,13 @@ class Cherrytree < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "97e6fb6daf6d6c8ae58e6fc16a341e131874d22c739701aa7990b6a7a224b7b7"
-    sha256 arm64_monterey: "2c5b3e508f82d5cb50159ed7c9c01229542cfc8468f76613df2fc1bbf10d9342"
-    sha256 arm64_big_sur:  "452e380923648ad286b867be2ee8a882cd99f6ed7218f5a3bb5e8d10fcb71e80"
-    sha256 ventura:        "c53e5d3eb6e4bc751e5213f43064169e2ef69acf950d1dd498eecd908391af9d"
-    sha256 monterey:       "6b0d2f1f6b976429ab45c44136356ef99766537d9ec5c2a6b21258451d0292b8"
-    sha256 big_sur:        "c47a13705ad8845390b127158b3867d4b87e95ffee4d81ae6823ea7e94ccd9f4"
-    sha256 x86_64_linux:   "a9297eaace67da039b59b30f443cfc9357e328373aaf4bdc799f9d64a17eb942"
+    sha256 arm64_ventura:  "e78b0da178edb90429b995118f85bbf608997da2f73d9155210b0cca45be7d54"
+    sha256 arm64_monterey: "de56cf039c580917d5062e42b6f2432edc669f27c2fa1a4de1e67826b576a81f"
+    sha256 arm64_big_sur:  "16afd38206e04f199395b9103803b121ee5794a5f74a77354c493b0eddf564ca"
+    sha256 ventura:        "f9d803a8b47a684eafd93b358909a32ee3e1c7356e6565582eb0740fc78f01d8"
+    sha256 monterey:       "c94d5c20a0c7672bd77e67d00190370dd58b42b158fc1aebfe9fbdbd562d1736"
+    sha256 big_sur:        "cd4ec48c9e8b53b88f8026febd4ee817afbec91a1d42c0abae3913ad4b08d8a4"
+    sha256 x86_64_linux:   "258c11f4f4b6b97f8662b52d1db391f44e0d356047596a184d210f76f72c7664"
   end
 
   depends_on "cmake" => :build
@@ -38,11 +37,6 @@ class Cherrytree < Formula
   uses_from_macos "curl"
 
   fails_with gcc: "5" # Needs std::optional
-
-  patch do
-    url "https://github.com/giuspen/cherrytree/commit/dacf5ba650b4495705184e63d495ac730c4e00b0.patch?full_index=1"
-    sha256 "e427653dbe91e00cab0243fa996afae1bcd7fd0f97cc433e5d0a08a7941d1974"
-  end
 
   def install
     system "cmake", ".", "-DBUILD_TESTING=''", "-GNinja", *std_cmake_args

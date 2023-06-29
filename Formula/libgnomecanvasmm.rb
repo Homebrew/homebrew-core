@@ -16,7 +16,7 @@ class Libgnomecanvasmm < Formula
     sha256 cellar: :any, mojave:        "a0d170f35e076cde6587dc614dbb705d0ecf673a5426ee47a13fdf1ba8f6eae0"
   end
 
-  deprecate! date: "2022-02-28", because: :repo_archived
+  disable! date: "2023-06-19", because: :repo_archived
 
   depends_on "pkg-config" => [:build, :test]
   depends_on "gtkmm"

@@ -1,9 +1,9 @@
 class Mame < Formula
   desc "Multiple Arcade Machine Emulator"
   homepage "https://mamedev.org/"
-  url "https://github.com/mamedev/mame/archive/mame0254.tar.gz"
-  version "0.254"
-  sha256 "07a5e2541e75c3511fbad00ad50d7dbd50119a7b054e393d4c64df672d8211a6"
+  url "https://github.com/mamedev/mame/archive/mame0256.tar.gz"
+  version "0.256"
+  sha256 "7523c46684043cc9e2af242aa7e31476b076fed492c3ae4ae0c964aafd65f659"
   license "GPL-2.0-or-later"
   head "https://github.com/mamedev/mame.git", branch: "master"
 
@@ -19,13 +19,13 @@ class Mame < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "d0c69876c5fc42a1ca033e9c75f3190e79fcebe10fed71e1362971feb9e7bd04"
-    sha256 cellar: :any,                 arm64_monterey: "bb13adf7a074ef11ece874a22f6191a3aff40685b9c8d20f82fa23b8cb0aaae3"
-    sha256 cellar: :any,                 arm64_big_sur:  "dcb2a248457b22f444ef0504cb274fc75b5b97e966e2f9e7e28517292148b65c"
-    sha256 cellar: :any,                 ventura:        "fdf2d746c823efb45acf495883731e09a4c06aa51dd9a9aaac9b1c51f808d9aa"
-    sha256 cellar: :any,                 monterey:       "be54b9ae38d63511172f3c76550d37dd75aa11d343fddd8d0ec01548e52f8857"
-    sha256 cellar: :any,                 big_sur:        "2e572fd843ea9659913d9643764ae6ed173762c2d711ab52f522cf5dbc385cd4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a3905072bbf6dbceefad6029eff3dbd6177e6439f73bcfc614cfdc4c4c3d17cf"
+    sha256 cellar: :any,                 arm64_ventura:  "7019f81a5449019f5ac7e8cf479fb5602bf19ad2fcba81a77b7ae2f22e585fa7"
+    sha256 cellar: :any,                 arm64_monterey: "8f135a1ef0208645e8e16b7492df71b2ef3b698f838a1436af5e52a4081e2275"
+    sha256 cellar: :any,                 arm64_big_sur:  "3748c173d90e334d2054d5bdcd7bac5461e0bb87e2b4fd1921fd06dd0edc27e7"
+    sha256 cellar: :any,                 ventura:        "9e62d5ab378cbc7a00c62dda99ff0306acef8fcb07302450aef16093b693e659"
+    sha256 cellar: :any,                 monterey:       "483992ac3b124186d07c7ac91c791fb2b66283f2099bb8bb4bb41837c8dcc99d"
+    sha256 cellar: :any,                 big_sur:        "ae6ef43fc4751b70c26187cefb369faba4e8d0d35b1922b85fcd62edeb333a70"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "24971e67a707557ce6199ac45fe20e3cdc1f9d0eceb2b044f3cb5cfcb205776a"
   end
 
   depends_on "asio" => :build

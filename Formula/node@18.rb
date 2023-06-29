@@ -1,9 +1,10 @@
 class NodeAT18 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v18.16.0/node-v18.16.0.tar.xz"
-  sha256 "33d81a233e235a509adda4a4f2209008d04591979de6b3f0f67c1c906093f118"
+  url "https://nodejs.org/dist/v18.16.1/node-v18.16.1.tar.xz"
+  sha256 "e8404f8c8d89fdfdf7e95bbbc6066bd0e571acba58f54492599b615fbeefe272"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://nodejs.org/dist/"
@@ -11,13 +12,13 @@ class NodeAT18 < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "de8b39f3a1337558a379beac1768be1194afa24b81bcfdc73747f14808afff5a"
-    sha256 arm64_monterey: "ba7f2a747e3dce218a24605952c6c0dbc26174eae7d5a9cfc2a28f95f9726839"
-    sha256 arm64_big_sur:  "1799093b447b8e1bb5e1d471d7a1de3b8e700dbe719a85a4363a49f9f7f12ba0"
-    sha256 ventura:        "ea4da1eead7a582c6e632f1bffbb91ca3e7a76fe260ebb2c387a0f9fcb2cd355"
-    sha256 monterey:       "8cc983557c07993ecf389ad1131d23b0f6ba5a54ad3adca01a83b3cf80119809"
-    sha256 big_sur:        "a1ad2c10f55c0ef0e1ed32f63635acd4555881bed95899a757b569ae48e6f184"
-    sha256 x86_64_linux:   "1c1e59fd3092eb69ebd5c6e14a3da6b33a16329f605aeda2abeaa98571e85ed4"
+    sha256 arm64_ventura:  "e465d165aae08489b26cf267babd7dd2f023bf3546ed4b34a428c243c7e23134"
+    sha256 arm64_monterey: "582c3ed029d4f30b513418fbe4e9ac30effec30831a843e37a472a5c524398fc"
+    sha256 arm64_big_sur:  "84afd47af3d3119d6289ae6b8565f6ca382dbc99eb40484ed2278e553be70062"
+    sha256 ventura:        "bece174a6e5c8be10c14aab2dcd782d01f72f0208f3b2acbdede226b36458b18"
+    sha256 monterey:       "97fcdd3df0c45c90d96fd5299d12cd10dc9dc4ce70b514b96fe68d7c17c11323"
+    sha256 big_sur:        "71d83129c7ac3591ec2a5fb9ad1a0785f08d2436f059a5259833057a904fb06e"
+    sha256 x86_64_linux:   "15e9c2fb5862f6ed43264b0ebefe21ea3e9994215197a02c78f7fc94e85f1a9e"
   end
 
   keg_only :versioned_formula
@@ -33,7 +34,7 @@ class NodeAT18 < Formula
   depends_on "icu4c"
   depends_on "libnghttp2"
   depends_on "libuv"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "python", since: :catalina
   uses_from_macos "zlib"
@@ -70,8 +71,8 @@ class NodeAT18 < Formula
       --shared-libuv-libpath=#{Formula["libuv"].lib}
       --shared-nghttp2-includes=#{Formula["libnghttp2"].include}
       --shared-nghttp2-libpath=#{Formula["libnghttp2"].lib}
-      --shared-openssl-includes=#{Formula["openssl@1.1"].include}
-      --shared-openssl-libpath=#{Formula["openssl@1.1"].lib}
+      --shared-openssl-includes=#{Formula["openssl@3"].include}
+      --shared-openssl-libpath=#{Formula["openssl@3"].lib}
       --shared-brotli-includes=#{Formula["brotli"].include}
       --shared-brotli-libpath=#{Formula["brotli"].lib}
       --shared-cares-includes=#{Formula["c-ares"].include}

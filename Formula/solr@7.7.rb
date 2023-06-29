@@ -15,7 +15,7 @@ class SolrAT77 < Formula
   keg_only :versioned_formula
 
   # The 7.7 series is end of life (EOL) as of 2022-05.
-  deprecate! date: "2022-05-12", because: :unsupported
+  disable! date: "2023-06-19", because: :unsupported
 
   depends_on "openjdk@11"
 

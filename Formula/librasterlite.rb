@@ -18,7 +18,7 @@ class Librasterlite < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "43fd1aa1f5992cc5bc82499d6a8c0783e8560caaf1d5f83fd74b226846e5c1e5"
   end
 
-  deprecate! date: "2022-03-05", because: :deprecated_upstream
+  disable! date: "2023-06-19", because: :deprecated_upstream
 
   depends_on "pkg-config" => :build
   depends_on "libgeotiff"

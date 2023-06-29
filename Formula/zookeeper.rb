@@ -5,16 +5,17 @@ class Zookeeper < Formula
   mirror "https://archive.apache.org/dist/zookeeper/zookeeper-3.8.1/apache-zookeeper-3.8.1.tar.gz"
   sha256 "ccc16850c8ab2553583583234d11c813061b5ea5f3b8ff1d740cde6c1fd1e219"
   license "Apache-2.0"
+  revision 1
   head "https://gitbox.apache.org/repos/asf/zookeeper.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "a8742d575ac53677c5d55b073de3e91ad816b5469b491cb0b646a8ee6c4ff5de"
-    sha256 cellar: :any,                 arm64_monterey: "34ebee0822b3104c72785ceb6959e6b240482795beb53eac28c08c57b6643720"
-    sha256 cellar: :any,                 arm64_big_sur:  "8ee6d47295020d61cf269965becc1be63a615ec04da3d85edbb5cae68057965b"
-    sha256 cellar: :any,                 ventura:        "088436591d872c536d4e26fe95f73d03d107ba073ec0a67132d7673e507cb7b6"
-    sha256 cellar: :any,                 monterey:       "c1d656f5fddee17000a42fa67749c2feedac5b3f324cc86ee84f7f5589c09209"
-    sha256 cellar: :any,                 big_sur:        "51fe2a40f7b3486dec74be435c21c2ac556db05e4dc22ce7d27f04a192c9f977"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "37a902639bd15382b6bbecc179e4244c9db2b07b08e5b0927e9dc304c5a52497"
+    sha256 cellar: :any,                 arm64_ventura:  "13af3e59399609cf833576fc085e670afa28f46ccb1022353f027762a550c294"
+    sha256 cellar: :any,                 arm64_monterey: "1940be28281f05a35153adbd60c0e6818428ce12de6d1019d6c16118161e2927"
+    sha256 cellar: :any,                 arm64_big_sur:  "f6b2814e65f0d08379c538bbdbb64b09cceed58b00830d95cfae1bfd79981878"
+    sha256 cellar: :any,                 ventura:        "701fa917b47c5719898be5dae98dd5285f47a114ffe48ccf393d7485fc0553f6"
+    sha256 cellar: :any,                 monterey:       "caa5872fe21c62778c634ac46410dbe8150d993589d54df1aad0b3291dc9fdca"
+    sha256 cellar: :any,                 big_sur:        "2d1e98e4826a270e89c4afc2c3e6f10f2ab87028786ce42bb7d1a69be1797d4b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d6648d03143cb69e6d0199171c3010703f5b9e8e8b099bfa9ed3cfb8969ceecc"
   end
 
   depends_on "autoconf" => :build
@@ -25,7 +26,7 @@ class Zookeeper < Formula
   depends_on "pkg-config" => :build
 
   depends_on "openjdk"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   resource "default_logback_xml" do
     url "https://raw.githubusercontent.com/apache/zookeeper/release-3.8.1/conf/logback.xml"

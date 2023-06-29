@@ -16,7 +16,7 @@ class RubyAT26 < Formula
 
   keg_only :versioned_formula
 
-  deprecate! date: "2022-04-12", because: :unsupported
+  disable! date: "2023-06-19", because: :unsupported
 
   depends_on "pkg-config" => :build
   depends_on "libyaml"

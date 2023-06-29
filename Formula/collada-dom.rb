@@ -3,18 +3,17 @@ class ColladaDom < Formula
   homepage "https://www.khronos.org/collada/wiki/Portal:COLLADA_DOM"
   url "https://github.com/rdiankov/collada-dom/archive/v2.5.0.tar.gz"
   sha256 "3be672407a7aef60b64ce4b39704b32816b0b28f61ebffd4fbd02c8012901e0d"
-  revision 5
+  revision 6
   head "https://github.com/rdiankov/collada-dom.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "3ae338e6a182aa4ef5162f236dd1eaaae5af7a6bda9b2371b55e90ad1b14b775"
-    sha256 cellar: :any,                 arm64_monterey: "27cb70edcab5aabbc09e3e49b4d4096b7940437f5ee70ccf7cbc37dcc27428c0"
-    sha256 cellar: :any,                 arm64_big_sur:  "56e8736323a26b1aaea44616640bfb571e149365f51768ffbd29b1dd10f5a7dd"
-    sha256 cellar: :any,                 ventura:        "70573c30ce81d80a2adc1fadeaec07f50346f1e1091b8bdbffd426a722f98b88"
-    sha256 cellar: :any,                 monterey:       "a445d8dab60d0b4558650632ad26d5bcc2472679f775222a17b8824cb50d4d3d"
-    sha256 cellar: :any,                 big_sur:        "33265c5810adff137167e86a0db1bb89fbde13c8809f74e857acb173a6a7adf8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2e7b2b02132feee5ee2de9b5787a7fc224d71e1cb5e8e5b727cbe5fc02cf815f"
+    sha256 cellar: :any,                 arm64_ventura:  "4d09b42ccb15cc1ea1387eca3ea1e2c16fecaddc33a482fab5a4030d67b73ac7"
+    sha256 cellar: :any,                 arm64_monterey: "8e6113955d8a7190e773d71851152d9957a75e2d3bf1153ec056af0190cde261"
+    sha256 cellar: :any,                 arm64_big_sur:  "a392f8f5c3055ba99b094be9e57d791c3284276c10fbebc9c0e73d56bb33edfa"
+    sha256 cellar: :any,                 ventura:        "ac8dcee133cf2923bc6e508974ae9950944d6f9bf22a821cb5447ad8cd7c800e"
+    sha256 cellar: :any,                 monterey:       "848905d73d077fa02c7ca62bea14bc104febaf0a64e765e9fa19235c97114e3b"
+    sha256 cellar: :any,                 big_sur:        "1d537d126e8d473e20015670d0e218480c416d8592027ffd90e9714ab693c7dd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "86dc502cb34113b167e7fbb9a63837a373bd76cff2fc007c3c00b63e89f78819"
   end
 
   depends_on "cmake" => :build

@@ -10,7 +10,7 @@ class Fasd < Formula
     sha256 cellar: :any_skip_relocation, all: "9241df0f32971ce5a84c977f6908b93114946843813d5375ba7b983a7a783188"
   end
 
-  deprecate! date: "2022-06-16", because: :repo_archived
+  disable! date: "2023-06-19", because: :repo_archived
 
   def install
     bin.install "fasd"

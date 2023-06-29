@@ -6,14 +6,13 @@ class CloudformationGuard < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "abcc600f7f52302d5b0f06c1de2dbbc0115f121a564304e34e5495d5e0c08279"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0905a205abc9badc4e0d7f587ed3e72e46239356d62995906ffd32af2666393e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cf565a776a566117ab5d9db04d3454c34d065272e63fb544328122ef76e98c53"
-    sha256 cellar: :any_skip_relocation, ventura:        "33cfc74bc7e4660a2b71ba8567d5eb39653bf636a540a2a7f413d83a85d40267"
-    sha256 cellar: :any_skip_relocation, monterey:       "b41bff35e06b2e4521ba3031f118e874b2e524da31bd7521a49f52f05dc45f1c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9a0b436b6d4085bd16e2e0283bf718a5b673517adf2e9bd308c4e3fabaf04b41"
-    sha256 cellar: :any_skip_relocation, catalina:       "792e7e6c0ba66aa5164440d8162f9ecba009e4ad02c6afe55c21bfdf60bdc86c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "14b22063b5279abce3ce05d65732eb981815520f777de1271ecab359a8ce9a7c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "203e30209cda8348420b75337e08f9695a6781b672916c667078ac5b1c708832"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2e6b2c5f22860d3448ada7af8a3a719ac7a6f1392d0463ea10d30b7b3ba21f23"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "af55d41a616a1cc8ab9fbdff32a02b6c64e31a1769f6d37164be92abc84caa8a"
+    sha256 cellar: :any_skip_relocation, ventura:        "f325336668599309ca11d7d943f29e9ab3f932795370cd1625cb2cb3e710a20f"
+    sha256 cellar: :any_skip_relocation, monterey:       "5fe12d409d0964ef08935b149a1b0a3661a8246f7aa9e30edfc2cbc8c8979ee6"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e4a10dbb697add9b74c2704e39a2e3738151a828b403825909cc59204148518d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8eb86a8d3cb6c6102fd087859085a7f3a61fa8b273c51dd10fecf44b0bbf820b"
   end
 
   depends_on "rust" => :build

@@ -1,19 +1,28 @@
 class Folly < Formula
   desc "Collection of reusable C++ library artifacts developed at Facebook"
   homepage "https://github.com/facebook/folly"
-  url "https://github.com/facebook/folly/archive/refs/tags/v2023.05.22.00.tar.gz"
-  sha256 "3dd02b7184ad2da9ad8fd74ea5ba782384ebec9b568ce0880edd5d14dfb7debc"
   license "Apache-2.0"
   head "https://github.com/facebook/folly.git", branch: "main"
 
+  stable do
+    url "https://github.com/facebook/folly/archive/refs/tags/v2023.06.26.00.tar.gz"
+    sha256 "e7b58bf4eda24e2069b301e27533deb7c171dac57925cb90fe344595522772f3"
+
+    # Fix build with new fmt. Remove in next release.
+    patch do
+      url "https://github.com/facebook/folly/commit/e74fe5c99dd9d96b80b17f8396ce2568f2becb45.patch?full_index=1"
+      sha256 "3f2ccd2c43ecdd1fa947d4d487b2fb73e260a68a2f3e85f0c4dc61f91f70a628"
+    end
+  end
+
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "79828bb34a0cb6c17a3543af5ee5bfd94729b909a8f8ad1ece648e1c181eabdd"
-    sha256 cellar: :any,                 arm64_monterey: "37c6c573503a76120404b861adf7f96ddaa00f4eb4e5d6f587fa85a0bdca96b8"
-    sha256 cellar: :any,                 arm64_big_sur:  "3edb7dd188f64dfe9df113fc085ac1778707fa023e1cddcb05cf69300fd0f49c"
-    sha256 cellar: :any,                 ventura:        "56c9feaf1116b5237247c3e21fd74fbfc510c6dd076fe050b06e6b7c61d44406"
-    sha256 cellar: :any,                 monterey:       "bb4d75bf095fdb485e7e2bfe0a408bc6a3fc56a880d6e240de707c16c0324771"
-    sha256 cellar: :any,                 big_sur:        "5f23d7d92a73092b4123c0857c9ce199f87e7fded09ce080354817a26561055c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c1abbab95bc561405caaa4e351b663c7ca33c8d0cd361887900485eef8942ffd"
+    sha256 cellar: :any,                 arm64_ventura:  "5158abc0ee9afa045850fccf7b48d50515b41119dad1183060193310dad4417d"
+    sha256 cellar: :any,                 arm64_monterey: "4920bda807554cbc304215c07039a377abb408fa6e002801c911d350d4d0814c"
+    sha256 cellar: :any,                 arm64_big_sur:  "fd7be61b5577bfffcde05ceafa110cc1834ee9377394dc590eb1c1a746c1ff7f"
+    sha256 cellar: :any,                 ventura:        "e0ed4400b93d91562f2238ff6f8578062a2e13fdc76ce197123aca80b57c0e69"
+    sha256 cellar: :any,                 monterey:       "da618da566cf04b231c61573be5eff1bcd21cecd1cff4b5e45cb7918534fa5a2"
+    sha256 cellar: :any,                 big_sur:        "f2cde28425db5593dffff3e4d9a4e1b3c654cc4fed0fa33eb97bd3441cb4a8a7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ebaaf1aeb9f12f1db5dec5ac82c5c230208b610decc4bb7f14062ad254426cae"
   end
 
   depends_on "cmake" => :build
@@ -25,7 +34,7 @@ class Folly < Formula
   depends_on "glog"
   depends_on "libevent"
   depends_on "lz4"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "snappy"
   depends_on "xz"
   depends_on "zstd"

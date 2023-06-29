@@ -1,8 +1,8 @@
 class Msitools < Formula
   desc "Windows installer (.MSI) tool"
   homepage "https://wiki.gnome.org/msitools"
-  url "https://download.gnome.org/sources/msitools/0.101/msitools-0.101.tar.xz"
-  sha256 "0cc4d2e0d108fa6f2b4085b9a97dd5bc6d9fcadecdd933f2094f86bafdbe85fe"
+  url "https://download.gnome.org/sources/msitools/0.102/msitools-0.102.tar.xz"
+  sha256 "fa485a421397ef5fe02df5ab93fced91abf685730f40f94c7157b430d24a3498"
   license "LGPL-2.1-or-later"
 
   # msitools doesn't seem to use the GNOME version scheme, so we have to
@@ -13,15 +13,13 @@ class Msitools < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "791534790bcc8e23c6def007f18407258258bede405d92375d256068123b0221"
-    sha256 arm64_monterey: "1738ad06a080d802f991037d76fe78069ba16e601a27ef5a2c71a65463985db0"
-    sha256 arm64_big_sur:  "a8efd95e41c4b40428c1e2c6f2b3abafa76f99781d26c64cbe0ca80f27b8ab06"
-    sha256 ventura:        "a2e1ead4ee47a0ec7f53106a6454e01ac6e82a9e8c5ee069e4d2515c9986a140"
-    sha256 monterey:       "1539a360dda3393169191eb9e2d97822814c9d84478bf788d4a80508966b9f58"
-    sha256 big_sur:        "ec00cadc6477adbd6c6b5ddd107586b31cfe8ecc78f9df7ff264c5b3b2990944"
-    sha256 catalina:       "f757655d692ef4acf1192c6fa4459a77b4480e0303589b158b862a0a1497afef"
-    sha256 mojave:         "ad7526c586e2bb15a4325798af37c278448315fe4434daa6553258a00ac13cd4"
-    sha256 x86_64_linux:   "c2113c131d937a5d93c81c7f0a1cb8b301bae73353e986b048ccfd45c525e811"
+    sha256 arm64_ventura:  "254724502ed0fc447da977b7947939a1ad6931896880aeb8c121d56472fdd979"
+    sha256 arm64_monterey: "aeedbe7f0bf230e6f77223076b7f1ab06b3423f40711b90f197899ee274ca536"
+    sha256 arm64_big_sur:  "0f1fb016d9a6df1075a73f294f5ca2ec439bdef3fa1d999f735e8ad1c2ec100b"
+    sha256 ventura:        "cc726522014040dcb845efd71a01dca91e1af7f4384a9caef247e9a6c7b8d20f"
+    sha256 monterey:       "e4588b75cc3c4b3da4969d57f18d1179793ee8ed59859da9dabe3a3d3c225537"
+    sha256 big_sur:        "f80ca9cabf98a1945e306634d884e233f1935ab05bd6ab8755a14e1966d3ac88"
+    sha256 x86_64_linux:   "aee2f1fcb159b1984db307153ba19a31b28c4e3fbba05857befe06e5b0b46e7c"
   end
 
   depends_on "bison" => :build

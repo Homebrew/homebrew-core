@@ -6,24 +6,24 @@ class Openstackclient < Formula
   url "https://files.pythonhosted.org/packages/58/04/77e6b898346584df8b1e7206cf9f9a0f7f7d0c773a4015ed16a12dd6b97e/python-openstackclient-6.2.0.tar.gz"
   sha256 "7c53abe1b73b453f59da7b73679c3b759b48e51b8b054864b5fdea2ea82727d6"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_ventura:  "67afa1b2d26d4910dd06b103337401bf9565ae603bb565a59b4baf5c215aa68e"
-    sha256 cellar: :any,                 arm64_monterey: "044b543f0e1b291ddb509e48a8547e3cbc28a2eddc9c10c9a780328c2e4390f2"
-    sha256 cellar: :any,                 arm64_big_sur:  "02b95d2d550917b93ccb1783816ed5e1dbbb7ac3a53f2785aba3363bea85af9f"
-    sha256 cellar: :any,                 ventura:        "ebcfa68c3b1a170066061a9800463482dcdd39f3deb2f451235234d12dd71de6"
-    sha256 cellar: :any,                 monterey:       "f80e2ceedc0e5d737963a29c6260b008107be128dc308585fecec06d51d640ea"
-    sha256 cellar: :any,                 big_sur:        "6678dc46ef56647bda50597f662541133b5900647d552bb1a93700d57d146d82"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0ddfdfedc0b99c93ef6ed86e8eaf50b54cafa4174a19280fc6259abb0f40225b"
+    sha256 cellar: :any,                 arm64_ventura:  "0936793c8c0e48f4a1c202fa7bdd4424a93324efbe55503585d6451a4eb750ba"
+    sha256 cellar: :any,                 arm64_monterey: "4db38071f6b633ae5ef013e92167e7fb00692546626790ffda803abbfac8ff5d"
+    sha256 cellar: :any,                 arm64_big_sur:  "5fd20bcf7541213a031a3bf1b7c4bc40624f3e2665c1d9881f9859d4bd293e50"
+    sha256 cellar: :any,                 ventura:        "df915b520e833951438dcfe58bfdb1b9fb7aacac2ae047b729e28777fa5c157f"
+    sha256 cellar: :any,                 monterey:       "0adc0b86b2b2ac25f3c115921112225e1c5f80b9051340e6af09f6b8e6d1bdf2"
+    sha256 cellar: :any,                 big_sur:        "559d5e4d35ceb1a841921679ccaf2563f970983684834907cd59c3f167e5db10"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "067ebf3748d1861870929ea220596fe60270445e8d68ea791fa0129507dab861"
   end
 
-  # `pkg-config`, `rust`, and `openssl@1.1` are for cryptography.
+  # `pkg-config`, `rust`, and `openssl@3` are for cryptography.
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
 
   depends_on "cffi"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pycparser"
   depends_on "python@3.11"
   depends_on "pyyaml"
@@ -305,6 +305,10 @@ class Openstackclient < Formula
   end
 
   def install
+    # Ensure that the `openssl` crate picks up the intended library.
+    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+    ENV["OPENSSL_NO_VENDOR"] = "1"
+
     virtualenv_install_with_resources
   end
 

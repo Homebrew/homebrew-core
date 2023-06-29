@@ -2,6 +2,7 @@ class Freetds < Formula
   desc "Libraries to talk to Microsoft SQL Server and Sybase databases"
   homepage "https://www.freetds.org/"
   license "GPL-2.0-or-later"
+  revision 1
 
   stable do
     url "https://www.freetds.org/files/stable/freetds-1.3.18.tar.bz2", using: :homebrew_curl
@@ -20,13 +21,13 @@ class Freetds < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "3121d9240917d0efb691d437cd1973123822b0c0fe4197aa9706622588228835"
-    sha256 arm64_monterey: "d758f502d2ad3fa04e4c247a6f5779d5332c93f4762a50a3168b039b02be99fb"
-    sha256 arm64_big_sur:  "3762aacd59fc01bbe59ffb98fd5cc9ad21c43c26d23e8dd1eb9ac5407eff4845"
-    sha256 ventura:        "c8bdefcb961da3602711376ddc9120b811242a7926d970083da5ee65bedddb32"
-    sha256 monterey:       "0ed2ea919f87a000da663d772ede6fcfa8adf440abd98b202a9ded057d523d74"
-    sha256 big_sur:        "6d5c49c53b46035838353885443eff53021ca3a14860aaad5aec71488b0c83bf"
-    sha256 x86_64_linux:   "f865a612715f8584107360d3c0f30f157c1b4ffb6694e3b321cc95e5975c9f3a"
+    sha256 arm64_ventura:  "401fbc78a90d1ac0f10cd33f3f2e9dd994cb24a8ee3935239c27af169b256c92"
+    sha256 arm64_monterey: "a476ecce2a3cdcdd655170d2384af73ff18c358a4afb8f9ce8a3b06c4006c8b8"
+    sha256 arm64_big_sur:  "d868ad79b732ec26cf234fa55bd5d1575d947b0975ae64e0114179a0fbb42f58"
+    sha256 ventura:        "1ae9e66836c282ef743a2ded9663c950660ede445d7b2884079c3f29d23aeae9"
+    sha256 monterey:       "a34e1b15d64308cf342814dab06b9134c8f020b848be14fe0cef949523c12edc"
+    sha256 big_sur:        "c28a7fa03042955bba685aa60f930f23929f322f87f32ec8453718e41113a139"
+    sha256 x86_64_linux:   "173faab88de808f8b3b517d2d6ac381cddcce95f85abf9bcce80da2bcdcd0188"
   end
 
   head do
@@ -39,7 +40,7 @@ class Freetds < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "unixodbc"
 
   uses_from_macos "krb5"
@@ -55,7 +56,7 @@ class Freetds < Formula
       --mandir=#{man}
       --sysconfdir=#{etc}
       --with-unixodbc=#{Formula["unixodbc"].opt_prefix}
-      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
+      --with-openssl=#{Formula["openssl@3"].opt_prefix}
       --enable-sybase-compat
       --enable-krb5
       --enable-odbc-wide

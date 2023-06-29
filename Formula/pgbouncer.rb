@@ -4,6 +4,7 @@ class Pgbouncer < Formula
   url "https://www.pgbouncer.org/downloads/files/1.19.1/pgbouncer-1.19.1.tar.gz"
   sha256 "58c3eff9bb72c18133b28e1f034fd59356ea76281c65e127432ca101c208a394"
   license "ISC"
+  revision 1
 
   livecheck do
     url "https://www.pgbouncer.org/downloads/"
@@ -11,13 +12,13 @@ class Pgbouncer < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "393523f1924078f921d3f7a29066c3befdc27ed26ed7627302549fcf2ba2ea33"
-    sha256 cellar: :any,                 arm64_monterey: "4b816cd82cedf64c2ed6945bcb49536ac9dae107b90fa56d076b7a282ac5ebe5"
-    sha256 cellar: :any,                 arm64_big_sur:  "2605e300ce077a27a10ada91b860be3e48c2a107509f82683dab264e0190f917"
-    sha256 cellar: :any,                 ventura:        "d2b6e4f6fe104b37e3f21104479849b24937e8a25f88ff27d46aca65f1cb2535"
-    sha256 cellar: :any,                 monterey:       "47f61475dc86a232d2e3625774ea36e1e8f6d4cd040ce65ee3d7435eea4cb93d"
-    sha256 cellar: :any,                 big_sur:        "6045d6c8033af6892a212e91048c9ffc246130efec6e6fd5e89663fc65f98df5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "82dea8700a650af2016ab7cc5213fef97419936b257542b5a219ed59d16c4608"
+    sha256 cellar: :any,                 arm64_ventura:  "c83918bfdc2f4417c2fbf800559e6df5021dda36eae3053cf9adcf4c619b813c"
+    sha256 cellar: :any,                 arm64_monterey: "278ce6acdea42a0dd938f94f782371f145c2ab9d05adcee8a286523380bba002"
+    sha256 cellar: :any,                 arm64_big_sur:  "4ff5a127cee4cf8486de2781f092bc1c496db3cb54ee1048b8158944199a34cb"
+    sha256 cellar: :any,                 ventura:        "aa158ba4b6b88c41565413707557ba0b5beccdf1cf5afb709868c082e6b0922a"
+    sha256 cellar: :any,                 monterey:       "887fffbd48391fc40335fb5a550a54d3d70077611e48c7f8fe26f990fec9c7b8"
+    sha256 cellar: :any,                 big_sur:        "aa4c4fc052f4b90c64a10df4c57edaab4131aa96ae29724f297976713a623d08"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fbb0ca0c629314580e52f69aeb73eed423fc6e557b217ae75ee040e7581a76e7"
   end
 
   head do
@@ -31,7 +32,7 @@ class Pgbouncer < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libevent"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     system "./autogen.sh" if build.head?

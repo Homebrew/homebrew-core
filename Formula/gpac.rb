@@ -12,20 +12,21 @@ class Gpac < Formula
   url "https://github.com/gpac/gpac/archive/v2.2.1.tar.gz"
   sha256 "8173ecc4143631d7f2c59f77e1144b429ccadb8de0d53a4e254389fb5948d8b8"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://github.com/gpac/gpac.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "84caaba4b33c8046f76ae2cf6ab1bd0369a2bc041c6463e6c86850d1a153fca9"
-    sha256 cellar: :any,                 arm64_monterey: "0252eb68072e6dd72b49ea34d9792b8f34d2b587ac65ee9aa9308dcd0b1b11d7"
-    sha256 cellar: :any,                 arm64_big_sur:  "3f9fc83da06d66afb107b43961830acbbb804b64877d294c6dd70418b0a02dff"
-    sha256 cellar: :any,                 ventura:        "3a63967e6126113d72426837783a78cdd58b0032cb1cf53d1c524d43988fdad3"
-    sha256 cellar: :any,                 monterey:       "c7d10218587a68a9fa3bcfcc59be3925eb37b44fc50c0fada4dc696033f70f6c"
-    sha256 cellar: :any,                 big_sur:        "b5c86134beff39a6899305c4afb3bc9ebe1b64ec4453fec75e0ab4753da3c331"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8b39ea72001336daba7879374298eec1c9efefa6ca7ba1e7ee45b624b6464233"
+    sha256 cellar: :any,                 arm64_ventura:  "a84de69ae0466a5dbd0ac4b72467f8c5b3c014f7f1dd28f7d0f92ebd0b9d5d08"
+    sha256 cellar: :any,                 arm64_monterey: "726e848f614718e84bdb1334a728bef9a3223a2988796f375fcac990c2984752"
+    sha256 cellar: :any,                 arm64_big_sur:  "6922542eff06034e5c339e3024d4dfe5b7777fe45b2974c8fc27933d8a53c3f1"
+    sha256 cellar: :any,                 ventura:        "39aad91d3b061ddfcfea25275ec4424b1ef7587c96d4d5b983dbde3432648ab9"
+    sha256 cellar: :any,                 monterey:       "2471afe10295b7c46c43f1d96cfb138ad0aafe151e434b15c429388ea996141f"
+    sha256 cellar: :any,                 big_sur:        "0ef3b2c3a0fcb8b1d6c0b180a1115258464b9c6117f5c047b5aca776244301b4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "16457bcbb191b392f7511ccacfa7cdb83499bbdaff5b1bd34fa68d9f28737d16"
   end
 
   depends_on "pkg-config" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "zlib"
 

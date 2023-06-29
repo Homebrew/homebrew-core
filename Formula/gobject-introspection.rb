@@ -29,11 +29,6 @@ class GobjectIntrospection < Formula
   uses_from_macos "flex" => :build
   uses_from_macos "libffi", since: :catalina
 
-  resource "homebrew-tutorial" do
-    url "https://gist.github.com/7a0023656ccfe309337a.git",
-        revision: "499ac89f8a9ad17d250e907f74912159ea216416"
-  end
-
   # Fix library search path on non-/usr/local installs (e.g. Apple Silicon)
   # See: https://github.com/Homebrew/homebrew-core/issues/75020
   #      https://gitlab.gnome.org/GNOME/gobject-introspection/-/merge_requests/273
@@ -44,10 +39,6 @@ class GobjectIntrospection < Formula
 
   def install
     python3 = "python3.11"
-
-    # Allow scripts to find "python3" during build if Python formula is altinstall'ed
-    pyver = Language::Python.major_minor_version python3
-    ENV.prepend_path "PATH", Formula["python@#{pyver}"].opt_libexec/"bin"
 
     ENV["GI_SCANNER_DISABLE_CACHE"] = "true"
     inreplace "giscanner/transformer.py", "/usr/share", "#{HOMEBREW_PREFIX}/share"
@@ -65,6 +56,11 @@ class GobjectIntrospection < Formula
   end
 
   test do
+    resource "homebrew-tutorial" do
+      url "https://gist.github.com/tdsmith/7a0023656ccfe309337a.git",
+          revision: "499ac89f8a9ad17d250e907f74912159ea216416"
+    end
+
     resource("homebrew-tutorial").stage testpath
     system "make"
     assert_predicate testpath/"Tut-0.1.typelib", :exist?

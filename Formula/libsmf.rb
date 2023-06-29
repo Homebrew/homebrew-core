@@ -22,7 +22,7 @@ class Libsmf < Formula
 
   # Linked development repo is gone: https://github.com/nilsgey/libsmf
   # Potential alt repo has no activity: https://github.com/stump/libsmf
-  deprecate! date: "2022-04-02", because: :unmaintained
+  disable! date: "2023-06-19", because: :unmaintained
 
   # Added automake as a build dependency to update config files for ARM support.
   # Issue ref in alt repo: https://github.com/stump/libsmf/issues/10

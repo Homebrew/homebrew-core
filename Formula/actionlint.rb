@@ -1,30 +1,22 @@
 class Actionlint < Formula
   desc "Static checker for GitHub Actions workflow files"
   homepage "https://rhysd.github.io/actionlint/"
-  url "https://github.com/rhysd/actionlint/archive/v1.6.24.tar.gz"
-  sha256 "0dc8b31c8541a719486b5678e6f0401c8c13ce7baf79013570f3799f380c1dc1"
+  url "https://github.com/rhysd/actionlint/archive/v1.6.25.tar.gz"
+  sha256 "7592aaddc49146b15a9822e97d90d917a1bd8ca33a4fb71cd98ef8c8c06eb3cf"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3889ec9044a69b18fa9d61fa371cbff4438ec7c095db01ba476b73261e5f7fb9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3889ec9044a69b18fa9d61fa371cbff4438ec7c095db01ba476b73261e5f7fb9"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3889ec9044a69b18fa9d61fa371cbff4438ec7c095db01ba476b73261e5f7fb9"
-    sha256 cellar: :any_skip_relocation, ventura:        "0ce064aabda0438f12fd4b8dbc54b287286f70a09abed2d5067aad3a06feda58"
-    sha256 cellar: :any_skip_relocation, monterey:       "0ce064aabda0438f12fd4b8dbc54b287286f70a09abed2d5067aad3a06feda58"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0ce064aabda0438f12fd4b8dbc54b287286f70a09abed2d5067aad3a06feda58"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e9d2dbe78ce86aa3896945ed42f5db165fbcb4a29a13bf72db4e1b9fd300c9da"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4a623d1bf1fb7f5dfb2ee2882d40bee9f57124c3d8d91752aedb7b05eae9bf65"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4a623d1bf1fb7f5dfb2ee2882d40bee9f57124c3d8d91752aedb7b05eae9bf65"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4a623d1bf1fb7f5dfb2ee2882d40bee9f57124c3d8d91752aedb7b05eae9bf65"
+    sha256 cellar: :any_skip_relocation, ventura:        "b7e373f09ff18c1aee35403a6618030ccca7239206e9600db62a997cc269fc12"
+    sha256 cellar: :any_skip_relocation, monterey:       "b7e373f09ff18c1aee35403a6618030ccca7239206e9600db62a997cc269fc12"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b7e373f09ff18c1aee35403a6618030ccca7239206e9600db62a997cc269fc12"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a8d0dc4c6ce196df503d737db4c1986c31bd9d13f834797d113c00313f13bbeb"
   end
 
   depends_on "go" => :build
   depends_on "ronn" => :build
-
-  # Support macos-13 GitHub-hosted runners.
-  # Remove at next release.
-  patch do
-    url "https://github.com/rhysd/actionlint/commit/7aab63e3872d169984ad86d10db293355f24fb7b.patch?full_index=1"
-    sha256 "b54f30a848db091915008abd435fa36c1b73e087a85b9a90ba358243afa6ad6f"
-  end
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w -X github.com/rhysd/actionlint.version=#{version}"), "./cmd/actionlint"

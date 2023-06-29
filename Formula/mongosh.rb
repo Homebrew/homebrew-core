@@ -3,18 +3,18 @@ require "language/node"
 class Mongosh < Formula
   desc "MongoDB Shell to connect, configure, query, and work with your MongoDB database"
   homepage "https://github.com/mongodb-js/mongosh#readme"
-  url "https://registry.npmjs.org/@mongosh/cli-repl/-/cli-repl-1.9.1.tgz"
-  sha256 "f7cc6072eb17b72fc0cdb59a4e2afde60a907dc6ee28a0712915ba7dfe5390f4"
+  url "https://registry.npmjs.org/@mongosh/cli-repl/-/cli-repl-1.10.1.tgz"
+  sha256 "1676f3180d0f6d9270c1f8bc44a4e40182731d5718cf3ab1adcf27d26fadbc45"
   license "Apache-2.0"
 
   bottle do
-    sha256                               arm64_ventura:  "204d04c37fffe41d9a3923493bd1593aec8d7a8ee6a1797dc891b06a5d8a9a73"
-    sha256                               arm64_monterey: "30817d635f16be7e5ced8a4de9e1d78d47529749aba0d85a0a1a09d5ebc80225"
-    sha256                               arm64_big_sur:  "0927a32e9844daa9f6e089949d6a9531f5160ec28808ad6c94c9f28488ae5161"
-    sha256                               ventura:        "d6a3f8f365c1ad5254fe6466fc8d67cfc5d68d25a27014f9a5d3bff67b445cdf"
-    sha256                               monterey:       "49bad5119145ce0f703d41ce81a425c1a2a71a848c10c00511b27d66c546c4fb"
-    sha256                               big_sur:        "1c84b75cbc32e96828d772dcd827e24417de7c1c2405a0d1729372da50d328b7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f646e61c0c9296a9455d79dab5d4677f29c046e2cc62f077d2fbc7a903ba00e6"
+    sha256                               arm64_ventura:  "2752d76ab512cd64c353853f8c9002893c11dd2c07487bce86580ba9fc0b4b7a"
+    sha256                               arm64_monterey: "1fb13d6065713b5088b091c9dc0ed5530901fa8e8df1544282a7a481497cd001"
+    sha256                               arm64_big_sur:  "cbfaecdae242ec69ab71b3dcd5e034f8206eec89531134e00bcc7da46fdf42c8"
+    sha256                               ventura:        "3a301f8342bc74c4be4745ffe932f37497858e06da002540c4be08b9f6679c42"
+    sha256                               monterey:       "7255c4a78d0c80d82689ef47c837e17131d1ed11327d2415fefee485920a278f"
+    sha256                               big_sur:        "6cb76ea8a325606aa2ca45a15b5924d8d319a18d448eb3434ac1857810c57dc9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6f2f5f02b1a77a56ed3b63b5c449defb0a38509c2299336840fd5834805eb07f"
   end
 
   depends_on "node@16"

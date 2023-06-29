@@ -195,10 +195,15 @@ jobs:
           pull_number="$(gh pr list --head "$REPLACEMENT_BRANCH" --limit 1 --json number --jq '.[].number')"
           echo "pull_number=$pull_number" >> "$GITHUB_OUTPUT"
 
-      - name: Label PR
+      - name: Label replaced PR
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: gh pr edit --add-label automerge-skip --add-label superseded "$PR"
+
+      - name: Mark replaced PR as draft
+        env: # We need a PAT here. https://github.com/github/docs/issues/8925#issuecomment-970255180
+          GH_TOKEN: ${{ secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN  }}
+        run: gh pr ready --undo "$PR"
 
       - name: Post comment on success
         uses: Homebrew/actions/post-comment@master

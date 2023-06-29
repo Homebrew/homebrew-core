@@ -7,15 +7,16 @@ class Afflib < Formula
     "BSD-4-Clause", # AFFLIB 2.0a14 and before
     :public_domain, # contributions after 2.0a14
   ]
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "025c582f57102d59d8db4620a5107ec9f32b9ef260f8ad86ac507e175a240ccc"
-    sha256 cellar: :any,                 arm64_monterey: "b2b40e3adb07e9e900d388fd9bca24b40a9c53b9f78212fc6453b7bf220b61ea"
-    sha256 cellar: :any,                 arm64_big_sur:  "3c0ea59617618dcac80354ca75cd901e5d938fd29419105a491d72d0dc455d2c"
-    sha256 cellar: :any,                 ventura:        "6743bd1cf85500b947f145553c8b6c79c618a4f6e76c56d472874d20d7ace8be"
-    sha256 cellar: :any,                 monterey:       "16198534f0890d68d6bd0b311f7078d4b9075cabc578c1ed379c3b95cea81126"
-    sha256 cellar: :any,                 big_sur:        "38d2a76e3811b6d244c35521c858f17071f1ce6c9ba9725bb6a2c5125b6d3c9a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e314fc4730bd8cd0beadab1a6b2c8bc1745ec24d9ce4cad4d13d72427d307455"
+    sha256 cellar: :any,                 arm64_ventura:  "f70b99a2dcbbe6f02f8e68947a66d5b6135ff312bd68e615a2d563a6024fa762"
+    sha256 cellar: :any,                 arm64_monterey: "810fa90bb97749a60f9afb2d641a09e6c7fbe81ce2c43c70a492f2e0b94baa95"
+    sha256 cellar: :any,                 arm64_big_sur:  "1883e6f1b7f31b0ec70008ab32333096a354b3a39e149b7477f1f41311956bab"
+    sha256 cellar: :any,                 ventura:        "e589fede26d18a7da57dc67da470a821a91753235868504d7c780e569c8a49cd"
+    sha256 cellar: :any,                 monterey:       "29e8f49a180d936652393aad1e21f1f2e3f813653c7df91efcf8e5b39d31a625"
+    sha256 cellar: :any,                 big_sur:        "aecd70af3a64d7d8bb2f54a4b02066e4e85b292b3b4c83aaa0ebd3ee59231f5a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "264f0c1e8fc945963dc1654e68e6d6b99575fb85ddc3ff2d15b7597ee1a9417e"
   end
 
   depends_on "autoconf" => :build
@@ -23,7 +24,7 @@ class Afflib < Formula
   depends_on "libcython" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "python@3.11"
 
   uses_from_macos "curl"

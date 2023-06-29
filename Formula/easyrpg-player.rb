@@ -4,20 +4,20 @@ class EasyrpgPlayer < Formula
   url "https://easyrpg.org/downloads/player/0.8/easyrpg-player-0.8.tar.xz"
   sha256 "06e6d034348d1c52993d0be6b88fc3502a6c7718e366f691401539d5a2195c79"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://github.com/EasyRPG/Player.git"
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "211cdf871015b27028a3e529c7a62372635f8c19d5576ebb93161f4f33bc256d"
-    sha256 cellar: :any,                 arm64_monterey: "e3c8fe6e68be9bcc9e815c2d759f06e5c08cc6618db4671dfe4a00ecc0e5c936"
-    sha256 cellar: :any,                 arm64_big_sur:  "be3604be94cc274440edc142fd5cbd28d7e30aa9edd1364db945e9d88d9929b1"
-    sha256 cellar: :any,                 ventura:        "487d26e8b005fa4b49fa879cf5297ed81861c77a67f4dcd59819e5f832da9295"
-    sha256 cellar: :any,                 monterey:       "9b1507d2f09cfcc05d08dcbc10e6d392dcc27022576c932f6770bfad46874c47"
-    sha256 cellar: :any,                 big_sur:        "880a9a9fc46fb654bb8441cfe5483eb68efaeaa3a74ea01596f713e94da0acdb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "18942ef036e807ead1afa3071d4e2affa538948d6efcac46240a4c2ad2a6f6e9"
+    sha256 cellar: :any,                 arm64_ventura:  "b1f816ed8d4291b0f4400a19cf831fe098eaf58fc0d52d7cef88e565e321f61d"
+    sha256 cellar: :any,                 arm64_monterey: "4c9cbce83ebf39769b0a51e7a27dd0aba437f0a3979e8784485aae60c215b88c"
+    sha256 cellar: :any,                 arm64_big_sur:  "932a5158ea1f97f7067a896ac40592e466cc0a99d648c0724c21e6f2ffe743d0"
+    sha256 cellar: :any,                 ventura:        "4ff38fabee40fa3a6bfe498e7ec4db7d4f0b2a90c310ef1946f0de8c6dc12d86"
+    sha256 cellar: :any,                 monterey:       "ac2bb22fcfd1dc9691d145ea40611ba63c57e110781d9219def898cda1789f05"
+    sha256 cellar: :any,                 big_sur:        "b9b53f93b5623eea5ef7c2437fdd4325f9792d42abf2a6b7309c44c85dee74da"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1563c44b8f1fefdc027943c24787ad5600c94400a8bd8c5d4c38b6560bb137c2"
   end
 
   depends_on "cmake" => :build

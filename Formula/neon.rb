@@ -5,6 +5,7 @@ class Neon < Formula
   mirror "https://fossies.org/linux/www/neon-0.32.5.tar.gz"
   sha256 "4872e12f802572dedd4b02f870065814b2d5141f7dbdaf708eedab826b51a58a"
   license "LGPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :homepage
@@ -12,18 +13,18 @@ class Neon < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "917c81b362e5302ac4e01ee49ecc0eb2fdc3cce6e31dcff7cbdaaba941b11153"
-    sha256 cellar: :any,                 arm64_monterey: "027ba3480af2d28fd16cff3ee115b47342e35ff6c6fe04c9d7f1c4b468314659"
-    sha256 cellar: :any,                 arm64_big_sur:  "c74061ffaf150d29cff6bfb67d5f22c217e5a0b590be3883c98e4dbfea454920"
-    sha256 cellar: :any,                 ventura:        "8235113576b3be4c86963ee69125ad9a8aed3128f4150ce2a1a1174992c2d6af"
-    sha256 cellar: :any,                 monterey:       "76f1b4ccacd4c9bea1d4019872389e9797510fab82b5d37baf5e7f4d3cc92b73"
-    sha256 cellar: :any,                 big_sur:        "ed1ed921e26e050aa439b491c1a95a0052ce1de21043c1908c820c77bce2aae2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7889bddb775368d35458c31a88c135a279894fd73a194edf492fe0f3965dbec9"
+    sha256 cellar: :any,                 arm64_ventura:  "067c2328e9be5322fd20c7d42737feaca1a5709bbfcededb555581d7dde1c244"
+    sha256 cellar: :any,                 arm64_monterey: "8553df4ae9d74929e324042df5438a1b147f7690e22f9a4e81d7b2f436c3c546"
+    sha256 cellar: :any,                 arm64_big_sur:  "a3f8ec3228b44953f7ef33ea81ecdb5f8d2e69584e4cd3979af449f3afa178f4"
+    sha256 cellar: :any,                 ventura:        "7c678c5230ee94f52200648cde8cdb076120df15ab48a2c02d1a7d1445f3e0b9"
+    sha256 cellar: :any,                 monterey:       "fe2ed998931a1293944b258e9330aa5497ddccdeb8c08321937bfc1e32fdc4dc"
+    sha256 cellar: :any,                 big_sur:        "08657cfdbcd1a1fb1d1cfc1d2a51ae85071a5456f99bc2e57f238cf86565670f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bd85b0bd8ae4c89bf4b4d34ca44166992cbb650e20b22622a574f6cf7ce38943"
   end
 
   depends_on "pkg-config" => :build
   depends_on "xmlto" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "libxml2"
 
@@ -38,7 +39,7 @@ class Neon < Formula
                           "--disable-static",
                           "--disable-nls",
                           "--with-ssl=openssl",
-                          "--with-libs=#{Formula["openssl@1.1"].opt_prefix}"
+                          "--with-libs=#{Formula["openssl@3"].opt_prefix}"
     system "make", "install"
   end
 end

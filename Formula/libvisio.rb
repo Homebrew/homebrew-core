@@ -4,7 +4,7 @@ class Libvisio < Formula
   url "https://dev-www.libreoffice.org/src/libvisio/libvisio-0.1.7.tar.xz"
   sha256 "8faf8df870cb27b09a787a1959d6c646faa44d0d8ab151883df408b7166bea4c"
   license "MPL-2.0"
-  revision 7
+  revision 8
 
   livecheck do
     url "https://dev-www.libreoffice.org/src/"
@@ -12,13 +12,13 @@ class Libvisio < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "f94711a3b33d83eddf05c3cbe8eea0d2a6afac3b7306658c336b744df029d1ee"
-    sha256 cellar: :any,                 arm64_monterey: "d6ef766bf3c121d58a6194476d823fd9bfc90561eb21b61899cd4c3ac27f70e6"
-    sha256 cellar: :any,                 arm64_big_sur:  "8820ff95b0aa4116850ef496a48c90bf69f28530947c415a1bb6c7be6b618bfd"
-    sha256 cellar: :any,                 ventura:        "3ab21490d5f4cd061d6007ed81a520ca3a8230e5562e354e6087ae1a0e0f4972"
-    sha256 cellar: :any,                 monterey:       "8de26cd2912b71933a18250e906a002fe68b6454dc61673b02ace0d5e3d1853e"
-    sha256 cellar: :any,                 big_sur:        "6759744fff649e44a3779347dd16510cc71d6afcb6e2a67f2447c2629e763fcf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "82e1fe6538a4513b666871e69ba62cf390916dd8e5f66284a5bbf8c31b15f776"
+    sha256 cellar: :any,                 arm64_ventura:  "e9c402292b9fbdf9ff47e39afbd1fe979648dd0b1ea930a151c6625a32711590"
+    sha256 cellar: :any,                 arm64_monterey: "c0367e8d9d93e5958a61a5afdd3a637c9cf78165eb311116e27c99f27af9df3f"
+    sha256 cellar: :any,                 arm64_big_sur:  "3a5903295d31adcea271eb795325b277e1c72caee3e5507a72e0c9105c0a207d"
+    sha256 cellar: :any,                 ventura:        "a069a1f73e0935188c0eb65a8a54162463d631411103088e751a50005d4f2450"
+    sha256 cellar: :any,                 monterey:       "0524e13f8e95af1ba8f030d932a126f9803fef489b2010e751a8b1480aaef8b3"
+    sha256 cellar: :any,                 big_sur:        "8541e46ff41dd1d7cec5a8807d136edcd4a7dbd4efdc419d4e1d67c67701ea9b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a9c9445d29af37557973bc87987a09eff567e354f818727e928674cacc58f462"
   end
 
   depends_on "cppunit" => :build

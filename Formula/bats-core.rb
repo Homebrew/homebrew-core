@@ -13,8 +13,6 @@ class BatsCore < Formula
 
   uses_from_macos "bc" => :test
 
-  conflicts_with "bats", because: "both install `bats` executables"
-
   def install
     system "./install.sh", prefix
   end

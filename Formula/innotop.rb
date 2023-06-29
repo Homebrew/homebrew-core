@@ -4,22 +4,21 @@ class Innotop < Formula
   url "https://github.com/innotop/innotop/archive/v1.13.0.tar.gz"
   sha256 "6ec91568e32bda3126661523d9917c7fbbd4b9f85db79224c01b2a740727a65c"
   license any_of: ["GPL-2.0-only", "Artistic-1.0-Perl"]
-  revision 3
+  revision 4
   head "https://github.com/innotop/innotop.git"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "514880fb1328de2d2aa76e929e5059c014aeee67b1355a35c04c85897d5feb38"
-    sha256 cellar: :any,                 arm64_monterey: "750258fa6cdba7d0c1f5b1c63c6f7147b71fd0c011143ac4aaf0e79de9a3db81"
-    sha256 cellar: :any,                 arm64_big_sur:  "3afc923395e6a125d9935d135b94b733512645155cd25f366a70b1f7e542b430"
-    sha256 cellar: :any,                 ventura:        "5580dfd4ea884c197b54a07a7f8c3a80b10d5864e8c1950c71cf0e84e88c8e19"
-    sha256 cellar: :any,                 monterey:       "cca41045f9fd17f918ddd019e901ccdf7378af84432569678de80a2f20a78a6c"
-    sha256 cellar: :any,                 big_sur:        "80dd83b847117c4134cfe92cbea270feab5d982cacf02589bdbe968c358d6998"
-    sha256 cellar: :any,                 catalina:       "37d9c2e484c05d25308a5868af10f09d8dc7641ca88b8fa68ca2d3372f1c1545"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3cee83a61c30303263741258a618a9e7ae45c7737c9a54ab2bed264a031cfaae"
+    sha256 cellar: :any,                 arm64_ventura:  "068773ea3da98de5fe42044cc0520afdddedfa7c84fb5e62108b1720b9c20248"
+    sha256 cellar: :any,                 arm64_monterey: "77425886a3180aa4b961083035c3e6425d85dbfb387bdf569f0573120ea34943"
+    sha256 cellar: :any,                 arm64_big_sur:  "278185fd679a22585d66d86d28e08db84bd49ddb720c070826b25588dd4aeb6b"
+    sha256 cellar: :any,                 ventura:        "e7234b7ec0b3464de544936ab873a2370c862cb84a4cc97263e7f20187aa7585"
+    sha256 cellar: :any,                 monterey:       "af869d75e218b48c71d8cf9f7ed87b9298776fdd17dfa0586f890d3610e45e45"
+    sha256 cellar: :any,                 big_sur:        "60a364a7d80d3918c6d8b52ceeb4fa78bcfe84c200dc8705a8c756b32b8f2a4f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bb2cb1f63384bafc63123f727a97a9dc5ab18d4c17814b94050d1f698795c187"
   end
 
   depends_on "mysql-client"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "perl"
 

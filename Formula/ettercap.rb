@@ -1,21 +1,30 @@
 class Ettercap < Formula
   desc "Multipurpose sniffer/interceptor/logger for switched LAN"
   homepage "https://ettercap.github.io/ettercap/"
-  url "https://github.com/Ettercap/ettercap/archive/v0.8.3.1.tar.gz"
-  sha256 "d0c3ef88dfc284b61d3d5b64d946c1160fd04276b448519c1ae4438a9cdffaf3"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/Ettercap/ettercap.git", branch: "master"
 
+  stable do
+    url "https://github.com/Ettercap/ettercap/archive/v0.8.3.1.tar.gz"
+    sha256 "d0c3ef88dfc284b61d3d5b64d946c1160fd04276b448519c1ae4438a9cdffaf3"
+
+    # Fix build for curl 8+
+    # https://github.com/Ettercap/ettercap/pull/1221
+    patch do
+      url "https://github.com/Ettercap/ettercap/commit/40534662043b7d831d1f6c70448afa9d374a9b63.patch?full_index=1"
+      sha256 "ac9edbd2f5d2e809835f8b111a7f20000ffab0efca2d6f17f4b199bb325009b1"
+    end
+  end
+
   bottle do
-    rebuild 2
-    sha256 arm64_ventura:  "87b67c058007a59b34b32c92da3cdfb7294ac7be8923534bceb411d30b227dec"
-    sha256 arm64_monterey: "a8532b43e6d6c1bed08ae62506ad32d75bbd39da7c7fcdfde1cbcf758717b932"
-    sha256 arm64_big_sur:  "581fbb637481f46c59b355f5bbde58a2d25da7e3f22ec9e07edab8f3a6c54999"
-    sha256 ventura:        "8c8de40b7dfad93f90e9212008b9cf282bffc8044a2c2bf47fbdf94a38ed16cf"
-    sha256 monterey:       "46f9eae5abfe8bb43e56cb0d333de5304911229b003e19fd495a5394383ce340"
-    sha256 big_sur:        "bc9dd754581b99d9f86a98e6ac5844fe41ba0ac017cc16086c39168efc2f1859"
-    sha256 catalina:       "a131e2c7a6d1360ce74ed8f91abe43b92f2b1bcf843bfcddca8bef01dea97c6f"
-    sha256 x86_64_linux:   "46e8ef6cfe822480232a0218a1d563086bb6df3cf4f7c71fa1edad9cde0bbf9f"
+    sha256 arm64_ventura:  "d05ff28b40d013049ecd4561053b6109380b3ac508d8569238cd14daf5dc34bb"
+    sha256 arm64_monterey: "1ee92f370378dcbdeba399e2c5dee7505bc99d607adc9bd7a6a60198c688973f"
+    sha256 arm64_big_sur:  "30ca037f9002b6848905612870fd5e1697dfcce1362408c032376c4c0646e957"
+    sha256 ventura:        "37664fbe01b8878e9ea3ebe5eff196e20fe4ab66dff3717c3e1ac60026e9ab8a"
+    sha256 monterey:       "35d3bc9c62448f484d4689845ad5644e752486e70aecba0bc1a40bd63d68a052"
+    sha256 big_sur:        "a9f6669b6a8374a1c2ef82237bb4ca25419550cce6a18098776b355a8223cbbb"
+    sha256 x86_64_linux:   "6e7f045902aadfd09135dfeb6937876c1932b42505baafb7a5c8d9f9f355bb6e"
   end
 
   depends_on "cmake" => :build
@@ -23,11 +32,12 @@ class Ettercap < Formula
   depends_on "gtk+3"
   depends_on "libnet"
   depends_on "ncurses" if DevelopmentTools.clang_build_version >= 1000
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pcre"
 
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
   uses_from_macos "curl"
-  uses_from_macos "flex"
   uses_from_macos "libpcap"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
@@ -37,10 +47,7 @@ class Ettercap < Formula
     # https://gitlab.kitware.com/cmake/cmake/issues/19531
     ENV.append_to_cflags "-I#{Formula["harfbuzz"].opt_include}/harfbuzz"
 
-    # Fix build error on wdg_file.c: fatal error: menu.h: No such file or directory
-    ENV.append_to_cflags "-I#{Formula["ncurses"].opt_include}/ncursesw" if OS.linux?
-
-    args = std_cmake_args + %W[
+    args = %W[
       -DBUNDLED_LIBS=OFF
       -DCMAKE_INSTALL_RPATH=#{rpath}
       -DENABLE_CURSES=ON
@@ -54,12 +61,16 @@ class Ettercap < Formula
       -DINSTALL_DESKTOP=ON
       -DINSTALL_SYSCONFDIR=#{etc}
     ]
-    args << "-DPOLKIT_DIR=#{share}/polkit-1/actions/" if OS.linux?
 
-    mkdir "build" do
-      system "cmake", "..", *args
-      system "make", "install"
+    if OS.linux?
+      # Fix build error on wdg_file.c: fatal error: menu.h: No such file or directory
+      ENV.append_to_cflags "-I#{Formula["ncurses"].opt_include}/ncursesw"
+      args << "-DPOLKIT_DIR=#{share}/polkit-1/actions/"
     end
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

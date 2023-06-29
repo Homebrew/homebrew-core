@@ -6,6 +6,7 @@ class Mosquitto < Formula
   # dual-licensed under EPL-1.0 and EDL-1.0 (Eclipse Distribution License v1.0),
   # EDL-1.0 is not in the SPDX list
   license "EPL-1.0"
+  revision 1
 
   livecheck do
     url "https://mosquitto.org/download/"
@@ -13,21 +14,20 @@ class Mosquitto < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "55a97afb21986bd6c3f13d07678278f6f7defe63b660eca4161e84045b4c9c08"
-    sha256 arm64_monterey: "f14f8cc7ed101e7422f0f9d24e79d18061bf71e28fbdb85d30bb3b7fcc3e8ab8"
-    sha256 arm64_big_sur:  "e650529e5ae101a0d9f27535b1fcdc9fc8987b53b59e6e9589062b36e17212b7"
-    sha256 ventura:        "8ac3eac2e01fed16625456843f6269839abce545a7055289d401b25723f96f11"
-    sha256 monterey:       "3d0a5aef85420aae906b0b0eb5c112c27af783c87d80a51ccdddfeeaa4daf386"
-    sha256 big_sur:        "530901fe4e49c78bdb19b515044bf42b3347a6b4a51306a39c797fa43a2304dc"
-    sha256 catalina:       "ce1a1c006b2b83759fd5537d9300d4ffd30d4e2b379e26af94c26594bbafa9b1"
-    sha256 x86_64_linux:   "11d51e10b009e0d087595a15e69896778c17634d91b5f3de97ab6862ef5c791b"
+    sha256 arm64_ventura:  "11d453a758710e8bab026178dacce23bf9585df446beba8ad130159a5bbefc6c"
+    sha256 arm64_monterey: "6c04405cb9719bc16b60fc10aac9ae3aa4394cea6a3e59f06b1f5999b66f4909"
+    sha256 arm64_big_sur:  "1eca680ea93f7023cb3b94a906bbc612536a57810021ea5e27ee60a178a8f07d"
+    sha256 ventura:        "42ce86124cf4eca533db7615e47fb568392d3078af9a6efbda3e2883b193d93e"
+    sha256 monterey:       "9d996c8555a24dbda8786a9d094142a7f245aa7e6563c26e50c6b757be8cd396"
+    sha256 big_sur:        "1baedd5c20794771215a66f5708038a495d724ce8192ffe8fbdaf56bf64c3119"
+    sha256 x86_64_linux:   "ce4e52637ec2ec0fe38afa6388375fba7122a788e6433f039c7354c047bd72e7"
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "cjson"
   depends_on "libwebsockets"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "libxslt" => :build
 

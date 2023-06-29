@@ -4,6 +4,7 @@ class Megatools < Formula
   url "https://megatools.megous.com/builds/megatools-1.11.1.20230212.tar.gz"
   sha256 "ecfa2ee4b277c601ebae648287311030aa4ca73ea61ee730bc66bef24ef19a34"
   license "GPL-2.0-or-later" => { with: "openvpn-openssl-exception" }
+  revision 1
 
   livecheck do
     url "https://megatools.megous.com/builds/"
@@ -11,13 +12,13 @@ class Megatools < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "943c952479691970d4c07445a765381ef52e292a012186d4bd5b8b08c645fe4f"
-    sha256 cellar: :any, arm64_monterey: "ace9b475abb6e2df78ecfe570c98fec1aea7fd69e5556c551ebbf90342bea8b9"
-    sha256 cellar: :any, arm64_big_sur:  "73cdf41d3408493def73830a9d2a9f1237c5d93e49f063cd3f99309c526f6a4e"
-    sha256 cellar: :any, ventura:        "96a02a5b0ba2ff0fecf22246fc6177e1b7493e33dfb75dce956265a976d63a99"
-    sha256 cellar: :any, monterey:       "f9e7839248bbefebb92d4a961c770086b02153af7e6003d4986f87d249274283"
-    sha256 cellar: :any, big_sur:        "2190ec3f169a34c4512065127a55b34559f74d203319f1d8c1b0a2ec40525373"
-    sha256               x86_64_linux:   "c85df3ea20eb762cb58d3f7be35f49d38d6c787c7c123699d925aaa64488a536"
+    sha256 cellar: :any, arm64_ventura:  "8a544fd3800af543d1928e51ce2406ef64d67e939bdf57b85cc79ebedd913d25"
+    sha256 cellar: :any, arm64_monterey: "a74d719b8acca7b739308db2128e7d2641da8c42f38f7a9581c382b04bd19677"
+    sha256 cellar: :any, arm64_big_sur:  "1317cfb8187d51dcf9f7b006a2ee45e1420786ad8a816c5a0b6726189d4aea93"
+    sha256 cellar: :any, ventura:        "41fb9f67d057d8d34c121d23bc4fbcd8245cd0fa2c2cb26b069db0782f761e7b"
+    sha256 cellar: :any, monterey:       "128619776dc719c748b2488c9f731b941cc11b105d8616abc4339160e02c28e6"
+    sha256 cellar: :any, big_sur:        "329cfe785998411d902b0775f4144ad9adfcfd625775ffad3558ed899fe2497c"
+    sha256               x86_64_linux:   "cb6a38119d2342ef36ee09e5b0c1dd98e6156e06aedfb8bb9b11a710678382b0"
   end
 
   depends_on "meson" => :build
@@ -26,7 +27,7 @@ class Megatools < Formula
   depends_on "curl" # curl >= 7.85.0 is required
   depends_on "glib"
   depends_on "glib-networking"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
     mkdir "build" do

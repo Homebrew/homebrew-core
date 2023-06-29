@@ -1,7 +1,7 @@
 class Pywhat < Formula
   include Language::Python::Virtualenv
 
-  desc "🐸 Identify anything: emails, IP addresses, and more 🧙"
+  desc "Identify anything: emails, IP addresses, and more"
   homepage "https://github.com/bee-san/pyWhat"
   url "https://files.pythonhosted.org/packages/ae/31/57bb23df3d3474c1e0a0ae207f8571e763018fa064823310a76758eaef81/pywhat-5.1.0.tar.gz"
   sha256 "8a6f2b3060f5ce9808802b9ca3eaf91e19c932e4eaa03a4c2e5255d0baad85c4"

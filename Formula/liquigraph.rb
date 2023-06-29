@@ -16,7 +16,7 @@ class Liquigraph < Formula
   end
 
   # deprecate in favor of liquibase
-  deprecate! date: "2022-05-08", because: :repo_archived
+  disable! date: "2023-06-19", because: :repo_archived
 
   depends_on "maven" => :build
   depends_on "openjdk@11"

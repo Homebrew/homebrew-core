@@ -6,23 +6,24 @@ class Howdoi < Formula
   url "https://files.pythonhosted.org/packages/6d/43/0e8166583575bd500c0f8f1a4ab9429af9466feb6fcdc006e88de8fd23e9/howdoi-2.0.20.tar.gz"
   sha256 "51cd40c53e0c0f8f8da88f480eb7423183be2350ab4f0a4d9d4763ca6ac3e2a9"
   license "MIT"
+  revision 1
 
   bottle do
-    rebuild 6
-    sha256 cellar: :any,                 arm64_ventura:  "730a9cea3b2e9f1ce24a9187335f58c19b99f8a3c2a3c2f9ba036d248dc9c026"
-    sha256 cellar: :any,                 arm64_monterey: "ff19e41ef8dcc6507e7162a7c2e16b9b4db6d8d1af47731c081652d881e14b4c"
-    sha256 cellar: :any,                 arm64_big_sur:  "ac24f856105472a20c73ac9f9013b2699eb29afd5d42102df5cd3fc6b09ac4ea"
-    sha256 cellar: :any,                 ventura:        "cbf775288a3b94bc460269c5751b460e3df584286b8777812bb17ba578a78cb5"
-    sha256 cellar: :any,                 monterey:       "9b1b7ba1b4b4ea8847d378dbefeedbe86db7830deaac342e366c72ec6be31bfe"
-    sha256 cellar: :any,                 big_sur:        "24afc69bec9c00a1561ea435ed22821dcfc1adbd01e56763021e88241fd87702"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9b9f83b8b32c169345db785e7e40b384d44260992a1aca3236165a65d24eccb8"
+    sha256 cellar: :any,                 arm64_ventura:  "b09ed830b4b7fc20c652208adcf43d5bffba0d5ed38b62d50af50dda15289a37"
+    sha256 cellar: :any,                 arm64_monterey: "d189b03e07a9b9bd064fb04b88c39dc8c18f2b6b7b7701d77d24c2e1a1e07726"
+    sha256 cellar: :any,                 arm64_big_sur:  "3a383fe6aac612582fd56cba2aa5a2692e4ce7dd7f6b80203bfdce2daf2febf8"
+    sha256 cellar: :any,                 ventura:        "d98f9d19beeec1077ffb62da37f15260d2ba9fbdb6da3c8677d60f9246c3d831"
+    sha256 cellar: :any,                 monterey:       "107ae47e27a1246ef9834bb95149e79295e069606ee6341066aaa46e7def762e"
+    sha256 cellar: :any,                 big_sur:        "45465620ff4ed3dc6d1504be26df13a50239cfb3422b9cc6decccc6a39a15693"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "857424b4ff5686139e0a9c85169d4e9d74c12d55b712f7d416c1c00331b2a089"
   end
 
-  # `pkg-config`, `rust`, and `openssl@1.1` are for cryptography.
+  # `pkg-config`, `rust`, and `openssl@3` are for cryptography.
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
-  depends_on "openssl@1.1"
+  depends_on "cffi"
+  depends_on "openssl@3"
   depends_on "pygments"
   depends_on "python@3.11"
   depends_on "six"
@@ -47,11 +48,6 @@ class Howdoi < Formula
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/93/71/752f7a4dd4c20d6b12341ed1732368546bc0ca9866139fe812f6009d9ac7/certifi-2023.5.7.tar.gz"
     sha256 "0f0d56dc5a6ad56fd4ba36484d6cc34451e1c6548c61daad8c320169f91eddc7"
-  end
-
-  resource "cffi" do
-    url "https://files.pythonhosted.org/packages/2b/a8/050ab4f0c3d4c1b8aaa805f70e26e84d0e27004907c5b8ecc1d31815f92a/cffi-1.15.1.tar.gz"
-    sha256 "d400bfb9a37b1351253cb402671cea7e89bdecc294e8016a707f6d1d8ac934f9"
   end
 
   resource "charset-normalizer" do
@@ -109,11 +105,6 @@ class Howdoi < Formula
     sha256 "bb413d29f5eea38f31dd4754dd7377d4465116fb207585f97bf925588687c1ba"
   end
 
-  resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/5e/0b/95d387f5f4433cb0f53ff7ad859bd2c6051051cebbb564f139a999ab46de/pycparser-2.21.tar.gz"
-    sha256 "e644fdec12f7872f86c58ff790da456218b10f863970249516d60a5eaca77206"
-  end
-
   resource "pygithub" do
     url "https://files.pythonhosted.org/packages/ba/9e/7dcb97cb7c4e4656b704ae78ea9c0846d2d8f471a66a495214da586bb593/PyGithub-1.58.2.tar.gz"
     sha256 "1e6b1b7afe31f75151fb81f7ab6b984a7188a852bdb123dbb9ae90023c3ce60f"
@@ -161,7 +152,7 @@ class Howdoi < Formula
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.
-    ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
+    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
     ENV["OPENSSL_NO_VENDOR"] = "1"
 
     virtualenv_install_with_resources

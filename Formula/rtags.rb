@@ -2,7 +2,7 @@ class Rtags < Formula
   desc "Source code cross-referencer like ctags with a clang frontend"
   homepage "https://github.com/Andersbakken/rtags"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/Andersbakken/rtags.git", branch: "master"
 
   stable do
@@ -41,20 +41,19 @@ class Rtags < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "e9fc47c3d077623542bb1d557a1753b218731de369b03417b05c4670c3b0338d"
-    sha256 cellar: :any, arm64_monterey: "3e0a95b35a8a97577ee11285665aafbed32fb82229494d84e87da21bb8789824"
-    sha256 cellar: :any, arm64_big_sur:  "7e06083461f28b2d0bd673f4c8d28f71eee2863c176c1d3a47b32509d648cd23"
-    sha256 cellar: :any, ventura:        "17776de511c8f419106f1542bdc8973910863dd0b95873133028a8178afdd1f7"
-    sha256 cellar: :any, monterey:       "a66d7e8df584032fe4ab59c7bfa2f151ad417d5f764b0af898ee772361a2b27f"
-    sha256 cellar: :any, big_sur:        "76efc68ef2d1f22853bacc84defb586b50fedee483480ba3de8c4e3267c455c3"
-    sha256 cellar: :any, catalina:       "28fe5726023616ff06c38c985cc2dee21b774d04a539404103fb3e3d8f80320e"
-    sha256               x86_64_linux:   "7068920d32be2201832509c35353d275378ef3e549b9b439ac28b5bc7bc4a22f"
+    sha256 cellar: :any, arm64_ventura:  "2ec2449f1dcf791262ee62099508bf16f3f5e8df47903d39c8f193c0964f82ae"
+    sha256 cellar: :any, arm64_monterey: "c0add9226d0f17dd7e5af52d971bfc2cc34fd8ac287e4d10f74ab58943707e0b"
+    sha256 cellar: :any, arm64_big_sur:  "433d1b112af6c1ce683cb70e4db8bf88f3e44ec8751b6e661cf48f7b5f8fbb42"
+    sha256 cellar: :any, ventura:        "cc469412590ba876a5e613cbe8262af7288bde3afb390c2cf297c3267a0b3cab"
+    sha256 cellar: :any, monterey:       "99dc03192ec0a84923f9bf8fe19ad3d1395726bceb0d49295dc1ecb9109f7146"
+    sha256 cellar: :any, big_sur:        "5f59e2fe69f4fb60cf4f5517908f80998553fa0b9de2f9b7536a5740e7fffddb"
+    sha256               x86_64_linux:   "829f4a0e89e3fd837f0baa3ca0ab05244c7705222d9e75a2b81f2349390d4d64"
   end
 
   depends_on "cmake" => :build
   depends_on "emacs"
   depends_on "llvm"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   fails_with gcc: "5"
 

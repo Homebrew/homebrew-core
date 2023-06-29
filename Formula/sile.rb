@@ -4,15 +4,16 @@ class Sile < Formula
   url "https://github.com/sile-typesetter/sile/releases/download/v0.14.9/sile-0.14.9.tar.xz"
   sha256 "9a719a490a2bb71136d25d665536fb9ff2a17123fc2cee48d05ce418cb404814"
   license "MIT"
+  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "e3c9b1772ab8a84e5c1f7a6822e0c046fdf52e0ac6fab319834c50365617d98d"
-    sha256 cellar: :any,                 arm64_monterey: "bb6576fd6e2e2ea0d4019d14ccba33a2d53af5cbca1914e45b29619146f19561"
-    sha256 cellar: :any,                 arm64_big_sur:  "47335888190bc9bea6e7f626a316a80e412916f018498c3a6389599a581263b8"
-    sha256 cellar: :any,                 ventura:        "fd6c9da1dcd0cb73f42eeca0809a68883a86df8cdd8ddda94975a4174bfc1432"
-    sha256 cellar: :any,                 monterey:       "bc8a9fbb157bac811fd14c1812ab6bebd0d09553d2b6d1f758dccbbdcac5ac9e"
-    sha256 cellar: :any,                 big_sur:        "60a38f46293f249e8c7760a862b27e813fab5edad2cd7c86a0f085e13fed8e18"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c31dd197a604b12c7c1f72ceae87302c7359bc911e9a442d05057a5b5a5d3105"
+    sha256 cellar: :any,                 arm64_ventura:  "4b5deac9226e0d8a64ebcc7d861651d0cc8da3404faf34fd0030f1bc858cdb27"
+    sha256 cellar: :any,                 arm64_monterey: "4e1621d15d8dbd7b6dd4c88a962100af015c20c10a90efa9073b974e8efef315"
+    sha256 cellar: :any,                 arm64_big_sur:  "522448c32e2a03d4d01968bfabeeb07cb827bfb1597253e87c4a2fd5b70745a8"
+    sha256 cellar: :any,                 ventura:        "e752063d2afa68a02fc63468a89fb78f1bf2f29e02b274a2faeffa3f0aae9200"
+    sha256 cellar: :any,                 monterey:       "8cf172c1346553f950dbbaf429bf5e9273bf2fcf69a784a02764ea5d64d3a1c8"
+    sha256 cellar: :any,                 big_sur:        "a28519aa8e0e7928a4076f1134257b3f2393b817aaa791e1c46627610696d2c4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "750e9f2bada8dfeba4c599f140c19de49f976b5cfd27a49632c647ef7ca6293e"
   end
 
   head do
@@ -30,7 +31,7 @@ class Sile < Formula
   depends_on "libpng"
   depends_on "lua"
   depends_on "luarocks"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "unzip" => :build
   uses_from_macos "expat"
@@ -161,7 +162,7 @@ class Sile < Formula
     args = %W[
       ZLIB_DIR=#{zlib_dir}
       EXPAT_DIR=#{expat_dir}
-      OPENSSL_DIR=#{Formula["openssl@1.1"].opt_prefix}
+      OPENSSL_DIR=#{Formula["openssl@3"].opt_prefix}
       --tree=#{luapath}
       --lua-dir=#{lua.opt_prefix}
     ]

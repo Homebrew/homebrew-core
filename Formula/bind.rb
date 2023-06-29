@@ -8,8 +8,8 @@ class Bind < Formula
   # "version_scheme" because someone upgraded to 9.15.0, and required a
   # downgrade.
 
-  url "https://downloads.isc.org/isc/bind9/9.18.15/bind-9.18.15.tar.xz"
-  sha256 "28ae8db14862801bc2bd4fd820db00667d3f1ff9ae9cc2d06a0ef7810fed7a4e"
+  url "https://downloads.isc.org/isc/bind9/9.18.16/bind-9.18.16.tar.xz"
+  sha256 "c88234fe07ee75c3c8a9e59152fee64b714643de8e22cf98da3db4d0b57e0775"
   license "MPL-2.0"
   version_scheme 1
   head "https://gitlab.isc.org/isc-projects/bind9.git", branch: "main"
@@ -22,13 +22,13 @@ class Bind < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "c4c2907fa1740fd2a8e6993b6ae266666b83b37e709868bfbf1c6fe447451a59"
-    sha256 arm64_monterey: "50734380ee2b1aaa24a96c1f754590455a279746ef198adb8926b8baebca1e72"
-    sha256 arm64_big_sur:  "3c5dbe0be8d34e832de2a04a74fd89086156b2e948d931444db36265ec385d1d"
-    sha256 ventura:        "9c79654135f7a4cce55301685ede280eddd98483072c313a50c3ce1e8c2d21f5"
-    sha256 monterey:       "e578ebd6ae7a9a275dabb9929a43226a1ba972c7793d215d8ed663595146680b"
-    sha256 big_sur:        "b98ec615ad66aaa96704ea4875cb0140c4df3939b6618a8701ad3311fb9985c8"
-    sha256 x86_64_linux:   "9fe3fcb1110cc787808bc4591665e545d3fdfb3eedd2523ce7c3fb60757f0439"
+    sha256 arm64_ventura:  "54498e7a5f0d54654a5065d3a3277479d6b3b706d3ac89cd63eb799a85e76e8f"
+    sha256 arm64_monterey: "436cad264792f67fac7da09285ea4a75616a081b6e9fac68865bf13632c4565e"
+    sha256 arm64_big_sur:  "47bfaf76f5f6a9e13bce04bab652966a90c180c36c761ae84dca83e01fb32277"
+    sha256 ventura:        "fcd5ff866a3f76899a6d2f36eca27e6f2ff39b14c51b7b5bc517e7449311623b"
+    sha256 monterey:       "a97e16cf013cbf102a3804a809f22ec1168c27448a8541f330b71cccabd1db18"
+    sha256 big_sur:        "72ec01dc7e6b485732327a7ee1e43ef0cb6f262a7d680f199e103c8a41568c79"
+    sha256 x86_64_linux:   "37abc0e5c1ec0909bd548f6c99d2db6dbdc3cf0caa0ae4c51a440aa615d1e4d6"
   end
 
   depends_on "pkg-config" => :build

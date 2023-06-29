@@ -2,16 +2,15 @@ class Gstreamer < Formula
   desc "Development framework for multimedia applications"
   homepage "https://gstreamer.freedesktop.org/"
   license all_of: ["LGPL-2.0-or-later", "LGPL-2.1-or-later", "MIT"]
-  revision 2
 
   stable do
-    url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/archive/1.22.3/gstreamer-1.22.3.tar.gz"
-    sha256 "8f0db72a22a11527c01895b0aec50174f094c7c772369522350e03f24e87455a"
+    url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/archive/1.22.4/gstreamer-1.22.4.tar.gz"
+    sha256 "2badeeaf3fb75f11e7701a3083d412b9775db1f83aa869c779a1af0e0396400a"
 
     # When updating this resource, use the tag that matches the GStreamer version.
     resource "rs" do
-      url "https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/gstreamer-1.22.3/gst-plugins-rs-gstreamer-1.22.3.tar.gz"
-      sha256 "208f0350471b5e73f1054012732d3609f680ab9d9173dc15b6277560cb224acc"
+      url "https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/gstreamer-1.22.4/gst-plugins-rs-gstreamer-1.22.4.tar.gz"
+      sha256 "1a06069ee536665447e0ba12e70e6761f3ce8d6198e81ac36fc2407f1c042a92"
     end
   end
 
@@ -21,13 +20,13 @@ class Gstreamer < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "3e1ded97dc89aa58b7f921943cc25c37cebe2ba9f78176c5145d827a67fe39df"
-    sha256 arm64_monterey: "b049fb70f13d4a446d18d426c62c828765b8c81bb6f0c4b1672412e9e2d6b83e"
-    sha256 arm64_big_sur:  "a0a4ae4d61793778588325ba58e5708993e5324b447bf5cb88bfdf5e74e3e6d5"
-    sha256 ventura:        "2f1385d36a5025f80fdcc9486ced51f2acce94f67fa9c771a60c735f670b078e"
-    sha256 monterey:       "42c5e867ec230331eb334c90772e5999ed5bc8bedcb0f60ef931300c8bf9179a"
-    sha256 big_sur:        "dd5cd6b7fdb3686b79f273bcaada728a4ed7da6fc293c3fc5e5b549df1518c2c"
-    sha256 x86_64_linux:   "943e39b5334020293b8a30e2c273decb32357e1a679328c239e8e29822ccee66"
+    sha256 arm64_ventura:  "428fceaf0bc5cd3b24f281a71f13cdbd25dc8fbadc0235c6277350859b87ec1f"
+    sha256 arm64_monterey: "cfaebd175cccf33300c89f76307cd57c3c57ce5e692f9e36af705729cff03044"
+    sha256 arm64_big_sur:  "414e5a6927504a99513b73bf32be7650643aeeeacbb0c220482d23c8c474f05e"
+    sha256 ventura:        "4e13d9a7403295e877f4c8541ea63fbae0a3ff7546455c93aafc516bdad8cfbb"
+    sha256 monterey:       "fe7a6af7eac4f14f2ba69359d4fb63da8ace54ba26c3564333502ecb8762bf2f"
+    sha256 big_sur:        "80e197df755ec2d54a2be2fd7c5f0fe56496fae3aaf631175af9f9b8c68f4ec4"
+    sha256 x86_64_linux:   "4530275b887886b2c3df7e346471bec4728608bb7d07b8b3b6fea3b462712513"
   end
 
   head do
@@ -72,7 +71,7 @@ class Gstreamer < Formula
   depends_on "libvorbis"
   depends_on "libvpx"
   depends_on "openexr"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "opus"
   depends_on "orc"
   depends_on "pango"
@@ -185,7 +184,7 @@ class Gstreamer < Formula
 
     # Make sure the `openssl-sys` crate uses our OpenSSL.
     ENV["OPENSSL_NO_VENDOR"] = "1"
-    ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
+    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
 
     system "meson", "setup", "build", *args, *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
@@ -240,7 +239,7 @@ index 5977ee3..1b399af 100644
 @@ -3,13 +3,20 @@ install_data(pysources,
      install_dir: pygi_override_dir,
      install_tag: 'python-runtime')
- 
+
 +# avoid overlinking
 +if host_machine.system() == 'windows'
 +    python_ext_dep = python_dep
@@ -256,6 +255,6 @@ index 5977ee3..1b399af 100644
      include_directories : [configinc],
 -    dependencies : [gst_dep, python_dep, pygobject_dep])
 +    dependencies : [gst_dep, python_ext_dep, pygobject_dep])
- 
+
  env = environment()
  env.prepend('_GI_OVERRIDES_PATH', [

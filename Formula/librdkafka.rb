@@ -4,6 +4,7 @@ class Librdkafka < Formula
   url "https://github.com/edenhill/librdkafka/archive/refs/tags/v2.1.1.tar.gz"
   sha256 "7be1fc37ab10ebdc037d5c5a9b35b48931edafffae054b488faaff99e60e0108"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/edenhill/librdkafka.git", branch: "master"
 
   livecheck do
@@ -12,20 +13,20 @@ class Librdkafka < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "c2c2b9a45368d7bcda651b619ebe2cfcbe68358fb0fdda7e5f419d8f2d11a4ac"
-    sha256 cellar: :any,                 arm64_monterey: "4b6b59aa0113e3d102f61131093e0b869f7d47179890610f8fa2f6fb566bf6f2"
-    sha256 cellar: :any,                 arm64_big_sur:  "6f2517df4b4f9b6dd5c8810c3d498ed13c58f74c54ecae7185d9f8b0355825c8"
-    sha256                               ventura:        "270a111b7c2f9f55ba30ca04ef601cf4777caa5a422e8f636e0277647a183bc9"
-    sha256                               monterey:       "6b0482bee2c64846346fc449d944b810f662e1a71b90edcae870920b120bff15"
-    sha256                               big_sur:        "b373c974475fd282fbc88448fd106553ed70ab3c48f57a851f3b8a047aa8d4ec"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b39c1f148e2399a5b9f59c310b169e055afa662d1214be2c560bf0c077da6506"
+    sha256 cellar: :any,                 arm64_ventura:  "b48272331da76364ef0750f1e559f91b56bb1f02a5aece39bb515b02f5d53ad0"
+    sha256 cellar: :any,                 arm64_monterey: "c26f87eaf145ca4e6a85b6b108206c9fd43b7f63c0be49c49bce437609c3a85b"
+    sha256 cellar: :any,                 arm64_big_sur:  "ee2d2edecbfa469ba05b8d5d5a4f6a13c3632ff40676894103f667be9fcbc4d0"
+    sha256 cellar: :any,                 ventura:        "c4b93874d54c4e53d59c390c09c7d6317eec3144d867d81d391cd4c1aa3ee0f3"
+    sha256 cellar: :any,                 monterey:       "73c36ce12533b3c8c9bc6bd5a45f632297ad5aa0cb310e9ce37ad33a81b759ce"
+    sha256 cellar: :any,                 big_sur:        "ac624907fb7034e07970eee9e4dae2e30ce64335f40dd3fce5cd9382ad66a249"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e54608fdf9aa72d0841d35b3aa5b37684cc139013fb46a0f37dbcf53986ad544"
   end
 
   depends_on "pkg-config" => :build
   depends_on "python@3.11" => :build
   depends_on "lz4"
   depends_on "lzlib"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "zstd"
 
   uses_from_macos "curl"

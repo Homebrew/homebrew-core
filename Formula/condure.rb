@@ -6,21 +6,22 @@ class Condure < Formula
   url "https://github.com/fanout/condure/archive/1.9.2.tar.gz"
   sha256 "c95a7587997af82ab6f3bbf92cfb983b58d7c304133f3be1d0787e31d16ea065"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "f1303c7f4e4fda6887b2d444d81bba105f462cb9b689115d335540c7505d57e3"
-    sha256 cellar: :any,                 arm64_monterey: "b2118a43f01eca57f002b5f9705ae11faeb10afb2a263c4fbe717328a03f6e5d"
-    sha256 cellar: :any,                 arm64_big_sur:  "b64f7dd122a8d0b88befd32b2e35a1c6f155ca0ee14b0b828bbee0245ce151ef"
-    sha256 cellar: :any,                 ventura:        "9cd462ef606149e0c05e82e0af59e7c91d4f7d9bec5bf31431dce5548e3c74b6"
-    sha256 cellar: :any,                 monterey:       "1d84c3a753d9e094d91e1a20d215d49c3cbbfa859b3594d17932679b56f8f599"
-    sha256 cellar: :any,                 big_sur:        "3199452c7dfc3b4bb8ef6dd50c5ed0fdb5de1a9fb68f1fef7a206b25c9f3a59a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "914119485fc92b4979990cbb295de42e3b9653b6ff5c5217d01070725d5e8fb5"
+    sha256 cellar: :any,                 arm64_ventura:  "ecd9ad7efc7e43c961cbb3042ac6e10848a3c573968e96ba72746a1a7e2278b4"
+    sha256 cellar: :any,                 arm64_monterey: "e4dae06297524f01869452c2f8e3f56c465ccddc08237933760dd6be284bd611"
+    sha256 cellar: :any,                 arm64_big_sur:  "ba27cadd227040f78158a770d5190decb65547a02fac55a30716e693013420ff"
+    sha256 cellar: :any,                 ventura:        "c9f4653f19db275a8f3995baa111260523185ee3f13b4fbcbd298de43235b67a"
+    sha256 cellar: :any,                 monterey:       "14cca7f6f12a2776fa168011e995d812b90f6cec65960d87ef53fee161393aee"
+    sha256 cellar: :any,                 big_sur:        "86d06d5faf329d248568d68e748ef48c4506f874f82dd3021e7512cab2d15002"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ea299a2cba77989fe144a3d45bdb325007516437668a65c60f059e81c4aeff8f"
   end
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "python@3.11" => :test
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "zeromq"
 
   resource "pyzmq" do

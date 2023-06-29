@@ -1,19 +1,18 @@
 class Gitui < Formula
   desc "Blazing fast terminal-ui for git written in rust"
   homepage "https://github.com/extrawurst/gitui"
-  url "https://github.com/extrawurst/gitui/archive/v0.22.1.tar.gz"
-  sha256 "285e86c136ee7f410fdd52c5284ccf0d19011cc5f7709e5e10bb02f439a218ea"
+  url "https://github.com/extrawurst/gitui/archive/v0.23.0.tar.gz"
+  sha256 "5180d5d8fd2fe6400148d6078b4b318c7530ca6c27ea8d8c0882f2e4d9064a80"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3e1d32b421c13e5c4dd48566fb3dda6b0792ebd7044d3c593ad79d6b752b242b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "fad9028f4ccd5bfffea1c6f7ef760f57ddcc15a3c78362f94dd6f73dc87be0e1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c1098bb7a2e673a521073735efb5afaf5557d24185b8d11623aa1a4b8a7f3522"
-    sha256 cellar: :any_skip_relocation, ventura:        "16c2ed490a716aaa9401d3c008e5f992a770bb1b86bd41a4360845e795c127a5"
-    sha256 cellar: :any_skip_relocation, monterey:       "fb033b80455d8b286b508e02b798dc961a5cd7693a97c13a3f957159479d9135"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6d71c74d3cae9429b536d2311579df3d46fb3b4010b76c716f99d36da8b41d5b"
-    sha256 cellar: :any_skip_relocation, catalina:       "ca69e974539086e097fc37650d18fc1e3f8676c39e5fa570c2bccae1f3d22479"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "54b24c5b05ac59a33c54cf7fb310aae65a7dd92d9d707c01d2b6bd310b831cd2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1218bad2046b1c47908914b76f203c8dac729d95871ae7845d642aefb1e8a6d7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "03abe4921a9512cca4ce28990efd33521ed62c2699756344ba63ee61907a002e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a1f6dd5f9c553da862f2789eb97ee79051074f499b15ac5cdba29a4dcd1e4768"
+    sha256 cellar: :any_skip_relocation, ventura:        "d3a179ebb7c726f0778b947ee02a65fc81f6086f0446353600954ea09115e4ad"
+    sha256 cellar: :any_skip_relocation, monterey:       "7938b3e69caeb4eb28620327ff5d27eda0583227e2bcf525d0e83715874bab08"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8e904aa9b16805469e78ecb18d726750fc22278722d1a916ecceb43910fcd759"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "114c4a330d5d3e72985076f0cec436c43cde3ff90d3c6f755610b7d2ac2e757e"
   end
 
   depends_on "rust" => :build

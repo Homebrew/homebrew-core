@@ -19,10 +19,10 @@ class Breezy < Formula
 
   depends_on "gettext" => :build
   depends_on "rust" => :build
-  depends_on "openssl@1.1"
   depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "six"
+  uses_from_macos "openssl"
 
   conflicts_with "bazaar", because: "both install `bzr` binaries"
 

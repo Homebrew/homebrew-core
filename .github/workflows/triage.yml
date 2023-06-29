@@ -197,7 +197,7 @@ jobs:
               content: system "swift", "build"
 
             - label: long build
-              path: Formula/(agda|arangodb|boost|deno|dotnet|dvc|dstack|emscripten|envoy|freetype|gcc|ghc|graph-tool|howdoi|libtensorflow|llvm|node|pango|ponyc|rav1e|rust|suite-sparse|swift|texlive|qt|v8|vtk|xz|zstd)(@[0-9]+)?.rb
+              path: Formula/(agda|arangodb|boost|deno|dotnet|dvc|dstack|emscripten|envoy|freetype|gcc|ghc|graph-tool|howdoi|libtensorflow|llvm|node|pango|ponyc|rav1e|rust|semgrep|suite-sparse|swift|texlive|qt|v8|vtk|xz|zstd)(@[0-9]+)?.rb
               keep_if_no_match: true
 
             - label: CI-build-dependents-from-source
@@ -210,6 +210,10 @@ jobs:
 
             - label: CI-linux-self-hosted
               path: Formula/(envoy|freetype|gdbm|libssh2|libxcrypt|libxml2|llvm|openssl@1.1|python@3.11|qt(@5)?|xz|zstd).rb
+              keep_if_no_match: true
+
+            - label: large-bottle-upload
+              path: Formula/texlive.rb
               keep_if_no_match: true
 
             - label: bump-formula-pr

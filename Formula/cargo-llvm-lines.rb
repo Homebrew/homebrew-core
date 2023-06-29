@@ -16,13 +16,21 @@ class CargoLlvmLines < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "62dc3b101b6f3204936797898a067280f7b492f820af9fd8a98a15f1f0d1341a"
   end
 
-  depends_on "rust"
+  depends_on "rust" => :build
+  depends_on "rustup-init" => :test
 
   def install
     system "cargo", "install", *std_cargo_args
   end
 
   test do
+    # Show that we can use a different toolchain than the one provided by the `rust` formula.
+    # https://github.com/Homebrew/homebrew-core/pull/134074#pullrequestreview-1484979359
+    ENV["RUSTUP_INIT_SKIP_PATH_CHECK"] = "yes"
+    system "#{Formula["rustup-init"].bin}/rustup-init", "-y", "--no-modify-path"
+    ENV.prepend_path "PATH", HOMEBREW_CACHE/"cargo_cache/bin"
+    system "rustup", "default", "beta"
+
     system "cargo", "new", "hello_world", "--bin"
     cd "hello_world" do
       output = shell_output("cargo llvm-lines 2>&1")

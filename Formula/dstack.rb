@@ -6,22 +6,23 @@ class Dstack < Formula
   url "https://files.pythonhosted.org/packages/a5/0f/c4d5fefaebef7a838bffa82af4351f51856d0d7cb1528f9f932095812f77/dstack-0.9.2.tar.gz"
   sha256 "9ee91118028641f0710d324a65afb02078fe40fabc5dc41be78f6f989150affa"
   license "MPL-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "e2474d8da47fda73783f46ffa4e04e3f0d7bbc5a039ba0d2b0b24f66189995a1"
-    sha256 cellar: :any,                 arm64_monterey: "af0685e3a83ff68e95e2ba37739d5ff97aea790b1619e35276862cd6a1591b34"
-    sha256 cellar: :any,                 arm64_big_sur:  "b7eae0c46b15d28533b15430f17d5c226f44e821127e0c4c7c217f90f019fa49"
-    sha256 cellar: :any,                 ventura:        "1c6882aae899100daca23877987eb0b554e0083d23c29f6e2001a2064d2c453c"
-    sha256 cellar: :any,                 monterey:       "a8f5ee7aa524af8b97e7932c7f6a56adff20f163b9645b291e68fb6717f6b644"
-    sha256 cellar: :any,                 big_sur:        "b8e0b2d18f63897c9414408b90d6a478f2fb5bc332c0838f3464f4553e5d6c8e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "95f917b81605e1558493e2f783477be8d57ce5cdb50e1d60ac0bc5b92b917164"
+    sha256 cellar: :any,                 arm64_ventura:  "25a7e800f1e738243bd0e2bda2d35e50de2cd84bc22d5af230a567baef151a70"
+    sha256 cellar: :any,                 arm64_monterey: "1d8fa77ac7f54e29e133da1bf48f5377f20d7daa1a785a64b2aef52b8394f37a"
+    sha256 cellar: :any,                 arm64_big_sur:  "4c49b36f3895ec8d8060ae15dfd32156721b8edf252513e3a33d1e5764939e8e"
+    sha256 cellar: :any,                 ventura:        "dffc6da35b12bff09e2b16b8696e79c7c5169e189aa8a75d379dcb74291006f2"
+    sha256 cellar: :any,                 monterey:       "a092de64bbb70ba99419beb262975435a4bd94a2cc7a7e1d8d897f6499009d97"
+    sha256 cellar: :any,                 big_sur:        "f6ed403904c4aa322ac8e01276ba29f0a6396589faa1c2fbc1698f24404b3191"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6ac8df8ececa399f4885487236ab89a7302aa5ac1afa2b219357ef362e42926e"
   end
 
-  # `pkg-config`, `rust`, and `openssl@1.1` are for cryptography.
+  # `pkg-config`, `rust`, and `openssl@3` are for cryptography.
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "cffi"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "protobuf"
   depends_on "pycparser"
   depends_on "pygments"
@@ -549,7 +550,7 @@ class Dstack < Formula
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.
-    ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
+    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
     ENV["OPENSSL_NO_VENDOR"] = "1"
 
     venv = virtualenv_create(libexec, "python3.11")

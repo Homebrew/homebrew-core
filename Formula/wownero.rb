@@ -6,7 +6,7 @@ class Wownero < Formula
       tag:      "v0.11.0.3",
       revision: "e921c3b8a35bc497ef92c4735e778e918b4c4f99"
   license "BSD-3-Clause"
-  revision 1
+  revision 3
 
   # The `strategy` code below can be removed if/when this software exceeds
   # version 10.0.0. Until then, it's used to omit a malformed tag that would
@@ -25,13 +25,13 @@ class Wownero < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "2bf3e20f48c0b92b2bfc74feaee831b3849c56239a0d9e1da6a54f49e36da19b"
-    sha256 cellar: :any,                 arm64_monterey: "deb50ecc4a6e3bc42672a7ebd5ed49fef415d2590735fc9cef2e883627f3a669"
-    sha256 cellar: :any,                 arm64_big_sur:  "face536fbc52d85877bd7a680e37b45488e79b8f5be491a89846ca78157eb88d"
-    sha256 cellar: :any,                 ventura:        "7952e31288138949ede6b78adce699ccee81cf289ac0e4854da9f6eab8fefd4e"
-    sha256 cellar: :any,                 monterey:       "8d9ae5c1457454103f82e0c25f8748dd18e3b1cfc4200cb8e286104690696b41"
-    sha256 cellar: :any,                 big_sur:        "88f65079dab113125350e18dff96884cf3d00502cad966debd73e1a002520975"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "414dc04013fed7567286ef00d8c066dca39c37404c06d7d7863cfb798dddf8a4"
+    sha256 cellar: :any,                 arm64_ventura:  "e9c6d64810d53ccd2fa82a0f641fc4fbf594ce632b18186801083493bf6be222"
+    sha256 cellar: :any,                 arm64_monterey: "d53bd08ebda04811356689c342d35fc0344f0906a540d83a43f9b41df447e971"
+    sha256 cellar: :any,                 arm64_big_sur:  "7af4e0940aaa43a7d70d3a8cb1970f744f71acdf67e8c7de8e9db913c682adff"
+    sha256 cellar: :any,                 ventura:        "16d4dc784619f6a70f0a017abe08d321a9555218ee4c6330589d6cb6f18d9234"
+    sha256 cellar: :any,                 monterey:       "e8337a5e74fceca5739b0579aac2c1829dca2ed5379bf50d2e2ec7a3eb7897bb"
+    sha256 cellar: :any,                 big_sur:        "bd746ee84a9474879ea9cb224c150d000e7802c5837e1a7ef0d4193d20ca75c0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5e700986a65ce429419bcdf44fa0339a2b2f01182c9138915df5b7e50dec44a0"
   end
 
   depends_on "cmake" => :build
@@ -41,7 +41,7 @@ class Wownero < Formula
   depends_on "hidapi"
   depends_on "libsodium"
   depends_on "libusb"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "protobuf@21"
   depends_on "readline"
   depends_on "unbound"

@@ -3,25 +3,40 @@ class Yapf < Formula
 
   desc "Formatter for python code"
   homepage "https://github.com/google/yapf"
-  url "https://files.pythonhosted.org/packages/83/6e/72395cbbd59eedc48913f8694d445acbdba699c50312001b702c5ff46001/yapf-0.33.0.tar.gz"
-  sha256 "da62bdfea3df3673553351e6246abed26d9fe6780e548a5af9e70f6d2b4f5b9a"
+  url "https://files.pythonhosted.org/packages/e0/7a/9020bfa17d294b5d0d8bf26bb175ad4c90d1e3ad4039001f621ef046cb06/yapf-0.40.1.tar.gz"
+  sha256 "958587eb5c8ec6c860119a9c25d02addf30a44f75aa152a4220d30e56a98037c"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "231981acae588f6bfe8fbb434609c00a985d8e1d57fefa12debd9965fe7f82e9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3402f5d670fa80ecbc1a6afca035b796bce209411b56aa3ca3dcc99a52311e31"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "be9fd597d3052e65bc35ff92f5abac0e63f0854361364b7cbf318f8e786a160e"
-    sha256 cellar: :any_skip_relocation, ventura:        "87164b623df7a3e536e404b5183b68b499655387ee65872a46a8b26f810de206"
-    sha256 cellar: :any_skip_relocation, monterey:       "4dc3753f25ecd807fe3226141d86e7f1dbe67b8045b8c458a517413aed24a4db"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0a9d42d1e2d7f88c6ca9fe9489d18013efa70186dad5b365ad50f84f8f924882"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2741a25f9a4f7d99c66aaad53f5d71a7a875d2bd05dacee831a25d43194ec650"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "80bba73a25b7c33436b8b4d2cd807b05a45de6290f74ac562577c0304451f2e6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "30ff81bd6bc8d793242886ec13d025b1ab941bf92f6dd6cb7fc0e39643107108"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "75a0982a9845c4a81f5e49570da98be6582e873db542a93a5b920acdf1af1c50"
+    sha256 cellar: :any_skip_relocation, ventura:        "c8bad7425f63d9b777a998250d915c164dff024d7e97af3a46477e42d82dd044"
+    sha256 cellar: :any_skip_relocation, monterey:       "a350dc2c0ff2519996bc8f5d6f04668dcb771d5dafe3726029967cbac3997e72"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e32bed37cb71e4aea5e8da2274e5598573d7b241794ae788fe2b08139c3ee14b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9a7d59dc90febc7fd4f1db1aa07d9336f628776520cbab88dad0bec55dfd7f8b"
   end
 
   depends_on "python@3.11"
 
+  resource "importlib-metadata" do
+    url "https://files.pythonhosted.org/packages/a3/82/f6e29c8d5c098b6be61460371c2c5591f4a335923639edec43b3830650a4/importlib_metadata-6.7.0.tar.gz"
+    sha256 "1aaf550d4f73e5d6783e7acb77aec43d49da8017410afae93822cc9cca98c4d4"
+  end
+
+  resource "platformdirs" do
+    url "https://files.pythonhosted.org/packages/05/31/793923615e85deef0c25abf5d044b3f99f1348b620122ab184b7d3f70f21/platformdirs-3.6.0.tar.gz"
+    sha256 "57e28820ca8094678b807ff529196506d7a21e17156cb1cddb3e74cebce54640"
+  end
+
   resource "tomli" do
     url "https://files.pythonhosted.org/packages/c0/3f/d7af728f075fb08564c5949a9c95e44352e23dee646869fa104a3b2060a3/tomli-2.0.1.tar.gz"
     sha256 "de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f"
+  end
+
+  resource "zipp" do
+    url "https://files.pythonhosted.org/packages/00/27/f0ac6b846684cecce1ee93d32450c45ab607f65c2e0255f0092032d91f07/zipp-3.15.0.tar.gz"
+    sha256 "112929ad649da941c23de50f356a2b5570c954b65150642bccdd66bf194d224b"
   end
 
   def install

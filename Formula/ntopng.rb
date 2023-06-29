@@ -2,7 +2,7 @@ class Ntopng < Formula
   desc "Next generation version of the original ntop"
   homepage "https://www.ntop.org/products/traffic-analysis/ntop/"
   license "GPL-3.0-only"
-  revision 1
+  revision 2
 
   stable do
     url "https://github.com/ntop/ntopng/archive/5.2.1.tar.gz"
@@ -12,12 +12,13 @@ class Ntopng < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "3e1f0641e68312b9df99d6352a30463b9c7e3ae77af87d7108d7f53ef1a1e915"
-    sha256 arm64_big_sur:  "f15ee478e6890c6ff3c223b3687712e95715957273c81f00012e42166c56f3ab"
-    sha256 ventura:        "8748ce82261996a840abf5c05dd2c4adfca95242ce6c3a85e50175055190bba2"
-    sha256 monterey:       "f23a75bc3a049ffe88a63eac33c69679676f21a5794cf981b48727ea657d3b83"
-    sha256 big_sur:        "f113c35addc3839fd3fe1fd20c2b3a94be4082e9969638d86cdf4c945ddcea1b"
-    sha256 x86_64_linux:   "a8aaa3edac2b6c93e95bc660b850f1cda8ce0033112128823b086f3ac289b378"
+    sha256 arm64_ventura:  "b9d9c200f7fd53afb6a4b1aceb0d7bead7acc4cfc2f0f124490c2d710ca7b1bd"
+    sha256 arm64_monterey: "f80fe91d1bf208b29756939d80273318035dde0c9529fbc3e933d81b58f7dfe8"
+    sha256 arm64_big_sur:  "eabf1734108899d494af15d59a30aa8415b6ad097e14310601bd8ce6dbeffb56"
+    sha256 ventura:        "9a6815c5ecf1ec997d950b0a9c5ea1b7fa1d6870156a9dccc688a72d72231549"
+    sha256 monterey:       "4bb602c8dc1f89810d1b4eef901a107bc3a107e411690e8a6eb52bd0d92ce688"
+    sha256 big_sur:        "b10afdc4ac28240a997e1da555ad58bdc6f6180878c3a9741d52c5c6c4d8376e"
+    sha256 x86_64_linux:   "bcc479ef95a00817cbbf049cefe2cace7f7cdf0e01a777d4c493c3fdad4619ba"
   end
 
   head do
@@ -39,6 +40,7 @@ class Ntopng < Formula
   depends_on "json-c"
   depends_on "libmaxminddb"
   depends_on "mysql-client"
+  depends_on "openssl@3"
   depends_on "redis"
   depends_on "rrdtool"
   depends_on "sqlite" # try to change to uses_from_macos after python is not a dependency

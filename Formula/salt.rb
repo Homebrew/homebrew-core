@@ -6,17 +6,17 @@ class Salt < Formula
   url "https://files.pythonhosted.org/packages/c1/8b/f21efb024adbb6929cba84040882bf9fd6427fd786dd0596e7e23a9cf717/salt-3005.tar.gz"
   sha256 "1d200c45b88046178ea56fb5a75726dc620cc5e51411076a04df80ff52f79cd4"
   license "Apache-2.0"
-  revision 2
+  revision 3
   head "https://github.com/saltstack/salt.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "a7addf5bc79c11c9b5944c039d064392806f0b0ad7d0cddba033c96ad26322ab"
-    sha256 cellar: :any,                 arm64_monterey: "f811d8add12e556a54c0e27d8b25d019a69481b23b068b156a2dac53076bd570"
-    sha256 cellar: :any,                 arm64_big_sur:  "27660adc895587a9d476b8013df604420547abd0b4cb4c47089561e425f87efb"
-    sha256 cellar: :any,                 ventura:        "fcbe74f142c8035e6309431b896eb69be2af38e44f38604101e548b7ddc17445"
-    sha256 cellar: :any,                 monterey:       "933faaa7cb3f32f469b003da6e7c594ba1a91b2089233e93493c7c12e42cc46a"
-    sha256 cellar: :any,                 big_sur:        "b4c2029b2be1ef510934e1d9816c4de32157b0c12f5bb3eac56ae8b6a2b94d93"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ea0be43d0b8c5f8d55ce12e8840541e96effd37cd1817fa358e6c7a91835a389"
+    sha256 cellar: :any,                 arm64_ventura:  "406854958146b626b40d257f76fb3f94d67304716629cfa63cc8d9db7231df7b"
+    sha256 cellar: :any,                 arm64_monterey: "2df37871e126b7919843a0341b161fcf23bc17cbb20529e7f38018fb292a2059"
+    sha256 cellar: :any,                 arm64_big_sur:  "8984a4bd6feaf553807ab0420daf643abd41a5911cb2cbebe060747cadb9cc7e"
+    sha256 cellar: :any,                 ventura:        "6992f4390ae1af036907f422cd9151a38ae73f0b5e8f419d83ba046927ec0c01"
+    sha256 cellar: :any,                 monterey:       "336585531a3a29c12744a9281d18d92cfae5157f238a2954c6293a437e0f39a4"
+    sha256 cellar: :any,                 big_sur:        "0c83ab569c2638c50db02096be8fb7d36be41954466eb689d794876b8b7b9794"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "11180326276d6b0fb71737de857221f62f06044ce9d79124e781ef6d699bfc31"
   end
 
   deprecate! date: "2022-08-31", because: "next version will require a vendored python"
@@ -24,7 +24,7 @@ class Salt < Formula
   depends_on "swig" => :build
   depends_on "libgit2"
   depends_on "libyaml"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "python@3.10"
   depends_on "six"
   depends_on "zeromq"
@@ -260,7 +260,10 @@ class Salt < Formula
   end
 
   def install
-    ENV["SWIG_FEATURES"]="-I#{Formula["openssl@1.1"].opt_include}"
+    # Workaround for Xcode 14.3.
+    ENV.append_to_cflags "-Wno-implicit-function-declaration"
+
+    ENV["SWIG_FEATURES"]="-I#{Formula["openssl@3"].opt_include}"
 
     virtualenv_install_with_resources
 

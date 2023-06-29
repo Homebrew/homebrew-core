@@ -22,8 +22,6 @@ class RedisAT62 < Formula
 
   keg_only :versioned_formula
 
-  disable! date: "2023-05-27", because: :deprecated_upstream
-
   depends_on "openssl@3"
 
   def install

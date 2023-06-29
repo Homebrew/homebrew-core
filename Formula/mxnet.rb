@@ -5,16 +5,16 @@ class Mxnet < Formula
   mirror "https://archive.apache.org/dist/incubator/mxnet/1.9.1/apache-mxnet-src-1.9.1-incubating.tar.gz"
   sha256 "11ea61328174d8c29b96f341977e03deb0bf4b0c37ace658f93e38d9eb8c9322"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "f65d788203a541ed82b1dfaa024ff6965e5aee8a84aafc79984d532e9299df79"
-    sha256 cellar: :any,                 arm64_monterey: "72f78cde6aa662400f4ec403c630674fb9cdd8c0f1812c8294c7da7f395a52c5"
-    sha256 cellar: :any,                 arm64_big_sur:  "1c0529a20a2f9bb5e7b0a0d505f7d393e9fc7687900d987162d5f1102dcb8958"
-    sha256 cellar: :any,                 ventura:        "0ccf72880e4ac7c40346c8261d03a1d23330df71c7d41ee9d7f2472574aa2a3a"
-    sha256 cellar: :any,                 monterey:       "5358a09e7f8a3712ff27abc2707470824747d3f1d64c70cb54aecb965724333a"
-    sha256 cellar: :any,                 big_sur:        "a291380b912d157b922e40f9c6b1fa0a4974a81eb7843f32bc54c28c0712c3b0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1b355fcd8bffac727b1a4716228d29e9ebdab0908ce7d8da48511fdf9a5eec6d"
+    sha256 cellar: :any,                 arm64_ventura:  "2020a5335652d0b125527493362fcdfc82401f4138cc5f858839bf8fa3c89d8d"
+    sha256 cellar: :any,                 arm64_monterey: "8c36d0a7729bd0dd148c0d5aa2be116a47bbbf348d5bfcde162ce218cf44cf62"
+    sha256 cellar: :any,                 arm64_big_sur:  "49a4ca9dc8f9286aeb6c8607645f41b2196d529c6cd1ddba0dd3d1219b3466e2"
+    sha256 cellar: :any,                 ventura:        "1ca1366b1c0906568e79e7a0fc07ed6a162e88773dc96296ee61f20689f4cf42"
+    sha256 cellar: :any,                 monterey:       "3e253dbc7e037089f0d3fe8151e7eea4f49754dbc068bdfe8ec67416f57fafec"
+    sha256 cellar: :any,                 big_sur:        "54b4463862a820006c4127226fc4f9284856fe4c4754fbc8ab2bc2ec3edf277b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3cbcaa399628827097bd18a797cd6dd7f10df7950eac62564143edc818967156"
   end
 
   depends_on "cmake" => :build

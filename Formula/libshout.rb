@@ -5,6 +5,7 @@ class Libshout < Formula
   mirror "https://ftp.osuosl.org/pub/xiph/releases/libshout/libshout-2.4.6.tar.gz"
   sha256 "39cbd4f0efdfddc9755d88217e47f8f2d7108fa767f9d58a2ba26a16d8f7c910"
   license "LGPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://ftp.osuosl.org/pub/xiph/releases/libshout/?C=M&O=D"
@@ -12,25 +13,21 @@ class Libshout < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "7f8f3b0863a492822fb17eea6c2b8200902daac2b675d1f8ee8ec630460297f0"
-    sha256 cellar: :any,                 arm64_monterey: "ed0cc88b82dee2ed2e819726858e3fa32304ede4b9920f610e4e58060e245bc6"
-    sha256 cellar: :any,                 arm64_big_sur:  "f08eb7c2f858f394a688a70992d3d17f3b5789449522fae3c7c0c94e3278f3c8"
-    sha256 cellar: :any,                 ventura:        "f2e08f998c765c0d2703d3bf0d77f332923da73c6cf5e74f0d0ed9191ae639c6"
-    sha256 cellar: :any,                 monterey:       "7fb5903fcebb64f0d45b583f7e87a75c72ced74c61d532e6e251f680be245d7f"
-    sha256 cellar: :any,                 big_sur:        "25e319ceb759a5e144df9bcf57a91189f9a11c4affbceebd555e3392329306a8"
-    sha256 cellar: :any,                 catalina:       "aa4615ea703a4c352e037fd0d0dc5c3539c41f6ed64c475fbac00157c56176aa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "656fad8d62446aa6aa9200db2a4d05b8b28b9971d4c32923dd09854315314e1c"
+    sha256 cellar: :any,                 arm64_ventura:  "9231d4d7890507d132e7a64201b7ead203a22cb47850c9cf7ee099fbc5c8a6cd"
+    sha256 cellar: :any,                 arm64_monterey: "60b072983a4133b4e504760df1173592f72f20ad4c563eaf4818c3f1de726c04"
+    sha256 cellar: :any,                 arm64_big_sur:  "5556dc649d2ffc26db4982b4454fa398bbbe984dcdabcc43463c1ef9af7a01f0"
+    sha256 cellar: :any,                 ventura:        "89f4593d901019c32468604a871a46524d30b48a9dbd09a060e00e99e487a99a"
+    sha256 cellar: :any,                 monterey:       "8ab0df70741deb6cec78b95f37fb60ff5504a3f077033c2b4c7ae76745d8987f"
+    sha256 cellar: :any,                 big_sur:        "97acacadd869bf35f1a8ae8fb4c5771a028d531272313b5dbc55348ce197ebd1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "898c7da67e779f3cce1a4b3f7b5cff8af87725d7235b3a138c06396db1b2eeec"
   end
 
   depends_on "pkg-config" => :build
   depends_on "libogg"
   depends_on "libvorbis"
+  depends_on "openssl@3"
   depends_on "speex"
   depends_on "theora"
-
-  on_linux do
-    depends_on "openssl@1.1"
-  end
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
@@ -39,6 +36,8 @@ class Libshout < Formula
   end
 
   def install
+    # Workaround for Xcode 14.3
+    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version == 1403
     system "./configure", *std_configure_args
     system "make", "install"
   end

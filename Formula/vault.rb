@@ -16,17 +16,17 @@ class Vault < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6f11fc2af37db8f8514cd20662479ee8b98c8b7c6dc3adb91b5fa84e47615c70"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "86c31e986d6594c31fa14b3ec2b85daeff7711d3063ecc1655c339ffa831804b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "03e645337fccfc1011b456eb8bf7be45b96c10db3f44e37c76c76b915bfbc760"
-    sha256 cellar: :any_skip_relocation, ventura:        "b7e5d3496456bf80da4c7b4affeb28e1e43af49c1ca8458a82a459af328f630e"
-    sha256 cellar: :any_skip_relocation, monterey:       "7608e1b7730046ad75197c833d9cee437b5c8317df63345e7f582ab3fdeb44e4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0d46ee8dd1804559a455ec07404a5c3a39d5fcfc5300a1a29afa0f5d6adda549"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3fad270fc9e7fa2848b9b8e43856b768b8f35434137549a22616ff7404f7482d"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "63bec6e766b0fbc03294e938995448df9ea75b2083a159da9538186f13935515"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b35bb8da3b81e6fe3db3b63f73c624339a2ff4bc76d7ff3c4f380607847bd8b4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ba53ba577be9b0f55f1e5b158cf89a216561a564ea1a8405211a89a96f3e619c"
+    sha256 cellar: :any_skip_relocation, ventura:        "2365d2344b027e76b585dd4ded3744b2f0f8d60b0584d539e9888d7ea437771a"
+    sha256 cellar: :any_skip_relocation, monterey:       "a4f07f1008c3f5e48f46994a752621de472a36f8832b95f1c7301a7bb37cb0ed"
+    sha256 cellar: :any_skip_relocation, big_sur:        "fa239ffedd0cd85e8954e3aa5abea6deb2a74c6e1ee7717531dc7cbbc06da3c6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6ec54bd4c7b12750854c90fcb28c33adbc12e357e760d95825fdf39ad4dfdd1a"
   end
 
   depends_on "go" => :build
-  depends_on "gox" => :build
   depends_on "node@18" => :build
   depends_on "python@3.11" => :build
   depends_on "yarn" => :build

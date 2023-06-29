@@ -4,6 +4,7 @@ class PythonAT39 < Formula
   url "https://www.python.org/ftp/python/3.9.17/Python-3.9.17.tar.xz"
   sha256 "30ce057c44f283f8ed93606ccbdb8d51dd526bdc4c62cce5e0dc217bfa3e8cee"
   license "Python-2.0"
+  revision 1
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -11,13 +12,13 @@ class PythonAT39 < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "9e77065ba7f46441f2a383928dc2b3508bf6ced38421a78514bec0033a7d39ab"
-    sha256 arm64_monterey: "a0a3efe90eb6deb20b92956371a3ee815c86c93f479950adb046f180311d1c12"
-    sha256 arm64_big_sur:  "eb5b87d1e2615934f2bd09b23133d6a9fda1f5ff3f521737412def57138cd139"
-    sha256 ventura:        "03ba0e6a52ab73af4cc94b66a9f7613e55a01dcfc5b4683b63b6ae0fc07f628b"
-    sha256 monterey:       "da96f28282e49efc33aa4c9a840a9b9014b2a283f6f0ec8da74eb60d895cfcf2"
-    sha256 big_sur:        "5b514c6df306991747b71ece7ca5f1329f41c1cbd209a358d4925cd674cb16f3"
-    sha256 x86_64_linux:   "3d9728b88567f0300e8da0a306b7aaee427791dba2f24c53ab241f3a836da02e"
+    sha256 arm64_ventura:  "cde9ee24a80f10c8a1798776626916cebbb29c44a7ee15c747ef0f59a23afcd4"
+    sha256 arm64_monterey: "9811dc1844613b46ec891ce9e93ae4dbb7daa3fec4a2bd8e9e440e898d1fde75"
+    sha256 arm64_big_sur:  "d23b0f26a2de1ccd5f3b0dadd0b45d9fca295e16b3a4ed54a0d6b71935f0facc"
+    sha256 ventura:        "6b1f50029ca197a10fc838cce0d8c6ab4582288213fc1da2d3bc80370353d22a"
+    sha256 monterey:       "db100efbd01963a4bf4378dc49411bfd7bd0272fd7575caba33e7a912e1d38d1"
+    sha256 big_sur:        "6935a997cda8a3223c0099e8f4fe50ad3a539817c6c6f200b969c31938915707"
+    sha256 x86_64_linux:   "b60dc509cb0faa8219deefc9543dfe66c6f58501b0b2cc387c7557293f6f2430"
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -27,7 +28,7 @@ class PythonAT39 < Formula
   depends_on "pkg-config" => :build
   depends_on "gdbm"
   depends_on "mpdecimal"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "readline"
   depends_on "sqlite"
   depends_on "xz"
@@ -115,7 +116,7 @@ class PythonAT39 < Formula
       --datadir=#{share}
       --without-ensurepip
       --enable-loadable-sqlite-extensions
-      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
+      --with-openssl=#{Formula["openssl@3"].opt_prefix}
       --with-dbmliborder=gdbm:ndbm
       --enable-optimizations
       --with-lto
@@ -180,7 +181,7 @@ class PythonAT39 < Formula
     # `brew install enchant && pip install pyenchant`
     inreplace "./Lib/ctypes/macholib/dyld.py" do |f|
       f.gsub! "DEFAULT_LIBRARY_FALLBACK = [",
-              "DEFAULT_LIBRARY_FALLBACK = [ '#{HOMEBREW_PREFIX}/lib', '#{Formula["openssl@1.1"].opt_lib}',"
+              "DEFAULT_LIBRARY_FALLBACK = [ '#{HOMEBREW_PREFIX}/lib', '#{Formula["openssl@3"].opt_lib}',"
       f.gsub! "DEFAULT_FRAMEWORK_FALLBACK = [", "DEFAULT_FRAMEWORK_FALLBACK = [ '#{HOMEBREW_PREFIX}/Frameworks',"
     end
 
@@ -372,9 +373,9 @@ class PythonAT39 < Formula
     end
 
     # Help distutils find brewed stuff when building extensions
-    include_dirs = [HOMEBREW_PREFIX/"include", Formula["openssl@1.1"].opt_include,
+    include_dirs = [HOMEBREW_PREFIX/"include", Formula["openssl@3"].opt_include,
                     Formula["sqlite"].opt_include]
-    library_dirs = [HOMEBREW_PREFIX/"lib", Formula["openssl@1.1"].opt_lib,
+    library_dirs = [HOMEBREW_PREFIX/"lib", Formula["openssl@3"].opt_lib,
                     Formula["sqlite"].opt_lib]
 
     cfg = lib_cellar/"distutils/distutils.cfg"
@@ -441,7 +442,7 @@ class PythonAT39 < Formula
           if os.path.realpath(sys.base_exec_prefix).startswith('#{rack}'):
               new_exec_prefix = cellar_prefix.sub('#{opt_prefix}/', sys.base_exec_prefix)
               if sys.exec_prefix == sys.base_exec_prefix:
-                  site.PREFIXES[:] = [new_prefix if x == sys.exec_prefix else x for x in site.PREFIXES]
+                  site.PREFIXES[:] = [new_exec_prefix if x == sys.exec_prefix else x for x in site.PREFIXES]
                   sys.exec_prefix = new_exec_prefix
               sys.base_exec_prefix = new_exec_prefix
       # Check for and add the python-tk prefix.

@@ -26,7 +26,7 @@ class OpensslAT11 < Formula
     sha256 x86_64_linux:   "7f3a1498bdb447b94deec9f9369ce186836c2de58cb1c4c421b1f5ecd901c2c5"
   end
 
-  keg_only :shadowed_by_macos, "macOS provides LibreSSL"
+  keg_only :versioned_formula
 
   # See: https://www.openssl.org/policies/releasestrat.html
   deprecate! date: "2023-09-11", because: :unsupported

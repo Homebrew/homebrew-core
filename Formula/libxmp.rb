@@ -1,20 +1,18 @@
 class Libxmp < Formula
   desc "C library for playback of module music (MOD, S3M, IT, etc)"
   homepage "https://xmp.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/xmp/libxmp/4.5.0/libxmp-4.5.0.tar.gz"
-  sha256 "7847d262112d14e8442f44e5ac6ed9ddbca54c251284720b563c852b31f26e75"
+  url "https://downloads.sourceforge.net/project/xmp/libxmp/4.6.0/libxmp-4.6.0.tar.gz"
+  sha256 "2d3c45fe523b50907e89e60f9a3b7f4cc9aab83ec9dbba7743eaffbcdcb35ea6"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "36592fbb667e6bfb230bfde55bb81931aee10fb9bb86ed7dbcdbc8214a318df9"
-    sha256 cellar: :any,                 arm64_monterey: "7f9283a77ff4c8715bd198177863b376a745a79be193da5adb1fb5704abd941d"
-    sha256 cellar: :any,                 arm64_big_sur:  "434828daa308ed44a901c51be2e6b5a92e91e28267f77894aff8a5030c07d82c"
-    sha256 cellar: :any,                 ventura:        "48f57f8b2eb4d6d9aa3e59545f9d001dfc4d0483ccb93d219b262382435065e5"
-    sha256 cellar: :any,                 monterey:       "5401c879119fef7ce2c6101f96ab9977f53ee1fcb0d7015e75b9ed7564ec3442"
-    sha256 cellar: :any,                 big_sur:        "73e8a533ff1ea91a3b09adb60218a80b858ab627207f5193c053d030ccfd2ad0"
-    sha256 cellar: :any,                 catalina:       "60ad2fdda77476d1e2a902020ca9559e48a31f145de0d5fff0b382d3f1c07645"
-    sha256 cellar: :any,                 mojave:         "ac65679e55ab676a6f2b2a13d846c7929d7d111f9b252554753f31150bbc486e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "90e4bd5ba020b26fa678be9791c012baf18305d87b208808502d9e3ced7ed064"
+    sha256 cellar: :any,                 arm64_ventura:  "029903dce869ca4f3f82fb7b01a8b0212e295cd196492054e91406f33854a2e6"
+    sha256 cellar: :any,                 arm64_monterey: "9c57ab8f4034df4437ab073dcee4620619ec871bafef40056211040cf4a5b39e"
+    sha256 cellar: :any,                 arm64_big_sur:  "dae1b586020c2313cb250cbae91dcf6d1c7460ba41140651a6adbcf36c4d5b5b"
+    sha256 cellar: :any,                 ventura:        "a91c6641aeb8c38f4ad918552e2d800b11a71c079547e5fa4aaa191b2c90cb1b"
+    sha256 cellar: :any,                 monterey:       "86f47ba5a880837e146fcceff8f84e871f036819c113b37bfee14030c4f14705"
+    sha256 cellar: :any,                 big_sur:        "2f5fbbafd7ab69435770417e3f4a8733278a9c1c5ffef54917ac0959e12b244a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aeaed38946aed912b19cbd140270eeea27f60e5735b7840b64a6e51d836463b6"
   end
 
   head do

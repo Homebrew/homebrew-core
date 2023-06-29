@@ -4,6 +4,7 @@ class MariadbAT108 < Formula
   url "https://downloads.mariadb.com/MariaDB/mariadb-10.8.8/source/mariadb-10.8.8.tar.gz"
   sha256 "8de1a151842976a492d6331b543d0ed87259febbbc03b9ebce07c80d754d6361"
   license "GPL-2.0-only"
+  revision 1
 
   # This uses a placeholder regex to satisfy the `PageMatch` strategy
   # requirement. In the future, this will be updated to use a `Json` strategy
@@ -23,13 +24,13 @@ class MariadbAT108 < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "c69be3b1d88ab97c27778758d5b5db9fd172b3bf96b122f6f130d8cfe917ecec"
-    sha256 arm64_monterey: "8c57816b39ded60a18395014d96a2fcd071d2d72dfafd34edc78343fdd4a5605"
-    sha256 arm64_big_sur:  "1ba762869ad805ebb79e301ba4896df8c847730c17b4d8b035454b8692985946"
-    sha256 ventura:        "6c02bba97c3205c8bbbc10b0c5d8ef0917ba1bcf976fbb354ae82a2b48b990c5"
-    sha256 monterey:       "8ce346cc0f0b9a908ec09dba5a1abbed5350baacc9411f2defc7566abaa543d9"
-    sha256 big_sur:        "5c8875effa41a0c3636c36fc0e5fc410a3d3a56a9553b4baf2560ea6bba0c06e"
-    sha256 x86_64_linux:   "2ec2b6f706653b7a9022d6e4b86181320575f578fa43e0387136ca2c2739042f"
+    sha256 arm64_ventura:  "88b207cc5f2c59e4a84e4839d33860d1bb9027e8402031f0f2a25bd33e101b4e"
+    sha256 arm64_monterey: "ee34365db45489f3135b71a9f808e8e74240b8e38e1c2bf75ac7f3ad08152c96"
+    sha256 arm64_big_sur:  "c375e6bf9acde58505bdb3714b18f8b88db34c965fd1ae22496c25c99e00a998"
+    sha256 ventura:        "0936ef53a376783610616065a46dd23329c0203a95bda66a1b1c86dee78ecc90"
+    sha256 monterey:       "e4cf641d2285de112923cc73a6e9d46af2f3be7aa926b5e15ef09b945320c77d"
+    sha256 big_sur:        "d5e9eaec56ad8c2edcc03c00831604b38e4e5e223bf464067cbc2590395ae8e2"
+    sha256 x86_64_linux:   "82bc7398f14cb5ff8943c114f4049e67ecb6f0aa9ff45973b115686f6b924643"
   end
 
   keg_only :versioned_formula
@@ -43,7 +44,7 @@ class MariadbAT108 < Formula
   depends_on "fmt" => :build
   depends_on "pkg-config" => :build
   depends_on "groonga"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pcre2"
   depends_on "zstd"
 

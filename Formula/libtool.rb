@@ -7,14 +7,14 @@ class Libtool < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "924534e0a6c2f0562d3b6d033be241bfb0554211103daa14c46790803b9a8b9e"
-    sha256 cellar: :any,                 arm64_monterey: "5f92327e52a1196e8742cb5b3a64498c811d51aed658355c205858d2a835fdc9"
-    sha256 cellar: :any,                 arm64_big_sur:  "6f676b306c72b04dd0e24cc96f51117e91719a4743743dc5527c16bf03f21320"
-    sha256 cellar: :any,                 ventura:        "21e24bf4c38c928a912dc852b2e72b0ecc0d8707c207262bb5e940feda150d70"
-    sha256 cellar: :any,                 monterey:       "33bf8379256791a8e8752541bf4e182090dcef5f73aa8faa5f6521d16414a6ca"
-    sha256 cellar: :any,                 big_sur:        "bae30841faca7f4b91e5388c0db13cd6cc95df0182b6d21a62b4c1ea508ebb69"
-    sha256 cellar: :any,                 catalina:       "624bb469bae686405b26ac05706c5f750bed31cd23995a9fa91cc31646e0eadc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1cde2899a36adf5b04d25a9b8b4d6bec8a3099bc59ae68c63e479a4da8ca70b3"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "a7196b340a6b2ee833b9451409a2e83b08ba192bebe4fd019c6e658789c76298"
+    sha256 cellar: :any,                 arm64_monterey: "359d2a8f85d03f310263b91c665bf591703e8a7a6e79396bc2fc64df75e0655a"
+    sha256 cellar: :any,                 arm64_big_sur:  "faa1bb0c78ff5881efcaf476ccfc6ec400e56a4583fcc850d265b70f37fd577e"
+    sha256 cellar: :any,                 ventura:        "d20beb0eb96c3ab67be5987393c64a575781c5d7abe6fb20efd2ae343a0680c7"
+    sha256 cellar: :any,                 monterey:       "4b248059b3fed99774183f17e335eca05edb25698dabcecbe916f4ec63a48cc6"
+    sha256 cellar: :any,                 big_sur:        "deffadfecec61da06dde9edf5eae19381f80f99ae78e57607732fd54be366b8a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f55d5bcc07a45f599800b2c9fb5818c13be90803355e169cdb0e1ddc621bee5e"
   end
 
   depends_on "m4"

@@ -1,19 +1,18 @@
 class Py3cairo < Formula
   desc "Python 3 bindings for the Cairo graphics library"
   homepage "https://cairographics.org/pycairo/"
-  url "https://github.com/pygobject/pycairo/releases/download/v1.23.0/pycairo-1.23.0.tar.gz"
-  sha256 "9b61ac818723adc04367301317eb2e814a83522f07bbd1f409af0dada463c44c"
+  url "https://github.com/pygobject/pycairo/releases/download/v1.24.0/pycairo-1.24.0.tar.gz"
+  sha256 "1444d52f1bb4cc79a4a0c0fe2ccec4bd78ff885ab01ebe1c0f637d8392bcafb6"
   license any_of: ["LGPL-2.1-only", "MPL-1.1"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "c3fb62311b4289c1ae34eb9a798f827009fdb0c6edad049cd6d6f58bca3a921d"
-    sha256 cellar: :any,                 arm64_monterey: "2e3c30b7fcdfbabee0e1d086e5ae44396a90bfd49cbb45e5ad268a23fb2329b5"
-    sha256 cellar: :any,                 arm64_big_sur:  "fd3bd19e4c9d0a3ab792099835e3d8ff624b3958b0064b906df3d6cd01effebc"
-    sha256 cellar: :any,                 ventura:        "6696dd1a0827c972c9eec4164e44804e264538e595e5719d12afc8f6d76ffdcb"
-    sha256 cellar: :any,                 monterey:       "5435a3f3a2642dc80e08293507b3370a22dee7db9abb18180a18d513e1be7676"
-    sha256 cellar: :any,                 big_sur:        "7e2754f9e40733b62707a0fa4167d438728b1241981df62a5f57ee42575de15a"
-    sha256 cellar: :any,                 catalina:       "8ca6b71d03d4af1933749b800785062dd01ae3422dae51a4b46c967f2a430291"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b30bdcc53e02f9c4ee0a03b8abbee005eaf788ebd3b0d65b2c6e1506e281995b"
+    sha256 cellar: :any,                 arm64_ventura:  "e4d800015c97ddaeee41ff6acd81b546ac527390d0c858d5eb7e1b01dcd4b413"
+    sha256 cellar: :any,                 arm64_monterey: "ea420032b73fcffad9f60d2bb14762ed2e6be7f16b63df73d91edc16d63047f9"
+    sha256 cellar: :any,                 arm64_big_sur:  "e656545fc71d55a771ab33e90082ae82ca40a8ec45400c2f3f55b16a4cfd53b8"
+    sha256 cellar: :any,                 ventura:        "6fcbf02ec9eb9c0983e1c05a40622495806741379cbe6cae1f492bd8cdc94d42"
+    sha256 cellar: :any,                 monterey:       "bf9963d0209d0d7f590b14468be8cc98fd78031b1a77f7a1dab63732d7a28f05"
+    sha256 cellar: :any,                 big_sur:        "f3fd07081a416d80f5451520d9c953d11ae3c08f2ea1cc9fcec0a4c26d5549d4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "313433ef1c481f3758c31a1af49b9a329522e29394325a9967f354b4442afaa0"
   end
 
   depends_on "pkg-config" => :build

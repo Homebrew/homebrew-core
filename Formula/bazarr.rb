@@ -5,19 +5,19 @@ class Bazarr < Formula
 
   desc "Companion to Sonarr and Radarr for managing and downloading subtitles"
   homepage "https://www.bazarr.media"
-  url "https://github.com/morpheus65535/bazarr/releases/download/v1.2.1/bazarr.zip"
-  sha256 "3ee54ad63acd8f16a011262f82a4417f1cec57f2b11614dd3b29623bcb26c1e7"
+  url "https://github.com/morpheus65535/bazarr/releases/download/v1.2.2/bazarr.zip"
+  sha256 "8076da46a504c137d81b8909dc1371686ef81032d6ee485fbc293a7644402edf"
   license "GPL-3.0-or-later"
   head "https://github.com/morpheus65535/bazarr.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "34663e30ea153790471cb4beadd93c522894af511fa2b7b1e40e777e6d009b21"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a85d259bfd1390cbd1c35b93aecde424d3c38e9c99702e0fab48c0a48284e70b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "31f83739d54e67ab12bc229fd0d6ff202decefeda9e0ded54ebeb6b0af13a654"
-    sha256 cellar: :any_skip_relocation, ventura:        "de12b135205dadaae4cec5d2fccbaac136ac450df414533a75809e66a05ccec0"
-    sha256 cellar: :any_skip_relocation, monterey:       "46620233e1dfd80baa41fad693aabaf2026fc1d85ad22d7b2ea02647bbb5e972"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5414a552b5414cef012742418965d287791b91d868fdc7c7df83ae47f9d453bd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b154869e663c55893d353f532dee88bb9bab8f5e21889cf14bc92676af52bdad"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a9dd31387982259959d082d2ed182cc8824ea53774a53faef3c903b584841f1e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "75635f0019941cb2b98a89b553f5cdf269acf99c93d30ee7fb168da2dfcb9469"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "07792a607cf4c5dd7c8aa1e43abe3872358bb416f1d2c9d1f0918c68bbb143a2"
+    sha256 cellar: :any_skip_relocation, ventura:        "f1c53028fadfe6a54590d2312bb1df924063e2ef47b913d3530e79f39197e004"
+    sha256 cellar: :any_skip_relocation, monterey:       "9a0b793186ad7e53e61c57ab38683ac751b50f657926cd8f19a690ee0cbace3d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "25f0b7c35f1f0fa418dbbf26f32e1799a6158cf75ba558ed1cd601fd0d461200"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6fac8cf6c4c2953f5ede8e751813b6d06fd3cb445f36536508b119918f8e8b64"
   end
 
   depends_on "node" => :build

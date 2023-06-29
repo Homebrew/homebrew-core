@@ -10,7 +10,7 @@ class Pprint < Formula
     sha256 cellar: :any_skip_relocation, all: "2bd9ae7e3fd65f467b6416bf779f79aa7bb30ab6a064a3971b4cd5fed16fd234"
   end
 
-  deprecate! date: "2022-05-24", because: :repo_archived
+  disable! date: "2023-06-19", because: :repo_archived
 
   depends_on macos: :high_sierra # needs C++17
 

@@ -23,7 +23,6 @@ class Neko < Formula
   depends_on "pkg-config" => :build
   depends_on "bdw-gc"
   depends_on "mbedtls@2"
-  depends_on "openssl@1.1"
   depends_on "pcre"
 
   uses_from_macos "sqlite"

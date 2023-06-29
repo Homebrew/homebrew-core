@@ -4,7 +4,7 @@ class Opensaml < Formula
   url "https://shibboleth.net/downloads/c++-opensaml/3.2.1/opensaml-3.2.1.tar.bz2"
   sha256 "b402a89a130adcb76869054b256429c1845339fe5c5226ee888686b6a026a337"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://shibboleth.net/downloads/c++-opensaml/latest/"
@@ -12,18 +12,18 @@ class Opensaml < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "59c471816035a2f47ef027372917f6e5f00bde0f52be611a093d2776186a17b4"
-    sha256 cellar: :any,                 arm64_monterey: "b54f6321b30636a85766bf79106da3fe6e6bd62a8175bbf33e2f4ffaa59e0092"
-    sha256 cellar: :any,                 arm64_big_sur:  "3ac7e8b8d17a3fae75013ab5d3816a0825e5135b332be9fa232458bfd6d8f0e3"
-    sha256 cellar: :any,                 ventura:        "fa48153d9e27c658e81878c800a691934d23070e4215d3582bf8225bf851756d"
-    sha256 cellar: :any,                 monterey:       "d3cc32efd39b792501474e1b9c2fe49052fe0e37d5741c1b3b12889e49fb2425"
-    sha256 cellar: :any,                 big_sur:        "bec1ebc0632d0234f4365a13175e9079d93f1bf7853af6016438dd62fbd04b19"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "73cd63ee414c783833b7b055dcb6a0301db0844da0ba759a1a7f2933547c6cb1"
+    sha256 cellar: :any,                 arm64_ventura:  "59d3b421e0a08b0b04f60d2989c4ba8585ed77c09fcc36496d98767accafcdd3"
+    sha256 cellar: :any,                 arm64_monterey: "751d88f288303ca0cff704f77cdb3803c0eb3b8e94c5486b6033cee5f491afc4"
+    sha256 cellar: :any,                 arm64_big_sur:  "232720c15dc28288affe6b2d95389a4b6bff730968496c7685d10bf7e7eb0b3f"
+    sha256 cellar: :any,                 ventura:        "923aa760bafc583d1e5cde80ed636fc84db55633eef41bc56798cc9ae3cd3872"
+    sha256 cellar: :any,                 monterey:       "f7dc0a6e36997a7697213dca41d535b8c25fa2ac7b0aacc149fa4d9dcc5cb1df"
+    sha256 cellar: :any,                 big_sur:        "f23d5a0f0058664a4957f6d84c7aa7eb63586674b51172192999b2754f59193b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "79621d652d472952723b63fb9d038728d20ac5777b973cdb82bbb8054c96ff2b"
   end
 
   depends_on "pkg-config" => :build
   depends_on "log4shib"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "xerces-c"
   depends_on "xml-security-c"
   depends_on "xml-tooling-c"

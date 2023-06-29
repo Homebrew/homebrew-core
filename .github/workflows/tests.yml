@@ -25,18 +25,6 @@ permissions:
   contents: read
 
 jobs:
-  record_pull_number:
-    if: always() && github.repository_owner == 'Homebrew' && github.event_name == 'pull_request'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Save pull request number
-        run: echo '${{ github.event.number }}' > number
-
-      - uses: actions/upload-artifact@v3
-        with:
-          name: pull-number
-          path: number
-
   tap_syntax:
     if: github.repository_owner == 'Homebrew'
     runs-on: ubuntu-22.04
@@ -48,6 +36,13 @@ jobs:
       - name: Set up Homebrew
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
+
+      - name: Cache style cache
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/Homebrew/style
+          key: style-cache-${{ github.sha }}
+          restore-keys: style-cache-
 
       - run: brew test-bot --only-tap-syntax
 

@@ -2,6 +2,7 @@ class Thrift < Formula
   desc "Framework for scalable cross-language services development"
   homepage "https://thrift.apache.org/"
   license "Apache-2.0"
+  revision 1
 
   stable do
     url "https://www.apache.org/dyn/closer.lua?path=thrift/0.18.1/thrift-0.18.1.tar.gz"
@@ -16,13 +17,13 @@ class Thrift < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "82591c3d842a3cadcb1b639204e84542de312863b61513a1dd8a72c542a96188"
-    sha256 cellar: :any,                 arm64_monterey: "932ab09d7b343ebc02f0661b305d94dc69770a37b403161256f9ac4778ab5c69"
-    sha256 cellar: :any,                 arm64_big_sur:  "d2f6a0b9cc82d3b72562915947fee1c6b483ffa6b87e57013c3f3438c4e33910"
-    sha256 cellar: :any,                 ventura:        "ebfa59b9d51bd2558445c7bbeb3ca17255718a42ab92ddacd56b5c2dec53a689"
-    sha256 cellar: :any,                 monterey:       "a7831c8263916b6046b2683e1367ca6787e2561c9ce66db090dd7517f2834201"
-    sha256 cellar: :any,                 big_sur:        "20da9a6b17c787d33ecaa1e6960591f60db7afd16237d7ecc1c23bda55788704"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cf0617a356f75b693bac1428c20c96353071ae0f1a4c7c33fab1e884c964469f"
+    sha256 cellar: :any,                 arm64_ventura:  "85600b3e4a39ec5fa0ce1da14f6ed9a13cd92ae6fe16ae487dbcd73321325cb1"
+    sha256 cellar: :any,                 arm64_monterey: "97307b5ca8dde1d7a37f2cbeca2f067951c3dada69b13ffc5bf22eb4fc815561"
+    sha256 cellar: :any,                 arm64_big_sur:  "77f4dbb7a8de0b329701047cd8832d33c58675c1404a7cf1d84ad39e7404ef0e"
+    sha256 cellar: :any,                 ventura:        "6c4cca5e0fade907187b6190bab02b6e8ad726754334c7c6263778005dd4141e"
+    sha256 cellar: :any,                 monterey:       "3ee7123fb389d20f50fc60d61b9eeca3a1fb05b63266a3d7c66899a30a22ed50"
+    sha256 cellar: :any,                 big_sur:        "dc5dd5406468028339f76642481073fbc56ff852e6cdedddef5912daa315bc76"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c9df34f68397a255916889927e8c77ad60377b1d8649c0dcd0ec53202a25242a"
   end
 
   head do
@@ -36,7 +37,7 @@ class Thrift < Formula
 
   depends_on "bison" => :build
   depends_on "boost" => [:build, :test]
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   uses_from_macos "zlib"
 
   def install
@@ -47,7 +48,7 @@ class Thrift < Formula
       --disable-tests
       --prefix=#{prefix}
       --libdir=#{lib}
-      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
+      --with-openssl=#{Formula["openssl@3"].opt_prefix}
       --without-java
       --without-kotlin
       --without-python

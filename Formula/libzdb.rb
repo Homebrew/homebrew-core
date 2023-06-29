@@ -4,6 +4,7 @@ class Libzdb < Formula
   url "https://tildeslash.com/libzdb/dist/libzdb-3.2.3.tar.gz"
   sha256 "a1957826fab7725484fc5b74780a6a7d0d8b7f5e2e54d26e106b399e0a86beb0"
   license "GPL-3.0-only"
+  revision 1
 
   livecheck do
     url :homepage
@@ -11,20 +12,19 @@ class Libzdb < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "d9a1e85054f21d735dc85853908b1685df18539775bcc7be208ed089b68e7715"
-    sha256 cellar: :any,                 arm64_monterey: "e8e69ee7caa822faeefbbd3beb5e42d60796daae8e9865d351b35a09d30eab23"
-    sha256 cellar: :any,                 arm64_big_sur:  "bd1c26eb89919f26a72458310340981f2360444facb8a06007f831cdde8969c3"
-    sha256 cellar: :any,                 ventura:        "4f337503e65d099fee98d7cccf111ab51d45bbaf9ea8ad4bd7ee8f39adf59a2b"
-    sha256 cellar: :any,                 monterey:       "fb27c254646707f49b4c220493a904d52c166b8432e29ac89df1c2c0bdb1842a"
-    sha256 cellar: :any,                 big_sur:        "503b5ac11a438ee0ce95b4a905575061f6710948e1fbb0d25e8c1a2b555d1bb8"
-    sha256 cellar: :any,                 catalina:       "9de6c1b21c609053ff01c54f5595dcc7185d9b7a6b6ecf8d65076ef7c9f93d3c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6dcf7be43843a73041a75abfbb79fa2cdb72a82d3356e7413fd9b12ab40ac3ea"
+    sha256 cellar: :any,                 arm64_ventura:  "69ee497f93eeec69092089d3491992dbfef8eb9191b91ff41856132a799b5e2c"
+    sha256 cellar: :any,                 arm64_monterey: "9c941469057d1e6bc266f717253b4d273f79a206cbb88c1222b9438ffc45405b"
+    sha256 cellar: :any,                 arm64_big_sur:  "7a63987fcff8e633e748b00623b2c4f8459eeffc58c14c415b523bab8a51b04d"
+    sha256 cellar: :any,                 ventura:        "695bee5cdf964b73531e8d0ac5668f4f4787958765da4dccec56466bb1e8dd02"
+    sha256 cellar: :any,                 monterey:       "fb11437e4090f3a53cbdf84556234375cdaea1b0a8e0d30819ffd064ad6844a2"
+    sha256 cellar: :any,                 big_sur:        "928efd66e2f2f6032982635fa2b6b36a2f55ff9e05c44554dddc5600dea1de65"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2decd203e733b4c7c930d14cced666603bf77ab673068e4d66fa0fb7499c1b96"
   end
 
   depends_on "libpq"
   depends_on macos: :high_sierra # C++ 17 is required
   depends_on "mysql-client"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "sqlite"
 
   fails_with gcc: "5" # C++ 17 is required

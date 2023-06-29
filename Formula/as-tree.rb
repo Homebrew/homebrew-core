@@ -1,5 +1,5 @@
 class AsTree < Formula
-  desc "Print a list of paths as a tree of paths 🌳"
+  desc "Print a list of paths as a tree of paths"
   homepage "https://github.com/jez/as-tree"
   url "https://github.com/jez/as-tree/archive/0.12.0.tar.gz"
   sha256 "2af03a2b200041ac5c7a20aa1cea0dcc21fb83ac9fe9a1cd63cb02adab299456"

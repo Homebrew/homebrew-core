@@ -1,18 +1,18 @@
 class Akamai < Formula
   desc "CLI toolkit for working with Akamai's APIs"
   homepage "https://github.com/akamai/cli"
-  url "https://github.com/akamai/cli/archive/refs/tags/v1.5.4.tar.gz"
-  sha256 "994b09e6d735a1b2512416ccfec7eaf7440be1642ac903f02a3dd7dd09eede8f"
+  url "https://github.com/akamai/cli/archive/refs/tags/v1.5.5.tar.gz"
+  sha256 "39ad5ac0a0f0c7cbf24e0e4af9cc74868f39e41d632b236d8ac4bb5ac8d2969e"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4ae94983580f91eceebc9f821b2bb92059098786835f3ef6099d901c8fc7a39f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4ae94983580f91eceebc9f821b2bb92059098786835f3ef6099d901c8fc7a39f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4ae94983580f91eceebc9f821b2bb92059098786835f3ef6099d901c8fc7a39f"
-    sha256 cellar: :any_skip_relocation, ventura:        "8eae9a2e9d388a5792f39a24963339909069caaec8cfc3ec76437b0d9642df8a"
-    sha256 cellar: :any_skip_relocation, monterey:       "8eae9a2e9d388a5792f39a24963339909069caaec8cfc3ec76437b0d9642df8a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8eae9a2e9d388a5792f39a24963339909069caaec8cfc3ec76437b0d9642df8a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b155a8ff4e558334604dcd8e602c0da91d42108ae059b20039a1eb2b341f145f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6ca5cc96a4f75f61066b59b64f8a61533500e3e5a1b291870117ec898957cbf4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6ca5cc96a4f75f61066b59b64f8a61533500e3e5a1b291870117ec898957cbf4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6ca5cc96a4f75f61066b59b64f8a61533500e3e5a1b291870117ec898957cbf4"
+    sha256 cellar: :any_skip_relocation, ventura:        "15bdf852e4fcbec53af5d758a6613075c96b53e7d306dde2e631d7892af2ce0a"
+    sha256 cellar: :any_skip_relocation, monterey:       "15bdf852e4fcbec53af5d758a6613075c96b53e7d306dde2e631d7892af2ce0a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "15bdf852e4fcbec53af5d758a6613075c96b53e7d306dde2e631d7892af2ce0a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2157ed6f76428807b044cdaf48023c6fa6222c5276d1ff4a2a36d3a7e6149aad"
   end
 
   depends_on "go" => [:build, :test]

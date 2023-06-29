@@ -17,7 +17,7 @@ class LittleCms < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "077ed4556feb380643d0aa9aab9bcbf1285f8b0c8f0702d422ab5c03c431668c"
   end
 
-  deprecate! date: "2022-06-12", because: :unmaintained
+  disable! date: "2023-06-19", because: :unmaintained
 
   depends_on "jpeg-turbo"
   depends_on "libtiff"

@@ -5,7 +5,7 @@ class Spidermonkey < Formula
   version "91.13.0"
   sha256 "53be2bcde0b5ee3ec106bd8ba06b8ae95e7d489c484e881dfbe5360e4c920762"
   license "MPL-2.0"
-  revision 2
+  revision 3
   head "https://hg.mozilla.org/mozilla-central", using: :hg
 
   # Spidermonkey versions use the same versions as Firefox, so we simply check
@@ -16,13 +16,13 @@ class Spidermonkey < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "c86a0a00d17e639dc2894142194cc99406384626e92e9afa26c8dda8fdfc28d0"
-    sha256 cellar: :any,                 arm64_monterey: "d9ce5112d08c944ca6ae6aeb078c6b4a94349caa530a57940b9f0000f113c6eb"
-    sha256 cellar: :any,                 arm64_big_sur:  "260e78da8f7d60e493d57a5e4a200fb602c372230f0645f6808353ce7b684fa1"
-    sha256 cellar: :any,                 ventura:        "85ad09528a9fac9379ef345bfc60dd2520e1c4394da309b65dba10129b45886b"
-    sha256 cellar: :any,                 monterey:       "7218b680d85eca3628fddbbfe74d215fd2b3df40f765debed343bfff348ca976"
-    sha256 cellar: :any,                 big_sur:        "3795db1e0e26f3e560a596e0d35b0798910ffc455a98710913185d46a4d561f1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "26a8b4df8ca062d71245432c37642a31fca065339462595f14ffd09bb2b68757"
+    sha256 cellar: :any,                 arm64_ventura:  "29a1f7b672b200702a8099e354447a64cdd9a6898c7705e24c366a7a0288e5d3"
+    sha256 cellar: :any,                 arm64_monterey: "0b8aa6694a714be0056dbfa2bd89ff986d54f00d85c399236404672ac3721895"
+    sha256 cellar: :any,                 arm64_big_sur:  "d861fe8fda486a803a6a9a053b3b68a8d9f0eb0a3e289799a63cb75435e9dc71"
+    sha256 cellar: :any,                 ventura:        "a96e9c8f66db222c7c1edc0cc547fbb23ceea26fa2ceb9946102d122f3ff98aa"
+    sha256 cellar: :any,                 monterey:       "c84fd9a36d06dd5c6c995d72d7e874f514d99790257f4b8e404368d13416c04a"
+    sha256 cellar: :any,                 big_sur:        "fc49a115c213765bdec4a17ba700bbf8ad34d64b97d148a10466e6940545c4e0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1d792e70d4ff39c9e4f09d4629ffe6f5952e94ec2b09e296af0ad03c0fcfcf12"
   end
 
   depends_on "autoconf@2.13" => :build

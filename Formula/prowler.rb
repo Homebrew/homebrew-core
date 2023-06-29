@@ -3,26 +3,26 @@ class Prowler < Formula
 
   desc "Open Source Security tool to perform Cloud Security best practices"
   homepage "https://prowler.pro/"
-  url "https://files.pythonhosted.org/packages/15/41/1c531aa0742ada57c2e49d9dee020075b506a1483c54f1c30415d41cd0a2/prowler-3.5.3.tar.gz"
-  sha256 "c6d0cdd722cdca282e7b53a0ee5dcf3df66d3cbac8630b534be4d68ed8babd0a"
+  url "https://files.pythonhosted.org/packages/70/31/2765ed128a01511753179ed0f0c3619dd39b6221c0cb654343b95571af42/prowler-3.6.1.tar.gz"
+  sha256 "03f0985e1546536a3b54683d009a85642c31c8b08bcf0fa93f638fef91cd05ab"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "97f53378135914d5b20ad968b45638b4beb7fa624ebe408b048d8c8a66e31c90"
-    sha256 cellar: :any,                 arm64_monterey: "57b4efe313673c74152017f98244b8ba7d6e77b06718b57a9e9e48b62fc592b4"
-    sha256 cellar: :any,                 arm64_big_sur:  "4fdd9d10ff916ee5fdf148d04082928bebdb587229fed4370cb1e3a82456bfcc"
-    sha256 cellar: :any,                 ventura:        "512f50f36e46adf250984a9e1255161f15c08769e3baedf4d4a0d0a9f8da04bb"
-    sha256 cellar: :any,                 monterey:       "85f45cde214594b181549e8b0287ea22da6d787fdfd11d3886b7603595d57269"
-    sha256 cellar: :any,                 big_sur:        "5783139d3ea915ce277b0792482f1b00eb6ce0858f3e9dcb8076a4e8e6600a36"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "43a4540bc87829aaa193a355e06f75261600712ac014710c83d6e5252fbe598b"
+    sha256 cellar: :any,                 arm64_ventura:  "dee7fa9acbccfd7f7ed0a411ac04b218f04a289a5582060fc88268f580de2cda"
+    sha256 cellar: :any,                 arm64_monterey: "de5f43e3b42ca400f8ea8b1d4d5e6005d03caba85bc3f820b2b9f11465047d64"
+    sha256 cellar: :any,                 arm64_big_sur:  "35e6a470d4f82ceee39418236937fc818cba29a08c00579a871d77f62aa3820c"
+    sha256 cellar: :any,                 ventura:        "46c69a9481fa1ff4f963c7f8701b80ef9040e05c11205dafc5fa73dc8b548c34"
+    sha256 cellar: :any,                 monterey:       "dee3bef5017f36bdfb8c7897509fab5d833ef93c37577ad9edc2804a79cbff1c"
+    sha256 cellar: :any,                 big_sur:        "d12b14adedd4c5a70aaa4a7090321063d559501f58f64ebc6c53b7ca29a47051"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "65a83c141f616e08bf6589781ca7378daf6a09526d7a10a3c4f24753e7827803"
   end
 
-  # `pkg-config`, `rust`, and `openssl@1.1` are for cryptography.
+  # `pkg-config`, `rust`, and `openssl@3` are for cryptography.
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "cffi"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pycparser"
   depends_on "python-tabulate"
   depends_on "python-typing-extensions"
@@ -36,8 +36,8 @@ class Prowler < Formula
   end
 
   resource "alive-progress" do
-    url "https://files.pythonhosted.org/packages/db/ad/f67b278cc654d51872dc1ed437f383522f9b715043ff80a3401fcdebf98e/alive-progress-3.1.1.tar.gz"
-    sha256 "6d9ad57add9c1341aa57d93e6370c76c9fc0c9fdc631e1c56b48e59daa32106e"
+    url "https://files.pythonhosted.org/packages/ec/55/ae92dce431293998db7575fd2d8315d239d760772df39871b901d3f78357/alive-progress-3.1.4.tar.gz"
+    sha256 "74a95d8d0d42bc99d3a3725dbd06ebb852245f1b64e301a7c375b92b22663f7b"
   end
 
   resource "awsipranges" do
@@ -51,8 +51,8 @@ class Prowler < Formula
   end
 
   resource "azure-core" do
-    url "https://files.pythonhosted.org/packages/da/2d/afa02427822abf435ae0ec10b8b53626f9fbf32f694610141c283ad66e98/azure-core-1.27.0.zip"
-    sha256 "068ea8b61888165b1e749892785936e293e35070a10ea10c8c11ec9f5186a2f8"
+    url "https://files.pythonhosted.org/packages/31/5c/9da79ae1d12571a0e268f0b813d9d19e9419339f7fbe2232b556937b4358/azure-core-1.27.1.zip"
+    sha256 "5975c20808fa388243f01a8b79021bfbe114f503a27c543f002c5fc8bbdd73dd"
   end
 
   resource "azure-identity" do
@@ -91,13 +91,13 @@ class Prowler < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/6a/75/480b53782e0acde46db78bea73a55686514452f0ff4404d8ece4f391cd37/boto3-1.26.138.tar.gz"
-    sha256 "f0a78f94a7140b60960898fd86677e4e73cc96bd7f3e5c64fc5cc1818d04c7b8"
+    url "https://files.pythonhosted.org/packages/b9/d5/9dab475e053884366251a845b95de08d3e81280a362c171c5b69e18a49e7/boto3-1.26.147.tar.gz"
+    sha256 "ccfbdb6e9ebdf943e222c88c9a8f161a8a607f3dbdbf3b1b0eed25c1d8cb215e"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/6d/f4/07a2ad9a3ba8e393616ad9401ca2f73d22a4144f893c2e6735a37a212fe1/botocore-1.29.138.tar.gz"
-    sha256 "31edc237088c104f7a05887646bbec31d7459dd2e108fd90cbffa315902817e2"
+    url "https://files.pythonhosted.org/packages/cc/78/d8436545911fd1b4ee7e995cf8139a57339225644432e3852bc02dc41dc6/botocore-1.29.152.tar.gz"
+    sha256 "f6319ecdbe3d325878f837cac2874e461b4d90691bb2d2186f980bce3b3cfcc8"
   end
 
   resource "cachetools" do
@@ -146,18 +146,18 @@ class Prowler < Formula
   end
 
   resource "google-api-core" do
-    url "https://files.pythonhosted.org/packages/2b/15/7bafa5379a228ed72baf769eea5e6019a944469fe637ea0742c0351109bf/google-api-core-2.11.0.tar.gz"
-    sha256 "4b9bb5d5a380a0befa0573b302651b8a9a89262c1730e37bf423cec511804c22"
+    url "https://files.pythonhosted.org/packages/f3/b8/f727ada5b63aba53848e3791dd57be7481d5c9bf86978600ca9cca4ab03e/google-api-core-2.11.1.tar.gz"
+    sha256 "25d29e05a0058ed5f19c61c0a78b1b53adea4d9364b464d014fbda941f6d1c9a"
   end
 
   resource "google-api-python-client" do
-    url "https://files.pythonhosted.org/packages/35/2e/818e946a4ee38995acfcab5e0f7391bff313a3c24fefc7882c5e1c9fa580/google-api-python-client-2.86.0.tar.gz"
-    sha256 "3ca4e93821f4e9ac29b91ab0d9df168b42c8ad0fb8bff65b8c2ccb2d462b0464"
+    url "https://files.pythonhosted.org/packages/82/9d/22aac91db2ae696423ef5d5331781b7119e54cad0807da81ee8a6ba6129e/google-api-python-client-2.88.0.tar.gz"
+    sha256 "37068453f79ea28e5394a8fe20a4ba620594e7f8541068bea2e844dacdcc9d33"
   end
 
   resource "google-auth" do
-    url "https://files.pythonhosted.org/packages/77/52/4e59fb37fd1f6fe4609f91d4792640b50294172616ff5bf3108eafa17f9a/google-auth-2.19.1.tar.gz"
-    sha256 "a9cfa88b3e16196845e64a3658eb953992129d13ac7337b064c6546f77c17183"
+    url "https://files.pythonhosted.org/packages/4b/e0/d2c96098280f17eb626d4da0b7e553b8e5648d57514c8cefec851c16920c/google-auth-2.20.0.tar.gz"
+    sha256 "030af34138909ccde0fbce611afc178f1d65d32fbff281f25738b1fe1c6f3eaa"
   end
 
   resource "google-auth-httplib2" do
@@ -166,8 +166,8 @@ class Prowler < Formula
   end
 
   resource "googleapis-common-protos" do
-    url "https://files.pythonhosted.org/packages/9a/19/02a6256e00653b0fec9f356678df0ed996cb9d89aeb472c8c4df9490cac0/googleapis-common-protos-1.59.0.tar.gz"
-    sha256 "4168fcb568a826a52f23510412da405abd93f4d23ba544bb68d943b14ba3cb44"
+    url "https://files.pythonhosted.org/packages/28/9b/ea531afe585da044686ab13351c99dfbb2ca02b96c396874946d52d0e127/googleapis-common-protos-1.59.1.tar.gz"
+    sha256 "b35d530fe825fb4227857bc47ad84c33c809ac96f312e13182bdeaa2abe1178a"
   end
 
   resource "grapheme" do
@@ -226,8 +226,8 @@ class Prowler < Formula
   end
 
   resource "protobuf" do
-    url "https://files.pythonhosted.org/packages/7f/2e/49d5a453d68febffbb602ad985b7432377e36bdf47198c6ab05021b33016/protobuf-4.23.2.tar.gz"
-    sha256 "20874e7ca4436f683b64ebdbee2129a5a2c301579a67d1a7dda2cdf62fb7f5f7"
+    url "https://files.pythonhosted.org/packages/e5/9d/20e9bf4067e85c3074f1f5bac820a3cfb9ce885cddd8a649fe3570659c77/protobuf-4.23.3.tar.gz"
+    sha256 "7a92beb30600332a52cdadbedb40d33fd7c8a0d7f549c440347bc606fb3fe34b"
   end
 
   resource "pyasn1" do
@@ -241,8 +241,8 @@ class Prowler < Formula
   end
 
   resource "pydantic" do
-    url "https://files.pythonhosted.org/packages/43/5f/e53a850fd32dddefc998b6bfcbda843d4ff5b0dcac02a92e414ba6c97d46/pydantic-1.10.7.tar.gz"
-    sha256 "cfc83c0678b6ba51b0532bea66860617c4cd4251ecf76e9846fa5a9f3454e97e"
+    url "https://files.pythonhosted.org/packages/ec/0a/cf955f8bb3b9498d554522cfe7cb9b019ba9f8b86e2879009f604207b72c/pydantic-1.10.9.tar.gz"
+    sha256 "95c70da2cd3b6ddf3b9645ecaa8d98f3d80c606624b6d245558d202cd23ea3be"
   end
 
   resource "pyjwt" do
@@ -312,7 +312,7 @@ class Prowler < Formula
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.
-    ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
+    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
     ENV["OPENSSL_NO_VENDOR"] = "1"
 
     virtualenv_install_with_resources

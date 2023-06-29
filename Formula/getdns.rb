@@ -2,6 +2,7 @@ class Getdns < Formula
   desc "Modern asynchronous DNS API"
   homepage "https://getdnsapi.net"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/getdnsapi/getdns.git", branch: "develop"
 
   stable do
@@ -24,13 +25,13 @@ class Getdns < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "98dc1fb43eb6c8dd17c0a63994cfc9535a541842b3b6ce8b9d5a68030adc0d28"
-    sha256 cellar: :any,                 arm64_monterey: "8554daa08681240029566f03ae8ae692a953c29822e5cc9005d6604cc8c456c7"
-    sha256 cellar: :any,                 arm64_big_sur:  "c4ca81b562f87b94686d66626651c43616961472ac43439b841550a6f7deb121"
-    sha256 cellar: :any,                 ventura:        "e72a3233240b7668f24f54bf48afc16b208349b9f8b30d9a672495a433b7a21e"
-    sha256 cellar: :any,                 monterey:       "7a94535e77a153c1cc310d9f6b9adb10ef76fd22b80be85f26d56b7944eeec53"
-    sha256 cellar: :any,                 big_sur:        "abe91d70d22a59db77b4de06d6f70bdb0ae00dcbde58702d2957757d35db30b9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "34d8afa76df42bce459a0fb6ba57f335c98f0287ca4b33716e3cd6ea66e61b4d"
+    sha256 cellar: :any,                 arm64_ventura:  "c2f1f059c36f76d0e32acfee307bc6f02a8bb91f850f666704dfe503b79e6035"
+    sha256 cellar: :any,                 arm64_monterey: "78497b3d08f57ad15ff67fc0834e7d087b2660fa81863f4f5dd4c7e208de5db8"
+    sha256 cellar: :any,                 arm64_big_sur:  "546421d61bf0ed25dddf21496983fd8e93031e4665eeff8fe6badff4fec8c7b4"
+    sha256 cellar: :any,                 ventura:        "118a3e9288aa2b65bb29d034d97c25813ec762d3edd9ccaed34d38df05e8356b"
+    sha256 cellar: :any,                 monterey:       "9a2d1783c4dfe96711732586d68105f9e4d4eca95baefe335bf63f17e04740f9"
+    sha256 cellar: :any,                 big_sur:        "1e8c18958a4bcf70bbcaa0a9014c28176fbb02b7ca477033f2315e8535c39b6d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bd16047c9d5d64db4bc99b8390c6fc80bffe45ca2a1f8c1b7d244d8262babbb0"
   end
 
   depends_on "cmake" => :build
@@ -38,7 +39,7 @@ class Getdns < Formula
   depends_on "libevent"
   depends_on "libidn2"
   depends_on "libuv"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "unbound"
 
   def install

@@ -4,7 +4,7 @@ class Icecast < Formula
   url "https://downloads.xiph.org/releases/icecast/icecast-2.4.4.tar.gz", using: :homebrew_curl
   mirror "https://ftp.osuosl.org/pub/xiph/releases/icecast/icecast-2.4.4.tar.gz"
   sha256 "49b5979f9f614140b6a38046154203ee28218d8fc549888596a683ad604e4d44"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://ftp.osuosl.org/pub/xiph/releases/icecast/?C=M&O=D"
@@ -12,19 +12,18 @@ class Icecast < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "4eb9c107f4b16bdbc9efff532f00aad8f227405ea8000207b7b88cb71e32b8fd"
-    sha256 cellar: :any,                 arm64_monterey: "af7fd9e799b9d6ce1878595e28e21f8faf3c37dd3932fde612526d6e6d49ebe2"
-    sha256 cellar: :any,                 arm64_big_sur:  "b7a6e3a7523fef943c038fe13bbacae2a3a68c7a340ab9eb3e7f3eff9ecb3886"
-    sha256 cellar: :any,                 ventura:        "d342130f38d0e24785ef49eaf4baf9f73b16340f38852ad2cd96f469c00db566"
-    sha256 cellar: :any,                 monterey:       "20fa587a4c56601c9e6c20376eb32b6bb699003bb134dd078d2aaa55ffbbd88c"
-    sha256 cellar: :any,                 big_sur:        "b196a319590c996ce6a95597922df8b20bbf57ccf1accee46f04d0958c89d977"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "118242d50e7fe10915271d3d852c9f0a02f8ccbe4016c0d17e27f04556985666"
+    sha256 cellar: :any,                 arm64_ventura:  "f1dbdd4c3334a071987302de9a1bf78bcdda9fd4fd38599e7e8edba3d9b4dc49"
+    sha256 cellar: :any,                 arm64_monterey: "1cb64c4bfce898110241fde245ba51ee8f9ce59290f9274b9e0e02b6930dce06"
+    sha256 cellar: :any,                 arm64_big_sur:  "bb94499394f61cbae3fd9f68626c22b93f8647007f79ac1ee4afb8d71f6774d9"
+    sha256 cellar: :any,                 ventura:        "670f11797d9920650b98eef03ce127985f07ff919f2780ba83c37c12865b93bd"
+    sha256 cellar: :any,                 monterey:       "70dcce0432592b1fd218c86a3594b7d38fd664f6bfd0ddfa6ad11ca914cd216c"
+    sha256 cellar: :any,                 big_sur:        "1eace833c381d2fc1989670bf8fdfa38d444177c1c855477ffc3c47b659b1340"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0a5ea433670e7f6a02c9ff502c6d65c56d6ea5c5e65c3eac418d3da2cf05cac2"
   end
 
   depends_on "pkg-config" => :build
   depends_on "libvorbis"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "curl"
   uses_from_macos "libxslt"

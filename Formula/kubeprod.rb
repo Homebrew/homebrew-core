@@ -17,7 +17,7 @@ class Kubeprod < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d33e013a915ab5b777bcdf0d11476c55905896c29cf168c76558bf66e6753403"
   end
 
-  deprecate! date: "2022-03-18", because: :repo_archived
+  disable! date: "2023-06-19", because: :repo_archived
 
   depends_on "go@1.17" => :build
 

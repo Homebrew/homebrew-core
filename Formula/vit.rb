@@ -3,19 +3,19 @@ class Vit < Formula
 
   desc "Full-screen terminal interface for Taskwarrior"
   homepage "https://taskwarrior.org/news/news.20140406.html"
-  url "https://files.pythonhosted.org/packages/44/1c/e92432357d5dd26ad086e4a05ff066c0539e754fbe3dfdd78e0cb206964b/vit-2.3.0.tar.gz"
-  sha256 "f3efd871c607f201251a5d1e0082e5e31e9161dde0df0c6d8b5a3447c76c87c6"
+  url "https://files.pythonhosted.org/packages/e5/45/4e94b51638143c2f47fe39ba8d54f42976b661fd9c90d5efec28c66e6fb9/vit-2.3.1.tar.gz"
+  sha256 "114b369f5727285a3861472c251eb953c2c75da00de50e60a04b0b46e10ce7fc"
   license "MIT"
   head "https://github.com/vit-project/vit.git", branch: "2.x"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dc14204fbfe13e997712377e10df24fc7670788bf86dbaa18b91b981c00a20a9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a3a3c84a83a1b6edc62a81dfb4d23142c96329651429579cd453ecc2b92891cb"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5638ea75e260f5bd6c5bd9e023e4cca5c77b95847f9705a4c2bb6cc260b3b449"
-    sha256 cellar: :any_skip_relocation, ventura:        "8de8b6c57f7f306b1b58ecbbd54b4cc54dbd8db7d25b73388a4685e8fa115740"
-    sha256 cellar: :any_skip_relocation, monterey:       "d2af69dec0af1e44e2f8572a3f8e1f520d555e2f72181283a5205aed31bf3fda"
-    sha256 cellar: :any_skip_relocation, big_sur:        "bf52cc4de5a6dda6ef2aada13f145fbf864a5cb31a40d701eec65ac4373bc68b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bf0cf914988224ef86de7447128bb1cce78e22207bad050cdfbe56fbae12d3b1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2cdf3ef7fa6362fc0ebd0e03bc21ec85ffcb4a82d7ff008c46e1f03c1a97e4a4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "da829044a95cabaa0cad05832056934cec40bef04745935aa66b395fb98091fb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0f45d5c5e30b1d047a720e35a74447cb454c3fa826378a3995b6bf84b5cae36c"
+    sha256 cellar: :any_skip_relocation, ventura:        "7c7e2f9e250a1fe594ea3d138fedb3381e44d6b3ade8a891a1422497f072e4c2"
+    sha256 cellar: :any_skip_relocation, monterey:       "92ec92eb9624dd50724a5fb76f91b9fac8bcc4290044e7f9ab0ef53d00490aec"
+    sha256 cellar: :any_skip_relocation, big_sur:        "fcc8009bd7c477231ca8f8d3b879d1313f86fc32653319145fd3e63b86ea7dad"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2f93e4ff9a53c040bd12353b27506070548a1f286da040a30969dc67ee386b7d"
   end
 
   depends_on "python@3.11"

@@ -5,20 +5,21 @@ class Openiked < Formula
   mirror "https://mirror.edgecast.com/pub/OpenBSD/OpenIKED/openiked-7.2.tar.gz"
   sha256 "55dc270bc40a121f855d949a25a5ffaeb11e7607e8198ec52160ef54b6946845"
   license "ISC"
+  revision 1
 
   bottle do
-    sha256                               arm64_ventura:  "fa1992fefc726490f3f1d4c39fab38b58a166ef92f057568d7a12b301e69b2a0"
-    sha256                               arm64_monterey: "d19b1b311897b2d3ceeb011d1513af82ad74a4973a2fbca19b29834084409660"
-    sha256                               arm64_big_sur:  "50c7cde3052da690766df2957656253061c0c8eb5c60a115427026a9949f9e5f"
-    sha256                               ventura:        "17cf1c88086af81156947f67efa974ae08bc288cf05429b18673d77680782b4f"
-    sha256                               monterey:       "5e46b35807ba18efad9474854b59dbd0299094c6da105190163ecd26863d8440"
-    sha256                               big_sur:        "9ab20c91204bba9a9be46ae57510767ca3847791a9ee6dd9807a260f589df709"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "88f4743e17f811395c252f6dee24b1e69987cbc290c1c107a7615c0f4e5c3063"
+    sha256                               arm64_ventura:  "1506a1268e445795d9391cbb4076543537f58ea6283e9b984e7208a0d757a123"
+    sha256                               arm64_monterey: "febbe8eb3444ad1b3f87022fab852b9e8d3c258b7f7a1dc7d8318061090d1979"
+    sha256                               arm64_big_sur:  "bd3fa710e1533a58ff15552c940b076322b35549678d8831417fe6bde33f7bb2"
+    sha256                               ventura:        "cfb9dd8d2162af79efbba3acd06bd0b69a7e23359abdc7994b3fe438952e4329"
+    sha256                               monterey:       "60ab7c8c3c95cce68a4671f675896b42a5a838147ce54fef8906c7c7491e006b"
+    sha256                               big_sur:        "fda3e94e6c5f0b929b8643fd42da2755be8d1bd39873dd71d13aebae245be7bd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6dc8b811d18291943301c5eb5bd07dec8793675bfb66e85b729147c15db45583"
   end
 
   depends_on "cmake" => :build
   depends_on "libevent"
-  depends_on "openssl@1.1"  # openssl@3 conflicts with libevent
+  depends_on "openssl@3"
 
   uses_from_macos "bison"
 

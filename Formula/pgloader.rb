@@ -4,6 +4,7 @@ class Pgloader < Formula
   url "https://github.com/dimitri/pgloader/releases/download/v3.6.9/pgloader-bundle-3.6.9.tgz"
   sha256 "a5d09c466a099eb7d59e485b4f45aa2eb45b0ad38499180646c5cafb7b81c9e0"
   license "PostgreSQL"
+  revision 1
   head "https://github.com/dimitri/pgloader.git", branch: "master"
 
   livecheck do
@@ -12,19 +13,18 @@ class Pgloader < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "75ce4938747c4ba2698e4a4ff2b5fbaaf62ffd89605a6d1415d1268b4e32fbb6"
-    sha256 cellar: :any, arm64_monterey: "7e85385f26dd4ad116fb0dea28bcf0ee2960638dff826133ef41d4aedbd2b788"
-    sha256 cellar: :any, arm64_big_sur:  "083409384a573f93aecfdb87bef99dd47f560c4c60ca6377ba333248938a09bf"
-    sha256 cellar: :any, ventura:        "ef9d295d03f153fe8854a066e9a766f026d5add13db9431a9c86e4cbf6ef8e72"
-    sha256 cellar: :any, monterey:       "e12f91551cedd8c3e34fd97471bc51bf2f6bf50121a9a9ede7147a64fe2c20ab"
-    sha256 cellar: :any, big_sur:        "6d6b3011d7463da5de24c79c2003787f348141c829e1538c71b39c4b76bb00a2"
-    sha256 cellar: :any, catalina:       "23243450dfa58c5f7114f820203f4709c529a9273fadaa43d9743a2a848b4ed3"
+    sha256 cellar: :any, arm64_ventura:  "a1afef6471522bb9640eb6a1f90a81de9a2b7a59486855b01126a0a76a7d9202"
+    sha256 cellar: :any, arm64_monterey: "18fc4491b7d3035915ded7094ca86ce1201f5102f0b1197ac01da12025d0d51a"
+    sha256 cellar: :any, arm64_big_sur:  "975bf337d97d1f1db5dc0beeae7b239bfcc9077f41ee509bcf7b8ca2e94b8445"
+    sha256 cellar: :any, ventura:        "4e5a10a893c483e90c08fe80a5df7192f8242ff91a05ddb853ef0393538c1eb1"
+    sha256 cellar: :any, monterey:       "dbdcb3dc4b0a403a1235646d7246efb94f31234a1fe6e300a632099b58b81921"
+    sha256 cellar: :any, big_sur:        "ec2d67c75bf8ee60a466446161052a64a8cbcf1a2b89572949a763a134d23a07"
   end
 
   depends_on "buildapp" => :build
   depends_on "freetds"
   depends_on "libpq"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "sbcl"
 
   def install

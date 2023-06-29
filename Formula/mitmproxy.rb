@@ -6,21 +6,22 @@ class Mitmproxy < Formula
   url "https://github.com/mitmproxy/mitmproxy/archive/refs/tags/9.0.1.tar.gz"
   sha256 "2acd2c16e5bc02cd1dab8c58003254a71a2ee0ec0366001f624f85c980a2b43a"
   license "MIT"
+  revision 1
   head "https://github.com/mitmproxy/mitmproxy.git", branch: "main"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_ventura:  "d5717914a6aa0e482e996529ce74b4031ac0f53c76172ac297fe187b75ef110f"
-    sha256 cellar: :any,                 arm64_monterey: "83a3292604a34f2d74ccfd3b89d2d3a795f34c5967b58498505c36422da1a29d"
-    sha256 cellar: :any,                 arm64_big_sur:  "8263e1c90ec4944c5a918b7c6f6cf6db6f928d209fba052d32f95e8a27927975"
-    sha256 cellar: :any,                 ventura:        "5577b1d9fc8dee4fba8932f6fe7a87b0af4e3f4266a8edcd17b68580e4402b7f"
-    sha256 cellar: :any,                 monterey:       "84a21d89eebc3261e1478f1196f7e4e45d451268e4cbfbef22c797a3f1a5a0e3"
-    sha256 cellar: :any,                 big_sur:        "a36319deccc4c44f8790f73c8f84793d1411e6c452ad5ccc0275e511ef38eaa5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1538dfd6da5bc3a8a7786d5354bd20854e1931c99dbaf42198394337f29be1f8"
+    sha256 cellar: :any,                 arm64_ventura:  "06d83b5db540302881288fce7fa2ef77566928b9383cce25495ca43da51ed1e1"
+    sha256 cellar: :any,                 arm64_monterey: "0474cabfbdca6e6384032b2fbf55d0d5e88414a9a413e2c9a8576b3383721e20"
+    sha256 cellar: :any,                 arm64_big_sur:  "1153943b5925a5d0654d35b8415256b456d5f3860ca915070e454d78955a2a76"
+    sha256 cellar: :any,                 ventura:        "235ecdee882e630ef894caed694dc0871d6d31d2d673588050ecb3785c7e1774"
+    sha256 cellar: :any,                 monterey:       "2230f9c15f334bb226ee4fb893feebaafd1b4450acb6f4865bb9dec7dbd9b38a"
+    sha256 cellar: :any,                 big_sur:        "a4c7351f76365fd04129f2098e2eebb17610a58968e7916de719aebbc8226227"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c56e1e951b79a2f2baf1aee6c11b6ee93af7630e1bdc06df239109d9d34b1dc6"
   end
 
   depends_on "rust" => :build # for cryptography
-  depends_on "openssl@1.1"
+  depends_on "cffi"
+  depends_on "openssl@3"
   depends_on "protobuf"
   depends_on "python@3.11"
   depends_on "six"
@@ -44,11 +45,6 @@ class Mitmproxy < Formula
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/37/f7/2b1b0ec44fdc30a3d31dfebe52226be9ddc40cd6c0f34ffc8923ba423b69/certifi-2022.12.7.tar.gz"
     sha256 "35824b4c3a97115964b408844d64aa14db1cc518f6562e8d7261699d1350a9e3"
-  end
-
-  resource "cffi" do
-    url "https://files.pythonhosted.org/packages/2b/a8/050ab4f0c3d4c1b8aaa805f70e26e84d0e27004907c5b8ecc1d31815f92a/cffi-1.15.1.tar.gz"
-    sha256 "d400bfb9a37b1351253cb402671cea7e89bdecc294e8016a707f6d1d8ac934f9"
   end
 
   resource "click" do
@@ -136,11 +132,6 @@ class Mitmproxy < Formula
     sha256 "97b7290ca68e62a832558ec3976f15cbf911bf5d7c7039d8b861c2a0ece69fde"
   end
 
-  resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/5e/0b/95d387f5f4433cb0f53ff7ad859bd2c6051051cebbb564f139a999ab46de/pycparser-2.21.tar.gz"
-    sha256 "e644fdec12f7872f86c58ff790da456218b10f863970249516d60a5eaca77206"
-  end
-
   resource "pyOpenSSL" do
     url "https://files.pythonhosted.org/packages/e7/2f/c6d89edac75482f11e231b644e365d31d5479b7b727734e6a8f3d00decd5/pyOpenSSL-22.1.0.tar.gz"
     sha256 "7a83b7b272dd595222d672f5ce29aa030f1fb837630ef229f62e72e395ce8968"
@@ -193,7 +184,6 @@ class Mitmproxy < Formula
 
   def install
     venv = virtualenv_create(libexec, "python3.11")
-    venv.pip_install resource("cffi")
     venv.pip_install resources
     venv.pip_install_and_link buildpath
   end

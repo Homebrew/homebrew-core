@@ -19,7 +19,7 @@ class MariadbAT102 < Formula
   keg_only :versioned_formula
 
   # See: https://mariadb.com/kb/en/changes-improvements-in-mariadb-102/
-  deprecate! date: "2022-05-01", because: :unsupported
+  disable! date: "2023-06-19", because: :unsupported
 
   depends_on "bison" => :build
   depends_on "cmake" => :build

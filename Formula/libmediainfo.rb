@@ -1,20 +1,19 @@
 class Libmediainfo < Formula
   desc "Shared library for mediainfo"
   homepage "https://mediaarea.net/en/MediaInfo"
-  url "https://mediaarea.net/download/source/libmediainfo/23.04/libmediainfo_23.04.tar.xz"
-  sha256 "3650edea326fe54d3f634614764499508fbeec4ae984002f086adf1d0c071926"
+  url "https://mediaarea.net/download/source/libmediainfo/23.06/libmediainfo_23.06.tar.xz"
+  sha256 "c6b1ae8b2bbcf403340518b3c94f2ae75c8eb00682bfbbd18b22442e42dccfcd"
   license "BSD-2-Clause"
-  revision 1
   head "https://github.com/MediaArea/MediaInfoLib.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "cc61a120c71cc0b839779165747970d92b88508960b97cf4d56ecfca62af870e"
-    sha256 cellar: :any,                 arm64_monterey: "e11570b29e921d6597c24217c28b9fcd18c1f5756bd7063d1badae3cc7cc7f78"
-    sha256 cellar: :any,                 arm64_big_sur:  "8423bfd9b9980c6de5d5770c3b60f8f294ffcc2584cba1d31a4ff59a02689669"
-    sha256 cellar: :any,                 ventura:        "0c96ea1123d8d724b9b7ed7333432da6dac16e47f3f5b6fa900499a9bd34606d"
-    sha256 cellar: :any,                 monterey:       "1c9fb0266e93d4ea7f660336881ad92479213dbf80e6efc6eb33cfe689a4155b"
-    sha256 cellar: :any,                 big_sur:        "d6159471e97d64fcb9a3864e6d8d0d50470604e35d51fd139388712bb40cb791"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "393b7e38219f28bbc24b7e4651fbda6f0460a875436ca148e0220ce42696258e"
+    sha256 cellar: :any,                 arm64_ventura:  "2f2dcf16bb319c6b5b8acac1f26531031f78acf7262c9a076f814bad5ecbdd6d"
+    sha256 cellar: :any,                 arm64_monterey: "c1162dc15219c86c7ee24196d25fb7920ef9b9372f2ce3726279ff8f66c45f33"
+    sha256 cellar: :any,                 arm64_big_sur:  "0460ec41a6c2ab02ac8a8e364aca3e580673b385238ae353fa4e9ba97bd86e3d"
+    sha256 cellar: :any,                 ventura:        "9a432a210b92e681db1dae18d911bf6e364dc6625850f49c278f9dd5fb147970"
+    sha256 cellar: :any,                 monterey:       "6d3dd6bc4158f6285d67fb3fb87b23813e8532e79d4aac30e9fc342cdc5190ab"
+    sha256 cellar: :any,                 big_sur:        "ac92a95827b05c857ae1a5a93d45e87a55149508e1300286068cf5e62037730c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f9ffda9847cfac966144862a7863496399598a34a4ae3d88f0b5158a72c80035"
   end
 
   depends_on "cmake" => :build

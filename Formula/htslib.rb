@@ -4,6 +4,7 @@ class Htslib < Formula
   url "https://github.com/samtools/htslib/releases/download/1.17/htslib-1.17.tar.bz2"
   sha256 "763779288c40f07646ec7ad98b96c378c739171d162ad98398868783b721839f"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,13 +12,13 @@ class Htslib < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "4a8afd89ce022fa5b96d48eccf722b5c2de89fc3d5a4647e008f258213abdd69"
-    sha256 cellar: :any,                 arm64_monterey: "7df3e7e8726cb0408012e163bf9def4f35092d93dacbdd5313ce8de1538ab94e"
-    sha256 cellar: :any,                 arm64_big_sur:  "4646c094d0f879d4306cb81fb41e75e02ba0f8aa6d39ef39e888b72a479e522a"
-    sha256 cellar: :any,                 ventura:        "34394201d6fe82a39acfb138066915df1bdc3a556771f3db4e899bb1e090e7a8"
-    sha256 cellar: :any,                 monterey:       "72a3c2f33257d4d61457e01432069fba29f69778c3c6959b1284e07f079d1e81"
-    sha256 cellar: :any,                 big_sur:        "f83414d88cef9dcd8c4192783c1db09aba41f6b823ac3dfc68ffbccc564e5d38"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fb839de87a255d78f48d38121f6b14558146e45f50725e9fd2a96010fc170f8b"
+    sha256 cellar: :any,                 arm64_ventura:  "d7848a7937ef7f417911e5b0c11a9317de1597aea317912a34a45f19319d2edc"
+    sha256 cellar: :any,                 arm64_monterey: "98a7488f931681e9df965d1e55ea72b834e40b460a64648d90bc3f5324cd7cbf"
+    sha256 cellar: :any,                 arm64_big_sur:  "e8bf594d1b9f6f3f26e2a80d13866a88d11eb66dbba01081ad6b9e9d90d17895"
+    sha256 cellar: :any,                 ventura:        "55ec940236a95fed446ee41f05e926e9e4af7626b85378a15b8631ecca091d62"
+    sha256 cellar: :any,                 monterey:       "9c6ab8c15fa6cf1ee526490ad3ab831c5a809f47db60e60f7f8d5e3a27bc9324"
+    sha256 cellar: :any,                 big_sur:        "396446a87d57877f76513c41678513d48629503050c6bebeda58b539d33712d6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5eeb51a686f7eac767e4d49a4a1b175c602c7eb575f214553637517d25b5773c"
   end
 
   depends_on "xz"
@@ -25,6 +26,10 @@ class Htslib < Formula
   uses_from_macos "bzip2"
   uses_from_macos "curl"
   uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "openssl@3"
+  end
 
   def install
     system "./configure", "--prefix=#{prefix}", "--enable-libcurl"

@@ -1,10 +1,9 @@
 class Coq < Formula
   desc "Proof assistant for higher-order logic"
   homepage "https://coq.inria.fr/"
-  url "https://github.com/coq/coq/archive/V8.17.0.tar.gz"
-  sha256 "712890e4c071422b0c414f260a35c5cb504f621be8cd2a2f0edfe6ef7106a1af"
+  url "https://github.com/coq/coq/archive/V8.17.1.tar.gz"
+  sha256 "724667de65825359081b747d41fdbead0620d43b57aa8377a27acd4b072585e6"
   license "LGPL-2.1-only"
-  revision 1
   head "https://github.com/coq/coq.git", branch: "master"
 
   livecheck do
@@ -13,13 +12,13 @@ class Coq < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "008699456159b5a2aaa2ada32ce99e76036e6274217874d5d3ac85e3b686fed6"
-    sha256 arm64_monterey: "63b89cf96a2210f6dc498a8af41910e765270f7de01b4e734a73c2fc562626b4"
-    sha256 arm64_big_sur:  "34a66210a42dee8c70b371a362028232f57ab78b8b1e41d9b05b61d45b9916cc"
-    sha256 ventura:        "409829c3d07dae2378e54e33efb175e8582b1e3c034cff0968ac9eca0dc829a3"
-    sha256 monterey:       "9d16f8ee02778a71241be1a897af50d5abaa9c5c05705387c92cb5954739a9ab"
-    sha256 big_sur:        "e6379d0240df1e9bda2f68ce60bab72fe63e49099cb2f1fbb4c772503949405f"
-    sha256 x86_64_linux:   "85202a5fb75b2942e13b1b5d3537e1bfa1e86169e00ef0b68f56c0070e78dfed"
+    sha256 arm64_ventura:  "17428d897cd59b5ad624055c3de93ad2e40781ccc99db16333a71aaad58a3386"
+    sha256 arm64_monterey: "16f1d9f1950219e0af6e4e06c28813908367ed23bff7ff1c3c4310c8afbaf653"
+    sha256 arm64_big_sur:  "afc36bee0d091cc4902e1553daee20767dd4b4585ab7b54c8d34adf602616270"
+    sha256 ventura:        "d78a6b69c915bf1529eb04aae3b2582a9226102abf02182eb12966a59f22e8de"
+    sha256 monterey:       "0e46aa5d4bc792918c9532644c16f40f7c67c351bb12731afb60b93b17d61591"
+    sha256 big_sur:        "ebc637b55147ceed8574602c71575281b7b12246859dd61eb0fdf1c71693cc5d"
+    sha256 x86_64_linux:   "19fb510814e223b19f28e0c2aa67c4b9add7fdbc65772ad7b8a41214685b9acd"
   end
 
   depends_on "dune" => :build

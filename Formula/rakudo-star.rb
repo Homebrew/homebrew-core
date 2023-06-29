@@ -1,18 +1,18 @@
 class RakudoStar < Formula
   desc "Rakudo compiler and commonly used packages"
   homepage "https://rakudo.org/"
-  url "https://github.com/rakudo/star/releases/download/2023.05/rakudo-star-2023.05.tar.gz"
-  sha256 "54663e8966a633f5a51eee06c8fdae3a16aaa2efa2f046c7c89389c007dfc7a5"
+  url "https://github.com/rakudo/star/releases/download/2023.06/rakudo-star-2023.06.tar.gz"
+  sha256 "15b930c16655851ae168d639632b02a674ef0010adc9d84bb1328d5bc33dcadd"
   license "Artistic-2.0"
 
   bottle do
-    sha256 arm64_ventura:  "8c7850c4faf1dc7be3fcc80eecb4cb1bbdc64038b1063af9c377d374f3b36bc9"
-    sha256 arm64_monterey: "e15d772ae2f2394fec3fa68ea8a71ca73db2a85060bcadda2f24a4601ca01f47"
-    sha256 arm64_big_sur:  "5eb57de2af019b4f382ee3300ca380f736e4b1750d34f264ef44a4cd88db4259"
-    sha256 ventura:        "e2f1a6b887c190c7f352d3fdc81af1d7d5ef6efe833705104dec13a4df3d50e2"
-    sha256 monterey:       "d0aabaaf9ee264b27b4295456b71e6e8fc3b6423b6da85cd83f4ca0af034a7c3"
-    sha256 big_sur:        "0155a6e9045a86bee75b35b8dd84ea4ef445210d18b75dd7de981f2e0476609a"
-    sha256 x86_64_linux:   "a7a7dafa1457d7b0ec45639dcb843224218cb4e5a2a7b66aa25e8e4fba082b51"
+    sha256 arm64_ventura:  "e409b1a493672426efe2f55ce8e522d44b19b285b066bfde6f87543224ca4b83"
+    sha256 arm64_monterey: "be54df0a3edec0db18b916809163446c896e2477e12f60f5697242b89c685e1b"
+    sha256 arm64_big_sur:  "3a5afe45485288c6d5abc4383eec46d6fbfcf1c6b09718783a99b139f1b4da0b"
+    sha256 ventura:        "d932dd3632ae6e0cdd8b8108df73ddf6813fb9e4556d3fc55ffaffc7e53b67ee"
+    sha256 monterey:       "3ce172e6b9a7cb8cad369403c0ffd89a2a56f4f26707e52c24407da3a0f05ef8"
+    sha256 big_sur:        "ed5f11b4aab8edd5f562999ccf1e9aac2caafb2caa93c3ff672f64ab70d1b155"
+    sha256 x86_64_linux:   "56cbf97f14a0dcfdda7892b30351e88f476f98134d4eae997d79984f24b26d5a"
   end
 
   depends_on "bash" => :build

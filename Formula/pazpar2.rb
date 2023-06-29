@@ -4,7 +4,7 @@ class Pazpar2 < Formula
   url "https://ftp.indexdata.com/pub/pazpar2/pazpar2-1.14.1.tar.gz"
   sha256 "9baf590adb52cd796eccf01144eeaaf7353db1fd05ae436bdb174fe24362db53"
   license "GPL-2.0-or-later"
-  revision 3
+  revision 4
 
   livecheck do
     url "https://ftp.indexdata.com/pub/pazpar2/"
@@ -12,13 +12,13 @@ class Pazpar2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "162654ec2c087897997249feccbf3595e456bdad51b6140b5a3fa6134ff484ad"
-    sha256 cellar: :any,                 arm64_monterey: "0f14b91888d588aad368bf8611b603f141db2834e361b842d490aa6d5ee156e5"
-    sha256 cellar: :any,                 arm64_big_sur:  "78304e1b4666d5db378d16a3b6c0915c77271e919208baa149532fa2ab9be197"
-    sha256 cellar: :any,                 ventura:        "1335d7c65c598cd0535767853aaecbc93c741901e133fae9d4e0c91517d0180b"
-    sha256 cellar: :any,                 monterey:       "c76b9a7e741031283bf83a96d5c051016fdaf19bb3b5854842d1dd3e8ac56b80"
-    sha256 cellar: :any,                 big_sur:        "fce42a0b3e170d057b9a6b8602a7bfd91570ff9bfaf825b3e547a0b5b27075fe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "822af8eb36975de56c5802a76d1e2f947ff964be6f1c7b7e6077968f0701320c"
+    sha256 cellar: :any,                 arm64_ventura:  "78bcd6eaa3b662f92110bc0b9d45d585ec8bdbde67b4dc4a2b405c7d6e58c94c"
+    sha256 cellar: :any,                 arm64_monterey: "cc840568464e25c0661076ee56ea8230ba3d6c4550010c18109e123834f8118f"
+    sha256 cellar: :any,                 arm64_big_sur:  "8097ef633c2e3489f322640e7043fa3dbba14a08e3065a15bbdd1879052981aa"
+    sha256 cellar: :any,                 ventura:        "1bbbf5ab7ddcb22ebad5ac5a009cea761cb9de0443731ff7f49f956154c401d7"
+    sha256 cellar: :any,                 monterey:       "addf5e45be0b6667882a93f57a9149a7afdfa746bf484bdbee1a0a14579956bd"
+    sha256 cellar: :any,                 big_sur:        "3e16249082fd4fd0a3d46348de7b1e4b3b8bcac48c3eb4102b80875783aee2f0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8b2d098a7ab8bc0571da0f1908afce25da7f5c190d8b9921df8f61c2b1b2ef1c"
   end
 
   head do

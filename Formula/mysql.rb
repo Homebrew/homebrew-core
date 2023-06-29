@@ -2,10 +2,11 @@ class Mysql < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/8.0/en/"
   # TODO: Check if we can use unversioned `protobuf` at version bump
+  # https://bugs.mysql.com/bug.php?id=111469
   url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.33.tar.gz"
   sha256 "ae31e6368617776b43c82436c3736900067fada1289032f3ac3392f7380bcb58"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
-  revision 1
+  revision 3
 
   livecheck do
     url "https://dev.mysql.com/downloads/mysql/?tpl=files&os=src"
@@ -13,13 +14,13 @@ class Mysql < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "f7a6d1f41c3f9da796ed974929455fac311e53baffb10588e7ac9a728f66d780"
-    sha256 arm64_monterey: "e56237aaf6493250711b258801426999d89a6c6d084599200e118e1d09cb90e5"
-    sha256 arm64_big_sur:  "506cda6ea66d32ce95c9ec89cd9d8cecdad66bf4db23c8a27ab57809f2d51af6"
-    sha256 ventura:        "a0bf848998c389fd819578a220f2d2175c62f4f6d8219d86ca8830a4caf363a8"
-    sha256 monterey:       "c036e82326b69740b9f95ba10c3f2d28d85628114716c9d4451891e41f34e27b"
-    sha256 big_sur:        "d8a3991c09e3dfdb7045fd95a5fe0d85fdb5832661709ea3ab9655de35f3e539"
-    sha256 x86_64_linux:   "0670d39b9a7430ed582062701fed1906de8d91836254c16e01a327ed8864ad0e"
+    sha256 arm64_ventura:  "11af549049440ae84f55b8458528d0221e82f48f684e3fc05986072ee0c3c64f"
+    sha256 arm64_monterey: "c073ff40137b526df4a10e35d2b6835305ab11643852e2142c8439df9cf8362f"
+    sha256 arm64_big_sur:  "b59c8e983eb22ce5490287c879a4e3b69279f7823789051b1394ee90b20debba"
+    sha256 ventura:        "eaac597b7acdec132c12f44d25937dafb4a048222e4852bb955c20e2318bb6e3"
+    sha256 monterey:       "310625a5f5469241bdf177ee2c224e20f8a51222644751acad06412333d1dc02"
+    sha256 big_sur:        "520c1346f168bea169e39f06e990e09f9afc6e5b4d4b425c48829963ac369991"
+    sha256 x86_64_linux:   "e81e56785691e7ea4d0af44e4ce5d73035bc09959b9b80ea2300d1df66ef2958"
   end
 
   depends_on "cmake" => :build
@@ -28,8 +29,8 @@ class Mysql < Formula
   depends_on "libevent"
   depends_on "libfido2"
   depends_on "lz4"
-  depends_on "openssl@1.1"
-  depends_on "protobuf@21"
+  depends_on "openssl@3"
+  depends_on "protobuf@21" # https://bugs.mysql.com/bug.php?id=111469
   depends_on "zlib" # Zlib 1.2.12+
   depends_on "zstd"
 

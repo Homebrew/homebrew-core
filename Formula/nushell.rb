@@ -1,8 +1,8 @@
 class Nushell < Formula
   desc "Modern shell for the GitHub era"
   homepage "https://www.nushell.sh"
-  url "https://github.com/nushell/nushell/archive/0.81.0.tar.gz"
-  sha256 "7618f98c0ad7d824e8899351c394e77df1ca72f440a80f854b215a7a581fa2be"
+  url "https://github.com/nushell/nushell/archive/0.82.0.tar.gz"
+  sha256 "587847feeb9fc06eb2a9da5ff05ffea5238fe5928ebea944c042838d8ad136e8"
   license "MIT"
   head "https://github.com/nushell/nushell.git", branch: "main"
 
@@ -13,13 +13,13 @@ class Nushell < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "aa5b42c6f8180ec86ba97ac88a46530694e7b1026d3765d5df9ea7c359b708f6"
-    sha256 cellar: :any,                 arm64_monterey: "15a2f02b7c216da350022503587adc80e21dcbfa8d4f873133b9e04c58256fe9"
-    sha256 cellar: :any,                 arm64_big_sur:  "23a5fee6c0ec2854bb0c7586d985d5e9ba898e3686e48746ac81400209febb0c"
-    sha256 cellar: :any,                 ventura:        "3eca998cb9eae7f50463d51a3280f46adba687cb1a881d21e125c9475647ee78"
-    sha256 cellar: :any,                 monterey:       "681850ce8a7217ff4e4f40eca41dc8ee43602242da58f3b745f70f411d970b46"
-    sha256 cellar: :any,                 big_sur:        "afad2d508a34d52cb2c08e04f52104bb41200e1802fb3aeec2f1f7ec6e7bbe9f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a68a3adcade141fec1049371b8994ac3ab52e47a3be8235e20a8cbf4fb50f5ce"
+    sha256 cellar: :any,                 arm64_ventura:  "a0f940a5428493fed8bda6a17f69ec2ac8cdfc43184d5f850f3968991db08d64"
+    sha256 cellar: :any,                 arm64_monterey: "80f18535bc0cb1cf503bd9602133c7bd2b5476a17d4fa4fe687371f461d807db"
+    sha256 cellar: :any,                 arm64_big_sur:  "a4d5f3bf87b85c7d46dcdd7e09eb4f16865b5dc263e32dc455dc1e6a1d131027"
+    sha256 cellar: :any,                 ventura:        "5fe4d1ad3399185d1fc7aa61a1f8bd0e59ecdfb24975340b8fa1860e184d5cde"
+    sha256 cellar: :any,                 monterey:       "82108dbb8b4cc0dfc98d94a0687ab6a505cc27dee539a38e6b02307af2e56922"
+    sha256 cellar: :any,                 big_sur:        "a5b076f5cd29b52efeab82f0a9151e190bae402ed893a86d7a03fdfd254ee07e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8a89754f22110cc032311ba481ce4556807a8794cb080d910a8970d07b2c0f18"
   end
 
   depends_on "rust" => :build

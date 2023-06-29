@@ -114,8 +114,38 @@ class OpenMpi < Formula
       call MPI_FINALIZE(ierror)
       end
     EOS
-    system bin/"mpif90", "hellof.f90", "-o", "hellof"
+    system bin/"mpifort", "hellof.f90", "-o", "hellof"
     system "./hellof"
     system bin/"mpirun", "./hellof"
+
+    (testpath/"hellousempi.f90").write <<~EOS
+      program hello
+      use mpi
+      integer rank, size, ierror, tag, status(MPI_STATUS_SIZE)
+      call MPI_INIT(ierror)
+      call MPI_COMM_SIZE(MPI_COMM_WORLD, size, ierror)
+      call MPI_COMM_RANK(MPI_COMM_WORLD, rank, ierror)
+      print*, 'node', rank, ': Hello Fortran world'
+      call MPI_FINALIZE(ierror)
+      end
+    EOS
+    system bin/"mpifort", "hellousempi.f90", "-o", "hellousempi"
+    system "./hellousempi"
+    system bin/"mpirun", "./hellousempi"
+
+    (testpath/"hellousempif08.f90").write <<~EOS
+      program hello
+      use mpi_f08
+      integer rank, size, tag, status(MPI_STATUS_SIZE)
+      call MPI_INIT()
+      call MPI_COMM_SIZE(MPI_COMM_WORLD, size)
+      call MPI_COMM_RANK(MPI_COMM_WORLD, rank)
+      print*, 'node', rank, ': Hello Fortran world'
+      call MPI_FINALIZE()
+      end
+    EOS
+    system bin/"mpifort", "hellousempif08.f90", "-o", "hellousempif08"
+    system "./hellousempif08"
+    system bin/"mpirun", "./hellousempif08"
   end
 end

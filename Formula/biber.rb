@@ -4,19 +4,20 @@ class Biber < Formula
   url "https://github.com/plk/biber/archive/refs/tags/v2.19.tar.gz"
   sha256 "1c1266bc8adb1637c4c59e23c47d919c5a38da4e53544a3c22c21de4a68fc9fe"
   license "Artistic-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "3f522597c2ed6494559a9b0cdb00fee94ce70fd7e215493f3a930b1faa4477ee"
-    sha256 cellar: :any,                 arm64_monterey: "cc12ff76b53af1c1456260dad3b2f9ba0caa2e4d71461c5989a1d9ba417d6b71"
-    sha256 cellar: :any,                 arm64_big_sur:  "ee379665659d8b460d402fcd3747af3fa15bcdaaa446ece0a76038982a6da7fe"
-    sha256 cellar: :any,                 ventura:        "ead523a858abe50f746a6e83efefdb3ef73385c66cba06ffe00dcdbf61ef9c5e"
-    sha256 cellar: :any,                 monterey:       "93e69afca08cbe73976d44661eebf6889bda77a240ad2fa7e6f855d09fd1756c"
-    sha256 cellar: :any,                 big_sur:        "6634422133ae03bfa6353c230259af926f571eb6b3f64881b4f122153c4e981f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4484229ee69a48419cae84503dfd13453ebf66914cc300c297c9e2a09ec4568f"
+    sha256 cellar: :any,                 arm64_ventura:  "01c1decabd69bb312c9f66963bc5ec291f2ae58faa3816daa049da1a737c7a5a"
+    sha256 cellar: :any,                 arm64_monterey: "28e59f2d2151df4e629af6a7033c18c110be22b056bb165add58fd3b63176dcd"
+    sha256 cellar: :any,                 arm64_big_sur:  "4523964ca7ad2640089a82e5b587ac545c7699ec995a87f54f81af03fab4c347"
+    sha256 cellar: :any,                 ventura:        "d149e74e2f52c1e5a9fef252f557b5fa779a73580b27ff0293ce0713e685f80e"
+    sha256 cellar: :any,                 monterey:       "c1b96486017e0f20ba0281fdc94364c13419556fe50a8c0b0e2030a120d856c7"
+    sha256 cellar: :any,                 big_sur:        "aaae13cfc19ada255596c568432c0eec1ddc2bfdd567ee91c9d49bd3fe31ea48"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f96402ba4db12ca9a318782e05413ae7f54a5562f57c52eca6b0be2964058e05"
   end
 
   depends_on "pkg-config" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "perl"
 
   uses_from_macos "libxml2"
@@ -517,7 +518,7 @@ class Biber < Formula
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
     ENV.prepend_path "PERL5LIB", libexec/"lib"
     ENV["PERL_MM_USE_DEFAULT"] = "1"
-    ENV["OPENSSL_PREFIX"] = Formula["openssl@1.1"].opt_prefix
+    ENV["OPENSSL_PREFIX"] = Formula["openssl@3"].opt_prefix
 
     resources.each do |r|
       r.stage do

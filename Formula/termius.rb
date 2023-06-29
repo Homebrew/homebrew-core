@@ -6,19 +6,17 @@ class Termius < Formula
   url "https://github.com/termius/termius-cli/archive/v1.2.15.tar.gz"
   sha256 "ac1a43e0f485a0a4541cae6385d344e767cc2df239a06b78577a3eb87fe3aecf"
   license "BSD-3-Clause"
-  revision 5
+  revision 6
   head "https://github.com/termius/termius-cli.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "44b135137f7deec6ae6ff17027bf208a7c21ae9a8c8df007c82827957b4de39c"
-    sha256 cellar: :any,                 arm64_monterey: "f07c7cb17859ffa89efd82e1e254faf75e5f43f05ef12ccb4b7e4b06adb91880"
-    sha256 cellar: :any,                 arm64_big_sur:  "c94f2d386a28e0b7212a063b6f934f1c56c7a4efb5a784c1f5dddc99fd5d6756"
-    sha256 cellar: :any,                 ventura:        "37b5344a51e1f29dc4f287b9b5f30fb2381146ec85082e3bc6976504324cdf88"
-    sha256 cellar: :any,                 monterey:       "f925f657b7c4fc78ee945ff45ab1bb3db0cba0c84dc2ffbc748293597bd46f72"
-    sha256 cellar: :any,                 big_sur:        "5c60614fcdbdcbcd1b490cd60583eb37d5a0577e26fbe66589f54fa58027c9de"
-    sha256 cellar: :any,                 catalina:       "d40c0fa815938606c93c2eeccc88c4c08df8917103de7194705dc7e12f119282"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e916b0c28ac0e82ecb9c432d99d29b2f15f7b6771e1d04b34273274cb0664bd0"
+    sha256 cellar: :any,                 arm64_ventura:  "3b8b1add7406fd53ed6841289642eb611077a1494b9637b59242fd2990316ccd"
+    sha256 cellar: :any,                 arm64_monterey: "f1232f80e5401956c3a8486315cd9adb9b2cfbd1a30979421b9d2537c284688d"
+    sha256 cellar: :any,                 arm64_big_sur:  "af2ba00ad36e578b0f0454bd659f1e8efbbfbaf88b2375031bb0746bd4980565"
+    sha256 cellar: :any,                 ventura:        "6fef17c9b1ced8ad4333c93b9a115f399b32052378d0901040ec8aa20ac41102"
+    sha256 cellar: :any,                 monterey:       "ae2c4980e751c027df0f879a9ab39d6921dbf69981260f0d382ba88bd7881c95"
+    sha256 cellar: :any,                 big_sur:        "db41c6dbedd8750c8c172a52e2331288f7c67c43d183c17a1de9fbb2a2034b97"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "78c02ee947dcb9f2012e38c3e66cebd877eee1d726e1c41b5268e5c4b5d66d05"
   end
 
   # https://github.com/termius/termius-cli/issues/197#issuecomment-1399394041
@@ -26,7 +24,7 @@ class Termius < Formula
   deprecate! date: "2023-01-25", because: :unmaintained
 
   depends_on "rust" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "python@3.10"
   depends_on "pyyaml"
   depends_on "six"

@@ -19,7 +19,7 @@ class Mdr < Formula
     sha256 cellar: :any_skip_relocation, el_capitan:     "0b522120151f1116ae7e681ff2fb129ecd26486202ca753d6b1de902f6f29334"
   end
 
-  deprecate! date: "2022-05-14", because: :unmaintained
+  disable! date: "2023-06-19", because: :unmaintained
 
   def install
     system "rake"

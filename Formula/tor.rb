@@ -12,6 +12,7 @@ class Tor < Formula
     "MIT",
     "NCSA",
   ]
+  revision 1
 
   livecheck do
     url "https://dist.torproject.org/"
@@ -19,19 +20,19 @@ class Tor < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "ab4cdc345c9f80dfa3e1fd1eeedc7b8d7e15550aa96449e00e8f060fd4f7fad8"
-    sha256 arm64_monterey: "768aa6a027bef375524d863baca66fbcc2e8d012c98d476a08c9ffc60c0c0364"
-    sha256 arm64_big_sur:  "55f8d1cf395876caa55ab9c134eb49aeca91f4056b52d9d6a7b58a4d597d2e3e"
-    sha256 ventura:        "bde133cf943c4079b84e6b88e8d7caaf36e39fc3aee3a613d98371cfb8bf7e41"
-    sha256 monterey:       "c7cc7a407df901e035b62ec1d5e254cc3a0f7a407d6de07b77b96bf2ba38cf16"
-    sha256 big_sur:        "f1450f57dd077481af59d3f8dcbb1f68438cfee0efba367d67505abf49239b38"
-    sha256 x86_64_linux:   "4689141fbbbf9e1d50c81e7d34ecdd684b8ed67fd1e09ca9caaa908afb17e43c"
+    sha256 arm64_ventura:  "6c9a74d4b68b89cb2d38990d9ccece504e6850449e5f5c63dbc9d32160db73fc"
+    sha256 arm64_monterey: "e5ad8cdc670fcde5068bcb4cea55e6d67d0d91a0d9410df85739b2da879505e5"
+    sha256 arm64_big_sur:  "8ec634a8d1c1ae5b624c9c61a82c2998b2363f4c1eb752b9a18b5c2f8495673d"
+    sha256 ventura:        "9579051e421477496c152189f2e12d745c2f733d601829e8f102c47ecf7a0c28"
+    sha256 monterey:       "b27824ccd356e196e05d9e2b86b51cbe7da7bad1590642b5fc089c1cca40771a"
+    sha256 big_sur:        "3ef4e57343bc77e5c0ee90d462a530af990e733b549fe364a8d23efd17816bef"
+    sha256 x86_64_linux:   "def66394b80ea1d4090c7d9c373eff46238bcec9f79a3ea033bc3ecc3ad4f89b"
   end
 
   depends_on "pkg-config" => :build
   depends_on "libevent"
   depends_on "libscrypt"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "zlib"
 
@@ -42,7 +43,7 @@ class Tor < Formula
       --prefix=#{prefix}
       --sysconfdir=#{etc}
       --localstatedir=#{var}
-      --with-openssl-dir=#{Formula["openssl@1.1"].opt_prefix}
+      --with-openssl-dir=#{Formula["openssl@3"].opt_prefix}
     ]
 
     system "./configure", *args

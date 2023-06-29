@@ -5,6 +5,7 @@ class CoreLightning < Formula
       tag:      "v23.05.1",
       revision: "484d4476256815056e5d82991d677553c74315c1"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -12,13 +13,13 @@ class CoreLightning < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "12c81515a1c83bc55eb01efc238b404ed21f717522b72f00a375557b695d6c0b"
-    sha256 cellar: :any,                 arm64_monterey: "265dceb9966ad0c47f5dabf3c3aacef1535ebf162dc05868f459c434eb9c10e8"
-    sha256 cellar: :any,                 arm64_big_sur:  "dcf5b57648fdc66f518d3b8d0ffefe6e52dd88b0b499fdabf1a6f040f2c619a2"
-    sha256 cellar: :any,                 ventura:        "89de9aa4c8f7ba6649b490d2add34a438787480b25979ee521ffb3c8aca3691d"
-    sha256 cellar: :any,                 monterey:       "fa0a9962a8f234deb84dc852615df949efe05d19acb3c2e74ddb15963415c0f8"
-    sha256 cellar: :any,                 big_sur:        "dcae189430f1ee7724e82ec4f239e4d0b7fe8a5881a139c1f453a7c5874e0f1b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "371e275ea511089844ce96851a3126a17e6ded742d9b86c04752bed9c56f9ea6"
+    sha256 cellar: :any,                 arm64_ventura:  "502288a3ef4ea4669d2dcbe2d19b54949ade9aaaa8b8ec666b9b708031bc8bdf"
+    sha256 cellar: :any,                 arm64_monterey: "642635c85400182952970544b4009bde2bd767f0196b270ce7eda2453b097dc3"
+    sha256 cellar: :any,                 arm64_big_sur:  "abdf160f41f1d3f06963e9e1966a607658750ec33598a48865c71ef14afe9092"
+    sha256 cellar: :any,                 ventura:        "9a5172d787b85b480f26319dd1385720090aad65286f42ccaf47341af71c8abb"
+    sha256 cellar: :any,                 monterey:       "4a400e53d1a886e116d7879b87675406df10b256d931693a13ba920ad797081c"
+    sha256 cellar: :any,                 big_sur:        "6b64c4ad74bb16e9f92360c786b2bbd2bb3b33ee9d646b81e04ffb2ce0f99cb0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "152b4bbade729494ea37a3d82e080c6521574b928ff9beb23bd06517abbed4c1"
   end
 
   depends_on "autoconf" => :build
@@ -27,6 +28,7 @@ class CoreLightning < Formula
   depends_on "gnu-sed" => :build
   depends_on "libsodium" => :build
   depends_on "libtool" => :build
+  depends_on "lowdown" => :build
   depends_on "pkg-config" => :build
   depends_on "poetry" => :build
   depends_on "protobuf" => :build
@@ -36,9 +38,7 @@ class CoreLightning < Formula
   uses_from_macos "sqlite"
 
   def install
-    File.open("external/lowdown/configure.local", "a") do |configure_local|
-      configure_local.puts "HAVE_SANDBOX_INIT=0"
-    end
+    remove_dir("external/lowdown")
     system "poetry", "env", "use", "3.8"
     system "poetry", "install"
     system "./configure", "--prefix=#{prefix}"

@@ -4,7 +4,7 @@ class Ncmpcpp < Formula
   url "https://rybczak.net/ncmpcpp/stable/ncmpcpp-0.9.2.tar.bz2"
   sha256 "faabf6157c8cb1b24a059af276e162fa9f9a3b9cd3810c43b9128860c9383a1b"
   license "GPL-2.0-or-later"
-  revision 10
+  revision 12
 
   livecheck do
     url "https://rybczak.net/ncmpcpp/installation/"
@@ -12,13 +12,13 @@ class Ncmpcpp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "3ce6aad4d93abe434a6bf1e1eaaf4e3ea979a482531a78e97c6a288f5f1ae6ce"
-    sha256 cellar: :any,                 arm64_monterey: "0d4527e8b01c0c2e8f322289466385b02dc69ef4b9e0ccf4983245967f00df36"
-    sha256 cellar: :any,                 arm64_big_sur:  "72c8c434ea867d893d49e742ae8109492d65df25a672976e33bf7cd726621a1c"
-    sha256 cellar: :any,                 ventura:        "5830429e3f76f324afc99b8a339e51328328ed7bed1e0ebcb78232067f785622"
-    sha256 cellar: :any,                 monterey:       "d467809068fc47fbce693f0fc63f7c23d4c4c0dbe6c6460519ae7572dcd7d0a4"
-    sha256 cellar: :any,                 big_sur:        "912ccbfdb455c217ebbc4a76bd0226b9c80cd82859dc8b74701755f1b32e0192"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fb8a046a754eecbcf5dbf9c3fe070a63072ae63925e9c86a3cafdefa37f68b5f"
+    sha256 cellar: :any,                 arm64_ventura:  "7e108edcc6bb7560e2fd59a3ff84a2c23332713a70ee87a7c4bfe73dca3a9dc8"
+    sha256 cellar: :any,                 arm64_monterey: "236d1c723a22ca5cc26ec73385970210f049c00914c28d46e3f5b07e383dfaa6"
+    sha256 cellar: :any,                 arm64_big_sur:  "0f26de5f9f6b05b5c26244521814714a7391476340096d1884ad986d3b4419ac"
+    sha256 cellar: :any,                 ventura:        "1af2074eba35f2db1b4ff7727e78e88ad883858cc0c5697ff4b8c52e79dfb0c9"
+    sha256 cellar: :any,                 monterey:       "56daaa3e0b881c2407e5d072f60a00d84ab2547d540bc9b5799b9cf4311e8c7d"
+    sha256 cellar: :any,                 big_sur:        "28e694da13a4c9309dd455be2eca2c199b134153fed11b0aac7be7e48209b662"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "525e7566cf49eca2980c22ff9da6593fa323a6f8e8adc4421dcfcbd7b7256ccb"
   end
 
   head do
@@ -32,6 +32,7 @@ class Ncmpcpp < Formula
   depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "fftw"
+  depends_on "icu4c"
   depends_on "libmpdclient"
   depends_on "ncurses"
   depends_on "readline"

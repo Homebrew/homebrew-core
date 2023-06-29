@@ -6,22 +6,24 @@ class KeepkeyAgent < Formula
   url "https://files.pythonhosted.org/packages/65/72/4bf47a7bc8dc93d2ac21672a0db4bc58a78ec5cee3c4bcebd0b4092a9110/keepkey_agent-0.9.0.tar.gz"
   sha256 "47c85de0c2ffb53c5d7bd2f4d2230146a416e82511259fad05119c4ef74be70c"
   license "LGPL-3.0-only"
-  revision 6
+  revision 7
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any,                 arm64_ventura:  "3983b7d20aad972674546462570a7c71941cb8ddd61c16166c734db18a9bef82"
-    sha256 cellar: :any,                 arm64_monterey: "e144ca0ac858a79005dabb6a4e6491ba3f34c591913f2efb5e3644e8acd2900b"
-    sha256 cellar: :any,                 arm64_big_sur:  "eb7583865ab9a0fba5aa6191b4e2a36faa961876d8d7049ccfabbd4e78464e52"
-    sha256 cellar: :any,                 ventura:        "1537296c7fe07468dda605be5329de2b3ce1145248facc5699d5f43c9554f454"
-    sha256 cellar: :any,                 monterey:       "6f24016477b3c2070b0d1babc092bbca20e6d00685b9adb8110dc8af767f10f4"
-    sha256 cellar: :any,                 big_sur:        "f1c7b8d78b56f533db209e6d90cf860f8b8f66ba54a96e77999f15f93e3a38c7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "42c261167823f24f350b981c7778d63f2287dab3cc3ed20275646d09104333ad"
+    sha256 cellar: :any,                 arm64_ventura:  "b24e0b0adc47e73232b625dfb0fcada42b3f4075b784b640d999b4b7190ebc46"
+    sha256 cellar: :any,                 arm64_monterey: "e15107caac75189dd84abb0fb947ada153c385f54ca3e677726f99ef7b49132e"
+    sha256 cellar: :any,                 arm64_big_sur:  "450aef2ddb82eba5eede13723d8716dd3a3b65c9d8305c8a5aa7c748da608a53"
+    sha256 cellar: :any,                 ventura:        "c31059abd3d74075d524733d6bbac585dfa0c40575ebffbd45fdd1c28e567b5d"
+    sha256 cellar: :any,                 monterey:       "96a0afd351289ba37315fde718220740da93081a0fd67e729d5ebd9248c5610d"
+    sha256 cellar: :any,                 big_sur:        "18dd8e8f929e1d4b2d1054f0593317e8e14091126badcf6efcb471c7376144c2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "398a5139373cea7805b82802e54eacf5460e001b82956d96a375566b31f63581"
   end
 
+  depends_on "pkg-config" => :build
   depends_on "rust" => :build
+  depends_on "cffi"
   depends_on "docutils"
   depends_on "libusb"
+  depends_on "openssl@3"
   depends_on "python@3.11"
   depends_on "six"
 
@@ -33,11 +35,6 @@ class KeepkeyAgent < Formula
   resource "bech32" do
     url "https://files.pythonhosted.org/packages/ab/fe/b67ac9b123e25a3c1b8fc3f3c92648804516ab44215adb165284e024c43f/bech32-1.2.0.tar.gz"
     sha256 "7d6db8214603bd7871fcfa6c0826ef68b85b0abd90fa21c285a9c5e21d2bd899"
-  end
-
-  resource "cffi" do
-    url "https://files.pythonhosted.org/packages/2b/a8/050ab4f0c3d4c1b8aaa805f70e26e84d0e27004907c5b8ecc1d31815f92a/cffi-1.15.1.tar.gz"
-    sha256 "d400bfb9a37b1351253cb402671cea7e89bdecc294e8016a707f6d1d8ac934f9"
   end
 
   resource "ConfigArgParse" do
@@ -90,11 +87,6 @@ class KeepkeyAgent < Formula
     sha256 "7cd532c4566d0e6feafecc1059d04c7915aec8e182d1cf7adee8b24ef1e2e6ab"
   end
 
-  resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/5e/0b/95d387f5f4433cb0f53ff7ad859bd2c6051051cebbb564f139a999ab46de/pycparser-2.21.tar.gz"
-    sha256 "e644fdec12f7872f86c58ff790da456218b10f863970249516d60a5eaca77206"
-  end
-
   resource "PyMsgBox" do
     url "https://files.pythonhosted.org/packages/7d/ff/4c6f31a4f08979f12a663f2aeb6c8b765d3bd592e66eaaac445f547bb875/PyMsgBox-1.0.9.tar.gz"
     sha256 "2194227de8bff7a3d6da541848705a155dcbb2a06ee120d9f280a1d7f51263ff"
@@ -126,6 +118,10 @@ class KeepkeyAgent < Formula
   end
 
   def install
+    # Ensure that the `openssl` crate picks up the intended library.
+    ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
+    ENV["OPENSSL_NO_VENDOR"] = "1"
+
     # Help gcc to find libusb headers on Linux.
     ENV.append "CFLAGS", "-I#{Formula["libusb"].opt_include}/libusb-1.0" unless OS.mac?
     virtualenv_install_with_resources

@@ -2,24 +2,31 @@ class PerconaServer < Formula
   desc "Drop-in MySQL replacement"
   homepage "https://www.percona.com"
   # TODO: Check if we can use unversioned `protobuf` at version bump
-  url "https://downloads.percona.com/downloads/Percona-Server-8.0/Percona-Server-8.0.32-24/source/tarball/percona-server-8.0.32-24.tar.gz"
-  sha256 "2867706e914597cb3a5161751573c5463caf8343684ed7eeafcad1eb8f2d081e"
+  url "https://downloads.percona.com/downloads/Percona-Server-8.0/Percona-Server-8.0.33-25/source/tarball/percona-server-8.0.33-25.tar.gz"
+  sha256 "9871cac20c226bba7607f35c19ee23516a38c67573dd48618727c74eae22912e"
   license "BSD-3-Clause"
   revision 1
 
   livecheck do
-    url "https://www.percona.com/downloads/Percona-Server-LATEST/"
-    regex(/value=.*?Percona-Server[._-]v?(\d+(?:\.\d+)+-\d+)["' >]/i)
+    url "https://docs.percona.com/percona-server/latest/"
+    regex(/href=.*?v?(\d+(?:[.-]\d+)+)\.html/i)
+    strategy :page_match do |page, regex|
+      page.scan(regex).map do |match|
+        # Convert a version like 1.2.3-4.0 to 1.2.3-4 (but leave a version like
+        # 1.2.3-4.5 as-is).
+        match[0].sub(/(-\d+)\.0$/, '\1')
+      end
+    end
   end
 
   bottle do
-    sha256 arm64_ventura:  "a921bfbdeaaa0097c32a57dc5f49a694cd343365e18b68fe83589eb03c7c0188"
-    sha256 arm64_monterey: "b93ade94d601edb0a5e9e24277abf2e156925746475f48500541909256ae773f"
-    sha256 arm64_big_sur:  "1f10e90e616d9100a5a4e8f2cf9bc61180e01f5bcaea2fa51e187c9609071891"
-    sha256 ventura:        "2a77772db022cf314e9ecf0c44dbe9bb3c9ae8039c2082dc27d966462b333145"
-    sha256 monterey:       "d4731c7e181d23049b9420a428af96d90e81100942b75e8d554b790d970fbb29"
-    sha256 big_sur:        "137193691364e3a6a623e438134868c9943ac81d88572a201f90bd3068d8b4a9"
-    sha256 x86_64_linux:   "eabc7ec42e913019e8fcf991f0ec941c4307e24a6065503646fa700169c52030"
+    sha256 arm64_ventura:  "866b29e8fb5e9265f81f4b2102c2fd16671b0a118306f55b0c639959170e0574"
+    sha256 arm64_monterey: "00c71be1b3077e8a7dc4c23fbe91da0f3e58ed8a1b6ea46ca44d4f071006786a"
+    sha256 arm64_big_sur:  "b0004364879aa7b5b9b6eb2449551089e64abdbc2abe968fc86fc5a22b1d3a38"
+    sha256 ventura:        "215a6aad27899458a2fba7cc1d771b831434494486b2c8189f681c1ea70c04b3"
+    sha256 monterey:       "3be17693d7b2d6cbd7aa8b3ae80f77e12af9bee25f7a1982889c7efcfc8c9dd7"
+    sha256 big_sur:        "4e735dd3aa75b3822de8fbac6782a788f7b0d4c95655277bcdc2228f2bc8762e"
+    sha256 x86_64_linux:   "ff5ac540d35bd831661ca43f8fb98b151556a31b636a767032f1b6d0d6256cab"
   end
 
   depends_on "cmake" => :build
@@ -29,7 +36,7 @@ class PerconaServer < Formula
   depends_on "libfido2"
   depends_on "lz4"
   depends_on "openldap" # Needs `ldap_set_urllist_proc`, not provided by LDAP.framework
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "protobuf@21"
   depends_on "zlib" # Zlib 1.2.13+
   depends_on "zstd"
@@ -73,6 +80,14 @@ class PerconaServer < Formula
     sha256 "af27e4b82c84f958f91404a9661e999ccd1742f57853978d8baec2f993b51153"
   end
 
+  # Fix for "Cannot find system zlib libraries" even though they are installed.
+  # https://bugs.mysql.com/bug.php?id=110745
+  # https://bugs.mysql.com/bug.php?id=111467
+  patch do
+    url "https://bugs.mysql.com/file.php?id=32361&bug_id=111467"
+    sha256 "3fe1ebb619583fc1778b249042184ef48a4f85555c573fb3618697cf024d19cc"
+  end
+
   def install
     # Find Homebrew OpenLDAP instead of the macOS framework
     inreplace "cmake/ldap.cmake", "NAMES ldap_r ldap", "NAMES ldap"
@@ -110,7 +125,7 @@ class PerconaServer < Formula
       -DWITH_LZ4=system
       -DWITH_PROTOBUF=system
       -DWITH_SSL=system
-      -DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}
+      -DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}
       -DWITH_ZLIB=system
       -DWITH_ZSTD=system
     ]

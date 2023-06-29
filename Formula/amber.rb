@@ -4,18 +4,20 @@ class Amber < Formula
   url "https://github.com/amberframework/amber/archive/refs/tags/v1.3.2.tar.gz"
   sha256 "37511d6b4afe308e1943cedeab9114b01d5787d868c23d2c0cc555917a21c830"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 arm64_ventura:  "09874b1c0219b906acb44c2e5e7cc289f7d302fae6c1b6095683535267a07dd0"
-    sha256 arm64_monterey: "b3861f5e4f7e94f731cb0de75d03d0e0751db0bff733b6db9e19dcb062f78053"
-    sha256 arm64_big_sur:  "3aae57960a61b66b2c6e3383af499e72b24423174ce6b33278785423dbe10f36"
-    sha256 ventura:        "78e8fbf9f87122ccb0bfa93abdf3a1d6c54bc1486a0774a5eb2ca68088479b36"
-    sha256 monterey:       "f162565aaf09c4cec2a72da13d37237d0e2a854eb8f463e4a96de0251f192dbd"
-    sha256 big_sur:        "bcefbabba33b53d726ac043cf74798c1dddbc0d5df8bbdf05acec1632853abd7"
-    sha256 x86_64_linux:   "0c15fd19b2005974609aeef0cfd6fffbb3ed1337bc4af58b3f4e59cca7bb4710"
+    sha256 arm64_ventura:  "a58e71da8f3bd81d7ea0865629192516c7b78ffdf86f4a36ef9d16f0989f4d53"
+    sha256 arm64_monterey: "242d9eae3535ff3923abc04f150293a831629401b2c5137814c4314254d524ee"
+    sha256 arm64_big_sur:  "89d5c6078a78519c8448d69e3dae8fa566b2cb2cdf9072ebcb2f3b26620d567d"
+    sha256 ventura:        "e20092fc8b6a737600755e31f6d10c1235411d0ba8a82b3c9ffbb9817c5170ca"
+    sha256 monterey:       "58f0ea20927b9e0a637f86b1cc27af7d3fe3967ce1eb4b4dc58ea1673035ea0c"
+    sha256 big_sur:        "da3c927123d4b58560c201a213411030ec071b11f0a287f8a0542e801d0770a6"
+    sha256 x86_64_linux:   "564fadf54bc255a81862b1c60fe76ffe611b5ef8eebc452a1e3e12e169a8d44a"
   end
 
   depends_on "crystal"
+  depends_on "openssl@3"
   uses_from_macos "sqlite"
 
   def install

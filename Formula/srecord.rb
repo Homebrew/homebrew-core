@@ -41,7 +41,29 @@ class Srecord < Formula
   end
 
   def install
-    system "./configure", "--prefix=#{prefix}", "LIBTOOL=glibtool"
+    system "./configure", *std_configure_args, "LIBTOOL=glibtool"
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.srec").write <<~EOS
+      S012000068656C6C6F5F737265632E73726563F2
+      S1130000303132333435363738396162636465668A
+      S11300104142434445464748494A4B4C4D4E4F5054
+      S10C002041414141424242420ABD
+      S9030000FC
+    EOS
+
+    expected = <<~EOS
+      Format: Motorola S-Record
+      Header: "hello_srec.srec"
+      Execution Start Address: 00000000
+      Data:   0000 - 0028
+    EOS
+
+    output = shell_output("#{bin}/srec_info #{testpath}/test.srec")
+    assert_equal expected, output
+
+    assert_match version.major_minor.to_s, shell_output("#{bin}/srec_info --version")
   end
 end

@@ -3,7 +3,7 @@ class Gkrellm < Formula
   homepage "https://billw2.github.io/gkrellm/gkrellm.html"
   url "http://gkrellm.srcbox.net/releases/gkrellm-2.3.11.tar.bz2"
   sha256 "1ee0643ed9ed99f88c1504c89d9ccb20780cf29319c904b68e80a8e7c8678c06"
-  revision 2
+  revision 3
 
   livecheck do
     url "http://gkrellm.srcbox.net/releases/"
@@ -11,17 +11,13 @@ class Gkrellm < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "d02c2824c12ada8d88960c1e0cc2bcb9faf8b245c2bbe7926e6df1ccd6b9cdb0"
-    sha256 arm64_monterey: "a32eb484583ec59dd701fd6c8a7ad2ae44656bf7eab9037929b22880ebbfb7f6"
-    sha256 arm64_big_sur:  "97f8dcd6b453a73339369feef0512c94129cf55e923f6d8f114a99f0ee732a88"
-    sha256 ventura:        "f50c1ce59316495ebec312303308ea46eef65df83323f1f5b7c2133e6c93ce2a"
-    sha256 monterey:       "83f96aa76c3cde2b8dbc6b3f3ead3e4d05fc7d71d5d7aada9cf3284e6455f3f8"
-    sha256 big_sur:        "6571912b0f2df38104a4541d8c7fbedfa30e8d3af55249d9a447874058ef9e9b"
-    sha256 catalina:       "17b040897e4feebebcca29a8d8f69fdf0cd789f07a3e479b0fe5f5f172436289"
-    sha256 mojave:         "641f4e27054dacd25dd91dc2f6d8d608918321ae06cf06eb17f2d62132125e7a"
-    sha256 high_sierra:    "71f4e92d308a39b38ac97bf2f06cea12ccee0072cbd27b8443e1d33f11fb7c5b"
-    sha256 sierra:         "f90adbb22bdbc169d95c932591d4c5a7c5e869f61c79744bb743c50a4698acc9"
-    sha256 x86_64_linux:   "ca8de16de4f193874d68b638ac2a0d3b007fdf178967b45a7945814167ada700"
+    sha256 arm64_ventura:  "dd870efc661b45e29ad69fc2413a3d78069763d01e0b1b7c5234df19bf3c102f"
+    sha256 arm64_monterey: "3983e2437e1930f66c19ba5dfffe300ec7624aad43a3e0b4d4b49ead2ec70167"
+    sha256 arm64_big_sur:  "e2722e8eef55bf785c42548a507355bd44df8c6df7dcc40a8c2f5b40f8c2c290"
+    sha256 ventura:        "a2ce7b7c4e41372864b7de15a19d649dbbdb6bcd6c8de4bf1b96264358d834fb"
+    sha256 monterey:       "5871cd121aa7aa4b0bfc6af75e8e718a1e49d560f23efb2a98ad1255167143d9"
+    sha256 big_sur:        "7a4eaed03a5da148716b65e02cdddb03b13c3c1bdf6f43c65cd4833be4d09166"
+    sha256 x86_64_linux:   "5ce7b72ca02d9657b676754d3bcf936e8fba6c4f0aa4fa2e76520bd31f5975eb"
   end
 
   depends_on "pkg-config" => :build
@@ -33,7 +29,7 @@ class Gkrellm < Formula
   depends_on "gettext"
   depends_on "glib"
   depends_on "gtk+" # GTK3 issue: https://git.srcbox.net/gkrellm/gkrellm/issues/1
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pango"
 
   on_linux do

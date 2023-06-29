@@ -4,16 +4,17 @@ class Neomutt < Formula
   url "https://github.com/neomutt/neomutt/archive/20230517.tar.gz"
   sha256 "4ac277b40e7ed5d67ba516338e2b26cc6810aa37564f6e9a2d45eb15b3a9213e"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/neomutt/neomutt.git", branch: "main"
 
   bottle do
-    sha256 arm64_ventura:  "de341a848e5151fe0df5b4c7e88f352f59b06f934c69d7bf7bd049c23abb328a"
-    sha256 arm64_monterey: "8ad66487b3378cd4b8f2302e5c9f2f55d417c233313d1272d74abd30fa5486e4"
-    sha256 arm64_big_sur:  "ed9a1f768babc7fd1ddfad6667915bb61aee559ca3cb36258171bbfb2f911b54"
-    sha256 ventura:        "aeaa3f3f981d8530b9190471514430c26b020225115cbf84f650c94d4a3277e0"
-    sha256 monterey:       "0fad102c41c1011aa73701c163110dfe1490bb0a4b0e7ecd9e57f2e89bbded55"
-    sha256 big_sur:        "474c54792e57c0137e7c922eec46290e01fc3fa2aa5cc119b4460486b033f6fb"
-    sha256 x86_64_linux:   "9927025da8176230448dc3f97f0909b6b5b2bd0b268533ade8b639c179c3b836"
+    sha256 arm64_ventura:  "a377ee2883c36d7b44da59c63168771c17ced1cb642106b7fd465327ab78cbd3"
+    sha256 arm64_monterey: "3275eab7b93a7672015d3baf4809f273dbb5a366a5ef057b72244bb1592018bf"
+    sha256 arm64_big_sur:  "d960fc10feef5540fb53cc003f53e113594e9e84442f46690fa9be836ba538ce"
+    sha256 ventura:        "c83efe9f4d5fb7eb1aba7e048d2b86422397e763dc5efab346d8c8f101b0bcd5"
+    sha256 monterey:       "c60758b014d4c42ab104e38fe144cd89f8cc15f59a570910a6db421476bd95e1"
+    sha256 big_sur:        "75d34c5cd9dc3a862a5d04d5c468b2fa54745419b5e2a96481c0a8e32184525c"
+    sha256 x86_64_linux:   "b26f38a24ba54b0c6cdf07d2e69346d263dddf6dec827c7e4541da2c37da5167"
   end
 
   depends_on "docbook-xsl" => :build
@@ -27,7 +28,7 @@ class Neomutt < Formula
   depends_on "lua"
   depends_on "ncurses"
   depends_on "notmuch"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pcre2"
   depends_on "tokyo-cabinet"
 
@@ -56,7 +57,7 @@ class Neomutt < Formula
       --zlib
       --with-lua=#{Formula["lua"].opt_prefix}
       --with-ncurses=#{Formula["ncurses"].opt_prefix}
-      --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
+      --with-ssl=#{Formula["openssl@3"].opt_prefix}
       --with-sqlite=#{Formula["sqlite"].opt_prefix}
     ]
 

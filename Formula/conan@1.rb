@@ -26,7 +26,6 @@ class ConanAT1 < Formula
 
   depends_on "pkg-config" => :build
   depends_on "cmake" => :test
-  depends_on "openssl@1.1"
   depends_on "pygments"
   depends_on "python@3.11"
   depends_on "pyyaml"

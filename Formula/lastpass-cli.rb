@@ -4,23 +4,24 @@ class LastpassCli < Formula
   url "https://github.com/lastpass/lastpass-cli/releases/download/v1.3.4/lastpass-cli-1.3.4.tar.gz"
   sha256 "f747e42dac3441131f9ebf0c119f27c57e8701968de7718224c2cdeb91300b6b"
   license "GPL-2.0"
+  revision 1
   head "https://github.com/lastpass/lastpass-cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "375f1f7e47d4d33e32137299fcce5f5b68cfb36711cea0fbeb3bb6f45f3480ba"
-    sha256 cellar: :any,                 arm64_monterey: "8a18df80d3a670514706bd72dbcf9ade3680fec22ba6312d24e06429d17dc8dc"
-    sha256 cellar: :any,                 arm64_big_sur:  "52a2cfb919d4968f5febfaff2a2cd61f8d10ad139fc2431b5a40aa5f33eb33c8"
-    sha256 cellar: :any,                 ventura:        "7ef6373cdf1f099c460b9b172be68e83e779b3067a2f28131235c50972e0bdc3"
-    sha256 cellar: :any,                 monterey:       "ba841c177acb121be4df49bd5b78e27dd43220649ee86de0f28f68a388e159e7"
-    sha256 cellar: :any,                 big_sur:        "ee7e7927b27803925f34d583e27a4336d48e6ebcb04f146feae4acca740bd2e1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c93cf9d864ec32300a1c886bb460e72fa8b2c0f38f0f737855b09384f4d01fcb"
+    sha256 cellar: :any,                 arm64_ventura:  "7ac23f12806efea426486ef32453c5294db21ef687039209cbb5e173be167c01"
+    sha256 cellar: :any,                 arm64_monterey: "b8573235ac4537fc07bf4baee6e5a148517470647971999dfa85ea30a21c3598"
+    sha256 cellar: :any,                 arm64_big_sur:  "805998a4da7a1378b6a5d521eea0adef4160c862a875f8979aae15dfae88eaf1"
+    sha256 cellar: :any,                 ventura:        "62a598006aacd066600e3bd38bfb861de8a466fab10a2aea229a1604a69a9bd0"
+    sha256 cellar: :any,                 monterey:       "d799322c2791592b32b0bd3e50b842b50ff2a3ecbe8d03671fba3d22eb3e144d"
+    sha256 cellar: :any,                 big_sur:        "cbe70d825d5c88d798a1b7a0a7a68c34d6aa3206bb0bd2b813770c4bb336a82c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ae8de2ae442567021f6ec7aa75aa60121fa9268ceaf479eb30982894f749b516"
   end
 
   depends_on "asciidoc" => :build
   depends_on "cmake" => :build
   depends_on "docbook-xsl" => :build
   depends_on "pkg-config" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pinentry"
 
   uses_from_macos "curl"

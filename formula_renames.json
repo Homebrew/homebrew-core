@@ -130,6 +130,7 @@
   "pangomm@2.42": "pangomm@2.46",
   "parallelstl": "onedpl",
   "perl518": "perl@5.18",
+  "pev": "readpe",
   "php72": "php@7.2",
   "polarssl": "mbedtls",
   "postgresql94": "postgresql@9.4",

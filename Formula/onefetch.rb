@@ -1,19 +1,19 @@
 class Onefetch < Formula
   desc "Command-line Git information tool"
   homepage "https://onefetch.dev/"
-  url "https://github.com/o2sh/onefetch/archive/2.17.1.tar.gz"
-  sha256 "37b6e6c2623b78cce807d03e5a3e9f21a4b86c6164abbcfa9846379e7f6ea9b1"
+  url "https://github.com/o2sh/onefetch/archive/2.18.1.tar.gz"
+  sha256 "7b0f03e9d2383ac32283cfb9ec09d10c8789a298969c8b7d45fa0168bd909140"
   license "MIT"
   head "https://github.com/o2sh/onefetch.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "e51739c56a57ac0ba49ad638d8cc19f87bdb3fc2bf7e60618db2f432a42564b0"
-    sha256 cellar: :any,                 arm64_monterey: "973f012998e73781e8df14770b7cdc14c5a3cd42aa69eee24b2a742d7b1af9a6"
-    sha256 cellar: :any,                 arm64_big_sur:  "a7d276f12771928b13dd1cfd66d30f733324afe37cc1d2349439efd6a8c93064"
-    sha256 cellar: :any,                 ventura:        "df78e648a2300d10db1e7648d85deb6751bc39664117e4dc7b0daf0f383970c5"
-    sha256 cellar: :any,                 monterey:       "e39b82eb6ba0bdeec7f95caf64a8c6ff1fcaf4afc29f93e0c3ad326c1ae119db"
-    sha256 cellar: :any,                 big_sur:        "49dd2c5fbb18163530991f34a3f6e1dbcd6a07b668105c6267620a1c4200452a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2f03bcd616b244a701e5d61a7e5df9767e9f07f87df68ef7d7445f0a55f0140d"
+    sha256 cellar: :any,                 arm64_ventura:  "c7b09d80fb4e0e4624aa30a1fbce5ec60af434f8db85f421a89d9ddfbc033dab"
+    sha256 cellar: :any,                 arm64_monterey: "85a14e0c3a888845f85c5de4107245a6bc331045ee96ef6a5c6bd27ee7f14b9b"
+    sha256 cellar: :any,                 arm64_big_sur:  "5ebce0d46976838b8a4cbd06777ed352a4120940bc9f874cf1d110f4531e314c"
+    sha256 cellar: :any,                 ventura:        "ba1165769b47df32a7ea6f18c9640117d55862aa7c21504ac25f0a9667362820"
+    sha256 cellar: :any,                 monterey:       "630a686f791d1aba88e3490e499cf543a5662908e8b482769bfccdaf5ec09aa6"
+    sha256 cellar: :any,                 big_sur:        "cfc7e13df7690999e2f4b173485d541a2a696c9af51fdf3f756342f3874306ff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "36aa89fcd86c7867ba44d078a1b8eef44ee4e5f67cdb04598a5316bf93fe041f"
   end
 
   # `cmake` is used to build `zstd` and `zlib`.

@@ -6,10 +6,10 @@ class Cryfs < Formula
   url "https://github.com/cryfs/cryfs/releases/download/0.11.3/cryfs-0.11.3.tar.gz"
   sha256 "cffef7669b8cbec3e7420088faac492390b9e1f3d3d0dc2a245b87f8df05f190"
   license "LGPL-3.0"
-  revision 3
+  revision 4
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "83139e5b88263863797e4e805a7cecf65bc39f0658f8f8310be8a5243d3d2cd7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "a0e0493eb4a780109120c95cda169c83a4a7e0841d9e96203272ae93962ee312"
   end
 
   head do
@@ -23,7 +23,6 @@ class Cryfs < Formula
   depends_on "fmt"
   depends_on "libfuse@2"
   depends_on :linux # on macOS, requires closed-source macFUSE
-  depends_on "openssl@1.1"
   depends_on "python@3.11"
   depends_on "range-v3"
   depends_on "spdlog"

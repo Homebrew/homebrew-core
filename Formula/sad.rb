@@ -1,22 +1,26 @@
 class Sad < Formula
   desc "CLI search and replace | Space Age seD"
   homepage "https://github.com/ms-jpq/sad"
-  url "https://github.com/ms-jpq/sad/archive/refs/tags/v0.4.22.tar.gz"
-  sha256 "cc3f66432ad2b97b1991afe8400846c64ba7d0a65d6c9615bcdf285d7a534634"
+  url "https://github.com/ms-jpq/sad/archive/refs/tags/v0.4.23.tar.gz"
+  sha256 "bdb366b6c3a3cb069d4d4acb33faeff6f6c40d38ed4bbf66fafbe46e71cbafda"
   license "MIT"
   head "https://github.com/ms-jpq/sad.git", branch: "senpai"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "76a49058ef46cd3dcabf7dd5aa7c0778732d82856604d43c12a24cd41703c4d3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6b3a71a2872f8e025029f56f80453b116fc1fb98057c57f9484f305a237dd830"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b5a0e1bb15571ad9bdbc46f89a88b24de047a7af63240aa3b68a2c5bf2c4815b"
-    sha256 cellar: :any_skip_relocation, ventura:        "93dc0c849f406efadafc01ae3132df6c2168676828642e9197faae390aa09117"
-    sha256 cellar: :any_skip_relocation, monterey:       "5654280b37a8f81aa2dc514cf93f54749760da29057c9f4ddd84eb4fc3909528"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7b5dde1dba02d8af92b715b0d159941e8a83a6cdb2d85eb0da7fab6413b67799"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "334996b3446019825d9c123b082e52b7aff66ad583eaa6babccc93988b1bf758"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "11cc4875f8a0e61f5460c32b690b3383a05977c1781757eb5fb2d4f1f0af551f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6e1baefaec3e780a624158013dc5f43363402d814f285cf6b6695acf1865b9af"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1604ed184a03f92bf1fa7d8305b8160b3976b5e4a3239efdde084b595d880ae1"
+    sha256 cellar: :any_skip_relocation, ventura:        "2fdbada4bd1ff10afcb0701481ab11f939a166c1cec125af80e7b383dbcb442b"
+    sha256 cellar: :any_skip_relocation, monterey:       "db6d9b36c126b985c3e2346b5ce8a6df779e80ee9ce2b8deff4517e5bc0820ec"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8bf2d0ff89c1ea56cec9e067628d57b00be4b143a437bc2cce47d9e8933e01bd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2115afbd70c36285540df21c3de43d145570f9cd032ec664d970b609e81efc35"
   end
 
   depends_on "rust" => :build
+
+  on_linux do
+    depends_on "python@3.11" => :build
+  end
 
   def install
     system "cargo", "install", *std_cargo_args
