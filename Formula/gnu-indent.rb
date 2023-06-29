@@ -5,6 +5,7 @@ class GnuIndent < Formula
   mirror "https://ftpmirror.gnu.org/indent/indent-2.2.13.tar.gz"
   sha256 "9e64634fc4ce6797b204bcb8897ce14fdd0ab48ca57696f78767c59cae578095"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_ventura:  "90269c7d0cb032e8defb0ed1a46222decdf12856f47206d7290aa42f41f64dc5"
@@ -37,19 +38,20 @@ class GnuIndent < Formula
     if OS.mac?
       (libexec/"gnubin").install_symlink bin/"gindent" => "indent"
       (libexec/"gnuman/man1").install_symlink man1/"gindent.1" => "indent.1"
-    end
 
-    libexec.install_symlink "gnuman" => "man"
+      libexec.install_symlink "gnubin" => "bin"
+      libexec.install_symlink "gnuman" => "man"
+    end
   end
 
   def caveats
     on_macos do
       <<~EOS
         GNU "indent" has been installed as "gindent".
-        If you need to use it as "indent", you can add a "gnubin" directory
+        If you need to use it as "indent", you can add a "libexec/bin" directory
         to your PATH from your bashrc like:
 
-            PATH="#{opt_libexec}/gnubin:$PATH"
+            PATH="#{opt_libexec}/bin:$PATH"
       EOS
     end
   end
