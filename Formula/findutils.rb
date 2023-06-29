@@ -5,6 +5,7 @@ class Findutils < Formula
   mirror "https://ftpmirror.gnu.org/findutils/findutils-4.9.0.tar.xz"
   sha256 "a2bfb8c09d436770edc59f50fa483e785b161a3b7b9d547573cb08065fd462fe"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     rebuild 1
@@ -41,9 +42,10 @@ class Findutils < Formula
           (libexec/gnupath).install_symlink f => f.basename.sub(/^g/, "")
         end
       end
-    end
 
-    libexec.install_symlink "gnuman" => "man"
+      libexec.install_symlink "gnubin" => "bin"
+      libexec.install_symlink "gnuman" => "man"
+    end
   end
 
   def post_install
@@ -55,8 +57,8 @@ class Findutils < Formula
       <<~EOS
         All commands have been installed with the prefix "g".
         If you need to use these commands with their normal names, you
-        can add a "gnubin" directory to your PATH from your bashrc like:
-          PATH="#{opt_libexec}/gnubin:$PATH"
+        can add a "libexec/bin" directory to your PATH from your bashrc like:
+          PATH="#{opt_libexec}/bin:$PATH"
       EOS
     end
   end
