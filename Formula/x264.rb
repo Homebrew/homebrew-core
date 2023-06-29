@@ -3,7 +3,7 @@ class X264 < Formula
   homepage "https://www.videolan.org/developers/x264.html"
   # the latest commit on the stable branch
   url "https://code.videolan.org/videolan/x264.git",
-      revision: "baee400fa9ced6f5481a728138fed6e867b0ff7f"
+      revision: "baee400fa9ced6f5481a728138fed6e867b0ff7f", tag: ""
   version "r3095"
   license "GPL-2.0-only"
   head "https://code.videolan.org/videolan/x264.git", branch: "master"
