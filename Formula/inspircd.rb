@@ -4,6 +4,7 @@ class Inspircd < Formula
   url "https://github.com/inspircd/inspircd/archive/refs/tags/v3.16.1.tar.gz"
   sha256 "cee0eca7b0c91ac0665199fdfb8ed4edb436a08b8b850b35e19da607c102aec0"
   license "GPL-2.0-only"
+  revision 1
 
   livecheck do
     url "https://github.com/inspircd/inspircd.git"
@@ -11,13 +12,13 @@ class Inspircd < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "e88ff20d736bfdf00c8d81c47e65769a7a212052e154cd4258a3dd28bef9f277"
-    sha256 arm64_monterey: "12fd165d1968121c5b6452fedaa1756acc2762326cbfc54ff0c2e3ea6891c516"
-    sha256 arm64_big_sur:  "d18436c63e8eac6f6b792c305ae7f4a9d72bc2853f5bfbb1c7ab810350713ada"
-    sha256 ventura:        "ee46519602b493a6b3a80635ce360e441e2ed227aa42d21a01e6c0c412b6c224"
-    sha256 monterey:       "4764f21497bd63c58534988954ef0b6dcadd053a3edc05eaf6cccdaef04cb6ce"
-    sha256 big_sur:        "7f8b5a49e9492e68f822fcda809fb010f05a3d4c206d4709ceb7b760ec224ad8"
-    sha256 x86_64_linux:   "bd8187d3d0277df6da8e2941a843778c936988810554928f3ad8fb87c70a20fd"
+    sha256 arm64_ventura:  "36e1bf08ed3b6e5b510ff9195a3a5a744e738315290ca4f3297871720c0cde3b"
+    sha256 arm64_monterey: "13461c5b2a0c267a3e33fa3e1387a89faac2a7c99906c7043ec82f6f4e6c12fd"
+    sha256 arm64_big_sur:  "064f9d0d2a9f7f460a3a091f15cf2b61a35357798894b491e2c8e1aef8764063"
+    sha256 ventura:        "376c231e8fd2c8a0f538974b27f2b876110fc05265694a5154e28abc79313e10"
+    sha256 monterey:       "993e8e39a0c3cef513587fde5926832bc3d0f527e4b5188eae47a4ce801dee6c"
+    sha256 big_sur:        "92d102d7ac66e6f08160a5ab89516a45352b1b1835991b79403201206efbd1f9"
+    sha256 x86_64_linux:   "71c844eeacfb4248ca89cc6747856130c1929c8940890626c42acc5da8e21ceb"
   end
 
   depends_on "pkg-config" => :build
