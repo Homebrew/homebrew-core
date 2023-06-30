@@ -4,8 +4,8 @@ class OpensearchDashboards < Formula
   desc "Open source visualization dashboards for OpenSearch"
   homepage "https://opensearch.org/docs/dashboards/index/"
   url "https://github.com/opensearch-project/OpenSearch-Dashboards.git",
-      tag:      "2.5.0",
-      revision: "f8d208197aa7e78959b905b65d86966d1aeaef23"
+      tag:      "2.8.0",
+      revision: "8bd48f16ad37a5dfa805234223e4d5bffa926abe"
   license "Apache-2.0"
 
   bottle do
@@ -15,17 +15,12 @@ class OpensearchDashboards < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "0964149b822339ee6fd07743db63a9c9fced4ed1143ef5f111da67b64598e623"
   end
 
-  # Match deprecation date of `node@14`.
-  # TODO: Remove if migrated to `node@18` or `node`. Update date if migrated to `node@16`.
-  # Issue ref: https://github.com/opensearch-project/OpenSearch-Dashboards/issues/2929
-  deprecate! date: "2023-04-30", because: "uses deprecated `node@14`"
-
   depends_on "yarn" => :build
   depends_on arch: :x86_64 # https://github.com/opensearch-project/OpenSearch-Dashboards/issues/1630
-  depends_on "node@14" # use `node@18` after https://github.com/opensearch-project/OpenSearch-Dashboards/issues/2929
+  depends_on "node@18"
 
   def install
-    inreplace "package.json", /"node": "14\.\d+\.\d+"/, %Q("node": "#{Formula["node@14"].version}")
+    inreplace "package.json", /"node": "14\.\d+\.\d+"/, %Q("node": "#{Formula["node@18"].version}")
 
     # Do not download node and discard all actions related to this node
     inreplace "src/dev/build/build_distributables.ts" do |s|
@@ -50,7 +45,7 @@ class OpensearchDashboards < Formula
     cd "build/opensearch-dashboards-#{version}-#{os}-#{arch}" do
       inreplace Dir["bin/*"],
                 "\"${DIR}/node/bin/node\"",
-                "\"#{Formula["node@14"].opt_bin/"node"}\""
+                "\"#{Formula["node@18"].opt_bin/"node"}\""
 
       inreplace "config/opensearch_dashboards.yml",
                 /#\s*pid\.file: .+$/,
