@@ -79,8 +79,8 @@ class OpentelemetryCpp < Formula
                     "-I#{include}", "-L#{lib}",
                     "-I#{Formula["protobuf@21"].opt_include}",
                     "-lopentelemetry_resources",
-                    "-lopentelemetry_trace",
                     "-lopentelemetry_exporter_ostream_span",
+                    "-lopentelemetry_trace",
                     "-lopentelemetry_common",
                     "-pthread",
                     "-o", "simple-example"
