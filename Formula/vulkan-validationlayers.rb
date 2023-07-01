@@ -5,8 +5,8 @@ class VulkanValidationlayers < Formula
   head "https://github.com/KhronosGroup/Vulkan-ValidationLayers.git", branch: "main"
 
   stable do
-    url "https://github.com/KhronosGroup/Vulkan-ValidationLayers/archive/refs/tags/v1.3.250.tar.gz"
-    sha256 "1c3609321c1167f9af5d3687a443885e2cb1e8e5150df16356200e84bef685f3"
+    url "https://github.com/KhronosGroup/Vulkan-ValidationLayers/archive/refs/tags/v1.3.255.tar.gz"
+    sha256 "6a39ea1e8d293de1a00bb5dca5bc5da9794f7d20fb122fb100f27a07e39c8de6"
 
     # upstream commit ref, https://github.com/KhronosGroup/SPIRV-Tools/commit/d4c0abdcad60325a2ab3c00a81847e2dbdc927a2
     # remove in next release
