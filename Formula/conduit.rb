@@ -22,8 +22,8 @@ class Conduit < Formula
   end
 
   depends_on "go" => :build
-  depends_on "node"
-  depends_on "yarn"
+  depends_on "node" => :build
+  depends_on "yarn" => :build
 
   def install
     system "make", "VERSION=#{version}"
