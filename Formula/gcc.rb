@@ -232,6 +232,16 @@ class Gcc < Formula
 
       EOS
       inreplace(specs, " %o ", "\\0%(homebrew_rpath) ")
+    elsif OS.mac?
+      # libstdc++: Fix iostream init for Clang on Darwin
+      # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=110432#c7
+      # https://gcc.gnu.org/git/gitweb.cgi?p=gcc.git;h=fe2651affa8c15624188bfd062fb894648743431
+      if version >= "13.2.0"
+        odie "Review if the fix is still required."
+      else
+        inreplace "/usr/local/opt/gcc@13/include/c++/13/iostream",
+          /^(#if !__has_attribute\(__init_priority__\))$/, '\1 || defined __APPLE__'
+      end
     end
   end
 
