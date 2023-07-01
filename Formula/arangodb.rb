@@ -1,8 +1,8 @@
 class Arangodb < Formula
   desc "Multi-Model NoSQL Database"
   homepage "https://www.arangodb.com/"
-  url "https://download.arangodb.com/Source/ArangoDB-3.10.4.tar.bz2"
-  sha256 "bc9cfaac5747995a6185d2cfea452b9fea8461bf91d2996dd75af75eef3cfddd"
+  url "https://download.arangodb.com/Source/ArangoDB-3.11.1.tar.bz2"
+  sha256 "e13367c11c654a0c059fce52835ecef19f0c4cc58d836cf405149a4c1b8a7158"
   license "Apache-2.0"
   head "https://github.com/arangodb/arangodb.git", branch: "devel"
 
@@ -25,14 +25,17 @@ class Arangodb < Formula
   depends_on "go" => :build
   depends_on "python@3.11" => :build
   depends_on macos: :mojave
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   on_macos do
-    depends_on "llvm" => :build
-  end
-
-  on_linux do
-    depends_on "gcc@10" => :build
+    # Fails to build with LLVM 16:
+    # /tmp/arangodb-20230630-89543-1vkojor/ArangoDB-3.11.1/lib/Inspection/include/Inspection/Access.h:52:3:
+    # error: static assertion failed due to requirement 'detail::IsInspectable()'
+    #
+    # Upstream had decided to only guarantee support for specific compiler versions,
+    # which is LLVM 14 in 3.11.1 (https://github.com/arangodb/arangodb/blob/devel/VERSIONS).
+    # We pick the latest LLVM version that we are able to successfully compile with.
+    depends_on "llvm@15" => :build
   end
 
   fails_with :clang do
@@ -44,14 +47,9 @@ class Arangodb < Formula
     EOS
   end
 
-  # https://github.com/arangodb/arangodb/issues/17454
-  # https://github.com/arangodb/arangodb/issues/17454
-  fails_with gcc: "11"
-
-  # https://www.arangodb.com/docs/stable/installation-compiling-debian.html
   fails_with :gcc do
-    version "8"
-    cause "requires at least g++ 9.2 as compiler since v3.7"
+    version "10"
+    cause "requires std::atomic<T>::wait support"
   end
 
   # the ArangoStarter is in a separate github repository;
@@ -59,18 +57,34 @@ class Arangodb < Formula
   # with a unified CLI
   resource "starter" do
     url "https://github.com/arangodb-helper/arangodb.git",
-        tag:      "0.15.7",
-        revision: "0cd043932e6c6f2bd9dc0391ea0313c304b3ca9d"
+        tag:      "0.15.8",
+        revision: "99ac5bed2bb07def49bb64f837485b993337b8ef"
   end
+
+  # Workaround for compiler bug in GCC 11.3 used by Ubuntu 22.04.
+  # TODO: Try to remove if Ubuntu updates to GCC 11.4.
+  # Issue ref: https://github.com/arangodb/arangodb/issues/17454
+  #
+  # TODO: Initially commented out to try without patch
+  #
+  # patch do
+  #   on_linux do
+  #     url "https://github.com/iresearch-toolkit/iresearch/commit/6c4e2f00bb672fe022481daeb60b33afbdbfd729.patch?full_index=1"
+  #     sha256 "084f2c9c379f004e1f3cc662398b0082d0028f2d9f28f2e7dce4871389f8286a"
+  #     directory "3rdParty/iresearch"
+  #   end
+  # end
 
   def install
     if OS.mac?
-      ENV.llvm_clang
+      ENV["CC"] = Formula["llvm@15"].opt_bin/"clang"
+      ENV["CXX"] = Formula["llvm@15"].opt_bin/"clang++"
       ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
       # Fix building bundled boost with newer LLVM by avoiding removed `std::unary_function`.
       # .../boost/1.78.0/boost/container_hash/hash.hpp:132:33: error: no template named
       # 'unary_function' in namespace 'std'; did you mean '__unary_function'?
-      ENV.append "CXXFLAGS", "-DBOOST_NO_CXX98_FUNCTION_BASE=1"
+      #
+      # ENV.append "CXXFLAGS", "-DBOOST_NO_CXX98_FUNCTION_BASE=1"
     end
 
     resource("starter").stage do
@@ -82,35 +96,21 @@ class Arangodb < Formula
       system "go", "build", *std_go_args(ldflags: ldflags)
     end
 
-    arch = if Hardware::CPU.arm?
-      "neon"
-    elsif !build.bottle?
-      # Allow local source builds to optimize for host hardware.
-      # We don't set this on ARM since auto-detection isn't supported.
-      "auto"
-    elsif Hardware.oldest_cpu == :core2
-      # Closest options to Homebrew's core2 are `core`, `merom`, and `penryn`.
-      # `core` only enables up to SSE3 so we use `merom` which enables up to SSSE3.
-      # As -march=merom doesn't exist in GCC/LLVM, build will fall back to -march=core2
-      "merom"
-    else
-      Hardware.oldest_cpu
-    end
-
-    args = std_cmake_args + %W[
+    args = %W[
       -DHOMEBREW=ON
-      -DCMAKE_BUILD_TYPE=RelWithDebInfo
       -DCMAKE_INSTALL_LOCALSTATEDIR=#{var}
       -DCMAKE_INSTALL_SYSCONFDIR=#{etc}
       -DCMAKE_OSX_DEPLOYMENT_TARGET=#{MacOS.version}
-      -DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}
-      -DTARGET_ARCHITECTURE=#{arch}
+      -DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}
       -DUSE_GOOGLE_TESTS=OFF
       -DUSE_JEMALLOC=OFF
       -DUSE_MAINTAINER_MODE=OFF
     ]
+    # The default/minimum x86_64 target is SandyBridge which is too new for Homebrew bottles.
+    # So we use an unsupported value and let Homebrew handle optimization via `-march`.
+    args << "-DTARGET_ARCHITECTURE=none" if Hardware::CPU.intel?
 
-    system "cmake", "-S", ".", "-B", "build", *args
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
