@@ -17,6 +17,7 @@ class Partio < Formula
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
+  depends_on "googletest"
   depends_on "python@3.11"
 
   on_linux do
@@ -28,6 +29,8 @@ class Partio < Formula
   def install
     args = std_cmake_args
     args << "-DPARTIO_USE_GLVND=OFF" unless OS.mac?
+    args << "-DPARTIO_GTEST_ENABLED=ON"
+    args << "-DGTEST_LOCATION=#{Formula["googletest"].opt_prefix}"
 
     mkdir "build" do
       system "cmake", "..", *args
