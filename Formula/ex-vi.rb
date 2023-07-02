@@ -1,8 +1,8 @@
 class ExVi < Formula
   desc "UTF8-friendly version of tradition vi"
-  homepage "https://ex-vi.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/ex-vi/ex-vi/050325/ex-050325.tar.bz2"
-  sha256 "da4be7cf67e94572463b19e56850aa36dc4e39eb0d933d3688fe8574bb632409"
+  homepage "https://github.com/n-t-roff/heirloom-ex-vi"
+  url "https://github.com/n-t-roff/heirloom-ex-vi/archive/refs/tags/4.1.3.tar.gz"
+  sha256 "7d3d38f94ce651b9521c0db2b824f85f2e587afab23951b51484f8f21d3614f3"
   license all_of: ["BSD-4-Clause", "BSD-4-Clause-UC"]
 
   livecheck do
@@ -25,15 +25,13 @@ class ExVi < Formula
     sha256 x86_64_linux:   "1e82645a2c32249d7a14e8fe653282a42f3066dff0ef922fb7fd4bdab84e3bbf"
   end
 
-  uses_from_macos "ncurses"
-
   conflicts_with "vim",
     because: "ex-vi and vim both install bin/ex and bin/view"
 
   def install
+    system "./configure"
     system "make", "install", "INSTALL=/usr/bin/install",
                               "PREFIX=#{prefix}",
-                              "PRESERVEDIR=/var/tmp/vi.recover",
-                              "TERMLIB=ncurses"
+                              "PRESERVEDIR=/var/tmp/vi.recover"
   end
 end
