@@ -1,5 +1,5 @@
 class Fastfetch < Formula
-  desc "A neofetch-like tool for fetching system information and displaying them in a pretty way"
+  desc "Like neofetch, but much faster because written mostly in C"
   homepage "https://github.com/fastfetch-cli/fastfetch"
   url "https://github.com/fastfetch-cli/fastfetch/archive/refs/tags/1.12.0.tar.gz"
   sha256 "c792e04e33c35d9e6a4f7b35fea01bb39045567548a9315bf2634362a56436c0"
