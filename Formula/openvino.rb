@@ -1,8 +1,8 @@
 class Openvino < Formula
   desc "Open Visual Inference And Optimization toolkit for AI inference"
   homepage "https://docs.openvino.ai"
-  url "https://github.com/openvinotoolkit/openvino/archive/refs/tags/2023.0.0.tar.gz"
-  sha256 "f2787851d9012813b2bbc888b5bb01c5f6f0ab222783acfb8e1e55ea41d0026b"
+  url "https://github.com/openvinotoolkit/openvino/archive/refs/tags/2023.0.1.tar.gz"
+  sha256 "c14cb22f5191a75ea15659c62baceb71333dc9ecf62139ce513f3e81e4544651"
   license "Apache-2.0"
   head "https://github.com/openvinotoolkit/openvino.git", branch: "master"
 
@@ -36,8 +36,8 @@ class Openvino < Formula
     depends_on "opencl-icd-loader"
 
     resource "onednn_gpu" do
-      url "https://github.com/oneapi-src/oneDNN/archive/f27dedbfc093f51032a4580198bb80579440dc15.tar.gz"
-      sha256 "da57c2298a8e001718902f0b65b6d92c4a7897b35467e23bc24996dde43ec47b"
+      url "https://github.com/oneapi-src/oneDNN/archive/refs/tags/v3.2.tar.gz"
+      sha256 "8b1db9cc5799ae39c2a567eb836962de0346d79fbc3d8e6f7090a3d9f8729129"
     end
   end
 
@@ -45,34 +45,34 @@ class Openvino < Formula
     depends_on "scons" => :build
 
     resource "arm_compute" do
-      url "https://github.com/ARM-software/ComputeLibrary/archive/refs/tags/v23.02.1.tar.gz"
-      sha256 "c3a443e26539f866969242e690cf0651ef629149741ee18732f954c734da6763"
+      url "https://github.com/ARM-software/ComputeLibrary/archive/refs/tags/v23.05.tar.gz"
+      sha256 "4c22983f08cbc26a7b66c695ee6850d39ea1346a6c76a902323dd10217df4606"
     end
   end
 
   resource "ade" do
-    url "https://github.com/opencv/ade/archive/refs/tags/v0.1.1f.tar.gz"
-    sha256 "c316680efbb5dd3ac4e10bb8cea345cf26a6a25ebc22418f8f0b8ca931a550e9"
+    url "https://github.com/opencv/ade/archive/refs/tags/v0.1.2a.tar.gz"
+    sha256 "c022a688b0554017e46e1cbdeb0105e625ca090fc3755c15df8c4451a304e084"
   end
 
   resource "ittapi" do
-    url "https://github.com/intel/ittapi/archive/refs/tags/v3.24.0.tar.gz"
-    sha256 "36c42d3f2446ddfaa2d7dfa02dfaa79615933f1a68a72d7e4f1d70de7b56e2c9"
+    url "https://github.com/intel/ittapi/archive/refs/tags/v3.24.1.tar.gz"
+    sha256 "c9c4d9146e6e848fa93c576e71e3815cc2459ce6e4f83def3feb64fa4cdc03b1"
   end
 
   resource "xbyak" do
-    url "https://github.com/herumi/xbyak/archive/refs/tags/v6.69.tar.gz"
-    sha256 "7eb64e2c18527824402b16f26c6118ba82f40f57fe6e3ab05c6e2883246a04f1"
+    url "https://github.com/herumi/xbyak/archive/refs/tags/v6.69.2.tar.gz"
+    sha256 "815f531e75db9aa74470e4e4c3ed404bfe8ade16a9fa03c572bb25daf95850d9"
   end
 
   resource "onednn_cpu" do
-    url "https://github.com/openvinotoolkit/oneDNN/archive/1c7bfabf1b26e6fb95fea1613e1d3d2bef1f6b54.tar.gz"
-    sha256 "52921b3efab33d1710971c67318e8c00ee102b6369e4e9cea8fdf91a1d68e38e"
+    url "https://github.com/openvinotoolkit/oneDNN/archive/ebb8bfc9491b792af1ec3a72f244550041e42cce.tar.gz"
+    sha256 "4fe086384229fec00fc79a7b8986a22d8a213669e3e55b4e0e5703d82d30a725"
   end
 
   resource "onnx" do
-    url "https://github.com/onnx/onnx/archive/refs/tags/v1.13.1.tar.gz"
-    sha256 "090d3e10ec662a98a2a72f1bf053f793efc645824f0d4b779e0ce47468a0890e"
+    url "https://github.com/onnx/onnx/archive/refs/tags/v1.14.0.tar.gz"
+    sha256 "1b02ad523f79d83f9678c749d5a3f63f0bcd0934550d5e0d7b895f9a29320003"
   end
 
   def install
