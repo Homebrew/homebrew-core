@@ -8,7 +8,7 @@ class Asciiquarium < Formula
   url "https://robobunny.com/projects/asciiquarium/asciiquarium_1.1.tar.gz"
   sha256 "1b08c6613525e75e87546f4e8984ab3b33f1e922080268c749f1777d56c9d361"
   license "GPL-2.0-or-later"
-  revision 4
+  revision 5
 
   livecheck do
     url "https://robobunny.com/projects/asciiquarium/"
@@ -30,8 +30,8 @@ class Asciiquarium < Formula
   depends_on "perl"
 
   resource "Curses" do
-    url "https://cpan.metacpan.org/authors/id/G/GI/GIRAFFED/Curses-1.37.tar.gz"
-    sha256 "74707ae3ad19b35bbefda2b1d6bd31f57b40cdac8ab872171c8714c88954db20"
+    url "https://cpan.metacpan.org/authors/id/G/GI/GIRAFFED/Curses-1.44.tar.gz"
+    sha256 "a2efb8c7c886d692ffc4db21361c76809a065e588e43fad0d67e44ef9d42bd30"
   end
 
   resource "Term::Animation" do
