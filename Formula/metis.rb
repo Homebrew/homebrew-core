@@ -27,6 +27,8 @@ class Metis < Formula
   end
 
   def install
+    ENV.append "LDFLAGS", "-Wl,-undefined,dynamic_lookup" if OS.mac?
+
     args = %W[prefix=#{prefix} shared=1 cc=#{ENV.cc}]
     resource("gklib").stage do
       system "make", "config", *args
