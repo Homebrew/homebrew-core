@@ -4,6 +4,7 @@ class Bioperl < Formula
   url "https://cpan.metacpan.org/authors/id/C/CJ/CJFIELDS/BioPerl-1.7.8.tar.gz"
   sha256 "c490a3be7715ea6e4305efd9710e5edab82dabc55fd786b6505b550a30d71738"
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
+  revision 1
   head "https://github.com/bioperl/bioperl-live.git", branch: "master"
 
   # We specifically match versions with three numeric parts because upstream
@@ -44,8 +45,9 @@ class Bioperl < Formula
   end
 
   test do
-    (testpath/"test.fa").write ">homebrew\ncattaaatggaataacgcgaatgg"
-    assert_match ">homebrew\nH*ME*REW", shell_output("#{bin}/bp_translate_seq < test.fa")
+    test_contents = ">homebrew\ncattaaatggaataacgcgaatgg"
+    (testpath/"test.fa").write test_contents
+    assert_match ">homebrew\nH*ME*REW", pipe_output(bin/"bp_translate_seq", test_contents)
     assert_match(/>homebrew-100_percent-1\n[atg]/, shell_output("#{bin}/bp_mutate -i test.fa -p 100 -n 1"))
     assert_match "GC content is 0.3750", shell_output("#{bin}/bp_gccalc test.fa")
   end
