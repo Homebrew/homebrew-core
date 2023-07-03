@@ -136,6 +136,9 @@ class TclTk < Formula
       system "make", "install"
     end
 
+    # Add symlink to common directory name for CMake to find headers
+    include.install_symlink "tcl-tk" => "tcl#{version.major_minor}"
+
     # Rename all section 3 man pages in the Debian/Ubuntu style, to avoid conflicts
     man3.glob("*.3") { |file| file.rename("#{file}tcl") }
 
