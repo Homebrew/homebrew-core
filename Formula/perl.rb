@@ -1,21 +1,10 @@
 class Perl < Formula
   desc "Highly capable, feature-rich programming language"
   homepage "https://www.perl.org/"
+  url "https://www.cpan.org/src/5.0/perl-5.38.0.tar.xz"
+  sha256 "eca551caec3bc549a4e590c0015003790bdd1a604ffe19cc78ee631d51f7072e"
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
   head "https://github.com/perl/perl5.git", branch: "blead"
-
-  stable do
-    url "https://www.cpan.org/src/5.0/perl-5.36.1.tar.xz"
-    sha256 "bd91217ea8a8c8b81f21ebbb6cefdf0d13ae532013f944cdece2cd51aef4b6a7"
-
-    # Apply upstream commit to remove nsl from libswanted:
-    # https://github.com/Perl/perl5/commit/7e19816aa8661ce0e984742e2df11dd20dcdff18
-    # Remove with next tagged release that includes the change.
-    patch do
-      url "https://github.com/Perl/perl5/commit/7e19816aa8661ce0e984742e2df11dd20dcdff18.patch?full_index=1"
-      sha256 "03f64cf62b9b519cefdf76a120a6e505cf9dc4add863b9ad795862c071b05613"
-    end
-  end
 
   livecheck do
     url "https://www.cpan.org/src/"
@@ -63,21 +52,6 @@ class Perl < Formula
     system "./Configure", *args
     system "make"
     system "make", "install"
-  end
-
-  def post_install
-    if OS.linux?
-      perl_archlib = Utils.safe_popen_read(bin/"perl", "-MConfig", "-e", "print $Config{archlib}")
-      perl_core = Pathname.new(perl_archlib)/"CORE"
-      if File.readlines("#{perl_core}/perl.h").grep(/include <xlocale.h>/).any? &&
-         (OS::Linux::Glibc.system_version >= "2.26" ||
-         (Formula["glibc"].any_version_installed? && Formula["glibc"].version >= "2.26"))
-        # Glibc does not provide the xlocale.h file since version 2.26
-        # Patch the perl.h file to be able to use perl on newer versions.
-        # locale.h includes xlocale.h if the latter one exists
-        inreplace "#{perl_core}/perl.h", "include <xlocale.h>", "include <locale.h>"
-      end
-    end
   end
 
   def caveats
