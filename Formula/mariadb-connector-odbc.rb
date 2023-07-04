@@ -36,7 +36,7 @@ class MariadbConnectorOdbc < Formula
     ENV.append "LDFLAGS", "-Wl,-rpath,#{Formula["mariadb-connector-c"].opt_lib}/mariadb" if OS.linux?
     system "cmake", ".", "-DMARIADB_LINK_DYNAMIC=1",
                          "-DWITH_SSL=OPENSSL",
-                         "-DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}",
+                         "-DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}",
                          "-DWITH_IODBC=0",
                          # Workaround 3.1.11 issues finding system's built-in -liconv
                          # See https://jira.mariadb.org/browse/ODBC-299

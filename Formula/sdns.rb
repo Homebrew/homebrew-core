@@ -1,19 +1,19 @@
 class Sdns < Formula
   desc "Privacy important, fast, recursive dns resolver server with dnssec support"
   homepage "https://sdns.dev"
-  url "https://github.com/semihalev/sdns/archive/v1.2.4.tar.gz"
-  sha256 "a02338a680d842d26ea55de04a8707ccbf6a14a26403564856bb1770b4dcb653"
+  url "https://github.com/semihalev/sdns/archive/v1.3.0.tar.gz"
+  sha256 "09ef2fd114c8f8a86c77bebd7a5238024402ade4f53796e0e8db9cd0aac76fa2"
   license "MIT"
   head "https://github.com/semihalev/sdns.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "537f430d321a66b233b5a730f227045f2b88f2d607e38c741350a53d2508b8c4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "acf624e28de38db4d2a9fc1ca382217719646d0e25591504453af303470eb2de"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "378c1205a97507b32f3828f2b8d3f739fc7a538e77559f0d9dbdeb59db39e954"
-    sha256 cellar: :any_skip_relocation, ventura:        "2b3f229c43b1662672911e2a550ac468b2ab419d3ee48c57859019050ed69a85"
-    sha256 cellar: :any_skip_relocation, monterey:       "3df0281e44438a4b3f7ec7b0e60be1066600131783a33c997ebc8aa990db3a2a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "32b29954e622e6775d4edd75e3a9843edfd828a7c2e9e21b7284c001adc2ac33"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d723a330608e49b3d4c6e6531ca3ff96d74589fcba7c7fdb6f089bb7a95f45a7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2825013986cd0adbaa80fca2f016ae03698265b62f4db30ab4261af399f49dcc"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f25ab0852c62226d03a109350bd781d34bee31f4a8a65091f6a4206f2658a640"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5038da6d4feaa751ecd2ccf3308ba82a165cec651149dd7738d3bfdc741d1fc1"
+    sha256 cellar: :any_skip_relocation, ventura:        "2155f32a8f27c4de7705fb316b16d9035e2ed19ea1cb93a9d3316aeea695fdef"
+    sha256 cellar: :any_skip_relocation, monterey:       "2e89e7693e00fbbcba4a819bc6c8e52c7af6220137878c12b984966e83ecb992"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e8e4faa690be3a0443e37caec97f32b14853bb79a9d119f54d0a37a9661bbf00"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8c25c27b8093fb45d827981b1571159aafb0af8f723a6ee8e1f509511f221cb2"
   end
 
   depends_on "go" => :build

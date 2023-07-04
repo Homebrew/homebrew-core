@@ -1,27 +1,26 @@
 class MysqlClientAT57 < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/5.7/en/"
-  url "https://cdn.mysql.com/archives/mysql-5.7/mysql-boost-5.7.34.tar.gz"
-  sha256 "5bc2c7c0bb944b5bb219480dde3c1caeb049e7351b5bba94c3b00ac207929c7b"
+  url "https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-boost-5.7.42.tar.gz"
+  sha256 "7e1a7d45e7ca382eb3a992f63631c380904dd49c89f3382ec950aef01997524f"
 
   bottle do
-    sha256 arm64_ventura:  "87d24fa8e0c274b3e6e7ebe850da9e6a30a7c5dc8ff02abdd5fabef452e8bb9b"
-    sha256 arm64_monterey: "a625d490e1aec7c1c940d4820a4296785f0d5885a5f44f207089b69ab14e4a13"
-    sha256 arm64_big_sur:  "36dad98547a79e55ee6402bcfe841ab90e4f3ed8a0f22004a5d8e7b7e832ad3b"
-    sha256 ventura:        "54ec10ea7264ebbd515f96fc4b2d3e78060d990c1c50a6e403296f4684e8c9e9"
-    sha256 monterey:       "9591ce6380dc73dddd90716de26127b6269b3bb1d79ff3d821f7d59deb3513b8"
-    sha256 big_sur:        "b00ea0ee1635933022d25b996a789fd57896c090526b86d767d1e868beaf82ad"
-    sha256 catalina:       "8a9414707afa3c8462e45ef54f2da13361e96e8bbfb74102491bc28844a115fc"
-    sha256 mojave:         "de54dc5ec1aaacf144cfeea5f2ba560450279f0464d44c0d3210c11b828efdfb"
-    sha256 x86_64_linux:   "043c4687dce671f68a0e9023656086ab5a100f3b1151e30a4cd53ff3c08e5736"
+    sha256 arm64_ventura:  "223ac8c2302eef56a26c1b76068581df25cfb19b92f2d7b04b281554d515d52d"
+    sha256 arm64_monterey: "2ff11cb1eaf22ee421580481e1d1101c10b3e22ac670944fcc3630bb9b25d5f9"
+    sha256 arm64_big_sur:  "ff7c8463bdf3a1b1064c82e6da8f8165f12684defcb68d57c4aa48d65045af14"
+    sha256 ventura:        "d3d0898ebca83a38365b6aa72a31d2ea72ab1727c0ab576c8bf385eb9d8bcd48"
+    sha256 monterey:       "9deda0454a1ab6be155966e328a6e1354bc19859efb35ad470615adf241691e2"
+    sha256 big_sur:        "13a2302e62a0494ce327197bd877a453a7b97299dec4e0547b7d8ee37c3b48bb"
+    sha256 x86_64_linux:   "ef8c64ab59f1df568cc8fb40340358cb69cc5623581f63bfd628db4f0562224a"
   end
 
   keg_only :versioned_formula
 
+  # Same deprecation date as OpenSSL 1.1
+  deprecate! date: "2023-09-11", because: :unsupported
+
   depends_on "cmake" => :build
-
   depends_on "openssl@1.1"
-
   uses_from_macos "libedit"
 
   def install
@@ -47,8 +46,9 @@ class MysqlClientAT57 < Formula
       -DWITHOUT_SERVER=ON
     ]
 
-    system "cmake", ".", *std_cmake_args, *args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

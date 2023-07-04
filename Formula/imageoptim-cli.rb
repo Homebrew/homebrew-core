@@ -3,8 +3,8 @@ require "language/node"
 class ImageoptimCli < Formula
   desc "CLI for ImageOptim, ImageAlpha and JPEGmini"
   homepage "https://jamiemason.github.io/ImageOptim-CLI/"
-  url "https://github.com/JamieMason/ImageOptim-CLI/archive/3.0.7.tar.gz"
-  sha256 "ed1a36ccb0e960152eda6b3d4c422ee355c8cf8271f1f8e71141a286c4d647e5"
+  url "https://github.com/JamieMason/ImageOptim-CLI/archive/3.1.7.tar.gz"
+  sha256 "e2bff77c2cace9d28deb464c92dcf393b98baab30439541e2dc073ad1c0b9caf"
   license "MIT"
 
   livecheck do
@@ -13,13 +13,12 @@ class ImageoptimCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, ventura:  "2066f5cd74a81aa45d2eebc80d86223dda5af78ba5bfa2c19f6ad7089e733dc3"
-    sha256 cellar: :any_skip_relocation, monterey: "5e330d75ae3187599414a272f05823d9e2e829cee4d4e75ca176e0e62aea2cdb"
-    sha256 cellar: :any_skip_relocation, big_sur:  "633de8d348a6618d839ff4e16694c8634d59accafe13488cd72c88f44386cbe4"
-    sha256 cellar: :any_skip_relocation, catalina: "633de8d348a6618d839ff4e16694c8634d59accafe13488cd72c88f44386cbe4"
+    sha256 cellar: :any_skip_relocation, ventura:  "e917e31cc5dc859407c54240b43dba811dcc9f179072b5665f6439291b57a5be"
+    sha256 cellar: :any_skip_relocation, monterey: "57ee8f591ba12ad1579c41899c2e0722f70915ef59d8cbde9fab000b235a79e2"
+    sha256 cellar: :any_skip_relocation, big_sur:  "1ff71fe45f65bada934ed0c002ccfc0f484db1c86c8907cdbc4fb3a5dfb3f37c"
   end
 
-  depends_on "node" => :build
+  depends_on "node@18" => :build
   depends_on "yarn" => :build
   depends_on arch: :x86_64 # Installs pre-built x86-64 binaries
   depends_on :macos

@@ -11,55 +11,33 @@ class Traildb < Formula
   end
 
   bottle do
-    sha256               arm64_ventura:  "e6cfb6d3774726751b01bd92b0fdd2914f7da94e95b387c3ad620520e495d056"
-    sha256               arm64_monterey: "3c521476cc334c1807abab60f30de5bc89f4072db9ea2d19dbc6b2af12fd3fe8"
-    sha256               arm64_big_sur:  "19a39e075d27b18c38f78445471e9703c2ccc051ffad8cad6e6bcc9986954540"
-    sha256               ventura:        "861d861ead74e0e2a35bc2a74537b836073d64c0bde9a133bd082375a0ea0baf"
-    sha256               monterey:       "0f449d362ce4d34470fb671ba8ac5f079b79f6306c66937a59be76ba980e6b2f"
-    sha256               big_sur:        "820982878b9a22783810620d6c42e976048d6711e42fc88cfbf315c18fbdc117"
-    sha256 cellar: :any, catalina:       "d838c36b8e7fd566e034374e1fe05e5a2db41940229f7324fec53a2e7387db48"
-    sha256 cellar: :any, mojave:         "61992aff616c9e39b703e8b2c138f3997dd9ba7ec6c85eea711605327e221b1f"
-    sha256 cellar: :any, high_sierra:    "b383a6635462acd29d12473520ff1cf70920c429f0ed9a010cf2860bf7df3180"
-    sha256 cellar: :any, sierra:         "e84323b169f8a2d3ccadadb65d968c99265f37f581d9fe002c259b76b180776e"
-    sha256 cellar: :any, el_capitan:     "901e2214b9ddcd214b857db69569c12f85041e6cd087df00ef1c0d624605effe"
-    sha256               x86_64_linux:   "8e7e03c9d6643c27eaf9e91dd02d75b8fdfbb484132c87328b9331bb25e73704"
+    rebuild 1
+    sha256 arm64_ventura:  "fc31267f2145da6af9f4cf19609bebd1e4e5f7e468549bb2adbdfd40bd3b50ad"
+    sha256 arm64_monterey: "f34fd4ae7821c7f82a44e374e4c07603a63ec224c5ddb441c38e0defcaaeb4a7"
+    sha256 arm64_big_sur:  "1889bda4c138dbcf3d7a7229a47705631f2c5880f20a23e3612685c8a1ad7208"
+    sha256 ventura:        "0534a5fd56705faf95c68bd3a4e0ab4b401baaef55d4e8fc37f88126643e5f16"
+    sha256 monterey:       "f973d38d9cfe84c422bf98fc4c91265b2d3865efde148fe9b32a2a3af75d44e9"
+    sha256 big_sur:        "c86da6038d5ffb50fac4db5af5e0e4cb91c93814fcd712fc4e2697747db2a0a8"
+    sha256 x86_64_linux:   "eacba47e211b4e29a1a44507087e2fc1cb501f00c853ee406a0c954c8ba4c47e"
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.10" => :build
+  depends_on "judy"
   depends_on "libarchive"
 
-  resource "judy" do
-    url "https://downloads.sourceforge.net/project/judy/judy/Judy-1.0.5/Judy-1.0.5.tar.gz"
-    sha256 "d2704089f85fdb6f2cd7e77be21170ced4b4375c03ef1ad4cf1075bd414a63eb"
-  end
+  uses_from_macos "python" => :build
 
   # Update waf script for Python 3
-  patch do
-    url "https://github.com/traildb/traildb/commit/12ccff42e73219e2732ffd7f4ee42eb4791bed41.patch?full_index=1"
-    sha256 "603f05c8c1eb3117f574eadbd6d0e9c52325245f5a4ba841ac7f0dfc13b37a34"
+  # Use resource instead of patch since applying corrupts waf
+  resource "waf" do
+    url "https://raw.githubusercontent.com/traildb/traildb/053ed8e5d0301c792f3ee703cd9936c49ecf41a1/waf"
+    sha256 "2e0cf83a63843da127610420cef1d3126f1187d8e572b6b3a28052fc2250d4bf"
   end
 
   def install
-    # We build judy as static library, so we don't need to install it
-    # into the real prefix
-    judyprefix = buildpath/"resources/judy"
-
-    resource("judy").stage do
-      ENV.append_to_cflags "-fPIC" if OS.linux?
-      system "./configure", "--disable-debug", "--disable-dependency-tracking",
-          "--disable-shared", "--prefix=#{judyprefix}"
-
-      # Parallel build is broken
-      ENV.deparallelize do
-        system "make", "-j1", "install"
-      end
-    end
-
     ENV["PREFIX"] = prefix
-    ENV.append "CFLAGS", "-I#{judyprefix}/include"
-    ENV.append "LDFLAGS", "-L#{judyprefix}/lib"
-    system "python3.10", "./waf", "configure", "install"
+    buildpath.install resource("waf")
+    system "python3", "./waf", "configure", "install"
   end
 
   test do

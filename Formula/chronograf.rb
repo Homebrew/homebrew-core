@@ -1,5 +1,3 @@
-require "language/node"
-
 class Chronograf < Formula
   desc "Open source monitoring and visualization UI for the TICK stack"
   homepage "https://docs.influxdata.com/chronograf/latest/"
@@ -19,17 +17,16 @@ class Chronograf < Formula
   end
 
   depends_on "go" => :build
-  depends_on "go-bindata" => :build
-  depends_on "node@18" => :build
+  depends_on "node" => :build
   depends_on "yarn" => :build
   depends_on "influxdb"
   depends_on "kapacitor"
 
   def install
-    Language::Node.setup_npm_environment
-    system "make", "dep"
-    system "make", ".jssrc"
-    system "make", "chronograf"
+    # Fix build with latest node: https://github.com/influxdata/chronograf/issues/6040
+    system "yarn", "upgrade", "nan@^2.13.2", "--dev", "--ignore-scripts"
+    ENV.deparallelize
+    system "make"
     bin.install "chronograf"
   end
 
@@ -44,7 +41,7 @@ class Chronograf < Formula
   test do
     port = free_port
     pid = fork do
-      exec "#{bin}/chronograf --port=#{port}"
+      exec bin/"chronograf", "--port=#{port}"
     end
     sleep 10
     output = shell_output("curl -s 0.0.0.0:#{port}/chronograf/v1/")

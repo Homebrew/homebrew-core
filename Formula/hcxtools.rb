@@ -1,19 +1,19 @@
 class Hcxtools < Formula
   desc "Utils for conversion of cap/pcap/pcapng WiFi dump files"
   homepage "https://github.com/ZerBea/hcxtools"
-  url "https://github.com/ZerBea/hcxtools/archive/6.3.0.tar.gz"
-  sha256 "cb691b3d6b3f2ec7b63c79697b9a977338394b90c8f93ba596525d601134452f"
+  url "https://github.com/ZerBea/hcxtools/archive/6.3.1.tar.gz"
+  sha256 "3570f88448a5c65273fdaf4e9d764f2b9d87c300dafa645a3e54394130db71a1"
   license "MIT"
   head "https://github.com/ZerBea/hcxtools.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "9e2bac4c1ad566642feeb4ce0999bab6c1cad68e2e93d2397986a99c161d35ca"
-    sha256 cellar: :any,                 arm64_monterey: "f0b7b3a34ca48454b8d5727fab6e03d77790760dda835f281d366b8b143927af"
-    sha256 cellar: :any,                 arm64_big_sur:  "9f7d203677b60b0fd7422fa0fcf1ecd403e5edc0a27c6d11389e25fa07229754"
-    sha256 cellar: :any,                 ventura:        "2cafeaa6ed13b4d5f66421ad2e8e9f208e6fd5f11331f46b157b650f5d96cb82"
-    sha256 cellar: :any,                 monterey:       "62c092e12a51eb4406dc32bcbe6a12bd21510db7101b985bc640576178cbc95e"
-    sha256 cellar: :any,                 big_sur:        "d3455191f0d960ee5f546a0b23f1bbe75c219140904683fb4b525ef8d67b2593"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9664e4342a17634abdbf9e79d9ed1c853af80230a47884f6d3f1907cb2afbc7a"
+    sha256 cellar: :any,                 arm64_ventura:  "bc2799060b91b448c1b3240593920e0aeb83e5e466d260ad9661fdd8bbe5a31e"
+    sha256 cellar: :any,                 arm64_monterey: "6a1f47f177a3c7c722be5cb42401bfac6b5d3b7c11641c2b37f2a1a6d8e9e559"
+    sha256 cellar: :any,                 arm64_big_sur:  "da64ee096b4f490237955607bacb1a72cc3df188400759a2c817c28ea462cbbe"
+    sha256 cellar: :any,                 ventura:        "6ea7825bd2d2425ae36eb8bd5e884391f84a63f172fe30c9610707673f75b964"
+    sha256 cellar: :any,                 monterey:       "28af85ebf8fa2b147d203b42a336ae8c64c1009fd8e70c3194c23a8b921184ef"
+    sha256 cellar: :any,                 big_sur:        "4be6dc30604bba139024e5ac1cba60c258316e2ae2552ab4f3df57d99a7447f4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e4cc839a3d3958c6fbdacbc075e75cfbe3416766ec991605fef7ca2c32c2832b"
   end
 
   depends_on "pkg-config" => :build
@@ -42,7 +42,7 @@ class Hcxtools < Formula
     newhash = testpath/"new.22000"
     system "#{bin}/hcxpcapngtool", "-o", newhash, testcap
 
-    # Diff old and new hash file to check if they are identical
-    system "diff", newhash, testhash
+    expected = "WPA*01*4d4fe7aac3a2cecab195321ceb99a7d0*fc690c158264*f4747f87f9f4*686173686361742d6573736964***01"
+    assert_equal expected, newhash.read.chomp
   end
 end

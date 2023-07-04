@@ -5,7 +5,7 @@ class Grpc < Formula
       tag:      "v1.56.0",
       revision: "6e85620c7e258df79666a4743f862f2f82701c2d"
   license "Apache-2.0"
-  revision 2
+  revision 3
   head "https://github.com/grpc/grpc.git", branch: "master"
 
   # The "latest" release on GitHub is sometimes for an older major/minor and
@@ -18,13 +18,13 @@ class Grpc < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "92e1da8bc605adee4e1057719b69984dfd81dbfc64317ecfe0d366c54218b8ad"
-    sha256 cellar: :any,                 arm64_monterey: "0f88f8cea5988e71ceb987ad3b658774d45bcb383bf809163cca3a87f13eefed"
-    sha256 cellar: :any,                 arm64_big_sur:  "0ee770b285f3d576e89a151944da948ab92db662832b20751ef43a2479109c9b"
-    sha256 cellar: :any,                 ventura:        "326b5ca1baa7572ce0095939ff8f55fed3e2e2a199040d4a62a928a5ec161db4"
-    sha256 cellar: :any,                 monterey:       "2d7161a6f50b4dc4671e85ab128f97b48d49079c2e0a19b1450cb4836d861f0a"
-    sha256 cellar: :any,                 big_sur:        "d6e892096406f8080efc8c36af37bbe021eb93b4aa019bb0e55682edd9f2f12d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "55f5a4e1a23f8a0f4ebd4a7f251d8789ca6fadc0e34cfdf7b541756771198562"
+    sha256 cellar: :any,                 arm64_ventura:  "53c95b3f5d08bc362ed8169ce053b01b103b906bacbd959e6c89b1166dce9750"
+    sha256 cellar: :any,                 arm64_monterey: "fe74e8cd0f3abaa52b83256f3f56fcacc5329eda05428321fbed82bad477618a"
+    sha256 cellar: :any,                 arm64_big_sur:  "9dde55fedd1196e508eb8e61d3c32b6c79965e603ea3083bec23cc9e459bfb94"
+    sha256 cellar: :any,                 ventura:        "ad9bfcc051cba78ee139aa52b76a51ef03cf4df7c5c407fcc11f05fecaac357c"
+    sha256 cellar: :any,                 monterey:       "6886e81ba9b9cb796c7e5f15107d427c63599cd96bd4dc9286318ae8bf1e9009"
+    sha256 cellar: :any,                 big_sur:        "b9b8f8225ea44b2687f259446fb9602eaa7cf7bf070501d8146087e482fe01da"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7caf3da0ba7d8cd55a276b0bf76eaca61556cd8584354685288bc6fc7b0e9488"
   end
 
   depends_on "autoconf" => :build

@@ -1,14 +1,14 @@
 class Wmctrl < Formula
   desc "UNIX/Linux command-line tool to interact with an EWMH/NetWM"
-  homepage "https://sites.google.com/site/tstyblo/wmctrl"
-  url "https://sites.google.com/site/tstyblo/wmctrl/wmctrl-1.07.tar.gz"
+  homepage "https://packages.debian.org/sid/wmctrl"
+  url "https://deb.debian.org/debian/pool/main/w/wmctrl/wmctrl_1.07.orig.tar.gz"
   sha256 "d78a1efdb62f18674298ad039c5cbdb1edb6e8e149bb3a8e3a01a4750aa3cca9"
   license "GPL-2.0-or-later"
   revision 2
 
   livecheck do
-    url :homepage
-    regex(/href=.*?wmctrl[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url "https://deb.debian.org/debian/pool/main/w/wmctrl/"
+    regex(/href=.*?wmctrl[._-]v?(\d+(?:\.\d+)+)\.orig\.t/i)
   end
 
   bottle do

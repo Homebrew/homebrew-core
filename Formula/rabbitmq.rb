@@ -14,8 +14,9 @@ class Rabbitmq < Formula
     sha256 cellar: :any_skip_relocation, all: "1bd4ecd0dda3b5a0740282d5dfb89979c0c6ddf680fa9db4526b6ba5a45c5f5c"
   end
 
-  depends_on "python@3.11" => :build
   depends_on "erlang"
+
+  uses_from_macos "python" => :build
 
   def install
     # Install the base files

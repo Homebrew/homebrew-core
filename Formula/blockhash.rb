@@ -18,8 +18,9 @@ class Blockhash < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.11" => :build
   depends_on "imagemagick"
+
+  uses_from_macos "python" => :build
 
   resource "homebrew-testdata" do
     url "https://raw.githubusercontent.com/commonsmachinery/blockhash/ce08b465b658c4e886d49ec33361cee767f86db6/testdata/clipper_ship.jpg"
@@ -27,13 +28,12 @@ class Blockhash < Formula
   end
 
   def install
-    python3 = "python3.11"
-    system python3, "./waf", "configure", "--prefix=#{prefix}"
+    system "python3", "./waf", "configure", "--prefix=#{prefix}"
     # pkg-config adds -fopenmp flag during configuring
     # This fails the build on system clang, and OpenMP is not used in blockhash
     inreplace "build/c4che/_cache.py", "-fopenmp", ""
-    system python3, "./waf"
-    system python3, "./waf", "install"
+    system "python3", "./waf"
+    system "python3", "./waf", "install"
   end
 
   test do

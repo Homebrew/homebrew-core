@@ -21,10 +21,10 @@ class Amp < Formula
   depends_on "cmake" => :build
   depends_on "rust" => :build
 
+  uses_from_macos "python" => :build
   uses_from_macos "zlib"
 
   on_linux do
-    depends_on "python@3.11" => :build
     depends_on "libxcb"
   end
 

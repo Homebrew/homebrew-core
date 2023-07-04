@@ -6,11 +6,6 @@ class ErlangAT23 < Formula
   sha256 "b830af3d9fcb0be88d1d358ee8d5db6dbc51554329053b7dfdc17d4335c81302"
   license "Apache-2.0"
 
-  livecheck do
-    url :stable
-    regex(/^OTP[._-]v?(23(?:\.\d+)+)$/i)
-  end
-
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "5a5e15453d8187ff2af7c17244e05eab49a9bc5d3d9a50b3e432afa9a5eaf3ff"
     sha256 cellar: :any,                 arm64_monterey: "91d455b6b301fa047d499aa17a695e131a04824d09e2bf31396faea911ebc6d5"
@@ -22,6 +17,9 @@ class ErlangAT23 < Formula
   end
 
   keg_only :versioned_formula
+
+  # EOL with OTP-26 release. Also does not support OpenSSL 3.
+  deprecate! date: "2023-07-01", because: :unsupported
 
   depends_on "openssl@1.1"
   depends_on "unixodbc"

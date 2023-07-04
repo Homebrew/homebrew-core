@@ -1,6 +1,7 @@
 class Serialosc < Formula
   desc "Opensound control server for monome devices"
   homepage "https://github.com/monome/docs/blob/gh-pages/serialosc/osc.md"
+  # pull from git tag to get submodules
   url "https://github.com/monome/serialosc.git",
       tag:      "v1.4.3",
       revision: "12fa410a14b2759617c6df2ff9088bc79b3ee8de"
@@ -19,11 +20,12 @@ class Serialosc < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a80b151ced619522b991261dfb4a40a18acd6b47a02c82a2748fe13b29636813"
   end
 
-  depends_on "python@3.11" => :build
   depends_on "confuse"
   depends_on "liblo"
   depends_on "libmonome"
   depends_on "libuv"
+
+  uses_from_macos "python" => :build
 
   on_linux do
     depends_on "avahi"
@@ -31,10 +33,9 @@ class Serialosc < Formula
   end
 
   def install
-    python3 = "python3.11"
-    system python3, "./waf", "configure", "--enable-system-libuv", "--prefix=#{prefix}"
-    system python3, "./waf", "build"
-    system python3, "./waf", "install"
+    system "python3", "./waf", "configure", "--enable-system-libuv", "--prefix=#{prefix}"
+    system "python3", "./waf", "build"
+    system "python3", "./waf", "install"
   end
 
   service do

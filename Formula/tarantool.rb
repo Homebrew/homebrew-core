@@ -48,7 +48,7 @@ class Tarantool < Formula
     args << "-DCMAKE_INSTALL_SYSCONFDIR=#{etc}"
     args << "-DCMAKE_INSTALL_LOCALSTATEDIR=#{var}"
     args << "-DENABLE_DIST=ON"
-    args << "-DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}"
+    args << "-DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}"
     args << "-DREADLINE_ROOT=#{Formula["readline"].opt_prefix}"
     args << "-DENABLE_BUNDLED_LIBCURL=OFF"
     args << "-DENABLE_BUNDLED_LIBYAML=OFF"

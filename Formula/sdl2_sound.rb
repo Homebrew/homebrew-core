@@ -1,10 +1,8 @@
 class Sdl2Sound < Formula
   desc "Abstract soundfile decoder for SDL"
   homepage "https://icculus.org/SDL_sound/"
-  # Includes fixes for CMake, just ahead of the release tag
-  url "https://github.com/icculus/SDL_sound/archive/06c8946983ca9b9ed084648f417f60f21c0697f1.tar.gz"
-  version "2.0.1"
-  sha256 "41f4d779192dea82086c8da8b8cbd47ba99b52cd45fdf39c96b63f75f51293e1"
+  url "https://github.com/icculus/SDL_sound/releases/download/v2.0.2/SDL2_sound-2.0.2.tar.gz"
+  sha256 "465a81d6004af731768b881b2f50383150cc58a8d346653bad85e2375829cc3a"
   license all_of: [
     "Zlib",
     any_of: ["Artistic-1.0-Perl", "LGPL-2.1-or-later"], # timidity
@@ -12,15 +10,13 @@ class Sdl2Sound < Formula
   head "https://github.com/icculus/SDL_sound.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "e0af8ec626664ff96880901346e333d02f299329481d02b48f7f859106bd8223"
-    sha256 cellar: :any,                 arm64_monterey: "9f7361925cc4e541a3293a00110b3c83516794fe075ac98c49880d86acc5484d"
-    sha256 cellar: :any,                 arm64_big_sur:  "8fa2ec4cb066676973921f8dab5ffb1e5bc2acc4e0d37faffc83978e512c2688"
-    sha256 cellar: :any,                 ventura:        "929916d87f9459ea27931c3c565f8df463b395e2865730f059770cb30ce0a045"
-    sha256 cellar: :any,                 monterey:       "8dff25f947a0c5ba5e6d2a78070f4aa7433385221df4c327deece950db99c2e3"
-    sha256 cellar: :any,                 big_sur:        "792d335d07a8b6352f8a6b3099ca32f7a706e1a1217cbf12f5f961bb638d7338"
-    sha256 cellar: :any,                 catalina:       "1bf080610b4296c73f127d02bfa3cc6f5582be84f7499e282f015bc17fc042f4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9f41eb7b4bc0611d0d0732d175993cf06b7147a2ec70aa788e2a98110d3c4d95"
+    sha256 cellar: :any,                 arm64_ventura:  "78efdb69dd2f29646f6e4e13ebe2b73021b16c39be323c589a9076c89431f31d"
+    sha256 cellar: :any,                 arm64_monterey: "fc10f79b0f7063898408b2256c67205bf4da1b64858534b605ee4d2502812884"
+    sha256 cellar: :any,                 arm64_big_sur:  "bd8b8ebfe41a9635a97c6798eda4a584dc6ca4046fe5195d47d89c2bbc267205"
+    sha256 cellar: :any,                 ventura:        "e7e2502eeadf23ca7327e087c6b7d7afeb12f75727a2ecbc2662bcacb0b951e1"
+    sha256 cellar: :any,                 monterey:       "b4b2f9f1681928e4cc8dbe0fddbc40eb311de24144155d6b043dbb1415af3bd2"
+    sha256 cellar: :any,                 big_sur:        "b7d96ba9534e1e3fbff4585f8994169c148c1e19da87b0bdd879bdca2211a5aa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "08026f0cdd8b3e6ff8cc66cb968a8107472fc9f6ca97ce0b9ef78e910dcbb206"
   end
 
   depends_on "cmake" => :build

@@ -1,20 +1,20 @@
 class Marksman < Formula
   desc "Language Server Protocol for Markdown"
   homepage "https://github.com/artempyanykh/marksman"
-  url "https://github.com/artempyanykh/marksman/archive/refs/tags/2023-06-23.tar.gz"
-  version "2023-06-23"
-  sha256 "23b6240d981cb4dfb05eeac942e0e991727f938cb5c42b90f5032cba001702a9"
+  url "https://github.com/artempyanykh/marksman/archive/refs/tags/2023-07-01.tar.gz"
+  version "2023-07-01"
+  sha256 "236e5b9d5043a96f3fd2a7e6093ddd9d0463b6189810fe1790fc448ddb338718"
   license "MIT"
   head "https://github.com/artempyanykh/marksman.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "04eadfd7d030fe9ccd2d5c908790ae289d51d79966e7f9b14b7dd5d7563af1ff"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "84c9f93a6472228ab9572c0138d87ffe921e94e7fb686535f81a8ba23d089d51"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d264ddf3095ce4538fd3804c9dbcbb411a3e5a9350bd1bf0958349a27391111c"
-    sha256 cellar: :any_skip_relocation, ventura:        "925ef2624f2d10a091d2b7ebb3717f4973c62e792a7060f366c7269627e15d05"
-    sha256 cellar: :any_skip_relocation, monterey:       "1cb1bc72b7cd7ac1b7e6cff0a9f5fd0d22711bd84bea9781700a02712ff63afa"
-    sha256 cellar: :any_skip_relocation, big_sur:        "306f52e141be9d93bd9ead8a6d8c0f95c14d541e306e3c5cd9f33581513c715f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "130fae2e4026b739538354ff99f5956471596e5a375f12cd6402cc552ec884cb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "237fe0deef835260dde85f7e25754a972bf4624df18070cbe0fb0191870c6ab5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9b677099be66126e91ae5cbe57f011efbc09a6da069dd3d283bafa27093c5459"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d535933f13c20afaa474db558c8225ce3b7ca162660e8aba4267231bf39668b7"
+    sha256 cellar: :any_skip_relocation, ventura:        "430ee52a6baf1448575ee560cd78474fe21b7579173e725f2b7e0dc96876ab90"
+    sha256 cellar: :any_skip_relocation, monterey:       "93608ae46b56c06ecdfb9bbb27c6082b3f8b04c3f155f03d363341fa7e0c616e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "1a6a506ab3eb694b2bcddc4f677aae006b2456d13a16cc2bc7969e5f67941ce2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8f539f9eb28dc9e8c90d2818181e8c2ecad800f2fb306aa8e76f75b7640cdbfd"
   end
 
   depends_on "dotnet" => :build

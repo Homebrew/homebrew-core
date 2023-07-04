@@ -1,26 +1,31 @@
 class ElanInit < Formula
   desc "Lean Theorem Prover installer and version manager"
   homepage "https://github.com/leanprover/elan"
-  url "https://github.com/leanprover/elan/archive/v1.4.6.tar.gz"
-  sha256 "0f8c736f67071e7b680d0b7e57e1c614696824c6ecc8e636aea47ba26b72f523"
+  url "https://github.com/leanprover/elan/archive/v2.0.0.tar.gz"
+  sha256 "defa9272887312038e4154aea0ab7e6864eb08ac10aa815616aa06569d1b32a1"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/leanprover/elan.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8066f6c26df8bb1667c43453a06e1411e804c8ee7111a6ed660d06809c579957"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e7772e04a1395d2a2a95d79f36fb20a18ebc5e712ce66033e2357ea7f141bc95"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e3ac9269b640d9eefb55ae14cfb5a128b0cf1d2e912fd134c4e8b083cc192b27"
-    sha256 cellar: :any_skip_relocation, ventura:        "e621f34cae570966f7cb333e35179e11a24308452f8094bcfefd10ecf650573c"
-    sha256 cellar: :any_skip_relocation, monterey:       "2911b958d78383c0c9aedc2e1b0c5ec96f15c4d0c5b357c967017228df69dd20"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ea7d7706ab8471852799fcba42a513855ac3a3af92f1e24a54e9af81edb3d332"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b0812dd452c4fbf791e3e6f1cd5a7e1dc5aa4d5049ee7bf598dbc29837f0fab9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "922eb16e8b873e80c2a8e7665ae4d25514274505eb5e49b5e7a1b5abcdfa4d2b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c8978f9235eab1abfd8a258714e3faf572ed6ec8ea20620d8cef1cef5879092c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ab4c9bed32178a66e9a2f72eca5c9aa1f898ed601a2437222273a5a49eca6f16"
+    sha256 cellar: :any_skip_relocation, ventura:        "96ace0162aaedbd83ff39d13b29f9d7486e25159e57989185e17699fcb1e4519"
+    sha256 cellar: :any_skip_relocation, monterey:       "fded3f63246bab5986c81603c06416dbe449b46f8e1d44fc0db248bdc7a55409"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6eeb8e6ec7d3038a7911e3dddc1bdbec6fd6501db99e461d630e731285553dae"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "49ef4320a0b252da1039d8f00fd8f25c237d4e4e9900b349a08e5b025dd1e5bc"
   end
 
   depends_on "rust" => :build
   depends_on "coreutils"
   depends_on "gmp"
 
+  uses_from_macos "curl"
   uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
 
   conflicts_with "lean", because: "`lean` and `elan-init` install the same binaries"
 

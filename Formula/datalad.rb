@@ -3,18 +3,18 @@ class Datalad < Formula
 
   desc "Data distribution geared toward scientific datasets"
   homepage "https://www.datalad.org"
-  url "https://files.pythonhosted.org/packages/5a/42/95f4c14c42bd1d8095beac55a51adf9797ed5dd9eb52a007318022ff7b95/datalad-0.19.1.tar.gz"
-  sha256 "303aac797fbec14952be781046bba9a0317fc151bc22fa9ebc23afeab885241a"
+  url "https://files.pythonhosted.org/packages/8f/84/274042d4be1b50b3264471f38ea8465edbd928be33630ec0a2d8bcaa86c7/datalad-0.19.2.tar.gz"
+  sha256 "eeae1b28096c7c0f5879c84d48548ad2edc4dd3b894e23137f0753e6ed0173ce"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bd2b3e8fc065b786caf4e765f778787d14eac13f2406f1a3bbf10d5df5e56dd7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "53cafdf773865344d5ef90d5277a24b8dabf31a7bc73e6c8812143c6399d9261"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c3ff3daf7bd538e8e7e844e011668102df255bb09eb5bba6d82e2646e7d172c3"
-    sha256 cellar: :any_skip_relocation, ventura:        "436d483b68a595db9e88106bea2eeb240fd8c60fac67414154b0f5ef9a360939"
-    sha256 cellar: :any_skip_relocation, monterey:       "890e6dea2d43624f800c8386d5d73645c8cd424db42aa30508f3d6d25c3e36b9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b62231eb9a2ef2a3e5da2e639cf1d1ad3c6c48af87ba8b9c33d849d955b802ac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "712c7655d7728184ed958ed3475be750d246f0213cc579cb4e5200b2ae1d4e53"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e7ab7d93ee10ccb7f953de42eb94faefbb6eea628103a78d71718ada6c28ebbf"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "81c0b23c4f89e52668f36ae78d1403e0ac389aecbc681098ab017188c8d297dd"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "51469e8786e9943bf0c1ea02d41b6a67a01b74f97b946fc43116d1919892bccb"
+    sha256 cellar: :any_skip_relocation, ventura:        "3768b46c09999e2be2ce29b6a36c8b5ac0e54ae18260e6c6d19334b795921a08"
+    sha256 cellar: :any_skip_relocation, monterey:       "232297eb08a7d1be26d4d33f35c942ed83d7dae0718f61dca7c7c5d6f99e14c3"
+    sha256 cellar: :any_skip_relocation, big_sur:        "30812edca4af3eaa6253f45df9407fcfacfbce1d3d5cb811a2205d1e1caa4ce0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3c7b77c3c63625aaa29eef162db01b65baafce0cd88d859a32b5a3b58d19704a"
   end
 
   depends_on "rust" => :build # for cryptography
@@ -58,8 +58,8 @@ class Datalad < Formula
   end
 
   resource "humanize" do
-    url "https://files.pythonhosted.org/packages/06/b1/9e491df2ee1c919d67ee328d8bc9f17b7a9af68e4077f3f5fac83a4488c9/humanize-4.6.0.tar.gz"
-    sha256 "5f1f22bc65911eb1a6ffe7659bd6598e33dcfeeb904eb16ee1e705a09bf75916"
+    url "https://files.pythonhosted.org/packages/69/86/34d04afc5c33a31f4e9939f857e28fc9d039440f29b99a34f2190f0ab0ac/humanize-4.7.0.tar.gz"
+    sha256 "7ca0e43e870981fa684acb5b062deb307218193bca1a01f2b2676479df849b3a"
   end
 
   resource "idna" do

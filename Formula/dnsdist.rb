@@ -4,7 +4,7 @@ class Dnsdist < Formula
   url "https://downloads.powerdns.com/releases/dnsdist-1.8.0.tar.bz2"
   sha256 "1c0d375c25453d349b88e03ff589aa2603ca8692fc98364c068ead372804704f"
   license "GPL-2.0-only"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://downloads.powerdns.com/releases/"
@@ -12,13 +12,13 @@ class Dnsdist < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "81b9b4b5fc783c74ddb725b0ef39ae4a9aad314ebc049c60a4177393e252d721"
-    sha256 cellar: :any,                 arm64_monterey: "6896440134f4ddc23117147f3f36b5a2c0a83d7017b3e95831a0871b8a20757f"
-    sha256 cellar: :any,                 arm64_big_sur:  "ba08dc7ba1b1968f8c547a0c8853e3df4bf0cc20ba7d92c96c7af0c6bdb2fa9f"
-    sha256 cellar: :any,                 ventura:        "698ac4d56792a03a0dbbb9fe32d7150fbaa1f2a5d6a6728980b86d9ec048e15f"
-    sha256 cellar: :any,                 monterey:       "5cebae77ea0d8df9996374b67689744103f512c0b8f409d125f6e830eebcd49f"
-    sha256 cellar: :any,                 big_sur:        "d5c3c4cc8d2561a848b374743209198f488b80f00216d1f10576086ec0ed5658"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bc304272dc9992068122dd5323010be7e078f3ef2c1f1d8ebdd64966f9510b22"
+    sha256 cellar: :any,                 arm64_ventura:  "bcdcbf3481715212f7e08ecd4ba643b6b49ef0f284155b15101a4deb46ef572b"
+    sha256 cellar: :any,                 arm64_monterey: "d1523bc0741fec73483d5d97d646b494725b06a9df3cb210ea670850368aa6e7"
+    sha256 cellar: :any,                 arm64_big_sur:  "68b519a35fe9f68622db48dcf068c97c65c7fbcb47f2290a34728b00f6e34891"
+    sha256 cellar: :any,                 ventura:        "383c9920efbc55782f3e579544b1c31758513f4a07d8e0911e259992cd19aa30"
+    sha256 cellar: :any,                 monterey:       "6c1cd8b38d8a79261a47be1567f9b8133bfd806169c7701374352382e8fe3d90"
+    sha256 cellar: :any,                 big_sur:        "f0e75d49e95e926f612fe49d72c93e5709cb6916aac804e70357c8ef8ac80512"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5de363e7cd6bc0475a64909ed04ea72e7cb0a0cba89c615dde510dc0b24215dc"
   end
 
   depends_on "boost" => :build

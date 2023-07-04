@@ -1,10 +1,9 @@
 class F3d < Formula
   desc "Fast and minimalist 3D viewer"
   homepage "https://f3d-app.github.io/f3d/"
-  url "https://github.com/f3d-app/f3d/archive/refs/tags/v2.0.0.tar.gz"
-  sha256 "5b335de78a9f68903d7023d947090d4b36fa15b9e165749906a82153e0f56d05"
+  url "https://github.com/f3d-app/f3d/archive/refs/tags/v2.1.0.tar.gz"
+  sha256 "3e5e6c2c16da4d7ccce8b6e316ab8007592a2bc0fc11a513f1ebac8c7f0f95d2"
   license "BSD-3-Clause"
-  revision 3
 
   livecheck do
     url :stable
@@ -12,13 +11,13 @@ class F3d < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "f22ecfa24ffe1b117aa267c2effcfa0fe3079c0fefe7aecf8dcf03c4acdac938"
-    sha256 cellar: :any,                 arm64_monterey: "692c5513911b98f3fb97814f23543dbc6438446c4d11b5071af4553f61be4da1"
-    sha256 cellar: :any,                 arm64_big_sur:  "88e1c26380ed6efb881801cd6147afde1059ed733cac542be74439e24418fdbf"
-    sha256 cellar: :any,                 ventura:        "02d9445c9a452ef47c1926cf734589b49c4c50a58c777d827a324d0b4b420f78"
-    sha256 cellar: :any,                 monterey:       "012cccb02f44bd7f4e330f57f0f258dae34daf48c786e8144a1e07b3580c806c"
-    sha256 cellar: :any,                 big_sur:        "9e3c7624e6d8aad96547a5bca8aa6a87a54aa0ecd1b7cdd930366ee5b2957e20"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4934d18b9f5d6cc431efee68761892a984f7ee4822b451cdc0e10ef972deedc6"
+    sha256 cellar: :any,                 arm64_ventura:  "ea4c99012e19ad2523a9dba29f42068d89cac37720f0633793d28064c5d0bf79"
+    sha256 cellar: :any,                 arm64_monterey: "7491ab9bdd77d2bc108189317d65a0712aefb1142aae095d7acd58f2bffa82cd"
+    sha256 cellar: :any,                 arm64_big_sur:  "df7bdcbdca0774f4ff4a3b4e5dbf9906929184004159b096cc849df671791582"
+    sha256 cellar: :any,                 ventura:        "fa22f84a2dfd658244a2c5f30d7ba08e2ef497aee292a7de6fe52575874eeede"
+    sha256 cellar: :any,                 monterey:       "c02c294aad555af62c090185996eb64e77d58b92e730a55aad152c99034c6231"
+    sha256 cellar: :any,                 big_sur:        "0c68b8f075631601d6715e8cf71f90376e6c426ec34f494a762c9fcc96302edd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "214e7206f973add89d8b37e36de6d3c0ce2b154a9248324674635f19b5f3ac91"
   end
 
   depends_on "cmake" => :build

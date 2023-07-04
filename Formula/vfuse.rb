@@ -19,6 +19,8 @@ class Vfuse < Formula
     sha256 cellar: :any_skip_relocation, mojave:         "95be83b370683ec27d9052f897028bd939241568d81939a67d3bb985d89a06df"
   end
 
+  deprecate! date: "2023-07-03", because: :deprecated_upstream
+
   depends_on :macos
 
   def install

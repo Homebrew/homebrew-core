@@ -8,14 +8,14 @@ class B2Tools < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "68a86b90c8416c76b98607d1f37748e9c2e917f6759ced7ba323c414331353f5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5d9b99f7131b5938ee8bfbe3f0e11c0ac9ef47b7c6602be720c0966842b9563a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ee5f5d5d314b2d1ffbe2b8182958b1701887d75d89c43f92c21ae7e7f3d4c34f"
-    sha256 cellar: :any_skip_relocation, ventura:        "56605548b464db1311daa193ec036bef53eb6789b835a9e37cc62506de9c9965"
-    sha256 cellar: :any_skip_relocation, monterey:       "4e79f2cd0ae172c1d296063098c0799f54ed600748d8f52696df4a3ade4ab44c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3a5c944320bd3b8eda79d791c25bd5b60ca6a066c405a1e9a55e5712cfa24530"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "60dcf8bf0dcee7d6431ae3b08d8330f0e1b5b89d72a24599f53a2a0c27d00776"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a20366080d71f4ead870c38acbfaae8bc2a5a6a613de76e3c890384bb3dc7170"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ad574eaece4870d03f1488aafdd1bda15fe79f49e676d8d6b1f15903ec581b63"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "596ae6e12d959eec42f022c35277571eec330a2408767f74a79e727dfad27dbb"
+    sha256 cellar: :any_skip_relocation, ventura:        "c457130d1c9e46d02fd16a0a142a93b676bb335d2907e0a10b00559c1cef526e"
+    sha256 cellar: :any_skip_relocation, monterey:       "9de7861392a374146dabf2a5e674ce4f16f64fcde1c91d516c1e31aecfc3d7cc"
+    sha256 cellar: :any_skip_relocation, big_sur:        "61efcba04ee87861e88a7f4db3f139eff6fabd617756ec0c268d56b5bdeeac43"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ee5496c5ee2680917a1dbb174e107efb2face6cd23c7cbf050016509e3508bd5"
   end
 
   depends_on "python@3.11"
@@ -101,12 +101,14 @@ class B2Tools < Formula
   def install
     virtualenv_install_with_resources
 
-    generate_completions_from_executable(bin/"b2", "install-autocomplete", shell_parameter_format: :arg,
-                                                                           shells:                 [:bash])
+    system bin/"b2", "install-autocomplete", "--shell", "bash"
+    bash_completion.install "#{Dir.home}/.bash_completion.d/b2"
     pkgshare.install (buildpath/"contrib").children
   end
 
   test do
+    assert_match "-F _python_argcomplete b2",
+                 shell_output("bash -c \"source #{bash_completion}/b2 && complete -p b2\"")
     ENV["LC_ALL"] = "en_US.UTF-8"
     cmd = "#{bin}/b2 authorize_account BOGUSACCTID BOGUSAPPKEY 2>&1"
     assert_match "unable to authorize account", shell_output(cmd, 1)

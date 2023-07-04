@@ -11,8 +11,8 @@ class Netpbm < Formula
   head "https://svn.code.sf.net/p/netpbm/code/trunk"
 
   livecheck do
-    url "https://sourceforge.net/p/netpbm/code/HEAD/tree/stable/"
-    regex(/Release v?(\d+(?:\.\d+)+)/i)
+    url "https://sourceforge.net/p/netpbm/code/HEAD/log/?path=/stable"
+    regex(/Release\s+v?(\d+(?:\.\d+)+)/i)
     strategy :page_match
   end
 

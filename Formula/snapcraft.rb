@@ -7,6 +7,7 @@ class Snapcraft < Formula
       tag:      "7.3.1",
       revision: "bef32e264fb1b8061da3370d7435bace9316409e"
   license "GPL-3.0-only"
+  revision 1
 
   livecheck do
     url :stable
@@ -14,19 +15,21 @@ class Snapcraft < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "aefaecba12fae1dbc52ae18514faca03be6397b6236860df0f3e3899dc75d388"
-    sha256 cellar: :any,                 arm64_monterey: "248bba61d21cfab6791150a91e80f580e83909cc07e78356724d80f3d0ebf451"
-    sha256 cellar: :any,                 arm64_big_sur:  "1713e7af9ed12e0f331cb18f864ad24715672be1f20ef2ff771120c20e70f85b"
-    sha256 cellar: :any,                 ventura:        "14829fdec73c7c3cec1dbbfe5c69e50ff9894b312f1f2df386a82843e0fc350b"
-    sha256 cellar: :any,                 monterey:       "989464742304aaaa539aeada038dcadc914a9bc5eb9b852868d11dcdb44b5881"
-    sha256 cellar: :any,                 big_sur:        "487989f927202a18f32f3a44c307aecbbe487465cb273221d4da3d0e31b8afaa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0e4c76c266f500238e20be3eb0c1dd283a9e68e6179b7e28fe9e3c06499a6882"
+    sha256 cellar: :any,                 arm64_ventura:  "bc32a9fd52adef8b7ca69e0abd94c0adf73e231ec6e64b73b3317368c77990e0"
+    sha256 cellar: :any,                 arm64_monterey: "b79547a80d84dfddedc89b50af951e9fbf57d4d40e583e202f012b95e7bb183d"
+    sha256 cellar: :any,                 arm64_big_sur:  "0d084634dee5c1f97080f02a9735aa42a8b0d3fb70695ffca829ed659cf836cc"
+    sha256 cellar: :any,                 ventura:        "c67d22d0b54c589020a4ca9332b1fd6d9cd225e2b3182b43c4d0c95794b64030"
+    sha256 cellar: :any,                 monterey:       "3b822a888d89e7b27448f5d279c6a662050f2bdfcfd98d5ea47c1827db50511e"
+    sha256 cellar: :any,                 big_sur:        "c32878ea69ff1e49c9407c9f58612bbf5383b8a48de59fdba0fd185f7dcbcc2f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "15c6a34b4dd12bc7636f6188198607bbd88d1a9773519623d001b468bbc6ab0a"
   end
 
+  depends_on "pkg-config" => :build
   depends_on "rust" => :build # for cryptography
   depends_on "docutils"
   depends_on "libsodium"
   depends_on "lxc"
+  depends_on "openssl@3"
   depends_on "python-tabulate"
   depends_on "python-typing-extensions"
   depends_on "python@3.11"
@@ -88,6 +91,12 @@ class Snapcraft < Formula
   end
 
   fails_with gcc: "5" # due to apt on Linux
+
+  # Needs `setuptools<66`
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/a1/29/f2ad3b78b9ebd24afa282eed9add27b47ef52b37291198021154b4b65166/setuptools-65.7.0.tar.gz"
+    sha256 "4d3c92fac8f1118bb77a22181355e29c239cabfe2b9effdaa665c66b711136d7"
+  end
 
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/21/31/3f468da74c7de4fcf9b25591e682856389b3400b4b62f201e65f15ea3e07/attrs-22.2.0.tar.gz"
@@ -401,7 +410,18 @@ class Snapcraft < Formula
   end
 
   def install
-    virtualenv_install_with_resources
+    # Ensure that the `openssl` crate picks up the intended library.
+    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+    ENV["OPENSSL_NO_VENDOR"] = "1"
+
+    # Workaround for Xcode 14.3
+    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version == 1403
+
+    venv = virtualenv_create(libexec, "python3.11")
+    system libexec/"bin/pip", "uninstall", "--yes", "setuptools"
+    venv.pip_install resource("setuptools")
+    venv.pip_install resources.reject { |r| r.name == "setuptools" }
+    venv.pip_install_and_link buildpath
   end
 
   test do

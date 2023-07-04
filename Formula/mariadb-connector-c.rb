@@ -38,7 +38,7 @@ class MariadbConnectorC < Formula
     args = std_cmake_args
     args << "-DWITH_OPENSSL=On"
     args << "-DWITH_EXTERNAL_ZLIB=On"
-    args << "-DOPENSSL_INCLUDE_DIR=#{Formula["openssl@1.1"].opt_include}"
+    args << "-DOPENSSL_INCLUDE_DIR=#{Formula["openssl@3"].opt_include}"
     args << "-DINSTALL_MANDIR=#{share}"
     args << "-DCOMPILATION_COMMENT=Homebrew"
 

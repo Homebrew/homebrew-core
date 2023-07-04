@@ -1,20 +1,19 @@
 class Pillow < Formula
   desc "Friendly PIL fork (Python Imaging Library)"
   homepage "https://python-pillow.org"
-  url "https://files.pythonhosted.org/packages/00/d5/4903f310765e0ff2b8e91ffe55031ac6af77d982f0156061e20a4d1a8b2d/Pillow-9.5.0.tar.gz"
-  sha256 "bf548479d336726d7a0eceb6e767e179fbde37833ae42794602631a070d630f1"
+  url "https://files.pythonhosted.org/packages/0f/8b/2ebaf9adcf4260c00f842154865f8730cf745906aa5dd499141fb6063e26/Pillow-10.0.0.tar.gz"
+  sha256 "9c82b5b3e043c7af0d95792d0d20ccf68f61a1fec6b3530e718b688422727396"
   license "HPND"
-  revision 1
   head "https://github.com/python-pillow/Pillow.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "996a0e92f7957956425d372f0e7b896a487708449b29b3ab57e491535c2b0366"
-    sha256 cellar: :any, arm64_monterey: "f8e584f42f026a77d4399c7881cc7578ce99a38d19132206ff81e10db001d1fa"
-    sha256 cellar: :any, arm64_big_sur:  "d12d9ea98bbed38560d47fa547eb26f6405fead6fdcfa188be2837810fe204a4"
-    sha256 cellar: :any, ventura:        "0da40f898faaea2de3cba4a6f6dc845cf9019a77d0b3a2cfc723de813d6bf7a8"
-    sha256 cellar: :any, monterey:       "86053257f23602e70dc37b7335b59a1398a046f98a7a8ea39afa85ee29b3d796"
-    sha256 cellar: :any, big_sur:        "99b13bbc6e1ffecd572e469199a58a89c8273269d99c6d6f17e8b69e3b3d285f"
-    sha256               x86_64_linux:   "3df5a714b7a5df0347e6ab093ec7312b4ddb580cd68ab77d46f0b244f6a0ec5a"
+    sha256 cellar: :any, arm64_ventura:  "1c157280a9671e1d4e1fd12d021bcb755d739cff061e0725468ce6e6f19e7192"
+    sha256 cellar: :any, arm64_monterey: "e6190bafe6c6b0e0b1327b547603591e799af07cd9fc42dd26ddb1c709ae0c83"
+    sha256 cellar: :any, arm64_big_sur:  "7a3df0ffdfa7e641a01423b32720c541a95c39e78396f6b2afc60328489a851a"
+    sha256 cellar: :any, ventura:        "c813fb7d7f03c9426a6a4b22b4b8e49abd6c99a6f1defd48b25b6caee09aa631"
+    sha256 cellar: :any, monterey:       "6b96d00be21890f5229cdb4e0b3f89c104a8730c3c381f987526736a437780f0"
+    sha256 cellar: :any, big_sur:        "35e7b1beade031a529ffab554714031a4f849fe94c8ac89a844e7ad1fb12a7b1"
+    sha256               x86_64_linux:   "38925f18bdb9b7d60d9be4ff6ca674943ec4f1058dbc81ee82987b8d2a4b9111"
   end
 
   depends_on "pkg-config" => :build

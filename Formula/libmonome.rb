@@ -1,6 +1,4 @@
 class Libmonome < Formula
-  include Language::Python::Shebang
-
   desc "Library for easy interaction with monome devices"
   homepage "https://monome.org/"
   url "https://github.com/monome/libmonome/archive/v1.4.6.tar.gz"
@@ -19,15 +17,14 @@ class Libmonome < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "21757bb4952cf37ac4ae45ae62dcefc5ca22d9cd04474a6d51f9b67dbca1a392"
   end
 
-  depends_on "python@3.11" => :build
   depends_on "liblo"
 
-  def install
-    rewrite_shebang detected_python_shebang, *Dir.glob("**/{waf,wscript}")
+  uses_from_macos "python" => :build
 
-    system "./waf", "configure", "--prefix=#{prefix}"
-    system "./waf", "build"
-    system "./waf", "install"
+  def install
+    system "python3", "./waf", "configure", "--prefix=#{prefix}"
+    system "python3", "./waf", "build"
+    system "python3", "./waf", "install"
 
     pkgshare.install Dir["examples/*.c"]
   end

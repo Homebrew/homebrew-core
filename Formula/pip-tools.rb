@@ -3,18 +3,18 @@ class PipTools < Formula
 
   desc "Locking and sync for Pip requirements files"
   homepage "https://pip-tools.readthedocs.io"
-  url "https://files.pythonhosted.org/packages/c1/3f/f121e3a05e46ba07055b3b81d3325f712c22bc0624872b83a73c9f6e2bc1/pip-tools-6.13.0.tar.gz"
-  sha256 "61d46bd2eb8016ed4a924e196e6e5b0a268cd3babd79e593048720db23522bb1"
+  url "https://files.pythonhosted.org/packages/b0/5e/4f1beeaec03f726829d1c32e379d441ecd80f11f6afb0ea0fff75ce1e776/pip-tools-6.14.0.tar.gz"
+  sha256 "06366be0e08d86b416407333e998b4d305d5bd925151b08942ed149380ba3e47"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f59de52b8012c6643588e12b0031d46e9126585f947a062d846512dc712e99b6"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a84b46af9dcbd4beead2598300a2984d89319540ff304abf7216533b8b584e58"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "055b964063edb6f7e896fac056e7da1fea058b8a054bc267424fd9e0af75b29b"
-    sha256 cellar: :any_skip_relocation, ventura:        "9de7efdb2775e9f02ad7e665543d7d6e75cb25f73dc1a2c31d6e59cde781580d"
-    sha256 cellar: :any_skip_relocation, monterey:       "70f62eece3b0a0e09423438228c09ef6de762310b2aa083274510bb1fdecb826"
-    sha256 cellar: :any_skip_relocation, big_sur:        "048309822613c2ebb66b174be7ed2f4f8564b989714ea15c213ab564f81e1b54"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "93d32352ef8d0631eb813e8fcefb0e174f0a093f8d968bc0e34a0281873860d7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2d59bdf6aa939795ef05de4248b3cb30d1427f34850832ff0ef136b1cddddab1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6c5e0782f741700786901a9dd36718daeabe820877604b05f3a2d9d2b94b3c5c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3adaca1d6c495165d0c052fae25ac53f899a55808aba033b161557663bd45eb3"
+    sha256 cellar: :any_skip_relocation, ventura:        "6e840543269382fbddb1bbb719631fa55af929e0a51ad32f4e77856f2df9f7b7"
+    sha256 cellar: :any_skip_relocation, monterey:       "218f96591b3038e9e3b07c55a50fe921549d32025530a30ea747cb5dd769dd30"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e0be46dfdbbc1a5c424750260f3607f5469e22bfe6d4cf8010e793f6d2a02692"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "41a980ce791ad1b266024b336b85e5a70fd6a244c2a2187bbda185604d2e744d"
   end
 
   depends_on "python@3.11"
@@ -30,11 +30,11 @@ class PipTools < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/47/d5/aca8ff6f49aa5565df1c826e7bf5e85a6df852ee063600c1efa5b932968c/packaging-23.0.tar.gz"
-    sha256 "b6ad297f8907de0fa2fe1ccbd26fdaf387f5f47c7275fedf8cce89f99446cf97"
+    url "https://files.pythonhosted.org/packages/b9/6c/7c6658d258d7971c5eb0d9b69fa9265879ec9a9158031206d47800ae2213/packaging-23.1.tar.gz"
+    sha256 "a392980d2b6cffa644431898be54b0045151319d1e7ec34f0cfed48767dd334f"
   end
 
-  resource "pyproject_hooks" do
+  resource "pyproject-hooks" do
     url "https://files.pythonhosted.org/packages/25/c1/374304b8407d3818f7025457b7366c8e07768377ce12edfe2aa58aa0f64c/pyproject_hooks-1.0.0.tar.gz"
     sha256 "f271b298b97f5955d53fb12b72c1fb1948c22c1a6b70b315c54cedaca0264ef5"
   end

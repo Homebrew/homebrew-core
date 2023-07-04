@@ -16,6 +16,14 @@ class Distrobox < Formula
     system "./install", "--prefix", prefix
   end
 
+  def caveats
+    <<~EOS
+      Distrobox requires one of podman or docker. Do
+        brew install podman
+      or consult the documentation for details.
+    EOS
+  end
+
   test do
     system bin/"distrobox-create", "--dry-run"
   end

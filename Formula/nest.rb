@@ -1,18 +1,18 @@
 class Nest < Formula
   desc "Neural Simulation Tool (NEST) with Python3 bindings (PyNEST)"
   homepage "https://www.nest-simulator.org/"
-  url "https://github.com/nest/nest-simulator/archive/v3.4.tar.gz"
-  sha256 "c56699111f899045ba48e55e87d14eca8763b48ebbb3648beee701a36aa3af20"
+  url "https://github.com/nest/nest-simulator/archive/v3.5.tar.gz"
+  sha256 "4504ff7f9cfa051c91a5e85a0761bdd09d23aeeadac22c45f6be18b7fbe2db43"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_ventura:  "fc93f6246137d84c772a77aed2745693dc36c593f89bc5736386ec5ac382c453"
-    sha256 arm64_monterey: "3b4d7bb1aa43efeb5f168668e6c4304476e738dd00e6e2575ecc4c9ec8420357"
-    sha256 arm64_big_sur:  "ed824604ce01c87ef555cc0ce71d923e9f53c236e8f356ffe77b916cc52b65e8"
-    sha256 ventura:        "4d89f6810fa548716be37e5cf41242435e5d187f6041f6cc4f95db541dc9d28b"
-    sha256 monterey:       "04b8bd41ba16be78537d33b6d4e8d3b45ec2852b250c07da70f1837b9405926d"
-    sha256 big_sur:        "9a59224bedeb71ec0febab939414fd82105a26c5e74ca83e12272c5061961f98"
-    sha256 x86_64_linux:   "5fab36854a9a878c85e4c8011312b18cd531d07c53437e6a126641fb41489824"
+    sha256                               arm64_ventura:  "df23c97bb58253cf7ad02f5f282f3e80b44f9ac2cc8abbfbf1218e79ca03a5d7"
+    sha256                               arm64_monterey: "377cd61eefe12f39600b094e04770fc3463d824fb7a78b935798ba61c8f7e555"
+    sha256                               arm64_big_sur:  "90b4e88fcd273aadb85a2cc8a6bbd4eea290ed89dad72dd61cebb05d4b35cfe4"
+    sha256                               ventura:        "9d0b26661d317418c7dd942fb22efacfd4ee538e35dea644b027bfc05f7ee1db"
+    sha256                               monterey:       "30d4afb77804602c8ddc7500fcb72876b3846d4420b5cff10a68830a6eaaa4f8"
+    sha256                               big_sur:        "402eb3684c5402856dece4dda8ff30d2c63dd864e4bad3bf5fb1e41174437fc2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dea095e6f50281a9904e66b8b05b9007bebb69105620fb4c6b64633a23c2bfcb"
   end
 
   depends_on "cmake" => :build

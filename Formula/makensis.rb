@@ -1,20 +1,18 @@
 class Makensis < Formula
   desc "System to create Windows installers"
   homepage "https://nsis.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/nsis/NSIS%203/3.08/nsis-3.08-src.tar.bz2"
-  sha256 "a85270ad5386182abecb2470e3d7e9bec9fe4efd95210b13551cb386830d1e87"
+  url "https://downloads.sourceforge.net/project/nsis/NSIS%203/3.09/nsis-3.09-src.tar.bz2"
+  sha256 "0cd846c6e9c59068020a87bfca556d4c630f2c5d554c1098024425242ddc56e2"
   license "Zlib"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fc4524675c0efffcdedcc5bb92d348afa0577c33fd69e1ef75a8da48cf0c6e90"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4e9d197faa2cb6ee296902f69def0deb0dcc30db077cc6ff2943e12a5c4bdb3c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4656747f66941fb5b2f4adaad2c4bdd64e99a48c1938a580f91befce75700c4d"
-    sha256 cellar: :any_skip_relocation, ventura:        "4532aeda1faa4cd83fe4c881f34a59dc87e4e24d69b1b6b196ac16e84ede3a21"
-    sha256 cellar: :any_skip_relocation, monterey:       "e4df4ea446eaf4b905b3e9f102a133894cb36d7b33620be03b5374fa59703975"
-    sha256 cellar: :any_skip_relocation, big_sur:        "21f3aa213be2e8c0a0a2d992fb117cc5e5c5cf625b3299bcf1f7506c117900f5"
-    sha256 cellar: :any_skip_relocation, catalina:       "0e86809dd3b7c95a587bc467a7b12a2ab07cacf91f31ead7174fffe3cc1d7c6f"
-    sha256 cellar: :any_skip_relocation, mojave:         "d2c3aeb784d8aa8192360a20a7410b5b4f617deae10d59b18535cafa2bc5809f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ed7437e47f43473d9a9a81652697d21373f11346401fc7a20d0a35357ca73ea8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0e5ff651a001ea3c3afebae523d1f30b914d3054220bc9266a6101c7c134da2c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f09cd2796953aab5c3198adcde8e9ba8d284ce46891417bedc949b95dea67a7f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "12c2c787c4fe84e6c72c410e7123040924ab731ab5d4659ed624a31e7a169180"
+    sha256 cellar: :any_skip_relocation, ventura:        "a45fa4bb934cbbca70e30765ebcfb3ca4e5315f960b7a4b5ba2d4ebb6f2ff177"
+    sha256 cellar: :any_skip_relocation, monterey:       "9fa2f365fd3229de093b66a3695ce4558c4822cdc61b26d8ad7a06d4fd7f79c5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b0dcee39ebe9e01f9cc0e2119978273fc46cb0ce34dc9b4272bf3b4184531b08"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "920f67e5ec564bcfbe843661c6b12badf23fb7dcf8783719055c0fc9ed363158"
   end
 
   depends_on "mingw-w64" => :build
@@ -23,8 +21,8 @@ class Makensis < Formula
   uses_from_macos "zlib"
 
   resource "nsis" do
-    url "https://downloads.sourceforge.net/project/nsis/NSIS%203/3.08/nsis-3.08.zip"
-    sha256 "1bb9fc85ee5b220d3869325dbb9d191dfe6537070f641c30fbb275c97051fd0c"
+    url "https://downloads.sourceforge.net/project/nsis/NSIS%203/3.09/nsis-3.09.zip"
+    sha256 "f5dc52eef1f3884230520199bac6f36b82d643d86b003ce51bd24b05c6ba7c91"
   end
 
   def install

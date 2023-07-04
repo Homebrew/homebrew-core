@@ -1,8 +1,8 @@
 class Latex2html < Formula
   desc "LaTeX-to-HTML translator"
   homepage "https://www.latex2html.org"
-  url "https://github.com/latex2html/latex2html/archive/v2023.tar.gz"
-  sha256 "71935a850b44f7db76ff3d0d8e3d06e43f34b7edebf7905e684ef3361dc6974b"
+  url "https://github.com/latex2html/latex2html/archive/v2023.2.tar.gz"
+  sha256 "2a3f50621a71c9c0c425fb6709ae69bb2cf4df4bfe72ac661c2ea302e5aba185"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,13 +11,13 @@ class Latex2html < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c048e82371f99826258510f89248ab8580f74fbff6de8019a83f263d48519348"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9feb7dea84269ec6280fd8038cb77b90e6f069798ffef31553da4a4c9b3c1855"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "abb68446d1e1122bd644f80cf349e6f6c6602863145704ea8dc31c90d6c2d968"
-    sha256 cellar: :any_skip_relocation, ventura:        "5ecab61b77ad54f0db2e2a89317021521d42ce3f6d95e928f89189ecd5bd8c67"
-    sha256 cellar: :any_skip_relocation, monterey:       "8e82f0549eb5b8157a636fdacd00cf6a2644b32e7a475c3ad48a836f2a7ff6f2"
-    sha256 cellar: :any_skip_relocation, big_sur:        "84544e2810c5aae28402832d23a12862cffa2b3be12369ebd5a562e19f5a6f73"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b462ec8be971d4f2af3c0e887f48afdccf39dcd0d65a8b2e3bca1b474b88a2f1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "741063e2b363375f432558c70beaa845e298a60c786324036855304ae8c9df85"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5c4baff8ee289ed0f1f31939eeceb8ff76ed387ea00edd9fc159ab3b166f1ce0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "dd913b99fe165733119e611c364dc2ee437469744f31c94e343061fdcf2de274"
+    sha256 cellar: :any_skip_relocation, ventura:        "2db51f723dfc5256ee97568c8c713dda25afb0f22fc0d7fcea46b8b8c91c9157"
+    sha256 cellar: :any_skip_relocation, monterey:       "61835085167c5e79d4cfa7184f1bf0b797087982ec41363f90cb0630df013953"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6ae2a9157d855667ff3da167f8a109cfc8ce6a0193f77ed79b8708062f1af69e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9c501886d5917ea35433006e65273f16104dcd720157317a2a86e6fa6b213e92"
   end
 
   depends_on "ghostscript"

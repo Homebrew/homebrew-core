@@ -18,12 +18,13 @@ class Tilt < Formula
   end
 
   depends_on "go" => :build
-  depends_on "node@18" => :build
+  depends_on "node" => :build
   depends_on "yarn" => :build
 
   def install
     # bundling the frontend assets first will allow them to be embedded into
     # the final build
+    system "yarn", "config", "set", "ignore-engines", "true" # allow our newer node
     system "make", "build-js"
 
     ENV["CGO_ENABLED"] = "1"
@@ -32,7 +33,7 @@ class Tilt < Formula
       -X main.version=#{version}
       -X main.commit=#{Utils.git_head}
       -X main.date=#{time.iso8601}
-    ].join(" ")
+    ]
     system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/tilt"
 
     generate_completions_from_executable(bin/"tilt", "completion")

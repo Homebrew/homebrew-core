@@ -2,25 +2,16 @@ class Sysdig < Formula
   desc "System-level exploration and troubleshooting tool"
   homepage "https://sysdig.com/"
   license "Apache-2.0"
-  revision 3
 
   stable do
-    url "https://github.com/draios/sysdig/archive/refs/tags/0.31.5.tar.gz"
-    sha256 "9af98cae7c38273f7429ba0df628c9745bd92c949f444e180b9dd800af14c6dd"
+    url "https://github.com/draios/sysdig/archive/refs/tags/0.32.0.tar.gz"
+    sha256 "478c5667b0936af827b87357a785069350514fd503e3eea55e9092be7bd22853"
 
     # Update to value of FALCOSECURITY_LIBS_VERSION found in
     # https://github.com/draios/sysdig/blob/#{version}/cmake/modules/falcosecurity-libs.cmake
     resource "falcosecurity-libs" do
-      url "https://github.com/falcosecurity/libs/archive/refs/tags/0.10.5.tar.gz"
-      sha256 "2a4b37c08bec4ba81326314831f341385aff267062e8d4483437958689662936"
-
-      # Fix 'file INSTALL cannot make directory "/sysdig/userspace/libscap"'.
-      # Reported upstream at https://github.com/falcosecurity/libs/issues/995.
-      # Remove when `falcosecurity-libs` is upgraded to 0.11.0 or newer.
-      patch do
-        url "https://github.com/falcosecurity/libs/commit/73020ac4fdd1ba84b53f431e1c069049828480e9.patch?full_index=1"
-        sha256 "97fde5e4aa8e20e91ffaaca4020b7a38751d1ad95d69db02bf10c82588c6595b"
-      end
+      url "https://github.com/falcosecurity/libs/archive/refs/tags/0.11.3.tar.gz"
+      sha256 "b4f9dc8c1612f4b14207d107bce323a0684dce0dbf018e5b846177992569367b"
     end
   end
 
@@ -30,13 +21,13 @@ class Sysdig < Formula
   end
 
   bottle do
-    sha256                               arm64_ventura:  "56bfc0f947dd58f1e642a635cfbd563efde80ab62bc85b72e992a167eb0968dc"
-    sha256                               arm64_monterey: "1b4a2e7e1df48df00170cf010f6515800d807cad9085f1c27288ac0cd3ea00c9"
-    sha256                               arm64_big_sur:  "9ed269f609d25178f53356e60f368c57042ee7d9acd820ddcab6cf63a506c405"
-    sha256                               ventura:        "35d691bfd374e8968ab9d66575c8d35410748821e422d9674eed5eea3bca3160"
-    sha256                               monterey:       "44f388b277204828e5d2e78db7248012ff73eac2c8c8974e2288ee558823328b"
-    sha256                               big_sur:        "015d47ea36eb39d698f079e4126664be0243dc894fa054d9280134330a2faa3d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "05621e8a4edd847537a8880c7e3a20030b06c7afe0b5adcdb74b11cac509b374"
+    sha256                               arm64_ventura:  "3e945b514c31143703b2beea929910d015ee2c3086225d1936a7b830caae32fc"
+    sha256                               arm64_monterey: "8248ff72d2d0812a6e5f6a266a701204f001b8bb6471341765f1d7c89d6d3b37"
+    sha256                               arm64_big_sur:  "143a9ed0ecae7a5117e3097068b4ac738338586dcb6442f949e259b6cf28c409"
+    sha256                               ventura:        "4580c14685d82fae649c5b748215812f16b565e604ddcc7138149047772a3f42"
+    sha256                               monterey:       "a5398df4a2d656707ffe3ff8bd4389f5130e321643c713f8dd6672251c19f9d7"
+    sha256                               big_sur:        "91c53f4a6e827ac15307eb649533c82874023ee404d0b9cc56b339ccc7598b2f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3a4936ce794d314160fbbc3e5c46215d371d02820e23a004ea055ff627cab60e"
   end
 
   head do
@@ -81,17 +72,6 @@ class Sysdig < Formula
 
   def install
     (buildpath/"falcosecurity-libs").install resource("falcosecurity-libs")
-
-    # FIXME: Workaround Apple ARM loader error due to packing.
-    # ld: warning: pointer not aligned at address 0x10017E21D
-    #   (_g_event_info + 527453 from ../../libscap/libscap.a(event_table.c.o))
-    # ld: unaligned pointer(s) for architecture arm64
-    inreplace "falcosecurity-libs/driver/ppm_events_public.h", " __attribute__((packed))", "" if Hardware::CPU.arm?
-
-    # Override hardcoded C++ standard settings.
-    inreplace %w[CMakeLists.txt falcosecurity-libs/cmake/modules/CompilerFlags.cmake],
-              /set\(CMAKE_CXX_FLAGS "(.*) -std=c\+\+0x"\)/,
-              'set(CMAKE_CXX_FLAGS "\\1")'
 
     # Keep C++ standard in sync with `abseil.rb`.
     args = %W[

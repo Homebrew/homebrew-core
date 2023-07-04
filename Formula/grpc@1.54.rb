@@ -6,7 +6,7 @@ class GrpcAT154 < Formula
       tag:      "v1.54.2",
       revision: "8871dab19b4ab5389e28474d25cfeea61283265c"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   # The "latest" release on GitHub is sometimes for an older major/minor and
   # there's sometimes a notable gap between when a version is tagged and
@@ -18,13 +18,13 @@ class GrpcAT154 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "cdd38c180de5156b3ddff3f58932ae408d962710170581981b9b7d0caabfa8a8"
-    sha256 cellar: :any,                 arm64_monterey: "31a6c49471af22ab85d90fbf881773799eed0d6bfd564061784e33330dd2ac10"
-    sha256 cellar: :any,                 arm64_big_sur:  "5e4e1d64f486491dec1d500fd585aeb9ca81fbcdd9b44d1e8cda1b8c450e6a62"
-    sha256 cellar: :any,                 ventura:        "41029e83ea9dd9ef3e4e6616afb99e7773c1119d2f110e24f82dfe3c33fdb5ec"
-    sha256 cellar: :any,                 monterey:       "15a17731f3d2b8ca94b6b8c9b9489f1d3ef65c871d6a5a64b7d46fda19b1c1c8"
-    sha256 cellar: :any,                 big_sur:        "2b5248c85e9cc36c712b7238f0a8efbc43aa665e930142617cc7294aa4c92024"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ede82f22c5a937a7cac07625aded7af933bb709af1a805e5fc28b5d90f6b328"
+    sha256 cellar: :any,                 arm64_ventura:  "775fea94a0eeefad3d06cdae2755f1e90aa24587c822d817c5eaee5cd2ba2fa8"
+    sha256 cellar: :any,                 arm64_monterey: "2cb19003000ed1349a02f39d4da38f8f9d756067432be20b2cb11ad518723b19"
+    sha256 cellar: :any,                 arm64_big_sur:  "17a2506e7d24766720920f2d2c0d44135ad81fb9ea154f413540ccb1090c7841"
+    sha256 cellar: :any,                 ventura:        "f589f329facf71cfc71ea22420a86db3c19527cff706bf3d44c147d089afc7d4"
+    sha256 cellar: :any,                 monterey:       "7e44ee6f0a402c7f296d14874b6e1e0a3db99391db1f833217d00016c1f52c5d"
+    sha256 cellar: :any,                 big_sur:        "dd998b5ab6d30cf4feac44705a48cdadd12142f15c6103752e739964b42f3594"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ab0c381e613c4bf4fb7acdf23cb8a6b19348bda1d107f0464ce27c85d31b0c9b"
   end
 
   keg_only :versioned_formula

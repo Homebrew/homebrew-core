@@ -24,9 +24,10 @@ class Jack < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.11" => :build
   depends_on "berkeley-db"
   depends_on "libsamplerate"
+
+  uses_from_macos "python" => :build
 
   on_macos do
     depends_on "aften"
@@ -44,10 +45,9 @@ class Jack < Formula
       ENV.append "LDFLAGS", "-Wl,-current_version,#{version}"
     end
 
-    python3 = "python3.11"
-    system python3, "./waf", "configure", "--prefix=#{prefix}"
-    system python3, "./waf", "build"
-    system python3, "./waf", "install"
+    system "python3", "./waf", "configure", "--prefix=#{prefix}"
+    system "python3", "./waf", "build"
+    system "python3", "./waf", "install"
   end
 
   service do
@@ -60,9 +60,9 @@ class Jack < Formula
   test do
     fork do
       if OS.mac?
-        exec "#{bin}/jackd", "-X", "coremidi", "-d", "dummy"
+        exec bin/"jackd", "-X", "coremidi", "-d", "dummy"
       else
-        exec "#{bin}/jackd", "-d", "dummy"
+        exec bin/"jackd", "-d", "dummy"
       end
     end
 

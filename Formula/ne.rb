@@ -7,12 +7,14 @@ class Ne < Formula
   head "https://github.com/vigna/ne.git", branch: "master"
 
   bottle do
-    sha256 arm64_monterey: "3f7e0ae2691ee9f8c1560c44ad34b3180e137dcb318e4ef4d05137d6c531ab33"
-    sha256 arm64_big_sur:  "fae2a8975de41ecbfb9ec22845831377360ed407edfff9f15e09c6c57cda2cf1"
-    sha256 monterey:       "b0651ff75f326f1710e2235564dc5d1089248b7e0d7cf2b5377ddf6d1b343e70"
-    sha256 big_sur:        "48cc19c9a971d63ec35530e71930277f033e4f931bf613153ff1f9a095654158"
-    sha256 catalina:       "249c14869150874534d6a865be9d147fa87b0987d69192ae73e0b4a9644db163"
-    sha256 x86_64_linux:   "60b786b997a8f01b66c83eeb13c76c5f6c0d2005122539f7f271b58c205a569f"
+    rebuild 1
+    sha256 arm64_ventura:  "118365512d7c91463595795cf8ac3f5bb8c0ced42fdb8c4e52321c6858ec61e0"
+    sha256 arm64_monterey: "041e27ae4a7fabc0e61e89365c63916bf2e4be0ab0e1da78b4a2c0e9043a9ba8"
+    sha256 arm64_big_sur:  "53b99d998ae08a5608c2c3f049306619cb80b11a1d44ddc243d32378357df5ad"
+    sha256 ventura:        "ce2f35fd2873e3ee85470a4c2e19eb68d5e03060b70eca9973b5fa5e3741be8d"
+    sha256 monterey:       "60cc57ed07026f7a2b67f32b011e6c6f5b2105e2d0ceeff772d7052746797153"
+    sha256 big_sur:        "bec8bb3b21f20213c3f4d26f6dc03d5c7d25b269d22ac460b5fe810343506d14"
+    sha256 x86_64_linux:   "ed309053b95ca315b71c123dbf7b3b51fbb1e734e99e8ac0e1747295772ce644"
   end
 
   depends_on "texinfo" => :build
@@ -22,6 +24,14 @@ class Ne < Formula
   on_linux do
     # The version of `env` in CI is too old, so we need to use brewed coreutils.
     depends_on "coreutils" => :build
+  end
+
+  # Fixes info2src.pl [364]: $commands{SYNTAX}->{"abbr"} undefined.
+  # https://github.com/vigna/ne/issues/109#issuecomment-1355675699
+  # Remove in next release
+  patch do
+    url "https://github.com/vigna/ne/commit/90ae494711a06944f0027224cf6a4b4a812d1e95.patch?full_index=1"
+    sha256 "6ea1dbe3a133e2af896640a8cfe4e3e2f412e5fa521de181781cfa8c640d796a"
   end
 
   def install

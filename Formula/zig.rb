@@ -5,6 +5,11 @@ class Zig < Formula
   sha256 "69459bc804333df077d441ef052ffa143d53012b655a51f04cfef1414c04168c"
   license "MIT"
 
+  livecheck do
+    url "https://ziglang.org/download/"
+    regex(/href=.*?zig[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 2
     sha256 cellar: :any,                 arm64_ventura:  "f9fba5a3f6ce5a3005d6f5c91f06a2630237747eb98bbf7be39b885856f7a064"

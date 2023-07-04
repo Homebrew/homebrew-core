@@ -20,7 +20,7 @@ class Spot < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e474ed22478d2a138557a25a1a813e9d9f99c9220b4c929c347db4ab6c3684f1"
   end
 
-  depends_on "python@3.11" => :build
+  uses_from_macos "python" => :build
 
   fails_with gcc: "5" # C++17
 

@@ -13,13 +13,14 @@ class Libressl < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "b2ff316ca7b257bb2f287ca7ac0c8ce3f6c3effb70d103b2694c62ced36b462a"
-    sha256 arm64_monterey: "838f076bdaf130a433a12f69173de58400eef5a656747adc976f62eed443e442"
-    sha256 arm64_big_sur:  "e22c45e88b1e4d18e0ed085df12d424a0816c1c63f83d88991551a91fc7ea91b"
-    sha256 ventura:        "f3b0dc706b4f80e594f54ffdbfd8198ed4502520620a315cd12554e102e7b2c4"
-    sha256 monterey:       "4a375d392abbb54b03eb3e85f45ae2a874152fa1730abf11ce4d3c0d5d2c3cdb"
-    sha256 big_sur:        "ce5b9e33b6e6865155e7eb4ba772c6818ecddcca102272e72af2b02d0811002d"
-    sha256 x86_64_linux:   "16a265c41391146ca6252b66c91a7bdde66b4340dbfd9d1bf61cc377af72fed6"
+    rebuild 1
+    sha256 arm64_ventura:  "92af271440e96175044bc6976f171eab677d3c2cadccb37f92dffdb73f56d4d1"
+    sha256 arm64_monterey: "41bda964c02b2e5de90918e46979ab251ea865227c936fd3c89b641a7570a98e"
+    sha256 arm64_big_sur:  "1b8de42a012f5c7bf6ba0c6ba9bb75cf292a0695fc64e4d5579c3d78cfda2537"
+    sha256 ventura:        "101035f5a4ce0fe52b7340e710470b9932de57d85810730c8f7ead7c671b9196"
+    sha256 monterey:       "2c54083fc264c565013434ec47d3c8f27e9e8e2c6c9a3aadbe71a9510926b726"
+    sha256 big_sur:        "068a040109a368aca77822ef96db06f4695642adce1c7e134df069a23a2eaea5"
+    sha256 x86_64_linux:   "dab5dda456e0e745a240a2886e6f82fe71c64e1e71e9d303b25b1f00e59e22c3"
   end
 
   head do
@@ -30,11 +31,9 @@ class Libressl < Formula
     depends_on "libtool" => :build
   end
 
-  keg_only :provided_by_macos
+  keg_only "it conflicts with OpenSSL"
 
-  on_linux do
-    keg_only "it conflicts with OpenSSL formula"
-  end
+  depends_on "ca-certificates"
 
   def install
     args = %W[
@@ -52,50 +51,8 @@ class Libressl < Formula
   end
 
   def post_install
-    if OS.mac?
-      ohai "Regenerating CA certificate bundle from keychain, this may take a while..."
-
-      keychains = %w[
-        /Library/Keychains/System.keychain
-        /System/Library/Keychains/SystemRootCertificates.keychain
-      ]
-
-      certs_list = `security find-certificate -a -p #{keychains.join(" ")}`
-      certs = certs_list.scan(
-        /-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----/m,
-      )
-
-      # Check that the certificate has not expired
-      valid_certs = certs.select do |cert|
-        IO.popen("#{bin}/openssl x509 -inform pem -checkend 0 -noout &>/dev/null", "w") do |openssl_io|
-          openssl_io.write(cert)
-          openssl_io.close_write
-        end
-
-        $CHILD_STATUS.success?
-      end
-
-      # Check that the certificate is trusted in keychain
-      trusted_certs = begin
-        tmpfile = Tempfile.new
-
-        valid_certs.select do |cert|
-          tmpfile.rewind
-          tmpfile.write cert
-          tmpfile.truncate cert.size
-          tmpfile.flush
-          IO.popen("/usr/bin/security verify-cert -l -L -R offline -c #{tmpfile.path} &>/dev/null")
-
-          $CHILD_STATUS.success?
-        end
-      ensure
-        tmpfile&.close!
-      end
-
-      # LibreSSL install a default pem - We prefer to use macOS for consistency.
-      rm_f %W[#{etc}/libressl/cert.pem #{etc}/libressl/cert.pem.default]
-      (etc/"libressl/cert.pem").atomic_write(trusted_certs.join("\n") << "\n")
-    end
+    rm_f pkgetc/"cert.pem"
+    pkgetc.install_symlink Formula["ca-certificates"].pkgetc/"cert.pem"
   end
 
   def caveats

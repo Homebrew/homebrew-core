@@ -3,19 +3,18 @@ class Vineyard < Formula
 
   desc "In-memory immutable data manager. (Project under CNCF)"
   homepage "https://v6d.io"
-  url "https://github.com/v6d-io/v6d/releases/download/v0.15.0/v6d-0.15.0.tar.gz"
-  sha256 "3281afac3f348c4409676adf8328c6de8b73ed35e71539e6dd779d4af5bc16dd"
+  url "https://github.com/v6d-io/v6d/releases/download/v0.15.3/v6d-0.15.3.tar.gz"
+  sha256 "1e4de9b9840b5b3955c27f7126b75a049312ffb6f377381dcba787d5eb257456"
   license "Apache-2.0"
-  revision 4
 
   bottle do
-    sha256                               arm64_ventura:  "19124f2a095b059101cef3a5150bbe8ba8db764c262a87e3c367b230b0291807"
-    sha256                               arm64_monterey: "196e3fe03b1f2b7946681e79d69cce342c86ff60e6418994f9923ee93749ab94"
-    sha256                               arm64_big_sur:  "90c2b4ba9089d6bf4aa6f7f3640e5b62131c336743ed7380a5e62c16de289141"
-    sha256                               ventura:        "d30a16ce31b0b4efb6ad9421aee679be75984d761bb52974f931500e7d6cb579"
-    sha256                               monterey:       "e819a0508d150f797f31e9b1a7247695218b89371561d7410eef340ccf3ec53c"
-    sha256                               big_sur:        "a17eca930e2b8484e4f39539f5aa7bc134aee00d24b61290fca00ddeff4bc439"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e0df79b4ae5a3a94de933be2e76582fba462d78db8daef19c728190a8822d876"
+    sha256                               arm64_ventura:  "e8ed230b6320986cf8323ba9b33003af953ae6eb2193e5d01327074c34233458"
+    sha256                               arm64_monterey: "d7fc98c93801d38bd8ce83fb9d493efc5466471d2aad1a3a4bf388483537e327"
+    sha256                               arm64_big_sur:  "d095d5fb5edfc80fa0f2a034f0e720d9d261cbc68852f9f415e1783fadab3f25"
+    sha256                               ventura:        "86a6e1bbd11cf27e0fd5ba1d25cd1fad7773bd15eb35ca63834f5230e73becad"
+    sha256                               monterey:       "9d47de9adcd1adb065c50b5ed7e685622685cec480746950c1a2c1a3fbdad6ed"
+    sha256                               big_sur:        "19625162f5bd7ded3efde6397a770673538e211c76e7501640b459f923d01fa1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "51103db9544a7bacbc7fd672c9e9a7a27f74ed21727a7009a9f1fc9a599929db"
   end
 
   depends_on "cmake" => :build
@@ -43,7 +42,7 @@ class Vineyard < Formula
     ENV.prepend_path "PYTHONPATH", Formula["llvm"].opt_prefix/Language::Python.site_packages(python)
 
     system "cmake", "-S", ".", "-B", "build",
-                    "-DCMAKE_CXX_STANDARD=14",
+                    "-DCMAKE_CXX_STANDARD=17",
                     "-DCMAKE_CXX_STANDARD_REQUIRED=TRUE",
                     "-DPYTHON_EXECUTABLE=#{which(python)}",
                     "-DUSE_EXTERNAL_ETCD_LIBS=ON",

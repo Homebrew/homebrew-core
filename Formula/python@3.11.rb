@@ -359,7 +359,7 @@ class PythonAT311 < Formula
     rm_rf Dir["#{site_packages}/pip[-_.][0-9]*", "#{site_packages}/pip"]
     rm_rf Dir["#{site_packages}/wheel[-_.][0-9]*", "#{site_packages}/wheel"]
 
-    system python3, "-m", "ensurepip"
+    system python3, "-Im", "ensurepip"
 
     # Install desired versions of setuptools, pip, wheel using the version of
     # pip bootstrapped by ensurepip.
@@ -367,7 +367,7 @@ class PythonAT311 < Formula
     # ensurepip actually used them, since other existing installations could
     # have been picked up (and we can't pass --ignore-installed).
     bundled = lib_cellar/"ensurepip/_bundled"
-    system python3, "-m", "pip", "install", "-v",
+    system python3, "-Im", "pip", "install", "-v",
            "--no-deps",
            "--no-index",
            "--upgrade",

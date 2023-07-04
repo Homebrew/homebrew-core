@@ -5,8 +5,8 @@ class Vault < Formula
   desc "Secures, stores, and tightly controls access to secrets"
   homepage "https://vaultproject.io/"
   url "https://github.com/hashicorp/vault.git",
-      tag:      "v1.13.3",
-      revision: "3bedf816cbf851656ae9e6bd65dd4a67a9ddff5e"
+      tag:      "v1.14.0",
+      revision: "13a649f860186dffe3f3a4459814d87191efc321"
   license "MPL-2.0"
   head "https://github.com/hashicorp/vault.git", branch: "main"
 
@@ -16,26 +16,23 @@ class Vault < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "63bec6e766b0fbc03294e938995448df9ea75b2083a159da9538186f13935515"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b35bb8da3b81e6fe3db3b63f73c624339a2ff4bc76d7ff3c4f380607847bd8b4"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ba53ba577be9b0f55f1e5b158cf89a216561a564ea1a8405211a89a96f3e619c"
-    sha256 cellar: :any_skip_relocation, ventura:        "2365d2344b027e76b585dd4ded3744b2f0f8d60b0584d539e9888d7ea437771a"
-    sha256 cellar: :any_skip_relocation, monterey:       "a4f07f1008c3f5e48f46994a752621de472a36f8832b95f1c7301a7bb37cb0ed"
-    sha256 cellar: :any_skip_relocation, big_sur:        "fa239ffedd0cd85e8954e3aa5abea6deb2a74c6e1ee7717531dc7cbbc06da3c6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6ec54bd4c7b12750854c90fcb28c33adbc12e357e760d95825fdf39ad4dfdd1a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e4edf1c3bd54202a4176536d76db0793779fb5f8fad555e76e4970baff36c4c1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e394b76dc40c306595ab02a2d98b9c0d67521e89d88e3deb3f13bd4e7484ea80"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f87285ae004e22a19a29fc7167a33cea07d4871853267dd9faffdf5e1de134b5"
+    sha256 cellar: :any_skip_relocation, ventura:        "a9826379d77bbdaacbb65bd4f6f7a8fe0540ddedcd92f59f5c4efae9ee25ae57"
+    sha256 cellar: :any_skip_relocation, monterey:       "1a80fb55c147fed65b48576f4d1616ed054e1390ed6aeed220501a26c588afd1"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9643290c596a171107ec0ec53b6866cf3f9077887a2e0e9de8c4a05e19c2905c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e6ed7e2021e9f5e361ee6dc2d8765ce4280b9125b4ff8d7272081e10b4877c64"
   end
 
   depends_on "go" => :build
-  depends_on "node@18" => :build
-  depends_on "python@3.11" => :build
+  depends_on "node" => :build
   depends_on "yarn" => :build
 
+  uses_from_macos "curl" => :test
+
   def install
-    # Needs both `npm` and `python` in PATH
-    ENV.prepend_path "PATH", Formula["node@18"].opt_libexec/"bin"
-    ENV.prepend_path "PATH", "#{ENV["GOPATH"]}/bin"
-    ENV["PYTHON"] = "python3.11"
+    ENV.prepend_path "PATH", Formula["node"].opt_libexec/"bin" # for npm
     system "make", "bootstrap", "static-dist", "dev-ui"
     bin.install "bin/vault"
   end
@@ -49,13 +46,15 @@ class Vault < Formula
   end
 
   test do
-    port = free_port
-    ENV["VAULT_DEV_LISTEN_ADDRESS"] = "127.0.0.1:#{port}"
-    ENV["VAULT_ADDR"] = "http://127.0.0.1:#{port}"
+    addr = "127.0.0.1:#{free_port}"
+    ENV["VAULT_DEV_LISTEN_ADDRESS"] = addr
+    ENV["VAULT_ADDR"] = "http://#{addr}"
 
     pid = fork { exec bin/"vault", "server", "-dev" }
     sleep 5
     system bin/"vault", "status"
+    # Check the ui was properly embedded
+    assert_match "User-agent", shell_output("curl #{addr}/robots.txt")
     Process.kill("TERM", pid)
   end
 end

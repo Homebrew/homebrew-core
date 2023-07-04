@@ -5,6 +5,11 @@ class Lighthouse < Formula
   sha256 "280871ad806a210755e6f4dac36a0ca4e5e1cee4612de08c3b472667ab91ecdf"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f4bfd295186cd30c89168e1a09ee5c9f4e5270fb6c53934e612c1db47fcc9808"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7096ad4444c93a1d4e02d2592d62d84597019dd4785399f54f5e4942c2d307a8"

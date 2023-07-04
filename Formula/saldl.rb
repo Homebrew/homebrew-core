@@ -20,16 +20,18 @@ class Saldl < Formula
   depends_on "asciidoc" => :build
   depends_on "docbook-xsl" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.11" => :build
   depends_on "curl" # curl >= 7.55 is required
   depends_on "libevent"
 
+  uses_from_macos "python" => :build
   uses_from_macos "libxslt"
 
-  # build patch for waf update, remove in next release
-  patch do
-    url "https://github.com/saldl/saldl/commit/360c29d6c8cee5f7e608af42237928be429c3407.patch?full_index=1"
-    sha256 "1be89dce5397a66dfeaaf7d3e6e6c8a2871069c1cf28751820d12f3c7e558862"
+  # Update waf for python 3.11
+  # Use resource instead of patch since applying corrupts waf
+  # https://github.com/saldl/saldl/pull/15
+  resource "waf" do
+    url "https://raw.githubusercontent.com/saldl/saldl/360c29d6c8cee5f7e608af42237928be429c3407/waf"
+    sha256 "93909bca823a675f9f40af7c65b24887c3a3c0efdf411ff1978ba827194bdeb0"
   end
 
   def install
@@ -43,10 +45,10 @@ class Saldl < Formula
     # head uses git describe to acquire a version
     args << "--saldl-version=v#{version}" unless build.head?
 
-    python3 = "python3.11"
-    system python3, "./waf", "configure", *args
-    system python3, "./waf", "build"
-    system python3, "./waf", "install"
+    buildpath.install resource("waf")
+    system "python3", "./waf", "configure", *args
+    system "python3", "./waf", "build"
+    system "python3", "./waf", "install"
   end
 
   test do
