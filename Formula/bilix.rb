@@ -3,8 +3,8 @@ class Bilix < Formula
 
   desc "️Lightning-fast asynchronous download tool for bilibili and more"
   homepage "https://github.com/HFrost0/bilix"
-  url "https://github.com/HFrost0/bilix/archive/refs/tags/0.18.3.tar.gz"
-  sha256 "c83c826349c09a06adee6f6922f4695b9badf234afa40e7dde333aa00e581af9"
+  url "https://files.pythonhosted.org/packages/13/d5/eac2ff3b1f14318716cfda8f8369f84c56c12d4ee978b7bb2a609e9b5d51/bilix-0.18.3.tar.gz"
+  sha256 "149cfda40d605d88a7687508e843f664ebb8078742f9ede6ae94c87fbd662187"
   license "Apache-2.0"
 
   depends_on "python@3.11"
