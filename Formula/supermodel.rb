@@ -1,14 +1,14 @@
 class Supermodel < Formula
   desc "Sega Model 3 arcade emulator"
-  homepage "https://www.supermodel3.com/"
-  url "https://www.supermodel3.com/Files/Supermodel_0.2a_Src.zip"
+  homepage "http://www.supermodel3.com/"
+  url "http://www.supermodel3.com/Files/Supermodel_0.2a_Src.zip"
   sha256 "ecaf3e7fc466593e02cbf824b722587d295a7189654acb8206ce433dcff5497b"
   license "GPL-3.0-or-later"
   revision 1
   head "https://svn.code.sf.net/p/model3emu/code/trunk"
 
   livecheck do
-    url "https://www.supermodel3.com/Download.html"
+    url "http://www.supermodel3.com/Download.html"
     regex(/href=.*?Supermodel[._-]v?(\d+(?:\.\d+)+[a-z]?)[._-]Src\.zip/i)
   end
 
