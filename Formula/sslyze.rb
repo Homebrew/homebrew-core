@@ -74,7 +74,7 @@ class Sslyze < Formula
 
     ENV.prepend_path "PATH", libexec/"bin"
     resource("nassl").stage do
-      system "invoke", "build.all"
+      ENV.deparallelize { system "invoke", "build.all" }
       venv.pip_install Pathname.pwd
     end
 
