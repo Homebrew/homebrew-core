@@ -17,6 +17,7 @@ class CubejsCli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a9a6d4a45948c3049c5b2a39c48dafcc23dc5e126e1cf403bd8ed0c5e6940ab8"
   end
 
+  depends_on "pkg-config" => :build
   depends_on "node"
 
   uses_from_macos "zlib"
