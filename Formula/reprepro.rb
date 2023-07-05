@@ -1,10 +1,9 @@
 class Reprepro < Formula
   desc "Debian package repository manager"
   homepage "https://salsa.debian.org/brlink/reprepro"
-  url "https://deb.debian.org/debian/pool/main/r/reprepro/reprepro_5.3.0.orig.tar.gz"
-  sha256 "5a5404114b43a2d4ca1f8960228b1db32c41fb55de1996f62bc1b36001f3fab4"
+  url "https://deb.debian.org/debian/pool/main/r/reprepro/reprepro_5.4.2.orig.tar.xz"
+  sha256 "8955df21b88cf0d48387c7e259ba83b743cce18eef6465f9a6f0174f2861c4fb"
   license "GPL-2.0-only"
-  revision 5
 
   livecheck do
     url "https://deb.debian.org/debian/pool/main/r/reprepro/"
