@@ -1,11 +1,10 @@
 class Groff < Formula
   desc "GNU troff text-formatting system"
   homepage "https://www.gnu.org/software/groff/"
-  url "https://ftp.gnu.org/gnu/groff/groff-1.22.4.tar.gz"
-  mirror "https://ftpmirror.gnu.org/groff/groff-1.22.4.tar.gz"
-  sha256 "e78e7b4cb7dec310849004fa88847c44701e8d133b5d4c13057d876c1bad0293"
+  url "https://ftp.gnu.org/gnu/groff/groff-1.23.0.tar.gz"
+  mirror "https://ftpmirror.gnu.org/groff/groff-1.23.0.tar.gz"
+  sha256 "6b9757f592b7518b4902eb6af7e54570bdccba37a871fddb2d30ae3863511c13"
   license "GPL-3.0-or-later"
-  revision 1
 
   bottle do
     sha256 arm64_ventura:  "4174b35e733b9c426df7c6b2e6424cfd7d22e65137a6576783ce3c5b13d278b7"
@@ -34,13 +33,6 @@ class Groff < Formula
 
   on_linux do
     depends_on "glib"
-  end
-
-  # See https://savannah.gnu.org/bugs/index.php?59276
-  # Fixed in 1.23.0
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/8059b3027a4aa68d8f42e1281cc3a81449ca0010/groff/1.22.4.patch"
-    sha256 "aaea94b65169357a9a2c6e8f71dea35c87eed3e8f49aaa27003cd0893b54f7c4"
   end
 
   def install
