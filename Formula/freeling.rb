@@ -1,10 +1,9 @@
 class Freeling < Formula
   desc "Suite of language analyzers"
   homepage "https://nlp.lsi.upc.edu/freeling/"
-  url "https://github.com/TALP-UPC/FreeLing/releases/download/4.2/FreeLing-src-4.2.tar.gz"
-  sha256 "f96afbdb000d7375426644fb2f25baff9a63136dddce6551ea0fd20059bfce3b"
+  url "https://github.com/TALP-UPC/FreeLing/releases/download/4.2/FreeLing-src-4.2.1.tar.gz"
+  sha256 "c672a6379142ac2e872741e7662f17eccd8230bffc680564d2843d87480f1600"
   license "AGPL-3.0-only"
-  revision 13
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "d1375d1d4cc6303dc9b156988355553dc8d6ec59348e337a52f55843ec300482"
