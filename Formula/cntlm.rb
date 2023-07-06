@@ -24,6 +24,9 @@ class Cntlm < Formula
     sha256 x86_64_linux:   "523184cb07c5b9c17d65a2a36f767ed37726570ec5ac3239ae49be84e12c5f6b"
   end
 
+  # Fix typo in upstream's code that affects our test
+  patch :DATA
+
   def install
     system "./configure"
     system "make", "CC=#{ENV.cc}", "SYSCONFDIR=#{etc}"
@@ -60,6 +63,21 @@ class Cntlm < Formula
       exec "#{bin}/cntlm -c #{testpath}/cntlm.conf -v"
     end
     sleep 2
-    assert_match "502 Parent proxy unreacheable", shell_output("curl -s localhost:#{bind_port}")
+    assert_match "502 Parent proxy unreachable", shell_output("curl -s localhost:#{bind_port}")
   end
 end
+
+__END__
+diff --git a/forward.c b/forward.c
+index 1c1a2f8..7d39b18 100644
+--- a/forward.c
++++ b/forward.c
+@@ -367,7 +367,7 @@ beginning:
+ 		tcreds = new_auth();
+ 		sd = proxy_connect(tcreds);
+ 		if (sd <= 0) {
+-			tmp = gen_502_page(request->http, "Parent proxy unreacheable");
++			tmp = gen_502_page(request->http, "Parent proxy unreachable");
+ 			w = write(cd, tmp, strlen(tmp));
+ 			free(tmp);
+ 			rc = (void *)-1;
