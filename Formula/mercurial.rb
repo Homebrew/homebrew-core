@@ -61,6 +61,7 @@ class Mercurial < Formula
 
   def caveats
     return unless (opt_bin/"hg").exist?
+    return unless deps.all? { |d| d.build? || d.test? || d.to_formula.any_version_installed? }
 
     cacerts_configured = `#{opt_bin}/hg config web.cacerts`.strip
     return if cacerts_configured.empty?
