@@ -4,6 +4,7 @@ class Tracy < Formula
   url "https://github.com/wolfpld/tracy/archive/refs/tags/v0.9.1.tar.gz"
   sha256 "c2de9f35ab2a516a9689ff18f5b62a55b73b93b66514bd09ba013d7957993cd7"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "83e94a2d3f9c29911844e48b55def7807b42f11ca0be6a96fa5ec31bfa7c56e9"
