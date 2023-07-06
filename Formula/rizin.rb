@@ -4,7 +4,7 @@ class Rizin < Formula
   url "https://github.com/rizinorg/rizin/releases/download/v0.5.2/rizin-src-v0.5.2.tar.xz"
   sha256 "71ab80fc3c8ac9c80a10000d838128af28a05d31a0ee183900c2c5c6e350eca3"
   license "LGPL-3.0-only"
-  revision 1
+  revision 2
   head "https://github.com/rizinorg/rizin.git", branch: "dev"
 
   bottle do
