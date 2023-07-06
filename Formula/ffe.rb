@@ -34,7 +34,7 @@ class Ffe < Formula
   test do
     (testpath/"source").write "EArthur Guinness   25"
     (testpath/"test.rc").write <<~EOS
-      structure personel_fix {
+      structure personnel_fix {
         type fixed
         record employee {
           id 1 E
