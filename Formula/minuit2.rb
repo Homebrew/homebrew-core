@@ -1,8 +1,8 @@
 class Minuit2 < Formula
   desc "Physics analysis tool for function minimization"
   homepage "https://root.cern.ch/doc/master/md_math_minuit2_doc_Minuit2.html"
-  url "https://root.cern.ch/download/root_v6.26.06.source.tar.gz"
-  sha256 "b1f73c976a580a5c56c8c8a0152582a1dfc560b4dd80e1b7545237b65e6c89cb"
+  url "https://root.cern.ch/download/root_v6.28.04.source.tar.gz"
+  sha256 "70f7f86a0cd5e3f2a0befdc59942dd50140d990ab264e8e56c7f17f6bfe9c965"
   license "LGPL-2.1-or-later"
   head "https://github.com/root-project/root.git", branch: "master"
 
@@ -24,14 +24,20 @@ class Minuit2 < Formula
   depends_on "cmake" => :build
 
   def install
-    system "cmake", "-S", "math/minuit2", "-B", "build/shared", *std_cmake_args,
-                    "-Dminuit2_standalone=ON", "-DBUILD_SHARED_LIBS=ON",
-                    "-DCMAKE_INSTALL_RPATH=#{rpath}"
+    system "cmake", "-S", "math/minuit2", "-B", "build/shared",
+                    "-Dminuit2_standalone=ON",
+                    "-DBUILD_SHARED_LIBS=ON",
+                    "-DCMAKE_CXX_STANDARD=17",
+                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                    *std_cmake_args
     system "cmake", "--build", "build/shared"
     system "cmake", "--install", "build/shared"
 
-    system "cmake", "-S", "math/minuit2", "-B", "build/static", *std_cmake_args,
-                    "-Dminuit2_standalone=ON", "-DBUILD_SHARED_LIBS=OFF"
+    system "cmake", "-S", "math/minuit2", "-B", "build/static",
+                    "-Dminuit2_standalone=ON",
+                    "-DBUILD_SHARED_LIBS=OFF",
+                    "-DCMAKE_CXX_STANDARD=17",
+                    *std_cmake_args
     system "cmake", "--build", "build/static"
     lib.install Dir["build/static/lib/libMinuit2*.a"]
 
@@ -40,7 +46,7 @@ class Minuit2 < Formula
 
   test do
     cp Dir[pkgshare/"MnTutorial/{Quad1FMain.cxx,Quad1F.h}"], testpath
-    system ENV.cxx, "-std=c++11", "Quad1FMain.cxx", "-o", "test", "-I#{include}/Minuit2", "-L#{lib}", "-lMinuit2"
+    system ENV.cxx, "-std=c++17", "Quad1FMain.cxx", "-o", "test", "-I#{include}/Minuit2", "-L#{lib}", "-lMinuit2"
     assert_match "par0: -8.26907e-11 -1 1", shell_output("./test")
   end
 end
