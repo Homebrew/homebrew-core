@@ -4,6 +4,7 @@ class Qemu < Formula
   url "https://download.qemu.org/qemu-8.0.2.tar.xz"
   sha256 "f060abd435fbe6794125e2c398568ffc3cfa540042596907a8b18edca34cf6a5"
   license "GPL-2.0-only"
+  revision 1
   head "https://git.qemu.org/git/qemu.git", branch: "master"
 
   bottle do
@@ -54,6 +55,10 @@ class Qemu < Formula
     url "https://www.ibiblio.org/pub/micro/pc-stuff/freedos/files/distributions/1.2/official/FD12FLOPPY.zip"
     sha256 "81237c7b42dc0ffc8b32a2f5734e3480a3f9a470c50c14a9c4576a2561a35807"
   end
+
+  # patch for `tricore_feature` redefinition issue
+  # upstream PR, https://github.com/qemu/qemu/pull/240
+  patch :DATA
 
   def install
     ENV["LIBTOOL"] = "glibtool"
@@ -127,3 +132,62 @@ class Qemu < Formula
     assert_match "file format: raw", shell_output("#{bin}/qemu-img info FLOPPY.img")
   end
 end
+
+__END__
+diff --git a/target/tricore/cpu.c b/target/tricore/cpu.c
+index d0a927296..cc49513cd 100644
+--- a/target/tricore/cpu.c
++++ b/target/tricore/cpu.c
+@@ -103,14 +103,14 @@ static void tricore_cpu_realizefn(DeviceState *dev, Error **errp)
+     }
+ 
+     /* Some features automatically imply others */
+-    if (tricore_feature(env, TRICORE_FEATURE_161)) {
++    if (is_tricore_feature_enabled(env, TRICORE_FEATURE_161)) {
+         set_feature(env, TRICORE_FEATURE_16);
+     }
+ 
+-    if (tricore_feature(env, TRICORE_FEATURE_16)) {
++    if (is_tricore_feature_enabled(env, TRICORE_FEATURE_16)) {
+         set_feature(env, TRICORE_FEATURE_131);
+     }
+-    if (tricore_feature(env, TRICORE_FEATURE_131)) {
++    if (is_tricore_feature_enabled(env, TRICORE_FEATURE_131)) {
+         set_feature(env, TRICORE_FEATURE_13);
+     }
+     cpu_reset(cs);
+diff --git a/target/tricore/cpu.h b/target/tricore/cpu.h
+index 47d0ffb74..995f1e92e 100644
+--- a/target/tricore/cpu.h
++++ b/target/tricore/cpu.h
+@@ -258,7 +258,7 @@ enum tricore_features {
+     TRICORE_FEATURE_161,
+ };
+ 
+-static inline int tricore_feature(CPUTriCoreState *env, int feature)
++static inline int is_tricore_feature_enabled(CPUTriCoreState *env, int feature)
+ {
+     return (env->features & (1ULL << feature)) != 0;
+ }
+diff --git a/target/tricore/op_helper.c b/target/tricore/op_helper.c
+index 532ae6b74..cbc3d6c01 100644
+--- a/target/tricore/op_helper.c
++++ b/target/tricore/op_helper.c
+@@ -2528,7 +2528,7 @@ void helper_ret(CPUTriCoreState *env)
+     /* PCXI = new_PCXI; */
+     env->PCXI = new_PCXI;
+ 
+-    if (tricore_feature(env, TRICORE_FEATURE_13)) {
++    if (is_tricore_feature_enabled(env, TRICORE_FEATURE_13)) {
+         /* PSW = new_PSW */
+         psw_write(env, new_PSW);
+     } else {
+@@ -2639,7 +2639,7 @@ void helper_rfm(CPUTriCoreState *env)
+     env->gpr_a[10] = cpu_ldl_data(env, env->DCX+8);
+     env->gpr_a[11] = cpu_ldl_data(env, env->DCX+12);
+ 
+-    if (tricore_feature(env, TRICORE_FEATURE_131)) {
++    if (is_tricore_feature_enabled(env, TRICORE_FEATURE_131)) {
+         env->DBGTCR = 0;
+     }
+ }
