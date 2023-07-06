@@ -4,6 +4,7 @@ class OpenOcd < Formula
   url "https://downloads.sourceforge.net/project/openocd/openocd/0.12.0/openocd-0.12.0.tar.bz2"
   sha256 "af254788be98861f2bd9103fe6e60a774ec96a8c374744eef9197f6043075afa"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
