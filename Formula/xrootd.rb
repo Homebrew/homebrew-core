@@ -1,9 +1,9 @@
 class Xrootd < Formula
   desc "High performance, scalable, fault-tolerant access to data"
   homepage "https://xrootd.slac.stanford.edu/"
-  url "https://github.com/xrootd/xrootd/releases/download/v5.6.0/xrootd-5.6.0.tar.gz"
-  mirror "https://xrootd.slac.stanford.edu/download/v5.6.0/xrootd-5.6.0.tar.gz"
-  sha256 "cda0d32d29f94220be9b6627a80386eb33fac2dcc25c8104569eaa4ea3563009"
+  url "https://github.com/xrootd/xrootd/releases/download/v5.6.1/xrootd-5.6.1.tar.gz"
+  mirror "https://xrootd.slac.stanford.edu/download/v5.6.1/xrootd-5.6.1.tar.gz"
+  sha256 "9afc48ab0fb3ba69611b1edc1b682a185d49b45caf197323eecd1146d705370c"
   license "LGPL-3.0-or-later"
   head "https://github.com/xrootd/xrootd.git", branch: "master"
 
@@ -40,13 +40,12 @@ class Xrootd < Formula
     args = std_cmake_args + %W[
       -DCMAKE_INSTALL_RPATH=#{rpath}
       -DFORCE_ENABLED=ON
-      -DENABLE_CRYPTO=ON
       -DENABLE_FUSE=OFF
       -DENABLE_HTTP=ON
       -DENABLE_KRB5=ON
       -DENABLE_MACAROONS=OFF
       -DENABLE_PYTHON=ON
-      -DPYTHON_EXECUTABLE=#{which("python3.11")}
+      -DPython_EXECUTABLE=#{which("python3.11")}
       -DENABLE_READLINE=ON
       -DENABLE_SCITOKENS=OFF
       -DENABLE_TESTS=OFF
@@ -65,9 +64,11 @@ class Xrootd < Formula
 
   test do
     system "#{bin}/xrootd", "-H"
+    system "#{bin}/xrdcp", "--version"
     system "python3.11", "-c", <<~EOS
       import XRootD
-      from XRootD import client
+      from pyxrootd import client
+      print(client.XrdVersion_cpp())
     EOS
   end
 end
