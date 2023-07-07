@@ -40,10 +40,18 @@ class Sox < Formula
     sha256 "0cebb3d4c926a2cf0a506d2cd62576c29308baa307df36fddf7c6ae4b48df8e7"
   end
 
+  args = ["--disable-debug",
+          "--disable-dependency-tracking",
+          "--prefix=#{prefix}"]
+
+  on_linux do
+    # Remark: no need to depend_on this in section above, because this
+    # is aleady implicitly done by :Linux
+    args << "--with-alsa",
+  end
+  
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", *args
     system "make", "install"
   end
 
