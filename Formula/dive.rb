@@ -6,6 +6,11 @@ class Dive < Formula
       revision: "64880972b0726ec2ff2b005b0cc97801067c1bb5"
   license "MIT"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b5dcf63508fabfc661ceb34a7de40b69d202588f103f92e7befd58ee5dc5d519"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "301a650dbfacbef1d53f94a76918bccab8de782b2e45fb747b1dceffadb4ee19"
