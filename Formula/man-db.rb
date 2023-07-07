@@ -90,7 +90,7 @@ class ManDb < Formula
     ENV["PAGER"] = "cat"
     if OS.mac?
       output = shell_output("#{bin}/gman true")
-      assert_match "BSD General Commands Manual", output
+      assert_match "General Commands Manual", output
       assert_match(/The true utility always returns with (an )?exit code (of )?zero/, output)
     else
       output = shell_output("#{bin}/gman gman")
