@@ -41,9 +41,19 @@ class Sox < Formula
   end
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    args = %W[
+      --disable-debug
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+    ]
+
+    if OS.linux?
+      # Remark: no need to explicitly depend_on alsa, because this is
+      # aleady done implicitly on :Linux
+      args << "--with-alsa"
+    end
+
+    system "./configure", *args
     system "make", "install"
   end
 
