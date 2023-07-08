@@ -24,6 +24,9 @@ class Sox < Formula
   depends_on "libvorbis"
   depends_on "mad"
   depends_on "opusfile"
+  on_linux do
+    depends_on "alsa-lib"
+  end
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
@@ -41,9 +44,15 @@ class Sox < Formula
   end
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    args = %W[
+      --disable-debug
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+    ]
+
+    args << "--with-alsa" if OS.linux?
+
+    system "./configure", *args
     system "make", "install"
   end
 
