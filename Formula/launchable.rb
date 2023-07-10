@@ -8,7 +8,6 @@ class Launchable < Formula
   license "Apache-2.0"
 
   depends_on "openjdk"
-  # Python 3.5 or newer
   depends_on "python@3.11"
 
   resource "certifi" do
