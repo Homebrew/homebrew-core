@@ -7,7 +7,6 @@ class Launchable < Formula
   sha256 "7b888a3515b839b4f1046b05b8950bcc2bd09184c62bf3099f6cfb28ec313fa3"
   license "Apache-2.0"
 
-  # Java 8 or newer
   depends_on "openjdk"
   # Python 3.5 or newer
   depends_on "python@3.11"
