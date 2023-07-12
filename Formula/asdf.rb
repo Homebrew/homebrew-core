@@ -10,14 +10,7 @@ class Asdf < Formula
     sha256 cellar: :any_skip_relocation, all: "d96303f7e926935adfbe217ee7f157427cc5877a24894baa59500d6c27c215af"
   end
 
-  depends_on "autoconf"
-  depends_on "automake"
   depends_on "coreutils"
-  depends_on "libtool"
-  depends_on "libyaml"
-  depends_on "openssl@3"
-  depends_on "readline"
-  depends_on "unixodbc"
 
   def install
     bash_completion.install "completions/asdf.bash"
