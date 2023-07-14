@@ -12,16 +12,16 @@ class PythonToml < Formula
 
   depends_on "python@3.11"
 
-  def python
+  def python3
     "python3.11"
   end
 
   def install
-    system python, *Language::Python.setup_install_args(prefix, python)
+    system python3, "-m", "pip", "install", "--prefix=#{prefix}", "--no-deps", "--no-index", "--find-links=.", "."
   end
 
   test do
-    system python, "-c", <<~PYTHON
+    system python3, "-c", <<~PYTHON
       import toml
       toml_string = """
       title = "TOML Example"
