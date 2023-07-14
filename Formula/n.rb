@@ -22,6 +22,6 @@ class N < Formula
   end
 
   test do
-    system bin/"n", "ls"
+    system bin/"n", "ls" 
   end
 end
