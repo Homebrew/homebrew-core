@@ -21,7 +21,10 @@ class Six < Formula
   def install
     pythons.each do |python|
       python_exe = python.opt_libexec/"bin/python"
-      system python_exe, *Language::Python.setup_install_args(prefix, python_exe)
+      wheel_args = %w[--no-deps --no-binary=:all: --no-build-isolation]
+      install_args = std_pip_args.reject { |a| a == "--no-binary=:all:" }
+      system python_exe, "-m", "pip", "wheel", *wheel_args, "--wheel-dir=./dist", "."
+      system python_exe, "-m", "pip", "install", *install_args, "--find-links=./dist", name
     end
   end
 
