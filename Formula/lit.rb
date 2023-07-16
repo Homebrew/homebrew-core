@@ -19,7 +19,7 @@ class Lit < Formula
   end
 
   def install
-    system python3, *Language::Python.setup_install_args(prefix, python3)
+    system python3, "-m", "pip", "install", "--prefix=#{prefix}", "--no-deps", "--no-build-isolation", "."
 
     # Install symlinks so that `import lit` works with multiple versions of Python
     python_versions = Formula.names
