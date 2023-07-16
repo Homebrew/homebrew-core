@@ -3,8 +3,8 @@ class DhallBash < Formula
   homepage "https://github.com/dhall-lang/dhall-haskell/tree/master/dhall-bash"
   # TODO: Switch `ghc@9.2` to `ghc` once cborg has a new release that supports
   # ghc-prim 0.9.0. PR ref: https://github.com/well-typed/cborg/pull/304
-  url "https://hackage.haskell.org/package/dhall-bash-1.0.40/dhall-bash-1.0.40.tar.gz"
-  sha256 "a9d1feba3c9ceeecdd24fb4a4d8f6450a50ca31ede30aa4d7a8e9d8489cc7f3a"
+  url "https://hackage.haskell.org/package/dhall-bash-1.0.41/dhall-bash-1.0.41.tar.gz"
+  sha256 "2aeb9316c22ddbc0c9c53ca0b347c49087351f326cba7a1cb95f4265691a5f26"
   license "BSD-3-Clause"
   head "https://github.com/dhall-lang/dhall-haskell.git", branch: "master"
 
