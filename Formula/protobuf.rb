@@ -47,7 +47,6 @@ class Protobuf < Formula
     cmake_args = %w[
       -DBUILD_SHARED_LIBS=ON
       -Dprotobuf_BUILD_LIBPROTOC=ON
-      -Dprotobuf_BUILD_SHARED_LIBS=ON
       -Dprotobuf_INSTALL_EXAMPLES=ON
       -Dprotobuf_BUILD_TESTS=OFF
       -Dprotobuf_ABSL_PROVIDER=package
@@ -55,7 +54,9 @@ class Protobuf < Formula
     ]
     cmake_args << "-DCMAKE_CXX_STANDARD=#{abseil_cxx_standard}"
 
-    system "cmake", "-S", ".", "-B", "build", *cmake_args, *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build",
+                    "-Dprotobuf_BUILD_SHARED_LIBS=ON",
+                    *cmake_args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
@@ -77,6 +78,14 @@ class Protobuf < Formula
         end
       end
     end
+
+    system "cmake", "-S", ".", "-B", "static",
+                    "-Dprotobuf_BUILD_SHARED_LIBS=OFF",
+                    "-DCMAKE_POSITION_INDEPENDENT_CODE=ON",
+                    "-DWITH_PROTOC=#{bin}/protoc",
+                     *cmake_args, *std_cmake_args
+    system "cmake", "--build", "static"
+    lib.install buildpath.glob("static/*.a")
   end
 
   test do
