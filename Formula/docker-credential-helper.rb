@@ -7,14 +7,13 @@ class DockerCredentialHelper < Formula
   head "https://github.com/docker/docker-credential-helpers.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e227291ef57cdb472f6eed72ec07b40d22e387eb5cdadc3fed1e4595e2f65dfe"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "289b614d11f5be30833ae352b2b99e597eb45f47a29a30c4987365fc15040a49"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8f86bc14a4ddf9a628e08754c1cf1cf38db28a2d0482e812ec93ebf06f2aee8f"
-    sha256 cellar: :any_skip_relocation, ventura:        "345caa27a81588869193b928c05b75c0eff80fad18145d49e2a93c48305f6d0c"
-    sha256 cellar: :any_skip_relocation, monterey:       "33be1634548456c862edcdb50dd46af5e0a915e4e303ac29be3af9b19dac9a07"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1e83b1f364f9c22cd561abed9bfaf7adb449f4d4c6c803b8ad7a6e4665dbc2f8"
-    sha256 cellar: :any_skip_relocation, catalina:       "b1be0b36fc51ebb6a85e262c339f36bad7774b65d6216072582b100524f33762"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "90cc037600eb7e5cb3ca9828625447cb02b5e2ba00dd6442d6910257727c0a09"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6faa784b7567dbc8767b1a1c9d665b1d5505f31bad34fb88f8471d2e4449931b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e86ebc76ce73bd8c6a3ef02d1dbd9f78b015c65720379c9689b3c94313707eab"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bcb1addba2a3c67dac8e03ef5df5ff0f2c8374da76ab8e347cccf06e30604b3c"
+    sha256 cellar: :any_skip_relocation, ventura:        "014b0ce7a94ae0d7cb6693c2f9b934ea9204be731a15457c34305ef84e2e3617"
+    sha256 cellar: :any_skip_relocation, monterey:       "c0e7ada5c8cd6e20073c15435fd24206a8abf2076962e7b2b4604dd904006135"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9bc5da0549e3347a5aea7727c88c0248ec4950da778d703d8bbf3357a5437e31"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0104e1aba1f9acd7cf0a2961e5982eab2bb6f2f0de77032334ea942e2a5327e3"
   end
 
   depends_on "go" => :build
