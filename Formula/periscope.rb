@@ -8,14 +8,13 @@ class Periscope < Formula
   head "https://github.com/anishathalye/periscope.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "333a5aa8a2e0355a024ea1778b69195ae74d6dc55d9a531cdf94d65c9dd213df"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "fb703f5a039afb1320ce823bd1f3380d901ad27df0a16d1b21a9536540d0ddfa"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "af13a3dc34d5c9503ada0c6616b4d438abeb7f1328e87540b12895b68f85ce5c"
-    sha256 cellar: :any_skip_relocation, ventura:        "5e2e69dfd4cb029246a57c0b227c37f28ac29aeea7533cee1fbbddd80b2d2888"
-    sha256 cellar: :any_skip_relocation, monterey:       "18c34f3e8ad43b73e4fe4ab5bc212a515b908fd142a891086333d194b9f29674"
-    sha256 cellar: :any_skip_relocation, big_sur:        "bf6c1bc225c635708e7e928093c6d010b08687017166019131789fdaebd48a8c"
-    sha256 cellar: :any_skip_relocation, catalina:       "31123f9309c7d37633d5116e4854d2a0e9dc7c36b02290f54fdd2d01613e4a3f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d6d5a3b2f1276ef010a250c017020e2737f0298773b270df650581ea514002cf"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1814d4eb64988e0cc57a7766b0696c55ded99437a3558d60764f2c85b5e1cc53"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4e2100139c6388a7954e002f8c40415b01bf5538e266ce057d2635771a2e85f5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "50a953e087342698678e7d6f91f1b0efff98ccb25dde5896f210f073def24e41"
+    sha256 cellar: :any_skip_relocation, ventura:        "e71b0d0433581720f9578bd744886f365683a40eda9315e01a5ceb925cc75d02"
+    sha256 cellar: :any_skip_relocation, monterey:       "3e2b016f5a54f9a6706ecce39590612016763ca8a28cb362736b943b4d18d7f4"
+    sha256 cellar: :any_skip_relocation, big_sur:        "52c225ce532478e5e002ac925312006dc0d6a29ca96ce04a1953df796728ad31"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "99f72d97940f3463403ab50742b48f2a7c325a761cbb278c500c9fe77c07991e"
   end
 
   depends_on "go" => :build
