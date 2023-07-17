@@ -15,16 +15,21 @@ class Crystalline < Formula
     sha256 x86_64_linux:   "4408fa4fb3a5df0272e21344d5b60656f1b14175b4c37c7b0ca5e067bf903369"
   end
 
-  depends_on "crystal"
+  depends_on "crystal" => :build
+  depends_on "bdw-gc"
+  depends_on "libevent"
   depends_on "libyaml"
+  depends_on "llvm"
+  depends_on "pcre2"
 
   def install
+    ENV["LLVM_CONFIG"] = Formula["llvm"].opt_bin/"llvm-config"
     system "shards", "install"
     system "crystal", "build", "./src/crystalline.cr",
-      "--release", "--no-debug",
-      "-Dpreview_mt",
-      "--progress", "--stats", "--time",
-      "-o", "crystalline"
+                      "--release", "--no-debug",
+                      "-Dpreview_mt",
+                      "--progress", "--stats", "--time",
+                      "-o", "crystalline"
 
     bin.install "crystalline"
   end
