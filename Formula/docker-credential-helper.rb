@@ -1,8 +1,8 @@
 class DockerCredentialHelper < Formula
   desc "Platform keystore credential helper for Docker"
   homepage "https://github.com/docker/docker-credential-helpers"
-  url "https://github.com/docker/docker-credential-helpers/archive/v0.7.0.tar.gz"
-  sha256 "c2c4f9161904a2c4fb8e3d2ac8730b8d83759f5e4e44ce293e8e60d8ffae7eef"
+  url "https://github.com/docker/docker-credential-helpers/archive/v0.8.0.tar.gz"
+  sha256 "ca0eb4680ae171828672ea3761a2319d21aeccccbb7c7e67832fed8a91c5af56"
   license "MIT"
   head "https://github.com/docker/docker-credential-helpers.git", branch: "master"
 
@@ -39,7 +39,7 @@ class DockerCredentialHelper < Formula
   test do
     if OS.mac?
       run_output = shell_output("#{bin}/docker-credential-osxkeychain", 1)
-      assert_match %r{^Usage: .*/docker-credential-osxkeychain.*}, run_output
+      assert_match "Usage: docker-credential-osxkeychain", run_output
     else
       run_output = shell_output("#{bin}/docker-credential-pass list")
       assert_match "{}", run_output
