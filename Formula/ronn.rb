@@ -12,13 +12,14 @@ class Ronn < Formula
   end
 
   bottle do
-    sha256                               arm64_ventura:  "c5e7a90b72cbaa1a35c4ac4d936d158fb9ae260f596c61d8970dbbca50ab333a"
-    sha256                               arm64_monterey: "7e76db3363362b07768e2bad9a4759593891d9404177e8aa816c96f5f82d543b"
-    sha256                               arm64_big_sur:  "7c31834c062487315b2943bd04e652757d2bcd38b6a4ee8139f8e1b44108fff8"
-    sha256                               ventura:        "bdc695822c2a7d61cc9ca71a53ff964c0719b8c2308663f065f0936334c63bdf"
-    sha256                               monterey:       "481aaabfe48cf8d4cd35b3ba5b140db8790b5f79aad20baa553591bed87bf4d4"
-    sha256                               big_sur:        "d1bdf3a0223e34208d762933397bf3d15ea0c7ba413519ba96f5e02519e96dbc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1aad5803b03234fa52d4308c71ac58bc45b3c792630d1a4e165848e2ae0e61ef"
+    rebuild 1
+    sha256                               arm64_ventura:  "c87410b78c23e22e1e5af95f6daa63e8873f84e620503897b98350aa91b05b9a"
+    sha256                               arm64_monterey: "fb99f591b790de0b20615aec5da0fae2e44c448b34aa97a98aa294a730146d48"
+    sha256                               arm64_big_sur:  "c7ff16ba6de865321cb09c07b558813c40931085c82a218e24b0e43c866e0aaf"
+    sha256                               ventura:        "400d40793a1f87b91a9fe71de8b7daed4ca8a7973152f59c744d4b52b4fef374"
+    sha256                               monterey:       "f3451322dab44f011821248060aefd9a955aecbbc32300598d5c9a36bca3f860"
+    sha256                               big_sur:        "9173eef3a1adf288f93d79a92b1c9872d522e58378a3cf70029ed913bfe01ef7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bd650317ea2402ecb03924d58635b338f03f3af5ea3b36954ecbfe48d30b5ef0"
   end
 
   depends_on "groff" => :test
@@ -47,17 +48,13 @@ class Ronn < Formula
       This document is created by ronn.
     EOS
     system bin/"ronn", "--date", "1970-01-01", "test.ronn"
-    assert_equal <<~EOS, pipe_output("col -bx", shell_output("groff -t -man -Tascii test.7"))
+    assert_equal <<~EOS, pipe_output("col -bx", shell_output("groff -t -man -Tascii -P -c test.7"))
       SIMPLE(7)                                                            SIMPLE(7)
 
-
-
-      1mNAME0m
-             1msimple 22m- a simple ronn example
+      NAME
+             simple - a simple ronn example
 
              This document is created by ronn.
-
-
 
                                        January 1970                        SIMPLE(7)
     EOS

@@ -6,13 +6,14 @@ class Tt < Formula
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "484298be5bf51d3ef1313b53d32231e76a322c2a9676b873aaebda97c50bc987"
-    sha256 cellar: :any,                 arm64_monterey: "585f8c0d1204a9bffc66f317c62c8bc5b19614c27c1b390f0dd08515d4c74b85"
-    sha256 cellar: :any,                 arm64_big_sur:  "617c176357d6934415b94fddf4140ca317df17af0fe1061780b5adc5380cace7"
-    sha256                               ventura:        "43be17d8d348adb5ef5c5d0e07bb0248b23bf3bd4e19de3a5d930e0768b00fd7"
-    sha256                               monterey:       "11b55b370bf0e038c3782892b534403025af111f4a8e0c68c55d1f111939599f"
-    sha256                               big_sur:        "0ab7e33413c56dcc6b9c6d5ceda2479eb72778675cbfe246a769a0ff4baa3771"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ad6e1d8e6fbe6efcbd0d830d8ff9aaa25438ee06a8da84a18bf51659882b436e"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "790695603d18f8a01502d965126d3781fa5774ccf865b5a38244cda746f82972"
+    sha256 cellar: :any,                 arm64_monterey: "3d20599ee5caf0417f756b800982b2aca6792f51683315939dbb8ec0da1e5987"
+    sha256 cellar: :any,                 arm64_big_sur:  "324ab76b91578f6df52cf79f8e09c7da47fe6f936cb24c17841d5d42fb1bda10"
+    sha256                               ventura:        "7eee737bef94e4b0586a2ce52ae992bcacc2b9fbee894f546b628c76ce4684c5"
+    sha256                               monterey:       "ca9121d8d02da7ca9276185b7b25b13a38c8b7337eeec5ff00ddd54dabc7dbe4"
+    sha256                               big_sur:        "44d735c47bd10d9dd62699091fa10b9d7050dc8b5d5932d290ad2b5f968eb45b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9b6a5f05563457a982c8dcf1addde2f06b455cf9db75dbde48131daa5d68f0bc"
   end
 
   depends_on "go" => :build
@@ -23,6 +24,10 @@ class Tt < Formula
   uses_from_macos "curl"
   uses_from_macos "unzip"
   uses_from_macos "zip"
+
+  on_macos do
+    depends_on "bash-completion"
+  end
 
   def install
     ENV["TT_CLI_BUILD_SSL"] = "shared"

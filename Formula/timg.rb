@@ -1,19 +1,19 @@
 class Timg < Formula
   desc "Terminal image and video viewer"
   homepage "https://timg.sh/"
-  url "https://github.com/hzeller/timg/archive/refs/tags/v1.5.0.tar.gz"
-  sha256 "aa457f401b0517ba814efc62ededa3ab3f4edc1f40fb6048c58d52f01dfd9ba2"
+  url "https://github.com/hzeller/timg/archive/refs/tags/v1.5.1.tar.gz"
+  sha256 "ac8905e4615d964eee6b014b9ff3413160cfc5b73f547e91736bc06c928ac811"
   license "GPL-2.0-only"
   head "https://github.com/hzeller/timg.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "748b301f32c0151af23b1df47f1d247b29407ee7f48baccb929f3a3db2dcdf12"
-    sha256 cellar: :any,                 arm64_monterey: "4d5269a1a2e8cff58624e44ff0ee5da457f1837eb270bc7f869dc6e6c4c94f85"
-    sha256 cellar: :any,                 arm64_big_sur:  "8f0d4f6c499b251d7588f246ac81aac8dabe4e6782c5a27b529d3c67afcdfe2c"
-    sha256 cellar: :any,                 ventura:        "fbeb6b0d026bf9ec26674582c9007b8467331dd08ff48336633081293ec52a60"
-    sha256 cellar: :any,                 monterey:       "caa1f64bb9a7ac8c4ed48d8c4044753bbf46a9e4d96607db89a2e289d58465bf"
-    sha256 cellar: :any,                 big_sur:        "ba4556e38097ea8189bf5515874c6ffaa8a0636eb0c78a6a1bffac928ccff322"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "477db23edbbf5e02a1a1f297eb4247e2a1997fd7595587a20a950160d1bc607c"
+    sha256 cellar: :any,                 arm64_ventura:  "fa3f8b23df7dc319c58c90138d417af36c8dd8628007b4ef3146b41464fed70b"
+    sha256 cellar: :any,                 arm64_monterey: "12f5d3fd70c318c986b3f625887759f8e4d7ebb36271167a2e3ebed765c499c4"
+    sha256 cellar: :any,                 arm64_big_sur:  "354d9e376fd40c2906119ed13ab988886156b98499ccf969bf8fc6eb14edc2b9"
+    sha256 cellar: :any,                 ventura:        "99e8d4d27f5a6734d9c40aaaac9c4e209866d5af262b19f74929e8b6b3468de9"
+    sha256 cellar: :any,                 monterey:       "9d5acb578bd3900210531c883b45e88eec76c159500c375e47aa088650059c8e"
+    sha256 cellar: :any,                 big_sur:        "7c5b249dd53ccb12ad4028a632e48b80a4d1a53dc9ee999f9fefe92e4a0cb001"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ea526ecc96da2e3bf3d6c73ff9df46e851ff33ab1849ca2cd77c3f2ab99e963"
   end
 
   depends_on "cmake" => :build

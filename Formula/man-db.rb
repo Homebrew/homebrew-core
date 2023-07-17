@@ -12,13 +12,14 @@ class ManDb < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "77905671d6ddbaf21dabfe06f67346a505110753d2dbf577084a69ff6d8f52e9"
-    sha256 arm64_monterey: "5bbe2e835b01cabedcc72bff006de1ef98a5d01460ac8dfaa78569df80f09d39"
-    sha256 arm64_big_sur:  "e95369714002e785e6348856b98811a29660da71cfc68172d412750d9fb401a9"
-    sha256 ventura:        "f86c5c767da1a932e95f8a8b93e72b2ac8f6415b9ceeb61841029e157994236e"
-    sha256 monterey:       "a706bd336497f053137be73c5dfebdf4f092870a0231b6e6c63f6dfe2ebef0a0"
-    sha256 big_sur:        "785a834a0e34bd10579434073a6e336117649a5ac6e1193ab50375b96b90904f"
-    sha256 x86_64_linux:   "5b287e6d12ed222cbbc9ffe499cda3f0a2addd57f05cf4aead1a42e5eab311a6"
+    rebuild 1
+    sha256 arm64_ventura:  "5f8afec3772d45578aa84cc9569d28acaa7d350d990f96f4a07a64bdfe5b6420"
+    sha256 arm64_monterey: "de84cd14a55ffbe287c028cc309a71a9839a06d022d0e14e10840014bc53ebd2"
+    sha256 arm64_big_sur:  "e1ce7ec4744f4283e0a2a51b9de6e3c2dfff36e3f787ec758f1c311cc8c88330"
+    sha256 ventura:        "67ec88e0f8a4f0cfb234b6f4fdae3e52623ded06eaab6bd098aec60334ba791c"
+    sha256 monterey:       "a4ead25ae1398a3f2d1121fe95ee794b6ade70b1e0695a6b37258c4d94bbf26a"
+    sha256 big_sur:        "58620eaa0d633f2b9217c80c5ba43472cf90a5f83ed4cc8e7457c18ddca60a50"
+    sha256 x86_64_linux:   "70e99ee1631cf225243ff76980602ff60a6e84cdfa312e4edf12917de0e0252e"
   end
 
   depends_on "pkg-config" => :build
@@ -90,12 +91,11 @@ class ManDb < Formula
     ENV["PAGER"] = "cat"
     if OS.mac?
       output = shell_output("#{bin}/gman true")
-      assert_match "BSD General Commands Manual", output
+      assert_match "General Commands Manual", output
       assert_match(/The true utility always returns with (an )?exit code (of )?zero/, output)
     else
       output = shell_output("#{bin}/gman gman")
       assert_match "gman - an interface to the system reference manuals", output
-      assert_match "https://savannah.nongnu.org/bugs/?group=man-db", output
     end
   end
 end

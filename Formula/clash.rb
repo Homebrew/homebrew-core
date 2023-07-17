@@ -6,20 +6,26 @@ class Clash < Formula
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "609acfdee560b9a713215d1e742e6f6da96d3d0b262ebd3667b0beddc9da2a66"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "609acfdee560b9a713215d1e742e6f6da96d3d0b262ebd3667b0beddc9da2a66"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "609acfdee560b9a713215d1e742e6f6da96d3d0b262ebd3667b0beddc9da2a66"
-    sha256 cellar: :any_skip_relocation, ventura:        "fcab5fa06d99da0ac3ab33c26a8758de2faad428fe6b71e32b6f460d53a805ac"
-    sha256 cellar: :any_skip_relocation, monterey:       "fcab5fa06d99da0ac3ab33c26a8758de2faad428fe6b71e32b6f460d53a805ac"
-    sha256 cellar: :any_skip_relocation, big_sur:        "fcab5fa06d99da0ac3ab33c26a8758de2faad428fe6b71e32b6f460d53a805ac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "87dc3c69a6669f8d4116480aa9b07a33f6c0929fe1cb91f7b0ea8fae8a900563"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "71df21e3fa07016bb64720da36901e7cd91f4a18ce85b540faf4cd2c08af6054"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "71df21e3fa07016bb64720da36901e7cd91f4a18ce85b540faf4cd2c08af6054"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "71df21e3fa07016bb64720da36901e7cd91f4a18ce85b540faf4cd2c08af6054"
+    sha256 cellar: :any_skip_relocation, ventura:        "0143a67dc96ada77e575e1286f5ed3892d08e3dc36d1efa6856347ab45384c65"
+    sha256 cellar: :any_skip_relocation, monterey:       "0143a67dc96ada77e575e1286f5ed3892d08e3dc36d1efa6856347ab45384c65"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0143a67dc96ada77e575e1286f5ed3892d08e3dc36d1efa6856347ab45384c65"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2d33f7c551a2606ee5ed5d2a147513327ccb9040b87df7752d586b1bee569355"
   end
 
   depends_on "go" => :build
   depends_on "shadowsocks-libev" => :test
 
   def install
-    system "go", "build", *std_go_args
+    ldflags = %W[
+      -s -w -buildid=
+      -X "github.com/Dreamacro/clash/constant.Version=#{version}"
+      -X "github.com/Dreamacro/clash/constant.BuildTime=#{time.iso8601}"
+    ]
+    system "go", "build", *std_go_args(ldflags: ldflags)
   end
 
   service do
@@ -30,6 +36,8 @@ class Clash < Formula
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/clash -v")
+
     ss_port = free_port
     (testpath/"shadowsocks-libev.json").write <<~EOS
       {

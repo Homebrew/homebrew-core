@@ -1,20 +1,18 @@
 class Jless < Formula
   desc "Command-line pager for JSON data"
   homepage "https://jless.io/"
-  url "https://github.com/PaulJuliusMartinez/jless/archive/refs/tags/v0.8.0.tar.gz"
-  sha256 "3f1168c9b2432f7f4fa9dd3c31b55e371ef9d6f822dc98a8cdce5318a112bf2d"
+  url "https://github.com/PaulJuliusMartinez/jless/archive/refs/tags/v0.9.0.tar.gz"
+  sha256 "43527a78ba2e5e43a7ebd8d0da8b5af17a72455c5f88b4d1134f34908a594239"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cc206f32743e131b66991b39f15fc2db5cc9ac4fb8440d38ef351dcf3617ea24"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d9702468099f0396e88ca93673840aba8a9771d1628b0e4a94bd5dbdb7869d65"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2c86789cf44ab4c397eeabcc263a4c7efef3ee0a8f5cc9383406131bdc7f946c"
-    sha256 cellar: :any_skip_relocation, ventura:        "322be887e2b2f9e53633210416936269ad61d4e0932f6658cd6654e5fbb6e3c2"
-    sha256 cellar: :any_skip_relocation, monterey:       "837c1aec0a87ea6098bcfa6bc3fc0e858c70f2ac1cd6c65a2f21f141a711b4d3"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3e2bf888a308287819afc9c07cd82f0019d814ad9010509fc85d2eebae72a385"
-    sha256 cellar: :any_skip_relocation, catalina:       "d3d6dab05c0270e22f00ed0018674d8fc4320e3fcb96bd87dd2b11377b461903"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c51148db8c9832eb370af8ea635aca9d2d0c4d0095c374710baaa41a7cb70045"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5950521cf007e81591e09fb2f7f2b85e704609fa7cf9aa035125343e2fc7657e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d1c870a901478c8084488d128b0baf7a3859e5d53b6cfcc048fe0418d96e1552"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ef4ca6e6317cf02257759c994f95cb3a35aef960cb7abb2babd3c94f49eeff1e"
+    sha256 cellar: :any_skip_relocation, ventura:        "5fd473bb7164c9c5ea0ce8695e0c1aa7976a7acf914455c3ddde42c24d3c25c4"
+    sha256 cellar: :any_skip_relocation, monterey:       "d89da34d0330ce44f59bc97d83fff9c2e1851210587d1e5fa69b4b9d6ec784e8"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ebeed1f09b8a73d3918d0123d2d9dbc26da31d40be642f6dc6a9d9d02a7ae972"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d0502fb07b111d0bd0b5bb2983225e8f2e313329fd7dad6287aac989dac9f8e1"
   end
 
   depends_on "rust" => :build

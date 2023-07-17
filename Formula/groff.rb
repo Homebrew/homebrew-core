@@ -1,22 +1,19 @@
 class Groff < Formula
   desc "GNU troff text-formatting system"
   homepage "https://www.gnu.org/software/groff/"
-  url "https://ftp.gnu.org/gnu/groff/groff-1.22.4.tar.gz"
-  mirror "https://ftpmirror.gnu.org/groff/groff-1.22.4.tar.gz"
-  sha256 "e78e7b4cb7dec310849004fa88847c44701e8d133b5d4c13057d876c1bad0293"
+  url "https://ftp.gnu.org/gnu/groff/groff-1.23.0.tar.gz"
+  mirror "https://ftpmirror.gnu.org/groff/groff-1.23.0.tar.gz"
+  sha256 "6b9757f592b7518b4902eb6af7e54570bdccba37a871fddb2d30ae3863511c13"
   license "GPL-3.0-or-later"
-  revision 1
 
   bottle do
-    sha256 arm64_ventura:  "4174b35e733b9c426df7c6b2e6424cfd7d22e65137a6576783ce3c5b13d278b7"
-    sha256 arm64_monterey: "8727b4965fdaa053760844dd7e3823de3515ac20c82f7e8fbf59d5dce6e3bb7a"
-    sha256 arm64_big_sur:  "f273750ee87dd64d4ae3ec08f3f6ac83a5e15eb0c2e08f9ebaf488bf9a739f96"
-    sha256 ventura:        "3000ec3517cfd0e97fc075f4b26a47f95031b9557786405f8aca45b1a8a0409b"
-    sha256 monterey:       "2097e8976c4c645d2019e8825788d7ebf8619c0928b319b0fb47118cdcf4ad11"
-    sha256 big_sur:        "1e46ef402875ec8cc1bc1fc05b748607822ed6c2a58508dc83d3f0c8cf7f5c4e"
-    sha256 catalina:       "623edd28279abd071901f92502fd3a388aaf4357113f26b37ee715a9d11d05ab"
-    sha256 mojave:         "4fed5ee8032eb7957bd964b0eb873f8954a4d427f0c602284992daca52e7cb6d"
-    sha256 x86_64_linux:   "6c0636f4e166293501c0d689d78313c1f0db97daa9655926c35075db216095d5"
+    sha256 arm64_ventura:  "c6d152d002365b25c67782fed7ca0141ee3dafaaa0e726bf3df427d469fb73ce"
+    sha256 arm64_monterey: "4926259bc0c75eb28f9d288c618ae84dc1a1a14952f3f414054e01ef5be345d0"
+    sha256 arm64_big_sur:  "e4dfe40ef95e535d7f9c98e3743ce42112ae74c8aa3cfc4f30089c53aa123ba4"
+    sha256 ventura:        "841d00a033f005f7e9eefed0d1190402879de5568a6624e494a52c581353bf5a"
+    sha256 monterey:       "a0bfb5d123ae6766a69b8d245bcc8d0323e8f6bce3f7c55c89403939ba176d46"
+    sha256 big_sur:        "8e8f79c4969912bf20f183dc3450001dc952b94967dca5cea18a7379d9d54f55"
+    sha256 x86_64_linux:   "621ff79fc4f7ff2d66f78b96e1b3229aed81c49cb13831a46918841696b35428"
   end
 
   depends_on "pkg-config" => :build
@@ -34,13 +31,6 @@ class Groff < Formula
 
   on_linux do
     depends_on "glib"
-  end
-
-  # See https://savannah.gnu.org/bugs/index.php?59276
-  # Fixed in 1.23.0
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/8059b3027a4aa68d8f42e1281cc3a81449ca0010/groff/1.22.4.patch"
-    sha256 "aaea94b65169357a9a2c6e8f71dea35c87eed3e8f49aaa27003cd0893b54f7c4"
   end
 
   def install

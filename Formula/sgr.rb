@@ -6,16 +6,16 @@ class Sgr < Formula
   url "https://files.pythonhosted.org/packages/dd/61/7d6cf822edb39d2426f6f185c7fc4de0ad4b80e0da3e5f50d94952795c11/splitgraph-0.3.12.tar.gz"
   sha256 "76a4476002b5ac5a2b9fba36b6fcffd85b878bcc25f5aae411387e04a5532459"
   license "Apache-2.0"
-  revision 3
+  revision 4
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "d6bf968a715d2f8b0d6721116c3bbb61ab7ac31a1530c4c9421d9ecaa6eb686b"
-    sha256 cellar: :any,                 arm64_monterey: "9a4f524f4dc18043bfab3445f5939a45da700c4314d06b004e61b64736c7235b"
-    sha256 cellar: :any,                 arm64_big_sur:  "d5714b7d69f3f3d2c2f617d354aed41d4aab002edc9938c0fc3057bd3da9f936"
-    sha256 cellar: :any,                 ventura:        "c3b5609923ae88a07488cdf37c3ce2fcc1bbafc30720533c743d091cdf418131"
-    sha256 cellar: :any,                 monterey:       "6d45195d7b54930f275494cff1a46f547eec528ff764c6dc831cb503c83933d8"
-    sha256 cellar: :any,                 big_sur:        "7c876093f8635c1c6ff387d485f06b4402dbc090760b6db55b1dd62abb613831"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ebdefa9d7bb5ee87bc990b1ee668660fb1295c44a53828b787fe968fb7e7dad3"
+    sha256 cellar: :any,                 arm64_ventura:  "b44d47425142aab7bbe52fd908ba6ed8ff3bc44bcaa35653bd25b02e681ee29f"
+    sha256 cellar: :any,                 arm64_monterey: "e6ad108bade39a26f5cb36b864f53937d6c89ec2d26a6720601febc795536bcd"
+    sha256 cellar: :any,                 arm64_big_sur:  "6da3bd99ff1bafffc35d44b9907ba18f4c748422c751e104df77ee08a02753c3"
+    sha256 cellar: :any,                 ventura:        "c15d2d45921e7d7163523bc1d6baab1f3b3874c3e5192562576876f7480df664"
+    sha256 cellar: :any,                 monterey:       "d1c01e594a1de42afdf765e755281a04c72e9bb1532ec3a8f005144f7421f54f"
+    sha256 cellar: :any,                 big_sur:        "fb1721e0962179b51d40fa6afec2f1c64c32cc50978f9456b7e3c6e700a8e0e3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8733322e07aea535dffddfa8153f0ccf155f7cbe8881e42139badb2c1c935172"
   end
 
   depends_on "pkg-config" => :build
@@ -61,8 +61,8 @@ class Sgr < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/ff/d7/8d757f8bd45be079d76309248845a04f09619a7b17d6dfc8c9ff6433cac2/charset-normalizer-3.1.0.tar.gz"
-    sha256 "34e0a2f9c370eb95597aae63bf85eb5e96826d81e3dcf88b8886012906f509b5"
+    url "https://files.pythonhosted.org/packages/2a/53/cf0a48de1bdcf6ff6e1c9a023f5f523dfe303e4024f216feac64b6eb7f67/charset-normalizer-3.2.0.tar.gz"
+    sha256 "3bb3d25a8e6c0aedd251753a79ae98a093c7e7b471faa3aa9a93a81431987ace"
   end
 
   resource "click" do
@@ -76,8 +76,8 @@ class Sgr < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/19/8c/47f061de65d1571210dc46436c14a0a4c260fd0f3eaf61ce9b9d445ce12f/cryptography-41.0.1.tar.gz"
-    sha256 "d34579085401d3f49762d2f7d6634d6b6c2ae1242202e860f4d26b046e3a1006"
+    url "https://files.pythonhosted.org/packages/93/b7/b6b3420a2f027c1067f712eb3aea8653f8ca7490f183f9917879c447139b/cryptography-41.0.2.tar.gz"
+    sha256 "7d230bf856164de164ecb615ccc14c7fc6de6906ddd5b491f3af90d3514c925c"
   end
 
   resource "docker" do
@@ -101,8 +101,13 @@ class Sgr < Formula
   end
 
   resource "jsonschema" do
-    url "https://files.pythonhosted.org/packages/36/3d/ca032d5ac064dff543aa13c984737795ac81abc9fb130cd2fcff17cfabc7/jsonschema-4.17.3.tar.gz"
-    sha256 "0f864437ab8b6076ba6707453ef8f98a6a0d512a80e93f8abdb676f737ecb60d"
+    url "https://files.pythonhosted.org/packages/7e/6b/38c38d113b5f215029cbe8133e7f907540fefa918d872fa3256416e477bf/jsonschema-4.18.3.tar.gz"
+    sha256 "64b7104d72efe856bea49ca4af37a14a9eba31b40bb7238179f3803130fd34d9"
+  end
+
+  resource "jsonschema-specifications" do
+    url "https://files.pythonhosted.org/packages/9a/8c/3d028449ac15cba52db3e1c95ca53b9240b4707fbe17f43e01cc73dd9336/jsonschema_specifications-2023.6.1.tar.gz"
+    sha256 "ca1c4dd059a9e7b34101cf5b3ab7ff1d18b139f35950d598d629837ef66e8f28"
   end
 
   resource "minio" do
@@ -136,23 +141,28 @@ class Sgr < Formula
   end
 
   resource "pydantic" do
-    url "https://files.pythonhosted.org/packages/3c/39/e526f3ca06e062e0ad773555f5349ff5d9ed50bfa62c45df8e74fff9ff14/pydantic-2.0.2.tar.gz"
-    sha256 "b802f5245b8576315fe619e5989fd083448fa1258638ef9dac301ca60878396d"
+    url "https://files.pythonhosted.org/packages/11/07/106b00ae62297bb3c89b6fbeb571feaf7cbbf6b2ada0e513d756daafd4ce/pydantic-2.0.3.tar.gz"
+    sha256 "94f13e0dcf139a5125e88283fc999788d894e14ed90cf478bcc2ee50bd4fc630"
   end
 
   resource "pydantic-core" do
-    url "https://files.pythonhosted.org/packages/66/68/9703e44f0bcc29eeaacb1c063675687524646a1bbe3c4527d45475cf120e/pydantic_core-2.1.2.tar.gz"
-    sha256 "d2c790f0d928b672484eac4f5696dd0b78f3d6d148a641ea196eb49c0875e30a"
+    url "https://files.pythonhosted.org/packages/57/ea/edff47ad42857534f3abcc87472802b3181041f4e4fbeac988a5ecfcffae/pydantic_core-2.3.0.tar.gz"
+    sha256 "5cfb5ac4e82c47d5dc25b209dd4c3989e284b80109f9e08b33c895080c424b4f"
   end
 
-  resource "pyrsistent" do
-    url "https://files.pythonhosted.org/packages/bf/90/445a7dbd275c654c268f47fa9452152709134f61f09605cf776407055a89/pyrsistent-0.19.3.tar.gz"
-    sha256 "1a2994773706bbb4995c31a97bc94f1418314923bd1048c6d964837040376440"
+  resource "referencing" do
+    url "https://files.pythonhosted.org/packages/20/93/45213b5b6e3eeab03e3f6eb82cc516a81fbf257586a25f9eb1d21af96e1b/referencing-0.29.1.tar.gz"
+    sha256 "90cb53782d550ba28d2166ef3f55731f38397def8832baac5d45235f1995e35e"
   end
 
   resource "requests" do
     url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
     sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
+  end
+
+  resource "rpds-py" do
+    url "https://files.pythonhosted.org/packages/e6/fe/7d07bc08cce2ccae2c7e5c96d9b3976c4e1fa5e248989dca0a58bc7628f8/rpds_py-0.8.10.tar.gz"
+    sha256 "13e643ce8ad502a0263397362fb887594b49cf84bf518d6038c16f235f2bcea4"
   end
 
   resource "ruamel-yaml" do
