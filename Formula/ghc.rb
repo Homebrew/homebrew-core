@@ -1,6 +1,8 @@
 class Ghc < Formula
   desc "Glorious Glasgow Haskell Compilation System"
   homepage "https://haskell.org/ghc/"
+  url "https://downloads.haskell.org/~ghc/9.6.2/ghc-9.6.2-src.tar.xz"
+  sha256 "1b510c5f8753c3ba24851702c6c9da7d81dc5e47fe3ecb7af39c7c2613abf170"
   # We build bundled copies of libffi and GMP so GHC inherits the licenses
   license all_of: [
     "BSD-3-Clause",
@@ -8,17 +10,6 @@ class Ghc < Formula
     any_of: ["LGPL-3.0-or-later", "GPL-2.0-or-later"], # GMP
   ]
   head "https://gitlab.haskell.org/ghc/ghc.git", branch: "master"
-
-  stable do
-    url "https://downloads.haskell.org/~ghc/9.4.4/ghc-9.4.4-src.tar.xz"
-    sha256 "e8cef25a6ded1531cda7a90488d0cfb6d780657d16636daa59430be030cd67e2"
-
-    # Fix build with sphinx-doc 6+. Remove patch when available in release.
-    patch do
-      url "https://gitlab.haskell.org/ghc/ghc/-/commit/00dc51060881df81258ba3b3bdf447294618a4de.diff"
-      sha256 "354baeb8727fbbfb6da2e88f9748acaab23bcccb5806f8f59787997753231dbb"
-    end
-  end
 
   livecheck do
     url "https://www.haskell.org/ghc/download.html"
