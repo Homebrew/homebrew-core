@@ -1,11 +1,12 @@
 class Ldid < Formula
-  desc "Lets you manipulate the signature block in a Mach-O binary"
+  desc "Put real or fake signatures in a Mach-O binary"
   homepage "https://cydia.saurik.com/info/ldid/"
-  url "https://git.saurik.com/ldid.git",
-      tag:      "v2.1.5",
-      revision: "a23f0faadd29ec00a6b7fb2498c3d15af15a7100"
+  url "https://github.com/ProcursusTeam/ldid.git",
+      tag:      "v2.1.5-procursus7",
+      revision: "aaf8f23d7975ecdb8e77e3a8f22253e0a2352cef"
+  version "2.1.5-procursus7"
   license "AGPL-3.0-or-later"
-  head "https://git.saurik.com/ldid.git", branch: "master"
+  head "https://github.com/ProcursusTeam/ldid.git", branch: "master"
 
   bottle do
     rebuild 1
@@ -20,19 +21,10 @@ class Ldid < Formula
 
   depends_on "libplist"
   depends_on "openssl@3"
-  uses_from_macos "libxml2"
 
   def install
-    ENV.append_to_cflags "-I."
-    ENV.append "CXXFLAGS", "-std=c++11"
-    linker_flags = %w[lookup2.o -lcrypto -lplist-2.0 -lxml2]
-    linker_flags += %w[-framework CoreFoundation -framework Security] if OS.mac?
-
-    system "make", "lookup2.o"
-    system "make", "ldid", "LDLIBS=#{linker_flags.join(" ")}"
-
-    bin.install "ldid"
-    bin.install_symlink "ldid" => "ldid2"
+    linker_flags = %w[-lcrypto -lplist-2.0]
+    system "make", "install", "LDFLAGS=#{linker_flags.join(" ")}", "PREFIX=#{prefix}"
   end
 
   test do
