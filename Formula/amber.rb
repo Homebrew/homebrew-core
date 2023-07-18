@@ -20,6 +20,10 @@ class Amber < Formula
   depends_on "openssl@3"
   uses_from_macos "sqlite"
 
+  # patch ameba to use master branch, so that it can be build with crystal 1.9.1
+  # remove when ameba 1.5.0 is released
+  patch :DATA
+
   def install
     system "shards", "install"
     system "make", "install", "PREFIX=#{prefix}"
@@ -40,6 +44,10 @@ class Amber < Formula
       assert_match path, output
     end
 
+    # patch shard.yml to use master branchof ameba,
+    # so that it can be build with crystal 1.9.1
+    inreplace "test_app/shard.yml", "version: ~> 0.13.4", "branch: master"
+
     cd "test_app" do
       build_app = shell_output("shards build test_app")
       assert_match "Building", build_app
@@ -47,3 +55,15 @@ class Amber < Formula
     end
   end
 end
+
+__END__
+diff --git a/shard.yml b/shard.yml
+index e4d5859..34f1d2c 100644
+--- a/shard.yml
++++ b/shard.yml
+@@ -85,4 +85,4 @@ dependencies:
+ development_dependencies:
+   ameba:
+     github: crystal-ameba/ameba
+-    version: ~> 1.0.0
++    branch: master
