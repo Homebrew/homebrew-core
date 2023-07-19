@@ -1,5 +1,5 @@
 class GitFlowCjs < Formula
-  desc "AVH edition of git-flow"
+  desc "CJS edition of git-flow"
   homepage "https://github.com/CJ-Systems/gitflow-cjs"
   license "BSD-2-Clause"
 
