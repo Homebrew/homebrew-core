@@ -5,27 +5,23 @@ class TermNotes < Formula
   sha256 "e1ae65286b64c3466d5749524c79df1063ec9db35b265f0359d24cc76397d88c"
   license "MIT"
 
-  depends_on "nano"
-  depends_on "vim"
+  depends_on "gcc"
 
   def install
-    if OS.mac?
-      bin.install "term_notes" => "term-notes"
-    else
-      bin.install "term_notes"
-    end
+    system "gcc", "src/term_notes.c", "-o", "term-notes"
+    bin.install "term-notes"
   end
 
   def caveats
     <<~EOS
       'Term Notes' has been installed!
 
-      On Mac OS, you can run the program using 'term-notes'.
+      On macOS, you can run the program using 'term-notes'.
 
       On Linux, you may need to create a symbolic link to make it accessible globally.
       Run the following command:
 
-        sudo ln -s #{opt_bin}/term_notes /usr/local/bin/term-notes
+        sudo ln -s #{opt_bin}/term-notes /usr/local/bin/term-notes
 
       Enjoy taking notes with 'Term Notes'!
     EOS
