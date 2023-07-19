@@ -33,6 +33,7 @@ class GitFlowAvh < Formula
     end
   end
 
+  deprecate! date: "2023-07-18", because: :repo_archived
   depends_on "gnu-getopt"
 
   conflicts_with "git-flow", "git-flow-cjs", because: "both install `git-flow` binaries and completions"
