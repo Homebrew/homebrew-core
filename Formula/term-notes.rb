@@ -1,7 +1,7 @@
 class TermNotes < Formula
   desc "Terminal-based note-taking application"
   homepage "https://github.com/felipealfonsog/TermNotes"
-  url "https://github.com/felipealfonsog/TermNotes/archive/refs/tags/v1.0.2.tar.gz"
+  url "https://github.com/felipealfonsog/TermNotes/archive/refs/tags/v.1.0.2.tar.gz"
   sha256 "e1ae65286b64c3466d5749524c79df1063ec9db35b265f0359d24cc76397d88c"
   license "MIT"
 
