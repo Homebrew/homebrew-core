@@ -32,7 +32,7 @@ class Ncspot < Formula
   def install
     ENV["COREAUDIO_SDK_PATH"] = MacOS.sdk_path_if_needed
     system "cargo", "install", "--no-default-features",
-                               "--features", "portaudio_backend,cursive/pancurses-backend,share_clipboard",
+                               "--features", "portaudio_backend,termion_backend,share_clipboard",
                                *std_cargo_args
   end
 
