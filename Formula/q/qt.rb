@@ -3,10 +3,10 @@ class Qt < Formula
 
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.5/6.5.1/single/qt-everywhere-src-6.5.1.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.5/6.5.1/single/qt-everywhere-src-6.5.1.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.5/6.5.1/single/qt-everywhere-src-6.5.1.tar.xz"
-  sha256 "a2d88a6f8c3835dca52f3b7433149c3de606a96bbf024640c27657276cc7350a"
+  url "https://download.qt.io/official_releases/qt/6.5/6.5.2/single/qt-everywhere-src-6.5.2.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.5/6.5.2/single/qt-everywhere-src-6.5.2.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.5/6.5.2/single/qt-everywhere-src-6.5.2.tar.xz"
+  sha256 "cde57be663d0f875759797298bdc37a936d517c39f2013e4e6ece5e12edeed12"
   license all_of: [
     "BSD-3-Clause",
     "GFDL-1.3-no-invariants-only",
@@ -14,7 +14,6 @@ class Qt < Formula
     { "GPL-3.0-only" => { with: "Qt-GPL-exception-1.0" } },
     "LGPL-3.0-only",
   ]
-  revision 3
   head "https://code.qt.io/qt/qt5.git", branch: "dev"
 
   # The first-party website doesn't make version information readily available,
@@ -128,24 +127,6 @@ class Qt < Formula
     sha256 "b36a1c245f2d304965eb4e0a82848379241dc04b865afcc4aab16748587e1923"
   end
 
-  # Remove symlink check causing build to bail out and fail.
-  # https://gitlab.kitware.com/cmake/cmake/-/issues/23251
-  # Can be removed soon and replaced with QT_ALLOW_SYMLINK_IN_PATHS
-  # https://codereview.qt-project.org/c/qt/qtbase/+/475484
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/c363f0edf9e90598d54bc3f4f1bacf95abbda282/qt/qt_internal_check_if_path_has_symlinks.patch"
-    sha256 "1afd8bf3299949b2717265228ca953d8d9e4201ddb547f43ed84ac0d7da7a135"
-    directory "qtbase"
-  end
-
-  # Fix a Qt 6.5.1 QTabBar regression, certain tabbars are unusable because all tab items above the last selected tab
-  # is missing.
-  patch do
-    url "https://code.qt.io/cgit/qt/qtbase.git/patch/?id=9177dbd87991ff277fd77a25c3464e259d11b998"
-    sha256 "1730b675ede24d80c2e73a2f662cc73718f3060c0b8a707784d188bb11297c4e"
-    directory "qtbase"
-  end
-
   # build patch for qmake with xcode 15
   # https://bugreports.qt.io/browse/QTBUG-117225
   patch do
@@ -153,14 +134,8 @@ class Qt < Formula
     sha256 "802f29c2ccb846afa219f14876d9a1d67477ff90200befc2d0c5759c5081c613"
   end
 
-  # build patch for qtmultimedia with xcode 15
-  # https://github.com/hmaarrfk/qt-main-feedstock/blob/0758b98854a3a3b9c99cded856176e96c9b8c0c5/recipe/patches/0014-remove-usage-of-unary-operator.patch
-  # https://bugreports.qt.io/browse/QTBUG-113782
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/7f1cffaf/qt/6.5.1-QTBUG-113782.patch"
-    sha256 "aea3967b0f7b3047ce6c2a487b37c071f89fb642f8502bd1c4934c8cff7e4ed7"
-    directory "qtmultimedia"
-  end
+  # Try patch in QTBUG-115357
+  patch :DATA
 
   def install
     # Allow -march options to be passed through, as Qt builds
@@ -220,6 +195,7 @@ class Qt < Formula
       -DINSTALL_MKSPECSDIR=share/qt/mkspecs
       -DQT_FEATURE_webengine_proprietary_codecs=ON
       -DQT_FEATURE_webengine_kerberos=ON
+      -DQT_ALLOW_SYMLINK_IN_PATHS=ON
     ]
 
     if OS.mac?
@@ -412,3 +388,36 @@ class Qt < Formula
     system "./test"
   end
 end
+__END__
+From 068e19921a1e28034abb73d90ce5820c4be7b977 Mon Sep 17 00:00:00 2001
+From: Michal Klocek <michal.klocek@qt.io>
+Date: Thu, 05 Oct 2023 16:00:18 +0200
+Subject: [PATCH] Use pkg-config on mac if found
+
+Our configure logic checks for pkg-config
+and runs it with cmake and set system libs features
+accordingly. In case user install pkg-cofnig
+on mac this will however run into issues as
+pkg-config wrapper for gn on mac platform returns
+success without any data.
+
+Assume if cmake was successful with pkg-config calls, gn
+pkg-config wrapper script would also be.
+
+Fixes: QTBUG-115357
+Change-Id: Ie222bd1840590110270af1191dfd37a661780fdf
+---
+
+diff --git a/qtwebengine/src/3rdparty/chromium/build/config/linux/pkg-config.py b/qtwebengine/src/3rdparty/chromium/build/config/linux/pkg-config.py
+index 2e38c7f..6b26069 100755
+--- a/qtwebengine/src/3rdparty/chromium/build/config/linux/pkg-config.py
++++ b/qtwebengine/src/3rdparty/chromium/build/config/linux/pkg-config.py
+@@ -108,7 +108,7 @@
+   # If this is run on non-Linux platforms, just return nothing and indicate
+   # success. This allows us to "kind of emulate" a Linux build from other
+   # platforms.
+-  if "linux" not in sys.platform:
++  if 'linux' not in sys.platform and 'darwin' not in sys.platform:
+     print("[[],[],[],[],[]]")
+     return 0
+ 
