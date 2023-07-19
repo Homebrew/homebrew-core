@@ -35,7 +35,7 @@ class GitFlowAvh < Formula
 
   depends_on "gnu-getopt"
 
-  conflicts_with "git-flow", because: "both install `git-flow` binaries and completions"
+  conflicts_with "git-flow", "git-flow-cjs", because: "both install `git-flow` binaries and completions"
 
   def install
     system "make", "prefix=#{libexec}", "install"
