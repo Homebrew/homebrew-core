@@ -28,6 +28,7 @@ class GitFlow < Formula
     end
   end
 
+  disable! date: "2023-07-18", because: :does_not_build
   conflicts_with "git-flow-avh", "git-flow-cjs", because: "both install `git-flow` binaries and completions"
 
   def install
