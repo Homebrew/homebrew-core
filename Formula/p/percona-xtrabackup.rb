@@ -2,10 +2,9 @@ class PerconaXtrabackup < Formula
   desc "Open source hot backup tool for InnoDB and XtraDB databases"
   homepage "https://www.percona.com/software/mysql-database/percona-xtrabackup"
   # TODO: Check if we can use unversioned `protobuf` at version bump
-  url "https://downloads.percona.com/downloads/Percona-XtraBackup-LATEST/Percona-XtraBackup-8.0.33-27/source/tarball/percona-xtrabackup-8.0.33-27.tar.gz"
-  sha256 "64b3b0ecaab5a5ee50af02ec40f12664bfe4c94f929ff0c189705ae886da0b12"
+  url "https://downloads.percona.com/downloads/Percona-XtraBackup-LATEST/Percona-XtraBackup-8.0.34-29/source/tarball/percona-xtrabackup-8.0.34-29.tar.gz"
+  sha256 "3a6f7077db8489eb00f25ad01daeaed4fa087100068fac79215c7d2e10424f87"
   license "GPL-2.0-only"
-  revision 2
 
   livecheck do
     url "https://docs.percona.com/percona-xtrabackup/latest/"
