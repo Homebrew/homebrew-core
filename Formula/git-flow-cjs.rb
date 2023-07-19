@@ -21,7 +21,7 @@ class GitFlowCjs < Formula
     end
   end
 
-  depends_on "gnu-getopt"
+  uses_from_macos "gnu-getopt"
 
   conflicts_with "git-flow", "git-flow-avh", because: "both install `git-flow` binaries and completions"
 
