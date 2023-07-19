@@ -24,7 +24,7 @@ class GitFlow < Formula
     url "https://github.com/nvie/gitflow.git", branch: "develop"
 
     resource "completion" do
-      url "https://github.com/bobthecow/git-flow-completion.git", branch: "develop"
+      url "https://github.com/bobthecow/git-flow-completion.git", branch: "master"
     end
   end
 
