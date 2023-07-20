@@ -16,10 +16,14 @@ class Hex < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "965b7895b352c914b2bf1a8b26bff934adf9eb5d6223a3da309b5b57154e31c0"
   end
 
+  depends_on "pandoc" => :build
   depends_on "rust" => :build
 
   def install
     system "cargo", "install", *std_cargo_args
+
+    system "pandoc", "--to=man", "man/hx.1.md", "-o", "hx.1"
+    man1.install "hx.1"
   end
 
   test do
