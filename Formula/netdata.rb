@@ -1,10 +1,9 @@
 class Netdata < Formula
   desc "Diagnose infrastructure problems with metrics, visualizations & alarms"
   homepage "https://netdata.cloud/"
-  url "https://github.com/netdata/netdata/releases/download/v1.40.1/netdata-v1.40.1.tar.gz"
-  sha256 "cc86172acd5e6ec05bc0fa86a50d967502a264d8adf7f79293923ccd8febb251"
+  url "https://github.com/netdata/netdata/releases/download/v1.41.0/netdata-v1.41.0.tar.gz"
+  sha256 "8372d86ab88f7ec0b0b714dabbf2d03cf819d5db9bf4d8ae612f1a3dbc96b9a0"
   license "GPL-3.0-or-later"
-  revision 1
 
   livecheck do
     url :stable
@@ -42,13 +41,6 @@ class Netdata < Formula
   resource "judy" do
     url "https://downloads.sourceforge.net/project/judy/judy/Judy-1.0.5/Judy-1.0.5.tar.gz"
     sha256 "d2704089f85fdb6f2cd7e77be21170ced4b4375c03ef1ad4cf1075bd414a63eb"
-  end
-
-  # Support Protobuf 22+.
-  # https://github.com/netdata/netdata/pull/15266
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/5e3398d5a5a67447d86867581ee4a7df3dee98cb/netdata/protobuf-22.patch"
-    sha256 "b8b60037786d77aff0ef1c15bada5c929de01b370f9bae1e52c6f5f707780eb6"
   end
 
   def install
