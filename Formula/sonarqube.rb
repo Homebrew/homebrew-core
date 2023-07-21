@@ -1,12 +1,12 @@
 class Sonarqube < Formula
   desc "Manage code quality"
   homepage "https://www.sonarqube.org/"
-  url "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-10.0.0.68432.zip"
-  sha256 "e04bc9e78cad3f4137fb89b8527963d01587ed9a6fce4f4ac7b370fe21bac199"
+  url "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-10.1.0.73491.zip"
+  sha256 "ccf5872157349ffde75c5ae54f95303b392435bc5cd36120af047daa83782e29"
   license "LGPL-3.0-or-later"
 
   livecheck do
-    url "https://www.sonarsource.com/page-data/products/sonarqube/downloads/page-data.json"
+    url "https://www.sonarsource.com/page-data/products/sonarqube/downloads/success-download-community-edition/page-data.json"
     regex(/sonarqube[._-]v?(\d+(?:\.\d+)+)\.zip/i)
   end
 
