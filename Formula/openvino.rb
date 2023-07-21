@@ -24,7 +24,7 @@ class Openvino < Formula
   depends_on "cmake" => [:build, :test]
   depends_on "flatbuffers" => :build
   depends_on "pkg-config" => [:build, :test]
-  depends_on "protobuf@21" => :build
+  depends_on "protobuf" => :build
   depends_on "python@3.11" => :build
   depends_on "xbyak" => :build
   depends_on "pugixml"
