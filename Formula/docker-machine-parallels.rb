@@ -30,7 +30,7 @@ class DockerMachineParallels < Formula
     url "https://github.com/Parallels/docker-machine-parallels/commit/154f1906924900c948ea8759c711ba43cd236656.patch?full_index=1"
     sha256 "ea6eb1a1f713f6e30bafbae19995915327c8400901e3350c60e40b50d43dd2a8"
   end
-  
+
   def install
     system "make", "build"
     bin.install "bin/docker-machine-driver-parallels"
