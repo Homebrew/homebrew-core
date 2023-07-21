@@ -5,6 +5,7 @@ class DockerMachineParallels < Formula
       tag:      "v2.0.1",
       revision: "a1c3d495487413bdd24a562c0edee1af1cfc2f0f"
   license "MIT"
+  revision 1
   head "https://github.com/Parallels/docker-machine-parallels.git", branch: "master"
 
   bottle do
@@ -19,11 +20,17 @@ class DockerMachineParallels < Formula
     sha256 cellar: :any_skip_relocation, mojave:         "cce66a6fcdea79b33095c2ae7c49c93a9f730353d92738534fdbe03b3488ee43"
   end
 
-  # Bump to 1.20 on the next release, if possible.
-  depends_on "go@1.19" => :build
+  depends_on "go" => :build
   depends_on "docker-machine"
   depends_on :macos
 
+  # Fix build on Go >= 1.20 by removing obsolete build flag:
+  # https://github.com/Parallels/docker-machine-parallels/pull/113
+  patch do
+    url "https://github.com/Parallels/docker-machine-parallels/commit/154f1906924900c948ea8759c711ba43cd236656.patch"
+    sha256 "9443881d7950ac8d2da217a23ae3f2c936fbd6880f34dceba717f1246d8608f1"
+  end  
+  
   def install
     system "make", "build"
     bin.install "bin/docker-machine-driver-parallels"
