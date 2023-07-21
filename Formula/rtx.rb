@@ -32,7 +32,6 @@ class Rtx < Formula
     EOS
   end
 
-
   test do
     system "#{bin}/rtx", "install", "nodejs@18.13.0"
     assert_match "v18.13.0", shell_output("#{bin}/rtx exec nodejs@18.13.0 -- node -v")
