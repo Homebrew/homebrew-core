@@ -1,11 +1,23 @@
 class Algernon < Formula
   desc "Pure Go web server with Lua, Markdown, HTTP/2 and template support"
   homepage "https://github.com/xyproto/algernon"
-  url "https://github.com/xyproto/algernon/archive/refs/tags/v1.15.2.tar.gz"
-  sha256 "eb693954feaac8e589818f41c619c362256bac774e57c69d24c4ab08201974ee"
   license "BSD-3-Clause"
+  revision 1
   version_scheme 1
   head "https://github.com/xyproto/algernon.git", branch: "main"
+
+  stable do
+    url "https://github.com/xyproto/algernon/archive/refs/tags/v1.15.2.tar.gz"
+    sha256 "eb693954feaac8e589818f41c619c362256bac774e57c69d24c4ab08201974ee"
+
+    # Add support for Go 1.20 and 1.21 from
+    # https://github.com/xyproto/algernon/pull/136
+    # can likely be removed for algernon >1.15.2
+    patch do
+      url "https://github.com/xyproto/algernon/commit/cd3d98354745ee6dd3fd17a3327269dcf19bf434.patch?full_index=1"
+      sha256 "25a58c9c3442c2fcdf66b0fe3d63a805eb208bae638a930b50b6772780cc77da"
+    end
+  end
 
   livecheck do
     url :stable
