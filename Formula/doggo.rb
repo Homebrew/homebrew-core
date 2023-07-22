@@ -2,19 +2,11 @@ class Doggo < Formula
   desc "Command-line DNS Client for Humans"
   homepage "https://doggo.mrkaran.dev/"
   license "GPL-3.0-or-later"
-  revision 2
   head "https://github.com/mr-karan/doggo.git", branch: "main"
 
   stable do
-    url "https://github.com/mr-karan/doggo/archive/refs/tags/v0.5.5.tar.gz"
-    sha256 "7ba1340ce46566ca8fa1565ef261519dee5b1c7007aea97eb1f9329f8a3f0403"
-
-    # patch quic-go for Go 1.20 and 1.21, remove when it is available
-    # https://github.com/mr-karan/doggo/pull/72
-    patch do
-      url "https://github.com/mr-karan/doggo/commit/f9699b0b4c25b98868f38ba1497e59fefe754837.patch?full_index=1"
-      sha256 "f0ed0adadfd394b1b12873c90b15e153b0c9b691761aa33264aae0298a2fb2f3"
-    end
+    url "https://github.com/mr-karan/doggo/archive/refs/tags/v0.5.6.tar.gz"
+    sha256 "1965f4c909991bc38b65784ccbc03f4760214bca34f1bb984999f1fc8714ff96"
   end
 
   bottle do
