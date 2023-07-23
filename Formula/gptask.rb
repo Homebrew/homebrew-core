@@ -19,13 +19,18 @@ class Gptask < Formula
     sha256 "2483095c7db1eee274cebac79e315a986c4e55207bb4fa7b82d185b3a2ed9536"
   end
 
+  resource "aiohttp" do
+    url "https://files.pythonhosted.org/packages/d6/12/6fc7c7dcc84e263940e87cbafca17c1ef28f39dae6c0b10f51e4ccc764ee/aiohttp-3.8.5.tar.gz"
+    sha256 "b9552ec52cc147dbf1944ac7ac98af7602e51ea2dcd076ed194ca3c0d1c7d0bc"
+  end
+
   def install
     virtualenv_install_with_resources
   end
 
   test do
     system "echo", "hello", ">>", "temp.txt"
-    output = shell_output("#{bin}/run_gptask -f -p doc-reviewer temp.txt 2>&1", 1)
+    output = shell_output("#{bin}/run_gptask -p doc-reviewer temp.txt 2>&1", 1)
     assert_match "[Errno 2] No such file or directory", output
   end
 end
