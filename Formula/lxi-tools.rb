@@ -26,6 +26,6 @@ class LxiTools < Formula
   end
 
   test do
-    system "#{bin}/lxi", "-v"
+    assert_match "Error: Missing address", shell_output("#{bin}/lxi screenshot 2>&1", 1)
   end
 end
