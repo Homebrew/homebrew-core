@@ -1,10 +1,10 @@
 class Gptask < Formula
   include Language::Python::Virtualenv
 
-  desc "My Awesome Python Package"
+  desc "GPTask - An easy way to run tasks locally"
   homepage "https://github.com/chitalian/gptask"
-  url "https://files.pythonhosted.org/packages/bf/5d/420c886c35881ff024685cca96510966c474150283f06c2e60e317dd689f/gptask_cli-0.1.1.tar.gz"
-  sha256 "7707410e63b828d76c17e10f03e990d4626a35eacbdb95c427b8d960d7b5ad6f"
+  url "https://files.pythonhosted.org/packages/72/5a/424f8610cdd28cbcf695f082ff152907ab1eb9f547d23294f21c2c4609f1/gptask_cli-0.1.8.tar.gz"
+  sha256 "7469ce3be9789775a453aca94f588041f2041ae93679b54122acb17d092c9813"
   license "MIT"
 
   depends_on "python@3.11"
@@ -14,6 +14,8 @@ class Gptask < Formula
   end
 
   test do
-    system "#{bin}/gptask", "--help"
+    system "echo", "hello", ">>", "temp.txt"
+    output = shell_output("#{bin}/run_gptask -f -p doc-reviewer temp.txt 2>&1", 1)
+    assert_match "[Errno 2] No such file or directory", output
   end
 end
