@@ -9,7 +9,7 @@ class LxiTools < Formula
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
-
+  depends_on "pkg-config" => :build
   depends_on "desktop-file-utils"
   depends_on "glib"
   depends_on "gtk4"
