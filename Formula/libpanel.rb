@@ -3,7 +3,7 @@ class Libpanel < Formula
     homepage "https://gitlab.gnome.org/GNOME/libpanel"
     url "https://download.gnome.org/sources/libpanel/1.2/libpanel-1.2.0.tar.xz"
     sha256 "d9055bbbab9625f3f5ce6d1fd7132eb6ea34a6ba07a87e9938901fb8b31581e2"
-    license "LGPL3"
+    license "LGPL-3.0-or-later"
     
     bottle do
       sha256 arm64_ventura:  "46cd0d4f81a5c2d5efc63b1755a7a002ff95fa8f42007668a337327dd9970607"
