@@ -6,7 +6,7 @@ class Circleci < Formula
       tag:      "v0.1.27660",
       revision: "35d39ea8497794057500d8ad2deafccf547343cc"
   license "MIT"
-  head "https://github.com/CircleCI-Public/circleci-cli.git", branch: "master"
+  head "https://github.com/CircleCI-Public/circleci-cli.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "bdecb551a06bf198599ac6c5476c476726a5f602dd78382144a11665f3ffa37f"
@@ -26,6 +26,7 @@ class Circleci < Formula
       -X github.com/CircleCI-Public/circleci-cli/version.packageManager=homebrew
       -X github.com/CircleCI-Public/circleci-cli/version.Version=#{version}
       -X github.com/CircleCI-Public/circleci-cli/version.Commit=#{Utils.git_short_head}
+      -X github.com/CircleCI-Public/circleci-cli/telemetry.SegmentEndpoint=https://api.segment.io
     ]
     system "go", "build", *std_go_args(ldflags: ldflags)
 
@@ -35,13 +36,14 @@ class Circleci < Formula
 
   test do
     # assert basic script execution
-    assert_match(/#{version}\+.{7}/, shell_output("#{bin}/circleci version").strip)
+    assert_match(/#{version}\+.{7}/, shell_output("CIRCLECI_CLI_TELEMETRY_OPTOUT=1 #{bin}/circleci version").strip)
     (testpath/".circleci.yml").write("{version: 2.1}")
-    output = shell_output("#{bin}/circleci config pack #{testpath}/.circleci.yml")
+    output = shell_output("CIRCLECI_CLI_TELEMETRY_OPTOUT=1 #{bin}/circleci config pack #{testpath}/.circleci.yml")
     assert_match "version: 2.1", output
     # assert update is not included in output of help meaning it was not included in the build
-    assert_match(/update.+This command is unavailable on your platform/, shell_output("#{bin}/circleci help 2>&1"))
+    assert_match(/update.+This command is unavailable on your platform/,
+      shell_output("CIRCLECI_CLI_TELEMETRY_OPTOUT=1 #{bin}/circleci help 2>&1"))
     assert_match "update is not available because this tool was installed using homebrew.",
-      shell_output("#{bin}/circleci update")
+      shell_output("CIRCLECI_CLI_TELEMETRY_OPTOUT=1 #{bin}/circleci update")
   end
 end
