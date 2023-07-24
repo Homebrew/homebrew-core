@@ -1,4 +1,4 @@
-class Libadwaita < Formula
+class Libpanel < Formula
     desc "A dock/panel library for GTK 4"
     homepage "https://gitlab.gnome.org/GNOME/libpanel"
     url "https://download.gnome.org/sources/libpanel/1.2/libpanel-1.2.0.tar.xz"
