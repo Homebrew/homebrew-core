@@ -25,7 +25,8 @@ class Fzf < Formula
 
     prefix.install "install", "uninstall"
     (prefix/"shell").install %w[bash zsh fish].map { |s| "shell/key-bindings.#{s}" }
-    (prefix/"shell").install %w[bash zsh].map { |s| "shell/completion.#{s}" }
+    bash_completion.install "shell/completion.bash" => "fzf"
+    zsh_completion.install "shell/completion.zsh" => "_fzf"
     (prefix/"plugin").install "plugin/fzf.vim"
     man1.install "man/man1/fzf.1", "man/man1/fzf-tmux.1"
     bin.install "bin/fzf-tmux"
