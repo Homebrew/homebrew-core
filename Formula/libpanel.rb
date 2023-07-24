@@ -1,10 +1,10 @@
 class Libpanel < Formula
-  desc "A dock/panel library for GTK 4"
+  desc "Dock/panel library for GTK 4"
   homepage "https://gitlab.gnome.org/GNOME/libpanel"
   url "https://download.gnome.org/sources/libpanel/1.2/libpanel-1.2.0.tar.xz"
   sha256 "d9055bbbab9625f3f5ce6d1fd7132eb6ea34a6ba07a87e9938901fb8b31581e2"
   license "LGPL-3.0-or-later"
-  
+
   bottle do
     sha256 arm64_ventura:  "46cd0d4f81a5c2d5efc63b1755a7a002ff95fa8f42007668a337327dd9970607"
     sha256 arm64_monterey: "9550badfd2988da515c5ff5557014fa3d51a99e4880dd1d20412dc913e57aa2b"
@@ -22,7 +22,7 @@ class Libpanel < Formula
   depends_on "pkg-config" => [:build, :test]
   depends_on "vala" => :build
   depends_on "gtk4"
-  depends_on "libadwaita" => :build
+  depends_on "libadwaita"
 
   def install
     system "meson", "setup", "build", "-Dtests=false", *std_meson_args
@@ -50,4 +50,3 @@ class Libpanel < Formula
     assert_match version.to_s, (lib/"pkgconfig/libpanel-1.pc").read
   end
 end
-  
