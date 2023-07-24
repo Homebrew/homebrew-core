@@ -35,15 +35,15 @@ class Circleci < Formula
   end
 
   test do
+    ENV["CIRCLECI_CLI_TELEMETRY_OPTOUT"] = "1"
     # assert basic script execution
-    assert_match(/#{version}\+.{7}/, shell_output("CIRCLECI_CLI_TELEMETRY_OPTOUT=1 #{bin}/circleci version").strip)
+    assert_match(/#{version}\+.{7}/, shell_output("#{bin}/circleci version").strip)
     (testpath/".circleci.yml").write("{version: 2.1}")
-    output = shell_output("CIRCLECI_CLI_TELEMETRY_OPTOUT=1 #{bin}/circleci config pack #{testpath}/.circleci.yml")
+    output = shell_output("#{bin}/circleci config pack #{testpath}/.circleci.yml")
     assert_match "version: 2.1", output
     # assert update is not included in output of help meaning it was not included in the build
-    assert_match(/update.+This command is unavailable on your platform/,
-      shell_output("CIRCLECI_CLI_TELEMETRY_OPTOUT=1 #{bin}/circleci help 2>&1"))
+    assert_match(/update.+This command is unavailable on your platform/, shell_output("#{bin}/circleci help 2>&1"))
     assert_match "update is not available because this tool was installed using homebrew.",
-      shell_output("CIRCLECI_CLI_TELEMETRY_OPTOUT=1 #{bin}/circleci update")
+      shell_output("#{bin}/circleci update")
   end
 end
