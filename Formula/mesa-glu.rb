@@ -28,7 +28,7 @@ class MesaGlu < Formula
     depends_on "automake" => :build
   end
 
-  depends_on "libtool" => :build
+  depends_on "meson" => :build
   depends_on "pkg-config" => :build
   depends_on "mesa"
 
@@ -39,10 +39,9 @@ class MesaGlu < Formula
       --disable-silent-rules
     ]
 
-    system "./autogen.sh", *args if build.head?
-    system "./configure", *args
-    system "make"
-    system "make", "install"
+    system "meson", "setup", "build", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do
