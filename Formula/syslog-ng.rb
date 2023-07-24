@@ -40,6 +40,7 @@ class SyslogNg < Formula
   uses_from_macos "curl"
 
   def install
+    mv "version", "version.txt"
     sng_python_ver = Formula["python@3.11"].version.major_minor
 
     venv_path = libexec/"python-venv"
