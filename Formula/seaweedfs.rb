@@ -7,8 +7,8 @@ class Seaweedfs < Formula
   # Remove stable block with patch in next release
   stable do
     url "https://github.com/seaweedfs/seaweedfs.git",
-    tag:      "3.54",
-    revision: "358b3a489475333e503886513080b815ce45a4a5"
+    tag:      "3.55",
+    revision: "7eafa3420b8e5ae83c8873cddd03ded90a0fc921"
 
     # patch go-m1cpu dependency for macos < 12 builds
     patch do
