@@ -1,21 +1,11 @@
 class Seaweedfs < Formula
   desc "Fast distributed storage system"
   homepage "https://github.com/seaweedfs/seaweedfs"
-  license "Apache-2.0"
-  head "https://github.com/seaweedfs/seaweedfs.git", branch: "master"
-
-  # Remove stable block with patch in next release
-  stable do
-    url "https://github.com/seaweedfs/seaweedfs.git",
+  url "https://github.com/seaweedfs/seaweedfs.git",
     tag:      "3.55",
     revision: "7eafa3420b8e5ae83c8873cddd03ded90a0fc921"
-
-    # patch go-m1cpu dependency for macos < 12 builds
-    patch do
-      url "https://github.com/seaweedfs/seaweedfs/commit/1bfc9581e0bc04f394187a0d39f319ad65df5aca.patch?full_index=1"
-      sha256 "21bcae5be8943209c73e5cee5e51e098b58048c2a873c6fe9e58743f835e6851"
-    end
-  end
+  license "Apache-2.0"
+  head "https://github.com/seaweedfs/seaweedfs.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "cc8522990d95add5cf71ea9fcdf05715efcecf5890332552c42476a48cf6452e"
