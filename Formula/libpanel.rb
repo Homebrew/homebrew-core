@@ -26,7 +26,7 @@ class Libpanel < Formula
       #include <libpanel.h>
 
       int main(int argc, char *argv[]) {
-        panel_init();
+        uint major = panel_get_major_version();
         return 0;
       }
     EOS
