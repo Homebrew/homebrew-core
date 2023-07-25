@@ -21,8 +21,8 @@ class Libpanel < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => [:build, :test]
   depends_on "vala" => :build
-  depends_on "gtk4"
   depends_on "gi-docgen"
+  depends_on "gtk4"
   depends_on "libadwaita"
 
   def install
