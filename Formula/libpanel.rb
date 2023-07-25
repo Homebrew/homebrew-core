@@ -30,8 +30,8 @@ class Libpanel < Formula
         return 0;
       }
     EOS
-    flags = shell_output("#{Formula["pkg-config"].opt_bin}/pkg-config --cflags").strip.split
-    system ENV.cc, "test.c", "-o", "test", "-ladwaita-1", "-lpanel-1", *flags
+    flags = shell_output("#{Formula["pkg-config"].opt_bin}/pkg-config --cflags --libs libpanel-1").strip.split
+    system ENV.cc, "test.c", "-o", "test", "-ladwaita-1", *flags
     system "./test", "--help"
 
     # include a version check for the pkg-config files
