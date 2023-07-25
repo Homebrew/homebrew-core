@@ -218,3 +218,6 @@ jobs:
 
             - label: bump-formula-pr
               pr_body_content: Created with `brew bump-formula-pr`
+
+            - label: pip-audit
+              pr_body_content: Created by `brew-pip-audit`
