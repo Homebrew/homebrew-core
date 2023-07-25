@@ -16,7 +16,7 @@ class Libpanel < Formula
   depends_on "libadwaita"
 
   def install
-    system "meson", "setup", "build", "-Ddocs=false", *std_meson_args
+    system "meson", "setup", "build", "-Ddocs=disabled", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
   end
