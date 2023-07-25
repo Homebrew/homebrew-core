@@ -16,15 +16,12 @@ class Libpanel < Formula
   depends_on "libadwaita"
 
   def install
-    system "meson", "setup", "build", *std_meson_args
+    system "meson", "setup", "build", "-Ddocs=false", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
   end
 
   test do
-    # Remove when `jpeg-turbo` is no longer keg-only.
-    ENV.prepend_path "PKG_CONFIG_PATH", Formula["jpeg-turbo"].opt_lib/"pkgconfig"
-
     (testpath/"test.c").write <<~EOS
       #include <panel.h>
 
