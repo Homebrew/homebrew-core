@@ -23,7 +23,7 @@ class Libpanel < Formula
 
   test do
     (testpath/"test.c").write <<~EOS
-      #include <panel.h>
+      #include <libpanel.h>
 
       int main(int argc, char *argv[]) {
         panel_init();
