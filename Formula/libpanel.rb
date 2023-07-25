@@ -26,7 +26,7 @@ class Libpanel < Formula
       #include <panel.h>
 
       int main(int argc, char *argv[]) {
-        panel_init()
+        panel_init();
         return 0;
       }
     EOS
