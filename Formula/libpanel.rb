@@ -23,6 +23,7 @@ class Libpanel < Formula
   depends_on "vala" => :build
   depends_on "gtk4"
   depends_on "libadwaita"
+  depends_on "gi-docgen"
 
   def install
     system "meson", "setup", "build", *std_meson_args
