@@ -27,18 +27,27 @@ class Ncspot < Formula
     depends_on "dbus"
     depends_on "libxcb"
     depends_on "openssl@3" # Uses Secure Transport on macOS
+    depends_on "pulseaudio"
   end
 
   def install
-    ENV["COREAUDIO_SDK_PATH"] = MacOS.sdk_path_if_needed
-    system "cargo", "install", "--no-default-features",
-                               "--features", "portaudio_backend,cursive/pancurses-backend,share_clipboard",
-                               *std_cargo_args
+    if OS.mac?
+      ENV["COREAUDIO_SDK_PATH"] = MacOS.sdk_path_if_needed
+      system "cargo", "install", "--no-default-features",
+                                 "--features", "portaudio_backend,cursive/pancurses-backend,share_clipboard",
+                                 *std_cargo_args
+    else
+      system "cargo", "install", *std_cargo_args
+    end
   end
 
   test do
     assert_match version.to_s, shell_output("#{bin}/ncspot --version")
-    assert_match "portaudio", shell_output("#{bin}/ncspot --help")
+    if OS.mac?
+      assert_match "portaudio", shell_output("#{bin}/ncspot --help")
+    else
+      assert_match "pulseaudio", shell_output("#{bin}/ncspot --help")
+    end
 
     # Linux CI has an issue running `script`-based testcases
     if OS.mac?
