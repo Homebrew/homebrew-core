@@ -3,7 +3,7 @@ class Mold < Formula
   homepage "https://github.com/rui314/mold"
   url "https://github.com/rui314/mold/archive/refs/tags/v2.0.0.tar.gz"
   sha256 "2ae8a22db09cbff626df74c945079fa29c1e5f60bbe02502dcf69191cf43527b"
-  license "AGPL-3.0-only"
+  license "MIT"
   head "https://github.com/rui314/mold.git", branch: "main"
 
   bottle do
