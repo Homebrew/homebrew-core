@@ -33,7 +33,7 @@ class Libpanel < Formula
     flags = shell_output("#{Formula["pkg-config"].opt_bin}/pkg-config --cflags --libs libpanel-1").strip.split
     flags += shell_output("#{Formula["pkg-config"].opt_bin}/pkg-config --cflags --libs libadwaita-1").strip.split
     system ENV.cc, "test.c", "-o", "test", *flags
-    system "./test", "--help"
+    system "./test"
 
     # include a version check for the pkg-config files
     assert_match version.to_s, (lib/"pkgconfig/libpanel-1.pc").read
