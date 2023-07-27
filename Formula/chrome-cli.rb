@@ -20,7 +20,7 @@ class ChromeCli < Formula
 
   def install
     # Release builds
-    xcodebuild "-arch", Hardware::CPU.arch, "SYMROOT=build"
+    xcodebuild "-arch", Hardware::CPU.arch.to_s, "SYMROOT=build"
     bin.install "build/Release/chrome-cli"
 
     # Install wrapper scripts for chrome compatible browsers
