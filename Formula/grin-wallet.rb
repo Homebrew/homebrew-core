@@ -26,6 +26,12 @@ class GrinWallet < Formula
     depends_on "openssl@3" # Uses Secure Transport on macOS
   end
 
+  # Build patch for rust 1.71.0, remove in next release
+  patch do
+    url "https://github.com/mimblewimble/grin-wallet/commit/0b491fea0fd5aa21fd28c171ed775e70f0877661.patch?full_index=1"
+    sha256 "ec3b485062135c7a09ca4c5cf6bb9a6de29a0bb60850d5e7d4a7264f2945c966"
+  end
+
   def install
     ENV["CLANG_PATH"] = Formula["llvm"].opt_bin/"clang" if OS.linux?
     system "cargo", "install", *std_cargo_args
