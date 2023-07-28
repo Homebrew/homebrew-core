@@ -326,6 +326,7 @@ class Php < Formula
     keep_alive true
     error_log_path var/"log/php-fpm.log"
     working_dir var
+    environment_variables OBJC_DISABLE_INITIALIZE_FORK_SAFETY: "YES"
   end
 
   test do
