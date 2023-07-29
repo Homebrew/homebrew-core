@@ -37,7 +37,7 @@ class Pybind11 < Formula
     pythons.each do |python|
       # Install Python package too
       python_exe = python.opt_libexec/"bin/python"
-      system python_exe, "-m", "pip", "install", *std_pip_args(prefix: libexec), "."
+      system python_exe, *Language::Python.setup_install_args(libexec, python_exe)
 
       site_packages = Language::Python.site_packages(python_exe)
       pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
