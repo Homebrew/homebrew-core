@@ -32,7 +32,9 @@ class Gopass < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/gopass version")
+    # fix gpg-agent reference issue on linux build
+    # gpg: WARNING: server 'gpg-agent' is older than us (2.2.27 < 2.4.3)
+    ENV.prepend "PATH", Formula["gnupg"].opt_bin if OS.linux?
 
     (testpath/"batch.gpg").write <<~EOS
       Key-Type: RSA
@@ -56,5 +58,7 @@ class Gopass < Formula
       system Formula["gnupg"].opt_bin/"gpgconf", "--homedir", "keyrings/live",
                                                  "--kill", "gpg-agent"
     end
+
+    assert_match version.to_s, shell_output("#{bin}/gopass version")
   end
 end
