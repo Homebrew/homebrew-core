@@ -1,8 +1,8 @@
 class Rtx < Formula
   desc "Polyglot runtime manager (asdf rust clone)"
   homepage "https://github.com/jdxcode/rtx"
-  url "https://github.com/jdxcode/rtx/archive/refs/tags/v1.35.2.tar.gz"
-  sha256 "f70c6a35d183f26b6224684b4491eae39ed6427c071e2c0c05e96f956b1278c3"
+  url "https://github.com/jdxcode/rtx/archive/refs/tags/v1.35.4.tar.gz"
+  sha256 "ff32eadc02657efc0841be21273bbb618bcbd2be8c3ff0d09c49640ee4476057"
   license "MIT"
   head "https://github.com/jdxcode/rtx.git", branch: "main"
 
@@ -17,15 +17,40 @@ class Rtx < Formula
   end
 
   depends_on "rust" => :build
+  depends_on "openssl@3"
+
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
 
   def install
+    # Ensure that the `openssl` crate picks up the intended library.
+    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+    ENV["OPENSSL_NO_VENDOR"] = "1"
+
     system "cargo", "install", "--features=brew", *std_cargo_args
     man1.install "man/man1/rtx.1"
     generate_completions_from_executable(bin/"rtx", "completion")
   end
 
+  def check_binary_linkage(binary, library)
+    binary.dynamically_linked_libraries.any? do |dll|
+      next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
+
+      File.realpath(dll) == File.realpath(library)
+    end
+  end
+
   test do
     system "#{bin}/rtx", "install", "nodejs@18.13.0"
     assert_match "v18.13.0", shell_output("#{bin}/rtx exec nodejs@18.13.0 -- node -v")
+
+    [
+      Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
+      Formula["openssl@3"].opt_lib/shared_library("libssl"),
+    ].each do |library|
+      assert check_binary_linkage(bin/"rtx", library),
+             "No linkage with #{library.basename}! Cargo is likely using a vendored version."
+    end
   end
 end
