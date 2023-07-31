@@ -65,18 +65,18 @@ class Cp2k < Formula
       ENV["LIBINT_LIB_DIR"] = libexec/"lib"
 
       # CP2K configuration is done through editing of arch files
-      inreplace Dir["arch/Darwin-gfortran.*"].each do |s|
+      inreplace Dir["arch/Darwin-gfortran.*"].to_a.each do |s|
         s.gsub!(/DFLAGS *=/, "DFLAGS = -D__FFTW3")
         s.gsub!(/FCFLAGS *=/, "FCFLAGS = -I#{Formula["fftw"].opt_include}")
         s.gsub!(/LIBS *=/, "LIBS = #{libs.join(" ")}")
       end
 
       # MPI versions link to scalapack
-      inreplace Dir["arch/Darwin-gfortran.p*"],
+      inreplace Dir["arch/Darwin-gfortran.p*"].to_a,
                 /LIBS *=/, "LIBS = -L#{Formula["scalapack"].opt_lib}"
 
       # OpenMP versions link to specific fftw3 library
-      inreplace Dir["arch/Darwin-gfortran.*smp"],
+      inreplace Dir["arch/Darwin-gfortran.*smp"].to_a,
                 "-lfftw3", "-lfftw3 -lfftw3_threads"
     else
       args = %W[
