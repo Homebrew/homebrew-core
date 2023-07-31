@@ -11,7 +11,9 @@ class LiveChart < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => [:build, :test]
   depends_on "vala" => :build
+  depends_on "cmake"
   depends_on "gtk+3"
+  depends_on "libgee"
 
   def install
     system "meson", "setup", "build", *std_meson_args
