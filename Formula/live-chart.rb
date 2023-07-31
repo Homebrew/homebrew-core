@@ -11,7 +11,7 @@ class LiveChart < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => [:build, :test]
   depends_on "vala" => :build
-  depends_on "gtk3"
+  depends_on "gtk+3"
 
   def install
     system "meson", "setup", "build", *std_meson_args
@@ -31,7 +31,7 @@ class LiveChart < Formula
       }
     EOS
 
-    system "vala", "test.vala", "--pkg gee-0.8", "--pkg gtk3", "--pkg livechart", "-o", "test"
+    system "vala", "test.vala", "--pkg gee-0.8", "--pkg gtk+-3.0", "--pkg livechart", "-o", "test"
     system "./test"
 
     # include a version check for the pkg-config files
