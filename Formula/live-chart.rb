@@ -33,7 +33,7 @@ class LiveChart < Formula
       }
     EOS
 
-    system "vala", "test.vala", "--pkg gee-0.8", "--pkg gtk+-3.0", "--pkg livechart", "-o", "test"
+    system "valac", "test.vala", "--pkg gee-0.8", "--pkg gtk+-3.0", "--pkg livechart", "-o", "test"
     system "./test"
 
     # include a version check for the pkg-config files
