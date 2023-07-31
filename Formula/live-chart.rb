@@ -2,7 +2,7 @@ class LiveChart < Formula
   desc "Real-time charting library for Vala and GTK3 based on Cairo"
   homepage "https://github.com/lcallarec/live-chart"
   url "https://github.com/lcallarec/live-chart/archive/refs/tags/1.9.1.tar.gz"
-  sha256 "860d57bd633bd1c8c6d387190d8d5ace39fe4a8abb26c0a40bb0c8d263c7a3c0"
+  sha256 "7b5f1d0807b5f6e8b09e2c1dd468af22379578b55b38afd530c0ff006bc33e53"
   license "MIT"
 
   depends_on "gettext" => :build
