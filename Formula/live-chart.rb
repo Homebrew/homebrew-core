@@ -10,7 +10,7 @@ class LiveChart < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => [:build, :test]
-  depends_on "vala" => :build
+  depends_on "vala" => [:build, :test]
   depends_on "cmake"
   depends_on "gtk+3"
   depends_on "libgee"
@@ -33,7 +33,7 @@ class LiveChart < Formula
       }
     EOS
 
-    system "valac", "test.vala", "--pkg gee-0.8", "--pkg gtk+-3.0", "--pkg livechart", "-o", "test"
+    system "vala", "test.vala", "--pkg gee-0.8", "--pkg gtk+-3.0", "--pkg livechart", "-o", "test"
     system "./test"
 
     # include a version check for the pkg-config files
