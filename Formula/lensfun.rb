@@ -3,15 +3,14 @@ class Lensfun < Formula
 
   desc "Remove defects from digital images"
   homepage "https://lensfun.github.io/"
-  url "https://github.com/lensfun/lensfun/archive/refs/tags/v0.3.3.tar.gz"
-  sha256 "57ba5a0377f24948972339e18be946af12eda22b7c707eb0ddd26586370f6765"
+  url "https://github.com/lensfun/lensfun/archive/refs/tags/v0.3.4.tar.gz"
+  sha256 "dafb39c08ef24a0e2abd00d05d7341b1bf1f0c38bfcd5a4c69cf5f0ecb6db112"
   license all_of: [
     "LGPL-3.0-only",
     "GPL-3.0-only",
     "CC-BY-3.0",
     :public_domain,
   ]
-  revision 1
   version_scheme 1
   head "https://github.com/lensfun/lensfun.git", branch: "master"
 
