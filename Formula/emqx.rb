@@ -2,8 +2,8 @@ class Emqx < Formula
   desc "MQTT broker for IoT"
   homepage "https://www.emqx.io/"
   # TODO: Check if we can use unversioned `erlang` at version bump
-  url "https://github.com/emqx/emqx/archive/refs/tags/v5.1.2.tar.gz"
-  sha256 "b9ecb6275386b410e9c330b4c5b3d30acf377627d41e73c00c6460b4d8fd5f0b"
+  url "https://github.com/emqx/emqx/archive/refs/tags/v5.1.4.tar.gz"
+  sha256 "e9c5a8f98a3b142211fcc83de6b6c7251677a71d27b207d08ca6cb07c77afc0d"
   license "Apache-2.0"
   head "https://github.com/emqx/emqx.git", branch: "master"
 
