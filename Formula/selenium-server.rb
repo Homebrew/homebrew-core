@@ -20,13 +20,8 @@ class SeleniumServer < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d47ec3d78127b08b3706f184aab9d4e254222820d1364509923702aab6c1f003"
   end
 
+  depends_on "geckodriver" => :test
   depends_on "openjdk"
-
-  on_linux do
-    # We need to have any webdriver installed for testing,
-    # macOS comes with safaridriver, let's use geckodriver for linux
-    depends_on "geckodriver" => :test
-  end
 
   def install
     libexec.install "selenium-server-#{version}.jar"
