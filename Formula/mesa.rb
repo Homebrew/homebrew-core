@@ -4,13 +4,12 @@ class Mesa < Formula
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
   license "MIT"
-  revision 1
   head "https://gitlab.freedesktop.org/mesa/mesa.git", branch: "main"
 
   stable do
     # TODO: Check if we can use unversioned `llvm` at version bump.
-    url "https://mesa.freedesktop.org/archive/mesa-22.3.6.tar.xz"
-    sha256 "4ec8ec65dbdb1ee9444dba72970890128a19543a58cf05931bd6f54f124e117f"
+    url "https://mesa.freedesktop.org/archive/mesa-23.1.5.tar.xz"
+    sha256 "3cf88576fdebf24fc4047067936131c90cb6541c27365996b79b661dec1fb153"
 
     patch do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/f0a40cf7d70ee5a25639b91d9a8088749a2dd04e/mesa/fix-build-on-macOS.patch"
