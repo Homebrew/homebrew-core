@@ -1,8 +1,8 @@
 class Cake < Formula
   desc "Cross platform build automation system with a C# DSL"
   homepage "https://cakebuild.net/"
-  url "https://github.com/cake-build/cake/archive/refs/tags/v3.0.0.tar.gz"
-  sha256 "2bd3f55d13e559120296aa206ebe09f0410ccd6f133dd1bcb90f56470bfcf09e"
+  url "https://github.com/cake-build/cake/archive/refs/tags/v3.1.0.tar.gz"
+  sha256 "ddd2c5dfff20fa2783ec5a7944b0169d627604d57191bd4cdba0bc79f2a997d2"
   license "MIT"
 
   bottle do
@@ -19,6 +19,9 @@ class Cake < Formula
 
   conflicts_with "coffeescript", because: "both install `cake` binaries"
 
+  # patch dotnet version requirement
+  patch :DATA
+
   def install
     dotnet = Formula["dotnet"]
     os = OS.mac? ? "osx" : OS.kernel_name.downcase
@@ -30,7 +33,7 @@ class Cake < Formula
       --output #{libexec}
       --runtime #{os}-#{arch}
       --no-self-contained
-      /p:Version=#{version}
+      -p:Version=#{version}
     ]
 
     system "dotnet", "publish", "src/Cake", *args
@@ -52,3 +55,19 @@ class Cake < Formula
     assert_match "Hello Homebrew\n", shell_output("#{bin}/cake build.cake")
   end
 end
+
+__END__
+diff --git a/global.json b/global.json
+index ecd662c..2afa50f 100644
+--- a/global.json
++++ b/global.json
+@@ -3,7 +3,7 @@
+         "src"
+     ],
+     "sdk": {
+-        "version": "7.0.305",
++        "version": "7.0.100",
+         "rollForward": "latestFeature"
+     }
+ }
+\ No newline at end of file
