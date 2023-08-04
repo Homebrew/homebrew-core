@@ -4,6 +4,7 @@ class MingwW64 < Formula
   url "https://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v11.0.0.tar.bz2"
   sha256 "bd0ea1633bd830204cc23a696889335e9d4a32b8619439ee17f22188695fcc5f"
   license "ZPL-2.1"
+  revision 1
 
   livecheck do
     url :stable
@@ -29,17 +30,9 @@ class MingwW64 < Formula
   depends_on "mpfr"
 
   resource "binutils" do
-    url "https://ftp.gnu.org/gnu/binutils/binutils-2.40.tar.xz"
-    mirror "https://ftpmirror.gnu.org/binutils/binutils-2.40.tar.xz"
-    sha256 "0f8a4c272d7f17f369ded10a4aca28b8e304828e95526da482b0ccc4dfc9d8e1"
-
-    # Fix linking failures in ld against import lib. Fixed upstream but still
-    # present in 2.40. Can remove this once 2.41 is released.
-    # https://sourceware.org/bugzilla/show_bug.cgi?id=30079
-    patch do
-      url "https://sourceware.org/git/?p=binutils-gdb.git;a=commitdiff_plain;h=b7eab2a9d4f4e92692daf14b09fc95ca11b72e30;hp=0d2f72332c7606fa3181b54dceef82d1af403624"
-      sha256 "99e943c9ea549c0a815493ea54f73e1af005224faa042bf2a4fa459325006c1b"
-    end
+    url "https://ftp.gnu.org/gnu/binutils/binutils-2.41.tar.xz"
+    mirror "https://ftpmirror.gnu.org/binutils/binutils-2.41.tar.xz"
+    sha256 "ae9a5789e23459e59606e6714723f2d3ffc31c03174191ef0d015bdf06007450"
   end
 
   resource "gcc" do
