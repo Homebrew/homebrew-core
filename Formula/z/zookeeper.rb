@@ -28,7 +28,7 @@ class Zookeeper < Formula
   depends_on "openssl@3"
 
   resource "default_logback_xml" do
-    url "https://raw.githubusercontent.com/apache/zookeeper/release-3.8.1/conf/logback.xml"
+    url "https://raw.githubusercontent.com/apache/zookeeper/release-3.9.0/conf/logback.xml"
     sha256 "2fae7f51e4f92e8e3536e5f9ac193cb0f4237d194b982bb00b5c8644389c901f"
   end
 
