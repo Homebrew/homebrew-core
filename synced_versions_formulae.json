@@ -1,8 +1,9 @@
 [
-  ["aarch64-elf-gcc", "i686-elf-gcc", "x86_64-elf-gcc"],
+  ["aarch64-elf-gcc", "arm-none-eabi-gcc", "i686-elf-gcc", "x86_64-elf-gcc"],
   [
     "aarch64-elf-binutils",
     "arm-linux-gnueabihf-binutils",
+    "arm-none-eabi-binutils",
     "i686-elf-binutils",
     "x86_64-elf-binutils",
     "x86_64-linux-gnu-binutils"
@@ -26,7 +27,7 @@
   ["fbthrift", "mvfst", "proxygen"],
   ["frpc", "frps"],
   ["gcc", "libgccjit"],
-  ["gdb", "i386-elf-gdb", "x86_64-elf-gdb", "aarch64-elf-gdb"],
+  ["gdb", "aarch64-elf-gdb", "arm-none-eabi-gdb", "i386-elf-gdb", "x86_64-elf-gdb"],
   ["ghz", "ghz-web"],
   ["git", "git-credential-libsecret", "git-gui", "git-svn"],
   ["hdf5", "hdf5-mpi"],
