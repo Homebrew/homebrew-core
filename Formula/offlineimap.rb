@@ -10,15 +10,14 @@ class Offlineimap < Formula
   head "https://github.com/OfflineIMAP/offlineimap3.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d4165e941468399fa4990253ebc0a2f2eb7d7af8e88da8862b9c8c433f667e59"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6f25420ab2c8efe5c0b5ac9223d1e49de090c3e5d5d7274ef11ed627114f4610"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3c26406e257f2211984f3e92e9c09f20c6c385fb7b1944ba87272d67a155ffb3"
-    sha256 cellar: :any_skip_relocation, ventura:        "4e78e8faee9f701117fe5fac7e19a5bae79bad80ce5f5fc4cb3c4db6ef2877ca"
-    sha256 cellar: :any_skip_relocation, monterey:       "04b485b04b07a1cca16998214493d1694c7b4c385be249690cc1d0a3d7c636fd"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1eb38896c12bd4dca38c8499e989b016831e16b3a2dcd532c8137cda027861a0"
-    sha256 cellar: :any_skip_relocation, catalina:       "b3b0e6de67b3b9f32ede8cbc78d1af4872df68cbfac59dde180b6174a7b99fae"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8d1d86aadc53a67390d6077c40de359b8d9bf67a06be8119d856c7dcd4f6a109"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "83f5ee79454aacd9cd58fb5c4c6eb4aa6932d0ba483b2199564d2af74997d040"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c81fb4109a28e931a6325beabcb5a19effe25d5852125d6e13354450a0923047"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "795ae0345b2044cc0db0c72b493bfc664419f196f5581a71d505db5f2a1c8cb7"
+    sha256 cellar: :any_skip_relocation, ventura:        "362944ab2e8ed18b32808ffb6dbbba7758a5ed582836ac1ba6be8bf96bf5ebcb"
+    sha256 cellar: :any_skip_relocation, monterey:       "6f1108e087c2c9637a25219d38c2e3a02e654749f34ae45dfcb18b9230b6d66e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "91224cc003fba38cbdb80e9951a86e9a5544ba7f5aa2695c0d6727c4a8c557b0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e2aba649ccd6e7506f1f01e1116e6767d3ef95f66179cc8274f07272c28b986b"
   end
 
   depends_on "python-certifi"
