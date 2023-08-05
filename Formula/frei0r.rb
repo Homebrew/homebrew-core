@@ -6,13 +6,13 @@ class Frei0r < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9377921bab7290f44ee4851e67ee2edef807be0fb221156695c27682ed5c04d2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6c31413ef3e76554d9f625db882f844945e70dfeecd0fc0a9f806448418f7d10"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "89d7fa7a43cb0197d5f02308584a3c1ef85094904dde22d25c16285991258789"
-    sha256 cellar: :any_skip_relocation, ventura:        "d72f91bc351a162d041b4fbf46fb5244d09a84ecdee25f94a4fe931e05eabef4"
-    sha256 cellar: :any_skip_relocation, monterey:       "22f0cb824fbcda47a91645cd5e3782050a7adb1faa804ba115f0ccb8c6990447"
-    sha256 cellar: :any_skip_relocation, big_sur:        "85733d5d2a2f38e1d9dc9043a600b4567913f115a2920fd3939dacdbec6afd3a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "823095d9928500f908ed3c1798c54aa3096daad87883d5a468449686cc3ce244"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4ed74b974e7139389d18023f046b110f6130077fdf439ebc5160a74c49d201a3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8d7583afd26b8fe3ca325c3be7094cee4b11d0971540fa08c24b5f18bd6d5e11"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "544eca4e64b8b5b9ea9f1e3f8a5ff965e05550c5c817cfdba22bd4cafdccce20"
+    sha256 cellar: :any_skip_relocation, ventura:        "b758ba1802d90593b19018699ff86eda41c097e26901d3416f6c5ac72eaf39d5"
+    sha256 cellar: :any_skip_relocation, monterey:       "6a8da3d13c69817c2ff5cf411211209d78d57be5b9677cfff10bd640059272ea"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9361dbf613fa22e7098b66c5b305971a68311304eb7d46e93622f7c04d655b6d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "74bba79532192e29fe85c8c125d73a7b022c84b3bd36fb655a4fc1c4ec333325"
   end
 
   depends_on "cmake" => :build
