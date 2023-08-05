@@ -53,7 +53,7 @@
     "exclude_packages": ["six", "tabulate"]
   },
   "aws-elasticbeanstalk": {
-    "exclude_packages": ["cffi", "pycparser", "PyYAML", "six"]
+    "exclude_packages": ["cffi", "pycparser", "certifi", "PyYAML", "six"]
   },
   "aws-google-auth": {
     "exclude_packages": ["cffi", "keyring", "pillow", "pycparser", "six", "tabulate"]
