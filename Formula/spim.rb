@@ -8,14 +8,13 @@ class Spim < Formula
   head "https://svn.code.sf.net/p/spimsimulator/code/"
 
   bottle do
-    sha256                               arm64_ventura:  "884c825255b5915044db2bb49779018a5439749355b0d42ced7afbf50470b5a5"
-    sha256                               arm64_monterey: "bdc5c60be138784fc2abc92e1f75db7024c81867a53f6f9eeedfbb092f4c6534"
-    sha256                               arm64_big_sur:  "75f374887912346bd6acf5639a0f1b506c99feea75f0d4647ed233310be2f060"
-    sha256                               ventura:        "ef5643eabf9261c32c62cf0c305d2ddb4d5aae0cc5602b5c2f6146185daa3391"
-    sha256 cellar: :any_skip_relocation, monterey:       "1d5234fbb252011107f344fdbc7f249591ae3f3fe851e1e28a8b531ec37d46c3"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c1d1629354ab4e842c9254e47b420f56974c0611c24d267ba048fa5bf6055079"
-    sha256 cellar: :any_skip_relocation, catalina:       "c6f9828c0a790cf3aa2f9bc0b2a7c6ce5f2ea730a942508921950bc6da601cae"
-    sha256                               x86_64_linux:   "1b6edb0c5f5adaf513d6c5a1688852ee32f7091331db280ecc3a74d048a05c76"
+    sha256                               arm64_ventura:  "8988a6ebd91f653a51334b91c6994614111ea7b22f947096c4e7e733308f7acf"
+    sha256                               arm64_monterey: "06f1e5eafb737ed027b4eb7e46046cf2d31766cce568e10e2f8516253fb016ba"
+    sha256                               arm64_big_sur:  "2adbe0458d654dd7fee2950dbbf0d208560a2727b11c4424029440e8a9e427e6"
+    sha256                               ventura:        "1e8beca0f9b599bd1f265bfd9efd809af4eeb866cc1ac6129854ae460bc818b6"
+    sha256                               monterey:       "933efdf418c0df8d5be8b6a87692fdd5a3452158a39435af31a36e8fe8e2ad02"
+    sha256 cellar: :any_skip_relocation, big_sur:        "965617046b995f3e27f9c271880b4750d7dfb4d9eb9a665028b23f0ceb47a934"
+    sha256                               x86_64_linux:   "e0360ac85fb93780c8cf1833800f8308b4df1c0863cfdf1c17692bb8bd1291c5"
   end
 
   uses_from_macos "bison" => :build
