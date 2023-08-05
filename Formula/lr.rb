@@ -7,13 +7,13 @@ class Lr < Formula
   head "https://github.com/leahneukirchen/lr.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4ef4b3efd8f0b8e68cb1d02f600cfae5c780c4227ddf0193e010f3a328e95f23"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "772570dfa98bac636b0285407a8bdc0b987288a37d2c2d2a21ad448fadc60e65"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "dadc15568d278a97b4bc79e4218680f9f4f3a4d4cc5da6117ffb70093e7aa0e9"
-    sha256 cellar: :any_skip_relocation, ventura:        "8cb55dda590f5e3e42ee33b7b92e45db3c92f28036b271b0ca391e2a98afeda6"
-    sha256 cellar: :any_skip_relocation, monterey:       "13dca68cb7edf7dacb30fb894688e9c6384b6e26cc39d47018f5a5baf2120cca"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0a4acf369b4f1056a98a7bc61daa685df1254a087087a5a528d34fc9d561ca39"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1b0e58ef6033c28d27113e53b22f28ac674a4f58d869a362dcdba5427068640a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "501cd972976041e65e066e2fcd49b0d6be2627ca686e230ee987dd3042bb3ea4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c380adb162fc049ad50a96ea2277feffefbf014d3038b1ce62190bbbd6fb08a8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c0e7b1a762a2194579ccff17c52b287b69f59162d6182c7c84ef6859286f4459"
+    sha256 cellar: :any_skip_relocation, ventura:        "b6497f9afd4b1f50b47399ea5d6f82e8bacb4e890b861d07f6c57a113cf7db16"
+    sha256 cellar: :any_skip_relocation, monterey:       "829cf70a931246edf6f238bc929ee9381eafb41aece7d3017ca402115fa0e6d7"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8bce6806f73a80466046ae85376607765322c51e7e3b9296581834c2135b743e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f26c65c91cd102e17c2efdc919d67ba4a65c44dda54c47faffb2f3ca23187e69"
   end
 
   def install
