@@ -10,6 +10,16 @@ class ArmNoneEabiGcc < Formula
     formula "gcc"
   end
 
+  bottle do
+    sha256 arm64_ventura:  "4f2f39fafa158e109e7ead969e9fab8d1ea14e4dcf9e78fe2e0f959195c6d906"
+    sha256 arm64_monterey: "9eaf4e0fa6ba13e7d7f355c7fef36b264c869194dde1be79a824c509c18489f3"
+    sha256 arm64_big_sur:  "9c7d8c3936e3ab6151fc0e5ccf2cf9ab740bb8c09e74c1d51deffc1e40966201"
+    sha256 ventura:        "605716f2172a781934637d78a772fa6b245f786d60d5fcecd8f7b1f9e8d54f36"
+    sha256 monterey:       "86438c6a8f263a5b0942bab2f7eb9b3259f70e3bea77bd5b7f9c1ea4accd1322"
+    sha256 big_sur:        "a156db223f16707396358727e4c178d427496e8174d7f133b51f5efa1643504d"
+    sha256 x86_64_linux:   "e8ae63c45c6b9fc368896e5fe83879d3e7f4682400dcb6cefea33fa684f441f3"
+  end
+
   depends_on "arm-none-eabi-binutils"
   depends_on "gmp"
   depends_on "libmpc"
