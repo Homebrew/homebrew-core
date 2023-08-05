@@ -44,6 +44,7 @@ class Glibc < Formula
   desc "GNU C Library"
   homepage "https://www.gnu.org/software/libc/"
   url "https://ftp.gnu.org/gnu/glibc/glibc-2.35.tar.gz"
+  mirror "https://ftpmirror.gnu.org/gnu/glibc/glibc-2.35.tar.gz"
   sha256 "3e8e0c6195da8dfbd31d77c56fb8d99576fb855fafd47a9e0a895e51fd5942d4"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
   revision 1
@@ -228,7 +229,7 @@ class Glibc < Formula
     # Set the local time zone
     sys_localtime = Pathname("/etc/localtime")
     brew_localtime = prefix/"etc/localtime"
-    (prefix/"etc").install_symlink sys_localtime if sys_localtime.exist? && brew_localtime.exist?
+    (prefix/"etc").install_symlink sys_localtime if sys_localtime.exist? && !brew_localtime.exist?
 
     # Set zoneinfo correctly using the system installed zoneinfo
     sys_zoneinfo = Pathname("/usr/share/zoneinfo")
