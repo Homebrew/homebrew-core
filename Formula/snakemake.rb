@@ -3,8 +3,8 @@ class Snakemake < Formula
 
   desc "Pythonic workflow system"
   homepage "https://snakemake.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/54/26/7585278ac9b4cd6ae29bde3e8fcac5bb5eeb4cdf7b38c9d529026326e602/snakemake-7.32.0.tar.gz"
-  sha256 "f9506a7160f9410eb398927bf0c73269c9d6857f40213c34cb7ac54bea8f53a5"
+  url "https://files.pythonhosted.org/packages/5c/a4/8d18f381da0ace07fc95c552db8327930157bb4909b0c5fe1d18c89d4555/snakemake-7.32.1.tar.gz"
+  sha256 "5a8e1c36c7cf2bcd88f70e34a9cecd3154fc745688c80227ff929b0990c6fa67"
   license "MIT"
   head "https://github.com/snakemake/snakemake.git", branch: "main"
 
@@ -146,8 +146,8 @@ class Snakemake < Formula
   end
 
   resource "referencing" do
-    url "https://files.pythonhosted.org/packages/ae/0e/5a4c22e046dc8c94fec2046255ddd7068b7aaff66b3d0d0dd2cfbf8a7b20/referencing-0.30.0.tar.gz"
-    sha256 "47237742e990457f7512c7d27486394a9aadaf876cbfaa4be65b27b4f4d47c6b"
+    url "https://files.pythonhosted.org/packages/e1/43/d3f6cf3e1ec9003520c5fb31dc363ee488c517f09402abd2a1c90df63bbb/referencing-0.30.2.tar.gz"
+    sha256 "794ad8003c65938edcdbc027f1933215e0d0ccc0291e3ce20a4d87432b59efc0"
   end
 
   resource "requests" do
