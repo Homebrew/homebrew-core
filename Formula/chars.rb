@@ -7,15 +7,13 @@ class Chars < Formula
   head "https://github.com/antifuchs/chars.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e86820c61f169941a6a3dae1cfcb6c1482cf8d3c085ce6efbf667bdbe1cfe894"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "213905dc7e59d0347209f84242f9fbdc7dd1adea7f890c9668472b3b5389ec74"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "46c98e22e7a51a614c1dc0d91843e864571c06a89b9776097f2d69dbc863d041"
-    sha256 cellar: :any_skip_relocation, ventura:        "0bf1197ee210cd14d89561b1e5bdc28947774cceba426eb04fdcf9984d30893d"
-    sha256 cellar: :any_skip_relocation, monterey:       "f6a1f04b6483546d3290e6205425b9848f12f6649245138a81855ea64f45ecb5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8f269cd28454df1e15bb292be55d98c2416c82bef436bd0328b74db74abc4058"
-    sha256 cellar: :any_skip_relocation, catalina:       "da663c9240e79d35e7a6a1cd40a114f37eef27e533126bca685af48b75fa11ed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f2612efe435bbd11443b34bc4a3dffecbc9036884ce64e9c6fd5ad32e65c767e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ec2d1f5493c3b1f8a47bda9daf15bef446399aebac55becc11a01248248b9f4f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ba84b41f4ab585ec74835948f68e71c3588745dd6f8a748484a7a76e6ae45272"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1a6953f523530f24505bd9d08be048287eba3f2caf1e766fdab8d7bda2891d30"
+    sha256 cellar: :any_skip_relocation, ventura:        "68c80f7eecac24a7730af591f936abe6e7d5c4189710c9da22afe81e967f4b98"
+    sha256 cellar: :any_skip_relocation, monterey:       "65532ff891fc1197305aee0b466e0bd7fdeec5f5aec9c6559449e7255949c12a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "eedb2d02f6e1f3889cb6db4d5769b99b7be2bd7441872b7c6e9861c2582a482e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ef3b72700c113acb7f3fbf7b977d2e2b16906384325d0f606ada0929c2eab9a9"
   end
 
   depends_on "rust" => :build
