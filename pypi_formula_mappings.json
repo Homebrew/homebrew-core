@@ -1,4 +1,7 @@
 {
+  "airshare": {
+    "exclude_packages": ["certifi"]
+  },
   "anime-downloader": {
     "exclude_packages": ["six", "tabulate"]
   },
