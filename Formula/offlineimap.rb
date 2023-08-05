@@ -21,14 +21,10 @@ class Offlineimap < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8d1d86aadc53a67390d6077c40de359b8d9bf67a06be8119d856c7dcd4f6a109"
   end
 
+  depends_on "python-certifi"
   depends_on "python@3.11"
 
   uses_from_macos "krb5"
-
-  resource "certifi" do
-    url "https://files.pythonhosted.org/packages/6c/ae/d26450834f0acc9e3d1f74508da6df1551ceab6c2ce0766a593362d6d57f/certifi-2021.10.8.tar.gz"
-    sha256 "78884e7c1d4b00ce3cea67b44566851c4343c120abd683433ce934a68ea58872"
-  end
 
   resource "decorator" do
     url "https://files.pythonhosted.org/packages/66/0c/8d907af351aa16b42caae42f9d6aa37b900c67308052d10fdce809f8d952/decorator-5.1.1.tar.gz"

@@ -517,6 +517,9 @@
   "ocrmypdf": {
     "exclude_packages": ["pillow", "cffi", "pycparser"]
   },
+  "offlineimap": {
+    "exclude_packages": ["certifi"]
+  },
   "okta-awscli": {
     "exclude_packages": ["six"]
   },
