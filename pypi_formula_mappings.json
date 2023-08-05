@@ -113,7 +113,7 @@
   },
   "buku": {
     "package_name": "buku[server]",
-    "exclude_packages": ["cffi", "pycparser", "six"]
+    "exclude_packages": ["certifi", "cffi", "pycparser", "six"]
   },
   "bzt": {
     "exclude_packages": ["numpy", "six", "Cython", "PyYAML"]
