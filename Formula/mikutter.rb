@@ -1,8 +1,8 @@
 class Mikutter < Formula
   desc "Extensible Twitter client"
   homepage "https://mikutter.hachune.net/"
-  url "https://mikutter.hachune.net/bin/mikutter-5.0.4.tar.gz", using: :homebrew_curl
-  sha256 "875a8009241ad312c0bc2be0df9d64461d29410564124f306cf443e316fa1732"
+  url "https://mikutter.hachune.net/bin/mikutter-5.0.5.tar.gz", using: :homebrew_curl
+  sha256 "8f8d633fedd1a05767eacbd6840c6c268dd2a47f5cf7f7a520a38c8ea869f6c2"
   license "MIT"
   head "git://mikutter.hachune.net/mikutter.git", branch: "develop"
 
@@ -24,9 +24,7 @@ class Mikutter < Formula
 
   depends_on "gobject-introspection"
   depends_on "gtk+3"
-  # gtk3==3.4.9 gem error with ruby 3.2: use of undeclared identifier 'rb_cData'
-  # https://github.com/ruby-gnome/ruby-gnome/commit/1e5edc85e14dc97d42cd6e5a1bb72dfbf9341b95
-  depends_on "ruby@3.1"
+  depends_on "ruby"
 
   uses_from_macos "libxml2" # for nokogiri
   uses_from_macos "libxslt" # for nokogiri
@@ -36,23 +34,23 @@ class Mikutter < Formula
   end
 
   resource "addressable" do
-    url "https://rubygems.org/downloads/addressable-2.8.1.gem"
-    sha256 "bc724a176ef02118c8a3ed6b5c04c39cf59209607ffcce77b91d0261dbadedfa"
+    url "https://rubygems.org/downloads/addressable-2.8.5.gem"
+    sha256 "63f0fbcde42edf116d6da98a9437f19dd1692152f1efa3fcc4741e443c772117"
   end
 
   resource "atk" do
-    url "https://rubygems.org/downloads/atk-3.4.9.gem"
-    sha256 "23ea67070792379592d595dcbcb229168f0f19865f3a358c4a33277ebf48f843"
+    url "https://rubygems.org/downloads/atk-4.1.7.gem"
+    sha256 "4aff31c1b085c3f643232bbf86f27f61a9ececa50a8e3161a214ea6c7e6f6136"
   end
 
   resource "cairo" do
-    url "https://rubygems.org/downloads/cairo-1.17.8.gem"
-    sha256 "584d96bcb1f983f660b2e1ef51485d1d16bbafc97485be02dd2f92f9af5f626a"
+    url "https://rubygems.org/downloads/cairo-1.17.12.gem"
+    sha256 "d19fe81c4eacba3efe0dd03e7541bb72dbbfb39625099d0e8e2993dfb7e5a8ea"
   end
 
   resource "cairo-gobject" do
-    url "https://rubygems.org/downloads/cairo-gobject-3.4.9.gem"
-    sha256 "88f3171d9f14c386f2e79d356724ee10aff1a582fed04f6e029e3396912055e1"
+    url "https://rubygems.org/downloads/cairo-gobject-4.1.7.gem"
+    sha256 "3ad622895f2b787ce083db45aebb621809f0715d05f5957a89a081b1be1eb2ec"
   end
 
   resource "delayer" do
@@ -70,19 +68,24 @@ class Mikutter < Formula
     sha256 "bf70f14e092ba9d05ef5a46c6b359b43310c0478cb371a68a3543ca7ae8953d8"
   end
 
+  resource "fiddle" do
+    url "https://rubygems.org/downloads/fiddle-1.1.1.gem"
+    sha256 "be49c73ad55c5a08bd6cf600e3dff5038b9095d449c7fb1eb16e648fc68a5fe8"
+  end
+
   resource "forwardable" do
     url "https://rubygems.org/downloads/forwardable-1.3.3.gem"
     sha256 "f17df4bd6afa6f46a003217023fe5716ef88ce261f5c4cf0edbdeed6470cafac"
   end
 
   resource "gdk3" do
-    url "https://rubygems.org/downloads/gdk3-3.4.9.gem"
-    sha256 "7e298ef9e8fd1edb43eb66d981838f0450eb6c4897d8f40281d0d317184e8ed0"
+    url "https://rubygems.org/downloads/gdk3-4.1.7.gem"
+    sha256 "18d41308a62bc5294bfd7d5629144a6108b27b31c8d14c377a354a868c200f64"
   end
 
   resource "gdk_pixbuf2" do
-    url "https://rubygems.org/downloads/gdk_pixbuf2-3.4.9.gem"
-    sha256 "143863f852f2c36bee748d2fe19bc6323d155e18834b064a5ca659dabe5cd861"
+    url "https://rubygems.org/downloads/gdk_pixbuf2-4.1.7.gem"
+    sha256 "af6faf055259177757414a1f5cf7fd82fff2598c93d3d8e28ce8fec61cf430dd"
   end
 
   resource "gettext" do
@@ -91,23 +94,23 @@ class Mikutter < Formula
   end
 
   resource "gio2" do
-    url "https://rubygems.org/downloads/gio2-3.4.9.gem"
-    sha256 "3f44af21628ffa4dbaf6b404101acc4514be36dc33557011e493d4814986a765"
+    url "https://rubygems.org/downloads/gio2-4.1.7.gem"
+    sha256 "d087a6ea5da98c149c807ced62a202a22d2d0d968d4093ba778002471a78f2be"
   end
 
   resource "glib2" do
-    url "https://rubygems.org/downloads/glib2-3.4.9.gem"
-    sha256 "286f6b9032385f170d23eabc18f39be854bc9f20d65f0028e5365f3754a845dc"
+    url "https://rubygems.org/downloads/glib2-4.1.7.gem"
+    sha256 "f4798fd8477a9454aa6408dfb9d71f34c29abfd64b1b01b51ca05fc4a45bfca6"
   end
 
   resource "gobject-introspection" do
-    url "https://rubygems.org/downloads/gobject-introspection-3.4.9.gem"
-    sha256 "a63985c90f0914e2827f7b75bbab103edfeaf968d8670eedc0cc6452ecd52e83"
+    url "https://rubygems.org/downloads/gobject-introspection-4.1.7.gem"
+    sha256 "1e1aa9107aab1d657c8b96080fc3efa801acf1e8febb561801cb89b5bf93ffad"
   end
 
   resource "gtk3" do
-    url "https://rubygems.org/downloads/gtk3-3.4.9.gem"
-    sha256 "af53ca3dc393d6a118a2dd349c40796c595374a760fd84f1fc236a4e5e324785"
+    url "https://rubygems.org/downloads/gtk3-4.1.7.gem"
+    sha256 "8517593ef2343b5dc587ddc2688fab28f1bbf9cc91940a92fd73753517b7b932"
   end
 
   resource "hashie" do
@@ -151,8 +154,8 @@ class Mikutter < Formula
   end
 
   resource "native-package-installer" do
-    url "https://rubygems.org/downloads/native-package-installer-1.1.5.gem"
-    sha256 "516ebbacd7382b7e424da96eda6666d60dfad4dd407245a6ad5c1ad94e803ae4"
+    url "https://rubygems.org/downloads/native-package-installer-1.1.8.gem"
+    sha256 "cba63fb94dfe4582759acc53b5b5a87429ec03cd7b79d2c213a92a067bea9c00"
   end
 
   resource "nokogiri" do
@@ -171,13 +174,13 @@ class Mikutter < Formula
   end
 
   resource "pango" do
-    url "https://rubygems.org/downloads/pango-3.4.9.gem"
-    sha256 "976ec073cc137b7a27e3a40127a1f30ca2a016c6851fff74944dd0581362922b"
+    url "https://rubygems.org/downloads/pango-4.1.7.gem"
+    sha256 "50c857012bf7e6c8202b913f375ee49620618c41ad3a2e8215787720c93253c1"
   end
 
   resource "pkg-config" do
-    url "https://rubygems.org/downloads/pkg-config-1.5.1.gem"
-    sha256 "a118ce51b935bcf3cfe1ce455d276a8e1c4b8542fe36bbec3197ef9aff15dc09"
+    url "https://rubygems.org/downloads/pkg-config-1.5.2.gem"
+    sha256 "fcb0df98d6571d7d1a3e25b8ebb40756d13005df19ee0fafb7a7f8ec059f3ac5"
   end
 
   resource "pluggaloid" do
@@ -191,13 +194,13 @@ class Mikutter < Formula
   end
 
   resource "public_suffix" do
-    url "https://rubygems.org/downloads/public_suffix-5.0.1.gem"
-    sha256 "65603917ff4ecb32f499f42c14951aeed2380054fa7fc51758fc0a8d455fe043"
+    url "https://rubygems.org/downloads/public_suffix-5.0.3.gem"
+    sha256 "337d475da2bd2ea1de0446751cb972ad43243b4b00aa8cf91cb904fa593d3259"
   end
 
   resource "racc" do
-    url "https://rubygems.org/downloads/racc-1.6.2.gem"
-    sha256 "58d26b3666382396fea84d33dc0639b7ee8d704156a52f8f22681f07b2f94f26"
+    url "https://rubygems.org/downloads/racc-1.7.1.gem"
+    sha256 "af64124836fdd3c00e830703d7f873ea5deabde923f37006a39f5a5e0da16387"
   end
 
   resource "rake" do
@@ -279,29 +282,23 @@ class Mikutter < Formula
     end
 
     gemfile_remove_test!
-    if OS.mac?
-      # TODO: Workaround for current gtk3==3.4.9 gem. Try removing when mikutter uses newer version
-      # Issue ref: https://github.com/ruby-gnome/ruby-gnome/issues/1521
-      %w[cairo-gobject gobject-introspection gio2 pango gtk3].each do |gem_name|
-        system "bundle", "config", "build.#{gem_name}", "--with-ldflags=-Wl,-undefined,dynamic_lookup"
-      end
-    end
-    system "bundle", "config", "build.nokogiri", "--use-system-libraries"
-    system "bundle", "config", "path", lib/"mikutter/vendor"
-    system "bundle", "install", "--local"
+    system "bundle", "config",
+           "build.nokogiri", "--use-system-libraries"
+    system "bundle", "install",
+           "--local", "--path=#{lib}/mikutter/vendor"
 
     rm_rf "vendor"
     (lib/"mikutter").install "plugin"
     libexec.install Dir["*"]
 
-    ruby_series = Formula["ruby@3.1"].any_installed_version.major_minor
+    ruby_series = Formula["ruby"].any_installed_version.major_minor.to_s
     env = {
       DISABLE_BUNDLER_SETUP: "1",
       GEM_HOME:              HOMEBREW_PREFIX/"lib/mikutter/vendor/ruby/#{ruby_series}.0",
       GTK_PATH:              HOMEBREW_PREFIX/"lib/gtk-2.0",
     }
 
-    (bin/"mikutter").write_env_script Formula["ruby@3.1"].opt_bin/"ruby", "#{libexec}/mikutter.rb", env
+    (bin/"mikutter").write_env_script Formula["ruby"].opt_bin/"ruby", "#{libexec}/mikutter.rb", env
     pkgshare.install_symlink libexec/"core/skin"
 
     # enable other formulae to install plugins
