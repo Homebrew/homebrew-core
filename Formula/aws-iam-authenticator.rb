@@ -13,13 +13,13 @@ class AwsIamAuthenticator < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c8695863898b3293716a26cc81114eb195ca53d7f826e7e4e671f381b5f9a311"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c8695863898b3293716a26cc81114eb195ca53d7f826e7e4e671f381b5f9a311"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c8695863898b3293716a26cc81114eb195ca53d7f826e7e4e671f381b5f9a311"
-    sha256 cellar: :any_skip_relocation, ventura:        "c25bb70b23f77442369b6ebd5191dee468948f306ac2e57e30b108f87e8b4cf4"
-    sha256 cellar: :any_skip_relocation, monterey:       "c25bb70b23f77442369b6ebd5191dee468948f306ac2e57e30b108f87e8b4cf4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c25bb70b23f77442369b6ebd5191dee468948f306ac2e57e30b108f87e8b4cf4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2e3049059c9888e34917ec3b80eb2479745bc48f7937ffa30b8cc8366d988f0c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c57aeb4520baaa087d34aef9785944ffaad5fa2c4cce8593869d905225d751c1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c57aeb4520baaa087d34aef9785944ffaad5fa2c4cce8593869d905225d751c1"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c57aeb4520baaa087d34aef9785944ffaad5fa2c4cce8593869d905225d751c1"
+    sha256 cellar: :any_skip_relocation, ventura:        "7051bab2ea6417f2c9d12c5ff83ae6b8ad4fefc182b31b5ec4777db7419602b2"
+    sha256 cellar: :any_skip_relocation, monterey:       "7051bab2ea6417f2c9d12c5ff83ae6b8ad4fefc182b31b5ec4777db7419602b2"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7051bab2ea6417f2c9d12c5ff83ae6b8ad4fefc182b31b5ec4777db7419602b2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cd8781bebcb0400179428478e66576190fdd133be73ff319c22828cc085c43a3"
   end
 
   depends_on "go" => :build
