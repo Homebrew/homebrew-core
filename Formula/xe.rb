@@ -7,13 +7,13 @@ class Xe < Formula
   head "https://github.com/leahneukirchen/xe.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b6f8bcbd2aa8d72e333c3ed215a2da7316c5e0799fd93b976ada5abba1b59760"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4ac1291f6de1676653a4a1e492d9ce64932d1d320b84c95dbdef6b74d9283a54"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8f982ff586896b25e221c24cacf9cd996d63c98efea30154be9c3b06560a4a8b"
-    sha256 cellar: :any_skip_relocation, ventura:        "0815d3d11140b42d7bade06e528d2522f160a5c57da733cc3866bf64517fe04d"
-    sha256 cellar: :any_skip_relocation, monterey:       "b4980448b2979d5d3c21055c7a0370eb861b22077002dcca4e6a5766a17cfb2d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "512eb8d361560ba10ab724184fdf09469f944f3453710da493807b8c4d7faa46"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8e3306a94b8bb04cd922cbd2109ea31c7ec51c4056b45ba7705e53c5f2ab7609"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "02cf3b1d7b641be3ca3c2c468663a922b031e6348edef5e4a498cf3ccf578e10"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f15ffcac383f2223add8727e887be74af895b347cbecc4dc185745d21a86ed5d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2a81ab4f43492a5ad82225d579046c114ede2140390395fc62241f7d0bcb50af"
+    sha256 cellar: :any_skip_relocation, ventura:        "fa22ab803e09d78b5aca3d0b4c9773b3a1db1bcd4f5f254a39f1af6a2daf578b"
+    sha256 cellar: :any_skip_relocation, monterey:       "fe9fe7ccd998c7030b507f8e382986b7a4c599fdcc7dad851f1dbca173317333"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f2eb0cdecdd23ec242f05977a913055d8170c8cf9d793641c7633f54599e52d6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5b67d52094aa34b8882194aa6fa429b13ed8866abbc33ae906d3f0253b52ff61"
   end
 
   def install
