@@ -12,13 +12,13 @@ class MingwW64 < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "8dbb584293d0a96282c1f061b746817c857aeadbfd21e8e9925a87397a993b74"
-    sha256 arm64_monterey: "f8cd3096f2944bac0ff2c1e1f2d8761811b3167dfda449f12798f35ce555c557"
-    sha256 arm64_big_sur:  "1c28c4f22f13d037ba6c450ffbe778c75f7e2e7a3415178d06a00865b0c3d2a6"
-    sha256 ventura:        "bc21617fdc0a06a58d3e9bf7b7477e41d45d22084acf14d55d560e3a096acf9e"
-    sha256 monterey:       "ad5683e6294f4987a6449060119975d44fc3552db646d4299cb73aa5880b8116"
-    sha256 big_sur:        "3b116e27e63fceac65715c861676bd7bff76fe650afcbf1537ab03b6a2ed2bd0"
-    sha256 x86_64_linux:   "7c09f410c628293c420d818814c33e9c5a265982c3dbe1ccedae4f9232ec5aa2"
+    sha256 arm64_ventura:  "becfa5f11cbf651f6201ccad64f4c282774a8432be526ec0f29636b12569d217"
+    sha256 arm64_monterey: "4cb3ba9fef759cefc615bb1fc90cd0c597d66d740c733111ddf3cb95509a40a0"
+    sha256 arm64_big_sur:  "ddefdbf524cc2eeef8831bb9656f4f3eac35a24e31c64ebee2eebf89221adab3"
+    sha256 ventura:        "f5982a2946ea47905dbd8191f94a4062b5c6d6778e12c5bbe839402c3659d264"
+    sha256 monterey:       "b00e123e8d88dab11a466cdae247236645afff842bae3223d80fc5a697a56b89"
+    sha256 big_sur:        "3186dd3498aa7604ddf2ae62c70c6566e593835f9974550eac199263677788cb"
+    sha256 x86_64_linux:   "13bd5a4b01e3a581258fad2bc1704c84cb0b7a6a4fd663b8560cbbdf36a268af"
   end
 
   # Apple's makeinfo is old and has bugs
