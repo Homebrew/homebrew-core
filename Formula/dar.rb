@@ -11,13 +11,13 @@ class Dar < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "4480b7ae75d3ebccb96d1958faae7c48662ac6c8bdef67997285818449742acf"
-    sha256 arm64_monterey: "bb77870777624db18c573f18cce90d721346d22d4df6fa374d48477242189cf5"
-    sha256 arm64_big_sur:  "edcc26605485f3f1cf23349f14f522a7b0d8ec8e5a16125e721b3b0caa2dcd26"
-    sha256 ventura:        "ae626bcb9245928c66b321e1edcd1b04f6ee208cdaa48df3123d495b02203d76"
-    sha256 monterey:       "379aa7e4a6e5a7c8783821c029420c7ac6ab5d6f0904691821d1c7097c57fa72"
-    sha256 big_sur:        "c124dda55fa4e7d893068e91198d527d50e3c6621c8613fa139b4a5eda40cdaf"
-    sha256 x86_64_linux:   "a52e94d88fca64daa5a61d8868ed6d761b1951bcc49b7bef3fbfd4ccfc2ed8db"
+    sha256 arm64_ventura:  "5aaf26f487198dc43d124cb5e7272a0da01b189006b5264796d89b3a639bcdb1"
+    sha256 arm64_monterey: "dee6ab1f44b69e66962fcfb596313cc1181bbc719cd36c0658421ec037d19a61"
+    sha256 arm64_big_sur:  "bf37cd1e5ca6c1c5829b9ad8db87628138112418cd50eca8ad95c104a7360267"
+    sha256 ventura:        "893824649e24e0ed993c2074c5a65a3ec9b93491c1a5ffb6b321f4cd9764e113"
+    sha256 monterey:       "b8114104f449548550d6d4a6e493a639508d221a7fc96b5b7440451294dd7c14"
+    sha256 big_sur:        "b6967c732c55ae865259824a26482d921d7283be1211faedce0d9943b19f6d19"
+    sha256 x86_64_linux:   "12cd34876b51ddea944f059e111d2f71086459fb1cdbfcc4bef4d3ee78f47435"
   end
 
   depends_on "argon2"
