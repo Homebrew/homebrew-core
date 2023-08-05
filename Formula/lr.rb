@@ -1,8 +1,8 @@
 class Lr < Formula
   desc "File list utility with features from ls(1), find(1), stat(1), and du(1)"
   homepage "https://github.com/leahneukirchen/lr"
-  url "https://github.com/leahneukirchen/lr/archive/refs/tags/v1.5.1.tar.gz"
-  sha256 "3c9337b9d924f2318083edc72fa9dfcf571a4af2a411abf57ad12baa5e27cc4a"
+  url "https://github.com/leahneukirchen/lr/archive/refs/tags/v1.6.tar.gz"
+  sha256 "5c1160848b5379e2a51c56be5642b382f4ba2b579b7f43834c80e6d856c09b10"
   license "MIT"
   head "https://github.com/leahneukirchen/lr.git", branch: "master"
 
