@@ -19,6 +19,7 @@ class Bilix < Formula
   end
 
   depends_on "pygments"
+  depends_on "python-certifi"
   depends_on "python-typing-extensions"
   depends_on "python@3.11"
 
@@ -45,11 +46,6 @@ class Bilix < Formula
   resource "bs4" do
     url "https://files.pythonhosted.org/packages/10/ed/7e8b97591f6f456174139ec089c769f89a94a1a4025fe967691de971f314/bs4-0.0.1.tar.gz"
     sha256 "36ecea1fd7cc5c0c6e4a1ff075df26d50da647b75376626cc186e2212886dd3a"
-  end
-
-  resource "certifi" do
-    url "https://files.pythonhosted.org/packages/93/71/752f7a4dd4c20d6b12341ed1732368546bc0ca9866139fe812f6009d9ac7/certifi-2023.5.7.tar.gz"
-    sha256 "0f0d56dc5a6ad56fd4ba36484d6cc34451e1c6548c61daad8c320169f91eddc7"
   end
 
   resource "click" do
