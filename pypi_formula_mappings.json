@@ -82,6 +82,9 @@
   "awsume": {
     "exclude_packages": ["six", "PyYAML"]
   },
+  "azure-cli": {
+    "exclude_packages": ["certifi"]
+  },
   "b2-tools": {
     "exclude_packages": ["six"]
   },
