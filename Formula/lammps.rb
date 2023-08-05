@@ -1,12 +1,12 @@
 class Lammps < Formula
   desc "Molecular Dynamics Simulator"
   homepage "https://lammps.sandia.gov/"
-  url "https://github.com/lammps/lammps/archive/refs/tags/stable_23Jun2022.tar.gz"
+  url "https://github.com/lammps/lammps/archive/refs/tags/stable_2Aug2023.tar.gz"
   # lammps releases are named after their release date. We transform it to
   # YYYY-MM-DD (year-month-day) so that we get a sane version numbering.
   # We only track stable releases as announced on the LAMMPS homepage.
-  version "20220623"
-  sha256 "d27ede095c9f00cd13a26f967a723d07cf8f4df65c700ed73573577bc173d5ce"
+  version "20230802"
+  sha256 "48dc8b0b0583689e80ea2052275acbc3e3fce89707ac557e120db5564257f7df"
   license "GPL-2.0-only"
 
   # The `strategy` block below is used to massage upstream tags into the
