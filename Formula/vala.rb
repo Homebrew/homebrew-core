@@ -6,13 +6,13 @@ class Vala < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 arm64_ventura:  "15b716e933f40110963232c24d55c0b16963fd0c04229005f2c8ff29adcfd8d3"
-    sha256 arm64_monterey: "7edaeba6c4e0abb4119798f4f1b4d904fc7e6de8428eb1c70679bb2654ed1716"
-    sha256 arm64_big_sur:  "9fc271d006fa8fe9d9718f83f11828db05cf22fd39b1ecad6b9544017e96ede4"
-    sha256 ventura:        "cf1c768324b043c8601b007e32e331f17502f0f5cb2231b0ce257413f7e936f0"
-    sha256 monterey:       "32d3d0a9b89f0470ba66966fe8b5e97399ca1f287b5494e35f705558d0c54576"
-    sha256 big_sur:        "154d29de9b39f7cc96d46962e0e3b3add880c127c8c458f1efde7c1954440a4a"
-    sha256 x86_64_linux:   "e957fe09e8a8bc5c49b1bab21bfb9cc4ce26d3151abc5784d16000b540735e61"
+    sha256 arm64_ventura:  "ac281535fb2087ced79ca74c4effa7683ee253e2942369685692772d8eb09f7b"
+    sha256 arm64_monterey: "f2c9fa048e9da15216b6961f81bd4cc624de45da919d92c54744b54a1b4b6db4"
+    sha256 arm64_big_sur:  "192c2b60b0511515a24ecf6bd49bfd42ee3ac9f8e7a20b4b9034522bd5b55ca5"
+    sha256 ventura:        "32002f044716e088a9bc5200d4097aed33496f2786bd3adc489bcbce7276946a"
+    sha256 monterey:       "d6e1c8a07a5bcc21a6e6a1b42ef91022cc5af994e17372867bd2007b00f87d2e"
+    sha256 big_sur:        "04f4af203d0b2dabee0636577db24bf8bffa265a652fefe7bc89fa97a3e50dc8"
+    sha256 x86_64_linux:   "c14b15d729a8c086cc07b0d2857e63b432144b360e7ac877c5ad6499eeaeeb88"
   end
 
   depends_on "glib"
