@@ -35,6 +35,7 @@ class AzureCli < Formula
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "openssl@3"
+  depends_on "python-certifi"
   depends_on "python@3.10"
 
   uses_from_macos "libffi"
