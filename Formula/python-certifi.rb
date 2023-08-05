@@ -5,6 +5,16 @@ class PythonCertifi < Formula
   sha256 "539cc1d13202e33ca466e88b2807e29f4c13049d6d87031a3c110744495cb082"
   license "MPL-2.0"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f7878fa87dfc11f074a00e30691dc749135c15fbb999ec16fdb3dac7255390e8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f7878fa87dfc11f074a00e30691dc749135c15fbb999ec16fdb3dac7255390e8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f7878fa87dfc11f074a00e30691dc749135c15fbb999ec16fdb3dac7255390e8"
+    sha256 cellar: :any_skip_relocation, ventura:        "14df2281408c868092a8466c2625c46c6c73bef3e589905a2c3394b0fe4e3c4f"
+    sha256 cellar: :any_skip_relocation, monterey:       "14df2281408c868092a8466c2625c46c6c73bef3e589905a2c3394b0fe4e3c4f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "14df2281408c868092a8466c2625c46c6c73bef3e589905a2c3394b0fe4e3c4f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c1b2b275104c40f39c6470e874e4476716480c82ac4bdb4e65494e4e653ce82c"
+  end
+
   depends_on "python@3.10" => [:build, :test]
   depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.9" => [:build, :test]
