@@ -27,6 +27,7 @@ class Certbot < Formula
   depends_on "dialog"
   depends_on "openssl@3"
   depends_on "pycparser"
+  depends_on "python-certifi"
   depends_on "python@3.11"
   depends_on "six"
 
@@ -45,11 +46,6 @@ class Certbot < Formula
   resource "certbot-nginx" do
     url "https://files.pythonhosted.org/packages/51/01/4c2776e7154b972277d46fa63eff87accd5f026ffa6aa6204a3fe438640f/certbot-nginx-2.6.0.tar.gz"
     sha256 "426038336f0eb305579aa1bd71d021cfbbfa0925d165198054763b7225d64a05"
-  end
-
-  resource "certifi" do
-    url "https://files.pythonhosted.org/packages/93/71/752f7a4dd4c20d6b12341ed1732368546bc0ca9866139fe812f6009d9ac7/certifi-2023.5.7.tar.gz"
-    sha256 "0f0d56dc5a6ad56fd4ba36484d6cc34451e1c6548c61daad8c320169f91eddc7"
   end
 
   resource "charset-normalizer" do
