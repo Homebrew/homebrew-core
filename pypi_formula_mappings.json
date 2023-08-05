@@ -737,6 +737,9 @@
   "snakemake": {
     "exclude_packages": ["tabulate", "PyYAML", "docutils"]
   },
+  "snapcraft": {
+    "exclude_packages": ["certifi"]
+  },
   "sphinx-doc": {
     "extra_packages": ["numpydoc"],
     "exclude_packages": ["docutils", "Pygments"]
