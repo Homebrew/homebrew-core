@@ -92,7 +92,7 @@
     "exclude_packages": ["six", "PyYAML"]
   },
   "b2-tools": {
-    "exclude_packages": ["six"]
+    "exclude_packages": ["certifi", "docutils", "six"]
   },
   "bandcamp-dl": {
     "exclude_packages": ["six"]

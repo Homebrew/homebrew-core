@@ -18,6 +18,8 @@ class B2Tools < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b19d7c4a778b6ad42e8501d634aa0aac446bedefee47c2193ef9ab7ccb8b1f12"
   end
 
+  depends_on "docutils"
+  depends_on "python-certifi"
   depends_on "python@3.11"
   depends_on "six"
 
@@ -38,19 +40,9 @@ class B2Tools < Formula
     sha256 "d0bd30bf98ce77164b2ae5fe1523598700f705255f1c7f7c0242f4d7c8afc72b"
   end
 
-  resource "certifi" do
-    url "https://files.pythonhosted.org/packages/98/98/c2ff18671db109c9f10ed27f5ef610ae05b73bd876664139cf95bd1429aa/certifi-2023.7.22.tar.gz"
-    sha256 "539cc1d13202e33ca466e88b2807e29f4c13049d6d87031a3c110744495cb082"
-  end
-
   resource "charset-normalizer" do
     url "https://files.pythonhosted.org/packages/2a/53/cf0a48de1bdcf6ff6e1c9a023f5f523dfe303e4024f216feac64b6eb7f67/charset-normalizer-3.2.0.tar.gz"
     sha256 "3bb3d25a8e6c0aedd251753a79ae98a093c7e7b471faa3aa9a93a81431987ace"
-  end
-
-  resource "docutils" do
-    url "https://files.pythonhosted.org/packages/6b/5c/330ea8d383eb2ce973df34d1239b3b21e91cd8c865d21ff82902d952f91f/docutils-0.19.tar.gz"
-    sha256 "33995a6753c30b7f577febfc2c50411fec6aac7f7ffeb7c4cfe5991072dcf9e6"
   end
 
   resource "idna" do
