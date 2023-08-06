@@ -597,7 +597,7 @@
     "exclude_packages": ["six"]
   },
   "prowler": {
-    "exclude_packages": ["cffi", "pycparser", "six", "tabulate", "typing-extensions", "PyYAML"]
+    "exclude_packages": ["certifi", "cffi", "pycparser", "PyYAML", "six", "tabulate", "typing-extensions"]
   },
   "psutils": "pspdfutils",
   "ptpython": {
