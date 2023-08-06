@@ -6,6 +6,11 @@ class Libantlr3c < Formula
   license "BSD-3-Clause"
   revision 1
 
+  livecheck do
+    url "https://github.com/antlr/antlr3.git"
+    regex(/^(?:(?:antlr|release)[._-])?v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "b7265d5141b9b1115b4db096b40a131aa140fe4a6b2d97a08152d880665ed196"
     sha256 cellar: :any,                 arm64_monterey: "192faf2b2502946c3a8b27cade6a6febbd579de8fb1b9da136c48ea6a74bc621"
