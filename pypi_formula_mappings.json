@@ -18,7 +18,7 @@
       "passlib", "pexpect", "proxmoxer", "pysphere3", "python-consul",
       "python-neutronclient", "pywinrm", "requests-credssp", "shade", "zabbix-api"
     ],
-    "exclude_packages": ["cffi", "pycparser", "PyYAML", "six"]
+    "exclude_packages": ["certifi", "cffi", "pycparser", "PyYAML", "six"]
   },
   "ansible@2.9": {
     "extra_packages": [
