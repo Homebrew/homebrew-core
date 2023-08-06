@@ -49,6 +49,9 @@
       "Pygments", "black", "click", "mypy-extensions", "platformdirs"
     ]
   },
+  "arjun": {
+    "exclude_packages": ["certifi"]
+  },
   "arxiv_latex_cleaner": {
     "exclude_packages": ["pillow", "six", "PyYAML"]
   },

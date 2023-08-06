@@ -18,12 +18,8 @@ class Arjun < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "39d379ac7295e72e949c95c4a2295cf3f81751a5cecca50574905699c71b9517"
   end
 
+  depends_on "python-certifi"
   depends_on "python@3.11"
-
-  resource "certifi" do
-    url "https://files.pythonhosted.org/packages/98/98/c2ff18671db109c9f10ed27f5ef610ae05b73bd876664139cf95bd1429aa/certifi-2023.7.22.tar.gz"
-    sha256 "539cc1d13202e33ca466e88b2807e29f4c13049d6d87031a3c110744495cb082"
-  end
 
   resource "charset-normalizer" do
     url "https://files.pythonhosted.org/packages/2a/53/cf0a48de1bdcf6ff6e1c9a023f5f523dfe303e4024f216feac64b6eb7f67/charset-normalizer-3.2.0.tar.gz"
