@@ -568,7 +568,7 @@
     "exclude_packages": ["six", "tabulate", "typing-extensions", "Pygments"]
   },
   "pip-audit": {
-    "exclude_packages": ["six", "Pygments"]
+    "exclude_packages": ["certifi", "Pygments", "six"]
   },
   "pipgrip": {
     "exclude_packages": ["six"],
