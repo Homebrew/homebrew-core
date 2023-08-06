@@ -1,9 +1,9 @@
 class Metashell < Formula
   desc "Metaprogramming shell for C++ templates"
   homepage "http://metashell.org"
-  url "https://github.com/metashell/metashell/archive/v4.0.0.tar.gz"
-  sha256 "02a88204fe36428cc6c74453059e8c399759d4306e8156d0920aefa4c07efc64"
-  license "GPL-3.0"
+  url "https://github.com/metashell/metashell/archive/v5.0.0.tar.gz"
+  sha256 "028e37be072ec4e85d18ead234a208d07225cf335c0bb1c98d4d4c3e30c71f0e"
+  license "GPL-3.0-or-later"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "72ac6ed1ef416a844bd9794ef1810bebb3bd24397e7ed4f1aac754e8842b0600"
@@ -19,7 +19,10 @@ class Metashell < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "python@3.11" => :build
 
+  uses_from_macos "libedit"
+  uses_from_macos "libxml2"
   uses_from_macos "zlib"
 
   on_linux do
@@ -27,18 +30,16 @@ class Metashell < Formula
   end
 
   def install
-    ENV.cxx11
-
     # Build internal Clang
-    mkdir "3rd/templight/build" do
-      system "cmake", "../llvm", "-DLLVM_ENABLE_TERMINFO=OFF", *std_cmake_args
-      system "make", "templight"
-    end
+    system "cmake", "-S", "3rd/templight/llvm",
+                    "-B", "3rd/templight/build",
+                    "-DLLVM_ENABLE_TERMINFO=OFF", *std_cmake_args
+    system "cmake", "--build", "3rd/templight/build"
+    system "cmake", "--install", "3rd/templight/build"
 
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
