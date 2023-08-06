@@ -869,5 +869,8 @@
   },
   "yle-dl": {
     "exclude_packages": ["cffi", "pycparser"]
+  },
+  "zabbix-cli": {
+    "exclude_packages": ["certifi"]
   }
 }
