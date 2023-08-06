@@ -2,6 +2,9 @@
   "airshare": {
     "exclude_packages": ["certifi"]
   },
+  "aiven-client": {
+    "exclude_packages": ["certifi"]
+  },
   "anime-downloader": {
     "exclude_packages": ["six", "tabulate"]
   },
