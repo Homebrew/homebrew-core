@@ -782,7 +782,7 @@
     "exclude_packages": ["six"]
   },
   "theharvester": {
-    "exclude_packages": ["cffi", "pycparser", "pygments", "PyYAML", "six", "typing-extensions"]
+    "exclude_packages": ["certifi", "cffi", "pycparser", "pygments", "PyYAML", "six", "typing-extensions"]
   },
   "tmuxp": {
     "exclude_packages": ["PyYAML"]
