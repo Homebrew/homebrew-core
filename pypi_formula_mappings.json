@@ -790,6 +790,9 @@
   "todoman": {
     "exclude_packages": ["six", "tabulate"]
   },
+  "toot": {
+    "exclude_packages": ["certifi"]
+  },
   "touca": {
     "exclude_packages": ["certifi", "pygments"]
   },
