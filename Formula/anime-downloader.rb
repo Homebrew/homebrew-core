@@ -22,6 +22,7 @@ class AnimeDownloader < Formula
 
   depends_on "aria2"
   depends_on "node"
+  depends_on "python-certifi"
   depends_on "python-tabulate"
   depends_on "python@3.11"
   depends_on "six"
@@ -44,11 +45,6 @@ class AnimeDownloader < Formula
   resource "cattrs" do
     url "https://files.pythonhosted.org/packages/fc/da/ff3239eb4241cbc6f8b69f53d4ca27a178d51f9e5a954f1a3588c8227dc5/cattrs-22.2.0.tar.gz"
     sha256 "f0eed5642399423cf656e7b66ce92cdc5b963ecafd041d1b24d136fdde7acf6d"
-  end
-
-  resource "certifi" do
-    url "https://files.pythonhosted.org/packages/37/f7/2b1b0ec44fdc30a3d31dfebe52226be9ddc40cd6c0f34ffc8923ba423b69/certifi-2022.12.7.tar.gz"
-    sha256 "35824b4c3a97115964b408844d64aa14db1cc518f6562e8d7261699d1350a9e3"
   end
 
   resource "cfscrape" do

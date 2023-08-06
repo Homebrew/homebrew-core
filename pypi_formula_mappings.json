@@ -1,6 +1,6 @@
 {
   "anime-downloader": {
-    "exclude_packages": ["six", "tabulate"]
+    "exclude_packages": ["certifi", "six", "tabulate"]
   },
   "animdl": {
     "exclude_packages": ["pygments", "pyyaml"]
