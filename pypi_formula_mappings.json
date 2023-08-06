@@ -727,7 +727,7 @@
     "exclude_packages": ["typing-extensions", "Pygments"]
   },
   "sgr": {
-    "exclude_packages": ["six", "tabulate", "typing-extensions"]
+    "exclude_packages": ["certifi", "six", "tabulate", "typing-extensions"]
   },
   "shallow-backup": {
     "exclude_packages": ["six"]
