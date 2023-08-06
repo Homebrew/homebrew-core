@@ -766,7 +766,7 @@
     "exclude_packages": ["six", "typing-extensions"]
   },
   "svtplay-dl": {
-    "exclude_packages": ["cffi", "pycparser", "PyYAML"]
+    "exclude_packages": ["certifi", "cffi", "pycparser", "PyYAML"]
   },
   "tarsnapper": {
     "exclude_packages": ["six", "PyYAML"]
