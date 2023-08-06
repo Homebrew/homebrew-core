@@ -42,7 +42,7 @@
       "zabbix-api", "junos-eznc", "jxmlease", "dnspython", "pysphere3", "python-consul", "requests-credssp",
       "openshift", "pexpect", "ntc-templates", "proxmoxer"
     ],
-    "exclude_packages": ["cffi", "pycparser", "PyYAML", "six"]
+    "exclude_packages": ["certifi", "cffi", "pycparser", "PyYAML", "six"]
   },
   "ansible-lint": {
     "exclude_packages": [
