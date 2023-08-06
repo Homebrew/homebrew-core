@@ -24,6 +24,7 @@ class Scrapy < Formula
   depends_on "cffi"
   depends_on "openssl@3"
   depends_on "pycparser"
+  depends_on "python-certifi"
   depends_on "python-typing-extensions"
   depends_on "python@3.11"
   depends_on "six"
@@ -40,11 +41,6 @@ class Scrapy < Formula
   resource "automat" do
     url "https://files.pythonhosted.org/packages/7a/7b/9c3d26d8a0416eefbc0428f168241b32657ca260fb7ef507596ff5c2f6c4/Automat-22.10.0.tar.gz"
     sha256 "e56beb84edad19dcc11d30e8d9b895f75deeb5ef5e96b84a467066b3b84bb04e"
-  end
-
-  resource "certifi" do
-    url "https://files.pythonhosted.org/packages/98/98/c2ff18671db109c9f10ed27f5ef610ae05b73bd876664139cf95bd1429aa/certifi-2023.7.22.tar.gz"
-    sha256 "539cc1d13202e33ca466e88b2807e29f4c13049d6d87031a3c110744495cb082"
   end
 
   resource "charset-normalizer" do
