@@ -24,6 +24,7 @@ class RobotFramework < Formula
   depends_on "rust" => :build
   depends_on "cffi"
   depends_on "openssl@3"
+  depends_on "python-certifi"
   depends_on "python@3.11"
   depends_on "six"
 
@@ -35,11 +36,6 @@ class RobotFramework < Formula
   resource "bcrypt" do
     url "https://files.pythonhosted.org/packages/8c/ae/3af7d006aacf513975fd1948a6b4d6f8b4a307f8a244e1a3d3774b297aad/bcrypt-4.0.1.tar.gz"
     sha256 "27d375903ac8261cfe4047f6709d16f7d18d39b1ec92aaf72af989552a650ebd"
-  end
-
-  resource "certifi" do
-    url "https://files.pythonhosted.org/packages/98/98/c2ff18671db109c9f10ed27f5ef610ae05b73bd876664139cf95bd1429aa/certifi-2023.7.22.tar.gz"
-    sha256 "539cc1d13202e33ca466e88b2807e29f4c13049d6d87031a3c110744495cb082"
   end
 
   resource "cryptography" do

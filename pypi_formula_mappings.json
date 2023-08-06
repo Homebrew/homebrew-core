@@ -672,7 +672,7 @@
   },
   "robot-framework": {
     "extra_packages": ["robotframework-archivelibrary", "robotframework-selenium2library", "robotframework-sshlibrary"],
-    "exclude_packages": ["six", "cffi", "pycparser"]
+    "exclude_packages": ["certifi", "cffi", "pycparser", "six"]
   },
   "rst-lint": {
     "exclude_packages": ["docutils"]
