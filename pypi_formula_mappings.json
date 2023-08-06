@@ -71,7 +71,7 @@
     "exclude_packages": ["six", "Pygments", "docutils"]
   },
   "aws-sso-util": {
-    "exclude_packages": ["six", "PyYAML"]
+    "exclude_packages": ["certifi", "six", "PyYAML"]
   },
   "awscli": {
     "exclude_packages": ["cffi", "docutils", "pycparser", "six"]
