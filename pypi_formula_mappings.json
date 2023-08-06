@@ -575,7 +575,7 @@
     "extra_packages": ["wheel"]
   },
   "platformio": {
-    "exclude_packages": ["tabulate", "typing-extensions"]
+    "exclude_packages": ["certifi", "tabulate", "typing-extensions"]
   },
   "podman-compose": {
     "exclude_packages": ["PyYAML"]
