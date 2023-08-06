@@ -708,7 +708,7 @@
     "exclude_packages": ["certifi", "six", "PyYAML"]
   },
   "schemathesis": {
-    "exclude_packages": ["six", "PyYAML", "typing-extensions"]
+    "exclude_packages": ["certifi", "six", "PyYAML", "typing-extensions"]
   },
   "scipy": {
     "exclude_packages": ["numpy"]
