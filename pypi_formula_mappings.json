@@ -807,6 +807,9 @@
     "extra_packages": ["trzsz-iterm2"],
     "exclude_packages": ["protobuf"]
   },
+  "tvnamer": {
+    "exclude_packages": ["certifi"]
+  },
   "twarc": {
     "exclude_packages": ["six"]
   },
