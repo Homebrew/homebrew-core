@@ -649,7 +649,7 @@
     "exclude_packages": ["Pygments"]
   },
   "rbtools": {
-    "exclude_packages": ["six", "typing-extensions"]
+    "exclude_packages": ["certifi", "six", "typing-extensions"]
   },
   "rdiff-backup": {
     "exclude_packages": ["PyYAML"]
