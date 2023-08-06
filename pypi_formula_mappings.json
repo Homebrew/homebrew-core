@@ -744,7 +744,7 @@
     ]
   },
   "snakemake": {
-    "exclude_packages": ["tabulate", "PyYAML", "docutils"]
+    "exclude_packages": ["certifi", "tabulate", "PyYAML", "docutils"]
   },
   "sphinx-doc": {
     "extra_packages": ["numpydoc"],
