@@ -581,7 +581,7 @@
     "exclude_packages": ["PyYAML"]
   },
   "pocsuite3": {
-    "exclude_packages": ["cffi", "pycparser", "PyYAML", "six"],
+    "exclude_packages": ["certifi", "cffi", "pycparser", "PyYAML", "six"],
     "extra_packages": ["pyOpenSSL", "jq"]
   },
   "poetry": {
