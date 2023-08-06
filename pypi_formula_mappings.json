@@ -720,7 +720,7 @@
     "exclude_packages": ["cffi", "pycparser", "six", "typing-extensions"]
   },
   "search-that-hash": {
-    "exclude_packages": ["typing-extensions", "Pygments", "name-that-hash", "click", "commonmark", "rich"]
+    "exclude_packages": ["certifi", "click", "commonmark", "name-that-hash", "Pygments", "rich", "typing-extensions"]
   },
   "semgrep": {
     "package_name": "semgrep",
