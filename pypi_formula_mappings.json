@@ -819,7 +819,10 @@
   "urlwatch": {
     "exclude_packages": ["PyYAML"]
   },
-  "vdirsyncer": "vdirsyncer[google]",
+  "vdirsyncer": {
+    "package_name": "vdirsyncer[google]",
+    "exclude_packages": ["certifi"]
+  },
   "vint": {
     "exclude_packages": ["PyYAML"]
   },
