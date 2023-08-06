@@ -806,7 +806,7 @@
     "exclude_packages": ["six"]
   },
   "trezor-agent": {
-    "exclude_packages": ["cffi", "pycparser", "pillow", "six", "typing-extensions", "docutils"],
+    "exclude_packages": ["certifi", "cffi", "pycparser", "pillow", "six", "typing-extensions", "docutils"],
     "extra_packages": ["ledger-agent", "keepkey-agent"]
   },
   "trzsz": {
