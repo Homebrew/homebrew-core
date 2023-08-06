@@ -7,13 +7,13 @@ class Embree < Formula
   head "https://github.com/embree/embree.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "2261fe69114ce6a0956c40606781a566063486c28f9f5a2553c6cdbd96d69f33"
-    sha256 cellar: :any,                 arm64_monterey: "44dbb124c76006ca031901d771cc3ef486f5b9a5a28c9c184f188f24977483ec"
-    sha256 cellar: :any,                 arm64_big_sur:  "b3272667d14223536df68132129e28b4fa6eadc1e8d1029f3c690f1687200548"
-    sha256 cellar: :any,                 ventura:        "d71a66af2cf6fbad76a0d23d87d74608daa146d00b119e469ab97a168c3006f0"
-    sha256 cellar: :any,                 monterey:       "ebcc7f2a4b73e3aeffd23aa0dd9d161de07fcf449272e42ab1268e4d14fbb713"
-    sha256 cellar: :any,                 big_sur:        "e2e1ea492dbaf6710a82953d792a8b5f7721cbb74faf07e014aea9a234a89606"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3e2c4848faffce311d57a3e2b2423ed3221c3a5b145f02881fa795c63171fd38"
+    sha256 cellar: :any,                 arm64_ventura:  "400566b352562f855cb387c447a9f3dd2dce9d4d7c69d0b3cf120d4a9978dcae"
+    sha256 cellar: :any,                 arm64_monterey: "702e00a4f67ee2f30e7f1555930360a99673a018fa2197b3d8176f56dd872d44"
+    sha256 cellar: :any,                 arm64_big_sur:  "c30366d0ec2670988b0c50f61948a2a466c2ad46540081460a06a28d8f5758bd"
+    sha256 cellar: :any,                 ventura:        "90f8702047d05d140b283dc5cac829b9462dba6e3df246df93c3b47937596d33"
+    sha256 cellar: :any,                 monterey:       "dac7d2e35e8dbad6f03c7c0a367f51d0d2fff814a05ff1bb35f265e92964ecb7"
+    sha256 cellar: :any,                 big_sur:        "55465c388a10f2656045872a23db59f0370db304619f7d24cdd59388e062d6cc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "86095df11ba35167cec5740a3f701ac7ea2d648fb6c70de10be9dcf48bc7afb1"
   end
 
   depends_on "cmake" => :build
