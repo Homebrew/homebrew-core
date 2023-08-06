@@ -732,6 +732,9 @@
   "shallow-backup": {
     "exclude_packages": ["six"]
   },
+  "shodan": {
+    "exclude_packages": ["certifi"]
+  },
   "shub": {
     "exclude_packages": ["certifi", "pyyaml", "six"]
   },
