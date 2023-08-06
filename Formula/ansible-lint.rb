@@ -23,6 +23,7 @@ class AnsibleLint < Formula
   depends_on "ansible"
   depends_on "black"
   depends_on "pygments"
+  depends_on "python-certifi"
   depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "yamllint"
@@ -40,11 +41,6 @@ class AnsibleLint < Formula
   resource "bracex" do
     url "https://files.pythonhosted.org/packages/b3/96/d53e290ddf6215cfb24f93449a1835eff566f79a1f332cf046a978df0c9e/bracex-2.3.post1.tar.gz"
     sha256 "e7b23fc8b2cd06d3dec0692baabecb249dda94e06a617901ff03a6c56fd71693"
-  end
-
-  resource "certifi" do
-    url "https://files.pythonhosted.org/packages/98/98/c2ff18671db109c9f10ed27f5ef610ae05b73bd876664139cf95bd1429aa/certifi-2023.7.22.tar.gz"
-    sha256 "539cc1d13202e33ca466e88b2807e29f4c13049d6d87031a3c110744495cb082"
   end
 
   resource "charset-normalizer" do
