@@ -7,14 +7,14 @@ class Touca < Formula
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4f6057a0e4b7fc1fae5105cc99eb15b47cf70e1793dc7664bf2f6ab2519569d8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f0d903c48ed65bcb6580f0c2223abf1710c30cb2f329acf7b7e633a9c3453790"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "525bf5a8b5d825c83cad85be83b418173d8d2bc2f8a0bd950fbfe8d4009ead86"
-    sha256 cellar: :any_skip_relocation, ventura:        "31acc1a8ae469925b4555e146de700dd612c1b488b7252e70cd9acb7ba1c49ba"
-    sha256 cellar: :any_skip_relocation, monterey:       "7b50520d18dd920ed51d67d8a6b71ca17866258469dca70c861479875017979a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5221cd4b5e154162ae2d89f417c1d715fe922aca8c78593ee04ae7d60112788b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a62089e7e03a625d2c693d5bed87a3aae9cde5af927ba468dd203ca9be920fee"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "de3ec73f50c358aeb0ef87b232c35da8c77ed7370b066bf25fc07e8df761b245"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "938d41e6c293cfa07bc7131b852b7e004c49805da282c0aca37452a94b1bf9b5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1bd1b8afc3c213d9d52c00f780c2bd0268d28f5d9df02ee95415f7102469f64f"
+    sha256 cellar: :any_skip_relocation, ventura:        "5ea0f2322121d96ad68e7c9eede817a14e3ccf6badc8eb9f13affe34c42142c6"
+    sha256 cellar: :any_skip_relocation, monterey:       "0a8f77793518fa3f6e23b8ae9633e293e948415035c9d46846f7ca725a209e69"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a61e432c44799fa7c00c3a861dfbb01444608fde7724c5bc03542cdc5bbd5967"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5114d7af819f141ddeac8e77f804cc294735d20dde38cff2953a0e0dd15456a8"
   end
 
   depends_on "pygments"
