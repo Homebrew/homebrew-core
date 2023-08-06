@@ -19,17 +19,13 @@ class Watson < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "17c19c4a760b8bd86c0888b6aae1ceaf72b5969c6ac5268441ce72c1bc626684"
   end
 
+  depends_on "python-certifi"
   depends_on "python@3.11"
   depends_on "six"
 
   resource "arrow" do
     url "https://files.pythonhosted.org/packages/7f/c0/c601ea7811f422700ef809f167683899cdfddec5aa3f83597edf97349962/arrow-1.2.3.tar.gz"
     sha256 "3934b30ca1b9f292376d9db15b19446088d12ec58629bc3f0da28fd55fb633a1"
-  end
-
-  resource "certifi" do
-    url "https://files.pythonhosted.org/packages/98/98/c2ff18671db109c9f10ed27f5ef610ae05b73bd876664139cf95bd1429aa/certifi-2023.7.22.tar.gz"
-    sha256 "539cc1d13202e33ca466e88b2807e29f4c13049d6d87031a3c110744495cb082"
   end
 
   resource "charset-normalizer" do

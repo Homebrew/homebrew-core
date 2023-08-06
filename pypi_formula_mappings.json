@@ -827,7 +827,7 @@
     "extra_packages": ["capstone", "pycryptodome", "yara-python", "jsonschema"]
   },
   "watson": {
-    "exclude_packages": ["six"]
+    "exclude_packages": ["certifi", "six"]
   },
   "weasyprint": {
     "exclude_packages": ["Brotli", "fonttools", "Pillow", "six", "cffi", "pycparser"]
