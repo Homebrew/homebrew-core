@@ -851,7 +851,7 @@
     "exclude_packages": ["tabulate", "six"]
   },
   "sslyze": {
-    "exclude_packages": ["typing-extensions", "pycparser"]
+    "exclude_packages": ["cryptography", "pycparser", "typing-extensions"]
   },
   "stormssh": {
     "exclude_packages": ["six"]
