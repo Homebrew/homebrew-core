@@ -77,7 +77,7 @@
     "exclude_packages": ["certifi", "six", "PyYAML"]
   },
   "awscli": {
-    "exclude_packages": ["cffi", "docutils", "pycparser", "six"]
+    "exclude_packages": ["cffi", "cryptography", "docutils", "pycparser", "six"]
   },
   "awscli@1": {
     "exclude_packages": ["six", "PyYAML", "docutils"]

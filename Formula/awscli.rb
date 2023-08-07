@@ -18,14 +18,11 @@ class Awscli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1447bde6d1234fbcc5aedfe54e32578d8e70495db39760ac0c99c2a36928b27e"
   end
 
-  # `pkg-config`, `rust`, and `openssl@3` are for cryptography.
   depends_on "cmake" => :build
-  depends_on "pkg-config" => :build
-  depends_on "rust" => :build
   depends_on "cffi"
   depends_on "docutils"
-  depends_on "openssl@3"
   depends_on "pycparser"
+  depends_on "python-cryptography"
   depends_on "python@3.11"
   depends_on "six"
 
@@ -39,11 +36,6 @@ class Awscli < Formula
   resource "colorama" do
     url "https://files.pythonhosted.org/packages/d8/53/6f443c9a4a8358a93a6792e2acffb9d9d5cb0a5cfd8802644b7b1c9a02e4/colorama-0.4.6.tar.gz"
     sha256 "08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44"
-  end
-
-  resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/15/d9/c679e9eda76bfc0d60c9d7a4084ca52d0631d9f24ef04f818012f6d1282e/cryptography-40.0.1.tar.gz"
-    sha256 "2803f2f8b1e95f614419926c7e6f55d828afc614ca5ed61543877ae668cc3472"
   end
 
   resource "distro" do
@@ -91,10 +83,6 @@ class Awscli < Formula
   end
 
   def install
-    # Ensure that the `openssl` crate picks up the intended library.
-    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
-    ENV["OPENSSL_NO_VENDOR"] = "1"
-
     # Temporary workaround for Xcode 14's ld causing build failure (without logging a reason):
     # ld: fatal warning(s) induced error (-fatal_warnings)
     # Ref: https://github.com/python/cpython/issues/97524
