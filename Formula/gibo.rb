@@ -22,7 +22,7 @@ class Gibo < Formula
       -s -w
       -X github.com/simonwhitaker/gibo/cmd.version=#{version}
       -X github.com/simonwhitaker/gibo/cmd.commit=brew
-      -X github.com/simonwhitaker/gibo/cmd.date=#{time.iso8601}"
+      -X github.com/simonwhitaker/gibo/cmd.date=#{time.iso8601}
     ]
     system "go", "build", *std_go_args(ldflags: ldflags)
     generate_completions_from_executable(bin/"gibo", "completion")
