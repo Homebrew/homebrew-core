@@ -45,6 +45,7 @@ class Garble < Formula
             -buildmode exe
              -compiler gc
              -trimpath true
+        DefaultGODEBUG panicnil=1
            CGO_ENABLED 1
                 GOARCH #{goarch}
                   GOOS #{goos}
