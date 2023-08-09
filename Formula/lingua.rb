@@ -4,6 +4,8 @@ class Lingua < Formula
   url "https://github.com/poviolabs/Lingua/releases/download/0.2.5/Lingua"
   sha256 "8507508af349b68e2b4e0d636840767f2cf05371ef3f5a93e4055c34a1276ef7"
 
+  depends_on macos: :ventura
+
   def install
     bin.install "Lingua"
   end
