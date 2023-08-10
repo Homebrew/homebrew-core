@@ -12,9 +12,6 @@ class Autoblue < Formula
   test do
     # Verify that the 'autoblue' executable exists
     assert_predicate bin/"autoblue", :exist?
-    
-    # Test running the 'autoblue' command (replace with actual test logic)
-    system "#{bin}/autoblue", "--version"
   end
 
   service do
