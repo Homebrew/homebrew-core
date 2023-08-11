@@ -20,35 +20,14 @@ class Ser2net < Formula
     sha256 x86_64_linux:   "48da2840a377edc26d5eafac8b771468143b45dc73fdcd57b0c5721160c002c3"
   end
 
+  depends_on "gensio"
   depends_on "libyaml"
 
-  # pin to use gensio 2.4.1 due to arm build issue with 2.6.7
-  resource "gensio" do
-    url "https://downloads.sourceforge.net/project/ser2net/ser2net/gensio-2.4.1.tar.gz"
-    sha256 "949438b558bdca142555ec482db6092eca87447d23a4fb60c1836e9e16b23ead"
-
-    # Fix -flat_namespace being used on Big Sur and later.
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
-      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
-    end
-  end
-
   def install
-    resource("gensio").stage do
-      system "./configure", "--disable-dependency-tracking",
-                            "--prefix=#{libexec}/gensio",
-                            "--with-python=no",
-                            "--with-tcl=no"
-      system "make", "install"
-    end
-
-    ENV.append_path "PKG_CONFIG_PATH", "#{libexec}/gensio/lib/pkgconfig"
-    ENV.append_path "CFLAGS", "-I#{libexec}/gensio/include"
-    ENV.append_path "LDFLAGS", "-L#{libexec}/gensio/lib"
-
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
+                          "--sysconfdir=#{etc}",
+                          "--datarootdir=#{HOMEBREW_PREFIX}/share",
                           "--mandir=#{man}"
     system "make", "install"
 
@@ -62,7 +41,7 @@ class Ser2net < Formula
   end
 
   service do
-    run [opt_sbin/"ser2net", "-p", "12345"]
+    run [opt_sbin/"ser2net", "-n"]
     keep_alive true
     working_dir HOMEBREW_PREFIX
   end
