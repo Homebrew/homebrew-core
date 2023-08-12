@@ -1,8 +1,8 @@
 class HaskellLanguageServer < Formula
   desc "Integration point for ghcide and haskell-ide-engine. One IDE to rule them all"
   homepage "https://github.com/haskell/haskell-language-server"
-  url "https://github.com/haskell/haskell-language-server/archive/2.0.0.1.tar.gz"
-  sha256 "58825b40fdbcffb8ad8690ec95c3ec82dfc5ba63cd19f2e50f1ea4dca10b2ea9"
+  url "https://github.com/haskell/haskell-language-server/archive/2.1.0.0.tar.gz"
+  sha256 "7e97cf1019fd040674d5b4117086f808614cde09abdd7c3240e4ca001e2e4e5e"
   license "Apache-2.0"
   revision 1
   head "https://github.com/haskell/haskell-language-server.git", branch: "master"
@@ -26,7 +26,6 @@ class HaskellLanguageServer < Formula
 
   depends_on "cabal-install" => [:build, :test]
   depends_on "ghc" => [:build, :test]
-  depends_on "ghc@8.10" => [:build, :test]
   depends_on "ghc@9.2" => [:build, :test]
 
   uses_from_macos "ncurses"
