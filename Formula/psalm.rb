@@ -36,7 +36,7 @@ class Psalm < Formula
         "description": "Testing if Psalm has been installed properly.",
         "type": "project",
         "require": {
-          "php": "#{Formula["php"].version.to_s}"
+          "php": "#{Formula["php"].version}"
         },
         "license": "MIT",
         "autoload": {
