@@ -97,6 +97,6 @@ class Psalm < Formula
     assert_match "Config file created successfully. Please re-run psalm.",
                  shell_output("#{bin}/psalm --init")
     assert_match "No errors found!",
-                 shell_output("#{bin}/psalm")
+                 shell_output("#{bin}/psalm  2>&1")
   end
 end
