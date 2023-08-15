@@ -14,7 +14,7 @@ class Qt < Formula
     { "GPL-3.0-only" => { with: "Qt-GPL-exception-1.0" } },
     "LGPL-3.0-only",
   ]
-  revision 2
+  revision 3
   head "https://code.qt.io/qt/qt5.git", branch: "dev"
 
   # The first-party website doesn't make version information readily available,
@@ -104,7 +104,6 @@ class Qt < Formula
     depends_on "nss"
     depends_on "opus"
     depends_on "pulseaudio"
-    depends_on "re2"
     depends_on "sdl2"
     depends_on "snappy"
     depends_on "systemd"
@@ -319,7 +318,7 @@ class Qt < Formula
       set(CMAKE_AUTOUIC ON)
 
       find_package(Qt6 COMPONENTS Core Gui Widgets Sql Concurrent
-        3DCore Svg Quick3D Network NetworkAuth REQUIRED)
+        3DCore Svg Quick3D Network NetworkAuth WebEngineCore REQUIRED)
 
       add_executable(test
           main.cpp
@@ -327,13 +326,13 @@ class Qt < Formula
 
       target_link_libraries(test PRIVATE Qt6::Core Qt6::Widgets
         Qt6::Sql Qt6::Concurrent Qt6::3DCore Qt6::Svg Qt6::Quick3D
-        Qt6::Network Qt6::NetworkAuth Qt6::Gui
+        Qt6::Network Qt6::NetworkAuth Qt6::Gui Qt6::WebEngineCore
       )
     EOS
 
     (testpath/"test.pro").write <<~EOS
       QT       += core svg 3dcore network networkauth quick3d \
-        sql gui widgets
+        sql gui widgets webenginecore
       TARGET = test
       CONFIG   += console
       CONFIG   -= app_bundle
@@ -353,6 +352,7 @@ class Qt < Formula
       #include <QtSvg>
       #include <QDebug>
       #include <QVulkanInstance>
+      #include <QtWebEngineCore>
       #include <iostream>
 
       int main(int argc, char *argv[])
