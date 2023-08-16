@@ -4,12 +4,11 @@ class AzureCli < Formula
   desc "Microsoft Azure CLI 2.0"
   homepage "https://docs.microsoft.com/cli/azure/overview"
   license "MIT"
-  revision 1
   head "https://github.com/Azure/azure-cli.git", branch: "dev"
 
   stable do
-    url "https://github.com/Azure/azure-cli/archive/azure-cli-2.50.0.tar.gz"
-    sha256 "eca7d1a6ecfb45b24b5499db141617258b79b8c01db7be6b75c9f1e225ad3623"
+    url "https://github.com/Azure/azure-cli/archive/azure-cli-2.51.0.tar.gz"
+    sha256 "56ce3d1d046360f0f17fd063e785a38fd70d20f7d5c58d7ad39800fc38deb2f5"
 
     # patch to build with pyyaml6, remove in next release
     patch :DATA
