@@ -35,7 +35,7 @@ class Postgis < Formula
   depends_on "icu4c"
   depends_on "json-c" # for GeoJSON and raster handling
   depends_on "pcre2"
-  depends_on "postgresql@14"
+  depends_on "postgresql@15"
   depends_on "proj"
   depends_on "protobuf-c" # for MVT (map vector tiles) support
   depends_on "sfcgal" # for advanced 2D/3D functions
@@ -43,7 +43,7 @@ class Postgis < Formula
   fails_with gcc: "5" # C++17
 
   def postgresql
-    Formula["postgresql@14"]
+    Formula["postgresql@15"]
   end
 
   def install
