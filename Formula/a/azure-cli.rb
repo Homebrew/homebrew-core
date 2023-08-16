@@ -4,6 +4,7 @@ class AzureCli < Formula
   desc "Microsoft Azure CLI 2.0"
   homepage "https://docs.microsoft.com/cli/azure/overview"
   license "MIT"
+  revision 1
   head "https://github.com/Azure/azure-cli.git", branch: "dev"
 
   stable do
