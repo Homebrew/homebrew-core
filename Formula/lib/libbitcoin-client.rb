@@ -1,10 +1,9 @@
 class LibbitcoinClient < Formula
   desc "Bitcoin Client Query Library"
   homepage "https://github.com/libbitcoin/libbitcoin-client"
-  url "https://github.com/libbitcoin/libbitcoin-client/archive/v3.6.0.tar.gz"
-  sha256 "75969ac0a358458491b101cae784de90452883b5684199d3e3df619707802420"
+  url "https://github.com/libbitcoin/libbitcoin-client/archive/v3.8.0.tar.gz"
+  sha256 "cfd9685becf620eec502ad53774025105dda7947811454e0c9fea30b27833840"
   license "AGPL-3.0"
-  revision 8
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "b89e10498e220be618efdacc2e33d15d8d5cfe54b7b1986fde9e16c180c92c02"
