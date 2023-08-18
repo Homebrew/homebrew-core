@@ -1,10 +1,9 @@
 class LibbitcoinProtocol < Formula
   desc "Bitcoin Blockchain Query Protocol"
   homepage "https://github.com/libbitcoin/libbitcoin-protocol"
-  url "https://github.com/libbitcoin/libbitcoin-protocol/archive/v3.6.0.tar.gz"
-  sha256 "fc41c64f6d3ee78bcccb63fd0879775c62bba5326f38c90b4c6804e2b9e8686e"
+  url "https://github.com/libbitcoin/libbitcoin-protocol/archive/v3.8.0.tar.gz"
+  sha256 "654aee258d7e110cce3c445906684f130c7dc6b8be2273c8dab4b46a49d8f741"
   license "AGPL-3.0"
-  revision 8
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "f29aa2e8e18875c0142fd2c0f6c92b9801161c2d5aba1bbd5f2d41f04eaf5641"
