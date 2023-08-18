@@ -1,10 +1,9 @@
 class LibbitcoinNode < Formula
   desc "Bitcoin Full Node"
   homepage "https://github.com/libbitcoin/libbitcoin-node"
-  url "https://github.com/libbitcoin/libbitcoin-node/archive/v3.6.0.tar.gz"
-  sha256 "9556ee8aab91e893db1cf343883034571153b206ffbbce3e3133c97e6ee4693b"
+  url "https://github.com/libbitcoin/libbitcoin-node/archive/v3.8.0.tar.gz"
+  sha256 "49a2c83a01c3fe2f80eb22dd48b2a2ea77cbb963bcc5b98f07d0248dbb4ee7a9"
   license "AGPL-3.0"
-  revision 2
 
   bottle do
     sha256 arm64_ventura:  "cc194f6874baa26fce10fb3b58b0ab520d0d6e3905f9fc21efaca2cc6f380393"
