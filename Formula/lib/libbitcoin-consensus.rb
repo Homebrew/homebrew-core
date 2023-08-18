@@ -1,10 +1,9 @@
 class LibbitcoinConsensus < Formula
   desc "Bitcoin Consensus Library (optional)"
   homepage "https://github.com/libbitcoin/libbitcoin-consensus"
-  url "https://github.com/libbitcoin/libbitcoin-consensus/archive/v3.6.0.tar.gz"
-  sha256 "a4252f40910fcb61da14cf8028bf3824125bacb0fc251491c9bb4e2818065fca"
+  url "https://github.com/libbitcoin/libbitcoin-consensus/archive/v3.8.0.tar.gz"
+  sha256 "3f63b233a25323ff81de71a6c96455a6f5141e21cb0678a2304b36b56e771ca2"
   license "AGPL-3.0"
-  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "46734a045992d1a1e2cba4689ab58537f5e7729310d6acb476178d170c54d63d"
