@@ -1,10 +1,9 @@
 class LibbitcoinDatabase < Formula
   desc "Bitcoin High Performance Blockchain Database"
   homepage "https://github.com/libbitcoin/libbitcoin-database"
-  url "https://github.com/libbitcoin/libbitcoin-database/archive/v3.6.0.tar.gz"
-  sha256 "d65b35745091b93feed61c5665b5a07b404b578e2582640e93c1a01f6b746f5a"
+  url "https://github.com/libbitcoin/libbitcoin-database/archive/v3.8.0.tar.gz"
+  sha256 "37dba4c01515fba82be125d604bbe55dbdcc69e41d41f8cf6fbaddaaab68c038"
   license "AGPL-3.0"
-  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "9f3a1b14cec14874e96aa73c538552536c758eedf762336d445bed0e2e1a1c49"
