@@ -1,10 +1,9 @@
 class LibbitcoinServer < Formula
   desc "Bitcoin Full Node and Query Server"
   homepage "https://github.com/libbitcoin/libbitcoin-server"
-  url "https://github.com/libbitcoin/libbitcoin-server/archive/v3.6.0.tar.gz"
-  sha256 "283fa7572fcde70a488c93e8298e57f7f9a8e8403e209ac232549b2c433674e1"
+  url "https://github.com/libbitcoin/libbitcoin-server/archive/v3.8.0.tar.gz"
+  sha256 "17e6f72606a2d132a966727c87f8afeef652b0e882b6e961673e06af89c56516"
   license "AGPL-3.0"
-  revision 8
 
   bottle do
     sha256 arm64_ventura:  "88cd9412ba4ba25d1234f342eaaba0240448783c420b9da55a60534ec2bf07a9"
