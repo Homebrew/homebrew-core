@@ -148,6 +148,9 @@
   "coconut": {
     "exclude_packages": ["Pygments", "typing-extensions"]
   },
+  "codelimit": {
+    "exclude_packages": ["certifi", "Pygments", "typing-extensions", "six"]
+  },
   "conda-lock" : {
     "exclude_packages": [
       "certifi", "cffi", "cryptography", "importlib-metadata", "jaraco-classes",
