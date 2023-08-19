@@ -209,7 +209,7 @@ jobs:
               keep_if_no_match: true
 
             - label: CI-linux-self-hosted
-              path: Formula/(envoy|freetype|gdbm|gtk4|harfbuzz|json-c|libarchive|libssh2|libxcrypt|libxml2|llvm|pygments|python@3.11|systemd|qt(@5)?|utf8cpp|xz|zstd).rb
+              path: Formula/(envoy|freetype|gdbm|gtk4|harfbuzz|json-c|krb5|libarchive|libsndfile|libssh2|libtiff|libxcrypt|libxml2|llvm|openexr|pygments|python@3.11|systemd|qt(@5)?|utf8cpp|util-linux|xz|zstd).rb
               keep_if_no_match: true
 
             - label: large-bottle-upload

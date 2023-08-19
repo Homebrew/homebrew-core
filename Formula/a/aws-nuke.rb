@@ -2,19 +2,19 @@ class AwsNuke < Formula
   desc "Nuke a whole AWS account and delete all its resources"
   homepage "https://github.com/rebuy-de/aws-nuke"
   url "https://github.com/rebuy-de/aws-nuke.git",
-      tag:      "v2.23.0",
-      revision: "58e46275b36028007cc3f50334aa74d6e3e7990a"
+      tag:      "v2.24.1",
+      revision: "b873fb3ccde645d1a759289fa85eec329ec49b73"
   license "MIT"
   head "https://github.com/rebuy-de/aws-nuke.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "401071cb0d6fdadd1addee241326417f872497a78bc6dbd4fc19aebb96af9b11"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "401071cb0d6fdadd1addee241326417f872497a78bc6dbd4fc19aebb96af9b11"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "401071cb0d6fdadd1addee241326417f872497a78bc6dbd4fc19aebb96af9b11"
-    sha256 cellar: :any_skip_relocation, ventura:        "e33d8098f0b2bd7312f424f8e41bfc0fb3a3c013d5c862c10cfcd5863cf45517"
-    sha256 cellar: :any_skip_relocation, monterey:       "e33d8098f0b2bd7312f424f8e41bfc0fb3a3c013d5c862c10cfcd5863cf45517"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e33d8098f0b2bd7312f424f8e41bfc0fb3a3c013d5c862c10cfcd5863cf45517"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "78fd3c6055033b273eece98c59cb6568819404d03d8a67359573b846222dbbc6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a41cb2b6a0f243d1d74d0353bb9dbf89cda839c2824c3a32f7dce79eed1d203e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a41cb2b6a0f243d1d74d0353bb9dbf89cda839c2824c3a32f7dce79eed1d203e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a41cb2b6a0f243d1d74d0353bb9dbf89cda839c2824c3a32f7dce79eed1d203e"
+    sha256 cellar: :any_skip_relocation, ventura:        "20afad98ce158b73ea063c11e5116d014a140a0e4ab12647b2ac84bc2785e0e0"
+    sha256 cellar: :any_skip_relocation, monterey:       "20afad98ce158b73ea063c11e5116d014a140a0e4ab12647b2ac84bc2785e0e0"
+    sha256 cellar: :any_skip_relocation, big_sur:        "20afad98ce158b73ea063c11e5116d014a140a0e4ab12647b2ac84bc2785e0e0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5c29414ecadd7fe6d1a0628d3c082dfe11ec5e0de7bb7214ff44c6373bfe9a1e"
   end
 
   depends_on "go" => :build

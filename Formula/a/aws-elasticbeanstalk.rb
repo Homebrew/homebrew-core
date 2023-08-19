@@ -3,20 +3,18 @@ class AwsElasticbeanstalk < Formula
 
   desc "Client for Amazon Elastic Beanstalk web service"
   homepage "https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3.html"
-  url "https://files.pythonhosted.org/packages/d2/1a/564eab628edbe1815d2bfde14a1cfb9a3e0e14a7a217731792ec60e1e80f/awsebcli-3.20.7.tar.gz"
-  sha256 "8672d6a9ce14cd49efcf8c26299f0970459430f9a1d817504b5200cb10bec9be"
+  url "https://files.pythonhosted.org/packages/53/be/08a7d9043612ba8bfc0c8d4af6d1bdba71da7eafe9132541c3128f979b3f/awsebcli-3.20.8.tar.gz"
+  sha256 "c3475febf6bc56e5ba2836cd0abceb53869416a6c86eadd88cd8af6aa0530aa3"
   license "Apache-2.0"
-  revision 2
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_ventura:  "2ccecc1fd3fff85e7bdc059f5625196de39763eba562fb7f43414184c7f68878"
-    sha256 cellar: :any,                 arm64_monterey: "fec90b74ff2cc2ef1cc90979525e5bb0d9c43662022f63a80da9275725518691"
-    sha256 cellar: :any,                 arm64_big_sur:  "ded3678693592352e31ac060a75942171eda392383ae28398001d74eda989251"
-    sha256 cellar: :any,                 ventura:        "9505b0deabac36c098ec846cf3c6b7ce4a85ee7166019b11cfe8e54bf764142b"
-    sha256 cellar: :any,                 monterey:       "d459680a8ffcfb2db311335046fc0ec9ab378292cde3135e295e68f0a9bb4455"
-    sha256 cellar: :any,                 big_sur:        "815aa264065e262a0faa3ccc88d686e0ceee62efc8481510ae647a9976630757"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "37bfcbfaf99c5f61b37c5adcd92e56a59099912781a6629ca9f39999f145e448"
+    sha256 cellar: :any,                 arm64_ventura:  "5f8ace4ae1caae4b1e245aa08f6694d744c23c902107b91f516a1b114bc284ea"
+    sha256 cellar: :any,                 arm64_monterey: "80e151d4cd7691e255d4aebc220f8aaba3e24778caeeb50ab24fda45df5fe847"
+    sha256 cellar: :any,                 arm64_big_sur:  "1393f00359a2ca527e405d380f4ad6def5df2397773ed35e2b990bb295fb5568"
+    sha256 cellar: :any,                 ventura:        "ad9ab2447c9374ca7fa6af5b62301aee1b8e5806955c543a0caef5699e1f26db"
+    sha256 cellar: :any,                 monterey:       "412977e65aaacc350901e96d2f9ca5d0a528729d9eec1e0398c7c1f158684790"
+    sha256 cellar: :any,                 big_sur:        "ea1e723cd07036913a1400eab2184e71f7df6fa64f4c44988b65f2a05ad1afea"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6503f924f91433e8eabb3ee6025e8e6bfb4c676b3b7e745f744748c63d96dd90"
   end
 
   # `pkg-config` and `rust` are for bcrypt
@@ -48,13 +46,8 @@ class AwsElasticbeanstalk < Formula
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/86/04/c78cabb6c84e7abe6d83f253cdc4c98d5c17fec4a8d07ae4dc73bdcd2b5d/botocore-1.29.158.tar.gz"
-    sha256 "2fd3b625f3d683d9dd6b400aba54d54a1e9b960b84ed07a466d25d1366e59482"
-  end
-
-  resource "cached-property" do
-    url "https://files.pythonhosted.org/packages/61/2c/d21c1c23c2895c091fa7a91a54b6872098fea913526932d21902088a7c41/cached-property-1.5.2.tar.gz"
-    sha256 "9fa5755838eecbb2d234c3aa390bd80fbd3ac6b6869109bfc1b499f7bd89a130"
+    url "https://files.pythonhosted.org/packages/d3/32/dfad272f2f6112f597e2487a1068efeb7d782d7aed91276f9431b66253b7/botocore-1.31.26.tar.gz"
+    sha256 "e68a50ba76425ede8693fdf1f95b8411e283bc7619c03d7eb666db9f1de48153"
   end
 
   resource "cement" do
@@ -72,19 +65,25 @@ class AwsElasticbeanstalk < Formula
     sha256 "e96da0d330793e2cb9485e9ddfd918d456036c7149416295932478192f4436a1"
   end
 
+  resource "distro" do
+    url "https://files.pythonhosted.org/packages/4b/89/eaa3a3587ebf8bed93e45aa79be8c2af77d50790d15b53f6dfc85b57f398/distro-1.8.0.tar.gz"
+    sha256 "02e111d1dc6a50abb8eed6bf31c3e48ed8b0830d1ea2a1b78c61765c2513fdd8"
+  end
+
   resource "docker" do
-    url "https://files.pythonhosted.org/packages/fd/46/6f6116c30cb859a0cdb95444140e9fe0be0de455c9c83748ee421aec8274/docker-4.4.4.tar.gz"
-    sha256 "d3393c878f575d3a9ca3b94471a3c89a6d960b35feb92f033c0de36cc9d934db"
+    url "https://files.pythonhosted.org/packages/f0/73/f7c9a14e88e769f38cb7fb45aa88dfd795faa8e18aea11bababf6e068d5e/docker-6.1.3.tar.gz"
+    sha256 "aa6d17830045ba5ef0168d5eaa34d37beeb113948c413affe1d5991fc11f9a20"
   end
 
   resource "docker-compose" do
-    url "https://files.pythonhosted.org/packages/0a/43/e71f087c308f7d7566449212ecaf3e02323e6dd0f5b9b6b0fb64cbfd4df6/docker-compose-1.25.5.tar.gz"
-    sha256 "7a2eb6d8173fdf408e505e6f7d497ac0b777388719542be9e49a0efd477a50c6"
+    url "https://files.pythonhosted.org/packages/1f/6a/f4703077123ad0c90026985cb9780c0703922c2a5451ab93fb63511d915a/docker-compose-1.29.2.tar.gz"
+    sha256 "4c8cd9d21d237412793d18bd33110049ee9af8dab3fe2c213bbd0733959b09b7"
 
     # Build patch for cython 3+
+    # upstream bug report, https://github.com/aws/aws-elastic-beanstalk-cli/issues/456
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/99732fa/aws-elasticbeanstalk/docker-compose-pyyaml6.patch"
-      sha256 "5382d20b105a20fc6a30a0ac2cedbff290afb0eb769ef4824c3ec6ee54fd8015"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/dbcf0f8/aws-elasticbeanstalk/docker-compose-pyyaml6.patch"
+      sha256 "23bc9e96c286b4131df578a1c4b8a096ed76182455c434c578316026d5aa0f6c"
     end
   end
 
@@ -113,9 +112,14 @@ class AwsElasticbeanstalk < Formula
     sha256 "c8a85b28d377cc7737e46e2d9f2b4f44ee3c0e1deac6bf46ddefc7187d30797a"
   end
 
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/b9/6c/7c6658d258d7971c5eb0d9b69fa9265879ec9a9158031206d47800ae2213/packaging-23.1.tar.gz"
+    sha256 "a392980d2b6cffa644431898be54b0045151319d1e7ec34f0cfed48767dd334f"
+  end
+
   resource "paramiko" do
-    url "https://files.pythonhosted.org/packages/87/62/cee9551811c846e9735f749dbdf05d4f9f0dbcecd66eae35b5daacf9a117/paramiko-3.2.0.tar.gz"
-    sha256 "93cdce625a8a1dc12204439d45033f3261bdb2c201648cfcdc06f9fd0f94ec29"
+    url "https://files.pythonhosted.org/packages/44/03/158ae1dcb950bd96f04038502238159e116fafb27addf5df1ba35068f2d6/paramiko-3.3.1.tar.gz"
+    sha256 "6a3777a961ac86dbef375c5f5b8d50014a1a96d0fd7f054a43bc880134b0ff77"
   end
 
   resource "pathspec" do
@@ -136,6 +140,11 @@ class AwsElasticbeanstalk < Formula
   resource "python-dateutil" do
     url "https://files.pythonhosted.org/packages/4c/c4/13b4776ea2d76c115c1d1b84579f3764ee6d57204f6be27119f13a61d0a9/python-dateutil-2.8.2.tar.gz"
     sha256 "0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"
+  end
+
+  resource "python-dotenv" do
+    url "https://files.pythonhosted.org/packages/f5/d7/d548e0d5a68b328a8d69af833a861be415a17cb15ce3d8f0cd850073d2e1/python-dotenv-0.21.1.tar.gz"
+    sha256 "1c93de8f636cde3ce377292818d0e440b6e45a82f215c3744979151fa8151c49"
   end
 
   resource "requests" do
@@ -173,12 +182,10 @@ class AwsElasticbeanstalk < Formula
     sha256 "d376bd60eace9d437ab6d7ee16f4ab4e821c9dae591e1b783c58ebd8aaf80c5c"
   end
 
-  # patch to work with pyyaml6, remove when merged and released
-  # pyyaml6 patch PR, https://github.com/aws/aws-elastic-beanstalk-cli/pull/442
-  # also update six constraint, upstream PR ref, https://github.com/aws/aws-elastic-beanstalk-cli/pull/447
-  patch :DATA
-
   def install
+    # update six constraint, upstream PR ref, https://github.com/aws/aws-elastic-beanstalk-cli/pull/447
+    inreplace "requirements.txt", "six>=1.11.0,<1.15.0", "six>=1.11.0,<1.17.0"
+
     virtualenv_install_with_resources
   end
 
@@ -187,20 +194,3 @@ class AwsElasticbeanstalk < Formula
     assert_match("ERROR: InvalidProfileError - The config profile (homebrew-test) could not be found", output)
   end
 end
-
-__END__
-diff --git a/requirements.txt b/requirements.txt
-index 421afcf..84b11de 100644
---- a/requirements.txt
-+++ b/requirements.txt
-@@ -6,8 +6,8 @@ python-dateutil>=2.1,<3.0.0 # use the same range that 'botocore' uses
- requests>=2.31
- setuptools >= 20.0
- semantic_version == 2.8.5
--six>=1.11.0,<1.15.0
-+six>=1.11.0,<1.17.0
- termcolor == 1.1.0
- wcwidth>=0.1.7,<0.2.0
--PyYAML>=5.3.1,<5.5 # use the same range that 'aws-cli' uses. This is also compatible with 'docker-compose'
-+PyYAML>=5.3.1,<6.1 # use the same range that 'aws-cli' uses. This is also compatible with 'docker-compose'
- urllib3>=1.26.5 #1.26.5 fix CVE-2021-33503

@@ -5,6 +5,11 @@ class Azcopy < Formula
   sha256 "c9d5ba8e81eff6820d8d6b6797461fdbb772616f5eae913e6c6c4a7b2fd78ec0"
   license "MIT"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c955f1c22b941922c45b55f0430421ba3316c83176bfb3baabb0a0fef3644593"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "82884152f61caf4c3c6b247003de737170866ac9de56e93396da00dcb7b3a421"

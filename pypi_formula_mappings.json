@@ -110,7 +110,7 @@
     "exclude_packages": ["certifi", "six"]
   },
   "bilix": {
-    "exclude_packages": ["certifi", "typing-extensions", "pygments"]
+    "exclude_packages": ["certifi", "typing-extensions", "Pygments"]
   },
   "black": "black[d]",
   "borgmatic": {
@@ -244,6 +244,10 @@
   "dnstwist": {
     "package_name": "dnstwist[full]",
     "exclude_packages": ["certifi"]
+  },
+  "dnsrobocert": {
+    "exclude_packages": [
+      "certbot", "certifi", "cffi", "cryptography", "dns-lexicon", "pycparser", "pygments", "pyyaml", "six"]
   },
   "doc8": {
     "exclude_packages": ["docutils", "Pygments"]
@@ -801,7 +805,7 @@
     "exclude_packages": ["six"]
   },
   "shodan": {
-    "exclude_packages": ["certifi"]
+    "exclude_packages": ["certifi", "six"]
   },
   "shub": {
     "exclude_packages": ["certifi", "pyyaml", "six"]
