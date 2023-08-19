@@ -5,11 +5,13 @@ class Bmakelib < Formula
   sha256 "d60a6b0674941bee801571677fa3d6e09f9d85835ec9f790b5f040feed0eada6"
   license "Apache-2.0"
 
-  depends_on "make" => :build
-  depends_on "perl" => :build
+  depends_on "make" => [:build, :test]
+  depends_on "perl" => [:build, :test]
+  depends_on "bash" => [:build, :test]
 
   depends_on "make"
   depends_on "perl"
+  depends_on "bash"
 
   def install
     system "make", "PREFIX=#{prefix}", "install"
