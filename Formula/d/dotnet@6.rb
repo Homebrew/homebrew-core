@@ -3,8 +3,8 @@ class DotnetAT6 < Formula
   homepage "https://dotnet.microsoft.com/"
   # Source-build tag announced at https://github.com/dotnet/source-build/discussions
   url "https://github.com/dotnet/installer.git",
-      tag:      "v6.0.114",
-      revision: "346c0065dd9540261ec07e938b808833446d2a9e"
+      tag:      "v6.0.121-source-build",
+      revision: "b0dda375d13513f4b0db90517ff4408e05eb68a4"
   license "MIT"
 
   # https://github.com/dotnet/source-build/#support
@@ -40,7 +40,7 @@ class DotnetAT6 < Formula
   depends_on "pkg-config" => :build
   depends_on "python@3.11" => :build
   depends_on "icu4c"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "llvm" => :build
   uses_from_macos "krb5"
