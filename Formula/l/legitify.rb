@@ -17,6 +17,6 @@ class Legitify < Formula
         bin.install "legitify"
     end
     test do
-      assert match version.to_s, shell_output("#{bin}/legitify --version 2>&1")
+      assert match version.to_s, shell_output("#{bin}/legitify version 2>&1")
     end
 end
