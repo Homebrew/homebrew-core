@@ -1,8 +1,8 @@
 class LxiTools < Formula
   desc "Open source tools for managing network attached LXI compatible instruments"
   homepage "https://github.com/lxi-tools/lxi-tools"
-  url "https://github.com/lxi-tools/lxi-tools/archive/refs/tags/v2.6.tar.gz"
-  sha256 "a36699387b40080ea9eb8b1abc14d843f5e7a33b3a62fcfedaea9cc54214bdc8"
+  url "https://github.com/lxi-tools/lxi-tools/archive/refs/tags/v2.7.tar.gz"
+  sha256 "6196980e82be2d143aa7f52e8e4612866b570cfce225d7d61698d2eeb1bf8a00"
   license "BSD-3-Clause"
 
   bottle do
@@ -21,6 +21,7 @@ class LxiTools < Formula
 
   depends_on "desktop-file-utils"
   depends_on "gtksourceview5"
+  depends_on "hicolor-icon-theme"
   depends_on "json-glib"
   depends_on "libadwaita"
   depends_on "liblxi"
@@ -31,6 +32,11 @@ class LxiTools < Formula
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
     rm_f "#{share}/glib-2.0/schemas/gschemas.compiled"
+  end
+
+  def post_install
+    system "#{Formula["glib"].opt_bin}/glib-compile-schemas", "#{HOMEBREW_PREFIX}/share/glib-2.0/schemas"
+    system "#{Formula["gtk4"].opt_bin}/gtk4-update-icon-cache", "-f", "-t", "#{HOMEBREW_PREFIX}/share/icons/hicolor"
   end
 
   test do
