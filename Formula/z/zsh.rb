@@ -81,6 +81,17 @@ class Zsh < Formula
     end
   end
 
+  def caveats
+    <<~EOS
+      Some formulas (e.g. `git`) install their own completions which take precedence.
+      If you prefer completions provided by Zsh, you need to configure the FPATH variable accordingly
+      or manually uninstall those provided by other formulas.
+
+      For example, to persist such uninstallation across Git updates, you can add the following to your Zsh configuration e.g. ~/.zshrc
+        [[ -L "$(brew --prefix)/share/zsh/site-functions/_git" ]] && rm "$(brew --prefix)/share/zsh/site-functions/_git"
+    EOS
+  end
+
   test do
     assert_equal "homebrew", shell_output("#{bin}/zsh -c 'echo homebrew'").chomp
     system bin/"zsh", "-c", "printf -v hello -- '%s'"
