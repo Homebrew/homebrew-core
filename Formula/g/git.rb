@@ -177,6 +177,10 @@ class Git < Formula
     <<~EOS
       The Tcl/Tk GUIs (e.g. gitk, git-gui) are now in the `git-gui` formula.
       Subversion interoperability (git-svn) is now in the `git-svn` formula.
+
+      This formula installs completions for Zsh that are different from those provided by Zsh itself.
+      If you prefer other completions, you need to configure the FPATH environment variable accordingly
+      or delete those provided by this formula.
     EOS
   end
 
