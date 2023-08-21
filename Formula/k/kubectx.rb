@@ -15,6 +15,9 @@ class Kubectx < Formula
   def install
     bin.install "kubectx", "kubens"
 
+    ln_s bin/"kubectx", bin/"kubectl-ctx"
+    ln_s bin/"kubens", bin/"kubectl-ns"
+
     %w[kubectx kubens].each do |cmd|
       bash_completion.install "completion/#{cmd}.bash" => cmd.to_s
       zsh_completion.install "completion/_#{cmd}.zsh" => "_#{cmd}"
