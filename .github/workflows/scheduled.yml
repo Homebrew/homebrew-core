@@ -27,6 +27,8 @@ jobs:
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
         with:
+          core: true
+          cask: false
           test-bot: false
 
       - id: matrix
@@ -34,7 +36,7 @@ jobs:
           formula="$(find "$(brew --repo "${TAP}")/Formula" | shuf -n "${TEST_COUNT}" | xargs -I{} basename {} .rb)"
           # shellcheck disable=SC2086
           json="$(
-            brew info --json=v2 $formula | 
+            brew info --json=v2 $formula |
               jq --compact-output '[.formulae[] | select(.deprecated == false and .disabled == false) | .name]'
           )"
           echo "json=${json}" >> "$GITHUB_OUTPUT"
@@ -57,6 +59,8 @@ jobs:
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
         with:
+          core: true
+          cask: false
           test-bot: false
 
       - name: Check formula for missing upstreams etc.

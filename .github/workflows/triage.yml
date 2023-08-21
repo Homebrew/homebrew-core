@@ -197,7 +197,7 @@ jobs:
               content: system "swift", "build"
 
             - label: long build
-              path: Formula/(agda|arangodb|boost|deno|dotnet|dvc|dstack|emscripten|envoy|freetype|gcc|ghc|graph-tool|howdoi|libtensorflow|llvm|node|pango|ponyc|rav1e|rust|semgrep|suite-sparse|swift|texlive|qt|v8|vtk|xz|zstd)(@[0-9]+)?.rb
+              path: Formula/(agda|arangodb|boost|deno|dotnet|emscripten|envoy|freetype|gcc|ghc|graph-tool|harfbuzz|libtensorflow|llvm|metashell|node|pango|ponyc|rav1e|rust|semgrep|suite-sparse|swift|texlive|qt|v8|verilator|vtk|xz|zstd)(@[0-9]+)?.rb
               keep_if_no_match: true
 
             - label: CI-build-dependents-from-source
@@ -209,7 +209,7 @@ jobs:
               keep_if_no_match: true
 
             - label: CI-linux-self-hosted
-              path: Formula/(envoy|freetype|gdbm|libssh2|libxcrypt|libxml2|llvm|openssl@1.1|python@3.11|qt(@5)?|xz|zstd).rb
+              path: Formula/(envoy|freetype|gdbm|gzip|gtk4|harfbuzz|json-c|krb5|libarchive|libsndfile|libssh2|libtiff|libxcrypt|libxml2|llvm|minizip|openexr|pygments|python@3.11|systemd|qt(@5)?|utf8cpp|util-linux|xz|zlib|zstd).rb
               keep_if_no_match: true
 
             - label: large-bottle-upload
@@ -218,3 +218,6 @@ jobs:
 
             - label: bump-formula-pr
               pr_body_content: Created with `brew bump-formula-pr`
+
+            - label: pip-audit
+              pr_body_content: Created by `brew-pip-audit`

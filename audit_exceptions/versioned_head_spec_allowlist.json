@@ -1,5 +1,6 @@
 [
   "bash-completion@2",
+  "botan@2",
   "imagemagick@6",
   "libgit2@1.5",
   "mbedtls@2"

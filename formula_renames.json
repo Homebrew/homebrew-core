@@ -1,5 +1,6 @@
 {
   "advancemenu": "advancemame",
+  "amtk": "libgedit-amtk",
   "annie": "lux",
   "antlr2": "antlr@2",
   "app-engine-java-sdk": "app-engine-java",
@@ -107,6 +108,7 @@
   "libsasl2": "cyrus-sasl",
   "libtorch": "pytorch",
   "linux-headers": "linux-headers@4.4",
+  "llama": "walk",
   "lua51": "lua@5.1",
   "mat": "mat2",
   "maven32": "maven@3.2",

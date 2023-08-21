@@ -12,6 +12,7 @@ env:
   HOMEBREW_GITHUB_ACTIONS: 1
   HOMEBREW_NO_AUTO_UPDATE: 1
   HOMEBREW_NO_INSTALL_FROM_API: 1
+  HOMEBREW_RELOCATABLE_INSTALL_NAMES: 1
   GH_REPO: ${{github.repository}}
   GH_NO_UPDATE_NOTIFIER: 1
   GH_PROMPT_DISABLED: 1
@@ -36,6 +37,10 @@ jobs:
       - name: Set up Homebrew
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
+        with:
+          core: true
+          cask: false
+          test-bot: true
 
       - name: Cache style cache
         uses: actions/cache@v3
@@ -59,6 +64,10 @@ jobs:
       - name: Set up Homebrew
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
+        with:
+          core: true
+          cask: false
+          test-bot: true
 
       - run: brew test-bot --only-formulae-detect
         id: formulae-detect
@@ -136,6 +145,8 @@ jobs:
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
         with:
+          core: true
+          cask: false
           test-bot: false
 
       - name: Determine runners to use for tests job
@@ -299,6 +310,8 @@ jobs:
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
         with:
+          core: true
+          cask: false
           test-bot: false
 
       - name: Determine runners to use for test_deps job
@@ -308,7 +321,7 @@ jobs:
   test_deps:
     needs: [tap_syntax, setup_dep_tests, setup_dep_runners, tests]
     if: >
-      (success() || 
+      (success() ||
       (failure() &&
        !fromJson(needs.setup_dep_tests.outputs.fail-fast) &&
        !contains(fromJson('["skipped", "cancelled"]'), needs.tests.result))) &&
