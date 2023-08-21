@@ -8,11 +8,6 @@ class Ncdu < Formula
   stable do
     url "https://dev.yorhel.nl/download/ncdu-2.3.tar.gz"
     sha256 "bbce1d1c70f1247671be4ea2135d8c52cd29a708af5ed62cecda7dc6a8000a3c"
-
-    # Enable install_name rewriting when bottling.
-    # Remove in next release.
-    # https://code.blicky.net/yorhel/ncdu/commit/07a13d9c7397c3341f430e1127e7287fe53ba8b9
-    patch :DATA
   end
 
   livecheck do
@@ -61,20 +56,3 @@ class Ncdu < Formula
     assert_equal Pathname.pwd.size, output[3][0]["asize"]
   end
 end
-
-__END__
-diff --git a/build.zig b/build.zig
-index 45bd314..aac1b54 100644
---- a/build.zig
-+++ b/build.zig
-@@ -10,6 +10,10 @@ pub fn build(b: *std.build.Builder) void {
-     const exe = b.addExecutable("ncdu", "src/main.zig");
-     exe.setTarget(target);
-     exe.setBuildMode(mode);
-+    if (exe.target.isDarwin()) {
-+        // useful for package maintainers
-+        exe.headerpad_max_install_names = true;
-+    }
-     exe.addCSourceFile("src/ncurses_refs.c", &[_][]const u8{});
-     exe.linkLibC();
-     exe.linkSystemLibrary("ncursesw");
