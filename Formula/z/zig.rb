@@ -22,7 +22,7 @@ class Zig < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "llvm@15" => :build
+  depends_on "llvm" => :build
   depends_on macos: :big_sur # https://github.com/ziglang/zig/issues/13313
   depends_on "zstd"
   uses_from_macos "ncurses"
