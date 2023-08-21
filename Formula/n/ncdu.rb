@@ -6,8 +6,8 @@ class Ncdu < Formula
 
   # Remove `stable` block when the patch is no longer needed.
   stable do
-    url "https://dev.yorhel.nl/download/ncdu-2.2.2.tar.gz"
-    sha256 "90d920024e752318b469776ce57e03b3c702d49329ad9825aeeab36c3babf993"
+    url "https://dev.yorhel.nl/download/ncdu-2.3.tar.gz"
+    sha256 "bbce1d1c70f1247671be4ea2135d8c52cd29a708af5ed62cecda7dc6a8000a3c"
 
     # Enable install_name rewriting when bottling.
     # Remove in next release.
