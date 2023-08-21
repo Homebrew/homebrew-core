@@ -9,12 +9,12 @@ class Luajit < Formula
   # Update this to the tip of the `v2.1` branch at the start of every month.
   # Get the latest commit with:
   #   `git ls-remote --heads https://github.com/LuaJIT/LuaJIT.git v2.1`
-  url "https://github.com/LuaJIT/LuaJIT/archive/72efc42ef2258086a9cb797c676e2916b0a9e7e1.tar.gz"
+  url "https://github.com/LuaJIT/LuaJIT/archive/54ef81f864e18729f6dafb6b1c9f9176fcb67bb5.tar.gz"
   # Use the version scheme `2.1.0-beta3-yyyymmdd.x` where `yyyymmdd` is the date of the
   # latest commit at the time of updating, and `x` is the number of commits on that date.
   # `brew livecheck luajit` will generate the correct version for you automatically.
-  version "2.1.0-beta3-20230813.2"
-  sha256 "940b2afd480d0a6365fcae11415117b016e485f2bf8a68c7a12534b9ab42d35a"
+  version "2.1.0-beta3-20230821.8"
+  sha256 "b14a7d2b2879cbcb7fcc911bf28ddeb0ce14131855afdd7df2f337e1b4c5eb20"
   license "MIT"
   head "https://luajit.org/git/luajit-2.0.git", branch: "v2.1"
 
@@ -74,11 +74,9 @@ class Luajit < Formula
     system "make", "install", "PREFIX=#{prefix}", *verbose_args
     doc.install (buildpath/"doc").children
 
-    # We need `stable.version` here to avoid breaking symlink generation for HEAD.
-    upstream_version = stable.version.to_s.sub(/-\d+\.\d+$/, "")
     # v2.1 branch doesn't install symlink for luajit.
     # This breaks tools like `luarocks` that require the `luajit` bin to be present.
-    bin.install_symlink "luajit-#{upstream_version}" => "luajit"
+    bin.install_symlink "luajit-2.1." => "luajit"
 
     # LuaJIT doesn't automatically symlink unversioned libraries:
     # https://github.com/Homebrew/homebrew/issues/45854.
