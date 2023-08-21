@@ -1,8 +1,8 @@
 class Fastfetch < Formula
   desc "Like neofetch, but much faster because written mostly in C"
   homepage "https://github.com/fastfetch-cli/fastfetch"
-  url "https://github.com/fastfetch-cli/fastfetch/archive/refs/tags/1.12.2.tar.gz"
-  sha256 "e3d7384de0aa306effdcbe1b7e8095b40649773086b838d925fbfc2ec5027ab0"
+  url "https://github.com/fastfetch-cli/fastfetch/archive/refs/tags/2.0.1.tar.gz"
+  sha256 "b42ed1d08c3caeb14610094f45492b293bb886893b85cbb7fe25e370dffdd9b9"
   license "MIT"
   head "https://github.com/fastfetch-cli/fastfetch.git", branch: "dev"
 
@@ -21,13 +21,14 @@ class Fastfetch < Formula
   depends_on "glib" => :build
   depends_on "imagemagick" => :build
   depends_on "pkg-config" => :build
+  depends_on "sqlite" => :build
   depends_on "vulkan-loader" => :build
 
   uses_from_macos "zlib" => :build
 
   on_linux do
-    depends_on "cjson" => :build
     depends_on "dbus" => :build
+    depends_on "ddcutil" => :build
     depends_on "libx11" => :build
     depends_on "libxcb" => :build
     depends_on "libxrandr" => :build
@@ -35,7 +36,6 @@ class Fastfetch < Formula
     depends_on "opencl-icd-loader" => :build
     depends_on "pulseaudio" => :build
     depends_on "rpm" => :build
-    depends_on "sqlite" => :build
     depends_on "wayland" => :build
   end
 
@@ -48,6 +48,6 @@ class Fastfetch < Formula
 
   test do
     assert_match "fastfetch", shell_output("#{bin}/fastfetch --version")
-    assert_match "OS", shell_output("#{bin}/fastfetch --structure OS --logo none --hide-cursor false")
+    assert_match "OS", shell_output("#{bin}/fastfetch --structure OS --pipe")
   end
 end
