@@ -21,9 +21,9 @@ class Fastfetch < Formula
   depends_on "glib" => :build
   depends_on "imagemagick" => :build
   depends_on "pkg-config" => :build
-  depends_on "sqlite" => :build
   depends_on "vulkan-loader" => :build
 
+  uses_from_macos "sqlite" => :build
   uses_from_macos "zlib" => :build
 
   on_linux do
