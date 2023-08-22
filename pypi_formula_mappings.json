@@ -480,6 +480,9 @@
   "legit": {
     "exclude_packages": ["six"]
   },
+  "licensecheck": {
+    "exclude_packages": ["certifi", "pygments", "six"]
+  },
   "linode-cli": {
     "exclude_packages": ["certifi", "Pygments", "PyYAML"]
   },
