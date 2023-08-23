@@ -56,7 +56,10 @@ class Scipy < Formula
     ENV.prepend_path "PYTHONPATH", Formula["numpy"].opt_prefix/site_packages
     ENV.prepend_create_path "PYTHONPATH", site_packages
 
-    system python3, "_setup.py", "build", "--fcompiler=gfortran", "--parallel=#{ENV.make_jobs}"
+    # Ref https://github.com/scipy/scipy/pull/19027
+    mv "_setup.py", "setup.py"
+
+    system python3, "setup.py", "build", "--fcompiler=gfortran", "--parallel=#{ENV.make_jobs}"
     system python3, *Language::Python.setup_install_args(prefix, python3)
   end
 
