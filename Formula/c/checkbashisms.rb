@@ -16,7 +16,7 @@ class Checkbashisms < Formula
 
   def install
     inreplace "scripts/checkbashisms.pl" do |s|
-      s.gsub! "###VERSION###", version
+      s.gsub! "###VERSION###", version.to_s
       s.gsub! "#!/usr/bin/perl", "#!/usr/bin/perl -T"
     end
 
