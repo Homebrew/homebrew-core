@@ -13,6 +13,7 @@ class Strend < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/strend --version")
-    assert_match "Error: Invalid arguments, please check: strend --help", shell_output("#{bin}/strend --query '' --facets os", 1)
+    assert_match "Error: Invalid arguments, please check: strend --help",
+      shell_output("#{bin}/strend --query '' --facets os", 1)
   end
 end
