@@ -19,8 +19,12 @@ class Libtomcrypt < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8957df3d2611c3979bf19a68c0b0f1cab117c3a434f979b0a6a5cf21f4bc560e"
   end
 
+  depends_on "gmp"
+  depends_on "libtommath"
+
   def install
-    system "make", "test"
+    system "make", "CFLAGS=-DUSE_LTM -DLTM_DESC -DGMP_DESC"
+    system "make", "test", "CFLAGS=-DUSE_LTM -DLTM_DESC -DGMP_DESC", "EXTRALIBS=-ltommath"
     system "make", "install", "PREFIX=#{prefix}"
     pkgshare.install "test"
     (pkgshare/"tests").install "tests/test.key"
