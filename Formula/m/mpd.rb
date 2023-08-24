@@ -107,7 +107,7 @@ class Mpd < Formula
     # oss_output: Error opening OSS device "/dev/sound/dsp": No such file or directory
     return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
 
-    assert_match "[wavpack] wv", shell_output("mpd --version")
+    assert_match "[wavpack] wv", shell_output("#{bin}/mpd --version")
 
     require "expect"
 
