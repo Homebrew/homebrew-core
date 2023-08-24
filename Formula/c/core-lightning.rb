@@ -1,8 +1,8 @@
 class CoreLightning < Formula
   desc "Lightning Network implementation focusing on spec compliance and performance"
   homepage "https://github.com/ElementsProject/lightning"
-  url "https://github.com/ElementsProject/lightning/releases/download/v23.05.2/clightning-v23.05.2.zip"
-  sha256 "4e3e726d56b1a64e7098ec3ce4b91e538a6033d35897a4a79831b68325eb4c7c"
+  url "https://github.com/ElementsProject/lightning/releases/download/v23.08/clightning-v23.08.zip"
+  sha256 "91eaec5961b2b5999d55ba607b3ad6ca37dbe23786e5d4a193f0946f98698aa0"
   license "MIT"
 
   livecheck do
@@ -44,10 +44,10 @@ class CoreLightning < Formula
   end
 
   test do
-    lightningd_output = shell_output("#{bin}/lightningd --daemon --network regtest --log-file lightningd.log 2>&1", 1)
-    assert_match "Could not connect to bitcoind using bitcoin-cli. Is bitcoind running?", lightningd_output
+    lightningd_out = shell_output("#{bin}/lightningd --daemon --network regtest --log-file lightningd.log 2>&1", 10)
+    assert_match "lightningd: Could not run /lightning_channeld: No such file or directory", lightningd_out
 
-    lightningcli_output = shell_output("#{bin}/lightning-cli --network regtest getinfo 2>&1", 2)
-    assert_match "lightning-cli: Connecting to 'lightning-rpc': No such file or directory", lightningcli_output
+    lightningcli_out = shell_output("#{bin}/lightning-cli --network regtest getinfo 2>&1", 2)
+    assert_match "lightning-cli: Connecting to 'lightning-rpc': No such file or directory", lightningcli_out
   end
 end
