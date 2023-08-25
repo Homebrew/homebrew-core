@@ -4,8 +4,8 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.dev"
   url "https://github.com/returntocorp/semgrep.git",
-      tag:      "v1.36.0",
-      revision: "52543b77abc9cb2ca5122aa2e71593318a368e19"
+      tag:      "v1.37.0",
+      revision: "26bcb21a359de1824e683266dbbca1ef5f21f124"
   license "LGPL-2.1-only"
   head "https://github.com/returntocorp/semgrep.git", branch: "develop"
 
@@ -66,8 +66,8 @@ class Semgrep < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/72/bd/fedc277e7351917b6c4e0ac751853a97af261278a4c7808babafa8ef2120/click-8.1.6.tar.gz"
-    sha256 "48ee849951919527a045bfe3bf7baa8a959c423134e1a5b98c05c20ba75a1cbd"
+    url "https://files.pythonhosted.org/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz"
+    sha256 "ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de"
   end
 
   resource "click-option-group" do
@@ -211,7 +211,7 @@ class Semgrep < Formula
       # Install semgrep-core and spacegrep
       system "opam", "install", "--deps-only", "-y", "."
       system "opam", "exec", "--", "make", "core"
-      system "opam", "exec", "--", "make", "core-install"
+
       bin.install "_build/install/default/bin/semgrep-core" => "semgrep-core"
     end
 
