@@ -11,5 +11,6 @@
   "spatialite-gui": "2.1.0-beta",
   "tcptraceroute": "1.5beta",
   "tiny-fugue": "5.0b",
-  "vbindiff": "3.0_beta"
+  "vbindiff": "3.0_beta",
+  "wiremock-standalone": "3.0.0-beta"
 }
