@@ -211,6 +211,7 @@ class Semgrep < Formula
       # Install semgrep-core and spacegrep
       system "opam", "install", "--deps-only", "-y", "."
       system "opam", "exec", "--", "make", "core"
+      system "opam", "exec", "--", "make", "copy-core-for-cli"
 
       bin.install "_build/install/default/bin/semgrep-core" => "semgrep-core"
     end
