@@ -11,7 +11,7 @@ class Orbiton < Formula
 
   def install
     ENV["CXXFLAGS"] = "-Wl,--as-needed,--strip-all,--sort-common,-z,relro,-z,now"
-    system "make", "install", "symlinks", "easteregg", "license", "DESTDIR=", "PREFIX=#{prefix}", "MANDIR=#{man}"
+    system "make", "install", "symlinks", "license", "DESTDIR=", "PREFIX=#{prefix}", "MANDIR=#{man}"
   end
 
   test do
