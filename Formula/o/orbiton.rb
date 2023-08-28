@@ -1,16 +1,14 @@
 class Orbiton < Formula
   desc "Fast and configuration-free text editor and IDE limited by VT100"
   homepage "https://orbiton.zip/"
-  url "https://github.com/xyproto/orbiton.git",
-      tag:      "v2.64.1",
-      revision: "d01e9de6baa386a08dd6fca6ad76047451fbfa18"
+  url "https://github.com/xyproto/orbiton/archive/refs/tags/v2.64.2.tar.gz"
+  sha256 "304eddd87c85e4cdffaaa25f2bbd95e4280c8e1a3a190f4c5d962362f388e7a4"
   license "BSD-3-Clause"
   head "https://github.com/xyproto/orbiton.git"
 
   depends_on "go" => :build
 
   def install
-    ENV["CXXFLAGS"] = "-Wl,--as-needed,--strip-all,--sort-common,-z,relro,-z,now"
     system "make", "install", "symlinks", "license", "DESTDIR=", "PREFIX=#{prefix}", "MANDIR=#{man}"
   end
 
