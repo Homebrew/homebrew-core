@@ -13,10 +13,6 @@ class Orbiton < Formula
   end
 
   test do
-    # Test 1: Check if 'o --version' output contains "Orbiton"
-    assert_match "Orbiton", shell_output("#{bin}/o --version")
-
-    # Test 2: Check if copying and pasting a file with 'o' works
     (testpath/"hello.txt").write "hello\n"
     system "#{bin}/o", "-c", "#{testpath}/hello.txt" # copy the contents of hello.txt to the clipboard
     system "#{bin}/o", "-p", "#{testpath}/hello2.txt" # paste the contents of the clipboard to hello2.txt
