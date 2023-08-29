@@ -8,6 +8,10 @@ class Orbiton < Formula
 
   depends_on "go" => :build
 
+  on_linux do
+    depends_on "xclip" => :test
+  end
+
   def install
     system "make", "install", "symlinks", "license", "DESTDIR=", "PREFIX=#{prefix}", "MANDIR=#{man}"
   end
