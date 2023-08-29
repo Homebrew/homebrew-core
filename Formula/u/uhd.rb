@@ -6,7 +6,7 @@ class Uhd < Formula
       tag:      "v4.4.0.0",
       revision: "5fac246bc18ab04cb4870026a630e46d0fd87b17"
   license all_of: ["GPL-3.0-or-later", "LGPL-3.0-or-later", "MIT", "BSD-3-Clause", "Apache-2.0"]
-  revision 1
+  revision 2
   head "https://github.com/EttusResearch/uhd.git", branch: "master"
 
   livecheck do
@@ -41,6 +41,13 @@ class Uhd < Formula
   resource "MarkupSafe" do
     url "https://files.pythonhosted.org/packages/95/7e/68018b70268fb4a2a605e2be44ab7b4dd7ce7808adae6c5ef32e34f4b55a/MarkupSafe-2.1.2.tar.gz"
     sha256 "abcabc8c2b26036d62d4c746381a6f7cf60aafcc653198ad678306986b09450d"
+  end
+
+  # See https://github.com/EttusResearch/uhd/commit/c385d20eeea717b3859ac6a2bcc247b69fc66003
+  # The above is not yet reflected in 4.4.0.0.
+  patch do
+    url "https://github.com/EttusResearch/uhd/commit/c385d20eeea717b3859ac6a2bcc247b69fc66003.diff"
+    sha256 "bbc1531823789a3360853706f47d5330154a9be61a1c1d86fe15605b90e781c9"
   end
 
   def install
