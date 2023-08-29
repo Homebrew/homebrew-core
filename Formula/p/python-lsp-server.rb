@@ -100,7 +100,7 @@ class PythonLspServer < Formula
 
     # link dependent virtualenvs to this one
     site_packages = Language::Python.site_packages(python3)
-    paths = %w[black mypy pycodestyle pydocstyle].map do |package_name|
+    paths = %w[black mypy pycodestyle pydocstyle ruff].map do |package_name|
       package = Formula[package_name].opt_libexec
       package/site_packages
     end

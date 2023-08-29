@@ -1,4 +1,6 @@
 class Ruff < Formula
+  include Language::Python::Virtualenv
+
   desc "Extremely fast Python linter, written in Rust"
   homepage "https://beta.ruff.rs/"
   url "https://github.com/astral-sh/ruff/archive/refs/tags/v0.0.286.tar.gz"
@@ -16,10 +18,16 @@ class Ruff < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "06ab9ec7071cdc0a4d411345208f47a5b2931b7f5896baf34c3e1c85e521ab61"
   end
 
+  depends_on "maturin" => :build
   depends_on "rust" => :build
+  depends_on "python@3.11"
+
+  def python3
+    "python3.11"
+  end
 
   def install
-    system "cargo", "install", "--no-default-features", *std_cargo_args(path: "crates/ruff_cli")
+    virtualenv_install_with_resources
     generate_completions_from_executable(bin/"ruff", "generate-shell-completion")
   end
 
@@ -29,5 +37,7 @@ class Ruff < Formula
     EOS
 
     assert_match "`os` imported but unused", shell_output("#{bin}/ruff --quiet #{testpath}/test.py", 1)
+
+    system libexec/"bin"/python3, "-c", "import ruff"
   end
 end
