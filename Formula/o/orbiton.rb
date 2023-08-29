@@ -4,7 +4,7 @@ class Orbiton < Formula
   url "https://github.com/xyproto/orbiton/archive/refs/tags/v2.64.3.tar.gz"
   sha256 "f3ebdcdc7cb3502705ceda208510da1a43e65b5e0cb33e57b86564667b48303f"
   license "BSD-3-Clause"
-  head "https://github.com/xyproto/orbiton.git"
+  head "https://github.com/xyproto/orbiton.git", branch: "main"
 
   depends_on "go" => :build
 
