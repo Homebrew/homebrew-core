@@ -1,9 +1,9 @@
 class Coreutils < Formula
   desc "GNU File, Shell, and Text utilities"
   homepage "https://www.gnu.org/software/coreutils"
-  url "https://ftp.gnu.org/gnu/coreutils/coreutils-9.3.tar.xz"
-  mirror "https://ftpmirror.gnu.org/coreutils/coreutils-9.3.tar.xz"
-  sha256 "adbcfcfe899235b71e8768dcf07cd532520b7f54f9a8064843f8d199a904bbaa"
+  url "https://ftp.gnu.org/gnu/coreutils/coreutils-9.4.tar.xz"
+  mirror "https://ftpmirror.gnu.org/coreutils/coreutils-9.4.tar.xz"
+  sha256 "ea613a4cf44612326e917201bbbcdfbd301de21ffc3b59b6e5c07e040b275e52"
   license "GPL-3.0-or-later"
 
   bottle do
