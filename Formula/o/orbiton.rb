@@ -9,9 +9,8 @@ class Orbiton < Formula
   depends_on "go" => :build
 
   on_linux do
-    depends_on "xclip" => [:optional, :test]
+    depends_on "xclip"
     depends_on "xorg-server" => :test
-    depends_on "xsel" => [:optional, :test]
   end
 
   def install
