@@ -1,5 +1,5 @@
 class Orbiton < Formula
-  desc "Fast and configuration-free text editor and IDE limited by VT100"
+  desc "Fast and config-free text editor and IDE limited by VT100"
   homepage "https://orbiton.zip/"
   url "https://github.com/xyproto/orbiton/archive/refs/tags/v2.64.3.tar.gz"
   sha256 "f3ebdcdc7cb3502705ceda208510da1a43e65b5e0cb33e57b86564667b48303f"
