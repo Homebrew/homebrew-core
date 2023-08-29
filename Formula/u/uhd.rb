@@ -46,8 +46,8 @@ class Uhd < Formula
   # See https://github.com/EttusResearch/uhd/commit/c385d20eeea717b3859ac6a2bcc247b69fc66003
   # The above is not yet reflected in 4.4.0.0.
   patch do
-    url "https://github.com/EttusResearch/uhd/commit/c385d20eeea717b3859ac6a2bcc247b69fc66003.patch"
-    sha256 "42c9c62a548a8911bc4291c827e1f384205a339a944447ed9ce037781def60b5"
+    url "https://github.com/EttusResearch/uhd/commit/c385d20eeea717b3859ac6a2bcc247b69fc66003.patch?full_index=1"
+    sha256 "57d86301e0bb1562cd03cdd51fea891629278a6304326bea9843ac32d46a7e63"
   end
 
   def install
