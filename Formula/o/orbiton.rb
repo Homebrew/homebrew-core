@@ -9,6 +9,7 @@ class Orbiton < Formula
   depends_on "go" => :build
 
   on_linux do
+    depends_on "xorg-server" => :test
     depends_on "xclip" => :test
   end
 
@@ -18,8 +19,14 @@ class Orbiton < Formula
 
   test do
     (testpath/"hello.txt").write "hello\n"
-    system "#{bin}/o", "--copy", "#{testpath}/hello.txt"
-    system "#{bin}/o", "--paste", "#{testpath}/hello2.txt"
+    if OS.linux?
+      system "xvfb-run", "#{bin}/o", "--copy", "#{testpath}/hello.txt"
+      system "xvfb-run", "#{bin}/o", "--paste", "#{testpath}/hello2.txt"
+    else
+      system "#{bin}/o", "--copy", "#{testpath}/hello.txt"
+      system "#{bin}/o", "--paste", "#{testpath}/hello2.txt"
+    end
     assert_equal (testpath/"hello.txt").read, (testpath/"hello2.txt").read
   end
+
 end
