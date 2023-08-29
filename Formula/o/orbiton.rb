@@ -10,8 +10,8 @@ class Orbiton < Formula
 
   on_linux do
     depends_on "xclip" => [:optional, :test]
-    depends_on "xsel" => [:optional, :test]
     depends_on "xorg-server" => :test
+    depends_on "xsel" => [:optional, :test]
   end
 
   def install
