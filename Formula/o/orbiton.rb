@@ -9,7 +9,8 @@ class Orbiton < Formula
   depends_on "go" => :build
 
   on_linux do
-    depends_on "xclip" => :test
+    depends_on "xclip" => [:optional, :test]
+    depends_on "xsel" => [:optional, :test]
     depends_on "xorg-server" => :test
   end
 
@@ -28,5 +29,4 @@ class Orbiton < Formula
     end
     assert_equal (testpath/"hello.txt").read, (testpath/"hello2.txt").read
   end
-
 end
