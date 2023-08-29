@@ -714,9 +714,9 @@
   },
   "python-lsp-server": {
     "package_name": "python-lsp-server[websockets]",
-    "extra_packages": ["python-lsp-black", "pylsp-mypy", "python-lsp-ruff"],
+    "extra_packages": ["python-lsp-black", "pylsp-mypy", "python-lsp-ruff", "pylsp-rope"],
     "exclude_packages": [
-      "black", "click", "mypy", "mypy-extensions", "packaging", "pathspec",
+      "attrs", "black", "click", "mypy", "mypy-extensions", "packaging", "pathspec",
       "platformdirs", "typing-extensions", "ruff"
     ]
   },
