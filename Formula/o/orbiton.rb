@@ -20,8 +20,7 @@ class Orbiton < Formula
   test do
     (testpath/"hello.txt").write "hello\n"
     if OS.linux?
-      system "xvfb-run", "#{bin}/o", "--copy", "#{testpath}/hello.txt"
-      system "xvfb-run", "#{bin}/o", "--paste", "#{testpath}/hello2.txt"
+      system "xvfb-run", "sh", "-c", "#{bin}/o --copy #{testpath}/hello.txt && #{bin}/o --paste #{testpath}/hello2.txt"
     else
       system "#{bin}/o", "--copy", "#{testpath}/hello.txt"
       system "#{bin}/o", "--paste", "#{testpath}/hello2.txt"
