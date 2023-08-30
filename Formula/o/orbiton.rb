@@ -19,13 +19,16 @@ class Orbiton < Formula
 
   test do
     (testpath/"hello.txt").write "hello\n"
+    copy_command = "#{bin}/o --copy #{testpath}/hello.txt"
+    paste_command = "#{bin}/o --paste #{testpath}/hello2.txt"
+    
     if OS.linux?
-      system "xvfb-run", "sh", "-c", "#{bin}/o --copy #{testpath}/hello.txt && " \
-             "#{bin}/o --paste #{testpath}/hello2.txt"
+      system "xvfb-run", "sh", "-c", "#{copy_command} && #{paste_command}"
     else
-      system "#{bin}/o", "--copy", "#{testpath}/hello.txt"
-      system "#{bin}/o", "--paste", "#{testpath}/hello2.txt"
+      system copy_command
+      system paste_command
     end
+    
     assert_equal (testpath/"hello.txt").read, (testpath/"hello2.txt").read
   end
 end
