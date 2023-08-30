@@ -95,8 +95,8 @@ class Psalm < Formula
     system "composer", "install"
 
     assert_match "Config file created successfully. Please re-run psalm.",
-                 shell_output("#{bin}/psalm --init")
+                 shell_output("#{bin}/psalm --init . 3")
     assert_match "No errors found!",
-                 shell_output("#{bin}/psalm")
+                 shell_output("#{bin}/psalm --no-progress --stats --no-diff --monochrome")
   end
 end
