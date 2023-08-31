@@ -1,8 +1,8 @@
 class GitCliff < Formula
   desc "Highly customizable changelog generator"
   homepage "https://github.com/orhun/git-cliff"
-  url "https://github.com/orhun/git-cliff/archive/refs/tags/v1.2.0.tar.gz"
-  sha256 "10db6fd8fe777f384de2e00336b1cb664095a2f068526f8ace4e7944a7ada270"
+  url "https://github.com/orhun/git-cliff/archive/refs/tags/v1.3.0.tar.gz"
+  sha256 "3c130ebbd3121d3994ecd1ff1062220de610c7491ada02f9d421c8869674c386"
   license "GPL-3.0-only"
 
   bottle do
@@ -20,6 +20,8 @@ class GitCliff < Formula
   depends_on "libgit2"
 
   def install
+    ENV["LIBGIT2_SYS_USE_PKG_CONFIG"] = "1"
+
     system "cargo", "install", *std_cargo_args(path: "git-cliff")
 
     ENV["OUT_DIR"] = buildpath
