@@ -1,6 +1,4 @@
 class AllRepos < Formula
-  include Language::Python::Virtualenv
-
   desc "Clone all your repositories and apply sweeping changes"
   homepage "https://github.com/asottile/all-repos"
   url "https://files.pythonhosted.org/packages/9a/ea/cdabb519e8afc76df7d70b900403d4f118404c90665d4468c88101265c47/all_repos-1.26.0.tar.gz"
@@ -18,6 +16,7 @@ class AllRepos < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f49ea61cb1733449a24d5518037c0d16d7b8f84d396e5d8f704722aad0b62c31"
   end
 
+  depends_on "python-identify"
   depends_on "python-packaging"
   depends_on "python@3.11"
 
@@ -26,8 +25,12 @@ class AllRepos < Formula
     sha256 "0aac67d5b4812498056d28a9a512a483f5085cc28640b02b258a59dac34301d4"
   end
 
+  def python3
+    which("python3.11")
+  end
+
   def install
-    virtualenv_install_with_resources
+    system python3, "-m", "pip", "install", *std_pip_args, "."
   end
 
   test do
