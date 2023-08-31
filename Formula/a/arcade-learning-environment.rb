@@ -1,6 +1,4 @@
 class ArcadeLearningEnvironment < Formula
-  include Language::Python::Virtualenv
-
   desc "Platform for AI research"
   homepage "https://github.com/mgbellemare/Arcade-Learning-Environment"
   url "https://github.com/mgbellemare/Arcade-Learning-Environment.git",
@@ -22,17 +20,13 @@ class ArcadeLearningEnvironment < Formula
   depends_on "cmake" => :build
   depends_on macos: :catalina # requires std::filesystem
   depends_on "numpy"
+  depends_on "python-importlib-resources"
   depends_on "python@3.11"
   depends_on "sdl2"
 
   uses_from_macos "zlib"
 
   fails_with gcc: "5"
-
-  resource "importlib-resources" do
-    url "https://files.pythonhosted.org/packages/4e/a2/3cab1de83f95dd15297c15bdc04d50902391d707247cada1f021bbfe2149/importlib_resources-5.12.0.tar.gz"
-    sha256 "4be82589bf5c1d7999aedf2a45159d10cb3ca4f19b2271f8792bc8e6da7b22f6"
-  end
 
   def python3
     "python3.11"
@@ -47,29 +41,10 @@ class ArcadeLearningEnvironment < Formula
     system "cmake", "--install", "build"
     pkgshare.install "tests/resources/tetris.bin"
 
-    venv = virtualenv_create(libexec, python3)
-    venv.pip_install resources
-
     # error: no member named 'signbit' in the global namespace
     inreplace "setup.py", "cmake_args = [", "\\0\"-DCMAKE_OSX_SYSROOT=#{MacOS.sdk_path}\"," if OS.mac?
 
-    # `venv.pip_install_and_link buildpath` fails to install scripts, so manually run setup.py instead
-    bin_before = (libexec/"bin").children.to_set
-    venv_python = libexec/"bin/python"
-    system venv_python, *Language::Python.setup_install_args(libexec, venv_python)
-    bin.install_symlink ((libexec/"bin").children.to_set - bin_before).to_a
-
-    site_packages = Language::Python.site_packages(python3)
-    pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
-    (prefix/site_packages/"homebrew-ale-py.pth").write pth_contents
-
-    # Replace vendored `libSDL2` with a symlink to our own.
-    libsdl2 = Formula["sdl2"].opt_lib/shared_library("libSDL2")
-    vendored_libsdl2_dir = libexec/site_packages/"ale_py"
-    (vendored_libsdl2_dir/shared_library("libSDL2")).unlink
-
-    # Use `ln_s` to avoid referencing a Cellar path.
-    ln_s libsdl2.relative_path_from(vendored_libsdl2_dir), vendored_libsdl2_dir
+    system python3, "-m", "pip", "install", *std_pip_args, "."
   end
 
   test do
