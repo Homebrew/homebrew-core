@@ -14,4 +14,8 @@ class SeleneCli < Formula
     system "swift", "build", "--disable-sandbox", "-c", "release"
     bin.install ".build/release/selene"
   end
+  
+  test do
+    system "false"
+  end
 end
