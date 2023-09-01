@@ -12,14 +12,14 @@ class SeleneCli < Formula
     url :stable
     strategy :github_latest
   end
-  
+
   uses_from_macos "swift"
 
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release"
     bin.install ".build/release/selene"
   end
-  
+
   test do
     system "false"
   end
