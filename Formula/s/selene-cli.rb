@@ -8,6 +8,11 @@ class SeleneCli < Formula
   version_scheme 1
   head "https://github.com/zunda-pixel/selene.git", branch: "main"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+  
   uses_from_macos "swift"
 
   def install
