@@ -1,8 +1,8 @@
 class Opencolorio < Formula
   desc "Color management solution geared towards motion picture production"
   homepage "https://opencolorio.org/"
-  url "https://github.com/AcademySoftwareFoundation/OpenColorIO/archive/v2.2.1.tar.gz"
-  sha256 "36f27c5887fc4e5c241805c29b8b8e68725aa05520bcaa7c7ec84c0422b8580e"
+  url "https://github.com/AcademySoftwareFoundation/OpenColorIO/archive/v2.3.0.tar.gz"
+  sha256 "32b7be676c110d849a77886d8a409159f0367309b2b2f5dae5aa0c38f42b445a"
   license "BSD-3-Clause"
   head "https://github.com/AcademySoftwareFoundation/OpenColorIO.git", branch: "master"
 
