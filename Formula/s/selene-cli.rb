@@ -1,5 +1,5 @@
 class SeleneCli < Formula
-  desc "Formatting technology for Swift source code"
+  desc "Generation Swift source code from Env file"
   homepage "https://github.com/zunda-pixel/selene"
   url "https://github.com/zunda-pixel/selene.git",
       tag:      "1.1.1",
@@ -21,6 +21,12 @@ class SeleneCli < Formula
   end
 
   test do
-    system "false"
+    (testpath/".env").write <<~EOS
+      key1=value1
+      #key2=value2
+      key3=value3=value3
+    EOS
+    shell_output("#{bin}/selene SecureEnv .env SecureEnv.swift")
+    assert_predicate testpath/"SecureEnv.swift", :exist?
   end
 end
