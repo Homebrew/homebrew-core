@@ -1,8 +1,8 @@
 class GoFeatureFlag < Formula
   desc "Simple, complete, and lightweight feature flag solution"
   homepage "https://gofeatureflag.org"
-  url "https://github.com/thomaspoignant/go-feature-flag/archive/refs/tags/v1.15.0.tar.gz"
-  sha256 "96d29dad09aa5fe30cfd1bf87ad44a4e1d0084f7881a2d8bbb4a512ddab4b408"
+  url "https://github.com/thomaspoignant/go-feature-flag/archive/refs/tags/v1.15.1.tar.gz"
+  sha256 "1aada56d7a43c1dc61df5bbd9f7f5d7e1d94b4eac324563572855887909a5d68"
   license "MIT"
   head "https://github.com/thomaspoignant/go-feature-flag.git", branch: "main"
 
