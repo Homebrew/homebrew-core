@@ -4,7 +4,7 @@ class Ffmpeg < Formula
   # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
 
   stable do
@@ -55,6 +55,7 @@ class Ffmpeg < Formula
   depends_on "libvpx"
   depends_on "opencore-amr"
   depends_on "openjpeg"
+  depends_on "openvino"
   depends_on "opus"
   depends_on "rav1e"
   depends_on "rubberband"
@@ -139,6 +140,7 @@ class Ffmpeg < Formula
       --enable-libopencore-amrnb
       --enable-libopencore-amrwb
       --enable-libopenjpeg
+      --enable-libopenvino
       --enable-libspeex
       --enable-libsoxr
       --enable-libzmq
