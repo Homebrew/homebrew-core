@@ -5,15 +5,9 @@ class SeleneCli < Formula
       tag:      "1.1.1",
       revision: "703adbc3fced409da7ecf20ea2b7e162ff6f4986"
   license "Apache-2.0"
-  version_scheme 1
   head "https://github.com/zunda-pixel/selene.git", branch: "main"
 
-  livecheck do
-    url :stable
-    strategy :github_latest
-  end
-
-  uses_from_macos "swift"
+  depends_on xcode: ["14.3", :build]
 
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release"
