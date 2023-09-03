@@ -4,6 +4,7 @@ class Objfw < Formula
   url "https://objfw.nil.im/downloads/objfw-1.0.tar.gz"
   sha256 "a6aa3bf590c6a7ae21cf13dbaa94a72926e67af5c7d5aef4a2b172543d1f26a3"
   license any_of: ["QPL-1.0", "GPL-2.0-only", "GPL-3.0-only"]
+  head "https://github.com/ObjFW/ObjFW.git", branch: "master"
 
   livecheck do
     url "https://objfw.nil.im/wiki?name=Releases"
@@ -24,12 +25,9 @@ class Objfw < Formula
     sha256 x86_64_linux:   "57dcb7565015413f1fb668f18b03af564e8b631b47e051c6b98dfb57d1530fa0"
   end
 
-  head do
-    url "https://github.com/ObjFW/ObjFW.git", branch: "master"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-  end
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
 
   on_linux do
     depends_on "llvm"
@@ -37,8 +35,10 @@ class Objfw < Formula
 
   fails_with :gcc
 
+  patch :DATA
+
   def install
-    system "./autogen.sh" if build.head?
+    system "./autogen.sh"
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
     inreplace bin/"objfw-config", "llvm_clang", "clang" if OS.linux?
@@ -50,3 +50,18 @@ class Objfw < Formula
     system "./t"
   end
 end
+
+__END__
+diff --git a/build-aux/m4/buildsys.m4 b/build-aux/m4/buildsys.m4
+index 81f7b7f..0f51cbd 100644
+--- a/build-aux/m4/buildsys.m4
++++ b/build-aux/m4/buildsys.m4
+@@ -314,7 +314,7 @@ AC_DEFUN([BUILDSYS_FRAMEWORK], [
+ 			FRAMEWORK_LDFLAGS_INSTALL_NAME='-Wl,-install_name,@executable_path/Frameworks/$$out/$${out%.framework}'
+ 		], [
+ 			FRAMEWORK_LDFLAGS='-dynamiclib -current_version ${LIB_MAJOR}.${LIB_MINOR} -compatibility_version ${LIB_MAJOR}'
+-			FRAMEWORK_LDFLAGS_INSTALL_NAME='-Wl,-install_name,@executable_path/../Frameworks/$$out/$${out%.framework}'
++			FRAMEWORK_LDFLAGS_INSTALL_NAME='-Wl,-install_name,${prefix}/Frameworks/$$out/$${out%.framework}'
+ 		])
+ 
+ 		AC_SUBST(FRAMEWORK_LDFLAGS)
