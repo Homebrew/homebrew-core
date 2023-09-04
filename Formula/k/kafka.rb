@@ -5,6 +5,7 @@ class Kafka < Formula
   mirror "https://archive.apache.org/dist/kafka/3.5.1/kafka_2.13-3.5.1.tgz"
   sha256 "f7b74d544023f2c0ec52a179de59975cb64e34ea03650d829328b407b560e4da"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url "https://kafka.apache.org/downloads"
