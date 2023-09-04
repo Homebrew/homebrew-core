@@ -4,6 +4,7 @@ class Questdb < Formula
   url "https://github.com/questdb/questdb/releases/download/7.3.1/questdb-7.3.1-no-jre-bin.tar.gz"
   sha256 "6e79ee228011afb6b0c1dc43a3d3432b2d47109565db8613a98841a6673c9ffa"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
