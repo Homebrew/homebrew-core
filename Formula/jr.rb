@@ -1,14 +1,22 @@
 class Jr < Formula
-  desc "Quality Random Data from the Command-line"
+  desc "CLI program that helps you to create quality random data for your applications"
   homepage "https://github.com/ugol/jr"
-  url "https://github.com/ugol/jr/archive/refs/tags/v0.2.1.tar.gz"
-  sha256 "d150ae875c9238e3d23b06bd069f0d03855f0b6763b3b6b3eb8b89d2dfc02cae"
+  url "https://github.com/ugol/jr/archive/refs/tags/v0.3.3.tar.gz"
+  sha256 "fa60365c0ca7b5ff70ef357ff362c7da069aa07a5daa8303f0af04ae75d04f67"
   license "MIT"
-  depends_on "go" => :build
+  head "https://github.com/ugol/jr.git", branch: "main"
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
+  depends_on "go" => [:build]
 
   def install
     system "make", "all"
     bin.install Dir["build/*"]
+    prefix.install "config"
     prefix.install "templates"
   end
 
