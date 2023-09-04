@@ -6,6 +6,7 @@ cask "tailwindcss" do
   name "tailwindcss"
   desc "Utility-first CSS framework for rapidly building custom user interfaces"
   homepage "https://github.com/tailwindlabs/tailwindcss"
+  license "MIT"
 
   binary "tailwindcss-macos-arm64", target: "tailwindcss"
 end
