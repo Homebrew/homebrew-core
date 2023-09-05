@@ -1,20 +1,19 @@
 class Papilo < Formula
   desc "Parallel Presolve for Integer and Linear Optimization"
   homepage "https://www.scipopt.org"
-  url "https://github.com/scipopt/papilo/archive/refs/tags/v2.1.2.tar.gz"
-  sha256 "7e3d829c957767028db50b5c5085601449b00671e7efc2d5eb0701a6903d102f"
+  url "https://github.com/scipopt/papilo/archive/refs/tags/v2.1.3.tar.gz"
+  sha256 "d22e8e2e91e1967afda5cf27eaeaa4ab3d40694c7716b4d328d69a50e05d5115"
   license all_of: ["LGPL-3.0-only", "GPL-3.0-only"]
-  revision 1
   version_scheme 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "270b8f82fbd3d4ab25752a066fd458bbc7b7c316154c1e07cd0d2e2aab0ef782"
-    sha256 cellar: :any,                 arm64_monterey: "9f6a7ef123e2744dc6f4d9f418bfa2ceb81969d9c568ef538a5e46e167bcfd4e"
-    sha256 cellar: :any,                 arm64_big_sur:  "c947537090248e87eb2bf9f9c069c6656ba5eb23560713d97070d31cf85d2fd6"
-    sha256 cellar: :any,                 ventura:        "e6b37138dcb6c37692bc7a41c2159a537552aee72d0e6319ffffed11b5624511"
-    sha256 cellar: :any,                 monterey:       "8d6bdaeb6d90c482b85018cdbe0baed28b7864ab7c422274c18ca56279d2181d"
-    sha256 cellar: :any,                 big_sur:        "32e4fecb0ae000762cb400e939936811d40a1ff1b44dc72141fd694b28602012"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9df2b7440208e7adf65603acd4099f7d302748611d4f3fd689ac2b93f807a253"
+    sha256 cellar: :any,                 arm64_ventura:  "459944b69f6696883339cf10250a72ee3262adc73ee5d8cfd4eed224890d1681"
+    sha256 cellar: :any,                 arm64_monterey: "e48ec9dcab6c0306b94ccfe3fc776446eea11d946fbf491378b8fe818d7000f1"
+    sha256 cellar: :any,                 arm64_big_sur:  "ecd6a2a4d9e6845fb4e134145e68501e679dd1f574134ffd91d38559108acd14"
+    sha256 cellar: :any,                 ventura:        "814bfffa3e31b7f9368250af37995636b0ce99dc3a911e12cb8db4523123f76c"
+    sha256 cellar: :any,                 monterey:       "8c06f84df0799aaebec9c324359ea9acc2e41b4db206ae31aac52a4ef643c313"
+    sha256 cellar: :any,                 big_sur:        "19a9dfeefbdee9159d2c16961cb67109ec3215e1eda91559a46265f5c060517f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "918bd6e7546a96a404ecc66941fefe09a5d7a055a1447bf0b1ddcb64c3e068a9"
   end
 
   depends_on "cmake" => :build

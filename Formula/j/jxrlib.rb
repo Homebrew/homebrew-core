@@ -2,17 +2,19 @@ class Jxrlib < Formula
   desc "Tools for JPEG-XR image encoding/decoding"
   homepage "https://tracker.debian.org/pkg/jxrlib"
   url "http://deb.debian.org/debian/pool/main/j/jxrlib/jxrlib_1.2~git20170615.f752187.orig.tar.xz"
+  version "1.2_git20170615-f752187.orig"
   sha256 "3e3c9d3752b0bbf018ed9ce01b43dcd4be866521dc2370dc9221520b5bd440d4"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "488ffec6b9614adcd0b07349e71fc87243b142a59004a511da051756d05f299e"
-    sha256 cellar: :any,                 arm64_monterey: "029cfa77cb1594e9831eb94173bfd0bcef7a5a8eb24ff44bc7e367ab2617c936"
-    sha256 cellar: :any,                 arm64_big_sur:  "b2c8d472fa9c0a69763f9df5ddf4a807a5580cc5da7cdd1497f09f8c35dd6df5"
-    sha256 cellar: :any,                 ventura:        "f927ae6b48154efe4ffbfffe93d5088b54c14717eb3e2c562d54194da8ae2c94"
-    sha256 cellar: :any,                 monterey:       "fdf76897a19643eae22606dfd051a4e2be38963f78ad95c64c6661355aee6730"
-    sha256 cellar: :any,                 big_sur:        "e676ef53d5cf3ae6ec8bdd7b1b75846e1f06fc24521518a8cb10f6c7f239295c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dfb64124039eccbb5481c3b214b0e1c539b0310d8052227fdd6faf094b07438b"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "ad134074333a2b08fb5381ebb7d050451d1a5d632dff810feec5456e15a82a93"
+    sha256 cellar: :any,                 arm64_monterey: "f343ef9670df408cb127fd016246695f5a123b3e71a66cdade3692bd5e5ced30"
+    sha256 cellar: :any,                 arm64_big_sur:  "5a50f665f18598f468eb24546bb968e008e3ef4fe7561625bf5e4ca1973c5080"
+    sha256 cellar: :any,                 ventura:        "22590456157a808cc093e7c9f8a56f244413cc4a88d95e43756394572591508a"
+    sha256 cellar: :any,                 monterey:       "b755f19b7ff8de43480760bbe9dc58f974005e84d7974c8e03ded262ca80e91e"
+    sha256 cellar: :any,                 big_sur:        "19c64d9570f903b1e5a08f5cb78d9c1b895acd5614e09073389f9fc5558fddd3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5ceb2e8f381a0d231d0f014d85dfad4e690ff5f01bdc599a4ac415a72adaf42e"
   end
 
   depends_on "cmake" => :build

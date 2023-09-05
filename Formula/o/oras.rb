@@ -1,18 +1,18 @@
 class Oras < Formula
   desc "OCI Registry As Storage"
   homepage "https://github.com/oras-project/oras"
-  url "https://github.com/oras-project/oras/archive/refs/tags/v1.0.1.tar.gz"
-  sha256 "c0750d1837c449232ad8459dea55a7c660d822ce2d17a8a7882bfc3518b01646"
+  url "https://github.com/oras-project/oras/archive/refs/tags/v1.1.0.tar.gz"
+  sha256 "87059bbf96781980ba9826603ee10e2bb3cfafbe7b9410ba1c65fe336b9d4ee0"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8690763d0a9d0be6574ee4cfdb8edbab302f232c8056bae2d0083f170719afed"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8690763d0a9d0be6574ee4cfdb8edbab302f232c8056bae2d0083f170719afed"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8690763d0a9d0be6574ee4cfdb8edbab302f232c8056bae2d0083f170719afed"
-    sha256 cellar: :any_skip_relocation, ventura:        "7aa41c77868644a275e722b7cb9230296721ac0c31a467391164ded69d985773"
-    sha256 cellar: :any_skip_relocation, monterey:       "7aa41c77868644a275e722b7cb9230296721ac0c31a467391164ded69d985773"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7aa41c77868644a275e722b7cb9230296721ac0c31a467391164ded69d985773"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e4e378e9d1ec53a8aae7817d58c57522e92d99e2e3aac735555650063aee6742"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6f81b5e0b9be89eb8695154cd5d8adfbc5fe5f54776e5384088c7808dc79457a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "fbfdd30ff5262d0b25c6098aedc220c44cfce8c8a4b98e4972b0dbdc3a2489ab"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fa17865465a26fa693a861d1d3333dfa33b1d2bfd4177f8b28d3809ca8c8de92"
+    sha256 cellar: :any_skip_relocation, ventura:        "392796efd0bde2575b9e7d1b2c7eeff86cd6518f32061ee23e698ac3fed95840"
+    sha256 cellar: :any_skip_relocation, monterey:       "4f05a3f7d50deebe6bd4a7b64afab15c02be52858608c77b808d7c2607efc6c6"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ac8b789e597663dfb719a6381b37d5892b7540e588ebbf67fd858ff1759216a0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2e1b9ed792c372bc02535f661e1d4d089d0ae01e31de7be0251c76b0e87316bd"
   end
 
   depends_on "go" => :build

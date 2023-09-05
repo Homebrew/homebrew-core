@@ -3,18 +3,18 @@ class AwsSamCli < Formula
 
   desc "CLI tool to build, test, debug, and deploy Serverless applications using AWS SAM"
   homepage "https://aws.amazon.com/serverless/sam/"
-  url "https://files.pythonhosted.org/packages/65/43/f871c15eec7a22efe3573be104afccbee1e699503cf5291c1e8feeb2a478/aws-sam-cli-1.96.0.tar.gz"
-  sha256 "19f3795ffc1c084121e60c3b6047a090df8a42fc1b804fef8518eb64228a655e"
+  url "https://files.pythonhosted.org/packages/98/eb/c807322fd41cfe2c1b5bc85f4e909cf60deb74bfd935a7e229b7acd3e282/aws-sam-cli-1.97.0.tar.gz"
+  sha256 "204b7c240de24b466169310a7873492ca2ce39f0f643745867663ad6ea62ff1b"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9d93e5f2419f80bc7dc12b4cf33a2f01381efa25ae189b681b5d8313fcc6c886"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7600e7bd9b8256a6e1780b9a6c62b249f1d968a78621709abb97f8422ebe5d5b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "30469068c564b4d72c1c63f2fc7342ec6934f99b00a218d0a51608448f312c2a"
-    sha256 cellar: :any_skip_relocation, ventura:        "e443429598d1613cb4d5a7a0f69f6e26c86d7d2f11cac553b1571057ecac85c4"
-    sha256 cellar: :any_skip_relocation, monterey:       "48abb81fd4ef5c23029cd24cd5064a18674133e3acfbd2d65aade3347289a97e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6d10b2829a1f8aaae85cb01ca536ad379b6c88db77ec4d7fdd462036948d858c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "46ce15906a5ffc43412a65d94deca31a137d30257f5c2d0a9c0f8cb0144a49d0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5ba0c0a47c7a11f6cc97b20cec4bdbbae7f77be09aee649ab2ccd0d03869b123"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "03b320a62c97b7dfbe270bed705e2ead72f777810073e67b98d393863ba3ed28"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "84f15abc2631af94a10cfdb5e145af69d04b5d58cb7b3540325e5751a7dd485c"
+    sha256 cellar: :any_skip_relocation, ventura:        "78993768d2620440ba596daa664c66ebd798db146fc9adcdc7a5d96e5c65363d"
+    sha256 cellar: :any_skip_relocation, monterey:       "920e3f030b84f81243675e0d1864bc49bd3300220143c0da83d7946a635c0eca"
+    sha256 cellar: :any_skip_relocation, big_sur:        "108959dc21511d78442f30189c6ceefd64ff114b5fecaf0c7884756b1b077f6a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bdaae5091238101bd1a4d2ae399f292f7fae3b88c52734fb657bc1147fe3c8c3"
   end
 
   depends_on "cffi"

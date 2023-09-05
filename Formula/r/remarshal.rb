@@ -3,19 +3,19 @@ class Remarshal < Formula
 
   desc "Convert between TOML, YAML and JSON"
   homepage "https://github.com/dbohdan/remarshal"
-  url "https://files.pythonhosted.org/packages/90/f5/f1ba99f0d6178fca1070acc0dd107efed7dddc74d999c773cc514fc4add9/remarshal-0.17.0.tar.gz"
-  sha256 "c52689848453d4763c45eafff5ee9dc07ae8ac0b1814438a48abd21cbbc9e869"
+  url "https://files.pythonhosted.org/packages/55/39/d638b7d8012468fe13c072bfb283cd917b12dbcb8e7a10b414d5109b0852/remarshal-0.17.1.tar.gz"
+  sha256 "826a41d3e3ed9d45422811488d7b28cc146a8d5b2583b18db36302f87091a86d"
   license "MIT"
   head "https://github.com/dbohdan/remarshal.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d908a78b2e39517a59f656eff1971fdf2e2481ed6bd2a38e40fd32b11585d372"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a6c837c7892ff1f03e1fb83c64c6f2e72f162e35af6cdd855177b315217322b8"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "527aa7ba41dc658a692beb3b49da3f659b1c1e37db5421089b278677d543f4d1"
-    sha256 cellar: :any_skip_relocation, ventura:        "8afe3245841edf3267e46a4c65cfb4c2886cc0b2581d14b8051bd3e7d040c148"
-    sha256 cellar: :any_skip_relocation, monterey:       "93faef65a7c95c7a4401593b12913495cda75dc23c21075dc884d5c175b7644c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e3bb4d0aaa19446293db18ff45ad1eb7a0273c4de9bd133b7fb10d9ce49294a5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e72a19eeb7cb2aa1d1681be0951e548ec83d14ed905ba01a760e61d8eb4a2486"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "607638802a9dfd178b40a5c34457b5a3e9198fb4cd746b01ec34e688c12b43ff"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ace154efdbeb9ec7707f91285ef27ffaed18d462919af65ce5b9eecbbae5522a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "75653f097087df6528b02ae5a91883174f90ff2451ab4522afb07eac0e519d27"
+    sha256 cellar: :any_skip_relocation, ventura:        "7daba016136490845fedfe33a1ac5ecf5b12ccc9395e5a183b2ae246da0f8da7"
+    sha256 cellar: :any_skip_relocation, monterey:       "df698cf43430fd252e08fd9d6d076af64bcd6e3b7caf6b85f0842b8751983886"
+    sha256 cellar: :any_skip_relocation, big_sur:        "38d1cf8116ce176a28f6d2aa89100428b5eecb7fe200720e8152decb58ed1106"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b5707da17ed3fe940822bad61d32aba6b76fe02e2610d08274cdf45301c797e7"
   end
 
   depends_on "python@3.11"
@@ -40,13 +40,13 @@ class Remarshal < Formula
   end
 
   resource "pluggy" do
-    url "https://files.pythonhosted.org/packages/8a/42/8f2833655a29c4e9cb52ee8a2be04ceac61bcff4a680fb338cbd3d1e322d/pluggy-1.2.0.tar.gz"
-    sha256 "d12f0c4b579b15f5e054301bb226ee85eeeba08ffec228092f8defbaa3a4c4b3"
+    url "https://files.pythonhosted.org/packages/36/51/04defc761583568cae5fd533abda3d40164cbdcf22dee5b7126ffef68a40/pluggy-1.3.0.tar.gz"
+    sha256 "cf61ae8f126ac6f7c451172cf30e3e43d3ca77615509771b3a984a0730651e12"
   end
 
   resource "pytest" do
-    url "https://files.pythonhosted.org/packages/a7/f3/dadfbdbf6b6c8b5bd02adb1e08bc9fbb45ba51c68b0893fa536378cdf485/pytest-7.4.0.tar.gz"
-    sha256 "b4bf8c45bd59934ed84001ad51e11b4ee40d40a1229d2c79f9c592b0a3f6bd8a"
+    url "https://files.pythonhosted.org/packages/5b/a2/4db5b065b0694b330f2b3c47e64abda0a470839da5119a404610d6349a11/pytest-7.4.1.tar.gz"
+    sha256 "2f2301e797521b23e4d2585a0a3d7b5e50fdddaaf7e7d6773ea26ddb17c213ab"
   end
 
   resource "python-dateutil" do

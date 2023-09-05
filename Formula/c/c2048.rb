@@ -2,8 +2,8 @@ class C2048 < Formula
   desc "Console version of 2048"
   homepage "https://github.com/mevdschee/2048.c"
   url "https://github.com/mevdschee/2048.c.git",
-      revision: "578a5f314e1ce31b57e645a8c0a2c9d9d5539cde"
-  version "0+20150805"
+      revision: "6c04517bb59c28f3831585da338f021bc2ea86d6"
+  version "0.20221023"
   license "MIT"
   head "https://github.com/mevdschee/2048.c.git", branch: "main"
 
@@ -12,18 +12,13 @@ class C2048 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e42083282cbcd84c2806771527e8fd9c9204d2dd2d48c55b19eac81481d56fe9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "aa6a9009c2300a5ecb2dcde91e5c416363d5293e2e166a715eb4792c33e188a2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "89bc7f84063b8621271115ee8f9c84c836ae1e57a72db5533b11d8247d57e043"
-    sha256 cellar: :any_skip_relocation, ventura:        "9cb25e5e7547b089dbc9cf0ae00bb5ebe227c931817d4ac744295b474d037764"
-    sha256 cellar: :any_skip_relocation, monterey:       "011a8529dc50ea6349f9b1d288ae11fac8e4a4969372c66036b31d158e960b5b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "abe17673a8930d93f04d97f5e209621b83968e28a075578e9b1f42c07464145d"
-    sha256 cellar: :any_skip_relocation, catalina:       "727165d714b210f559b5f5450d6608bed0e7bfbf87c7a7cd5994259b65865411"
-    sha256 cellar: :any_skip_relocation, mojave:         "dd0cc60f407ccb43f471d7123b9a09fa0b2161ee083638a432ee25795a96ca8f"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "e5f553baf87fc7ac9f0fa4471d3e9be29328df167700181d9663f61293436888"
-    sha256 cellar: :any_skip_relocation, sierra:         "d2f33783cf7cd2ac69eaed113d940aca31e02e5863fcdb40e200e3fe9a4d0623"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "8f9e75196f87718be0c572f731cecba0c8cd4e8dc35f8b3027392cd6e1c45f5d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a13bac58f461c8fff9257a3af3f01569d0bf819248ddbf5840bbf1fc9492adfa"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3af09eafcc4fd021eef5b7bc18729b9b8f7725b423a96d2153aa080d43697c8c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "08ccf5d51d2560db0b2cadecf2eb3cf592ac308d145e5080a3531170bbcfd0ab"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "27fdf42e2a3b88483aea832a6e3cc61b4e0d4f4382285f695c8d279ae1305244"
+    sha256 cellar: :any_skip_relocation, ventura:        "c7fc6c6eca0664eade0ff2eb4c687fe7c3e626b37022d7bcc3471da39d29c8a6"
+    sha256 cellar: :any_skip_relocation, monterey:       "1558d9e5056c2db21b8420f3eb848d3cfc2367d487c02ca10d5c57e66e4bf20b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4d17ded095ef158f4794448daa9f27803d9466dcdda8db71d42c3ba22c44302f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "623747462419238298b5585273d4cfa738d1a7d36b9be89473faa49c1bfb0c82"
   end
 
   def install

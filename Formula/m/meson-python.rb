@@ -1,18 +1,18 @@
 class MesonPython < Formula
   desc "Meson PEP 517 Python build backend"
   homepage "https://meson-python.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/ed/77/786ac8dcc8bc39a927527ba68a016bf9bd8f7ffe5c3622597ad16cd218af/meson_python-0.13.2.tar.gz"
-  sha256 "80bc9de898acd36eb4b945afaaf7a2b4ca00189c51870d535e329761910cf8ea"
+  url "https://files.pythonhosted.org/packages/38/a7/ddc350902a1b3b960db8d0e501f61468f925f994e0b4e6d696aeb6a75c00/meson_python-0.14.0.tar.gz"
+  sha256 "b96866690326544dfe452583753ac3f43313227e9fd9416701a8df90af212234"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c64717b6f255a22cd72f4cdeab9b4788ae8174abbfbe4433e3b5a7c7ae8aa777"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ef82a634a31954055f505f28a9beeb8b21224f9b63419b4cbf43dd4f9b0f5e68"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "55ad56f202f48636e71d5bbfb5932822f8a4b1271c0e3a7cb39ab3073720d4c6"
-    sha256 cellar: :any_skip_relocation, ventura:        "fa2af8f88ea5f2336f84fc6121265eb7acb116a34035baf9f95d865375274223"
-    sha256 cellar: :any_skip_relocation, monterey:       "14dfe314a50b1c48f231e4dfbe056ae26f8b6822557a9f4c6e998dd93d8d863d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6f38af2af36b547eff2d722982f9dc6ea8e628b3f33aba99a9101fe49c96f141"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5c57cf466d0891eae880aa5c3b1099f255664b2f01ec3d56eaacf73ec9a9ad10"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bd3d3b4c2a81a73c42920a22618d9f1a369b903caec4e7913e8ed0f9cd30c53c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f6e91d3cae06f6b404ec82692abecbc5e80b91bbfe1b3033372e53dbb11455da"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e59e0b0f444a63c3878fb38aadc97d962396653b987c7b9f7548d8cf9589ae23"
+    sha256 cellar: :any_skip_relocation, ventura:        "59c8ead60df5be007b22238417b54081e9cd86f11265ed8bc88c423dfa7db44f"
+    sha256 cellar: :any_skip_relocation, monterey:       "70ca3ff7fed63ac1d0786f89d642c4af5d2856a44832cc84b20aebcf2d038f1d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "02fd596cde092e6dbcca4739252742897d0548bb7760e1df1efcd9929fa0a561"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e24e93d601a9a7f1f165ead6ac460b36cae3657afa5841e151db276c33f6e37a"
   end
 
   depends_on "python-flit-core" => :build
