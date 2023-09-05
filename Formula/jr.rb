@@ -10,12 +10,13 @@ class Jr < Formula
 
   def install
     system "make", "all"
-    bin.install Dir["build/*"]
+    libexec.install Dir["build/*"]
     prefix.install "config/jrconfig.json"
     prefix.install "templates"
+    (bin/"jr").write_env_script libexec/"jr", JR_HOME: prefix
   end
 
   test do
-    assert_match "net_device", shell_output("JR_HOME=$(brew --prefix jr) jr template list").strip
+    assert_match "net_device", shell_output("jr template list").strip
   end
 end
