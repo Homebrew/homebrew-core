@@ -1,8 +1,8 @@
 class Verovio < Formula
   desc "Command-line MEI music notation engraver"
   homepage "https://www.verovio.org"
-  url "https://github.com/rism-digital/verovio/archive/refs/tags/version-3.15.0.tar.gz"
-  sha256 "136a74e21fce9657a573edf1340f8320b8ff867cd6e0e498c5715742208fadda"
+  url "https://github.com/rism-digital/verovio/archive/refs/tags/version-4.0.0.tar.gz"
+  sha256 "2776704e4f6de9a4f0c6e9e938a522b0349067b73f681b0b293316f659bdfca1"
   license "LGPL-3.0-only"
   head "https://github.com/rism-digital/verovio.git", branch: "develop"
 
