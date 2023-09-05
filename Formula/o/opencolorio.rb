@@ -32,7 +32,10 @@ class Opencolorio < Formula
       -DCMAKE_INSTALL_RPATH=#{rpath}
       -DPYTHON=#{python3}
       -DPYTHON_EXECUTABLE=#{which(python3)}
+      -Dyaml-cpp_ROOT=#{Formula["yaml-cpp"].opt_prefix}
     ]
+
+    args << "-Dexpat_ROOT=#{Formula["expat"].opt_prefix}" if OS.linux?
 
     system "cmake", "-S", ".", "-B", "macbuild", *args, *std_cmake_args
     system "cmake", "--build", "macbuild"
