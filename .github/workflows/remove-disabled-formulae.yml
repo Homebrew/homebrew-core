@@ -30,6 +30,8 @@ jobs:
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
         with:
+          core: true
+          cask: false
           test-bot: false
 
       - name: Configure Git user
@@ -52,6 +54,7 @@ jobs:
         uses: Homebrew/actions/remove-disabled-formulae@master
         env:
           HOMEBREW_GPG_PASSPHRASE: ${{ secrets.BREWTESTBOT_GPG_SIGNING_SUBKEY_PASSPHRASE }}
+          HOMEBREW_EVAL_ALL: 1
 
       - name: Push commits
         if: fromJson(steps.remove_disabled.outputs.formulae-removed)

@@ -48,6 +48,8 @@ jobs:
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
         with:
+          core: true
+          cask: false
           test-bot: false
 
       - name: Determine runners
@@ -57,8 +59,6 @@ jobs:
   bottle:
     permissions:
       contents: read
-      pull-requests: read # for Homebrew/actions/post-comment
-      issues: write # for Homebrew/actions/post-comment
     needs: setup
     strategy:
       matrix:
@@ -102,16 +102,6 @@ jobs:
           bottles-directory: ${{ env.BOTTLES_DIR }}
           logs-directory: ${{ env.BOTTLES_DIR }}/logs
 
-      - name: Post comment on failure
-        if: ${{!success() && inputs.issue > 0}}
-        uses: Homebrew/actions/post-comment@master
-        with:
-          token: ${{secrets.GITHUB_TOKEN}}
-          issue: ${{inputs.issue}}
-          body: ":x: @${{github.actor}} bottle request for ${{inputs.formula}} [failed](${{env.RUN_URL}})."
-          bot_body: ":x: Bottle request for ${{inputs.formula}} [failed](${{env.RUN_URL}})."
-          bot: BrewTestBot
-
   upload:
     permissions:
       issues: write # for Homebrew/actions/post-comment
@@ -137,6 +127,8 @@ jobs:
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
         with:
+          core: true
+          cask: false
           test-bot: false
 
       - name: Download bottles from GitHub Actions
@@ -221,8 +213,15 @@ jobs:
           PR: ${{ steps.create-pr.outputs.pull_number }}
         run: gh pr review --approve "$PR"
 
+  comment:
+    permissions:
+      issues: write # for Homebrew/actions/post-comment
+      pull-requests: write # for Homebrew/actions/post-comment
+    needs: [bottle, upload]
+    if: failure() && inputs.issue > 0
+    runs-on: ubuntu-latest
+    steps:
       - name: Post comment on failure
-        if: ${{!success() && inputs.issue > 0}}
         uses: Homebrew/actions/post-comment@master
         with:
           token: ${{secrets.GITHUB_TOKEN}}

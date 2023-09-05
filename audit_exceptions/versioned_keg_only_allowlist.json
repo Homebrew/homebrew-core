@@ -5,7 +5,6 @@
   "cairomm@1.14",
   "clang-format@8",
   "clang-format@11",
-  "gcc@4.9",
   "gcc@5",
   "gcc@6",
   "gcc@7",

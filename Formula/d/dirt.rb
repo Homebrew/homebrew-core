@@ -1,0 +1,36 @@
+class Dirt < Formula
+  desc "Experimental sample playback"
+  homepage "https://github.com/tidalcycles/Dirt"
+  url "https://github.com/tidalcycles/Dirt/archive/1.1.tar.gz"
+  sha256 "bb1ae52311813d0ea3089bf3837592b885562518b4b44967ce88a24bc10802b6"
+  license "GPL-3.0-or-later"
+  revision 1
+  head "https://github.com/tidalcycles/Dirt.git", branch: "master"
+
+  bottle do
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "7b0e123381c73cf489c38368999dcf0886843f8223562f83db6b6a5fde4dcaf7"
+    sha256 cellar: :any,                 arm64_monterey: "6ac9e97def1a071fda1e4fc145450cdafed11444358537d2824cea8d77e73155"
+    sha256 cellar: :any,                 arm64_big_sur:  "ed0c1c48b840abfd9336d6b292e1e08896bddc3663164815fd6fc489b0d3495e"
+    sha256 cellar: :any,                 ventura:        "5ff0f05492f68f79315dd99ce136a09cfb3455b030bf1a12d9164f4dee70b43c"
+    sha256 cellar: :any,                 monterey:       "f4c8eaef7bd081e9c346af24400410671665836820077afdcc13e68c676903bd"
+    sha256 cellar: :any,                 big_sur:        "bb32869ee985043d05056f89254e369dcc8be8cfaaedaa1427787fc5e04fa62c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8ea04b1e39b56f30179c50763b52314bb909285924d3229a68c35905e6b9b0f6"
+  end
+
+  depends_on "jack"
+  depends_on "liblo"
+  depends_on "libsndfile"
+
+  def install
+    # Work around failure from GCC 10+ using default of `-fno-common`
+    # multiple definition of `...'; ....o:(.bss+0x0): first defined here
+    ENV.append_to_cflags "-fcommon" if OS.linux?
+
+    system "make", "PREFIX=#{prefix}", "install"
+  end
+
+  test do
+    assert_match "Usage", shell_output("#{bin}/dirt --help; :")
+  end
+end

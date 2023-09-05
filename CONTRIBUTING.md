@@ -16,6 +16,7 @@ Thanks for contributing!
 ### To submit a version upgrade for the `foo` formula
 
 * check if the same upgrade has been already submitted by [searching the open pull requests for `foo`](https://github.com/Homebrew/homebrew-core/pulls?utf8=✓&q=is%3Apr+is%3Aopen+foo).
+* `brew tap homebrew/core`
 * `brew bump-formula-pr --strict foo` with one of the following:
   * `--url=...` and `--sha256=...`
   * `--tag=...` and `--revision=...`
@@ -24,7 +25,7 @@ Thanks for contributing!
 ### To add a new formula for `foo` version `2.3.4` from `$URL`
 
 * read [the Formula Cookbook](https://docs.brew.sh/Formula-Cookbook) or: `brew create $URL` and make edits
-* `brew install --build-from-source foo`
+* `HOMEBREW_NO_INSTALL_FROM_API=1 brew install --build-from-source foo`
 * `brew audit --new-formula foo`
 * `git commit` with message formatted `foo 2.3.4 (new formula)`
 * [open a pull request](https://docs.brew.sh/How-To-Open-a-Homebrew-Pull-Request) and fix any failing tests
@@ -72,7 +73,7 @@ Once you've addressed any potential feedback and a member of the Homebrew org ha
 
 Pull requests with failing CI should not be merged, so the failures will need to be fixed. Start by looking for errors in the CI log. Some errors will show up as annotations in the "Files changed" tab of your pull request. If there are no annotations, or the annotations do not contain the relevant errors, then the complete build log can be found in the "Checks" tab of your pull request.
 
-Once you've identified the error(s), check whether you can reproduce them locally. You should be able to do this with one or more of `brew install --build-from-source`, `brew audit --strict --online`, and `brew test`. Don't forget to checkout your PR branch before trying this! If you can reproduce the failure(s), then it is likely that the formula needs to be fixed. Read the error messages carefully. Many errors provide hints on how to fix them. Failing that: looking up the error message is often a fruitful source of hints for what to do next.
+Once you've identified the error(s), check whether you can reproduce them locally. You should be able to do this with one or more of `HOMEBREW_NO_INSTALL_FROM_API=1 brew install --build-from-source`, `brew audit --strict --online`, and `brew test`. Don't forget to checkout your PR branch before trying this! If you can reproduce the failure(s), then it is likely that the formula needs to be fixed. Read the error messages carefully. Many errors provide hints on how to fix them. Failing that: looking up the error message is often a fruitful source of hints for what to do next.
 
 If you can't reproduce an error, then you need to identify what makes your local environment different from the build environment in CI. It is likely that one of those differences is driving the CI failure. It may help to try to make your local environment as similar to CI as possible to try to reproduce the failure. If the CI failure occurs on Linux, you can use the Homebrew Docker container to emulate the CI environment. See the next section for a guide on how to do this.
 

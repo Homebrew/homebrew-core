@@ -45,14 +45,14 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            const intelMacOSRegex = /^\d+(?:\.\d+)?$/;
+            const macOSRegex = /^\d+(?:\.\d+)?(?:-arm64)?$/;
             const linuxRegex = /^(ubuntu-|linux-self-hosted-)/;
             return context.payload.inputs.runner.split(",")
                                                 .map(s => s.trim())
                                                 .filter(Boolean)
                                                 .map(s => {
-              if (intelMacOSRegex.test(s) || s == "13-arm64") // Ephemeral runners
-                return {runner: `${s}-${context.runId}-${process.env.GITHUB_RUN_ATTEMPT}`};
+              if (macOSRegex.test(s) && s != "11-arm64") // Ephemeral runners
+                return {runner: `${s}-${context.runId}`};
               else if (linuxRegex.test(s))
                 return {
                   runner:    s,
@@ -76,8 +76,6 @@ jobs:
     timeout-minutes: ${{fromJson(github.event.inputs.timeout)}}
     permissions:
       contents: read
-      pull-requests: read # for Homebrew/actions/post-comment
-      issues: write # for Homebrew/actions/post-comment
     defaults:
       run:
         shell: /bin/bash -e {0}
@@ -120,16 +118,6 @@ jobs:
           bottles-directory: ${{ env.BOTTLES_DIR }}
           logs-directory: ${{ env.BOTTLES_DIR }}/logs
 
-      - name: Post comment on failure
-        if: ${{!success() && inputs.issue > 0}}
-        uses: Homebrew/actions/post-comment@master
-        with:
-          token: ${{secrets.GITHUB_TOKEN}}
-          issue: ${{inputs.issue}}
-          body: ":x: @${{github.actor}} bottle request for ${{inputs.formula}} [failed](${{env.RUN_URL}})."
-          bot_body: ":x: Bottle request for ${{inputs.formula}} [failed](${{env.RUN_URL}})."
-          bot: BrewTestBot
-
   upload:
     permissions:
       contents: read
@@ -154,6 +142,8 @@ jobs:
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
         with:
+          core: true
+          cask: false
           test-bot: false
 
       - name: Download bottles from GitHub Actions
@@ -238,12 +228,19 @@ jobs:
           PR: ${{ steps.create-pr.outputs.pull_number }}
         run: gh pr review --approve "$PR"
 
+  comment:
+    permissions:
+      issues: write # for Homebrew/actions/post-comment
+      pull-requests: write # for Homebrew/actions/post-comment
+    needs: [bottle, upload]
+    if: failure() && inputs.issue > 0
+    runs-on: ubuntu-latest
+    steps:
       - name: Post comment on failure
-        if: ${{!success() && inputs.issue > 0}}
         uses: Homebrew/actions/post-comment@master
         with:
           token: ${{secrets.GITHUB_TOKEN}}
-          issue: ${{github.event.inputs.issue}}
+          issue: ${{inputs.issue}}
           body: ":x: @${{github.actor}} bottle request for ${{inputs.formula}} [failed](${{env.RUN_URL}})."
           bot_body: ":x: Bottle request for ${{inputs.formula}} [failed](${{env.RUN_URL}})."
           bot: BrewTestBot

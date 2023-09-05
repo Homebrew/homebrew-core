@@ -4,7 +4,7 @@ on:
   workflow_run:
     workflows:
       - CI
-      - Manage long timeout labels
+      - Manage pull request labels
     types:
       - completed
 
@@ -30,13 +30,18 @@ jobs:
       actions: read # for `gh run download`
       pull-requests: read # for `gh api`
     steps:
-      - name: Download `pull-number` artifact
+      - uses: Homebrew/actions/find-related-workflow-run-id@master
+        with:
+          run-id: ${{ github.event.workflow_run.id }}
+          workflow-name: Triage tasks
+
+      - name: Download `event_payload` artifact
         uses: Homebrew/actions/gh-try-download@master
         with:
-          artifact-name: pull-number
-          workflow-id: ${{ github.event.workflow_run.id }}
+          artifact-name: event_payload
+          workflow-id: ${{ env.workflow_run_id }}
 
-      - run: echo "number=$(cat number)" >> "$GITHUB_OUTPUT"
+      - run: echo "number=$(jq --raw-output .number event.json)" >> "$GITHUB_OUTPUT"
         id: pr
 
       - name: Check PR labels
@@ -77,6 +82,8 @@ jobs:
       - name: Set up Homebrew
         uses: Homebrew/actions/setup-homebrew@master
         with:
+          core: false
+          cask: false
           test-bot: false
 
       - name: Check CI status

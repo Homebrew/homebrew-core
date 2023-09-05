@@ -1,6 +1,9 @@
 blank_issues_enabled: false
 
 contact_links:
+  - name: Request a change to a formula
+    url: https://docs.brew.sh/How-To-Open-a-Homebrew-Pull-Request
+    about: Is something missing in a formula? Follow this guide to request new features in formulae.
   - name: Get help in GitHub Discussions
     url: https://github.com/orgs/Homebrew/discussions
     about: Have a question? Not sure if your issue affects everyone reproducibly? The quickest way to get help is on Homebrew's GitHub Discussions!

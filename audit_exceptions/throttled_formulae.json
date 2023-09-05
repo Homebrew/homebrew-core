@@ -1,10 +1,8 @@
 {
-  "aws-sdk-cpp": 10,
+  "aws-sdk-cpp": 5,
   "awscli@1": 10,
-  "checkov": 15,
-  "contentful-cli": 5,
+  "checkov": 10,
   "joern": 10,
   "renovate": 10,
-  "testkube": 5,
   "vim": 50
 }

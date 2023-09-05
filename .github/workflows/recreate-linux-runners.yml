@@ -35,12 +35,18 @@ jobs:
       actions: read # for `gh run download`
       pull-requests: read # for `gh api`
     steps:
-      - name: Download `pull-number` artifact
+      - uses: Homebrew/actions/find-related-workflow-run-id@master
+        if: github.event_name == 'workflow_run'
+        with:
+          run-id: ${{ github.event.workflow_run.id }}
+          workflow-name: Triage tasks
+
+      - name: Download `event_payload` artifact
         if: github.event_name == 'workflow_run'
         uses: Homebrew/actions/gh-try-download@master
         with:
-          artifact-name: pull-number
-          workflow-id: ${{ github.event.workflow_run.id }}
+          artifact-name: event_payload
+          workflow-id: ${{ env.workflow_run_id }}
 
       - name: Check if runner needs to be recreated
         id: check
@@ -51,13 +57,13 @@ jobs:
 
           if [[ "$GITHUB_EVENT_NAME" = "workflow_run" ]]
           then
-            PR="$(cat number)"
+            PR="$(jq --raw-output .number event.json)"
 
             recreate="$(
               gh api \
                 --header 'Accept: application/vnd.github+json' \
                 --header 'X-GitHub-Api-Version: 2022-11-28' \
-                "repos/$GH_REPO/pulls/$PR" \
+                "repos/{owner}/{repo}/pulls/$PR" \
                 --jq 'any(.labels[].name; .== "CI-linux-self-hosted")'
             )"
           fi

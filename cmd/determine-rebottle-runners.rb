@@ -48,7 +48,7 @@ module Homebrew
         if macos_version.outdated_release? || macos_version.prerelease?
           nil
         else
-          ephemeral_suffix = "-#{ENV.fetch("GITHUB_RUN_ID")}-#{ENV.fetch("GITHUB_RUN_ATTEMPT")}"
+          ephemeral_suffix = "-#{ENV.fetch("GITHUB_RUN_ID")}"
           macos_runners = [{ runner: "#{macos_version}#{ephemeral_suffix}" }]
           if macos_version >= :ventura
             macos_runners << { runner: "#{macos_version}-arm64#{ephemeral_suffix}" }
@@ -67,12 +67,11 @@ module Homebrew
         else
           runner = macos_version.to_s
           runner += "-#{tag.arch}" if tag.arch != :x86_64
-          if tag.arch == :x86_64 || macos_version >= :ventura
-            runner += "-#{ENV.fetch("GITHUB_RUN_ID")}-#{ENV.fetch("GITHUB_RUN_ATTEMPT")}"
-          end
+          runner += "-#{ENV.fetch("GITHUB_RUN_ID")}" if tag.arch == :x86_64 || macos_version >= :ventura
+
           { runner: runner }
         end
-      rescue MacOSVersionError
+      rescue MacOSVersion::Error
         if tag.system == :linux && tag.arch == :x86_64
           linux_runner_spec
         elsif tag.system == :all

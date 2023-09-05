@@ -24,9 +24,15 @@ module Homebrew
           commits(last: 1) {
             nodes {
               commit {
-                checkSuites(last: 1) {
+                checkSuites(last: 100) {
                   nodes {
                     status
+                    workflowRun {
+                      event
+                      workflow {
+                        name
+                      }
+                    }
                     checkRuns(last: 100) {
                       nodes {
                         name
@@ -57,11 +63,20 @@ module Homebrew
 
     response = GitHub::API.open_graphql(GRAPHQL_WORKFLOW_RUN_QUERY, variables: variables, scopes: ["repo"].freeze)
     commit_node = response.dig("repository", "pullRequest", "commits", "nodes", 0)
-    check_suite_node = commit_node.dig("commit", "checkSuites", "nodes", 0)
-    status = check_suite_node.fetch("status")
+    check_suite_nodes = commit_node.dig("commit", "checkSuites", "nodes")
+    ci_node = check_suite_nodes.find do |node|
+      workflow_run = node.fetch("workflowRun")
+      next false if workflow_run.blank?
+
+      workflow_run.fetch("event") == "pull_request" && workflow_run.dig("workflow", "name") == "CI"
+    end
+    return false if ci_node.blank?
+
+    status = ci_node.fetch("status")
+    odebug "CI status: #{status}"
     return true if status == "COMPLETED"
 
-    check_run_nodes = check_suite_node.dig("checkRuns", "nodes")
+    check_run_nodes = ci_node.dig("checkRuns", "nodes")
     # The `test_deps` job is still waiting to be processed.
     return false if check_run_nodes.none? { |node| node.fetch("name").end_with?("(deps)") }
 

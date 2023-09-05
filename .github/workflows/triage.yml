@@ -2,6 +2,11 @@ name: Triage tasks
 
 on: pull_request_target
 
+env:
+  GH_REPO: ${{ github.repository }}
+  GH_NO_UPDATE_NOTIFIER: 1
+  GH_PROMPT_DISABLED: 1
+
 concurrency:
   group: "triage-${{ github.event.number }}"
   cancel-in-progress: true
@@ -13,6 +18,45 @@ permissions:
   statuses: write
 
 jobs:
+  upload-metadata:
+    if: always() && github.repository_owner == 'Homebrew'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/upload-artifact@v3
+        with:
+          name: event_payload
+          path: ${{ github.event_path }}
+
+  workflows-label:
+    if: always() && github.repository_owner == 'Homebrew'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check pull request changed files
+        id: files
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          workflow_modified="$(
+            gh api \
+              --header 'Accept: application/vnd.github+json' \
+              --header 'X-GitHub-Api-Version: 2022-11-28' \
+              'repos/{owner}/{repo}/pulls/${{ github.event.number }}/files' \
+              --jq 'any(.[].filename; startswith(".github/workflows"))'
+          )"
+          # Fail closed.
+          echo "workflow_modified=${workflow_modified:-true}" >> "${GITHUB_OUTPUT}"
+
+      # Wait briefly in case of failure to make sure we don't end up
+      # hitting the same API error when trying `gh pr edit`.
+      - if: failure()
+        run: sleep 30
+
+      - name: Label PR
+        if: always() && fromJson(steps.files.outputs.workflow_modified)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh pr edit --add-label workflows '${{ github.event.number }}'
+
   triage:
     runs-on: ubuntu-22.04
     steps:
@@ -28,9 +72,6 @@ jobs:
         with:
           token: ${{secrets.GITHUB_TOKEN}}
           def: |
-            - label: workflows
-              path: .github/workflows/.+
-
             - label: new formula
               status: added
               path: Formula/.+
@@ -67,12 +108,12 @@ jobs:
             - label: legacy
               path: Formula/.+@.+
               except:
-                - Formula/bash-completion@2.rb
-                - Formula/openssl@3.rb
-                - Formula/postgresql@15.rb
-                - Formula/python@3.11.rb
-                - Formula/python-gdbm@3.11.rb
-                - Formula/python-tk@3.11.rb
+                - Formula/b/bash-completion@2.rb
+                - Formula/o/openssl@3.rb
+                - Formula/p/postgresql@15.rb
+                - Formula/p/python@3.11.rb
+                - Formula/p/python-gdbm@3.11.rb
+                - Formula/p/python-tk@3.11.rb
 
             - label: missing license
               path: Formula/.+
@@ -156,20 +197,27 @@ jobs:
               content: system "swift", "build"
 
             - label: long build
-              path: Formula/(agda|arangodb|boost|deno|dotnet|dvc|emscripten|envoy|freetype|gcc|ghc|graph-tool|libomp|libtensorflow|llvm|node|pango|ponyc|rav1e|rust|suite-sparse|swift|texlive|qt|v8|vtk|xz|zstd)(@[0-9]+)?.rb
+              path: Formula/.+/(agda|arangodb|aws-sdk-cpp|boost|brotli|deno|dotnet|emscripten|envoy|freetype|gcc|ghc|glib|graph-tool|harfbuzz|libnghttp2|libtensorflow|llvm|mame|metashell|nghttp2|node|openblas|pango|ponyc|rav1e|rust|suite-sparse|swift|texlive|qt|v8|verilator|vtk|xz|zstd)(@[0-9]+)?.rb
               keep_if_no_match: true
 
             - label: CI-build-dependents-from-source
-              path: Formula/(cabal-install|docbook-xsl|emscripten|erlang|ghc|go|ocaml|ocaml-findlib|ocaml-num|openjdk|rust).rb
+              path: Formula/.+/(cabal-install|docbook-xsl|emscripten|erlang|ghc|go|ocaml|ocaml-findlib|ocaml-num|openjdk|rust).rb
               keep_if_no_match: true
 
             - label: CI-skip-recursive-dependents
-              path: Formula/(ca-certificates|gettext|openssl@(3|1.1)|sqlite).rb
+              path: Formula/.+/(ca-certificates|curl|gettext|openssl@(3|1.1)|sqlite).rb
               keep_if_no_match: true
 
             - label: CI-linux-self-hosted
-              path: Formula/(envoy|freetype|gdbm|libxml2|llvm|openssl@1.1|python@3.11|qt(@5)?|xz|zstd).rb
+              path: Formula/.+/(alsa-lib|brotli|dbus|envoy|freetype|gdbm|glib|glslang|gmp|gtk4|gzip|harfbuzz|hdf5|json-c|krb5|libarchive|libedit|libnghttp2|libsndfile|libssh2|libtiff|libxcrypt|libxml2|llvm|minizip|nghttp2|openexr|pygments|python@3.11|systemd|qt(@5)?|unbound|utf8cpp|util-linux|xz|zlib|zstd).rb
+              keep_if_no_match: true
+
+            - label: large-bottle-upload
+              path: Formula/.+/(joern|nifi-registry|nifi|texlive).rb
               keep_if_no_match: true
 
             - label: bump-formula-pr
               pr_body_content: Created with `brew bump-formula-pr`
+
+            - label: pip-audit
+              pr_body_content: Created by `brew-pip-audit`

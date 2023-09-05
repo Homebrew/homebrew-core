@@ -1,18 +1,7 @@
 [
-  "cargo-edit",
-  "cargo-outdated",
-  "couchdb-lucene",
-  "dasht",
+  "dafny",
   "hive",
-  "libgaiagraphics",
-  "librasterlite",
-  "mikutter",
-  "opendht",
-  "predictionio",
-  "qca",
-  "sqoop",
-  "swtpm",
-  "synergy-core",
-  "tomcat-native",
-  "whatmp3"
+  "mariadb@10.4",
+  "mysql@5.7",
+  "sslyze"
 ]

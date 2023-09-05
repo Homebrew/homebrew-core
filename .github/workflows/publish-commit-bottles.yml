@@ -33,7 +33,7 @@ on:
 
 env:
   PR: ${{inputs.pull_request}}
-  AUTOSQUASH: ${{ inputs.autosquash }}
+  INPUT_MESSAGE: ${{ inputs.message }}
   GNUPGHOME: /tmp/gnupghome
   HOMEBREW_DEVELOPER: 1
   HOMEBREW_NO_AUTO_UPDATE: 1
@@ -42,10 +42,10 @@ env:
   GH_NO_UPDATE_NOTIFIER: 1
   GH_PROMPT_DISABLED: 1
   RUN_URL: ${{github.event.repository.html_url}}/actions/runs/${{github.run_id}}
-  NON_PUSHABLE_MESSAGE: >
+  NON_PUSHABLE_MESSAGE: >-
     :no_entry: It looks like @BrewTestBot cannot push to your PR branch. For future pull requests, please
     [allow maintainers to edit your PR](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork) to simplify the merge process.
-  ORG_FORK_MESSAGE: >
+  ORG_FORK_MESSAGE: >-
     :no_entry: It looks like @BrewTestBot cannot push to your PR branch. Please open
     future pull requests from a non-organization fork to simplify the merge process.
 
@@ -59,6 +59,7 @@ jobs:
       remote_branch: ${{steps.pr-branch-check.outputs.remote_branch}}
       remote: ${{steps.pr-branch-check.outputs.remote}}
       replace: ${{steps.pr-branch-check.outputs.replace}}
+      requires_merge: ${{steps.pr-branch-check.outputs.requires_merge}}
     permissions:
       contents: read
       actions: write # for `gh workflow run`
@@ -100,9 +101,9 @@ jobs:
           head_sha="$(jq --raw-output .head.sha <<< "$pr_data")"
           fork_type="$(jq --raw-output .head.repo.owner.type <<< "$pr_data")"
           state="$(jq --raw-output .state <<< "$pr_data")"
-          merged="$(jq --raw-output .merged <<< "$pr_data")"
           node_id="$(jq --raw-output .node_id <<< "$pr_data")"
-          automerge_data="$(jq --raw-output '.auto_merge | type' <<< "$pr_data")"
+          merged="$(jq --raw-output .merged <<< "$pr_data")"
+          automerge_enabled="$(jq --raw-output '.auto_merge != null' <<< "$pr_data")"
 
           if [[ -z "$pushable" ]] ||
              [[ -z "$branch" ]] ||
@@ -114,7 +115,7 @@ jobs:
              [[ -z "$state" ]] ||
              [[ -z "$merged" ]] ||
              [[ -z "$node_id" ]] ||
-             [[ -z "$automerge_data" ]]
+             [[ -z "$automerge_enabled" ]]
           then
             echo "::error ::Failed to get PR data!"
             exit 1
@@ -139,10 +140,11 @@ jobs:
             fi
           done < <(jq --raw-output '.labels[].name' <<< "$pr_data")
 
-          if [[ "$merged" = "true" ]] || [[ "$automerge_data" = "object" ]]
+          requires_merge=true
+          if [[ "$merged" = "true" || "$automerge_enabled" = "true" ]]
           then
             echo '::notice ::Pull request is either already merged or queued to merge.'
-            bottles=false
+            requires_merge=false
           fi
 
           if [[ "$branch" = "master" ]]
@@ -160,7 +162,8 @@ jobs:
             echo "remote_branch=$remote_branch"
             echo "remote=$remote"
             echo "node_id=$node_id"
-            echo "replace=$AUTOSQUASH"
+            echo "requires_merge=$requires_merge"
+            echo "replace=${{ inputs.autosquash }}"
           } >> "$GITHUB_OUTPUT"
 
           if "$pushable" && [[ "$fork_type" != "Organization" ]] ||
@@ -182,18 +185,18 @@ jobs:
       - name: Dispatch replacement pull request
         if: >
           fromJson(steps.pr-branch-check.outputs.replace) &&
-          fromJson(steps.pr-branch-check.outputs.bottles)
+          fromJson(steps.pr-branch-check.outputs.bottles) &&
+          fromJson(steps.pr-branch-check.outputs.requires_merge)
         env:
           GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          MESSAGE: ${{ inputs.message }}
         run: |
           gh workflow run create-replacement-pr.yml \
             --ref "$GITHUB_REF_NAME" \
             --field pull_request="$PR" \
-            --field autosquash="$AUTOSQUASH" \
-            --field upload=false \
+            --field autosquash=${{ inputs.autosquash }} \
+            --field upload=${{ !inputs.autosquash }} \
             --field warn_on_upload_failure=false \
-            --field message="$MESSAGE"
+            --field message="$INPUT_MESSAGE"
 
       - name: Post comment on failure
         if: ${{!success()}}
@@ -206,10 +209,14 @@ jobs:
           bot: github-actions[bot]
 
       - name: Enqueue PR for merge
-        if: (!fromJson(steps.pr-branch-check.outputs.bottles) && !inputs.autosquash)
+        if: >
+          fromJson(steps.pr-branch-check.outputs.requires_merge) &&
+          !fromJson(steps.pr-branch-check.outputs.bottles) &&
+          !inputs.autosquash
         env:
           GH_TOKEN: ${{ secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN }}
           ID: ${{ steps.pr-branch-check.outputs.node_id }}
+          EXPECTED_SHA: ${{ steps.pr-branch-check.outputs.head_sha }}
           MUTATION: |-
             mutation ($input: EnqueuePullRequestInput!) {
               enqueuePullRequest(input: $input) {
@@ -221,11 +228,13 @@ jobs:
           #   https://github.com/cli/cli/issues/7213
           gh api graphql \
             --field "input[pullRequestId]=$ID" \
+            --field "input[expectedHeadOid]=$EXPECTED_SHA" \
             --raw-field query="$MUTATION"
 
   upload:
     needs: check
     if: >
+      fromJson(needs.check.outputs.requires_merge) &&
       fromJson(needs.check.outputs.bottles) &&
       !fromJson(needs.check.outputs.replace)
     runs-on: ${{inputs.large_runner && 'homebrew-large-bottle-upload' || 'ubuntu-22.04'}}
@@ -253,6 +262,8 @@ jobs:
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
         with:
+          core: true
+          cask: false
           test-bot: false
 
       - name: Configure Git user
@@ -282,7 +293,6 @@ jobs:
           HOMEBREW_GITHUB_PACKAGES_USER: brewtestbot
           HOMEBREW_GITHUB_PACKAGES_TOKEN: ${{secrets.HOMEBREW_CORE_GITHUB_PACKAGES_TOKEN}}
           EXPECTED_SHA: ${{needs.check.outputs.head_sha}}
-          MESSAGE: ${{inputs.message}}
         run: |
           local_git_head="$(git rev-parse HEAD)"
           remote_git_head="$(git ls-remote origin "pull/$PR/head" | cut -f1)"
@@ -306,7 +316,7 @@ jobs:
             --committer="$BREWTESTBOT_NAME_EMAIL" \
             --root-url="https://ghcr.io/v2/homebrew/core" \
             ${{inputs.warn_on_upload_failure && '--warn-on-upload-failure' || ''}} \
-            ${{inputs.message && '--message="$MESSAGE"' || ''}} \
+            ${{inputs.message && '--message="$INPUT_MESSAGE"' || ''}} \
             "$PR"
 
           echo "head_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
@@ -331,7 +341,7 @@ jobs:
         working-directory: ${{steps.set-up-homebrew.outputs.repository-path}}
 
       - name: Post comment on failure
-        if: ${{!success()}}
+        if: failure()
         uses: Homebrew/actions/post-comment@master
         with:
           token: ${{secrets.GITHUB_TOKEN}}
@@ -339,14 +349,6 @@ jobs:
           body: ":warning: @${{github.actor}} bottle publish [failed](${{env.RUN_URL}}). CC @carlocab"
           bot_body: ":warning: Bottle publish [failed](${{env.RUN_URL}}). CC @carlocab"
           bot: github-actions[bot]
-
-      - name: Dismiss approvals on failure
-        if: failure()
-        uses: Homebrew/actions/dismiss-approvals@master
-        with:
-          token: ${{secrets.GITHUB_TOKEN}}
-          pr: ${{inputs.pull_request}}
-          message: "bottle publish failed"
 
       - name: Wait until pull request branch is in sync with local repository
         id: wait-until-in-sync
