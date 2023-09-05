@@ -18,9 +18,12 @@ class Opencolorio < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "imath"
   depends_on "little-cms2"
   depends_on "python@3.11"
   depends_on "yaml-cpp"
+
+  uses_from_macos "expat"
 
   def install
     python3 = "python3.11"
