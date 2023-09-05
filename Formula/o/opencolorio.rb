@@ -24,6 +24,7 @@ class Opencolorio < Formula
   def install
     python3 = "python3.11"
     args = %W[
+      -DOCIO_INSTALL_EXT_PACKAGES=NONE
       -DCMAKE_INSTALL_RPATH=#{rpath}
       -DPYTHON=#{python3}
       -DPYTHON_EXECUTABLE=#{which(python3)}
