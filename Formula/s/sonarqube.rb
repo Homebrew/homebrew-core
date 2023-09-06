@@ -76,7 +76,7 @@ class Sonarqube < Formula
     assert_match(/SonarQube.* is not running/, shell_output("#{bin}/sonar status", 1))
     pid = fork { exec bin/"sonar", "console" }
     begin
-      sleep 15
+      sleep 30
       output = shell_output("#{bin}/sonar status")
       assert_match(/SonarQube is running \([0-9]*?\)/, output)
     ensure
