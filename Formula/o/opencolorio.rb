@@ -42,7 +42,7 @@ class Opencolorio < Formula
     ]
 
     if OS.linux?
-      args << "-Dexpat_ROOT=#{Formula["expat"].opt_prefix}" 
+      args << "-Dexpat_ROOT=#{Formula["expat"].opt_prefix}"
       args << "-Dzlib_ROOT=#{Formula["zlib"].opt_prefix}"
     end
 
