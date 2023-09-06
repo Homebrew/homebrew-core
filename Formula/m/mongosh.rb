@@ -17,11 +17,11 @@ class Mongosh < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f767dab25c0fe933e4741b89f4cd5fd020b994bcabbbb1b3cb29ed03b8cc5f4f"
   end
 
-  depends_on "node@16" # try `node` after https://jira.mongodb.org/browse/MONGOSH-1391
+  depends_on "node"
 
   def install
-    system "#{Formula["node@16"].bin}/npm", "install", *Language::Node.std_npm_install_args(libexec)
-    (bin/"mongosh").write_env_script libexec/"bin/mongosh", PATH: "#{Formula["node@16"].opt_bin}:$PATH"
+    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    bin.install_symlink Dir[libexec/"bin/*"]
   end
 
   test do
