@@ -4,7 +4,7 @@ class Lgogdownloader < Formula
   url "https://github.com/Sude-/lgogdownloader/releases/download/v3.11/lgogdownloader-3.11.tar.gz"
   sha256 "d8d015cce6e002876305517367dc006c332e4d492263173b58bfe5a94b057b09"
   license "WTFPL"
-  revision 2
+  revision 3
   head "https://github.com/Sude-/lgogdownloader.git", branch: "master"
 
   livecheck do
