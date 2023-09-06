@@ -36,12 +36,15 @@ class Opencolorio < Formula
       -DCMAKE_INSTALL_RPATH=#{rpath}
       -DPYTHON=#{python3}
       -DPYTHON_EXECUTABLE=#{which(python3)}
-      -Dyaml-cpp_ROOT=#{Formula["yaml-cpp"].opt_prefix}
+      -Dyaml-cpp_DIR=#{Formula["yaml-cpp"].opt_prefix}
       -Dpystring_ROOT=#{Formula["pystring"].opt_prefix}
-      -Dminizip-ng_ROOT=#{Formula["minizip-ng"].opt_prefix}
+      -Dminizip-ng_DIR=#{Formula["minizip-ng"].opt_prefix}
     ]
 
-    args << "-Dexpat_ROOT=#{Formula["expat"].opt_prefix}" if OS.linux?
+    if OS.linux?
+      args << "-Dexpat_ROOT=#{Formula["expat"].opt_prefix}" 
+      args << "-Dzlib_ROOT=#{Formula["zlib"].opt_prefix}"
+    end
 
     system "cmake", "-S", ".", "-B", "macbuild", *args, *std_cmake_args
     system "cmake", "--build", "macbuild"
