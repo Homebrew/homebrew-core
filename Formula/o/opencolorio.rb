@@ -20,6 +20,9 @@ class Opencolorio < Formula
   depends_on "pkg-config" => :build
   depends_on "imath"
   depends_on "little-cms2"
+  depends_on "minizip-ng"
+  depends_on "pybind11"
+  depends_on "pystring"
   depends_on "python@3.11"
   depends_on "yaml-cpp"
 
