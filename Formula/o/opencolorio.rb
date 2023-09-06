@@ -27,6 +27,7 @@ class Opencolorio < Formula
   depends_on "yaml-cpp"
 
   uses_from_macos "expat"
+  uses_from_macos "zlib"
 
   def install
     python3 = "python3.11"
@@ -36,6 +37,8 @@ class Opencolorio < Formula
       -DPYTHON=#{python3}
       -DPYTHON_EXECUTABLE=#{which(python3)}
       -Dyaml-cpp_ROOT=#{Formula["yaml-cpp"].opt_prefix}
+      -Dpystring_ROOT=#{Formula["pystring"].opt_prefix}
+      -Dminizip-ng_ROOT=#{Formula["minizip-ng"].opt_prefix}
     ]
 
     args << "-Dexpat_ROOT=#{Formula["expat"].opt_prefix}" if OS.linux?
