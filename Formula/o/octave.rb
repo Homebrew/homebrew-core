@@ -5,7 +5,7 @@ class Octave < Formula
   mirror "https://ftpmirror.gnu.org/octave/octave-8.3.0.tar.xz"
   sha256 "919c9494f02ca435e1e3474990e6df8ddef9acbc9c90565e08d40b8f50445ba9"
   license "GPL-3.0-or-later"
-  revision 2
+  revision 3
 
   bottle do
     sha256 arm64_ventura:  "0fde25bc570c10a6d9849c836ba3f1debc7c754deae1bcd776ea7e9822c0f826"
@@ -53,9 +53,7 @@ class Octave < Formula
   depends_on "qhull"
   depends_on "qrupdate"
   depends_on "qscintilla2"
-  # Stuck on qt@5
-  # https://octave.discourse.group/t/transition-octave-to-qt6/3139/15
-  depends_on "qt@5"
+  depends_on "qt"
   depends_on "rapidjson"
   depends_on "readline"
   depends_on "suite-sparse"
@@ -88,16 +86,6 @@ class Octave < Formula
     # Configure to use gnu++14 instead of c++14 as octave uses GNU extensions
     ENV.append "CXX", "-std=gnu++14"
 
-    # Qt 5.12 compatibility
-    # https://savannah.gnu.org/bugs/?55187
-    ENV["QCOLLECTIONGENERATOR"] = "qhelpgenerator"
-    # These "shouldn't" be necessary, but the build breaks without them.
-    # https://savannah.gnu.org/bugs/?55883
-    ENV["QT_CPPFLAGS"]="-I#{Formula["qt@5"].opt_include}"
-    ENV.append "CPPFLAGS", "-I#{Formula["qt@5"].opt_include}"
-    ENV["QT_LDFLAGS"]="-F#{Formula["qt@5"].opt_lib}"
-    ENV.append "LDFLAGS", "-F#{Formula["qt@5"].opt_lib}"
-
     system "./bootstrap" if build.head?
     args = ["--prefix=#{prefix}",
             "--disable-dependency-tracking",
@@ -110,7 +98,31 @@ class Octave < Formula
             "--with-x=no",
             "--with-blas=-L#{Formula["openblas"].opt_lib} -lopenblas",
             "--with-portaudio",
-            "--with-sndfile"]
+            "--with-sndfile",
+            "LRELEASE_QTVER=#{Formula["qt"].opt_bin}/lrelease",
+            "MOC_QTVER=#{Formula["qt"].pkgshare}/libexec/moc",
+            "QCOLLECTIONGENERATOR_QTVER=#{Formula["qt"].pkgshare}/libexec/qhelpgenerator",
+            "QHELPGENERATOR_QTVER=#{Formula["qt"].pkgshare}/libexec/qhelpgenerator",
+            "RCC_QTVER=#{Formula["qt"].pkgshare}/libexec/rcc",
+            "UIC_QTVER=#{Formula["qt"].pkgshare}/libexec/uic"]
+
+    if OS.mac?
+      # pkg-config files are not shipped on macOS, making our job harder
+      # https://bugreports.qt.io/browse/QTBUG-86080
+      # Hopefully in the future octave can autodetect this information
+      # https://savannah.gnu.org/bugs/?64498
+      qtcflags = []
+      qtlibs = %W[-F#{Formula["qt"].opt_prefix}/Frameworks]
+      %w[Core Gui Help Network OpenGL OpenGLWidgets PrintSupport Xml Core5Compat].each do |m|
+        qtcflags << "-I#{Formula["qt"].opt_include}/Qt#{m}"
+        qtlibs << "-framework Qt#{m}"
+      end
+
+      args += %W[
+        QT_CFLAGS=#{qtcflags.join(" ")}
+        QT_LIBS=#{qtlibs.join(" ")}
+      ]
+    end
 
     if OS.linux?
       # Explicitly specify aclocal and automake without versions
