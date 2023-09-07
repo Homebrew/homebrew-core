@@ -5,7 +5,7 @@ class Uffizzi < Formula
   sha256 "aa904ea64fbd2b4f161b0498919bb48c6c9380de4063a1bae06446d3a8615d52"
   license "Apache-2.0"
 
-  depends_on "ruby"
+  uses_from_macos "ruby"
 
   def install
     system "gem", "install", "uffizzi-cli", "-v", "2.0.32", "--no-document", "--install-dir", libexec
