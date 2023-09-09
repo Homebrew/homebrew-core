@@ -3,8 +3,8 @@ require "fileutils"
 class Harpwise < Formula
   desc "Harmonica practice-utility for the command-line using microphone and speaker"
   homepage "https://github.com/marcIhm/harpwise"
-  url "https://github.com/marcihm/harpwise/archive/4.4.3.tar.gz"
-  sha256 "8dde34fedd5823b324099a9a2cb4a7196c3ccc0df717393b05c0d66f6f230cfb"
+  url "https://github.com/marcihm/harpwise/archive/4.4.4.tar.gz"
+  sha256 "7caae0c4732bb188d164d86a4cceb2aa7b4f09859b945bc86f42d31500571e83"
   license "MIT"
 
   # dependencies ordered according to "brew style harpwise"
