@@ -1,5 +1,3 @@
-require "fileutils"
-
 class Harpwise < Formula
   desc "Harmonica practice-utility for the command-line using microphone and speaker"
   homepage "https://github.com/marcIhm/harpwise"
