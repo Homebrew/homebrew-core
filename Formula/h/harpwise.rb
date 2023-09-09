@@ -8,9 +8,9 @@ class Harpwise < Formula
   depends_on "aubio"
   depends_on "coreutils"
   depends_on "figlet"
+  depends_on "ruby"
   depends_on "sox"
   depends_on "toilet"
-  uses_from_macos "ruby"
 
   def install
     # harpwise is written in ruby, but is not a gem.
