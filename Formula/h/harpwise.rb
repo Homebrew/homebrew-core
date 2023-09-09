@@ -9,6 +9,7 @@ class Harpwise < Formula
 
   # dependencies ordered according to "brew style harpwise"
   depends_on "aubio"
+  depends_on "coreutils"
   depends_on "figlet"
   depends_on "ruby"
   depends_on "sox"
