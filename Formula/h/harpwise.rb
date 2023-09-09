@@ -7,7 +7,6 @@ class Harpwise < Formula
   sha256 "7caae0c4732bb188d164d86a4cceb2aa7b4f09859b945bc86f42d31500571e83"
   license "MIT"
 
-  # dependencies ordered according to "brew style harpwise"
   depends_on "aubio"
   depends_on "coreutils"
   depends_on "figlet"
