@@ -16,7 +16,7 @@ class Harpwise < Formula
 
   def install
     # harpwise is written in ruby, but is not a gem.
-    man1.install "man/harpwise.1" => "harpwise.1"
+    man1.install "man/harpwise.1"
     mkdir "bin"
     File.write("bin/harpwise", "#!/bin/bash\n\n#{prefix}/harpwise $@\n")
     bin.install("bin/harpwise")
