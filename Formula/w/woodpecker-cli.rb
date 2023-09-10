@@ -19,7 +19,7 @@ class WoodpeckerCli < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/woodpecker-ci/woodpecker/version.Version=#{version}"
+    ldflags = "-X github.com/woodpecker-ci/woodpecker/version.Version=#{version}"
     system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/cli"
   end
 

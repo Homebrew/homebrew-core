@@ -27,7 +27,6 @@ class OryHydra < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/ory/hydra/v2/driver/config.Version=v#{version}
       -X github.com/ory/hydra/v2/driver/config.Date=#{time.iso8601}
       -X github.com/ory/hydra/v2/driver/config.Commit=#{Utils.git_head}

@@ -19,7 +19,7 @@ class Cue < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X cuelang.org/go/cmd/cue/cmd.version=v#{version}"), "./cmd/cue"
+    system "go", "build", *std_go_args(ldflags: "-X cuelang.org/go/cmd/cue/cmd.version=v#{version}"), "./cmd/cue"
 
     generate_completions_from_executable(bin/"cue", "completion")
   end

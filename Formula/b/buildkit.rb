@@ -27,7 +27,6 @@ class Buildkit < Formula
   def install
     revision = Utils.git_head
     ldflags = %W[
-      -s -w
       -X github.com/moby/buildkit/version.Version=#{version}
       -X github.com/moby/buildkit/version.Revision=#{revision}
       -X github.com/moby/buildkit/version.Package=github.com/moby/buildkit

@@ -28,7 +28,6 @@ class Colima < Formula
   def install
     project = "github.com/abiosoft/colima"
     ldflags = %W[
-      -s -w
       -X #{project}/config.appVersion=#{version}
       -X #{project}/config.revision=#{Utils.git_head}
     ]

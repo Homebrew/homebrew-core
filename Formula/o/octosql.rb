@@ -19,7 +19,7 @@ class Octosql < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/cube2222/octosql/cmd.VERSION=#{version}"
+    ldflags = "-X github.com/cube2222/octosql/cmd.VERSION=#{version}"
     system "go", "build", *std_go_args(ldflags: ldflags)
 
     generate_completions_from_executable(bin/"octosql", "completion")

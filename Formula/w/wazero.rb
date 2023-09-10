@@ -19,10 +19,7 @@ class Wazero < Formula
   depends_on "wabt" => :test
 
   def install
-    ldflags = %W[
-      -s -w
-      -X github.com/tetratelabs/wazero/internal/version.version=#{version}
-    ]
+    ldflags = "-X github.com/tetratelabs/wazero/internal/version.version=#{version}"
     system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/wazero"
   end
 

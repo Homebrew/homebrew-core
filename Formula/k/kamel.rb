@@ -24,7 +24,7 @@ class Kamel < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/apache/camel-k/v2/pkg/util/defaults.GitCommit=#{tap.user}-#{version}"
+    ldflags = "-X github.com/apache/camel-k/v2/pkg/util/defaults.GitCommit=#{tap.user}-#{version}"
     system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/kamel"
 
     generate_completions_from_executable(bin/"kamel", "completion", shells: [:bash, :zsh])

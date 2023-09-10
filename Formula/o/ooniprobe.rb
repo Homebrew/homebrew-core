@@ -24,7 +24,7 @@ class Ooniprobe < Formula
   depends_on "tor"
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/ooniprobe"
+    system "go", "build", *std_go_args, "./cmd/ooniprobe"
     (var/"ooniprobe").mkpath
   end
 

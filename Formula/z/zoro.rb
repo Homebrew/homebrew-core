@@ -19,7 +19,7 @@ class Zoro < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cli/zoro"
+    system "go", "build", *std_go_args, "./cli/zoro"
   end
 
   test do

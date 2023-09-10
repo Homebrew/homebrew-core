@@ -18,7 +18,7 @@ class GoBindata < Formula
   depends_on "go"
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./go-bindata"
+    system "go", "build", *std_go_args, "./go-bindata"
   end
 
   test do

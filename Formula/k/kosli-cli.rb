@@ -21,7 +21,6 @@ class KosliCli < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/kosli-dev/cli/internal/version.version=#{version}
       -X github.com/kosli-dev/cli/internal/version.gitCommit=#{Utils.git_head}
       -X github.com/kosli-dev/cli/internal/version.gitTreeState=clean

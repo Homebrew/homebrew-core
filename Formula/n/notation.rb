@@ -21,7 +21,6 @@ class Notation < Formula
   def install
     project = "github.com/notaryproject/notation"
     ldflags = %W[
-      -s -w
       -X #{project}/internal/version.Version=v#{version}
       -X #{project}/internal/version.GitCommit=#{tap.user}
       -X #{project}/internal/version.BuildMetadata=Homebrew

@@ -41,7 +41,7 @@ class InfluxdbAT1 < Formula
     end
     ENV.prepend_path "PATH", buildpath/"bootstrap"
 
-    ldflags = "-s -w -X main.version=#{version}"
+    ldflags = "-X main.version=#{version}"
 
     %w[influxd influx influx_tools influx_inspect].each do |f|
       system "go", "build", *std_go_args(output: bin/f, ldflags: ldflags), "./cmd/#{f}"

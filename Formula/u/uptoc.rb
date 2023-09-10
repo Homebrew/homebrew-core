@@ -22,7 +22,7 @@ class Uptoc < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X main.release=#{version} -X main.commit=#{Utils.git_head} -X main.repo=#{stable.url}"
+    ldflags = "-X main.release=#{version} -X main.commit=#{Utils.git_head} -X main.repo=#{stable.url}"
     system "go", "build", *std_go_args(ldflags: ldflags), "./cmd"
   end
 

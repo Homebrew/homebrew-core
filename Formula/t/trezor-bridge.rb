@@ -19,7 +19,7 @@ class TrezorBridge < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(output: bin/"trezord-go", ldflags: "-s -w")
+    system "go", "build", *std_go_args(output: bin/"trezord-go")
   end
 
   service do

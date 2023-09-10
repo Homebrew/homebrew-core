@@ -19,7 +19,6 @@ class Coder < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/coder/coder/v2/buildinfo.tag=#{version}
       -X github.com/coder/coder/v2/buildinfo.agpl=true
     ]

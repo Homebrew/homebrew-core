@@ -20,9 +20,8 @@ class Ecoji < Formula
 
   def install
     cd "cmd" do
-      system "go", "build", *std_go_args(ldflags: "-s -w")
+      system "go", "build", *std_go_args
     end
-    # system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd"
   end
 
   test do

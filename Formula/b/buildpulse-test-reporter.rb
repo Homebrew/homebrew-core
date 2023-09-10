@@ -25,7 +25,6 @@ class BuildpulseTestReporter < Formula
 
   def install
     goldflags = %W[
-      -s -w
       -X main.Version=#{version}
       -X main.Commit=#{tap.user}
     ]

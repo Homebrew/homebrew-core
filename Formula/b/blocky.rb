@@ -20,7 +20,6 @@ class Blocky < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/0xERR0R/blocky/util.Version=#{version}
       -X github.com/0xERR0R/blocky/util.BuildTime=#{time.iso8601}
     ]

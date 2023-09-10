@@ -25,7 +25,6 @@ class Kics < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/Checkmarx/kics/internal/constants.Version=#{version}
     ]
     system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/console"

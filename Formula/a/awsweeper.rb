@@ -21,7 +21,6 @@ class Awsweeper < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/jckuester/awsweeper/internal.version=#{version}
       -X github.com/jckuester/awsweeper/internal.date=#{time.strftime("%F")}
     ]

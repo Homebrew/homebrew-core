@@ -19,7 +19,7 @@ class Define < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/Rican7/define/internal/version.identifier=#{version}"
+    ldflags = "-X github.com/Rican7/define/internal/version.identifier=#{version}"
     system "go", "build", *std_go_args(ldflags: ldflags)
   end
 

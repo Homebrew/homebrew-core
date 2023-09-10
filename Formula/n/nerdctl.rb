@@ -14,7 +14,7 @@ class Nerdctl < Formula
   depends_on :linux
 
   def install
-    ldflags = "-s -w -X github.com/containerd/nerdctl/pkg/version.Version=#{version}"
+    ldflags = "-X github.com/containerd/nerdctl/pkg/version.Version=#{version}"
     system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/nerdctl"
 
     generate_completions_from_executable(bin/"nerdctl", "completion")

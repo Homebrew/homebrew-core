@@ -20,7 +20,6 @@ class Tbls < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/k1LoW/tbls.version=#{version}
       -X github.com/k1LoW/tbls.date=#{time.iso8601}
       -X github.com/k1LoW/tbls/version.Version=#{version}

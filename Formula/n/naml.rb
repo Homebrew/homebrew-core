@@ -20,11 +20,7 @@ class Naml < Formula
   depends_on "go"
 
   def install
-    ldflags = %W[
-      -s -w
-      -X github.com/kris-nova/naml.Version=#{version}
-    ]
-
+    ldflags = "-X github.com/kris-nova/naml.Version=#{version}"
     system "go", "build", *std_go_args(ldflags: ldflags), "./cmd"
   end
 

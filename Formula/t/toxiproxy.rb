@@ -18,7 +18,7 @@ class Toxiproxy < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/Shopify/toxiproxy/v2.Version=#{version}"
+    ldflags = "-X github.com/Shopify/toxiproxy/v2.Version=#{version}"
     system "go", "build", *std_go_args(ldflags: ldflags), "-o", bin/"toxiproxy-server", "./cmd/server"
     system "go", "build", *std_go_args(ldflags: ldflags), "-o", bin/"toxiproxy-cli", "./cmd/cli"
   end

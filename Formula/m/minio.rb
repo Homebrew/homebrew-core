@@ -36,7 +36,6 @@ class Minio < Formula
       version = release.gsub(/RELEASE\./, "").chomp.gsub(/T(\d+)-(\d+)-(\d+)Z/, 'T\1:\2:\3Z')
 
       ldflags = %W[
-        -s -w
         -X github.com/minio/minio/cmd.Version=#{version}
         -X github.com/minio/minio/cmd.ReleaseTag=#{release}
         -X github.com/minio/minio/cmd.CommitID=#{Utils.git_head}

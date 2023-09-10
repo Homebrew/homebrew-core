@@ -21,7 +21,6 @@ class Grype < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/anchore/grype/internal/version.version=#{version}
       -X github.com/anchore/grype/internal/version.gitCommit=brew
       -X github.com/anchore/grype/internal/version.buildDate=#{time.iso8601}

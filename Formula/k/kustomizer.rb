@@ -20,7 +20,7 @@ class Kustomizer < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X main.VERSION=#{version}"), "./cmd/kustomizer"
+    system "go", "build", *std_go_args(ldflags: "-X main.VERSION=#{version}"), "./cmd/kustomizer"
 
     generate_completions_from_executable(bin/"kustomizer", "completion")
   end

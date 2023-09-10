@@ -18,7 +18,7 @@ class TrzszSsh < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w", output: bin/"tssh"), "./cmd/tssh"
+    system "go", "build", *std_go_args(output: bin/"tssh"), "./cmd/tssh"
   end
 
   test do

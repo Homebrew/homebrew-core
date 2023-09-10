@@ -25,7 +25,6 @@ class Pumba < Formula
 
   def install
     goldflags = %W[
-      -s -w
       -X main.version=#{version}
       -X main.commit=#{tap.user}
       -X main.branch=master

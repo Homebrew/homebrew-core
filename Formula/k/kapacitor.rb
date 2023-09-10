@@ -53,7 +53,6 @@ class Kapacitor < Formula
     ENV.prepend_path "PATH", buildpath/"bootstrap"
 
     ldflags = %W[
-      -s -w
       -X main.version=#{version}
       -X main.commit=#{Utils.git_head}
     ]

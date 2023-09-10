@@ -37,7 +37,6 @@ class Ehco < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/Ehco1996/ehco/internal/constant.GitBranch=master
       -X github.com/Ehco1996/ehco/internal/constant.GitRevision=#{tap.user}
       -X github.com/Ehco1996/ehco/internal/constant.BuildTime=#{time.iso8601}

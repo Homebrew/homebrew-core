@@ -18,7 +18,7 @@ class ForkCleaner < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}"), "./cmd/fork-cleaner"
+    system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}"), "./cmd/fork-cleaner"
   end
 
   test do

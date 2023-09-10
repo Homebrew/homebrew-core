@@ -23,7 +23,7 @@ class Cortex < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/cortex"
+    system "go", "build", *std_go_args, "./cmd/cortex"
     cd "docs/configuration" do
       inreplace "single-process-config-blocks.yaml", "/tmp", var
       etc.install "single-process-config-blocks.yaml" => "cortex.yaml"

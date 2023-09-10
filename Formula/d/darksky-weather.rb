@@ -22,9 +22,10 @@ class DarkskyWeather < Formula
 
   def install
     project = "github.com/genuinetools/weather"
-    ldflags = ["-s -w",
-               "-X #{project}/version.GITCOMMIT=#{tap.user.downcase}",
-               "-X #{project}/version.VERSION=v#{version}"]
+    ldflags = %W[
+      -X #{project}/version.GITCOMMIT=#{tap.user.downcase}
+      -X #{project}/version.VERSION=v#{version}
+    ]
     system "go", "build", *std_go_args(output: bin/"weather", ldflags: ldflags)
   end
 

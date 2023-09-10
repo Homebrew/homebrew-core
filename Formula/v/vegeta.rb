@@ -19,11 +19,9 @@ class Vegeta < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X main.Version=#{version}
       -X main.Date=#{time.iso8601}
-    ].join(" ")
-
+    ]
     system "go", "build", *std_go_args(ldflags: ldflags)
   end
 

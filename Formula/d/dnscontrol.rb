@@ -28,7 +28,6 @@ class Dnscontrol < Formula
 
   def install
     go_ldflags = %W[
-      -s -w
       -X main.SHA=#{tap.user}
       -X main.Version=#{version}
       -X main.BuildTime=#{time.iso8601}

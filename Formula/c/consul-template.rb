@@ -22,7 +22,6 @@ class ConsulTemplate < Formula
   def install
     project = "github.com/hashicorp/consul-template"
     ldflags = %W[
-      -s -w
       -X #{project}/version.Name=consul-template
       -X #{project}/version.GitCommit=#{Utils.git_short_head}
     ]

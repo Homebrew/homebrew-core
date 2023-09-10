@@ -20,7 +20,6 @@ class Hysteria < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/apernet/hysteria/app/cmd.appVersion=v#{version}
       -X github.com/apernet/hysteria/app/cmd.appDate=#{time.iso8601}
       -X github.com/apernet/hysteria/app/cmd.appType=release

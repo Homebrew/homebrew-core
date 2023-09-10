@@ -27,7 +27,6 @@ class Phoneinfoga < Formula
     end
 
     ldflags = %W[
-      -s -w
       -X github.com/sundowndev/phoneinfoga/v2/build.Version=v#{version}
       -X github.com/sundowndev/phoneinfoga/v2/build.Commit=brew
     ]

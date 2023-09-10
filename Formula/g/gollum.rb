@@ -21,7 +21,7 @@ class Gollum < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-mod=readonly", *std_go_args(ldflags: "-s -w -X gollum/core.versionString=#{version}")
+    system "go", "build", "-mod=readonly", *std_go_args(ldflags: "-X gollum/core.versionString=#{version}")
   end
 
   test do

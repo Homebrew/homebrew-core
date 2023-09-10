@@ -25,11 +25,7 @@ class Bitrise < Formula
   uses_from_macos "rsync"
 
   def install
-    ldflags = %W[
-      -s -w
-      -X github.com/bitrise-io/bitrise/version.VERSION=#{version}
-    ]
-
+    ldflags = "-X github.com/bitrise-io/bitrise/version.VERSION=#{version}"
     system "go", "build", *std_go_args(ldflags: ldflags.join(" "))
   end
 

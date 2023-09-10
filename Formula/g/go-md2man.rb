@@ -20,7 +20,7 @@ class GoMd2man < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    system "go", "build", *std_go_args
     system bin/"go-md2man", "-in=go-md2man.1.md", "-out=go-md2man.1"
     man1.install "go-md2man.1"
   end

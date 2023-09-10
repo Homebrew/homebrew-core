@@ -18,7 +18,7 @@ class OktaAwsCli < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/okta-aws-cli"
+    system "go", "build", *std_go_args, "./cmd/okta-aws-cli"
   end
 
   test do

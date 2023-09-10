@@ -18,8 +18,8 @@ class Vale < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-X main.version=#{version} -s -w"
-    system "go", "build", *std_go_args, "-ldflags=#{ldflags}", "./cmd/vale"
+    ldflags = "-X main.version=#{version}"
+    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/vale"
   end
 
   test do

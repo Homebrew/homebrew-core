@@ -22,7 +22,6 @@ class Kubevela < Formula
   def install
     ENV["CGO_ENABLED"] = "0"
     ldflags = %W[
-      -s -w
       -X github.com/oam-dev/kubevela/version.VelaVersion=#{version}
       -X github.com/oam-dev/kubevela/version.GitRevision=#{Utils.git_head}
     ]

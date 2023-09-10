@@ -21,7 +21,7 @@ class Hebcal < Formula
   def install
     # populate DEFAULT_CITY variable
     system "make", "dcity.go"
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    system "go", "build", *std_go_args
   end
 
   test do

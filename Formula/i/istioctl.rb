@@ -20,7 +20,6 @@ class Istioctl < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X istio.io/istio/pkg/version.buildVersion=#{version}
       -X istio.io/istio/pkg/version.buildGitRevision=#{tap.user}
       -X istio.io/istio/pkg/version.buildStatus=#{tap.user}

@@ -40,7 +40,7 @@ class Xray < Formula
   end
 
   def install
-    ldflags = "-s -w -buildid="
+    ldflags = "-buildid="
     execpath = libexec/name
     system "go", "build", *std_go_args(output: execpath, ldflags: ldflags), "./main"
     (bin/"xray").write_env_script execpath,

@@ -20,7 +20,7 @@ class Nuclei < Formula
 
   def install
     cd "v2/cmd/nuclei" do
-      system "go", "build", *std_go_args(ldflags: "-s -w"), "main.go"
+      system "go", "build", *std_go_args, "main.go"
     end
   end
 

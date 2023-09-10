@@ -27,7 +27,7 @@ class Yq < Formula
   conflicts_with "python-yq", because: "both install `yq` executables"
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    system "go", "build", *std_go_args
 
     # Install shell completions
     generate_completions_from_executable(bin/"yq", "shell-completion")

@@ -18,7 +18,7 @@ class BazelRemote < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X main.gitCommit=#{version}"
+    ldflags = "-X main.gitCommit=#{version}"
     system "go", "build", *std_go_args(ldflags: ldflags)
   end
 

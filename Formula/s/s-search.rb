@@ -19,7 +19,7 @@ class SSearch < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "-o", bin/"s"
+    system "go", "build", *std_go_args(output: bin/"s")
 
     generate_completions_from_executable(bin/"s", "--completion", base_name: "s")
   end

@@ -27,7 +27,6 @@ class Dagger < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/dagger/dagger/engine.Version=v#{version}
     ]
     system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/dagger"

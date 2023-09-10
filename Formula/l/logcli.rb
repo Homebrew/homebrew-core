@@ -30,7 +30,6 @@ class Logcli < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/grafana/loki/pkg/util/build.Branch=main
       -X github.com/grafana/loki/pkg/util/build.Version=#{version}
       -X github.com/grafana/loki/pkg/util/build.BuildUser=homebrew

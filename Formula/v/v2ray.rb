@@ -40,7 +40,7 @@ class V2ray < Formula
   end
 
   def install
-    ldflags = "-s -w -buildid="
+    ldflags = "-buildid="
     system "go", "build", *std_go_args(ldflags: ldflags, output: libexec/"v2ray"), "./main"
 
     (bin/"v2ray").write_env_script libexec/"v2ray",

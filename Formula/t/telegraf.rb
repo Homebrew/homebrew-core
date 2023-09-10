@@ -24,7 +24,7 @@ class Telegraf < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/influxdata/telegraf/internal.Version=#{version}"
+    ldflags = "-X github.com/influxdata/telegraf/internal.Version=#{version}"
     system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/telegraf"
     (etc/"telegraf.conf").write Utils.safe_popen_read("#{bin}/telegraf", "config")
   end

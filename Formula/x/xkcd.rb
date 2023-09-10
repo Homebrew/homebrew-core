@@ -20,7 +20,7 @@ class Xkcd < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "src/main.go"
+    system "go", "build", *std_go_args, "src/main.go"
   end
 
   test do

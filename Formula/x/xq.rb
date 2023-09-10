@@ -21,7 +21,6 @@ class Xq < Formula
   def install
     ENV["CGO_ENABLED"] = "0"
     ldflags = %W[
-      -s -w
       -X main.commit=#{Utils.git_head}
       -X main.version=#{version}
       -X main.date=#{time.iso8601}

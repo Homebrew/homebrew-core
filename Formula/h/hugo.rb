@@ -21,7 +21,6 @@ class Hugo < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/gohugoio/hugo/common/hugo.commitHash=#{Utils.git_head}
       -X github.com/gohugoio/hugo/common/hugo.buildDate=#{time.iso8601}
       -X github.com/gohugoio/hugo/common/hugo.vendorInfo=brew

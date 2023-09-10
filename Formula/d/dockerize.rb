@@ -20,7 +20,7 @@ class Dockerize < Formula
   conflicts_with "powerman-dockerize", because: "powerman-dockerize and dockerize install conflicting executables"
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X main.buildVersion=#{version}")
+    system "go", "build", *std_go_args(ldflags: "-X main.buildVersion=#{version}")
   end
 
   test do

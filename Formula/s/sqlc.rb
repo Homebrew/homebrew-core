@@ -19,7 +19,7 @@ class Sqlc < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/sqlc"
+    system "go", "build", *std_go_args, "./cmd/sqlc"
 
     generate_completions_from_executable(bin/"sqlc", "completion")
   end

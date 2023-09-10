@@ -31,7 +31,6 @@ class K3d < Formula
     k3s_version = resp_json["data"].find { |channel| channel["id"]=="stable" }["latest"].sub("+", "-")
 
     ldflags = %W[
-      -s -w
       -X github.com/k3d-io/k3d/v#{version.major}/version.Version=v#{version}
       -X github.com/k3d-io/k3d/v#{version.major}/version.K3sVersion=#{k3s_version}
     ]

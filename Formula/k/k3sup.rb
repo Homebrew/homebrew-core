@@ -26,7 +26,6 @@ class K3sup < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/alexellis/k3sup/cmd.Version=#{version}
       -X github.com/alexellis/k3sup/cmd.GitCommit=#{Utils.git_short_head}
     ]

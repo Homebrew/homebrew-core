@@ -20,7 +20,6 @@ class DockerCompose < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/docker/compose/v2/internal.Version=#{version}
     ]
     system "go", "build", *std_go_args(ldflags: ldflags), "./cmd"

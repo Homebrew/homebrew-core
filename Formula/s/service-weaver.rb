@@ -36,10 +36,10 @@ class ServiceWeaver < Formula
   conflicts_with "weaver", because: "both install a `weaver` binary"
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w", output: bin/"weaver"), "./cmd/weaver"
+    system "go", "build", *std_go_args(output: bin/"weaver"), "./cmd/weaver"
     resource("weaver-gke").stage do
       ["weaver-gke", "weaver-gke-local"].each do |f|
-        system "go", "build", *std_go_args(ldflags: "-s -w", output: bin/f), "./cmd/#{f}"
+        system "go", "build", *std_go_args(output: bin/f), "./cmd/#{f}"
       end
     end
   end

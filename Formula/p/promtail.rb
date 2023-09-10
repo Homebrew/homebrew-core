@@ -28,7 +28,7 @@ class Promtail < Formula
 
   def install
     cd "clients/cmd/promtail" do
-      system "go", "build", *std_go_args(ldflags: "-s -w")
+      system "go", "build", *std_go_args
       etc.install "promtail-local-config.yaml"
     end
   end

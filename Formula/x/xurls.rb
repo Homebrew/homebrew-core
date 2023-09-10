@@ -19,7 +19,7 @@ class Xurls < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/xurls"
+    system "go", "build", *std_go_args, "./cmd/xurls"
   end
 
   test do

@@ -21,7 +21,6 @@ class Falcoctl < Formula
   def install
     pkg = "github.com/falcosecurity/falcoctl/cmd/version"
     ldflags = %W[
-      -s -w
       -X #{pkg}.buildDate=#{time.iso8601}
       -X #{pkg}.gitCommit=#{tap.user}
       -X #{pkg}.semVersion=#{version}

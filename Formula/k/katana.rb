@@ -19,7 +19,7 @@ class Katana < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/katana"
+    system "go", "build", *std_go_args, "./cmd/katana"
   end
 
   test do

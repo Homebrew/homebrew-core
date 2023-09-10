@@ -24,7 +24,7 @@ class Pop < Formula
   end
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X main.Version=#{version}")
+    system "go", "build", *std_go_args(ldflags: "-X main.Version=#{version}")
     generate_completions_from_executable(bin/"pop", "completion")
     (man1/"pop.1").write Utils.safe_popen_read(bin/"pop", "man")
   end

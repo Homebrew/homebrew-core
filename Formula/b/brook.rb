@@ -25,7 +25,7 @@ class Brook < Formula
   end
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cli/brook"
+    system "go", "build", *std_go_args, "./cli/brook"
   end
 
   test do

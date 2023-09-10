@@ -20,7 +20,7 @@ class Lab < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-X main.version=#{version} -s -w"
+    ldflags = "-X main.version=#{version}"
     system "go", "build", *std_go_args(ldflags: ldflags)
 
     generate_completions_from_executable(bin/"lab", "completion")

@@ -20,7 +20,6 @@ class Runme < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/stateful/runme/internal/version.BuildDate=#{time.iso8601}
       -X github.com/stateful/runme/internal/version.BuildVersion=#{version}
       -X github.com/stateful/runme/internal/version.Commit=#{tap.user}

@@ -74,7 +74,6 @@ class Arangodb < Formula
 
     resource("starter").stage do
       ldflags = %W[
-        -s -w
         -X main.projectVersion=#{resource("starter").version}
         -X main.projectBuild=#{Utils.git_head}
       ]

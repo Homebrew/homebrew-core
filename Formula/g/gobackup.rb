@@ -27,7 +27,7 @@ class Gobackup < Formula
       system "yarn", "install"
       system "yarn", "build"
     end
-    system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{revision}")
+    system "go", "build", *std_go_args(ldflags: "-X main.version=#{revision}")
   end
 
   test do

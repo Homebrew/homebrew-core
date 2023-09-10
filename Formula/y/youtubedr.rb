@@ -18,13 +18,11 @@ class Youtubedr < Formula
   depends_on "go" => :build
 
   def install
+    ENV["CGO_ENABLED"] = "0"
     ldflags = %W[
-      -s -w
       -X main.version=#{version}
       -X main.date=#{time.iso8601}
-    ].join(" ")
-
-    ENV["CGO_ENABLED"] = "0"
+    ]
     system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/youtubedr"
 
     generate_completions_from_executable(bin/"youtubedr", "completion")

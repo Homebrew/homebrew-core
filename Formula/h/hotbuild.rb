@@ -23,7 +23,7 @@ class Hotbuild < Formula
     # fixed in https://github.com/wandercn/hotbuild/commit/16d2d337fc20b245a96a4bd2cfe7c0ec8657470d
     # remove in next release
     inreplace "version/version.go", "v1.0.7", version.to_s
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    system "go", "build", *std_go_args
   end
 
   test do

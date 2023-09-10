@@ -25,8 +25,7 @@ class GoCritic < Formula
   depends_on "go"
 
   def install
-    ldflags = "-s -w"
-    ldflags += " -X main.Version=v#{version}" unless build.head?
+    ldflags = "-X main.Version=v#{version}"
     system "go", "build", *std_go_args(ldflags: ldflags, output: bin/"gocritic"), "./cmd/gocritic"
   end
 

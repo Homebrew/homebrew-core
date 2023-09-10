@@ -19,7 +19,7 @@ class Actionlint < Formula
   depends_on "ronn" => :build
 
   def install
-    ldflags = "-s -w -X github.com/rhysd/actionlint.version=#{version}"
+    ldflags = "-X github.com/rhysd/actionlint.version=#{version}"
     system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/actionlint"
     system "ronn", "man/actionlint.1.ronn"
     man1.install "man/actionlint.1"

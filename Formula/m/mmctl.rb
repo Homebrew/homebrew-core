@@ -25,7 +25,7 @@ class Mmctl < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/mattermost/mmctl/commands.BuildHash=#{Utils.git_head}"
+    ldflags = "-X github.com/mattermost/mmctl/commands.BuildHash=#{Utils.git_head}"
     system "go", "build", *std_go_args(ldflags: ldflags), "-mod=vendor"
 
     # Install shell completions

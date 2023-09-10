@@ -20,7 +20,7 @@ class Rqlite < Formula
 
   def install
     %w[rqbench rqlite rqlited].each do |cmd|
-      system "go", "build", *std_go_args(ldflags: "-s -w"), "-o", bin/cmd, "./cmd/#{cmd}"
+      system "go", "build", *std_go_args, "-o", bin/cmd, "./cmd/#{cmd}"
     end
   end
 

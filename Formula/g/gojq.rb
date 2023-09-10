@@ -21,10 +21,7 @@ class Gojq < Formula
 
   def install
     revision = Utils.git_short_head
-    ldflags = %W[
-      -s -w
-      -X github.com/itchyny/gojq/cli.revision=#{revision}
-    ]
+    ldflags = "-X github.com/itchyny/gojq/cli.revision=#{revision}"
     system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/gojq"
     zsh_completion.install "_gojq"
   end

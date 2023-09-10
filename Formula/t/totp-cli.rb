@@ -19,7 +19,7 @@ class TotpCli < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    system "go", "build", *std_go_args
 
     bash_completion.install "autocomplete/bash_autocomplete" => "totp-cli"
     zsh_completion.install "autocomplete/zsh_autocomplete" => "_totp-cli"

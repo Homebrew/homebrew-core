@@ -19,7 +19,7 @@ class Kubeconform < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/kubeconform"
+    system "go", "build", *std_go_args, "./cmd/kubeconform"
 
     (pkgshare/"examples").install Dir["fixtures/*"]
   end

@@ -26,7 +26,7 @@ class DockerSlim < Formula
 
   def install
     system "go", "generate", "./pkg/appbom"
-    ldflags = "-s -w -X github.com/docker-slim/docker-slim/pkg/version.appVersionTag=#{version}"
+    ldflags = "-X github.com/docker-slim/docker-slim/pkg/version.appVersionTag=#{version}"
     system "go", "build",
                  *std_go_args(output: bin/"slim", ldflags: ldflags),
                  "./cmd/slim"

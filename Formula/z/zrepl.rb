@@ -25,7 +25,7 @@ class Zrepl < Formula
   end
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X github.com/zrepl/zrepl/version.zreplVersion=#{version}")
+    system "go", "build", *std_go_args(ldflags: "-X github.com/zrepl/zrepl/version.zreplVersion=#{version}")
   end
 
   def post_install

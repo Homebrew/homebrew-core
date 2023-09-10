@@ -22,7 +22,7 @@ class Aptly < Formula
 
   def install
     system "go", "generate" if build.head?
-    system "go", "build", *std_go_args(ldflags: "-s -w -X main.Version=#{version}")
+    system "go", "build", *std_go_args(ldflags: "-X main.Version=#{version}")
 
     bash_completion.install "completion.d/aptly"
     zsh_completion.install "completion.d/_aptly"

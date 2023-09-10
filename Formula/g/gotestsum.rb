@@ -19,7 +19,7 @@ class Gotestsum < Formula
   depends_on "go" => [:build, :test]
 
   def install
-    ldflags = "-s -w -X gotest.tools/gotestsum/cmd.version=#{version}"
+    ldflags = "-X gotest.tools/gotestsum/cmd.version=#{version}"
     system "go", "build", *std_go_args(ldflags: ldflags)
   end
 

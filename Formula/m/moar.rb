@@ -18,7 +18,7 @@ class Moar < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X main.versionString=v#{version}"
+    ldflags = "-X main.versionString=v#{version}"
     system "go", "build", *std_go_args(ldflags: ldflags)
     man1.install "moar.1"
   end

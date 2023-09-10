@@ -24,7 +24,7 @@ class Seqkit < Formula
   end
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./seqkit"
+    system "go", "build", *std_go_args, "./seqkit"
   end
 
   test do

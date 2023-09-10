@@ -21,7 +21,6 @@ class Easeprobe < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/megaease/easeprobe/pkg/version.RELEASE=#{version}
       -X github.com/megaease/easeprobe/pkg/version.COMMIT=#{Utils.git_head}
       -X github.com/megaease/easeprobe/pkg/version.REPO=megaease/easeprobe

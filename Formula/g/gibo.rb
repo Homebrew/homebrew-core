@@ -20,7 +20,6 @@ class Gibo < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/simonwhitaker/gibo/cmd.version=#{version}
       -X github.com/simonwhitaker/gibo/cmd.commit=brew
       -X github.com/simonwhitaker/gibo/cmd.date=#{time.iso8601}

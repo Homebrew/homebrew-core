@@ -18,7 +18,7 @@ class Kubecm < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/sunny0826/kubecm/version.Version=#{version}"
+    ldflags = "-X github.com/sunny0826/kubecm/version.Version=#{version}"
     system "go", "build", *std_go_args(ldflags: ldflags)
 
     generate_completions_from_executable(bin/"kubecm", "completion")

@@ -26,7 +26,6 @@ class Dumpling < Formula
   def install
     project = "github.com/pingcap/tidb/dumpling"
     ldflags = %W[
-      -s -w
       -X #{project}/cli.ReleaseVersion=#{version}
       -X #{project}/cli.BuildTimestamp=#{time.iso8601}
       -X #{project}/cli.GitHash=brew

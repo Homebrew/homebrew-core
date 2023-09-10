@@ -32,7 +32,6 @@ class HasuraCli < Formula
     Language::Node.setup_npm_environment
 
     ldflags = %W[
-      -s -w
       -X github.com/hasura/graphql-engine/cli/v2/version.BuildVersion=#{version}
       -X github.com/hasura/graphql-engine/cli/v2/plugins.IndexBranchRef=master
     ]

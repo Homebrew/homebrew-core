@@ -21,7 +21,6 @@ class Gebug < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/moshebe/gebug/version.Version=#{version}
     ]
     system "go", "build", *std_go_args(ldflags: ldflags)

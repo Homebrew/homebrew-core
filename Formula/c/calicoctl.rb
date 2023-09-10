@@ -27,8 +27,7 @@ class Calicoctl < Formula
   def install
     commands = "github.com/projectcalico/calico/calicoctl/calicoctl/commands"
     ldflags = "-X #{commands}.VERSION=#{version} " \
-              "-X #{commands}.GIT_REVISION=#{Utils.git_short_head} " \
-              "-s -w"
+              "-X #{commands}.GIT_REVISION=#{Utils.git_short_head}"
     system "go", "build", *std_go_args(ldflags: ldflags), "calicoctl/calicoctl/calicoctl.go"
   end
 

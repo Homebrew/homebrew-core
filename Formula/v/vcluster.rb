@@ -23,7 +23,6 @@ class Vcluster < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X main.commitHash=#{Utils.git_head}
       -X main.buildDate=#{time.iso8601}
       -X main.version=#{version}

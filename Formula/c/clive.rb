@@ -19,7 +19,7 @@ class Clive < Formula
   depends_on "ttyd"
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X github.com/koki-develop/clive/cmd.version=v#{version}")
+    system "go", "build", *std_go_args(ldflags: "-X github.com/koki-develop/clive/cmd.version=v#{version}")
   end
 
   test do

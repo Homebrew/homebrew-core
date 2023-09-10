@@ -19,7 +19,7 @@ class Gum < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X main.Version=#{version}")
+    system "go", "build", *std_go_args(ldflags: "-X main.Version=#{version}")
 
     man_page = Utils.safe_popen_read(bin/"gum", "man")
     (man1/"gum.1").write man_page

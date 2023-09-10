@@ -35,7 +35,6 @@ class Kubekey < Formula
     tags = "exclude_graphdriver_devicemapper exclude_graphdriver_btrfs containers_image_openpgp"
     project = "github.com/kubesphere/kubekey/v3"
     ldflags = %W[
-      -s -w
       -X #{project}/version.gitMajor=#{version.major}
       -X #{project}/version.gitMinor=#{version.minor}
       -X #{project}/version.gitVersion=v#{version}

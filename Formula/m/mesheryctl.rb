@@ -23,7 +23,6 @@ class Mesheryctl < Formula
     ENV["CGO_ENABLED"] = "0"
 
     ldflags = %W[
-      -s -w
       -X github.com/layer5io/meshery/mesheryctl/internal/cli/root/constants.version=v#{version}
       -X github.com/layer5io/meshery/mesheryctl/internal/cli/root/constants.commitsha=#{Utils.git_short_head}
       -X github.com/layer5io/meshery/mesheryctl/internal/cli/root/constants.releasechannel=stable

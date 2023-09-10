@@ -20,7 +20,6 @@ class Roadrunner < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/roadrunner-server/roadrunner/v2023/internal/meta.version=#{version}
       -X github.com/roadrunner-server/roadrunner/v2023/internal/meta.buildTime=#{time.iso8601}
     ]

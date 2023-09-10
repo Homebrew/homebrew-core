@@ -18,7 +18,7 @@ class Atmos < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X 'github.com/cloudposse/atmos/cmd.Version=#{version}'")
+    system "go", "build", *std_go_args(ldflags: "-X github.com/cloudposse/atmos/cmd.Version=#{version}")
 
     generate_completions_from_executable(bin/"atmos", "completion")
   end

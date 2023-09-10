@@ -37,7 +37,6 @@ class Werf < Formula
       ldflags = %W[
         -linkmode external
         -extldflags=-static
-        -s -w
         -X github.com/werf/werf/pkg/werf.Version=#{version}
       ]
       tags = %w[
@@ -45,7 +44,7 @@ class Werf < Formula
         osusergo exclude_graphdriver_devicemapper netgo no_devmapper static_build
       ].join(" ")
     else
-      ldflags = "-s -w -X github.com/werf/werf/pkg/werf.Version=#{version}"
+      ldflags = "-X github.com/werf/werf/pkg/werf.Version=#{version}"
       tags = "dfrunsecurity dfrunnetwork dfrunmount dfssh containers_image_openpgp"
     end
 

@@ -25,7 +25,6 @@ class Kubescape < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/kubescape/kubescape/v2/core/cautils.BuildNumber=v#{version}
     ]
 

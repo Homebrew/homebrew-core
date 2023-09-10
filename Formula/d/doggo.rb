@@ -27,7 +27,6 @@ class Doggo < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X main.buildVersion=#{version}
       -X main.buildDate=#{time.iso8601}
     ]

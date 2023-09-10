@@ -21,7 +21,7 @@ class Aztfexport < Formula
 
   def install
     ENV["CGO_ENABLED"] = "0"
-    system "go", "build", *std_go_args(ldflags: "-s -w -X 'main.version=v#{version}' -X 'main.revision=#{Utils.git_short_head(length: 7)}'")
+    system "go", "build", *std_go_args(ldflags: "-X 'main.version=v#{version}' -X 'main.revision=#{Utils.git_short_head(length: 7)}'")
   end
 
   test do

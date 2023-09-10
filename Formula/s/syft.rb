@@ -26,7 +26,6 @@ class Syft < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X main.version=#{version}
       -X main.gitCommit=#{tap.user}
       -X main.buildDate=#{time.iso8601}

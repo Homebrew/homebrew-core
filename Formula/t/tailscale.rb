@@ -21,7 +21,6 @@ class Tailscale < Formula
   def install
     vars = Utils.safe_popen_read("./build_dist.sh", "shellvars")
     ldflags = %W[
-      -s -w
       -X tailscale.com/version.longStamp=#{vars.match(/VERSION_LONG="(.*)"/)[1]}
       -X tailscale.com/version.shortStamp=#{vars.match(/VERSION_SHORT="(.*)"/)[1]}
       -X tailscale.com/version.gitCommitStamp=#{vars.match(/VERSION_GIT_HASH="(.*)"/)[1]}

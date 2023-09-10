@@ -20,11 +20,7 @@ class Tm < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = %W[
-      -s -w
-      -X github.com/triggermesh/tm/cmd.version=v#{version}
-    ].join(" ")
-
+    ldflags = "-X github.com/triggermesh/tm/cmd.version=v#{version}"
     system "go", "build", *std_go_args(ldflags: ldflags)
   end
 

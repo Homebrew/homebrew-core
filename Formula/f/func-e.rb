@@ -20,7 +20,6 @@ class FuncE < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X main.version=#{version}
     ]
     system "go", "build", *std_go_args(ldflags: ldflags)

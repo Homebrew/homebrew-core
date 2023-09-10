@@ -29,7 +29,7 @@ class Gost < Formula
   depends_on "go@1.20" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/gost"
+    system "go", "build", *std_go_args, "./cmd/gost"
     prefix.install "README_en.md"
   end
 

@@ -19,7 +19,7 @@ class OsvScanner < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/osv-scanner"
+    system "go", "build", *std_go_args, "./cmd/osv-scanner"
   end
 
   test do

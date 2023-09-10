@@ -21,7 +21,6 @@ class Helmfile < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X go.szostok.io/version.version=v#{version}
       -X go.szostok.io/version.buildDate=#{time.iso8601}
       -X go.szostok.io/version.commit="brew"

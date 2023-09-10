@@ -19,7 +19,7 @@ class Chroma < Formula
 
   def install
     cd "cmd/chroma" do
-      system "go", "build", *std_go_args(ldflags: "-s -w")
+      system "go", "build", *std_go_args
     end
   end
 

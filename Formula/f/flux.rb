@@ -50,7 +50,7 @@ class Flux < Formula
     ENV.prepend_path "PATH", buildpath/"bootstrap"
 
     system "make", "build"
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/flux"
+    system "go", "build", *std_go_args, "./cmd/flux"
     include.install "libflux/include/influxdata"
     lib.install Dir["libflux/target/*/release/libflux.{dylib,a,so}"]
   end

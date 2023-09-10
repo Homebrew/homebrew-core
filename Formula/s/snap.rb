@@ -27,7 +27,7 @@ class Snap < Formula
   def install
     system "./mkversion.sh", version.to_s
     tags = OS.mac? ? ["-tags=nosecboot"] : []
-    system "go", "build", *std_go_args(ldflags: "-s -w"), *tags, "./cmd/snap"
+    system "go", "build", *std_go_args, *tags, "./cmd/snap"
 
     bash_completion.install "data/completion/bash/snap"
     zsh_completion.install "data/completion/zsh/_snap"

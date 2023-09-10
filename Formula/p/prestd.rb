@@ -24,7 +24,7 @@ class Prestd < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/prest/prest/helpers.PrestVersionNumber=#{version}"
+    ldflags = "-X github.com/prest/prest/helpers.PrestVersionNumber=#{version}"
     system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/prestd"
   end
 

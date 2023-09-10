@@ -20,7 +20,7 @@ class Jump < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    system "go", "build", *std_go_args
     man1.install "man/jump.1"
     man1.install "man/j.1"
   end

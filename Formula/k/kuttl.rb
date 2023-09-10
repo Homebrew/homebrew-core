@@ -23,7 +23,6 @@ class Kuttl < Formula
   def install
     project = "github.com/kudobuilder/kuttl"
     ldflags = %W[
-      -s -w
       -X #{project}/pkg/version.gitVersion=v#{version}
       -X #{project}/pkg/version.gitCommit=#{Utils.git_head}
       -X #{project}/pkg/version.buildDate=#{time.iso8601}

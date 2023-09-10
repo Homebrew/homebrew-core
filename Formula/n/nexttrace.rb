@@ -20,7 +20,6 @@ class Nexttrace < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/xgadget-lab/nexttrace/config.Version=#{version}
       -X github.com/xgadget-lab/nexttrace/config.CommitID=brew
       -X github.com/xgadget-lab/nexttrace/config.BuildDate=#{time.iso8601}

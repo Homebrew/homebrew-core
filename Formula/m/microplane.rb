@@ -21,7 +21,7 @@ class Microplane < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(output: bin/"mp", ldflags: "-s -w -X main.version=#{version}")
+    system "go", "build", *std_go_args(output: bin/"mp", ldflags: "-X main.version=#{version}")
 
     generate_completions_from_executable(bin/"mp", "completion", base_name: "mp")
   end

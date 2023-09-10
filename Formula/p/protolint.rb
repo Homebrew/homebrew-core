@@ -21,12 +21,10 @@ class Protolint < Formula
 
   def install
     protolint_ldflags = %W[
-      -s -w
       -X github.com/yoheimuta/protolint/internal/cmd.version=#{version}
       -X github.com/yoheimuta/protolint/internal/cmd.revision=#{Utils.git_head(length: 8)}
     ]
     protocgenprotolint_ldflags = %W[
-      -s -w
       -X github.com/yoheimuta/protolint/internal/cmd/protocgenprotolint.version=#{version}
       -X github.com/yoheimuta/protolint/internal/cmd/protocgenprotolint.revision=#{Utils.git_head(length: 8)}
     ]

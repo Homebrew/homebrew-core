@@ -20,7 +20,7 @@ class Elvish < Formula
 
   def install
     system "go", "build",
-      *std_go_args(ldflags: "-s -w -X src.elv.sh/pkg/buildinfo.VersionSuffix="), "./cmd/elvish"
+      *std_go_args(ldflags: "-X src.elv.sh/pkg/buildinfo.VersionSuffix="), "./cmd/elvish"
   end
 
   test do

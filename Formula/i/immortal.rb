@@ -20,7 +20,7 @@ class Immortal < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X main.version=#{version}"
+    ldflags = "-X main.version=#{version}"
     %w[immortal immortalctl immortaldir].each do |file|
       system "go", "build", *std_go_args(ldflags: ldflags, output: bin/file), "cmd/#{file}/main.go"
     end

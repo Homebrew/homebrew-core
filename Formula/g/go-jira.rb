@@ -26,7 +26,7 @@ class GoJira < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w", output: bin/"jira"), "cmd/jira/main.go"
+    system "go", "build", *std_go_args(output: bin/"jira"), "cmd/jira/main.go"
   end
 
   test do

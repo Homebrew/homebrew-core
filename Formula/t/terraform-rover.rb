@@ -39,7 +39,7 @@ class TerraformRover < Formula
       system "npm", "install", *Language::Node.local_npm_install_args
       system "npm", "run", "build"
     end
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    system "go", "build", *std_go_args
   end
 
   test do

@@ -27,7 +27,7 @@ class Bazelisk < Formula
   end
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X main.BazeliskVersion=#{version}")
+    system "go", "build", *std_go_args(ldflags: "-X main.BazeliskVersion=#{version}")
 
     bin.install_symlink "bazelisk" => "bazel"
 

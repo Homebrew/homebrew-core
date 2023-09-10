@@ -27,7 +27,6 @@ class Testkube < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X main.version=#{version}
       -X main.builtBy=#{tap.user}
     ]

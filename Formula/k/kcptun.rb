@@ -28,7 +28,7 @@ class Kcptun < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X main.VERSION=#{version}"
+    ldflags = "-X main.VERSION=#{version}"
     system "go", "build", *std_go_args(ldflags: ldflags, output: bin/"kcptun_client"), "./client"
     system "go", "build", *std_go_args(ldflags: ldflags, output: bin/"kcptun_server"), "./server"
 

@@ -19,7 +19,7 @@ class Cloudlist < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/cloudlist"
+    system "go", "build", *std_go_args, "./cmd/cloudlist"
   end
 
   test do

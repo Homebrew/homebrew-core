@@ -19,7 +19,6 @@ class Ctlptl < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X main.version=#{version}
       -X main.date=#{time.iso8601}
     ]

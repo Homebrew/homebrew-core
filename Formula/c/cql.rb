@@ -31,7 +31,6 @@ class Cql < Formula
     ENV["CGO_ENABLED"] = "1"
 
     ldflags = %W[
-      -s -w
       -X main.version=v#{version}
       -X github.com/CovenantSQL/CovenantSQL/conf.RoleTag=C
       -X github.com/CovenantSQL/CovenantSQL/utils/log.SimpleLog=Y

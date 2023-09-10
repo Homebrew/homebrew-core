@@ -21,10 +21,7 @@ class Traefik < Formula
   depends_on "go@1.20" => :build
 
   def install
-    ldflags = %W[
-      -s -w
-      -X github.com/traefik/traefik/v#{version.major}/pkg/version.Version=#{version}
-    ].join(" ")
+    ldflags = "-X github.com/traefik/traefik/v#{version.major}/pkg/version.Version=#{version}"
     system "go", "generate"
     system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/traefik"
   end

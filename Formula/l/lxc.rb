@@ -19,7 +19,7 @@ class Lxc < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./lxc"
+    system "go", "build", *std_go_args, "./lxc"
   end
 
   test do

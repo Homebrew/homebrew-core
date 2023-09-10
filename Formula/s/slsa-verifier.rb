@@ -28,7 +28,6 @@ class SlsaVerifier < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X sigs.k8s.io/release-utils/version.gitVersion=#{version}
       -X sigs.k8s.io/release-utils/version.gitCommit=brew
       -X sigs.k8s.io/release-utils/version.gitTreeState=clean

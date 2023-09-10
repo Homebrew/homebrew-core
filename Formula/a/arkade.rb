@@ -25,7 +25,6 @@ class Arkade < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/alexellis/arkade/pkg.Version=#{version}
       -X github.com/alexellis/arkade/pkg.GitCommit=#{Utils.git_head}
     ]

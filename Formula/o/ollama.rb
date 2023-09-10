@@ -24,7 +24,7 @@ class Ollama < Formula
     # Fix build on big sur by setting SDKROOT
     ENV["SDKROOT"] = MacOS.sdk_path if OS.mac? && MacOS.version == :big_sur
     system "go", "generate", "./..."
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    system "go", "build", *std_go_args
   end
 
   service do

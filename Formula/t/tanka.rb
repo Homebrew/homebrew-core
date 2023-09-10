@@ -27,10 +27,7 @@ class Tanka < Formula
 
   def install
     ENV["CGO_ENABLED"] = "0"
-    ldflags = %W[
-      -s -w
-      -X github.com/grafana/tanka/pkg/tanka.CurrentVersion=#{version}
-    ]
+    ldflags = "-X github.com/grafana/tanka/pkg/tanka.CurrentVersion=#{version}"
     system "go", "build", *std_go_args(ldflags: ldflags.join(" "), output: bin/"tk"), "./cmd/tk"
   end
 

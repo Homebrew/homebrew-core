@@ -22,7 +22,6 @@ class Cosign < Formula
   def install
     pkg = "sigs.k8s.io/release-utils/version"
     ldflags = %W[
-      -s -w
       -X #{pkg}.gitVersion=#{version}
       -X #{pkg}.gitCommit=#{Utils.git_head}
       -X #{pkg}.gitTreeState="clean"

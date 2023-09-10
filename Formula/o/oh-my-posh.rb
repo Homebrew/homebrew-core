@@ -20,7 +20,6 @@ class OhMyPosh < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/jandedobbeleer/oh-my-posh/src/build.Version=#{version}
       -X github.com/jandedobbeleer/oh-my-posh/src/build.Date=#{time.iso8601}
     ]

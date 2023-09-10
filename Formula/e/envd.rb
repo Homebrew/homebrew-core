@@ -20,7 +20,6 @@ class Envd < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/tensorchord/envd/pkg/version.buildDate=#{time.iso8601}
       -X github.com/tensorchord/envd/pkg/version.version=#{version}
       -X github.com/tensorchord/envd/pkg/version.gitTag=v#{version}

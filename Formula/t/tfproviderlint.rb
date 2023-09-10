@@ -32,7 +32,6 @@ class Tfproviderlint < Formula
     ENV["CGO_ENABLED"] = "0"
 
     ldflags = %W[
-      -s -w
       -X github.com/bflad/tfproviderlint/version.Version=#{version}
     ]
 

@@ -20,10 +20,7 @@ class Terragrunt < Formula
   conflicts_with "tgenv", because: "tgenv symlinks terragrunt binaries"
 
   def install
-    ldflags = %W[
-      -s -w
-      -X github.com/gruntwork-io/go-commons/version.Version=#{version}
-    ]
+    ldflags = "-X github.com/gruntwork-io/go-commons/version.Version=#{version}"
     system "go", "build", *std_go_args(ldflags: ldflags)
   end
 

@@ -20,7 +20,6 @@ class DdnsGo < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X main.version=v#{version}
       -X main.buildTime=#{time.iso8601}
     ]

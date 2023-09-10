@@ -39,10 +39,9 @@ class TrojanGo < Formula
   def install
     execpath = libexec/name
     ldflags = %W[
-      -s -w
       -X github.com/p4gefau1t/trojan-go/constant.Version=v#{version}
       -X github.com/p4gefau1t/trojan-go/constant.Commit=#{Utils.git_head}
-    ].join(" ")
+    ]
 
     system "go", "build", *std_go_args(ldflags: ldflags), "-o", execpath, "-tags=full"
     (bin/"trojan-go").write_env_script execpath,

@@ -19,11 +19,7 @@ class KymaCli < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = %W[
-      -s -w
-      -X github.com/kyma-project/cli/cmd/kyma/version.Version=#{version}
-    ]
-
+    ldflags = "-X github.com/kyma-project/cli/cmd/kyma/version.Version=#{version}"
     system "go", "build", *std_go_args(output: bin/"kyma", ldflags: ldflags), "./cmd"
 
     generate_completions_from_executable(bin/"kyma", "completion", base_name: "kyma")

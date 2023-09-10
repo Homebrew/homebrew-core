@@ -20,7 +20,7 @@ class Kitex < Formula
   depends_on "thriftgo" => :test
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./tool/cmd/kitex"
+    system "go", "build", *std_go_args, "./tool/cmd/kitex"
   end
 
   test do

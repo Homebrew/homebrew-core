@@ -24,7 +24,6 @@ class Kumactl < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/kumahq/kuma/pkg/version.version=#{version}
       -X github.com/kumahq/kuma/pkg/version.gitTag=#{version}
       -X github.com/kumahq/kuma/pkg/version.buildDate=#{time.strftime("%F")}

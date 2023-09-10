@@ -25,7 +25,7 @@ class RancherCli < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X main.VERSION=#{version}"), "-o", bin/"rancher"
+    system "go", "build", *std_go_args(ldflags: "-X main.VERSION=#{version}"), "-o", bin/"rancher"
   end
 
   test do

@@ -21,7 +21,6 @@ class Access < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X main.version=#{version}
       -X main.GitVersion=#{Utils.git_head}
     ]

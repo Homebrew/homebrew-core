@@ -19,7 +19,6 @@ class Crane < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/google/go-containerregistry/cmd/crane/cmd.Version=#{version}
     ]
 

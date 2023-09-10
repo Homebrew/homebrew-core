@@ -20,7 +20,6 @@ class Kubeaudit < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/Shopify/kubeaudit/cmd.Version=#{version}
       -X github.com/Shopify/kubeaudit/cmd.BuildDate=#{time.strftime("%F")}
     ]

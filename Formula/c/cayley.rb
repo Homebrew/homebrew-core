@@ -33,7 +33,6 @@ class Cayley < Formula
       system "go", "run", "github.com/gobuffalo/packr/v2/packr2"
 
       ldflags = %W[
-        -s -w
         -X github.com/cayleygraph/cayley/version.Version=#{version}
         -X github.com/cayleygraph/cayley/version.GitHash=#{Utils.git_short_head}
       ]

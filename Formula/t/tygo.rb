@@ -21,7 +21,6 @@ class Tygo < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/gzuidhof/tygo/cmd.version=#{version}
       -X github.com/gzuidhof/tygo/cmd.commit=#{Utils.git_head}
       -X github.com/gzuidhof/tygo/cmd.commitDate=#{time.iso8601}

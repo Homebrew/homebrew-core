@@ -23,7 +23,7 @@ class Mailpit < Formula
   def install
     system "npm", "install", *Language::Node.local_npm_install_args
     system "npm", "run", "build"
-    ldflags = "-s -w -X github.com/axllent/mailpit/config.Version=#{version}"
+    ldflags = "-X github.com/axllent/mailpit/config.Version=#{version}"
     system "go", "build", *std_go_args(ldflags: ldflags)
   end
 

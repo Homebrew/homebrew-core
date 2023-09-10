@@ -19,7 +19,7 @@ class LicenseEye < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/apache/skywalking-eyes/commands.version=#{version}"
+    ldflags = "-X github.com/apache/skywalking-eyes/commands.version=#{version}"
     system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/license-eye"
 
     generate_completions_from_executable(bin/"license-eye", "completion")

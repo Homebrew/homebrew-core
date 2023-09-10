@@ -18,7 +18,7 @@ class Rospo < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X 'github.com/ferama/rospo/cmd.Version=#{version}'")
+    system "go", "build", *std_go_args(ldflags: "-X github.com/ferama/rospo/cmd.Version=#{version}")
 
     generate_completions_from_executable(bin/"rospo", "completion")
   end

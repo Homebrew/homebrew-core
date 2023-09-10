@@ -22,13 +22,12 @@ class WakatimeCli < Formula
   def install
     arch = Hardware::CPU.intel? ? "amd64" : Hardware::CPU.arch.to_s
     ldflags = %W[
-      -s -w
       -X github.com/wakatime/wakatime-cli/pkg/version.Arch=#{arch}
       -X github.com/wakatime/wakatime-cli/pkg/version.BuildDate=#{time.iso8601}
       -X github.com/wakatime/wakatime-cli/pkg/version.Commit=#{Utils.git_head(length: 7)}
       -X github.com/wakatime/wakatime-cli/pkg/version.OS=#{OS.kernel_name.downcase}
       -X github.com/wakatime/wakatime-cli/pkg/version.Version=v#{version}
-    ].join(" ")
+    ]
     system "go", "build", *std_go_args(ldflags: ldflags)
   end
 

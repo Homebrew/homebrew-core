@@ -23,7 +23,7 @@ class Stolon < Formula
   depends_on "libpq"
 
   def install
-    ldflags = "-s -w -X github.com/sorintlab/stolon/cmd.Version=#{version}"
+    ldflags = "-X github.com/sorintlab/stolon/cmd.Version=#{version}"
 
     %w[
       stolonctl ./cmd/stolonctl

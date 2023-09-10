@@ -21,7 +21,6 @@ class Levant < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/hashicorp/levant/version.Version=#{version}
       -X github.com/hashicorp/levant/version.VersionPrerelease=#{tap.user}
     ]

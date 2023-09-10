@@ -22,7 +22,6 @@ class AwsNuke < Formula
   def install
     build_xdst="github.com/rebuy-de/aws-nuke/v#{version.major}/cmd"
     ldflags = %W[
-      -s -w
       -X #{build_xdst}.BuildVersion=#{version}
       -X #{build_xdst}.BuildDate=#{time.strftime("%F")}
       -X #{build_xdst}.BuildHash=#{Utils.git_head}

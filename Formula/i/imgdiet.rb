@@ -21,7 +21,7 @@ class Imgdiet < Formula
   depends_on "vips"
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/imgdiet"
+    system "go", "build", *std_go_args, "./cmd/imgdiet"
   end
 
   test do

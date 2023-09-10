@@ -25,7 +25,7 @@ class Hz < Formula
 
   def install
     cd "cmd/hz" do
-      system "go", "build", *std_go_args(ldflags: "-s -w")
+      system "go", "build", *std_go_args
     end
     bin.install_symlink "#{bin}/hz" => "thrift-gen-hertz"
     bin.install_symlink "#{bin}/hz" => "protoc-gen-hertz"

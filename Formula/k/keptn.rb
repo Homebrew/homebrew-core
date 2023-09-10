@@ -24,7 +24,6 @@ class Keptn < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/keptn/keptn/cli/cmd.Version=#{version}
       -X main.KubeServerVersionConstraints=""
     ]

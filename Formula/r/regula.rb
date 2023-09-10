@@ -21,7 +21,6 @@ class Regula < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/fugue/regula/v3/pkg/version.Version=#{version}
       -X github.com/fugue/regula/v3/pkg/version.GitCommit=#{Utils.git_short_head}
     ]

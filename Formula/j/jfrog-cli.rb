@@ -18,7 +18,7 @@ class JfrogCli < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w", output: bin/"jf")
+    system "go", "build", *std_go_args(output: bin/"jf")
     bin.install_symlink "jf" => "jfrog"
 
     generate_completions_from_executable(bin/"jf", "completion", base_name: "jf")

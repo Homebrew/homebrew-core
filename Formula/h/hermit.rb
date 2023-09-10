@@ -19,7 +19,6 @@ class Hermit < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X main.version=#{version}
       -X main.channel=stable
     ]

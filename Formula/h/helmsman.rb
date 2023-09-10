@@ -22,7 +22,7 @@ class Helmsman < Formula
   depends_on "kubernetes-cli"
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}"), "./cmd/helmsman"
+    system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}"), "./cmd/helmsman"
     pkgshare.install "examples/example.yaml"
     pkgshare.install "examples/job.yaml"
   end

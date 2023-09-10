@@ -22,7 +22,6 @@ class Kopia < Formula
     # removed github.com/kopia/kopia/repo.BuildGitHubRepo to disable
     # update notifications
     ldflags = %W[
-      -s -w
       -X github.com/kopia/kopia/repo.BuildInfo=#{Utils.git_head}
       -X github.com/kopia/kopia/repo.BuildVersion=#{version}
     ]

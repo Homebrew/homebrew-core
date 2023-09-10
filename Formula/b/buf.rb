@@ -20,7 +20,7 @@ class Buf < Formula
 
   def install
     %w[buf protoc-gen-buf-breaking protoc-gen-buf-lint].each do |name|
-      system "go", "build", *std_go_args(ldflags: "-s -w", output: bin/name), "./cmd/#{name}"
+      system "go", "build", *std_go_args(output: bin/name), "./cmd/#{name}"
     end
 
     generate_completions_from_executable(bin/"buf", "completion")

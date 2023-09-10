@@ -24,7 +24,7 @@ class Obfs4proxy < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./obfs4proxy"
+    system "go", "build", *std_go_args, "./obfs4proxy"
   end
 
   test do

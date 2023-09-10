@@ -19,7 +19,7 @@ class Circumflex < Formula
   depends_on "less"
 
   def install
-    system "go", "build", *std_go_args(output: bin/"clx", ldflags: "-s -w")
+    system "go", "build", *std_go_args(output: bin/"clx")
     man1.install "share/man/clx.1"
   end
 

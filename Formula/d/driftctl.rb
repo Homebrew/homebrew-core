@@ -20,7 +20,6 @@ class Driftctl < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/snyk/driftctl/build.env=release
       -X github.com/snyk/driftctl/pkg/version.version=v#{version}
     ]

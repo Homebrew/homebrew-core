@@ -26,7 +26,7 @@ class Chamber < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X main.Version=v#{version}")
+    system "go", "build", *std_go_args(ldflags: "-X main.Version=v#{version}")
     generate_completions_from_executable(bin/"chamber", "completion")
   end
 

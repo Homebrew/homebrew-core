@@ -19,7 +19,7 @@ class Tea < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X main.Version=#{version}")
+    system "go", "build", *std_go_args(ldflags: "-X main.Version=#{version}")
     bash_completion.install "contrib/autocomplete.sh" => "tea"
     zsh_completion.install "contrib/autocomplete.zsh" => "_tea"
 

@@ -22,7 +22,6 @@ class Shfmt < Formula
   def install
     ENV["CGO_ENABLED"] = "0"
     ldflags = %W[
-      -s -w
       -extldflags=-static
       -X main.version=#{version}
     ]

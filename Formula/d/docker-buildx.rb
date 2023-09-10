@@ -21,7 +21,6 @@ class DockerBuildx < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/docker/buildx/version.Version=v#{version}
       -X github.com/docker/buildx/version.Revision=#{Utils.git_head}
     ]

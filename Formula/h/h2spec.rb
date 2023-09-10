@@ -25,7 +25,6 @@ class H2spec < Formula
   def install
     commit = Utils.git_short_head
     ldflags = %W[
-      -s -w
       -X main.VERSION=#{version}
       -X main.COMMIT=#{commit}
     ]

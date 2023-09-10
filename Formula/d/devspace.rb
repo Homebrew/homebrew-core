@@ -27,7 +27,6 @@ class Devspace < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X main.commitHash=#{Utils.git_head}
       -X main.version=#{version}
     ]

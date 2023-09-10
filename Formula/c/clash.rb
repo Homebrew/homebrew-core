@@ -20,7 +20,7 @@ class Clash < Formula
 
   def install
     ldflags = %W[
-      -s -w -buildid=
+      -buildid=
       -X "github.com/Dreamacro/clash/constant.Version=#{version}"
       -X "github.com/Dreamacro/clash/constant.BuildTime=#{time.iso8601}"
     ]

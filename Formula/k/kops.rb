@@ -25,7 +25,7 @@ class Kops < Formula
   depends_on "kubernetes-cli"
 
   def install
-    ldflags = "-s -w -X k8s.io/kops.Version=#{version}"
+    ldflags = "-X k8s.io/kops.Version=#{version}"
     system "go", "build", *std_go_args(ldflags: ldflags), "k8s.io/kops/cmd/kops"
 
     generate_completions_from_executable(bin/"kops", "completion")

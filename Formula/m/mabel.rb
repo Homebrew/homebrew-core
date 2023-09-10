@@ -21,7 +21,6 @@ class Mabel < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X main.version=#{version}
       -X main.commit=#{Utils.git_head}
       -X main.builtBy=#{tap.user}

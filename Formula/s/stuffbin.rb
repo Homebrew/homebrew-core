@@ -19,7 +19,7 @@ class Stuffbin < Formula
   depends_on "go" => [:build, :test]
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./stuffbin"
+    system "go", "build", *std_go_args, "./stuffbin"
   end
 
   test do

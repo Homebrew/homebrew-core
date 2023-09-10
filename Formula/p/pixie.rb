@@ -27,7 +27,6 @@ class Pixie < Formula
   def install
     semver = build.head? ? "0.0.0-dev" : version
     ldflags = %W[
-      -s -w
       -X px.dev/pixie/src/shared/goversion.buildSCMRevision=#{Utils.git_short_head}
       -X px.dev/pixie/src/shared/goversion.buildSCMStatus=Distribution
       -X px.dev/pixie/src/shared/goversion.buildSemver=#{semver}

@@ -23,7 +23,7 @@ class GoStatik < Formula
   conflicts_with "statik", because: "both install `statik` binaries"
 
   def install
-    system "go", "build", *std_go_args(output: bin/"statik", ldflags: "-s -w")
+    system "go", "build", *std_go_args(output: bin/"statik")
   end
 
   test do

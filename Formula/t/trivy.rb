@@ -19,10 +19,7 @@ class Trivy < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = %W[
-      -s -w
-      -X github.com/aquasecurity/trivy/pkg/version.ver=#{version}
-    ]
+    ldflags = "-X github.com/aquasecurity/trivy/pkg/version.ver=#{version}"
     system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/trivy"
   end
 

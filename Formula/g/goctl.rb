@@ -23,14 +23,10 @@ class Goctl < Formula
     url "https://github.com/zeromicro/go-zero/commit/cafbafb.patch?full_index=1"
     sha256 "750a2433412f7734208b796ecabec51f91c852f4e6fb39e103f02c874fd16214"
   end
-  # patch do
-  #   url "https://github.com/zeromicro/go-zero/commit/a9bb45a.patch?full_index=1"
-  #   sha256 "6ca36aed9192ef35fa9baf3141fd2bea1adbba3221fa443464883f44383a5dca"
-  # end
 
   def install
     chdir "tools/goctl" do
-      system "go", "build", *std_go_args(ldflags: "-s -w"), "goctl.go"
+      system "go", "build", *std_go_args, "goctl.go"
     end
 
     generate_completions_from_executable(bin/"goctl", "completion")
