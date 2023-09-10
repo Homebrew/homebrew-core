@@ -3,7 +3,7 @@ class Libbsd < Formula
   homepage "https://libbsd.freedesktop.org/"
   url "https://libbsd.freedesktop.org/releases/libbsd-0.11.7.tar.xz"
   sha256 "9baa186059ebbf25c06308e9f991fda31f7183c0f24931826d83aa6abd8a0261"
-  license "BSD-3-Clause"
+  license "libutil-David-Nugent"
 
   livecheck do
     url "https://libbsd.freedesktop.org/releases/"
