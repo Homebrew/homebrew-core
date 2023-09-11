@@ -25,6 +25,7 @@ class ApacheArrow < Formula
   depends_on "brotli"
   depends_on "bzip2"
   depends_on "glog"
+  depends_on "google-cloud-sdk"
   depends_on "grpc"
   depends_on "lz4"
   depends_on "openssl@3"
@@ -52,6 +53,7 @@ class ApacheArrow < Formula
       -DARROW_FILESYSTEM=ON
       -DARROW_FLIGHT=ON
       -DARROW_FLIGHT_SQL=ON
+      -DARROW_GCS=ON
       -DARROW_GANDIVA=ON
       -DARROW_HDFS=ON
       -DARROW_JSON=ON
