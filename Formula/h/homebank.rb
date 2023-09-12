@@ -2,9 +2,9 @@ class Homebank < Formula
   desc "Manage your personal accounts at home"
   homepage "http://homebank.free.fr"
   # A mirror is used as primary URL because the official one is unstable.
-  url "https://deb.debian.org/debian/pool/main/h/homebank/homebank_5.6.5.orig.tar.gz"
-  mirror "http://homebank.free.fr/public/sources/homebank-5.6.5.tar.gz"
-  sha256 "b5494dfcf87d7a8572696a2afa2a04496ba79e3857cd3e3b18ac03bd1b6d2ca8"
+  url "http://homebank.free.fr/public/sources/homebank-5.7.tar.gz"
+  mirror "https://deb.debian.org/debian/pool/main/h/homebank/homebank_5.7.orig.tar.gz"
+  sha256 "c43895cc379e03e2ae2c44a3f75d4b06af21803965b6bc52034e75c54383d91a"
   license "GPL-2.0-or-later"
 
   livecheck do
