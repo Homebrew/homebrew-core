@@ -1,8 +1,8 @@
 class Platypus < Formula
   desc "Create macOS applications from {Perl,Ruby,sh,Python} scripts"
   homepage "https://sveinbjorn.org/platypus"
-  url "https://sveinbjorn.org/files/software/platypus/platypus5.3.src.zip"
-  sha256 "b5b707d4f664ab6f60eed545d49a7d38da7557ce8268cc4791886eee7b3ca571"
+  url "https://sveinbjorn.org/files/software/platypus/platypus5.4.1.src.zip"
+  sha256 "b2dc96707c4d34588b5d743d2a1a998f8935e3f7daf19b28ab804abb786fbcc4"
   license "BSD-3-Clause"
   head "https://github.com/sveinbjornt/Platypus.git", branch: "master"
 
