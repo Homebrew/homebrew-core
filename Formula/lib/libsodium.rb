@@ -1,10 +1,9 @@
 class Libsodium < Formula
   desc "NaCl networking and cryptography library"
   homepage "https://libsodium.org/"
-  url "https://download.libsodium.org/libsodium/releases/libsodium-1.0.18.tar.gz"
-  sha256 "6f504490b342a4f8a4c4a02fc9b866cbef8622d5df4e5452b46be121e46636c1"
+  url "https://download.libsodium.org/libsodium/releases/libsodium-1.0.19.tar.gz"
+  sha256 "b8abea95ea00a22d63b1634c5f2c9c1316715b9cac6ea63168d5e962b89a197b"
   license "ISC"
-  revision 1
 
   livecheck do
     url "https://download.libsodium.org/libsodium/releases/"
