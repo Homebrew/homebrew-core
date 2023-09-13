@@ -33,8 +33,7 @@ class Libsodium < Formula
 
   def install
     system "./autogen.sh" if build.head?
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "check"
     system "make", "install"
   end
