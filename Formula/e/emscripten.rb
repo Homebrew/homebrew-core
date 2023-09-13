@@ -31,6 +31,7 @@ class Emscripten < Formula
   depends_on "node"
   depends_on "python@3.11"
   depends_on "yuicompressor"
+  depends_on "automake"
 
   # OpenJDK is needed as a dependency on Linux and ARM64 for google-closure-compiler,
   # an emscripten dependency, because the native GraalVM image will not work.
