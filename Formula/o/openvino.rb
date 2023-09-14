@@ -1,8 +1,8 @@
 class Openvino < Formula
   desc "Open Visual Inference And Optimization toolkit for AI inference"
   homepage "https://docs.openvino.ai"
-  url "https://github.com/openvinotoolkit/openvino/archive/refs/tags/2023.0.2.tar.gz"
-  sha256 "7f09b795f9261e9dc4a49eeec572a07910f90702142ad4ae164ddf214edaa9d4"
+  url "https://github.com/openvinotoolkit/openvino/archive/refs/tags/2023.1.0.tar.gz"
+  sha256 "ff88596b342440185874ddbe22874b47ad7b923f14671921af760b15c98aacd6"
   license "Apache-2.0"
   head "https://github.com/openvinotoolkit/openvino.git", branch: "master"
 
@@ -36,8 +36,8 @@ class Openvino < Formula
     depends_on "opencl-icd-loader"
 
     resource "onednn_gpu" do
-      url "https://github.com/oneapi-src/oneDNN/archive/f27dedbfc093f51032a4580198bb80579440dc15.tar.gz"
-      sha256 "da57c2298a8e001718902f0b65b6d92c4a7897b35467e23bc24996dde43ec47b"
+      url "https://github.com/oneapi-src/oneDNN/archive/b68f59a8e9786439ea28e4afb8a1c31434fd44ef.tar.gz"
+      sha256 "fdf3abddd352bee2b5578f1442c66353a48df549e8ec5b499ba85f28809369a9"
     end
   end
 
@@ -45,8 +45,8 @@ class Openvino < Formula
     depends_on "scons" => :build
 
     resource "arm_compute" do
-      url "https://github.com/ARM-software/ComputeLibrary/archive/refs/tags/v23.02.1.tar.gz"
-      sha256 "c3a443e26539f866969242e690cf0651ef629149741ee18732f954c734da6763"
+      url "https://github.com/ARM-software/ComputeLibrary/archive/refs/tags/v23.08.tar.gz"
+      sha256 "62f514a555409d4401e5250b290cdf8cf1676e4eb775e5bd61ea6a740a8ce24f"
     end
   end
 
@@ -55,25 +55,18 @@ class Openvino < Formula
   end
 
   resource "ade" do
-    url "https://github.com/opencv/ade/archive/refs/tags/v0.1.1f.tar.gz"
-    sha256 "c316680efbb5dd3ac4e10bb8cea345cf26a6a25ebc22418f8f0b8ca931a550e9"
+    url "https://github.com/opencv/ade/archive/refs/tags/v0.1.2c.tar.gz"
+    sha256 "1387891c707c6e5c76448ea09e2df2e8bce1645c11f262c10b3f3ebec88749c2"
   end
 
   resource "onednn_cpu" do
-    url "https://github.com/openvinotoolkit/oneDNN/archive/1c7bfabf1b26e6fb95fea1613e1d3d2bef1f6b54.tar.gz"
-    sha256 "52921b3efab33d1710971c67318e8c00ee102b6369e4e9cea8fdf91a1d68e38e"
+    url "https://github.com/openvinotoolkit/oneDNN/archive/3110963434d8662e93b3cdafc9bf6b41235aa602.tar.gz"
+    sha256 "149acfa63ff151a953d33bfa74bae5189a98c046bc69773e2c79f9bd76a8b6b1"
   end
 
   resource "onnx" do
-    url "https://github.com/onnx/onnx/archive/refs/tags/v1.13.1.tar.gz"
-    sha256 "090d3e10ec662a98a2a72f1bf053f793efc645824f0d4b779e0ce47468a0890e"
-  end
-
-  # Fix build with static protobuf from brew (https://github.com/openvinotoolkit/openvino/pull/19590)
-  # Remove patch when available in release.
-  patch do
-    url "https://github.com/openvinotoolkit/openvino/commit/6fbcb94e202fd1036f674a7f00b5c03ffdc8132a.patch?full_index=1"
-    sha256 "065ba52a2e74516ddcc51184d30c51c76ab2e6f9bfede03900641ca1bfda7761"
+    url "https://github.com/onnx/onnx/archive/refs/tags/v1.14.1.tar.gz"
+    sha256 "e296f8867951fa6e71417a18f2e550a730550f8829bd35e947b4df5e3e777aa1"
   end
 
   def install
