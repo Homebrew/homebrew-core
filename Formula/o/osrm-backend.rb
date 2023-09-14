@@ -2,7 +2,7 @@ class OsrmBackend < Formula
   desc "High performance routing engine"
   homepage "http://project-osrm.org/"
   license "BSD-2-Clause"
-  revision 2
+  revision 3
   head "https://github.com/Project-OSRM/osrm-backend.git", branch: "master"
 
   stable do
