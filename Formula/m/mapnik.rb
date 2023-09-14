@@ -2,7 +2,7 @@ class Mapnik < Formula
   desc "Toolkit for developing mapping applications"
   homepage "https://mapnik.org/"
   license "LGPL-2.1-or-later"
-  revision 21
+  revision 22
   head "https://github.com/mapnik/mapnik.git", branch: "master"
 
   # TODO: Try switching to CMake build on next release as it works better with
@@ -38,7 +38,7 @@ class Mapnik < Formula
 
   depends_on "pkg-config" => :build
   depends_on "scons" => :build
-  depends_on "boost"
+  depends_on "boost@1.76"
   depends_on "cairo"
   depends_on "freetype"
   depends_on "gdal"
@@ -55,7 +55,7 @@ class Mapnik < Formula
   uses_from_macos "zlib"
 
   def install
-    boost = Formula["boost"]
+    boost = Formula["boost@1.76"]
     harfbuzz = Formula["harfbuzz"]
     icu = Formula["icu4c"]
     jpeg = Formula["jpeg-turbo"]
