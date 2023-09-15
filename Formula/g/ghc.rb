@@ -10,13 +10,13 @@ class Ghc < Formula
   head "https://gitlab.haskell.org/ghc/ghc.git", branch: "master"
 
   stable do
-    url "https://downloads.haskell.org/~ghc/9.4.4/ghc-9.4.4-src.tar.xz"
-    sha256 "e8cef25a6ded1531cda7a90488d0cfb6d780657d16636daa59430be030cd67e2"
+    url "https://downloads.haskell.org/~ghc/9.4.7/ghc-9.4.7-src.tar.xz"
+    sha256 "06775a52b4d13ac09edc6dabc299fd11e59d8886bbcae450af367baee2684c8f"
 
-    # Fix build with sphinx-doc 6+. Remove patch when available in release.
+    # Backport fix for building docs with sphinx-doc 7.
     patch do
-      url "https://gitlab.haskell.org/ghc/ghc/-/commit/00dc51060881df81258ba3b3bdf447294618a4de.diff"
-      sha256 "354baeb8727fbbfb6da2e88f9748acaab23bcccb5806f8f59787997753231dbb"
+      url "https://gitlab.haskell.org/ghc/ghc/-/commit/70526f5bd8886126f49833ef20604a2c6477780a.diff"
+      sha256 "54cdde1ca5d1b6fe3bbad8d0eac2b8c112ca1f346c4086d1e7361fa9510f1f44"
     end
   end
 
@@ -53,34 +53,32 @@ class Ghc < Formula
     depends_on "gmp" => :build
   end
 
-  # GHC 9.4.4 user manual recommend use LLVM 9 through 13
-  # https://downloads.haskell.org/~ghc/9.4.4/docs/users_guide/9.4.4-notes.html
-  # and we met some unknown issue w/ LLVM 13 before https://gitlab.haskell.org/ghc/ghc/-/issues/20559
-  # so conservatively use LLVM 12 here
+  # GHC 9.4.7 user manual recommend use LLVM 10 through 14
+  # https://downloads.haskell.org/~ghc/9.4.7/docs/users_guide/9.4.7-notes.html
   on_arm do
-    depends_on "llvm@12"
+    depends_on "llvm@14"
   end
 
   # A binary of ghc is needed to bootstrap ghc
   resource "binary" do
     on_macos do
       on_arm do
-        url "https://downloads.haskell.org/~ghc/9.2.5/ghc-9.2.5-aarch64-apple-darwin.tar.xz"
-        sha256 "b060ad093e0d86573e01b3d1fd622d4892f8d8925cbb7d75a67a01d2a4f27f18"
+        url "https://downloads.haskell.org/~ghc/9.2.8/ghc-9.2.8-aarch64-apple-darwin.tar.xz"
+        sha256 "34db9b19571905b08ca1e444b46490e7c19cb73a0fe778696fa6ec02ff8d3c4b"
       end
       on_intel do
-        url "https://downloads.haskell.org/~ghc/9.2.5/ghc-9.2.5-x86_64-apple-darwin.tar.xz"
-        sha256 "6c46f5003f29d09802d572a7c5fabf6c1f91714a474967a5415b15df77fdcd90"
+        url "https://downloads.haskell.org/~ghc/9.2.8/ghc-9.2.8-x86_64-apple-darwin.tar.xz"
+        sha256 "eb78361feaf4277f627cbdc4b849849d09d175d0d878d28433719b7482db27f5"
       end
     end
     on_linux do
       on_arm do
-        url "https://downloads.haskell.org/~ghc/9.2.5/ghc-9.2.5-aarch64-deb10-linux.tar.xz"
-        sha256 "29c0735ada90cdbf7e4a227dee08f18d74e33ec05d7c681e4ef95b8aa13104b3"
+        url "https://downloads.haskell.org/~ghc/9.2.8/ghc-9.2.8-aarch64-deb10-linux.tar.xz"
+        sha256 "645433359d8ad9e7b286f85ef5111db1b787ee3712c24c5dfde7c62769aa59a4"
       end
       on_intel do
-        url "https://downloads.haskell.org/~ghc/9.2.5/ghc-9.2.5-x86_64-ubuntu20.04-linux.tar.xz"
-        sha256 "be1ca5b2864880d7c3623c51f2c2ca773e380624929bf0be8cfadbdb7f4b7154"
+        url "https://downloads.haskell.org/~ghc/9.2.8/ghc-9.2.8-x86_64-ubuntu20.04-linux.tar.xz"
+        sha256 "6e4adc184a53ca9d9dd8c11c6611d0643fdc3b76550ae769e378d9edb2bda745"
       end
     end
   end
