@@ -1,8 +1,8 @@
 class Libpeas < Formula
   desc "GObject plugin library"
   homepage "https://wiki.gnome.org/Projects/Libpeas"
-  url "https://download.gnome.org/sources/libpeas/1.36/libpeas-1.36.0.tar.xz"
-  sha256 "297cb9c2cccd8e8617623d1a3e8415b4530b8e5a893e3527bbfd1edd13237b4c"
+  url "https://download.gnome.org/sources/libpeas/2.0/libpeas-2.0.0.tar.xz"
+  sha256 "5407acbc0c12f790f70c9d2b98224acc1be3ac449c60603b8192ca020b497011"
   license "LGPL-2.1-or-later"
 
   bottle do
@@ -19,6 +19,7 @@ class Libpeas < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
+  depends_on "gjs"
   depends_on "glib"
   depends_on "gobject-introspection"
   depends_on "gtk+3"
@@ -27,11 +28,10 @@ class Libpeas < Formula
 
   def install
     args = %w[
+      -Dgjs=true
       -Dpython3=true
       -Dintrospection=true
       -Dvapi=true
-      -Dwidgetry=true
-      -Ddemos=false
     ]
 
     system "meson", "setup", "build", *args, *std_meson_args
