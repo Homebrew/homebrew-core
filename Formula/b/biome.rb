@@ -33,6 +33,6 @@ class Biome < Formula
     system bin/"biome", "format", "--semicolons=always", "--write", testpath/"test.js"
     assert_match "const x = 1;", (testpath/"test.js").read
 
-    assert_match version.to_s, shell_output("#{bin}/biome --version", 1)
+    assert_match(/cli:\s*#{Regexp.quote(version.to_s)}/i, shell_output("#{bin}/biome version"))
   end
 end
