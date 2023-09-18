@@ -31,7 +31,10 @@ class Libvpx < Formula
       --enable-vp9-highbitdepth
     ]
 
-    if Hardware::CPU.intel?
+    # The related audit fails on Sonoma (i.e. "No `cpuid` instruction detected.
+    # libvpx should not use `ENV.runtime_cpu_detection`."). It may fail on
+    # subsequent macOS versions but we're only special-casing Sonoma until then.
+    if Hardware::CPU.intel? && !(OS.mac? && MacOS.version == :sonoma)
       ENV.runtime_cpu_detection
       args << "--enable-runtime-cpu-detect"
     end
