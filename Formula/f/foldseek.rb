@@ -17,7 +17,7 @@ class Foldseek < Formula
     depends_on "libomp"
   end
 
-  resource "testdata" do
+  resource "homebrew-testdata" do
     url "https://github.com/steineggerlab/foldseek-regression/archive/361fa799ed94cba67accd38afa380f3bc0703b0e.tar.gz"
     sha256 "c5c1afc0e4bdcd411ec139ee80fff1c3b00ec69a732f5bb549f41395f3505c9b"
   end
@@ -43,7 +43,7 @@ class Foldseek < Formula
   end
 
   test do
-    resource("testdata").stage do
+    resource("homebrew-testdata").stage do
       system "./run_regression.sh", "#{bin}/foldseek", "tmp"
     end
   end
