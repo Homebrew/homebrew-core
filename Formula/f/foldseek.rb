@@ -43,8 +43,8 @@ class Foldseek < Formula
   end
 
   test do
-    resource("homebrew-testdata").stage do
-      system "./run_regression.sh", "#{bin}/foldseek", "tmp"
-    end
+    resource("homebrew-testdata").stage testpath/"example"
+    system("#{bin}/foldseek easy-search example/d1asha_ example aln tmpFolder")
+    assert_equal "d1asha_\td1asha_\t1.000\t147\t0\t0\t1\t147\t1\t147\t1.011E-22\t1061\n", File.read("aln")
   end
 end
