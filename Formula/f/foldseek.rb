@@ -18,8 +18,8 @@ class Foldseek < Formula
   end
 
   resource "homebrew-testdata" do
-    url "https://github.com/steineggerlab/foldseek-regression/archive/361fa799ed94cba67accd38afa380f3bc0703b0e.tar.gz"
-    sha256 "c5c1afc0e4bdcd411ec139ee80fff1c3b00ec69a732f5bb549f41395f3505c9b"
+    url "https://raw.githubusercontent.com/steineggerlab/foldseek/master/example/d1asha_"
+    sha256 "b4ec14f5decc94b5363b3414db4d25e3e09039c7a6fbb585041730dcf3cc1fd8"
   end
 
   def install
