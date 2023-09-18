@@ -1,8 +1,8 @@
 class Qcli < Formula
   desc "Report audiovisual metrics via libavfilter"
   homepage "https://bavc.org/preserve-media/preservation-tools"
-  url "https://github.com/bavc/qctools/archive/v1.2.1.tar.gz"
-  sha256 "17cdc326819d3b332574968ee99714ac982c3a8e19a9c80bcbd3dc6dcb4db2b1"
+  url "https://github.com/bavc/qctools/archive/v1.3.tar.gz"
+  sha256 "81205d1eacc33e8df6a4ee80e18c11ba10beceb95526460ab87451e844878915"
   license "GPL-3.0-or-later"
   head "https://github.com/bavc/qctools.git", branch: "master"
 
@@ -18,7 +18,7 @@ class Qcli < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "ffmpeg@4"
+  depends_on "ffmpeg@5"
   depends_on "qt@5"
   depends_on "qwt-qt5"
 
