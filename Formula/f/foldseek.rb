@@ -23,9 +23,7 @@ class Foldseek < Formula
   end
 
   def install
-    # fix "DSO missing from command line" error
-    ENV.append "LDFLAGS", "-Wl,--copy-dt-needed-entries" if OS.linux?
-    args = *std_cmake_args
+    args = []
     if OS.mac?
       libomp = Formula["libomp"]
       args << "-DOpenMP_C_FLAGS=-Xpreprocessor -fopenmp -I#{libomp.opt_include}"
@@ -35,7 +33,7 @@ class Foldseek < Formula
       args << "-DOpenMP_omp_LIBRARY=#{libomp.opt_lib}/libomp.a"
     end
 
-    system "cmake", "-S", ".", "-B", "build", *args
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
