@@ -31,7 +31,7 @@ class Squiid < Formula
         # strip off some color and style escape codes
         output += r.read_nonblock(1024).gsub(/\e\[[0-9;]+[A-Za-z]/, "")
       rescue IO::WaitReadable
-        break if r.wait_readable(2)
+        break if r.wait_readable(2).nil?
 
         retry
       rescue EOFError
