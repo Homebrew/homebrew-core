@@ -12,6 +12,22 @@ class Squiid < Formula
     system "cargo", "install", *std_cargo_args
   end
 
+  def read_stdout(stdout)
+    output = ""
+    loop do
+      # strip off some color and style escape codes
+      output += stdout.read_nonblock(1024).gsub(/\e\[[0-9;]+[A-Za-z]/, "")
+    rescue IO::WaitReadable
+      break if stdout.wait_readable(2).nil?
+
+      retry
+    rescue EOFError
+      break
+    end
+
+    output
+  end
+
   test do
     require "pty"
 
@@ -26,17 +42,7 @@ class Squiid < Formula
       w.write "\r"
 
       # capture the stdout into output variable
-      output = ""
-      loop do
-        # strip off some color and style escape codes
-        output += r.read_nonblock(1024).gsub(/\e\[[0-9;]+[A-Za-z]/, "")
-      rescue IO::WaitReadable
-        break if r.wait_readable(2).nil?
-
-        retry
-      rescue EOFError
-        break
-      end
+      output = read_stdout(r)
 
       # check that the calculator has done math correctly
       assert_match "(10-2)*(3+5)/4=16", output
@@ -44,6 +50,9 @@ class Squiid < Formula
       # quit
       w.write "quit"
       w.write "\r"
+
+      # for some reason the test hangs on macOS until stdout is read again
+      read_stdout(r)
 
       # Wait for the TUI app to exit
       Process.wait(pid)
