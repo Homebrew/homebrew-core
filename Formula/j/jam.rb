@@ -1,8 +1,9 @@
 class Jam < Formula
   desc "Make-like build tool"
   homepage "https://www.perforce.com/documentation/jam-documentation"
-  url "https://swarm.workshop.perforce.com/projects/perforce_software-jam/download/main/jam-2.6.1.zip"
+  url "https://swarm.workshop.perforce.com/downloads/guest/perforce_software/jam/jam-2.6.1.zip"
   sha256 "72ea48500ad3d61877f7212aa3d673eab2db28d77b874c5a0b9f88decf41cb73"
+  license "Jam"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ae7aceb6a763b9da9860724b7347f2449f4983c004d3b58bdb21580deeb45482"
@@ -28,6 +29,9 @@ class Jam < Formula
   conflicts_with "ftjam", because: "both install a `jam` binary"
 
   def install
+    # Avoid errors with Xcode 15
+    ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
+
     system "make", "CC=#{ENV.cc}", "CFLAGS=#{ENV.cflags}", "LOCATE_TARGET=bin"
     bin.install "bin/jam", "bin/mkjambase"
   end
