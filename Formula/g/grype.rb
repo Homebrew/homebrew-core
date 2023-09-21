@@ -1,8 +1,9 @@
 class Grype < Formula
   desc "Vulnerability scanner for container images and filesystems"
   homepage "https://github.com/anchore/grype"
-  url "https://github.com/anchore/grype/archive/refs/tags/v0.69.0.tar.gz"
-  sha256 "d20e1fb2fdc28af123ce197ceef3ac9dd99327f3a298e7e3e2eb1dd5dd7b43a3"
+  url "https://github.com/anchore/grype.git",
+      tag:      "v0.69.0",
+      revision: "da3de94842f51059f32409289d863792726f83ba"
   license "Apache-2.0"
   head "https://github.com/anchore/grype.git", branch: "main"
 
@@ -22,8 +23,9 @@ class Grype < Formula
     ldflags = %W[
       -s -w
       -X main.version=#{version}
-      -X main.gitCommit=brew
+      -X main.gitCommit=#{Utils.git_head}
       -X main.buildDate=#{time.iso8601}
+      -X main.gitDescription=v#{version}
     ]
 
     system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/grype"
