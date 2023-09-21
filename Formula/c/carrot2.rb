@@ -19,7 +19,7 @@ class Carrot2 < Formula
   depends_on "gradle@7" => :build
   depends_on "node@18" => :build
   depends_on "yarn" => :build
-  depends_on "openjdk@17"
+  depends_on "openjdk"
 
   def install
     # Enable legacy OpenSSL provider for Node 18
