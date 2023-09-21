@@ -34,6 +34,10 @@ class Mcpp < Formula
   end
 
   def install
+    # Work around "-Wimplicit-function-declaration" issues with
+    # configure scripts on Xcode 14:
+    ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
+
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--enable-mcpplib"
