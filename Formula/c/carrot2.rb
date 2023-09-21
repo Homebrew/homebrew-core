@@ -22,6 +22,9 @@ class Carrot2 < Formula
   depends_on "openjdk@17"
 
   def install
+    # Enable legacy OpenSSL provider for Node 18
+    ENV["NODE_OPTIONS"] = "--openssl-legacy-provider"
+
     # Make possible to build the formula with the latest available in Homebrew gradle
     inreplace "gradle/validation/check-environment.gradle",
       /expectedGradleVersion = '[^']+'/,
