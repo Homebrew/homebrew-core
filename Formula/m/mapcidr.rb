@@ -1,8 +1,8 @@
 class Mapcidr < Formula
   desc "Subnet/CIDR operation utility"
   homepage "https://projectdiscovery.io"
-  url "https://github.com/projectdiscovery/mapcidr/archive/refs/tags/v1.1.6.tar.gz"
-  sha256 "ae675f1d451aed5fcc3208f86256cb9f8547e5b2d13e393326c9c88121ca91e0"
+  url "https://github.com/projectdiscovery/mapcidr/archive/refs/tags/v1.1.8.tar.gz"
+  sha256 "b5f7ea602c8f1c23a7109ebc89526fd1b8221e93d3c36093fd1c4e5f482f0f19"
   license "MIT"
   head "https://github.com/projectdiscovery/mapcidr.git", branch: "master"
 
