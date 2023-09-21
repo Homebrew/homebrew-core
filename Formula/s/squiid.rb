@@ -52,7 +52,11 @@ class Squiid < Formula
       w.write "\r"
 
       # for some reason the test hangs on macOS until stdout is read again
-      read_stdout(r)
+      begin
+        read_stdout(r)
+      rescue Errno::EIO
+        # this happens on linux but not macOS
+      end
 
       # Wait for the TUI app to exit
       Process.wait(pid)
