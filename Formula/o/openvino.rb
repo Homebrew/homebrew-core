@@ -1,8 +1,9 @@
 class Openvino < Formula
   desc "Open Visual Inference And Optimization toolkit for AI inference"
   homepage "https://docs.openvino.ai"
-  url "https://github.com/openvinotoolkit/openvino/archive/refs/tags/2023.1.0.tar.gz"
-  sha256 "ff88596b342440185874ddbe22874b47ad7b923f14671921af760b15c98aacd6"
+  url "https://github.com/ilya-lavrenov/openvino/archive/5b462af28c701813d9a5991028fa398785e4beae.tar.gz"
+  sha256 "5b0c2e162c0ccabf0f860c9d8fae26f3099aada1197afb6520b9155336c2d6a2"
+  version "2023.2.0"
   license "Apache-2.0"
   head "https://github.com/openvinotoolkit/openvino.git", branch: "master"
 
@@ -38,6 +39,7 @@ class Openvino < Formula
   on_linux do
     depends_on "opencl-clhpp-headers" => :build
     depends_on "opencl-headers" => :build
+    depends_on "rapidjson" => :build
     depends_on "opencl-icd-loader"
 
     resource "onednn_gpu" do
@@ -50,8 +52,8 @@ class Openvino < Formula
     depends_on "scons" => :build
 
     resource "arm_compute" do
-      url "https://github.com/ARM-software/ComputeLibrary/archive/refs/tags/v23.02.1.tar.gz"
-      sha256 "c3a443e26539f866969242e690cf0651ef629149741ee18732f954c734da6763"
+      url "https://github.com/ARM-software/ComputeLibrary/archive/refs/tags/v23.08.tar.gz"
+      sha256 "62f514a555409d4401e5250b290cdf8cf1676e4eb775e5bd61ea6a740a8ce24f"
     end
   end
 
@@ -70,24 +72,17 @@ class Openvino < Formula
   end
 
   resource "onednn_cpu" do
-    url "https://github.com/openvinotoolkit/oneDNN/archive/a1aa20ca8f19465dc2fd18389953ed83798b2fd3.tar.gz"
-    sha256 "d97ebb36cec6df7ba5473ecee38f0e49e6bda731b0414331b531dc8d1b5b227a"
+    url "https://github.com/openvinotoolkit/oneDNN/archive/3767662f257270921b64ec9a40e45a46b4ef048c.tar.gz"
+    sha256 "477e3156b77a88f9e77bbbaaf071e19ed19f631972edf902dbefdf8f63062dfd"
   end
 
   resource "onnx" do
-    url "https://github.com/onnx/onnx/archive/refs/tags/v1.13.1.tar.gz"
-    sha256 "090d3e10ec662a98a2a72f1bf053f793efc645824f0d4b779e0ce47468a0890e"
+    url "https://github.com/onnx/onnx/archive/refs/tags/v1.14.1.tar.gz"
+    sha256 "e296f8867951fa6e71417a18f2e550a730550f8829bd35e947b4df5e3e777aa1"
   end
 
   def python3
     "python3.11"
-  end
-
-  # Fix build with macOS 14 and clang 15 (https://github.com/openvinotoolkit/openvino/pull/19947)
-  # Remove patch when available in release.
-  patch do
-    url "https://github.com/openvinotoolkit/openvino/commit/b2217fdafd988b62910f05e0aa99a2bc562ef4e7.patch?full_index=1"
-    sha256 "e75bbf232704ab89d0ed492babc425821d67c2642a8fb19faf0f56e078fc3c1c"
   end
 
   def install
@@ -99,6 +94,7 @@ class Openvino < Formula
                       thirdparty/onnx/onnx thirdparty/flatbuffers
                       src/plugins/intel_cpu/thirdparty/mlas
                       src/plugins/intel_cpu/thirdparty/onednn
+                      src/plugins/intel_gpu/thirdparty/rapidjson
                       src/plugins/intel_gpu/thirdparty/onednn_gpu
                       src/plugins/intel_cpu/thirdparty/ComputeLibrary]
     dependencies.each { |d| (buildpath/d).rmtree }
