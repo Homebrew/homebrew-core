@@ -15,9 +15,11 @@ class Hdf5 < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "0fca5aa27e81901cae50eddb31961ff6ac3d5ef0bd1a4f9992691f771eb6c8f3"
     sha256                               arm64_ventura:  "d7937cb86dc74c3b6eacf7ee2d142f547092899f09f6ba03497ef3370e86be09"
     sha256                               arm64_monterey: "fce8da58007c0dad59640e772ded2a6b58055601bdaaa0eae0db384271732ac6"
     sha256                               arm64_big_sur:  "4a6818c1d1c1843bae91b70109ea0dd53f9b40d4c727a69a5dee1300a7affd83"
+    sha256 cellar: :any,                 sonoma:         "4b2f2167c61ed56a39e7cda8b4487475f7ac8995c316a2daeeea672a704ad305"
     sha256                               ventura:        "8931c55bf346db757d5ecd23a2954678f8f499a6610e9e07e5efe03a96f2cd40"
     sha256                               monterey:       "2dd05b4133847587c17f8e314a9a2faaec824df85806054f112bd44ffecd5b82"
     sha256                               big_sur:        "0f1e5e49b137a5a5a719c56c3ff08cc30d6575ec8d4b76ae7f8936d65763ff7f"
@@ -35,6 +37,10 @@ class Hdf5 < Formula
   conflicts_with "hdf5-mpi", because: "hdf5-mpi is a variant of hdf5, one can only use one or the other"
 
   def install
+    # Work around incompatibility with new linker (FB13194355)
+    # https://github.com/HDFGroup/hdf5/issues/3571
+    ENV.append "LDFLAGS", "-Wl,-ld_classic" if DevelopmentTools.clang_build_version >= 1500
+
     inreplace %w[c++/src/h5c++.in fortran/src/h5fc.in bin/h5cc.in],
               "${libdir}/libhdf5.settings",
               "#{pkgshare}/libhdf5.settings"

@@ -7,9 +7,11 @@ class Vimpc < Formula
   head "https://github.com/boysetsfrog/vimpc.git", branch: "master"
 
   bottle do
+    sha256 arm64_sonoma:   "08b6a0c50415af4361a442810e8d4fb190e64f123230087604359fd00b10e654"
     sha256 arm64_ventura:  "a738652b8bbf20ab0449d5eea600f10aa602d5d7a490324c17efe2961afbbce5"
     sha256 arm64_monterey: "80a71521b623830617733116cbce155ba0598dac8604c7e19438207946ec1406"
     sha256 arm64_big_sur:  "fcbb4aae0e232572c4d44a0d08b5a59500978e0c428480d74d00b244345b3527"
+    sha256 sonoma:         "0d936d2061ea8086c97950031cdebef46aac8061bcf45e77d2d24dd610dc25ab"
     sha256 ventura:        "a3963e103150ade1c6470703d7071530d15c760921bd329ed12c77996cdd2755"
     sha256 monterey:       "7484bfac23ae149460ca6292a86c3b54860fd96edc08d5f27cf3f6f621acfced"
     sha256 big_sur:        "493ef1f2bc8c9f52f41de234816fd93eb886393006be2b3cea1de40ddc0419ca"

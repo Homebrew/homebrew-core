@@ -7,9 +7,11 @@ class Libmediainfo < Formula
   head "https://github.com/MediaArea/MediaInfoLib.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "5dfd7bd4f5255866819cf01b8648e9e01a948c8322884770a9be834b99ea8fbf"
     sha256 cellar: :any,                 arm64_ventura:  "66e0dc31a27e62675271773b42ad215d871a828373035dbe875f832d3ad0d80d"
     sha256 cellar: :any,                 arm64_monterey: "2cd53d452f03c2fc769d6a661120bad1efbe7d5fd2ef599a71780b5036bf8b1f"
     sha256 cellar: :any,                 arm64_big_sur:  "957d0ab748725a6d5d3d2cce2c9068f2dea11abf00f2a37db4cfbb123c50bf63"
+    sha256 cellar: :any,                 sonoma:         "1313e646ce266218d744955a0a259722994c1f31d5f6f3a14b4c60a6ce168303"
     sha256 cellar: :any,                 ventura:        "69d4620415867782c9500e84bf829064d2bdec23396b266e73290e360f726018"
     sha256 cellar: :any,                 monterey:       "c75b1c2ae9eb36baa64545d0b7ae0de776de8a7dc29c043ac40d0b3fe2a6f60d"
     sha256 cellar: :any,                 big_sur:        "5d71923c46093e5211b78dd5586d9b241565e921271dd0eb8737453b721a88b3"

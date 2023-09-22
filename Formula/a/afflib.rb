@@ -10,9 +10,11 @@ class Afflib < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "df09c2651b5b667d42970295999fa596f4bcdf36746f0afa86ced24910a9b0f5"
     sha256 cellar: :any,                 arm64_ventura:  "f70b99a2dcbbe6f02f8e68947a66d5b6135ff312bd68e615a2d563a6024fa762"
     sha256 cellar: :any,                 arm64_monterey: "810fa90bb97749a60f9afb2d641a09e6c7fbe81ce2c43c70a492f2e0b94baa95"
     sha256 cellar: :any,                 arm64_big_sur:  "1883e6f1b7f31b0ec70008ab32333096a354b3a39e149b7477f1f41311956bab"
+    sha256 cellar: :any,                 sonoma:         "22c470b9c8b0228f2b6918468a6acd93c26d7e9899ceff3a32177ddb8b910fb0"
     sha256 cellar: :any,                 ventura:        "e589fede26d18a7da57dc67da470a821a91753235868504d7c780e569c8a49cd"
     sha256 cellar: :any,                 monterey:       "29e8f49a180d936652393aad1e21f1f2e3f813653c7df91efcf8e5b39d31a625"
     sha256 cellar: :any,                 big_sur:        "aecd70af3a64d7d8bb2f54a4b02066e4e85b292b3b4c83aaa0ebd3ee59231f5a"

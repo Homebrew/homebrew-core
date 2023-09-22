@@ -7,9 +7,11 @@ class Viddy < Formula
   head "https://github.com/sachaos/viddy.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "adf07219126eb47d7216cc6b22f93865a519ee1917db30e0896df7017288d4c8"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "dbc7c12a15061ea6e1387bf563c77459aedce964b0bd2644ab687f347a339849"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b09b1260095abe4c76db68d3d6f7e184d7fa0fc9c43fa5d4abdbe76b38567e9b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0178846dbab54c9e683e793a5deb73ac44dcb804e02e0365611c1bb5a2aa8e2b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a2cc35fc9d3bd041b9905cc19d10d8f670985b5e64da507b473b13da1010df26"
     sha256 cellar: :any_skip_relocation, ventura:        "b9951c6a134f22524b4b6afeefce54586560578aa69f4ac247f7edcc783026bb"
     sha256 cellar: :any_skip_relocation, monterey:       "d3adb935f90306236576c3ee12f8cc6241ec4c07816993c666c29357ad60983c"
     sha256 cellar: :any_skip_relocation, big_sur:        "8cfb28fa87544017b55a1990ea8416e5a7130773ca7ed838cb85108088baa9d9"

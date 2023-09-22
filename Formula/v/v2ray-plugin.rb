@@ -7,9 +7,11 @@ class V2rayPlugin < Formula
   head "https://github.com/shadowsocks/v2ray-plugin.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "00532fce7d2293129d839b5d0fc33993f916f79c8f748c35be37c4724dab1819"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "451c0d3013468c460f7f829d45fd5f2f91ccc20da50156f5a7b09244eff82636"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "72e881a144403b3d336c0d652601342580a9f67724647e46e2eaaa36e8408c70"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8ff4ac95fa05cc7d11429495c27eb499a6b2539fc6306eda02593a3dbd2c3b9a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "658c5ea98b7c2f54319cac024525d51433f380425f8f26e5638d9ebf62908567"
     sha256 cellar: :any_skip_relocation, ventura:        "8f0b131b6f8bf64ed0c8ad43730e4d73bbd6d6fee0bf835ce8ebf826454af7a3"
     sha256 cellar: :any_skip_relocation, monterey:       "73aac43594414ae1109fbf9715166544d0a6acb6d1f6a98d725eed932ed14840"
     sha256 cellar: :any_skip_relocation, big_sur:        "6a3064ead8cb35a8951619e5899f4ddbeff48a0e504bf156d8325079fe5c642a"

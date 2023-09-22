@@ -6,9 +6,11 @@ class Velero < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4794a839d116682b3117786cf7537413d7ebfb57da81145ff1c4c7663b9f2300"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1aabb1449254ec88622e8d031446cb30b79e56fea9f1544530492284e9c4a8cd"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1aabb1449254ec88622e8d031446cb30b79e56fea9f1544530492284e9c4a8cd"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1aabb1449254ec88622e8d031446cb30b79e56fea9f1544530492284e9c4a8cd"
+    sha256 cellar: :any_skip_relocation, sonoma:         "8aabf42f803371f119d784e654a336664c1d72bffd3569a23d0fe3fa9d5e8228"
     sha256 cellar: :any_skip_relocation, ventura:        "a1016afe7362e7b3e29e9d2ea55cca708ea3ef3cc3c16a1b69fd55739308de68"
     sha256 cellar: :any_skip_relocation, monterey:       "a1016afe7362e7b3e29e9d2ea55cca708ea3ef3cc3c16a1b69fd55739308de68"
     sha256 cellar: :any_skip_relocation, big_sur:        "a1016afe7362e7b3e29e9d2ea55cca708ea3ef3cc3c16a1b69fd55739308de68"

@@ -9,9 +9,11 @@ class Vulture < Formula
   head "https://github.com/jendrikseipp/vulture.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7f2040d408105cdc2090edc718fb864b73a118a76b555ae818f9ead662e6b1c5"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "810b7b778416c4e803aeff1b667136c07ed49028aea3e4a60ea949f7203c36a2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f8c4d69446eb8399b5946a674a173a5385d18eb8c1905bb841276ef6abcadc7d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0e280dc6445c2a24fb8bd88a44ea672eda8d758f33387205ca54016040d85069"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c07c64807510706a5ab2359db9c923d48218748f2317bb56f6100ab5ce0dee45"
     sha256 cellar: :any_skip_relocation, ventura:        "509e428b7465d021fe292aaa04b1436c47ca5b0cc8e380f6678e5a0938f719b1"
     sha256 cellar: :any_skip_relocation, monterey:       "9e517bb3ac2b5e594cdadb02cb315efc76aa30b23f0d8cb247e13716b2ad6437"
     sha256 cellar: :any_skip_relocation, big_sur:        "9b8be202d1fcce0c4527f2943c630b354ffc11509098e70f86efb0a05ed3710e"

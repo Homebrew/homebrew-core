@@ -12,9 +12,11 @@ class Glktermw < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d1f3adfa6df5aa1c23142d10a090993069a42ee4238f41814b220e2ed2c2fa11"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "35a03fd6081b2bab477c9a75969119d92225a284f1178c043db3edd74d40d881"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2aa0665da245b2b3d6e701aa45407b8a3ab9eb23c32381362caac287245ddbdf"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "291e5c7e7be0a93d71fb909fe40473a604e9990319bf86dc3d05b5a1787437ea"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5bb6f11abb30ca3c63f5f77a4aa3b9b73f008bb01d5ac7b93593fa1da22ad5a0"
     sha256 cellar: :any_skip_relocation, ventura:        "1fe4217ba733bafb231019e146f8ec74ca9aa57fe09c94614dcbd3942c4bd9e3"
     sha256 cellar: :any_skip_relocation, monterey:       "699e360251f685b222039f3847dbe00a3106db24e10fd306f6bc03d9cdb026b3"
     sha256 cellar: :any_skip_relocation, big_sur:        "52731e29ed29632ef8e5e1bc069022498be1270ac2af0b47cd906313c643ee71"

@@ -11,9 +11,11 @@ class XmlToolingC < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "672e8c185c451dad3d04b70756130b8d634115a694ae4cfbdf559d2876685d27"
     sha256 cellar: :any,                 arm64_ventura:  "ae4ac6f8e8c3316ecde0a3ee93a9ccb6378cda802cc091cd171a4730e677f17f"
     sha256 cellar: :any,                 arm64_monterey: "5a8b264c7570c6ad106eb2edd451c11157373f206346eb8a4b8998e9ed62a851"
     sha256 cellar: :any,                 arm64_big_sur:  "abcb3207ed424a52d6b5555c63fe484f34022b09c5e25c8ae3dd99bb898c5ad5"
+    sha256 cellar: :any,                 sonoma:         "6d21ebd6fb31b2e87a6cd17b2f445f044d9f9a570c0797ecf63d278bf56f5dc2"
     sha256 cellar: :any,                 ventura:        "079ed64f572a73735ec306bb7d011e3ffe429c496001fafc1498937d8684a78a"
     sha256 cellar: :any,                 monterey:       "df0f4a56208757543bb35a7f56d5c56b68699a7422af4f908d83d4ec585cdc4d"
     sha256 cellar: :any,                 big_sur:        "d9b9cc4501d19a476a3f2a0dbde388b3d50102518bd54cf018e642ff881f042b"

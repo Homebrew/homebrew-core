@@ -23,9 +23,11 @@ class V8 < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "914f44e5948dadbda17c95651a6c690a0bca7b888d2b5c664595de5fcb8b7b77"
     sha256 cellar: :any,                 arm64_ventura:  "923dcb56245d63d810769af204979ce8ec79b8c5948129018ec3ca1c24a9b3b1"
     sha256 cellar: :any,                 arm64_monterey: "ed26e75302ce842f8d1db3f8deca7edc47da2bdbd86593fa8adc26e9e4efe9ab"
     sha256 cellar: :any,                 arm64_big_sur:  "bf3964edddd790884e2e230a7df0732e11e6a991f27dbdefb4cafdb759718e8d"
+    sha256 cellar: :any,                 sonoma:         "bfb6eca5b46a983a19094d1ef7b2dbf984bfff076cb68157eaf00e0a3ce14424"
     sha256 cellar: :any,                 ventura:        "df68e49baa4c80fd8a0ac350d610b0b273960843b42c4276947ddd826a0b6bdf"
     sha256 cellar: :any,                 monterey:       "ac0f7843d7a98dd6ff7df3bb7d475999b124bb1d84ac8f0ae50eba85599330a4"
     sha256 cellar: :any,                 big_sur:        "e347443e3a34f8b43abd15e72ec214b4d277b65e7420bc8ff8f270556ff88e41"

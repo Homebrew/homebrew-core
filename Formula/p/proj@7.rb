@@ -7,9 +7,11 @@ class ProjAT7 < Formula
   revision 1
 
   bottle do
+    sha256 arm64_sonoma:   "a759ebc090bf3e13a4518c5f655f6bfe9a303054c75d207df9c90e218fa98e83"
     sha256 arm64_ventura:  "551208cffb3c201f9d239f0944eee3619e694c36aac19ff947938d1aa830478c"
     sha256 arm64_monterey: "bb024222c2133f0f2b6fb5f2a36e23dd980c70eebcc7fe0d1d5ace49a3f589ec"
     sha256 arm64_big_sur:  "31e013aeb4db0a02863ebba9a5915f7673457f4a5dd1453285f8ac396cf45d19"
+    sha256 sonoma:         "459dacda2f93d2abb0928b6a1813ef8b9388d6a4acc5716fc5400c2e716b05d5"
     sha256 ventura:        "95d424ccb442f96c677f7f6051d11adf9d66e8204f0d48a6459baee56be34d8c"
     sha256 monterey:       "d280ab46201b056e8235673eae165dd2acc6fa7b8bcb6f03dba35a5fb35d6d43"
     sha256 big_sur:        "d2a85db83fc71defb511bee6895bc58449a8853e9520d67f75092ec92d14f70e"

@@ -3,8 +3,8 @@ class Cups < Formula
   homepage "https://github.com/OpenPrinting/cups"
   # This is the author's fork of CUPS. Debian have switched to this fork:
   # https://lists.debian.org/debian-printing/2020/12/msg00006.html
-  url "https://github.com/OpenPrinting/cups/releases/download/v2.4.6/cups-2.4.6-source.tar.gz"
-  sha256 "58e970cf1955e1cc87d0847c32526d9c2ccee335e5f0e3882b283138ba0e7262"
+  url "https://github.com/OpenPrinting/cups/releases/download/v2.4.7/cups-2.4.7-source.tar.gz"
+  sha256 "dd54228dd903526428ce7e37961afaed230ad310788141da75cebaa08362cf6c"
   license "Apache-2.0"
   head "https://github.com/OpenPrinting/cups.git", branch: "master"
 
@@ -14,30 +14,27 @@ class Cups < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_sonoma:   "7547779c1d49a79fdbdb48baf9981a62269f6384e9b78bd2c0fabc082e0aa365"
-    sha256 arm64_ventura:  "5097ac6de3fcd9c2da3bd4f09c01714d73761c0399c8695592d6534cdf23c6e8"
-    sha256 arm64_monterey: "65d0e5f4ba75438cca64d341adca30d9d1bfc4867358421cb74fa375b94a7e69"
-    sha256 arm64_big_sur:  "f0b6128fddf54ec1069c32a9b83788457f377a0b09dc256b6464f4f2161560ae"
-    sha256 sonoma:         "5540a2cee4335337db05889f1a76adfe6b589d97bd2dfba8796d82d8a3d22baa"
-    sha256 ventura:        "1bd88a31dd6fc3292cf4df626b6531c05b1a35fb35c4e219950710df939da85f"
-    sha256 monterey:       "9f9324ad8a39f8d3d4863a044107290e8933b9e8b091dbe5d32bc5d490db5c35"
-    sha256 big_sur:        "f52e62e443641e19a167ced1e76969c45486a513b4fed8bdc33cc80f1203dc36"
-    sha256 x86_64_linux:   "841f335903bfdd8a6e2e4fc4db73a0f261f581d59bbd3f3a98acb5e83507f699"
+    sha256 arm64_ventura:  "643eea6223eb736d6f3595e92539027c1b628227a1638367dd924fe41f5c3781"
+    sha256 arm64_monterey: "58309d40f9b93952534d8d8aeecf930a1874b6df5b73508c0e3493bc6ab9fb82"
+    sha256 arm64_big_sur:  "7ab8cb68128235e0e8b8dff6c2d7d75dd7d06da9365aaa54421d42155ca77499"
+    sha256 ventura:        "d6d37503ff0f322c238a5f177c4723d77814327d6b39ae2b27c05b679e4dd822"
+    sha256 monterey:       "0b1aead51e1611627e4c9f336647476d1ce7e344a162fd3f68e8b4cd24b63ece"
+    sha256 big_sur:        "eae22d8b730fcfda7bbb9a776ae5b5e7d1061b00200ec0926aeac030cf24e1e0"
+    sha256 x86_64_linux:   "1e35d934788dd9b07ca70d43210a934b17b894a9b4b1d54bc06224c3fa416f19"
   end
 
   keg_only :provided_by_macos
 
+  depends_on "pkg-config" => :build
+  depends_on "openssl@3"
+
   uses_from_macos "krb5"
   uses_from_macos "zlib"
-
-  on_linux do
-    depends_on "openssl@3"
-  end
 
   def install
     system "./configure", *std_configure_args,
                           "--with-components=core",
+                          "--with-tls=openssl",
                           "--without-bundledir"
     system "make", "install"
   end

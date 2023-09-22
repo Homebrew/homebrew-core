@@ -6,9 +6,11 @@ class JsonrpcGlib < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 cellar: :any, arm64_sonoma:   "c86b5751c59cc742957f0efe1887465fc41051068be5410b1d6dc136bbb703c2"
     sha256 cellar: :any, arm64_ventura:  "81179b347f42fa5088707b190fc8c44cce5b4674a95d99124d15e17f55e07c64"
     sha256 cellar: :any, arm64_monterey: "b9968d2db4506aa9493ae18baa2baf3606b94a270910fdc5d4a3928f6a1eb26f"
     sha256 cellar: :any, arm64_big_sur:  "7a93842a0f8c1f9d2e926fbeca2ba17d176616e66b29b26fe128f5d1e68730bc"
+    sha256 cellar: :any, sonoma:         "1b93a571974779646424517cdaae6efe3c9de77ee7ae4ca3c0a210c8f591dd63"
     sha256 cellar: :any, ventura:        "1a7c09d2663ff3df9280511655b194ced292b3fdc366fe502bfee8105978525f"
     sha256 cellar: :any, monterey:       "4c5889ec718dd7362a9593d3d4be9c76a12f2252e9eda92b165e945cd8883080"
     sha256 cellar: :any, big_sur:        "5f6b0972656e86a895a4026f5738416eb37b798792adcd30edb4ad3868a8bb05"

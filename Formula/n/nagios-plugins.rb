@@ -7,9 +7,11 @@ class NagiosPlugins < Formula
   head "https://github.com/nagios-plugins/nagios-plugins.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "90793b5a1997752d3b77ba1e3d694b6ca4e801eda115a50d14f720e5647b3087"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a4960e5eef62e7e2a4c73e8e32e8e5dfbbb5401908d0cc246e5b2acbe5a4c09f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7b4e86fef3508d9b66f3e9e4066a0efe28561e37e7219d928f78b61c137153fc"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ed56e24ee68dc2b2b39e95e5f9e7c35e96e544918e47494c11ce7d84397e6410"
+    sha256 cellar: :any,                 sonoma:         "10656b8674c533cfce5536f9f8b4d810c07bde162668e4131c22e1e46f1cd0b3"
     sha256 cellar: :any_skip_relocation, ventura:        "90c1c5053635fd159cf9cbb3af0ed660d35ceef405d7cb567fb3fb7dbdacbeb7"
     sha256 cellar: :any_skip_relocation, monterey:       "aba244fdf215c3416ca4be6d2a98feb8dc0b075deb9cfbaa8f026c225fb23a0f"
     sha256 cellar: :any_skip_relocation, big_sur:        "c0b34183485cb432daa81b78d7960b33f7ff0bd2fa067dac84559f494a03d4dd"

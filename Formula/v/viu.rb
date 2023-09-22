@@ -8,9 +8,11 @@ class Viu < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9597580d72d7d39833bbcfd99a9a41ef632b05e4f87b804c4ce77f860224e5a6"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d5518815ffa424b2f4341703d8e12b62a7b0c7b86591e24e48f22e5dbebf9499"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "31abf104e6a99f2168f865b6461657aa6a7a30c014239eb72f76bffc525bec95"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fefcfa184185f643d81e7a206e782349a0813e947222f2ea092eff3f92dfa5b1"
+    sha256 cellar: :any_skip_relocation, sonoma:         "32ce13bb7d67b3164df930ffd69e4f00e0571d8df437b08bd8b58f330e59b217"
     sha256 cellar: :any_skip_relocation, ventura:        "9729333077ff480c91b5cba9108ba95dfff75fc0860c76691b4434932c066b10"
     sha256 cellar: :any_skip_relocation, monterey:       "9f01ea745004309835c0ee4ebee71ff8186246ea0c74b2c5286a3f021d425238"
     sha256 cellar: :any_skip_relocation, big_sur:        "1d88e2dcf78308bdb60b2072cb03a31d6fad4d84d760360b597feea0a0a1b2a5"

@@ -12,9 +12,11 @@ class Vlang < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "69ffed8997a18edbeb11d2bd35318c88d3178977cefd0e4d7e0f07066cfc85dc"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a79029bf6d7aa308bb5d57657fd343af7b6a8046623a3f71d792ccece03c4e0a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "be66ca1ad7f1266e186cca2044c8f1e8af348301fd3ac3b7705501f3e6eaaa2c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "66a123dbd2097cba0f39558f29dcc0f7d3b9411efee0efd9ecb773d9c8521329"
+    sha256 cellar: :any_skip_relocation, sonoma:         "57f6ce08ccde48e20c8c6bfcbff1889514002664fd6c7a67a37ac8461628915e"
     sha256 cellar: :any_skip_relocation, ventura:        "eb92c66e952b98c85294897089962d7123e8e837a0c03fbb3fc09e6570f4811e"
     sha256 cellar: :any_skip_relocation, monterey:       "c0f932e5738615700a7d91581fc5043ec1c4af121c3b89f538113b729a86cc5c"
     sha256 cellar: :any_skip_relocation, big_sur:        "6396eb2370c79cf881f35bf5cbceaf9504f34aca3f1347620fc35da4bad898a7"

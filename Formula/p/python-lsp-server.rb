@@ -9,9 +9,11 @@ class PythonLspServer < Formula
   head "https://github.com/python-lsp/python-lsp-server.git", branch: "develop"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a146785d918755688f5d4955ac2cd3aadec27565df6d18ab8c73a230244df94b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5ae8591f550ba6a5f4e177c2b7a149b139c5b8cff2e90455168994fc60a2af46"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d02b6a42656989f59e3b238281042b26764596cc6ab0b35f268c0545381b8ab3"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "97185c6cc2c94c72f3acbe49c537bd6ddff0fe39beac9b0cf46a69857290f984"
+    sha256 cellar: :any_skip_relocation, sonoma:         "98aaba1985f06842d8a4f420ae121460d4bd14f70c6c06cbc3ac5a83438531be"
     sha256 cellar: :any_skip_relocation, ventura:        "6b22243ef9eebd6785b760f4c600eda536882e69c9cfdfa4d5d7e34a943cc62b"
     sha256 cellar: :any_skip_relocation, monterey:       "82cb9c20dec1e73d79fdd401b2f52d85d89afd43a66cb08c4c325b136427af72"
     sha256 cellar: :any_skip_relocation, big_sur:        "6a2b3571942870b9269c79409b97fbcdc0ed2deb7714f11af3d1b7ee1d6a3abb"

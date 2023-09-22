@@ -13,9 +13,11 @@ class Volta < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d9e66e6c55b5cb592f2516fae593b8306888254165aaca345977aa87893f8fc2"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "91f86479b539d9df009da79e569b1ab740f7e5ed635f537a639f7f65c446f69e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b8454fe11303c2d14a4e77b9dadc086bb12fa94aa71fdbec50f4e03a49d5e473"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b16b992a717720120aa9826992f4b217722b1153254a05b68afaa5f02fc8bb9d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c50525427941e6c3f152d25195c330c6ba18f4413a8228d1df21b5778760972c"
     sha256 cellar: :any_skip_relocation, ventura:        "ed384b28700d57dabca74fc9a34e25840e0e241b2dca4fb8a7d6261eff0a797b"
     sha256 cellar: :any_skip_relocation, monterey:       "edb4737847ade262f0f2812e599ae6e900d4a1c1d12e323307c70c971cf023ea"
     sha256 cellar: :any_skip_relocation, big_sur:        "e56c356f2c0c914da2d98d62de1b52d118e6108eadad86fa5d8c75ec1cf64e82"

@@ -11,9 +11,11 @@ class Makedepend < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "114c1c0c95e80973539b7dc0ab8b1d982f678eb7276d7973908cec9215bb9ea3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e14418de0a98957bcce5796f8952e41e1409f4b13125a80cb133056b7d8a4acc"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "66b45de376ee39540d5c05b58e79b4027a5bc038eb6c42785eb6527220261f1e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8ea9ff3be2137147d46691a4a7d25411c73121f53d4dadd5041759899b17a389"
+    sha256 cellar: :any_skip_relocation, sonoma:         "da75d22d6170f14497d139d4c63147e1f60e0e50c53a15f5cd07b9035512572b"
     sha256 cellar: :any_skip_relocation, ventura:        "fe25334cf2b74dc002395e9cfd76e95445f4496b2870287dbac688f04389224d"
     sha256 cellar: :any_skip_relocation, monterey:       "d31ab18614d72efef3aab19db9e81a6b353064a389cd49404a72ee10f7949a45"
     sha256 cellar: :any_skip_relocation, big_sur:        "88938e80fd01b90be05a3bfde77946d8392bc9a065a69d22e0723d7db18d329c"

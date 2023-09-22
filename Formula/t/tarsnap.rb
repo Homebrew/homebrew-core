@@ -12,9 +12,11 @@ class Tarsnap < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "53d60c8374dd95fe8f5b49f11694b8c92a62239f19f20d15e74dea24b820b570"
     sha256 cellar: :any,                 arm64_ventura:  "0e022219045b24e6d876bf97f8a092a82449932410ba7ebfa58d860dd92608ff"
     sha256 cellar: :any,                 arm64_monterey: "8c765adcc21196986e44b11c168521f40ca7a6e6a9c1432bfa0e92933b28e920"
     sha256 cellar: :any,                 arm64_big_sur:  "d99d8d2ea8f5b689fda5ab16779f19ccb66ac245743a0b3a968e853113e8d3ae"
+    sha256 cellar: :any,                 sonoma:         "40d84bac47bb80fbabc2674ada045f31dca0c3165b1c1ff6bc294073fddbd6f5"
     sha256 cellar: :any,                 ventura:        "d00d96a1ac3b3135985a30b282018fd3ca039532fd4fea10dce88149f0d904c7"
     sha256 cellar: :any,                 monterey:       "77f225c14c952a1c5786d80fa284936fb35fbea06ea90522b39a39b8f1d8cd14"
     sha256 cellar: :any,                 big_sur:        "a81400622c552d684b783e239cdd3f3cdc139d2a1e65ef41eed1685efe89d95d"

@@ -7,9 +7,11 @@ class Mvfst < Formula
   head "https://github.com/facebookincubator/mvfst.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "94a4c4dce35996bcbe556e410e75b20c23cfb8bf2f1db424f6473fbc70e939ed"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "fce8506395a25f8f61e97fd3c2be34779fc438b8dfcd04d9d41d12d8dfdf60b2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7f05d577e231c30a52fab97864f56f74b74f069e6fa53dbd023b274649be54f3"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "378c38ba9c06997db9fa4560b58a20895c22c76aa12cd01ee3e66e84a6b3b198"
+    sha256 cellar: :any_skip_relocation, sonoma:         "2645b75c59187ddcc8cb1fc282077aca29eae2f30c01f5bc47db02275721bc58"
     sha256 cellar: :any_skip_relocation, ventura:        "c54087c39791e5e7f1da029b89aa39d4fbd0695f1f410e39d1ec36e2ff6348a5"
     sha256 cellar: :any_skip_relocation, monterey:       "18471db21cb533abb849ffe50f6dd65c81f077a911cc2f664f8a5bbee33abe56"
     sha256 cellar: :any_skip_relocation, big_sur:        "dc9650457442fe425f59f59177c9584bc49caec68a7d3dd872a47a0b9da5b3a5"

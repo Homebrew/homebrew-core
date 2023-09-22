@@ -11,9 +11,11 @@ class Antlr < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "77ff82e85d57fe33e619c83a8ab8ebd954c527e90a3e47623dc5951f50293a5b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0b8ee72b41f1587e73efe3dedb7e60ba1f8f388ab8588da30fb60762bddea053"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0b8ee72b41f1587e73efe3dedb7e60ba1f8f388ab8588da30fb60762bddea053"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0b8ee72b41f1587e73efe3dedb7e60ba1f8f388ab8588da30fb60762bddea053"
+    sha256 cellar: :any_skip_relocation, sonoma:         "77ff82e85d57fe33e619c83a8ab8ebd954c527e90a3e47623dc5951f50293a5b"
     sha256 cellar: :any_skip_relocation, ventura:        "0b8ee72b41f1587e73efe3dedb7e60ba1f8f388ab8588da30fb60762bddea053"
     sha256 cellar: :any_skip_relocation, monterey:       "0b8ee72b41f1587e73efe3dedb7e60ba1f8f388ab8588da30fb60762bddea053"
     sha256 cellar: :any_skip_relocation, big_sur:        "0b8ee72b41f1587e73efe3dedb7e60ba1f8f388ab8588da30fb60762bddea053"

@@ -1,8 +1,8 @@
 class Openjdk < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.java.net/"
-  url "https://github.com/openjdk/jdk20u/archive/refs/tags/jdk-20.0.2-ga.tar.gz"
-  sha256 "359fbcdb5bb2645f9dcc65072b62cb646498e95643774ebca2fcbf599f73f79e"
+  url "https://github.com/openjdk/jdk21u/archive/refs/tags/jdk-21-ga.tar.gz"
+  sha256 "46493827f8dcf341cbd70c5febdf0d83d3c6c14e33fcb3e543da6e25a7ce3fdc"
   license "GPL-2.0-only" => { with: "Classpath-exception-2.0" }
 
   livecheck do
@@ -11,15 +11,13 @@ class Openjdk < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "87ee921ad11db76e5fbe7fba697f3d4ff8d8a0a170f1ccf0f8f1a484bd3235de"
-    sha256 cellar: :any, arm64_ventura:  "7c023f8b5172370350f8eef5a5363f5225be4d75003cfe1ef25e729aa474a4dc"
-    sha256 cellar: :any, arm64_monterey: "563bd49837bbdb636c072bfe81257d825b0a418dbfe120bef5b3ed6ea88345e5"
-    sha256 cellar: :any, arm64_big_sur:  "56de3d53e9b83b4731d8decc25087ba5df3c513ba8728759dfb776ec2ab8fb1a"
-    sha256 cellar: :any, sonoma:         "79b769226997081c25b175582e654aeac9230c141e0d54891425dc9faab12714"
-    sha256 cellar: :any, ventura:        "00801f056fbce3480637acdf48b4aaffd977e38450f83b72c2954b48c329153b"
-    sha256 cellar: :any, monterey:       "214cffc504d48ca3e369ec32b7c75e3bf3795d819ea8939cbe2b380f003cf924"
-    sha256 cellar: :any, big_sur:        "f9f580b472e91bdc818df43c7384088b6235ce6b900850d5a7b962a52869b4a0"
-    sha256               x86_64_linux:   "1db7667c3af7a5c4cee3ebe058b620f908afa23eb3a646f7b1a96a8254386d69"
+    sha256 cellar: :any, arm64_ventura:  "c69c816bf259dc5d3002a20985ec04b958dca8e3a60d31b18008525f21f77640"
+    sha256 cellar: :any, arm64_monterey: "e063e5256f0dfb63c6efad79a3035ce493616bb822cce1d07322c8f0c0642e45"
+    sha256 cellar: :any, arm64_big_sur:  "ada21f046729a90e852230bc50aa0b530e66d2cfa9da4c5380acd82b6cde6d30"
+    sha256 cellar: :any, ventura:        "004d954694288fcfc2e26525f92a99181395d5bbf67977a0cab3d42f78eeb90f"
+    sha256 cellar: :any, monterey:       "628124cb4457fc21694232b0118f67e6868ededba0c479d1cb37da0763b79712"
+    sha256 cellar: :any, big_sur:        "ae19fc8118cda51dec511f9bd9b44f8315f4bca3d9d1e6ace9269ee7d216fdfd"
+    sha256               x86_64_linux:   "91db287e91e5b9715b7f1f2309078935375062d637248590dc023c7cc0722a53"
   end
 
   keg_only :shadowed_by_macos
@@ -57,22 +55,22 @@ class Openjdk < Formula
   resource "boot-jdk" do
     on_macos do
       on_arm do
-        url "https://download.java.net/java/GA/jdk19.0.1/afdd2e245b014143b62ccb916125e3ce/10/GPL/openjdk-19.0.1_macos-aarch64_bin.tar.gz"
-        sha256 "915054b18fc17216410cea7aba2321c55b82bd414e1ef3c7e1bafc7beb6856c8"
+        url "https://download.java.net/java/GA/jdk20.0.1/b4887098932d415489976708ad6d1a4b/9/GPL/openjdk-20.0.1_macos-aarch64_bin.tar.gz"
+        sha256 "78ae5bb4c96632df8d3f776919c95653d1afd3e715981c4d33be5b3c81d05420"
       end
       on_intel do
-        url "https://download.java.net/java/GA/jdk19.0.1/afdd2e245b014143b62ccb916125e3ce/10/GPL/openjdk-19.0.1_macos-x64_bin.tar.gz"
-        sha256 "469af195906979f96c1dc862c2f539a5e280d0daece493a95ebeb91962512161"
+        url "https://download.java.net/java/GA/jdk20.0.1/b4887098932d415489976708ad6d1a4b/9/GPL/openjdk-20.0.1_macos-x64_bin.tar.gz"
+        sha256 "215a181fda2ac9f33d8262476eba6c9beb0ae20d2b592e03411fe71a7d89bb24"
       end
     end
     on_linux do
       on_arm do
-        url "https://download.java.net/java/GA/jdk19.0.1/afdd2e245b014143b62ccb916125e3ce/10/GPL/openjdk-19.0.1_linux-aarch64_bin.tar.gz"
-        sha256 "88cadc91d5c7c540ea9df5d23678bb65dc2092fe4e00650b39d87f24f2328e17"
+        url "https://download.java.net/java/GA/jdk20.0.1/b4887098932d415489976708ad6d1a4b/9/GPL/openjdk-20.0.1_linux-aarch64_bin.tar.gz"
+        sha256 "f1935fb2046bf5cfb609522f243909ee8e47e6be3db925df40c46f0465b30434"
       end
       on_intel do
-        url "https://download.java.net/java/GA/jdk19.0.1/afdd2e245b014143b62ccb916125e3ce/10/GPL/openjdk-19.0.1_linux-x64_bin.tar.gz"
-        sha256 "7a466882c7adfa369319fe4adeb197ee5d7f79e75d641e9ef94abee1fc22b1fa"
+        url "https://download.java.net/java/GA/jdk20.0.1/b4887098932d415489976708ad6d1a4b/9/GPL/openjdk-20.0.1_linux-x64_bin.tar.gz"
+        sha256 "4248a3af4602dbe2aefdb7010bc9086bf34a4155888e837649c90ff6d8e8cef9"
       end
     end
   end

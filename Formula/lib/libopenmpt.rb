@@ -12,9 +12,11 @@ class Libopenmpt < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "0a979e78d903b146e46d32dfc08a27d6b8669dbd2548e27bbbb8274fd266f802"
     sha256 cellar: :any,                 arm64_ventura:  "5f65eb84aae8173b6d8bef713c3331a9506f4755c7603125905ae7a9a82b18a0"
     sha256 cellar: :any,                 arm64_monterey: "761cbc95caaacd0aa93a58cb235c8eee5422b736a900909e0c37823c994acd0c"
     sha256 cellar: :any,                 arm64_big_sur:  "42588b9b1091d23b77a8a12f3e7780fcd2adf76366ffa9ebdf56bfb465ab415a"
+    sha256 cellar: :any,                 sonoma:         "50d08af84a5355c914a6026df69491274f2ad7539ef847ae26860cabf244f0e5"
     sha256 cellar: :any,                 ventura:        "0d26b0d7e64c33bbbe1983774c46467fa62bb34280b661ed4beac439203e816f"
     sha256 cellar: :any,                 monterey:       "5cc22ed4759b9293444cbdffe54e4ea06e15d42f7819d652c852856485dfd09d"
     sha256 cellar: :any,                 big_sur:        "58a2ab4fa7e32541621d6c84af7392d8db0becd031cc4a9aae52482eabd28783"

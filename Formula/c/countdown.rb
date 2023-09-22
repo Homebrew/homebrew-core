@@ -1,18 +1,18 @@
 class Countdown < Formula
   desc "Terminal countdown timer"
   homepage "https://github.com/antonmedv/countdown"
-  url "https://github.com/antonmedv/countdown/archive/refs/tags/v1.4.0.tar.gz"
-  sha256 "73f05360b7d937d5b1ac922dc1f2d311c5baef791117ca8e0fa09628749e843b"
+  url "https://github.com/antonmedv/countdown/archive/refs/tags/v1.5.0.tar.gz"
+  sha256 "ac83ec593674a367913413796e8708680cbb6504c8f68ce17152d800a92ccf3b"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "297d047b375d44a55a41dbd35fd71b86bb64e415960c0422c5e43a103857e895"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "297d047b375d44a55a41dbd35fd71b86bb64e415960c0422c5e43a103857e895"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "297d047b375d44a55a41dbd35fd71b86bb64e415960c0422c5e43a103857e895"
-    sha256 cellar: :any_skip_relocation, ventura:        "cc2daf7aba1e2e9be66e2f2efdb953079ab4d4a28db4760a666363f71101748b"
-    sha256 cellar: :any_skip_relocation, monterey:       "cc2daf7aba1e2e9be66e2f2efdb953079ab4d4a28db4760a666363f71101748b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "cc2daf7aba1e2e9be66e2f2efdb953079ab4d4a28db4760a666363f71101748b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "51546b7230f8b005f1d1826e1385d1e54545141dbf2fc82073116edd3e541640"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "38a5941ae73ed1aceb80861659045b316492a0ca982022a747912f8585a67895"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "38a5941ae73ed1aceb80861659045b316492a0ca982022a747912f8585a67895"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "38a5941ae73ed1aceb80861659045b316492a0ca982022a747912f8585a67895"
+    sha256 cellar: :any_skip_relocation, ventura:        "ddf45211af332196f188371a462c0af25b115d64e08d568c20370e5be9992b2f"
+    sha256 cellar: :any_skip_relocation, monterey:       "ddf45211af332196f188371a462c0af25b115d64e08d568c20370e5be9992b2f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ddf45211af332196f188371a462c0af25b115d64e08d568c20370e5be9992b2f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aa3d5f2c9b3e7e4661b7aa92583175cd869bcfc37750b4a66dcb3e641be91554"
   end
 
   depends_on "go" => :build

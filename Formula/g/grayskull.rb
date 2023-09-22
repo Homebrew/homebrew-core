@@ -3,18 +3,18 @@ class Grayskull < Formula
 
   desc "Recipe generator for Conda"
   homepage "https://github.com/conda/grayskull"
-  url "https://files.pythonhosted.org/packages/df/a9/1c0d4fa688e54f13bf4c8b3abed96bd9e1308917454693ba746c8eab86fb/grayskull-2.4.0.tar.gz"
-  sha256 "96eafc2d280eb9fe09db82d08531a1e519a8c13ada411c8f6879885dcf886a86"
+  url "https://files.pythonhosted.org/packages/68/0d/cf4b21650e87104fd12d8d0bbc4407b575cda4a55a13c2e0f35e9719484d/grayskull-2.4.1.tar.gz"
+  sha256 "3ecc684008ed6166b82518eb46f18e99c0407ee226c141dd469d4216c5989a3d"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "42288a5264b9ca22006ab726fd2492555351aa21b4cb0eb0e74ae2901a416f55"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1eccf433af02996610fc375a1d797f3a595320a3f8febd191853ded7c8ba3118"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "24e83594842f5f6c873595a3874af9ffa8eddd32932269d81746d052ad2493f6"
-    sha256 cellar: :any_skip_relocation, ventura:        "048af06a6fe74db52245a8a8ec13167eb8ba1562d8e5979e1b26c866eff29e59"
-    sha256 cellar: :any_skip_relocation, monterey:       "4f876da88c66e1a0595a6bf472e9c70960c7cccd8905e127000c4dabd7fa230d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ae4b22243fd412c50a22278a7e50ed1e555313cbec67745487d5d0575f43f36c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1cd2228e34b9232d0640cfd1fe881b3eceeb3cafedd317b3349fedec8cf70402"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8f3011070b8a876a3749f8ddf43325864a2645689f9ef76eff501466e0341267"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "af4e10eca9d83022203f3ff0063740e8159569a1e4edb2037ff3492ab5439fe0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "28f67600ed2d2d309e1510c424e392691db7c897b5eb645165723cbe928ce59b"
+    sha256 cellar: :any_skip_relocation, ventura:        "a5efdb8d12ed4197975c36eb2939f26f82b56589fe99eac5e35c005692ef92de"
+    sha256 cellar: :any_skip_relocation, monterey:       "5ee4cc3afc7814f05814c0c224a572834ff4a708ba613195efb6856f4e2a1527"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d17635d0cba7a42ebac629432d9e54a2bd3e1184c61f8c1cae8853e8d29f30e2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dae6af1d5baff13c7c5b91330df35a062907067e0967162323726b5835199417"
   end
 
   depends_on "cmake" => :build
@@ -122,8 +122,8 @@ class Grayskull < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/31/ab/46bec149bbd71a4467a3063ac22f4486ecd2ceb70ae8c70d5d8e4c2a7946/urllib3-2.0.4.tar.gz"
-    sha256 "8d22f86aae8ef5e410d4f539fde9ce6b2113a001bb4d189e0aed70642d602b11"
+    url "https://files.pythonhosted.org/packages/51/13/62cb4a0af89fdf72db4a0ead8026e724c7f3cbf69706d84a4eff439be853/urllib3-2.0.5.tar.gz"
+    sha256 "13abf37382ea2ce6fb744d4dad67838eec857c9f4f57009891805e0b5e123594"
   end
 
   def install

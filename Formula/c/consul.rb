@@ -15,9 +15,11 @@ class Consul < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6784612460c0d45dd1ebeb8c579100dcdb9daadc498c61474aebc98d3fa4b660"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3a67ab933f39fe146541aed6e6c578e1064afb7311c63eba85664693ca97ccef"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b2238d0e5d5a02af34d0a9e53f6f8f455b7778ce22167eb1e32accdbb220d62a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ddb3d05f6604605d07ce61cc388b484c9a0754f543611cf430494450aa153046"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4e684452d9f672db363b69f03a97dba160c6b55aea327e4bc417e1c92cd2ff64"
     sha256 cellar: :any_skip_relocation, ventura:        "eab2edbb1c4820c4a9d83231edd9ec56872cba032b69ba7218008a198d8376bd"
     sha256 cellar: :any_skip_relocation, monterey:       "6987639e933ddb0d09fc539fdcb71396d6797dc4ca54057d9fe14ce8828a6099"
     sha256 cellar: :any_skip_relocation, big_sur:        "b4c0fafe916d70a9ceb15d92bdb9f44fd50352eb78d6790cd69ba0dde49a99a4"

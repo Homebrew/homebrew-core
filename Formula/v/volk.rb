@@ -8,6 +8,7 @@ class Volk < Formula
   license "LGPL-3.0-or-later"
 
   bottle do
+    sha256 arm64_sonoma:   "11ec6cece7994fb89cc162209fb3f6aed5e9a782d12a963f6b7f94cae3df16b2"
     sha256 arm64_ventura:  "52ff9a4b5c47a0dc1f19db0058c4fafcc26b8163f28bbbf1b926efd782e5ab02"
     sha256 arm64_monterey: "ff09e450bf0ae32fcd0562397c9a45839450f32f96d3559da7fafb61a3cb03c8"
     sha256 arm64_big_sur:  "f38aebc5c6ad1163e5ebc1791ccebfe5c269a1319aa06676bc5d295cfe01dd4d"
@@ -71,7 +72,7 @@ class Volk < Formula
   end
 
   test do
-    system "volk_modtool", "--help"
-    system "volk_profile", "--iter", "10"
+    system "#{bin}/volk_modtool", "--help"
+    system "#{bin}/volk_profile", "--iter", "10"
   end
 end

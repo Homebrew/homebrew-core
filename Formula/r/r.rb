@@ -15,6 +15,7 @@ class R < Formula
     sha256 arm64_ventura:  "03572aa09e9d6e8ed06dde44121aae8fe6a28940c3c62d9e054ab17e688de796"
     sha256 arm64_monterey: "38f64327801c7477652fdcb0e5d2d2445aa64702e6f88385a8326ee74da98185"
     sha256 arm64_big_sur:  "b3400b4a83c742dc67a830ff89da9ca69a78a95b232d6adbd873ed8ce1e0dcab"
+    sha256 sonoma:         "84a86886203e06c08569df347c493acb1ababf34edf7323b1bb6158a1ec02786"
     sha256 ventura:        "371c52d60ab6b05a465117bb46caf5a30d215fbb06dec5102a52b3c87cdaf02c"
     sha256 monterey:       "29874a13f3db112cf2522b143b8bacf062df7faebfc0823b70a31840cc56536f"
     sha256 big_sur:        "542e95192e5357723d75072f67700d48ee139f7bcaf58fea769e4ea158cd313e"

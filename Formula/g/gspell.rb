@@ -6,9 +6,11 @@ class Gspell < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 arm64_sonoma:   "9fe16435b608c7bef5b81bfe50bbbabe02e508977ec2203bc044973e349909ee"
     sha256 arm64_ventura:  "7bfb5fdecb36da507e6234090327933860b173f9c08a9e7682badae3bbc22717"
     sha256 arm64_monterey: "e1ce8928f95abc14f8a2a61d91d649606dd89e01996158ace98e12e989088ca8"
     sha256 arm64_big_sur:  "adbbfccca9d4485334b7bafdd26377a677d5bc231e338695bb9ce2558bd3fb71"
+    sha256 sonoma:         "5356188007084aa4e8194f911511a9751ae43198c6d048e70f5d54dcd3fa3c58"
     sha256 ventura:        "f54298f524ea6f40d3296aee5cd4b3feb326cc5398c21c9a8329973ff4c0ba33"
     sha256 monterey:       "011bcc30fc443fa9a280706cb3ec7313eb30083a6e7f11c4eadf8ddac433ac06"
     sha256 big_sur:        "62927471883510fe62139fd7c82595601872549c92fe94b522905de0174f5220"

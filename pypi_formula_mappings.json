@@ -196,7 +196,7 @@
   },
   "cloudformation-cli": {
     "extra_packages": ["cloudformation-cli-go-plugin", "cloudformation-cli-java-plugin", "cloudformation-cli-python-plugin"],
-    "exclude_packages": ["certifi", "six", "PyYAML", "typing-extensions"]
+    "exclude_packages": ["certifi", "click", "markupsafe", "six", "packaging", "PyYAML", "typing-extensions"]
   },
   "charm-tools": {
     "exclude_packages": ["certifi", "cffi", "cryptography", "pycparser", "PyYAML", "six"],

@@ -12,9 +12,11 @@ class Cweb < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "9356a14080961fbb5a3ecd0f9a679bf8b22365892bda075c2b5dc19eb3e99b61"
     sha256 arm64_ventura:  "e10d8402b8bccb4be441330471901b041e17ef55c06efd6d519f547004213a74"
     sha256 arm64_monterey: "aba87e8e1d3a4fc68af199a0d48d7e373c675a74fcad8b1c91193a0e477db7b3"
     sha256 arm64_big_sur:  "f956307d32bf08c74e34129be48d2b47f820738b6a4bdefec58eefb77a6d5945"
+    sha256 sonoma:         "c04f8683f313dc01e9d7882c5d86e15c754b0593818622170f3cbd2fccb246d6"
     sha256 ventura:        "5a8358bd8b5220afb2868cd87815115d8b991c46bfec8f57082d8ec82a47582d"
     sha256 monterey:       "074b44f5d65ba414a9b9b095d6e028553ae06c00341d3b5f5979196c703454be"
     sha256 big_sur:        "b3eaf50616b0af852bc5217063fa92b447ae9a40115fbe97e5b7245f0efebd55"

@@ -1,19 +1,19 @@
 class Hpack < Formula
   desc "Modern format for Haskell packages"
   homepage "https://github.com/sol/hpack"
-  url "https://github.com/sol/hpack/archive/0.35.5.tar.gz"
-  sha256 "48dd4d3b66fb0631287c2afaf8261b471f98a2376ee6f0252832cdd7cac85cfa"
+  url "https://github.com/sol/hpack/archive/refs/tags/0.36.0.tar.gz"
+  sha256 "f9b903b040d6736335fc2210c9243b0f18c41f52b7da2560a700ba6d8648bd77"
   license "MIT"
   head "https://github.com/sol/hpack.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "547854b9c5c141dee7c94af977222d646e115239fe8f2a93b5bc88b25c2bb98d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5cac8bd71e1ba98fcbfe15240bc587a5c5dd74b443c0931d62a946df963ac031"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9f621addbe7e80dfac23cef29795c15024db0040e4adcf789fa424fd54d97c15"
-    sha256 cellar: :any_skip_relocation, ventura:        "f0c64f6eae95a2136e31964c83f56494e1405807620dd55fada7a3ba0a200b55"
-    sha256 cellar: :any_skip_relocation, monterey:       "e55197613bc884ab254648715ccdc61a8547dcbfef06048f424e9d0f25df0231"
-    sha256 cellar: :any_skip_relocation, big_sur:        "739ef17b5a8037765f8fe4c32ea23e0e52442f6304207f5e56a4fca1bdadd193"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "53911a87894c0d41c4748d547fac8e2abca67ec30925ea3e7a62bb8a92229103"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c3c6c86f8c69d05d398b67f519dcffddf176710bcb26245ef6133f621724d748"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4a35250a53a92907675395adac052a3746143e44907bf1ef1139d2c6cb9f12d8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "efb26df571e245ac808bc8223a0922b9b3b21698af7e96b9495dbb1bec3f1bac"
+    sha256 cellar: :any_skip_relocation, ventura:        "2dc6b0594b45dccc62034c59eafe73f4cd19f19c175c2134b0aba58ee65d3645"
+    sha256 cellar: :any_skip_relocation, monterey:       "dab4df2eb5b914455a9809b82a986083259ecd62cc208d4f06edadc474a09044"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f46c67af38ca32fc51c6cf8e07dc42fd5eb4208a85d5855b559290a22d7081f4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "69e9bb29b6200ed0d609387e37e0dc3e8eaf21e741f415a34310b15e4d1e89e0"
   end
 
   depends_on "cabal-install" => :build

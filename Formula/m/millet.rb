@@ -1,19 +1,19 @@
 class Millet < Formula
   desc "Language server for Standard ML (SML)"
   homepage "https://github.com/azdavis/millet"
-  url "https://github.com/azdavis/millet/archive/refs/tags/v0.13.3.tar.gz"
-  sha256 "22e455bec83ac03bc916addb65f74a62c20635c8c42e9292a4df5023a97d2735"
+  url "https://github.com/azdavis/millet/archive/refs/tags/v0.13.4.tar.gz"
+  sha256 "90cf2a5e0adb7a0477fc6eed52d394fbd397f421774682f89bf055f1a61ea8a3"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/azdavis/millet.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d2a3c0907502ded2d47c8b5cb43cfd79f83e330ac198a68bfd4c7bd8dd2a6543"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5e967f54335877482e6280dc132b0d28ba827863e4dddbcba89a160d3af82947"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "04b5026a3a7e7c3362116c75fcbb98cf3bd816cdc8f69da112eed425211e57ee"
-    sha256 cellar: :any_skip_relocation, ventura:        "b3f4f8248e0ae3a4fc4d90cf74fc7debe6cec1a8be2f33c72cdabd1db5797932"
-    sha256 cellar: :any_skip_relocation, monterey:       "758717075b9b07c2e7989fa248ea17ee187d77f83b037c1af50f5edf06747746"
-    sha256 cellar: :any_skip_relocation, big_sur:        "78770d5afce52aa1dac7c28c4febc015e8d64664a521a8dfab0385d83fcc0136"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e75c805553950b9b88192b4300ea185d4db93815a09549ca836f3fba6bd7b06d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ea36c45eaddd8138dbf3e2bf034898802773e4f67e583f109b9d6884b1847eb6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0316362ec635c62f94845b3f430b4b3e3f5d43f99ec1f9b27afff881a2b6d497"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5a68b15893722b5deee976824e0beff9764d88f26e9c5a42dd6b2c0e6934275e"
+    sha256 cellar: :any_skip_relocation, ventura:        "22f255d26d90c35fa6d997d0534f21c1023ea3d8bf19b19a7a8c62c51e4d1c39"
+    sha256 cellar: :any_skip_relocation, monterey:       "5b4f16d898705f248935bcb7e3696cdcc343cea6ce2b29981559bead32936ba8"
+    sha256 cellar: :any_skip_relocation, big_sur:        "29269d4bc13bb83b9bd9d7bc6d7b2cc7d20bca16d64981ff27fd7a4ebb78d267"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "28a9b6b42f96e2ddc761cd804ea5d531062007ce6ea9f4217098cbbaac918570"
   end
 
   depends_on "rust" => :build

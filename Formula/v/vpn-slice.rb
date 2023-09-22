@@ -10,9 +10,11 @@ class VpnSlice < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7f896ac80b3ec9f781a35eb528bd7ca529dd7c50327f8c9cf3306a9779087d49"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7798a26686d124c506967ff63713b888fc36cadbee332330a5260ea925837b28"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "03c28ff89eec7cc5e56ef7daf5ac634527b5cdc5c7203fa2a55aad4c13eeef05"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "891ccb3aa60a9a987136f616f5037c1cb8b58835042b96f7d71bc66b29ae9c38"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a240caf21265031f4018364c61375bc9f5b22db8e4f456acd401d861827f5728"
     sha256 cellar: :any_skip_relocation, ventura:        "ad37647e9afbd689a2dbba1beabe018dc5c4cd26476d2dab30fbbd60554bf9da"
     sha256 cellar: :any_skip_relocation, monterey:       "0fed89c47a9cd556d276233a55b54d7ef21ac683e7d8054827f51bf3adb699ee"
     sha256 cellar: :any_skip_relocation, big_sur:        "63f4dec62b148f81d1de93cd938363ef9f51f542974f172b3ada0e317c391875"

@@ -9,9 +9,11 @@ class Pythran < Formula
   head "https://github.com/serge-sans-paille/pythran.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "68c8e776ff4199736c205c5fde2c1f8355b1796473706435636161bfb7a72a3a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5c37f9f8f4914d3e74a145f9598c9137fc2ee9f40dcdbd6cb5bd8a72ff93b2c6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "897a135c0f769cb7ffc7d8200c37b9b13fbfe22f4387c7008a10cb376c213e25"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9f67527b131d933a6dd69510bd754537d96c14830da13bb2833004ab7362fb4e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f6a9dc5377d0c4bdb0dd8f7c1d0965a7e64c8e8dd48c87a0abcf4cd670ff7810"
     sha256 cellar: :any_skip_relocation, ventura:        "cab648f53f29b83692f413ed2aa6f7719c1b75c40ff037659123a8ca2ff17be1"
     sha256 cellar: :any_skip_relocation, monterey:       "d4228900b2c9a4c1825764f50f6697f7b62c42c60b0fc2b26cf3effcffc418f1"
     sha256 cellar: :any_skip_relocation, big_sur:        "711383b5b04bee04c1e31943fa9061c9551d129cdde9ba1d3bcc926acd331422"

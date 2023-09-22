@@ -2,40 +2,28 @@ class Jabba < Formula
   desc "Cross-platform Java Version Manager"
   # fork blessed by previous maintener https://github.com/shyiko/jabba/issues/833#issuecomment-1338648294
   homepage "https://github.com/Jabba-Team/jabba"
-  url "https://github.com/Jabba-Team/jabba/archive/0.12.2.tar.gz"
-  sha256 "44bd276fde1eaab56dc8a32ec409ba6eee5007f3a640951b3e8908c50f032bcd"
+  url "https://github.com/Jabba-Team/jabba/archive/0.13.0.tar.gz"
+  sha256 "113124e3235cce0e8d66425ceef541c664f2dd8034c611caf04f566191d2628c"
   license "Apache-2.0"
   head "https://github.com/Jabba-Team/jabba.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6a27f8c6f6c058bfbc5f98d6ad1037013c1849f80f4d05cda274fa8a8d1e6159"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "16c46cd77f9daea31252b1cc479ed71a598ba385a984a16fd8d4b33303b32808"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "91ac15457375b816ee6b90ed999d105414463cae66df68db4829513f0324d386"
-    sha256 cellar: :any_skip_relocation, ventura:        "3faf882dd022a5691e5e7a1d3db04104bdc17d0674abe69a6ef7dc1405a44104"
-    sha256 cellar: :any_skip_relocation, monterey:       "c3ecfed12f4067413173cdf391b9ba9b1e9e66eee20ed80ef32a58757167dde6"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ef83f5290a46b7f0d121b1eccf40869b964b0a8134e6cdb033d2715719086e3e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4e4532d576e0f24ee5b043b7a554569c3014a163f71a3cf2177ffa9ffc4026e2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "263ae4edfbebdf8a49b0182510cac8cb3998245ee4c40ab75e51da084a0964e3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1b3a32d39f59e117e03b8f80d7b3e99e407c2829389e5998f02bf52925318a70"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0d1859dac7d8b95df9af78ff90f8ef51ee3e0136d99cbf0b976febb01699dab0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3974cb813f27fb01b15460627d08523297d71c8b0db42a29700945e2a377bf42"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b8966004869954c807d4e039455f99f5c4514efb5755858e7c5c0c36e76a6742"
+    sha256 cellar: :any_skip_relocation, monterey:       "7a3e1964113c9c264750cdb56194b9cae1fac077f3f4085736ae6693b70418ac"
+    sha256 cellar: :any_skip_relocation, big_sur:        "675cc7a5d6ef3c770d94125f2a70f7886f28f68c4b573e419f164dcae49f62a7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8b010997b4372c1297fac71595397b396684ccc5c399f485b1ceb11ddd6fbfeb"
   end
 
   depends_on "go" => :build
 
   def install
     ENV["JABBA_GET"] = "false"
-
-    # Customize install locations
-    # https://github.com/Jabba-Team/jabba/pull/17
     inreplace "Makefile", " bash install.sh", " bash install.sh --skip-rc"
-    inreplace "install.sh" do |s|
-      s.gsub! "  rm -f", "  command rm -f"
-      s.gsub! "$JABBA_HOME_TO_EXPORT/bin/jabba", "#{opt_bin}/jabba"
-      s.gsub! "${JABBA_HOME}/bin", bin.to_s
-      s.gsub! "${JABBA_HOME}/jabba.sh", "#{pkgshare}/jabba.sh"
-      s.gsub! "${JABBA_HOME}/jabba.fish", "#{pkgshare}/jabba.fish"
-    end
-
-    pkgshare.mkpath
-
-    system "make", "VERSION=#{version}", "install"
+    system "make", "install", "VERSION=#{version}", "JABBA_HOME=#{prefix}"
   end
 
   def caveats

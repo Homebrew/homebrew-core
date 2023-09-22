@@ -1,20 +1,20 @@
 class B3sum < Formula
   desc "BLAKE3 cryptographic hash function"
   homepage "https://github.com/BLAKE3-team/BLAKE3"
-  url "https://github.com/BLAKE3-team/BLAKE3/archive/1.4.1.tar.gz"
-  sha256 "33020ac83a8169b2e847cc6fb1dd38806ffab6efe79fe6c320e322154a3bea2c"
+  url "https://github.com/BLAKE3-team/BLAKE3/archive/1.5.0.tar.gz"
+  sha256 "f506140bc3af41d3432a4ce18b3b83b08eaa240e94ef161eb72b2e57cdc94c69"
   license "CC0-1.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "40252d109144c435c7511d196bf9184e019d173a41516e47ac4ddc9ead05dabf"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "73c42303e167e66e27ab4acf63dcf3ef8b1ae0f08bbdd7352862c269acd685d3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ff332414d8dab7392ddb34b1a1650082532161116f158b05c242f74414d3a1be"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1503b08de6a5fb0aacd1e43ada99c3f629e00d897688781e3d84289fd6289f66"
-    sha256 cellar: :any_skip_relocation, sonoma:         "088e56d267912ede16baaa25f314849510e47d40e1b45d710ba68b40303ee8e9"
-    sha256 cellar: :any_skip_relocation, ventura:        "8d4395810c8b2b981c87d005c446968282ec74961db9fae2193f8ccb10c6df26"
-    sha256 cellar: :any_skip_relocation, monterey:       "f7b1df0cfc20fa00a9aa5839997d64e876bfff3f38995e2b14c8b296624eaf37"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a7f7799760a3d5f25b378e12e1869c90ea9b3d37e72a5708a556fade40719162"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "07eb8084d05b3a054f72fb89215f1ecc15856111e80700866922bf0a350dd819"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "39351e8b4165518ef1a78fa0813aac39bd69c133a28391d6fe5d2440ccdd053a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8e52fe62d4c9c1865bf556e2e8df87412aa3157fba71baeea164c58d035699ac"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ea172430052c4fdedc7db18e3beb79933a14d1b9643122282d8686064796d620"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f493ad59ac1f1b03ad2a232132b936de0568fbef1b89dfba6eb744f9db686e2d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "9ab351124e74784e62eea2dee55cd3e0675764bb12774cbe35969dba8203d22f"
+    sha256 cellar: :any_skip_relocation, ventura:        "eb131c612af885ebdac7e3d790ecee6b6aaa7a00c05e3d7e3b48c53f597d6ce5"
+    sha256 cellar: :any_skip_relocation, monterey:       "1a3b9f0f8c76068f2eb6705290d74dd8d0f2918fa0fa2ca5ad821a80cd841bc4"
+    sha256 cellar: :any_skip_relocation, big_sur:        "2b35c6499acf324f5000994b89f918c9b8fbec293b4d71f3ed5b54717d891b8f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4275864db35cf03f6a91e37db0353d3f4856d3f656068db44a784f1a89161211"
   end
 
   depends_on "rust" => :build

@@ -11,9 +11,11 @@ class Bitrise < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2ddbf7bef100695ef4d851efb9eaafc6dc93572163fab31a250d081e15f3baad"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "cc3a411f1ac44683eec99171912653fa1fddd9b8823523bedb1b308fd1c3ffd6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0ba58301610bc3537e6ae77a458bc98ce10eb397a76c680c9eda60528056e270"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4aa4ba758719429522748f1efb5acb03195e242bea44d1fd35f718e8e7738ebb"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f361222759470138c1292864317fee77b56aefc69cb7bbc0a9462e2fadc07080"
     sha256 cellar: :any_skip_relocation, ventura:        "c42b747b2e0003aed681f75bd53c68397374718c1c80c59d87745b8c5137379c"
     sha256 cellar: :any_skip_relocation, monterey:       "71927c7a81378376defce9957bf3ea6e4156fef33312486bc5443d63504d72f7"
     sha256 cellar: :any_skip_relocation, big_sur:        "5993846c49b6a92ebb355faaca7be92324fc57aaeca8d83f2dbe0300a50d556c"

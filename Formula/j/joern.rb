@@ -2,9 +2,11 @@ class Joern < Formula
   desc "Open-source code analysis platform based on code property graphs"
   homepage "https://joern.io/"
   # joern should only be updated every 10 releases on multiples of 10
+  # TODO: Check if we can use unversioned `openjdk` (or `openjdk@21`) at version bump.
   url "https://github.com/joernio/joern/archive/refs/tags/v2.0.90.tar.gz"
   sha256 "abf053caf4749acf3b23a35a844b2a29307fcb982564924cb0c8702ac169537f"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -12,19 +14,19 @@ class Joern < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e5ed4e037d45cbc8a6806ca672d94c4bfc5ea5a1ef8739afb8c20a8e3f17b23a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e2eb69c2bc0f410cf2d4662cc7f0f579c57c435e6646fb748b01e8869a853a55"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0cb52c6e78ae636013aaf220e874378aa272fa5b3516f2ab6e682d11cd6931e8"
-    sha256 cellar: :any_skip_relocation, ventura:        "569b394437b02c7280200e0eccfb62a0bb85bca5ea9eb0b5ce1052f79254098f"
-    sha256 cellar: :any_skip_relocation, monterey:       "6523f9e141a1d4116683d10306465051fa26c3650e171e1f5f2c8411ab0f2483"
-    sha256 cellar: :any_skip_relocation, big_sur:        "91f8240a53d06552c80783eaf1455443399dcb0cfcce6969db4a2c00e95b20dc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3b8694f2439b2f123ccb41f0c91f9626fafbd4f5f3250450abfcbdbfd7f4e34d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "294e5b3fca02c2d4a6d52c89842e9f7f2e2c68d3a6a89d832f4dee89722ce15f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "294e5b3fca02c2d4a6d52c89842e9f7f2e2c68d3a6a89d832f4dee89722ce15f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "883f1a36c5ba0c880753aa1cc1fa36b3b7ace8eea32227407ca72130803af547"
+    sha256 cellar: :any_skip_relocation, ventura:        "fc0735faed52e991e7325a4ae31f6265a35986f9589f5e67708301934de2b05e"
+    sha256 cellar: :any_skip_relocation, monterey:       "d58769230dbde895ace5ed5ce4349a39eba1338f0a5377f6ac8b28d692dd6cbb"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d57d514b0981abff37183917b16584452b51aa7bbc5a1ced3b4c77097a82e15a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d2eaedb36097dd42bcc7a969165e76bfdab66c9d48eba70e0b3d33f1ecb2c502"
   end
 
   depends_on "sbt" => :build
   depends_on "astgen"
   depends_on "coreutils"
-  depends_on "openjdk"
+  depends_on "openjdk@17"
   depends_on "php"
 
   def install
@@ -44,7 +46,7 @@ class Joern < Formula
     end
 
     libexec.children.select { |f| f.file? && f.executable? }.each do |f|
-      (bin/f.basename).write_env_script f, Language::Java.overridable_java_home_env
+      (bin/f.basename).write_env_script f, Language::Java.overridable_java_home_env("17")
     end
   end
 

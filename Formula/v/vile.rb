@@ -11,9 +11,11 @@ class Vile < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "9c04feee9958fd062e6360fd4308d1e2893ffcd4d198daf4f53ba76869302cbd"
     sha256 arm64_ventura:  "007220d4bfc4a658ffe56b9f4b1af2fa13cb8e8c2fe8cedd2d0537cba3efc8af"
     sha256 arm64_monterey: "38daf7cce4250fb7eb1b679dd1641c5e23706ed039731f95c3587dda288dac2b"
     sha256 arm64_big_sur:  "43f477324a6b277b54fe2f14d7cd9c3cac2f2d4e110bc9fa53bd611adc1f0cf3"
+    sha256 sonoma:         "7e1f1a19466d40ea1591751dcfbe64a8c275bf74fcdfd802a715a4696eb2c985"
     sha256 ventura:        "674ad45785df6e65fd7ff6c23cb685d18bfc69a9efa94c6fc5ad3c7dc3b71f3e"
     sha256 monterey:       "f40b8db1d54f7bfe59600ab8153f706f12618489f085f232e092d5c771ddb768"
     sha256 big_sur:        "35ca3b5029b92d685e93e2a965869eb3460663b75d7fd818454f6ad02c887df9"

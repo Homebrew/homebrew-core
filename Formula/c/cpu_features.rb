@@ -7,6 +7,7 @@ class CpuFeatures < Formula
   head "https://github.com/google/cpu_features.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 sonoma:       "ce5c30e2f2fb534de048b4cab44164aa10ff0edc78fc2a1f980bd66dd0efd840"
     sha256 cellar: :any,                 ventura:      "330ff6e1dd7b1ba7d437ae26c190cef2c16a378dfde46c91c9c9f467c8ce6f02"
     sha256 cellar: :any,                 monterey:     "005e2f8cd05493e50e9633a328f67bff007013632ff113b0e61c4274c8a921e3"
     sha256 cellar: :any,                 big_sur:      "3eadb78e89e4aa6ad69a691495c45ad80a89308f56fdac9f33b24fa5114bb13b"

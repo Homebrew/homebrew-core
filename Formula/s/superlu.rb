@@ -15,6 +15,7 @@ class Superlu < Formula
     sha256 cellar: :any,                 arm64_ventura:  "1b77c62e3df8fa74e225128bc3549a0fbcd100d20d3fdc8e69b8d5079ece5645"
     sha256 cellar: :any,                 arm64_monterey: "416c4867f351007663616d1217a2f086fa8ea424b0cf8e2476706c6b89052321"
     sha256 cellar: :any,                 arm64_big_sur:  "5c2aa2bf3500e11bcb847b2cdaeadedc4352a322d974224cfa9a11aa57c4cd6b"
+    sha256 cellar: :any,                 sonoma:         "45e6c7be8738def22a994d0331bf4c881e7a53ed39775dbc6857d973b600e0f1"
     sha256 cellar: :any,                 ventura:        "b1ad99f7201436cd3311b48c5711b0fddb2ae4a1fcd7148c08d611a1fb12775f"
     sha256 cellar: :any,                 monterey:       "d892bba3869f7729417657f2bff97e703a195c4194cfd9d6779c6e95708e9bed"
     sha256 cellar: :any,                 big_sur:        "79a64f6e540d32863c701c044594d060eb4951daa25e71cb219d298525b403de"

@@ -12,9 +12,11 @@ class Vncsnapshot < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "5c3ef7d35c4c3a35c325110923ca87c9a331b4f9f9ae30a436ef4d026f16ae74"
     sha256 cellar: :any,                 arm64_ventura:  "9b81b8c12801895e02f291fcd962c03faa8c5c550f8f3912ad189e71a950e512"
     sha256 cellar: :any,                 arm64_monterey: "d205593b6f2b24d41406f720f81fe527a985fcee83fdfb8851eb607636a7de55"
     sha256 cellar: :any,                 arm64_big_sur:  "8c12953cef25c007e23110a5c80e1a685cef585fb0696a2e31f8492894cf127a"
+    sha256 cellar: :any,                 sonoma:         "2ee8b91e07becd05e3d5797b5aeee317f3151f25c3188d4b3a77d203779ec72d"
     sha256 cellar: :any,                 ventura:        "e04fc4dbfc4c8ddeeb36f9ff9909f06e54487635c2049884523b47093fbffb02"
     sha256 cellar: :any,                 monterey:       "47f55734407ee86c9eca1740751bf822f239151c8f119d26883f27f109380030"
     sha256 cellar: :any,                 big_sur:        "cba42f4c7903e6a9c817cab231c2a553cb3ef5e9df4c11ee4c1402a1c3e82dc1"

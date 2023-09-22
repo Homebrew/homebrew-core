@@ -13,9 +13,11 @@ class Cryptominisat < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "f2e635d8038c1efd59aaf38133eb09eff39b79000ff14e58a46ac52fc898bfad"
     sha256 cellar: :any,                 arm64_ventura:  "f4de656aa865667cb8f6b7f18bd15fd9a0f3cf5525aec53507100268b7c083f7"
     sha256 cellar: :any,                 arm64_monterey: "b0528b2edba4932609be44ab1a026c217b3ac390082068ed1b4d935f47c2d98c"
     sha256 cellar: :any,                 arm64_big_sur:  "6b515e6e9a00c7f8dfbc8e37c95363f7d581eed113ed5451b49da2142309153b"
+    sha256 cellar: :any,                 sonoma:         "7d882af64f627e08926a7e58f1a9998dc4ff14bd6c8b3a357460f68238df9664"
     sha256 cellar: :any,                 ventura:        "a31ba29eb5e0c24b4bd86a23e32aedd39b3853487e004e2f0fb0b8e7d647d063"
     sha256 cellar: :any,                 monterey:       "3bf4fd1ef6dea8e670adc3fa486a72d06f05e8f64e48f005d4dd6b5ba4597454"
     sha256 cellar: :any,                 big_sur:        "d3fcf58b537413d0c675ed90fa79f13419faacd7d306c9b7b6c654ea372ef272"
