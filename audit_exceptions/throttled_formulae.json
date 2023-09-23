@@ -3,6 +3,6 @@
   "awscli@1": 10,
   "checkov": 10,
   "joern": 10,
-  "renovate": 10,
+  "renovate": 50,
   "vim": 50
 }
