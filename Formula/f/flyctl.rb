@@ -1,6 +1,7 @@
 class Flyctl < Formula
   desc "Command-line tools for fly.io services"
   homepage "https://fly.io"
+  # flyctl should only be updated every 5 releases on multiples of 5
   url "https://github.com/superfly/flyctl.git",
       tag:      "v0.1.101",
       revision: "f1a45f120132eb36d131ebc0f620870f24eaf9a5"
