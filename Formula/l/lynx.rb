@@ -6,7 +6,7 @@ class Lynx < Formula
   version "2.8.9rel.1"
   sha256 "387f193d7792f9cfada14c60b0e5c0bff18f227d9257a39483e14fa1aaf79595"
   license "GPL-2.0"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://invisible-mirror.net/archives/lynx/tarballs/?C=M&O=D"
@@ -25,12 +25,17 @@ class Lynx < Formula
     sha256 x86_64_linux:   "de67ee9f6cd1dd1a9147d4b6240abec83111043de0a743768b1ed5d1c581aa5b"
   end
 
+  # Move to brew ncurses to fix screen related bugs
+  depends_on "ncurses"
   depends_on "openssl@3"
 
-  uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
   def install
+    # Workaround for implicit-function-declaration error, still unfixed by lynx:
+    # https://lists.gnu.org/archive/html/info-gnu/2021-11/msg00001.html
+    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+
     # Using --with-screen=ncurses to due to behaviour change in Big Sur
     # https://github.com/Homebrew/homebrew-core/pull/58019
 
@@ -43,6 +48,7 @@ class Lynx < Formula
                           "--with-ssl=#{Formula["openssl@3"].opt_prefix}",
                           "--enable-ipv6",
                           "--with-screen=ncurses",
+                          "--with-curses-dir=#{Formula["ncurses"].opt_prefix}",
                           "--enable-externs",
                           "--disable-config-info"
     system "make", "install"
