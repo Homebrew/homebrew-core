@@ -453,7 +453,7 @@
     "exclude_packages": ["six", "Pygments"]
   },
   "iredis": {
-    "exclude_packages": ["six", "Pygments"]
+    "exclude_packages": ["six", "Pygments", "packaging"]
   },
   "jc": {
     "exclude_packages": ["Pygments"]

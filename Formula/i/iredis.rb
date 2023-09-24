@@ -21,6 +21,7 @@ class Iredis < Formula
   end
 
   depends_on "pygments"
+  depends_on "python-packaging"
   depends_on "python@3.11"
   depends_on "six"
 
@@ -37,11 +38,6 @@ class Iredis < Formula
   resource "mistune" do
     url "https://files.pythonhosted.org/packages/0c/88/6862147c3203750cef135070fe9f841d82146c4206f55239592bcc27b0cd/mistune-3.0.1.tar.gz"
     sha256 "e912116c13aa0944f9dc530db38eb88f6a77087ab128f49f84a48f4c05ea163c"
-  end
-
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/df/9e/d1a7217f69310c1db8fdf8ab396229f55a699ce34a203691794c5d1cad0c/packaging-21.3.tar.gz"
-    sha256 "dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb"
   end
 
   resource "pendulum" do
