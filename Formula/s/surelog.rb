@@ -3,8 +3,8 @@ class Surelog < Formula
 
   desc "SystemVerilog Pre-processor, parser, elaborator, UHDM compiler"
   homepage "https://github.com/chipsalliance/Surelog"
-  url "https://github.com/chipsalliance/Surelog/archive/refs/tags/v1.74.tar.gz"
-  sha256 "0fb8d6e55ed3189ecb9aa3e33616d5b4b92f91fa25ff2e4415e1ee661d75fa88"
+  url "https://github.com/chipsalliance/Surelog/archive/refs/tags/v1.75.tar.gz"
+  sha256 "4e6c44392dea7fba7bfc082459ab60458e91def59f3cdf0eccdad229d572829d"
   license "Apache-2.0"
   head "https://github.com/chipsalliance/Surelog.git", branch: "master"
 
