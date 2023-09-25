@@ -8,8 +8,7 @@ class GLs < Formula
   depends_on "go" => :build
 
   def install
-    system "go build -ldflags='-s -w'"
-    bin.install "g"
+    system "go", "build", *std_go_args(ldflags: "-s -w")
   end
 
   test do
