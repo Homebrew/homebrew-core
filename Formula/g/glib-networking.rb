@@ -6,9 +6,11 @@ class GlibNetworking < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256               arm64_sonoma:   "a3083f7530e810fdf56d5ba6e1f4b86e9b5982a30984e8c28aca1999ed3adb1b"
     sha256               arm64_ventura:  "2a8bcf4a6c043f071fc979b7ddd324f484dadffeedef21a570b59d7200b2576f"
     sha256               arm64_monterey: "c23398d9a8b19176bd8605b5687f40dd020761249ba731526c38a1fb7043e8ec"
     sha256               arm64_big_sur:  "c2092ad9f0905d037464588813f8e833993e0a8c297fd24b6145b07c38d0b300"
+    sha256 cellar: :any, sonoma:         "a8154d33e0cc488e7378f76e4e7c68992b9ae37db2fa618bf29061046fa48359"
     sha256 cellar: :any, ventura:        "8d45c1905c641b2cebaa6997bf5c194d481925e5313ef25534361b4fde198095"
     sha256 cellar: :any, monterey:       "ea4fe701f3bc87f9f248e507e0c354c7601b31dc298a0c2972fe5b759e949d6b"
     sha256 cellar: :any, big_sur:        "b90a3fd3f328c9decef3fd6e511f2fe64dded1d90b5432a54073cef5f902a68d"
