@@ -3,8 +3,8 @@ class Uhdm < Formula
 
   desc "Universal Hardware Data Model, modeling of the SystemVerilog Object Model"
   homepage "https://github.com/chipsalliance/UHDM"
-  url "https://github.com/chipsalliance/UHDM/archive/refs/tags/v1.74.tar.gz"
-  sha256 "92cefa641610457772c91d45864e3f4d65bfa0bf300886dc3067a561358a8eed"
+  url "https://github.com/chipsalliance/UHDM/archive/refs/tags/v1.75.tar.gz"
+  sha256 "7dcb999a6b04b1abe40d40db25e6269470313c09804ce8285cc450c2f0bcd446"
   license "Apache-2.0"
   head "https://github.com/chipsalliance/UHDM.git", branch: "master"
 
@@ -46,10 +46,6 @@ class Uhdm < Formula
       "-DPython3_EXECUTABLE=#{buildpath}/venv/bin/python", *std_cmake_args
     system "cmake", "--build", "build_shared"
     system "cmake", "--install", "build_shared"
-
-    # moving to share
-    # https://github.com/chipsalliance/UHDM/pull/1013
-    rm lib/"UHDM.capnp"
   end
 
   test do
