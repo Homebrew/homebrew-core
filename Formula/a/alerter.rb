@@ -1,9 +1,10 @@
 class Alerter < Formula
   desc "Send User Alert Notification on macOS from the command-line"
   homepage "https://github.com/vjeantet/alerter"
-  url "https://github.com/vjeantet/alerter/archive/refs/tags/004.tar.gz"
-  sha256 "c4c16735e1a57ce04a5acfa762bd44ab8ef10884308725ab886b984b1de17bfe"
+  url "https://github.com/vjeantet/alerter/archive/refs/tags/1.0.1.tar.gz"
+  sha256 "62db4c068a312859a92f7eb92440cac5eca5f1bca8847fa3aaceb883f28d4767"
   license "MIT"
+  version_scheme 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9bfb9d6b53d55393286a21be46b9581de60f7c2c1b30f487b8eb0762f9210925"
@@ -14,14 +15,11 @@ class Alerter < Formula
     sha256 cellar: :any_skip_relocation, mojave:         "894f1e5649ce05f1413d4bab20b9faf97dc19800698472535907811b930fc498"
   end
 
-  # https://github.com/vjeantet/alerter/issues/53
-  deprecate! date: "2023-05-09", because: :does_not_build
-
   depends_on xcode: :build
   depends_on :macos
 
   def install
-    xcodebuild "-arch", Hardware::CPU.arch,
+    xcodebuild "-arch", Hardware::CPU.arch.to_s,
                 "-project", "alerter.xcodeproj",
                 "-target", "alerter",
                 "-configuration", "Release",
