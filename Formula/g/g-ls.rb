@@ -9,6 +9,7 @@ class GLs < Formula
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")
+    bin.install_symlink "g-ls" => "g"
   end
 
   test do
