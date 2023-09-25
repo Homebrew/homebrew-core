@@ -23,12 +23,6 @@ class Chapel < Formula
   # LLVM is built with gcc11 and we will fail on linux with gcc version 5.xx
   fails_with gcc: "5"
 
-  # Work around Homebrew 11-arm64 CI issue, which outputs unwanted objc warnings like:
-  # objc[42134]: Class ... is implemented in both ... One of the two will be used. Which one is undefined.
-  # These end up incorrectly failing checkChplInstall test script when it checks for stdout/stderr.
-  # TODO: remove when Homebrew CI no longer outputs these warnings or 11-arm64 is no longer used.
-  patch :DATA
-
   def llvm
     deps.map(&:to_formula).find { |f| f.name.match? "^llvm" }
   end
@@ -110,17 +104,3 @@ class Chapel < Formula
     system bin/"chpl", "--print-passes", "--print-commands", libexec/"examples/hello.chpl"
   end
 end
-
-__END__
-diff --git a/util/test/checkChplInstall b/util/test/checkChplInstall
-index 7d2eb78a88..a9ddf22054 100755
---- a/util/test/checkChplInstall
-+++ b/util/test/checkChplInstall
-@@ -189,6 +189,7 @@ fi
- if [ -n "${TEST_COMP_OUT}" ]; then
-     # apply "prediff"-like filter to remove gmake "clock skew detected" warnings, if any
-     TEST_COMP_OUT=$( grep <<<"${TEST_COMP_OUT}" -v \
-+        -e '^objc\(\[[0-9]*\]\)*: Class .* is implemented in both .* One of the two will be used\. Which one is undefined\. *$' \
-         -e '^g*make\(\[[0-9]*\]\)*: Warning: File .* has modification time .* in the future *$' \
-         -e '^g*make\(\[[0-9]*\]\)*: warning:  Clock skew detected\.  Your build may be incomplete\. *$' )
- fi

@@ -9,9 +9,11 @@ class Mongosh < Formula
 
   bottle do
     rebuild 1
+    sha256                               arm64_sonoma:   "b5a84fe8b3f279d244f2afd5c9d60456ece09c0ed7ff278c57374481b96c3967"
     sha256                               arm64_ventura:  "48bcfea84d679548db10cd2721754c8e44253de9a10b863176d40d8320829dd6"
     sha256                               arm64_monterey: "fb5da67af28fc05d2778bc3b0a504bb28800e83c84b3f4448cc3d6e8843f774d"
     sha256                               arm64_big_sur:  "c9f100c478778fafb3fa6f3d099ab6475b670770be73fc6d4267e26d4de5fceb"
+    sha256                               sonoma:         "3c85e6c282609a26de407841f105390a9fc21117d357218e1e9907f3c9e81c64"
     sha256                               ventura:        "8d83db48a99274d8b11516bef376110a59cf7c27346d08cc5cda0bd4e3a76e3e"
     sha256                               monterey:       "3f134553b42bf5f0e518e2f73eb2814a361a4fbc79d62d28bab460c9c8b9fd76"
     sha256                               big_sur:        "f03488ab4dc6483dabdab04b6454ce81fda98e97927cc1621dfcb627cfb48381"
