@@ -5,6 +5,7 @@ class Chapel < Formula
   sha256 "9fb139756ebb63ab722856273457673fc7368b26d9a9483333650510506c0a96"
   license "Apache-2.0"
   head "https://github.com/chapel-lang/chapel.git", branch: "main"
+
   bottle do
     sha256 arm64_ventura:  "8563f116d96b3c89a6de8316020ab25fd27be13f7641d8f223c7c79770eba8ca"
     sha256 arm64_monterey: "6f6da8d43cd744b9e6a8f0026962dcb66c86fe4ffb5dc684e5302a58fbd01247"
