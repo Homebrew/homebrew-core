@@ -79,7 +79,7 @@ class Seexpr < Formula
                           #         | #   #
                           #         | ##  #
                           #         |  #  #
-                                    |  ###
+                                    |  ####
                           #         |   ##
                           #         |
     EOS
