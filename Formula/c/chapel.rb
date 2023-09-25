@@ -1,7 +1,7 @@
 class Chapel < Formula
   desc "Programming language for productive parallel computing at scale"
   homepage "https://chapel-lang.org/"
-  url “https://chapel-lang.org/tmp/chapel-1.32.0.tar.gz”
+  url "https://chapel-lang.org/tmp/chapel-1.32.0.tar.gz"
   sha256 "9fb139756ebb63ab722856273457673fc7368b26d9a9483333650510506c0a96"
   license "Apache-2.0"
   head "https://github.com/chapel-lang/chapel.git", branch: "main"
@@ -17,7 +17,7 @@ class Chapel < Formula
 
   depends_on "cmake"
   depends_on "gmp"
-  depends_on "llvm@14"
+  depends_on "llvm@15"
   depends_on "python@3.11"
 
   # LLVM is built with gcc11 and we will fail on linux with gcc version 5.xx
