@@ -1,21 +1,18 @@
 class Eza < Formula
   desc "Modern, maintained replacement for ls"
   homepage "https://github.com/eza-community/eza"
-  url "https://github.com/eza-community/eza/archive/refs/tags/v0.13.0.tar.gz"
-  sha256 "3b774d1396f7aa5382d358133f2923a49639b1c615fea0942cbc63042c15830b"
+  url "https://github.com/eza-community/eza/archive/refs/tags/v0.13.1.tar.gz"
+  sha256 "f175e21114cbea292fab35145428a54c58a69c22d871786eb6b0d7248f874ccf"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "152f8f4eff8fe2692b5e17de5dd0e0a1b6466d46751f540f43bdffcaa24846c0"
-    sha256 cellar: :any,                 arm64_monterey: "c65f4b66b4c4b4893e11527b96577b15bbbaa28b59f313e3eb1c1b60e697f571"
-    sha256 cellar: :any,                 arm64_big_sur:  "3e53f0369476b20573591b186cf9c59e614af9200b41d5a4233db1535f521d0d"
-    sha256 cellar: :any,                 ventura:        "e03e871cd4020d2343437e928b0d3da64ed4231c93e4075e48cde84e49c9238d"
-    sha256 cellar: :any,                 monterey:       "3bf49eb11d085c06100a26abb10a482a1406ea018083d90116c713856b0d3499"
-    sha256 cellar: :any,                 big_sur:        "fca6c8aa6dab59d38bb781f2dfd8e25a740fbf57a87a938a15e2cea1b3f8c143"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "02e550785e27ca1e262f711cd513ad03725e9ed7a5cf5c8ed31133ebbeecd047"
+    sha256 cellar: :any,                 arm64_ventura:  "40f40db53fe4b1f0eb317616e0b18d94ce8b3579c8160682b7e0d60a4247e0b5"
+    sha256 cellar: :any,                 arm64_monterey: "d6bfa6bb483181680e858ea1797a37861b2ca9db1f5f402ad90ef073e2680d80"
+    sha256 cellar: :any,                 ventura:        "a3304d733a77501b006c379fc87ccfeede3d642913f9dbde88334644d2878fbc"
+    sha256 cellar: :any,                 monterey:       "1b60f38239373ece20eb6904112b46f46c1641bf2ad6caa11dfc4589f24f4d5d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fc7f8d706c17454d3b68b38682452c69b183a9d5d48d9c8132854fb66b6a2905"
   end
 
-  depends_on "just" => :build
   depends_on "pandoc" => :build
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
@@ -25,12 +22,20 @@ class Eza < Formula
     system "cargo", "install", *std_cargo_args
 
     bash_completion.install "completions/bash/eza"
-    zsh_completion.install  "completions/zsh/_eza"
     fish_completion.install "completions/fish/eza.fish"
+    zsh_completion.install  "completions/zsh/_eza"
 
-    system "just", "man"
-    man1.install (buildpath/"target/man").glob("*.1")
-    man5.install (buildpath/"target/man").glob("*.5")
+    args = %w[
+      --standalone
+      --from=markdown
+      --to=man
+    ]
+    system "pandoc", *args, "man/eza.1.md", "-o", "eza.1"
+    system "pandoc", *args, "man/eza_colors.5.md", "-o", "eza_colors.5"
+    system "pandoc", *args, "man/eza_colors-explanation.5.md", "-o", "eza_colors-explanation.5"
+
+    man1.install buildpath.glob("*.1")
+    man5.install buildpath.glob("*.5")
   end
 
   test do
@@ -40,13 +45,13 @@ class Eza < Formula
 
     # Test git integration
     flags = "--long --git --no-permissions --no-filesize --no-user --no-time --color=never"
-    exa_output = proc { shell_output("#{bin}/eza #{flags}").lines.grep(/#{testfile}/).first.split.first }
+    eza_output = proc { shell_output("#{bin}/eza #{flags}").lines.grep(/#{testfile}/).first.split.first }
     system "git", "init"
-    assert_equal "-N", exa_output.call
+    assert_equal "-N", eza_output.call
     system "git", "add", testfile
-    assert_equal "N-", exa_output.call
+    assert_equal "N-", eza_output.call
     system "git", "commit", "-m", "Initial commit"
-    assert_equal "--", exa_output.call
+    assert_equal "--", eza_output.call
 
     linkage_with_libgit2 = (bin/"eza").dynamically_linked_libraries.any? do |dll|
       next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)

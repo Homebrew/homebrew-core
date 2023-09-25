@@ -2,21 +2,19 @@ class Aliddns < Formula
   desc "Aliyun(Alibaba Cloud) ddns for golang"
   homepage "https://github.com/OpenIoTHub/aliddns"
   url "https://github.com/OpenIoTHub/aliddns.git",
-      tag:      "v0.0.20",
-      revision: "b2fd114d9d9c0cc9e01a1f4d794a5d609a2c350a"
+      tag:      "v0.0.21",
+      revision: "a447f1ef43f22c2eb2fddd59486ed0ef8257c26e"
   license "MIT"
   head "https://github.com/OpenIoTHub/aliddns.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8f33fa881de1a3b228a1a1a5fddb8aeb5b6a041ff2d9aa0fb0f03d2ffc8ec3eb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "51af64187981042422c57f4a4e41e977ddf974a3e22eb5b38c7863131979f0ae"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "51af64187981042422c57f4a4e41e977ddf974a3e22eb5b38c7863131979f0ae"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "51af64187981042422c57f4a4e41e977ddf974a3e22eb5b38c7863131979f0ae"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3c977acb6f8b3f55ee1e43990cdd63d62019b3801e76b60048a5bcc48bd4fd31"
-    sha256 cellar: :any_skip_relocation, ventura:        "af66b16954c12eb3e2b94da43422296f7c985824591224dc067cbc09ce4ba1ef"
-    sha256 cellar: :any_skip_relocation, monterey:       "af66b16954c12eb3e2b94da43422296f7c985824591224dc067cbc09ce4ba1ef"
-    sha256 cellar: :any_skip_relocation, big_sur:        "af66b16954c12eb3e2b94da43422296f7c985824591224dc067cbc09ce4ba1ef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4c0792941223e0d472adba98a65cddc7cbd9b62ad3f0eea6417b6c0780810ef6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5c1fa2a07776d26dafa155430ec3a5bbb8b15d1226813a23ceb324da02505f70"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ff644cca8f603741b2cac0270532760e3aaf43020cb127a5286f9ce11e40947d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b9f71ddb20f2bd87060176f29840ca105e33b7d5bc903c9fc9bb19d57d384c47"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0353c94a70f7e5c45b9d71b12c833d44cd857243a317eb0a21b39cc0cd660d35"
+    sha256 cellar: :any_skip_relocation, ventura:        "c97544de0b6440bb45194b1adf7ac134e10749c0b9100b49ffeb65484c505955"
+    sha256 cellar: :any_skip_relocation, monterey:       "68092f8e491659a60f21aaaec4531b72e21e80456750c5fff92020bb3053b074"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "733e0842cafc07964c54b1cd32f1c1dde98c537fd4272bf5003a05d72969884b"
   end
 
   depends_on "go" => :build

@@ -7,9 +7,11 @@ class GeocodeGlib < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any, arm64_sonoma:   "8708a046c31e0b0695c6f3624f890ae37ae17ce0c6a41e9dce8c60da9b9069c0"
     sha256 cellar: :any, arm64_ventura:  "810645cd7021c31a2b79a367a46341a119235b6edd9762d520f2e4742d85a152"
     sha256 cellar: :any, arm64_monterey: "cd7f32a773538d43539177540e21bee914a32fab1ac0497e9867cf49bc7926fe"
     sha256 cellar: :any, arm64_big_sur:  "a87fb2ae45e7bc56fd06e61f0260217506aaa6fadd4040305b424fbc3e292ac8"
+    sha256 cellar: :any, sonoma:         "ca22f0812483024d53032d21ee28d515a78a9fc86ab0fd2fab0c7c75cf810795"
     sha256 cellar: :any, ventura:        "53824bb51dce74868891a9ecf72b35688fa5d642f812f9bbcbd2f97627b7b659"
     sha256 cellar: :any, monterey:       "657fcab9602371c260494510436cecf83e37f7526e2d96fd9ee87b133fd73547"
     sha256 cellar: :any, big_sur:        "46f8b7fb5ae054a58b11bf54b7869335fa7b29b82875dbe4f14b9aa50b43c7cb"

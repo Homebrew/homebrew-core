@@ -1,19 +1,19 @@
 class Counts < Formula
   desc "Tool for ad hoc profiling"
   homepage "https://github.com/nnethercote/counts"
-  url "https://github.com/nnethercote/counts/archive/refs/tags/1.0.3.tar.gz"
-  sha256 "1cbe4e5278b8f82d7b6564751e22e96fac36c5b5ee846afd1df47e516342e031"
+  url "https://github.com/nnethercote/counts/archive/refs/tags/1.0.4.tar.gz"
+  sha256 "fe4f869f9cf49a8aae57858e0ed4c76ea5f849db1445a2013d45a8e020b764c0"
   license "Unlicense"
   head "https://github.com/nnethercote/counts.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "38f55c6b7c4726093d387407511155d010fd2cbaa152b1b982bd8cfd54643a47"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "66941009740d7b6325920ab2a9e301a6fc06cd48713e202999dd9b021b2829b3"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "070aab378598e36db9ab4c2699ecb4a572a0235f4ef04c4fb7f19abffc95adeb"
-    sha256 cellar: :any_skip_relocation, ventura:        "2d66e4a9002d52c3647195978ecb223dc76634a9e577a8980768d50ea5645b4e"
-    sha256 cellar: :any_skip_relocation, monterey:       "89dc49546d6510e8ac7901ae163a68af0ab763a85645dd7efe898c3d5b01cda1"
-    sha256 cellar: :any_skip_relocation, big_sur:        "22c64e5c8b35fa8ed743c14e67326177b2823aa116c0416534e96e6aed59c191"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "23345f07529c12d512021a15737266205a16d176eca74c07c84c39dea4638856"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bb7bb551f6987542cace13619dbab2bce843a0c54b0add2090894e7f24b47623"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9f743f71875e3dd582631c35c4d4a9d2fb0850f7c170e294898ece405623b902"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ead496d9dd7dd01fc848d4f47465f872d1b942be786773ab6dbab5f05e805b55"
+    sha256 cellar: :any_skip_relocation, sonoma:         "8f35bb0445dc8cb22aeb6b08739d76ef4ecf72803d8224b5d1268a4912142a37"
+    sha256 cellar: :any_skip_relocation, ventura:        "51668f2ff93d15c246b5a7d57e2aebc235cae290cbde763965fdabc1d1d6c2a0"
+    sha256 cellar: :any_skip_relocation, monterey:       "a4ea94d074f19ef53137496307d5887f6590d9542d314b157022c0ca9f68427e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "263fa00c97a3aa55d4857bd1e1ae79d2b1b94f9aafcd7d6f50040cd9bbd7098a"
   end
 
   depends_on "rust" => :build

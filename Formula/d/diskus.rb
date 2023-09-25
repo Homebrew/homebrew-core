@@ -7,9 +7,11 @@ class Diskus < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "28c1375f94ba0ff11a36e06628b22d49b76fa5f565c8a09d91fd346b7a60c36b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "17eeae141efc2ea4eb096bcad53246a699bb486fe1b70cbd3e0530b4ea36ea69"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1b851bd62c52e63a8c583eda93cdbb49efe75295f55a2811cf6d9cd7e18359f6"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c07b7ab1808da13bf85de3224a240012ca31fb007a2b66db3987499681994ff6"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c50d69fb03e11b072f89a179ea137e143388f1b2e74e9811f6f719d6eb5ce0c5"
     sha256 cellar: :any_skip_relocation, ventura:        "f9b0c91217bee8c3b6b734bbf781315219a91f6ac62cb21e56ee1d190e8c65c8"
     sha256 cellar: :any_skip_relocation, monterey:       "6d0d71a9315253cbf3dc7aeaa7ecb0bfd4d2d26773d97f530a4b95fd3a2ffa35"
     sha256 cellar: :any_skip_relocation, big_sur:        "c823e41546c43c955d5756e22f098188154f7875af6a834794278e88a100d55a"
