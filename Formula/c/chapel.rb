@@ -1,8 +1,8 @@
 class Chapel < Formula
   desc "Programming language for productive parallel computing at scale"
   homepage "https://chapel-lang.org/"
-  url "https://github.com/chapel-lang/chapel/releases/download/1.31.0/chapel-1.31.0.tar.gz"
-  sha256 "4b861c9a354f6fcf66081256f7ec703d6dd2cd68ea363b400d10ac00bf308679"
+  url "https://chapel-lang.org/tmp/chapel-1.32.0.tar.gz"
+  sha256 "9fb139756ebb63ab722856273457673fc7368b26d9a9483333650510506c0a96"
   license "Apache-2.0"
   head "https://github.com/chapel-lang/chapel.git", branch: "main"
 
@@ -18,17 +18,11 @@ class Chapel < Formula
 
   depends_on "cmake"
   depends_on "gmp"
-  depends_on "llvm@14"
+  depends_on "llvm@15"
   depends_on "python@3.11"
 
   # LLVM is built with gcc11 and we will fail on linux with gcc version 5.xx
   fails_with gcc: "5"
-
-  # Work around Homebrew 11-arm64 CI issue, which outputs unwanted objc warnings like:
-  # objc[42134]: Class ... is implemented in both ... One of the two will be used. Which one is undefined.
-  # These end up incorrectly failing checkChplInstall test script when it checks for stdout/stderr.
-  # TODO: remove when Homebrew CI no longer outputs these warnings or 11-arm64 is no longer used.
-  patch :DATA
 
   def llvm
     deps.map(&:to_formula).find { |f| f.name.match? "^llvm" }
@@ -50,6 +44,8 @@ class Chapel < Formula
     (libexec/"chplconfig").write <<~EOS
       CHPL_RE2=bundled
       CHPL_GMP=system
+      CHPL_MEM=cstdlib
+      CHPL_TASKS=fifo
       CHPL_LLVM_CONFIG=#{llvm.opt_bin}/llvm-config
       CHPL_LLVM_GCC_PREFIX=none
     EOS
@@ -109,17 +105,3 @@ class Chapel < Formula
     system bin/"chpl", "--print-passes", "--print-commands", libexec/"examples/hello.chpl"
   end
 end
-
-__END__
-diff --git a/util/test/checkChplInstall b/util/test/checkChplInstall
-index 7d2eb78a88..a9ddf22054 100755
---- a/util/test/checkChplInstall
-+++ b/util/test/checkChplInstall
-@@ -189,6 +189,7 @@ fi
- if [ -n "${TEST_COMP_OUT}" ]; then
-     # apply "prediff"-like filter to remove gmake "clock skew detected" warnings, if any
-     TEST_COMP_OUT=$( grep <<<"${TEST_COMP_OUT}" -v \
-+        -e '^objc\(\[[0-9]*\]\)*: Class .* is implemented in both .* One of the two will be used\. Which one is undefined\. *$' \
-         -e '^g*make\(\[[0-9]*\]\)*: Warning: File .* has modification time .* in the future *$' \
-         -e '^g*make\(\[[0-9]*\]\)*: warning:  Clock skew detected\.  Your build may be incomplete\. *$' )
- fi
