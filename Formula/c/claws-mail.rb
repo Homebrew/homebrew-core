@@ -29,6 +29,9 @@ class ClawsMail < Formula
   depends_on "nettle"
 
   def install
+    # Workaround for Xcode 14.3
+    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+
     system "./configure", "--prefix=#{prefix}",
                           "LDFLAGS=-Wl,-framework -Wl,Security",
                           "--disable-archive-plugin",
