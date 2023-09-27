@@ -62,6 +62,7 @@ class ErlangAT25 < Formula
     if OS.mac?
       args << "--enable-darwin-64bit"
       args << "--enable-kernel-poll" if MacOS.version > :el_capitan
+      args << "--disable-jit" if MacOS.version == :sonoma
       args << "--with-dynamic-trace=dtrace" if MacOS::CLT.installed?
     end
 
