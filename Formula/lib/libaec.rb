@@ -1,8 +1,8 @@
 class Libaec < Formula
   desc "Adaptive Entropy Coding implementing Golomb-Rice algorithm"
   homepage "https://gitlab.dkrz.de/k202009/libaec"
-  url "https://gitlab.dkrz.de/k202009/libaec/-/archive/v1.0.6/libaec-v1.0.6.tar.bz2"
-  sha256 "31fb65b31e835e1a0f3b682d64920957b6e4407ee5bbf42ca49549438795a288"
+  url "https://gitlab.dkrz.de/k202009/libaec/-/archive/v1.1.1/libaec-v1.1.1.tar.bz2"
+  sha256 "e091b1c0b5412565bd324d38fefb27ab7b603b7cdba9be317f5d6337a689abb7"
   license "BSD-2-Clause"
   head "https://gitlab.dkrz.de/k202009/libaec.git", branch: "master"
 
@@ -31,12 +31,9 @@ class Libaec < Formula
   link_overwrite "lib/libsz.so.2"
 
   def install
-    mkdir "build" do
-      # We run `make test` for libraries
-      system "cmake", "..", *std_cmake_args, "-DBUILD_TESTING=ON"
-      system "make", "install"
-      system "make", "test"
-    end
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
