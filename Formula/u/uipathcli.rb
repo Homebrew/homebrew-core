@@ -9,9 +9,7 @@ class Uipathcli < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build"
-    mv "uipathcli", "uipath"
-    bin.install "uipath"
+    system "go", "build", *std_go_args(ldflags: "-s -w", output: bin/"uipath")
 
     mv "definitions", "uipath-definitions"
     etc.install "uipath-definitions"
