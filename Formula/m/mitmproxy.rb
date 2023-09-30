@@ -3,8 +3,8 @@ class Mitmproxy < Formula
 
   desc "Intercept, modify, replay, save HTTP/S traffic"
   homepage "https://mitmproxy.org"
-  url "https://github.com/mitmproxy/mitmproxy/archive/refs/tags/10.0.0.tar.gz"
-  sha256 "c1884a3b6c33dca05488e483f19dd13cefac6367e16bdf5961c8a9ff4105b9cc"
+  url "https://github.com/mitmproxy/mitmproxy/archive/refs/tags/10.1.1.tar.gz"
+  sha256 "da9af007877772eb6adac33a1e4f0e743b0567a02c1d755a99c6cefdfadf437e"
   license "MIT"
   head "https://github.com/mitmproxy/mitmproxy.git", branch: "main"
 
@@ -51,13 +51,13 @@ class Mitmproxy < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/72/bd/fedc277e7351917b6c4e0ac751853a97af261278a4c7808babafa8ef2120/click-8.1.6.tar.gz"
-    sha256 "48ee849951919527a045bfe3bf7baa8a959c423134e1a5b98c05c20ba75a1cbd"
+    url "https://files.pythonhosted.org/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz"
+    sha256 "ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de"
   end
 
   resource "flask" do
-    url "https://files.pythonhosted.org/packages/4d/00/ef81c18da32fdfcde6381c315f4b11597fb6691180a330418848efee0ae7/Flask-2.3.2.tar.gz"
-    sha256 "8c2f9abd47a9e8df7f0c3f091ce9497d011dc3b31effcf4c85a6e2b50f4114ef"
+    url "https://files.pythonhosted.org/packages/46/b7/4ace17e37abd9c21715dea5ee11774a25e404c486a7893fa18e764326ead/flask-2.3.3.tar.gz"
+    sha256 "09c347a92aa7ff4a8e7f3206795f30d826654baf38b873d0744cd571ca609efc"
   end
 
   resource "h11" do
@@ -106,17 +106,13 @@ class Mitmproxy < Formula
   end
 
   resource "mitmproxy-rs" do
-    url "https://files.pythonhosted.org/packages/d5/94/8ebe25c964595b6394201a96083631f43d87b86c5cea70bfdcc09790923f/mitmproxy_rs-0.2.2.tar.gz"
-    sha256 "64493b1aeb13d1c1f0d746fc8633d3ba378788cdb689f408683cd0c4783a872f"
-
-    # Allow brewed `protoc` to be used. Patch adjusted to match path in tarball.
-    # Upstream PR: https://github.com/mitmproxy/mitmproxy_rs/pull/85
-    patch :DATA
+    url "https://files.pythonhosted.org/packages/06/30/085d634610961277faebe319ee76f145ea92ce6cbea2e5f5c6dba74e2005/mitmproxy_rs-0.3.11.tar.gz"
+    sha256 "5dddb1360dbfc659e13616ed62797ca6c7cfabdcc03674da75a2851c6044eecd"
   end
 
   resource "msgpack" do
-    url "https://files.pythonhosted.org/packages/dc/a1/eba11a0d4b764bc62966a565b470f8c6f38242723ba3057e9b5098678c30/msgpack-1.0.5.tar.gz"
-    sha256 "c075544284eadc5cddc70f4757331d99dcbc16b2bbd4849d15f8aae4cf36d31c"
+    url "https://files.pythonhosted.org/packages/c2/d5/5662032db1571110b5b51647aed4b56dfbd01bfae789fa566a2be1f385d1/msgpack-1.0.7.tar.gz"
+    sha256 "572efc93db7a4d27e404501975ca6d2d9775705c2d922390d878fcf768d92c87"
   end
 
   resource "passlib" do
@@ -155,8 +151,8 @@ class Mitmproxy < Formula
   end
 
   resource "ruamel-yaml" do
-    url "https://files.pythonhosted.org/packages/63/dd/b4719a290e49015536bd0ab06ab13e3b468d8697bec6c2f668ac48b05661/ruamel.yaml-0.17.32.tar.gz"
-    sha256 "ec939063761914e14542972a5cba6d33c23b0859ab6342f61cf070cfc600efc2"
+    url "https://files.pythonhosted.org/packages/27/fc/73edf1269fab4ae08ada602f4bf17b0a0428b3bf10574c2ea7331d73f87d/ruamel.yaml-0.17.33.tar.gz"
+    sha256 "5c56aa0bff2afceaa93bffbfc78b450b7dc1e01d5edb80b3a570695286ae62b1"
   end
 
   resource "ruamel-yaml-clib" do
@@ -170,8 +166,8 @@ class Mitmproxy < Formula
   end
 
   resource "tornado" do
-    url "https://files.pythonhosted.org/packages/30/f0/6e5d85d422a26fd696a1f2613ab8119495c1ebb8f49e29f428d15daf79cc/tornado-6.3.2.tar.gz"
-    sha256 "4b927c4f19b71e627b13f3db2324e4ae660527143f9e1f2e2fb404f3a187e2ba"
+    url "https://files.pythonhosted.org/packages/48/64/679260ca0c3742e2236c693dc6c34fb8b153c14c21d2aa2077c5a01924d6/tornado-6.3.3.tar.gz"
+    sha256 "e7d8db41c0181c80d76c982aacc442c0783a2c54d6400fe028954201a2e032fe"
   end
 
   resource "urwid-mitmproxy" do
@@ -180,8 +176,8 @@ class Mitmproxy < Formula
   end
 
   resource "werkzeug" do
-    url "https://files.pythonhosted.org/packages/d1/7e/c35cea5749237d40effc50ed1a1c7518d9f2e768fcf30b4e9ea119e74975/Werkzeug-2.3.6.tar.gz"
-    sha256 "98c774df2f91b05550078891dee5f0eb0cb797a522c757a2452b9cee5b202330"
+    url "https://files.pythonhosted.org/packages/8c/47/75c7099c78dc207486e30cdb2b16059ca6d5c6cdcf9290f4621368bd06e4/werkzeug-3.0.0.tar.gz"
+    sha256 "3ffff4dcc32db52ef3cc94dff3000a3c2846890f3a5a51800a27b909c5e770f0"
   end
 
   resource "wsproto" do
@@ -205,22 +201,3 @@ class Mitmproxy < Formula
     assert_match version.to_s, shell_output("#{bin}/mitmproxy --version 2>&1")
   end
 end
-
-__END__
---- a/local_dependencies/mitmproxy/build.rs
-+++ b/local_dependencies/mitmproxy/build.rs
-@@ -1,9 +1,11 @@
- extern crate prost_build;
- 
- fn main() {
--    if let Ok(protoc_path) = protoc_bin_vendored::protoc_bin_path() {
--        std::env::set_var("PROTOC", protoc_path);
--    }
-+    let protoc_path = match std::env::var("PROTOC") {
-+        Ok(path) if !path.is_empty() => std::path::PathBuf::from(path),
-+        _ => protoc_bin_vendored::protoc_bin_path().expect("protoc is not available"),
-+    };
-+    std::env::set_var("PROTOC", protoc_path);
- 
-     prost_build::compile_protos(
-         &["./src/packet_sources/ipc.proto"],
