@@ -49,6 +49,13 @@ class Gettext < Formula
       "--with-libxml2-prefix=#{Formula["libxml2"].opt_prefix}"
     end
 
+    ENV.append "LDFLAGS", "-framework CoreServices" if OS.mac? && MacOS.version == :sonoma
+    # Fix for https://github.com/aria2/aria2/issues/2083#issuecomment-1694662007
+    # and for https://github.com/Homebrew/homebrew-core/issues/142161#issuecomment-1721238248
+    # CoreServices is not linked to gettext on Sonoma, causing aria2c to fail.
+    # So we have to explicitly link CoreServices to gettext.
+    # Seems to be a bug of Sonoma, maybe fixed in the future by Apple.
+
     system "./configure", *std_configure_args, *args
     system "make"
     ENV.deparallelize # install doesn't support multiple make jobs
