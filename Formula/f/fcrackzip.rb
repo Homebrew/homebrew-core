@@ -12,9 +12,11 @@ class Fcrackzip < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "700f97b777acb4ab39338dc9b973e5ab40ffee93835841df970a6a392a17e6b7"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f647bed7b093952f1bb75429f8f7f00105d0468c7d6b5648db46d8b1ea39c190"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "46183b85780286b34ec981a6f694271bcb62270238c94eafd02bbf0cbeb6beae"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "294092e8601910f3a9120838024621a5604c00bec67cc8fb8e759a8ae2ced914"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4b3a83a7678897109e42f39b45cbb151d1f31451d317f89d9c8118be09142aed"
     sha256 cellar: :any_skip_relocation, ventura:        "0fc4f365ee4ffbe7a4491417f1e1da010482b8cbb7659394e6d7e045d86308df"
     sha256 cellar: :any_skip_relocation, monterey:       "c56dbffcc544f7261854bbab1090fc6e4e629661c2db97fbde54c8aedff53421"
     sha256 cellar: :any_skip_relocation, big_sur:        "162a84d06c9ce84300bbbe52feadc1c189de2a7f2dbd5667ca13647c941883a6"

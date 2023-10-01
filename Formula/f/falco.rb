@@ -7,9 +7,11 @@ class Falco < Formula
   head "https://github.com/ysugimoto/falco.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3e47b5b6348dad4bb035855f24931ad3b689f0d2e280961daa8dff2bcb05e420"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "654a8161c2922f3f300c9652e5940bfba19abff5cba06945376f2023ee9573b0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "fe18424315a0c16dc5c6820bd1e5332b2165b05186641e077b7e5f715635f2c2"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5141fcd9e8a9f74051f31880c0f54dfdb4d31dc2bc379e5acd1bbeab4d4bedd8"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0476b7cfa96565b67af027440a0da85cf19e4b309b272e85d8d954222a0ac5fc"
     sha256 cellar: :any_skip_relocation, ventura:        "e3544996d0f846c98f6a511fa62b7ba73a00eebc5f353c9f3ea9cd040a8764a2"
     sha256 cellar: :any_skip_relocation, monterey:       "ead096cd6b94190c35fa5e9b0d1bf2c8af34eb81565a421e043268870b147a31"
     sha256 cellar: :any_skip_relocation, big_sur:        "20c9204e3e05a4c79e39aaa7953913535c64c28965748b3f1e697ade301f46b4"

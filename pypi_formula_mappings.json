@@ -870,7 +870,7 @@
     ]
   },
   "slither-analyzer": {
-    "exclude_packages": ["certifi"]
+    "exclude_packages": ["certifi", "packaging"]
   },
   "snakefmt": {
     "exclude_packages": ["black", "toml"]
@@ -881,6 +881,9 @@
   "snapcraft": {
     "exclude_packages": ["docutils", "packaging", "pytz", "pyyaml", "six", "tabulate", "typing-extensions"],
     "extra_packages": ["catkin_pkg", "pydantic-yaml[yaml]<1", "setuptools<60"]
+  },
+  "solc-select": {
+    "exclude_packages": ["packaging"]
   },
   "sphinx-doc": {
     "extra_packages": ["numpydoc"],

@@ -9,23 +9,18 @@ class SolcSelect < Formula
   head "https://github.com/crytic/solc-select.git", branch: "dev"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "54a572a5e1b336a0b695b633de9eccb006a1a4ab64eb430d91a625fbacf8e744"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "33c9c5baba1102e62d30fe93d47e0ae3c88e1264880a365afd794000281c9191"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e81a047baa31cc208e54317b5a6dfa3a9259b306a4f71c2fc7db6bba12636782"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b4ddd9ff9c92f38908bfd92bc6cba18788afb24c8514c859a917806c5877147e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3dfb69396e5ab572a9b203768342b00aafaf3d57f83a9241aac644a4c7deb24e"
-    sha256 cellar: :any_skip_relocation, ventura:        "aff06bba18ec3b7294a317c1bf8b282ee421cf70f8ac361d6c08044346bcc36a"
-    sha256 cellar: :any_skip_relocation, monterey:       "89637261e8e0a45d698008c28b2937fbc5050410450ae1320caadee01515d56f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ce63982a9ba547fe60daba1adf434e1decfa7f463c0795bbb75464ac27650d53"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b78982e23ddd3d162e641bc3a0071fccc6291716ac2833e5215a17df892a102e"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9cf59601d61086ab74c165574fe513edbd9e8384cea4da76e805784e81b6e888"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ea7c74ba5c8fa0ea57f08b655fce6afc11b10dd3ddf49aec2e5e5457c7e7d578"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "628441d6cf3a5731799d105fcbbd6662a6b031063f973678d6249c81ba905f6b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f21bc3732eaa9a22c42a1bc14c5b88197cc30a6b4e985127a50358cb724d13bb"
+    sha256 cellar: :any_skip_relocation, ventura:        "292547b1bcf3f1c0aea3e084971590ac267ed0a9b331e716dd6f415afe8907da"
+    sha256 cellar: :any_skip_relocation, monterey:       "6a31497cfc757938cc08c0cd8d0644995c3111adc3c592bcba8ea1f1532f6ded"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eb78e6c185f55ca77219476d4c728c40c9c36b36d0e1666980387840fecec4f2"
   end
 
+  depends_on "python-packaging"
   depends_on "python@3.11"
-
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/b9/6c/7c6658d258d7971c5eb0d9b69fa9265879ec9a9158031206d47800ae2213/packaging-23.1.tar.gz"
-    sha256 "a392980d2b6cffa644431898be54b0045151319d1e7ec34f0cfed48767dd334f"
-  end
 
   resource "pycryptodome" do
     url "https://files.pythonhosted.org/packages/b9/05/0e7547c445bbbc96c538d870e6c5c5a69a9fa5df0a9df3e27cb126527196/pycryptodome-3.18.0.tar.gz"

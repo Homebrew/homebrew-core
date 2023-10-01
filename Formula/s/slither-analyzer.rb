@@ -9,21 +9,20 @@ class SlitherAnalyzer < Formula
   head "https://github.com/crytic/slither.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_sonoma:   "1562cb3f7337d3b1083a9438d3205c819b5bd42b08717528ac499d7854bcf668"
-    sha256 cellar: :any,                 arm64_ventura:  "b53ef0455922d77e4c38c2d67d5793ff70106b24971fa73995c93fd39e3b5031"
-    sha256 cellar: :any,                 arm64_monterey: "12c372a27282f8ed49ad4e258b44d8ed9d3849da4d2e3a926479c698d26c687c"
-    sha256 cellar: :any,                 arm64_big_sur:  "606bd9a245b686d3f5dc45ad54f1868c065c2d89fbbec8bc65513c4786e06592"
-    sha256 cellar: :any,                 sonoma:         "a2bccd0d1e873844c7a030a8485d2d9625add3723c204b334fb0278b08a6a2ba"
-    sha256 cellar: :any,                 ventura:        "34323dc966edf62da5d3711f30b9b1a088c69f0a59b31910aec6045423b5b1af"
-    sha256 cellar: :any,                 monterey:       "d95e7fb35645feae7a387f0c2977c20aea6996c8753ec5da6dc9b575343e59ed"
-    sha256 cellar: :any,                 big_sur:        "ab8ad4f631a2eb33587f619ef1ee8e65c7eea8138405952ca00dbba337b26fae"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1e7c402cada0071fe194bc1abcce90b0f58d7d3abdf1d062aa83659e1c4055c3"
+    rebuild 3
+    sha256 cellar: :any,                 arm64_sonoma:   "b660a2e1aa7261e025135d4b64bc6ad6022c788dc18fb454cd64bc7bfb24a57d"
+    sha256 cellar: :any,                 arm64_ventura:  "bd2440bac211a5e48ba33cf09ae64fb0fadbcd7dda69e9627dd1511f425ee169"
+    sha256 cellar: :any,                 arm64_monterey: "d9765b9c42d12764d580bdbaf2d9c92cc3b3137fafcc5ae55484671dcc0f6995"
+    sha256 cellar: :any,                 sonoma:         "b177ac60108ba97e20a09ed5a2a1a119ce6422232dafbe3161dd79cc2c379464"
+    sha256 cellar: :any,                 ventura:        "d150e60c7d18e172703415310c8cb072bdbaa4bb4ee769dc72df5fab319f12ee"
+    sha256 cellar: :any,                 monterey:       "853380ee73f917f8596cd620bbf2d34d9ed446ffcf39b18a4ce95da7b3b6a8bd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9344e25c4b1a3c801b656b79dc2be8750e3370a68cb4db2999ee6d8f71e82850"
   end
 
   depends_on "rust" => :build # for rpds-py
   depends_on "crytic-compile"
   depends_on "python-certifi"
+  depends_on "python-packaging"
   depends_on "python@3.11"
   depends_on "solc-select"
 
@@ -135,11 +134,6 @@ class SlitherAnalyzer < Formula
   resource "multidict" do
     url "https://files.pythonhosted.org/packages/4a/15/bd620f7a6eb9aa5112c4ef93e7031bcd071e0611763d8e17706ef8ba65e0/multidict-6.0.4.tar.gz"
     sha256 "3666906492efb76453c0e7b97f2cf459b0682e7402c0489a95484965dbc1da49"
-  end
-
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/b9/6c/7c6658d258d7971c5eb0d9b69fa9265879ec9a9158031206d47800ae2213/packaging-23.1.tar.gz"
-    sha256 "a392980d2b6cffa644431898be54b0045151319d1e7ec34f0cfed48767dd334f"
   end
 
   resource "parsimonious" do
