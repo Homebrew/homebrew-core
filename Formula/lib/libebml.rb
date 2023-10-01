@@ -12,9 +12,11 @@ class Libebml < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "8bee73741e7adeba6065c8fbd22e02a4907dacb3bf98fd8205617998583148d0"
     sha256 cellar: :any,                 arm64_ventura:  "6eb9f540875dd00954c2f7cc05b364afc758da99575624c62a0ca14e0895502e"
     sha256 cellar: :any,                 arm64_monterey: "ba75f1f3e72ba8c13b03cef0a7114c67449fd357498dec0c8f56b8ac4ba00454"
     sha256 cellar: :any,                 arm64_big_sur:  "67fc822f0ce6ebc4d2bc2026b49d0041f10d19d566b550f53c60ca271b498897"
+    sha256 cellar: :any,                 sonoma:         "8a53c87e949c4dcbf6c13baf5ed590ebe7afc31d18bbad93919836e49dc6640f"
     sha256 cellar: :any,                 ventura:        "e985e2c3dc576f7c170f2f874287d71a8b89d13303418eedfe72da0755300a0e"
     sha256 cellar: :any,                 monterey:       "ef6c2a1b92f0cc3fda10e64b64b752be40a5203414a64679f88f2ebcf8cbd2d4"
     sha256 cellar: :any,                 big_sur:        "14f622d3b763047022267439e48533de2e823dce152d2db89533efe2e97b323b"

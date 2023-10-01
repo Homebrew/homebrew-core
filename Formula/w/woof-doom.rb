@@ -1,18 +1,20 @@
 class WoofDoom < Formula
   desc "Woof! is a continuation of the Boom/MBF bloodline of Doom source ports"
   homepage "https://github.com/fabiangreffrath/woof"
-  url "https://github.com/fabiangreffrath/woof/archive/refs/tags/woof_11.3.0.tar.gz"
-  sha256 "3035b5d4d174f57067afa30721a5f1ba978a01ffa173e6a6bf691ee3cc4355fc"
+  url "https://github.com/fabiangreffrath/woof/archive/refs/tags/woof_12.0.0.tar.gz"
+  sha256 "9c27250ab3289f407ca58c6500fdcb4dc3c9f70693eb42b9cead3a525e4da5fa"
   license "GPL-2.0-only"
 
   bottle do
-    sha256 arm64_ventura:  "8e9176e9e0916b1cf2db483bd8355e9290706268131d539987f64bcb07798232"
-    sha256 arm64_monterey: "827ca4c2c6cc7de418d463825625b2d69817688de5278472bdeacb42fda3bb37"
-    sha256 arm64_big_sur:  "31fa2f32f2810b9f1cb9dbcce2a4f7cfedffde57575d5feb0136bdf5f74c5896"
-    sha256 ventura:        "9d7072933841b5a9b4d3f918d95e2579e3507a313bc78914eedba2239707fe58"
-    sha256 monterey:       "570a3fc8dbcfb08630217df365adee4e7c72e4722abe170e347b9d989f0d8c2a"
-    sha256 big_sur:        "c717480c3f4d9841c0bfa9d3213839afcf12fd03357f0b4aabdb12734eff061a"
-    sha256 x86_64_linux:   "b9d9871b9cb0fac8f7882f59e15e8a4735b6d8f37360685165bc130387c55597"
+    sha256 arm64_sonoma:   "272696d111b626b917191c9b2d2f01a7f6485b9e323534dc1a95833584c629d9"
+    sha256 arm64_ventura:  "1435dd815bd152e47a784482e13dc5648696e110416f493846428bc5de200f3c"
+    sha256 arm64_monterey: "bf211d3b9ecb07e1d0f63d86fa4b83177318280af492924e0c037a75896f7638"
+    sha256 arm64_big_sur:  "f19e4e52a79f87500e103ad142f3ecec6a080eac973cd662b623aa10681ff5b0"
+    sha256 sonoma:         "dc78f78bc1d3c6cf7a15d618a5796a480f52256f517faaa691104e26a572a97e"
+    sha256 ventura:        "dfe29d620379a8bb2bfe992437d815ea132b5197f36057d9346de542869bd36a"
+    sha256 monterey:       "425fcf2c84d2ebe2000816195a62c7ebe3fb19d46564b743b26365082194f2a2"
+    sha256 big_sur:        "65b38efa006d6ecd2541e72f5ae2ebfa4cf8c3933788c33002a29c63a1684687"
+    sha256 x86_64_linux:   "6a437e9062ee58685305c105012391a849f44e59df153dd19ba67b6857f60596"
   end
 
   depends_on "cmake" => :build

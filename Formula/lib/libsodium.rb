@@ -12,9 +12,11 @@ class Libsodium < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "b704745e5f0c13554118a0c2f4226b72858e051ec9fb6d4a49c6d8977862b718"
     sha256 cellar: :any,                 arm64_ventura:  "9a473cc4469e5f641ff79fac0331c7b86ac22778becd1155a2395e52346116d8"
     sha256 cellar: :any,                 arm64_monterey: "493ce4faacb1fba817e73213cde331a68f73531d89260200726cc17c1ca00797"
     sha256 cellar: :any,                 arm64_big_sur:  "ab7029c599665005a9c9ec9e72c74bf4d543fd7a995d9af9cfe9e6c10de79177"
+    sha256 cellar: :any,                 sonoma:         "69e549243d6de0ecc9a9a6a2014db77f16285505f7c4a5d92b9a39bab73794ef"
     sha256 cellar: :any,                 ventura:        "bbb929946689440afc6bb47effbc3e8d70db86e86c381d8ba99c1befc07e5602"
     sha256 cellar: :any,                 monterey:       "522ac3f26c646f3d276b0c997e1a2771559d4766362d28f16ca1a9585bc20206"
     sha256 cellar: :any,                 big_sur:        "5afc5678e30a174c1e46f1e905124f2619e6d9815ac776836090c0bff85631d6"

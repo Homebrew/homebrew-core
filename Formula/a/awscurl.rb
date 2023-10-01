@@ -11,9 +11,11 @@ class Awscurl < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6e1d0e1b4bf1257ebf6131cd773b9a252c0ed3b3a6af1e89f774de3bc9f89c0f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "651b2f50108becd6484226e3b99c27bd09e0a8efd0e4c70c278f3444e134527e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2c4b60f73cec473b28e2a7b9b269199b040a3dca89028d489957009dc9520e97"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1202043bbae6351d5ce3ef9611bf4094669aadd978e7940a545f76859ef1b0be"
+    sha256 cellar: :any_skip_relocation, sonoma:         "957dc6e4a71884db62bf910e3cdabe14a9de73473d7c173bdecd069076ecf716"
     sha256 cellar: :any_skip_relocation, ventura:        "15a4df9347fe5900fa2c3793074a82f99ce77f8fc024414623c85cdfaa64adc1"
     sha256 cellar: :any_skip_relocation, monterey:       "252814d4b04cd5a02d46894da2b8abf0c4a65df295219de97001caf1017e28fa"
     sha256 cellar: :any_skip_relocation, big_sur:        "246cef67cd82390778b43bb6d893bb9e29b99635183fc531bd0d0caacc50d72d"

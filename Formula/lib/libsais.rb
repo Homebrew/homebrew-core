@@ -7,9 +7,11 @@ class Libsais < Formula
   head "https://github.com/IlyaGrebnov/libsais.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "93b1a2b0dfd2d541d080639d25846481698ed274ef40ff32c2daceebc3e524c0"
     sha256 cellar: :any,                 arm64_ventura:  "a3f7cf156031c58cd43aa63838edd85f7f8b00f7d28e0f62a076bb4f30129a0f"
     sha256 cellar: :any,                 arm64_monterey: "6305881a8579ea1c15ad2cb5a8531edbf6817b0b37d8282998c6dcffae3832db"
     sha256 cellar: :any,                 arm64_big_sur:  "ab217c02a0b3dc17772557ff7144371c45d468af0174e61d7e8975e13a859318"
+    sha256 cellar: :any,                 sonoma:         "e8711d668cb44d059cb5a7347e782a61eea7cf21016683703094108b66ab7bf1"
     sha256 cellar: :any,                 ventura:        "d377a2ebcdb7161b8d76b895245ebf6ebbf5809c52eb7cd1990a568fb5f070fe"
     sha256 cellar: :any,                 monterey:       "8009459840d9f8f470dd9af3b32cdb6c73fdf4014f9d54910bafddafd61e69d2"
     sha256 cellar: :any,                 big_sur:        "5191f9864ce178045da8775789e58a057f97d09dfdd09ada4950a05ad1216adf"

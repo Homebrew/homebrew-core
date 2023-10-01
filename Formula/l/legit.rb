@@ -6,17 +6,17 @@ class Legit < Formula
   url "https://files.pythonhosted.org/packages/cb/e4/8cc5904c486241bf2edc4dd84f357fa96686dc85f48eedb835af65f821bf/legit-1.2.0.post0.tar.gz"
   sha256 "949396b68029a8af405ab20c901902341ef6bd55c7fec6dab71141d63d406b11"
   license "BSD-3-Clause"
-  revision 6
+  revision 7
   head "https://github.com/frostming/legit.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cfce98b33ea77e403851cd9d4c893af44e824988eded33c5a06c0070bdb6836b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8ce1fc4b2e5ae150bb888b6d34e42de9b1291a9f42ab0d5216298f298ab15433"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0f18964bdc7678b9f3c11ae1e41bbf08956b3a345a703a3a6c2812ad1da2b6bd"
-    sha256 cellar: :any_skip_relocation, ventura:        "ec688b200dc46f5f57dc3fa38d04e1e494296ad8442cd9678d329d53e21cd041"
-    sha256 cellar: :any_skip_relocation, monterey:       "0add03ad8665a6d224530f3c4e6007b1394fa04e88ca5dce533e1b2e5f7eca2c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "443b60445399bb4e8ba1a4a69cb5f3f8f510e15f6a3b618aba2016f09d3e4961"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f6e39d4a433ae7eeb152fc573ab52262f4f24f89db5702a8732f556b8a855b6d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1b835900ae7b1678c8ef172b0eff89f3a3362826f5147bb59ccc19e32377e03d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7e84db292857d0f157444bb83d756c3ac7e4204a2d53ba62157949e74594e943"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bd3628086fa6c180d33f8f880ff7eaf791fbe9c0f0ec0bdfc61a188a2229b5ca"
+    sha256 cellar: :any_skip_relocation, ventura:        "228b599fc45b39c91864af5c3523037e80063aeb540fa5b1fdf037f6a889348b"
+    sha256 cellar: :any_skip_relocation, monterey:       "93de7a67085e641ac6cab09912a3c5f73ad801319d4a12824ecb839ca22b84ed"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0273518a985eefaae71e5c7b11c0c3bf3381a0b85afb09e4b3485e09ded48ac2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "49a2e6f268fafcfb0fec40e1a1be1433d2c9563625a75018748dea7ddc4ab68b"
   end
 
   depends_on "python@3.11"
@@ -53,8 +53,8 @@ class Legit < Formula
   end
 
   resource "gitpython" do
-    url "https://files.pythonhosted.org/packages/f6/7e/74206b2ac9f63a40cbfc7bfdf69cda4a3bde9d932129bee2352f6bdec555/GitPython-3.1.34.tar.gz"
-    sha256 "85f7d365d1f6bf677ae51039c1ef67ca59091c7ebd5a3509aa399d4eda02d6dd"
+    url "https://files.pythonhosted.org/packages/95/4e/8b8aac116a00f0681117ed3c3f3fc7c93fcf85eaad53e5e6dea86f7b8d82/GitPython-3.1.35.tar.gz"
+    sha256 "9cbefbd1789a5fe9bcf621bb34d3f441f3a90c8461d377f84eda73e721d9b06b"
   end
 
   resource "smmap" do

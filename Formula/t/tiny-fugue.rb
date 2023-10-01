@@ -8,9 +8,11 @@ class TinyFugue < Formula
   revision 3
 
   bottle do
+    sha256 arm64_sonoma:   "9658a3933eea4da8acba5ea118e6410cead8d4caaecb056b18a30766839fe722"
     sha256 arm64_ventura:  "cdc8362ec9ee41a8c97c4c6360065a880011b97baf5e383e4d613267f96e57f1"
     sha256 arm64_monterey: "b426a9fd58d23982e8659a204f9daa3e18c1853ac8fc7dbcc21817e16dfcbfb5"
     sha256 arm64_big_sur:  "af3018b2720b6a40af09543d2353b19b9a1124795a5d1f51af893de62d136ae5"
+    sha256 sonoma:         "dc4c1a3c25a89c2bf9a22e06fffc239aa8e1b30e4ff68f69458376e164e03b7b"
     sha256 ventura:        "e96231ee3e1f846935d2b0f05b850b89124f650d7a3365d89caa1611da0b8b51"
     sha256 monterey:       "456970a772014d46c0d0ca76b0231c66a4ce8550c305a38aa2127c7f9ec6bce9"
     sha256 big_sur:        "1776efc11b784517a363b5a40091a6c36e177905d90271c20264c7aa0e05b933"

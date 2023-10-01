@@ -6,9 +6,11 @@ class LibomemoC < Formula
   license "GPL-3.0-only"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "73f2267cfaa0656f1f7e70dea6cafc155e08268d5f0b57ffcb34f92bcd53eb87"
     sha256 cellar: :any,                 arm64_ventura:  "dccc667b31642b280a1ae140c1626efc9a407476f9223008520a78282842478b"
     sha256 cellar: :any,                 arm64_monterey: "c90a3715e044536c4650463c4a1def1c66b3cd31231cae668d3bfa2e6c616218"
     sha256 cellar: :any,                 arm64_big_sur:  "ade5ce2ed49545cd401c2f96ef600f36efa1a41701ecd4c3783bed067a66846b"
+    sha256 cellar: :any,                 sonoma:         "3bb3a24d85787cf6a2ee0f55adc655c1b218074ef9b3268a11b6e9de77ad11d9"
     sha256 cellar: :any,                 ventura:        "91d4e7871b7e7f3cac1352590e5da0f6a0ba2e29194d4f5c37c9f4743c2107ca"
     sha256 cellar: :any,                 monterey:       "dfdf9c205d14096770df1c4e7ce0b45e857f379c3ce3d23b14f8f7e09c93afad"
     sha256 cellar: :any,                 big_sur:        "345ad0738741a9d382abd1ac18116128c68f4774785cda97966f9c89fca86693"

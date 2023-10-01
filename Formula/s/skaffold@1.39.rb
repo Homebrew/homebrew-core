@@ -2,8 +2,8 @@ class SkaffoldAT139 < Formula
   desc "Easy and Repeatable Kubernetes Development"
   homepage "https://skaffold.dev/"
   url "https://github.com/GoogleContainerTools/skaffold.git",
-      tag:      "v1.39.17",
-      revision: "dfdb5d3538e19a86304195668742b7c11d507c42"
+      tag:      "v1.39.18",
+      revision: "56d34aca35d19614743601be84f1987ebfc2e627"
   license "Apache-2.0"
 
   livecheck do
@@ -12,13 +12,15 @@ class SkaffoldAT139 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5e7ce1442bc4d389bf776673b506a6c16558d94711e0eb0a377de96d38e2247b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6bd9d29c0f720e6edad0f629e26f695a52ad7282bb5997b2bb1d85551c7af24c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9c2a108c0f7dee22068a7d38f753d88dfdf6fff0d963da805540a680f90641bc"
-    sha256 cellar: :any_skip_relocation, ventura:        "3866498ece7fddc38f170484fd0934d9c9ce3a48e58a97083c171a28426632b1"
-    sha256 cellar: :any_skip_relocation, monterey:       "292843314563aa8969a01f3d1386cd11f24bab0a08f7e17e9cfc720613003726"
-    sha256 cellar: :any_skip_relocation, big_sur:        "95c54ace19027f5669c915163929920b42957054be587f2ba47e802ae7bf4af3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2f0da74df59c9f46b1a933e51226415fec9ed61506c2ba52bf9cd5d38c0532fb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d7092402e4fe734f57d06df3184d7e15e4f104817761f8e661fa19c9c5700162"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6adf6bac2313ca8f1ddaaafe621f7f22e8f1179dc2d727814844828b25bfee97"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e8bccd593d976444fc7294edf983e0a6eb95458ecd423e821d7c83c9e43b2885"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "87dadbbd6d250b0bc234d8e9b0fbe8736eed48eca653c91f511c6bb6c401ba74"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4f430a5d24256caf2ed3a19724f5fcb1f045bf8a02b658304dc21d03049d7964"
+    sha256 cellar: :any_skip_relocation, ventura:        "7751001a16cb86cc6fb3a2628db0985381c468b327b77987637cce2f73e4049e"
+    sha256 cellar: :any_skip_relocation, monterey:       "c898cbce0414a84ef0770005e502a53638b3598eb9ade7ee49b2f21fe1a9ed70"
+    sha256 cellar: :any_skip_relocation, big_sur:        "86311586a6bdbe20b5e059cd2145315230cd4dea0e8a5453f274aac545dcc52f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b2aa6324b26f27f6b0098d00c14cf84490154df61cd1d573f35ef969554ae028"
   end
 
   keg_only :versioned_formula

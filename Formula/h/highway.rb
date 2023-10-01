@@ -7,9 +7,11 @@ class Highway < Formula
   head "https://github.com/google/highway.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "fdd6b2ac3d54fc746adaa78d363d082561ac01b80fdf4283ee0cf7a750b1bf70"
     sha256 cellar: :any,                 arm64_ventura:  "11f8cb26c616f19979c723f39d2713248854244e2ee99e7904c6843f3456e11c"
     sha256 cellar: :any,                 arm64_monterey: "616f70b0b5f58ef58e97919dd4c5330317283f6f6f395527db0bdc5a91600a1a"
     sha256 cellar: :any,                 arm64_big_sur:  "6c0cf365c40393699ff80bfad9584c63c0bcf1637c653119a52ab9dcb6620a31"
+    sha256 cellar: :any,                 sonoma:         "27680ef270fe253c96fb3248778bfd2b4747b666694d13d36eacba336e4ccbe3"
     sha256 cellar: :any,                 ventura:        "b052628c3dfc091104ad87770cd5a9a560b31587710b50ae84dddcef325a78a2"
     sha256 cellar: :any,                 monterey:       "c6aa22f976964559b6d61da87267a20da7070b82bdfccf82e7100d2c77688dd5"
     sha256 cellar: :any,                 big_sur:        "3ef04e6c59188ec81ce6f4148a25502bc5f3ef50364d315e84f9d8234808a847"

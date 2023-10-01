@@ -14,9 +14,11 @@ class Aften < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "918b76d55d51e34cd63b83041517d0a06dd9b10f24a2d35ec8b68fc97a04f589"
     sha256 cellar: :any,                 arm64_ventura:  "b210014aa83271ec35261c51fc2d32914b33090deb3fda59993e30aba4b324de"
     sha256 cellar: :any,                 arm64_monterey: "a1a669de1fd73431993f57c52603cb68d5794590bb175084de3ffac408d50c13"
     sha256 cellar: :any,                 arm64_big_sur:  "6f4cfa96fbcc6616017d696852e0738796471c24b2bcbd4ee38ce9cd2c01575c"
+    sha256 cellar: :any,                 sonoma:         "05e65496042ea60735223e9cfa06b97ee8ae136531aafe8d7550f40051ecc33e"
     sha256 cellar: :any,                 ventura:        "0ac6b5c31292bc1fea37415cf9f76010633c6c4a2bf3cc8770c4f9cd3b79cbbb"
     sha256 cellar: :any,                 monterey:       "f4632d08d823d8bda73e319dd6bf3f27651c9df4a61a2e0bfec30a116ed8745f"
     sha256 cellar: :any,                 big_sur:        "86e6506319cdf2eb030d2084663acbabd75dc3ce5f3a6e60fbd9af27c60bad1b"

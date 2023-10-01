@@ -9,9 +9,11 @@ class NameThatHash < Formula
   head "https://github.com/HashPals/Name-That-Hash.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0e3b6908160d20dcb60261e789e56b696ac39d76d4dbc6e4331a890400766f84"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4020cbb09cbe8736a98bf84fce42b9a56391abc6cf425ce4b0891e758b10b7b3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1e6c3c27debfd317c58804ec0261ff40656d85672551c24eb120d7df4b8aca09"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5b19a1655bc7711f5c231b30851812cd9e79e8af1a2733ad8f58796a4b9f693c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "17bae696c071aa7d12b85e31de1999d71ef908c176ea70699613295a882cc2a2"
     sha256 cellar: :any_skip_relocation, ventura:        "4b12a7e90ccd7ff34b8f65a250ee64c6ad5e41d63e01c8b3d0651ea85b57913f"
     sha256 cellar: :any_skip_relocation, monterey:       "a4cc533509369346aa8386b3e91327bc0b5a2838916229ce8d8fafac70ac239f"
     sha256 cellar: :any_skip_relocation, big_sur:        "504dbe235e16c8321c68bbcfce7258b24af6da3d754d5b9d11882da7c71d2c6a"

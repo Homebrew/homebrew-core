@@ -3,19 +3,19 @@ class Vunnel < Formula
 
   desc "Tool for collecting vulnerability data from various sources"
   homepage "https://github.com/anchore/vunnel"
-  url "https://files.pythonhosted.org/packages/71/c1/2b4be7ad2470d07b4425024d87e352d29b6b34c67676b28cfcbd35b887f1/vunnel-0.15.3.tar.gz"
-  sha256 "4d61f9cfdfdd9b74954b0f8642fa9bc89e568bf8e90986a98fd00db1002b1851"
+  url "https://files.pythonhosted.org/packages/ef/05/d3e4e81a74f498f310c9a8be5fba0effea671298f6961c904242bd2b3952/vunnel-0.16.0.tar.gz"
+  sha256 "9d53086786b33e06bf6076f7cd22c7d7ef77cbef34fa2db92d18b14ce0f9fae5"
   license "Apache-2.0"
   head "https://github.com/anchore/vunnel.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "aa766b3d1bb511a4130963b51012661f859202d743ec78990f54f2df2cf4e387"
-    sha256 cellar: :any,                 arm64_monterey: "8cf715f7210bdee5e6b7e6e27b6834ccc548d8a1b66587e3af98e07f352cba13"
-    sha256 cellar: :any,                 arm64_big_sur:  "03246afa9a26f045a7151c453367dbdfa18e10fcf80c17e770d59061aff3c7a2"
-    sha256 cellar: :any,                 ventura:        "59411429cdd066915fc857c9bee807fb798dde467ad9e15c6f9eb83957bb0759"
-    sha256 cellar: :any,                 monterey:       "90834f317901e4bab34f73c1483684c8c0a77cc70d69d513d9d5283d4d383c3f"
-    sha256 cellar: :any,                 big_sur:        "03af223554227d3eb72bae484d70986ad4dc9c4ddc4e553582c9133c0c2a9802"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ab17bc6e4998c56e0bccaa903b693a72359cf36559d7b7b1a9bdecc1dcf45ca9"
+    sha256 cellar: :any,                 arm64_ventura:  "1bd9e927c7aafcf4a74c1516331951ba5d13bb2bf1ad79962554213d3f42faf3"
+    sha256 cellar: :any,                 arm64_monterey: "124b44541b98b123da751c95d22152a0806fd73678449aa730a2a32db90534bb"
+    sha256 cellar: :any,                 arm64_big_sur:  "0fb9b777dd7473f92c1812c318d7747d85ca5032473f1c8105f00e0ffd99515b"
+    sha256 cellar: :any,                 ventura:        "7c5e20a29dd937982334d68ab1ec7ab0ed86c4a723a4b85bff7e5b240ebcf842"
+    sha256 cellar: :any,                 monterey:       "4b41b7519f9e41a48831b812462c28af670bb0ccdbc595af2fdb66df46c75986"
+    sha256 cellar: :any,                 big_sur:        "c92739b2e9b4f045e7b3a0b95c62cc43dc25bba65ae8f2ba769009bfc9dc9d4b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "15de4efe68b3b1ebde6c5a1e996fc26b1ec4f45741d464cafcdb1738ced92309"
   end
 
   depends_on "rust" => :build
@@ -110,8 +110,8 @@ class Vunnel < Formula
   end
 
   resource "orjson" do
-    url "https://files.pythonhosted.org/packages/ae/11/2597bfde886b76940ba68db408c2a4ff507f8bf741006744d1a5169a4b0d/orjson-3.9.5.tar.gz"
-    sha256 "6daf5ee0b3cf530b9978cdbf71024f1c16ed4a67d05f6ec435c6e7fe7a52724c"
+    url "https://files.pythonhosted.org/packages/d9/e8/3b73e455a5f5f16ed70b364b5dbaec5691e7ae1d3c1e6cf8945735ec05a0/orjson-3.9.7.tar.gz"
+    sha256 "85e39198f78e2f7e054d296395f6c96f5e02892337746ef5b6a1bf3ed5910142"
   end
 
   resource "python-dateutil" do
@@ -145,8 +145,8 @@ class Vunnel < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/31/ab/46bec149bbd71a4467a3063ac22f4486ecd2ceb70ae8c70d5d8e4c2a7946/urllib3-2.0.4.tar.gz"
-    sha256 "8d22f86aae8ef5e410d4f539fde9ce6b2113a001bb4d189e0aed70642d602b11"
+    url "https://files.pythonhosted.org/packages/51/13/62cb4a0af89fdf72db4a0ead8026e724c7f3cbf69706d84a4eff439be853/urllib3-2.0.5.tar.gz"
+    sha256 "13abf37382ea2ce6fb744d4dad67838eec857c9f4f57009891805e0b5e123594"
   end
 
   resource "xsdata" do
@@ -160,8 +160,8 @@ class Vunnel < Formula
   end
 
   resource "zipp" do
-    url "https://files.pythonhosted.org/packages/e2/45/f3b987ad5bf9e08095c1ebe6352238be36f25dd106fde424a160061dce6d/zipp-3.16.2.tar.gz"
-    sha256 "ebc15946aa78bd63458992fc81ec3b6f7b1e92d51c35e6de1c3804e73b799147"
+    url "https://files.pythonhosted.org/packages/58/03/dd5ccf4e06dec9537ecba8fcc67bbd4ea48a2791773e469e73f94c3ba9a6/zipp-3.17.0.tar.gz"
+    sha256 "84e64a1c28cf7e91ed2078bb8cc8c259cb19b76942096c8d7b84947690cabaf0"
   end
 
   def install

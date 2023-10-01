@@ -11,9 +11,11 @@ class Pari < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "81eeae7d7743b0bca112391ad15dca0f0e49f719186733898a07eb6371b1e5e3"
     sha256 cellar: :any,                 arm64_ventura:  "4fd34453e10ccd762b5eab6f468d14e3910d461dd9eee836fcedf015d284c48c"
     sha256 cellar: :any,                 arm64_monterey: "9b61606bf5a249e9c54b0c3d568b77908e407270c3873059508ce70e24a35d12"
     sha256 cellar: :any,                 arm64_big_sur:  "8af658d0d0757e405fec12c0e0865c61713db0399c84f3aa8f761251bf023b28"
+    sha256 cellar: :any,                 sonoma:         "6b3def21f6b34575dbdac1b81ca39f53be693cc31e272e36bdffbb4206dff9b3"
     sha256 cellar: :any,                 ventura:        "39161134fcc9cd9b8bf6f8ecdf553aa71249504cba6dd3a52a6e0293322d35d2"
     sha256 cellar: :any,                 monterey:       "5d45124e3605bc48ccd19bd1fcb388201f65b1e6681022c54f564b05ebbe2a98"
     sha256 cellar: :any,                 big_sur:        "3d56fce67a234dc3aa1aee35b2759aeb865c29986d51434b218968d2d348def6"

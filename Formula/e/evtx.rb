@@ -7,9 +7,11 @@ class Evtx < Formula
   head "https://github.com/omerbenamram/evtx.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e503806bd4e9ed800b4362f6e9bb4a4ede7e370195b1584d17ee872cc5b9403d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c89cce02eb42c8ffeff871f32f50bce01ca94d822dab012aa27cf138579665e1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3e750b8532e6e8c3b08ee0b20f373b1f5baeef338ecead535efd37f59e8a29b3"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "be9205c5372de648dd450bf3c8a8517900a4f1a92cfaeaa1f83bdc126e4244f7"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0ac4228a9fb0fd6d3eb096461114fb464255e57f19ec7c2f95cd8f79a8392496"
     sha256 cellar: :any_skip_relocation, ventura:        "ddac9599c1e47f77ee5ae33494d613a2fdc2a96ac64afc29990c0429c640107d"
     sha256 cellar: :any_skip_relocation, monterey:       "8e624562b6931b531fb1911296f3d404376b1cf14a61b7bb7e768a6c5698d98d"
     sha256 cellar: :any_skip_relocation, big_sur:        "aae2a058428541d793bc5cbdd31b9c01b30d7add7f19e12532ae5158dbfe4366"

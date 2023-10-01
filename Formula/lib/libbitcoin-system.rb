@@ -5,10 +5,17 @@ class LibbitcoinSystem < Formula
   sha256 "b5dd2a97289370fbb93672dd3114383f30d877061de1d1683fa8bdda5309bfa2"
   license "AGPL-3.0-or-later"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "3324919582f6ab687cbf681f056347985f63c06c7f525e0aa283dc592197a000"
     sha256                               arm64_ventura:  "aed49e03846e0be62e5e605ca01179ba431dfb35d3f1b844ff8fce859549862f"
     sha256                               arm64_monterey: "0a300abdc05543b90b2b5db0e0d6117ca3d8c97cce089349350435d169321525"
     sha256                               arm64_big_sur:  "346c920f79aca4136d57b17deee022f6d12938b9813b4ee90a5f41a1019d7ef9"
+    sha256 cellar: :any,                 sonoma:         "8392a926e0bb32374ffea7d4253a32582a48d0289e01289c395b059d04317fa9"
     sha256                               ventura:        "60aea6392017d5e69d5a8c3474c3561929286300fe3b174eacad804669451523"
     sha256                               monterey:       "e93abbec391254c0b3687735eede748b0efd90426730f51fb30b6fa0838bc756"
     sha256                               big_sur:        "a4a7556454aee07df23327dc93fa861b9a7fc429577adbc3b7788ae8430262c3"

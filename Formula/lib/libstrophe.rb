@@ -7,9 +7,11 @@ class Libstrophe < Formula
   head "https://github.com/strophe/libstrophe.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "51b09df6c3b36215c85157fa8f82955abc4ebaba4c6d055b9028247d87189c1c"
     sha256 cellar: :any,                 arm64_ventura:  "6242c2423d809c91e92af6740a0bc0c3a645b1d8f7b53c16ac80ad7ced5109f5"
     sha256 cellar: :any,                 arm64_monterey: "abd1960e1a2c11376b193a2f05bcd2837c23353a55a93ea7a658c079a335e1fa"
     sha256 cellar: :any,                 arm64_big_sur:  "3bbbc656139c356d7baabc785251f8228c3b2ce2bbe87198310aaf007ed1835d"
+    sha256 cellar: :any,                 sonoma:         "a7845766858de6baa054503d1c2d87d72442cf55965eabc4f0593bc50a7a3f39"
     sha256 cellar: :any,                 ventura:        "9186c1d767ce39e292382f2834908d6ff100cd86ee3ea1814c66fe764b77f50b"
     sha256 cellar: :any,                 monterey:       "1a52e120aa045efede48f79a89bc50206bc471932d2e4ef4e3ceafa28fee1f67"
     sha256 cellar: :any,                 big_sur:        "1c8006b2714f09bc5048189116cb1c2bc858a28fce5020c490a3dea54ff8125f"

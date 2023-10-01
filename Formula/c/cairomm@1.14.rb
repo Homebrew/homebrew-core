@@ -11,9 +11,11 @@ class CairommAT114 < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_sonoma:   "044e8f1919592d274fd3403ce26e656210dc6e7eec27cf7c0a4098c552d4fc78"
     sha256 cellar: :any, arm64_ventura:  "a8c43545efbcc3695ddeedfcd6a27fe3211145d0bf416f0d4be61a43490b04f8"
     sha256 cellar: :any, arm64_monterey: "d73e7ad45c201015054832b11193662b57aef16af7b6da445cc42ce9b5cd542e"
     sha256 cellar: :any, arm64_big_sur:  "59edc5af615287822b6642b60e0fcee69e1791ac3b6dfab8e1a001ee9c5b6692"
+    sha256 cellar: :any, sonoma:         "19b6cdad55ba361e9719846eca36235a8c2d8cf405b34f9a670f6508eccba133"
     sha256 cellar: :any, ventura:        "7290f0a786a2d715541c32a05e5460508ae6b1bf5efd497df5cfd896c5936b72"
     sha256 cellar: :any, monterey:       "15e588602433c74a5b2736744d883f26a841936b37cf04331ae5679867e210e4"
     sha256 cellar: :any, big_sur:        "b47b2e6f6ef5e8138fd220cb2d96d263d6def3b729dfd0dcd5d6ae6608641f0c"

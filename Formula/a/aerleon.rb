@@ -9,9 +9,11 @@ class Aerleon < Formula
   head "https://github.com/aerleon/aerleon.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b82e82dd385954039e2eeade5945cdbe9124d2b5b4993750bfb930f426637d63"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b6847834748fdd745d42e0ca963a7cacc699707199a377e6658d80fc6e51dcac"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "051fac2f89d56a418c5cde48768479f038c71fc571252651ad600ac2a3008f4d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8e548c1af039af07f01d3d881c9e90a382e7ad3aa960e3364e3ba0baba79aa8e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7a40974a45dce07060d91aeacc9c450b6082207ffb590698cf490586dca36dfb"
     sha256 cellar: :any_skip_relocation, ventura:        "35878db50f5e33672f839c968610c279702a3a05bf41f401cb5f8fbe3d00c3e0"
     sha256 cellar: :any_skip_relocation, monterey:       "ffc3088afcab16ed2c3ba02fe823898a7efc8ae254ff1f8498e6ef31f2737081"
     sha256 cellar: :any_skip_relocation, big_sur:        "a6560522546c2d71f5a0ac8fad24095359cca98a1836404f5c764471235fe108"

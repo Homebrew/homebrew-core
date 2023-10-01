@@ -6,9 +6,11 @@ class CBlosc < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "4ff0be188b96f9ebacd83d8b25015feac6f78de35b0fb67dd70837e65291e408"
     sha256 cellar: :any,                 arm64_ventura:  "2a1992fd6a094c7ac73f4d12fa5b606beb62bab208003f221e50dcb2d51fda26"
     sha256 cellar: :any,                 arm64_monterey: "f55c895afdcc122f8b49f1404a288ed4aeef6b7539577da70987e3d1968a3770"
     sha256 cellar: :any,                 arm64_big_sur:  "15cfa6fff49af80574e0108aea825dae74e28a1e318b790d79ced54d33dc309b"
+    sha256 cellar: :any,                 sonoma:         "f6dd732bcb77dffdfc166adec982681573d702e9b244aaf2573eff73e590a760"
     sha256 cellar: :any,                 ventura:        "56efa790f1df122940ebd87ac61875e4e86217116356ed20a8f51a9e44d2f288"
     sha256 cellar: :any,                 monterey:       "a9789c30f2081f39220ad4bf55d80ba1acab4688d8c21d0272010a736c63e442"
     sha256 cellar: :any,                 big_sur:        "83b0928b9d75fa1b0d9f12d43044d7147b5124b63ff872ad9027c4071440a31b"

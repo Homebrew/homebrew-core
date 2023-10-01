@@ -6,9 +6,11 @@ class Req < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "af8452502e589a8191f0c752198d5e9167188cee8314310ecaa24adcb12f7445"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "761e455eaec2c41951b0aef7e6ccea876443742d59c630ad922b0a0a6eac7204"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c2b469cb7417b2afa5e405cea18a5d0d2772b9e59cd986ed69b1e1ae1e1fb66f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "279b79fce25a2ffa89d62d35116f3a9bd0e4a0f842d67ba805549881b18ae084"
+    sha256 cellar: :any_skip_relocation, sonoma:         "8896fd67fc6bd2d72c653bcd2611d1cb561c6fbf46a8a80e0439c50d6a512da1"
     sha256 cellar: :any_skip_relocation, ventura:        "f456775fc061aa0e0f3d864a014aae9c43c68a7eda55f5b73915a5daa788abf7"
     sha256 cellar: :any_skip_relocation, monterey:       "dbc6285c19cd5b0564bf5f2fb3a06023b96793ed139984aeadfaa8aa1c1f4181"
     sha256 cellar: :any_skip_relocation, big_sur:        "dc965d02788d551a28e21aff831c60c7cc9ac17197399651fd6a210bd1f0b3b4"

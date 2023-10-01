@@ -7,9 +7,11 @@ class Libresample < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0f8fad6a20232a3f3bd9e1ee90d9242c283c325d2c118ca6b051eb79ab5adbea"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9232e1b1d90ad2bb9f8801092358ef64a1a4297196c927dc521ce62229d47d13"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2f0ec7fbf2140acc1295c7397d2e6bb0722c21103941108045f35addd6440fdd"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e2b808178af8d3b7ceccc4c3323ebcf76ad0d3a152c31cbe85c68563cca80bbf"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5c053b159be9058f2f7cd56aff77573414b579b175d2bf2b6421360d568bd789"
     sha256 cellar: :any_skip_relocation, ventura:        "df14982c36aa5c3ceba5649577008bb74b08f33854c0f1428f3b8c9d1290dfa8"
     sha256 cellar: :any_skip_relocation, monterey:       "e02f4a234566b65aee658630f4ff47f89b2a6fb9ec80bca40a9959288060b6b4"
     sha256 cellar: :any_skip_relocation, big_sur:        "623df9f095f427ee794211cd657ad1d1ff5e89f383aa304c9c94d7a27cac36a3"

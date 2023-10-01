@@ -10,9 +10,11 @@ class Sgr < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_sonoma:   "ba8a20b860bf42caef1acfa8ce6d841e719f236e790b8c4005cd546ca2cdda8f"
     sha256 cellar: :any,                 arm64_ventura:  "ad392a74ccaea8b17e8f00b861fafe84c93ab8aba5917d8eb25141e940afc3a8"
     sha256 cellar: :any,                 arm64_monterey: "133b7c45be17343b7f2d7f0f75b620378253314903d7d8778234a83d1fe43fd6"
     sha256 cellar: :any,                 arm64_big_sur:  "673d87888067d0ce6db019302234764cbbf4779f9a1f1fd50265478c71b1289d"
+    sha256 cellar: :any,                 sonoma:         "16fdd6cdb1662b7957130aa1f9414458f0ed5ed278ec8e03edb98cd7f1354253"
     sha256 cellar: :any,                 ventura:        "266096ebc135a3a47c37e7f3f9c67669c0eb8c98f33a73b18cea575adbab0cf6"
     sha256 cellar: :any,                 monterey:       "f2c2ffdf525071e03fcc960404b27dfee4ba28688c8bb830dc289637bbd3757c"
     sha256 cellar: :any,                 big_sur:        "4436cc1c983d08e35c9e0609fcd9982dae57e51f7f24dfbcdd068be6f9885eec"

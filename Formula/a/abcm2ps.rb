@@ -6,9 +6,11 @@ class Abcm2ps < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 arm64_sonoma:   "2b2e4e62f44f9e1c0cf133cfcc66d85e83aaf9642f89b83ce46837de970f01db"
     sha256 arm64_ventura:  "01a79191d06dbbe223a99a6a9bff533738f1be99c0a8619c272cced594e6fb61"
     sha256 arm64_monterey: "45912b99f3a665a401131e9ca982ca285eba96e7b22e35b5740f222b46687637"
     sha256 arm64_big_sur:  "b560ca5c750e672c8d1b257c827f362ddfbd0240c62a181737d4364d2ea3ebdd"
+    sha256 sonoma:         "64b2a68b8fb18bbe36604415cfd51b0d22cf902027b913ae108ad87b189ecb8d"
     sha256 ventura:        "098977e79f1f16813d4a62ff7852430a6780c96a7727803ef5410030a9931d05"
     sha256 monterey:       "59fa217929c0412dd51ad45601ee60b603277f4d42fd1e825191efe4843d8d64"
     sha256 big_sur:        "a84c64865bd9fa68fea198f3d84ae4214e3d5fd310ea230e8c55ba72ecf15e19"

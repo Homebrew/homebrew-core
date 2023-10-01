@@ -9,9 +9,11 @@ class Xxh < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "84ee1a143c5513ba255b231bf53c52903559bbe40605763e9f8b28c1fc3b4a8a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3a69d8012317f6d887403af6695817e8f68ce8b0884132a6663b72aa6946e4c1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b38d55cda2bcd7b4bfe898f42585c6fc8b30865439c7126262b3a5a3fefe4fe9"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "acdf2d90e74d9f9a695cb28f8397ed5b04ced16cbd5898b14900354e4fa7f573"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e22bcd6b3811967bf1c181bd45e34bc74de41a4bbcd0247b5b5eb62363820acd"
     sha256 cellar: :any_skip_relocation, ventura:        "e6aea90d000df6897044aeb7f32cc4680b674a7b2ea5b3fb9ad5116d085aa811"
     sha256 cellar: :any_skip_relocation, monterey:       "21164a6f91fb009f97f9754ff294423dc683c55e510fdf4bdc9bdcb49e5f55f8"
     sha256 cellar: :any_skip_relocation, big_sur:        "4c39f3328e4fd3120da656889b62fed687d7406d2e012f46c14d82fe0d40f9b8"

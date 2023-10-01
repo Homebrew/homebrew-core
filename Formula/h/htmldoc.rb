@@ -1,27 +1,26 @@
 class Htmldoc < Formula
   desc "Convert HTML to PDF or PostScript"
   homepage "https://www.msweet.org/htmldoc/"
-  url "https://github.com/michaelrsweet/htmldoc/archive/v1.9.16.tar.gz"
-  sha256 "f0d19d8be0fd961d07556f85dbea1d95f0d38728a45dc0f2cf92c715e4140542"
+  url "https://github.com/michaelrsweet/htmldoc/archive/v1.9.17.tar.gz"
+  sha256 "438cbd4c6673a9e156ef9a4793540762e8438298063cac019a45f55ac577872e"
   license "GPL-2.0-only"
-  revision 1
   head "https://github.com/michaelrsweet/htmldoc.git", branch: "master"
 
   bottle do
-    sha256 arm64_ventura:  "21266fa80373c2fffb69d8962f42a3d97e41aabfea6afe203eb02623760240f5"
-    sha256 arm64_monterey: "e8d3042fd923158ab250600c7a465010ea8c329e11326f36a2d10f9406a4e827"
-    sha256 arm64_big_sur:  "98325540be8b32bfc44cc1a7ebb976a11a95d63140aba964085e4df8b6af59a3"
-    sha256 ventura:        "16da9b4776a14debcebdab692318501670f66810be6ede03596f150760832d71"
-    sha256 monterey:       "ddd36ac6cc9fbf5e585bbfc37f1dc595f207691ed702900b3354866c411ddaac"
-    sha256 big_sur:        "4ec9fe099c857e2024e854462641e5620056585059d7a587ca6322df6d1c9a5a"
-    sha256 catalina:       "7b208d7bfd479b71ee86eabfbba86e72d9a354ff28b56f6dc1afb4121617d402"
-    sha256 x86_64_linux:   "6fb8d354d0807ff8a643f13ae974cde5f0f1d76c51e904dae4b9b9a40b1ee927"
+    sha256 arm64_ventura:  "9f1bcfe7faec9233c76de1a61181dc65860517a30f44a73613132722c99e91d0"
+    sha256 arm64_monterey: "b57f8f12b1cac450538e777edb612638d8e30ea0a0fc364fd4f6444687bae5d0"
+    sha256 arm64_big_sur:  "d6c5799db7ad777b686f27c853b5122f351e3e38fda05be0b491fd34ae0f308c"
+    sha256 ventura:        "66a0a8386caff8134b7bae76beec4525ac4c5529b708c24718887e09bf15fbcb"
+    sha256 monterey:       "062c063380fc216608dac9f3b83bdd9c51ad7e2766d3e87ea32c6993ffaee3e9"
+    sha256 big_sur:        "5ad79f3c3a94e815b938604dedb32356181490963037d4165230c927bb5989bf"
+    sha256 x86_64_linux:   "d164474207477be359c00de33397dd7f6b609409f93d54b984885b4fee045000"
   end
 
   depends_on "pkg-config" => :build
   depends_on "jpeg-turbo"
   depends_on "libpng"
 
+  uses_from_macos "cups"
   uses_from_macos "zlib"
 
   on_linux do

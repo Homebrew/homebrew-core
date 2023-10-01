@@ -11,9 +11,11 @@ class TwinePypi < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1238109f38f2c034b68e30598f6fc5f3d8733087d5841d588a2caa5426a2c4c0"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c2f327598fecd5b4871b4f954def4746899b415f4e70c64e5340d8a1a3606af9"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e5cc62bf96699b0e5c67fa468a0eb1fa98ec49096a09d5a1df5dc13c396d380a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "822895d53e88e0461d4a5c43fdd84a0aaa303716bff456fd4ab0fd5127e11c5e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "2aafc30bbaba73c7f2abc885c1285a547e1b7d52687ad99191a0a39564ee80e8"
     sha256 cellar: :any_skip_relocation, ventura:        "2c2d9683fd2878415416a921162357ea3bf96c3e3fb3091a7304e6f03c5023a9"
     sha256 cellar: :any_skip_relocation, monterey:       "4c1cfdbb06092e712dc90250e38597f1183f7bde9cc508d14f9966fe4e1b9db5"
     sha256 cellar: :any_skip_relocation, big_sur:        "ea3ec56a24e5739d76cb700c21f88168961838596289be639e0c69e6d44386d0"

@@ -12,9 +12,11 @@ class Libxkbcommon < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "0240d70dc4af95827e15bf465f872fa3aac154dead173d14fd2cf5a3baeddf0d"
     sha256 arm64_ventura:  "8c6dc851dd48dd2df4a196a3dbc202451413ba45f5da1fa0e05bf5268e345209"
     sha256 arm64_monterey: "ae52bafef77ecad4edaaf4759fb8218af53468e9dc83ee65b43757d6aca14cef"
     sha256 arm64_big_sur:  "c1f908bc8515a3d84766bba989987ab29137e9d4b1d8d5854d6838dc9d41ec23"
+    sha256 sonoma:         "fc7be887a5db40ed7c928b4b8e117dc619ee690f4d061e81193d201491fbc27f"
     sha256 ventura:        "043e964946f9f65d27e06628c9a7c61358211b98873c17930eaa36fb92e0fa70"
     sha256 monterey:       "2751b4fb16b67d57e71f8ec4b966306be8a856a3f786466057cb37cfdf03804c"
     sha256 big_sur:        "98e602696ef7cf0b7c42615f8424341ced5d265478a1c3ee7dbda237e83dcb1c"

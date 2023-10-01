@@ -7,9 +7,11 @@ class Intltool < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "658891edd309f28bef053c087f8fa2b73445d2ea6b7143159ef47291d75c14b3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "45adf17254203ae3085e595907a01e02188643a3080c595a0a9f50301ecd8e56"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "45adf17254203ae3085e595907a01e02188643a3080c595a0a9f50301ecd8e56"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "45adf17254203ae3085e595907a01e02188643a3080c595a0a9f50301ecd8e56"
+    sha256 cellar: :any_skip_relocation, sonoma:         "2c763011f6fc50ab1f60eb122db207bcbf64fa4921c1e25ac22a0038e1db5a0c"
     sha256 cellar: :any_skip_relocation, ventura:        "743ff02675bf6a8b52311d8fb93ceff3ef512487d29940b547992e3e8f6e494e"
     sha256 cellar: :any_skip_relocation, monterey:       "743ff02675bf6a8b52311d8fb93ceff3ef512487d29940b547992e3e8f6e494e"
     sha256 cellar: :any_skip_relocation, big_sur:        "743ff02675bf6a8b52311d8fb93ceff3ef512487d29940b547992e3e8f6e494e"

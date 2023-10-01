@@ -8,19 +8,21 @@ class Datalad < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7d92f4c2c03cb41965bfc7ac84e567e60638aa99770d2924d68607d0e0e99541"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8b61e9135e61788cb9da2cb62e2e592d7d2faa27be5ae801c88a576404074210"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7c5d3365239ff8e6db0281c8fc20166dce8e41e653edeadbd2d087d3878509ad"
-    sha256 cellar: :any_skip_relocation, ventura:        "c826382cdafef21b5f8854752c9ca3bd1932519c5216c26af472890d319ce843"
-    sha256 cellar: :any_skip_relocation, monterey:       "db59f451e2aaa267af3e4bb50a434b115f03b9dfc72953a94b7644a62e10b2be"
-    sha256 cellar: :any_skip_relocation, big_sur:        "deda9286b755d29e99ffefc6b41d5e0c23e5e34e7fe25b4c4e00b22c184e423d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fc1339d6ab31d83e1aee76c667bdafb8c666edc1b3226a20fd4dcc5ba057a339"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "81c5ee22515c65a69df1779786a41bac580e9d4ca63f15d997ca561e84d38a25"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0fd94837e53143ab40ae54f39bc1c12721e47a483c98d246e2a9870c23247e00"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8da40e3d3f0e460c7b5b6adacd850e74dc6648cf562fa99b981a77abfff7aab2"
+    sha256 cellar: :any_skip_relocation, ventura:        "f049cfba07a7fe9549b3b5271220d57cb0f948263f4f8ba1bda15b2fe66f78fe"
+    sha256 cellar: :any_skip_relocation, monterey:       "bd36068a4b8af333204059dd9e4ad8df85407f707a134c560b8aaa47883f946b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ceb9a2035b4ccf19f3aebe8ffd0a05cb56bb1bf6be31777b61d4c553c4362408"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "59328dd2df851e4c75055952b1eb4a21cc752917d0d5c36d3b5ced2e8f6fd1fd"
   end
 
   depends_on "rust" => :build # for cryptography
   depends_on "git-annex"
   depends_on "p7zip"
   depends_on "python-certifi"
+  depends_on "python-packaging"
   depends_on "python@3.11"
 
   resource "annexremote" do
@@ -101,11 +103,6 @@ class Datalad < Formula
   resource "msgpack" do
     url "https://files.pythonhosted.org/packages/dc/a1/eba11a0d4b764bc62966a565b470f8c6f38242723ba3057e9b5098678c30/msgpack-1.0.5.tar.gz"
     sha256 "c075544284eadc5cddc70f4757331d99dcbc16b2bbd4849d15f8aae4cf36d31c"
-  end
-
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/b9/6c/7c6658d258d7971c5eb0d9b69fa9265879ec9a9158031206d47800ae2213/packaging-23.1.tar.gz"
-    sha256 "a392980d2b6cffa644431898be54b0045151319d1e7ec34f0cfed48767dd334f"
   end
 
   resource "patool" do

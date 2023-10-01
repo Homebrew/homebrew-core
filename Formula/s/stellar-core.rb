@@ -2,19 +2,18 @@ class StellarCore < Formula
   desc "Backbone of the Stellar (XLM) network"
   homepage "https://www.stellar.org/"
   url "https://github.com/stellar/stellar-core.git",
-      tag:      "v19.13.0",
-      revision: "c2599d62274931c11ea7f36c5ee9255a202f5739"
+      tag:      "v19.14.0",
+      revision: "5664eff4e76ca6a277883d4085711dc3fa7c318a"
   license "Apache-2.0"
   head "https://github.com/stellar/stellar-core.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c95bf4271d570003292b1e90a0efaaf76242411919e57dcfcccf2bc8a6f0f0f8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1ecb18b76406b98dff88b73dbb5c85bb1af410b7f7f14c1404ee595471db80b9"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f192db5f9cff9cc26abeea9d3960045375aa08e0ccbb2b531d73c68f46b2002d"
-    sha256 cellar: :any_skip_relocation, ventura:        "e62e24348445995eec6eb836136178ae4d5edbbff6ee05723d18a32724383d77"
-    sha256 cellar: :any_skip_relocation, monterey:       "63e736ef959868f70edd80df0ca636471254751a43f18fdb5c513181e8384f63"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9246841664c152de198270a9c860edf9727249b3aca1d9568f5b59f4c4f07bde"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b75fc976adbd374040412ef315080f6f6c7eed796115a8f23cffac7f414203a7"
+    sha256 cellar: :any,                 arm64_ventura:  "3d743c3c190d286146b4641686a962dc6bae910ba556ced19aa16e4f876866f7"
+    sha256 cellar: :any,                 arm64_monterey: "3bd593bd7fcdf4da807c8efafc1a6811ae7d669b6eeec9e14473cdbb624e9771"
+    sha256 cellar: :any,                 arm64_big_sur:  "ac8f0216f0c40a283251b535e830e5ede21a483986068e1fb5e5793abe9ac26d"
+    sha256 cellar: :any,                 monterey:       "8c24dc045cb0c9356ab26874cde6ac6d9a217662d04d48167c1998f1453ed641"
+    sha256 cellar: :any,                 big_sur:        "70e2b6efdd7c02172c9cdc44f5485e2d821f82fca9c4fb398f5a6e639bab0b54"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7abd7620b0d2d7674acd699132917e21d542faaf7d5286f1c170df46d6aa55c3"
   end
 
   depends_on "autoconf" => :build

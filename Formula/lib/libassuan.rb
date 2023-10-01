@@ -12,9 +12,11 @@ class Libassuan < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "f6b2f1d6181e0a12955a60e6ee2f2d6bcdf489f898986ba0ab35b583f0f3e1d1"
     sha256 cellar: :any,                 arm64_ventura:  "46b1c3401d74b1712ae9858ec44d9018862238e11ac0b956d5705a82c0591e12"
     sha256 cellar: :any,                 arm64_monterey: "8913222f8bce3392df60072c27313af9dca61cb5678cec0f23e8bd8d28168bfd"
     sha256 cellar: :any,                 arm64_big_sur:  "54abc438b9b44aec5933b14393e4ef139f61feca860bbc71f43c355a2754c1db"
+    sha256 cellar: :any,                 sonoma:         "7e7849c151251ada88d638136dfe0013f63334682ea8ddc7ff19322d86e009d2"
     sha256 cellar: :any,                 ventura:        "bfd5c6760f0da3d77fbca66fe1a44b94ec029919376a5ad1904b88c27bdf607b"
     sha256 cellar: :any,                 monterey:       "de2d641bac4bc28d4d41cb29284ad24ecf8c1cc2e609056ae5478a81ef17785d"
     sha256 cellar: :any,                 big_sur:        "25750195f585a93c86ff5b150161cd09cbaea3f9a036ec5aad0dafa7c93417d4"

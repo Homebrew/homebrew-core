@@ -7,9 +7,11 @@ class Libgit2Glib < Formula
   head "https://gitlab.gnome.org/GNOME/libgit2-glib.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any, arm64_sonoma:   "bfcbc9f8a8bdd07cd9a5c62da9e50bc454d73269db42a7ba8f93c30eea2be410"
     sha256 cellar: :any, arm64_ventura:  "1fe5fe74645a85743b063f8b3b87a3a95d1f08baaf939eea3a8399fb7d11f4d2"
     sha256 cellar: :any, arm64_monterey: "0acba9ffc1f7f5a9b78d3dba685564b9abb1f2ab7fafc33c952a0f38ed18c665"
     sha256 cellar: :any, arm64_big_sur:  "d25c6019431293c7c4536c88c78dfddfa7d6daa58865a0d751d5e063cc3d3bfb"
+    sha256 cellar: :any, sonoma:         "6894a3e05597929f5e4c2fae9329fe217b5450d73d8f0399236d741e6d2d4cb8"
     sha256 cellar: :any, ventura:        "7821187b992687679d7c7a0ff2d26a13c4cf9b0acebc8c64a80227e05f3a002f"
     sha256 cellar: :any, monterey:       "9088ebccecd0b04312da6a6fc457600c085d7279f8c7e797eae315cc94c12110"
     sha256 cellar: :any, big_sur:        "bafc615584caf3b11a104e4f2e83416b80ab442ec7ee82d0993cd3a4647c5232"

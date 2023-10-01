@@ -1,10 +1,9 @@
 class X3270 < Formula
   desc "IBM 3270 terminal emulator for the X Window System and Windows"
   homepage "http://x3270.bgp.nu/"
-  url "http://x3270.bgp.nu/download/04.02/suite3270-4.2ga10-src.tgz"
-  sha256 "db513225f074144a5a0221d57ede37cca1468c2c2d158ea09981f50012ebdbe7"
+  url "http://x3270.bgp.nu/download/04.03/suite3270-4.3ga3-src.tgz"
+  sha256 "44d73c2614e5aa022bf16a1c8cceda2326e4c96a892da42f256ee4e13bc3a85d"
   license "BSD-3-Clause"
-  revision 1
 
   livecheck do
     url "https://x3270.miraheze.org/wiki/Downloads"
@@ -12,13 +11,15 @@ class X3270 < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "0bfcdb72385c5efde177651a5d7b66d7642a108cca7db7cbaa011d23aebb3083"
-    sha256 arm64_monterey: "6f8cf10bcf88cc87e7dd06d75df430a9f01201249e9cf3e93d08064ec51ae743"
-    sha256 arm64_big_sur:  "ad73e66d09987ec0217e17ff2412271144087862ad9990f682fd6e9fe9f3018c"
-    sha256 ventura:        "82ae1840e2daed3ea252f8f6a033a8a42128a5e61f29820ef2996c59e091c1a3"
-    sha256 monterey:       "1cce8fbb1e74c9f1810d951e04e8e47ebadefaeb6c60c0cb5f9c1af3238b7589"
-    sha256 big_sur:        "6600aefb5c8e3fe7e3d2f20fe8cb8f60f13180caa7ad2f17eaf1c82fea3eec72"
-    sha256 x86_64_linux:   "7f8b9436bf8e7d1c9b7bdf5f488a237effd427a4cb61e0198a9ccd6dd7b27b00"
+    sha256 arm64_sonoma:   "7300bea10a772411ba86e44a3e76cf6705762249faf64225cc9cbc8d3909d901"
+    sha256 arm64_ventura:  "66c420133f3273c8808d468402963160b5322706115fb04cf01ab8574e71c8c0"
+    sha256 arm64_monterey: "e0acb175bd3a3969ffb3f865e17d9d41edca7c6221e42a30bca00d5aa68b6400"
+    sha256 arm64_big_sur:  "f2ff2e45eddeecaad0e03b1f2d601539fd02740cbdf3a1c5e6b3eddd6123a811"
+    sha256 sonoma:         "d6d3eeafff6fc161a986bf380667499f96961ab6f3d8e3fc255eee72fe7667d6"
+    sha256 ventura:        "d22c0fd8ecc142570494b50644bfc972ff6a43894dc01d22d237828589ae3478"
+    sha256 monterey:       "94cec9d1948cb40b9d169cbc4267b7b4f27135dfac52a9b4820980f748745c6f"
+    sha256 big_sur:        "4205866cc9cda834f11f0e7aa2018be598e72404b117356cc924b0144ea24b33"
+    sha256 x86_64_linux:   "d743d4ac5943098c71ae80620159ecfce874088b4b323bd98832ccc8c52bf4a6"
   end
 
   depends_on "readline"

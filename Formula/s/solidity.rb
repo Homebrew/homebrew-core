@@ -11,9 +11,11 @@ class Solidity < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a49b7a9ef7373fe43c492b2de07eb0bf4e7f3145630a382ef59a96f9b60bdaaf"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e3ce41bb65420d367fc36871cb8eeeaa401b9fcb53996c72a8bb221003f84743"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3c38b29827806be9182ba1b44843551f7eb36854a074b51af56b0b7e1bdb8738"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1918981bca20dc6d478b38a7fd103032d1637b1535b9e773a30b8706f9196e1f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "dbe5e794de41b7603ab5b791a5038107d5e782724c22416318b0de2b31da5579"
     sha256 cellar: :any_skip_relocation, ventura:        "289d29d6236ce84a00857b44edf2480754474e49dac5365848057a763d6b1005"
     sha256 cellar: :any_skip_relocation, monterey:       "82bc0cdc0afee2ed50c9e7c08f96c2a2b367c0df6e84233c15f34fdbaaa7bf7b"
     sha256 cellar: :any_skip_relocation, big_sur:        "ffc4f49ef46582e5c0304b653ea8433c7daf0930f3429a259024c42ff23843c2"

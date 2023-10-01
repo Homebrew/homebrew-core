@@ -7,9 +7,11 @@ class Sipp < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "f9cb7f510f1b396cb8b0bc2bdcb82159203c3e0ed8f9abba86f5471aab4e53c3"
     sha256 cellar: :any,                 arm64_ventura:  "a8786cc5adcbe5899275b7cc504decd96a0df83729b39f24da584c326b3fd3f2"
     sha256 cellar: :any,                 arm64_monterey: "3ab4877a57f6b5260db98d4b912a864e934420f5c1d3ec29a3ee96cd2b028124"
     sha256 cellar: :any,                 arm64_big_sur:  "051f4ddf73a816d0ec591d0122b2e8dda508118e2130eb2b8d16da5d4ed2a2aa"
+    sha256 cellar: :any,                 sonoma:         "e44e86015b3c6e4261575ab6ea8f2bf0173c0a209e01dbc8f048f280dc42d224"
     sha256 cellar: :any,                 ventura:        "faa45e7690f37061b2c21bc1d43c81756eeeceeec6067bb0466fccc8a0e9be30"
     sha256 cellar: :any,                 monterey:       "c5d4946eb77659974a47635e096c83eab1f09aed85929bf76da9d1ff75eaafce"
     sha256 cellar: :any,                 big_sur:        "3d52c34248ff03fccd8099c47c6cb962f454142a126ab5dca063a7572c2c5a97"

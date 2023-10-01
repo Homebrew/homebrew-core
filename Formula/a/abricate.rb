@@ -9,8 +9,10 @@ class Abricate < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1d15346bbee3a2803f698642249b30aaa8ff34d648047b8d0864c43c95123922"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "fda2b58bf152b001521cacd1dd46f3aa4ea0aab81ef8287e374d2a9fdca74979"
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "20bfb72d3f3e5888db151b87faa3b19a570496c164e4a88d1b1a826ef460fe23"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d204d290684092f3b79d3c87a927f7cd4be164e4e7ed4caf76eeb84f9966668b"
     sha256 cellar: :any_skip_relocation, ventura:       "17c58b1ad438f67604a57d942865f23c0ffdf78dba3e4147c1db163cf9db249b"
     sha256 cellar: :any_skip_relocation, monterey:      "9af68aea3abc83447b1399866d25687869d443750e737a87ec17cec44af506c3"
     sha256 cellar: :any_skip_relocation, big_sur:       "d0a18cc2245bd70d282b95749bdb7e20b018d1f4ab972e43ac14d465a12a98cf"

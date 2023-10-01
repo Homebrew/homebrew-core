@@ -7,9 +7,11 @@ class Uvg266 < Formula
   head "https://github.com/ultravideo/uvg266.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "7447c677f57e8570f39824a9be8409e2fb2b2b0e8f9babcee42f105532360237"
     sha256 cellar: :any,                 arm64_ventura:  "b406c6c8a57f0e5e9883a31e3ba10016dfc7f465c3261a7d13a0684296b1ca6f"
     sha256 cellar: :any,                 arm64_monterey: "43999f593cc1905dccf002af7b0f0ab0f096c190a07195a8ec04f525e9f168e5"
     sha256 cellar: :any,                 arm64_big_sur:  "bf7c6bd61db0cd68ea8ed6242b0c3bcaa840f796adb19b581f0461bbca933f07"
+    sha256 cellar: :any,                 sonoma:         "3bc3b7586782005aef2b11f1b98c00be43d5941f1ef8c1d772f04efd06ab9dfd"
     sha256 cellar: :any,                 ventura:        "ad40e5f6b1eb49b7faa80b1127430585f45532386821bd0171e7a20f31f27ef5"
     sha256 cellar: :any,                 monterey:       "c460c32b2e429fad2aa60db5350a9c54628b1ed886c63d70bd57cd9d4e32f88b"
     sha256 cellar: :any,                 big_sur:        "8bde502606bc413040b7a9ce6df353c14abda0cf6dcc7aa826bab67f111d11da"

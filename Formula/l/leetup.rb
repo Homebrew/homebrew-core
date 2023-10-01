@@ -1,8 +1,8 @@
 class Leetup < Formula
   desc "Command-line tool to solve Leetcode problems"
   homepage "https://github.com/dragfire/leetup"
-  url "https://github.com/dragfire/leetup/archive/v1.2.3.tar.gz"
-  sha256 "b3f57dd96d2b823afe99e5c990ee09e90e19627dce722aa9407f23b516e7342d"
+  url "https://github.com/dragfire/leetup/archive/v1.2.4.tar.gz"
+  sha256 "cc5bc54eadff45bec29eb056f8882dbf9bb506837273f17b7a609754eba418b1"
   license "MIT"
   head "https://github.com/dragfire/leetup.git", branch: "master"
 
@@ -16,13 +16,13 @@ class Leetup < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "07cfb7d4b4a2fbe494ac65867ff6222652fbc0de12a23d42d1f845e3509b9dcb"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8690bcccd7f34ec5194cb1e0b2edfd2ae7c5ac2089d9b5d98147dc44f16ab98b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "99ae182820e17a22ac82cd624bbac1a3dac13480efb83e33fc0b7820cb6da9bb"
-    sha256 cellar: :any_skip_relocation, ventura:        "006111464d21c9e9b10fc29504ad866d5e3474faa83b4b3a4a753e3f9520a3f8"
-    sha256 cellar: :any_skip_relocation, monterey:       "feebe93d72f4c2bc1174ed89b83081d8f74910816abc2d2fe3119c9b8c7ae5a1"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1fb6d2ddb675d8451caa7815f6634c7260390bb1ef50799fb811378273200fc8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fb8ab05fec8617edbbf41c8cada5fcd1ca51877a632b2430c81f53eea343a776"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2ab846d5ddcfd62b1142bce710a7bd5a5f64729e4a071a13dec57ab4a672d3e5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ed58702a3142e7b96ff722504e774e7b42d0cd06d3094cbaea397c5ad0114ac5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f5dca556fdca6aee7ef500e05e49a69206fb64fd24202277928bf105e8a90f76"
+    sha256 cellar: :any_skip_relocation, ventura:        "b9ec283491c56bee0fd27ed0bb45091e7f643427f00bba1fce4acbcf9c82ccaa"
+    sha256 cellar: :any_skip_relocation, monterey:       "2aaceca02f57d15984b8a9099af8eacaac8ae48f77984c5334fb1f7b92f299e4"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c040fbc4186c4c3470a1b3366f45717fbcd69f124cdd382eddc427a721c57a72"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9173c182240851ac7b9bc16aa6a27f3410164645aa613a46ecce9e31e0165bbc"
   end
 
   depends_on "pkg-config" => :build

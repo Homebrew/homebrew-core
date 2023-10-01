@@ -1,8 +1,8 @@
 class Opencsg < Formula
   desc "Constructive solid geometry rendering library"
   homepage "http://www.opencsg.org"
-  url "http://www.opencsg.org/OpenCSG-1.5.1.tar.gz"
-  sha256 "7adb7ec7650d803d9cb54d06572fb5ba5aca8f23e6ccb75b73c17756a9ab46e3"
+  url "http://www.opencsg.org/OpenCSG-1.6.0.tar.gz"
+  sha256 "bf8fb80e3e0ce11d87dd78dd15a0de872dbb8972d87f5f89cffc461efad47be8"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,14 +11,13 @@ class Opencsg < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "d81b7b99ecf0f9005bb7ad7e5d620a69bd616e26149acbe75f5a93207e54ebbe"
-    sha256 cellar: :any,                 arm64_monterey: "d81b7b99ecf0f9005bb7ad7e5d620a69bd616e26149acbe75f5a93207e54ebbe"
-    sha256 cellar: :any,                 arm64_big_sur:  "c25ed441e4839673e8e498fa668876dee9f969f47a0ced101bbb0657aa7e2b08"
-    sha256 cellar: :any,                 ventura:        "e1a7e587d9b66b0a23184e0ab3d3e9df41424fe7a9615bd13432affd89a133fd"
-    sha256 cellar: :any,                 monterey:       "e1a7e587d9b66b0a23184e0ab3d3e9df41424fe7a9615bd13432affd89a133fd"
-    sha256 cellar: :any,                 big_sur:        "065b62d0dd08a2dd656ca87a615465efd114ee2a758d3a31d4c387888b356fbb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3c66be0ffb9e3fee24f1942092ef33340e92af64a71a170cbdb2ee7f599af2c5"
+    sha256 cellar: :any,                 arm64_ventura:  "4b28b76bbfd8ff4c7e248ecd4002a2acc7b642e70097a4573ba1a3e35586a493"
+    sha256 cellar: :any,                 arm64_monterey: "133b6c6a4bb2c39d3200e7af4d357ededd3473f5ae8361d9e27508b7dcb562c2"
+    sha256 cellar: :any,                 arm64_big_sur:  "e40e2cf3cd9781f797895f6f7ae44e3a8b2240b33e28f0cad82a1ad830a6cc39"
+    sha256 cellar: :any,                 ventura:        "b25d9df8d91c852e769bc73b53121900ae76abcc20d4ff78777c886324dff26c"
+    sha256 cellar: :any,                 monterey:       "ffa1192d5f9a986429848d143730f89ed23f6d322fd205256aefb813c3d869a3"
+    sha256 cellar: :any,                 big_sur:        "2f722c11994df3bbf13077eb32877ea18600f92003434b61a20bcd6331297ed8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fd3fc35ff3b4f3617a45eb3a86a6e2dc5f9e510808ea088172eb2b9aee3c1546"
   end
 
   depends_on "qt@5" => :build

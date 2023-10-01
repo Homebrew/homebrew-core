@@ -11,14 +11,10 @@ class Dotnet < Formula
   # https://github.com/dotnet/source-build/#support
   livecheck do
     url "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json"
-    regex(/unused/i)
-    strategy :page_match do |page|
-      index = JSON.parse(page)["releases-index"]
-
+    strategy :json do |json|
       # Find latest release channel still supported.
-      avoid_phases = ["preview", "rc", "eol"].freeze
-      valid_channels = index.select do |release|
-        avoid_phases.exclude?(release["support-phase"])
+      valid_channels = json["releases-index"].select do |release|
+        release["support-phase"] == "active"
       end
       latest_channel = valid_channels.max_by do |release|
         Version.new(release["channel-version"])

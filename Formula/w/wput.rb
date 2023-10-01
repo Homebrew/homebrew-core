@@ -6,9 +6,11 @@ class Wput < Formula
   license "GPL-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "396180470ace5f8d7640f2097bded1f66af50bac01ba8470ea3023968bc39d6b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7f892df6bfff0d575edbbd428c2decb1005b7c8faac2a709976c6489fc7e6719"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0899932c8dc9e51846277c672a4e4a9dcc36c1d999cb460d2e337a927b702a76"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a3456f7990bc7b2caa2d5a3afbff6bb921ee346030a07f4be9a31166c28609bd"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3300e6e7bbc43adc8f1525c8badcf307029b63127163912115555b7b5e99525f"
     sha256 cellar: :any_skip_relocation, ventura:        "40cca9132e6826d07f8237bbb27419b55012b3e45aee55c39e1e0945f8201afc"
     sha256 cellar: :any_skip_relocation, monterey:       "39c0ebbfc7502644b9df207fae398036caef7cfcee63d340776d036893964610"
     sha256 cellar: :any_skip_relocation, big_sur:        "2a5d49be96808777f249d96b6f86e2e0e0e301be0e929ba1eaea99cf79cacf42"

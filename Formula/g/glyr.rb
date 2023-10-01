@@ -7,9 +7,11 @@ class Glyr < Formula
   revision 2
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "74187740cb6f6aabc0c532714c8753435c33a49408407c3ba5b0236c5b85cc03"
     sha256 cellar: :any,                 arm64_ventura:  "0b11085d86604b659fe43f99e91838695ff2c6bb4a1e5f2790e6af6fc90246da"
     sha256 cellar: :any,                 arm64_monterey: "800ed9d047c06e8490f6318b36c88c34feb4dac7dbe60a539edd752f4568a08e"
     sha256 cellar: :any,                 arm64_big_sur:  "498252c79958a96c42f3bea2936366f692d5c25cf12d6b3ee3c8ac1a5747f4b8"
+    sha256 cellar: :any,                 sonoma:         "8cb3930704acecdc21f9035ed8bccd3c326db8cdd14a3b03e731533c072aea3b"
     sha256 cellar: :any,                 ventura:        "5c2a9dbf3b8f41d091f36b78e8c5597fe3ec3f5153eb5d60577b911b92d6a68b"
     sha256 cellar: :any,                 monterey:       "ff357ecf355067543f989182c6dc6a113d0aa64dca00aa3df67a080d68ba2ca5"
     sha256 cellar: :any,                 big_sur:        "86ce9cf96d67fdbe9b174f4bc302f9c31abffcfb7790ec07fef5294f66beca17"

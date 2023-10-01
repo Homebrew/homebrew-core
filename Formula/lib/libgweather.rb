@@ -1,8 +1,8 @@
 class Libgweather < Formula
   desc "GNOME library for weather, locations and timezones"
   homepage "https://wiki.gnome.org/Projects/LibGWeather"
-  url "https://download.gnome.org/sources/libgweather/4.2/libgweather-4.2.0.tar.xz"
-  sha256 "af8a812da0d8976a000e1d62572c256086a817323fbf35b066dbfdd8d2ca6203"
+  url "https://download.gnome.org/sources/libgweather/4.4/libgweather-4.4.0.tar.xz"
+  sha256 "366e866ff2a708b894cfea9475b8e8ff54cb3e2b477ea72a8ade0dabee5f48a4"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
   version_scheme 1
 
@@ -16,14 +16,13 @@ class Libgweather < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_ventura:  "10e3aa3f43d4613c79ede732e46bc59afb9795881388600a93dff38ff2983c1a"
-    sha256 arm64_monterey: "dd362d2581760d1ad24032bef6602950afbb95d2a03d8227d99dc457f8e18aa0"
-    sha256 arm64_big_sur:  "e290a296815fc815693df0c9d5f1535603e05ba359b9de0e449381d5c8ee9967"
-    sha256 ventura:        "1251d458064a2d2ed5275781e3fe5a03bf87fd408e29eb483eefc7bbb1831aa9"
-    sha256 monterey:       "09f7e049f0ba4abc43dd43ce8c24722b18e0d9d77897795663e3ddf865cbb4ab"
-    sha256 big_sur:        "e3c037ec03dedafb98a73a7ace0028f3a390d39f840e74cd73ec6e7d553fdacb"
-    sha256 x86_64_linux:   "e01185848d3a1fbaed6bdb58b7921c4e13076649a23a8577e8687852ae5a63f1"
+    sha256 arm64_ventura:  "c9e1eeada0b4081e82c1d7d1929a5c54e78aa649234667ecc5c76b16a221d081"
+    sha256 arm64_monterey: "a52f7ea41f7a0203e6bcb24898c3bf77342cc6ab75110bf78c0f4b7b4b02b80b"
+    sha256 arm64_big_sur:  "ac0adc0208bd10f79f7e6485b1ba1de9b79d934b8351d87c421ce375a421f48b"
+    sha256 ventura:        "1b9db7cb123b8277d1547770c80b853b449921fdbb43770bab8a54ba9a1e7099"
+    sha256 monterey:       "662c16a569a2d12e42116cd0c4e6ae517f2ed6d20df293c7ec2a1d3d37cbf426"
+    sha256 big_sur:        "7352814c38a221c5970b5beb2e673707573985bc4184731a3f46700a55d91833"
+    sha256 x86_64_linux:   "a6ffa551f6f61451b13c708ac3e30eb3233bdeee6c4735927cf2689920a3e114"
   end
 
   depends_on "gobject-introspection" => :build
@@ -40,6 +39,10 @@ class Libgweather < Formula
 
   def install
     ENV["DESTDIR"] = "/"
+
+    # Workaround for Xcode 14.3
+    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+
     system "meson", *std_meson_args, "build", "-Dgtk_doc=false", "-Dtests=false"
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"

@@ -36,7 +36,7 @@ class CrushTools < Formula
     depends_on "libtool" => :build
   end
 
-  deprecate! date: "2022-12-27", because: :repo_archived
+  disable! date: "2023-09-25", because: :repo_archived
 
   depends_on "pcre"
 

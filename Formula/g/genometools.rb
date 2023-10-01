@@ -1,31 +1,20 @@
 class Genometools < Formula
   desc "Versatile open source genome analysis software"
   homepage "http://genometools.org/"
+  # genometools does not have source code on par with their binary dist on their website
+  url "https://github.com/genometools/genometools/archive/v1.6.3.tar.gz"
+  sha256 "b4919a2eafaa353a69ff4e63c788faeaa95b61bdf8d6e70e9922e0c955e95ff8"
   license "ISC"
-  revision 1
   head "https://github.com/genometools/genometools.git", branch: "master"
 
-  stable do
-    # genometools does not have source code on par with their binary dist on their website
-    url "https://github.com/genometools/genometools/archive/v1.6.2.tar.gz"
-    sha256 "974825ddc42602bdce3d5fbe2b6e2726e7a35e81b532a0dc236f6e375d18adac"
-
-    # Fixes: ld: in lib/libgenometools.a(libsqlite.a),
-    # archive member 'libsqlite.a' with length 886432 is not mach-o or
-    # llvm bitcode file 'lib/libgenometools.a' for architecture x86_64
-    patch do
-      url "https://github.com/genometools/genometools/commit/65afd754657e2c3ffa65fc13ded222602b86e91c.patch?full_index=1"
-      sha256 "1d409b3ec0ebe04ff97f44b8cf566f556b3bc0bac21da7dec9d254b2fc066215"
-    end
-  end
-
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "b09bb366e3e15f77d94aab5e6bdb072e9304534245a730783df426deccfe040a"
-    sha256 cellar: :any,                 arm64_big_sur:  "f350d9c4cac62bcb0b3de1153d4f2fd760b529f02bd9a43f21c91ecfa5e0b47b"
-    sha256 cellar: :any,                 monterey:       "27d16515d739177e10547d62c76b0b20af221979572f05982d3a37392bf52dcd"
-    sha256 cellar: :any,                 big_sur:        "b97131de84349e7e805095564ba995eb6d06e99b8e0f9b4f5b943e42af17997e"
-    sha256 cellar: :any,                 catalina:       "4b59bf76b39c797a21e6cd2acb90fdf273316ff73cd3c97ede296f672493a42a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ee8f9d26f65607d15f8113c45c9ccf670fd01a9d12e4ca764d9ee3a0e4705b1"
+    sha256 cellar: :any,                 arm64_ventura:  "97607396979f466778e984c7bcd94185ce30001a048b6fa8f96ffad22228937d"
+    sha256 cellar: :any,                 arm64_monterey: "202585029e5162f1ce5f11818e9b32d8ab95ef6ad5cec674aa9de94433a11be4"
+    sha256 cellar: :any,                 arm64_big_sur:  "886b8dd879920740b132eb0a93f19fece65b7a5db31b57eaa0ddfbd46d592c77"
+    sha256 cellar: :any,                 ventura:        "391c859fbb173886b6cd5697587365a4b7c9cc3a3539eae31a1a78ded70557b5"
+    sha256 cellar: :any,                 monterey:       "2892b580fc796ec287f7643dfdf8b494acf9e3cc93aa7d8b19c9302bce686d1b"
+    sha256 cellar: :any,                 big_sur:        "2bd803ad38d8d31691d97fe671cc6035f31e1a802bde3df53623635b9915d1bc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "74ee2ff428a5b73882e5870ae44726ca311d84551fb5319f908b8a82b9fd96e0"
   end
 
   depends_on "pkg-config" => :build

@@ -1,19 +1,19 @@
 class Orbiton < Formula
   desc "Fast and config-free text editor and IDE limited by VT100"
   homepage "https://orbiton.zip/"
-  url "https://github.com/xyproto/orbiton/archive/refs/tags/v2.64.3.tar.gz"
-  sha256 "f3ebdcdc7cb3502705ceda208510da1a43e65b5e0cb33e57b86564667b48303f"
+  url "https://github.com/xyproto/orbiton/archive/v2.65.0.tar.gz"
+  sha256 "41ffe579fcb5791e47d44eae7252d74d5c99cba8c217b619198a6c4dc49f8292"
   license "BSD-3-Clause"
   head "https://github.com/xyproto/orbiton.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cce42d3d44f9169e96b22a661a83e31320b9a74f40ef86b09d24bbb08c76834e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "42adc1d5494be542f1cbaab358de81d99ee3ffe89f326b0725643858bf588f41"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a3dafb870e7bed6b18f838093defa795d8ba81e4385dc7961ccdd7941efc561e"
-    sha256 cellar: :any_skip_relocation, ventura:        "e6f3ca44032831f56be2d881c96f4f984cfbdfe2958ded997988d94073898e04"
-    sha256 cellar: :any_skip_relocation, monterey:       "b6284a4e4d41b4c29a3a4ad087b4f09fd0e00f1bdf4f28c4523f5194873ac36c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "98c9825dcdf426d20b634f84bab15d2466575331af1e0939e05673f61c32e485"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "12bc5130e3ac33611627e3fd5ed95631b56e04cfbeb14c7cce317c9d486b29e5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9c6ae09b5490e33f813851676405e5b75d6a652db6d112d554ad4a82f337d9f0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "166f74a1573fe95fd2da8593d42275926bbd823b58b8e58413eb645a7ca85ac5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a31baebfb33bd1a67d90366f1f717af2da8faeb7d1d25425a9318e2ca1d80c60"
+    sha256 cellar: :any_skip_relocation, ventura:        "e84e6daf3f1aceb3483ccb34958b6d9535081363cf37bf47874d5a8b92c4b5fc"
+    sha256 cellar: :any_skip_relocation, monterey:       "d793cddf697d36c3bb907d9a8b228128a42c09bd195f018c8d71bfbf53d56450"
+    sha256 cellar: :any_skip_relocation, big_sur:        "488ddb6a832ac3fc552a931f94d12fe16d788067ee44d1ee72033c46c566ffd3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "35c9bf6df15061e11eaa3c8ae3ccae284c30fbef6c86e5f3dfa367eeeb514a4f"
   end
 
   depends_on "go" => :build

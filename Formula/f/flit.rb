@@ -11,9 +11,11 @@ class Flit < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "59260548ae13718aebd10f443a395131094e81929860f89933a18a946848c9af"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "59ff232303dcc43553ea52979982d5e04e53db9272ddb82b85306d312341947e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0273a40c31f8dd46bea165bd814ca01e26e4f15ac04f08da87ac4407a434ae0a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fdd29305495d29873e462927d4341b521d4363232de5c5fa16fc9b1ee297cddf"
+    sha256 cellar: :any_skip_relocation, sonoma:         "477b477e93172c2b57a66fb92cb80dc2f997e81fd4231a30cb18ad6bf04e4360"
     sha256 cellar: :any_skip_relocation, ventura:        "3a06d02585b99afbb19eeaa691164ef6c778dd4810aa671798a72a747145b1b6"
     sha256 cellar: :any_skip_relocation, monterey:       "f59252ac73703cc6b9b078e7472f6ea250a7f564382cff93b7975ea907ebeadc"
     sha256 cellar: :any_skip_relocation, big_sur:        "edcf0b1108d7d53214fc3db22efdead2afd311c0cff16abcd54502abea9a9bc4"

@@ -12,9 +12,11 @@ class Scummvm < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "3ed9b5e02f861702e7efd6d7bb12f710fed710b4b16c5c27af47e1cd1afdc19d"
     sha256 arm64_ventura:  "6e72919f378fc00fa734fdcbc032ec9dd6a526d832afcbad2dc2508309e8a0c5"
     sha256 arm64_monterey: "e0dbf93235c69abcdc74739a86c993a1cda5af2178b9b10e570fc9c39c277738"
     sha256 arm64_big_sur:  "cfefac96fcf8ea55b34727b1e1246e847c423459eaa06449f1f17068079af7c6"
+    sha256 sonoma:         "197a8e066eabc690161f74ae2b793b3e78c59958d7514c0652ab3dd5423e7e73"
     sha256 ventura:        "bc4d8eef158398d33c5b69fd4bf74b781414aaf383c1ac318a522716c89c978a"
     sha256 monterey:       "718314462b5ab77647835511ab5c5c951d96aff71df6dabfd5969c5c826b8c5d"
     sha256 big_sur:        "217f483d0b009c406c3cf07c917d086214cc6ce818d1215caa4626ede53b074e"

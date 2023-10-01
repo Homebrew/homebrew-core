@@ -7,9 +7,11 @@ class GuileGnutls < Formula
   head "https://gitlab.com/gnutls/guile.git", branch: "master"
 
   bottle do
+    sha256 arm64_sonoma:   "fa04d75c5e4ce832178da0dd59c0903976517ec88bab6e447c2635f8efabcf86"
     sha256 arm64_ventura:  "904211d84327edf97c2f981c332cfa4b87f9ae6acead1bd3fb03dbf730f86eb7"
     sha256 arm64_monterey: "4a838b2cf2c2dd0e6709cd43201a9c8dc5cc7e09705a00eb2523cb9785048c07"
     sha256 arm64_big_sur:  "ba2ef38bd8e6930920cbc9541d52e1d661858dd6f1a678018f3352b9affb6da5"
+    sha256 sonoma:         "60ec990b57c525b59f4dc15a197c55efabf364be72a569db4e5231a60c6b8a00"
     sha256 ventura:        "ce529583a5a68f8ee4369922bf37ed729a4a7889347047f41221c654b95fc040"
     sha256 monterey:       "13b7f3129d9b70f721db8e2a111c8e013e981076aef2d80628c83464a7c5b5f8"
     sha256 big_sur:        "a9a905b1b7d1a8c74558474e5f75a3b267688221b598babdee1601e72f72d0f6"

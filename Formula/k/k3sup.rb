@@ -2,8 +2,8 @@ class K3sup < Formula
   desc "Utility to create k3s clusters on any local or remote VM"
   homepage "https://k3sup.dev"
   url "https://github.com/alexellis/k3sup.git",
-      tag:      "0.13.0",
-      revision: "1d2e443ea56a355cc6bd0a14a8f8a2661a72f2e8"
+      tag:      "0.13.1",
+      revision: "16f009cd86de432fa78d08fffa1c12faf9d4c896"
   license "MIT"
   head "https://github.com/alexellis/k3sup.git", branch: "master"
 
@@ -13,13 +13,13 @@ class K3sup < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a9bc8a35f8246b7c7371d05f166715f03d1ab4f3a9a69d81502d2aa27cc48743"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9edd31492d241247bb78b54f3ebe01114269a6ded3d13785d990459cb0ac7a95"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0ead908eaf645f6b46b6fd047c91a015eba60d90052b5718f7244634c3c96e50"
-    sha256 cellar: :any_skip_relocation, ventura:        "01e366718e215f5d617ebfd3f90af1dff539cb405ea32dab97267bc1fe45f2f5"
-    sha256 cellar: :any_skip_relocation, monterey:       "00af0f6a8cdb87e85f1b1c91e7527b4e91110f297471da521080a2780796a2b9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "bf4db7491b62b36d9d1537f5344aff9e5b6b756c967e8f4a7cd4541d33a6294e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "891f16b3c96614a6b906f5aa8c67302a47cdd340323ce720323d21eb2f2093dd"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e7397beacc24a9dfe5579f0f035e7de238276473f274782797261aef0dac7d35"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "505feb5ac11ea09b278f5f4869f8f9e8374c927eda5e5df4ea6bf094811cc67a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "43581e92c30ab51c209227453cc39121daa27a1777e537f32f62c7533b8668fb"
+    sha256 cellar: :any_skip_relocation, ventura:        "115ba3e4fb90d7a2450af548668f6ec1e35a8865b3c175e9e618dd0c42f59e89"
+    sha256 cellar: :any_skip_relocation, monterey:       "d89121a1fd07ca98e94097542b5ef9deb5f234dd02e0c7b7f73f8199fb7919b5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ae84f86f9e97a42d7a80958eb02340fefdc3c9cd23e4efa1f5281e4c876064bb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "20c8c952671dd39cdf650976fba93e94ceab6cf0be62b44d1b0f94a1bc0f3a69"
   end
 
   depends_on "go" => :build

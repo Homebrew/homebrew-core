@@ -12,9 +12,11 @@ class Snobol4 < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sonoma:   "d45bb7d202dfc6996efbaf97a302092ed0acb8d841f659eec313efb89a124e0d"
     sha256 arm64_ventura:  "505e0a672763a6722cdac5f45129c79172a17b62cc2ca8e16166c00e39ae28e6"
     sha256 arm64_monterey: "a53dcbc020bfb1f4717e77b9b329fedef3be50f57fa30bb2c55cde9a124eb9bd"
     sha256 arm64_big_sur:  "4ed47b83e9a1e747c178a7b1ebb17d1c752c8f354d91f8e03f4c31e7a9b7f6ed"
+    sha256 sonoma:         "38e72c2fd4089d9f3afbc3bb5dffec3673cdb8a831cc83bc396a812e626b53a1"
     sha256 ventura:        "415f81ff2821f8e0f7a6f29b4e2c8ed1aad6a32c8be79ac2e5d9e26cb22d9146"
     sha256 monterey:       "9273da745ee760883553c560010c999831afcadbf1cf220188f260cb7a2269d3"
     sha256 big_sur:        "ac601704cde8de8f0334349e32f82cd2a9ce6cd5467d995fe8ac1ea79747c42b"

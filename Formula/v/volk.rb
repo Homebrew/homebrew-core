@@ -8,9 +8,11 @@ class Volk < Formula
   license "LGPL-3.0-or-later"
 
   bottle do
+    sha256 arm64_sonoma:   "11ec6cece7994fb89cc162209fb3f6aed5e9a782d12a963f6b7f94cae3df16b2"
     sha256 arm64_ventura:  "52ff9a4b5c47a0dc1f19db0058c4fafcc26b8163f28bbbf1b926efd782e5ab02"
     sha256 arm64_monterey: "ff09e450bf0ae32fcd0562397c9a45839450f32f96d3559da7fafb61a3cb03c8"
     sha256 arm64_big_sur:  "f38aebc5c6ad1163e5ebc1791ccebfe5c269a1319aa06676bc5d295cfe01dd4d"
+    sha256 sonoma:         "c765568ec021de50cb4c8150a23085d020a114df36006dd21f3da350a1fa368c"
     sha256 ventura:        "79fcfa93cd4f681fe8af9e515e264608162cef5d8498fede1829bb6616e6878d"
     sha256 monterey:       "435296319b6a65ae72d6a5dd24e1df94552ca2ee3d6985c433b0be9cb42604fe"
     sha256 big_sur:        "943932be7a0e7fb6cc7d146ead74a6069cf014d4a30dca8167520ae7cb5d82d4"
@@ -71,7 +73,7 @@ class Volk < Formula
   end
 
   test do
-    system "volk_modtool", "--help"
-    system "volk_profile", "--iter", "10"
+    system "#{bin}/volk_modtool", "--help"
+    system "#{bin}/volk_profile", "--iter", "10"
   end
 end

@@ -11,9 +11,11 @@ class Libmetalink < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "2d96d68b47cb11ebd54431713f613b092ef59e60cbb0ebde4752128035e8a3f5"
     sha256 cellar: :any,                 arm64_ventura:  "1684da3a02e39ed1a65dc154f06f309119cff3010a45efbbeb1d653081885bc8"
     sha256 cellar: :any,                 arm64_monterey: "4181f8a100f736a945001f57c2ad8f768ad99cdad6789a19d9f21e0cfdd4d3fb"
     sha256 cellar: :any,                 arm64_big_sur:  "a5eec14410ca7f2ea831d91c273d6372bc851f930944d207f07f35245b077a91"
+    sha256 cellar: :any,                 sonoma:         "0d1573fb4f98d9fe1131e0f13e73df5b69c346a740a41b3efc5972cc62763eb4"
     sha256 cellar: :any,                 ventura:        "458a2aed06056d0cc3dd1005f93210c9c686ba2515d8550ec0fd6f8348168da6"
     sha256 cellar: :any,                 monterey:       "c1a510079e53edc2ebd437321751752e897c253332dc6644ebc6b03cecbf48f2"
     sha256 cellar: :any,                 big_sur:        "ec4a4a8f898432cccfa2198c0e877daf2d80c2ab5bc92a7a9134a3dd75529a87"

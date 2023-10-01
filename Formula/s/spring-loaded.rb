@@ -8,9 +8,11 @@ class SpringLoaded < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cf07fe442b529bea88c9a3e8b0476184179150c03c2a5751c0d8ac98911ef2ee"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "cf07fe442b529bea88c9a3e8b0476184179150c03c2a5751c0d8ac98911ef2ee"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cf07fe442b529bea88c9a3e8b0476184179150c03c2a5751c0d8ac98911ef2ee"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cf07fe442b529bea88c9a3e8b0476184179150c03c2a5751c0d8ac98911ef2ee"
+    sha256 cellar: :any_skip_relocation, sonoma:         "cf07fe442b529bea88c9a3e8b0476184179150c03c2a5751c0d8ac98911ef2ee"
     sha256 cellar: :any_skip_relocation, ventura:        "cf07fe442b529bea88c9a3e8b0476184179150c03c2a5751c0d8ac98911ef2ee"
     sha256 cellar: :any_skip_relocation, monterey:       "cf07fe442b529bea88c9a3e8b0476184179150c03c2a5751c0d8ac98911ef2ee"
     sha256 cellar: :any_skip_relocation, big_sur:        "cf07fe442b529bea88c9a3e8b0476184179150c03c2a5751c0d8ac98911ef2ee"

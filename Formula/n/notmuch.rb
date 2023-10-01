@@ -1,10 +1,9 @@
 class Notmuch < Formula
   desc "Thread-based email index, search, and tagging"
   homepage "https://notmuchmail.org/"
-  url "https://notmuchmail.org/releases/notmuch-0.37.tar.xz"
-  sha256 "0e766df28b78bf4eb8235626ab1f52f04f1e366649325a8ce8d3c908602786f6"
+  url "https://notmuchmail.org/releases/notmuch-0.38.tar.xz"
+  sha256 "a17901adbe43f481a6bf53c15a2a20268bc8dc7ad5ccf685a0d17c1456dbaf6e"
   license "GPL-3.0-or-later"
-  revision 3
   head "https://git.notmuchmail.org/git/notmuch", using: :git, branch: "master"
 
   livecheck do
@@ -13,13 +12,13 @@ class Notmuch < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "cb53342a8f60711edd31588bece2fe0790bae0881ba17d12c6e742cfd9e89cdc"
-    sha256 cellar: :any,                 arm64_monterey: "2e5dd617b799c2cb51d2fd27ca3f79cbd393721cbb516ad9c69498fcd706ffaa"
-    sha256 cellar: :any,                 arm64_big_sur:  "e806bc40eea77aeb9f22130c2d8a1cc0fc098aedf1b164e65fcaad980eaefaff"
-    sha256 cellar: :any,                 ventura:        "c291a7902b95702590ce2b08f0896576f2bfd575dd4244f56c3c3d1042c34fe3"
-    sha256 cellar: :any,                 monterey:       "84dd871357b3fc0e73e3510ccfad6680f9fd93f299acd0d3b4a4ea2c55a8f27f"
-    sha256 cellar: :any,                 big_sur:        "bf3cadada32b92064ebfa8e9bd7f227abab5bda1cc6250d126dcca1381027173"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "56bd2a93e75ba5e2d34b0ccc613c0dbe3f1bc62e9e8ba5065c891e24e9413107"
+    sha256 cellar: :any,                 arm64_ventura:  "dd9ce318f993e932a562519a047e9bb8509549c1c7baf23e51894fcf2ccc97dd"
+    sha256 cellar: :any,                 arm64_monterey: "d5e2f6c85fe241e503f3d427308476a453bcbbd573253d191a22ef6ac69a997d"
+    sha256 cellar: :any,                 arm64_big_sur:  "03b4bd37d3208ee63332ab72a06c9547e59a6ab8b07a87b7a7ba909292a22acb"
+    sha256 cellar: :any,                 ventura:        "1142fb66ea9482b075f399fa8214e39ef15b9afec690b5963a33af81e8a0fdbe"
+    sha256 cellar: :any,                 monterey:       "0e85ce4e585e7d4fb12853f2e3db4a8203e92849aaf5681e36cfb5134d3c7d04"
+    sha256 cellar: :any,                 big_sur:        "d14ee543acd0c0155ea53c33030fffcdbaaad7fb43c1755ff2a0a888c64f4958"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5461181e8ec5fda26da1a67f9a08c34dc3d598aa0a1b783824d021ddd7d9f260"
   end
 
   depends_on "doxygen" => :build

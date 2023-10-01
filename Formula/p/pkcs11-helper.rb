@@ -14,9 +14,11 @@ class Pkcs11Helper < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "9399ed1643dfc08396104a794b71e6151eb8719ad4cae7730b04d8e3433fb476"
     sha256 cellar: :any,                 arm64_ventura:  "704fc17cc0170328b5e772918f3cfe09b32fda1310488e3d1e913791a88fb1c6"
     sha256 cellar: :any,                 arm64_monterey: "a2886c40d21096da330d82d610aa3f2c7613d0f5beb4dc86e1858fa96cd528d7"
     sha256 cellar: :any,                 arm64_big_sur:  "0e40c843a213e6dce17a34462bf59f80b62ea2282c84a7900a818f7c6c56e223"
+    sha256 cellar: :any,                 sonoma:         "5866e6e83191e79d9a8a288cace913e3e0f91670af8c238134ba51426d3db6fb"
     sha256 cellar: :any,                 ventura:        "b5a85f9389b60f374499bab678ccfb86fd86a180aa91943a33cb85df75c4c99e"
     sha256 cellar: :any,                 monterey:       "32b5a12ccb7f2b817717b80dd5596f6469599dfa1f0052249f19ba1cc4fe1deb"
     sha256 cellar: :any,                 big_sur:        "7e9e371045bed72b15fb40a09ae168c8f44692d4638b5752aeaa690493e50023"

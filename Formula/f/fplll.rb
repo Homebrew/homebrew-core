@@ -6,9 +6,11 @@ class Fplll < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256                               arm64_sonoma:   "789c0d828a486a3151395d144c48a1eadef04702411a748544766763a4aabaa2"
     sha256                               arm64_ventura:  "1ba1a1085084572ef340831e6a3ac9bde2cf6cda68e71075ccd8e1ee05dfa5ec"
     sha256                               arm64_monterey: "f6b54eef42956eb6d47951a5050fe5b38a420fc160086d20e38751d113b896ef"
     sha256                               arm64_big_sur:  "ce9be65f08ef8ecb291ae15916ca0d1cb6f160b09629649739754b93300f7717"
+    sha256                               sonoma:         "059949343f5bc0917e9408e6e773bcc763e47f73e20a3b67ed9bdf0a3c3baecd"
     sha256                               ventura:        "2b19d4550c1ba260b0a4d8809d9ad6e4db767d53243ed4b974020628fb693070"
     sha256                               monterey:       "3c4eb9b7a09063287a71ffae596ddbd13d515e3cd13e4253e6bc7dd082f7935d"
     sha256                               big_sur:        "c63834cc0c9dd96522545abbe3e68459b019910e59cc42692c053f56991d8098"

@@ -4,8 +4,8 @@ class Neovim < Formula
   license "Apache-2.0"
 
   stable do
-    url "https://github.com/neovim/neovim/archive/v0.9.1.tar.gz"
-    sha256 "8db17c2a1f4776dcda00e59489ea0d98ba82f7d1a8ea03281d640e58d8a3a00e"
+    url "https://github.com/neovim/neovim/archive/v0.9.2.tar.gz"
+    sha256 "06b8518bad4237a28a67a4fbc16ec32581f35f216b27f4c98347acee7f5fb369"
 
     # Remove when `mpack` resource is removed.
     depends_on "luarocks" => :build
@@ -22,13 +22,13 @@ class Neovim < Formula
     # TODO: Consider shipping these as separate formulae instead. See discussion at
     #       https://github.com/orgs/Homebrew/discussions/3611
     resource "tree-sitter-c" do
-      url "https://github.com/tree-sitter/tree-sitter-c/archive/v0.20.2.tar.gz"
-      sha256 "af66fde03feb0df4faf03750102a0d265b007e5d957057b6b293c13116a70af2"
+      url "https://github.com/tree-sitter/tree-sitter-c/archive/v0.20.5.tar.gz"
+      sha256 "694a5408246ee45d535df9df025febecdb50bee764df64a94346b9805a5f349b"
     end
 
     resource "tree-sitter-lua" do
-      url "https://github.com/MunifTanjim/tree-sitter-lua/archive/v0.0.17.tar.gz"
-      sha256 "8963fd0a185d786c164dfca3824941c7eaec497ce49a3a0bc24bf753f5e0e59c"
+      url "https://github.com/MunifTanjim/tree-sitter-lua/archive/v0.0.18.tar.gz"
+      sha256 "659beef871a7fa1d9a02c23f5ebf55019aa3adce6d7f5441947781e128845256"
     end
 
     resource "tree-sitter-vim" do
@@ -53,13 +53,14 @@ class Neovim < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "ca207194a6ed07851c3a36293e32c37e879365f2ad2731f450455da1bec9d7a4"
-    sha256 arm64_monterey: "85795a3a28506df3c7d281d9f9fe1d1f2d50c3834e7287bb17d86d80cbe67f3d"
-    sha256 arm64_big_sur:  "ec4415c980e03abb98631cf6d701bf02eb31430b696de11915900ab2daebb9e0"
-    sha256 ventura:        "70888c68b7413575337a00a044b17a1a06e8948b6b3fa3317a99f66ea6f03f58"
-    sha256 monterey:       "3993bd104e748db9b4f1b2994082d570ebb84ff4facaaeb66ce9d20647613a09"
-    sha256 big_sur:        "fe91386e1a0e9cddb90b13b3998f8f1e293d74f1a4a411b7b6e122771ae3ade7"
-    sha256 x86_64_linux:   "17a892c8ecfd1206aa894663b6d68a7dea4767b4b323afd76263e9aafe3fa673"
+    rebuild 1
+    sha256 arm64_ventura:  "1331fb8fbe169fa8df3209f995ac07b1c3d3116b68a56b7d84d5ad2232d19621"
+    sha256 arm64_monterey: "b593f04943f12915e7d3e33a4fb313fa3d9734767a26ed7f7d4ddb9e1bb57346"
+    sha256 arm64_big_sur:  "db136225812aa77d1989562bb21131d7be2764ad099624f3bdfa0700320ab594"
+    sha256 ventura:        "c33d7e0c78d8d3f232b60b34d8203038d66c42cc796bf64d54bc834522805f6c"
+    sha256 monterey:       "000aa80bcbd9d47e0d52d98717a087304ec643b19d15fc5b4b51bf0680b1b988"
+    sha256 big_sur:        "77e2dc10ca228748aa60dbebcac9ea739809f4eabcd4a22f861d5701acd191c6"
+    sha256 x86_64_linux:   "50d91513b35af090a520f5a319bbe5eef6d5ff2d8dbf1e5d7d913e3b9dda3721"
   end
 
   # TODO: Replace with single-line `head` when `lpeg`
@@ -148,6 +149,7 @@ class Neovim < Formula
     system "cmake", "-S", ".", "-B", "build",
                     "-DLUV_LIBRARY=#{Formula["luv"].opt_lib/shared_library("libluv")}",
                     "-DLIBUV_LIBRARY=#{Formula["libuv"].opt_lib/shared_library("libuv")}",
+                    "-DLPEG_LIBRARY=#{Formula["lpeg"].opt_lib/shared_library("liblpeg")}",
                     *std_cmake_args
 
     system "cmake", "--build", "build"

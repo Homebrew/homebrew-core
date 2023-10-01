@@ -16,9 +16,11 @@ class Sdl2Image < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "2b375592dc6ca6ab72a2b9dc14fd9cb37b2153df1c7cfc561ca93a4a5a7955fa"
     sha256 cellar: :any,                 arm64_ventura:  "bb43982d9f926fb5be7983d2aa4c74c1b045c0ac81656e8326b8377d011bd6e7"
     sha256 cellar: :any,                 arm64_monterey: "7865d5fc5d7f76abf3798b9b44bd03b92cb4ad0805eead866042effa37c7ee63"
     sha256 cellar: :any,                 arm64_big_sur:  "4f8f838052625cfb3356e465785aaaf0f8d61e6394dcaedaf1bc44460ce462a5"
+    sha256 cellar: :any,                 sonoma:         "4945921304ae43a6f763acc111218f60625518d5fa4197de4c9113252d8ee1fc"
     sha256 cellar: :any,                 ventura:        "d2207f59ca7a2dd0ecd2584b47220de9344b3d1b6d3069a15d67b24d6f0d8203"
     sha256 cellar: :any,                 monterey:       "22da2defb584868e75af04623219ca07adf78d495c166c10deb56fdc485abf63"
     sha256 cellar: :any,                 big_sur:        "eea32beea59b8a9ee9b3f9a064a82607e08a1c75ecde8f1aa8ea12ef647786b4"

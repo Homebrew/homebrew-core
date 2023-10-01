@@ -13,9 +13,11 @@ class Adns < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4ff6a0cfd0d78c66ff54325619341c1e3c8148b0193f4fe249def9f158c659de"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "39fa25cc2f79cc7187c9ef2c5bcd40e4f02a143ac64ae8c6d1d14758235def1e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a84000c6ecb31175af08ba967851c7c82b7a69e0fdc54a9564ce4bc3f48c893b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4c5f65f0165f568dd85bb04b472b4a6dbd8e37a63f6fa895090fec4f85ac7796"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c1a92daab1e6cd6cdff519f6ff58cf12602c8370e8f2f682f5d4659d60df8e48"
     sha256 cellar: :any_skip_relocation, ventura:        "6a4c2921b3b5cd87806e3e79bb408e51aa92e9ec0d06c7bff7e80819ea1dd199"
     sha256 cellar: :any_skip_relocation, monterey:       "79d82c25d06b3d8995fe1b5a781673793509c09050fd964a1e63089b229afd82"
     sha256 cellar: :any_skip_relocation, big_sur:        "4c04df018648aa59b85137f9225399ac2f934b5ac20f3f91746efe433ff06f98"

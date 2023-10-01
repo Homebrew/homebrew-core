@@ -15,9 +15,11 @@ class Zlib < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "1914dfb0224186123c1393562b4b02a87158f204733364830ebcb6a5a371017d"
     sha256 cellar: :any,                 arm64_ventura:  "1a62f85701ec1e370610f0b05bac3793ff643167798c9230c2f4da0ad16748d6"
     sha256 cellar: :any,                 arm64_monterey: "553a8a0911ecaef651508369151c62eb784b32b93b0ede90a168ad6b7499c69f"
     sha256 cellar: :any,                 arm64_big_sur:  "dc0d3b902f78f0af490b3eea17cbff5904b8b7e4313fa7b6455a2c8a8d84f5e0"
+    sha256 cellar: :any,                 sonoma:         "e66dd421a51a0a548d3434ddce13ebae0f667ba8244ee8139db4695db95c655e"
     sha256 cellar: :any,                 ventura:        "983d1ad2ba678e1089302581e9fc10e1476558bd3c4eb13fa8cbea1d779829ad"
     sha256 cellar: :any,                 monterey:       "c719eb9fe669b6c50882270c92439b78e8015b778ed5f5f2fc14daeafec163ed"
     sha256 cellar: :any,                 big_sur:        "0e52add34c684273341a075fd241b28df1098511f1086612261eb8c2078d802c"

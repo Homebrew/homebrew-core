@@ -7,9 +7,11 @@ class Csview < Formula
   head "https://github.com/wfxr/csview.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1456d260688cf7eef4c2ac3676a1d4d37cbcd78488093bf3dbf31a67faecc510"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6e42c9e597ae8be86fb856bb117a9342495b3813f06b930efb14333ceb54c44d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2bcb6b524bfbe7d4cee5a4ed47eb9fbe6e460165b8a3b1e5b47391e3ccea588c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "714f0dcb10d7d0a00f0c234f999eb1b18521f1f6443a4f781bf192b5603f8100"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ef5fc823eba3c9ebf5d8ee9390854bf155e1c4444a1bdf14a6a66b5b0fd807b2"
     sha256 cellar: :any_skip_relocation, ventura:        "6f62c3017653188b898c1aea5376ffe1ccbf0041aad78cf85c2b5266d0841d54"
     sha256 cellar: :any_skip_relocation, monterey:       "165a69b5e284288f82e0e70e1a33755c3545a6fa19ef5e2511d21d90fbb22796"
     sha256 cellar: :any_skip_relocation, big_sur:        "0a0a21831088d78cb6d28567fda931d01a242e5b77eefb21cdf420a4f8db351c"

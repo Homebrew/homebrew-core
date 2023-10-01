@@ -1,8 +1,8 @@
 class Werf < Formula
   desc "Consistent delivery tool for Kubernetes"
   homepage "https://werf.io/"
-  url "https://github.com/werf/werf/archive/refs/tags/v1.2.253.tar.gz"
-  sha256 "546ed32ea8edf7eee51d442971574235b53c3198df6bfe1c01f5aaa00e02a4b2"
+  url "https://github.com/werf/werf/archive/refs/tags/v1.2.260.tar.gz"
+  sha256 "74289fa6fa55b8950ec123225bea7070432564a1fcc67f22377502b619b21f53"
   license "Apache-2.0"
   head "https://github.com/werf/werf.git", branch: "main"
 
@@ -15,13 +15,13 @@ class Werf < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c382eca112b0f0a743df96c273d721102208b7cd727f08ee9b4206484a53b0cf"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "54810fb15424cdcb36a6ca79b875f275bdd629932a4deca7c7ffeac4a6b3fa57"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "989c93959f60f613fb49dbb9fbff6d41e1ab214ccb081abedd07338c9408f3b4"
-    sha256 cellar: :any_skip_relocation, ventura:        "fc811915eb7993e041c31f9a37aafb24fcee256c8f1a6ff24dfe841890ba914b"
-    sha256 cellar: :any_skip_relocation, monterey:       "df96fd9e7104635fa21e0c2b7d34dafde3345537a6472cfc0ad8306e1b661bb0"
-    sha256 cellar: :any_skip_relocation, big_sur:        "40528f970e1ad7de613e24db77e1d907bdec0b95b56628cd765052dc7de84697"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "afa4c77e0bc91d0c11d83f9ee12c5506746cc77d081bb0cae939a7442953b0b2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fbcc9792e223f84513943b864de4880514bfd865f701a5262561a5742b0dd0e3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9cb3244757326bc5752f5b2ed79518eb6a51b1069e416a401c727153a157c57c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "82244df3dcef3c03bac01a927fd7c56dc0c75d16d81f52ef37cdb306ee75cd29"
+    sha256 cellar: :any_skip_relocation, sonoma:         "9ad8a100b53d3beb5330ef7e11a82aa8c98ee9c04720bf9f36834cbaa44377c2"
+    sha256 cellar: :any_skip_relocation, ventura:        "2dd81b132e03c6d68c50e9467204b925a46ec09e473491d8a2bb59eefa7242c1"
+    sha256 cellar: :any_skip_relocation, monterey:       "20c7a459dd3c5de831a108517be984bc8ced3f1c1f50a65fd39f2dc2568c8210"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b915ebdd55dd8712d9d3a8e6b8cbc603f1bbe9e450f3866fea3f768fc970f59b"
   end
 
   depends_on "go" => :build

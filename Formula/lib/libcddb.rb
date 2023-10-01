@@ -7,9 +7,11 @@ class Libcddb < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_sonoma:   "a12e153d3e00e99bbd7ccde361edd5ae2a1bf7aba9fa24c86478181d246385a8"
     sha256 cellar: :any,                 arm64_ventura:  "6955c8dbcc4de9ca756070ac11c0ea5da3d873f974d53b477bda94a09835f388"
     sha256 cellar: :any,                 arm64_monterey: "f12def876ae4aef3aed938fea3342da5eefd80ee164c05926b4bac8b7ea9d93a"
     sha256 cellar: :any,                 arm64_big_sur:  "5c01ee6149ed61a23ad7d8a2c09250fedf3b605638552fe82057cf77b0ac61f1"
+    sha256 cellar: :any,                 sonoma:         "ffd7868a8476a26e39995963a2732f1b9737052a0b6e3c4bb18bfee923617742"
     sha256 cellar: :any,                 ventura:        "6756f179196e583816d73f558fe1dcf52a98406895d4f8402b51e993f49d3bd9"
     sha256 cellar: :any,                 monterey:       "134c99dc37719b7fbb915c17afcc5e9f08256ba2ecd295f3f0375d69f764dd8e"
     sha256 cellar: :any,                 big_sur:        "e19fbf67a440482346f40076ceae29a8b72590ef1376e6c5454d9f7814984e3b"

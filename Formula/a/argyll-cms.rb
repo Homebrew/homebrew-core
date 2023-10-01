@@ -1,10 +1,9 @@
 class ArgyllCms < Formula
   desc "ICC compatible color management system"
   homepage "https://www.argyllcms.com/"
-  url "https://www.argyllcms.com/Argyll_V2.3.1_src.zip"
-  sha256 "bd0bcf58cec284824b79ff55baa242903ed361e12b1b37e12228679f9754961c"
+  url "https://www.argyllcms.com/Argyll_V3.0.0_src.zip"
+  sha256 "f3f8932f311a8c0c1239baf475e069d645ed6aa991e1e8d822bae361e1764651"
   license "AGPL-3.0-only"
-  revision 2
 
   livecheck do
     url "https://www.argyllcms.com/downloadsrc.html"
@@ -12,13 +11,13 @@ class ArgyllCms < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "6ad35dcd73ff37d15df2b15987a5f79c5b7f41162a9ee42da8f584cac54064a4"
-    sha256 cellar: :any,                 arm64_monterey: "ef4aff5c9c30f8eb6fcb636eb12a5dbe3cb60ccf505b30e774a3aa5a30469e7e"
-    sha256 cellar: :any,                 arm64_big_sur:  "d5f7c5c9c7f4fca8fd7af2727ac552bb35e06ebe2f13245da69bc27cb6a4d9e7"
-    sha256 cellar: :any,                 ventura:        "c7ebeb7d9e4c04a0fd084be13c60096b835f6bbf5542569d8bf0e3cdb973604b"
-    sha256 cellar: :any,                 monterey:       "ff74541a571f54ee365a65ff561ac2306838c84d184409b3739e0196a4cb8b42"
-    sha256 cellar: :any,                 big_sur:        "f028044af8ff1a5cbb4bc1790e71dcd57ed42c55502b2f3ab02e6e91e9c05fec"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6bee4ce2f70e61cba9cf09688157135cbd7672c5558877e29bfbc7fe7ade7907"
+    sha256 cellar: :any,                 arm64_ventura:  "827b5e2c7bdaca3ab26ee0b74f9b882e39f5e66e1d0c70e7910ecda6364c453f"
+    sha256 cellar: :any,                 arm64_monterey: "5958c95a16b6ec72aa2fb0fd00db8af263e0c7d8b91b5e04ff129c7b762f4359"
+    sha256 cellar: :any,                 arm64_big_sur:  "c698e42238bb53c7c4ec588fc38c811e2af429000d0591eae2695e83024b8326"
+    sha256 cellar: :any,                 ventura:        "3f4b4781185a6d0d9b76c31ae4c73e2152a4b9e83bf14c0ace09b50fd62754ff"
+    sha256 cellar: :any,                 monterey:       "c089e95a8e92019a36fbcfefdb7f3d85fb52d36cf06093a3661af5da38e941ac"
+    sha256 cellar: :any,                 big_sur:        "3350cce941f9d255123027245133fe2a1b03c70f873d410022bc0fe2b0e6f415"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "adae7eb98ca3755a4089190063df36cdcb9413fde1a6f4685ecdc6574c2176fc"
   end
 
   depends_on "jam" => :build

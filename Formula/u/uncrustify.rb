@@ -7,9 +7,11 @@ class Uncrustify < Formula
   head "https://github.com/uncrustify/uncrustify.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d3bd6a61d021417a13253e241706de3c56d291c3456aa3f4be59dc0a8e3a4e56"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a6a60728012c42571964e51a3cc4cb04a887e89368fcb8cf7e910cac81a3cfe6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "27a67f8a91b6281144ea19ba3da33d02c17d4ff901b0a20ec95f86a2d5076cdf"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "afd522877248c5ce7c20718aa662a45da10d1efce0c1c276e904cf83957216b0"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3b734376b7e21964d488916cf53aa2fd612bf847497cebedd66cbb6e25983a48"
     sha256 cellar: :any_skip_relocation, ventura:        "dd3bb8e3ac1e6b9dccc027c92ba497896b28b1bbbe066bfbddc97aaed32bb307"
     sha256 cellar: :any_skip_relocation, monterey:       "90581bb3e2dce969a539afc186f4130e104b892a902972eccbb2330e8f3d2d3d"
     sha256 cellar: :any_skip_relocation, big_sur:        "f73c1607cc1c4cf15e28339dc36d9ed59338dfd34e1c910e9ebbd556de578eb9"

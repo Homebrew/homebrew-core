@@ -12,9 +12,11 @@ class SaneBackends < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "1851ff0ff04d2bc4fba4813d273b5da3b8568b319d125e281c87a727f931dd31"
     sha256 arm64_ventura:  "fb030d64b3e6974586384b4398b4652a109dfb5723e21fc4e237170d59870392"
     sha256 arm64_monterey: "dde5b1ae3dba8beba083c3adff88626792e0ca4b68f2eaddfd445122fa06e561"
     sha256 arm64_big_sur:  "816f955ec13f1767fa9bf3e721a3fb55a06bd17482c3db58fca4dab8c1a0ea44"
+    sha256 sonoma:         "5e795e1714fc046087166763fc705461e0884dc53c5f374cc69bd67296123b97"
     sha256 ventura:        "dd313349947d2636690227b64fcaf52d17b9389851787906f37bf91351076775"
     sha256 monterey:       "0de46efc5c9fdfb44ee043fff93b630b88cb678de1cda40d62c30575d7979435"
     sha256 big_sur:        "68a5dadc176006ccaac9957884dfa582bde20c846e0567201efb381e5cc190af"

@@ -6,9 +6,11 @@ class TomlTest < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1ed4be26604533c83505048a3f6f63fa6fa39ff3730ad534b218830c36385e68"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "591bf561dfdaaf206b5b622853f2520effd025ef36e5b35046863cca6a56bcb2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "591bf561dfdaaf206b5b622853f2520effd025ef36e5b35046863cca6a56bcb2"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "591bf561dfdaaf206b5b622853f2520effd025ef36e5b35046863cca6a56bcb2"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0e5f3981a7e74a2e248e53a4d47d71e76d20a4f24fa41beb75f5d6ef1dee17f7"
     sha256 cellar: :any_skip_relocation, ventura:        "33c6ade25312fa354e0bf9ba1f754644904cae6e2eb9c5793517ef92ab683c46"
     sha256 cellar: :any_skip_relocation, monterey:       "33c6ade25312fa354e0bf9ba1f754644904cae6e2eb9c5793517ef92ab683c46"
     sha256 cellar: :any_skip_relocation, big_sur:        "33c6ade25312fa354e0bf9ba1f754644904cae6e2eb9c5793517ef92ab683c46"

@@ -7,9 +7,11 @@ class Bsdmake < Formula
 
   bottle do
     rebuild 2
+    sha256 arm64_sonoma:   "2c38034eb73f466372df6d1de17892abc48aa2c112d33d65245a28290a49d591"
     sha256 arm64_ventura:  "8426abe75969c8adb575f6276d55e8a4737d1f139cf534294f74a843e74a632b"
     sha256 arm64_monterey: "d01faf8a67751cf8248d36ef46fa23f8f6031c04fd723eb1cbf40ee881d6bc09"
     sha256 arm64_big_sur:  "cfca87086e9932c2a1beb031d5fd34018a5afbe84a051918b41b33e4e86c82ea"
+    sha256 sonoma:         "2161f0b91983b77abfff210022d1175228354b0633d8ce9cbdb17f5647994c37"
     sha256 ventura:        "706f2a70bcadbfd643fdc3e6ca944de50c63fde0a23de03244ea4770f192e49a"
     sha256 monterey:       "303f1fce21a307e0ecb01214f64ba7c3f26c21aeafb44d803120d26500dd387a"
     sha256 big_sur:        "6b1aef88ae6c6b11cee8062b64f5fe2e1c337e3029833eaded84b6e740ae0391"

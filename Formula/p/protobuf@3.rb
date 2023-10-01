@@ -7,9 +7,11 @@ class ProtobufAT3 < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_sonoma:   "c050a7aea5205a7870fead5488375b58b1da52bc50df942c4be9fc8238d81617"
     sha256 cellar: :any,                 arm64_ventura:  "4518b3647024046c1eb5edf36926d38db8fbc7a70f938717b0e9e65d3d272c33"
     sha256 cellar: :any,                 arm64_monterey: "142d9bc74234f930a6c2ed06ac1bef4d0aa55f8edfa8440b26c087c75796050a"
     sha256 cellar: :any,                 arm64_big_sur:  "07a27ece3eb3274cafab5f8cb325a2934945595e0dd766b90921b3860252cc4e"
+    sha256 cellar: :any,                 sonoma:         "124fa3fec2a8991fac4f08abe9dfc4e201d74d6a6386271f827532a558473f16"
     sha256 cellar: :any,                 ventura:        "067e3b9caec56ae7a1f2a7d161656ae25f9dbffff618fb7c79fa4f3fa0ab694a"
     sha256 cellar: :any,                 monterey:       "1e46152ab22fccdaa11f553dd9f19447789c59059c5823fc1ac5197081dd62a5"
     sha256 cellar: :any,                 big_sur:        "15b0be2f0afdbed151c1df25ffd28c32fb5c762c15b5b13ca4a42ded0f8bf5ba"

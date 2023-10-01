@@ -1,8 +1,8 @@
 class Gitoxide < Formula
   desc "Idiomatic, lean, fast & safe pure Rust implementation of Git"
   homepage "https://github.com/Byron/gitoxide"
-  url "https://github.com/Byron/gitoxide/archive/refs/tags/v0.29.0.tar.gz"
-  sha256 "9ef3a8fc44ae28ad17ccff393ed0d46e2d117f1090c8f31cd3a4fb3d7a975d5d"
+  url "https://github.com/Byron/gitoxide/archive/refs/tags/v0.30.0.tar.gz"
+  sha256 "779a2203d05c6856c5820f0b97dd384fc9689129213b8b78f27283d6b5ca94c1"
   license "Apache-2.0"
   head "https://github.com/Byron/gitoxide.git", branch: "main"
 
@@ -12,13 +12,13 @@ class Gitoxide < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f2e835fee4c960466d228bf760837af123c90142eb6a1fa1ef4fcb5f4983fdc8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5bd754970c9e3928524459b92f40130e0111883134f04bced90af683f7a4b190"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "841778854dcde90a2dff6670c52cc2fbe39ec276bd17cbff78234b6dc8ae10c7"
-    sha256 cellar: :any_skip_relocation, ventura:        "3661c1b7c002c2a7c93c6719176cdfdc09f0798bbf740473c668ceb0e3f242a4"
-    sha256 cellar: :any_skip_relocation, monterey:       "4cfaacb4184d343e7c9a0dd49f36739c14d32fd0f7504fbf59ffef3e2ef69aa8"
-    sha256 cellar: :any_skip_relocation, big_sur:        "637ae5a16b4d74648f63f9121fe4be98109330b8e9b8bc307e345c9d370ca5d0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fa676ecec9f3c29d316bd670c6f84566e5c3c00e6b2d7fcf346cd07132b68a09"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c9cd80ed4f8c1c9bcbace3f18f87b24fe76792aeb4e1d45c8dfaccd1aee4401d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1fc0cd6fdd143f3218892ba59d57df20d737e84c4a3a83fe97e7173c419a9724"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e28b90d9a715a306f6401a1332622888a88f13d515bb298189290329aa4adffb"
+    sha256 cellar: :any_skip_relocation, ventura:        "7a7c614909bd3ed52c752b1d2bd001a6821feb0814f749518c3da77eff1d816f"
+    sha256 cellar: :any_skip_relocation, monterey:       "c337b306eafc78df5aa59a423774bda6df76934339d0d1060ad9b7e6922cc9e3"
+    sha256 cellar: :any_skip_relocation, big_sur:        "993e91f41daaee3964750ce72b5a51bb6f012a42a14c3fc0edb81e0c923a6b2b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c7abcf9520c4a73a3b9d49cb7721a482dd71999e51d63ac9a5d707ed20a387cd"
   end
 
   depends_on "pkg-config" => :build

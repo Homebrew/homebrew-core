@@ -8,6 +8,7 @@ class Julia < Formula
   head "https://github.com/JuliaLang/julia.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any, arm64_sonoma:   "b475ca8ae3ebf22c435f03659677afbd6aa4ebe355aeab4f4ba8d937beb7ee60"
     sha256 cellar: :any, arm64_ventura:  "3c230a8f5038fad6a23e8a7f4e9905938f8ccabb8700ebf17686eebe7cd43e0c"
     sha256 cellar: :any, arm64_monterey: "3b1dd6d4423df6f4b86a73dc63c47d35ff4fda295930499d3cf5bd0e73faf54c"
     sha256 cellar: :any, arm64_big_sur:  "730979ec7eccbbe5b9bb9d91d980b1525e693a7944301ea37e0ddd4f0845c067"

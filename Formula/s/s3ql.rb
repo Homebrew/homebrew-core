@@ -28,7 +28,7 @@ class S3ql < Formula
     sha256 "d7863124c54a6abac04dd48f46b5b910e5718c36a7a21be51fc4a7e03dd45c53"
   end
 
-  resource "async_generator" do
+  resource "async-generator" do
     url "https://files.pythonhosted.org/packages/ce/b6/6fa6b3b598a03cba5e80f829e0dadbb49d7645f523d209b2fb7ea0bbb02a/async_generator-1.10.tar.gz"
     sha256 "6ebb3d106c12920aaae42ccb6f787ef5eefdcdd166ea3d628fa8476abe712144"
   end

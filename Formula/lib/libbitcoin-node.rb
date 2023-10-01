@@ -7,9 +7,11 @@ class LibbitcoinNode < Formula
   revision 1
 
   bottle do
+    sha256 arm64_sonoma:   "af98941d96c71ee8c0c6f155e5cc1d1cb1a6fed85eae311a663671f0baf8fc4d"
     sha256 arm64_ventura:  "b77eab1650d04674e86c7b794bc0e96f70fffcb2549008bdba0f278c1aa4b589"
     sha256 arm64_monterey: "456c03407d6cb891359d728d6303b2d668bc1a1cf7cfe0d878874fc110b40a65"
     sha256 arm64_big_sur:  "c198ecbe4bcab7fafd39a9ed847abccd84f26c8b3de45ae11c13f7e8bd07341d"
+    sha256 sonoma:         "904ab97f4921e3d7c5f68d7f6fdcb17a67d487d7e9d3ce8073b09fb276ae1e41"
     sha256 ventura:        "97e1d00dab5e9da0a73c52d6abffa612753d09117a31729fc31262c5d0e88c1b"
     sha256 monterey:       "6a12ab524605ea8714c35c49f037f54ce53250516d875e132b0c9efad8b1d40c"
     sha256 big_sur:        "4a38fdcc76528e657974a00fcd98cf80947cfdc4834af7fe5307c8b734eefd1a"

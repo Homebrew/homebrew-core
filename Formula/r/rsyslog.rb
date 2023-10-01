@@ -11,9 +11,11 @@ class Rsyslog < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "5ecca1b92b3532e8d2754e449bf4274edc150f8b2e70e817da01fcc6da23dee7"
     sha256 arm64_ventura:  "d85b09d3aac21868a80e98aefeb675cc4f060b5fe7bff5bba90b9b17eae0bc3b"
     sha256 arm64_monterey: "6ba787410cf0c9c877039a3611e489f9d0e505e71352df5d4271ae5610adbcb6"
     sha256 arm64_big_sur:  "6003fac67721d9a82dd971be554f4103c412f0274f9d9b4ced2c4247c6d03976"
+    sha256 sonoma:         "81acab23b6facfa872b1a8eb083eaa8b10ec604c86a4f65a74756365771b25c7"
     sha256 ventura:        "61b11d0096c49b3e130ebc7329a556be953600bbb74deab2505482870f65d1b3"
     sha256 monterey:       "1d3a0d7dd1b262c1b9ad2695b53ed7faeaf2605bf24741ce4654e1dd502f1d16"
     sha256 big_sur:        "d1ed3e1757c9e9e89db4fe334df2d0283edf435d22f57710734b9e44a1042be5"

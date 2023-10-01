@@ -7,9 +7,11 @@ class Speedbump < Formula
   head "https://github.com/kffl/speedbump.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6373e8ea1a8d06a0cd3f82bac417065b98e658a47d51a0f3316909a87ce3e041"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7359cd3407540f98642026e890d0e5ab47d0eb4b6134449b24c5c8829c48b5a0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c7fa5b179cf1cd3f09217a2d8c09a87fba935a4c207c329fab42b45b7e6dc586"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "aa3e65981fbc84cf24bb5d2724f863842366d33d1a489c8386487bc866900d54"
+    sha256 cellar: :any_skip_relocation, sonoma:         "1c9913bedf3327c303880d65524548a33401ba639e09b1b08d7657ea6d6b6e4c"
     sha256 cellar: :any_skip_relocation, ventura:        "3c9b18929d4d11b231b45f1f6bef8eef9dcf2564ce7baab83f688817577b481c"
     sha256 cellar: :any_skip_relocation, monterey:       "c6ec49903634a0db12e85374e71e1f11239726916218e1eae07950bd5a2484c3"
     sha256 cellar: :any_skip_relocation, big_sur:        "93ec6fcd2dd65b2203d786ae5ebe5301b421b041460e5f4e88fec54026ead594"

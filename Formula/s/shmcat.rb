@@ -11,9 +11,11 @@ class Shmcat < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b9249f70d6b9d337e959051cc23417d12fda97e704d53ae4cd1be561f9541fb4"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2f501e817599e1da0c0d0edb51931113b58c43b98fca00fb207a8213fc1418d6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "37e280843c7f422bacd40e5785236613d1a82e712405b6fa68910b6dee91946b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3bdee0944414bc51a08a7707e29d16a6f08e1d583ad4cd8357587da2a6519d05"
+    sha256 cellar: :any_skip_relocation, sonoma:         "406f35b9aa4941ea2324ae88feb143a0591442bcf0f5c66d7a85e2bfa9ca52d7"
     sha256 cellar: :any_skip_relocation, ventura:        "fc03e13384a073b4d96f13a7d8fb204e42cf0041d7d6a4c07e09fee21272d5e5"
     sha256 cellar: :any_skip_relocation, monterey:       "dc928ec60a7a9af5404195a4f82cc87d51a60f1292c1611b59401cc226fb39f1"
     sha256 cellar: :any_skip_relocation, big_sur:        "4a7b108892ada071d5ce75b8eb434b9c77c6cea5ed767ce31c78ac6e4b90d540"

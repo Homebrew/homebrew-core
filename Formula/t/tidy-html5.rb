@@ -12,9 +12,11 @@ class TidyHtml5 < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "42f788763482699cc7ead38ace15bce63e075ee20c070bbb74db279002d66af6"
     sha256 cellar: :any,                 arm64_ventura:  "25de41a82adac06447528f20ebe466530708c86a7440c6d9f3dd122df90e5684"
     sha256 cellar: :any,                 arm64_monterey: "15f70f84c933bc11475f62c0cda4e1ccc72e5786bdbd64da76249fbfb35be8e5"
     sha256 cellar: :any,                 arm64_big_sur:  "de46584bc851655bae8d839b27b4423f8309e0c8de3923deb5be554a57617f45"
+    sha256 cellar: :any,                 sonoma:         "dbae8d55a2a35e2245dea6ff6180eac37973514342d4a3895a82a5f43752972a"
     sha256 cellar: :any,                 ventura:        "254a9044ebeb9ac00b4c45fa1df1513ab9f912acbcd82e2bf5afc31c8bb71245"
     sha256 cellar: :any,                 monterey:       "eb97c832fbe63a48464dee4dbef7a9e370906360dc36cd664af6a6abe738faec"
     sha256 cellar: :any,                 big_sur:        "9127cf10347816285db70f0ec794a08433e44426f9f4320d5fecedbdcfb15e2b"

@@ -8,9 +8,11 @@ class Fairymax < Formula
   head "http://hgm.nubati.net/git/fairymax.git", branch: "master"
 
   bottle do
+    sha256                               arm64_sonoma:   "dbe25665b869d96a6ec6e6f17ee01fc785fbeee35b8dfada3568403f8fc6c9e5"
     sha256                               arm64_ventura:  "16510c0f87a8895135e6b4bcbbbef25a2d525abcdc98d09aa3a792de04d08e40"
     sha256                               arm64_monterey: "85ed95611bf8ffcdec73d5d5f3f3372b4e72d73a0c4eed0dcf3183b2ec94743d"
     sha256                               arm64_big_sur:  "77d45d92cbfb8e3318ba17fe95aa3fdd24fa4f7e7cfdffdd7aaa8a29d5f837ec"
+    sha256 cellar: :any_skip_relocation, sonoma:         "6bc3b7992436bb3f77507d834a929e1e9db61842576515ccc420d8b229bef69e"
     sha256                               ventura:        "14ec7cb6c5ef741a66e8c3253c529a5b67155d77d0dd9f8840a614654f536641"
     sha256                               monterey:       "2f0f4b0871f97165e8a76bd696b71cb721cfa60eaf8dc6d3195fe3b7e85464b2"
     sha256 cellar: :any_skip_relocation, big_sur:        "497488cd10ab4c0e87e6fc38cfa250b275e1ceea07ac7694b4ae37996da32c9d"

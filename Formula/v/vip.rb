@@ -7,9 +7,11 @@ class Vip < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1b14079339dd70f264f10a81fc1d4934353ab7aa85b32403de04703ba5340dc6"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "cd1eaee76c43cbe5384907f794d619db9b4d044eb54e223e0666e4da73f007e8"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cd1eaee76c43cbe5384907f794d619db9b4d044eb54e223e0666e4da73f007e8"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cd1eaee76c43cbe5384907f794d619db9b4d044eb54e223e0666e4da73f007e8"
+    sha256 cellar: :any_skip_relocation, sonoma:         "1b14079339dd70f264f10a81fc1d4934353ab7aa85b32403de04703ba5340dc6"
     sha256 cellar: :any_skip_relocation, ventura:        "cd1eaee76c43cbe5384907f794d619db9b4d044eb54e223e0666e4da73f007e8"
     sha256 cellar: :any_skip_relocation, monterey:       "cd1eaee76c43cbe5384907f794d619db9b4d044eb54e223e0666e4da73f007e8"
     sha256 cellar: :any_skip_relocation, big_sur:        "cd1eaee76c43cbe5384907f794d619db9b4d044eb54e223e0666e4da73f007e8"

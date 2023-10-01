@@ -12,9 +12,11 @@ class Capnp < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "813f6c36704966cc86e6f6075d238b1d23f1ec7fd6c22ef25aca9eea52fdc1cc"
     sha256 arm64_ventura:  "85b7fa56075fd5cfc7ac2826db04393bcedc532d6c1b7e77a0fb9640b73dae23"
     sha256 arm64_monterey: "705425ac57b11d428626f70ef1fc7b3a9bb137b11797445f6e6121cd5c677222"
     sha256 arm64_big_sur:  "646fda7aeff0ecf305688e1f1752bd78e0d9477508d9c4e71b96c2ee2ce31259"
+    sha256 sonoma:         "f6752df4e6bf2bfbbcb254b9df123d9114a2946955eeeaa44f683daf33a31bea"
     sha256 ventura:        "a3979d91880e97d250a9f2decb2655c8d5bbccb7be0f48468fd65826ce40a4b5"
     sha256 monterey:       "96e2da3790877a51e93bb65e67781e203fc7c73387ac5aaa14f578627bd60fa2"
     sha256 big_sur:        "6160d5afc05b64c8cdfb836b0d35972bf573de4136068e4f4f1ddec32a9674c7"

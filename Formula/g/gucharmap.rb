@@ -1,18 +1,18 @@
 class Gucharmap < Formula
   desc "GNOME Character Map, based on the Unicode Character Database"
   homepage "https://wiki.gnome.org/Apps/Gucharmap"
-  url "https://gitlab.gnome.org/GNOME/gucharmap/-/archive/15.0.4/gucharmap-15.0.4.tar.bz2"
-  sha256 "ddd219ffd22ff72ae9c938d7bd0192a3d63b04bc570ee8214790298418b02078"
+  url "https://gitlab.gnome.org/GNOME/gucharmap/-/archive/15.1.1/gucharmap-15.1.1.tar.bz2"
+  sha256 "f05b21586e6a762fb01561892b48f917230f29a115aa7f8405396843feccc9de"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_ventura:  "a6cc905bd8f7b030c33669b2206a936d5eea7624cda347287c2d4d45d5ebea64"
-    sha256 arm64_monterey: "3a4d12ca000be73e94d1d4cbc9dbf9934b9bac407155c96fe8173c17bbf0c1ec"
-    sha256 arm64_big_sur:  "2de5a4f0c034ec5d64e835929f81e59ee31c3e01a581e1af77af65845a34cb45"
-    sha256 ventura:        "62695da2e8b3d1ed14603b8a9640a41b4333eeca9bf4177b3e8b8aa891227920"
-    sha256 monterey:       "a5fc53ec7eacc87a6d69ea056bf8acf5aa7d4a52641856cf8f221fcebb3941b7"
-    sha256 big_sur:        "5f9512394695d02e16c205c1a3cf6978cc3ba5eab059d5a8e0118945868ad778"
-    sha256 x86_64_linux:   "75c0ad1e82e0a479397f49067c1a4835657642271c1af38e31808c431205df89"
+    sha256 arm64_ventura:  "7f790825f16db96d6f9f15da97e27b0e66c8f3ebbfbf437e2d47d27ba4bbec77"
+    sha256 arm64_monterey: "30a69554b2edce6e814d6c74d496f7e4a64a809480521b1f02dd4ed0e41fd0d0"
+    sha256 arm64_big_sur:  "9913003890e70cbbb7bfab1bb46fd306a24b96cb58d646a9fb04328dc47599d4"
+    sha256 ventura:        "cddcd3d7af5cea1520327372f99235e7c3661e476c810dcd3d63fbd60ca41ae7"
+    sha256 monterey:       "66eea725ac33e1a862804eaf09334805ca958984901b1451bbe21da002eda5b6"
+    sha256 big_sur:        "8db37062d45f502c9b98132d5ea9f6c928d3e0d7ea1a95d6f5a1b890239cbb4b"
+    sha256 x86_64_linux:   "fbe16b6ad2dadf10b11518175eb1865b9a3c35c890fa5bc49f503d9dd3c6f361"
   end
 
   depends_on "desktop-file-utils" => :build
@@ -30,13 +30,13 @@ class Gucharmap < Formula
   end
 
   resource "ucd" do
-    url "https://www.unicode.org/Public/15.0.0/ucd/UCD.zip"
-    sha256 "5fbde400f3e687d25cc9b0a8d30d7619e76cb2f4c3e85ba9df8ec1312cb6718c"
+    url "https://www.unicode.org/Public/15.1.0/ucd/UCD.zip"
+    sha256 "cb1c663d053926500cd501229736045752713a066bd75802098598b7a7056177"
   end
 
   resource "unihan" do
-    url "https://www.unicode.org/Public/15.0.0/ucd/Unihan.zip", using: :nounzip
-    sha256 "24b154691fc97cb44267b925d62064297086b3f896b57a8181c7b6d42702a026"
+    url "https://www.unicode.org/Public/15.1.0/ucd/Unihan.zip", using: :nounzip
+    sha256 "a0226610e324bcf784ac380e11f4cbf533ee1e6b3d028b0991bf8c0dc3f85853"
   end
 
   def install

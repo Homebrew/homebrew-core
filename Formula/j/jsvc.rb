@@ -7,9 +7,11 @@ class Jsvc < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "086883deb3aed86af524ae1ac8f10f06215a58cb2f0b444c0754bcd2e38895c3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "67b2f6ca19fc32e880da2d1632b936b27e9b71b0b6e4dc07807b59116a81ac6c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f00cc40d1a1ac56d177289136f4f7242d3782148f821ffa423dbbd2ae00c23b9"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "52a5db040326b5d1bd320d32c2a46cb124ff2be717b2a43213c2dbc86a1ed4a2"
+    sha256 cellar: :any_skip_relocation, sonoma:         "39f18e3f1a5b9575e94290cbe26c6f765e7a0ece683d93a362fa50742708e529"
     sha256 cellar: :any_skip_relocation, ventura:        "8b619e88b09aa9fe51aa6dd590fa8086e94a68311b648abb143d8494fc5895cc"
     sha256 cellar: :any_skip_relocation, monterey:       "45ff39a69977dd40e9ba66f0652e7a5c751fe158a300171c3dd6c4a59511a240"
     sha256 cellar: :any_skip_relocation, big_sur:        "f7a618038934966325dfad9c2a818998a7164a3021f6aa7a2d826d98afb1f6e1"

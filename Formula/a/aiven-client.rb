@@ -3,20 +3,21 @@ class AivenClient < Formula
 
   desc "Official command-line client for Aiven"
   homepage "https://docs.aiven.io/docs/tools/cli"
-  url "https://files.pythonhosted.org/packages/46/b5/38fca92bce202f6c547d709743545eba881cadfe495903d234149f6d360c/aiven_client-3.0.0.tar.gz"
-  sha256 "9690d64da1e9306d2308f3f125f347acd6b53db4e7927ef4a7d4c0d1cd2b1b6c"
+  url "https://files.pythonhosted.org/packages/27/05/bdde8a0a85a59e06cc243e07145884ab58fe50540f957ce5ee3d9dedce52/aiven_client-3.1.1.tar.gz"
+  sha256 "421a00c9955b8704812395cc7add3bacb03977657cd87391028fdb9894252509"
   license "Apache-2.0"
   head "https://github.com/aiven/aiven-client.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "04ffff76e4dfd8c38cfa3f80362dfb91c07376c4fa1d4a50bc694a522750e2d3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "30d78f9e594e2fadd6f3b809bf00b6fbe7ef636d8b273dd9bc241f407cc4fe3d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "78b79988cfcb826c2bcd69030966cac2f2235d53b6e0d5a7bc2e975f030c7f52"
-    sha256 cellar: :any_skip_relocation, ventura:        "f503600a99722a30ab5194ba65f3d304df02b52739787db40d33255614a66fa3"
-    sha256 cellar: :any_skip_relocation, monterey:       "15d30ae397aebaf30d186d76a50bd2e8d1b0ec471ba35b3b493a6f88cb9e9dfc"
-    sha256 cellar: :any_skip_relocation, big_sur:        "850d5b16cedd4462c533601018fac9c77f98f395d33a64ec393867dbbd017503"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c379168f182c67cbc5f04b394bc393292137773123fc6c6475de4f3eaf52673b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "32e5bf7ce5041eb5c43e1e69d173f272f696d45e186bae09aacd21678de01ec0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e7c16f9dbfd52d600d7b400b2a3571ef389d18d627fbe32219ad47083e03936a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4f92d8ad9582026d3471263fbe23a303b417b250b0da77cc0f8eedf1c018a4fc"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5c02141476bbc4e43ee80fb6a24515068c3375b31d2bc2a459aa96ae5dd949a5"
+    sha256 cellar: :any_skip_relocation, sonoma:         "02b21259e52064886d8e08d5b8e12789974bb5071edd292b88a1d276162e5bfe"
+    sha256 cellar: :any_skip_relocation, ventura:        "e066461ad2d864184d333b4b79d8ac88fc7dcc01b00dadb356104a8734865efe"
+    sha256 cellar: :any_skip_relocation, monterey:       "5aa10a0dbe616ae15a67804b890678394835b82f8c60b866e8d7d4bcc3063841"
+    sha256 cellar: :any_skip_relocation, big_sur:        "3e5ad7dd0115793bb9a5bb54a4255635ee3ff2581bb72cb5ac2073233dc95577"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c9e1e98cea896ce9bae947f62a42f05e218914456afef4ea47c4074c45f90ef8"
   end
 
   depends_on "python-certifi"

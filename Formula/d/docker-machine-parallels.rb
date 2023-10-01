@@ -17,6 +17,9 @@ class DockerMachineParallels < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "29b70e96c49252d2d127098796fa366aec2d66347450144af0b50afd413f8ef8"
   end
 
+  # https://github.com/Parallels/docker-machine-parallels/issues/111
+  deprecate! date: "2023-09-19", because: :unmaintained
+
   depends_on "go" => :build
   depends_on "docker-machine"
   depends_on :macos

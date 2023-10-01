@@ -14,9 +14,11 @@ class Isort < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f1fedec1ceb07760fa8e1efe77e6acbeab7f131558733cae081cfb7dc717f8d6"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9ef29d8c4cf23dc882bc6c9e9557f3768c9958542158f6edd203b9be08a7c34d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8db78503c60295ff50a1808f6b0fa0ca2a6c414c861385eb4e2f840c25e41513"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "77befe934c459a512ba42ec882928f6560ef7a7e4973ce58067d53bcea9e37e5"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5b80d3985af282331261b14d28242f90c80467fc568f204808e2f50f8f61d368"
     sha256 cellar: :any_skip_relocation, ventura:        "20d60ae5afe0f3b9ad6d83e3bb862631eee8f5d567ecaa988bf69f4534beefb1"
     sha256 cellar: :any_skip_relocation, monterey:       "1664136b00f4ae23f07c20f36a0a0303e8f8480910905e398e0febea56239c33"
     sha256 cellar: :any_skip_relocation, big_sur:        "d633c35d1ee149d1fb5fc0ac262c5fc30539363fd952a041ec4939cb1808a718"

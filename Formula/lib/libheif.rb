@@ -7,9 +7,11 @@ class Libheif < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_sonoma:   "47c8a6a12f7b3d00865b34978e1808d94e2f78609d098822978e8695d347d7bf"
     sha256 cellar: :any,                 arm64_ventura:  "82f6e15c2c6bbd6aabc793a219b24ce16695113c7df6d5a8cf1b4ac82a42034f"
     sha256 cellar: :any,                 arm64_monterey: "ee412a79e8f261e90bbc5fae5f2d6dd2f1e3ea615b5af2642146ac28121ac4df"
     sha256 cellar: :any,                 arm64_big_sur:  "ebc16ed45c1641dd955a5abe4065239d813e75d7cc75c119e94766077c469e77"
+    sha256 cellar: :any,                 sonoma:         "badebc0a08d9ef568f000d1bea85718bb37ddf34ff83e466a6b1ad4f0cbb95d6"
     sha256 cellar: :any,                 ventura:        "a8d94c2ee75e69789bf32a7c14f05812b08caa220d71640e0dab464be419387a"
     sha256 cellar: :any,                 monterey:       "eefc53996197989013739ad8c2d7fd77de54abaf3817ff8da4c5b1fcadaf37fe"
     sha256 cellar: :any,                 big_sur:        "ad7f86d5a3424f3b52985b36f7e1eb3fcc843bb4c9ebf97b2dc2107ba0880046"

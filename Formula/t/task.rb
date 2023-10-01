@@ -13,9 +13,11 @@ class Task < Formula
   end
   bottle do
     rebuild 1
+    sha256                               arm64_sonoma:   "50c3572e274b41419876401235d67710754821708fe334d871d2b9cd116a8b35"
     sha256                               arm64_ventura:  "11ca4562ebc4ea8273f0cab7ef18ec41980c83a373f4b6369b898ee19bea15eb"
     sha256                               arm64_monterey: "2c1d0eb0f0522bbf4cdd0dea43c394afaceec873d58c609b211f6450cd09421d"
     sha256                               arm64_big_sur:  "c2342e1543ea07eba65ab7bef36e25a0e463e6baeab6e562bbcb4a572faa89e7"
+    sha256                               sonoma:         "317a2c205a7d616e4773cc130bb3ecdf1b851f3b6e4311627cd558ae41a7517d"
     sha256                               ventura:        "ffde36684ca7b6ed1e01327fd2aeaadb588aeb06125065cd8781d4b5ea630374"
     sha256                               monterey:       "72cc6c37f541104645ff0d7f952abc7e3acf80cf2e91dd32eceecb80502baf53"
     sha256                               big_sur:        "7671bf2e4b715cffd7895b97ff049295bea6faee8f4028c7c8c78be2f4ab8c66"

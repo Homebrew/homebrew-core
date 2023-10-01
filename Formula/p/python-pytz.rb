@@ -6,9 +6,11 @@ class PythonPytz < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b99fb8dab5b98069bb640175f56235e16a71105796219c5c7960c12de5a44c20"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "39d248d9999276c3a2ad0ef97b7a4a671bcf5dda26496fbcc34c9457dae01f54"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f4b0b2ce31bfad29741d681a76b2041842729c4dfb1302eccf786f3515346697"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d98be4136ca5f494c89c6a2b0dfd2024956250ef9491ffa1fa14ccd8f60a7f3c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f44c656114f3cb60ba6eb54f0e5fff08c99c50f3009302a28fa7ddac246e3ba7"
     sha256 cellar: :any_skip_relocation, ventura:        "4e3b0a220b070ef3945f950b02882fb4745d111fd61630698dd299464c960dac"
     sha256 cellar: :any_skip_relocation, monterey:       "607ac36d8d2611cd0c459c1143ac23c3e51f9c31205f46657aa05df0c07ab84e"
     sha256 cellar: :any_skip_relocation, big_sur:        "0aac2ed6e7d13bc29144943aeaab41401963e2d78cdbcd16f08ac37c06f4dd1c"

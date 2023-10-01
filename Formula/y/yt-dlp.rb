@@ -3,20 +3,20 @@ class YtDlp < Formula
 
   desc "Fork of youtube-dl with additional features and fixes"
   homepage "https://github.com/yt-dlp/yt-dlp"
-  url "https://files.pythonhosted.org/packages/db/c5/e08a7aa42c962d34201151fa6b825fed7fbb998a1b612f37c7eb93a7e764/yt-dlp-2023.7.6.tar.gz"
-  sha256 "cb58373869c8ccb5034746f91cfccd6d25ea697090dfd6f93e9034d51eb4aed2"
+  url "https://files.pythonhosted.org/packages/66/2d/14a4e2d2b0a5a03d781cc1603c07d9f89c36ae4e1ba22e74e084d3d08201/yt-dlp-2023.9.24.tar.gz"
+  sha256 "cfcfb5ffc12013b6ae4b8c7a283a7e462988f1b49283de291de8bfbe053b8073"
   license "Unlicense"
-  revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7af529d4305815e86d0d27431a59e6e64fdc7cda31cbc6b7c16f4c1f111aed28"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "62a89b18f3fe6452c24217fed43bec9abfb4d4ea1f9de4fa44ebcc8c28732fb3"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0045eefa4f8b63308dcc9684da91b6effd60aa3528e56a28a8b5cb9e929baa94"
-    sha256 cellar: :any_skip_relocation, ventura:        "37f3696765f471d5325c780a9823d45177412c7ea2c5c3077fad7f38a7a09430"
-    sha256 cellar: :any_skip_relocation, monterey:       "4a246654ec69866a6fb04e05ab24d45543332cb1b71f3721504f67205c2c4202"
-    sha256 cellar: :any_skip_relocation, big_sur:        "94937c92c0ba7f1fec7c5bedc07880b4c1fc1dd98bca43aa1833f2b5b56a89a5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6bc41d23380525ee80f42c29ab3cc56784b1d207daacd88ba11cdcaae9138dcb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9e969f55a4da6f2a5f060a2bb378fc1cc38d34e6c9da8d7952f719b034df72da"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "032c6ab2b83114908cbfc8187a7c3b61a6b16f8ba1d0c3a7c74c34344a3f8ed7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "abc5b95355e7db7d07aeabc7b5582b5551b55219f53ee99d8fe806036943382e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0a9f3431c99059409db45a383ef680f66a0368757270fa0be56083e53ba0e82e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "07deea0bd4c5dd2ba7aa566ce51d8ebbf07ba5c695c38c446b853c71cc4896e4"
+    sha256 cellar: :any_skip_relocation, ventura:        "fe1bf5fd3ca05e76eca05c2842e88f5a9d5ea1fce04c27130e115ab907607aa5"
+    sha256 cellar: :any_skip_relocation, monterey:       "47790e31d6134508fa64fd1a565bedeae01480892cb675c244a500e1978cc92d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "59f9b8810a5de5163996945183d53edd203f92e5bb656209453b01b287fac987"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1685fadde1e00ca5d7fcbb019505102abfd02d17345533fce9acb8f2579bf93f"
   end
 
   head do
@@ -25,21 +25,17 @@ class YtDlp < Formula
   end
 
   depends_on "python-certifi"
+  depends_on "python-mutagen"
   depends_on "python@3.11"
 
   resource "brotli" do
-    url "https://files.pythonhosted.org/packages/2a/18/70c32fe9357f3eea18598b23aa9ed29b1711c3001835f7cf99a9818985d0/Brotli-1.0.9.zip"
-    sha256 "4d1b810aa0ed773f81dceda2cc7b403d01057458730e309856356d4ef4188438"
-  end
-
-  resource "mutagen" do
-    url "https://files.pythonhosted.org/packages/b1/54/d1760a363d0fe345528e37782f6c18123b0e99e8ea755022fd51f1ecd0f9/mutagen-1.46.0.tar.gz"
-    sha256 "6e5f8ba84836b99fe60be5fb27f84be4ad919bbb6b49caa6ae81e70584b55e58"
+    url "https://files.pythonhosted.org/packages/2f/c2/f9e977608bdf958650638c3f1e28f85a1b075f075ebbe77db8555463787b/Brotli-1.1.0.tar.gz"
+    sha256 "81de08ac11bcb85841e440c13611c00b67d3bf82698314928d0b676362546724"
   end
 
   resource "pycryptodomex" do
-    url "https://files.pythonhosted.org/packages/40/92/efd675dba957315d705f792b28d900bddc36f39252f6713961b4221ee9af/pycryptodomex-3.18.0.tar.gz"
-    sha256 "3e3ecb5fe979e7c1bb0027e518340acf7ee60415d79295e5251d13c68dde576e"
+    url "https://files.pythonhosted.org/packages/14/c9/09d5df04c9f29ae1b49d0e34c9934646b53bb2131a55e8ed2a0d447c7c53/pycryptodomex-3.19.0.tar.gz"
+    sha256 "af83a554b3f077564229865c45af0791be008ac6469ef0098152139e6bd4b5b6"
   end
 
   resource "websockets" do

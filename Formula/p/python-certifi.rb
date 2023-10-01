@@ -6,9 +6,11 @@ class PythonCertifi < Formula
   license "MPL-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f7878fa87dfc11f074a00e30691dc749135c15fbb999ec16fdb3dac7255390e8"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f7878fa87dfc11f074a00e30691dc749135c15fbb999ec16fdb3dac7255390e8"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f7878fa87dfc11f074a00e30691dc749135c15fbb999ec16fdb3dac7255390e8"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f7878fa87dfc11f074a00e30691dc749135c15fbb999ec16fdb3dac7255390e8"
+    sha256 cellar: :any_skip_relocation, sonoma:         "14df2281408c868092a8466c2625c46c6c73bef3e589905a2c3394b0fe4e3c4f"
     sha256 cellar: :any_skip_relocation, ventura:        "14df2281408c868092a8466c2625c46c6c73bef3e589905a2c3394b0fe4e3c4f"
     sha256 cellar: :any_skip_relocation, monterey:       "14df2281408c868092a8466c2625c46c6c73bef3e589905a2c3394b0fe4e3c4f"
     sha256 cellar: :any_skip_relocation, big_sur:        "14df2281408c868092a8466c2625c46c6c73bef3e589905a2c3394b0fe4e3c4f"

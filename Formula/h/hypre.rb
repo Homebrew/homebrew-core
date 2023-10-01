@@ -12,9 +12,11 @@ class Hypre < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "94bd7debe57757009dd844076fb5da6f1ff1978f8d3dbb52ae9229b23c31e34c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "57781669b62d7eb3e34d60d8e09d8c31b11d4fdd52023a8458b3826042eba12a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "96bbca9bfea390f76c8f80cb3ae2edd6a31836591951471fd281f11ce866537e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a411682ec9ee101422be8c79061a2c6aea9e623b69356e762039b0885faaec7c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c9ddad83ecfb955d65890faef36975f9b04e1a807f6772650cc9d71930db4453"
     sha256 cellar: :any_skip_relocation, ventura:        "d0944001c48e56187972ca23b7b473b2f426acb7155812968ccdc64145ac0599"
     sha256 cellar: :any_skip_relocation, monterey:       "8ec43a3621242e4ca2b53c4f66b41e2077e60ad28c749dae3e28eb8954280e86"
     sha256 cellar: :any_skip_relocation, big_sur:        "d748f75570c4e130969b8f49910ce557eb938f9e5790bf25367e7024f99b8472"

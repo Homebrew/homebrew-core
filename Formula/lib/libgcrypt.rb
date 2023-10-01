@@ -11,9 +11,11 @@ class Libgcrypt < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "f8929cd28f6dd1ede9dadee99e9e2889aa1a4c1de096bba23448ad1ebee7a7ab"
     sha256 cellar: :any,                 arm64_ventura:  "958511d2de063313f9682d62d67722878cc5c6758a201ae5385eb62e539f6a48"
     sha256 cellar: :any,                 arm64_monterey: "e09e21e188996fea1e67c6593a21407384ff3aceb99ef59f05877a2a77676d6a"
     sha256 cellar: :any,                 arm64_big_sur:  "14ac682551b4eb40d1b12f98a2cdcc3364f0d76859b6b16898b5b793b315337b"
+    sha256 cellar: :any,                 sonoma:         "9faedeeb583f9aa13be9ef1e47ab65b81ad35eeaacefd6a475aff60ce6b6f9d3"
     sha256 cellar: :any,                 ventura:        "1cf13dcb5279b2d4254f22560a3cf80d9c06a1458937851849f2dace0110a23a"
     sha256 cellar: :any,                 monterey:       "d39c52e83364970eb4be218d141f75550d11d07dbca2f62b91dddf4b294ef467"
     sha256 cellar: :any,                 big_sur:        "fa4f1d4dec480ee6dbcde6023a3b7407e4330535c0bc777b27c3f403261965b5"

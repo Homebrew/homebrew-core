@@ -8,9 +8,11 @@ class Ykdl < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e518af017c28127eae157236fe069b98e544ceaa5557b0f1d385880604624629"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6bfd95765b3413aae9546fe898949ee266661a4d6bf7251ecedfa7e80d3d85d2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a9669d8abc2e7007ab762d54ac5f46d2c06d6414945f93d676614761290e9042"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a6577df8df4b3a354e9457740ae9c97249062195f8db9ea293238ac664aab15d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "40eb478a3218e795d9b35ac00336947fbf26c486410253ebba3739b82026aae9"
     sha256 cellar: :any_skip_relocation, ventura:        "25267a1e6a5b19996364dc210a820182dbd979c802a157fa9f063438b6a5eda9"
     sha256 cellar: :any_skip_relocation, monterey:       "40352d2bfbc62a67104fac49ce087902e0f617b1805106a93d834c6fedf48c60"
     sha256 cellar: :any_skip_relocation, big_sur:        "899a254962e5978a6c267a1fbab79aa69870c19c3d542b46da81fbe9d120b74f"
@@ -43,7 +45,9 @@ class Ykdl < Formula
   end
 
   test do
-    system bin/"ykdl", "--info", "https://v.youku.com/v_show/id_XNTAwNjY3MjU3Mg==.html"
+    video_url = "https://v.youku.com/v_show/id_XNTAwNjY3MjU3Mg==.html"
+    output = shell_output("#{bin}/ykdl --info #{video_url} 2>&1", 1)
+    assert_match "CRITICAL:YKDL", output
     assert_match version.to_s, shell_output("#{bin}/ykdl -h")
   end
 end

@@ -6,9 +6,11 @@ class Analog < Formula
   head "https://github.com/c-amie/analog-ce.git", branch: "master"
 
   bottle do
+    sha256 arm64_sonoma:   "224cffe764447dfce53e8ba3c36316f43fcc45c756ad8a26d7eac8e51207714d"
     sha256 arm64_ventura:  "b042b7f5fcfd04f54e5af93246fbb78b177cf451bffef7846d0dced79033d140"
     sha256 arm64_monterey: "a74246c3d600b97bda4fd849c0caf64411b31e16655556af926bb5d88f44cfe8"
     sha256 arm64_big_sur:  "beb7f7127ad0f454f40cccaa66f4077794ebd5934f05e9c840597b45334cf481"
+    sha256 sonoma:         "0ae630fe7c76b730440a4b79d99e24fe8dbbdb2fc65029359d4c6ca916b7528e"
     sha256 ventura:        "5cb38b8b847b525e7175d5e2521cfcd1917cf3093944c14a3ee37281979fe3c6"
     sha256 monterey:       "287cc493b5904e13b3ef413c0ef77adcab7ffa3594de77a9faea8191b3778efb"
     sha256 big_sur:        "50fa1aeee5b2e43b579d4b0186f77e8686e9db57c8e9d7c7a0c598bba7c4693d"

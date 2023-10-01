@@ -13,9 +13,11 @@ class Gtkmm < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "beecb4d5292b6cc042a5c874f36f4ada0fdf962611ecf9525e6924957ca21611"
     sha256 cellar: :any,                 arm64_ventura:  "eb5a449be66c463ce2cca96c861c91ad509ec3bc1720089525fbbccee1ac0dc2"
     sha256 cellar: :any,                 arm64_monterey: "a99c01f03822751ae2add9413279226e3dc62bb46f96f24f4dab38d71a787487"
     sha256 cellar: :any,                 arm64_big_sur:  "ae2cb84a696c040281a8131961c755865f4ba96ef223e77cf8e5a8d02b88edb8"
+    sha256 cellar: :any,                 sonoma:         "a85abbf654e805ca0b7d4c35a093594b18dc12e70f3da905449f80a43eeab3ed"
     sha256 cellar: :any,                 ventura:        "23282900c778b38cb847cfcf4d7fb34646ba437cbe3c83ff8a27e5393e335568"
     sha256 cellar: :any,                 monterey:       "dcae86ed827870c397430d8f3d32005ca01d101b17fdda8c336f6a27bd140ab1"
     sha256 cellar: :any,                 big_sur:        "cf3e818aadeda99afd5c51cdfd8ae950bdf56ce16c090d78f23e5a80631f6f13"

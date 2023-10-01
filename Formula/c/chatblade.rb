@@ -10,9 +10,11 @@ class Chatblade < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "c538f814bac85ec478c5e7553e0380c04a0c9101c5e50fbf5c32f9750e5a56f5"
     sha256 cellar: :any,                 arm64_ventura:  "be159c5b785e725032f2f4331e71b01f89d637baba34fd58fa135831f5b14fee"
     sha256 cellar: :any,                 arm64_monterey: "2383ff68bbf2dd4f78df6eec7a5e886372e4f8f701aab138045cff04d73931cb"
     sha256 cellar: :any,                 arm64_big_sur:  "4cb3e9654db21f76489123da21a957f69b047b12d5109cd3c5a4fba2bb1729d4"
+    sha256 cellar: :any,                 sonoma:         "dd0132d9c60373d29d1708e27e9fbde3ebd12f6502db63e32dc824e7d4b52b4f"
     sha256 cellar: :any,                 ventura:        "5f81c7a51e514164c964915c6ae4fa20f56da06878d6578ccc9efcbd87470ce8"
     sha256 cellar: :any,                 monterey:       "79945074a464b0743d92cfd7478d9eb988f516e51e8a464d943ed43588d6a235"
     sha256 cellar: :any,                 big_sur:        "ba0d61f080ca3e9eb0e9a0bdec426068ee10c11881641d2fb84eeef93139d198"

@@ -14,9 +14,11 @@ class Lz4 < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "5a8b7116d978e403c525e61794c60b43480d0afc83e499a763f7f14641bbc9b1"
     sha256 cellar: :any,                 arm64_ventura:  "cd29e40287b0a2d665a647acbea5512e8db4c371687147aab5c60bf9059b2cca"
     sha256 cellar: :any,                 arm64_monterey: "284fa580570efdc8056e4fc95dc05f7b0546aa0c346795dd616d4cec8eb99426"
     sha256 cellar: :any,                 arm64_big_sur:  "8cf59a354786ad0ed95a7b531d7149ae03612081818dcdf2d9ca8cb4fe28c07a"
+    sha256 cellar: :any,                 sonoma:         "2bad368b2869db32b1b22cea76a6e65da2f4e599ac8ee327b4825d54c4579445"
     sha256 cellar: :any,                 ventura:        "6a911ee2a3ea072f414d2983d532b28c34b63a68ff388a0008e1528dc0668838"
     sha256 cellar: :any,                 monterey:       "88b369cea90a0a119c24aa96a614fe7d77de58d18cb1803023dc925679eb905f"
     sha256 cellar: :any,                 big_sur:        "aafb93487e108d302d060265898e4eaa82f5c806ff36dec50871db1c33fdc04d"

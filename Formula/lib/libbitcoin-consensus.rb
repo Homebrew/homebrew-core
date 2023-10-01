@@ -6,9 +6,11 @@ class LibbitcoinConsensus < Formula
   license "AGPL-3.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "12ab6ca60756919e7347031905778cf42151bc6d5294cf9826a7341a69c6b3dc"
     sha256 cellar: :any,                 arm64_ventura:  "495b1ee3bc1d01755b48ced48c019b2bf40f1361c529a1186c66449801f25708"
     sha256 cellar: :any,                 arm64_monterey: "82cdc41015f185c56a5c317ec125d1f6d74e298611afd8e0efb05135668c9a47"
     sha256 cellar: :any,                 arm64_big_sur:  "dbb11bd9f43f28ff31be7248a0c443d7359c7ceeb01227c1c099ea613d869f35"
+    sha256 cellar: :any,                 sonoma:         "6f7adeb8f31361a7962ec8130c23829f8a8c5efe265d54c541bce38642a9fbb4"
     sha256 cellar: :any,                 ventura:        "2f8f5925ff397fd8b1f6f1c499e3828c25830b551e678bbb24898912825fc328"
     sha256 cellar: :any,                 monterey:       "3b0a76702e478bae5a2b864b2bfaf4cbc2f658582454fa4ab0ccf534d4c9fae5"
     sha256 cellar: :any,                 big_sur:        "1ef57e9412ff7a67edd7e7557b8848f321f1355c0841dfb0cf6167a0d2e37447"

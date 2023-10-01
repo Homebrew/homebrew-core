@@ -11,9 +11,11 @@ class Liblockfile < Formula
   end
 
   bottle do
+    sha256                               arm64_sonoma:   "077b7e12530a51cb0c32c48cc483a5e21c75e899dc5ccccd21235facb12dfed8"
     sha256                               arm64_ventura:  "d6425a72a9e1a04fd11c8793c31b1a4308ff974979b368439d62515ca7bd0c53"
     sha256                               arm64_monterey: "69933a745062ff9b8a41b7b3b7fec871efa9a99896b1ace2ccbf4cbafb2437f8"
     sha256                               arm64_big_sur:  "41a9d79f95f938532b4320a29c5f5bf3d7229a6df3f06413112d903e23589078"
+    sha256                               sonoma:         "e4221901849f861ddc1c1848ba4ae3be15c5d33988b2e7d833eba1f4706e5715"
     sha256                               ventura:        "5cd7c8a1982b414eb54a539e0866a31018da08e90449e9bf62211bcb40c5bb92"
     sha256                               monterey:       "fec045c7ef1d9e55d1aac480298de26dce1754a73cb86f2545be737bc528d84b"
     sha256                               big_sur:        "d13b1ce9f35885e1b05c9bd436e8edd0fc1b0dc7475219773655cb69bafcfbb3"

@@ -1,18 +1,18 @@
 class Shelltestrunner < Formula
   desc "Portable command-line tool for testing command-line programs"
   homepage "https://github.com/simonmichael/shelltestrunner"
-  url "https://hackage.haskell.org/package/shelltestrunner-1.9.0.1/shelltestrunner-1.9.0.1.tar.gz"
-  sha256 "12d7f30a620c6bb77a763a3f269e8d1c031376bbc3a9cdc436dcd70a93b15aa8"
+  url "https://hackage.haskell.org/package/shelltestrunner-1.10/shelltestrunner-1.10.tar.gz"
+  sha256 "07bd3365fbbde9b4c80a3139792c30c1b1929736175fc207b4af1285bb97cbb0"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1947ef3fc74a969677b59348347a7342a81eae1c4fe2e6aa16e85123efc0cb58"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c63fd9f1d9c74e485032d73d2ce48f265835d1a72cbf827358bf95712fd8e132"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "52fc8a0cff43f070661d916d9808612e78ff1ee8013f6c7600df7bd068a08273"
-    sha256 cellar: :any_skip_relocation, ventura:        "c59bb642f61e325cee17f6bee87943ab24fc98e948322a7d858ada87900d9519"
-    sha256 cellar: :any_skip_relocation, monterey:       "f2f735a66a06b22159db137745f81adcce4be6b347459791bb2e6008090a95be"
-    sha256 cellar: :any_skip_relocation, big_sur:        "79bb290de60861de679b09bb60e968aadbf260fbbc3c0abef853913b91794c81"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1053f401e84298abcf98f2f09ec9d8fe18d6df60ad7ba8ce384c9400101b7c19"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "582cff21d33d8c6b12327c308028ab04c6bdf522e9dabc44768bce82f044034d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "70426f971815a9fc20296d6cc1cf37e4ec61eb474022c6adb36c4689ac352ea9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "56a6a6ae7b4be0f2c3f44ff4e7890e56b2f361aff31952f507c65b115f10c421"
+    sha256 cellar: :any_skip_relocation, ventura:        "68c4638e21a18a585339ec9bcdced418388d7763f003d430e77a4307643b7e3d"
+    sha256 cellar: :any_skip_relocation, monterey:       "ed90af2f8aeba0417ae92c8aa1021b73f5ceaabe2b10f3161a0821439a00eead"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6f5766183b65e74e68caf0e5c2f507537458cfc1df434495c26828dcc1486dee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "681f54b3d05958b695d5d9551d339c864f84a18639f8497a6923550df3bda337"
   end
 
   depends_on "cabal-install" => :build

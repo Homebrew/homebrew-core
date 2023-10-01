@@ -7,9 +7,11 @@ class Sqlbench < Formula
   head "https://github.com/felixge/sqlbench.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ede04ad826d75e794b7fe73102638e05fa6d800fd9621d9060817afe5b1c398f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0598ce5d9b3c1aed37b1690a3e8357300b3ef8906ea2275fe1ee997375c09e98"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "14d3a0b3a26e3291ae1039e67c72970b4a1b0388387b919f2c71e01e24e6a429"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8373986acd8ee9e32df964c5bff6b365f29afa06fa256789017112d9b07ffcf2"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f8238453f1e6614c8f14910cfcc53d465cc15cce3d4c8b11b6042be4b36ad319"
     sha256 cellar: :any_skip_relocation, ventura:        "fafa90b195b10fa34a841acec103788f7e83277ca5b58c8a5763868857409dd1"
     sha256 cellar: :any_skip_relocation, monterey:       "a59e25067b830b0062a0d3c7fa98da5c31ef16c0763303f5acf16238aead26a6"
     sha256 cellar: :any_skip_relocation, big_sur:        "9a74a774e1c5c5512b9230713af78f3694d38f237241817740c8f244febe8e09"

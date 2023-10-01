@@ -7,9 +7,11 @@ class Tracy < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "8e681087c743cee5166a3b6d06e88f2a9817124f90c501f08aea7fcbc0a8410f"
     sha256 cellar: :any,                 arm64_ventura:  "e0b1f660695b770f2ef198e4e7c3a64edcad50fdd5c992beed7250bb1327d4e3"
     sha256 cellar: :any,                 arm64_monterey: "34e51f9fc7008c8c6f9f328cd818a7e7903722c7ef7d0d72dfd27ab5ad8a0ce9"
     sha256 cellar: :any,                 arm64_big_sur:  "55aac4cf3f25fc366b1be4c3c29cafbc658e3de10cdeee75447e0995176498ce"
+    sha256 cellar: :any,                 sonoma:         "4c723c214302196b3bbe41e45d6232a19af088cf6578dbdb1871821473d0e75c"
     sha256 cellar: :any,                 ventura:        "e6cada4786ff58d06ef5bd68b95a1112c7b9ac6f1742bb690c4c373e8c95aa29"
     sha256 cellar: :any,                 monterey:       "0f42dbfd5532724edcba0cce7e00cfc0facc8d935fc07ef852a7c77a2b877057"
     sha256 cellar: :any,                 big_sur:        "bb8583cd33abebeb2028620d15cc066467988e284c623d79ea7b342a915d1a1c"

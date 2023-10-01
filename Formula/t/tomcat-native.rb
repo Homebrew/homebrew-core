@@ -7,9 +7,11 @@ class TomcatNative < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "94a02f472381a027f94db6302930f58d8408e2d175061f39c9f9e002993baeed"
     sha256 cellar: :any,                 arm64_ventura:  "757fa3646a2c6122cd7097585a894da8b3144041230af9c7074759b36eacb918"
     sha256 cellar: :any,                 arm64_monterey: "cc1b46de9303938ac5503b834b8f09139b3cdd7ebb6dcfd18127c83e4f812b2a"
     sha256 cellar: :any,                 arm64_big_sur:  "5e4a72e6a7db883c035565c0d8e25387b47d73523b9dbec9facdd3e86ce743db"
+    sha256 cellar: :any,                 sonoma:         "456a5b02f1dedaa40e38e9b925e98df4b95a8977c6916899acfe468072842883"
     sha256 cellar: :any,                 ventura:        "e7bb2186964976ec00a5573b7e4b921ae543fef8887c48c95c8d4cf8fb2c57c6"
     sha256 cellar: :any,                 monterey:       "804d8417b7280526f62cc392d7ef68512da428c3aed2402c188f35b9001ece1b"
     sha256 cellar: :any,                 big_sur:        "f2a5324db3c1fa91c60d45edf4f1f057f02f6eb2d885d1b459badc38fc9a881b"

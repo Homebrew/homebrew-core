@@ -13,9 +13,11 @@ class Ninja < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ffeafe29b18803d198ec794be40267e6df9384eb485af19197ecf29b61a1451a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f973424d56f32c88d2de08e26d2ab37c9966ab3f0b6ad5e8d36a953e24a1998e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9258efc6ef75aa56f68844ddf48f8ca050a91a45738c6715de73e5a2fe88dccf"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "293c707dd52fb9136ca3d95f74e63a741a975e4589c0900e9a184bfeb90d0625"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0985f9b135ca58e18efe12665d410b08109dd215f087c22d44e02c3779d368d3"
     sha256 cellar: :any_skip_relocation, ventura:        "51b5d6787ffc70b7b5762942c9329d2341afacbc96c3035f5e46ade9b036af7c"
     sha256 cellar: :any_skip_relocation, monterey:       "7083778d561200849c37c7763032f157c66ddfdcd9f2a813a685d1fc90ca2799"
     sha256 cellar: :any_skip_relocation, big_sur:        "3f625fc538dbceeecebb5088bda7b3d2daa8477adb3f9653f01e3eff76983b8d"

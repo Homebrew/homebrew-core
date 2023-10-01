@@ -7,9 +7,11 @@ class ShadowsocksLibev < Formula
   revision 4
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "d202507f9360f6289c0e1c576d2a47daf3644279c1e70289acbd99fdc3a9a541"
     sha256 cellar: :any,                 arm64_ventura:  "6490e3800ef7d2705e550b066a1b4c70b06e6563c9c1e5d1b8e4f2c3824611b3"
     sha256 cellar: :any,                 arm64_monterey: "bcdae7a01e62e6af170c92174da04167b501787e7b041afa652f8f267c21a080"
     sha256 cellar: :any,                 arm64_big_sur:  "0974cdce9f0a548d04d0798d9b878013075206938ebf8b68273aa57f02df3ef4"
+    sha256 cellar: :any,                 sonoma:         "a5e234098848204164120d60e00ab0fb3bd05b8a3d40c5210c482a7e6063a041"
     sha256 cellar: :any,                 ventura:        "616bbd5f8db762784be79dc2735192ab22f21dbf3219efc8e3ae2a222bc496ce"
     sha256 cellar: :any,                 monterey:       "27acec0ff096021b2a7fb186451522a74699bbd0c185e66bb460425a768bdb40"
     sha256 cellar: :any,                 big_sur:        "88117a8122f9724516e77265546624b6581b6ff3b9980bb6caf3a49fa5fd1aec"

@@ -1,10 +1,9 @@
 class Visp < Formula
   desc "Visual Servoing Platform library"
   homepage "https://visp.inria.fr/"
-  url "https://visp-doc.inria.fr/download/releases/visp-3.5.0.tar.gz"
-  sha256 "494a648b2570da2a200ba326ed61a14e785eb9ee08ef12d3ad178b2f384d3d30"
+  url "https://visp-doc.inria.fr/download/releases/visp-3.6.0.tar.gz"
+  sha256 "eec93f56b89fd7c0d472b019e01c3fe03a09eda47f3903c38dc53a27cbfae532"
   license "GPL-2.0-or-later"
-  revision 9
 
   livecheck do
     url "https://visp.inria.fr/download/"
@@ -12,17 +11,17 @@ class Visp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "0e0bba5de3673f6414707d4f387dbde600ef2122ba5e1f88c85d11a0dd6db9e6"
-    sha256 cellar: :any,                 arm64_monterey: "0adad66a23d024372d09ac46fdb4785e89c8d2ebe053cdf7c52440cc276f48de"
-    sha256 cellar: :any,                 arm64_big_sur:  "2d0cb5f830558f0dca0771d3929732e57d27ebe9cf5344f157b578dfe6e4a450"
-    sha256 cellar: :any,                 ventura:        "89c6e65399dd047f50a99384022b61fbf828f3419b2dd51601f1d73ef81a017c"
-    sha256 cellar: :any,                 monterey:       "6593ddf36c07cc67cf35c256641308dd5f3c7e89d817f85fa7184dc12ac72f37"
-    sha256 cellar: :any,                 big_sur:        "49287f7440399abfaa7b57d24651336127b82bed5ecae19d37b58832a6064d02"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9ad6d0f418c178812c2c3384f90cfd31da77ce019129293ce1d1344b06be3c2a"
+    sha256 cellar: :any,                 arm64_ventura:  "a855a1de81e65487bdf513c00c641b30decdb4ae6d7a91aa61d86cef51220436"
+    sha256 cellar: :any,                 arm64_monterey: "81c5819954bbd696ae1928c393c4ab2bab96b5c2df583f67d5640c2476255d56"
+    sha256 cellar: :any,                 arm64_big_sur:  "f36f42824e710873a864706002cb20df4138a330514ade63d40e81d0d0ecc72b"
+    sha256 cellar: :any,                 ventura:        "e81ea4fbc4fb63d8450ca92673619fd476f09f2b443db271a949c70d2182633a"
+    sha256 cellar: :any,                 monterey:       "5d49ffffcd1f8ece7f7d2808fdc8bebe85c3f7927c0f71b009a7c7ed029d54f1"
+    sha256 cellar: :any,                 big_sur:        "b72f7c578265aef7b5dea605c18b6ceabbf5af58f502f55a0dafeb606265954e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "89a23870fb99e71c74ecee6e1a19e610ffe1ab9fe282d60c4408ff7c10c304c1"
   end
 
   depends_on "cmake" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkg-config" => [:build, :test]
   depends_on "eigen"
   depends_on "gsl"
   depends_on "jpeg-turbo"
@@ -120,7 +119,8 @@ class Visp < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-I#{include}", "-L#{lib}", "-o", "test"
+    pkg_config_flags = shell_output("pkg-config --cflags --libs visp").chomp.split
+    system ENV.cxx, "test.cpp", "-o", "test", *pkg_config_flags
     assert_equal version.to_s, shell_output("./test").chomp
   end
 end

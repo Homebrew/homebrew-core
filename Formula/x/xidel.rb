@@ -12,9 +12,11 @@ class Xidel < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "466555de8b7e479e1f4a49ec52a15559c44f05820e1810e9a0965efd2ab3d751"
     sha256 cellar: :any,                 arm64_ventura:  "1c90b748fa5f9087602a8d8670c25b706c24c3be99c11758300604fbac9a3eea"
     sha256 cellar: :any,                 arm64_monterey: "73f305dc1833d8ebdea3236df50cb4de5f52bdbefa2a37d3b682cf1cd73c8dd5"
     sha256 cellar: :any,                 arm64_big_sur:  "b9758092865f250399c41f7eb2c22d8a85d3a6f201abd87cf8bcc2df9f5ce72e"
+    sha256 cellar: :any,                 sonoma:         "94a17492216d780afa50e763dd25057985439cbbbf28363fe1b9a1444becbdd7"
     sha256 cellar: :any,                 ventura:        "287aa987ef7a181f654506c15c24e58ed1e265118d8932f5bff259be79e76c70"
     sha256 cellar: :any,                 monterey:       "aecd66d3be7b4ab3ba13a57dab9f70988e9cf271e818ee0a06a2aebe0a62da4e"
     sha256 cellar: :any,                 big_sur:        "e0a2b032e2ad48fa616a29a3249a9c5fbee970832dac267f8430c67f6abc2895"
@@ -40,7 +42,7 @@ class Xidel < Formula
     end
 
     cd "programs/internet/xidel" unless build.head?
-    inreplace "build.sh", "$fpc ", "$fpc -k-rpath -k#{sh_quote Formula["openssl@3"].opt_lib} "
+    inreplace "build.sh", "$fpc ", "$fpc -k-rpath -k#{sh_quote Formula["openssl@3"].opt_lib.to_s} "
     system "./build.sh"
     bin.install "xidel"
     man1.install "meta/xidel.1"

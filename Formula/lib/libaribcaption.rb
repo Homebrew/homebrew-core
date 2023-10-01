@@ -7,9 +7,11 @@ class Libaribcaption < Formula
   head "https://github.com/xqq/libaribcaption.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "6b38612e1286db5ca478575fb3e2b52f18a19772ce944c47501be1419be5f329"
     sha256 cellar: :any,                 arm64_ventura:  "95f26086bd7441422b937c1b5669c83949002748c830f6c9169d99b8607f798f"
     sha256 cellar: :any,                 arm64_monterey: "54e6fe96fd275bf48cd7855079e57f9db065b13236217d091672da5215d04d65"
     sha256 cellar: :any,                 arm64_big_sur:  "70938eafd08f1bdd3d350acc46a1cc2883d7bd7ab59443b8e4534978738f3469"
+    sha256 cellar: :any,                 sonoma:         "bbd00ccc6065dcf54db0c69cb5def58827c6dce1da8ac90ac780c470aee93c23"
     sha256 cellar: :any,                 ventura:        "d98426fc8cf65f3a4b4c158e87502e011241027e407ba3e367d39b15b3b0bd92"
     sha256 cellar: :any,                 monterey:       "fabcf532d86466ffc3718a5be2aa9084ac0071832e859bb27dc4f9c589e7857e"
     sha256 cellar: :any,                 big_sur:        "3cfe6d592c479f2196544b2b364b967b2d87e62a07dbcbb61b094e05f1ae039f"

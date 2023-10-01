@@ -1,8 +1,9 @@
 class ZshLovers < Formula
   desc "Tips, tricks, and examples for zsh"
   homepage "https://grml.org/zsh/#zshlovers"
-  url "https://deb.grml.org/pool/main/z/zsh-lovers/zsh-lovers_0.9.1_all.deb"
-  sha256 "011b7931a555c77e98aa9cdd16b3c4670c0e0e3b5355e5fd60188885a6678de8"
+  url "https://deb.grml.org/pool/main/z/zsh-lovers/zsh-lovers_0.10.1_all.deb"
+  sha256 "b2cebc38bded607b77fa2738fe6ed7a770550b06e4ce7cbe6243701d0400c09c"
+  license "GPL-2.0-only"
 
   livecheck do
     url "https://deb.grml.org/pool/main/z/zsh-lovers/"
@@ -10,11 +11,13 @@ class ZshLovers < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "a9a640ed5452e086874d853453e15cbd2e347a5a86d867db12a5245980f6aa54"
+    sha256 cellar: :any_skip_relocation, all: "0118136de9708fabbd90c356421f25b22b0e5666e26c2b1bcb46b318ef0988ab"
   end
 
+  uses_from_macos "xz" => :build
+
   def install
-    system "tar", "xf", "zsh-lovers_#{version}_all.deb"
+    system "ar", "x", "zsh-lovers_#{version}_all.deb"
     system "tar", "xf", "data.tar.xz"
     system "gunzip", *Dir["usr/**/*.gz"]
     prefix.install_metafiles "usr/share/doc/zsh-lovers"

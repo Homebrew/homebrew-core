@@ -14,9 +14,11 @@ class Librsvg < Formula
   end
 
   bottle do
+    sha256                               arm64_sonoma:   "a7a4d0f4d535eee10f44ba8be7e052d7be390d61276cd8a5c8303e21a5bae877"
     sha256                               arm64_ventura:  "bafd050c53a0a19b9b16c0dff5675c69592f2d770beb59e97420de693b90dcfe"
     sha256                               arm64_monterey: "34e3f2263c4f9cb09c0c3c4d4741e2fcfe0cff1cc4f3a93055b20fd5f2debcbf"
     sha256                               arm64_big_sur:  "b9ddb0c3cc845d11234d36cff3a1119bdb1847dad67760dc2e90bb3332122fee"
+    sha256                               sonoma:         "450122fca111ac446307bfc34940ecc75415fb03ddba76ebf5f8e06c360f96f5"
     sha256                               ventura:        "be8b22a9eecab201f48f798f10e8f596a30c5062f1741cb036e6611b84a6a6e0"
     sha256                               monterey:       "a28011978e585d72a99586e67d8ad18f27d789167b86f83e058649ee983a9c20"
     sha256                               big_sur:        "18b6f95d693e37d0efee4a153e508b83f94ba95fcffe109625f75e22ebf90ae6"

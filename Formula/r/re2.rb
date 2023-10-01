@@ -19,9 +19,11 @@ class Re2 < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "ab962062c76bc1172e155886d636dcf085e034b756df5143ef792726b4bb9699"
     sha256 cellar: :any,                 arm64_ventura:  "f1a44f5622d8d2d93dac473b561c8bbc750ebfd9ff9f3f9959cdee5798101cec"
     sha256 cellar: :any,                 arm64_monterey: "6dd073dc3f3de813bdabf824153b8f2171022f1996054a02632823722057b6c4"
     sha256 cellar: :any,                 arm64_big_sur:  "87ffb37601588d8b68e3221d97c2bff6cc8573ad8e9fa081b44f72afc5b969d2"
+    sha256 cellar: :any,                 sonoma:         "3f85a5c00b9a6c2abe2f57fb6c3f54c78ae4b842b64f6bb6707165abda5885d5"
     sha256 cellar: :any,                 ventura:        "9afde349d641645a25b23b360ed940b1fb4d1096785257aa7408badb784b283d"
     sha256 cellar: :any,                 monterey:       "075c018d1419a2de0f4fb5bebd35171b7db4a2087d7d6233298ad24151f8a9c6"
     sha256 cellar: :any,                 big_sur:        "e3dea5a69f82faf074184cea9fc0481e01056cfca851fe6d548e105b339d4afa"

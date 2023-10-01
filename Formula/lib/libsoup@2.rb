@@ -7,9 +7,11 @@ class LibsoupAT2 < Formula
   revision 1
 
   bottle do
+    sha256 arm64_sonoma:   "4e8330cbf98501f043c70db9f556e0471edddc4a7f2d0a8b792f8ec750c9d94e"
     sha256 arm64_ventura:  "28703a1f52485e8606ff0e34b22bcaf09aa743f84b62c937f8e2dc6bb2a3e2e9"
     sha256 arm64_monterey: "c83d1b06c461f1052dca33dbb4611de3255629a01f6841cea10c879b33de062a"
     sha256 arm64_big_sur:  "1beb7bcd38a32eb0392edf2c4512282dd70545a00522abceb18f27e8c4ad0ca1"
+    sha256 sonoma:         "74b8f29618c2981330dc19fab37c794cbbc2f37ab84b15e158dd9e7f3987b36e"
     sha256 ventura:        "c75a526b2a7e38e78e1610f943e5057c3f74ee047405005a75e263e502fcc08e"
     sha256 monterey:       "c45af2b51eefcef87380bd327d068113d862d8ea3468798143229e4a6ffaf066"
     sha256 big_sur:        "c5b6becbd8d56922f462b27d995abdfb3c0e0bf40a5f90ad2dbaf8fbcf342f60"

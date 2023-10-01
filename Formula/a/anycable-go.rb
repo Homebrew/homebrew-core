@@ -1,8 +1,8 @@
 class AnycableGo < Formula
   desc "WebSocket server with action cable protocol"
   homepage "https://github.com/anycable/anycable-go"
-  url "https://github.com/anycable/anycable-go/archive/v1.4.3.tar.gz"
-  sha256 "e2c34c966e3580c5003d46c72a12ee970d87cb56163cad575e2184f28ae1fb5b"
+  url "https://github.com/anycable/anycable-go/archive/v1.4.4.tar.gz"
+  sha256 "8a6cd528f8af57968ef55ec478d2cdaeee020cce37588e5e6431d3dedcbd9c7e"
   license "MIT"
   head "https://github.com/anycable/anycable-go.git", branch: "master"
 
@@ -12,13 +12,13 @@ class AnycableGo < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c24b709659d2ebfd8eb5b351f180364a85116868561a290ded690eb3c6e0a801"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c24b709659d2ebfd8eb5b351f180364a85116868561a290ded690eb3c6e0a801"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c24b709659d2ebfd8eb5b351f180364a85116868561a290ded690eb3c6e0a801"
-    sha256 cellar: :any_skip_relocation, ventura:        "d5b3ed8ac3caa88355f734f3558deaa02ec189df4bda4c9ac766bc4fe1cd19ab"
-    sha256 cellar: :any_skip_relocation, monterey:       "d5b3ed8ac3caa88355f734f3558deaa02ec189df4bda4c9ac766bc4fe1cd19ab"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d5b3ed8ac3caa88355f734f3558deaa02ec189df4bda4c9ac766bc4fe1cd19ab"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "61b5aa42ab8b0917f12493547ac92a3b241c14a17c9935f00e45edbf37d671cd"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2b64ef4b6c5100f948cc1d34b48f3fc140dfd885b0763b840b3557a2a1ab9063"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7cb16701e93081f681a3eda8b637c8fbd930c920b120f5634124d760e831c12b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7cc60eb2365550d70312bcde1ed6a8a9124055f795a6e4aeac571c90830527ba"
+    sha256 cellar: :any_skip_relocation, ventura:        "ec36b2f1052410c22c237ec649bd745e3caea6e29482d4f512b42f3c72674214"
+    sha256 cellar: :any_skip_relocation, monterey:       "23e46eb00233427a8b9c31fd4179af1fde82276cc261604c61c3de344d9d7db3"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f759c3ac589024d1b3b41ad032e35e617df6e075c1cdf3d60ec98acd842894a6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b0cc9a17dfc94c18dfda06d3a05fff9d289548059272089c32023fe3d147da72"
   end
 
   depends_on "go" => :build

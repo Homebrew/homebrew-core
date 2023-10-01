@@ -8,9 +8,11 @@ class SimpleObfs < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "96318311193115a8caae00c04bd855713170ad44d48e67405b9bdab395b8e35f"
     sha256 cellar: :any,                 arm64_ventura:  "3ede7782d7c846a3f01749e297231356e89af0cd4650d9bf4b62d64fe0e513fc"
     sha256 cellar: :any,                 arm64_monterey: "6671d16d00fb419e65ef7a686d4fa956e64882efcf22ee7ccf84207ebb7a4fe7"
     sha256 cellar: :any,                 arm64_big_sur:  "a79c2a9ba2a6473853a0907355290287b5f9faf4dcd808e1819608f0498b236f"
+    sha256 cellar: :any,                 sonoma:         "771e320908bd201a58300ffa42ac29636459a76381a8ee9e67ba6d4c91e2336e"
     sha256 cellar: :any,                 ventura:        "8dd7246903c8398049305665a51c44299358f80164d8dd3264e98ff7699ee704"
     sha256 cellar: :any,                 monterey:       "83daaaeccbb621e796269d648c943871ce9ddbf85edd0d7ec66685ea71e9c286"
     sha256 cellar: :any,                 big_sur:        "6fc8b9d2aef7c813449e5298e1fcbcb7e5f1ba6da4c34b9e4b3c3a5e0005110e"

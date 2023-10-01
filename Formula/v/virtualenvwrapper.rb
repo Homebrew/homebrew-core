@@ -9,9 +9,11 @@ class Virtualenvwrapper < Formula
   revision 2
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7add37594bf1a23cbec7e571fb51105fc137009baf9108f4e19baf00ee579ce1"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c80f02cd26fd8255fe1aa39e774bc06eef77ecad1988a86e61f37c97604ae645"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c80f02cd26fd8255fe1aa39e774bc06eef77ecad1988a86e61f37c97604ae645"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c80f02cd26fd8255fe1aa39e774bc06eef77ecad1988a86e61f37c97604ae645"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0f29c186cc9471ad7a95f6db992ac89b188814457a6c76da6f591ec8a20dd5fb"
     sha256 cellar: :any_skip_relocation, ventura:        "7972ca432197ee167f1eadafb627fdc439f04372cbd75fbe6da1e57acfa6f282"
     sha256 cellar: :any_skip_relocation, monterey:       "7972ca432197ee167f1eadafb627fdc439f04372cbd75fbe6da1e57acfa6f282"
     sha256 cellar: :any_skip_relocation, big_sur:        "7972ca432197ee167f1eadafb627fdc439f04372cbd75fbe6da1e57acfa6f282"

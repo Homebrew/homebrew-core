@@ -6,9 +6,11 @@ class Libpqxx < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "453f3839da9db0e2509848c86aa10c5cc4915870fbe50a78757a3430699d0ab0"
     sha256 cellar: :any,                 arm64_ventura:  "ea53f3f58887f5bcc70e963162cc63f26315ffea7b6d03c52861c2b6fa0cbb67"
     sha256 cellar: :any,                 arm64_monterey: "c89a565af9ef10c7fe236a240175d069dfd0f76f6a7002af83b3054be7b2d764"
     sha256 cellar: :any,                 arm64_big_sur:  "d74bd03e1a3379fa02d77d697e0abc900c3d5cf38fab56248bbef8e2c9b67974"
+    sha256 cellar: :any,                 sonoma:         "fc18ca3448f01c46fb9050203e4d5475932ac85edb87143c6daf1fe328d0e7ed"
     sha256 cellar: :any,                 ventura:        "9ee8482ef40df031f9eecd0cef325434e6f2a043b1fb74f8c3f8e97ed21bfef4"
     sha256 cellar: :any,                 monterey:       "18210ca8b997649ccdb1c934708b5d8bbf79e1cc25c66e9c0a6214f9be5b536b"
     sha256 cellar: :any,                 big_sur:        "925b8914a35bdcf4425595ffb5c72bd3755b77c87813bf050c27c36448edc56c"

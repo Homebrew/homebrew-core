@@ -13,9 +13,11 @@ class Vtclock < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c3a0fe4222e5bd0dc72142bc881e07418da6a7911e05ebc0eb9c634d876b44d5"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "25259a2e776866b62ab94a2b3540f212ff1210fb5bb6aa8bc64a979f771053a2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "89f35de639c75067c0b64b5df9642a6b08652b8574eb403f2d51038362b7c16e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7ba3ce880fdedf82e166ed0f7f7a4124c57510680d5c591fd363ac14887618f5"
+    sha256 cellar: :any_skip_relocation, sonoma:         "81dcfc9671bd143466939534484508cc795d032e059bd8b89d32e843076122ce"
     sha256 cellar: :any_skip_relocation, ventura:        "a9d0ccf5a02245e652c282d971eaf01115c97a43b176d4f2f4d41656ba013112"
     sha256 cellar: :any_skip_relocation, monterey:       "d8623d74ca8e085cba72cfcfdd04c87327dd5bd9bed6b6f0c5b60181448922fa"
     sha256 cellar: :any_skip_relocation, big_sur:        "747b98b591c6a732012006db26bc8cdd871509e6407f557a1b616c54d2c2079d"
@@ -28,6 +30,9 @@ class Vtclock < Formula
   uses_from_macos "ncurses"
 
   def install
+    # Workaround for Xcode 14.3+
+    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+
     system "make"
     bin.install "vtclock"
   end

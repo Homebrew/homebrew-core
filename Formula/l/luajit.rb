@@ -40,9 +40,11 @@ class Luajit < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "57d50c2d1286f22e6aec725ea351ecd7dc094cf2a01765a27dc3d9cee4083b12"
     sha256 cellar: :any,                 arm64_ventura:  "83ff44fbfaa9312b80ee92c80c2683eccdf7f997bdd6608d1b0bcf2057f48b9c"
     sha256 cellar: :any,                 arm64_monterey: "46066e754a2d030fc781a9865cde2d50cc2eb76ba565005ec7ac3ffb7d0e298b"
     sha256 cellar: :any,                 arm64_big_sur:  "e231ae553b2f134916e28bc43e34f82c1b99d2c22c4977ed03701224a37de8c5"
+    sha256 cellar: :any,                 sonoma:         "ef7255ee32feaa58467e4dc7f2fb0e41c47a0c511f017c82e5f93c9e6869d69f"
     sha256 cellar: :any,                 ventura:        "7703055988274d4d9acd8e04b28a937db7a3e5d31531d8f555cb715c1e794cbc"
     sha256 cellar: :any,                 monterey:       "ca3ac71bd6f9ae3854e046e7ebca55a9d427197d42b55e656c831fc9cc4f87b1"
     sha256 cellar: :any,                 big_sur:        "98918574b3945dbdbab7f0e7952dd1482bdbffb0fd5fe26b3c806542bfb09222"

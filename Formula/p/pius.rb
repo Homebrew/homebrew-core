@@ -11,9 +11,11 @@ class Pius < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3b726dddac3deba0bcf118c7616c3cd94b51b8c5cd2268431c7c4b9228d2f393"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1e031f7d3ef469e8f1f4d99cc683122ba9b44ce3b663263ba5a7e39070e808f9"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1e031f7d3ef469e8f1f4d99cc683122ba9b44ce3b663263ba5a7e39070e808f9"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1e031f7d3ef469e8f1f4d99cc683122ba9b44ce3b663263ba5a7e39070e808f9"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d7985a6df9089d2648e3dad2eab0945278af96573afd75e5bf6d102c59149431"
     sha256 cellar: :any_skip_relocation, ventura:        "984bb44f8297fd26d73884d90085ae21a80e7465fa5ada5e89796f83d6dacca3"
     sha256 cellar: :any_skip_relocation, monterey:       "984bb44f8297fd26d73884d90085ae21a80e7465fa5ada5e89796f83d6dacca3"
     sha256 cellar: :any_skip_relocation, big_sur:        "984bb44f8297fd26d73884d90085ae21a80e7465fa5ada5e89796f83d6dacca3"

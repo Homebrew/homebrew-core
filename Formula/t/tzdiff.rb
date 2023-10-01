@@ -6,9 +6,11 @@ class Tzdiff < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "653e627cd07a9e45f405a5d49c852eb00b19e1ed66253bf37329b028388c56cc"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "653e627cd07a9e45f405a5d49c852eb00b19e1ed66253bf37329b028388c56cc"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "653e627cd07a9e45f405a5d49c852eb00b19e1ed66253bf37329b028388c56cc"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "653e627cd07a9e45f405a5d49c852eb00b19e1ed66253bf37329b028388c56cc"
+    sha256 cellar: :any_skip_relocation, sonoma:         "653e627cd07a9e45f405a5d49c852eb00b19e1ed66253bf37329b028388c56cc"
     sha256 cellar: :any_skip_relocation, ventura:        "653e627cd07a9e45f405a5d49c852eb00b19e1ed66253bf37329b028388c56cc"
     sha256 cellar: :any_skip_relocation, monterey:       "653e627cd07a9e45f405a5d49c852eb00b19e1ed66253bf37329b028388c56cc"
     sha256 cellar: :any_skip_relocation, big_sur:        "653e627cd07a9e45f405a5d49c852eb00b19e1ed66253bf37329b028388c56cc"

@@ -12,9 +12,11 @@ class Libdaemon < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_sonoma:   "e3311382ce2231961c035a35b3376f3d8ce9c852ca565fe35a971f6d9539b6ef"
     sha256 cellar: :any,                 arm64_ventura:  "48e59b83b13317a14504cc36b820781a8e55e2e11509eeacb3632535daa98988"
     sha256 cellar: :any,                 arm64_monterey: "0ba92f47214e34c065723f4dc24f0a0391b8d0cb9af18b4a0262ab74d6629757"
     sha256 cellar: :any,                 arm64_big_sur:  "d5bebb62e8788d3e229a9022c600d3abc7b93843c854070a6296e6962979a2f0"
+    sha256 cellar: :any,                 sonoma:         "7d725995c1dd243717fa590f3dc3bb5996d9584c7e6ed490695f80e4f00357a4"
     sha256 cellar: :any,                 ventura:        "0920b6d606e3afaa3ac023790dc9e7c3f89c99297ae54ae3b9d20cf10e27aee8"
     sha256 cellar: :any,                 monterey:       "90500c4d405d8c04cccb7d06c6c45bed48646e49700d160d44659a22577007fa"
     sha256 cellar: :any,                 big_sur:        "e33a72add1413b788a607ae16413c3434da9d2faca96b9201504121b03a7ff73"

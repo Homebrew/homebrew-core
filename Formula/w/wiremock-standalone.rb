@@ -1,8 +1,8 @@
 class WiremockStandalone < Formula
   desc "Simulator for HTTP-based APIs"
   homepage "https://wiremock.org/docs/running-standalone/"
-  url "https://search.maven.org/remotecontent?filepath=org/wiremock/wiremock-standalone/3.0.3/wiremock-standalone-3.0.3.jar"
-  sha256 "4667b72070bbe46e468cf92f0ad0a5a28a249f899be92b2628d3ba6a27e67d32"
+  url "https://search.maven.org/remotecontent?filepath=org/wiremock/wiremock-standalone/3.1.0/wiremock-standalone-3.1.0.jar"
+  sha256 "4b220d90733f3eb27cf24101eb6519d3ad00bdc4750e319463b7dbac9973a3f7"
   license "Apache-2.0"
 
   livecheck do
@@ -11,13 +11,15 @@ class WiremockStandalone < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f98c022ebeea015ad9119e9c23c9f4e36df3add8741b7c13cdde3d0aa1ad52ac"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f98c022ebeea015ad9119e9c23c9f4e36df3add8741b7c13cdde3d0aa1ad52ac"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f98c022ebeea015ad9119e9c23c9f4e36df3add8741b7c13cdde3d0aa1ad52ac"
-    sha256 cellar: :any_skip_relocation, ventura:        "f98c022ebeea015ad9119e9c23c9f4e36df3add8741b7c13cdde3d0aa1ad52ac"
-    sha256 cellar: :any_skip_relocation, monterey:       "f98c022ebeea015ad9119e9c23c9f4e36df3add8741b7c13cdde3d0aa1ad52ac"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f98c022ebeea015ad9119e9c23c9f4e36df3add8741b7c13cdde3d0aa1ad52ac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "329b7dc029ebfdcce8f39f2472a3b5a87f1d51d43c91cd456fd84a9f2d003850"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0c642ef364fefdc76482d5f66ec06da8c00e8186f9fc772911a60d7fd0ba5a7b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0c642ef364fefdc76482d5f66ec06da8c00e8186f9fc772911a60d7fd0ba5a7b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0c642ef364fefdc76482d5f66ec06da8c00e8186f9fc772911a60d7fd0ba5a7b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0c642ef364fefdc76482d5f66ec06da8c00e8186f9fc772911a60d7fd0ba5a7b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0c642ef364fefdc76482d5f66ec06da8c00e8186f9fc772911a60d7fd0ba5a7b"
+    sha256 cellar: :any_skip_relocation, ventura:        "0c642ef364fefdc76482d5f66ec06da8c00e8186f9fc772911a60d7fd0ba5a7b"
+    sha256 cellar: :any_skip_relocation, monterey:       "0c642ef364fefdc76482d5f66ec06da8c00e8186f9fc772911a60d7fd0ba5a7b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0c642ef364fefdc76482d5f66ec06da8c00e8186f9fc772911a60d7fd0ba5a7b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5f088f12405212925a9a3fca4e043206e0cc608b85ea1c139d5dd7b6dc28299e"
   end
 
   depends_on "openjdk"

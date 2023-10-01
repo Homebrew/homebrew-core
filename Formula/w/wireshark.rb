@@ -5,6 +5,7 @@ class Wireshark < Formula
   mirror "https://1.eu.dl.wireshark.org/src/all-versions/wireshark-4.1.0.tar.xz"
   sha256 "9a32ae59f0a843aefd8856c0d208fc464b93ce9415fb8da8723c550c840ab1d5"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://gitlab.com/wireshark/wireshark.git", branch: "master"
 
   livecheck do
@@ -13,13 +14,15 @@ class Wireshark < Formula
   end
 
   bottle do
-    sha256                               arm64_ventura:  "29b300dbfcdf66a9788c47d34b004597b335a0fa337db83ede9fd5058341106a"
-    sha256                               arm64_monterey: "dfa02759e46a2d6b9a63c68554de28f5ebc73c39bf297b310dac77f2ee975cf4"
-    sha256                               arm64_big_sur:  "1b04324e5aa82f65af4d99f49ace42c0b943d4a9588a46aeb47e0bb53e5ca713"
-    sha256                               ventura:        "0127e9ebfb2bbdc8bdeabcd80c1cb657417d05887404e38fd02b59a1112bc69e"
-    sha256                               monterey:       "6939bafb4effca4d8397b88fe37cdbf6cc2c30ee05874c47b6ae0035d468c4aa"
-    sha256                               big_sur:        "c5b1344c9a6e7553d4356533d75b0e8ac51aa046baf27736bb18c11232c66deb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "276a65970d0340ba9c8cfdbcf10a56421be409920f02c1c9e02fdf771189cc24"
+    sha256                               arm64_sonoma:   "cb8e10b484c692bc280a5beb61530e7289ae7729ed5225d734d876b35e0911d8"
+    sha256                               arm64_ventura:  "6db5381e512659b8320d83fc752d25080fbbde6d7db529113d9bc0e653ceeee8"
+    sha256                               arm64_monterey: "328a6e3e2669f0fc6773db0ae03d24d24d30cde3d4fc153c282885e752130cd1"
+    sha256                               arm64_big_sur:  "f152097880272bd8295ffe86037f582026cc8717183f389e682a4e66ddaf7468"
+    sha256                               sonoma:         "0148a22305e2a1924433aa4cf355e420f216b16d1456a411589cdd1989a0dd3b"
+    sha256                               ventura:        "48c07ebec0010af5f97efd18a38900e2ed88c999ab7364ec7666ee2903bda31c"
+    sha256                               monterey:       "3db805ae9444acfd8fe58b42a1d30e245b3fd62a8f7e155ff1df9fdf2c5e38c6"
+    sha256                               big_sur:        "95dce7c79103a61049e7750be7665f6de877181753a827abf83f92c94f767b9f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "757e56afe26f46ad893658d93a57d92eca3bd759c19f5fe42d45f4dfde21f20a"
   end
 
   depends_on "cmake" => :build
@@ -67,17 +70,7 @@ class Wireshark < Formula
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
-
-    # Install headers
-    (include/"wireshark").install Dir["*.h"]
-    (include/"wireshark/epan").install Dir["epan/*.h"]
-    (include/"wireshark/epan/crypt").install Dir["epan/crypt/*.h"]
-    (include/"wireshark/epan/dfilter").install Dir["epan/dfilter/*.h"]
-    (include/"wireshark/epan/dissectors").install Dir["epan/dissectors/*.h"]
-    (include/"wireshark/epan/ftypes").install Dir["epan/ftypes/*.h"]
-    (include/"wireshark/epan/wmem").install Dir["epan/wmem/*.h"]
-    (include/"wireshark/wiretap").install Dir["wiretap/*.h"]
-    (include/"wireshark/wsutil").install Dir["wsutil/*.h"]
+    system "cmake", "--install", "build", "--component", "Development"
   end
 
   def caveats
@@ -94,6 +87,19 @@ class Wireshark < Formula
   end
 
   test do
+    (testpath/"test.cpp").write <<~EOS
+      #include <stdio.h>
+      #include <ws_version.h>
+
+      int main() {
+        printf("%d.%d.%d", WIRESHARK_VERSION_MAJOR, WIRESHARK_VERSION_MINOR,
+               WIRESHARK_VERSION_MICRO);
+        return 0;
+      }
+    EOS
+    system ENV.cxx, "-std=c++11", "test.cpp", "-I#{include}/wireshark", "-o", "test"
+    output = shell_output("./test")
+    assert_equal version.to_s, output
     system bin/"randpkt", "-b", "100", "-c", "2", "capture.pcap"
     output = shell_output("#{bin}/capinfos -Tmc capture.pcap")
     assert_equal "File name,Number of packets\ncapture.pcap,2\n", output

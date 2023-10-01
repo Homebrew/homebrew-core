@@ -11,9 +11,11 @@ class Mcpp < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "42c256dc7e6f9d09f12de8bf97cc1988d020931cc7471c8ae9402b35d57748f7"
     sha256 cellar: :any,                 arm64_ventura:  "1c08275021d44b1db481d2f802ce2b69da952ea4afe04e1a0ce9ae36243f08f1"
     sha256 cellar: :any,                 arm64_monterey: "506e27459d6f4f9fc296bcf826d113aaa659fc814f11419fa484bf38ec94888d"
     sha256 cellar: :any,                 arm64_big_sur:  "b6b90e4e5f4b50a390a5cbd6d2c6664dd8d3212013e469c9d3c90d5bf67a774c"
+    sha256 cellar: :any,                 sonoma:         "94b52de3f8d1a6023e83f10cb82fd00d8c3284a971b6f04ae48d8f0584180971"
     sha256 cellar: :any,                 ventura:        "69aad3cd745bb5fb369475a44ac532848d2cedee77a832552cff37f522b19469"
     sha256 cellar: :any,                 monterey:       "fb4dbfea519b3df6d1b10a769ac1f25f53fccda42d2112602a9dcd2eee7bd791"
     sha256 cellar: :any,                 big_sur:        "ba1468299782ecb1de53cff2390096e7300f5c8f021cef623544d969a37240df"
@@ -34,8 +36,10 @@ class Mcpp < Formula
   end
 
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
+    # Workaround for Xcode 14.3
+    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+
+    system "./configure", *std_configure_args,
                           "--enable-mcpplib"
     system "make", "install"
   end

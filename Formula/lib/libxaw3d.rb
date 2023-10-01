@@ -6,9 +6,11 @@ class Libxaw3d < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "d39e435b9ea53aa2a222ff74107f55c89de431ecfaa759e20c88ce4891ec49f9"
     sha256 cellar: :any,                 arm64_ventura:  "1da3249d130032a6b1e74e656b981e65c1f1454c0e4fcd1a5005371af5d5ea76"
     sha256 cellar: :any,                 arm64_monterey: "5f5ed1fc3a846fd3debce17e0fe28d83385ba9f5910137d22c37318b5021d1a7"
     sha256 cellar: :any,                 arm64_big_sur:  "08e254bef35a20cf08ffb942277b0795a24c8f4ca0a73217a943acdaec4d3169"
+    sha256 cellar: :any,                 sonoma:         "a51463ace1336ba399136faf96db1a26faead1ccfdacee143fdd294fd58eedc7"
     sha256 cellar: :any,                 ventura:        "112d6fa3cfb439948c7a4e7575e6bfccf3d169a0d8b970c85e8108d180a2622e"
     sha256 cellar: :any,                 monterey:       "6f7f9edb56f71177289815a000e350d18141801e6917e9a22544f032b7a29517"
     sha256 cellar: :any,                 big_sur:        "ca5b661b63007f4ad1e437429e2b6908e1aa13d0b7ff9fdfd4b24b097e02221c"

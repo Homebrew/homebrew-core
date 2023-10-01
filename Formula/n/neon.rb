@@ -13,9 +13,11 @@ class Neon < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "a1fad4b4471e4b66518da1e271b1a86ae3bb77cb2692ce744d9f4e58187892ab"
     sha256 cellar: :any,                 arm64_ventura:  "067c2328e9be5322fd20c7d42737feaca1a5709bbfcededb555581d7dde1c244"
     sha256 cellar: :any,                 arm64_monterey: "8553df4ae9d74929e324042df5438a1b147f7690e22f9a4e81d7b2f436c3c546"
     sha256 cellar: :any,                 arm64_big_sur:  "a3f8ec3228b44953f7ef33ea81ecdb5f8d2e69584e4cd3979af449f3afa178f4"
+    sha256 cellar: :any,                 sonoma:         "312ca88fd73a6e1c6690148e06961ea1f4b80dec676aa7b6b43d4a81b9354ec3"
     sha256 cellar: :any,                 ventura:        "7c678c5230ee94f52200648cde8cdb076120df15ab48a2c02d1a7d1445f3e0b9"
     sha256 cellar: :any,                 monterey:       "fe2ed998931a1293944b258e9330aa5497ddccdeb8c08321937bfc1e32fdc4dc"
     sha256 cellar: :any,                 big_sur:        "08657cfdbcd1a1fb1d1cfc1d2a51ae85071a5456f99bc2e57f238cf86565670f"

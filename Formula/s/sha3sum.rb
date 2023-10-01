@@ -6,9 +6,11 @@ class Sha3sum < Formula
   license "ISC"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "23d23dc51f9f2201e0b4e68cdca0e077919f5cc4f69a83b2ab793fd74b8f66b7"
     sha256 cellar: :any,                 arm64_ventura:  "01fb95cb06d33d483f8387411d26a4866742c42de5b444a55c380b4c4297c948"
     sha256 cellar: :any,                 arm64_monterey: "a738b5d0e3688dc6e767ab227c3247ac954b3c6cb240c6892514985958948d8e"
     sha256 cellar: :any,                 arm64_big_sur:  "92642722fa0246448839ae7d939a9b5eacb4a9e1f521aac9562a180008796957"
+    sha256 cellar: :any,                 sonoma:         "ae6152e281a25c2820291dc9f678177921eda611d7159a0520992009ef32291a"
     sha256 cellar: :any,                 ventura:        "6743f62f9ecb8cfd51f8dd9d7fca0dcb1faf32e19ee6cee1733f03d9a8eb7696"
     sha256 cellar: :any,                 monterey:       "730874ff1bc6bee968903fa68140b9be5750417f6c916e98f6197b6a803d3f62"
     sha256 cellar: :any,                 big_sur:        "40824202d1f6b8d5df16d160006316ba8bd0b9b2bd1078b1dfa0342cf40faf42"

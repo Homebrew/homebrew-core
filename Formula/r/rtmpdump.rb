@@ -15,9 +15,11 @@ class Rtmpdump < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "fc5748b95d47c39bb4d633090cc0a7b5fe90bda5ef163fa5b8809272c9bf4618"
     sha256 cellar: :any,                 arm64_ventura:  "1dec5a57d0173f54cb1f38efb6bfbd0bc416bdb298289ebaac1dce3a41bdd6fb"
     sha256 cellar: :any,                 arm64_monterey: "5151b4682fa17d931e6383dd06b584d822df647fd454b22ddf498525606cff39"
     sha256 cellar: :any,                 arm64_big_sur:  "b548e2d6b53bc0d03bdc73fb01a175c8ef2338f80a3ca0c1963af625f0baa523"
+    sha256 cellar: :any,                 sonoma:         "5d019561203c8b1c1c1e69c48b3987d531c55fa806bd83f0a462b6b7da732f48"
     sha256 cellar: :any,                 ventura:        "b27c24194ded10a47b93a379efae8ead4b04a6d3e8e34bc3a70942380b1ed68b"
     sha256 cellar: :any,                 monterey:       "b942d0dee2c95a00b3fd080c50d1f0d715448ae3147bbb18cf5adb758cb63798"
     sha256 cellar: :any,                 big_sur:        "794073edbf7402af7750b21fbcb44c5df038d6d3606450bd6a453dc92b6b3b09"

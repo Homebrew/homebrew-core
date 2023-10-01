@@ -9,19 +9,23 @@ class Poetry < Formula
   head "https://github.com/python-poetry/poetry.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f7d4e3a18f0b2d3ca689d9ee9d6136a16b3662034ce60c0a35ba3d054cd86b76"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5510d572b301e0e9aa93ad1cfccc1e89e81b000de199a1c1eaad5f4bf03e9a2b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2cb7be08f618d43eda9eeda7f987eba4462a0bcae5257d39e117c21640c58d88"
-    sha256 cellar: :any_skip_relocation, ventura:        "38cf33613055dd5da2b0d0397fb060c9974bc2e8893354c2a13d445f98a094b4"
-    sha256 cellar: :any_skip_relocation, monterey:       "92795d86f907184e7cd0998400318bf896cf69c92ea4f38ce1f14fc59a358a88"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3719976c2c542b314d9913d64a486f91bcdff4866c9ace0a5d62f1267d3e7322"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5e57600085b2bdf5ffda22eea0ba151ac571554a6bd45ae1673fabee1f4d2986"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1ac1dd3ad3f60e5fc8473beac495b6abfc40288c4e13ca67c6220ac7f5898f78"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5a57d4c10d52881ea192dacc269d21247a79df759ce509c1699ec12e49587a1f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "53b9d994d9e6c7f0be39723cb464cff7a3eec7b08dd45c0a8dbb27f18c96c577"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0b2cbda9066b10c355be77d593b801be982bddbc47d0bd51e17c5c06348b9ff0"
+    sha256 cellar: :any_skip_relocation, sonoma:         "fcf4b9a3a47464b6c959766d315b58bd2ecae4b59b3809f78f25290a302fb1ee"
+    sha256 cellar: :any_skip_relocation, ventura:        "e91571f32c6fa981fa7b3ab2223b642032cb1d6d0ba18069b1f604681fe7bb6e"
+    sha256 cellar: :any_skip_relocation, monterey:       "a831a704d88cea4eeca99018d96151623065a379ad5d69b3b9b930ef7e912caa"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f666bbe5fb29f53891e8467a3e767dd5273147d11c84d3c2c46a968f830bfcb8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "65e1ce4d876575d4c6018a87bb5a567c292f61808a94c4e6b9d709f158968711"
   end
 
   depends_on "cmake" => :build # for rapidfuzz
   depends_on "cffi"
   depends_on "pycparser"
   depends_on "python-certifi"
+  depends_on "python-packaging"
   depends_on "python@3.11"
   depends_on "virtualenv"
 
@@ -108,11 +112,6 @@ class Poetry < Formula
   resource "msgpack" do
     url "https://files.pythonhosted.org/packages/dc/a1/eba11a0d4b764bc62966a565b470f8c6f38242723ba3057e9b5098678c30/msgpack-1.0.5.tar.gz"
     sha256 "c075544284eadc5cddc70f4757331d99dcbc16b2bbd4849d15f8aae4cf36d31c"
-  end
-
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/b9/6c/7c6658d258d7971c5eb0d9b69fa9265879ec9a9158031206d47800ae2213/packaging-23.1.tar.gz"
-    sha256 "a392980d2b6cffa644431898be54b0045151319d1e7ec34f0cfed48767dd334f"
   end
 
   resource "pexpect" do

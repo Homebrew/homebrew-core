@@ -3,19 +3,20 @@ class Glib < Formula
 
   desc "Core application library for C"
   homepage "https://developer.gnome.org/glib/"
-  url "https://download.gnome.org/sources/glib/2.76/glib-2.76.5.tar.xz"
-  sha256 "ed3a9953a90b20da8e5578a79f7d1c8a532eacbe2adac82aa3881208db8a3abe"
+  url "https://download.gnome.org/sources/glib/2.78/glib-2.78.0.tar.xz"
+  sha256 "44eaab8b720877ce303c5540b657b126f12dc94972d9880b52959f43fb537b30"
   license "LGPL-2.1-or-later"
 
   bottle do
-    rebuild 1
-    sha256 arm64_ventura:  "13f51b93a23378d70f51b8b67ef42d4a0a19868d434c4f89f59afcd5f0c25c56"
-    sha256 arm64_monterey: "25a2a4d9c76c09dbadf2445ff847a93e8f46f2122987b09be1dee9327a641a39"
-    sha256 arm64_big_sur:  "26e70cd449d843b6d0a6d41237abb3f10fa769a69422d671283d5627868aea24"
-    sha256 ventura:        "fd0f49aee30b00fad0d30ec7a1788f3fb0279c50751cba733944b619257c69a9"
-    sha256 monterey:       "c452ded82587ac84246eec9beb50327e20a7ab8920ad1f69bc272621141f88a6"
-    sha256 big_sur:        "ec03d685e0f1acc283329acb65ad38cffe865cd4f89c92fd15a8d93d54abcc47"
-    sha256 x86_64_linux:   "1d594c51f52ebf389979f08c64e751fca7deb894b6178d290aa088367789c68d"
+    sha256 arm64_sonoma:   "cbf4a02a27e1e03dc1fa234fc02e9316237ce473ac14e0f6d2d70af9ca548599"
+    sha256 arm64_ventura:  "953342f8d2dabeafad3a7c8be30a199d1ad4e9252ebaaa1ed45a901688157e72"
+    sha256 arm64_monterey: "018056b590e4e22635ca30a622b732e1ef41c4cc7c3737d99798569da52138d1"
+    sha256 arm64_big_sur:  "f676476504607d460be7a2a9c43dadc10e2dceaf4a8472fd6f8508c512d4b0b1"
+    sha256 sonoma:         "0c5a1c8d7e7b5e62e5a4c8e89b87c93582a3fb2deef12cd813af5ff67a54fe41"
+    sha256 ventura:        "c96f636ed32640f4d5cba4e6b47bb58685c5b26ea9574e308de696ef17bc7ba7"
+    sha256 monterey:       "547d095784ea8e9b4b71194a715967fde7f1ed273e5b18717ebe29d35c714d44"
+    sha256 big_sur:        "835d1ccaddaf94652769fab6ba9e80c36265f9908228c594a89c2591171d5d93"
+    sha256 x86_64_linux:   "fecc30ccad3eab9aea96af461f5625a725b88d4b259ec9a2b1d9f410d606a73a"
   end
 
   depends_on "gettext" => :build

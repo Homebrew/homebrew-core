@@ -7,9 +7,11 @@ class Spdlog < Formula
   head "https://github.com/gabime/spdlog.git", branch: "v1.x"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "65a9e01ffa151f110a87beca645ecd09aeaa6c4f9be28545fd46724c85bc07d9"
     sha256 cellar: :any,                 arm64_ventura:  "79c8ea7065e0350056c24504ffb9a3cee0591e931b51f88f051ef7c4661a491a"
     sha256 cellar: :any,                 arm64_monterey: "4e7c54a1932489df9f033c6ff38265c9561c749ae70ea8cc5c34b5a58d6d7ba7"
     sha256 cellar: :any,                 arm64_big_sur:  "a9be7e4e477200f9991fdf83fb40da314dd4fbedbd7dc4b6305f8951d9d49e57"
+    sha256 cellar: :any,                 sonoma:         "9f1d3dc3d86fa87bfe2e9fb77332451acfc5c64b74a7531533c81a77772e89ed"
     sha256 cellar: :any,                 ventura:        "ef21f4e8f5977e10cca1ee2b747a40810fcaac67695e72f564df8bb6b1455938"
     sha256 cellar: :any,                 monterey:       "9d58adf3aabf5788f74938cd445d0129e458dbe7a238c88741e634f31debff0c"
     sha256 cellar: :any,                 big_sur:        "585a56f831fe23ca1f8137e6344a8469fe2f5e411c6a994615ff585be4574ee6"

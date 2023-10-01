@@ -6,9 +6,11 @@ class Ssdeep < Formula
   license "GPL-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "6a98fc3dd03c9cd4c0ea8a02825cdb1af35ab6a8e093820271caf663573a668b"
     sha256 cellar: :any,                 arm64_ventura:  "f8b44b58f8a6e76ee1061e7bd8d4a6e9ac3a23cca665b88295fdf30c72ce1b66"
     sha256 cellar: :any,                 arm64_monterey: "07961c7cdb77e1bca622785da334e2d80ea789c5619ade29e02f08e5f91249e0"
     sha256 cellar: :any,                 arm64_big_sur:  "ee64c7c583f39962316b19684461489bf1c23ec97d910987430905f8c0b3e26c"
+    sha256 cellar: :any,                 sonoma:         "ac82578f2336477e8596f7ade649367862bb59525b8dfb12c236b939dbe570d4"
     sha256 cellar: :any,                 ventura:        "880e4fef3feaeb5236d52a45e34b1e2af00977400fe7105e41b3b93d74472ccc"
     sha256 cellar: :any,                 monterey:       "9b57f034329281415c96bebc40f2d30f397ea635a04840044028f8e0bf6bfea2"
     sha256 cellar: :any,                 big_sur:        "07e5950c12637cccbba297963ea3cb11ee93e9e71185ae13d3a3e5a61d3ed2a3"

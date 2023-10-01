@@ -1,25 +1,29 @@
 class Ispc < Formula
   desc "Compiler for SIMD programming on the CPU"
   homepage "https://ispc.github.io"
-  url "https://github.com/ispc/ispc/archive/v1.21.0.tar.gz"
-  sha256 "fc170dafd4e1fba1d193d772d8346114136a132b0d8a8c3a1f3c3f821a615722"
+  # TODO: Check if we can use unversioned `llvm` at version bump.
+  url "https://github.com/ispc/ispc/archive/refs/tags/v1.21.0.tar.gz"
+  sha256 "ac0941ce4a0aae76901133c0d65975a17632734534668ce2871aacb0d99a036c"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "8dc0287eeb379ffda4eb6ad17fcfe14f6ed1f8a20511229e54174e8e9b29ff08"
-    sha256 cellar: :any,                 arm64_monterey: "93559a68c27f0cb96078b8eccf8889502982d92122112c8e196d385d3df4878a"
-    sha256 cellar: :any,                 arm64_big_sur:  "264acd4a351621ae3cf17495120b5e5d7b7e0bfa1b94d60faba2462a8024ab9d"
-    sha256 cellar: :any,                 ventura:        "229daac40adcfe4889fb384683b3bfd3d4626012a0399d56e47a5aa23fe1fdd1"
-    sha256 cellar: :any,                 monterey:       "7943fe7ca15199580673d64743c29616d0949465d1c8f25055f2c5972f32c329"
-    sha256 cellar: :any,                 big_sur:        "cdcac9acdbe74fdbaa29871f9a8949003d0650829c97928736b0f9f1e5a96824"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fb93bb2bdbe058e1570928d9774ae12bb9c8a8ac951d2fbd3c7dfb60843528e5"
+    sha256 cellar: :any,                 arm64_sonoma:   "af5ef48ee6f33c9ac86c183eca004fbf4f254187c715f5d2c3c0f42b8f5243c0"
+    sha256 cellar: :any,                 arm64_ventura:  "7e43f261e5dfc5b6062bcdf8dacf85c8f13d8019bfd5b91bff91e09724d95359"
+    sha256 cellar: :any,                 arm64_monterey: "f37589c9357b32bbf8274630132d4e87b8affdcb6f39490ee6fedc1b272dce6b"
+    sha256 cellar: :any,                 arm64_big_sur:  "52716d7e78db928ed6cc15b79cf45ce0d57327e4650a68b31de885c3057da246"
+    sha256 cellar: :any,                 sonoma:         "c20fed701b750163625b9704a870bc2752e2e73393c8298ba2563edb635a331a"
+    sha256 cellar: :any,                 ventura:        "75f9cda460ab9dc1217bfee756ec3542869498fb27d3875de070b85be607e860"
+    sha256 cellar: :any,                 monterey:       "3f3ceec3a5612c379c913d397ba78aa1797898845457df0e4ed0746b69b71bcd"
+    sha256 cellar: :any,                 big_sur:        "24c8a8f743f466ebb7e66f35bdb93995562528dbfc132f642ed35cf08e24dfe1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8feece2fe5d215ca1114272961bd30c7b8549dd2d8efd6988721ddd9f78a9439"
   end
 
   depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "flex" => :build
   depends_on "python@3.11" => :build
-  depends_on "llvm"
+  depends_on "llvm@16"
 
   on_linux do
     depends_on "tbb"

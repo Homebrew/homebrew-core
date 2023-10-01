@@ -16,9 +16,11 @@ class Tepl < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "d290e634839b6849177badff65e9772497ad312b8fc975675b448778e5aef25a"
     sha256 arm64_ventura:  "3ad1b0df7c916b748f28f31925a131f81d1b2783945d251f77c56f3ae9bcaad7"
     sha256 arm64_monterey: "70d92e31fdb391e88e0584eb0d7306027416c236ae980435f4280052da79edc6"
     sha256 arm64_big_sur:  "b6362478346ec052e324e1e484a23447c388167a0c2152bf5a4f06dcc7bfb729"
+    sha256 sonoma:         "ed4471b3f0087bae7fe4d8ec04ee2a26e5900c1930526546f03530d7ee63e174"
     sha256 ventura:        "6ad695b2c17eaccae764ac2be498c1d391b388f6d09720439df9cd7e8f6a45de"
     sha256 monterey:       "a58d0ba64fc81dc14a90d826f53752da0088d2db6658df13444462357be229e6"
     sha256 big_sur:        "0098b383e7059ddfe9f4b26f768c47db8e4a93de3400d8ce5fec2fd7eb4406d3"

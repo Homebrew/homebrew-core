@@ -6,9 +6,11 @@ class Sdl2Ttf < Formula
   license "Zlib"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "eb64334ebf36c5a6a5b0668ff672b3e8001cbb7c11c90dc72a0757639faed8c7"
     sha256 cellar: :any,                 arm64_ventura:  "5f983f0da784459c3a66961a6fd04e0effc138f97348e1c56ae7cfd212fc8e71"
     sha256 cellar: :any,                 arm64_monterey: "385e2291198fa3abc69205bdfd94f2fafec6ccfe3feff9a099b9dfb3e1b1d538"
     sha256 cellar: :any,                 arm64_big_sur:  "6103dbe192fad39f18e2d5a32fc29ed5753990e775aa9c06cd429a9b6eaa03fb"
+    sha256 cellar: :any,                 sonoma:         "ffee2edd76bb4c736298270945a89556e814004a858c0a6461ae955f127d3bc4"
     sha256 cellar: :any,                 ventura:        "c7c57b3c4f57695953430d6b0644f941aaee275cc39d299aac6f34b2dad4ecc2"
     sha256 cellar: :any,                 monterey:       "53f332eeda518a32d032ec9cb4a934cd320b5923c480e6985dc15f4e68b1cce5"
     sha256 cellar: :any,                 big_sur:        "3c3c04cd964f3372ba28b4fd885e25a6b2f54a0e29f5db936e711691db2a72de"

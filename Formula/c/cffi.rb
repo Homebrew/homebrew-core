@@ -6,9 +6,11 @@ class Cffi < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "82d180fb97e07d7debff3e97fe8450dd4dab44477166a7e98a678ccfbc8c3999"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5971b4b3104b5b50eb147696a0ce95d93b2e62fe6dc219a78368e512f6d0b519"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4b3a6548b25534c9cb8fc9561d2fdbee5a59c9fc9c0acf7bc766a0918683487e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f6e36e0a87362dfe3052329c7a38f7bd10325ab6473f58ba90e428f065df68d2"
+    sha256 cellar: :any_skip_relocation, sonoma:         "db12ed813d5bcc194ce6b9edae9e6459bb71b782f465923c39d2c538bb6d3fd0"
     sha256 cellar: :any_skip_relocation, ventura:        "3865305b346855d194487dae89baf1d4c8ea47d25a18adf48d1f46896eb06aa0"
     sha256 cellar: :any_skip_relocation, monterey:       "1f56e911853ab2d4d0508a4062c00e47d3c83e73ad99a5fc93114dc76798a881"
     sha256 cellar: :any_skip_relocation, big_sur:        "746640d4f76e427485dbf604b51a3c753e1ddf2cf56337d9e80fe1167cdbc610"

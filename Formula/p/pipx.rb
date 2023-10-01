@@ -9,15 +9,19 @@ class Pipx < Formula
   head "https://github.com/pypa/pipx.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e823b669e5dd5da3981e8bfe6c4abe4fa057fbfb3e1ec163483f7b68ae471378"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ec2551733c4e688523d14cd663c715d0c1ae2a9f8d485128e3a13297b24b5f19"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f283303715f313620777476c76202e1d2eeabf27f7b22f380b85cc19ce6bf391"
-    sha256 cellar: :any_skip_relocation, ventura:        "0bd1c1e927d5e1d9f0abdeaa56965eb4da147d0d312b2652aadd494d39605a40"
-    sha256 cellar: :any_skip_relocation, monterey:       "9b1e6ca79064190f7e15e54aa8786c26f474f07f7aa54a320dd942fd8fbd8391"
-    sha256 cellar: :any_skip_relocation, big_sur:        "cf56d25e2017a76ec76398da864588c058ff1b20e8bc2302e6b57dedce0927ef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2c30124af6c8342b431b958cc4ecc8d2e8098275c72bf26784b430d71896d0d0"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "af06c34c6621ad287f4a7450c12b4567da9fc1128829763f515124cd01271803"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5a57e651b361d784c1ee4eddb62c5ba81b044942b602b7c7e908e3f111c1c284"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e3cbcbcad6035e11cb4d191445139335f376f3ad392f65d880da49bbbe86f581"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5c9d71e785cd5a0effc8c4efcfb94d33a6b31cedc19c2298b8e15dc51fc06d11"
+    sha256 cellar: :any_skip_relocation, sonoma:         "db80cb8acb1acf0bcc834a7ddcb43810cffc9ff691f5a45a63cc6f1ff2b626f4"
+    sha256 cellar: :any_skip_relocation, ventura:        "91e477d005dec847be8d458fb4550d750ee5c468c23a92445860992e24020231"
+    sha256 cellar: :any_skip_relocation, monterey:       "41834ffcf2421615bc1a78f03997f15626f78fa000f2893458ebabe59477ab59"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ea510e2636cdeb61c0e8128bc01166278db47ae6fab8d1cec05376a3bb2d7813"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "499bea282b4a69adbb11f61977da1429cbbe733065a48ca450f24361dfefee8b"
   end
 
+  depends_on "python-packaging"
   depends_on "python@3.11"
 
   resource "argcomplete" do
@@ -28,11 +32,6 @@ class Pipx < Formula
   resource "click" do
     url "https://files.pythonhosted.org/packages/59/87/84326af34517fca8c58418d148f2403df25303e02736832403587318e9e8/click-8.1.3.tar.gz"
     sha256 "7682dc8afb30297001674575ea00d1814d808d6a36af415a82bd481d37ba7b8e"
-  end
-
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/47/d5/aca8ff6f49aa5565df1c826e7bf5e85a6df852ee063600c1efa5b932968c/packaging-23.0.tar.gz"
-    sha256 "b6ad297f8907de0fa2fe1ccbd26fdaf387f5f47c7275fedf8cce89f99446cf97"
   end
 
   resource "userpath" do

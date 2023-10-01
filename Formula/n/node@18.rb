@@ -1,8 +1,8 @@
 class NodeAT18 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v18.17.1/node-v18.17.1.tar.xz"
-  sha256 "f215cf03d0f00f07ac0b674c6819f804c1542e16f152da04980022aeccf5e65a"
+  url "https://nodejs.org/dist/v18.18.0/node-v18.18.0.tar.xz"
+  sha256 "e4d4dbac3634d99f892f00db47da78f98493c339582e8a95fb2dd59f5cfe0f90"
   license "MIT"
 
   livecheck do
@@ -11,13 +11,15 @@ class NodeAT18 < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "185d3f71f84b24165f518c9ee3bcbd5d0457951bae12af74340811d671c34a55"
-    sha256 arm64_monterey: "0c50985537d8534d2cf6d03b3f1b136af26509eb40642de0a12283a3eabd1913"
-    sha256 arm64_big_sur:  "ce0463963f4bb2f16634a881103619cc2851d8a0dab70c2c0c144785db0236da"
-    sha256 ventura:        "43edb704dd237d7281ced7214602cfb7fc2720d694b5c24a5cee9a4c072cabd5"
-    sha256 monterey:       "73a671832ca9465a4a8d0aace96d3e22693b3a8219bfee97886dd6cf8cfba2ee"
-    sha256 big_sur:        "08fc32978056f62ce407d53deb3dd5780e2fc32906cd9a571841151fcec107eb"
-    sha256 x86_64_linux:   "cdc96c1fe757f519d184b1f652faf5adea1b71f092c57a0eea4e12c3dff92b91"
+    sha256 arm64_sonoma:   "9bb2c47bb5f23c65da39685c4b7a24f7295fac3684f1682a12abd2b9c6162773"
+    sha256 arm64_ventura:  "ac6dadf19ea6e50d06ca132206c380d01a78b142979489c2aa7f658b98f81eeb"
+    sha256 arm64_monterey: "43098ad5cb44c079e9e7bd286f44228fe1175b68f5339292484b1c5f86f4050f"
+    sha256 arm64_big_sur:  "8cda899ab9d2fc77195161a7ea38bd5528408d8eb2ac53b803d9e31007ae5d6d"
+    sha256 sonoma:         "f1da2e36b5f8465f63cb20c36ff695c53ebada398ac6f3ae4c4b1c20229d17a8"
+    sha256 ventura:        "414a29831f37ab25f9c5336a4c4a46cb3a3a2f2ce48b337cb80f51954cdf2984"
+    sha256 monterey:       "c05bf23ba6ded8d8d46a796e54f92941a511f36928aaeb7ea02ce685746ba7c4"
+    sha256 big_sur:        "0d8b2a95fa6858574ca66f3c7a13d9ed1a5996d2bc236087f5e1477b36bd3127"
+    sha256 x86_64_linux:   "df22bef50f9f8831d8b04c5a1ee78f321eb991ed36b6f94bb34ac351f0108a9c"
   end
 
   keg_only :versioned_formula

@@ -7,9 +7,11 @@ class Pygments < Formula
   head "https://github.com/pygments/pygments.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2ecca40468305b9bd549304602d0176e8d1044747d5c7ffb79437fc6fddf87f8"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "559c9e5f2e02ab5f1ba7d613a8b34db2f838e1858feede8c9fd56128006522e0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9d8285e8c7c2560f5243fff90ea564d5807017ae6c1f838a089050e663ddd31a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ae6cc81c275c2daa061d02a455f847441cdc697d0c6ec7b64ec93ac36458cbf4"
+    sha256 cellar: :any_skip_relocation, sonoma:         "acff66631301feaf360a518836ece23e29a639145666e04fec55dfcf1ac4cd04"
     sha256 cellar: :any_skip_relocation, ventura:        "c8b4aad08fe4fdc54e10fef060779e40cb41a24a552fd99c3d23374fd6c517b6"
     sha256 cellar: :any_skip_relocation, monterey:       "e17fb3c825ecd89faf79ae8f84f3e0224a6c5aab9daffe65475ba14e49aa4601"
     sha256 cellar: :any_skip_relocation, big_sur:        "a40200bae52d000af9c9b83c2fce97f9508e627cec7b3410227234ad8f8a1693"

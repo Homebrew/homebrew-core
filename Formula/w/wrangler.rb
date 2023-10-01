@@ -29,9 +29,11 @@ class Wrangler < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5fe28ef202d6431e4d20c01e71926ad1e2099f6b0519020ae4326cc0b0cf9163"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b5adf04c90219783c097afa4424ca7d8c01a37a840438b73ea5477e8548c3c28"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2c19fcdbf860258e889a2ba69f1b406bd2d2b84e5909674797ac9c9196612668"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cf4f8c3a4e10d777168307d3a0df5bc3b00b53a6bc08b18e81a9fe1ea0f01fdb"
+    sha256 cellar: :any_skip_relocation, sonoma:         "1383bc22691a567684ea2ea599f7b50d4e5c354edb3302c86b8d2a0475754e92"
     sha256 cellar: :any_skip_relocation, ventura:        "94ba773c98e258e54cb828a15d432a34ea8229c22d7b892075efa0875bdf2fac"
     sha256 cellar: :any_skip_relocation, monterey:       "e804d44738a3786080061ec9d1caf803d31f9f47806fa8ddb30b202b6b2bcc70"
     sha256 cellar: :any_skip_relocation, big_sur:        "66828d6127a345f7730f4079e528307058b919c7e474c207f86ae9b11457dafb"

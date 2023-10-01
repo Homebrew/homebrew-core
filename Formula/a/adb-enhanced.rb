@@ -8,9 +8,11 @@ class AdbEnhanced < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "158b3b7eb95d97e93d694367cf4bf783670bccb075d36c580fbc1f9d4ab1ba6a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "bdf2f9aad3d0e66174694171ad61979e05c4d9ede01f6fe763c8a3a57115a959"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3ead73d8a0fa21811a47787e6e4170e1fc91afffd62a3d987457c4e9d98231fb"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "329deefa3c598541c38baa46666890c962d679a21d0ecba377a50b4373f5b2c0"
+    sha256 cellar: :any_skip_relocation, sonoma:         "98a2dac68ba0a318b3a28efbc6a328b5d537e7421677fecdaa9de9503633c582"
     sha256 cellar: :any_skip_relocation, ventura:        "58db3296ce92d5afe942d37f0422e5e67729ab4b55955d73f810d3c546b4b53b"
     sha256 cellar: :any_skip_relocation, monterey:       "caae90d5ae7111c4354f43a33cc23643ef072e585fe7317100c4acdf73280b8a"
     sha256 cellar: :any_skip_relocation, big_sur:        "e141e2e5e569d6672b882c2b43e74c8b430232fa0e6f75c8b33699cf42b671bb"

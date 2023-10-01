@@ -7,9 +7,11 @@ class Jmeter < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "057e07995bc4c4085510a2f53f0b1b673ebdb215db18d8c6497248b5b5855874"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f63ab326b37c6c29d7ccdc0d115e2a3a7db0fb959f25af01067eb13c4b10d1d0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f63ab326b37c6c29d7ccdc0d115e2a3a7db0fb959f25af01067eb13c4b10d1d0"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f63ab326b37c6c29d7ccdc0d115e2a3a7db0fb959f25af01067eb13c4b10d1d0"
+    sha256 cellar: :any_skip_relocation, sonoma:         "057e07995bc4c4085510a2f53f0b1b673ebdb215db18d8c6497248b5b5855874"
     sha256 cellar: :any_skip_relocation, ventura:        "f63ab326b37c6c29d7ccdc0d115e2a3a7db0fb959f25af01067eb13c4b10d1d0"
     sha256 cellar: :any_skip_relocation, monterey:       "f63ab326b37c6c29d7ccdc0d115e2a3a7db0fb959f25af01067eb13c4b10d1d0"
     sha256 cellar: :any_skip_relocation, big_sur:        "f63ab326b37c6c29d7ccdc0d115e2a3a7db0fb959f25af01067eb13c4b10d1d0"

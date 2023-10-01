@@ -7,9 +7,11 @@ class P7zip < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "19bf0feb4e993c7cfad0d42bf8b9820ba67a9ebbd7ad4efd312a4a7953704a1a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ba7f3e60841e85ab16ae76e7f0be634e15ea1b0c4a3a631cbe57447cbc9d77b6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ed5af58015207456c265187cd73b53a80db239a9029bed1579065faa2391fec1"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "145a4d0ecb748931931030b2e8844d5e007cba92cfed3b4ae07b4f15bc461e22"
+    sha256 cellar: :any_skip_relocation, sonoma:         "2827eb7db9135c059d4498667e08ac37e4e020d39df6df0cebb1080d09cea9c5"
     sha256 cellar: :any_skip_relocation, ventura:        "6b4bac2c955ef9902583dafa2f9bf6e0e3f5d503c81e51c1ed1ddde01b2ae4df"
     sha256 cellar: :any_skip_relocation, monterey:       "91623462e2bdad09edfa899267359fcfd03ab34d8b70176462b1364e6f23f91c"
     sha256 cellar: :any_skip_relocation, big_sur:        "663d0ac5174855af24bf4dd7b729ef5693b7a421327379ba2d210b370f12aef0"

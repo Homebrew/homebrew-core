@@ -11,9 +11,11 @@ class ZitaConvolver < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "5b3e06cb4fc6b39c91d964d8a5f960aa7c8a2715907978b26d6d6ab25c4705bf"
     sha256 cellar: :any,                 arm64_ventura:  "b080f0a633296bb349fb9c06858f0327c789113fd3b84c6b31a5ce213a67a0f9"
     sha256 cellar: :any,                 arm64_monterey: "0db7b44d8a6d714e4cdbc04121ab1df685469175bf30b42355122b87b8fa16bb"
     sha256 cellar: :any,                 arm64_big_sur:  "dd52351558f1a7d5860d8227ee71fb2fa28abf751adb4193dc63c8cb72f076ae"
+    sha256 cellar: :any,                 sonoma:         "95aafd5ff8d7905f664c95046c2a0cf7f9d3490f941ac549f0d333d6354ca1fe"
     sha256 cellar: :any,                 ventura:        "f6d2fece841444ec39fa17717fc732f75feaf3e05b24fcfa1203abfdc89ec391"
     sha256 cellar: :any,                 monterey:       "b1eb48a11c3a0c13bcbbd30af63190fbec40e6ac97679d31c1fca4a7eb210a12"
     sha256 cellar: :any,                 big_sur:        "0e712ab784293d338e277912151e068c7117f902165e7e4dcdd231ba8b3767fd"

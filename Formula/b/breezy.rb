@@ -8,9 +8,11 @@ class Breezy < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "a8ea48eeda10863066ca916ba3e566c95cf963f81a99d9d9d6a85d2454ef2751"
     sha256 cellar: :any,                 arm64_ventura:  "8c16ebb435bfb13ecdbd387d0cbad06c68c1d52e2a2f3979b5cadd0d6a186534"
     sha256 cellar: :any,                 arm64_monterey: "ec239319c1488a8de5059dbaf1f5558bc8a0df6f74b1fb5142cf10159e5e0008"
     sha256 cellar: :any,                 arm64_big_sur:  "0be58a2d62beeb5069d0bae721408d5b7e141db0739ea64a281918588eb7bd01"
+    sha256 cellar: :any,                 sonoma:         "47c28571f6d005e738febaea4d8c2fe649fb0bea1d7b780c4f9bacc7e9b3b68d"
     sha256 cellar: :any,                 ventura:        "72f9c1fe8aec34dfbe33710570244ce167b23e6fc44a212d73a3e191458eba6f"
     sha256 cellar: :any,                 monterey:       "c59f159ba005d99c3e8dd98ccc211387bdf84e7a7d390b6eb4c09a2e824cdffa"
     sha256 cellar: :any,                 big_sur:        "c0f61ac752a36e933fc8e98c647c8fd8cf46d48cdba4e267ba81616e31fb88d4"

@@ -11,9 +11,11 @@ class Dsh < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "5ffc7bafd29a43adc43ae8eaa2d85d51c2231c62fce48da0103f310c9620387a"
     sha256 arm64_ventura:  "adc8a26e4eaaa0762e985cf8ad18e3249ae5854807672860f1250e181b88901a"
     sha256 arm64_monterey: "a4100e069145478ff23600954f9e30f93ae3f8e2485cf254899a1ee281080b2a"
     sha256 arm64_big_sur:  "5e691ea82431b5921a5ce57f26e0219c0f5c38decd4249c3fb49beed4f284c4b"
+    sha256 sonoma:         "a271df504a6cf92cb16de16b9200f42190c2aa0dddf70827c11ba0cb935519c4"
     sha256 ventura:        "54000d6f2a6da19c9a7acefd4b5d59b434deb9adf5ba957e98116032b11a06d8"
     sha256 monterey:       "2fba1c82686d6522582b09a4d7048c8685a56b10ef355c3a2895f3d7a4ba1fbf"
     sha256 big_sur:        "8179e3e553da0ac7b40a6b69c0cd47283ce7ab80f399e0f84b57210fa8b6784b"

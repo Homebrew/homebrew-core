@@ -6,9 +6,11 @@ class Gmime < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256                               arm64_sonoma:   "3880f919eab39bb7fe31f52fb1c9485c9100eeea67b6858768e9d91596566f8c"
     sha256                               arm64_ventura:  "044c983cc0bcac0afd5c682d7e3335725fff4d516cd63f313d179475e82c4f69"
     sha256                               arm64_monterey: "f3180a7361908b78af5f77b13ac0272aba1fa2fcfc3c2828a0e54e66d4d74c89"
     sha256                               arm64_big_sur:  "e787c7dee3b75cebf54f1d4853beb65b13eb03aab28bfdfd2b807262eac842cb"
+    sha256                               sonoma:         "05d877f223b9f599d2aede217ed2662313c7a704a758c854c52e0c7ba9adc5d8"
     sha256                               ventura:        "b6f4a0108ef544fd29c78042d1f0f5f9201ba053e0273a67b95ba853db8e7ae3"
     sha256                               monterey:       "fb2bf3bc747fe38b596f3613a70878b6931ce1fede9388ba78a35a7b9b4f9542"
     sha256                               big_sur:        "267d9303bc727c3a12bdad0ca161aed3cba93feb2696524f2a59f0079609d31c"

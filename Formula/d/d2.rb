@@ -7,9 +7,11 @@ class D2 < Formula
   head "https://github.com/terrastruct/d2.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "aade78c59116d67654c9d0cb2329d0f0c624c6966485e1d90d58db6269496829"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c8946aea84430479abc5a3de1a4e6f10ca0d99cab4e3f78c0926ca4a0c8d8834"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c8946aea84430479abc5a3de1a4e6f10ca0d99cab4e3f78c0926ca4a0c8d8834"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c8946aea84430479abc5a3de1a4e6f10ca0d99cab4e3f78c0926ca4a0c8d8834"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c45749be340680e1883587e4ab5f15a732cae055bab919189f437cd613dff775"
     sha256 cellar: :any_skip_relocation, ventura:        "fcb20e95819792adfaef88b6feffdf2a682416c3dddc72be4b71b25a9cf07e25"
     sha256 cellar: :any_skip_relocation, monterey:       "fcb20e95819792adfaef88b6feffdf2a682416c3dddc72be4b71b25a9cf07e25"
     sha256 cellar: :any_skip_relocation, big_sur:        "fcb20e95819792adfaef88b6feffdf2a682416c3dddc72be4b71b25a9cf07e25"

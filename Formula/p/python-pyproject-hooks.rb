@@ -6,9 +6,11 @@ class PythonPyprojectHooks < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "47deb0525cda9536b14f64b7a1a8130c313a061584c1e953db865de859071cdf"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "12be22531f5a27af50d7df689ccfdb0b148994375dfca5b35ddd6dbc005c307a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e472ee94bdf598870cb40fb7c17080ef06442eaada50f7d2ef6d539871366d96"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "81fba22aa0e064553dd9bb538c856b5e83b732272c3cfb2740a9df28c1d204d3"
+    sha256 cellar: :any_skip_relocation, sonoma:         "51024418c2bf1be322f140aac92dd0fe2d4f25ec5b4bb8a39680fa8f8d92ec35"
     sha256 cellar: :any_skip_relocation, ventura:        "32ba199ffc8cbe501ffc241f8556d5f0becea7c433f2c2f16a5c2c8d6749ea7b"
     sha256 cellar: :any_skip_relocation, monterey:       "cc2707c722f79175e2c27d3f03f517d24acd1757b6c41b502f8d1d47d1256f2d"
     sha256 cellar: :any_skip_relocation, big_sur:        "bccf053b618ef9a883449cafb9b80984229d708a9f6b6f9d80aed436e7d2f2ba"

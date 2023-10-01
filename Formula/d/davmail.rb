@@ -5,6 +5,11 @@ class Davmail < Formula
   sha256 "fc9b0916d19a94db8ecf6d5e7823d1fcbbcbb9e32d40047b55228df12a673ef0"
   license "GPL-2.0-or-later"
 
+  livecheck do
+    url "https://sourceforge.net/projects/davmail/rss?path=/davmail"
+    regex(%r{url=.*?/davmail[._-]v?(\d+(?:[.-]\d+)+)\.(?:t|zip)}i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "0ef33d036af22fa05fe77b3ffba61e9f4e7b3b98859aab6ea0023910157a8e07"
   end

@@ -11,9 +11,11 @@ class Hdf5AT110 < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "aaeb72ef23738783ee2de86620cb0fce3c4be422249efe97f254540eef85c22e"
     sha256 cellar: :any,                 arm64_ventura:  "1c31665b4e29c000cb2a7a8d51c419eedf0bebd58b0d82fe3201931d50b4c9b9"
     sha256 cellar: :any,                 arm64_monterey: "16fd8ed8e1ecea75ca0e008dc26b440d89f2e2c613a884adbb1d9f5045586bc1"
     sha256 cellar: :any,                 arm64_big_sur:  "d5f2614162252b0ace675a83ad5616e6df6e114b02360fd30a148e74fa70c33a"
+    sha256 cellar: :any,                 sonoma:         "a0163e8f7b3c7ac0a34cd138424269b2afb12b43a53d81c9a41a2a9b25335173"
     sha256 cellar: :any,                 ventura:        "e991fd4c2b5e6ab7ad64a88a5b6607dd67b26fb7de559bda0c05c6a65dc367c2"
     sha256 cellar: :any,                 monterey:       "bdb7eefe3aebfb8f7a52eee200edba78a75c74653426924904a60c082a8e38da"
     sha256 cellar: :any,                 big_sur:        "d2530f8e2d5fa6208be6c5d6d2447c7494a83aac17df571dbf94f8bafe7a6799"
@@ -31,6 +33,10 @@ class Hdf5AT110 < Formula
   uses_from_macos "zlib"
 
   def install
+    # Work around incompatibility with new linker (FB13194355)
+    # https://github.com/HDFGroup/hdf5/issues/3571
+    ENV.append "LDFLAGS", "-Wl,-ld_classic" if DevelopmentTools.clang_build_version >= 1500
+
     inreplace %w[c++/src/h5c++.in fortran/src/h5fc.in bin/h5cc.in],
               "${libdir}/libhdf5.settings",
               "#{pkgshare}/libhdf5.settings"

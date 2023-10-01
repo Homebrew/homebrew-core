@@ -16,9 +16,11 @@ class Scorecard < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d9b91e508527fb7ff7a3b5ac3339239b8287ce9b3a213152be27be34d2edb79a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9ccd33a9e999ed7773c5e2ffc6615bf1b676918d5f80a8e7fc70494361595084"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9ccd33a9e999ed7773c5e2ffc6615bf1b676918d5f80a8e7fc70494361595084"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9ccd33a9e999ed7773c5e2ffc6615bf1b676918d5f80a8e7fc70494361595084"
+    sha256 cellar: :any_skip_relocation, sonoma:         "9a60c2bf86561659d1ffa42cd1849979601d9ea39d18ece4335017839f63383d"
     sha256 cellar: :any_skip_relocation, ventura:        "34e3db8ff09f90839e79aaa1302bdc29b8c64f0844b1aee85154edf9059dfd44"
     sha256 cellar: :any_skip_relocation, monterey:       "34e3db8ff09f90839e79aaa1302bdc29b8c64f0844b1aee85154edf9059dfd44"
     sha256 cellar: :any_skip_relocation, big_sur:        "34e3db8ff09f90839e79aaa1302bdc29b8c64f0844b1aee85154edf9059dfd44"

@@ -8,9 +8,11 @@ class Unar < Formula
   head "https://github.com/MacPaw/XADMaster.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "c5771de1a7324f5fc4a565579d7801b35848ebeb6488b9df38cc141abf1a58bd"
     sha256 cellar: :any,                 arm64_ventura:  "2f7418944e65d03ae59952bdc495d9769e8cb86b8c4cf1b4e52fbcf19958d66a"
     sha256 cellar: :any,                 arm64_monterey: "e956b811e4b7c5c41813b4c658b2414245f89649fba3cc590089d8c75934e594"
     sha256 cellar: :any,                 arm64_big_sur:  "76cd7a8c9df44bf9232f11912f1196f278c3348910147b1b7e732c1da9b0ca99"
+    sha256 cellar: :any,                 sonoma:         "30dc20ba5253f39c0e5117508fa8d6a2d3b98e963aa3644c2da540c9ae766da8"
     sha256 cellar: :any,                 ventura:        "21566470343aff3640eb246d8bb6efe39401012f3a97c669be6ecb50dfd4b2b2"
     sha256 cellar: :any,                 monterey:       "4a70b5234b934464d3ad9d1dc48ac7f3182c4a64106064d9805200f178e6ad2c"
     sha256 cellar: :any,                 big_sur:        "f1c973880b26aab62a27bc5644446fe7d70f2a2bd7f1e081878fa8b206542a6d"

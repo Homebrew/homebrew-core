@@ -7,9 +7,11 @@ class Hyperfine < Formula
   head "https://github.com/sharkdp/hyperfine.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "392aba8cc72a6a764931b4ae2ae6fb194aeae3cbd42b84c4190bb3d195a3c736"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4b6b743957c871d24f93af5fa01d4869b33a7af7c080746f35a93c014260e397"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "91247b9f88de70b001653de3e50d38f2630fa5b32423f4fe5a1aae849fd404e9"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1d6f6a979b141926839fc0183433b5f2547d4e385c75363798af97450fdd848c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0ac5845e9eb34a3c622cd1a4f92b237c745ae5857aede25d1015d56c8dca862b"
     sha256 cellar: :any_skip_relocation, ventura:        "a6e4913e349dd834e90084abda438b687c374f865508f60a41e80ae187796004"
     sha256 cellar: :any_skip_relocation, monterey:       "90d6ae718111504bb7b540b852503c3663e498526759debef116fd2ef0b11386"
     sha256 cellar: :any_skip_relocation, big_sur:        "33431a881d78b8c23fbb261c8debfeafae6b612168677dd6e96efd5221ba972e"

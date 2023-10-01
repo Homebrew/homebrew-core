@@ -6,9 +6,11 @@ class Triangle < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "213bc5484b8bb951fcaae1220b5bddc4a042540f9db6da9884ef101a5cb9b8cd"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f567dea995e69a581eaf1b78d288c8193dfdb4068e8114f80794e7eadf4e108a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1a5c72d8022b7c7bc20511f07ff9f8dcd9637bffe596554ca7a9671dda8e713e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7a6c8a7b7499e2b4d22c1fcb903545a7602c5762bc4b86f84fcd2c238f18c2ad"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b19fb41b35bcfd2afb20cedca877cb42dd165e93ff3076b7832954c4a2ed8cb7"
     sha256 cellar: :any_skip_relocation, ventura:        "6adfa73341672560f138bfefd050ffaefb400151b293d68af8c146e9382f739b"
     sha256 cellar: :any_skip_relocation, monterey:       "6044828f80d3b03acad78089a4a0608512f6aa0a1316b181d76da12aa098da0d"
     sha256 cellar: :any_skip_relocation, big_sur:        "777c1ba9464e94d016028f2892e9e50e95d4b41817fda1fecc67c8caab029bbf"

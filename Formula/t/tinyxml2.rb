@@ -7,9 +7,11 @@ class Tinyxml2 < Formula
   head "https://github.com/leethomason/tinyxml2.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "7d602df7f06b6f2d54ed4c7801891c31485a236a5c126e07154d6270709a10db"
     sha256 cellar: :any,                 arm64_ventura:  "effd8b312b04bfdfd2eb016bac6b84107a3e97c0a7edd5ccbe61ef6df23ff81e"
     sha256 cellar: :any,                 arm64_monterey: "f9a491c1cd89ac354cd60cb58ec8b919894d3178d43554a1bf5ecb037bb0f3e5"
     sha256 cellar: :any,                 arm64_big_sur:  "a5c5e7ea6dcc446b1f7d38441ac4a226afa14b3e5e5eb890d3105edf54f91db6"
+    sha256 cellar: :any,                 sonoma:         "ae7017e004adbbef0caff07c8679350d3059829db856ea054eb7560a046206f8"
     sha256 cellar: :any,                 ventura:        "fec107e0db5c5926746bf43723fd99a616307ba8dfeb70d99ab9e2c4050cc186"
     sha256 cellar: :any,                 monterey:       "24e501c8045b7546c9b030d1f9fbc53f06988112decc418f61ff1c460e2cedec"
     sha256 cellar: :any,                 big_sur:        "4df58f65bc6629e1884225503622e07f26e52a9690e24a6e959dd1304b11dbb8"

@@ -8,13 +8,14 @@ class Ocrmypdf < Formula
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2bdf030c2916d538149d41ef85cfb778443cef386e78d85d1e7fb359f84df174"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e0a93caeedefb3b840edca3be56cb92c17a127060c173542fdb9bd4a11a845ff"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "eea07af6beb70cfadd02fa6e1908fc09e1f69ec897ea2dce5a82623e83921851"
-    sha256 cellar: :any_skip_relocation, ventura:        "0edb3d7ea7e7d70399c3d9d1c07d30e48afd6170c320d5c75fa6dfa908341963"
-    sha256 cellar: :any_skip_relocation, monterey:       "c48d8da26bd28e97dba10b6fc0f468cdcab3f1ad5eca3d0782a343ce154d5f75"
-    sha256 cellar: :any_skip_relocation, big_sur:        "60c42ae97a0e723d312e6c4822f5dbf4d4281a5e8ffbb41af03ff58499d3a2ba"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a25af50a970a90449e18afdf8276b9615c54f4663573a7204b58d1544f567192"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "7591fd7dd33f6c536c95c0f8da8c70d715633630dd04f07313cfa9d9fce76b7d"
+    sha256 cellar: :any,                 arm64_monterey: "1713c88eae8ad0ffd807234b92a951833c3f423ab34cdb1e7ef147580260fa13"
+    sha256 cellar: :any,                 arm64_big_sur:  "6573ff0d2c3af7ed77c0f13195ea645552bbd07a8d53c8ad56f23a2979dc2a26"
+    sha256 cellar: :any,                 ventura:        "b2d1b4b57ccc71f48bdeecb705c32f3af2ed5ef7fa731ac23e4e712938fcdf63"
+    sha256 cellar: :any,                 monterey:       "9116de5f24bc57bd0791124b9d8f8a53410e2a622412caf3625d5878857f42ea"
+    sha256 cellar: :any,                 big_sur:        "be406b457ebfb3c5cc1e59f92e20e1d8f56e400a16feacfaf5c8b56481bd80d2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8c5a3fe9981490f2da6183554aae55f71d17494e1133741c8d8efb47210983c4"
   end
 
   depends_on "cffi"
@@ -27,6 +28,7 @@ class Ocrmypdf < Formula
   depends_on "pybind11"
   depends_on "pycparser"
   depends_on "python-cryptography"
+  depends_on "python-packaging"
   depends_on "python@3.11"
   depends_on "qpdf"
   depends_on "tesseract"
@@ -66,11 +68,6 @@ class Ocrmypdf < Formula
   resource "mdurl" do
     url "https://files.pythonhosted.org/packages/d6/54/cfe61301667036ec958cb99bd3efefba235e65cdeb9c84d24a8293ba1d90/mdurl-0.1.2.tar.gz"
     sha256 "bb413d29f5eea38f31dd4754dd7377d4465116fb207585f97bf925588687c1ba"
-  end
-
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/b9/6c/7c6658d258d7971c5eb0d9b69fa9265879ec9a9158031206d47800ae2213/packaging-23.1.tar.gz"
-    sha256 "a392980d2b6cffa644431898be54b0045151319d1e7ec34f0cfed48767dd334f"
   end
 
   resource "pdfminer-six" do

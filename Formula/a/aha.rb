@@ -7,9 +7,11 @@ class Aha < Formula
   head "https://github.com/theZiz/aha.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f1df76aba65188e22f99b5229fdfc0435cd0e1e747d8596e64cee739bb679fb6"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "73761c6952a8eb254cf92b17f685bc1cb107d7f075e8e54ae97fc66bdf3b6707"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "638f024391f63bcaeb96fc614f0bd1d18ca42a42db7aaaacf939c5a473aa70b5"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fed59f6650f5b40100644b0baf1bee57b0b3ca6a05d413af70350d9d0eaa8441"
+    sha256 cellar: :any_skip_relocation, sonoma:         "759a0282561b295214bc58c2ef10c3e0209a499dd03431e72aad7279eb26cc56"
     sha256 cellar: :any_skip_relocation, ventura:        "3c9adaf83f5ed9e8a0f6c6596888f97199f18900c203765b86b658a72036c145"
     sha256 cellar: :any_skip_relocation, monterey:       "ea27c4b1e45d668521568a5d5e425dc607aadd74ac7378a6e100607a90330cbf"
     sha256 cellar: :any_skip_relocation, big_sur:        "68281908da802d600716d979b84a47109fabd6770da0cc9a1a689b609b2024b8"

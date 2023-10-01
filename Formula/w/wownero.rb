@@ -25,9 +25,11 @@ class Wownero < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "047947755e53c4d035f8a3cc66a5d35d3157cc1e5abf0c488e239b7445337615"
     sha256 cellar: :any,                 arm64_ventura:  "e9c6d64810d53ccd2fa82a0f641fc4fbf594ce632b18186801083493bf6be222"
     sha256 cellar: :any,                 arm64_monterey: "d53bd08ebda04811356689c342d35fc0344f0906a540d83a43f9b41df447e971"
     sha256 cellar: :any,                 arm64_big_sur:  "7af4e0940aaa43a7d70d3a8cb1970f744f71acdf67e8c7de8e9db913c682adff"
+    sha256 cellar: :any,                 sonoma:         "0d987417b5221d654c842f5f84b8be68d1e21a8ba225900c85c0e862d76d2812"
     sha256 cellar: :any,                 ventura:        "16d4dc784619f6a70f0a017abe08d321a9555218ee4c6330589d6cb6f18d9234"
     sha256 cellar: :any,                 monterey:       "e8337a5e74fceca5739b0579aac2c1829dca2ed5379bf50d2e2ec7a3eb7897bb"
     sha256 cellar: :any,                 big_sur:        "bd746ee84a9474879ea9cb224c150d000e7802c5837e1a7ef0d4193d20ca75c0"

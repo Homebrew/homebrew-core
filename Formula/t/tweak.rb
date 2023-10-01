@@ -11,9 +11,11 @@ class Tweak < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c7696232f907f0fb9d98fdd2b1fbff035fddfa50180f63b0edef3c556f8b0aeb"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "71052661cea0d22a4808275349d795438ae29ecee01aa145e0d0cef0214e6642"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a7fd74395285898f8a5d187c349de12b3cdb658b3b613e0dde445e1c679de808"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c5688f682787ca49543c2a6bed37237fc52c4ecd11707ec7d5688eaa60e9bf21"
+    sha256 cellar: :any_skip_relocation, sonoma:         "6f735e94f919b22d47f9ed92dc74cace693042f6f3c01ad2910c0ff1241c9bd1"
     sha256 cellar: :any_skip_relocation, ventura:        "f124b1cff60dee61f0128c440f647f34e8b38bedc1b9120b822a5a3b50e4c2c8"
     sha256 cellar: :any_skip_relocation, monterey:       "398bfc5cdc33b289dd14f243ba00a3bfc9281878588fd2995931931e87dfdeb8"
     sha256 cellar: :any_skip_relocation, big_sur:        "db84e159f437b7ba3c6592ee9564842e6d21823325777c2317acdda483d452bd"

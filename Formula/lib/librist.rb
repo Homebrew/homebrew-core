@@ -13,9 +13,11 @@ class Librist < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "d430c87fe1bdce8278c35b384fdd710d7b07bb6fec13676e4dfeb209b7463075"
     sha256 cellar: :any,                 arm64_ventura:  "42c00e005437933df6c35e1b02279574a5ba02cc291197e219dc7abba000562b"
     sha256 cellar: :any,                 arm64_monterey: "ebae7383bbe2c1bf3716c50bdffd0f81456ac5c08997ecea166562412dbc9905"
     sha256 cellar: :any,                 arm64_big_sur:  "3e891436d6c9bc418ecad989cc379f5c277591b9592f0f9b0246dea586f77bc1"
+    sha256 cellar: :any,                 sonoma:         "1ce9c687782c8ba039847d71a7aa3bccdb5f4ea95a62311145c901a96540f061"
     sha256 cellar: :any,                 ventura:        "7d35d0b4c27ad0678118ce7773fee9345332fe37e11bbced91114a05f9aa925d"
     sha256 cellar: :any,                 monterey:       "ffd52e3ccf757a8368532f32564a7f33874af52cddf49a3086925c9dc964c8fb"
     sha256 cellar: :any,                 big_sur:        "d4a621dea543241bb9fbf00f7bb214ce9184e1f1ef50d319a9bd5261e70ca931"

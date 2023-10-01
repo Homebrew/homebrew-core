@@ -8,9 +8,11 @@ class Libmng < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "6d30bcfb0460246fd86bd7f59dcf8b52b1e1fb3533ff8ff252a7cb23091ed9a9"
     sha256 cellar: :any,                 arm64_ventura:  "746b8bbf3aa5373c6545ce90fca5e84af114ecfce0f2b0e35fd7ec4c9853b15a"
     sha256 cellar: :any,                 arm64_monterey: "554dd35c3a73f040a23f212cbc64c0b9214b4cc4bfb9031341a71b695d64a4ec"
     sha256 cellar: :any,                 arm64_big_sur:  "f48583469a9c65f5f9733d43e2bbea2d004228d45ff0b7cdd101b4c44f05dfc5"
+    sha256 cellar: :any,                 sonoma:         "17a8b7fffb5d320e5f0d6535aaf5d25ddde6da85bdaf5b4d260f0703a087a2e0"
     sha256 cellar: :any,                 ventura:        "68e6c1de7f5abe3668f229a99bde8ec9425d9f9136275c8218bf58b6839dff63"
     sha256 cellar: :any,                 monterey:       "6646b4ceca926b35750ef1abcfb15744ca286698f86b3c7407f8b5b9dfafa06a"
     sha256 cellar: :any,                 big_sur:        "a0cf8d4fb509d251ea7a559c1a5814466bd20fef027646c8cf1715ca85d5beea"

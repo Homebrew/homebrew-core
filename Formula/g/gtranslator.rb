@@ -1,18 +1,20 @@
 class Gtranslator < Formula
   desc "GNOME gettext PO file editor"
   homepage "https://wiki.gnome.org/Design/Apps/Translator"
-  url "https://download.gnome.org/sources/gtranslator/42/gtranslator-42.0.tar.xz"
-  sha256 "2a67bcbfe643061b0696d89a10847d50bf35905ff3361b9871357d3e3422f13b"
+  url "https://download.gnome.org/sources/gtranslator/45/gtranslator-45.1.tar.xz"
+  sha256 "3acedb9abe614d7cdc9d2faa86e84874379b67102b7a2ae5e211b4973366fa1b"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_ventura:  "eff3164e795130ffbfb819d020f10d12c7c26433645d41258f9168b179a5e0fa"
-    sha256 arm64_monterey: "c9dad313a4b72b1a06828305fd3c7be3cdc9ed990faac40dc8325245d19d1a23"
-    sha256 arm64_big_sur:  "7dc1c16652e097e44e7e02f3ad95c361b208426517898de58160a98b8a1361a4"
-    sha256 ventura:        "d1b51162cd3762bf620685a287603026937831e492896ccbfb99485a9516e031"
-    sha256 monterey:       "6f82d622765a3269c0b0bca386ee425375b369f20d1eaa2bc5b9fdbe19951998"
-    sha256 big_sur:        "c4b68d96cb52329c1ae13d146ce5d76ed47a8d92be5ae33022af2194e14f353a"
-    sha256 x86_64_linux:   "bbd7b7cc4d3466f46bac926ae3ca16ab81cbeadd13baafdd7dfe550d530e67cc"
+    sha256 arm64_sonoma:   "f586c501bd24b6ca4d4e5ca445ebd19715ca29fb765e018cd66e005457735a5a"
+    sha256 arm64_ventura:  "61cf039bb4362e98d731501260924ef76e9445a9310c9455b7bd26fde3fd7749"
+    sha256 arm64_monterey: "cc059206ca3c9b7d7ca548d5cbebc816dd06a63749831c9cf7b38815c69048b2"
+    sha256 arm64_big_sur:  "afe0e0a5515dbb37a4dfb88f24df5e55ccec8f60b48f4faf1fde0a7e35df3f7c"
+    sha256 sonoma:         "96c0359dcbe159e6f4dcbc9da475ffaf1fba618f7f755b89f903e58a55e1c763"
+    sha256 ventura:        "c5b81f35d74ace642b5ca021b66fcbbccd698e7b5b201a18a6bd9c2224d78d65"
+    sha256 monterey:       "1d90ef4b29f547ebdeec2a682853ba56fcd0d267accbbd6f4c11b74ab317e1ed"
+    sha256 big_sur:        "a35148b3288d358ad4f1e87175deeaf25c8f26b524b9d14cbbc7f8caee8f29cb"
+    sha256 x86_64_linux:   "c025b942d184ca66e24c3d3f169d1849f2413290c888c31715f571e07d449534"
   end
 
   depends_on "itstool" => :build
@@ -23,9 +25,10 @@ class Gtranslator < Formula
   depends_on "gettext"
   depends_on "glib"
   depends_on "gspell"
-  depends_on "gtk+3"
-  depends_on "gtksourceview4"
+  depends_on "gtk4"
+  depends_on "gtksourceview5"
   depends_on "json-glib"
+  depends_on "libadwaita"
   depends_on "libgda"
   depends_on "libhandy"
   depends_on "libsoup"

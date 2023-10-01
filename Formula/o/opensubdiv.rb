@@ -1,8 +1,8 @@
 class Opensubdiv < Formula
   desc "Open-source subdivision surface library"
   homepage "https://graphics.pixar.com/opensubdiv/docs/intro.html"
-  url "https://github.com/PixarAnimationStudios/OpenSubdiv/archive/v3_5_1.tar.gz"
-  sha256 "42c7c89ffa552f37e9742d1ecfa4bd1d6a2892e01b68fc156775d104154d3d43"
+  url "https://github.com/PixarAnimationStudios/OpenSubdiv/archive/v3_6_0.tar.gz"
+  sha256 "bebfd61ab6657a4f4ff27845fb66a167d00395783bfbd253254d87447ed1d879"
   license "Apache-2.0"
 
   livecheck do
@@ -11,13 +11,13 @@ class Opensubdiv < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "9c6ad7c140280dedc0ada0800682cb8d5d355afcdc7e112beab09d7dacccf9f1"
-    sha256 cellar: :any,                 arm64_monterey: "5c2327f25b985439c13f2a3336b00f899a676f713c5a3d955d7a4d2cddc3a5af"
-    sha256 cellar: :any,                 arm64_big_sur:  "2355471b5a1fe15f3083feab03f0326baef2edaa1d8f19230a866819f80c4989"
-    sha256 cellar: :any,                 ventura:        "5931a532b5f78cf0c0beb223ac144798d63d18e4b822a4ad4773513d59e0a1f1"
-    sha256 cellar: :any,                 monterey:       "15fd118eba4ceac5ba401c4226eeb7ace629319f011e7e1e02e1de14a07651b3"
-    sha256 cellar: :any,                 big_sur:        "bd387d91bf9f0543e74ab9a181808e6640a4bcedb54d0af991b1f2b50141f9ac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "14a24f84173fa51e3ade65a2cacc4d1d919df865ed784e08084ede6f1bc9f31b"
+    sha256 cellar: :any,                 arm64_ventura:  "50e2cc8bbc3be3c7f3b507f4a65e75888c932ea97bee2a8478d8a71ff6f8726a"
+    sha256 cellar: :any,                 arm64_monterey: "7d1d66be2ebc32bcb9479e69f329bd228ae2542233792d19bb26c1163dd3ef4a"
+    sha256 cellar: :any,                 arm64_big_sur:  "1d94e5690cec6024c9bd13615a794ac68dc3a10119c80485df785515995125a7"
+    sha256 cellar: :any,                 ventura:        "bc2da69a8b23d92d1e7101a48cc807064fd41a14cd6a8da1c940ae906106d048"
+    sha256 cellar: :any,                 monterey:       "4f62d8949eeac18135b8e8a4de554a46dea88476283633085330856c8e034a7f"
+    sha256 cellar: :any,                 big_sur:        "e895c57930e63805ce8493a73b83a3aaf92269fc5e9755234868a3aab2532cea"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8ce1c6ebb77690c1f20e601272430e50f0dbc21d7a8a8952a8f1b6ed0dffbd6c"
   end
 
   depends_on "cmake" => :build
@@ -25,7 +25,7 @@ class Opensubdiv < Formula
 
   def install
     glfw = Formula["glfw"]
-    args = std_cmake_args + %W[
+    args = %W[
       -DNO_CLEW=1
       -DNO_CUDA=1
       -DNO_DOC=1
@@ -37,13 +37,11 @@ class Opensubdiv < Formula
       -DGLFW_LOCATION=#{glfw.opt_prefix}
     ]
 
-    mkdir "build" do
-      system "cmake", "..", *args
-      system "make"
-      system "make", "install"
-      pkgshare.install bin/"tutorials/hbr_tutorial_0"
-      rm_rf "#{bin}/tutorials"
-    end
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
+    pkgshare.install bin/"tutorials/hbr_tutorial_0"
+    rm_rf "#{bin}/tutorials"
   end
 
   test do

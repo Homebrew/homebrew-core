@@ -8,9 +8,11 @@ class Mkcue < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0e8c2ecae6dc26d0931ffb4f1c520a6c2a98aeb135000c9e3edcf67b3f91b5f2"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d4e1acd72551015dad41df1ad038b7507f18b857a03e6653d4c9d1ecf3122125"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a13e835f8be46aa49ced89b84f232f40dc563b9a06481efe25e1d271ea56ab41"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5ec6570740f47d54de601598229cfa9a2c320dc745fbd72173b0a906b13a65aa"
+    sha256 cellar: :any_skip_relocation, sonoma:         "191f4ce6ac2ee39b7c4a503f3583ee94d2352a47fe8700c54701a8295e05e4d9"
     sha256 cellar: :any_skip_relocation, ventura:        "9520bdcf630f2fa825fb050df73a645681d768e5a0975d743def37cab2a45f49"
     sha256 cellar: :any_skip_relocation, monterey:       "f2a6ae19648e6204511cc973856e605773903db8ad4c652166b614b3cee0c096"
     sha256 cellar: :any_skip_relocation, big_sur:        "daddca8c6a5648f6ac6b20228d3817515ea17396c4adfe53740b1ed8f79312b5"

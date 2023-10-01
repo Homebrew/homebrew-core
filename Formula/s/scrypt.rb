@@ -7,9 +7,11 @@ class Scrypt < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "c292cb281b05fff30b8b57d865adeee27c1254e91b492a1f02c6f6218072fa5c"
     sha256 cellar: :any,                 arm64_ventura:  "cae01628c68cb6961a9515a9b6815dc390bce773d69da24b2e92dce4c45db8cb"
     sha256 cellar: :any,                 arm64_monterey: "d76d3d327a97c51b522d65f6c6fc1dbcd227fccc39f0de4cde9ab991f138d9a9"
     sha256 cellar: :any,                 arm64_big_sur:  "358e1343aa3e64b5b94a5eddfd5e75da9c9d089a18784f0fa21db93f9f34af2f"
+    sha256 cellar: :any,                 sonoma:         "4b31c6d9399e3bb52a4853d83eaa613175b0b5a2a20dd424b82cf0247e0decfc"
     sha256 cellar: :any,                 ventura:        "7810b10c20fb90123866aefb62360604e65166a5fb21e5148ffda194b44ba49f"
     sha256 cellar: :any,                 monterey:       "86671c984e05a532e7b25c9f8c6712096592a15147a04948ca80d9006335ba8d"
     sha256 cellar: :any,                 big_sur:        "98864356e7d2a46eae0d85de33445b3baacf7d2bc362f34cebcc89c959e33b61"

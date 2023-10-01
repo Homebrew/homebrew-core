@@ -7,9 +7,11 @@ class Buildifier < Formula
   head "https://github.com/bazelbuild/buildtools.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8b42897cbf09c84898ffe1904ad0b6b3b79bcb52e7c9c6ca32c9bcdc12ae3ba0"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "589335bc64b8abb27ddc067d45997690d127e4d68ce65f6b9779aadec86b4740"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "589335bc64b8abb27ddc067d45997690d127e4d68ce65f6b9779aadec86b4740"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "589335bc64b8abb27ddc067d45997690d127e4d68ce65f6b9779aadec86b4740"
+    sha256 cellar: :any_skip_relocation, sonoma:         "2ab0626f6f0de00aad10aa8dd3ecbfdeab1e7b953fc3e835c91dddd1ecd6fc8a"
     sha256 cellar: :any_skip_relocation, ventura:        "bb31887f6435b72704f5796c18b37e2bca69d27421b1950b4e961401ec0f1760"
     sha256 cellar: :any_skip_relocation, monterey:       "bb31887f6435b72704f5796c18b37e2bca69d27421b1950b4e961401ec0f1760"
     sha256 cellar: :any_skip_relocation, big_sur:        "bb31887f6435b72704f5796c18b37e2bca69d27421b1950b4e961401ec0f1760"

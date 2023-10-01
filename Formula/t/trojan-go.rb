@@ -8,9 +8,11 @@ class TrojanGo < Formula
   head "https://github.com/p4gefau1t/trojan-go.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f9872077ff3a1ef7d427cac872b6b1ff7d3cff029c241e35a884e4b4a090e163"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "76f3e955eee77490f3104b14685a116a56697e78a77cd681a2161ae1889fc251"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ec98c6b4c3d8848c7f4f509b2dc0597ced55ca1345e6cb7df3db3cc61e8806ca"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9762f85a824ff74c47da792549bee3b227c3abdc0cdb0e240cbedd353aefdfc1"
+    sha256 cellar: :any_skip_relocation, sonoma:         "6ad928d61bed0387e16832906b26d2f33cbb38bdc432f2fd9926c8dfb0803265"
     sha256 cellar: :any_skip_relocation, ventura:        "88774cb71364936de995b60f0814352b844a0803b6da516def65ad0a5faef2b4"
     sha256 cellar: :any_skip_relocation, monterey:       "0e62938f7a9e79f03a657c4fdaa0399bd7b619043bc479bdb593d27d52bd37c2"
     sha256 cellar: :any_skip_relocation, big_sur:        "dbd2c6728ed016b1edec17347f6afb7b2c963838785e9579c597a84c84760782"

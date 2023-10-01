@@ -9,9 +9,11 @@ class Libewf < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "38d67042ef18e590383d3ee4c63f11fbfeadd5114e2d030b9d3a0b85cca3d941"
     sha256 cellar: :any,                 arm64_ventura:  "8def2a9a27530366a68cd979fca3d18113d5910d783440826849da7029e1567e"
     sha256 cellar: :any,                 arm64_monterey: "9651ec9988df7c9f8e262de3b3c66e509b4e73615b35b704b460296b114a20b5"
     sha256 cellar: :any,                 arm64_big_sur:  "136dd66a148431c3cb2aa1a0ddd8873815246c71ebcb1f166a2a1f9b7e07c3c0"
+    sha256 cellar: :any,                 sonoma:         "65bd468e929e4bc733685394c97522aa663e4852d8f00af2523bbd9ae5632b33"
     sha256 cellar: :any,                 ventura:        "5d3521a54bfd559f3d72f8f0103d99ff4ba924c926cc47581ef94c68f972a4f0"
     sha256 cellar: :any,                 monterey:       "dc0e9f340c83d755a5f8011af324da26e023910f8f8febd9649f4d08f8570c57"
     sha256 cellar: :any,                 big_sur:        "89db32a46a3c5f233aaf2770bdc9458cff5a1389fd613a93c5f9f49959e0564c"

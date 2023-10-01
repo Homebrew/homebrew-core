@@ -7,9 +7,11 @@ class Tig < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "a881b5cd6ffaebb01e5a17dad105291d22e79fe01cd50e1e5fdcee1a440f88f7"
     sha256 cellar: :any,                 arm64_ventura:  "a433db97a4470854452df7310d11758fea48ffd75a4e1e8a9f3b3ddae789dc44"
     sha256 cellar: :any,                 arm64_monterey: "f6fde5e50a8665094751838fafa4ffab2548ffc46e6676b10ce39074429d2cb7"
     sha256 cellar: :any,                 arm64_big_sur:  "6fdce8500cbc679b4ef77d545135ffe93be67a55858966a3775c06ce1d6e35ec"
+    sha256 cellar: :any,                 sonoma:         "e898adb4a0c056284e73c5aeafdf43bc5ada7ee6d6d2511c9d91f2675d8c00d1"
     sha256 cellar: :any,                 ventura:        "e1bd241e23b1dc78017372f04959356801e23a2750b51d84e564e4ed124185e9"
     sha256 cellar: :any,                 monterey:       "768e3c0d3d8c4842bce7de7d63e7bcf9d092c8872b7a67d2c737efaf0aa81d6f"
     sha256 cellar: :any,                 big_sur:        "1637bc2253879491360476a653b798a9736e585ee543e3ef0f54f571bdbee7c2"

@@ -1,18 +1,18 @@
 class Libimagequant < Formula
   desc "Palette quantization library extracted from pnquant2"
   homepage "https://pngquant.org/lib/"
-  url "https://github.com/ImageOptim/libimagequant/archive/4.2.0.tar.gz"
-  sha256 "716ffb2bc1594a4f9af324d7096129a37a3f9ebcee7f78a132282fbf2cf22fd8"
+  url "https://github.com/ImageOptim/libimagequant/archive/4.2.1.tar.gz"
+  sha256 "14193219fa194d6baee4347bd13bd01fd46d09fe3b59ae35c89b698da96d1198"
   license :cannot_represent
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "97c3688ef5aa75bd33d85e823137164e9d466d42e13c18f728ce80f07b00b657"
-    sha256 cellar: :any,                 arm64_monterey: "d63de9dcc545248c6be1ad3995599096796f489e59757af007311f0c3aeb98a8"
-    sha256 cellar: :any,                 arm64_big_sur:  "9416c5c53269072776255fb2abc2ecc1548463a09231de0e008cf922a1ead3e7"
-    sha256 cellar: :any,                 ventura:        "544e83a1484121ac15453559cdc1298fbbef378c6cc5e928edd3f244276be27a"
-    sha256 cellar: :any,                 monterey:       "8f5280c3f6d139f3ed0cb6d7adb4b21ca467f3aa971d5889f279a3c8dd689d8f"
-    sha256 cellar: :any,                 big_sur:        "d1ad32221e27f3c2035a3acf1adbb078de190984dc1580e188a518bad6d013ce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e6c743a999b18e55734d0dda08dcde833b87843ba7c37dadf5e63f6390d422b9"
+    sha256 cellar: :any,                 arm64_ventura:  "979c3f58420ac00166c896e5a1e4f2b21fb91620d9d920ad800fbfc6aa2f9e08"
+    sha256 cellar: :any,                 arm64_monterey: "0d0586aea0b6be29b1b5da618450e1903596decddca99f0f18d701addcfc1c79"
+    sha256 cellar: :any,                 arm64_big_sur:  "784ef5cc34f90ff21b1b1b16ca13d90766175aef073b72f49f8e416e7d4a24df"
+    sha256 cellar: :any,                 ventura:        "baa5e9b111d0982df5af083d8a3f13504520f48aeb5a367bd9d1b5b42e51859f"
+    sha256 cellar: :any,                 monterey:       "43edd7ca2e6e5608ca020d728fe5186fdd36105eb47af4ba6c7ec03fd37a0f9f"
+    sha256 cellar: :any,                 big_sur:        "964a5b958ad54ba42820f2c148b588508f21dec35839ee5199d3eb091c900bc4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "829b2fee40c2d16d94e67e8cc61e32fcde28033e597ee269640380b38865974f"
   end
 
   depends_on "cargo-c" => :build

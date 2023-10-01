@@ -14,9 +14,11 @@ class Wolfssl < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "037a842e3d3f81f38278e0042adde563c4c9f1bbac319862327cc3310c0f72ec"
     sha256 cellar: :any,                 arm64_ventura:  "a1d6a49c07a15973365becf2cfef4afc7b03d9b88d51a6fa878fc28b5201f37c"
     sha256 cellar: :any,                 arm64_monterey: "db15ca1ae6d3d4c14c3363ba48c51d38090ef0c974d30e4d478db4992ed0d58d"
     sha256 cellar: :any,                 arm64_big_sur:  "726a2d1711346d381d22f7d5b30ccc2ee5eed8fa5d05cda12f7cfd362bdc219f"
+    sha256 cellar: :any,                 sonoma:         "cd717fa5e5141a0ee5a825a47784ac8f40f2faf273d6aa4b11ad0d8aede1b7d5"
     sha256 cellar: :any,                 ventura:        "077b1f2430cd52f70312929ce546d7a821e50d6bd0eeb7df00717005569241b7"
     sha256 cellar: :any,                 monterey:       "108d4d33023d05aeb0bbfbaed29ecedd2a4ee6dd3ec400da0fa904efeba9fd2a"
     sha256 cellar: :any,                 big_sur:        "9bd9d570c8c20607547d2a09e847c744505173f8fa7bfdd58f800cbf5bd4cc41"

@@ -12,9 +12,11 @@ class Xmrig < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "9037deb1a9c90a226f8637345d4e8ba4fdae230c5c56ab4b3ad040f1df6d1417"
     sha256 cellar: :any,                 arm64_ventura:  "e4ee30ef215e315ffd3f10091ec17cd26bed3f8b55e92013cd4ae39881f605d7"
     sha256 cellar: :any,                 arm64_monterey: "d972fcd5fbf5f99f30f9516aa761f2e6f2d2f9285a7cf5c618edf5f08dd5b19a"
     sha256 cellar: :any,                 arm64_big_sur:  "3878a1e5f63c6401353eab8f98667fdc8ad4a4f316eec339f5b3e427e068730b"
+    sha256 cellar: :any,                 sonoma:         "4fe71b70883e857552655811702f9ab99039a86594baefeb52707b4083b1b067"
     sha256 cellar: :any,                 ventura:        "44e2127f8956286847d68052bde394d84cc759c32213d194972c4fe2b1c54be8"
     sha256 cellar: :any,                 monterey:       "c3c041f8f73d606068ab821d6c2a950a74792c1602a4b3cb50cacb75fd2f27da"
     sha256 cellar: :any,                 big_sur:        "44ffbb9e76ace43ab79593b8574d6e627a9e2d3b1606b5259a9ce3ba6e9789d4"

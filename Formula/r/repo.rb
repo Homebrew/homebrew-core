@@ -10,9 +10,11 @@ class Repo < Formula
   version_scheme 1
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5e819d9158eccdd758c62ca3572deef8cb6c4f0861b0f89c77603dfb24dcee1f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5e819d9158eccdd758c62ca3572deef8cb6c4f0861b0f89c77603dfb24dcee1f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5e819d9158eccdd758c62ca3572deef8cb6c4f0861b0f89c77603dfb24dcee1f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5e819d9158eccdd758c62ca3572deef8cb6c4f0861b0f89c77603dfb24dcee1f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5e819d9158eccdd758c62ca3572deef8cb6c4f0861b0f89c77603dfb24dcee1f"
     sha256 cellar: :any_skip_relocation, ventura:        "5e819d9158eccdd758c62ca3572deef8cb6c4f0861b0f89c77603dfb24dcee1f"
     sha256 cellar: :any_skip_relocation, monterey:       "5e819d9158eccdd758c62ca3572deef8cb6c4f0861b0f89c77603dfb24dcee1f"
     sha256 cellar: :any_skip_relocation, big_sur:        "5e819d9158eccdd758c62ca3572deef8cb6c4f0861b0f89c77603dfb24dcee1f"

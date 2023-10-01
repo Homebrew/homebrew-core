@@ -12,9 +12,11 @@ class Tcpdump < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "ea69752d486c8e690d770e13b7601823634dcee1edc3a29bf9b9f7564655af38"
     sha256 cellar: :any,                 arm64_ventura:  "da8ef856d26aebf828f5f34df8f0db416824debbcc1ff3b608b3651e772410b7"
     sha256 cellar: :any,                 arm64_monterey: "5741abd85abf4c21ee78ba80983c68351206d0129ce60c54bafd69146ce478b5"
     sha256 cellar: :any,                 arm64_big_sur:  "1722402b5ee8397fe1c8bf5fb90e0e15ac277d65761b9f80d2b613d12da6a1d3"
+    sha256 cellar: :any,                 sonoma:         "e55b1c248e5b37594755066046aaecaac89b3a0fdf08d3c0b4d962dfd13e1f0b"
     sha256 cellar: :any,                 ventura:        "b0711aab51b74e2ed9a6d067e006245d55d37c89bea9bdda21df92655aca2f00"
     sha256 cellar: :any,                 monterey:       "b929cb0bf2ad6a9ff4d3c9fb62646d257dd095ff540bb44259b3bb5ab27b9704"
     sha256 cellar: :any,                 big_sur:        "acdf5f172d82af424e721a51f37d55d646318ebd685c498ffeb2d5c785bc8c9d"

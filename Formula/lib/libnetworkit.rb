@@ -10,9 +10,11 @@ class Libnetworkit < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "8284223f827f774d21a42c2175f2b36053b929c7c6e79b6b95f4afddebfd2bb3"
     sha256 cellar: :any,                 arm64_ventura:  "59283b3cad749dcb4e6858342c00a674fa7de3736cbf61894d9e85234fd18d84"
     sha256 cellar: :any,                 arm64_monterey: "31deb32643f4cbe9550093bf3035e8c03d9e93f49a0fc451883291165e192516"
     sha256 cellar: :any,                 arm64_big_sur:  "60d4901b43ef884f663c2cb359cb20e7b599f30476dd1eae03cbe22eb28c78bb"
+    sha256 cellar: :any,                 sonoma:         "bd384aaeb410799ba27712bc8c60f3cabf89d5417a2b7bba742f16e41f0034a6"
     sha256 cellar: :any,                 ventura:        "b03e53fdd18e51965e65464646d6833816570f1ff151ce9f86e31b43ed91a0c2"
     sha256 cellar: :any,                 monterey:       "f113a062f3bc88e70fc0989fe1d05b2ea4335799397f08d1b0251425b5b4ef5d"
     sha256 cellar: :any,                 big_sur:        "19cff3fc591f90da9b9575edc56d06830257ff5fd46243c54890b406b1a62555"

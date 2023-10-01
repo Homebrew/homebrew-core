@@ -9,9 +9,11 @@ class Snowpack < Formula
 
   bottle do
     rebuild 1
+    sha256                               arm64_sonoma:   "8d7f4e174bb043d0cb54077f50a3229d50c2a2385ba178c8c2bafaad9c81a63b"
     sha256                               arm64_ventura:  "c70bc6af65ffe1e7a64affd8f4746eec356ea5ab75099ffbe1ca9fc4990dc967"
     sha256                               arm64_monterey: "664c54d473633b9ed2c4054deba8b04c30b753f938183c0c6781174806643d74"
     sha256                               arm64_big_sur:  "4923f5146a642c4e2b697ddbcc37506c072897c0cbf34dc9242c150acfc3349a"
+    sha256                               sonoma:         "74a374b78326f93f23c0b258c752a25301384d0d8dbec1ee0c0db3dabf42cfa0"
     sha256                               ventura:        "07fea8b685008cf30fd14b9fe940e3edcce911eddd477d29555fa5b129e780c1"
     sha256                               monterey:       "94762b004ce3f84d1ffa533a78ccf935478cd4a5fedc201cdb6f05bce180426d"
     sha256                               big_sur:        "f6b3e81c3969067b7c8d360b2844093632046d583dcef6a709b17821369c2f67"

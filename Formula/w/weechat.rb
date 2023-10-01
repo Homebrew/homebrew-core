@@ -1,19 +1,21 @@
 class Weechat < Formula
   desc "Extensible IRC client"
   homepage "https://www.weechat.org"
-  url "https://weechat.org/files/src/weechat-4.0.4.tar.xz"
-  sha256 "ae5f4979b5ada0339b84e741d5f7e481ee91e3fecd40a09907b64751829eb6f6"
+  url "https://weechat.org/files/src/weechat-4.0.5.tar.xz"
+  sha256 "3d72e61b05631dabdc283231768f938a85544b27e31fabfe13c57b4df5c5e3bb"
   license "GPL-3.0-or-later"
   head "https://github.com/weechat/weechat.git", branch: "master"
 
   bottle do
-    sha256 arm64_ventura:  "9c218ef0fbab62664257aebd1d02d97d87bf3bf7d1235065272beed54c578a3c"
-    sha256 arm64_monterey: "3dc6b1b4b7b6050f35ef83fdc21ab56cb8414fc75a1f1c4e87182543e5dff57b"
-    sha256 arm64_big_sur:  "6ad0d5f7f5797892e256a6af3f7d231ba605a39f659e296321587fef4906b99b"
-    sha256 ventura:        "e2ae47ee02a1dee06a593d6b1717fb3de5e2b6f60d1a71df209044f7b7e37faf"
-    sha256 monterey:       "cdf2e397a30a62828e6cc2ac12b09b4b07aa83f10b953e4ef948ff53b9e82fa5"
-    sha256 big_sur:        "0343160e93ff7a05b39f640fb31d7b49808ec3f2d690ecec7b2945ea61f82473"
-    sha256 x86_64_linux:   "2d36f86333dd1f4d86a2bfce4b5c622cac1510d0a15aac4c57bf9b059119d146"
+    sha256 arm64_sonoma:   "99019aab9404ea45ee75d8472e67168d874d89feee5e536966ed6bec2094c11f"
+    sha256 arm64_ventura:  "540b94c77f035c1a55594ea2acf13be1442d86ef28c729d3ff10385554adbca0"
+    sha256 arm64_monterey: "1b24f2b1eadbef22c04035b0ca4d409776f210ea6f5231957c7c69de4c02b37f"
+    sha256 arm64_big_sur:  "d907af243d7e57075022b192db1593a4a2307e8ab2656161c7baec109e17e290"
+    sha256 sonoma:         "db28de54f99db5c41b98d86b739480e28945712efe7c698a1b73c8cef24c190d"
+    sha256 ventura:        "aa7c1451dc7e6e93d649d730b73ee10ea6b265376d58a5b6df8ff0c98a2446f0"
+    sha256 monterey:       "26aaf741cec1fe3c8f4c60beabe1fa4173e65f0168945fbd532ce7cfe8cd676f"
+    sha256 big_sur:        "c5a73451c99ca5f1e8f214dedfe03c9d1ad53e3831f189c629ec96911e75e794"
+    sha256 x86_64_linux:   "e96d226d1fb8ec6c0238020b7ac34b06c040d1a8e3f9774fa1de23ee88586487"
   end
 
   depends_on "asciidoctor" => :build

@@ -8,9 +8,11 @@ class Xrick < Formula
   revision 1
 
   bottle do
+    sha256 arm64_sonoma:   "093532f812611be4dd077c07c1b1cf56af346ee21dd5db5dc606a324ca905df3"
     sha256 arm64_ventura:  "2258cda0738068cd11a61450268da7eab0063a0f56b2c6444c1da26aee99c8c5"
     sha256 arm64_monterey: "b97026a329519f349a0895a8d13f1bbd4b59fd10e5eaaed246bf2f98d99b5b49"
     sha256 arm64_big_sur:  "30b4c69fa6b25347123661e07a58e1ce0feb383533b7f5a0b997edd2ea804221"
+    sha256 sonoma:         "cdedcd5d09847263656a5787e39529fa85a747f2563990a50f5e445f5687747a"
     sha256 ventura:        "4a7e01c597d047100072ff734ac8f8bde2b343e2837b3255c4c8ee68ec0a8fcc"
     sha256 monterey:       "8bac12edddcd4707b5404c98f1e0d7af073154ffee46f3e4ddca9251a0e8ec26"
     sha256 big_sur:        "3f344cdf41f15e2b82d5ce3557db8e05cdafd6d9cc50b3f78a4ab67af4906e15"

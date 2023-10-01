@@ -2,8 +2,8 @@ class Onnxruntime < Formula
   desc "Cross-platform, high performance scoring engine for ML models"
   homepage "https://github.com/microsoft/onnxruntime"
   url "https://github.com/microsoft/onnxruntime.git",
-      tag:      "v1.15.1",
-      revision: "baeece44ba075009c6bfe95891a8c1b3d4571cb3"
+      tag:      "v1.16.0",
+      revision: "e7a0495a874251e9747b2ce0683e0580282c54df"
   license "MIT"
 
   livecheck do
@@ -12,13 +12,15 @@ class Onnxruntime < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "fa1614a946d6b74b70975191cc6d737371bda484702a6647b9c7653aba36293f"
-    sha256 cellar: :any,                 arm64_monterey: "0ede3332d4a1371429a8ebfdb91ec5783f7853fa963311cd5e8d9439d8a0c9f8"
-    sha256 cellar: :any,                 arm64_big_sur:  "c01b8c3bc163fd3848fda6b7b64d62117a614b1d6a0065e59fa72a0844375fe5"
-    sha256 cellar: :any,                 ventura:        "6bf6dcff3ce48adf469a9862c8c9287b749312c1974a67cf80c261c908537824"
-    sha256 cellar: :any,                 monterey:       "f32d282661b950e8012b8fc8ca3785cf22f51f9242ce3e3518306caf5c9ce3ec"
-    sha256 cellar: :any,                 big_sur:        "9372f3aff5069794712399f9af4fa170f1c96e7d8b33869baa860967e18b1533"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f9b3e169149c0eff76f9ef8a9400f7ca6f585049f75669cc9c8b805818da44ab"
+    sha256 cellar: :any,                 arm64_sonoma:   "88f39807aa56ad40a61c0f8b216797554c51c9b393aa87bdd8c0b57fed435a73"
+    sha256 cellar: :any,                 arm64_ventura:  "3534474544df8e8e6d10f340d341d81f83ed8b492982a669c0516a73e7fd4137"
+    sha256 cellar: :any,                 arm64_monterey: "f9d45e3f7763567b953d358e8d3a24c9c82bdb9f06d09310ceb23dc9f8eab37c"
+    sha256 cellar: :any,                 arm64_big_sur:  "6093903661103fa77352b07e9a6932989695d2298e2ef488caab3d1c74194b7e"
+    sha256 cellar: :any,                 sonoma:         "2f5374af8403eb2a284601e5e571f09acfae49c433d4ffbf5fda3f03843152c6"
+    sha256 cellar: :any,                 ventura:        "66d48c55a268609aa8701bda90cfa74f77226cce38f385c1739682c16af442b2"
+    sha256 cellar: :any,                 monterey:       "661fc8fa556feacaf74bc5bf80a4b25949e35401042722eb9652a66c9c4732d0"
+    sha256 cellar: :any,                 big_sur:        "f3a34bf25e11b8bec74a90d50792b40bebca0e93c90ae951bb44cdc0a257b575"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3da7872f5719a30e713f6bf9cda8be8fca997f9b11d17bf7b35e90aac9c88edf"
   end
 
   depends_on "cmake" => :build
@@ -42,7 +44,7 @@ class Onnxruntime < Formula
 
   test do
     (testpath/"test.c").write <<~EOS
-      #include <onnxruntime/core/session/onnxruntime_c_api.h>
+      #include <onnxruntime/onnxruntime_c_api.h>
       #include <stdio.h>
       int main()
       {

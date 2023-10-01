@@ -13,9 +13,11 @@ class Mercurial < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "2c1cbce9975c564c97b2cca38f7f3936156f42471cc1e82b35885dd79a4904e0"
     sha256 arm64_ventura:  "b55165a71f173f4584fa125924b104c774a817369fcb03bec2eab093c7676ec8"
     sha256 arm64_monterey: "ff85084729bd075861ede0d68f570d88824dc6c1c7b04b8171307cb804b25fdb"
     sha256 arm64_big_sur:  "a9dc023f3096d960872bb70a04811fdfefbefede2c36f2f65cf83fca88fd2d0a"
+    sha256 sonoma:         "d785122f7c09bf973799e87eb96e653ae9fa72b603490d32f00e7b457cab1ed7"
     sha256 ventura:        "9a06ef4ce2ce14852ec5a40eb9ffed06cb649b89b304654229d1e98cbba4dff4"
     sha256 monterey:       "5a91a1efb3b25ee6dd70dfb3b74ffd283e45c6eb42b666c061ef76106f38e460"
     sha256 big_sur:        "0bad9b520371939fee2ea16c8b3cd5a93915f18baf2c209d98540f33ea6af9c1"

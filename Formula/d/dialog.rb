@@ -11,9 +11,11 @@ class Dialog < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "586995335a0ceb5b511fca4a7de13887eec77cba9e21a52f21d486f6af4bd206"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0aeac7ff5d3b3433417a2635b058db610ac8027c6afc3b238397a78e9801b6fb"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "be6f2c9938287531f3a729593cc887c6175fa7fcbfd97cf3532ba551af270458"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f624e68c6e96b98c78cf402aaa97e771c3e81086cd1953aba8d379852c0d23f9"
+    sha256 cellar: :any_skip_relocation, sonoma:         "888fd606891104b24e0389b64991bb9c17f9e69263e8ca95b90c73c2f603c242"
     sha256 cellar: :any_skip_relocation, ventura:        "ce9ac1501730032923f3e787614edca21ba36380d1946d1d9f72bfabd9fa42f0"
     sha256 cellar: :any_skip_relocation, monterey:       "91c0c7701d88da6415deb0782d76943a97eac62332e7264ae5479b17f2d79d38"
     sha256 cellar: :any_skip_relocation, big_sur:        "40c3a25049f5f9525be371e530a115b8855854e91f04c938b9b88aae552c8824"

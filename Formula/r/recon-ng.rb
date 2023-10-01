@@ -9,17 +9,18 @@ class ReconNg < Formula
   revision 1
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "11871c74fb2ae0038a80dd333c0e78adf1692f5afb33e54dde9ecf81eb35736e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5429eb920ad7366f3933ef6e4332d8e1af8ac71326114eab3533d2b06ab1f5bf"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a15921933fa60a5dfce42485316257403ecd23bfac6467477c34431476353c58"
-    sha256 cellar: :any_skip_relocation, ventura:        "564831d37e5fbe07ad28eec6927a8f1ea12938a2097ae1d67de820e9760e3b0b"
-    sha256 cellar: :any_skip_relocation, monterey:       "7c6c2ec957daf5a31d571c37bbbfd2d01c54cbc9c410fdb188e9eccae3015a61"
-    sha256 cellar: :any_skip_relocation, big_sur:        "abd8d94b1c59739943e8383ea9bf18e0f35340472e00c9bb38f2338e8e86065c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "699c64db85f52ecf831983f62c613c9873faea6b971d54a66001a20a596056d7"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4ebf5406a1ec6b8d3ec9e5bfab3973ecbf5935694ff29aa606083d984407b251"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4d07d6919639a7d6f468bc78e6b09c90eb1682d40abacc4c86c534156e157176"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4b30680e12fc2de311f6d809175b58091b7d0436f1f03c3f59cb9417f355112c"
+    sha256 cellar: :any_skip_relocation, ventura:        "a0649ae316be3b710b4f60fa053fa6af7d2a5a6cc39aba5e500d897259e8ef47"
+    sha256 cellar: :any_skip_relocation, monterey:       "ee19fd99b15ac1ce6899dc80396ba1b351f86dfa1d78ebf46fc0ad7e812823bc"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0155811b21380cb3086edf0c904b0a299875701445ad7855513452e5c8a2f9d5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c16573886ae8321fcb30866c5d42be6b20f7decfb2daed05b94993cd27d2ca4a"
   end
 
   depends_on "python-certifi"
+  depends_on "python-pytz"
   depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "six"
@@ -128,11 +129,6 @@ class ReconNg < Formula
   resource "pyrsistent" do
     url "https://files.pythonhosted.org/packages/bf/90/445a7dbd275c654c268f47fa9452152709134f61f09605cf776407055a89/pyrsistent-0.19.3.tar.gz"
     sha256 "1a2994773706bbb4995c31a97bc94f1418314923bd1048c6d964837040376440"
-  end
-
-  resource "pytz" do
-    url "https://files.pythonhosted.org/packages/6d/37/54f2d7c147e42dc85ffbc6910862bb4f141fb3fc14d9a88efaa1a76c7df2/pytz-2022.7.tar.gz"
-    sha256 "7ccfae7b4b2c067464a6733c6261673fdb8fd1be905460396b97a073e9fa683a"
   end
 
   resource "redis" do

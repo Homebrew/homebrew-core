@@ -6,9 +6,11 @@ class Libolm < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "f33fba814e02d8881401a93773c265c70c821481d751782381ef9b4d976c77b2"
     sha256 cellar: :any,                 arm64_ventura:  "ae2fce79fbf4a831388686618bf59126dbd90ff8695cc88c5b22997ac8022240"
     sha256 cellar: :any,                 arm64_monterey: "b829de0f052d4256e5ac278288ba80f652b1501abd305a914e8733db02dbe2c2"
     sha256 cellar: :any,                 arm64_big_sur:  "acc275d512ad0e668d3eafe8882f5a527b7ca6b179bfa470a5feecb850ea6557"
+    sha256 cellar: :any,                 sonoma:         "e0e3a6ee7864efefca9acb6f5ad8b1d0ad3585b0eaef7cf0bd110f3de9690de3"
     sha256 cellar: :any,                 ventura:        "a89325d517b1e2a49fe253cdd4fa50fed2aff90682ea081591595d72a6d17521"
     sha256 cellar: :any,                 monterey:       "22379c3407fd3cfc393a40f281ca11782b58a8207e4aecdc102c9535023235e3"
     sha256 cellar: :any,                 big_sur:        "2aace47f007fb57beea4c7f8d72d5b1f6f7775b58721c2097a0e3a2e410dfebc"

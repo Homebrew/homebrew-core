@@ -9,18 +9,20 @@ class Grip < Formula
   revision 2
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d21cc3005461af05fb3066de25d04621de02c0df9dde5e065e584facc243ab36"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6e9e444cacc4e1b7a2d97367e9fb227b499f89831a780c84ad5a27a23a0f7a28"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f034a537001bdf1b4ecce9f9bd5e8545f29a28649c0e4744774f062732757c9c"
-    sha256 cellar: :any_skip_relocation, ventura:        "d65953b1d02446617ffaf65217ace2a1d18d2839ff675e128696a2eacf9dd299"
-    sha256 cellar: :any_skip_relocation, monterey:       "bc5e3ebc10c36c3aebdd486447293b64869f6e19637ebd9227570ca9ada9d68f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e2263523ec145ebcacefb1463c509f31ea642e7ef997ad003ba5b7b9abeccbef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c6e238c050103ba090ac1e09ef867c2e2e11ab3a9189b9a26e5adcaf9e6d5669"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c799923362a18c5cc9835251d14ade71c69ad898333c891b2b252f040605311c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f21e46c38501eb76b7c4d04a540f6f699c02332eafc62f310c54e11bbc414fd0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b2f0698cedd93da90d745538e17b86444e9e72adb1b25a1d1379bdbf27421eb4"
+    sha256 cellar: :any_skip_relocation, ventura:        "f8c869eae9a51fb2f4d994d22ca686f8984eba5cb421203af652a0efeaf6f5dd"
+    sha256 cellar: :any_skip_relocation, monterey:       "834235cdc36f10575528c8c3d108b6b3e2304cd38df89221d390b2727e6e6eba"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a6525546b3457842019ea88fc23d6a561b0240b0f8b1aeec88d464ac922b54b7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "900f1e266b1bd0748e891c4b4e7fdabcec5138a6b898b99a410cd1507602b45b"
   end
 
   depends_on "pygments"
   depends_on "python-certifi"
+  depends_on "python-markdown"
+  depends_on "python-markupsafe"
   depends_on "python@3.11"
 
   resource "blinker" do
@@ -61,16 +63,6 @@ class Grip < Formula
   resource "jinja2" do
     url "https://files.pythonhosted.org/packages/7a/ff/75c28576a1d900e87eb6335b063fab47a8ef3c8b4d88524c4bf78f670cce/Jinja2-3.1.2.tar.gz"
     sha256 "31351a702a408a9e7595a8fc6150fc3f43bb6bf7e319770cbc0db9df9437e852"
-  end
-
-  resource "markdown" do
-    url "https://files.pythonhosted.org/packages/87/2a/62841f4fb1fef5fa015ded48d02401cd95643ca03b6760b29437b62a04a4/Markdown-3.4.4.tar.gz"
-    sha256 "225c6123522495d4119a90b3a3ba31a1e87a70369e03f14799ea9c0d7183a3d6"
-  end
-
-  resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/6d/7c/59a3248f411813f8ccba92a55feaac4bf360d29e2ff05ee7d8e1ef2d7dbf/MarkupSafe-2.1.3.tar.gz"
-    sha256 "af598ed32d6ae86f1b747b82783958b1a4ab8f617b06fe68795c7f026abbdcad"
   end
 
   resource "path-and-address" do

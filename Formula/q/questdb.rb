@@ -1,8 +1,8 @@
 class Questdb < Formula
   desc "Time Series Database"
   homepage "https://questdb.io"
-  url "https://github.com/questdb/questdb/releases/download/7.3.1/questdb-7.3.1-no-jre-bin.tar.gz"
-  sha256 "6e79ee228011afb6b0c1dc43a3d3432b2d47109565db8613a98841a6673c9ffa"
+  url "https://github.com/questdb/questdb/releases/download/7.3.2/questdb-7.3.2-no-jre-bin.tar.gz"
+  sha256 "262318e13202b1fece40f5d808eaa543e6afd089d1d74129b571e6fd05c4a462"
   license "Apache-2.0"
 
   livecheck do
@@ -11,7 +11,7 @@ class Questdb < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "fcb7141a0dd2000172389686e39bc0b5684bd3c30ac7a76ca07c4ebf39676a00"
+    sha256 cellar: :any_skip_relocation, all: "37ca0d658a4d75db5f64acd1b9e907b82e545c7a12d9c66f28adf153fb31431e"
   end
 
   depends_on "openjdk@17"

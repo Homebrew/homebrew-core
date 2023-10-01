@@ -12,9 +12,11 @@ class Libquantum < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cbea5e8c46c96ca5adb46cd719b625261e63965deb8884f0fa71814edf2d589e"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2a4a3d3b7b1525e1105b5fd4212a2b13bdc9e74ae182a4b76b3d5501c4cc8940"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d18cc1cd910ad5b7a0922bb290b9eb79053144d32dcd2071db5658c1e2a4e2fb"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5d0d8ffd59105af7232222c76c283dfe0ea6c117eef683669875c9d3d4fb32cb"
+    sha256 cellar: :any_skip_relocation, sonoma:         "1d6995bf93a43629913112835f1c5e38e5fdcb9889d5b36eb0f695e3deb44f44"
     sha256 cellar: :any_skip_relocation, ventura:        "ccd0cc6114be77543834fc0c417ab92b155994ba6bcb5183444a38a505fab89e"
     sha256 cellar: :any_skip_relocation, monterey:       "17f91015099d89946404b16a8c3eaab238ca4d9f1806942babdf4a6d1bf940a9"
     sha256 cellar: :any_skip_relocation, big_sur:        "e0c15e357005695499960424b1588ce47b248eb54ba7101cd47d7b0e5427a3b4"

@@ -6,9 +6,11 @@ class Xmlstarlet < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f5e323357004f390e9362f5949b0e396b2436c0ed66a4c81603f79eee1d8eeea"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a0c3177bfbd5b1a22f17a4088a81dc5826960f4df15347d975e4facbc1883a6e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "86e4e8bd44e5a7c143dd2a4395c535ddcac9c08bb6e910688ab0138ad3151d1e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d654b90521d07ffc1304253fd2b927f9813effa5a65c3f6c43b67838077c009d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ff6274bea23b8762c233101fc3cecab85dc85c666a1b05d24b5b4cdcbd41e053"
     sha256 cellar: :any_skip_relocation, ventura:        "7d3f48d20afe2d69a9577d645c2da9add1e64c1044e9848509807be5af213715"
     sha256 cellar: :any_skip_relocation, monterey:       "5af39f6a67faf86069e1bf504a000ed321b18ad5d2cf5fe90978dc00fb32c1dd"
     sha256 cellar: :any_skip_relocation, big_sur:        "bc3baa847a617f3d67000ff14e96126f9bbdf54e916b6c693a2c8bf633ca0bfa"

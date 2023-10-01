@@ -7,9 +7,11 @@ class Fastmod < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "75736ceaab98b58b7e118c312d341c87235b363f902dde8337970a0ca7716928"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7df620dfd7106cf71b1aab7d95a2d7e3b4e846fb65fad55a5a5b228539db1776"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "dbdae4ac9ef2d408e51ed54b1e563090d2aaba5cd506cd6904cea7c2179f9a98"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "805f57f5a490b223d51e9608ed10ccf31c3532964f3f7414d81cc012f3430a4f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4518e479eaa60e6b64cae85a91cb614d6a36310fc44824302be69396c9bcbcaf"
     sha256 cellar: :any_skip_relocation, ventura:        "ff90580cee3d30a722253377a55585c2914dbe4f7a64f765a4c3079ae3c505d0"
     sha256 cellar: :any_skip_relocation, monterey:       "1397b657ee59c43478553a2b0f6e37dfd2b92e10c74986e98e405185be759797"
     sha256 cellar: :any_skip_relocation, big_sur:        "89bcdaf3bc4230e1fea6b0d92da64a333d0ade90ed5ee3a8273842c8f7e3533a"

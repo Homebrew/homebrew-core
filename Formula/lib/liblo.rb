@@ -15,9 +15,11 @@ class Liblo < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "39f1705123d3a8b54e27f7e73d0177e93eff1a1f408aae472fc94b3f10e65a74"
     sha256 cellar: :any,                 arm64_ventura:  "96268ad44e715ae9d4fb77b08b1f38740cf9d88f4045d196b2e9a3863be9f82f"
     sha256 cellar: :any,                 arm64_monterey: "ec5eeaedb57fa7e93e3f5ff00fc5092427ca254fcbaab1306350fed40329c832"
     sha256 cellar: :any,                 arm64_big_sur:  "95b358e3f04623998f6c2d734599ec7e63b3c389f9d6e0cc9fc6311850929f55"
+    sha256 cellar: :any,                 sonoma:         "783718d0b59f2942ed8b378bd2a58c2f000dc0edd37eb1ba674f4dd642ad0608"
     sha256 cellar: :any,                 ventura:        "ea21449e020059bb394046886f430289e4628b8d3fb0f3c9dcc1ff4671d790a4"
     sha256 cellar: :any,                 monterey:       "375403935f81443482f672921c5b2d5ca2802f31186fd2834f0ba1d6c7cea19f"
     sha256 cellar: :any,                 big_sur:        "19eef0619f05faa15a7d5368973dcd3e5ed2e44291b56cc6ff72825fe8879845"

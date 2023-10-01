@@ -1,26 +1,28 @@
 class Sops < Formula
   desc "Editor of encrypted files"
   homepage "https://github.com/mozilla/sops"
-  url "https://github.com/mozilla/sops/archive/v3.7.3.tar.gz"
-  sha256 "0e563f0c01c011ba52dd38602ac3ab0d4378f01edfa83063a00102587410ac38"
+  url "https://github.com/mozilla/sops/archive/v3.8.0.tar.gz"
+  sha256 "14fa25f2d6177c5444934612398426a8de3caf59348eae8cc228291cf750288a"
   license "MPL-2.0"
   head "https://github.com/mozilla/sops.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "532b45e1dd85175018d60b297edc2c2f07b4501f04eb23c18f64ba71fce49f78"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "70f27c015b2ef19765f5b05bdc46294aad6e6a9702bf60379646b2d482fa66cb"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9901d633289cbcad89857d975830a6e06f05287ab4f63cc23a6f3eb684d3a4a2"
-    sha256 cellar: :any_skip_relocation, ventura:        "bcb01ac11ac3e2716c57de5b6c224ec82b7d72e83427afb6b6513eff55e5743f"
-    sha256 cellar: :any_skip_relocation, monterey:       "db10b3c2e7d8601404f5781710a594290db30e21bf7f0c9a2ed39548a8d062af"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c6fc0f83d3b83a4c8b278f8344e0f17f3c96146ee61afdb2959ef36029141d57"
-    sha256 cellar: :any_skip_relocation, catalina:       "8bbc4dcac66038e6fbaf4c4b21f513e06f7a229268ba9ebbfd636a442bca3d30"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "204d35174833b00da78eb1dc6f0191761d91e23d638a6c4cc660cb7a64835322"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5800bcb0f7d2a08051fd6d57e08b65fca6298269f03908d296af5e3cfc141644"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c294245f353b7ba5c9beaddda1bc04a5abb7a909ea8907aeb28a91280d2a08c2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "10586978a703171675cf8468994e87694c3b00abb6823746ab57323006b499ca"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e837c4c69cbc7cff6f8e1d1920dc70c53868decf3f7b4306e32238888d22a5b7"
+    sha256 cellar: :any_skip_relocation, sonoma:         "58826ba1cde5183cf10c4c124435d687a2265e1d199d4cc51f5aa8b67d3fff28"
+    sha256 cellar: :any_skip_relocation, ventura:        "8f3c1d7d27a2f22a361d10277b7f70b8b290ae33caad242eb78496ee5e9dae20"
+    sha256 cellar: :any_skip_relocation, monterey:       "ec86acaef5db4c6b357ce76d71cd2e5eb264d07dd42f33265656affbe34c2ee2"
+    sha256 cellar: :any_skip_relocation, big_sur:        "de31c1b00e5612ceee165fd43229b17700b6d48ab12dfa7f3450f3865066c06d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "90f27705e0039656996f71d4ea9f67f253ebf2550ac384ff4088120b8918b7d0"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-o", bin/"sops", "go.mozilla.org/sops/v3/cmd/sops"
+    ldflags = "-s -w -X github.com/getsops/sops/v3/version.Version=#{version}"
+    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/sops"
     pkgshare.install "example.yaml"
   end
 

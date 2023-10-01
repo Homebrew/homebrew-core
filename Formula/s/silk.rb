@@ -1,8 +1,8 @@
 class Silk < Formula
   desc "Collection of traffic analysis tools"
   homepage "https://tools.netsa.cert.org/silk/"
-  url "https://tools.netsa.cert.org/releases/silk-3.21.0.tar.gz"
-  sha256 "312cc4041e8f36f6586c54af861df6ceef7927693db23c164363f38c8ef13bf6"
+  url "https://tools.netsa.cert.org/releases/silk-3.22.0.tar.gz"
+  sha256 "15cff02484a75ba3c297067d57111f29751f1c94d6f66a5f4c27877268713e80"
 
   livecheck do
     url :homepage
@@ -10,13 +10,15 @@ class Silk < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "f1c3e144f57415b78b75e9714a19e561bdbf721e6654c6eb44a4081bc30f2901"
-    sha256 arm64_monterey: "6ad28ddc2273eab9523814e204ca6321d9a578b4bbca2c14f1b66f9437ef3eea"
-    sha256 arm64_big_sur:  "607c4569053b563068a80ef92061ca248e76aa957de0ebc54364b84ac72de794"
-    sha256 ventura:        "be2ddf2600db6bd11d8c128eb2a7db005b453d5d4a90e1df9d234e51ecf4b6ea"
-    sha256 monterey:       "3b280ef26f3faa4d431ea663eada8a262263884bae97f1e50d13696ce2718d85"
-    sha256 big_sur:        "00e31684934953a9b640be5b9a5c8340dc96e9698daa29cd76d22962621ae95b"
-    sha256 x86_64_linux:   "eea6baac12cf0fe155ab102129fdb3c5fac655a328a784882a5f30bbe980d0e8"
+    sha256 arm64_sonoma:   "d55fd5a298a8f38b75c06499aae9479cef40fe4995c4f603a697a91445755e16"
+    sha256 arm64_ventura:  "aea222dd35e5aa14c1b47a2924b789d10061a6422971968acfac53e59d867857"
+    sha256 arm64_monterey: "9cc8828c814c44117937312cea93884aaa382e10b55868fc886de910729bc941"
+    sha256 arm64_big_sur:  "d7fa36cb46078656589b85fb74de2841f221322782a2f05e6cfd3e9111fad68a"
+    sha256 sonoma:         "201aa86a04505ab3fcb9e62779b9cd91181a6d790bf45feb0463658903da59a2"
+    sha256 ventura:        "9c039c8202ea8dd3a535df5f91d3968407b0e97a001163ff6f2c000ca963e3ce"
+    sha256 monterey:       "1744a21267addac3b26a9415cfd8e0968b1de7a10aeedbf785d6dba02c8888e2"
+    sha256 big_sur:        "e45decd58d32300f366721e3bdce32f89f8be24baa2c81b3c8e693eb6f5fdb48"
+    sha256 x86_64_linux:   "66c190c95dd8b764c4dbafeb8e8d5808cd0a867207b10ba3fff582b976aac1f4"
   end
 
   depends_on "pkg-config" => :build

@@ -12,9 +12,11 @@ class Libbdplus < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "ea38d1a6e93c8fcf4d08039d40e2fdc5fc681a66f1e3377c8e9f56a4992136d2"
     sha256 cellar: :any,                 arm64_ventura:  "f47c8d29158db9c810a1f037d3335ba5cb5b8c8c3769c5435d516f07cef44c73"
     sha256 cellar: :any,                 arm64_monterey: "c5e53b35cf902a1b1bed758850dc351c5fa005f78147a39085e284b02ddded9f"
     sha256 cellar: :any,                 arm64_big_sur:  "f4b3ecf7789e87ae8ebc97cf9a3c00321c79a3cca58d7a6679ea686da6c415e3"
+    sha256 cellar: :any,                 sonoma:         "71cae25b96b7723171f93ab33b2508cff5f8b081165d124dae5a6639b78a62aa"
     sha256 cellar: :any,                 ventura:        "b4b549364f9d64a044ef9e90f7896f1214fef2c8303dfe3bd376af7b95387233"
     sha256 cellar: :any,                 monterey:       "6e72efd19ac6ebf39f3c22240a1e706cd101540a2c2b55c1c83cf4048642339f"
     sha256 cellar: :any,                 big_sur:        "d0e37545cdc9aa4e23e56dfead1e17ed894431e06bcdc06dec76a4ffb32b6deb"

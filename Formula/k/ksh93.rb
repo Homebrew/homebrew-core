@@ -1,19 +1,19 @@
 class Ksh93 < Formula
   desc "KornShell, ksh93"
   homepage "https://github.com/ksh93/ksh#readme"
-  url "https://github.com/ksh93/ksh/archive/refs/tags/v1.0.6.tar.gz"
-  sha256 "bcb230cb3cbe045e0c08ed8d379fb4e1b434784bb0aab0e990c51a03e63d6721"
+  url "https://github.com/ksh93/ksh/archive/refs/tags/v1.0.7.tar.gz"
+  sha256 "a5ea1e493f0343c644e12ff03bc464d682b8e61ec034b8e20e95965f62f0b870"
   license "EPL-2.0"
   head "https://github.com/ksh93/ksh.git", branch: "dev"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "99a2a912374d3ed6719aa4b5550bf3c45907766a104213a3935f074fb5c76ccd"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2d8988a76dba906d6240b26fc41b0bd1befd78ec2c356a47472ac44a2a8b17d8"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f264566bab99d740910710686ff2cdd65b80d6a31a5046c7aa6b1f1c09d69527"
-    sha256 cellar: :any_skip_relocation, ventura:        "4923534c98ae8e24c40ccb852aa82e0298d3406cd41eaf541544b9892e24dff2"
-    sha256 cellar: :any_skip_relocation, monterey:       "e009dfe1425f226ec4ebd0eecbf430c5784cb00d32ef0063ce1e2ad813bb2461"
-    sha256 cellar: :any_skip_relocation, big_sur:        "07a2dc2b1aa2e3c8f061d5da3604b6ed3a0554f47de7c5ed1e3b4fde60c07caa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c4dde2a02e972428a7cf9f8b9ba285de8be8e3386dfeba21206da66f920565c9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e3fc13a75c291e28e40e3464f184c548690e2fa0842f06e99c13fa200cd36f3b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "12c116df90fbb33260470ea0d4ab610373845d252b0a6c19a32f8f86fa87abb6"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a4a7f851a0b19462d3da1c32014cc7d239a31f3ab652ecc86165c349e16e3d23"
+    sha256 cellar: :any_skip_relocation, ventura:        "9c711e85c2aac9cd02cd40e20d4f6bec6db6edccf1306b488ff1f18dec4e47c2"
+    sha256 cellar: :any_skip_relocation, monterey:       "42f23778ca66202d1274c0fb02ce382d962780f3fdfc2a4c7246cb7b2f64a8e3"
+    sha256 cellar: :any_skip_relocation, big_sur:        "37a3d61e3e6dee0a2689a682dca040056724f2329b8637b3bd8aebfcd2c774e8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5a3cca5cdebc4843b7f8ccc871e8f2375ae6b0cb7ce637099d9a0bb1245fc348"
   end
 
   def install

@@ -11,9 +11,11 @@ class Dar < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "5efb16ea1b5af3cdc0ad0dbbea72e9823e9b36c59501637af15454ad33938209"
     sha256 arm64_ventura:  "a20d413b5e9aaea8bcdcd9f08e7cdf98985b6417599954d2f202292eeb9e2805"
     sha256 arm64_monterey: "b18d4436d2087c3d3798e6fcb590b40f0e6e6d9d625fc7920a5d63da7c50ad70"
     sha256 arm64_big_sur:  "c8148b404298341d0b9fadd2d9160a6a6703a95eb7bfcfe60f65f3a6f8f0c921"
+    sha256 sonoma:         "258ab603970e7b6f2c6b25e4cf4908566dd916eb3e4b42adc07871eaef5ca298"
     sha256 ventura:        "70a81cb7e281971d388a37dd31264a195692a616b23c8966194882a9d8ad1d73"
     sha256 monterey:       "2a6d786907dd73af3a64ebb58258268714d610b378fd8c9102abbee6ae1ec6ae"
     sha256 big_sur:        "23a689bfd3b44083525849d8ffc14b5cb9ee1df88370a9479e1285decd421dfe"

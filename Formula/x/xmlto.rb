@@ -12,9 +12,11 @@ class Xmlto < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "59b67fee304cc5d7be502ba1e4013d1ceb2528dee5c51df926e07b98109457eb"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ae8265ff1eca0fe879c1ece963369b58abe515726f99b53832a5aded92b51e58"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2947a0d38d964b133b1452fa8277d59b333980c549141b990f3f8cbfe9db5c58"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bec2a4a7797f07fc73a636a40e85cb0504da4c5e34328456c28e78c84ce95324"
+    sha256 cellar: :any_skip_relocation, sonoma:         "78d522c9bf195e417c59949a583b479d8784c81e67e8eea8beb3d85c940a2473"
     sha256 cellar: :any_skip_relocation, ventura:        "d90e8586c846dd0f299101e6ed940d0be828821d8e1c46cb1ca00b7febf83836"
     sha256 cellar: :any_skip_relocation, monterey:       "d86630edcfc8976b0a7a22f314b7a7062814fec16d52b90d8c1b4d850907222e"
     sha256 cellar: :any_skip_relocation, big_sur:        "95502b71000319da58971ea17c0dab0f326d20ce4c09d074fe4c7fe89c66d002"

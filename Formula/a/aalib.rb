@@ -9,14 +9,16 @@ class Aalib < Formula
   # The latest version in the formula is a release candidate, so we have to
   # allow matching of unstable versions.
   livecheck do
-    url :stable
+    url "https://sourceforge.net/projects/aa-project/rss?path=/aa-lib"
     regex(%r{url=.*?/aalib[._-]v?(\d+(?:\.\d+)+.*?)\.t}i)
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a4890d380658f2e1ebef37698c874b8711acfe9c0685313d8c93dbe2e9e08bbf"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3bbe40492b5ff2d6bde6effd36a8fa0b179786032c1da624d0f6bd15e71cd044"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "292e704fb6cca01e6ab77baac8960df5c9b45f2fb209a0f670a7de16242c3ee0"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "031eac9658cb6878fea6b53e232e0b3f294b81953dd1803bd808c26c5b1a934a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "9bee33852c86c2dea5017369281ec0e4d56249d4bc7d2803f1c2794c8773b92d"
     sha256 cellar: :any_skip_relocation, ventura:        "a71c6ea0888e11ca4512de9bab4142c160e360e41ef5eb761740af5f77a459cb"
     sha256 cellar: :any_skip_relocation, monterey:       "ac7c8f7dafcb3eedf34abdd258d0cab1f9e58a3048da6307ded8ae029d162a2b"
     sha256 cellar: :any_skip_relocation, big_sur:        "fb1df93a418c2ae4b7c358d19b58afc0ad73d9d1e6f22b92aa5d5f086cb48a70"
@@ -27,9 +29,10 @@ class Aalib < Formula
 
   # Fix malloc/stdlib issue on macOS
   # Fix underquoted definition of AM_PATH_AALIB in aalib.m4
+  # Fix implicit function declarations
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/6e23dfb/aalib/1.4rc5.patch"
-    sha256 "54aeff2adaea53902afc2660afb9534675b3ea522c767cbc24a5281080457b2c"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/4cd6785/aalib/1.4rc5.patch"
+    sha256 "9843e109d580e7112291871248140b8657108faac6d90ce5caf66cd25e8d0d1e"
   end
 
   def install

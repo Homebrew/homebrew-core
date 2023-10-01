@@ -1,19 +1,19 @@
 class Hoverfly < Formula
   desc "API simulations for development and testing"
   homepage "https://hoverfly.io/"
-  url "https://github.com/SpectoLabs/hoverfly/archive/refs/tags/v1.5.3.tar.gz"
-  sha256 "534ca7b594b0a5e1313c479487233cbf8f5c9a3aae06991e2af84088495b92c5"
+  url "https://github.com/SpectoLabs/hoverfly/archive/refs/tags/v1.6.0.tar.gz"
+  sha256 "1c02e727deef9a0f67da6517fe3b91ef965b2a66824b1a2e9fda7dac27c5a855"
   license "Apache-2.0"
   head "https://github.com/SpectoLabs/hoverfly.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bdd72317748a9528ead8a9f3de5da842e52cf1f7827ff1d4e46e061c0e4d2f09"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "bdd72317748a9528ead8a9f3de5da842e52cf1f7827ff1d4e46e061c0e4d2f09"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bdd72317748a9528ead8a9f3de5da842e52cf1f7827ff1d4e46e061c0e4d2f09"
-    sha256 cellar: :any_skip_relocation, ventura:        "0b9fc18f545f92fec77c4285739eb2b2b8e23518d8e2fd991c31a75c6151a3c2"
-    sha256 cellar: :any_skip_relocation, monterey:       "0b9fc18f545f92fec77c4285739eb2b2b8e23518d8e2fd991c31a75c6151a3c2"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0b9fc18f545f92fec77c4285739eb2b2b8e23518d8e2fd991c31a75c6151a3c2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "873fb82a7cab81e7cb4c6fa64649e4f95408a3dc640443614ada842a4cf332cc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3d6a2e577cb1cc0189106e9953e0131e9c2efe48a9d31cc17c97dcfcdc3c809d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5eb623622cf4fd2eef80f1d87b21a0192e3fe66418f10341f131cd1fb4133716"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "dda650f0d37bd886859fe735334598bac4d58847d1f0ce1172cf694be242f64b"
+    sha256 cellar: :any_skip_relocation, ventura:        "d86f540bee6f77e059ff4185bb600aa05662b28790ffe0423bf0fdc4a59c3c22"
+    sha256 cellar: :any_skip_relocation, monterey:       "39e26ad4fe3134975d74408da709c4e43581d7a266b080c33071f64c0964ef69"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8ef2fa0fe1d0f0c574025e9566ed51d467976a81302d8f45d9a4fd36c1569047"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8ab569082bec0b39352f8175bf3d67a369af82ffe7c04315d73774c371ea9066"
   end
 
   depends_on "go" => :build

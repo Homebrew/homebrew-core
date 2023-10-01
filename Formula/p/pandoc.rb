@@ -1,19 +1,19 @@
 class Pandoc < Formula
   desc "Swiss-army knife of markup format conversion"
   homepage "https://pandoc.org/"
-  url "https://github.com/jgm/pandoc/archive/refs/tags/3.1.7.tar.gz"
-  sha256 "f0cc7f6ce5a090c2389659a76e88788ae788f175343e01666c37b7e42ac0a9ff"
+  url "https://github.com/jgm/pandoc/archive/refs/tags/3.1.8.tar.gz"
+  sha256 "c0bfd5973e9b335372c7e1a594499f2acc2e30e1035cc2c21bd3dc76904385a5"
   license "GPL-2.0-or-later"
   head "https://github.com/jgm/pandoc.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "37bfbb2d799546bc0ab4fa828c3697bfd338c1fde080b4070bdebd907f7ef6a3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6a12b5951e6e914cf506a8db49d0457c67ead9019659c350ec04df4efa5d81e0"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f1ea51bef5b8e9214aeed7dc709db084dfec74b43d235e993ae6792c3cd345d7"
-    sha256 cellar: :any_skip_relocation, ventura:        "d7da3d26fda6ddae1be1dbade4036e806673e45223026905bec7821367fa466c"
-    sha256 cellar: :any_skip_relocation, monterey:       "1441264b6856fe49750f14ba03c977dba45380770e6595d9beec484fdadaa2f5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a4ae512689af43749e87499fe3f97f30109b730598fdf1a686a5e2fc3917ae32"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8ef7ff2f7053e8f60217c2659755ab17016c3319e8bf54e24f4dad52801acb3c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f8c0bbeea147f617076fbaefe11a81be3e29d62cc9c089f3d4dd0ae525079f45"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4226803d0dd7b0749bb958486ee8ebefe5f1f3dfbcacef6e2e35b29bda66c372"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1e6a08721e9345e0b63f15aa0a850fc54fa93bd3ee06e85023d417cc8eb545ad"
+    sha256 cellar: :any_skip_relocation, ventura:        "a4fef7d88084e12ef4c19cc25819b3feb6572f2aefced07808ca7ff070f26472"
+    sha256 cellar: :any_skip_relocation, monterey:       "48d79a10f9d5f5e5efcaf101fded87258abf9cc8c860694bd71f58a1d4ad5f8e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c03daeea8b34958e7d740c9ce59f2509cfcc2ef1467591029280b03655a51f46"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1ba1ba7a4377d77e901d55f7d44e440f8a1d54172a1ecfff4385fcddaecb644f"
   end
 
   depends_on "cabal-install" => :build

@@ -9,9 +9,11 @@ class Plotutils < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "b9cb22e1853063ad3da1d788c15166565b20533ea54484dcca6311839795f6e4"
     sha256 cellar: :any,                 arm64_ventura:  "0f7f764c7ed45dcf462cc30ec41ea6d9439060145bd7b3ee3770c38b8c5adfaf"
     sha256 cellar: :any,                 arm64_monterey: "e20de0661d2b4bed5cd649ac4bc113f652642d539be2cc3a806dc3d991e08ae8"
     sha256 cellar: :any,                 arm64_big_sur:  "df2133fa4e5dd7c50d8145c3960afd6a75e1ff6e5d9e3255ff03cea00ddfdab6"
+    sha256 cellar: :any,                 sonoma:         "cf4be8e3f730ac440f962c7b586b5265933121ed6d94c4dc675e9a355b8909ba"
     sha256 cellar: :any,                 ventura:        "5b899b62f779098696d71a54ddba9ed0307110b9f04a21f6a7c11f65d777842a"
     sha256 cellar: :any,                 monterey:       "3ee9b41dfac9fef4f67c7cc09a10cc9ded3337ff31e1bcd3ddab89ab997f82ea"
     sha256 cellar: :any,                 big_sur:        "3ca14b49804af8b7364087731097dc992816d16a82fb6da2afeae18c1772e886"

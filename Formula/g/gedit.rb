@@ -6,9 +6,11 @@ class Gedit < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 arm64_sonoma:   "08de43866055e24e23f9a4454283240453dc31689134ff5c8ad79920281c35eb"
     sha256 arm64_ventura:  "c5c423f03f3223640738588e8b039ffba1a7aa693ee624c3351faa5befeee5e4"
     sha256 arm64_monterey: "94eb96a3893d9ff2594a62d0121ee2e7da81c089612fab86fbb0889b2a3857c9"
     sha256 arm64_big_sur:  "4c9bd81c2ac45b00625beab8471105e7e8c1b861f8749a30e1a7c3033697a7e2"
+    sha256 sonoma:         "b7c5a552209d74b04184e045677c7bd46568d51dbc0a6ba05db087e7f99956cd"
     sha256 ventura:        "0e3029e4939dabcce383c8a3d69dee70863c2508d6af010da83e4e61af717132"
     sha256 monterey:       "f3c17e4bfcf524a88662f4adab87a00b4b9ba7a5802623f7261a523dbd76eb28"
     sha256 big_sur:        "aefd5b227129370ddb1d90bc92c6df4908980984fdec991a2f461edb6dbccb4d"

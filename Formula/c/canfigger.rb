@@ -7,9 +7,11 @@ class Canfigger < Formula
   head "https://github.com/andy5995/canfigger.git", branch: "trunk"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "46a2b87b742481550bbaad9f0a95493357147d4666cc93f90b47f2a8194c7006"
     sha256 cellar: :any,                 arm64_ventura:  "88a1d1876a2750cab34159cf6d8a98db78db4e5825971ae02d04abd3d0338b76"
     sha256 cellar: :any,                 arm64_monterey: "1d7a8ff435adffd2eb0f02c510a0bab42cf4524cb21c167c81ef8dd47f29e3aa"
     sha256 cellar: :any,                 arm64_big_sur:  "5d687946bd99e626086e252379010085cc1b988b75c47acaf4718eb340018ca7"
+    sha256 cellar: :any,                 sonoma:         "b31b096bc868e74f81f8e783e2bafcb79c6233b57951b3eb00ab376a06b4c2f3"
     sha256 cellar: :any,                 ventura:        "6d1522e15b022a559dce8a183722f7376e7f2e95bde9e936c984d8af3106d128"
     sha256 cellar: :any,                 monterey:       "0d9d2b353ff46ffef823eb199c8ea03d1c31f6bb627ff450ff7f96b8415ede65"
     sha256 cellar: :any,                 big_sur:        "ea8085a8731d33a9206068fb9df16dc80a7a17be1610e6f5597cfd774845c3af"

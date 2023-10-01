@@ -9,9 +9,11 @@ class CheckJsonschema < Formula
   head "https://github.com/python-jsonschema/check-jsonschema.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "6ef52e221ab7ce52b800e99439ba605cd6acbb05b34565f3dca8c05536eefd46"
     sha256 cellar: :any,                 arm64_ventura:  "14b065b9c8e0b0367984ab73a93688cc2ac4620d0b5bab835983adb814942759"
     sha256 cellar: :any,                 arm64_monterey: "67b6bfcbe2087d1153982af54e2e16e56ae51fc21e3ce22e5e5b6b00c23a560a"
     sha256 cellar: :any,                 arm64_big_sur:  "5fee42fa569d459660defa7299ba4930c0191c138b67af3c28c8223e3345a61b"
+    sha256 cellar: :any,                 sonoma:         "2c0a6be66d2422445cecba0cf43a6a42e93b008c2e80755a13288d8d9b26d532"
     sha256 cellar: :any,                 ventura:        "518fe7bed86eef3a661e52caa7bf8a3366b8656a27a54c2bfe82c8bb75d4fcb0"
     sha256 cellar: :any,                 monterey:       "6d34600fd0856304173606b899d61792b7541983c8621193fccf39dca6b07fbf"
     sha256 cellar: :any,                 big_sur:        "df258e3a7c0d2faadf5659b976b10bdc2fa6081890308f1f548e68881c363e6f"

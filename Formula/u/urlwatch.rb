@@ -10,9 +10,11 @@ class Urlwatch < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "77194d4e19bf9dd7d2211c4bbd33c887985f144b1e93356da7f0a8b107e753ff"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "71dd07637cb16e9fdefe88a6b7c3b185e75e8273cf1df0b66ff9aed362173a35"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "346745e6576fd05d96567290492324e45a5c93bc8ca6116f72445b78d67eda21"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7ee392529d83ef5de6ca571a5848a2be41cb5a81b2f3808f6057d0e6d6fdf153"
+    sha256 cellar: :any_skip_relocation, sonoma:         "028897df9d8dbae2d09507fa8a5f7aa9b0444bf25c1e8858ae35b6f56bb849da"
     sha256 cellar: :any_skip_relocation, ventura:        "438fc2c114c69e0b3db0c1682c57aaea47cbda8df582be9e9f2f29418a80275a"
     sha256 cellar: :any_skip_relocation, monterey:       "1b52021d6a5c4e5a4bc769240816ab7339a993322dc62a482d83e3aac4d43f53"
     sha256 cellar: :any_skip_relocation, big_sur:        "4bc363086d04a2ecdcbaec79471ed87066e468dac74376d3e757def0eab76878"

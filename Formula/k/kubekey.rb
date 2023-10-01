@@ -13,9 +13,11 @@ class Kubekey < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fe85507833133b29e4eb1c42fb3d67d20bb192bb1ae3aa13e2c227c5d11c775f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "df5abd69db8c19477b98457f3728035f61ac59e0c76a29844995c6f8c1bc0ade"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9f2628c7abe7ec626e2f924e6827b8427c80e4398739d586b4e39d8e42f7b7af"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4cfdb70e66fe7654a740d53bd254cab567f4284a6c3943f816268abed9924203"
+    sha256 cellar: :any_skip_relocation, sonoma:         "211d4a727d4f467153d4375f310c4d50cdba5f9d85785db27f3b73286d07b665"
     sha256 cellar: :any_skip_relocation, ventura:        "c6e95697f291041c02080c6fcc6289cb901c1a283465b5eb9664e6a315930d87"
     sha256 cellar: :any_skip_relocation, monterey:       "8fd5cc74cb71d4787cece783261d8044cfe5790d7c0dbbcc91bad6a5651872e5"
     sha256 cellar: :any_skip_relocation, big_sur:        "a31518f392706028bc3b2dbc04987c13505496d17d5fcf8390564aeb5590ea42"

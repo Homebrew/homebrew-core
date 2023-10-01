@@ -7,9 +7,11 @@ class Flavours < Formula
   head "https://github.com/Misterio77/flavours.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1cd11ff2bc2a0b8eba4021394e80982f562b389609b0e532a78b5c115c9933a5"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "76fb0fc700fb8ca4b0782a6fe3c5929e41885d8fcedd8733801b15201efd37eb"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "95b55c5ca8366840c9f3aeed5d525b200fe2ecb8e590dbba957034c556a531f3"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "31327342d9aa50edbfbb67c99ab56ccb2f04eb48f2cf25f1f75e32787b335dcc"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f2fff8e91c6cbd2a3706403adc08c867a386323f48503d40781ee42b72116ee7"
     sha256 cellar: :any_skip_relocation, ventura:        "cf8bb2e1d3c20d057a79a8dca7c8249e93e63ed04178b910740b07767df38829"
     sha256 cellar: :any_skip_relocation, monterey:       "963a8dbb9b4cfdfda2a65bdb5a16df394bab78f96bf2e707b1e5cbd11dd575e2"
     sha256 cellar: :any_skip_relocation, big_sur:        "c976365af9c8ce579298e8232dda3605ad0a20116276dfda4084cd413e599b0a"

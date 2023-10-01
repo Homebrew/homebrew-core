@@ -6,9 +6,11 @@ class Tctl < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0f9ed984b19c1a62df4108f2063f961fecb5f20b21b763509b474efb1358f540"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "fd1873694be159397804949a0c67571ac1e4498d171a14c77df7e0358a2b4952"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "fd1873694be159397804949a0c67571ac1e4498d171a14c77df7e0358a2b4952"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fd1873694be159397804949a0c67571ac1e4498d171a14c77df7e0358a2b4952"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d44a5477978c795d0dc81d1a6c191f4b48f392bf0f573ce48692fbe8b4b5d789"
     sha256 cellar: :any_skip_relocation, ventura:        "f2620cc94d86b2a901f7732f0998abc75b75bae3cf6b8e536044c1e14f1112e5"
     sha256 cellar: :any_skip_relocation, monterey:       "f2620cc94d86b2a901f7732f0998abc75b75bae3cf6b8e536044c1e14f1112e5"
     sha256 cellar: :any_skip_relocation, big_sur:        "f2620cc94d86b2a901f7732f0998abc75b75bae3cf6b8e536044c1e14f1112e5"

@@ -1,9 +1,9 @@
 class Lemon < Formula
   desc "LALR(1) parser generator like yacc or bison"
   homepage "https://www.hwaci.com/sw/lemon/"
-  url "https://www.sqlite.org/2023/sqlite-src-3430000.zip"
-  version "3.43.0"
-  sha256 "976c31a5a49957a7a8b11ab0407af06b1923d01b76413c9cf1c9f7fc61a3501c"
+  url "https://www.sqlite.org/2023/sqlite-src-3430100.zip"
+  version "3.43.1"
+  sha256 "22e9c2ef49fe6f8a2dbc93c4d3dce09c6d6a4f563de52b0a8171ad49a8c72917"
   license "blessing"
 
   livecheck do
@@ -11,13 +11,13 @@ class Lemon < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3d7cdbdddd60700833c0f86a6c21bef61320940fb1f32744cfa0a21ec5d8a355"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "193ad9d4bc46bae7568f15067d2f47b61c4b9296f345f3aa6d4dc1663eacd383"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c0b259f85ab7135daf8c38a4459dfff0856d58723b012ae2dbb871382bbaadc9"
-    sha256 cellar: :any_skip_relocation, ventura:        "04721093d0ca70927c48c88591d7f444e76de8457b82f122b0827cc127f6303a"
-    sha256 cellar: :any_skip_relocation, monterey:       "e6f36d966ba30da4cf4faf7e2f427f7ddbad85e731af58b4c11b2a4d02912619"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8fabd9462f3922a2c20785826c0373be8e78d5c7e41c3885bfca65ea1022dc54"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f3b40f5118e2828b29367856bdf3a1d95ef98ea10309946b3e6196eda68b22f1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4ccab3d89ea2609c2c989205dea68aadd7c9ba175123a0c777a23206d7c06527"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "37fc590f3d6468fbaf2003f32a1fab5d99407a2d4aa9d47759e394eab000e185"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "945a1930f1864ee33487a5d502b175089c390874cf4d2443887625acb6328728"
+    sha256 cellar: :any_skip_relocation, ventura:        "e995b59e7b42df4716c7455c23a9022a876f7fdf418af79dbbe5b081f7ff5f72"
+    sha256 cellar: :any_skip_relocation, monterey:       "df23397377f60d8f534f252590b3fdf1af714b5461b4583737542e8f39e41b91"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c3d63e6c12c7b718a0b8047b0fe5cf8b37010e0508d66216ef21d5d204b72216"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d4b447054ad52c7bb38c444e52777fcbaf3e26c77ee743d5c156fc14df759ff8"
   end
 
   # Submitted the patch via email to the upstream

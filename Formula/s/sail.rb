@@ -3,20 +3,18 @@ class Sail < Formula
 
   desc "CLI toolkit to provision and deploy WordPress applications to DigitalOcean"
   homepage "https://sailed.io"
-  url "https://files.pythonhosted.org/packages/bf/9b/a717ef852721fa827cfc04b291ab771816684e35819ca0f6e1860ee072a4/sailed.io-0.10.7.tar.gz"
-  sha256 "f29ef45da60a4092587c81f2b4bd61eb5332cea12592f42b20b6553ec3b0dc12"
+  url "https://files.pythonhosted.org/packages/14/a7/7f3f93ab1d8d9f58e8dce01ff5bbbdaf5f6ce679e5e13638df0cd2bdbe9a/sailed.io-0.10.8.tar.gz"
+  sha256 "c31f7adbf97ea4c2827e35f9615a54fe9a013bd0b16a655ad29a926d9f86f014"
   license "GPL-3.0-only"
-  revision 1
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "efb5f18e4d823c4dcea9f12e61c95ffc9010826c0155f826c67598e4f0d49d33"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d542509ad41d2e51ad10782f3a652b12857899294ca1b6813b117ca121744d13"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4a645e7ea98481bd3a587d7902ba35ad1818572634524434418ad73c794c88ba"
-    sha256 cellar: :any_skip_relocation, ventura:        "f29e3950d5265d00e20c5ae91bec6a9cf2ab312b0dc137c7bd6ac9a763de8af3"
-    sha256 cellar: :any_skip_relocation, monterey:       "0759c1c4df48e2bd52cd4ebace9f0b2e5a6597e2197eeded9e1b2d28f34f030f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "dc5326982b63afe92fee3b20e0637aecb9f6ea5ec5e0dcc7323b076745b03008"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a6bc5bb62fe902f46d45e4cc41cbf0356c9a9e6cba87fd2eda01ca7088337732"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a41c948046df6d63628747ceddf84b21602913a7028fab98a3beecabb088308d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ae89031ce466a6620562c6fd68fd8f68e29cc549ad1e15cd98f0d023d73d7b93"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9fa833e7e91c5e6e3321ed53ec3cf97e42682442e888e85689b8a422c2f55b09"
+    sha256 cellar: :any_skip_relocation, sonoma:         "22b6638a8a35e1eb1a03f50dec9b6a06dd22705811989de7aa3c41141cf8fbc9"
+    sha256 cellar: :any_skip_relocation, ventura:        "c1c3b91b435fb9fa1d3ab586bd2e19fc3e6c8eb8d86afdfe91da7af54f031977"
+    sha256 cellar: :any_skip_relocation, monterey:       "10af2cc9f1d0bc217dce8e36b2c625c0abd2cfa4d21928c0ff7936ba85c011f1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8a5968faee4bdd933886b9eddc09d1cd60a46b0e68cb8970c21374abd612a8b5"
   end
 
   depends_on "fabric"
@@ -32,13 +30,13 @@ class Sail < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/59/87/84326af34517fca8c58418d148f2403df25303e02736832403587318e9e8/click-8.1.3.tar.gz"
-    sha256 "7682dc8afb30297001674575ea00d1814d808d6a36af415a82bd481d37ba7b8e"
+    url "https://files.pythonhosted.org/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz"
+    sha256 "ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de"
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/5a/47/f1f3f5b6da710d5a7178a7f8484d9b86b75ee596fb4fefefb50e8dd2205a/filelock-3.12.3.tar.gz"
-    sha256 "0ecc1dd2ec4672a10c8550a8182f1bd0c0a5088470ecd5a125e45f49472fac3d"
+    url "https://files.pythonhosted.org/packages/d5/71/bb1326535231229dd69a9dd2e338f6f54b2d57bd88fc4a52285c0ab8a5f6/filelock-3.12.4.tar.gz"
+    sha256 "2e6f249f1f3654291606e046b09f1fd5eac39b360664c27f5aad072012f8bcbd"
   end
 
   resource "idna" do
@@ -62,8 +60,8 @@ class Sail < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/47/d5/aca8ff6f49aa5565df1c826e7bf5e85a6df852ee063600c1efa5b932968c/packaging-23.0.tar.gz"
-    sha256 "b6ad297f8907de0fa2fe1ccbd26fdaf387f5f47c7275fedf8cce89f99446cf97"
+    url "https://files.pythonhosted.org/packages/b9/6c/7c6658d258d7971c5eb0d9b69fa9265879ec9a9158031206d47800ae2213/packaging-23.1.tar.gz"
+    sha256 "a392980d2b6cffa644431898be54b0045151319d1e7ec34f0cfed48767dd334f"
   end
 
   resource "python-digitalocean" do
@@ -72,8 +70,8 @@ class Sail < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/9d/ee/391076f5937f0a8cdf5e53b701ffc91753e87b07d66bae4a09aa671897bf/requests-2.28.2.tar.gz"
-    sha256 "98b1b2782e3c6c4904938b84c0eb932721069dfdb9134313beff7c83c2df24bf"
+    url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
+    sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
   end
 
   resource "requests-file" do
@@ -82,13 +80,13 @@ class Sail < Formula
   end
 
   resource "tldextract" do
-    url "https://files.pythonhosted.org/packages/9f/67/9442fd49ac0d234933c9c90cb2e2f072d9df021577547c09456dd4484ed4/tldextract-3.4.0.tar.gz"
-    sha256 "78aef13ac1459d519b457a03f1f74c1bf1c2808122a6bcc0e6840f81ba55ad73"
+    url "https://files.pythonhosted.org/packages/ba/7a/dc3ffc0e333d33e8ccb63a14adc40180c29d89490a25ebe9f9ef01605c51/tldextract-3.6.0.tar.gz"
+    sha256 "a5d8b6583791daca268a7592ebcf764152fa49617983c49916ee9de99b366222"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/e2/7d/539e6f0cf9f0b95b71dd701a56dae89f768cd39fd8ce0096af3546aeb5a3/urllib3-1.26.16.tar.gz"
-    sha256 "8f135f6502756bde6b2a9b28989df5fbe87c9970cecaa69041edcce7f0589b14"
+    url "https://files.pythonhosted.org/packages/51/13/62cb4a0af89fdf72db4a0ead8026e724c7f3cbf69706d84a4eff439be853/urllib3-2.0.5.tar.gz"
+    sha256 "13abf37382ea2ce6fb744d4dad67838eec857c9f4f57009891805e0b5e123594"
   end
 
   def install

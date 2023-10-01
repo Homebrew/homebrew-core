@@ -6,9 +6,11 @@ class Alass < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4f42a7b7ef244c6018d9d16f3979f14758ca54a50a568b269011f9ccdcae5f39"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "93ea3d2535b7d2f339a736efbbf28f952abf06fdcb8186a72b1f706a77c9c3c1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c20460b0e920c4165d4f2e0fda02055564277562ca0707d7417279f3c1a70a4f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "89d96baa88517ace085a0a467f08928fff9fc15966edd7061ebf614133eb5e98"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0a5668b9a440fb7cf6b8827824abcffd57d69473c2c55749a303e460dade07b3"
     sha256 cellar: :any_skip_relocation, ventura:        "1b6e4cc531bc410f1c4792f5e8709230fa1312425499c7179712714ecbfbc593"
     sha256 cellar: :any_skip_relocation, monterey:       "3b60c7670145e819679d32671912305e150b55164de74e39b4ea788586651696"
     sha256 cellar: :any_skip_relocation, big_sur:        "8aa09d2f899a21272a4703e587a036e475b4ce060bdb9ef0d214b449157126fe"

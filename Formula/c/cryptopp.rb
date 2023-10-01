@@ -17,9 +17,11 @@ class Cryptopp < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "2d04588d2ce3edc4cd36fa83d89961006c9ec29435134e9e903df75ea3c30b05"
     sha256 cellar: :any,                 arm64_ventura:  "7d03053c9802c0533b277549f9a4173ca985ac065076d5ec1846673400665177"
     sha256 cellar: :any,                 arm64_monterey: "2e3fa5188ca17a91484735723c37272f56c26f14f71d8328b3d10ebab5ca14d8"
     sha256 cellar: :any,                 arm64_big_sur:  "a6d82bdb7e7fb9422abfb954c2008c014c819552304b3a3dfa944ca5a73b8eaa"
+    sha256 cellar: :any,                 sonoma:         "72516250a4581363fafcb46c224295bbafb6c96805971368fea386c87d0a0e32"
     sha256 cellar: :any,                 ventura:        "67ef7d471cc2702a3d113167ab62073dd413f408f1461e11fd18c25347293f04"
     sha256 cellar: :any,                 monterey:       "013ce1ca4a1a3ccbe379794214bf9b9a433e77d4a6f85870acfdaa258e1d5ec1"
     sha256 cellar: :any,                 big_sur:        "5be44e1e27595782ceac99eb8a36c43b567d9eb8db2116e5702aaaecfe9073f9"

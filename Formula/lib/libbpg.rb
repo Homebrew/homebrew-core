@@ -11,6 +11,7 @@ class Libbpg < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_sonoma:   "bf5d06c9fc78777d99c50c65585e3f295046d2619adcaa0c93c5349e1a650d15"
     sha256 cellar: :any, arm64_ventura:  "6efc300826fc1217ec39625cd01b93617fb9ea95f11a88c990751fed2e27eabb"
     sha256 cellar: :any, arm64_monterey: "6a4d3e8d365795072c819aaca5b6e662e047b80ebe05b555a8f0fb1e6d898ad7"
     sha256 cellar: :any, arm64_big_sur:  "d83f7a8c9da692ea920d82e7a3f67708525e719133b69175343087aa71ceadc0"

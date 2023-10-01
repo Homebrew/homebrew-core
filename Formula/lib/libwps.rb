@@ -11,9 +11,11 @@ class Libwps < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "53e4b189ac3f6a5707904498385226b759f0c8a222378682cad4303c0169b83e"
     sha256 cellar: :any,                 arm64_ventura:  "6d72183ffc9b82c287d94ccdb14d6e78a71da5a62d10c10f2ff50ab74908087f"
     sha256 cellar: :any,                 arm64_monterey: "4ea281eea24cce797c6f21a41a6d9be0911343b28bf58b5e4585442959745127"
     sha256 cellar: :any,                 arm64_big_sur:  "1fb8baf32244abfb5d39ffc8f5286a7fa0111333e57c3d43f1f337f6ff43100a"
+    sha256 cellar: :any,                 sonoma:         "eafcfcc4568c94cb334613505826f62aeee27380acab0ddff6f88c5e832ee128"
     sha256 cellar: :any,                 ventura:        "05d18e5787514170da6f2b7e2bb58f449bb4c282c9e35ff32ddf4b13747ee458"
     sha256 cellar: :any,                 monterey:       "6609484542bfcf5046702cf470e20da2dd99ef1597b6e60ca08858e5975afbe6"
     sha256 cellar: :any,                 big_sur:        "bf9c54ae1889bf3dcc90034d9b5a11bd14c452b69463343c3bd8f221031109d6"

@@ -7,9 +7,11 @@ class Libpsl < Formula
   revision 2
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "669b3ec271b052f66ea65aad5deee3757010f90d74d4b76231333b5d4f6720de"
     sha256 cellar: :any,                 arm64_ventura:  "54e6c05ff0b41c160db7087ee741d616c899c63a74e157e4a74007be055bc4b4"
     sha256 cellar: :any,                 arm64_monterey: "29b19583775b9a640685e24bd453f16a3e5be86546b828561a6ecd338a662e80"
     sha256 cellar: :any,                 arm64_big_sur:  "f6f58b4348f12016325eb53fa4e1cfd35dc558a42147c16498560c7337ef24e0"
+    sha256 cellar: :any,                 sonoma:         "c1939620d3b71cc9a6b03836e0d6c304bf4b37ab9789f5b9067319a70a79f6e9"
     sha256 cellar: :any,                 ventura:        "cc6122f645807aaa12528f23f94a006e2cc0f826a0640ec05c1fd5549fa48f49"
     sha256 cellar: :any,                 monterey:       "d37094a8cd209afbab03e05ce8cd0e0300639a1ac368317a2cd1f50a09edffd5"
     sha256 cellar: :any,                 big_sur:        "ba7c45172edcb181c9865cb0f607945f8f01905aa8b01e36d83930141873f461"

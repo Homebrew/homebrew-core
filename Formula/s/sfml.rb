@@ -8,9 +8,11 @@ class Sfml < Formula
   head "https://github.com/SFML/SFML.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "8827811e22510a6b9e487e6442356787ff39fe6d2f8a7da6a2495c01951831ed"
     sha256 cellar: :any,                 arm64_ventura:  "f81fcb668f0b343a8863489b33cbe7062a90f7ec28069b86e04339ed2a73a850"
     sha256 cellar: :any,                 arm64_monterey: "b6f6b53466d4b1ffba4b98d77daa194c323e88fb306225f8fe9960aaff7f4367"
     sha256 cellar: :any,                 arm64_big_sur:  "30abec4b2f8877b50f044d38fc1b8f10a159bfbf1b093792a86ccd79c6085e8f"
+    sha256 cellar: :any,                 sonoma:         "174a51f0261332bc8f06d955a44e43429c60e35b7a55f66543d6c0d4e36dd3c0"
     sha256 cellar: :any,                 ventura:        "7a7194cecd4e0375834be5f36301789c583c893dbe4b145a8861f8620f1459db"
     sha256 cellar: :any,                 monterey:       "517fc7a77b3692b139f4323187693ace6c87bd83a1a21698916ac205b75bd655"
     sha256 cellar: :any,                 big_sur:        "528175b17d67dfd504df6804e03e88671f72b56e35bd68fe83cbcaf7cf404dec"

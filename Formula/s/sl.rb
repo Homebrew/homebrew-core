@@ -7,9 +7,11 @@ class Sl < Formula
   head "https://github.com/mtoyoda/sl.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c867d7c636940322cd83ce8edc47d04be3b67293194fecc6ffafcba71a464bc3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d6689964bcfe1c68de131e77999ea19ceadcb28e304d453f6136db063a9ece0f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6d4212674cc9cc1628689d014efd992a03ab913f44b0a0411c6eb65f8e25bf95"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d8ab2f34483a0a595350f949b1a0a4386b3836ce624245365c7bce6664bb283a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7370b30c455573e2e8183282ee3c65c98fc1d211cec020bec193484144344788"
     sha256 cellar: :any_skip_relocation, ventura:        "8b15e6fced6896f40152c7fa8950be193da18999f32cd487293bd0db339b5088"
     sha256 cellar: :any_skip_relocation, monterey:       "128d4b542acd951da4edebc83f18d51c2ee3a9ef941e3e369648b977ee2d0771"
     sha256 cellar: :any_skip_relocation, big_sur:        "0300afadf35bb67efe622add3f7a928bf123dd855e37376e278052b4787e65d4"

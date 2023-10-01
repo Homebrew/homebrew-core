@@ -4,8 +4,8 @@ class Consul < Formula
   # NOTE: Do not bump to 1.17.0+ as license changed to BUSL-1.1
   # https://github.com/hashicorp/consul/pull/18443
   # https://github.com/hashicorp/consul/pull/18479
-  url "https://github.com/hashicorp/consul/archive/refs/tags/v1.16.1.tar.gz"
-  sha256 "9fec1683131ff122a43512f265131729e20212e26353d017805c5566dfec2333"
+  url "https://github.com/hashicorp/consul/archive/refs/tags/v1.16.2.tar.gz"
+  sha256 "0dacc7eeacd19a687e20fa83ae88444d2a5336a9150cfc116d39a39b31d5829d"
   license "MPL-2.0"
   head "https://github.com/hashicorp/consul.git", branch: "main"
 
@@ -15,13 +15,15 @@ class Consul < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a528094148fbdc829265a5ca617bbeaa12715d3952518900bf1d33b6377dd7be"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a060a5e46eb086380dcc089c83878a7571355f285b91bb6a3327f3aec53d64ff"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "040d992ebe28c8cf7bb1bfbf0c0d34977a625b096cd1efb9323fbda4c56a0df3"
-    sha256 cellar: :any_skip_relocation, ventura:        "523bd720e25ca11097ff5e33700f2496bb19ba30ca2cf59d25d08c4ffbc40129"
-    sha256 cellar: :any_skip_relocation, monterey:       "4b8990307d24720edffdbf6087f4e3b107cc60ceaf1027644fbfc42332feb4e0"
-    sha256 cellar: :any_skip_relocation, big_sur:        "de61aeda80b42d85433ef211f5d999711b48c7fef6d9d5926b504ae13298cc30"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bc3ea512a0a91c57707d60049ea99e734dbb543fd2ddbbecf0b9c16b09d6cace"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6784612460c0d45dd1ebeb8c579100dcdb9daadc498c61474aebc98d3fa4b660"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3a67ab933f39fe146541aed6e6c578e1064afb7311c63eba85664693ca97ccef"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b2238d0e5d5a02af34d0a9e53f6f8f455b7778ce22167eb1e32accdbb220d62a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ddb3d05f6604605d07ce61cc388b484c9a0754f543611cf430494450aa153046"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4e684452d9f672db363b69f03a97dba160c6b55aea327e4bc417e1c92cd2ff64"
+    sha256 cellar: :any_skip_relocation, ventura:        "eab2edbb1c4820c4a9d83231edd9ec56872cba032b69ba7218008a198d8376bd"
+    sha256 cellar: :any_skip_relocation, monterey:       "6987639e933ddb0d09fc539fdcb71396d6797dc4ca54057d9fe14ce8828a6099"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b4c0fafe916d70a9ceb15d92bdb9f44fd50352eb78d6790cd69ba0dde49a99a4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "27d8f2e7148d80ec16fdc26b3a75e4c46f2f1d5227944f5c79de76d6a21b8d97"
   end
 
   depends_on "go" => :build

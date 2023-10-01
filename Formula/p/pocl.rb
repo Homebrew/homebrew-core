@@ -1,9 +1,11 @@
 class Pocl < Formula
   desc "Portable Computing Language"
   homepage "http://portablecl.org"
+  # TODO: Check if we can use unversioned `llvm` at version bump.
   url "https://github.com/pocl/pocl/archive/refs/tags/v4.0.tar.gz"
   sha256 "7f4e8ab608b3191c2b21e3f13c193f1344b40aba7738f78762f7b88f45e8ce03"
   license "MIT"
+  revision 1
   head "https://github.com/pocl/pocl.git", branch: "master"
 
   livecheck do
@@ -12,20 +14,20 @@ class Pocl < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "a90c1e5f68eb284277ba8112db2fa25064afdbd16365cd3f6d7cc2fecf09eeed"
-    sha256 arm64_monterey: "2db280955137c183b5c3ed82875cf71f941f4f8e5b7eb59df4b06ff09ce2f161"
-    sha256 arm64_big_sur:  "5d43cb81906abbc0275cea2b574ae0845358ac08d1a94dbd2bcda22fda683983"
-    sha256 ventura:        "9f1013f2b09ac98820dedc2f6efe0617a3a6420d64ffde99a7d6d1eaabc68bb9"
-    sha256 monterey:       "0729e6e51172e48da279eedcc1f29c58009670c6dc116bd8a2ae9da78c0b9e73"
-    sha256 big_sur:        "335a07a42d92cdaaa31ee4080a5fc6d75aa1ad7753c415f77728f5a1dd6f48e4"
-    sha256 x86_64_linux:   "5e70b0936e4fc63367baca4f6071b7d77a1465ae51b8ed7776380c3499499cce"
+    sha256 arm64_ventura:  "5e7b336b21a6ffde6aae6cbe3273f33ae6438b08909a093f0a34688e80801fa7"
+    sha256 arm64_monterey: "153252a706f06d57bfae9c12d2de6ccaf4d19cffa24ce87394c626b5eda6a45c"
+    sha256 arm64_big_sur:  "9f999bfbb69605c9a6d2314ce71f0d52eba3d68646326ed028492961dfc829b0"
+    sha256 ventura:        "5817ff47185a49e4a2ce6ed69bf20ec67ac0b236b935a7896be9f822ce7f94a9"
+    sha256 monterey:       "cd69d082c6bb811c7b31ab1c658848ecacf1d3ec2208b6bfe8810020699d4d79"
+    sha256 big_sur:        "005ef88c339b74e8e18ef9d488f77f9e67450c109f2cdf059f19a2a80d00e54f"
+    sha256 x86_64_linux:   "005d4f007bee115383c9e1de562cab2ac15379070513906a09ba2b957d2e4465"
   end
 
   depends_on "cmake" => :build
   depends_on "opencl-headers" => :build
   depends_on "pkg-config" => :build
   depends_on "hwloc"
-  depends_on "llvm"
+  depends_on "llvm@16"
   depends_on "opencl-icd-loader"
   uses_from_macos "python" => :build
 
@@ -40,7 +42,7 @@ class Pocl < Formula
   fails_with gcc: "5" # LLVM is built with GCC
 
   def install
-    llvm = Formula["llvm"]
+    llvm = Formula["llvm@16"]
     # Install the ICD into #{prefix}/etc rather than #{etc} as it contains the realpath
     # to the shared library and needs to be kept up-to-date to work with an ICD loader.
     # This relies on `brew link` automatically creating and updating #{etc} symlinks.

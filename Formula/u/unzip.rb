@@ -13,9 +13,11 @@ class Unzip < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "09f467768e0ed9226eebc40f40fd5628c7f9cfa5f314b483751bbf0bf4d05bab"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9f7f6a03fa3ada4a305f5c9b4016b4e8bbe11d66f559273849d8cacd26524e26"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1df3fd1e9b3f5fd816f793355797818113e43378c81e6a0a6a8d1b3e52c0dd36"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a6cdeb65d1d235eb609cb7ae5b5df19f0c9b20d572661bb3501658f1d5b2d5ef"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4d0a7fbb4f53486b0a9f25f00d0903f52eea8778fdbb0e497fb4ce5ba49c7510"
     sha256 cellar: :any_skip_relocation, ventura:        "5f332be4c6b05a05a90835e7bef6c93b6b57edcd0cba1571bcdedddb27300fb9"
     sha256 cellar: :any_skip_relocation, monterey:       "86fbf9a289406fbe3fff052c0818431d757b6123e5776418c3e13370ee2d4af9"
     sha256 cellar: :any_skip_relocation, big_sur:        "94f235026d1d96ebb52961dcfb6880701d11efdc9cd9869987f8e4712714f9a5"

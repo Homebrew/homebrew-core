@@ -12,9 +12,11 @@ class Ahcpd < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b32065d48213f53843b0d0fbc736413cd84da5f87af3a6f1a3d283c6652538f3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8723c6d7d09c03950c296db788a025635ff54314925db39294d96f1d088111bc"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3ca4d84aac5c8fe54641405340ea2a397a5c6916913b4bd70392d6beb08f8f2f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "49ef92eb18038f60e6419a5dfecd11be62f3b69cb4778c473050e5443e72ac06"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a37d96a87622ed0de7ce0c019cb5e763fbbc6f2eb1196a369edbe175635129c0"
     sha256 cellar: :any_skip_relocation, ventura:        "6a6b775a3d94c0e3635ee987c6ee0b0020668e6bd1c1676cbffc19f19fc3901e"
     sha256 cellar: :any_skip_relocation, monterey:       "d715f5dc18a9b7dbc91fd34a767c22519f71aabcb62c6a479986b6f6472ad71a"
     sha256 cellar: :any_skip_relocation, big_sur:        "3f3e332726a04e2cb6a639b18d0092a80cf8d83a9363e75c6579d73ba8ac4d16"

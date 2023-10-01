@@ -11,9 +11,11 @@ class Vdirsyncer < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d51d19b6d8be89a3ba45ecf479da1b7c228e9500be8a92ae9dc421b32c756c8c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2f0ecd49b147e3b0116412406ba1308a4ac0bb273a9695f58dbdb4eae434c279"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0c408b7c1e2b0a84ed67f8aa352f9a741e78d2b3e1570a74e4f20d3acd15ce22"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6bb4a9602d1893bf961ae6219c452f3183afc08b27b8172f872ecfecafe7cf5b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "25c9b57e8ba69cee11f1dee4e897ee55a163fb54a3e06c1dbb58daa7a8760694"
     sha256 cellar: :any_skip_relocation, ventura:        "1971b7aa4cf71d872575fdeaf6d0d4b70afc7afb179e94faae5988cbc1b86c46"
     sha256 cellar: :any_skip_relocation, monterey:       "7b3ed98d98b78b944b5c44f94aaf96b78a7e357900aa3daa01e66672cf2999e2"
     sha256 cellar: :any_skip_relocation, big_sur:        "a67a07ab286aa69850023ba7c35bce6a405ede079bfd6102ac3e88ffab7278eb"

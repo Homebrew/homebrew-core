@@ -4,16 +4,18 @@ class ProtobufC < Formula
   url "https://github.com/protobuf-c/protobuf-c/releases/download/v1.4.1/protobuf-c-1.4.1.tar.gz"
   sha256 "4cc4facd508172f3e0a4d3a8736225d472418aee35b4ad053384b137b220339f"
   license "BSD-2-Clause"
-  revision 6
+  revision 7
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "38a3719df8ab598eace8db030bce1ab583b1d2b18c013adc5d9964a97f971a95"
-    sha256 cellar: :any,                 arm64_monterey: "50b4c546cf3bd33e109c31d8163c5b57540a690086db321c4e2129f3d5f47a57"
-    sha256 cellar: :any,                 arm64_big_sur:  "7c522c1eeca3861420d0e267a888a0fc58ede15d4facbc29e115f763ec8e50db"
-    sha256 cellar: :any,                 ventura:        "614a305ba60880e8a530b645ebe91585cf3208f158551965d8f8a988305f15f6"
-    sha256 cellar: :any,                 monterey:       "3c8c59177e16053a86e3a5e572dd6640c561e94c9430e34f43ab9775c8ef4b89"
-    sha256 cellar: :any,                 big_sur:        "04e3a3970b2386859512bfd18056d24e8657ad082c7238e87fe2f261f0622b82"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5a1d5e786b5ed66bbf679931469d087b262b291f9d8f6bc8748a3ec808e68a0a"
+    sha256 cellar: :any,                 arm64_sonoma:   "c22945177efec85a4b167ab364a46d374b22154b3eab165aff689101d6267ce1"
+    sha256 cellar: :any,                 arm64_ventura:  "37a4bccd649b2435c9c6d5d97052bedd166c6c0de7580360d6c10bd19dcbf930"
+    sha256 cellar: :any,                 arm64_monterey: "c45b43b82dc7043bebec4bd0a4bcdb7e6f58b64f5495182d5530fb0571d02d2e"
+    sha256 cellar: :any,                 arm64_big_sur:  "392fb3edc430d2372b401b50fa09c85347f09c393b60c905647aec7214f5f5cd"
+    sha256 cellar: :any,                 sonoma:         "1c194b43acd1c81c2f682ddd0ad537f5bcb9d19b0d2c1b566c7b208637b65faf"
+    sha256 cellar: :any,                 ventura:        "40b6341261f223df456dafb7166367b7c4d007749e4e06dfff186d6537c5e290"
+    sha256 cellar: :any,                 monterey:       "66f3cd044e6b8dd0cd558a3342092657b2d0d96864f08a0f1cacbba0912e06d6"
+    sha256 cellar: :any,                 big_sur:        "d10693cc22348eea4be40236f6113f6ef5b2d217316da61fc762a89aaf7fa400"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2f681a4ef1578ca632766037b520ec9f90eab975351ef00e45f1dd60b1e4afc7"
   end
 
   head do

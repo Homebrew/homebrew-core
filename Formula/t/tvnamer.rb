@@ -11,9 +11,11 @@ class Tvnamer < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "aa86b886b7f703f6a6a99f95fd912894bf563289e0d4ab6aa9213401e3b6cdfd"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c04db388beb645362148242d6f5e5a2820a45c3092c9d10271557c497c986a1a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "198e574e6641aa690d3d66c48da9b0dbfb5561b804771c7784509be716cbca28"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1da9d1ed619237568233503d4f950e5be70569e8ae96cdc485c8c97560784f21"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f27d5bb695686dc3f407423756dfc9dd7b6d8c478fcf2390f2f3344651a73b59"
     sha256 cellar: :any_skip_relocation, ventura:        "01505e260d0b498008b9eb5bac58023e60d7779a455f3552927ee4596b9275b0"
     sha256 cellar: :any_skip_relocation, monterey:       "fe17395b14667a8aabca043cec2d6c52c10c328c2ab577d0b4dca87cf896f30b"
     sha256 cellar: :any_skip_relocation, big_sur:        "5a7bd6a392e0c27f898a4f72800dc474439eca354e8d2f1478b3055334a2d289"

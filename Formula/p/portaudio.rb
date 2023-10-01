@@ -19,9 +19,11 @@ class Portaudio < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "e5f86790b92dc68b3e1770cffb14dcfa42ed8cb2496b1ae9fb30c2d8ae66c037"
     sha256 cellar: :any,                 arm64_ventura:  "0f9a24bce721238c9f6fffaf6c490bb82e24fa0171bd23c66002d96ee67381e8"
     sha256 cellar: :any,                 arm64_monterey: "8f390bc5ee1fffa1191df48e2947acafd5063abdc713c595760f3ac6a7a8ebd6"
     sha256 cellar: :any,                 arm64_big_sur:  "3daf7c4d5a1b948b2564de026336e3f3496f693ea0743e42b50f78d09ee32469"
+    sha256 cellar: :any,                 sonoma:         "7e89c242dfe4a49421d45416ac28e5b00c9b434664e81fcafb0a192a6f83076e"
     sha256 cellar: :any,                 ventura:        "ef762c7cd5d48df14a6455e7302cf9ff4fcb64e625ecaa779c4dee8b71e346ae"
     sha256 cellar: :any,                 monterey:       "69daed6f99f96edb350f06043d5d7121bb0d3eaa88e64ef5bac247f300d552e9"
     sha256 cellar: :any,                 big_sur:        "f67d3a167142d0afa6ef446260075a7e1c29cf3d1246a95bac2f12732004398a"

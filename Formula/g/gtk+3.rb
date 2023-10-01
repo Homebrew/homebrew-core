@@ -11,9 +11,11 @@ class Gtkx3 < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "b079594552eccc9b13b01d55022811bf9acc981e62d0c107ad9d393a05dc4ef6"
     sha256 arm64_ventura:  "12d42f5ba7caa43a83aba5babfee4cc745d8a12a58e108af642f366f2ca37d8f"
     sha256 arm64_monterey: "9c57deb4a8e1360dfd057a58a24e6c7b4ce621ebd5916386cb8c4cd359691763"
     sha256 arm64_big_sur:  "ce48bef582169d1f45bfa828b80214c9dd5204573699d2d97e631d29bdfcda27"
+    sha256 sonoma:         "9f283bf5b2b118d771aa7ef628b8798e527a7d499f225587295866c8a2dc39cb"
     sha256 ventura:        "87f200d7945307fcb47cb2ea31da643d571c898b752e2e2ddecd62c1c4c64b51"
     sha256 monterey:       "e0a18e7ae38a7ea9d5705e787fa01f3d4215c836e170f060662b85c1c0dd50cf"
     sha256 big_sur:        "ad9c04a5ce0db0751cf1a485d60ec963aae7039c9332e0bcc972e06daacc8cc5"

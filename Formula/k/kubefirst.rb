@@ -6,6 +6,13 @@ class Kubefirst < Formula
   license "MIT"
   head "https://github.com/kubefirst/kubefirst.git", branch: "main"
 
+  # Upstream appears to use GitHub releases to indicate that a version is
+  # released, so it's necessary to check release versions instead of tags.
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "563b61c9e5ee02b9e4f85a75bd58e74a1aa1fdfae7ad9b075000d12af08cc5dc"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2d5cb90d83642b1576e6a3f4bf7301c839a3371766f6c91965fe11c2db37b36d"

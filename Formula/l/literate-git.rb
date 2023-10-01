@@ -9,9 +9,11 @@ class LiterateGit < Formula
   revision 13
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4f6f924ff93d0eb49a056bed52de39969aed59cdcef95dad3dce48df8f1e2825"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "31e0c7b5e24fa754a3a9c093101535e64af4a5e00618fdfe4eea06afcca8ad2e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "268a50887b3929b544fed71277bd93e65c8285fed93d3d81d70b30391fae72d6"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e2f80196bf354dc363f82bfacc81bb8872deee508d1f8b2b3fec34d7d64e3c7a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e282fdffa91998e44b7efbc274a027d47f8d03d5015289f48d358e6a7956600a"
     sha256 cellar: :any_skip_relocation, ventura:        "c4270a2bc1b79e32660ad64483746ef2c734a898edd98453976a468903b2c93f"
     sha256 cellar: :any_skip_relocation, monterey:       "68117dad13005e6bbb6ec4b3e6759137d5a6c2cc9a1a3dc2081cdf4a39b6c637"
     sha256 cellar: :any_skip_relocation, big_sur:        "9127986e4e878f5711f623f7198d10718e916528ebf81d2d8f70cf901e209fbc"

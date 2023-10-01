@@ -9,9 +9,11 @@ class Xonsh < Formula
   head "https://github.com/xonsh/xonsh.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7566f1acdee518b98f6bffd650a69c9fe7dac1c0893d8795b307cc505c554d7c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b616825a61f1264ca9b63fc704318dce96f3ed9038d720555bcb88792edc2727"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3933275facc6b997169c1aaf579d0971ac8e6107aaec427572ed467b0fe58516"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "42515b1f5e3bc81b7b2087513d0e7a9d755e0120168398b0b76816cede950af6"
+    sha256 cellar: :any_skip_relocation, sonoma:         "96b73c7d756488a0c87ebf2d4761ff739fc4eeacfb65ec17590888f115b9b467"
     sha256 cellar: :any_skip_relocation, ventura:        "510b34598dcb6d125c4ae5a1e74256d69d8acdd424c85d82d8bef1af6c0094e2"
     sha256 cellar: :any_skip_relocation, monterey:       "8eee38ec25d74bd5f685d60bf316fee401e8ab3d308885695fab70b873a90b31"
     sha256 cellar: :any_skip_relocation, big_sur:        "ce32d6c3d335bcb871efc0e41ae58991df226dd770d405f94288d7d58e28852b"

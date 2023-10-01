@@ -12,9 +12,11 @@ class TerraformLs < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a2bd65e5f7841db0840d568d2a7aaa1bc1f20104e4e161a24d8e4307e7bbe867"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "99574ab8340326cea2a53421039b393803757c08bf20911fa5b518123305f513"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2732ae7b00a7982bfa9f47d67c2ba655edf7f26108a3b25d2df05abbc4b7487d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "31e7e98f44b58bd8fe5d530d63fc21cfd9b13ddd51246716c4c88abbeec7a690"
+    sha256 cellar: :any_skip_relocation, sonoma:         "775705e3dcb86f83a737538aee9e1d3fb7755be1fd0ef2acc49caa06e3c5ea34"
     sha256 cellar: :any_skip_relocation, ventura:        "9a56133d92f9512ba6ce0716150b3e05f0313c541eb00921e2c035923c85ef3f"
     sha256 cellar: :any_skip_relocation, monterey:       "24bb5f147fab31a8b492850673ee6c1d1ae601e4625c941a93fe558fa6a0fee7"
     sha256 cellar: :any_skip_relocation, big_sur:        "d92a9c98fb3d9c629aacb5c6958aae4002d669f10d22e00513f3db81ddae14d2"

@@ -13,9 +13,11 @@ class TigerVnc < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_sonoma:   "11349890d86fea80c502337ccd450997944ff1af60a90e0b449c7fd02ee1ef1b"
     sha256 cellar: :any, arm64_ventura:  "020433420a88dee43baf6d3f615c599fcfb198af33a1aa7804b558c42d567530"
     sha256 cellar: :any, arm64_monterey: "7736e3193f654d40c55995280d7a1bd065f869fff11780c83b26321fa83cf614"
     sha256 cellar: :any, arm64_big_sur:  "85d05acc79800b9e5ebb4c187480edbb97afb7b54f0990513ca30ab0a0714d7e"
+    sha256 cellar: :any, sonoma:         "90b925a8a9b2a6cb65eab504587bc1011d14084792cf47fa24fdf2988b6d8b65"
     sha256 cellar: :any, ventura:        "7955a68a220e7823e98620a6f9be3c43e3057ae773388e5612cff6619fd93733"
     sha256 cellar: :any, monterey:       "08a5dc1ad2f983174eda1c31e68bd66f2db1276cdde640df82ec2d2497b1a990"
     sha256 cellar: :any, big_sur:        "d4961d1d80f491537148c9c5f800ada12df1ece76cc017e1ad10403f740055eb"

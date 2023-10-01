@@ -3,8 +3,8 @@ class ConanAT1 < Formula
 
   desc "Distributed, open source, package manager for C/C++"
   homepage "https://conan.io"
-  url "https://files.pythonhosted.org/packages/d3/36/fd43c8e0240aebdb11779bc3557097b054a0073fc5deca53619410988e37/conan-1.60.2.tar.gz"
-  sha256 "3706eb21c189712cd2da3030fc4c7dad0db436043a4fdf5b4f4951f9619c99df"
+  url "https://files.pythonhosted.org/packages/38/62/8fe869e774eafe17f9bcb381d9cc195a85880370751282f671e5909b61de/conan-1.61.0.tar.gz"
+  sha256 "bbc9c4c60472f91c348dd0d17ab716c4d00e6aff02990144f49c7ca07b9cc914"
   license "MIT"
 
   livecheck do
@@ -13,14 +13,13 @@ class ConanAT1 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e22deb9dfc4311be500f17b1c69c17ba75a47d39b709c9e68b04a9a801ce8fff"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8f9452c4f1d6777c970b3131100deb76d83a07fa10f514f392005fe9fbb38a72"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fecaed327972532c9ea276374ad13af28c50fcb3b6ee4b55b77b5ccb7dbca2be"
-    sha256 cellar: :any_skip_relocation, ventura:        "3a18f1c07c21ee515f808850239ad11e1e611a88ba1828bb0efcbdaac4f98097"
-    sha256 cellar: :any_skip_relocation, monterey:       "1a5b63dc7f8dae254ed13c86ff36717c8efbed1304cdfdd0b816ebedac5978c3"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a140f3caa8613b03812e041914a967444a0cc5f08f82f7130a667de473962139"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "737da38a972b410f6ef6419d6ce3a8b967bb7c2dbf64a5dd56669a6c7ffbf65a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1163d5ea8663f52408c270f3eee4b8497704a32798957cb572f7c5bfb22d9c3a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3d146a72a173394fc4858c2de4e4c990efdafce2ba2fe54065f82481b083b3e4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bd91fd589efce9a2d6ef647b286a519b605a37656fb954d82ad0a81fb60b93f4"
+    sha256 cellar: :any_skip_relocation, ventura:        "c27fc513c141ebd99d3eca78eeef2b11bf34b61c09e1707c0bd42e81a4df8952"
+    sha256 cellar: :any_skip_relocation, monterey:       "491ef0a794349fd44b3d6fb7adc9dd7bf1c0d6576d59bd19f905c83ea52e6021"
+    sha256 cellar: :any_skip_relocation, big_sur:        "14daafcf9066b9da9beaa9a1331c3f8230759817f0ff410e579646ccc1fc554f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c0c3b19ab39a59e67e83d89d5bd90faf7ceb9785bf10ab5d778e0fa92eb1958b"
   end
 
   keg_only :versioned_formula
@@ -104,8 +103,8 @@ class ConanAT1 < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/3d/78/81191f56abb7d3d56963337dbdff6aa4f55805c8afd8bad64b0a34199e9b/tqdm-4.65.0.tar.gz"
-    sha256 "1871fb68a86b8fb3b59ca4cdd3dcccbc7e6d613eeed31f4c332531977b89beb5"
+    url "https://files.pythonhosted.org/packages/62/06/d5604a70d160f6a6ca5fd2ba25597c24abd5c5ca5f437263d177ac242308/tqdm-4.66.1.tar.gz"
+    sha256 "d88e651f9db8d8551a62556d3cff9e3034274ca5d66e93197cf2490e2dcb69c7"
   end
 
   resource "urllib3" do

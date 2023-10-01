@@ -12,9 +12,11 @@ class Gdcm < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "ebdbd7f159387cc9aa33bdcce76e3d64f61ddd48ed572682dd3ab6463ab4155d"
     sha256 arm64_ventura:  "f88e00083894931c70ca5615d1f9121e25974a98c2790bd2d5736b5c2717c899"
     sha256 arm64_monterey: "890350c5ccc9f071ec406cdb13a1ad853e2c0b3c1a9398b4f5507f23f0a001c2"
     sha256 arm64_big_sur:  "abf95208b5648a166cec0a8e8595f67e5e76b9320bd9e05d14c6eb0207d46fa5"
+    sha256 sonoma:         "fd89eb533baf2811ac15e99023f09ed86f8e293c2d2e5538606a7282eb0cfa25"
     sha256 ventura:        "015fc368cc727537c6fa4b53b47371a5fb475ced6c833ffdc33e48ea4d0d87b8"
     sha256 monterey:       "f1c979f2946d54a371246cfc6f7f8f491d489c3e311aaf7c77c7e0fea996a04b"
     sha256 big_sur:        "655a89dd712212d3eaae854ddbfc2f45a328dcff16667f88305b8ab73500e938"

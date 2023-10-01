@@ -16,9 +16,11 @@ class Popt < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "2fb8801217b8bcddc5c15974478b7fd89992868fdd6b09360835e7b6f0cef791"
     sha256 cellar: :any,                 arm64_ventura:  "9cabf84985466e8531cff42433a8df6b16668222537544b0295dab0cef292e53"
     sha256 cellar: :any,                 arm64_monterey: "1154aeb3aedee17c3dddb8f7896f4b5f6b4d7d9dc5334fd1011fb96768788e9c"
     sha256 cellar: :any,                 arm64_big_sur:  "36a746fdc0e913f77421aebbde75099112fb452beeca9d5420cd1d3907802fa6"
+    sha256 cellar: :any,                 sonoma:         "0eab78dae2d0e5dab0d54f51c43fa8fbbfd777628078c4318622ae9416f6dbcd"
     sha256 cellar: :any,                 ventura:        "4826c003aae6f5407fc0f7e9db8ae2a8e8aad55fab65e1556d7a8db300af8110"
     sha256 cellar: :any,                 monterey:       "7d6cc173811a3aa97adae35f9c0a759acec73e0bc2c948fdb012f2691b4aef3d"
     sha256 cellar: :any,                 big_sur:        "92d031d6010ce339beb5d179471ac14b76e887cba2d8cd7699c41aa1d76bcee5"

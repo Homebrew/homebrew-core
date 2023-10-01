@@ -3,7 +3,7 @@ class Nesc < Formula
   homepage "https://github.com/tinyos/nesc"
   url "https://github.com/tinyos/nesc/archive/v1.4.0.tar.gz"
   sha256 "ea9a505d55e122bf413dff404bebfa869a8f0dd76a01a8efc7b4919c375ca000"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
   revision 2
 
   bottle do
@@ -26,8 +26,13 @@ class Nesc < Formula
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
+  uses_from_macos "gperf" => :build
+  uses_from_macos "m4" => :build
 
   def install
+    # Workaround for Xcode 14.3+
+    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+
     ENV["JAVA_HOME"] = Formula["openjdk"].opt_prefix
     # nesc is unable to build in parallel because multiple emacs instances
     # lead to locking on the same file

@@ -7,9 +7,11 @@ class Libint < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "0eb0871904cc53613326bc0bab868580ff0325bd8fce872761a0a4bda2662420"
     sha256 cellar: :any,                 arm64_ventura:  "523320b75906b2bdac83d064a49e19901ad7cab5d0cc74c280e9000872a522d7"
     sha256 cellar: :any,                 arm64_monterey: "105ae017c2932910f75659b0578e38a32dc176872dc2b0c7e63c966137701de0"
     sha256 cellar: :any,                 arm64_big_sur:  "8542ba3fe2ee8df6b741cf8ee6875d1c953eb4d16b73938b4e8fa9a419f602ae"
+    sha256 cellar: :any,                 sonoma:         "f32d65406ffb07e5c5fd780d41a9b878372c5ffdb944d4f6e1d3e579e1abc11a"
     sha256 cellar: :any,                 ventura:        "0846283a6924201526a50344630388673e24ff20827323bc6d1e9c8ff4923df1"
     sha256 cellar: :any,                 monterey:       "ceadf0a44442635a8f096ebfe3c46ed586e672c678fb3726443d12d926676096"
     sha256 cellar: :any,                 big_sur:        "9817ff01a79a7a7a8f8e72f03b705d2535de6962f54cc3175a7e2ddab11ecba0"

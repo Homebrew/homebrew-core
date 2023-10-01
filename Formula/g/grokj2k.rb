@@ -49,11 +49,6 @@ class Grokj2k < Formula
     cause "GNU compiler version must be at least 10.0"
   end
 
-  resource "homebrew-test_image" do
-    url "https://raw.githubusercontent.com/GrokImageCompression/input_image_test_suite/173de0ae73371751f857d16fdaf2c3301e54a3a6/exif-samples/tiff/Tless0.tiff"
-    sha256 "32f6aab90dc2d284a83040debe379e01333107b83a98c1aa2e6dabf56790b48a"
-  end
-
   def install
     ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1200)
 
@@ -97,6 +92,11 @@ class Grokj2k < Formula
   end
 
   test do
+    resource "homebrew-test_image" do
+      url "https://github.com/GrokImageCompression/grok-test-data/raw/43ce4cb/input/nonregression/basn6a08.tif"
+      sha256 "d0b9715d79b10b088333350855f9721e3557b38465b1354b0fa67f230f5679f3"
+    end
+
     (testpath/"test.c").write <<~EOS
       #include <grok/grok.h>
 
@@ -116,7 +116,7 @@ class Grokj2k < Formula
 
     # Test Exif metadata retrieval
     resource("homebrew-test_image").stage do
-      system bin/"grk_compress", "-in_file", "Tless0.tiff",
+      system bin/"grk_compress", "-in_file", "basn6a08.tif",
                                  "-out_file", "test.jp2", "-out_fmt", "jp2",
                                  "-transfer_exif_tags"
       output = shell_output("#{Formula["exiftool"].bin}/exiftool test.jp2")

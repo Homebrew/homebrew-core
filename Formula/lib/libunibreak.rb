@@ -14,9 +14,11 @@ class Libunibreak < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "3e2150380d94e0adf1aba9eaa99db4684a02894f285b639b1480803f494d9277"
     sha256 cellar: :any,                 arm64_ventura:  "7dfc308bb0fdaf546e5d27a9c0c871778231e8f8624e5cf375da8e634b9e21f4"
     sha256 cellar: :any,                 arm64_monterey: "83a5da767d81cc13dbd79a926769487ad9e27b312a064d6d103116045ca00e69"
     sha256 cellar: :any,                 arm64_big_sur:  "8d491d6d388f52ec3eb2f8966e5cb996ccf1453d11da714d6eff56c66af0af78"
+    sha256 cellar: :any,                 sonoma:         "e785da6b43150cf0459775758b3a0ad841fce35184dc23ca99e7a25f12f9bde9"
     sha256 cellar: :any,                 ventura:        "5dd562fc1618a99274e48e1d1401134bf64af893b2659bbb61167885e340b55f"
     sha256 cellar: :any,                 monterey:       "6a12dc2fefb6fa8d558194d964410f0f4858415749898a9107902a2762a9a177"
     sha256 cellar: :any,                 big_sur:        "b030a2efa4e9ef197a28a6db5b174a0682a757920ddb93d569aea159d88545d4"

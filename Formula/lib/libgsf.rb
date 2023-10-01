@@ -6,9 +6,11 @@ class Libgsf < Formula
   license "LGPL-2.1-only"
 
   bottle do
+    sha256 arm64_sonoma:   "e8c2c9e88b3435b12164f9ddd34007b4fdb9459da7dadd837dce68e8d796b2f9"
     sha256 arm64_ventura:  "a9499ac50e2f6e22c1c41839e30c9ee35b8d26283a3d6bea9245d07733d36218"
     sha256 arm64_monterey: "5c2386595e059d1cead2c6faf9b57544ff41d9b306e2ad60f2be57157256b966"
     sha256 arm64_big_sur:  "6ed258aa2e65be0a98bd5778d88883533f4814d74a4d8311b1875184ff3c5ed1"
+    sha256 sonoma:         "c117431774adb56c0abff2ef4b91b22b2cb44a4dac935f4251bf5dd135b8ffda"
     sha256 ventura:        "0bb1ba7f9cac855d5a01d1074acb15d84ef46ce94f6ae69789209a04cae6caf4"
     sha256 monterey:       "d405f26c28d748604664dbed110bbbe520a9fb10c109a06b3fbaf8409b7ef6a0"
     sha256 big_sur:        "3f7214b79d4035c79a3b505d78e65e15fd55a14a5eecce4efb5e078af3afc2a1"

@@ -3,23 +3,21 @@ class Jupyterlab < Formula
 
   desc "Interactive environments for writing and running code"
   homepage "https://jupyter.org/"
-  url "https://files.pythonhosted.org/packages/4a/fe/940531a702a6b1e05dadf98ec9f34bb159e1c1b47253ce7bdfbaa54c262b/jupyterlab-4.0.5.tar.gz"
-  sha256 "de49deb75f9b9aec478ed04754cbefe9c5d22fd796a5783cdc65e212983d3611"
+  url "https://files.pythonhosted.org/packages/53/e9/6aba4b603ee9c78d1c81bad4112de152bbb078cd77e15377f9f7d8184901/jupyterlab-4.0.6.tar.gz"
+  sha256 "6c43ae5a6a1fd2fdfafcb3454004958bde6da76331abb44cffc6f9e436b19ba1"
   license all_of: [
     "BSD-3-Clause",
     "MIT", # semver.py
   ]
-  revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "ce525e5353eb485ede4f1e63604a0ca6ff2decd7fd5afa5c3ca627dae945d4e1"
-    sha256 cellar: :any,                 arm64_monterey: "2e8c9ea3ee9c5a29fc548a3e0327558421b6bfc309e9121a71b591d358c6b6f9"
-    sha256 cellar: :any,                 arm64_big_sur:  "14a08db1dc9e2d28b6a24ce658a614a86c69d2f75905f160adb4d85105f73652"
-    sha256 cellar: :any,                 ventura:        "2e0b25971d854f39e48ee83fa16d00896885f9ccc0cc8de73e6f21dc6b72b862"
-    sha256 cellar: :any,                 monterey:       "ef3bb51f4c7a3938617cc5ec7c13939d7b3c3af64058de456fb7903fa429bd09"
-    sha256 cellar: :any,                 big_sur:        "943a6665ebca09137911ae703369f1c5cce970dd36064e3eb5a074f3b5cdee66"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0317cca53b4c5138fe2a5372d06db039112abe5701dac335d78afe631456d13f"
+    sha256 cellar: :any,                 arm64_ventura:  "ca686a9d293e85b64198b6d6914bdec1319b9a755ad4d6f7d451fba0c66bda6b"
+    sha256 cellar: :any,                 arm64_monterey: "7652a2001b78b7cf83bb7865348dd8362d2d6054218a40b11d32ed56d4c68c8f"
+    sha256 cellar: :any,                 arm64_big_sur:  "ebe635020a8d4f1b06811654c9a7db5b9d62d8f5c610fc80f815213a519354b9"
+    sha256 cellar: :any,                 ventura:        "4de7d5137a383e9f9cd9f93b7d856c4e7379b5269e0edf25f32bffecf7624112"
+    sha256 cellar: :any,                 monterey:       "e1595435f6d487e9d85efcee6c1589ec3dd053884626b37ba214ce0e40bc1292"
+    sha256 cellar: :any,                 big_sur:        "dbf063e95a6683622edc10e1ea0b6055cab18f422ce54707d2cee6bfc6656bfb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "36c5079588922ea5bcfb1487a9c74d682077dcc9738c7fc024151cc0a2de15b5"
   end
 
   depends_on "rust" => :build # for rpds-py
@@ -31,6 +29,7 @@ class Jupyterlab < Formula
   depends_on "pygments"
   depends_on "python-certifi"
   depends_on "python-lsp-server"
+  depends_on "python-packaging"
   depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "six"
@@ -96,8 +95,8 @@ class Jupyterlab < Formula
   end
 
   resource "debugpy" do
-    url "https://files.pythonhosted.org/packages/0b/c8/b6978e56c917c2fe5096cd83d81bab8ac08ceb1f9a4b9373ad5b066a3265/debugpy-1.6.7.post1.zip"
-    sha256 "fe87ec0182ef624855d05e6ed7e0b7cb1359d2ffa2a925f8ec2d22e98b75d0ca"
+    url "https://files.pythonhosted.org/packages/61/fe/0486b90b9ac0d9afced236fdfe6e54c2f45b7ef09225210090f23dc6e48a/debugpy-1.8.0.zip"
+    sha256 "12af2c55b419521e33d5fb21bd022df0b5eb267c3e178f1d374a63a2a6bdccd0"
   end
 
   resource "defusedxml" do
@@ -121,8 +120,8 @@ class Jupyterlab < Formula
   end
 
   resource "ipykernel" do
-    url "https://files.pythonhosted.org/packages/bc/f8/edfe846bffa0aedd420450ffdf7b62aaf913d931a4bbc70bf6398631063d/ipykernel-6.25.1.tar.gz"
-    sha256 "050391364c0977e768e354bdb60cbbfbee7cbb943b1af1618382021136ffd42f"
+    url "https://files.pythonhosted.org/packages/8b/4a/3c1ba010e1517191eefb9f2fc556a3aed146b8c4e65708aed3ad17e803c5/ipykernel-6.25.2.tar.gz"
+    sha256 "f468ddd1f17acb48c8ce67fcfa49ba6d46d4f9ac0438c1f441be7c3d1372230b"
   end
 
   resource "isoduration" do
@@ -196,8 +195,8 @@ class Jupyterlab < Formula
   end
 
   resource "jupyterlab-server" do
-    url "https://files.pythonhosted.org/packages/1e/29/d867a88db915b54ff1025a9c0576b051687ac5baa5f7cd723e22069606de/jupyterlab_server-2.24.0.tar.gz"
-    sha256 "4e6f99e0a5579bbbc32e449c4dbb039561d4f1a7827d5733273ed56738f21f07"
+    url "https://files.pythonhosted.org/packages/39/50/e6ed3c392bf304ccbde96b4f2ae7da6f5f7c758deeaf95e117647605c136/jupyterlab_server-2.25.0.tar.gz"
+    sha256 "77c2f1f282d610f95e496e20d5bf1d2a7706826dfb7b18f3378ae2870d272fb7"
   end
 
   resource "markupsafe" do
@@ -243,11 +242,6 @@ class Jupyterlab < Formula
   resource "overrides" do
     url "https://files.pythonhosted.org/packages/4d/27/30c865a1e62f1913a0730e667e94459ca038392b6f44d69ef7a585690337/overrides-7.4.0.tar.gz"
     sha256 "9502a3cca51f4fac40b5feca985b6703a5c1f6ad815588a7ca9e285b9dca6757"
-  end
-
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/b9/6c/7c6658d258d7971c5eb0d9b69fa9265879ec9a9158031206d47800ae2213/packaging-23.1.tar.gz"
-    sha256 "a392980d2b6cffa644431898be54b0045151319d1e7ec34f0cfed48767dd334f"
   end
 
   resource "pandocfilters" do
@@ -306,8 +300,8 @@ class Jupyterlab < Formula
   end
 
   resource "rpds-py" do
-    url "https://files.pythonhosted.org/packages/77/5a/0c82d0ef1322227e8e997dbbd3d4e235383d51c299dbdfd2fed2625971b0/rpds_py-0.10.0.tar.gz"
-    sha256 "e36d7369363d2707d5f68950a64c4e025991eb0177db01ccb6aa6facae48b69f"
+    url "https://files.pythonhosted.org/packages/52/fa/31c7210f4430317c890ed0c8713093843442a98d8a9cafd0333c0040dda4/rpds_py-0.10.3.tar.gz"
+    sha256 "fcc1ebb7561a3e24a6588f7c6ded15d80aec22c66a070c757559b57b17ffd1cb"
   end
 
   resource "send2trash" do
@@ -361,8 +355,8 @@ class Jupyterlab < Formula
   end
 
   resource "websocket-client" do
-    url "https://files.pythonhosted.org/packages/38/44/d747807b707465625ba5e18371bc7c448925314d7217ced1801162b74ca6/websocket-client-1.6.2.tar.gz"
-    sha256 "53e95c826bf800c4c465f50093a8c4ff091c7327023b10bfaff40cf1ef170eaa"
+    url "https://files.pythonhosted.org/packages/44/34/551f30cbdc0515c39c2e78ef5919615785cd370844e40ada82367c1fab3f/websocket-client-1.6.3.tar.gz"
+    sha256 "3aad25d31284266bcfcfd1fd8a743f63282305a364b8d0948a43bd606acc652f"
   end
 
   def python3

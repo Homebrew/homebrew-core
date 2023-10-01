@@ -7,9 +7,11 @@ class Solid < Formula
   license any_of: ["GPL-2.0-only", "QPL-1.0"]
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "275a045468641fdf508d008c04970a996245aeaf7339f00a6c6c8ebbfbd4f800"
     sha256 cellar: :any,                 arm64_ventura:  "abc0a05c054df066acb09a0303e2af828758236acf0da8ddaa29c18e0d0f670f"
     sha256 cellar: :any,                 arm64_monterey: "e670e041979d6f3f95ded01c38b053a701d55dee074e016197ba1b1613128d67"
     sha256 cellar: :any,                 arm64_big_sur:  "ec2f44a3fe6993dd89a03fc6c79bb15ea9d0e03eff14c5fee248a8d6ef2dc84b"
+    sha256 cellar: :any,                 sonoma:         "e53aa3117c1e597cb122e90029527b58a5e5aed4d0d19efe743fe75052662043"
     sha256 cellar: :any,                 ventura:        "b8cd0d00412c2bdc847bae1471f35cefa9542c8ee380ec8ef0d5c736c85b1ed4"
     sha256 cellar: :any,                 monterey:       "5f6332325f0e43bd790343ac713ffde38b6933284f56ccf2300ed1f6a0d846c1"
     sha256 cellar: :any,                 big_sur:        "53fa124eaf6eec06348f0fd19db0cf189066560f44ed22f6fffb9bdbc58beae7"

@@ -1,20 +1,19 @@
 class Rizin < Formula
   desc "UNIX-like reverse engineering framework and command-line toolset"
   homepage "https://rizin.re"
-  url "https://github.com/rizinorg/rizin/releases/download/v0.6.1/rizin-src-v0.6.1.tar.xz"
-  sha256 "760647caf8a78a638a0e040bf7b89c3ed064fabdfeac4fe44ff15d62baac6c91"
+  url "https://github.com/rizinorg/rizin/releases/download/v0.6.2/rizin-src-v0.6.2.tar.xz"
+  sha256 "e29a00a3e22004bdd10146d286b1cce0e06196d41aae4729aafc9d78321ff86b"
   license "LGPL-3.0-only"
-  revision 1
   head "https://github.com/rizinorg/rizin.git", branch: "dev"
 
   bottle do
-    sha256 arm64_ventura:  "fa18e2e8e95c3fbf47637ab8aeee8c968d3f7309c360dceab1cdb425821f006c"
-    sha256 arm64_monterey: "a2a6dad5f6d676d3bb270bf872b16dff8742ad6087c30685c02a64d19eef44c4"
-    sha256 arm64_big_sur:  "f2719040f43665978fbd105786972d755c04b34f00f81ba1478d3b2ab861cdaf"
-    sha256 ventura:        "56f79b6362437028ffda3e2c6b6bcbedce44af5ed727b38e4468b38c53d5d8ff"
-    sha256 monterey:       "04f1cbb0d44ddd34834bb2af4aebabd17cac4bcc285854859224868674eb5bee"
-    sha256 big_sur:        "a3682fc67aeb116fefc9e3029223178de6a3d943260bdc638742d97931a1c90b"
-    sha256 x86_64_linux:   "2fcd6facfca8fa3f6c5f4d7276c6a62a7891873ae531fdce24fbbc549be0b2ed"
+    sha256 arm64_ventura:  "d25e105b66cad21f89e9404990faaa709ec2437a11f6402ca87a6f049608607b"
+    sha256 arm64_monterey: "35db62d58c5ee63450d0459ac73c7804c943d3e13ff08addaa9360bfa768b132"
+    sha256 arm64_big_sur:  "f7139d17f16671225d7e604c910addef06cf7122f501a8518e02842a24fae52e"
+    sha256 ventura:        "a521ec17ed67e879b4c2f5595dae3171a8485d92bccb8ace7565ebbdc954b5d6"
+    sha256 monterey:       "a4ba60ec71dbbf5234d7e6056b2f2c2d2c511fcab4d321121320a353b9fd36d8"
+    sha256 big_sur:        "e2b698934765e132f2107b391951f233c80f322b23fca77c653d84c8b23da6d9"
+    sha256 x86_64_linux:   "13e5eb46d3609a27a4c709f42b9675ffd97cbefa848ed40516b3484e6b1de3fb"
   end
 
   depends_on "meson" => :build

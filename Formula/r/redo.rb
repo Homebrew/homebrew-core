@@ -9,27 +9,22 @@ class Redo < Formula
   revision 2
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1232319e15044a5dbd0e2b0f2608a4bbbad086f07beb2abc33fb7492c4f66204"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1232319e15044a5dbd0e2b0f2608a4bbbad086f07beb2abc33fb7492c4f66204"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1232319e15044a5dbd0e2b0f2608a4bbbad086f07beb2abc33fb7492c4f66204"
-    sha256 cellar: :any_skip_relocation, ventura:        "1232319e15044a5dbd0e2b0f2608a4bbbad086f07beb2abc33fb7492c4f66204"
-    sha256 cellar: :any_skip_relocation, monterey:       "1232319e15044a5dbd0e2b0f2608a4bbbad086f07beb2abc33fb7492c4f66204"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1232319e15044a5dbd0e2b0f2608a4bbbad086f07beb2abc33fb7492c4f66204"
-    sha256 cellar: :any_skip_relocation, catalina:       "1232319e15044a5dbd0e2b0f2608a4bbbad086f07beb2abc33fb7492c4f66204"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ff5f989f702472df0da1a1a6fa57b1648226cbc302f434f3f89678f39375764"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f7e392b19dabdac8d71937132f56dc068b462b36cb90c1bc345f8f3362935bd8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f7e392b19dabdac8d71937132f56dc068b462b36cb90c1bc345f8f3362935bd8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f7e392b19dabdac8d71937132f56dc068b462b36cb90c1bc345f8f3362935bd8"
+    sha256 cellar: :any_skip_relocation, ventura:        "f7e392b19dabdac8d71937132f56dc068b462b36cb90c1bc345f8f3362935bd8"
+    sha256 cellar: :any_skip_relocation, monterey:       "f7e392b19dabdac8d71937132f56dc068b462b36cb90c1bc345f8f3362935bd8"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f7e392b19dabdac8d71937132f56dc068b462b36cb90c1bc345f8f3362935bd8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8311708347ac6e5dd70472cbae269bb3a647e49068ff2cc4d6c87571523364ce"
   end
 
+  depends_on "python-markdown"
   depends_on "python@3.11"
 
   resource "beautifulsoup4" do
     url "https://files.pythonhosted.org/packages/e8/b0/cd2b968000577ec5ce6c741a54d846dfa402372369b8b6861720aa9ecea7/beautifulsoup4-4.11.1.tar.gz"
     sha256 "ad9aa55b65ef2808eb405f46cf74df7fcb7044d5cbc26487f96eb2ef2e436693"
-  end
-
-  resource "Markdown" do
-    url "https://files.pythonhosted.org/packages/d6/58/79df20de6e67a83f0d0bbfe6c19bb82adf68cdf362885257eb01099f930a/Markdown-3.3.7.tar.gz"
-    sha256 "cbb516f16218e643d8e0a95b309f77eb118cb138d39a4f27851e6a63581db874"
   end
 
   resource "soupsieve" do

@@ -59,9 +59,32 @@ class Squiid < Formula
       end
 
       # Wait for the TUI app to exit
+  def check_binary_linkage(binary, library)
+    binary.dynamically_linked_libraries.any? do |dll|
+      next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
+
+      File.realpath(dll) == File.realpath(library)
+    end
+  end
+
+  test do
+    require "pty"
+
+    PTY.spawn("#{bin}/squiid") do |r, w, pid|
+      sleep 1 # wait for squiid to start
+
+      w.write "(10 - 2) * (3 + 5) / 4\r"
+      assert_match "(10-2)*(3+5)/4=16", read_stdout(r)
+      w.write "quit\r"
+
+      # for some reason the test hangs on macOS until stdout is read again
+      read_stdout(r) unless OS.linux?
       Process.wait(pid)
     rescue PTY::ChildExited
       # app exited
     end
+
+    assert check_binary_linkage(bin/"squiid", Formula["nng"].opt_lib/shared_library("libnng")),
+      "No linkage with libnng! Cargo is likely using a vendored version."
   end
 end

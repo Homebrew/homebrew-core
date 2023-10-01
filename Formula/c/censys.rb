@@ -3,18 +3,18 @@ class Censys < Formula
 
   desc "Command-line interface for the Censys APIs (censys.io)"
   homepage "https://github.com/censys/censys-python"
-  url "https://files.pythonhosted.org/packages/3c/2f/8163deec66d895a86f9e477bdcd9049e0c52b85f3905b44049f188f4a1d8/censys-2.2.5.tar.gz"
-  sha256 "2c31eed2ac3df561be91225af30f4b0e7a8641645b535997a99e5e123f9f60a6"
+  url "https://files.pythonhosted.org/packages/b7/e3/cbeed937ddea89c9f28660d7b969614a977432bcb26de158c0198a8005c5/censys-2.2.6.tar.gz"
+  sha256 "379d1d607bf9e4cab593b67d553ae9f635cd39a6283ff76d3eede0f7eb2b5b52"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4fd3eb133aec6cd9355d54ba48bdd5d00dddddc95c5e3e0d412022afff70af6e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b0d73cdcb4f61f0e280d1930894f636069086acf93b417a0d03be43fe90431b2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "030ea41c90b971adda8517282ca25d7484008ca5073c9b6cabe7a3c10e362bbc"
-    sha256 cellar: :any_skip_relocation, ventura:        "1e4d1a6e21bd0ab940bbfe09fb1bf1f7a3fc0b202ac8e7c959dfdfaf7afdeab7"
-    sha256 cellar: :any_skip_relocation, monterey:       "8da72334c0dc0df5612ba466a529b916aa983d329690531c1e1514a895563150"
-    sha256 cellar: :any_skip_relocation, big_sur:        "086cb1bd503a5a27c2b4b86a8ed61a7a14f98aa126e0a0ae969a6127d0c6c487"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "276c68f4d2c58d46e7ae2d88feaf0d09c501c6febcc98c2b55f4abf8b5dea9a7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3b56b8b05538dc67440fb82af69f60fbcd28c1358cb335e0f84f9e481c94e4fa"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8dd1022f9d5efa6a55a391947249c9fbb79add49af246f9323e52adf77a462ae"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7ed95fb642d3d19bcbcd3b0e6c5f1b4b1c0a3654b80ac4599fd1e7dc17612987"
+    sha256 cellar: :any_skip_relocation, ventura:        "439cfc6fc31aa756ebf337c598f1d9995a197ef45b5fb74ec27b602822fe292b"
+    sha256 cellar: :any_skip_relocation, monterey:       "ec44caa4333e6c76dbf51b6ca142816cc6bda902647868182f248dac2459e2fd"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a40c96b900b8094bfd68a7050dce12d79211e1880c5e9c5ce9f94ee2641adc42"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a59f2d92be5d5644e491f1c6632b0535f0ea539ba088d2c2bfa2f1dae38c62ab"
   end
 
   depends_on "pygments"

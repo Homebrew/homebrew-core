@@ -12,9 +12,11 @@ class NetSnmp < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "9d0ea2f793065eab2cb7c858d5926bb9ec40dfd0460a31c4d9f09932ae1c2455"
     sha256 arm64_ventura:  "8d1f5f1b9c27087c08b7fb17c97445d925c7c0afa77e4939979778ca9fc39fa4"
     sha256 arm64_monterey: "0ee61805fb803dc4126a163c1f41438fbae869158cab3c5f9fb4db626ace6059"
     sha256 arm64_big_sur:  "08d71e1fd013508a956360a8c1ee0806974b21334e06daa519c91fc58e5b1cf4"
+    sha256 sonoma:         "520f34569542954e98b71e04ec30a470994550f983969d476ba7a3e229e9795e"
     sha256 ventura:        "72c6a3af4f5dc6649fdf8ace41e27c917d88bfb4f25b6a468cc072944ae42cc1"
     sha256 monterey:       "25f84e57f018ce8d5c4f60ecdb28bf93a53f53fb7c3fe2d2ade1053013ba8993"
     sha256 big_sur:        "6eb8407f90572a45ff98d040761b9857998638d9a739bd21c06e1420412009ee"

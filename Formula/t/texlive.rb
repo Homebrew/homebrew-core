@@ -34,9 +34,11 @@ class Texlive < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "a3a31bbb1d9bc1e9d373b9674f9f9e430715cc4dde6163e4a74c258c8fe000c0"
     sha256 arm64_ventura:  "7c4424d7dbda8aa023b5a4c4d07ddf604ccf872a2241967bae24c3b05e65e08c"
     sha256 arm64_monterey: "42560a30b4731c8db5f74e6bbefb17075b68aba0c83899733c703997f62f6b33"
     sha256 arm64_big_sur:  "091fa3f73856f3c2fdffb6402925de126c1773ec734c90700d27af6c791849ea"
+    sha256 sonoma:         "72d4f3997dddf64b72fa3937cc1bf5f3587ac4a010a4a8c460f6fb829b8d5731"
     sha256 ventura:        "3b82d7b12355a116decb003b11ab06f2e65c582ba83daa0d20c187c0320f91dc"
     sha256 monterey:       "9e82bafde878de14292757dfe00038d03f500639ee873d22da31a5fc7bd81882"
     sha256 big_sur:        "8618d95d4161d83e59e2ea99d35c5cb389789d48ba2227a5bcb578d963c98b20"

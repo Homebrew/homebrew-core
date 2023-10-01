@@ -9,9 +9,11 @@ class SolcSelect < Formula
   head "https://github.com/crytic/solc-select.git", branch: "dev"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "54a572a5e1b336a0b695b633de9eccb006a1a4ab64eb430d91a625fbacf8e744"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "33c9c5baba1102e62d30fe93d47e0ae3c88e1264880a365afd794000281c9191"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e81a047baa31cc208e54317b5a6dfa3a9259b306a4f71c2fc7db6bba12636782"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b4ddd9ff9c92f38908bfd92bc6cba18788afb24c8514c859a917806c5877147e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3dfb69396e5ab572a9b203768342b00aafaf3d57f83a9241aac644a4c7deb24e"
     sha256 cellar: :any_skip_relocation, ventura:        "aff06bba18ec3b7294a317c1bf8b282ee421cf70f8ac361d6c08044346bcc36a"
     sha256 cellar: :any_skip_relocation, monterey:       "89637261e8e0a45d698008c28b2937fbc5050410450ae1320caadee01515d56f"
     sha256 cellar: :any_skip_relocation, big_sur:        "ce63982a9ba547fe60daba1adf434e1decfa7f463c0795bbb75464ac27650d53"

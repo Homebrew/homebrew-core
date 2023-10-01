@@ -13,9 +13,11 @@ class JpegXl < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "3fe93ccc4ec136f0ec9a426b83cca576c1004f36787336bd14602e77a4ded4af"
     sha256 cellar: :any,                 arm64_ventura:  "f4b1a2518dfff2af63cb8a05f7d0ba1bebdddd9a34aaca2b651b54aa913118ce"
     sha256 cellar: :any,                 arm64_monterey: "5a3afec55510d752d97618852d4e0cfa591fe43ed55e0c3ff328739baeca2b65"
     sha256 cellar: :any,                 arm64_big_sur:  "dfb413003b3ecd2f703b7298362b3cfcb3228e8ee5c71861d6e7c40a85c21fda"
+    sha256 cellar: :any,                 sonoma:         "1093ba2170cf9fe8da1d29beed93bd1fbd196de886a5d5b8827a9c4e256f5312"
     sha256 cellar: :any,                 ventura:        "8691c33bbe7aada85c86e7ceabc4397ba1f6aab683ebf8af3bb46082a4ae80d4"
     sha256 cellar: :any,                 monterey:       "fcc3f2f348f9945953ca444067f333a146542ec0ff3e8898a9e5daa48aef5b82"
     sha256 cellar: :any,                 big_sur:        "b96951a962f8b82fa3db3680e8f8a03e922ae72e932ecba87d5bbf12a6a48ee1"
@@ -72,6 +74,7 @@ class JpegXl < Formula
                     "-DJPEGXL_VERSION=#{version}",
                     "-DJPEGXL_ENABLE_MANPAGES=ON",
                     "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                    "-DPython_EXECUTABLE=#{Formula["asciidoc"].libexec/"bin/python"}",
                     "-DPython3_EXECUTABLE=#{Formula["asciidoc"].libexec/"bin/python3"}",
                     *std_cmake_args
     system "cmake", "--build", "build"

@@ -12,9 +12,11 @@ class Libgit2 < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "e7808384d248d257885634dc41f584319c02a310946d35672a70c5b0368cd66a"
     sha256 cellar: :any,                 arm64_ventura:  "d1de8934d2ee512544fa5d941329c516d64b3c3aad437fef7825a18401c70be9"
     sha256 cellar: :any,                 arm64_monterey: "e45bbf04a950adbd0dbb1bde55572ec384cd0c0635653326d88009c04ec46107"
     sha256 cellar: :any,                 arm64_big_sur:  "bfb4012117dc4d21de49cd707ca108b77f873fdcd17452abb344dfe82de1ffc9"
+    sha256 cellar: :any,                 sonoma:         "9ea90f75a7fcd0182e8370fc8eaa43fc82d202fc1766b0c54521b95a035e4e26"
     sha256 cellar: :any,                 ventura:        "fdf652b3f275218544cd2da03d0afe894eb8484f276a80432cd2bcb1c294dc23"
     sha256 cellar: :any,                 monterey:       "a78523160ada0495659001ed56782abaac2659933e48fe8302e1d3ddfceec6ce"
     sha256 cellar: :any,                 big_sur:        "6026fc1aeb900f24d33bf1fbda44a8a3ce2d84dc14511a8e8af8a3ee312a67a7"

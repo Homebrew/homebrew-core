@@ -7,9 +7,11 @@ class Arpack < Formula
   head "https://github.com/opencollab/arpack-ng.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "c59b248e39c00999957fe58bce73d086ce71c5ffc7f84bd37281dd07ef461f0c"
     sha256 cellar: :any,                 arm64_ventura:  "00a4522b3c828a4c01fd217b4f3e463e244f78176be12ef4254ea717cf777ec2"
     sha256 cellar: :any,                 arm64_monterey: "183e7b26a4013b2e985bcb9378fcfe9a26737f8453221573bd028d1195fb70e0"
     sha256 cellar: :any,                 arm64_big_sur:  "3e3d2a125a0db65151f83ce69260d269c372ff1b33de4eff237c67227f4e3897"
+    sha256 cellar: :any,                 sonoma:         "b11b29b6efc1fa039f3eec304501f4e826fb6c0e19a924a76c0dbc46e24d04d1"
     sha256 cellar: :any,                 ventura:        "9f66d8634e9912fa4f307df1c9416f282cd07a24652ab5078dc5720c5cb3e87b"
     sha256 cellar: :any,                 monterey:       "f942ff4f061694774405aa2acd05f834222f2609c3609d237ca2427224154055"
     sha256 cellar: :any,                 big_sur:        "fe8f01ba84d9d5d706afa83764f795c60f6c5396e8766c3d01458c7a09d64631"

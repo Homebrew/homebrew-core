@@ -18,9 +18,11 @@ class Crfxx < Formula
 
   bottle do
     rebuild 3
+    sha256 cellar: :any,                 arm64_sonoma:   "a30d515cc61679d50afd7639ee093286fc343c2dcc6719f53b38413196673bb7"
     sha256 cellar: :any,                 arm64_ventura:  "b2ace94562fd7e5a8abd1d05d40511e346e7a49ee504c448eba428f8c3b8a9db"
     sha256 cellar: :any,                 arm64_monterey: "3a9ccdc1221e5b2516710ef51b3b50473d7d580f2676fca2c8f69cabcd7e6f61"
     sha256 cellar: :any,                 arm64_big_sur:  "763da462b53ce92f9feae23750b038b96e79b121b7bdfa4c0d1c99701c3345d4"
+    sha256 cellar: :any,                 sonoma:         "9745ec5432d1ed8f4f5dc546e35fdfc82d4f5e723eb4065f298a2e46478d9911"
     sha256 cellar: :any,                 ventura:        "1233d831712132c1221d609f9ea56f217179ccae1d93c2fdb288efa2077d9eb0"
     sha256 cellar: :any,                 monterey:       "37c3083f194d7a03c220805f33d1469babee06cf05d0938a44f4f47a023dc86c"
     sha256 cellar: :any,                 big_sur:        "fcf0862271c392bc7b69a4e02a74dd9bd85615b6be0273009e7611bb78298f61"

@@ -8,9 +8,11 @@ class Mycli < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2600c3ff0916c2392c7f9f6c78af67e33e7f4a75467df2876e2486314236c2ab"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "27b5792812b88a9a3e706e8a5951a83a4db14770c6afa664d5cfcbf4369eb591"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cd5408630fea5d0f2d2804a225851f28eb5f95ba594ef38ae67bcbff752b8801"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8f71c0f0cd6c27b10d6249e5aedacb2a6d4f696a4b4fc9b2cf9108b9aaf324aa"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3c08beadd646c598d42c06864cf419a287047338adcb2ea2e7729c3391626d95"
     sha256 cellar: :any_skip_relocation, ventura:        "f09ad4f6423cffdafac55d6c3ff25c8f387152d16956a1c210897e97e944d0d2"
     sha256 cellar: :any_skip_relocation, monterey:       "47f73a701750081458d59cdd243c68d4914c25f3e43787bd24ef2fa02a92cfd9"
     sha256 cellar: :any_skip_relocation, big_sur:        "0a6f4d0e2701d65a9f5c312900f2b5e4c7d00bab9e8234e41a791a0ab7203279"

@@ -1,8 +1,8 @@
 class Groonga < Formula
   desc "Fulltext search engine and column store"
   homepage "https://groonga.org/"
-  url "https://github.com/groonga/groonga/releases/download/v13.0.6/groonga-13.0.6.tar.gz"
-  sha256 "291fcf5b3f5ecd0211cd115ea7e84c1811538603af1801a86620cc74b98c9cc4"
+  url "https://github.com/groonga/groonga/releases/download/v13.0.7/groonga-13.0.7.tar.gz"
+  sha256 "817adbd4942f524557e479b2dbc3cfd181683deff2dff8d9db85fb621a518eed"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -11,13 +11,15 @@ class Groonga < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "0ed41fe2989c2388b36d8a007456a5c64bf0f23085447b36a98609f204b40828"
-    sha256 arm64_monterey: "a6453a0c7d6aa270d6ff4aa39c51c14504023ff64c551f1897afc5c0a905604a"
-    sha256 arm64_big_sur:  "5b6934c4c80d1158cddc77a6da77af53c15f467dc0f641b95e8ba35de85a20ca"
-    sha256 ventura:        "ad47f7c5e1418ccd1bd6a1165c11d4f7e42b042707737f5dfc89c11b715adff8"
-    sha256 monterey:       "a425adc0d556121ce501dd1db450892d1890e99db3b98abf80629660a62f6367"
-    sha256 big_sur:        "bd1f263d2b5737426c786184d97165c00e2dd2677eee82eb7cd42034b2ef6184"
-    sha256 x86_64_linux:   "15d7c17d54675f29639b0d1a4518f7048d5ade698ae1a0fbd1fb2c67858ce58f"
+    sha256 arm64_sonoma:   "2d007b743526d7a7a1e371a2a589da0e1136514ad8d6729a8f581e514843956f"
+    sha256 arm64_ventura:  "c71d6b1b73a357769fec1e2b4838991c233cd9fcd6443daf90b8ec6ae5d9f1e6"
+    sha256 arm64_monterey: "dd1676ca9819bb8c5f49e0da5036e74948039f14aa4be341929a84d4c31a74c1"
+    sha256 arm64_big_sur:  "d77191491fe6917007d8bb0d5c738ba1612e3dbe029b79517efa5dea1201d121"
+    sha256 sonoma:         "e61a721be605e11321df212fa4768dc910602d638261aa327e77970f06136ca6"
+    sha256 ventura:        "03c72b7ed0f7ff1deda24cae36d2c8478ce4a44a50d160d269fdf5d969d4d058"
+    sha256 monterey:       "24a469661b6dcae18a92e0583b01c2b0b54e43a22573680d56ade6aa3a8117b2"
+    sha256 big_sur:        "c0efa4df8546b9904d8e24d2c906ed2aa86d2fedc9dcffb89b75d3bc03cc94e6"
+    sha256 x86_64_linux:   "22a38701fc448ab2b62b84650ce6bc6af1f511d10efb47dae3a5ee4d7303803e"
   end
 
   head do

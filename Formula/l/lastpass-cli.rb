@@ -7,9 +7,11 @@ class LastpassCli < Formula
   head "https://github.com/lastpass/lastpass-cli.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "b2397c3115585077b75b46c920c37b0e0f67bc58b056d96fb5794b3c87557024"
     sha256 cellar: :any,                 arm64_ventura:  "ba4c25a685bc918cbc8bf54e3703561fce1e18593390900e82132131482f8c17"
     sha256 cellar: :any,                 arm64_monterey: "141ea2506d8322b7b6b163b09b5397be739dfaabc7912bb4dec8694da4c0154f"
     sha256 cellar: :any,                 arm64_big_sur:  "3f123f151600a5eafaec998486f504c9d80e29082d0dd1a7ebcf0118d5c857b7"
+    sha256 cellar: :any,                 sonoma:         "6b4cd10ecc7fa6b86e842163757319d5210a10c42f124f1b058a85fc92107775"
     sha256 cellar: :any,                 ventura:        "88739e816bbbdeff9d098da1ea8fdfe88514ef2850e924862abb0749f5f07281"
     sha256 cellar: :any,                 monterey:       "0f7261cc2dc48aee5528cd66989ec452f5c9779190d34b519c8e69a6e0edcc50"
     sha256 cellar: :any,                 big_sur:        "6993c808909e7c40bf1653a38419d2aafe2c73e8064ffc62959899a11e5e5064"

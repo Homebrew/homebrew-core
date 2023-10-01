@@ -15,9 +15,11 @@ class Znapzend < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0c3509ccaa62d0d10254c01f769082d47a6faae30dba053b98d10c1d1580c491"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "360e1da87dca16e4aee394895811672b1ff5b2cd2f0d00faf19626c227560653"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2603328f0b6bf5f6264933a29fa014bf766b39c2dca01005633f61d525712772"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "74bec9f6200da20da80c4b23090b4a75ea1813d764082965f21ecfddee02cbf2"
+    sha256 cellar: :any_skip_relocation, sonoma:         "aa49b9155872201e4545d0201c1e99d4308246f7c49518469a80b3d5f04578d6"
     sha256 cellar: :any_skip_relocation, ventura:        "70c703197262f392c2aa298aa6a12e84369a1a63d7f19b76685c39d905831f4d"
     sha256 cellar: :any_skip_relocation, monterey:       "73849373fd9725c332045cf2b2a32303336b077ad77642d9a8131b7b9b78bce8"
     sha256 cellar: :any_skip_relocation, big_sur:        "013467cb38cdce3691d36b5bc572320be8b1b2fd10c97ac0d3c7470ed8098154"

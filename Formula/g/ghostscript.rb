@@ -4,8 +4,8 @@ class Ghostscript < Formula
   license "AGPL-3.0-or-later"
 
   stable do
-    url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs10012/ghostpdl-10.01.2.tar.xz"
-    sha256 "b535600c968f672b4f6750e7eac57623fc7f80eb8c00a0175a46010942cf0e9c"
+    url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs10020/ghostpdl-10.02.0.tar.xz"
+    sha256 "c158f3b5ade88227510a42652e0fe7b2aa48e123c1fd663cb03e3d87ca2db86a"
 
     on_macos do
       # 1. Make sure shared libraries follow platform naming conventions.
@@ -27,13 +27,15 @@ class Ghostscript < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "290522bb038d5db01e9cd834274e196400c37bdfb2c1ba8ed8a82816650c70b1"
-    sha256 arm64_monterey: "f9ead5cafe7569cc3b34c4d8c228700edb0cf3d3f58506e25c1299fe0eb47612"
-    sha256 arm64_big_sur:  "1dc38aea6fd4bc9c9e5b6d6465459384d8b1a2025a0d1a1997c01b920b8f1667"
-    sha256 ventura:        "2ebfb45d30096d1c6ddf5842f7217a80f0f7cd1709fabbc0658a012a3120a71f"
-    sha256 monterey:       "6df60d383c7b1560ccd1e55e9ec2800c9bc565e704ed112feba29efc908d21ac"
-    sha256 big_sur:        "a52592ba7398d8ddd6d9e174c5547b282294bcf5fe15d6685e97428be13d46d1"
-    sha256 x86_64_linux:   "68d6d77c2776b7c64aacb6a0c0f4e6ef838090c831f0f8a6ec91f60c2792a28e"
+    sha256 arm64_sonoma:   "3242819dba237c4c12f099e2dc09b3f7c1c1246aaa9d6129be071122cf1b7ec7"
+    sha256 arm64_ventura:  "0da5f5a4a575ac028bc43fe16e3093c996d07d1f430497f3b33354603dbae805"
+    sha256 arm64_monterey: "ef40d08faf8e55347ec4fcfacd27fa38852c64026b7c1a7c9d9f0968ff7e7300"
+    sha256 arm64_big_sur:  "6d7d2e0ffc983e503f08abdeedd7367252bee29fcfb8886bada8ede974933811"
+    sha256 sonoma:         "0246e68db1a761cef06fd775a534059b82f178e4e942e36a1a88b1bbc07317ca"
+    sha256 ventura:        "0145cbaa96f536ddba368abee36f30d892878a66f6a86a0ea79cc30bd038a9d8"
+    sha256 monterey:       "69b0237693ec0caf999a69c60b237ccaa85be1b5b4d389b861f9d3252161cc08"
+    sha256 big_sur:        "a616c4a7712f2bba74f4a0ead1520a75f1539ec2957392696c6731a53afcab66"
+    sha256 x86_64_linux:   "1d61db6823821e7f12e80018a70c2cbed4fe1f25ab1f0896dfa1c828f923fd86"
   end
 
   head do

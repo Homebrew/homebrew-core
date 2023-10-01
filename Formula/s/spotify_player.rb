@@ -6,9 +6,11 @@ class SpotifyPlayer < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2e43ef62a12b7f13a43125ab637a995226f753e1cd7201a58429dfc97c563263"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "78c79ddeddf8bc79d4fd1ea6008c5ab8d3f4737b92f1f4146b47849bfb70556b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3c725803cd4082fa89c3b2185c18e07d2b8c6390084a6e60855856692a23204b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "acf7fc2cc1b603e4efda700a199f14d6b587b5a99108bfe2d9b4b00ed7f5a00a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "1fb59f6fb6a72146a1b51527c716343de71e7169d8611eeed24eee00d1acc808"
     sha256 cellar: :any_skip_relocation, ventura:        "eb7abda31162a98cc9a9964e7865d085307b67197ecaee24322a1862e2d8b167"
     sha256 cellar: :any_skip_relocation, monterey:       "a64303c56d37ae2723d351af107de971fff9033db9a8b6b82ef9796258d1c296"
     sha256 cellar: :any_skip_relocation, big_sur:        "84ca5327ff59825e0f10ba9a25fb6501a20a466d3a56239b54aa47fae41f2058"

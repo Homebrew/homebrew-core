@@ -8,17 +8,17 @@ class Cloudiscovery < Formula
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "73d5840db5ac1ec0fccd5be7680e3057aa0d70d06c1f84e0c172175527d836fc"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5ef79edc6e888965160451f43b0302215fa803757b33339a271798185a599b99"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "01d9470ba205b1de5b4149eb7cb2a636b0e52b8129b6fdae85c7e559e5bc5707"
-    sha256 cellar: :any_skip_relocation, ventura:        "718c552503df45b02994f3d96d56f37c52e41627463cb08b15b64adbbf096b6e"
-    sha256 cellar: :any_skip_relocation, monterey:       "af2a5e29595010b8b7410ca110da562900dfea8932ba56873fe7224f914c0666"
-    sha256 cellar: :any_skip_relocation, big_sur:        "aec275f119f6ceb6093eb2bd27832ea6ebd25ffa26fcf5766ac5bc625f0abcd9"
-    sha256 cellar: :any_skip_relocation, catalina:       "bd6f1255f9f95402ed607c49e352189854a884260585b710aa84b9c9e6e5bb85"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1dc9f4285ac4cc7fbf319e131830b0ea704e83781f13c2a77e829100366a5a67"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "54c8bb3eaf84b4c30ed099ab566ecd3bfc6bb62386eea997cf6d92bfc9f0d46d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0dc0e6fe74ac18974c14853b86a84d829e17f1f8aa45a6c25940e13fc8761c1e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cd1849cfeb4c0b5b6fa0907eff03f5b4e55fdcf8851a71eb285cb240af6891b9"
+    sha256 cellar: :any_skip_relocation, ventura:        "76db217e282648101dc9a2fc7e0f9a451d8eb11529d227d7ea00ebb659fe7e70"
+    sha256 cellar: :any_skip_relocation, monterey:       "4700efbb294906114494c31e1cd057579d6364975da4c7753aa14ada27863366"
+    sha256 cellar: :any_skip_relocation, big_sur:        "118c08839dfbb217adda61e18fb1c1ab78f4e688ca656c693a6d6ad08981b8fa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2915c7e6c77943189ae39a277eb5771403055b2453eb4ffc63b0654024d1fcba"
   end
 
+  depends_on "python-pytz"
   depends_on "python@3.11"
   depends_on "six"
 
@@ -75,11 +75,6 @@ class Cloudiscovery < Formula
   resource "python-dateutil" do
     url "https://files.pythonhosted.org/packages/4c/c4/13b4776ea2d76c115c1d1b84579f3764ee6d57204f6be27119f13a61d0a9/python-dateutil-2.8.2.tar.gz"
     sha256 "0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"
-  end
-
-  resource "pytz" do
-    url "https://files.pythonhosted.org/packages/76/63/1be349ff0a44e4795d9712cc0b2d806f5e063d4d34631b71b832fac715a8/pytz-2022.6.tar.gz"
-    sha256 "e89512406b793ca39f5971bc999cc538ce125c0e51c27941bef4568b460095e2"
   end
 
   resource "s3transfer" do

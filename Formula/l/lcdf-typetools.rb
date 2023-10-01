@@ -12,9 +12,11 @@ class LcdfTypetools < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "adebc013b9cd122099069d78f3da8eca8c86f585e2e08476f4fafe852acc6414"
     sha256 arm64_ventura:  "8236a9837f726de7f4134db255df5df0c74b6d3aa0827a583e5c3d121e2170c1"
     sha256 arm64_monterey: "be7523e73f08148f0848d41a93ae2443227d06d88da621f576c7fe346070224d"
     sha256 arm64_big_sur:  "bfdcd6b8f33e4a552a0ddc6eb20ee8311332477647ac02c96ce92eb0f3a0f10f"
+    sha256 sonoma:         "ad5b178aa2847ac19ed1dd15d43137d90758d84978ff8b36df9db66437323be8"
     sha256 ventura:        "1dd345c1b3f20d16d2303573c9324047172f728999ecb497cb6e13c56e31c96a"
     sha256 monterey:       "81daa75ad3bfaf2257c2967749981284d2a9076bbdd60176f6ee845b6419a90e"
     sha256 big_sur:        "34f194d4996198a1c3f5ffb49b65c2e00af73e88db861d49a22f7ee9dcf3ea3c"

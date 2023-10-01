@@ -8,9 +8,11 @@ class Emacs < Formula
   revision 1
 
   bottle do
+    sha256 arm64_sonoma:   "b962741699550a326396656d5f53a280262b24f9fdc388dcc1706e6c90e8cb4d"
     sha256 arm64_ventura:  "e91b90491464708d29959aa00caa826051d989f6699429d583988b7aca57df6f"
     sha256 arm64_monterey: "ec888c0f9c57f7a2c8bff9d33d4fea03237bd53f6b78e0c50cc86a31b5281690"
     sha256 arm64_big_sur:  "f69a760f4e1a71c234314cd99c8f0773bee2e716bca904894e2e0c6d9202ca82"
+    sha256 sonoma:         "d0eaa9ab18ad860d36dd771d9ca11953000a732e4a4bdd342b87ee19bf55624d"
     sha256 ventura:        "5b644a5ecf5531d55f884f1fa5f946bc7b21480dc38e2a2cae1e1d9211899c2d"
     sha256 monterey:       "835b1767489be91a345f40c166ee40b189028a258ee44f5c695c9660123f17f2"
     sha256 big_sur:        "76c45ba72d1ca34050ab4ffd5f53cc560836a37a0f0ba96b434232368b9fa382"

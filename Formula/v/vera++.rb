@@ -7,9 +7,11 @@ class Veraxx < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "99507020d8491dc44e6404d4d2d859ec8f05270afd4aef8b75f5f1ebb04be413"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "70c7c8d7038196b5360a0c35c2d76545ab6c71c40e9d98cd5ccc5ef61a410328"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c71cdf0709dfbdcd7cf1628a500de2aa59d229a818f5bf265a0906a628b1d762"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fb1646c3a9cb8a0707a2674d546b6db25dcbea0fffd7461358c43247ae35ddcc"
+    sha256 cellar: :any_skip_relocation, sonoma:         "88fa0e8078500d31ca2a4b44d35847e0f188f8cb9c1b210e730da796138adc1a"
     sha256 cellar: :any_skip_relocation, ventura:        "4e2cb9ea3299ad6bd01536e167272eb9e8a90b8a1e90f70f0ad69c70075f0cfc"
     sha256 cellar: :any_skip_relocation, monterey:       "52eb0f8c9c1faee12df61ff3419d4a168c589fd05c2370f918a2b8e72ffb1d56"
     sha256 cellar: :any_skip_relocation, big_sur:        "f28290171b8cc68f972b3cdbf811c1491d4be7dd8307fe1551dbfbdbc38269ba"

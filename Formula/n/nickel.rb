@@ -1,24 +1,26 @@
 class Nickel < Formula
   desc "Better configuration for less"
   homepage "https://github.com/tweag/nickel"
-  url "https://github.com/tweag/nickel/archive/refs/tags/1.1.1.tar.gz"
-  sha256 "48f709d5c21c9961bfaaf7a1abc766fc62909afd249e8cd104f72d2a68df601e"
+  url "https://github.com/tweag/nickel/archive/refs/tags/1.2.1.tar.gz"
+  sha256 "c926dfab3077020cee306bc89078430c3a67c8f8351da5f2409c656e61d9b639"
   license "MIT"
   head "https://github.com/tweag/nickel.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "276e04824cb230e1be7d64ac60d7f3a0732735b3ba5fc42a8beaded9a618cbc2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "66c084ddaad46bfc65878b0bd644ca65ba24ddaad661dd812cf252ec8978b72c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "589a92efc3fc2eba9644e6636654b3f8d2c51d6889736ec123a49b22ac5fd6d5"
-    sha256 cellar: :any_skip_relocation, ventura:        "ed7ad80678db0458906fbdf386c8b33b80439769a74d0ce340943930715abab3"
-    sha256 cellar: :any_skip_relocation, monterey:       "67bfe9f283b334d266fc1ef7eaa2df92c3206247998a212f811acd0c350202e7"
-    sha256 cellar: :any_skip_relocation, big_sur:        "53298e2707cc986e6e443aec7b3ddda0d338270764de287b2745dff29eb17f79"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e4fe88a0b96556b6441986344140f9b9038cc25e0ffa8db26f8c6f3e7742cbe8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bc709abcaf3c23506389862245ca2599b0f44d822d93a2a4bddf0764bb470296"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ca6b99b92c323594068a064748187af6fb7bf3c56ff4b1b0ec8d6ec7d982c037"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "18e26f36f2f5da35ab647f81a382d9f403ed2c6e7dcaab215c0728a9e3aadf9d"
+    sha256 cellar: :any_skip_relocation, ventura:        "9beb56ccacd699224f97b7eda5af3c7456042e5cba28c6b76e53e42081da3700"
+    sha256 cellar: :any_skip_relocation, monterey:       "77a13cb97e3a08297216677ca3dbb008ebee97b9b0c5a70b1bc02f77e8bec2ec"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7b6025ff4a3472dd983f9bc9083f0990c150299abce4eebae98c8831716691be"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "01d017caf0e0b4717113c19d71b22049cb4a9d8daed63a22cf20533d04343bca"
   end
 
   depends_on "rust" => :build
 
   def install
+    ENV["NICKEL_NIX_BUILD_REV"] = tap.user.to_s
+
     system "cargo", "install", *std_cargo_args(path: "cli")
   end
 

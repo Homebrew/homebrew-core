@@ -3,20 +3,21 @@ class Todoman < Formula
 
   desc "Simple CalDAV-based todo manager"
   homepage "https://todoman.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/5c/18/25c3aa629d9894e2d4631385ea776414f29254936c42b4c5b6f19d228504/todoman-4.3.1.tar.gz"
-  sha256 "d03c73773ca108f59383f3d950186f8978e98ed9a9657e2c89f1f8bb1da6679a"
+  url "https://files.pythonhosted.org/packages/98/3d/db9427c5612c2ba2313b7782ee1f1e28a9c4995d54727d7e9ea23ab131ae/todoman-4.3.2.tar.gz"
+  sha256 "370aae24d2e7ff1ab377c26e38d13556aab917db83f9527c72abac9636fae628"
   license "ISC"
   head "https://github.com/pimutils/todoman.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "249b3ce30a69c54004e47f6b19fd9134bdae268d810541a159e46a1897302444"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c4684afd0c210682e18b315df03e15f5cb394cf0350b9e406e6c8f8da91d3072"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f050be3cebc464a42026921e4deec5c13c00edf539458f396c283d2e1c4655ba"
-    sha256 cellar: :any_skip_relocation, ventura:        "4237c8f8db82372c68303ffc669ff4805749e5d39e1c8ce0ffde2ef24ed70bad"
-    sha256 cellar: :any_skip_relocation, monterey:       "083b667953cb1c519e861f2d4bfe357e49c1c8f28ac5b2be93f00eeebe458221"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c0c2706ec89d18a213f45f038268dfe161802d6a8a1100a8ab048f5b04c14c8c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "10b2dac184cb3b0967d3c28c44d4ea9a932dabf88ccde7cd5e52db85ef637367"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "86b961abfd2932466d05b570bc1ac2109139425d3913a2543d950f89ded8339e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "aeef37c08213393f090663bf4636a23caf98ef876f93d4829e364138f62b41cd"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "182224eccaf1d7247af9ad47346e9f62a14ada31b278ea31317b8bc8e25fb580"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c4792c6c4ad0cac00a2f4b53c5fce8a31b9df75396010e3d890492a3d6e642e6"
+    sha256 cellar: :any_skip_relocation, sonoma:         "fe0dfb2d10800489b5982b83957a8a3d695209edddfdc77391096a136a59b8b0"
+    sha256 cellar: :any_skip_relocation, ventura:        "85f30f84a61cc4aa6c4945bc36a6be35fbcf201521c9c96a59a61674099e4df9"
+    sha256 cellar: :any_skip_relocation, monterey:       "268fb8a0aad8323a9ed5bdd7d63b786305675ab8688c9594e1cc15727de48ea0"
+    sha256 cellar: :any_skip_relocation, big_sur:        "44f0378b4008370549c045694ccbfd477ec714d3acfe28adfa9847e5b2b19703"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0b2bfd8d592fd663e3f8e7acc0731ae1926d6a3f4657041fb01b370850b11fd4"
   end
 
   depends_on "jq" # Needed for ZSH completions.
@@ -32,8 +33,8 @@ class Todoman < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/72/bd/fedc277e7351917b6c4e0ac751853a97af261278a4c7808babafa8ef2120/click-8.1.6.tar.gz"
-    sha256 "48ee849951919527a045bfe3bf7baa8a959c423134e1a5b98c05c20ba75a1cbd"
+    url "https://files.pythonhosted.org/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz"
+    sha256 "ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de"
   end
 
   resource "click-log" do
@@ -42,8 +43,8 @@ class Todoman < Formula
   end
 
   resource "humanize" do
-    url "https://files.pythonhosted.org/packages/69/86/34d04afc5c33a31f4e9939f857e28fc9d039440f29b99a34f2190f0ab0ac/humanize-4.7.0.tar.gz"
-    sha256 "7ca0e43e870981fa684acb5b062deb307218193bca1a01f2b2676479df849b3a"
+    url "https://files.pythonhosted.org/packages/0c/84/e58c665f4ebb03d2fbeb28b51afb0743f846db18a5b594ed8b8973676ddf/humanize-4.8.0.tar.gz"
+    sha256 "9783373bf1eec713a770ecaa7c2d7a7902c98398009dfa3d8a2df91eec9311e8"
   end
 
   resource "icalendar" do

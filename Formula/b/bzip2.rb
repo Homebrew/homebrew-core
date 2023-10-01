@@ -12,9 +12,11 @@ class Bzip2 < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f148a0cf9cec0d1711b5bd16c18047e0a9933acec37bfec30a182f29ae364577"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "52f70f97b2f8f2c6bc309e55970ed03ccd1b8110cf5f15fc16c2a930180a99f7"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bcc8f2e728b154d43e76e8e81f77e934d905b8868b7be69e3b9b40b5868f7c34"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "12f184d77bb72cc7d9278af9bd34fd74c610f7aa144559e2aa2d9f4a4b09bd76"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0aa9de4f40daf644d2c5745e35a20fac2babda8df0218e58bd471d0132ba8457"
     sha256 cellar: :any_skip_relocation, ventura:        "2cf2591f8865d9a806736a6f1b74f0905477b5520dd730f025aa12d4c5e0749b"
     sha256 cellar: :any_skip_relocation, monterey:       "fc4dd056738e20b1c850c6834405e27071a992f7671137306c1764c7c0eef350"
     sha256 cellar: :any_skip_relocation, big_sur:        "d222e089bf7b4ab714b150ad754cb76b88b548f57c4bdbbaa4857d6e0541a096"

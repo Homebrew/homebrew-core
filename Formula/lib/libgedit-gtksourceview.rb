@@ -7,9 +7,11 @@ class LibgeditGtksourceview < Formula
   head "https://github.com/gedit-technology/libgedit-gtksourceview.git", branch: "main"
 
   bottle do
+    sha256 arm64_sonoma:   "bee8929b92b732149a9dafd4318ab5fff3b0acea6947800b7fc600d8629ed3e9"
     sha256 arm64_ventura:  "e1b228a6b43a9a3f1cd43a2017014adc8d74b1d85973a490f1ddfa19c14497f8"
     sha256 arm64_monterey: "83f00a72e7e9d585ac1395b0b12eaf81d9af7ececa2dfc06b900e09a8f8f61e4"
     sha256 arm64_big_sur:  "b12dd1b65c18caba24db09b95fe0deba3300611adf3183a655410bd6ef03e29d"
+    sha256 sonoma:         "f802a8bb55d5b8ba316c14867f9ab5bde77dd67e9c4bad222d23e22ed6ad8e7e"
     sha256 ventura:        "f8d47b9883d1c2a1c45d7bed09494f7586f903a9fdd492ecea864a666ac389d7"
     sha256 monterey:       "571c6cad8255fa76875b1cf3a2de4c1b29bc96dbeed928710976985deb6a83f7"
     sha256 big_sur:        "09e06c5018304168b8a34636878fd67855ba2968023a1b0099e94ff4bb411089"

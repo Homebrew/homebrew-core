@@ -12,9 +12,11 @@ class Maven < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e8085eef66d6f9f1a0fbba4d9aecce516e325667a2b20ab9f089bc6d48c1ba6e"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e8085eef66d6f9f1a0fbba4d9aecce516e325667a2b20ab9f089bc6d48c1ba6e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e8085eef66d6f9f1a0fbba4d9aecce516e325667a2b20ab9f089bc6d48c1ba6e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e8085eef66d6f9f1a0fbba4d9aecce516e325667a2b20ab9f089bc6d48c1ba6e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "1c701e66dc691c7820d6bdcb3465a9713718148c8ffe918af7b5862fd0936d29"
     sha256 cellar: :any_skip_relocation, ventura:        "1c701e66dc691c7820d6bdcb3465a9713718148c8ffe918af7b5862fd0936d29"
     sha256 cellar: :any_skip_relocation, monterey:       "1c701e66dc691c7820d6bdcb3465a9713718148c8ffe918af7b5862fd0936d29"
     sha256 cellar: :any_skip_relocation, big_sur:        "1c701e66dc691c7820d6bdcb3465a9713718148c8ffe918af7b5862fd0936d29"

@@ -7,9 +7,11 @@ class Docutils < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2f08fe34b2bc93a4213c1e7c762b62a215f9d64d91841898ddac19643e2af418"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "86fb46edc7859129fd319ec6d63aa3bf29383fdb51f96aa3ef466f97b13ca8a5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7cdb9692e679f6f477986b265ce0cc47c32513067761aebd4b01accbd7bfdad4"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ab511781e0dda714dd2a7c6762bcfbd24cf31a40af63349607d8efd2d810a588"
+    sha256 cellar: :any_skip_relocation, sonoma:         "8375a10a9a25b5331ad55e7b0c0eebeed7a2bb2862b258a8d373fe8274353c2b"
     sha256 cellar: :any_skip_relocation, ventura:        "510eb4b5aa120cb0c6b3a3d11be6150ef5b52c1500225c0bc68263112a42755e"
     sha256 cellar: :any_skip_relocation, monterey:       "baef0621bdbcdbfbb2a3e407d54b533010f021a4b9f78a3e978e22ad0cbaf727"
     sha256 cellar: :any_skip_relocation, big_sur:        "6c6107d3abb89359e378110485db98076b41f6a08c36d7b2643efaaace94991e"

@@ -7,9 +7,11 @@ class Cloc < Formula
   head "https://github.com/AlDanial/cloc.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9ed6bb07c303e30311fac3c0ae3c3fade7e98c7a1bc6b52375981704ba8a91b7"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b86f2230a60a795cc2c73929ec55eaf8a229dc32102e78f8f3f89bfae66e67a6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b86f2230a60a795cc2c73929ec55eaf8a229dc32102e78f8f3f89bfae66e67a6"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e28712c9265e3ce00d1490ef5642a630e9db3d9d0bf5ce2b6cc9ee0b1ee63efd"
+    sha256 cellar: :any_skip_relocation, sonoma:         "999b461c68045268aaaf780d42648d5c4b8f33e4660d31addef7438e02d64b83"
     sha256 cellar: :any_skip_relocation, ventura:        "360f86ea4535f09afa252352769f437a7f33c69022d9a704977a27105aaf5bb5"
     sha256 cellar: :any_skip_relocation, monterey:       "360f86ea4535f09afa252352769f437a7f33c69022d9a704977a27105aaf5bb5"
     sha256 cellar: :any_skip_relocation, big_sur:        "7dc58a78ee07a69d1ef2abedeab7fd6ac0e355fbc46a06755617d18af44e79a5"

@@ -11,9 +11,11 @@ class Wimlib < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "f5984adc28077cc93b22414f1ca76b93869a57b69919c37af25d300b6279f1b4"
     sha256 cellar: :any,                 arm64_ventura:  "b87e344985107b0ae1ac3955e4e70c17f9a88239ceb097f11a7813896e10b76d"
     sha256 cellar: :any,                 arm64_monterey: "2cd14e22f6dba153fde1fa8801527e25718e242cf22f9d85805ba4f20e1874e2"
     sha256 cellar: :any,                 arm64_big_sur:  "765c802a6cca1c15272759ffa3ecc1c72603c2e22c2fd5aa6bf8bd0852ede6e2"
+    sha256 cellar: :any,                 sonoma:         "2e082bd22d649b16ed2d73b3e6724d86cc2360391e6421d4eb7bdcf1f24b7c3e"
     sha256 cellar: :any,                 ventura:        "7294142cc77f27cf8e85bdd6b14224bb51d25614dc998308b75ddea51a26439d"
     sha256 cellar: :any,                 monterey:       "8f20ed1089f5e899933a0f658dbb3c1d3b504d6d78a78d9afa7b971b9aafa776"
     sha256 cellar: :any,                 big_sur:        "421aa263f99e18307286e6a48fe36b4e21318f2b9065042c0e2e021d7ab00d1b"

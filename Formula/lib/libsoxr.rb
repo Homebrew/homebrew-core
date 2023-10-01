@@ -12,9 +12,11 @@ class Libsoxr < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "baddfdda71b784b3d94f84e9f7a1b8bcfec59762baddf9e3ccc67c19fb41cee0"
     sha256 cellar: :any,                 arm64_ventura:  "458c15f8d4dbe92d51959fd62662b275475c36f379581385681975fbba90c8f1"
     sha256 cellar: :any,                 arm64_monterey: "dd14558c84be8ea6b19408a9e3c59cb273b19334fb59220e8681315507d867ed"
     sha256 cellar: :any,                 arm64_big_sur:  "cf7ef980c9553756fa4b267b52e940566dc07b9aecbfea49180dbb2ebdeb433a"
+    sha256 cellar: :any,                 sonoma:         "00d2a5318828b9120aaa460510b5d23edee43f1e5db04cf74ba12a3908642d3c"
     sha256 cellar: :any,                 ventura:        "530b083606fb1bd4801d7364ba55607304c5c89696d82dcc8a7a5482d73f192c"
     sha256 cellar: :any,                 monterey:       "f1a61556ee8195d611cdf735cad6f36a841cf8ef66fe5e49030b8932cd73033d"
     sha256 cellar: :any,                 big_sur:        "616e7ec0eac9aa1322b9c32a1e2ba71ce18c36ee9cbfc854b43c77153006c142"

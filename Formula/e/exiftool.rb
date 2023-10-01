@@ -14,9 +14,11 @@ class Exiftool < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4cc5135fce9776fdf80db222c046fbc3ac47927a4379263ab28ccd60ccc84718"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a969e56b973c0d579c9e5bf0e0a8b18e67dd4f4430ea55874a53f8a073b1c2aa"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a969e56b973c0d579c9e5bf0e0a8b18e67dd4f4430ea55874a53f8a073b1c2aa"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e6971f757e7d376474c821f30747fc9ec8d5b80437c0838e31967167e2f94a6c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "1c62c1265ac44c8fa034f726d1a328416ea958302c8013fa253c0bb7b7815afa"
     sha256 cellar: :any_skip_relocation, ventura:        "7530b6e640f91294c223c2e97722145d91feea0917a6716daeee2cc5b888c1ae"
     sha256 cellar: :any_skip_relocation, monterey:       "7530b6e640f91294c223c2e97722145d91feea0917a6716daeee2cc5b888c1ae"
     sha256 cellar: :any_skip_relocation, big_sur:        "2ac32b1e64ec5de6a8d5f9b87d62424056c8024571f7219e59f8699abf72255d"

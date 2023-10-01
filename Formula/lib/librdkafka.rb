@@ -12,9 +12,11 @@ class Librdkafka < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "100c737517e945a58ff2ef71560b95f6aadbec649b2a186103784efe02346f8f"
     sha256 cellar: :any,                 arm64_ventura:  "91e98b17ca4c6bbee37a634e9cf3fd19f72ff5edaea5934c8fe8ee7c27c64654"
     sha256 cellar: :any,                 arm64_monterey: "2b27eb2e36a1eff3967c3fec07e0dbed6299411d998ad9b715494d1a8ae50654"
     sha256 cellar: :any,                 arm64_big_sur:  "35fb9a91ce202711c608a218cd6509794d5c1b4f2751eb800c0853d8efdcc00e"
+    sha256 cellar: :any,                 sonoma:         "fbe6b985f71b51c35e38426d03af34b913e50a446727eae289d06ce90e90e2db"
     sha256 cellar: :any,                 ventura:        "52f58b12803a20cff5a54b1e03a2ce67b5d78b7cd5f251ac92ae09328665e910"
     sha256 cellar: :any,                 monterey:       "5cefdf9907f2aa15ae227093ccf8ac92c857b1f090a47c49aaee8d8cbc2ba49d"
     sha256 cellar: :any,                 big_sur:        "eaef451b34672e75ec41814c889a7ca34fe1f90c6764a634e56a81ee9c58abc9"

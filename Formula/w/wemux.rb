@@ -8,9 +8,11 @@ class Wemux < Formula
 
   bottle do
     rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8b4c8f55ec38043e063fe00e73571d3c0592b02a6f4e505f088c36fddd66f2af"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d847810b075ffcc34b7d1ec081bc955bdeca349769a3b8079e08db3f9eb572a8"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d847810b075ffcc34b7d1ec081bc955bdeca349769a3b8079e08db3f9eb572a8"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "57909369808e5a5b85c118d3cbab8a5ad2ef9c5139102ee3bf934a53e0467b09"
+    sha256 cellar: :any_skip_relocation, sonoma:         "8b4c8f55ec38043e063fe00e73571d3c0592b02a6f4e505f088c36fddd66f2af"
     sha256 cellar: :any_skip_relocation, ventura:        "d847810b075ffcc34b7d1ec081bc955bdeca349769a3b8079e08db3f9eb572a8"
     sha256 cellar: :any_skip_relocation, monterey:       "d847810b075ffcc34b7d1ec081bc955bdeca349769a3b8079e08db3f9eb572a8"
     sha256 cellar: :any_skip_relocation, big_sur:        "977fdbcc9dcbb4a9d6149d043cd1ac3e5887421e76eee644d1e3703be1e111cb"

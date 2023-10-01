@@ -6,9 +6,11 @@ class Mkcert < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1801aa7c1c50a3f7a11d44cdf9e37a57da7cb7471d0fb495b7df40843b47858e"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "af89337b73c8d4bb20c0cdfeeaccc17b620d8badf39edfb06a8fb191ec328c36"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "caadb67940cb551fc16122dc0486cac6a0dc948ccbdf90a5ee75219d4a437fa0"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9529f010878e1b25e9e65ba68cb541e45878e09c65ad07c9e38090b8f9ed4383"
+    sha256 cellar: :any_skip_relocation, sonoma:         "192c46a98732881bdd19acd6da8799ad9a931dbb9b895d22408a8eb8539f822e"
     sha256 cellar: :any_skip_relocation, ventura:        "3bf38fc51225b8042bb2b7274dbf3c1deef6fc0a3db2886c9ab4fe6a8105b851"
     sha256 cellar: :any_skip_relocation, monterey:       "dedd5384a47f6e10702990d15787658cb33ae5c8f45a96869adcc4e0c730b810"
     sha256 cellar: :any_skip_relocation, big_sur:        "26dd205eb0e33469922e8fd3b1828e91b2dfa920c7ffc2cc6f48494fd1c23d07"

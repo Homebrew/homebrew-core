@@ -3,8 +3,8 @@ class Snapcraft < Formula
 
   desc "Package any app for every Linux desktop, server, cloud or device"
   homepage "https://snapcraft.io/"
-  url "https://github.com/snapcore/snapcraft/archive/refs/tags/7.5.0.tar.gz"
-  sha256 "93cf864cb9bab8614411ed97dcf6b5dfc1bd4cb1c2a7044960986da0c7695288"
+  url "https://github.com/snapcore/snapcraft/archive/refs/tags/7.5.3.tar.gz"
+  sha256 "3dd5cc59a2cb56e647e7906af7e2c9c01493d19c91132a8d0208a930449db650"
   license "GPL-3.0-only"
 
   livecheck do
@@ -13,14 +13,13 @@ class Snapcraft < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7a62beb10661810d9a1175e40a719582ccc046db2238c4d1df5c67560a413213"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "064a3907ce17bb52a54e741e75ac915457332de2a1c7837ae1ebb54a9a1fa753"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ea6e6f9c6c624c6e48dd30a30b6bd90744e4d8683ba89975850be3bcbb0e2e4e"
-    sha256 cellar: :any_skip_relocation, ventura:        "b7ec1e5346b7f5454bdc2a41eb6c0dc8ac407d66e8bfaa9369e391f9ff805d3f"
-    sha256 cellar: :any_skip_relocation, monterey:       "9becb4cc1c421c2e42ba45b9a1e717a79fb8bf28ff1478434c3374307c2dce94"
-    sha256 cellar: :any_skip_relocation, big_sur:        "60dd27d2eb821d56ebb63926c757b341b5f4479f676b1ad7d5f3a9e665c0412f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "29543f64a9b7d0ddd06ed402920d18529ae22ed57978ba293a3c32e1884036bc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0ff895e7a90a6be42c4d4f4cd1e4edcffad53e0c3ff65e6e1eaeea6431bb3a69"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a15282289b9f9b7737e50815d9c3bb433b6dac2f8d902a7e383d107f7e20637d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1a100c13e4b29f316c8f6bf550a79657a0d1632bb8214e23fe31025ccb6fa522"
+    sha256 cellar: :any_skip_relocation, ventura:        "e9c5d796b3da4f83630904ebc6c0fe646062b7f77b41cc825b66a729ecde668e"
+    sha256 cellar: :any_skip_relocation, monterey:       "d942f1382a4dd1b8bb09985379677bb2856d47af9d22e390c29b56dc33d6c0e4"
+    sha256 cellar: :any_skip_relocation, big_sur:        "2a4758889bc7a5640a201f80320506fa07cfbf72c5ae4f7ee121e742595fadd6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c93cb067079d80a7d97176205db6687661b2e0fef844b65ed93e8d46e4b84dc0"
   end
 
   depends_on "libsodium"

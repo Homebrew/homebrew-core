@@ -8,9 +8,11 @@ class AnsibleLanguageServer < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d3ce4f46a6a3768999ab20d8c97877fec96eadff8b4d0895b61870db69f65fdb"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "60fa43eca628baf765c7985e3e628660f3f61d8ae6666f9a80cda4e7fae65286"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "60fa43eca628baf765c7985e3e628660f3f61d8ae6666f9a80cda4e7fae65286"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "60fa43eca628baf765c7985e3e628660f3f61d8ae6666f9a80cda4e7fae65286"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d3ce4f46a6a3768999ab20d8c97877fec96eadff8b4d0895b61870db69f65fdb"
     sha256 cellar: :any_skip_relocation, ventura:        "60fa43eca628baf765c7985e3e628660f3f61d8ae6666f9a80cda4e7fae65286"
     sha256 cellar: :any_skip_relocation, monterey:       "60fa43eca628baf765c7985e3e628660f3f61d8ae6666f9a80cda4e7fae65286"
     sha256 cellar: :any_skip_relocation, big_sur:        "60fa43eca628baf765c7985e3e628660f3f61d8ae6666f9a80cda4e7fae65286"

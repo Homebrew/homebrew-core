@@ -12,9 +12,11 @@ class Cfonts < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "693eb4afaaa9482b6a3d1f34829ea3964d5271e974fd701566fbff0a99b8260c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "36c04978df055ae08b4864d55033773dfd81f73d27ec683815ee0f20a420f5e2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "eb1d6471019040416b3bf478c5cbdeecee74bc27f338c350e8d00434bba29592"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b2337a3e30821276afe9fe0a540826d473327cfe7d4fbdebe0acd7f4b41ec959"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3711fcd07e51115edfef7d14434df31833810f838d870c78cbfece04e4db7bfd"
     sha256 cellar: :any_skip_relocation, ventura:        "48a09335d873f511455b92a20429159a1c47d27fdb169a5e96122c3cda94a98a"
     sha256 cellar: :any_skip_relocation, monterey:       "9dad9f65821401be63d05299587e420ff798e30b3c51574f3cac5f5efa23cf8a"
     sha256 cellar: :any_skip_relocation, big_sur:        "40ae326a290c7c5acb24160e90a747b25d324171f553160bdd0f2c64814b73d1"

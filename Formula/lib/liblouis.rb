@@ -1,18 +1,20 @@
 class Liblouis < Formula
   desc "Open-source braille translator and back-translator"
   homepage "https://liblouis.org"
-  url "https://github.com/liblouis/liblouis/releases/download/v3.26.0/liblouis-3.26.0.tar.gz"
-  sha256 "ca9446c57fbce16a856f99a1abf69ae2e8671d4d8ab44cfb353bb651a820b73e"
+  url "https://github.com/liblouis/liblouis/releases/download/v3.27.0/liblouis-3.27.0.tar.gz"
+  sha256 "b3f1526f28612ee0297472100e3d825fcb333326c385f794f5a9072b8c29615d"
   license all_of: ["GPL-3.0-or-later", "LGPL-2.1-or-later"]
 
   bottle do
-    sha256 arm64_ventura:  "8e27ca6da922c6ff1ea36af27d9d8a0a24d7d5f00b9743da9b9547dac8117ed2"
-    sha256 arm64_monterey: "4dcc704a4b92219200e4a3ae2b324a9f22c8da9bab4531afb3b20d1ef26914f8"
-    sha256 arm64_big_sur:  "53b9468532da8a619b1b9c85e20d6a8c134af1429e5209756c6ff1d6abd142a5"
-    sha256 ventura:        "8e8641750034e91abbbb806b7f6724cf15a0a15d9e0fe4dfa6d256d45b97d894"
-    sha256 monterey:       "fb0bfdfda6bb39d3d89c66109510a5f9bbb31acc26e5e0fedb29de72c8f605c0"
-    sha256 big_sur:        "cac423a01faa175a39b03f678da7c07d4cbc3846b08bb4ad6ef34d31410af600"
-    sha256 x86_64_linux:   "6bc0e47d9ef9a869f7a4cdbcc32efe997f927c2171fda117ef3e9865a51be857"
+    sha256 arm64_sonoma:   "b8bc2f5b10cc8bb418fa034b81ed0d837cc3e55472f6076a20c774c50e5732ef"
+    sha256 arm64_ventura:  "bd240e5b397f040b30aa68f514c1e8deee14959a5b06a9360f87e1873ab25e67"
+    sha256 arm64_monterey: "0060690874f38c4d04e853552d882591ef2d5310581ad03831e71d642f2f05a3"
+    sha256 arm64_big_sur:  "4f04d92c24beec33b12a966468ab01fc8de410a751987e0487cca9e4d167d022"
+    sha256 sonoma:         "f74ee56feddde5772c978bea32d9f857cae308ee39014a8dd4b333b201ddb138"
+    sha256 ventura:        "9876886d488f59a8267f6e24624c36e946f6d6260fe967429bf649ad0295274a"
+    sha256 monterey:       "64129789d3d26cb99f874e2ff843aa2bae7ff9343c8270517a0e98126238553b"
+    sha256 big_sur:        "ea73a854ace1c3f1c88e5189634983da9df8e8d81d0686ba1303206406bae085"
+    sha256 x86_64_linux:   "2aa0d2c13df07bad053701a984127635321fe00a55a841bfe6cf010845c83485"
   end
 
   head do

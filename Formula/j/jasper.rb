@@ -11,9 +11,11 @@ class Jasper < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "92303ee08d9befce41cef1cdb4d5e1e2069e402c1c4555a84694c1c3ab803777"
     sha256 cellar: :any,                 arm64_ventura:  "a24af85ebb8fadcbbb9be24fbc7c715fbe31441a768f1094e066e6056631424c"
     sha256 cellar: :any,                 arm64_monterey: "6c01e7edfbfeb8d423495c13926294f756069c713acc6a847c52ce75a1598833"
     sha256 cellar: :any,                 arm64_big_sur:  "58cb808658f93bd80b37bc1926a42ed7dd5bc8778c30693d6631d88dda2d701d"
+    sha256 cellar: :any,                 sonoma:         "5cf575f68ae4501ff7b7f52c4932c20a47c46b0a5d0fe478dad7388c4cad615a"
     sha256 cellar: :any,                 ventura:        "24dd3e8e090217621d776b310930468b92e7fb4ce1af7c1971103102aaac452e"
     sha256 cellar: :any,                 monterey:       "81f52cc0adf0bfaf6d5274fadcba9483ed52ae814452af22147709f111e2b4ec"
     sha256 cellar: :any,                 big_sur:        "637581823b9568caaa9eb6ddfc59d469c7ec1968c0ef3feab9e3d93a36e0bca5"

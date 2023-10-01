@@ -6,9 +6,11 @@ class MesonPython < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7a0dcc96cf247366a8730939f148d65340b578ecd3ae9e2a51a7070e2eb73e4f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "bd3d3b4c2a81a73c42920a22618d9f1a369b903caec4e7913e8ed0f9cd30c53c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f6e91d3cae06f6b404ec82692abecbc5e80b91bbfe1b3033372e53dbb11455da"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e59e0b0f444a63c3878fb38aadc97d962396653b987c7b9f7548d8cf9589ae23"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a8501b69ce63146e01392ee4b3ab76736121d6be8384d08f53b8953a722b3e63"
     sha256 cellar: :any_skip_relocation, ventura:        "59c8ead60df5be007b22238417b54081e9cd86f11265ed8bc88c423dfa7db44f"
     sha256 cellar: :any_skip_relocation, monterey:       "70ca3ff7fed63ac1d0786f89d642c4af5d2856a44832cc84b20aebcf2d038f1d"
     sha256 cellar: :any_skip_relocation, big_sur:        "02fd596cde092e6dbcca4739252742897d0548bb7760e1df1efcd9929fa0a561"

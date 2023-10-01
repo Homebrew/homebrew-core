@@ -11,9 +11,11 @@ class TransmissionCli < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "a5e0adc342e7c70559adbecd5f68eb5c946876d2d53a11c09cad662fe90e3178"
     sha256 arm64_ventura:  "2d18e18ebe86099c28f54e52b65298dee08c2b15e27e5da55d9fc22d48d8fb5c"
     sha256 arm64_monterey: "c091904f20f6900a2d7a5d6961ed8f0395df55fc6850a37fdd613df687ac866a"
     sha256 arm64_big_sur:  "0ee9fffb0688c0c17032d523ea259bc1f764ca8a76c7f45c74264a9c0a2fa892"
+    sha256 sonoma:         "5304b0435041fd298637af0a125ce27e258ea40179f073fc99d951e4d5ee9e34"
     sha256 ventura:        "4119abd510ecb09ae2bb8d6f219a9bfd184646828311ab0e0376faf6c1881185"
     sha256 monterey:       "6385516eca0968a00d70e0260a474255d30ea7b27dac220f57d1e1e31703bdf4"
     sha256 big_sur:        "bdcae7f5ce8d74ae62e0416b391b554a8ba437d3bc376be3edb501164706905b"

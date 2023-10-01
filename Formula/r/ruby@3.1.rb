@@ -11,9 +11,11 @@ class RubyAT31 < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "183db7a989d3f4e89b1f9c6100353decf2845659b3d86084162b09c0d4db6a36"
     sha256 arm64_ventura:  "c35d7d1f6307180afcf8cf95ffca3849353ed8b9aebe7da7b90d1df616f5ad75"
     sha256 arm64_monterey: "22efcfab9ccb16f4787f62b1fa71ca2326b180d74ba6a2ecec95664c81a2478a"
     sha256 arm64_big_sur:  "e5f4f7d69136dc0eb5e61bca1e0864ce824484af648a533277ac26e69162881f"
+    sha256 sonoma:         "0500d9838d5e7fd2d3c7f0e0dcc10e6cb3d4094257b4662298df4e0af880e7aa"
     sha256 ventura:        "4e6bc850a4fcb9effb8ac61512f1c584937fc1016c60aa97414496843b3f88a0"
     sha256 monterey:       "67342bc95cd818602a704d2a90a8a79a4c100107128dc08a4ff3af4376ad6c11"
     sha256 big_sur:        "0c46bd1ac4b698213d8b513d19bcd54fd5715586a88741646209851f4dd6e290"

@@ -12,9 +12,11 @@ class Tnftpd < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "33896d91e960911fec5efd488c68df6601752ac054d2115c423155a6ac37ca8a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "53205e6fefc86a25914875481cfdcdf489ca3a080c4ffee53a1ef8565a108f6e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3f3744dddab0c9c5e6384b45925b7e97399227c9516c6befb32d6cfde89360a0"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "da16904f59892ebef30355ea2dbaf1a0d5d6fe890d30c65b7d7f82992e4bc0de"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3be65090a588a4db3fe5376683de0c8bf502f808230a689110f99fd26c2e1594"
     sha256 cellar: :any_skip_relocation, ventura:        "924e2c3866d9b7361b0a4c5b5d65f4c740e01e43d7ccad70035ab38fbf137e3f"
     sha256 cellar: :any_skip_relocation, monterey:       "cbecb6b4eb8a376217311ccafa6588b20839cd256ca6c997af2632cb41d04a05"
     sha256 cellar: :any_skip_relocation, big_sur:        "05728c1edd46c07fe6e19d54094d53dc78614cae7b04320794a9e4ba43dad099"

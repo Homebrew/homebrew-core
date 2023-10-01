@@ -4,16 +4,16 @@ class IosWebkitDebugProxy < Formula
   url "https://github.com/google/ios-webkit-debug-proxy/archive/v1.9.0.tar.gz"
   sha256 "ba9bb2feaa976ad999e9e405d8cd8794cdf3546130a79f4785235200ead3c96c"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://github.com/google/ios-webkit-debug-proxy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "98a52dee813f9b7cc3bb923f01229d5b11641e18562f22ef52e96e2b248bbb6b"
-    sha256 cellar: :any, arm64_monterey: "5268a6ef7b32c2cd9d88e35e9e5667a7127258dd23c22a824e74bd4487e686fb"
-    sha256 cellar: :any, arm64_big_sur:  "3d693f91e25d8b165037afcbc36e14d8d54c8317bd01c770e5077a0ea4a0e72d"
-    sha256 cellar: :any, ventura:        "777efb32172aa98ef7cde6fd34107cd7fb42f132e12c8595bc2d5ad1c674e217"
-    sha256 cellar: :any, monterey:       "e17aec779a16ba66f75eb9bbbc76db078192ee15b5f87490e2ccfc54f699d4c8"
-    sha256 cellar: :any, big_sur:        "df411040e0e3babe6a487de5930b3ed7387610d1673ee42679780a34f72f3557"
+    sha256 cellar: :any, arm64_ventura:  "2e15e2507a76e76bac5b808e5a312dee84534081d3b61ed9b0e6cd6064de41d7"
+    sha256 cellar: :any, arm64_monterey: "6e2de52a77bb737e611b61efcb6a3990daaa177f1b464e1ca9aa6bb067f6b10b"
+    sha256 cellar: :any, arm64_big_sur:  "cb9b1101f02036e9fff4bd42dc85184726f579f8781ae77b5ab6f63a4e8e0318"
+    sha256 cellar: :any, ventura:        "318c0dc88e175fea4de51f1d34c33fd28547d8cdbc13530fece81069ef3d8181"
+    sha256 cellar: :any, monterey:       "0380d81a70ec66f0cac1c1c86a71dc82a3d93fbfffbba49ac5435389855dd508"
+    sha256 cellar: :any, big_sur:        "07ebc21b39e195a83a93240d74432e882ca31618b4efe9805c39da194035271f"
   end
 
   depends_on "autoconf" => :build
@@ -24,9 +24,15 @@ class IosWebkitDebugProxy < Formula
   depends_on "libplist"
   depends_on "openssl@3"
 
+  # Patch ios_webkit_debug_proxy to work with libplist 2.3.0
+  # Remove this once ios_webkit_debug_proxy gets a new release.
+  patch do
+    url "https://github.com/google/ios-webkit-debug-proxy/commit/94e4625ea648ece730d33d13224881ab06ad0fce.patch?full_index=1"
+    sha256 "39e7c648f1ecc96368caa469bd9aa0a552a272d72fafc937210f10d0894551e6"
+  end
+
   def install
-    system "./autogen.sh"
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
+    system "./autogen.sh", *std_configure_args
     system "make", "install"
   end
 

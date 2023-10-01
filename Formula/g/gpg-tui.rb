@@ -1,18 +1,20 @@
 class GpgTui < Formula
   desc "Manage your GnuPG keys with ease!"
   homepage "https://github.com/orhun/gpg-tui"
-  url "https://github.com/orhun/gpg-tui/archive/v0.9.6.tar.gz"
-  sha256 "ee07347b1a354b39449ed2c1c97acb719c7d35d914002ba1ebaee0ab6e49bc85"
+  url "https://github.com/orhun/gpg-tui/archive/v0.10.0.tar.gz"
+  sha256 "838a8f29acb646bdfef7e8efcd1d6c93ccd69b0e491e5fa855df779a75122fe7"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "c129d514014a9e0e9644f32c90db2739254411effce254e13a128b31a32cedb6"
-    sha256 cellar: :any,                 arm64_monterey: "6de667ecfdcc716c863c1ccb9d5c473115cda024e14f93e750acc452175e9bc3"
-    sha256 cellar: :any,                 arm64_big_sur:  "6307fff5e450c615d843cc85711da3917cc36e06286f3236f85f0e59f7aa2fee"
-    sha256 cellar: :any,                 ventura:        "a528cf1a064bf1713c1ce1856d8e39651fb22301e72ff01ff250e2aed0447c03"
-    sha256 cellar: :any,                 monterey:       "7c0bcb664bc722f707c9eae864d6377cad12ee6a2a50d55ed4304899a54b7598"
-    sha256 cellar: :any,                 big_sur:        "43bf620f0b82f5f066e784b91b561287299495e6de364ec25edf00d2d73a45f5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e67a24c19e69b98a14c90afafa6f1d4da2f50c53b376808bd20effe1e6711da7"
+    sha256 cellar: :any,                 arm64_sonoma:   "ab9421f69bd3e3465ec5cb65f87546c9be73c60a00e5c37270a0002a37613ab7"
+    sha256 cellar: :any,                 arm64_ventura:  "c03a2c158b662d2d9768228a5f97f254df958800ddc84fe0c054c24ad3bc513e"
+    sha256 cellar: :any,                 arm64_monterey: "ccffe6ab3a46d71ac8d5c6e9034f66116ef86ddb2276eaa0a59f5365c3a1beb5"
+    sha256 cellar: :any,                 arm64_big_sur:  "9d60fd0875f85f67665eba2d2faf5e30580d30ea06e1f8695d28b6791139f1b0"
+    sha256 cellar: :any,                 sonoma:         "279176f05e9e62b09fa6b246f74a861298d42f4fdf61c01ec5ccc657ce8b8f29"
+    sha256 cellar: :any,                 ventura:        "2cc05f7d7aa2c3e2a70690ed1a20625703c0dc21ea14d7b749623503823c0eca"
+    sha256 cellar: :any,                 monterey:       "b322b66b2601a8b9ed4a5535cdda09f8e8a20f061259cdfc274b1b9e68b5e527"
+    sha256 cellar: :any,                 big_sur:        "96d36468b9a5f0c6cb608b201873e79a81534234627fe903f1916e18200d4e94"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "050be7f81cd6acc614fe80d704910eafa558b1d1bdf89028163fd5a0ef213ae1"
   end
 
   depends_on "pkg-config" => :build

@@ -6,9 +6,11 @@ class Apktool < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "602be1a15bab5d61bd0723ca657dada6d1fad0e0049ef555072ae2e896f48fa2"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "602be1a15bab5d61bd0723ca657dada6d1fad0e0049ef555072ae2e896f48fa2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "602be1a15bab5d61bd0723ca657dada6d1fad0e0049ef555072ae2e896f48fa2"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "602be1a15bab5d61bd0723ca657dada6d1fad0e0049ef555072ae2e896f48fa2"
+    sha256 cellar: :any_skip_relocation, sonoma:         "602be1a15bab5d61bd0723ca657dada6d1fad0e0049ef555072ae2e896f48fa2"
     sha256 cellar: :any_skip_relocation, ventura:        "602be1a15bab5d61bd0723ca657dada6d1fad0e0049ef555072ae2e896f48fa2"
     sha256 cellar: :any_skip_relocation, monterey:       "602be1a15bab5d61bd0723ca657dada6d1fad0e0049ef555072ae2e896f48fa2"
     sha256 cellar: :any_skip_relocation, big_sur:        "602be1a15bab5d61bd0723ca657dada6d1fad0e0049ef555072ae2e896f48fa2"

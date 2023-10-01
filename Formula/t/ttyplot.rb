@@ -1,23 +1,23 @@
 class Ttyplot < Formula
   desc "Realtime plotting utility for terminal with data input from stdin"
   homepage "https://github.com/tenox7/ttyplot"
-  url "https://github.com/tenox7/ttyplot/archive/1.4.tar.gz"
-  sha256 "11974754981406d19cfa16865b59770faaf3ade8d909d9a0134dc56e00d29bd4"
+  url "https://github.com/tenox7/ttyplot/archive/refs/tags/1.5.tar.gz"
+  sha256 "c494c31e7808a6e3bf8e3c399024b9aeb7d77967db6008a62d110ad9ed1b8bec"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2aa30c7f0765b8a9eb2bfd3d56e2ed0c50a93f8deddc884eab1a2984b3b27cc6"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "87a224c655b39dc35f8467b724f6dbce85752ce208ff793a05073bc94ca6e110"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4283b097475510418957e8bfc92b952f6033e615b4b805ec76df7e80c59c9209"
-    sha256 cellar: :any_skip_relocation, ventura:        "b640f1300a6b7ce6e97d9c4357fc9049e99f5d398655239d60f4e0122e85553f"
-    sha256 cellar: :any_skip_relocation, monterey:       "6491a1d546da726daaf3c87c4bf61885bd66abcd03bc2a42899a03f3efdd01f7"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e2076fd6d1c3921d941d143b49e41a75c1a8fe7b46e640752a7abffb94b92aca"
-    sha256 cellar: :any_skip_relocation, catalina:       "760b571d2cc940c6a1ad14655f2e2c0cac4aa64dea8e63d37454528cf969d8b2"
-    sha256 cellar: :any_skip_relocation, mojave:         "b31388536afde7ef669c334f520e73f95ceef82d0c9f73f5390a65d13d3235ef"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "6d01769af5216ac128e8cb9a0a55397959594fa8f20fafcf65780db4b66ac090"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e786cc0a83fc20c09842a6fb7b411504ab45e85c7714e63afc31408eba5ede5b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c24df0685dc076f14dcd00fa961d3c6c6a446a221271a069631c6daddc3d1aa2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "767a44e685f2079d82454f7a4e7fc6d56d6b402f3a82df88ef00989d9b31098e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "863baa45ba7f5ab1aad586332f76c91fc6210bf6dc6ceb1af7d40a5cdddd7f6a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1a39bab7eb01b6f56fbfbb48f519a1bcc15ec1eedbf72197572aa55913fb11cf"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3103a2439ec90049b6945544b76e094809b3e6cf82ab42c1510775c7f5322c9e"
+    sha256 cellar: :any_skip_relocation, ventura:        "39258c0803f33905e7ab7aa5a76f3192fcba5b15f955a7b7e7a27ce9e5e45bd5"
+    sha256 cellar: :any_skip_relocation, monterey:       "bcde373e4c5603d06be8fae27214d7869705e2bd419961e3d056160b2833b246"
+    sha256 cellar: :any_skip_relocation, big_sur:        "987e9fa6aa9238163f994e245c1c2004faba72ec110a09cc237b5257cc5dbd1a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4b2c7594e230dce7c24a66d6745d0be3bb6d137b2ace6da15447f97939460ccd"
   end
 
+  depends_on "pkg-config" => :build
   uses_from_macos "ncurses"
 
   def install
@@ -26,9 +26,7 @@ class Ttyplot < Formula
   end
 
   test do
+    # `ttyplot` writes directly to the TTY, and doesn't stop even when stdin is closed.
     system "#{bin}/ttyplot", "--help"
-    # ttyplot normally reads data over time:
-    # piping lines to it will just let it start and immediately exit successfully.
-    system "echo 1 2 3 | #{bin}/ttyplot"
   end
 end

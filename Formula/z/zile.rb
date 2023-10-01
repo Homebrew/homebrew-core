@@ -11,9 +11,11 @@ class Zile < Formula
   version_scheme 1
 
   bottle do
+    sha256 arm64_sonoma:   "ddb2671d7631144a74ada4803e49ebdf005f6d46a3f0cad1f088fdff076215e2"
     sha256 arm64_ventura:  "1268429ea4818cca64c876e674d4995fc7d04712b7830c846d0132bc3fabf965"
     sha256 arm64_monterey: "2fbea44ef3130aff7733469b94bc24e75978bdb5cf8858e848a9bc23c1ddd97e"
     sha256 arm64_big_sur:  "2975be9af2cd9d330bcf85dc81f9f74b2f30d17972e987db3fd225212b0483ff"
+    sha256 sonoma:         "c8fcd40bc3bd5b5481aca14a25b7f0b72fbd3d02cb53fb13c50061d380c4cba3"
     sha256 ventura:        "115e3fd1f729eaa56b32f2ca64b7d9c6835643692f6a8ed73940f9ff2b09e08c"
     sha256 monterey:       "dfa880a340b349ada0e41f391743c4a9ea15f012e89d29695ae3f2f8c6da24ef"
     sha256 big_sur:        "128190a766b6a418d57718f597e33502b381ee1441b01edb35396fc486196665"

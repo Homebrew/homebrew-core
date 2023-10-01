@@ -8,9 +8,11 @@ class Sqlparse < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "487edf1d4aa3594d4210812e94b6be8cb8a6f1f5895d78d3e8af67965a7f111c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "084a2b2ad8c942fe98a7dfea12cdeda157b17a5e6439969e216565149cbf37a1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d1c4098779ea36edae5857bf130c0f4836bcfe1efb36d3e83e70f8974403e8ef"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8edad2fd0327cb6d3b25b6bbf38558a3c4a4802dc5347da50e60de26f9c84970"
+    sha256 cellar: :any_skip_relocation, sonoma:         "52dcaecf1102c74154d89704c248eee9d53630da60b50ff75df3cbd3891d6d12"
     sha256 cellar: :any_skip_relocation, ventura:        "ae738b6902ac2ae44ff3ab0bee457298063bf5d5967c437a9604efac0002a010"
     sha256 cellar: :any_skip_relocation, monterey:       "8fa4b52033e8c4a8f4a879a51846afc8676c7267c0893634e4de2830b6144cd8"
     sha256 cellar: :any_skip_relocation, big_sur:        "9c6f73bb218836ebbdb651c4ef436743818b99303a42bbca54d31409e5033116"

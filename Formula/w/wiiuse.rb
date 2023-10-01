@@ -6,9 +6,11 @@ class Wiiuse < Formula
   license "GPL-3.0"
 
   bottle do
+    sha256 cellar: :any, arm64_sonoma:   "89b2a0507c72e01683faf6db14e7cd789ff1d190c7fbb14e5fcffd35363a7387"
     sha256 cellar: :any, arm64_ventura:  "b461bed6e6dd3ff0d1cca716383ec8355ce802c29a15eb1a063f7592780f519a"
     sha256 cellar: :any, arm64_monterey: "ea877bb14b706754856ae4b7a2192bc15c3ff8036ad4953d626dbcbe67a763fb"
     sha256 cellar: :any, arm64_big_sur:  "10407776ee12bc410143a63ced0de46badb10b4f9bb4af8fdadeb2501bac8f38"
+    sha256 cellar: :any, sonoma:         "7ddb6da1aba2fa900e79f460d15048de3e63ed3b776e43dbdb5d1d337dd154f9"
     sha256 cellar: :any, ventura:        "e401fed16b71c5bee6b5a4b29a469cc4d2b68c8707b8f7d16d13e1846b804eb4"
     sha256 cellar: :any, monterey:       "1b80ae72844ad7197be6cb903f8a001c88a02d9e235cc6f77c293acf6bd4c78c"
     sha256 cellar: :any, big_sur:        "3bba847f421a4b946c07adc4dbbf0862e46e6fdf9c8e779e07fa6afd1364394a"

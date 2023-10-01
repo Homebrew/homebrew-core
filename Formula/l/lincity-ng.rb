@@ -23,7 +23,7 @@ class LincityNg < Formula
   #
   # Support for SDL 2 in HEAD but upstream hasn't had a stable release since 2009-01-25.
   # Ref: https://github.com/lincity-ng/lincity-ng/commit/d35c3bee434900deedd610b7b08a9bd8504e4c41
-  deprecate! date: "2023-02-04", because: "depends on `jam` to build and uses deprecated SDL 1.2 formulae"
+  disable! date: "2023-09-25", because: "depends on `jam` to build and uses deprecated SDL 1.2 formulae"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build

@@ -11,9 +11,11 @@ class SeleniumServer < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4a8de811c0a5922437f34774efbdd77559d6f26c48aca4ac97c7925b5faa09fd"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4a8de811c0a5922437f34774efbdd77559d6f26c48aca4ac97c7925b5faa09fd"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4a8de811c0a5922437f34774efbdd77559d6f26c48aca4ac97c7925b5faa09fd"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4a8de811c0a5922437f34774efbdd77559d6f26c48aca4ac97c7925b5faa09fd"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4a8de811c0a5922437f34774efbdd77559d6f26c48aca4ac97c7925b5faa09fd"
     sha256 cellar: :any_skip_relocation, ventura:        "4a8de811c0a5922437f34774efbdd77559d6f26c48aca4ac97c7925b5faa09fd"
     sha256 cellar: :any_skip_relocation, monterey:       "4a8de811c0a5922437f34774efbdd77559d6f26c48aca4ac97c7925b5faa09fd"
     sha256 cellar: :any_skip_relocation, big_sur:        "4a8de811c0a5922437f34774efbdd77559d6f26c48aca4ac97c7925b5faa09fd"

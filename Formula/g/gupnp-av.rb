@@ -6,9 +6,11 @@ class GupnpAv < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 arm64_sonoma:   "b0c78d7e0bbfad95966229cf39e650db5da0d3673a71b56658f894110514b761"
     sha256 arm64_ventura:  "33af0c7369b538b76818cbbb1df0fc5bd698036cd1a6e30d7c12d307defa0540"
     sha256 arm64_monterey: "2bf2c5d017d82c6e5564d9568440e2eddfc93263adee2e764aff9665267048ec"
     sha256 arm64_big_sur:  "ca281e73715c56efb4f8903c5cba976180890796136177b6907bd83651ef1ba0"
+    sha256 sonoma:         "268b351750330b05f84598d0308869bcb97aad97d9d3661cfaeecda3aa940e6a"
     sha256 ventura:        "10f84e50d875ab9aeda5ef4a744db153cc20488f8d0fa459c286c620b16cc367"
     sha256 monterey:       "9d57d74084ca05914aedb3b3c7315b29a0cf1161cb6f90371a6d438bd4630d76"
     sha256 big_sur:        "5535428dcd1ec5bc06921b6d8abec7e94351aebcb3d513382720aacd06360f21"

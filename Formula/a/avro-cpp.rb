@@ -7,9 +7,11 @@ class AvroCpp < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "c4d56f71adcff72a88f4ef6f20d023676fbcad8e495bee1d306d1112011610cf"
     sha256 cellar: :any,                 arm64_ventura:  "b3f08fe9f4adb2c7d738375b67bf7e8714e0545f6f06aea7e3dcd71e5a063056"
     sha256 cellar: :any,                 arm64_monterey: "59974b029bc5ddeb8bfda48c65654a4234eb93da7a906550bfec01bc0f0ca17f"
     sha256 cellar: :any,                 arm64_big_sur:  "ff389dcf51bea64a046460954b87aafd3c8aae34a91f0aa6abe5195fe7497b9f"
+    sha256 cellar: :any,                 sonoma:         "e33df9230b9b861a3dc68402c0f42b2a72a8ac6cb866bf37f2f1423d93a0df89"
     sha256 cellar: :any,                 ventura:        "4b716a1ad09b16035c828d56009ba448f5900b8f5d45b1a1203cb187f4915d73"
     sha256 cellar: :any,                 monterey:       "7cfdaa40cb85377a7381c36156c9170b0e9d73c74f2e9e21b6907a10d71ba4c8"
     sha256 cellar: :any,                 big_sur:        "6d8c3060dc59bf18609c4460083ce0e249667841c167729fbbc78cdf849248fe"

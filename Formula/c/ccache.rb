@@ -7,9 +7,11 @@ class Ccache < Formula
   head "https://github.com/ccache/ccache.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "b9e31cd96e0ed3288cae78824d32a201b9e37e785b2b534f3b09faec2e2ccd6d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "371bd659fedf0bceefc9ef96c603dbd97b8693b6cd5a834809c1002cc686aba3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "19cb0b1f655853869ddeed86f8e43c16c573c787edc631b22e4ddcecd70a9184"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b6a32003a33a5af8012f6a1fec179e749fa34161c218e51ca652cf2314b7f942"
+    sha256 cellar: :any,                 sonoma:         "c5ff1168bed9f2ed61ffb1bb4fccb01975c9df681b92ad7e6e6695379bc23cea"
     sha256 cellar: :any_skip_relocation, ventura:        "1df6f46e991a75509275fb6122e280b00f54b57a878bdbc544dbbb25882b4e28"
     sha256 cellar: :any_skip_relocation, monterey:       "da2b6f9797ac54a361840266486209e8b774660ae725a007fd1e9b8a2a4c71f9"
     sha256 cellar: :any_skip_relocation, big_sur:        "194ab3578dacafde140ce31f8f519d85d9c9198c023b1dd9f47e32bb1f4b6bb0"

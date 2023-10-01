@@ -15,9 +15,11 @@ class ImapUw < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "0c3e132c651b5e9b2a8deed4b0c512144c118d72df933fdc87046e2b631793c9"
     sha256 cellar: :any,                 arm64_ventura:  "853cb9eabed350f511e68b7198005a276b86efecf79846ed68858d226df546de"
     sha256 cellar: :any,                 arm64_monterey: "52ef7c6c326e06a85524eab3a22f29ff095877b1a640979958b72cede3dc8758"
     sha256 cellar: :any,                 arm64_big_sur:  "3598566905f97346d6691c708ae0c6673d28924265f5e10d33bdb2f8d40aa90b"
+    sha256 cellar: :any,                 sonoma:         "765a17f2dd45fe663b5c33591f9178e72801afa7ff61e5f5d3c94166801057aa"
     sha256 cellar: :any,                 ventura:        "3752df02ec24ffaed9fb630721492c24647a5426a0b53678fb4d574b1c99babb"
     sha256 cellar: :any,                 monterey:       "b103e67bafbc727288fe497dc634d65489b9c9272ed23971a35348988e0fd21d"
     sha256 cellar: :any,                 big_sur:        "03c5fc6a4e888a756809749d359b45141b95fbb8b3cfa662ebd9687e55ba958a"
@@ -60,12 +62,16 @@ class ImapUw < Formula
     # Skip IPv6 warning on Linux as libc should be IPv6 safe.
     touch "ip6"
 
+    args = []
+    # Workaround for Xcode 14.3.
+    args << "EXTRACFLAGS=-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+
     target = if OS.mac?
       "oxp"
     else
       "ldb"
     end
-    system "make", target
+    system "make", target, *args
 
     # email servers:
     sbin.install "imapd/imapd", "ipopd/ipop2d", "ipopd/ipop3d"

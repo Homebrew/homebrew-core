@@ -1,18 +1,18 @@
 class Osslsigncode < Formula
   desc "OpenSSL based Authenticode signing for PE/MSI/Java CAB files"
   homepage "https://github.com/mtrojnar/osslsigncode"
-  url "https://github.com/mtrojnar/osslsigncode/archive/refs/tags/2.6.tar.gz"
-  sha256 "7f84bce7a6e9373e8c4df4fa90e723ca1d380cf303c80bbb3e02191179d0efc4"
+  url "https://github.com/mtrojnar/osslsigncode/archive/refs/tags/2.7.tar.gz"
+  sha256 "00fc2b43395d89a2d07ebbd4981e7a9dbc676c7115d122a1385441c0294239b8"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "99237bd56e472b9c4ad4649a824b9b05372d4b32176c71ec9b276d33d67d6811"
-    sha256 cellar: :any,                 arm64_monterey: "c4481087980ccc305862173445383bc74f9b4b3099754ffc25a2a3fc2e45af86"
-    sha256 cellar: :any,                 arm64_big_sur:  "696c5b1e362edf6842fd4b9f4c55c527d08d8289e2673da982fe047afb848f1a"
-    sha256 cellar: :any,                 ventura:        "a99e32840e4c7ce2413820d256bd7aae955ba5c5c65179bece3eb25815f2541a"
-    sha256 cellar: :any,                 monterey:       "35789d3db3666991be42784f12c225f9826721d34c85bef2f346667d910e4565"
-    sha256 cellar: :any,                 big_sur:        "b42275673763123bc3b77a92ec1bb744779bf694465b96dafcda95c41a1662ae"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2662456df8f22132f3c5be69ab300612b2b040518b15def9dea95599addf59f2"
+    sha256 cellar: :any,                 arm64_ventura:  "1f6ab0d22e1025c6b5d66c8978e338fe3f85f5b924709b28d7625d3861951e32"
+    sha256 cellar: :any,                 arm64_monterey: "d3fb5dfb502c3c3fd7a1a8a55a0105852c5eb68b995da2fce81009827f953042"
+    sha256 cellar: :any,                 arm64_big_sur:  "46b8c4c787717d1847fee881670449f95a2c5a34701506b7cfe8c59d858050ad"
+    sha256 cellar: :any,                 ventura:        "5011f0d203e816aab853cabc73d16e5dab6f4c1e1673f79c5fbaae83a7c7fe7a"
+    sha256 cellar: :any,                 monterey:       "b4ebe200ae4b762b5824a4855d95e2a23ac13c93d3a92cd973de6759e6df9bb3"
+    sha256 cellar: :any,                 big_sur:        "778fdb11adce389448e9d034fd9b5b0062671eb71ae40e5f297297bf6c11c7b5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ba9e75264cb30857cbb73ab8f0863a5a039c9005a9b296732d78b4ab09a7ff7e"
   end
 
   depends_on "cmake" => :build

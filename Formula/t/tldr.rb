@@ -7,9 +7,11 @@ class Tldr < Formula
   head "https://github.com/tldr-pages/tldr-c-client.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "6d056db0ff70b32874d46ba5dff124c4cf412a665a449460c3704a2e3198a42d"
     sha256 cellar: :any,                 arm64_ventura:  "6403ccd9be45f800e8b3068b35aa93ab33cea03f60990257d955015dbbced536"
     sha256 cellar: :any,                 arm64_monterey: "d8ae9baacf4db01a286f57b11e7ae144eab6b3c94bf7cde29b4ceade55614f88"
     sha256 cellar: :any,                 arm64_big_sur:  "e631d264c50eddb5c4e2d998d85c783b6f023ea50a854e17ebe14c42bc9f54b8"
+    sha256 cellar: :any,                 sonoma:         "8176c5e3cd5b52a8ac7d1ecb3a90dfd9de1ce874e0987a891304a2f667d18a70"
     sha256 cellar: :any,                 ventura:        "c10fa005911f6490ffc52c0e1c732c6f2d02c7acd2aecac7f69c7bae19dbe3fd"
     sha256 cellar: :any,                 monterey:       "3bf02d8355d6087bbeeeabdba2a96dc70eb0e862db46002673f7579f97f73af4"
     sha256 cellar: :any,                 big_sur:        "a8e870d5413d1baa4a93cdbc044d1e84815c0aa6e2518957ff0ea1825a3f64db"

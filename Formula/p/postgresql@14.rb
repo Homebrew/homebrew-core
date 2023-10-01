@@ -11,9 +11,11 @@ class PostgresqlAT14 < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "1651d029371f1fbbb72265171a4c355a2d120d0ed349b2164f81e6aa90c9046e"
     sha256 arm64_ventura:  "8b299896c59b81d488f837f20cda59dfc5fd6bba2e3140eb116d9771d9c53334"
     sha256 arm64_monterey: "cbb10752c69bef0e6a491f273e3ea656822f57be644dbbc89e7384c5e9de63e8"
     sha256 arm64_big_sur:  "e27e37656f74b06e380ab2125bbcd7e19cef60dccc52e6fbf9bfc39810a8aea8"
+    sha256 sonoma:         "83a98f3cf5dfd3e556373fd62f22b5314fad907a7e49a36d686ccda50e7e31fb"
     sha256 ventura:        "6b9ff6988e25d805dd4b289fc26dac734bd645e8edc0244bfc4c751c92ac8032"
     sha256 monterey:       "359fc32baed6f3b264979ecd188b950b4bc851440682139ff6002d8fd43b3857"
     sha256 big_sur:        "2b42289e49bed7a120d8887f28c0e39b7848e69fb68a627728cec60d041ca05f"

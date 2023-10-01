@@ -1,19 +1,19 @@
 class Falcoctl < Formula
   desc "CLI tool for working with Falco and its ecosystem components"
   homepage "https://github.com/falcosecurity/falcoctl"
-  url "https://github.com/falcosecurity/falcoctl/archive/refs/tags/v0.6.0.tar.gz"
-  sha256 "06e53602f89a5ba9f595f54635860f01a5fa3562041f1efb40bff4859ba52f51"
+  url "https://github.com/falcosecurity/falcoctl/archive/refs/tags/v0.6.2.tar.gz"
+  sha256 "6402f06614f2761062c7f1b6972e00677f7bd94bd0e9decc901786768ba9c72e"
   license "Apache-2.0"
   head "https://github.com/falcosecurity/falcoctl.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e6545f53cd3611aec349985a9901867289644e6d838e5d2a907e09ac35eec696"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "332ac6dec3294c9fbace115e5086ac2eb5b462e275adaec057528e38f8ad13db"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bb6a9404c5f08be8eb9e76f395bbb42225658df44a514b0b0048b9536123ca93"
-    sha256 cellar: :any_skip_relocation, ventura:        "8da63a00d7df5b5bfd16d35d43fb3d36f816c590316e6b6a3c6d3984b410608a"
-    sha256 cellar: :any_skip_relocation, monterey:       "cf325295c012c2a407f4f7c23f11effdaf9a5dcd1f334fc6148704e2859235b9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5054e1b2504b2d1b11789c044b670f64ffb01cd1c559b5db23eedfa84cfe3b39"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "62f85df4f3d1a3eb6411b602cc03be6feea77ddb972669fe125607ae33c1c1e6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d44b89e2e12c3cff50212ba09a9068ca90005c8306abbb8ef0ab969ba71e76e4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c83212de152508e09c03ae14fd7c5f04f1273702d9588dfe454640f7eafb7caf"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "55427f13df37bb6699013b9e1772bc604ddecf520aa4a49ed63880d7d1916c0e"
+    sha256 cellar: :any_skip_relocation, ventura:        "a2b7bfd8895bcbea45d35546d3f9444c42d5f101d1805133705182b9159f0e9f"
+    sha256 cellar: :any_skip_relocation, monterey:       "d78575a5478ba20a7afdbfc261d77c3d3cf0b968e25229769e1c2ba2acf3729a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b18098e32463439796b4ef499973db4ffba36a0e8778efb0b8fc349b7c7c64d5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dc2ba852a61ddc0bad33e2d7db77bfefd230d738db36c13d79dc1ebf289c4fd4"
   end
 
   depends_on "go" => :build

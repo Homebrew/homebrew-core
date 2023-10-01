@@ -14,9 +14,11 @@ class Zeek < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "bdb01f2fe10973bc6cb47ff0098c4a5298ddd54ef59edeb4c1c3ccd03695cdde"
     sha256 arm64_ventura:  "2147729674a13e36581811343ef3880380f6f1cbff54ac6f3d6df09ef894ca3d"
     sha256 arm64_monterey: "5a5194f11c64daacbea20752a86627e61614bc51a3687d2e1a56418351bdef90"
     sha256 arm64_big_sur:  "d35effe61620bda186fd6c39924e686dd3fa09460b49d45fe3aba0624525b979"
+    sha256 sonoma:         "c2dc0703b7f77ae45a481323a441671d57d1aac91fe26166da05a9403ef60f5a"
     sha256 ventura:        "9f54a2848fd06cf4eecc86a29f695f42d6be011c8df62a0d14a377096444bcbc"
     sha256 monterey:       "c2b90ef76a0603d18cf9bc34ddf890f2e1d931fb560895e200ec7fcdf92bee49"
     sha256 big_sur:        "9ee867f78cac0ef8ab99774907ad934f02377fbb0472add072167c599908cfae"

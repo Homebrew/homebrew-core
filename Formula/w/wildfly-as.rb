@@ -11,9 +11,11 @@ class WildflyAs < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_sonoma:   "9cab7370edc5fcb4844e658ac38ec11ef8d9c99c43dc4e8b9983499e50fc4dd6"
     sha256 cellar: :any, arm64_ventura:  "9cab7370edc5fcb4844e658ac38ec11ef8d9c99c43dc4e8b9983499e50fc4dd6"
     sha256 cellar: :any, arm64_monterey: "9cab7370edc5fcb4844e658ac38ec11ef8d9c99c43dc4e8b9983499e50fc4dd6"
     sha256 cellar: :any, arm64_big_sur:  "9cab7370edc5fcb4844e658ac38ec11ef8d9c99c43dc4e8b9983499e50fc4dd6"
+    sha256 cellar: :any, sonoma:         "6814dc8c437460bd9cf02b420c81a4ac37576e7751cdd296a21100e92910167d"
     sha256 cellar: :any, ventura:        "6814dc8c437460bd9cf02b420c81a4ac37576e7751cdd296a21100e92910167d"
     sha256 cellar: :any, monterey:       "6814dc8c437460bd9cf02b420c81a4ac37576e7751cdd296a21100e92910167d"
     sha256 cellar: :any, big_sur:        "6814dc8c437460bd9cf02b420c81a4ac37576e7751cdd296a21100e92910167d"

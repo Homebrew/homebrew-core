@@ -11,9 +11,11 @@ class Libretls < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "130d3bd2c0b9cd30424e88431849b0a5cd3a61844917ecb116540b131c19805f"
     sha256 cellar: :any,                 arm64_ventura:  "ab24d0f764f2aea1a992140e9174dfb5552ff89c66bddac4c8563789fc2ee912"
     sha256 cellar: :any,                 arm64_monterey: "7473b1360f8b615122d63ff2dcc7044f32539ce16e2c10fb68d4ef6b031aa5df"
     sha256 cellar: :any,                 arm64_big_sur:  "161c0f5432cca86208fbdd6424aa4ddd490ea6daf06d6bbec417355d990f36c6"
+    sha256 cellar: :any,                 sonoma:         "0be1ef9fef875a4ce74b9f228b01ca3533a26bb1b3be32ff25d501a10aea449f"
     sha256 cellar: :any,                 ventura:        "e913448b1f0e4087794005dbc156c4a0141565de582a23d858a9eb1fb0ff119d"
     sha256 cellar: :any,                 monterey:       "c54166938e317018bc97972606f734c6e68003e795a3cba2884d1f807960b69d"
     sha256 cellar: :any,                 big_sur:        "2d5355931bf0a0a7b474bb71d651f8152b6e0a200d5251cb2001c7e150e49cc1"

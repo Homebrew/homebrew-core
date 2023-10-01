@@ -8,9 +8,11 @@ class Optipng < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "c30ada078299e92b8daaf932e77040d45c2924f65cbac36dc189baca581a4f79"
     sha256 cellar: :any,                 arm64_ventura:  "0f832f65504580d7eeda792024065ad257118cf15f94d2df0dd8cb12dc9880f0"
     sha256 cellar: :any,                 arm64_monterey: "9392bd48565d6102eb0991d836040944055394863d5a186fd617a7788032f91c"
     sha256 cellar: :any,                 arm64_big_sur:  "796af028b1dea8b680e40103712976b4f9df285df553db06d2643779630c716c"
+    sha256 cellar: :any,                 sonoma:         "f9e219efd7723e2803300e44487c0d2faebae16c58f5c5f3e6b4cab559d2f6f0"
     sha256 cellar: :any,                 ventura:        "f09c4149b72ff18a1689820a4872f3037242c82c6bf73b621eafcdf828fc829a"
     sha256 cellar: :any,                 monterey:       "c366c7c45b9cb9c2e97e001fcf3cf008fdc1843da37cc42f7c0fa864d0311f22"
     sha256 cellar: :any,                 big_sur:        "5cee26efb92016f057a55b2711a08c4a0350046b7c0b1d969c75a913caf66fc2"

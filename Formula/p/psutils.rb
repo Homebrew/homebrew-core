@@ -3,18 +3,20 @@ class Psutils < Formula
 
   desc "Utilities for manipulating PostScript documents"
   homepage "https://github.com/rrthomas/psutils"
-  url "https://files.pythonhosted.org/packages/05/90/cd6c0ec88ba12e511d7d73db720c23f41f020f88f68d914667d43a68fd70/pspdfutils-3.2.0.tar.gz"
-  sha256 "921caf6207670574f15d03855a715f0b597420135cefe3455aec5342350f06ea"
+  url "https://files.pythonhosted.org/packages/92/07/ebcf289c31f4da85ea94e103f0a58393c54133c64fcbef754c17b6405723/pspdfutils-3.3.2.tar.gz"
+  sha256 "a20a2a1359811bd0ad72e15349351a26774ddf8e355c2cde4250a70cf77fdf0c"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7bda92ba721c532a137f406e9beb5356f55fe0cc9473d25b26db7b8aabd6674b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "365be9982d23fa4b2e771523cde48733b489948b14a0fbdecfa03ab25621b641"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "50c2c6a08d3c3235c3ade1cd98c5bb9728d31211bfe7792869c8c4fed46b5be8"
-    sha256 cellar: :any_skip_relocation, ventura:        "e6e8371cdaa3d60c51845eed986c8178d1ba70f908ccd109c30e9381b52ad44e"
-    sha256 cellar: :any_skip_relocation, monterey:       "173d4ab77e46051bd94d7c63383aa57355d79770d34e885b1e3269e599cc9c93"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e319fd9c14d60b26cc16764ead3cb5b4ce22595a26ecacdb395979208b5e6b82"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7cee4873fbc431e920352a978d001c6e371f175a77ccea5f82d2d4739a7e77e4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "601c65de5fcc9366a9e1dabb4176a614efe48991244c0532df58f427f8aca3de"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c6482e49ddb120757197a3e64a31e67ff40f4c7456266cf9ae37abd72d1210c3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8e3a59a4e24124ece21b2b13571319bad92de2d8fa3df5efd20bcf0d5be1387a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a17b81eba7a9c7a1f94b3ae97f578a8cc40d7caa673483d5c52c09f502891b73"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0eabe68e455b3c1cfbda9e6f9e8649bfe6355a1b0b2f1bd8fdef57433afb54d9"
+    sha256 cellar: :any_skip_relocation, ventura:        "56aaec88e0610d3bfa1832638f7365356ab11124a9d8e37aa0a6d65e4add22ae"
+    sha256 cellar: :any_skip_relocation, monterey:       "35fe9eaed5eda798bb09456026bc9002ff144a36aae6522c44cf8e7d86e23f94"
+    sha256 cellar: :any_skip_relocation, big_sur:        "450c4a7d78da0c5ce20ae0f232acb590264c2b9a7557b885d59b7e8399c88b68"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "033d77779aa2fd7c1c89d885dda7feea6746e60249ab6bebbc987e97c1c69750"
   end
 
   depends_on "libpaper"
@@ -26,8 +28,8 @@ class Psutils < Formula
   end
 
   resource "pypdf" do
-    url "https://files.pythonhosted.org/packages/8c/5f/07d3462b0ccf11e789e21ee4af2c3e817297ea3f8328e202a547cb0cf253/pypdf-3.15.4.tar.gz"
-    sha256 "a2780ed01dc4da23ac1542209f58fd3d951d8dd37c3c0309d123cd2f2679fb03"
+    url "https://files.pythonhosted.org/packages/4d/9e/23bb47ae1c3e8f11b5d5625eef5d6ab94ba1806ea2826babcb867090cce5/pypdf-3.16.1.tar.gz"
+    sha256 "aff9540e6c5ec135d6e80943db74257523639325162d00c903ee1e2be84351fc"
   end
 
   def install

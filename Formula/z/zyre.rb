@@ -6,8 +6,10 @@ class Zyre < Formula
   license "MPL-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "11ad219ac17051fbf7f1799a4dc8c371ab861a925639953c42a6879433210a38"
     sha256 cellar: :any,                 arm64_monterey: "97e9c9802ff4f1e0b329da1cbe426647bc55af13990e27e03e80dbd13e4a4838"
     sha256 cellar: :any,                 arm64_big_sur:  "3b1d36e1f9441e338916cbc75e8701386fbeaa4c23a231061c4d6d08bc35a3f1"
+    sha256 cellar: :any,                 sonoma:         "5c6bb1deeeaa92251d717d7243e579f912073e0057b1880f793b1def41cd6b7c"
     sha256 cellar: :any,                 ventura:        "a1956c77c1c59efd1848f4bb2567163f9715b3d46a0b2bb274453b1b2f9b632a"
     sha256 cellar: :any,                 monterey:       "5a85a14ca28dc1d832545421e55cc4e5fc6e1007bbd3bcb8be36266904eacb35"
     sha256 cellar: :any,                 big_sur:        "490a76ad5536efec4b40234fd693f67f7f4b0222672e0b0f39c36d2581b0f4ee"

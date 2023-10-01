@@ -5,9 +5,11 @@ class Goocanvas < Formula
   sha256 "670a7557fe185c2703a14a07506156eceb7cea3b4bf75076a573f34ac52b401a"
 
   bottle do
+    sha256                               arm64_sonoma:   "96b058e8b6b133cc3321ab4caed7efd03e2a2ad908f2939bdd074845b3b9e026"
     sha256                               arm64_ventura:  "0d114696187598ad5a64abe30c3bdb162b81499901baf74d33bfe60e78a5dfdd"
     sha256                               arm64_monterey: "ffbe53df96aebdefad5bca437f0be3a0ca39b725736e943d300747a6bd7770dd"
     sha256                               arm64_big_sur:  "d2881f093f710abde959761a53e797e7b7adab47b359136c52974cd0d39d9b3f"
+    sha256                               sonoma:         "1bbeecef896c66496444f7e979938b843a3dc6f55f38240eaf2f95f0cd439730"
     sha256                               ventura:        "36413b12e3f7cf364cc16388e0dfd8f4592101516e8a26c3e506bc720fb0c582"
     sha256                               monterey:       "201056ff9afb6af37984ba0586e8fa0fd6d55a4f09d344754bf7394defd54570"
     sha256                               big_sur:        "2696cb6c47f70283a599e7b31d6ae359d1defb54d8c5cc2a466a0610ef8f470d"

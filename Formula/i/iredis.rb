@@ -3,22 +3,26 @@ class Iredis < Formula
 
   desc "Terminal Client for Redis with AutoCompletion and Syntax Highlighting"
   homepage "https://iredis.io"
-  url "https://files.pythonhosted.org/packages/26/61/165066a5f1e75203ff13516ee6fd14b67da085c203bd33ff669076afe4b0/iredis-1.13.1.tar.gz"
-  sha256 "316cdb9aec542a1d320606abd6093c406250c1b1ed20db1b0ac6d333e44b990a"
+  url "https://files.pythonhosted.org/packages/33/30/bf585c76653873b74b9bfebf1fdb22aee4e6959f37e68d8a883684a7ec95/iredis-1.13.2.tar.gz"
+  sha256 "7645fe5e153c12e231f68e58067bcc678dce2a61ee572bb0992dbe7159b85302"
   license "BSD-3-Clause"
   head "https://github.com/laixintao/iredis.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6141d1b7f8beb87a0540b8dab2da2434c1929cd7f98277e38bf53246b8906bac"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "83e3f1a43cf5a7bb3c82288b36a1438897b9e29f3672f7e8ae1d4591b22fdbc9"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7bed9184bbc1f5228b76c5f636df41f2ebc2632ec34e9004bf32245fb5012f91"
-    sha256 cellar: :any_skip_relocation, ventura:        "a51ca95cf032e43bce04881a11145f5b9ca45cd9258685afef44ef1e6e4e8346"
-    sha256 cellar: :any_skip_relocation, monterey:       "728c58b2563a3f529f9075890c2a862d1abe557e58bfdc464cbbcec0b965c544"
-    sha256 cellar: :any_skip_relocation, big_sur:        "07b0b93399c43ee4808b0ba96665590f3bb1223ed22b5aa3f0d09ea44d451607"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5fa23c2b94cf34914269a16c8a30cd0d6588a11feb092a05c8b634ea623d0a6e"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "40c23e2293bdf121aa868f0609e3332b77578552ced5cd108752727454cc645b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "da261678196e2f5a48d098ce37d5c53e0eeebb5b5f900bcccde30eb3fcf36b8c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "fab7656bd49fcbf0fc015402b0250f414443d288d0ad400ef6e0457005feb614"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7faf3bfa27350a3b72cca62ebea4006db909d4dde6816476b9c0a9cb22069af4"
+    sha256 cellar: :any_skip_relocation, sonoma:         "26f219100729b4f46bca1fc7f8dcc9cb87ff65d8008b7fbc28156e02003f2492"
+    sha256 cellar: :any_skip_relocation, ventura:        "28cb02efa43e6b1d61a15ecb2489e1c3f7e2f4bc295a22c4aa0e2f889fd007bc"
+    sha256 cellar: :any_skip_relocation, monterey:       "52a5366fa52afe2a1111a9200e76a598dd247d186bad4fd0b2618f80a067da94"
+    sha256 cellar: :any_skip_relocation, big_sur:        "66fa258a69f44fa0a93d9cf7d9a634b307898bad4fbc8d007a021417212689c5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ce356782d7a76a37a4fdc05b9b49730e68a0f4fdf88399a98dba3c022f556831"
   end
 
   depends_on "pygments"
+  depends_on "python-packaging"
   depends_on "python@3.11"
   depends_on "six"
 
@@ -32,19 +36,9 @@ class Iredis < Formula
     sha256 "6f704434a07dc4f4dc7c9a745172c1cad449feb548febd9f7fe362629c627a97"
   end
 
-  resource "importlib-resources" do
-    url "https://files.pythonhosted.org/packages/4e/a2/3cab1de83f95dd15297c15bdc04d50902391d707247cada1f021bbfe2149/importlib_resources-5.12.0.tar.gz"
-    sha256 "4be82589bf5c1d7999aedf2a45159d10cb3ca4f19b2271f8792bc8e6da7b22f6"
-  end
-
   resource "mistune" do
-    url "https://files.pythonhosted.org/packages/fb/6b/d8013058fcdb0088b4130164fc961e15c50d30302f60a349c16bdfda9770/mistune-2.0.5.tar.gz"
-    sha256 "0246113cb2492db875c6be56974a7c893333bf26cd92891c85f63151cee09d34"
-  end
-
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/df/9e/d1a7217f69310c1db8fdf8ab396229f55a699ce34a203691794c5d1cad0c/packaging-21.3.tar.gz"
-    sha256 "dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb"
+    url "https://files.pythonhosted.org/packages/0c/88/6862147c3203750cef135070fe9f841d82146c4206f55239592bcc27b0cd/mistune-3.0.1.tar.gz"
+    sha256 "e912116c13aa0944f9dc530db38eb88f6a77087ab128f49f84a48f4c05ea163c"
   end
 
   resource "pendulum" do
@@ -58,8 +52,8 @@ class Iredis < Formula
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/4f/13/28e88033cab976721512e7741000fb0635fa078045e530a91abb25aea0c0/pyparsing-3.1.0.tar.gz"
-    sha256 "edb662d6fe322d6e990b1594b5feaeadf806803359e3d4d42f11e295e588f0ea"
+    url "https://files.pythonhosted.org/packages/37/fe/65c989f70bd630b589adfbbcd6ed238af22319e90f059946c26b4835e44b/pyparsing-3.1.1.tar.gz"
+    sha256 "ede28a1a32462f5a9705e07aea48001a08f7cf81a021585011deba701581a0db"
   end
 
   resource "python-dateutil" do

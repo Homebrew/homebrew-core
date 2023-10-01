@@ -7,9 +7,11 @@ class Tgui < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "5da105c55051c087107f92dbe077cfe6433ff18b346615b604030dd0180f5ebd"
     sha256 cellar: :any,                 arm64_ventura:  "b760089e9901e780346faeda6d680ebc3d752f54a6a46d4c782872f08ce5c9fb"
     sha256 cellar: :any,                 arm64_monterey: "8a2456389f6a9a9ca380736525d059ac91aa46eb2d4fc15484a25347a9df6c6f"
     sha256 cellar: :any,                 arm64_big_sur:  "895ca27d73fbefeb0a8aa3549544a5ffd37bf12b3e644614674621201b40f321"
+    sha256 cellar: :any,                 sonoma:         "706b8dcb530a12b0d2b841f0cebe62566c7257c8b55a8ad10633551f15e67701"
     sha256 cellar: :any,                 ventura:        "2c405311a5faf7e09c44220a4d597f51814fd94473a19eacb686d8a45fc55afb"
     sha256 cellar: :any,                 monterey:       "d283a951bca2b60726ea2b3eaf6e4ee7be0454f577402c1db8b86d6624a0bd8d"
     sha256 cellar: :any,                 big_sur:        "a0576cdb65a60167ae19063c933983e7fae19bb1f98307f5e790fe885dfbe429"

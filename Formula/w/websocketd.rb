@@ -6,9 +6,11 @@ class Websocketd < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a7ba51607007665381a1a42a51f888536174c3aa31264951aac1460e0aa00853"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b7d6fde3236364942816c8578c1a5d6e436b562d2db34b9d0fb0fa9d501e8dde"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "256933f91abb70b0974f791cbbd8158f4399c27ed2ce99438f7ac566a560003e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8d9e5282df6737a6870a2a750570ab79909fb4463411797b0bf5d20cb269162d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3da7e9916ce61c0d78db8922d45937c631286400daad6493ebac334dd731c07f"
     sha256 cellar: :any_skip_relocation, ventura:        "302d431c2759cde95803ec57e9001ec22367b7b3c18a55693aa61547d47bac8d"
     sha256 cellar: :any_skip_relocation, monterey:       "5a769dfeb3f3062af01fb6ba0703e1d416dc648736e20103c1e0a31489796ddf"
     sha256 cellar: :any_skip_relocation, big_sur:        "cbdc36c8c64cb2b0f1f149242a4c82e5d3eebff521e45bdfc88aa7dced9d2440"

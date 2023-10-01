@@ -13,9 +13,11 @@ class Yaf < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "398a1331d3035dd985bfc3d0d0fe9c76c1b35a9cc578660b5b0df0dcb5da203f"
     sha256 cellar: :any,                 arm64_ventura:  "f8e5cf2ae79c6980e61e89844418c6877b5e2a48d1ddea6a70c1e83965c9cca9"
     sha256 cellar: :any,                 arm64_monterey: "26d046bf80b87c66a59515c66ccadd69c12e1852fad7923ae658e865d05bdedb"
     sha256 cellar: :any,                 arm64_big_sur:  "f4481baef958c27b898d2bd139ac1f1dcf27be85dd76345e800f37e73a9f6b91"
+    sha256 cellar: :any,                 sonoma:         "dbdc9cdc539daea3e9f0d61b1d6ee990fcfa3b935445bce21345484171e097fd"
     sha256 cellar: :any,                 ventura:        "68217cf50e582cbf0f1dd02dbe383b8aedbbdab185dfeebae85c28c6afec17d8"
     sha256 cellar: :any,                 monterey:       "ffcb9bd872071d72353b7ed1e901e1750fc862e36d9e06efa6138f08ffafeaa2"
     sha256 cellar: :any,                 big_sur:        "0c952e1ff5d8dc8e78e142d365ad91b4564b8eb5db1522128e27c631418beedc"

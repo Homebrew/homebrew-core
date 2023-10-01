@@ -8,9 +8,11 @@ class Sng < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sonoma:   "403f1bb234797d0d76a197a4151aa4a1ecf534a40a23126408b7a458a7754b2f"
     sha256 arm64_ventura:  "6e6f0d6e03e0b52db9b6e4a802df9d6341840223af2b1b7e295bc743adf5253d"
     sha256 arm64_monterey: "ca4f0ca6bb0e526a3726748f0b324d1d1aae3f017c8e74de1680ef932b511d15"
     sha256 arm64_big_sur:  "441c39690c079231af81a27fce72a0f0ea7cf982c9e48e320160ccc7304486a0"
+    sha256 sonoma:         "8cc8e0a88f0c54ea56ee98c7a13e57297e9810e55c9fc48531aebf7ef09faec9"
     sha256 ventura:        "379346351f679ec6fce2a3546bcccd48cbc31f885fb0e0be6405e019b3f7fe2d"
     sha256 monterey:       "6f1323983fee9df6d97091c41c7f6df1b5ced3980a0a8bb72e1553db6d3a2656"
     sha256 big_sur:        "f0e4ce732890622d796d3ab7d5c2d078f9ad327e5d64bdf9d7625b15d7a38281"

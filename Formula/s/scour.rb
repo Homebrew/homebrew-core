@@ -12,9 +12,11 @@ class Scour < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "046f1859edcfe91f3243582e917ae55226402f8adc723fbf902e1dfd3d902c9d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "281cc65233bf8de758ea2a034b28ac6f062731fd5777f0039c302ce6b0a9be9f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "281cc65233bf8de758ea2a034b28ac6f062731fd5777f0039c302ce6b0a9be9f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "281cc65233bf8de758ea2a034b28ac6f062731fd5777f0039c302ce6b0a9be9f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4182d59a4724691d032487a34ac042a648e547cd26a77c5d3c4e0b58f7a64135"
     sha256 cellar: :any_skip_relocation, ventura:        "e9a2c2597476cc5d8b127fa7c7d6b6ec086ad922b1098e9635140d107b0aca16"
     sha256 cellar: :any_skip_relocation, monterey:       "e9a2c2597476cc5d8b127fa7c7d6b6ec086ad922b1098e9635140d107b0aca16"
     sha256 cellar: :any_skip_relocation, big_sur:        "e9a2c2597476cc5d8b127fa7c7d6b6ec086ad922b1098e9635140d107b0aca16"

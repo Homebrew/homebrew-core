@@ -10,9 +10,11 @@ class Keyring < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ff94afbb5b493a1a31a01beb4188af2e0d0bbbbea8ae7a55d97a51388132c3e5"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6df3b0bb71f87ab9d26804aa928c443a4b3f602859db9ea971a9528a2e63a34c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4f6f478fee3bc9c4c4ea2c67caf2cc94c85cd243df4e20d11c0dd5843f8df941"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1b7acd8b015ebde2d4bbc601d5e407c612da4d45cbd492a814e9b545dd7c54aa"
+    sha256 cellar: :any_skip_relocation, sonoma:         "929bcf78ffd6d635bd49e5b6907d4aa2e211242a8c2afe8c41011776c0e56cf0"
     sha256 cellar: :any_skip_relocation, ventura:        "d071d21d88c7263e637146e3e83418d307d82065f3df648642957c960587d625"
     sha256 cellar: :any_skip_relocation, monterey:       "a967837250836ebeff3b248d017985588327e3e109be209a56bdd09b61ea630b"
     sha256 cellar: :any_skip_relocation, big_sur:        "36ba702e0cb1573e39f264fae29c32bd902e1a80c1eaa59e7e2c7459d2d00224"

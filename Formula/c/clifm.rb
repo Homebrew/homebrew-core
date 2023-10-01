@@ -1,18 +1,18 @@
 class Clifm < Formula
   desc "Command-line Interface File Manager"
   homepage "https://github.com/leo-arch/clifm"
-  url "https://github.com/leo-arch/clifm/archive/refs/tags/v1.14.tar.gz"
-  sha256 "2c15c8198abd3c060014874d7f0ee7b9cfa3bc8715c65375ca7a79c01c4064bc"
+  url "https://github.com/leo-arch/clifm/archive/refs/tags/v1.14.6.tar.gz"
+  sha256 "f26b9ee1c41f02ec50dcae4108865b7f463d6dcf5dbd1f0271fbe1dbed93b2a1"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_ventura:  "1c417d9b17b0aad57e294ee5b5fea6c5cba1cb3031974aa2521cdaf09b140546"
-    sha256 arm64_monterey: "6c97b1a8430e40fee72b166a07bb951db2c7267ea7f60158fb5dcb239d440c96"
-    sha256 arm64_big_sur:  "d3e968a988633d1dfc24fbb457cc7c23a2a3bae5f83df1ebbb697e59fa8da228"
-    sha256 ventura:        "a7a4b61502ab4bec7c1cdb4270c21d011b5417c461e5599f799ece1e0809877e"
-    sha256 monterey:       "0f213e28999892d04cad8ead8cd9d7d7d0fa5bead125e0cb688cc93b31a771b3"
-    sha256 big_sur:        "c4b7b189d090a23c326e2622eecfd63fe43ed0b154c79d2769c0401560d4c225"
-    sha256 x86_64_linux:   "7246c35e307ac7a0928f36fd32a25ddfa0a745c62da02a6966498fa582febd03"
+    sha256 arm64_ventura:  "e3bd211f34fd99670724ed5b334f54fd141097e120c8f2431e5008fb218d1baa"
+    sha256 arm64_monterey: "2ab7f27b8d53efcf6c5a1449f3cf4d751fbb5d11557166b52968889b901682e9"
+    sha256 arm64_big_sur:  "ba5fcb45b1c66b9ccaa0a2dd68c799154af693c32f1fa2b6d02849065a89183a"
+    sha256 ventura:        "9ed28887dd4d23ec26247224ceec5332b8166da887412d5e4892154a5f3b3362"
+    sha256 monterey:       "a11b66a2b67c2306638c4db3cdb48087f5ec57e15d4e4be63047a8c55bb826e7"
+    sha256 big_sur:        "fa0149d54de9a375ff250ea2a0d8aca27ff276d7fcd7dfc04edb4521bac25832"
+    sha256 x86_64_linux:   "fa273ff811c036be867199414107b2410e1b2b4069e924e86946dd12fb538c5a"
   end
 
   depends_on "cmake" => :build

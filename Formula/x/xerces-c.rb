@@ -9,9 +9,11 @@ class XercesC < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "39dcc385d045838db203911a7d016b533505b97ef51ac706f0393b3aa6e1dcf0"
     sha256 cellar: :any,                 arm64_ventura:  "99006e9ad984212dc5016d5aa9f6ae8021d50f56fec9e13947d9779d9decc1de"
     sha256 cellar: :any,                 arm64_monterey: "55c380d3cda733199a22d294208fb6b552ae53373ebba6d1ca91737c99ea52eb"
     sha256 cellar: :any,                 arm64_big_sur:  "a932e185d8ddde919516e0c7cc24f6a98ed760369df9a1edf96db3969d929934"
+    sha256 cellar: :any,                 sonoma:         "2979787f02b1796f3204357d4592657a37f15f3a6cc6743f5442d4983c889911"
     sha256 cellar: :any,                 ventura:        "529a48ca044cff1006c56e0ba471591d625c4f0efd7a117f98e0d928c3c2cbfc"
     sha256 cellar: :any,                 monterey:       "17f2a1e797058706fe947034ab4c912f196bf12195736e719c6953d3c418f0c3"
     sha256 cellar: :any,                 big_sur:        "c61f70bacc917fb00e378878265bc575d427d879148b320cabc14dc71bdca56c"

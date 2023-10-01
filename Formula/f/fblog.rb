@@ -7,9 +7,11 @@ class Fblog < Formula
   head "https://github.com/brocode/fblog.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e571019eb9df13fd2ead11f211cf6ef1498d90ff7ab1dc49ce81a2f6a1760da3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f61f90023c951da8586b551853a48bfb36aaaadd3b170a22c4953913e79636d7"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "37ad4c7f2c2ca8bf8d144a1cbc3b2d6f5b55be34d5edfa4ebcc30489adad0efc"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ffa80dff8fa7ff7ec7689bdd7e4d8269438f934e242ae54faecbd11642454904"
+    sha256 cellar: :any_skip_relocation, sonoma:         "8c9eb89a997cb1aa5cea26d761e1155eba7e149e2cc37cb25b63f0a70289efdc"
     sha256 cellar: :any_skip_relocation, ventura:        "6e935e2a976816e7db40f7040b8bfe69ff11e10540e2a64bc4bbf225f3182adf"
     sha256 cellar: :any_skip_relocation, monterey:       "5b27a82fa1d7189721da20d1bc4ea03e96d0f2b2cc25da60321df29ade6b9f5a"
     sha256 cellar: :any_skip_relocation, big_sur:        "e80faa02b5aae39af9c933b981b329bfe2174e9505b2586100b2c0ad74d6b694"

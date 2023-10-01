@@ -11,9 +11,11 @@ class Gl2ps < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "7c29529c685fb40aa712dc427ff463ac2823b0a2d93a062be9382bdf3ef449e1"
     sha256 cellar: :any,                 arm64_ventura:  "63a6c39737be3e9507fb5113de445ad7db930409e5bd74ee117b0ac447022e66"
     sha256 cellar: :any,                 arm64_monterey: "e08ec8cea6a733012aadbd5b2eeef661030005c1a7b24f77f5371385191ed921"
     sha256 cellar: :any,                 arm64_big_sur:  "02cad33d0c39773c7a0c0983f125fc04fe86d265b31cac034be45379265e65be"
+    sha256 cellar: :any,                 sonoma:         "2cf482a2d3cfd1864e00efabc499a562e4fb6aa2d7df18f70b56d9e72ffb38a5"
     sha256 cellar: :any,                 ventura:        "1839beeb6f28f90bdda10e167435429e58e82f93715e8432ef57b4c058132985"
     sha256 cellar: :any,                 monterey:       "be22c8b58f988c2ad5ca8527f374febb62193cec05c910c14d639101d9e32cc3"
     sha256 cellar: :any,                 big_sur:        "4ad3d5fcf0a8393e77881e4ea73c160200f6573aa05f6db84e452d920a5f7185"

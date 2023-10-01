@@ -8,15 +8,17 @@ class Csvkit < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ca0f327bd1aa353d7577cffef8e69036dbcd109c8186639e49a0a9db1f7d1bc1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cbc315e77d2b59ff1e60be496d17dac02b48437546ef6553a7d2c479363799c1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2d3fe7c39bbe404f3259abad05094728362654ef9d5406f6690e13314543f0dd"
-    sha256 cellar: :any_skip_relocation, ventura:        "9f4891c0c19f290c81ff5f9c27ab1150ba71773a8418cc0a0d98b86d883309c3"
-    sha256 cellar: :any_skip_relocation, monterey:       "abe95928144483842be223b69af15b0f8a79e1441d638b6852921c62e29f7b7f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "61a24baa066b0a81133629e7dd9b3f1932ee6adefc96a0043881f657c42f3eda"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "180194a1809964c842e8e8be14a5e9c7c77d1bb3a3d154ec26333a581f09e519"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2354de99715a1fb49c4bac1733342e9fa0a03362331285585c52995ab80af912"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "be164b5368c18bbf619b2db25dc9232c1789b0f98e7d1ebe2e2e004d9b90a72c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "69e4329d1167be75c7114845a9cb12b32754f78fb4c90984d4101680c0bd0ece"
+    sha256 cellar: :any_skip_relocation, ventura:        "fcf5bc85fc59217273b39a30bfe86afc28e14e2881fe8049a6f930f85f9adaab"
+    sha256 cellar: :any_skip_relocation, monterey:       "1f84dc71634e60dfc737bb2d903b9bf87052b869d2f72533d7fc6c3775b9bb34"
+    sha256 cellar: :any_skip_relocation, big_sur:        "72dfc3e2926749768272733bb6c8a8b476c9420825a167471ee96281887b37cf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7cbc803897042b40376ef2e5b69b03dfceea13086f141b888e99b7c8ae3b4614"
   end
 
+  depends_on "python-pytz"
   depends_on "python@3.11"
   depends_on "six"
 
@@ -93,11 +95,6 @@ class Csvkit < Formula
   resource "pytimeparse" do
     url "https://files.pythonhosted.org/packages/37/5d/231f5f33c81e09682708fb323f9e4041408d8223e2f0fb9742843328778f/pytimeparse-1.1.8.tar.gz"
     sha256 "e86136477be924d7e670646a98561957e8ca7308d44841e21f5ddea757556a0a"
-  end
-
-  resource "pytz" do
-    url "https://files.pythonhosted.org/packages/03/3e/dc5c793b62c60d0ca0b7e58f1fdd84d5aaa9f8df23e7589b39cc9ce20a03/pytz-2022.7.1.tar.gz"
-    sha256 "01a0681c4b9684a28304615eba55d1ab31ae00bf68ec157ec3708a8182dbbcd0"
   end
 
   resource "SQLAlchemy" do

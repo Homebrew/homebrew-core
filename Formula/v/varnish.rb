@@ -1,9 +1,9 @@
 class Varnish < Formula
   desc "High-performance HTTP accelerator"
   homepage "https://www.varnish-cache.org/"
-  url "https://varnish-cache.org/_downloads/varnish-7.3.0.tgz"
-  mirror "https://fossies.org/linux/www/varnish-7.3.0.tgz"
-  sha256 "e2dbbb0ec270a90647c386866e6e226993aed46e48de751a72bb819737f14ae7"
+  url "https://varnish-cache.org/_downloads/varnish-7.4.1.tgz"
+  mirror "https://fossies.org/linux/www/varnish-7.4.1.tgz"
+  sha256 "874d837aaf49b8f2718cb60b8c8c7900e9ea10c264f218c88cd672d596f4b89f"
   license "BSD-2-Clause"
 
   livecheck do
@@ -12,13 +12,15 @@ class Varnish < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "2dd251edcc1036789e19ada129c56b02cda4d35f569c37b137f893b013746808"
-    sha256 arm64_monterey: "92229d29cd0fff3f51b9bb975062138ce4e69f2c877e47a5d3b0909e92103915"
-    sha256 arm64_big_sur:  "898cca625a7d3ed0b73c3c0696323cd8dd231358678c2cb90f500c9d2e97844e"
-    sha256 ventura:        "432fac72abe49eae6a92277fad47b611371b983709b981d36991cc4df2dea881"
-    sha256 monterey:       "4fcc3cf2b1fd09a29e65a7ba9f2f30b0ab64585f23a8a49ff01a2d13f46d4c4b"
-    sha256 big_sur:        "02013a9904aeee2c320e9595668569bba705ef415225c1c2001579ed19315017"
-    sha256 x86_64_linux:   "5f27365c143163e3c91f73a23c325694b459779e8e74db9e4bb9695ca7a8067b"
+    sha256 arm64_sonoma:   "baa3d9b974e396658f8d4afbbc2fb616855440ae9e45584be3c0bef4880cf0a7"
+    sha256 arm64_ventura:  "a5e1cf1c5e87ce6437207125acaa7a0687ea0f267c4562399090efcb563edcb0"
+    sha256 arm64_monterey: "410ab72c7543e5ef5345b75bff89c0f6afc451303693fd1cc56e5c60c515c2b7"
+    sha256 arm64_big_sur:  "de9393b3f2895e5d8b3c6f647e136073a7f2b57858f272987d116f0055e4ef07"
+    sha256 sonoma:         "40502e21422208af128171163215cf3b5fd8e7cc61a8d1fe324392d319479beb"
+    sha256 ventura:        "40a9a68b2572b1c4c033ea7e2023578211d53ff85aa022ea90643f91d7c52186"
+    sha256 monterey:       "84213e33e6ab7068af70c6bff3592822d569eb61a1322c0b33a7fd048f07a76d"
+    sha256 big_sur:        "e457a51ea02ff7b3c00b36c536507742d3995a7cfa2aa1f81105d20d0e5c60f6"
+    sha256 x86_64_linux:   "f8827726b9f6936bf4c3d7ca70027be86433c90a22fa20cbd55073fe99ee4cd6"
   end
 
   depends_on "docutils" => :build
@@ -74,7 +76,12 @@ class Varnish < Formula
     #   but is "nothing of concern" (see varnishcache/varnish-cache#3710)
     # - u*.vtc (utilities and background processes)
     testpath = pkgshare/"tests"
-    tests = testpath.glob("[bmu]*.vtc") - [testpath/"m00000.vtc"]
+    timeout_tests = [
+      testpath/"m00000.vtc",
+      testpath/"b00047.vtc",
+      testpath/"u00008.vtc",
+    ]
+    tests = testpath.glob("[bmu]*.vtc") - timeout_tests
     # -j: run the tests (using up to half the cores available)
     # -q: only report test failures
     # varnishtest will exit early if a test fails (use -k to continue and find all failures)

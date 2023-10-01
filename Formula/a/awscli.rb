@@ -3,19 +3,21 @@ class Awscli < Formula
 
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
-  url "https://github.com/aws/aws-cli/archive/2.13.16.tar.gz"
-  sha256 "a4a10368d230b7d3afe532c98a850409d9784cd29e63132aa5454beeb8b57f5f"
+  url "https://github.com/aws/aws-cli/archive/2.13.21.tar.gz"
+  sha256 "09d320dac31e931b354f397881ffdc0c38dc1eddf2ef4b1a8336c80c0b0bf481"
   license "Apache-2.0"
   head "https://github.com/aws/aws-cli.git", branch: "v2"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "730e1280f295d5996c4f00d39f499d6e718ba31c11d1cfb58908e3b9c89c990f"
-    sha256 cellar: :any,                 arm64_monterey: "baadc531a568d5ea63b9399f1a9d4c04e503c4885f0b2df332d0f2bd48b532c0"
-    sha256 cellar: :any,                 arm64_big_sur:  "9f90565ba60797826819b4ac4c2bb9d7f5f74aee2c4250336e871155e8540f13"
-    sha256 cellar: :any,                 ventura:        "180d57e60eac670d7fedc71c1a4a0132adcdfcc6e7cc8b18bbf261e31c5b62b6"
-    sha256 cellar: :any,                 monterey:       "3f70eee14432ce6ff89c257c3560b77a4a6d24954c4dc2cf61048c5bb6cff4f7"
-    sha256 cellar: :any,                 big_sur:        "b8590b79df3942081716f3f81a73b0276edf8e1d159461aa3b0c59c875019e7d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "59253febae03796f0d100246399582be8ffb1b7862c7c6062e2e71556d1affc0"
+    sha256 cellar: :any,                 arm64_sonoma:   "a7c43f4ee52c6a60a6df35a1ce238cfcf9549b5c70028e4c0382440adc3ad348"
+    sha256 cellar: :any,                 arm64_ventura:  "546b081b8ed82c8f9c1eb19c46532fb510c5e2f0b4d538286683e231ceda4cc5"
+    sha256 cellar: :any,                 arm64_monterey: "f708801b7a057c0d22a88100be045370156fcb6365c1c14c1532500a3bc8d884"
+    sha256 cellar: :any,                 arm64_big_sur:  "485980fa44da668606fb316b418380c3493aa70a90c3266b55b556310ba0bea8"
+    sha256 cellar: :any,                 sonoma:         "d658039a1ae741b7fa0669615bcf5129ed1f1eee12a63c7cd9384fc99432ca4f"
+    sha256 cellar: :any,                 ventura:        "55d09d332804b1a2ce00ad704c3c24b2c757c670cdd3c06ec17e0eee4412896f"
+    sha256 cellar: :any,                 monterey:       "29f6fc841669b6f89434514f44b43b196aed645ee03b4b274ac6d7451ba0c29b"
+    sha256 cellar: :any,                 big_sur:        "68b5ccd316813f1ac3e6c7a0d7d5818c62c146682074f69f3719e25ce7e92898"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "732649d73cc082c0b2b7e12e5e2f1dece7f4d7b0b99d5bcc7e66e3047c79a0e2"
   end
 
   # `pkg-config`, `rust`, and `openssl@3` are for cryptography.

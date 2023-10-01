@@ -13,9 +13,11 @@ class Homebank < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "2f0d301de9f8166e63b005bac90d2a9f1cd23fa09ef55aad83476210b9ba8923"
     sha256 arm64_ventura:  "823c59b268c4ecfbc0ce6f41a6d4e163f220328a9372c55f74600df49091bd75"
     sha256 arm64_monterey: "863be05486d2cec3a2c26047fecd5a2e18589b8070af8cf10d98273b5f9a4579"
     sha256 arm64_big_sur:  "2ac06c19e7389bf818594fbfaeb195abbab67532e4f8f15bcf2062ad7e442019"
+    sha256 sonoma:         "f38688213d5b51c0fbce39dcb3ef6419142ca396bc3024fa35402114180732f3"
     sha256 ventura:        "87a1cad60518869e3ddc82c0a02b32783b8661a04cbf65d65ee4963301ff2316"
     sha256 monterey:       "b478bd78a5dff976268d7e5fea71a4cc154f9bb128217690bb25f74bc1e0cea8"
     sha256 big_sur:        "113bd9f7f2061e6f8fd64052187049085115c8bcc9c139d975b4d173a25f6063"

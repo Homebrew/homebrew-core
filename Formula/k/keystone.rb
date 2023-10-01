@@ -8,9 +8,11 @@ class Keystone < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4a92886bc77c62627e87ee2cf8023ca369c3592c79873e3f993b299cb50d219a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "41e04237bdb7b026db2bfdff26829a6c6ecba95b6b23ee496c3b0cc6d374e22c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cbb19b4292aa9bdeca592d7d775423bb8a9f9c1547199e205659fdb8f653e0bc"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f504af4a278854b6a67b72d1f4eac96c2966cdcaf81b36aee6fd72aa6ac25e2d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "919544ac6be497ff3b27d5d531a28ab89d83a379e1968d8bce973f2939823f49"
     sha256 cellar: :any_skip_relocation, ventura:        "3ca2d31e7f57a69792e963c4bd09a0eaa5a4b70bfa3faffe9fe5832139e1be4b"
     sha256 cellar: :any_skip_relocation, monterey:       "97781c17cfa261a887cb9f38e5f89f52917e289e812b63c131e0c036dce5facb"
     sha256 cellar: :any_skip_relocation, big_sur:        "060a77b372c27c2084589b99408ff19b3d0254a3aafe3f98bd33e25c031065cf"

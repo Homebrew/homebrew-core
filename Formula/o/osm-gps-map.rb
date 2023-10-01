@@ -16,8 +16,10 @@ class OsmGpsMap < Formula
 
   bottle do
     rebuild 1
+    sha256                               arm64_sonoma:  "183abe2649476771d6429c806f6b64669a6602d3d3320cd897d17c780e0077eb"
     sha256                               arm64_ventura: "cb2a486b55c1d892e15850c581795642594be622c74bccdf7b68399d05c45c2c"
     sha256                               arm64_big_sur: "69c8b2b22877a14f14d04d3f40a890f6b092b992bcb86270c1f82ff79f54ae50"
+    sha256                               sonoma:        "7cdf31ba849d8212a0780de305d13c120415df2f4f65e8462cf45848e6e25574"
     sha256                               ventura:       "42936a83f068fc0b03ea5925b0c8016bce98a7f9a043ec9306b52c8205ca8d8d"
     sha256                               monterey:      "322015ebc1b2ce52d40d2db2d27662f639725bd474aca83b1af9238abccb903e"
     sha256                               big_sur:       "5e88cd60732ed86ec019f82a136d3445af500893435b804f68c41d25fe8de72c"

@@ -24,9 +24,11 @@ class MariadbConnectorC < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "eddc44e5d296f9de63be0540cc253413bc91640c1fb73ae73324009b0ee3a338"
     sha256 arm64_ventura:  "7932a4f074df7dd50077a4b4aa1d819cc19fdf64c1f7a383ab99268c29318b10"
     sha256 arm64_monterey: "f4409ff5557b12c7e1eade9fbd5d89379a4303a7d214bd2ea02ac1e92a881b2b"
     sha256 arm64_big_sur:  "bb5f15c4577c75378afd14255e51db5f58e231650c6866c48f7d2cfd5d925bf7"
+    sha256 sonoma:         "6be8af0330868fff6271b4e24d38898fba4d77d324fe2165de9b672e768e96d0"
     sha256 ventura:        "dc5a037a2d19e855997614eb1fa9201ba2a91c96a6225f0da3ffbd12ca7a8703"
     sha256 monterey:       "b3534cdba8a3c6703fe7c8aa4dc2968889501708e5b87efa9f0a7c3a93620d5c"
     sha256 big_sur:        "d7acccd5f728af488f6a788bc736f7952e8e564a88e0943b6856365df1e5034b"

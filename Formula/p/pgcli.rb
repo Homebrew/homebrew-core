@@ -10,9 +10,11 @@ class Pgcli < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "726e06f7ed603d652e27b507b958689ee1ed7e47fa96003fe98d03a9aa459364"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "efa8d8763830fe16afe3e5f3fd01e7f1f60f697d220bede6191507a28739b7d4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bcabf4b5831c3e5eb8123e0d0ee0168a1387bd1074353fdb0747373cb44efd02"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ad81e4f07888f75edbb97b23914e82a74ef7aaa203da35387b8b2d0159c3646a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "57474e5047a32a870cf2c51ccf63b99adeebce7d35c8b18ccf5df3bdad8cdb04"
     sha256 cellar: :any_skip_relocation, ventura:        "7e72b87aecaf92fbf7a497f94b54619f56f48050ef55f0c6da0eb3042cf7c767"
     sha256 cellar: :any_skip_relocation, monterey:       "ab785ea23264fa9ad1128a289e9ea21a9df22ce8df0902e8099b77c2f0b89c07"
     sha256 cellar: :any_skip_relocation, big_sur:        "acc846e235fe9d9ae8fc95ab101d414781e8260d4472e60b5a0b93f760a37d1a"

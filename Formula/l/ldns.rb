@@ -14,9 +14,11 @@ class Ldns < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "bb1cce7cdda917f639aa145653f49ef3eaaefdf229ba8e614308f11aec213e57"
     sha256 cellar: :any,                 arm64_ventura:  "91cefcb3326fd36c21f26f0f905543bb75626ef382eda949c892a8bd8ebfb659"
     sha256 cellar: :any,                 arm64_monterey: "1bf12612f2a1fa6837f4360c3965f0cb568c920f28ce3e5c2d783e31ff480800"
     sha256 cellar: :any,                 arm64_big_sur:  "9fde4555b1801467eb72663a602b265e423fa85d12fd5ad878fc242852e08e60"
+    sha256 cellar: :any,                 sonoma:         "1fe598eaaf5e27cbedb1c15756b9e8f9879c0a3401c3c6d9faf292cf3b75a0ce"
     sha256 cellar: :any,                 ventura:        "08d75bc74a4667defb24c4ed92bd13da55317e836592c2e5851ea7132424551f"
     sha256 cellar: :any,                 monterey:       "a6443e00af46421f902df8ce0e4cebb6d01a48d4532275d5321e4fa547b41c3f"
     sha256 cellar: :any,                 big_sur:        "74adc13f57040a1f3ee99f147e57f457abc54b9c3c68071cc0f6e4f4784419cf"

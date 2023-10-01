@@ -8,14 +8,16 @@ class Bbot < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "04bdcbe78058a4181b5fa0cb901f6922a010b714181faa6f2d4dba9ba1e84732"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "74476e1a032f23672c8623c69af9612e11ed2d7b4f0be6d15294a32f35c72e56"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9c314cc37a4decd0a5edbcbaa5bffd8d55e1f7c618f7b2c2f8207446d8fabcef"
-    sha256 cellar: :any_skip_relocation, ventura:        "a44cc819ad9adbeb1cb3e98fa8d6eaa7bc7f7c317e6129f67a24b2dc03ef6fa0"
-    sha256 cellar: :any_skip_relocation, monterey:       "9f025130258400dbd2df612f8a7047fbe03567ebc58defb00de75cff24f6e195"
-    sha256 cellar: :any_skip_relocation, big_sur:        "12bdec042ae5c07c29ac62bbd7280e77f29119eb856bc40903ffd2aa486ddf57"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "50a6225e0d16f58426163d788192637698f66be9c249060f458d6c717f0e72d1"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "70aae34091608e45847960763b6708cd4ce3dfb59f238d816ddc745763cb7d10"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e4a936fc2849892ea28bb13c26062388b91e5b0ba0cfdc077df4e4b42a14b3f9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5c7156c98eb8caca552ae4aba8749f15ef3d80ff27ca925924def5c7e32d0a7c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5533a3980355b09b0135028e1dcf56c93696f0271738bb784b20decb24abd212"
+    sha256 cellar: :any_skip_relocation, sonoma:         "8042806ca30f920365f41b8d27c170d265a4d2ff90c28c580d5a2da65bd5f2ff"
+    sha256 cellar: :any_skip_relocation, ventura:        "6e61f00146bb11dbebf86bee57c8495a6d460d8a42de17fc07384a1db73574ff"
+    sha256 cellar: :any_skip_relocation, monterey:       "c950da3d0536f91a8fc73777bc3ae386bcd2f2c8de72c06e7388bcec6667f6bd"
+    sha256 cellar: :any_skip_relocation, big_sur:        "3defe47bc6835fb91bb74375669665c4ff44b559f68f60230e7d03b60dbbe63e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "46b526c0e5dd9ec3dc247ea6058e8578510f7045338ca287eba40b6375d5c6dc"
   end
 
   depends_on "openjdk" => :build # for omegaconf
@@ -25,6 +27,7 @@ class Bbot < Formula
   depends_on "python-certifi"
   depends_on "python-cryptography"
   depends_on "python-lxml"
+  depends_on "python-packaging"
   depends_on "python-typing-extensions"
   depends_on "python@3.11"
   depends_on "pyyaml"
@@ -158,11 +161,6 @@ class Bbot < Formula
   resource "ordered-set" do
     url "https://files.pythonhosted.org/packages/4c/ca/bfac8bc689799bcca4157e0e0ced07e70ce125193fc2e166d2e685b7e2fe/ordered-set-4.1.0.tar.gz"
     sha256 "694a8e44c87657c59292ede72891eb91d34131f6531463aab3009191c77364a8"
-  end
-
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/b9/6c/7c6658d258d7971c5eb0d9b69fa9265879ec9a9158031206d47800ae2213/packaging-23.1.tar.gz"
-    sha256 "a392980d2b6cffa644431898be54b0045151319d1e7ec34f0cfed48767dd334f"
   end
 
   resource "pexpect" do

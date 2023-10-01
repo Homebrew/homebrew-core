@@ -6,9 +6,11 @@ class Libxo < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 arm64_sonoma:   "da5d48e15e9fe746217b8fd37eb6fc8307266860e2bf7c0e80172cb2a904c2c9"
     sha256 arm64_ventura:  "b9e3fdf6f9bf02d0a13c076f9460cc3ea55a78a1387d9b89d52e40375ea6d664"
     sha256 arm64_monterey: "82180c9986e803236f8caba30c00b2dcdddaebaedfeb93a9c19a35fb959d6199"
     sha256 arm64_big_sur:  "56e3e01d82e65127da77eabfa5c109689c752aa039771ad9ec48b6de9910ddfd"
+    sha256 sonoma:         "084f76b9f3a8ffa35425dcbdd4d617e762ba880e3ca0a3f3e358f6fe94303a0e"
     sha256 ventura:        "73c60cd82012ce8ef4b2db4df25e3ba117c19731cdb844eb53e19df05410b54e"
     sha256 monterey:       "8621ad5d4d88b8313bf012dffba7a9f5c500f0c2f3489aa7fc1726d470e0ff9a"
     sha256 big_sur:        "4fcbf10d05037ee979e9b58ff784cf98528311a686bb4a5325701cd3fc90f784"

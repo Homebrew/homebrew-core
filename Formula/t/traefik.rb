@@ -8,9 +8,11 @@ class Traefik < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bbb23650d813aae5c7a99565cfc66bee10042734a5c215f798a68ed254e561bc"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9ac1ccf2902a09befe1f3f6e720486429b5b4483de407a43b16dd83153e46f55"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9ac1ccf2902a09befe1f3f6e720486429b5b4483de407a43b16dd83153e46f55"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9ac1ccf2902a09befe1f3f6e720486429b5b4483de407a43b16dd83153e46f55"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f9e89710f4024cfe2852d4ee7e08edf6c591007321f6ed8c133f632a98ae91cc"
     sha256 cellar: :any_skip_relocation, ventura:        "bbdb02446db1fae950d9690c744d5ce527f7d093fc49c327b77b8e343456e511"
     sha256 cellar: :any_skip_relocation, monterey:       "9119342da47f752c6b0bfc26404c77d305b05ad5e46f19b3be2774f5a62f8a6b"
     sha256 cellar: :any_skip_relocation, big_sur:        "ed923e2b55eaaf7f5640e9160fabcaff20dd248a6580a2c38477f603e7a15970"

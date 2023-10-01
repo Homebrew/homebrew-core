@@ -6,9 +6,11 @@ class Checkstyle < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "88839653c0491f37e58d6e0c3dbf7be81c6a7abf1964da34f60a713ddc597713"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "88839653c0491f37e58d6e0c3dbf7be81c6a7abf1964da34f60a713ddc597713"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "88839653c0491f37e58d6e0c3dbf7be81c6a7abf1964da34f60a713ddc597713"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "88839653c0491f37e58d6e0c3dbf7be81c6a7abf1964da34f60a713ddc597713"
+    sha256 cellar: :any_skip_relocation, sonoma:         "88839653c0491f37e58d6e0c3dbf7be81c6a7abf1964da34f60a713ddc597713"
     sha256 cellar: :any_skip_relocation, ventura:        "88839653c0491f37e58d6e0c3dbf7be81c6a7abf1964da34f60a713ddc597713"
     sha256 cellar: :any_skip_relocation, monterey:       "88839653c0491f37e58d6e0c3dbf7be81c6a7abf1964da34f60a713ddc597713"
     sha256 cellar: :any_skip_relocation, big_sur:        "88839653c0491f37e58d6e0c3dbf7be81c6a7abf1964da34f60a713ddc597713"

@@ -11,9 +11,11 @@ class Jack < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "5761fd56f7cc48e05c214ecec68347acbd526922d1ca19c77b842a5b3150420f"
     sha256 arm64_ventura:  "de407106387c805a6117edb7e10646accf5cc25abed05b310475709b07d403c3"
     sha256 arm64_monterey: "44c6dfc147a7e6f5677e6f5a94ce46fe4ec87db6953c2893eb5bdc6082623eca"
     sha256 arm64_big_sur:  "5b71efa702af44215537e74f2f792a7f9a02253a10350a91a0043735de24d6ac"
+    sha256 sonoma:         "eb2a76f2fea911a0a7938f97ffd0666f3a5f03939f8ceb785108ec8f413cea2e"
     sha256 ventura:        "2f54c142f838c5ce1f248d44b5efb32cf52092c8e232b2848965c68a2c5a6066"
     sha256 monterey:       "59251197992e250453273d7cf62da7a4b11b730382686e3e5bb8349c9d7c8ce5"
     sha256 big_sur:        "df787dac8716e347bd2e336ac604042333e2ccff75cbe665412fb39fbb0f9cfc"

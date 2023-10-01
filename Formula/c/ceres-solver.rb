@@ -13,9 +13,11 @@ class CeresSolver < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "ad50b13367f2b43b4c5ac3e6812e5bba4b1031d3aba4b2c93a0984bc034dcfda"
     sha256 cellar: :any,                 arm64_ventura:  "132406aae22f9f085d7c02375cb22a80988b569c0a12153d716398509bca764d"
     sha256 cellar: :any,                 arm64_monterey: "02ae1599d8c04f6425e8a2df4448d57b37eed0f31fb486cbb934c7e3e4e6949e"
     sha256 cellar: :any,                 arm64_big_sur:  "8a3d92ac03ad8b52224713c088064c4452c5b2a1f40c558d5f6030d91a2d0883"
+    sha256 cellar: :any,                 sonoma:         "01d2ef68ea487a59b2ac754540d0e99f7c7041b4a7aa0acf01fd5840b3bc16b1"
     sha256 cellar: :any,                 ventura:        "38bfcce75b8606172c39bcd3a4adfc988b9d90e59e3b595d0536bfb1f9561bdd"
     sha256 cellar: :any,                 monterey:       "fe17f43c5efbe5113c7bfe424c8db2b9601cd9f4bdb1fb1ed3efad250e05d094"
     sha256 cellar: :any,                 big_sur:        "7b81e35e58838e4ba4e78cecb9598ad6d8f738f24c665942c5f0cc13bf17686a"

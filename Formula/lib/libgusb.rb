@@ -9,9 +9,11 @@ class Libgusb < Formula
   head "https://github.com/hughsie/libgusb.git", branch: "main"
 
   bottle do
+    sha256 arm64_sonoma:   "b27e346739edf905d09d351c513391c9f24e81d125379bc308262517d87766d9"
     sha256 arm64_ventura:  "ccea93257265e9b923743260d3a5e916d2676924d21178537052c6d2008d48f9"
     sha256 arm64_monterey: "755005cd9052c130978063da0ba60918efcfeee67229bf8d5d03f2a5b8d3044b"
     sha256 arm64_big_sur:  "6e295369c6a9460aef7447ca6c79b61041a136110d5fedfe358413e3a13e8911"
+    sha256 sonoma:         "be1c94018f44cf18a9a26864b708f58b5e9e72e5ecc00523f20dac9e71730134"
     sha256 ventura:        "40ba211d6d3a24dd4d86cb987ee8dfb26a559682229558d1d6c22f362bbbf142"
     sha256 monterey:       "1ab4b8f9c2fcc6c2a2386cacd00b383074e8046dc48a286bbe707d67ded1dbee"
     sha256 big_sur:        "4a818f46ae9a80c190b8233ddd4178edda96e0a9ab8f3b8b4a7fa84580209310"

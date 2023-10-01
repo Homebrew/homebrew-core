@@ -7,9 +7,11 @@ class Cogl < Formula
   head "https://gitlab.gnome.org/GNOME/cogl.git", branch: "cogl-1.22"
 
   bottle do
+    sha256 arm64_sonoma:   "99481c1ebc384f13e117b2ed3090503a5b5150575b79f716f750cfaab35dcda4"
     sha256 arm64_ventura:  "320b79387543af4d34a6c5453a339c8206d1f4afdc74cd12aaad3d268234abf5"
     sha256 arm64_monterey: "619709d99ff34b8468b4036dad1a23a355e10672ccffc109cf093d57183c3ae8"
     sha256 arm64_big_sur:  "9a487a4bf7fbe5fdec29d902ba668fe20cbbc05e66864cb8d9c5fe564373e586"
+    sha256 sonoma:         "26254d87d346dd05c730c4f45711f332b4e17fd3c787cb7c1cc5ea49b3d38d96"
     sha256 ventura:        "8c2d1d7ecac6bddf3fef86eba3b195be8a1ec29ccdc3d68a78531ea6dae74b15"
     sha256 monterey:       "b1770215a0378766b70f4337b6ca2608c54fbe78568cff08363dea00dfbc1b23"
     sha256 big_sur:        "ec1ef03d2e1e855ae5277a2f599fb7ed83c221f0ae29d8c8a5f45277be96d869"

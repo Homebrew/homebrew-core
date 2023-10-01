@@ -6,9 +6,11 @@ class ZlibNg < Formula
   license "Zlib"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "633530ebb2b3d759914ce772d25f8712a259738a3c5cd90d3b6cdb197559fb31"
     sha256 cellar: :any,                 arm64_ventura:  "1691dcb7645027203f4b7672b052d8e98643aaefe88f8db7aa0eb5f754f93fac"
     sha256 cellar: :any,                 arm64_monterey: "3afe91b0f21d26f6e3c6fbfbd103c2f57d12aa4991524c08a2c1a4f5f9881808"
     sha256 cellar: :any,                 arm64_big_sur:  "2f7c641b699727baaaf4b3e08c09cc9efee625b496336906ff838f4fcd34dab6"
+    sha256 cellar: :any,                 sonoma:         "53fd72cd2468f412c3ba0523a9009372ddf0a777e76342984c16371b290bffc1"
     sha256 cellar: :any,                 ventura:        "54996b18079af43be761755d9da2573846b96d191b812f04dcfa76ebebd2b99f"
     sha256 cellar: :any,                 monterey:       "2904452a7eac011cddd53b53bba8ff30047ff3f025e9317a3a3c653bc868d754"
     sha256 cellar: :any,                 big_sur:        "5ff6114f11e3c7a8a11e8f74c4422c400d7818719318d6ada4b3d349153b7488"

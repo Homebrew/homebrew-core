@@ -9,9 +9,11 @@ class Libkate < Formula
 
   bottle do
     rebuild 3
+    sha256 cellar: :any,                 arm64_sonoma:   "86df815c607bf3885aad8db7f1d235cdd3b01ed0ebd1435e2c12abbfb9eb4e86"
     sha256 cellar: :any,                 arm64_ventura:  "f026c1dedc82362063313529155c028a9073cd85a4df725f5eecd01e79e8beb8"
     sha256 cellar: :any,                 arm64_monterey: "3b2b393791903423df63ad4da2e8b15d164096347ad62ffc21b0bb075ebca8e4"
     sha256 cellar: :any,                 arm64_big_sur:  "fb7f9d49f2a91063930005f2cb81d435036b188877691c2fc371d592a885c0cd"
+    sha256 cellar: :any,                 sonoma:         "db47b82d6229d24fdf89a46d0b3c0a84f82f2a2265c8737ce41340dd7066e48e"
     sha256 cellar: :any,                 ventura:        "f694ce2f0d188c71fdfdd089bcf80d217fe185caf1381971f62252612db30593"
     sha256 cellar: :any,                 monterey:       "80fa311e6a996435b69035822a9d253600e878771255abf150734f054ebed665"
     sha256 cellar: :any,                 big_sur:        "5984d97cdd6aa411e27b1360e693f55fe3ecd073a5a6531f725533b738aa55f8"

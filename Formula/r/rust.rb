@@ -2,40 +2,32 @@ class Rust < Formula
   desc "Safe, concurrent, practical language"
   homepage "https://www.rust-lang.org/"
   license any_of: ["Apache-2.0", "MIT"]
-  revision 1
 
   stable do
-    # TODO: check if we can use unversioned `libgit2` at version bump.
-    # See comments below for details.
-    url "https://static.rust-lang.org/dist/rustc-1.72.0-src.tar.gz"
-    sha256 "ea9d61bbb51d76b6ea681156f69f0e0596b59722f04414b01c6e100b4b5be3a1"
+    # TODO: try switching to `llvm` 17 at 1.73.0.
+    # See: https://github.com/rust-lang/rust/issues/116020
+    url "https://static.rust-lang.org/dist/rustc-1.72.1-src.tar.gz"
+    sha256 "7f48845f6a52cdbb5d63fb0528fd5f520eb443275b55f98e328159f86568f895"
 
     # From https://github.com/rust-lang/rust/tree/#{version}/src/tools
+    # When bumping to a new version, check if we can use unversioned `libgit2`.
+    # See comments below for details.
     resource "cargo" do
-      url "https://github.com/rust-lang/cargo.git",
-          tag:      "0.73.1",
-          revision: "26bba48309d080ef3a3a00053f4e1dc879ef1de9"
-    end
-
-    # Fix for a compiler issue that may cause some builds to spin forever.
-    # Remove on 1.73.0 release.
-    # https://github.com/rust-lang/rust/pull/114948
-    # https://github.com/rust-lang/rust/issues/115297
-    # https://github.com/kpcyrd/sh4d0wup/issues/12
-    patch do
-      url "https://github.com/rust-lang/rust/commit/0f7f6b70617fbcda9f73755fa9b560bfb0a588eb.patch?full_index=1"
-      sha256 "549f446612bef10a1a06a967f61655b59c1b6895d762d764ca89caf65c114fe9"
+      url "https://github.com/rust-lang/cargo/archive/refs/tags/0.73.1.tar.gz"
+      sha256 "976fb6f3e773319e60875772478645297d9eacc852857e288e8cec65399d2c88"
     end
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "da3cc5cdc2d6200c8b692ddd38f06b35f73ed4521e33b4fb019f1d887b8c1f45"
-    sha256 cellar: :any,                 arm64_monterey: "389b05ad8cb33c862279ccab174118580dc44f0b736729cb2d3779ebfe712fea"
-    sha256 cellar: :any,                 arm64_big_sur:  "f138aa23c66f8818e5545be2b1294fd940d40370fadbe431160877424f786261"
-    sha256 cellar: :any,                 ventura:        "dfe9048cdb4e153ef0b16c915adfb47fca3d07c39241601f2c96c7ed5e46d595"
-    sha256 cellar: :any,                 monterey:       "9857814f1e00f63f0e35c77f63697def916f96e88ff5f766893cc1b6f0fa918e"
-    sha256 cellar: :any,                 big_sur:        "32c58867be17708f066d735024c755d0165683ebb56f3c5e78fa5a0fbfa34702"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aa7272644a7bd61217aa864015a39dda2056562015a18f7fcc1199efd39991e7"
+    sha256 cellar: :any,                 arm64_sonoma:   "40687edb42b50bdf778643803a21a98fca07d86b6a138edfdd73a282c1e18ad8"
+    sha256 cellar: :any,                 arm64_ventura:  "be9922a4b56016f18d209067f5a4d148d2aad4db3061092f848744aff41e337d"
+    sha256 cellar: :any,                 arm64_monterey: "a9ada0e355a336a55545a16e615daa051c5a675dc05c63793a77b8bac98ba04e"
+    sha256 cellar: :any,                 arm64_big_sur:  "9bfc9baf003134053944ad145cc48155a23607ff73fecd6d45d1e4d3b429d6fd"
+    sha256 cellar: :any,                 sonoma:         "fbc3c8c3894f64dc121541cc9a50fb22a38ccff82d4dba9c370d70a6785f614e"
+    sha256 cellar: :any,                 ventura:        "4cd3be4492eae97232dd1d868fb40f849882724688c4bd792f1e720d8710803d"
+    sha256 cellar: :any,                 monterey:       "f7b8d6dc15d845f4ad715706542237386f97cf045e9168b34876bccb060e0e26"
+    sha256 cellar: :any,                 big_sur:        "20214e26fbc77ef51e3be59c970ed9a109f3c13cfa7331a973d60d06b907760a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "36b6bb23066fccd7b3c9311d5c671768133bbe5c27cce132376c4c0ec30abf9c"
   end
 
   head do
@@ -46,21 +38,19 @@ class Rust < Formula
     end
   end
 
-  depends_on "cmake" => :build
-  depends_on "ninja" => :build
-  depends_on "python@3.11" => :build
   # To check for `libgit2` version:
-  # 1. Search for `libgit2-sys` version at https://github.com/rust-lang/cargo/blob/#{version}/Cargo.lock
+  # 1. Search for `libgit2-sys` version at https://github.com/rust-lang/cargo/blob/#{cargo_version}/Cargo.lock
   # 2. If the version suffix of `libgit2-sys` is newer than +1.6.*, then:
   #    - Use the corresponding `libgit2` formula.
   #    - Change the `LIBGIT2_SYS_USE_PKG_CONFIG` env var below to `LIBGIT2_NO_VENDOR`.
   #      See: https://github.com/rust-lang/git2-rs/commit/59a81cac9ada22b5ea6ca2841f5bd1229f1dd659.
   depends_on "libgit2@1.6"
   depends_on "libssh2"
-  depends_on "llvm"
+  depends_on "llvm@16"
   depends_on "openssl@3"
   depends_on "pkg-config"
 
+  uses_from_macos "python" => :build
   uses_from_macos "curl"
   uses_from_macos "zlib"
 
@@ -90,8 +80,6 @@ class Rust < Formula
   end
 
   def install
-    ENV.prepend_path "PATH", Formula["python@3.11"].opt_libexec/"bin"
-
     # Ensure that the `openssl` crate picks up the intended library.
     # https://docs.rs/openssl/latest/openssl/#manual
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
@@ -134,7 +122,7 @@ class Rust < Formula
       --prefix=#{prefix}
       --sysconfdir=#{etc}
       --tools=#{tools.join(",")}
-      --llvm-root=#{Formula["llvm"].opt_prefix}
+      --llvm-root=#{Formula["llvm@16"].opt_prefix}
       --enable-llvm-link-shared
       --enable-vendor
       --disable-cargo-native-static
@@ -208,7 +196,9 @@ class Rust < Formula
     missing_linkage = []
     expected_linkage.each do |binary, dylibs|
       dylibs.each do |dylib|
-        missing_linkage << "#{binary} => #{dylib}" unless check_binary_linkage(binary, dylib)
+        next if check_binary_linkage(binary, dylib)
+
+        missing_linkage << "#{binary} => #{dylib}"
       end
     end
     assert missing_linkage.empty?, "Missing linkage: #{missing_linkage.join(", ")}"

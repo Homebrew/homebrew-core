@@ -11,9 +11,11 @@ class PcscLite < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "4fd8fe7ce1abe39c416bf970acada7f78e4dbe4d40b540542a36784a003baa6d"
     sha256 cellar: :any,                 arm64_ventura:  "f3bb47aadcadded2aa7dc974ea4776ab2d2a83a84d1dc49b9da2b193a1dff18a"
     sha256 cellar: :any,                 arm64_monterey: "6562c3d1259a6b374948568a8c8912dbfab57d6908b3c8f722bbe267fb12bdec"
     sha256 cellar: :any,                 arm64_big_sur:  "8842afebce7f1f49b4c4bcfd27f265796170c2a9c05d085653a6585adb83d36e"
+    sha256 cellar: :any,                 sonoma:         "f92b4e7699bce2dafc463a601c2a2fb4b161423d1876339dbfe53f47cf2a96c0"
     sha256 cellar: :any,                 ventura:        "2bbf9296a78fb012b5846f9d2bac850e5dd8fe74fbe08fcf5a4cd8ee921d9bb2"
     sha256 cellar: :any,                 monterey:       "9e8b14094fcf0ac9724251309ccb84fd995826b4460716277d466201e17c784f"
     sha256 cellar: :any,                 big_sur:        "5e3b65fd730f8454409eeee874916ba1d70e2367da4845794ca98d3afbae9c89"

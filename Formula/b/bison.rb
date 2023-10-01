@@ -9,9 +9,11 @@ class Bison < Formula
   version_scheme 1
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d4c06638f63876867e8fc485129ea6683487a249f0b2bc98bfaa6f1dab4ff6a4"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f877d389e78b14a070d21c554e39abff55d2fb6d7f0ae58de746f6edd4509ca1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "78ce4e93936c37005e944b21e4b4d305725bc66f6c675acf2eb13cf72bac01cc"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fb649b4e0b071ccfdce51193942366e894fb08be9798109eb718fb323369509e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "cadf52c2fd93ef340f01a36a8468b8725f5218ee6c62773b3838b8c01c862c9b"
     sha256 cellar: :any_skip_relocation, ventura:        "fc0224d45c74ee561128eb9df366ccb08698b1d659cfb92ea746e57da0108806"
     sha256 cellar: :any_skip_relocation, monterey:       "feb2484898408e8fb2008f4c0ff39042bffb026ea4463d33fd0dfb5952895f1c"
     sha256 cellar: :any_skip_relocation, big_sur:        "a4fa1a0bf3245d8ef6a0d24d35df5222269174a02408784d870e4a882434712d"

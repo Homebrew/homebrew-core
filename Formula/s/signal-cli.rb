@@ -6,9 +6,11 @@ class SignalCli < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2088ee49b8c3c06776f813b24e5386e87fa5531128e7763b3e38e0d9f572c95c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f4ca9f9ec346ff80ebb0daa8c1b422509ff9da0622a5b508a9695ee8ddb80199"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "449957852a354b082d015268bbe6341fe19f39546c95549bc72bf25660e42a26"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9997470bd853d93394f1f6b86216b34b341a7a7ea68d4c9b3c620db66cd2c67f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "197b6db4c4d6542b67e221c360ba2c33fcc38ea5309faf5d165803b35cbc5316"
     sha256 cellar: :any_skip_relocation, ventura:        "c7c9eabd50e2fd1564123fe62ba8503ab99d2a48f0d050ea0f3db9f8bb65cf99"
     sha256 cellar: :any_skip_relocation, monterey:       "18480f79264022f64d85b86c7088106b5fe7b8655f39058618be68af3ef38a2a"
     sha256 cellar: :any_skip_relocation, big_sur:        "82a4aefedc6a74981e8c7e1ca70ed2efaace75f8ce7429537f009a135d1651e5"

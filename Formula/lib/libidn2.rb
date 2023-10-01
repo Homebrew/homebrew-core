@@ -15,9 +15,11 @@ class Libidn2 < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sonoma:   "d79edd6e4fa829e8e00f874b362068c67f8f9b4e76e58c8140e5b087ca924553"
     sha256 arm64_ventura:  "b044c66cc0f1feea87d229f3f4016c5ff29a0fb0f712d0d5219f05465247b10f"
     sha256 arm64_monterey: "64f5b404f308f58ea4dbe787559fb802abd9b624dabd9a1703aa241a2a86d0fb"
     sha256 arm64_big_sur:  "e6c723cf6d603fad95bc7c7110d114d879555c38c2bed239f5a3e977ecc29434"
+    sha256 sonoma:         "69b39ffdb1367eabb34c77ce8bac7640d9fddc1722c95d2f2ce9ff9c4cf44db6"
     sha256 ventura:        "322028f5aaf50cac890a5eab03e3a21ecef83d76449c7d8f8d769d1c0887a7b7"
     sha256 monterey:       "5dcfc410f76c7885fffea633054c58c61e8a5dd2a6cfae33c2ea94e27ae0e96b"
     sha256 big_sur:        "234beba5f85ebd599ede74b4963e2cc5d2595e05b15bbe5bd528c8bc852bdc1d"

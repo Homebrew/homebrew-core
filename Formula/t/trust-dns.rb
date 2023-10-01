@@ -7,9 +7,11 @@ class TrustDns < Formula
   head "https://github.com/bluejekyll/trust-dns.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "65ab3ddf9276d47bca9766688d7bb87345cba6a0e792a21efcb121fe01d2b716"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5bac8e1ce73f817ab96bcf8d7ba3f287908e8d9ff96ba010ac7299080c5671fa"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9914de2d35f8eeafb0df04a00992eb5fdf38147cb063aafda84117511ad3d285"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0d24296a7b53a912582bdc3872f45e8af3a9798ebca4dd99606648b222ddec21"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4fd4534a52dfb320f0f5da492ce4538623db3610db3bda6fb0bb2a8ab4e91b4a"
     sha256 cellar: :any_skip_relocation, ventura:        "422744ec62682cc9810603127ba556e451f8ff212b183b9cf144d403edbd9315"
     sha256 cellar: :any_skip_relocation, monterey:       "ed626729cc1473f3d286af7a934bcb77c4ba884c0e21784d5a5d89ef0ad0254b"
     sha256 cellar: :any_skip_relocation, big_sur:        "68a852e9a815c6f94361935b6f5d8819c68ce9100e87a4347646bf9819282dec"

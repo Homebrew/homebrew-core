@@ -1,8 +1,8 @@
 class Suricata < Formula
   desc "Network IDS, IPS, and security monitoring engine"
   homepage "https://suricata.io"
-  url "https://www.openinfosecfoundation.org/download/suricata-7.0.0.tar.gz"
-  sha256 "7bcd1313118366451465dc3f8385a3f6aadd084ffe44dd257dda8105863bb769"
+  url "https://www.openinfosecfoundation.org/download/suricata-7.0.1.tar.gz"
+  sha256 "6047c75f9e79a9b0cc6d6c7632024a4126812bc212f52acf5d3c813cc7c9fb0b"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,14 +11,13 @@ class Suricata < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_ventura:  "d58069d6aabe6fdaf36f5f23bad35b48d9e288f61e4913e7591e8f4447706d46"
-    sha256 arm64_monterey: "b23b1457fb6c4fdbf1383d2774c07d2d83ff15bb104397f0a8475c743d8ee4b7"
-    sha256 arm64_big_sur:  "3c1987e4fee155ccb835a2a5e0ca0003a9d4f3591b0766735f844849999cc42b"
-    sha256 ventura:        "d5603e316135025853b112f3200aecb3d78f5a8f4e2115b4edbfaf711e153e36"
-    sha256 monterey:       "7c1e14f47f9456a263a37636a1a98c3a878e5f129163ebc7c7040563e1cceaeb"
-    sha256 big_sur:        "cf3cc309c09683104ab7ee04c562861423305d8f36715ab62747be28b721dab4"
-    sha256 x86_64_linux:   "1145649e95a1b9b22b2d180b77b3ef4850ab120394b1eb9c2957d553b0ebd3c6"
+    sha256 arm64_ventura:  "6c0e091bc55413c312adeb12fe40c4f6b6b48ee3cadaf1a26fc9fbb1efd4cdc5"
+    sha256 arm64_monterey: "84e3f070aa1c2f353dfa6fa29ce21b015e1bc081bdb7e071b417c8c3db03bd23"
+    sha256 arm64_big_sur:  "841856af3e342b605145d8b7aae649c71cf50661d163a5150c422803685b4c43"
+    sha256 ventura:        "d7cf0013e35f2bdcd0f65d67649b6b187d2780952a4dc2be6d36ce579e29d0b4"
+    sha256 monterey:       "ccf7baf8ffc298dc280d36004437eb6536a7e82a2b0f300fb0b12f82cadd9e93"
+    sha256 big_sur:        "5700ef72c2a3c05fb2e345dd75141beb3d4b4976f2672733632f0dad662cba98"
+    sha256 x86_64_linux:   "047f924a159c6922ce829f6f4cd18098a083d36d3a59a3feada8cb027cb7b36c"
   end
 
   depends_on "pkg-config" => :build

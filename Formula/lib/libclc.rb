@@ -1,8 +1,8 @@
 class Libclc < Formula
   desc "Implementation of the library requirements of the OpenCL C programming language"
   homepage "https://libclc.llvm.org/"
-  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-16.0.6/libclc-16.0.6.src.tar.xz"
-  sha256 "61952af79c555d50bc88cb6f134d9abe9278f65dd34c2bc945cc3d324c2af224"
+  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-17.0.1/libclc-17.0.1.src.tar.xz"
+  sha256 "90a645ec680ac9f39acbe2aeadbdbf7e5e20cc3cce647266e4fc6c8ca11bec34"
   license "Apache-2.0" => { with: "LLVM-exception" }
 
   livecheck do
@@ -11,13 +11,15 @@ class Libclc < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cc9c0dd53dc0846a507a7eb445d950400e4a37a1e587d6fa6f3ae6c4ea0f200f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cc9c0dd53dc0846a507a7eb445d950400e4a37a1e587d6fa6f3ae6c4ea0f200f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cc9c0dd53dc0846a507a7eb445d950400e4a37a1e587d6fa6f3ae6c4ea0f200f"
-    sha256 cellar: :any_skip_relocation, ventura:        "cc9c0dd53dc0846a507a7eb445d950400e4a37a1e587d6fa6f3ae6c4ea0f200f"
-    sha256 cellar: :any_skip_relocation, monterey:       "cc9c0dd53dc0846a507a7eb445d950400e4a37a1e587d6fa6f3ae6c4ea0f200f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "cc9c0dd53dc0846a507a7eb445d950400e4a37a1e587d6fa6f3ae6c4ea0f200f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c16d51be82c19ebd19059721d57b3145d79e3d3db2f9cf1836beff0866db5603"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5c895f7a827b1979bbb535bf860c6e039c9fd677081f557835481bab2f43204f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5c895f7a827b1979bbb535bf860c6e039c9fd677081f557835481bab2f43204f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5c895f7a827b1979bbb535bf860c6e039c9fd677081f557835481bab2f43204f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5c895f7a827b1979bbb535bf860c6e039c9fd677081f557835481bab2f43204f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5c895f7a827b1979bbb535bf860c6e039c9fd677081f557835481bab2f43204f"
+    sha256 cellar: :any_skip_relocation, ventura:        "5c895f7a827b1979bbb535bf860c6e039c9fd677081f557835481bab2f43204f"
+    sha256 cellar: :any_skip_relocation, monterey:       "5c895f7a827b1979bbb535bf860c6e039c9fd677081f557835481bab2f43204f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "5c895f7a827b1979bbb535bf860c6e039c9fd677081f557835481bab2f43204f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b486a9f87837ce04269233021811dad10a06d8e6b3480276d1208d644cfdc5c7"
   end
 
   depends_on "cmake" => :build

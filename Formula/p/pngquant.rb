@@ -12,9 +12,11 @@ class Pngquant < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "b195142b5fad75f621e4103fd147a8008d88d62dbc79cea5681d055ff0520e2f"
     sha256 cellar: :any,                 arm64_ventura:  "55fab88e60676f665814df9e581bdf08fc702c017710b5014b62b71918cc5c5a"
     sha256 cellar: :any,                 arm64_monterey: "2a9880d5f9082fefeaa293e839b4c4c13cf667727f25a051fdaed81d893fd343"
     sha256 cellar: :any,                 arm64_big_sur:  "0ac3705e4b0be4c8fddcf74651060c9f8c4a06cf606cf29487f4c7b1cb54e92c"
+    sha256 cellar: :any,                 sonoma:         "abe2eeddc6224a9433f6f5dfc08b6e09cc4e0e65cd58496eb6eb7ad1dca5336c"
     sha256 cellar: :any,                 ventura:        "4d2a131a292a55106feb2513cada8dcbd1b8028ddc59d7bb95a189b2ce51fd6e"
     sha256 cellar: :any,                 monterey:       "fc3d3fd03d19f8ff9dcf2832262cd093bb3716f2362c17e5587930b5f3b974b5"
     sha256 cellar: :any,                 big_sur:        "04f276c7261989d2c5af611cc8ee54e4bd6fe50b7e1f4d5df870564ce7b7f612"

@@ -8,9 +8,11 @@ class Borgmatic < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "f218c30f53c40bec8b1dbcf95e819f81a275346408f5271f2372cf6d94096a13"
     sha256 cellar: :any,                 arm64_ventura:  "5ddd571bfd666f0f642db25a36f2697ca59534cee8a306812a1fc0530c96feb1"
     sha256 cellar: :any,                 arm64_monterey: "b4e82232d4be9989889b5440a31247063738d13a7250cd27280481b8a980a3eb"
     sha256 cellar: :any,                 arm64_big_sur:  "edf37f77e21ac11f69c0f07cfd1c52db0bd840fe4eceb2d12087f92e89ee5a8a"
+    sha256 cellar: :any,                 sonoma:         "86f72c23305c0ebe23fc51916fbb343ad493ca355cf7ffda5567f328f33fdfaa"
     sha256 cellar: :any,                 ventura:        "93847561672ece3e1aabe7e854ce002dd6a451584f4f146b81e3f61119d8084e"
     sha256 cellar: :any,                 monterey:       "7f1da123457c41471866ac4ee91fa2a51239b5a60e9f1354e96f78f9d6ae781e"
     sha256 cellar: :any,                 big_sur:        "4da5aab97d55595c81af191ca0619039309382cd7f7ecdf736821558657de710"

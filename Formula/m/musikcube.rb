@@ -1,10 +1,9 @@
 class Musikcube < Formula
   desc "Terminal-based audio engine, library, player and server"
   homepage "https://musikcube.com"
-  url "https://github.com/clangen/musikcube/archive/3.0.1.tar.gz"
-  sha256 "94fe7e2dba60137bbfee25c037850ac064744cd8c050cc76360580b2b6790632"
+  url "https://github.com/clangen/musikcube/archive/3.0.2.tar.gz"
+  sha256 "65f82db36d635bdbfd99f67d1d68c9e1aedf8e38efa627f303cf7971c306d063"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/clangen/musikcube.git", branch: "master"
 
   livecheck do
@@ -13,12 +12,12 @@ class Musikcube < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "536bdc6b3e27c7d83f2634de933e0fba13a21d0017f078a975ccdf93ac06c840"
-    sha256 arm64_monterey: "e49881571854ac5a280e32c2c0b3ae5344df48f334b8359ac879a983d7ec68e3"
-    sha256 arm64_big_sur:  "3974a891f2570db4d354d6157adf75d1be43ddc7220f5225b2d4c2afd869efe0"
-    sha256 ventura:        "bffffdf3f530d78ff18bc4889d9c0cfa4c67819cb85f46dea0bad041df066b0a"
-    sha256 monterey:       "541d265dd774e6a2b29bd9421c98b7e31fe93fa95d369d50541d5dcb090e2944"
-    sha256 big_sur:        "f890ef84c1d502e49f18e4b0af2d021091c0d162477798e619a69f20aa032787"
+    sha256 arm64_ventura:  "512fb81f7ba32be15e99b9cc7f1b5f5641ece2280a57fb9959b16c7a5a7d8d69"
+    sha256 arm64_monterey: "fee7d42e15666be622d7ea0c82cfba4c016018084e65b33c51fb11275e1ed068"
+    sha256 arm64_big_sur:  "c0f55bc4c17cd63c6f60a38c5dc23e575af1fc6e351d374463dbf6002cfd11aa"
+    sha256 ventura:        "e234af5ad4c039335c5318b3b3a44d63e80a51bbad81ad8dc45b8211b24810fa"
+    sha256 monterey:       "4921d57427b29a1d1d51f06a8a39770223b1a4d08308c002faca0b2126b7db9f"
+    sha256 big_sur:        "e5adeaf772f02f6a98ef4794f77c28c46eff02ff5c5a1e48d0cd21eb3b4e151f"
   end
 
   depends_on "asio" => :build

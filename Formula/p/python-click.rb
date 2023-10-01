@@ -6,9 +6,11 @@ class PythonClick < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b96ec4b94ca4731fe65368165e957806bd325052556c994a3baeecb6686def3f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "640b4d4c76cf1bfae76de10baf148d9247271a5e3055512a854a9384e2896c3d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a33cc0b2fc98ea1e10fe714f3e94d23ced647bed0d0bbeb483cbeab0c1c73f0a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "43a867e7911582e3ae94ce168ddffd819ae06ba7de99609b66196d2cda7fd4cd"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5c3072441652c05c5dd2a33c34e51bed23fdc48bcb3f0b3330b577155e6e6116"
     sha256 cellar: :any_skip_relocation, ventura:        "0ba7fd0f6b5e66b08b4fd72adfbfe59a271647007fe7b96bc97227b9f5fa6c49"
     sha256 cellar: :any_skip_relocation, monterey:       "3199c7c9efdb61698d82971fa831ce2ad6d5b1ceb1ab2c00462fb58f54f24125"
     sha256 cellar: :any_skip_relocation, big_sur:        "646f2cbf9972866bf7648637f69705dfdce6dfc18135439030427b8ec6dea7c2"

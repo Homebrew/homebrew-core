@@ -6,9 +6,11 @@ class Ata < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ab4d093b95b92ba31c473c7b453280c8e62c34059859b13d7f8fd98d59046675"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2b4786a053d334dcd765a3e17230417797e1b5115bbd363d1ff4f9524481ffb8"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e714105c5a2ec7a527de714d4293c7651f2079b9748f11008f4668a9b11c784f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "63a5d9625d26933f4a55c55dea6d63ed62ad5677637f06024e7a84ff09663dba"
+    sha256 cellar: :any_skip_relocation, sonoma:         "796b5ee96dd2a1040f1594591b611da027fe75ec9348c4995e39af1c8ea42d76"
     sha256 cellar: :any_skip_relocation, ventura:        "376411fff331be6554e83c3c033ddb5015a37cafa25e5cb2562553338c543811"
     sha256 cellar: :any_skip_relocation, monterey:       "87f3a58a275e3dd6a7323dbb082c697b13bcb7de9cae932b3eed072857dd4885"
     sha256 cellar: :any_skip_relocation, big_sur:        "bb61f5f197eebbaad4518ee4f7a68d3e93b89e486460092008ba52f862a45a2e"

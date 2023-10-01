@@ -12,14 +12,16 @@ class Expect < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_ventura:  "b4365dcb8458401c304c3a3caa4f4011f9329070b35c3a676487ee19f30b1cba"
-    sha256 arm64_monterey: "5ff98a9cf5b047096aab9a160a8c712d233ecf7db36beb3266558eccc192db59"
-    sha256 arm64_big_sur:  "2fc1bd04e2b574486ae498ef9f4ce15ca8d984d9dc62a0edf62a04e3a4462801"
-    sha256 ventura:        "6d59e098a54143167156956fa665bb0135c9928df4fee1f3cfc03371cb5c0b11"
-    sha256 monterey:       "846fa2041ea776fc3bc210bd38b1021761e4093dbb8bf7370c3e94dd37d77fea"
-    sha256 big_sur:        "f295e826b5797266fdceb33482e8dab427a4c2c2650a92537a440db22e74b8c1"
-    sha256 x86_64_linux:   "0163251e6adfe08adac9e1a2493266eded980c8eee028ee83228599ddb3c1224"
+    rebuild 2
+    sha256 arm64_sonoma:   "25b5d92689067d186416b78ffa0524d5a02a3e1c7068db8998dffaed2dd02e0c"
+    sha256 arm64_ventura:  "848515e0ab82921d9292b7a616d33dc02e9dfcaab91793ec4d5ef241c3e08f29"
+    sha256 arm64_monterey: "753d526bf20551dde2c60c1580989292e8c8f5f436da14b6901ec92a8bc30f6a"
+    sha256 arm64_big_sur:  "664f8a8ff901cacbe76465d4f13dc0ca775ccb0b48b34fa0aeb02b1e2e4dfe82"
+    sha256 sonoma:         "60f75545be4c3bc3f91dc895770d20654ee7112da5e92950ab49b3ef6e577538"
+    sha256 ventura:        "25d93f37370c458e865d809dd3489c1843acdc21dd74cabf2413e49f15d7994b"
+    sha256 monterey:       "37b95bd265607a74986db6259597e98963a0ff2d845533918105e9396b8f8d24"
+    sha256 big_sur:        "8462f3377db850b33a44bea729acd7b8c516aca8ed24d70b155c6b965f6997b1"
+    sha256 x86_64_linux:   "1386f4bebace25fb0635d385ada1481d5a176a80cf880bbcbf3612aacfccd570"
   end
 
   # Autotools are introduced here to regenerate configure script. Remove
@@ -38,6 +40,13 @@ class Expect < Formula
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/49c39ceebb547fc1965ae2c8d423fd8c082b52a7/expect/headers.diff"
     sha256 "7a4d5c958b3e51a08368cae850607066baf9c049026bec11548e8c04cec363ef"
+  end
+
+  # Fix a segfault in exp_getptymaster()
+  # Commit taken from Iain Sandoe's branch at https://github.com/iains/darwin-expect
+  patch do
+    url "https://github.com/iains/darwin-expect/commit/2a98bd855e9bf2732ba6ddbd490b748d5668eeb0.patch?full_index=1"
+    sha256 "deb83cfa2475b532c4e63b0d67e640a4deac473300dd986daf650eba63c4b4c0"
   end
 
   def install

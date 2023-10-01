@@ -5,9 +5,11 @@ class Wy60 < Formula
   sha256 "f7379404f0baf38faba48af7b05f9e0df65266ab75071b2ca56195b63fc05ed0"
 
   bottle do
+    sha256 arm64_sonoma:   "e40096fbc12217c535cf856513e7a659c5e496f0a03ac1f3cbbc2c82782dbb5f"
     sha256 arm64_ventura:  "4416be14e5f87f206fd75dca1e15f6b2a1ec3a0fc2e1264c3d242c57dadf1217"
     sha256 arm64_monterey: "af9022e78bcd0a863d72bcc0c7ddeb5fa004318e7d3e39f17f630b0e6d3f25cc"
     sha256 arm64_big_sur:  "700b80eb03a92465ae6a0860bf3c3eb572c9bc97799eec577e2fcb694c050148"
+    sha256 sonoma:         "fdfd9a3863cbb38a5d87eeeb04de4ccab9e503243848d7384173b47a7b7075cb"
     sha256 ventura:        "9274cf2e7bf58a7ae51ddc8d96634ad46c185bd177098b332069e5d8c3f545e0"
     sha256 monterey:       "8ca95f2514f7950df479ab89844c07038fdfed5b8b730a26a938be0e85bd4c41"
     sha256 big_sur:        "d9f755155083e888e0c001dc6590e88f90c5c1ae7868d7ec36865e127f60e066"

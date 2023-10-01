@@ -12,9 +12,11 @@ class Poppler < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "bdfba742a30ef1d6ca1c91d7dc2ed6ab779989a0525d198b3539589ad870f6e1"
     sha256 arm64_ventura:  "3b40f57034c434e364a83bd1b9249e7baae0f9a313ecce5b62f64a2a5da9e8f3"
     sha256 arm64_monterey: "2117ea0d320b580b33b012357f8e87d58b40fb7de225207e87c516d09f86946c"
     sha256 arm64_big_sur:  "6ff847a3f08990133ee7a4fac2cdf93c5ca34b5ad91b9ebf5e21e923487fca4d"
+    sha256 sonoma:         "60b4fe9da0c385015f7afe6b8375f228b14941e842477e04b53dcaaa388fd857"
     sha256 ventura:        "ef04af03580586efb39c7cd2110d9031c5b5c43493c6efa422b3c5cfa909de05"
     sha256 monterey:       "b5e7d1270ee7e9804f75c5c6b87bb93339e48362ffe34564491de0e237b73bee"
     sha256 big_sur:        "19eea1ca42ec13c16d5738da2d249346da9a4d2b3b3e55eae603022160a7590d"

@@ -8,9 +8,11 @@ class Neko < Formula
   head "https://github.com/HaxeFoundation/neko.git", branch: "master"
 
   bottle do
+    sha256                               arm64_sonoma:   "5df554d5b13e35244da52a836eb57f2f0c060db5af7389d08b7cc483aa30e22e"
     sha256                               arm64_ventura:  "7884de8412bd4275f2ad1d64391b7b42c3c816143a8ae6f13b268bb2e9aa29a4"
     sha256                               arm64_monterey: "5c98fefc1af0c5b4391c48c2c28957f3b11e635b4f6fdf2b8a274a9b3d71c6fc"
     sha256                               arm64_big_sur:  "7dc2386e227172ce35a3c01583bcac98793e3477f23ac0dd764514fb1ad8126d"
+    sha256                               sonoma:         "c313dc45e64b718ca4b65a7d60fa34e667c9d196a1a3f155d4988abfd2a410b8"
     sha256                               ventura:        "41e4b5cafe8330cabb6fb97ec386beb2a0390a2f89a2d91a3c0ff325d3cdba7b"
     sha256                               monterey:       "25484b429d41aba93aed15be888c59bcf33247936c2fc0bfc4aa657324aaee7e"
     sha256                               big_sur:        "c58be5fa39965347a20657f83e980e6a8b92c055b47e2425c1cd4ee228d76f9b"

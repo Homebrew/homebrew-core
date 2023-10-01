@@ -12,9 +12,11 @@ class Tin < Formula
 
   bottle do
     rebuild 1
+    sha256                               arm64_sonoma:   "687c2f91d9bf2b90386c01811ba6e97736b5afd8cb9373bf789334a40846306e"
     sha256                               arm64_ventura:  "279325cdda955514a69d824ce8a10a5d93e2118561133fa8b1adc5a3c847e4c6"
     sha256                               arm64_monterey: "20081eeca41e91c2cd9d23313fc97180e92f19f6f375dce9dc7a361298e5f709"
     sha256                               arm64_big_sur:  "e7d9f551293c92c6a2726856204303eb18e122e24693bbf1b4efb93a51c2c8b5"
+    sha256                               sonoma:         "8dab062de767a83b9fcc9b827aee083ca8da0e708c0497866389ffa8df64ab3f"
     sha256                               ventura:        "bd598a16a48913db70e0ee74bf976b9ad62a7e5219046fdf587d6578f768cfbf"
     sha256                               monterey:       "7b2fab82e93e8a5a769cb83a781ba4e95b14b623d40c14b93d160c8075a280f5"
     sha256                               big_sur:        "26d6c3893d0db776c0ed9d03a9436739137fa1b9c006b19449702066fe11e0e8"

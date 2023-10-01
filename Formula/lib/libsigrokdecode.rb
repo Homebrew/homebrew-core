@@ -14,9 +14,11 @@ class Libsigrokdecode < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sonoma:   "71ad43ac6840f57396851d3990cd53bcdab34fea3a240ba342c8d4b9dfe975c2"
     sha256 arm64_ventura:  "a29a790153bcfb9e63cf5a1cfa682ca90499167c05f5302775a473e479085a82"
     sha256 arm64_monterey: "c085b5022bde6daaed50ed43e96e8da62b11f578a27b74a854d46c2e585b7021"
     sha256 arm64_big_sur:  "71576cbfd8061aa68b6bfa821732c9bc488e62ea72814e3b3b2e5f3487c2c75f"
+    sha256 sonoma:         "095a2915d23d590c39faa4aff5d6f249633eea628f3c8134f959b8bdacc30c22"
     sha256 ventura:        "b3ffb3e8c95e44b9071959acafb624c7b6c2906c4a51c1f399611549c57279d4"
     sha256 monterey:       "08da53c93c00b6a93925bb05c7bab0e960d0d51ece414f9723938875e7776d22"
     sha256 big_sur:        "88d2834ae3acf1c102f0afc6c3bd38d746681ce6aa15c24fb4ff1cf11624be99"

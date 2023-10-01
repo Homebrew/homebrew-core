@@ -19,9 +19,11 @@ class Crystal < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "8a8e8bf6083572b4ab24edb3ac3288fe0865c7c78fcf788abd769510f967c104"
     sha256 cellar: :any,                 arm64_ventura:  "156855aa0ce541f7584260e825b6791cbbb9a0913387fedfb33143264cd11f0e"
     sha256 cellar: :any,                 arm64_monterey: "eccb5afb94e932118f2df6e1861eb3699ed26deb26341a553e8fa1e7a139f216"
     sha256 cellar: :any,                 arm64_big_sur:  "7aaacf0111893bf530616a59f0358e841497a634b4933c25254c19c7a7a1dbf8"
+    sha256 cellar: :any,                 sonoma:         "a6038eaa03a7c9a3b86132eb28caef98990289ec5dde8043be3fda9d1418f032"
     sha256 cellar: :any,                 ventura:        "b72bb735ec6921ed5d759ea294d85edc038b54517e00316abf1802dc48a9722b"
     sha256 cellar: :any,                 monterey:       "80c744b1531429a7ffa25053ef81878ca5a3ee1b87c281425d296b7d3cc25314"
     sha256 cellar: :any,                 big_sur:        "d3799d1bd94c5fd179fec343cd741417ce571fedbf234f8a6e0f73b00b4d30a9"

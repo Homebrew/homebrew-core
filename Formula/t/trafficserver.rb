@@ -8,9 +8,11 @@ class Trafficserver < Formula
   revision 1
 
   bottle do
+    sha256 arm64_sonoma:   "11952a5e21b9cd04ea49fbc21e1ddb4e6c92d056a9a5481154ff7534ba07a49f"
     sha256 arm64_ventura:  "9deeccd755fa83b9570c876b4fcaff07d116552e7e06af1ce7f6ca3f690412fc"
     sha256 arm64_monterey: "16f589e488c325a0bbcc55e46ef39468526286bbcd38a4277e189cea42f6bceb"
     sha256 arm64_big_sur:  "2f340076bfcb24ab8e723166171a7ce5a9a0aeffa681f1bebd7b6918f9a49795"
+    sha256 sonoma:         "7eb3ead673e426d185de9923ec9eb3d1533a79dc7801d6a4f92fd01980fb7da8"
     sha256 ventura:        "defc92934de8f85f91674b7974b0e7bf29a91d899d8a004b09f63cc3b8429074"
     sha256 monterey:       "8509309e4f08579095ccbc35fc1d6f5ccb8e7df0abbe63d02791079981939723"
     sha256 big_sur:        "be51035d713408d1fe9d3136c8732350816fb3e7b257900249c3348c9d466609"

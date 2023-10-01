@@ -2,18 +2,18 @@ class Carthage < Formula
   desc "Decentralized dependency manager for Cocoa"
   homepage "https://github.com/Carthage/Carthage"
   url "https://github.com/Carthage/Carthage.git",
-      tag:      "0.39.0",
-      revision: "187a78c62811d3d75a9b1d41bfaeff708936125d"
+      tag:      "0.39.1",
+      revision: "edf085cc652b9be8270720c21d2ca1b9fb12ff94"
   license "MIT"
   head "https://github.com/Carthage/Carthage.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "207c3a13cdcfd59bfa35bdb4e31be0a3e9e77df81a04dc9a281c1e121b861efb"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5e47cbb0c43c84cff20f71b02488cafbf05e8844d38d2ec6fcd6625a0c88e998"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0a1088a4186a15467696f0130569f0403de04db67347b0de9cf3ec1bc23fb157"
-    sha256 cellar: :any_skip_relocation, ventura:        "b7168722ce8a83dab063dc118bf56a44d0a6423aeda1eab6dbad021039ee2fd7"
-    sha256 cellar: :any_skip_relocation, monterey:       "cc8b396ad5b820930f6dd9ff60145b423a2fd5840781f34f716880f00ef44371"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0df03fabcb07866f6e85c333b6ea8c0ed933d6d3f4697fd1691a2b7eeafed32e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9adaaa9609a4a96f6cf41ac3f135eeb988ff8e61f13e541f9ab2455a4686ca2d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9b0c8b903bd8243b9b4ded7cca27fa3dc02868dc6cfea85b7dcd2537fbde1692"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "76c60dc59aa5a569816d55e3db88bda26339f481e74f84b3ce562b326264ae73"
+    sha256 cellar: :any_skip_relocation, ventura:        "8d3c23086c08866b1431ac914090cee8e8ee610c6f3d3323e2f9d9a5bc31cd01"
+    sha256 cellar: :any_skip_relocation, monterey:       "01dd72ad3bb80e3edf44b06632077040915280ace916eb6d5b2c156de1147c6b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0b58694dad7b77843e008be5b04c0553d74aad7e276558500e454ca13420785e"
   end
 
   depends_on xcode: ["10.0", :build]

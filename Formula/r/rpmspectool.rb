@@ -8,12 +8,11 @@ class Rpmspectool < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ae788048a8d4a77be470b7fc6fefc1d70c2cb4073e2a3634cbf962c84430d60c"
-    sha256 cellar: :any_skip_relocation, ventura:       "964ebc4c8fad13b63affbbc5f800aba1551b4bcbbc7ad94556d87d791e156b67"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3b27e1de9b1da031214a7cfd84e39491faca0f84fa616f1f358b8602c7961bca"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "45c02db8d8811a7dbb181e23323536e9b820651d1978742b5bc7bef7b65e6cb5"
   end
 
+  depends_on :linux
   depends_on "python-pycurl"
   depends_on "python@3.11"
   depends_on "rpm"

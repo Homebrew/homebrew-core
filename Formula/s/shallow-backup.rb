@@ -6,17 +6,19 @@ class ShallowBackup < Formula
   url "https://files.pythonhosted.org/packages/eb/33/4b56af73e95125cd6d92972a3e55c82f3ac9386d3401dd198f886a99bb0e/shallow-backup-6.0.tar.gz"
   sha256 "8fa5b8052c9f9c4f4ef456cf2f0163ef0fffb5c3a96e506665bae7899b5cc72c"
   license "MIT"
-  revision 2
+  revision 3
   head "https://github.com/alichtman/shallow-backup.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "24ed5a4ceca0b7a3a2d6fcdbc41d19e08635681e6400c6d969fe9ea37e585c36"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e84e6d997501d491512eef859ae2b6a4b06f007b128533159c80d721100b306d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "880076820e6642d109451c9a2cde41105114bbefca2b14bb39bcc00e4472b4b4"
-    sha256 cellar: :any_skip_relocation, ventura:        "89ce02d2b1780a290530495cd59a0493940112a8607e14ba8b866e0d059c8746"
-    sha256 cellar: :any_skip_relocation, monterey:       "10a59e1e30dca9f8cf7003301e7033d1279b55ab991779708afd8e8b4b44a2dd"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e8fb89dadb528c0316ceb476c4c4cc0ccd63708871792a1b8922015f74f5514f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9d5587ece68b9d0ad68f17851377ab59c96707fb8e6d74456220047c8e99a4b8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8ed2d637b66d0f4d800f78839704bc66bf5a99a4564d7f0a7235eaf8d7179af9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "eb3d661397d58d168f7b3146349dce7e565dabbbeba44afda6936f4fc3104b83"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cecc68834a84d16b44349c0d80275ffcb5303d4e82036c42c3d4504221579e7e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b7710d31693e747268bc7b1a8cb2a0fd51a6439dbe6d51b22cc8109125878ac5"
+    sha256 cellar: :any_skip_relocation, sonoma:         "912cd965f609698965cc79e370f61d2b40950ca0f4b3124c0bc34ce7ce1d966e"
+    sha256 cellar: :any_skip_relocation, ventura:        "d77961f5be211310d1e24010341fd783991f133d5e0b0ad56a8cd9f661aba4d2"
+    sha256 cellar: :any_skip_relocation, monterey:       "9e081053882a3c86c21f413cd9804a6e5b4fb2d86cddb74d8439e68e7a15d089"
+    sha256 cellar: :any_skip_relocation, big_sur:        "58b91f7a6d818ca3699e2561c13b89bd98cb693d648149a47e4d73f0bed48d4a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1fe6f9a0627ef39a20c963d6411d7ea9974852daea5163de7c0694d2d9849ddc"
   end
 
   depends_on "python@3.11"
@@ -43,8 +45,8 @@ class ShallowBackup < Formula
   end
 
   resource "gitpython" do
-    url "https://files.pythonhosted.org/packages/f6/7e/74206b2ac9f63a40cbfc7bfdf69cda4a3bde9d932129bee2352f6bdec555/GitPython-3.1.34.tar.gz"
-    sha256 "85f7d365d1f6bf677ae51039c1ef67ca59091c7ebd5a3509aa399d4eda02d6dd"
+    url "https://files.pythonhosted.org/packages/95/4e/8b8aac116a00f0681117ed3c3f3fc7c93fcf85eaad53e5e6dea86f7b8d82/GitPython-3.1.35.tar.gz"
+    sha256 "9cbefbd1789a5fe9bcf621bb34d3f441f3a90c8461d377f84eda73e721d9b06b"
   end
 
   resource "inquirer" do

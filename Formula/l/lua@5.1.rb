@@ -9,9 +9,11 @@ class LuaAT51 < Formula
   revision 8
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "221199ff4dc562096e2a5132a4253932133496ab26e77e433fffb98134ed2dae"
     sha256 cellar: :any,                 arm64_ventura:  "0a376241fb0501719b36ebd1f2124e1c32b784bc59897c824f54567614d24ed5"
     sha256 cellar: :any,                 arm64_monterey: "de6f49207593ea1ff60752fbda844d4be34d92de796f758c9e0e5f3dd329fab7"
     sha256 cellar: :any,                 arm64_big_sur:  "cde11765109e69c6484206f4b2a63081b535253f32233471343f03b52505a89b"
+    sha256 cellar: :any,                 sonoma:         "be4f7a95bce12da58d1d328803524523fd50a5e30727713b698851747997a26c"
     sha256 cellar: :any,                 ventura:        "f3b2b3317f5f291f523a1b4d049b5b9f966d7d7c7d4c4d5afa5f100791c58b91"
     sha256 cellar: :any,                 monterey:       "38413995d200a915e9d40831983b3605be0b1afcdb62fb0e768ca38c69b62dab"
     sha256 cellar: :any,                 big_sur:        "0d00a4c74d8e5fd3cd36621d318d2c1031a16c5701d2ae669223a2ca8a1a576d"
@@ -62,7 +64,7 @@ class LuaAT51 < Formula
       end
       s.remove_make_var! "CC"
       s.change_make_var! "CFLAGS", "#{ENV.cflags} $(MYCFLAGS)"
-      s.change_make_var! "MYLDFLAGS", ENV.ldflags
+      s.change_make_var! "MYLDFLAGS", ENV.ldflags || ""
     end
 
     # Fix path in the config header

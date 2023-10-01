@@ -7,9 +7,11 @@ class Mon < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e6e93600a34a633e6d90e5096c5e13e6df1080197f84ffcb1ad4fab2cafa9a04"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "51930349a969998d73df25075032c233871f445a9e7419f90419103c223110f5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3f814c697e985f27214f721e5205baa19e3673f94b905975f2cf65bf8e47bd07"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "65f144b16a687002f9d30ac665886aa8b06bb914e4ff0fe04e692a6a153eb76b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "72f500fe72c9afecadef4ea76245d879a72250264d2c4dc75a0a6e0923391615"
     sha256 cellar: :any_skip_relocation, ventura:        "44084ac7f259335761c5569cb0f59d00df44c39b5fea84d763140c364b3b9459"
     sha256 cellar: :any_skip_relocation, monterey:       "33b0a9658fe9c49984aeb76681165f01f586f25489b389db158bcbaac2a6ae2f"
     sha256 cellar: :any_skip_relocation, big_sur:        "6530e73e7a94297f2646a079361df7076cbc6a881b5baf227a703f1edd92cecc"

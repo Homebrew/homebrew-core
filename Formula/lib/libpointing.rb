@@ -6,9 +6,11 @@ class Libpointing < Formula
   license "GPL-2.0"
 
   bottle do
+    sha256 cellar: :any, arm64_sonoma:   "2d7abf099808b966f2e79ff4ee050ae9ba2dcaa009577575a8ceceeb657e3cda"
     sha256 cellar: :any, arm64_ventura:  "79773a252a784d765237674545e3355bec847c95f9ac82cc89826936954f8990"
     sha256 cellar: :any, arm64_monterey: "777a0f897878a4da3693f9d8a5717f42ff70fc281a81b57b4841a31ce17e7100"
     sha256 cellar: :any, arm64_big_sur:  "19de172dd9ad6744f9939955a5c526d3626400727631cdd07a6e22d8791fbf48"
+    sha256 cellar: :any, sonoma:         "ca321e413ebc04effeb4c54ee765a9954eccfed31df4111413480826429ca5d2"
     sha256 cellar: :any, ventura:        "97732d46ffab874e21adbaeaf3a6953df026772565ccfa5dcb5f5d51378ac75e"
     sha256 cellar: :any, monterey:       "9fad8e2c767cc76679b49546cf443a0ec1d7b7115dbd82faaff20649b3b77ff4"
     sha256 cellar: :any, big_sur:        "e9168eee924fc759e012e3ef41d64750d732f0d09a7af068fd935746835da472"

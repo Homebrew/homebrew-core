@@ -16,9 +16,11 @@ class Zbctl < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4a1e2c1049bb2696469e0d4589d6fb873d20a7bd6cb58479560d0bfd18513119"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4a1e2c1049bb2696469e0d4589d6fb873d20a7bd6cb58479560d0bfd18513119"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4a1e2c1049bb2696469e0d4589d6fb873d20a7bd6cb58479560d0bfd18513119"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4a1e2c1049bb2696469e0d4589d6fb873d20a7bd6cb58479560d0bfd18513119"
+    sha256 cellar: :any_skip_relocation, sonoma:         "180dd74ce44a0681a003f7fd67b17adfb5f87d43bb7de6532530e64cdf66ad24"
     sha256 cellar: :any_skip_relocation, ventura:        "180dd74ce44a0681a003f7fd67b17adfb5f87d43bb7de6532530e64cdf66ad24"
     sha256 cellar: :any_skip_relocation, monterey:       "180dd74ce44a0681a003f7fd67b17adfb5f87d43bb7de6532530e64cdf66ad24"
     sha256 cellar: :any_skip_relocation, big_sur:        "180dd74ce44a0681a003f7fd67b17adfb5f87d43bb7de6532530e64cdf66ad24"

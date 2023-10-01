@@ -1,8 +1,8 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v20.6.0/node-v20.6.0.tar.xz"
-  sha256 "9efb5cba7a8f4b18d38b0d7d37a9b30ded73390c84e380cf4de89a9d30a7d6fa"
+  url "https://nodejs.org/dist/v20.7.0/node-v20.7.0.tar.xz"
+  sha256 "3fcfdcd05c461517480596596674df85b35cfce597dd0ae33f5416fc4df12bea"
   license "MIT"
   head "https://github.com/nodejs/node.git", branch: "main"
 
@@ -12,13 +12,15 @@ class Node < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "e5a3d6ba6ef73ba5ea7d525379d3c62661b2802169bc24cadd879fecad0634d4"
-    sha256 arm64_monterey: "ace84a932bdd12f1423df1cfdecb67c0cc89d22b88e5cb8a9a64a0c803ed8a07"
-    sha256 arm64_big_sur:  "518f1a898072d8e7aac207c773220395d70390d960d7af3a5c80c6e14df82c80"
-    sha256 ventura:        "265596a43d99625d00193bc27affbbc37a5b34b94a600e36693cdf6b5f26a2f9"
-    sha256 monterey:       "28239f8519d7c51f92b4905395194cca6ad7c9690c51092231298448bdf057b6"
-    sha256 big_sur:        "47c6b50f9b4f779cb20bfd8ab704cdf25b6d3d41e0a17c70348b18f6f62cf149"
-    sha256 x86_64_linux:   "3815a8bc05dd27663fbf38bdec7a1f1e47ac47730c75a5aa28eee7423c0d23b9"
+    sha256 arm64_sonoma:   "1bcf2077a58ebdc453b6a12dcc33796854cef4efcd709409b6a7dc1b2e7fabcc"
+    sha256 arm64_ventura:  "a278eb1ace9cc5b780a96fc3a3dc5bd7625ec1af61962b4842c702b2260c9aba"
+    sha256 arm64_monterey: "b2dd70c05e75a27b8133311479449de63374df016dfa2bbcffb80efed38b8b7d"
+    sha256 arm64_big_sur:  "6de9b960e95bfd69dbab17bdc802981209a5ff0558447a757f3ad1484782d2f9"
+    sha256 sonoma:         "acaa4ddb8d0dacbeafa85167ef55edc8aa740f5438ef203bd210f7150f659259"
+    sha256 ventura:        "4ca2870c75178c5caaed1f04014b3daea02a3883e9d146c1eb42274e1185b9fa"
+    sha256 monterey:       "ece9cf97eac813fa1ae8b8a63891954da1fe1f01c851d77e00009ab67281329f"
+    sha256 big_sur:        "da2224b24fe0f834bee0a0d436010395c265ac8f4bd5f4a5729e6179a88042f5"
+    sha256 x86_64_linux:   "25cdc2b38cb4e9c34bfe01c3534eace8efd96e6c7f20f6a840c9d13d34ca2094"
   end
 
   depends_on "pkg-config" => :build
@@ -49,12 +51,15 @@ class Node < Formula
   # We track major/minor from upstream Node releases.
   # We will accept *important* npm patch releases when necessary.
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-9.8.1.tgz"
-    sha256 "0f3e2ae9569291274114b765d8d79b644f63fa162497daee54446d9a600e0f79"
+    url "https://registry.npmjs.org/npm/-/npm-10.1.0.tgz"
+    sha256 "7cb31c0a881964a22577fd84e5a9a5b11e6f49ef8aa0893036b0b68015056252"
   end
 
   def install
     ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
+
+    # The new linker crashed during LTO due to high memory usage.
+    ENV.append "LDFLAGS", "-Wl,-ld_classic" if DevelopmentTools.clang_build_version >= 1500
 
     # make sure subprocesses spawned by make are using our Python 3
     ENV["PYTHON"] = which("python3.11")

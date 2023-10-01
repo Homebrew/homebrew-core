@@ -1,18 +1,20 @@
 class Vale < Formula
   desc "Syntax-aware linter for prose"
   homepage "https://docs.errata.ai/"
-  url "https://github.com/errata-ai/vale/archive/v2.28.3.tar.gz"
-  sha256 "93224b7e587268a13698f135850144c2fee85cfda66d629f70678e73b7f75135"
+  url "https://github.com/errata-ai/vale/archive/v2.29.0.tar.gz"
+  sha256 "d94bb530ff4282f22adb9168dc619c4387e23902cbf88052772fb5cd8fdb3e64"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8a5910864153f2b53b79ada347fda10b67afcd5978592210e64ebc1ed46b3562"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "48138a9c22761b1e20092599b91271eccc678f698f0eccf413344fb7a0824635"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d8b4c4cf0c822610d446004380c7caa502b380ac2a35e1f59f6ebbca992a4165"
-    sha256 cellar: :any_skip_relocation, ventura:        "371b39a75cf8c561c9b255d2def6cd7d26b48322b634aa611bbe7961a1615b1a"
-    sha256 cellar: :any_skip_relocation, monterey:       "97220585ad53a4bc47bfd9d5f44e4f15ec421cdbffeb6f2ac6d4c6d46d9cbd2c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "77eafaa1674da6127a46828d49a7e82ea8093242c38c91c054c841650139f894"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e5637c952491d9ef8b204fe5268850886616a78222ef9eccd8c5fd2d8d2e612e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4181faefecc789688a3187ce684433901adcf0b30e267458198bb38973604cd3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "72fb8aea0c537c8f78957d54b7f727efddd6698536c36c6e5282d0fff9aec279"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "382ffef3069f78683d87a7a217d5fe90dac068c6c6a999e1d8c2c915deae238a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7a6b661152036d25385caa2fac9992feb2c06ef7ce6c9b7456d5248e7f78a473"
+    sha256 cellar: :any_skip_relocation, sonoma:         "82f1e4aecfce91b5282e939e8bd06402a12d6924a999eb3af12c57db8bf1e879"
+    sha256 cellar: :any_skip_relocation, ventura:        "8bbbcd75f2a52736f330eba75653be8ca9c5b2b89bff6be53f7427654a7829a5"
+    sha256 cellar: :any_skip_relocation, monterey:       "bce36e1ddaa5e6d02800e2214e5042c715fd44f3c60eea0e375a1dc8ea57b82e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b38b9d47b3e371abf92587c2fd086325f469125abad6ef91c5d68ee9826f48dd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "29cf544be28e1b16c3ba403ca4e234611b17fe9bb1ed6b598389f7475b8446a8"
   end
 
   depends_on "go" => :build

@@ -6,9 +6,11 @@ class Walk < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4475065655feff3220990d93e885ed681b5228c8c8eccb32ff9a41bd721729b8"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5578755af5859148ad9c163aa88bd3c7215f71cfd938f2b2bfadbd0d21d40248"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5578755af5859148ad9c163aa88bd3c7215f71cfd938f2b2bfadbd0d21d40248"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5578755af5859148ad9c163aa88bd3c7215f71cfd938f2b2bfadbd0d21d40248"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c3c0bab2aaa8f88487e5fe1ef22d17e02c5c7617dc90fcf2a8d7db8567077913"
     sha256 cellar: :any_skip_relocation, ventura:        "5747b2a9e5f9147a4a00e05d07c1121b065603d46ed739dfa735fee2437522bf"
     sha256 cellar: :any_skip_relocation, monterey:       "5747b2a9e5f9147a4a00e05d07c1121b065603d46ed739dfa735fee2437522bf"
     sha256 cellar: :any_skip_relocation, big_sur:        "5747b2a9e5f9147a4a00e05d07c1121b065603d46ed739dfa735fee2437522bf"

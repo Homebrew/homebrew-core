@@ -10,9 +10,11 @@ class GiDocgen < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5357f03b83c3cd07774f3203a950d03814e85e864b1dd892c395a5b36c441adf"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a07a6ee343dd01b6a02d9c434e370d8eba715b823f11127d753cfa73083f01a2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "20f7770a9f981349686f2c53251a3fcecbcaf2f7d03cb389b5585924485f1917"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "951f7b180d34b2f267a6c017cbbbc4f87506aa6a425943a63d676e631fcb70a6"
+    sha256 cellar: :any_skip_relocation, sonoma:         "33afe70485e7577a419477f136b64ea3be1bbe8ffa2a09558bff3a2cc9a8a669"
     sha256 cellar: :any_skip_relocation, ventura:        "8d65cee7d820365bb9a33072e5eb87d96dec598d989d66abb2da4df724fbac3f"
     sha256 cellar: :any_skip_relocation, monterey:       "058fe642dd88f7a68fcb7101c551767a14c4db932dae0def872507129f29f2e5"
     sha256 cellar: :any_skip_relocation, big_sur:        "a6b55bc3deb6b107fa5c052e920669a5fa56a3ab5a3818626aa85fb234d4218a"

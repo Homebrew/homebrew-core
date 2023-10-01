@@ -7,9 +7,11 @@ class Libhttpserver < Formula
   head "https://github.com/etr/libhttpserver.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "8656daf385c457a28484c8bff0d6271a5271980ab97899b249c1890274617fb7"
     sha256 cellar: :any,                 arm64_ventura:  "b11af50845ce2a87984d6240d3d7db441be82f84fde6fc6447866cc0dd5e6236"
     sha256 cellar: :any,                 arm64_monterey: "ce9d31e81bfbc06990ae1b57b295278e341d5917e157688d999f48c102ec4fba"
     sha256 cellar: :any,                 arm64_big_sur:  "48dae7ff73d5edc565cf97ce6c3f1f9a441e333d3ba0021602add200c3e316f4"
+    sha256 cellar: :any,                 sonoma:         "f7bd8a4823e25a2d328750d6e900cba1addc794c168bff61c89d49c2df2383fd"
     sha256 cellar: :any,                 ventura:        "4bfcce305d2fb4ae798d9b5a0ce54bf7bfc3a6a3636f7a500dee69ecd3161e32"
     sha256 cellar: :any,                 monterey:       "2eb240316761233c156364b47f7e5a1d0a280baaad49530f5e27ae7f19969db5"
     sha256 cellar: :any,                 big_sur:        "f79987ebd2cc129a3ff7a6ee5f3e4ba62cd3926a5fa66554b6b6c32a70661e20"

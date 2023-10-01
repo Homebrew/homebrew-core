@@ -7,9 +7,11 @@ class Afio < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f1827985d86c7da8918f35afafdd8cc7bf62fe20e8ebc627cdd77c7ac12b2ab0"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "181059011f90205cc99df3760661b795b59cda42e7bf18746403889e6305ac65"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7b4f681e5f0c0d32afa17e1f68c74b510ad922996f0bea0ce8be409169047e20"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ca63097a9d1a29c00ae8a799941e937c7359b9df59c723b6110cd7b5cfe7c943"
+    sha256 cellar: :any_skip_relocation, sonoma:         "450bd133db30e618eb5f538bf3f4c740c08f74abf26037356bd629148f20edde"
     sha256 cellar: :any_skip_relocation, ventura:        "9e5718d3fe605e90aa5bd956bf4849274d716f09617c10da3d3bb522dea23d24"
     sha256 cellar: :any_skip_relocation, monterey:       "f01da50d10c66c547df1cbaafd07131eb1307737d5e8556c85da1741b1c8c056"
     sha256 cellar: :any_skip_relocation, big_sur:        "0daf7df23f36271e3141cc11cab067b33ed5855b9faba53bc697d5259deb82ca"
@@ -20,6 +22,9 @@ class Afio < Formula
   end
 
   def install
+    # Workaround for Xcode 14.3
+    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+
     system "make", "DESTDIR=#{prefix}"
     bin.install "afio"
     man1.install "afio.1"

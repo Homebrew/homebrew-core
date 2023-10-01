@@ -7,9 +7,11 @@ class Groff < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 arm64_sonoma:   "ce07a3e98fa6cfff23826e993d638c12f833b9fb5fc9c2a3593364b0be162031"
     sha256 arm64_ventura:  "c6d152d002365b25c67782fed7ca0141ee3dafaaa0e726bf3df427d469fb73ce"
     sha256 arm64_monterey: "4926259bc0c75eb28f9d288c618ae84dc1a1a14952f3f414054e01ef5be345d0"
     sha256 arm64_big_sur:  "e4dfe40ef95e535d7f9c98e3743ce42112ae74c8aa3cfc4f30089c53aa123ba4"
+    sha256 sonoma:         "e5763fdbb5fb595f8b4588f19b9a5785739568075884563f79dc35fb3c1d2580"
     sha256 ventura:        "841d00a033f005f7e9eefed0d1190402879de5568a6624e494a52c581353bf5a"
     sha256 monterey:       "a0bfb5d123ae6766a69b8d245bcc8d0323e8f6bce3f7c55c89403939ba176d46"
     sha256 big_sur:        "8e8f79c4969912bf20f183dc3450001dc952b94967dca5cea18a7379d9d54f55"

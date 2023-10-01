@@ -6,9 +6,11 @@ class Gtksourceview < Formula
   revision 7
 
   bottle do
+    sha256 arm64_sonoma:   "eb0553b93b8b0e505d18bbd52bb38418d63c983ea3a9b659c6672796c04972a1"
     sha256 arm64_ventura:  "72c810e4c8bec98a46a3cb998149c1f5866818b1bfdfc18ed895cfae3eb07da0"
     sha256 arm64_monterey: "4751be60ebb27600b1c3e3a5cc1130a8b30fd0c560ccbc9b869c57a41136b894"
     sha256 arm64_big_sur:  "95cfffbde61e36b9212d7f4d0caa87f523567888d2f2a6304b1a17e67d26338d"
+    sha256 sonoma:         "bbb1d79f8e083d650711d273bb3cb342e17f780e17acbf1cccde1f14d7a0c5a2"
     sha256 ventura:        "c8b1bfcf2f675036284557c4bdaaff0916fa07cb09126893fb7b719120e10476"
     sha256 monterey:       "08668cd19c9c124cc636678f0503dbfe80afb61d42d9113fdd681c74eecb73ef"
     sha256 big_sur:        "a64b1b82ecad5a2c291245237e253ee85f1c6887726b97380e60be733459db1d"

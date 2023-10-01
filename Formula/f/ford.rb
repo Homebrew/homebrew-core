@@ -9,17 +9,22 @@ class Ford < Formula
   head "https://github.com/Fortran-FOSS-Programmers/ford.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8948ca52f3af0b56e558b409e482b4677a586d7c9bd52951b5cc517ce94d578b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5b728acd2e5faff1e19e8a3ed27a93a5c8d74cb9f50499e432d2b2448a8b941a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9a04cc0ba94e82dc320f8f2aaab1f90ee09984ec7cb1b7513267387990484daa"
-    sha256 cellar: :any_skip_relocation, ventura:        "c069a3f2ba3f9f00e1d562ec2b9dc3c363fad14badc0fbfe129c3875ce602334"
-    sha256 cellar: :any_skip_relocation, monterey:       "52d1f4ef76fca496c73599dade40d4fd97d2f0f223320fe511bccd2ccb439c23"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f94d3c0f8b7f6626a2e232617ba906748d7ca1fea1245bcb803f1bfd4afc2bc1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "893e1dc1a61555955610fba040b79d4ddc5b851fd9622663dc38173e02dfe2e8"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8ef5ee8a7a4e174c91311b777662952c7aa0bccdfc333df3d7bcfe8a48412e4a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8ebf168d485bded0c51fa40ee69ee91b155d7a7e34f323d7585972d4053eb732"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a4fbf95afb8a084c738f1d450ace10bedb5dd06dfbfde43654add76c0c12644d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e836d281dc9c6d54fcb310318196394446b3e05916dbdaac2d6da45b2635e077"
+    sha256 cellar: :any_skip_relocation, sonoma:         "730f3f16135b0ad60e9f4494d2cd616369d85b1affc2d568b0ee459b0c94573a"
+    sha256 cellar: :any_skip_relocation, ventura:        "ef26796d030e5dc19738a5e2fe831f085321bf37eaa4b21321d27dd9049e0d0c"
+    sha256 cellar: :any_skip_relocation, monterey:       "7222ee74f230d94ed43f853ce6ce68f5539251c1ff7b5dbe1c0ceae0d2d04d0c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "be9ebc5b389125cf1fa6fba5d24df190827dd75656b3d374ced1ec57bbd826d1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fe447cdac85d7355d04d8e808f39123a924c27eb509dc7b1d779fb3f32c28130"
   end
 
   depends_on "graphviz"
   depends_on "pygments"
+  depends_on "python-markdown"
+  depends_on "python-markupsafe"
   depends_on "python@3.11"
 
   uses_from_macos "libxml2"
@@ -40,19 +45,9 @@ class Ford < Formula
     sha256 "31351a702a408a9e7595a8fc6150fc3f43bb6bf7e319770cbc0db9df9437e852"
   end
 
-  resource "markdown" do
-    url "https://files.pythonhosted.org/packages/9d/80/cc67bfb7deb973d5ae662ee6454d2dafaa8f7c106feafd0d1572666ebde5/Markdown-3.4.3.tar.gz"
-    sha256 "8bf101198e004dc93e84a12a7395e31aac6a9c9942848ae1d99b9d72cf9b3520"
-  end
-
   resource "markdown-include" do
     url "https://files.pythonhosted.org/packages/5d/9c/7f53ad33ec7b7243910f8a5c3335c895fb070dc21b2e38b5a38d6a966c0c/markdown-include-0.7.2.tar.gz"
     sha256 "84070d0244367f99bdf9bbdd49ff7b9f51517bbee7582ad7aa8ff363e30d8157"
-  end
-
-  resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/95/7e/68018b70268fb4a2a605e2be44ab7b4dd7ce7808adae6c5ef32e34f4b55a/MarkupSafe-2.1.2.tar.gz"
-    sha256 "abcabc8c2b26036d62d4c746381a6f7cf60aafcc653198ad678306986b09450d"
   end
 
   resource "python-markdown-math" do

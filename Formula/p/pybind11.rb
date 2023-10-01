@@ -11,9 +11,11 @@ class Pybind11 < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "238a6a021e546c2a1a8958f93166b7cac68027b2dc86d654e4bef384ba3497b2"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0057b73416f1b41f40982a2f82e787868fc90240c6e29a1cb1628d92eadd3bfd"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0057b73416f1b41f40982a2f82e787868fc90240c6e29a1cb1628d92eadd3bfd"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0057b73416f1b41f40982a2f82e787868fc90240c6e29a1cb1628d92eadd3bfd"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3d9e4c24f0ba93fd73cc4cdeabd8d5ceb139ea041647ba063315394b95ed36fd"
     sha256 cellar: :any_skip_relocation, ventura:        "42b24630f5ae49b3df70947a3f763121836f43a716db2f368cbd91ce04ed94ec"
     sha256 cellar: :any_skip_relocation, monterey:       "42b24630f5ae49b3df70947a3f763121836f43a716db2f368cbd91ce04ed94ec"
     sha256 cellar: :any_skip_relocation, big_sur:        "42b24630f5ae49b3df70947a3f763121836f43a716db2f368cbd91ce04ed94ec"

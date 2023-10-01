@@ -12,9 +12,11 @@ class Xaric < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sonoma:   "411539ba49d2249cbde5b3e98bef79d227783d540891f5fcd8fa5cf51bf966f6"
     sha256 arm64_ventura:  "38088b4ae12add10906e733b77f6fc7c7ce0482af1bbd71e6e03db6351c934b7"
     sha256 arm64_monterey: "448f66a8156857d38d4050fc9f062d8a6bc9f9267b85a063acc776095635bc19"
     sha256 arm64_big_sur:  "9f38a153d2c80701856c14b0bbdc776c9d50ab1f0930b668f2e3f7c377b4ecac"
+    sha256 sonoma:         "f2a0e5f1c26055646e3f999ecb00a0a3ca1ab91e4e2dc20ed7836f213a9fc046"
     sha256 ventura:        "b46f72b6bad580eeb6583455155d8427e8c2812a5e87fe88975fdf5261e10982"
     sha256 monterey:       "d71030b64a334132691fae5896e5924428138fa2de5bed1634cbcf22d625bedf"
     sha256 big_sur:        "98a7bcefda0b4262da3bfbb45fe6985fae25db911cc60ea33b503be4e4598bed"

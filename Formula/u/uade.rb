@@ -4,11 +4,19 @@ class Uade < Formula
   license "GPL-2.0-only"
 
   stable do
-    url "https://zakalwe.fi/uade/uade3/uade-3.02.tar.bz2"
-    sha256 "2aa317525402e479ae8863222e3c341d135670fcb23a2853ac93075ac428f35b"
+    url "https://zakalwe.fi/uade/uade3/uade-3.03.tar.bz2"
+    sha256 "e0a091cdbd5a11d314f48526212ba34cdb71bbdf5622dfc1f28aa6291c93ede8"
 
+    # release tag request, https://gitlab.com/hors/libzakalwe/-/issues/1
+    resource "libzakalwe" do
+      url "https://gitlab.com/hors/libzakalwe.git",
+        revision: "521bc3ba81d78859fb3cabae88dae6ebe41f9c03"
+    end
+
+    # release tag request, https://gitlab.com/heikkiorsila/bencodetools/-/issues/13
     resource "bencode-tools" do
-      url "https://gitlab.com/heikkiorsila/bencodetools.git", revision: "5a1ccf65393ee50af3a029d0632f29567467873c"
+      url "https://gitlab.com/heikkiorsila/bencodetools.git",
+        revision: "ffde760bcb83182f6a4994f585773d5af264601d"
     end
   end
 
@@ -18,18 +26,23 @@ class Uade < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "a120ed8c02bbd11a0ebf992ba23ee980082bfc5c04021b14c9cba788fb993d11"
-    sha256 arm64_monterey: "1fa83a9d0afe0133189cc075e9eb0e8822e21baa01d0e568e768f65949cfd567"
-    sha256 arm64_big_sur:  "9e2786bddc15f0864674e26e53032af89c07490f7aca0aff307186cdd0eef283"
-    sha256 ventura:        "43340e7315dc521c2c924279faf3c62bb02d014786bad9d61faf0a2a8c039c0d"
-    sha256 monterey:       "d58fbf04c9fcb13f046a76110aeebf25cb93c3d812ed2a5ec04f3d93cc82424e"
-    sha256 big_sur:        "42cef81cd6f1792dc53c8e14a8fc416dadac072bf08a8bbf568838c9ae758ea1"
-    sha256 catalina:       "923523028dcc4fd1e98df962874d7385bfbc658c894216ff64dac85ab13616fd"
-    sha256 x86_64_linux:   "b570d5bee780acb48d04b1915026fbbbea8bf38ec3f217e24129bd4904470174"
+    sha256 arm64_sonoma:   "ca6ab0d34ad18f7f1af0024fe14cb9cd6bef936ef02f3d77eef3d5fa369eaf58"
+    sha256 arm64_ventura:  "ff3b1f1c5f687a21cd58cf8b27a057dde20cc10f416bc88dcf0397c58f9bbbe0"
+    sha256 arm64_monterey: "9af83e4001e9d24b2fc574e0c878e7d4d30df953cb343d5538cc3cb4b8487daa"
+    sha256 arm64_big_sur:  "ce39bfc4de99db6404766c3922d6592bdba45c1149dea31561a87561bfc247f1"
+    sha256 sonoma:         "5f3a536ef40fb4f7210c907e27af3422126cf2c364ab542cf2b3bac7c6221ebe"
+    sha256 ventura:        "666c380c57fe9e14b2f3852de79e8c77933300fbcf636d1cd20abec84c3cd7e3"
+    sha256 monterey:       "d8892c99c748919747c3b80898256647642ebad0078aed6c9f3db7bce2693561"
+    sha256 big_sur:        "ccfc305a99a2b9e01ea0e61e2d9d90494822da2029411e19a7c8b9e0adb24bc6"
+    sha256 x86_64_linux:   "6a5220023b7fb15a23f57a52f7c73c42e547264ee0682177f612046f907519ab"
   end
 
   head do
     url "https://gitlab.com/uade-music-player/uade.git", branch: "master"
+
+    resource "libzakalwe" do
+      url "https://gitlab.com/hors/libzakalwe.git", branch: "master"
+    end
 
     resource "bencode-tools" do
       url "https://gitlab.com/heikkiorsila/bencodetools.git", branch: "master"
@@ -40,6 +53,19 @@ class Uade < Formula
   depends_on "libao"
 
   def install
+    lib.mkdir # for libzakalwe
+
+    resource("libzakalwe").stage do
+      # Workaround for Xcode 14.3
+      if DevelopmentTools.clang_build_version >= 1403
+        inreplace "Makefile", "CFLAGS = -W -Wall", "CFLAGS = -Wno-implicit-function-declaration -W -Wall"
+      end
+
+      inreplace "Makefile", "-Wl,-soname,$@", "-Wl"
+      system "./configure", *std_configure_args
+      system "make", "install", "PREFIX=#{prefix}", "CC=#{ENV.cc}"
+    end
+
     resource("bencode-tools").stage do
       system "./configure", "--prefix=#{prefix}", "--without-python"
       system "make"
@@ -47,12 +73,15 @@ class Uade < Formula
     end
 
     system "./configure", "--prefix=#{prefix}",
-           "--without-write-audio"
+                          "--libzakalwe-prefix=#{prefix}",
+                          "--without-write-audio"
     system "make", "install"
   end
 
   test do
     output = shell_output("#{bin}/uade123 --get-info #{test_fixtures("test.mp3")} 2>&1", 1).chomp
     assert_equal "Unknown format: #{test_fixtures("test.mp3")}", output
+
+    assert_match version.to_s, shell_output("#{bin}/uade123 --version")
   end
 end

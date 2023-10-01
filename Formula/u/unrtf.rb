@@ -8,9 +8,11 @@ class Unrtf < Formula
   head "https://hg.savannah.gnu.org/hgweb/unrtf/", using: :hg
 
   bottle do
+    sha256 arm64_sonoma:   "b1dc04615894a229fd0ece73e4e96f5a86e6448dc422714d259bee15a9eec0e9"
     sha256 arm64_ventura:  "fbc5a59efc2a686ed6968150a3101f3e5121194eb8d505672bcf457b924085a1"
     sha256 arm64_monterey: "90ccbe686fedc51d5c3ef8f7088577a625e0ad3c3199632fcdc12d6e4e379f52"
     sha256 arm64_big_sur:  "7a091ab8d8e5a67f2821d1436300d6c41c9f15ead01a83ade9d38fc9cc2494b6"
+    sha256 sonoma:         "6ca9282faa32d4c1c91cd56cf2e6f885b4b87abea3c6d63df37b24405ff3127a"
     sha256 ventura:        "9371bbf23b01669c95f9742f469f0762e83c7f86c29234d9975f81936f8cdcb0"
     sha256 monterey:       "ca17c1fba58a187402fd76342528ce8da2c391d25622b425c2db15c8f0345d71"
     sha256 big_sur:        "198691cb483c4ae73b4c676d289bee8040937afe2881e07afbfb7b9f1e99a760"

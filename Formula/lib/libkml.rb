@@ -8,9 +8,11 @@ class Libkml < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "179af536831d605bf028ef8c8f343ae9463b60b2864bc473b4266659d994f4cf"
     sha256 cellar: :any,                 arm64_ventura:  "ee02b6adeccc3033cc99a2e8a45f8d21a4df7c487c0be1f05f623a7d3ac6ffa1"
     sha256 cellar: :any,                 arm64_monterey: "39b02cd2375b13cf321a80d04bdd90e07139bd99bd9e0f8b0ac816b96ec5920e"
     sha256 cellar: :any,                 arm64_big_sur:  "4c4e7310b060e79a58f209a910a56f7b9e5535305e81127afa0540ddb33c9d58"
+    sha256 cellar: :any,                 sonoma:         "eb05bd2a83db1deae6c926aadd56c2128364c66d9f76c2c8ddafed1d65a0715d"
     sha256 cellar: :any,                 ventura:        "8c1aad6dd48f07f59db92056f984a4ea23de92a1f5103b39314e6995d7c7e43a"
     sha256 cellar: :any,                 monterey:       "8fea3543dfb5a38bcc28fdf049d30657ce12b20ab4435b41d0d4634856b28bd9"
     sha256 cellar: :any,                 big_sur:        "19bf29c790ba047803ce5ac8f33192d1bfd281458026870d74f18ee91c732203"

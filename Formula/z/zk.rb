@@ -8,9 +8,11 @@ class Zk < Formula
   head "https://github.com/mickael-menu/zk.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "5b642fa155209f8d1ca526c4c465957b109a888b74261041b770cde5445591af"
     sha256 cellar: :any,                 arm64_ventura:  "4971122839654adbff8642e44ba166117cbb09f53a4ee35cb3bd73c1c32625dc"
     sha256 cellar: :any,                 arm64_monterey: "fa87223acb14ee1d33b5493498b19380b0b4a94c3bebdf2faa64e0bf3335026e"
     sha256 cellar: :any,                 arm64_big_sur:  "ba7dec1077c88ec64205cba25cdae02518ba69507ee9acea84358a130b25858a"
+    sha256 cellar: :any,                 sonoma:         "8154b7c0242db67199e3348a27ff99533f989d85af9d62ddff17c98ab87d598b"
     sha256 cellar: :any,                 ventura:        "a1e96b6d47ff1ce7316d12f0d659db84885c7b9c9f752186d6ab875d78884f2d"
     sha256 cellar: :any,                 monterey:       "83b294c1fd7da4e5976129741a8abc9d8fb8d8a96ddec7d4d8e473b2c79d0720"
     sha256 cellar: :any,                 big_sur:        "59becb9aa1e9296c69a713b57c2fa4567170bf00fc0c77ea2b33525be8d90f63"

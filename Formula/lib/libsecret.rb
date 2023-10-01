@@ -6,9 +6,11 @@ class Libsecret < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 cellar: :any, arm64_sonoma:   "985caeffc05a6c34fe7eabb101f90c791af7bfa9e01aef4db835de8efdabdaba"
     sha256 cellar: :any, arm64_ventura:  "14d4b00645910a57f3949dd8506e0df60b00ed4e8892ff08ec16a0cd42dd7709"
     sha256 cellar: :any, arm64_monterey: "38a274dc11d584dac3a265339c366a8222bf51d81142c65908164391cae6b789"
     sha256 cellar: :any, arm64_big_sur:  "23de21c66b4f88d01394e21e1827996b1660efdd8250f49fdbca528918cddfd9"
+    sha256 cellar: :any, sonoma:         "3890dadbd56a25385f992f40c14cdb589be114ad31b47be1fe7ebd651e28604b"
     sha256 cellar: :any, ventura:        "f41d2e6bf402050600fcc4c9d6211ef48829ba7564a89256928e65c44fb486f4"
     sha256 cellar: :any, monterey:       "52e590836bb88b9a3d1ce3f29dd2e9c0d5f5812fceab2832228d8bff36b4c661"
     sha256 cellar: :any, big_sur:        "c1049f62e574ca71381f1f094d91acc44f98ad92876de2d8393099a46c73d969"

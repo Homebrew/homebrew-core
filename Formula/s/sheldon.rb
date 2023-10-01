@@ -10,9 +10,11 @@ class Sheldon < Formula
   head "https://github.com/rossmacarthur/sheldon.git", branch: "trunk"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "686bf7d06e69d2d6e9265e40970b9bbbb73bdec0bea52b2d586f24a9c873cab8"
     sha256 cellar: :any,                 arm64_ventura:  "118dc8ee031a0b2b159c66e6dbbbbd42fe407270220e5ff07de1a764dd5acdf4"
     sha256 cellar: :any,                 arm64_monterey: "db0e38c468d5745f301fb3d90ef2f4aba554cd2e6aba7b7468349789aa25c892"
     sha256 cellar: :any,                 arm64_big_sur:  "189fdb36ea4f1f1d95b69a6e246364bc860a6d596064f22b753fa1edd1fb12d0"
+    sha256 cellar: :any,                 sonoma:         "51d24f0620009443d8047bf1625d1a2b34ca3f89e46e83d750bed420dd70f750"
     sha256 cellar: :any,                 ventura:        "d30c78b96cc49ee5074dcdb9bbd75e2b81305a2f940f83ea863ee8be12ef3b22"
     sha256 cellar: :any,                 monterey:       "cb515d97b3b15a9b0b41620a7790b117f0618159bed8dbaad5199e3c2d1039d2"
     sha256 cellar: :any,                 big_sur:        "70aced1caac7e5f67181cbf2ea32afdb73ada5be882049a9e1a94993bf8f9112"

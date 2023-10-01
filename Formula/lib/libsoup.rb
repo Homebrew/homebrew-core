@@ -1,18 +1,20 @@
 class Libsoup < Formula
   desc "HTTP client/server library for GNOME"
   homepage "https://wiki.gnome.org/Projects/libsoup"
-  url "https://download.gnome.org/sources/libsoup/3.4/libsoup-3.4.2.tar.xz"
-  sha256 "78c8fa37cb152d40ec8c4a148d6155e2f6947f3f1602a7cda3a31ad40f5ee2f3"
+  url "https://download.gnome.org/sources/libsoup/3.4/libsoup-3.4.3.tar.xz"
+  sha256 "b7f1bbaeeb43f5812daba3ee258a72e1b4b14c2fd91f4a1a75d4eea10dcf288f"
   license "LGPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_ventura:  "7364c4e47eea24b6ea67db78d83815ae4c9e2f8bdea0e8d4a0dea40350e0245c"
-    sha256 arm64_monterey: "bdb31462cdf23d34daeada8ccc6e1edbd5c4836ac7daab0e93b8a060643e6a45"
-    sha256 arm64_big_sur:  "67ec4c878265ca35fa502455625450b25a19a862993de656ad156b6c7ba1192f"
-    sha256 ventura:        "1f3458517efe283f12cb59cc30ade2aa3c9d725774c53354c61f273f57d3cd33"
-    sha256 monterey:       "518ca7b67460550fd71f19c1f0cf52e3524c4dc4d6b14830ab0127c7db665bfd"
-    sha256 big_sur:        "8592dfba0eea66d9c36bea2e73f0cdf3ee53b909fa8e1681db8c18b3dd9eab42"
-    sha256 x86_64_linux:   "d4475a310a89f648f50a4eaee7fcd451115fcbb97c41cf95f20d262bc6cf97fb"
+    sha256 arm64_sonoma:   "c3ade9e20bf3ea03797a318d07ef8fc8206c6b6847252068f97949e24b230828"
+    sha256 arm64_ventura:  "bbd63967797a9e2cb8e6bf2ded17e4ceca55ecdc2f0081b36e98ec7d4d9ea6be"
+    sha256 arm64_monterey: "fde5a1b7198294423a38b7dc3315f94a23e809f050aa2a2b78378f1a35de7684"
+    sha256 arm64_big_sur:  "1ed93a0e32c9a10583123991e26fb25d62bd6b6d695d8efd72f289bdd62655c4"
+    sha256 sonoma:         "11176fcfd4a989c00771a6fed73792aaf0af9fe6a42c17f09206fdbd461e074a"
+    sha256 ventura:        "49f11b9e9da31be090fd8d93cdc644fe481fe9de01fc4d8722f1774d8a195f19"
+    sha256 monterey:       "f88bb6ed28ef15bafdefaf8fd24cfb03ff7bac2509596d0f2b51adf15233cd12"
+    sha256 big_sur:        "a42d3dbe8e4a21e9e04c084f616dce7fcdbab0b313c5a602991228e55e7994f7"
+    sha256 x86_64_linux:   "189e4c090c0abc6f1db514725e0ca84a21894b88ff8293bf75f85d2452070a21"
   end
 
   depends_on "gobject-introspection" => :build
@@ -28,6 +30,10 @@ class Libsoup < Formula
   uses_from_macos "krb5"
   uses_from_macos "libxml2"
   uses_from_macos "sqlite"
+
+  on_linux do
+    depends_on "brotli"
+  end
 
   def install
     system "meson", "setup", "build", *std_meson_args

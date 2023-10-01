@@ -11,9 +11,11 @@ class Mt32emu < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "630d72cb0d5339a74b5fc14687511d5138de6cbc335a05244ba95dfdbf7de4dc"
     sha256 cellar: :any,                 arm64_ventura:  "e17f59e16d6e854e33f00f336878f222a8526600468507a4b9f9be0eed8f22c6"
     sha256 cellar: :any,                 arm64_monterey: "b687a8634f4a6b1e75589c41cd6e053452506e48be916360046ff79ef5b374a9"
     sha256 cellar: :any,                 arm64_big_sur:  "9d119e757d88a8fd84c127b1d3f875f4ad72c3f9ea99973b5a485194651b3bcd"
+    sha256 cellar: :any,                 sonoma:         "64d6f5caef4ade9881120ae5cc8616c1b66c8072c3a919f6f212fdc0efd5b755"
     sha256 cellar: :any,                 ventura:        "3c4726017584143d94e3a89198f9ca27e08353a98fca6b83b68d396269458fcf"
     sha256 cellar: :any,                 monterey:       "b0449f67f14ff75ad4c8ddd8d5f81f989e5ffe61261b12a2fe87ca48aeed649a"
     sha256 cellar: :any,                 big_sur:        "3c414eefe4494914e24b36ab00aeec61c6520202101b74ef2f3e41e60aaad2f9"

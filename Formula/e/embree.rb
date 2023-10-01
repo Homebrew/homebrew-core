@@ -7,9 +7,11 @@ class Embree < Formula
   head "https://github.com/embree/embree.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "263756b0ab7f5b4d56270e763c27f976d5b50395faaf6db7de78f10657dab46a"
     sha256 cellar: :any,                 arm64_ventura:  "400566b352562f855cb387c447a9f3dd2dce9d4d7c69d0b3cf120d4a9978dcae"
     sha256 cellar: :any,                 arm64_monterey: "702e00a4f67ee2f30e7f1555930360a99673a018fa2197b3d8176f56dd872d44"
     sha256 cellar: :any,                 arm64_big_sur:  "c30366d0ec2670988b0c50f61948a2a466c2ad46540081460a06a28d8f5758bd"
+    sha256 cellar: :any,                 sonoma:         "fb6c9714a4757aba5667efce0e155c6ce21950bae1d54265800376780528f46e"
     sha256 cellar: :any,                 ventura:        "90f8702047d05d140b283dc5cac829b9462dba6e3df246df93c3b47937596d33"
     sha256 cellar: :any,                 monterey:       "dac7d2e35e8dbad6f03c7c0a367f51d0d2fff814a05ff1bb35f265e92964ecb7"
     sha256 cellar: :any,                 big_sur:        "55465c388a10f2656045872a23db59f0370db304619f7d24cdd59388e062d6cc"

@@ -12,9 +12,11 @@ class Urdfdom < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "c90f78fb6564ede17cdd9da7a26f3a50070d9ae5eb72ef947071aa6368ead79f"
     sha256 cellar: :any,                 arm64_ventura:  "69e286e3dbf2faea6d2a48cc31b78a7ad0088515625117c1cc8f34b80309924d"
     sha256 cellar: :any,                 arm64_monterey: "27b8cd81640a8de4e9ffb343487a44ba9984f699d3c27f7ff9bd595e25e21d6c"
     sha256 cellar: :any,                 arm64_big_sur:  "0ca970f6f985415e1e8af91a36ba0fc1d7b7170ec9235060e8d3973bd9ec4147"
+    sha256 cellar: :any,                 sonoma:         "0d4c77c4346ae996a37f80106bdc86ef14da50cebb1fe5d8cca06c2d8b842f11"
     sha256 cellar: :any,                 ventura:        "1f13a06d147840608fea0deaefd889e7eafb2a19c0c5bd2db50ffbe1d53a956d"
     sha256 cellar: :any,                 monterey:       "43be2b4453f1a4f782bbc99ad5347a021825bf88ed8882500def4a0bc018a3c6"
     sha256 cellar: :any,                 big_sur:        "fce2480ab751c0b9334f23961debbca834013c4ab8cae0aa117b43767f8e1d94"

@@ -7,9 +7,11 @@ class Libaec < Formula
   head "https://gitlab.dkrz.de/k202009/libaec.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "777546c3f6c1c2fb3b58cd50368018a4038e80460fa9437d53e0b22b673e8b09"
     sha256 cellar: :any,                 arm64_ventura:  "b58812ebbb0526ab0032b72526176c3d973c2b038b039aa51bbf5bb66aa11a67"
     sha256 cellar: :any,                 arm64_monterey: "efb772c032399b490e5ba1f197e5cbf07efa3f9a83994ca770790f748a659587"
     sha256 cellar: :any,                 arm64_big_sur:  "435271c305d6e1dcc07de9875dc3dfc8a0c6527a22c942e4961cabe49d8e75c3"
+    sha256 cellar: :any,                 sonoma:         "82d16f9bd17b1300e2ec46293309294b509f1e0640653be6f064a4821f27d63e"
     sha256 cellar: :any,                 ventura:        "abafd4d7dcf103cadd9127283fe12f368d425d56de10a97ab97ea28312ce918a"
     sha256 cellar: :any,                 monterey:       "2d40180340fb2ac382a9324d049dde7ab47f13d9ec812c9df6656dbd0ea91ffd"
     sha256 cellar: :any,                 big_sur:        "1dbb32dfbf75c7abc923f53a8ebfcbfca74426c2386521b424ce84232e3ce0ac"

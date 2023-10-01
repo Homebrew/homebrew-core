@@ -11,9 +11,11 @@ class Libupnp < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "26a5a966d505117672e64ba89cb694373febc9e25753c9ad4e94aad4a3f36c9c"
     sha256 cellar: :any,                 arm64_ventura:  "3ead88b1f594f71ef15f68e019dbec93b7175f3af98ca448bfa9c2b5080a5388"
     sha256 cellar: :any,                 arm64_monterey: "e31564f5a608faa7e7dd487f139d1dcf7ef659b7cd2740808a804bc34a07d8ea"
     sha256 cellar: :any,                 arm64_big_sur:  "09b1dedb2e530eeabe741eff79f030bbb267a9c01fc6a3d100e95edb4ff8a67c"
+    sha256 cellar: :any,                 sonoma:         "e51420a5a61dad3f6e7e1cbdeccd20de058fefa68e07fd75a49d5e4d3bf67eb4"
     sha256 cellar: :any,                 ventura:        "336cd47cb806b78cdae13a672dd763f163758e03be355a7598468069ccd2be31"
     sha256 cellar: :any,                 monterey:       "cf5074234cd7285d767ca0edef639f592cedbcb2efb0b2f065d5114c7bd986bb"
     sha256 cellar: :any,                 big_sur:        "485b3dab9fbf366fc3fcd944a9f2bafdf92d97b0d2cd0f0d339c2156c330d13c"

@@ -7,9 +7,11 @@ class Jlog < Formula
   head "https://github.com/omniti-labs/jlog.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "c83a14b807e726396394abec4f3a94b60e02c8f2853bc9d2968aa2ae05a023a2"
     sha256 cellar: :any,                 arm64_ventura:  "34c8486ef107bd15562d5b15b20a1892d4c859a3407c39c90b45b9f6497764f4"
     sha256 cellar: :any,                 arm64_monterey: "ca940d44eec020e82f8416245f4634d543ff471150e4579817344d944c445085"
     sha256 cellar: :any,                 arm64_big_sur:  "32b7e00c10405ce4aa979adfef936eb67e59abc62f016df1a3b82e4e98c2393d"
+    sha256 cellar: :any,                 sonoma:         "22b17be11c2a4c95cfe881f1fe82d2c0f574daf299a222d73666d29638869142"
     sha256 cellar: :any,                 ventura:        "d6964c475f6e70d7025dc37da7c67dac1c3bdcd7efba3dd3a9c927dd1860477c"
     sha256 cellar: :any,                 monterey:       "f65c6a850701989de8355e2db39e479103090b2b22c073c0f461d4c3e74818c2"
     sha256 cellar: :any,                 big_sur:        "3968856ea5fbca1aa88feae8c9978d08bf35b380dcf486841c3e71a3937e794e"

@@ -10,9 +10,11 @@ class Wllvm < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ab179e8fb4ca1156cae3181d51c58fae7f8dfcf20e6f2a95ce2e5ffd88e58fab"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "407bf86e983aa21c26b3b2551c60430a4f88d6673d53500204a1c4c405638f99"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "407bf86e983aa21c26b3b2551c60430a4f88d6673d53500204a1c4c405638f99"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "407bf86e983aa21c26b3b2551c60430a4f88d6673d53500204a1c4c405638f99"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5abfbfb745140f350afc88b2396d9ba209665b23522c3bcb0889eb98d3b0474b"
     sha256 cellar: :any_skip_relocation, ventura:        "e42c4bb6b456a9e91a62729e53a547d3df665e39ffb6cd39e9cc87d672a4fda5"
     sha256 cellar: :any_skip_relocation, monterey:       "e42c4bb6b456a9e91a62729e53a547d3df665e39ffb6cd39e9cc87d672a4fda5"
     sha256 cellar: :any_skip_relocation, big_sur:        "e42c4bb6b456a9e91a62729e53a547d3df665e39ffb6cd39e9cc87d672a4fda5"

@@ -3,18 +3,18 @@ class RuffLsp < Formula
 
   desc "Language Server Protocol implementation for Ruff"
   homepage "https://github.com/astral-sh/ruff-lsp"
-  url "https://files.pythonhosted.org/packages/5e/0f/e2d43ebd62f1cabb64b542d8c8171d17187fff3bffc4ad118f85b0801c72/ruff_lsp-0.0.38.tar.gz"
-  sha256 "55589a042777c5d42e222d77d91c0f6ccbac8d818aecb3005c1a24170a1568ec"
+  url "https://files.pythonhosted.org/packages/46/ca/0db95d99efa6610fa2c582c8938dff1d8cdd8cdcd95480c83644639cc9ad/ruff_lsp-0.0.39.tar.gz"
+  sha256 "faab8b836040df6ded8b1e3eca11a11ab7b7108b14e2f5d5deff8cc131676881"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "89ce13c8c7e16586b2590071da5f53ae650f21e3d259b79c219fb6116eec88af"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6ff2054eac337b9941e90d2a9e5c66cda39783b54e454e5273c2b1345bdeef8b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0ac19b7102817fbcc1c0690d4b25caa0e9c942c8a4a1403352f52dd12b7f7f42"
-    sha256 cellar: :any_skip_relocation, ventura:        "c065208c51441f6ede488a7c1929b37166293f6e6d56cb6d8fd776fab405d80c"
-    sha256 cellar: :any_skip_relocation, monterey:       "d242a68ba863f35262fbc18332b44dbcaa7ed6b4991f84274bd804ade2f4f8ce"
-    sha256 cellar: :any_skip_relocation, big_sur:        "40deb71fed1b3aec8d70655566e11db597cd94daaf16f5629a30f27f0103b48f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "485bf501423bc2bab7060c1e60018e58303bcb5fb82af605c969b88b8cfd1dfd"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cc8c5627a6f33240c38feadfc0f4026f8664df730b2f6d8b9fe649afa02e3ba5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c17956893524120c3c96a56477bbdfc4fc7c6207c114489d1f8b26ebe426fd09"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1fd1cc0963223c61dab983dacaf1bb8902cdec6217fe657f542e9702832445a0"
+    sha256 cellar: :any_skip_relocation, ventura:        "eb695f0022471e29b72696c734a34059d61bc2e8d1113f01838f3435e30763a6"
+    sha256 cellar: :any_skip_relocation, monterey:       "8d1e2cbeeb04c590be5cfdf81d55dc75929f687a688dbe4ec53d049b87f0a664"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f0f99f778460c815d2b96f4a49348cedd993d007b3a05c715075f64714f265c6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bb1afb02d215293725b2addc5c7994947457e3120147265582008303ee4aac42"
   end
 
   depends_on "python-typing-extensions"

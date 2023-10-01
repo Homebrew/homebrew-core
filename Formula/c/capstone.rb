@@ -7,9 +7,11 @@ class Capstone < Formula
   head "https://github.com/capstone-engine/capstone.git", branch: "next"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "667f0e0d8960724b71c950ccc7769e747269b828c9e1c90009dc5708d285a941"
     sha256 cellar: :any,                 arm64_ventura:  "1f30bfa8d92451f670c2952ebcb12ac1e44bde8ec15c5f9d420f82515ca31e9c"
     sha256 cellar: :any,                 arm64_monterey: "e6c0c2d4f68213085774d4388e29bfac941dd1adc6a4f1e8111ed418daf8adac"
     sha256 cellar: :any,                 arm64_big_sur:  "18c441a2412c0f1c772d9a728032f3513aa7e36a195a48069827e056ce362f0b"
+    sha256 cellar: :any,                 sonoma:         "b200830411feaa4f9d9af25a9b9b3ef9521cebf85404456a4d746011e1311ad3"
     sha256 cellar: :any,                 ventura:        "b23198ddafc42cdb420f125d5eb36e27fe12d67d243ad63eafb1c805993f9136"
     sha256 cellar: :any,                 monterey:       "7469382171ed7d25d2e8206c7dc358cd054ea30f2d4f0bcc3ef0c9e8cedef57b"
     sha256 cellar: :any,                 big_sur:        "35f66655a1798dc2d0e03f770022ae8b5ff8530a421802fbe8e72815c49e6708"

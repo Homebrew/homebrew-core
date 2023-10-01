@@ -10,14 +10,16 @@ class Certbot < Formula
   head "https://github.com/certbot/certbot.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "88d9cc5d63a3295f76a333659de272ee9ede041056cfd08c2f251a9e17d91097"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "794c29ddc1b31fe3be7cda32f2d43687f78e9ae5198a91b7087e92f5284e3c91"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a0fe200c6bc91ae9f9ecb0cf7dc3b206128ece12ad51f68702d91324c3d72318"
-    sha256 cellar: :any_skip_relocation, ventura:        "8f2f780edff868901b59534c55f926dd19fcb3bd3c4893723560a37ea05abba4"
-    sha256 cellar: :any_skip_relocation, monterey:       "7f7e5143153699cc13626ba594f29bf59e45b3c661f01f0c56af7592135b5f8f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "96006bc6029f138d98c3b1340e676345b7a91c421346409ac60d0bee8919e454"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "19e64329447b526fe842d75cce5371e91a00a0acbe7309f882d32a50446b4360"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b78c95e215775e1a95fd8c7cbce1d2f3a56d5bfd8ec0595d555b6f86b40a8eab"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "46ae3f6fbc052236c12de0e26eec2ba49e1fc242701f4f5dcf17bf75461fab90"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "94455c31df1c852aeb3f9356756e441eadd3a352a962fae85fc45eb4cb57d7ff"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0c7e31e25c8f3d0ab63f1d69dab45bf3af007589fcaa1035f4762502e24136c4"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c169ecfdc98c4f34bd1b25d3ca77381d3ce5b1d1a353e87c61ace9d4e57563b7"
+    sha256 cellar: :any_skip_relocation, ventura:        "d7f056e3bb0385653713c127931f85c02f352ce0a810c4183e7c814f4a58b599"
+    sha256 cellar: :any_skip_relocation, monterey:       "89ec02a403152c4b945a5ad20747b4c34ba05366a26bf46003540c388062af79"
+    sha256 cellar: :any_skip_relocation, big_sur:        "65a0c30a7352571b82602881ec693033b01b00e54feb9c27791d02a2b1d97f94"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a77607e702a8dbdda4ede5c6fccd03c952b12aa147b7cb25c2b37ee0d88b5a5a"
   end
 
   depends_on "augeas"
@@ -26,6 +28,7 @@ class Certbot < Formula
   depends_on "pycparser"
   depends_on "python-certifi"
   depends_on "python-cryptography"
+  depends_on "python-pytz"
   depends_on "python@3.11"
   depends_on "six"
 
@@ -99,11 +102,6 @@ class Certbot < Formula
   resource "python-augeas" do
     url "https://files.pythonhosted.org/packages/af/cc/5064a3c25721cd863e6982b87f10fdd91d8bcc62b6f7f36f5231f20d6376/python-augeas-1.1.0.tar.gz"
     sha256 "5194a49e86b40ffc57055f73d833f87e39dce6fce934683e7d0d5bbb8eff3b8c"
-  end
-
-  resource "pytz" do
-    url "https://files.pythonhosted.org/packages/5e/32/12032aa8c673ee16707a9b6cdda2b09c0089131f35af55d443b6a9c69c1d/pytz-2023.3.tar.gz"
-    sha256 "1d8ce29db189191fb55338ee6d0387d82ab59f3d00eac103412d64e0ebd0c588"
   end
 
   resource "requests" do

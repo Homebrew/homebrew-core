@@ -11,9 +11,11 @@ class Antlr4CppRuntime < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "6d6a16511a791342ff105ad71c495349b6ed9c7e94affcc368598c08c01f1121"
     sha256 cellar: :any,                 arm64_ventura:  "5d45d015de7e2bd862ed904ed88374553327bf4a4e2c9d0d7eb34500465a7834"
     sha256 cellar: :any,                 arm64_monterey: "297906e04b7d3784f31d25e9fde214a928f070fb80923bc974d446c5f25e6bd3"
     sha256 cellar: :any,                 arm64_big_sur:  "64917cc9322bcd9ad9ddfd76ed95735deccadb4ea73f332264b2a5d554a3e2d4"
+    sha256 cellar: :any,                 sonoma:         "0d48dd2e8ccc966ecfa5343cbed87ef0e6c17a46f1a4870b5056d5f1c113e7a7"
     sha256 cellar: :any,                 ventura:        "a291d3a2e51595f49c1cb3d76474825ef15091e1c8ab9bb5021b58fec50e9388"
     sha256 cellar: :any,                 monterey:       "75a51fa0a6999b6afb90f62659e80904c799c5b018f41821c4f2bd1fe3ca0c80"
     sha256 cellar: :any,                 big_sur:        "670e3b11a40281c0270dad7f2d7bf6fc9cb741931e0c956a15e6adf2b63d4bee"

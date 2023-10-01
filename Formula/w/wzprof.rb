@@ -7,9 +7,11 @@ class Wzprof < Formula
   head "https://github.com/stealthrocket/wzprof.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "75f3a9f0120d54457ee0a116bcfb52147831bb466ef1b7cba2db1bdda93401ab"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e5cd9073cd439d27d735796f4f88ca53e320d00767202195df23a151cd207f7e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e5cd9073cd439d27d735796f4f88ca53e320d00767202195df23a151cd207f7e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e5cd9073cd439d27d735796f4f88ca53e320d00767202195df23a151cd207f7e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e81bdeda7ca477bd619d663d733abf9a551a50c684e9a3f41967617160067428"
     sha256 cellar: :any_skip_relocation, ventura:        "38d8f01a22a239c240d6e00db065fc8036f5ae039501925ec0df0a0366983bba"
     sha256 cellar: :any_skip_relocation, monterey:       "38d8f01a22a239c240d6e00db065fc8036f5ae039501925ec0df0a0366983bba"
     sha256 cellar: :any_skip_relocation, big_sur:        "38d8f01a22a239c240d6e00db065fc8036f5ae039501925ec0df0a0366983bba"

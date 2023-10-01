@@ -13,9 +13,11 @@ class Libcuefile < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "fe51d6a9722425e0e85648a22805f4f74d800bc97083d44c290075f6fdd0655b"
     sha256 cellar: :any,                 arm64_ventura:  "9329d1062814c86b9e6f85060654e962c06b4de6359756f6cdea2842c4280dc5"
     sha256 cellar: :any,                 arm64_monterey: "5c3e4f0219de1b452bdb4e6684a6a71520d6fe2ba6634d6c2a740d062110a292"
     sha256 cellar: :any,                 arm64_big_sur:  "2d73e0ee1f734eb35034383fa5e0697ace0684f0a1586832613227a6769b07d6"
+    sha256 cellar: :any,                 sonoma:         "3e4c6861199211e904b725e50a8a03b4f0592ee5c01355f7ae2190dce3370522"
     sha256 cellar: :any,                 ventura:        "716c579255d43e25cc737a655a136a966cfed604e97497547d949e052b961db5"
     sha256 cellar: :any,                 monterey:       "06a8a88fee28e5288aa1219f8bc5eb1b6f0a3d153dcb250d453d008dd98cbeab"
     sha256 cellar: :any,                 big_sur:        "2d4ea14db508f6439073daa64338f884249c7479af688ec91e4a286a3c42591e"
@@ -30,8 +32,12 @@ class Libcuefile < Formula
   depends_on "cmake" => :build
 
   def install
-    system "cmake", ".", *std_cmake_args
-    system "make", "install"
+    # Workaround for Xcode 14.3+
+    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
     include.install "include/cuetools/"
   end
 end

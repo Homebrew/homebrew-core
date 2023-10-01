@@ -7,9 +7,11 @@ class Automake < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7a116fd1052d95a13b40837b85a34cca35dbae9ed2864d1db92abfa960176b55"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f68481d06be7fa3f0a0881edb825a336e7f6548191c762d68bd817183b238f5a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f68481d06be7fa3f0a0881edb825a336e7f6548191c762d68bd817183b238f5a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f68481d06be7fa3f0a0881edb825a336e7f6548191c762d68bd817183b238f5a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4f3ecdf86b3a0302f64b848440b0595095face19a0b9778498e5e64d022c1a81"
     sha256 cellar: :any_skip_relocation, ventura:        "ae77a247a13ea860236a29b02769f5327395f712413f694d8a8d20cb6c21332d"
     sha256 cellar: :any_skip_relocation, monterey:       "ae77a247a13ea860236a29b02769f5327395f712413f694d8a8d20cb6c21332d"
     sha256 cellar: :any_skip_relocation, big_sur:        "ae77a247a13ea860236a29b02769f5327395f712413f694d8a8d20cb6c21332d"

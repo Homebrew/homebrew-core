@@ -25,9 +25,11 @@ class Sleef < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_sonoma:   "6737ba48789667ef56d391443b2477c67d68bc33762fd7ba088e0044c58fe7bb"
     sha256 cellar: :any,                 arm64_ventura:  "29d31e2b6f752ac2b2224ea8334746484f08caac8b5e007a3ae0c7bfb78938dd"
     sha256 cellar: :any,                 arm64_monterey: "e24cd50466a172fe2fe1fd38145d6380798b3a4358b2618ebcf5d75b53824761"
     sha256 cellar: :any,                 arm64_big_sur:  "72c41de0c2f48173012a81362bd53cc3339de27f716baa7ea5d4b17604cd4a67"
+    sha256 cellar: :any,                 sonoma:         "1e495d3a4d9694c3b9b56346850aebe0e08467d3b5ce55f08cb5c9fb3d08c48c"
     sha256 cellar: :any,                 ventura:        "a4785640f8657134c06a22f2f427d8a6ace04e6fa8fdd55f1b4261c77625457a"
     sha256 cellar: :any,                 monterey:       "b5b0877f9aec2c35b1c42a06b0a86dbf9cb53c98a11f3399d0cac79a57d7676e"
     sha256 cellar: :any,                 big_sur:        "483dc0549bf982bdcb71e8e3e07be8042d17b52484ddca20425feb820c1fb0fb"

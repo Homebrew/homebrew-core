@@ -10,9 +10,11 @@ class Ydiff < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ee865d68e5f7fefd550012cbfe0d5aa6c0e6ac59ac964fac2551b240f6e1dac6"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7716b4d96423f5e20605b126217b6b9778848b6a141caa85250b646fadf66a84"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7716b4d96423f5e20605b126217b6b9778848b6a141caa85250b646fadf66a84"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7716b4d96423f5e20605b126217b6b9778848b6a141caa85250b646fadf66a84"
+    sha256 cellar: :any_skip_relocation, sonoma:         "858fcc710e5c800deee9c3c74b27fe030e23a6552a63ef2f0905b78530f08c3d"
     sha256 cellar: :any_skip_relocation, ventura:        "0192ef7a7b3f397d92ba05728af96356869e24fb4de784128b6864e75f891c97"
     sha256 cellar: :any_skip_relocation, monterey:       "0192ef7a7b3f397d92ba05728af96356869e24fb4de784128b6864e75f891c97"
     sha256 cellar: :any_skip_relocation, big_sur:        "0192ef7a7b3f397d92ba05728af96356869e24fb4de784128b6864e75f891c97"

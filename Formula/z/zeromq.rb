@@ -11,9 +11,11 @@ class Zeromq < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "5dd98b530183bcafee0b791a59bf8e9442c9e774a3fdaf9d316917c45da0c616"
     sha256 cellar: :any,                 arm64_ventura:  "6bc660ae09b329a376dc1784d2fa5d7f97ebfffdbbd8548fc664668d5b7d9406"
     sha256 cellar: :any,                 arm64_monterey: "3776994a62536dd689bfa39321f8d0eb92cb9e71ae6fb8c7c3041be344af52c9"
     sha256 cellar: :any,                 arm64_big_sur:  "eb0ee61f9c1e894c9ad5e55a5a8bc0b3859d56fab57179f82e3e41df6ca4b9f5"
+    sha256 cellar: :any,                 sonoma:         "057626027e9055157ac87b9d185ce36cb5accdb01574d51bd1e67813d71db718"
     sha256 cellar: :any,                 ventura:        "c4e25da540f8d95e6d5048e6c7caf2e5f367b6e6b0858cfb6bdcc00f39223525"
     sha256 cellar: :any,                 monterey:       "5806c8a77daa291e27c94ea0c905fd5b57484bc2546a11936daee72944615401"
     sha256 cellar: :any,                 big_sur:        "579862174f4ce6883fe9871e52d0d4306c8daa67ecc7b5ab94c6174e29bb54bb"

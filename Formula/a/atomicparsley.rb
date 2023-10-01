@@ -9,9 +9,11 @@ class Atomicparsley < Formula
   head "https://github.com/wez/atomicparsley.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cb4e78f4a10dc7e6a3636555191863bee69c74a512493b9f832515e4d6982fa5"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b34175e14acdb01523b83fb7e84ba96cfedb6fba3e40e33a594481e5020608dd"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "996bb284186eaa30569575a32e0447e7e5cf2f0223c4367e58a76a1addfac27d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9e553cc071ff479799cd114c085b56f03f23b904ae94d03c8cf490845dae9f7e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "590b83cad521d2b98e89d76a71404ee6f934f277b49b48a0aec78614fd323f41"
     sha256 cellar: :any_skip_relocation, ventura:        "558289aeb9de98c1c813afab51c3c0d1d92fdf82388a805781d2f4b11df20690"
     sha256 cellar: :any_skip_relocation, monterey:       "8cc2e316a549c4d1bdc4041fd9a6cfa47673e3ed196b3aecba5e72492d2dc152"
     sha256 cellar: :any_skip_relocation, big_sur:        "256816a97ae5ff57bbf87c40db79601522aec0b6f0bf2a0b4dc939badbe730c1"

@@ -12,9 +12,11 @@ class Cairo < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "84e7360cad90474ba243cdb3a523d384ca6ddbba2265615bc70454ccb90f8a01"
     sha256 arm64_ventura:  "4a0f5f55a3314f6b4223661c3af406d3551349b4dcabfda7a6e7b6a569187764"
     sha256 arm64_monterey: "50feaae83e93330cc0ee6b90477cfa931fab52cdb98ad37a99a0e518da6a580e"
     sha256 arm64_big_sur:  "2fc4da6029167f696fc0b3c0553d36abb8e77c75f0096396d4eb89d0ea912612"
+    sha256 sonoma:         "c0b97dce5db0d0d3761c7a5dc3b4755392826e66215f749b4c92bb17f21b5a0c"
     sha256 ventura:        "6b0cbde9c14ef3995e0caba6c743bf8534ac5be9a32d5b74b7e47015f9e1baca"
     sha256 monterey:       "ccf4f80f5115aad260e4d3f014dc0aebdd616dfac88f567d211bd8681d60c3a9"
     sha256 big_sur:        "cb16c1bb070a7cdca7aaf8899a70e407d73636116d62225626b2c8d31aa8d2ff"

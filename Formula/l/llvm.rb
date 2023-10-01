@@ -1,23 +1,11 @@
 class Llvm < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
+  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-17.0.1/llvm-project-17.0.1.src.tar.xz"
+  sha256 "b0e42aafc01ece2ca2b42e3526f54bebc4b1f1dc8de6e34f46a0446a13e882b9"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
   head "https://github.com/llvm/llvm-project.git", branch: "main"
-
-  # Remove stable block when patch is no longer needed.
-  stable do
-    # TODO: Remove `six` dependency and `LLDB_USE_SYSTEM_SIX` at next release.
-    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-16.0.6/llvm-project-16.0.6.src.tar.xz"
-    sha256 "ce5e71081d17ce9e86d7cbcfa28c4b04b9300f8fb7e78422b1feb6bc52c3028e"
-
-    # Fixes https://github.com/mesonbuild/meson/issues/11642
-    # Remove at next release.
-    patch do
-      url "https://github.com/llvm/llvm-project/commit/ab8d4f5a122fde5740f8c084c8165f51a26c93c7.patch?full_index=1"
-      sha256 "9b01de9708e4eb5cef10c18f25dd42e126306ed8cbd9d9a26bb5fbb91ac7d7a3"
-    end
-  end
 
   livecheck do
     url :stable
@@ -25,13 +13,15 @@ class Llvm < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "4c667405d232b5764d5faed87e3c462085e45c4e1c2559f9c88009a98d66af0f"
-    sha256 cellar: :any,                 arm64_monterey: "c1a04891b33fb6cce160a572f2424f505a7736415d1dc90299bcee3743e51290"
-    sha256 cellar: :any,                 arm64_big_sur:  "72982f15a23ac9442c843ce899cccb1018d47cb3f20cd1d45294f17bb0a255a1"
-    sha256 cellar: :any,                 ventura:        "ee50dde4d1998630ff40c9cce19b0f180c36ef58b8d8e627be5e44d4902ed3fc"
-    sha256 cellar: :any,                 monterey:       "ab4d69c11183a536f52dfd4eb8c14f3fc047b8433b03eff99cea76f778e61305"
-    sha256 cellar: :any,                 big_sur:        "6ed8c0fd73a1686429627e036ef4adb43a11a7dd753cdb4631451d2a01e35124"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eac29c15c4e506aa90ab2b95d2845fea812aee43a957e3b0ce807d30cad8a254"
+    sha256 cellar: :any,                 arm64_sonoma:   "8d1dcf3f05fd8e0e0d85ff107f1345d50f9ccc43e4297e0996d1760428ff399b"
+    sha256 cellar: :any,                 arm64_ventura:  "69eff5a857c65f50be42a0eb710f43ccb45c5dd5680f39546a50d394361a5608"
+    sha256 cellar: :any,                 arm64_monterey: "221fe00969e0c9d7087ec190da6dced30138e4e27464cfe65a82e62de36fcc89"
+    sha256 cellar: :any,                 arm64_big_sur:  "8f3ed3015d777f9a047d62a50f78c91fc63d382856f7491bc1e00ac3d133458d"
+    sha256 cellar: :any,                 sonoma:         "4a2595711269b9b884ad4f98c97e4d3ad0b0019d895703e7fd91b1d729a1414e"
+    sha256 cellar: :any,                 ventura:        "5eca42c94fd36993f555d6dd44554cbc7c2f4f9c8f11f01c96d050b447978dc2"
+    sha256 cellar: :any,                 monterey:       "67c96213969230688ece9fac81ba6b45b44f57ff46bd15d9f89f2a8ae2ccd710"
+    sha256 cellar: :any,                 big_sur:        "b3f8a1185a8adc92a994092391a1812652078882788fa9b49a45cc5bcc4eb5c2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "122b88090b1df07be022d5974f2becb268532d07982e0d9e1ba033d1b37509a7"
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
@@ -40,12 +30,10 @@ class Llvm < Formula
   keg_only :provided_by_macos
 
   # https://llvm.org/docs/GettingStarted.html#requirement
-  # We intentionally use Make instead of Ninja.
-  # See: Homebrew/homebrew-core/issues/35513
   depends_on "cmake" => :build
+  depends_on "ninja" => :build
   depends_on "swig" => :build
   depends_on "python@3.11"
-  depends_on "six" # TODO: Remove at next release.
   depends_on "z3"
   depends_on "zstd"
 
@@ -130,7 +118,6 @@ class Llvm < Formula
       -DLLDB_ENABLE_PYTHON=ON
       -DLLDB_ENABLE_LUA=OFF
       -DLLDB_ENABLE_LZMA=ON
-      -DLLDB_USE_SYSTEM_SIX=ON
       -DLLDB_PYTHON_RELATIVE_PATH=libexec/#{site_packages}
       -DLIBOMP_INSTALL_ALIASES=OFF
       -DCLANG_PYTHON_BINDINGS_VERSIONS=#{python_versions.join(";")}
@@ -203,8 +190,6 @@ class Llvm < Formula
 
     # Skip the PGO build on HEAD installs or non-bottle source builds
     # Catalina and earlier requires too many hacks to build with PGO.
-    # FIXME: The Linux build appears to have a parallelisation issue,
-    #        so avoid a painfully slow serial build until that's resolved.
     pgo_build = build.stable? && build.bottle? && (MacOS.version > :catalina)
     lto_build = pgo_build && OS.mac?
 
@@ -243,7 +228,7 @@ class Llvm < Formula
 
       # Our stage1 compiler includes the minimum necessary to bootstrap.
       # `llvm-profdata` is needed for profile data pre-processing, and
-      # `compiler-rt` to consumer profile data.
+      # `compiler-rt` to consume profile data.
       stage1_targets = ["clang", "llvm-profdata", "compiler-rt"]
       stage1_targets += if OS.mac?
         extra_args << "-DLLVM_ENABLE_LIBCXX=ON"
@@ -274,7 +259,7 @@ class Llvm < Formula
       # to avoid incompatibilities from generating profile data with a newer Clang than
       # the one we consume the data with.
       mkdir llvmpath/"stage1" do
-        system "cmake", "-G", "Unix Makefiles", "..", *extra_args, *std_cmake_args
+        system "cmake", "-G", "Ninja", "..", *extra_args, *std_cmake_args
         system "cmake", "--build", ".", "--target", *stage1_targets
       end
 
@@ -325,7 +310,7 @@ class Llvm < Formula
         instrumented_cxxflags = cxxflags + %w[-Xclang -mllvm -Xclang -vp-counters-per-site=6]
         instrumented_extra_args = extra_args.reject { |s| s[/CMAKE_C(XX)?_FLAGS/] }
 
-        system "cmake", "-G", "Unix Makefiles", "..",
+        system "cmake", "-G", "Ninja", "..",
                         "-DCMAKE_C_COMPILER=#{llvmpath}/stage1/bin/clang",
                         "-DCMAKE_CXX_COMPILER=#{llvmpath}/stage1/bin/clang++",
                         "-DLLVM_BUILD_INSTRUMENTED=IR",
@@ -346,7 +331,7 @@ class Llvm < Formula
 
       # Then, generate the profile data
       mkdir llvmpath/"stage2-profdata" do
-        system "cmake", "-G", "Unix Makefiles", "..",
+        system "cmake", "-G", "Ninja", "..",
                         "-DCMAKE_C_COMPILER=#{llvmpath}/stage2/bin/clang",
                         "-DCMAKE_CXX_COMPILER=#{llvmpath}/stage2/bin/clang++",
                         "-DLLVM_BUILD_RUNTIMES=OFF",
@@ -383,19 +368,17 @@ class Llvm < Formula
 
     # Now, we can build.
     mkdir llvmpath/"build" do
-      system "cmake", "-G", "Unix Makefiles", "..", *(std_cmake_args + args)
-      # Linux fails with:
-      # No rule to make target '#{buildpath}/llvm/build/lib/libunwind.so'
-      ENV.deparallelize if OS.linux?
+      system "cmake", "-G", "Ninja", "..", *(std_cmake_args + args)
       system "cmake", "--build", "."
       system "cmake", "--build", ".", "--target", "install"
     end
 
     if OS.mac?
-      # Get the version from `llvm-config` to get the correct HEAD version too.
-      llvm_version = Version.new(Utils.safe_popen_read(bin/"llvm-config", "--version").strip)
-      soversion = llvm_version.major.to_s
-      soversion << "git" if build.head?
+      # Get the version from `llvm-config` to get the correct HEAD or RC version too.
+      llvm_version = Utils.safe_popen_read(bin/"llvm-config", "--version").strip
+      soversion = Version.new(llvm_version).major.to_s
+      soversion << "git" if llvm_version.end_with?("git")
+      soversion << "rc" if llvm_version.end_with?("rc")
 
       # Install versioned symlink, or else `llvm-config` doesn't work properly
       lib.install_symlink "libLLVM.dylib" => "libLLVM-#{soversion}.dylib"
@@ -454,11 +437,18 @@ class Llvm < Formula
   end
 
   test do
-    llvm_version = Version.new(Utils.safe_popen_read(bin/"llvm-config", "--version").strip)
-    soversion = llvm_version.major.to_s
-    soversion << "git" if head?
+    llvm_version = Utils.safe_popen_read(bin/"llvm-config", "--version").strip
+    llvm_version_major = Version.new(llvm_version).major.to_s
+    soversion = llvm_version_major.dup
 
-    assert_equal version, llvm_version unless head?
+    if llvm_version.end_with?("git")
+      soversion << "git"
+    elsif llvm_version.end_with?("rc")
+      soversion << "rc"
+    else
+      assert_equal version, llvm_version
+    end
+
     assert_equal prefix.to_s, shell_output("#{bin}/llvm-config --prefix").chomp
     assert_equal "-lLLVM-#{soversion}", shell_output("#{bin}/llvm-config --libs").chomp
     assert_equal (lib/shared_library("libLLVM-#{soversion}")).to_s,
@@ -478,7 +468,7 @@ class Llvm < Formula
     EOS
 
     system "#{bin}/clang", "-L#{lib}", "-fopenmp", "-nobuiltininc",
-                           "-I#{lib}/clang/#{llvm_version.major}/include",
+                           "-I#{lib}/clang/#{llvm_version_major}/include",
                            "omptest.c", "-o", "omptest"
     testresult = shell_output("./omptest")
 
@@ -529,52 +519,57 @@ class Llvm < Formula
     end
     assert_equal "Hello World!", shell_output("./test_lld").chomp
 
-    # Testing Command Line Tools
-    if MacOS::CLT.installed?
-      toolchain_path = "/Library/Developer/CommandLineTools"
-      system "#{bin}/clang++", "-v",
-             "-isysroot", MacOS::CLT.sdk_path,
-             "-isystem", "#{toolchain_path}/usr/include/c++/v1",
-             "-isystem", "#{toolchain_path}/usr/include",
-             "-isystem", "#{MacOS::CLT.sdk_path}/usr/include",
-             "-std=c++11", "test.cpp", "-o", "testCLT++"
-      assert_includes MachO::Tools.dylibs("testCLT++"), "/usr/lib/libc++.1.dylib"
-      assert_equal "Hello World!", shell_output("./testCLT++").chomp
-      system "#{bin}/clang", "-v", "test.c", "-o", "testCLT"
-      assert_equal "Hello World!", shell_output("./testCLT").chomp
-    end
+    # These tests should ignore the usual SDK includes
+    with_env(CPATH: nil) do
+      # Testing Command Line Tools
+      if MacOS::CLT.installed?
+        toolchain_path = "/Library/Developer/CommandLineTools"
+        cpp_base = (MacOS.version >= :big_sur) ? MacOS::CLT.sdk_path : toolchain_path
+        system "#{bin}/clang++", "-v",
+               "-isysroot", MacOS::CLT.sdk_path,
+               "-isystem", "#{cpp_base}/usr/include/c++/v1",
+               "-isystem", "#{MacOS::CLT.sdk_path}/usr/include",
+               "-isystem", "#{toolchain_path}/usr/include",
+               "-std=c++11", "test.cpp", "-o", "testCLT++"
+        assert_includes MachO::Tools.dylibs("testCLT++"), "/usr/lib/libc++.1.dylib"
+        assert_equal "Hello World!", shell_output("./testCLT++").chomp
+        system "#{bin}/clang", "-v", "test.c", "-o", "testCLT"
+        assert_equal "Hello World!", shell_output("./testCLT").chomp
+      end
 
-    # Testing Xcode
-    if MacOS::Xcode.installed?
-      system "#{bin}/clang++", "-v",
-             "-isysroot", MacOS::Xcode.sdk_path,
-             "-isystem", "#{MacOS::Xcode.toolchain_path}/usr/include/c++/v1",
-             "-isystem", "#{MacOS::Xcode.toolchain_path}/usr/include",
-             "-isystem", "#{MacOS::Xcode.sdk_path}/usr/include",
-             "-std=c++11", "test.cpp", "-o", "testXC++"
-      assert_includes MachO::Tools.dylibs("testXC++"), "/usr/lib/libc++.1.dylib"
-      assert_equal "Hello World!", shell_output("./testXC++").chomp
-      system "#{bin}/clang", "-v",
-             "-isysroot", MacOS.sdk_path,
-             "test.c", "-o", "testXC"
-      assert_equal "Hello World!", shell_output("./testXC").chomp
-    end
+      # Testing Xcode
+      if MacOS::Xcode.installed?
+        cpp_base = (MacOS::Xcode.version >= "12.5") ? MacOS::Xcode.sdk_path : MacOS::Xcode.toolchain_path
+        system "#{bin}/clang++", "-v",
+               "-isysroot", MacOS::Xcode.sdk_path,
+               "-isystem", "#{cpp_base}/usr/include/c++/v1",
+               "-isystem", "#{MacOS::Xcode.sdk_path}/usr/include",
+               "-isystem", "#{MacOS::Xcode.toolchain_path}/usr/include",
+               "-std=c++11", "test.cpp", "-o", "testXC++"
+        assert_includes MachO::Tools.dylibs("testXC++"), "/usr/lib/libc++.1.dylib"
+        assert_equal "Hello World!", shell_output("./testXC++").chomp
+        system "#{bin}/clang", "-v",
+               "-isysroot", MacOS.sdk_path,
+               "test.c", "-o", "testXC"
+        assert_equal "Hello World!", shell_output("./testXC").chomp
+      end
 
-    # link against installed libc++
-    # related to https://github.com/Homebrew/legacy-homebrew/issues/47149
-    cxx_libdir = OS.mac? ? opt_lib/"c++" : opt_lib
-    system "#{bin}/clang++", "-v",
-           "-isystem", "#{opt_include}/c++/v1",
-           "-std=c++11", "-stdlib=libc++", "test.cpp", "-o", "testlibc++",
-           "-rtlib=compiler-rt", "-L#{cxx_libdir}", "-Wl,-rpath,#{cxx_libdir}"
-    assert_includes (testpath/"testlibc++").dynamically_linked_libraries,
-                    (cxx_libdir/shared_library("libc++", "1")).to_s
-    (testpath/"testlibc++").dynamically_linked_libraries.each do |lib|
-      refute_match(/libstdc\+\+/, lib)
-      refute_match(/libgcc/, lib)
-      refute_match(/libatomic/, lib)
+      # link against installed libc++
+      # related to https://github.com/Homebrew/legacy-homebrew/issues/47149
+      cxx_libdir = OS.mac? ? opt_lib/"c++" : opt_lib
+      system "#{bin}/clang++", "-v",
+             "-isystem", "#{opt_include}/c++/v1",
+             "-std=c++11", "-stdlib=libc++", "test.cpp", "-o", "testlibc++",
+             "-rtlib=compiler-rt", "-L#{cxx_libdir}", "-Wl,-rpath,#{cxx_libdir}"
+      assert_includes (testpath/"testlibc++").dynamically_linked_libraries,
+                      (cxx_libdir/shared_library("libc++", "1")).to_s
+      (testpath/"testlibc++").dynamically_linked_libraries.each do |lib|
+        refute_match(/libstdc\+\+/, lib)
+        refute_match(/libgcc/, lib)
+        refute_match(/libatomic/, lib)
+      end
+      assert_equal "Hello World!", shell_output("./testlibc++").chomp
     end
-    assert_equal "Hello World!", shell_output("./testlibc++").chomp
 
     if OS.linux?
       # Link installed libc++, libc++abi, and libunwind archives both into
@@ -687,7 +682,7 @@ class Llvm < Formula
     # Check that lldb can use Python
     lldb_script_interpreter_info = JSON.parse(shell_output("#{bin}/lldb --print-script-interpreter-info"))
     assert_equal "python", lldb_script_interpreter_info["language"]
-    python_test_cmd = "import sys; print(sys.prefix)"
+    python_test_cmd = "import pathlib, sys; print(pathlib.Path(sys.prefix).resolve())"
     assert_match shell_output("#{python3} -c '#{python_test_cmd}'"),
                  pipe_output("#{bin}/lldb", <<~EOS)
                    script

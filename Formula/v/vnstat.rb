@@ -7,9 +7,11 @@ class Vnstat < Formula
   head "https://github.com/vergoh/vnstat.git", branch: "master"
 
   bottle do
+    sha256 arm64_sonoma:   "82a27759165561abdcb95bee69b60f460ba21c77e411695452669a614168ec2f"
     sha256 arm64_ventura:  "273d5ae9920f32ad1fc22a8cd3a8cd16021175d380059489ceee02f189bfe72d"
     sha256 arm64_monterey: "40d35d2096727b3e8cafa2b23de4a75fe6e7d104b336cd10d54b5c3d24333425"
     sha256 arm64_big_sur:  "eda88fe18783d34e22d4b7d04efa303f588c5a112a12e93e816816f97c6279c0"
+    sha256 sonoma:         "40b623b7b6d4ff17b627955873f3a2129d26c81510d04e2d9df4e40c68f0063e"
     sha256 ventura:        "8989044eaebd33345f005c005fca3a8f7a5a04f71a72bac0585c849056173fe9"
     sha256 monterey:       "1a4999f1e59b1c1d21500e7df3dad26ffbb198f589cb9f3d337875ac8c985691"
     sha256 big_sur:        "7180971117aa772820ca83052f282c855e0fb2b0ab5186b69f055fde257441d4"

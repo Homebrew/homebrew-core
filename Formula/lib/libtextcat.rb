@@ -13,9 +13,11 @@ class Libtextcat < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "cc83f030e51cc9de7708c72e452fc0064c21cfbeb3b83e15970901c26f1e1cb0"
     sha256 cellar: :any,                 arm64_ventura:  "e5d60db841a6a8bd707de17b8e6e67f7113a9c8b54a1a614342f77797cbb041b"
     sha256 cellar: :any,                 arm64_monterey: "af621f1b2cfa2e6463bad63f3b7dbb77c928881dee5e41425489687c4849ceb0"
     sha256 cellar: :any,                 arm64_big_sur:  "a7d4587c077074798e16772f893cea69a90a99ff89b6071690a9980083b55e93"
+    sha256 cellar: :any,                 sonoma:         "6589bf1866b9cf1e31aac4c96f93bd0167e11fa087f3bfb0dda9fdf6a7e373af"
     sha256 cellar: :any,                 ventura:        "fe31ac7c58baef452610658a4782c36300b4751b3cd360ed4b084efa952e6e0a"
     sha256 cellar: :any,                 monterey:       "6fc8d211fac04b40a803243f2d00e55c830a2f8cc12c9a2006f91efc0fdf7b62"
     sha256 cellar: :any,                 big_sur:        "894a917a9328865a92e965cb1bb4e5d74d8073299c501aba30e443a5451c5718"

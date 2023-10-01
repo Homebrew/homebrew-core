@@ -13,9 +13,11 @@ class Mandoc < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e52aaa74b6654469741aa21738507e636c4b09576109ff602f78a445a4ce30dc"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "086aeecdaad50178bb76546745cf350195ed758d02a495e4128c1dc210ec5b5f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "86fc7de6ddf02952dd6615916d2a787d0e87954337d7b214c760f3871575a771"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1a009788bd3b10af69f0563904143dda9a41f0872514ac7e64e8a08a46fcf5fb"
+    sha256 cellar: :any_skip_relocation, sonoma:         "8cf397d08e94ff1666fcb58ebeb06d70e86d9fe243291fd2ebc66b5724bc4af4"
     sha256 cellar: :any_skip_relocation, ventura:        "b328a5df78ce08be360ed248be3fa61b83b4a485c9cf0159351b4049735bf2f7"
     sha256 cellar: :any_skip_relocation, monterey:       "6e8f22f43770525c78280535cf293a4500eba441baab688dbe04e4c872a505a7"
     sha256 cellar: :any_skip_relocation, big_sur:        "a4f63ae6f10fe8912986b92fecc22f7421ed0bad4495811f6159b895d5b42f6d"

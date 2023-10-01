@@ -27,7 +27,7 @@ class MpsYoutube < Formula
     sha256 "364f1d1312c89582d97dc7225cf6858cde27cb11dfd64a9c2bab1a2f32133b1e"
   end
 
-  resource "youtube_dl" do
+  resource "youtube-dl" do
     url "https://files.pythonhosted.org/packages/51/80/d3938814a40163d3598f8a1ced6abd02d591d9bb38e66b3229aebe1e2cd0/youtube_dl-2020.5.3.tar.gz"
     sha256 "e7a400a61e35b7cb010296864953c992122db4b0d6c9c6e2630f3e0b9a655043"
   end
@@ -35,7 +35,7 @@ class MpsYoutube < Formula
   def install
     venv = virtualenv_create(libexec, "python3.11")
 
-    %w[youtube_dl pafy].each do |r|
+    %w[youtube-dl pafy].each do |r|
       venv.pip_install resource(r)
     end
 

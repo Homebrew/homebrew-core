@@ -7,7 +7,9 @@ class Mcrypt < Formula
 
   bottle do
     rebuild 4
+    sha256 cellar: :any, arm64_sonoma:  "bf2e3a3cbdfcf73033315344b5e803cf54a172caed4505f92506f4686f0858e1"
     sha256 cellar: :any, arm64_big_sur: "849ffa4e23dff9bff130c10d8ace02994034120b7d97ad36e9d7f6e8c048f97a"
+    sha256 cellar: :any, sonoma:        "b19d5f9e7c7dbb45cfb1e3a2cc496dec1be5475341edb5dfc2a5e6aafcd5f3f2"
     sha256 cellar: :any, big_sur:       "e3182ac2f12baccfab81146bb4c6944b05154259a65165d694ca64e43d1f03f7"
     sha256 cellar: :any, catalina:      "a52070083dfe080bbe0b8f71597a8a619c6b1421970c4670c6f40f5f2ba0fafe"
     sha256 cellar: :any, mojave:        "6a23409a37396e2b2256485737a8195b06dcdea3607583e509f1d87d6a75faec"

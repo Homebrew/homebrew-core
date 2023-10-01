@@ -3,19 +3,16 @@ class Weasyprint < Formula
 
   desc "Convert HTML to PDF"
   homepage "https://www.courtbouillon.org/weasyprint"
-  url "https://files.pythonhosted.org/packages/1d/69/11343bbb46d4f2a311677058e19cc2f7bc55a769b64c547a64ea1e2b6045/weasyprint-59.0.tar.gz"
-  sha256 "223a76636b3744eaa4ab8a2885f50cf46cf8ebb1acb99b5276d02feccf507492"
+  url "https://files.pythonhosted.org/packages/9f/df/10704378a7d6cd452f59fc832a513b5533972946fc301b279c79eba390b2/weasyprint-60.0.tar.gz"
+  sha256 "2a6befe33b5f18c8a24302577bf23d00c8533d0121175da3cfaf07870fa1787f"
   license "BSD-3-Clause"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "72a379987efd129d2d90b83a643332114d2c3e99047c89bda9952341a24c77d8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e86bfb868b1fe9da6538dc082cf129269a4de8275b75a9983601731ed6722940"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b433a97422844a8ebc39d48f281831d8086a4f7e37a72c1620b7d76e92f75939"
-    sha256 cellar: :any_skip_relocation, ventura:        "2b300d6980b0ad9dad544194ed56a94bcbba7b72b625ff76a6453e1abe47fdaa"
-    sha256 cellar: :any_skip_relocation, monterey:       "838004b1ea224acc51e0281744faa3539ebc35e31b710df90f5a692d609acaf6"
-    sha256 cellar: :any_skip_relocation, big_sur:        "59a5d3de132056fd79c761b17bc18972587ac6d88fa5911d9d9c35f945c5e252"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "42d971021c83213e6617f8d93b95a7d1c0eddd2fd87459afb31ac45203dd2c8e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c44bc0eee6ec52305a52589d77205f979f739e368e8d3c814f54009ef710848a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "520092aeb474b2ccd1dfb27c08fcb71f38a07722d06dc70812cf01d0a97c6708"
+    sha256 cellar: :any_skip_relocation, ventura:        "c27472a9d2e95889d34cba8bea0d2a6dbe5c501f73651fe2b3d84b2cef9b3968"
+    sha256 cellar: :any_skip_relocation, monterey:       "a9acbe459e2f583f26f33d8f7faa22a6d1d1e54f07847e4a902cd256aa60fd64"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "391bc170f7af1ec84ec19fa71fca7ee95583ad3b7b56edf9408b47d0fc16e478"
   end
 
   depends_on "cffi"
@@ -38,8 +35,8 @@ class Weasyprint < Formula
   end
 
   resource "pydyf" do
-    url "https://files.pythonhosted.org/packages/9d/c5/d5e4536968c36c0838459b5c482b9228e9aae839847837623d0d04576ba0/pydyf-0.6.0.tar.gz"
-    sha256 "b44a38855d7e47b740b3cd31ab63a2f5b9b2793931d50b0ccaed3bb7b86912fc"
+    url "https://files.pythonhosted.org/packages/18/dc/b607bbc7c15327c5d5ec25681a3707c847906134925d21a26ec6e7416a4a/pydyf-0.8.0.tar.gz"
+    sha256 "b22b1ef016141b54941ad66ed4e036a7bdff39c0b360993b283875c3f854dd9a"
   end
 
   resource "pyphen" do
@@ -58,8 +55,8 @@ class Weasyprint < Formula
   end
 
   resource "zopfli" do
-    url "https://files.pythonhosted.org/packages/9a/ed/d004d5737f9546167eecf0ecd995ee1a796703e512deb2f2ea26cdbe4b3e/zopfli-0.2.2.zip"
-    sha256 "2d49db7540d9991976af464ebc1b9ed12988c04d90691bcb51dc4a373a9e2afc"
+    url "https://files.pythonhosted.org/packages/92/d8/71230eb25ede499401a9a39ddf66fab4e4dab149bf75ed2ecea51a662d9e/zopfli-0.2.3.zip"
+    sha256 "dbc9841bedd736041eb5e6982cd92da93bee145745f5422f3795f6f258cdc6ef"
   end
 
   def install

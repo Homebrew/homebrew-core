@@ -1,19 +1,19 @@
 class Neovide < Formula
   desc "No Nonsense Neovim Client in Rust"
   homepage "https://github.com/neovide/neovide"
-  url "https://github.com/neovide/neovide/archive/tags/0.11.1.tar.gz"
-  sha256 "70529bc931288f8864ac84939d5cc3efb38bd7f72ff286029d32e476613e1b17"
+  url "https://github.com/neovide/neovide/archive/tags/0.11.2.tar.gz"
+  sha256 "5b8da55e4910e2f4d6723e893d8b15de4c9d5b90023ab6717b52d6bc59c2563b"
   license "MIT"
   head "https://github.com/neovide/neovide.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "66ab5e849feaba170f8e924e14096ba88974b20c5496c87893f2dcbda8544ed6"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e04f55c40909d8ff314c2495ec61e4806a98112863d6229f4f18a83f3060ca10"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7b1a527afa2ff9a4942a039dc83d6db9a35f327d2ed9acd750624a6f6593abc3"
-    sha256 cellar: :any_skip_relocation, ventura:        "8ae4ad16ea616ff477dc2216730621a8b06fc5265e1c4179942a75bc527939f6"
-    sha256 cellar: :any_skip_relocation, monterey:       "852095d1f853b75ada0847f5b3a5ded5860ef6de82f944384eeafd9c0a051712"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8688436ea00709a9cd5e6cab8c4aab30d4df49c2a9ff33a347e0969bd6ff3db9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "67cd9415934d98ec61bafc1d8a6638330641bb551a2ae7e914a47665d2a107a4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8ff9d9d484d69488d142f9fd2cca27c36e682fed70296198c01c59c22b5723f0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3320e8ff1bfe32f6e6991e2f085579556cc8dafba8e29d3051961fed4083f081"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f03861852523ce88a982024633c498b5cb0203a3d59c6717d4e97ccc310c6dc6"
+    sha256 cellar: :any_skip_relocation, ventura:        "55d3db2859c13550818835684d71058ce696f63c53620cb6808d463b123029e4"
+    sha256 cellar: :any_skip_relocation, monterey:       "8fb81e056f2f6ff8c2fb89802144db4dfc00b56997140312af882dd0f35c7469"
+    sha256 cellar: :any_skip_relocation, big_sur:        "94d03d2fea3210515f39bf4e8df046d58fbcfe0f60752f057b49fc6b6d0a4dc5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0109a12dc2265b0b956f420271b484328770a6438d0d614e4a7522c9c3f18fb9"
   end
 
   depends_on "rust" => :build

@@ -11,9 +11,11 @@ class Omniorb < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "ef6470e0100ec2a96c8bd72860aeaa8663209c15c1bdcaabe379b25b68a2449b"
     sha256                               arm64_ventura:  "d3cd94cab91215f9cd5c1dae80d91f1dd67d3c4839a9d854cad2445ba69e15d8"
     sha256                               arm64_monterey: "19767e6c9a3605e7437918f0fb76c2ff979ba9083395c3a09c0e15f3ace8fdb4"
     sha256                               arm64_big_sur:  "e7cf7dc0cc5d25fc19dd23231992c866a8c98de71e2218de2971ffc48fe253fe"
+    sha256 cellar: :any,                 sonoma:         "7f6eef0ecdeab114606d567bf1e7c277ccf103b2226ba8392c50c007fde0d6d0"
     sha256                               ventura:        "0a496e43334a3d08a53e6bad65affe2b4feba979ea96d0958a3bb8d73c17db4e"
     sha256                               monterey:       "21e56446374f73df54144d9e85370373adbb3fee8e9e001a3e1ef4f5868f5d2c"
     sha256                               big_sur:        "5af9ba2b3bcb73d67474130fa20c8925394db95d09013387d705c39c651d91b0"

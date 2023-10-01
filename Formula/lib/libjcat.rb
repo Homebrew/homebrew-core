@@ -9,13 +9,15 @@ class Libjcat < Formula
   head "https://github.com/hughsie/libjcat.git", branch: "main"
 
   bottle do
-    sha256 arm64_ventura:  "6ce68adbf8ed422ec4d4c5730ada89b8285e01bba3dec806d17dedb40693b24a"
-    sha256 arm64_monterey: "4a777ea12597452d289a3d5e2a17b945a7c9a069cb9d9fdf45672db964019413"
-    sha256 arm64_big_sur:  "32ff83dd712742229017bdb51163c74deddec287c5895a9b2e3b7713b01bd3bf"
-    sha256 ventura:        "8f86b8df2fd1ca134e4ceb8ca6e6d0f67aa92c6d87df90aa93a0f62734ccbd67"
-    sha256 monterey:       "b8cc417cc373341dd094d625bb22ba3d87cc51188830048bbd90941b25030b9a"
-    sha256 big_sur:        "64309b257ef602aa4e503c03d576f2ce8556f3ed80e80791802ccb0557926a06"
-    sha256 x86_64_linux:   "0ede5fb5124e7f477212e4adb489ca567cef30ea40f94cbf3a59437c3513d239"
+    sha256 cellar: :any, arm64_sonoma:   "3a1f1f359ca98cf824a3f1bb2978b682c32f89ce6af90c37ae80789befa7e91b"
+    sha256               arm64_ventura:  "6ce68adbf8ed422ec4d4c5730ada89b8285e01bba3dec806d17dedb40693b24a"
+    sha256               arm64_monterey: "4a777ea12597452d289a3d5e2a17b945a7c9a069cb9d9fdf45672db964019413"
+    sha256               arm64_big_sur:  "32ff83dd712742229017bdb51163c74deddec287c5895a9b2e3b7713b01bd3bf"
+    sha256 cellar: :any, sonoma:         "d5d7259f1ffbb638687986f843d52a89f888a585192979700ca5425dfa6e8a37"
+    sha256               ventura:        "8f86b8df2fd1ca134e4ceb8ca6e6d0f67aa92c6d87df90aa93a0f62734ccbd67"
+    sha256               monterey:       "b8cc417cc373341dd094d625bb22ba3d87cc51188830048bbd90941b25030b9a"
+    sha256               big_sur:        "64309b257ef602aa4e503c03d576f2ce8556f3ed80e80791802ccb0557926a06"
+    sha256               x86_64_linux:   "0ede5fb5124e7f477212e4adb489ca567cef30ea40f94cbf3a59437c3513d239"
   end
 
   depends_on "gi-docgen" => :build

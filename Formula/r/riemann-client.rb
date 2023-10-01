@@ -7,9 +7,11 @@ class RiemannClient < Formula
   head "https://git.madhouse-project.org/algernon/riemann-c-client.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "8a12438231d64e5f7ec5894dc63876bd8ae8948b8597cc7ee2c2e498dd282cd2"
     sha256 cellar: :any,                 arm64_ventura:  "802b77fa2f9fc2d22a488497d8909d3f5993fc4ae7fdcf5d14c3eba19a413ed8"
     sha256 cellar: :any,                 arm64_monterey: "fe70ede98148a187c44e099b3bb9f27b3f2d123c7ad73c6af9613f82cfd9a1f9"
     sha256 cellar: :any,                 arm64_big_sur:  "57bb213aa15fb45dccb60a1d1e7fad0bd976296110ab13453f4d8b29b465e0cf"
+    sha256 cellar: :any,                 sonoma:         "293ab1be4ff1d1577c6bb3301b9b05e1bbce9411968ea2da66b7ab89e8e89e0b"
     sha256 cellar: :any,                 ventura:        "6fac261afb6031324d4bd36cd24b6492f53d83774523a0fb15bbc37d72662c59"
     sha256 cellar: :any,                 monterey:       "cb26c23b696f4d6f5c8e8acde091e3cb979f380d20600ad996748b9ed8aca756"
     sha256 cellar: :any,                 big_sur:        "6f847dd81950e70bfcb857bbcedb74011c333b43e76a406cc3f865ee4c201c2e"

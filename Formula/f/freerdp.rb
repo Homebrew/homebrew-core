@@ -1,18 +1,18 @@
 class Freerdp < Formula
   desc "X11 implementation of the Remote Desktop Protocol (RDP)"
   homepage "https://www.freerdp.com/"
-  url "https://github.com/FreeRDP/FreeRDP/archive/refs/tags/2.11.1.tar.gz"
-  sha256 "ee9d4b2767016c42d03f6fc6d7029ca6bb92502a82a40d7e3f0b37f2b977060b"
+  url "https://github.com/FreeRDP/FreeRDP/archive/refs/tags/2.11.2.tar.gz"
+  sha256 "674b5600bc2ae3e16e5b5a811c7d5b0daaff6198601ba278bd15b4cb9b281044"
   license "Apache-2.0"
 
   bottle do
-    sha256                               arm64_ventura:  "526149bd0f997e3fca1b7ec50aca27cdeb1acf79057410947ce4e7debcbcad5d"
-    sha256                               arm64_monterey: "d7dfc6216e4f6ab0b4dd488e2b57cb885857d039a5fb4978fdf8af285fcb988a"
-    sha256                               arm64_big_sur:  "c889f7e2822bd0842dd46d99e87e0ef022f4c078f73f502e3aec31f085d84bf2"
-    sha256                               ventura:        "d0720af49bf10247a974264ac01fa59c440b18740c2c6e9a33373f488b71efa1"
-    sha256                               monterey:       "f3753fb8aa46696630ced7aecbd16300e6a6bbf403e86fd7ba0b91cf4ad524bc"
-    sha256                               big_sur:        "18a66cdc37e2bae73889b62fe7d15442368edb5dc85f0acb88aaf74a87c27293"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "60cd79dc2e39fb070ad2e31fdd832a20850768c19141754174f251584acd3859"
+    sha256                               arm64_ventura:  "086d8da3ced45839a4305af669f2129244fe6f4876dab9d51ee1db99df704d0f"
+    sha256                               arm64_monterey: "212b40f435c732a2b0df6953d98b2700609bfb1410fdd625151710b1d11f773d"
+    sha256                               arm64_big_sur:  "2f70e7eb0f7769365e366bc2b8d5f521605adfe6a7185e420b1935e7db3a1dee"
+    sha256                               ventura:        "22606e33705046efc043b8e086c709498acdce02f2210b1eaf6c1afcb27cec95"
+    sha256                               monterey:       "adbc165e1eb025bd9a52af75c575ce64cb39037dd9f45100677083cd83f3c791"
+    sha256                               big_sur:        "522750f966e0f0d5886a34bfea642837b13b4ba40aff9dd3e9a83839a4afa2cd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9aec0ffb441572dc1ed378fe30ae851bcb4e2db6c9f2df80f04ba7780c44c0b8"
   end
 
   head do

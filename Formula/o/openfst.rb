@@ -12,9 +12,11 @@ class Openfst < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "2202c56e761e6f9ae1450efb68561828744dc89aaa89e054a50f13068640d0ee"
     sha256 cellar: :any,                 arm64_ventura:  "46eb8cddc071ee5bdf2df6cdb6f1891f2a0cffe8453cdc024970204866ea1918"
     sha256 cellar: :any,                 arm64_monterey: "ec9cdf817cbee846c502f05800db8d5106d558cd16afa935df22877ef71f98a5"
     sha256 cellar: :any,                 arm64_big_sur:  "277c268e760b1ea193494379b4e33e2c6d1ea0692be304f80363570dbf04aebf"
+    sha256 cellar: :any,                 sonoma:         "d4e84ef0911f6d8f1ad93311a03bf10253df7196cc5a1a46026e500a6cfea675"
     sha256 cellar: :any,                 ventura:        "912fef9ae0e31f4c23e994250baa4e1434bd8aa6ee0d5f57baa2c8f587ce4705"
     sha256 cellar: :any,                 monterey:       "1f8a3f063ceef921bd4517956b4706897374f71b4a179bd118704688bd90e572"
     sha256 cellar: :any,                 big_sur:        "5d66b6cee648a6b9e29bf32b341fa57b0605d331e3a4acebb1f03fc3aa0373b3"

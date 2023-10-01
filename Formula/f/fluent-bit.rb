@@ -12,13 +12,14 @@ class FluentBit < Formula
   end
 
   bottle do
-    sha256                               arm64_ventura:  "66d1a65a4f5e2d2ff63b23db6bd9fb8b39cda6862ad8a981eb586f672d01cff5"
-    sha256                               arm64_monterey: "4868c5c5f603b8672a815a6f26a3209f4378cfc799e2b4fe92f3dc0dd68bd176"
-    sha256                               arm64_big_sur:  "aca431622d0c259d0338916ff8a55c308b357c9da9e213fd3843cd06d213bb27"
-    sha256                               ventura:        "bcec36264f44738006220251fd9431da33dd9cf427ec50fdd1a7808972ce3cb9"
-    sha256                               monterey:       "04f979693612a88cca0ca033c281da5e1ae3be7817c1475b666ce2dd8a7fd9bc"
-    sha256                               big_sur:        "e73a4108147b3e28166f89087d58b2cecdf7ac1561ee21288616036ace90e9a1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1299aa1679c48fab3b7ac9c40195b8b8e09eb6b381acbeb112344280ca0d9e7e"
+    rebuild 1
+    sha256                               arm64_ventura:  "95df3702becc2c0e754131a85a634b806d343df20c70e0a554b88cd7389eb9fe"
+    sha256                               arm64_monterey: "ce569e7faab33a88733cc17ae73ef54225c416ba6a1d1b22a134df15ba817dea"
+    sha256                               arm64_big_sur:  "5f84fbf611614901b5e8d95b4ea1dc9d8d5f5ad36c5d421fe64a16a3edf56a91"
+    sha256                               ventura:        "aa8086bc7272a460d02c78a9b64b8a30f4ff5cd8e7bb3bac1da601a712dcb642"
+    sha256                               monterey:       "aa7c64c3068db21e23546df41fa5df6ed9d4710de13825484e48760e872f43db"
+    sha256                               big_sur:        "c1de94dadfea23dd41e0123f5d5b142f19377b0ad68252ad64d79925529066f8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2bf0e785955f5de2e3c69268de01bd88f7940e16ac8c9346ce3c89e0ee8f901e"
   end
 
   depends_on "bison" => :build
@@ -29,6 +30,10 @@ class FluentBit < Formula
   depends_on "libyaml"
   depends_on "openssl@3"
   uses_from_macos "zlib"
+
+  # Avoid conflicts with our `luajit` formula.
+  # We don't need to set LDFLAGS because LuaJIT is statically linked.
+  patch :DATA
 
   def install
     # Prevent fluent-bit to install files into global init system
@@ -51,3 +56,25 @@ class FluentBit < Formula
     assert_match "Fluent Bit v#{version}", output
   end
 end
+
+__END__
+--- a/lib/luajit-cmake/LuaJIT.cmake
++++ b/lib/luajit-cmake/LuaJIT.cmake
+@@ -569,13 +569,13 @@ set(luajit_headers
+   ${LJ_DIR}/luaconf.h
+   ${LJ_DIR}/luajit.h
+   ${LJ_DIR}/lualib.h)
+-install(FILES ${luajit_headers} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/luajit)
++install(FILES ${luajit_headers} DESTINATION ${CMAKE_INSTALL_LIBEXECDIR}/include/luajit)
+ install(TARGETS libluajit
+-    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+-    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR})
++    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBEXECDIR}/lib
++    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBEXECDIR}/lib)
+ 
+ # Build the luajit binary
+-if (LUAJIT_BUILD_EXE)
++if (FALSE)
+   add_executable(luajit ${LJ_DIR}/luajit.c)
+   target_link_libraries(luajit libluajit)
+   if(APPLE AND ${CMAKE_C_COMPILER_ID} STREQUAL "zig")

@@ -7,9 +7,11 @@ class Libical < Formula
   revision 2
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "66a5b2272b24205f58d7ebf5af081f91799341abc087a471e947ae3e1fa0d7a6"
     sha256 cellar: :any,                 arm64_ventura:  "c050d9f87eed23b619587d6186991536b6cb1e5754f91b8c91087d3fa65adebb"
     sha256 cellar: :any,                 arm64_monterey: "8b49a65d54118f4ac09b1be213c9e69896f24942249b80d42af44765540ff834"
     sha256 cellar: :any,                 arm64_big_sur:  "f6794a31d01477036ac00bd085f8aade2f79c8714c11e353d7f1f33bd5190644"
+    sha256 cellar: :any,                 sonoma:         "e7f42610984127d8e930d999741ae165f2356bd79bf6ed96ab48ec3877740380"
     sha256 cellar: :any,                 ventura:        "411e3c4ae2630b643be69eea83b82c71f37e3432869fe0e7c37ee565b9039c93"
     sha256 cellar: :any,                 monterey:       "54fa8c5d6d8aabb91db257fcf042673d962dd0d2d45bdb2867e01217b2d77d22"
     sha256 cellar: :any,                 big_sur:        "59830d07e3216bb548df87dddda022a759c2e610e64e9d10b47dccce79211139"

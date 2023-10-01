@@ -7,13 +7,14 @@ class Fwknop < Formula
   head "https://github.com/mrash/fwknop.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 arm64_monterey: "1855b9dc8ff17dbc1cc3c07512d3ebb81f80b5e45b5ab918da8df3ac48cd86d5"
-    sha256 arm64_big_sur:  "b786ab1814ba91ca06d3d638e7c1aad3a57e472ea957ab3f45f72c82063176db"
-    sha256 monterey:       "2c9f26be45a730f30e6c950f842e76d982bf58afabf0710c2c4add41eda497d6"
-    sha256 big_sur:        "c231ca3d7d20435ed0ae401294d5e6352ac811e4376635f93afdd71eb2b08656"
-    sha256 catalina:       "2c2faa8fc9328c53553c4b5bee81c4b8b6e8a43ed54f49d9ab6646bea0529e5e"
-    sha256 x86_64_linux:   "370466dcba3753ce5cd890395d91fae86f13d656b97bb1a379cccd774ace12d1"
+    rebuild 2
+    sha256 arm64_sonoma:   "7aad6624e67267a7a4dd7dbe089cd9de6a0ec0420c646a033e7c03c30b70bee2"
+    sha256 arm64_ventura:  "15c2272173da7bc217dc32847ed34e9607952f2ee95d69269a79663eb6493e9d"
+    sha256 arm64_monterey: "8e8b947582a394a113c5c3fab41dc69c7528276edbf0a732a64c2589d0d09229"
+    sha256 sonoma:         "8e5985bc654aaa5f71525c60a74e68037c84ce3a21c5ad5778c62270fb91aa6d"
+    sha256 ventura:        "f199526a5fc0eead9499e4e811a7a0429067c04c828dd6cde1476f004224f97a"
+    sha256 monterey:       "28d812f4efb74c7749a744a8801b3b1ae12bf25f1941b2b910f19da3ed9b6fa8"
+    sha256 x86_64_linux:   "6041c174c567035e621ee9508aa89bd6af671cdfaf7bc99d88eccc473f69f9de"
   end
 
   deprecate! date: "2022-10-01", because: :unmaintained
@@ -38,7 +39,7 @@ class Fwknop < Formula
     ENV.append_to_cflags "-fcommon" if OS.linux?
 
     # Fix failure with texinfo while building documentation.
-    inreplace "doc/libfko.texi", "@setcontentsaftertitlepage", "" unless OS.mac?
+    inreplace "doc/libfko.texi", "@setcontentsaftertitlepage", ""
 
     system "./autogen.sh"
     args = *std_configure_args + %W[

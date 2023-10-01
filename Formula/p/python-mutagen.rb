@@ -6,9 +6,11 @@ class PythonMutagen < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6bb9813af217934300c0fbb2fb869e0613cb72893ece0f72e24721c5198c6abb"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c5a35e0ce729d07b6bc8416431ccfcce4dd48650b45e8abec95ba49a623f5c70"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a62ac701271cf2ecad5ad641b0b30a1e40a6a3ad985df9ce17dc438082ebba26"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e752eafe197340eaff6cf06d448a17eae01e7911c89fbf16294c7f3bcb04003c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "784b522c2fce344d1cf063a5387da6ff1fbc13827c39ce953337f4b0b9fc945d"
     sha256 cellar: :any_skip_relocation, ventura:        "bc2a20e89cb0b74241bcd98d030b8a118507b75a1f04973c6558ec1d4e7a57f0"
     sha256 cellar: :any_skip_relocation, monterey:       "13e2ee719329a63fa4cc4f40995624a61650366383c0dce545c3b56c5a625446"
     sha256 cellar: :any_skip_relocation, big_sur:        "c5b0b8b635e264eb58cd824c53cd535ffc8eaa16a69d3d1159247f1cac4c4d2a"

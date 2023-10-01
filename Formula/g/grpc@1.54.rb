@@ -20,9 +20,11 @@ class GrpcAT154 < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "cf92a1cc58e01fea2cc5344d1bf56cc4599a621a19221afefb973b8b54c8c324"
     sha256 cellar: :any,                 arm64_ventura:  "0631cf6a63fca83abd8ff53b0a41811957c8efaf7a422a9f1987f5ee2fa4f88e"
     sha256 cellar: :any,                 arm64_monterey: "b757a9ba28c98f1a0b2190c4fd8d30fd578b8024271295dda9940494a7184eb4"
     sha256 cellar: :any,                 arm64_big_sur:  "56e870bfa7c06a1726ffd4661f1d7a7e74fe9688b80544a44244262b40e64e3a"
+    sha256 cellar: :any,                 sonoma:         "381a3af7f47c997510798e7e4636ef9ccfb54247661fa46759ba0d3ea2be4290"
     sha256 cellar: :any,                 ventura:        "8d73e997bc07465c96293af80e0530efdeaa92efe93fbb4bf73953895780e0ca"
     sha256 cellar: :any,                 monterey:       "3452857ae337fc8dfd15501a3794638692afb3f416643c072f966aa2ad76d755"
     sha256 cellar: :any,                 big_sur:        "6217233621ae1a4e337f64f5f6e0b7202e45266bddec1d33b13f272dd9675659"

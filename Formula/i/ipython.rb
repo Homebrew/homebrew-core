@@ -9,9 +9,11 @@ class Ipython < Formula
   head "https://github.com/ipython/ipython.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7f162e4456baf89eb0b6c60998bb06d5dcaf40dab94eec596d2f5f5d32f88552"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "25ab3d98095fac752392e707d8db27a73fc36c6672382df961b1baf9023130c0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1340cd2fd5d08406c8ff0a321aa9cdcdadb25282c6f4a4f00c5fb8791becc6cf"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0cd02457aaf3838e61278d15b123b22c9dcc348bb6d12072e59a737f16bf579f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "64f67e77806b17df9ff26fe86ce493237edc6938bd637b84777a844341c27286"
     sha256 cellar: :any_skip_relocation, ventura:        "492aefb2db5cdede9b4bc44a62a2c65ccb7cec4ab0c56af11eb73501fd5c7a24"
     sha256 cellar: :any_skip_relocation, monterey:       "0257e2650602e4b74681ea8d59c956bfadaca7d9c78827ea613fff4184a59825"
     sha256 cellar: :any_skip_relocation, big_sur:        "b2375cd720bf0a7b04e73bf98f1c701977b637b3fe9fc58b565f73cb3ed17afc"

@@ -1,19 +1,19 @@
 class Csvtk < Formula
   desc "Cross-platform, efficient and practical CSV/TSV toolkit in Golang"
   homepage "https://bioinf.shenwei.me/csvtk"
-  url "https://github.com/shenwei356/csvtk/archive/refs/tags/v0.27.2.tar.gz"
-  sha256 "d7a1ad5ba964bf97a69e99812c6a28c464f42594a84a61feea1ce2c09444e87d"
+  url "https://github.com/shenwei356/csvtk/archive/refs/tags/v0.28.0.tar.gz"
+  sha256 "e1017ac0da20e058efd0445fe889ee9d7b91b56a13e68379fe3035b218ae79dc"
   license "MIT"
   head "https://github.com/shenwei356/csvtk.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "335172e56c780a88d998e2f0cf115820138f4398e1e1421b5d98a38c8107ae22"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "16ba942bb456b463c4ace362154a99f4df0a7540720b8fb108cc4b928840356a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8bac248a654de83a2f10e696fe6de52aff456fff24b20eeeb875ce8a3c5fd957"
-    sha256 cellar: :any_skip_relocation, ventura:        "8112f482f45f0aae157cdd6a6cf131716beac970df852ef0e2d0d01c675925f8"
-    sha256 cellar: :any_skip_relocation, monterey:       "5078f6db6d8a976bb8f3638487e9318c85b05e4a80a6530d055206b4f378270b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1139ce2913c8c4536591ac5fd5734ad1d8396b710f1c8879342a813882515a52"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "376099416f8c6efb7583c02fca4c98bfb948c285e39fe4cfce673c53d99726a9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bda4d2f37af34cd86c46bc20936680b58ef2a6a9f79790c7e7694dba9aa73624"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "942b325e864334ce75516899c33fd9f423d2034fbdc878a39d355aad56af8c7a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6be6ee0e1849f26f204a12418f114a08149d1a0adfe4215c66eec0611caec728"
+    sha256 cellar: :any_skip_relocation, ventura:        "7421e6efc0999e1d2738bf31b1ee537401a35b34cde583f9de37a1aebcd406ee"
+    sha256 cellar: :any_skip_relocation, monterey:       "dd08c584ec7198768c9ff05ae6ffddb912a5823aa0b412116bb745125008e70c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9bdbb8583fecb3b0c0788d66d489ecb92e48f6cba6464d9b9de21fe79e4104ee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c83aab3ecca4d38786c786887b2a2e47bf06f9095486ca91676244c44770ba0f"
   end
 
   depends_on "go" => :build

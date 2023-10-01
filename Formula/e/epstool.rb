@@ -11,9 +11,11 @@ class Epstool < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "18eb00ef0339393d5e9ab683d8d57856779b2ce7805dc5035a940aecf8ba86ef"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d6ebd99646c7f6f83b21a714cb9253c3777623618b60de83e371413e64f38abe"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0c02048b19a57ec12e0cda38782ba8d062cd929730e92852c19785eec5e7fb52"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4e5bf8b004fc2583bedd3fd7f28b49033b55be2a53e73a2b600a6f0c795d7db8"
+    sha256 cellar: :any_skip_relocation, sonoma:         "bb7d8756339499ca2e88f0fd32b45712cbbab7041186eb9e9af9f6cad2dc5749"
     sha256 cellar: :any_skip_relocation, ventura:        "38188fa0418ab531bad39ffa157bdbc542385cf02ef3f5bfa75771e12b43e3ea"
     sha256 cellar: :any_skip_relocation, monterey:       "fcb5f275da1cf6dd20e206d443e6d5265ca595d3193d925189f5c9af0e631b97"
     sha256 cellar: :any_skip_relocation, big_sur:        "a743d9856f51f4f2405adc5c692784897a78ecbdaa9361390b84c5630c077021"

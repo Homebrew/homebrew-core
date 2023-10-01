@@ -11,9 +11,11 @@ class Clp < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "3d04e87ef2c2ae1131a3538c8d8c618d2c989a68df9e48cf420ff84c8d9e861e"
     sha256 cellar: :any,                 arm64_ventura:  "efe170c0bf8394a5db5fab7fe2eacd52471337cd7cb2d144b39c8ad621e7ff2e"
     sha256 cellar: :any,                 arm64_monterey: "9d2980cc39519cf78053c951cafee4b0fb11f900a6cef87eaff3c50f3612dcfc"
     sha256 cellar: :any,                 arm64_big_sur:  "6dc3cc5e3b85420d45d610f7743e45541b3bf62511040d5046092fd9361a73b3"
+    sha256 cellar: :any,                 sonoma:         "6b9ac5776ea25fc8161cb30f98a5506b033aadbe11f79c2da815b9daecf5167c"
     sha256 cellar: :any,                 ventura:        "88d6a80f4da99110a34a5b37cf44324e7cad52c063db6d7fac5ae48d753b4f82"
     sha256 cellar: :any,                 monterey:       "6e458f50c974e968c541288ae791a70768caacc4f03819a0ac886edf86e6c25d"
     sha256 cellar: :any,                 big_sur:        "0562833cfb1dac1a446690e0633b64421920628f9df7dbfa0f8ce9071efabe99"

@@ -9,18 +9,19 @@ class Hatch < Formula
   revision 1
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e90d8c974c792611911eafefaeec74a9f537a78abb64e2fa5f194b3825eb0aa0"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1fe289ad318090ce3bd1d9e1eb4c058fa95eb050b734b2e406f8b6836aa47c59"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "14bd9b8c75f98a1d9931ce640137e39b2e0b120cac285d653be7072e6c186f6b"
-    sha256 cellar: :any_skip_relocation, ventura:        "8622ba372daaa21011459b273b244cb35c866c5f5f151c1664164634869d9930"
-    sha256 cellar: :any_skip_relocation, monterey:       "71e6b907c295e77008087f7d9a223ba857f1c53cec35e52f21dc8534b1852fdc"
-    sha256 cellar: :any_skip_relocation, big_sur:        "956e9cb59ec9ee4a20aaaf4f2d2fe50218181d5c6ab09dcab628a805bef412e4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "15b1b527274b2387df5ae2c0d60f3306d0ea146e20e0f852b4aef5f2a417f59a"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7a57d8bc12bfe3656a9ec833d6e966bc909bf85fe2b9582e944cc4a8e7ff163d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "246be0dbf7e34fc51da93226d88ca80780b349717b137c417e65c0c4ae86c7dd"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0f8ef7c934c5d7446456f86f4676d27b619d7077fe90f92625f30fd640e730e6"
+    sha256 cellar: :any_skip_relocation, ventura:        "2c453a376801bd5bb48d9c56f9b25fc1de77a0a87e41464c41e5a27d6ee14ede"
+    sha256 cellar: :any_skip_relocation, monterey:       "0d3ba80d718a647b402e28bd20bea4f96dcd4c086a78a3be3b7eae82cbe20990"
+    sha256 cellar: :any_skip_relocation, big_sur:        "3a5db978126d656683c01f6b5633b289e1f4c6b799def250245a1bd0b1da6886"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bea329f5262f17cd78fb3dfe25dded22f4f6a0279dfabeb0c942dff1d781af54"
   end
 
   depends_on "pygments"
   depends_on "python-certifi"
+  depends_on "python-packaging"
   depends_on "python@3.11"
   depends_on "virtualenv"
 
@@ -100,7 +101,7 @@ class Hatch < Formula
     sha256 "43ce9281e097583d758c2c708c4376371261a02c34682491a8e98352365aad20"
   end
 
-  resource "jaraco.classes" do
+  resource "jaraco-classes" do
     url "https://files.pythonhosted.org/packages/bf/02/a956c9bfd2dfe60b30c065ed8e28df7fcf72b292b861dca97e951c145ef6/jaraco.classes-3.2.3.tar.gz"
     sha256 "89559fa5c1d3c34eff6f631ad80bb21f378dbcbb35dd161fd2c6b93f5be2f98a"
   end
@@ -123,11 +124,6 @@ class Hatch < Formula
   resource "more-itertools" do
     url "https://files.pythonhosted.org/packages/2e/d0/bea165535891bd1dcb5152263603e902c0ec1f4c9a2e152cc4adff6b3a38/more-itertools-9.1.0.tar.gz"
     sha256 "cabaa341ad0389ea83c17a94566a53ae4c9d07349861ecb14dc6d0345cf9ac5d"
-  end
-
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/47/d5/aca8ff6f49aa5565df1c826e7bf5e85a6df852ee063600c1efa5b932968c/packaging-23.0.tar.gz"
-    sha256 "b6ad297f8907de0fa2fe1ccbd26fdaf387f5f47c7275fedf8cce89f99446cf97"
   end
 
   resource "pathspec" do

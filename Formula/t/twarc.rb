@@ -10,9 +10,11 @@ class Twarc < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "06f0bb0ec5574ccf82253ddabb4c287423a14ec97fa3e2f0c9c803e0397f3ceb"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2476892b3c89250a198fd1da853ed7cbe797c7f4ed34d26376772ebb7e2dd26d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2903af4b4bb7e337cc06721f9af18771556b6d77cb38f6efdee418624b81a6a3"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "33bf34fa780f096b4fd068554df1996f76a422f67bcc1c170c6aad7a1410bca5"
+    sha256 cellar: :any_skip_relocation, sonoma:         "79f6f05efef871473a7d5f8264a7e8ddeb51d6260c6369b16ad0b372b37e12a0"
     sha256 cellar: :any_skip_relocation, ventura:        "d9ca2560ba4c4b0dc846ae189fbb6a73549808f6e649fc8a47137127b87f36ec"
     sha256 cellar: :any_skip_relocation, monterey:       "720b50e171fac2a5f4fe3265f168a0da9eb3dc6f288de90114083cd75c5b2b0c"
     sha256 cellar: :any_skip_relocation, big_sur:        "6207662ef90539a9112d74bd293147905056bf881048cf88f729e288e7afe9e7"

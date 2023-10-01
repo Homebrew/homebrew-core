@@ -13,9 +13,11 @@ class Libdvbpsi < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "bdd947f3cb943b06739cc4fa888739f746b859fc2036dbbec873eca70f093014"
     sha256 cellar: :any,                 arm64_ventura:  "1c472e474f03c56fc1e29442555abd1786e3f8310d12d1fbc64442f166e8541b"
     sha256 cellar: :any,                 arm64_monterey: "1bf8f2771e32e8799e111cf03d52d765d29e38b3494856f65c004166accaa1cf"
     sha256 cellar: :any,                 arm64_big_sur:  "d235fec5478322cf04a4ed079073b18ac289548ebd0b31b2aaca8b84fe9987a3"
+    sha256 cellar: :any,                 sonoma:         "124e4d0858fbb2df20ef1040309365f1f33e62a8f482054353ac2b8c3ebdac8c"
     sha256 cellar: :any,                 ventura:        "94c15b82989c45ea689079e7dfe8655953d192cc8ed09dcfe3400f04bc561434"
     sha256 cellar: :any,                 monterey:       "c1af0d643851a02a2ed1db53f959abf421321e32ea7f5f74e97edc0ca48db6b6"
     sha256 cellar: :any,                 big_sur:        "6897247fd9cfdd4bc5cfd4db8991b7bb5d1647a6f929bab5642c8e673fe1f317"

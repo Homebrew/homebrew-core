@@ -6,9 +6,11 @@ class ProtobufAT21 < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256                               arm64_sonoma:   "efac77abd432d15026b826cf010a16296ea2198d13e00ed4de78941f7edda382"
     sha256 cellar: :any,                 arm64_ventura:  "d0909077ab9abd27d47a7990c7bcea6622805421de263ff5a5366beef171bf74"
     sha256 cellar: :any,                 arm64_monterey: "4f147f89429d04ac3ed6c2c8265b0c1915e00fe220e54725e6b0619de22bb4b7"
     sha256 cellar: :any,                 arm64_big_sur:  "8f82f5c9e0fd457a11bbd8d5932a7beab5b816d1dd295ccf2a700f845b29e015"
+    sha256                               sonoma:         "f36fdce6e6e6fc81e17eb73f2d6ceac5ca5ce68d6e01347f26faa4cc5ee09be9"
     sha256 cellar: :any,                 ventura:        "3f04c152bc512c647617a667557ba211f3cbabb49a0029c04214488ce52840c6"
     sha256 cellar: :any,                 monterey:       "d273a25298c6bb40374e7741ef20047d62b975fbb55840aa88b63f6d0e687e3d"
     sha256 cellar: :any,                 big_sur:        "76f714caba9825918e0456538f14b8945f7a595b71e205a662ae9ce4f3515dbc"

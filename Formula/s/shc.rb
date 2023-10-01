@@ -7,8 +7,10 @@ class Shc < Formula
   head "https://github.com/neurobin/shc.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c0e1db3eca184dfad518ba0f0ab5a1d4c66f34aca3097f44610a5471882ca311"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e84ca021ebfbeaa652c74a9e07b3eddfc390c4193f64effdd93d835958d7e90c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fd153e413029832fb17b013fb15d43aab1e1e22b618d58c768a049ac31e0759c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "986e78b01d80d0b0299147bc07ae137cfae98ccf26468cac072e60d1aab25460"
     sha256 cellar: :any_skip_relocation, ventura:        "b08711bc5713b2cafa6ae423220b9f6f7046d2c2a4aa3d0c9d88104b6f64a8b6"
     sha256 cellar: :any_skip_relocation, monterey:       "8896b46bb8b312f24f98ae842c8edb5c7ba1321c21f9441c32c8218a15c596c9"
     sha256 cellar: :any_skip_relocation, big_sur:        "3866195be89821e424dca28e390d36060ad52be9030677498a300e39b7ece548"

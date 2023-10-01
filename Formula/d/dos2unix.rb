@@ -12,9 +12,11 @@ class Dos2unix < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3b2ea129fb75887bc152ad6801b0cbfa0cf65439075af4959b03244cebe7c3a7"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "406e8d43a00635ebe673a875a9220616d4888c057731c423a0e5d0dd7ebf6a78"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3f64a6b8c31eff382d9653939c06fcf98cdc3ce8b86cfeaa881b9513754c9342"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "28054af1e3dcb5d9ff47ff348700f34004eebd21f1ed8b0257089bf15dc04a18"
+    sha256 cellar: :any_skip_relocation, sonoma:         "6f64745a518064fda421dbb87af16b2c6af6c09ebb446d23c17448ba5eed1e48"
     sha256 cellar: :any_skip_relocation, ventura:        "9b50d2ac2d3ea8416554ce29ab5e59d95d85b392f60ece56aeee56599e32c5cd"
     sha256 cellar: :any_skip_relocation, monterey:       "4a0b95a44c42d867a424e9656ea9b417a61e6b6ab3db963318316cbcb3e88ff5"
     sha256 cellar: :any_skip_relocation, big_sur:        "b8d0cf82af0f55d324fe4521083d31ba15913e031d3837f656038dfb18ae47d7"

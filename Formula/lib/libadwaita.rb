@@ -14,9 +14,11 @@ class Libadwaita < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "ef1daeea57ba4deb70ef5338bd739ae51646c471edc3bd4c0d8ad1bf3c3b4f40"
     sha256 arm64_ventura:  "6d85d0d5c2d4d48934730d04b1d71fcdaaaa4d5340121de7331be6a454df411a"
     sha256 arm64_monterey: "8f6bfd36aa92234f34c453fbb9d8556470b18c0955610551c4d1a3e1a1fd46fe"
     sha256 arm64_big_sur:  "63ce30ff4af57ce0a74b87470b1924407af75a14b94cc9c81740a62b7b46e9d9"
+    sha256 sonoma:         "2f5c848d832ea53d1b9649104bc727b7886458b0e1091194339f1c26fb8b736b"
     sha256 ventura:        "a65f238ab3becb3d69862e92ded83bc75255ce9291e58a2622497798a0537340"
     sha256 monterey:       "eb4efa96500402a29400b4ed1a7bf6813904bce971e5637052d88efdcc37e44d"
     sha256 big_sur:        "0c21c762f5e5e0a84d8d749cc6214ee9aae2ff566e4dfd4abf5b75923553ae83"

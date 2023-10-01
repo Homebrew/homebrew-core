@@ -12,9 +12,11 @@ class Lftp < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sonoma:   "aaff61c7beb8135dfd9888ac0e7fbde05a83b3189f5610a682ed01bde537f16a"
     sha256 arm64_ventura:  "c9bb0571b5b9472a289e93b9210e1917bede06a2d5909d47eacefb0f2f042439"
     sha256 arm64_monterey: "d3d9dd22c527c2e7b97f6972a3e902ae58dbd52cac41a9f5480e350bc00cfb79"
     sha256 arm64_big_sur:  "5df3fa7301a808e6f0194c833ff4a1003ad912f6524f4b79d175f2fd727a5883"
+    sha256 sonoma:         "48af9632ac3e06f2d8f65477ab05c2e57303561cc2f14c185154d069b21326d5"
     sha256 ventura:        "dcb1fb4a543b3bd88b915ab1b616e42a8ef821d7987cd54bfcedb8436ff3e4a4"
     sha256 monterey:       "ea4d5856758cd68e0a71606513352159c0e35fc97dbb07db747f2709b411787c"
     sha256 big_sur:        "f51859af8603b65107fadf56c429a7f9582d7a1b232283c31a9d7933bf3306bd"

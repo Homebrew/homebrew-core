@@ -1,18 +1,20 @@
 class Imlib2 < Formula
   desc "Image loading and rendering library"
   homepage "https://sourceforge.net/projects/enlightenment/"
-  url "https://downloads.sourceforge.net/project/enlightenment/imlib2-src/1.12.0/imlib2-1.12.0.tar.gz"
-  sha256 "b139dca28d8de24fa50475851fdf59d3439f00e8b42e8c0f8daebb55a102455d"
+  url "https://downloads.sourceforge.net/project/enlightenment/imlib2-src/1.12.1/imlib2-1.12.1.tar.gz"
+  sha256 "d35d746b245e64cd024833414eef148a8625f1bed720193cd5c2c33730188425"
   license "Imlib2"
 
   bottle do
-    sha256 arm64_ventura:  "886bd312d78665ae7efda3afd62415a880ca2cf89755eca3e287dce773d4e12d"
-    sha256 arm64_monterey: "07daa7529afd7fc4414aa52dbd3c9d103ceada3eadb946be19a49f94617a7735"
-    sha256 arm64_big_sur:  "22967bf1ff05795915545d2c345965d565a7a33c1150ed6dbbd4f01baf804d9b"
-    sha256 ventura:        "9c996088bc94faf3fc0207b0b4ca8a6a7cd95f48df8161012c6c683f3a445294"
-    sha256 monterey:       "8c390ebf592b6999d47b57d043f525f252f27f0412410f3c4b106aa22c44996a"
-    sha256 big_sur:        "a78ea6aaf666532f3126da56baaca0084427a3796435f877e694b59cfd378b3a"
-    sha256 x86_64_linux:   "a4a6f6a70485b78567c91eaf019c5d519e7364cf63566ab5d781958081b42b50"
+    sha256 arm64_sonoma:   "340686a62cc73b407b8865ff898036958d36ae3cd44748a79ce04ed3c255d51c"
+    sha256 arm64_ventura:  "24a12ac9285633fe1a0f844331d19abcde5dd99520edbe0432ea687cd64f1f25"
+    sha256 arm64_monterey: "72815d83d4ff40106b987e870ebbcaaad10786abc8a581747e9339dcb6a67af4"
+    sha256 arm64_big_sur:  "5c0a0f84abf3ff248989ad1d38f7c2cb41988ac3063d0e034fc3f64303adfc3f"
+    sha256 sonoma:         "34f0974010b985d40c0636a1587c8f81b2614b4b364541216e473d154550be3a"
+    sha256 ventura:        "0d99ef3348e92763a8e2adfea2857cc8d3145e7cbefbc6a8209445096d6e58d1"
+    sha256 monterey:       "844f5e867091e1ddaee95f600cedfad67b9397748f5d53ccebba7e4b8c1bf8be"
+    sha256 big_sur:        "1b4b17a721c859d2a1ef2cbff577794aa713ee1c1a63b13d0765696146b30f4d"
+    sha256 x86_64_linux:   "abdad19e9b3ce85b4793639b24044bb88850021efd826074eef6ef213a6f3e71"
   end
 
   depends_on "pkg-config" => :build

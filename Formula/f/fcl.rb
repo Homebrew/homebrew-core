@@ -7,9 +7,11 @@ class Fcl < Formula
   head "https://github.com/flexible-collision-library/fcl.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "65fc084fe681299eb81a12aadd510c8e490c70e067ebd05de97abb3edffb39e4"
     sha256 cellar: :any,                 arm64_ventura:  "a32e966491d45e0fb152424f58b4015748e253738afaa0316a2f91c83c340202"
     sha256 cellar: :any,                 arm64_monterey: "15b9e1b7c5166ad222c94e848259726896f59187b4a31c90671f4bdd00547591"
     sha256 cellar: :any,                 arm64_big_sur:  "d2054fa4adf473a736ee945e0a1817772a77b423c1fbd314f7ced016ad616760"
+    sha256 cellar: :any,                 sonoma:         "e5ccb800c444e38feda78b3f58cbbda898661e978e870228e783fd0a4072a2e1"
     sha256 cellar: :any,                 ventura:        "05789d524eeabb2c81cb6c868582e1b5b1a4c178ead3a8f0eafa66bf1c122b8b"
     sha256 cellar: :any,                 monterey:       "b79ff81383e9aa9de0a692f11d287365751a9610395e99b0acaff1eae9a8f4c8"
     sha256 cellar: :any,                 big_sur:        "211e57fdf880e25e2441be78170dd1433d746aee1bb9a98990479abc2037a546"

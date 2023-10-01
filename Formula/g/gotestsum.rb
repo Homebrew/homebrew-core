@@ -1,19 +1,19 @@
 class Gotestsum < Formula
   desc "Human friendly `go test` runner"
   homepage "https://github.com/gotestyourself/gotestsum"
-  url "https://github.com/gotestyourself/gotestsum/archive/refs/tags/v1.10.1.tar.gz"
-  sha256 "8a7c1fd85cf3b5399b4ce59454d1f10fbd6b82e55e63ff8390446cec9af9f43f"
+  url "https://github.com/gotestyourself/gotestsum/archive/refs/tags/v1.11.0.tar.gz"
+  sha256 "b75695eff12ed246e6720c8ccd283c42bd4d5fd41a897ac258ffa6eebf17d40a"
   license "Apache-2.0"
   head "https://github.com/gotestyourself/gotestsum.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0ba88a9fe11f727dc1b1deb0ede5560b5a2f890bd96d958cc4e8695b5136a7bb"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0ba88a9fe11f727dc1b1deb0ede5560b5a2f890bd96d958cc4e8695b5136a7bb"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0ba88a9fe11f727dc1b1deb0ede5560b5a2f890bd96d958cc4e8695b5136a7bb"
-    sha256 cellar: :any_skip_relocation, ventura:        "2f02417a800232286041d084e57828cc83528117eaf9cf66a84c70f2822118ce"
-    sha256 cellar: :any_skip_relocation, monterey:       "2f02417a800232286041d084e57828cc83528117eaf9cf66a84c70f2822118ce"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2f02417a800232286041d084e57828cc83528117eaf9cf66a84c70f2822118ce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5928456f4fc58720906fc771133a4ea43fdeb13b6a105f7a17ef61d90f493ede"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e6cd55d7915617a642b0cd7380f7edd904b62743462998c236663d1ece0ba528"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4c1a4a179d1e49f1895fb680f0f743144df07b899b5a307d5532bfd9f9a03b67"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f2b4c973e92041e74332671d1e60582221a246004650e8b9e462b79b216902ea"
+    sha256 cellar: :any_skip_relocation, ventura:        "b09a5443f8595f98ea679b9fb32d958c968517aba9a28b8d77e44a8832244127"
+    sha256 cellar: :any_skip_relocation, monterey:       "5414ba0d792706ca08fcdcb0f8b186b158aec28e99401ad442c1a9fd91fb7bee"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6466bb4c54e54b9fccf5b4019c00539cfe839577b6926e50363233d35ae222b6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8147f38bd97e667a02006fbf4afab7236eda8962d9ba102c1a272486e39e2e0b"
   end
 
   depends_on "go" => [:build, :test]

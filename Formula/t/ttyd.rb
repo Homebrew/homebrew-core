@@ -8,9 +8,11 @@ class Ttyd < Formula
   head "https://github.com/tsl0922/ttyd.git", branch: "main"
 
   bottle do
+    sha256 arm64_sonoma:   "056eaff80d5dbad911ce8abf15cd70f392ef3f3d396c990a74af84826e429873"
     sha256 arm64_ventura:  "69a099f652a4627ebd1883cf6f30ffaf24d10860f09ad70f165d1d325cef8df1"
     sha256 arm64_monterey: "904dc5cfb60de817fceadfe24656122a3afd9ec4aa7f9e66d7a6adfeb2da2b5c"
     sha256 arm64_big_sur:  "f59972a5107ab4f0db65881a886b6305d1c85cc7cabdc1c63c9019e059f58653"
+    sha256 sonoma:         "c68e2c2c2998868ed46b854d1fa8f2566036af30854cda0f0cea6f99a96d74e6"
     sha256 ventura:        "bf497b4d9a89b2a0fe3298e41b114aaf15745b30600a58867465c25a5c2690ad"
     sha256 monterey:       "714cce29332912b168fb7f3bb5c96c94804b88051d906bccc8d2008361e9497e"
     sha256 big_sur:        "4c565f05abbe15174806522d06bc5b764544c1c4cc5ab48d97ce886d4d5af108"

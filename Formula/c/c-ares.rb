@@ -15,9 +15,11 @@ class CAres < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "c8cbe49f75ae85d59b427b7fc4e77374a42b058d724564b5cb1752c13f2dc40f"
     sha256 cellar: :any,                 arm64_ventura:  "ba35cc0962beaea7ae345ee1818297c40d5653649e563dc9493b93924b87ae41"
     sha256 cellar: :any,                 arm64_monterey: "de7817bc21be96a6ddc10a8f5c0dbefc7930b9d9a8bdca24ecd88c23d5e592ef"
     sha256 cellar: :any,                 arm64_big_sur:  "f8671b1156701b219b38544e7edab45a97afea17f06e5e2db4113d43036d1c2f"
+    sha256 cellar: :any,                 sonoma:         "b518b634ec0bba43f2c6e4b76e6f6c900fa348d24af3114053214ab0f3871fbf"
     sha256 cellar: :any,                 ventura:        "504f6347444d599983e075211dee95529f7329324f3f7470914adebf06f46419"
     sha256 cellar: :any,                 monterey:       "c954838d76e0f11529f20455fa4173e5390a97479d141f3b6d2d136054a2453e"
     sha256 cellar: :any,                 big_sur:        "8e2a1fa105cdc6be5e40a16a32a21fee6fb64fbccc9826906e4097573c22b357"

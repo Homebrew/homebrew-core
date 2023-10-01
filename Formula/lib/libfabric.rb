@@ -7,9 +7,11 @@ class Libfabric < Formula
   head "https://github.com/ofiwg/libfabric.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "19aa834846dab44016d5a9486db2fe08e7f3d66f6ca75cd8720bacf5336e4e09"
     sha256 cellar: :any,                 arm64_ventura:  "eb0faceafd65334ff43eaa02448c4c8e07bcb4affcf445e3e3413c02bdab390c"
     sha256 cellar: :any,                 arm64_monterey: "71214b099398ca483bfd588b994ead5de4c72b07dcba20d779f599fcca1a511b"
     sha256 cellar: :any,                 arm64_big_sur:  "f881623b1bbede6a70a13770d396065f5b793885893a0762979a92874adbe34a"
+    sha256 cellar: :any,                 sonoma:         "ad4c4c92b073604c584d8ffe816b824815de89f0ae27a715de4d4c606f88ad7d"
     sha256 cellar: :any,                 ventura:        "95105d9e4f9845836fb80e26be459988daf00ed9ad6228f2fccf4dc2865afe8f"
     sha256 cellar: :any,                 monterey:       "ca6e9d5a5a50849ccaa2505c448e16952e7612c8106c5fcb2b595b232c0adcc7"
     sha256 cellar: :any,                 big_sur:        "95d6fd224569b8104d11373cdb536a523b8ad166dc0675be20fa4f6476bbaefb"

@@ -1,8 +1,8 @@
 class Camlp5 < Formula
   desc "Preprocessor and pretty-printer for OCaml"
   homepage "https://camlp5.github.io/"
-  url "https://github.com/camlp5/camlp5/archive/refs/tags/rel8.00.04.tar.gz"
-  sha256 "bddbcb5c3c2d410c9a61c4dfb6e46e3bbe984d25ac68221a7a65c82a29956b1d"
+  url "https://github.com/camlp5/camlp5/archive/refs/tags/8.02.01.tar.gz"
+  sha256 "58d4bce0c20fa1151fc2c15f172f5884472e2044a4b0da22aababf46c361e515"
   license "BSD-3-Clause"
   head "https://github.com/camlp5/camlp5.git", branch: "master"
 
@@ -12,23 +12,35 @@ class Camlp5 < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "899fe2710188efbca347817a752d5ddb8ce8288434cf2d5911611be932bcc9f3"
-    sha256 arm64_monterey: "63f83e1410d36a10a0f7878487126dcb8d1637d99c97584207d8e44dce84e10e"
-    sha256 arm64_big_sur:  "c7ca80e8ca739c8648a52da3ee4af318fe5e58de5fc8fdd7c7e08d822f44a512"
-    sha256 ventura:        "169409404579083889e4c5703bd717f19c7931b502e5b4f99e89e8d47d5af12b"
-    sha256 monterey:       "0576eff6922d5a79b3fdf401259876de4fa628bc2f14190214e47b6dc5210c47"
-    sha256 big_sur:        "2dc7634e71780ddb7bd0e6409086fd66073e3044f781dc0614daee7f31922bbb"
-    sha256 x86_64_linux:   "f749e0f60738786a289d2f5df57f6d4a82f27679353b059d9f6adf30c7b325ea"
+    sha256 arm64_sonoma:   "68bc1221b21f49d08586934bc06f19a62eef0308b92aa6257b5313e3f97e08e3"
+    sha256 arm64_ventura:  "b66cf027c5621a927617b974a01507b903b60f92aed85458b50bd1571241cb69"
+    sha256 arm64_monterey: "3176a9e4b1bf08b23615ada8387811cf2d63b8acbc18d1e1d4645007350a0bab"
+    sha256 arm64_big_sur:  "087ce00b6ef3367386236ba7832c658b01fe0e41288647f4a9a41dd304e6aebd"
+    sha256 sonoma:         "056cdf35c1cc5a6dfac714380f69cc3851d535464ef347af7ed70a866ddb3015"
+    sha256 ventura:        "7043d9895aa1e64a3ac4a7a9f26778770dd91b17a8507e35b43614f84d7dac21"
+    sha256 monterey:       "dcbffb83005849f1446742c2ba704577a495e2ef9ca82375d87b03d76640d977"
+    sha256 big_sur:        "dcc8d08791e3b42d7faba7faeebc3dc2c0fd17d23b730ad5a4dd468ad5d4d862"
+    sha256 x86_64_linux:   "16ba10a0ccfbda37bbed0d5513c5c7d4f82e5f7b40c102c48024429ddd4635d2"
   end
 
   depends_on "ocaml-findlib" => :build
+  depends_on "opam" => :build
   depends_on "camlp-streams"
   depends_on "ocaml"
 
+  uses_from_macos "m4" => :build
+
   def install
+    opamroot = buildpath/".opam"
+    ENV["OPAMROOT"] = opamroot
+    ENV["OPAMYES"] = "1"
+
+    system "opam", "init", "--no-setup", "--disable-sandboxing"
+    system "opam", "exec", "--", "opam", "install", ".", "--deps-only", "-y", "--no-depexts"
+
     system "./configure", "--prefix", prefix, "--mandir", man
-    system "make", "world.opt"
-    system "make", "install"
+    system "opam", "exec", "--", "make", "world.opt"
+    system "opam", "exec", "--", "make", "install"
     (lib/"ocaml/camlp5").install "etc/META"
   end
 

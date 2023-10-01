@@ -8,13 +8,16 @@ class AwsElasticbeanstalk < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "5812ca3343085d2183a53cec84aedb6dc51e5379de570fd5e05514965b8811c9"
-    sha256 cellar: :any,                 arm64_monterey: "50f6a6e76f48d25eb080156e33be2b6c8262b023c19e1bae4f706681598a0fc0"
-    sha256 cellar: :any,                 arm64_big_sur:  "1483212b8d31c68fb2e36ea40baf04e4aca2a4d8885e133ebaaf4f95276a333b"
-    sha256 cellar: :any,                 ventura:        "d8f2bea167c76ea6f3afbbc16fa1230808604282b71b368673336fd75bb30ec5"
-    sha256 cellar: :any,                 monterey:       "1b488072fb2447ea22322eca988578fb023a735da61749ea734072715e73f9db"
-    sha256 cellar: :any,                 big_sur:        "763cb534b83e0d38f1ad6137d5d44d5c52b4671478077fe514642c814d9fc648"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3242baee1f0cfa80db4c6beecfb3bf2bbf969fbe6b636fa4a810e11f6e2c44c8"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "77a32672ba85546f9d405bf30b779a89bd2b5571e059f8bf7cf0aa6c94c93dfa"
+    sha256 cellar: :any,                 arm64_ventura:  "0fa6662f7016f219e9ef28aa6ec12ebdfc34e6d849807a2fe3ddd62f6f1c59ca"
+    sha256 cellar: :any,                 arm64_monterey: "9f0ef26ec9ed9534a632280c11ec60bdf6f127aef6740ba9d0d878537d3745f6"
+    sha256 cellar: :any,                 arm64_big_sur:  "bff8553a218b227ae39bdf0fbc73275a59644fcbe31027f6e776aca14f71d82a"
+    sha256 cellar: :any,                 sonoma:         "793d36ea78e49472a4cb96888dc100c062f0389b5515752df6a339cd44ec9717"
+    sha256 cellar: :any,                 ventura:        "64296bea6913585e91136c69c00aef728417bb99670a7bb46e073f5500103f1e"
+    sha256 cellar: :any,                 monterey:       "975cffa344d6443a56925ca945f3888c2d8eb0d75dda136605ac067e0acefade"
+    sha256 cellar: :any,                 big_sur:        "a4514765bf73a6f5eeb6bbce657e9a4f5fdf54b65517c22bbb04e3e39cf314b5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "493088327fb57f086c1fbc1b23b50729e3ba8eea675e35bbdb4ba684845cb0af"
   end
 
   # `pkg-config` and `rust` are for bcrypt
@@ -24,6 +27,7 @@ class AwsElasticbeanstalk < Formula
   depends_on "pycparser"
   depends_on "python-certifi"
   depends_on "python-cryptography"
+  depends_on "python-packaging"
   depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "six"
@@ -110,11 +114,6 @@ class AwsElasticbeanstalk < Formula
   resource "jsonschema" do
     url "https://files.pythonhosted.org/packages/69/11/a69e2a3c01b324a77d3a7c0570faa372e8448b666300c4117a516f8b1212/jsonschema-3.2.0.tar.gz"
     sha256 "c8a85b28d377cc7737e46e2d9f2b4f44ee3c0e1deac6bf46ddefc7187d30797a"
-  end
-
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/b9/6c/7c6658d258d7971c5eb0d9b69fa9265879ec9a9158031206d47800ae2213/packaging-23.1.tar.gz"
-    sha256 "a392980d2b6cffa644431898be54b0045151319d1e7ec34f0cfed48767dd334f"
   end
 
   resource "paramiko" do

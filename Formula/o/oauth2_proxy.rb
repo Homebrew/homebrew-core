@@ -1,19 +1,19 @@
 class Oauth2Proxy < Formula
   desc "Reverse proxy for authenticating users via OAuth 2 providers"
   homepage "https://oauth2-proxy.github.io/oauth2-proxy/"
-  url "https://github.com/oauth2-proxy/oauth2-proxy/archive/refs/tags/v7.5.0.tar.gz"
-  sha256 "d31206ca1eff121d4560e84a652a55efd0a8a01bf7fbcd30d524f0e4676cd75c"
+  url "https://github.com/oauth2-proxy/oauth2-proxy/archive/refs/tags/v7.5.1.tar.gz"
+  sha256 "97de086ba98ce884da77d4031537f72496a059d14c60977c46824c24010096c8"
   license "MIT"
   head "https://github.com/oauth2-proxy/oauth2-proxy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "23acdbd8105fb3dceae557eca1edade800d7978b5c00df8a72259ae3e3d87fd3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0db4a423b26bd41d68bd8159615546909d2a78f245a2d2f2083d985617ad4756"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c09d0f120f6054ae9631b3b394891b99e7b41f7a185eb15c37568844a18c56be"
-    sha256 cellar: :any_skip_relocation, ventura:        "45d549534bde1ac431a7d45e2b184225e61ca485cbd32566327de001f933e6af"
-    sha256 cellar: :any_skip_relocation, monterey:       "fd59f377d5cbd6b51846e0897a57b0b120efe8c949aa9a4db4966b0e6aa6094b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9201925f6b5edc17777f98172574f73eebaac8f2f477654e27504de8207a0287"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7060a3124e4efa4d415c38b87850dd90353b58a5ae6c2b2e7af49de538558b21"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "09e38835e404203559311558a7205f57844bfa5fae1f03b2dea535dde82d51de"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "79c2131dbf92a3deba0c0d55bdd038377437400bb278702a3c358baf438fc162"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "efc245492714e5ad2b018657d808acd19f8aa181c3d84f15ba333e3a4c0357e3"
+    sha256 cellar: :any_skip_relocation, ventura:        "3aa7b4203cdd1edc6401ec3250e97e928c0338a7c7186b298fb436272e401da2"
+    sha256 cellar: :any_skip_relocation, monterey:       "ee90e11e224739522e8fd59448e9ae6a13e7725d6c65a2eaa11d0fa9482851d4"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e0c6f546f65ff9d15eda15b9e2ac246f53b651b6e04fd40f5165ccfca117937e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b446ed3f8684266bb6dc7dac826f584bf1ffc9fc026186c4ecf51042d8babbb1"
   end
 
   depends_on "go" => :build

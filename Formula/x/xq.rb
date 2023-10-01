@@ -7,9 +7,11 @@ class Xq < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "73487c0cd3b97f0b0440b3e5d35d5ce4448bdd731a9e5b23653e4459257f9170"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2cbb07af6bd4a55df5a4c4ed1db217b81c75f5f07cd7c7968c43192c0e9baec8"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2cbb07af6bd4a55df5a4c4ed1db217b81c75f5f07cd7c7968c43192c0e9baec8"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2cbb07af6bd4a55df5a4c4ed1db217b81c75f5f07cd7c7968c43192c0e9baec8"
+    sha256 cellar: :any_skip_relocation, sonoma:         "1bceec7a5eb2131944672afd758a725b40630546b1e36ca2382c11aac9ce28a4"
     sha256 cellar: :any_skip_relocation, ventura:        "b60dfc79a740dfc4acbed5b2cb931061bee6d9c1286f9967f640a2ee0a1cb78f"
     sha256 cellar: :any_skip_relocation, monterey:       "b60dfc79a740dfc4acbed5b2cb931061bee6d9c1286f9967f640a2ee0a1cb78f"
     sha256 cellar: :any_skip_relocation, big_sur:        "b60dfc79a740dfc4acbed5b2cb931061bee6d9c1286f9967f640a2ee0a1cb78f"

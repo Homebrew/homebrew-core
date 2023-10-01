@@ -9,9 +9,11 @@ class Uhdm < Formula
   head "https://github.com/chipsalliance/UHDM.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "340e4a506f527c159e00afeabdf1b7f4f731a071d560550d898e179b3cf1827d"
     sha256 cellar: :any,                 arm64_ventura:  "603fcfd30bdb29e75ded1156f152364ffea6df466afece5c49b294cefe8675ae"
     sha256 cellar: :any,                 arm64_monterey: "7fd82d12d05fae2cfea5dff5b0fb81f0019efbb680b066eacf10126219cb3634"
     sha256 cellar: :any,                 arm64_big_sur:  "791a84a9622356e0575021473756bd3eb1deb14b1c33304227e4a9b575c63904"
+    sha256 cellar: :any,                 sonoma:         "73c98ed56abe037b7ef19b2362e77cfe3b760d3d4cfe4d7f28b5ebf64b3195fe"
     sha256 cellar: :any,                 ventura:        "5b1146c774ede11adc43259efe9846f477faa80fe7b0cd5ec6132b97038527e1"
     sha256 cellar: :any,                 monterey:       "430e489576fa08f114332a90be1c09bc39031e7dc5908637f309ebea2fc69096"
     sha256 cellar: :any,                 big_sur:        "96f6edbfb623b7b03bcbc8e9477d29b0b542a5ebf97f876d9104952ca1e5dc5e"

@@ -7,9 +7,11 @@ class TfProfile < Formula
   head "https://github.com/datarootsio/tf-profile.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "40caf3f66f08e25fc07275866f62f83beb5a181cda8e8a669b5de97adc834be5"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "55e6cb67d424f1ba45cd147a430d6c8043618af1cd8cd458c7c104b0cd0c1328"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "55e6cb67d424f1ba45cd147a430d6c8043618af1cd8cd458c7c104b0cd0c1328"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "55e6cb67d424f1ba45cd147a430d6c8043618af1cd8cd458c7c104b0cd0c1328"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e6cb79f0ab6946769de3dc290e1acd821ed0fb5e6c98e85fd3fc757b3ad3db40"
     sha256 cellar: :any_skip_relocation, ventura:        "ff30b5edb01d8ad7cdd65444dc1b65610a0fa083648a2619196ecb4e162af09b"
     sha256 cellar: :any_skip_relocation, monterey:       "ff30b5edb01d8ad7cdd65444dc1b65610a0fa083648a2619196ecb4e162af09b"
     sha256 cellar: :any_skip_relocation, big_sur:        "ff30b5edb01d8ad7cdd65444dc1b65610a0fa083648a2619196ecb4e162af09b"

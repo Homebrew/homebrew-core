@@ -7,9 +7,11 @@ class AvroC < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "cd11c7827ddb41a5ccb9e85e9f97c7fda3c3c74a53eea475be4a1e77aa9ed5fb"
     sha256 cellar: :any,                 arm64_ventura:  "b04715d07a7b86605570d4c1cefb4a784eec94a439afce5c53f04e4993b3e5c3"
     sha256 cellar: :any,                 arm64_monterey: "ecd0e6cae754d2dee7b07be2c0c05d32488ecf4f60a1d6d282d342844fbc50be"
     sha256 cellar: :any,                 arm64_big_sur:  "3e8cfc7191ad79c820f528bfff349667db31f4c8e11137982b26072924e46f7c"
+    sha256 cellar: :any,                 sonoma:         "558d4b182dba08c2a36049d21a12d7803439b5501ec756b5adde926cf9f29498"
     sha256 cellar: :any,                 ventura:        "51030bee05f8e25587334eb4c08f687860c46e6c3285547ca10575909e6692db"
     sha256 cellar: :any,                 monterey:       "0a490e95841fd1afc7e101963aad7485c3a791ba23429a993e0e55dab8c3de89"
     sha256 cellar: :any,                 big_sur:        "1e06df4db7975bc94497ad4dfab39b9879400b421495abef6981354a2bc5fd00"

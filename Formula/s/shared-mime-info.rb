@@ -12,9 +12,11 @@ class SharedMimeInfo < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_sonoma:   "979baf511e975905a9a31e75b9a4946f33293affd7c52a828c99820e1615672b"
     sha256 cellar: :any, arm64_ventura:  "f7e0fb57ff2347839f5df016b9c57677b037b3a3835dea8638b76f89354b964b"
     sha256 cellar: :any, arm64_monterey: "6a9e8f01389c00cf8e3d3b7fbd9dc0b95d33744fcdb8bf3dca2c3db87c0d7cd1"
     sha256 cellar: :any, arm64_big_sur:  "c00d8c439285648cb14490b6f4bbb2111d16bd1cf7bbd386cc16ff9b1825a04a"
+    sha256 cellar: :any, sonoma:         "3c372be3d40e66d53b746d49f12166af50e3825bab3bce6ba787a5e6945b5ec6"
     sha256 cellar: :any, ventura:        "8cde9f9f6cf492ebb759bb76cf03ea7a3ea276b5a630a4f6080bbba28cf9bf87"
     sha256 cellar: :any, monterey:       "d279f9a9dfe8d9eb3aa22388b0ae41bdd284f44b35ef40b654f8d1c04929c488"
     sha256 cellar: :any, big_sur:        "3287f34793705e039a140e2614d3aafad8de654e5829515ffd3b77d024de6551"

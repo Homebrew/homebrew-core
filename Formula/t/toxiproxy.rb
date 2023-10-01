@@ -6,9 +6,11 @@ class Toxiproxy < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8656dfe86e5f96df364e0025cabbe7523a14289c0be382b6bc4b3f5f6396752b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "64e0ff9a28411806ae87d9435342684e9974d1480cef956b664f95cc42bc6d2d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2ca7ee33dbd5f2b6dffb6b36a68bb6aaad07a3fe9efc63f939d6059dcce97a64"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b4c757ee32deb7a6ca42495f0a6c0dd87167b9e814463ba2abe26e012189ac7f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d46eebdba65c6a745d094ad24cfbdc20633e65bb40c0cab058181bf8ca09cffe"
     sha256 cellar: :any_skip_relocation, ventura:        "272710c598c47c6d6c32c630cbd833b1bfa375c53a93d82cb5a8ec83d8866c44"
     sha256 cellar: :any_skip_relocation, monterey:       "13d2677ae0d1a135ae1dc417f215938c72c5f70475830f02a0550832c1f727da"
     sha256 cellar: :any_skip_relocation, big_sur:        "d86774ab5bca34406c63ea8f50346e4e1078561e2c87f72d9b6ffcd24525a4dd"

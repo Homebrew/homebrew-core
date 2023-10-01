@@ -11,9 +11,11 @@ class MingwW64 < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "c45756cb14bc20bdab5da3d0b3d2905f78515fad7b3e177bee3f01f7aecd6644"
     sha256 arm64_ventura:  "ebe4ec33ed811413153bcd56381440261abcc4edcbeb2ff08a15ee357da0f1ce"
     sha256 arm64_monterey: "681fe92f7519de5c736b4810f22c1d16c196ac787c7de951365aea73c974b40a"
     sha256 arm64_big_sur:  "79bfe5da00414bd0959a273492a059f21f4c3ffc04bc15a26a925866a016638e"
+    sha256 sonoma:         "7e72789298e04f227e5d76c356874774a1d712475cfa850ba00c5750fed11751"
     sha256 ventura:        "43c897a1bcb227a373f6caf50036245dc7dbe1888f6f2b6919d758f56a4d9a96"
     sha256 monterey:       "fe84e18ccf9867602823df481a7e13acfbeb1907bc2f7982bb1055b04f133631"
     sha256 big_sur:        "a08fef246cd50141454068976ad8cd91d6ba87f7944221ca3fa875aff6978fd8"

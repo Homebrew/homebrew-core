@@ -6,9 +6,11 @@ class Check < Formula
   license "LGPL-2.1"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "62db788052873713c484655c217bb221f71c794df5df63b7a68083df8805f598"
     sha256 cellar: :any,                 arm64_ventura:  "15a4e3c82d688948f0adc02dc5998f1abd24855aa16a4d0b673f46bc46bdcb0a"
     sha256 cellar: :any,                 arm64_monterey: "81a1070f08dca8980cc77fc26b7938410cd1d1317e54cec0612763fe6920f5ab"
     sha256 cellar: :any,                 arm64_big_sur:  "ca05134bbcea8deffd6eabf0c11bed130f3b3bd4d9c917da88cc591220c469c8"
+    sha256 cellar: :any,                 sonoma:         "2a257d478a28129338329e653fd58134afb39e0d863096e0d5a15ee155b0eeef"
     sha256 cellar: :any,                 ventura:        "ce18575f3c364179df6701ae91c328d1c2c50a68d700596f867e5bbc1e1b1eca"
     sha256 cellar: :any,                 monterey:       "2b5cbf39a06e76028c9c1bbffa68021bce7b25f58df0c8715155190b35e78867"
     sha256 cellar: :any,                 big_sur:        "98151987096a97d4b1ffeada7645c42ea6784d01149455d4a26800b27ad3b8d7"

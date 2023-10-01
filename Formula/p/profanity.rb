@@ -6,6 +6,7 @@ class Profanity < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 arm64_sonoma:   "767e78c8d0f0edfac622aa21facbf37f6fb26a0e3751569cac48df24b9223786"
     sha256 arm64_ventura:  "8d5cef943b569c324bfa8de07fa5770ca0ef932ce3feeae68cf25d3f08ed8631"
     sha256 arm64_monterey: "8a1b33ced9dc9a01ff881753f9bcc60cef4a3117183bcb27c5571ebfdc908bec"
     sha256 arm64_big_sur:  "eda1ac7caca301457e9af1d70c68282098d59f02c417c31b7168cc19bdf1171a"

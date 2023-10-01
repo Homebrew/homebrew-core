@@ -14,9 +14,11 @@ class Libssh2 < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "ec12598827b91ddee213c24b17a2bba833e5e1cbcfaf25b0d514dfd3fe03f527"
     sha256 cellar: :any,                 arm64_ventura:  "41e860bcf96b8e86bb5f2c321fb1ca14b620adce510cec881eeac2f432e00e5e"
     sha256 cellar: :any,                 arm64_monterey: "cc09eb9988f274f2f923aa1d047a6df28fc5fe5d5301f9bde8e0df44167dbb29"
     sha256 cellar: :any,                 arm64_big_sur:  "80ec45fff392d1ea106aaceaf6f35fb96847a59ad378ae9e83aecc9470a384a9"
+    sha256 cellar: :any,                 sonoma:         "9a9673e1440a7e82fac8a2cac1c202c8fba66851bb9a16eb70c82de7e23329ec"
     sha256 cellar: :any,                 ventura:        "71b9199fd292ab344d388051629500329315e37c20e7329b5c1c6772beed42be"
     sha256 cellar: :any,                 monterey:       "9a4b09c1a5b50b847b0104a0976c8d6359de9f567928f57c1a4eae84e6f7134a"
     sha256 cellar: :any,                 big_sur:        "41dbed0ea860e38eb76d1a5fb0b68c06d86035a386e138bb50df03dd61803794"

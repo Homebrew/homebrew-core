@@ -9,9 +9,11 @@ class Sickchill < Formula
 
   bottle do
     rebuild 4
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "170e35aae866e65e0e8dac1e976d2bdfcc2f4fa76d124e1f7ef50f0be6c240f8"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b0fabd330e2456041744cd122546e3485d549dde9813ca74951c693a17987d80"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7d88a3eae7435bdb9030ae181e8b415a09247c05550a02c1aeac91f680468c02"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1c01fcc3bd297d13903fd9ca9beea901f4df3db925747a3595ff092773e76d75"
+    sha256 cellar: :any_skip_relocation, sonoma:         "bd70fb1e710d008b843f7cdc93b62478ce2dcca2b7931bd6adce1d9d2b2c8ab7"
     sha256 cellar: :any_skip_relocation, ventura:        "3814ffc343cb623813b1675ffdb5bd990135a024f77dd4ba400e4ecd23763b3c"
     sha256 cellar: :any_skip_relocation, monterey:       "48f07b6b6cfc34627ef0e5f7a477dfe7ac55fb2ebfa95c5b4cfa40369340c453"
     sha256 cellar: :any_skip_relocation, big_sur:        "9138afa7d250ce68a07001f81048d49774b5526dae1f41827383ed0acf446a22"
@@ -51,7 +53,7 @@ class Sickchill < Formula
     sha256 "18addaa163febd69a9e1ec4ec4dddc210785c94c6c1f9b2bcb2a73451b2f23e3"
   end
 
-  resource "bencode.py" do
+  resource "bencode-py" do
     url "https://files.pythonhosted.org/packages/e8/6f/1fc1f714edc73a9a42af816da2bda82bbcadf1d7f6e6cae854e7087f579b/bencode.py-4.0.0.tar.gz"
     sha256 "2a24ccda1725a51a650893d0b63260138359eaa299bb6e7a09961350a2a6e05c"
   end
@@ -101,7 +103,7 @@ class Sickchill < Formula
     sha256 "e5323eb936458dccc2582dc6f9c322c852a775a27065ff2b0c4970b9d53d01b3"
   end
 
-  resource "dogpile.cache" do
+  resource "dogpile-cache" do
     url "https://files.pythonhosted.org/packages/d2/f8/f3e877361372737d83f6592d6ba2126b2018d2208472a5dcb82773694281/dogpile.cache-1.2.2.tar.gz"
     sha256 "fd9022c0d9cbadadf20942391a95adaf296be80b42daa8e202f8de1c21f198b2"
   end
@@ -216,7 +218,7 @@ class Sickchill < Formula
     sha256 "05b87589df8a8c630fd701bae6008cc1cfff4457bd0064887ad25248327a5ba3"
   end
 
-  resource "putio.py" do
+  resource "putio-py" do
     url "https://files.pythonhosted.org/packages/7a/63/af072aadbb7fb643588e41dd8b434ee47238fcb15f04976101fae38b1b12/putio.py-8.7.0.tar.gz"
     sha256 "ecfbedeada74a2c7540a665c4d5b9bb147b32fbdb90c40149e65b3786f0e7300"
   end
@@ -342,7 +344,7 @@ class Sickchill < Formula
     sha256 "4b927c4f19b71e627b13f3db2324e4ae660527143f9e1f2e2fb404f3a187e2ba"
   end
 
-  resource "tus.py" do
+  resource "tus-py" do
     url "https://files.pythonhosted.org/packages/54/3c/266c0aadca8969b8f4832e4975a86afe9c869b3ee6918a408b03619746d6/tus.py-1.3.4.tar.gz"
     sha256 "b80feda87700aae629eb19dd98cec68ae520cd9b2aa24bd0bab2b777be0b4366"
   end

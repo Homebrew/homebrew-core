@@ -10,11 +10,9 @@ class DotnetAT6 < Formula
   # https://github.com/dotnet/source-build/#support
   livecheck do
     url "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/6.0/releases.json"
-    regex(/unused/i)
-    strategy :page_match do |page|
-      channel_json = JSON.parse(page)
-      latest_release = channel_json["releases"].find do |release|
-        release["release-version"] == channel_json["latest-release"]
+    strategy :json do |json|
+      latest_release = json["releases"].find do |release|
+        release["release-version"] == json["latest-release"]
       end
 
       # Get _oldest_ SDK version.

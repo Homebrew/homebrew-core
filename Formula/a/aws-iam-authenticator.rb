@@ -13,9 +13,11 @@ class AwsIamAuthenticator < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f93a6f9bff27108e7cee8c221d814a50e6b4bc23beb72105f156586ee924c27e"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c57aeb4520baaa087d34aef9785944ffaad5fa2c4cce8593869d905225d751c1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c57aeb4520baaa087d34aef9785944ffaad5fa2c4cce8593869d905225d751c1"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c57aeb4520baaa087d34aef9785944ffaad5fa2c4cce8593869d905225d751c1"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0d6791f0b7889027df05b53c3231e99c31f0dafe5850a2c636930183b018d04f"
     sha256 cellar: :any_skip_relocation, ventura:        "7051bab2ea6417f2c9d12c5ff83ae6b8ad4fefc182b31b5ec4777db7419602b2"
     sha256 cellar: :any_skip_relocation, monterey:       "7051bab2ea6417f2c9d12c5ff83ae6b8ad4fefc182b31b5ec4777db7419602b2"
     sha256 cellar: :any_skip_relocation, big_sur:        "7051bab2ea6417f2c9d12c5ff83ae6b8ad4fefc182b31b5ec4777db7419602b2"

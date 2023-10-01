@@ -1,8 +1,8 @@
 class Bmake < Formula
   desc "Portable version of NetBSD make(1)"
   homepage "https://www.crufty.net/help/sjg/bmake.html"
-  url "https://www.crufty.net/ftp/pub/sjg/bmake-20230723.tar.gz"
-  sha256 "c42a0d951ba23f7665331309fbbe21edc01136a23cb9416850b4315be5fb5904"
+  url "https://www.crufty.net/ftp/pub/sjg/bmake-20230909.tar.gz"
+  sha256 "1e5e6c76540dfe8104426cd7fd3f715cc6404f9039c9203447012b8f2f6b7b86"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,14 +11,18 @@ class Bmake < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "db6d49c2869b56201f7958b09873c5a66b6733cee34007c74420a92ee40bd5bc"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4694103963d57b5163e5fa248d03bffc68b9e884803f6c734ce59672cf43f8b0"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a3c15073cfbae005e99ad980551ab56c9b66fb73bbe229522c191364b1a7eb08"
-    sha256                               ventura:        "7adb54794d81332d95d744a8eed5ffbffc6043fa3c562122ba11d559ecab9c15"
-    sha256                               monterey:       "8744baafb6f2413df4777185b253d96ac00a6732bf8349dc0562227229e7be26"
-    sha256                               big_sur:        "72fe87d4361be9f31ed1141a81ae90f3925b84e9a9ea1879cd09258ba0a56eef"
-    sha256                               x86_64_linux:   "574792eacc0a610a05e7f6aca7bc9ac658ec80308007ba021928af605d615de4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "93738ae91f43489913c3aefd7be4e5205d565e4e01a4cf50e078fa03fdd674de"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9b8440d1127b497cf5b56dc890940a15dbfe1d066da3cb161866a329eb7c2739"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c0b70f7301a935fe512a8c43bf30cc371e0740c892c69d7e5047bc9eca7c20ac"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c1ac39c7f02e83b0c0f855a7f0fff5769f7548c8e1cd7586025c532630ccfd16"
+    sha256                               sonoma:         "b580fa7f8c2728fd830b257155f398e53719b3a35b17dca9f83699ddb8966a49"
+    sha256                               ventura:        "e3091b0d7b025e92ebb4cee41b00f2e16b32df93993413eff44af47e67020c50"
+    sha256                               monterey:       "3288211f85010064e732d3bc4467a95ec776278f4903a7a3bd2aa0aa21a9a08e"
+    sha256                               big_sur:        "3548dbb3c6ff9f89bd060ffd1401c7e3e7032b33b970bd081453b376f8416244"
+    sha256                               x86_64_linux:   "b215b14951312912d62b9aca212ca7d402b3af826795ad61de5bb910408d43bc"
   end
+
+  uses_from_macos "bc" => :build
 
   def install
     # Don't pre-roff cat pages.

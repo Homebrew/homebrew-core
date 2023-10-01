@@ -3,13 +3,15 @@ class Gd < Formula
   homepage "https://libgd.github.io/"
   url "https://github.com/libgd/libgd/releases/download/gd-2.3.3/libgd-2.3.3.tar.xz"
   sha256 "3fe822ece20796060af63b7c60acb151e5844204d289da0ce08f8fdf131e5a61"
-  license :cannot_represent
+  license "GD"
   revision 6
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "e278f6f79e6ac00c5f0f14bc8980197c89426eab2ba90d8fc1e82da777fb8378"
     sha256 cellar: :any,                 arm64_ventura:  "3f868f36cc47f91ea2a896c4b6ea62fab9b3ef94d7765f34234b277ee46788af"
     sha256 cellar: :any,                 arm64_monterey: "98906db0b5efdd3a46296035df0ec9a99ebfbf5d6c6d76d7af5e2862152a6c97"
     sha256 cellar: :any,                 arm64_big_sur:  "1751a4ef467688acf597319f376dc0e69074c96d613ba22c381157dfeec85073"
+    sha256 cellar: :any,                 sonoma:         "7bc1099e53432209a4c5da106c8105e0f8e95728a6cc77438e2761c8b6fcf05b"
     sha256 cellar: :any,                 ventura:        "4a75b4a92fbe6e26a47104496b6bfbaeffa73ac76d4290e68e81603de5b0f41f"
     sha256 cellar: :any,                 monterey:       "4921f275ca5a840aaa215939f80dbb4adef8a13b2bcd43608428518d4730cad4"
     sha256 cellar: :any,                 big_sur:        "f398c94388423665c26840a86d073ba43da0b519ea3b114c58d14e50edbdd47d"

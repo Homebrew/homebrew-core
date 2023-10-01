@@ -13,9 +13,11 @@ class Opusfile < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "6de955abe2ffac326b26128bb2001110e1c91cfe171c54673bf23abc47e88283"
     sha256 cellar: :any,                 arm64_ventura:  "d2d8a06a9cf6bae410e9112ec383e928b69986c8f6d1b91cde5961008e1ec077"
     sha256 cellar: :any,                 arm64_monterey: "cd2de61cdf56792c4d6e03d5af1c1319b028d7c0227bbeb8b221f85c6928c301"
     sha256 cellar: :any,                 arm64_big_sur:  "c82b83a7d1a4847695a7667de5537fa2b75fc737d0caedf3562891019b7e8c37"
+    sha256 cellar: :any,                 sonoma:         "afa275ae206fade81999c64b1f0d6d5812be81ffb9ca8a68d7f7d5f0421ec8ee"
     sha256 cellar: :any,                 ventura:        "3f71655f0ae4529bbe68cdf389f44b835130e77078758674f0f433327aa7341f"
     sha256 cellar: :any,                 monterey:       "fa8d9e078297d10e650883b4c259d46bf955031174af802849e4151ef3b5dccc"
     sha256 cellar: :any,                 big_sur:        "f97ed204769d1f151372469bc4364076add0c7e15035bdba1a9aa630c2ee2063"

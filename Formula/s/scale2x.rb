@@ -6,9 +6,11 @@ class Scale2x < Formula
   license "GPL-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "74863678d188209041dd4746830686ec7a93f2acf7dc492d647ca8f3d23802fd"
     sha256 cellar: :any,                 arm64_ventura:  "bff379927979a35d8106edb039f4654afee5c4d973fd26a2b1f6d6a6979540ed"
     sha256 cellar: :any,                 arm64_monterey: "fdc15180cc28f6677f0a14647292744970707eb9e0302bbc95ec65f902f935ce"
     sha256 cellar: :any,                 arm64_big_sur:  "f7d4ecfe86027e9aec4928c84ba6262e7f8633796ed3317da93a2d8b2e1a5b58"
+    sha256 cellar: :any,                 sonoma:         "4624fcd2273c59bcd3fd3fe1f7de3daa02e5ff3a5b6bc43b0de3362e5519c429"
     sha256 cellar: :any,                 ventura:        "ec4ecdb490fb74e96b3192a475d2c0069d075af72cd24a8ae7dd93dd6546d168"
     sha256 cellar: :any,                 monterey:       "8a91f909eb5e0d332c7718e47a59fd45dc74625d3828049a2819a55f24226f6d"
     sha256 cellar: :any,                 big_sur:        "9ba9679c817187ca44e3074c102572781ad4e90abb1aa8a41d452e5d6814d046"

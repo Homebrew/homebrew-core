@@ -17,9 +17,11 @@ class SpirvCross < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e8a9e3eab31d3ab784a128c8ddca15e3aaf04492c67d31911a4ce6b6355c9483"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "77f553581ef322a2b84a606df7cd8828aa9a30376119deabca220fded80fa898"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ec90f87ba39b1a8d97b6b02e4c9825664868ac2228ad79d89f7fbdf2765ba250"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3b1d93633dc0aa445d6bb1e4481d9c04fb4be0f896bf92bfa0d09dfa1168562b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "952a39eb3a4b75892eed0a741be2a50bd2b0da870be6df4c92bc0aa319fd6ac5"
     sha256 cellar: :any_skip_relocation, ventura:        "ed8a2b68e54d4ac7c5902a48e4854445c8c18e3cc9c009d178a7177609e9bd99"
     sha256 cellar: :any_skip_relocation, monterey:       "2bff4a16168252e0a48e659d6e2788a75d38854fa81f8f3979dc86353beb9904"
     sha256 cellar: :any_skip_relocation, big_sur:        "4ee9d98a7d360e4eb41154204ddec314c0460897b8ceabc63b81f46bea855e77"

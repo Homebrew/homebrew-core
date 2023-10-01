@@ -7,9 +7,11 @@ class AvroTools < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "26ea5f0b58805e405927762ab943ae04e8a2722d792925148e118b4331fe6384"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6c4dc1a7ac00b8a93c0e1b3dd863a3febd200481b1c181760e758b31b310e346"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6c4dc1a7ac00b8a93c0e1b3dd863a3febd200481b1c181760e758b31b310e346"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6c4dc1a7ac00b8a93c0e1b3dd863a3febd200481b1c181760e758b31b310e346"
+    sha256 cellar: :any_skip_relocation, sonoma:         "26ea5f0b58805e405927762ab943ae04e8a2722d792925148e118b4331fe6384"
     sha256 cellar: :any_skip_relocation, ventura:        "6c4dc1a7ac00b8a93c0e1b3dd863a3febd200481b1c181760e758b31b310e346"
     sha256 cellar: :any_skip_relocation, monterey:       "6c4dc1a7ac00b8a93c0e1b3dd863a3febd200481b1c181760e758b31b310e346"
     sha256 cellar: :any_skip_relocation, big_sur:        "6c4dc1a7ac00b8a93c0e1b3dd863a3febd200481b1c181760e758b31b310e346"

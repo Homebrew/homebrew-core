@@ -12,9 +12,11 @@ class Libforensic1394 < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "466e7d42777a5f74b206d6dfec30b026f6d61ad6a2c0c7e382ab21f9f09b4973"
     sha256 cellar: :any,                 arm64_ventura:  "b6210bfd2d11092c436dcc8732f3848795dc06af4cc97e77b51536fdec7eb4d4"
     sha256 cellar: :any,                 arm64_monterey: "2d9682194518c3caddd083694da02163afa45a5cff22a0855103da7dcccf2efa"
     sha256 cellar: :any,                 arm64_big_sur:  "e199817199f736890486c3667735acf01876563584bdcde56b2671ac85707ba9"
+    sha256 cellar: :any,                 sonoma:         "bcfdd8e4b4c60cf26c7334bbe1d94133022a918a892f2fa0da85adde296d76b3"
     sha256 cellar: :any,                 ventura:        "f8b26ec8f4ee3f3e3973330d791c1c2aed6b22277eb2991af7ac97f3192d821d"
     sha256 cellar: :any,                 monterey:       "9a686c1a201ffec188f8748e5f88436097f665549c89c090a99ec94642c268da"
     sha256 cellar: :any,                 big_sur:        "f7405930e26a2b4c9cbe939e6121fe0c20fc3b68015f899e91ba4bba75bdbdbb"

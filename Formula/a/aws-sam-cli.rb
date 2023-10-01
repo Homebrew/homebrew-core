@@ -8,14 +8,16 @@ class AwsSamCli < Formula
   license "Apache-2.0"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "935922e42c9021ac10ca0a54dd86aa73524107d59eac8c81fb52fdc8a6ccc597"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d944fc3b323384cbdaf5e3117143c0963c3594a38e3e666fd7c542066fe8afe5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f5235a53926edd6884bf3c4bbb88419adde49bb804249fee61c9d8cb26d0394b"
-    sha256 cellar: :any_skip_relocation, ventura:        "d19a234080ba919aa966358faa11290da4969a2be46faf9230348ef3843137ba"
-    sha256 cellar: :any_skip_relocation, monterey:       "e1b5d7d6a059693334dc51161e8cc9a7b251d1341b66b606f63e117e6fdcf896"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d0c2375783fa69e8e101ef5e58d5e69a933c8e09bf52cc41eada2711e8d14f6f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2eb10e39393a9bc4dc1c9166922560fc74c501a98d8ebcb0e290b718e0dde763"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "052d0c6ef6a1847c23cd89e4e1a71c0a0c231a9d597a9215ba2685204d35b652"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e253e6bbfadbc8de146e54472a3039fa0cb0df28dd42f80e0eef14be94bf50f9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6be5210be942b26e4a1377ebaf4476de66f6ca5a2975663c3442ddff660b1355"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0138c5152c90c02f64f1f77db7695f2c7ad57dbaea0a9e1411fdd731eb8f249a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "476912fb4e202c2dd40f406ee25b506dec9ab66beb95abd7f8c75806d3d22280"
+    sha256 cellar: :any_skip_relocation, ventura:        "89c4ff3145438f41e52289072d85c11b543f365656221514613e9cf544246bc1"
+    sha256 cellar: :any_skip_relocation, monterey:       "034227c87eb29e39a84d88904224cc42da60010fe709e74bfa1324fa18e0d0c6"
+    sha256 cellar: :any_skip_relocation, big_sur:        "fbe89151ed12f45224042bd149ce728c7ace852e0ada9fb9c36b069bfd61a8c4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7a883b4a31a0f6eb0330002b380b943a647738e58c7f0b4999f290c3c4332f31"
   end
 
   depends_on "cffi"
@@ -23,6 +25,7 @@ class AwsSamCli < Formula
   depends_on "pygments"
   depends_on "python-certifi"
   depends_on "python-cryptography"
+  depends_on "python-packaging"
   depends_on "python-pytz"
   depends_on "python-typing-extensions"
   depends_on "python@3.11"
@@ -262,11 +265,6 @@ class AwsSamCli < Formula
   resource "networkx" do
     url "https://files.pythonhosted.org/packages/fd/a1/47b974da1a73f063c158a1f4cc33ed0abf7c04f98a19050e80c533c31f0c/networkx-3.1.tar.gz"
     sha256 "de346335408f84de0eada6ff9fafafff9bcda11f0a0dfaa931133debb146ab61"
-  end
-
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/b9/6c/7c6658d258d7971c5eb0d9b69fa9265879ec9a9158031206d47800ae2213/packaging-23.1.tar.gz"
-    sha256 "a392980d2b6cffa644431898be54b0045151319d1e7ec34f0cfed48767dd334f"
   end
 
   resource "pbr" do

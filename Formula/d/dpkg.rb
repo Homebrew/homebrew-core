@@ -14,9 +14,11 @@ class Dpkg < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "d7aef8e7c76e99f8105de8778c07ac4445fedc506b7321ab514f58010f6c3b5a"
     sha256 arm64_ventura:  "14008ccb1b1c4976ee3c39781918fa19caa0a7957929997578c221605cc02268"
     sha256 arm64_monterey: "ca0ebecadc7bf30fe821e99de3636c32556b780af44377b38437d1b624962b5e"
     sha256 arm64_big_sur:  "b5379920c154a7c6eabdbb1ee7e0e2e870d1b6cc86282c76d3f25b2f62dfca23"
+    sha256 sonoma:         "e63b77aa5d9bd6e6a85ee6f2a6b35c989a2d58216fd47ad8f85c4c7a32242009"
     sha256 ventura:        "6dba5665679f0299d50234be46e1485395871db422280033f49a66314d4369e4"
     sha256 monterey:       "a9afdac9cf96d81181e1219e877d2478fb5f52847be49f6a257ec06773f4060a"
     sha256 big_sur:        "d0f8d123d0adb1849a1732d5181f8a2b4ba67e15b0e03d3af2aea8ec0d7c38c4"

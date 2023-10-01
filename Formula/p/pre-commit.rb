@@ -9,9 +9,11 @@ class PreCommit < Formula
   head "https://github.com/pre-commit/pre-commit.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9a9a5289c7fea4c477b9b675c124756dbd8d479583863983804cfa7126c3cd0d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f805e7aef476961d05d917f846fdc193d026beee9888bb164de3bcac34d46654"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7614dc76543c06da4a02ca373a4f9ccef40f04da6e566e9dd6aa4411aea85b2c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9a802652a2de1f0208a2a0d0a56ffdb043bb2034d85b432558d9d832965b4c5d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "eb8800715fa418b693794df8cae09f15b55518558eee9896b4e0d7fee66f2080"
     sha256 cellar: :any_skip_relocation, ventura:        "b0d34b959e501e4300d1ab10d0da007b387105a8287d8aa97b2bff7c4cf8b556"
     sha256 cellar: :any_skip_relocation, monterey:       "d72d3bc75d34c682ecae96ec2c26898cd809603adc72dcc1594e53abdc017957"
     sha256 cellar: :any_skip_relocation, big_sur:        "58e11d4df428a26de3e6f88a6c0cd1585d4d41ffe36240fc1bc253157cd75ab2"

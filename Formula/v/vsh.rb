@@ -6,9 +6,11 @@ class Vsh < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "11835353102b0e47bc8e0555aab9e3e2ca0992f95dc931413436efb32e458f4f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "871ee8e3e5c1932489003c5957639f3a79686355b4f59804ecd5cd81d21411a1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "53ffd41f78569a0a90d14c10042b872aed3ec9157712ca0c7f9d23cc693bad2a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "04d0cc010e2f5e7e53ced4cfb0bf9154affb30d24f4d81fe0d3ddf360f03671f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3526e8f8f760b96e89c2c8a11855828b41e4386d341f753dadb2f0c5fee3066a"
     sha256 cellar: :any_skip_relocation, ventura:        "315c73a67edf5b6dc7c55b3b9bf3553760b0d665b9292479dc839125e864d7f6"
     sha256 cellar: :any_skip_relocation, monterey:       "f6ce8998843e3c16788807ab0c5a9a88ce077ddc9999db307f14cb2ba6e41184"
     sha256 cellar: :any_skip_relocation, big_sur:        "4c01ddb42c6236f01d1e79f5392a3638926a19769cf230a54e2bcb4f35c8383c"

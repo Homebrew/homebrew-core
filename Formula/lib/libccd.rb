@@ -7,9 +7,11 @@ class Libccd < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "0a6c12b8b5b369018a4186622359a2b9bc8ce40a4c0fe2452263e2d4ef03d92a"
     sha256 cellar: :any,                 arm64_ventura:  "9db2e87ee4c5b69faa9269a54f22046b5c4d18a72a65bc0dd4164c35a23edbe1"
     sha256 cellar: :any,                 arm64_monterey: "95bbd2e402b8388a6b348fd755b6997ae765568357115013996efe9e596f982f"
     sha256 cellar: :any,                 arm64_big_sur:  "69d8c269bc6c5f60d141eaebe6bdff9cf333f789c4d3b72cd69b1e61edff3ea3"
+    sha256 cellar: :any,                 sonoma:         "5123a16281a3d428e8ad649027bc6749139b484c1dc6257a9a8e2883a29ee859"
     sha256 cellar: :any,                 ventura:        "6c11cd8ecc1c3434badf237f5b2169731ce62698f07e3dea3fe2420c57186deb"
     sha256 cellar: :any,                 monterey:       "b07fdb5107c0a1e3b912f441d338729ff2d58a50b65f3d6f5d013e26fa1c9dc2"
     sha256 cellar: :any,                 big_sur:        "8257a7f8ab8f5eca8fced2e881b96a68202c08ce94a4aa169d1d80149b61eb0f"

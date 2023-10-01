@@ -18,26 +18,27 @@ class Ipv6calc < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ec95bedb2ffc3314f59eabfb03c15e3d2df693cbf6d12751ea6ceb9f303e8a20"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6fcdc8e16f2afbca82bed3e603ebb43909bcc606e18a8d272ead9265c5a29e3b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a3f06f0c71e1b4276f9aa6fbfca5dd6faf075b4e3ca6021a65a63842d1ece4a0"
-    sha256 cellar: :any_skip_relocation, ventura:        "d2329add8cc4d59f0dfe8e31fe146410e0de8fd70b67f8efdf351f4311950412"
-    sha256 cellar: :any_skip_relocation, monterey:       "1c59cf12317c2376dc3822a35683778664f6f1a0224329ddca4135390bb1874b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "98418aac5aed19fef65e68151cf86e5dbd8189c00abade45ab7ffcc47077ad46"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "844ebdae509e6b79ce9cb74474db0f5563f4e277220f887a38b5c5d1a814a02f"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5874495f7ad81f2ae6081cc2663388757f5486e587d75de777c978f2cb540cc1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cf5d7938f932349c6f66c94e7c57cabb397c329af9a1b68fec2b89a5f35ebf16"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "241adc72c83e48e1edfe48a783956afbb5c8ce4523057a9387924574ff48bc7f"
+    sha256 cellar: :any_skip_relocation, ventura:        "00d7052f3993aade4982429703d8b325be27e48984227b45efd405768a246208"
+    sha256 cellar: :any_skip_relocation, monterey:       "8e048db48b8c10534cc260cc20c50c38bdf4df578df24cf257665d2d8d47a9ff"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d9401ab4a66023889a7c740202b629c93fb01d27bcace0b3c195f5e48c76b65d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "761dd17c3d27772531e46280351162df8ba5be64a3c240940c00797c55553bce"
   end
 
   uses_from_macos "perl"
 
   on_linux do
-    resource "URI::Escape" do
-      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/URI-5.17.tar.gz"
-      sha256 "5f7e42b769cb27499113cfae4b786c37d49e7c7d32dbb469602cd808308568f8"
+    resource "URI" do
+      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/URI-5.21.tar.gz"
+      sha256 "96265860cd61bde16e8415dcfbf108056de162caa0ac37f81eb695c9d2e0ab77"
     end
 
     resource "HTML::Entities" do
-      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTML-Parser-3.80.tar.gz"
-      sha256 "63411db03016747e37c2636db11b05f8cc71608ef5bff36d04ddb0dc92f7835b"
+      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTML-Parser-3.81.tar.gz"
+      sha256 "c0910a5c8f92f8817edd06ccfd224ba1c2ebe8c10f551f032587a1fc83d62ff2"
     end
 
     resource "DIGEST::Sha1" do

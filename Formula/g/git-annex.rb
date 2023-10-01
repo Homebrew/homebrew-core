@@ -8,13 +8,14 @@ class GitAnnex < Formula
   head "git://git-annex.branchable.com/", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "c67d186fa14ac1d27ae203a422182daa0ad0566fe8c77876f2d028a913797f42"
-    sha256 cellar: :any,                 arm64_monterey: "e9ee8eb396a9ebe8696c366275163e4f270d626b074367925e5b0bd047d02699"
-    sha256 cellar: :any,                 arm64_big_sur:  "0e70a0a2050e3690b531fcaa03479b0e6f1c9cf29ada54f58febdd9bd4bee644"
-    sha256 cellar: :any,                 ventura:        "ff4ceba69c808a598c876510ef2993a0f9f91e4b959941cbf63e958cd2577700"
-    sha256 cellar: :any,                 monterey:       "63967797e338ec30573a9e0fd1678f0b2f91454611a6faac48922d2fbf0915c8"
-    sha256 cellar: :any,                 big_sur:        "20e644c65c61bb258f922175e34a9a1b015ba2782f9fd3d4e04c9de4cc8535da"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8fa9995951ffae58290ffd24586b93e5a93aeb967e754adf153099e6b2cdf17b"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "3a4436b154f1e297ab91f723cfb3345af53f02a28a9a4423f46a0178d693dccf"
+    sha256 cellar: :any,                 arm64_monterey: "01dad904f4ca26cb4d4b12e978b23c132adfc2e722e58089a911280fff8e6337"
+    sha256 cellar: :any,                 arm64_big_sur:  "847de59f53263aad6ebdcb66aa5c21eeaadcef1db5ecd1e1eb7dfee056051c52"
+    sha256 cellar: :any,                 ventura:        "c04b13f2dbfefb77605bac158f9992102e387f48a02656b17307c04b32371f1c"
+    sha256 cellar: :any,                 monterey:       "6d65196be8f4d285174dac461f1a06c40ab88035b82e1dbab25ec899d3bc7797"
+    sha256 cellar: :any,                 big_sur:        "5f2edea91ba0bc7d1721521a8e7e012440db1ea56dcd686789289ae10be5110d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "90208bddfa4e31a88d3f3febe02ee7c75ffe2b3752de0497428494eb02731278"
   end
 
   depends_on "cabal-install" => :build
@@ -23,8 +24,10 @@ class GitAnnex < Formula
   depends_on "libmagic"
 
   def install
+    # https://github.com/aristidb/aws/issues/288
+    cabal_args = std_cabal_v2_args + ["--constraint=attoparsec-aeson<2.2.0.0"]
     system "cabal", "v2-update"
-    system "cabal", "v2-install", *std_cabal_v2_args, "--flags=+S3"
+    system "cabal", "v2-install", *cabal_args, "--flags=+S3"
     bin.install_symlink "git-annex" => "git-annex-shell"
   end
 

@@ -6,9 +6,11 @@ class Libecpint < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "90bf68bf22295622bf1e8e05deca2bdb46ff65461279b3295cbc4782cb0f6dc2"
     sha256 cellar: :any,                 arm64_ventura:  "a37e3014839b368a0355389c4e17a2346f8de13d1c5250edf4a0cc1736a3cd3b"
     sha256 cellar: :any,                 arm64_monterey: "5ae1945106a527cfb54aba12b540ac85feae706d216143389174aa7e1f6d12ed"
     sha256 cellar: :any,                 arm64_big_sur:  "0114bd3d35c87dcf7ad6e3c959992ae79091b654b7c8c87319d665f19770781b"
+    sha256 cellar: :any,                 sonoma:         "6ac81b4793fea7fdcb8d8c58f57266461c484ebb455e6f9e2ac4760e736b8901"
     sha256 cellar: :any,                 ventura:        "6398a4d761c21ae717b55a54eaeed406f66ebc4b2b4ca4916ed5c7c5f2df608e"
     sha256 cellar: :any,                 monterey:       "0201916caae92234c864e5bacdc8ad303a7891aa1c1d13d90707d62312ff2322"
     sha256 cellar: :any,                 big_sur:        "062187fb6ebb6b4f3b731333209d30703afeba6208e3cd2566f7053457a9820b"

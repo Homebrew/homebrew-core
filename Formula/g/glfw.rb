@@ -7,9 +7,11 @@ class Glfw < Formula
   head "https://github.com/glfw/glfw.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "0593fc85be8f9773f2f63fdfef7be0dab4d084ecb9ab8954e09bf3e376ed5e6b"
     sha256 cellar: :any,                 arm64_ventura:  "3a55abbf4c07fdbc162a913d3ac189d015f39cc81f6b45c1d89cf7d7132f2696"
     sha256 cellar: :any,                 arm64_monterey: "d979c217a8fc5751683d81a282adba61ed04cb7f6849fec877ca6c91738b2f29"
     sha256 cellar: :any,                 arm64_big_sur:  "6cbdaf38af57b2184d5d5fd9100008ebf7ca38920e36c0047b0d10214c806c8c"
+    sha256 cellar: :any,                 sonoma:         "14106accaa35b00ac225309ef8fa85a115001293308dc73ab452d3c41555a639"
     sha256 cellar: :any,                 ventura:        "966162dcdcc2ab70c7d821bce51d5fec9c52b6333d686a3c45a3461464744edd"
     sha256 cellar: :any,                 monterey:       "38ebd6a36fb6197a334f7bafa907470c87d4f1e9a8b12f0901204ce366c896a0"
     sha256 cellar: :any,                 big_sur:        "9fdc214eeb24662a4d7ac08a049d5dc0a48b7dbd31de40e1ee1530e343a9cf2a"

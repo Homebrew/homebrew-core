@@ -6,9 +6,11 @@ class Libemf2svg < Formula
   license "GPL-2.0-only"
 
   bottle do
+    sha256 cellar: :any, arm64_sonoma:   "46974d67b425299521f648acc2561051646afbb51e47d45ff954277df5b32334"
     sha256 cellar: :any, arm64_ventura:  "1fc992a4391b5890a2163b4019c36331fb462f79a0fc77bfeb4c06e5a4641d73"
     sha256 cellar: :any, arm64_monterey: "5c433d7a620912bb39e0a09a8f9d793028bf6c671a716d8e6f7f63cdf797aaa9"
     sha256 cellar: :any, arm64_big_sur:  "063dce921f40a941dccf3d79c1e886dc9944bda2166b9a840f5a6a80d37ffb6d"
+    sha256 cellar: :any, sonoma:         "bb3ba1207ae1a563746eda8b4cae2fa6eede0a19077cd562cadb31d56f747f78"
     sha256 cellar: :any, ventura:        "e70b11b9736140938aac03fe053af3312cb992cc7aeb3a5a48573c2fd1b4eb69"
     sha256 cellar: :any, monterey:       "282508d66b3fd198648a798040205d7f3e42720cc9fc64572ac397767b369851"
     sha256 cellar: :any, big_sur:        "2da6c337708d8666ddfd4295b77f81b72c099f31c564f4efd79bed5f620a0d7a"

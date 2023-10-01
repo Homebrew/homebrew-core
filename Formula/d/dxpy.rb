@@ -3,18 +3,18 @@ class Dxpy < Formula
 
   desc "DNAnexus toolkit utilities and platform API bindings for Python"
   homepage "https://github.com/dnanexus/dx-toolkit"
-  url "https://files.pythonhosted.org/packages/06/81/ea09642cfe2bf1aa58a7e0f8d7602cc228f0761839b5c04f1b2e4656d61b/dxpy-0.356.0.tar.gz"
-  sha256 "47d8cceca5af84ea680cbdeb0eacb179444b081aa46433d45f465aebed5cf03f"
+  url "https://files.pythonhosted.org/packages/6e/e0/5b664c55180ad2775d3d67a2feb9ffaae2e955cc1641298f2e33a4a4fdd9/dxpy-0.358.0.tar.gz"
+  sha256 "b574241f2389f3324dbcc174e366858970495ba9f59cd851cb9ee2916e174d99"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "da11dfb558d2399670da9efcc00655984f2308060c892eac7318530ba47c20ee"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "909ca28232fbebd637c12d41be8b57290f09e25515371dee4711123be9a588bb"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "836a7ac3ec14e07487a315885f07c1b685445b6475a29085081137dd117d3445"
-    sha256 cellar: :any_skip_relocation, ventura:        "793798e358914dddd8955f3f92dd616f38a16174e2b7ba58946d06fd4db4f43f"
-    sha256 cellar: :any_skip_relocation, monterey:       "83efa9a661f59e7cc5fdea8eb340d5ca0b42a5fc0529c98f99c86a7039e3c30b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9492fd027e1c37c41a7c180d149a722b8dcd67c95f3d46589f8e7918399649f4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5978f7a492e024e02533850cee70d692bcc53e0540980475e33b53700cc0cfa7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "afec562e5457e1792895ab582761b4336a66b58b4c316844f99d3237a5243833"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "03776d1a2ef00b996df4cea16c515f1846ed14df13c6fe266610f04a69ca05b9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5032d07914b9887666d4dd5d5af1a5a763c8fb431d5f65aaa470d02674269733"
+    sha256 cellar: :any_skip_relocation, ventura:        "bac57c416abc48eb35d712adcf66729ee2cac4335f356cdee8569b2d86b7bc27"
+    sha256 cellar: :any_skip_relocation, monterey:       "39bc2808d96c8eea049423e73d3ad6678613b6a7f970dc9a14d2a732b4326fea"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e5018a570784fd9edf227431218daa0a0b2b543089f82230566d44f15b3ea5d7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a5e412eda6285e8887d35048119de53a36804c5717587e6d3257957920339756"
   end
 
   depends_on "cffi"
@@ -30,8 +30,8 @@ class Dxpy < Formula
   end
 
   resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/54/c9/41c4dfde7623e053cbc37ac8bc7ca03b28093748340871d4e7f1630780c4/argcomplete-3.1.1.tar.gz"
-    sha256 "6c4c563f14f01440aaffa3eae13441c5db2357b5eec639abe7c0b15334627dff"
+    url "https://files.pythonhosted.org/packages/1b/c5/fb934dda06057e182f8247b2b13a281552cf55ba2b8b4450f6e003d0469f/argcomplete-3.1.2.tar.gz"
+    sha256 "d5d1e5efd41435260b8f85673b74ea2e883affcbec9f4230c582689e8e78251b"
   end
 
   resource "charset-normalizer" do

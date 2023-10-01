@@ -7,9 +7,11 @@ class Urweb < Formula
   revision 8
 
   bottle do
+    sha256 arm64_sonoma:   "3ebe55a40e33090aebd46466fae8bf1dc6b21035271f9d57f905c1cd4a559e55"
     sha256 arm64_ventura:  "f357cdf31351b0fc786625edd3eaa79479d84b804dd88e457f26973c5a393a8f"
     sha256 arm64_monterey: "9f265070a97162748e9a31b24d5b00fc98addeae4b43f4adc2f439e9d008af92"
     sha256 arm64_big_sur:  "cfd07853704d8ae2dc9c7a484ca35703b337adb71e0aaf24cd9e4d5ebea3fb91"
+    sha256 sonoma:         "cc07f4af2545930303e64ac128cbbdd7079755a7786c4aab77a214ec80a7a53f"
     sha256 ventura:        "aed8a3f4c7dde5770c52add44e411e91b1b3c0971cda9ecb88ce41cccb0ce079"
     sha256 monterey:       "1e5c0ddb80231c37f7c2543caa3b817877e6bacece964669e5de73e7d03d4969"
     sha256 big_sur:        "df61314f1285c3614690eef04aa483981278c7519efad267ad4032978d6f5ff9"

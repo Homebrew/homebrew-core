@@ -1,18 +1,18 @@
 class Celero < Formula
   desc "C++ Benchmark Authoring Library/Framework"
   homepage "https://github.com/DigitalInBlue/Celero"
-  url "https://github.com/DigitalInBlue/Celero/archive/v2.8.5.tar.gz"
-  sha256 "1f319661c4bee1f6855e45c1764be6cd38bfe27e8afa8da1ad7060c1a793aa20"
+  url "https://github.com/DigitalInBlue/Celero/archive/v2.9.0.tar.gz"
+  sha256 "d59df84696e0dd58022d2c42837362c06eba6d1e29bac61f7b3143bc73d779e5"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "891a06f829ea99aee218982f47565a1fcb7f6defddfa99ab7b7f1b1406b98341"
-    sha256 cellar: :any,                 arm64_monterey: "9faafd868553279a8d9a5aae01e4ba266f6bfd8d3b9dc7337f58020adc640e1b"
-    sha256 cellar: :any,                 arm64_big_sur:  "0995452e8eb6407a4c5d27592e29afc2e2d693ce2becbb620d9cf2d526d5286d"
-    sha256 cellar: :any,                 ventura:        "bd6fad1cbe3035497c996d76a6e94046bfa75b95cfb61f1b08049d66321e7751"
-    sha256 cellar: :any,                 monterey:       "a99ed5cbcd424938d8134da663041a99274a36cb7aa55daca22d64f92348d5ae"
-    sha256 cellar: :any,                 big_sur:        "7fac55643674044a98f385957dd36c31917d8012ecea7bce57f5fec4b6e5db4a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b5f7d5cf83fdc9ca6fe95d1346c6593e92dc3a3e03e188d9ca9a69a57e14e5a5"
+    sha256 cellar: :any,                 arm64_ventura:  "6c5aa0d8b749c0ae1a99501d00026676de190997457820798992145237268783"
+    sha256 cellar: :any,                 arm64_monterey: "f3c479a0f6ab3d2d366bae855864122e04cf21627b000a395fbb68fb1f44366c"
+    sha256 cellar: :any,                 arm64_big_sur:  "d6566ee0ac67ff7c0970df553b971fc626c02e70ad106dc2d44e88905562af4f"
+    sha256 cellar: :any,                 ventura:        "42ef19078dce4acd6d50aa076308fff7910e06355c0a8eea600e1832fd86a87d"
+    sha256 cellar: :any,                 monterey:       "6011c0b09373fb45f77460bb8b3019f4124748f53007dae89421e0c801d9b6b1"
+    sha256 cellar: :any,                 big_sur:        "5092b4825085f08851008b0f776942ad17629900a485e825778a97599b5793c1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5d360871cfd166555c2d16b0841b4669c0755532da2970bab216f7f9524596a5"
   end
 
   depends_on "cmake" => :build

@@ -7,9 +7,11 @@ class Libcds < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "b5c6a40402166f60d1d31f28a902a6bdc80c5a878cd5fca5f7f3bca2a02edb99"
     sha256 cellar: :any,                 arm64_ventura:  "3bfa1c273ba782515935e77ada3723426fc290f26b6bf046e9a03410895c6328"
     sha256 cellar: :any,                 arm64_monterey: "e7edddfac2c3ecf31d6a7acfd6d261019c47bf67a603dcbcdd8cbea524c632fc"
     sha256 cellar: :any,                 arm64_big_sur:  "52e6bee0d1b0f1dfea3ae69573b6a3a92c0ff42ddb41634c464fc35672e94bf4"
+    sha256 cellar: :any,                 sonoma:         "6357fbeba885fc7a4dd9a00ddf4e9513003776ee14501aaf30d1df3ce8ae2731"
     sha256 cellar: :any,                 ventura:        "dfabb0ee38a1df24e86ae49ae157e0995ba40379a462bffc2b1b09302301eb6a"
     sha256 cellar: :any,                 monterey:       "c5308e1c184a4a60063671305eadb56462fd60af510e437491640d9faee0f95d"
     sha256 cellar: :any,                 big_sur:        "029e18020211d4f155d07a9716303309c1b3f8d685cbd167d87f476dfe8f77a1"

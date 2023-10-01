@@ -1,22 +1,25 @@
 class Mold < Formula
   desc "Modern Linker"
   homepage "https://github.com/rui314/mold"
-  url "https://github.com/rui314/mold/archive/refs/tags/v2.1.0.tar.gz"
-  sha256 "a32bec1282671b18ea4691855aed925ea2f348dfef89cb7689cd81273ea0c5df"
+  url "https://github.com/rui314/mold/archive/refs/tags/v2.2.0.tar.gz"
+  sha256 "78ddddaaa004e50f8d92a13d8e792a46a1b37745fab48d39ad16aeb5a776e7c6"
   license "MIT"
   head "https://github.com/rui314/mold.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f330fa8f16e90211c7035636537cada48f164c3a81fad65f619179977cb1109c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9d539b9139eb5fcebdbd6a40b6cb6cf6d61208b3cc16eb432292d41a97267b0e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9cc83da97a8153ab7f5c983c700e8cc772522b3ba3d2001473360c73b0f03200"
-    sha256 cellar: :any_skip_relocation, ventura:        "ae8e847d4fa89295747e43ca0b51607b771b1cff1debabd3908ab85601f50f38"
-    sha256 cellar: :any_skip_relocation, monterey:       "cb88098f530802e221ed840d7b36aca3b04c596a1095be69efc6d791f4d344f2"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2c2d661b6139dbb842313e1f1d9a49cb474e4d9e81ba756ff2f97a46b09eb895"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f983f6c4d856f7e5f7d1e1babcb4ca64988ddae75813d59296c8a396854c778f"
+    sha256 cellar: :any,                 arm64_sonoma:   "d22ad50c9e8ca1f600011bcd5c7201ebe3a53195638ef061f44b15e8f0da86d1"
+    sha256 cellar: :any,                 arm64_ventura:  "92f03596fbc5ea1eed45fef8f9d9644256282e8b739f1d97ae8cddb789a169e5"
+    sha256 cellar: :any,                 arm64_monterey: "8a4c9674faf17ceb438a29ec59d9e573e34127a76e7474ecad40abfebdd90c4e"
+    sha256 cellar: :any,                 arm64_big_sur:  "3be891353bf93aa24e1e858f246369928b4fe1c30e80cfc96e7c5768790aa9be"
+    sha256 cellar: :any,                 sonoma:         "a1f050e7cf3dc4e06f843e7da3c866e8ab9e04e648e6f058b81e351c1e8ed945"
+    sha256 cellar: :any,                 ventura:        "5c633df79e79da593256be819786d9155c08f09828a0e99a98ba38140005bb98"
+    sha256 cellar: :any,                 monterey:       "79b8430dfe2424250f81e6a59ba0166b870810e41b34e02d65d7cd9ff1281ad7"
+    sha256 cellar: :any,                 big_sur:        "b5f5887f9c403ff6490693e4d949b02f7c9516324de892250330cacc4d367d45"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f84b38a76ba7de114ed14d90e96f2685deb65da55d81119d868375920b4a7344"
   end
 
   depends_on "cmake" => :build
+  depends_on "blake3"
   depends_on "tbb"
   depends_on "zstd"
   uses_from_macos "zlib"
@@ -27,7 +30,6 @@ class Mold < Formula
 
   on_linux do
     depends_on "mimalloc"
-    depends_on "openssl@3" # Uses CommonCrypto on macOS
   end
 
   fails_with :clang do
@@ -47,7 +49,7 @@ class Mold < Formula
     # This helps make the bottle relocatable.
     inreplace "common/config.h.in", "@CMAKE_INSTALL_FULL_LIBDIR@", ""
     # Ensure we're using Homebrew-provided versions of these dependencies.
-    %w[mimalloc tbb zlib zstd].map { |dir| (buildpath/"third-party"/dir).rmtree }
+    %w[blake3 mimalloc tbb zlib zstd].each { |dir| (buildpath/"third-party"/dir).rmtree }
     args = %w[
       -DMOLD_LTO=ON
       -DMOLD_USE_MIMALLOC=ON

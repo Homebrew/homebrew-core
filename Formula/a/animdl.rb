@@ -3,20 +3,21 @@ class Animdl < Formula
 
   desc "Anime downloader and streamer"
   homepage "https://github.com/justfoolingaround/animdl"
-  url "https://files.pythonhosted.org/packages/6f/f7/8d3ec78e651a6929bddafdcf5eb8e836700f186366f7beb53f51f9ba1f2d/animdl-1.7.22.tar.gz"
-  sha256 "e08decd5266c8e0875202b04a3323d02986f70f1ca794d7e80a9d35d19b95a72"
+  url "https://files.pythonhosted.org/packages/95/f2/27b66201f95d9d5cb1ac5d012d42aa09ef68cca965f039ff4e82f7ea2b3b/animdl-1.7.24.tar.gz"
+  sha256 "be531bbeafa0ee48a74405f6356691d2a1073ebd6c1d4169142a6948723450ba"
   license "GPL-3.0-only"
   head "https://github.com/justfoolingaround/animdl.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2b1d0869f85ae348976657294c10c2551305f4963a8203e175aadfc8dcf290fe"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0436c3cdeede9d93c6543bc90840f2381815a07d396277aa154471b9e79fd546"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e61cc15ea2c5f85048f590cbe8f097d6fab4c470a06e40849b38f8f255a5f8a4"
-    sha256 cellar: :any_skip_relocation, ventura:        "dcf658bb0b380298887d4dcc41b064a3afc0cd7300c9b36c088eed4b597392ed"
-    sha256 cellar: :any_skip_relocation, monterey:       "35b0d6f833bd22a2a50ea53967bab5cb94dcfa1643c3802a125f02269352c2d4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0f9431729f32146a9c063fad814761801ca85e5a1d99271cc38de011fd50b869"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4c02f9b118477470ce7900687a771628b7b80308ad642f5b58a7458a8f6aa5a5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5b7f4eb539688deaaa12a6cce70c6ea8f670fff8d2c162cee77f4932c4c85b83"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dfddb9d0c6a99a9698955b27d69f23e52ab7b0b4598d72d33f5a2f52bfad0c81"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "469f0730ff5a0aea2b9e63d5c94f8aad7f738173c9ce0aea9450a499800a3478"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "818dca6cd99b1b67ba1f48a36ae41db139d4e92f01614963545f8518a27f4bcd"
+    sha256 cellar: :any_skip_relocation, sonoma:         "2e050cc9e650c3626f07702a432a8f2209a06220b563ea0f28c535b758879ece"
+    sha256 cellar: :any_skip_relocation, ventura:        "5a25312bcf45f40974fa7b7469a95fcf27e89ee91bee4514c8ec748e0f604e21"
+    sha256 cellar: :any_skip_relocation, monterey:       "b95f5252df652707aa354f5e5ea88a970028be83e07706987a521204986ce000"
+    sha256 cellar: :any_skip_relocation, big_sur:        "cd6e0b9b119bb4f9d052da4812748c926dcc9f63538eaa5396094fd10187ee9e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "90ff5576f17d118249f409b09358f21520d6a23b3cc0345117e337aa1f1fa98a"
   end
 
   depends_on "pygments"
@@ -38,13 +39,13 @@ class Animdl < Formula
   end
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/28/99/2dfd53fd55ce9838e6ff2d4dac20ce58263798bd1a0dbe18b3a9af3fcfce/anyio-3.7.1.tar.gz"
-    sha256 "44a3c9aba0f5defa43261a8b3efb97891f2bd7d804e0e1f56419befa1adfc780"
+    url "https://files.pythonhosted.org/packages/74/17/5075225ee1abbb93cd7fc30a2d343c6a3f5f71cf388f14768a7a38256581/anyio-4.0.0.tar.gz"
+    sha256 "f7ed51751b2c2add651e5747c891b47e26d2a21be5d32d9311dfe9692f3e5d7a"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/72/bd/fedc277e7351917b6c4e0ac751853a97af261278a4c7808babafa8ef2120/click-8.1.6.tar.gz"
-    sha256 "48ee849951919527a045bfe3bf7baa8a959c423134e1a5b98c05c20ba75a1cbd"
+    url "https://files.pythonhosted.org/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz"
+    sha256 "ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de"
   end
 
   resource "comtypes" do
@@ -133,8 +134,8 @@ class Animdl < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/3d/78/81191f56abb7d3d56963337dbdff6aa4f55805c8afd8bad64b0a34199e9b/tqdm-4.65.0.tar.gz"
-    sha256 "1871fb68a86b8fb3b59ca4cdd3dcccbc7e6d613eeed31f4c332531977b89beb5"
+    url "https://files.pythonhosted.org/packages/06/04/e65e7f457ce9a2e338366a3a873ec6994e081cf4f99becb59ab6ce19e4b5/tqdm-4.65.2.tar.gz"
+    sha256 "5f7d8b4ac76016ce9d51a7f0ea30d30984888d97c474fdc4a4148abfb5ee76aa"
   end
 
   resource "yarl" do

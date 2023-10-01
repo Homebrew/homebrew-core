@@ -7,9 +7,11 @@ class Acl2 < Formula
   revision 10
 
   bottle do
+    sha256 arm64_sonoma:   "ede78b2f81f8a2f0ed7352a372995cbc30050b0b9377972e343deb56e7774720"
     sha256 arm64_ventura:  "8752b12e385983197037b2c2d9afaacaad6f9bc8f2282d1bf5f1e7efb28003a2"
     sha256 arm64_monterey: "1ed29ac65859c1b9d116ec370430a7fe2c7cbaf42fdc43f4e1f47c308daa124f"
     sha256 arm64_big_sur:  "387282792f41c7d89ab357b21249966a6e3758818796a51e7c98286a811fd1a6"
+    sha256 sonoma:         "27d63fe9090d087f6471923cee9efcc1805550e35131ccee1bf8de1f5dc9c4be"
     sha256 ventura:        "1ad7ba9a8e738da3a8e12369bc7aa5b9e4627d950c3c3350d9627df38c0c1b31"
     sha256 monterey:       "9fb0df96fd48546ad1bbcb52e0320ce343f6b06dc8e45bd5ac957ecc30b133a7"
     sha256 big_sur:        "346faa83e90acb38abf3e6a0e3260faa4d0b2a9c98cb6fdd7c46c3b9c883698b"

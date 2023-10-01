@@ -7,9 +7,11 @@ class LibbitcoinNetwork < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "8f97c5b13b85764dd830ddf34945a61bee5ea9e3f75e19abc8651ce710c7120f"
     sha256                               arm64_ventura:  "16b09472dc3bd572e592f5e9259757bec8e4b6a1879c1b8794387ad4b1fa9557"
     sha256                               arm64_monterey: "f93418e45de4ce25ab34c1f3d169ad78efe671418695004e97af7431d429481b"
     sha256                               arm64_big_sur:  "67c9775428fb88ce12557586ec8cf4e5247716b17fe79e8d24155d91e84cf665"
+    sha256 cellar: :any,                 sonoma:         "544b52b5104d7299cfa8195c9a4104ca1a8e3087d5b674fcd6616aca2792f4e7"
     sha256                               ventura:        "4971627e0520e2e63cc3eddcf14cfdefe96b2b8561872770e39d143f2991484b"
     sha256                               monterey:       "548e67436072c1a9de5807fcdeeea64f44ebc5eb7a17720068ac137dafd0b62a"
     sha256                               big_sur:        "23c335f851dcd0f1c7b06ac29e9ea8e864dfbae66469c326efa237ea3bb51197"

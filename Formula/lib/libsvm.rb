@@ -12,9 +12,11 @@ class Libsvm < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "03eed5ecad519bd21ad40a6e4322f4b8bc73a85260b0b0ace53e679470b629f6"
     sha256 cellar: :any,                 arm64_ventura:  "fe235819b910f8d4076349a0c777525baa46f469cca14821a80775d6cad6ab0e"
     sha256 cellar: :any,                 arm64_monterey: "9267ca6d537c962fecbfc3f9478487d172cc150e3bd5b26a6e88ae020b48c21b"
     sha256 cellar: :any,                 arm64_big_sur:  "dfead0cdebbbed12bf34e06ff4c058ce528f207ea8aba50c4e0495dc2c4a97fe"
+    sha256 cellar: :any,                 sonoma:         "5f611833eeb344f1315398542c7ca0ead9b542294d1fc21203c83f0aef3e1f37"
     sha256 cellar: :any,                 ventura:        "a00f5eb69a10446eafbe0b16be164a28e3ef03db654ecf18baaedc8f0db12e2f"
     sha256 cellar: :any,                 monterey:       "8da95e20f0b0ff7560004e15fab010f1aae1486326ab9d617f7e06de0b3e2b5e"
     sha256 cellar: :any,                 big_sur:        "cc6ee0e7e2532a05a9b82beec1a8ca04e7c1380f9d6634a2b45a79e6479c4d4d"

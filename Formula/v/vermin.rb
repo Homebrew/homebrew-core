@@ -9,9 +9,11 @@ class Vermin < Formula
   head "https://github.com/netromdk/vermin.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2179774fb6390b26d3cd257c939e70fe597fbfaccfc1c7bbdbaf684be7712b39"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2500d85571abe6515b1932b207bce6fa4ec3b72eec84ba8126695d90508b5eb5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2500d85571abe6515b1932b207bce6fa4ec3b72eec84ba8126695d90508b5eb5"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2500d85571abe6515b1932b207bce6fa4ec3b72eec84ba8126695d90508b5eb5"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4a57ff295c3171c23d26d4c915f9d8bbed938b8fadb61d0b23f50a7e1f4ee83e"
     sha256 cellar: :any_skip_relocation, ventura:        "48e59e6f917d3487ba7c61e8b011d0b37eb19df62eb3645f53f3b51181b8398c"
     sha256 cellar: :any_skip_relocation, monterey:       "48e59e6f917d3487ba7c61e8b011d0b37eb19df62eb3645f53f3b51181b8398c"
     sha256 cellar: :any_skip_relocation, big_sur:        "48e59e6f917d3487ba7c61e8b011d0b37eb19df62eb3645f53f3b51181b8398c"

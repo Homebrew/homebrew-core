@@ -1,19 +1,21 @@
 class Libcoap < Formula
   desc "Lightweight application-protocol for resource-constrained devices"
   homepage "https://github.com/obgm/libcoap"
-  url "https://github.com/obgm/libcoap/archive/v4.3.1.tar.gz"
-  sha256 "074a71deca01e06d3acb00a1416d0fbeb87d130f40a3c0f6fda3a5c711855dca"
+  url "https://github.com/obgm/libcoap/archive/v4.3.3.tar.gz"
+  sha256 "3df6e1a51e42ef8fd45f16276505a47ed32aef150d348d60f251a0b470dda379"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "3bad1beba15ee306b2b2f6245d889aef8c9477ce52f6eb5223338d1390b0e156"
-    sha256 cellar: :any,                 arm64_monterey: "7dd5d4c8918ca7bf9f05c86d020ccfda6fd9cbab6770aa8b693c818b3c4155cc"
-    sha256 cellar: :any,                 arm64_big_sur:  "876e1c10f9a7fab51e2462db44e95b23f1d8ac0085c9cfe02b11181ea64988f0"
-    sha256 cellar: :any,                 ventura:        "71f33b9d774289ee9197f4b4cb6568051732abc784ec69ee550a8973c07b071c"
-    sha256 cellar: :any,                 monterey:       "f275fc1b8e5aca8b3c179ab40d9a30058df7a501e62530dcd2f5fdf8d47e09c7"
-    sha256 cellar: :any,                 big_sur:        "ff567b66ad0ad10162c4f54561a4a0eaf97fe562efb6ff6b68e72c3973b3177d"
-    sha256 cellar: :any,                 catalina:       "b20f8aa33cdb7f91bff0215748b7c14f10952e7b03a3c56bb9f021209489afc4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "69dfa73e553e3aa8e22c312a8163b511cf2f495ec99f8d18e18790f4b40da08a"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "1ea3ea4ca1340cb2ca65bf3b51c6c50358e6872e65f038ac76248d84bf82ee9a"
+    sha256 cellar: :any,                 arm64_ventura:  "d580428f27677c98234f1171468b3af17b6903b95b6767eec31949e3ff7b804e"
+    sha256 cellar: :any,                 arm64_monterey: "017f40cb804950fd70584d910712be4bc69cadb28c2a7ce31b339c50c5733c1c"
+    sha256 cellar: :any,                 arm64_big_sur:  "f1554992af4f5e8fcf912311e14adf5afadbeed43f06fb817ffa4a7c06b7fb84"
+    sha256 cellar: :any,                 sonoma:         "b44d8a2d910abceaf71260605b963ab1988a808a374eb201126d3bd705dd9292"
+    sha256 cellar: :any,                 ventura:        "3f92e8acf0c477578a1100307bc975018eb67df3cd638997b60fa962a1ba6b73"
+    sha256 cellar: :any,                 monterey:       "53024969c090b3a9b09458541c51d4c631e959c8c1d91408e01981198cb6ed02"
+    sha256 cellar: :any,                 big_sur:        "08694760319148b26549e9804c03387fe066ebddd207ad1c1005c8feb341dfe3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2d05e35a66268d91f351007eaff519083e34edc99449d03ab58e6a7064bb7f65"
   end
 
   depends_on "autoconf" => :build

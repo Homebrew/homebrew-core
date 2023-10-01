@@ -1,19 +1,19 @@
 class Ripsecrets < Formula
   desc "Prevent committing secret keys into your source code"
   homepage "https://github.com/sirwart/ripsecrets"
-  url "https://github.com/sirwart/ripsecrets/archive/v0.1.6.tar.gz"
-  sha256 "abc06d3fcded2e0820c88d4e021cff1e59c2f23d4dd4494720d8ca3fb59fc70d"
+  url "https://github.com/sirwart/ripsecrets/archive/v0.1.7.tar.gz"
+  sha256 "12e1dfcd217bba34f74fd639d1a8de7dcf93ff2ae69398e093dfd794811db3ca"
   license "MIT"
   head "https://github.com/sirwart/ripsecrets.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d1e40791a52188d527b08e77ee5fff0875f8fedc4dae5ab1af548ad226cca410"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "32450158220501c307e89a754263721bfe7416a02b1c2da4b1c88781861da910"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d10a2fc62879e3b7fa949073fcfc0539e5be469624142b0bb6a01068dc6bd109"
-    sha256 cellar: :any_skip_relocation, ventura:        "6ba547903a7217af992c3f85a59f5d5487b068510f057bab0a2ebd6f5c47336a"
-    sha256 cellar: :any_skip_relocation, monterey:       "e2012fd8b8d169419c99d646674288c8b83673f0b941eb730542530a4f12b638"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8244c3eb5eef4a8b0cb253996c98795d309f07f3ba79eadc8eb38be40c66641e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ab4172cb356cbab29c9f4f859738ca71c209e6e12fc3e6145a99111bb23732ab"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e8cd8cb33cd39e9fbd569d78216b9a22f72dec7eeabbcfc14b38b96b63b23ade"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7d8356fc7e86f2b176eb1c7ea5b8c104d0f68ae6b96b0b4f6431fd94151c4c58"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d5dc8e5a51ebb4de784a6b095996df4441de7689ab3fb91949225619ceb7b7ec"
+    sha256 cellar: :any_skip_relocation, ventura:        "4855d68e9b91f38a55e452bdd73c77dcfa55c542039204ea313b7fb54b803f16"
+    sha256 cellar: :any_skip_relocation, monterey:       "4a280b78f13e1a6046ec946d115405897683e76499c43824b4f9b79bd4cf90d6"
+    sha256 cellar: :any_skip_relocation, big_sur:        "04e94ca4ed4cfdfa7352728a4eb895b84c055a6d7998ff5c2d81a83b2d6bceb7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3a8f45e8832d729204966a87b224c5c89e9d571d21f7df763c9e28c8117fee15"
   end
 
   depends_on "rust" => :build

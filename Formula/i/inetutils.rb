@@ -7,9 +7,11 @@ class Inetutils < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 arm64_sonoma:   "50f122bba318958640692ef91dc3dc1019bf8724cea78ae071fcb144ed373379"
     sha256 arm64_ventura:  "872275661200b6f4372aee795840075b23dd2c4862ded07f4000d706ba37409e"
     sha256 arm64_monterey: "b9ffd46bc37271e9c1f57a333d39af249ef131fa68a89565bcf06fcf0cb7e4da"
     sha256 arm64_big_sur:  "02e7db5f94d356b61cf55ba51c85df000ddce5df9fd9925c81d415fa15b6aa5e"
+    sha256 sonoma:         "40ad5a635012aa63c0a7c97ea8c8bca55b95a71dc925cdf190d9510e0b28099e"
     sha256 ventura:        "8c34d17dd5c58955e33eb77b68dc06a43e1c8f193bf3f12c314f0fa45efd9404"
     sha256 monterey:       "538573e4777f6f7ba4d5ab5ec8546b3e614a219dfedcfdb08c968210a4f012de"
     sha256 big_sur:        "f6e3c7e2ae01a7d3e7801122bf93b525bd353dc995724e25a719d7b6362167bd"

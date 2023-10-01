@@ -3,18 +3,18 @@ require "language/node"
 class LeappCli < Formula
   desc "Cloud credentials manager cli"
   homepage "https://github.com/noovolari/leapp"
-  url "https://registry.npmjs.org/@noovolari/leapp-cli/-/leapp-cli-0.1.43.tgz"
-  sha256 "61dfd04842146cc0109a2ab7e22fd86873aa7a7889e64f1a063e05a7c817054b"
+  url "https://registry.npmjs.org/@noovolari/leapp-cli/-/leapp-cli-0.1.44.tgz"
+  sha256 "9e1315f9a8204073555bead50443be0c3d0c8b3c4cbcde1ab9c81dd54bde34f3"
   license "MPL-2.0"
 
   bottle do
-    sha256                               arm64_ventura:  "7eea6cc9ad78fbcdcc35cf58856c8fc3a3d5725d8ceccd5db4d287d1a30567ad"
-    sha256                               arm64_monterey: "96c5ca6c14f128b71cd9c15384321089219bda05b515802fdc6216fcac7cc2e9"
-    sha256                               arm64_big_sur:  "ee96029f26de3d14298bd1c8076e7053a4eec7bcb1c7218fa5449f2d03d53e34"
-    sha256                               ventura:        "8d2213d793d778100f717d5c7ba15a90cb6516220f3238f3db2f97e839599e8e"
-    sha256                               monterey:       "80d8cba3e774a7fed23808fbd8a9f83828bf16f3c4e1298a3ef074af1469094d"
-    sha256                               big_sur:        "8aa1bfe132d3d8e37e560c14550d4cc63cb5ab2e355ee3b73d49b1018e6354ff"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1b015ef119a604ac812c886b3a385f64e5423078df6a590a4019cf974e498553"
+    sha256                               arm64_ventura:  "3ab44b6b35e451ef844bca9bb6044377506fb4d35da9db9e65a955fe311c49fe"
+    sha256                               arm64_monterey: "75f6f8ee61477413c4a54f050b651b006b0ba1a3947740b3454b97291b49c067"
+    sha256                               arm64_big_sur:  "017b82c0f1847de1aba6c0a5b4553cc6dd85aee869fdbce9693498edfe70c6bc"
+    sha256                               ventura:        "d826665b23ec4271a14c845b465571ef3f3df0f3ec49e31537c30dd52c95d582"
+    sha256                               monterey:       "61b88f0e747b0b31e0781df5b97ac3d1da043aab0fdd4d844883913359bdda1f"
+    sha256                               big_sur:        "58916ddc03fcc4ecd253e94219a5a4528a75698ffeda0a8385407be1318c760c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dfbde245ace91fb7947a903f73981a463e61de4a92de2484fef126dea5bbdc53"
   end
 
   depends_on "pkg-config" => :build

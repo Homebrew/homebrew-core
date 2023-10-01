@@ -1,19 +1,31 @@
 class WebpPixbufLoader < Formula
   desc "WebP Image format GdkPixbuf loader"
   homepage "https://github.com/aruiz/webp-pixbuf-loader"
-  url "https://github.com/aruiz/webp-pixbuf-loader/archive/0.2.4.tar.gz"
-  sha256 "54f448383d1c384409bd1690cdde9b44535c346855902e29bd37a18a7237c547"
   license "LGPL-2.0-or-later"
   head "https://github.com/aruiz/webp-pixbuf-loader.git", branch: "mainline"
 
+  stable do
+    url "https://github.com/aruiz/webp-pixbuf-loader/archive/0.2.5.tar.gz"
+    sha256 "e1b76c538a1d3b3fc41323d044c7c84365ab9bd5ab3dcc8de7efb0c7dc2f206b"
+
+    # patch libweb version constraint
+    # upstream PR, https://github.com/aruiz/webp-pixbuf-loader/pull/74
+    patch do
+      url "https://github.com/aruiz/webp-pixbuf-loader/commit/bc50244c13d9e86eb6d2271442f1a2cae27e71b8.patch?full_index=1"
+      sha256 "bb41d87c160a5b6c0984ad20f9d94e0045b53a9dd00384bfa3443cc651127f3b"
+    end
+  end
+
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "d5d42134ea2ca02f53b231777b0027c7265f95820bb33fdc034a376b5b26bb87"
-    sha256 cellar: :any, arm64_monterey: "f3cb479094f5cbd4f6f15926b1ef4f2b0b20bc5c5cd3965cca92d9f1ddb98a1a"
-    sha256 cellar: :any, arm64_big_sur:  "eb9c71706217fea7e4199fb1d2f8ff7652c0ce0bb2fff96835c3999813698918"
-    sha256 cellar: :any, ventura:        "dba630af9d61b17ee0718e00819f6a690c4d9317fee54720cf7ef64cdbcbaa83"
-    sha256 cellar: :any, monterey:       "81594183c7d2167be7d22ef9997cb4e4b46e1dd97a78baa8914697b430bc1a9c"
-    sha256 cellar: :any, big_sur:        "4c268b88d45a04ad088bb79bcfa83ea6dcfba972ddd2c89ccc263c0f19b187d3"
-    sha256               x86_64_linux:   "c83f234b8e215fb9042569612ea61a058610765d7e49c4f138f9346b998acd68"
+    sha256 cellar: :any, arm64_sonoma:   "d29960938bca600f4b5166f1897b0d38e5c9b025c0f6996add35563d52e67cda"
+    sha256 cellar: :any, arm64_ventura:  "7531ecb4aa70bce99a3059d7c82e506ed5fe7c4fa1e792a6be2a68e87676588d"
+    sha256 cellar: :any, arm64_monterey: "47639a4bb7975877244484087771294933d27f90c2981224a0e3a6047183da05"
+    sha256 cellar: :any, arm64_big_sur:  "90dcc06d8ec9f9d703d4c8552e434e5d786fd0db9a2607a279d3e9d24ca026ab"
+    sha256 cellar: :any, sonoma:         "0cf65d81ea12d20abb568b59d79ed18a6c0b3ab1ed8efc05f24ce4196640e76b"
+    sha256 cellar: :any, ventura:        "d2baba7398b98e509448c9441927debb42108994a51b08519041e35aa03e8e9a"
+    sha256 cellar: :any, monterey:       "8f41fee655cf01d8e341b590eac2781ef47edb051eff27f98675ef962aab2dfa"
+    sha256 cellar: :any, big_sur:        "520a708ebfbac9bb610593cf9fd31fd3cf51af812eb65de73a0326eaec876f3c"
+    sha256               x86_64_linux:   "4b3051b22971d594f4edf41e2baed95f47688f3b915b312cfba4528e2e5b498e"
   end
 
   depends_on "meson" => :build

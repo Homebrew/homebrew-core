@@ -7,9 +7,11 @@ class Shtool < Formula
   license "GPL-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "dca989d435af4e89422e5d3290d90075732d2ec3daf671c95a30eba9a91aa653"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6f5de9d85e4a603a10f6a5807bfe6a917d7f18360206524091d5abadbdf45e3b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6f5de9d85e4a603a10f6a5807bfe6a917d7f18360206524091d5abadbdf45e3b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7d8d8aad608219d2b3339f2b629140a52526992ca1d68e0a2a31f3764adc1237"
+    sha256 cellar: :any_skip_relocation, sonoma:         "9e4781441bddb75b099fe9b56b8b04222a18bcdd495a64828c576af7a5f865b3"
     sha256 cellar: :any_skip_relocation, ventura:        "39f3d1b2dc2807881f83ea84746b5fe4bc8c08469998d8c731da0137eb0a9461"
     sha256 cellar: :any_skip_relocation, monterey:       "39f3d1b2dc2807881f83ea84746b5fe4bc8c08469998d8c731da0137eb0a9461"
     sha256 cellar: :any_skip_relocation, big_sur:        "3b414c1d021d5c209412a8162722017490d3566176272e00340a249ba06adf4e"

@@ -10,9 +10,11 @@ class Waybackpy < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7cf8ce5b70329254d2ec655017e529b2925e1ccc3668dc03e754e54547277073"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4cee3fd02b5fc9ad049d1130db0488a65ad08e13f6b81411dde2609900067ce6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ae7d64e2524ddcf10a79ba79a52ce9f01d387103910573453e510fcfed17291c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "61293dba2227e814a19a931971360cba689fdd41d8b44d16ef1465d45ae8bedb"
+    sha256 cellar: :any_skip_relocation, sonoma:         "295a27b2cf818076ea3fd42a015d3ee27a6d47e8776113c8a195ce59818be0a6"
     sha256 cellar: :any_skip_relocation, ventura:        "70a1154f2875c283a7da59c0ba37abc1d60087bbc15b8e34ba30a4b029c2ebcf"
     sha256 cellar: :any_skip_relocation, monterey:       "8735878f425e79efcaeb853740a3a461df46c5e9c16c1ec59a6f977b9806722f"
     sha256 cellar: :any_skip_relocation, big_sur:        "3abb26084ba0405de912914b10e5b9b1e048a0cfe5fb2c2fbc2605238e912e17"

@@ -1,19 +1,19 @@
 class Timewarrior < Formula
   desc "Command-line time tracking application"
   homepage "https://timewarrior.net/"
-  url "https://github.com/GothenburgBitFactory/timewarrior/releases/download/v1.5.0/timew-1.5.0.tar.gz"
-  sha256 "51e7c2c772837bbd6d56da8d16506c4b6de8644166e0b5234ad36ae6a70dd4f6"
+  url "https://github.com/GothenburgBitFactory/timewarrior/releases/download/v1.6.0/timew-1.6.0.tar.gz"
+  sha256 "cd1aa610ed50558bb2cf141022fa7b41523091ac3ae5fbb9c2d459cfe1afc782"
   license "MIT"
   head "https://github.com/GothenburgBitFactory/timewarrior.git", branch: "dev"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2d00a549d6ad37ba6c96d9a3f0209a4de7287b13362dda2bba7ee2b702549454"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3ce0109b54f6387ade3734ea72b4cbe28135632f92b121d6ef1e75e2bf898f7a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c58e3f9cd3e70122f1a6e7d739af9d5e4f4f94f0e374683cc5d65fa4ae3cde0e"
-    sha256 cellar: :any_skip_relocation, ventura:        "e7e5039faa29be1454075cb48f0f614914ab6466ead34c204dac731c90e9d0ab"
-    sha256 cellar: :any_skip_relocation, monterey:       "f9e53323e1d6164518ae64d466b2f02b91614e7ad3aa5d44de92337563f23350"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ef1845768857d8f77479d7cdf74a08b3df4f989d8ac5100fd9aaaa378b89d1a9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "be419258bfc09e85c53c9543c30aabf32d792a751a0034edc594d6b2fc277524"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "462dcb8852fd07de6b1f64c1dec89ddb1366a6ebc214b139ac57cdee635fd639"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d11690a98ad4656e567e50e88c4be052e5b36529f5282268274e0867c4083740"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2fc1d95ffc3454a256bba300c2cc4955d35c152c28f1610b4ed816d6b8202487"
+    sha256 cellar: :any_skip_relocation, ventura:        "d58a0e165553b6421407ad728753fdafb9ae198ec19ac6b6ed0baec1ef46fead"
+    sha256 cellar: :any_skip_relocation, monterey:       "7423d9c71a154b11339386853f20aa44bc75559c3228d32488e2a5c2b3d4eecd"
+    sha256 cellar: :any_skip_relocation, big_sur:        "fe15c7faa924d709dacfc5cae8be9967977fa86b55de5e8e43b058ce4f811428"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c904461326ba89be04e58b6bed0c329109559093395c863172b72811ef89210e"
   end
 
   depends_on "asciidoctor" => :build

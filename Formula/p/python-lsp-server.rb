@@ -3,20 +3,21 @@ class PythonLspServer < Formula
 
   desc "Python Language Server for the Language Server Protocol"
   homepage "https://github.com/python-lsp/python-lsp-server"
-  url "https://files.pythonhosted.org/packages/7e/56/b7c8569ab17ed75a858487d26fa5e8f489e72e8d5842107329490c6a6323/python-lsp-server-1.7.4.tar.gz"
-  sha256 "c84254485a4d9431b24ecefd59741d21c00165611bcf6037bd7d54d0ed06a197"
+  url "https://files.pythonhosted.org/packages/7f/38/9c7196124b2b36088b8c0b83fe4c117f02dd0bfae64473b51cd09628af08/python-lsp-server-1.8.0.tar.gz"
+  sha256 "807b0347cf83f02cbd9113a68624ac5dbf8b01854a3b11dd03c3bbbdff4e5d89"
   license "MIT"
   head "https://github.com/python-lsp/python-lsp-server.git", branch: "develop"
 
   bottle do
-    rebuild 4
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "89f9021239e699fb18c19b354ba9cd82e4f1941702221a713a814f59fef10c0b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "dabd803ad235cea55ad451b04227a6852a8ce900a0bbbcc1b0ed011fbca835d6"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1b809892606d5f231a1a46db44c72f11f7f0f67991d4cc429423679e51191588"
-    sha256 cellar: :any_skip_relocation, ventura:        "f48e1ccffbef502fdf4ad56ca8e724524801b32c6225d92de1b3485ef5699528"
-    sha256 cellar: :any_skip_relocation, monterey:       "ede25a9040a902a2a58aa23ae29b75760a8f80dd947ff18b2cbb175ace7eb2e4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "858ae3d10a1615b8ad6bb96941bfdec86faa4a212607a0e2f27be5066630db7a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f85b2e9abf7559951a595a05d363d7a6058a2468796c7b69c31314d562d9f00e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a146785d918755688f5d4955ac2cd3aadec27565df6d18ab8c73a230244df94b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5ae8591f550ba6a5f4e177c2b7a149b139c5b8cff2e90455168994fc60a2af46"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d02b6a42656989f59e3b238281042b26764596cc6ab0b35f268c0545381b8ab3"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "97185c6cc2c94c72f3acbe49c537bd6ddff0fe39beac9b0cf46a69857290f984"
+    sha256 cellar: :any_skip_relocation, sonoma:         "98aaba1985f06842d8a4f420ae121460d4bd14f70c6c06cbc3ac5a83438531be"
+    sha256 cellar: :any_skip_relocation, ventura:        "6b22243ef9eebd6785b760f4c600eda536882e69c9cfdfa4d5d7e34a943cc62b"
+    sha256 cellar: :any_skip_relocation, monterey:       "82cb9c20dec1e73d79fdd401b2f52d85d89afd43a66cb08c4c325b136427af72"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6a2b3571942870b9269c79409b97fbcdc0ed2deb7714f11af3d1b7ee1d6a3abb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "205991b425d12700528cbdce6c2b6010c75db354806bc146a465892ca689bd40"
   end
 
   depends_on "black"
@@ -41,8 +42,8 @@ class PythonLspServer < Formula
   end
 
   resource "jedi" do
-    url "https://files.pythonhosted.org/packages/15/02/afd43c5066de05f6b3188f3aa74136a3289e6c30e7a45f351546cab0928c/jedi-0.18.2.tar.gz"
-    sha256 "bae794c30d07f6d910d32a7048af09b5a39ed740918da923c6b780790ebac612"
+    url "https://files.pythonhosted.org/packages/57/38/4ac6f712c308de92af967142bd67e9d27e784ea5a3524c9e84f33507d82f/jedi-0.19.0.tar.gz"
+    sha256 "bcf9894f1753969cbac8022a8c2eaee06bfa3724e4192470aaffe7eb6272b0c4"
   end
 
   resource "lsprotocol" do
@@ -76,8 +77,8 @@ class PythonLspServer < Formula
   end
 
   resource "python-lsp-jsonrpc" do
-    url "https://files.pythonhosted.org/packages/99/45/1c2a272950679af529f7360af6ee567ef266f282e451be926329e8d50d84/python-lsp-jsonrpc-1.0.0.tar.gz"
-    sha256 "7bec170733db628d3506ea3a5288ff76aa33c70215ed223abdb0d95e957660bd"
+    url "https://files.pythonhosted.org/packages/cd/71/b5e98d6b2b76e3cf0cba9e5f5298eed44008f7651ff93bdf97b5a3584eea/python-lsp-jsonrpc-1.1.0.tar.gz"
+    sha256 "93a29ef906e4f370f4811f6c7ebd1e8b3e7687ab0dfe81716c696db20bff8043"
   end
 
   resource "python-lsp-ruff" do

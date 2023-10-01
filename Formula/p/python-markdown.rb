@@ -1,6 +1,4 @@
 class PythonMarkdown < Formula
-  include Language::Python::Virtualenv
-
   desc "Python implementation of Markdown"
   homepage "https://python-markdown.github.io"
   url "https://files.pythonhosted.org/packages/87/2a/62841f4fb1fef5fa015ded48d02401cd95643ca03b6760b29437b62a04a4/Markdown-3.4.4.tar.gz"
@@ -9,23 +7,32 @@ class PythonMarkdown < Formula
   head "https://github.com/Python-Markdown/markdown.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e47ce3cd5f32d01e63145054e502a7231901b74fd3163f97050192d70427457e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d2e789fd1839fc8747f4bfd3f09d82fb322b38de1818890767198f57977dc9aa"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c06919942f75f4a11144be345117bd9a8232769728425ecc4acec53e182e3c93"
-    sha256 cellar: :any_skip_relocation, ventura:        "09a71189f52aed377371795afc3f45071451a96a8553a66291e62b4097c7834e"
-    sha256 cellar: :any_skip_relocation, monterey:       "786b7b5b79deca23a668f5746f4c2aeb2ef04fb5944465f1149a10783cc7b6c7"
-    sha256 cellar: :any_skip_relocation, big_sur:        "35a65f9f3da4fdcc06ddf07b0cbc0ecf9b6e84e3077f63e52844f94a781fc67d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "59f716c12dd644e01512e9815ccd100070e28e4c8ccee5db92a6d309675e174c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "953021ba35d051d2a4fc6a76727151c75fc707ae4165619155cd26e8aabf3130"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2118a98603123ff5f283a713c17e3a4588cf577690e6cfbd18cf0f9a86e06f02"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f6052ea49275af4e1cb22a8defda61803f9dec4157aeb3e118d6c08c6fade88e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4b7e1e77dbe6563b35f53dfa1f8140f80d75baf1cb8b807878081a2bf4087a00"
+    sha256 cellar: :any_skip_relocation, sonoma:         "937eb61507c316d183c32925ce7bb800defd083bf912989bb060202555fb240d"
+    sha256 cellar: :any_skip_relocation, ventura:        "cf1970201addc305f51dd6880da17c12aacd754e1540f2c320dd77d6fc024a03"
+    sha256 cellar: :any_skip_relocation, monterey:       "89b7af86db5003d8e9e3ba570476d29d286cdd943fa03911f0a62cc695e939ad"
+    sha256 cellar: :any_skip_relocation, big_sur:        "80d58b809875ebe463956a4a5a2eedda9a105e005644d998dd8efc69ff428fd1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2019874cc73e7e15fa563fc15c0bc187fc91a751e03db65827abbc3db349b1ab"
   end
 
   depends_on "python@3.11"
 
+  def python3
+    which("python3.11")
+  end
+
   def install
-    virtualenv_install_with_resources
+    system python3, "-m", "pip", "install", *std_pip_args, "."
   end
 
   test do
     (testpath/"test.md").write("# Hello World!")
     assert_equal "<h1>Hello World!</h1>", shell_output(bin/"markdown_py test.md").strip
+
+    system python3, "-c", "import markdown;"
   end
 end

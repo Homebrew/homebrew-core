@@ -17,9 +17,11 @@ class GtkDoc < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "6824129113a3e8577f5dfee562853cf1f00e834d7929bf500949a5d6ced5704a"
     sha256 cellar: :any,                 arm64_ventura:  "96955b74b7fccb3f0f706b15a107285cf03e43f804a2e41526a738145e77b270"
     sha256 cellar: :any,                 arm64_monterey: "b9e301121bc9914897d199bb7abe589694af195007ea3d2aec010cdc4d49d218"
     sha256 cellar: :any,                 arm64_big_sur:  "5901f5691e8af4105120f00d03aa8635a11847829c2e17db9e17e01600526c7a"
+    sha256 cellar: :any,                 sonoma:         "9ab5a1e798529b2101933d46ca1a1b648bf887fe33e8c8751d531ca3cabe1002"
     sha256 cellar: :any,                 ventura:        "e8838902bc81cca0682667aca9938d3a554d79bb197e66b872f4dc3f6c2def44"
     sha256 cellar: :any,                 monterey:       "29be313fb5cd4739dc70b1d921298389b5b16fac5d9b6c38ee8eb423da76ac15"
     sha256 cellar: :any,                 big_sur:        "9070e3c3d36763fb9f60706146ccd6dbbb7cc799cf3740e728a77335b7b31ab0"

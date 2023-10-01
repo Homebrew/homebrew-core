@@ -6,9 +6,11 @@ class LibreadlineJava < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "d4329ed0409bc232ed32b32af891e7eb7c1ec29945a58acdbb0f8ad2d0d7130d"
     sha256 cellar: :any,                 arm64_ventura:  "30d029bd66f3e09eb495ba7fa8a7c537bb8d7c2fbf1fe92767918e74affb14db"
     sha256 cellar: :any,                 arm64_monterey: "584fd1a58765d929a2671476e64994b1de6e85da1e031d47169992afc33384a5"
     sha256 cellar: :any,                 arm64_big_sur:  "9b8326c92d05e2598c4ee4984eb1de90362e453a8a474aa3211ddb33ceb530ce"
+    sha256 cellar: :any,                 sonoma:         "ab65bd0333a0247cdfedc8d376a1289ed71157945693d0acd63e022acb8296ea"
     sha256 cellar: :any,                 ventura:        "ec976263fbef9ca431281219e95201ca2e2aa290a03302a26e3320aeb6112a76"
     sha256 cellar: :any,                 monterey:       "907febf2b1e8fd3455b7a01c04793fe3e65c07b7c35b4fe6031ad1a41535eaa3"
     sha256 cellar: :any,                 big_sur:        "3c0dcc11857d99e993ca70ec7cad6f35560988e14bb94012dedae51cfb4e936a"
@@ -32,7 +34,7 @@ class LibreadlineJava < Formula
     # adjust gnu install parameters to bsd install
     inreplace "Makefile" do |s|
       s.change_make_var! "PREFIX", prefix
-      s.change_make_var! "JAVAC_VERSION", Formula["openjdk"].version
+      s.change_make_var! "JAVAC_VERSION", Formula["openjdk"].version.to_s
       s.change_make_var! "JAVALIBDIR", "$(PREFIX)/share/libreadline-java"
       s.change_make_var! "JAVAINCLUDE", ENV["JAVAINCLUDE"]
       s.change_make_var! "JAVANATINC", ENV["JAVANATINC"]

@@ -9,13 +9,16 @@ class Lexicon < Formula
   head "https://github.com/AnalogJ/lexicon.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d3a34af8b8d759ea6a40c1a6b702ada787be7b8e020a6269eda9e627ddd9037a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6dc33012348c6d00887f9af6b29e41f2c88253f874b8e3fd19f24269b7c762d6"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1585b43596b7af32eac853674e8354779b085298ed057383206fd4b9ed465677"
-    sha256 cellar: :any_skip_relocation, ventura:        "7b92a24a0fe1b21bb8ec5f41e020e2da76eab5ea661801e0107cc955621c2234"
-    sha256 cellar: :any_skip_relocation, monterey:       "3ae3c4d649e6018aa84160a98696712ecaa9388b0f7290bbbdb7f29fa70ac124"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e9c01c5b32d38ac705f0c08ecbd78030d94716f0dec35881ee7bd61bdd523478"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ffdea4b6260572f56eb55de081403cd99eec87d6d42b005ec11e669bd2e669f1"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b058e5559646dd58339b9977e4e1545889859a5b10e0711a8aa192161f25cbd1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1d7eda1500299e2faf1459bd5eb8b6a50bec971adff482c905b786ea69853408"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "fccf7e8d6e222e34fca3d88eef9ace7a99fa48c0197ec88b5a3ae4f6445712df"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2e0f6a9a1fd0d4be785a32d6ae53f2dbc943fe2df39a2ca4322c652bcac0d18f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "2e283553b54d78e0d239fd23cfe745a4aaac3d6730d4a235448de6bcc5f8e5f9"
+    sha256 cellar: :any_skip_relocation, ventura:        "190db50dceb4a3f63939ff222b3c0028b7547177911eb1fab9da1e02848566f9"
+    sha256 cellar: :any_skip_relocation, monterey:       "e9b3459c315d8eaff85b5659d5d1ecde17fb75fc8ca34211bd6e4662d1059158"
+    sha256 cellar: :any_skip_relocation, big_sur:        "317e01d970daa292604c64f04da26d8d3773f78e23cb83b14fe6ea5773cb779f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "19459dbdf49c74e8a66e69d7f2480fcfbc6b0ab7a4057561523371265d635aa2"
   end
 
   depends_on "cffi"
@@ -23,6 +26,7 @@ class Lexicon < Formula
   depends_on "pygments"
   depends_on "python-certifi"
   depends_on "python-cryptography"
+  depends_on "python-pytz"
   depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "six"
@@ -143,11 +147,6 @@ class Lexicon < Formula
   resource "python-dateutil" do
     url "https://files.pythonhosted.org/packages/4c/c4/13b4776ea2d76c115c1d1b84579f3764ee6d57204f6be27119f13a61d0a9/python-dateutil-2.8.2.tar.gz"
     sha256 "0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"
-  end
-
-  resource "pytz" do
-    url "https://files.pythonhosted.org/packages/5e/32/12032aa8c673ee16707a9b6cdda2b09c0089131f35af55d443b6a9c69c1d/pytz-2023.3.tar.gz"
-    sha256 "1d8ce29db189191fb55338ee6d0387d82ab59f3d00eac103412d64e0ebd0c588"
   end
 
   resource "requests" do

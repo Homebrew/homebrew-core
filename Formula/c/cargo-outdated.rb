@@ -10,9 +10,11 @@ class CargoOutdated < Formula
   head "https://github.com/kbknapp/cargo-outdated.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "3c30a8c7f4381740c44b92cffa654aec291389550915bd58c96056855bed77d1"
     sha256 cellar: :any,                 arm64_ventura:  "aa2214131cf25fd2d538428aa6619335604545a082b0437c2860f8e9b87e59cf"
     sha256 cellar: :any,                 arm64_monterey: "d5dd9bf61bcd2564a2902d52325780c01de19ee03e458d403aca3f223e9ad857"
     sha256 cellar: :any,                 arm64_big_sur:  "3b00d458873a9e22f1992ba05e5e670fd4517b4463eafe42ff6c412ac67c2b14"
+    sha256 cellar: :any,                 sonoma:         "d791d0d28e14c2665b3ea80fc2fc3d0a28f4bb30173c637d9e543aab2b8d7d23"
     sha256 cellar: :any,                 ventura:        "0f3c8226b69b412c10d7176527c9dd40ff4d0781fef709283c3171db3a1563b9"
     sha256 cellar: :any,                 monterey:       "9a72734928b3551faeae251b6955b4dc060dac4e3bed37af7554db570aab5b36"
     sha256 cellar: :any,                 big_sur:        "b53fbcad34125c6f15de105c15c76eef98c1751a6ddf3d66ac983ff921ec81f1"

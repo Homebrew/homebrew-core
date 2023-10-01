@@ -11,9 +11,11 @@ class Shub < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "020bc8763bee81d5705847e99fa115271037ee5d1027122d97ce180462b795f7"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "856df624a43227a0bd5e6184318336309da4d7dc0c7b05f21a412720ff22e297"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f9c8782c210729ac2ba711fd7cf1e3da4149b6fb11a1a427afad830aa9776fe9"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7540837707dd9821295ed4ccdc53dbe45e38ac8114d82aed20cee2af997d2fa9"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f6388ac25380b71c44c97187bbe9d01faf3a881672fcaaa347c3af3f939eb686"
     sha256 cellar: :any_skip_relocation, ventura:        "4b48416d5f31ed136802bd473c41e19773e0e4c24261dcac69054f417f6b3657"
     sha256 cellar: :any_skip_relocation, monterey:       "6982d40d8d5213f9207da8c3dc3576cc8b9af9dbd6b6fcdd12fb5244391127be"
     sha256 cellar: :any_skip_relocation, big_sur:        "ec4fd12ed6914d69cbe966d20e97f136064b287f126b1cdebfbc73cbb28c19c9"

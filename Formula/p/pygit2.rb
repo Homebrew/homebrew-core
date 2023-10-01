@@ -1,27 +1,25 @@
 class Pygit2 < Formula
   desc "Bindings to the libgit2 shared library"
   homepage "https://github.com/libgit2/pygit2"
-  # TODO: check if we can use unversioned `libgit2` at version bump.
-  url "https://files.pythonhosted.org/packages/db/26/cd0d68706e9511ca07b10d53f42e70d4c57b3504f4a0fd675e4617ad7a60/pygit2-1.12.2.tar.gz"
-  sha256 "56e85d0e66de957d599d1efb2409d39afeefd8f01009bfda0796b42a4b678358"
+  url "https://files.pythonhosted.org/packages/73/05/cb50b5eb86fd67e36a6711fd41ef19bd614e95c5f37b28550407b100871a/pygit2-1.13.1.tar.gz"
+  sha256 "d8e6d540aad9ded1cf2c6bda31ba48b1e20c18525807dbd837317bef4dccb994"
   license "GPL-2.0-only" => { with: "GCC-exception-2.0" }
-  revision 1
   head "https://github.com/libgit2/pygit2.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "22f0fa908d1b0c7fdd641870f91d43d92644d4faabba5290bc39ae31ae952fb7"
-    sha256 cellar: :any,                 arm64_monterey: "de6a514750633ac304c0d49fc36301214dca7d0fd1fc092a8aaaec575f958409"
-    sha256 cellar: :any,                 arm64_big_sur:  "4682bfadb61a9b2607ca9db9c6d361142b7c765d91f5245e6c322b12abe89bd3"
-    sha256 cellar: :any,                 ventura:        "a79aa69152665012c3ac58143adfb9c03362c38106750a7e78c76d02ef41674b"
-    sha256 cellar: :any,                 monterey:       "05ff09ea91d8e9bf286e276cb2e0ca9c57fc69289db4b98dd16c3fbae4d067af"
-    sha256 cellar: :any,                 big_sur:        "951cff1fbdc544daeb39fe4ca20a76b6ecff665248bad7e170552e0a6461451c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a124bcb5a55ede4a35ab79e4e22fd3f2e48f3640cbf446beba101f214c650fbd"
+    sha256 cellar: :any,                 arm64_sonoma:   "2fba8fac58cf102f1057415185ea46c25df7e92f509a597e7fa69af50e1ddc98"
+    sha256 cellar: :any,                 arm64_ventura:  "20123682a149d5f8c43a540d2f40dbf6e5d7a417b45a1fff9b448d78d8d88b82"
+    sha256 cellar: :any,                 arm64_monterey: "0aed61b18dd7aa0b5d1b163215f4e375e747a71e1407f9bb28685e9e94490424"
+    sha256 cellar: :any,                 arm64_big_sur:  "24a375683dd328703f62b4e1cdd04d68f789104ee253b34d57a7d7fd7fa3b6c3"
+    sha256 cellar: :any,                 sonoma:         "2b59a58f718a19899649ce7057bf112eb1441e82bc23ea1273059e304755a0ab"
+    sha256 cellar: :any,                 ventura:        "34ab561bd3e21beccedc9d95e64aa275080801d7f44d4b0803b1790a4e670b0e"
+    sha256 cellar: :any,                 monterey:       "0d2eb22838b068163bc7b6b1cf604ee2b3e787c1520087252b730be11da57ce1"
+    sha256 cellar: :any,                 big_sur:        "c2da9faec8229d7a9a4ce8e5348d3367fb4abf1527bf4f1e4f347ab29764e73c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d0aa0d8f151dd83a88d4eb24127d347d9746725657a94da91a6a40a044f6711f"
   end
 
   depends_on "cffi"
-  # If commit https://github.com/libgit2/pygit2/commit/1473e8eb6eb59dc7521dcd5f8a4c9390e9b53223
-  # is included in the release, then `libgit2` 1.7.x can be used.
-  depends_on "libgit2@1.6"
+  depends_on "libgit2"
   depends_on "python@3.11"
 
   def python3

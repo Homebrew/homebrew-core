@@ -7,9 +7,11 @@ class Polyglot < Formula
   head "http://hgm.nubati.net/git/polyglot.git", branch: "learn"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bc554a6ab1946c530812eef33e2092102df23edfb12dcb14d98d288b5f15de96"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0d7bed90c3c1774a9a1765d8305b2fc0c9c38734a478777d35033570777f6a20"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "dbcf961b5015dc2f909d421c6f1967a75110a44fa904718e599aa428341797d6"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "74eb07a34cb1629966a192061f5ee507b8ff5db472b1fad9eeddba473b08570c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "84974144b7683943964b93e4686af237ef4a36f722b57e6c12dea8a78a65287c"
     sha256 cellar: :any_skip_relocation, ventura:        "719661c4cfbe1a0b809299d9285f4a715100783a6d2e7d8b89a5b3715ff4bb34"
     sha256 cellar: :any_skip_relocation, monterey:       "902514277b538f0d20c73875570832802028e7ba6c3f570ff0c2e4262625d7ea"
     sha256 cellar: :any_skip_relocation, big_sur:        "96fe594c38129a85e97eed368154664e9e318fb16b3f97127a9a4e829ff47f39"
@@ -22,6 +24,9 @@ class Polyglot < Formula
   end
 
   def install
+    # Avoid errors with Xcode 15
+    ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
+
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end

@@ -6,9 +6,11 @@ class Snzip < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "f2a437e1ee2269927d61f695d0a8bfcb859433c77487dc3beb0f9ec56b50d989"
     sha256 cellar: :any,                 arm64_ventura:  "661bdc7469cf8ec9c6311512507b930896e62e5b86c97ee12b2ba5ef57c34dd4"
     sha256 cellar: :any,                 arm64_monterey: "f6e7e23067b3b7a345478140297d5eb874f3ab0d674fd1327e331ad44704c9c1"
     sha256 cellar: :any,                 arm64_big_sur:  "23f40e27a4ad634c07f15e736c6ed868ad78c780de0076c9c9d0206295f0d39f"
+    sha256 cellar: :any,                 sonoma:         "1227301218adc7fbea53d8dd245fe7243b285340833fefaef0b5a5938b0c076f"
     sha256 cellar: :any,                 ventura:        "a6adec1343968056e505aea67415c4a8cd147fa82088dbc940ab1d69f9675d30"
     sha256 cellar: :any,                 monterey:       "fc6766844ef54540722dac85eb882b946db05d9db9d69fec810d77333c502224"
     sha256 cellar: :any,                 big_sur:        "60e584c91dcbc5f21a74cdeddd239a432911f99785350499873e04a7a91fcb7e"

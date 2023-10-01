@@ -12,9 +12,11 @@ class OathToolkit < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_sonoma:   "b661f04c79fcd38ba0becc58c5c5bc2291d3c2291f6e2906609b61d93d5a9dfa"
     sha256 cellar: :any, arm64_ventura:  "4ba53487d4db148b93cdec180246724677658839c24f270cb743bc1254319c3c"
     sha256 cellar: :any, arm64_monterey: "0ad47728dacdabbffd46306cf1f40f61dc54f43f568c39683e82a71e45c9f5f8"
     sha256               arm64_big_sur:  "57f00f50aade24072074445fb8b33f9600b71d5cc3ac286db066fce8f47f12de"
+    sha256               sonoma:         "b18c8dc19455306e0e91b95026eeb0566307588ef08b713ab194cf14cd5b6b76"
     sha256               ventura:        "b7796f8492f196b003ad73656fd7dd1597da02b5d433d24ded8e70a5d223f632"
     sha256               monterey:       "e4ca111ca23d31e861e3cd4fb76a8f2542dd7a4cf69cd1cad36299828a0a6d48"
     sha256 cellar: :any, big_sur:        "21f1e0df5c03224470ce39346501241f45e0195f486fbc36cfedbe3aa50871c5"

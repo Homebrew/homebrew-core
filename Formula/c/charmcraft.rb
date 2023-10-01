@@ -9,14 +9,16 @@ class Charmcraft < Formula
   revision 2
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_ventura:  "9e01b62a8baa51f2913f4f3a60b246470252c81903ffe9408b2478a2801da05d"
-    sha256 cellar: :any,                 arm64_monterey: "956bbb2f241065ebbe8f259828f667b5c72a556d856354ad4de2f6ec455eb724"
-    sha256 cellar: :any,                 arm64_big_sur:  "42c06bb9578f017106c7b8f2474460c61176a77ac75e7cf1e35ef2091680fa4b"
-    sha256 cellar: :any,                 ventura:        "ef9a4d6b0b37c6eb27a4a9f802c84f427497761ff6ab4409caa458a267858625"
-    sha256 cellar: :any,                 monterey:       "f108bc91f02b7b5511294622d6c4ec0b231fdcbe4b2d1334778daf18c5c9f886"
-    sha256 cellar: :any,                 big_sur:        "6c05d228e20ea8020897d02e10d043119cc2fde2846054a9ced539f471cfa7b0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fd5c14d03f8ab08025243bf848281bd2c75fa88c457184a3a8d016abfd9434a0"
+    rebuild 4
+    sha256 cellar: :any,                 arm64_sonoma:   "3dd0ea220cbfadcf07e6cf4316d8ad1ddb05dc4821849024dd2852c948f7c3f2"
+    sha256 cellar: :any,                 arm64_ventura:  "1bde9a0953e11f0c2282ab53f8f16efd048763794b1ac4230848a8e3f1973b2d"
+    sha256 cellar: :any,                 arm64_monterey: "3ff96991b6d6d07583d469650a110032673489802eb1976c590e1847a195ae28"
+    sha256 cellar: :any,                 arm64_big_sur:  "3cd774b49ad84dcf83c8b2672aec8aa80ee26840006979b62f3f0aeb04463dc7"
+    sha256 cellar: :any,                 sonoma:         "5aba3396be249d92d81ff0e3a2316682429fe6192ce9ea669047a18b3c6006d9"
+    sha256 cellar: :any,                 ventura:        "9e30b374a05d68d5dbadfa74e67347506b63e13f1f5a043b0c82348c0d5c0faf"
+    sha256 cellar: :any,                 monterey:       "01b12f124b363fe6b83ac1078af60909ff1d8a484bdbec632c0bb24b6eeaa657"
+    sha256 cellar: :any,                 big_sur:        "2fa14041e36f62cfe8f18f34790c6b2ebf2629a33b20a7352427db52c4a53fe5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "291818595ecf7bdfd2ecaac29a2d9e4c29fdfb42dc1bb51be29465343399089d"
   end
 
   depends_on "rust" => :build # for rpds-py
@@ -26,6 +28,8 @@ class Charmcraft < Formula
   depends_on "pycparser"
   depends_on "python-certifi"
   depends_on "python-cryptography"
+  depends_on "python-packaging"
+  depends_on "python-pytz"
   depends_on "python-tabulate"
   depends_on "python-typing-extensions"
   depends_on "python@3.11"
@@ -127,11 +131,6 @@ class Charmcraft < Formula
     sha256 "8b97c6c1e1681b78cbc9424b138d880f0803c2254c5ebaabdde57bb6c62093f2"
   end
 
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/b9/6c/7c6658d258d7971c5eb0d9b69fa9265879ec9a9158031206d47800ae2213/packaging-23.1.tar.gz"
-    sha256 "a392980d2b6cffa644431898be54b0045151319d1e7ec34f0cfed48767dd334f"
-  end
-
   resource "platformdirs" do
     url "https://files.pythonhosted.org/packages/a1/70/c1d14c0c58d975f06a449a403fac69d3c9c6e8ae2a529f387d77c29c2e56/platformdirs-3.9.1.tar.gz"
     sha256 "1b42b450ad933e981d56e59f1b97495428c9bd60698baab9f3eb3d00d5822421"
@@ -172,11 +171,6 @@ class Charmcraft < Formula
   resource "python-dateutil" do
     url "https://files.pythonhosted.org/packages/4c/c4/13b4776ea2d76c115c1d1b84579f3764ee6d57204f6be27119f13a61d0a9/python-dateutil-2.8.2.tar.gz"
     sha256 "0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"
-  end
-
-  resource "pytz" do
-    url "https://files.pythonhosted.org/packages/5e/32/12032aa8c673ee16707a9b6cdda2b09c0089131f35af55d443b6a9c69c1d/pytz-2023.3.tar.gz"
-    sha256 "1d8ce29db189191fb55338ee6d0387d82ab59f3d00eac103412d64e0ebd0c588"
   end
 
   resource "pyxdg" do

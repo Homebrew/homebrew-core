@@ -13,9 +13,11 @@ class Ronn < Formula
 
   bottle do
     rebuild 1
+    sha256                               arm64_sonoma:   "7526b1ad1d254447a0f65555276a8c5e1c9e0183dbd27fb77ec8fcc226a4bb00"
     sha256                               arm64_ventura:  "c87410b78c23e22e1e5af95f6daa63e8873f84e620503897b98350aa91b05b9a"
     sha256                               arm64_monterey: "fb99f591b790de0b20615aec5da0fae2e44c448b34aa97a98aa294a730146d48"
     sha256                               arm64_big_sur:  "c7ff16ba6de865321cb09c07b558813c40931085c82a218e24b0e43c866e0aaf"
+    sha256                               sonoma:         "9318370e6db0e770f712a13bbf1f0954a3ca461e827dcbdc2b598f5b161b3bc1"
     sha256                               ventura:        "400d40793a1f87b91a9fe71de8b7daed4ca8a7973152f59c744d4b52b4fef374"
     sha256                               monterey:       "f3451322dab44f011821248060aefd9a955aecbbc32300598d5c9a36bca3f860"
     sha256                               big_sur:        "9173eef3a1adf288f93d79a92b1c9872d522e58378a3cf70029ed913bfe01ef7"

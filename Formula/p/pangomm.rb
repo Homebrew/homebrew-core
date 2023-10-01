@@ -6,9 +6,11 @@ class Pangomm < Formula
   license "LGPL-2.1-only"
 
   bottle do
+    sha256 cellar: :any, arm64_sonoma:   "9c50c1b4379363deed56bf0926af5238935a9aa9e015a829dc74156afe63cc43"
     sha256 cellar: :any, arm64_ventura:  "240d818a0f389065c06f1b6cb55a7a65b28181717dd4ee5017d93bf7e8575608"
     sha256 cellar: :any, arm64_monterey: "cd508f02963834ff60dc5b02ccd2f6516373c6f63698b153bae6f5521b6fbe56"
     sha256 cellar: :any, arm64_big_sur:  "8133d833f805dcf72e25e766fe02feecd52ba937bc5ea6fd9a49cedad914fc41"
+    sha256 cellar: :any, sonoma:         "4c143bd61e4c1246e6a711579e4947e67609c42518d700018ed745425ec87b60"
     sha256 cellar: :any, ventura:        "3243026755b4a058991bb6bcdbbe8a2504255e3c324eafc2c55a538c2ac6e7d8"
     sha256 cellar: :any, monterey:       "e460a123e6a56d4ceea894435fa9ac65acc3f9875708f9d24b0f5a75e11d43b2"
     sha256 cellar: :any, big_sur:        "9044bfea7d53b7916e7e5ba23da64b71b4a3b01e505553af8b07760a889b4f47"

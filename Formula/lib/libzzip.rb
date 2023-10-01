@@ -8,9 +8,11 @@ class Libzzip < Formula
 
   bottle do
     rebuild 3
+    sha256 cellar: :any,                 arm64_sonoma:   "6e4b8f01f66f4c21a3b6467e1dfebad5e5a204db29b4dc13b448adc0e754419d"
     sha256 cellar: :any,                 arm64_ventura:  "ee5a0f4f19686b63534c718d9c61d75a2a3b1f2ef3b4bcd6be5615536cc84c5d"
     sha256 cellar: :any,                 arm64_monterey: "ac7b8f35398634a9092daddca8a30508bfdb1925407f8c8f6fcdd6e69e43f9ef"
     sha256 cellar: :any,                 arm64_big_sur:  "e2594d07e6b05062c3c28341225052a5ca2f4bd3dc900fc20f3e94190273d548"
+    sha256 cellar: :any,                 sonoma:         "29059d07df1a98967e48d507db2693c936b0b348d9bfdbf832cd66f96c4bb0f8"
     sha256 cellar: :any,                 ventura:        "5feaf45ca387319476e60f2e6bfd8ff2c9dda497df6c809186166e5af098bd22"
     sha256 cellar: :any,                 monterey:       "7b2db8ae12f457c61a4191acf807936608aa4cb8b036560e534d83b50602fd67"
     sha256 cellar: :any,                 big_sur:        "d7a969de7fb5d84796d73f5bda8c53fe044c2808caece9a5f6e20e40201c3860"

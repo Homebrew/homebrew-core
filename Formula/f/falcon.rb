@@ -23,6 +23,9 @@ class Falcon < Formula
     sha256 cellar: :any, high_sierra:    "670ae92a7f950558ea95001b45a848ef6d3f98d5fa414ba3549032d07badca47"
   end
 
+  # Last release on 2010-12-31. Depends on deprecated `mysql@5.7`.
+  deprecate! date: "2023-10-01", because: :unmaintained
+
   depends_on "cmake" => :build
   depends_on "mysql@5.7" => :build
   depends_on "pcre" => :build

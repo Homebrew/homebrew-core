@@ -6,9 +6,11 @@ class Gengetopt < Formula
   sha256 "b941aec9011864978dd7fdeb052b1943535824169d2aa2b0e7eae9ab807584ac"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6c4ee83de15c84dbd2f8d6759d09e6dade6b25cbcdea6d7399bf5713e02f9cf6"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "65c731183d0fbdec83471189c83b19f7f3617daeabc4845baf8c0243e221d95f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0187835bf0f0b221a2b1bb2bcc454aede83fe8cd15e74ea4bca09c7b7feccb29"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0d869a2ffa87824b4e5854df92e2f60f652fe4e5e20d188207bf6171d7d18f84"
+    sha256 cellar: :any_skip_relocation, sonoma:         "22d37123ae7d0c95c2eedc1beac9d713ba4bd9f97c37d2211b2c13c30d91a2de"
     sha256 cellar: :any_skip_relocation, ventura:        "8ca8065df65ce3ea45a4335c7c856f3f5718215e1adb5719e06eba9de3c6e80a"
     sha256 cellar: :any_skip_relocation, monterey:       "90b1ee25cdf823bad41c76f92afabe8a1b7a8db6f29b4cc533c6914d833d992f"
     sha256 cellar: :any_skip_relocation, big_sur:        "f57ffafddb271d729ec0c07bdc564fc1bf0a52ee9b060cde1c5c8da3dbe3f515"

@@ -1,19 +1,19 @@
 class Binaryen < Formula
   desc "Compiler infrastructure and toolchain library for WebAssembly"
   homepage "https://webassembly.org/"
-  url "https://github.com/WebAssembly/binaryen/archive/version_114.tar.gz"
-  sha256 "54f794a843d96cc841bf8045a9dfeaad8161341f0b50ac5b197518c2d39482ce"
+  url "https://github.com/WebAssembly/binaryen/archive/version_116.tar.gz"
+  sha256 "049fa39dedac7fbdba661be77d719223807ba0670f5da79e75aa85d88fedc8a9"
   license "Apache-2.0"
   head "https://github.com/WebAssembly/binaryen.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "ece5930eb44576f995f9b30cf4d215c9ac18f933fb50152c283b7d9417de0210"
-    sha256 cellar: :any,                 arm64_monterey: "81a41654e47c93cff4bab4fc1a3400392e1d0d9ab77af142231b0b55bfbc573c"
-    sha256 cellar: :any,                 arm64_big_sur:  "9b61c3bf8bf6059563bac52545fe3d9a96ab3f8ed862ffbab74033ffa457c288"
-    sha256 cellar: :any,                 ventura:        "c2d0b7561614f1ecc2599b97217b48ae378b2b21d82a7a287bf1f35de2cc9b8f"
-    sha256 cellar: :any,                 monterey:       "d66d08ab550207b546682a24dda875db7cbd744205a2e8af12274f54e85756d1"
-    sha256 cellar: :any,                 big_sur:        "c211791dd66b3042b53b94ee959ef94edefb9fd19351e997d98a832342a2e790"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "36d054d8b3feb09c544b246fd5cb827629b561ea9c8fd2a54209dc82b4438fbc"
+    sha256 cellar: :any,                 arm64_ventura:  "316d0953d1d243cab8f0b81a704ad59c95096a684a5758a7176c257b0865c72f"
+    sha256 cellar: :any,                 arm64_monterey: "a6ff30826feecfca8dbf28585c28968c45c3907e744c511792565e6aca6809ba"
+    sha256 cellar: :any,                 arm64_big_sur:  "267f232cda9528c7847f19d5257f5c6b44c220d84a64fd708d9da12f32c2da92"
+    sha256 cellar: :any,                 ventura:        "d56f8b9fe9521bd80d994b18bcca15fdf48c9fa23ff709e7e08e581888651962"
+    sha256 cellar: :any,                 monterey:       "6b7a692150e73868daf7679375c9a85cd452ef69fd0dd9e3f21dadcf4c922aa3"
+    sha256 cellar: :any,                 big_sur:        "492271d95cb401c751e0b360d9c4e83c308f1029b2cec44498cef3934154f6db"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a313b589dc72fbb54f0e84515b8a679bb697fed846cdd3531fff6263d9cd89d5"
   end
 
   depends_on "cmake" => :build

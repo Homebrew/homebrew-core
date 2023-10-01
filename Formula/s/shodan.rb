@@ -9,9 +9,11 @@ class Shodan < Formula
   head "https://github.com/achillean/shodan-python.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "47a6dfa13e9829a83c10e3b906c388116d8a5e46bb1e2083c6536a5611b8a035"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3d23152b79f7e15423df02fc752dd27f08f0fec3e56748bd5b7bfb046f171197"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c00759645646e941ae68162fb790ebf0e5218e221676319e54a7ad56f0e7ca87"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "95219748f36d74a1bacd0a261a11bd342a77f39429451e8d40a8f756ebf10988"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b5881f34f6bf047f6afc67a343e41d86d9fda2fac3bddb32c8dac2632430fb61"
     sha256 cellar: :any_skip_relocation, ventura:        "69cf05452061383a55b6acb2af77e1b01c583039b951d53a9c7149795cc29e21"
     sha256 cellar: :any_skip_relocation, monterey:       "fd683642dc5b1b3b1869bb99f8317ff88dd346d77e412fada69d5ad0f1804f1b"
     sha256 cellar: :any_skip_relocation, big_sur:        "a4b33f527e705e2881bef2c526bc7a8155906a21cb5cb92e8c5cfa1913736907"

@@ -1,8 +1,8 @@
 class Dovecot < Formula
   desc "IMAP/POP3 server"
   homepage "https://dovecot.org/"
-  url "https://dovecot.org/releases/2.3/dovecot-2.3.20.tar.gz"
-  sha256 "caa832eb968148abdf35ee9d0f534b779fa732c0ce4a913d9ab8c3469b218552"
+  url "https://dovecot.org/releases/2.3/dovecot-2.3.21.tar.gz"
+  sha256 "05b11093a71c237c2ef309ad587510721cc93bbee6828251549fc1586c36502d"
   license all_of: ["BSD-3-Clause", "LGPL-2.1-or-later", "MIT", "Unicode-DFS-2016", :public_domain]
 
   livecheck do
@@ -11,14 +11,13 @@ class Dovecot < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_ventura:  "c9e2fc781d0b0a896294e5619d85d19c0d01d0d4e5a833e6b380ba792dc2fa2c"
-    sha256 arm64_monterey: "b911df521e2e6961d5db4553b92e009aa9cce6f84d3fb7a5d5fda0115e3c8355"
-    sha256 arm64_big_sur:  "4c0cacdc42c3170b298fc0a88f5085a51a51ee052b04956fe2d1067b630a0819"
-    sha256 ventura:        "81a94d994329d3a3c8b2ff8f1774a280ae54330174bd1dfad2826fec54287a7b"
-    sha256 monterey:       "b323934b7d27693e28a8d0047576dff6f8029d721e0d6d5d97d6b1afeca30a4a"
-    sha256 big_sur:        "0c9fbdb439b3e781d23ecc4a4f65c81f11ad6a3d238d217eae5918916658bf61"
-    sha256 x86_64_linux:   "8a23a5a515f5f09cc8bbfc9302cc4e0d9cb23ed3368a5eb0241edaded1882759"
+    sha256 arm64_ventura:  "b89589ccfe9620e87c163c99ed504fb875585dd23d4a53487dc7935b02866c0e"
+    sha256 arm64_monterey: "5ae2a7172bf487a36f90ee0115e57572f7a52e5b1dabdfd8929ee4f01b78d2be"
+    sha256 arm64_big_sur:  "ff928eaeb4ec664bd5e8cba3060a4745a9f6a34f667ff288e0f119c930692f3a"
+    sha256 ventura:        "5c6db5e542ce460ccfc2168b3f14ec80279a621cd076fc5836bad88eb93f5d55"
+    sha256 monterey:       "dd17baa57200f7d95ebc5f8870cca4cf9e48c570840e42c9b1f51d02ec1dbbec"
+    sha256 big_sur:        "e3cba8498560c19191205b503aad5093a1dde6bf45c3e01319f94d89f554321d"
+    sha256 x86_64_linux:   "9740a847f5221216150086de18bd43e93500f6d988ad8989f9f98f9458392097"
   end
 
   depends_on "openssl@3"
@@ -33,20 +32,21 @@ class Dovecot < Formula
   end
 
   resource "pigeonhole" do
-    url "https://pigeonhole.dovecot.org/releases/2.3/dovecot-2.3-pigeonhole-0.5.20.tar.gz"
-    sha256 "ae32bd4870ea2c1328ae09ba206e9ec12128046d6afca52fbbc9ef7f75617c98"
-
-    # Fix -flat_namespace being used on Big Sur and later.
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
-      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
-    end
+    url "https://pigeonhole.dovecot.org/releases/2.3/dovecot-2.3-pigeonhole-0.5.21.tar.gz"
+    sha256 "1ca71d2659076712058a72030288f150b2b076b0306453471c5261498d3ded27"
   end
 
-  # Fix -flat_namespace being used on Big Sur and later.
+  # dbox-storage.c:296:32: error: no member named 'st_atim' in 'struct stat'
+  # dbox-storage.c:297:24: error: no member named 'st_ctim' in 'struct stat'
+  # Following two patches submitted upstream at https://github.com/dovecot/core/pull/211
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
-    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+    url "https://github.com/dovecot/core/commit/6b2eb995da62b8eca9d8f713bd5858d3d9be8062.patch?full_index=1"
+    sha256 "3e3f74b95f95a1587a804e9484467b1ed77396376b0a18be548e91e1b904ae1b"
+  end
+
+  patch do
+    url "https://github.com/dovecot/core/commit/eca7b6b9984dd1cb5fcd28f7ebccaa5301aead1e.patch?full_index=1"
+    sha256 "cedfeadd1cd43df3eebfcf3f465314fad4f6785c33000cbbd1349e3e0eb8c0ee"
   end
 
   def install

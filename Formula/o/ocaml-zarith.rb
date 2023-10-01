@@ -6,9 +6,11 @@ class OcamlZarith < Formula
   license "LGPL-2.0-only"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "30941c4d36a66cd0fdb3ba0204f4f93a18ee4a68d92d5952db4a5834f50321a9"
     sha256 cellar: :any,                 arm64_ventura:  "6ea3674d28c24ef63bbe635871fbac608eb8215370058e8bb067e52fac64ad31"
     sha256 cellar: :any,                 arm64_monterey: "f19a7da2a824ac3881aeb88979badb774fd3f5181908b6280961b7bc7b031b9e"
     sha256 cellar: :any,                 arm64_big_sur:  "d79d6bb89cb272f3dbaed00db063e3e8e50de18b37a6e6193c69980d3a27f7a4"
+    sha256 cellar: :any,                 sonoma:         "b5d882477447d006f8243de0c05f6bd9c9aa616fe695d3d61503c20fc81473a2"
     sha256 cellar: :any,                 ventura:        "2395358b13bed8bc9cf57f891bf9d3cf5576154df991869dbe7613ce1403e71a"
     sha256 cellar: :any,                 monterey:       "2dc837f6b5b386f2903d62b044736474561083c866727bf65b7fea8cbd7ed0a1"
     sha256 cellar: :any,                 big_sur:        "e062e7f558a9d3e4115126e5255d28908ee5800803d41fa5681119c75a2c94ab"

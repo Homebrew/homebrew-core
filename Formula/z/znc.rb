@@ -7,9 +7,11 @@ class Znc < Formula
   revision 9
 
   bottle do
+    sha256 arm64_sonoma:   "f5203a1a153a859e7961f45030fca30f417ae67ce16ba826bbd13c2ddcb8e74b"
     sha256 arm64_ventura:  "9d22b6e33c6538bab946604ba4317459e185897e2f2ae491cc7b66076073e065"
     sha256 arm64_monterey: "ed9dcc7af9880176e7a29ef421c4acd240160ddd67920bd6649aa158b9e37bc7"
     sha256 arm64_big_sur:  "1868c389351fd86e5c9c5847974b57007fd794819213f864d1854fa5d4139db0"
+    sha256 sonoma:         "40284fd3a3dd6ad38c55ded93610b94d43539ecbe644e747084b27fe085bdec8"
     sha256 ventura:        "b553390d14bff7112a6bc0adae40d427cccd0a1ba3a01f69ad8a5dea698bc5e2"
     sha256 monterey:       "5365f2987a95d6a84b0e7e1137903f25d8b8f20d69003c9ddbbee1bcd92d4a9a"
     sha256 big_sur:        "ad659f597cbbed3de79d83d580d4f65608ff342b18a95bf971f4cc3818470ec6"

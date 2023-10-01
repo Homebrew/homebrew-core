@@ -7,9 +7,11 @@ class Libmpc < Formula
   license "LGPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "909895bde6818f0adee6cf16f23836752ae214515da2e9e3beb0f66fbb63c490"
     sha256 cellar: :any,                 arm64_ventura:  "da4ff781bc469c82af17f98f0bdbf20932e222d0520ab784cd1b322b789ad7a5"
     sha256 cellar: :any,                 arm64_monterey: "dd3994160b3625b1f14e34abf632b90bf49e71db1cc85c12e9ab529d4cae2a87"
     sha256 cellar: :any,                 arm64_big_sur:  "43bbe994c7bbb40f7172ef7a750bc6d2687275a76a25f67fc2d53ef00728d912"
+    sha256 cellar: :any,                 sonoma:         "504c66775a10810afcaff53506651eafdb6e9c74dd86881e3b9f7c438fcd83d6"
     sha256 cellar: :any,                 ventura:        "aa4ddb0e50ace93746e6af2e6185493698b501e9359cf73ce41cfbb70369db09"
     sha256 cellar: :any,                 monterey:       "c32f2c3fe7ab06e308e6fa74874e1d4d92ff6eb3598da6e0f8e6fa7a333350f5"
     sha256 cellar: :any,                 big_sur:        "47b50c3df6a35ea3c876397eac4a7dc157b5f4109247671a16599a9a41b9c035"

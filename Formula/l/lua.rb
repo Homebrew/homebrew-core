@@ -11,9 +11,11 @@ class Lua < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "c9f783687410f8f1e396db95652fc18af7a0ffc9aab00bdd3b705a855fb74cb4"
     sha256 cellar: :any,                 arm64_ventura:  "8d0982a83cf18477e039858ae1d8b2393758f2d78a6bb3aaf14379af8973a5d9"
     sha256 cellar: :any,                 arm64_monterey: "f2f26a580bc00fdb0babd48810eaa4eb8cdc9fb28706ff49e8c4178afac6ebf1"
     sha256 cellar: :any,                 arm64_big_sur:  "42984d1fbac9444e75a4713d62e28fef139dc539fdbc9ab260738c8bc153547c"
+    sha256 cellar: :any,                 sonoma:         "51f2d4b50118528724f7966e6daaea11b2a84d32971860544f1038298c41aa38"
     sha256 cellar: :any,                 ventura:        "9b7170b3d84e70b9e89f356355744a277718ffcbee6a1b385ec6431d7ada2da2"
     sha256 cellar: :any,                 monterey:       "d3f55cd3b4122bfa85992aab125205041379f99879d90740d62f054498cba97d"
     sha256 cellar: :any,                 big_sur:        "e16b7d9390a3906a71d419b840ff81486607dcf557d1c35a03aee2f4b20b538b"
@@ -55,8 +57,8 @@ class Lua < Formula
     inreplace "src/Makefile" do |s|
       s.gsub! "@OPT_LIB@", opt_lib if OS.mac?
       s.remove_make_var! "CC"
-      s.change_make_var! "MYCFLAGS", ENV.cflags
-      s.change_make_var! "MYLDFLAGS", ENV.ldflags
+      s.change_make_var! "MYCFLAGS", ENV.cflags || ""
+      s.change_make_var! "MYLDFLAGS", ENV.ldflags || ""
     end
 
     # Fix path in the config header
@@ -102,7 +104,7 @@ class Lua < Formula
     bin.install_symlink "luac" => "luac#{version.major_minor}"
     bin.install_symlink "luac" => "luac-#{version.major_minor}"
     (include/"lua#{version.major_minor}").install_symlink Dir[include/"lua/*"]
-    lib.install_symlink shared_library("liblua", version.major_minor) => shared_library("liblua#{version.major_minor}")
+    lib.install_symlink shared_library("liblua", version.major_minor.to_s) => shared_library("liblua#{version.major_minor}")
     (lib/"pkgconfig").install_symlink "lua.pc" => "lua#{version.major_minor}.pc"
     (lib/"pkgconfig").install_symlink "lua.pc" => "lua-#{version.major_minor}.pc"
 

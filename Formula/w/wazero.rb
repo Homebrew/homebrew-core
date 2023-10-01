@@ -6,9 +6,11 @@ class Wazero < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d61a4513667f6ffb78f1d09c09f1a8159dbf9fb442a97a763c79bde00b0cecb8"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8b4f5d7217e7c3e599819db9e949fc0f40f02e83b40f5482343723b57305bf80"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8b12ba712fae63f2b6cd0138a7b59f393a3cccc2fbbc81df5e8026247dd63005"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d39edf868cd19d989edb86ee1bfc8fd4ff06626804ebdd762118d481cf4a276f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5bf4b794ac8ae78c5f48ecc2148823dfb2bd4344b0d87bcf79838e889d93eda1"
     sha256 cellar: :any_skip_relocation, ventura:        "cc9df301383a777ade973977ae96d006278aeeeade365cfc1ea301fa73a7c458"
     sha256 cellar: :any_skip_relocation, monterey:       "4e56c5aec7e2e254956d73cb5b76b8abefa79f5fa897332b78768e15d651570e"
     sha256 cellar: :any_skip_relocation, big_sur:        "54c1f92ad65ab327f4e6124e1749d57b828c48d322f8c66ce19087aeccdf2ab2"

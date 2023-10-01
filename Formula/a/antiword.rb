@@ -1,7 +1,7 @@
 class Antiword < Formula
   desc "Utility to read Word (.doc) files"
-  homepage "http://www.winfield.demon.nl/"
-  url "http://www.winfield.demon.nl/linux/antiword-0.37.tar.gz"
+  homepage "https://web.archive.org/web/20221207132720/http://www.winfield.demon.nl/"
+  url "https://web.archive.org/web/20221207132720/http://www.winfield.demon.nl/linux/antiword-0.37.tar.gz"
   mirror "https://fossies.org/linux/misc/old/antiword-0.37.tar.gz"
   sha256 "8e2c000fcbc6d641b0e6ff95e13c846da3ff31097801e86702124a206888f5ac"
   license "GPL-2.0-or-later"
@@ -24,6 +24,9 @@ class Antiword < Formula
     sha256 el_capitan:     "ffc3b61781ffb2ae04537e34b28a19a4fe33683c534dd2d1504d2ec8d5ef4bef"
     sha256 x86_64_linux:   "12935daff8ed3ffc2a68b8be542ea190bff6d7d2a2d46c854080d4023346d526"
   end
+
+  # This cannot be deprecated while the `textract` formula depends on it.
+  # deprecate! date: "2023-09-24", because: :unmaintained
 
   resource "testdoc.doc" do
     url "https://github.com/rsdoiel/antiword/raw/fe4b579067122a2d9d62647efb1ee7cfe3ca92bb/Docs/testdoc.doc"

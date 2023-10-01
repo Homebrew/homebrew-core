@@ -8,9 +8,11 @@ class Libicns < Formula
   revision 5
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "2da2b5cfc0aa4e79abe85f5794115e41709297c1d6d813c04ebfc5776e974b39"
     sha256 cellar: :any,                 arm64_ventura:  "144537e569ff40707cbb02a4d5d14592bc001cc7eff0e21f102dfd6c36908689"
     sha256 cellar: :any,                 arm64_monterey: "b9e9bde24513deaf1b8b09089b691c3108f0d3e456f6cdaf29851f138a9b75f7"
     sha256 cellar: :any,                 arm64_big_sur:  "163ac60e31105b323182e807195977f27bf0e7870b151d9744a1bbbd2a37b78e"
+    sha256 cellar: :any,                 sonoma:         "5abbb72a1c8631d30b54ea627c2548f7501b2ad1d958c8ee4ccb9abfe5862a2d"
     sha256 cellar: :any,                 ventura:        "0b9b72d44a2d0737fe8f9c0fcca4250436b618cb437a6fb9715b2817220c180a"
     sha256 cellar: :any,                 monterey:       "53d553054ef00243c22ae45d5b4937b11c2427064b083420b95090f96855ec94"
     sha256 cellar: :any,                 big_sur:        "43f30bf4451dbc02f68bb4befc43ed730dc2d5757306111b62d37005ab45bb74"
@@ -31,6 +33,9 @@ class Libicns < Formula
     inreplace "icnsutils/png2icns.c",
       "png_set_gray_1_2_4_to_8",
       "png_set_expand_gray_1_2_4_to_8"
+
+    # Avoid errors with Xcode 15
+    ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
 
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"

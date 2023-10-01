@@ -13,9 +13,11 @@ class Tarantool < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "a16d33440eefc4a94d38b7f0e8622d99370549d54bfa8e25aa5e3aa6ee5d8436"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1c223efcf5587c70703ccfc95e11ab3c863a24ce7eb93fc1b1c6d6467ae95a66"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f94996a2259418dd71e5f6e7be722fbadfd85d6a6f0e7285b257401f68e1da2d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7d8873b0f47fcd8986c9db418e909faa241970dcd7ff82d03554f620865522c0"
+    sha256 cellar: :any,                 sonoma:         "1bf3d80210621f85f6d8b765a061c289b36f3c802345794addcd1e80767d7169"
     sha256 cellar: :any_skip_relocation, ventura:        "68d1967d680933858b05a7af7bb913017255739c5eca43d4316feace46f98915"
     sha256 cellar: :any_skip_relocation, monterey:       "3c5bf4852c0c7e69104c079eac495969b9110d397ae96c818b706522709b15de"
     sha256 cellar: :any_skip_relocation, big_sur:        "dc2045f59e5e3a4efcca156a2cdb07fbe2429c341e959cc016083f98545f6f0d"

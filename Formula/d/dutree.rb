@@ -7,9 +7,11 @@ class Dutree < Formula
   head "https://github.com/nachoparker/dutree.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "235807c35ae72d2b7c0ce81eba444d8fa0db6dcc657deb5de876b58037dde646"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9bbb961b815ddd2b4674a485740e9e5f19b7a135ad73e6631f0fcf4ddf78414a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "eaf7782638a422504bf3b733217e94eb8fc63cb09123d6a05bf566da56568a7f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a2b038d11a79c57d6b6b3e650b3499315856ab30621b163366ac42bdc22044c4"
+    sha256 cellar: :any_skip_relocation, sonoma:         "15d202fddeafd1e3fdbebfea5f690a3b8f045b54514e6652b9f11e988c412305"
     sha256 cellar: :any_skip_relocation, ventura:        "aaa311e0c04f6110ba51dd74d8f8315a7d720f1be65a77d7148a37d3248fdfa4"
     sha256 cellar: :any_skip_relocation, monterey:       "f36cc2121241cb577bbe53de7a0187e089ebc1e4c0bdce0cb0fbb2112f3e5eba"
     sha256 cellar: :any_skip_relocation, big_sur:        "4bdb0ab41ee8863edc1f6bd4830065369e1b228114b27cd1d8aef35c10d46718"

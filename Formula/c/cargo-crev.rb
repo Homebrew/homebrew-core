@@ -11,9 +11,11 @@ class CargoCrev < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "fc0a54343513092fc266aa556dd646c9040c92506ec073b6679eac9d59f3150c"
     sha256 cellar: :any,                 arm64_ventura:  "d9442463c0f068cc155707e5863655b2942741f47e0ad6425d49aa412e03f55a"
     sha256 cellar: :any,                 arm64_monterey: "6aa21f5406cb13217a82f76bcffc0556b4aa05da63377c2c04d9015958b70861"
     sha256 cellar: :any,                 arm64_big_sur:  "a71044e0be5b827ba94a4a575011997c1cb7db9166d95e3f7c199a9a104a00d0"
+    sha256 cellar: :any,                 sonoma:         "b2403d97062233b88c870257274e9d8355efe384396550286e2731413144d6ae"
     sha256 cellar: :any,                 ventura:        "2f44cd13f105688622672e3b9eeba429117e5f73c53cb3c1f4b12fe863fe2c40"
     sha256 cellar: :any,                 monterey:       "b3e3d310257afac449d16e321d695872262691a03290e667b5ab29f823e881c5"
     sha256 cellar: :any,                 big_sur:        "325bc8db3ae10e41ed2a4d5887e4ec3022f6343eda4814009894abc7834b0391"

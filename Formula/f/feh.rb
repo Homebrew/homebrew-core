@@ -11,9 +11,11 @@ class Feh < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "f4558a3bbe16ff004a86ed85ef6421f08e33bd730d62ef86ce586886502d17cd"
     sha256 arm64_ventura:  "d09345a22a4d8c83ce3dcf08c7094bc487c6ca6c3c68909b58a6b5c5fbe42fe6"
     sha256 arm64_monterey: "5ff27ed211a8b9be511a8f15482247a7ecfc85a916827eaa1c71397b71b28df3"
     sha256 arm64_big_sur:  "799e3e81bd9ab5ce239bdf12014c92ddabf1eed3a0191da5ae042159107ab051"
+    sha256 sonoma:         "d2382646b5de50e609d0bb29f35099dda007e9d15f6c8d5ab897e80f230d6fe8"
     sha256 ventura:        "89580584fd9466914862b6e5f61c49633fc8bf371ef7e891bf660e943925cd6a"
     sha256 monterey:       "c29cbf93477a53aa44292a702596c7e96028f285c599121ac6e3c4ff9e732452"
     sha256 big_sur:        "ce60ede12373dac7aa745bb98091b3d145689b589a4898f8d7f6a989bbeb18c3"

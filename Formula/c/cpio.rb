@@ -7,9 +7,11 @@ class Cpio < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "27687d63edac34723ef5caebe9dc6f80f5bcfdad1a36b1a3e446e5709d5b83b1"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "71ccaa3f3733ddd2a6ccd886120e7cdca68b775ac2615d46cf99902df6f65417"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1b6dc737f78221ccbcbef7ddf0f6c5fb345b8db86cfa32f6f64be37b9556dd50"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1b4544de5d652bff8b6cc48a0e5396e271cfca0e089e7d3a1029e277cdfc7ddd"
+    sha256 cellar: :any_skip_relocation, sonoma:         "1318f9bb30cb0e0eaa286873a88bb11c3b9995bac4adbc96b546ca2d420ba47f"
     sha256 cellar: :any_skip_relocation, ventura:        "b4d80de07725c95bd4454c578ad37ca73c506443ef200c10690da2799ca25ade"
     sha256 cellar: :any_skip_relocation, monterey:       "88d4ee2cbdc7eefcd0c81d466cdbb433ba75fd6d0f1cad603d3691cb1126911c"
     sha256 cellar: :any_skip_relocation, big_sur:        "06004c76848994f1f3d1f3b69050f63956818ea618d52196d1ab5ef7998965df"

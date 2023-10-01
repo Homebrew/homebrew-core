@@ -6,9 +6,11 @@ class Tt < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "56de58ea34c6eb7eac9694f963f77f5a15321f014bb899a11afb6572cb2617fa"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "997fde7ea1d491150fab45aa08f35ac378abf8e2f6112a66db09b302b0407b31"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ad8ce717c76705e081b5948f5800c57606be62bb17b2762f950124ae06374ca6"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5ec424fc3458847404647e97746c1bd7b95eb0d0a145f64e529efc223f0f5b14"
+    sha256                               sonoma:         "64106a1a82d8323d7fd1504279a84ba88b3c619c7efc703b4878fb3f9f16a55a"
     sha256                               ventura:        "4cd4e4697ab5abd237a696887526831b3e0d4a4747fd853ce552cfdc9956bff7"
     sha256                               monterey:       "f7a392b21958de48e84132c58842ca6d9bc9cf1addf0484229d379c09fde1d28"
     sha256                               big_sur:        "7781344735fd60625dec1e88bfc6455ee7fed48b4c806c5aa8410da3a5c066d9"

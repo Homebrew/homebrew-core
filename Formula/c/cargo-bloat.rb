@@ -8,9 +8,11 @@ class CargoBloat < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b5ef547d67d138a90d43533ba67195eaf97a64b48c7f87bdf0486601f79fab90"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2c53b8b2d79a6849c1d205fb83756a26d05c9474dd1224c60b2514be91c88de4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5f62f85a081b59f0bd758eef9d2bab666fa6454b0aacd2cdfd37ddf0739f7de8"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b6ab2d9245352f227b5f223510a0f5808f12f6c7c646cd97762bffc3a9ba1314"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7e896f79d7d4b8fdd177257038c44ab7cc181dbe11baae99f202448a8d868f9a"
     sha256 cellar: :any_skip_relocation, ventura:        "bc46e671082df2cbd1efe4c960fda46fbd9d8367cf6dc5dc3609f23d8acd688c"
     sha256 cellar: :any_skip_relocation, monterey:       "3805e2d627484ee6d60f6f5e3b67d1e89f9b4813207f406f462a3a3f582d92f2"
     sha256 cellar: :any_skip_relocation, big_sur:        "bef4a80020141209f357649f2574808a043c5d8134f7986dd3574cd61d11672f"

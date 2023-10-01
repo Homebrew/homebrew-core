@@ -6,9 +6,11 @@ class Vpcs < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4a6670a2833658d64a9be4c0e42f07b7224ef2cf1ea50faafa982f8469a49052"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5ad3049e60f55965753362c2d6b5d5919dbe4b5537b155a0d914614d4a0d8cf6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a039b6f432de6fe7fb3429b6ccad3a822e1249e6b11a3af0d916c98a908b4dc9"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d673e17698f476b16e70b66227623b829779846d0f4b2246cf84c85f8427d8de"
+    sha256 cellar: :any_skip_relocation, sonoma:         "9d359b2fa18ff5dc0f8a1f34ef372d1d721fcc4400bf935ef743368a7ec05cf4"
     sha256 cellar: :any_skip_relocation, ventura:        "c65377d546fbe8026e2a833918b2ef9cf10578a05f6f6f7a0141aa264b4875ef"
     sha256 cellar: :any_skip_relocation, monterey:       "6f3e52b8fd8ee4aab736d67fc99ed39fc72364fa9a3ffc9db1b8bd0d8b27661f"
     sha256 cellar: :any_skip_relocation, big_sur:        "75d81877dc7c7e8a07b5a1496e1264ac19fd8206f5dcc24de835931a0d1501eb"

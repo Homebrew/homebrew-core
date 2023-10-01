@@ -13,9 +13,11 @@ class Algernon < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bbf19a3b03bcdeed2b8d0d7316febfa4becacdf75dd154c668e29f09d220e0e9"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8a5fbc78f56e52a4936aad2b6b8cf7df79bc025d2fdacb46c215c8d608c5095f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8a5fbc78f56e52a4936aad2b6b8cf7df79bc025d2fdacb46c215c8d608c5095f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8a5fbc78f56e52a4936aad2b6b8cf7df79bc025d2fdacb46c215c8d608c5095f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "86958cd9f4653cb7040f478bfa637bc2a4d190bc546e53da341724217b64c82f"
     sha256 cellar: :any_skip_relocation, ventura:        "385a17d4bf85d85ca448a5b80dc5f36c4ed4e76efc5b9f5d350217d66df1fcdb"
     sha256 cellar: :any_skip_relocation, monterey:       "385a17d4bf85d85ca448a5b80dc5f36c4ed4e76efc5b9f5d350217d66df1fcdb"
     sha256 cellar: :any_skip_relocation, big_sur:        "385a17d4bf85d85ca448a5b80dc5f36c4ed4e76efc5b9f5d350217d66df1fcdb"

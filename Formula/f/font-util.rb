@@ -1,18 +1,20 @@
 class FontUtil < Formula
   desc "X.Org: Font package creation/installation utilities"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/font/font-util-1.4.0.tar.xz"
-  sha256 "9f724bf940128c7e39f7252bd961cd38cfac2359de2100a8bed696bf40d40f7d"
+  url "https://www.x.org/archive/individual/font/font-util-1.4.1.tar.xz"
+  sha256 "5c9f64123c194b150fee89049991687386e6ff36ef2af7b80ba53efaf368cc95"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5c8d5bd77984bd50d7899209f12e78c7e693791fb22149662cbc7bfde3e519fa"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "10fbd2af6d4cdb24e97614e040e60de26f174f36fad7830f4b1d84dc2de60bc1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "68ef54c83f61897323c56c807743f4f762e24a8222ce2f6b5dba95e3646d2b1d"
-    sha256 cellar: :any_skip_relocation, ventura:        "5aeaa5fbf6dbd337b42ccaa2824cf0b84862ba9c716d000c58eaa11af1d94cff"
-    sha256 cellar: :any_skip_relocation, monterey:       "e9aa45b03776dfac3b55b793fc8f44252cc022bec1edac356628f7142e0c5318"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8ce16c7d22c356795f84c104b9d73eddab5620660d8d321a06d845ae951b981a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5c3e9cf334af8c2d58014b67b6bee26d09ad35e56b514fa7a8275cc1383211e0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c330ddeddd9f3f0a53c3845c1b3d3bcf1524370135df06eea99a914659185fcd"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f797dc497bc5e95e9e9840bdad4dde1c083f7c7f2bd26d577897f2bc63b27e6c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "46ba2f844d8b9fcaaf5bd3c40d77e3e6f6d61306e430d87f5e2c6c9bc8238228"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "aa874f6feb2e9dbec27c1542c122fe4717397f0ee6f808048a5ed105b6870633"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f0e2b8da17504b136f61aa7d9d0300c4f3d664f8fc7f92f375ad64a717eef2fe"
+    sha256 cellar: :any_skip_relocation, ventura:        "b6a7600ba11c04222874464dc5b7e01976f88f01f1fa4e33336c3bb5aa593aeb"
+    sha256 cellar: :any_skip_relocation, monterey:       "7463821e99f23ec109e6ea41d5c4a6bd79d6cbdbd8d52d58e727212c6fc215db"
+    sha256 cellar: :any_skip_relocation, big_sur:        "48980593c214141ef4ad5c85e70104446df26b82689cf361128c740c1a48b8fc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "deb3137c5cba7ee33ca8733cc79348b69bf8d337cb20037d12de3bf4eff593dd"
   end
 
   depends_on "pkg-config" => [:build, :test]

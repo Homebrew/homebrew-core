@@ -18,9 +18,11 @@ class E2fsprogs < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "bf31f70850a44d4af3a5f82a558787044028c85977eed6c53d7f5328f86ea0e4"
     sha256 arm64_ventura:  "32c3579e1a33775074fb35ae5e6f499682da918d6310a653600bb3a97b3ac235"
     sha256 arm64_monterey: "b7fe9f7b148e778ef9b4d9d6bc97d39fdc942436692b33b518ff1cc85d2b123b"
     sha256 arm64_big_sur:  "b81365c6dafa1ddf9d37fb0ac9b748f70c832ed01c48a97ccb030bfe35ced118"
+    sha256 sonoma:         "65ec0887a0910e8793321e1945193d4db1395af0e58113b3a26d01b6d1bbb0f5"
     sha256 ventura:        "e3bb6dbd23b93bfa37ada501134be5ab997ea98b62d800f3e448cd1e627a9bcb"
     sha256 monterey:       "bc1f1731ebae67bcfd0426e72e0dda411d0737103996344cf351f469e5c6b5f6"
     sha256 big_sur:        "5fb3d45aa2cd60cd733f346f2433f3b203c7f06065d901efbcb28d207081186e"

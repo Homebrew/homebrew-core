@@ -12,9 +12,11 @@ class Tradcpp < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "98a960df81fa5a9d651e084529ffdbe2732d92e6b452ddb8530845abf29043d2"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ae50daead4edf3e9669b42267182a9bae1f57720bbeb635e9dcc50341ceb27b3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f4a656232f875bcb230883e1f5ed126b4a548d0cece88453a487a4e2cfc4dd89"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2b8d415d6720467f22655633820ca17c596c7eb6c9e4a3251ce0d12c6b0c64b5"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d6175a0b58881e2f0fcc5d45dec27aaddc6d7fc8d937c19b0c7183fd304116c0"
     sha256 cellar: :any_skip_relocation, ventura:        "4655462eea375707576c583c4107442cf648ed1deeebfbd64517b7058717ea66"
     sha256 cellar: :any_skip_relocation, monterey:       "4efcf13b3cf15f4c8013ba1000f424d0a240ba16b8436a086d82a1a29edc7d2c"
     sha256 cellar: :any_skip_relocation, big_sur:        "8818618fd35264ceb99df10c17a3af736fd91c886a1db778ad752095631523c9"

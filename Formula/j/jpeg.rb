@@ -12,9 +12,11 @@ class Jpeg < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "1ecbe9cc44507db0fa9c0b7158afd7665d225a9485f89d0b8936fc07f3074d27"
     sha256 cellar: :any,                 arm64_ventura:  "9f4b61fba5eac14705918c94e7f43ecfb7f20774d1c8195d15675ddce4e1b7d3"
     sha256 cellar: :any,                 arm64_monterey: "5d4520a90181dd83b3f58b580cd3b952cacf7f7aa035d5fd7fddd98c1e6210d1"
     sha256 cellar: :any,                 arm64_big_sur:  "27409eb75ac182025c27b4aa9c2290c40feec924cbe9edc095c754120c87bdf4"
+    sha256 cellar: :any,                 sonoma:         "840ba1f30c48252c4213d3776f6afe8198a5a2d15f9fc31c73c79fe21023d45a"
     sha256 cellar: :any,                 ventura:        "60e8af1b1b966df8aa970865dd17930b67edd23e10d3c96495879030a3b6f5ee"
     sha256 cellar: :any,                 monterey:       "208af924cc7a42f53ab8ce50084eb76faadc3c1942e842484acbb2e74a54465c"
     sha256 cellar: :any,                 big_sur:        "085e31212006e6afefc6e5141a02a06cb5bdebdbc8ca5edba50de0d95dd495fc"

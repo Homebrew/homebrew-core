@@ -9,9 +9,11 @@ class YouGet < Formula
   head "https://github.com/soimort/you-get.git", branch: "develop"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "33cb5f58e3867b76c7eaf564af7f439f40e9d67a67db2764d34cd6eadd107ab5"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "10cbedc1662e5e93abf11da1dbfdfcafece91370708bb7bd2a90563424a941ba"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "10cbedc1662e5e93abf11da1dbfdfcafece91370708bb7bd2a90563424a941ba"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "10cbedc1662e5e93abf11da1dbfdfcafece91370708bb7bd2a90563424a941ba"
+    sha256 cellar: :any_skip_relocation, sonoma:         "9e70f77a60c7b82b4c7ba4f59f851c35a12856db41a77c1264734ae118782822"
     sha256 cellar: :any_skip_relocation, ventura:        "937b557473bf5b2d762c4d78bfb44f755353c429d1e370c36de26487b26c4949"
     sha256 cellar: :any_skip_relocation, monterey:       "937b557473bf5b2d762c4d78bfb44f755353c429d1e370c36de26487b26c4949"
     sha256 cellar: :any_skip_relocation, big_sur:        "937b557473bf5b2d762c4d78bfb44f755353c429d1e370c36de26487b26c4949"

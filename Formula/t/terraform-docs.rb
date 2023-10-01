@@ -7,9 +7,11 @@ class TerraformDocs < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c12acbca20641e013d57a6fd915e7cf4cc0b9b2ebc18f2e81f2fca11674f58e3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "668f0822b31d0bff7505929546b63d2402cf5dd827798a0fe7e74b5e7252a0cd"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6fddc004ce8b2d291af3be852071361f4c08c9c15e9b427c63eded1f86cf989b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ee06989a498ca1ee3f94fade88adcfc96d4d6d833b6ea3582bb6aaeda15b5279"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0265a3df96952d81a1722b791391b8ca77383ca65725795325095c0949ae671a"
     sha256 cellar: :any_skip_relocation, ventura:        "d90a3a70220aca39b2be6df347ae77f051ea697be474bb0283289cd9f9108fce"
     sha256 cellar: :any_skip_relocation, monterey:       "35bbce206ca1a1ee152ac0248f21016de5465076d56bd625043a38a02e7358d6"
     sha256 cellar: :any_skip_relocation, big_sur:        "ec8e73ce93f2e026c762c2a27809e964c81300d4555889ca54c7aa490ab986cc"

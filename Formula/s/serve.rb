@@ -7,9 +7,11 @@ class Serve < Formula
   head "https://github.com/syntaqx/serve.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e5f617c56cc80d5658b19d32dbc6002f5de4061af0da97a4ec7c2d420b8285a2"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2bf7effe016ef9a0cef9f6325983d0071b6f7ab8097b99c6b79c926efd2519a1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2bf7effe016ef9a0cef9f6325983d0071b6f7ab8097b99c6b79c926efd2519a1"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2bf7effe016ef9a0cef9f6325983d0071b6f7ab8097b99c6b79c926efd2519a1"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d713b0211cbdcb91ff28e1a0cc481e7870a9956f51f63412730c060841e02c5c"
     sha256 cellar: :any_skip_relocation, ventura:        "205cfdc9a632e8c90d415bea94ab53e9a029afffb7d870fac8018bb937e43b98"
     sha256 cellar: :any_skip_relocation, monterey:       "205cfdc9a632e8c90d415bea94ab53e9a029afffb7d870fac8018bb937e43b98"
     sha256 cellar: :any_skip_relocation, big_sur:        "205cfdc9a632e8c90d415bea94ab53e9a029afffb7d870fac8018bb937e43b98"

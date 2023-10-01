@@ -8,9 +8,11 @@ class Podman < Formula
   head "https://github.com/containers/podman.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "03e7a9edb9e39a0284716fa917cc97493f0603eefd337124e6cd7c1e7f9e4ced"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9a2b6cafedebf4b837220e747b73e09fc038677291534cd97a011802d8ccf11a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "277aee25c8f74181945b8e0a9fbb735fdcce9df4ffa54bfd561f9352ca31f0a5"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "df89788337baa7898e7023d0c19029483709e5c3fc3ba25c503bb4e06baff78e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f8a70f2b6ab44bec09af0df07d3e3d77d098aff4c7d60b254c42fb64c42e0786"
     sha256 cellar: :any_skip_relocation, ventura:        "d75447f0a1c9307a576fd2188690246316ce9a17d32837d20e99b1b121cab471"
     sha256 cellar: :any_skip_relocation, monterey:       "799b17ef0f6d03deb70c22b87dc134e544ac6ceea382a363bd78de46f40a94b7"
     sha256 cellar: :any_skip_relocation, big_sur:        "a206e00acf04b6227f6b182d621ef3fa1b09391984979f167ad1c00c074e5de5"

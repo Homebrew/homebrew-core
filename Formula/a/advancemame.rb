@@ -12,9 +12,11 @@ class Advancemame < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "c012e4193e1c3b4336a93cbfed852ccbb31d5a55cd39103ecb7164c21a46ef6b"
     sha256 arm64_ventura:  "aa8102392161083a5a0b79bc1e831946522b3e30977c553277a665ed1b52727b"
     sha256 arm64_monterey: "0345ac679c13343cc595026f63d7fa90992935964ae4f949abf6b047ebafd06d"
     sha256 arm64_big_sur:  "8ac0b808eb5358417c5c2aab31e53cca0031a0dd4abb922d7eea5c52622e8f08"
+    sha256 sonoma:         "64f74acd78b18a65dfbdacd879db90c6f162aaf030227c2126a637dba89a16b1"
     sha256 ventura:        "c7268e908aabfce9e31170aac2ca2c03664639c23fe7212f8f2885cf4bc66985"
     sha256 monterey:       "f3e7d8dd40e68328a8135949522fe2873a2bd6d8c2271300a74fcb8156e186d3"
     sha256 big_sur:        "8b2d656d506250066ce382a3f538d9476034fa3cf4fcddb87a61ecc84cd4c5d6"

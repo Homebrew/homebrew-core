@@ -11,9 +11,11 @@ class Ydcv < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "061ae513e42baa453cad8f642aba997e3adeb2a56fcc15f9b0450f45e426b006"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "cb6154d76b16bd58ccd709104fedad005bb7987624b81947dcb56e89e85f7c73"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cb6154d76b16bd58ccd709104fedad005bb7987624b81947dcb56e89e85f7c73"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cb6154d76b16bd58ccd709104fedad005bb7987624b81947dcb56e89e85f7c73"
+    sha256 cellar: :any_skip_relocation, sonoma:         "669abec76b3900e94cac2fcd075a1c9f8f596a1837ca4ffc4065562f7941dfe6"
     sha256 cellar: :any_skip_relocation, ventura:        "1395cd029c7edc09b2d1d12707585e41f433dd14b54bdc92dcd53376cca76570"
     sha256 cellar: :any_skip_relocation, monterey:       "1395cd029c7edc09b2d1d12707585e41f433dd14b54bdc92dcd53376cca76570"
     sha256 cellar: :any_skip_relocation, big_sur:        "1395cd029c7edc09b2d1d12707585e41f433dd14b54bdc92dcd53376cca76570"

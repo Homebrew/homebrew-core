@@ -12,9 +12,11 @@ class Hackrf < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "6e05c52ffa095bd8620bf577aca4832033392e57e2a1f9851fb47532c9cf6c7f"
     sha256 cellar: :any,                 arm64_ventura:  "5e3a08883caa11b3efc07014bb53cac7f5de322b2eb2a6e3e27bade295b1e6f7"
     sha256 cellar: :any,                 arm64_monterey: "ec83b7be635e119651ee1715f6efa57c72d4d98f560e27fbfd4456598ab805e7"
     sha256 cellar: :any,                 arm64_big_sur:  "60831932de8d4499a1f1c54f1810d001ab3b7e3af0732735dd5e3df5a93ab935"
+    sha256 cellar: :any,                 sonoma:         "2a982122633f0009fde2b971a9cbd71e04c155defda81a83248405f295fa2e72"
     sha256 cellar: :any,                 ventura:        "99bd5f158dbb6d6ceeafa5eb0c53b7bf91cdad7ace7bdd2c3102022b130c6cd5"
     sha256 cellar: :any,                 monterey:       "b21f730ddf1a1a8b117585bbf9beb271c73767fe3c69d0a7bd84812cb0256bfd"
     sha256 cellar: :any,                 big_sur:        "0c8b55d2e955787afeccdbee0ce02e168d35c3d72be0b7c627f9e9dc693c0f4e"

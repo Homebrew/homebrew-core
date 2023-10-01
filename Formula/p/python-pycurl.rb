@@ -6,9 +6,11 @@ class PythonPycurl < Formula
   license any_of: ["LGPL-2.1-or-later", "MIT"]
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "6d5f52282dd74ad2726a0210330d5228aa756933ff42968ad6a49b000e29d362"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b01775147d796632cd89636bab73d9d65bf5024fd26771d075862ea5070e75dc"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1df263fec549cd890bf9d7ba7862b1d7e2a92895b146a6be2b11fb2d1f504316"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2a113cc5110a8e58af1183f22763692ccea8df9be43ff7decdcd69d4e129c5aa"
+    sha256 cellar: :any,                 sonoma:         "ef6b5f361afae9a6117b04bb61523fd3751331896ac635d1593e6df0a0aa4db7"
     sha256 cellar: :any_skip_relocation, ventura:        "a7d15330771c14dd0be524f69af0252aa1b4a4aee6cd568133891af031ac010f"
     sha256 cellar: :any_skip_relocation, monterey:       "16a477b578ebd2914652ab225c793876b9bab141bcb4eb9348b289d3486cf6db"
     sha256 cellar: :any_skip_relocation, big_sur:        "e15e6a9d78351782e680b9c543327bf35a77de6b99d474e8233c52018c7dcc8a"

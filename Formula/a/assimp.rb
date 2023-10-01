@@ -8,9 +8,11 @@ class Assimp < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "531ad0dced6130713ac5ede3d6c5e21ac21522c76eb1fee0d2526b248c61aaf1"
     sha256 cellar: :any,                 arm64_ventura:  "38267be8c3911c4269de574dbb3f7a95523cf3eee9a37867900e35c62304d72a"
     sha256 cellar: :any,                 arm64_monterey: "41d4dac7a778c2ce90ac37fed8719342f01955f853cc5f22e003039cff473706"
     sha256 cellar: :any,                 arm64_big_sur:  "3193797fdee877db77e530640ed40ffaedc4faea785e7fb635a33f8f53276cab"
+    sha256 cellar: :any,                 sonoma:         "bdfc9d450272db27fba5301254c99f7b120655715df1fa607b9266ba4f61d3ef"
     sha256 cellar: :any,                 ventura:        "df603dc822f5590620aada3ec00d52e3d4f701ed2ec5dba6c3fd93674fa10ba8"
     sha256 cellar: :any,                 monterey:       "45a132fbf709f176c786bc68d46762278bb1becb970af8e1c6eae57536d549fa"
     sha256 cellar: :any,                 big_sur:        "9e9aaeec7e775d4dabfa0bd8fdd7829e1fe41052ffc94e1463012a9c4a0991ab"

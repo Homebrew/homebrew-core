@@ -13,9 +13,11 @@ class Libsmi < Formula
 
   bottle do
     rebuild 1
+    sha256               arm64_sonoma:   "338426ca6bd52ced087751e568d7711a5e7fd1bcc6490bb89983bf3dde016749"
     sha256               arm64_ventura:  "5d7aab3f390daeca40fef88271d3bd76c3ba2cf0fa1ad2866f2adf58d20eb6c2"
     sha256               arm64_monterey: "c53376c22e3acb2770cfa6eca3ae698dd5386a8be8ebe4099a47a8fcd73104ae"
     sha256 cellar: :any, arm64_big_sur:  "608287866cf55d742ebe601ff14e984f39a3e7b11374d461b4dc3e5a41854ca6"
+    sha256               sonoma:         "bfcdbba78e4b03098907e36e11e66d2437951ff5de5e5c7a7c4d06fffb38bb5d"
     sha256               ventura:        "7e3436eefafddcd7d4d8fd9de4a4cc751d61c84403bcbe5ea9c2d3b0ec741995"
     sha256               monterey:       "2ef53a0a8b4eb430786f8196c18ab14352968c9377c693d11c44c44df05f1865"
     sha256 cellar: :any, big_sur:        "5c3ea572911edc5c6beb54b78e34d840dc458d6b0b5f465298fd0fe673f117be"
@@ -32,6 +34,9 @@ class Libsmi < Formula
   depends_on "libtool" => :build
 
   def install
+    # Avoid errors with Xcode 15
+    ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
+
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"

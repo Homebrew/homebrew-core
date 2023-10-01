@@ -13,9 +13,11 @@ class Fish < Formula
   pour_bottle? only_if: :default_prefix
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "70fdce88ebe0aa417321a41fceb2b1323c6a1bcca50951efbc2d47a0f887640a"
     sha256 cellar: :any,                 arm64_ventura:  "571264d1c65ebb98496384a27239a938098d87f6fd3177394d82b915a0c499fc"
     sha256 cellar: :any,                 arm64_monterey: "b8eeb9a400c53d767264c7df2aa5174ed52515347e1c47210b2a51dafc086654"
     sha256 cellar: :any,                 arm64_big_sur:  "d01c4f24ea68d3790664f33d22758fe475f2dd69b547c4dd57d01ba4b2e33594"
+    sha256 cellar: :any,                 sonoma:         "83a1807f04308a2c7dfe006156b8018c90e17d9df927b20eddf1b1925c60e365"
     sha256 cellar: :any,                 ventura:        "2af848db0107a294a3fcb9adb00242ace9428a8ff3d7638998f4a7c3340d64b5"
     sha256 cellar: :any,                 monterey:       "f2150d371dbb4d63c93a5de2b7179ad219be124d3a33d6ba8c01d1064d209c53"
     sha256 cellar: :any,                 big_sur:        "f6377a53c4bc817e7655b9f6af6664fd1595043bda7dbde9eca4e16e47a58465"

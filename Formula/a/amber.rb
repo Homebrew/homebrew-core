@@ -6,9 +6,11 @@ class Amber < Formula
   license "MIT"
 
   bottle do
+    sha256 arm64_sonoma:   "614634b1f963575f581a3282ef05281d1086219bd0ec355c792edd219480fc7c"
     sha256 arm64_ventura:  "9c3ad755b1bd22beae98dbc088df82b80180f04b1d541d3b708c1af29a502c41"
     sha256 arm64_monterey: "c00f64c38a9edbcc84fcba1f7ac17674e5b9d48066e95bc838e31d495ae7035f"
     sha256 arm64_big_sur:  "0474b1b3726aaec6f8ad34e7d7d1fbd7ea6d0ec1bfa627cd213ce5e50468f44d"
+    sha256 sonoma:         "41ebfb5f6828750bbe7c150c84c52bc1d81867e200a773ff406cc41b9dd55772"
     sha256 ventura:        "d529f79e1baff921927446fb6ad72469042e595720531334c164036a73b11c23"
     sha256 monterey:       "584480426c743539cb3f70dfcb55625f6e27977248e2e747366e3dcd547039af"
     sha256 big_sur:        "951253c81419f90acab9fa226d5b5ec4c858e4c6837b78c9490ae085b76fc008"

@@ -7,9 +7,11 @@ class Wgcf < Formula
   head "https://github.com/ViRb3/wgcf.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "91d21abe19e367bdce0506bef7e0377ddbac97e45dd5d4f52e5fe6979de2436a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9afcf3cf0ae873a9e90d2a9acaa81111e2063126e27daa33f152d8bf25041f75"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "61e37a09b0e10193f7aa9517512b1f3a667e0d17f99bcd176b6012fb76655345"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f6c83b999555495f04ef958acde349c7a55ab85246d7c223015afce0df9cc22c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3363c815b947c4a814b5caa4acb4c3ab57d87c9af29b5fcf7eec98434b813cce"
     sha256 cellar: :any_skip_relocation, ventura:        "57af29af6c967821e84ea90c3cdfbc35d432893460b41791aa40e21bf89fcbff"
     sha256 cellar: :any_skip_relocation, monterey:       "aae0bffdb05bfd4da111262ff06a18ff6daea7b881251629f907355061a2ed68"
     sha256 cellar: :any_skip_relocation, big_sur:        "a3adfd03320dbb26eaa5fc1d63ecb7c4064dc6c962e908903731c00923816b01"

@@ -6,9 +6,11 @@ class SpaceinvadersGo < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4aa933312ef52bc92b44dcc77e5da754fe2a702832e33d2839f587eb9b3261f8"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f7965be321dbd3d56b85a22bb178ce8723fe65b20391ae215ecf594ee3f45ffa"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "57c34b53c55580602720eda4556939f1faf1a0822e021ae6f90568ab2d204994"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6843984a81fcb723c3b1487a77c44f2a186a8cb17f00b0531bc8c8259afa303c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c1079b76c7447a6cdcc7bc6cb67527602725828a8eb690582f07da939435d88e"
     sha256 cellar: :any_skip_relocation, ventura:        "2f88ced1590ef728581255dab2de51ea7374d864bc2c4333c0a845fce83b1812"
     sha256 cellar: :any_skip_relocation, monterey:       "c23c5bfc361fe30fb1407a346a3c215629a2423c2123c3d99609cc7b820333d9"
     sha256 cellar: :any_skip_relocation, big_sur:        "c0ed01fe110f5d7d681d12883f58962ae5c0ea721b032e8d3ef0adee41956841"

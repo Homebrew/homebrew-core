@@ -7,9 +7,11 @@ class Xpa < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d5b6da580521385320fca079b2b74109d67ff5618fc52aab110f6a03cc85d2bd"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ad3b920ba7f22f7fecc369c4eb3f093d6f519fb24ca7c8bf90a0cbda4fc9a3b6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "dfe65258684be3dee93bc7c0649abc8496e359b1fc16baa5430e562c1c0e2361"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6b22cf494e2ca55efce9a08463ddd9ef4044af0a479689aa5ab610e40465fc93"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b2123b7ba6bcb310fcb582ef3f69a77477d590af0f7424c9b1fecf0c649cdacf"
     sha256 cellar: :any_skip_relocation, ventura:        "72b8a37979de78f7d54a8e89e7f8058664276d184d185a3ddf849ca0e6dd36a2"
     sha256 cellar: :any_skip_relocation, monterey:       "01998b97fd193560c96334d78e40278d7bd3bc645416dd809740e97c04cf02d6"
     sha256 cellar: :any_skip_relocation, big_sur:        "025fa588033850451ca384e0274dd96d29c6e9e1331fd09aa82aad0bb2289af5"

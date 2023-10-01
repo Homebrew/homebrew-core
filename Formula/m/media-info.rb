@@ -1,8 +1,8 @@
 class MediaInfo < Formula
   desc "Unified display of technical and tag data for audio/video"
   homepage "https://mediaarea.net/"
-  url "https://mediaarea.net/download/binary/mediainfo/23.07/MediaInfo_CLI_23.07_GNU_FromSource.tar.bz2"
-  sha256 "306f1df347eacc377f6a5f5a9dca97f932eb799705cf440d0be490737e7a038b"
+  url "https://mediaarea.net/download/binary/mediainfo/23.09/MediaInfo_CLI_23.09_GNU_FromSource.tar.bz2"
+  sha256 "569c8dc25ecc2c39e2b4ec13ca3d5700db795d6a927d72138cdb3ff22629d1ab"
   license "BSD-2-Clause"
   head "https://github.com/MediaArea/MediaInfo.git", branch: "master"
 
@@ -12,13 +12,13 @@ class MediaInfo < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "8e04fc3bb02ac65bc129ff4cb70a1565d41098198fdf32f58a1d9d32a04fa41b"
-    sha256 cellar: :any,                 arm64_monterey: "f2c444b547d3fafc5e1cd0312a1b7e40d3509ac8c5031977dc00b606a596540c"
-    sha256 cellar: :any,                 arm64_big_sur:  "f7299972df26b456b15670992624c56fb305e5b835fb1ce8a8f821663c98477f"
-    sha256 cellar: :any,                 ventura:        "85c2450fe6c53b38db3f2839d6ad35a57ebcbf91fd31d4f044b693d575666f78"
-    sha256 cellar: :any,                 monterey:       "be9f9e2f30961e19661f5a2c572b83edcece290aa0c715963bc17016b62b789d"
-    sha256 cellar: :any,                 big_sur:        "2114f858209a73c14e2edb6cce12dbc89b6f3aee233646d97c3ae0c7f6b330b0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9c2869a098330d3d9b15f73107b6a269d6b5260aa24b7b45e1973455a2285fa0"
+    sha256 cellar: :any,                 arm64_ventura:  "a5d8ca13a73b6bbdad455957bdca1c89332675bd6f7a79a8a7c499b58ac47a77"
+    sha256 cellar: :any,                 arm64_monterey: "54f216d9d5c17db7667dde8bf7c57bb93a7c74c9dc77e05acad7c8363870d30c"
+    sha256 cellar: :any,                 arm64_big_sur:  "84b2c77f1154f29f43d6655f87d2f583d026e5301c157ca76c8a62f890b3d627"
+    sha256 cellar: :any,                 ventura:        "eceb4ce5d69dc94759305fac9d74e42935210844f3e71ba9aaad0d3b76721854"
+    sha256 cellar: :any,                 monterey:       "67e69a55b80d63a1a07cb6a7ef1a589ca9c7b5f9bc3c0592cd2fea62ef95b846"
+    sha256 cellar: :any,                 big_sur:        "3889ceb7fe47c3d8ff0dc39eeecb0d99f80e7aba0aee028c2275e69d93af9612"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "be26673ed4fc410bbbdf76eccabe5f2c9f87230175ec15dac0bd17da5590e5bc"
   end
 
   depends_on "pkg-config" => :build

@@ -6,9 +6,11 @@ class Zlog < Formula
   license "LGPL-2.1-only"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "ea24c60b2039bcb5d8ce89c073801d8c4fb4b97d827896653c868aa06ac52f38"
     sha256 cellar: :any,                 arm64_ventura:  "b1c7b07083c3667fb8f32eba4437d2f3f7c872a184476968963b902a8a850aac"
     sha256 cellar: :any,                 arm64_monterey: "16588f7d867f7426696693b19ee0221ff7483c2d7a34a856e3acb32c46c8ea41"
     sha256 cellar: :any,                 arm64_big_sur:  "04ed8b2ebcbbf23a3e6ad76b8d80914f939e6fc6cadfd297b91c3d4d1d29b8b0"
+    sha256 cellar: :any,                 sonoma:         "9e4179318cbdd948c5e7019358269e14014e1dcf91a277704d8b7ac3eb889ac9"
     sha256 cellar: :any,                 ventura:        "f76ab42f65f676cd34a153fcac5c8a543edce5dd6bc462700dc23f0e99000b68"
     sha256 cellar: :any,                 monterey:       "19cf707f5b5720aefa8f7cbb851a032a9a16900b7b17685530aa59081cbb0ee5"
     sha256 cellar: :any,                 big_sur:        "f1384547bacef98381ae766dc90efc690a6a2a87dca0763a0572a3288ad68aee"

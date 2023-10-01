@@ -23,9 +23,11 @@ class GtkMacIntegration < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sonoma:   "85cd5c0a85e3e5dd6eb25fc472ff8bca8904dfe6e2d5c008cf94707979780b50"
     sha256 arm64_ventura:  "9074e95f28068dc78a191df93877127a01cf4670bb9ccdfe9146e54a0ff7c0d9"
     sha256 arm64_monterey: "26d230d66f0a6900e8590fbfa6a6d77fee9b1d42db18a48b457ede3c9fab8485"
     sha256 arm64_big_sur:  "7151adc39408f9e6b22706c623c2d16f444612e767c6eaba59b0c40f87a0d05d"
+    sha256 sonoma:         "25c3fecf35f2b447f160fd4b8e5e1434c816a04d2fd6c3a5cc0c3d0163deafe9"
     sha256 ventura:        "3f91d9bc293e808976fee70d4dcaa622a0fdb7b14592679f9b8947c13a741e5b"
     sha256 monterey:       "802ed17bc9f4420482938c98e2ddcfdcd7b08f77dc56e99d06f1116ac06c974b"
     sha256 big_sur:        "2cf4342b7faedc47562f7b5a1dc6215b9255833e7bb71e23d6bcddd01deac89d"

@@ -13,9 +13,11 @@ class ZeroInstall < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b751e193e9b5105e46de557b3d09b57dac2e36457358c66d5af441955c98b6b1"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "29193da44165014972823b152963e10f4b016964418842bf24e944d9e29d47ac"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e681ef011946eee260f580f0faaf250803ffe7df97875db1560f24d26de68e44"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ba5899e357c4e98c2116230eee9cad756f51564250471b950503f936f5951306"
+    sha256 cellar: :any_skip_relocation, sonoma:         "813a1b599f5fc67cab8418cd70ddf64a0c7c8f62e78520cb221bf58ea0a54df8"
     sha256 cellar: :any_skip_relocation, ventura:        "66092ce622c03dda83c74e9d4c92c2241cc43485001c70885450ff0bcc8476f4"
     sha256 cellar: :any_skip_relocation, monterey:       "f293e6e5c07b33cebf63f868e2582e3dc390c0e2305fcefb7e7b17c5eb6d57fb"
     sha256 cellar: :any_skip_relocation, big_sur:        "0f4761b5bf5adce56f3a0084b110aa51026cdbd85a152112481484a30878a13b"

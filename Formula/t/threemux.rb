@@ -7,9 +7,11 @@ class Threemux < Formula
   head "https://github.com/aaronjanse/3mux.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "358ebf92a4d1ccf5844e2b21c3918d4fdc0344f3d5aea110b170e2c5244bd438"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "cef0aa7766c9cf4045c403ae53f20fa8fcb4913c80148b01755b4a4da7449d8e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "471a6870e6b9d45e994d2977c855e0aea4ed22b1f59f0d09afaf4d096edd0e2c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2d3dd3465938d0ac5b845b07689a08b667613210d9d58649c9a152ade32dc347"
+    sha256 cellar: :any_skip_relocation, sonoma:         "fa0adac1469fbe07b01febde46412e9f4d182a5d891c7816b788f1264fc53d06"
     sha256 cellar: :any_skip_relocation, ventura:        "2ca8026a1a322986b2ad2697314f37faf58634c0de2ca4722cfbe194c05006d8"
     sha256 cellar: :any_skip_relocation, monterey:       "64497230017e4e033cbafc7ae8f684e5ff77c1a8af3ec153f715269d5f4dab01"
     sha256 cellar: :any_skip_relocation, big_sur:        "c87ed9904dccc4872aa6c8ed0e6de39bc7f3ccdb5fa7fef1b99e45871d85da18"

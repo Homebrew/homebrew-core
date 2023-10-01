@@ -8,9 +8,11 @@ class Tygo < Formula
   head "https://github.com/gzuidhof/tygo.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "236d8be43c0a908057d557b300f19b50f831425e6e7abe302073eab0d1d40607"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "498a89d07f7d1dccc02274bbba86fb2f7133ad2a90103f090fbf58a06e4929da"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "eee5d1c8848ff465864ffa19744312cba35dd14cab23ac1f6bce4463634c91e9"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e25bfae7344035367efbae90ce39f5d26303bfe4094ea82d42a3f84610fd2280"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b412b611338cf5b5a99ccb66b53b0f4f23b97b08ff9555ee9d7f7445f7c2c43d"
     sha256 cellar: :any_skip_relocation, ventura:        "0cd50a778baa0fab07e783f15a61ee2fb1d5fd442e752e874106bf892836b5c2"
     sha256 cellar: :any_skip_relocation, monterey:       "c23791de48e567d936da6b15920ec0a7f20bc0a826f6e25352c58e5dc0c7244f"
     sha256 cellar: :any_skip_relocation, big_sur:        "fcd424b29b89edc886c347e1eb6aade65195086d51549a5ac2f3989a5bcf9eb6"

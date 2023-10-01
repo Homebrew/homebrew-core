@@ -6,9 +6,11 @@ class Libpaper < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 arm64_sonoma:   "d96883b99c378406969e7af701e3c5f0e00f05ec55926d83bbe17622b5e8b222"
     sha256 arm64_ventura:  "528086cb278201eb1917007622a51c4a053157d63f6c0cad0c379781037d0090"
     sha256 arm64_monterey: "5003e022225bfc6a9b40e4c67897048eeab600b3ad133074eeea0a2c676806c3"
     sha256 arm64_big_sur:  "ff4a49f2f4c3898310616cc7211e762722b50e78971636dd5ab98666a2ca199b"
+    sha256 sonoma:         "22a25aa0090a46892eeeea05aa2f081cb5232130f7aac63cd35a9ca2b166dead"
     sha256 ventura:        "16e918dde508544ec9ae15b824e85fd3f5669faffb4313dba7b6be5271587193"
     sha256 monterey:       "efc5d276ba267e5103d7e09fd4341a75dafa967ee997fc7b6f13347f3d4f07c4"
     sha256 big_sur:        "671069a7e3b96d15a012cbd50a0ece1344fbd36a7de8350dd721dc1818a38715"

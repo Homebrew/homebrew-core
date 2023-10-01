@@ -3,19 +3,19 @@ class Streamlink < Formula
 
   desc "CLI for extracting streams from various websites to a video player"
   homepage "https://streamlink.github.io/"
-  url "https://files.pythonhosted.org/packages/1c/90/566646a689c4533204f00885928892cdf63bac21cde55bbd325b9118401f/streamlink-6.1.0.tar.gz"
-  sha256 "170b2027d4d8073087c58941c31aec384cbf9901fcb401f824e919ae387c4385"
+  url "https://files.pythonhosted.org/packages/83/de/789bbd4e7eefbb32f9e4d4c6439e13ef22fd46360bdd84060e60fb01958c/streamlink-6.2.0.tar.gz"
+  sha256 "aeae1b7848446f90998c62324e7107c8f41f8c08266dbc419b81e1cc1b35559a"
   license "BSD-2-Clause"
   head "https://github.com/streamlink/streamlink.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "502c5dc6c004455927f699d17107d09ab03a9d8198f4723c2746bd41af4e8c10"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ad374ad661aa296373dea0f2f2461c02ad7c6d0599264ad2e35a86495a720060"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2a4718a1abcf61ca60260890e79a7580f9c24f18e9d815528d5aed32b249c47a"
-    sha256 cellar: :any_skip_relocation, ventura:        "bbf8bcf0d7811c09565ed60aabb98164305ad5c2435a37bbd164673144130ec1"
-    sha256 cellar: :any_skip_relocation, monterey:       "7883dcfbbb2fd6c8ee2a20b9ca06f076014244db60542641bd06b695b4b7f5e8"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8b7e653429e81110fba003dfb636f8b6611b12c915d52a638e2ba9d3c0120d54"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "05f2aea8472a6bbbd68eb66b359c364b92535e6bb350508bbce7a651ad553485"
+    sha256 cellar: :any,                 arm64_ventura:  "63e8b10d8e38cd56f8fc133bfddc4952f33e889e4141f4204b043a0e646c4962"
+    sha256 cellar: :any,                 arm64_monterey: "5077e77eed242d779ae24ba17c2b22675a6c6d9cfa04490db287ce021e2e8317"
+    sha256 cellar: :any,                 arm64_big_sur:  "08511925a3804a10bcbcee72a0dd9839a70632a00b4d3aea574833d3635fdb77"
+    sha256 cellar: :any,                 ventura:        "50fe3a85ec88d3a00d779ca2949d96004e6d56172ea1e82de442e9d3862e922c"
+    sha256 cellar: :any,                 monterey:       "3d715f5d435da272b26f21feeb35dabc23d8365b0c34676ae71c9c3277cbaa8b"
+    sha256 cellar: :any,                 big_sur:        "0cbb0bbef642ac7757aad4a43e044c44638fb123e95e2c98d60b9526f79c7bca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "53e66cb0588a7a12f399caa0d735b49094e544cc33dcddba8af5bfec5d32fe48"
   end
 
   depends_on "libxml2" # https://github.com/Homebrew/homebrew-core/issues/98468
@@ -107,8 +107,8 @@ class Streamlink < Formula
   end
 
   resource "trio-websocket" do
-    url "https://files.pythonhosted.org/packages/07/ee/fcc7708dd5c8667caf3579c45067821d8e03a560faef9d53d46af7d7c851/trio-websocket-0.10.3.tar.gz"
-    sha256 "1a748604ad906a7dcab9a43c6eb5681e37de4793ba0847ef0bc9486933ed027b"
+    url "https://files.pythonhosted.org/packages/b2/9e/a529b1bb6289e252112c96929380d93a59c084bea90707701b9e7ee1af59/trio-websocket-0.10.4.tar.gz"
+    sha256 "e66b3db3e2453017431dfbd352081006654e1241c2a6800dc2f43d7df54d55c5"
   end
 
   resource "urllib3" do
@@ -117,8 +117,8 @@ class Streamlink < Formula
   end
 
   resource "websocket-client" do
-    url "https://files.pythonhosted.org/packages/b1/34/3a5cae1e07d9566ad073fa6d169bf22c03a3ba7b31b3c3422ec88d039108/websocket-client-1.6.1.tar.gz"
-    sha256 "c951af98631d24f8df89ab1019fc365f2227c0892f12fd150e935607c79dd0dd"
+    url "https://files.pythonhosted.org/packages/44/34/551f30cbdc0515c39c2e78ef5919615785cd370844e40ada82367c1fab3f/websocket-client-1.6.3.tar.gz"
+    sha256 "3aad25d31284266bcfcfd1fd8a743f63282305a364b8d0948a43bd606acc652f"
   end
 
   resource "wsproto" do

@@ -11,9 +11,11 @@ class BoostPython3 < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "8139adeef33baeed370c09b4dd96c9fa0ddea4e62e61a7b7bb25d602dbd92aab"
     sha256 cellar: :any,                 arm64_ventura:  "54a07f5f3d5babda43d7adb2af3cb46b3f756ec3e2b67fe50f6da2aff81c7b41"
     sha256 cellar: :any,                 arm64_monterey: "518fa733ea9fd88e320a9bdd12c259e76c29f2dd1dae0368ca7016830c0c7b1e"
     sha256 cellar: :any,                 arm64_big_sur:  "a1a6fe4845cc1fb97e50c408a11a84d1a09fe0163e973d15a6320db83b19a156"
+    sha256 cellar: :any,                 sonoma:         "4c9be9349cac45ef46d89e6224a16be34a12ae073c1a1cf9e81b05a0bc9a431a"
     sha256 cellar: :any,                 ventura:        "c5222b373a4b2f5b5c7e1f9b9012bd34f70a28b56bf9a691426650a8825a0659"
     sha256 cellar: :any,                 monterey:       "b097a520137dcc5360df7998b7468b12cb33147cdae3c10ab1270f1e36749aaa"
     sha256 cellar: :any,                 big_sur:        "65864416a8314dc2669890da5bc0246aa4ea5c73985773ed1cea3082b03d1711"

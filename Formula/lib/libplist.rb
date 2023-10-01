@@ -1,25 +1,21 @@
 class Libplist < Formula
   desc "Library for Apple Binary- and XML-Property Lists"
   homepage "https://www.libimobiledevice.org/"
-  url "https://github.com/libimobiledevice/libplist/archive/2.2.0.tar.gz"
-  sha256 "7e654bdd5d8b96f03240227ed09057377f06ebad08e1c37d0cfa2abe6ba0cee2"
-  license "LGPL-2.1"
+  url "https://github.com/libimobiledevice/libplist/releases/download/2.3.0/libplist-2.3.0.tar.bz2"
+  sha256 "4e8580d3f39d3dfa13cefab1a13f39ea85c4b0202e9305c5c8f63818182cac61"
+  license "LGPL-2.1-or-later"
+  head "https://github.com/libimobiledevice/libplist.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "6d101d1a75fe2859fce732e1a9448053c74707a3cdc7e10e4b67488d978b0796"
-    sha256 cellar: :any,                 arm64_monterey: "b31c287f7c027c0f241dbfecb261e2a71910dcff601ceb5404ec8072dfd2a453"
-    sha256 cellar: :any,                 arm64_big_sur:  "ed9c2d665d5700c91f099bd433a38ba904b63eef4d3cdc47bd0f6b0229ac689a"
-    sha256 cellar: :any,                 ventura:        "df3e285aa4d7ce69059bf1609fa5d2a442e0c1434e478e5603567702d3e38760"
-    sha256 cellar: :any,                 monterey:       "fd33860939e18cc5a5c50be2ca667db7d99a191aa445fefdfde51435c0f4453d"
-    sha256 cellar: :any,                 big_sur:        "1ac05ef69cc02f4663fbb1c3d6d6e964c70a5ba0743d7e9e242da06864a63a70"
-    sha256 cellar: :any,                 catalina:       "20faf60d286c8ceed790a9b6e34245acf7bafacc7fcbcb390d6b62e194b323e6"
-    sha256 cellar: :any,                 mojave:         "768453f8710ec1c3e074ad0ebc7723da88c2b8575e5de6962ca6f1d4a85cb61d"
-    sha256 cellar: :any,                 high_sierra:    "02291f2f28099a73de8fa37b49962fe575a434be63af356cceff9200c6d73f37"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f6677078ae6fbcfeabfee04dcb64e405f1bfcea07643752e3b5db89780404d5e"
-  end
-
-  head do
-    url "https://git.sukimashita.com/libplist.git"
+    sha256 cellar: :any,                 arm64_sonoma:   "1b0ee41b0b1a051a7856bb943a7fc39127009e53ae44a8728327e6f4fbec4db0"
+    sha256 cellar: :any,                 arm64_ventura:  "d0848674bb98f00bff90a4fd2050199f4af5089013615232b39a1576f2aa499f"
+    sha256 cellar: :any,                 arm64_monterey: "d9d090a1fb60685102e8bd96ed3c45b67790c0e8fb96307ce9afdc081657ad4f"
+    sha256 cellar: :any,                 arm64_big_sur:  "7877aaa1c6c9402f87c7fd7a9acdc6f3d8b8c64cee8930f8b51e3392e5e2c571"
+    sha256 cellar: :any,                 sonoma:         "5ec998b2b98947e55b3f29769a67e870da504287499454c5b8171555b3991e49"
+    sha256 cellar: :any,                 ventura:        "9065713a5114093c9b7bf00dd38684efb174258cdc55aa088782c7dfc8072f3f"
+    sha256 cellar: :any,                 monterey:       "a0b5c7c503c8a6f37b066f7a4681981286cfa310e775d9dffecee11909d1b7eb"
+    sha256 cellar: :any,                 big_sur:        "cbfad8fed1b127f3837d6b4079b4c14198dbc56144af26c16de188c6b33b53be"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "99b326624adf5c2b1781060ef7692b9d0e476e73c1901eba64222be31c6a39c7"
   end
 
   depends_on "autoconf" => :build
@@ -30,16 +26,15 @@ class Libplist < Formula
   def install
     ENV.deparallelize
 
-    args = %W[
-      --disable-dependency-tracking
+    args = %w[
       --disable-silent-rules
-      --prefix=#{prefix}
       --without-cython
     ]
 
-    system "./autogen.sh", *args
+    system "./autogen.sh", *std_configure_args, *args if build.head?
+    system "./configure", *std_configure_args, *args if build.stable?
     system "make"
-    system "make", "install", "PYTHON_LDFLAGS=-undefined dynamic_lookup"
+    system "make", "install"
   end
 
   test do

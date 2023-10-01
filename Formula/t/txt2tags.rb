@@ -8,9 +8,11 @@ class Txt2tags < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0a077c94ce334013b2d57aa9bf2b6fabe262b30973a5008e82fb952f2b937ccc"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c733dd69bfebdbd7eaebcc27c4d80e2ed080cbcef5a71d22aa1965f6e4164bdb"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c733dd69bfebdbd7eaebcc27c4d80e2ed080cbcef5a71d22aa1965f6e4164bdb"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c733dd69bfebdbd7eaebcc27c4d80e2ed080cbcef5a71d22aa1965f6e4164bdb"
+    sha256 cellar: :any_skip_relocation, sonoma:         "01277a5e867e5c200b1bd4ceaa141f6ac03bfcddd0f84d7a3757b4328161ba59"
     sha256 cellar: :any_skip_relocation, ventura:        "337725d77060c6e7f0ddd638ff0d904b98aca4b78748327b0494b7ab02584c8c"
     sha256 cellar: :any_skip_relocation, monterey:       "337725d77060c6e7f0ddd638ff0d904b98aca4b78748327b0494b7ab02584c8c"
     sha256 cellar: :any_skip_relocation, big_sur:        "337725d77060c6e7f0ddd638ff0d904b98aca4b78748327b0494b7ab02584c8c"

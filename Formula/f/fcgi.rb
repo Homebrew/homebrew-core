@@ -7,9 +7,11 @@ class Fcgi < Formula
   license "OML"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "01edfb9feb557c8a45a559064590c132cf84a1448c3eafdaf581cd5871e30d30"
     sha256 cellar: :any,                 arm64_ventura:  "687f04ecaf81ae2c95d0e9cfa6a2502f848e596de4f6e2ebb83e8f507aa7717f"
     sha256 cellar: :any,                 arm64_monterey: "5434ce533ae7898eaabbf035d9a03b6b232913d66f5fb687981954d618fc15f4"
     sha256 cellar: :any,                 arm64_big_sur:  "f690a0cd985561930532baa0676c10f954f5c4d3500a8ec40733a28debfd0656"
+    sha256 cellar: :any,                 sonoma:         "cc69bf2ec90b23b2ebfe4775c93cf2c499878da19340136d092d63e5d2af8433"
     sha256 cellar: :any,                 ventura:        "84aac5009dfb2d2c434cddca973f6e7c8d89f5791d121a173e92ebb745342e50"
     sha256 cellar: :any,                 monterey:       "4e5296dd2cc2e2f9c65296166f8bd372f2d831f235a8595cd54b295167846bcb"
     sha256 cellar: :any,                 big_sur:        "62ab01d728067324cc5466d20d28e6a6920514c0a1f379df290cbc3b79cb442d"

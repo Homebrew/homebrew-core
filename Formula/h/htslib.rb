@@ -11,9 +11,11 @@ class Htslib < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "7852871f96f54364c39fdcb5458114412e3c864b2b8cf4829b2b0d4adfdf59a2"
     sha256 cellar: :any,                 arm64_ventura:  "91a1f7a53a4abbeb29c62182ee75ce6bb5fcbdc57f04a36831e482c82ffa8826"
     sha256 cellar: :any,                 arm64_monterey: "b3b38e38ae0e95509243d7f12b68cfba0ebbfc27ecacabe8d0f80f941ecedcb6"
     sha256 cellar: :any,                 arm64_big_sur:  "2c23c15552d3b1b6d283b9ed2c3985759cde5cd051fa06251859b0c46a305f78"
+    sha256 cellar: :any,                 sonoma:         "8c2638523c045f793a8d7e52b1923df287734538f754f65184697271c46221b6"
     sha256 cellar: :any,                 ventura:        "c1ded4ddaa43bf6bf33346a02291e37a4658915733d7efcdc06cf7beb46794e3"
     sha256 cellar: :any,                 monterey:       "c7b62fc25f7ba87ba05b03ed4e2956ec452d7d581de22fb7725bbee454aa750f"
     sha256 cellar: :any,                 big_sur:        "b23cec30df6a656cd3f12afc92eb7aa11cce3d3c20f735482bced92a5e6a1eca"

@@ -12,9 +12,11 @@ class Zmap < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "5cfa0b9141cdeabe88bfaa08cdd12770ce92d0dac66403d20ba8fb724ee1de12"
     sha256 arm64_ventura:  "684a70d7b7de73b6e8f8784d371bc09f378853a8c29f87bf30ec3e3e1846e966"
     sha256 arm64_monterey: "96bd279a71f9d5e798047080f563868ca79b18a98db11edc138e20cf6eacf837"
     sha256 arm64_big_sur:  "058c06f623a87893e4df2df875d34542935002167a7f17247a3dd6bb5d69fc24"
+    sha256 sonoma:         "016b73f0593120f7b2c06c1046078439fb95d589849bf1069469e52d336366b8"
     sha256 ventura:        "5a4d3cf68235de582a225e82e78b5672af74ae1fd1ef843093232015e5c1f751"
     sha256 monterey:       "ed089861c3c552d6531cef3f75067dedb46b74ddff4d43bfb37b3dc20c4eb4b0"
     sha256 big_sur:        "259f7d1b308ae26692995457b9933fd9bb4affcf17dd4429effb503a0f1b1d73"

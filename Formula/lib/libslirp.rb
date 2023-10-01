@@ -6,9 +6,11 @@ class Libslirp < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any, arm64_sonoma:   "6b679f72dc5d94827498a46c9d9e84cadbb49cdbf055d5b11c9776e1cf2449e2"
     sha256 cellar: :any, arm64_ventura:  "3e461de89cdcc48cd88ed8065700575cc3d4921213f2023cce1c1c56853c9117"
     sha256 cellar: :any, arm64_monterey: "dbfc3fabef1a14eb7807e97bac7e318dbf0ca0ac631cb949cd165ca79c57d16d"
     sha256 cellar: :any, arm64_big_sur:  "7ff75ad4ca2b56e4df3f139c1a265d1198174b676856f5eb019730d8f97db557"
+    sha256 cellar: :any, sonoma:         "179c52b3082243f1769dc4e1f074eb3368abd829bd538517d383380cfc1832a8"
     sha256 cellar: :any, ventura:        "e7e395084378af6bbc0582807938b023cb513cb5c99673b59c462429d077c25f"
     sha256 cellar: :any, monterey:       "82fe4e66ac490e882aaf245d4bdf9382826d82fdb3c7bad29b7dc4e77a5b8657"
     sha256 cellar: :any, big_sur:        "3b31c4120ac2abad0cb5480576b957d5dd335e9a7cfa4cea0ef7bcd27e6cdcc6"

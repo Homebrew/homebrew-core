@@ -6,9 +6,11 @@ class Yetris < Formula
   license "GPL-3.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5c29c804faf6d9d78ecec1eeccc4ffe85e94550c222bba9e793e307f805c1d97"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "bde6f3b8d260bc2b35e850b59223578400c2fda5e97e1ef4b425eb446f9b68b3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0aa127e1a907e08cf4b65d83fe0de8c59785457f744ecc2c1e91fd37310037b5"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bcaafa1c4c02615a805d252ce93cf8c38a60876b575867cc280795a00a1f2848"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7ccd8bfcdeb653c72ebfb085887255edba5547412e29462eb72b9c395257e4a7"
     sha256 cellar: :any_skip_relocation, ventura:        "c1d76e812f2a403dd078b3a0b075b48a21721c629b94b4be83874147b3f4b787"
     sha256 cellar: :any_skip_relocation, monterey:       "78e274470e8eb080f6d8c7d0051f4e7f0ee7f7969c88c725a114b39b7f926778"
     sha256 cellar: :any_skip_relocation, big_sur:        "d0d9c0ddd6f7f825024cb4e96978ad43919eb77a216e8788943f1c8d7bfa80bb"

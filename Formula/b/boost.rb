@@ -16,9 +16,11 @@ class Boost < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "42422b7765221f757c71294b9a083edb13d9d9af092ea5d566f34245898ec2b3"
     sha256 cellar: :any,                 arm64_ventura:  "acb65f0a6f8a12472eaa2aa223353ceac4134617bc9f99e936df65cfd5240507"
     sha256 cellar: :any,                 arm64_monterey: "5657bdadfac084745828ccc82589de8b510ffdeca71caf42421a5c4c6b0ece27"
     sha256 cellar: :any,                 arm64_big_sur:  "a5fa15020b6283ed965017f0abe3ee4df8f3c32c0ed38773b9eecd6411054ec7"
+    sha256 cellar: :any,                 sonoma:         "a51e2e43e98ba290cc33f856e52c04571229e491612f603eedb497986dca48ca"
     sha256 cellar: :any,                 ventura:        "8ab0045fe83cf0542ea94d81869483ef5d131f5503ef5f9483921316279c1b77"
     sha256 cellar: :any,                 monterey:       "ba45e6493a71c16e673a2d0ed68596c6538ddbdd218a0bbd5090f4ebe95d00e4"
     sha256 cellar: :any,                 big_sur:        "268562e726a442438012396aee7a56f558036fceed672c4f703d32f58388e186"

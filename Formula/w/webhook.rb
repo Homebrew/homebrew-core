@@ -7,9 +7,11 @@ class Webhook < Formula
   head "https://github.com/adnanh/webhook.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "dc567cc60391ce928df72e3e2ef625e77ad1707e03eb66f6213916cec614e4fe"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "17ab323f0bddf3df15751ab8e81bdb8dc9313d86f8885c641725e5bff5def2e3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "17ab323f0bddf3df15751ab8e81bdb8dc9313d86f8885c641725e5bff5def2e3"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "17ab323f0bddf3df15751ab8e81bdb8dc9313d86f8885c641725e5bff5def2e3"
+    sha256 cellar: :any_skip_relocation, sonoma:         "77bd89b8b9ae6eb5a74a166d2616b6f80e80c3c43fcbabe10268aaecec07eb76"
     sha256 cellar: :any_skip_relocation, ventura:        "134b8aaaa2624e496cc11e0ff0f6b6b077d53a7a5fdf75521eac4c4f9d2a6e1f"
     sha256 cellar: :any_skip_relocation, monterey:       "134b8aaaa2624e496cc11e0ff0f6b6b077d53a7a5fdf75521eac4c4f9d2a6e1f"
     sha256 cellar: :any_skip_relocation, big_sur:        "134b8aaaa2624e496cc11e0ff0f6b6b077d53a7a5fdf75521eac4c4f9d2a6e1f"

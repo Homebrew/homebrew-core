@@ -12,9 +12,11 @@ class Libevent < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "38a3eb3510a7e0cd4096e4592d0095c562eb1bbad572d951f1923009a14ad702"
     sha256 cellar: :any,                 arm64_ventura:  "a75d453a7fe2aba1eaba334621b7bd9f0ff6f9e1f04aa400565f68711a9f6db4"
     sha256 cellar: :any,                 arm64_monterey: "a24d682548fb7cb11c127932240cced5d6fdb16feaaa6dc2ab3a7f0833e5df2e"
     sha256 cellar: :any,                 arm64_big_sur:  "0c3deccd564c0ed001cb3613ddc10d7e46e78deb5f8882fde74f8935557d5cba"
+    sha256 cellar: :any,                 sonoma:         "5d54f13cd93d87185bd7bb592cb945d1f64cac3e88d1e46c2fb5d9ea538d9623"
     sha256 cellar: :any,                 ventura:        "79a1036d3428c6ad8325803912e9ff0f74b8a8202908ae8594959c27e998c90b"
     sha256 cellar: :any,                 monterey:       "d0557018f19021fb4675a20d9cefda5e13646558c276ab7b4f01f96144b432f8"
     sha256 cellar: :any,                 big_sur:        "042923957c025a4298465d320a63db6127414644fde58fcdc0d29e8c28fd2993"

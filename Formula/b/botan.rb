@@ -12,9 +12,11 @@ class Botan < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "87883f4c609eb528a16c8a7bcb2ef6cef59498aee20321766047c0189275f2f6"
     sha256 arm64_ventura:  "e155fbf0abfa49d3f24acddb83cde96ee8944f8e5f4870619b9f367db91aa093"
     sha256 arm64_monterey: "4ad92355e643a718b79f59ea39fcaee2e178f6aacc6a5d45b91c2c99b3f1ad1d"
     sha256 arm64_big_sur:  "086afb441414ac0c21a9a2cd4bfc63925cb84025149a3f067514a09712ed554b"
+    sha256 sonoma:         "6f400215d7b5fb9d4c57bffc3e0a1fc08bd180d57ba45c3ecc2368510fc97de6"
     sha256 ventura:        "04b5659a9a85f81083e21c477b2e45f49e49e932130bbdacab0d6ebd8d1104f2"
     sha256 monterey:       "a7b3dee57d226c222d62983346d9bce72e5c66adbda19f8c11bb92fe45548758"
     sha256 big_sur:        "83028e70de04793e28f3b50839522ec69c1e1301ec5712e7a52564e3f50cf97c"

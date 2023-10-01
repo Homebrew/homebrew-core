@@ -312,53 +312,58 @@ class LlvmAT13 < Formula
     system "#{bin}/clang", "-v", "test.c", "-o", "test"
     assert_equal "Hello World!", shell_output("./test").chomp
 
-    # Testing Command Line Tools
-    if MacOS::CLT.installed?
-      toolchain_path = "/Library/Developer/CommandLineTools"
-      system "#{bin}/clang++", "-v",
-             "-isysroot", MacOS::CLT.sdk_path,
-             "-isystem", "#{toolchain_path}/usr/include/c++/v1",
-             "-isystem", "#{toolchain_path}/usr/include",
-             "-isystem", "#{MacOS::CLT.sdk_path}/usr/include",
-             "-std=c++11", "test.cpp", "-o", "testCLT++"
-      assert_includes MachO::Tools.dylibs("testCLT++"), "/usr/lib/libc++.1.dylib"
-      assert_equal "Hello World!", shell_output("./testCLT++").chomp
-      system "#{bin}/clang", "-v", "test.c", "-o", "testCLT"
-      assert_equal "Hello World!", shell_output("./testCLT").chomp
-    end
+    # These tests should ignore the usual SDK includes
+    with_env(CPATH: nil) do
+      # Testing Command Line Tools
+      if MacOS::CLT.installed?
+        toolchain_path = "/Library/Developer/CommandLineTools"
+        cpp_base = (MacOS.version >= :big_sur) ? MacOS::CLT.sdk_path : toolchain_path
+        system "#{bin}/clang++", "-v",
+               "-isysroot", MacOS::CLT.sdk_path,
+               "-isystem", "#{cpp_base}/usr/include/c++/v1",
+               "-isystem", "#{MacOS::CLT.sdk_path}/usr/include",
+               "-isystem", "#{toolchain_path}/usr/include",
+               "-std=c++11", "test.cpp", "-o", "testCLT++"
+        assert_includes MachO::Tools.dylibs("testCLT++"), "/usr/lib/libc++.1.dylib"
+        assert_equal "Hello World!", shell_output("./testCLT++").chomp
+        system "#{bin}/clang", "-v", "test.c", "-o", "testCLT"
+        assert_equal "Hello World!", shell_output("./testCLT").chomp
+      end
 
-    # Testing Xcode
-    if MacOS::Xcode.installed?
-      system "#{bin}/clang++", "-v",
-             "-isysroot", MacOS::Xcode.sdk_path,
-             "-isystem", "#{MacOS::Xcode.toolchain_path}/usr/include/c++/v1",
-             "-isystem", "#{MacOS::Xcode.toolchain_path}/usr/include",
-             "-isystem", "#{MacOS::Xcode.sdk_path}/usr/include",
-             "-std=c++11", "test.cpp", "-o", "testXC++"
-      assert_includes MachO::Tools.dylibs("testXC++"), "/usr/lib/libc++.1.dylib"
-      assert_equal "Hello World!", shell_output("./testXC++").chomp
-      system "#{bin}/clang", "-v",
-             "-isysroot", MacOS.sdk_path,
-             "test.c", "-o", "testXC"
-      assert_equal "Hello World!", shell_output("./testXC").chomp
-    end
+      # Testing Xcode
+      if MacOS::Xcode.installed?
+        cpp_base = (MacOS::Xcode.version >= "12.5") ? MacOS::Xcode.sdk_path : MacOS::Xcode.toolchain_path
+        system "#{bin}/clang++", "-v",
+               "-isysroot", MacOS::Xcode.sdk_path,
+               "-isystem", "#{cpp_base}/usr/include/c++/v1",
+               "-isystem", "#{MacOS::Xcode.sdk_path}/usr/include",
+               "-isystem", "#{MacOS::Xcode.toolchain_path}/usr/include",
+               "-std=c++11", "test.cpp", "-o", "testXC++"
+        assert_includes MachO::Tools.dylibs("testXC++"), "/usr/lib/libc++.1.dylib"
+        assert_equal "Hello World!", shell_output("./testXC++").chomp
+        system "#{bin}/clang", "-v",
+               "-isysroot", MacOS.sdk_path,
+               "test.c", "-o", "testXC"
+        assert_equal "Hello World!", shell_output("./testXC").chomp
+      end
 
-    # link against installed libc++
-    # related to https://github.com/Homebrew/legacy-homebrew/issues/47149
-    cxx_libdir = opt_lib
-    cxx_libdir /= "c++" if OS.mac?
-    system "#{bin}/clang++", "-v",
-           "-isystem", "#{opt_include}/c++/v1",
-           "-std=c++11", "-stdlib=libc++", "test.cpp", "-o", "testlibc++",
-           "-rtlib=compiler-rt", "-L#{cxx_libdir}", "-Wl,-rpath,#{cxx_libdir}"
-    assert_includes (testpath/"testlibc++").dynamically_linked_libraries,
-                    (cxx_libdir/shared_library("libc++", "1")).to_s
-    (testpath/"testlibc++").dynamically_linked_libraries.each do |lib|
-      refute_match(/libstdc\+\+/, lib)
-      refute_match(/libgcc/, lib)
-      refute_match(/libatomic/, lib)
+      # link against installed libc++
+      # related to https://github.com/Homebrew/legacy-homebrew/issues/47149
+      cxx_libdir = opt_lib
+      cxx_libdir /= "c++" if OS.mac?
+      system "#{bin}/clang++", "-v",
+             "-isystem", "#{opt_include}/c++/v1",
+             "-std=c++11", "-stdlib=libc++", "test.cpp", "-o", "testlibc++",
+             "-rtlib=compiler-rt", "-L#{cxx_libdir}", "-Wl,-rpath,#{cxx_libdir}"
+      assert_includes (testpath/"testlibc++").dynamically_linked_libraries,
+                      (cxx_libdir/shared_library("libc++", "1")).to_s
+      (testpath/"testlibc++").dynamically_linked_libraries.each do |lib|
+        refute_match(/libstdc\+\+/, lib)
+        refute_match(/libgcc/, lib)
+        refute_match(/libatomic/, lib)
+      end
+      assert_equal "Hello World!", shell_output("./testlibc++").chomp
     end
-    assert_equal "Hello World!", shell_output("./testlibc++").chomp
 
     if OS.linux?
       # Link installed libc++, libc++abi, and libunwind archives both into

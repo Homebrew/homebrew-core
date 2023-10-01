@@ -8,9 +8,11 @@ class Googletest < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "54da06f38b6d3249c84b52b2da8fb6dbd1dd107d2a13b6b8a3d3d940253719f0"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5d403b2674150b89edac42559c20e9f578f2a9bee497ad669a50b32ee28a534d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "115017b85183ca9378ecce82eee8cb18f0796c348eee6fce94db2be9674bafe4"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8a4d7e9f9d4168c6f37ebf77f9b35d6053cbe958661efc558ebd755b93600bf9"
+    sha256 cellar: :any_skip_relocation, sonoma:         "df2342cf8f73db950345b67e2b857e9e46b57e6b1f341329a30622588f08b5ff"
     sha256 cellar: :any_skip_relocation, ventura:        "3ad31b4bd6cd7dd49035daf80ce0a44da474e08eb0219d5e96bea3096ea457b0"
     sha256 cellar: :any_skip_relocation, monterey:       "355a12ac8f19144f1ce72fb70ff3af5f84db07c7ca0dd4d24d8a949f2d3f555f"
     sha256 cellar: :any_skip_relocation, big_sur:        "b066751100985e0d98294e3f62ef06e6ffbaaf540dd35e801bc49de8fa3ec88a"

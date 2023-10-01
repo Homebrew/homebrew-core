@@ -2,16 +2,15 @@ class Gstreamer < Formula
   desc "Development framework for multimedia applications"
   homepage "https://gstreamer.freedesktop.org/"
   license all_of: ["LGPL-2.0-or-later", "LGPL-2.1-or-later", "MIT"]
-  revision 1
 
   stable do
-    url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/archive/1.22.5/gstreamer-1.22.5.tar.gz"
-    sha256 "4da4bd28c41768035509f6d57dca989cdc29262d0b327b9fb5e6c45fccceacf5"
+    url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/archive/1.22.6/gstreamer-1.22.6.tar.gz"
+    sha256 "88d63e6610c95e940c6aa871ea8ef26d0842678e8dfb69eb7a7217b47caffdf7"
 
     # When updating this resource, use the tag that matches the GStreamer version.
     resource "rs" do
-      url "https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/gstreamer-1.22.5/gst-plugins-rs-gstreamer-1.22.5.tar.gz"
-      sha256 "8eeb17a80d986d48075b4d75bc2bf51fa3f3f90ee2e2781684b485e52e9a6756"
+      url "https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/gstreamer-1.22.6/gst-plugins-rs-gstreamer-1.22.6.tar.gz"
+      sha256 "39480b525bd180d1dd1969b7d6a56b58af62dc808547e795f5de5537f228f327"
     end
   end
 
@@ -21,13 +20,13 @@ class Gstreamer < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "f37681f47e9fbfaf1fe0c50d71248c519134638134cd2756e8cb3b48f00eb5b8"
-    sha256 arm64_monterey: "97d7c8b8fe0be99223ab7d7ec76b8dfbced9501b47f4d2692f8ff8f70b7ca664"
-    sha256 arm64_big_sur:  "87c3a3e6a96cf127b6af386a98a965547612c4eb6d22ab12b62d3a19b2c8b727"
-    sha256 ventura:        "4b2e97a4f16f6a16c21afea92274b1f3aa367ab745e63c2a619ba0983a62719d"
-    sha256 monterey:       "42e0a685b30d255b6dcfc4514b811caa20a79f29b2b3d4f82f97c083ecc29548"
-    sha256 big_sur:        "7464b1ba2cfe2432beeaf02a551c96a1c85e628031e5aac631fefdf1de78d8ef"
-    sha256 x86_64_linux:   "71f397920b5ee3b04bb97d1dd0057987391d761cc0e6419a5b57ef0053dc7854"
+    sha256 arm64_ventura:  "2baa80e57b672c7a56260ae0279876ce449fa2738d49018994ee16809ccfad53"
+    sha256 arm64_monterey: "39905c0765151c13f5785c5be22bd03b08db8b695454e174ada485d52ae1339d"
+    sha256 arm64_big_sur:  "9d33ebb3dddf6975fb309bbdd993cf65f56ea2cae498b6a72095123cf8b0d551"
+    sha256 ventura:        "b13a43f2eec0509891d1aeb66a93ce49f7f900c9292346730bcc160bf3e7c392"
+    sha256 monterey:       "7c52d15864c1fcb3b495e66177caab8e2a2adb59c67d527c12168b9076ac5757"
+    sha256 big_sur:        "5a98be3cb9dbd031007a43056817beb3e6bb34410bb8bd9181951c19c0803ec2"
+    sha256 x86_64_linux:   "ca36f720f9af72b441a83047141f2fa8bc2e6d8159e938a98b72942e8c0c6ae1"
   end
 
   head do
@@ -179,9 +178,10 @@ class Gstreamer < Formula
     # https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/issues/279
     plugin_dir = lib/"gstreamer-1.0"
     rpath_args = [loader_path, rpath(source: plugin_dir)].map { |path| "-rpath,#{path}" }
-    inreplace "subprojects/gst-plugins-rs/meson.build",
-              "rust_flags = []",
-              "rust_flags = ['--codegen', 'link-args=-Wl,#{rpath_args.join(",")}']"
+    ENV["RUSTFLAGS"] = "--codegen link-args=-Wl,#{rpath_args.join(",")}"
+    inreplace "subprojects/gst-plugins-rs/cargo_wrapper.py",
+              "env['RUSTFLAGS'] = shlex_join(rust_flags)",
+              "env['RUSTFLAGS'] = ' '.join(rust_flags)"
 
     # Make sure the `openssl-sys` crate uses our OpenSSL.
     ENV["OPENSSL_NO_VENDOR"] = "1"

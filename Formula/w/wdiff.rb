@@ -8,9 +8,11 @@ class Wdiff < Formula
   revision 2
 
   bottle do
+    sha256 arm64_sonoma:   "0a0159cb5c9fa9a0d97a14533d8bee020988815ed6c6b8f46650876cded83611"
     sha256 arm64_ventura:  "4e8e8de9f66bdb3734ab9087a59528e2a0f7a27f2b3bd9ab853858c2ee928c41"
     sha256 arm64_monterey: "b7349e744630b6db059c3d1ee542404eafab86aeb97382fca5e3a746d008ee73"
     sha256 arm64_big_sur:  "b9464ee06d7329a996f8546ee21a90847b3db438967f241d4c9adc8708ef6a21"
+    sha256 sonoma:         "c89e5767f5622001959dd19ea9ab369622f3674ffed87efcb9b4305014326eab"
     sha256 ventura:        "b1a390b9eedcb428e27b948eb6bb73292570be55125dedf707e53e4732d2a0a6"
     sha256 monterey:       "6d3edf52d29a1bf269e7238effb3a1941a4e6de214df8fe7ad536a69097f072d"
     sha256 big_sur:        "154c6f2169ae3406c43ef7373271499c15cb1954111dfa950ae809f2677ec9de"
