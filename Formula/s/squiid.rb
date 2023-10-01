@@ -1,14 +1,24 @@
 class Squiid < Formula
-  desc "Modular calculator written in Rust"
-  homepage "https://imaginaryinfinity.net/"
-  url "https://gitlab.com/ImaginaryInfinity/squiid-calculator/squiid/-/archive/1.0.6/squiid-1.0.6.tar.gz"
-  sha256 "785dd38de948c9e1fa8ae33a42d092bd21ab57e1399106c37d75962c1bf2ea92"
-  license "GPL-3.0-only"
+  desc "Do advanced algebraic and RPN calculations"
+  homepage "https://imaginaryinfinity.net/projects/squiid/"
+  url "https://gitlab.com/ImaginaryInfinity/squiid-calculator/squiid/-/archive/1.1.0/squiid-1.1.0.tar.gz"
+  sha256 "2e1ca78427c6af50945b83c50ee7bbd140dc31183c58bf38bbc983cf9e39f177"
+  license "GPL-3.0-or-later"
 
-  depends_on "cmake" => :build
   depends_on "rust" => :build
+  depends_on "nng"
 
   def install
+    # Avoid vendoring `nng`.
+    # "build-nng" is the `nng` crate's only default feature. To check:
+    # https://gitlab.com/neachdainn/nng-rs/-/blob/v#{nng_crate_version}/Cargo.toml
+    inreplace "Cargo.toml",
+              /^nng = "(.+)"$/,
+              'nng = { version = "\\1", default-features = false }'
+    inreplace "squiid-engine/Cargo.toml",
+              /^nng = { version = "(.+)", optional = true }$/,
+              'nng = { version = "\\1", optional = true, default-features = false }'
+
     system "cargo", "install", *std_cargo_args
   end
 
@@ -28,37 +38,6 @@ class Squiid < Formula
     output
   end
 
-  test do
-    require "pty"
-
-    PTY.spawn("squiid") do |r, w, pid|
-      # Wait for squiid to start
-      sleep 1
-
-      # test that math works
-      w.write "(10 - 2) * (3 + 5) / 4"
-
-      # send enter key
-      w.write "\r"
-
-      # capture the stdout into output variable
-      output = read_stdout(r)
-
-      # check that the calculator has done math correctly
-      assert_match "(10-2)*(3+5)/4=16", output
-
-      # quit
-      w.write "quit"
-      w.write "\r"
-
-      # for some reason the test hangs on macOS until stdout is read again
-      begin
-        read_stdout(r)
-      rescue Errno::EIO
-        # this happens on linux but not macOS
-      end
-
-      # Wait for the TUI app to exit
   def check_binary_linkage(binary, library)
     binary.dynamically_linked_libraries.any? do |dll|
       next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
