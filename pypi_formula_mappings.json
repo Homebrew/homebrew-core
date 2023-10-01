@@ -887,7 +887,7 @@
     "exclude_packages": ["certifi", "docutils", "packaging", "Pygments"]
   },
   "sqlfluff": {
-    "exclude_packages": ["PyYAML", "typing-extensions", "Pygments"]
+    "exclude_packages": ["PyYAML", "typing-extensions", "Pygments", "packaging"]
   },
   "sqlite-utils": {
     "exclude_packages": ["tabulate", "six"]
