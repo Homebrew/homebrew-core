@@ -1,8 +1,8 @@
 class Squiid < Formula
-  desc "Modular calculator written in Rust"
+  desc "Do advanced algebraic and RPN calculations"
   homepage "https://imaginaryinfinity.net/projects/squiid/"
-  url "https://gitlab.com/ImaginaryInfinity/squiid-calculator/squiid/-/archive/1.0.6/squiid-1.0.6.tar.gz"
-  sha256 "785dd38de948c9e1fa8ae33a42d092bd21ab57e1399106c37d75962c1bf2ea92"
+  url "https://gitlab.com/ImaginaryInfinity/squiid-calculator/squiid/-/archive/1.1.0/squiid-1.1.0.tar.gz"
+  sha256 "2e1ca78427c6af50945b83c50ee7bbd140dc31183c58bf38bbc983cf9e39f177"
   license "GPL-3.0-or-later"
 
   bottle do
