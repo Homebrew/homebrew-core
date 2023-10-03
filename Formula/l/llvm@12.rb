@@ -67,6 +67,11 @@ class LlvmAT12 < Formula
     sha256 "b4576303404e68100dc396d2414d6740c5bfd0162979d22152a688d1e7307379"
   end
 
+  # Fix build with Xcode 15
+  # https://github.com/spack/spack/issues/40158
+  # Backport of https://reviews.llvm.org/D130060
+  patch :DATA
+
   def install
     python3 = "python3.11"
 
@@ -418,3 +423,15 @@ class LlvmAT12 < Formula
     end
   end
 end
+__END__
+--- a/compiler-rt/lib/sanitizer_common/sanitizer_platform_limits_posix.cpp
++++ b/compiler-rt/lib/sanitizer_common/sanitizer_platform_limits_posix.cpp
+@@ -1250,7 +1250,7 @@ CHECK_SIZE_AND_OFFSET(group, gr_passwd);
+ CHECK_SIZE_AND_OFFSET(group, gr_gid);
+ CHECK_SIZE_AND_OFFSET(group, gr_mem);
+
+-#if HAVE_RPC_XDR_H
++#if HAVE_RPC_XDR_H && !SANITIZER_MAC
+ CHECK_TYPE_SIZE(XDR);
+ CHECK_SIZE_AND_OFFSET(XDR, x_op);
+ CHECK_SIZE_AND_OFFSET(XDR, x_ops);
