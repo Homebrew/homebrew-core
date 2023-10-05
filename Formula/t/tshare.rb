@@ -28,7 +28,7 @@ class Tshare < Formula
   end
 
   test do
-    assert_match /^tshare\/[0-9.]+ \(https:\/\/github.com\/trikko\/tshare\)/, shell_output("#{bin}/tshare --version").chomp
+    assert_equal "tshare/1.0 (https://github.com/trikko/tshare)", shell_output("#{bin}/tshare --version").chomp
   end
 
 end
