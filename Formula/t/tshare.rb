@@ -1,5 +1,4 @@
 class Tshare < Formula
-
   desc "Share files from CLI, using transfer.sh"
   homepage "https://github.com/trikko/tshare"
   url "https://github.com/trikko/tshare/archive/refs/tags/v1.0.4.tar.gz"
@@ -30,5 +29,4 @@ class Tshare < Formula
   test do
     assert_equal "tshare/1.0 (https://github.com/trikko/tshare)", shell_output("#{bin}/tshare --version").chomp
   end
-
 end
