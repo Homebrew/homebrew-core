@@ -7,6 +7,6 @@ class BIP39-XOR < Formula
   license :public_domain
 
   test do
-    assert_match "*XOR*", shell_output("#{bin}/bash -c \"BIP39-XOR.bash age age age age age age age age age age age used\")
+    assert_match "*XOR*", shell_output("#{bin}/bash -c \"BIP39-XOR.bash age age age age age age age age age age age used\"")
   end
 end
