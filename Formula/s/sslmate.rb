@@ -30,7 +30,7 @@ class Sslmate < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c8cf9d5a489518810246c59334f5f0b2855888075b421698746f08391d965eb7"
   end
 
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   uses_from_macos "perl"
 
@@ -54,7 +54,7 @@ class Sslmate < Formula
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"vendor/lib/perl5"
 
-    venv = virtualenv_create(libexec, "python3.11")
+    venv = virtualenv_create(libexec, "python3.12")
     venv.pip_install resource("boto")
 
     resources.each do |r|
