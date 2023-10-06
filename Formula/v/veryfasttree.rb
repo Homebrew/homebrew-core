@@ -45,29 +45,34 @@ class Veryfasttree < Formula
 
     script["LIBEXEC_PATH"] = libexec
     if OS.mac?
-      ENV["CXXFLAGS"] = "-ld_classic"
+      # Work around asm incompatibility with new linker (FB13194320)
+      ENV.append "LDFLAGS", "-ld_classic" if DevelopmentTools.clang_build_version >= 1500
       script["ARCH_CHECK"] = "echo $(sysctl -a | tr '[A-Z]' '[a-z]' | grep 'machdep.cpu.features') | grep -q \"$1\""
     else
       script["ARCH_CHECK"] = "grep -q \"$1\" /proc/cpuinfo"
     end
     (bin/"VeryFastTree").write script
 
-    system "cmake", "-B", "build_avx512f", "-DUSE_NATIVE=OFF", "-DUSE_AVX512=ON"
-    system "cmake", "-B", "build_avx2", "-DUSE_NATIVE=OFF", "-DUSE_AVX2=ON"
-    system "cmake", "-B", "build_avx", "-DUSE_NATIVE=OFF", "-DUSE_AVX=ON"
-    system "cmake", "-B", "build_sse4", "-DUSE_NATIVE=OFF", "-DUSE_SEE4=ON"
+    if Hardware::CPU.intel?
+      system "cmake", "-B", "build_avx512f", "-DUSE_NATIVE=OFF", "-DUSE_AVX512=ON"
+      system "cmake", "--build", "build_avx512f"
+      libexec.install "build_avx512f/VeryFastTree" => "VeryFastTree-avx512f"
+
+      system "cmake", "-B", "build_avx2", "-DUSE_NATIVE=OFF", "-DUSE_AVX2=ON"
+      system "cmake", "--build", "build_avx2"
+      libexec.install "build_avx2/VeryFastTree" => "VeryFastTree-avx2"
+
+      system "cmake", "-B", "build_avx", "-DUSE_NATIVE=OFF", "-DUSE_AVX=ON"
+      system "cmake", "--build", "build_avx"
+      libexec.install "build_avx/VeryFastTree" => "VeryFastTree-avx"
+
+      system "cmake", "-B", "build_sse4", "-DUSE_NATIVE=OFF", "-DUSE_SEE4=ON"
+      system "cmake", "--build", "build_sse4"
+      libexec.install "build_sse4/VeryFastTree" => "VeryFastTree-sse4"
+    end
+
     system "cmake", "-B", "build_sse2", "-DUSE_NATIVE=OFF"
-
-    system "cmake", "--build", "build_avx512f"
-    system "cmake", "--build", "build_avx2"
-    system "cmake", "--build", "build_avx"
-    system "cmake", "--build", "build_sse4"
     system "cmake", "--build", "build_sse2"
-
-    libexec.install "build_avx512f/VeryFastTree" => "VeryFastTree-avx512f"
-    libexec.install "build_avx2/VeryFastTree" => "VeryFastTree-avx2"
-    libexec.install "build_avx/VeryFastTree" => "VeryFastTree-avx"
-    libexec.install "build_sse4/VeryFastTree" => "VeryFastTree-sse4"
     libexec.install "build_sse2/VeryFastTree" => "VeryFastTree-sse2"
   end
 
