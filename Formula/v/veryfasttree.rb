@@ -12,7 +12,7 @@ class Veryfasttree < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "gcc"   => :build
+  depends_on "gcc"
 
   fails_with :clang do
     cause "Apple clang is not supported"
