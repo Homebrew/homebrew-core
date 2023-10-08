@@ -20,7 +20,7 @@ class Zurl < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.11" => :test
+  depends_on "python@3.12" => :test
   depends_on "qt@5"
   depends_on "zeromq"
 
@@ -44,7 +44,7 @@ class Zurl < Formula
   end
 
   test do
-    python3 = "python3.11"
+    python3 = "python3.12"
 
     conffile = testpath/"zurl.conf"
     ipcfile = testpath/"zurl-req"
