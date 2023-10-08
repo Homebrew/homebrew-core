@@ -55,15 +55,16 @@ class Mpich < Formula
 
     args = %W[
       --disable-dependency-tracking
+      --disable-silent-rules
       --enable-fast=all,O3
       --enable-g=dbg
       --enable-romio
       --enable-shared
+      --with-hwloc=#{Formula["hwloc"].opt_prefix}
       --with-pm=hydra
       F77=gfortran
       FC=gfortran
       FCFLAGS=-fallow-argument-mismatch
-      --disable-silent-rules
       --prefix=#{prefix}
       --mandir=#{man}
     ]
