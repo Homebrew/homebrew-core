@@ -1,7 +1,8 @@
 class Otf2bdf < Formula
   desc "OpenType to BDF font converter"
   homepage "http://sofia.nmsu.edu/~mleisher/Software/otf2bdf/"
-  url "http://sofia.nmsu.edu/~mleisher/Software/otf2bdf/otf2bdf-3.1.tbz2"
+  url "https://slackware.uk/~urchlay/src/otf2bdf-3.1.tbz2"
+  mirror "http://sofia.nmsu.edu/~mleisher/Software/otf2bdf/otf2bdf-3.1.tbz2"
   sha256 "3d63892e81187d5192edb96c0dc6efca2e59577f00e461c28503006681aa5a83"
 
   livecheck do
@@ -33,8 +34,8 @@ class Otf2bdf < Formula
   end
 
   resource "mkinstalldirs" do
-    url "http://sofia.nmsu.edu/~mleisher/Software/otf2bdf/mkinstalldirs"
-    sha256 "e7b13759bd5caac0976facbd1672312fe624dd172bbfd989ffcc5918ab21bfc1"
+    url "https://raw.githubusercontent.com/gcc-mirror/gcc/d7134c0e/mkinstalldirs"
+    sha256 "3caa88030df8fd0c2585645112ff5e44b8a3c327f6326177e907c1ee14aaaba4"
   end
 
   def install
