@@ -9,10 +9,15 @@ class Veryfasttree < Formula
   depends_on "cmake" => :build
   depends_on "libomp"
 
+  fails_with :gcc do
+    version "4" # fails with GCC 4.x and earlier
+    cause "Requires gcc >=5"
+  end
+
   def install
-    system "cmake", "-B", "build"
+    system "cmake", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
-    bin.install "build/VeryFastTree" => "VeryFastTree"
+    system "cmake", "--install", "build"
   end
 
   test do
