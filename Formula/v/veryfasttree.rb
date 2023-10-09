@@ -6,74 +6,13 @@ class Veryfasttree < Formula
   license "GPL-3.0-only"
   head "https://github.com/citiususc/veryfasttree.git", branch: "master"
 
-  livecheck do
-    url :stable
-    strategy :github_latest
-  end
-
   depends_on "cmake" => :build
-  depends_on "gcc"
-
-  fails_with :clang do
-    cause "Apple clang is not supported"
-  end
-
-  fails_with :gcc do
-    version "4" # fails with GCC 4.x and earlier
-    cause "Requires C++11 full support gcc >=5"
-  end
+  depends_on "libomp"
 
   def install
-    script = <<~EOS
-      #!/bin/sh
-
-      BASE=LIBEXEC_PATH/VeryFastTree
-
-      test_and_run () {
-          if ARCH_CHECK && [ -x "${BASE}-$1" ]; then
-              cmd="${BASE}-$1"
-              shift
-              exec "${cmd}" "$@"
-          fi
-      }
-
-      for SIMD in avx512f avx2 avx sse4 ; do test_and_run ${SIMD} "$@" ; done
-
-      # fallback to base option
-      exec "${BASE}-sse2" "$@"
-    EOS
-
-    script["LIBEXEC_PATH"] = libexec
-    if OS.mac?
-      # Work around asm incompatibility with new linker (FB13194320)
-      ENV.append "LDFLAGS", "-ld_classic" if DevelopmentTools.clang_build_version >= 1500
-      script["ARCH_CHECK"] = "echo $(sysctl -a | tr '[A-Z]' '[a-z]' | grep 'machdep.cpu.features') | grep -q \"$1\""
-    else
-      script["ARCH_CHECK"] = "grep -q \"$1\" /proc/cpuinfo"
-    end
-    (bin/"VeryFastTree").write script
-
-    if Hardware::CPU.intel?
-      system "cmake", "-B", "build_avx512f", "-DUSE_NATIVE=OFF", "-DUSE_AVX512=ON"
-      system "cmake", "--build", "build_avx512f"
-      libexec.install "build_avx512f/VeryFastTree" => "VeryFastTree-avx512f"
-
-      system "cmake", "-B", "build_avx2", "-DUSE_NATIVE=OFF", "-DUSE_AVX2=ON"
-      system "cmake", "--build", "build_avx2"
-      libexec.install "build_avx2/VeryFastTree" => "VeryFastTree-avx2"
-
-      system "cmake", "-B", "build_avx", "-DUSE_NATIVE=OFF", "-DUSE_AVX=ON"
-      system "cmake", "--build", "build_avx"
-      libexec.install "build_avx/VeryFastTree" => "VeryFastTree-avx"
-
-      system "cmake", "-B", "build_sse4", "-DUSE_NATIVE=OFF", "-DUSE_SEE4=ON"
-      system "cmake", "--build", "build_sse4"
-      libexec.install "build_sse4/VeryFastTree" => "VeryFastTree-sse4"
-    end
-
-    system "cmake", "-B", "build_sse2", "-DUSE_NATIVE=OFF"
-    system "cmake", "--build", "build_sse2"
-    libexec.install "build_sse2/VeryFastTree" => "VeryFastTree-sse2"
+    system "cmake", "-B", "build", "-DUSE_NATIVE=OFF"
+    system "cmake", "--build", "build"
+    bin.install "build/VeryFastTree" => "VeryFastTree"
   end
 
   test do
