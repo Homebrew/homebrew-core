@@ -23,12 +23,9 @@ class X3270 < Formula
   end
 
   depends_on "readline"
+  depends_on "openssl@3"
 
   uses_from_macos "tcl-tk"
-
-  on_linux do
-    depends_on "openssl@3"
-  end
 
   def install
     ENV.append "CPPFLAGS", "-I#{Formula["tcl-tk"].opt_include}/tcl-tk" unless OS.mac?
