@@ -1,8 +1,8 @@
 class VulkanExtensionlayer < Formula
   desc "Layer providing Vulkan features when native support is unavailable"
   homepage "https://github.com/KhronosGroup/Vulkan-ExtensionLayer"
-  url "https://github.com/KhronosGroup/Vulkan-ExtensionLayer/archive/refs/tags/v1.3.263.tar.gz"
-  sha256 "7396834f65401055762e852df61378a1a0a410d1c3214cca4b2201fc251b1392"
+  url "https://github.com/KhronosGroup/Vulkan-ExtensionLayer/archive/refs/tags/v1.3.267.tar.gz"
+  sha256 "670b2393107bed8da1844654e60bf52a45a628f47bf7cf741f4097fb983fd8e6"
   license "Apache-2.0"
   head "https://github.com/KhronosGroup/Vulkan-ExtensionLayer.git", branch: "main"
 
@@ -25,6 +25,7 @@ class VulkanExtensionlayer < Formula
   depends_on "spirv-headers"
   depends_on "spirv-tools"
   depends_on "vulkan-headers"
+  depends_on "vulkan-utility-libraries"
 
   on_linux do
     depends_on "libxcb" => :build
