@@ -6,9 +6,11 @@ class Uffizzi < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "50ca0e2849b13b877619970dd18e1c806584b771cdb10f1e981a2692fa3325c3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "56e0b5801b372f5aced9011e6d544d215f71d2e3f5372c55ea1c04ecb7d2813e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "56e0b5801b372f5aced9011e6d544d215f71d2e3f5372c55ea1c04ecb7d2813e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "56e0b5801b372f5aced9011e6d544d215f71d2e3f5372c55ea1c04ecb7d2813e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "965392d5c5b747afc9a95f6ca47a8b4f2c2e31f1e71173f5eb03cce8d17c8905"
     sha256 cellar: :any_skip_relocation, ventura:        "e750853aa0a9a3247b12909405171a0c37643465a261217c81bc32dda3bb478a"
     sha256 cellar: :any_skip_relocation, monterey:       "e750853aa0a9a3247b12909405171a0c37643465a261217c81bc32dda3bb478a"
     sha256 cellar: :any_skip_relocation, big_sur:        "e750853aa0a9a3247b12909405171a0c37643465a261217c81bc32dda3bb478a"

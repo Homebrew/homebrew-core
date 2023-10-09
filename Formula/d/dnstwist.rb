@@ -6,17 +6,16 @@ class Dnstwist < Formula
   url "https://files.pythonhosted.org/packages/ef/84/a1474ae1ec3ef3af0bbe6ee3bf6253570265835be8b3969301e07606481c/dnstwist-20230918.tar.gz"
   sha256 "ce065ab14abf0aa58f9a9fa0960feed494e64f2b524c573f0d5c2d5993731ac3"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7aa32ef2171b35086922a2d7b91f24481b149ac059637df5bf6fa7cf9bb9c34c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "04c2d50783edfc1c0e1585a8296217744f95707045cd36dbbc8be5dc37fc4cc0"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2699210156ca537194b2a58175d666a9a6fac3d3214ae887b25b3bde9db72c39"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "27c9fb74c3021080f2c90dcd9c82c86b897aa132a3820108e691c9481d45a829"
-    sha256 cellar: :any_skip_relocation, sonoma:         "25215ce1386177f7990b17cf10dc3309cf8ffa8b19a65967c6af9e8b3dcdb595"
-    sha256 cellar: :any_skip_relocation, ventura:        "70c708523c38375c83caa789c319a41d22d1d9ad106b20a0ae7d56f3213542d7"
-    sha256 cellar: :any_skip_relocation, monterey:       "7a450b0837ede4843aa51b1b983d57dd9383d5bb4467777f04de147fe9142256"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2d4373a1283ef87fe0ca77126a3e25a816f7330204cd63a64a6270eebf01ca84"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bdd172ee845368103d986124c1d4ca4e159dc42edabf165b1dd43e292bcba27a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1016306caafeec2b6746fbf02de07f32039cf2022e018ea23c7296745cd38881"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5782805101b4c0a538d308ac281fdc13101763427f5b20f2ce0a796bfc5b4a3f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "74fd2eeefa9fb978d1aec98d19e7138f4091fa0db0183145c5ea97003dd03768"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7cb1c6e4c25d6dc87c3232da71051de30ccc3fcfbca9c97f71e88c4d7cd0b1a6"
+    sha256 cellar: :any_skip_relocation, ventura:        "5b03c7a2ef159bc35ab0e0e6e8b6ca7f73519f19a69cf0603cf952ea6b89230a"
+    sha256 cellar: :any_skip_relocation, monterey:       "75dba5b4217c7a578a41891307748f70fa037a0c66719027f73280ec0be248b6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6f0402e6c2ac7ee81f9af35df1cdae9031e9e1a092619bd2b74b77b72814e58a"
   end
 
   depends_on "geoip"
@@ -51,8 +50,8 @@ class Dnstwist < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/2a/53/cf0a48de1bdcf6ff6e1c9a023f5f523dfe303e4024f216feac64b6eb7f67/charset-normalizer-3.2.0.tar.gz"
-    sha256 "3bb3d25a8e6c0aedd251753a79ae98a093c7e7b471faa3aa9a93a81431987ace"
+    url "https://files.pythonhosted.org/packages/cf/ac/e89b2f2f75f51e9859979b56d2ec162f7f893221975d244d8d5277aa9489/charset-normalizer-3.3.0.tar.gz"
+    sha256 "63563193aec44bce707e0c5ca64ff69fa72ed7cf34ce6e11d5127555756fd2f6"
   end
 
   resource "dnspython" do
@@ -106,8 +105,8 @@ class Dnstwist < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/31/ab/46bec149bbd71a4467a3063ac22f4486ecd2ceb70ae8c70d5d8e4c2a7946/urllib3-2.0.4.tar.gz"
-    sha256 "8d22f86aae8ef5e410d4f539fde9ce6b2113a001bb4d189e0aed70642d602b11"
+    url "https://files.pythonhosted.org/packages/8b/00/db794bb94bf09cadb4ecd031c4295dd4e3536db4da958e20331d95f1edb7/urllib3-2.0.6.tar.gz"
+    sha256 "b19e1a85d206b56d7df1d5e683df4a7725252a964e3993648dd0fb5a1c157564"
   end
 
   resource "yarl" do

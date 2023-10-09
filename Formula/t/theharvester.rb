@@ -9,9 +9,11 @@ class Theharvester < Formula
   head "https://github.com/laramies/theHarvester.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "162ea021e61893929a92438914d56b64e97afd2088b66e02768621712498b60a"
     sha256 cellar: :any,                 arm64_ventura:  "0ea4b808b1cee6c38491d8065986979c88e2b887d78aecba13c7d529cf32259c"
     sha256 cellar: :any,                 arm64_monterey: "ed867970289eb51660c6de9b540a86933a848c52177786800ffd05bffe821160"
     sha256 cellar: :any,                 arm64_big_sur:  "25f8633e15bfe4071ef1119cc7926ad249471675b53153e130d92278105691f3"
+    sha256 cellar: :any,                 sonoma:         "3235e9139f4c74910ec406240472e4d88b8165862bf34ced7f02ac3b92d6d2c5"
     sha256 cellar: :any,                 ventura:        "aa11fec2d309a910b6b639208e4e8739c3f7d19ebea45b54a9ae6f585a107893"
     sha256 cellar: :any,                 monterey:       "27199afd297f0f75e85371db3dda0d4bebd0c1d4cb3972e7eb2fcc1a22f0199c"
     sha256 cellar: :any,                 big_sur:        "50d992370c164de4bd96dc0960a46af53731cc00b26af356197eb9d83fa15e84"

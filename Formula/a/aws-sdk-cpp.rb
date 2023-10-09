@@ -3,19 +3,19 @@ class AwsSdkCpp < Formula
   homepage "https://github.com/aws/aws-sdk-cpp"
   # aws-sdk-cpp should only be updated every 5 releases on multiples of 5
   url "https://github.com/aws/aws-sdk-cpp.git",
-      tag:      "1.11.170",
-      revision: "58be026d429d7733969932e0ca9ed29ba7333aab"
+      tag:      "1.11.175",
+      revision: "9904f00193b161ebd67d3e06551778c97ff6ade8"
   license "Apache-2.0"
   head "https://github.com/aws/aws-sdk-cpp.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "663ff9ace69c1fa5e1347b2d3809654a4c0f137e277a87b0ac0402c7460cf8c8"
-    sha256 cellar: :any,                 arm64_ventura:  "f22024eda50e106ce0fb804ffd65fb4b10b469412dc6b6e2cc8911abad18c175"
-    sha256 cellar: :any,                 arm64_monterey: "cf72bbee4d1cb9ba72a33e4fa9c9c0f0caf4ff6c1181057a215533cf1da155fb"
-    sha256 cellar: :any,                 sonoma:         "d1115d6a32198fc327562ba732821890971dd8ff0aa019935d9a6d11993416a0"
-    sha256 cellar: :any,                 ventura:        "125a1efbe005dd652d27d0acf8ffbe2e37849fa03c6d49a996f8f744391d0f4b"
-    sha256 cellar: :any,                 monterey:       "9b7e735b9f813fa4655f18be19d98ced9357ad9018c99d3f199494036c7c6e48"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "39053a21867145a00886d1aa9e9d090fd19707e300aaacec2166728681e76044"
+    sha256 cellar: :any,                 arm64_sonoma:   "314c190ccfa22eb658aff18eb51db0e9b5f8ea3e137b8bfb0cc2742b3231948f"
+    sha256 cellar: :any,                 arm64_ventura:  "4904e55ad8c54ef4502da7cf4d276ec22264f43e5e969518ac2a2e18c01786ce"
+    sha256 cellar: :any,                 arm64_monterey: "4838bede12cbf878e720ed324ff7a4c11cb9cca3b661bb9010ddd8106c9c34d4"
+    sha256 cellar: :any,                 sonoma:         "b52d13554e91c6f6f43342cde2ce00ec45cfc58e4d16896b7d79854e30fe6cc4"
+    sha256 cellar: :any,                 ventura:        "0e569e5a81a17d925f95785323e627fed9e8989aeaa66a6350f9248cd24f6a4e"
+    sha256 cellar: :any,                 monterey:       "0ef6a4946c2b1d0ed75afb8797492e7861c8df5b6e89dc19b959810dd4ab504d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8fb0363d7a325b25204cc2c21a021d09f12953f4d0ab91220db2f330f96b9ef0"
   end
 
   depends_on "cmake" => :build

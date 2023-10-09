@@ -9,20 +9,17 @@ class S3cmd < Formula
   head "https://github.com/s3tools/s3cmd.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "85527fea66003f79c15af0b5050a91128c064a9c827598468b39de10de7bb2c2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5d3197b26ede962687b3f7e44063b70c51b58eafa800578f01c0a716770833ed"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b8ebf2e5482148ab05fb5566a0daf181701b4a8019bd1fba40d1a8854a926c0b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "62239bfac256904c14d9aa9deccdc54d27f8b97dcf47fbb593386c07ec362c5c"
-    sha256 cellar: :any_skip_relocation, sonoma:         "4d4e0ba7fca5f9ec104361c68538c12f4998c6759e1c3117c63c7c5d97e2e3aa"
-    sha256 cellar: :any_skip_relocation, ventura:        "98a569dab7f76373fc587e335f8d705fd46b0a60f773dc8e35477cdae7cae35a"
-    sha256 cellar: :any_skip_relocation, monterey:       "42221c8da5a493e2fdb7e1752603f2de8fd7308f2d8790c7bbdf5bd1b96efef3"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1a6157f2ba122b52f4f8d4f312bf981f621afb4339266c086e24ced420bf43f2"
-    sha256 cellar: :any_skip_relocation, catalina:       "2168e52f58b88cded9291ff6fce6ae6fe5c271d9e4f19aa4b35fc286b7281b5d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "24ff4870317c568b8cdef59aa0c83c587ecd0539a9d231597ace36a25f78a6f0"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "49c063c7d2a9ebf7ac266f11525017060f22663920a73720956c849ff6dc5dd1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9bba070e3a04a80a8004e89aa7e97d765ddd226105bd8f9bb05bb9f440f2d1d0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a85c3ca73d459db2aefe03eb0eb2f18ddf2910288fe50517ec41802cd6b6964d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e127cee8042729628fdfd70c6e122182e1a855ee7a2173be63629ca17b5a5e38"
+    sha256 cellar: :any_skip_relocation, ventura:        "44621e3c588d8d9933fc542f5fee916ca68930fa9c4d5406555fae6c01461c11"
+    sha256 cellar: :any_skip_relocation, monterey:       "d8fb2514382324799db5a36644469aa64905008a72713774493e814da5706ed9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9785c7ced06c286975b392882d054a445556ce494d3f0f6c68838b7ac937fdfc"
   end
 
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "six"
 
   resource "python-dateutil" do

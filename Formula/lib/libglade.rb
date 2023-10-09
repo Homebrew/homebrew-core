@@ -23,7 +23,7 @@ class Libglade < Formula
   end
 
   # GNOME repo was also moved to Archive: https://gitlab.gnome.org/Archive/libglade
-  deprecate! date: "2022-09-18", because: :unmaintained
+  disable! date: "2023-10-03", because: :unmaintained
 
   depends_on "pkg-config" => :build
   depends_on "gtk+"

@@ -3,22 +3,19 @@ class Fwupd < Formula
 
   desc "Firmware update daemon"
   homepage "https://github.com/fwupd/fwupd"
-  url "https://github.com/fwupd/fwupd/releases/download/1.9.5/fwupd-1.9.5.tar.xz"
-  sha256 "201ec20538044749c96dbff708e52f7d79038de787b90a2762e76793080aa37c"
+  url "https://github.com/fwupd/fwupd/releases/download/1.9.6/fwupd-1.9.6.tar.xz"
+  sha256 "c5fe96634bf6c5af7641cd08a48c6348aadd32d5f09ff8491e633f3c3a6bc0a1"
   license "LGPL-2.1-or-later"
   head "https://github.com/fwupd/fwupd.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 arm64_sonoma:   "37993d17f921d3490251e39e2a8d39c4a0d82d4a897a5a916c6ce90b7cc4fe88"
-    sha256 arm64_ventura:  "e3cb97c25f8620bc5bb4cdf7f76fc0a198e56b80430d327f3683311698538ba6"
-    sha256 arm64_monterey: "6ee0840adc9ce90d01761d32aadc616886eceb383bb005c73774c8bbe433526d"
-    sha256 arm64_big_sur:  "2b2d7d2ec92d10caef46e5b499077a6ac644ac1b607c1aec7ffa1efc6297f093"
-    sha256 sonoma:         "59613df79b65dad130a1642e338246a1f2c6d8ef5f3dc65ae7c74aa1b7f397fb"
-    sha256 ventura:        "104bf7001de23e552902ff4725b89ca0df66dc84fbce0eca6567956d2734d25b"
-    sha256 monterey:       "14f5d36e91a8cac3ef1c2f788c5b7d021c5cd0c83b831f265db96216aec18cbc"
-    sha256 big_sur:        "2fa9406c77045e9dc7cb256710a6de3f38371950eec3bed09ae07eebc9f7f28b"
-    sha256 x86_64_linux:   "9b13b1d783c768df23fdd626138b5b1ae4a51053828487843989851fe73e7caa"
+    sha256 arm64_sonoma:   "5ad2f54cdbebb45fb44b80a800b76cb2b9136370ea65bc2a9b3127ebe828b13a"
+    sha256 arm64_ventura:  "4c81f3d703ffc1b3b2bd63de39e6ccabd22b253a82aeb1fdd4d0c076a91a0b7e"
+    sha256 arm64_monterey: "60d77dd8320b184553bd163552f551b5cdcf412fcfb379e6d6dd1e87153b6783"
+    sha256 sonoma:         "ddd377bf6021f6774ef928fc6f93707c01bbfc0cf7c7e8ee113326850ca8f443"
+    sha256 ventura:        "c75d8b78526c48390b570983c2d9b99e911111c997ceee50e590482822ec7b25"
+    sha256 monterey:       "72b01211bcf407f4ace3d074ffd26bf0e3d462bc86d07863f12966de04e7c82e"
+    sha256 x86_64_linux:   "e2230c6119520c39cca2c6edf13d6913c86c04ab3b4aae8c6b43f30b7cb7ad92"
   end
 
   depends_on "gi-docgen" => :build
@@ -62,7 +59,6 @@ class Fwupd < Formula
                     "-Dlibarchive=enabled", # fail if missing
                     "-Dpython=#{venv_root}/bin/python",
                     "-Dsupported_build=enabled",
-                    "-Dplugin_dell=disabled",
                     "-Dplugin_flashrom=disabled",
                     "-Dplugin_gpio=disabled",
                     "-Dplugin_modem_manager=disabled",

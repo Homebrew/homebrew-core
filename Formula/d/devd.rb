@@ -39,7 +39,7 @@ class Devd < Formula
   # We backported upstream support for Go modules, but have not received
   # a response on request for a new release since 2021-01-21.
   # Issue ref: https://github.com/cortesi/devd/issues/115
-  deprecate! date: "2022-09-21", because: :unmaintained
+  disable! date: "2023-10-03", because: :unmaintained
 
   depends_on "go" => :build
 

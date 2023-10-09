@@ -2,8 +2,8 @@ class PysideAT2 < Formula
   desc "Official Python bindings for Qt"
   homepage "https://wiki.qt.io/Qt_for_Python"
   # TODO: Check if we can use unversioned `llvm` at version bump.
-  url "https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.15.10-src/pyside-setup-opensource-src-5.15.10.tar.xz"
-  sha256 "2af691d3613a41f83a60439b46568fc2c696dbfae42f7cd7b07152d115ead33a"
+  url "https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.15.11-src/pyside-setup-opensource-src-5.15.11.tar.xz"
+  sha256 "da567cd3b7854d27a0b4afe3e89de8b2f98b7a6d57393be56f1fc13f770faf29"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-3.0-only"]
 
   livecheck do
@@ -12,12 +12,12 @@ class PysideAT2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "28af314823f58cb216bb57e1c74d2fb22904f736cb026c1788713661fa58dac2"
-    sha256 cellar: :any, arm64_monterey: "cb7496bdae5f86a816371365a7d365d148ac5df4adbba53e89bf211e6307fc70"
-    sha256 cellar: :any, arm64_big_sur:  "4cfb6722551c4ee4f935c8f81f74fc594158ae01dcc8529e5ca374c27e0d3ca0"
-    sha256 cellar: :any, ventura:        "43b8c564ba4bcae4efc92f5108c847c52fb91ca8bdee8d2c9090e8ac6c5ec8a7"
-    sha256 cellar: :any, monterey:       "e49318662072baa98a393d468a14135f2c3367d22c24e44e9938f0ede9464014"
-    sha256 cellar: :any, big_sur:        "b7ec686cddddf16f2be64ffc086df0af7ce3ddeb067181336e063623b78a1226"
+    sha256 cellar: :any, arm64_sonoma:   "dd514e82cb63aeb3e3a216c8584b78a05f38ba3584e393fdef4b783250fb1943"
+    sha256 cellar: :any, arm64_ventura:  "77d006531a3523ba86df98452a3cd0af74f8a831c9a13fa3254308a6ab1c427a"
+    sha256 cellar: :any, arm64_monterey: "fdfb66e97b5cf36437fce26f0883ed01abbaec9e816c5c24cafad0491e0951f6"
+    sha256 cellar: :any, sonoma:         "505cfcd99e7e41dc65e4ef16acd94f99254bab7e8934d07ade703cf463ba5465"
+    sha256 cellar: :any, ventura:        "7e748558af29e2771b2f2a646b2970c562deae124bf312416d4d259ddd81d996"
+    sha256 cellar: :any, monterey:       "fd3599409c6247c6c7b44257afa241eb0832dc57f929684de3dc7e93d63111f6"
   end
 
   keg_only :versioned_formula
@@ -41,16 +41,6 @@ class PysideAT2 < Formula
   patch do
     url "https://src.fedoraproject.org/rpms/python-pyside2/raw/009100c67a63972e4c5252576af1894fec2e8855/f/pyside2-tools-obsolete.patch"
     sha256 "ede69549176b7b083f2825f328ca68bd99ebf8f42d245908abd320093bac60c9"
-  end
-
-  # Fix error: use of undeclared identifier 'NPY_ARRAY_UPDATEIFCOPY'.
-  # Remove when the patch available in the next release.
-  # Ref: https://codereview.qt-project.org/c/pyside/pyside-setup/+/418321
-  # Ref: https://bugreports.qt.io/browse/PYSIDE-2035
-  patch :p3 do
-    url "https://code.qt.io/cgit/pyside/pyside-setup.git/patch/sources/shiboken6/libshiboken/sbknumpyarrayconverter.cpp?id=1422cf4a7f277fb13fd209f24a90d6c02641497d"
-    sha256 "2148af37249932be15ca417076baa9539d487b38a434ec901a67fa9ede724f52"
-    directory "sources/shiboken2"
   end
 
   def python3

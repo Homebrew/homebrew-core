@@ -1,20 +1,18 @@
 class Micropython < Formula
   desc "Python implementation for microcontrollers and constrained systems"
   homepage "https://www.micropython.org/"
-  url "https://github.com/micropython/micropython/releases/download/v1.20.0/micropython-1.20.0.zip"
-  sha256 "6a2ce86e372ee8c5b9310778fff7fca1daa580afa28ea755f1a303675a8612b7"
+  url "https://github.com/micropython/micropython/releases/download/v1.21.0/micropython-1.21.0.zip"
+  sha256 "12521faacc7191353f2739267bd9fd2a5e60ea04fb47df74f8e22b6bf59ba967"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "83bb0f12de4a170e877653995faee2050b0e2a51f718d8fa752bddb9446040e9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0fe34aa684c31925b2408db17f07770e30553f8ee710974ca46bcd8d9c92de91"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0e00554ee1669f08562cf5e9ac399031f95a165e1b536f60635ddcb079b7f203"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6b6109e0fff249f845059b7e4d18ce7756151882d1237d115f4313e1a595553e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "df0d5a29c7f654df932abe204ac06a4f603326a4e306f32bb898123c5d6cc59c"
-    sha256 cellar: :any_skip_relocation, ventura:        "b3c52db1a033a9fe6a4404298a0020e7694ea0a3380740e30a5ad00ee273b626"
-    sha256 cellar: :any_skip_relocation, monterey:       "7c7b22c8d84550cbf337cad903f3540c4994dada2cf18497ad09efe87e85895f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2cf2de3cde04394ae7db07cf2369f24a243037ace7bab2f9a9c29ce2da4a1759"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "26b2b9c760b87ffcf3046256e40a6b566c25ab43ea2500218ff400777c5632b0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6d28868290559a5ce923e725bb12a4a7bc44093bf1a5b51bc7588ed6aa11719a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "75322763fdae33e9f16116201010cc6a5ae67577d4865017524d43eb3ad6b25e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f57add74a33a8f19660e17ad58ae9d8067b6655dce66fa5b76a7a01e49359925"
+    sha256 cellar: :any_skip_relocation, sonoma:         "45d37b4699cdff3ae0bbea5a826b21ac70782a5913782b478147c2035c0b431a"
+    sha256 cellar: :any_skip_relocation, ventura:        "f6567a1c40536f5a399ae90e7518bf7b8c0491c6803e9b7d5427e293687b2394"
+    sha256 cellar: :any_skip_relocation, monterey:       "d2ae79f8009e32b5ebe774ab6823b75e3d636e1ec884ccef365d319faf7e7928"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dbf7898fabb5acb1c10f2adfcd61006d53090d5c95602c673cc1048225fd63be"
   end
 
   depends_on "pkg-config" => :build

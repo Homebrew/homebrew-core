@@ -12,9 +12,22 @@ class VagrantCompletion < Formula
     sha256 cellar: :any_skip_relocation, all: "1e505842b21fff086e13163e635da612316a8d1c3ef598744f773996c692ffa3"
   end
 
+  # https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license
+  deprecate! date: "2023-09-27", because: "will change its license to BUSL on the next release"
+
   def install
     bash_completion.install "contrib/bash/completion.sh" => "vagrant"
     zsh_completion.install "contrib/zsh/_vagrant"
+  end
+
+  def caveats
+    <<~EOS
+      We will not accept any new Vagrant releases in homebrew/core (with the BUSL license).
+      The next release will change to a non-open-source license:
+      https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license
+      See our documentation for acceptable licences:
+        https://docs.brew.sh/License-Guidelines
+    EOS
   end
 
   test do

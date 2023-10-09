@@ -6,21 +6,22 @@ class Platformio < Formula
   url "https://files.pythonhosted.org/packages/85/9b/37452c9b7e99638c9d761c7864a463e4721ce7206fb526174813ffe6a949/platformio-6.1.11.tar.gz"
   sha256 "1977201887cd11487adf1babf17a28f45f6dbbec8cbc5e3cc144cb43b320a0d0"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/platformio/platformio-core.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6c435f08169d89fa5504e9f63f282bce0b1b9c40dec6f323b838e121570477bf"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "29fcb281fc6c6b614ce81aec6e6d63022b985ee4bd6143adbcb110b25d8a2183"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5cb2f3f512c9522b753cd17d4dea74dfc9761abe255974a9e6b7853536e7ab59"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "43609e10c55fbc9534ba3f2704d5a421ba79f5aa6f744a586c35644c098606f4"
-    sha256 cellar: :any_skip_relocation, sonoma:         "37ecacf07a256dafd3fc6c6b54b3bc143c91c3500e4fb0fffc386d7d8e40b6d4"
-    sha256 cellar: :any_skip_relocation, ventura:        "2849f990c2fe85285af38d244eb63f130eec8e03a1983ba72bfda17d27156849"
-    sha256 cellar: :any_skip_relocation, monterey:       "e12acb50db6d7bead7496dd12dc6d2166b301a49f1831200f86912d3b6847f88"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7b3717f7128208c6d941512b27f4514a97e16b8edcc36237132aee595b2186b7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7e67ce19a0fb3e16049a88a83331ef494387046f2703cdce747402e6c75ec994"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2de2d2772a93a23bb533ef8bccc3f175ccd9c1ce9c32d6cfa92f9d6f371d42ad"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "238fc53b98307aa3c44ccc5bbb298e7bfc722807801e402e2bf8aea263b06318"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c3999c26bc0c83632fa6174445c94eb50404d05bd26947a128e0ce2ad24256c5"
+    sha256 cellar: :any_skip_relocation, sonoma:         "6380ff7175172eb0eefcbd320f39712aae39fca969d565b5d7a9b1627c4303f9"
+    sha256 cellar: :any_skip_relocation, ventura:        "6bfae2f1e7c242259ec94361ec09d1ef16ba8b0d8d9ec03919475b8644f2dc5d"
+    sha256 cellar: :any_skip_relocation, monterey:       "a01fe730d1563ae6e2cac0f1de2de9c1f55e274b207ee6faf58f49359aa34983"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "926a8e875cf693d17fada1b296ac7ab55ae7a6d6331b340e283a3128c61572de"
   end
 
   depends_on "python-certifi"
+  depends_on "python-packaging"
   depends_on "python-tabulate"
   depends_on "python@3.11"
 
@@ -40,8 +41,8 @@ class Platformio < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/2a/53/cf0a48de1bdcf6ff6e1c9a023f5f523dfe303e4024f216feac64b6eb7f67/charset-normalizer-3.2.0.tar.gz"
-    sha256 "3bb3d25a8e6c0aedd251753a79ae98a093c7e7b471faa3aa9a93a81431987ace"
+    url "https://files.pythonhosted.org/packages/cf/ac/e89b2f2f75f51e9859979b56d2ec162f7f893221975d244d8d5277aa9489/charset-normalizer-3.3.0.tar.gz"
+    sha256 "63563193aec44bce707e0c5ca64ff69fa72ed7cf34ce6e11d5127555756fd2f6"
   end
 
   resource "click" do
@@ -67,11 +68,6 @@ class Platformio < Formula
   resource "marshmallow" do
     url "https://files.pythonhosted.org/packages/e4/e0/3e49c0f91f3e8954806c1076f4eae2c95a9d3ed2546f267c683b877d327b/marshmallow-3.20.1.tar.gz"
     sha256 "5d2371bbe42000f2b3fb5eaa065224df7d8f8597bc19a1bbfa5bfe7fba8da889"
-  end
-
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/b9/6c/7c6658d258d7971c5eb0d9b69fa9265879ec9a9158031206d47800ae2213/packaging-23.1.tar.gz"
-    sha256 "a392980d2b6cffa644431898be54b0045151319d1e7ec34f0cfed48767dd334f"
   end
 
   resource "pyelftools" do
@@ -105,8 +101,8 @@ class Platformio < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/31/ab/46bec149bbd71a4467a3063ac22f4486ecd2ceb70ae8c70d5d8e4c2a7946/urllib3-2.0.4.tar.gz"
-    sha256 "8d22f86aae8ef5e410d4f539fde9ce6b2113a001bb4d189e0aed70642d602b11"
+    url "https://files.pythonhosted.org/packages/8b/00/db794bb94bf09cadb4ecd031c4295dd4e3536db4da958e20331d95f1edb7/urllib3-2.0.6.tar.gz"
+    sha256 "b19e1a85d206b56d7df1d5e683df4a7725252a964e3993648dd0fb5a1c157564"
   end
 
   resource "uvicorn" do
@@ -121,6 +117,8 @@ class Platformio < Formula
 
   def install
     virtualenv_install_with_resources
+
+    generate_completions_from_executable(bin/"pio", shells: [:fish, :zsh], shell_parameter_format: :click)
   end
 
   test do

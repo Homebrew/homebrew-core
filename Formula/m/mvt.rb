@@ -9,15 +9,14 @@ class Mvt < Formula
   head "https://github.com/mvt-project/mvt.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "837f68c879c7beb2493106a2674144b9298e4e7d0d6a48595cb722d436656979"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d871e2bc09e8d7c2ed4884bfadf801307b9c3f5b0a02fe2c56b270e1601164b2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d0c21d9d8103e0373dffc0675273d238deb513d36753b14dba9c76450fdc02e1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1a441ecc94cf21fba90f6c353d6365abb1a60a4c813bb74dfcea8888d14d8d3c"
-    sha256 cellar: :any_skip_relocation, sonoma:         "9aed275f13c83cd48376f2179d3063592e33cba1197d6bd04f2ced46aa3b1aa6"
-    sha256 cellar: :any_skip_relocation, ventura:        "18c200b70d5ad2c3b227373a97ae674a7e84cb1453ad822003ac259fcf9f37be"
-    sha256 cellar: :any_skip_relocation, monterey:       "a31670e414637a216c4fc5223c4d09c85e85745cadb1e0b611235d233fea8ab5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b84fb0a4d23a19fc334c5291291ee847865a28d535fc36b81fa7133663174b95"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a9ee655a67a5a15405fc52eb7d908d76e516cd457c35e223620bad065a1e7538"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "63721e6c61cc24b23054f82cc121b2cda1aa25e897bc0ad3468a558737cfc4a4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0c2af07d5a9d2823ae584be6e50da9442c66d08c7d412d31d6f805947ba517ca"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b8f379d603205d42250fa7c599e8aedf1cc6dfcc80a6364861bf0a3b61c2f301"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0dadf15111c56d519bf3cc7e2a5ea0b9f97b15d68bd2760d74f5c5dcf5dc7927"
+    sha256 cellar: :any_skip_relocation, ventura:        "dc33e9e7add812076c9d3767bb251187fc0bffe725eeb49ae8dad8e838e9544e"
+    sha256 cellar: :any_skip_relocation, monterey:       "97e913f421bc59583a1aace26df3b5642aba5c477a64e4060523ef22508ab4e0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "14757539d59d884eb6595cfcb8eecf477279cc91be7a6b20b08105bb3e9668a6"
   end
 
   depends_on "cffi"
@@ -25,6 +24,7 @@ class Mvt < Formula
   depends_on "pygments"
   depends_on "python-certifi"
   depends_on "python-cryptography"
+  depends_on "python-packaging"
   depends_on "python@3.11"
   depends_on "pyyaml"
 
@@ -71,11 +71,6 @@ class Mvt < Formula
   resource "nskeyedunarchiver" do
     url "https://files.pythonhosted.org/packages/e8/d9/227a00737de97609b0b2d161905f03bb8e246df0498ec5735b83166eef8f/NSKeyedUnArchiver-1.5.tar.gz"
     sha256 "eeda0480021817336e0ffeaca80377c1a8f08ecc5fc06be483b48c44bad414f4"
-  end
-
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/b9/6c/7c6658d258d7971c5eb0d9b69fa9265879ec9a9158031206d47800ae2213/packaging-23.1.tar.gz"
-    sha256 "a392980d2b6cffa644431898be54b0045151319d1e7ec34f0cfed48767dd334f"
   end
 
   resource "pyahocorasick" do
@@ -131,6 +126,10 @@ class Mvt < Formula
 
   def install
     virtualenv_install_with_resources
+
+    %w[mvt-android mvt-ios].each do |script|
+      generate_completions_from_executable(bin/script, shells: [:fish, :zsh], shell_parameter_format: :click)
+    end
   end
 
   test do

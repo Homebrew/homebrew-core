@@ -6,9 +6,11 @@ class Quazip < Formula
   license "LGPL-2.1-only"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "b917ed1fd711fd8abaf77825f077340bfdea202ea1ee96e3fdb4b073d62b2db2"
     sha256 cellar: :any,                 arm64_ventura:  "29ad7c05c766208ae51d0c220e83a98313ebd55e804cac3a627e9097591bbbb6"
     sha256 cellar: :any,                 arm64_monterey: "86c13aac1ac1d25a71d4a293c1b5c4cc683cc900c12d3a0bb40f64f5e5867a5f"
     sha256 cellar: :any,                 arm64_big_sur:  "247b7788823f0b63f6e07644478a39c44d282fd7ec1d87302549c1905bef8898"
+    sha256 cellar: :any,                 sonoma:         "04cf70a2114e204931e750b79e6573fb6d8914a2c0893fe1412e413e5e5c0b67"
     sha256 cellar: :any,                 ventura:        "787aa2aad4f009e230c77c92d73c40851f82bd8711e02da3f490426adea5c5d2"
     sha256 cellar: :any,                 monterey:       "1ba3e44696f2612a297050db3502f0087cc41eedb4e07be65ee13af72e182a16"
     sha256 cellar: :any,                 big_sur:        "dbc4fd05eb139a16baa6d0a1c8f3dba25d63f6272b0c2cc0e4d3b5f363911eea"

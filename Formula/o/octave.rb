@@ -8,9 +8,11 @@ class Octave < Formula
   revision 2
 
   bottle do
+    sha256 arm64_sonoma:   "8ae5e8c4a431f922a5aa6bf7f5e8f5232645150af909681541767acb33e6cef8"
     sha256 arm64_ventura:  "0fde25bc570c10a6d9849c836ba3f1debc7c754deae1bcd776ea7e9822c0f826"
     sha256 arm64_monterey: "43803af5509d210d34d002931fd788377cad1ce1e98c4661743287aa934e44d3"
     sha256 arm64_big_sur:  "ffc066b4a4b17475943b4af0b918a55068ce285e919f8933af8d98b6999bacc3"
+    sha256 sonoma:         "122d9e2bd794827b14f46b693e1a1bdc8138866d01eb5207ed09ad99a26badfa"
     sha256 ventura:        "f8a4358ab506f538f18b26680c02473671515330839b55f9fa7ea416c1fe674f"
     sha256 monterey:       "3ce5276b7678a148ffc6571eeaa7c4d4feab2efb244f3eeff5ba17cce5e4ed5c"
     sha256 big_sur:        "96d558383ae7a1c265c903e96e6c6805e3b4f9c9255532bbdae81b61a311b7d7"

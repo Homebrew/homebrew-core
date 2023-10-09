@@ -3,10 +3,9 @@ class Wownero < Formula
   homepage "https://wownero.org"
   # TODO: Check if we can use unversioned `protobuf` at version bump
   url "https://git.wownero.com/wownero/wownero.git",
-      tag:      "v0.11.0.3",
-      revision: "e921c3b8a35bc497ef92c4735e778e918b4c4f99"
+      tag:      "v0.11.1.0",
+      revision: "1b8475003c065b0387f21323dad8a03b131ae7d1"
   license "BSD-3-Clause"
-  revision 3
 
   # The `strategy` code below can be removed if/when this software exceeds
   # version 10.0.0. Until then, it's used to omit a malformed tag that would
@@ -25,15 +24,13 @@ class Wownero < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "047947755e53c4d035f8a3cc66a5d35d3157cc1e5abf0c488e239b7445337615"
-    sha256 cellar: :any,                 arm64_ventura:  "e9c6d64810d53ccd2fa82a0f641fc4fbf594ce632b18186801083493bf6be222"
-    sha256 cellar: :any,                 arm64_monterey: "d53bd08ebda04811356689c342d35fc0344f0906a540d83a43f9b41df447e971"
-    sha256 cellar: :any,                 arm64_big_sur:  "7af4e0940aaa43a7d70d3a8cb1970f744f71acdf67e8c7de8e9db913c682adff"
-    sha256 cellar: :any,                 sonoma:         "0d987417b5221d654c842f5f84b8be68d1e21a8ba225900c85c0e862d76d2812"
-    sha256 cellar: :any,                 ventura:        "16d4dc784619f6a70f0a017abe08d321a9555218ee4c6330589d6cb6f18d9234"
-    sha256 cellar: :any,                 monterey:       "e8337a5e74fceca5739b0579aac2c1829dca2ed5379bf50d2e2ec7a3eb7897bb"
-    sha256 cellar: :any,                 big_sur:        "bd746ee84a9474879ea9cb224c150d000e7802c5837e1a7ef0d4193d20ca75c0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5e700986a65ce429419bcdf44fa0339a2b2f01182c9138915df5b7e50dec44a0"
+    sha256 cellar: :any,                 arm64_sonoma:   "fcb47744629c28e38b394ce3cb035e23997d300a5cdd9df88bd1a235860e4f0a"
+    sha256 cellar: :any,                 arm64_ventura:  "2b92d800b9ecdcefd71b4fb9a3fa84fa78ae61f4c0b5134b499134eaa3c44d19"
+    sha256 cellar: :any,                 arm64_monterey: "9eb5bfdf90a6ee311595963cab3b7cb7e7aae34dda897f06f975f048adda838f"
+    sha256 cellar: :any,                 sonoma:         "34c6811f414fea8e0d19f6053f1ef5af895f1dc264c921bd1e12587655268325"
+    sha256 cellar: :any,                 ventura:        "55ed51a6db9fa2b55f4d5a26b7fe1a1f154ac0cbe71902e354b5f11d54576ae7"
+    sha256 cellar: :any,                 monterey:       "b70d89d962b51c601dd335ba4da21acbaa21e02c44ac265997dc1db2c45a0378"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6c1ab70959cb2f0d13e761a9bd8d4c2f7ee304cd4253d09e7068cceb59248f10"
   end
 
   depends_on "cmake" => :build

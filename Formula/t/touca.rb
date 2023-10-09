@@ -5,18 +5,16 @@ class Touca < Formula
   url "https://files.pythonhosted.org/packages/c8/6d/e1986d8c9b4f6cd2b583d0df8bd1769989b5ce5cb91dcc613b0d187e4a7a/touca-1.8.7.tar.gz"
   sha256 "244a52be4cf4670077fda0b740ac067470745da7084c241bc619b332f771d940"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3aed407f70e1efd1698590c51b41eb705ed98ee14e44653b1d19d7b1978b1d92"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "de3ec73f50c358aeb0ef87b232c35da8c77ed7370b066bf25fc07e8df761b245"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "938d41e6c293cfa07bc7131b852b7e004c49805da282c0aca37452a94b1bf9b5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1bd1b8afc3c213d9d52c00f780c2bd0268d28f5d9df02ee95415f7102469f64f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "df1a715cad4143d52285f34dae55186dc60ecfdffb9c15e21cb3e868bbc3feac"
-    sha256 cellar: :any_skip_relocation, ventura:        "5ea0f2322121d96ad68e7c9eede817a14e3ccf6badc8eb9f13affe34c42142c6"
-    sha256 cellar: :any_skip_relocation, monterey:       "0a8f77793518fa3f6e23b8ae9633e293e948415035c9d46846f7ca725a209e69"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a61e432c44799fa7c00c3a861dfbb01444608fde7724c5bc03542cdc5bbd5967"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5114d7af819f141ddeac8e77f804cc294735d20dde38cff2953a0e0dd15456a8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "efbc5b59fb333fd0b8dff0a6ee6ac1a580068a7fbc56a6fa6c62b47112c05500"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e2472bd6eab7df1fa96b525e4bfad3c72a55cc65e07c0b2bfecfe5a6585b8901"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7a50aaf4742b7a36dcaaf64d5625b8f7dbb4ff17f4a2231428aa5da6290f02fe"
+    sha256 cellar: :any_skip_relocation, sonoma:         "6f946ed8249b3a630d650c70ab27951cdf9d81591f222ad299d36866256ed80d"
+    sha256 cellar: :any_skip_relocation, ventura:        "7b488932e294257d0ae38ac8e5a83de806b1f738b498d48f6142719855b8b230"
+    sha256 cellar: :any_skip_relocation, monterey:       "fa9eecfb45233750bff9cd468ca9e0a745f67f06bbc47e10fae5fc3aec2d3f9e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "333454231d9fecfedf3a1ebd2c70da62c451228aa7785741da378d06fa0a449d"
   end
 
   depends_on "pygments"
@@ -29,8 +27,8 @@ class Touca < Formula
   end
 
   resource "flatbuffers" do
-    url "https://files.pythonhosted.org/packages/0d/0a/2e88943de46df2d69a037427099323a973489d4697058043e99ace188f3b/flatbuffers-23.1.21.tar.gz"
-    sha256 "a948913bbb5d83c43a1193d7943c90e6c0ab732e7f2983111104250aeb61ff85"
+    url "https://files.pythonhosted.org/packages/0c/6e/3e52cd294d8e7a61e010973cce076a0cb2c6c0dfd4d0b7a13648c1b98329/flatbuffers-23.5.26.tar.gz"
+    sha256 "9ea1144cac05ce5d86e2859f431c6cd5e66cd9c78c558317c7955fb8d4c78d89"
   end
 
   resource "rich" do
@@ -44,8 +42,8 @@ class Touca < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/c5/52/fe421fb7364aa738b3506a2d99e4f3a56e079c0a798e9f4fa5e14c60922f/urllib3-1.26.14.tar.gz"
-    sha256 "076907bf8fd355cde77728471316625a4d2f7e713c125f51953bb5b3eecf4f72"
+    url "https://files.pythonhosted.org/packages/dd/19/9e5c8b813a8bddbfb035fa2b0c29077836ae7c4def1a55ae4632167b3511/urllib3-1.26.17.tar.gz"
+    sha256 "24d6a242c28d29af46c3fae832c36db3bbebcc533dd1bb549172cd739c82df21"
   end
 
   def install

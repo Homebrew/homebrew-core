@@ -9,19 +9,17 @@ class Ly < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9bb57741c0cac7cd533396fd200376fdf7529f99869af58d8545085b821d5d44"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "038b39a72ba2a8eb2a1ac853e8c7e26228c3dfc97e4d639bd0b9a19507bdb11a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "038b39a72ba2a8eb2a1ac853e8c7e26228c3dfc97e4d639bd0b9a19507bdb11a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "038b39a72ba2a8eb2a1ac853e8c7e26228c3dfc97e4d639bd0b9a19507bdb11a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "be77b28daadae030da85494b694cc7777c1d679b7e08dcd176fe8f81f28bdbe8"
-    sha256 cellar: :any_skip_relocation, ventura:        "83799e7be92015501c6b041cc121a9ffff202b46d995e618b5bf131dc571bd5b"
-    sha256 cellar: :any_skip_relocation, monterey:       "83799e7be92015501c6b041cc121a9ffff202b46d995e618b5bf131dc571bd5b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "83799e7be92015501c6b041cc121a9ffff202b46d995e618b5bf131dc571bd5b"
-    sha256 cellar: :any_skip_relocation, catalina:       "83799e7be92015501c6b041cc121a9ffff202b46d995e618b5bf131dc571bd5b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9dd0337b0b409bba2cc68d2639d74de072eba648a12dfd212f4813b479dd0ddb"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b2ef5e552612d2643c59c048ca9d5e3330046f0e4d2556187cd14b7ef60c50d4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e374bc0514419daf40b0b0d3cd155c78965bfca7f2838c900d4376b89fbeaa25"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "54261b4b91eadceb96591caedfd3b04025512dbbcfcdb7fff274eb74f3f80161"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d41b49ac7e4a7d6cbcc008d5416e8bf3b333435b41a958d07a1214ab9b2b2ff8"
+    sha256 cellar: :any_skip_relocation, ventura:        "9c1fcdfab67e6fc216a70c03e740282d319caed4708425dd4bb8857eba636a1a"
+    sha256 cellar: :any_skip_relocation, monterey:       "31df1c922525d5e55d5c7d79f94acdb454e78918b9917fa6f3c2e3c2c7b3e7bc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8b168c0e6b81049af49c920e12792b989f0b1e91584f2df3725e7023d38ee3ca"
   end
 
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   def python3
     deps.map(&:to_formula)

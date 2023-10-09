@@ -7,9 +7,11 @@ class Qcli < Formula
   head "https://github.com/bavc/qctools.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "09b0ea4c8d5b23d075bc1e1e5fc2d9131cdf0e96d3df3b8ab81a8dc98bf9ed4f"
     sha256 cellar: :any,                 arm64_ventura:  "715edcf1acb8c6ec82742921b2e69534991174bdd37e4e9ef1a98072acf4cb40"
     sha256 cellar: :any,                 arm64_monterey: "c938fd599d5673faa37050128aee9a772b4839d06904f5590e58418236d12777"
     sha256 cellar: :any,                 arm64_big_sur:  "c21c3d3503c25df679252810f0fe02ce8804d2ca17beca67e4e8d664a40757d0"
+    sha256 cellar: :any,                 sonoma:         "c1bfc5452690a0bd65f957b1cabe02d4ca560d86bd70dad5b9a99f8566ed6058"
     sha256 cellar: :any,                 ventura:        "2429b03da7661875548c9dae60312f71afe1ac85e89019347ae5ea6ae0f73fde"
     sha256 cellar: :any,                 monterey:       "0848ef18376ea60af79db5a6dacd3238057d3026d58301fb2a7005e88835627e"
     sha256 cellar: :any,                 big_sur:        "834aa115e6d3564ecd1b2ee6aa92bb614205c04f219b31ab3afa49394bc4823d"

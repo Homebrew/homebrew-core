@@ -10,18 +10,17 @@ class ShallowBackup < Formula
   head "https://github.com/alichtman/shallow-backup.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8ed2d637b66d0f4d800f78839704bc66bf5a99a4564d7f0a7235eaf8d7179af9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "eb3d661397d58d168f7b3146349dce7e565dabbbeba44afda6936f4fc3104b83"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cecc68834a84d16b44349c0d80275ffcb5303d4e82036c42c3d4504221579e7e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b7710d31693e747268bc7b1a8cb2a0fd51a6439dbe6d51b22cc8109125878ac5"
-    sha256 cellar: :any_skip_relocation, sonoma:         "912cd965f609698965cc79e370f61d2b40950ca0f4b3124c0bc34ce7ce1d966e"
-    sha256 cellar: :any_skip_relocation, ventura:        "d77961f5be211310d1e24010341fd783991f133d5e0b0ad56a8cd9f661aba4d2"
-    sha256 cellar: :any_skip_relocation, monterey:       "9e081053882a3c86c21f413cd9804a6e5b4fb2d86cddb74d8439e68e7a15d089"
-    sha256 cellar: :any_skip_relocation, big_sur:        "58b91f7a6d818ca3699e2561c13b89bd98cb693d648149a47e4d73f0bed48d4a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1fe6f9a0627ef39a20c963d6411d7ea9974852daea5163de7c0694d2d9849ddc"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a8d724b4b026d20c62495c2652e896bf3acfa8e4e81d4cfa3dc4264e055e2e92"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2613e74af6a3d9199e46883b09c95178cd74667d22d8e56f69c993df864a9218"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e76a8f891ea5e97d0ed18e671572fb0777b6a089f6f1d67dfa3ce2d1564f4152"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ac1d24115ea3dd8e129f4bf19f1cc1ec98c2eaff00196c1313a48e8aac7c2f65"
+    sha256 cellar: :any_skip_relocation, ventura:        "b518a273984cac67f1cffe3acbdc4fe0fa337e4749ae4bce6cf94a9455c8057c"
+    sha256 cellar: :any_skip_relocation, monterey:       "f3ffb30d7fe69773ca9235c7494c6fed5cf38acddad7a1af3a6dc40a36b400a0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d056dd75c7eefa3faa3a5d2d5ad40b5a47eb7f75e4371bba728f4a7cf21555da"
   end
 
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "six"
 
   resource "blessed" do
@@ -45,8 +44,8 @@ class ShallowBackup < Formula
   end
 
   resource "gitpython" do
-    url "https://files.pythonhosted.org/packages/95/4e/8b8aac116a00f0681117ed3c3f3fc7c93fcf85eaad53e5e6dea86f7b8d82/GitPython-3.1.35.tar.gz"
-    sha256 "9cbefbd1789a5fe9bcf621bb34d3f441f3a90c8461d377f84eda73e721d9b06b"
+    url "https://files.pythonhosted.org/packages/c6/33/5e633d3a8b3dbec3696415960ed30f6718ed04ef423ce0fbc6512a92fa9a/GitPython-3.1.37.tar.gz"
+    sha256 "f9b9ddc0761c125d5780eab2d64be4873fc6817c2899cbcb34b02344bdc7bc54"
   end
 
   resource "inquirer" do
@@ -65,17 +64,23 @@ class ShallowBackup < Formula
   end
 
   resource "smmap" do
-    url "https://files.pythonhosted.org/packages/21/2d/39c6c57032f786f1965022563eec60623bb3e1409ade6ad834ff703724f3/smmap-5.0.0.tar.gz"
-    sha256 "c840e62059cd3be204b0c9c9f74be2c09d5648eddd4580d9314c3ecde0b30936"
+    url "https://files.pythonhosted.org/packages/88/04/b5bf6d21dc4041000ccba7eb17dd3055feb237e7ffc2c20d3fae3af62baa/smmap-5.0.1.tar.gz"
+    sha256 "dceeb6c0028fdb6734471eb07c0cd2aae706ccaecab45965ee83f11c8d3b1f62"
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/5e/5f/1e4bd82a9cc1f17b2c2361a2d876d4c38973a997003ba5eb400e8a932b6c/wcwidth-0.2.6.tar.gz"
-    sha256 "a5220780a404dbe3353789870978e472cfe477761f06ee55077256e509b156d0"
+    url "https://files.pythonhosted.org/packages/cb/ee/20850e9f388d8b52b481726d41234f67bc89a85eeade6e2d6e2965be04ba/wcwidth-0.2.8.tar.gz"
+    sha256 "8705c569999ffbb4f6a87c6d1b80f324bd6db952f5eb0b95bc07517f4c1813d4"
   end
 
   def install
     virtualenv_install_with_resources
+
+    # Patch `python-editor` to support 3.12
+    # https://github.com/fmoo/python-editor/pull/39
+    inreplace libexec/Language::Python.site_packages("python3.12")/"editor.py",
+      "from distutils.spawn import find_executable",
+      "from shutil import which as find_executable"
   end
 
   test do

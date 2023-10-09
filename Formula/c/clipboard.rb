@@ -1,10 +1,9 @@
 class Clipboard < Formula
   desc "Cut, copy, and paste anything, anywhere, all from the terminal"
   homepage "https://getclipboard.app"
-  url "https://github.com/Slackadays/Clipboard/archive/refs/tags/0.8.1.tar.gz"
-  sha256 "f7ceb2dbb76bc094ac8afbef97bdef0f1a9451ca7dd1a4a181f3b2a859a2f094"
+  url "https://github.com/Slackadays/Clipboard/archive/refs/tags/0.8.3.tar.gz"
+  sha256 "d2f13e66e4b45d2084e2f88b992b36f07faf649fa1a1c5e0acfca303270a988c"
   license "GPL-3.0-or-later"
-  revision 1
   head "https://github.com/Slackadays/Clipboard.git", branch: "main"
 
   livecheck do
@@ -13,16 +12,13 @@ class Clipboard < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "747745238f792985b7fe6c9f1365c93c8e35009199f6d38a2caa36200183ddbf"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e8feed1743d3e55ee1e67c1b8085f3cf3a4412e695147426fd3a6339b12e9d8d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "231181f3c2a24bc0dd02798b450dd7833f3615ebcbfdd0c53ebc54465ab297cb"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7f8ca9e02c1d1382b380ed7dc07543a383a4089fa21de7424e56a335af62a4fa"
-    sha256 cellar: :any_skip_relocation, sonoma:         "6a75cf7acc636885fe5b1d4717394095e489602737f065fca76fdd3b173e6efe"
-    sha256 cellar: :any_skip_relocation, ventura:        "db42eb5e14ceb1eec15a4a1d77d4c1f0a94f5ac5c28a125863f0899aabd9c403"
-    sha256 cellar: :any_skip_relocation, monterey:       "cd70f44184dea81283be87d4b90a0c7c2631dc6fe214e8bd73ca4258231dc7a5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d02ded9cabcd024303d12b648383e15183089e56a2bd22254b1d0f2a693abbb0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8341584cc82f252d3c52fa056d33b2219254265e46b81b0e25b41b8f70e94efb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3ceb1fd987454a8ca12058e4df6b0b6191857698b684ad035b9157ef49a20224"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "11c4d713d7a8c6119bc6af8212fe5309ad4a9001308bf27fd32a03ba2d4a2609"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0dd723482463f8f1ec8e1ec50d993f93dbc1d7f8715548259cdefc55c560781b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ac19981c43e58d203785145b81c3dcf007be2d86cc4e7db903ea1a8f3dec018e"
+    sha256 cellar: :any_skip_relocation, ventura:        "d6920fde5b919fe1e528fc29e522bcd8ec30e7e6c1f2ea80b5c2c0d6ba235743"
+    sha256 cellar: :any_skip_relocation, monterey:       "15bd629250c9395796087df7736201b0e1e37e2239efba67dbf16473cd20d24d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "20afa6b83e9c37ca88f061787f5d19dbff0ac8362ab0a3a2de60b26192bdc70c"
   end
 
   depends_on "cmake" => :build

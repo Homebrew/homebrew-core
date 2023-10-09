@@ -1,20 +1,18 @@
 class Gtranslator < Formula
   desc "GNOME gettext PO file editor"
   homepage "https://wiki.gnome.org/Design/Apps/Translator"
-  url "https://download.gnome.org/sources/gtranslator/45/gtranslator-45.1.tar.xz"
-  sha256 "3acedb9abe614d7cdc9d2faa86e84874379b67102b7a2ae5e211b4973366fa1b"
+  url "https://download.gnome.org/sources/gtranslator/45/gtranslator-45.2.tar.xz"
+  sha256 "1c946110e6f19013c162a422ca17f1de944c5ab8c29e30389a0df9f33314c8aa"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_sonoma:   "f586c501bd24b6ca4d4e5ca445ebd19715ca29fb765e018cd66e005457735a5a"
-    sha256 arm64_ventura:  "61cf039bb4362e98d731501260924ef76e9445a9310c9455b7bd26fde3fd7749"
-    sha256 arm64_monterey: "cc059206ca3c9b7d7ca548d5cbebc816dd06a63749831c9cf7b38815c69048b2"
-    sha256 arm64_big_sur:  "afe0e0a5515dbb37a4dfb88f24df5e55ccec8f60b48f4faf1fde0a7e35df3f7c"
-    sha256 sonoma:         "96c0359dcbe159e6f4dcbc9da475ffaf1fba618f7f755b89f903e58a55e1c763"
-    sha256 ventura:        "c5b81f35d74ace642b5ca021b66fcbbccd698e7b5b201a18a6bd9c2224d78d65"
-    sha256 monterey:       "1d90ef4b29f547ebdeec2a682853ba56fcd0d267accbbd6f4c11b74ab317e1ed"
-    sha256 big_sur:        "a35148b3288d358ad4f1e87175deeaf25c8f26b524b9d14cbbc7f8caee8f29cb"
-    sha256 x86_64_linux:   "c025b942d184ca66e24c3d3f169d1849f2413290c888c31715f571e07d449534"
+    sha256 arm64_sonoma:   "56639c17c38bc6619b229bbf92ef417cbb5be0366ee421b633e0adee646040b2"
+    sha256 arm64_ventura:  "adb4941369d05f7972c9b444210f22916c58acc15e8358a74826594202e98505"
+    sha256 arm64_monterey: "9d66dcbbdde00352abe166e8414d9e50bbc5c83abb38ab7bab5e86df4de7256a"
+    sha256 sonoma:         "72277e92042dfa982ab01387a9fa778f5fdb4e02dea71d9d0b8cc0d5390c0f49"
+    sha256 ventura:        "3f97185c50b288e6a106a9cc8825c78eff1bff4541968d8935f8e18647970e8d"
+    sha256 monterey:       "2f62c0ca0a4667dcd04d8f8d99cf7b181cbf8e7b410b0f9351e393efe5fcc6af"
+    sha256 x86_64_linux:   "0403fd864304c79ca777c2d99974ee3c4cfbe7225b1fef6efadf1bb2ef08a4a2"
   end
 
   depends_on "itstool" => :build

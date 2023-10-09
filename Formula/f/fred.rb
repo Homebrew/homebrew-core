@@ -6,32 +6,29 @@ class Fred < Formula
   url "https://files.pythonhosted.org/packages/1e/7a/bb49f22f2ce33109ce5a5f8c7b85263cbc97bf9c9b44ba612c8380d3406f/fred-py-api-1.1.0.tar.gz"
   sha256 "f1eddf12fac2f26f656e317a11f61ec0129ba353187b659c20d05a600dba78c8"
   license "MIT"
-  revision 1
+  revision 2
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ac4ecc74f2bdc0e4c5efb91c11168b0a8c7e9eee9c7cbea30491138cc11ca3ef"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "01c36997674d538777c886b26adc78ce1ed4cdd7d0169f442c227f17ba10480d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b34bb800a8ac7017c0282ee92d78716cc7d6409dcdb22b60499eb573859ff715"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c5c1b97f1f9a99aeb9f29160014f22bdea6513b0613b7f35fab6b02416d4a4ee"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0b7caa39c8e363718adee2ff72bff5b41b3292db69681a2f0ea3db87aad05998"
-    sha256 cellar: :any_skip_relocation, ventura:        "775b68aa90cca49d4857bdf7bde6a1a8dd278110a29f543d8a86ec05f8db7941"
-    sha256 cellar: :any_skip_relocation, monterey:       "c1f1e2c62a367d8d1330e687311d3e214d0ac24ea08a94b02e6a0328c03165a6"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6a483ce3cc2e3df1754717ba582754ea47f4dce765c0388a95b569a2d9d270db"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7ab5616fa5e63674aa9c3fb86489e2b3030139a9d2ec4034acde14eff3c9f38e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a9f206ff821df46408f3b01a86feb800692e10e9dcbf8182827f9b8a271642ff"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a217e18f3962b1bc48953bca99a66097ba03b9e66985f8c86138dfbea301666f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a995fccf4ff657456f2c2ec7de2d8f383b03481fdb92f9b78d317e6079bec899"
+    sha256 cellar: :any_skip_relocation, sonoma:         "152ed392312df7798f5303386a4e40b9e252a505024dd53301a1563e3c59f0c1"
+    sha256 cellar: :any_skip_relocation, ventura:        "17e289226b9e5eab0109a34904cebe3770c7bad4d4690030fb1c9286e6737744"
+    sha256 cellar: :any_skip_relocation, monterey:       "5224291255b88d0260b35f63d4b384f643eef017556f83b68566bd0cfc41c3a9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "27cff558f2433c05172fd9e6e9a7e6e5dbcd48342d0d1de42eb9f4f864a1ff1e"
   end
 
   depends_on "python-certifi"
   depends_on "python@3.11"
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/2a/53/cf0a48de1bdcf6ff6e1c9a023f5f523dfe303e4024f216feac64b6eb7f67/charset-normalizer-3.2.0.tar.gz"
-    sha256 "3bb3d25a8e6c0aedd251753a79ae98a093c7e7b471faa3aa9a93a81431987ace"
+    url "https://files.pythonhosted.org/packages/cf/ac/e89b2f2f75f51e9859979b56d2ec162f7f893221975d244d8d5277aa9489/charset-normalizer-3.3.0.tar.gz"
+    sha256 "63563193aec44bce707e0c5ca64ff69fa72ed7cf34ce6e11d5127555756fd2f6"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/72/bd/fedc277e7351917b6c4e0ac751853a97af261278a4c7808babafa8ef2120/click-8.1.6.tar.gz"
-    sha256 "48ee849951919527a045bfe3bf7baa8a959c423134e1a5b98c05c20ba75a1cbd"
+    url "https://files.pythonhosted.org/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz"
+    sha256 "ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de"
   end
 
   resource "idna" do
@@ -45,8 +42,8 @@ class Fred < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/31/ab/46bec149bbd71a4467a3063ac22f4486ecd2ceb70ae8c70d5d8e4c2a7946/urllib3-2.0.4.tar.gz"
-    sha256 "8d22f86aae8ef5e410d4f539fde9ce6b2113a001bb4d189e0aed70642d602b11"
+    url "https://files.pythonhosted.org/packages/8b/00/db794bb94bf09cadb4ecd031c4295dd4e3536db4da958e20331d95f1edb7/urllib3-2.0.6.tar.gz"
+    sha256 "b19e1a85d206b56d7df1d5e683df4a7725252a964e3993648dd0fb5a1c157564"
   end
 
   def install

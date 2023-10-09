@@ -1,22 +1,19 @@
 class Levant < Formula
   desc "Templating and deployment tool for HashiCorp Nomad jobs"
   homepage "https://github.com/hashicorp/levant"
-  url "https://github.com/hashicorp/levant/archive/v0.3.2.tar.gz"
-  sha256 "789c01edd7cc0f2740da577375cbbe5f0d06b22e577e091a4413e95a73cc0060"
+  url "https://github.com/hashicorp/levant/archive/v0.3.3.tar.gz"
+  sha256 "0e87c27e2d4be7cd2a24cb0459d0a55f1bb7b5d65e6f7da4a2babd7d95d1bd92"
   license "MPL-2.0"
   head "https://github.com/hashicorp/levant.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d6fd4691d3618b7e382fa703b619a187cd53cfdecae17d9baf41e469ee77e2d7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "49fa1eb4de5ae77a728efc129bbfed654dfc06fb2d97a9989c0a078501275a0e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "698d495bff4fea26d8d85a35e44d70a29b6a46fe052e9d0cd7a4a5f381a2682b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "74a1511f41e293e36a03331fe767beedde31d511db67a1516cdc99d523a08ba6"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0f0724547d4e238fc34154e85d751a77ee6caaf4ed0aa27948f79e43b9693249"
-    sha256 cellar: :any_skip_relocation, ventura:        "93d00730cef62f3adfcba0e3b8a31b21f3e2e6e388ce6b3e2b821890a2f54b66"
-    sha256 cellar: :any_skip_relocation, monterey:       "b1debb65e23d4a1831a4d37d7276b28fbb7903cfdeb501ad3b3c15027161f9fe"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b16a163a59df0456d7eec9c90d8427850b474097b3ec331f18067be084649b74"
-    sha256 cellar: :any_skip_relocation, catalina:       "52700d152ae1b7734c947afe1ca000ce60c9efdb2c72b7d13e3cdd1081a16d2b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9843fd7bb066819d4957c1f58d18f6ddab5428dd1ead5a8d6e9426eb853c7ac5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a8cb3d327f3a6c17677eab41ee6563397989c678c6db90894684c2e0979a46ff"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c58edcdb61ded77c7f1852bfa19f172d9c72bfa5de19afac3b351f73af2e98e8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "36afeec80aadd0c4eec3df654890e5675006f0b291f7c0072a77e212fc08598a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "63cc9da15372b6135f3f99f167c54198eb2e02e0e3cfaa062cb2955decf86d4c"
+    sha256 cellar: :any_skip_relocation, ventura:        "3d7966e44708d954216fbc9cfdd5a3a25fa354cf43614101fa0f2b4405a7d52a"
+    sha256 cellar: :any_skip_relocation, monterey:       "7ee4456e9545bc4e175f848a5e5f91af3964180b4f8ec0137dcbe0ba7c420a22"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "37422a0f475593fbd1213d9ff47edc4dc2258d0bc507733b71443547c5a79815"
   end
 
   depends_on "go" => :build

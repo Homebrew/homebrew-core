@@ -1,20 +1,18 @@
 class Staq < Formula
   desc "Full-stack quantum processing toolkit"
   homepage "https://github.com/softwareQinc/staq"
-  url "https://github.com/softwareQinc/staq/archive/v3.2.3.tar.gz"
-  sha256 "048bba1c2d78bc6b641ee9ba71788cb66847e78e8b47ca54effea49e76c4565d"
+  url "https://github.com/softwareQinc/staq/archive/v3.3.tar.gz"
+  sha256 "2a1232474f7b7fc0153c18f49e6231e82b6f9c3d1f9ed506bbbb578972cf5067"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6e7dc6ff5724cab2e6e050d6c40ea9af4ba93fb3fd2dd00f73fa6cdae05dc2f7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dc455153c9bb1e2c1ab2735549595c8038bc81c1dc199d3954ccd6b17c033eaa"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "50531c8d02ad552eac013e4db68af439ba8c96e5bd030454bb5dc72cfadc9c22"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fade095b71096ad7edf92cf8db82669c798ccd6ce782602f56d0ca354ba1af59"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a224bcd3bfe54444919f1eb418432c2a7aae805ecd41e9e8aae0c6e0d761cb26"
-    sha256 cellar: :any_skip_relocation, ventura:        "eee004d9964a81988665a1fecb3083f74309c293a38fd0fe1bda36343f6492bd"
-    sha256 cellar: :any_skip_relocation, monterey:       "ced86c03bc0db24e1f0b9d22812898010ba9154929f85ccf8dcb14ae2e77d901"
-    sha256 cellar: :any_skip_relocation, big_sur:        "34c82144382e8dc438a39e64941ae14dee0e41926d6c69fb254144f33deeec7d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ab6e829fdde807b9861154c871864e9ed53578bb82f911f35c5e64e3c9e4e66c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fd0b272fdf61d8aad9e907f1fe4f87593380df1acb459950942d32cb9425e2d5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a3907dd220835eae37adc2e540b0e79814f27eb0b132293dfc60d095854a9430"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7f469adedfe52fb32d7cab8e51efb57eb94bbd318fcd76ac987825aad606ea15"
+    sha256 cellar: :any_skip_relocation, sonoma:         "269a2c8e0f94d7f40eb235ca6bf49106ba6551ff320970b24315b32e4d6ee8cc"
+    sha256 cellar: :any_skip_relocation, ventura:        "873ceef30b1ac455f723555db46cb2ffcd2daa22fd50ab6d4022da29c8da71cb"
+    sha256 cellar: :any_skip_relocation, monterey:       "0c97108f8acf0ef3c6bf8e50535b985a1ec3469cc6bf69dba65fef328310eede"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8fa663721999cca606998ed744cf81f9a353d00ac1e851b0b191397f9ca419f7"
   end
 
   depends_on "cmake" => :build

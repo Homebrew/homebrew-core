@@ -72,6 +72,7 @@ env:
     baidupcs-go
     ballerina
     bash_unit
+    bashunit
     batik
     bazel
     bazelisk

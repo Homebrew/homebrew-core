@@ -12,9 +12,11 @@ class Xpdf < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "d51bba24f70c3d623ae1c93e6aa8c9af15b92267e1039d9c8a6470a3bb57e3b8"
     sha256 cellar: :any,                 arm64_ventura:  "a5c23ffa6e4ee580d8c3cb9f62d42ba4c70cd1c8dea4841ac8042d275fe5d743"
     sha256 cellar: :any,                 arm64_monterey: "fc5aad549b5099ce8f3d51227bfd419a4766c8b78138c8f894ac738dcb446a5f"
     sha256 cellar: :any,                 arm64_big_sur:  "015fcf888d527fab0465f6623df5dfa4166f8d0231350bd9820ec5a5e8e4c478"
+    sha256 cellar: :any,                 sonoma:         "b347787b8c3933be771a6d0a37aff0f1c6c429267f082c25ab05edc1c24a04f3"
     sha256 cellar: :any,                 ventura:        "b8b71e9659f72e21b0bba027a3d9bf0b6ef0b556f5e3fdd703495c2055d38bff"
     sha256 cellar: :any,                 monterey:       "f90629e090df683656a1ef289e797d24b8a4a68be0c0123ef0cfb6565512e3a9"
     sha256 cellar: :any,                 big_sur:        "2ffeda7163a03d8978f9d81203fff3a2e7ab1d868e0dfae6ef6873690dbeaa22"

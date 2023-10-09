@@ -1,23 +1,18 @@
 class DesktopFileUtils < Formula
   desc "Command-line utilities for working with desktop entries"
   homepage "https://wiki.freedesktop.org/www/Software/desktop-file-utils/"
-  url "https://www.freedesktop.org/software/desktop-file-utils/releases/desktop-file-utils-0.26.tar.xz"
-  sha256 "b26dbde79ea72c8c84fb7f9d870ffd857381d049a86d25e0038c4cef4c747309"
+  url "https://www.freedesktop.org/software/desktop-file-utils/releases/desktop-file-utils-0.27.tar.xz"
+  sha256 "a0817df39ce385b6621880407c56f1f298168c040c2032cedf88d5b76affe836"
   license "GPL-2.0"
 
   bottle do
-    sha256 arm64_sonoma:   "77a59a6f06c79bc076085a62444b78e201468286e7de19b83e940b2b55381d47"
-    sha256 arm64_ventura:  "4fcc2cc0cc160cbb92f46896b76264bd5311d436575afd108d61fcee1043d80a"
-    sha256 arm64_monterey: "39d2de6b778872be7de0e8f76d609eccc9c5f99546e48777ca0b24fe94bdf3cb"
-    sha256 arm64_big_sur:  "c1bdcafb26625cd695365e41b4d3bb225d42c6075aa799c86b98e367a7d8ce9f"
-    sha256 sonoma:         "a8f4b3b3d678ffe8abcc593d025f95563b5da6f5b18fab8afd759d93f4987acf"
-    sha256 ventura:        "34a9f62522c3a59a8f06d9d54fd8269df1fd6fd8b6caaebf90d345ac1254f440"
-    sha256 monterey:       "5fba0d6b08c4f7bb948be0d52b63095d9679962c8985f324682c27ca591cd29b"
-    sha256 big_sur:        "de9ed12a55ebff6b2d321c91908219d3d0b7802080ad462774eb1179ec7435b1"
-    sha256 catalina:       "fba87a1749b744c74510df1a49ed7627615ab10a2398922eac1389f4e35a5cb8"
-    sha256 mojave:         "2e6548daf5b3fd3f038205986130d39390fd4b22955ed07ad06f6378d5e6e5f2"
-    sha256 high_sierra:    "12e7bfe0f9a579f826f7c74f5a67d41ed4dee469f1cf0f3b4be89ef9e884996e"
-    sha256 x86_64_linux:   "6431879e86450d555446ffbb3b1ffa1bc2cfee91c38a170dfcff7d09fb88253c"
+    sha256 arm64_sonoma:   "a18a457a7c8955e7fc9750bc4e0d92d6d3f017d84872ff153cd5cc1922db20ec"
+    sha256 arm64_ventura:  "3504ba209857ce3103f0302740b60adf51ec55860e189b93417548bbd7f30ddf"
+    sha256 arm64_monterey: "1951c07197a6e243fac0f0be0465285d6222150173972f07f7b301c3198b380b"
+    sha256 sonoma:         "be004fc74c4c29bee7e565a01c6ab5d4f8c25d0a74cbae6d8d797e6e2358e7d1"
+    sha256 ventura:        "4586ef4910eb11eecc38ecbdba255d20714c033daf7d8a27685b583864830daf"
+    sha256 monterey:       "dc488c68889342e10d870526bf8384e72d2a171d4149931f05eb3b49404c0489"
+    sha256 x86_64_linux:   "78d6e240e8acf2052e585074d938cee18b729133737b165b60269f1a2e2d0305"
   end
 
   depends_on "meson" => :build

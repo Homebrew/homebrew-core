@@ -10,20 +10,17 @@ class SpoofMac < Formula
   head "https://github.com/feross/SpoofMAC.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "305e08f0d653eddc0d9168eff6aea28ab2c8c9880d7fc572c6ec0832659c81f8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "35b87b120597b9e19bc14586ef66fde370b95ab1f175c1cb355b8dd5d5a1a900"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "35b87b120597b9e19bc14586ef66fde370b95ab1f175c1cb355b8dd5d5a1a900"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "35b87b120597b9e19bc14586ef66fde370b95ab1f175c1cb355b8dd5d5a1a900"
-    sha256 cellar: :any_skip_relocation, sonoma:         "815f7df8515eed135d5d6afdf7c99fb606113c535f428a85663203e38940cd0f"
-    sha256 cellar: :any_skip_relocation, ventura:        "f6d24e9dda3720a583e5dc6d65ce64f8b0497a6c8eccf292c38e642b405868b5"
-    sha256 cellar: :any_skip_relocation, monterey:       "f6d24e9dda3720a583e5dc6d65ce64f8b0497a6c8eccf292c38e642b405868b5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f6d24e9dda3720a583e5dc6d65ce64f8b0497a6c8eccf292c38e642b405868b5"
-    sha256 cellar: :any_skip_relocation, catalina:       "f6d24e9dda3720a583e5dc6d65ce64f8b0497a6c8eccf292c38e642b405868b5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bd9e7adf1d19f3476bb1ac66ee70ef913837b2f719bf076a4cf4ae98ee14c8a7"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "92de0b0b0e692ab4cce0c11186764c0f958d60bab3c3f0d00bfd0826d5322207"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0490f26b9569a49e4539b30d188cce6f4f341072baaff3acf7319b9197991ce4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cba43539b88bb2eab269c77811ef39ec51d15b429074f35aa1a9206e3fd9963d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ebbde2128796667f8b7b558e421734a1ed54fa44f516edfdd9dd9c763d6420e2"
+    sha256 cellar: :any_skip_relocation, ventura:        "de6a9198d8e6fb51b6eac74a402e9529531e7e6ffc4e6cc106b6305c8603a424"
+    sha256 cellar: :any_skip_relocation, monterey:       "7078d35e9559593b7727c9786acc7e9da7cd93b3d7f99e1e392d08f56f683356"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "24c5b8478bdda5fb00e10924a79d3544b26bd04271f553e8670255029c640538"
   end
 
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   on_linux do
     depends_on "net-tools"

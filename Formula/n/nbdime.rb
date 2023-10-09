@@ -6,16 +6,16 @@ class Nbdime < Formula
   url "https://files.pythonhosted.org/packages/12/ae/4c403b94984adaa3859a829d1b99e2bd8cf65c06c6cb950111467d4cbb39/nbdime-3.2.1.tar.gz"
   sha256 "31409a30f848ffc6b32540697e82d5a0a1b84dcc32716ca74e78bcc4b457c453"
   license "BSD-3-Clause"
-  revision 3
+  revision 4
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ff0eba118717fa7d76bc276455c54707d3485f10d5a45af6b4114a7dbea7575f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f1aa0ffa8653d215525543c85be574a0190bbd6d822f80ba8de73af8f7239fd8"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7a6ba476d7ec1fd2e17859920da866c5be84fd243b9bd847805503620be2e675"
-    sha256 cellar: :any_skip_relocation, ventura:        "043c208265290f4ebcd3f53678ce7ef95892abcbee6fba0d3b6be54e18df755d"
-    sha256 cellar: :any_skip_relocation, monterey:       "216bdd40b89c5e931d4606a91d98388a32c94b5d200f1c88e88bf54750620ee7"
-    sha256 cellar: :any_skip_relocation, big_sur:        "90ff923b0931e2c37169634982c4eeb5c271a00d2e1873713b2636c55eeed743"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5bebb56e72a69a474026c39b872159de8b15a021f066aa080127dbd7489031f2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "70b661e5097654c18c5c6c699566f6bd551fd7112b441a25240e38ffdaccb8c4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "143885074c08d5404ba87a9bc157f9f39b1a797fd911291f3632138c3fd88f34"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "51ed074ee95c78c841b0e79ca0733ea28528965784250dae0b0d5fbd5349cbc0"
+    sha256 cellar: :any_skip_relocation, sonoma:         "9d990e90f389957e68567cde17ed7881bfad66a8bb70ea4a9570991a3e7d699c"
+    sha256 cellar: :any_skip_relocation, ventura:        "727d56277a3ba270eecdbeb47303b9b1810ce238f53c5395e6e64b45860752e9"
+    sha256 cellar: :any_skip_relocation, monterey:       "879bf42712f85446e37b282432615b72888f256fc5efdb8ab3a5430d7c2b863e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aab7bc3afbae7f0b4847e8016b6b76f159c23ec209dd0021b269430589d54e75"
   end
 
   depends_on "rust" => :build # for rpds-py
@@ -26,8 +26,8 @@ class Nbdime < Formula
   depends_on "six"
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/2a/53/cf0a48de1bdcf6ff6e1c9a023f5f523dfe303e4024f216feac64b6eb7f67/charset-normalizer-3.2.0.tar.gz"
-    sha256 "3bb3d25a8e6c0aedd251753a79ae98a093c7e7b471faa3aa9a93a81431987ace"
+    url "https://files.pythonhosted.org/packages/cf/ac/e89b2f2f75f51e9859979b56d2ec162f7f893221975d244d8d5277aa9489/charset-normalizer-3.3.0.tar.gz"
+    sha256 "63563193aec44bce707e0c5ca64ff69fa72ed7cf34ce6e11d5127555756fd2f6"
   end
 
   resource "colorama" do
@@ -41,8 +41,8 @@ class Nbdime < Formula
   end
 
   resource "gitpython" do
-    url "https://files.pythonhosted.org/packages/95/4e/8b8aac116a00f0681117ed3c3f3fc7c93fcf85eaad53e5e6dea86f7b8d82/GitPython-3.1.35.tar.gz"
-    sha256 "9cbefbd1789a5fe9bcf621bb34d3f441f3a90c8461d377f84eda73e721d9b06b"
+    url "https://files.pythonhosted.org/packages/c6/33/5e633d3a8b3dbec3696415960ed30f6718ed04ef423ce0fbc6512a92fa9a/GitPython-3.1.37.tar.gz"
+    sha256 "f9b9ddc0761c125d5780eab2d64be4873fc6817c2899cbcb34b02344bdc7bc54"
   end
 
   resource "jupyter-server-mathjax" do
@@ -56,13 +56,13 @@ class Nbdime < Formula
   end
 
   resource "smmap" do
-    url "https://files.pythonhosted.org/packages/21/2d/39c6c57032f786f1965022563eec60623bb3e1409ade6ad834ff703724f3/smmap-5.0.0.tar.gz"
-    sha256 "c840e62059cd3be204b0c9c9f74be2c09d5648eddd4580d9314c3ecde0b30936"
+    url "https://files.pythonhosted.org/packages/88/04/b5bf6d21dc4041000ccba7eb17dd3055feb237e7ffc2c20d3fae3af62baa/smmap-5.0.1.tar.gz"
+    sha256 "dceeb6c0028fdb6734471eb07c0cd2aae706ccaecab45965ee83f11c8d3b1f62"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/31/ab/46bec149bbd71a4467a3063ac22f4486ecd2ceb70ae8c70d5d8e4c2a7946/urllib3-2.0.4.tar.gz"
-    sha256 "8d22f86aae8ef5e410d4f539fde9ce6b2113a001bb4d189e0aed70642d602b11"
+    url "https://files.pythonhosted.org/packages/8b/00/db794bb94bf09cadb4ecd031c4295dd4e3536db4da958e20331d95f1edb7/urllib3-2.0.6.tar.gz"
+    sha256 "b19e1a85d206b56d7df1d5e683df4a7725252a964e3993648dd0fb5a1c157564"
   end
 
   def python3

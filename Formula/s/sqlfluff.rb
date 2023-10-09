@@ -8,18 +8,18 @@ class Sqlfluff < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bd7daff63c98b63a119fcc08f1b1a67e6a700205618210517a9d47aa53f75f31"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4c46f9acce58e85d9a81982b9d888a6f7b7dccb3980b377d73f328c19067d93e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8d6b4b9238e9830ff00b280aa24da76601cc7feffabee21a931859e79bf99488"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bfa72bda561be77367de5c5e543be07076e6302786c48dc981b30aa888a4e35d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "65d3cde537ab74329316a56b6d6f926254b288b4a144ed8783b988faaa47a8e3"
-    sha256 cellar: :any_skip_relocation, ventura:        "aa0764cea3b4a71ab8f29b6bf0e155c34173ec2cc2319447faf99dabad2f5b6d"
-    sha256 cellar: :any_skip_relocation, monterey:       "596e286a60ad60a5e9dbefb42a40b47c3c3a140dcd243d201bacf6df528f0f84"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b5441649b00f52d0c8e88b94b47d7eb2fdaf5eabef6a4a85f9ebafec437d4ae8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a79ae88e51751f47f8a7492a6f8a02a1a2e2a524bcad83aea7431c386b3d4905"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "870f08345760990a06e208f373421fc51e13fa4ac17d53f6ffd99fdfb3fdfb1c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5de20bc1edc3db7b6f6f368170dad9e23114dbe11d34d67ae4713c4f5acd0b98"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e8bbce1924c77b1d48f2cfa727a1cb2038bba5b85155242b4191235f4571ae88"
+    sha256 cellar: :any_skip_relocation, sonoma:         "53881f9b6caddfd9f8d74430779d110b97168164fdcc61f724a706eae8ecfbee"
+    sha256 cellar: :any_skip_relocation, ventura:        "662814fac6cabbe467e9028c390506bffc1d843784032f767bf93ab8504f31f0"
+    sha256 cellar: :any_skip_relocation, monterey:       "5adbf979b4d87d1f3f4fab07f4bd27c36df47db5d5574ae69f1a36739ffecde6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "72d1ec04dd6fed0c39155ef4026ec3e79a10de6b99f23818b2e9530a26a148d0"
   end
 
   depends_on "pygments"
+  depends_on "python-packaging"
   depends_on "python-typing-extensions"
   depends_on "python@3.11"
   depends_on "pyyaml"
@@ -62,11 +62,6 @@ class Sqlfluff < Formula
   resource "markupsafe" do
     url "https://files.pythonhosted.org/packages/6d/7c/59a3248f411813f8ccba92a55feaac4bf360d29e2ff05ee7d8e1ef2d7dbf/MarkupSafe-2.1.3.tar.gz"
     sha256 "af598ed32d6ae86f1b747b82783958b1a4ab8f617b06fe68795c7f026abbdcad"
-  end
-
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/b9/6c/7c6658d258d7971c5eb0d9b69fa9265879ec9a9158031206d47800ae2213/packaging-23.1.tar.gz"
-    sha256 "a392980d2b6cffa644431898be54b0045151319d1e7ec34f0cfed48767dd334f"
   end
 
   resource "pathspec" do

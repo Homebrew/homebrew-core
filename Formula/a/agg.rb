@@ -1,21 +1,19 @@
 class Agg < Formula
   desc "Asciicast to GIF converter"
   homepage "https://github.com/asciinema/agg"
-  url "https://github.com/asciinema/agg/archive/refs/tags/v1.4.2.tar.gz"
-  sha256 "8a4b81733085d81de1076e2964dedf729a8603941de11659d775478293d9efd0"
+  url "https://github.com/asciinema/agg/archive/refs/tags/v1.4.3.tar.gz"
+  sha256 "1089e47a8e6ca7f147f74b2347e6b29d94311530a8b817c2f30f19744e4549c1"
   license "Apache-2.0"
   head "https://github.com/asciinema/agg.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fbeabdd62aa8f312387df6346dc9b2d709a0676841e0f83a95d919d8f7658d83"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "409d2ed8650b8ed3f280d0da256c3a22bb021091394ffc95df2156a527ce0a18"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "45fab29511d7718d19eff1094be56fa4ae45a0747e8447a485ceab933571b95d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cb05c369fc8fb361ef817f4976ee38970c8cfdc8301235a740e1f02925729eff"
-    sha256 cellar: :any_skip_relocation, sonoma:         "f90b9bcf8571a521f3d7a364f7c90b7bf0c232e7dca0939fb47ca76cfa2b24fe"
-    sha256 cellar: :any_skip_relocation, ventura:        "c62d0cc1c2f1611e1c7fd170503ec4c9aea911ad51563b50438b0cedc0233bd4"
-    sha256 cellar: :any_skip_relocation, monterey:       "1d40f111349bcb6f2911e6163c2cc50063ee7026825520597d1efb3a5518f7c9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2d135015e4172042b47ac1b9c4e184109f1d0d9bb98ce009f00f2028e62520cc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "541ce23ec266fea9c7fc3bd64d97e51112f999919ee9da2805c3cdaf33db39eb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1d6b036fd0f03ff84ffe83d09e0a660d4bd79ce2ecfe2e4799a5815c62f24993"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7cdddd59d396fa79de8e0245a5d49d77f1866f65b6c0546b56a5806348e6e8af"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9b7031d93662fa36539366dc8c6fa43a19d96365c71257f5fc659e36e09b5dbb"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f257b17848d6242e2b70abc34e7ae2f8dec2899a1128664aa275949c1288b039"
+    sha256 cellar: :any_skip_relocation, ventura:        "81706925232634ce3f06924087a946f89d6a4b426c86c094f85359a48e4bb5e9"
+    sha256 cellar: :any_skip_relocation, monterey:       "2835eb5b345dfd0f27d295edb5c1b145f25d7b5ffe5e8b37805f376ec7fcdbe5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "533f37508e544b5a69d86670489f2b541fdf34b203dbfdee0256843b58193556"
   end
 
   depends_on "rust" => :build

@@ -17,9 +17,11 @@ class Qscintilla2 < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "a33886535d1e56ddf77070b440f6dc10913c7a0e3c7bfbabb3194c4419614477"
     sha256 cellar: :any,                 arm64_ventura:  "b4fc34f2bf9994694a2bcc79186fcc3c63b2c76f3a8147183c5c3bf4429c3cf5"
     sha256 cellar: :any,                 arm64_monterey: "c6de8f883ab5941a03bd2bed30500ff4785bb4aaa5b19cebf205d56c08118df4"
     sha256 cellar: :any,                 arm64_big_sur:  "9623a679469c1803e948315ed0d34758d3bde435e1b232e6e2588076edbe4c92"
+    sha256 cellar: :any,                 sonoma:         "2aed1edfe9a762195ffca12ce85a40e9b25187e6999b3b913fe0edba4c194320"
     sha256 cellar: :any,                 ventura:        "d6fd65f0cebf021208064ad096e3a6183a9d4a2b10a9d1e4e9376c4ffbcde767"
     sha256 cellar: :any,                 monterey:       "0c90e3302753557ce769634718bb8b3c083da16c8ca8694930cbb31beee2fd0d"
     sha256 cellar: :any,                 big_sur:        "2c769ed8817441f8a905b01b7463c48a84b3208b230ca72cbdc680548a6821ed"

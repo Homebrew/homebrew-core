@@ -9,20 +9,17 @@ class Pgxnclient < Formula
   revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6dc1b3c32c35471be217f4fe336ff6271a54342c3b561478ebf130f76ac99693"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bafbe9dbacd8ae05209b56ffee90361ca96cdd840f8071fceeaca5ba44ff6097"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0955d94598c00308ea24a6b39ce8aa4b3858ed5e78456516d3cc9672bce65703"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3dc7ad36b1a2d48f6c358e9d127ebfdcb133e0fc3acded09b8163a312b31f208"
-    sha256 cellar: :any_skip_relocation, sonoma:         "65430441affab0d3238753df2dafefc5051c453a643f01a484825fa16b01d6cf"
-    sha256 cellar: :any_skip_relocation, ventura:        "af2acaa2e5366b42d34f2b60d8227c1ba3c7c320f87022f19c4b58208b9e3c57"
-    sha256 cellar: :any_skip_relocation, monterey:       "cea13f9ff74e774c99d00b0edb067e276d6e400fd49adbd942ee9fdef210e4c7"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1e504d4d32279c420015a4bc2bcbd6d9c733a8b3ddfbd627067c8a702a119bca"
-    sha256 cellar: :any_skip_relocation, catalina:       "8b57b7c040b9af6b4be7f92b95ec2a207a7f554e416b7adf769f4d0aa6426074"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8f62cb66dd352d213a814474cd8c02e23d3c41cfe7b7420d064fe6ab2edca075"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0e01abaa6613e48a15ec27dbad5b04780761eb73c9e1edd5c5892efe5feff949"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "75b13d5baad53bb3063a52ecb712c115f0f23ca321062d3b92088f17737a7912"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "321c393a89553c347f011274fe841840fb4e1847c0e93fed9134cd2e8ea9fa55"
+    sha256 cellar: :any_skip_relocation, sonoma:         "73c2069d8d778a8646b98dbe4541af4c2bdf1a9cb756270a827e723daa292201"
+    sha256 cellar: :any_skip_relocation, ventura:        "63a788e86374c7c0089a0cd9ebaa33adc282f47fa588eb0d51fe6d6471bdf04b"
+    sha256 cellar: :any_skip_relocation, monterey:       "46caf982a9d58098f9489f3f35b955a0b87b789c0ea757b5b4b0a3bf1d016608"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5f1b2b974561e440ebb0ec1c1f10e24a023e47397a9ecf43dda1c10463a3a96e"
   end
 
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "six"
 
   def install

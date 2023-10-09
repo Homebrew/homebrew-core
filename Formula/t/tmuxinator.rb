@@ -7,9 +7,11 @@ class Tmuxinator < Formula
   head "https://github.com/tmuxinator/tmuxinator.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3f5a7f462149d57ab148f7adb9bc5e55f17d4473ccb238e53aecb4bcea9bab5a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "462f888a1e5558be4225cabf5becbbb8cfe3462815b993e584b808dbfb5d9fc5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "462f888a1e5558be4225cabf5becbbb8cfe3462815b993e584b808dbfb5d9fc5"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "462f888a1e5558be4225cabf5becbbb8cfe3462815b993e584b808dbfb5d9fc5"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a80a1db8ff9a12eb358685e1f394d56d46e12d4d56e798b5c89690b625734da5"
     sha256 cellar: :any_skip_relocation, ventura:        "3ae191a144fc61ed8f835f09f5d6792fbbfa2180d50568ad8bd625d26a527509"
     sha256 cellar: :any_skip_relocation, monterey:       "3ae191a144fc61ed8f835f09f5d6792fbbfa2180d50568ad8bd625d26a527509"
     sha256 cellar: :any_skip_relocation, big_sur:        "3ae191a144fc61ed8f835f09f5d6792fbbfa2180d50568ad8bd625d26a527509"

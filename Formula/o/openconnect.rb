@@ -11,13 +11,14 @@ class Openconnect < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "5046fefc55cc7812e1ffce03f00ff5bd3e8c08f1a743a8af59f5ab9965950806"
-    sha256 arm64_monterey: "b177be2f871aedf5f464ce3ad013de36c8873cf896447619a43b62ae9a8e8fed"
-    sha256 arm64_big_sur:  "c35595ec111e4ca4decf99647017b9461531b3b8f70ab804bae311501ca6c39b"
-    sha256 ventura:        "f8c9b328f46d39e50839fa24f7997244da7deaf2925d1a5f1f3002a88ca57bb9"
-    sha256 monterey:       "984e1c2b131997ad2800fb5a2a184f2b6fe08ed40c939ada2ab70c3d880b49f2"
-    sha256 big_sur:        "1148d11c813378bb5b754c111564ccbf948e624a6925941e54626ea63852a0fd"
-    sha256 x86_64_linux:   "ba03e1ce32924cb034c77db27bb464661769072e31216b9d2224daf84270a394"
+    rebuild 1
+    sha256 arm64_sonoma:   "9d866635b379a1657a60581d2de060c2521cb0949b37de5d7390efbf6148e4db"
+    sha256 arm64_ventura:  "ad530a711e9dd67b9f57c6be4bf6329ad15b81fe0f9ac068ad158d92c59a1039"
+    sha256 arm64_monterey: "732c9c632480ca2bf48cf1235bbc381b710a4973b02b935b5ae2937e56c2ee87"
+    sha256 sonoma:         "7116a890b91af980f559b80db6ec2a728053d7b1f8de7b30001622bc10caf536"
+    sha256 ventura:        "2686a07bce4e89465c0c4e4adedb2cffe3672216cf248213741e2ab853ce1e3d"
+    sha256 monterey:       "ad97ba79e7db7a465c49504d7f9bd87db6d63e09e6c761475589ab3273c1c292"
+    sha256 x86_64_linux:   "e71c4302f659b47151247aa77eab2c7c9e4ce181e3e84e480a4bdda42c920009"
   end
 
   head do
@@ -36,6 +37,13 @@ class Openconnect < Formula
   resource "vpnc-script" do
     url "https://gitlab.com/openconnect/vpnc-scripts/-/raw/473d3e810b8fe8223058ab580fac20c53204e677/vpnc-script"
     sha256 "4e0d4367806c8b54da76aaae4bb550993d8155894006705d21b16eabdbf47559"
+  end
+
+  # Fix for GnuTLS v3.8.1
+  # https://gitlab.com/openconnect/openconnect/-/merge_requests/490
+  patch do
+    url "https://gitlab.com/openconnect/openconnect/-/commit/7512698217c4104aade7a2df669a20de68f3bb8c.diff"
+    sha256 "8a26be2116b88bf9ad491b56138498a2a18bd80bb081e90a386ee8817a1314c3"
   end
 
   def install

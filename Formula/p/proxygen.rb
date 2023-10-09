@@ -4,18 +4,17 @@ class Proxygen < Formula
   url "https://github.com/facebook/proxygen/releases/download/v2023.09.04.00/proxygen-v2023.09.04.00.tar.gz"
   sha256 "e4db076db908b003a23ac139b6c433d8c34daa77cbdea33fd5a77bf9889dcdb2"
   license "BSD-3-Clause"
-  revision 1
+  revision 3
   head "https://github.com/facebook/proxygen.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "d3bd52e2c867f91100ee9f189a586d3c9b6936c9af78a774f476ec7c17b56d00"
-    sha256 cellar: :any,                 arm64_ventura:  "a119242adeb58d1f7be87197937ef4a6afe23c8d92457b7f2bcbb0568dd0d937"
-    sha256 cellar: :any,                 arm64_monterey: "19fd3dbc3be2cb8138486d50fa9ef72cf346fbf82fdbfbd890f37bc9d93626cf"
-    sha256 cellar: :any,                 arm64_big_sur:  "3c1c720cd27f9cf3fbde369cf90922376fd1582770ac574cebde012dd4698990"
-    sha256 cellar: :any,                 ventura:        "089d1586683128d15776e9a0c8e05f3ed7f24cfa61259f8f1fde679d30892eb6"
-    sha256 cellar: :any,                 monterey:       "1b73b5d8ce8f68854e06e684f1a257e2cb6417a0ff4834c9a424e0d7e0ec89d1"
-    sha256 cellar: :any,                 big_sur:        "cff17fef29debe312082af94a15f42b869b141c5a7b2751565706d6e5735e242"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "594c7b537a70c796b14a9e941a8883cd97c252391a6927e5b78068fcc643a968"
+    sha256 cellar: :any,                 arm64_sonoma:   "c2dbe0929a15bf044c13f7ea81640eff6a811d6cfba58fe794907d6dca2afbcc"
+    sha256 cellar: :any,                 arm64_ventura:  "a26b4802c745cb7e377703f45ad0cc4e537251cf8808e64f2ebcf58862bbbcd3"
+    sha256 cellar: :any,                 arm64_monterey: "9cf3bb099c1138eac2c9e1e40f53e967d4a1ab50aba1e18bc2be46935582f3c7"
+    sha256 cellar: :any,                 sonoma:         "5b6d6a4fa8e97c4718e9d8a1f3465c60b52f24578f77373de612d09f8841463d"
+    sha256 cellar: :any,                 ventura:        "0cb918d9c2dd6706afd8bcebc63786b30eb40cdc6cc5229bedd38dfcc9b16190"
+    sha256 cellar: :any,                 monterey:       "d831ef95873a1f8c008b729104fd542942e16143d49745992e55468c13d1bcb7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "36f5761fb73e8a5b51fd799448f661ab13b75527500ca7697b00f230ebbe9bd1"
   end
 
   depends_on "cmake" => :build

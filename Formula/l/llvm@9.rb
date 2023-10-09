@@ -20,7 +20,7 @@ class LlvmAT9 < Formula
 
   keg_only :versioned_formula
 
-  deprecate! date: "2023-01-03", because: :versioned_formula
+  disable! date: "2023-10-05", because: :versioned_formula
 
   # https://llvm.org/docs/GettingStarted.html#requirement
   depends_on "cmake" => :build

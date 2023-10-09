@@ -1,8 +1,8 @@
 class SwaggerCodegenAT2 < Formula
   desc "Generate clients, server stubs, and docs from an OpenAPI spec"
   homepage "https://swagger.io/swagger-codegen/"
-  url "https://github.com/swagger-api/swagger-codegen/archive/v2.4.32.tar.gz"
-  sha256 "6c09797b16e2d17be2592b8dac4d7ef65765eec540c41929a403df59bd9c9fae"
+  url "https://github.com/swagger-api/swagger-codegen/archive/refs/tags/v2.4.33.tar.gz"
+  sha256 "461b457dd20c7ab80486a2d09f1f701e0dfc46313c16b949bfe2639980261b6a"
   license "Apache-2.0"
 
   livecheck do
@@ -11,15 +11,13 @@ class SwaggerCodegenAT2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a74d24cf80f007a26a30d63d63d32e1ff2616e3904ce6fab078f3db17b05d68f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "95005d8b832a30dc10cbc458e611354f1f156288d36b2cfd60c2880f87768005"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3642046a6316344f9c236097cc5c51c6bdd10c95b7401ab34824bab44f27e275"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "95d594cc6ee387701f713c5479953c7e2e325a2ec11f4385b45bda0a4aa774d6"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c3c7ae094eb715b6e060053579af5da3763e4207739d45bd4e913d285f0f31ac"
-    sha256 cellar: :any_skip_relocation, ventura:        "be20870ef3994ce48953c5d9134e740954d3a4dedab4eda0edaeaaf1ee4faf81"
-    sha256 cellar: :any_skip_relocation, monterey:       "c081a292ef84ca0a23c299d7ce2d7a09f53bdf4e85ffda8a13d8110f8f0ae441"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d44b97fcee0aa0d68ce8cd5a21ef57309ca650c9d1fc852d17f7f1cbabf97d5a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f8233d5aa15bcb8b354b208fe4343d55509c5c79add9a8f94c891ee472bdd0bb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0a05038aad4c3de7efb30968b9cc59da8638ec79cd82ecb75e7aa837d695899e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e51ea470fea5ee116aecdd4b5ece0c7cede682da4d7f31abf319b2c8dc64b021"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ad43fb53411e5625ab1ab7bbb9a39913db6105c44d677409ba3db030df8fae17"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b2cfcdd90ea7bf53d9720e7dd8976ed8d6f8b2616bc6d7e1eb0755cb7f1ad54e"
+    sha256 cellar: :any_skip_relocation, ventura:        "e2cea5a08d86d2296bacb5083fce0b4684d993418a4b489c4830076008d9a2c0"
+    sha256 cellar: :any_skip_relocation, monterey:       "58927ad966895916918fea00b5b25b9c57a774bc4b6f25dd8aa0ab5b9c37f441"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c4cd7fda2ee376846206f696e3d7a9481684b0f91748ec2b46dda6b2f2d96450"
   end
 
   keg_only :versioned_formula

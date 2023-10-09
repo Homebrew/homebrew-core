@@ -11,9 +11,11 @@ class Cp2k < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_sonoma:   "fa48eab0f75ea1e3aabce2b9e7f529844d9ccc4f8df184fe79cc3f22eb81b6e0"
     sha256 cellar: :any, arm64_ventura:  "542a2e362bf408de6339d11c5fa669ff2aaf19780648a3c44f38678a6bbf264c"
     sha256 cellar: :any, arm64_monterey: "28a35f321d8a3a705c882eb54964d4c212ff7112c7320b2ac56185097d45d9be"
     sha256 cellar: :any, arm64_big_sur:  "b82e5812fa861ed7578aa0d3ad0b9c0bd14c31654563d1c5a0f77c61e45c9d77"
+    sha256 cellar: :any, sonoma:         "c6e440ce4626f7993753447d03063917ad0d032e5f4e97afc43821addce59b01"
     sha256 cellar: :any, ventura:        "5f82951b87c5f6b08b82e1bdd58ac34dda2f97cef530108d915b3ad01512de6c"
     sha256 cellar: :any, monterey:       "8635ec176cdf6215df2f86fba78bcedc33f10dda0bdb2ce96f618c072be6160a"
     sha256 cellar: :any, big_sur:        "d26512a39816dd2eb27106a8de91bc235b1976bd6c2bf0aadde38d2364b12832"

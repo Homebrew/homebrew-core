@@ -11,9 +11,11 @@ class Gnuplot < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "86cc3fb83691b2ae56ecb6800597824a1b218953d67919383afa49cedca8cbae"
     sha256 arm64_ventura:  "a9969d9124b0a9ac3c3bc5a5f19e215bc3757a34e142beb888f76cd631441f66"
     sha256 arm64_monterey: "23519be29392ea57db23622bd5ed5cfc413c7a653bd3fd8b87f31489db326d2a"
     sha256 arm64_big_sur:  "895fe52a242f77ee6cb9e241980f803fe35d20318bb1fa6d4628a8c9e234d288"
+    sha256 sonoma:         "f72c06e6a10f614136f4a35709270c1f4c45c9b5c32479067a3798854797918e"
     sha256 ventura:        "dce9d5e1c207f5742c204324b9a6cb97aff7f474ffa7725da510c7c82f7970e0"
     sha256 monterey:       "70543600a2b405793486fa519819fc8872edad5a12f0a4886e3b1d3a97ef5f02"
     sha256 big_sur:        "ae3a916cbce4f6b4fd55c694c147cba837be988ef9a1a4bb0f6d17683bceaa21"

@@ -7,9 +7,11 @@ class Xsw < Formula
   revision 1
 
   bottle do
+    sha256 arm64_sonoma:   "30a80c0aafb3e808ebe486a79d5fbed46c76e648406525d91618aeee3157ee72"
     sha256 arm64_ventura:  "3ba2080f806861639a5c6ed065feb576c5e6483f5cb4e30164a63f3dec4888d0"
     sha256 arm64_monterey: "1a4a635c11df035cdb3aaf70265cf88ab821c3778ae20679728921bba4b49bf5"
     sha256 arm64_big_sur:  "adcd51d55c60f71ad81dc0c88cc67dac046d4083d7c27b50e0d4cfd9fdc8ff2b"
+    sha256 sonoma:         "b48f864041c383879404171865d3e1b583b3631160da9e12d461cf46aaf39719"
     sha256 ventura:        "6e5b6a41cf51b3ac1fae18822302c789d43778b6e69235cd39c987b30e122b02"
     sha256 monterey:       "7f101f339ccf764f1fca2b4e81a227cd4e1861a06d4c1630a8f9ac3aa9ca9c0c"
     sha256 big_sur:        "89b5bea34cf3c25385f810ce2c4bf667cd43caf541316d8efc47958d1f404847"
@@ -26,6 +28,9 @@ class Xsw < Formula
   depends_on "sdl_ttf"
 
   def install
+    # Fix compile with newer Clang
+    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end

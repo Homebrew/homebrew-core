@@ -3,8 +3,8 @@ class X264 < Formula
   homepage "https://www.videolan.org/developers/x264.html"
   # the latest commit on the stable branch
   url "https://code.videolan.org/videolan/x264.git",
-      revision: "baee400fa9ced6f5481a728138fed6e867b0ff7f"
-  version "r3095"
+      revision: "31e19f92f00c7003fa115047ce50978bc98c3a0d"
+  version "r3108"
   license "GPL-2.0-only"
   head "https://code.videolan.org/videolan/x264.git", branch: "master"
 
@@ -39,17 +39,13 @@ class X264 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "2431b4d6fb7f3a5633c2722778f0377160ce9dee80df2f188994f17b9acc3b15"
-    sha256 cellar: :any,                 arm64_ventura:  "faa0ab633b7f74cf08046227a361a6ca9e196aa0509cc18fab98e0a80cb8dcfe"
-    sha256 cellar: :any,                 arm64_monterey: "b3748da590329fe70fb41861508badcfcc1b8ffb0c6b0ac45d4a7e49dfc1dad2"
-    sha256 cellar: :any,                 arm64_big_sur:  "f1be2560ce48268a304fe501add92441dd3cee52fac2e59701cbe00e67aa4b23"
-    sha256 cellar: :any,                 sonoma:         "a8c2d85139df6a1d38d151d20ab54979e965e5f890dfbe73813752a1f6c2848e"
-    sha256 cellar: :any,                 ventura:        "dda85bb57b80d2c513fc30a851f8506b25cf37e25cdd701f23a24a6c56e6df2f"
-    sha256 cellar: :any,                 monterey:       "98f235930f557572e2fcf3015ef25a285941b0d5529a6816194811632759ee18"
-    sha256 cellar: :any,                 big_sur:        "15d10f8f5114325242ebf74d0906456d86843d7eae0676475c9a35cb439a2a82"
-    sha256 cellar: :any,                 catalina:       "b5248ababfa2e909aeb6ed38a41b12361866fbd02ab65f61b6920e15b405f650"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "21bd89d6cc7283c8f77b9a2655b6bfe9f7c8d1d6d098b5c402a33fac27d9f8bb"
+    sha256 cellar: :any,                 arm64_sonoma:   "19910a7d287524c93e7c56e30eca711618e0b568c0a9a4462924b76761840fd5"
+    sha256 cellar: :any,                 arm64_ventura:  "65babfc775b28b5d51d5acece8eb62ef377869964f088385cd09668848b63853"
+    sha256 cellar: :any,                 arm64_monterey: "629c423cef3f124d566e852d72a7d27b48370463c7501f3c99879f5eab68ae20"
+    sha256 cellar: :any,                 sonoma:         "815879af6a928c8c92730a0fd92e6633b3c77e1c17a2156865769d5f03207c7d"
+    sha256 cellar: :any,                 ventura:        "6477590c867a8e4f016cd5562eb55bd45dd51acbd8aac5476bcd95a810dc2c80"
+    sha256 cellar: :any,                 monterey:       "3b19033d9ff3b40030f1fb721c68e6ec308bb978d0a16af6951ab2aff004a94f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aeeb090700f4e1fdf948ed265f6b63353aea4980709d05b6a9314473fd1c802e"
   end
 
   on_macos do

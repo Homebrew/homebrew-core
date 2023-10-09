@@ -7,19 +7,17 @@ class Infracost < Formula
   head "https://github.com/infracost/infracost.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "231f25a40da708f30ac15ebeea397dead1d6552691960c44649183873e6a7e5b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0f34e9cefff5e006be0a508d7a67258af15a14186c43c6f08560ab364065ccc7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0f34e9cefff5e006be0a508d7a67258af15a14186c43c6f08560ab364065ccc7"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0f34e9cefff5e006be0a508d7a67258af15a14186c43c6f08560ab364065ccc7"
-    sha256 cellar: :any_skip_relocation, sonoma:         "f81d9aeaafd47464c174d0e8e2c8316d40f571f6f33f1a3a39aecfcf6f27ea40"
-    sha256 cellar: :any_skip_relocation, ventura:        "e2cb7454fd3568d89bb9edd1b541ac33fc8d69852ad5c264d4ab9f9f6530e1ed"
-    sha256 cellar: :any_skip_relocation, monterey:       "e2cb7454fd3568d89bb9edd1b541ac33fc8d69852ad5c264d4ab9f9f6530e1ed"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e2cb7454fd3568d89bb9edd1b541ac33fc8d69852ad5c264d4ab9f9f6530e1ed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "357687efb9efae2bcf54d5c332159c32f2edc9717222aa9eb1dccef288de62d7"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d5dfaa8bc725cef6734500ab51fd8677275241199f0e766ca47baafbee7159a8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d5dfaa8bc725cef6734500ab51fd8677275241199f0e766ca47baafbee7159a8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d5dfaa8bc725cef6734500ab51fd8677275241199f0e766ca47baafbee7159a8"
+    sha256 cellar: :any_skip_relocation, sonoma:         "79a15f0053f7a1044f58391f4733101cc2de0756a276de19e4c0542f20b4d10a"
+    sha256 cellar: :any_skip_relocation, ventura:        "79a15f0053f7a1044f58391f4733101cc2de0756a276de19e4c0542f20b4d10a"
+    sha256 cellar: :any_skip_relocation, monterey:       "79a15f0053f7a1044f58391f4733101cc2de0756a276de19e4c0542f20b4d10a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "32bcd13b9b9e3d59e6f87bd8c5ef7458e93368e1dfd84c0a0822e43562b72d5c"
   end
 
   depends_on "go" => :build
-  depends_on "terraform" => :test
 
   def install
     ENV["CGO_ENABLED"] = "0"

@@ -8,7 +8,7 @@ class Camlp5 < Formula
 
   livecheck do
     url :stable
-    regex(/^rel[._-]?v?(\d+(?:\.\d+)+)$/i)
+    regex(/^(?:rel[._-]?)?v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do

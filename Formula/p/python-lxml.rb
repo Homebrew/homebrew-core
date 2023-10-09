@@ -6,20 +6,20 @@ class PythonLxml < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "de03c77c8875a9d6e3be2c2fb1083d6d038fa5f9721fc734bf89b7677dd643aa"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5521a0623aeb08d39b0ea5554f9678a8afba93023ae0db4fcdfd11cc0bdc28ba"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1b42a0e7770a74372326f20a1053de97998b58d3f41468cf61ebe71117a29a02"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fd48b0b9528659465d5e38eb1f4b4b1632f285ec8861240059c49489ef938e30"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b2fa0dc4bcae662a241ade042a0baaa93ad9e97763918d8be39c9ade39170ef4"
-    sha256 cellar: :any_skip_relocation, ventura:        "eb23c25272811f76bbafae511cf6719d5e965328c9f93f76ea01245b1ae71b89"
-    sha256 cellar: :any_skip_relocation, monterey:       "c3558c84308ef907e2e000b974e35afbef07e4eb272f10ed27aea186cd030a8e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7994ef91def9ff96c3146d270ab6224adb45959afd8c6e33152dceff8ebab1f5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9ea4c4dabb7b024ff08a7ff531de53948e73d06b79b0da31ea3281c052106574"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0053d3bb932417672f1208a39fe32cc004939eedf48d3b6260ba4ab7dd6e6a71"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "61817bea95e749a041fde129abfbfbf57e34f21965e0bcf75aec62915ef67d2f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "943fed91a4aa635aa6106d447b608faf7c8c193bdad0e787d6fc8eae225f5685"
+    sha256 cellar: :any_skip_relocation, sonoma:         "9a393703230af1880064e2ad7d45cc854aaeca528cc13104ad157b6ec62f1a6c"
+    sha256 cellar: :any_skip_relocation, ventura:        "0be496dfe111ff388228ce27bb456c27b2332fcbe41c8e018acebbe5de380b04"
+    sha256 cellar: :any_skip_relocation, monterey:       "5a0cc74e848d0094ebf7d6d55ffe3b556441d754358b55b0be24527a12312b23"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1656714ed0bb2b3c9c61807004fe6478651ef29ef909563b86ad29e60c4e77a7"
   end
 
+  depends_on "python-setuptools" => :build
   depends_on "python@3.10" => [:build, :test]
   depends_on "python@3.11" => [:build, :test]
-  depends_on "python@3.9" => [:build, :test]
+  depends_on "python@3.12" => [:build, :test]
 
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"

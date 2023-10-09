@@ -11,9 +11,11 @@ class EcflowUi < Formula
   end
 
   bottle do
+    sha256                               arm64_sonoma:   "9a07834d7fa1a5a06f1e8967e3c0b28882cc5f2f5b4be40ce22a19aca3e1a059"
     sha256                               arm64_ventura:  "47fdb3e2ea890d16dc84008f169461e25bab2067ddc59751db04191dc98bcfb1"
     sha256                               arm64_monterey: "3cf0b39c84a2e81a6f4b0cb940e0b6021cd4a519b3780c1b39772ca3f8305cc1"
     sha256                               arm64_big_sur:  "bfff4f201ed80d7ea06a59659e3129ee913b37c26d52f97d1c802ba12c364def"
+    sha256                               sonoma:         "0aab913d360e7209d6f565aca50bada38ea8e92f672f4482cad14115fa4359ca"
     sha256                               ventura:        "7eccdbe7ae6a4d63554297a2eecb441be77bc16753a4a39d2e518a9a03c5feed"
     sha256                               monterey:       "1dc5e6bc1ba0752ac47fca7eaf3bb9e2cc3dbba7c1b3e55a748dfb9f9a904bc1"
     sha256                               big_sur:        "7e07b9f55a5ca7bdc7bd997d5bbc7e0a8406c04874af4b0c7786f50df4acf3ba"

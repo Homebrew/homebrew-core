@@ -9,15 +9,14 @@ class Bzt < Formula
   head "https://github.com/Blazemeter/taurus.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "49e155ebb5620ca1bcc70d64159824db34bfe8370e3163a1c0641b1018415b32"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "64abd33b27ebfad7be602a515bb9a2972a83964e01026c6030e13bf864ab9e5b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6a6dc26b15e125d6c185e120061ccd3e8bf04d197aadd7916cd7d70456937c4d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "308628fda90a4bc6204512a3398e04ce9acfbd6b2179fe72ab30b0cabea75c92"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0cfba59fc996641db6982d84955c7ed171d45b0609d9f27b6e34e5019c14f4c7"
-    sha256 cellar: :any_skip_relocation, ventura:        "8fef52bf2b60b9c2d6beb3ba81da382516d7baf5a25c4e390d2be65b439df5da"
-    sha256 cellar: :any_skip_relocation, monterey:       "d5bd3970294a892a31f8a47ea71f10a6294213be2c92fc5e8a067c9f49cf9522"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9a38855f683b0617efa5b4d1eb3fd995a34671748549723c151278619ddb6a0d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "228bcd40005cfc9453d359466c41c2500266ee0b7522ed7381e23402878fb132"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "23970d558dcf03fb01996bcb861c68b6c4a0adaf96b2e60a7782d950e01aa4d8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0c94c497ea7dcbc36b99ec1e2505e6525d60f328b108d0efef455fab346c7dbd"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a2f6576d298fac305fb8603540ffaad24aca01aa76d7b84fb5e8d1aa66533485"
+    sha256 cellar: :any_skip_relocation, sonoma:         "cd3f29c89f80310ce0f3c48604a6e3bea13c00a117efd883d61175c66b3d42c7"
+    sha256 cellar: :any_skip_relocation, ventura:        "f224743052472b261e33961f111341a73013e72865254ff764732e7ecd74b0aa"
+    sha256 cellar: :any_skip_relocation, monterey:       "791d5a0783e2ebc97ae99ffbffd38e25919ffabc035f7b01cfc8576cc4b85018"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4a96f8bbbff1baab91bed1d54511b8483df1d65de7ba921ff6b17f4f2755e8a8"
   end
 
   depends_on "cmake" => :build
@@ -27,13 +26,11 @@ class Bzt < Formula
   depends_on "libcython"
   depends_on "numpy"
   depends_on "python-certifi"
+  depends_on "python-lxml"
   depends_on "python-pytz"
   depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "six"
-
-  uses_from_macos "libxml2"
-  uses_from_macos "libxslt"
 
   resource "aiodogstatsd" do
     url "https://files.pythonhosted.org/packages/8d/ea/d2d79661f213f09df0e9f56d25dbae41501880822e5c85a0a6d6857baa55/aiodogstatsd-0.16.0.post0.tar.gz"
@@ -123,11 +120,6 @@ class Bzt < Formula
   resource "influxdb" do
     url "https://files.pythonhosted.org/packages/86/4f/a9c524576677c1694b149e09d4fd6342e4a1d9a5f409e437168a14d6d150/influxdb-5.3.1.tar.gz"
     sha256 "46f85e7b04ee4b3dee894672be6a295c94709003a7ddea8820deec2ac4d8b27a"
-  end
-
-  resource "lxml" do
-    url "https://files.pythonhosted.org/packages/30/39/7305428d1c4f28282a4f5bdbef24e0f905d351f34cf351ceb131f5cddf78/lxml-4.9.3.tar.gz"
-    sha256 "48628bd53a426c9eb9bc066a923acaa0878d1e86129fd5359aee99285f4eed9c"
   end
 
   resource "molotov" do

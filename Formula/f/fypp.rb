@@ -9,19 +9,18 @@ class Fypp < Formula
   head "https://github.com/aradi/fypp.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0afee7dd1017190e39b10b65cf298850f76c6ed293998b1c14cdd831aebae008"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a72f87c255aefd9dfc94a8acf0054e9d00b009ca29c378c55a948a267ccadb80"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1eaaeb839757540bf468a3c4a34edfae25ebce99847fd5ef3f88ff748b2df440"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5ba5ec09160516d21d7afde092b4b78fb95144b2b4fd29d2013f52b0b47ed247"
-    sha256 cellar: :any_skip_relocation, sonoma:         "aa2f6aae3cdcad720bfbe9a781c2bf0df1d58ded169db4031c3fcedf870e3489"
-    sha256 cellar: :any_skip_relocation, ventura:        "97f13cd046501c26e14d8e6ddd26917d864776426468fce6441cfdd62781a00a"
-    sha256 cellar: :any_skip_relocation, monterey:       "7d92b29bd552bd7dcbb5c8aa19f0482aa1f0d3661191c8cc419f378c97b76a0d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "af80edb6449af0192ce8586f0f07af91aedb55d52ad352207e04ac25820656f4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "676b067d2f477d15bceabf21d7dec716c76d3c438e20384635ecfcaf506254d3"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "71600edbf0d5f3bb409914829eca26547427fab2f4fdbc655b3f1f9df1d4ca38"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b6a534986e0607485a5088e84a4548d85a8ff2bef433b297a9a4dd74723283d9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "fc79fb33610cac17e3b528644daf3e7b2757192bc521fc379c023f8fdb286ea8"
+    sha256 cellar: :any_skip_relocation, sonoma:         "69203b19f11ba6376a810689af69e5c3018e57d5c8196f4e7f92738e63af5cf9"
+    sha256 cellar: :any_skip_relocation, ventura:        "f3624958a898b186df3f4289def9d2bf3468b3448b4e3b3164b2e5790894d9a1"
+    sha256 cellar: :any_skip_relocation, monterey:       "fc8e5543153995294780164406079f8d0356b3e2a713bab2fab9feec22e7e2c5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2a25c3909fde50da5dbcecaf82f30e57cc28ff5b4cb975726cb30674332393fd"
   end
 
   depends_on "gcc" => :test
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   def install
     virtualenv_install_with_resources

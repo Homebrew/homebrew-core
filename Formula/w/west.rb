@@ -3,20 +3,19 @@ class West < Formula
 
   desc "Zephyr meta-tool"
   homepage "https://github.com/zephyrproject-rtos/west"
-  url "https://files.pythonhosted.org/packages/f5/5f/703817873bacfa4b1f796b1b6da5df7a26033d57a2e307b1d6f9c94344a9/west-1.1.0.tar.gz"
-  sha256 "e3487f54b6bd904580489b603ef1a6e099c6f2e656014c2b83c4b3c2175fa4df"
+  url "https://files.pythonhosted.org/packages/ee/7a/4c69c6a1054b319421d5acf028564bb1303ea9da42032a2000021d6495ee/west-1.2.0.tar.gz"
+  sha256 "b41e51ac90393944f9c01f7be27000d4b329615b7ed074fb0ef693b464681297"
   license "Apache-2.0"
   head "https://github.com/zephyrproject-rtos/west.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9bcc0276be418767d679ac8e471233e2ce704523d217dc33305b7acd2c9442ba"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "12730e2db9b91b4c4648e45a4cead960c355e55c368f7151a13b63aa39cf8314"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6d4b5806166ff6c9d55ea797b5b0e9116d9b7680d20d6da8b42baab9f469ce89"
-    sha256 cellar: :any_skip_relocation, sonoma:         "eaea62f5290a3129f7de51a32787c54000a7fbfd4e3903b5bda6886716b12139"
-    sha256 cellar: :any_skip_relocation, ventura:        "43b4e25782c07a955667f5e3dc2151770cb154ac824b799a966116b4e368904a"
-    sha256 cellar: :any_skip_relocation, monterey:       "863f4084c84660e25c52a77f1017b613a8bbb6514604c78c4ea17003dcc152b5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bc890a60524bd150078685403ef4783b0aa679f4a6951acc48533b6e31691291"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b115b2a4dcde6dcc3a81dcff37c72ae28bc6231b33726c89a59bfa75eacb1e3a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f1a1bb94bb0a02945368b3df14cb41e06bce8ad79499d7002ba075869ebdfc90"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b2fd26dbb1e73c014bb58fc60e187c92112f11eb6d588d57513796a4244dff25"
+    sha256 cellar: :any_skip_relocation, sonoma:         "fc692be6fa545eb1da6bbfac9cda5b2ad4f1e6bcdb1be9c8b7a70e9205ac28c3"
+    sha256 cellar: :any_skip_relocation, ventura:        "7d033d1c5b51d00affbc13238f986064c43f5ee076640bf4f6cb4e1dd83a31ec"
+    sha256 cellar: :any_skip_relocation, monterey:       "2ae1226fa1ca32ea1689578aa55d04e9e5930d6b5ebb8e6cd3cef30d352d7c9e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5218eb173d3c538204e69efe4df55f35c6f4a9ca735419fc42dfe491f39e99b3"
   end
 
   depends_on "python-packaging"
@@ -45,13 +44,13 @@ class West < Formula
   end
 
   resource "ruamel-yaml" do
-    url "https://files.pythonhosted.org/packages/39/97/03674459c459b9b69ef71eba039205a72867e5c6c409df3136858f6836f3/ruamel.yaml-0.17.31.tar.gz"
-    sha256 "098ed1eb6d338a684891a72380277c1e6fc4d4ae0e120de9a447275056dda335"
+    url "https://files.pythonhosted.org/packages/de/7d/4f70a93fb0bdc3fb2e1cbd859702d70021ab6962b7d07bd854ac3313cb54/ruamel.yaml-0.17.35.tar.gz"
+    sha256 "801046a9caacb1b43acc118969b49b96b65e8847f29029563b29ac61d02db61b"
   end
 
   resource "ruamel-yaml-clib" do
-    url "https://files.pythonhosted.org/packages/d5/31/a3e6411947eb7a4f1c669f887e9e47d61a68f9d117f10c3c620296694a0b/ruamel.yaml.clib-0.2.7.tar.gz"
-    sha256 "1f08fd5a2bea9c4180db71678e850b995d2a5f4537be0e94557668cf0f5f9497"
+    url "https://files.pythonhosted.org/packages/46/ab/bab9eb1566cd16f060b54055dd39cf6a34bfa0240c53a7218c43e974295b/ruamel.yaml.clib-0.2.8.tar.gz"
+    sha256 "beb2e0404003de9a4cab9753a8805a8fe9320ee6673136ed7f04255fe60bb512"
   end
 
   def install

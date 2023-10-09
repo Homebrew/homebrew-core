@@ -9,42 +9,35 @@ class Pipx < Formula
   head "https://github.com/pypa/pipx.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "af06c34c6621ad287f4a7450c12b4567da9fc1128829763f515124cd01271803"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5a57e651b361d784c1ee4eddb62c5ba81b044942b602b7c7e908e3f111c1c284"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e3cbcbcad6035e11cb4d191445139335f376f3ad392f65d880da49bbbe86f581"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5c9d71e785cd5a0effc8c4efcfb94d33a6b31cedc19c2298b8e15dc51fc06d11"
-    sha256 cellar: :any_skip_relocation, sonoma:         "db80cb8acb1acf0bcc834a7ddcb43810cffc9ff691f5a45a63cc6f1ff2b626f4"
-    sha256 cellar: :any_skip_relocation, ventura:        "91e477d005dec847be8d458fb4550d750ee5c468c23a92445860992e24020231"
-    sha256 cellar: :any_skip_relocation, monterey:       "41834ffcf2421615bc1a78f03997f15626f78fa000f2893458ebabe59477ab59"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ea510e2636cdeb61c0e8128bc01166278db47ae6fab8d1cec05376a3bb2d7813"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "499bea282b4a69adbb11f61977da1429cbbe733065a48ca450f24361dfefee8b"
+    rebuild 4
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "29e526e0b20bcdafff2cac87062b82ad24f86215040b8306c7544cd78b5a618c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fd082b4191e48175c8526f6a66afabfd8d99441602b9d7e0e8f82680b5405ff9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "085d9ab34f1e1d6f96f9107ae7d291eb6daf9653d49df79c8436bb9632441442"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ab7bc10484f1acebdda35d32b0c682f25bce7b4df4e845b1df6eabeb2104aba6"
+    sha256 cellar: :any_skip_relocation, ventura:        "8c9864bec0d66b2d997561332222c1a26553e37989aa151b6355ba21b63197cd"
+    sha256 cellar: :any_skip_relocation, monterey:       "31949ecee9dd1fb9d965abb7993569dc5632a3f7553b73dc924f78a791c43012"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d3cc3ac14c32a9dfb8dc3f31934fc85eea2dc79e6d7edd16fece9b6ee4443ac5"
   end
 
+  depends_on "python-argcomplete"
   depends_on "python-packaging"
-  depends_on "python@3.11"
-
-  resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/ac/43/b4ac2e533f86b96414a471589948da660925b95b50b1296bd25cd50c0e3e/argcomplete-2.1.1.tar.gz"
-    sha256 "72e08340852d32544459c0c19aad1b48aa2c3a96de8c6e5742456b4f538ca52f"
-  end
+  depends_on "python@3.12"
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/59/87/84326af34517fca8c58418d148f2403df25303e02736832403587318e9e8/click-8.1.3.tar.gz"
-    sha256 "7682dc8afb30297001674575ea00d1814d808d6a36af415a82bd481d37ba7b8e"
+    url "https://files.pythonhosted.org/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz"
+    sha256 "ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de"
   end
 
   resource "userpath" do
-    url "https://files.pythonhosted.org/packages/85/ee/820c8e5f0a5b4b27fdbf6f40d6c216b6919166780128b6714adf3c201644/userpath-1.8.0.tar.gz"
-    sha256 "04233d2fcfe5cff911c1e4fb7189755640e1524ff87a4b82ab9d6b875fee5787"
+    url "https://files.pythonhosted.org/packages/4d/13/b8c47191994abd86cbdb256146dbd7bbabcaaa991984b720f68ccc857bfc/userpath-1.9.1.tar.gz"
+    sha256 "ce8176728d98c914b6401781bf3b23fccd968d1647539c8788c7010375e02796"
   end
 
   def install
     virtualenv_install_with_resources
-    bin.install_symlink libexec/"bin/register-python-argcomplete"
 
-    generate_completions_from_executable(libexec/"bin/register-python-argcomplete", "pipx", "--shell",
-                                         shells: [:bash, :fish])
+    register_argcomplete = Formula["python-argcomplete"].opt_bin/"register-python-argcomplete"
+    generate_completions_from_executable(register_argcomplete, "pipx", shell_parameter_format: :arg)
   end
 
   test do

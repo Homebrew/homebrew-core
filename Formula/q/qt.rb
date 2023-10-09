@@ -3,10 +3,10 @@ class Qt < Formula
 
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.5/6.5.1/single/qt-everywhere-src-6.5.1.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.5/6.5.1/single/qt-everywhere-src-6.5.1.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.5/6.5.1/single/qt-everywhere-src-6.5.1.tar.xz"
-  sha256 "a2d88a6f8c3835dca52f3b7433149c3de606a96bbf024640c27657276cc7350a"
+  url "https://download.qt.io/official_releases/qt/6.5/6.5.2/single/qt-everywhere-src-6.5.2.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.5/6.5.2/single/qt-everywhere-src-6.5.2.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.5/6.5.2/single/qt-everywhere-src-6.5.2.tar.xz"
+  sha256 "cde57be663d0f875759797298bdc37a936d517c39f2013e4e6ece5e12edeed12"
   license all_of: [
     "BSD-3-Clause",
     "GFDL-1.3-no-invariants-only",
@@ -14,7 +14,6 @@ class Qt < Formula
     { "GPL-3.0-only" => { with: "Qt-GPL-exception-1.0" } },
     "LGPL-3.0-only",
   ]
-  revision 3
   head "https://code.qt.io/qt/qt5.git", branch: "dev"
 
   # The first-party website doesn't make version information readily available,
@@ -25,14 +24,13 @@ class Qt < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "d16989865a01a0f7602e47f7a4bf890623b934b667f754eccca30eeeb127a2e5"
-    sha256 cellar: :any,                 arm64_monterey: "f578f21a236dab821acc5a804ec3831310ee3a31943f581fb06b51e7441faefa"
-    sha256 cellar: :any,                 arm64_big_sur:  "f3e38bf73b9cc1dd7f218061a3e134ea3579fa20f97afb8338071261b0a977b9"
-    sha256 cellar: :any,                 ventura:        "88e933aec762ffcd368c40daf3012ea0d3a70ccea61a40369fa7d53ea4a78a00"
-    sha256 cellar: :any,                 monterey:       "184e496be6d14ba71ef0922d852ea3d5c19b995195347d35e9d8a503994c7dc3"
-    sha256 cellar: :any,                 big_sur:        "0b8f1a61e38dbf1bc6b256dd26a53693f0dd073976f38d9f39b8526e6398fc91"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f5f34a88355b1544d0b696f0c926ecb4aec4f265f1bb24e94db384277b59b33e"
+    sha256 cellar: :any,                 arm64_sonoma:   "185c5a0f3da72bf3ac2016b9783195099078679265b30e24a43332c0f19c2ddd"
+    sha256 cellar: :any,                 arm64_ventura:  "c0965033369762b42457394b2f58d70cb1ebeaf4ac3077b57d6ed8df4fe1befc"
+    sha256 cellar: :any,                 arm64_monterey: "da18d4a3e2ed7b7a45f8c156a0ff083b886e9dd0e24d923f9e99ffef65bb2c2b"
+    sha256 cellar: :any,                 sonoma:         "57d9d4b65eb023ba12bce9cb2119e0e288288cf70c525f1f7e1364872c0fc363"
+    sha256 cellar: :any,                 ventura:        "5f13f3fa6e4bee85b338f6025f222c4eb5ebb151f8cab3908c7c0f013fbbe0ae"
+    sha256 cellar: :any,                 monterey:       "59a5a1960641d51b24a2fd345fb0b7ad449f515c1967e5d233ad8d3c71916487"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ba55511091d6ffab110b9abd3beeab413047f83cbd980440b529aa66bc371b8c"
   end
 
   depends_on "cmake"      => [:build, :test]
@@ -128,22 +126,11 @@ class Qt < Formula
     sha256 "b36a1c245f2d304965eb4e0a82848379241dc04b865afcc4aab16748587e1923"
   end
 
-  # Remove symlink check causing build to bail out and fail.
-  # https://gitlab.kitware.com/cmake/cmake/-/issues/23251
-  # Can be removed soon and replaced with QT_ALLOW_SYMLINK_IN_PATHS
-  # https://codereview.qt-project.org/c/qt/qtbase/+/475484
+  # build patch for qmake with xcode 15
+  # https://bugreports.qt.io/browse/QTBUG-117225
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/c363f0edf9e90598d54bc3f4f1bacf95abbda282/qt/qt_internal_check_if_path_has_symlinks.patch"
-    sha256 "1afd8bf3299949b2717265228ca953d8d9e4201ddb547f43ed84ac0d7da7a135"
-    directory "qtbase"
-  end
-
-  # Fix a Qt 6.5.1 QTabBar regression, certain tabbars are unusable because all tab items above the last selected tab
-  # is missing.
-  patch do
-    url "https://code.qt.io/cgit/qt/qtbase.git/patch/?id=9177dbd87991ff277fd77a25c3464e259d11b998"
-    sha256 "1730b675ede24d80c2e73a2f662cc73718f3060c0b8a707784d188bb11297c4e"
-    directory "qtbase"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/086e8cf/qt5/qt5-qmake-xcode15.patch"
+    sha256 "802f29c2ccb846afa219f14876d9a1d67477ff90200befc2d0c5759c5081c613"
   end
 
   def install
@@ -204,9 +191,14 @@ class Qt < Formula
       -DINSTALL_MKSPECSDIR=share/qt/mkspecs
       -DQT_FEATURE_webengine_proprietary_codecs=ON
       -DQT_FEATURE_webengine_kerberos=ON
+      -DQT_ALLOW_SYMLINK_IN_PATHS=ON
     ]
 
     if OS.mac?
+      # Fix a regression in Qt 6.5.2 w.r.t. system libpng
+      # https://bugreports.qt.io/browse/QTBUG-115357
+      cmake_args << "-DQT_FEATURE_webengine_system_libpng=OFF"
+
       cmake_args << "-DCMAKE_OSX_DEPLOYMENT_TARGET=#{MacOS.version}.0"
       config_args << "-sysroot" << MacOS.sdk_path.to_s
       # NOTE: `chromium` should be built with the latest SDK because it uses

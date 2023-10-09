@@ -8,30 +8,27 @@ class Sickchill < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 4
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "170e35aae866e65e0e8dac1e976d2bdfcc2f4fa76d124e1f7ef50f0be6c240f8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b0fabd330e2456041744cd122546e3485d549dde9813ca74951c693a17987d80"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7d88a3eae7435bdb9030ae181e8b415a09247c05550a02c1aeac91f680468c02"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1c01fcc3bd297d13903fd9ca9beea901f4df3db925747a3595ff092773e76d75"
-    sha256 cellar: :any_skip_relocation, sonoma:         "bd70fb1e710d008b843f7cdc93b62478ce2dcca2b7931bd6adce1d9d2b2c8ab7"
-    sha256 cellar: :any_skip_relocation, ventura:        "3814ffc343cb623813b1675ffdb5bd990135a024f77dd4ba400e4ecd23763b3c"
-    sha256 cellar: :any_skip_relocation, monterey:       "48f07b6b6cfc34627ef0e5f7a477dfe7ac55fb2ebfa95c5b4cfa40369340c453"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9138afa7d250ce68a07001f81048d49774b5526dae1f41827383ed0acf446a22"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e1ccfc88f849783ff972b02cb8cb6f823b94648237f7ace689bf180f4d9925b9"
+    rebuild 6
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a870bec0d1493fd51e8f5ce2dea6dbfca5c5b7fd8a9e9bd6872654957c4087f5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5844fa655bf3801f215892df8f028431b1c6b4f998708ddb2d63168ba59553f8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ec55818a97771e4e351f03ed8a98adfb98508db18772d93cdeb5990e21a3e66e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "37f0757909d4c4802b05b49a9422b1a205c36dccd303805d324807e0acde238f"
+    sha256 cellar: :any_skip_relocation, ventura:        "e74b46d558acd24b96d72244dc374c7b6681b2989df007ed5d952dd25cde1f66"
+    sha256 cellar: :any_skip_relocation, monterey:       "a58a3ceda2ff15d7bd729c981864309c806dae7e6bec07ce9084d1a40b047168"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d611f34a4be10c60b6ac691b8e6868150c2ba4db5ef4e61c64fdf59f1a0e2e1d"
   end
 
   depends_on "cffi"
   depends_on "pycparser"
   depends_on "python-certifi"
   depends_on "python-cryptography"
+  depends_on "python-lxml"
+  depends_on "python-packaging"
   depends_on "python-pytz"
   depends_on "python-typing-extensions"
   depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "six"
-
-  uses_from_macos "libxml2"
-  uses_from_macos "libxslt"
 
   resource "appdirs" do
     url "https://files.pythonhosted.org/packages/d7/d8/05696357e0311f5b5c316d7b95f46c669dd9c15aaeecbb48c7d0aeb88c40/appdirs-1.4.4.tar.gz"
@@ -168,11 +165,6 @@ class Sickchill < Formula
     sha256 "61fc4e5565646a799c783bcf5ae7503223513906e3242bff2ecc8aa66dc80826"
   end
 
-  resource "lxml" do
-    url "https://files.pythonhosted.org/packages/30/39/7305428d1c4f28282a4f5bdbef24e0f905d351f34cf351ceb131f5cddf78/lxml-4.9.3.tar.gz"
-    sha256 "48628bd53a426c9eb9bc066a923acaa0878d1e86129fd5359aee99285f4eed9c"
-  end
-
   resource "Mako" do
     url "https://files.pythonhosted.org/packages/05/5f/2ba6e026d33a0e6ddc1dddf9958677f76f5f80c236bd65309d280b166d3e/Mako-1.2.4.tar.gz"
     sha256 "d60a3903dc3bb01a18ad6a89cdbe2e4eadc69c0bc8ef1e3773ba53d44c3f7a34"
@@ -201,11 +193,6 @@ class Sickchill < Formula
   resource "oauthlib" do
     url "https://files.pythonhosted.org/packages/6d/fa/fbf4001037904031639e6bfbfc02badfc7e12f137a8afa254df6c4c8a670/oauthlib-3.2.2.tar.gz"
     sha256 "9859c40929662bec5d64f34d01c99e093149682a3f38915dc0655d5a633dd918"
-  end
-
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/b9/6c/7c6658d258d7971c5eb0d9b69fa9265879ec9a9158031206d47800ae2213/packaging-23.1.tar.gz"
-    sha256 "a392980d2b6cffa644431898be54b0045151319d1e7ec34f0cfed48767dd334f"
   end
 
   resource "pbr" do

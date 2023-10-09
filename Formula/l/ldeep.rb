@@ -3,19 +3,19 @@ class Ldeep < Formula
 
   desc "LDAP enumeration utility"
   homepage "https://github.com/franc-pentest/ldeep"
-  url "https://files.pythonhosted.org/packages/97/f6/958336ef1b6b9e69a3fd7405f2230f0e862a13c056b92feb5a5de4db6bcb/ldeep-1.0.35.tar.gz"
-  sha256 "6071ce4796f6793f413806c15fff1eb10d3338f709a9dae71a9794b3060fd81d"
+  url "https://files.pythonhosted.org/packages/ee/6d/7fe19b75b6df30c17dbffb06e10fce18afe881aed012c95859e119ce3cdd/ldeep-1.0.38.tar.gz"
+  sha256 "1db4eb0b01aefe4f014a8f34c63ce33dc3ff6a2c859c6cad52ee86f319584288"
   license "MIT"
   head "https://github.com/franc-pentest/ldeep.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f1dba80505242cb7649f3d4b7338c09dc7c4841879eaac08bd5c90da8bc88b66"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e95022c925924e1e47e149102701250f4d558201220b2250e4fb865d40b69419"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "215b8b7a1ec5dd37f63b702c01af035a3c02a44d16402cf344bf9bf2532df95d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a3d9e42b4c6b4b37da59c0c506c61818625c28e8deedd9c4fd48c25edf9afb1b"
-    sha256 cellar: :any_skip_relocation, ventura:        "d7616b4a1bffdda1bbc3b2d46f1cf13d119ce3faf885eab3f8f2ffdb00d91996"
-    sha256 cellar: :any_skip_relocation, monterey:       "18998d55a20e0a1d1d107b5c3bf99f365c454654dac17a1dce29bf4db0f72b01"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "83b6711fca68c33d4ba384817f2a26bb5f8235d42a36a03f51c4290938b09d96"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d612f785c48287c737ff7ed1a34d648f54eb7c5956cd08ba9e33fb903db2e6e7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "79825e1509f14476fe0aac354e8bbadf7df04be102af338272762a4998a94dcd"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f318b351433a6e866bdbe3c51b1f4b099d3e1cfe729314f7f317eda51282428a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "aeed76307f1345ee3b1716527ecf46eeb1b6f98f8d17d160efacd7fbf135c786"
+    sha256 cellar: :any_skip_relocation, ventura:        "401f135751327416b3b58366c33c476798412cbf97f7fc368e3a65e259a89aa7"
+    sha256 cellar: :any_skip_relocation, monterey:       "ce5b79ff20fb95ea96548fa93477b93ef64c369f89238cfcc1cf6bf40efb0f2b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9bc1a83e99a4d35838e38ad8defdac562c449036205d2baacfa13f1b9a62cc22"
   end
 
   depends_on "cffi"
@@ -24,9 +24,19 @@ class Ldeep < Formula
   depends_on "python@3.11"
   depends_on "six"
 
+  resource "asn1crypto" do
+    url "https://files.pythonhosted.org/packages/de/cf/d547feed25b5244fcb9392e288ff9fdc3280b10260362fc45d37a798a6ee/asn1crypto-1.5.1.tar.gz"
+    sha256 "13ae38502be632115abf8a24cbe5f4da52e3b5231990aff31123c805306ccb9c"
+  end
+
   resource "commandparse" do
     url "https://files.pythonhosted.org/packages/79/6b/6f1879101e405e2a5c7d352b340bc97d1936f8d54a8934ae32aac1828e50/commandparse-1.1.2.tar.gz"
     sha256 "4bd7bdd01b52eaa32316d6149a00b4c3820a40ff2ad62476b46aaae65dbe9faa"
+  end
+
+  resource "decorator" do
+    url "https://files.pythonhosted.org/packages/66/0c/8d907af351aa16b42caae42f9d6aa37b900c67308052d10fdce809f8d952/decorator-5.1.1.tar.gz"
+    sha256 "637996211036b6385ef91435e4fae22989472f9d571faba8927ba8253acbc330"
   end
 
   resource "dnspython" do
@@ -34,9 +44,19 @@ class Ldeep < Formula
     sha256 "8dcfae8c7460a2f84b4072e26f1c9f4101ca20c071649cb7c34e8b6a93d58984"
   end
 
+  resource "gssapi" do
+    url "https://files.pythonhosted.org/packages/13/e7/dd88180cfcf243be62308707cc2f5dae4c726c68f30b9367931c794fda16/gssapi-1.8.3.tar.gz"
+    sha256 "aa3c8d0b1526f52559552bb2c9d2d6be013d76a8e5db00b39a1db5727e93b0b0"
+  end
+
   resource "ldap3" do
     url "https://files.pythonhosted.org/packages/43/ac/96bd5464e3edbc61595d0d69989f5d9969ae411866427b2500a8e5b812c0/ldap3-2.9.1.tar.gz"
     sha256 "f3e7fc4718e3f09dda568b57100095e0ce58633bcabbed8667ce3f8fbaa4229f"
+  end
+
+  resource "oscrypto" do
+    url "https://files.pythonhosted.org/packages/06/81/a7654e654a4b30eda06ef9ad8c1b45d1534bfd10b5c045d0c0f6b16fecd2/oscrypto-1.3.0.tar.gz"
+    sha256 "6f5fef59cb5b3708321db7cca56aed8ad7e662853351e7991fcf60ec606d47a4"
   end
 
   resource "pyasn1" do

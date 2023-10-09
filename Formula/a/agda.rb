@@ -2,6 +2,7 @@ class Agda < Formula
   desc "Dependently typed functional programming language"
   homepage "https://wiki.portal.chalmers.se/agda/"
   license "BSD-3-Clause"
+  revision 1
 
   stable do
     url "https://hackage.haskell.org/package/Agda-2.6.3/Agda-2.6.3.tar.gz"
@@ -11,16 +12,29 @@ class Agda < Formula
       url "https://github.com/agda/agda-stdlib/archive/v1.7.2.tar.gz"
       sha256 "d86a41b9d2e1d2e956ec91bdef9cb34646da11f50f76996761c9a1562c3c47a2"
     end
+
+    # Use Hackage metadata revision to support GHC 9.6.
+    # TODO: Remove this resource on next release along with corresponding install logic
+    resource "cabal-install.cabal" do
+      url "https://hackage.haskell.org/package/Agda-2.6.3/revision/4.cabal"
+      sha256 "908b41a77d70c723177ff6d4e2be22ef7c89d22587d4747792aac07215b1d0f5"
+    end
+
+    # Use Hackage metadata revision to support GHC 9.6.
+    # TODO: Remove this resource on next release along with corresponding install logic
+    resource "agda-stdlib-utils.cabal" do
+      url "https://raw.githubusercontent.com/agda/agda-stdlib/fe151ddebedafe80c358bfc1fbcf3cea42a58db7/agda-stdlib-utils.cabal"
+      sha256 "91be962de76b0d9a06d5286afdb13b3738aef1f7d7f6feb58ac55594a86c1394"
+    end
   end
 
   bottle do
-    sha256 arm64_ventura:  "e6d794683df004cb540fc13038cb80378b7e5ee42fe8c20bd7c87cd7313606fe"
-    sha256 arm64_monterey: "ef61f482507d2e0f89c2df9136f83fee454701c570f7834d60da72ec0f707264"
-    sha256 arm64_big_sur:  "ccfb912d275052fb8d0a81ea3216e921c77f46cf0b2ec7b7dba5ef238f1868e1"
-    sha256 ventura:        "5dbae0ce1b653e7dc099e234e137bb703dc8ded804d2785aaab3129440befb6d"
-    sha256 monterey:       "afffee3246e21852bae17f1587a35a279fcdba0b87cda6fd8ed20c4166218a56"
-    sha256 big_sur:        "e3a67f21d8e018dc4bb3ba17f08e1906125a7f2920b1e36a3af691cd1ad4f6ad"
-    sha256 x86_64_linux:   "764d1eb2568588b1cb9a9e62dbc78e8caadd361424c2dde1b060f024cec399f9"
+    sha256 arm64_sonoma:   "30f144a088df8c6bb65bf14830225a1811a7f22326cdf8c634246c629b04ce31"
+    sha256 arm64_ventura:  "038df1f870f8656883676192ae703a2cd6671101f9c558607e65ce23ad7cfd98"
+    sha256 arm64_monterey: "ee9490269364d3ff10a764a1f1187184ecec77aee911b2e4afaa6698c2829ceb"
+    sha256 ventura:        "10a7682c89f37b23b61a13eb09cb9910cce9882848c11ca4f1616b063aefe9ab"
+    sha256 monterey:       "c62f5185a1093e13f48694a65b4f381ceca27fcb2c060823a644d6be72e21498"
+    sha256 x86_64_linux:   "ac97a785c4e9b05bc6dc845437fafd0c2a30cb9a405823da877193de1a2a3110"
   end
 
   head do
@@ -39,13 +53,21 @@ class Agda < Formula
   uses_from_macos "zlib"
 
   def install
+    resource("cabal-install.cabal").stage { buildpath.install "4.cabal" => "Agda.cabal" } unless build.head?
     system "cabal", "v2-update"
     system "cabal", "--store-dir=#{libexec}", "v2-install", *std_cabal_v2_args
 
     # generate the standard library's documentation and vim highlighting files
-    resource("stdlib").stage lib/"agda"
-    cd lib/"agda" do
+    agdalib = lib/"agda"
+    resource("stdlib").stage agdalib
+    cd agdalib do
       cabal_args = std_cabal_v2_args.reject { |s| s["installdir"] }
+      unless build.head?
+        resource("agda-stdlib-utils.cabal").stage do
+          agdalib.install "agda-stdlib-utils.cabal" => "agda-stdlib-utils.cabal"
+        end
+      end
+      system "cabal", "v2-update"
       system "cabal", "--store-dir=#{libexec}", "v2-install", *cabal_args, "--installdir=#{lib}/agda"
       system "./GenerateEverything"
       system bin/"agda", "-i", ".", "-i", "src", "--html", "--vim", "README.agda"
@@ -125,10 +147,12 @@ class Agda < Formula
     # test the GHC backend
     cabal_args = std_cabal_v2_args.reject { |s| s["installdir"] }
     system "cabal", "v2-update"
+    system "cabal", "install", "--lib", "base"
     system "cabal", "v2-install", "ieee754", "--lib", *cabal_args
+    system "cabal", "v2-install", "text", "--lib", *cabal_args
 
     # compile and run a simple program
-    system bin/"agda", "-c", iotest
+    system bin/"agda", "--ghc-flag=-fno-warn-star-is-type", "-c", iotest
     assert_equal "", shell_output(testpath/"IOTest")
   end
 end

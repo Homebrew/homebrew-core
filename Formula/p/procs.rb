@@ -1,20 +1,18 @@
 class Procs < Formula
   desc "Modern replacement for ps written by Rust"
   homepage "https://github.com/dalance/procs"
-  url "https://github.com/dalance/procs/archive/v0.14.0.tar.gz"
-  sha256 "fa5af0951dc8aa63c0590f8c5c1136594866057704cfb1cdfc22ac3cc49437c6"
+  url "https://github.com/dalance/procs/archive/v0.14.1.tar.gz"
+  sha256 "bb4f9d696081807ca105593092f8acd04ca339ae43fff29e0e820c6fc5e3f9ea"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b89337f013b28db60650adada664045bcb7250d89f6ecae1800e277e005aca9c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "de9c1631762b37a015ef29105948b0d16e040f114d771fc7cebe1f7c8c1ec27c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "43df9e9c419a6746dfa675e4950aa00785d628179e8c01966620970f770e391a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3d51c5e8f70fd83cf4b83586ac4a5a33a97b68850948b905064ede175a869e25"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d7be773ff49e54935a0fe8d064ed73ae446832cd6b7e5b94ad24eb9072f8f76a"
-    sha256 cellar: :any_skip_relocation, ventura:        "b2358cc32f33927686a09fc9fb380487fde56f79add118fb7d36848bbf8af29f"
-    sha256 cellar: :any_skip_relocation, monterey:       "883c61ba9506ab4540781a29b7c0f5e0cbce671d7712be64b21ece718ff42090"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9f221df219dbf0dc1736132cf9c96b1b7ac6bde0fbd397711b8a50e3503294ca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "90e02932ce2bedda3120384fdea912f82188f05170b341d7a9a2b8455bae10c8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "aed3cc37118c7fdbd54fca6343e9ee7ac77274890b9c91824290f3f398c30f10"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3beb7a6134bfa0b8b698bcaebccebeb8a7192d03cd9024a9f9cf15bb4b8f59e6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a1585f910cf357820e8d0806570f804add17364594721b7ea8cfde6fc43d5ff3"
+    sha256 cellar: :any_skip_relocation, sonoma:         "72187ef1363193bd94cacee7de46d6b23b25401dd543e016063e7e8fa4811f81"
+    sha256 cellar: :any_skip_relocation, ventura:        "3060dc5ced32b3039eed1e81ed728ede2513937bebd4d7d95e2c228863ac49b9"
+    sha256 cellar: :any_skip_relocation, monterey:       "5ab597ead5557702b71b2aaf3de7bebfb4046783a196336881356e7bcc5c1038"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3da478ec1b1f5bb72e94b9de283977dc5f14a5c678bcc52e3ba303669e7d0f1a"
   end
 
   depends_on "rust" => :build

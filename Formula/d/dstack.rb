@@ -8,15 +8,14 @@ class Dstack < Formula
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "5999dba6527222521284970f45322b29ce1bcfec5741a2c559cac442c1154f78"
-    sha256 cellar: :any,                 arm64_ventura:  "2162f10666b66563a0401eecfa71ce5117013dda1db23f6d0d1cfbb81b2fea47"
-    sha256 cellar: :any,                 arm64_monterey: "52176cfafb3a078fc1b63814fab8ebdcac535994c1d1ce3750d2f11fd573b8a7"
-    sha256 cellar: :any,                 arm64_big_sur:  "af83cd38682d06a2ee0421af7b7b1dbe7fb2c4951a1b35cbe39c7b5eefea7158"
-    sha256 cellar: :any,                 sonoma:         "4de77f90de545fc9376a88675ad4ebf94cb61a63fc827f930444c0acbff4085f"
-    sha256 cellar: :any,                 ventura:        "f6a518953601ee132392d752a9dbf5de19098533ef8240bd17f253ba41d76025"
-    sha256 cellar: :any,                 monterey:       "328edf9ece9184a0cc8a75346e505f7bd91f091afcefc2fc4cbcce9c6ab1c11c"
-    sha256 cellar: :any,                 big_sur:        "d045e943bdfcee2f7ff549f13ef148fc4b0a1e4fa312496f792c93da55cac1ba"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c9be7affb7a1de4dcb04ba1f860b18b6e9c5a5ed10979aad9f02afd150d06250"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "90cdf4012e13ae623b3760a8167ef2999f95a5d8d6e3f8be3ca14acd6adf0838"
+    sha256 cellar: :any,                 arm64_ventura:  "cb19be3bd07724a0f33e646b0377788cc8a8db2a1eb868dadce31a86d406c59f"
+    sha256 cellar: :any,                 arm64_monterey: "d317789c72daba3f46eb1759b4f52dd2d170bb5f12b8abaee8ceacafba015440"
+    sha256 cellar: :any,                 sonoma:         "1e4d4b77865a8b523e49209a04f0c0d4214ae91db434f63b2f78312c69ced145"
+    sha256 cellar: :any,                 ventura:        "2e1e6c8aed7ee1d6ddffea05e4ec02faecd50c55f4c918af7ec1012b0ea54789"
+    sha256 cellar: :any,                 monterey:       "08789bfd623d66a5cb74bbba414742b4e8fb347aec157d33fdbc14ad9c43673c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b5b207898a4a70f613fae78707c6e7bdfe42596ccca4fe44313237f66e220aa9"
   end
 
   # `pkg-config` and `rust` are for bcrypt.
@@ -28,6 +27,7 @@ class Dstack < Formula
   depends_on "pygments"
   depends_on "python-certifi"
   depends_on "python-cryptography"
+  depends_on "python-packaging"
   depends_on "python-pytz"
   depends_on "python-typing-extensions"
   depends_on "python@3.11"
@@ -404,11 +404,6 @@ class Dstack < Formula
   resource "oauthlib" do
     url "https://files.pythonhosted.org/packages/6d/fa/fbf4001037904031639e6bfbfc02badfc7e12f137a8afa254df6c4c8a670/oauthlib-3.2.2.tar.gz"
     sha256 "9859c40929662bec5d64f34d01c99e093149682a3f38915dc0655d5a633dd918"
-  end
-
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/b9/6c/7c6658d258d7971c5eb0d9b69fa9265879ec9a9158031206d47800ae2213/packaging-23.1.tar.gz"
-    sha256 "a392980d2b6cffa644431898be54b0045151319d1e7ec34f0cfed48767dd334f"
   end
 
   resource "paramiko" do

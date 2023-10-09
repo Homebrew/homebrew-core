@@ -8,9 +8,11 @@ class Abuse < Formula
   head "svn://svn.zoy.org/abuse/abuse/trunk"
 
   bottle do
+    sha256 cellar: :any, arm64_sonoma:   "f800e37b36fdb7e2961f9a0e53c0533e572a75fa999e441fe777576ceec0af24"
     sha256 cellar: :any, arm64_ventura:  "4439cf6dd233b641848c36576ca622700de8c1efeb0a966e862c0e4dfc925b90"
     sha256 cellar: :any, arm64_monterey: "f9c0ad01bf244402da95d81a483a46d8bcc45fdaa50dde524711db05f5051438"
     sha256 cellar: :any, arm64_big_sur:  "487a8f37d5f3b9313d0d83a7e7349ce3c5111b1dc21b4d75c36b8a1e14a7aec3"
+    sha256 cellar: :any, sonoma:         "fe35373e694cfe8381516931e8c394d0d549dfc352956191404a694beeed6a7e"
     sha256 cellar: :any, ventura:        "aac3e824b3bc85336d0d2658a7ae1a0f2095d589b8f42ef3ea8e77e85d6871f3"
     sha256 cellar: :any, monterey:       "1902270b9c53512d7d4770c5c8f1b40f7670539befd7e6e4f95b67b3248c1782"
     sha256 cellar: :any, big_sur:        "3a30d73be5603120665da70ffc53bf27c92196b582aa53bc62e40296a3a625d0"

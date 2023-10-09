@@ -8,9 +8,11 @@ class Cpi < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "67cf9a9311ba7dfaeb57d3df5c8b3ea4d02a6207a6841ef7df1fd9dc61e719ad"
     sha256 cellar: :any,                 arm64_ventura:  "0644ff18fbbbdcd97bc7ee35fb34cc72a0c127414915c214072a377031ceeed7"
     sha256 cellar: :any,                 arm64_monterey: "7976724f2069f2d9e22731c252016085021ca616755be85bec0e174092549854"
     sha256 cellar: :any,                 arm64_big_sur:  "c823b00a18be009c825f41c7da28e9bfbb545784b800ef95a64529164aff909c"
+    sha256 cellar: :any,                 sonoma:         "e0a4f5810ee2cdf71eaae808538d60493d0df6c54eb2064df1ea8f0c38c2d27c"
     sha256 cellar: :any,                 ventura:        "8d67f2ca90fbfa3d168571d137a7ab7deec1ee6a1f40cebb12d86adcc6d997e0"
     sha256 cellar: :any,                 monterey:       "6083cacfcaa25e3df4f5f124a4441818b6c9519ca5a5c7af34b8b2d12c4a1a8c"
     sha256 cellar: :any,                 big_sur:        "26b0d34177634a9682c2e5d5bca99ee4aa67198a60dd235369e2674e42cb17f6"

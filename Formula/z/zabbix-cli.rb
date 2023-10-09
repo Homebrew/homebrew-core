@@ -6,7 +6,7 @@ class ZabbixCli < Formula
   url "https://github.com/unioslo/zabbix-cli/archive/2.3.1.tar.gz"
   sha256 "1d6de0486a5cd6b4fdd53c35810bd14e423ed039ed7ad0865ea08f6082309564"
   license "GPL-3.0-or-later"
-  revision 2
+  revision 3
   head "https://github.com/unioslo/zabbix-cli.git", branch: "master"
 
   livecheck do
@@ -15,24 +15,21 @@ class ZabbixCli < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9f1137c39521c901d4f738b48a7f44a2fd2650bdb3585867d881b7ccb67042da"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e4c80903b09aabcdef1b4e68d064f017ed4108f38c4f463951550e657a5bfe88"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e82918be00a707165176a71a99a5c58606602d9ffcc0aa3686ca95279ad06877"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3dc6d1b771a75f03e21d4562bf5e31d124708471a333242ce20ae6935fd55ac9"
-    sha256 cellar: :any_skip_relocation, sonoma:         "7a2a020967ccbda16cb87e4867176a892ecf90f2f230c4e4f11d8b1d384aaa85"
-    sha256 cellar: :any_skip_relocation, ventura:        "c53a9d646eddc63bdaa694c4f186bd9331f1f0c63c070ee96eb4e342d1916f35"
-    sha256 cellar: :any_skip_relocation, monterey:       "16d8971cff85484c76cd626156ee57f8f820d5f96ed7e1067a0a8f7a463e8bfe"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a058567487573f4a328d242fdfbe64f15d9efcca38ebc3196c1b89591f10a224"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0d1089d18bff26ae0930b7050cafabf7ced3b75ec253b82feb536900e9086638"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6f4d4f609fd6d3470dd9e9b87164cb8af9ae47255a141dac34edac3da872fcfc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0b97e4b03bc7258d039727573b55cff5b16e068d24cc0308a86e3ac7b3f627ef"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1d53656ceaab40e98cbe55d0f3f8f4916f8ae3c9cd5b82bc1921250ff89d7dd0"
+    sha256 cellar: :any_skip_relocation, sonoma:         "160a69b17dbd9a3026683cd5a413a6dbda26899652eacac002e0b05410d91c40"
+    sha256 cellar: :any_skip_relocation, ventura:        "ca8f1d96003c092cf839748987ee5fc8a78881f4e18ebaeee42cfa20a3bd16c9"
+    sha256 cellar: :any_skip_relocation, monterey:       "05213afeacf97db3c9309f5bde7a514dcef1b6fda6dec7abb4e23a3909886a10"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "81f54053bb3da58c7bed0b361bd638a68eb58bd0d992c7891d36ea65f749407e"
   end
 
   depends_on "python-certifi"
   depends_on "python@3.11"
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/2a/53/cf0a48de1bdcf6ff6e1c9a023f5f523dfe303e4024f216feac64b6eb7f67/charset-normalizer-3.2.0.tar.gz"
-    sha256 "3bb3d25a8e6c0aedd251753a79ae98a093c7e7b471faa3aa9a93a81431987ace"
+    url "https://files.pythonhosted.org/packages/cf/ac/e89b2f2f75f51e9859979b56d2ec162f7f893221975d244d8d5277aa9489/charset-normalizer-3.3.0.tar.gz"
+    sha256 "63563193aec44bce707e0c5ca64ff69fa72ed7cf34ce6e11d5127555756fd2f6"
   end
 
   resource "idna" do
@@ -46,8 +43,8 @@ class ZabbixCli < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/31/ab/46bec149bbd71a4467a3063ac22f4486ecd2ceb70ae8c70d5d8e4c2a7946/urllib3-2.0.4.tar.gz"
-    sha256 "8d22f86aae8ef5e410d4f539fde9ce6b2113a001bb4d189e0aed70642d602b11"
+    url "https://files.pythonhosted.org/packages/8b/00/db794bb94bf09cadb4ecd031c4295dd4e3536db4da958e20331d95f1edb7/urllib3-2.0.6.tar.gz"
+    sha256 "b19e1a85d206b56d7df1d5e683df4a7725252a964e3993648dd0fb5a1c157564"
   end
 
   def install

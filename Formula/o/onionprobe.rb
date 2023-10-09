@@ -6,14 +6,15 @@ class Onionprobe < Formula
   url "https://files.pythonhosted.org/packages/9d/5f/c685af3ff4b8833f961ba27c12506c835150710ca84afd37847897be84d9/onionprobe-1.1.2.tar.gz"
   sha256 "200a31ab2c8b1f6bafec1828a4e3b374d01fc80a8fefd9f75698b70cb6d04903"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://gitlab.torproject.org/tpo/onion-services/onionprobe.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3046ebb969556c4a609f35bdb97caa5a65faa731139fc5507f3908c1dd1d2af4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2def0255ff04cd60eec01d66de965cc945f69f3ebce902f0456c2ccbef0187bb"
-    sha256 cellar: :any_skip_relocation, ventura:        "e96f059e3f20d96a9b4481d915c7c1eb3492e1b339d68978b3da38190a0a7fee"
-    sha256 cellar: :any_skip_relocation, monterey:       "70054bd46186256f9b1ba7dd74796a665ac4eb871aeb465f63c8e54890f2699e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "35dbd4b1eb07e3d9650716c8db6aa5a6848be4369bce2939a48148a7d3788f46"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bc80eb38f06595a9bd21085e375bd04e414b4d54afcbfb2ab908d3ac2c48c770"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4c5e4a5ba4667b2cc17d56688e1102e5735890f185d6c5f8b9ec5c6041f65700"
+    sha256 cellar: :any_skip_relocation, ventura:        "57f76c530acacbe48cd7e5a4570a45b678c60c303ec9feb5327d68da9814c817"
+    sha256 cellar: :any_skip_relocation, monterey:       "ddf86053aa5982cce0a5b7b188d195e210d3bfd9d8c5c8919430047fbf08190c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5f95751595f262878fa5835f43a49e79828b64a9c63ff8170440a50c587a5051"
   end
 
   depends_on "cffi"
@@ -56,8 +57,8 @@ class Onionprobe < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/51/13/62cb4a0af89fdf72db4a0ead8026e724c7f3cbf69706d84a4eff439be853/urllib3-2.0.5.tar.gz"
-    sha256 "13abf37382ea2ce6fb744d4dad67838eec857c9f4f57009891805e0b5e123594"
+    url "https://files.pythonhosted.org/packages/8b/00/db794bb94bf09cadb4ecd031c4295dd4e3536db4da958e20331d95f1edb7/urllib3-2.0.6.tar.gz"
+    sha256 "b19e1a85d206b56d7df1d5e683df4a7725252a964e3993648dd0fb5a1c157564"
   end
 
   def install

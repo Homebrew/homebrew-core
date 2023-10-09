@@ -1,10 +1,10 @@
 class Openssh < Formula
   desc "OpenBSD freely-licensed SSH connectivity tools"
   homepage "https://www.openssh.com/"
-  url "https://cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-9.4p1.tar.gz"
-  mirror "https://cloudflare.cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-9.4p1.tar.gz"
-  version "9.4p1"
-  sha256 "3608fd9088db2163ceb3e600c85ab79d0de3d221e59192ea1923e23263866a85"
+  url "https://cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-9.5p1.tar.gz"
+  mirror "https://cloudflare.cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-9.5p1.tar.gz"
+  version "9.5p1"
+  sha256 "f026e7b79ba7fb540f75182af96dc8a8f1db395f922bbc9f6ca603672686086b"
   license "SSH-OpenSSH"
 
   livecheck do
@@ -13,15 +13,13 @@ class Openssh < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "c7372ed3af86ec940fce2b59243d0c40ada297ed3ee531b3bf557bcbaa375eb8"
-    sha256 arm64_ventura:  "e675acf182dd43614b18607563f7625fc462cbe11c9949cb4c3cbd727d5a7392"
-    sha256 arm64_monterey: "44867677c99a7c799aaf5b37a910c369d634fdede95236cc8b0762246dd427f0"
-    sha256 arm64_big_sur:  "55b463f337e63330e3343f5268ab61ddd21c0c2e4ab1c82271384392e0176954"
-    sha256 sonoma:         "94dd557afd5fbbc11205d780f016756cb34c60fc5eb41cf210b871c7d4b9d9a3"
-    sha256 ventura:        "04c3661daec7445f77010eef55f41e5664750e31d08155ea7a4bcd35b88e6c5f"
-    sha256 monterey:       "8371408b7143e5a490d3de92b1c1881cd8cce44397e516aa85ade4d10413d00d"
-    sha256 big_sur:        "6ad9f6c74f937e504486d292eab15aae3bc7f6ca870ca0e8d389e30dc4ec1a08"
-    sha256 x86_64_linux:   "9fd7279473487cedd14c89a6ae497be5e45de6dff9891d13f0c3e584f2cbb22b"
+    sha256 arm64_sonoma:   "c7c898f3a6e50afd94929e69c90201e7a9a7fc59485e8afe62eadc960b2f1c68"
+    sha256 arm64_ventura:  "7585270636197d459baf48faf639c328e85d01352edc497370ff0b54bf45ac2a"
+    sha256 arm64_monterey: "93a8b3176317e6667ad73f61e2c64273f8912321da40963d3b811d56f11678e9"
+    sha256 sonoma:         "4e429a6cfa9e3187f4ffe98940cb23c2b1206cdc868841ca22d74d189871b346"
+    sha256 ventura:        "66b7c6096a85751971fe424445921bf9bd1b46d2a1b66ae720e251b2e0be9733"
+    sha256 monterey:       "f2082c8e164cf19f7828098af5a4eeaf17dc92701c827c8701e450f3a95586f2"
+    sha256 x86_64_linux:   "b0429083dc9a4ff42256cb938becbf333343bf9790bf2e4664c8fdc5e60c1d00"
   end
 
   # Please don't resubmit the keychain patch option. It will never be accepted.

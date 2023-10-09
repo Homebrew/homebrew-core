@@ -2,7 +2,7 @@ class Proselint < Formula
   include Language::Python::Virtualenv
 
   desc "Linter for prose"
-  homepage "http://proselint.com"
+  homepage "https://github.com/amperser/proselint"
   url "https://files.pythonhosted.org/packages/a2/be/2c1bcc43d85b23fe97dae02efd3e39b27cd66cca4a9f9c70921718b74ac2/proselint-0.13.0.tar.gz"
   sha256 "7dd2b63cc2aa390877c4144fcd3c80706817e860b017f04882fbcd2ab0852a58"
   license "BSD-3-Clause"
@@ -10,24 +10,22 @@ class Proselint < Formula
   head "https://github.com/amperser/proselint.git", branch: "main"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f9d6e15ffc7e491e87eb4684eed42b0ada29e199216e64791f64030ff3ae7dcf"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9a5829fdcd105a044993dc63bf9ee2bb42a075b15aa416f05b41587e448a74bd"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a99d0eff9a09c4e195caf20a2eb448e4305c61786b592adbd6ad98dc788e5849"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7423630937ce4c70aeba94ab02532422fb1d0d19132fe632335cbd1679dc7fbd"
-    sha256 cellar: :any_skip_relocation, sonoma:         "fbc864b7d51597a311b0531712a511c9cdcb8f088b567facab720888ddcf0ff7"
-    sha256 cellar: :any_skip_relocation, ventura:        "94aabb15c29ab3291aace706ee0acf906ec6bfce8ce1ba86506028209face8eb"
-    sha256 cellar: :any_skip_relocation, monterey:       "4aa8f05c1e3f1082c8c8186d4fca8f47b2887a01917cc2f2ac573cf594eef8d1"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e3fa366974923cf5fd04d11e0f70dc8b6d6b57863b965ad67297c24530bd0548"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "801bbc1c0af4b44e9770f872b6cfa289d59745fd1f84b4f40d34c9b009b6e500"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "be448af58ff0d1b30c121d0fda4e3b5da67ff8b6020e821873db48c81875c4b5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fc6962aeefd2c56637375e63f9d39657305b92dd247327c358234570a7767f7a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5a3afaef5e02bf8bf60359f0cc3436ccdea2a92e80148a4f1a5c466debcb4bbb"
+    sha256 cellar: :any_skip_relocation, sonoma:         "58ecd6b139a4ddb67925c340ce4f9846e527e64d50869f0f7db0b0669d6678dd"
+    sha256 cellar: :any_skip_relocation, ventura:        "102805d2ac9d185255183c75377761b23b836cec6085eafc1fc6d842b2fb03fa"
+    sha256 cellar: :any_skip_relocation, monterey:       "f6279ef869ccbf9005cb1ea19121979cabfc07bf049a1af9c4ecf3e891af6035"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "360c46bc07f68964b03757e66a7b2eab0a23d423911e1354862aaf055ff91d1a"
   end
 
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "six"
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/59/87/84326af34517fca8c58418d148f2403df25303e02736832403587318e9e8/click-8.1.3.tar.gz"
-    sha256 "7682dc8afb30297001674575ea00d1814d808d6a36af415a82bd481d37ba7b8e"
+    url "https://files.pythonhosted.org/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz"
+    sha256 "ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de"
   end
 
   resource "future" do

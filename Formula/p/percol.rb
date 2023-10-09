@@ -10,20 +10,17 @@ class Percol < Formula
   head "https://github.com/mooz/percol.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f123a6be41ca05abf0a6d640b8ab810b943880a19808314b7c42bf6cfc2e87e1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6da475ab49df0faeb44eea45669d160a11113925d29fa3ccc7cc20e8500eea27"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6da475ab49df0faeb44eea45669d160a11113925d29fa3ccc7cc20e8500eea27"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6da475ab49df0faeb44eea45669d160a11113925d29fa3ccc7cc20e8500eea27"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d54c238b583a5e0799b317b4a6736f4aafafd1178fdad2bf0df9353929e50f99"
-    sha256 cellar: :any_skip_relocation, ventura:        "c416bc3dcab1ee767c0b63f5766411bdc48f8042fa83b8068bee178ff16df39c"
-    sha256 cellar: :any_skip_relocation, monterey:       "c416bc3dcab1ee767c0b63f5766411bdc48f8042fa83b8068bee178ff16df39c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c416bc3dcab1ee767c0b63f5766411bdc48f8042fa83b8068bee178ff16df39c"
-    sha256 cellar: :any_skip_relocation, catalina:       "c416bc3dcab1ee767c0b63f5766411bdc48f8042fa83b8068bee178ff16df39c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "07ae72d152ad18f4f8565828e7da87ab3ad7839c8f59021c4fadb60ab4e59737"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "72687e52eb42ed6c6ad1b6ce908a389f1c5ab3297518f04dd8dfd45522993c35"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "252ca2240639e6f32b9c1d948471276bd70d3436278e03124980e6fdf6970cbd"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "17f3add6c45755500601ef7da8a8aaddd1c6fcdbef72c3f5b845eae73f83ea53"
+    sha256 cellar: :any_skip_relocation, sonoma:         "58c8e5428cc4f090748378ef6ddcc72ab5d63daac3da74717950bb0587efa217"
+    sha256 cellar: :any_skip_relocation, ventura:        "4f6477180e64befc85d9bda592502b13e43d60f57b629ad793468f11134e32be"
+    sha256 cellar: :any_skip_relocation, monterey:       "0725e41666d33aec48d5f16b8e87dd807b60f5592aefbae292ee0a12edd6c993"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "30ac024a06a551d9f47c58ba662714ceb6014aea8ecf20b74482f24479669d88"
   end
 
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "six"
 
   uses_from_macos "expect" => :test

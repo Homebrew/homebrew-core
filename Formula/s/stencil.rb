@@ -1,21 +1,19 @@
 class Stencil < Formula
   desc "Smart templating engine for service development"
   homepage "https://engineering.outreach.io/stencil/"
-  url "https://github.com/getoutreach/stencil/archive/refs/tags/v1.36.1.tar.gz"
-  sha256 "a7bf19a58e662a59c3a58d9d6c43c650ec04a2c94fd5068a75afaedf1a8ad5c5"
+  url "https://github.com/getoutreach/stencil/archive/refs/tags/v1.37.0.tar.gz"
+  sha256 "f11cbf581424453bbddca1f2fb114ffb4ab14463fba8c6efe31b4387d7d2c049"
   license "Apache-2.0"
   head "https://github.com/getoutreach/stencil.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9716428ba74f3c5fb7aa4a07f31331fc794f681b43e6e172dc0487b60e58d44c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "40ada98d463b65d95dbac88dd24ea83cb17fd37aa5e30e2637dcb6d7371c3e4e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "683359f65cfcc0d7fc102f6e5d4432b59937f1c8af6fb1966b66854f4c0c7393"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bc426936670e9c8872daf239a229c61beaffa3760798230d1aa01ff9d5cfb8df"
-    sha256 cellar: :any_skip_relocation, sonoma:         "69fa1a0233d70c4bc8e1bd4471946d453ce30091dda985279501bee7e206e636"
-    sha256 cellar: :any_skip_relocation, ventura:        "71b51155b9377232ef24d867309bcbb4f823feed8adcb16a9c67beb29b0ab6fb"
-    sha256 cellar: :any_skip_relocation, monterey:       "b1a4764ed7bf5a69491ca550351f07ecd115581631cba0aca06f9da77d4172ca"
-    sha256 cellar: :any_skip_relocation, big_sur:        "bea9301090cf88e6bb25e3a59f2b9d9ca2e57260093da7b6d5562237ac136ab6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5b56e7662f74260c3521dd35ddda375d3860d46201019bbc3e53272b2f0fdf7c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a46a8bd8fd1cff05c09fea58e539fa71ff0ab2a3439aef9b58347472b4c711dd"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "407a4c7cc9bb35ca7d08d42176fd0994ed9230b02410a2843ea49b1a891b29d2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7fd86e30198a1a755d79e962fa3185335c5444bd424f0ff0c88a282bef6be4dd"
+    sha256 cellar: :any_skip_relocation, sonoma:         "bdd6fefd5ad1f75d49bdd07302afe29c1a569e5c2257245f63b6c52a4b6e67a9"
+    sha256 cellar: :any_skip_relocation, ventura:        "21b4af057726ef8d411b571903a1bca772d7b3c940133d39075c4c9cff9daca5"
+    sha256 cellar: :any_skip_relocation, monterey:       "7adbe2eb6cb7ab4af3f416750b2e267027a16f8ff97fec18191732a80a0de52f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "002bf9cfaa6d936a69750c350ff4877f0bb1bfde36d1fbb688d1767ac2ca73be"
   end
 
   depends_on "go" => :build

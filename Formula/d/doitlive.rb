@@ -9,19 +9,18 @@ class Doitlive < Formula
   head "https://github.com/sloria/doitlive.git", branch: "dev"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4b183e5ab93fc7d240be777beb11fb26f28a893ac33f229e89a9080a3de68ab0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e30831be33b71279f10e2a9b6dc2916d43a8d3d07f61fb3beba92226aff1c18c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0ceb7c56bc7a0e3948dc6fd3106b42e3dd96bcd3b074b2166f331c87e54184bb"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e812f0e00f8a97226f89afeb3a28b663bff66b4199d0243a60cde4aec752c732"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d4cc2150fd43a2391efcd64d9ed17c8ff1ebe38764a89ff28610839c3a2d763b"
-    sha256 cellar: :any_skip_relocation, ventura:        "503295bb5da1d97bb1a26ca940efc4c6763cd3a37beccf8b35cb48084c3a8cf5"
-    sha256 cellar: :any_skip_relocation, monterey:       "9b2beb9d7173db0c2f68e199a611492612132b7b309396e3f9be90e3c27e5e9e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "bfa025332c5a6eaa1c8dd821722a6a457afa2577c4583741fcd021ac831d8543"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bb7433cf1708e3ed401318149c637a3e13fde41fae0360b2be50959e5138a4af"
+    rebuild 4
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f10112e06f74050aa8e16ffe0e3924b303c62887cc77eac2d5d7d32f33b58cb1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d5945959c51c80bd63648e790362c6cfe893e9e7bc852dffd8b303ec45b6afb3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6aabc3ff198b25ecb5b60c58214842259a505e16d42ecf6c7845faf2ff264bbd"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4897a6438252d48c21819d032731027ecef4d1bcd88f3d33bde6a84a32db6859"
+    sha256 cellar: :any_skip_relocation, ventura:        "62b2fd9fbcb61ad896e6ade4f7a0cf535dc39f6b72ed163795f1bc4e8395d036"
+    sha256 cellar: :any_skip_relocation, monterey:       "067de77d8dc04c38a43571e9d16fe0cc8ae3524824d9af688193137f6fcbce1e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "69814d9e75a202174bb17915b2e32bbcffe73fa09f3e6f3574b97a64154af3f9"
   end
 
-  depends_on "python@3.11"
+  depends_on "python-packaging"
+  depends_on "python@3.12"
   depends_on "six"
 
   resource "click" do
@@ -39,29 +38,19 @@ class Doitlive < Formula
     sha256 "f184f0d851d96b6d29297354ed981b7dd71df7ff500d82fa6d11f0856bee8035"
   end
 
-  resource "Jinja2" do
+  resource "jinja2" do
     url "https://files.pythonhosted.org/packages/7a/ff/75c28576a1d900e87eb6335b063fab47a8ef3c8b4d88524c4bf78f670cce/Jinja2-3.1.2.tar.gz"
     sha256 "31351a702a408a9e7595a8fc6150fc3f43bb6bf7e319770cbc0db9df9437e852"
   end
 
-  resource "MarkupSafe" do
-    url "https://files.pythonhosted.org/packages/1d/97/2288fe498044284f39ab8950703e88abbac2abbdf65524d576157af70556/MarkupSafe-2.1.1.tar.gz"
-    sha256 "7f91197cc9e48f989d12e4e6fbc46495c446636dfc81b9ccf50bb0ec74b91d4b"
-  end
-
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/df/9e/d1a7217f69310c1db8fdf8ab396229f55a699ce34a203691794c5d1cad0c/packaging-21.3.tar.gz"
-    sha256 "dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb"
-  end
-
-  resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/71/22/207523d16464c40a0310d2d4d8926daffa00ac1f5b1576170a32db749636/pyparsing-3.0.9.tar.gz"
-    sha256 "2b020ecf7d21b687f219b71ecad3631f644a47f01403fa1d1036b0c6416d70fb"
+  resource "markupsafe" do
+    url "https://files.pythonhosted.org/packages/6d/7c/59a3248f411813f8ccba92a55feaac4bf360d29e2ff05ee7d8e1ef2d7dbf/MarkupSafe-2.1.3.tar.gz"
+    sha256 "af598ed32d6ae86f1b747b82783958b1a4ab8f617b06fe68795c7f026abbdcad"
   end
 
   resource "shellingham" do
-    url "https://files.pythonhosted.org/packages/bd/e6/fdf53ebbf08016dba98f2b047d4db95790157f0e2eed3b14bb5754271475/shellingham-1.5.0.tar.gz"
-    sha256 "72fb7f5c63103ca2cb91b23dee0c71fe8ad6fbfd46418ef17dbe40db51592dad"
+    url "https://files.pythonhosted.org/packages/74/31/6d2297b76389dd1b542962063675eb19bb9225421f278d9241da0c672739/shellingham-1.5.3.tar.gz"
+    sha256 "cb4a6fec583535bc6da17b647dd2330cf7ef30239e05d547d99ae3705fd0f7f8"
   end
 
   def install

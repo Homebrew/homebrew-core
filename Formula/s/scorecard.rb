@@ -2,8 +2,8 @@ class Scorecard < Formula
   desc "Security health metrics for Open Source"
   homepage "https://github.com/ossf/scorecard"
   url "https://github.com/ossf/scorecard.git",
-      tag:      "v4.12.0",
-      revision: "7ed886f1bd917d19cb9d6ce6c10e80e81fa31c39"
+      tag:      "v4.13.0",
+      revision: "e1d3abc7fd2bdfe8819ac19b5c82815ea20890e6"
   license "Apache-2.0"
   head "https://github.com/ossf/scorecard.git", branch: "main"
 
@@ -16,15 +16,13 @@ class Scorecard < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d9b91e508527fb7ff7a3b5ac3339239b8287ce9b3a213152be27be34d2edb79a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9ccd33a9e999ed7773c5e2ffc6615bf1b676918d5f80a8e7fc70494361595084"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9ccd33a9e999ed7773c5e2ffc6615bf1b676918d5f80a8e7fc70494361595084"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9ccd33a9e999ed7773c5e2ffc6615bf1b676918d5f80a8e7fc70494361595084"
-    sha256 cellar: :any_skip_relocation, sonoma:         "9a60c2bf86561659d1ffa42cd1849979601d9ea39d18ece4335017839f63383d"
-    sha256 cellar: :any_skip_relocation, ventura:        "34e3db8ff09f90839e79aaa1302bdc29b8c64f0844b1aee85154edf9059dfd44"
-    sha256 cellar: :any_skip_relocation, monterey:       "34e3db8ff09f90839e79aaa1302bdc29b8c64f0844b1aee85154edf9059dfd44"
-    sha256 cellar: :any_skip_relocation, big_sur:        "34e3db8ff09f90839e79aaa1302bdc29b8c64f0844b1aee85154edf9059dfd44"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a487bcb8c4635292dd3ce937862690f518444026844790d890cbd3912e7a52fe"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "262334c18194ac5ad038b4e837f302f52cee07e539e76de5b9283f6da55cb09b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8840ceb2da14f1dd019e8c3ace500c81537270ba4e48a642ba3f0c358ec353e8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "75e799e33a7a614e3bda3270bb98f79be9e67b69336528dfce6ce9a41825d00f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "40a620263857a30b5180fd8d66c74ffc47d4e1872f108e7d638d009c3f6a2397"
+    sha256 cellar: :any_skip_relocation, ventura:        "c17bb4d141ae1f8dd091b49c814266bfe42b1f632b973e85e79500fae6d0ea37"
+    sha256 cellar: :any_skip_relocation, monterey:       "cfea6b7777aeedbcf2b77fde4ee1b2ea5cd1886b2c699e2ab491a57b68e97f42"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0a5bac55b0ea244367ee396f82ba6e6a2be0ef604592d1324bbad08e3b6a8022"
   end
 
   depends_on "go" => :build

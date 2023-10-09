@@ -1,8 +1,8 @@
 class Kumactl < Formula
   desc "Kuma control plane command-line utility"
   homepage "https://kuma.io/"
-  url "https://github.com/kumahq/kuma/archive/2.4.1.tar.gz"
-  sha256 "1b345fe1482905dd55173502c45b43cce54a22e40ff658b0c5ada50b611e5679"
+  url "https://github.com/kumahq/kuma/archive/2.4.2.tar.gz"
+  sha256 "b3546a867bf4b897cc76c3b8f30d7feeec1a043587f680876993eaaf28b19e02"
   license "Apache-2.0"
 
   livecheck do
@@ -11,15 +11,13 @@ class Kumactl < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "de485939faa960af1fe3ee8fd6aea3bb14afb2c26300cd5a27c3cdf353e71c45"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6a764386eb897de306e50d04d7cd9a9f5ad933eee582d2da0a33d1426dc30e64"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5947d7a712d4f6604e429e2ca4c222e836f80c0bf780f168d0896a8ed86ebf8f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5405aa5526da9f3a2fbed8ca4636ab51fa0942ae4e45bfcec325161ac23d5a13"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c7dc83d1319c71587e9fe4cd6b1361e374ac96d5c888e5757cd8824be079f569"
-    sha256 cellar: :any_skip_relocation, ventura:        "90aeff41fc8e5485189bfa771ef17399af0ddbc46075c5f405bab88612dab458"
-    sha256 cellar: :any_skip_relocation, monterey:       "f91f4ea6e5e84aa80e2e72069fc13d26a855123fbbf73eb2770e763d4388df2c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "14593382b06239f555583a274538836cccb943fc128ca5772afe3bb214eed95e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8a45a15136e2d000d33eaeeb0708fe02db6684ea8636e0ac96cfb5934f65eac6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c8cf9e77072a5b73970320d1f267417aa1411fd4736d3b208bea52ab5b7769a4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "947d00714441154797b17f2c2b08fbe4dead02de376911f9a4b39773a46d0843"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "aa5a0f03dec90993610f68fedc00617bc40e749e884e780b35d2ff0a5ab43f52"
+    sha256 cellar: :any_skip_relocation, sonoma:         "6c24341aa5948f20ac0eaf1e3fcde1bf69daa445ae14565495db9a894a348be9"
+    sha256 cellar: :any_skip_relocation, ventura:        "4afb17bfa2f3feef163d13275702bc045dbb92870143dd1822915314bc9d6847"
+    sha256 cellar: :any_skip_relocation, monterey:       "68cdaf02b9119ba312c7439968d17c0e09645c9c6a92d7cd80cb1ef6e68704fd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b171ab35f31d450c81c0fbdea8fdd144ccc333abfbe9e9a370dc30b5b3bf993e"
   end
 
   depends_on "go" => :build

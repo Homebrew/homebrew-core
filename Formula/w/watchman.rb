@@ -1,19 +1,19 @@
 class Watchman < Formula
   desc "Watch files and take action when they change"
   homepage "https://github.com/facebook/watchman"
-  url "https://github.com/facebook/watchman/archive/refs/tags/v2023.09.25.00.tar.gz"
-  sha256 "ce0f2386e2dc316bfe11194523e3c51c3759af5d7fe7c9ba8a46e0c446ce7b00"
+  url "https://github.com/facebook/watchman/archive/refs/tags/v2023.10.09.00.tar.gz"
+  sha256 "f7e92f4007c151480f91b57c6b687b376a91a8c4dd3a7184588166b45445861c"
   license "MIT"
   head "https://github.com/facebook/watchman.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "f8bc19df79ceeb3427dfea54cc0f340ca620b8ea3862498b54261232a3fb72e0"
-    sha256 cellar: :any,                 arm64_ventura:  "ea5cd3fe5c523f3054ea103c6ace26aaa1d91933537118193756cd3c34cb9bcb"
-    sha256 cellar: :any,                 arm64_monterey: "40034a4d9ad5d85f2e79ebbde8918f90f538f7b45c5864cb08a3fc006f847760"
-    sha256 cellar: :any,                 sonoma:         "c5e0082c0307b83711109e81c08e43bed38a3ae9ee6c3b89ad0c07b9acd7c110"
-    sha256 cellar: :any,                 ventura:        "782088fe5414d9f5fec9b097d22f6ac8982eb74be6025cf8ae96d657456dde39"
-    sha256 cellar: :any,                 monterey:       "b6a50e76fd35c5de3e1f4c50d7f57791bd2e84f63cfeb312e32897fdcf76cffc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c00d52381455a1d330f994844ce00cbfdb8d0150a01f75668988f5d194627ba1"
+    sha256 cellar: :any,                 arm64_sonoma:   "b260ef8c6405e245bc81c379484802d4a73a4acf956370d605080ba03ebf056c"
+    sha256 cellar: :any,                 arm64_ventura:  "7c1ff98949395ad3da84ed36543bb45bb2b5522bdfa07da30bb1cba6ff284849"
+    sha256 cellar: :any,                 arm64_monterey: "8c4fdb600a5fa453bb26a682caa7c1a6efd698bec641953a459f1f99af0a45bb"
+    sha256 cellar: :any,                 sonoma:         "215ed6e496a6288b2d0716c7f05b4a8fb1de4a1130b6145dc40c8f9395aed729"
+    sha256 cellar: :any,                 ventura:        "9fba8d481f96efb52a9d00688ab0e9733c764304db520547a6073b5623cda295"
+    sha256 cellar: :any,                 monterey:       "413aea41bddd75af521b7beaaa04d4052f77535f1eafa6cf12fb63f5c8992749"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ad2a79df110dd0dc44b43a02b750a4790ecff952026423cd624e052bf2510258"
   end
 
   # https://github.com/facebook/watchman/issues/963
@@ -47,6 +47,19 @@ class Watchman < Formula
   end
 
   def install
+    python3 = "python3.11"
+    xy = Language::Python.major_minor_version python3
+    python_path = if OS.mac?
+      Formula["python@#{xy}"].opt_frameworks/"Python.framework/Versions/#{xy}"
+    else
+      Formula["python@#{xy}"].opt_include/"python#{xy}"
+    end
+
+    # Make sure to pick up the intended Python version.
+    inreplace "CMakeLists.txt",
+              /set\(Python3_ROOT_DIR .*\)/,
+              "set(Python3_ROOT_DIR #{python_path})"
+
     # Fix "Process terminated due to timeout" by allowing a longer timeout.
     inreplace "CMakeLists.txt",
               /gtest_discover_tests\((.*)\)/,

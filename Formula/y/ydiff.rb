@@ -9,20 +9,17 @@ class Ydiff < Formula
   revision 2
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ee865d68e5f7fefd550012cbfe0d5aa6c0e6ac59ac964fac2551b240f6e1dac6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7716b4d96423f5e20605b126217b6b9778848b6a141caa85250b646fadf66a84"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7716b4d96423f5e20605b126217b6b9778848b6a141caa85250b646fadf66a84"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7716b4d96423f5e20605b126217b6b9778848b6a141caa85250b646fadf66a84"
-    sha256 cellar: :any_skip_relocation, sonoma:         "858fcc710e5c800deee9c3c74b27fe030e23a6552a63ef2f0905b78530f08c3d"
-    sha256 cellar: :any_skip_relocation, ventura:        "0192ef7a7b3f397d92ba05728af96356869e24fb4de784128b6864e75f891c97"
-    sha256 cellar: :any_skip_relocation, monterey:       "0192ef7a7b3f397d92ba05728af96356869e24fb4de784128b6864e75f891c97"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0192ef7a7b3f397d92ba05728af96356869e24fb4de784128b6864e75f891c97"
-    sha256 cellar: :any_skip_relocation, catalina:       "0192ef7a7b3f397d92ba05728af96356869e24fb4de784128b6864e75f891c97"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "07c4e2ad3135cbcc5ac2478cd0a83d570e2f0d9e0921f2f0fff89d854c25c5a2"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "dff1fab705b70cc0a6a0428ed757b3f773f8f33319292f697b5e117bc350f669"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "08d28ce6db77fb6a291ba4664f3e7fbaa4cdd03557e002334cddc1c42a3d9ee2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3bfe8ba4dcbe840936cf3dfb64a0a7ba393b599ddda7c3c8361e411584800b09"
+    sha256 cellar: :any_skip_relocation, sonoma:         "eb83590a9ccb770126c72ce2a96086f2f054c449ff4e64a98787fced77907a91"
+    sha256 cellar: :any_skip_relocation, ventura:        "2874217a6d270271c808dfa2f74a7d970ed3dc0aa876c1a2e04d1899443c3d05"
+    sha256 cellar: :any_skip_relocation, monterey:       "830743ac5ea771d7f39fbaf8533fffc9d0d04a76ec4342ad8799284ce61d583c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f534a6806cd6e15cabbba1f3361486e75f03960230e83a4976ddadac66fb12d5"
   end
 
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   def install
     virtualenv_install_with_resources

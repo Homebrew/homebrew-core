@@ -8,14 +8,14 @@ class LlvmAT13 < Formula
   revision 2
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "43956d83380087556df232c51693ea7ea7ffda477a5e865dcbfe35806c30e762"
-    sha256 cellar: :any,                 arm64_monterey: "301311669e1f5d1016ecbe7830cf2550fd5089c2012ff77551119a3097be0c65"
-    sha256 cellar: :any,                 arm64_big_sur:  "3e04bafc3135914c5027c832a4c7057a55e202fb2be543ba3a564b226500e587"
-    sha256 cellar: :any,                 ventura:        "0a005693c4737838013accf69addcdec7ac938d802bd2efb3831e27ceeb54943"
-    sha256 cellar: :any,                 monterey:       "1ad479f6f3a699210b12dc1dcdb1811ab0503372ec29f85353ba4b88df422b36"
-    sha256 cellar: :any,                 big_sur:        "24e5267f1b5f3f2c365f4bb66bbc949c1d7569b2928b299f9eba1261d51e8c47"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "caf066e7572bf27e67e32b3e15de9051c1047f3445dcd947fc5b35b680c3af2a"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sonoma:   "ec7069e2ef45c1c7b5088961aebbb4818c7a72cf7b031ab4b7c88bac208039b8"
+    sha256 cellar: :any,                 arm64_ventura:  "f4e2b7b3aa213e7d634f944cfacb9579a198224b82b111f410e536d3fc1ba9a3"
+    sha256 cellar: :any,                 arm64_monterey: "dc925c760eec7dc198f9fc0020f73dc0c7b6be988a3a44fb90a2e4481d578c54"
+    sha256 cellar: :any,                 sonoma:         "63d7c41c10ec196efe9344071e2255a662374e2971b959e043dad528c11bf4d7"
+    sha256 cellar: :any,                 ventura:        "623f775f7f68a4b99c7e9b7b4394cad6c3c5cd7dc3c82c2237124ee88e12389b"
+    sha256 cellar: :any,                 monterey:       "baa96ae03422c4b5326f3b94a822df388d07ac103ab6a3be0f04350b387b2b1e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "00e97b89acd17e0b9e331abccb015b41f1e5272c9c8a9d85063c78c34188facd"
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
@@ -43,6 +43,11 @@ class LlvmAT13 < Formula
 
   # Fails at building LLDB
   fails_with gcc: "5"
+
+  # Fix build with Xcode 15
+  # https://github.com/spack/spack/issues/40158
+  # Backport of https://reviews.llvm.org/D130060
+  patch :DATA
 
   def install
     python3 = "python3.11"
@@ -471,3 +476,15 @@ class LlvmAT13 < Formula
     end
   end
 end
+__END__
+--- a/compiler-rt/lib/sanitizer_common/sanitizer_platform_limits_posix.cpp
++++ b/compiler-rt/lib/sanitizer_common/sanitizer_platform_limits_posix.cpp
+@@ -1250,7 +1250,7 @@ CHECK_SIZE_AND_OFFSET(group, gr_passwd);
+ CHECK_SIZE_AND_OFFSET(group, gr_gid);
+ CHECK_SIZE_AND_OFFSET(group, gr_mem);
+
+-#if HAVE_RPC_XDR_H
++#if HAVE_RPC_XDR_H && !SANITIZER_MAC
+ CHECK_TYPE_SIZE(XDR);
+ CHECK_SIZE_AND_OFFSET(XDR, x_op);
+ CHECK_SIZE_AND_OFFSET(XDR, x_ops);

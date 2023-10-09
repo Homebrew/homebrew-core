@@ -6,33 +6,29 @@ class Scrapy < Formula
   url "https://files.pythonhosted.org/packages/68/7e/e76d9116a6260f7fbdc4cf98b7bc4c93926ced2bc2c5e124a852cb66dfea/Scrapy-2.11.0.tar.gz"
   sha256 "3cbdedce0c3f0e0482d61be2d7458683be7cd7cf14b0ee6adfbaddb80f5b36a5"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/scrapy/scrapy.git", branch: "master"
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4fb3f41d3c2fef67c182e9baefd299d58a5f6c43a12894eef8feb5107d9659f2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "153ef7384f330e18f9f82e712ae53ff631eca7b83118826ea8d1dafed59b7b67"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "177e0dd17ef638fc70115ff722529891381512be6cede628065812ccd0f3c3e5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "25057cfd228a2af7ae2de5021e7fd955358bc5dd700c9d1a423deefcf5c27d37"
-    sha256 cellar: :any_skip_relocation, sonoma:         "9ec11454e1bb0827c06b6132d9631a0fbed0cea4c93d9099c7e4ae6892e172fc"
-    sha256 cellar: :any_skip_relocation, ventura:        "9f4a59bb0dfaee12ef353cc03f133540526b2086e9c630f53ade5f346c499c09"
-    sha256 cellar: :any_skip_relocation, monterey:       "ee2f13039557e00fb3f36f59049469f276ba603d2c02fc8494bf895c5aa1eaad"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2bd5153e794a061ba2e4275c23c963aa3c390c83a1ddf499e845eecbcec0662c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a16c06fdfbe70f10af8016f30f9b9161cc4cb853b075879676272466fe09b21d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fe31ee431073e7fcde5b69d1e47f94879e70d7f1be63ea2566f3698b285686ad"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8a20ab67d331d37597f1edab617aa55a451d272b0626a86f58747f46e979e476"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "aa0fabb03181db918a7c5ca0b58c5705516fd7a1ae49d498dfadfd3524571c84"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0a534bbab492c9d10e050e8c744d8105590180465c47e2aaa98893c91eff79f8"
+    sha256 cellar: :any_skip_relocation, ventura:        "0f6c604c221b6a29e67307f92166896e3230302bf25f462710cb8ca9b18f81dd"
+    sha256 cellar: :any_skip_relocation, monterey:       "8806c1ce3e37dea4d13a9f58069efc6d16f57c5468201c96a045216185783056"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3266d95179f3ec04cf8b97b459fc8c8d79d99c224c7fc81a4f00bc7d8dab814a"
   end
 
   depends_on "cffi"
   depends_on "pycparser"
   depends_on "python-certifi"
   depends_on "python-cryptography"
+  depends_on "python-lxml"
   depends_on "python-packaging"
   depends_on "python-typing-extensions"
   depends_on "python@3.11"
   depends_on "six"
-
-  # For `lxml` resource.
-  uses_from_macos "libxml2"
-  uses_from_macos "libxslt"
 
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/97/90/81f95d5f705be17872843536b1868f351805acf6971251ff07c1b8334dbb/attrs-23.1.0.tar.gz"
@@ -45,8 +41,8 @@ class Scrapy < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/2a/53/cf0a48de1bdcf6ff6e1c9a023f5f523dfe303e4024f216feac64b6eb7f67/charset-normalizer-3.2.0.tar.gz"
-    sha256 "3bb3d25a8e6c0aedd251753a79ae98a093c7e7b471faa3aa9a93a81431987ace"
+    url "https://files.pythonhosted.org/packages/cf/ac/e89b2f2f75f51e9859979b56d2ec162f7f893221975d244d8d5277aa9489/charset-normalizer-3.3.0.tar.gz"
+    sha256 "63563193aec44bce707e0c5ca64ff69fa72ed7cf34ce6e11d5127555756fd2f6"
   end
 
   resource "constantly" do
@@ -92,11 +88,6 @@ class Scrapy < Formula
   resource "jmespath" do
     url "https://files.pythonhosted.org/packages/00/2a/e867e8531cf3e36b41201936b7fa7ba7b5702dbef42922193f05c8976cd6/jmespath-1.0.1.tar.gz"
     sha256 "90261b206d6defd58fdd5e85f478bf633a2901798906be2ad389150c5c60edbe"
-  end
-
-  resource "lxml" do
-    url "https://files.pythonhosted.org/packages/30/39/7305428d1c4f28282a4f5bdbef24e0f905d351f34cf351ceb131f5cddf78/lxml-4.9.3.tar.gz"
-    sha256 "48628bd53a426c9eb9bc066a923acaa0878d1e86129fd5359aee99285f4eed9c"
   end
 
   resource "parsel" do
@@ -150,8 +141,8 @@ class Scrapy < Formula
   end
 
   resource "tldextract" do
-    url "https://files.pythonhosted.org/packages/50/c6/3a555f4a1b22c66c70b0450353a0cab91c3946b8a0a732d8b72e60047103/tldextract-3.5.0.tar.gz"
-    sha256 "4df1c65b95be61d59428e8611e955e54e6f1d4483d3e8d5733d3a9062155e910"
+    url "https://files.pythonhosted.org/packages/ba/7a/dc3ffc0e333d33e8ccb63a14adc40180c29d89490a25ebe9f9ef01605c51/tldextract-3.6.0.tar.gz"
+    sha256 "a5d8b6583791daca268a7592ebcf764152fa49617983c49916ee9de99b366222"
   end
 
   resource "twisted" do
@@ -160,8 +151,8 @@ class Scrapy < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/31/ab/46bec149bbd71a4467a3063ac22f4486ecd2ceb70ae8c70d5d8e4c2a7946/urllib3-2.0.4.tar.gz"
-    sha256 "8d22f86aae8ef5e410d4f539fde9ce6b2113a001bb4d189e0aed70642d602b11"
+    url "https://files.pythonhosted.org/packages/8b/00/db794bb94bf09cadb4ecd031c4295dd4e3536db4da958e20331d95f1edb7/urllib3-2.0.6.tar.gz"
+    sha256 "b19e1a85d206b56d7df1d5e683df4a7725252a964e3993648dd0fb5a1c157564"
   end
 
   resource "w3lib" do
@@ -170,8 +161,8 @@ class Scrapy < Formula
   end
 
   resource "zope-interface" do
-    url "https://files.pythonhosted.org/packages/7a/62/f0d012151af1e8cc0a6c97db74b78141143425dcdf81bc7960c498e28960/zope.interface-6.0.tar.gz"
-    sha256 "aab584725afd10c710b8f1e6e208dbee2d0ad009f57d674cb9d1b3964037275d"
+    url "https://files.pythonhosted.org/packages/87/03/6b85c1df2dca1b9acca38b423d1e226d8ffdf30ebd78bcb398c511de8b54/zope.interface-6.1.tar.gz"
+    sha256 "2fdc7ccbd6eb6b7df5353012fbed6c3c5d04ceaca0038f75e601060e95345309"
   end
 
   def install

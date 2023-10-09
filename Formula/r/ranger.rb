@@ -10,23 +10,21 @@ class Ranger < Formula
   head "https://github.com/ranger/ranger.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "57a13f28316c962532f7786c950a1a187bf8b83315368aef254703ec210e4c35"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3a4d109e42f3146daeb999e613a9cedca98cbd851f98f950f54cfaab5e872c58"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3a4d109e42f3146daeb999e613a9cedca98cbd851f98f950f54cfaab5e872c58"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3a4d109e42f3146daeb999e613a9cedca98cbd851f98f950f54cfaab5e872c58"
-    sha256 cellar: :any_skip_relocation, sonoma:         "834a9aee1adde7412c2180154725980746d208da4e0050e7d2e9d5877f169b13"
-    sha256 cellar: :any_skip_relocation, ventura:        "92e4fd7b02e9314319342a86b176bcb78c902ab326b6db482c653194ec5389df"
-    sha256 cellar: :any_skip_relocation, monterey:       "92e4fd7b02e9314319342a86b176bcb78c902ab326b6db482c653194ec5389df"
-    sha256 cellar: :any_skip_relocation, big_sur:        "92e4fd7b02e9314319342a86b176bcb78c902ab326b6db482c653194ec5389df"
-    sha256 cellar: :any_skip_relocation, catalina:       "92e4fd7b02e9314319342a86b176bcb78c902ab326b6db482c653194ec5389df"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3a4d109e42f3146daeb999e613a9cedca98cbd851f98f950f54cfaab5e872c58"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6eea9359688d3ebaf9673aa35279778e16fdd977446ba6d0e8bef5a7bfe8aadc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0861bca3b40f43d04603621ac2862a9fa24cf76149fa3bf98e701b074fac4f89"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "602e6439d7dd6b29ac631e7ac60d04079d898e56b099a614970eb8343b28f5a9"
+    sha256 cellar: :any_skip_relocation, sonoma:         "854b27af8c3fbaed381c35078026a685c84b04067bd5437de657c7a6b42d6426"
+    sha256 cellar: :any_skip_relocation, ventura:        "a03c4e877b00a78bc49ad03be5aac198350e8eb9456672cfb7b5df3f24f705dd"
+    sha256 cellar: :any_skip_relocation, monterey:       "45fd5e64d17483293b05ff8b376e2d4b081073279c8542ef375252d3c077d939"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aa2faf4fe8116fc48ba789940320882c5bed58b7c5900e827200021f38d62c83"
   end
 
-  depends_on "python@3.11"
+  depends_on "python-setuptools" => :build
+  depends_on "python@3.12"
 
   def python
-    Formula["python@3.11"].opt_libexec/"bin/python"
+    Formula["python@3.12"].opt_libexec/"bin/python"
   end
 
   def install

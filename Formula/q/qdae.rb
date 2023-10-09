@@ -19,7 +19,7 @@ class Qdae < Formula
     sha256 x86_64_linux:   "db3a6068e466987b92397d842c2b3ecde2bded442094c3f913333f128758d0c6"
   end
 
-  deprecate! date: "2022-09-23", because: :unmaintained
+  disable! date: "2023-10-03", because: :unmaintained
 
   depends_on "sdl12-compat"
 

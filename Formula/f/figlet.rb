@@ -12,9 +12,11 @@ class Figlet < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "2af79123d12d6b8c4fc9a21fb3b7eae8405b2887bb06f14253e4a50166ac1220"
     sha256 arm64_ventura:  "0ebfa147cd1a513a86323167ab696a94b490dcd215d6685188bc376bf1313953"
     sha256 arm64_monterey: "87aa47afd19c8cd952a9a342a9afe32d0da2849ee1c1de2510949675a38327b8"
     sha256 arm64_big_sur:  "c11153896e225e3ce85db5dda5c85455422e542871c0495683aa49c8929cc6f8"
+    sha256 sonoma:         "4c1ce798c88dab71094733aed8969c787842894037637009dd4a7c06a00446da"
     sha256 ventura:        "3955d7572889134c95edc8ddf8bb2c01221e5c5ffed53b5410cf033a7d595795"
     sha256 monterey:       "d0e426869d73c174754374b2f91dad0b9464beae30f6d4dc73882777655c44cc"
     sha256 big_sur:        "c205792bc4f3305cc2fdccf672a9df7f2d415efc6c9b7ac2f00ccb44aa981cfc"
@@ -48,6 +50,7 @@ class Figlet < Formula
     bin.mkpath
 
     system "make", "prefix=#{prefix}",
+                   "CFLAGS=-Wno-implicit-function-declaration",
                    "DEFAULTFONTDIR=#{pkgshare}/fonts",
                    "MANDIR=#{man}",
                    "install"

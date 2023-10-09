@@ -8,18 +8,17 @@ class Bashate < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ef33118a17365396dbe9e235b02f6bf1132b2136caf8022513f4ba801d773885"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0404cc095c3112a2393efa839c8ede16e4016a80f3e72767ca568d7956a685c4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0404cc095c3112a2393efa839c8ede16e4016a80f3e72767ca568d7956a685c4"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0404cc095c3112a2393efa839c8ede16e4016a80f3e72767ca568d7956a685c4"
-    sha256 cellar: :any_skip_relocation, sonoma:         "1e0e76ca665bb7a2140af9b429a6e31317baf1591672863a76f744a5fa6dca5a"
-    sha256 cellar: :any_skip_relocation, ventura:        "92be21fb90d03ca6e332233b0128d97c512ec5299988fdaa2f1da61e2bf7fe98"
-    sha256 cellar: :any_skip_relocation, monterey:       "92be21fb90d03ca6e332233b0128d97c512ec5299988fdaa2f1da61e2bf7fe98"
-    sha256 cellar: :any_skip_relocation, big_sur:        "92be21fb90d03ca6e332233b0128d97c512ec5299988fdaa2f1da61e2bf7fe98"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5969e7badb3d13d8392e1672235b959e0eed7f36545fd5ecf3a861cf4c8cfb80"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d22a13965b8badc19e991a9a271e9f1975f85b96d68dbc22d25cf196f42b4ae3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0137ed279d4f0f319d8c50eb4d86e20b25f7bfbe4c07d45fb455fde83516acd6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e886d384c41e915700b72256b7cf60e0d33743958eb8bd960544d15918ebede8"
+    sha256 cellar: :any_skip_relocation, sonoma:         "58523165172e73d1b4658e6beb217ad0ce1aecba52185f6b6cd7f7fd3736d75a"
+    sha256 cellar: :any_skip_relocation, ventura:        "f4ff5795ad844e2bd2235e0528b04551fad9264616cd072dba0f806de9c15c2d"
+    sha256 cellar: :any_skip_relocation, monterey:       "314b0d6247591b2812a710cdc133e2fbdce772fb723e44e7dd893a7d08bf0394"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "104403b5c06e8bdb94a82195bbba24462d62cee9717b2a3c29a3da75707f968d"
   end
 
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   resource "pbr" do
     url "https://files.pythonhosted.org/packages/02/d8/acee75603f31e27c51134a858e0dea28d321770c5eedb9d1d673eb7d3817/pbr-5.11.1.tar.gz"
@@ -27,7 +26,6 @@ class Bashate < Formula
   end
 
   def install
-    ENV["PBR_VERSION"] = version.to_s
     virtualenv_install_with_resources
   end
 

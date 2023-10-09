@@ -1,8 +1,8 @@
 class Objfw < Formula
   desc "Portable, lightweight framework for the Objective-C language"
   homepage "https://objfw.nil.im/"
-  url "https://objfw.nil.im/downloads/objfw-1.0.3.tar.gz"
-  sha256 "1c81d7d03578b2d9084fc5d8722d4eaa4bdc2f3f09ce41231e7ceab8212fae17"
+  url "https://objfw.nil.im/downloads/objfw-1.0.4.tar.gz"
+  sha256 "c62c61fc3f1b2d5c1d78369c602a6e82b32ade5c8ec0e9c410646d1554bf1e26"
   license any_of: ["QPL-1.0", "GPL-2.0-only", "GPL-3.0-only"]
   head "https://objfw.nil.im/", using: :fossil
 
@@ -12,15 +12,13 @@ class Objfw < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "abf55a8df6f6ac0d77d54d94cb0db54f46da054dc23835fbc03adce53abd666d"
-    sha256 arm64_ventura:  "09c7d3773da3a6f22f5039331669f6651955cbe7aeaac70bef485d53686ab296"
-    sha256 arm64_monterey: "a7d37a06a2f3655634641f063a57ebbef377840080c9680ff9aa78195ca25912"
-    sha256 arm64_big_sur:  "ea2bfcb07b53fd68110187c7d0223c03656703245263cf652080532a43c18de2"
-    sha256 sonoma:         "a92e2ee05e15b313bdb896d0be354d3dcccded6983d714cbc12f6a65a2aac9c3"
-    sha256 ventura:        "d68f363f022f6687cdcaf302f193b710908265841a59fbcbaf1b03e4a5ca24c9"
-    sha256 monterey:       "d5477967a8ee629aca8fffc52d68e887f38454f7e2bb44a52ec04a1119e085ae"
-    sha256 big_sur:        "da289589275ea7828d4dde5e3ca909aa5a8d0030327186f4325b28bd30289e57"
-    sha256 x86_64_linux:   "7d42f608d3c923914b0b7d6fc1a118cca0068852d6522a50fbbb492169990b64"
+    sha256 arm64_sonoma:   "0346f45b9afda9ff39f9a62b9c69630e640f63d829b01b3d1895758ff82fe3d7"
+    sha256 arm64_ventura:  "0fe421b097253bbcad02b2048bfaaab81fa4c431b470339922de4ec7aca36dfd"
+    sha256 arm64_monterey: "ad5c57e7f23951870014747e682f905355dc3b71d3a120159007bc00a5dbf71c"
+    sha256 sonoma:         "674112979219a5b9c3e667e3f305b695ac64e5787d4a9892f2d1f79a875a7ba9"
+    sha256 ventura:        "23ba43d00bc7bda76c68506a6d15c92b10ef6e80b0a34999cbf9f7133696f22a"
+    sha256 monterey:       "91e352998f798eccb434dcf81e659d184ab664803579500a010e81b27db3d5ab"
+    sha256 x86_64_linux:   "c5d44b5c218ff3aaefc581a4a5d00f7e302ec38d28dde305847ae28c0d11271c"
   end
 
   depends_on "autoconf" => :build

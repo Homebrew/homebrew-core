@@ -6,28 +6,25 @@ class Grokmirror < Formula
   url "https://files.pythonhosted.org/packages/b0/ef/ffad6177d84dafb7403ccaca2fef735745d5d43200167896a2068422ae89/grokmirror-2.0.11.tar.gz"
   sha256 "6bc1310dc9a0e97836201e6bb14ecbbee332b0f812b9ff345a8386cb267c908c"
   license "GPL-3.0-or-later"
-  revision 2
+  revision 3
   head "https://github.com/mricon/grokmirror.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e5ffc59c67820633cc877e4d325bf268882e20a0957e9beddaf0938894a8455a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9b98b7d2ae38776e116471d4aa93752179dd6cf0178ca2c963dab1a5ce149af8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5cd1c6f82c4b6786747aadd7c66a184874290c6ebaf2140900b23c6fa4a62917"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9e71ad6585d8fdbe72e5dd132cf4d20482002c569f3fb9ce83e0be0efc8b7f75"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0ed2e41bac9ea83ea2df5180f0a2181edd52051dcc4cff32a0b4f1d0265505a2"
-    sha256 cellar: :any_skip_relocation, ventura:        "acae5a92fa6062106d7abe579db63da6e252a7c90173a2d76c9521aaa2ee46c3"
-    sha256 cellar: :any_skip_relocation, monterey:       "c8a222768f1fa3ded6b38fea8c5963d27e4ce80d496fbaaf8f26f1c8b2be18dd"
-    sha256 cellar: :any_skip_relocation, big_sur:        "99ce644f6574c85120f619b503f80f729d82d1472d6e53d54edb15640bd0a94b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3749e3ddcf48a04513d603e2d533c998fde630c106117a11c506450b39c8af81"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ef1d4b709d1fceca4f2c2cc39eb43074e48ab9f680585b4f4788fc1120eeec80"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "64e3c29c56eae36b617df6db8389dc4d8ff364026681ded0de27b941f4189b80"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a61a39deb01b9a9dd00484c0dec31b2b27ba6258e83294209f60f76db385bd2c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "96685ffb7a72eb253bb7712ffd7159e63c1d39a65ab0b0457b464482a1980251"
+    sha256 cellar: :any_skip_relocation, ventura:        "5ebdc17a922df27df570508f86e2719861b0c7292f1211a5f74d5026a73b22a4"
+    sha256 cellar: :any_skip_relocation, monterey:       "ec643a42b4f7223da4990f56e669caca035168485afcf228f763a83bd971e780"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "df68ad710d46204f7957be01fad0edf5373ee252878e4e740e10c43fecd6c728"
   end
 
   depends_on "python-certifi"
   depends_on "python@3.11"
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/2a/53/cf0a48de1bdcf6ff6e1c9a023f5f523dfe303e4024f216feac64b6eb7f67/charset-normalizer-3.2.0.tar.gz"
-    sha256 "3bb3d25a8e6c0aedd251753a79ae98a093c7e7b471faa3aa9a93a81431987ace"
+    url "https://files.pythonhosted.org/packages/cf/ac/e89b2f2f75f51e9859979b56d2ec162f7f893221975d244d8d5277aa9489/charset-normalizer-3.3.0.tar.gz"
+    sha256 "63563193aec44bce707e0c5ca64ff69fa72ed7cf34ce6e11d5127555756fd2f6"
   end
 
   resource "idna" do
@@ -41,8 +38,8 @@ class Grokmirror < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/31/ab/46bec149bbd71a4467a3063ac22f4486ecd2ceb70ae8c70d5d8e4c2a7946/urllib3-2.0.4.tar.gz"
-    sha256 "8d22f86aae8ef5e410d4f539fde9ce6b2113a001bb4d189e0aed70642d602b11"
+    url "https://files.pythonhosted.org/packages/8b/00/db794bb94bf09cadb4ecd031c4295dd4e3536db4da958e20331d95f1edb7/urllib3-2.0.6.tar.gz"
+    sha256 "b19e1a85d206b56d7df1d5e683df4a7725252a964e3993648dd0fb5a1c157564"
   end
 
   def install

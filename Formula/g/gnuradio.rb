@@ -15,13 +15,14 @@ class Gnuradio < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "f736858fb95f9facf6f8da4b1dfb3a4017dcdb5985b0e1a64d09bad6babaa7ec"
-    sha256 cellar: :any,                 arm64_monterey: "d1184991ce7cf42e0e8094705b4a2b222acd40fb580feaecc8a608098e189aab"
-    sha256 cellar: :any,                 arm64_big_sur:  "1ac3db5012d33c60550bb6fefdf7a4f33261a2f53edd4716c440d1c6cdcf5a6e"
-    sha256 cellar: :any,                 ventura:        "03fdb30d6225f4edb8bdbad3705cab0f16b7b5768299048f0abd53921a046cc5"
-    sha256 cellar: :any,                 monterey:       "6651c8c7792532fbdf04221ebc2c2cbb1fd53721372c0491b9f707d3c12f515e"
-    sha256 cellar: :any,                 big_sur:        "d7905444e9b42264d32ab1787306743e736e8babbc3d77106c21514c60a6182d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5fbacf2a2b141f863d14a23f09dea9c8dd1459018905f14eeb4a1ab8051c4377"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "839eb2d7efe5791fce81fd64de62f3e6140ce66c2be70e4ef613d2377ecddf70"
+    sha256 cellar: :any,                 arm64_ventura:  "a53b9d611e12f8e631b08155963625f1c26abb708c3886dad0c92a9e160cbe5a"
+    sha256 cellar: :any,                 arm64_monterey: "158899805d1a3db0eeadfdb5c1b289af16a09b0d0c81cc677878ca19b34b0b4e"
+    sha256 cellar: :any,                 sonoma:         "57ed3428d8e0d09687d3090371f24afc1eb28fffd99ace62449cae398225b125"
+    sha256 cellar: :any,                 ventura:        "18dd6de00a94c34b723d0851343a3baca32a5b1e9663ba86e2e73cdd0e5f6cbf"
+    sha256 cellar: :any,                 monterey:       "3b69585a9723d5c04f79f12357f25ee79306725f0281aa467d6d8d41ab1340f2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "38ac0235c9b49afb3d66a10465b109ad4ea9f1313e3d92a9eaecaced503f7182"
   end
 
   depends_on "cmake" => :build
@@ -44,6 +45,7 @@ class Gnuradio < Formula
   depends_on "pygments"
   depends_on "pygobject3"
   depends_on "pyqt@5"
+  depends_on "python-packaging"
   depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "qt@5"
@@ -75,11 +77,6 @@ class Gnuradio < Formula
   resource "mako" do
     url "https://files.pythonhosted.org/packages/05/5f/2ba6e026d33a0e6ddc1dddf9958677f76f5f80c236bd65309d280b166d3e/Mako-1.2.4.tar.gz"
     sha256 "d60a3903dc3bb01a18ad6a89cdbe2e4eadc69c0bc8ef1e3773ba53d44c3f7a34"
-  end
-
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/b9/6c/7c6658d258d7971c5eb0d9b69fa9265879ec9a9158031206d47800ae2213/packaging-23.1.tar.gz"
-    sha256 "a392980d2b6cffa644431898be54b0045151319d1e7ec34f0cfed48767dd334f"
   end
 
   resource "markupsafe" do

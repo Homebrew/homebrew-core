@@ -9,20 +9,17 @@ class Epr < Formula
   head "https://github.com/wustho/epr.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bfb5a98068e7eef51f100c1589648e7f3f86509495ef42f04101ea4ba8e86444"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "879a6cf3a9bf93dbe26818545a2c3d14b32065f5500939a787bbc7fdadecec39"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6590c8a5bcd690eef80fe2e1c4241475f8d4649afe1fda485bd58262eaaab36e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cab822e488b93156e6166ba4fb8592458d60d5ad3e9f3d2572a54d07f78deaec"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a53f2f3199e4fe16bb427a0d6cc11bfc65108b1fdc8ee97c859b727d4ea1063c"
-    sha256 cellar: :any_skip_relocation, ventura:        "c0ec75767ccc034fdd6d9e8ca8c441109f6c4de4f44f0b4417024ec70dfe3133"
-    sha256 cellar: :any_skip_relocation, monterey:       "f2fa989bccad3f6b182357d457207cfef1ce01a430704c3cae128699e9b8d81b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "cc47dda988c3a2e2f61e9870f028b29ebb8ab405fff91eb858333cfa81df7834"
-    sha256 cellar: :any_skip_relocation, catalina:       "b287ba360f24f04f56ad892fccb8b8b8ed7754227dfcf2d98132ed3a24e539e8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "31bad4f5113de503a4b0deb4d1714744d88de1f6939337aa0f066f5fe65510ee"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e68b998122d66d7f2fabc5c5b78a0d635d452861b2399ae70f48d6bb1eecc999"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f8a76e60cf2662821d5e91658db9f7b260f2df312dc81f07f96789b5bde15123"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f390d3909cd2dd19b8bb615676454c051496d08a733f3d0bb45add113f2fbceb"
+    sha256 cellar: :any_skip_relocation, sonoma:         "2aba44b4ec5ff5514e08ed81bee85566bfadc78615d9af0627b43004364f26c5"
+    sha256 cellar: :any_skip_relocation, ventura:        "f3f4df93d10602d40ecf6e6d460c5e6836eb34ddb41b5e67cbe8c04578d5adc6"
+    sha256 cellar: :any_skip_relocation, monterey:       "739e995754f012ee4091e136719d2fe6de9495d006214a2b0342c1d91a4b8f90"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "637fd130f94aaf3e7f40a36eadc3918ff346b47a601862ce5ef1e05ceae90324"
   end
 
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   def install
     virtualenv_install_with_resources

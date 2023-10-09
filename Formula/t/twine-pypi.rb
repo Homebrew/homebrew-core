@@ -6,36 +6,29 @@ class TwinePypi < Formula
   url "https://files.pythonhosted.org/packages/b7/1a/a7884359429d801cd63c2c5512ad0a337a509994b0e42d9696d4778d71f6/twine-4.0.2.tar.gz"
   sha256 "9e102ef5fdd5a20661eb88fad46338806c3bd32cf1db729603fe3697b1bc83c8"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/pypa/twine.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1238109f38f2c034b68e30598f6fc5f3d8733087d5841d588a2caa5426a2c4c0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c2f327598fecd5b4871b4f954def4746899b415f4e70c64e5340d8a1a3606af9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e5cc62bf96699b0e5c67fa468a0eb1fa98ec49096a09d5a1df5dc13c396d380a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "822895d53e88e0461d4a5c43fdd84a0aaa303716bff456fd4ab0fd5127e11c5e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "2aafc30bbaba73c7f2abc885c1285a547e1b7d52687ad99191a0a39564ee80e8"
-    sha256 cellar: :any_skip_relocation, ventura:        "2c2d9683fd2878415416a921162357ea3bf96c3e3fb3091a7304e6f03c5023a9"
-    sha256 cellar: :any_skip_relocation, monterey:       "4c1cfdbb06092e712dc90250e38597f1183f7bde9cc508d14f9966fe4e1b9db5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ea3ec56a24e5739d76cb700c21f88168961838596289be639e0c69e6d44386d0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0500f7b47639803958a2a8a5a5f02db6b3324d468f96d756168ecafda7373400"
+    sha256 cellar: :any,                 arm64_sonoma:   "5186fc127b4cf7f776a797056eb8565107defbcda1dd6ebe81502f5ec13e997e"
+    sha256 cellar: :any,                 arm64_ventura:  "ebb1154d9318dd23905c3b6810d585c7191ab50987d959da4dd095f3ff085af0"
+    sha256 cellar: :any,                 arm64_monterey: "3516768bcec5b955a7588c2e5c9efbeb9e065d6dbd286924239908b333e16c66"
+    sha256 cellar: :any,                 sonoma:         "d7f00f8e3654a753311d8d4d304e269e2b138d278077cf3f7e0b7ba932bba1cd"
+    sha256 cellar: :any,                 ventura:        "a9bd4f947ed1d8c1165fdc25acba75c38b5b8c845c94d53688d3dc51b7ba3c44"
+    sha256 cellar: :any,                 monterey:       "1715d6843250b8e478304d40843de591bd5dce6d1c82e8dbdef27264051f5ab9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7a53b68de723d8ec963d5d0b0e923e78d1f3908d484565daf4fd8cc034f6ff49"
   end
 
+  depends_on "rust" => :build
   depends_on "docutils"
   depends_on "pygments"
   depends_on "python-certifi"
   depends_on "python@3.11"
   depends_on "six"
 
-  resource "bleach" do
-    url "https://files.pythonhosted.org/packages/7e/e6/d5f220ca638f6a25557a611860482cb6e54b2d97f0332966b1b005742e1f/bleach-6.0.0.tar.gz"
-    sha256 "1a1a85c1595e07d8db14c5f09f09e6433502c51c595970edc090551f0db99414"
-  end
-
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/2a/53/cf0a48de1bdcf6ff6e1c9a023f5f523dfe303e4024f216feac64b6eb7f67/charset-normalizer-3.2.0.tar.gz"
-    sha256 "3bb3d25a8e6c0aedd251753a79ae98a093c7e7b471faa3aa9a93a81431987ace"
+    url "https://files.pythonhosted.org/packages/cf/ac/e89b2f2f75f51e9859979b56d2ec162f7f893221975d244d8d5277aa9489/charset-normalizer-3.3.0.tar.gz"
+    sha256 "63563193aec44bce707e0c5ca64ff69fa72ed7cf34ce6e11d5127555756fd2f6"
   end
 
   resource "idna" do
@@ -69,8 +62,13 @@ class TwinePypi < Formula
   end
 
   resource "more-itertools" do
-    url "https://files.pythonhosted.org/packages/b7/56/7daf104a9cb6af39c00127aee6904b01040dbb12cf1ceedd6a087c097055/more-itertools-10.0.0.tar.gz"
-    sha256 "cd65437d7c4b615ab81c0640c0480bc29a550ea032891977681efd28344d51e1"
+    url "https://files.pythonhosted.org/packages/2d/73/3557e45746fcaded71125c0a1c0f87616e8258c78391f0c365bf97bbfc99/more-itertools-10.1.0.tar.gz"
+    sha256 "626c369fa0eb37bac0291bce8259b332fd59ac792fa5497b59837309cd5b114a"
+  end
+
+  resource "nh3" do
+    url "https://files.pythonhosted.org/packages/b0/bb/e967b7bc659cd1fd87f845d02194a08ea8da88d7d9dcc28164ee513f76f3/nh3-0.2.14.tar.gz"
+    sha256 "a0c509894fd4dccdff557068e5074999ae3b75f4c5a2d6fb5415e782e25679c4"
   end
 
   resource "pkginfo" do
@@ -79,8 +77,8 @@ class TwinePypi < Formula
   end
 
   resource "readme-renderer" do
-    url "https://files.pythonhosted.org/packages/22/ec/12a48255bb1f15e2bd16a75e9f537ea498c8884069de4655afe47d5ffe34/readme_renderer-40.0.tar.gz"
-    sha256 "9f77b519d96d03d7d7dce44977ba543090a14397c4f60de5b6eb5b8048110aa4"
+    url "https://files.pythonhosted.org/packages/b5/35/1cb5a6a97514812f63c06df6c2855d82ebed3e5c02e9d536a78669854c8a/readme_renderer-42.0.tar.gz"
+    sha256 "2d55489f83be4992fe4454939d1a051c33edbab778e82761d060c9fc6b308cd1"
   end
 
   resource "requests" do
@@ -99,23 +97,18 @@ class TwinePypi < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/e3/12/67d0098eb77005f5e068de639e6f4cfb8f24e6fcb0fd2037df0e1d538fee/rich-13.4.2.tar.gz"
-    sha256 "d653d6bccede5844304c605d5aac802c7cf9621efd700b46c7ec2b51ea914898"
+    url "https://files.pythonhosted.org/packages/b1/0e/e5aa3ab6857a16dadac7a970b2e1af21ddf23f03c99248db2c01082090a3/rich-13.6.0.tar.gz"
+    sha256 "5c14d22737e6d5084ef4771b62d5d4363165b403455a30a1c8ca39dc7b644bef"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/31/ab/46bec149bbd71a4467a3063ac22f4486ecd2ceb70ae8c70d5d8e4c2a7946/urllib3-2.0.4.tar.gz"
-    sha256 "8d22f86aae8ef5e410d4f539fde9ce6b2113a001bb4d189e0aed70642d602b11"
-  end
-
-  resource "webencodings" do
-    url "https://files.pythonhosted.org/packages/0b/02/ae6ceac1baeda530866a85075641cec12989bd8d31af6d5ab4a3e8c92f47/webencodings-0.5.1.tar.gz"
-    sha256 "b36a1c245f2d304965eb4e0a82848379241dc04b865afcc4aab16748587e1923"
+    url "https://files.pythonhosted.org/packages/8b/00/db794bb94bf09cadb4ecd031c4295dd4e3536db4da958e20331d95f1edb7/urllib3-2.0.6.tar.gz"
+    sha256 "b19e1a85d206b56d7df1d5e683df4a7725252a964e3993648dd0fb5a1c157564"
   end
 
   resource "zipp" do
-    url "https://files.pythonhosted.org/packages/e2/45/f3b987ad5bf9e08095c1ebe6352238be36f25dd106fde424a160061dce6d/zipp-3.16.2.tar.gz"
-    sha256 "ebc15946aa78bd63458992fc81ec3b6f7b1e92d51c35e6de1c3804e73b799147"
+    url "https://files.pythonhosted.org/packages/58/03/dd5ccf4e06dec9537ecba8fcc67bbd4ea48a2791773e469e73f94c3ba9a6/zipp-3.17.0.tar.gz"
+    sha256 "84e64a1c28cf7e91ed2078bb8cc8c259cb19b76942096c8d7b84947690cabaf0"
   end
 
   def install

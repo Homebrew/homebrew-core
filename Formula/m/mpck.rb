@@ -11,9 +11,11 @@ class Mpck < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9eeb22c03ef069272b7a17479aa9c88b3778fd6ffbd4b9196da8b1b68bcee68a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "319209a5338628eebd83135c485ae2767ee55361437e420c8f3940d90de7ec6b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bad165fd261de0bdfe9c3a5cb0d91204cfc42bfccc9562de1086f16f0bfd3b2a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f963c58102f58169a5ea1d6264f3ea1093a62fd6461332d5e70d0e1ad9aa5d79"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d1f6418aa6a0cbd47ef102d7c099fb9eebecafd8e5609594162d79a25efe9d5e"
     sha256 cellar: :any_skip_relocation, ventura:        "531607b5301ef2e894c27cfd04f13eb435ad6eebb26213de07671809b20ddba3"
     sha256 cellar: :any_skip_relocation, monterey:       "5eb5da1b3e78b8aba77f69dc5df1c596238a401da8b3bbd2c34f971d9b0d2874"
     sha256 cellar: :any_skip_relocation, big_sur:        "215f2f66b6567409359c6a0f784702df9fcc2e0c86edcab52fc40f91b6911bb9"

@@ -8,17 +8,17 @@ class Johnnydep < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5e8cd77c55f3735154ff307f732c13abbfd82e09011db4521242c1e881afcdaa"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "de94e94726133216f77b8a14904fea72e6249d11056e1575f2b0642fdf283bc6"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1f9d87f8eea995073cbcea25c564432816c8f4ab284f4698c6cfc1ce981f295a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "27fd5b5ed3a42591ec58d2078d2f51f8988b949935be528894ac70f1ee616900"
-    sha256 cellar: :any_skip_relocation, sonoma:         "8f5866143f5aadd674e38cc6c58cb9bd8455d7c4226dcf10e505da1b49ab4537"
-    sha256 cellar: :any_skip_relocation, ventura:        "bb6e2bd87eef32400a569e7950f13c334fba8f2d0d908a47ae4a5201598ba6a4"
-    sha256 cellar: :any_skip_relocation, monterey:       "5bcef486cf0c202df58094484a27de695e73cd1590e215fc3abaed43e80169d4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a53d592ae95a9dffe5184212f583253e291e1db4c516841d003484b4e87cda12"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cb95e640ed28b4059c5a6a7941ef97cc7932ba91d7cc09bdb2e1e71abf058b79"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e293ee2301be8211c48c64d33092f7b66dbf9b974030266b62a93e088c0fb1a1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0db7e4d2f82074be94e81b72e0bd0910a986918d6d42b6ce36346487095bc451"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a233db7683c728c0d29d873535e1dfb3dea47da7efe5df96e6f917e19aee7ded"
+    sha256 cellar: :any_skip_relocation, sonoma:         "02346e35d2e901c0a2fcd0bbf56aa01d58209dcc4947ef12cf159622af454bea"
+    sha256 cellar: :any_skip_relocation, ventura:        "c7ebe36400abf6fc72fc09912eb7ab543ed7f27b9491f4d898fcf3c138a84106"
+    sha256 cellar: :any_skip_relocation, monterey:       "33710fa40ab1258bd67d7ba6bbbb3b779a72ed9562e34c1320b8abc836349779"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8530ce47a06587de02d63da4912445ab6268ea8930414841f89e595e6e6d918b"
   end
 
+  depends_on "python-packaging"
   depends_on "python-tabulate"
   depends_on "python@3.11"
   depends_on "pyyaml"
@@ -37,11 +37,6 @@ class Johnnydep < Formula
   resource "oyaml" do
     url "https://files.pythonhosted.org/packages/00/71/c721b9a524f6fe6f73469c90ec44784f0b2b1b23c438da7cc7daac1ede76/oyaml-1.0.tar.gz"
     sha256 "ed8fc096811f4763e1907dce29c35895d6d5936c4d0400fe843a91133d4744ed"
-  end
-
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/b9/6c/7c6658d258d7971c5eb0d9b69fa9265879ec9a9158031206d47800ae2213/packaging-23.1.tar.gz"
-    sha256 "a392980d2b6cffa644431898be54b0045151319d1e7ec34f0cfed48767dd334f"
   end
 
   resource "structlog" do

@@ -6,17 +6,16 @@ class Enex2notion < Formula
   url "https://files.pythonhosted.org/packages/b0/65/301a9406734eff3185d1724e86bdb62c697973771086f457910e550037d5/enex2notion-0.2.26.tar.gz"
   sha256 "cd9a5a2ccb9a320d5f1cb81bbdbe8e464582f317aa6401135ddc9242ae6ccc73"
   license "MIT"
-  revision 2
+  revision 3
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5d39c6920df7e6e306f602b029a1bbfb7a7a6922dcbae2ab0a05c2942d80e506"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b4a0c8b68b683a2f98931d94f799d6601b0ec580db0494db20cf14b29ae6648a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b4695eaf5c11a74e1916a9cd236a7b6beadf9e0ef1879d2e8fa5f1c91979b82c"
-    sha256 cellar: :any_skip_relocation, ventura:        "d1295d27d61adc78f04edd922ad1ecf8e43b5e253bda75d954e6dccbf7dfd04b"
-    sha256 cellar: :any_skip_relocation, monterey:       "24544476bd029929de0fe91253daf66aa8b72044eaa0509a0f26ac76794dda7b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3781fab5e8a321e112a16ee939760f33b890808aa6b3f4e267cf2a2fde096c1b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fa5b9355d547b4e96502687e25531c816ea8bacd93335bc9d5f939ad12790880"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6a68b92767fe9318c2d97849afc3c1450716253c74f527d88952a20568df3985"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "98b541b8b3bbe32b7be29a34626bcece467939281caa052d9e58844d8de5732e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d9612f1c5a3f811c26763d59d65df59d02c29e87051e6476bd909aa9bbb2f13a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "6c6eb75d36a3945e7e029e1e497726fdc9b74adda9f8cbb5a2f93facad363a69"
+    sha256 cellar: :any_skip_relocation, ventura:        "030afae1a545d17f1f47e7748ace912e238874f1ef73a27856e1f11ebdc84c69"
+    sha256 cellar: :any_skip_relocation, monterey:       "b4a2525708a25977f0bf1f2d7a3bb7084f1211678d5e56ddd038138d72ebbe8d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f3ea50cf87c1267a69584d7bc7b5cf54e0f7e0b89d9047dd27dffe2742bcdf0b"
   end
 
   depends_on "pymupdf"
@@ -40,8 +39,8 @@ class Enex2notion < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/2a/53/cf0a48de1bdcf6ff6e1c9a023f5f523dfe303e4024f216feac64b6eb7f67/charset-normalizer-3.2.0.tar.gz"
-    sha256 "3bb3d25a8e6c0aedd251753a79ae98a093c7e7b471faa3aa9a93a81431987ace"
+    url "https://files.pythonhosted.org/packages/cf/ac/e89b2f2f75f51e9859979b56d2ec162f7f893221975d244d8d5277aa9489/charset-normalizer-3.3.0.tar.gz"
+    sha256 "63563193aec44bce707e0c5ca64ff69fa72ed7cf34ce6e11d5127555756fd2f6"
   end
 
   resource "commonmark" do
@@ -95,8 +94,8 @@ class Enex2notion < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/47/9e/780779233a615777fbdf75a4dee2af7a345f4bf74b42d4a5f836800b9d91/soupsieve-2.4.1.tar.gz"
-    sha256 "89d12b2d5dfcd2c9e8c22326da9d9aa9cb3dfab0a83a024f05704076ee8d35ea"
+    url "https://files.pythonhosted.org/packages/ce/21/952a240de1c196c7e3fbcd4e559681f0419b1280c617db21157a0390717b/soupsieve-2.5.tar.gz"
+    sha256 "5663d5a7b3bfaeee0bc4372e7fc48f9cff4940b3eec54a6451cc5299f1097690"
   end
 
   resource "text-unidecode" do
@@ -110,8 +109,8 @@ class Enex2notion < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/3d/78/81191f56abb7d3d56963337dbdff6aa4f55805c8afd8bad64b0a34199e9b/tqdm-4.65.0.tar.gz"
-    sha256 "1871fb68a86b8fb3b59ca4cdd3dcccbc7e6d613eeed31f4c332531977b89beb5"
+    url "https://files.pythonhosted.org/packages/62/06/d5604a70d160f6a6ca5fd2ba25597c24abd5c5ca5f437263d177ac242308/tqdm-4.66.1.tar.gz"
+    sha256 "d88e651f9db8d8551a62556d3cff9e3034274ca5d66e93197cf2490e2dcb69c7"
   end
 
   resource "tzdata" do
@@ -125,8 +124,8 @@ class Enex2notion < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/e2/7d/539e6f0cf9f0b95b71dd701a56dae89f768cd39fd8ce0096af3546aeb5a3/urllib3-1.26.16.tar.gz"
-    sha256 "8f135f6502756bde6b2a9b28989df5fbe87c9970cecaa69041edcce7f0589b14"
+    url "https://files.pythonhosted.org/packages/dd/19/9e5c8b813a8bddbfb035fa2b0c29077836ae7c4def1a55ae4632167b3511/urllib3-1.26.17.tar.gz"
+    sha256 "24d6a242c28d29af46c3fae832c36db3bbebcc533dd1bb549172cd739c82df21"
   end
 
   resource "w3lib" do

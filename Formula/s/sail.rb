@@ -6,27 +6,30 @@ class Sail < Formula
   url "https://files.pythonhosted.org/packages/14/a7/7f3f93ab1d8d9f58e8dce01ff5bbbdaf5f6ce679e5e13638df0cd2bdbe9a/sailed.io-0.10.8.tar.gz"
   sha256 "c31f7adbf97ea4c2827e35f9615a54fe9a013bd0b16a655ad29a926d9f86f014"
   license "GPL-3.0-only"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a41c948046df6d63628747ceddf84b21602913a7028fab98a3beecabb088308d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ae89031ce466a6620562c6fd68fd8f68e29cc549ad1e15cd98f0d023d73d7b93"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9fa833e7e91c5e6e3321ed53ec3cf97e42682442e888e85689b8a422c2f55b09"
-    sha256 cellar: :any_skip_relocation, sonoma:         "22b6638a8a35e1eb1a03f50dec9b6a06dd22705811989de7aa3c41141cf8fbc9"
-    sha256 cellar: :any_skip_relocation, ventura:        "c1c3b91b435fb9fa1d3ab586bd2e19fc3e6c8eb8d86afdfe91da7af54f031977"
-    sha256 cellar: :any_skip_relocation, monterey:       "10af2cc9f1d0bc217dce8e36b2c625c0abd2cfa4d21928c0ff7936ba85c011f1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8a5968faee4bdd933886b9eddc09d1cd60a46b0e68cb8970c21374abd612a8b5"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c4b7c1f2239836062f2c53db6abb1a70b566a0cae8e84149138e43d3a2d4bdac"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b1baf32216da55cfb39623e31e0fd929d34b837daff7689ba1d1660f44d6d441"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5c6e47f01190601a16833fdb5fd6a6d5b67ebde6f1569c64382dd415ec3ad1f5"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a4794b0afebab98e270be13c35a8244def5ac41d94ab763bf79c99080a0f31de"
+    sha256 cellar: :any_skip_relocation, ventura:        "6063d5f10b6cf8fc112ac557b5d07e22ed375d306636a147739e8428454403ae"
+    sha256 cellar: :any_skip_relocation, monterey:       "9e19d86ab21429308940fdeed9d629fd09bf414cfd04151d94550daeed39327c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ab6c49bb15f265ce5f1e6c94d0302f114add9f89507c0ce3acd08332d99abe83"
   end
 
   depends_on "fabric"
   depends_on "pyinvoke"
   depends_on "python-certifi"
+  depends_on "python-packaging"
   depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "six"
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/2a/53/cf0a48de1bdcf6ff6e1c9a023f5f523dfe303e4024f216feac64b6eb7f67/charset-normalizer-3.2.0.tar.gz"
-    sha256 "3bb3d25a8e6c0aedd251753a79ae98a093c7e7b471faa3aa9a93a81431987ace"
+    url "https://files.pythonhosted.org/packages/cf/ac/e89b2f2f75f51e9859979b56d2ec162f7f893221975d244d8d5277aa9489/charset-normalizer-3.3.0.tar.gz"
+    sha256 "63563193aec44bce707e0c5ca64ff69fa72ed7cf34ce6e11d5127555756fd2f6"
   end
 
   resource "click" do
@@ -59,11 +62,6 @@ class Sail < Formula
     sha256 "af598ed32d6ae86f1b747b82783958b1a4ab8f617b06fe68795c7f026abbdcad"
   end
 
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/b9/6c/7c6658d258d7971c5eb0d9b69fa9265879ec9a9158031206d47800ae2213/packaging-23.1.tar.gz"
-    sha256 "a392980d2b6cffa644431898be54b0045151319d1e7ec34f0cfed48767dd334f"
-  end
-
   resource "python-digitalocean" do
     url "https://files.pythonhosted.org/packages/f8/f7/43cb73fb393c4c0da36294b6040c7424bc904042d55c1b37c73ecc9e7714/python-digitalocean-1.17.0.tar.gz"
     sha256 "107854fde1aafa21774e8053cf253b04173613c94531f75d5a039ad770562b24"
@@ -85,8 +83,8 @@ class Sail < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/51/13/62cb4a0af89fdf72db4a0ead8026e724c7f3cbf69706d84a4eff439be853/urllib3-2.0.5.tar.gz"
-    sha256 "13abf37382ea2ce6fb744d4dad67838eec857c9f4f57009891805e0b5e123594"
+    url "https://files.pythonhosted.org/packages/8b/00/db794bb94bf09cadb4ecd031c4295dd4e3536db4da958e20331d95f1edb7/urllib3-2.0.6.tar.gz"
+    sha256 "b19e1a85d206b56d7df1d5e683df4a7725252a964e3993648dd0fb5a1c157564"
   end
 
   def install
@@ -101,6 +99,8 @@ class Sail < Formula
     end
 
     venv.pip_install_and_link buildpath
+
+    generate_completions_from_executable(bin/"sail", shells: [:fish, :zsh], shell_parameter_format: :click)
   end
 
   test do

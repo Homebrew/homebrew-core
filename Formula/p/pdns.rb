@@ -1,8 +1,8 @@
 class Pdns < Formula
   desc "Authoritative nameserver"
   homepage "https://www.powerdns.com"
-  url "https://downloads.powerdns.com/releases/pdns-4.8.2.tar.bz2"
-  sha256 "3b173fda4c51bb07b5a51d8c599eedd7962a02056b410e3c9d9d69ed97be35b9"
+  url "https://downloads.powerdns.com/releases/pdns-4.8.3.tar.bz2"
+  sha256 "77b91199bdf71874334501c67e26469c2667a373d8423803fe657417295c77ba"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,15 +11,13 @@ class Pdns < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "fd68c98b297a09dd79cb54e57d4e4bf05e40ad3aa5050117050ebac72e47370d"
-    sha256 arm64_ventura:  "a6658f1bcb021848f0fb7f21c2e1b144edf6adfe2ee412dd4f7c1849579f3aff"
-    sha256 arm64_monterey: "14df5c6ac5665eb5755e74e568e3b19988f89719272ea5eb1ff337cd148d8bf0"
-    sha256 arm64_big_sur:  "a808012fbe120a53f13fbe4c7a60e9a2d7bb6b86b32d7a1b461c607681ef6696"
-    sha256 sonoma:         "2a02c91720c727cc860c3072a0626c30979acb49613b819490b56f6b0abc1af2"
-    sha256 ventura:        "1274e8cce28f2f96593cff57bfc3c34bc82c8eaec47be32f1a570b7932b8baeb"
-    sha256 monterey:       "54b36fac85ce50fe8c4b12a052a8e1e505c130719a1dd7bb8379f511890922ad"
-    sha256 big_sur:        "530b181365a4dbf206c3d4d4885df1cd7a52af55ed6ae4ee69366e961de411ca"
-    sha256 x86_64_linux:   "7f37b17ae68d5693792938326b6a63532e3c3f3076cbaadc6cca50c4090a3f32"
+    sha256 arm64_sonoma:   "a53a7d0b5ce4b77d7d1432216db96d6c986e7154503a98b6a3e6cd3fab4fccaf"
+    sha256 arm64_ventura:  "70194b85c7888603c8e9259183064f08184b5edc0ba56cc5bfbb72bbd67f8cb6"
+    sha256 arm64_monterey: "7ca5ec69e7ea6fca29b20717b1cad845f06157b96f820c812e0684ad7dde252f"
+    sha256 sonoma:         "4287fe8f9e38cfc694e822b115facb9e5c64554c201770f93437b6a8c502778f"
+    sha256 ventura:        "b0c5e60561d3d05fecc572dc94e25ea757b026543a042af24d7fff03e2dd9453"
+    sha256 monterey:       "219813979a6461adbfdea144f9ed5c77301ccc264bd08d2d61962818f2182692"
+    sha256 x86_64_linux:   "8d05095fa30da45dd225464c7000f284baadbab01aa12949a129f76229b5df20"
   end
 
   head do

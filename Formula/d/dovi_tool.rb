@@ -1,8 +1,8 @@
 class DoviTool < Formula
   desc "CLI tool for Dolby Vision metadata on video streams"
   homepage "https://github.com/quietvoid/dovi_tool/"
-  url "https://github.com/quietvoid/dovi_tool/archive/refs/tags/2.0.3.tar.gz"
-  sha256 "6a4afe2733ab1a4eca6ff98c6038f60bbbed5c649b99c239759ccf0b17a3f818"
+  url "https://github.com/quietvoid/dovi_tool/archive/refs/tags/2.1.0.tar.gz"
+  sha256 "06b7332649959710ec00e25a9b4e4a88ee7766149726d6e2f60c3b5bb6292664"
   license "MIT"
   head "https://github.com/quietvoid/dovi_tool.git", branch: "main"
 
@@ -12,15 +12,13 @@ class DoviTool < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fb41b3ba410788df8baaa68868f19e21165b60a8062b451066b487dcbf2ec7af"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "be9203db492cbbc19a2be63bc6e3c38afbf400cc7a248bddc1bbc154082230f7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2969966d41ac5f184920327758aef057d6c494efc5bf30c689825d2bd2f288b7"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "18b6fa8b33d62fceee6e7d3f93476ccf8aa434d47a92908b6a7abe6d3994ca07"
-    sha256 cellar: :any_skip_relocation, sonoma:         "8a9496c5474bc40c8b3bad8d3037bc7dbae8c6b0af973cd40d652ad6905dc92f"
-    sha256 cellar: :any_skip_relocation, ventura:        "20d201b2018edece99efd7d2697dde13fa178d45427ec67e403293a403aa265b"
-    sha256 cellar: :any_skip_relocation, monterey:       "571131171d3f95269479c29bfbfd0caf2ea4ad8fdbeee37ae17fea39ae845e15"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5c1b7416c7abb7b987e03f50929c8cabbc8c8b8907e4fa3d834c4173b630f52e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "68f211eeb42e98aba295b3fbdfaa708e2542c7dbf17e382e51b5fb4ef620efff"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d3710cc3e2b3312063431485fc5c3f2623f0dbea38b669955ce32f7273ebbb87"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7fae1076f6a57da50d9b53b8b3f0df9a952744ddcc2f47176039fe5c3ab4f934"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a4f5be9943c2e4464cf540618f0ed2d34dfc098388d67fb12e095920d1433c32"
+    sha256 cellar: :any_skip_relocation, sonoma:         "67b36ed015f9bdbe34406ef2a56fffad68e1be1665b265b2333a5df4098478ee"
+    sha256 cellar: :any_skip_relocation, ventura:        "295c1a2354b03787d15a586c8e56f999fc217e5ebabb5f6de92f2c5de5d9f7be"
+    sha256 cellar: :any_skip_relocation, monterey:       "448e8d027283d5fa0687ec45cdf1dc51e2b4fb9b8971becb1b05c7e057311dd8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f38cb82f72fb00869c5e93098dfc84491200bd6b33aa38eb7cae9330f9a751e8"
   end
 
   depends_on "rust" => :build

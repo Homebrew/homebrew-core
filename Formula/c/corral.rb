@@ -7,6 +7,7 @@ class Corral < Formula
   head "https://github.com/ponylang/corral.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "aa762ed2c4b29e9cf3d3837853851145a408b0f65d61b7c2a28feb32949dd4ca"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f6427abe5672af55ede5b6b42e320874284307cf073a98f00ae14acfca966457"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "20735dd0b9efdf70328b5dae305ef88d8aae8a424bcf02c65cffdbc8471fcb4c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b6ac6521e84685f8419cb5deba01a108cd8c161363311cd47cb8c6331454b0f6"

@@ -6,14 +6,16 @@ class Vineyard < Formula
   url "https://github.com/v6d-io/v6d/releases/download/v0.17.3/v6d-0.17.3.tar.gz"
   sha256 "34178fbc814a28b0dae8f26bf1c140ef0163c4c6fb57d5c4be06cd6c4d904718"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   bottle do
-    sha256                               arm64_ventura:  "25ff02a074aef9b042994536f1cf2606ea7a48ce8a079818e5b21e042fb4901e"
-    sha256                               arm64_monterey: "011dc086caefdeece5d6a2c0313096807204e0aad25348b4252cb711123e1f55"
-    sha256                               ventura:        "b9ddd2ec3f4dce5ff900de6f0d2c28e6a838b90d526250546c03550fcd3e23e2"
-    sha256                               monterey:       "795a6db23f0ba06eb29868f837533138f854b75bda6f942af66078025e9b1ab6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b2c0d1fd660e4c12fe13b4c282fd1c27f29a79177192992b3e3c6af0d1103b1a"
+    sha256                               arm64_sonoma:   "22fc09826da06dc466bae372997024810f240fb20b69a7fb9ef20f1f8b7ca8f9"
+    sha256                               arm64_ventura:  "3ac7d39e34b55c3c4bd12d9b27ea645cd98d9a9fb80e3d070006b2668bd5b8bc"
+    sha256                               arm64_monterey: "40869f3a79d1d31fe1eee36244c5caa3582916044f34d25f1471aa2060ae8211"
+    sha256                               sonoma:         "d39f70dcda43a5ab5d7afb6275c6b07d0578275f2ea907e40686b0e0c88a07fc"
+    sha256                               ventura:        "1c45960b42c74d771081ffc3602cc340f0a70d6e558a5e21a5e48023d9528c76"
+    sha256                               monterey:       "8dfefe8d700db7474ae6dd7fd0ac80ecb611ac73fc4bc9b51fe67a0d37d89258"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c77a7684df23eb5d04e695216607ebc7e043b734756cee9036fa0bc49438d757"
   end
 
   depends_on "cmake" => :build
@@ -39,6 +41,10 @@ class Vineyard < Formula
     python = "python3.11"
     # LLVM is keg-only.
     ENV.prepend_path "PYTHONPATH", Formula["llvm"].opt_prefix/Language::Python.site_packages(python)
+
+    # Work around an Xcode 15 linker issue which causes linkage against LLVM's
+    # libunwind due to it being present in a library search path.
+    ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
 
     system "cmake", "-S", ".", "-B", "build",
                     "-DCMAKE_CXX_STANDARD=17",

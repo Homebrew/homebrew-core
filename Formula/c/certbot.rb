@@ -3,23 +3,19 @@ class Certbot < Formula
 
   desc "Tool to obtain certs from Let's Encrypt and autoenable HTTPS"
   homepage "https://certbot.eff.org/"
-  url "https://files.pythonhosted.org/packages/0e/fd/192cb7d79f798432b1b2e7a9998b2f12dd589c50ff88e31553d95143b01c/certbot-2.6.0.tar.gz"
-  sha256 "c4de6bb0d092729650ed90a5bdb513932bdc47ec5f7f98049180ab8e4a835dab"
+  url "https://files.pythonhosted.org/packages/0a/22/72343a33d64b73f75e5be06c4ec0c9f168552640cc2e934ea8d87bbcd39e/certbot-2.7.0.tar.gz"
+  sha256 "274329918656db82fb314e2ecb12a9b276a1df820e28e36e8ecca8c3a0563c1c"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/certbot/certbot.git", branch: "master"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b78c95e215775e1a95fd8c7cbce1d2f3a56d5bfd8ec0595d555b6f86b40a8eab"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "46ae3f6fbc052236c12de0e26eec2ba49e1fc242701f4f5dcf17bf75461fab90"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "94455c31df1c852aeb3f9356756e441eadd3a352a962fae85fc45eb4cb57d7ff"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0c7e31e25c8f3d0ab63f1d69dab45bf3af007589fcaa1035f4762502e24136c4"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c169ecfdc98c4f34bd1b25d3ca77381d3ce5b1d1a353e87c61ace9d4e57563b7"
-    sha256 cellar: :any_skip_relocation, ventura:        "d7f056e3bb0385653713c127931f85c02f352ce0a810c4183e7c814f4a58b599"
-    sha256 cellar: :any_skip_relocation, monterey:       "89ec02a403152c4b945a5ad20747b4c34ba05366a26bf46003540c388062af79"
-    sha256 cellar: :any_skip_relocation, big_sur:        "65a0c30a7352571b82602881ec693033b01b00e54feb9c27791d02a2b1d97f94"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a77607e702a8dbdda4ede5c6fccd03c952b12aa147b7cb25c2b37ee0d88b5a5a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a6559e838615c8e460887731e3ed77cce8ff3f07328fdb02a21fa0bc3315a3a1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4180cbbc56f20c659fc8e199fe46e3c3b52b2378b7de54597474567aab1c46d1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "28dfc3bc16226506b5f74233f8f3cbf2b2e053a1cd83e428854bf4706f27c042"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3c911049187d1903a94ef3e7df7861d3ee7f8d9ccdb3bc80f98794e12a73a717"
+    sha256 cellar: :any_skip_relocation, ventura:        "bd8003c921f4402fb8ebb9b6f17a11295a9108494004185a2e70290f5553dc66"
+    sha256 cellar: :any_skip_relocation, monterey:       "37192637d2494c5e1f88fd8844ef87b2b40523a8f28ea528882efc46a07bd67d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1ea105e82f802c5ed0ef055a049dbf92fced3efacbf658609035e0a2a7d64f1c"
   end
 
   depends_on "augeas"
@@ -28,6 +24,7 @@ class Certbot < Formula
   depends_on "pycparser"
   depends_on "python-certifi"
   depends_on "python-cryptography"
+  depends_on "python-pyparsing"
   depends_on "python-pytz"
   depends_on "python@3.11"
   depends_on "six"
@@ -35,28 +32,28 @@ class Certbot < Formula
   uses_from_macos "libffi"
 
   resource "acme" do
-    url "https://files.pythonhosted.org/packages/fd/8e/166279430adea94c9fa72079fcef10f5d0a382faaa233ef9e99c3210c108/acme-2.6.0.tar.gz"
-    sha256 "607360db73e458150ab63825a82b220bdf04badbd81c6d3218e5d993c6be491c"
+    url "https://files.pythonhosted.org/packages/53/fe/d25df0985f17d48fbe5ae2aa7281152693bf6f70727a0f5031d2656fd616/acme-2.7.0.tar.gz"
+    sha256 "7aeaf0886322ca5569bc532828086ff2a7fc5b66a29a0a5d3270363d448af228"
   end
 
   resource "certbot-apache" do
-    url "https://files.pythonhosted.org/packages/49/e8/b92124ffadbf600d4c0921514f70b2f6e5c2d37ca26ab7ecade6b304ba22/certbot-apache-2.6.0.tar.gz"
-    sha256 "9fa677d8bb286c84f6fed9c109fe7ba4b88d4074f1c18e6b43230a7d5954160c"
+    url "https://files.pythonhosted.org/packages/8d/29/68a11f444e63ae7b0041fdba89b27672aa0ec8d124c452e240b30abb4dce/certbot-apache-2.7.0.tar.gz"
+    sha256 "de34a8d20aa44b539ef2e6b82dc5beea98e06e808da3bd22081d0c24e2bc42d5"
   end
 
   resource "certbot-nginx" do
-    url "https://files.pythonhosted.org/packages/51/01/4c2776e7154b972277d46fa63eff87accd5f026ffa6aa6204a3fe438640f/certbot-nginx-2.6.0.tar.gz"
-    sha256 "426038336f0eb305579aa1bd71d021cfbbfa0925d165198054763b7225d64a05"
+    url "https://files.pythonhosted.org/packages/69/73/3b68c3629b98539ad3be706bf2a305091640323322c09a7e49b86e0b2d05/certbot-nginx-2.7.0.tar.gz"
+    sha256 "137896f84988708e0cda6a422d1d803109dacbf24afc6c83d972957426cb04bd"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/ff/d7/8d757f8bd45be079d76309248845a04f09619a7b17d6dfc8c9ff6433cac2/charset-normalizer-3.1.0.tar.gz"
-    sha256 "34e0a2f9c370eb95597aae63bf85eb5e96826d81e3dcf88b8886012906f509b5"
+    url "https://files.pythonhosted.org/packages/cf/ac/e89b2f2f75f51e9859979b56d2ec162f7f893221975d244d8d5277aa9489/charset-normalizer-3.3.0.tar.gz"
+    sha256 "63563193aec44bce707e0c5ca64ff69fa72ed7cf34ce6e11d5127555756fd2f6"
   end
 
   resource "ConfigArgParse" do
-    url "https://files.pythonhosted.org/packages/16/05/385451bc8d20a3aa1d8934b32bd65847c100849ebba397dbf6c74566b237/ConfigArgParse-1.5.3.tar.gz"
-    sha256 "1b0b3cbf664ab59dada57123c81eff3d9737e0d11d8cf79e3d6eb10823f1739f"
+    url "https://files.pythonhosted.org/packages/70/8a/73f1008adfad01cb923255b924b1528727b8270e67cb4ef41eabdc7d783e/ConfigArgParse-1.7.tar.gz"
+    sha256 "e7067471884de5478c58a511e529f0f9bd1c66bfef1dea90935438d6c23306d1"
   end
 
   resource "configobj" do
@@ -89,11 +86,6 @@ class Certbot < Formula
     sha256 "276f931f55a452e7dea69c7173e984eb2a4407ce413c918aa34b55f82f9b8bac"
   end
 
-  resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/71/22/207523d16464c40a0310d2d4d8926daffa00ac1f5b1576170a32db749636/pyparsing-3.0.9.tar.gz"
-    sha256 "2b020ecf7d21b687f219b71ecad3631f644a47f01403fa1d1036b0c6416d70fb"
-  end
-
   resource "pyRFC3339" do
     url "https://files.pythonhosted.org/packages/00/52/75ea0ae249ba885c9429e421b4f94bc154df68484847f1ac164287d978d7/pyRFC3339-1.1.tar.gz"
     sha256 "81b8cbe1519cdb79bed04910dd6fa4e181faf8c88dff1e1b987b5f7ab23a5b1a"
@@ -110,8 +102,8 @@ class Certbot < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/d6/af/3b4cfedd46b3addab52e84a71ab26518272c23c77116de3c61ead54af903/urllib3-2.0.3.tar.gz"
-    sha256 "bee28b5e56addb8226c96f7f13ac28cb4c301dd5ea8a6ca179c0b9835e032825"
+    url "https://files.pythonhosted.org/packages/8b/00/db794bb94bf09cadb4ecd031c4295dd4e3536db4da958e20331d95f1edb7/urllib3-2.0.6.tar.gz"
+    sha256 "b19e1a85d206b56d7df1d5e683df4a7725252a964e3993648dd0fb5a1c157564"
   end
 
   def install

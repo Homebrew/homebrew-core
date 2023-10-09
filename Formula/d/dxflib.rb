@@ -11,9 +11,11 @@ class Dxflib < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "b82a6721fde448b539b34656cbde8cdd0699373ca2ce134f7d7424d8cdd29c66"
     sha256 cellar: :any,                 arm64_ventura:  "6807f88414e5cf6c874dd7eebd579298ecc0e99babb950a9a454cc9a55541071"
     sha256 cellar: :any,                 arm64_monterey: "7394d8e91ad3daefb69baae95372e86243fa69252aaaff0671aae88c5385b8be"
     sha256 cellar: :any,                 arm64_big_sur:  "38f73afafa3258b4d298f173064099dac105ab5bc162eae367d76fe326f5fbb8"
+    sha256 cellar: :any,                 sonoma:         "7428941eb92a81ca91bba17c724a82392ad210bd545eba3566d89be9dc028d59"
     sha256 cellar: :any,                 ventura:        "996710f91cf68315863c2d6b99666295ef2ef91de2c1cda1a2126154547ce89f"
     sha256 cellar: :any,                 monterey:       "47ebef21d6211ac7b080a8f1ed23dfb154febdf8dfd1a157b14e3c5dccea2812"
     sha256 cellar: :any,                 big_sur:        "86c60b0cc3b353b3652d6bb819c41fcec1cebc6c2f1f7ae435696bbae757a16f"

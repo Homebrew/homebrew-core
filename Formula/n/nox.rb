@@ -8,17 +8,17 @@ class Nox < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "140ecd3a7d7a07319f5913882f950f0d0847c3d3868589bdfe6695b07319f8d6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4d3ed5090b94223d95f5ba8abbb8d5112de339423da57d541e94ab89439035d4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2e65be811d2a457c78af21a73f7897dfc4d75cbd4c559f29adb2f387b5303a6a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "332d48ce9c4da2e1cb52f1edda3b92a471dbbdaa42a64857930faefc0b89bff9"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d3bb2edff83ee7153bd21bb58845d82fc1331b6d2284bb22c2879708c6d0a3e2"
-    sha256 cellar: :any_skip_relocation, ventura:        "1418e1025cd468cf8784bd954a7dcdf7718a4b1da83e9bcbfaf8b169e71f1228"
-    sha256 cellar: :any_skip_relocation, monterey:       "59135b3eaed034a371da233fae873babbb1270aac148a6b19f4a9cf36d5fb5b2"
-    sha256 cellar: :any_skip_relocation, big_sur:        "62bed763b77dda3faeb98aef921d1993fa11fd6c2b6b58aa3c8e48ff5b65beea"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "10bee3f89607504f58651106c059b3563f9fcd870bfe7c7553dd4c56f2950bc1"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a1cb418211bac4b369ad93d1bdf51cac003113fcc361dd34060737d0e8cead4d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e32fe2c4bd1e0d4b101a990e2d7174097779ec0a93bd013dba04aa99e3244733"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ac06b406f6b875109ee86044ae6b822e175ead8269ae1ef53e847ae273486731"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3380e6a697bde13617c8b897fe95f263847a01894a1286094da603be7e77ad4c"
+    sha256 cellar: :any_skip_relocation, ventura:        "5be0e08ceb598e48f6120d753c324a87ceaf9a0dd0a71e6479bc0eff7458380a"
+    sha256 cellar: :any_skip_relocation, monterey:       "c3046dad602d43e6eb551ce2a176a966edc0618906e52c5b0fb0fbc628829bf4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c72763e65f0dab528889bf4c0816d1ff58742d4ca678c30e50b99a5eb5bddd17"
   end
 
+  depends_on "python-packaging"
   depends_on "python@3.11"
   depends_on "six"
   depends_on "virtualenv"
@@ -31,11 +31,6 @@ class Nox < Formula
   resource "colorlog" do
     url "https://files.pythonhosted.org/packages/78/6b/4e5481ddcdb9c255b2715f54c863629f1543e97bc8c309d1c5c131ad14f2/colorlog-6.7.0.tar.gz"
     sha256 "bd94bd21c1e13fac7bd3153f4bc3a7dc0eb0974b8bc2fdf1a989e474f6e582e5"
-  end
-
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/b9/6c/7c6658d258d7971c5eb0d9b69fa9265879ec9a9158031206d47800ae2213/packaging-23.1.tar.gz"
-    sha256 "a392980d2b6cffa644431898be54b0045151319d1e7ec34f0cfed48767dd334f"
   end
 
   def install

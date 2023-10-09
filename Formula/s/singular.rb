@@ -1,9 +1,9 @@
 class Singular < Formula
   desc "Computer algebra system for polynomial computations"
   homepage "https://www.singular.uni-kl.de/"
-  url "https://www.singular.uni-kl.de/ftp/pub/Math/Singular/SOURCES/4-3-2/singular-4.3.2p7.tar.gz"
-  version "4.3.2p7"
-  sha256 "aad23c30066b7fbc011138a98d60532565d76a847eec6bf2938410d93b272ca3"
+  url "https://www.singular.uni-kl.de/ftp/pub/Math/Singular/SOURCES/4-3-2/singular-4.3.2p8.tar.gz"
+  version "4.3.2p8"
+  sha256 "8f157d2c582614482285838345ed7a3629ad6dd0bfbbc16eed7cbee0ff69d072"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -36,15 +36,13 @@ class Singular < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "4c5fdfff96ea196fbf522ef5e6ee4b02d7c15b0b713418c0af0850ef7161af89"
-    sha256 arm64_ventura:  "e4bca358fc37252fdab16cd47f4533a83f71ba7f2f1db6792157964b66a48d99"
-    sha256 arm64_monterey: "217f2210bf75469d9e142ed6caaf7e2a006364a62edb615e9836e2a0c3f15d4c"
-    sha256 arm64_big_sur:  "472b6015c52c58d15e46d0771c8d86e222d523ec6bd3d4dbe46b1dc083210cd5"
-    sha256 sonoma:         "6722f7f0e515f446a823a24f18c0f7b4b63c730577f0ed6944d7654cb5d17960"
-    sha256 ventura:        "30089d5d89ab41ee9131e55b2f70e8332dbdb3767bb2fc8d75e9574549addd13"
-    sha256 monterey:       "5b6c2b618d3c6888a96c387d54359a98d7f9803689022b96d4e26b916de3892e"
-    sha256 big_sur:        "9a3920401516777906706342923e2da4e2086a5e18652a042c5b2231253ae280"
-    sha256 x86_64_linux:   "41b478f1798726bf25a2bc98c2311c4c7fab5e0a743f7c00f04c5e9096547720"
+    sha256 arm64_sonoma:   "f5927d587c8e661fbd402867096ec7c435f59b7ccc00ae6f90d157543378230a"
+    sha256 arm64_ventura:  "16bb231b8282bb11d92c09a64f298fec8dfefa09610371a40e894fb23bdd5484"
+    sha256 arm64_monterey: "52ce046849a6ee1a5d83abc65cc3c5af5021385cff50125bb657b75294a2fa61"
+    sha256 sonoma:         "869d2cf6961d6bff7bcc38e13d6567877034690bd9b20d21883a4b9aea6fdc08"
+    sha256 ventura:        "1766fabc717d6b25f3a594be753e7a7747d26c85aa16e1d57ad4b7cad20c4f3b"
+    sha256 monterey:       "713ffbc8c8ef0ad9e187dbf54114f78ab8c4e25f08a4b688c651e7a236b8f182"
+    sha256 x86_64_linux:   "d5b11cc8b14ee82535e017103b130244df3eb241385b5dd5f2b23427e4ba6a68"
   end
 
   head do

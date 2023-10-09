@@ -12,8 +12,10 @@ class Visp < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "86ba63441239d3a6c012c6dd314a15a05ca6a2e140d1286c66fd66785300281e"
     sha256 cellar: :any,                 arm64_ventura:  "7a9e7cee7c01a1bb17156d03ddee849c25f0959804f0c4a3956f4ab295f1e394"
     sha256 cellar: :any,                 arm64_monterey: "50fc3a6a4c5ec8e24224967272ac188b341bae0b760a18b6d1e2c4b535a5eeb4"
+    sha256 cellar: :any,                 sonoma:         "67c217bdbb577cd62fa02cede2a96738642fbcc3618d740e78e6d2e2eb7357c7"
     sha256 cellar: :any,                 ventura:        "d84e37c6e593ba40f22de1d49294c256c457cfc3304b9ca6bf92a3b6682f0807"
     sha256 cellar: :any,                 monterey:       "e06dd7a50aefaa4e674dc4669c349424a38b962cfbe8bcf99f9ecfac4142d154"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "463a9b518c24289182dfc915f2ac17f27653188649f3677b6519b20ccb22e12d"

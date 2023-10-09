@@ -11,20 +11,21 @@ class Pybind11 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "238a6a021e546c2a1a8958f93166b7cac68027b2dc86d654e4bef384ba3497b2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0057b73416f1b41f40982a2f82e787868fc90240c6e29a1cb1628d92eadd3bfd"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0057b73416f1b41f40982a2f82e787868fc90240c6e29a1cb1628d92eadd3bfd"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0057b73416f1b41f40982a2f82e787868fc90240c6e29a1cb1628d92eadd3bfd"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3d9e4c24f0ba93fd73cc4cdeabd8d5ceb139ea041647ba063315394b95ed36fd"
-    sha256 cellar: :any_skip_relocation, ventura:        "42b24630f5ae49b3df70947a3f763121836f43a716db2f368cbd91ce04ed94ec"
-    sha256 cellar: :any_skip_relocation, monterey:       "42b24630f5ae49b3df70947a3f763121836f43a716db2f368cbd91ce04ed94ec"
-    sha256 cellar: :any_skip_relocation, big_sur:        "42b24630f5ae49b3df70947a3f763121836f43a716db2f368cbd91ce04ed94ec"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0057b73416f1b41f40982a2f82e787868fc90240c6e29a1cb1628d92eadd3bfd"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "762bbf6601f6081e7499620b2dad9b0d6a7512dc8df95f8c2f967285b1d2bd88"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1385bdb1abe562db6cd64404643b6e25c567335484aa62bbe34db39c0083724d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "331f50290dcb90f58b5d4d84d8bf59414f044ce75b2276993bfd016d0b6d6067"
+    sha256 cellar: :any_skip_relocation, sonoma:         "654a9bb7cd9b89fa5b45b37a49d6fabdf45a1a748996551c091770fc1e5291f1"
+    sha256 cellar: :any_skip_relocation, ventura:        "39d9190f7f9b2fbcace432bb7d47fb41919be59e22bb2f6e8b8f23d554f3e219"
+    sha256 cellar: :any_skip_relocation, monterey:       "e01d1d125db78b2f44a024cc96320aa6f174b3854e925dc3cf6ee7ca99680d0c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e0493eaed5df5a7daba8e3f819ef6d44e29bf94448708ee4b629224ee1a3106c"
   end
 
   depends_on "cmake" => :build
+  depends_on "python-setuptools" => :build
   depends_on "python@3.10" => [:build, :test]
   depends_on "python@3.11" => [:build, :test]
+  depends_on "python@3.12" => [:build, :test]
 
   def pythons
     deps.map(&:to_formula)

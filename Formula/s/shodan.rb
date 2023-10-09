@@ -6,18 +6,17 @@ class Shodan < Formula
   url "https://files.pythonhosted.org/packages/db/14/2e16620742e5d56eb6035c0bbf16ae04a8dee50d67d09d8df4e196d53184/shodan-1.30.0.tar.gz"
   sha256 "c9617c66c47b87d4801e7080b6c769ec9a31da398defe0b047a6794927436453"
   license "MIT"
+  revision 1
   head "https://github.com/achillean/shodan-python.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "47a6dfa13e9829a83c10e3b906c388116d8a5e46bb1e2083c6536a5611b8a035"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3d23152b79f7e15423df02fc752dd27f08f0fec3e56748bd5b7bfb046f171197"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c00759645646e941ae68162fb790ebf0e5218e221676319e54a7ad56f0e7ca87"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "95219748f36d74a1bacd0a261a11bd342a77f39429451e8d40a8f756ebf10988"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b5881f34f6bf047f6afc67a343e41d86d9fda2fac3bddb32c8dac2632430fb61"
-    sha256 cellar: :any_skip_relocation, ventura:        "69cf05452061383a55b6acb2af77e1b01c583039b951d53a9c7149795cc29e21"
-    sha256 cellar: :any_skip_relocation, monterey:       "fd683642dc5b1b3b1869bb99f8317ff88dd346d77e412fada69d5ad0f1804f1b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a4b33f527e705e2881bef2c526bc7a8155906a21cb5cb92e8c5cfa1913736907"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bcced46ba43d54f9c9559b055ba559f0753c4cbacd7eb48d73ff4edf6ebc2da7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "55a090bfae061947ccc49e70463a946765a90a288e8fa895ce8f2c93dacd9cce"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7c2e714f36de46c1f4af87963c184be260adb19777290b0b3e5094fcf20691ca"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c80f8e6ee99fbb0715f024870e70dc8f8ee3b676b5d7f4c83dd4426cd5faa368"
+    sha256 cellar: :any_skip_relocation, sonoma:         "6dfb5fb8582d779b9f21cb2421eb9762e8cced66e2bc0b0305d09174a2f96f52"
+    sha256 cellar: :any_skip_relocation, ventura:        "fd3f6a773a2e0a6d66e753999cf98425972f598548022fe72d15c1a7a182737a"
+    sha256 cellar: :any_skip_relocation, monterey:       "13bbc1ef48731ff893818a331f9de780aa42cbd20cc7d4bed02d0f7d4f1ba41c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "78ba12e17ae4aec970b77287b448f1e0adff1222ff58f44cb244ebd484e49dab"
   end
 
   depends_on "python-certifi"
@@ -25,13 +24,13 @@ class Shodan < Formula
   depends_on "six"
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/2a/53/cf0a48de1bdcf6ff6e1c9a023f5f523dfe303e4024f216feac64b6eb7f67/charset-normalizer-3.2.0.tar.gz"
-    sha256 "3bb3d25a8e6c0aedd251753a79ae98a093c7e7b471faa3aa9a93a81431987ace"
+    url "https://files.pythonhosted.org/packages/cf/ac/e89b2f2f75f51e9859979b56d2ec162f7f893221975d244d8d5277aa9489/charset-normalizer-3.3.0.tar.gz"
+    sha256 "63563193aec44bce707e0c5ca64ff69fa72ed7cf34ce6e11d5127555756fd2f6"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/72/bd/fedc277e7351917b6c4e0ac751853a97af261278a4c7808babafa8ef2120/click-8.1.6.tar.gz"
-    sha256 "48ee849951919527a045bfe3bf7baa8a959c423134e1a5b98c05c20ba75a1cbd"
+    url "https://files.pythonhosted.org/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz"
+    sha256 "ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de"
   end
 
   resource "click-plugins" do
@@ -45,8 +44,8 @@ class Shodan < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/00/0b/c506e9e44e4c4b6c89fcecda23dc115bf8e7ff7eb127e0cb9c114cbc9a15/filelock-3.12.2.tar.gz"
-    sha256 "002740518d8aa59a26b0c76e10fb8c6e15eae825d34b6fdf670333fd7b938d81"
+    url "https://files.pythonhosted.org/packages/d5/71/bb1326535231229dd69a9dd2e338f6f54b2d57bd88fc4a52285c0ab8a5f6/filelock-3.12.4.tar.gz"
+    sha256 "2e6f249f1f3654291606e046b09f1fd5eac39b360664c27f5aad072012f8bcbd"
   end
 
   resource "idna" do
@@ -65,18 +64,18 @@ class Shodan < Formula
   end
 
   resource "tldextract" do
-    url "https://files.pythonhosted.org/packages/80/90/d294a3f69b4143cf56c326064086236bc8157c389497893d940968e6cda2/tldextract-3.4.4.tar.gz"
-    sha256 "5fe3210c577463545191d45ad522d3d5e78d55218ce97215e82004dcae1e1234"
+    url "https://files.pythonhosted.org/packages/ba/7a/dc3ffc0e333d33e8ccb63a14adc40180c29d89490a25ebe9f9ef01605c51/tldextract-3.6.0.tar.gz"
+    sha256 "a5d8b6583791daca268a7592ebcf764152fa49617983c49916ee9de99b366222"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/31/ab/46bec149bbd71a4467a3063ac22f4486ecd2ceb70ae8c70d5d8e4c2a7946/urllib3-2.0.4.tar.gz"
-    sha256 "8d22f86aae8ef5e410d4f539fde9ce6b2113a001bb4d189e0aed70642d602b11"
+    url "https://files.pythonhosted.org/packages/8b/00/db794bb94bf09cadb4ecd031c4295dd4e3536db4da958e20331d95f1edb7/urllib3-2.0.6.tar.gz"
+    sha256 "b19e1a85d206b56d7df1d5e683df4a7725252a964e3993648dd0fb5a1c157564"
   end
 
   resource "xlsxwriter" do
-    url "https://files.pythonhosted.org/packages/04/d4/3cc6a3cd112a91d95f554ca8909c8528addf06d79c51ccd40e39a6ff48e1/XlsxWriter-3.1.2.tar.gz"
-    sha256 "78751099a770273f1c98b8d6643351f68f98ae8e6acf9d09d37dc6798f8cd3de"
+    url "https://files.pythonhosted.org/packages/e0/ab/bc8d317106c8ea5ff11a2394ae99cb9adf1a9d32c55d3b15eea2b505b875/XlsxWriter-3.1.6.tar.gz"
+    sha256 "2087abdaa4a5e981a3ae50b5c21ff1adae59c8fecb6157808585fc169a6bfcd9"
   end
 
   def install

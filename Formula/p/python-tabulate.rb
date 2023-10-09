@@ -6,20 +6,20 @@ class PythonTabulate < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0f01d2154c35a96175ed58d764e513c83f939f0bdba62f617360df67a469a690"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2f4936777a24b5061f87e299884aef95136b4d252b923ae305d9bbe73e2dad28"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c5e460cc4ab943bd3df71621927870d82c82e9cf04952685777da57f6f617623"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7520c9d33cb5d3a87400aa0c08cf34ca4af36fd0a37f4efef343d4babc859cd5"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d60449053b74014e77ef43fc1545ad2c9e785f2371ccb7300962d1920aa413dd"
-    sha256 cellar: :any_skip_relocation, ventura:        "6262b211e0254a8e7201f596ed6e7ad7901f943d095e59f73d87a1e6af420d53"
-    sha256 cellar: :any_skip_relocation, monterey:       "76ef2b0a509160d8cd16b0e8311f91ededec7e46f318143d6b96059b86032c53"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2bf325d06152ecf195d458012ac7be874b25bd6329fceb463be171d0c5a8c9ff"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "47496825538f1a5d0ab294a6fd11f303db31bdfbc88703df81603b903ba8815f"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "82adfd13997556aaa1a2c3d70df498ff8ce85bc14a5cd05a71c20e17f06aa28c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f14c4a0547033da7bbd63156643bc74a9637edf100c663cc411cf8fd5b3ac042"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b3a6e9aa47ae45a92384d4232dc5f4e1cfb207da717943255140b52920aab6b0"
+    sha256 cellar: :any_skip_relocation, sonoma:         "adffa4d3698dca4606a5c17a3eda30904c4733e0102aa53d65b24a17cccf849c"
+    sha256 cellar: :any_skip_relocation, ventura:        "b9e431bc31ccc805517121f05b2401b4a9bba39ae24a9291e1ea43b7006bd806"
+    sha256 cellar: :any_skip_relocation, monterey:       "10e6f0b23030d5abea903d88d64a8a78ac4c82750063e12f628cd35b549fec66"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e359253d90d409f0c8c98916ab2ee01a39b680ecc567f62f34dab245eddb4654"
   end
 
+  depends_on "python-setuptools" => :build
   depends_on "python@3.10" => [:build, :test]
-  depends_on "python@3.11" => [:build, :test] # FIXME: should be runtime dependency
+  depends_on "python@3.11" => [:build, :test]
+  depends_on "python@3.12" => [:build, :test] # FIXME: should be runtime dependency
 
   def pythons
     deps.map(&:to_formula)

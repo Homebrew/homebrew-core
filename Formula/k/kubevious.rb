@@ -3,21 +3,18 @@ require "language/node"
 class Kubevious < Formula
   desc "Detects and prevents Kubernetes misconfigurations and violations"
   homepage "https://github.com/kubevious/cli"
-  url "https://registry.npmjs.org/kubevious/-/kubevious-1.0.58.tgz"
-  sha256 "a2d403375f2937edc3e326e9d71f0772dcdba71d2986c9242ff191792e6b68f3"
+  url "https://registry.npmjs.org/kubevious/-/kubevious-1.0.59.tgz"
+  sha256 "914f56db7addbd52154530483b125f8eef17f1cda231be43ea1d53d997d41d6b"
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "42e67595a77abe29794275a9277c9362aac33180c2f12cfddab63ecb96c3c131"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d5b735b8ac7cc099a47f32e103624b2f7b4cf38b549117827f3aa83dc867cd77"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d5b735b8ac7cc099a47f32e103624b2f7b4cf38b549117827f3aa83dc867cd77"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d5b735b8ac7cc099a47f32e103624b2f7b4cf38b549117827f3aa83dc867cd77"
-    sha256 cellar: :any_skip_relocation, sonoma:         "afd0c2693e1d2fd6a8ba6b060cba7db2a77b34265a61815d02fe1819d2318497"
-    sha256 cellar: :any_skip_relocation, ventura:        "c06ee99ad24dbf8bb1bbfda8e031fd6f378416df5605839049e894903bb3864c"
-    sha256 cellar: :any_skip_relocation, monterey:       "c06ee99ad24dbf8bb1bbfda8e031fd6f378416df5605839049e894903bb3864c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c06ee99ad24dbf8bb1bbfda8e031fd6f378416df5605839049e894903bb3864c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d5b735b8ac7cc099a47f32e103624b2f7b4cf38b549117827f3aa83dc867cd77"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2e15d42c234894f5eb57e8f21355c490b1811a23f30ed0497131f48aff2eae98"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2e15d42c234894f5eb57e8f21355c490b1811a23f30ed0497131f48aff2eae98"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2e15d42c234894f5eb57e8f21355c490b1811a23f30ed0497131f48aff2eae98"
+    sha256 cellar: :any_skip_relocation, sonoma:         "26741c298a464c0c1f662fe6a2bd513f55efcd85e1c9dc6246ba7dd975e7f6cd"
+    sha256 cellar: :any_skip_relocation, ventura:        "26741c298a464c0c1f662fe6a2bd513f55efcd85e1c9dc6246ba7dd975e7f6cd"
+    sha256 cellar: :any_skip_relocation, monterey:       "26741c298a464c0c1f662fe6a2bd513f55efcd85e1c9dc6246ba7dd975e7f6cd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2e15d42c234894f5eb57e8f21355c490b1811a23f30ed0497131f48aff2eae98"
   end
 
   depends_on "node"

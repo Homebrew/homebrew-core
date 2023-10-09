@@ -12,9 +12,11 @@ class Gpsbabel < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "0024f50f858f84e5b95dfff3a15e72dc9b6bd415b45c647c1510154499b2c287"
     sha256 cellar: :any,                 arm64_ventura:  "f2b81e2ad20e8172ae57d46d67ca75f542ccfbc260cea6cef6ff9bc9ac7829e0"
     sha256 cellar: :any,                 arm64_monterey: "646be265241a8f78c88289bef277cbe444db6a0bf7cd02e197ef395917575ca6"
     sha256 cellar: :any,                 arm64_big_sur:  "908cf83c712d6f730d3ab1a5d7b2fd8fd0ded530949016c0b6ebaaeb322d2db0"
+    sha256                               sonoma:         "375ad717cbc3bdb28aadc9a45d3493cd40fa08bf33f1427d50c471da66e14f21"
     sha256                               ventura:        "27797000ed7e6fd54a016955bb4a359013b9e2518dc622c87250bc7bdd920b54"
     sha256                               monterey:       "1c425bf6dc9f522a59c67e37ad8d16af80e0dc334f5ab820ed12ad415907704a"
     sha256                               big_sur:        "67cd2df2db497332a254d7923ebdd9bc17450195d53f327788326f2405451c4a"

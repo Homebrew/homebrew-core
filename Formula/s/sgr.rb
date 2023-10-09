@@ -9,22 +9,22 @@ class Sgr < Formula
   revision 5
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_sonoma:   "ba8a20b860bf42caef1acfa8ce6d841e719f236e790b8c4005cd546ca2cdda8f"
-    sha256 cellar: :any,                 arm64_ventura:  "ad392a74ccaea8b17e8f00b861fafe84c93ab8aba5917d8eb25141e940afc3a8"
-    sha256 cellar: :any,                 arm64_monterey: "133b7c45be17343b7f2d7f0f75b620378253314903d7d8778234a83d1fe43fd6"
-    sha256 cellar: :any,                 arm64_big_sur:  "673d87888067d0ce6db019302234764cbbf4779f9a1f1fd50265478c71b1289d"
-    sha256 cellar: :any,                 sonoma:         "16fdd6cdb1662b7957130aa1f9414458f0ed5ed278ec8e03edb98cd7f1354253"
-    sha256 cellar: :any,                 ventura:        "266096ebc135a3a47c37e7f3f9c67669c0eb8c98f33a73b18cea575adbab0cf6"
-    sha256 cellar: :any,                 monterey:       "f2c2ffdf525071e03fcc960404b27dfee4ba28688c8bb830dc289637bbd3757c"
-    sha256 cellar: :any,                 big_sur:        "4436cc1c983d08e35c9e0609fcd9982dae57e51f7f24dfbcdd068be6f9885eec"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "232774c24134629af38f7e378795aca6e61527189730ec22b5e14daf4811e0ac"
+    rebuild 3
+    sha256 cellar: :any,                 arm64_sonoma:   "3d2001d881882573dd0c769e95764a149c0e7fb0bca1a8735aaa029bd506e757"
+    sha256 cellar: :any,                 arm64_ventura:  "16eba831d26a52601f4222ae98f27abddd675afd82a9d95511127c74489ba302"
+    sha256 cellar: :any,                 arm64_monterey: "3c39a5d24b824fa08da6bc55119c26e28f5649f1c1393fcaff9ec53182a7256a"
+    sha256 cellar: :any,                 sonoma:         "bfd8c901d39f9a19a9d5b96f7185741339359ec1ec7209e1aefb9923033e7195"
+    sha256 cellar: :any,                 ventura:        "c41a36ad6ccf8041d49d816311f155d6904640ca4a546d364464f30c20aad339"
+    sha256 cellar: :any,                 monterey:       "1721cd404a5d75fdc5bef98d8a053dc9472240aef40cb13ad8fda005eab964b4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8903b67a7329231546b3bc43e5f3a3c2e2d602dd63e43fbc6a7486a576407b0e"
   end
 
   depends_on "rust" => :build # for pydantic
   depends_on "libpq" # for psycopg2-binary
+  depends_on "pycparser"
   depends_on "python-certifi"
   depends_on "python-cryptography"
+  depends_on "python-packaging"
   depends_on "python-tabulate"
   depends_on "python-typing-extensions"
   depends_on "python@3.11"
@@ -108,11 +108,6 @@ class Sgr < Formula
     sha256 "fcf8ac2cef310d5ddff2bef2c42f4e5a8bb546b87bca5bf8832135db054ca4e1"
   end
 
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/b9/6c/7c6658d258d7971c5eb0d9b69fa9265879ec9a9158031206d47800ae2213/packaging-23.1.tar.gz"
-    sha256 "a392980d2b6cffa644431898be54b0045151319d1e7ec34f0cfed48767dd334f"
-  end
-
   resource "parsimonious" do
     url "https://files.pythonhosted.org/packages/02/fc/067a3f89869a41009e1a7cdfb14725f8ddd246f30f63c645e8ef8a1c56f4/parsimonious-0.8.1.tar.gz"
     sha256 "3add338892d580e0cb3b1a39e4a1b427ff9f687858fdd61097053742391a9f6b"
@@ -126,11 +121,6 @@ class Sgr < Formula
   resource "psycopg2-binary" do
     url "https://files.pythonhosted.org/packages/98/3e/05ab0922422c91ca0ecb5939a100f8dc2b5d15f5978433beadc87c5329bf/psycopg2-binary-2.9.6.tar.gz"
     sha256 "1f64dcfb8f6e0c014c7f55e51c9759f024f70ea572fbdef123f85318c297947c"
-  end
-
-  resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/5e/0b/95d387f5f4433cb0f53ff7ad859bd2c6051051cebbb564f139a999ab46de/pycparser-2.21.tar.gz"
-    sha256 "e644fdec12f7872f86c58ff790da456218b10f863970249516d60a5eaca77206"
   end
 
   resource "pydantic" do
@@ -202,6 +192,8 @@ class Sgr < Formula
 
   def install
     virtualenv_install_with_resources
+
+    generate_completions_from_executable(bin/"sgr", shells: [:fish, :zsh], shell_parameter_format: :click)
   end
 
   test do

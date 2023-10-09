@@ -1,18 +1,18 @@
 class Squiid < Formula
-  desc "Modular calculator written in Rust"
+  desc "Do advanced algebraic and RPN calculations"
   homepage "https://imaginaryinfinity.net/projects/squiid/"
-  url "https://gitlab.com/ImaginaryInfinity/squiid-calculator/squiid/-/archive/1.0.6/squiid-1.0.6.tar.gz"
-  sha256 "785dd38de948c9e1fa8ae33a42d092bd21ab57e1399106c37d75962c1bf2ea92"
+  url "https://gitlab.com/ImaginaryInfinity/squiid-calculator/squiid/-/archive/1.1.1/squiid-1.1.1.tar.gz"
+  sha256 "2534e01d7b7a5b1793bb3cb5f6ebe4a404a5d8e131f87595ff8afb98a4838367"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "82298c8010a6196f6c019457afa5d4235da4e2df56d7eecff590a81da1fba317"
-    sha256 cellar: :any,                 arm64_ventura:  "c5138a8de15e2b06c131b4241f597e5718957a18b790f13fd81f34c5801613e6"
-    sha256 cellar: :any,                 arm64_monterey: "f7752014cdd2c21c828fffb45ded4320668c0ba271f61b18a719e3f453dcdfa8"
-    sha256 cellar: :any,                 sonoma:         "133065476727daf93ffda1f5be46cbde6d04aca6edf594e7c8e79f94abb3121c"
-    sha256 cellar: :any,                 ventura:        "f41f2f603113159a0bf08d8e4c7c7cf80882337aad6fdfa6b363714d597e6d7b"
-    sha256 cellar: :any,                 monterey:       "dc78029d1f8a2bd1ac9c6cf22f35053e37acb1069f552026c1e35d0135837b07"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1f8647d2a4e017da64e1952f0a0bcae879d48a1c8d7b70543f640841655851bd"
+    sha256 cellar: :any,                 arm64_sonoma:   "a443b05fa1907a2fcb23ec18d1aed61fd859b1bde705041a1007ec8130d2f859"
+    sha256 cellar: :any,                 arm64_ventura:  "ca132ff60afa5d3a66c21c562c7fe919dbdef8b029d19e44a170d149b03b07df"
+    sha256 cellar: :any,                 arm64_monterey: "0e1c890d209bdc4820024458acc920e06fcf774ac15581da13d872b78bb37cda"
+    sha256 cellar: :any,                 sonoma:         "a9f4a0604aa3a7fc6d8c2c43c11dede38493b08f338f6e87a9da9e25f0da4ccb"
+    sha256 cellar: :any,                 ventura:        "b05ad841186178cab1c3389495dfe7178830cb45a2c9a1b7a6a5eb09b69bb5a2"
+    sha256 cellar: :any,                 monterey:       "7c7685b1e78fa9f9b5539dbc0d875d89b82f3339e2ffb9decacd8f534d28446e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f12ed29e01e471cb09f66eb454b02ed1d482789558addcb4aa18f43cdb9f5ea3"
   end
 
   depends_on "rust" => :build

@@ -9,18 +9,17 @@ class Flake8 < Formula
   head "https://github.com/PyCQA/flake8.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "137905becba63ae681ac910122593cfb9f591641d3aa73f5caab27cbe663e27a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1eed9a057bfab1b4db4cb236a4a16d1ea1ff40d16975bcdae17da0d01457308a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e89142a3f1f2e098847826a1609c60b74e717d6a67b80a41e4f9894d10a843ea"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fe9648b81f55f28c91a857a0de6494326593c0a9400c7513b4f6314ba5d53b1b"
-    sha256 cellar: :any_skip_relocation, sonoma:         "8e31e6892b819a3a17ae8279ba3b7d086f2847ea05b055ffd84411c7ffb5f679"
-    sha256 cellar: :any_skip_relocation, ventura:        "ee8180234914a19a716f496d0ad0f9e2e986912eda7253ac84ea01954053d312"
-    sha256 cellar: :any_skip_relocation, monterey:       "677fc80edf5de3eb8c753a6a9dca3219b3ab2c84a137aaa2eeb0c8213057e4a8"
-    sha256 cellar: :any_skip_relocation, big_sur:        "df2f6f810fec4267565b616304d5b9e3262dafd04db5e5d5e8f9cbdbbd8682d6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2c0d35a1ff6ccb302ea1e7d2a8777047f89dc4647c963ebab3ea315f4240424f"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0f5f3dc0e939dd858867d287622a23a5ed546bd2d74fab4060c95d6dddb5ea0f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5ce7fa65eee4b484eff26dba35857a77c714d24f769daf512ee206eeddfeb0c0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a4486f884951c76bcacc8026cca5126ef076a34680ce8eea9b5346718f4458d2"
+    sha256 cellar: :any_skip_relocation, sonoma:         "6a41b391e4a63cc7758ce7f6b6c6707c4d519bb7d5a8dc7b206e87a9707fa86f"
+    sha256 cellar: :any_skip_relocation, ventura:        "0588c309bef44bccc07bfebfd392c4e5750975b850a43b67e47c9ade2c67149a"
+    sha256 cellar: :any_skip_relocation, monterey:       "178e287b51eae827fd772d1b5c8981ada503d40583d6157b07c10a015d08a498"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "38968f72bc2a2b39481af43da62f7232b281954a9682b4be6c39f448e1c96db1"
   end
 
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   resource "mccabe" do
     url "https://files.pythonhosted.org/packages/e7/ff/0ffefdcac38932a54d2b5eed4e0ba8a408f215002cd178ad1df0f2806ff8/mccabe-0.7.0.tar.gz"

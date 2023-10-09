@@ -1,21 +1,19 @@
 class Cloudlist < Formula
   desc "Tool for listing assets from multiple cloud providers"
   homepage "https://github.com/projectdiscovery/cloudlist"
-  url "https://github.com/projectdiscovery/cloudlist/archive/refs/tags/v1.0.3.tar.gz"
-  sha256 "2655c117bbae083519e5886f39d944e560e8796a52fec3e05789fd0dc5ba5c53"
+  url "https://github.com/projectdiscovery/cloudlist/archive/refs/tags/v1.0.4.tar.gz"
+  sha256 "e7f6e981d20c95a34eb5b858ac554f39003b01f5a50d37980be4bf87e98c7712"
   license "MIT"
   head "https://github.com/projectdiscovery/cloudlist.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "75c6b6f31ecb45a90f7069c458d78bc419b957d0ab945411f97f2e7543e5bb29"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "88ae6e657560e01aa56db7efa4f43b64019a69d768a8ee40cacdf9230a57fa7f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "88ae6e657560e01aa56db7efa4f43b64019a69d768a8ee40cacdf9230a57fa7f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "88ae6e657560e01aa56db7efa4f43b64019a69d768a8ee40cacdf9230a57fa7f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a1834d942cd370815cbc3a2ea75774d260c961c599b65562a5847237d830200c"
-    sha256 cellar: :any_skip_relocation, ventura:        "684c9ae8317c75244540d7fe6ac85c639df0d9d23ca20aa44b6d640a5f418d40"
-    sha256 cellar: :any_skip_relocation, monterey:       "684c9ae8317c75244540d7fe6ac85c639df0d9d23ca20aa44b6d640a5f418d40"
-    sha256 cellar: :any_skip_relocation, big_sur:        "684c9ae8317c75244540d7fe6ac85c639df0d9d23ca20aa44b6d640a5f418d40"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3be423e2d28da83d86d5901481ee3850f4c74895370890d08687b0cc10af04b8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "121415517c2ffae1ebd74d21c8c37f04701104a87a586dc3af5d614ee905e58b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6081054e42b76cb3e6900c7318afe4f406557fe628297d3778700a4a26791d34"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7a7ce8f029a1a8b38c0557af2ce5560b2bbe85f7adda84d38969fdaf704ff9f5"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b3d2332ad2ccb77262bf7897e065c11fe9752430d1be772cd7d934d1dab1a7d1"
+    sha256 cellar: :any_skip_relocation, ventura:        "73f1722ffa51ad3ba35fa470aedcf98d06b8e72754e5f149cce72c19fec772cd"
+    sha256 cellar: :any_skip_relocation, monterey:       "975b011092d859efe769ae39a103c3ebb4e702f1ef63ceae4970fca724be8c4a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b5fe0f1dfa6fd33f5d9f329200d7d3c16ed59cbba465287432cb072ffeebbdf4"
   end
 
   depends_on "go" => :build

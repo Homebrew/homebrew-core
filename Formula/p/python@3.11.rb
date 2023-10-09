@@ -1,8 +1,8 @@
 class PythonAT311 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.11.5/Python-3.11.5.tgz"
-  sha256 "a12a0a013a30b846c786c010f2c19dd36b7298d888f7c4bd1581d90ce18b5e58"
+  url "https://www.python.org/ftp/python/3.11.6/Python-3.11.6.tgz"
+  sha256 "c049bf317e877cbf9fce8c3af902436774ecef5249a29d10984ca3a37f7f4736"
   license "Python-2.0"
 
   livecheck do
@@ -11,15 +11,13 @@ class PythonAT311 < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "60d59d221883b02d24d391d7d549d6da9994e8b8921ffb3ef2b80590ef5b3153"
-    sha256 arm64_ventura:  "55f29263615ffcb1a9097c71fd3ce42647d4f40f6eeecda1317f43cd2a3fcef5"
-    sha256 arm64_monterey: "c36ecb189811adce4ed6af4f1cf538c1997fdf9f8d7bc2579e27ac393d74b50f"
-    sha256 arm64_big_sur:  "81f634e2b40bff2f51bf8f172c97e9963022a3e1fad666e913977f5609f10c51"
-    sha256 sonoma:         "714512858f4a3f5e1c4399efd3808ac0c231646c94e9058f706e88769ae27aa5"
-    sha256 ventura:        "c87f0729bff2c3ab0cb3a66f7187ff0c621eed150573506c88a9e51597c4e732"
-    sha256 monterey:       "02eb2d0133d8cb08916d762203484770a2d386140970f889a54c915327931126"
-    sha256 big_sur:        "a0329e6f8ef7992b2e850c13fabcf9903187c67fe2c4da18713ea9294dd756f6"
-    sha256 x86_64_linux:   "f1eca7b66462d0075e7df897ef5a8cf56c51a25c5b39b816cfe87fa975ac7a1c"
+    sha256 arm64_sonoma:   "c2c7194fceb5034fd3008440a60d4ac5e439a0c44d9aaedb44d0950d0d04b1a9"
+    sha256 arm64_ventura:  "65fa8aa1f6ace7720b3dbae1f5c1bf66d47e2abeade2a60227049b24bf44ef96"
+    sha256 arm64_monterey: "f7f0fdf1117960c44c633bcd8e5f82bb5bb98016462e303b2d303d0be890403a"
+    sha256 sonoma:         "f5fcdd06f2904c8f6e6405b3d6ac0754dbb91b86ce453d43815b2c5d066fa703"
+    sha256 ventura:        "2ba16f573b1c95ac44be2e14cbfd3e8121682c5317a38b3a6f84434a2de2ceea"
+    sha256 monterey:       "c6e583a231f2ae4b4b7ed02e0deff56d0e3cc63b258f7701aaea26604316551b"
+    sha256 x86_64_linux:   "60f99aad42e66420124dab749650d54db530b68d5de4371a07d7c3d7e1284682"
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -74,8 +72,8 @@ class PythonAT311 < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/19/20/d8dd9d8becaf3e2d6fdc17cc41870d5ada5ceda518996cf5968c2ca71bd8/setuptools-68.1.2.tar.gz"
-    sha256 "3d4dfa6d95f1b101d695a6160a7626e15583af71a5f52176efa5d39a054d475d"
+    url "https://files.pythonhosted.org/packages/ef/cc/93f7213b2ab5ed383f98ce8020e632ef256b406b8569606c3f160ed8e1c9/setuptools-68.2.2.tar.gz"
+    sha256 "4ac1475276d2f1c48684874089fefcd83bd7162ddaafb81fac866ba0db282a87"
   end
 
   resource "pip" do
@@ -101,6 +99,12 @@ class PythonAT311 < Formula
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/a1618a5005d0b01d63b720321806820a03432f1a/python/3.10-distutils-scheme.diff"
     sha256 "d1a29b3c9ecf8aecd65e1e54efc42fb1422b2f5d05cba0c747178f4ef8a69683"
+  end
+
+  # Fix build with newer editline
+  patch do
+    url "https://github.com/Bo98/cpython/commit/96d015e375135e5ebc387a55ed838d00d963dc8a.patch?full_index=1"
+    sha256 "2164a7ba4fd7b934514e87681908bb3e36cfd28ba53511ea631c6e24aa356a21"
   end
 
   def lib_cellar
@@ -498,6 +502,7 @@ class PythonAT311 < Formula
     system python3, "-c", "import _ctypes"
     system python3, "-c", "import _decimal"
     system python3, "-c", "import pyexpat"
+    system python3, "-c", "import readline"
     system python3, "-c", "import zlib"
 
     # tkinter is provided in a separate formula

@@ -4,18 +4,16 @@ class Bloaty < Formula
   url "https://github.com/google/bloaty/releases/download/v1.1/bloaty-1.1.tar.bz2"
   sha256 "a308d8369d5812aba45982e55e7c3db2ea4780b7496a5455792fb3dcba9abd6f"
   license "Apache-2.0"
-  revision 17
+  revision 18
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "b394ea0935385079416cdc4e0fcf54b3fa204ed512281a1bd5a12b737074c395"
-    sha256 cellar: :any,                 arm64_ventura:  "3fac406a0ec1ca79cff005abbde0b2eb3583e12437b16416700aef4a71465d09"
-    sha256 cellar: :any,                 arm64_monterey: "9df61277d6cab0d016289b488df9cab8a1ebb42be9b081665d6f72669db86d75"
-    sha256 cellar: :any,                 arm64_big_sur:  "1eaaef8d8e5370cfa247e89a311d46a23f669fb6f62613cd2c04ad33f8546027"
-    sha256 cellar: :any,                 sonoma:         "9af7a8d12d62aa7ac70db482349f01bbfd7901bc8ebeb8feb6e26ff6efbd0724"
-    sha256 cellar: :any,                 ventura:        "38ebaaa88f32202facfd508083f9000918f51b4f25bf64331f62a2f9b5d1f5dc"
-    sha256 cellar: :any,                 monterey:       "241b3a651e3cff5bd4a26bb807f865e4edfcb3f6cae36f1e1d0e6d6102391f1a"
-    sha256 cellar: :any,                 big_sur:        "3f25a3ffd9e738dbdc7492381094fcbe97ce8ab87af95a6dbd4415196dfb3db6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f167593af47fcc2a92180def23e4580a2071296d63fa471a4f69d1a495ce0b81"
+    sha256 cellar: :any,                 arm64_sonoma:   "637a28eba79bd3aef262038120006a4675ca9432655392f5d12b769c1ae89f95"
+    sha256 cellar: :any,                 arm64_ventura:  "000fa53d08c9cdac9608d238e30eb867ad2c609cf2ad0c6f8c4ae5aed24eb2bd"
+    sha256 cellar: :any,                 arm64_monterey: "f6d7287c456de5ee5c750e361b4b60af29c9e171195054343be9710ac3a2f215"
+    sha256 cellar: :any,                 sonoma:         "2453cf8f2c4c9b9fde240f4202243eb3d6d408e803301ceae9954d7908214487"
+    sha256 cellar: :any,                 ventura:        "01b216cd29f7d71accc573fd2c5b7bcaa198901fa472772231edba52cb9c9386"
+    sha256 cellar: :any,                 monterey:       "2ee46c0910182b0064eb2265672ca03dbaa477d2e97377d6e99aac4eb283ebd0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8cc539deb68014042a9ca0c8f5502cf32ba477b23dc72cb168b0c4486d97e31f"
   end
 
   depends_on "cmake" => :build

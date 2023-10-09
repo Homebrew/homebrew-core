@@ -6,9 +6,11 @@ class Libgr < Formula
   license "MIT"
 
   bottle do
+    sha256 arm64_sonoma:   "a4237b240e6d881a65b9a27a92f6475a1bd7d89bd92fcd6dc1c4f127123269b9"
     sha256 arm64_ventura:  "2e1eab780ff547ab0c5b81bd8ff523cc5a6add81e62ed2562f04743f3bfc4139"
     sha256 arm64_monterey: "c84b2e82fbb8b6b0b17336010f1f99fa62ea7c0a46dd8274bf0e56d33da55761"
     sha256 arm64_big_sur:  "1e2e3b15e2f668d43dd8cba51a5614c2856c706bb70bb380504b2173d8ce6acd"
+    sha256 sonoma:         "7f7a1fd955ba02341f10e3b19983850fbdb53eafbbbee5f88059d3ee0955bad6"
     sha256 ventura:        "b44eeac18464077c54f95a3fbf579db3fa6dc8084341c4424eb72cb7dc15a58d"
     sha256 monterey:       "5374ae7fec2483fb6db32084d739cd780e982aea380d0024c433ce02ef9a4209"
     sha256 big_sur:        "6ee088103e077df839074c71ebcf102d7f5b99fa807f1cd16693c999f5c349a9"

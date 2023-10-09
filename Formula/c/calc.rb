@@ -1,20 +1,18 @@
 class Calc < Formula
   desc "Arbitrary precision calculator"
   homepage "http://www.isthe.com/chongo/tech/comp/calc/"
-  url "https://downloads.sourceforge.net/project/calc/calc/2.14.3.5/calc-2.14.3.5.tar.bz2"
-  sha256 "e1e5ece8d0dfb093b956bf4ca368c2d7a853440cadfbed6cf99fc9ad60cac149"
+  url "https://downloads.sourceforge.net/project/calc/calc/2.15.0.1/calc-2.15.0.1.tar.bz2"
+  sha256 "bbf9adf72e3cd392166037441f3f7874f6f857e778615aeb873cfcbf707eab6e"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 arm64_sonoma:   "039586f7132941bed3e298463295b6fa4b2751d4764649b187c1a8afae39b9b6"
-    sha256 arm64_ventura:  "198f859ac5b8e6c57fc8b2cf4dc66aa71c786f979006bb0730d747d33f3da39b"
-    sha256 arm64_monterey: "6d1537f3838c79281e8a4049a401e94ddc789a4ff1dffdf25b88c8632ddcf74e"
-    sha256 arm64_big_sur:  "24cb65639e84d9cb00f828203ef564a11548da2c8cba386b67539ab0d0c1969a"
-    sha256 sonoma:         "d3d14fe01e67826cca00d2cbe34eb5ba85b05969540b6029f56be4c03480aed1"
-    sha256 ventura:        "ada2a34eded414053936b2b8e5afe242ac3315d05be705349c3e90580dcc22c9"
-    sha256 monterey:       "d9cca1818f7f3e36129503b784f47463f1401cac84316b1cd5e2da73e3a015c4"
-    sha256 big_sur:        "c72570cd8b950e8101bc26b3a2a9886587f1861492d20eb40e316296925570d4"
-    sha256 x86_64_linux:   "56045b00bb5dbf76bf5c0fee565d35ede49432410fff04698f9794ebaeaccf76"
+    sha256 arm64_sonoma:   "fb8bd25b074abe942badb1e416baf6751fb166dd1a4415f23a7b4300e1867629"
+    sha256 arm64_ventura:  "d7f6f7f68f781aad6eecdfdd9d7b8d19eace11dbb4ab1376bd4281b5a529ec32"
+    sha256 arm64_monterey: "ef5946cbf5670ad6f454f448088f27a1ebff203cf3e993027ca27cb73b4a989d"
+    sha256 sonoma:         "ba9d9081584de319c5176cc217669e12fa880d4f31ddefcc11180e008dd5f371"
+    sha256 ventura:        "2970596d4622cdb355fe547f5d755da6d5e23aa74c9a6326d01085c620e564c2"
+    sha256 monterey:       "504ac17347059e264711610247f65ad78b67324fd90445f8fa4d11e7f7e7cfb0"
+    sha256 x86_64_linux:   "0a3b5b9e5e63623ed09ee12e0e13e27c80f28dd7dddc2d971ad0b8238f9d79cb"
   end
 
   depends_on "readline"

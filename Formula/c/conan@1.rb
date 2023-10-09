@@ -6,6 +6,7 @@ class ConanAT1 < Formula
   url "https://files.pythonhosted.org/packages/38/62/8fe869e774eafe17f9bcb381d9cc195a85880370751282f671e5909b61de/conan-1.61.0.tar.gz"
   sha256 "bbc9c4c60472f91c348dd0d17ab716c4d00e6aff02990144f49c7ca07b9cc914"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://github.com/conan-io/conan.git"
@@ -13,15 +14,13 @@ class ConanAT1 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "480510503714d9025ca5c190f49dba737a4dc7af745f00de52aa24323bc11f6d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1163d5ea8663f52408c270f3eee4b8497704a32798957cb572f7c5bfb22d9c3a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3d146a72a173394fc4858c2de4e4c990efdafce2ba2fe54065f82481b083b3e4"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bd91fd589efce9a2d6ef647b286a519b605a37656fb954d82ad0a81fb60b93f4"
-    sha256 cellar: :any_skip_relocation, sonoma:         "5b304012c395c313eb8f8385ceae4337a425b581ca2ff52ad46971eb3c7f514b"
-    sha256 cellar: :any_skip_relocation, ventura:        "c27fc513c141ebd99d3eca78eeef2b11bf34b61c09e1707c0bd42e81a4df8952"
-    sha256 cellar: :any_skip_relocation, monterey:       "491ef0a794349fd44b3d6fb7adc9dd7bf1c0d6576d59bd19f905c83ea52e6021"
-    sha256 cellar: :any_skip_relocation, big_sur:        "14daafcf9066b9da9beaa9a1331c3f8230759817f0ff410e579646ccc1fc554f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c0c3b19ab39a59e67e83d89d5bd90faf7ceb9785bf10ab5d778e0fa92eb1958b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b85ce35f8a539e7097b10e3cb88335e18e95546573ef4b00e388cdab40bb5e4c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "844814015ef178793acaa05d76a4c4b524541fd86057e035c534c1e7b855207e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "17b4e9f02faae20a8a45c891f16419daa28040b49a31ce6b72d2c0a5c214b954"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a3bdf597e6b388017b769070351f4d150463855fd9663f9c2ff5df6b04c06640"
+    sha256 cellar: :any_skip_relocation, ventura:        "175cbfe16c490c947079a9e7e964aeeb447066ea3deb9d0c98c8c590e05174b0"
+    sha256 cellar: :any_skip_relocation, monterey:       "f273df737dc3936849b3939a3be2085fa9673beddb909bf20669e50aaafdf1c7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "87872ff851df00c0fb9bb5ce9f8c5f7739575ff35f0a04c917ee9f6a706690df"
   end
 
   keg_only :versioned_formula
@@ -40,8 +39,8 @@ class ConanAT1 < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/2a/53/cf0a48de1bdcf6ff6e1c9a023f5f523dfe303e4024f216feac64b6eb7f67/charset-normalizer-3.2.0.tar.gz"
-    sha256 "3bb3d25a8e6c0aedd251753a79ae98a093c7e7b471faa3aa9a93a81431987ace"
+    url "https://files.pythonhosted.org/packages/cf/ac/e89b2f2f75f51e9859979b56d2ec162f7f893221975d244d8d5277aa9489/charset-normalizer-3.3.0.tar.gz"
+    sha256 "63563193aec44bce707e0c5ca64ff69fa72ed7cf34ce6e11d5127555756fd2f6"
   end
 
   resource "colorama" do
@@ -55,8 +54,8 @@ class ConanAT1 < Formula
   end
 
   resource "fasteners" do
-    url "https://files.pythonhosted.org/packages/f5/9a/e613fc7f7fa157bea028d8d823a13ba5583a49a2dea926ca86b6cbf0fd00/fasteners-0.18.tar.gz"
-    sha256 "cb7c13ef91e0c7e4fe4af38ecaf6b904ec3f5ce0dda06d34924b6b74b869d953"
+    url "https://files.pythonhosted.org/packages/5f/d4/e834d929be54bfadb1f3e3b931c38e956aaa3b235a46a3c764c26c774902/fasteners-0.19.tar.gz"
+    sha256 "b4f37c3ac52d8a445af3a66bce57b33b5e90b97c696b7b984f530cf8f0ded09c"
   end
 
   resource "idna" do
@@ -110,8 +109,8 @@ class ConanAT1 < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/e2/7d/539e6f0cf9f0b95b71dd701a56dae89f768cd39fd8ce0096af3546aeb5a3/urllib3-1.26.16.tar.gz"
-    sha256 "8f135f6502756bde6b2a9b28989df5fbe87c9970cecaa69041edcce7f0589b14"
+    url "https://files.pythonhosted.org/packages/dd/19/9e5c8b813a8bddbfb035fa2b0c29077836ae7c4def1a55ae4632167b3511/urllib3-1.26.17.tar.gz"
+    sha256 "24d6a242c28d29af46c3fae832c36db3bbebcc533dd1bb549172cd739c82df21"
   end
 
   def install

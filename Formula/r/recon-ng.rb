@@ -9,26 +9,22 @@ class ReconNg < Formula
   revision 1
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "71adcfceb96bf675149bb7af761c1e03d6a40d43b6719ec71a5a5bc2b65264da"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4ebf5406a1ec6b8d3ec9e5bfab3973ecbf5935694ff29aa606083d984407b251"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4d07d6919639a7d6f468bc78e6b09c90eb1682d40abacc4c86c534156e157176"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4b30680e12fc2de311f6d809175b58091b7d0436f1f03c3f59cb9417f355112c"
-    sha256 cellar: :any_skip_relocation, sonoma:         "537ad1207c6b9f65c59effa37d1d7c689af51b0c4de4b4e12ae39459a92ae3cf"
-    sha256 cellar: :any_skip_relocation, ventura:        "a0649ae316be3b710b4f60fa053fa6af7d2a5a6cc39aba5e500d897259e8ef47"
-    sha256 cellar: :any_skip_relocation, monterey:       "ee19fd99b15ac1ce6899dc80396ba1b351f86dfa1d78ebf46fc0ad7e812823bc"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0155811b21380cb3086edf0c904b0a299875701445ad7855513452e5c8a2f9d5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c16573886ae8321fcb30866c5d42be6b20f7decfb2daed05b94993cd27d2ca4a"
+    rebuild 4
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f9283fa1d6b2535c9352e309cdc31f0243de1bf0ad47412647811dec88cb2e4a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "506b6b1c98b3169377acb905497bccd5a41476ae72e29a0eef701721b4a5c9fb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d639281e26312d57790e19e778bc13b673eea7fdcca9d4c6e4af81e834b3abf7"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f29f3c8595971d5d73c36960e84dac7559758e176f4b047fa919f6c492a1a889"
+    sha256 cellar: :any_skip_relocation, ventura:        "cb6bfdde653e08be72e4c91a0fbaaf414b757d7c100038e9912c84dc7610a5b3"
+    sha256 cellar: :any_skip_relocation, monterey:       "bf4db2e9c7237107c60c47a0655c1c9cb6725f413a6d3878dd621ee1d8987178"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0685b46bc33139aea7a4258cae366b2cdb572e9f98d7686071b60bfdd1af4685"
   end
 
   depends_on "python-certifi"
+  depends_on "python-lxml"
   depends_on "python-pytz"
   depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "six"
-
-  uses_from_macos "libxml2"
-  uses_from_macos "libxslt"
 
   # See the REQUIREMENTS file in the archive for the top level of dependencies.
   # Please check for changes that may have been made since the last update.
@@ -106,11 +102,6 @@ class ReconNg < Formula
   resource "jsonschema" do
     url "https://files.pythonhosted.org/packages/36/3d/ca032d5ac064dff543aa13c984737795ac81abc9fb130cd2fcff17cfabc7/jsonschema-4.17.3.tar.gz"
     sha256 "0f864437ab8b6076ba6707453ef8f98a6a0d512a80e93f8abdb676f737ecb60d"
-  end
-
-  resource "lxml" do
-    url "https://files.pythonhosted.org/packages/06/5a/e11cad7b79f2cf3dd2ff8f81fa8ca667e7591d3d8451768589996b65dec1/lxml-4.9.2.tar.gz"
-    sha256 "2455cfaeb7ac70338b3257f41e21f0724f4b5b0c0e7702da67ee6c3640835b67"
   end
 
   resource "MarkupSafe" do

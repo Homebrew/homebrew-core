@@ -6,28 +6,25 @@ class Tvnamer < Formula
   url "https://files.pythonhosted.org/packages/7e/07/688dc96a86cf212ffdb291d2f012bc4a41ee78324a2eda4c98f05f5e3062/tvnamer-3.0.4.tar.gz"
   sha256 "dc2ea8188df6ac56439343630466b874c57756dd0b2538dd8e7905048f425f04"
   license "Unlicense"
-  revision 3
+  revision 4
   head "https://github.com/dbr/tvnamer.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "aa86b886b7f703f6a6a99f95fd912894bf563289e0d4ab6aa9213401e3b6cdfd"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c04db388beb645362148242d6f5e5a2820a45c3092c9d10271557c497c986a1a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "198e574e6641aa690d3d66c48da9b0dbfb5561b804771c7784509be716cbca28"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1da9d1ed619237568233503d4f950e5be70569e8ae96cdc485c8c97560784f21"
-    sha256 cellar: :any_skip_relocation, sonoma:         "f27d5bb695686dc3f407423756dfc9dd7b6d8c478fcf2390f2f3344651a73b59"
-    sha256 cellar: :any_skip_relocation, ventura:        "01505e260d0b498008b9eb5bac58023e60d7779a455f3552927ee4596b9275b0"
-    sha256 cellar: :any_skip_relocation, monterey:       "fe17395b14667a8aabca043cec2d6c52c10c328c2ab577d0b4dca87cf896f30b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5a7bd6a392e0c27f898a4f72800dc474439eca354e8d2f1478b3055334a2d289"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4576e4ecaf16db8cff481d6c4331f9e0367fd33a2d1690267468dfbf7b390fec"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5e5d127c9305ed65f96a0451532efd2c2048a83ed4ae537b22ede24078ae9e1e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b4aadf8e2dc75bd22ced50ea6d9adb45f718697aec13402ded826b943b855231"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9a4b208498ef13ffd9b45738e6b91dc8dcaa1c659a340810dda91cd0cf20a1db"
+    sha256 cellar: :any_skip_relocation, sonoma:         "1ec894bddf827df70019f858886dd232ff9f42706419966efb7e7822fbff1146"
+    sha256 cellar: :any_skip_relocation, ventura:        "636ce1c01f29935c4d292ac462db894fd2c208fd0d015d60353377e625e9ff50"
+    sha256 cellar: :any_skip_relocation, monterey:       "36bca95e19b72f3ab4b3c8009005943d529003ad6b459f856ce69669374eb96f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1f0271ac99568b46bd82659efe9060ffc461d2cd93925872e3833b5dcb2a28f0"
   end
 
   depends_on "python-certifi"
   depends_on "python@3.11"
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/2a/53/cf0a48de1bdcf6ff6e1c9a023f5f523dfe303e4024f216feac64b6eb7f67/charset-normalizer-3.2.0.tar.gz"
-    sha256 "3bb3d25a8e6c0aedd251753a79ae98a093c7e7b471faa3aa9a93a81431987ace"
+    url "https://files.pythonhosted.org/packages/cf/ac/e89b2f2f75f51e9859979b56d2ec162f7f893221975d244d8d5277aa9489/charset-normalizer-3.3.0.tar.gz"
+    sha256 "63563193aec44bce707e0c5ca64ff69fa72ed7cf34ce6e11d5127555756fd2f6"
   end
 
   resource "idna" do
@@ -51,8 +48,8 @@ class Tvnamer < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/31/ab/46bec149bbd71a4467a3063ac22f4486ecd2ceb70ae8c70d5d8e4c2a7946/urllib3-2.0.4.tar.gz"
-    sha256 "8d22f86aae8ef5e410d4f539fde9ce6b2113a001bb4d189e0aed70642d602b11"
+    url "https://files.pythonhosted.org/packages/8b/00/db794bb94bf09cadb4ecd031c4295dd4e3536db4da958e20331d95f1edb7/urllib3-2.0.6.tar.gz"
+    sha256 "b19e1a85d206b56d7df1d5e683df4a7725252a964e3993648dd0fb5a1c157564"
   end
 
   def install

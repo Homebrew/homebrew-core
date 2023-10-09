@@ -2,20 +2,18 @@ class Xq < Formula
   desc "Command-line XML and HTML beautifier and content extractor"
   homepage "https://github.com/sibprogrammer/xq"
   url "https://github.com/sibprogrammer/xq.git",
-      tag:      "v1.2.1",
-      revision: "8ed07bdd6390e64f126abb832bcab0da317f7f34"
+      tag:      "v1.2.2",
+      revision: "2d8ab1bc4a3f266e6a36cd3954cf687ad738a031"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "73487c0cd3b97f0b0440b3e5d35d5ce4448bdd731a9e5b23653e4459257f9170"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2cbb07af6bd4a55df5a4c4ed1db217b81c75f5f07cd7c7968c43192c0e9baec8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2cbb07af6bd4a55df5a4c4ed1db217b81c75f5f07cd7c7968c43192c0e9baec8"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2cbb07af6bd4a55df5a4c4ed1db217b81c75f5f07cd7c7968c43192c0e9baec8"
-    sha256 cellar: :any_skip_relocation, sonoma:         "1bceec7a5eb2131944672afd758a725b40630546b1e36ca2382c11aac9ce28a4"
-    sha256 cellar: :any_skip_relocation, ventura:        "b60dfc79a740dfc4acbed5b2cb931061bee6d9c1286f9967f640a2ee0a1cb78f"
-    sha256 cellar: :any_skip_relocation, monterey:       "b60dfc79a740dfc4acbed5b2cb931061bee6d9c1286f9967f640a2ee0a1cb78f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b60dfc79a740dfc4acbed5b2cb931061bee6d9c1286f9967f640a2ee0a1cb78f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "848e2e0e923439c1c1b8fb7fe527467aa1d492c062529ed3c52b1e7f4a45ee72"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "470737b2c5ac5f3be4d495aec6d561ee4aa806a7b408736e2cb43a47416ecfb5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "470737b2c5ac5f3be4d495aec6d561ee4aa806a7b408736e2cb43a47416ecfb5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "470737b2c5ac5f3be4d495aec6d561ee4aa806a7b408736e2cb43a47416ecfb5"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c49ff24cd76d1dfdc796ee8394b71f02854392ed69f3868edd486da3cadbf31d"
+    sha256 cellar: :any_skip_relocation, ventura:        "c49ff24cd76d1dfdc796ee8394b71f02854392ed69f3868edd486da3cadbf31d"
+    sha256 cellar: :any_skip_relocation, monterey:       "c49ff24cd76d1dfdc796ee8394b71f02854392ed69f3868edd486da3cadbf31d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1df6c4d48616ff54bca099a215611532e72ed0c603f65644ba75bac21b118b85"
   end
 
   depends_on "go" => :build

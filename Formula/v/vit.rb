@@ -9,6 +9,7 @@ class Vit < Formula
   head "https://github.com/vit-project/vit.git", branch: "2.x"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d38736df8b5676a6c0984435b4bd78c04016db160a1ca455fbc06963bbc417ea"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2cdf3ef7fa6362fc0ebd0e03bc21ec85ffcb4a82d7ff008c46e1f03c1a97e4a4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "da829044a95cabaa0cad05832056934cec40bef04745935aa66b395fb98091fb"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0f45d5c5e30b1d047a720e35a74447cb454c3fa826378a3995b6bf84b5cae36c"

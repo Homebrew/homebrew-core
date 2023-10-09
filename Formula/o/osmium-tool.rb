@@ -6,9 +6,11 @@ class OsmiumTool < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "95ebcb7d3b5a0cf22d422468f23c894a4ec9902e638b0dcc170515a6f28cc53c"
     sha256 cellar: :any,                 arm64_ventura:  "6ed20085ddcadb8f0e5fe7999361ee4c05e15f27135d58216e2b8ccc3445d385"
     sha256 cellar: :any,                 arm64_monterey: "f96842d0ddbd0ebc7aface97569adaed09f82e725bf019d1cece927a1c9bd188"
     sha256 cellar: :any,                 arm64_big_sur:  "afc0eb11e5248389f5b5f8a8cf7adab899b033f84f94e60f97d2ec8aa8ca1a6b"
+    sha256 cellar: :any,                 sonoma:         "6e0977de14cc0672e42b2bc63fa4593f76c011edac39f8f46ebbf60eb8b265d0"
     sha256 cellar: :any,                 ventura:        "b45cdaca24db13c5150d7abb1d5a47f16ae5a02e3f091e14660a2153702e8fd1"
     sha256 cellar: :any,                 monterey:       "b848130312527ea781cbecabb8089611ea0c672f13a0ab8f9e1bb1d464562d48"
     sha256 cellar: :any,                 big_sur:        "4b0829bd58fb611d0e7e4a928b29379ada6a72f3d832b181c88c43e7a04c52bc"

@@ -43,9 +43,11 @@ class Moc < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "ea59f6febdef21fc385c18b43e19b5805c74a40f3057dc0dc46162879f7c1242"
     sha256 arm64_ventura:  "d384eac5db501bffc4ca293814999bd211a30aa8d8c51608264c141ecae0e588"
     sha256 arm64_monterey: "76a10d22e284b7082d386b7850b228ba8c7b8a39e0af5fe8dd3bfda8ee5e8504"
     sha256 arm64_big_sur:  "748bce503189849012269695eaa9da403d63944d480b5f65912efd30abe75937"
+    sha256 sonoma:         "d8755693080ea9d77de9c1b8abd9af07e40f1f752ca2e39608bf151c7570b680"
     sha256 ventura:        "e1d9b0a8885b048bef641d9e5dde6d7be8cdfd007a93f1abc86b67cafa8152e6"
     sha256 monterey:       "3ef692dc6ca98b8613faab3346997a9bf908180569ef437404c1fe2183d8c414"
     sha256 big_sur:        "38313bf01863d64276c647565074618b71e09cd3b4a7dc0121b606dd52b534ad"

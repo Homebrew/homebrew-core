@@ -1,8 +1,8 @@
 class Monetdb < Formula
   desc "Column-store database"
   homepage "https://www.monetdb.org/"
-  url "https://www.monetdb.org/downloads/sources/Jun2023-SP1/MonetDB-11.47.5.tar.xz"
-  sha256 "8f9784ba6fe09ac9f38fad4e4524cb54d718728716794fb92e2dd61b6f0b9f78"
+  url "https://www.monetdb.org/downloads/sources/Jun2023-SP2/MonetDB-11.47.11.tar.xz"
+  sha256 "1f3877baacb7af87366df1085528a4f0fe8e412c16dc1951374c3111a0c9497a"
   license "MPL-2.0"
   head "https://dev.monetdb.org/hg/MonetDB", using: :hg
 
@@ -12,15 +12,13 @@ class Monetdb < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "57d0fa2879dc65d44e3276ab45d655f5ee72e3cc88d33260995b79a4fe31fb22"
-    sha256 arm64_ventura:  "f58c7e87cae6e35eced2e318ac19cbf0596d26623a06dee5526bdf04a26f9973"
-    sha256 arm64_monterey: "ea9bfde813515d3e101a5ca614e2960bdbf4fc5572757e579e9f586ea27a7287"
-    sha256 arm64_big_sur:  "154386fb46557f19d452f79e2db8352845faa76bfaf14f603b2f1bb9a43734dc"
-    sha256 sonoma:         "45051d34e9893b53b5953307dc6a28afa327a3f310cf86776c613bfb3e791782"
-    sha256 ventura:        "7f1d63058df7f03cf737774804a2ee3274f638a8fe80c56883fc76a1ba2c0f6e"
-    sha256 monterey:       "182c27176cebd664844991654d83d4d901d0c50e0162b7d985f2604438593b75"
-    sha256 big_sur:        "2fef2e1716870fb13b1e698d6d2899fe3012fa3a18c27a54dc03ee0bc28d3b17"
-    sha256 x86_64_linux:   "b736d6db314e18d6f554cd3e1e16d9ce0dc6df4a84da95d899ae629a5b67068f"
+    sha256 arm64_sonoma:   "41280e9af8eddf9ca545efce8b66d7abf4602a95f2c40c4a6dc7e535f716ea5a"
+    sha256 arm64_ventura:  "bd660b531f3fb0b6437dfa760327e4061c508b9233cce743f77044954a5c0fbe"
+    sha256 arm64_monterey: "c7758a7c13203c3dca6cb7f837d79ef9ee04bc6089a8a064ed28fb4e60c938de"
+    sha256 sonoma:         "39e39399a4f4516b386a0bd26f7e3fe6809430d9cc499ba6980f4d234097b756"
+    sha256 ventura:        "50edd1527c548d414c77fff39bea53a875ef413df48a412d255d316a3b120054"
+    sha256 monterey:       "cd13df93206f5609ed2ccadf8d24551e6b70e1140d7c05e7864c667df7c0fea4"
+    sha256 x86_64_linux:   "bd60b962b68546e4556525963a5e45d4ea6554f1efdd9158371886430afa961f"
   end
 
   depends_on "bison" => :build # macOS bison is too old

@@ -13,9 +13,11 @@ class Clazy < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "08c7381e2a2fe8faed207b42c5d86f2d8ec714d3c5eadb03bc3891eddd709507"
     sha256 cellar: :any,                 arm64_ventura:  "a716670d3c6a16f67ac39d82813c7fd054761f4d026255f904b10457f67791fb"
     sha256 cellar: :any,                 arm64_monterey: "e5401775aff4f1e6fad0fd459ae01f492c0398101457ffc1d6d0381d4ceb8828"
     sha256 cellar: :any,                 arm64_big_sur:  "d022ef65ffa388d2b6db61b16077dc08a5d5b29185a2723bb631914a4da1fa75"
+    sha256 cellar: :any,                 sonoma:         "3feb9c52f4410597b34b499b447c50ed99d54d44ead264982bcf65e13ece35a3"
     sha256 cellar: :any,                 ventura:        "5938ca0a911bb8031870f91b12915eb359eceb0f92f07bc9d5d97996be9bc952"
     sha256 cellar: :any,                 monterey:       "90ef44a60aff61eeb80c8a14ce55954b8d952da25a632c72f255d365c03cfc11"
     sha256 cellar: :any,                 big_sur:        "5237f20d2a267e396777e6afabd0bf7eab77ff174ce05d771aef96d5e5ce62ac"

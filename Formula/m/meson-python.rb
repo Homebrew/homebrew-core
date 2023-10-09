@@ -6,21 +6,21 @@ class MesonPython < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7a0dcc96cf247366a8730939f148d65340b578ecd3ae9e2a51a7070e2eb73e4f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bd3d3b4c2a81a73c42920a22618d9f1a369b903caec4e7913e8ed0f9cd30c53c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f6e91d3cae06f6b404ec82692abecbc5e80b91bbfe1b3033372e53dbb11455da"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e59e0b0f444a63c3878fb38aadc97d962396653b987c7b9f7548d8cf9589ae23"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a8501b69ce63146e01392ee4b3ab76736121d6be8384d08f53b8953a722b3e63"
-    sha256 cellar: :any_skip_relocation, ventura:        "59c8ead60df5be007b22238417b54081e9cd86f11265ed8bc88c423dfa7db44f"
-    sha256 cellar: :any_skip_relocation, monterey:       "70ca3ff7fed63ac1d0786f89d642c4af5d2856a44832cc84b20aebcf2d038f1d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "02fd596cde092e6dbcca4739252742897d0548bb7760e1df1efcd9929fa0a561"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e24e93d601a9a7f1f165ead6ac460b36cae3657afa5841e151db276c33f6e37a"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "affd6140dfeed5e48c1b832d4a95607899f55f8785c20b6992ca65bc777371d7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6090f97a35767a42780d4860e0fa601632d664066c6fab915c84efa3027d8b06"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "34886da80ab2a00676808504e60979902ee1520f515f1fb0cca763ef4933c0b6"
+    sha256 cellar: :any_skip_relocation, sonoma:         "2d09f6699329347599b8eb814c41ee99180e2b28225edcebb859fe4b7341ef9c"
+    sha256 cellar: :any_skip_relocation, ventura:        "17bc9bc95d1af5d74906a1be9c0722104f3e01547151aee2041056eeed273869"
+    sha256 cellar: :any_skip_relocation, monterey:       "0f6b24ed5e0eb5b5fbefee6877e72bd25a752d4972f4ff760ec0a1948f9969fc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "db276acd242f90eed155d6fb961eded65a00a4d05b64006df6531d3f97f5e0f3"
   end
 
   depends_on "python-flit-core" => :build
+  depends_on "python-setuptools" => :build
   depends_on "python@3.10" => [:build, :test]
   depends_on "python@3.11" => [:build, :test]
-  depends_on "python@3.9" => [:build, :test]
+  depends_on "python@3.12" => [:build, :test]
   depends_on "meson"
   depends_on "python-packaging"
 

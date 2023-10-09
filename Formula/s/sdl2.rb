@@ -24,7 +24,7 @@ class Sdl2 < Formula
   end
 
   head do
-    url "https://github.com/libsdl-org/SDL.git", branch: "main"
+    url "https://github.com/libsdl-org/SDL.git", branch: "SDL2"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

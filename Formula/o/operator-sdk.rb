@@ -2,8 +2,8 @@ class OperatorSdk < Formula
   desc "SDK for building Kubernetes applications"
   homepage "https://sdk.operatorframework.io/"
   url "https://github.com/operator-framework/operator-sdk.git",
-      tag:      "v1.31.0",
-      revision: "e67da35ef4fff3e471a208904b2a142b27ae32b1"
+      tag:      "v1.32.0",
+      revision: "4dcbbe343b29d325fd8a14cc60366335298b40a3"
   license "Apache-2.0"
   head "https://github.com/operator-framework/operator-sdk.git", branch: "master"
 
@@ -13,15 +13,13 @@ class OperatorSdk < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ab08e92ed1339175ecbce3f1fd0e7df39ea6f770be4f302a765ef73a7b68a11c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "927ea201603095434ca0b8de16185b4aaf8ff95e97fe08cb2d7637cd43914f86"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3adff7c45fad3c225f4e2e75445817c170e6e299025ff42be12ecfbf2f0ac4c2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d97e0c7e14353ee92a15a9395d65687bf419914ce24496e86f35198010da330f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "4299c21b458c8c31c23afc2135b2e735ef1ec80408088209add64e40b69edac3"
-    sha256 cellar: :any_skip_relocation, ventura:        "64cfc467be846da7d409cbc3941554d8d841eff148c9cbf0c294892f69b6f893"
-    sha256 cellar: :any_skip_relocation, monterey:       "16f989ab91fe6c64975727d0c53a718665ad3243022c36ad29862464a1a6b051"
-    sha256 cellar: :any_skip_relocation, big_sur:        "10004e16739401e6acf5245ea4067c2015202a1efdd81985f9f8141d09bab512"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6e84790ae45a9428ee3c75c22dc14b5f6d02431c20c0e1b260602f44caa71978"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1477ca58e6799f15cca3083676b28783da8ae9479f9d9c8a3f8706b02d7544c1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3901f72f565488c36adb0f111f23db28a80a0d86c7e0fab5221b18dd052c953a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "013cbec55ce8a51ddf82a383694d8d59a8ab1d59a6da31c3d42c58c82b523f8f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "78e81113e162439c05c47532457dd1cfd845bd70944c3c38c2fadea83baef2d5"
+    sha256 cellar: :any_skip_relocation, ventura:        "7d0690bebcccd755fd61513d1b581cd873143a04e4b05407d5a98273d1115649"
+    sha256 cellar: :any_skip_relocation, monterey:       "f33c5e1471ab63a07e7ba4cd4ac0a6db6d47e3e233ce2829dccf4954ace96fe8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e00890a233acfee5a93d33abf2be44ed82fa0a37328b9809234a05d2576195ad"
   end
 
   depends_on "go"

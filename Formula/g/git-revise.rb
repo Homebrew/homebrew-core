@@ -9,20 +9,17 @@ class GitRevise < Formula
   head "https://github.com/mystor/git-revise.git", revision: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4d6234bb285d8228d47984ac527c50c6efe9ac7b0e2fbc47406d6f0e7b314820"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "187dca8b0f934d9b42adcb5b515fd7949b31893c32be6696d91252fb34601c4f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "187dca8b0f934d9b42adcb5b515fd7949b31893c32be6696d91252fb34601c4f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "187dca8b0f934d9b42adcb5b515fd7949b31893c32be6696d91252fb34601c4f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "f32ad8b0892614686ef2b0b5cc230b89e2fe1efbe583a5954a1ea82e730d0024"
-    sha256 cellar: :any_skip_relocation, ventura:        "f6eea6ab552651d2c45035be1db8c1203e0239b4c763612c3e3996f1b94c150f"
-    sha256 cellar: :any_skip_relocation, monterey:       "f6eea6ab552651d2c45035be1db8c1203e0239b4c763612c3e3996f1b94c150f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f6eea6ab552651d2c45035be1db8c1203e0239b4c763612c3e3996f1b94c150f"
-    sha256 cellar: :any_skip_relocation, catalina:       "f6eea6ab552651d2c45035be1db8c1203e0239b4c763612c3e3996f1b94c150f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4fd6f6b10d6617c98b3ecf7752848224130a1ad14cc776888d17d65bf0360554"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f24bc3d536e9aa3ee38043d2d7f42169234474b6bff0d6f6dbdbf497c776f5e1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "938a6cfb9895ec730d162419eed3a0f0df43d0810c9599809ca25484d7355adf"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d460d4fc56c643947602a3e171891d9b4d79679c49d982860fbb5039a725b5f5"
+    sha256 cellar: :any_skip_relocation, sonoma:         "9d526b3ee9ec7ac180a06861fe45f0dfd56d87c2d2f2a31603e99e04450b6e63"
+    sha256 cellar: :any_skip_relocation, ventura:        "8df48a5acf737f4910de8a4a9e0d2b8e451811897801fd5c64635dbf02462e4b"
+    sha256 cellar: :any_skip_relocation, monterey:       "b332573f0ea2df96b297f348d1097407fc03d0dd1233b98b1e6d80f735638453"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e820a84ec1cfd1c0f6fd708b00ad52f8029c88c0f0147fa23f88542ae7756029"
   end
 
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   def install
     virtualenv_install_with_resources

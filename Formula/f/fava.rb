@@ -9,23 +9,22 @@ class Fava < Formula
   head "https://github.com/beancount/fava.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c655488c250543f81f846bbbbb5b807d834fd9ef890c905668764b9a190e44cc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c204f51d2002dee6acb40b341182958a91be97ec80555603aff77593c1ce3c40"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e2ce342456aaa5615b630204a31b29cdf780d7114890c967c9e281e48daa6eb5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2c8badbb017b3b6393af82993bb6e24c3a49dfeacc1cd49ebf4cba3434b92a1c"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b28cf5e5db6214d8d0cd4a9d5ace0b6ae5342a4ed43e2f0b1d1d0e2d349e4169"
-    sha256 cellar: :any_skip_relocation, ventura:        "123ebc9f6ca5ac3ecb11c29c6ed45633d949c40bff45e6867e6484cce2ea5455"
-    sha256 cellar: :any_skip_relocation, monterey:       "cd44f259092b0a2f18ca1c4cb71bd4990ed269e8d0f6a52029247de425601849"
-    sha256 cellar: :any_skip_relocation, big_sur:        "58718da78c24b5a1ef9c6eeb1c6b38a78c53b26c61f95e02738c5fd2bc61802a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1dc0478789ebf8d98ec32de14055882cba563c188e51e924f5fa50b3dc983327"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "940ee3157d27b69424b239c6513ee9cfe34b1781070fdefb1cc89fb9e7d32468"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f1d1934db702cee62a3787011beaa46f620d66895156c0c083169ca08fe65cc7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4e1ddd68d385c7f296e5869902cd3a7611362f6ab5e90cfbabe9342c13d4dfb9"
+    sha256 cellar: :any_skip_relocation, sonoma:         "52fb65e69ec3dc88c4101e3a665025ede9392306418857e421e63af001d4e325"
+    sha256 cellar: :any_skip_relocation, ventura:        "867f1dc39738d15fda4425563c63420f3b5779ac1d5fa4c60e7509aff6b24dee"
+    sha256 cellar: :any_skip_relocation, monterey:       "1d394730a6f1573b3e66f314e8acf78ad6f0b3f00b109a5e0a285edbfebb81be"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c4855b7f60ce4384e863106bd215d9c3f0bba93ec5ad8a81d68fa759310607ba"
   end
 
   depends_on "python-certifi"
+  depends_on "python-lxml"
+  depends_on "python-packaging"
   depends_on "python-pytz"
   depends_on "python@3.11"
   depends_on "six"
-
-  uses_from_macos "libxslt"
 
   resource "babel" do
     url "https://files.pythonhosted.org/packages/ba/42/54426ba5d7aeebde9f4aaba9884596eb2fe02b413ad77d62ef0b0422e205/Babel-2.12.1.tar.gz"
@@ -142,11 +141,6 @@ class Fava < Formula
     sha256 "31351a702a408a9e7595a8fc6150fc3f43bb6bf7e319770cbc0db9df9437e852"
   end
 
-  resource "lxml" do
-    url "https://files.pythonhosted.org/packages/30/39/7305428d1c4f28282a4f5bdbef24e0f905d351f34cf351ceb131f5cddf78/lxml-4.9.3.tar.gz"
-    sha256 "48628bd53a426c9eb9bc066a923acaa0878d1e86129fd5359aee99285f4eed9c"
-  end
-
   resource "markdown2" do
     url "https://files.pythonhosted.org/packages/8e/b3/64c459af88ea8c2eeb020d0edf3e36c62176e988c47e412133c37c5da5e7/markdown2-2.4.10.tar.gz"
     sha256 "cdba126d90dc3aef6f4070ac342f974d63f415678959329cc7909f96cc235d72"
@@ -160,11 +154,6 @@ class Fava < Formula
   resource "more-itertools" do
     url "https://files.pythonhosted.org/packages/2d/73/3557e45746fcaded71125c0a1c0f87616e8258c78391f0c365bf97bbfc99/more-itertools-10.1.0.tar.gz"
     sha256 "626c369fa0eb37bac0291bce8259b332fd59ac792fa5497b59837309cd5b114a"
-  end
-
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/b9/6c/7c6658d258d7971c5eb0d9b69fa9265879ec9a9158031206d47800ae2213/packaging-23.1.tar.gz"
-    sha256 "a392980d2b6cffa644431898be54b0045151319d1e7ec34f0cfed48767dd334f"
   end
 
   resource "pluggy" do
@@ -249,6 +238,8 @@ class Fava < Formula
 
   def install
     virtualenv_install_with_resources
+
+    generate_completions_from_executable(bin/"fava", shells: [:fish, :zsh], shell_parameter_format: :click)
   end
 
   test do

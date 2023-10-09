@@ -2,29 +2,28 @@ class CabalInstall < Formula
   desc "Command-line interface for Cabal and Hackage"
   homepage "https://www.haskell.org/cabal/"
   license "BSD-3-Clause"
-  head "https://github.com/haskell/cabal.git", branch: "3.8"
+  head "https://github.com/haskell/cabal.git", branch: "3.10"
 
   stable do
-    url "https://hackage.haskell.org/package/cabal-install-3.8.1.0/cabal-install-3.8.1.0.tar.gz"
-    sha256 "61ce436f2e14e12bf07ea1c81402362f46275014cd841a76566f0766d0ea67e6"
+    url "https://downloads.haskell.org/~cabal/cabal-install-3.10.1.0/cabal-install-3.10.1.0.tar.gz"
+    sha256 "995de368555449230e0762b259377ed720798717f4dd26a4fa711e8e41c7838d"
 
-    # Use Hackage metadata revision to support GHC 9.4.
+    # Use Hackage metadata revision to support GHC 9.6.
     # TODO: Remove this resource on next release along with corresponding install logic
     resource "cabal-install.cabal" do
-      url "https://hackage.haskell.org/package/cabal-install-3.8.1.0/revision/2.cabal"
-      sha256 "e29a58254bb8aaf950bf541e0fe9cf63f9ae99b8ae1f7f47b62b863c25dd54d0"
+      url "https://hackage.haskell.org/package/cabal-install-3.10.1.0/revision/1.cabal"
+      sha256 "7668e8dcd3612d8520e16f420c973cd5ceeddb8237422e800067d6c367523940"
     end
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "40ab69cd21f54e597795b71abf344665072feb6ac2b03bd2bae0e04bb631ef83"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3af91ef28d8d82761de341be8277b8ab61c50c9c222d27ff1f6265ec11595be2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "252fe73c7aaf9c44ef3a2f7dc25bc89230a614591dcd6efcf1a8ccc8bec901ac"
-    sha256 cellar: :any_skip_relocation, ventura:        "c1d60e3d027bdef6559d3128c4139bc1d93a73cc3e60323c4a135eb948962c76"
-    sha256 cellar: :any_skip_relocation, monterey:       "a682772e0cf626c821efd4d884737e33104831d1e5ab2ce6f90be557aa872ca6"
-    sha256 cellar: :any_skip_relocation, big_sur:        "395c7c55426e70ecadbcfd943d9b4e0a4cd8799331a2f0b585289bd0a93f8c15"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4d84d35b0bd0a269423bb92082e848227f24c3fe61549da35b42da32c46effae"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a13e9e35906f7bebfe3eed6ed30eeb6eef33c214150ad9e962cb533bedcb61d5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d971441087454c80f4496d42b9ce15517e54975f73dc4d1417935db7f0f8bbc7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "fbf1653dbd912c65d6028abf2a2f21a589e34b5a37eea0f8557406748421f7e0"
+    sha256 cellar: :any_skip_relocation, sonoma:         "6f593288503f68e9a7d0b0c9869fb0a4cf9014dd63c042fdf6cf8661534a9c78"
+    sha256 cellar: :any_skip_relocation, ventura:        "a985d2fddefd0bb9683351f1833f92a9ec4c196cdde0b92d182246e901ed3417"
+    sha256 cellar: :any_skip_relocation, monterey:       "b3eea63092feeb5ee050ec741b2cc3a6adfac9ad1a179b1735727573a5dc9a4b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6cc550f7b66551aaf9b25b32f10d26a602af44d8699df9475760a96260c7b522"
   end
 
   depends_on "ghc"
@@ -33,22 +32,22 @@ class CabalInstall < Formula
   resource "bootstrap" do
     on_macos do
       on_arm do
-        url "https://downloads.haskell.org/~cabal/cabal-install-3.6.2.0/cabal-install-3.6.2.0-aarch64-darwin.tar.xz"
-        sha256 "859c526cde4498879a935e38422d3a0b70ae012dff034913331be8dd429a4a74"
+        url "https://downloads.haskell.org/~cabal/cabal-install-3.10.1.0/cabal-install-3.10.1.0-aarch64-darwin.tar.xz"
+        sha256 "fdabdc4dca42688a97f2b837165af42fcfd4c111d42ddb0d4df7bbebd5c8750e"
       end
       on_intel do
-        url "https://downloads.haskell.org/~cabal/cabal-install-3.2.0.0/cabal-install-3.2.0.0-x86_64-apple-darwin17.7.0.tar.xz"
-        sha256 "9197c17d2ece0f934f5b33e323cfcaf486e4681952687bc3d249488ce3cbe0e9"
+        url "https://downloads.haskell.org/~cabal/cabal-install-3.10.1.0/cabal-install-3.10.1.0-x86_64-darwin.tar.xz"
+        sha256 "893a316bd634cbcd08861306efdee86f66ec634f9562a8c59dc616f7e2e14ffa"
       end
     end
     on_linux do
-      url "https://downloads.haskell.org/~cabal/cabal-install-3.2.0.0/cabal-install-3.2.0.0-x86_64-unknown-linux.tar.xz"
-      sha256 "32d1f7cf1065c37cb0ef99a66adb405f409b9763f14c0926f5424ae408c738ac"
+      url "https://downloads.haskell.org/~cabal/cabal-install-3.10.1.0/cabal-install-3.10.1.0-x86_64-linux-ubuntu20_04.tar.xz"
+      sha256 "b0752c4c5e53eec56af23a1e7cd5a18b5fc62dd18988962aa0aa8748a22af52d"
     end
   end
 
   def install
-    resource("cabal-install.cabal").stage { buildpath.install "2.cabal" => "cabal-install.cabal" } unless build.head?
+    resource("cabal-install.cabal").stage { buildpath.install "1.cabal" => "cabal-install.cabal" } unless build.head?
     resource("bootstrap").stage buildpath
     cabal = buildpath/"cabal"
     cd "cabal-install" if build.head?

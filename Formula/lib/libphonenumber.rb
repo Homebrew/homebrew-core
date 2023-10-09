@@ -4,6 +4,7 @@ class Libphonenumber < Formula
   url "https://github.com/google/libphonenumber/archive/v8.13.22.tar.gz"
   sha256 "d3594f65d1f1c585bfbeeb5662ef442a4ea2ec4ea2eb3c8e96314f44e06f08ad"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,13 +12,13 @@ class Libphonenumber < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "245a9a8b87b359ee38f496ba2c81a0e8c0bc2e2b363a4ad80dce35fc9181db64"
-    sha256 cellar: :any,                 arm64_ventura:  "565db72c078edc62473157ae0b09b4d9d7b193d2e0aa3594974a9df4ba579b72"
-    sha256 cellar: :any,                 arm64_monterey: "67e62680b40bf4e5946fe8812b796b432c512713b0c68ef1127a4e19d2d0091c"
-    sha256 cellar: :any,                 sonoma:         "f95f0cd59a96de8580fae43fb1168107f0532e4d59600f82a6ea61f5f0a8fa83"
-    sha256 cellar: :any,                 ventura:        "836acd50e914f139460ca2fa79881525064b300ab422279798b5ef22d7f558e4"
-    sha256 cellar: :any,                 monterey:       "cde00e98e33ebbfd713e2b1b8b7b18c95c6cae1903a7bb2c03a96168703c1a99"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f6fb8a6a90a071ceb72db2962fe113e0730084c1b2c31b4dd156cc33bd5f3f76"
+    sha256 cellar: :any,                 arm64_sonoma:   "34ef7ddc196d27ce692083c30bca7cf2d9eedc2af2f856ce1aab7919f8ed68ee"
+    sha256 cellar: :any,                 arm64_ventura:  "948f217c409c4a82c9483d5f684e445be8ac8c23f9840ff81b3c8c9498f3ff32"
+    sha256 cellar: :any,                 arm64_monterey: "a23fb52bc10156fcbcab3fdfd956541acacc4c66a47c29124f4c34b1fdf56afa"
+    sha256 cellar: :any,                 sonoma:         "f76eba9efabb1918789590db22e9103c34a39a313627cac4fda4be5fbad55d13"
+    sha256 cellar: :any,                 ventura:        "9b3f81c648ff4b1bdcaf7c4a75dfa00053e41c3ac7e7a9b215646b1674771d17"
+    sha256 cellar: :any,                 monterey:       "abc342d22aea4b9eae5b9016bdbb5f1107a94bf47d19d3abdbef17193057c762"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e91f0b9156556e59b9fecfb3bf75db46dcf4115eae115c168e5550f7e7ae9271"
   end
 
   depends_on "cmake" => :build

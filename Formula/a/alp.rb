@@ -1,19 +1,19 @@
 class Alp < Formula
   desc "Access Log Profiler"
   homepage "https://github.com/tkuchiki/alp"
-  url "https://github.com/tkuchiki/alp/archive/v1.0.20.tar.gz"
-  sha256 "a8477fe3fb1fb2f1e4e64d00697b743b6fe542e10325a65efac0f25524d36084"
+  url "https://github.com/tkuchiki/alp/archive/v1.0.21.tar.gz"
+  sha256 "cb46bbf1c8a1feace9ea23447509a7b7fad8960e9e73948fcfdf012436c64390"
   license "MIT"
   head "https://github.com/tkuchiki/alp.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5c5945bfc16063496e594b661296fc79034f76ba9d4451bc3b478ad23cd7912c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "43bd4d01e9ed44225bce5772bef0818283f92e331e57125645dbc56583df3d8b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "04ebb17e0874316d24eff8963d11c32f7e1af4d2ae34bb7db47790e74c866834"
-    sha256 cellar: :any_skip_relocation, sonoma:         "f8758398261ce3e2942dcdfee4681359f3a49a8087be202f7e502556359adaea"
-    sha256 cellar: :any_skip_relocation, ventura:        "c8cc8f89dea8ea8cc79b440bba8f0a6d730909d43c1f627846d42fcc5421be62"
-    sha256 cellar: :any_skip_relocation, monterey:       "918aacd045c5e49dfaefc27172b77ebb984be0526b0ade1102af3dda34a789b5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "51a2f290a1e4e8faeb47caff659fd13446b2a82691038ba493c6c2f9e5d0e302"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e947c50b3cfeb2580521b828119cf5e6e1590b3596415f93a5525fc6157c0765"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c8f75372afd0b575d95b8f5d6f1f0cdda3dc9d7748974286aaa2823f3d98bc39"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "17f070fc807d0190a175d61ac599920e0af0b791d52f7831c28d6714263d0dbe"
+    sha256 cellar: :any_skip_relocation, sonoma:         "37d8da350c6ca544b05f4cf14e4a60037865958c73d6023e75f2f61000b3f572"
+    sha256 cellar: :any_skip_relocation, ventura:        "ba54691789ec295053d9a208d3ecae57fbdd176692ddee4cbbcdecbea570d0a8"
+    sha256 cellar: :any_skip_relocation, monterey:       "508bdbaf309ca746ed76d0fbc3028a5f3f8b1bacafa65ffd2a46282f1afe147a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0e1770f74c2881e2147f43cf2a182b4a5c60cd5c324120127d70c938459cd735"
   end
 
   depends_on "go" => :build

@@ -6,9 +6,11 @@ class Wget2 < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 arm64_sonoma:   "b08443020816dc22cf93815c350b30f0861f005e23238c2d142db09dffebae25"
     sha256 arm64_ventura:  "fa4432f5f7ce4d83c9fe0a9e89b45f5c9f53c78915538081f8316232f16d363a"
     sha256 arm64_monterey: "1d39d7e9074e73dd041b3c87e7461c39a9a077239cd6209b2b5cfe6ccfdb1b6e"
     sha256 arm64_big_sur:  "11191e2efde22f9e98b6f3eb2e1640e720d795b0af23651d65ae4e542eb3a4f7"
+    sha256 sonoma:         "e1465119d071bf1f21d8e0d25d6abb930e7d12a92901091ae1e59d0682a6f620"
     sha256 ventura:        "b0a0dd524e72ca51c58433fd4f5371b1c7b9ad42a00709a29e9a1c6232f2813a"
     sha256 monterey:       "e1e86a64b8229d64fc73a56cee68e281ea3f93465d1b22f2653704fed0e3f683"
     sha256 big_sur:        "95703ee9f7a7c55fd50b3fbe4e77321d1db04ff77dfbae5f080099fa54b672eb"

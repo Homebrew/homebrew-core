@@ -7,17 +7,18 @@ class PinboardNotesBackup < Formula
   head "https://github.com/bdesham/pinboard-notes-backup.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2a25aa11fe52d764d56bbedbece7d68c8650b5dc21a2bba87c34b6cea1b032e0"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "44a95be5ba2c82644c18c048756fe4223dd61f2ba7fd010e0c895cbe78b0585a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a668842564ed2394a77076e8c3e8b4efe8b9b5032e2a3316f8ff3a741acc480c"
-    sha256 cellar: :any_skip_relocation, ventura:        "e3b01674e194bf24426b5414f0468ad94b2286862a02338a7f9c26767cf9f2fa"
-    sha256 cellar: :any_skip_relocation, monterey:       "bb0049130131cd64c501093904ff99a6df2d2bc26e4c4c05aafbe840e28c9b27"
-    sha256 cellar: :any_skip_relocation, big_sur:        "01a6a006a5df7ec5ad09606c18a80ae9df4b4551035c35c7777ef6220e691445"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7d27dbcd35071c388a067a7b15bf279f334b0c188d121afbf50cab84c261e5ca"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a23126069b6eb37ec5fa9cdfc4e90fdec0607b7e5b663f369ade70f4622edd34"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d0179793fea1c674a55303c6fbd09a0eb18479f69ea4913d899051998d431015"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8c14f48435e8582dd61b1c90c499a2532f288af4ab8676c10341348dd4c80c4c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a6a4583d4eec71832fb5231d5a461ab4a6a9f46824965f4f4d70971d6dc2800a"
+    sha256 cellar: :any_skip_relocation, ventura:        "d7d134ba104152960322db03077c2747145f9eed0767365654ddf0dd0e1ce747"
+    sha256 cellar: :any_skip_relocation, monterey:       "961d9679a44ca529b677128731d8c08b975bf4c4d24a331249519e408f5a5059"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4207355c1a379695a0eac57910fc29b23eed8fe6f296c3068044ef327b488276"
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  depends_on "ghc@9.4" => :build
 
   uses_from_macos "zlib"
 

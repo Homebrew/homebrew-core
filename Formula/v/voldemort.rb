@@ -16,7 +16,7 @@ class Voldemort < Formula
   end
 
   # https://github.com/voldemort/voldemort/issues/500#issuecomment-931424229
-  deprecate! date: "2022-09-17", because: :unmaintained
+  disable! date: "2023-10-03", because: :unmaintained
 
   depends_on "gradle" => :build
   depends_on arch: :x86_64 # openjdk@8 is not supported on ARM

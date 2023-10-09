@@ -36,6 +36,9 @@ class Sgrep < Formula
   end
 
   def install
+    # Fix compile with newer Clang
+    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+
     if Hardware::CPU.arm?
       # Workaround for ancient config files not recognizing aarch64 macos.
       %w[config.guess config.sub].each do |fn|

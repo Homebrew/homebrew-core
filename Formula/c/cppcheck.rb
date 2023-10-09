@@ -7,26 +7,25 @@ class Cppcheck < Formula
   head "https://github.com/danmar/cppcheck.git", branch: "main"
 
   bottle do
-    sha256 arm64_sonoma:   "f9d1dcdc375c36d065912a3ae7901a9e46c95450129f7dcd019448e550460cac"
-    sha256 arm64_ventura:  "f858f3e680730de9f02559dbd8b384dcb099c35d73d3213b079c89703d219e4b"
-    sha256 arm64_monterey: "fb562470a72bddd43b8ae2ecabbbdcd052620db07bdaedd28ca5812427d81c6b"
-    sha256 arm64_big_sur:  "50fb12f5e4202ec2fd5e644bb5cfcd32f294c946631217c42818cde35bae4f2e"
-    sha256 sonoma:         "050b65351bf0947ee96d2fa0e49f9b295cbab8a228da1198ea3ef6efe198ec39"
-    sha256 ventura:        "e0257bc44282a5636a1ee2fb8c3cd5f9fafa9703bca57671887b0e21b1c05b85"
-    sha256 monterey:       "c28d5b9303673fc6792db4f2db482ee5f628d34b8fc9eb0ea4611f725ba4bbcc"
-    sha256 big_sur:        "183c3de3d7059aec1b6fa7e4b146e4b454f89a7d89b5e61959b12c887ae80ec3"
-    sha256 x86_64_linux:   "62780a0612717c0409b023c5217fa785f85f4095149228a4b71fad1ac6ee4d9b"
+    rebuild 1
+    sha256 arm64_sonoma:   "4f8972865b9f6e566a63c6ba59e6fb09f1aa7c8d57fea2985d1ea165d3ff5ca6"
+    sha256 arm64_ventura:  "998efc003731e5f835246be86c5e857f77e3602eb68c68f8379cf12110830aad"
+    sha256 arm64_monterey: "3ee5bff50a866b39d92a42e35521c59bd7cedc9c82aa4b516b6b8b9ecf424eaf"
+    sha256 sonoma:         "e9175d09e701197968728723dc8583c0904b8d21d726f923f7f3db3245ea1a94"
+    sha256 ventura:        "8f3c3b7b4206d6f43d0c7eb573a8ba1ca5275b4294185c5801d435055e0d2d66"
+    sha256 monterey:       "bdfe0d0ec85532ab8ef808dc70decf33c34b86e509b98deeac30ca8ce9278628"
+    sha256 x86_64_linux:   "507a848d3b983a5263257b63b0467f1ab2650b4e74d42029d4eba09dce375a22"
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.11" => [:build, :test]
+  depends_on "python@3.12" => [:build, :test]
   depends_on "pcre"
   depends_on "tinyxml2"
 
   uses_from_macos "libxml2"
 
   def python3
-    which("python3.11")
+    which("python3.12")
   end
 
   def install

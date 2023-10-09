@@ -8,20 +8,18 @@ class Glances < Formula
   license "LGPL-3.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7be7619d86b4e39edf798b27143603084c00ebad993a041f55d4ab289b5ee657"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "22f18a314cf59788d0db48f919f4d96d6af4e12b52da0c09ca86b1ecf0f15087"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a1487ddb17c66be835537486f8e94e26cf61abea23fdb5e605386a3998e08157"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6d3764224fa08a2838af25daf73994b8d952feadc960d565b5603e2d1378d3ca"
-    sha256 cellar: :any_skip_relocation, sonoma:         "f226429e1ff4bbac60bbb8cb1efac9bc08399ae8a7b2c835510b98e8ed4d3316"
-    sha256 cellar: :any_skip_relocation, ventura:        "8b06764f0a662200a9859043254dc7248be133d24bca33fd88654812049cdf48"
-    sha256 cellar: :any_skip_relocation, monterey:       "b975b704e59b44f11cc1ade9a0918ca8acf234360e65fb99687fee3f57939cc5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c79bf402bba946aaa7182fb9c822bac9f771ab7af90c03201b0e9b1bf24bd734"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "34dca7d55da7760977cc1f4e08cf8fa4dc99233ed07c440ba140c25789503d27"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f990cb650f3a4a294d7d0f8022755f0aabff3154d19b0539973ea207b455467a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "76260a2465b79b559c37a24265456c6a5e7bf6c1d323b0b96486e4f1b4d4d6cc"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0c5d536676c493ff24390d049870c0c7e0537376d342fa4fa7b6a5546da770ca"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3a30ca2c4102c5440face5b108ee1dcae9d1f2f5f74528bb5d0e72b31de49362"
+    sha256 cellar: :any_skip_relocation, ventura:        "29bfa409dd6bee74012aee885b2f79353439b0828fab15d536042b2414f45fb4"
+    sha256 cellar: :any_skip_relocation, monterey:       "ecc476bd72ee7dc845f08b2c278c09a1722826ff00ce96b7d143ab962849ed55"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7d31446620d0a4d632a8f1fb1da6c43220e81fca2a4b782e5903787782fb6c7d"
   end
 
   depends_on "python-packaging"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   resource "defusedxml" do
     url "https://files.pythonhosted.org/packages/0f/d5/c66da9b79e5bdb124974bfe172b4daf3c984ebd9c2a06e2b8a4dc7331c72/defusedxml-0.7.1.tar.gz"
@@ -34,8 +32,8 @@ class Glances < Formula
   end
 
   resource "ujson" do
-    url "https://files.pythonhosted.org/packages/43/1a/b0a027144aa5c8f4ea654f4afdd634578b450807bb70b9f8bad00d6f6d3c/ujson-5.7.0.tar.gz"
-    sha256 "e788e5d5dcae8f6118ac9b45d0b891a0d55f7ac480eddcb7f07263f2bcf37b23"
+    url "https://files.pythonhosted.org/packages/15/16/ff0a051f9a6e122f07630ed1e9cbe0e0b769273e123673f0d2aa17fe3a36/ujson-5.8.0.tar.gz"
+    sha256 "78e318def4ade898a461b3d92a79f9441e7e0e4d2ad5419abed4336d702c7425"
   end
 
   def install

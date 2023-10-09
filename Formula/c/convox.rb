@@ -1,8 +1,8 @@
 class Convox < Formula
   desc "Command-line interface for the Convox PaaS"
   homepage "https://convox.com/"
-  url "https://github.com/convox/convox/archive/3.13.7.tar.gz"
-  sha256 "986ab8ba8507b4d381afd96b55b07937842a9d3905793c41b633047c05a6ba68"
+  url "https://github.com/convox/convox/archive/3.13.8.tar.gz"
+  sha256 "aa53afd74924838c127fb511a48ded71b04b0a90be0ce50d352eca7ca5113eb8"
   license "Apache-2.0"
   version_scheme 1
 
@@ -12,15 +12,13 @@ class Convox < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "af778c75d5a796f83d543aebe71513146141307a09f0400d7a30c58ee7f7e97f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d4caa4ec44d0dd4b4c81d65f8ca0247970e99ef1047d0dabe5f6079248327e84"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0f48b2d3ddb1fbd842570101a1a7df20c6561f8399298b971c67d2a539accb01"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b5d223775d37befeeffaef26a17b85458b8028b832acfbeb5aa7ad6c4d99414f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "523cea7393dd68f4747324512159b5d8808259cc3d07283a03794b95eb40ca38"
-    sha256 cellar: :any_skip_relocation, ventura:        "d67033fa0dac50dc3eaa2e141024f7ac21c8a2f196071b03202ad8847ccfdd22"
-    sha256 cellar: :any_skip_relocation, monterey:       "35658778702ef51934ba14c0b6fb71f64c0ea246458c37972bb52d21deb36387"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e05588ec1d6643ef63130f1efbb4a300f431cd4d04ad606186d53ede3b624fd8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dbd236ca08fccf24bbcde0e1c38919be100ae6cbca2e5a3fd696b4b5203cf398"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6e922eb04b88f32eaf8feeda84f0f8e07561dc8a9c13fc2c0f6c69fd0c4eba7f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f27a0fcd7ead041db4d0b401455eb4a6cd22918f7547a1d76515d35904230724"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ed966864b9946c91d22d5613d35a90fa385dd11c24fafb1af9756b4cdac7422e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "19a9cca0259f76c00b4cb6e6357118887288c98413bf4e099d364571aba43971"
+    sha256 cellar: :any_skip_relocation, ventura:        "bba86a4be1554596406ac4f4438672fe19f9efe8911cc0124c500d15f20d0925"
+    sha256 cellar: :any_skip_relocation, monterey:       "f8e3008445c1c8c990459c68a9273166e6438e0bf3c08a58dd9667b2dd09cb16"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c51ac36db6046f57baf1c32107b1aeb7c69f72fc8cb6b04a8277add5f41f8c6e"
   end
 
   depends_on "go" => :build

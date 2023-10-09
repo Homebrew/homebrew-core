@@ -1,10 +1,9 @@
 class Exim < Formula
   desc "Complete replacement for sendmail"
   homepage "https://exim.org"
-  url "https://ftp.exim.org/pub/exim/exim4/exim-4.96.tar.xz"
-  sha256 "299a56927b2eb3477daafd3c5bda02bc67e5c4e5898a7aeaf2740875278cf1a3"
+  url "https://ftp.exim.org/pub/exim/exim4/exim-4.96.1.tar.xz"
+  sha256 "93ac0755c317e1fdbbea8ccb70a868876bdf3148692891c72ad0fe816767033d"
   license "GPL-2.0-or-later"
-  revision 2
 
   # Maintenance releases are kept in a `fixes` subdirectory, so it's necessary
   # to check both the main `exim4` directory and the `fixes` subdirectory to
@@ -30,16 +29,13 @@ class Exim < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "ab568669beb5b9c0199e33b68fd30dee59c1f5f3f305f85f7ad30140c7315499"
-    sha256 arm64_ventura:  "02bbfd3d923e23dd8b9d605ff9f3079b9cbe29150b77c9ee10004c5d4de483ba"
-    sha256 arm64_monterey: "1dcfe9e8ff31d30c8c03c2f6db86d29199e3ad3884626e24a202dbf10da5b815"
-    sha256 arm64_big_sur:  "9a376535eb48485e2cf30910da5da8fbc422f20790639f643f60195a29ad4bba"
-    sha256 sonoma:         "3375c8c8a92e128eda71546fa9133f677509a3ae690e4ae7298f82d573b24d35"
-    sha256 ventura:        "7d030fce1ff8c9326ce679d95f07c1ae1ad429e5b54c3363de23e3b207bf25db"
-    sha256 monterey:       "8212b900afb9970de0ea5a666d1fdf524d74f638d8233d3edf375ce13668678a"
-    sha256 big_sur:        "2380ffa1a08a087a4ccc85c776fabc661cc377f32cd3fba3ebf79d042ae53727"
-    sha256 catalina:       "e49195d49265f2e1941c71c39811d92a329ae04b5ea33c34116bdb1c0723307c"
-    sha256 x86_64_linux:   "c189cd50a88e4494a00520e2ce63066cea2bcbe8ed3fa1435fcadb73b0d11d29"
+    sha256 arm64_sonoma:   "bb4fd19b83734e9ed20cd9b479b9853823cd7e74cef49c6a741e256b5bdb0d64"
+    sha256 arm64_ventura:  "b9b8a165afcc21c7844a5ce5feae1b6d8d802c7548e226e7efe7d45eef418b88"
+    sha256 arm64_monterey: "5fc92bc76ef650c9c9022ffa9b27ac2fc16bdbe6cf8d2248561d5517c62b5069"
+    sha256 sonoma:         "b2ac411c39d12ac322df552feebcf83d3b753cef19c69aebe14f4b5c3cf0ce45"
+    sha256 ventura:        "b6c49c96d647233a615d77f65845c282fe48945627c6cbeadfd732ec76a253c6"
+    sha256 monterey:       "422f509f10bb5cfc57fb769deb44d27c93c6eb284b86f8c0bf998506a4ef1f61"
+    sha256 x86_64_linux:   "780b95d3bcddc2656b4f943a817e54a3284f35932a00222331cd7476bec6576a"
   end
 
   depends_on "berkeley-db@5"

@@ -6,35 +6,42 @@ class PythonToml < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "106f42b699297e0f616d8793e7d5e7773e55f46221c570be211c5d8e44fbb6af"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "834a2db12a6be2c576518cb07c20832abe43d65773d1ffd977ccd99da30bfa86"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b51ad6a3ace38bd7f76e7b6215b51798a1de6ded5c621acfe9e10d0bf44dcb75"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b3bb5124e9f72848f823cf130657f7b73846eae8e2d42355ef9b44e8d3c88143"
-    sha256 cellar: :any_skip_relocation, sonoma:         "44184bc24b2fadd11c6d4374872775895009e37e031034c27a52ffa826e440be"
-    sha256 cellar: :any_skip_relocation, ventura:        "cdd774d5f3199a7afabaaee113680d326772fd6c0915554f564b4b3fe0238323"
-    sha256 cellar: :any_skip_relocation, monterey:       "2f7bf4095aecc3d0a50d08227af9fe573336e0a646bde2befa00d15d0f06fa02"
-    sha256 cellar: :any_skip_relocation, big_sur:        "84e09d7ad852223141dfbdcdd55504b291c2c27bfbaffb30ef44b86d3fe40be4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a4af3afd961e422d62ca04300144dd06e722e617b8ca90d0e66177980d306c66"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5823cab6f1438f69c06874397d39da3917e575d22a4f1cb9e6e8e04fa8cd9e76"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8aa1f3935e576153b39d941e3c25d824a3abdcb1f67ae3fff3705cc31af9a073"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5e347dc5d79b592b73b3074df15ace9c349169d7a24b51e3d258e4a769f521f4"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f44240277e9c6524287fffaf5fc3b22148fd2cdc80be6d5587e45eb92ded9f2b"
+    sha256 cellar: :any_skip_relocation, ventura:        "356dd19a03e2bee0107ecdb5b3c9f9f85cb96f121a391088b333e3509bd78acf"
+    sha256 cellar: :any_skip_relocation, monterey:       "87648197c14447e5c223991c36920f146996801917cc7a4cc4824239498a60a0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ea42d742ca9dc354ac30ffb377b5fcd37803b6c376a37ab66237f42ffca1b9e8"
   end
 
-  depends_on "python@3.11"
+  depends_on "python-setuptools" => :build
+  depends_on "python@3.10" => [:build, :test]
+  depends_on "python@3.11" => [:build, :test]
+  depends_on "python@3.12" => [:build, :test]
 
-  def python3
-    which("python3.11")
+  def pythons
+    deps.map(&:to_formula)
+        .select { |f| f.name.start_with?("python@") }
+        .map { |f| f.opt_libexec/"bin/python" }
   end
 
   def install
-    system python3, "-m", "pip", "install", *std_pip_args, "."
+    pythons.each do |python|
+      system python, "-m", "pip", "install", *std_pip_args, "."
+    end
   end
 
   test do
-    system python3, "-c", <<~PYTHON
-      import toml
-      toml_string = """
-      title = "TOML Example"
-      """
-      parsed_toml = toml.loads(toml_string)
-    PYTHON
+    pythons.each do |python|
+      system python, "-c", <<~PYTHON
+        import toml
+        toml_string = """
+        title = "TOML Example"
+        """
+        parsed_toml = toml.loads(toml_string)
+      PYTHON
+    end
   end
 end

@@ -6,20 +6,20 @@ class PythonMarkupsafe < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8dc5abda8181e435fdb3ea78288b802095a01af39161b949feb482a2a186c525"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "23fb7df7e480ae29fa2765130813f0531a5ce26467a80adc062ceae107390a61"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e87fb37ae58cb9c88427a03873ea9a8e3947dc85102adc3304d9073cc4861c19"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ba45e541895067ade3baffbc6e408437ec9abffe8f0aad81e4cce445af45df26"
-    sha256 cellar: :any_skip_relocation, sonoma:         "7b7432a4eba26532fa3dffe7104ece9ba1637019a1cf13b934bcc9f22ddef971"
-    sha256 cellar: :any_skip_relocation, ventura:        "c68f2269d60ff7c5795f823baca722c522e034fad92591a8c6b0a46b102144a5"
-    sha256 cellar: :any_skip_relocation, monterey:       "938586a6ab469083c2bfafc7197439a8342f35541e865d2df375342559fb6194"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a752771f37e5d6dda3bcc18693a3b61d4e407cefb4d534fce0f113e2f7c9f8c8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "81ec603d54ee57cdb6d26e68e4dac2598139747f2540cc032aaf59f5d937541d"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ed07d27ec38c0368c5f5ce625d5a7e5ae6e559e684bfcd2a45388180e6a11fba"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a895c47135e5bbf83a48b2faf3bc127e9ddc13b3bde998e3899787f6991639cc"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "bad3560274058a211d310a7d9b270e8e23dd3aa3ac90c77e79d323b8f8579ef0"
+    sha256 cellar: :any_skip_relocation, sonoma:         "668600f609994a2b00e501c26e5a5d765d2524c0cf1ff99c60f46666f0ba3173"
+    sha256 cellar: :any_skip_relocation, ventura:        "3aba25fa8a8bff5eb58720a65f2b0073ed62e59d7fcd5419c52108d6784ba784"
+    sha256 cellar: :any_skip_relocation, monterey:       "486c409c0a0bf355578ecc7f6c4479ce64c0648913f8c08fb68383b17ad3e8d3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "52ed0e115ebdbe57436d8f654b78ddcdd761c90956cc32c077b88a73910394b3"
   end
 
+  depends_on "python-setuptools" => :build
   depends_on "python@3.10" => [:build, :test]
   depends_on "python@3.11" => [:build, :test]
-  depends_on "python@3.9" => [:build, :test]
+  depends_on "python@3.12" => [:build, :test]
 
   def pythons
     deps.map(&:to_formula).sort_by(&:version).filter { |f| f.name.start_with?("python@") }

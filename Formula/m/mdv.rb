@@ -3,51 +3,24 @@ class Mdv < Formula
 
   desc "Styled terminal markdown viewer"
   homepage "https://github.com/axiros/terminal_markdown_viewer"
-  # TODO: Remove `depends_on "python-tabulate"` on the next release
-  # Ref: https://github.com/axiros/terminal_markdown_viewer/commit/d2e8d26f39590fdc9c0b9ec0b80b578c7e260c6c
-  url "https://files.pythonhosted.org/packages/70/6d/831e188f8079c9793eac4f62ae55d04a93d90979fd2d8271113687605380/mdv-1.7.4.tar.gz"
-  sha256 "1534f477c85d580352c82141436f6fdba79d329af8a5ee7e329fea14424a660d"
+  url "https://files.pythonhosted.org/packages/d0/32/f5e1b8c70dc40b02604fbd0be3ff0bd5e01ee99c9fddf8f423b10d07cd31/mdv-1.7.5.tar.gz"
+  sha256 "eb84ed52a2b68d2e083e007cb485d14fac1deb755fd8f35011eff8f2889df6e9"
   license "BSD-3-Clause"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cd476bd5efe39d03d9d8e8caba7c759ceabd278e95f289ed214d188a17336c38"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "86c5e40583cfc1ef7eb3c6d7018c583fc6f4367ffdb17b5cfcc0fa56243e880c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9142eb09dfabac520788ef54edd381ef502a212f17ef19b60d44fe3dd0043703"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "821062b5e21a8a9f40a436f8c519f79f37cb388b8b18a328122627ee2deeba77"
-    sha256 cellar: :any_skip_relocation, sonoma:         "6b0d2ffe60e8e22d632e0b6340b56c275ecd31ea0c038f014590408f7ae8e42c"
-    sha256 cellar: :any_skip_relocation, ventura:        "cf6c06afc79b496389ab63a5dc889247db69d3cf989e0c84d053e628d6fe4937"
-    sha256 cellar: :any_skip_relocation, monterey:       "56998e7ede36db96d375024160d0395a145e6eb4e505aba865d0150f086d41de"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3e481631fad73db799d6aefd0e76ae504f30d4723dc13c83da4e079ccf417c27"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "98aaa2c71d47a881ab002a879b421de18fb023efc9452262f8d9b396414a064a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4f6de617a2cbecc970673a7ec47d098f43abd079d8d6a021f4b7785ef8dcf374"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "14350a360592220984c9d62be076631c7e80e47f67fb95a547e25ee336ff75ab"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d2bb088679117e8008e856b478e1b1f30f4d343f8860e3a35de5bcf84ab4199c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "1fc8735b48352547eb5417ff16abb4506a0ff4ffabab613af1c9cb3185371117"
+    sha256 cellar: :any_skip_relocation, ventura:        "00d97593906271ca6da2a01f7c8e8dc0d159936d314efc55c3cc90204781279e"
+    sha256 cellar: :any_skip_relocation, monterey:       "1ab21c351a5fc98d7a376aabb88bcf9f566e0e583e32d515be0ed245783dd3fa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "57ebe8bbb634bbc88fd57785e791eab18de60599a4ad2cb7c9f2abf7693dc713"
   end
 
   depends_on "pygments"
-  depends_on "python-tabulate"
+  depends_on "python-markdown"
   depends_on "python@3.11"
   depends_on "pyyaml"
-
-  resource "Markdown" do
-    url "https://files.pythonhosted.org/packages/d6/58/79df20de6e67a83f0d0bbfe6c19bb82adf68cdf362885257eb01099f930a/Markdown-3.3.7.tar.gz"
-    sha256 "cbb516f16218e643d8e0a95b309f77eb118cb138d39a4f27851e6a63581db874"
-  end
-
-  # Upstream fix for code blocks not being indexed like expected.
-  # Patching this in allows directly applying Python 3.9 fix in subsequent patch.
-  # Issue ref: https://github.com/axiros/terminal_markdown_viewer/issues/66
-  # TODO: Remove in the next release
-  patch do
-    url "https://github.com/axiros/terminal_markdown_viewer/commit/80f333ba51dc2f1dfa854e203d3374a112aecbd3.patch?full_index=1"
-    sha256 "81e487a8e6ab5c72298186a8097da3a962549b6b8112241cccbeb1666ce54cf2"
-  end
-
-  # Upstream fix for Python 3.9 support.
-  # Issue ref: https://github.com/axiros/terminal_markdown_viewer/issues/86
-  # TODO: Remove in the next release
-  patch do
-    url "https://github.com/axiros/terminal_markdown_viewer/commit/aa6f377d568a0d3188b624bf5218af002373ad87.patch?full_index=1"
-    sha256 "500ddecd02c093cff32edc704628612c8f82e1298452a278cd00767daa073fbe"
-  end
 
   def install
     virtualenv_install_with_resources

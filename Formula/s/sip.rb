@@ -9,23 +9,18 @@ class Sip < Formula
   head "https://www.riverbankcomputing.com/hg/sip", using: :hg
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5a4c6049eba350e7795a8e3ba19b4b9150575e8dcf40bde9a89261789b1d68f2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "47eb91421fbf5ed2c726d80be60bc4730c7082226c5b33746f5327846263b0e7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "98d9682254001ee8721ba4527c311d5cffc3e791005283e7795b68cfc2948fbb"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f55acf4ce4d164cae3e3c86274b53b787d43617568073136e360b7eda6d33bee"
-    sha256 cellar: :any_skip_relocation, sonoma:         "f37e138f32234efeedb4975551309a7769659a181e8ea42cf0efac6a775dea61"
-    sha256 cellar: :any_skip_relocation, ventura:        "2cf97225325841cff1e07f69fb5cc94a09bf75fdaae617170445909e5f80a0da"
-    sha256 cellar: :any_skip_relocation, monterey:       "c0f4489b6e8a1a3e24f5adc2ccadd2606dcab48c59edb58f51e1d1df43334103"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f1501ec969fac71fa2158ea258d43ceee3ca3352c2df2136756b6bfcf0fe09ea"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b58d1f9da3e17886c6da54b3a67f9acc519953a7145cd1ebe84b10a85d9a0c44"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8814668c87731981503fa8fa6a9a4adbd6ad426bb77facaec71467f56d3cac27"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7bec8f6bf863d61e419ed70df4866cc61016495477120635a78f063567c5d635"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b09056383526598637b3021f7e3ae445b81f5a551862eee15eeb4518da24974b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4e9cb65bf16e4be9061d89d199f9fe7cf02150f9c76ff535598ea27d5cc0d048"
+    sha256 cellar: :any_skip_relocation, ventura:        "3e3bd6426baabeacc440e4298ebe93af84d65ce508ff01d52699b15192749411"
+    sha256 cellar: :any_skip_relocation, monterey:       "e0486146e9ed3a3e1c487dbdbba0be652b5b96b0b08d29211ee11f3dd631a029"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0a3c76fe0ff0ed10eeeff8a1bd4fcdf8af38bd92cc7bf888a8e7a92506cc50b3"
   end
 
+  depends_on "python-packaging"
   depends_on "python@3.11"
-
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/b9/6c/7c6658d258d7971c5eb0d9b69fa9265879ec9a9158031206d47800ae2213/packaging-23.1.tar.gz"
-    sha256 "a392980d2b6cffa644431898be54b0045151319d1e7ec34f0cfed48767dd334f"
-  end
 
   resource "ply" do
     url "https://files.pythonhosted.org/packages/e5/69/882ee5c9d017149285cab114ebeab373308ef0f874fcdac9beb90e0ac4da/ply-3.11.tar.gz"

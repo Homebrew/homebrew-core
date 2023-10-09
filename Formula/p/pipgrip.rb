@@ -8,17 +8,17 @@ class Pipgrip < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a83096aa977ed4286fdb9125e3883ed7e1dc8f8031c5e1deb9f15cfaceba6012"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9826c4852baa46f6adac063c21383c1e629a868fb064f5c93d30688c960d36f7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c9dfb22853418ed4855b44a5355b7e4dfe65446d54a9e0ba532366603e7948bf"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "82f4cda5d28bb0bd18f2e26edb08361d69ee16ec19c97003e435c8414f697b6b"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0df17880f35cda6784a563f834db44bef150316347a9b96f90f128ebcbcf68f5"
-    sha256 cellar: :any_skip_relocation, ventura:        "7eada787bd9a0eb693cacdbcf662be087e34d16572d34a8acfcf4dc9caf8d863"
-    sha256 cellar: :any_skip_relocation, monterey:       "c91cdf21c2b77dca34ab2153cba7459f7bc01c34a96221b0bbe0af84bca2e353"
-    sha256 cellar: :any_skip_relocation, big_sur:        "199782851f01d04b0281f36e3bd830019834b87c6134e57db4840bbc248d4c29"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e2041447cab66af568da532587374f354eea0bbd4fb7a7e0d01381b3c9e5932c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "817d65f5097dce68102fde55081b77fe0eeb474b866656670fde0f7a6ae1e5a2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3d8e6f568e77071b5c18f0ef3a0c8d0deec34b94e7599192cce4154763a31f81"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "33773beb89f6de4c0e4831ef6e482dea210ba731d676e8cb46a0f19536e28f7d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5c5629243d961fc0b47d3129ce4d661b78f3cf3a7588c8bed2f6e72150f10aea"
+    sha256 cellar: :any_skip_relocation, ventura:        "411ea3c61ef24fdddd918006a695ec7810b456ec2d9ce9dd860ae29c9c6d02e6"
+    sha256 cellar: :any_skip_relocation, monterey:       "fd70ede0e7ee58c0949c434dfc022f8a40da34647f8a21d72df1e27ed1846478"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c9ad4f9fc82cbfa80ba929484ab3d6412b010ad84157cd12046c756d04d20042"
   end
 
+  depends_on "python-packaging"
   depends_on "python@3.11"
   depends_on "six"
 
@@ -32,11 +32,6 @@ class Pipgrip < Formula
     sha256 "48ee849951919527a045bfe3bf7baa8a959c423134e1a5b98c05c20ba75a1cbd"
   end
 
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/b9/6c/7c6658d258d7971c5eb0d9b69fa9265879ec9a9158031206d47800ae2213/packaging-23.1.tar.gz"
-    sha256 "a392980d2b6cffa644431898be54b0045151319d1e7ec34f0cfed48767dd334f"
-  end
-
   resource "wheel" do
     url "https://files.pythonhosted.org/packages/c9/3d/02a14af2b413d7abf856083f327744d286f4468365cddace393a43d9d540/wheel-0.41.1.tar.gz"
     sha256 "12b911f083e876e10c595779709f8a88a59f45aacc646492a67fe9ef796c1b47"
@@ -44,6 +39,8 @@ class Pipgrip < Formula
 
   def install
     virtualenv_install_with_resources
+
+    generate_completions_from_executable(bin/"pipgrip", shells: [:fish, :zsh], shell_parameter_format: :click)
   end
 
   test do

@@ -12,14 +12,14 @@ class QtAT5 < Formula
   revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "71f03fc24af0ac414411c930142cadf750a78b4801f005f1ed919d5672801696"
-    sha256 cellar: :any,                 arm64_monterey: "d9f362a195a070ae2d0da3e353073e349fc70aa81de889a66d9d6144970b8092"
-    sha256 cellar: :any,                 arm64_big_sur:  "a062083af78555a440736a8538f1b058572b7e1949e942886c5284769f9c4cf1"
-    sha256 cellar: :any,                 ventura:        "b1ab435622fa5774f4d35f70e0c6dbedf3bff6bd64df8e1720aef2fb436c9e1c"
-    sha256 cellar: :any,                 monterey:       "e508c51e894cca8f46ac86762a04f94175398875f08e1603a60eb295d276f12b"
-    sha256 cellar: :any,                 big_sur:        "da48cea7d225ebaf45320aea5ab116e5b5dcd53d2512a5588231ce4924950140"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "30986e6c09d1e23704f6d28ef2f5bed86d9638e2b34682535f1042d59444c660"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sonoma:   "2adca4136f91ed85883010f224f86411e2fa688ca97a85d93e2813d37063f884"
+    sha256 cellar: :any,                 arm64_ventura:  "112d8c32256771d55a189b9f96cab9dd5d5fb0c9957e51105e73c959912d4d22"
+    sha256 cellar: :any,                 arm64_monterey: "8d5ca08ce92bbb97496e1c04a00a6a9d3f7f67058e4a4de5eb1241b30486f845"
+    sha256 cellar: :any,                 sonoma:         "24e40334a78b12b1b002d7f52c8d1ef5a73b24d9788b79064a0e2cbf6a7ddb3a"
+    sha256 cellar: :any,                 ventura:        "0d6e434462b63535524d2b36ece12d45eba22698417d3951118a5841fc17db00"
+    sha256 cellar: :any,                 monterey:       "d7315c8451d633d15e85820dba6a7e8ae157c8f929b8c16e75e29ea4c6e0bd5f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e2a2fdf79df12a18d7a75d56284f162a0f4e0a6a31e61602f7fe4a2f14b7aa05"
   end
 
   keg_only :versioned_formula
@@ -130,6 +130,19 @@ class QtAT5 < Formula
     url "https://invent.kde.org/qt/qt/qtlocation-mapboxgl/-/commit/5a07e1967dcc925d9def47accadae991436b9686.diff"
     sha256 "4f433bb009087d3fe51e3eec3eee6e33a51fde5c37712935b9ab96a7d7571e7d"
     directory "qtlocation/src/3rdparty/mapbox-gl-native"
+  end
+
+  # build patch for qmake with xcode 15
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/086e8cf/qt5/qt5-qmake-xcode15.patch"
+    sha256 "802f29c2ccb846afa219f14876d9a1d67477ff90200befc2d0c5759c5081c613"
+  end
+
+  # build patch for qtmultimedia with xcode 15
+  # https://github.com/hmaarrfk/qt-main-feedstock/blob/0758b98854a3a3b9c99cded856176e96c9b8c0c5/recipe/patches/0014-remove-usage-of-unary-operator.patch
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/3f509180/qt5/qt5-qtmultimedia-xcode15.patch"
+    sha256 "887d6cb4fd115ce82323d17e69fafa606c51cef98c820b82309ab38288f21e08"
   end
 
   def install

@@ -2,21 +2,19 @@ class Vcluster < Formula
   desc "Creates fully functional virtual k8s cluster inside host k8s cluster's namespace"
   homepage "https://www.vcluster.com"
   url "https://github.com/loft-sh/vcluster.git",
-      tag:      "v0.15.7",
-      revision: "3b917f958f6c69b665e4eb27a62dd88fa639a29d"
+      tag:      "v0.16.2",
+      revision: "97dc8821728c9e6886c9350ed4c91150a456b989"
   license "Apache-2.0"
   head "https://github.com/loft-sh/vcluster.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3e6e8265857f5d6080a29051f9147b0f4995d1557c96fc045ce9c4695545db56"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "971a22b42b7a56c565afd47ee01b999c27faef6886e62066ccfed61c099a33da"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6e05d7296b460d7e3a8b2c9fefd662524f29f431a6d3793bbb00deb0b12c71e5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5684d2f82765345e98be1835f78e26691cb0362ca530e606664bbf3a0463e52d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "9a5dc6078ed294eb2b90362eedf6c5fc47f9dd86ed1924cfd9857cab5e4c8c6c"
-    sha256 cellar: :any_skip_relocation, ventura:        "ada4396301840b37701fa3a048f7afbe0d4bd7a25776e64b09a625ac711d4ec4"
-    sha256 cellar: :any_skip_relocation, monterey:       "2e606aba6484575aad5a1afdf276c24580a846d7f9b8fad528243d620524ec30"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0e398edb0e8190827f3abeb5f80acb6f08eb7020f8d6eda994676179e47fb28b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9cd2c6196d14093a55a9a636b7503e425f15c631823a083052c84f1312acff8f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "58955741de2f2f84d0a6820086eb908e673fd93d128f7550692d5ecef63054a0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "33f85d20d5ceffa9f2d7baeb8e138bcfe62462a6d6361658395b323a3d54c33b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d0d7d2bb5de04543312a99e3ca22e1db0b360f3f0978dcc6dff8d8fce82b5a56"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d1327592a85634c3a4e680df15e85f2888978627a248c6247b888d513bd9851c"
+    sha256 cellar: :any_skip_relocation, ventura:        "9e7db1168ac473289aec3ff7c8a61b95e415e8d917a9efc5eb1c785654551d37"
+    sha256 cellar: :any_skip_relocation, monterey:       "8a975515dbb470a6b71f5c9100a7542a4eb9d5ecbcc700b4ffc1fbe191804541"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cdce34c7502d8ee94e89f6f449c38b682a68dcf8dcae9697e47d7f8ff34434bc"
   end
 
   depends_on "go" => :build
@@ -44,6 +42,6 @@ class Vcluster < Formula
                     "try setting KUBERNETES_MASTER environment variable), " \
                     "please make sure you have access to a kubernetes cluster and the command " \
                     "`kubectl get namespaces` is working"
-    assert_match create_output, shell_output("#{bin}/vcluster create vcluster -n vcluster --create-namespace", 1)
+    assert_match create_output, shell_output("#{bin}/vcluster create vcluster -n vcluster --create-namespace 2>&1", 1)
   end
 end

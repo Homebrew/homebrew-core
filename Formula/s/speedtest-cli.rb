@@ -10,11 +10,11 @@ class SpeedtestCli < Formula
   head "https://github.com/sivel/speedtest-cli.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "dbe544f6837c7157450533ffc8a0e40166790b7b8c79f24e9aa759fd66888c23"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "d4e4b3b28c6f94a387f11713c18bd03b62f7c8d559f6eb2551c773c82d73e73a"
   end
 
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   # Support Python 3.10, remove on next release
   patch do

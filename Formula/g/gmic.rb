@@ -1,8 +1,8 @@
 class Gmic < Formula
   desc "Full-Featured Open-Source Framework for Image Processing"
   homepage "https://gmic.eu/"
-  url "https://gmic.eu/files/source/gmic_3.3.0.tar.gz"
-  sha256 "9c00a2b4c33ff4879860eadb89f6c836062433a5debdaffbf41f98bfa83081f3"
+  url "https://gmic.eu/files/source/gmic_3.3.1.tar.gz"
+  sha256 "800326514c9ef5c75e4177b4f51398714fb8117b809181ef7fe7fe30515b3aa2"
   license "CECILL-2.1"
   head "https://github.com/GreycLab/gmic.git", branch: "master"
 
@@ -12,15 +12,13 @@ class Gmic < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "4e93dc66818c746954565719817ab4a0dfca769264fe41bf956d19eb8030c4a6"
-    sha256 cellar: :any,                 arm64_ventura:  "4a65b1539a6b2743044d7493fe14d565fcf3e35dcbf22e6a355af4b7f2058f4a"
-    sha256 cellar: :any,                 arm64_monterey: "c6aa39cb9fd8be033413bfe46a8b510e9a95f51beb5df693bff3bbcd0a282243"
-    sha256 cellar: :any,                 arm64_big_sur:  "9929cc28a66ec265af329ca149f07a00a0baef8a67668c713d1c924f1a1b8593"
-    sha256 cellar: :any,                 sonoma:         "0a233c78f2dae655588d9832711d7c8d9ab59e14395e52707d15cf783a4c947f"
-    sha256 cellar: :any,                 ventura:        "77bd84114b0e356f349ee3fd14384c06238eb3484402d7715860bc7d40ffa55c"
-    sha256 cellar: :any,                 monterey:       "b984a4d3090980fc694dc72df2deb8348f4521cb9eb46496bb1d1ea9e6a0f2d1"
-    sha256 cellar: :any,                 big_sur:        "c0fbd74432348bd448f9ab3be72b7c0f6f5f4a5d5804bd9a439db9a484821813"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "53c2c32966f135abbdf5d08d658656f0c8abbf0ead77143b2a95e54a114049b5"
+    sha256 cellar: :any,                 arm64_sonoma:   "66b7acbe58629d1961068334cf2038b2a095579380fa9f54a9b8fdbfb8b30fda"
+    sha256 cellar: :any,                 arm64_ventura:  "b8001049ad7fb673df3b130a9367a86cd18dbdc897919fe4c2b2a8bae56f7352"
+    sha256 cellar: :any,                 arm64_monterey: "048d7bf77f0f741691a61456b9c246dad0f1e8703fecf6ec899ebcc6c35e2b4b"
+    sha256 cellar: :any,                 sonoma:         "64de5bba9a986a135aec472e6d1d6c32e5162592e1fd69ae821a4ee4791712b3"
+    sha256 cellar: :any,                 ventura:        "b6dedfba73d53f30b3fb56b90ddeccadcc1505e0c1352ecacc6d458b12cc1e86"
+    sha256 cellar: :any,                 monterey:       "524479032342f1016893be7173ed035317880e0ff173909c813ccf3fe8ae72dc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "19331336efcbf7d3eae8b9e0603a8baca14f9a935a55ed01e265a63b5378d39e"
   end
 
   depends_on "pkg-config" => :build

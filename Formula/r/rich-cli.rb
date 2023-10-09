@@ -6,19 +6,16 @@ class RichCli < Formula
   url "https://files.pythonhosted.org/packages/ca/55/e35962573948a148a4f63416d95d25fe75feb06d9ae2f9bb35adc416f894/rich-cli-1.8.0.tar.gz"
   sha256 "7f99ed213fb18c25999b644335f74d2be621a3a68593359e7fc62e95fe7e9a8a"
   license "MIT"
-  revision 1
+  revision 2
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "13aab5e328aa67ad5f12a13ae0939444127059e885e92bf40eede6425f3f2b36"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c40cd3a2281e69781faeeded8fe14785a1cb10ed9d9ffb6e9fac3593a215efb1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e2b29139a36d82363f829d3f69a7bfd35eaae27179b7e14affe762b78dcc69c2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cad5798a07679c79423c2b1a87c0be0290e931d048810f4641757605bb4d0cf5"
-    sha256 cellar: :any_skip_relocation, sonoma:         "9782e7f3646bb3cacc5cad4144c565e609c44cbca3a8245ca1959feb1596e050"
-    sha256 cellar: :any_skip_relocation, ventura:        "600d6ebe25ff45c5bcac4ed52dc505813b21362fb1ffd56c5e9c232cc2e982c5"
-    sha256 cellar: :any_skip_relocation, monterey:       "575e2dcb16079752251854dbf0b417146f7bc566477c7ebb2607bb19c26583cf"
-    sha256 cellar: :any_skip_relocation, big_sur:        "81a19b363401f828ba2a74359a245b8ff5c4ed9c4193d366a7a4353b2a0f86e5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aa69de718e5db682820fe77e6e7f69552798a495e8550f30aed683be5ef98622"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e31571f000cbf0d5688d0af6ef4e33f18f90aa18e0ec8680fca1d5cc93563794"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9c48b1acb9c3b4edb15a1af12135d1dbdfbd32f769b167965fe113d6eb14eb71"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9b74562fe26545db08cae77d9cc79843cb321b3f02a07d2c14798ae5bd868a6e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "554771d511efa70f707d60390b4e7a2531d7c128639b7bd98646dcf84da677e2"
+    sha256 cellar: :any_skip_relocation, ventura:        "0fc357b34eb0daf1d2ed1c7a28e6cdb2ea1208bc99d0d0b64918ff9bed6ed9b5"
+    sha256 cellar: :any_skip_relocation, monterey:       "4a8e3e09bc1b314a462809e8966c3a4e74843e3c67217a86cdb9c8596d609446"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eec52f301c7b50b8729f1c4c9fd00a4002a58e078bc79b25a530b9bc4277aaf1"
   end
 
   depends_on "docutils"
@@ -27,13 +24,13 @@ class RichCli < Formula
   depends_on "python@3.11"
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/2a/53/cf0a48de1bdcf6ff6e1c9a023f5f523dfe303e4024f216feac64b6eb7f67/charset-normalizer-3.2.0.tar.gz"
-    sha256 "3bb3d25a8e6c0aedd251753a79ae98a093c7e7b471faa3aa9a93a81431987ace"
+    url "https://files.pythonhosted.org/packages/cf/ac/e89b2f2f75f51e9859979b56d2ec162f7f893221975d244d8d5277aa9489/charset-normalizer-3.3.0.tar.gz"
+    sha256 "63563193aec44bce707e0c5ca64ff69fa72ed7cf34ce6e11d5127555756fd2f6"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/72/bd/fedc277e7351917b6c4e0ac751853a97af261278a4c7808babafa8ef2120/click-8.1.6.tar.gz"
-    sha256 "48ee849951919527a045bfe3bf7baa8a959c423134e1a5b98c05c20ba75a1cbd"
+    url "https://files.pythonhosted.org/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz"
+    sha256 "ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de"
   end
 
   resource "commonmark" do
@@ -67,8 +64,8 @@ class RichCli < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/31/ab/46bec149bbd71a4467a3063ac22f4486ecd2ceb70ae8c70d5d8e4c2a7946/urllib3-2.0.4.tar.gz"
-    sha256 "8d22f86aae8ef5e410d4f539fde9ce6b2113a001bb4d189e0aed70642d602b11"
+    url "https://files.pythonhosted.org/packages/8b/00/db794bb94bf09cadb4ecd031c4295dd4e3536db4da958e20331d95f1edb7/urllib3-2.0.6.tar.gz"
+    sha256 "b19e1a85d206b56d7df1d5e683df4a7725252a964e3993648dd0fb5a1c157564"
   end
 
   def install

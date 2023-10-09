@@ -24,8 +24,9 @@ class Wabt < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.11" => :build
   depends_on "openssl@3"
+
+  uses_from_macos "python" => :build
 
   fails_with gcc: "5" # C++17
 

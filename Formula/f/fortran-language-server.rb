@@ -9,20 +9,17 @@ class FortranLanguageServer < Formula
   head "https://github.com/hansec/fortran-language-server.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ae62332daf555e250bb369a37fa943eb21f87106f628aefb63671977de9ddba1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "17c7e96365f45c2bc3f9bd8262cc4817665613c50cb50be547c35284027b3e36"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "17c7e96365f45c2bc3f9bd8262cc4817665613c50cb50be547c35284027b3e36"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "17c7e96365f45c2bc3f9bd8262cc4817665613c50cb50be547c35284027b3e36"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0844c628cf2d233b8faf50011cd1f29e25b4638c5eda550ce142c66d9dc0e1f5"
-    sha256 cellar: :any_skip_relocation, ventura:        "59ed4a2e6b58298c6c0578ba43dffbeeb83e3f0a11287b1e6ca64a98aa9c2260"
-    sha256 cellar: :any_skip_relocation, monterey:       "59ed4a2e6b58298c6c0578ba43dffbeeb83e3f0a11287b1e6ca64a98aa9c2260"
-    sha256 cellar: :any_skip_relocation, big_sur:        "59ed4a2e6b58298c6c0578ba43dffbeeb83e3f0a11287b1e6ca64a98aa9c2260"
-    sha256 cellar: :any_skip_relocation, catalina:       "59ed4a2e6b58298c6c0578ba43dffbeeb83e3f0a11287b1e6ca64a98aa9c2260"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5faf0297d9b3999acc76939265cafc7adbe5a2298ba0719f9a0969feb83784fd"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c3679444f613c8f40600ffefadda2051d33a1c1b25d13edc02e354aab9c9b355"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "858ce2ba433f98d3e9c023fc336acc1cc89b90fe7a0ee855644b1ce671ab1e35"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "187de99bca47d202ec4c5a387ab9e7904ccd7b1b290b54cca6a57039a6646a16"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ad94fb5f1859a9c45dc21f889d108dbca7f2da232c0b13bf12ca7e38350bcbc8"
+    sha256 cellar: :any_skip_relocation, ventura:        "7c4fa384cdd6ec3d53d2a6974a9e676bed01695451d455603de38d34480e5bbc"
+    sha256 cellar: :any_skip_relocation, monterey:       "69326f21502852d8fdce6a9820e66640e0c1e3ae13557fd9db5ca3ef22a84755"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3526e87af11ce092f0b1f4596a87a3f9a2ded9420b7eb6a4f236dd48fdb759aa"
   end
 
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   conflicts_with "fortls", because: "both install `fortls` binaries"
 

@@ -3,20 +3,18 @@ class Pipenv < Formula
 
   desc "Python dependency management tool"
   homepage "https://github.com/pypa/pipenv"
-  url "https://files.pythonhosted.org/packages/2e/2f/12ba8e583735de1c66f5636d355bf75986f1c96a41b42c00c05c53484a71/pipenv-2023.9.8.tar.gz"
-  sha256 "cfcda864aeb748e6e496b97f20a273477f1e8cc0a3dbb634c133acc5883582ea"
+  url "https://files.pythonhosted.org/packages/b7/bb/95ad114eb5aa85bfb77eb7b0d65e3bb5c52a4a12c7ca8788083b6e73c515/pipenv-2023.10.3.tar.gz"
+  sha256 "a07ad06655336a5d0f7c065f1dbc43d1b4c274762020c7bef18db1c694fc2637"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3066a9b67c96011ec36498f020a39f85aff9072d53f25016267bc2c733b97920"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "66ec647af668f72afd9d4c61a8b879305ef9de2d22c952a18d1bd461b3bce014"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c5a49f7f3928a0316611f3ac14f16084aef3f2112d5f2baff8cf63abe91c14a8"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "84eee54bea5bf8af6a7ecd8b33f9f56e0cf9269b18afd6a105089db2b2cee4c7"
-    sha256 cellar: :any_skip_relocation, sonoma:         "88379da6643b7291f101861ac38355e19a86688f174a70a8ccbb0826cf42abf6"
-    sha256 cellar: :any_skip_relocation, ventura:        "3f791d8e77723d287db8633e7a8cfc66eeaa527edb3f3bb0e2f4d224ca082176"
-    sha256 cellar: :any_skip_relocation, monterey:       "f615b733b915beeb891c20b83ccaf57608e4534b48beac80caf853bc065b68df"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ae1c16fc3d7f9eb2bb812db82b0a9cb613ead50ed2774ba69dc65ada9fbdfb7c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9206508be3eb026812550e9168c30783b4adc72d923470f6c64fa6fd145a63c2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "327d63fcc5bac0fec03a9fbf61fa81edc2ccd043f7dcd7f9db2237d8439cab69"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "54fdaddf7d97bb4dc9a05be91b9b4ab9b7bf4d0bf024db398d433a290158c282"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "abddeb13ad92557960939ae4e55368a72f887c4e1ab6d105313184d29d6edac5"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3eb84ed53612199712a5d20a5c98cf5d81284ee6aa2c6b47865a5e8471097c17"
+    sha256 cellar: :any_skip_relocation, ventura:        "bf88daddfad1b39a33a75319a0876b1147d297671c0da4956d55407c96b02ff8"
+    sha256 cellar: :any_skip_relocation, monterey:       "1b29b49a1407668d00a8a179a50a901b98da40ef8e76f952672b6d11bce768d3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "87ab5ef99d09365da5a4a88f1a0bf909e965f8e9e6cacfcdc24440229f0259ad"
   end
 
   depends_on "python-certifi"
@@ -28,18 +26,18 @@ class Pipenv < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/5a/47/f1f3f5b6da710d5a7178a7f8484d9b86b75ee596fb4fefefb50e8dd2205a/filelock-3.12.3.tar.gz"
-    sha256 "0ecc1dd2ec4672a10c8550a8182f1bd0c0a5088470ecd5a125e45f49472fac3d"
+    url "https://files.pythonhosted.org/packages/d5/71/bb1326535231229dd69a9dd2e338f6f54b2d57bd88fc4a52285c0ab8a5f6/filelock-3.12.4.tar.gz"
+    sha256 "2e6f249f1f3654291606e046b09f1fd5eac39b360664c27f5aad072012f8bcbd"
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/dc/99/c922839819f5d00d78b3a1057b5ceee3123c69b2216e776ddcb5a4c265ff/platformdirs-3.10.0.tar.gz"
-    sha256 "b45696dab2d7cc691a3226759c0d3b00c47c8b6e293d96f6436f733303f77f6d"
+    url "https://files.pythonhosted.org/packages/d3/e3/aa14d6b2c379fbb005993514988d956f1b9fdccd9cbe78ec0dbe5fb79bf5/platformdirs-3.11.0.tar.gz"
+    sha256 "cf8ee52a3afdb965072dcc652433e0c7e3e40cf5ea1477cd4b3b1d2eb75495b3"
   end
 
   resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/a6/8e/2ebdf99a0dd15249272780e34fa40e3becfd28689505979d3ec6aa2f6ce1/virtualenv-20.24.4.tar.gz"
-    sha256 "772b05bfda7ed3b8ecd16021ca9716273ad9f4467c801f27e83ac73430246dca"
+    url "https://files.pythonhosted.org/packages/d3/50/fa955bbda25c0f01297843be105f9d022f461423e69a6ab487ed6cabf75d/virtualenv-20.24.5.tar.gz"
+    sha256 "e8361967f6da6fbdf1426483bfe9fca8287c242ac0bc30429905721cefbff752"
   end
 
   def python3

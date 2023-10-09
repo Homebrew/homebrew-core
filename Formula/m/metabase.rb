@@ -1,8 +1,8 @@
 class Metabase < Formula
   desc "Business intelligence report server"
   homepage "https://www.metabase.com/"
-  url "https://downloads.metabase.com/v0.47.2/metabase.jar"
-  sha256 "94f7335561881f6da4f4cea54683e477e9da91eeade99f97bce020281a23076c"
+  url "https://downloads.metabase.com/v0.47.3/metabase.jar"
+  sha256 "a08188ac46b6887befb1e3f7b007308942bb932e37b1c7f26923bb4b71bb6c4a"
   license "AGPL-3.0-only"
 
   livecheck do
@@ -11,15 +11,13 @@ class Metabase < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9ce04ebc6493e6be13ad9e2a7440d3e7329bf96d7093ae26e546f3cb27c2c198"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9ce04ebc6493e6be13ad9e2a7440d3e7329bf96d7093ae26e546f3cb27c2c198"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9ce04ebc6493e6be13ad9e2a7440d3e7329bf96d7093ae26e546f3cb27c2c198"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9ce04ebc6493e6be13ad9e2a7440d3e7329bf96d7093ae26e546f3cb27c2c198"
-    sha256 cellar: :any_skip_relocation, sonoma:         "9ce04ebc6493e6be13ad9e2a7440d3e7329bf96d7093ae26e546f3cb27c2c198"
-    sha256 cellar: :any_skip_relocation, ventura:        "9ce04ebc6493e6be13ad9e2a7440d3e7329bf96d7093ae26e546f3cb27c2c198"
-    sha256 cellar: :any_skip_relocation, monterey:       "9ce04ebc6493e6be13ad9e2a7440d3e7329bf96d7093ae26e546f3cb27c2c198"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9ce04ebc6493e6be13ad9e2a7440d3e7329bf96d7093ae26e546f3cb27c2c198"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8baf06f41e7d0971c3ab469630f59507dfa8dcdafa116d94ad1f09ee71a2606f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8b49a3a7c39483a29e5ab7cfcfc2ccf7835d26f158a4b704d138b980795e4a48"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8b49a3a7c39483a29e5ab7cfcfc2ccf7835d26f158a4b704d138b980795e4a48"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8b49a3a7c39483a29e5ab7cfcfc2ccf7835d26f158a4b704d138b980795e4a48"
+    sha256 cellar: :any_skip_relocation, sonoma:         "8b49a3a7c39483a29e5ab7cfcfc2ccf7835d26f158a4b704d138b980795e4a48"
+    sha256 cellar: :any_skip_relocation, ventura:        "8b49a3a7c39483a29e5ab7cfcfc2ccf7835d26f158a4b704d138b980795e4a48"
+    sha256 cellar: :any_skip_relocation, monterey:       "8b49a3a7c39483a29e5ab7cfcfc2ccf7835d26f158a4b704d138b980795e4a48"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "da327cf737d35decb6c689547881a8b0552d465eec11db0339b358b1723faa09"
   end
 
   head do

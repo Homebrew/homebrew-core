@@ -6,27 +6,24 @@ class Arjun < Formula
   url "https://files.pythonhosted.org/packages/51/cd/8eaadf3973a4e7bb519b885588b13348ddbe6d97ca06ecdcdda5f7a53dcb/arjun-2.2.1.tar.gz"
   sha256 "b1904add44c0c5a8241910b0555d7e252281187b7dadd16ebc0843dc768cb36e"
   license "AGPL-3.0-only"
-  revision 1
+  revision 2
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c222a6a78644bffa4f4210001ea1370280275068ce4bac69b85c4d1130e5db61"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "58fb3067a738ec816d57d2749bc304703ad30ce39cc73d97d049e142c4b13d86"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a73485dc5b8e940f5a8653b15eb5d3dc02b841199551de73019d4154d4030789"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "31f7be78b336f904e935f7e2a5f192b5e5cb6aec331193cb8a6600e6b2525f87"
-    sha256 cellar: :any_skip_relocation, sonoma:         "50fa3dfe6d192e985e80f445d380ee17f15580be4573aa1356acd7b392fc8d40"
-    sha256 cellar: :any_skip_relocation, ventura:        "92eba3573ef8e3c438186c0045836817fb6ed89ec8eb0a0eaaabec34c5057077"
-    sha256 cellar: :any_skip_relocation, monterey:       "7fabbdb2a7a3164bd01ab139ba7ccd4d254efa7e40c2ade599c412de20aee68d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "19df3cf79b5734b715ae8a3c0996fdcd748e60f163ac8727956c8bf05a06ac5f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f662d9a2aeaa8b36c6ff54a091858051823bb7cbd09ba65ca102c5576a99d0d6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "050ae0d3052775038b3b47ac74f78586012fefc9d714850ae1a8a083e0d031a5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ed879f6f20e4475ac95baa631a33163bb317bf1dfd8210e9c00fc621e2ef1ccc"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "aa3171a50acc3429288d64518c15504ed3cac6e2667197d828b24baac5ca4efc"
+    sha256 cellar: :any_skip_relocation, sonoma:         "354f61abd8263b24596799285a5d5bacc565ffb0e5b56ed74ebaa833d26438c2"
+    sha256 cellar: :any_skip_relocation, ventura:        "ac4d13ca93b5c21db850c9496eaf2614644170f47434406d684f47f18c42f191"
+    sha256 cellar: :any_skip_relocation, monterey:       "ae5ca6c9a4229c33173c550dc9770b8f4963980424eb38e0766b2311fd0c1dd7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ea71efb190ad11babe2115273a57f29ba3a89c3fb8729765cbe662d7dd28ba8"
   end
 
   depends_on "python-certifi"
   depends_on "python@3.11"
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/2a/53/cf0a48de1bdcf6ff6e1c9a023f5f523dfe303e4024f216feac64b6eb7f67/charset-normalizer-3.2.0.tar.gz"
-    sha256 "3bb3d25a8e6c0aedd251753a79ae98a093c7e7b471faa3aa9a93a81431987ace"
+    url "https://files.pythonhosted.org/packages/cf/ac/e89b2f2f75f51e9859979b56d2ec162f7f893221975d244d8d5277aa9489/charset-normalizer-3.3.0.tar.gz"
+    sha256 "63563193aec44bce707e0c5ca64ff69fa72ed7cf34ce6e11d5127555756fd2f6"
   end
 
   resource "dicttoxml" do
@@ -45,8 +42,8 @@ class Arjun < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/31/ab/46bec149bbd71a4467a3063ac22f4486ecd2ceb70ae8c70d5d8e4c2a7946/urllib3-2.0.4.tar.gz"
-    sha256 "8d22f86aae8ef5e410d4f539fde9ce6b2113a001bb4d189e0aed70642d602b11"
+    url "https://files.pythonhosted.org/packages/8b/00/db794bb94bf09cadb4ecd031c4295dd4e3536db4da958e20331d95f1edb7/urllib3-2.0.6.tar.gz"
+    sha256 "b19e1a85d206b56d7df1d5e683df4a7725252a964e3993648dd0fb5a1c157564"
   end
 
   def install

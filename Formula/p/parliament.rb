@@ -6,18 +6,17 @@ class Parliament < Formula
   url "https://files.pythonhosted.org/packages/8e/9a/64e0e24972057276141403b5971e87d8f51c82ba3d027badc10f39e5524f/parliament-1.6.2.tar.gz"
   sha256 "05f9db2bda8d85f039dbe27716538f025b7cb973d336568762a06217e3b7e3ae"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/duo-labs/parliament.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "600c80ed332cc5a9808adba20a4910a6576bf11983abb5aa84eae6d8ad1d5afd"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "793aaf3ec629b551aef846cf197c6eed1333b11bdf77b87849f665daa4ece393"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "deebfe54315a56ed439cf8c65b3b1adae33aa1fbf3c4f39b4cf14caf5313401f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "249f3257fbc3aa941a84be43b1c6feaede1eb6a47eed1005c958bd7c4409f4a0"
-    sha256 cellar: :any_skip_relocation, sonoma:         "cda6aaa44affb4e044bbf218fca2b4823c13703beeb7903b376e43b4b1668ed2"
-    sha256 cellar: :any_skip_relocation, ventura:        "3d62c6315016bfce9e2b866b8668d275bab7fe1d6c5fb57eaac49e836af5a971"
-    sha256 cellar: :any_skip_relocation, monterey:       "67a3074ef1ab056322eb9c205fe698dbc0fcecdb79d787c6e6565f8de30d0403"
-    sha256 cellar: :any_skip_relocation, big_sur:        "530a75b7270e1132fed8dab200c248b05b523acf274dd9e0f283804c413552b9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1e5aa8d443888fe5c664cc1e2859877c9cba2b60bb13fd5641f872799c4760fd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fe5c0b6d766a6b539043b5ebc43cad8aeebd2a0349434fe65bed49fd8e4eb242"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "326f9d7e4764cd679f76b55328f835097aff2fdbe42adfcdc2ec5577c888c2c7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c3ac49bb16f7641ca3b4e8de5f97df65f05e0cc8033d43355fa93c1af4a364f3"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ee290a61e5174c9d65535276648c6bac78475e79ac8c69210b6f790e1b35898c"
+    sha256 cellar: :any_skip_relocation, ventura:        "3d83e90f69aa19f234c27488b5858158bb253d9a3ed6705d343051184052999a"
+    sha256 cellar: :any_skip_relocation, monterey:       "bcac289b8dcf56695891908a4bf3bbe31226db649e05a90cc7053d36b0a0f3d1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "22a8c80dbde299ab9b4a82acf4af154ed0783d2e3645c5f5bdd5329e3879a400"
   end
 
   depends_on "python@3.11"
@@ -25,13 +24,13 @@ class Parliament < Formula
   depends_on "six"
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/59/10/5069c80e6d9e3c4d72c3396d62831710c8f0e944c86e306a8212c12d469e/boto3-1.27.1.tar.gz"
-    sha256 "cf43deb4556295219d9de44d1c95921209c90ee25246673b5768aef9d46519cc"
+    url "https://files.pythonhosted.org/packages/42/56/633b5f5b930732282e8dfb05c02a3d19394d41f4e60abfe85d26497e8036/boto3-1.28.61.tar.gz"
+    sha256 "7a539aaf00eb45aea1ae857ef5d05e67def24fc07af4cb36c202fa45f8f30590"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/24/57/ee9a4b122f697477bf4d0d9f0dc7951a494937cf78f4321a6c5d3d71d99e/botocore-1.30.1.tar.gz"
-    sha256 "4d1ac5a796c5c5c87946f25f3d98764288a0ed848e772a7a47cd134847e885e7"
+    url "https://files.pythonhosted.org/packages/05/2e/9cb8adca433af2bb6240514448b35fa797c881975ea752242294d6e0b79f/botocore-1.31.61.tar.gz"
+    sha256 "39b059603f0e92a26599eecc7fe9b141f13eb412c964786ca3a7df5375928c87"
   end
 
   resource "jmespath" do
@@ -55,13 +54,13 @@ class Parliament < Formula
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/49/bd/def2ab4c04063a5e114963aae90bcd3e3aca821a595124358b3b00244407/s3transfer-0.6.1.tar.gz"
-    sha256 "640bb492711f4c0c0905e1f62b6aaeb771881935ad27884852411f8e9cacbca9"
+    url "https://files.pythonhosted.org/packages/3f/ff/5fd9375f3fe467263cff9cad9746fd4c4e1399440ea9563091c958ff90b5/s3transfer-0.7.0.tar.gz"
+    sha256 "fd3889a66f5fe17299fe75b82eae6cf722554edca744ca5d5fe308b104883d2e"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/e2/7d/539e6f0cf9f0b95b71dd701a56dae89f768cd39fd8ce0096af3546aeb5a3/urllib3-1.26.16.tar.gz"
-    sha256 "8f135f6502756bde6b2a9b28989df5fbe87c9970cecaa69041edcce7f0589b14"
+    url "https://files.pythonhosted.org/packages/dd/19/9e5c8b813a8bddbfb035fa2b0c29077836ae7c4def1a55ae4632167b3511/urllib3-1.26.17.tar.gz"
+    sha256 "24d6a242c28d29af46c3fae832c36db3bbebcc533dd1bb549172cd739c82df21"
   end
 
   def install

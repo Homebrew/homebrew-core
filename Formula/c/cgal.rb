@@ -6,9 +6,11 @@ class Cgal < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "12c14fd56a5a5674cbbf62b0aba339c22a106d8023db5144aea5877b2c3bff63"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "12c14fd56a5a5674cbbf62b0aba339c22a106d8023db5144aea5877b2c3bff63"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "12c14fd56a5a5674cbbf62b0aba339c22a106d8023db5144aea5877b2c3bff63"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "12c14fd56a5a5674cbbf62b0aba339c22a106d8023db5144aea5877b2c3bff63"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b364cb6e61b1a46dbc759046c49c9bb91cfea6bccdbde69a9fb84ffea95a95a7"
     sha256 cellar: :any_skip_relocation, ventura:        "b364cb6e61b1a46dbc759046c49c9bb91cfea6bccdbde69a9fb84ffea95a95a7"
     sha256 cellar: :any_skip_relocation, monterey:       "b364cb6e61b1a46dbc759046c49c9bb91cfea6bccdbde69a9fb84ffea95a95a7"
     sha256 cellar: :any_skip_relocation, big_sur:        "b364cb6e61b1a46dbc759046c49c9bb91cfea6bccdbde69a9fb84ffea95a95a7"

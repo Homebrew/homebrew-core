@@ -9,8 +9,10 @@ class OpenaiWhisper < Formula
   head "https://github.com/openai/whisper.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "2d24b8a546c11d3873e5749773ae5df0e25b0af9f914ff71b738c738a55357f8"
     sha256 cellar: :any,                 arm64_ventura:  "c7179f5980e02993fc8095d5d41cf1cad3c68f555d641f2c5d369f2f92afaa81"
     sha256 cellar: :any,                 arm64_monterey: "848285bfb9063e56bfc038afaea4755033744a2bd27b6243fa4c00801df4a866"
+    sha256 cellar: :any,                 sonoma:         "560e857469f1f92c9c87c5307ffbee0fef86908b842fb6e792acff30daa3b9f3"
     sha256 cellar: :any,                 monterey:       "4b82f5143005fd6d3f454ea7301d6c0f32a9b625c630cbe7f708438abca20536"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "296436b37fba46ebc1d64aaf52865394b6163445c25449fabb2d429e3f3f9c36"
   end

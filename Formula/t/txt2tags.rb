@@ -3,23 +3,21 @@ class Txt2tags < Formula
 
   desc "Conversion tool to generating several file formats"
   homepage "https://txt2tags.org/"
-  url "https://files.pythonhosted.org/packages/a3/91/3522a1fbefcc02d3d496854aea81b2b01a6e388bdb27ca0be39a91a43711/txt2tags-3.8.tar.gz"
-  sha256 "379869e866ed85225181ac65583827781a166c907de8bb40a9f3daf7b16c3483"
+  url "https://files.pythonhosted.org/packages/27/17/c9cdebfc86e824e25592a20a8871225dad61b6b6c0101f4a2cb3434890dd/txt2tags-3.9.tar.gz"
+  sha256 "7e4244db6a63aaa58fc17fa4cdec62b6fb89cc41d3a00ba4edaffa37f27d6746"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0a077c94ce334013b2d57aa9bf2b6fabe262b30973a5008e82fb952f2b937ccc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c733dd69bfebdbd7eaebcc27c4d80e2ed080cbcef5a71d22aa1965f6e4164bdb"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c733dd69bfebdbd7eaebcc27c4d80e2ed080cbcef5a71d22aa1965f6e4164bdb"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c733dd69bfebdbd7eaebcc27c4d80e2ed080cbcef5a71d22aa1965f6e4164bdb"
-    sha256 cellar: :any_skip_relocation, sonoma:         "01277a5e867e5c200b1bd4ceaa141f6ac03bfcddd0f84d7a3757b4328161ba59"
-    sha256 cellar: :any_skip_relocation, ventura:        "337725d77060c6e7f0ddd638ff0d904b98aca4b78748327b0494b7ab02584c8c"
-    sha256 cellar: :any_skip_relocation, monterey:       "337725d77060c6e7f0ddd638ff0d904b98aca4b78748327b0494b7ab02584c8c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "337725d77060c6e7f0ddd638ff0d904b98aca4b78748327b0494b7ab02584c8c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cbe92bcad887b8e2d4f32d1b2afe040e2577852d6d1eb4ec327ef62f05c4a826"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "834f5b3ff1ff7933cd7c9421a31cc2c77ccb354093c9323aca86772ef70bec96"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dbb22dcc68e0184645065d84171197251a31c5479a6e65725f9aeb7ab02fb82b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "73a1318632dd5895e35ee09bd6e2fd11d1982b11d01affce8acb7d409f069a75"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f2c99b59a535f8f8aaf130a0a5d0744e903e08f0f1ce2d9bf038386446aa7181"
+    sha256 cellar: :any_skip_relocation, ventura:        "7a126fb2632a8bfb9f256b4d2ce7f5ea48d43c5c7afcfafeb7eb420a18faf6b1"
+    sha256 cellar: :any_skip_relocation, monterey:       "667c1960e75ecdd6987943d0ed760df1255584d739d70dcaabc3a72c46cea6e4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c6f9061ed2a899e6af3ddbbf20bbac612ebfed7e81023a8fa2724dea339474a0"
   end
 
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   def install
     virtualenv_install_with_resources

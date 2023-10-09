@@ -21,12 +21,25 @@ class Waypoint < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e2386f08d39846c93368dd3e3352ec6391d2215231280a746bf605261c9df2d5"
   end
 
+  # https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license
+  deprecate! date: "2023-09-27", because: "will change its license to BUSL on the next release"
+
   depends_on "go" => :build
   depends_on "go-bindata" => :build
 
   def install
     system "make", "bin"
     bin.install "waypoint"
+  end
+
+  def caveats
+    <<~EOS
+      We will not accept any new Waypoint releases in homebrew/core (with the BUSL license).
+      The next release will change to a non-open-source license:
+      https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license
+      See our documentation for acceptable licences:
+        https://docs.brew.sh/License-Guidelines
+    EOS
   end
 
   test do

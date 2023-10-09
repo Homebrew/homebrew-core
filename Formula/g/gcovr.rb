@@ -9,31 +9,23 @@ class Gcovr < Formula
   head "https://github.com/gcovr/gcovr.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bb449c96322fd7d6d08a44cc279415b61f4d2ec58d5a3bd54e57344a1842d28a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "468ca63ed2e3ddaf95aca7ac2a176318118f66dc44438bdee6e52729496666ff"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b735557fc7a0b6d0522a9a9e1ca1e5dee23aa317d8896209e3b754a7d587bf9f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "607f232919e4021a863092b7c5a46dff07a28f4a6907e791a4ac6b7ee7b287e6"
-    sha256 cellar: :any_skip_relocation, sonoma:         "5cb599215a199da9bfe5e0a8e551f36c0652713d5893b77800fa0a98c0e07850"
-    sha256 cellar: :any_skip_relocation, ventura:        "0a2a03ace1e658c3cd714a9384b6dbd636056ad0fbc4a7a7d4c40cd8a4158e23"
-    sha256 cellar: :any_skip_relocation, monterey:       "701d209c21e70c0489b2f4398df7e2473ca0143bb28865fdc466ba33f69510db"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8f2fef2957ccfa495cea4d68818bf365644e7d372701387441c01175b0f96384"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b0b4b37582a65a91590a1d609ad5a02a613738e92e9290d7d81e181c751201ee"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "83662d5efc0b3cb13143c7a86e06d30f7485e51b59494b75bae2b3ea85a137d3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2481413a3ebecdf9cbd5b1cf9985c881ea256f7d0130c1edec5a1c118b9d382a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9cd48c8122cb0537d4088eb2ca4e91f46ef65edfe3c63a61d8414dc00be360e5"
+    sha256 cellar: :any_skip_relocation, sonoma:         "273a1e1512ab90201d3f49807acecd652d552b052b988553ec31785e21001cc9"
+    sha256 cellar: :any_skip_relocation, ventura:        "d1b37b94e8cb476dda3bdb5fc7ccca18dd0f62d0b7fbb48dfe5d523167f3f381"
+    sha256 cellar: :any_skip_relocation, monterey:       "e663267a10af1c56a6b287ddb8ad32b98ad168772b5e67f04bbf172b9ec242d1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3aacf6be867f4a74b5d1a565dfb81f73c4625d573c388467f8356f4e9e02e17e"
   end
 
   depends_on "pygments"
+  depends_on "python-lxml"
   depends_on "python@3.11"
-
-  uses_from_macos "libxml2"
-  uses_from_macos "libxslt"
 
   resource "Jinja2" do
     url "https://files.pythonhosted.org/packages/7a/ff/75c28576a1d900e87eb6335b063fab47a8ef3c8b4d88524c4bf78f670cce/Jinja2-3.1.2.tar.gz"
     sha256 "31351a702a408a9e7595a8fc6150fc3f43bb6bf7e319770cbc0db9df9437e852"
-  end
-
-  resource "lxml" do
-    url "https://files.pythonhosted.org/packages/06/5a/e11cad7b79f2cf3dd2ff8f81fa8ca667e7591d3d8451768589996b65dec1/lxml-4.9.2.tar.gz"
-    sha256 "2455cfaeb7ac70338b3257f41e21f0724f4b5b0c0e7702da67ee6c3640835b67"
   end
 
   resource "MarkupSafe" do

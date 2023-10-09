@@ -1,8 +1,8 @@
 class Poppler < Formula
   desc "PDF rendering library (based on the xpdf-3.0 code base)"
   homepage "https://poppler.freedesktop.org/"
-  url "https://poppler.freedesktop.org/poppler-23.09.0.tar.xz"
-  sha256 "80d1d44dd8bdf4ac1a47d56c5065075eb9991790974b1ed7d14b972acde88e55"
+  url "https://poppler.freedesktop.org/poppler-23.10.0.tar.xz"
+  sha256 "31a3dfdea79f4922402d313737415a44d44dc14d6b317f959a77c5bba0647dd9"
   license "GPL-2.0-only"
   head "https://gitlab.freedesktop.org/poppler/poppler.git", branch: "master"
 
@@ -12,15 +12,13 @@ class Poppler < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "bdfba742a30ef1d6ca1c91d7dc2ed6ab779989a0525d198b3539589ad870f6e1"
-    sha256 arm64_ventura:  "3b40f57034c434e364a83bd1b9249e7baae0f9a313ecce5b62f64a2a5da9e8f3"
-    sha256 arm64_monterey: "2117ea0d320b580b33b012357f8e87d58b40fb7de225207e87c516d09f86946c"
-    sha256 arm64_big_sur:  "6ff847a3f08990133ee7a4fac2cdf93c5ca34b5ad91b9ebf5e21e923487fca4d"
-    sha256 sonoma:         "60b4fe9da0c385015f7afe6b8375f228b14941e842477e04b53dcaaa388fd857"
-    sha256 ventura:        "ef04af03580586efb39c7cd2110d9031c5b5c43493c6efa422b3c5cfa909de05"
-    sha256 monterey:       "b5e7d1270ee7e9804f75c5c6b87bb93339e48362ffe34564491de0e237b73bee"
-    sha256 big_sur:        "19eea1ca42ec13c16d5738da2d249346da9a4d2b3b3e55eae603022160a7590d"
-    sha256 x86_64_linux:   "c797aa04a47ff75e3d096914473f8afff8351219aa8bb35f0b2855eff685f933"
+    sha256 arm64_sonoma:   "d4cd081ff74d8fa0eb9aef28e4b2a4b821a782aa3147c8d2ec20d7ab30770678"
+    sha256 arm64_ventura:  "09c83d97c4c1adeb1a7da0af2edf7f197578f4af617327dd0c24adc78235458f"
+    sha256 arm64_monterey: "0a4082a646815f4d35646563f400e8d5916d82bcb2240aed80ee144b64bf6233"
+    sha256 sonoma:         "e39cd00d86229a23d76264f6435b97aebd38e925714211fa5b74def42969f32b"
+    sha256 ventura:        "6630a2787c2e47a6248ec787083ec3c67db4f44d9a87d4f84f0af7862d10f3ae"
+    sha256 monterey:       "a6dbc35d00aca8d182f4a51c02b34a74e3d88bd3b326e3adb842f3656f9df84a"
+    sha256 x86_64_linux:   "5af100603bcc85fbd69f0566a750d01f5521b6404582a2d07ea166f3a6d459d8"
   end
 
   depends_on "cmake" => :build
@@ -31,6 +29,7 @@ class Poppler < Formula
   depends_on "freetype"
   depends_on "gettext"
   depends_on "glib"
+  depends_on "gpgme"
   depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"

@@ -1,8 +1,8 @@
 class Eccodes < Formula
   desc "Decode and encode messages in the GRIB 1/2 and BUFR 3/4 formats"
   homepage "https://confluence.ecmwf.int/display/ECC"
-  url "https://confluence.ecmwf.int/download/attachments/45757960/eccodes-2.31.0-Source.tar.gz"
-  sha256 "808ecd2c11fbf2c3f9fc7a36f8c2965b343f3151011b58a1d6e7cc2e6b3cac5d"
+  url "https://confluence.ecmwf.int/download/attachments/45757960/eccodes-2.32.0-Source.tar.gz"
+  sha256 "b57e8eeb0eba0c05d66fda5527c4ffa84b5ab35c46bcbc9a2227142973ccb8e6"
   license "Apache-2.0"
 
   livecheck do
@@ -11,15 +11,13 @@ class Eccodes < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "5515fa6e9f71778dc096add35619f583affe075912e7ae91790fbd41ad11e3bc"
-    sha256 arm64_ventura:  "f096f5b6cc3368263f87f2045febc8f16ceee16243f0f11993011315aa2e192c"
-    sha256 arm64_monterey: "30cee1db8c83cc01ca33a8155218872686603c4069df2d096b7bc368ce8323c6"
-    sha256 arm64_big_sur:  "b56b7d22f554dcad15d693e6f4329cbc11732580c1648e62ba57a066fc3f2171"
-    sha256 sonoma:         "044336755b478ff080b3593f734744c424377c1a6b89a51f33b36ef742311f2f"
-    sha256 ventura:        "e54e9c95ac0d7178bbfb0e27c03f487ac0c2b70b81f2bb34d5de67aba0d4af69"
-    sha256 monterey:       "134bf4b2d228e6b05b72bfb43685fbe2b7fabd391ab4909a29c6d109fd8476d1"
-    sha256 big_sur:        "713e7df8253e9632a64c6554212ae418fe1ec3f80aa19fa0623b7151cc19cd45"
-    sha256 x86_64_linux:   "8b0f7a231651764a349c061dd59769897ddc800831eeca8bdb2c8055c8a8d924"
+    sha256 arm64_sonoma:   "1fb79a757ea2f61dec79b0c5d4cd7a5d24ee429a4f2862b755795c7be7858de8"
+    sha256 arm64_ventura:  "2dae75abcf445db6c102fae1421e5f2f2d57531f448483dca6e9c22608132328"
+    sha256 arm64_monterey: "45add9c09cb202ce5667bead8e420a46760d16ee71563e622f70cfa6a7ebedc1"
+    sha256 sonoma:         "983f6b6b4e855ba9fca7aca5334cdc862e6cf2519995e88c72be70720689ac55"
+    sha256 ventura:        "dd2fcd521de6f45072c630230b13954040f7c44c758b992a89bac11b7751bffb"
+    sha256 monterey:       "6e7393ba2de1cd791c315d9362311f1652ccd00579c0b76c294f1fc56108e683"
+    sha256 x86_64_linux:   "ad9e387206b7a32634a05d98033d7806494c3d82172cda494ddd04e78d798b7a"
   end
 
   depends_on "cmake" => :build

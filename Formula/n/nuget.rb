@@ -13,6 +13,7 @@ class Nuget < Formula
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "33976e7a035a8769424068063bc0e597b84489b0907d1a6c592ca7a020ebb685"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "33976e7a035a8769424068063bc0e597b84489b0907d1a6c592ca7a020ebb685"
+    sha256 cellar: :any_skip_relocation, sonoma:         "33976e7a035a8769424068063bc0e597b84489b0907d1a6c592ca7a020ebb685"
     sha256 cellar: :any_skip_relocation, ventura:        "33976e7a035a8769424068063bc0e597b84489b0907d1a6c592ca7a020ebb685"
     sha256 cellar: :any_skip_relocation, monterey:       "33976e7a035a8769424068063bc0e597b84489b0907d1a6c592ca7a020ebb685"
     sha256 cellar: :any_skip_relocation, big_sur:        "33976e7a035a8769424068063bc0e597b84489b0907d1a6c592ca7a020ebb685"

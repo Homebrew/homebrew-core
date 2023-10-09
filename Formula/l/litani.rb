@@ -9,9 +9,11 @@ class Litani < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "50a38bebf87464469449135d80e85aabf969e16240396dd778011c06f3546f88"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "43d0934af6a646890e091f7e81f3d42af5eafbbf9f97844643e1df7533407112"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7c3e02201c216f5c2eff2672663a3d3c3b45296a9d2a869da82befd903c4b234"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "da931fdeb2a22f86a9149101b1483e6c8d2120ed831ed8e2a76b3bc551a0958b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7f5d2bd61b05a84ec80e299a5a4af9ee19216082cd35a4d9513713ad27f48644"
     sha256 cellar: :any_skip_relocation, ventura:        "b3b022cb6e3626b9c9cd7ece12d6117aa328689a0f3bc0841e95f8e1094e4fae"
     sha256 cellar: :any_skip_relocation, monterey:       "441eb8324c4037d3621471a4d4b7ce6e8028b85ba474f7e359f428b6660c795b"
     sha256 cellar: :any_skip_relocation, big_sur:        "bdf62a5e11bb9bfb3b036129c875d2721193392157546ab2c3b4030a711fa014"

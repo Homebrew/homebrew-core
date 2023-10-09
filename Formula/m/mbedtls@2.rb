@@ -1,8 +1,8 @@
 class MbedtlsAT2 < Formula
   desc "Cryptographic & SSL/TLS library"
   homepage "https://tls.mbed.org/"
-  url "https://github.com/Mbed-TLS/mbedtls/archive/mbedtls-2.28.4.tar.gz"
-  sha256 "504bd29af6e7f9f3de1f0f7b7e16c73987a4194338681acd72b82383a49d55d5"
+  url "https://github.com/Mbed-TLS/mbedtls/archive/mbedtls-2.28.5.tar.gz"
+  sha256 "dbd42a11c26143aa8de1c07fd6ec6765395e86b06f583f051cfa60e8f0b23125"
   license "Apache-2.0"
   head "https://github.com/Mbed-TLS/mbedtls.git", branch: "mbedtls-2.28"
 
@@ -12,15 +12,13 @@ class MbedtlsAT2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "6ea5e35f7626f0c478feef8a8b3f882bdd731738d9562db85a0833bf8cb12a23"
-    sha256 cellar: :any,                 arm64_ventura:  "9a0e0a10c5ed6da48794715b6f519825ce8747fb5099440a8fe5a44f18760c4f"
-    sha256 cellar: :any,                 arm64_monterey: "f96163b97c0e311c87603f43f45e487387f85e6ad8b94b8c63f22194cd7703e1"
-    sha256 cellar: :any,                 arm64_big_sur:  "0435476d8db7e774139ee56e5afe91e233ab9d6e83f262a7ecb80e337018217a"
-    sha256 cellar: :any,                 sonoma:         "22e1dbbdac74cb06a6a3629de43bcff451b2cbced36fc939604e94e892e04f00"
-    sha256 cellar: :any,                 ventura:        "94818a3b4b8b7466e1951da1c6b2ee45c86f037f079779863668562d5c8bfa1d"
-    sha256 cellar: :any,                 monterey:       "fd758c1766ad4f156d7d8cc3ffe4f8340cd1dddc92e32539570cd09705e9ca7b"
-    sha256 cellar: :any,                 big_sur:        "1f3dc36a4634ce9df031b250dc4c8e9c17418bfd32f4f8cc49f88ecce5dcdfcc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2ea7e6c4fab22043a8a4c65f2fc58f7874924f65cbc8a98d5d824646bf95d29f"
+    sha256 cellar: :any,                 arm64_sonoma:   "641b02bc5e06707db467ee883041c69d1a518f79dd6832334fe152cd7c74f07e"
+    sha256 cellar: :any,                 arm64_ventura:  "ac5924611b73c46627a8c54ed551022cf0305aef7b0724fb9d958547ff509dd7"
+    sha256 cellar: :any,                 arm64_monterey: "0f4fb964f3423ca69276ab34180d2553f3966f35d2fe2971deff7ef660df6cc1"
+    sha256 cellar: :any,                 sonoma:         "af269f645594db17ec93d6d8c0d5f38d08608e1ba1e2c1d42f0693bd5906b635"
+    sha256 cellar: :any,                 ventura:        "7040bfbafed98d68242bf574d4021b4c2088bef4fa3aec415474fed97e4b651f"
+    sha256 cellar: :any,                 monterey:       "292979575ef337c38704cb5c7540305abe35d9d8f468c7eaab6f8925a656143d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e555bc546ad2ee3ea6037d9dfc4a207407cc9ed9779eba7b99b8322b24087e23"
   end
 
   keg_only :versioned_formula

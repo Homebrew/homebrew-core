@@ -7,17 +7,18 @@ class Cgrep < Formula
   head "https://github.com/awgn/cgrep.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "93f887e08efc1981beb927f391a2be65c9aa8380eeb80fe9a5cfd75b05ef59ea"
-    sha256 cellar: :any,                 arm64_monterey: "9257f041705005e81ffd63fec2e8edc730ab8b2f662889ac9523b89e4a1b9716"
-    sha256 cellar: :any,                 arm64_big_sur:  "691633a52320e1f45875b0ab0df23aa2f1a87c19c7edfc95ced329741e57b415"
-    sha256 cellar: :any,                 ventura:        "6b0e43b21ead41d1c5d87f0d09f447b48fb94d19cfad4ff4ec382e2ba85ba830"
-    sha256 cellar: :any,                 monterey:       "cc87c5b7b93a85f9a29ef23b5653ab6d1588524468713af2edc01c7bf44394c0"
-    sha256 cellar: :any,                 big_sur:        "bd4e5c0f86ad0b43a087b9c17f6f27f5a94ee05dd7fc16224f29cecc60710dee"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "360d385500fe363dac30ad73eb4618e50ccbf70923d6cceb0d7c508bcdd15edb"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "72fce3bd6ddd8fcd4c61523f30f89ae170ae0f12a5b120f28ae88787d4dd1ee2"
+    sha256 cellar: :any,                 arm64_ventura:  "80ce6bd6ea41b234a641e2f375d093622f9297752a1d5fb4ab144ed364b76fce"
+    sha256 cellar: :any,                 arm64_monterey: "83e88aaaa16832298b9bd0197974896f45286d9b82a176a2e4ae66b678767212"
+    sha256 cellar: :any,                 sonoma:         "7ce5b54f71a327cfae61dc77f4b06c4d5da252c6a8ed80e6cb1c05bab649f905"
+    sha256 cellar: :any,                 ventura:        "2f0f21f024af1cf96bc1b04db9c8ad4361d106f79a8af0aeae8843eef1f25263"
+    sha256 cellar: :any,                 monterey:       "bb1ec88e8d9420460c7a24c418146771ad300ef0faea774a88b6d67de7b8956c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4e1622103466e9301eb288b5c465bf5a519a048bb689d85c9fc9fe2a4df074a4"
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  depends_on "ghc@9.4" => :build
   depends_on "pkg-config" => :build
   depends_on "pcre"
 

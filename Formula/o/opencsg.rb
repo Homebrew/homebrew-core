@@ -11,9 +11,11 @@ class Opencsg < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "3a241be0205cde86f48054be64523ea937ce7e582a7b1914e5420c2580bc36e7"
     sha256 cellar: :any,                 arm64_ventura:  "4b28b76bbfd8ff4c7e248ecd4002a2acc7b642e70097a4573ba1a3e35586a493"
     sha256 cellar: :any,                 arm64_monterey: "133b6c6a4bb2c39d3200e7af4d357ededd3473f5ae8361d9e27508b7dcb562c2"
     sha256 cellar: :any,                 arm64_big_sur:  "e40e2cf3cd9781f797895f6f7ae44e3a8b2240b33e28f0cad82a1ad830a6cc39"
+    sha256 cellar: :any,                 sonoma:         "e980e159aea7fe4e918de12663b4bf187d62bdad392761d735d7a813c2d0832f"
     sha256 cellar: :any,                 ventura:        "b25d9df8d91c852e769bc73b53121900ae76abcc20d4ff78777c886324dff26c"
     sha256 cellar: :any,                 monterey:       "ffa1192d5f9a986429848d143730f89ed23f6d322fd205256aefb813c3d869a3"
     sha256 cellar: :any,                 big_sur:        "2f722c11994df3bbf13077eb32877ea18600f92003434b61a20bcd6331297ed8"

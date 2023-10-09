@@ -13,9 +13,11 @@ class Pyside < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_sonoma:   "2d55e2cac6cdedc533be9f1c38d2236d7bce53988542f76d96b96f1e62e8c305"
     sha256 cellar: :any, arm64_ventura:  "9aa2c6e8e92454251f4ef2ff53ba8badabc9a55381cfb7ebea44dfbbc9fd7966"
     sha256 cellar: :any, arm64_monterey: "63221c34119789913be3d22d1ea3d3fe7631f60aa35880677910b56e8dfb72d6"
     sha256 cellar: :any, arm64_big_sur:  "9ab03e7a12afefecd33ba2cd72e2228178d5a7de5866482d3c5a9f18a9f7543c"
+    sha256 cellar: :any, sonoma:         "5d4ea0048af8a56b70f1e4885ec0a5891aef311b858a075d3801d8a513aa7404"
     sha256 cellar: :any, ventura:        "b76e848c2cac77f14cf96067002240b140f52b368ef74105f8584b5ec0b46a7e"
     sha256 cellar: :any, monterey:       "e480b45aa70deb7ebf47996b9dd1c186079039f740b70a075e85403af85972ed"
     sha256 cellar: :any, big_sur:        "46a22ccaa4b50f28e519e4b9c936bcbff00a4956f4165e96432b81dc5bc234d9"

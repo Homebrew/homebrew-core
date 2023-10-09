@@ -8,22 +8,21 @@ class Aws2Wrap < Formula
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a60e7773a08e324e2e4f61e67e03cd65331ff5e658496ee506ce9299a27e433f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b674a21c0c093399bb3504de8754e55bf91f6048d09fbee714e6149b5e9592ed"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "afe746e339b4a0035b736be16c901ecce4cd3559db5c228bdebb37003df6bce5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "010f352e8abd3811461df22ce194c88d8af2d69815b9aacacc5eff6dec5b1204"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3e310f72b7ff00906b5a2b4ab24a3063f62d58340c6bc2d63f6243d52e4cf8c1"
-    sha256 cellar: :any_skip_relocation, ventura:        "3a16f4a02da618252eb33ca6d15c7f80128155e23774ccdd17ad14f67f833666"
-    sha256 cellar: :any_skip_relocation, monterey:       "67da428ede437becefb978d6c57f798e9e6d0e9751e88c2a8f66ee012955d432"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2edae4d6d8b898ad8057b266256491615ac0832d09fed2209ca30acfebe9aa15"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4e0c88329279ed6319346d0363bada116a907de02f65c56e4ebe4c8774c0995c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ac724aeab03c7ebfcf1dd1822e1fd0aa22ee987932eef824a3ffb087fb0a46a7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "32c894850f3df13aec62e6411048e7ab3eafc8f8ef2cee2debbb1d614346c8b4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a1eeab4596abcdffdae902f240da50dd4c6735528a2f8b9c03dd4b844bf2cd8a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d0333acbc490c8fe31b9b713cb9c2f1b39d90f9a0b03f4f1dd599345a136e118"
+    sha256 cellar: :any_skip_relocation, ventura:        "062a4be4a0d68d3ebc90597f87f2c92b831b0bee7915d7f807663ca8c2c8c2b3"
+    sha256 cellar: :any_skip_relocation, monterey:       "62bcd44742300374609bf3d82bbf6c8eff3e6576b1d50f3ace283641d1045f60"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "769da6fea14e74a0dda2a14b9706922add37f0533bf145d10ef56e92d9183a31"
   end
 
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/3d/7d/d05864a69e452f003c0d77e728e155a89a2a26b09e64860ddd70ad64fb26/psutil-5.9.4.tar.gz"
-    sha256 "3d7f9739eb435d4b1338944abe23f49584bde5395f27487d2ee25ad9a8774a62"
+    url "https://files.pythonhosted.org/packages/d6/0f/96b7309212a926c1448366e9ce69b081ea79d63265bde33f11cc9cfc2c07/psutil-5.9.5.tar.gz"
+    sha256 "5410638e4df39c54d957fc51ce03048acd8e6d60abc0f5107af51e5fb566eb3c"
   end
 
   def install

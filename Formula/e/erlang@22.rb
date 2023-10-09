@@ -22,7 +22,7 @@ class ErlangAT22 < Formula
   keg_only :versioned_formula
 
   # EOL with OTP-25 release
-  deprecate! date: "2022-09-20", because: :unsupported
+  disable! date: "2023-10-03", because: :unsupported
 
   depends_on "openssl@1.1"
   depends_on "wxwidgets" # for GUI apps like observer

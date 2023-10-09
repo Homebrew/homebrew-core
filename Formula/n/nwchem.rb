@@ -1,9 +1,9 @@
 class Nwchem < Formula
   desc "High-performance computational chemistry tools"
   homepage "https://nwchemgit.github.io"
-  url "https://github.com/nwchemgit/nwchem/releases/download/v7.2.0-release/nwchem-7.2.0-release.revision-d0d141fd-src.2023-03-10.tar.bz2"
-  version "7.2.0"
-  sha256 "f756073ab3206571a22ec26cc95dac674fed9c4c959f444b8a97df059ffa3456"
+  url "https://github.com/nwchemgit/nwchem/releases/download/v7.2.1-release/nwchem-7.2.1-release.revision-487f8b94-src.2023-10-04.tar.bz2"
+  version "7.2.1"
+  sha256 "ee3f0da0bb8f9b366dc6960d79af61bbfead3290779c77b975b1df020394c6ad"
   license "ECL-2.0"
 
   livecheck do
@@ -12,13 +12,13 @@ class Nwchem < Formula
   end
 
   bottle do
-    sha256                               arm64_ventura:  "6f2813bab91bb47361c3311aa00a238d5417e54e41ada9a9ff56b63dd6d2abc8"
-    sha256                               arm64_monterey: "4ad3206f334c98bd0c1441ae82ee86cbab62ca401dff557fa51b7e450f079ec5"
-    sha256                               arm64_big_sur:  "d57fbea35192e517e1034ff8d8504bfb54c4a259dd838317b53497ad706b4212"
-    sha256 cellar: :any,                 ventura:        "c308301f1e5b07c2cc5a9de2dd35f331942ed457d928148af7bb3756985a0b40"
-    sha256 cellar: :any,                 monterey:       "be5d075056247429c4483383f849928026deaad1fc37e9bcb8c8aba355885371"
-    sha256 cellar: :any,                 big_sur:        "fd2032b804cf888c5db6e967ffeb9ed90d6db592392630a5c7bf5babc95330c5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "685f2a62f9294bf64780b39d801121a208520857f1cbf97eaf3de07bb64eb600"
+    sha256                               arm64_sonoma:   "fa51b1d6159223c778baaabfc7255d530fd7885fed8f82b433b76cbd993ff2bd"
+    sha256                               arm64_ventura:  "49feebe33dd9fc9fafc5f9f2ad0edb5569bbd4d5080a1d665059a0efcf6f5566"
+    sha256                               arm64_monterey: "68acc32acfe7e12dae050d15b77ccf1744de3fdf2dc8be400233cb0854d353bb"
+    sha256 cellar: :any,                 sonoma:         "aef4ed42571e2f40aeec5ea6b59f630dee35d0632c1b754c01459a1a01464a42"
+    sha256 cellar: :any,                 ventura:        "93cf8d200d93c25c59e07d2387fe7d776b302fda896d3c35a0ba096ebeeefdbe"
+    sha256 cellar: :any,                 monterey:       "c890742717e4ae516f98db6a9426d99b5c7b9de60b02fddd56fbfcd3c4c0fc6d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a7581f3f8b6edf5666ecb0fb63af2e785d730497c60e23a61d0e2a14c58f91a2"
   end
 
   depends_on "gcc" # for gfortran
@@ -61,6 +61,8 @@ class Nwchem < Formula
       ENV["USE_HWOPT"] = "n"
       ENV["LIBXC_LIB"] = Formula["libxc"].opt_lib.to_s
       ENV["LIBXC_INCLUDE"] = Formula["libxc"].opt_include.to_s
+      ENV.append "OMPI_FCFLAGS", "-Wl,-ld_classic" if DevelopmentTools.clang_build_version >= 1500
+      ENV.append "OMPI_CFLAGS", "-Wl,-ld_classic" if DevelopmentTools.clang_build_version >= 1500
       os = OS.mac? ? "MACX64" : "LINUX64"
       system "make", "nwchem_config", "NWCHEM_MODULES=all python gwmol", "USE_MPI=Y"
       system "make", "NWCHEM_TARGET=#{os}", "USE_MPI=Y"

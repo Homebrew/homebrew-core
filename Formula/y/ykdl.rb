@@ -8,22 +8,21 @@ class Ykdl < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e518af017c28127eae157236fe069b98e544ceaa5557b0f1d385880604624629"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6bfd95765b3413aae9546fe898949ee266661a4d6bf7251ecedfa7e80d3d85d2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a9669d8abc2e7007ab762d54ac5f46d2c06d6414945f93d676614761290e9042"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a6577df8df4b3a354e9457740ae9c97249062195f8db9ea293238ac664aab15d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "40eb478a3218e795d9b35ac00336947fbf26c486410253ebba3739b82026aae9"
-    sha256 cellar: :any_skip_relocation, ventura:        "25267a1e6a5b19996364dc210a820182dbd979c802a157fa9f063438b6a5eda9"
-    sha256 cellar: :any_skip_relocation, monterey:       "40352d2bfbc62a67104fac49ce087902e0f617b1805106a93d834c6fedf48c60"
-    sha256 cellar: :any_skip_relocation, big_sur:        "899a254962e5978a6c267a1fbab79aa69870c19c3d542b46da81fbe9d120b74f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bcff8c2fb5974a8b76afe84436346f39295e613b9a947e57bab68b8650cd972c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ac74e40632118de8e802dae515a8179a20d27c5053a9c58d0ffaf408352ba4e5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "deff9a5bc7f1bd56701715ef0ea1bb360279df66f53cbf6f252678af23f740f0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b98c04c184ca52d926b022f434b66d297b4d4a21acba1ad9a44b931a8b379255"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ccf9026d461d265992da9d43084cfdff410ebb8a0d6e56f2ff8b8957e2ec4d24"
+    sha256 cellar: :any_skip_relocation, ventura:        "439dab5539656306042453e2a2d9827ab853856514a913b5a1cc7e9e5281c116"
+    sha256 cellar: :any_skip_relocation, monterey:       "6088be7d6f4cd9e2bf4d897eb24f85364b350cc0f4cc267bc905f3c63f4af741"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "586d3eb95083a2bfdfbba2a180268220319f11489a2a2fad66a478119a5b0458"
   end
 
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   resource "iso8601" do
-    url "https://files.pythonhosted.org/packages/27/23/97cd1cb5792ece594ec5cf16cc4921f91838c689c82c8078ee442751f8dc/iso8601-2.0.0.tar.gz"
-    sha256 "739960d37c74c77bd9bd546a76562ccb581fe3d4820ff5c3141eb49c839fda8f"
+    url "https://files.pythonhosted.org/packages/b9/f3/ef59cee614d5e0accf6fd0cbba025b93b272e626ca89fb70a3e9187c5d15/iso8601-2.1.0.tar.gz"
+    sha256 "6b1d3829ee8921c4301998c909f7829fa9ed3cbdac0d3b16af2d743aed1ba8df"
   end
 
   resource "jsengine" do
@@ -32,8 +31,8 @@ class Ykdl < Formula
   end
 
   resource "m3u8" do
-    url "https://files.pythonhosted.org/packages/05/97/e1279c9f025838df264c6643b132a6f3778f8215281fc501644547a821a9/m3u8-3.5.0.tar.gz"
-    sha256 "b2eeaa768de574c9d05aad135b1073992927ce0a20b968ebb13f3a183fa92488"
+    url "https://files.pythonhosted.org/packages/29/6a/ddad4d36396fb3daf12c79c075a0a35b6eb01e9d0cb9ae742401e8aacb08/m3u8-3.6.0.tar.gz"
+    sha256 "d7f17e357e63f90400ae9804bcd193b8935fcca4eb18659aa94f1d7af3b36451"
   end
 
   def install

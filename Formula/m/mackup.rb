@@ -9,18 +9,17 @@ class Mackup < Formula
   head "https://github.com/lra/mackup.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "702655a3a5cbbb2ccd8b53a32055350b3b5617c453460b0a3d1232245e05b607"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "622d8ab1fbca9d7f8a91d500e9cdfda730a20db04f93951a04bb349973d209ef"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "622d8ab1fbca9d7f8a91d500e9cdfda730a20db04f93951a04bb349973d209ef"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "622d8ab1fbca9d7f8a91d500e9cdfda730a20db04f93951a04bb349973d209ef"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b818230b1af873207f35c5ae1b36313b8a5c3f18801e1b65216e4adad11dcbcd"
-    sha256 cellar: :any_skip_relocation, ventura:        "2040dc49fc1e8ca1ebba28ab8b9d18b6e2c7c5acc6ba9ed54b5ab7a79442a0da"
-    sha256 cellar: :any_skip_relocation, monterey:       "2040dc49fc1e8ca1ebba28ab8b9d18b6e2c7c5acc6ba9ed54b5ab7a79442a0da"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2040dc49fc1e8ca1ebba28ab8b9d18b6e2c7c5acc6ba9ed54b5ab7a79442a0da"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d8a14270ae10d3498bddea759d152b70a333b614f894fcf3d1e23622f2dc695c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c885aa3f8a09bbf8954f026258bc15dfaee2d3a3867cf1b3e1351f4baad15bd7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "738d76ca5edd2b6b9a9cf8d9628db247e03cbb0c58b699e829fce4ae23279e7b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e8372ffdc667a42fd5a91734c05e1c197b9464fc6208aca62b6455fcec755677"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f4b728be8a16795913f702df6116359ee8704e7f6b7bef483536ec2f86765e49"
+    sha256 cellar: :any_skip_relocation, ventura:        "90d3eb5af832b27058d373a40fbaa1c8079aa1b9537e73906703b9ad2485e61c"
+    sha256 cellar: :any_skip_relocation, monterey:       "2c28f1db3fad2ea4bcf1547ffd9ca02bc04dc3a5d9726ad789d2558a69b5145a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "72757b195e58f5cca75b4de5226db8b74c6c711966f463cd3cc6c928b2cf636b"
   end
 
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "six"
 
   resource "docopt" do

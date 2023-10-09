@@ -8,20 +8,17 @@ class MuRepo < Formula
   license "GPL-3.0-only"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7f1fac117996197bd796d0457edcaad47c673b8aad7f31c93f9197ac3a21a0e8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6812873e9642055410a5a4f71928affeb2720b147c4567e8436529c1e2867ec1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6812873e9642055410a5a4f71928affeb2720b147c4567e8436529c1e2867ec1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6812873e9642055410a5a4f71928affeb2720b147c4567e8436529c1e2867ec1"
-    sha256 cellar: :any_skip_relocation, sonoma:         "4bc80f5b7425ac7867432c2a1919abea236370de6a6441c28d58265c85fe17c7"
-    sha256 cellar: :any_skip_relocation, ventura:        "69148e98fc1134364d9bf43e8264fd71ce2869af08ff3ac5f2f41eb802e2b062"
-    sha256 cellar: :any_skip_relocation, monterey:       "69148e98fc1134364d9bf43e8264fd71ce2869af08ff3ac5f2f41eb802e2b062"
-    sha256 cellar: :any_skip_relocation, big_sur:        "69148e98fc1134364d9bf43e8264fd71ce2869af08ff3ac5f2f41eb802e2b062"
-    sha256 cellar: :any_skip_relocation, catalina:       "69148e98fc1134364d9bf43e8264fd71ce2869af08ff3ac5f2f41eb802e2b062"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "40bdf36a9090b54702f4f5857c8df633ea07049acb8447439de047cbda68a753"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "32f19f981a0b5f89591c01a8b27f6b96dce2363003e03c431d948920f0b6f648"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "22ac2c05ef44e73cb0adc960c1b30c38bb399991b208fc14f894889b114ca928"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "30b17c86fdaf0137925c71fa893004c40e6598017bd9d0a8b09eb8a8f28d63d4"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c25efe6df304f7ac9c3444ec7aa37f4e36ae15e00ac3f26c2ce3315f24534abc"
+    sha256 cellar: :any_skip_relocation, ventura:        "a510913eebdff79d1b3d9a170d55e4c181f186be04c3df7c4d3231d981cad49a"
+    sha256 cellar: :any_skip_relocation, monterey:       "2647a75ac88d39730d9266f536bd64e484d2426436119a1a65923eb1e766c8b7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "02c678e1101a3df4f587013a5d2da95c8a6a34f6892a5267d9e3f5019cf9da97"
   end
 
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   conflicts_with "mu", because: "both install `mu` binaries"
 

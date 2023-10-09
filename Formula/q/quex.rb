@@ -15,11 +15,11 @@ class Quex < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "007566f7df864d2264063bf557e8c1c2b08b7f4b37fa415e30f01516ace3e294"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "1d191fac735ddaccea99244e3d9a23b1f9384d0f204256bc5a69b9bbcf38d3e1"
   end
 
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   def install
     rewrite_shebang detected_python_shebang, "quex-exe.py"

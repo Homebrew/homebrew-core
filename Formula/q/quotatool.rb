@@ -1,37 +1,26 @@
 class Quotatool < Formula
   desc "Edit disk quotas from the command-line"
   homepage "https://quotatool.ekenberg.se/"
-  url "https://quotatool.ekenberg.se/quotatool-1.6.2.tar.gz"
-  sha256 "e53adc480d54ae873d160dc0e88d78095f95d9131e528749fd982245513ea090"
+  url "https://github.com/ekenberg/quotatool.git",
+    tag:      "v1.6.3",
+    revision: "a32e83b5cc414a0a28d4e703f6012349a92c2d4d"
   license "GPL-2.0-or-later"
 
-  livecheck do
-    url "https://quotatool.ekenberg.se/index.php?node=download"
-    regex(/href=.*?quotatool[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3719605c12e295bafe7d4128b91483615bb7d77255d03174f20eaa53a8143872"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a370d1d4a0a8427ce965fb1f2a025744d2fb62ca9cee41a7def60659560dc978"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ff62f0d5ca83dd416cf61bef0b9f95dfd56a9004dc0a53bd3b494764e3f33808"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ba0e322a5e78b925f96f4e02e245dc734e5d3e748789d4dc1fb64df3e93f5af7"
+    sha256 cellar: :any_skip_relocation, ventura:        "05023c93011d4d1ee44908f6897dc58119cb365fbf5fd8f35b1c66ff3086f08d"
+    sha256 cellar: :any_skip_relocation, monterey:       "5f5e400588578a723c006145513aaf8bdb6f5db2d3e8ac7dd972369247e35d71"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "77effdde3aef3a46ff756aa1840b11e0e71d9597d7bf8fc41b047a79ebcce768"
   end
 
-  bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cf56e937cd7f4f84c141caecfbd5717fb0ea4df36e3c5b65dad9a5e1f2740e07"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6c633899b45ad7d378cf68b79b199b8f7a3599fbd68e5ad0f5ad5b13c26084d9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "745e9918ee9275d034efcbfe3907e48b760e6e22fb0b6381b120592bfe9b92af"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "33cf581ce810cb4704669a05ee01b5cc963008f02393db65453ef06216ed257f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "f14e2d785b6dbc44ae4e55c5c89aa69772b4672f183205842b9dde64e56eeab2"
-    sha256 cellar: :any_skip_relocation, ventura:        "96f6f27296e9997a291c8468832d8dd6b267b3359bffeef7706529b362c03294"
-    sha256 cellar: :any_skip_relocation, monterey:       "23e979daccf52492fa2a80f705954390cacc2aa835bb4337a6623ab62edf0bd5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e5dbc4f83caec774f6f05d65515c51bd8963c28415020698666d534030e91b23"
-    sha256 cellar: :any_skip_relocation, catalina:       "b8787cedb9e50c5ea14b10fa2e6cf9ec948e7842a97d5e7212abef0ea87e26c6"
-    sha256 cellar: :any_skip_relocation, mojave:         "2d2b6f53466ec7b211f44b0319966b7120e3bbf0e1d57c1f0ae3d272bc8f4ce4"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "bbf7543458972806f3c15b25bf7cd71276159b54ae1ada3beb12e6d29328ec0e"
-    sha256 cellar: :any_skip_relocation, sierra:         "4d04c382c8cf8b0376b34ce12813be06e879fdf6b60711cf90643d08887304fb"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "da5c90f85204fa90a38da073765ec5c0f0a20333bcdcd131d79b682afa74233f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "296d3ea40771bb113792f0bd6b57cbcba371d9c80d95271b29474a1bbcd16194"
+  on_macos do
+    depends_on "coreutils" => :build # make install uses `-D` flag
   end
 
   def install
-    # workaround for Xcode 14.3
-    # https://github.com/ekenberg/quotatool/issues/24
-    ENV.append "CFLAGS", "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
-
     system "./configure", "--prefix=#{prefix}"
     sbin.mkpath
     man8.mkpath

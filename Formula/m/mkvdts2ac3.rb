@@ -18,9 +18,11 @@ class Mkvdts2ac3 < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "06bb2324f1fb9320367514c499760d0d3b7239fe9d432affbbdf3f501e912f98"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6f3048c9e07efa717d6a75f60c2c1e01414986b4f7ee76be8bc0ce4ffd1f9184"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6f3048c9e07efa717d6a75f60c2c1e01414986b4f7ee76be8bc0ce4ffd1f9184"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "19928b2ef2664b358d7dca5fd53a9098c260eed4c61d37227097981e619af504"
+    sha256 cellar: :any_skip_relocation, sonoma:         "06bb2324f1fb9320367514c499760d0d3b7239fe9d432affbbdf3f501e912f98"
     sha256 cellar: :any_skip_relocation, ventura:        "6f3048c9e07efa717d6a75f60c2c1e01414986b4f7ee76be8bc0ce4ffd1f9184"
     sha256 cellar: :any_skip_relocation, monterey:       "6f3048c9e07efa717d6a75f60c2c1e01414986b4f7ee76be8bc0ce4ffd1f9184"
     sha256 cellar: :any_skip_relocation, big_sur:        "d146252c7f8a7e75a78bdde799e88156851d16974ae35c2e54397c7c3dc93d7c"

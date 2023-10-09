@@ -4,18 +4,16 @@ class Mosh < Formula
   url "https://github.com/mobile-shell/mosh/releases/download/mosh-1.4.0/mosh-1.4.0.tar.gz"
   sha256 "872e4b134e5df29c8933dff12350785054d2fd2839b5ae6b5587b14db1465ddd"
   license "GPL-3.0-or-later"
-  revision 7
+  revision 8
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "a57a41674f05b4c46be3344975b328043f03ae2eb21d28bff3b282c78301c64a"
-    sha256 cellar: :any,                 arm64_ventura:  "5385b41abbc305384440b081b8faa976235c5ebe88d168b2fcfa7272c4b5e06d"
-    sha256 cellar: :any,                 arm64_monterey: "d256d62ac6e964b6379f33e548d047c47e163c9c41245c9122f620ff7d0eb1cd"
-    sha256 cellar: :any,                 arm64_big_sur:  "342b208be1ec535ae078d77b0877d37b013aa6d6047f3f45cc34a7d5a8d8f417"
-    sha256 cellar: :any,                 sonoma:         "7f0e73c9b7bf2a5615ea08c46f0f63897d1431a02d55cef2996212c2214119da"
-    sha256 cellar: :any,                 ventura:        "92d1339cd920ced8d784e34e8dc996b21b3d696388387e409512a49e9e09d975"
-    sha256 cellar: :any,                 monterey:       "fdf6330bdac536f37680c4132d5b2cad35b3267873c56b6a1008f02a14e08c3e"
-    sha256 cellar: :any,                 big_sur:        "5068cdd5a5de38d0829c9d5ccf02cc8dc38df1d05e295441d455e135800d4cb9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a9342b1b96373c81b1cba4d93149a2c4383078f2db735cdcbc100cea536589d8"
+    sha256 cellar: :any,                 arm64_sonoma:   "d7aea82f60f0933b35bab857c48e0d200e5c2bcffdb3748bc838cd45cfcf4100"
+    sha256 cellar: :any,                 arm64_ventura:  "29b964018f1f0173b023abddc806fb73902e71f30d8dc8c9293334da8fa47465"
+    sha256 cellar: :any,                 arm64_monterey: "aa0e43e028aae30cbf6ff37582016a8057c7185521193e15ae7ec41509e6e1eb"
+    sha256 cellar: :any,                 sonoma:         "b0793b904c499756f0cb7ede18a0e0a6e3011d741f32a38554582ea88f6f8fe7"
+    sha256 cellar: :any,                 ventura:        "020b3c9a05aa43829f6f8d8f65754e73c23cb59daea16e898d14bd7e346c98f2"
+    sha256 cellar: :any,                 monterey:       "82a63af034edd9125b108fc6140e2d31ee8fcbefe1033999387798a0ed5d8c5e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "89eb0c0de944e7f6f0d43ef0fe8d1332c9ca78779384f848e1a4e2b58dd7b17d"
   end
 
   head do

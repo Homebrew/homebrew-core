@@ -9,11 +9,11 @@ class GitArchiveAll < Formula
   head "https://github.com/Kentzo/git-archive-all.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "4f982b4bcb637872206aea1277c730c7157bb0eff99b753848c79e06c4531a33"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "a84fa8b0fb597ad1dde397739735c66689df8cb193d0200c1da06acb097c80e9"
   end
 
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   def install
     rewrite_shebang detected_python_shebang, "git_archive_all.py"

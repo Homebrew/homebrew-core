@@ -6,28 +6,26 @@ class DockerSquash < Formula
   url "https://files.pythonhosted.org/packages/6c/0b/3684b7e34c46045dda03b34be50392c689b23fa8788a0c0f7daf98db35d8/docker-squash-1.1.0.tar.gz"
   sha256 "819a87bf44c575c76d8d8f15544363a7a81ca2b176d424b67b39cd2cd9acc89e"
   license "MIT"
-  revision 1
+  revision 2
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6bd35b38a141d1bf9da66167584ae0540234e830f90c8642f5c3bf660035fe49"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7b333ff5e20a892182f7ac9c80da4032567d6abfa9b8c7abd5ebf95e59f046bd"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "55f8e22952687f03add22989d5f8c7d6c334310d1b905a314761c75a4bdb02e0"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "770cbdc26dffe5cf113c3b75532f4533468eb05b8c3361c6259c6d4f1bbca127"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c067eb6a46e16a433bc1b99f0057ff95b4bafd3ea5fd935063270cd00a534e46"
-    sha256 cellar: :any_skip_relocation, ventura:        "21f5110b358d7d67892d7f8592ea67e904f910a382376e69aa44ed9f8af5b6c6"
-    sha256 cellar: :any_skip_relocation, monterey:       "8c41d539551604f20fd15447a9c312c4dbf3f2d6efb09ea6076139a271a3133e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "03167a06696c7fea5c11eaca37c2ade47e74afd4c00be80cb10fd09bf378a3b4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f239ce8bbe25b11ca1b2d1c36e7d16c34472e09e5d894cf622df43166da5f265"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2192e33e077d5d46f8224ff3a3bc6abad280e8ec019a4be3068b494dbc5de8c4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1378ee2d57a777149fa93da180174a165b85d82cd2c1e686f3aa664a7e31f165"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9f9b8818aa16b4435f124e524a0dfdc9b7ee6d2c0b70a6a44f7b1fef8185493d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "1643c33c2dcddb68bc6a4136e45d29b02af568668f67f25f96774b2f129a52c9"
+    sha256 cellar: :any_skip_relocation, ventura:        "72b86a6b8181906bca85cf8b1d0e79c0c1c2f4b7abc16f23de6b1a7df46a8be5"
+    sha256 cellar: :any_skip_relocation, monterey:       "7f295aec12b06b917e5a60cea7a72dfb1da44bc51e98c00626aa7f945c06ee51"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "45b79a5ffbc39ca1153f75e7645639ce225dd557ac90a22ce56149edfc0a8185"
   end
 
   depends_on "python-certifi"
+  depends_on "python-packaging"
   depends_on "python@3.11"
   depends_on "six"
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/2a/53/cf0a48de1bdcf6ff6e1c9a023f5f523dfe303e4024f216feac64b6eb7f67/charset-normalizer-3.2.0.tar.gz"
-    sha256 "3bb3d25a8e6c0aedd251753a79ae98a093c7e7b471faa3aa9a93a81431987ace"
+    url "https://files.pythonhosted.org/packages/cf/ac/e89b2f2f75f51e9859979b56d2ec162f7f893221975d244d8d5277aa9489/charset-normalizer-3.3.0.tar.gz"
+    sha256 "63563193aec44bce707e0c5ca64ff69fa72ed7cf34ce6e11d5127555756fd2f6"
   end
 
   resource "docker" do
@@ -40,24 +38,19 @@ class DockerSquash < Formula
     sha256 "814f528e8dead7d329833b91c5faa87d60bf71824cd12a7530b5526063d02cb4"
   end
 
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/b9/6c/7c6658d258d7971c5eb0d9b69fa9265879ec9a9158031206d47800ae2213/packaging-23.1.tar.gz"
-    sha256 "a392980d2b6cffa644431898be54b0045151319d1e7ec34f0cfed48767dd334f"
-  end
-
   resource "requests" do
     url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
     sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/31/ab/46bec149bbd71a4467a3063ac22f4486ecd2ceb70ae8c70d5d8e4c2a7946/urllib3-2.0.4.tar.gz"
-    sha256 "8d22f86aae8ef5e410d4f539fde9ce6b2113a001bb4d189e0aed70642d602b11"
+    url "https://files.pythonhosted.org/packages/8b/00/db794bb94bf09cadb4ecd031c4295dd4e3536db4da958e20331d95f1edb7/urllib3-2.0.6.tar.gz"
+    sha256 "b19e1a85d206b56d7df1d5e683df4a7725252a964e3993648dd0fb5a1c157564"
   end
 
   resource "websocket-client" do
-    url "https://files.pythonhosted.org/packages/b1/34/3a5cae1e07d9566ad073fa6d169bf22c03a3ba7b31b3c3422ec88d039108/websocket-client-1.6.1.tar.gz"
-    sha256 "c951af98631d24f8df89ab1019fc365f2227c0892f12fd150e935607c79dd0dd"
+    url "https://files.pythonhosted.org/packages/44/34/551f30cbdc0515c39c2e78ef5919615785cd370844e40ada82367c1fab3f/websocket-client-1.6.3.tar.gz"
+    sha256 "3aad25d31284266bcfcfd1fd8a743f63282305a364b8d0948a43bd606acc652f"
   end
 
   def install

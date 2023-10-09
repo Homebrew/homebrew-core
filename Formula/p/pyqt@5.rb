@@ -6,9 +6,11 @@ class PyqtAT5 < Formula
   license "GPL-3.0-only"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "9398c47f03210dddad2db4419553223f43113d7fe302656b20f6aa5fd0b3eecf"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "bdebe6cce54a45c856b8b2237308f4ba53e45ea0bc460769b615f557bc69ac09"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "83b6ea13c4b1389d0fe758bcd9f83b8d6564b8b6abbfc05c57ce102d4734940d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0926e76447c749f669f1a2cc13c9fa06ff2da0ae8071c62d1e96f8ea1357227f"
+    sha256 cellar: :any,                 sonoma:         "e069472245fac9dd5d02dffd92a9af711763757a4330dfd1b7b7278539304df4"
     sha256 cellar: :any_skip_relocation, ventura:        "e05bf795d62839535e0e0e6ee6c70a6bef82bc90a953de0393c21ed1f870b4bb"
     sha256 cellar: :any_skip_relocation, monterey:       "04905257fd09737552946add20a940e065cbe973080bc60c63022f0b5cacc939"
     sha256 cellar: :any_skip_relocation, big_sur:        "25533e0e23fb89a027e17c991cc9ddd0dc76c3d4805acc4f1d6f3e506bde88b8"

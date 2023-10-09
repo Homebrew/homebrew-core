@@ -1,20 +1,18 @@
 class Simdutf < Formula
   desc "Unicode conversion routines, fast"
   homepage "https://github.com/simdutf/simdutf"
-  url "https://github.com/simdutf/simdutf/archive/refs/tags/v3.2.17.tar.gz"
-  sha256 "c24e3eec1e08522a09b33e603352e574f26d367a7701bf069a65881f64acd519"
+  url "https://github.com/simdutf/simdutf/archive/refs/tags/v3.2.18.tar.gz"
+  sha256 "c4910a05100f9fbef710d732f626f58e21c6d896bc940ef81d061803f2ec76ee"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/simdutf/simdutf.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "05eea72a5e1227187cccf8c66ad5815d81a64100c8f27340924c5d46e570f652"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e47da9bcb4afcd60d9378dbd36186a646ccd17e0ff2863e3ec8885709160b090"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9ee98252314db62b8306d26e9d2468408dd3718cae28f3db15e2274f22f0c1f2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "75ba65683f24bc6aab82e88147783bf2b55dab87e4b28204e02e59f2013621f1"
-    sha256 cellar: :any,                 sonoma:         "d23025fa97d24e3d56d3fd7bcac0489656ab76b1f775d5f6ebae449ca12febc3"
-    sha256 cellar: :any_skip_relocation, ventura:        "45671f3cd92efd2353cab9ddf3626cea80b820e9b39c8a55667aa7d182e10e25"
-    sha256 cellar: :any_skip_relocation, monterey:       "1746c5e39177dc930f838c2c0bf5bf584adacd640cc84b936a06f6e107f5e3fb"
-    sha256 cellar: :any_skip_relocation, big_sur:        "77c4f97ed9d907527660fbf00e2ef3c19d7ab7779439b594b93988e4beee11d6"
+    sha256 cellar: :any, arm64_sonoma:   "a828eb98ed1522227dbbe299d4c0c21dac74f2d27614d33bec4f0651a9c222f0"
+    sha256 cellar: :any, arm64_ventura:  "0ba08f0fc2bc14b63bbcf6cc75fa90306243974e9a7e27d3d2d7e05d9ca3f0a8"
+    sha256 cellar: :any, arm64_monterey: "177e31f95d22a4623230c7ee96110d8cdd1ba623c509ab95f942aa081c9cb030"
+    sha256 cellar: :any, sonoma:         "79641dc40c1649be5b3b9eabec7675c8a21531aa6ac2402be2bacd329a12d35b"
+    sha256 cellar: :any, ventura:        "eba5bcbc5d9757e4872c213555c0b173cfefb102685404dbe604329f1de02890"
+    sha256 cellar: :any, monterey:       "8a87e3cce90f4d7774f50b8342ba99a547b32d791b8e3967f9fc97a6ecddd89f"
   end
 
   depends_on "cmake" => :build

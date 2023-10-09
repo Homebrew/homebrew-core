@@ -1,27 +1,33 @@
 class Go < Formula
   desc "Open source programming language to build simple/reliable/efficient software"
   homepage "https://go.dev/"
-  url "https://go.dev/dl/go1.21.1.src.tar.gz"
-  mirror "https://fossies.org/linux/misc/go1.21.1.src.tar.gz"
-  sha256 "bfa36bf75e9a1e9cbbdb9abcf9d1707e479bd3a07880a8ae3564caee5711cb99"
+  url "https://go.dev/dl/go1.21.2.src.tar.gz"
+  mirror "https://fossies.org/linux/misc/go1.21.2.src.tar.gz"
+  sha256 "45e59de173baec39481854490d665b726cec3e5b159f6b4172e5ec7780b2c201"
   license "BSD-3-Clause"
   head "https://go.googlesource.com/go.git", branch: "master"
 
   livecheck do
-    url "https://go.dev/dl/"
-    regex(/href=.*?go[._-]?v?(\d+(?:\.\d+)+)[._-]src\.t/i)
+    url "https://go.dev/dl/?mode=json"
+    regex(/^go[._-]?v?(\d+(?:\.\d+)+)[._-]src\.t.+$/i)
+    strategy :json do |json, regex|
+      json.map do |release|
+        next if release["stable"] != true
+        next if release["files"].none? { |file| file["filename"].match?(regex) }
+
+        release["version"][/(\d+(?:\.\d+)+)/, 1]
+      end
+    end
   end
 
   bottle do
-    sha256 arm64_sonoma:   "c6c09f55a62f73b95e799ca9fa44e8d47bba9221a06f5a0a443eb32b5ee93a61"
-    sha256 arm64_ventura:  "1676bb61224ce3dc09a2e6a16853d5ac48ce956ef9b92fb6be7162b5faa0e1f5"
-    sha256 arm64_monterey: "70d0b7918c9f407381a5524745505b1d5f3db11106a1ff3594f3048aefc960f6"
-    sha256 arm64_big_sur:  "985712956f4ffdf7c4df07d5e158e9218fb9def436a830d0f5bdb5248a0ff167"
-    sha256 sonoma:         "9b93b656b80d6cd1ab3294d40993e39a7ed5c47521f755c2538c19ee7658e172"
-    sha256 ventura:        "02c77d4d5a7aba6caddbd02e4402fb59f3c926226f14390874478c0355834d62"
-    sha256 monterey:       "8d6a7bab029de8fe1effd909625ee9cb7fb2811b660cd36273e284cff725a5c3"
-    sha256 big_sur:        "e021ca9fff30ea4ede5a1de591a23950a7d6a82f48958195d1139fee87f6b7f6"
-    sha256 x86_64_linux:   "e72f3f736fb1f6fa30fc1cb918362e8b8771af046f2c80315f04b7e428f6f927"
+    sha256 arm64_sonoma:   "ed1c2cbb167906466229918d181af6452efb91813c9362656f26504a4cc65117"
+    sha256 arm64_ventura:  "84d9884d513adb0ca5208e788f10e386425d1820d111cd934a0429b7578ffc3a"
+    sha256 arm64_monterey: "d71c3276c50fd605a1bbeff7f51cdb777c2a04771c373fc0245c8c3b5be5adb8"
+    sha256 sonoma:         "7c1ad7b8a7e0a4392832f66da5e46089c5713b76966e0d83d2ba869833b936bf"
+    sha256 ventura:        "0cce8e0880b7f63aefd3c344f660a2f560aeea381fc615bb96f28c94f067e299"
+    sha256 monterey:       "d8f18ccf610dd4c45f4c32b94c172b9387b9e212b913eeca7a27a3cf8499e4a4"
+    sha256 x86_64_linux:   "a2e11f604ac9ae3dc31287ba336ffe40d576b989e8edfdcdbbffd66983bd2eb2"
   end
 
   # Don't update this unless this version cannot bootstrap the new version.

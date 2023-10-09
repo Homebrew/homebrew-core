@@ -1,12 +1,24 @@
 class Bat < Formula
   desc "Clone of cat(1) with syntax highlighting and Git integration"
   homepage "https://github.com/sharkdp/bat"
-  # TODO: check if we can use unversioned `libgit2` at version bump.
-  # See comments below for details.
-  url "https://github.com/sharkdp/bat/archive/refs/tags/v0.23.0.tar.gz"
-  sha256 "30b6256bea0143caebd08256e0a605280afbbc5eef7ce692f84621eb232a9b31"
   license any_of: ["Apache-2.0", "MIT"]
-  head "https://github.com/sharkdp/bat.git", branch: "master"
+
+  # TODO: Remove `stable` block when we can use unversioned `libgit2`.
+  stable do
+    # TODO: check if we can use unversioned `libgit2` at version bump.
+    # Remove `stable` and `head` blocks when this is done.
+    # See comments below for details.
+    url "https://github.com/sharkdp/bat/archive/refs/tags/v0.23.0.tar.gz"
+    sha256 "30b6256bea0143caebd08256e0a605280afbbc5eef7ce692f84621eb232a9b31"
+
+    # To check for `libgit2` version:
+    # 1. Search for `libgit2-sys` version at https://github.com/sharkdp/bat/blob/v#{version}/Cargo.lock
+    # 2. If the version suffix of `libgit2-sys` is newer than +1.5.*, then:
+    #    - Use the corresponding `libgit2` formula.
+    #    - Remove `LIBGIT2_SYS_USE_PKG_CONFIG` env var below.
+    #      See: https://github.com/rust-lang/git2-rs/commit/59a81cac9ada22b5ea6ca2841f5bd1229f1dd659.
+    depends_on "libgit2@1.5"
+  end
 
   bottle do
     rebuild 1
@@ -21,18 +33,18 @@ class Bat < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "33a7bfc707c3fcc316912a68c4aa4e0f1a2417a5626e637316b20792d747aadc"
   end
 
+  # TODO: Remove `head` block when `stable` uses unversioned `libgit2`.
+  head do
+    url "https://github.com/sharkdp/bat.git", branch: "master"
+    depends_on "libgit2"
+  end
+
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
-  # To check for `libgit2` version:
-  # 1. Search for `libgit2-sys` version at https://github.com/sharkdp/bat/blob/v#{version}/Cargo.lock
-  # 2. If the version suffix of `libgit2-sys` is newer than +1.5.*, then:
-  #    - Use the corresponding `libgit2` formula.
-  #    - Change the `LIBGIT2_SYS_USE_PKG_CONFIG` env var below to `LIBGIT2_NO_VENDOR`.
-  #      See: https://github.com/rust-lang/git2-rs/commit/59a81cac9ada22b5ea6ca2841f5bd1229f1dd659.
-  depends_on "libgit2@1.5"
   depends_on "oniguruma"
 
   def install
+    ENV["LIBGIT2_NO_VENDOR"] = "1"
     ENV["LIBGIT2_SYS_USE_PKG_CONFIG"] = "1"
     ENV["RUSTONIG_DYNAMIC_LIBONIG"] = "1"
     ENV["RUSTONIG_SYSTEM_LIBONIG"] = "1"

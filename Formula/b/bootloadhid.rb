@@ -2,7 +2,6 @@ class Bootloadhid < Formula
   desc "HID-based USB bootloader for AVR microcontrollers"
   homepage "https://www.obdev.at/products/vusb/bootloadhid.html"
   url "https://www.obdev.at/downloads/vusb/bootloadHID.2012-12-08.tar.gz"
-  version "2012-12-08"
   sha256 "154e7e38629a3a2eec2df666edfa1ee2f2e9a57018f17d9f0f8f064cc20d8754"
 
   livecheck do

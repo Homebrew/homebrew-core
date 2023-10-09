@@ -1,22 +1,20 @@
 class Gettext < Formula
   desc "GNU internationalization (i18n) and localization (l10n) library"
   homepage "https://www.gnu.org/software/gettext/"
-  url "https://ftp.gnu.org/gnu/gettext/gettext-0.22.2.tar.gz"
-  mirror "https://ftpmirror.gnu.org/gettext/gettext-0.22.2.tar.gz"
-  mirror "http://ftp.gnu.org/gnu/gettext/gettext-0.22.2.tar.gz"
-  sha256 "a99662bafc1cc683ec7740844b465c7f30ccb044967f157f74697df9a9306b0e"
+  url "https://ftp.gnu.org/gnu/gettext/gettext-0.22.3.tar.gz"
+  mirror "https://ftpmirror.gnu.org/gettext/gettext-0.22.3.tar.gz"
+  mirror "http://ftp.gnu.org/gnu/gettext/gettext-0.22.3.tar.gz"
+  sha256 "839a260b2314ba66274dae7d245ec19fce190a3aa67869bf31354cb558df42c7"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_sonoma:   "a73c646625fe97ee22d498644e7c7f4ff1697f0ee817acbb7205921675f1ccd2"
-    sha256 arm64_ventura:  "7dc306a073a88a53e457afd750139cf73785c299dd112cbeae051e114249ba38"
-    sha256 arm64_monterey: "7fe0c884f86c98ff759c6a97e1ab1627de063b18c8b7b680a3f2d9c75832283f"
-    sha256 arm64_big_sur:  "7c4aaea1463292d29ba3fe0d081abbae1e965e470cb4e4acd69432f87932e544"
-    sha256 sonoma:         "befd20cde015ca6994d0e35574433a740bf996f96c951095b88b9721b6546be3"
-    sha256 ventura:        "b6bf2952286f24785b3e1bb6604f5d5c5e922e02d3e62aa3c92793a960421340"
-    sha256 monterey:       "57ddf5a74671707ef8d69a46abf4848ffe2f98313e74cd08afaca1597cdfbf55"
-    sha256 big_sur:        "cfa5dcfd468ed1ae9598870d76c6e132a9599cef62bc35852f18da9e7e420675"
-    sha256 x86_64_linux:   "0b080f8b9f94831aa4a33d771bc933030e93df47696b5d403e854b06357bec09"
+    sha256 arm64_sonoma:   "287240f844318fe88193b706d6e07121b2cc7cfb3b5e2f47e21ee6970ffceb09"
+    sha256 arm64_ventura:  "9bf5b0ea5fb893fe294c2c5f9195026e082e84e4dce24c81b544f62d9d85dd02"
+    sha256 arm64_monterey: "29b5bf933d4cc986e2f7b580d11aee8b755f5fab5621bd955dd3ca6867922e10"
+    sha256 sonoma:         "1853891cc14ff16ab102dd75b8ee313975bfdb17c03737975ca61b5a05159e5a"
+    sha256 ventura:        "6971461fbd5d738e7f5609ced872ff87b88a4425c7ba42450871abe743178574"
+    sha256 monterey:       "3600ef54a17fc9782a367a70d60a3996eae4613075ba05e8943cb1e5190d35fc"
+    sha256 x86_64_linux:   "173e5e5fac30885db41e894d9b46798e3023b1543f2d855eaaf77e99e6ed3ddd"
   end
 
   uses_from_macos "libxml2"

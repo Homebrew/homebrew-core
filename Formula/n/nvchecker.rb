@@ -9,26 +9,20 @@ class Nvchecker < Formula
   revision 2
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "629ea45a90f3e89233858bb8a93f94f190f9c48d1d2f30358a688903ca123239"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "079e0d89e2de1eb842343d8b17f1123ea660bc7546bf8de3e1a1daae766532b4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "08ed62366a642353aa53f5ca4f9c7f25a6571c88df44f5eaa9c49e9502be414a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1a207081ca818d3612e5fd73dc2e035360b62b5a02b6e4181feddad525c00a82"
-    sha256 cellar: :any_skip_relocation, sonoma:         "524275673c9ddc808655e60c479e2e4d2b3e1b47de1c3f231a430ae3722fd4d4"
-    sha256 cellar: :any_skip_relocation, ventura:        "d0b1350f7fa05d92ef511673afe50671d3b1264f24baa3ab7d77240d24a51c90"
-    sha256 cellar: :any_skip_relocation, monterey:       "7d9bddb089cdb973d189fc3e62cf67f33094080acce7bb0daec3630b245d2991"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6460ce5f228a78ff2edc4072823d0fc6a6a0d6945711a7c2415ac81ee6358e06"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "571577e757d6ae1a43737a68c0e09d7474482cd26960d7f2d1c5d5ceafa15e6a"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "05ed5fdffe2be04d95332861c119b3b7d9e9833b94c2082a0f5de6335805e5e5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d060f8e0b16cb3793c59030b94183ab90a00f1bc45349544a5e29103a531768e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b98554001621cccd4aa11017797e6df0be2a0329a571f468796e9d05047f5af2"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a34cb5e2bc9c3cef323193f7539c6d47dcb8afce17aade04db0c2c215e9582c6"
+    sha256 cellar: :any_skip_relocation, ventura:        "76ccf0a122b395be8bab2a0f270db9c54591d8653ff63a1cdf19d9d6c6739647"
+    sha256 cellar: :any_skip_relocation, monterey:       "b42fe78a7822a22eedbee5763b8e228a09d9822a4672f4e7fdc4d5f08825856b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7a272820b38e39cee19277bbb24c5339e294731ff8654c17601a7ee1f2920233"
   end
 
   depends_on "jq" => :test
+  depends_on "python-packaging"
   depends_on "python-pycurl"
   depends_on "python@3.11"
-
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/b9/6c/7c6658d258d7971c5eb0d9b69fa9265879ec9a9158031206d47800ae2213/packaging-23.1.tar.gz"
-    sha256 "a392980d2b6cffa644431898be54b0045151319d1e7ec34f0cfed48767dd334f"
-  end
 
   resource "platformdirs" do
     url "https://files.pythonhosted.org/packages/dc/99/c922839819f5d00d78b3a1057b5ceee3123c69b2216e776ddcb5a4c265ff/platformdirs-3.10.0.tar.gz"

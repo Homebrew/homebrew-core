@@ -8,9 +8,11 @@ class Dog < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1d10a7859edcb1fefd50359a1d5104817eaca4a22ba8272ef610f4e392409ee9"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "db5e1572f85dad9b50f7f17483b04d459f47871d4b0a7621c676c8f25cb1f0cc"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "59c9e37cff1154bb2d7407b0473ab9280156a4144be16bf4bb7820bae34ab27a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8c5a4ee2a717b756d3668395a129aebe48e8cc72b049d7f9cfbbfb9d14669de0"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0d78a51c96d7a8b37fb975422031e7179b7cf266daf0b753b3b0a7b9ae143980"
     sha256 cellar: :any_skip_relocation, ventura:        "6a7a5f6ef5f5765f7e642cf03a079a48fd1ba43dbf1aada1aaadec840633abb3"
     sha256 cellar: :any_skip_relocation, monterey:       "0dbeb2271fcbda043b8c67b63463bafbe674e692ed464e891529941e72eecf4c"
     sha256 cellar: :any_skip_relocation, big_sur:        "b34f634c60a28d5e5ad7694da962949c677bb1808886c6fcaa7c92579633e5ee"

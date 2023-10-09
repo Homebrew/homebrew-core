@@ -9,18 +9,17 @@ class GitPlus < Formula
   head "https://github.com/tkrajina/git-plus.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a3db2e14cf96f120fb4618d486dd959fd8a2d79fa5f9701232a9989c7187ad9f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a5993edd0f14bcf89323609395296369bf8c7c74697f421cf1324ed22246d295"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a5993edd0f14bcf89323609395296369bf8c7c74697f421cf1324ed22246d295"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a5993edd0f14bcf89323609395296369bf8c7c74697f421cf1324ed22246d295"
-    sha256 cellar: :any_skip_relocation, sonoma:         "698428f41dd268744d770f94118ef2c1b5f1462d390b1d31246bbf5aeb72ba2d"
-    sha256 cellar: :any_skip_relocation, ventura:        "9bdce13d800f40dc51edcb780600d7cf7775624173f54521e4b6544619adcd63"
-    sha256 cellar: :any_skip_relocation, monterey:       "9bdce13d800f40dc51edcb780600d7cf7775624173f54521e4b6544619adcd63"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9bdce13d800f40dc51edcb780600d7cf7775624173f54521e4b6544619adcd63"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "58dd04bb2b4161b60ace6be84dce6a355d093c4a0312a03010b7d39b20e7ab0d"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5bb4f2e14194b3e79593c25fec859b7a7bf1284b65e10f4d9162c958a55ad377"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6df2c299ba55967cbd4437ea98a1b6c310939809029df4b41a855f8158d25152"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a9fc5c6149789e187184b263f96f4c371f7f13eb2c522f47851260fb26103a64"
+    sha256 cellar: :any_skip_relocation, sonoma:         "36c44924038cac6efbe7a5a4f81c517169ae1156974083b0f02efd2bfec62b31"
+    sha256 cellar: :any_skip_relocation, ventura:        "0c47a36d4554ba4b180385e98aacb15093245e69c47d780e89a19789cb5b0f25"
+    sha256 cellar: :any_skip_relocation, monterey:       "8bb9034816710fed89575a3166a11b00affc551ee3fd1c571f529a898a6fce45"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f54d550604b3ffadd002cc9b65385c1fc42ea8dc40b5826ffebdb0a730504570"
   end
 
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   def install
     virtualenv_install_with_resources

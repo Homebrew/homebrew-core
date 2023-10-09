@@ -7,9 +7,11 @@ class Minizinc < Formula
   head "https://github.com/MiniZinc/libminizinc.git", branch: "develop"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "3da7cd1b53a64b537dc86c93fe99bdaea45ac6f9816c6510d016878f5562d1be"
     sha256 cellar: :any,                 arm64_ventura:  "8460d8a0b90090470604182e9aa931208d19236e4a4e857fb6a8d8bb6a62440d"
     sha256 cellar: :any,                 arm64_monterey: "cd531ac0c9ee3103e0049c864cc839537ef4c8de15b5c6e1b756e10272cbbfe4"
     sha256 cellar: :any,                 arm64_big_sur:  "276493b57d3727f71fa964ab28b935d95bacc961c8cc3b4f3ff7c1f1a40d1a7a"
+    sha256 cellar: :any,                 sonoma:         "e88621801961dff95c34b0a2621f1c1797013c79965f27991a3113d252e4f045"
     sha256 cellar: :any,                 ventura:        "29e7a31c4fc563fece105bd047b6a64add3a410b49b5589ab3a7a30578446a2a"
     sha256 cellar: :any,                 monterey:       "3147a04982dc51599f51a1604f5ac6ec4a24ba7482824c44087e8a52f4ce0ace"
     sha256 cellar: :any,                 big_sur:        "f60a8a6ce92b70c92ece762d49407deb6a54a6b48216be0d8ca9410354292e0a"

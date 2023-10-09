@@ -32,6 +32,12 @@ class RustupInit < Formula
     system "cargo", "install", "--features", "no-self-update", *std_cargo_args
   end
 
+  def caveats
+    <<~EOS
+      Please run `rustup-init` to initialize `rustup` and install other Rust components.
+    EOS
+  end
+
   test do
     ENV["CARGO_HOME"] = testpath/".cargo"
     ENV["RUSTUP_HOME"] = testpath/".multirust"

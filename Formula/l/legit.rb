@@ -10,18 +10,17 @@ class Legit < Formula
   head "https://github.com/frostming/legit.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8e76c5f438e540ae273fbc73bf5d025df9238ecc846d2c63b8bbcb47441b1c07"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1b835900ae7b1678c8ef172b0eff89f3a3362826f5147bb59ccc19e32377e03d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7e84db292857d0f157444bb83d756c3ac7e4204a2d53ba62157949e74594e943"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bd3628086fa6c180d33f8f880ff7eaf791fbe9c0f0ec0bdfc61a188a2229b5ca"
-    sha256 cellar: :any_skip_relocation, sonoma:         "4f36b38b0ca43c869e1be054b1a2222b1e26cb32b757b68185ee6375138123ae"
-    sha256 cellar: :any_skip_relocation, ventura:        "228b599fc45b39c91864af5c3523037e80063aeb540fa5b1fdf037f6a889348b"
-    sha256 cellar: :any_skip_relocation, monterey:       "93de7a67085e641ac6cab09912a3c5f73ad801319d4a12824ecb839ca22b84ed"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0273518a985eefaae71e5c7b11c0c3bf3381a0b85afb09e4b3485e09ded48ac2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "49a2e6f268fafcfb0fec40e1a1be1433d2c9563625a75018748dea7ddc4ab68b"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "de1256c035d9d9d140b5e8e19eec366334cfc5fa20901a7592c9f605c359d39e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b389f70a2b3eb6080055a29724d4f3533e2b28e0c5b711ee2ab7711686a8c9ef"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ac92781fb16e2c1db5644d0828d12561c39b2e2e428a10ea97875dc1416bd4d9"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4645d428550ae6eb55299e7085330663863dc1e1b618bedb4d329be21ed24418"
+    sha256 cellar: :any_skip_relocation, ventura:        "a2f5f48190278ce8dbd35b3e4ba8334ea7c2b21616cf12276bfdd543f072bf33"
+    sha256 cellar: :any_skip_relocation, monterey:       "6d7e295236957f97569d268b7c4db9c72cbb5682a7b01f84e502019ea5cae5f7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "04dfe5a5abd7397eda6defe29d091ea14c7726f4173efd735d7df018611d7f4e"
   end
 
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "six"
 
   resource "args" do
@@ -55,13 +54,13 @@ class Legit < Formula
   end
 
   resource "gitpython" do
-    url "https://files.pythonhosted.org/packages/95/4e/8b8aac116a00f0681117ed3c3f3fc7c93fcf85eaad53e5e6dea86f7b8d82/GitPython-3.1.35.tar.gz"
-    sha256 "9cbefbd1789a5fe9bcf621bb34d3f441f3a90c8461d377f84eda73e721d9b06b"
+    url "https://files.pythonhosted.org/packages/c6/33/5e633d3a8b3dbec3696415960ed30f6718ed04ef423ce0fbc6512a92fa9a/GitPython-3.1.37.tar.gz"
+    sha256 "f9b9ddc0761c125d5780eab2d64be4873fc6817c2899cbcb34b02344bdc7bc54"
   end
 
   resource "smmap" do
-    url "https://files.pythonhosted.org/packages/21/2d/39c6c57032f786f1965022563eec60623bb3e1409ade6ad834ff703724f3/smmap-5.0.0.tar.gz"
-    sha256 "c840e62059cd3be204b0c9c9f74be2c09d5648eddd4580d9314c3ecde0b30936"
+    url "https://files.pythonhosted.org/packages/88/04/b5bf6d21dc4041000ccba7eb17dd3055feb237e7ffc2c20d3fae3af62baa/smmap-5.0.1.tar.gz"
+    sha256 "dceeb6c0028fdb6734471eb07c0cd2aae706ccaecab45965ee83f11c8d3b1f62"
   end
 
   def install

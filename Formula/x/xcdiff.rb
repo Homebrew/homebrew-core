@@ -2,18 +2,18 @@ class Xcdiff < Formula
   desc "Tool to diff xcodeproj files"
   homepage "https://github.com/bloomberg/xcdiff"
   url "https://github.com/bloomberg/xcdiff.git",
-    tag:      "0.10.0",
-    revision: "289872e572224ae429d0f4d25ff9be906c9df1a0"
+    tag:      "0.11.0",
+    revision: "97c45542621ce26fc499f7b414a0a1a08d0c5c1a"
   license "Apache-2.0"
   head "https://github.com/bloomberg/xcdiff.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "711eb2b304bdc4dbf5ee74dce3180c47ed63d6f4f98f046b05fca4bc1cd8b9d4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5ce60f558eccc79ec85fbbc6487ee6fe864d9b8f839ad64796654ed4105babe5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "567bb880d0e5552caca4190e0eb0d3a0ca1b3f5943f95a5ef233372ae2bead7d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "099f396b8fd3be833cc78545bb9c0df64b283bcb7656e766360df9e72fbac80c"
-    sha256 cellar: :any_skip_relocation, ventura:        "206fb28c862e5e9e0a152f7da8d7a1d44c37e17483d7befdbc8dc8e2a4734657"
-    sha256 cellar: :any_skip_relocation, monterey:       "7145bb9bd7d4dbe4b910d453660307328c33f06764664a1288044b002efc3b92"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4a345a07d757d16b64d0b0da86d330bef9411337d0c53b3773fbe6a91529fffc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3e144893e3bc36d9d83c406419aecf5b52558f1ebe9497de58625d27ca88efb0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cc80240bd985eb9851e4edb1779bd27e4149f62faf3746cb2b27ee14b56557a9"
+    sha256 cellar: :any_skip_relocation, sonoma:         "200526f87da30e5b1a56ed823933e0f14585fd88a0b7e536b722c5322a76801e"
+    sha256 cellar: :any_skip_relocation, ventura:        "129410c68a81ab2823cf768baa7ded025627742944280a1b47b6bc9dd9e79f6d"
+    sha256 cellar: :any_skip_relocation, monterey:       "89cfc3c33f722c723743defac586c80e0b6316db57325ee3d473f3c9f498760f"
   end
   depends_on :macos
   depends_on xcode: "14.1"

@@ -1,21 +1,19 @@
 class Zchunk < Formula
   desc "Compressed file format for efficient deltas"
   homepage "https://github.com/zchunk/zchunk"
-  url "https://github.com/zchunk/zchunk/archive/refs/tags/1.3.1.tar.gz"
-  sha256 "33ba1d6f5c83dbce75f8114ddbef1aa558938381fbaac0fa068eaf30c6ed2c60"
+  url "https://github.com/zchunk/zchunk/archive/refs/tags/1.3.2.tar.gz"
+  sha256 "4d923d32af7db33f3c0a6655b258e857a2ca564912cf85ddce14e9b1b7d495bf"
   license "BSD-2-Clause"
   head "https://github.com/zchunk/zchunk.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "4522530606d6489124a11cd505c044fc5e490ae9c80d271667094894a8970ac5"
-    sha256 cellar: :any, arm64_ventura:  "2bd78de00a11ccce4f9a7e5bbac6babe8d4556213477c72078b925ab83a4651c"
-    sha256 cellar: :any, arm64_monterey: "5a0f82b054986fbb09937d2add7b8a8f78039cfae0e8ac925310f20a2e428163"
-    sha256 cellar: :any, arm64_big_sur:  "47d1c93a89b2737ac1d73f159e6f50103f1ef57fa0ef04982d6652722bf75da4"
-    sha256 cellar: :any, sonoma:         "61f794ed0844f775bb90976e6217a922571d9d7a26ac03461f929b6a2f01eb9b"
-    sha256 cellar: :any, ventura:        "1dbb83b90c897d8468fbf18eec524fa3d3161f949ba9709bb4cde3ba60bb4b66"
-    sha256 cellar: :any, monterey:       "279ff295e6c53d56b77f97bafb210b087cd4e3959f679241f19bba4b099a8376"
-    sha256 cellar: :any, big_sur:        "92e0f9d5692f7bb7f73fff900d7624ff777c51a06e7cc1d0b73d1f20dbd06a19"
-    sha256               x86_64_linux:   "b3dc877550a9e975f1d082c0e3e2949feae5939fddad77273f7f8c4df12ce08e"
+    sha256 cellar: :any, arm64_sonoma:   "60cb58ec52cfe85e491151078212316420be58c7ace22bb63afc46594ed5d192"
+    sha256 cellar: :any, arm64_ventura:  "3a1e70c83423d0d4ede8afaebd5f86304973060616bdb8e26d2573d8c1e5cc68"
+    sha256 cellar: :any, arm64_monterey: "ba3dd413abe47ce61cee4d42cc2b7b097208499e033ade1d77f1c43ebc8c9d36"
+    sha256 cellar: :any, sonoma:         "ecb704bea46a2a94309a8166005c54fd13bf25860ddb50f9b022cdb978c4956f"
+    sha256 cellar: :any, ventura:        "fb88c5e25e7ea3362d4fa63d4779e4edbe2dd4b1974a4357092c78c6ee043bcb"
+    sha256 cellar: :any, monterey:       "b73bf740eb26ea3fa177a9368974ddf58a197d9a6989dafba20e2485ccacff8f"
+    sha256               x86_64_linux:   "5ec84154d0d544b011eb244e6f45a4bc74bf9f3e12eeb327287cfd91da1b140e"
   end
 
   depends_on "meson" => :build

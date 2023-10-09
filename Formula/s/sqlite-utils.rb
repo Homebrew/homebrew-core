@@ -7,19 +7,18 @@ class SqliteUtils < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "61155b5a96cdb76a53dd4c7b11842bea3443e895ca876441e10615cdce07f134"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c4501e0f44c130555e875d81274f8d2f882afd3a2d3859cffc877d7717459b96"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "983fc50b67ab331e4e184434a8a528ba7fbb0cd29ed927f027e7861b3847c991"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f052dce4c47c4604bcc92171eeb20c2960c203fff90f4a66d3ba5b6de33a8f33"
-    sha256 cellar: :any_skip_relocation, sonoma:         "8275d59490ec0102e1c48e660fd0cc036f42bf964b214269c6fd88d0989a14a4"
-    sha256 cellar: :any_skip_relocation, ventura:        "89163cc2b6aefd3815308b6d64010abed94223b8ab833e1df3807f048f4e03c2"
-    sha256 cellar: :any_skip_relocation, monterey:       "831094f6350c01995e8e9c9c09cf0fb9b42640d72dc4bb8024633b0e520036d9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a5d8f56c6c94be13003cfc2de30bd2095224c1eb2cf08f552d57c6e51ed1ad3b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "884268fc4fad933c8fe4b1bc55f8604e11c106cef25fa73675637bc527270cb6"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e1822b55f47005af43f5b55b8b97e8e6d661a6a9a357155653001f6db5b5650a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2249970d2711d8ea776982d2c26e02a7c519e6c7531063605326a592c5264cb2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "30de8a78f62cea2852bdfde9ea1b2854fcee30f69e7931fe50dbe79231120c1c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e191f44a2eea51972e609d8f1a215cf7cd9d3ebfd118ed27eee96dc5c2b355d4"
+    sha256 cellar: :any_skip_relocation, ventura:        "a9149d6f792f04e2484b75a8020f7cd4093051b99788506be49e96b90d0a2d8f"
+    sha256 cellar: :any_skip_relocation, monterey:       "f6444387bf656f64535eb8af3e5611052bd35cc6ec11e7488d14eb0703974b10"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3b8dde21b71257d408aefe7e4d2623971b669d8680b680d4d95c4b1ea57f9f7c"
   end
 
   depends_on "python-tabulate"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "six"
 
   resource "click" do

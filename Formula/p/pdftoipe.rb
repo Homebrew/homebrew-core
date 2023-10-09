@@ -4,18 +4,16 @@ class Pdftoipe < Formula
   url "https://github.com/otfried/ipe-tools/archive/v7.2.24.1.tar.gz"
   sha256 "561b18fc2a7ae45c37c5d0390443b37f4585549f09cd7765d856456be24e5dbc"
   license "GPL-2.0-or-later"
-  revision 15
+  revision 16
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "ec2f9301b85d67e109a67570b5839a4e7db9f59e2d6eb97ae09436199874f77f"
-    sha256 cellar: :any,                 arm64_ventura:  "7967f09b3e92c4a9cec947e32b018fc56f0fbc18c8ea3480adb35e192fe156fb"
-    sha256 cellar: :any,                 arm64_monterey: "c095e593c1437c137e289a044502e8d562fa54e63a06c685ad0b0f24111b6bd0"
-    sha256 cellar: :any,                 arm64_big_sur:  "2c06d5a543e3dca5a74d6719ab14fb0ea9d7ecd8d2139fbe39450bd449f03261"
-    sha256 cellar: :any,                 sonoma:         "deff867e79955ca38d7b767e3b362c288c095d84a56041e1929c45d8b7070cb6"
-    sha256 cellar: :any,                 ventura:        "65efb36fd72e552d8e9ea73dad63de041fb36ab8cd534f9b86fd86f941e55cda"
-    sha256 cellar: :any,                 monterey:       "9e9119411bf2bdc5eb6b6ef44f2d1e3005f95bca8493fb069dcc75780d2a36f2"
-    sha256 cellar: :any,                 big_sur:        "86af4aedda6eb4eac2004e9aab456ac3ed5c5e005b589cbdcde7314a567fd89e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7c45b5b30f3f54c28c656c12e92d993c2bc9beb4e947d6bbb47ce68762a53584"
+    sha256 cellar: :any,                 arm64_sonoma:   "227d9c3807dd77e231d61636683f51b656b04966b5e36bc137c58df35d52230e"
+    sha256 cellar: :any,                 arm64_ventura:  "c1aeadaa563133053a09851b9423dd09a4d79eaa1e28f65ebdff21847f1d7f0e"
+    sha256 cellar: :any,                 arm64_monterey: "e63785c74d313bc1c4c8c92eb01bb9ec64f12914849d53b94f12f18a8b2e1c47"
+    sha256 cellar: :any,                 sonoma:         "cc075bf773ee919b496a3b6884c85c9ee21bb156ee5aae49ccdec2926884b531"
+    sha256 cellar: :any,                 ventura:        "e37f57b03832b091538d658e5e87bc2274f12bb80c4e834a7b108171372e34ca"
+    sha256 cellar: :any,                 monterey:       "8545109b7ddb2a27847df476137b24c66830d869fc869811b6b0934edd5dd2bc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5b66d17be67cc0dd12fd6f412664f4db59d891f4460890ba6fc7e8d08e36a6a0"
   end
 
   depends_on "pkg-config" => :build

@@ -2,9 +2,8 @@ class Sqtop < Formula
   desc "Display information about active connections for a Squid proxy"
   homepage "https://github.com/paleg/sqtop"
   url "https://github.com/paleg/sqtop/archive/v2015-02-08.tar.gz"
-  version "2015-02-08"
   sha256 "eae4c8bc16dbfe70c776d990ecf14328acab0ed736f0bf3bd1647a3ac2f5e8bf"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "beff07169db5be764d18cb3bee9a18371d130c6cb3d2e8890e41b460c6e0f55e"

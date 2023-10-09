@@ -1,8 +1,8 @@
 class PythonTkAT311 < Formula
   desc "Python interface to Tcl/Tk"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.11.5/Python-3.11.5.tgz"
-  sha256 "a12a0a013a30b846c786c010f2c19dd36b7298d888f7c4bd1581d90ce18b5e58"
+  url "https://www.python.org/ftp/python/3.11.6/Python-3.11.6.tgz"
+  sha256 "c049bf317e877cbf9fce8c3af902436774ecef5249a29d10984ca3a37f7f4736"
   license "Python-2.0"
 
   livecheck do
@@ -10,15 +10,13 @@ class PythonTkAT311 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "cf2678141a9760066b5742ca75f967c61c408fb684ea3957fe14b7f4f82a7a59"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5844fa8f52d14b4beda66b05aa35659a0894d0191e6b8b39cc8bb58dce688f33"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cf0e26a34872554aa0323b61d0ec5b2aa71cfd291c2b93ddb2a7a92419717610"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "47c3b5e525baec45b02848b400e26a67022ae3c52304fbcab8c38d3eb942ef83"
-    sha256 cellar: :any,                 sonoma:         "61705b7a429e94be6f46a8be92f7f91e8102791c7156c9bd50c1913d195a8a62"
-    sha256 cellar: :any_skip_relocation, ventura:        "40b26d0ef0df727124c374ef8552aea27d0a9e5e45fc72c5d02fec2e43dfa1d4"
-    sha256 cellar: :any_skip_relocation, monterey:       "aee33ea9893d1765e0e4606fa28117097855982bba4d3016dea1fbeeecf5071a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "bfa211f6ceae8b0a059238de543a5142bc7bc147e1b4b21e8f9e24386753dc8e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3dc525befaa4d2172771916e3770c08a2b8d04026c5797bc2a27b67d7c37ef87"
+    sha256 cellar: :any,                 arm64_sonoma:   "82f8a3f731795819f9c18c2330f5abc42611733ad35b2a7db811636bd92c6e22"
+    sha256 cellar: :any,                 arm64_ventura:  "6ea2f81c2e150349fc5951e70f49110aeee7329c0b2801790b4542474f2bfc0e"
+    sha256 cellar: :any,                 arm64_monterey: "71f92b872e09325c0dbe692b3dc96ccca0d2992775a29a03089340e9f58ee982"
+    sha256 cellar: :any,                 sonoma:         "802cd4898d8d6d1ca96a627f2868f87989a31e7436023ca8d4e26a583bda04f3"
+    sha256 cellar: :any,                 ventura:        "294982cae5133b52513efbe6d1850a74a1e67eec4db1f48c6dbfffee7c2e58f4"
+    sha256 cellar: :any,                 monterey:       "8a2216212d2c38041482d43719ccda808b0be37d43d43576cb541a6e44705c41"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "28819314ceecc86581d697024b0e5559c8fa8dede8d7c7dda24099128ba64298"
   end
 
   depends_on "python@3.11"

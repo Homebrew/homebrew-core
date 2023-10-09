@@ -1,8 +1,8 @@
 class Keptn < Formula
   desc "CLI for keptn.sh, a message-driven control-plane for application delivery"
   homepage "https://keptn.sh"
-  url "https://github.com/keptn/keptn/archive/refs/tags/1.4.2.tar.gz"
-  sha256 "0b4489256597d5cc0963e387a750f183d389bdda93ecd783e674d702c6c425ed"
+  url "https://github.com/keptn/keptn/archive/refs/tags/1.4.3.tar.gz"
+  sha256 "4889bfc2dc868809d5dcb2b18d52cb5f7583a3eae31fc56854a62fbccb271078"
   license "Apache-2.0"
 
   livecheck do
@@ -11,15 +11,13 @@ class Keptn < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cee7b1c481a6d2ef468a5dcee3f1e0c118bf4b4151f21f1ca0414d60f68b1884"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d0f40ee4af457f38467a66ec8eb6e720842bca5ca75f08d2eaa84075e7d6d374"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3d5d5bba0fe227aeaab85159dfab03c7f438880a4b12d8fcf475c04ee1231cd2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7028fd1d9edd6eb21745ad4f8394130aa09c2b56789d3ec3d25f0af8e2e4504c"
-    sha256 cellar: :any_skip_relocation, sonoma:         "ff9e9e2eb77c3577efd94b54443b9bf6aa4b97160b0555bc86aa45c4febcba1e"
-    sha256 cellar: :any_skip_relocation, ventura:        "fe2272970e14cded9b79c9ee90f009b23d9b3dd2564e1d81e27225094512ab65"
-    sha256 cellar: :any_skip_relocation, monterey:       "5391066339f23d10a89653f7b3b6e8a05c551f93ed52539fbd883e5024afcad4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "bc8777eff2b3d99da12833b7442670afc076a5edc24f30fe69b26c0753314224"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8658de205632c8446f98b63597122f3fe10f6f71b37b8b06029c11a267802069"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "933c620f28c6178e0b26d994f0f8fd648a6d913b29f177aacae210b57abd0cb2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f968e6b871efd635106229de1785bf19788b0595170ad34562a43fdece9f8d07"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6761113d92201c2be299c99e34fce5c2c98b1501f29b8a2cf6791c111b6e754e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "8ece1980edd356a32dabb7e8072849333c05527d795e3fdfb506ddc161adcc57"
+    sha256 cellar: :any_skip_relocation, ventura:        "56d4d4e46c87c8568261be31941717375b80883659f881418737a1e3e7d62fa2"
+    sha256 cellar: :any_skip_relocation, monterey:       "1c7ec8da7707f6a7e515c44d85b4090736f445aa34610b12e5c136946b46c564"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "576f00490d5191d0e5e367fa929fa2447ddb5dd5643d0d67fd8c7030589ce1f6"
   end
 
   depends_on "go" => :build

@@ -8,11 +8,11 @@ class Woof < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "6f5ec883ad9fdb67965bc8a7a08318adcc1fa5a48e1da24f56cb85697bd28e0d"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "ec567cc35e9da2aad1a4b369960f1a6c9823dda502936968225a231a275bf623"
   end
 
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   def install
     rewrite_shebang detected_python_shebang, "woof"

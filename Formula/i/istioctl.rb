@@ -1,21 +1,19 @@
 class Istioctl < Formula
   desc "Istio configuration command-line utility"
   homepage "https://istio.io/"
-  url "https://github.com/istio/istio/archive/refs/tags/1.19.0.tar.gz"
-  sha256 "7d9b78d01ac4aaf2a2c4512591314033b8a2d5e2911fab623f97ba43445181ef"
+  url "https://github.com/istio/istio/archive/refs/tags/1.19.1.tar.gz"
+  sha256 "d707ec7b5a557761553a4e186ad188cebd2fc95c23b8a718db48a624db9c96a5"
   license "Apache-2.0"
   head "https://github.com/istio/istio.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ba494298aef01342f9e6781702b09625effe6f02c03592ae20537694c210d10b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e53327d665a911cefd821db04c062d186060f7187feac2f7b932b50d91bfb49b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f3f16e3b1326b8a986e23e21947de98ab4e6ab88bbf92827614390d8bcc9d628"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b82ca81361c916e5789f573f0ad628bd9a2a50c32da5e590c448304ff5b307cd"
-    sha256 cellar: :any_skip_relocation, sonoma:         "9adda988a7eeac8df6b10a5fc20faf5979c3fa13d4d3dcb5c804f183f936e568"
-    sha256 cellar: :any_skip_relocation, ventura:        "1b34d08f5b89ed28b22bd01416f5876edc2e5cc5e6375076f77427aa50b54747"
-    sha256 cellar: :any_skip_relocation, monterey:       "9e1b1b6ae79225708a76b312bd9966a4d35b7d8b25814d4748549cfe72fa9a38"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1f27fe7d574dcdbb16376758ff6aa0bd62927ea1c1370917d9e8a2b64be68d52"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2f73ac36574fef670c18c2d6f5eaa5af4f27ab96456a31ceaf15a0a3fc466e04"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9a91fa2f95a08d32170c276f76347c10e546827e7ef56818c0c742e5b0c1c492"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e06e8688865e46c3cfbee573d22e0d2e1f62e056fba9d7ecfa1fb81e01f3550b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "85d566e8311654aec0c86c068c5f915f6c0e42f74fe42c161edd8c7e5b0b4dec"
+    sha256 cellar: :any_skip_relocation, sonoma:         "43a0d6a9f2ee6f8ad0dcfbdf908c97e23aa68d6fa7ff4aff2adfe165d48f98f2"
+    sha256 cellar: :any_skip_relocation, ventura:        "3650259b58e8af6ab2dd1df550ced91742b518190852f651596e3bdfb5616a59"
+    sha256 cellar: :any_skip_relocation, monterey:       "83901962e501e95b6fd234e11b9c6eb44b8a1687479dc0f79533c3c491076200"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "17f00f9032b931652c7b8218237f080bbe91729d4a0f64b4a5a3c5708bc42e40"
   end
 
   depends_on "go" => :build

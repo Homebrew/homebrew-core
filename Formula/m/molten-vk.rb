@@ -59,13 +59,13 @@ class MoltenVk < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_ventura:  "7a9684d363618feee18fa741463b624814c4f179837fef4daa92f05819e8a222"
-    sha256 cellar: :any, arm64_monterey: "ed4899652a2bc551b827dfccb3ca0d4058f0b6d4137d05e7b65bef32d8578d0f"
-    sha256 cellar: :any, arm64_big_sur:  "e772b95cde972c636d0c7f59cd640501d0b800607734ac278d92e2dff49fa4a5"
-    sha256 cellar: :any, ventura:        "fc571455b786a2fb26d5a69f734ea207596799c8f46f2f2446684ae043f4ef13"
-    sha256 cellar: :any, monterey:       "00d7a45764907c21c729dc07f5c826a5fcc59c9ad9d7e44c2691dc15b68c0208"
-    sha256 cellar: :any, big_sur:        "3daa0c65349c068aeeaf2167e6de0daa5981efc27688dfaa76ed84ed82910c39"
+    rebuild 2
+    sha256 cellar: :any, arm64_sonoma:   "cb64aaca23442ef76396685ee627c347c470508b5ae14d330cff0b1d3fe5d2b0"
+    sha256 cellar: :any, arm64_ventura:  "53169b315382e572a8bca2cefdea1c5e8a8cb93581ea03dec28a78b4db537469"
+    sha256 cellar: :any, arm64_monterey: "6d28331ffcbc313c72d3920b7ef98ade26964bb3e384af7a5c09af79334c51d7"
+    sha256 cellar: :any, sonoma:         "204899c69fd4853a3592276465557dd7b1006ad0e291ad882afcb3fb5f7a649d"
+    sha256 cellar: :any, ventura:        "f3759809b962eb662fd2412b59d3a11c0d716509fd7ac828a372971d7f755d36"
+    sha256 cellar: :any, monterey:       "1fd7400e91b992b596f7d95eb9f3ec58474e8e317d43a46f0cc7af7992ca738f"
   end
 
   head do
@@ -135,6 +135,17 @@ class MoltenVk < Formula
                "-derivedDataPath", "External/build",
                "SYMROOT=External/build", "OBJROOT=External/build",
                "build"
+
+    if DevelopmentTools.clang_build_version >= 1500
+      # Required to build xcframeworks with Xcode 15
+      # https://github.com/KhronosGroup/MoltenVK/issues/2028
+      xcodebuild "-create-xcframework", "-output", "./External/build/Release/SPIRVCross.xcframework",
+                "-library", "./External/build/Intermediates/XCFrameworkStaging/Release/Platform/libSPIRVCross.a"
+      xcodebuild "-create-xcframework", "-output", "./External/build/Release/SPIRVTools.xcframework",
+                "-library", "./External/build/Intermediates/XCFrameworkStaging/Release/Platform/libSPIRVTools.a"
+      xcodebuild "-create-xcframework", "-output", "./External/build/Release/glslang.xcframework",
+                "-library", "./External/build/Intermediates/XCFrameworkStaging/Release/Platform/libglslang.a"
+    end
 
     # Build MoltenVK Package
     xcodebuild "ARCHS=#{Hardware::CPU.arch}", "ONLY_ACTIVE_ARCH=YES",

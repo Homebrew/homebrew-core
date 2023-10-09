@@ -8,18 +8,17 @@ class Rpl < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e748fcb997a9f4173d55a618c5bd76db037c8c89ab87f3b49af797dc1c92ecbe"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "33bdfb7ac03b2f0bc8fa9744ce91ff3bcab8e95f729b219f2c52796ed3039b5c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8260d9b4929478ebb46333397ceaa14b54908f1ad54237eeff07398e76c4c06d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b45f7e45719d16c8181411f29f330251bf20a0e4af946c76653f386307ffefa9"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c03e8e4350ee2d87d9165131353ccf39438d648088411b6ea00c47b21f3ee360"
-    sha256 cellar: :any_skip_relocation, ventura:        "bc7e9093f065ce21c4453a4672dbbfe711552cd8307ad3996f7926e68d030c0f"
-    sha256 cellar: :any_skip_relocation, monterey:       "87d755ad01e755e32f8d67bfe5a4a005ecfcf8c2117e813e195d4c624ca7732f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "416a16df6f81200d1ece3520963a6d77cc82330d91f760566436c76b6a4bf5a0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "10b3e52f32e8819483105ea0e5b94674e7019b92b02ae8207f4387296fcd7af9"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fbdc2e93963b5aa74c10ad2f52869531598b949d62d074c574964c79ee2b8542"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1c712f5ef9d147506f523633646c7a0deed5f9b3f636db9046f123e3bbaa5fc0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "69dce64c5577c2131b59bbed061c81420895bf7be155f9757142a61dd38412c7"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3611591866694f72ef5fcc1c2e4b7a8d03191d33638d2bd4e91fe914e04695c7"
+    sha256 cellar: :any_skip_relocation, ventura:        "0b24ac685484027510af56652804fd1ebd93c97b630fc6db056e7b27d97e3bd9"
+    sha256 cellar: :any_skip_relocation, monterey:       "284da2bec6f3130d957f77bfbe540ac1b5743c7d8a6b6896f6017b917544fb55"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9c911e194bb3faf879554ea55ed18bd25045f294c1c0c4467605371b1830ef1c"
   end
 
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   resource "chainstream" do
     url "https://files.pythonhosted.org/packages/44/fd/ec0c4df1e2b00080826b3e2a9df81c912c8dc7dbab757b55d68af3a51dcf/chainstream-1.0.1.tar.gz"
@@ -27,13 +26,13 @@ class Rpl < Formula
   end
 
   resource "chardet" do
-    url "https://files.pythonhosted.org/packages/41/32/cdc91dcf83849c7385bf8e2a5693d87376536ed000807fa07f5eab33430d/chardet-5.1.0.tar.gz"
-    sha256 "0d62712b956bc154f85fb0a266e2a3c5913c2967e00348701b32411d6def31e5"
+    url "https://files.pythonhosted.org/packages/f3/0d/f7b6ab21ec75897ed80c17d79b15951a719226b9fababf1e40ea74d69079/chardet-5.2.0.tar.gz"
+    sha256 "1b3b6ff479a8c414bc3fa2c0852995695c4a026dcd6d0633b2dd092ca39c1cf7"
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/77/5d/98efc9cf46d60f3704cf00f8b3bd81319493639fd4367efb5d02fd29ffc1/regex-2023.5.5.tar.gz"
-    sha256 "7d76a8a1fc9da08296462a18f16620ba73bcbf5909e42383b253ef34d9d5141e"
+    url "https://files.pythonhosted.org/packages/6b/38/49d968981b5ec35dbc0f742f8219acab179fc1567d9c22444152f950cf0d/regex-2023.10.3.tar.gz"
+    sha256 "3fef4f844d2290ee0ba57addcec17eec9e3df73f10a2748485dfd6a3a188cc0f"
   end
 
   def install

@@ -1,21 +1,19 @@
 class Yosys < Formula
   desc "Framework for Verilog RTL synthesis"
   homepage "https://yosyshq.net/yosys/"
-  url "https://github.com/YosysHQ/yosys/archive/refs/tags/yosys-0.33.tar.gz"
-  sha256 "c240fa4fcc71c73b8989ab500f7bfa3109436fa1d7ba8d7e1028af4c42688f29"
+  url "https://github.com/YosysHQ/yosys/archive/refs/tags/yosys-0.34.tar.gz"
+  sha256 "57897bc3fe5fdc940e9f3f3ae03b84f5f8e9149b6f26d3699f7ecb9f31a41ae0"
   license "ISC"
   head "https://github.com/YosysHQ/yosys.git", branch: "master"
 
   bottle do
-    sha256 arm64_sonoma:   "f3aeaec30ceda77eb51b9489c623d97635f37762cf9db9b7dc9b8685cf393fd3"
-    sha256 arm64_ventura:  "d8ffdcc475659338a8d7a1aa323b4355f89a48fd5ec3e4db98b2ae9e92cfe661"
-    sha256 arm64_monterey: "7edc4d7b782889e5d1a72d57979fc5579f051e297f35d9cefaab7dd8cd0ca7bf"
-    sha256 arm64_big_sur:  "fab6f71cf030b5668b2386b9a1874d237606b3fd3dd7d975db4db94b6a7fbb04"
-    sha256 sonoma:         "795575e22407146e063aa68a6e44fac9678d491492bb851acbcbf690f1acfb97"
-    sha256 ventura:        "efe7aae30e16f1ad2609051ebdc148b3a6d9b24c1ff4bfe79bb36c6789cbcea5"
-    sha256 monterey:       "667277260c9a7e09af13186bd07e2d60229e84dc4f4444d992c6a0f4314c6d76"
-    sha256 big_sur:        "b8efb5d78dded34a457feb2a25fea25a757b5454bba272f592730c1a79421faf"
-    sha256 x86_64_linux:   "b637f68a4c7318c058038bbe2820079d2bda0e0ded788adcf9917ac0fff25b2f"
+    sha256 arm64_sonoma:   "85be5d7db2978353a095eb8260ef7512bc1483e1c359e0b7f1ed0a143badb98d"
+    sha256 arm64_ventura:  "703e3a9d2ec6cfdfb6d3bd5ee102d56471154c104bb2a5d0f0aff1fa22cccaf1"
+    sha256 arm64_monterey: "f936e3011a6cc48b498b3d3a62101731829f995a2722a076bca2c833af0a3c11"
+    sha256 sonoma:         "9ce7bcc3dd336ab1e5ca55d1d11b8d215fdb6046a2eaf6d2a767f95c816803a8"
+    sha256 ventura:        "5a2f783327df7e20354c65ca02ef414ff64addbd88f6fcd603c0c90cecd0b07b"
+    sha256 monterey:       "3f0f9eb824b3327c05ae37058f1e33302f42da7280abea6e9b45878e2e5c9f58"
+    sha256 x86_64_linux:   "5398d12b425c0cd50f4f4883cec149594110f5a575ac9e6402dc0b8e542c3a2c"
   end
 
   depends_on "bison" => :build

@@ -6,20 +6,17 @@ class BandcampDl < Formula
   url "https://files.pythonhosted.org/packages/cb/6f/08d0e2b1819327e375ebf67af0689727b2d49db7c0d11d4829552ea01ae4/bandcamp-downloader-0.0.13.tar.gz"
   sha256 "c7dbf489b2611406148a6ced25e5814b1fe666e3b3da6c744cfc3df2abe1b270"
   license "Unlicense"
-  revision 2
+  revision 3
   head "https://github.com/iheanyi/bandcamp-dl.git", branch: "master"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "73f5c48390e988975f4e9d4348db118cb9872b7b2f988394c229a0233154c586"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1bfca2bc474dd918d164b7778384d1396eb25eda1212318c4b16108b40172b00"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e89544228cec16160da75506b77650136c052dc98b88a5f087c1b9baeb6b90df"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f1dd0ab56e61066a38893ea57cc5909afabe06df93a5fc123a5dab05135973da"
-    sha256 cellar: :any_skip_relocation, sonoma:         "00924e9edcc65aea5946baa9bdb67c586047d007fd84f359db7ff8469d9c7ae9"
-    sha256 cellar: :any_skip_relocation, ventura:        "1c960807100c592ed10a4e29a7949c979c83e6010f4ff24975f2c60f6ac6ed7d"
-    sha256 cellar: :any_skip_relocation, monterey:       "f11bfd55e7a20eced7eaab59ce462baa13306d97ac43521213334c115935537e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "edf1c27f8ca55f14d55136dd31c9d9ca73c355c5567b6fe9b07a19b54ade2973"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7ee9332fae15b90363e5f6186b9e0dfc7b4072ab43ec3b0301da5577f10eee4c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "54416a2e1b190d5da7a88cf5a202fa02d812d8d45c541e5b9fe4074e5dcbe7dc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8771b22e8b844a2be92db7cfc2a77050d8676358c250b3b75d51740846fd7f1b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6bd56d41b7918d25b633079a6f398ea1b6583ddcf0d960b6beb146dfce93029b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ae27ba48efe7f2c3f4f539b10a5933c42967b266225757b850cd88dc67d37d2c"
+    sha256 cellar: :any_skip_relocation, ventura:        "73d13683e7061a0a6b8410ab4d87c0d15874e5056b8cd62b42beacadb228bf7c"
+    sha256 cellar: :any_skip_relocation, monterey:       "5b22dc2d0f40938ebeb97bc6baea7194d205bb847ebfd78e1b69b3dc82cbba29"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c315d66b70eaf03aaf07abff25f7ed93703a52ae2503fee75df1d8dca68f583f"
   end
 
   depends_on "python-certifi"
@@ -39,8 +36,8 @@ class BandcampDl < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/2a/53/cf0a48de1bdcf6ff6e1c9a023f5f523dfe303e4024f216feac64b6eb7f67/charset-normalizer-3.2.0.tar.gz"
-    sha256 "3bb3d25a8e6c0aedd251753a79ae98a093c7e7b471faa3aa9a93a81431987ace"
+    url "https://files.pythonhosted.org/packages/cf/ac/e89b2f2f75f51e9859979b56d2ec162f7f893221975d244d8d5277aa9489/charset-normalizer-3.3.0.tar.gz"
+    sha256 "63563193aec44bce707e0c5ca64ff69fa72ed7cf34ce6e11d5127555756fd2f6"
   end
 
   resource "demjson3" do
@@ -69,8 +66,8 @@ class BandcampDl < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/47/9e/780779233a615777fbdf75a4dee2af7a345f4bf74b42d4a5f836800b9d91/soupsieve-2.4.1.tar.gz"
-    sha256 "89d12b2d5dfcd2c9e8c22326da9d9aa9cb3dfab0a83a024f05704076ee8d35ea"
+    url "https://files.pythonhosted.org/packages/ce/21/952a240de1c196c7e3fbcd4e559681f0419b1280c617db21157a0390717b/soupsieve-2.5.tar.gz"
+    sha256 "5663d5a7b3bfaeee0bc4372e7fc48f9cff4940b3eec54a6451cc5299f1097690"
   end
 
   resource "unicode-slugify" do
@@ -79,13 +76,13 @@ class BandcampDl < Formula
   end
 
   resource "unidecode" do
-    url "https://files.pythonhosted.org/packages/0b/25/37c77fc07821cd06592df3f18281f5e716bc891abd6822ddb9ff941f821e/Unidecode-1.3.6.tar.gz"
-    sha256 "fed09cf0be8cf415b391642c2a5addfc72194407caee4f98719e40ec2a72b830"
+    url "https://files.pythonhosted.org/packages/80/5d/f156f6a7254ecc0549de0eb75f786d2df724c0310b97c825383517d2c98d/Unidecode-1.3.7.tar.gz"
+    sha256 "3c90b4662aa0de0cb591884b934ead8d2225f1800d8da675a7750cbc3bd94610"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/31/ab/46bec149bbd71a4467a3063ac22f4486ecd2ceb70ae8c70d5d8e4c2a7946/urllib3-2.0.4.tar.gz"
-    sha256 "8d22f86aae8ef5e410d4f539fde9ce6b2113a001bb4d189e0aed70642d602b11"
+    url "https://files.pythonhosted.org/packages/8b/00/db794bb94bf09cadb4ecd031c4295dd4e3536db4da958e20331d95f1edb7/urllib3-2.0.6.tar.gz"
+    sha256 "b19e1a85d206b56d7df1d5e683df4a7725252a964e3993648dd0fb5a1c157564"
   end
 
   def install

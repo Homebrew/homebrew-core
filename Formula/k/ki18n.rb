@@ -18,9 +18,11 @@ class Ki18n < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "25b3f40daa9f8794b9bd84ea4e35bf145c6a3750f7e6a3abc891171a173c804c"
     sha256 cellar: :any,                 arm64_ventura:  "c78ff0750cc58beebb9c64ebff1d91688d5e6a896956c9286f046ef6c6425d80"
     sha256 cellar: :any,                 arm64_monterey: "9f98a9b030876f1e547a4027a02fe22919d6e0078ac3d8876e9760a89fc3cde7"
     sha256 cellar: :any,                 arm64_big_sur:  "c2296b52074b4cc1961e43e8de4be1d526f7852d2924cac29614c7d219340da6"
+    sha256 cellar: :any,                 sonoma:         "025a754f2706f84dd3f8c891dbdc62b93fb52cccf27ccb46f72f2bc66fc57aa6"
     sha256 cellar: :any,                 ventura:        "5b31ea2eaed4adcea7d40163b49f8319af90b3d79dbafed517d06ec3250bb3c7"
     sha256 cellar: :any,                 monterey:       "19f126435900d4ad7eaa6400d968ee012ddbf76011215dfc02ff98214a2cf147"
     sha256 cellar: :any,                 big_sur:        "f9e1650d3f498cf4569a4d389c99fb9814bfea1a2c4de87d00e375d310f767b6"

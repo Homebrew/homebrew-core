@@ -1,22 +1,18 @@
 class Mpi4py < Formula
   desc "Python bindings for MPI"
   homepage "https://mpi4py.github.io/"
-  url "https://github.com/mpi4py/mpi4py/releases/download/3.1.4/mpi4py-3.1.4.tar.gz"
-  sha256 "17858f2ebc623220d0120d1fa8d428d033dde749c4bc35b33d81a66ad7f93480"
+  url "https://github.com/mpi4py/mpi4py/releases/download/3.1.5/mpi4py-3.1.5.tar.gz"
+  sha256 "a706e76db9255135c2fb5d1ef54cb4f7b0e4ad9e33cbada7de27626205f2a153"
   license "BSD-2-Clause"
-  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "75fe7f0bc1e9a178e55590d5aa3cbdb543c42abfea17b1f66d53e40eddedb3f9"
-    sha256 cellar: :any, arm64_ventura:  "b30806b3afe2be3c9e592c2064e812a1bdcf8662ab99aa7430e4193bd07c144b"
-    sha256 cellar: :any, arm64_monterey: "4583823ac899d99e53091846606a60b533e2fa714a6b14c0b782b77df41ef0bb"
-    sha256 cellar: :any, arm64_big_sur:  "0fe1dc462308e559acab6f9f6be17eb8281db02f3ea215dd2e3f3563416363be"
-    sha256 cellar: :any, sonoma:         "50c1372f381ca564d02ab560d5f37f5d32604a2a17ded5b63a1c1020124f2bd7"
-    sha256 cellar: :any, ventura:        "bc6e01f2b0ea8fb52d03fc9709f40aa3d3dfd709ebbbd777253799fceb398c12"
-    sha256 cellar: :any, monterey:       "99ed2832a24166cfa1b07730265a0d2bd381d94008ecbbf518a19aa6d8770724"
-    sha256 cellar: :any, big_sur:        "f53ed4d49183522ed690a93b6ea43977fa4d12a7b510334ede16bc9eda3ec69f"
-    sha256 cellar: :any, catalina:       "df0baae9ef9c3052d98771b25759485949ce6f94757b33e1b55ffd2c36f115dd"
-    sha256               x86_64_linux:   "781835f0d3ca64ffbd4f3344ea1e428c3dce993f749268ed5f232b87a2c84434"
+    sha256 cellar: :any, arm64_sonoma:   "384f50c2948a0ee3394cf55923e3b1d16e5e43405bddd7232f93e8b5dec20c88"
+    sha256 cellar: :any, arm64_ventura:  "44951c7cfcdf29e3ab19a538a4b29eececfddc423e56f9691774b63a9ffc0283"
+    sha256 cellar: :any, arm64_monterey: "608da0b1163e29267168ab334d6578f1dffe76e1305a2eb9562ab2c46c6548cf"
+    sha256 cellar: :any, sonoma:         "b0d90ac0c85fb56bc7e6e6b9908237894c945cd01e6610f87cf9fcfd19e82cec"
+    sha256 cellar: :any, ventura:        "4112b2e41b4624794c801112728f033ce205e66d9a3436222d23143f885021be"
+    sha256 cellar: :any, monterey:       "2f4cfa512e19b5c261a13d3ff02270c05856717596a898e96f825716b9c7d308"
+    sha256               x86_64_linux:   "e953370f964d4fcaa04248469b34d5001a5c617aa7187e044f97c5338b0fb1bf"
   end
 
   depends_on "libcython" => :build

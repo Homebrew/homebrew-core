@@ -6,23 +6,22 @@ class Sceptre < Formula
   url "https://files.pythonhosted.org/packages/05/cc/2ac3c8dd9323701b5ec61a58cc639a65cbada0ee539c837b4e78ccf54809/sceptre-4.2.2.tar.gz"
   sha256 "1fd5267854afc81ad1a315bbc82febb976ba6f490cb7f1e10f57f05030c7a04f"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5e60888206c33d4a4e183fc8a5e55cbe243a57fa52e043a828ae4584e052174c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a6fbaa23818bc6fa2fc755cced7f04f9d9a0e6b67bd4287cba19d0f807b17101"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c2640ecc4ad04a725904bbac600234408d142118abefcdd819e40e9df1175a74"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9c38c62d502b193720c59b4eaaad8533ef6f0e23bca2a9eb026a4b208d66963b"
-    sha256 cellar: :any_skip_relocation, sonoma:         "278540f5a202f3611e2de2f56eaa51416a785392b763e9688259f9b1b097a7d6"
-    sha256 cellar: :any_skip_relocation, ventura:        "10e72365fe9efe74955382356209280714f39c82eeced5bcbf93e7f5bb07a228"
-    sha256 cellar: :any_skip_relocation, monterey:       "55f9d4ed25c825ae852ccdb6467e78e72d010e34116d8527c85e1c5265c3ee1a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5c2f2d4f0317398ea528b313a786c4d4623669388f5f04b63ddac8d2bed4aa61"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5768d4b5eb2c300e92eee5136cb2e1f7ea4fd8b9c74d4883b343cb773982f7d8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e92cb0f2719d441e44d268227e65250b0b1bbb00d4acac45b1aee88d19da0b4a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c1473e5c567d023a1531eee705cf15c7324b44e7c53ea1ebda4aad006dae605a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "bd6b5b40eb12e155b1d952ffc69c932e3cd04174195779054d55f3b76ccfbd40"
+    sha256 cellar: :any_skip_relocation, sonoma:         "eef91af5b93081b035df8417debb663378e5537b9c614111b53c15e0f6cec812"
+    sha256 cellar: :any_skip_relocation, ventura:        "8501751af00a525b905175b1541b87163ec5db776b53073178d540f8acb9ffd1"
+    sha256 cellar: :any_skip_relocation, monterey:       "a4fad3ff1cd15d98cdce5620941f6a98d428616c3b5414018eb475378105a59e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cb2699adddb3f65786a82e43a7516dcfe78b80ebaa9114cbf134b269ab45386a"
   end
 
   depends_on "libyaml"
   depends_on "python-certifi"
+  depends_on "python-packaging"
   depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "six"
@@ -33,13 +32,13 @@ class Sceptre < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/be/d5/d22151869ac5a87a583f96b8de2414a8813094143e783d8494e4f359ba9b/boto3-1.28.11.tar.gz"
-    sha256 "0fe7a35cf0041145c8eefebd3ae2ddf41baed62d7c963e5042b8ed8c297f648f"
+    url "https://files.pythonhosted.org/packages/42/56/633b5f5b930732282e8dfb05c02a3d19394d41f4e60abfe85d26497e8036/boto3-1.28.61.tar.gz"
+    sha256 "7a539aaf00eb45aea1ae857ef5d05e67def24fc07af4cb36c202fa45f8f30590"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/d1/26/d503d445a8ae7efc737abc2349f2e97a17b1009e7e26d1257800b6982fd5/botocore-1.31.11.tar.gz"
-    sha256 "b17ff973bb70b02b227928c2abe4992f1cfc46d13aee0228516c8f32572b88c6"
+    url "https://files.pythonhosted.org/packages/05/2e/9cb8adca433af2bb6240514448b35fa797c881975ea752242294d6e0b79f/botocore-1.31.61.tar.gz"
+    sha256 "39b059603f0e92a26599eecc7fe9b141f13eb412c964786ca3a7df5375928c87"
   end
 
   resource "cfn-flip" do
@@ -48,13 +47,13 @@ class Sceptre < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/2a/53/cf0a48de1bdcf6ff6e1c9a023f5f523dfe303e4024f216feac64b6eb7f67/charset-normalizer-3.2.0.tar.gz"
-    sha256 "3bb3d25a8e6c0aedd251753a79ae98a093c7e7b471faa3aa9a93a81431987ace"
+    url "https://files.pythonhosted.org/packages/cf/ac/e89b2f2f75f51e9859979b56d2ec162f7f893221975d244d8d5277aa9489/charset-normalizer-3.3.0.tar.gz"
+    sha256 "63563193aec44bce707e0c5ca64ff69fa72ed7cf34ce6e11d5127555756fd2f6"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/72/bd/fedc277e7351917b6c4e0ac751853a97af261278a4c7808babafa8ef2120/click-8.1.6.tar.gz"
-    sha256 "48ee849951919527a045bfe3bf7baa8a959c423134e1a5b98c05c20ba75a1cbd"
+    url "https://files.pythonhosted.org/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz"
+    sha256 "ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de"
   end
 
   resource "colorama" do
@@ -107,14 +106,9 @@ class Sceptre < Formula
     sha256 "694a8e44c87657c59292ede72891eb91d34131f6531463aab3009191c77364a8"
   end
 
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/df/9e/d1a7217f69310c1db8fdf8ab396229f55a699ce34a203691794c5d1cad0c/packaging-21.3.tar.gz"
-    sha256 "dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb"
-  end
-
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/4f/13/28e88033cab976721512e7741000fb0635fa078045e530a91abb25aea0c0/pyparsing-3.1.0.tar.gz"
-    sha256 "edb662d6fe322d6e990b1594b5feaeadf806803359e3d4d42f11e295e588f0ea"
+    url "https://files.pythonhosted.org/packages/37/fe/65c989f70bd630b589adfbbcd6ed238af22319e90f059946c26b4835e44b/pyparsing-3.1.1.tar.gz"
+    sha256 "ede28a1a32462f5a9705e07aea48001a08f7cf81a021585011deba701581a0db"
   end
 
   resource "pyrsistent" do
@@ -133,8 +127,8 @@ class Sceptre < Formula
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/49/bd/def2ab4c04063a5e114963aae90bcd3e3aca821a595124358b3b00244407/s3transfer-0.6.1.tar.gz"
-    sha256 "640bb492711f4c0c0905e1f62b6aaeb771881935ad27884852411f8e9cacbca9"
+    url "https://files.pythonhosted.org/packages/3f/ff/5fd9375f3fe467263cff9cad9746fd4c4e1399440ea9563091c958ff90b5/s3transfer-0.7.0.tar.gz"
+    sha256 "fd3889a66f5fe17299fe75b82eae6cf722554edca744ca5d5fe308b104883d2e"
   end
 
   resource "sceptre-cmd-resolver" do
@@ -148,12 +142,14 @@ class Sceptre < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/e2/7d/539e6f0cf9f0b95b71dd701a56dae89f768cd39fd8ce0096af3546aeb5a3/urllib3-1.26.16.tar.gz"
-    sha256 "8f135f6502756bde6b2a9b28989df5fbe87c9970cecaa69041edcce7f0589b14"
+    url "https://files.pythonhosted.org/packages/dd/19/9e5c8b813a8bddbfb035fa2b0c29077836ae7c4def1a55ae4632167b3511/urllib3-1.26.17.tar.gz"
+    sha256 "24d6a242c28d29af46c3fae832c36db3bbebcc533dd1bb549172cd739c82df21"
   end
 
   def install
     virtualenv_install_with_resources
+
+    generate_completions_from_executable(bin/"sceptre", shells: [:fish, :zsh], shell_parameter_format: :click)
   end
 
   test do

@@ -9,26 +9,18 @@ class TranslateToolkit < Formula
   head "https://github.com/translate/translate.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "41539f02398a104daf7b04da31b3a0c19e011da16006aa00b519aec25593166d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "15ec0417a353cc6921e0098dcf14556f28fdfd97a2d7222aa95ab0c2b310fa75"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b02fbf3d3b657a8b4d6ebfcd52616939346c63fc80ecffacd1046b54a39bc623"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1fb8c2a8eb266cfd0bc55b284526c5e62ecf26830bc3ea40bd1dd958c9f260a9"
-    sha256 cellar: :any_skip_relocation, sonoma:         "98a32c217028ce494dbb882c0d2c47172003ccc9fb758b23e0c0526fb5ec03fb"
-    sha256 cellar: :any_skip_relocation, ventura:        "b8cf5825857cd0e8814e402c2219a92ba229dfd82c2e844aea25e5ee5b6a2143"
-    sha256 cellar: :any_skip_relocation, monterey:       "c76f206d3e47e69853bb329bc73735ba74e1ff990097d1bfcd726e5031dcb34a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8c9e0f5f4a08feb28b92fa4d40b881a6c564d307d0ac91f1839e6aa1e64296b6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eba4521ada490ff2244dfc082160842a5cb9467ca970090e09aa7aa9356d0fc0"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "20a7221f7d8b1de15ef8e2b1014ac2c5158b546acb10e7867f4a5189d19c2f65"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0150adf11a02b932e1cfc6943dee67eab4c20406452bf1cecf432090c167441e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "79f485c4d11c9e3f7fb842fa8e03b60bd9ff11a15b57a44f5d2716d8fe43ac8a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3a3c944f26d2912e2802b138f99011b0edb3e2b3b8ade60d7f6d09cd57b498cd"
+    sha256 cellar: :any_skip_relocation, ventura:        "ece5eebc182b5f3b051f2c81bd83ea4f89ea2b9433be85182809a0b7118dbae8"
+    sha256 cellar: :any_skip_relocation, monterey:       "1d21053c278cb1302bdcfdf100a21ab6de905c8cb9081907b2b016a6ede11f70"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f844ddcd671edbacebbafcaf59eb9310b086659bcc400f2cb0d19971b61634d0"
   end
 
-  depends_on "python@3.11"
-
-  uses_from_macos "libxml2"
-  uses_from_macos "libxslt"
-
-  resource "lxml" do
-    url "https://files.pythonhosted.org/packages/30/39/7305428d1c4f28282a4f5bdbef24e0f905d351f34cf351ceb131f5cddf78/lxml-4.9.3.tar.gz"
-    sha256 "48628bd53a426c9eb9bc066a923acaa0878d1e86129fd5359aee99285f4eed9c"
-  end
+  depends_on "python-lxml"
+  depends_on "python@3.12"
 
   def install
     # Workaround to avoid creating libexec/bin/__pycache__ which gets linked to bin

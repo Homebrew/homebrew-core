@@ -4,18 +4,16 @@ class ProtobufC < Formula
   url "https://github.com/protobuf-c/protobuf-c/releases/download/v1.4.1/protobuf-c-1.4.1.tar.gz"
   sha256 "4cc4facd508172f3e0a4d3a8736225d472418aee35b4ad053384b137b220339f"
   license "BSD-2-Clause"
-  revision 7
+  revision 8
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "c22945177efec85a4b167ab364a46d374b22154b3eab165aff689101d6267ce1"
-    sha256 cellar: :any,                 arm64_ventura:  "37a4bccd649b2435c9c6d5d97052bedd166c6c0de7580360d6c10bd19dcbf930"
-    sha256 cellar: :any,                 arm64_monterey: "c45b43b82dc7043bebec4bd0a4bcdb7e6f58b64f5495182d5530fb0571d02d2e"
-    sha256 cellar: :any,                 arm64_big_sur:  "392fb3edc430d2372b401b50fa09c85347f09c393b60c905647aec7214f5f5cd"
-    sha256 cellar: :any,                 sonoma:         "1c194b43acd1c81c2f682ddd0ad537f5bcb9d19b0d2c1b566c7b208637b65faf"
-    sha256 cellar: :any,                 ventura:        "40b6341261f223df456dafb7166367b7c4d007749e4e06dfff186d6537c5e290"
-    sha256 cellar: :any,                 monterey:       "66f3cd044e6b8dd0cd558a3342092657b2d0d96864f08a0f1cacbba0912e06d6"
-    sha256 cellar: :any,                 big_sur:        "d10693cc22348eea4be40236f6113f6ef5b2d217316da61fc762a89aaf7fa400"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2f681a4ef1578ca632766037b520ec9f90eab975351ef00e45f1dd60b1e4afc7"
+    sha256 cellar: :any,                 arm64_sonoma:   "d4e2f1dc4429a893df2cfc2da5a658d13376c6b83f96ae2c20207a9438d2a4d0"
+    sha256 cellar: :any,                 arm64_ventura:  "54d267eb2c007918ab3e712e9c556ca157a5ea99753bbe9f5817427e90f45820"
+    sha256 cellar: :any,                 arm64_monterey: "53e5aba64daac0bf347d1be652feb3ccf3b1280d546dfd1cc50a211ac3c97a69"
+    sha256 cellar: :any,                 sonoma:         "142c2873aa51ec46d8a3ade0fff18b7773983e31bf1a5cd96d83e380b54e9f6e"
+    sha256 cellar: :any,                 ventura:        "ded06834cb6e165df54c71612d09d3cc60907581e70a0255e47e16debd8d5677"
+    sha256 cellar: :any,                 monterey:       "10b026444c3da6fc0b4b38a9f46c3078d921393e980d3e0bb28ee9f8eb046b4b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b228990cf1f54f2a615841d5eab0f7d1f91027b418e61bc4b821ae7424660d74"
   end
 
   head do

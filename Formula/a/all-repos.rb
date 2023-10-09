@@ -8,24 +8,22 @@ class AllRepos < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "002888f8886b59eb9ed0fd3cea61fbb801e465bf9cc37141517d9192abf9da2d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "318d4219f21145a182e2294b816d298b0419e0a2b0176159179c823ad678d163"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "27547640d5d301b30d26130881651cbeb9c5fe6c4c7342c5d2696abbc47226ce"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "08fac20bbc7fd16204d95ee32bbb336bcb5250909aca17c65b654e56df19725d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "868ce23afa5a49583491691e35c52452377b9acb76f75c8fee5f2d28b2877556"
-    sha256 cellar: :any_skip_relocation, ventura:        "438f205fd3e970a6870269d7c85afc70cd0bcf9a295bd1ed93179bcc0f179f44"
-    sha256 cellar: :any_skip_relocation, monterey:       "7059a579c9f46b781c24b9b4eb9b9fe28a32fb6e18b99b1af858369d0d545ce1"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3fefb9da82cc389c71b159ecfecab896ea95490c713794b0e7982b8239c7bd4e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f49ea61cb1733449a24d5518037c0d16d7b8f84d396e5d8f704722aad0b62c31"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2abb8c0300b10d3b79d2b69a8ebfa5eef6fc4cfa445d7652093823a7866da7e0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1b87c3ba274ee120a76bd94dc0ce8f0b75d98b41cc5b2d8109115dd1b74d71e1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "63fea1918cfb61ce7cfc22b9de52f7e3f59852a35ffbc51104ead621c59c4e8d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "6ccde45a0c3d87518925cd85e01694ed132743134d371a3f860a1cd50dbb7d23"
+    sha256 cellar: :any_skip_relocation, ventura:        "a1806a3ee959d9c50e978cc9bfc34ce75f532a4d8b823a0239b99f47373026e7"
+    sha256 cellar: :any_skip_relocation, monterey:       "e2ca72e0c967bd81375d267b93f6cd1e7681960cad3daec2c33b869b0259841a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c329e848be1382ce9c4848c5e6c1b1045058d123d5eb8e7c765705ad65836db2"
   end
 
   depends_on "python-packaging"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   resource "identify" do
-    url "https://files.pythonhosted.org/packages/c4/f8/498e13e408d25ee6ff04aa0acbf91ad8e9caae74be91720fc0e811e649b7/identify-2.5.24.tar.gz"
-    sha256 "0aac67d5b4812498056d28a9a512a483f5085cc28640b02b258a59dac34301d4"
+    url "https://files.pythonhosted.org/packages/5f/19/f3aa63b65be4cdf23ba26984aa04cb21fa04fccfef68355919edafee025c/identify-2.5.30.tar.gz"
+    sha256 "f302a4256a15c849b91cfcdcec052a8ce914634b2f77ae87dad29cd749f2d88d"
   end
 
   def install

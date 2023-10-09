@@ -6,17 +6,16 @@ class AwsShell < Formula
   url "https://files.pythonhosted.org/packages/01/31/ee166a91c865a855af4f15e393974eadf57762629fc2a163a3eb3f470ac5/aws-shell-0.2.2.tar.gz"
   sha256 "fd1699ea5f201e7cbaacaeb34bf1eb88c8fe6dc6b248bce1b3d22b3e099a41e5"
   license "Apache-2.0"
-  revision 2
+  revision 3
 
   bottle do
-    rebuild 7
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "16e19da1bd5a67d1478ac2a40db430245334c7955a0f6b40b4d46805229ee426"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2f3b82978d9d5dfb276982e23099f73972f5f732423b067c0eaf6885cb3090c9"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2af5e5d0612617d843ea88b11f90f690a902aa629523dbf76fe30ef3b496aa3c"
-    sha256 cellar: :any_skip_relocation, ventura:        "2768bc268f361f51fe2140ebe9a935c2f5e9a8130f256eb443a2220cf47471e7"
-    sha256 cellar: :any_skip_relocation, monterey:       "9e7fc2c8e331c94dea35c60fd3c92bd3ce6a4c24d0954b17bf918779d4bc11d7"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7e0e989e36f58a7530cf26c9ff52220be7c07f8b49b5f657b8e6c21177e47933"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "071cf0a61a8b24cc69de6258ba67d449aba46a9e62e9d200b5621032e000d628"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1a12cba5c644d071506b0a9d2492ef86373849eee8a879e5addbee22375aa9a7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "04b3c89ce5cc76e269dd66f295a67df2cea93a61591c38deb3114d88d485907a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c991ce848099168f7219a0e774e6edb9b33204b2abacba6a15ae28e540147963"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4e09636931274211cb2cdfa74fcc444eb44d69a62f6b45cc1e9886274c2812cf"
+    sha256 cellar: :any_skip_relocation, ventura:        "cbf496d7d686295670443ffe57ba2b35e3d08b3c4193a7841c65bb6cec7080d7"
+    sha256 cellar: :any_skip_relocation, monterey:       "5553566579c61d5628590d5ded8c3b23d25e54457e235e99e61fe512820263f2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "19524978add61efee2c3fe6206201041bf0acf729b370adfe3a87e49e637f8d8"
   end
 
   depends_on "docutils"
@@ -25,18 +24,18 @@ class AwsShell < Formula
   depends_on "six"
 
   resource "awscli" do
-    url "https://files.pythonhosted.org/packages/35/25/47bbbc251b85a765f5370409369991028719f380345f389304fc0e137cc3/awscli-1.27.121.tar.gz"
-    sha256 "f2c7c759095167874b9084a9a1b921801d57d16baba1357dd208c9533606b899"
+    url "https://files.pythonhosted.org/packages/a1/23/1d3a1028d45ee7797044daec29acd66fcd56f2319ec6ea1030e1b3d510b5/awscli-1.29.58.tar.gz"
+    sha256 "1c1df34b4bd68b853b37fab9bad153852820769e0fa0664988cfe6cf379c3e49"
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/b2/ab/1a5086e1b32ed9a59ad0e910030200e2b0a6d3ed4aff9cf5f359bf30a5a4/boto3-1.26.121.tar.gz"
-    sha256 "f87d694c351eba1dfd19b5bef5892a1047e7adb09c57c2c00049de209a8ab55d"
+    url "https://files.pythonhosted.org/packages/a8/23/ef75674c1ef3bf77479a5566a1a7c642206298feec1f7012e4710a5b35f4/boto3-1.28.58.tar.gz"
+    sha256 "2f18d2dac5d9229e8485b556eb58b7b95fca91bbf002f63bf9c39209f513f6e6"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/8c/d3/cac011be3a89b877d6c9cbf1ed4c36da0cc948877132fc0ec7a343b6a4dc/botocore-1.29.121.tar.gz"
-    sha256 "955c1dd244b6286d9e17dc525d1459a2a74a1c4e519f35006c72f184fbce0760"
+    url "https://files.pythonhosted.org/packages/77/1d/bd7a7383a2aff3cbf01c758a5507106ac7459707b241d8afbf336520f142/botocore-1.31.58.tar.gz"
+    sha256 "002f8bdca8efde50ae7267f342bc1d03a71d76024ce3949e4ffdd1151581c53e"
   end
 
   resource "colorama" do
@@ -70,8 +69,8 @@ class AwsShell < Formula
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/a0/a4/d63f2d7597e1a4b55aa3b4d6c5b029991d3b824b5bd331af8d4ab1ed687d/PyYAML-5.4.1.tar.gz"
-    sha256 "607774cbba28732bfa802b54baa7484215f530991055bb562efbed5b2f20a45e"
+    url "https://files.pythonhosted.org/packages/cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz"
+    sha256 "bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43"
   end
 
   resource "rsa" do
@@ -80,18 +79,18 @@ class AwsShell < Formula
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/e1/eb/e57c93d5cd5edf8c1d124c831ef916601540db70acd96fa21fe60cef1365/s3transfer-0.6.0.tar.gz"
-    sha256 "2ed07d3866f523cc561bf4a00fc5535827981b117dd7876f036b0c1aca42c947"
+    url "https://files.pythonhosted.org/packages/3f/ff/5fd9375f3fe467263cff9cad9746fd4c4e1399440ea9563091c958ff90b5/s3transfer-0.7.0.tar.gz"
+    sha256 "fd3889a66f5fe17299fe75b82eae6cf722554edca744ca5d5fe308b104883d2e"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/21/79/6372d8c0d0641b4072889f3ff84f279b738cd8595b64c8e0496d4e848122/urllib3-1.26.15.tar.gz"
-    sha256 "8a388717b9476f934a21484e8c8e61875ab60644d29b9b39e11e4b9dc1c6b305"
+    url "https://files.pythonhosted.org/packages/dd/19/9e5c8b813a8bddbfb035fa2b0c29077836ae7c4def1a55ae4632167b3511/urllib3-1.26.17.tar.gz"
+    sha256 "24d6a242c28d29af46c3fae832c36db3bbebcc533dd1bb549172cd739c82df21"
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/5e/5f/1e4bd82a9cc1f17b2c2361a2d876d4c38973a997003ba5eb400e8a932b6c/wcwidth-0.2.6.tar.gz"
-    sha256 "a5220780a404dbe3353789870978e472cfe477761f06ee55077256e509b156d0"
+    url "https://files.pythonhosted.org/packages/cb/ee/20850e9f388d8b52b481726d41234f67bc89a85eeade6e2d6e2965be04ba/wcwidth-0.2.8.tar.gz"
+    sha256 "8705c569999ffbb4f6a87c6d1b80f324bd6db952f5eb0b95bc07517f4c1813d4"
   end
 
   def install

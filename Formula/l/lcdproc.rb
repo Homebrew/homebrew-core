@@ -7,6 +7,7 @@ class Lcdproc < Formula
   revision 2
 
   bottle do
+    sha256 sonoma:       "16efc1c9a35bf0563aa2c66a8f653c56e1ef4694956533c31acc722af6834f86"
     sha256 ventura:      "ff2675dfa714a9de7e8d5a9f40c214cf5547c85c402337e7376a54631f43020a"
     sha256 monterey:     "90bb0544163a3966aac4de0dffaff4a9cc59cb05e08c314a28829fcf8df8e38b"
     sha256 big_sur:      "937564e19f5e45fd49b02e83577a4e217abf89ca3884958b3f9e80b2132fa8df"

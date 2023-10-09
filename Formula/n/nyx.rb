@@ -9,20 +9,17 @@ class Nyx < Formula
   revision 3
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "36d189cd3aa54d087ad8edddfb73227e743d241e195f1b2c4588e9144aeaa1f4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2b3fe494a6c9224fd13b936dcb327ecc4be321ea2a77c613698f68c0c6c052d8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2b3fe494a6c9224fd13b936dcb327ecc4be321ea2a77c613698f68c0c6c052d8"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2b3fe494a6c9224fd13b936dcb327ecc4be321ea2a77c613698f68c0c6c052d8"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d7c3f088a5a2290d807347718ba49f29ef480eeb9a8e7a70775467807bb574f4"
-    sha256 cellar: :any_skip_relocation, ventura:        "e79c9f3ee6611c779246f2fedb938be974781451c4a4b8a9472f2be27a9d6c76"
-    sha256 cellar: :any_skip_relocation, monterey:       "e79c9f3ee6611c779246f2fedb938be974781451c4a4b8a9472f2be27a9d6c76"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e79c9f3ee6611c779246f2fedb938be974781451c4a4b8a9472f2be27a9d6c76"
-    sha256 cellar: :any_skip_relocation, catalina:       "e79c9f3ee6611c779246f2fedb938be974781451c4a4b8a9472f2be27a9d6c76"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "38098429261a50eaa8e1256002a97b4940172d36b7676e3aee11fb26002f5c94"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a9ebe3881cb8d588b9cd32fbe5717cea85ee3a3fdfcab4b6627158180683e37a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8d49daa7507175a4b1b2f44a0f289460cfb28fb3829eed63b1d13401b1728b7a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "912af2b00eb9d68a3272603aef9ace42af901316258922bb48a7856610794599"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5a2010792c601a7a1fc841a104157ba70d75a22a98460838a5c69e49032354c5"
+    sha256 cellar: :any_skip_relocation, ventura:        "568c309e2761794e3e700cd18a318b4c0290e172bf832aa597f97f31d9270557"
+    sha256 cellar: :any_skip_relocation, monterey:       "9aa51888c533ed3ffc5ec2c0710e1f25d044a634510f39c221680ebd868a3a90"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "74def9f843e6c04f8d74ed648ffba062d540c0042c1bc19c1b9c09e9e3c33d95"
   end
 
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   resource "stem" do
     url "https://files.pythonhosted.org/packages/b2/66/c5515de764bffae1347e671819711268da5c02bfab8406223526822fe5f6/stem-1.8.1.tar.gz"

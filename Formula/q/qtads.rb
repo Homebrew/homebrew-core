@@ -12,9 +12,11 @@ class Qtads < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "c8737515d6dc5506c6c44f91ceba97426015e71112171006ab57f1646a4d2231"
     sha256 cellar: :any,                 arm64_ventura:  "06f702f167f0b8579f382b626a612fb14a646221420d84b605ad46738751e4bd"
     sha256 cellar: :any,                 arm64_monterey: "8bd68c471a53ce7d00aadc3fde4a51a3b86a6130a3312a326b5293b3223d253b"
     sha256 cellar: :any,                 arm64_big_sur:  "fce9e5ba4f310c2d8d6fe7929bec2779aa7651645229d0f98cf344e76fb711c3"
+    sha256 cellar: :any,                 sonoma:         "b2e9db9097b1712b7d5fa30f978031048032bd18e71d0157a2ba5deaa0659dcc"
     sha256 cellar: :any,                 ventura:        "eefed02a2f64f4bb5da5f9eb9af4a47e268ef02c695d9c94ae01ae1213a1d254"
     sha256 cellar: :any,                 monterey:       "463fd847281ae7edf08b71824d36d0a87a01bd7feaefa452d132c35ccd63d68c"
     sha256 cellar: :any,                 big_sur:        "2cabcaf186de69de6790202587c6ffb6e9484106b13b0b6dea221ea46728010b"

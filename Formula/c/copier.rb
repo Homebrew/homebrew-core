@@ -8,19 +8,19 @@ class Copier < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "87de9061287188d2cbf42fc251b563d1b2b72573f1ae76106aa9571f2415e12e"
-    sha256 cellar: :any,                 arm64_ventura:  "5e4a5699335a84ece3651da2074bae257a7a36d9c36687636afe45b54a7e3b7a"
-    sha256 cellar: :any,                 arm64_monterey: "bc5c65a24190c7ef45da75ca965ac23eed3c663e6645786e9a55038cffd62a00"
-    sha256 cellar: :any,                 arm64_big_sur:  "20226abbf853e0dd78f062ea75c431e3c3e76e87013933b77989776b62c1d19e"
-    sha256 cellar: :any,                 sonoma:         "9c744649fd7e26b31df8bc4c09412a22d6289879d92c0ef1b9a96b21e41d786b"
-    sha256 cellar: :any,                 ventura:        "71edbc52119dcfc3d63a140a4368a8f0e1cbac1d2498bde31d67c0ad10e69184"
-    sha256 cellar: :any,                 monterey:       "1de6dcc445183e757f6cadebc4a0c71c8ed01869b328e32e3039111f59c5f8e0"
-    sha256 cellar: :any,                 big_sur:        "cd885f2f96ed5e38aa48b092b9580f52eae91923eace3892de362728d3c46fd9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "01a44181bea69863c5c00bd8adc36864cebfeaeeb7c884c277cdf9a4d8c73e9e"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "2c9d5cc9a07dda3a9bf7ccd334d9cc4194742d4f6180aec8bb58408a4e43c9c3"
+    sha256 cellar: :any,                 arm64_ventura:  "eb05ed7b6ee55ed8bc9999537b1bec88e8464e8861e1777646c6488b1a7e77ec"
+    sha256 cellar: :any,                 arm64_monterey: "f8a6c3f4788e33ef45e896dc973de14f633305dcb65e356da77b054a74657e7d"
+    sha256 cellar: :any,                 sonoma:         "f8566adc20442a793171f37d4a04a241a894e469ce044e4a5a64a6192a0bd40f"
+    sha256 cellar: :any,                 ventura:        "8f1985fde7c952aa7f153ee9f0fde5717b4de3ffbb4fc428194225fd655c8540"
+    sha256 cellar: :any,                 monterey:       "a60232e975e153a2537f07c537aaa880670d6b3acea888fc8e024d8d482ba339"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "96140df1c329cdfca10b9a1cb79ea9acb9c0567661a55fc6600755a1d264a29d"
   end
 
   depends_on "rust" => :build
   depends_on "pygments"
+  depends_on "python-packaging"
   depends_on "python-typing-extensions"
   depends_on "python@3.11"
   depends_on "pyyaml"
@@ -63,11 +63,6 @@ class Copier < Formula
   resource "markupsafe" do
     url "https://files.pythonhosted.org/packages/6d/7c/59a3248f411813f8ccba92a55feaac4bf360d29e2ff05ee7d8e1ef2d7dbf/MarkupSafe-2.1.3.tar.gz"
     sha256 "af598ed32d6ae86f1b747b82783958b1a4ab8f617b06fe68795c7f026abbdcad"
-  end
-
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/b9/6c/7c6658d258d7971c5eb0d9b69fa9265879ec9a9158031206d47800ae2213/packaging-23.1.tar.gz"
-    sha256 "a392980d2b6cffa644431898be54b0045151319d1e7ec34f0cfed48767dd334f"
   end
 
   resource "pathspec" do

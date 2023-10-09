@@ -10,9 +10,11 @@ class Webpack < Formula
   head "https://github.com/webpack/webpack.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1a834d85b1c0fa4df4d7457ba4c3ef73f275195bff998c078025e478280edd22"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "43da3e72119ed6136f871990a187926fdb7399d76c90b9fff9e73993d2dac774"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "43da3e72119ed6136f871990a187926fdb7399d76c90b9fff9e73993d2dac774"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "43da3e72119ed6136f871990a187926fdb7399d76c90b9fff9e73993d2dac774"
+    sha256 cellar: :any_skip_relocation, sonoma:         "1f4130379e10f98d5a5785d15fdffbb66488f51140973fbba6bb3baba8fa7c37"
     sha256 cellar: :any_skip_relocation, ventura:        "5c6221f47a3266387fe4101dd465e37af6f8e660f69a5fd9428a678cdc986535"
     sha256 cellar: :any_skip_relocation, monterey:       "5c6221f47a3266387fe4101dd465e37af6f8e660f69a5fd9428a678cdc986535"
     sha256 cellar: :any_skip_relocation, big_sur:        "5c6221f47a3266387fe4101dd465e37af6f8e660f69a5fd9428a678cdc986535"

@@ -10,31 +10,29 @@ class Choose < Formula
   head "https://github.com/geier/choose.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1124575dcb6b17928e25e0eaf3c129be5303969308e5424283449252c1513a31"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "60edac2ca7068597d568e29de1e96d75f9be09c8b57b0fb5b440cd257d2bdd23"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6f4326c503b639e781160a68ba76829d7754c7927f4b2d69a63740015f948217"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "18e369ca2b875807bb7478bd6be4ef94d9ec5634f43f0d5d1a0b01abcfc8955f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "16b4fbe9e8274db4b3b358be1f620a404bde0a1b128fdecf9e0c7e8f5ef4cabf"
-    sha256 cellar: :any_skip_relocation, ventura:        "8e53d191a07c9951863aadc6e7feec473a93673c06c552b6e6e431aa24c355bd"
-    sha256 cellar: :any_skip_relocation, monterey:       "fa636248938e6bc14e77f62bd8ae189d1e1a9ab07db213518c8147ff3a626a85"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9e8e3a3540c95f09c2b68658a59e6da6543b23a97393fc49b2f178d4c00f4f9d"
-    sha256 cellar: :any_skip_relocation, catalina:       "91a731c9e1a3d4d8ce715260ed74513d63858c2777bacf40128ac0d5bd6d0b8b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7b082f85bccbb84100ca7c3063bdd13a74d4fc4e16762be36ab38d41afc7659e"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f5c4fa56df4043797b8afd5d16f09ba833cb31c6623311e93f666cd658128d84"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "591ec66da1ed275c857cf18501b239665db4b24e8e75a31ccd436a753ca2f4bd"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7d70433ad746562e57937e4420e86c2fa8e4bb725b7a795fe96f7025ad8f9cc2"
+    sha256 cellar: :any_skip_relocation, sonoma:         "bdec81b49dfbe6079c974a10fd3d9c38a88ecd5dee80c17e40088190e0c39bf1"
+    sha256 cellar: :any_skip_relocation, ventura:        "faae656f20149cf61694f480cf8768faf1980fbd615685430f55b2840bbeb32f"
+    sha256 cellar: :any_skip_relocation, monterey:       "68976e471d2940156eacd0f781882efdabe06355b4ef93fd1a01726a8a707014"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6d41eb1ad4084eab5d86a808d208009b196ead914a9ed5e497f06b04eb7071a8"
   end
 
-  depends_on "python@3.11"
+  depends_on "python-setuptools" => :build
+  depends_on "python@3.12"
 
   conflicts_with "choose-gui", because: "both install a `choose` binary"
   conflicts_with "choose-rust", because: "both install a `choose` binary"
 
   resource "urwid" do
-    url "https://files.pythonhosted.org/packages/45/dd/d57924f77b0914f8a61c81222647888fbb583f89168a376ffeb5613b02a6/urwid-2.1.0.tar.gz"
-    sha256 "0896f36060beb6bf3801cb554303fef336a79661401797551ba106d23ab4cd86"
+    url "https://files.pythonhosted.org/packages/5f/cf/2f01d2231e7fb52bd8190954b6165c89baa17e713c690bdb2dfea1dcd25d/urwid-2.2.2.tar.gz"
+    sha256 "5f83b241c1cbf3ec6c4b8c6b908127e0c9ad7481c5d3145639524157fc4e1744"
   end
 
   def install
-    python3 = "python3.11"
+    python3 = "python3.12"
     ENV.prepend_create_path "PYTHONPATH", libexec/Language::Python.site_packages(python3)
 
     resource("urwid").stage do

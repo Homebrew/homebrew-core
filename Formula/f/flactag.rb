@@ -7,9 +7,11 @@ class Flactag < Formula
   revision 3
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "4388799fc611e119668ae9a9addbdb2ec1b771d9cd509e07e46358dc90bb4507"
     sha256 cellar: :any,                 arm64_ventura:  "3001213e4495dbd9233ac08e813c08585b088ba64d745325f7e4535ea78dbb6d"
     sha256 cellar: :any,                 arm64_monterey: "b4597b28bbb74064cfaea808a8df076be45e2b880ee25cb31b2fd44458c96a3c"
     sha256 cellar: :any,                 arm64_big_sur:  "d5672d80720f2c28af768c625d5edb4c692e7e736919ba51cd3b00eee7e67d12"
+    sha256 cellar: :any,                 sonoma:         "f640434fd0bdd691b17e6daf71eb48a1d4549298c623f8ae0a5a019d93a97035"
     sha256 cellar: :any,                 ventura:        "9ba629086f6862f2757689220f0f154f188e7130806b3186746307dd2edfc0e2"
     sha256 cellar: :any,                 monterey:       "8862898f2f33cf41525624ec33b4f5cf88503e7264f966e28113015f77d9bf5d"
     sha256 cellar: :any,                 big_sur:        "9b1a3d438c30843b6c63128238f70963281a4121695791dabae453a2c1f7715e"

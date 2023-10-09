@@ -11,9 +11,11 @@ class Yazpp < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "be00d05febf66d4595ffe681fe00d93ca6c5f107bb7171b097ce52d74aaf0809"
     sha256 cellar: :any,                 arm64_ventura:  "6e7458ff48b91fc278beb85d320d739425c6ba2077b15f951866e6ead6cc09ac"
     sha256 cellar: :any,                 arm64_monterey: "aa4653b1b4bac44bb483c8f05a31f91b92a4cfe7ff5d338f357b01dc30156c4f"
     sha256 cellar: :any,                 arm64_big_sur:  "ca058f59600e3f8931894e93a6aa901bffd86306e84f8cbabb971a3115210022"
+    sha256 cellar: :any,                 sonoma:         "2fef1de6d47229987bd0e0c8ba0702357336fa05182c1c114997b048b9b5c192"
     sha256 cellar: :any,                 ventura:        "5968798b57294be416bb06594f46b73720d0f3406cff786c3eb2255ac175c367"
     sha256 cellar: :any,                 monterey:       "fa049b03743d65e259b3fa771bf3228432b1d0edac7313f33843cbfa64683e0f"
     sha256 cellar: :any,                 big_sur:        "8ace99b6b578b30de4fba470ec066283240faef60528a847d617c8c33bd1c405"

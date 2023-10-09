@@ -7,9 +7,11 @@ class Ormolu < Formula
   head "https://github.com/tweag/ormolu.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b82cecb66cf36ad8f64629cda2bcbb60a07a79778668c5a23e7b09fded34493a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "08ba95c61b387c4a63539ee60cb7398e555ee06196c266baddfc091b184cb834"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a91e25eb115a01a12be0636758b268aef69bec0adbb64e8f86164eee076632b6"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "89d40d88f7b2e3ec3220a57ecbd617ef8d35299a437a8e82728dcba4a18ea142"
+    sha256 cellar: :any_skip_relocation, sonoma:         "081de4146adf17ffd49f2c251f051484855f7559b05498c0c36e06eaba0a97ef"
     sha256 cellar: :any_skip_relocation, ventura:        "329de960e423b67866b010a0760b560e5392c81435070b88bf1a90a91b6c7050"
     sha256 cellar: :any_skip_relocation, monterey:       "c3fc2fa26c21dc95674f2a0941addc4c6e6aace570db76fac06d184733d6415f"
     sha256 cellar: :any_skip_relocation, big_sur:        "79d0b05ac7b248e23b879629fc6e31aa84d97999189780ba5e383d404a0d9ae8"

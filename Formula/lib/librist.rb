@@ -4,7 +4,7 @@ class Librist < Formula
   url "https://code.videolan.org/rist/librist/-/archive/v0.2.7/librist-v0.2.7.tar.gz"
   sha256 "7e2507fdef7b57c87b461d0f2515771b70699a02c8675b51785a73400b3c53a1"
   license "BSD-2-Clause"
-  revision 3
+  revision 4
   head "https://code.videolan.org/rist/librist.git", branch: "master"
 
   livecheck do
@@ -13,15 +13,13 @@ class Librist < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "d430c87fe1bdce8278c35b384fdd710d7b07bb6fec13676e4dfeb209b7463075"
-    sha256 cellar: :any,                 arm64_ventura:  "42c00e005437933df6c35e1b02279574a5ba02cc291197e219dc7abba000562b"
-    sha256 cellar: :any,                 arm64_monterey: "ebae7383bbe2c1bf3716c50bdffd0f81456ac5c08997ecea166562412dbc9905"
-    sha256 cellar: :any,                 arm64_big_sur:  "3e891436d6c9bc418ecad989cc379f5c277591b9592f0f9b0246dea586f77bc1"
-    sha256 cellar: :any,                 sonoma:         "1ce9c687782c8ba039847d71a7aa3bccdb5f4ea95a62311145c901a96540f061"
-    sha256 cellar: :any,                 ventura:        "7d35d0b4c27ad0678118ce7773fee9345332fe37e11bbced91114a05f9aa925d"
-    sha256 cellar: :any,                 monterey:       "ffd52e3ccf757a8368532f32564a7f33874af52cddf49a3086925c9dc964c8fb"
-    sha256 cellar: :any,                 big_sur:        "d4a621dea543241bb9fbf00f7bb214ce9184e1f1ef50d319a9bd5261e70ca931"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "494ec3f0a79bedcccda61162763724eff9ef6cddfde6241a69d74d6c65a78ce3"
+    sha256 cellar: :any,                 arm64_sonoma:   "e8b52b9e6646458bcc6e01faad09a5c1a1ea7f21fc19db0b0d594c8645670d7a"
+    sha256 cellar: :any,                 arm64_ventura:  "c34b9b3bec932b5117ae23940472bedea37c04a1ed25fa7c4ab5dc69b7adc121"
+    sha256 cellar: :any,                 arm64_monterey: "f3749618b7e7fd77b3add6130f6e6c6da636557d59f572f50e217135ab9a4bf8"
+    sha256 cellar: :any,                 sonoma:         "c611e76dd56a9bad2e6d363204bd26c0f3bb44c1ccc9af2a4cf1c268e344a9f4"
+    sha256 cellar: :any,                 ventura:        "b5cc249c0c8598b51631a54077bf625a465e1ee5b41b319a75dcfcfa50330cf9"
+    sha256 cellar: :any,                 monterey:       "52e7fe15d152bf90d2e55e938958d48b2f870e91789396bd6e898c23c1c9df27"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9a77e55467dea8a362cb494e2628b897d2cdbcfc65a3230d1733161ef27dc580"
   end
 
   depends_on "meson" => :build

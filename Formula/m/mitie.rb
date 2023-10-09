@@ -8,20 +8,17 @@ class Mitie < Formula
   head "https://github.com/mit-nlp/MITIE.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "fffe5fc69a2693ddb34e9d4ea99aa622d0f28af96240326f7fff537056271b73"
-    sha256 cellar: :any,                 arm64_ventura:  "7f07defbed3d51ba5924ac8899ca02c37f1f91b596a96d6fdb61a6aa7e016f44"
-    sha256 cellar: :any,                 arm64_monterey: "8ffdc33a97a73185b528c95ba47ea4598164e5acc96260d32fab5b3eaae63676"
-    sha256 cellar: :any,                 arm64_big_sur:  "78981478637045457fa8b6ba9f22333d40485ce8e2055bbf1a1b9f87878d7780"
-    sha256 cellar: :any,                 sonoma:         "f605ed65c6d8adee5d03746281220a1a1b65e52360b40b17b50cf0313fa3690d"
-    sha256 cellar: :any,                 ventura:        "4e0aa20259afddb380bde9ef00978b17a61207042ec17062015939f69f4890b3"
-    sha256 cellar: :any,                 monterey:       "3d5d6c140f6efb9eb6dbbd0c92c8faaf47d239d58679c9256b71a35c4f8dfc1e"
-    sha256 cellar: :any,                 big_sur:        "b9df7253ad6fa374ddcbb0b03dd402b85dc09720191c308800d50c7a1bcafea2"
-    sha256 cellar: :any,                 catalina:       "26373657c4989ff1fe0eda638afe51372bf8aea82e5189d15c82454340a771cc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f17f2b6c0bb5f1733bbcda7225bbe7fe113b7818e5ef8ac900297a3f7708a194"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sonoma:   "206757071c813ec8b7464f15c897775fc3fa3c30520c2f28f4393139930cafa6"
+    sha256 cellar: :any,                 arm64_ventura:  "f12722f2d8be28dccf40dd9a6db1daaafe471274c94d1a1f042f4ee2b44cd2d0"
+    sha256 cellar: :any,                 arm64_monterey: "476290231b1f8e2bcef9c6100f7d0855dacfb9fb07d3701d440109ea42f91251"
+    sha256 cellar: :any,                 sonoma:         "3d4defc02f23e98c3c21ef64054f1584ca5dfa6ca169c9ec6da679996d9f75c1"
+    sha256 cellar: :any,                 ventura:        "85fc39c96b7fff74e52bacd3f586c2c8e7f57d619fdbc5ebfda3391ad196db1c"
+    sha256 cellar: :any,                 monterey:       "10455cf05c6209440d4bcd837f6f5b2e89f7ab74030171ae0ce27d60baaf14a1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "89bc3e10846c5aeef3669467f1aea054fb198772418f428c3dcfcdeb3d95d84a"
   end
 
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   resource "models-english" do
     url "https://downloads.sourceforge.net/project/mitie/binaries/MITIE-models-v0.2.tar.bz2"
@@ -38,7 +35,7 @@ class Mitie < Formula
     include.install Dir["mitielib/include/*"]
     lib.install "mitielib/#{shared_library("libmitie")}", "mitielib/libmitie.a"
 
-    (prefix/Language::Python.site_packages("python3.11")).install "mitielib/mitie.py"
+    (prefix/Language::Python.site_packages("python3.12")).install "mitielib/mitie.py"
     pkgshare.install "examples", "sample_text.txt",
                      "sample_text.reference-output",
                      "sample_text.reference-output-relations"

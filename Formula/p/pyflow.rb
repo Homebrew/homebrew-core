@@ -20,15 +20,15 @@ class Pyflow < Formula
   end
 
   depends_on "rust" => :build
-  depends_on "python@3.11" => :test
+  depends_on "python@3.12" => :test
 
   def install
     system "cargo", "install", *std_cargo_args
   end
 
   test do
-    ENV.prepend_path "PATH", Formula["python@3.11"].opt_libexec/"bin"
-    pipe_output("#{bin}/pyflow init", "#{Formula["python@3.11"].version}\n1")
+    ENV.prepend_path "PATH", Formula["python@3.12"].opt_libexec/"bin"
+    pipe_output("#{bin}/pyflow init", "#{Formula["python@3.12"].version}\n1")
 
     # upstream issue, https://github.com/David-OConnor/pyflow/issues/184
     # system bin/"pyflow", "install", "boto3"

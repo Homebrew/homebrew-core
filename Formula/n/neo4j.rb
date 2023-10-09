@@ -6,7 +6,7 @@ class Neo4j < Formula
   license "GPL-3.0-or-later"
 
   livecheck do
-    url "https://neo4j.com/download-center/"
+    url "https://neo4j.com/deployment-center/"
     regex(/href=.*?edition=community[^"' >]+release=v?(\d+(?:\.\d+)+)[&"' >]
           |href=.*?release=v?(\d+(?:\.\d+)+)[^"' >]+edition=community/ix)
   end

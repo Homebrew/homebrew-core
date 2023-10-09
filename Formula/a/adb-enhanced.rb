@@ -8,18 +8,17 @@ class AdbEnhanced < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "158b3b7eb95d97e93d694367cf4bf783670bccb075d36c580fbc1f9d4ab1ba6a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bdf2f9aad3d0e66174694171ad61979e05c4d9ede01f6fe763c8a3a57115a959"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3ead73d8a0fa21811a47787e6e4170e1fc91afffd62a3d987457c4e9d98231fb"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "329deefa3c598541c38baa46666890c962d679a21d0ecba377a50b4373f5b2c0"
-    sha256 cellar: :any_skip_relocation, sonoma:         "98a2dac68ba0a318b3a28efbc6a328b5d537e7421677fecdaa9de9503633c582"
-    sha256 cellar: :any_skip_relocation, ventura:        "58db3296ce92d5afe942d37f0422e5e67729ab4b55955d73f810d3c546b4b53b"
-    sha256 cellar: :any_skip_relocation, monterey:       "caae90d5ae7111c4354f43a33cc23643ef072e585fe7317100c4acdf73280b8a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e141e2e5e569d6672b882c2b43e74c8b430232fa0e6f75c8b33699cf42b671bb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "435f9ddd2f1852f03cc8c3358289f440a07e266748efb8c1913e6d9427c7d4e6"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2d22bc650c9d2bffe7d4b908d1a81e78e3426480f9bc1202a68fb5441eae9586"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5c5da01990bdc3719a2cdcdaba47f517d1866887adf2085c7f5d25aa2f0eee12"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1c220eaac79ddf634fa3260cd5f28a04ad91fe806c016c830b25d3bd99c73da0"
+    sha256 cellar: :any_skip_relocation, sonoma:         "9c9144b5b3ff56d0cf41820f7dca289d8ad9a3dd118c5e84435ed4469b0d778d"
+    sha256 cellar: :any_skip_relocation, ventura:        "87866c1be5807f3cdb8c230917f68c4d6956b88eb42663544d3809e1e3d51674"
+    sha256 cellar: :any_skip_relocation, monterey:       "3f9df1b6cac3096b9fc9e5f11bbb62baa1206d52777e4182ff5bdd4ba86c284f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "941de410df686f9a6621583202e012e5ce0f28de0fa4999192887acc67ab6ef1"
   end
 
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   resource "docopt" do
     url "https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz"
@@ -40,6 +39,6 @@ class AdbEnhanced < Formula
     # ADB is not intentionally supplied
     # There are multiple ways to install it and we don't want dictate
     # one particular way to the end user
-    assert_match "not found", shell_output("#{bin}/adbe devices", 1)
+    assert_match(/(not found)|(No attached Android device found)/, shell_output("#{bin}/adbe devices", 1))
   end
 end

@@ -12,9 +12,11 @@ class Ezstream < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "14f8fd11da1cc6663aeffd97153a5b843e5b0bc4442ca26dbb6b3eae975fe348"
     sha256 cellar: :any,                 arm64_ventura:  "2dd9d7371e6fd462547e28d93e82f1351059b847a50b46dbb1a309c628c99fa7"
     sha256 cellar: :any,                 arm64_monterey: "22efe55635691409ca6c53eda5be73a7667c8ca59f0076b46380b67e663f5283"
     sha256 cellar: :any,                 arm64_big_sur:  "188838a38d3573fc77ffd5684e0e7759b24d550ffdd895243425e13c29e038c2"
+    sha256 cellar: :any,                 sonoma:         "0fa4e1ba8a56f1ebec16abfc48be404bd85e4e1c7646c000398e121132f100d6"
     sha256 cellar: :any,                 ventura:        "ce167e9399770af979c88253224ef5e852192aef03ec4c5a64243612b91ec742"
     sha256 cellar: :any,                 monterey:       "07ec03e5e37aee0593f5d9121b9bc0ccb071df6c5ee520fc619991820ca90f31"
     sha256 cellar: :any,                 big_sur:        "fbfe1082559a1313ee3ff071ad35866fb20d5fb360fbfc634fbf85ac48c3e94d"

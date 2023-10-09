@@ -14,9 +14,11 @@ class Exa < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "d99ebf95ff1080b152f3ea15631987f6203cbffb9766f5585cf3ca5695626936"
     sha256 cellar: :any,                 arm64_ventura:  "1fbc96b6cc8e79125e95d083250528237b558c80e84b658f1936d933d64d1b50"
     sha256 cellar: :any,                 arm64_monterey: "eeeb2902af9bf5465d036b8fdab6288d5764d0d9b940e88de54bc196b39f699b"
     sha256 cellar: :any,                 arm64_big_sur:  "bc4619504bbc74c4372db9708b683821f81da86fa9a105d29120557ef5366bdb"
+    sha256 cellar: :any,                 sonoma:         "38b5085d73558d8a088a8052dc9b4a49ffa8b477ca250fdc8ec344042d2b9ae3"
     sha256 cellar: :any,                 ventura:        "d6737d9f4980f0e085314e3494ebc03ac433baf1fffd936faac33e0a2af7c5c6"
     sha256 cellar: :any,                 monterey:       "fe91256952b78220dfe0f26c7b73e81533d0d2c1bc9440383c4db39be0581cd9"
     sha256 cellar: :any,                 big_sur:        "0e311b4464335682e78e141bebf3d44b4428aa4a96c2b49c354b6d0cfbe4a24a"

@@ -1,8 +1,8 @@
 class Mbedtls < Formula
   desc "Cryptographic & SSL/TLS library"
   homepage "https://tls.mbed.org/"
-  url "https://github.com/Mbed-TLS/mbedtls/archive/mbedtls-3.4.1.tar.gz"
-  sha256 "7444c4752bd668f00741b16ec9e4f32fb707979278c9c64b4a905b209595f406"
+  url "https://github.com/Mbed-TLS/mbedtls/archive/mbedtls-3.5.0.tar.gz"
+  sha256 "02311fc8bd032d89ff9aee535dddb55458108dc0d4c5280638fc611aea7c5e4a"
   license "Apache-2.0"
   head "https://github.com/Mbed-TLS/mbedtls.git", branch: "development"
 
@@ -13,15 +13,13 @@ class Mbedtls < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "400b353f515a2958e0406e7fc1f6e8ddb9d53f652f9af7690551eadae150c4e4"
-    sha256 cellar: :any,                 arm64_ventura:  "ea1d7bb96f8bb6a874bd9260b715d0c16df55b00eb0910d05df032e621f7fe3e"
-    sha256 cellar: :any,                 arm64_monterey: "6934397c0eb3d676cd4a439fcd34a51f14579d8e3b5c0f5945926fa4df0114f7"
-    sha256 cellar: :any,                 arm64_big_sur:  "1ef2e42c5b259bc99dcf80e04c2d928c83f63d1a99d7f2e3be3fa375445d1a6f"
-    sha256 cellar: :any,                 sonoma:         "7680032f48dcbd54bfaa12e9735d7869c4851ed769d28b96a04705e00f07f3c9"
-    sha256 cellar: :any,                 ventura:        "f724554642e3b665c612796330aca4cf3632c2f2b894b083718e931234903fd7"
-    sha256 cellar: :any,                 monterey:       "dc870596911edb6e72b92e94e3e36bc37b371bbf24b5ab6ce2a9d1c00065bfeb"
-    sha256 cellar: :any,                 big_sur:        "202ea925efbc5f82140317f3f1150354dd00f5f67b9b7048118a3cbb307e36d6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "733441f2bebd85814e10a00d216f134ba3022bca5253a0f2435e546213b7e8a0"
+    sha256 cellar: :any,                 arm64_sonoma:   "506d0321ec8bd0756c69e801086992ae4b7ee47c875a4376e52c88351c2bedbf"
+    sha256 cellar: :any,                 arm64_ventura:  "1d2088183f2cf0d2768694984eca8c1d20fd0bedac8a4e845a85188a57569036"
+    sha256 cellar: :any,                 arm64_monterey: "b7de57848f580dabbb639a7f138cd1d8e37da997ba3fd9f3d92ac56c7da49816"
+    sha256 cellar: :any,                 sonoma:         "5bb4e0398a95122ed3f44ce9c6221d8556e5a854021031ce88933a00b791bbc9"
+    sha256 cellar: :any,                 ventura:        "4e64c87bd56645bf8b37c1c212063fe3ace97a4dab432a3318233df18b6aa7a2"
+    sha256 cellar: :any,                 monterey:       "f053675654e75fb7d2fb7ce76658d09110bda318904dfe244c9bcf006abd076c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "593e10196edb674ba4fc0fd7d9f0793f7a2143cde08cedcb3d327d0c37c824f1"
   end
 
   depends_on "cmake" => :build

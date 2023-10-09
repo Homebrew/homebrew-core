@@ -12,13 +12,14 @@ class GccAT12 < Formula
   end
 
   bottle do
-    sha256                               arm64_ventura:  "3cd7b4d3ca96aafd0bb1b40734ea7418c6e4917f4a218ce98c896dc92e631961"
-    sha256                               arm64_monterey: "9802dd72f1bb6f4bf4d8cb93b9f123301a442eb976cecf1a2f3d67734eb32499"
-    sha256                               arm64_big_sur:  "f7acf87eb58753c009b0dc7b596edda21d94ff18f2c2c466e073ac81e0d10e3e"
-    sha256                               ventura:        "666dd278818941b709f7cfe863e949e5586759d870e38e1ab1e74478fb7e29a7"
-    sha256                               monterey:       "5a21c9cdf8794592972379fff064a5db8616e2b8f7c229ed10ae33d3d5c14e09"
-    sha256                               big_sur:        "65398664f3617323aa0b75d786420070a823c1189dc8612172451461d227985d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f259d60c17bd8b896e8a6beaf6f86ebda297a4bf5dc413dc12c3f8b71d45b436"
+    rebuild 1
+    sha256                               arm64_sonoma:   "5484357fe4f2083bf035868e0449fede58fdf022b51d4da5e7fc601ab0c28f68"
+    sha256                               arm64_ventura:  "5b711c76aef4746ee930106d403c6144a1934d9258eed36f0944fd474be549ad"
+    sha256                               arm64_monterey: "d8559e6a8b872e445fa77a65919c3738b454ae446a1bf00853035bff6d10fbd3"
+    sha256                               sonoma:         "68da751c328ca66f52a2e748d589de6ffe71ad96fb94c0e8f91f1800131d8713"
+    sha256                               ventura:        "0682c6c199cc26d0f8271b9025aa6ccec38edb2d564506999a0056ce0c0027f8"
+    sha256                               monterey:       "b055d3a58443ec08cf96e951de9c98d112a58b5c5477bdb7460be3be6c9ab888"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3da0ff551e7b2fcb708b4ae708bb7911f8b93e6b56ff34c938c495b6e109506f"
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
@@ -84,6 +85,12 @@ class GccAT12 < Formula
       # System headers may not be in /usr/include
       sdk = MacOS.sdk_path_if_needed
       args << "--with-sysroot=#{sdk}" if sdk
+
+      # Work around a bug in Xcode 15's new linker (FB13038083)
+      if DevelopmentTools.clang_build_version >= 1500
+        toolchain_path = "/Library/Developer/CommandLineTools"
+        args << "--with-ld=#{toolchain_path}/usr/bin/ld-classic"
+      end
     else
       # Fix cc1: error while loading shared libraries: libisl.so.15
       args << "--with-boot-ldflags=-static-libstdc++ -static-libgcc #{ENV.ldflags}"

@@ -10,18 +10,17 @@ class Gitup < Formula
   head "https://github.com/earwig/git-repo-updater.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "19efdb1f33213ecaa191f972b6e43f10eea08a379846a69c79117e104a765f4e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9ba91fe9d81a5064ed91e422bdbd71aac5733d1c1cb5765d1295e7cbfa5174e1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7f8745a3dfae9f2686e24ba6e88625e55dbabfef7d67d4d75190642cd283821c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "76255fb75f9b0bce086ec61e860bef614b0df0e200d7c532c59f27e53b13470d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "22c4b0ad76caafee42a7e20140f7094dc94e3c3eb62c86c14bde2da2392fc3c7"
-    sha256 cellar: :any_skip_relocation, ventura:        "a94517352ad8f0db0804bbad73fa2013cd983ba71880a9ce7d92e147378b98bb"
-    sha256 cellar: :any_skip_relocation, monterey:       "df7444b3554c68fa33f43d3e69f2d18a19c019e8134539abafda58b4623475bc"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d092919bfb6c1d6d9b955f13a5f416f405abf4f14358bbc7667c9c6db948d6e5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "09343b5e64c30ad9a9de434c49f829c5514899379f0ce605bd3d120554120b8e"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2a54874be4a409135ef674049c1e1dc0468f32711d7403a02e841958099c9878"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "62ace1e6f66ce0b37c6a51a09f4f1bb7c41ab2bc8f7c3c919f4958629d4ee2b0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9ee18870ca6a86895714b772aa5b426887674b2564cc1c8fe55f4dcf74a1fd13"
+    sha256 cellar: :any_skip_relocation, sonoma:         "edc46f4f01e9a366c19314914cf87a58302887e05f4e0cf28e8440ca1332fa78"
+    sha256 cellar: :any_skip_relocation, ventura:        "b6c0456aa1b3f347ce821d444df231170f79ab20f9317d46129c56015ec10de2"
+    sha256 cellar: :any_skip_relocation, monterey:       "325382de21c0a7b81f7dd1d4554430447cb9f22a5353b102060069988e643774"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0899c52265e70fa96ac3e497b1113632b9d6e825e58d8d7e7ed9609fffc75b43"
   end
 
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   resource "colorama" do
     url "https://files.pythonhosted.org/packages/d8/53/6f443c9a4a8358a93a6792e2acffb9d9d5cb0a5cfd8802644b7b1c9a02e4/colorama-0.4.6.tar.gz"
@@ -34,13 +33,13 @@ class Gitup < Formula
   end
 
   resource "gitpython" do
-    url "https://files.pythonhosted.org/packages/95/4e/8b8aac116a00f0681117ed3c3f3fc7c93fcf85eaad53e5e6dea86f7b8d82/GitPython-3.1.35.tar.gz"
-    sha256 "9cbefbd1789a5fe9bcf621bb34d3f441f3a90c8461d377f84eda73e721d9b06b"
+    url "https://files.pythonhosted.org/packages/c6/33/5e633d3a8b3dbec3696415960ed30f6718ed04ef423ce0fbc6512a92fa9a/GitPython-3.1.37.tar.gz"
+    sha256 "f9b9ddc0761c125d5780eab2d64be4873fc6817c2899cbcb34b02344bdc7bc54"
   end
 
   resource "smmap" do
-    url "https://files.pythonhosted.org/packages/21/2d/39c6c57032f786f1965022563eec60623bb3e1409ade6ad834ff703724f3/smmap-5.0.0.tar.gz"
-    sha256 "c840e62059cd3be204b0c9c9f74be2c09d5648eddd4580d9314c3ecde0b30936"
+    url "https://files.pythonhosted.org/packages/88/04/b5bf6d21dc4041000ccba7eb17dd3055feb237e7ffc2c20d3fae3af62baa/smmap-5.0.1.tar.gz"
+    sha256 "dceeb6c0028fdb6734471eb07c0cd2aae706ccaecab45965ee83f11c8d3b1f62"
   end
 
   def install

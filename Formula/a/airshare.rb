@@ -6,19 +6,16 @@ class Airshare < Formula
   url "https://files.pythonhosted.org/packages/cb/a2/d59c18cd6a143bf860c29acb70552b7351fd7e0f56213be86b624601106b/Airshare-0.1.6.tar.gz"
   sha256 "138976933bcf2c0bc99f18901242544919e9fafe43735b4f83b19d4ae5964be7"
   license "MIT"
-  revision 5
+  revision 6
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "df0a1f39773a579215a0b24ecfc2f9022297b9891d19c6edc3f63cfc8a34b873"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7a9a130791fb443748b1ddb77699fa5b5c4d4514e2f31040b9ceba9b6ad4fa6c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "69d44cf957d0bcb09d193ad58f0ed381a4e21f33e7f8140e1cf7554757bc959b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ffab85f4dca16b0f05122aec2a0a0283174c11e32ec0790025dc33d25d698977"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0acaa53570767a5478adfaa94268b9dc67b2fbffc5ec11a079d514cfa7e90dd9"
-    sha256 cellar: :any_skip_relocation, ventura:        "1f2795d3b49997c543e62f11dfb13fda9adf10ae1a500a50922d8a3413330746"
-    sha256 cellar: :any_skip_relocation, monterey:       "2ae5ac72bf409f1ba28af41a16ac16688e74faa693e7eb00325f169f93e4201f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7caceb243e7861e583701b2bc25f1ba3d0365f15c86a5a8ce33257dac9803e7c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "22a1b55fc178599d72aa93c6f0c28b1401c9a74feea6d9f9ad40d5cf34b6fd2e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "38e2ec90254837c42e8f46e3b3b3de65c866ead4b37bfff03c21c11ff2c026e2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "de799cc701cf125f9fd25ad976b44ddc69b39d2b2f66aff033cc1cda8b928954"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "93f2044dc07b104160d7e39fa583ccbd3f72f36a9426718ee5d611eb74524bff"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e63a0d0a07bc8f499f8d2498064ebbdf7e6ef0a04c8f2536cca0bfc4852d005a"
+    sha256 cellar: :any_skip_relocation, ventura:        "2906fe5562446038ea13eee7168130f3ddfd03a217383ad8d0ee2cdc3c69c9b9"
+    sha256 cellar: :any_skip_relocation, monterey:       "1df3b3889e9be0842a04702a6aadf60d2f37f264d283e7bbfcf9cf3aa2be703e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8f62c8b27c9a842f6d65d55b2df1cfaa36068cb56960e5f5df0a2f53ebbe12cf"
   end
 
   depends_on "python-certifi"
@@ -35,8 +32,8 @@ class Airshare < Formula
   end
 
   resource "async-timeout" do
-    url "https://files.pythonhosted.org/packages/54/6e/9678f7b2993537452710ffb1750c62d2c26df438aa621ad5fa9d1507a43a/async-timeout-4.0.2.tar.gz"
-    sha256 "2163e1640ddb52b7a8c80d0a67a08587e5d245cc9c553a74a847056bc2976b15"
+    url "https://files.pythonhosted.org/packages/87/d6/21b30a550dafea84b1b8eee21b5e23fa16d010ae006011221f33dcd8d7f8/async-timeout-4.0.3.tar.gz"
+    sha256 "4640d96be84d82d02ed59ea2b7105a0f7b33abe8703703cd0ab0bf87c427522f"
   end
 
   resource "asyncio" do
@@ -50,13 +47,13 @@ class Airshare < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/2a/53/cf0a48de1bdcf6ff6e1c9a023f5f523dfe303e4024f216feac64b6eb7f67/charset-normalizer-3.2.0.tar.gz"
-    sha256 "3bb3d25a8e6c0aedd251753a79ae98a093c7e7b471faa3aa9a93a81431987ace"
+    url "https://files.pythonhosted.org/packages/cf/ac/e89b2f2f75f51e9859979b56d2ec162f7f893221975d244d8d5277aa9489/charset-normalizer-3.3.0.tar.gz"
+    sha256 "63563193aec44bce707e0c5ca64ff69fa72ed7cf34ce6e11d5127555756fd2f6"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/72/bd/fedc277e7351917b6c4e0ac751853a97af261278a4c7808babafa8ef2120/click-8.1.6.tar.gz"
-    sha256 "48ee849951919527a045bfe3bf7baa8a959c423134e1a5b98c05c20ba75a1cbd"
+    url "https://files.pythonhosted.org/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz"
+    sha256 "ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de"
   end
 
   resource "colorama" do
@@ -70,8 +67,8 @@ class Airshare < Formula
   end
 
   resource "humanize" do
-    url "https://files.pythonhosted.org/packages/69/86/34d04afc5c33a31f4e9939f857e28fc9d039440f29b99a34f2190f0ab0ac/humanize-4.7.0.tar.gz"
-    sha256 "7ca0e43e870981fa684acb5b062deb307218193bca1a01f2b2676479df849b3a"
+    url "https://files.pythonhosted.org/packages/0c/84/e58c665f4ebb03d2fbeb28b51afb0743f846db18a5b594ed8b8973676ddf/humanize-4.8.0.tar.gz"
+    sha256 "9783373bf1eec713a770ecaa7c2d7a7902c98398009dfa3d8a2df91eec9311e8"
   end
 
   resource "idna" do
@@ -110,13 +107,13 @@ class Airshare < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/3d/78/81191f56abb7d3d56963337dbdff6aa4f55805c8afd8bad64b0a34199e9b/tqdm-4.65.0.tar.gz"
-    sha256 "1871fb68a86b8fb3b59ca4cdd3dcccbc7e6d613eeed31f4c332531977b89beb5"
+    url "https://files.pythonhosted.org/packages/62/06/d5604a70d160f6a6ca5fd2ba25597c24abd5c5ca5f437263d177ac242308/tqdm-4.66.1.tar.gz"
+    sha256 "d88e651f9db8d8551a62556d3cff9e3034274ca5d66e93197cf2490e2dcb69c7"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/31/ab/46bec149bbd71a4467a3063ac22f4486ecd2ceb70ae8c70d5d8e4c2a7946/urllib3-2.0.4.tar.gz"
-    sha256 "8d22f86aae8ef5e410d4f539fde9ce6b2113a001bb4d189e0aed70642d602b11"
+    url "https://files.pythonhosted.org/packages/8b/00/db794bb94bf09cadb4ecd031c4295dd4e3536db4da958e20331d95f1edb7/urllib3-2.0.6.tar.gz"
+    sha256 "b19e1a85d206b56d7df1d5e683df4a7725252a964e3993648dd0fb5a1c157564"
   end
 
   resource "yarl" do
@@ -125,8 +122,8 @@ class Airshare < Formula
   end
 
   resource "zeroconf" do
-    url "https://files.pythonhosted.org/packages/93/0c/e92bd4dde67aaa44e2c5180776978803f1c2cf20ba81707c38c9f0e63147/zeroconf-0.71.4.tar.gz"
-    sha256 "b988425f6bd0d4f11f05fa258a6c49d9f9956777e9af00ca98c4ed3f743bd677"
+    url "https://files.pythonhosted.org/packages/d2/51/77c4bc6b117ba338091f0427a89a83dd9c0c155d941a3c92340809ab6a4f/zeroconf-0.115.1.tar.gz"
+    sha256 "401d737689565401ad0f36952eeabbbcd43e00498287b716e1bb6a50c2394238"
   end
 
   def install

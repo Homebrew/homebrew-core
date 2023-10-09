@@ -1,10 +1,9 @@
 class Lighttpd < Formula
   desc "Small memory footprint, flexible web-server"
   homepage "https://www.lighttpd.net/"
-  url "https://download.lighttpd.net/lighttpd/releases-1.4.x/lighttpd-1.4.71.tar.xz"
-  sha256 "b8b6915da20396fdc354df3324d5e440169b2e5ea7859e3a775213841325afac"
+  url "https://download.lighttpd.net/lighttpd/releases-1.4.x/lighttpd-1.4.72.tar.xz"
+  sha256 "f7cade4d69b754a0748c01463c33cd8b456ca9cc03bb09e85a71bcbcd54e55ec"
   license "BSD-3-Clause"
-  revision 1
 
   livecheck do
     url :homepage
@@ -12,15 +11,13 @@ class Lighttpd < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "c1f96eb87fd5709ed44b28e4cee6709978981992b5e472a1ee497cf30c5817a8"
-    sha256 arm64_ventura:  "5d75c80e3c1b918421036f68cd3c30a1f38d677e4bbd13241de2182af220a08b"
-    sha256 arm64_monterey: "7b0ef833b3bf03ec7d1e79e39d18eda73a5436f332d8c556ef6b32f617fadaaa"
-    sha256 arm64_big_sur:  "63aab8d14f51c8748615f36035c64388f514e4e6737f9ef84ad02683967ce5c2"
-    sha256 sonoma:         "87fbf4393f6844dde28ad5e9ab9a3889d1e1fa52c490e6b9559a610638f5e045"
-    sha256 ventura:        "dcbc9e0efa4707442a6e9a0f867aaf41b38308e316574af6199a9834899e5570"
-    sha256 monterey:       "9f6d257aab5a322ff70f296acae96dfda370e509562edf0e878080472a304150"
-    sha256 big_sur:        "ec55560b7a38ee01f6481092f429da93189c080a2a66249354a37577e25ea1ab"
-    sha256 x86_64_linux:   "4c8f0c18617cb50aca3caa112390ee1b6971cfe60fcd5e0a7f24ad66f0ce9a3b"
+    sha256 arm64_sonoma:   "36dd8f56a599dad9c6dfe3c1034fb58f0356e61866d6201a6410df1b4832e512"
+    sha256 arm64_ventura:  "48874cc605911b3b9aefc9d0ceff622972641fc0af3482041ca40f3b563a0e6a"
+    sha256 arm64_monterey: "894260a4b658cab53d0197944169dc7efe295cc79a2a3bb200122d2b8767f18b"
+    sha256 sonoma:         "a85c1239d70506cdf7991195187b41c9f3573eb84c4719c7e35573ccd1d506bb"
+    sha256 ventura:        "af23c4efba2b9f4a86d356949434ab57805b5333d2c34aeb022accbeb1b5d2cf"
+    sha256 monterey:       "bf4b6107f691e193fac8fd7ca4593206b540e7364136ba360fdf3961befcedea"
+    sha256 x86_64_linux:   "a4a990801a919d6517c1e962760058e60e34c0cfe5b7c5a9f60f6cc608791b0c"
   end
 
   depends_on "autoconf" => :build

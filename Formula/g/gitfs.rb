@@ -15,7 +15,7 @@ class Gitfs < Formula
 
   # Last release on 2019-10-20 and upstream has locked pygit2==0.28.2, which we
   # have been ignoring and manually updating to support recent `libgit2` versions.
-  deprecate! date: "2023-01-03", because: :unmaintained
+  disable! date: "2023-10-06", because: :unmaintained
 
   depends_on "pkg-config" => :build
   depends_on "libffi"

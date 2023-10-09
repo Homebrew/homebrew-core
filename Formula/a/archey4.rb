@@ -8,18 +8,17 @@ class Archey4 < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ed786f8e10c14f37d9fa226274c4d90182c99d5eee5136cf7ff255c23d6d84e3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3bd260d2639f15b056c03fc39374c84f7206fcbc8538503fa7f16e6506651397"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8d91094554972143c4283b1ad730014b99aa9ef07cf240acfafc9f173d145086"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "480320e29c124aaf0b87287da851d1013c40fcf4ab1ef4ba9f6f6b73f6fe6987"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0126b69ef1bbb1d23f0d6a319e710d717f33311f7856efb3968383a8f550ec0c"
-    sha256 cellar: :any_skip_relocation, ventura:        "4efa81c41fe2e6a772bdff68fe59d602ef6686887eb1d431b690e02ad4b5e6a3"
-    sha256 cellar: :any_skip_relocation, monterey:       "798fa44e961cade8a03c230662ba060262a350f9943cba42add46603d695959d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1fde54a24db8385feafad7791a11b6047e1b6b658526ed9e6edb01aaffd10490"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "41647f3b70ab43873f22623333be083aeb62e447e2d0b6d885dc13b1e013c1c1"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d2fda1d85c43e769d8e76074a379251c2ce852f3c80c40995250018fb09b083a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7e8069e7847887ccc012472a2195ccd2b5f013da79a728981af9393439cff3b1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b945fa5bd63c3ade3a8f75aafe4a7a10710299b19c142167da603e24a6c87fea"
+    sha256 cellar: :any_skip_relocation, sonoma:         "dee1c6ed8e230f1b32bd7e4c0a81519a109653a0f9fd0a0121f13fda2c5e1dbc"
+    sha256 cellar: :any_skip_relocation, ventura:        "ed18454fece28e67caefb5188fe0ac2924d9a75f2aed23eae00900fed694f4d9"
+    sha256 cellar: :any_skip_relocation, monterey:       "19e4e3528875765e5d7df6d5f24fa12c1df66baac1a9dd015caeea756e7e08ce"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "43b65d6505774745b695b3797f978e68822395316aa0d053ac5157aee461cff7"
   end
 
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   resource "distro" do
     url "https://files.pythonhosted.org/packages/4b/89/eaa3a3587ebf8bed93e45aa79be8c2af77d50790d15b53f6dfc85b57f398/distro-1.8.0.tar.gz"

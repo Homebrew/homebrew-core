@@ -6,19 +6,16 @@ class OscCli < Formula
   url "https://files.pythonhosted.org/packages/02/cd/f1b796f5e7a301f6a3c0b910be07188cbfd329d2758e036d24ef26b4ee96/osc-sdk-1.11.0.tar.gz"
   sha256 "d3b71b326b0698da1b9a503cd511a992fe578375fd01b30bdec0d63d8328af66"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ac85baf88612393794f22442898c792c6b710bc7df04022e43f11ede9dd2850b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "78267ea2c905d0d85c4bcf95779374dc196d81e42ee761766496a754860f8917"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7019905459fa8dd2a3b14c750fc3a806afc55bf506302ed5b557bc8c013f66cf"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ffb4b4d34054fff08f72568ef8e2b024c85ef744973988efa971efcd7b150b4a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "21bbfea1481564c11e14e0d8992999936f922042af95d18fcedd5956815f7424"
-    sha256 cellar: :any_skip_relocation, ventura:        "1d90a84dd719d69fb4bba9a4ae69ee413d4d09af26ee2f885c27df5d42df6a39"
-    sha256 cellar: :any_skip_relocation, monterey:       "07515ab538ba8711fa988610638fbde42e021fc372a14745e49fb88e74fdcb95"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7c0f23e5dfd6ab5b536b8ed18dd19f8e23b67d099211e0213ad2445788d749e9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fdef409fa184913748d8565244df52202e432ec1340f49088bc07f727873b8ca"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "487b7bbdd78a36851b3f9bade084c8f0e57a5fc02c4dbf87ad7dcc2891c4049e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a847ce51bf8513ffee6844999621ed0dd708e71f56eeed261949632ac3463a0d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5230e5998933a13a335385646419889f71d6e23e91b1efdaf4ee5528a33b1988"
+    sha256 cellar: :any_skip_relocation, sonoma:         "fe4751f247ff25c7c57560edf90e2ad978c9f2730232ae4cbf3ff7d70e32560a"
+    sha256 cellar: :any_skip_relocation, ventura:        "98d9d6f608373ce29111cc88ef78df45652c65f2a6a569a83dc7e05c5a9a95e5"
+    sha256 cellar: :any_skip_relocation, monterey:       "a29726adce6a78a4f1b0f69380f620b21aadebed1ff525c2170b6247c74d84fa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5ce75236fec9fdab583b5990c0e4d6e1f583592f4a4395370f22670edd454aa7"
   end
 
   depends_on "python-certifi"
@@ -27,8 +24,8 @@ class OscCli < Formula
   depends_on "six"
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/2a/53/cf0a48de1bdcf6ff6e1c9a023f5f523dfe303e4024f216feac64b6eb7f67/charset-normalizer-3.2.0.tar.gz"
-    sha256 "3bb3d25a8e6c0aedd251753a79ae98a093c7e7b471faa3aa9a93a81431987ace"
+    url "https://files.pythonhosted.org/packages/cf/ac/e89b2f2f75f51e9859979b56d2ec162f7f893221975d244d8d5277aa9489/charset-normalizer-3.3.0.tar.gz"
+    sha256 "63563193aec44bce707e0c5ca64ff69fa72ed7cf34ce6e11d5127555756fd2f6"
   end
 
   resource "defusedxml" do
@@ -57,8 +54,8 @@ class OscCli < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/31/ab/46bec149bbd71a4467a3063ac22f4486ecd2ceb70ae8c70d5d8e4c2a7946/urllib3-2.0.4.tar.gz"
-    sha256 "8d22f86aae8ef5e410d4f539fde9ce6b2113a001bb4d189e0aed70642d602b11"
+    url "https://files.pythonhosted.org/packages/8b/00/db794bb94bf09cadb4ecd031c4295dd4e3536db4da958e20331d95f1edb7/urllib3-2.0.6.tar.gz"
+    sha256 "b19e1a85d206b56d7df1d5e683df4a7725252a964e3993648dd0fb5a1c157564"
   end
 
   resource "xmltodict" do

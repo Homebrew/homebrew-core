@@ -8,6 +8,7 @@ class Ucg < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 sonoma:       "1cfae5edabc50ba8598a2212217b22f8d7b1d81c118f86e52ce94b1b889a98a4"
     sha256 cellar: :any,                 ventura:      "afbb657bc288953de91236ba95f3c609ba4e411e8602f0efda43770422436c43"
     sha256 cellar: :any,                 monterey:     "3ffc7fcd491433d72238d232acc46f48e08e1c85b40a147f67dabb7de8ec830d"
     sha256 cellar: :any,                 big_sur:      "ea472cd9d4ecff1791a8df22e8207387957cad4af9b367698887772b98f434ff"

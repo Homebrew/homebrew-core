@@ -26,6 +26,9 @@ class Packer < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "dd24e327731cd263982ff7b0b47e6c9d4ac253c7b3da82ad79d15f182abed659"
   end
 
+  # https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license
+  deprecate! date: "2023-09-27", because: "will change its license to BUSL on the next release"
+
   depends_on "go" => :build
 
   def install
@@ -35,6 +38,16 @@ class Packer < Formula
     bin.env_script_all_files libexec/"bin", PACKER_PLUGIN_PATH: "$PACKER_PLUGIN_PATH:#{HOMEBREW_PREFIX/"bin"}"
 
     zsh_completion.install "contrib/zsh-completion/_packer"
+  end
+
+  def caveats
+    <<~EOS
+      We will not accept any new packer releases in homebrew/core (with the BUSL license).
+      The next release will change to a non-open-source license:
+      https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license
+      See our documentation for acceptable licences:
+        https://docs.brew.sh/License-Guidelines
+    EOS
   end
 
   test do

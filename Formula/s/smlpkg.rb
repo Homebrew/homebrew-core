@@ -8,6 +8,7 @@ class Smlpkg < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, sonoma:       "e32a3bb66ffda047e591f59df909bc287720f6ee371ccb4d0e4b0871977c8947"
     sha256 cellar: :any_skip_relocation, ventura:      "a353c05fc5d0d1abe548aae6a333d6afd9831478324b483a2acfa078ad4b4a39"
     sha256 cellar: :any_skip_relocation, monterey:     "59f20ca9b49cf17bcb6931a23477ae7e62ab547520509a66c1a6385713f925b8"
     sha256 cellar: :any_skip_relocation, big_sur:      "dedbec064bc7c579cac83e901849fddf01fd75ff93fb61f547fea21f166995ea"

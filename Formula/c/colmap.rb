@@ -6,9 +6,11 @@ class Colmap < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "3a0d7e341c1a9600b8caba970bee951d8b6d671fe9a263865eb589cb7d186aff"
     sha256 cellar: :any,                 arm64_ventura:  "68ef3a962421476e89e4e5c3a875b3701e5b88794222ba3e007334c3ccdfaf0b"
     sha256 cellar: :any,                 arm64_monterey: "7b53abdfe0eb5d6aa838fccf06ebe1df3879bec37bd9447675bc2ccde80dfdfc"
     sha256 cellar: :any,                 arm64_big_sur:  "50943e75c8594f7a28e39f5cc849e38a8a88df0fa214198a30f59a1ca9cd8c14"
+    sha256 cellar: :any,                 sonoma:         "cf61dbc802d106d7f035eb6c5234940c7d28d3325615d0714583cf678c5546ae"
     sha256 cellar: :any,                 ventura:        "ab90a4cdc6c2de4bb1f90d962cd1a6740179bd0ee1d6d8df7d8afd53aa5b22ee"
     sha256 cellar: :any,                 monterey:       "799c8ca6554197413d7c16ce3d459017f6488ff33240e6f08c2a5fb178d804ec"
     sha256 cellar: :any,                 big_sur:        "1c168baf35d8e55e8b77d2230ebf220dfc4222a649e3ba023adfb44db172cfbe"

@@ -9,9 +9,11 @@ class Ffmpeg2theora < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "acb9eb44e83a705f4a74fc42e40743be0373fa74d473756cf9168740695cad45"
     sha256 cellar: :any,                 arm64_ventura:  "ed8a59898f63352760fda9707681ac0f4ef597ffbb5ec145a01649845d5e28b7"
     sha256 cellar: :any,                 arm64_monterey: "4e5863d4eeb81f57e4a2517beba074e4a9bb560ad14965e5e2b3a1f9f71048e9"
     sha256 cellar: :any,                 arm64_big_sur:  "cf6ce000803f27ce6e818c8636f1252407ed32cd5ca0e5767a156db20414a07d"
+    sha256 cellar: :any,                 sonoma:         "813f19f3526cdd3e19858fe21673a99cbe44c5a1da02e070b92a7f3b1e62fd42"
     sha256 cellar: :any,                 ventura:        "1093fbdcd773268b0b558c9d8a2e2d5e269aa2cb701c1f9f7402df0fb974492f"
     sha256 cellar: :any,                 monterey:       "1151e536437a26d846bd7abd608dd60ee80f81bcbbeca84afd1d6739c5d1373c"
     sha256 cellar: :any,                 big_sur:        "6ae499a21d16ad1de2cc39c39180bd6fe0c96864227147480c1bec7c218201f9"

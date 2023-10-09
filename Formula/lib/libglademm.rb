@@ -20,7 +20,7 @@ class Libglademm < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c8f4617457fab3adb4da5975e67aa9809d3e83882ca899a60139f316129f4757"
   end
 
-  deprecate! date: "2022-09-18", because: :unmaintained
+  disable! date: "2023-10-03", because: :unmaintained
 
   depends_on "pkg-config" => [:build, :test]
   depends_on "gtkmm"

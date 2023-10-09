@@ -1,22 +1,19 @@
 class Neomutt < Formula
   desc "E-mail reader with support for Notmuch, NNTP and much more"
   homepage "https://neomutt.org/"
-  url "https://github.com/neomutt/neomutt/archive/20230517.tar.gz"
-  sha256 "4ac277b40e7ed5d67ba516338e2b26cc6810aa37564f6e9a2d45eb15b3a9213e"
+  url "https://github.com/neomutt/neomutt/archive/20231006.tar.gz"
+  sha256 "94b9d5d8f927f8ceb4661549f5a490dc057af2e7f11de41e68dbc227dbf8a015"
   license "GPL-2.0-or-later"
-  revision 1
   head "https://github.com/neomutt/neomutt.git", branch: "main"
 
   bottle do
-    sha256 arm64_sonoma:   "88d514d4ed9e4a120df0a5e157beed30121678b9982a144994e573c9164234f3"
-    sha256 arm64_ventura:  "a377ee2883c36d7b44da59c63168771c17ced1cb642106b7fd465327ab78cbd3"
-    sha256 arm64_monterey: "3275eab7b93a7672015d3baf4809f273dbb5a366a5ef057b72244bb1592018bf"
-    sha256 arm64_big_sur:  "d960fc10feef5540fb53cc003f53e113594e9e84442f46690fa9be836ba538ce"
-    sha256 sonoma:         "ac96a64263209c3aec3fb766d782da85dea2428550ea0ada0072b54b3b38e92b"
-    sha256 ventura:        "c83efe9f4d5fb7eb1aba7e048d2b86422397e763dc5efab346d8c8f101b0bcd5"
-    sha256 monterey:       "c60758b014d4c42ab104e38fe144cd89f8cc15f59a570910a6db421476bd95e1"
-    sha256 big_sur:        "75d34c5cd9dc3a862a5d04d5c468b2fa54745419b5e2a96481c0a8e32184525c"
-    sha256 x86_64_linux:   "b26f38a24ba54b0c6cdf07d2e69346d263dddf6dec827c7e4541da2c37da5167"
+    sha256 arm64_sonoma:   "7c781c2fcb941d4d5425244182add29e212c881104ca1e8622f9933c78b41a84"
+    sha256 arm64_ventura:  "6a7e5472791837bf9a7bdcb406f8bb02c0e555a073d0dd113d92fb4dfa47961b"
+    sha256 arm64_monterey: "4fac0e85a672721d2ab950c857d8e42a417f531deed69db3880e519bd880dcfd"
+    sha256 sonoma:         "5f221a5193c3f9a58c0ca14c92dd0ae02035454e1e54ee06ce64e13a65db477c"
+    sha256 ventura:        "2ff33a95a9c89b22c062a6161703af09bd3cbb1693e1f34e2942a1caa18de0ba"
+    sha256 monterey:       "a90eac6a947398c0fb07e8f587e64a81caa8296a954042f007f28280a84d3c35"
+    sha256 x86_64_linux:   "0d878a87aea48aab7b4a3e44fa5d4c5bfbfbe135b00a5322f00caa8230626c14"
   end
 
   depends_on "docbook-xsl" => :build

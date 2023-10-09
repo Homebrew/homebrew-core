@@ -2,8 +2,8 @@ class FaasCli < Formula
   desc "CLI for templating and/or deploying FaaS functions"
   homepage "https://www.openfaas.com/"
   url "https://github.com/openfaas/faas-cli.git",
-      tag:      "0.16.14",
-      revision: "d12888b56367056c23ae14082428bd53ba3dfcb0"
+      tag:      "0.16.16",
+      revision: "7934de92b73aa169b163e3281d8bdc89e22ada51"
   license "MIT"
   head "https://github.com/openfaas/faas-cli.git", branch: "master"
 
@@ -13,15 +13,13 @@ class FaasCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e10353fca6543db2cdd17cda7ae58418c6fd610574710f864f34070ae49cc40b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4fc5873a722e8b2749ba49240dbdd43209b5c2e5e7624fb3e982d1e4e2ca127c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "804414eec9129f5a52fda9a14186507c608632bf3b31a701227678c316cb2a73"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4022aa0c49bc51938673247c697ab69f6e47ced2bff42a4af29f3d1771fe3868"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c8105910124c147142f9c5c9377998ff972aeec8c813a95bfa3ef42f0eda55cd"
-    sha256 cellar: :any_skip_relocation, ventura:        "187ede3e425b4221f31331231034f9d4a325e1f1aad74f41b287e09dd179395b"
-    sha256 cellar: :any_skip_relocation, monterey:       "bf71ba2460bfb84d84c06d47f51a0fa417a3334e2300effed0d3f11ce972ca0b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "bda8cda35059d4d1c03ffc64c6d9620d04cdf8a79542ee80d1b646964aaf5e01"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "95534c90d0be8ef093d9f93a1e395e6ffb96a67d1552aa92dc2b681c47ab0eb8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "963c25f36b9050f168d85e93f267989503b5ed621e6e26712ec534cc0e35892f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0b7bfa1b8ac1cc427c4d18a48c476ef3f446ede72b89a6437fae23b6d323be40"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2d7c9e76f3ee188fb7ee7a08e0181da7ddb28564d11d5c1e8ebcc850fe887938"
+    sha256 cellar: :any_skip_relocation, sonoma:         "2b2a535d923994dac1000581380d155e4c3fbab80cf4d8a654350fb35cdda1c7"
+    sha256 cellar: :any_skip_relocation, ventura:        "6a0d4443c2b2275a5eaca380106934e8e9e2d2d24189e6a0e0d258cd65ff9bc5"
+    sha256 cellar: :any_skip_relocation, monterey:       "50a9b1640ed8b60b95765dc575be67c4e506b86e48df371fafd68964eb0188fc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c37553910d534dc822caeb9744340a8223b10dde24de3e1346be0d4b68bbdb75"
   end
 
   depends_on "go" => :build

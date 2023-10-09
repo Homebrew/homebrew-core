@@ -1,24 +1,24 @@
 class VulkanUtilityLibraries < Formula
   desc "Utility Libraries for Vulkan"
   homepage "https://github.com/KhronosGroup/Vulkan-Utility-Libraries"
-  url "https://github.com/KhronosGroup/Vulkan-Utility-Libraries/archive/refs/tags/v1.3.266.tar.gz"
-  sha256 "f4c3906b3fc64de328484cca6580dd12f384a60f1f62111eda5ac4de7a6cba4a"
+  url "https://github.com/KhronosGroup/Vulkan-Utility-Libraries/archive/refs/tags/v1.3.267.tar.gz"
+  sha256 "06ab448cfbccc4b99d7c8eb74543cb36a6e36cc0eca9c511de9a3e27b1a03578"
   license "Apache-2.0"
   head "https://github.com/KhronosGroup/Vulkan-Utility-Libraries.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "62baf340e5ab7d6d8497215909f69f7bc1c7cb4fa80eecb74f11e54a024ee3a6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dad34f2be3ee8b2ac2d20ff6d1ba49fb799195ef2d4b4c9f7c002968e7f82fc4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e2d64c15f2e3fcbc07ce2de3f42533d1e79c4c395a834223bb8e62d9a346765b"
-    sha256 cellar: :any_skip_relocation, sonoma:         "04d2f392bf1ed0515364a6f388e96a96089b0cc790fd60a32a131dea7d0cafd4"
-    sha256 cellar: :any_skip_relocation, ventura:        "c47335d85eca869b3e0b467ee594aeaf354e679c5d9335c2408c8146868a7753"
-    sha256 cellar: :any_skip_relocation, monterey:       "6b0243796e60c1fe7366d943fc4e93521226fb752e21daf209924aab4ef2a20a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b425ff6b5e32b1f151eae3b9109fcddcb2bde57a25c6b735e7741c80dd2d1f38"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f530b5807ee71641e9b8abebff6232197b06b48ddde171f759da085188dae482"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "99f648abe0bf4fd0b082450901a5e7df4cfd4822788cc239ae3a3768cfeca2f0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6a98c8c4defc9c6d7426ccc71d13a03a8dafbf626266faafebfedda27618ebe4"
+    sha256 cellar: :any_skip_relocation, sonoma:         "2ac34b0dfd6b9faf758fd763a43763330b87ad8b3deafcbb13a64b9088e4a35a"
+    sha256 cellar: :any_skip_relocation, ventura:        "4bc8c18c787f0aeb4a64e675f63886d16bc0b6fc28c5dc2ad7d673cc1e725533"
+    sha256 cellar: :any_skip_relocation, monterey:       "1fd38523b47def886e27a0668aba3ec65b41d96d7a16ee08f05b213a5e8f4446"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dca413bdc1cd4ed727f33ae9d83b6cdf116e393d7f68e26ba7370795567cfcd8"
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.11" => :build
+  depends_on "python@3.12" => :build
   depends_on "vulkan-headers"
 
   def install

@@ -1,21 +1,19 @@
 class Temporal < Formula
   desc "Command-line interface for running and interacting with Temporal Server and UI"
   homepage "https://temporal.io/"
-  url "https://github.com/temporalio/cli/archive/refs/tags/v0.10.5.tar.gz"
-  sha256 "41ddfad62861eaa8414cda2807bad7a51ebb158c841bd3bfcc1db2fcd3774c17"
+  url "https://github.com/temporalio/cli/archive/refs/tags/v0.10.6.tar.gz"
+  sha256 "1a8f1fef8e58e3bb431901f328ca492790fc5c716f2af19b0d00754a85283604"
   license "MIT"
   head "https://github.com/temporalio/cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fec8fbb6f3e6297d81c83162005c60157a859d3f5c60563b81cfb6af2bdc0148"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "77a10a2c0b2c92345f5b8b529732a99c27441eb6534876821196d7bd580fa5d4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "77a10a2c0b2c92345f5b8b529732a99c27441eb6534876821196d7bd580fa5d4"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "77a10a2c0b2c92345f5b8b529732a99c27441eb6534876821196d7bd580fa5d4"
-    sha256 cellar: :any_skip_relocation, sonoma:         "e507c4933bf7692ffa70d89bb8cf7171877a75c6736d6b63ed1000be4a7d472c"
-    sha256 cellar: :any_skip_relocation, ventura:        "f319e2022ffeacef44573a6e12af55cba80d974ea3d26226ec1cfa53e8f47d36"
-    sha256 cellar: :any_skip_relocation, monterey:       "f319e2022ffeacef44573a6e12af55cba80d974ea3d26226ec1cfa53e8f47d36"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f319e2022ffeacef44573a6e12af55cba80d974ea3d26226ec1cfa53e8f47d36"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0fd2186b35563f054ade9d57f33355b69fa2a6a5e19e13f767a82bec086f3ece"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f2a7a82e2600ab7e17a99983ad1dde7fbaef98f739672366be5373a42cb1e570"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0d1043e1407d222b12d4b20d8a1c1b883289350708e8ff7abfc7e1b156d52df4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9e3d2697fce585c1056db59ce7c70bf6ee7095cdbecd9b5b67086ec6b52b4d2f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "accc3961247fa126ff0ba2681a2a3564987018c9535cc4bb490ceed05fdc66df"
+    sha256 cellar: :any_skip_relocation, ventura:        "2fc7e439b8c765da451144a1bc0a41c86c02677151224f4992faf407a7103901"
+    sha256 cellar: :any_skip_relocation, monterey:       "91b7f91aea2f75c7e6807c99d8bd5f2b5843760da546a616dd96856b7fb4fdeb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8977e4871bb3d50ef59e75fd9670729c9d218ea0482ca16ac9be48c1d7f8cceb"
   end
 
   depends_on "go" => :build

@@ -21,7 +21,7 @@ class Xpa < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b81c4534c71e50918a8be11796766e6b75b27c40560c08ae1e12071e96c0bfc3"
   end
 
-  deprecate! date: "2022-10-01", because: :unmaintained
+  disable! date: "2023-10-03", because: :unmaintained
 
   depends_on "libxt" => :build
 

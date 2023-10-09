@@ -8,18 +8,17 @@ class Dynaconf < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c9927d79769bbc7872a34a6414d6deb4a67abc446b0a847cee1c42464fc9395b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ea3ea17268e70962f3068a0ce040797a7229bffe387c1ba279a81d539745e550"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "bb30eae2cf3ecd2be2f65b7ad701c6c9842aadb62ed3cad8e180e3e80d87d1a0"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9dcd76c59dec51e236cfdbbf20c432cbc01532db7156e30924d520886b94db52"
-    sha256 cellar: :any_skip_relocation, sonoma:         "6cab153517bdaed28153e5de14b14e386b985dd4aeb5225e9f94ac9486b0f676"
-    sha256 cellar: :any_skip_relocation, ventura:        "a08af654ce380561ecb933fbcb97b71f9020017d9506949883eb72e12cafa5ab"
-    sha256 cellar: :any_skip_relocation, monterey:       "b16e7a578e4b9c68c0b8d8770334bc31649d8f04e699c1e1d31f69970d694f51"
-    sha256 cellar: :any_skip_relocation, big_sur:        "df97b45a3380dfe0e110e57891d169c96b877cc9c9053b357bd3d652fc66ad55"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "718e55ee9e935b278df8973b9fda8c7534fa40feffe6e276d09344d2c830097d"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e742f84c74b5a55b6c35dacc3ba4a9bbfbf6d22bbf69ca71c1545ca95bd166e2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e1542a2c33afc8b7f5bf82d0567bcbc8f05d96c05f628964912a28d2619f9b57"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6526aa5bbf021af9e9a8ea6d63746ae3c5eb9928134f26839af971d6e463202e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "2a5bfd7e2d30d238b3412fd6c65803825fb4b9fdbef90a87ec1315ec4d207e45"
+    sha256 cellar: :any_skip_relocation, ventura:        "ce8922ab39f253878c3a56efcbc99bf7556ebdf14083c62f78f422253d1a5ac7"
+    sha256 cellar: :any_skip_relocation, monterey:       "04685ffff7af1f56a105879cedf1ed38e005c6d1deb06e7fdd86a75cd2662481"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4f008dcc13b8e488c34982a01f6786e439f358a22e8989e3744459b5467c07f1"
   end
 
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   def install
     virtualenv_install_with_resources

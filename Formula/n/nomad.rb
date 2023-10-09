@@ -26,10 +26,23 @@ class Nomad < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "23763707912294f817844f4442751351ff8a294748f8d46ca81f29d7187e926d"
   end
 
+  # https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license
+  deprecate! date: "2023-09-27", because: "will change its license to BUSL on the next release"
+
   depends_on "go" => :build
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w"), "-tags", "ui"
+  end
+
+  def caveats
+    <<~EOS
+      We will not accept any new nomad releases in homebrew/core (with the BUSL license).
+      The next release will change to a non-open-source license:
+      https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license
+      See our documentation for acceptable licences:
+        https://docs.brew.sh/License-Guidelines
+    EOS
   end
 
   service do

@@ -8,9 +8,11 @@ class Mxnet < Formula
   revision 2
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "1e1e944d4b346f4dd124237e0310c8aded1710c1e49e56b50d43a8e35c503271"
     sha256 cellar: :any,                 arm64_ventura:  "2020a5335652d0b125527493362fcdfc82401f4138cc5f858839bf8fa3c89d8d"
     sha256 cellar: :any,                 arm64_monterey: "8c36d0a7729bd0dd148c0d5aa2be116a47bbbf348d5bfcde162ce218cf44cf62"
     sha256 cellar: :any,                 arm64_big_sur:  "49a4ca9dc8f9286aeb6c8607645f41b2196d529c6cd1ddba0dd3d1219b3466e2"
+    sha256 cellar: :any,                 sonoma:         "0b9891959f9298eeecdbac5438471f6b7e4a28b0531a611244644c2528f9a4c0"
     sha256 cellar: :any,                 ventura:        "1ca1366b1c0906568e79e7a0fc07ed6a162e88773dc96296ee61f20689f4cf42"
     sha256 cellar: :any,                 monterey:       "3e253dbc7e037089f0d3fe8151e7eea4f49754dbc068bdfe8ec67416f57fafec"
     sha256 cellar: :any,                 big_sur:        "54b4463862a820006c4127226fc4f9284856fe4c4754fbc8ab2bc2ec3edf277b"

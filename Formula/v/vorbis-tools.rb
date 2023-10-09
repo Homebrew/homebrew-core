@@ -18,9 +18,11 @@ class VorbisTools < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "489cbfd6edf230c8b989d3d8850b40a7d955d6081689a8553cf481930e892bc3"
     sha256 cellar: :any,                 arm64_ventura:  "fe8d1f90aa3e1c38f87be9e4593dbe8131282b4ed77effccd4c5e075c8af1330"
     sha256 cellar: :any,                 arm64_monterey: "81cc875b622067697081eaa3a72c2b36882d8fd3bef460563a124ae1fc6e3b99"
     sha256 cellar: :any,                 arm64_big_sur:  "02ea853ec06df9531f696865b196fc91fbca1360d7ab563859dfe37289cb7f9c"
+    sha256 cellar: :any,                 sonoma:         "90a083123079cf3be3b6b3a73dfb35ef30e9537977c4ca8ae910a7973bd2f2bb"
     sha256 cellar: :any,                 ventura:        "eb58d309267de842f0c2cef39c535143038d262f8bad12c0c0a8a3a62c81d941"
     sha256 cellar: :any,                 monterey:       "b342fad37a61d9c407199ea27e78b10f9335a340488d6afdf3e76a70ab46981d"
     sha256 cellar: :any,                 big_sur:        "5557f52038523ac9030787fc23c2597bccdc56e64fecbca062a2cb6e0ff7597c"

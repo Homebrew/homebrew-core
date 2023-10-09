@@ -1,20 +1,18 @@
 class Libxrandr < Formula
   desc "X.Org: X Resize, Rotate and Reflection extension library"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/lib/libXrandr-1.5.3.tar.xz"
-  sha256 "897639014a78e1497704d669c5dd5682d721931a4452c89a7ba62676064eb428"
+  url "https://www.x.org/archive/individual/lib/libXrandr-1.5.4.tar.xz"
+  sha256 "1ad5b065375f4a85915aa60611cc6407c060492a214d7f9daf214be752c3b4d3"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "ec2edecbeb989b084cddf73999f12012a7e6d35b4bf8fc7b4942c9bd75d29874"
-    sha256 cellar: :any,                 arm64_ventura:  "5ea5208202568e3a5f5a3eb3579b4f84d4647d709fd4561c4609ef76ede3e142"
-    sha256 cellar: :any,                 arm64_monterey: "5a214860d36c942af75d82cf048a0eb4f2f7755c07324228061c76d5724a6af0"
-    sha256 cellar: :any,                 arm64_big_sur:  "c585a075f6ca7b9c8354add75f91febfaea41e8ad4e30d95f4346e85b030cb0d"
-    sha256 cellar: :any,                 sonoma:         "db11caab887e57fa954e28f31fc04a83286cbddf59c1576639d65cebd9ab6710"
-    sha256 cellar: :any,                 ventura:        "7d7e72a894fdc4d9186dcb57d27c47ec2fbfa2eb7d1c74b8161069916024608a"
-    sha256 cellar: :any,                 monterey:       "c48003fc31825241aa4b1a11d50c46cc8612b21bbfafda13291d0711a2871565"
-    sha256 cellar: :any,                 big_sur:        "67863dc0475ed650a5d84241249d05a5cbe537d06cde9b6f02c35efc998a3bea"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9668078fec4152c27d10e6135985209e42a831aecf3c18aaaaf59f0af2450836"
+    sha256 cellar: :any,                 arm64_sonoma:   "7775fef1d482d55d108a57bd2cc32c3177eea7270956a2fb648b3683acd54049"
+    sha256 cellar: :any,                 arm64_ventura:  "dbc964894d888cc4147af5ca01528a8bfaacff3c9219981267c405bd37e591de"
+    sha256 cellar: :any,                 arm64_monterey: "e19d7b1164d1aacee9a9a9f2811f5071fdb649913f3b6a388b11ab56ba65c153"
+    sha256 cellar: :any,                 sonoma:         "c400393add3a4dab2a9be13192af2cafdf443234c527a57bb9e22ecfa28cb019"
+    sha256 cellar: :any,                 ventura:        "1cd8ea19e0bdef49383720d3d4aa1c639981a36c9c0a2763c1e9b73afe6a9f06"
+    sha256 cellar: :any,                 monterey:       "52f7889369a183269ec67a15b65bc4bdc41fb5209bc4d291fb7c91abb5455319"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c48b622aed3d5e99e225601dca2d129fda08585571d948f8737f3e6a4bcb2a56"
   end
 
   depends_on "pkg-config" => :build

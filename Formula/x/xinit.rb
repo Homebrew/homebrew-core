@@ -6,9 +6,11 @@ class Xinit < Formula
   license all_of: ["MIT", "APSL-2.0"]
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "b5dbad520af878ccb170fb1924e58f0bcb0c384377ae7aaca2d64091aa8ff4ee"
     sha256 cellar: :any,                 arm64_ventura:  "0fbd33c0f3e8a01224d5f4c2f1437236957d9f9b80d0199f6bf729fe783320c9"
     sha256 cellar: :any,                 arm64_monterey: "b32fd947d6ab4e3d27cae884ecba3d25d618cc5df48869995db8211857a75cf9"
     sha256                               arm64_big_sur:  "e3fa6b976ee03fddeea911fb37cf872c72b23b8a4b00ed11299925656b983fd5"
+    sha256                               sonoma:         "579c01be1581c78fb55db87ed20f5c6b5ed0db7e39ab9f48f39882b2ee1886e6"
     sha256                               ventura:        "3db4e377fbe430f3ea074f0ec1f433b3b7278aa451da736d95a8a1ff72e87047"
     sha256 cellar: :any,                 monterey:       "b206deb4ff3200499ab32a8984c90901277094697eaed812ec0e8d10765e64d6"
     sha256 cellar: :any,                 big_sur:        "1b62cbaab6ec39e95a11057e5ce26209c5b4f5696eaab24c0a59e1b7374a7fe0"

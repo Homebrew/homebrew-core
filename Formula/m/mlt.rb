@@ -7,8 +7,10 @@ class Mlt < Formula
   head "https://github.com/mltframework/mlt.git", branch: "master"
 
   bottle do
+    sha256 arm64_sonoma:   "9670b42ea7651685b0c031583bc5c667346d4f4fe6e1d831063e1f2611129349"
     sha256 arm64_ventura:  "00b18c247272bc344ae719dc86546930bbbd406f3877d4556f0609ef588086cd"
     sha256 arm64_monterey: "14f9ba4644bb93f548b57bcfcec89c6d20c1e69ac803cb0765aba2f3b49c3780"
+    sha256 sonoma:         "f487696f45a50fb33d05ad34202f42aeb2b9a40e2d19194167bec071070d2068"
     sha256 ventura:        "a5598fa8ba7af371b1f26f9094cf4425558dcaadd842fd8af710b40fa10e9ba0"
     sha256 monterey:       "f5b5c8927074069b39f3e557e32d183c3659687380e87c390f01e19630463535"
     sha256 x86_64_linux:   "febb8a904cff64ced7eea55369d1721d0a5a54ab019c548cf98ab2e6c52377b3"

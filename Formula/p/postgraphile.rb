@@ -3,21 +3,19 @@ require "language/node"
 class Postgraphile < Formula
   desc "GraphQL schema created by reflection over a PostgreSQL schema"
   homepage "https://www.graphile.org/postgraphile/"
-  url "https://registry.npmjs.org/postgraphile/-/postgraphile-4.13.0.tgz"
-  sha256 "bdf6c3047b16fd7bddc2eabd74939b986bc2fa0f56383f409fa3d7d95418cf77"
+  url "https://registry.npmjs.org/postgraphile/-/postgraphile-4.14.0.tgz"
+  sha256 "7d7206f0a3c197358e616c02ca13de1b6889552a049ccf047c8a89e66117be81"
   license "MIT"
   head "https://github.com/graphile/postgraphile.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3321198259f1a0a3f6624eed7403e7796175d606a5ddd0d048ee800b30a6e302"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "89fe3ed5c28e49b954f36201b2c1b641a38ec737216ff48ca04aa63256156334"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "89fe3ed5c28e49b954f36201b2c1b641a38ec737216ff48ca04aa63256156334"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "89fe3ed5c28e49b954f36201b2c1b641a38ec737216ff48ca04aa63256156334"
-    sha256 cellar: :any_skip_relocation, sonoma:         "8ac799e371db8337895e99d2e1e826b9c4fdbf78f5f66af5749fbcfa6e223388"
-    sha256 cellar: :any_skip_relocation, ventura:        "f4eba09e6051328f2d1ece4bb1c5539cb78112912afe17034a72d922e07f0814"
-    sha256 cellar: :any_skip_relocation, monterey:       "f4eba09e6051328f2d1ece4bb1c5539cb78112912afe17034a72d922e07f0814"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f4eba09e6051328f2d1ece4bb1c5539cb78112912afe17034a72d922e07f0814"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "89fe3ed5c28e49b954f36201b2c1b641a38ec737216ff48ca04aa63256156334"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "93aa60a1cb7e1f15b1efafc8e26b7e0474aaa6b30900bca94acd506df8ad5d1c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "93aa60a1cb7e1f15b1efafc8e26b7e0474aaa6b30900bca94acd506df8ad5d1c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "93aa60a1cb7e1f15b1efafc8e26b7e0474aaa6b30900bca94acd506df8ad5d1c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "166a675cb3012afad87ba3e40697d8c938f2bbefaa428f8fe2236eb86777b1fd"
+    sha256 cellar: :any_skip_relocation, ventura:        "166a675cb3012afad87ba3e40697d8c938f2bbefaa428f8fe2236eb86777b1fd"
+    sha256 cellar: :any_skip_relocation, monterey:       "166a675cb3012afad87ba3e40697d8c938f2bbefaa428f8fe2236eb86777b1fd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "93aa60a1cb7e1f15b1efafc8e26b7e0474aaa6b30900bca94acd506df8ad5d1c"
   end
 
   depends_on "postgresql@14" => :test

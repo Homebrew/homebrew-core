@@ -5,9 +5,11 @@ class Gssdp < Formula
   sha256 "410b376deeced9836b57f488f80052fe4a14f89e075b1ceccf28e51f490f9fb9"
 
   bottle do
+    sha256 cellar: :any, arm64_sonoma:   "f66a3c00786eeaa115d631b7d965a173faf5282713c0582433b5f5c6a8c6e825"
     sha256 cellar: :any, arm64_ventura:  "6701a2078922a13caa8c7f09474c41eeb2e459a53749436f930bba454eafb0ea"
     sha256 cellar: :any, arm64_monterey: "6c8e3452a6be3e1979f22a3fed7c735cfd0d6079d516c9488f9c39a692620f25"
     sha256 cellar: :any, arm64_big_sur:  "bd4de4c06d98ee9aa8510749553f7f5691b32a41dd9f741a9b72455b828027cc"
+    sha256 cellar: :any, sonoma:         "c31078fe8fa764d0a302fdc13d6cdeab24c4bc36d0b5588ca4f06980deb9e8e6"
     sha256 cellar: :any, ventura:        "d848a54ccae3f584f55a642882b80a608ace5676119801ae6aa5c4da60ab9505"
     sha256 cellar: :any, monterey:       "1f355bf2303dcfe429cc74fc544f61e782eef5a01ebb3900a1b35d28c43ca95b"
     sha256 cellar: :any, big_sur:        "fe653acf7db752b092cb3d778211b3937b1feffb7dd03f925b58e1943b072582"

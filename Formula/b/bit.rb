@@ -10,6 +10,7 @@ class Bit < Formula
   head "https://github.com/teambit/bit.git", branch: "master"
 
   bottle do
+    sha256                               arm64_sonoma:   "b0c394b10c72d4adfb867fc1b506f6d6757a2bd9305d16d0a9cb792b773c7ed5"
     sha256                               arm64_ventura:  "c61128513cd41645552e4438d6f86f6cd96778c77ca29aa4be380a7d0ff9bfe9"
     sha256                               arm64_monterey: "25d35baef7bc17a6a2ab9d8f3083925f07c18dd40fa3c79c03e1a1eaeeab12fe"
     sha256                               arm64_big_sur:  "4aef1c99d8073edb373e209c739a490c87c8956434e242aa8fd393419ba3baf7"

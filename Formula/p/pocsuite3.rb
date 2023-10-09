@@ -9,29 +9,26 @@ class Pocsuite3 < Formula
   head "https://github.com/knownsec/pocsuite3.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6e2243f7b7468ab4dcaa62d5f8b87e2af3e99a54af182bf6ef8a23cf3757fa92"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "543ff08089e3ae8c09f5c8f7b379c35571a6d99951bb196af0f7ed24fc5051bd"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f18624025f1d2cb62b9ab942408c5f1f2e3140457219b06dba840a272e42a6c0"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3f1e864343728410eeeeebf6178869603c2a3ef845ab862fbb98a997d19b2aab"
-    sha256 cellar: :any_skip_relocation, sonoma:         "8e69b85603bdb0da200fdb477fda8f0a8e73cc87b823732cb953cc47433660ed"
-    sha256 cellar: :any_skip_relocation, ventura:        "c76bf9330875620614dfd9b929f692a9f06f1d827274cc0627bd64a193c4a238"
-    sha256 cellar: :any_skip_relocation, monterey:       "4f38bde40e499ac8e427e77cbd491e4ea758ba307282696f13ea8df960390f05"
-    sha256 cellar: :any_skip_relocation, big_sur:        "4ec685e94bd61152fdfd7224f98fcd68d04c15ab94a8ff65613f636951def1e9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "795ac95cfbb8a032481d3c69ebf64e26c4062713b0b0270fc41de31b6ae498ef"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bbcedccc892fa811bbbd6393ca05e8c9faa270062f08e131760dcf148ab72692"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "de2a1c50b0d97dea31362c2f3662663c5be29d3b17b4f6078d8a025ea84d4fed"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "be7486a854e0b550762c50732b6d1c3ee5ac55c81b2622f339375452d6963ebc"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ea28be3b44e7ee995d9a87832c27ece66c544d8bee7e38814a457040c6e906fc"
+    sha256 cellar: :any_skip_relocation, ventura:        "43e3335d480488dfb8340dc1552ff94bef6ab3e81871276559fdccbd46682027"
+    sha256 cellar: :any_skip_relocation, monterey:       "0ac7492639e72f5fd70dd3b22e3d6c0118c6646ee55237f12d1abaacacbc2246"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "31d735889355cfcea6c9c1551b3001c43931beb831bfbaaf02766acc665e0bc1"
   end
 
   depends_on "cffi"
   depends_on "pycparser"
   depends_on "python-certifi"
   depends_on "python-cryptography"
+  depends_on "python-lxml"
   depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "six"
 
   uses_from_macos "libffi"
-  uses_from_macos "libxml2"
-  uses_from_macos "libxslt"
 
   on_linux do
     depends_on "pkg-config" => :build
@@ -75,11 +72,6 @@ class Pocsuite3 < Formula
   resource "jq" do
     url "https://files.pythonhosted.org/packages/6e/b1/44632550d22e1a151273ad0555c8149656c6fd019f5fad0b9cd789059a2b/jq-1.4.1.tar.gz"
     sha256 "52284ee3cb51670e6f537b0ec813654c064c1c0705bd910097ea0fe17313516d"
-  end
-
-  resource "lxml" do
-    url "https://files.pythonhosted.org/packages/30/39/7305428d1c4f28282a4f5bdbef24e0f905d351f34cf351ceb131f5cddf78/lxml-4.9.3.tar.gz"
-    sha256 "48628bd53a426c9eb9bc066a923acaa0878d1e86129fd5359aee99285f4eed9c"
   end
 
   resource "mmh3" do

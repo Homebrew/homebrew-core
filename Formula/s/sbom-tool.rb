@@ -1,8 +1,8 @@
 class SbomTool < Formula
   desc "Scalable and enterprise ready tool to create SBOMs for any variety of artifacts"
   homepage "https://github.com/microsoft/sbom-tool"
-  url "https://github.com/microsoft/sbom-tool/archive/refs/tags/v1.6.3.tar.gz"
-  sha256 "6f94eae4ee8584fed7ea1b006abdc4ecacdc1f6b496270fd81e710473184e27a"
+  url "https://github.com/microsoft/sbom-tool/archive/refs/tags/v1.7.1.tar.gz"
+  sha256 "aa7548ff0720a375984b25cddac4a8e252f85b9523a7a357ab20c3d282a5bb92"
   license "MIT"
   head "https://github.com/microsoft/sbom-tool.git", branch: "main"
 
@@ -15,11 +15,11 @@ class SbomTool < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dd56e8c7ef8852d6fd3421ca8ff3195f8bd1967ed7fa64d19f6c53d0e7ba1874"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "dd56e8c7ef8852d6fd3421ca8ff3195f8bd1967ed7fa64d19f6c53d0e7ba1874"
-    sha256 cellar: :any_skip_relocation, ventura:        "ab4f295a3ea516222629dd787a2a0be5297a414bea22a35ad7d6f336019857d3"
-    sha256 cellar: :any_skip_relocation, monterey:       "ab4f295a3ea516222629dd787a2a0be5297a414bea22a35ad7d6f336019857d3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "75d1630c1f987e1053d542c0e8c66a0f5d4e1994c079277cde3dc318660711e8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e8a51b520982ed9854d57b2d8fc7107b271c9844c74c111ce18d9aa037bbb8e1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e8a51b520982ed9854d57b2d8fc7107b271c9844c74c111ce18d9aa037bbb8e1"
+    sha256 cellar: :any_skip_relocation, ventura:        "bbb07e840d9d97ba07aceddcf346bf02222b098bfaf56a9c3c9df15cd361e5f3"
+    sha256 cellar: :any_skip_relocation, monterey:       "bbb07e840d9d97ba07aceddcf346bf02222b098bfaf56a9c3c9df15cd361e5f3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d6be797b74091c3a50ed591ab57b7a723381d9b299245b1368d35cc54f29371f"
   end
 
   depends_on "dotnet" => :build
@@ -38,7 +38,7 @@ class SbomTool < Formula
     bin.mkdir
 
     dotnet_version = Formula["dotnet"].version.to_s
-    inreplace "./global.json", "8.0.100-rc.1.23463.5", dotnet_version
+    inreplace "./global.json", "7.0.400", dotnet_version
 
     ENV["DOTNET_CLI_TELEMETRY_OPTOUT"] = "true"
 

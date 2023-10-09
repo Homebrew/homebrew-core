@@ -8,9 +8,11 @@ class Opal < Formula
   head "https://github.com/opal/opal.git", branch: "master"
 
   bottle do
+    sha256                               arm64_sonoma:   "fe981c8bdb30df18d92cbf643c425baa7ec3a906000b66d5bc6a2411f3b46af1"
     sha256                               arm64_ventura:  "b76cbd70f31e95fbf8c4ad29d346bcf3c2a5c16122d92951f1292b1f200c9218"
     sha256                               arm64_monterey: "ff085bf0b14a7fb6a660aa3f85749bab517bca88412ee7f304c034b89aa4e3ac"
     sha256                               arm64_big_sur:  "3c66c5c8ecf6710e0f031d85224a6f78229f28d6ff6863aa6e09abd5bc5bc46c"
+    sha256                               sonoma:         "cc8cb2938787e88be2becc3b3139ab04bf69fe67404a0cf8ee93e7a89b0119b7"
     sha256                               ventura:        "c4aaae83eeebf5b776831ac1962e6ad7b1044498943420cf7de069869c617be8"
     sha256                               monterey:       "70c51cfc747978a3087ebd8d0d4e8b1371eaaf393196ce6aa2e28c290b0ba5d3"
     sha256                               big_sur:        "161697f10ac184bfe28bfd4f7e404cabac9e340f55da781f53df9ed6e0fdf366"

@@ -14,6 +14,7 @@ class Naturaldocs < Formula
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "46d41e17b53b336d1db203a705164e735af1db6021cc973d126de1091fb8ce0c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "46d41e17b53b336d1db203a705164e735af1db6021cc973d126de1091fb8ce0c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "46d41e17b53b336d1db203a705164e735af1db6021cc973d126de1091fb8ce0c"
     sha256 cellar: :any_skip_relocation, ventura:        "46d41e17b53b336d1db203a705164e735af1db6021cc973d126de1091fb8ce0c"
     sha256 cellar: :any_skip_relocation, monterey:       "46d41e17b53b336d1db203a705164e735af1db6021cc973d126de1091fb8ce0c"
     sha256 cellar: :any_skip_relocation, big_sur:        "46d41e17b53b336d1db203a705164e735af1db6021cc973d126de1091fb8ce0c"

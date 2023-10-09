@@ -1,20 +1,18 @@
 class GitCodereview < Formula
   desc "Tool for working with Gerrit code reviews"
   homepage "https://pkg.go.dev/golang.org/x/review/git-codereview"
-  url "https://github.com/golang/review/archive/refs/tags/v1.6.0.tar.gz"
-  sha256 "8dfa7dcf6a2c3eb88e14bd65144013b7070e6618f29e2969a7a6b601a5a667c4"
+  url "https://github.com/golang/review/archive/refs/tags/v1.7.0.tar.gz"
+  sha256 "6590c869c7d0fcd749f68e28abccc841923a3a741e5869663d21f999ce0d8234"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "07c420947da74e70321efd360827cf3905a04fc466704ad5f7035de61ac64474"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a5ec2483cd3abb51ec5b8e61409f80cf8da50dcc0159d1546c2502edb775efdb"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "49d13df1e270e070d2f616c91e15ce99981827b2305620dd5a373643b95f45e6"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "516bcbe95baf23cbbb19b8a0c90408285d3f3762843af072f9b00e45fbf5959d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "5c9ed7b6639aafa4de5b4a9020ac30677b68d89e29f2f70c0e6c79d2c89e25e4"
-    sha256 cellar: :any_skip_relocation, ventura:        "d0ff896d5479f0b3469a1f58a2de544ed233e3aee394f6fb0ec504ad02d7bd38"
-    sha256 cellar: :any_skip_relocation, monterey:       "f9b916938af99e1ab6e8039cdd9ccd5042548f110948040bb0adb058dc113b37"
-    sha256 cellar: :any_skip_relocation, big_sur:        "fa7ceb4af8250465a4378b5c5d6f7df8c693aeff0ea62465f41cfe82f70c80b6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "224581b73f4125e3386fbf76df00471e86071fd8d3e69b86f59242116513c18c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "064dacdffe85c751d0cb4ade8e015cec5e9a7cd4c2b76291d3fff2e988af01b1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "82d607f2dd3a631e3c1ed76c5cce53da340885d6de05615ac5bfcf81925871a7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b41ead56bd5eafcd33478854cec0721f25240baedf31931bf42474fb42443730"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a621314ec6332bdac2c997f6e64801040d62ceaff5b9a72599ab58e51dd75c26"
+    sha256 cellar: :any_skip_relocation, ventura:        "511ce0a342c57787cf682796753a182b05b04bb686a5973e88150d1b07f7ee4f"
+    sha256 cellar: :any_skip_relocation, monterey:       "341993b220c92b01f0b43fbfe83088199d85302bf07177b9803fd0dedfc9a57c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "441c583fed82b0b15fcb8d70d1cbdef21af624266753054ff4721a7b3e65e10f"
   end
 
   depends_on "go" => :build

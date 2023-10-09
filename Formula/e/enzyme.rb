@@ -2,21 +2,19 @@ class Enzyme < Formula
   desc "High-performance automatic differentiation of LLVM"
   homepage "https://enzyme.mit.edu"
   # TODO: Check if we can use unversioned `llvm` at version bump.
-  url "https://github.com/EnzymeAD/Enzyme/archive/refs/tags/v0.0.86.tar.gz", using: :homebrew_curl
-  sha256 "b13cdaed1fbf69152a74850dfabd1a23e778d8a722fba95261cda3277f1994c2"
+  url "https://github.com/EnzymeAD/Enzyme/archive/refs/tags/v0.0.87.tar.gz", using: :homebrew_curl
+  sha256 "8cd30fe1493c48145249dec725a8282182ba065b94501ecd8ae0ec0bbbf154ab"
   license "Apache-2.0" => { with: "LLVM-exception" }
   head "https://github.com/EnzymeAD/Enzyme.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "349d2bf85720a6c9af104aecc0ae0010abd4d7e2fc46a29096f298b6711a9b33"
-    sha256 cellar: :any,                 arm64_ventura:  "f27d820d225610b62af9b1915ab58282863c85a44764b33fbfeb7f0dfeba44da"
-    sha256 cellar: :any,                 arm64_monterey: "f6045ffba3d92f619a6396395abb4721a3ae4ff929e45c14ae654d2b2a887682"
-    sha256 cellar: :any,                 arm64_big_sur:  "0c7feba04bece6d4073e25af38d9e34a4d9bfa358d098f8e1c71f9609e5d743f"
-    sha256 cellar: :any,                 sonoma:         "ed35816c21e735239937e6395b60df15352b8602848aa9162df582db1b4a1848"
-    sha256 cellar: :any,                 ventura:        "d6916f9be363438251447440698e7f45635d06576cea7e1e66c81bce132b4014"
-    sha256 cellar: :any,                 monterey:       "da54b0b2b124426a3f984799c7ab3fca12d625868ecee6d4b3c11117894c35cd"
-    sha256 cellar: :any,                 big_sur:        "36fd943681a6ad2cc72e3846980ecee06d21c84576fb0f97260567940409b218"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f4704431057f697246fa74da6f6c1fdf3aa1b0edce8996c0a9d2cfe5089936c3"
+    sha256 cellar: :any,                 arm64_sonoma:   "7d32cc1b7009e59ae23830396cda5d2c92fb0da1c5898edae900ff5f15cefcad"
+    sha256 cellar: :any,                 arm64_ventura:  "57fb7f72bee99028e8c91b45e25f350698f62d44fc9944f05e4b6bd54b9cc0e2"
+    sha256 cellar: :any,                 arm64_monterey: "33164572b4096c2066507da68700e1184ed2212c467631c6019d97d931102b3f"
+    sha256 cellar: :any,                 sonoma:         "5e037500e953ea6510a4ec8675cd4e6ace3df3c42f2f3df2f5a4e0f2b79cc948"
+    sha256 cellar: :any,                 ventura:        "7ff81c7661301f28c7e0d5f8b79832e81a77a34fa5c714f568176f04b511afd0"
+    sha256 cellar: :any,                 monterey:       "46692291054a164ebaa8434cb3f78e0cc3c871a3e3a70e407d451a70d1320b86"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dfb2ed27fc755739e17189dc1036f460faacdd29e7e3d391f86357e259f39bb7"
   end
 
   depends_on "cmake" => :build

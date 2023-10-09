@@ -16,20 +16,24 @@ class Bagit < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "dd3d0ccfed47a60b957217320af5f1d3ce5104909b591ae67a4096c332306497"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "60395129ac88a0d1a5e1d3c9772092d17a2645c202ee3b6969608c161315e9c1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "60395129ac88a0d1a5e1d3c9772092d17a2645c202ee3b6969608c161315e9c1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "60395129ac88a0d1a5e1d3c9772092d17a2645c202ee3b6969608c161315e9c1"
-    sha256 cellar: :any_skip_relocation, sonoma:         "ea57458604d5bba0379d762de56d85f04f6485a285a99707b0ee5989d4747263"
-    sha256 cellar: :any_skip_relocation, ventura:        "da64b9f36df90101ccf6702a55206eb9309d0ce2dcbc33722f3c709d00a87ec8"
-    sha256 cellar: :any_skip_relocation, monterey:       "da64b9f36df90101ccf6702a55206eb9309d0ce2dcbc33722f3c709d00a87ec8"
-    sha256 cellar: :any_skip_relocation, big_sur:        "da64b9f36df90101ccf6702a55206eb9309d0ce2dcbc33722f3c709d00a87ec8"
-    sha256 cellar: :any_skip_relocation, catalina:       "da64b9f36df90101ccf6702a55206eb9309d0ce2dcbc33722f3c709d00a87ec8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dc9585e81bfa176935a810e61cedbcddb08e5f82e96ae24496d1d11ad6e0f318"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2ac616d791db078c99f2a91e28f4eb215fd66627b9a9851dca31a922c1671c4d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "90df11c3427ddb75f74a1e4f8fa8e8deaa6fa0b4aa8dbc81c77b584cd53f967c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2bd392766f572fd2218bb6d06c9109c258d509b05b679c1f5860d302ade534b4"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7f9521d057fbe09ee366946d12b385f14bcbe0f745a6a001becff9b884b5e4b2"
+    sha256 cellar: :any_skip_relocation, ventura:        "b9a324e0a48ebd2d5d71c24b7e4330bf1107e90686e91a94ab22f761056e13ff"
+    sha256 cellar: :any_skip_relocation, monterey:       "e0c52143378dd79f8b6a9cb6a411eb62d9d6f0a5c22528e6f8f4aec860572df5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1958e3df0bbfe57f3d7a7d0d7903e1bd27eaddcf0172e9520f71ba1961aab4f7"
   end
 
-  depends_on "python@3.11"
+  depends_on "python@3.12"
+
+  # Replace pkg_resources with importlib
+  # https://github.com/LibraryOfCongress/bagit-python/pull/170
+  patch do
+    url "https://github.com/LibraryOfCongress/bagit-python/commit/de842aad182c74de21d09d108050740affb94f2e.patch?full_index=1"
+    sha256 "f7fab3dead0089f44e6e65930a267f6d69f2589845e9ea4c1d6bbb3847f5ff3a"
+  end
 
   def install
     virtualenv_install_with_resources

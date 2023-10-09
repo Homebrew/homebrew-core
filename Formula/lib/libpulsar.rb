@@ -5,18 +5,16 @@ class Libpulsar < Formula
   mirror "https://archive.apache.org/dist/pulsar/pulsar-client-cpp-3.3.0/apache-pulsar-client-cpp-3.3.0.tar.gz"
   sha256 "0e04c67d7b644a92081eb6993ebd1579e05080c1fff651728dfa04b054e637bf"
   license "Apache-2.0"
-  revision 3
+  revision 4
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "bcc717ebd4ac78c2048ad3743d74db08c5c2b5c797101391755ce51ad607e2ce"
-    sha256 cellar: :any,                 arm64_ventura:  "b5c658655fb912566a9da286a9b9f5d04eff7105c0ca8cea9077036ebbf42ed5"
-    sha256 cellar: :any,                 arm64_monterey: "7b55fa7fcab05387ad79a638d3370fe5b2f748d83f59cec95d1b2fcb6e3d1e04"
-    sha256 cellar: :any,                 arm64_big_sur:  "5a2edfc2213a714627d7d5fd923b1871f682a7897ca09508057158b7c9305194"
-    sha256 cellar: :any,                 sonoma:         "15f8ff1f8f480dae89b324f1539e66854112b5384a1dcdc38207a7e5a6ee0283"
-    sha256 cellar: :any,                 ventura:        "67e502e57ec30777695069ec7ad2557aa42ff1af2ede7b3bff9f8aa585d41ad2"
-    sha256 cellar: :any,                 monterey:       "86431289e53512a56245f5d9537263442be971f43d35213010f8b6cd249caf5e"
-    sha256 cellar: :any,                 big_sur:        "4c52c5bbdfeddda7cb92773734bf8369c2b75437158b8e55d3c6442a0e8f1680"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "70e1d661622c26d295e9cc69232168bbb71ae33e5cd51b04a81d2b071ff30bf3"
+    sha256 cellar: :any,                 arm64_sonoma:   "eca9abf8f1f9dacf8bd3ebe5135997e2b0d2e2c998f56ccf82b527fd86705698"
+    sha256 cellar: :any,                 arm64_ventura:  "b309dfaffb58e96c375eae76b33c43cba6b922fb5bc879e7400214d9b9d27bea"
+    sha256 cellar: :any,                 arm64_monterey: "b9153a5816495631235e2f86e569a42a2414c7645dd5611721d3b3b4637c57e0"
+    sha256 cellar: :any,                 sonoma:         "54d52cfbaf011c667407330cef24d11e85cfa8a8ffcddd3383c35a3c43a0013f"
+    sha256 cellar: :any,                 ventura:        "6c6c96a3c5bac627fcfe9ea4ce135604fca70dccacea02925c09f213ef67f9c6"
+    sha256 cellar: :any,                 monterey:       "4c6ca11b31c9e16248a1c19ad23f29d61cd42e06b22163412f861df0cb4bb215"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "924da9692ebd279445d759732952c6695a60788e9b71ba3dacc082a46046b277"
   end
 
   depends_on "cmake" => :build

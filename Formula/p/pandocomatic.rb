@@ -6,9 +6,11 @@ class Pandocomatic < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9abbea036a1372d49f6e9899245c1db85511bc6f28d9fd62a642b5128667144f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "616b071224287c3bd23821bb94370d70bedbf9f0a8514c76f1e544ccca154d13"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "398647fcd48426030abd0d18982d88efe8172a0c05d0f90411cab296bcbf82f9"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9e6ed041218382e0d6d8053cc11686b1d5c4ff6fe194ec9ac972d589dd401458"
+    sha256 cellar: :any_skip_relocation, sonoma:         "9abbea036a1372d49f6e9899245c1db85511bc6f28d9fd62a642b5128667144f"
     sha256 cellar: :any_skip_relocation, ventura:        "a1af4d7f532aa67cdfb71774a191289bafbe0b106e9d4082759d260c26707538"
     sha256 cellar: :any_skip_relocation, monterey:       "a8cf033cebd1ab5496fb4b98a89ef449350b566865acdded8036b1396663e10e"
     sha256 cellar: :any_skip_relocation, big_sur:        "d4a88264a1b130ae26c88bd53db3e7f3e2607a64fcc05e0934c25203a05216a0"

@@ -2,17 +2,17 @@ class Purescript < Formula
   desc "Strongly typed programming language that compiles to JavaScript"
   homepage "https://www.purescript.org/"
   # TODO: Try to switch `ghc@9.2` to `ghc` when purescript.cabal allows base>=4.17
-  url "https://hackage.haskell.org/package/purescript-0.15.11/purescript-0.15.11.tar.gz"
-  sha256 "9abdb05a58f0f94a6f27a9edd47fc8fce01710aee21a5b85569dc0d34cb757fd"
+  url "https://hackage.haskell.org/package/purescript-0.15.12/purescript-0.15.12.tar.gz"
+  sha256 "1f3724689e4a4bb8c89fbc9bd0ccdd28ccb49c36730b19547bb39f791ea65467"
   license "BSD-3-Clause"
   head "https://github.com/purescript/purescript.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "562b9fc19cf3982474212361fc0316d18f6aecd0cf51e8c1da55fbe65922c508"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b9488ea1d3ff4cbc880be15defd456542173737d784fa0048a0dc696a357ee8f"
-    sha256 cellar: :any_skip_relocation, ventura:        "7fcc604af76493847944092274a26fb28379f419efefe4d4cd389a5321e2fb84"
-    sha256 cellar: :any_skip_relocation, monterey:       "cf1224b8555fa563c3a759448d635e05be8d17e2a3257ef718bc4da1a38856b7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bfcbe082e6299684efb5125f356e57f951d1ee26e4e665cb688405579d64f83d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "005dc62acebf292c4f7e023580c429ebcc61615129bf76ca54db740a6a69305a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "054334032e489ad163a10fdbd86ff76dddcbab0307d9082a42105d83d073bda6"
+    sha256 cellar: :any_skip_relocation, ventura:        "ae452361dffe0903c1405b029526acdba1ec68aeb5d5c8f3ed993b764ed73a2c"
+    sha256 cellar: :any_skip_relocation, monterey:       "be87b2b30dd76027f7f37721980641ee6193f772300e48c826fce3f0f330c921"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e56e4829b4145abd71ee74592460efc2e1b55f212d88af96a96b8a60171f63d8"
   end
 
   depends_on "ghc@9.2" => :build

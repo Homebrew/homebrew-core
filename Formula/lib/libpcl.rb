@@ -12,6 +12,7 @@ class Libpcl < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 sonoma:       "38b85b5b7f603d9c9268768f487a7bc183318519c01231ce716c6373ac3e9553"
     sha256 cellar: :any,                 ventura:      "70513e7045a6a7757fcce07ae85a7acaf07efd83d6053c4ad6c83aaa971c1f9e"
     sha256 cellar: :any,                 monterey:     "454d1dd0179febc856b1d8b75fe9396e6ae6b695b513523162f9a3fa41d5dc4f"
     sha256 cellar: :any,                 big_sur:      "2ed8a2eb0ff0c53cb2a2653991386ceded74a41a8a215e0d641221092917e361"

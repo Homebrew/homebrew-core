@@ -1,21 +1,19 @@
 class Roswell < Formula
   desc "Lisp installer and launcher for major environments"
   homepage "https://github.com/roswell/roswell"
-  url "https://github.com/roswell/roswell/archive/v22.12.14.113.tar.gz"
-  sha256 "eb7e538e82822f857360d040b755e03ad2fdf87f151d34dafdae2a1180e7ec0b"
+  url "https://github.com/roswell/roswell/archive/v23.10.14.114.tar.gz"
+  sha256 "02c8323341357a451c6963aec7ca17a6ddc9c979c8943560eea5762ff6fbbfe6"
   license "MIT"
   head "https://github.com/roswell/roswell.git", branch: "master"
 
   bottle do
-    sha256 arm64_sonoma:   "7d0d7cddeeb32b7610eea41c63a6d591c9d0e73c5f5642868bb55d984af42a42"
-    sha256 arm64_ventura:  "7682378e1086857cd73d528f0e5a948b9d17cd5f1c8efcb88a7aa9df2f3e2304"
-    sha256 arm64_monterey: "98879f5db19efa4771a5b9d8a4c1c7ed487149e4a6817212287bcd6810eda07c"
-    sha256 arm64_big_sur:  "91e20c88367ef0ac04451b4b6c7df894f614a18b66afb4ed7ab07396237ff254"
-    sha256 sonoma:         "d6f0b7e68f00ca8e5aedb681471a6d27bf550ef8721c84df0e1b9972899d3edc"
-    sha256 ventura:        "1d49e4a2e275e8ce3c541acb6b56f8cc1673c9428d2bb474d577ba5baeb536ed"
-    sha256 monterey:       "26107b9602fdbc93cfca1994b28292d4083ee9e75058bdeb361e476f33311be5"
-    sha256 big_sur:        "bc23952a87faae29c1f3a9d6cf0c1952b9e7d9e82379f38529790d6539579711"
-    sha256 x86_64_linux:   "aa974d79c1db07401ea7c9c2d57ad539e339f6371ec0610017ca71ce09995fda"
+    sha256 arm64_sonoma:   "16c4f341cbc050b87bfdf50f9e954bfcc9731b71ef27f5851fbc949c1fd2a5ea"
+    sha256 arm64_ventura:  "958b418eaa627ef2b5070db893254c708893abfe6c377769e13a6b151391c30e"
+    sha256 arm64_monterey: "e6dc6f1dbffb125577b35ffd8eafc2ef6e91fc1371cbdc9b3cd66620a888f345"
+    sha256 sonoma:         "e5d79e12fc36cf8bd5c108a6b4657b1fd3f212bf45dbde812e274b156971a049"
+    sha256 ventura:        "32dae8fce3f7b99d3ba3dfb8dce89d724c6d44ba0c1d250431314a46b1de583f"
+    sha256 monterey:       "2b99d4dcd3391c4be71008762f24787610b9205edec440e147b6c84b6ca6abeb"
+    sha256 x86_64_linux:   "b4ab5aec69d08f17cec4f5d14733509c8290ab99fa181075495b36077e15417d"
   end
 
   depends_on "autoconf" => :build

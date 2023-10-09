@@ -1,21 +1,19 @@
 class Brogue < Formula
   desc "Roguelike game"
   homepage "https://sites.google.com/site/broguegame/"
-  url "https://github.com/tmewett/BrogueCE/archive/refs/tags/v1.12.tar.gz"
-  sha256 "aeed3f6ca0f4e352137b0196e9dddbdce542a9e99dda9effd915e018923cd428"
+  url "https://github.com/tmewett/BrogueCE/archive/refs/tags/v1.13.tar.gz"
+  sha256 "4c63e91639902d58565ab3c2852d89a4206cdd60200b585fa9d93d6a5881906c"
   license "AGPL-3.0-or-later"
   head "https://github.com/tmewett/BrogueCE.git", branch: "master"
 
   bottle do
-    sha256 arm64_sonoma:   "bfc3d61eec95ca0e52a815a7da4ebd7e56406f405542a0f94af249eec3f2c951"
-    sha256 arm64_ventura:  "b3fb81412edaad2c3447f2500430162487f422c8e6e48acf887fb029a8aa40f2"
-    sha256 arm64_monterey: "f545e3d7758f956956599d3cb01dbfd230349ab70b4751b9398973e26dbeec52"
-    sha256 arm64_big_sur:  "886aa3d64dd77d365d4c8ce311ab0a0194c5f3c876c51887b626d148307b6a14"
-    sha256 sonoma:         "231397ff1dacd0cb068fce1203bc1d76bb0043dce0c7789f49b7e5c05422a0aa"
-    sha256 ventura:        "31081da4bd41c4471fc2579095688435b1011a5def3c466ac722bf3b636906fa"
-    sha256 monterey:       "cccb038be8fffad521143a7dd87e9b94a5aacbce8462e6b1317a8f1ff8714463"
-    sha256 big_sur:        "4f8184e978f64e2b3c3dddb5af5721fe1ecb3431f69a1c85e3673eb024733d43"
-    sha256 x86_64_linux:   "83b284e5c9b8d58756ac33e743d56b9bac827cfab5e965070a24dc5b6b849e1d"
+    sha256 arm64_sonoma:   "9315807bc80d4f5c5e0a6ba9a553204a86cc57654682f9a3a18636ec5b1161a8"
+    sha256 arm64_ventura:  "e3b0a882c20bb197856f663d3d0e3ec41dfb77fa1dae82a36ae10bde05c6e842"
+    sha256 arm64_monterey: "9f42024990d2827d78f86f0de71ceca8c6ce5e685ddf81b7b9b63d5f187311b7"
+    sha256 sonoma:         "e90466c03e952b2df95e68006163b02cbe1e2f565fdcbff2ec3c9ca17233c798"
+    sha256 ventura:        "d3a9a97ccf7c7810ea7a24ad32602896d819d3e4931505bff189424d4c87bd09"
+    sha256 monterey:       "6d895d7e1a21e0fe9ef89b6d2bbdedcf4f2fde23cf07961735d2525e3e29fa42"
+    sha256 x86_64_linux:   "f42bd9577f3d5b639e742c4bdcdb319032296ec4681293237353f945b49f641a"
   end
 
   depends_on "sdl2"

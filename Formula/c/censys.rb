@@ -3,20 +3,19 @@ class Censys < Formula
 
   desc "Command-line interface for the Censys APIs (censys.io)"
   homepage "https://github.com/censys/censys-python"
-  url "https://files.pythonhosted.org/packages/b7/e3/cbeed937ddea89c9f28660d7b969614a977432bcb26de158c0198a8005c5/censys-2.2.6.tar.gz"
-  sha256 "379d1d607bf9e4cab593b67d553ae9f635cd39a6283ff76d3eede0f7eb2b5b52"
+  url "https://files.pythonhosted.org/packages/31/3f/2094e4c07b5f8142242705b8f7af42550f1b70c9ce457684b834850d40ea/censys-2.2.7.tar.gz"
+  sha256 "abec858e5be89c45a60477bd7e51412fee7f55917325b11c3cd970298de3e2bd"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6d3a110b8d0680a604069aa2019d01265261912f8370ab388f6a88535091d53e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3b56b8b05538dc67440fb82af69f60fbcd28c1358cb335e0f84f9e481c94e4fa"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8dd1022f9d5efa6a55a391947249c9fbb79add49af246f9323e52adf77a462ae"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7ed95fb642d3d19bcbcd3b0e6c5f1b4b1c0a3654b80ac4599fd1e7dc17612987"
-    sha256 cellar: :any_skip_relocation, sonoma:         "f39b683f57cf818eb048678ac44d1e9b175b03eea31c0cf60c6f9417ffd12eb7"
-    sha256 cellar: :any_skip_relocation, ventura:        "439cfc6fc31aa756ebf337c598f1d9995a197ef45b5fb74ec27b602822fe292b"
-    sha256 cellar: :any_skip_relocation, monterey:       "ec44caa4333e6c76dbf51b6ca142816cc6bda902647868182f248dac2459e2fd"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a40c96b900b8094bfd68a7050dce12d79211e1880c5e9c5ce9f94ee2641adc42"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a59f2d92be5d5644e491f1c6632b0535f0ea539ba088d2c2bfa2f1dae38c62ab"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2e5581285ff151566b603b2b57b2503ea31aef0e5b7d8625599927a93f041260"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "deb22226d182c62b478c7ad27834845d702a8105c670b61a39aaef14ada53a30"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "77484d6b1a81230dddb3134606a071342a4685ff384e81d6212300747da0693c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "80b457793085cb778c6036c27a1056ed83c5aa292ba498cf2aa4f702351399d0"
+    sha256 cellar: :any_skip_relocation, ventura:        "5a2c23a62d990cb71fac75882173fed5bc4c58731de2f677321c45c11504b6f2"
+    sha256 cellar: :any_skip_relocation, monterey:       "9b82a92e509e9b787a899d418fb1a0eb2dea67a59fafce1da41267d5b7f6abd9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c01e43df3ffabe2126cc0530581fa894ae7220c963a631832ac8464cf5898750"
   end
 
   depends_on "pygments"
@@ -24,8 +23,8 @@ class Censys < Formula
   depends_on "python@3.11"
 
   resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/54/c9/41c4dfde7623e053cbc37ac8bc7ca03b28093748340871d4e7f1630780c4/argcomplete-3.1.1.tar.gz"
-    sha256 "6c4c563f14f01440aaffa3eae13441c5db2357b5eec639abe7c0b15334627dff"
+    url "https://files.pythonhosted.org/packages/1b/c5/fb934dda06057e182f8247b2b13a281552cf55ba2b8b4450f6e003d0469f/argcomplete-3.1.2.tar.gz"
+    sha256 "d5d1e5efd41435260b8f85673b74ea2e883affcbec9f4230c582689e8e78251b"
   end
 
   resource "backoff" do
@@ -34,8 +33,8 @@ class Censys < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/2a/53/cf0a48de1bdcf6ff6e1c9a023f5f523dfe303e4024f216feac64b6eb7f67/charset-normalizer-3.2.0.tar.gz"
-    sha256 "3bb3d25a8e6c0aedd251753a79ae98a093c7e7b471faa3aa9a93a81431987ace"
+    url "https://files.pythonhosted.org/packages/cf/ac/e89b2f2f75f51e9859979b56d2ec162f7f893221975d244d8d5277aa9489/charset-normalizer-3.3.0.tar.gz"
+    sha256 "63563193aec44bce707e0c5ca64ff69fa72ed7cf34ce6e11d5127555756fd2f6"
   end
 
   resource "idna" do
@@ -59,13 +58,13 @@ class Censys < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/ad/1a/94fe086875350afbd61795c3805e38ef085af466a695db605bcdd34b4c9c/rich-13.5.2.tar.gz"
-    sha256 "fb9d6c0a0f643c99eed3875b5377a184132ba9be4d61516a55273d3554d75a39"
+    url "https://files.pythonhosted.org/packages/b1/0e/e5aa3ab6857a16dadac7a970b2e1af21ddf23f03c99248db2c01082090a3/rich-13.6.0.tar.gz"
+    sha256 "5c14d22737e6d5084ef4771b62d5d4363165b403455a30a1c8ca39dc7b644bef"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/31/ab/46bec149bbd71a4467a3063ac22f4486ecd2ceb70ae8c70d5d8e4c2a7946/urllib3-2.0.4.tar.gz"
-    sha256 "8d22f86aae8ef5e410d4f539fde9ce6b2113a001bb4d189e0aed70642d602b11"
+    url "https://files.pythonhosted.org/packages/8b/00/db794bb94bf09cadb4ecd031c4295dd4e3536db4da958e20331d95f1edb7/urllib3-2.0.6.tar.gz"
+    sha256 "b19e1a85d206b56d7df1d5e683df4a7725252a964e3993648dd0fb5a1c157564"
   end
 
   def install

@@ -15,20 +15,17 @@ class Flawfinder < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "af264035d4592c2b2ca1f739fdf617ce71bd8751a2014927f4fedbee3f160cb2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "baa4ede546ed9ce3bc3283002cde1fb529a6c91030614df0a5e30adadf38b933"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "baa4ede546ed9ce3bc3283002cde1fb529a6c91030614df0a5e30adadf38b933"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "baa4ede546ed9ce3bc3283002cde1fb529a6c91030614df0a5e30adadf38b933"
-    sha256 cellar: :any_skip_relocation, sonoma:         "42ad1cd69548d08762c7d4dae34ce0f9727dedb611e85fba886721a20d3e78b5"
-    sha256 cellar: :any_skip_relocation, ventura:        "914cd86fc8a41d17755bd041e7f57233d09d591257dba66ee2b166ebeed49e70"
-    sha256 cellar: :any_skip_relocation, monterey:       "914cd86fc8a41d17755bd041e7f57233d09d591257dba66ee2b166ebeed49e70"
-    sha256 cellar: :any_skip_relocation, big_sur:        "914cd86fc8a41d17755bd041e7f57233d09d591257dba66ee2b166ebeed49e70"
-    sha256 cellar: :any_skip_relocation, catalina:       "914cd86fc8a41d17755bd041e7f57233d09d591257dba66ee2b166ebeed49e70"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "baa4ede546ed9ce3bc3283002cde1fb529a6c91030614df0a5e30adadf38b933"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "29f9397a8cee6ea519559666eca9fd4323259bc449543e8bc0f4afd30aeaceaa"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "29f9397a8cee6ea519559666eca9fd4323259bc449543e8bc0f4afd30aeaceaa"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "29f9397a8cee6ea519559666eca9fd4323259bc449543e8bc0f4afd30aeaceaa"
+    sha256 cellar: :any_skip_relocation, sonoma:         "532b4e68f1878d52077507f2ad662a5b6c86f410854a952f2269c1db2d34f778"
+    sha256 cellar: :any_skip_relocation, ventura:        "532b4e68f1878d52077507f2ad662a5b6c86f410854a952f2269c1db2d34f778"
+    sha256 cellar: :any_skip_relocation, monterey:       "532b4e68f1878d52077507f2ad662a5b6c86f410854a952f2269c1db2d34f778"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "29f9397a8cee6ea519559666eca9fd4323259bc449543e8bc0f4afd30aeaceaa"
   end
 
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   def install
     rewrite_shebang detected_python_shebang, "flawfinder.py"

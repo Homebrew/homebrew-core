@@ -11,9 +11,11 @@ class Passwdqc < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "8c8d9e924950156472e0040224cf7f30a6e6c256eccc027746be8a9211b245f4"
     sha256 cellar: :any,                 arm64_ventura:  "d6212417a711c18e45a28eb3a24a775d091665538ed50f678d077fa47e647f7d"
     sha256 cellar: :any,                 arm64_monterey: "1fa6444ca8237d6bed9e187245dee44ea797f13c8822ab77527df7c47f324c16"
     sha256 cellar: :any,                 arm64_big_sur:  "e8d4dc476b0ff113653823c425dcbfc89ad57112a89086fa8602f27f0c3c0f41"
+    sha256 cellar: :any,                 sonoma:         "c5f29e9353bb3887d132a98468ffb9f01d7058d22a95bb062e6e63e8d2c345a1"
     sha256 cellar: :any,                 ventura:        "40dd6c923246ef225bf9e129e5ae142ed77fe7d111f92654fab0e3edd921f612"
     sha256 cellar: :any,                 monterey:       "72f01dbc795a98ac1ec65db7c31f62e13182d47c422b116c57f72d34a8fc7c6f"
     sha256 cellar: :any,                 big_sur:        "7fb7c879feb5562187e03d4d2a1bbc5be855330c1382cac43ef3378818eacb02"

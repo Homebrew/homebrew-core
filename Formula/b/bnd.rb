@@ -1,8 +1,8 @@
 class Bnd < Formula
   desc "Swiss Army Knife for OSGi bundles"
   homepage "https://bnd.bndtools.org/"
-  url "https://search.maven.org/remotecontent?filepath=biz/aQute/bnd/biz.aQute.bnd/6.4.1/biz.aQute.bnd-6.4.1.jar"
-  sha256 "71108848bf44b7521afc7d6f63613ac1ffef8d41bf92588a1ec196bfb05fea19"
+  url "https://search.maven.org/remotecontent?filepath=biz/aQute/bnd/biz.aQute.bnd/7.0.0/biz.aQute.bnd-7.0.0.jar"
+  sha256 "674080fc8bb766af9bd721f4847467c6a7a25de3ea6a444525241b34126688b1"
   license any_of: ["Apache-2.0", "EPL-2.0"]
 
   livecheck do
@@ -11,15 +11,13 @@ class Bnd < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fb9cf40a41266b51c26d7feaaad7bcc60147e6fd0facc0f559008eb80390d806"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a72b84f857a282a23dac9e995d4462d59c74430da39cd71eb0e28aefba8111cc"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a72b84f857a282a23dac9e995d4462d59c74430da39cd71eb0e28aefba8111cc"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a72b84f857a282a23dac9e995d4462d59c74430da39cd71eb0e28aefba8111cc"
-    sha256 cellar: :any_skip_relocation, sonoma:         "fb9cf40a41266b51c26d7feaaad7bcc60147e6fd0facc0f559008eb80390d806"
-    sha256 cellar: :any_skip_relocation, ventura:        "a72b84f857a282a23dac9e995d4462d59c74430da39cd71eb0e28aefba8111cc"
-    sha256 cellar: :any_skip_relocation, monterey:       "a72b84f857a282a23dac9e995d4462d59c74430da39cd71eb0e28aefba8111cc"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a72b84f857a282a23dac9e995d4462d59c74430da39cd71eb0e28aefba8111cc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "721b378810b533d58c4ed3d98dd94e31949cad601665f2eec90704e2bf4165fc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8549e3e61e7f749cac5e80e09fd3a66a2f8cf38fc370fe3f27866b48694c61a4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8549e3e61e7f749cac5e80e09fd3a66a2f8cf38fc370fe3f27866b48694c61a4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8549e3e61e7f749cac5e80e09fd3a66a2f8cf38fc370fe3f27866b48694c61a4"
+    sha256 cellar: :any_skip_relocation, sonoma:         "8549e3e61e7f749cac5e80e09fd3a66a2f8cf38fc370fe3f27866b48694c61a4"
+    sha256 cellar: :any_skip_relocation, ventura:        "8549e3e61e7f749cac5e80e09fd3a66a2f8cf38fc370fe3f27866b48694c61a4"
+    sha256 cellar: :any_skip_relocation, monterey:       "8549e3e61e7f749cac5e80e09fd3a66a2f8cf38fc370fe3f27866b48694c61a4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "874833d2f3ad7da2c19ae2c0218b793e9c34d8067a4de1f3dbd18d6ae43b1d35"
   end
 
   depends_on "openjdk"

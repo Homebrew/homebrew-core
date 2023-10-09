@@ -1,20 +1,18 @@
 class Nemu < Formula
   desc "Ncurses UI for QEMU"
   homepage "https://github.com/nemuTUI/nemu"
-  url "https://github.com/nemuTUI/nemu/archive/refs/tags/v3.2.0.tar.gz"
-  sha256 "f35b7e5c534bae294fe6df7685b686682145222a954b6914dfdcc17d386fecba"
+  url "https://github.com/nemuTUI/nemu/archive/refs/tags/v3.3.0.tar.gz"
+  sha256 "dea2d02e539d7c671e66c102684be5ee231fa9094a73c1ab2793817773e72ac7"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 arm64_sonoma:   "f1b5c467b7ade03bde539a0679f3f9d093249c96255c921f5ec95a293435f946"
-    sha256 arm64_ventura:  "4c10435792d5708eef1a8fd5d1aa504616a0387f3b66e069a99d6084cd7a97ea"
-    sha256 arm64_monterey: "9a5b94e574734ff942ceef51f3c47ac203a53f636be78e2ab560d1c82dfe40cf"
-    sha256 arm64_big_sur:  "d6afaec948bdd9ef2db37ac4844e0131ad12daac732f6903818760679d8334f4"
-    sha256 sonoma:         "203de90a4f11d424ee5709423a1e735ac5694b1be3f2bac7e8b9e21e7591870f"
-    sha256 ventura:        "427ed14c86065271bb18f07d4c2c409d2c24f325c4d73d63563d14cd15376910"
-    sha256 monterey:       "129e2d494fd094a2dd72c4aecd8ae11f8d78492fa9b03aa35fecdb1a378cfa89"
-    sha256 big_sur:        "acf4c11eae2001ce5332a1492711a60fe29ac879a64b15f576b968ad96bf3a19"
-    sha256 x86_64_linux:   "3b8b5991992a53932c6cc20fcd8cceb88394ff091602ab715f0ae8a0d7ac8f0d"
+    sha256 arm64_sonoma:   "2f510c615ac4ecd999ad1da47fda562287a88ab9f306f25c584e1cf8276e56c9"
+    sha256 arm64_ventura:  "f81d74612cdf8fe0d4ea6475ad3fcbda3a3a4a7434dca624adfe5f3afc93b7f8"
+    sha256 arm64_monterey: "533618fd9355d18b458708f197a42e0316580f5543601f584d558f7c57504bca"
+    sha256 sonoma:         "3cbef2efa4b26b2b0450b8a9684d0e178d672a647d399062a3ce2a112f033a31"
+    sha256 ventura:        "eb98aaf401f12994a13e479d7553a5bf9bef557ff8ad0ebad1a3948d102a4b0b"
+    sha256 monterey:       "64476c1b9e95eaf356583de9eaeaa47b54b2983cf51e1d39fd242691cd81f0fa"
+    sha256 x86_64_linux:   "7103efd1f68a50098902722a678f84dfb5bd440b2a6048ebbda49cbe7d2aa7da"
   end
 
   depends_on "cmake" => :build

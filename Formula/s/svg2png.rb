@@ -12,9 +12,11 @@ class Svg2png < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "e12447c3d9303d05526006e0264334788b9420770964e4fa621368f38b099905"
     sha256 cellar: :any,                 arm64_ventura:  "6ea6d9de3e844679b033653d791e7b4e9d323e9851d5d69ae88e2aedcf9de01d"
     sha256 cellar: :any,                 arm64_monterey: "d27d975e6029a87783131f8c4dc4aa41da61901f01d13a44aebf1a69b27be9f3"
     sha256 cellar: :any,                 arm64_big_sur:  "4a1dd056166d51270fa14a9957dfabecea6c9ec391c0a476b8dbba95033aaa48"
+    sha256 cellar: :any,                 sonoma:         "2541b649810f8641616c66cc3fba2445721654b97c6381941f8a055572acdf4d"
     sha256 cellar: :any,                 ventura:        "c682123ac6c635638ab1021e224c55556f3f59dbdf01ca618d709d34e975f00c"
     sha256 cellar: :any,                 monterey:       "5d673b22dbf70d13fc5488e31daaaecdbe526035358b93f05c0d311270d0779c"
     sha256 cellar: :any,                 big_sur:        "2887e4be3e04f38930ca99045b751719f73632466d758370f8fb61caf41b9616"

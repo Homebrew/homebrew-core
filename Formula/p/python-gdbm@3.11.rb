@@ -1,8 +1,8 @@
 class PythonGdbmAT311 < Formula
   desc "Python interface to gdbm"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.11.5/Python-3.11.5.tgz"
-  sha256 "a12a0a013a30b846c786c010f2c19dd36b7298d888f7c4bd1581d90ce18b5e58"
+  url "https://www.python.org/ftp/python/3.11.6/Python-3.11.6.tgz"
+  sha256 "c049bf317e877cbf9fce8c3af902436774ecef5249a29d10984ca3a37f7f4736"
   license "Python-2.0"
 
   livecheck do
@@ -10,15 +10,13 @@ class PythonGdbmAT311 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "c446fa9555253fd794b1c85c3510fd7e13f5c5eea7bfb1358929f55c918a63da"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8d76bbeb515f9923b5a7c935e11e00a1391b0bf71e548176e5536b066261ff64"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "217ec8688e841270213f67d7390230ad69c5ebc6d0f1c071091041777fceb0fd"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b6b6331f12a31de9e4681c8845d410e7bb1f1bd68224d4724ad4011a3d8d36f0"
-    sha256 cellar: :any,                 sonoma:         "c54a694407e0d13a5999e499d0b143bd446837a689816fbe6e7cb11e2f26d1df"
-    sha256 cellar: :any_skip_relocation, ventura:        "e3fa7ba0909a3d5f3a9be6570f49a0538af3d0abd3dde50cc0f65f7b99fd6809"
-    sha256 cellar: :any_skip_relocation, monterey:       "aaf89542521a28dfccd7259fdb68e5d9e75568ae9efea90dced8dc5b8d5d3add"
-    sha256 cellar: :any_skip_relocation, big_sur:        "40e25d2c3ecc4d5ce8c8a613a37b0a167b4bf1fd403df8ba9b6229212f69f6f2"
-    sha256                               x86_64_linux:   "1e74714aea8a50534f77fc8f74a1a01af0e637b88017d67b2f203bb30a8dcf2d"
+    sha256 cellar: :any, arm64_sonoma:   "141a5ad1ef7d2ab9eddecb05f8e636a38eebd21d92c3ce4365cf65b990720fa8"
+    sha256 cellar: :any, arm64_ventura:  "59e51127d2fb4ccd9a8a815fb2b0500952da3e3b1c62f461894e21f457457f28"
+    sha256 cellar: :any, arm64_monterey: "fc17b7519b0fa7cb9a838f21a76df83b42122543b7a079b066417be898ad4a7d"
+    sha256 cellar: :any, sonoma:         "1214849bc7b644d3285585d40612aa5a0c0b270ae19be16251fe463bbefa70e9"
+    sha256 cellar: :any, ventura:        "2038b04f76509fe4260d8eac6e2a2826e00d8426e15e141deaaf5a1e033aec1f"
+    sha256 cellar: :any, monterey:       "441f21b20135496da9003bb1b4c6339b34a9eecb093082b14c408aa0ab38d4cc"
+    sha256               x86_64_linux:   "5fc85ba7dbf17c49c4aafc72c623040bf4f510cb1738d5253656177bda0c95cf"
   end
 
   depends_on "gdbm"
