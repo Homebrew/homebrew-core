@@ -3,8 +3,8 @@ class Recoverpy < Formula
 
   desc "TUI to recover overwritten or deleted data"
   homepage "https://github.com/PabloLec/recoverpy"
-  url "https://files.pythonhosted.org/packages/38/b1/e34bfe27ea88b786304d1ee96120e750008d86415111e8068a8885bd45dc/recoverpy-2.1.0.tar.gz"
-  sha256 "5bb2f2870b0aa6f368b631360ef019e3f2c97b24a7ccd0c45c89ae4f2093659f"
+  url "https://files.pythonhosted.org/packages/43/1e/385e354d98b0244fabcbc6f2b240e0a940d1cd40d98ca5e9f78d0be8a6e7/recoverpy-2.1.1.tar.gz"
+  sha256 "fe1527d307c87fe008b33c51cd9dea2069140df79a7664d0f6b09063e1e0fe4c"
   license "GPL-3.0-or-later"
   head "https://github.com/PabloLec/recoverpy.git", branch: "main"
 
@@ -43,13 +43,24 @@ class Recoverpy < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/ad/1a/94fe086875350afbd61795c3805e38ef085af466a695db605bcdd34b4c9c/rich-13.5.2.tar.gz"
-    sha256 "fb9d6c0a0f643c99eed3875b5377a184132ba9be4d61516a55273d3554d75a39"
+    url "https://files.pythonhosted.org/packages/b1/0e/e5aa3ab6857a16dadac7a970b2e1af21ddf23f03c99248db2c01082090a3/rich-13.6.0.tar.gz"
+    sha256 "5c14d22737e6d5084ef4771b62d5d4363165b403455a30a1c8ca39dc7b644bef"
   end
 
   resource "textual" do
-    url "https://files.pythonhosted.org/packages/73/80/18a9ab265078a1b5618e3cc0090c622b0bf6f5f7655b02f69fef16c4f957/textual-0.36.0.tar.gz"
-    sha256 "fbfc799a55938cfade6cfbf7c5ae3c3e5fc87ff9deaaed788a6dcefe72245451"
+    url "https://files.pythonhosted.org/packages/f6/77/0d0eba76ac68d08f87906a2dda06f62b761f97512f8ce434dd0dea521a6e/textual-0.38.1.tar.gz"
+    sha256 "504c934c3281217a29e7a95d498aacb7fbc629f6430895f7ac51ea7ba66e5d99"
+  end
+
+  resource "tree-sitter" do
+    url "https://files.pythonhosted.org/packages/0d/52/1284e9ed195b161261ac09bfd9785027e2734fc77360a889f6464a8e8ce8/tree_sitter-0.20.2.tar.gz"
+    sha256 "0a6c06abaa55de174241a476b536173bba28241d2ea85d198d33aa8bf009f028"
+  end
+
+  # pypi artifact issue report, https://github.com/grantjenks/py-tree-sitter-languages/issues/29
+  resource "tree-sitter-languages" do
+    url "https://github.com/grantjenks/py-tree-sitter-languages/archive/refs/tags/v1.7.0.tar.gz"
+    sha256 "1801390e30edf5ce762388ced7c376feb7e4c8262e89be100dc8cefebf604073"
   end
 
   resource "uc-micro-py" do
@@ -58,8 +69,8 @@ class Recoverpy < Formula
   end
 
   resource "zipp" do
-    url "https://files.pythonhosted.org/packages/e2/45/f3b987ad5bf9e08095c1ebe6352238be36f25dd106fde424a160061dce6d/zipp-3.16.2.tar.gz"
-    sha256 "ebc15946aa78bd63458992fc81ec3b6f7b1e92d51c35e6de1c3804e73b799147"
+    url "https://files.pythonhosted.org/packages/58/03/dd5ccf4e06dec9537ecba8fcc67bbd4ea48a2791773e469e73f94c3ba9a6/zipp-3.17.0.tar.gz"
+    sha256 "84e64a1c28cf7e91ed2078bb8cc8c259cb19b76942096c8d7b84947690cabaf0"
   end
 
   def install
