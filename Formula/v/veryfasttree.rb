@@ -10,7 +10,7 @@ class Veryfasttree < Formula
   depends_on "libomp"
 
   def install
-    system "cmake", "-B", "build", "-DUSE_NATIVE=OFF"
+    system "cmake", "-B", "build"
     system "cmake", "--build", "build"
     bin.install "build/VeryFastTree" => "VeryFastTree"
   end
