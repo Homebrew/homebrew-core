@@ -1,6 +1,6 @@
 class KubernetesCliAT122 < Formula
   desc "Kubernetes command-line interface"
-  homepage "https://kubernetes.io/"
+  homepage "https://kubernetes.io/docs/reference/kubectl/"
   url "https://github.com/kubernetes/kubernetes.git",
       tag:      "v1.22.17",
       revision: "a7736eaf34d823d7652415337ac0ad06db9167fc"
