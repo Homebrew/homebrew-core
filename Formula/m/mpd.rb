@@ -30,6 +30,7 @@ class Mpd < Formula
   depends_on "flac"
   depends_on "fluid-synth"
   depends_on "fmt"
+  depends_on "game-music-emu"
   depends_on "glib"
   depends_on "icu4c"
   depends_on "lame"
@@ -71,6 +72,7 @@ class Mpd < Formula
       -Dexpat=enabled
       -Dffmpeg=enabled
       -Dfluidsynth=enabled
+      -Dgme=enabled
       -Dnfs=enabled
       -Dshout=enabled
       -Dupnp=pupnp
