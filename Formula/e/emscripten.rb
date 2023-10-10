@@ -3,8 +3,8 @@ require "language/node"
 class Emscripten < Formula
   desc "LLVM bytecode to JavaScript compiler"
   homepage "https://emscripten.org/"
-  url "https://github.com/emscripten-core/emscripten/archive/3.1.46.tar.gz"
-  sha256 "2c1474286f6b3a06b3442a57ba043f809849573a179db681c6a350bf327ce360"
+  url "https://github.com/emscripten-core/emscripten/archive/3.1.47.tar.gz"
+  sha256 "92961d97a602ce4e47828ac04c7d36acd7a80a0bfe1458429d4c944b1c4fe321"
   license all_of: [
     "Apache-2.0", # binaryen
     "Apache-2.0" => { with: "LLVM-exception" }, # llvm
@@ -31,7 +31,7 @@ class Emscripten < Formula
 
   depends_on "cmake" => :build
   depends_on "node"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "yuicompressor"
 
   # OpenJDK is needed as a dependency on Linux and ARM64 for google-closure-compiler,
@@ -53,7 +53,7 @@ class Emscripten < Formula
   # See llvm resource below for instructions on how to update this.
   resource "binaryen" do
     url "https://github.com/WebAssembly/binaryen.git",
-        revision: "16a59938563c93d8459bf36679c83497aeba7cc7"
+        revision: "db68bae222b835f8190013dca45854c7cc07dadf"
   end
 
   # emscripten does not support using the stable version of LLVM.
@@ -65,7 +65,7 @@ class Emscripten < Formula
   # Then use the listed llvm_project_revision for the resource below.
   resource "llvm" do
     url "https://github.com/llvm/llvm-project.git",
-        revision: "75501f53624de92aafce2f1da698b249a7293dc7"
+        revision: "21030b9ab4487d845e29792063f5666d8c4b8e09"
   end
 
   def install
@@ -171,7 +171,7 @@ class Emscripten < Formula
 
     # Add JAVA_HOME to env_script on ARM64 macOS and Linux, so that google-closure-compiler
     # can find OpenJDK
-    emscript_env = { PYTHON: Formula["python@3.11"].opt_bin/"python3.11" }
+    emscript_env = { PYTHON: Formula["python@3.12"].opt_bin/"python3.12" }
     emscript_env.merge! Language::Java.overridable_java_home_env if OS.linux? || Hardware::CPU.arm?
 
     emscripts.each do |emscript|
