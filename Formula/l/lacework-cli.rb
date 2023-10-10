@@ -1,48 +1,50 @@
 class LaceworkCli < Formula
+  VERSION = "v1.33.3".freeze
   desc "CLI for managing Lacework"
   homepage "https://docs.lacework.com/cli"
-  url "https://github.com/lacework/go-sdk.git",
-      tag:      "v1.33.3",
-      revision: "b796fbc13651a9f3b22e7832562b661b74680470"
+  version VERSION
   license "Apache-2.0"
-  head "https://github.com/lacework/go-sdk.git", branch: "main"
 
-  # There can be a notable gap between when a version is tagged and a
-  # corresponding release is created, so we check the "latest" release instead
-  # of the Git tags.
-  livecheck do
-    url :stable
-    strategy :github_latest
+  # Lacework provides prebuilt binaries for all supported platforms
+  if OS.mac?
+    if Hardware::CPU.arm?
+      url "https://github.com/lacework/go-sdk/releases/download/#{VERSION}/lacework-cli-darwin-arm64.zip"
+      sha256 "b6ddc3d2e605f1a2bb2cb4bc38a284f0f1d232a2e45d646f7cbd3f1d9803ef0c"
+    else
+      url "https://github.com/lacework/go-sdk/releases/download/#{VERSION}/lacework-cli-darwin-amd64.zip"
+      sha256 "ce579585bc39b9463e4c2d1608755f233c3ccb953dba9c5c908fe0d570a82a64"
+    end
+  end
+  if OS.linux? && Hardware::CPU.intel? && !Hardware::CPU.is_64_bit?
+    url "https://github.com/lacework/go-sdk/releases/download/#{VERSION}/lacework-cli-linux-386.tar.gz"
+    sha256 "d53404fb2aa42dfeaa174755d440687a4385dfe6b4c06f54bc89bbe122bdfa61"
+  end
+  if OS.linux? && Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
+    url "https://github.com/lacework/go-sdk/releases/download/#{VERSION}/lacework-cli-linux-amd64.tar.gz"
+    sha256 "e1b38581d6ba8ec48c78c1df88f11466968b4b34ae75daba1e2f592212987117"
+  end
+  if OS.linux? && Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
+    url "https://github.com/lacework/go-sdk/releases/download/#{VERSION}/lacework-cli-linux-arm.tar.gz"
+    sha256 "723c149da7ad58c8804641389b5f7bee9272fce36f793b159e036e80bf57400a"
+  end
+  if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+    url "https://github.com/lacework/go-sdk/releases/download/#{VERSION}/lacework-cli-linux-arm64.tar.gz"
+    sha256 "d900d603aceab942e9430f05c297618ece40ca24616680a6df136a08534d6c79"
   end
 
-  bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d19d97acef3787d02dab5e9bd1ba47d18cbadc43bc5a841e1527f387771e1d50"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3c1bd994b45d9d87011077b80148ff42975b748c0cfe075dfbe92a57b8d6d14d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "edc056e505f20680c82848650183a106c71b58fb96a2a22a9c6cf9b272e72c17"
-    sha256 cellar: :any_skip_relocation, sonoma:         "79409cdfa95812d0cfbf9648a35148f7ba8e64d37a5e47a81b58b59c40a581ed"
-    sha256 cellar: :any_skip_relocation, ventura:        "78f0ef60b48d2c9a2696efca907fa2fed3c9a3d792e0c86e0507839d29792f53"
-    sha256 cellar: :any_skip_relocation, monterey:       "249303c372909f67c40eaf62338051c3548c302849346320cc573c050c12dd36"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3f991cd0f89395cc982c63ae005f9b041141dd226505800082a8c624f62f2d1f"
-  end
-
-  depends_on "go" => :build
 
   def install
-    ldflags = %W[
-      -s -w
-      -X github.com/lacework/go-sdk/cli/cmd.Version=#{version}
-      -X github.com/lacework/go-sdk/cli/cmd.GitSHA=#{Utils.git_head}
-      -X github.com/lacework/go-sdk/cli/cmd.BuildTime=#{time.iso8601}
-    ]
-    system "go", "build", *std_go_args(output: bin/"lacework", ldflags: ldflags), "./cli"
+    prefix.install "lacework"
+
+    (bin/"lacework").write <<~EOS
+      #!/bin/bash
+      LW_HOMEBREW_INSTALL=1 exec "#{prefix}/lacework" "$@"
+    EOS
 
     generate_completions_from_executable(bin/"lacework", "completion", base_name: "lacework")
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/lacework version")
-
-    output = shell_output("#{bin}/lacework configure list 2>&1", 1)
-    assert_match "ERROR unable to load profiles. No configuration file found.", output
+    assert_match "lacework #{VERSION}", shell_output("#{bin}/lacework version")
   end
 end
