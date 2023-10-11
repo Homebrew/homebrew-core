@@ -21,7 +21,6 @@ class TerraformRover < Formula
 
   depends_on "go" => :build
   depends_on "node"
-  depends_on "terraform"
 
   # build patch for building with node 20 and go 1.21.0
   # fix `Error: error:0308010C:digital envelope routines::unsupported` error
@@ -45,14 +44,8 @@ class TerraformRover < Formula
   end
 
   test do
-    (testpath/"main.tf").write <<~EOS
-      output "hello_world" {
-        value = "Hello, World!"
-      }
-    EOS
-    system bin/"terraform-rover", "-standalone", "-tfPath", Formula["terraform"].bin/"terraform"
-    assert_predicate testpath/"rover.zip", :exist?
-
+    # rover hard depends on terraform, so we can't run the full test
+    # opentf support issue, https://github.com/im2nguyen/rover/issues/133
     assert_match version.to_s, shell_output("#{bin}/terraform-rover --version")
   end
 end
