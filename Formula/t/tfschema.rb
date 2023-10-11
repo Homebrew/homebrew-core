@@ -27,10 +27,8 @@ class Tfschema < Formula
   end
 
   test do
-    (testpath/"provider.tf").write "provider \"aws\" {}"
-    system Formula["terraform"].bin/"terraform", "init"
-    assert_match "permissions_boundary", shell_output("#{bin}/tfschema resource show aws_iam_user")
-
+    # tfschema hard depends on terraform, so we can't run the full test
+    # opentf support issue, https://github.com/minamijoyo/tfschema/issues/50
     assert_match version.to_s, shell_output("#{bin}/tfschema --version")
   end
 end
