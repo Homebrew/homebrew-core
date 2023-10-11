@@ -34,6 +34,13 @@ class Boost < Formula
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
 
+  # Upstream commit for clang 15 compatibility, remove in next version
+  # https://github.com/boostorg/functional/commit/6a573e4
+  patch do
+    url "https://github.com/boostorg/functional/commit/6a573e4.patch?full_index=1"
+    sha256 "c1af12ff3e91cde025874d7dcc6aa24f2beee952d0f3ae70bc3530bf3009cb11"
+  end
+
   def install
     # Force boost to compile with the desired compiler
     open("user-config.jam", "a") do |file|
