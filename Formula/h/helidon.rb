@@ -1,8 +1,8 @@
 class Helidon < Formula
   desc "Command-line tool for Helidon application development"
   homepage "https://helidon.io/"
-  url "https://github.com/helidon-io/helidon-build-tools/archive/refs/tags/3.0.6.tar.gz"
-  sha256 "749cf3fd162bb9449ab57584c0bdf8874114d678499071ea522c047637de0f90"
+  url "https://github.com/helidon-io/helidon-build-tools/archive/refs/tags/3.0.7.tar.gz"
+  sha256 "4515a6a56e1e3fee28dcf400862906fa4c113133e8506c5c86afc09bebfc6353"
   license "Apache-2.0"
 
   bottle do
