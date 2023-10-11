@@ -22,23 +22,13 @@ class Atlantis < Formula
   end
 
   depends_on "go" => :build
-  depends_on "terraform"
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")
   end
 
   test do
+    # atlantis hard depends on terraform, so we can't run the full test
     system bin/"atlantis", "version"
-    port = free_port
-    loglevel = "info"
-    gh_args = "--gh-user INVALID --gh-token INVALID --gh-webhook-secret INVALID --repo-allowlist INVALID"
-    command = bin/"atlantis server --atlantis-url http://invalid/ --port #{port} #{gh_args} --log-level #{loglevel}"
-    pid = Process.spawn(command)
-    system "sleep", "5"
-    output = `curl -vk# 'http://localhost:#{port}/' 2>&1`
-    assert_match %r{HTTP/1.1 200 OK}m, output
-    assert_match "atlantis", output
-    Process.kill("TERM", pid)
   end
 end
