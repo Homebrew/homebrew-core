@@ -2,8 +2,8 @@ class V8 < Formula
   desc "Google's JavaScript engine"
   homepage "https://github.com/v8/v8/wiki"
   # Track V8 version from Chrome stable: https://chromiumdash.appspot.com/releases?platform=Mac
-  url "https://github.com/v8/v8/archive/11.7.439.16.tar.gz"
-  sha256 "df073b032cafab5124a166771b5d66f6afaa8412c4d5863d2ba8d52c253ced33"
+  url "https://github.com/v8/v8/archive/11.8.172.15.tar.gz"
+  sha256 "cd74795f2c0fb0372fcc2dbeace7d8e35928487450b9a3382fc391caee01d64e"
   license "BSD-3-Clause"
 
   livecheck do
@@ -53,7 +53,7 @@ class V8 < Formula
   # e.g. for CIPD dependency gn: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/<version>/DEPS#64
   resource "gn" do
     url "https://gn.googlesource.com/gn.git",
-        revision: "811d332bd90551342c5cbd39e133aa276022d7f8"
+        revision: "cc56a0f98bb34accd5323316e0292575ff17a5d4"
   end
 
   resource "v8/base/trace_event/common" do
@@ -63,7 +63,7 @@ class V8 < Formula
 
   resource "v8/build" do
     url "https://chromium.googlesource.com/chromium/src/build.git",
-        revision: "afe0125ef9e10b400d9ec145aa18fca932369346"
+        revision: "e14e0cc3b60c6ba8901741da3f9c18b7fa983880"
   end
 
   resource "v8/third_party/googletest/src" do
@@ -73,7 +73,7 @@ class V8 < Formula
 
   resource "v8/third_party/icu" do
     url "https://chromium.googlesource.com/chromium/deps/icu.git",
-        revision: "de4ce0071eb47ed54cbda54869001210cf3a8ae5"
+        revision: "985b9a6f70e13f3db741fed121e4dcc3046ad494"
   end
 
   resource "v8/third_party/jinja2" do
@@ -88,12 +88,12 @@ class V8 < Formula
 
   resource "v8/third_party/zlib" do
     url "https://chromium.googlesource.com/chromium/src/third_party/zlib.git",
-        revision: "526382e41c9c5275dc329db4328b54e4f344a204"
+        revision: "f5fd0ad2663e239a31184ad4c9919991dda16f46"
   end
 
   resource "v8/third_party/abseil-cpp" do
     url "https://chromium.googlesource.com/chromium/src/third_party/abseil-cpp.git",
-        revision: "583dc6d1b3a0dd44579718699e37cad2f0c41a26"
+        revision: "7affa303ea4ebf4d4de65b3f20f230c7bb16a2ed"
   end
 
   def install
