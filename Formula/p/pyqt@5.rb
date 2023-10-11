@@ -4,6 +4,7 @@ class PyqtAT5 < Formula
   url "https://files.pythonhosted.org/packages/5c/46/b4b6eae1e24d9432905ef1d4e7c28b6610e28252527cdc38f2a75997d8b5/PyQt5-5.15.9.tar.gz"
   sha256 "dc41e8401a90dc3e2b692b411bd5492ab559ae27a27424eed4bd3915564ec4c0"
   license "GPL-3.0-only"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "9398c47f03210dddad2db4419553223f43113d7fe302656b20f6aa5fd0b3eecf"
@@ -18,10 +19,11 @@ class PyqtAT5 < Formula
   end
 
   depends_on "pyqt-builder" => :build
-  depends_on "python@3.10"  => [:build, :test]
-  depends_on "python@3.11"  => [:build, :test]
-  depends_on "python@3.9"   => [:build, :test]
-  depends_on "sip"          => :build
+  depends_on "python-setuptools" => :build
+  depends_on "python@3.10" => [:build, :test]
+  depends_on "python@3.11" => [:build, :test]
+  depends_on "python@3.12" => [:build, :test]
+  depends_on "sip" => :build
   depends_on "qt@5"
 
   fails_with gcc: "5"
@@ -83,7 +85,7 @@ class PyqtAT5 < Formula
       system "sip-install", *args
 
       resource("PyQt5-sip").stage do
-        system python, *Language::Python.setup_install_args(prefix, python)
+        system python, "-m", "pip", "install", *std_pip_args, "."
       end
 
       components.each do |p|
@@ -98,7 +100,9 @@ class PyqtAT5 < Formula
     end
 
     # Replace hardcoded reference to Python version used with sip/pyqt-builder with generic python3.
-    bin.children.each { |script| inreplace script, Formula["python@3.11"].opt_bin/"python3.11", "python3" }
+    inreplace bin.children, /exec \S+python\S* -m/, "exec python3 -m"
+    python_bins = pythons.reverse.map { |p| File.dirname(p) }.join(":")
+    bin.env_script_all_files libexec/"bin", PATH: "#{python_bins}:${PATH}"
   end
 
   test do
