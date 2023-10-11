@@ -20,7 +20,7 @@ class Vit < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2f93e4ff9a53c040bd12353b27506070548a1f286da040a30969dc67ee386b7d"
   end
 
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "task"
 
   resource "tasklib" do
@@ -29,8 +29,8 @@ class Vit < Formula
   end
 
   resource "urwid" do
-    url "https://files.pythonhosted.org/packages/94/3f/e3010f4a11c08a5690540f7ebd0b0d251cc8a456895b7e49be201f73540c/urwid-2.1.2.tar.gz"
-    sha256 "588bee9c1cb208d0906a9f73c613d2bd32c3ed3702012f51efe318a3f2127eae"
+    url "https://files.pythonhosted.org/packages/5f/cf/2f01d2231e7fb52bd8190954b6165c89baa17e713c690bdb2dfea1dcd25d/urwid-2.2.2.tar.gz"
+    sha256 "5f83b241c1cbf3ec6c4b8c6b908127e0c9ad7481c5d3145639524157fc4e1744"
   end
 
   def install
