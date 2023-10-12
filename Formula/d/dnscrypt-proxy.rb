@@ -61,6 +61,8 @@ class DnscryptProxy < Formula
     run [opt_sbin/"dnscrypt-proxy", "-config", etc/"dnscrypt-proxy.toml"]
     keep_alive true
     require_root true
+    error_log_path var/"log/dnscrypt-proxy.log"
+    log_path var/"log/dnscrypt-proxy.log"
   end
 
   test do
