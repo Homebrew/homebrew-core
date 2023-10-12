@@ -1,8 +1,8 @@
 class Envoy < Formula
   desc "Cloud-native high-performance edge/middle/service proxy"
   homepage "https://www.envoyproxy.io/index.html"
-  url "https://github.com/envoyproxy/envoy/archive/refs/tags/v1.27.0.tar.gz"
-  sha256 "143a433817b38dee5474a500816e26f38e7f4d1375162ad2d889918273be146b"
+  url "https://github.com/envoyproxy/envoy/archive/refs/tags/v1.27.1.tar.gz"
+  sha256 "0a786b3c547752507cb7a8f2a6033b4390a40922b93360d78559f74d576a490d"
   license "Apache-2.0"
   head "https://github.com/envoyproxy/envoy.git", branch: "main"
 
@@ -12,15 +12,13 @@ class Envoy < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "363462f23cac96d875d61b08bc2094b8b43ad91ed9da45b57b0eb304dd7e2d4c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d99adc9097b64deaeb383c0f2925d6a2cfea8c705b05d799a6c090f13b4e560c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0d8dccd9daba63ccaca2dd16873777bcb261d5e146c06651958413d5efc30932"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2b85d11708bb1c8d76deeb066efe78f3231f4d4226d35411d89811e559087aa7"
-    sha256 cellar: :any_skip_relocation, sonoma:         "20f53d76536da3a13b57023b7ff3c34b979a7a3c3901dda4ae3d4a4c56fc36af"
-    sha256 cellar: :any_skip_relocation, ventura:        "af28a5d930551fb2a61edecc935df75b9f158abd25456e3d7eeeeebd390afca8"
-    sha256 cellar: :any_skip_relocation, monterey:       "e2ec638544b36b3ebb2ac99fb70f900fdb1dd87ba861d5414e820bf8ee2bfd1e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "bfadf63208fff3d32908254573433b4df2efddf165de5fe43f6ba0fbe87b8524"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "796d35a7589e5ec7e6957cb85e70d0f518e6b9d0ff20abafadfad5bcc15d7ea3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7b560f54f2bd14dfe2d3d5a515d323d6d7b37b5c38390db345b29df752d64db1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1ef3608db8f1edbf851763f68df120bfe77da6def177103267775cef9559387b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "04c4c238f5e9bd0b405079316e23d872bec4efbd3a60691f4dc0ea458b59a64d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ad9c58961f51515cc70bc2d93030ac7c6add4491888ac1251047ba366a9fc6fc"
+    sha256 cellar: :any_skip_relocation, ventura:        "dcb09d4c73ce8668aad680ce727d351227b5137f16ef0049e86bd80709ca1d81"
+    sha256 cellar: :any_skip_relocation, monterey:       "94935697f6a5cd9d704768479eaa149518ef95ebbdd0de1f18e42587107fcb28"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c2fca250bf819350b702d380d475344b5a0e575af2505ab8e29d33c809a92238"
   end
 
   depends_on "automake" => :build

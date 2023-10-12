@@ -9,13 +9,14 @@ class Checkov < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "9b7f768e5ce2b75dac368b1726e0fb8004be2b473d6fbe9d5ae98a85558e739a"
-    sha256 cellar: :any,                 arm64_ventura:  "53f28c50cf217a98db7ed41dc47a47fcc77ea5fb5f6835b78c40def73b39681b"
-    sha256 cellar: :any,                 arm64_monterey: "6302a97b6c5862a601bf1ce1e8a004067178ab3b7c4f7c87d01509521928eae3"
-    sha256 cellar: :any,                 sonoma:         "517fc65e8bf3b94f40f53af99028d4ca83641a61e36e0f795baaacc60d63ce78"
-    sha256 cellar: :any,                 ventura:        "6ee03a02e3e1989e493802c65ea44b0780e2fcf0b91e2d2b3eb033ceb5cca902"
-    sha256 cellar: :any,                 monterey:       "1e994ed8f2ae60fc905fcd6c48f47a2d29ec476182daedf08babec0439c57aae"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a01f44d824d55e3a689a77fdbac8d75fc14242d31807743ae1700d8b44f288a2"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "fd412465b3c8091cb1db6b1bc0b612be7031f010e476e2c078cb79df08190d21"
+    sha256 cellar: :any,                 arm64_ventura:  "e54ea63ba23d6c7d183e1cecb69c1c1ba051dca70a89d31a4a49d9006cf4478e"
+    sha256 cellar: :any,                 arm64_monterey: "3831c152a47c74a4619801318383487b057db6adeda7bfdc5f9a89147d242817"
+    sha256 cellar: :any,                 sonoma:         "3117a21b0a6afc1055b3b34d13b96e4b295c078f32fee1a7d8f63e21f409b516"
+    sha256 cellar: :any,                 ventura:        "a59424784b56e36c578f99998c9c2c99fc9828d1505924882236a433df4bd07e"
+    sha256 cellar: :any,                 monterey:       "05af14dbe22786a111d89e9ba5b66bd2985c3694abdd5489afe39c1dbaefaffd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "348c5a9fb4aa6d7fdb4d22418788c1fdace5ffe23c87545cf23e09387083cb6d"
   end
 
   depends_on "cmake" => :build # for igraph
@@ -23,6 +24,7 @@ class Checkov < Formula
 
   depends_on "cffi"
   depends_on "numpy"
+  depends_on "python-argcomplete"
   depends_on "python-certifi"
   depends_on "python-markdown"
   depends_on "python-markupsafe"
@@ -53,11 +55,6 @@ class Checkov < Formula
   resource "aiosignal" do
     url "https://files.pythonhosted.org/packages/ae/67/0952ed97a9793b4958e5736f6d2b346b414a2cd63e82d05940032f45b32f/aiosignal-1.3.1.tar.gz"
     sha256 "54cd96e15e1649b75d6c87526a6ff0b6c1b0dd3459f43d9ca11d48c339b68cfc"
-  end
-
-  resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/1b/c5/fb934dda06057e182f8247b2b13a281552cf55ba2b8b4450f6e003d0469f/argcomplete-3.1.2.tar.gz"
-    sha256 "d5d1e5efd41435260b8f85673b74ea2e883affcbec9f4230c582689e8e78251b"
   end
 
   resource "async-timeout" do

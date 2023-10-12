@@ -8,19 +8,15 @@ class Rpmspectool < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "45c02db8d8811a7dbb181e23323536e9b820651d1978742b5bc7bef7b65e6cb5"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "2a399ded29cfacb69f065d2b7c17270eceb26331809bf89029d65d1d6fef24e4"
   end
 
   depends_on :linux
+  depends_on "python-argcomplete"
   depends_on "python-pycurl"
   depends_on "python@3.11"
   depends_on "rpm"
-
-  resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/54/c9/41c4dfde7623e053cbc37ac8bc7ca03b28093748340871d4e7f1630780c4/argcomplete-3.1.1.tar.gz"
-    sha256 "6c4c563f14f01440aaffa3eae13441c5db2357b5eec639abe7c0b15334627dff"
-  end
 
   def install
     virtualenv_install_with_resources

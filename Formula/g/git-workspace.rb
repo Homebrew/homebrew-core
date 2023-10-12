@@ -22,7 +22,7 @@ class GitWorkspace < Formula
   depends_on "libgit2"
 
   def install
-    ENV["LIBGIT2_SYS_USE_PKG_CONFIG"] = "1"
+    ENV["LIBGIT2_NO_VENDOR"] = "1"
     system "cargo", "install", *std_cargo_args
   end
 

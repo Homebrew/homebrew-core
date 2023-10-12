@@ -1,8 +1,8 @@
 class Fheroes2 < Formula
   desc "Free Heroes of Might and Magic II is a recreation of HoMM2 game engine"
   homepage "https://ihhub.github.io/fheroes2/"
-  url "https://github.com/ihhub/fheroes2/archive/1.0.8.tar.gz"
-  sha256 "44047c787597a2b4a1f57f6189c9c7b0248729932327aa0a7973b55e9889ae87"
+  url "https://github.com/ihhub/fheroes2/archive/1.0.9.tar.gz"
+  sha256 "22e73ee4ff8a38e9e648fcb8df681fbb309b136e68483639517dfc9f61f867df"
   license "GPL-2.0-or-later"
   head "https://github.com/ihhub/fheroes2.git", branch: "master"
 
@@ -12,15 +12,13 @@ class Fheroes2 < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "27f93254c2b3398eda565a17f597b006733e42ab615b4eab9726e9cd850d03a5"
-    sha256 arm64_ventura:  "a20a19a84a697602a3ec95e349c516cbce5f2f7f33ef36d9ffae08b28df8c860"
-    sha256 arm64_monterey: "7eb214c8e971b24bcc523b6c46be6d4b20e648fc57ef5fe7c6dafd543cbc15ee"
-    sha256 arm64_big_sur:  "dff372935b5db6df5462e0c7615f045e10fc7c006843502a98411c0fdb8e268a"
-    sha256 sonoma:         "3c17033dde9419f1d1eae86bad833c0b2e38b2067cfd3a34eb01331d0cfb3ecb"
-    sha256 ventura:        "bbbf64733b9bfd17ee966d37ce327c2548e57e2c85fba15b23c30b5e6c7459b7"
-    sha256 monterey:       "b19661be09880839fbb664e3d17bbff376fdff7c6b5b35556286bd7e054cbebc"
-    sha256 big_sur:        "6b3864d5ba521bc1ece7480dd06f90761bc126c66e29edade9f6241e7e369631"
-    sha256 x86_64_linux:   "ef5cbe653a931d360e8e4a00d79fcd2a113004e29609af29f76356432389051b"
+    sha256 arm64_sonoma:   "5bc32db2fd0b0e3a0858dc723834edd0bbcf9ab0bdbbd420a9a7a6cae0bba19c"
+    sha256 arm64_ventura:  "7130860f665b300167bf5d571444b48bcdac1468aa565cf2cf7e1963de006037"
+    sha256 arm64_monterey: "5c7df58c5983f192709955357ad50f7468eb3edd022a0786134f221cb42beaf3"
+    sha256 sonoma:         "3078f147141ce141f346d649de89f307c0910c4bb6fbb79f1969a9688c2f5117"
+    sha256 ventura:        "5e0d09d2eebb21548d86c57b1c72e8d41a824727e6c1b42aef8530f329bc262f"
+    sha256 monterey:       "1c815d536ae714edc71761b8eec0032171981e1715c7bc9037639429c601a57b"
+    sha256 x86_64_linux:   "2fb8f9f0ce678d9be88e2bcc840481688cd20b6be59c2e786f27b99b5e7d3d49"
   end
 
   depends_on "cmake" => :build

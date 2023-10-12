@@ -1,8 +1,8 @@
 class Dnsdist < Formula
   desc "Highly DNS-, DoS- and abuse-aware loadbalancer"
   homepage "https://www.dnsdist.org/"
-  url "https://downloads.powerdns.com/releases/dnsdist-1.8.1.tar.bz2"
-  sha256 "05f356fcce29c4ece03c2d8df046adff3aaab0b036d6801c1a311c6d5bb3c07f"
+  url "https://downloads.powerdns.com/releases/dnsdist-1.8.2.tar.bz2"
+  sha256 "6688f09b2c52f9bf935f0769f4ee28dd0760e5622dade7b3f4e6fa3776f07ab8"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,13 +11,11 @@ class Dnsdist < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "f6567d8603c46ea56d43b30893a850beab2a33dd1832e8ff9d626ae99bcfcaa2"
-    sha256 cellar: :any,                 arm64_monterey: "66c90a4fa54474502762049e2518053104b2f27a639be59f735948f3048b8d58"
-    sha256 cellar: :any,                 arm64_big_sur:  "56f553218cd496f973ca3c361cec4ce6d8a040c71257b09889bd4bc0769252d5"
-    sha256 cellar: :any,                 ventura:        "36dfb3549406afa373065447697558c8caa8a6a03747dc0d353178218d17b1c5"
-    sha256 cellar: :any,                 monterey:       "2ffe24c8af1194149962378bedf7f9c775487b8ee90a206332e16f14767985cd"
-    sha256 cellar: :any,                 big_sur:        "25d87a1306779bb850453b8fbe648be4a2853be4902ccd9eeb0a644f7bbbe186"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c423aba005f282e2c79cecb5f758a229a9b722dbabbe52363fa4db4d7b5e13a0"
+    sha256 cellar: :any,                 arm64_ventura:  "887adf419880d8a9769381d6f2e16e16ed4bd79d9b205b68ac895d2906fe5df5"
+    sha256 cellar: :any,                 arm64_monterey: "4f6ed09a29018e237acacd747300805f0f9aa8a711e6da864a22f984789cd8ee"
+    sha256 cellar: :any,                 ventura:        "963744f8733a8fd6e0aa16f349d64844f03577d5336176c19cc89a9255503ff9"
+    sha256 cellar: :any,                 monterey:       "3a7eadfe040b593fdbb906eb83b2f1d67dfdf34eaa810c5823aba9c68b2c0a74"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bd6e6c071ddd4a5b0a8a154ebefe98127caf93cc8b14640e521de403fdae0172"
   end
 
   depends_on "boost" => :build

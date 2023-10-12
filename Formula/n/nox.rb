@@ -8,25 +8,21 @@ class Nox < Formula
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a1cb418211bac4b369ad93d1bdf51cac003113fcc361dd34060737d0e8cead4d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e32fe2c4bd1e0d4b101a990e2d7174097779ec0a93bd013dba04aa99e3244733"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ac06b406f6b875109ee86044ae6b822e175ead8269ae1ef53e847ae273486731"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3380e6a697bde13617c8b897fe95f263847a01894a1286094da603be7e77ad4c"
-    sha256 cellar: :any_skip_relocation, ventura:        "5be0e08ceb598e48f6120d753c324a87ceaf9a0dd0a71e6479bc0eff7458380a"
-    sha256 cellar: :any_skip_relocation, monterey:       "c3046dad602d43e6eb551ce2a176a966edc0618906e52c5b0fb0fbc628829bf4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c72763e65f0dab528889bf4c0816d1ff58742d4ca678c30e50b99a5eb5bddd17"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7396784718da1913b1e808a0a1e091e5f203e417021fd665f2985245926c4b82"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a6685fae11a657a3fa86a16c7a188f9b8db3edeb6dc605b7bf48aa019379018d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5b12be93bdde091b679d7e75210a3dd3d4830b4ad5c15b2f1ac27239e6309ea9"
+    sha256 cellar: :any_skip_relocation, sonoma:         "85157c5afe14c28fcbc06dd445221d5933c88581ad6f694ef9461d10d2a36a5a"
+    sha256 cellar: :any_skip_relocation, ventura:        "fe754a69aeb0d7c48d5a24ae076165848394578d3fb22660e3712cd6808adce0"
+    sha256 cellar: :any_skip_relocation, monterey:       "7d94ac0b5451bcd55c3be072a2d3ac56e8b7643f8c3bb974a2d80c2d6791361d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "467474223287f45c612c5396309eb5472dabaf1e7c88c4806cbf4b952a127a8f"
   end
 
+  depends_on "python-argcomplete"
   depends_on "python-packaging"
   depends_on "python@3.11"
   depends_on "six"
   depends_on "virtualenv"
-
-  resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/6e/5b/9eae020dad132502efdb51408ba8a5b21afedcb738a98a307c6bfc21aaa8/argcomplete-3.0.6.tar.gz"
-    sha256 "9fe49c66ba963b81b64025f74bfbd0275619a6bde1c7370654dc365d4ecc9a0b"
-  end
 
   resource "colorlog" do
     url "https://files.pythonhosted.org/packages/78/6b/4e5481ddcdb9c255b2715f54c863629f1543e97bc8c309d1c5c131ad14f2/colorlog-6.7.0.tar.gz"

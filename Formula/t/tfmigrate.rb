@@ -7,36 +7,25 @@ class Tfmigrate < Formula
   head "https://github.com/minamijoyo/tfmigrate.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a8bdcb65299f74428c65e7f2f3da96a4453d0f4728dc92f22fe02a7d0b2497aa"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a8bdcb65299f74428c65e7f2f3da96a4453d0f4728dc92f22fe02a7d0b2497aa"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a8bdcb65299f74428c65e7f2f3da96a4453d0f4728dc92f22fe02a7d0b2497aa"
-    sha256 cellar: :any_skip_relocation, sonoma:         "5957f3426f5dba6c7129a8ef37e6b8c4bb73e2dcdcc3cda7e0c379480d6b9d93"
-    sha256 cellar: :any_skip_relocation, ventura:        "5957f3426f5dba6c7129a8ef37e6b8c4bb73e2dcdcc3cda7e0c379480d6b9d93"
-    sha256 cellar: :any_skip_relocation, monterey:       "5957f3426f5dba6c7129a8ef37e6b8c4bb73e2dcdcc3cda7e0c379480d6b9d93"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ec37c26b708b0b3bef8e758838e6ad01e099f9f7553b281acf482d08c7a18331"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a919f5efdea71b0db281008d04b76fd2fd33502cd6dfe8b1121de6fe1c28727d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9961bea017cf055ff973661be9f938c7a6b0626c891e2f9a032d4edd7a7319cb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b0da0c123f97cdac75ceac3efeb0f54a05f6002c724a8918a2a40c2af8299bed"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7d2282ba662e072e63b6901a672bea646e9afa070a605a35693bccf88042ca53"
+    sha256 cellar: :any_skip_relocation, ventura:        "179c445165b3489dcfa0c542c418efdac024dbcf422d7093db37ba3a5728b13e"
+    sha256 cellar: :any_skip_relocation, monterey:       "913dfadac0bd447ef37107c4faed79f82dea1d41f768110b0e0e2a5550af1041"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3b91685ecf0bdfa2436f2a949aac51925573e910a31513d7077f513caa6b7506"
   end
 
   depends_on "go" => :build
-  depends_on "terraform" => :test
 
   def install
-    ENV["CGO_ENABLED"] = "0"
-
     system "go", "build", *std_go_args(ldflags: "-s -w")
   end
 
   test do
-    (testpath/"tfmigrate.hcl").write <<~EOS
-      migration "state" "brew" {
-        actions = [
-          "mv aws_security_group.foo aws_security_group.baz",
-        ]
-      }
-    EOS
-    output = shell_output(bin/"tfmigrate plan tfmigrate.hcl 2>&1", 1)
-    assert_match "[migrator@.] compute a new state", output
-    assert_match "No state file was found!", output
-
+    # rover hard depends on terraform, so we can't run the full test
+    # opentf support issue, https://github.com/minamijoyo/tfmigrate/issues/162
     assert_match version.to_s, shell_output(bin/"tfmigrate --version")
   end
 end

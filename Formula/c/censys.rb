@@ -9,23 +9,20 @@ class Censys < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2e5581285ff151566b603b2b57b2503ea31aef0e5b7d8625599927a93f041260"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "deb22226d182c62b478c7ad27834845d702a8105c670b61a39aaef14ada53a30"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "77484d6b1a81230dddb3134606a071342a4685ff384e81d6212300747da0693c"
-    sha256 cellar: :any_skip_relocation, sonoma:         "80b457793085cb778c6036c27a1056ed83c5aa292ba498cf2aa4f702351399d0"
-    sha256 cellar: :any_skip_relocation, ventura:        "5a2c23a62d990cb71fac75882173fed5bc4c58731de2f677321c45c11504b6f2"
-    sha256 cellar: :any_skip_relocation, monterey:       "9b82a92e509e9b787a899d418fb1a0eb2dea67a59fafce1da41267d5b7f6abd9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c01e43df3ffabe2126cc0530581fa894ae7220c963a631832ac8464cf5898750"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "72d90a5b73b735b953bddbc63f43c5815668331e5da7c4ab92b66ca13a2fc2db"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "aa0a1af0c86e534da6abe9d3e833ac7c0ef98cf7983e1335f9bcb9badd547ef8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f1288c5f4895aca7fac9aa26a6ed576f4313cab805b7983f6937c189b6f633e9"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0704197fe7b200c4f195115fd6fac6b16dd17c242ffe7d5702083c7d1224af0b"
+    sha256 cellar: :any_skip_relocation, ventura:        "eaf35c6f42e4fc8aa24904834a177be025e337e28a86bb4b7558ae346d5af056"
+    sha256 cellar: :any_skip_relocation, monterey:       "3f335cfbb40b493eafff67a16e5a36ddb56c19d46b5c119dcba55de544cfb63d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f8072503a695c6414369dd8ec2aadfb88cacf6d94c5e1797c0067ee9f554a162"
   end
 
   depends_on "pygments"
+  depends_on "python-argcomplete"
   depends_on "python-certifi"
   depends_on "python@3.11"
-
-  resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/1b/c5/fb934dda06057e182f8247b2b13a281552cf55ba2b8b4450f6e003d0469f/argcomplete-3.1.2.tar.gz"
-    sha256 "d5d1e5efd41435260b8f85673b74ea2e883affcbec9f4230c582689e8e78251b"
-  end
 
   resource "backoff" do
     url "https://files.pythonhosted.org/packages/47/d7/5bbeb12c44d7c4f2fb5b56abce497eb5ed9f34d85701de869acedd602619/backoff-2.2.1.tar.gz"

@@ -149,14 +149,14 @@
     "exclude_packages": ["certifi", "lxml", "numpy", "six", "Cython", "PyYAML", "pytz"]
   },
   "c7n": {
-    "exclude_packages": ["pyyaml", "six", "tabulate"]
+    "exclude_packages": ["argcomplete", "pyyaml", "six", "tabulate"]
   },
   "ccm": {
     "extra_packages": ["cassandra-driver"],
     "exclude_packages": ["PyYAML", "six"]
   },
   "censys": {
-    "exclude_packages": ["certifi", "Pygments"]
+    "exclude_packages": ["argcomplete", "certifi", "Pygments"]
   },
   "certbot": {
     "extra_packages": ["certbot-apache", "certbot-nginx"],
@@ -197,7 +197,7 @@
   },
   "checkov": {
     "exclude_packages": [
-      "certifi", "cffi", "markdown", "markupsafe", "numpy",
+      "argcomplete", "certifi", "cffi", "markdown", "markupsafe", "numpy",
       "packaging", "pycparser", "pyparsing", "PyYAML", "six",
       "tabulate", "toml", "typing-extensions"
     ]
@@ -213,7 +213,7 @@
     "exclude_packages": ["six", "pytz"]
   },
   "commitizen": {
-    "exclude_packages": ["PyYAML", "typing-extensions", "packaging"]
+    "exclude_packages": ["argcomplete", "PyYAML", "typing-extensions", "packaging"]
   },
   "conan": {
     "exclude_packages": ["certifi", "Pygments", "PyYAML", "six"],
@@ -262,7 +262,10 @@
   "detect-secrets": {
     "exclude_packages": ["certifi", "PyYAML"]
   },
-  "diffoscope": "diffoscope[cmdline]",
+  "diffoscope": {
+    "package_name": "diffoscope[cmdline]",
+    "exclude_packages": ["argcomplete"]
+  },
   "dnsrobocert": {
     "exclude_packages": [
       "certbot", "certifi", "cffi", "cryptography", "dns-lexicon", "lxml",
@@ -631,7 +634,7 @@
     "exclude_packages": ["certifi"]
   },
   "nox": {
-    "exclude_packages": ["packaging", "six", "virtualenv"]
+    "exclude_packages": ["argcomplete", "packaging", "six", "virtualenv"]
   },
   "nvchecker": {
     "package_name": "nvchecker[pypi]",
@@ -789,7 +792,7 @@
     "exclude_packages": ["black", "mypy", "ruff"]
   },
   "python-yq": {
-    "exclude_packages": ["PyYAML"]
+    "exclude_packages": ["argcomplete", "PyYAML"]
   },
   "pythran": {
     "exclude_packages": ["numpy", "six"]
@@ -830,7 +833,7 @@
     "exclude_packages": ["certifi", "cffi", "cryptography", "pycparser", "six"]
   },
   "rpmspectool": {
-    "exclude_packages": ["pycurl"]
+    "exclude_packages": ["argcomplete", "pycurl"]
   },
   "rst-lint": {
     "exclude_packages": ["docutils"]
@@ -961,7 +964,10 @@
     "exclude_packages": ["six"]
   },
   "theharvester": {
-    "exclude_packages": ["certifi", "cffi", "pycparser", "pygments", "PyYAML", "six", "typing-extensions"]
+    "exclude_packages": [
+      "argcomplete", "certifi", "cffi", "pycparser", "pygments", "PyYAML",
+      "six", "typing-extensions"
+    ]
   },
   "tmuxp": {
     "exclude_packages": ["PyYAML"]

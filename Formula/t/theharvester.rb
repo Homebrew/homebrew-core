@@ -9,21 +9,21 @@ class Theharvester < Formula
   head "https://github.com/laramies/theHarvester.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "162ea021e61893929a92438914d56b64e97afd2088b66e02768621712498b60a"
-    sha256 cellar: :any,                 arm64_ventura:  "0ea4b808b1cee6c38491d8065986979c88e2b887d78aecba13c7d529cf32259c"
-    sha256 cellar: :any,                 arm64_monterey: "ed867970289eb51660c6de9b540a86933a848c52177786800ffd05bffe821160"
-    sha256 cellar: :any,                 arm64_big_sur:  "25f8633e15bfe4071ef1119cc7926ad249471675b53153e130d92278105691f3"
-    sha256 cellar: :any,                 sonoma:         "3235e9139f4c74910ec406240472e4d88b8165862bf34ced7f02ac3b92d6d2c5"
-    sha256 cellar: :any,                 ventura:        "aa11fec2d309a910b6b639208e4e8739c3f7d19ebea45b54a9ae6f585a107893"
-    sha256 cellar: :any,                 monterey:       "27199afd297f0f75e85371db3dda0d4bebd0c1d4cb3972e7eb2fcc1a22f0199c"
-    sha256 cellar: :any,                 big_sur:        "50d992370c164de4bd96dc0960a46af53731cc00b26af356197eb9d83fa15e84"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d08fdf592da8baa03054e940baf7311d1fff3205295c85e2a56b43d09ff03abf"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "d5286ad279de95090f1ac763f1d416f7f3fd467c2c65824d8ba24617bf12eb03"
+    sha256 cellar: :any,                 arm64_ventura:  "4ceaef30ae983878ef850cadbc657215b6637c78348ce79b26c58dcf59bddab8"
+    sha256 cellar: :any,                 arm64_monterey: "fea60a9f42888a5f29031ee2ae6f0c4e4cdba2deb3f247b0f683043f0d4a2cc7"
+    sha256 cellar: :any,                 sonoma:         "c974816ddde5fed74d84b58ceef37a732aca4e4318688f003300e9cb6b04f768"
+    sha256 cellar: :any,                 ventura:        "29519a6795712966049c4d2f08d51107d16636d0b1c8568304e8e89e998c88bc"
+    sha256 cellar: :any,                 monterey:       "6c13e02ac5a33648ebeaa53aed7e7e4adfba54154c95e0240414e926a063b461"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "87a69dd30e5234a058e1a159da73e32dcc1514b671b560ca4e9a97df5c356766"
   end
 
   depends_on "rust" => :build # for pydantic_core
   depends_on "cffi"
   depends_on "pycparser"
   depends_on "pygments"
+  depends_on "python-argcomplete"
   depends_on "python-certifi"
   depends_on "python-click"
   depends_on "python-lxml"
@@ -85,11 +85,6 @@ class Theharvester < Formula
   resource "appdirs" do
     url "https://files.pythonhosted.org/packages/d7/d8/05696357e0311f5b5c316d7b95f46c669dd9c15aaeecbb48c7d0aeb88c40/appdirs-1.4.4.tar.gz"
     sha256 "7d5d0167b2b1ba821647616af46a749d1c653740dd0d2415100fe26e27afdf41"
-  end
-
-  resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/1b/c5/fb934dda06057e182f8247b2b13a281552cf55ba2b8b4450f6e003d0469f/argcomplete-3.1.2.tar.gz"
-    sha256 "d5d1e5efd41435260b8f85673b74ea2e883affcbec9f4230c582689e8e78251b"
   end
 
   resource "async-timeout" do

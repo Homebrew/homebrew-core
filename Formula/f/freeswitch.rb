@@ -13,9 +13,11 @@ class Freeswitch < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "e4a906aff158a1ce0c2846fb9c403dfbf924068d18918ff26e75b8db9ca6784f"
     sha256 arm64_ventura:  "188df30b2e5b0559226b8d6c36185ce207a3c345578df4bf50c3acf4f99d3071"
     sha256 arm64_monterey: "41bc376f644e01d2c907b04af886b78b9eba6697615671bf1bb46af803262c24"
     sha256 arm64_big_sur:  "90faf1e2987ae4f50e59130759ae8c8a3c07881c09afee88628b269864bec425"
+    sha256 sonoma:         "f07ff108354a69a2a493df2a292b2ba9c327b79d22235f9f6b7c0351f3bd4d01"
     sha256 ventura:        "9460206e602d15b653c581903be36302e66c7eefd3cabc67aa4d752017a9b3f5"
     sha256 monterey:       "1d161324780b7f4d6ec1a2860121b9b7c1f328c5375b01a2992801bee80b2cf1"
     sha256 big_sur:        "58d5cb82b74f1b352f4be6de30aeaf05838f9f7ca449d903798fddac5f6f0fd1"

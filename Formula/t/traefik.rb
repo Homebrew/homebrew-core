@@ -1,26 +1,22 @@
 class Traefik < Formula
   desc "Modern reverse proxy"
   homepage "https://traefik.io/"
-  url "https://github.com/traefik/traefik/releases/download/v2.10.4/traefik-v2.10.4.src.tar.gz"
-  sha256 "d47d61d1a240c4502a8a467987394f10ebf97554be2a93534df3eba3e32d5788"
+  url "https://github.com/traefik/traefik/releases/download/v2.10.5/traefik-v2.10.5.src.tar.gz"
+  sha256 "5cadd4a5aea784d13c99ded7da9e11c000f48180cf60f75a3c64f22e5b39a53e"
   license "MIT"
   head "https://github.com/traefik/traefik.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bbb23650d813aae5c7a99565cfc66bee10042734a5c215f798a68ed254e561bc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9ac1ccf2902a09befe1f3f6e720486429b5b4483de407a43b16dd83153e46f55"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9ac1ccf2902a09befe1f3f6e720486429b5b4483de407a43b16dd83153e46f55"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9ac1ccf2902a09befe1f3f6e720486429b5b4483de407a43b16dd83153e46f55"
-    sha256 cellar: :any_skip_relocation, sonoma:         "f9e89710f4024cfe2852d4ee7e08edf6c591007321f6ed8c133f632a98ae91cc"
-    sha256 cellar: :any_skip_relocation, ventura:        "bbdb02446db1fae950d9690c744d5ce527f7d093fc49c327b77b8e343456e511"
-    sha256 cellar: :any_skip_relocation, monterey:       "9119342da47f752c6b0bfc26404c77d305b05ad5e46f19b3be2774f5a62f8a6b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ed923e2b55eaaf7f5640e9160fabcaff20dd248a6580a2c38477f603e7a15970"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eee0330f8c7c7cc759c8834078d804a43c685ab6190bfae68dfcdff06fdd7484"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0296b0c5715dd33cb82cafaf573d887ec39544041b76b2ca113b35d34af038cb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ef38126c9b9757c9cc51e1efe125157310a9d6090d7044dc80ebaaa2d4963d24"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1cb05cb6b8701610a0078579148088eb430f7508a8a921098f07ff458247b051"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5d54df0cd26bc47aa1d892ec14660ddb806abe8fdd353e326856ea17e6ad1058"
+    sha256 cellar: :any_skip_relocation, ventura:        "7092ab45414d5ac5a512cca33240c703a15bcf9e0a7cefa80e02ed7496932c44"
+    sha256 cellar: :any_skip_relocation, monterey:       "5c423bee6c3947fd03505c3bc2c5cbf963b858ce853a528cd27f2c51c9ef9ef4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "056412ee47dfe3e8e3c7634ca70f015233e2eec9aaf6e69ba79f134f0f145942"
   end
 
-  # pin to 1.20 needed for release <= 2.10.4, which doesn't yet include https://github.com/traefik/traefik/pull/10078
-  depends_on "go@1.20" => :build
+  depends_on "go" => :build
 
   def install
     ldflags = %W[

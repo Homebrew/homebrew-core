@@ -1,21 +1,19 @@
 class Libcouchbase < Formula
   desc "C library for Couchbase"
   homepage "https://docs.couchbase.com/c-sdk/current/hello-world/start-using-sdk.html"
-  url "https://packages.couchbase.com/clients/c/libcouchbase-3.3.9.tar.gz"
-  sha256 "ae1ae8fff068c99e37c26f1399e5ac5c646c55b1d8e3ca78fc909317b4fcb9bc"
+  url "https://packages.couchbase.com/clients/c/libcouchbase-3.3.10.tar.gz"
+  sha256 "2c92b8dee1d8d02bab756023ff396cf93bf822400ee68f3a8128912a08348063"
   license "Apache-2.0"
   head "https://github.com/couchbase/libcouchbase.git", branch: "master"
 
   bottle do
-    sha256 arm64_sonoma:   "cec5e46ca83e2ccb2ca36365b511b8974d919d5f31168eadea4b6156ddcfe1f4"
-    sha256 arm64_ventura:  "737c903a05fb271b7813a88b9e729d2411d71b8bc5a0855034f8b6d2fc5c015b"
-    sha256 arm64_monterey: "9cae5d8cc8ce3e080a81b2d17f2d9649188d9745fa9725e318ce2a34f94fa283"
-    sha256 arm64_big_sur:  "7bceef0deb0e6cc5c08934e32a1604c62e1d2518b41a6e964671bcfcc00fe64d"
-    sha256 sonoma:         "c353961c6b85e6878e88657f7bb946aa8803c0493c01e9187757f961e3d716b8"
-    sha256 ventura:        "a57abe1a67642168ce296ebe2b60e737084b8a7c475d1f2a7586b0cbf5f17890"
-    sha256 monterey:       "1b342afd260c0c7f33ac6f8acfc8c177fab2c2f15a27d54d564029b5e7b0c892"
-    sha256 big_sur:        "976a5e8c7cbc5f202575ed91a23c3e7c4021144a81cb3781c83995d9a83327c2"
-    sha256 x86_64_linux:   "eff5613489964873be888b26eb90641cce7192e982279fcfdf4a1b96ddc0a298"
+    sha256 arm64_sonoma:   "c27418629da8698371efa91c0cc51879d1073b347e75d56ebed0c29a0a3d5259"
+    sha256 arm64_ventura:  "60c9b6f0bc4f8e30f1646574972f32c7251bf81f5ea6fddf31fd0fe75b2c7ff1"
+    sha256 arm64_monterey: "c39ce6f6bbb8c9bdb1d8147a3e89b3a3014e6ad82e8b3b4286ce48afe25f056e"
+    sha256 sonoma:         "3a51d6ef2b9ab85cf4e59d80ebddf50c94af0b45fa42f2a5a5c8cf4d050631e7"
+    sha256 ventura:        "706a021f290769fb56226b1dfb1a1041b125f721d334308e68beaab0b4a756e0"
+    sha256 monterey:       "0e2e83f8af7be66683127974c3b5c7c2e28596d6bf69da5b416dd2fa9eb13dc2"
+    sha256 x86_64_linux:   "d8423d03c8d6274de2890d17562f472cdd054a62557eb96fe392527f05a6d431"
   end
 
   depends_on "cmake" => :build

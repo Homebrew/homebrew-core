@@ -13,25 +13,22 @@ class C7n < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "81619a97c7e715f7f672a1357bf5065f05c6d0f63fa5a6d79063d94036684d5e"
-    sha256 cellar: :any,                 arm64_ventura:  "46ffe6bb12ea10351fc5610dc6fd6a19063eb2c8252c3303893c6e12e831691c"
-    sha256 cellar: :any,                 arm64_monterey: "b419363371c3e7f0d19eddb1af79eb1404ce0e4895793cd5d6d0a48a292bf1f0"
-    sha256 cellar: :any,                 sonoma:         "9a1940b702e5e83e95328321a68b39b093dcdf8551624a48e93e8999f369dfb3"
-    sha256 cellar: :any,                 ventura:        "c8b9b1524aa47bdec09360a8b83a4f927bfe369ad401e458532915fd846772d7"
-    sha256 cellar: :any,                 monterey:       "f7323600fe36b9859e32330a586b7ad07ff1a06dc86430096a382342c06fd0e3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "747aecdb512b605c8f352f506d1080e759a4437f8b3b79831dfd0f7e06a1bcb9"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "fbfe552b12f96a3401d8d99171e294ddac7396ff654e901f87d550b4c23ef140"
+    sha256 cellar: :any,                 arm64_ventura:  "ebc36b231ca7503737f13f2a8b1ef5cdd9ce87cb7fa357d809a3257fdf986a5f"
+    sha256 cellar: :any,                 arm64_monterey: "a716b3871bb1f99d6cbc639432fa1324d2c0ac6278247f2b7eebe694131db52d"
+    sha256 cellar: :any,                 sonoma:         "294e6375ea251890e393ac16d64f105d12d3ed7c8af9641d0e4451c41db017d5"
+    sha256 cellar: :any,                 ventura:        "1bb958a654bd216e638cf47ad7ee1858b2b261361bb9b5da06445fa5f2f790b8"
+    sha256 cellar: :any,                 monterey:       "ede14f340f9ae3812c0f63c74a562346a82840fa1111a90b664d302fcf2e0fa2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "04dde3306cd1fed5728e70e4783552545eae3bb1abe23705423776e810fe98ee"
   end
 
   depends_on "rust" => :build # for rpds-py
+  depends_on "python-argcomplete"
   depends_on "python-tabulate"
   depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "six"
-
-  resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/1b/c5/fb934dda06057e182f8247b2b13a281552cf55ba2b8b4450f6e003d0469f/argcomplete-3.1.2.tar.gz"
-    sha256 "d5d1e5efd41435260b8f85673b74ea2e883affcbec9f4230c582689e8e78251b"
-  end
 
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/97/90/81f95d5f705be17872843536b1868f351805acf6971251ff07c1b8334dbb/attrs-23.1.0.tar.gz"

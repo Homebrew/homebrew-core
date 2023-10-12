@@ -6,19 +6,17 @@ class Cruft < Formula
   url "https://files.pythonhosted.org/packages/d8/59/bb9e052fba37972e4b27db74d0bc770bade501d48336dec3c89fe57e9513/cruft-2.15.0.tar.gz"
   sha256 "9802af66037418655e7e4b6f30b531591e0761939b3ff5dd45d27c3a3f588abe"
   license "MIT"
-  revision 3
+  revision 4
   head "https://github.com/cruft/cruft.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6892a43c948000120534f59b16527d28d482a56fa4aea5019e02000904e6ea93"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "db9965b04a41d22b832d7577d603addcec08020f67bd1e7d70306b08557d2b79"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e56fa8b73b043e22323305817df1c7d4fcad18b985f80a8fd8e3b6eca47e1093"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "82331c9593ab52350c1e734ee93814679bcd892509782ccd0c60f2527979fc91"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c8977cbd9b2c237a5b289985904cc11e8a0aa5e10adcd9a3cbb883f9d9fc4dd6"
-    sha256 cellar: :any_skip_relocation, ventura:        "b1a02c457851993c9f9a44815a3ed6998f5ee75eb2238f5e34ba265c5b601898"
-    sha256 cellar: :any_skip_relocation, monterey:       "4f3e1d55220c514654bdab569c09da751e16b3acce2ffa1e9867c1f2ea4db293"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6d866955076136994bbb5cb667998d34b46bd849281f2f91950f870cacd03c1f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b8d006f394191b34543c5a1b502cabc95c08f8fe928fee5079c9615818cca436"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5ccbe5cd5c7a2dd59b0e19d2a68a64f20ff7891ffe6d25e2183f2c43f1d81726"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "231f6dffa97a5bd168c79e94210baf31f2e7fc4f8c1dee0198beadfd6d9c58ad"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "712ebb93a0ae59e0db2728e901aad5cec1c336c099c90aa28212b407841134f3"
+    sha256 cellar: :any_skip_relocation, sonoma:         "580de0fe4c9166e80265a7eb7e4028bb6d3b4690e70413191f3be801215b39d7"
+    sha256 cellar: :any_skip_relocation, ventura:        "28f6a10838be10edc01e71b1e5cc0b16d508518874e7d81ae073b19b60667109"
+    sha256 cellar: :any_skip_relocation, monterey:       "1b400634a2b61d422b155b251165d5bd03b64b01940f2d4f5ac9c05274b7a0f9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "922750d6270bedad41f54b63e965e3692490a4ed751b806326c2414b90a02869"
   end
 
   depends_on "cookiecutter"
@@ -32,13 +30,13 @@ class Cruft < Formula
   end
 
   resource "gitpython" do
-    url "https://files.pythonhosted.org/packages/95/4e/8b8aac116a00f0681117ed3c3f3fc7c93fcf85eaad53e5e6dea86f7b8d82/GitPython-3.1.35.tar.gz"
-    sha256 "9cbefbd1789a5fe9bcf621bb34d3f441f3a90c8461d377f84eda73e721d9b06b"
+    url "https://files.pythonhosted.org/packages/c6/33/5e633d3a8b3dbec3696415960ed30f6718ed04ef423ce0fbc6512a92fa9a/GitPython-3.1.37.tar.gz"
+    sha256 "f9b9ddc0761c125d5780eab2d64be4873fc6817c2899cbcb34b02344bdc7bc54"
   end
 
   resource "smmap" do
-    url "https://files.pythonhosted.org/packages/21/2d/39c6c57032f786f1965022563eec60623bb3e1409ade6ad834ff703724f3/smmap-5.0.0.tar.gz"
-    sha256 "c840e62059cd3be204b0c9c9f74be2c09d5648eddd4580d9314c3ecde0b30936"
+    url "https://files.pythonhosted.org/packages/88/04/b5bf6d21dc4041000ccba7eb17dd3055feb237e7ffc2c20d3fae3af62baa/smmap-5.0.1.tar.gz"
+    sha256 "dceeb6c0028fdb6734471eb07c0cd2aae706ccaecab45965ee83f11c8d3b1f62"
   end
 
   resource "typer" do

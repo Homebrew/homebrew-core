@@ -1,8 +1,8 @@
 class CodeCli < Formula
   desc "Command-line interface built-in Visual Studio Code"
   homepage "https://github.com/microsoft/vscode"
-  url "https://github.com/microsoft/vscode/archive/refs/tags/1.83.0.tar.gz"
-  sha256 "4be78681d5009f184cdf3905d3c3c1caf3e95987104047660eb2203dc783a8e5"
+  url "https://github.com/microsoft/vscode/archive/refs/tags/1.83.1.tar.gz"
+  sha256 "45c563424dfbff6e80c5621b5ecc1b7276141c944c1fa39401a98a800b576410"
   license "MIT"
   head "https://github.com/microsoft/vscode.git", branch: "main"
 
@@ -12,13 +12,13 @@ class CodeCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "2153596ddb70ae85d84b11338633e49dec241e83b8869378643b07eb53a54a47"
-    sha256 cellar: :any,                 arm64_ventura:  "4630324ae5b42de57146b9330c8b3b607cf5da7035a3e112567ca6b8f31c5856"
-    sha256 cellar: :any,                 arm64_monterey: "a441f5febd53ab7f8415c35b1625a720aaf6460662ce2d12895ed47fe6e80e2e"
-    sha256 cellar: :any,                 sonoma:         "f5d82f611f35d5ad21a93af99b8059367f1139f8d8c757ba7c4b190903ea8d40"
-    sha256 cellar: :any,                 ventura:        "20276c47651c50c4ea86a280589b913fcb448055e84af58a25b9ee0338363dd1"
-    sha256 cellar: :any,                 monterey:       "7f883681aca5b70d5a0accc02edf72bf3762a3d6a13b50ce658839c33f136eed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0395a1bb7edd26559fb07c6622c84d59245565bc4894f4d3a24632e13d68820f"
+    sha256 cellar: :any,                 arm64_sonoma:   "6ef8d97f487ae5aa02f46ef1ca8d11446a7199d975a2c51e7d08135d6b282a77"
+    sha256 cellar: :any,                 arm64_ventura:  "5e3292257a40deeaeaffe74399ef7301bfb55ff080aa2d36930975d9b31295f1"
+    sha256 cellar: :any,                 arm64_monterey: "f553027962dddd8e3dc282486f3b9717c5d67bbdab8983ed62ba7df0e03908ca"
+    sha256 cellar: :any,                 sonoma:         "1862348bb34bf6d19e04e5dd35c42bee42c98d14189ee66fd24ed6c96ab88f2d"
+    sha256 cellar: :any,                 ventura:        "9968928d2a2db7bd200087bae1f4304ba4ed97fb3d43945f21f22a8437ccdf02"
+    sha256 cellar: :any,                 monterey:       "6b952fabd41551c06d2648c3e4083c076bcb1dfabdf20ba845a7f4abf58b3af7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f70e1b82e1dbec7496e32704021517e5e32cc298d7aec73fad41d65396c29580"
   end
 
   depends_on "rust" => :build

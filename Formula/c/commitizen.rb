@@ -9,26 +9,21 @@ class Commitizen < Formula
   head "https://github.com/commitizen-tools/commitizen.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3d1174f166572d9e60c89cc4cd184d68cc478db03dc5182945aef578948df84e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a5cdb580a45a3fb2d9ebf3de90fa89c47bd3746979b69976bd789622d75c3fec"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5c237340db0b8427141922814d8802245a8d170a05dd69ec32e92d329fce4a56"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b43a3c74992ee8b0be74842538b1453a08344d60219a8d047cf0238755528b3e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "25394a85365399d684f229f6fd0bcf94698ac76da4fc3ed0cf36e4d6e09d291f"
-    sha256 cellar: :any_skip_relocation, ventura:        "e626610fac34737d0bcd0967188b5a1abf59bbbbbd7dbe21f67f74d7f701b8da"
-    sha256 cellar: :any_skip_relocation, monterey:       "bb29c75d0443cbd31175f76acdcfeefb4fb3a05ae4b86873f0f51a640e06fb7b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ff79b8ca3eaa421692345883ef34cf961439f8ef0850132cd9515be3da41e1eb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0aecdaed5c2939a87904f343188b579e92faa6d36abfc2d00d0fb33bf0cc4334"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a77e3bc76f55c6359ab229b2a76efb2f861716b086a99ea57c198e0be2b2b727"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a73693a43abfe4d0e7311d22d8c3ab2fa2c3f2843a501dbd5647926916a474fb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7803bee1819c0053357565a7687921428801ef033a3e71b276e3a30cfd1fd9f7"
+    sha256 cellar: :any_skip_relocation, sonoma:         "03fc59477a244a59381b0220b2ff7024b64966d2b5965ef29e6636e2926e2e1c"
+    sha256 cellar: :any_skip_relocation, ventura:        "e6a7f08e394070c0d6d76ad1333d19ba59f2f7834fb8d7b720c17fef63ce47cd"
+    sha256 cellar: :any_skip_relocation, monterey:       "19653daaaac5aab0013418c6d2c4f4e2c6013ac3ff04ccc159b2580bab0cf154"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7151f742ed8bdab05ccac2058ea54d1f5d1f51f0efff2e571b6e0a1bc78752a0"
   end
 
+  depends_on "python-argcomplete"
   depends_on "python-packaging"
   depends_on "python-typing-extensions"
   depends_on "python@3.11"
   depends_on "pyyaml"
-
-  resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/1b/c5/fb934dda06057e182f8247b2b13a281552cf55ba2b8b4450f6e003d0469f/argcomplete-3.1.2.tar.gz"
-    sha256 "d5d1e5efd41435260b8f85673b74ea2e883affcbec9f4230c582689e8e78251b"
-  end
 
   resource "charset-normalizer" do
     url "https://files.pythonhosted.org/packages/2a/53/cf0a48de1bdcf6ff6e1c9a023f5f523dfe303e4024f216feac64b6eb7f67/charset-normalizer-3.2.0.tar.gz"

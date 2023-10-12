@@ -5,6 +5,11 @@ class Sqlsmith < Formula
   sha256 "b0821acbe82782f6037315549f475368be3592cefe2c3c540f9cf52aa70d2f55"
   license "GPL-3.0-only"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "326d51752ce3c4712e27cb9bf6db9abf116204754c5f278fcbb03f4c01293f84"
     sha256 cellar: :any,                 arm64_ventura:  "3633918b467d037f1b745fbb66a775bcfec51e2f2e30308a3f41844ae119a08e"
