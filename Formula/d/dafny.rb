@@ -18,7 +18,7 @@ class Dafny < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f36f301181e63c313fe4d805c8fd5524e6eccfd2086f2c50c9571f0e7134c1f3"
   end
 
-  depends_on "dotnet@6"
+  depends_on "dotnet"
   # We use the latest Java version that is compatible with gradlew version in `dafny`.
   # https://github.com/dafny-lang/dafny/blob/v#{version}/Source/DafnyRuntime/DafnyRuntimeJava/gradle/wrapper/gradle-wrapper.properties
   # https://docs.gradle.org/current/userguide/compatibility.html
@@ -31,7 +31,7 @@ class Dafny < Formula
 
     (bin/"dafny").write <<~EOS
       #!/bin/bash
-      exec "#{Formula["dotnet@6"].opt_bin}/dotnet" "#{libexec}/Dafny.dll" "$@"
+      exec "#{Formula["dotnet"].opt_bin}/dotnet" "#{libexec}/Dafny.dll" "$@"
     EOS
   end
 
