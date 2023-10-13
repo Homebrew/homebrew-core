@@ -1,13 +1,13 @@
 class GerbilScheme < Formula
   desc "Opinionated dialect of Scheme designed for Systems Programming"
   homepage "https://cons.io"
-  url "https://github.com/vyzo/gerbil/archive/v0.17.tar.gz"
-  sha256 "1e81265aba7e9022432649eb26b2e5c85a2bb631a315e4fa840b14cf336b2483"
+  url "https://github.com/vyzo/gerbil.git",
+      tag:      "v0.18",
+      revision: "f5c3cce810b56f6823c5badc8723a9dbbb9cb804"
   license any_of: ["LGPL-2.1-or-later", "Apache-2.0"]
-  revision 3
 
   livecheck do
-    url "https://github.com/vyzo/gerbil.git"
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
@@ -39,18 +39,14 @@ class GerbilScheme < Formula
   end
 
   def install
-    cd "src" do
-      system "./configure", "--prefix=#{prefix}",
-                            "--with-gambit=#{Formula["gambit-scheme"].opt_prefix}",
-                            "--enable-leveldb",
-                            "--enable-libxml",
-                            "--enable-libyaml",
-                            "--enable-lmdb"
-      system "./build.sh"
-      system "./install"
+    system "./configure", "--prefix=#{prefix}"
+    system "./build.sh"
+    system "./install"
 
-      mv "#{share}/emacs/site-lisp/gerbil", "#{share}/emacs/site-lisp/gerbil-scheme"
-    end
+    mv "#{share}/emacs/site-lisp/gerbil", "#{share}/emacs/site-lisp/gerbil-scheme"
+    # cd "src" do
+
+    # end
   end
 
   test do
