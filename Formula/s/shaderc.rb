@@ -4,25 +4,25 @@ class Shaderc < Formula
   license "Apache-2.0"
 
   stable do
-    url "https://github.com/google/shaderc/archive/refs/tags/v2023.6.tar.gz"
-    sha256 "e40fd4a87a56f6610e223122179f086d5c4f11a7e0e2aa461f0325c3a0acc6ae"
+    url "https://github.com/google/shaderc/archive/refs/tags/v2023.7.tar.gz"
+    sha256 "681e1340726a0bf46bea7e31f10cbfe78e01e4446a35d90fedc2b78d400fcdeb"
 
     resource "glslang" do
       # https://github.com/google/shaderc/blob/known-good/known_good.json
       url "https://github.com/KhronosGroup/glslang.git",
-          revision: "76b52ebf77833908dc4c0dd6c70a9c357ac720bd"
+          revision: "48f9ed8b08be974f4e463ef38136c8f23513b2cf"
     end
 
     resource "spirv-headers" do
       # https://github.com/google/shaderc/blob/known-good/known_good.json
       url "https://github.com/KhronosGroup/SPIRV-Headers.git",
-          revision: "124a9665e464ef98b8b718d572d5f329311061eb"
+          revision: "4183b260f4cccae52a89efdfcdd43c4897989f42"
     end
 
     resource "spirv-tools" do
       # https://github.com/google/shaderc/blob/known-good/known_good.json
       url "https://github.com/KhronosGroup/SPIRV-Tools.git",
-          revision: "e553b884c7c9febaa4e52334f683641fb5f196a0"
+          revision: "360d469b9eac54d6c6e20f609f9ec35e3a5380ad"
     end
   end
 
@@ -55,7 +55,7 @@ class Shaderc < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.11" => :build
+  depends_on "python@3.12" => :build
 
   def install
     resources.each do |res|
