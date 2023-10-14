@@ -24,11 +24,11 @@ class Blastem < Formula
   depends_on "imagemagick" => :build
   depends_on "pillow" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.11" => :build
   depends_on arch: :x86_64
   depends_on "glew"
   depends_on "sdl2"
 
+  uses_from_macos "python" => :build
   uses_from_macos "zlib"
 
   resource "vasm" do
