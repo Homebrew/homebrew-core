@@ -32,7 +32,7 @@ class Binwalk < Formula
   depends_on "numpy"
   depends_on "p7zip"
   depends_on "pillow"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "six"
   depends_on "ssdeep"
   depends_on "xz"
