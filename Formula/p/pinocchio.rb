@@ -4,6 +4,7 @@ class Pinocchio < Formula
   url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.6.20/pinocchio-2.6.20.tar.gz"
   sha256 "2fcead7b1b2f08aa47acd28891e4b204f2e9cc14a4e4c9027168b8c58f9aedd2"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/stack-of-tasks/pinocchio.git", branch: "master"
 
   livecheck do
@@ -25,15 +26,16 @@ class Pinocchio < Formula
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
+  depends_on "pyhton-setuptools" => :build
   depends_on "boost"
   depends_on "eigen"
   depends_on "eigenpy"
   depends_on "hpp-fcl"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "urdfdom"
 
   def python3
-    "python3.11"
+    "python3.12"
   end
 
   def install
