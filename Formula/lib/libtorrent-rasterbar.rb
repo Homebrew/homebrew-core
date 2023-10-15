@@ -28,7 +28,7 @@ class LibtorrentRasterbar < Formula
   depends_on "boost"
   depends_on "boost-python3"
   depends_on "openssl@3"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   conflicts_with "libtorrent-rakshasa", because: "they both use the same libname"
 
@@ -72,6 +72,6 @@ class LibtorrentRasterbar < Formula
     system "./test", test_fixtures("test.mp3"), "-o", "test.torrent"
     assert_predicate testpath/"test.torrent", :exist?
 
-    system "python3.11", "-c", "import libtorrent"
+    system "python3.12", "-c", "import libtorrent"
   end
 end
