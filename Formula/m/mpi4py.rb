@@ -4,6 +4,7 @@ class Mpi4py < Formula
   url "https://github.com/mpi4py/mpi4py/releases/download/3.1.5/mpi4py-3.1.5.tar.gz"
   sha256 "a706e76db9255135c2fb5d1ef54cb4f7b0e4ad9e33cbada7de27626205f2a153"
   license "BSD-2-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_sonoma:   "384f50c2948a0ee3394cf55923e3b1d16e5e43405bddd7232f93e8b5dec20c88"
@@ -17,10 +18,10 @@ class Mpi4py < Formula
 
   depends_on "libcython" => :build
   depends_on "open-mpi"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   def python3
-    "python3.11"
+    "python3.12"
   end
 
   def install
