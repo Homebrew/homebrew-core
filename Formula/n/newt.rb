@@ -24,7 +24,7 @@ class Newt < Formula
   end
 
   depends_on "popt"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "s-lang"
 
   on_macos do
@@ -32,7 +32,7 @@ class Newt < Formula
   end
 
   def python3
-    "python3.11"
+    "python3.12"
   end
 
   def install
