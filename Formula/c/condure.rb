@@ -20,7 +20,7 @@ class Condure < Formula
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
-  depends_on "python@3.11" => :test
+  depends_on "python@3.12" => :test
   depends_on "openssl@3"
   depends_on "zeromq"
 
@@ -34,6 +34,10 @@ class Condure < Formula
     sha256 "5acab57cce3693d119265a8ac019a9bcdc52a9cacb3ba37b5b3a1746a1c14d56"
   end
 
+  def python3
+    which("python3.12")
+  end
+
   def install
     system "cargo", "install", *std_cargo_args
   end
@@ -42,7 +46,7 @@ class Condure < Formula
     ipcfile = testpath/"client"
     runfile = testpath/"test.py"
 
-    venv = virtualenv_create(testpath/"vendor", "python3.11")
+    venv = virtualenv_create(testpath/"vendor", python3)
     venv.pip_install resource("pyzmq")
     venv.pip_install resource("tnetstring3")
 
