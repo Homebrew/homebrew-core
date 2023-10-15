@@ -47,7 +47,7 @@ class Lensfun < Formula
   depends_on "gettext"
   depends_on "glib"
   depends_on "libpng"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
