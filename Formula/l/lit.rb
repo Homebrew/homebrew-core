@@ -6,6 +6,7 @@ class Lit < Formula
   url "https://files.pythonhosted.org/packages/83/47/b77c3319905a5127ca9c90a626581f3cce389d3582b01afb3fc83d164773/lit-17.0.2.tar.gz"
   sha256 "d6a551eab550f81023c82a260cd484d63970d2be9fd7588111208e7d2ff62212"
   license "Apache-2.0" => { with: "LLVM-exception" }
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d061477126f30376e7c28fa320ac5d648f9b28e50efa883f4a76e5c125f3f59e"
@@ -17,11 +18,12 @@ class Lit < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c4d0e46171eda35e0d3c2c6e4f7d67e4e183a9e88032d4629593c4a6e882a6ee"
   end
 
+  depends_on "python-setuptools" => :build
   depends_on "llvm" => :test
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   def python3
-    which("python3.11")
+    which("python3.12")
   end
 
   def install
