@@ -4,6 +4,7 @@ class HppFcl < Formula
   url "https://github.com/humanoid-path-planner/hpp-fcl/releases/download/v2.3.6/hpp-fcl-2.3.6.tar.gz"
   sha256 "17b7aa65d942168b44ca4ad17be28454aef50729867034021d7789a122dce6a7"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/humanoid-path-planner/hpp-fcl.git", branch: "devel"
 
   livecheck do
@@ -23,15 +24,16 @@ class HppFcl < Formula
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
+  depends_on "python-setuptools" => :build
   depends_on "assimp"
   depends_on "boost"
   depends_on "eigen"
   depends_on "eigenpy"
   depends_on "octomap"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   def python3
-    "python3.11"
+    which("python3.12")
   end
 
   def install
@@ -39,7 +41,7 @@ class HppFcl < Formula
     ENV.prepend_path "Eigen3_DIR", Formula["eigen"].opt_share/"eigen3/cmake"
 
     system "cmake", "-S", ".", "-B", "build",
-                    "-DPYTHON_EXECUTABLE=#{which(python3)}",
+                    "-DPYTHON_EXECUTABLE=#{python3}",
                     "-DBUILD_UNIT_TESTS=OFF",
                     *std_cmake_args
     system "cmake", "--build", "build"
