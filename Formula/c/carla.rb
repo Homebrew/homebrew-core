@@ -26,7 +26,7 @@ class Carla < Formula
   depends_on "liblo"
   depends_on "libmagic"
   depends_on "pyqt@5"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   fails_with gcc: "5"
 
@@ -35,7 +35,7 @@ class Carla < Formula
     system "make", "install", "PREFIX=#{prefix}"
 
     inreplace bin/"carla", "PYTHON=$(which python3 2>/dev/null)",
-                           "PYTHON=#{Formula["python@3.11"].opt_bin}/python3.11"
+                           "PYTHON=#{Formula["python@3.12"].opt_bin}/python3.12"
   end
 
   test do
