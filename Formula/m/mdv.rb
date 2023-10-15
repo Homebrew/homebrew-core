@@ -19,7 +19,7 @@ class Mdv < Formula
 
   depends_on "pygments"
   depends_on "python-markdown"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "pyyaml"
 
   def install
