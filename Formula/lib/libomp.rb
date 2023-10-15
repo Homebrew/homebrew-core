@@ -4,6 +4,7 @@ class Libomp < Formula
   url "https://github.com/llvm/llvm-project/releases/download/llvmorg-17.0.3/openmp-17.0.3.src.tar.xz"
   sha256 "e04172c067f256d06cd8112abb49bc65f4e1d986a4b49b36cd837dfee3cdd274"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -28,7 +29,7 @@ class Libomp < Formula
   uses_from_macos "llvm" => :build
 
   on_linux do
-    depends_on "python@3.11"
+    depends_on "python@3.12"
   end
 
   resource "cmake" do
