@@ -22,12 +22,12 @@ class Cp2k < Formula
     sha256               x86_64_linux:   "4c08e213964457d98b4f4c37bbe3e64f2f30c02670c66fbc93e58f3bc43dbccb"
   end
 
-  depends_on "python@3.11" => :build
   depends_on "fftw"
   depends_on "gcc" # for gfortran
   depends_on "libxc"
   depends_on "open-mpi"
   depends_on "scalapack"
+  uses_from_macos "python" => :build
 
   on_linux do
     depends_on "openblas"
