@@ -218,6 +218,9 @@
   "cloudsplaining": {
     "exclude_packages": ["certifi", "click", "markdown", "markupsafe", "pyyaml", "six"]
   },
+  "codelimit": {
+    "exclude_packages": ["certifi", "click", "Pygments", "typing-extensions", "six"]
+  },
   "commitizen": {
     "exclude_packages": ["argcomplete", "PyYAML", "typing-extensions", "packaging"]
   },
