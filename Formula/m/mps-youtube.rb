@@ -22,7 +22,7 @@ class MpsYoutube < Formula
   end
 
   depends_on "mplayer"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   resource "pafy" do
     url "https://files.pythonhosted.org/packages/7e/02/b70f4d2ad64bbc7d2a00018c6545d9b9039208553358534e73e6dd5bbaf6/pafy-0.5.5.tar.gz"
@@ -35,7 +35,7 @@ class MpsYoutube < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3.11")
+    venv = virtualenv_create(libexec, "python3.12")
 
     %w[youtube-dl pafy].each do |r|
       venv.pip_install resource(r)
