@@ -21,7 +21,7 @@ class Bpytop < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "fdb97df09c1d785d498ff04c87f219d0b5cfebc5cde09cb0039f879198746cc7"
   end
 
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   on_macos do
     depends_on "osx-cpu-temp"
@@ -32,8 +32,12 @@ class Bpytop < Formula
     sha256 "7ccfcdfea4fc4b0a02ca2c31de7fcd186beb9cff8207800e14ab66f79c773af6"
   end
 
+  def python3
+    which("python3.12")
+  end
+
   def install
-    venv = virtualenv_create(libexec, "python3.11")
+    venv = virtualenv_create(libexec, python3)
     venv.pip_install resources
     system "make", "install", "PREFIX=#{prefix}"
     pkgshare.install "themes"
