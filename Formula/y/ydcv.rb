@@ -25,7 +25,7 @@ class Ydcv < Formula
 
   deprecate! date: "2023-07-09", because: :repo_archived
 
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   def install
     ENV["SETUPTOOLS_SCM_PRETEND_VERSION"] = version
