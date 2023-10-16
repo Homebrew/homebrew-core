@@ -23,7 +23,7 @@ class Ykman < Formula
   depends_on "keyring"
   depends_on "pycparser"
   depends_on "python-cryptography"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   uses_from_macos "libffi"
   uses_from_macos "pcsc-lite"
@@ -48,7 +48,7 @@ class Ykman < Formula
     ENV.append "CFLAGS", "-I#{Formula["pcsc-lite"].opt_include}/PCSC" if OS.linux?
 
     # Fix `ModuleNotFoundError` issue with `keyring``
-    site_packages = Language::Python.site_packages("python3.11")
+    site_packages = Language::Python.site_packages("python3.12")
     keyring_site_packages = Formula["keyring"].opt_libexec/site_packages
     ENV.prepend_path "PYTHONPATH", keyring_site_packages
 
