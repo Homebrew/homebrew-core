@@ -1,8 +1,8 @@
 class Micromamba < Formula
   desc "Fast Cross-Platform Package Manager"
   homepage "https://github.com/mamba-org/mamba"
-  url "https://github.com/mamba-org/mamba/archive/refs/tags/micromamba-1.5.1.tar.gz"
-  sha256 "8760f5d01f307aad28bf04df9affdc077687594cea175b02a4b5ba20933b0920"
+  url "https://github.com/mamba-org/mamba/archive/refs/tags/micromamba-1.5.2.tar.gz"
+  sha256 "abb692e4b249d1e781e90c887d24eae0c97f80a74e04bdf722bc1aceff68765f"
   license "BSD-3-Clause"
   head "https://github.com/mamba-org/mamba.git", branch: "main"
 
@@ -45,8 +45,8 @@ class Micromamba < Formula
 
   resource "libarchive-headers" do
     on_monterey :or_newer do
-      url "https://github.com/apple-oss-distributions/libarchive/archive/refs/tags/libarchive-113.100.2.tar.gz"
-      sha256 "db960cf112aaff48e2675148312b7e92c669fedc031205e88ec56af9a3ae2047"
+      url "https://github.com/apple-oss-distributions/libarchive/archive/refs/tags/libarchive-121.tar.gz"
+      sha256 "f38736ffdbf9005726bdc126e68ff34ddaee25326ae51d58e4385de717bc773f"
     end
   end
 
