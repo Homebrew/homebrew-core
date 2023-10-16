@@ -1,8 +1,8 @@
 class Simdutf < Formula
   desc "Unicode conversion routines, fast"
   homepage "https://github.com/simdutf/simdutf"
-  url "https://github.com/simdutf/simdutf/archive/refs/tags/v3.2.18.tar.gz"
-  sha256 "c4910a05100f9fbef710d732f626f58e21c6d896bc940ef81d061803f2ec76ee"
+  url "https://github.com/simdutf/simdutf/archive/refs/tags/v4.0.0-pre.tar.gz"
+  sha256 "24f792e38d8234f8ddd2127a7fae71f665f7d86151d7d87046d8341afb3be1f8"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/simdutf/simdutf.git", branch: "master"
 
@@ -16,7 +16,7 @@ class Simdutf < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.11" => :build
+  depends_on "python@3.12" => :build
   depends_on "icu4c"
   depends_on macos: :catalina
 
