@@ -25,9 +25,18 @@ class CloudflareQuiche < Formula
   def install
     system "cargo", "install", *std_cargo_args(path: "apps")
 
-    system "cargo", "build", "--lib", "--features", "ffi", "--release"
+    system "cargo", "build", "--lib", "--features", "ffi,pkg-config-meta", "--release"
     lib.install "target/release/#{shared_library("libquiche")}"
     include.install "quiche/include/quiche.h"
+
+    # install pkgconfig file
+    pc_path = "target/release/quiche.pc"
+    # the pc file points to the tmp dir, so we need inreplace
+    inreplace pc_path do |s|
+      s.gsub!(/includedir=.+/, "includedir=#{include}")
+      s.gsub!(/libdir=.+/, "libdir=#{lib}")
+    end
+    (lib/"pkgconfig").install pc_path
   end
 
   test do
