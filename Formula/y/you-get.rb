@@ -20,7 +20,7 @@ class YouGet < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0e5144f23c00dfd8ffc7379be1c542f464a5644e7c586bbc35b1c62fd6fb23f4"
   end
 
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "rtmpdump"
 
   def install
