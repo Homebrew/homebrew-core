@@ -20,7 +20,7 @@ class Vit < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2f93e4ff9a53c040bd12353b27506070548a1f286da040a30969dc67ee386b7d"
   end
 
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "task"
 
   resource "tasklib" do
