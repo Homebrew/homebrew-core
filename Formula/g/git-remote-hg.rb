@@ -15,7 +15,7 @@ class GitRemoteHg < Formula
 
   depends_on "asciidoctor" => :build
   depends_on "mercurial"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   conflicts_with "git-cinnabar", because: "both install `git-remote-hg` binaries"
 
