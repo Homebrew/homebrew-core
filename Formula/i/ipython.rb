@@ -19,7 +19,7 @@ class Ipython < Formula
   end
 
   depends_on "pygments"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "six"
 
   resource "appnope" do
@@ -103,7 +103,7 @@ class Ipython < Formula
   end
 
   def install
-    python3 = "python3.11"
+    python3 = "python3.12"
     venv = virtualenv_create(libexec, python3)
     res = resources.reject { |r| r.name == "appnope" && OS.linux? }
     venv.pip_install res
