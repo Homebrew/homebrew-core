@@ -20,22 +20,23 @@ class AwsShell < Formula
 
   depends_on "docutils"
   depends_on "pygments"
-  depends_on "python@3.11"
+  depends_on "python-setuptools"
+  depends_on "python@3.12"
   depends_on "six"
 
   resource "awscli" do
-    url "https://files.pythonhosted.org/packages/a1/23/1d3a1028d45ee7797044daec29acd66fcd56f2319ec6ea1030e1b3d510b5/awscli-1.29.58.tar.gz"
-    sha256 "1c1df34b4bd68b853b37fab9bad153852820769e0fa0664988cfe6cf379c3e49"
+    url "https://files.pythonhosted.org/packages/5b/6d/bea374bdbd5ed9f570fdd9fa7d44193c7f6d1d4acba72651ec23191736b9/awscli-1.29.64.tar.gz"
+    sha256 "6ab3ae53f2354fa43e9c059406782c9399929dae8683eef843f9c7ef1efc2a98"
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/a8/23/ef75674c1ef3bf77479a5566a1a7c642206298feec1f7012e4710a5b35f4/boto3-1.28.58.tar.gz"
-    sha256 "2f18d2dac5d9229e8485b556eb58b7b95fca91bbf002f63bf9c39209f513f6e6"
+    url "https://files.pythonhosted.org/packages/67/c6/0baa9f7193b6defe6238b5b1b512be434cb54bdb32f949b8d8823e860e2c/boto3-1.28.64.tar.gz"
+    sha256 "a5cf93b202568e9d378afdc84be55a6dedf11d30156289fe829e23e6d7dccabb"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/77/1d/bd7a7383a2aff3cbf01c758a5507106ac7459707b241d8afbf336520f142/botocore-1.31.58.tar.gz"
-    sha256 "002f8bdca8efde50ae7267f342bc1d03a71d76024ce3949e4ffdd1151581c53e"
+    url "https://files.pythonhosted.org/packages/01/98/3635fd827cd7f758d2010e7bb432853c37b14d58b7bc728d0797d0199480/botocore-1.31.64.tar.gz"
+    sha256 "d8eb4b724ac437343359b318d73de0cfae0fecb24095827e56135b0ad6b44caf"
   end
 
   resource "colorama" do
@@ -84,8 +85,8 @@ class AwsShell < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/dd/19/9e5c8b813a8bddbfb035fa2b0c29077836ae7c4def1a55ae4632167b3511/urllib3-1.26.17.tar.gz"
-    sha256 "24d6a242c28d29af46c3fae832c36db3bbebcc533dd1bb549172cd739c82df21"
+    url "https://files.pythonhosted.org/packages/8b/00/db794bb94bf09cadb4ecd031c4295dd4e3536db4da958e20331d95f1edb7/urllib3-2.0.6.tar.gz"
+    sha256 "b19e1a85d206b56d7df1d5e683df4a7725252a964e3993648dd0fb5a1c157564"
   end
 
   resource "wcwidth" do
