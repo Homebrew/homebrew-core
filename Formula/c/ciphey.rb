@@ -26,7 +26,7 @@ class Ciphey < Formula
   depends_on "cmake" => :build
   depends_on "swig" => :build
   depends_on "libyaml"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "six"
 
   fails_with gcc: "5"
@@ -180,7 +180,7 @@ class Ciphey < Formula
   end
 
   def python3
-    "python3.11"
+    "python3.12"
   end
 
   def install
