@@ -22,7 +22,7 @@ class Ford < Formula
   depends_on "pygments"
   depends_on "python-markdown"
   depends_on "python-markupsafe"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   resource "beautifulsoup4" do
     url "https://files.pythonhosted.org/packages/af/0b/44c39cf3b18a9280950ad63a579ce395dda4c32193ee9da7ff0aed547094/beautifulsoup4-4.12.2.tar.gz"
