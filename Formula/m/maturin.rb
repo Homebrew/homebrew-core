@@ -17,9 +17,11 @@ class Maturin < Formula
   end
 
   depends_on "python-flit-core" => :build
+  depends_on "python-setuptools" => :build
   depends_on "python-typing-extensions" => :build
   depends_on "python@3.10" => [:build, :test]
   depends_on "python@3.11" => [:build, :test]
+  depends_on "python@3.12" => [:build, :test]
   depends_on "rust"
 
   resource "semantic-version" do
