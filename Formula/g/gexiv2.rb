@@ -24,10 +24,11 @@ class Gexiv2 < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "pygobject3" => :build
-  depends_on "python@3.11" => :build
   depends_on "vala" => :build
   depends_on "exiv2"
   depends_on "glib"
+
+  uses_from_macos "python" => :build
 
   def install
     # Update to use c++17 when `exiv2` is updated to use c++17
