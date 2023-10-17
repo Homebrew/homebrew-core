@@ -374,7 +374,7 @@
     "exclude_packages": ["cffi", "cryptography", "invoke", "pycparser"]
   },
   "fava": {
-    "exclude_packages": ["certifi", "lxml", "packaging", "six", "pytz"]
+    "exclude_packages": ["certifi", "click", "lxml", "markupsafe", "packaging", "pyparsing", "six", "pytz"]
   },
   "fdroidserver": {
     "exclude_packages": [
