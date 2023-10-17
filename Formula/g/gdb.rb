@@ -5,6 +5,7 @@ class Gdb < Formula
   mirror "https://ftpmirror.gnu.org/gdb/gdb-13.2.tar.xz"
   sha256 "fd5bebb7be1833abdb6e023c2f498a354498281df9d05523d8915babeb893f0a"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://sourceware.org/git/binutils-gdb.git", branch: "master"
 
   bottle do
@@ -17,7 +18,7 @@ class Gdb < Formula
 
   depends_on arch: :x86_64 # gdb is not supported on macOS ARM
   depends_on "gmp"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "xz" # required for lzma support
 
   uses_from_macos "expat"
@@ -50,7 +51,7 @@ class Gdb < Formula
       --disable-debug
       --disable-dependency-tracking
       --with-lzma
-      --with-python=#{Formula["python@3.11"].opt_bin}/python3.11
+      --with-python=#{Formula["python@3.12"].opt_bin}/python3.12
       --disable-binutils
     ]
 
