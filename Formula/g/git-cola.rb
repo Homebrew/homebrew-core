@@ -22,16 +22,12 @@ class GitCola < Formula
 
   depends_on "pyqt@5"
   depends_on "python-packaging"
-  depends_on "python@3.11"
-
-  resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/37/fe/65c989f70bd630b589adfbbcd6ed238af22319e90f059946c26b4835e44b/pyparsing-3.1.1.tar.gz"
-    sha256 "ede28a1a32462f5a9705e07aea48001a08f7cf81a021585011deba701581a0db"
-  end
+  depends_on "python-pyparsing"
+  depends_on "python@3.12"
 
   resource "QtPy" do
-    url "https://files.pythonhosted.org/packages/ad/6b/0e753af1197f82d2359c9aa91cef8abaaef4c547396ffdc71ea6a889e52c/QtPy-2.3.1.tar.gz"
-    sha256 "a8c74982d6d172ce124d80cafd39653df78989683f760f2281ba91a6e7b9de8b"
+    url "https://files.pythonhosted.org/packages/1e/67/b3099c5f646bb42011a30c05f673e84cc82a72fbc1f9f2c271598ac97283/QtPy-2.4.0.tar.gz"
+    sha256 "db2d508167aa6106781565c8da5c6f1487debacba33519cedc35fa8997d424d4"
   end
 
   def install
