@@ -24,7 +24,8 @@ class Libbtbb < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.11"
+  depends_on "python-setuptools" => :build
+  depends_on "python@3.12"
 
   def install
     # setuptools>=60 prefers its own bundled distutils, which breaks the installation
@@ -32,7 +33,7 @@ class Libbtbb < Formula
 
     # Work around Homebrew's "prefix scheme" patch which causes non-pip installs
     # to incorrectly try to write into HOMEBREW_PREFIX/lib since Python 3.10.
-    site_packages = prefix/Language::Python.site_packages("python3.11")
+    site_packages = prefix/Language::Python.site_packages("python3.12")
     inreplace "python/pcaptools/CMakeLists.txt", "${OUTPUT} install ", "\\0 --install-lib=#{site_packages} "
 
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
