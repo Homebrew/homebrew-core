@@ -24,7 +24,7 @@ class Fabric < Formula
   depends_on "cffi"
   depends_on "pyinvoke"
   depends_on "python-cryptography"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   resource "bcrypt" do
     url "https://files.pythonhosted.org/packages/8c/ae/3af7d006aacf513975fd1948a6b4d6f8b4a307f8a244e1a3d3774b297aad/bcrypt-4.0.1.tar.gz"
@@ -58,11 +58,6 @@ class Fabric < Formula
 
   def install
     virtualenv_install_with_resources
-
-    # we depend on pyinvoke, but that's a separate formula, so install a `.pth` file to link them
-    site_packages = Language::Python.site_packages("python3.11")
-    pyinvoke = Formula["pyinvoke"].opt_libexec
-    (libexec/site_packages/"homebrew-pyinvoke.pth").write pyinvoke/site_packages
   end
 
   test do
