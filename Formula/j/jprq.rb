@@ -3,7 +3,7 @@ class Jprq < Formula
     homepage "https://jprq.io/"
     url "https://github.com/azimjohn/jprq/archive/refs/tags/2.2.tar.gz"
     sha256 "6121e0ac74512052ed00c57c363f0f0b66910618ebd8134cfa72acca05b09163"
-    license "MIT"
+    license "BSD-3-Clause"
     depends_on "go" => :build
   
     def install
