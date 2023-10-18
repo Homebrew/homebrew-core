@@ -6,6 +6,7 @@ class AnsibleLint < Formula
   url "https://files.pythonhosted.org/packages/37/c5/b33a372ddbf45c04352596273b1602c9ed71d5cfaf6496561ca8fd81a16c/ansible-lint-6.21.1.tar.gz"
   sha256 "05ffc6dfc8f3cbbf56f7f9770b3436fc7909bad5c1d75470efa064531f02df6e"
   license all_of: ["MIT", "GPL-3.0-or-later"]
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "27aa0ae781bfb6fe372346b0597ddf9b52efa69c6f261f069566649fee6fa573"
@@ -23,7 +24,7 @@ class AnsibleLint < Formula
   depends_on "black"
   depends_on "pygments"
   depends_on "python-certifi"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "pyyaml"
   depends_on "yamllint"
 
@@ -125,7 +126,7 @@ class AnsibleLint < Formula
   def install
     virtualenv_install_with_resources
 
-    site_packages = Language::Python.site_packages("python3.11")
+    site_packages = Language::Python.site_packages("python3.12")
     %w[ansible black yamllint].each do |package_name|
       package = Formula[package_name].opt_libexec
       (libexec/site_packages/"homebrew-#{package_name}.pth").write package/site_packages
