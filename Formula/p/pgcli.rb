@@ -19,21 +19,18 @@ class Pgcli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "18d2b2a793e14bef7261d5a25bc0e6045a6843caa5ca14d64c3951db8101d18e"
   end
 
+  depends_on "python-setuptools" => :build
   depends_on "libpq"
   depends_on "pygments"
+  depends_on "python-click"
   depends_on "python-tabulate"
   depends_on "python-typing-extensions"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "six"
 
   resource "cli-helpers" do
     url "https://files.pythonhosted.org/packages/27/01/6aaa4fc415274ac77372b4d259c234b9f5bfc8d78144c3fda1f3019d4690/cli_helpers-2.3.0.tar.gz"
     sha256 "e7174d003a2b58fd3e31a73fbbc45d5aa513de62cbd42d437f78b9658bd5f967"
-  end
-
-  resource "click" do
-    url "https://files.pythonhosted.org/packages/59/87/84326af34517fca8c58418d148f2403df25303e02736832403587318e9e8/click-8.1.3.tar.gz"
-    sha256 "7682dc8afb30297001674575ea00d1814d808d6a36af415a82bd481d37ba7b8e"
   end
 
   resource "configobj" do
@@ -52,13 +49,13 @@ class Pgcli < Formula
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/4b/bb/75cdcd356f57d17b295aba121494c2333d26bfff1a837e6199b8b83c415a/prompt_toolkit-3.0.38.tar.gz"
-    sha256 "23ac5d50538a9a38c8bde05fecb47d0b403ecd0662857a86f886f798563d5b9b"
+    url "https://files.pythonhosted.org/packages/9a/02/76cadde6135986dc1e82e2928f35ebeb5a1af805e2527fe466285593a2ba/prompt_toolkit-3.0.39.tar.gz"
+    sha256 "04505ade687dc26dc4284b1ad19a83be2f2afe83e7a828ace0c72f3a1df72aac"
   end
 
   resource "psycopg" do
-    url "https://files.pythonhosted.org/packages/ef/52/bfc1d7d82467594a45d46cf5ecae1cd5e6009ec851f4cff1f239d0f32730/psycopg-3.1.8.tar.gz"
-    sha256 "59b4a71536b146925513c0234dfd1dc42b81e65d56ce5335dff4813434dbc113"
+    url "https://files.pythonhosted.org/packages/42/30/73ebc6d40269fa4fdc090c374d1dd30df822e885a742719b0fe952c9d86c/psycopg-3.1.12.tar.gz"
+    sha256 "cec7ad2bc6a8510e56c45746c631cf9394148bdc8a9a11fd8cf8554ce129ae78"
   end
 
   resource "python-dateutil" do
@@ -72,8 +69,8 @@ class Pgcli < Formula
   end
 
   resource "setproctitle" do
-    url "https://files.pythonhosted.org/packages/b5/47/ac709629ddb9779fee29b7d10ae9580f60a4b37e49bce72360ddf9a79cdc/setproctitle-1.3.2.tar.gz"
-    sha256 "b9fb97907c830d260fa0658ed58afd48a86b2b88aac521135c352ff7fd3477fd"
+    url "https://files.pythonhosted.org/packages/ff/e1/b16b16a1aa12174349d15b73fd4b87e641a8ae3fb1163e80938dbbf6ae98/setproctitle-1.3.3.tar.gz"
+    sha256 "c913e151e7ea01567837ff037a23ca8740192880198b7fbb90b16d181607caae"
   end
 
   resource "sqlparse" do
@@ -82,12 +79,12 @@ class Pgcli < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/5e/5f/1e4bd82a9cc1f17b2c2361a2d876d4c38973a997003ba5eb400e8a932b6c/wcwidth-0.2.6.tar.gz"
-    sha256 "a5220780a404dbe3353789870978e472cfe477761f06ee55077256e509b156d0"
+    url "https://files.pythonhosted.org/packages/cb/ee/20850e9f388d8b52b481726d41234f67bc89a85eeade6e2d6e2965be04ba/wcwidth-0.2.8.tar.gz"
+    sha256 "8705c569999ffbb4f6a87c6d1b80f324bd6db952f5eb0b95bc07517f4c1813d4"
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3.11")
+    venv = virtualenv_create(libexec, "python3.12")
 
     # Help `psycopg` find our `libpq`, which is keg-only so its attempt to use `pg_config --libdir` fails
     resource("psycopg").stage do
