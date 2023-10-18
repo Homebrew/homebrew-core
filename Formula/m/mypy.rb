@@ -6,6 +6,7 @@ class Mypy < Formula
   url "https://files.pythonhosted.org/packages/50/f8/0a8d4d8781b41b445534bc4f9210b7793bf0ab52aacfd06ebd2699663e2c/mypy-1.6.1.tar.gz"
   sha256 "4d01c00d09a0be62a4ca3f933e315455bde83f37f892ba4b08ce92f3cf44bcc1"
   license "MIT"
+  revision 1
   head "https://github.com/python/mypy.git", branch: "master"
 
   bottle do
@@ -18,7 +19,7 @@ class Mypy < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3f084ee2e800be5d526f0a88000f56e1ae82af32bc513e9acea047901288ee3e"
   end
 
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   resource "mypy-extensions" do
     url "https://files.pythonhosted.org/packages/98/a4/1ab47638b92648243faf97a5aeb6ea83059cc3624972ab6b8d2316078d3f/mypy_extensions-1.0.0.tar.gz"
